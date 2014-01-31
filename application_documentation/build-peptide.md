@@ -1,0 +1,87 @@
+<!-- --- title:  Build Peptide -->Documentation for the BuildPeptide utility application
+
+ Author   
+Barak Raveh
+
+Metadata
+========
+
+Last updated July 24, 2011 ; PI: Ora Schueler-Furman [oraf@ekmd.huji.ac.il](#) .
+
+Code and Demo
+=============
+
+-   Application source code: `        rosetta/rosetta_source/src/apps/public/flexpep_docking/BuildPeptide.cc       `
+-   For a demonstration of a basic run of the BuildPeptide utility application, see `        rosetta/rosetta_tests/integration/tests/BuildPeptide       `
+
+Application purpose
+===========================================
+
+Building an extended peptide or protein structure from a FASTA file (to help preparing input for peptide docking protocol, etc.).
+
+Input Files
+===========
+
+BuildPeptide requires a fasta file in standard format as input.
+
+Options
+=======
+
+```
+
+
+
+   Flag
+
+   
+   
+
+   Description
+
+   
+   
+
+   Type
+
+   
+  
+ 
+
+
+
+   -in:file:fasta
+  
+ 
+   FASTA file with peptide sequence
+  
+ 
+   string
+  
+
+ 
+
+
+   -out:file:o
+  
+ 
+   output PDB file name
+  
+ 
+   string
+  
+
+
+
+```
+
+Tips
+====
+
+```
+ BuildPeptide.{ext} -database ${mini_db} -in:file:fasta input.fasta -out:file:o peptide.pdb
+```
+
+Expected Outputs
+================
+
+The output of a BuildPeptide run is a PDB-format file of the peptide in an extended full-atom conformation. Side-chain rotamers are arbitrary. This can be used for e.g., creating an initial structure for a [[FlexPepDock|flex-pep-dock]] ab-initio run.
