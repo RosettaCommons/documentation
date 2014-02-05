@@ -1,4 +1,4 @@
-<!-- --- title: Packing Options -->Rotamer Packing Options
+#Rotamer Packing Options
 
 Rotamer Packing options can be used in fixed backbone design mode and other protocols.
 
@@ -122,14 +122,14 @@ Resfile Options
 ```
 -packing:resfile                  Resfile filename(s).  Most protocols use only the first and will ignore the rest;
                                   it does not track against -s or -l automatically.
-                                                                    Default='resfile' [FileVector]
+                                  Default='resfile' [FileVector]
 ```
 
 Misc
 ====
 
 ```
--packing:no_optH                        Do not optimize hydrogen placement at the time of a PDB load. default="true" [Boolean]
+-packing:no_optH                  Do not optimize hydrogen placement at the time of a PDB load. default="true" [Boolean]
 -packing:pack_missing_sidechains  Run packer to fix residues with missing sidechain density at PDB load. default="true"
                                   [Boolean]
 -packing:fix_his_tautomer         Seqpos numbers of his residus whose tautomer should be fixed during repacking.
