@@ -1,11 +1,10 @@
-<!-- --- title: Robust -->How to make Rosetta robust against malformed PDBs
+#How to make Rosetta robust against malformed PDBs
 
- Author   
-Steven Lewis [smlewi@gmail.com](#)
+Author: Steven Lewis (smlewi@gmail.com)
 
 This document was orginally written 6 Apr 2010 by Steven Lewis. This document was last updated 23 Mar 2013 by Steven Lewis.
 
-Application purpose
+Purpose
 ===========================================
 
 Rosetta's PDB reader is fragile. There are lots of PDBs that cannot be read in by Rosetta (several thousand fail to read in at all), and many more that cannot be scored for some reason. Unfortunately, these bad PDBs tend to cause Rosetta to crash rather than exit gracefully. This document describes how to "robustify" Rosetta so that it will not crash when encountering a bad PDB.
@@ -35,23 +34,25 @@ There are some other suggested changes:
 
 -   pass the
 
-    ~~~~ {.fragment}
+    ```
     -in:file:obey_ENDMDL 
-    ~~~~
+    ```
 
     flag. This causes the PDB reader to stop reading multimodel NMR-derived PDBs after the first model.
 
 -   pass the
 
-    ~~~~ {.fragment}
+    ```
     -jd2:delete_old_poses 
-    ~~~~
+    ```
 
     flag. This causes JD2 to not leak memory by holding on to old input poses.
 
--   ~~~~ {.fragment}
+-   Ignoring unrecognized residues with
+
+    ```
     -ignore_unrecognized_res 
-    ~~~~
+    ```
 
     is a good choice to prevent ligand from crashing the PDB reader.
 
