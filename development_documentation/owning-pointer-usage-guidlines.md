@@ -1,4 +1,4 @@
-<!-- --- title: Owning Pointer Usage Guidlines -->Guidlines on Owning pointers usage
+#Owning Pointer Usage Guidelines
 
 Overview
 ========
