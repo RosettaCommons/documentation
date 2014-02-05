@@ -1,7 +1,4 @@
 <!-- --- title: Using Scons -->A Guide to Using SCons to Build Rosetta
-
-This Page in Under Construction
-
  Author   
 Kristian Kaufmann
 
