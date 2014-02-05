@@ -200,7 +200,7 @@ I just use repack with sc\_min, and include the ligand in the process.
 Rocco's reply
 =============
 
-There is a fixed-backbone minimization program that's part of the ligand docking application, ligand\_rpkmin (See section "Preparing the protein receptor for docking" of [http://www.rosettacommons.org/manuals/archive/rosetta3.1\_user\_guide/app\_ligand\_docking.html](http://www.rosettacommons.org/manuals/archive/rosetta3.1_user_guide/app_ligand_docking.html) ).
+There is a fixed-backbone minimization program that's part of the ligand docking application, ligand\_rpkmin (See section "Preparing the protein receptor for docking" of [[the ligand docking documentation|ligand dock]].
 
 It won't relieve any backbone strain, though, so you may still have issues if the downstream protocol allows for backbone movement.
 
