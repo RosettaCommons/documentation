@@ -1,3 +1,5 @@
+#RosettaAcademy (or "Rosetta for Newbies")
+
 This page is geared towards new members of the Rosetta community as a "fast" way to learn about Rosetta, how to use it and how to develop in Rosetta, if needed. The page is organized by increasing difficulty, starting out with basic tools needed, then tutorials for users and later for developers. If you are going through and find that important parts are missing, please add them to the page!
 
 ====================================================================
