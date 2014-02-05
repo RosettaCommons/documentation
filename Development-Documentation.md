@@ -9,16 +9,16 @@
 - [[src index page]] - Overview of the src directory.
 
 - [[Namespace core]]
-    * [[Namespace core-chemical]]
-    * [[Namespace core-conformation]]
-        * [[Namespace core-conformation-idealization]]
-    * [[Namespace core-io-pdb]]
-    * [[Namespace core-scoring]]
+    * [[Namespace core::chemical|Namespace core-chemical]]
+    * [[Namespace core::conformation|Namespace core-conformation]]
+        * [[Namespace core::conformation::idealization|Namespace core-conformation-idealization]]
+    * [[Namespace core::io::pdb|Namespace core-io-pdb]]
+    * [[Namespace core::scoring|Namespace core-scoring]]
 - [[Namespace utility]]
-    * [[Namespace utility-factory]]
-    * [[Namespace utility-io]]
-    * [[Namespace utility-keys]]
-    * [[Namespace utility-options]]
+    * [[Namespace utility::factory|Namespace utility-factory]]
+    * [[Namespace utility::io|Namespace utility-io]]
+    * [[Namespace utility::keys|Namespace utility-keys]]
+    * [[Namespace utility::options|Namespace utility-options]]
 - [[Namespace numeric]]
 - [[Namespace objexxFCL]]
 
@@ -55,7 +55,7 @@
 - [[Rosetta tests]] - A guide to running and writing tests for Rosetta
 - [[Run unit test]] - How to run the unit tests.
 - [[Write unit test|test]] - Writing unit tests.
-- [[U Tracer]] - How to use the UTracer tool in writing unit tests
+- [[UTracer]] - How to use the UTracer tool in writing unit tests
 - [[Mover test]] - How to write a unit test for a mover.  
 - [[Scientific test]] - How to create and run scientific tests
 
