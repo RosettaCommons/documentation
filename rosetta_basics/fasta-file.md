@@ -1,4 +1,4 @@
-<!-- --- title: Fasta File -->Sequence Fasta File
+<!-- --- title: Fasta File -->
 
 Sequence data contains sequences of residues without structural data. The derivation and accuracy of such files is the subject of research but the formats tend to be simple.
 
