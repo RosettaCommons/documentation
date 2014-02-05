@@ -1,4 +1,4 @@
-<!-- --- title: Constraint File -->Constraint File Instructions
+<!-- --- title: Constraint File -->
 
 Metadata
 ========
@@ -30,36 +30,28 @@ Single constraints
 
 Single constraints restrain the value of a single metric
 
--   AtomPair:
-     `        AtomPair Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Func_Type Func_Def       `
-     Constrains a distance between Atom1 and Atom2. AtomPairConstraint is compatible with PDB numbering.
+-   AtomPair: `AtomPair Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Func_Type Func_Def`
+    * Constrains a distance between Atom1 and Atom2. AtomPairConstraint is compatible with PDB numbering.
 
--   Angle:
-     `        Angle Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Func_Type Func_Def       `
-     Angle between Atom2-\>Atom1 vector and Atom2-\>Atom3 vector; the angle (passed as a value to the Func) appears to be measured in radians
+-   Angle: `Angle Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Func_Type Func_Def       `
+    * Angle between Atom2-\>Atom1 vector and Atom2-\>Atom3 vector; the angle (passed as a value to the Func) appears to be measured in radians
 
--   Dihedral:
-     `        Dihedral Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Atom4_Name Atom4_ResNum Func_Type Func_Def       `
-     Dihedral angle of Atom1-\>Atom2-\>Atom3-\>Atom4. Dihedral is measured in radians on -pi -\> pi.
+-   Dihedral: `Dihedral Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Atom4_Name Atom4_ResNum Func_Type Func_Def       `
+    * Dihedral angle of Atom1-\>Atom2-\>Atom3-\>Atom4. Dihedral is measured in radians on -pi -\> pi.
 
--   CoordinateConstraint:
-     `        CoordinateConstraint Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom1_target_X_coordinate Atom1_target_Y_coordinate Atom1_target_Z_coordinate Func_Type Func_Def       `
-     Constrain Atom1 to the XYZ position listed. Atom2 is used as a reference atom to determine when Atom1 has moved (so that Rosetta knows when to rescore it) - pick at atom that Atom1 will move relative to. CoordinateConstraint is compatible with PDB numbering.
+-   CoordinateConstraint: `CoordinateConstraint Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom1_target_X_coordinate Atom1_target_Y_coordinate Atom1_target_Z_coordinate Func_Type Func_Def       `
+    * Constrain Atom1 to the XYZ position listed. Atom2 is used as a reference atom to determine when Atom1 has moved (so that Rosetta knows when to rescore it) - pick at atom that Atom1 will move relative to. CoordinateConstraint is compatible with PDB numbering.
 
--   LocalCoordinateConstraint:
-     `        LocalCoordinateConstraint Atom1_Name Atom1_ResNum Atom2_Name Atom3_Name Atom4_Name Atom234_ResNum Atom1_target_X_coordinate Atom1_target_Y_coordinate Atom1_target_Z_coordinate Func_Type Func_Def       `
-     Constrain Atom1 to the XYZ position listed, relative to the coordinate frame defined by atoms 2/3/4 instead of the origin. LocalCoordinateConstraint is compatible with PDB numbering.
+-   LocalCoordinateConstraint: `LocalCoordinateConstraint Atom1_Name Atom1_ResNum Atom2_Name Atom3_Name Atom4_Name Atom234_ResNum Atom1_target_X_coordinate Atom1_target_Y_coordinate Atom1_target_Z_coordinate Func_Type Func_Def       `
+    * Constrain Atom1 to the XYZ position listed, relative to the coordinate frame defined by atoms 2/3/4 instead of the origin. LocalCoordinateConstraint is compatible with PDB numbering.
 
--   AmbiguousNMRDistance:
-     `        AmbiguousNMRDistance Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Func_Type Func_Def       `
-     Distance between Atom1 and Atom2. The difference from AtomPairConstraint is that atom names are specially parsed to detect ambiguous hydrogens, which are either experimentally ambiguous or rotationally identical (like methyl hydrogens). The constraint applies to any hydrogens equivalent to the named hydrogen. The logic for determining which hydrogens are which is in src/core/scoring/constraints/AmbiguousNMRDistanceConstraints.cc:parse\_NMR\_name.
+-   AmbiguousNMRDistance: `AmbiguousNMRDistance Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Func_Type Func_Def       `
+    * Distance between Atom1 and Atom2. The difference from AtomPairConstraint is that atom names are specially parsed to detect ambiguous hydrogens, which are either experimentally ambiguous or rotationally identical (like methyl hydrogens). The constraint applies to any hydrogens equivalent to the named hydrogen. The logic for determining which hydrogens are which is in src/core/scoring/constraints/AmbiguousNMRDistanceConstraints.cc:parse\_NMR\_name.
 
--   SiteConstraint:
-     `        SiteConstraint Atom1_Name Atom1_ResNum Opposing_chain Func_Type Func_Def       `
-     Constraint that a residue interacts with some other chain - roughly, that it is (or is not) in a binding site. The atom and resnum identify which atom is being checked for interactions with the opposing chain. Notice that "Constraint" is irregularly in its tag.
+-   SiteConstraint: `SiteConstraint Atom1_Name Atom1_ResNum Opposing_chain Func_Type Func_Def       `
+    * Constraint that a residue interacts with some other chain - roughly, that it is (or is not) in a binding site. The atom and resnum identify which atom is being checked for interactions with the opposing chain. Notice that "Constraint" is irregularly in its tag.
 
--   BigBin:
-     `        BigBin ResNum Bin       `
+-   BigBin: `BigBin ResNum Bin       `
 
 Nested constraints
 ------------------
@@ -67,66 +59,88 @@ Nested constraints
 Nested constraints take as their parameters one or more other constraints, and allow optimization across multiple constraints. Typically in constraint files these are listed across multiple lines, with the name of the constraint opening the block of sub-constraints, and a line starting with "END" or "End" ending the block.
 
 -   MultiConstraint:
-     `        MultiConstraint                Constraint_Type1 Constraint_Def1                [Constraint_Type2 Constraint_Def2                [...]] END       `
-     Sum of all specified constraints
+
+     ```
+     MultiConstraint                
+     Constraint_Type1 Constraint_Def1
+     [Constraint_Type2 Constraint_Def2                
+     [...]] 
+     END
+     ```
+    * Sum of all specified constraints
 
 -   AmbiguousConstraint:
-     `        AmbiguousConstraint                Constraint_Type1 Constraint_Def1                [Constraint_Type2 Constraint_Def2                [...]] END       `
-     Lowest of all specified constraints
+     ```
+     AmbiguousConstraint
+     Constraint_Type1 Constraint_Def1
+     [Constraint_Type2 Constraint_Def2                
+     [...]] 
+     END
+     ```
+    * Lowest of all specified constraints
 
 -   KofNConstraint:
-     `        KofNConstraint k                Constraint_Type1 Constraint_Def1                [Constraint_Type2 Constraint_Def2                [...]] END       `
-     Value is the sum of the "k" lowest energy constraints
+     ```
+     KofNConstraint k
+     Constraint_Type1 Constraint_Def1
+     [Constraint_Type2 Constraint_Def2                
+     [...]] 
+     END
+     ```
+    * Value is the sum of the "k" lowest energy constraints
 
 Function Types
 ==============
 
-Functions are listed as "Func\_Type: Func\_Def".
+Functions are listed as "Func\_Type Func\_Def".
 
--   HARMONIC: `        x0 sd       `
+-   `HARMONIC  x0 sd`
 
     [[/images/form_0.png]]
 
--   CIRCULARHARMONIC: `        x0 sd       `
+-   `CIRCULARHARMONIC  x0 sd       `
 
     [[/images/form_1.png]]
 
--   BOUNDED: `        lb ub sd rswitch tag       `
-     Note: Setting `        rswitch       ` to anything other than 0.5 will create a discontinuity in the derivative. `        rswitch       ` and `        tag       ` should not be treated as optional.
+-   ` BOUNDED lb ub sd rswitch tag  `
+    * Note: Setting `rswitch` to anything other than 0.5 will create a discontinuity in the derivative. `rswitch` and `tag` should not be treated as optional.
 
     [[/images/form_2.png]]
 
--   GAUSSIANFUNC: `        mean sd tag       ` Note: `        tag       ` is NOT optional, as for BoundFunc/BOUNDED. If `        tag       ` = NOLOG, it triggers some undocumented behavior involving a logarithm of some sort.
+-   `GAUSSIANFUNC mean sd tag`
+    * Note: `tag` is NOT optional, as for BoundFunc/BOUNDED. If `tag = NOLOG, it triggers some undocumented behavior involving a logarithm of some sort.
 
     [[/images/form_3.png]]
 
--   SOGFUNC: `        n_funcs [mean1 sdev1 weight1 [mean2 sdev2 weight2 [...]]]       `
+-   `SOGFUNC  n_funcs [mean1 sdev1 weight1 [mean2 sdev2 weight2 [...]]]       `
 
     [[/images/form_4.png]]
 
--   MIXTUREFUNC: `        anchor gaussian_param exp_param mixture_param bg_mean bg_sd       `
-     parameters: representing the mean of h(r), representing the standard deviation of h(r)
+-   `MIXTUREFUNC  anchor gaussian_param exp_param mixture_param bg_mean bg_sd       `
+     * parameters: representing the mean of h(r), representing the standard deviation of h(r)
 
--   CONSTANTFUNC: `        return_val       `
+-   `CONSTANTFUNC  return_val       `
 
     [[/images/form_5.png]]
 
--   SCALARWEIGHTEDFUNC: `        weight Func_Type Func_Def       `
+-   `SCALARWEIGHTEDFUNC  weight Func_Type Func_Def       `
 
     [[/images/form_6.png]]
 
--   SUMFUNC: `        n_funcs Func_Type1 Func_Def1 [Func_Type2 Func_Def2 [...]]       `
+-   `SUMFUNC  n_funcs Func_Type1 Func_Def1 [Func_Type2 Func_Def2 [...]]       `
 
     [[/images/form_7.png]]
 
--   SPLINE: `        histogram_file_path experimental_value weight bin_size       ` Note: This function reads in any histogram and creates a cubic spline over it using the Rosetta SplineGenerator. The full path to the file must be speified. The function assumes that all bin sizes are the same, even though you must specify it for each line in the cst file. If using RosettaEPR knowledge-based potential, replace \<filename\> with EPR\_DISTANCE, and it will read in the EPR distance histogram from the minirosetta database. See example below for using with EPR knowledge-based potential.
+-   `SPLINE  histogram_file_path experimental_value weight bin_size       ` 
+    * Note: This function reads in any histogram and creates a cubic spline over it using the Rosetta SplineGenerator. The full path to the file must be speified. The function assumes that all bin sizes are the same, even though you must specify it for each line in the cst file. If using RosettaEPR knowledge-based potential, replace \<filename\> with EPR\_DISTANCE, and it will read in the EPR distance histogram from the minirosetta database. See example below for using with EPR knowledge-based potential.
 
--   FADE: `        lb ub d wd [ wo ]       `
-     This is meant to basically be a smoothed "square well" bonus of `        wd       ` between the boundaries `        lb       ` and `        ub       ` . An optional offset `        wo       ` (default 0) can be added to the whole function; this is useful if you want to make the function be zero in the 'golden range' and then give a penalty elsewhere (e.g., specify wd of -20 and wo of +20). To make sure the function and its derivative are continuous, the function is connected by cubic splines in the boundary regions in slivers of width d, between `        lb       ` to `        lb+d       ` and between `        ub-d       ` to `        ub       ` :
+-   `FADE  lb ub d wd [ wo ]       `
+    * This is meant to basically be a smoothed "square well" bonus of `        wd       ` between the boundaries `        lb       ` and `        ub       ` . An optional offset `        wo       ` (default 0) can be added to the whole function; this is useful if you want to make the function be zero in the 'golden range' and then give a penalty elsewhere (e.g., specify wd of -20 and wo of +20). To make sure the function and its derivative are continuous, the function is connected by cubic splines in the boundary regions in slivers of width d, between `        lb       ` to `        lb+d       ` and between `        ub-d       ` to `        ub       ` :
 
     [[/images/form_8.png]]
 
--   SIGMOID: `        x0 m       ` Two arguments; x0 is the center of the sigmoid func and m is its slope. It has hardcoded min/max of 0.5. The functional form is (1/(1+exp(-m\*( x-x0 ))) - 0.5.
+-   `SIGMOID  x0 m       ` 
+    * Two arguments; x0 is the center of the sigmoid func and m is its slope. It has hardcoded min/max of 0.5. The functional form is (1/(1+exp(-m\*( x-x0 ))) - 0.5.
 
 Function types are all implemented as subclasses of the core::scoring::constraints::Func class.
 
