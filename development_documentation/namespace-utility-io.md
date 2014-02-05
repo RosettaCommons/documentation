@@ -1,13 +1,11 @@
-<!-- --- title: Namespaceutility 1 1Io -->utility::io Namespace Reference
+#utility::io Namespace Reference
 
-File stream I/O classes, primarily for compressed data. [More...](#details)
+File stream I/O classes, primarily for compressed data.
 
 Detailed Description
 --------------------
 
-File stream I/O classes, primarily for compressed data.
-
-The [u'utility::io'] package provides file stream i/o classes that support gzip-compressed or uncompressed data file i/o through a unified interface so that the same stream i/o operations can be applied regardless of whether the file is compressed or not. They use a modernized version of the zipstream system created by Jonathan de Halleux for the gzip i/o.
+The utility::io package provides file stream i/o classes that support gzip-compressed or uncompressed data file i/o through a unified interface so that the same stream i/o operations can be applied regardless of whether the file is compressed or not. They use a modernized version of the zipstream system created by Jonathan de Halleux for the gzip i/o.
 
 The izstream class handles stream input of gzip and uncompressed files. The izstream interface is very similar to std::ifstream except that files with names ending in ".gz" will be opened as gzip compressed files and izstream will try to open other files as gzip files with a .gz appended to the name before opening them as uncompressed files with the specified name.
 
