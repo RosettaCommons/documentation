@@ -1,6 +1,6 @@
-<!-- --- title: Namespacerosetta 1 1Scoring -->rosetta::scoring Namespace Reference
+#rosetta::scoring Namespace Reference
 
-Energy functions and scoring methods for computing acceptability of decoys. [More...](#details)
+Energy functions and scoring methods for computing acceptability of decoys.
 
 Detailed Description
 --------------------
