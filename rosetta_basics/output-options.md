@@ -1,4 +1,4 @@
-<!-- --- title: Output Options -->Output Options
+<!-- --- title: Output Options -->
 
 Here is a list of common used output options.
 
@@ -6,12 +6,12 @@ Misc
 ====
 
 ```
--out:overwrite               Ignore 'CHECKPOINT' file and the overwrite the PDB file(s).
+-out:overwrite             Ignore 'CHECKPOINT' file and the overwrite the PDB file(s).
                            [Boolean]
--out:nstruct                   Number of times to process each input PDB", default="1"
-                                 [Integer]
--out:prefix                  Prefix for output structure names, like old -series code",
-                                 Default="". [String]
+-out:nstruct               Number of times to process each input PDB", default="1"
+                           [Integer]
+-out:prefix                Prefix for output structure names, like old -series code",
+                           Default="". [String]
 -out:suffix                Suffix for output structure names
                            Default="". [String]
 -out:pdb_gz                Compress (gzip) output pdbs", default="false". [Boolean]
