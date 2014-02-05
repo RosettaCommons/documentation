@@ -1,7 +1,6 @@
-
 ##Developing for Rosetta
 
-- [[Rosetta overview|mini-overview]]
+- [[Rosetta overview]]
 - [[Doxygen tips]] - How to work with Rosetta's in-code documentation.
 - [[Writing an app]] - How to write your own Rosetta-based application.
 
