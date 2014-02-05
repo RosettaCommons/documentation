@@ -1,4 +1,4 @@
-<!-- --- title: Command Options -->How to use Rosetta Options and the command line
+#How to use Rosetta options
 
 The command line is composed of two major parts. First, a path to an application executable is required. Second part is a list of options for the particular Rosetta simulation.
 
