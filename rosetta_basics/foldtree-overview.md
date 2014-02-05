@@ -1,14 +1,15 @@
-<!-- --- title: Foldtree Overview -->FoldTree overview and concepts
+#FoldTree overview and concepts
 
 Metadata
 ========
+This document was written 1 Oct 2007 by Ian W. Davis and last updated 1 Oct 2007.
 
-The relevant Mini-Rosetta code is in core::kinematics . This document was written 1 Oct 2007 by Ian W. Davis and last updated 1 Oct 2007.
+The relevant Mini-Rosetta code is in core::kinematics. 
 
 The fold tree
 =============
 
-The fold tree is a coarse-grained representation of [[the atom tree|atomtree-overview]] , and is implemented in the FoldTree class. The fold tree specifies connection between residues, which in most (all?) cases is enough to generate an atom tree behind the scenes.
+The fold tree is a coarse-grained representation of [[the atom tree|atomtree-overview]], and is implemented in the FoldTree class. The fold tree specifies connection between residues, which in most (all?) cases is enough to generate an atom tree behind the scenes.
 
 Jump edges vs. "peptide" edges
 ==============================
@@ -27,18 +28,17 @@ Cutpoints
 FoldTree output
 ===============
 
-```
 a typical fold-tree output looks like this: (as used by silent-files)
 
-FOLD_TREE  EDGE 1 14 -1  JEDGE 14 52 1 C N  INTRA_RES_STUB  EDGE 14 42 -1  EDGE 52 47 -1  EDGE 52 58 -1  JEDGE 58 136 2 C N  INTRA_RES_STUB  JEDGE 47 118 4 N N  INTRA_RES_STUB  EDGE 47 43 -1  EDGE 118 124 -1  EDGE 136 125 -1  EDGE 58 67 -1  EDGE 118 117 -1  EDGE 136 143 -1  JEDGE 117 73 3 N N  INTRA_RES_STUB  EDGE 73 68 -1  EDGE 73
-98 -1  EDGE 117 99 -1
+```
+FOLD_TREE  EDGE 1 14 -1  JEDGE 14 52 1 C N  INTRA_RES_STUB  EDGE 14 42 -1  EDGE 52 47 -1  EDGE 52 58 -1  JEDGE 58 136 2 C N  INTRA_RES_STUB  JEDGE 47 118 4 N N  INTRA_RES_STUB  EDGE 47 43 -1  EDGE 118 124 -1  EDGE 136 125 -1  EDGE 58 67 -1  EDGE 118 117 -1  EDGE 136 143 -1  JEDGE 117 73 3 N N  INTRA_RES_STUB  EDGE 73 68 -1  EDGE 73 98 -1  EDGE 117 99 -1
+```
 
-EDGE are nomral edges
+EDGE are normal edges
+
 JEDGE are jump edges
 
-EDGE start end jump_nr/peptide(=-1) start-jump_atom stop-jump_atom "INTRA_RES_STUB" -- > build the atom-tree such that motion of torsions in this residue does not
-fuck up your jump.
-```
+EDGE start end jump_nr/peptide(=-1) start-jump_atom stop-jump_atom "INTRA_RES_STUB" -- > build the atom-tree such that motion of torsions in this residue does not mess up your jump.
 
 References
 ==========
