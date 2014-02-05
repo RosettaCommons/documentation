@@ -6,12 +6,12 @@
 -   [[RosettaScripts database connection options|RosettaScripts-database-connection-options]]
 
 -   Feature Reporter Framework
-    -   <FeaturesTutorials>
-    -   <FeatureReporters>
-    -   <FeaturesRScripts>
+    -   [[FeaturesTutorials]]
+    -   [[FeatureReporters]]
+    -   [[FeaturesRScripts]]
 
 -   [[MetropolisHastings Documentation|MetropolisHastings-Documentation]]
-    -   <MetropolisHastingsMover>
+    -   [[MetropolisHastingsMover]]
     -   [[SimulatedAnnealing (MetropolisHastings)|SimulatedAnnealing-MetropolisHastings]]
     -   [[Tempering (MetropolisHastings)|Tempering-MetropolisHastings]]
 
