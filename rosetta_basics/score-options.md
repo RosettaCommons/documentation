@@ -4,7 +4,7 @@ Here is a list of Score Function options
 
 ```
 -score:weights              Name of weights file (without extension .wts)
-                            Default="standard". [String]
+                            Default="talaris2013". [String]
 -score:patch                Name of patch file (without extension)
                             Default="". [String]
 -score:empty                Make an empty score - i.e. NO scoring. [Boolean]
