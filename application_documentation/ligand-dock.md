@@ -51,7 +51,7 @@ Here is a "checklist" for setting up a ligand docking experiment. Details for al
 3.  Prepare the receptors
     1.  Repack the entire receptor in the presence of cofactors but the absence of ligands.
     2.  Choose the lowest-energy result to use as the repacked structure.
-    3.  I repack by running ["relax"](http://www.rosettacommons.org/manuals/archive/rosetta3.1_user_guide/app_relax.html) with the sequence optioni
+    3.  I repack by running [[relax]] with the sequence option
 
 4.  Generate input files for Rosetta
     1.  Ligand .params files
