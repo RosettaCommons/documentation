@@ -6,7 +6,7 @@ This document was written 3 Oct 2007 by Ian W. Davis and last updated 10 Oct 200
 
 Information was provided by Jim Havranek.
 
-The relevant Mini-Rosetta code is in core::optimization, especially the core::optimization::Minimizer class. 
+The relevant code is in core::optimization, especially the core::optimization::Minimizer class. 
 
 Flavors of minimization in Rosetta
 ==================================
