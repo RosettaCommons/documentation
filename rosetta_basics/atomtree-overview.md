@@ -5,7 +5,7 @@ Metadata
 
 This document was written 18 Sep 2007 by Ian W. Davis and last updated 18 Sep 2007.
 
-The relevant Mini-Rosetta code is in core::kinematics and core::kinematics::tree. ("Kinematics" deals with conversion between Cartesian coordinates and internal coordinates, often discussed in terms of robot arms.) 
+The relevant code is in core::kinematics and core::kinematics::tree. ("Kinematics" deals with conversion between Cartesian coordinates and internal coordinates, often discussed in terms of robot arms.) 
 
 Handedness and conventions
 ==========================
