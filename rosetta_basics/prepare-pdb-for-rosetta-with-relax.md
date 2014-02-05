@@ -1,9 +1,9 @@
 #Prepare PDB For Rosetta With Relax (Relax with all-atom constraints.)
 
-Author: Rocco Moretti and Lucas Nivon
-
 Metadata
 ========
+
+Author: Rocco Moretti and Lucas Nivon
 
 Updated 20120315 by Lucas Nivon. (nivon@u.washington.edu) . Baker lab. (dabaker@u.washington.edu)
 
