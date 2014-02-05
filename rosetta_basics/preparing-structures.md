@@ -1,9 +1,8 @@
-<!-- --- title: Preparing Structures -->How to prepare structures for use in Rosetta
+#How to prepare structures for use in Rosetta
 
- Author   
-Relaxation with all-heavy-atom constraints by Lucas Nivon and Rocco Moretti.
-
-Other answers collated by Steven Lewis and Ramesh Jha
+Author:
+* Relaxation with all-heavy-atom constraints by Lucas Nivon and Rocco Moretti.
+* Other answers collated by Steven Lewis and Ramesh Jha
 
 Application purpose
 ===========================================
@@ -48,15 +47,13 @@ Relax with all-heavy-atom constraints is built into the relax application itself
 
 The flags file can contain whatever packing and scorefunction flags you wish to use. We recommend at least:
 
+```
 -ex1
-
 -ex2
-
--use\_input\_sc
-
--flip\_HNQ
-
--no\_optH false
+-use_input_sc
+-flip_HNQ
+-no_optH false
+```
 
 The strength and type of constraints uses can be varied with the `       -relax:coord_cst_stdev      ` and `       -relax:coord_cst_width      ` options. By default relax uses a harmonic constraint with the strength adjusted by coord\_cst\_stdev (smaller=tighter). If coord\_cst\_width is specified, a flat-bottomed, linear-walled constraint is used, with the size of the flat-bottomed well controlled by coord\_cst\_width (smaller=tighter), and the slope of the walls by coord\_cst\_stdev (smaller=tighter).
 
@@ -75,45 +72,27 @@ In general the short protocol is preferred for most applications, since this ver
 
 The bracketed extra\_res\_fa only applies if there are any ligand(s) in the structure. The example flags file listed below was used in testing:
 
+```
 -ex1
-
 -ex2
-
--use\_input\_sc
-
+-use_input_sc
 -correct
-
--no\_his\_his\_pairE
-
--score::hbond\_params correct\_params
-
--lj\_hbond\_hdis 1.75
-
--lj\_hbond\_OH\_donor\_dis 2.6
-
--linmem\_ig 10
-
--nblist\_autoupdate true
-
--dun08 false
-
--no\_optH false
-
--flip\_HNQ
-
--chemical:exclude\_patches LowerDNA UpperDNA Cterm\_amidation SpecialRotamer
-
-VirtualBB ShoveBB VirtualDNAPhosphate VirtualNTerm CTermConnect sc\_orbitals
-
-pro\_hydroxylated\_case1 pro\_hydroxylated\_case2 ser\_phosphorylated
-
-thr\_phosphorylated tyr\_phosphorylated tyr\_sulfated lys\_dimethylated
-
-lys\_monomethylated lys\_trimethylated lys\_acetylated glu\_carboxylated
-
-cys\_acetylated tyr\_diiodinated N\_acetylated C\_methylamidated
-
+-no_his_his_pairE
+-score::hbond_params correct_params
+-lj_hbond_hdis 1.75
+-lj_hbond_OH_donor_dis 2.6
+-linmem_ig 10
+-nblist_autoupdate true
+-no_optH false
+-flip_HNQ
+-chemical:exclude_patches LowerDNA UpperDNA Cterm_amidation SpecialRotamer
+VirtualBB ShoveBB VirtualDNAPhosphate VirtualNTerm CTermConnect sc_orbitals
+pro_hydroxylated_case1 pro_hydroxylated_case2 ser_phosphorylated
+thr_phosphorylated tyr_phosphorylated tyr_sulfated lys_dimethylated
+lys_monomethylated lys_trimethylated lys_acetylated glu_carboxylated
+cys_acetylated tyr_diiodinated N_acetylated C_methylamidated
 MethylatedProteinCterm
+```
 
 note: Including extra rotamers is important if your goal is to keep all sidechain atoms tightly constrained; if that is not important for your applications, exclude the ex1 and ex2 for speed.
 
@@ -164,33 +143,22 @@ Ben's reply
 
 I've been using a protocol that does sc & bb minimization, full packing with -use\_input\_sc, then minimization of bb, rb, and sc. It's located in: rosetta/rosetta\_source/src/apps/pilot/stranges/InterfaceStructMaker.cc The idea with this is that it keeps things from moving too far from the starting structure. There's no backbone sampling so I typically find rmsd to the xtal structure to be \< 1.0. Relax actually will do explicit bb sampling thus gives a lower energy structure than my protocol but can also introduce the changes that you observed. I'm pasting my typical options file below:
 
--database /Users/stranges/rosetta/rosetta\_database
-
+```
+-database /Users/stranges/rosetta/rosetta_database
 -nstruct 20
-
 -ndruns 10
-
--no\_his\_his\_pairE
-
--run::min\_type dfpmin\_armijo\_nonmonotone
-
--ignore\_unrecognized\_res
-
--use\_input\_sc
-
+-no_his_his_pairE
+-run::min_type dfpmin_armijo_nonmonotone
+-ignore_unrecognized_res
+-use_input_sc
 -ex1
-
 -ex2
-
--no\_optH false
-
+-no_optH false
 -overwrite
-
--allow\_rbmin true
-
--min\_all\_jumps true
-
+-allow_rbmin true
+-min_all_jumps true
 -mute protocols.moves.RigidBodyMover protocols.moves.RigidBodyMover core.scoring.etable core.pack.task protocols.docking.DockingInitialPerturbation protocols.TrialMover core.io.database
+```
 
 Sagar's reply
 =============
