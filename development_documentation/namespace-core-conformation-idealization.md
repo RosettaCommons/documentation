@@ -1,6 +1,8 @@
-<!-- --- title: Namespacerosetta 1 1Conformation 1 1Idealization -->rosetta::conformation::idealization Namespace Reference
+#core::conformation::idealization Namespace
 
-Ideal values for bond length, bond angles, and torsion angles. [More...](#details)
+**This namespace no longer exists**
+
+Ideal values for bond length, bond angles, and torsion angles.
 
 Detailed Description
 --------------------
