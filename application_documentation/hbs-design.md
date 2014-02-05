@@ -121,7 +121,7 @@ I. Common hbs\_design flags:
 II. Relevant Common Rosetta flags
 ---------------------------------
 
-More information on common Rosetta flags can be found in the [relevant rosetta manual pages](https://www.rosettacommons.org/manuals/rosetta3_user_guide) ). In particular, flags related to the job-distributor (jd2), scoring function, constraint files and packing resfiles are identical to those in any other Rosetta protocol).
+More information on common Rosetta flags can be found in the [[relevant rosetta manual pages|Rosetta-Basics]]. In particular, flags related to the job-distributor (jd2), scoring function, constraint files and packing resfiles are identical to those in any other Rosetta protocol).
 
 ```
 
