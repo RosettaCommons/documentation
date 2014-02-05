@@ -1,6 +1,6 @@
 #Matching and enzyme design geometric constraint file format
 
-Author: Florian Richter (floric@u.washington.edu])
+Author: Florian Richter (floric@u.washington.edu)
 
 Metadata
 ========
