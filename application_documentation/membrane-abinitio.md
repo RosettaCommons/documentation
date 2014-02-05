@@ -1,12 +1,11 @@
-<!-- --- title: Membrane Abinitio -->Documentation for membrane ab initio modeling application
-
- Author   
-Vladimir Yarov-Yarovoy
+#Membrane Abinitio
 
 Metadata
 ========
 
-This document was last updated on July 17, 2012 by Vladimir Yarov-Yarovoy [yarovoy@ucdavis.edu](#) . The membrane ab initio application was developed in David Baker's [dabaker@uw.edu](#) group by:
+Author: Vladimir Yarov-Yarovoy
+
+This document was last updated on July 17, 2012 by Vladimir Yarov-Yarovoy (yarovoy@ucdavis.edu) . The membrane ab initio application was developed in David Baker's (dabaker@uw.edu) group by:
 
 -   Jack Schonbrun
 -   Vladimir Yarov-Yarovoy
@@ -40,88 +39,90 @@ Input Files
 
 1.  Generate structure fragments:
 
-Programs needed to run: fragment generation - info at [[fragment file]].
+    Programs needed to run: fragment generation - info at [[fragment file]].
 
-Note - use only SAM secondary structure prediction file (\*.rdb) - jufo and psipred predict transmembrane helical regions poorly.
+    Note - use only SAM secondary structure prediction file (\*.rdb) - jufo and psipred predict transmembrane helical regions poorly.
 
-Example command:
+    Example command:
 
-```
-make_fragments.pl -verbose -id BRD4 BRD4_.fasta -nojufo -nopsipred
-```
+    ```
+    make_fragments.pl -verbose -id BRD4 BRD4_.fasta -nojufo -nopsipred
+    ```
 
-1.  Genarate transmembrane regions (OCTOPUS) file:
+2.  Genarate transmembrane regions (OCTOPUS) file:
 
-Input OCTOPUS topology file is generated at [http://octopus.cbr.su.se/](http://octopus.cbr.su.se/) using protein sequence as input.
+    Input OCTOPUS topology file is generated at [http://octopus.cbr.su.se/](http://octopus.cbr.su.se/) using protein sequence as input.
 
-Sample OCTOPUS topology file:
+    Sample OCTOPUS topology file:
 
-```
-##############################################################################
-OCTOPUS result file
-Generated from http://octopus.cbr.su.se/ at 2008-09-18 21:06:32
-Total request time: 6.69 seconds.
-##############################################################################
+    ```
+    ##############################################################################
+    OCTOPUS result file
+    Generated from http://octopus.cbr.su.se/ at 2008-09-18 21:06:32
+    Total request time: 6.69 seconds.
+    ##############################################################################
 
-Sequence name: BRD4
-Sequence length: 123 aa.
-Sequence:
-PIYWARYADWLFTTPLLLLDLALLVDADQGTILALVGADGIMIGTGLVGALTKVYSYRFV
-WWAISTAAMLYILYVLFFGFTSKAESMRPEVASTFKVLRNVTVVLWSAYPVVWLIGSEGA
-GIV
+    Sequence name: BRD4
+    Sequence length: 123 aa.
+    Sequence:
+    PIYWARYADWLFTTPLLLLDLALLVDADQGTILALVGADGIMIGTGLVGALTKVYSYRFV
+    WWAISTAAMLYILYVLFFGFTSKAESMRPEVASTFKVLRNVTVVLWSAYPVVWLIGSEGA
+    GIV
 
-OCTOPUS predicted topology:
-oooooMMMMMMMMMMMMMMMMMMMMMiiiiMMMMMMMMMMMMMMMMMMMMMooooooMMM
-MMMMMMMMMMMMMMMMMMiiiiiiiiiiiiiiiiiiiiiMMMMMMMMMMMMMMMMMMMMM
-ooo
-```
+    OCTOPUS predicted topology:
+    oooooMMMMMMMMMMMMMMMMMMMMMiiiiMMMMMMMMMMMMMMMMMMMMMooooooMMM
+    MMMMMMMMMMMMMMMMMMiiiiiiiiiiiiiiiiiiiiiMMMMMMMMMMMMMMMMMMMMM
+    ooo
+    ```
 
-1.  Convert OCTOPUS file to .span file format:
+3.  Convert OCTOPUS file to .span file format:
 
-BRD4.span - transmembrane topology prediction file generated using octopus2span.pl script as follows:
+    BRD4.span - transmembrane topology prediction file generated using octopus2span.pl script as follows:
 
-octopus2span.pl \<OCTOPUS topology="" file\>=""\>
+    `octopus2span.pl <OCTOPUS topology file>`
 
-Example command: \<path to="" rosetta\>=""\>/rosetta/rosetta\_source/src/apps/public/membrane\_abinitio/octopus2span.pl BRD4.octopus Sample .span file:
+    Example command: `<path to rosetta>/rosetta/main/source/src/apps/public/membrane_abinitio/octopus2span.pl BRD4.octopus`
 
-```
-TM region prediction for BRD4 predicted using OCTOPUS
-4 123
-antiparallel
-n2c
-   6    26     6    26
-  31    51    31    51
-  58    78    58    78
-  97   117    97   117
-```
+    Sample .span file:
 
-1st line is comment line. 2nd line shows number of predicted transmembrane helices (4 in the command lines example below) and total number of residues (123 in the example below). 3rd line shows predicted topology of transmembrane helices in the membrane (currently only antiparallel topology is implemented). 4th line and all lines below show start and end residue numbers of each of the predicted transmembrane helices (current format repeats these numbers twice).
+    ```
+    TM region prediction for BRD4 predicted using OCTOPUS
+    4 123
+    antiparallel
+    n2c
+       6    26     6    26
+      31    51    31    51
+      58    78    58    78
+      97   117    97   117
+    ```
 
-1.  Generate .lips4 file.
+    1st line is comment line. 2nd line shows number of predicted transmembrane helices (4 in the command lines example below) and total number of residues (123 in the example below). 3rd line shows predicted topology of transmembrane helices in the membrane (currently only antiparallel topology is implemented). 4th line and all lines below show start and end residue numbers of each of the predicted transmembrane helices (current format repeats these numbers twice).
 
-BRD4.lips4 - lipophilicity prediction file created using run\_lips.pl script as follows (note that blastpgp and nr database are necessary to run run\_lips.pl script
+4.  Generate .lips4 file.
 
-```
-run_lips.pl <fasta file> <span file> <path to blastpgp> <path to nr database> <path to alignblast.pl script>
-```
+    BRD4.lips4 - lipophilicity prediction file created using run\_lips.pl script as follows (note that blastpgp and nr database are necessary to run run\_lips.pl script
 
-Example command:
+    ```
+    run_lips.pl <fasta file> <span file> <path to blastpgp> <path to nr database> <path to alignblast.pl script>
+    ```
 
-```
- <path to mini>/mini/src/apps/public/membrane_abinitio/run_lips.pl BRD4.fasta BRD4.span /work/bjornw/Apps/blast/bin/blastpgp /scratch/shared/genomes/nr ~bjornw/mini/src/apps/public/membrane_abinitio/alignblast.pl
-```
+    Example command:
 
-Sample lips4 file:
+    ```
+     <path to mini>/mini/src/apps/public/membrane_abinitio/run_lips.pl BRD4.fasta BRD4.span /work/bjornw/Apps/blast/bin/blastpgp /scratch/shared/genomes/nr ~bjornw/mini/src/apps/public/membrane_abinitio/alignblast.pl
+    ```
 
-```
-Lipid exposed data: resnum mean-lipo lipophil entropy
-      6  -1.000   3.004   1.211
-      9  -1.000   2.268   2.137
-     10  -1.000   4.862   1.095
-     13  -1.000   1.304   1.552
-     16  -1.000   3.328   2.025
-...
-```
+    Sample lips4 file:
+
+    ```
+    Lipid exposed data: resnum mean-lipo lipophil entropy
+          6  -1.000   3.004   1.211
+          9  -1.000   2.268   2.137
+         10  -1.000   4.862   1.095
+         13  -1.000   1.304   1.552
+         16  -1.000   3.328   2.025
+    ...
+    ```
 
 Options
 =======
