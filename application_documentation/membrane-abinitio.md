@@ -40,7 +40,7 @@ Input Files
 
 1.  Generate structure fragments:
 
-Programs needed to run: fragment generation - info at [http://www.rosettacommons.org/manuals/archive/rosetta3.4\_user\_guide/d4/d3f/file\_fragments.html](http://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/d4/d3f/file_fragments.html)
+Programs needed to run: fragment generation - info at [[fragment file]].
 
 Note - use only SAM secondary structure prediction file (\*.rdb) - jufo and psipred predict transmembrane helical regions poorly.
 
