@@ -1,4 +1,4 @@
-<!-- --- title: Movemap File -->Movemap file format
+#Movemap file format
 
 Metadata
 ========
@@ -8,7 +8,7 @@ This document was edited by Frank DiMaio on 5/11/2010.
 Overview
 ========
 
-Certain protocols (e.g. <backrub> ) accept a user-specified movemap, that tells the algorithm what torsion angles and rigid-body degrees of freedom are allowed to move. For example, one may not want to move highly-conserved sidechains in modeling applications or preserve certain interactions in design applications. This document briefly describes the format used to specify these degrees of freedom.
+Certain protocols (e.g. [[backrub]]) accept a user-specified movemap, that tells the algorithm what torsion angles and rigid-body degrees of freedom are allowed to move. For example, one may not want to move highly-conserved sidechains in modeling applications or preserve certain interactions in design applications. This document briefly describes the format used to specify these degrees of freedom.
 
 File Formats
 ============
