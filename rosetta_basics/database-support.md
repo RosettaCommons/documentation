@@ -1,20 +1,20 @@
-<!-- --- title: Database Support -->Interface for SQLite3 Database Library
+#SQL database support
 
 Metadata
 ========
 
-Last edited 01/14/11. Matthew O'Meara [mattjomeara@gmail.com](#) .
+Last edited 01/14/11. Matthew O'Meara (mattjomeara@gmail.com).
 
-Overview
-========
+Overview of Relational Databases
+================================
 
-Relational Databases are standard datastructures for persistent managment of large quantities of data. Compared with flat file formats, relational databases offer the following advantages:
+Relational Databases are standard datastructures for persistent management of large quantities of data. Compared with flat file formats, relational databases offer the following advantages:
 
 -   Data are stored in separate, but interconnected tables, which can be joined together upon request with queries made in the Structure Query Language.
 
--   Data modification is transactional, that is, multiple operations can be grouped together and gaurenteed to be preformed successfully or rolled back. In the presense of resource failure, this can offer greater gaurentees of data integrety.
+-   Data modification is transactional, that is, multiple operations can be grouped together and guaranteed to be preformed successfully or rolled back. In the presence of resource failure, this can offer greater guarantees of data integrity.
 
--   Most standard implementations use sophisticated datastructures optimized for performance on a variety of architechures and for a variety of use cases.
+-   Most standard implementations use sophisticated datastructures optimized for performance on a variety of architectures and for a variety of use cases.
 
 -   Relational databases have been in use for over 30 and the standard implementations are quite robust and have strong support in the the computer science community.
 
@@ -39,7 +39,7 @@ When choosing to use cppdb as the database abstraction layer we evaluated severa
 Usage of Databases
 ==================
 
-Overview
+Usage Overview
 --------
 
 The general process of using a database involves the following three basic tasks steps:
