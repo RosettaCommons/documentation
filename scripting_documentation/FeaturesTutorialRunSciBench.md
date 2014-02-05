@@ -58,7 +58,7 @@ The coordinates of the structures for used to extract the feature information ca
 -   **pdb** :
     -   *-in:path path/to/structures* : the directory containing the pdbs
     -   *-in:file:l \<tags.list\>* : which pdbs should be processed NOTE: The filenames in the *\<tags.list\>* file will be the *tags* in the *structures* table.
-    -   If the structures come from the protein databank, follow the steps to make Rosetta more [robust to bad input](http://graylab.jhu.edu/Rosetta.Developer.Documentation/all_else/db/d5e/robust.html) .
+    -   If the structures come from the protein databank, follow the steps to make Rosetta more [[robust to bad input|robust]].
 
 -   **Silent Files** :
     -   *-in:file:silent \<structures.silent\>* : the filename of the silentfile
