@@ -1,9 +1,11 @@
-<!-- --- title: Atomtree Overview -->AtomTree overview and concepts
+#AtomTree overview and concepts
 
 Metadata
 ========
 
-The relevant Mini-Rosetta code is in core::kinematics and core::kinematics::tree. ("Kinematics" deals with conversion between Cartesian coordinates and internal coordinates, often discussed in terms of robot arms.) This document was written 18 Sep 2007 by Ian W. Davis and last updated 18 Sep 2007.
+This document was written 18 Sep 2007 by Ian W. Davis and last updated 18 Sep 2007.
+
+The relevant Mini-Rosetta code is in core::kinematics and core::kinematics::tree. ("Kinematics" deals with conversion between Cartesian coordinates and internal coordinates, often discussed in terms of robot arms.) 
 
 Handedness and conventions
 ==========================
@@ -45,9 +47,10 @@ An equivalent statement is that d, theta, and phi specify the position of A in s
 
 Another equivalent statement is that to generate A's stub from B's stub (A's input stub), postmultiply B's stub matrix, M\_B, with matrices to rotate around X by phi and around Z by theta, then translate B's stub center, v\_B, by that matrix times the vector (d,0,0). That is,
 
-M\_A = M\_B \* M\_phi \* M\_theta
-
-v\_A = v\_B + M\_A \* (d,0,0)
+```
+M_A = M_B * M_phi * M_theta
+v_A = v_B + M_A * (d,0,0)
+```
 
 Now A's stub center, v\_A, is the position of atom A in the global coordinate frame.
 
