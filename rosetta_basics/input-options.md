@@ -1,4 +1,4 @@
-<!-- --- title: Input Options -->Input Options
+<!-- --- title: Input Options -->
 
 Here is a list of common used input options.
 
@@ -7,25 +7,28 @@ Misc
 
 ```
 -in:ignore_unrecognized_res     Do not abort if unknown residues are found in PDB file;  instead, ignore them.
-                default='false' [Boolean].
+                                default='false' [Boolean].
 -in:path:database               Database file input search paths", default=['~/rosetta_database'].
-                [PathVector]
+                                [PathVector]
 -in:file:residue_type_set       ResidueTypeSet for input files', default = 'fa_standard. [String]
 ```
 
-Commons PDb Input File Flags
+Commons PDB Input File Flags
 ============================
 
 ```
--in:file:s          Name(s) of single PDB file(s) to process. [FileVector]
--in:file:l          File(s) containing list(s) of PDB files to process. [FileVector]
--in:file:native         Native PDB filename. [File]
+-in:file:s                      Name(s) of single PDB file(s) to process. [FileVector]
+-in:file:l                      File(s) containing list(s) of PDB files to process. [FileVector]
+-in:file:native                 Native PDB filename. [File]
 -in:file:native_exclude_res     Residue numbers to be excluded from RMS calculation. [IntegerVector]
--in:file:fullatom       Enable full-atom input of PDB or centroid structures. [Boolean]
+-in:file:fullatom               Enable full-atom input of PDB or centroid structures. [Boolean]
 -in:file:centroid_input         Enable centroid inputs of PDBs.  default = 'false' [Boolean]
-@verbatim
-@section fragments Fragment and Sequence Input File Flags
-@verbatim
+```
+
+Fragment and Sequence Input File Flags
+======================================
+
+```
 -in:file:fasta          Fasta-formatted sequence file. [FileVector]
 -in:file:frag3          Fragments file with residue length of 3 [String]
 -in:file:frag9          Fragments file with residue length of 9 [String]
@@ -35,13 +38,13 @@ Silent Input File Flags
 =======================
 
 ```
--in:file:silent         Silent input filename(s). [FileVector]
--in:file:silent_list        Silent input filename list(s) - like -l is to -s. [FileVector]
+-in:file:silent                 Silent input filename(s). [FileVector]
+-in:file:silent_list            Silent input filename list(s) - like -l is to -s. [FileVector]
 -in:file:silent_optH            Call optH when reading a silent file. [Boolean]
 -in:file:silent_structure_type  Type of SilentStruct object to use in silent-file input'.
-                Default='protein', [String]
+                                Default='protein', [String]
 -in:file:silent_score_prefix    Prefix that is appended to all scores read in from a silent-file',
-                default='' [String]
+                                default='' [String]
 ```
 
 Scoring
@@ -49,6 +52,6 @@ Scoring
 
 ```
 -in:file:repair_sidechains  Attempt a repack/minmize to repair sidechain problems.
-                Such as proline geometry and his tautomerization' default = 'false'
-                [Boolean]
+                            Such as proline geometry and his tautomerization' default = 'false'
+                            [Boolean]
 ```
