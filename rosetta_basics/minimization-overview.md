@@ -1,9 +1,12 @@
-<!-- --- title: Minimization Overview -->Minimization overview and concepts
+#Minimization overview and concepts
 
 Metadata
 ========
+This document was written 3 Oct 2007 by Ian W. Davis and last updated 10 Oct 2007.
 
-The relevant Mini-Rosetta code is in core::optimization, especially the core::optimization::Minimizer class. Information was provided by Jim Havranek. This document was written 3 Oct 2007 by Ian W. Davis and last updated 10 Oct 2007.
+Information was provided by Jim Havranek.
+
+The relevant Mini-Rosetta code is in core::optimization, especially the core::optimization::Minimizer class. 
 
 Flavors of minimization in Rosetta
 ==================================
