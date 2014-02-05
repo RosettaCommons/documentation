@@ -1,30 +1,11 @@
-<!-- --- title: Namespacerosetta 1 1Conformation -->[Namespaces](#namespaces) | [Classes](#nested-classes)
+#core::conformation namespace
 
-rosetta::conformation Namespace Reference
-
-Geometric information about individual molecular structures. [More...](#details)
+Geometric information about individual molecular structures. 
 
 Namespaces
 ----------
 
-[[idealization|namespace-core-conformation-idealization]]
-
-Ideal values for bond length, bond angles, and torsion angles.
-
-Classes
--------
-
-class
-
-AminoAcid
-
-class
-
-Tetrad
-
-class
-
-TorsionAngle
+[[idealization|namespace-core-conformation-idealization]] Ideal values for bond length, bond angles, and torsion angles.
 
 Detailed Description
 --------------------
