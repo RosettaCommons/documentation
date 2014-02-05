@@ -1,4 +1,4 @@
-<!-- --- title: Writing An App -->Writing a Rosetta Application
+#Writing a Rosetta Application
 
 One of the main design goals of Rosetta is that writing new applications and extension of existing protocols be easy. This section is intended to show a developer how to write new application with a new protocol. The reader will be taken through the process
 
