@@ -847,7 +847,7 @@ Includes current rotamers (eg - from input pdb) in the rotamer set. These rotame
 
 ### ExtraRotamersGeneric
 
-During packing, extra rotamers can be used to increase sampling. Use this TaskOperation to specify for all residues at once what extra rotamers should be used. Note: The *extrachi\_cutoff* is used to determine how many neighbors a residue must have before the extra rotamers are applied. For example of you want to apply extra rotamers to all residues, set *extrachi\_cutoff=0* . See the Extra Rotamer Commands section on the [resfile syntax and convention](http://graylab.jhu.edu/Rosetta.Developer.Documentation/all_else/d1/d97/resfiles.html) page for additional details.
+During packing, extra rotamers can be used to increase sampling. Use this TaskOperation to specify for all residues at once what extra rotamers should be used. Note: The *extrachi\_cutoff* is used to determine how many neighbors a residue must have before the extra rotamers are applied. For example of you want to apply extra rotamers to all residues, set *extrachi\_cutoff=0* . See the Extra Rotamer Commands section on the [[resfile syntax and convention|resfiles]] page for additional details.
 
      <ExtraRotamersGeneric name=(&string)
     ex1=(0 &boolean) ex2=(0 &boolean) ex3=(0 &boolean) ex4=(0 &boolean)
