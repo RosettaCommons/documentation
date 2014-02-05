@@ -1,4 +1,4 @@
-<!-- --- title:  Scientific Test -->How to create and run scientific tests
+#How to create and run scientific tests
 
 Metadata
 ========
