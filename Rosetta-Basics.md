@@ -1,19 +1,32 @@
 ####Fundamental Rosetta Concepts
+- [[Score Types]] - Description of common Rosetta score terms
 - [[Minimization Overview]]
 - [[Packer Task]]
 - [[Foldtree Overview]]
 - [[AtomTree Overview]]
 - [[Symmetry]]
 
-####Controling Rosetta Execution
+####Controlling Rosetta Execution
+- [[Database]] - The Rosetta database
+- [[Command options]] - Controlling Rosetta with command line options
+    * [[Input options]]
+    * [[Output options]]
+    * [[Run options]]
+    * [[Score options]]
+    * [[Packing options]]
 - [[JD2]]
 - [[RNA-protein-changes]] - Changes to get Rosetta to read RNA & protein simultaneously (I don't think these are needed anymore.)
 
 ####Common File Formats
-- [[Resfiles]]
-- [[Movemap file]]
-- [[Constraint file]]
-- [[Matcher (Enzdes) Constraint Files|match-cstfile-format]]
+- [[Fasta file]] - Input protein sequences
+- [[Silent file]] - Rosetta-specific compact output representation
+- [[Resfiles]] - Which residue sidechains can move and mutate
+- [[Movemap file]] - Which sidechains and backbones can move
+- [[Constraint file]] - Add energy restraints to scoring
+- [[Matcher (Enzdes) Constraint Files|match-cstfile-format]] - A constraint file specialized for protein-ligand interactions
+- [[Fragment file]] - Database of backbone fragment conformations
+- [[Loops file]] - Which regions of the protein should be rebuilt
+- [[Chemical shift file]] - NMR chemical shifts
 
 ####Preparing structures to be used by Rosetta
 - [[Preparing structures]]
