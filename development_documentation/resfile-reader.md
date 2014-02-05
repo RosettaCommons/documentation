@@ -1,9 +1,8 @@
-<!-- --- title: Resfile Reader -->How to write new resfile commands
+#How to write new resfile commands
 
- Author   
-Steven Lewis
+Author: Steven Lewis
 
-This page describes how to add new commands to the resfile in mini. A command is an object with a method that will make changes to the PackerTask for ONE single residue at a time.
+This page describes how to add new commands to the resfile in Rosetta. A command is an object with a method that will make changes to the PackerTask for ONE single residue at a time.
 
 The resfile reader parses each record into whitespace-delimited chunks of information, and attempts to match them against a group of available commands (which must be known at compile time). It then passes the necessary information to an instantiation of a command object, which applies whatever the command is supposed to do.
 
