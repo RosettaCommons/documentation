@@ -22,6 +22,7 @@ and
 comment tags will be stripped from the documentation prior to being provided as a public release.
 
 ### Overview Documentation
+- [[RosettaAcademy (or "Rosetta for Newbies")|RosettaAcademy]] - An intro guide for new RosettaCommons users and developers.
 
 - [[A guide to developing in Rosetta]] - Outdated, RosettaCommons centric developer overview.
 - [[Before commit check]] - Things to check before submission.
