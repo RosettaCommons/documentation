@@ -1,9 +1,9 @@
-<!-- --- title: Sqlite3 Interface -->Interface for SQLite3 Database Library
+#Sqlite3 Interface
 
 Metadata
 ========
 
-Last edited 10/18/10. Code and documentation by Matthew O'Meara [mattjomeara@gmail.com](#) .
+Last edited 10/18/10. Code and documentation by Matthew O'Meara (mattjomeara@gmail.com) .
 
 Overview
 ========
