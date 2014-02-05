@@ -1,4 +1,4 @@
-<!-- --- title: Database -->Get Database
+<!-- --- title: Database -->
 
 The Rosetta database contains important data files used by Rosetta during runs (for example, the definitions of what atoms are in alanine, or what the Lennard-Jones radii are).
 
