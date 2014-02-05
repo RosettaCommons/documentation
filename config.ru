@@ -12,10 +12,6 @@ require 'omniauth/strategies/github_team_member'
 # need to set this or else it uses http (no 's'), which causes github to give a bad URL error
 #OmniAuth.config.full_host = 'https://www.rosettacommons.org/docs'
 
-# set up secrets for GitHub auth
-ENV['GITHUB_SECRET'] = '***removed until not in a public repo***'
-ENV['GITHUB_KEY']  = 'b9e20d0e8c5c7aa9512d'
-
 options = {
   # OmniAuth::Builder block is passed as a proc
   :providers => Proc.new do
