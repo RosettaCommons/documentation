@@ -1,38 +1,39 @@
-<!-- --- title: Resfiles -->Resfile syntax and conventions
+#Resfile syntax and conventions
 
- Author   
-Matthew O'Meara and Steven Lewis
+Author: Matthew O'Meara and Steven Lewis
 
 This page describes the resfile format, syntax, and conventions. The resfile contains information which is input into the PackerTask and controls the Packer. Internal details for the commands can be found at the [[How to write new resfile commands|resfile-reader]] residue-level options how-to.
 
-Syntax and Semantics
+Resfile Syntax and Semantics
 ====================
 
 The syntax for the resfile format in extended-EBNF form is as follows.
 
-\<RESFILE\> ::= \<HEADER\> | [\<HEADER\>] START\\n \<BODY\> ;
+```
+<RESFILE> ::= <HEADER> | [<HEADER>] START\n <BODY> ;
 
-\<HEADER\> ::= {{\<COMMAND\>}\*\\n}\* ;
+<HEADER> ::= {{<COMMAND>}*\n}* ;
 
-\<BODY\> ::= {\<RESIDUE\_IDENTIFIER\> {\<COMMAND\>}\*\\n}\* ;
+<BODY> ::= {<RESIDUE_IDENTIFIER> {<COMMAND>}*\n}* ;
 
-\<RESIDUE\_IDENTIFIER\> ::= \<SINGLE\_RESID\> | \<RANGE\_RESID\> | \<CHAIN\_RESID\> ;
+<RESIDUE_IDENTIFIER> ::= <SINGLE_RESID> | <RANGE_RESID> | <CHAIN_RESID> ;
 
-\<SINGLE\_RESID\> ::= \<PDBNUM\>[\<ICODE\>] \<CHAIN\> ;
+<SINGLE_RESID> ::= <PDBNUM>[<ICODE>] <CHAIN> ;
 
-\<RANGE\_RESID\> ::= \<PDBNUM\>[\<ICODE\>] - \<PDBNUM\>[\<ICODE\>] \<CHAIN\> ;
+<RANGE_RESID> ::= <PDBNUM>[<ICODE>] - <PDBNUM>[<ICODE>] <CHAIN> ;
 
-\<CHAIN\_RESID\> ::= '\*' \<CHAIN\> ;
+<CHAIN_RESID> ::= '*' <CHAIN> ;
 
-\<PDBNUM\> ::= [-]{digits}+ ;
+<PDBNUM> ::= [-]{digits}+ ;
 
-\<ICODE\> ::= {A-Za-z} ;
+<ICODE> ::= {A-Za-z} ;
 
-\<COMMAND\> ::= \<COMMAND\_ID\> {\<COMMAND\_PARAMS\>}\* ;
+<COMMAND> ::= <COMMAND_ID> {<COMMAND_PARAMS>}* ;
 
-\<COMMAND\_ID\> ::= ? see command types below ? ;
+<COMMAND_ID> ::= ? see command types below ? ;
 
-\<COMMAND\_PARAMS\> ::= ? see command types below ? ;
+<COMMAND_PARAMS> ::= ? see command types below ? ;
+```
 
 Throughout, the resfile has the following conventions:
 
@@ -42,56 +43,60 @@ Throughout, the resfile has the following conventions:
 -   The order in which the residues are specified in the body does not matter.
 -   The order in which the commands are specified does not matter.
 
+Header
+------
+
 Specify in the \<header\> section the commands that should be applied by default to all residues that are not specified in the body. NOTE: Commands in this section are not applied to any residue which has a line in the body section. For example, if the header commands include "EX 1" and residue 10 has the behavior "ALLAAxc" in the body, then residue 10 will NOT get EX 1 behavior. Command line flags (e.g. "-ex1") will apply to all residues and can be used when the user wants to quickly specify global behavior.
 
 Example header section:
 
-\# These commands will be applied to all residue positions that lack a specified behavior in the body:
-
-ALLAA \# allow all amino acids
-
-EX 1 EX 2 \# allow extra chi rotamers at chi- id 1 and 2 (note: multiple commands can be on the same line.)
-
-USE\_INPUT\_SC \# allow the use of the input side chain conformation ( see below for more detailed description of commands)
-
+```
+# These commands will be applied to all residue positions that lack a specified behavior in the body:
+ALLAA # allow all amino acids
+EX 1 EX 2 # allow extra chi rotamers at chi- id 1 and 2 (note: multiple commands can be on the same line.)
+USE_INPUT_SC # allow the use of the input side chain conformation ( see below for more detailed description of commands)
 start
-
-\#... the body would continue here.
+#... the body would continue here.
+```
 
 Body
 ----
 
 Specify in the \<body\> section residue level constraints to be sent to the packer and elsewhere. Each line should have one of the the following formats,
 
-### Range Identification
+### Residue Identification
 
-#### Residue Identification
+#### Single Residue Identification
 
 To specify commands for a single residue, use the following form
 
-\<PDBNUM\>[\<ICODE\>] \<CHAIN\> \<COMMANDS\>
+```
+<PDBNUM>[<ICODE>] <CHAIN> <COMMANDS>
+```
 
 If the pose the resfile is has pdb information associated with it (eg it was read in from a pdb file) then \<PDBNUM\>[\<ICODE\>] corresponds to columns 22-26. If the pose does not have pdb information (eg if it was generated de novo or from a silent file), the \<PBDNUM\> is the residue index in the pose and the \<ICODE\> should not be specified. The \<PDBNUM\> can be positive, zero, or negative. The \<ICODE\> is an optional character [A-Z] (case insensitive) that occurs in some pdbs to represent insertion or deletions in the sequence to maintain a consistent numbering scheme or the remainder of the sequence.
 
 To accommodate structures with a large number of chains, following the PDB the, the chain can be any character [A-Za-z] where upper and lower case characters are treated as separate chains. For example
 
-10 \_ PIKAA W \# Allow only Trp at residue 10 in the unlabeled chain
+```
+10 _ PIKAA W # Allow only Trp at residue 10 in the unlabeled chain
+40 B EMPTY NC A20 NC B47 NC B48 # Disallow canonical residues (EMPTY), and then allow noncanonical types A20, B47, and B48
+40A Q ALLAA # Residue 40, insertion code A, on chain Q, use any residue type
+```
 
-40 B EMPTY NC A20 NC B47 NC B48 \# Disallow canonical residues (EMPTY), and then allow noncanonical types A20, B47, and B48
-
-40A Q ALLAA \# Residue 40, insertion code A, on chain Q, use any residue type
-
-#### Range Identification
+#### Residue Range Identification
 
 To specify commands for a sequence of residues at once, use the form
 
-\<PDBNUM\>[\<ICODE\>] - \<PDBNUM\>[\<ICODE\>] \<CHAIN\> \<COMMANDS\>
+```
+<PDBNUM>[<ICODE>] - <PDBNUM>[<ICODE>] <CHAIN> <COMMANDS>
+```
 
 See the section on specifying a single residue, above, for commends on the format for the \<PDBNUM\>, \<ICODE\>, and \<CHAIN\> identifiers.
 
 To determine which residues fall into the specified, range, the sequence of residues in pose are used. NOTE: it is an error if the first residue does not come before the second residue.
 
-#### Identification
+#### Chain Identification
 
 To specify commands for all the residues of a specific chain, use the following form
 
@@ -101,7 +106,7 @@ To specify commands for all the residues of a specific chain, use the following 
 
 See the section on specifying a single residue, above, for commends on the format for the \<PDBNUM\>, \<ICODE\>, and \<CHAIN\> identifiers.
 
-#### specified multiple times
+#### Residues specified multiple times
 
 If a residue is specified at multiple levels, e.g. as a single residue, in a range and as part of a whole chain, then the specific specification supersedes the others. If a residue is specified multiple times at the same level, eg in multiple single residue commands, then all the commands are used together. Note: the order in which commands are specified is not important.
 
@@ -126,15 +131,15 @@ The body of the above resfile could have been written like this:
 * A NATAA
 ```
 
-for controlling conformational freedom:
-=======================================
+Commands
+========
 
-for controlling conformational freedom:
----------------------------------------
+Commands for for controlling sequence identity
+------------------------------------------------
 
 Each command acts to restrict the allowed amino acids allowable at each position. If multiple commands are combined, only amino acids that are allowed by each command individually are included. This is a consequence of the commutativity property for operations on the PackerTask class.
 
-- ALLAA ................ allow all 20 amino acids INCLUDING the cystein amino acid (same as ALLAAwc)
+- ALLAA ................ allow all 20 amino acids INCLUDING cysteine (same as ALLAAwc)
 
 - ALLAAwc .............. allow all 20 amino acids ( default )
 
@@ -156,57 +161,54 @@ Each command acts to restrict the allowed amino acids allowable at each position
 
 - NC \<ResidueTypeName\> . allow the specific possibly non canonical residue type; one residue type per NC command
 
-NATRO \# default command that applies to everything without a non- default setting; do not repack
+```
+NATRO # default command that applies to everything without a non- default setting; do not repack
 
 start
 
-10 A POLAR \# consider polar amino acids at position 10
+10 A POLAR # consider polar amino acids at position 10
+11 A POLAR PIKAA ACDEFGH # allow mutations to those in the intersection of two sets:
+# ........................ the polar amino acids and {ALA, CYS, ASP, GLU, PHE, GLY & HIS}
+# ........................ the intersection set {ASP, GLU, HIS}
+```
 
-11 A POLAR PIKAA ACDEFGH \# allow mutations to those in the intersection of two sets:
-
-\# ........................ the polar amino acids and {ALA, CYS, ASP, GLU, PHE, GLY & HIS}
-
-\# ........................ the intersection set {ASP, GLU, HIS}
-
-for controlling conformational freedom:
+Commands for noncanonical residue types
 ---------------------------------------
 
 Noncanonical residue types do not obey the AND-commutativity in command order that the rest of the resfile displays; this is because they default to "off" position, and must perforce be activated instead of deactivated to use. The command to turn OFF the canonical types is EMPTY, and the command to turn ON a noncanonical type is "NC \<ResidueTypeName\>".
 
-NATRO \# default command that applies to everything without a non- default setting; do not repack
+```
+NATRO # default command that applies to everything without a non- default setting; do not repack
 
 start
 
-10 A ALLAA NC ET1 \# allow all 20 amino acids, plus noncanonical ET1
+10 A ALLAA NC ET1 # allow all 20 amino acids, plus noncanonical ET1
+11 A EMPTY NC R2 # disallow all 20 amino acids, allow only noncanonical R2
+15 A PIKAA ATSG NC SM1 # allow only ATSG and noncanonical SM1
+56 A EMPTY NC R2 NC T6 NC OP5 #allow only noncanonicals R2, T6, and OP5 (notice separate NC commands)
+#45 B NC E4 EMPTY #MALFORMED COMMAND: this will give you no residue types at all, resulting in NATRO behavior (EMPTY supersedes NC)
+#65 B NC F1 S2 T3 #MALFORMED COMMAND: this will crash because you need one NC command per noncanonical you want
+```
 
-11 A EMPTY NC R2 \# disallow all 20 amino acids, allow only noncanonical R2
-
-15 A PIKAA ATSG NC SM1 \# allow only ATSG and noncanonical SM1
-
-56 A EMPTY NC R2 NC T6 NC OP5 \#allow only noncanonicals R2, T6, and OP5 (notice separate NC commands)
-
-\#45 B NC E4 EMPTY \#MALFORMED COMMAND: this will give you no residue types at all, resulting in NATRO behavior (EMPTY supersedes NC)
-
-\#65 B NC F1 S2 T3 \#MALFORMED COMMAND: this will crash because you need one NC command per noncanonical you want
-
-for controlling conformational freedom:
+Commands for controlling conformational freedom:
 ---------------------------------------
 
-- NATRO ...................................... fix NATive ROtamer ( fix identity and conformation )
-
-- EX (ARO) \<chi- id \> ( LEVEL \<sample level\> ) .. ( see below for detailed description
-
-- EX\_CUTOFF \<num-neighbors\> .................. about how to specify EX commands )
-
-- USE\_INPUT\_SC ................................ include native rotamer
+```
+- NATRO ....................................... fix NATive ROtamer ( fix identity and conformation )
+- EX (ARO) <chi-id> ( LEVEL <sample level> ) .. ( see below for detailed description )
+- EX_CUTOFF <num-neighbors> ................... about how to specify EX commands )
+- USE_INPUT_SC ................................ include native rotamer
+```
 
 Miscellaneous commands for controlling the packer:
 --------------------------------------------------
 
--   AUTO ......... add the behavior 'AUTO'
--   SCAN ......... add the behavior 'SCAN'
--   NO\_ADDUCTS .... disallow DNA adducts
--   TARGET \<AA\> ... specify target amino acid ( use one letter codes )
+```
+-   AUTO .......... add the behavior 'AUTO'
+-   SCAN .......... add the behavior 'SCAN'
+-   NO_ADDUCTS .... disallow DNA adducts
+-   TARGET <AA> ... specify target amino acid ( use one letter codes )
+```
 
 This miscellaneous commands have meanings to particular protocols, but not to all.
 
@@ -221,8 +223,7 @@ The packer considers discrete sampling of sidechain conformations; it samples di
         -   0 ...... no extra chi angles
         -   1 ...... sample at 1 standard deviation
         -   2 ...... sample at 1/2 standard deviation
-            -   3 ...... sample at two full standard deviations
-
+        -   3 ...... sample at two full standard deviations
         -   4 ...... sample at two 1/2 standard deviations
         -   5 ...... sample at four 1/2 standard deviations
         -   6 ...... sample at three 1/3 standard deviations
@@ -234,56 +235,39 @@ The packer considers discrete sampling of sidechain conformations; it samples di
 
 Here are some examples:
 
+```
 10 B EX 1 EX 2
-
-9 B EX 3 \# WARNING: probably want to include EX 1 and EX 2 if EX 3 is specified!
-
+9 B EX 3 # WARNING: probably want to include EX 1 and EX 2 if EX 3 is specified!
 8 B EX ARO 2
-
-7 B EX ARO 3 \# ERROR: ARO only works for chi ids 1 and 2
-
+7 B EX ARO 3 # ERROR: ARO only works for chi ids 1 and 2
 6 B EX 1 LEVEL 7
-
-13 B EX 1 EX ARO 1 LEVEL 4 \# include extra rotamers at chi 1 for all amino acids,
-
-\# but use sample level 4 for the aromatic amino acids
+13 B EX 1 EX ARO 1 LEVEL 4 # include extra rotamers at chi 1 for all amino acids,
+# but use sample level 4 for the aromatic amino acids
+```
 
 This resfile will provide packability at most locations, fixed rotamers at a few, and designability at a few. Note the liberal use of comments for clarity. NOTAA C is equivalent to ALLAAxc.
 
-NATAA \# this default command applies to all residues that are not given non- default commands
+```
+NATAA # this default command applies to all residues that are not given non-default commands
 
 start
 
-\#anchor
+#anchor
+81 - 82 B NATAA #anchor
+83 - 86 B NATRO #anchor
 
-81 - 82 B NATAA \#anchor
-
-83 - 86 B NATRO \#anchor
-
-\#loops
-
-\#133 B NOTAA C \#loop
-
-134 - 142 B NOTAA C \#loop
-
-\#143 B NOTAA C \#loop
-
-\#144 B NOTAA C \#loop
-
-\#145 B NOTAA C \#loop
-
-\#77 B NOTAA C \#loop
-
-\#78 B NOTAA C \#loop
-
-\#79 B NOTAA C \#loop
-
-80 B NOTAA C \#loop
-
-\#ANCHOR
-
-87 B NOTAA C \#loop
-
-88 B NOTAA C \#loop
-
-\#89 B NOTAA C \#loop
+#loops
+#133 B NOTAA C #loop
+134 - 142 B NOTAA C #loop
+#143 B NOTAA C #loop
+#144 B NOTAA C #loop
+#145 B NOTAA C #loop
+#77 B NOTAA C #loop
+#78 B NOTAA C #loop
+#79 B NOTAA C #loop
+80 B NOTAA C #loop
+#ANCHOR
+87 B NOTAA C #loop
+88 B NOTAA C #loop
+#89 B NOTAA C #loop
+```
