@@ -1,9 +1,9 @@
-<!-- --- title: New Energy Method -->How to add a new scoring term.
+#How to add a new scoring term.
 
 Metadata
 ========
 
-This document was writen by Andrew Leaver-Fay on 8/15/2008 and revised on 8/24/2009.
+This document was written by Andrew Leaver-Fay on 8/15/2008 and revised on 8/24/2009.
 
 The ScoreFunction class is a container for EnergyMethods. EnergyMethods do all the hard work of evaluating the energies of residues and residue pairs; the ScoreFunction manages the logic for scoring only those residues whose interaction energies need to be recomputed. By dividing the responsibilities between the two classes, we lessen code duplication and make it easier to add new scoring terms.
 
