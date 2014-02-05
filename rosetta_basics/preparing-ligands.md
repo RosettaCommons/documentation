@@ -1,12 +1,11 @@
-<!-- --- title: Preparing Ligands -->How to Prepare Ligands for use in Rosetta
+#How to Prepare Ligands for use in Rosetta
 
- Author   
-Sam DeLuca
+Author:  Sam DeLuca
 
 Why is this process necessary?
 ==============================
 
-Rosetta uses Params files to store precomputed infromation about the geometry and chemistry of residues and ligands. A params file is required for each residue encountered in a PDB. A set of params files for commonly seen residues and metals is included with rosetta, and can be found in rosetta\_database/chemical/residue\_type\_sets
+Rosetta uses Params files to store precomputed information about the geometry and chemistry of residues and ligands. A params file is required for each residue encountered in a PDB. A set of params files for commonly seen residues and metals is included with rosetta, and can be found in rosetta\_database/chemical/residue\_type\_sets
 
 An overview of params files
 ===========================
@@ -23,9 +22,9 @@ Params files store a variety of chemical and geometric information. The followin
 
 -   **ATOM** The PDB atom name, Rosetta AtomType, MM AtomType, and charge. an atom line looks like this:
 
-    ~~~~ {.fragment}
+    ```
     ATOM  C17 CH1   X   0.13
-    ~~~~
+    ```
 
     Where C17 is the PDB atom name, CH1 is the Rosetta AtomType, X is the MM AtomType, and 0.13 is the charge. The PDB atom names must be unique within each params file.
 
@@ -39,9 +38,9 @@ Params files store a variety of chemical and geometric information. The followin
 
 -   **ICOOR\_INTERNAL** The internal coordinates of an atom. The format looks like this:
 
-    ~~~~ {.fragment}
+    ```
     ICOOR_INTERNAL    O15  179.932453   59.543328    1.238233   C28   C13   N11
-    ~~~~
+    ```
 
     And the fields are the following: Child atom, phi angle, theta angle, distance, parent atom, angle atom, torsion atom
 
