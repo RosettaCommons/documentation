@@ -1,12 +1,11 @@
-<!-- --- title: Prepare Pdb For Rosetta With Relax -->Documentation for relax pdb with all-atom constraints / prepare pdb for rosetta with relax
+#Prepare PDB For Rosetta With Relax (Relax with all-atom constraints.)
 
- Author   
-Rocco Moretti and Lucas Nivon
+Author: Rocco Moretti and Lucas Nivon
 
 Metadata
 ========
 
-Updated 20120315 by Lucas Nivon. [nivon@u.washington.edu](#) . Baker lab. [dabaker@u.washington.edu](#)
+Updated 20120315 by Lucas Nivon. (nivon@u.washington.edu) . Baker lab. (dabaker@u.washington.edu)
 
 Code and Demo
 =============
@@ -41,7 +40,7 @@ The raw input is just a pdb. The sidechain constraints are prepared with the scr
 Options
 =======
 
-The constraint script takes a pdb input and the parameters for the constraint. The potential for the constraint is flat bottom with linear sides. The first value after the pdb(0.1 above) is the width of the flat-bottom portion of the potential. The second value (0.5 above) is the stdev or "tightness" of the linear portion of the potential. The following flags are required for this protocol in relax: -constrain\_relax\_to\_start\_coords -relax:script ../../../rosetta\_source/src/apps/public/relax\_w\_allatom\_cst/always\_constrained\_relax\_script -constraints:cst\_fa\_file yourpdb\_sc.cst
+The constraint script takes a pdb input and the parameters for the constraint. The potential for the constraint is flat bottom with linear sides. The first value after the pdb(0.1 above) is the width of the flat-bottom portion of the potential. The second value (0.5 above) is the stdev or "tightness" of the linear portion of the potential. The following flags are required for this protocol in relax: `-constrain_relax_to_start_coords` `-relax:script ../../../rosetta_source/src/apps/public/relax_w_allatom_cst/always_constrained_relax_script` `-constraints:cst_fa_file yourpdb_sc.cst`
 
 Tips
 ====
