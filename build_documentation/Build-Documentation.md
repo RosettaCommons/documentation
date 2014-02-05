@@ -94,3 +94,8 @@ Parallelize build into 3 threads (faster on multiproc. machine). In fact some so
 Use the version of scons that is distributed with mini. Useful for when scons is not installed on system
 
 `       python external/scons-local/scons.py      `
+
+# See Also
+
+- Additional [[build]] documentation.
+- An out-dated list of [[platforms]] supported by Rosetta.
