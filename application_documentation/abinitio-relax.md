@@ -1,12 +1,10 @@
-<!-- --- title:  Abinitio Relax -->Documentation for ab initio protein structure modeling application (AbinitioRelax)
-
- Author   
-David E Kim
+#Abinitio Relax
 
 Metadata
 ========
 
-This document was last updated on November, 2010 by David E Kim [dekim@uw.edu](#) . The PI is David Baker [dabaker@uw.edu](#) . The AbinitioRelax application was developed by numerous Rosetta Commons members, primarily:
+Author: David E Kim
+This document was last updated on November, 2010 by David E Kim (dekim@uw.edu) . The PI is David Baker (dabaker@uw.edu) . The AbinitioRelax application was developed by numerous Rosetta Commons members, primarily:
 
 -   Kim Simons
 -   Richard Bonneau
@@ -39,7 +37,7 @@ This application was developed to predict the 3-dimensional structure of a prote
 Algorithm
 =========
 
-The AbinitioRelax application consists of two main steps. The first step is a coarse-grained fragment-based search through conformational space using a knowledge-based "centroid" score function that favors protein-like features (Abinitio). The second optional step is all-atom refinement using the Rosetta full-atom forcefield (Relax). The "Relax" step is considerably more compute-intensive and time-consuming than the first step. The example run described above in the [[Code and Demo|app-name#code-demos]] section takes around 8 minutes to generate one model of a 117 residue protein on a modern computer. A single AbinitioRelax run can generate a user defined number of models via a command line option (see [u'Options'] section below). For increased conformational sampling, this application is easily parallelized by executing numerous jobs each using a unique random number seed (see [u'Options'] section below). This is typically done by submitting multiple jobs to a computer cluster or distributed grid. Since the full-atom energy function is very sensitive to imperfect atomic interactions and more noise will exist with insufficient sampling, convergence towards the native structure may require a significant amount of sampling. Additionally, to increase your chance of sampling the correct topology, a diverse set of homologous sequences, preferably with sequence changes that may have a greater impact on sampling like deletions and differences in conserved positions, may also be run since a homologue may converge towards the native structure with significantly less sampling (see Bradley *et al* reference).
+The AbinitioRelax application consists of two main steps. The first step is a coarse-grained fragment-based search through conformational space using a knowledge-based "centroid" score function that favors protein-like features (Abinitio). The second optional step is all-atom refinement using the Rosetta full-atom forcefield (Relax). The "Relax" step is considerably more compute-intensive and time-consuming than the first step. The example run described above in the [Code and Demo](#Code-and-Demo) section takes around 8 minutes to generate one model of a 117 residue protein on a modern computer. A single AbinitioRelax run can generate a user defined number of models via a command line option (see [Options](#Options) section below). For increased conformational sampling, this application is easily parallelized by executing numerous jobs each using a unique random number seed (see [Options](#Options) section below). This is typically done by submitting multiple jobs to a computer cluster or distributed grid. Since the full-atom energy function is very sensitive to imperfect atomic interactions and more noise will exist with insufficient sampling, convergence towards the native structure may require a significant amount of sampling. Additionally, to increase your chance of sampling the correct topology, a diverse set of homologous sequences, preferably with sequence changes that may have a greater impact on sampling like deletions and differences in conserved positions, may also be run since a homologue may converge towards the native structure with significantly less sampling (see Bradley *et al* reference).
 
 Input Files
 ===========
@@ -167,7 +165,7 @@ We recommend generating up to 20,000 to 30,000 models of the target sequence and
 
 In an ideal case, your sequence will have many homologs identified by search tools like PSI-BLAST. Sequence alignments can be extremely helpful in model selection. For example, conserved hydrophobic positions most likely represent the core of the protein so models that have sidechains exposed in such positions may be discarded. The same logic applies to conserved polar positions which are most likely on the surface. Additionally, conserved cysteine pairs may represent disulphides. Tools like Jalview to view alignments and PyMOL to view models are extremely helpful for model selection in this respect.
 
-Score versus RMSD plots may be helpful for identifying convergence towards the native structure for the target sequence and homologs. For example, the lowest scoring model can be used for the `       in:file:native      ` input option when rescoring models with the [[score.linuxgccrelease|score-commands]] score application. A score versus RMSD plot from the resulting score file may show convergence (an energy funnel) towards the lowest scoring model. If an energy funnel exists, the lowest scoring model has a greater chance of being near-native.
+Score versus RMSD plots may be helpful for identifying convergence towards the native structure for the target sequence and homologs. For example, the lowest scoring model can be used for the `       -in:file:native      ` input option when rescoring models with the [[score.linuxgccrelease|score-commands]] score application. A score versus RMSD plot from the resulting score file may show convergence (an energy funnel) towards the lowest scoring model. If an energy funnel exists, the lowest scoring model has a greater chance of being near-native.
 
 Lowest scoring models that are in a cluster and that have a topology represented in the PDB also have a greater chance of being correct. Structure-structure comparison tools like Dali or Mammoth can be used to search against the PDB database.
 
