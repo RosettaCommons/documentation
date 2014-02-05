@@ -1,7 +1,6 @@
-<!-- --- title:  Packer  Task -->How to use the PackerTask
+#How to use the PackerTask
 
- Author   
-Steven Lewis
+Author: Steven Lewis
 
 This page describes how the PackerTask (actually the PackerTask\_, because the former is an interface class) is intended to be used. Andrew LF built it so that it would be "commutative": the order in which you alter the PackerTask has no effect on its ultimate state (this is like a state function in thermodynamics). As a corollary, you are not allowed to arbitrarily modify the PackerTask; you can alter it generally only through commutative setters. Also, much of the real information in the PackerTask is contained within its ResidueLevelTasks (ResidueLevelTask\_), which allows position-level control of behavior. Most of this documentation applies to either; a call to the\_task.residue\_task(resid) returns the ResidueLevelTask you want.
 
@@ -30,6 +29,8 @@ How to chain calls
 
 PackerTask calls that modify the task usually return the task. This allows you to chain calls together:
 
-the\_task.initialize\_from\_command\_line().read\_resfile();
+```
+the_task.initialize_from_command_line().read_resfile();
+```
 
 This will cause the PackerTask to have all its member data set to match the commutative "solution" to the behaviors defined by the command line and resfile.
