@@ -1,13 +1,11 @@
-<!-- --- title: Namespaceutility 1 1Keys -->utility::keys Namespace Reference
+#utility::keys Namespace Reference
 
-Keys and key-accessed containers for fast, safe object lookup. [More...](#details)
+Keys and key-accessed containers for fast, safe object lookup.
 
 Detailed Description
 --------------------
 
-Keys and key-accessed containers for fast, safe object lookup.
-
-The [u'utility::keys'] package provides key classes and key-accessed containers. The keys are intended for use as named "indexes" for object lookup. Keys are like safer, more flexible enums when the integral value of the key doesn't have a meaning in the code. Keys have a hidden index value that only the containers can access, forcing application code to be written in terms of named keys instead of "magic" index numbers or unsafe enums. This makes it safe and fast to add new keys or change their order. Key class hierarchies add a capability that enums lack and the key classes hold additional identifier strings. Keys can also be added to key collections in separate source files, which is important for application "pluggability".
+The utility::keys package provides key classes and key-accessed containers. The keys are intended for use as named "indexes" for object lookup. Keys are like safer, more flexible enums when the integral value of the key doesn't have a meaning in the code. Keys have a hidden index value that only the containers can access, forcing application code to be written in terms of named keys instead of "magic" index numbers or unsafe enums. This makes it safe and fast to add new keys or change their order. Key class hierarchies add a capability that enums lack and the key classes hold additional identifier strings. Keys can also be added to key collections in separate source files, which is important for application "pluggability".
 
 The hidden index allows fast vector-based containers instead of much slower map or hash based containers. Special containers are provided for fast vector-based lookup when the container holds only a subset of the possible keys.
 
