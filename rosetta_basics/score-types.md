@@ -1,11 +1,11 @@
-<!-- --- title: Score Types -->Energy Terms In Rosetta We will intoduce couple of typical Rosetta weights files in this page to let you have a basic idea about energy terms in Rosetta
+#Energy Terms In Rosetta 
 
 Standard Weights File
 =====================
 
-Talaris2013 is currently the default score file in Rosetta for scoring full atom structures.
+Talaris2013 is currently the default score file in Rosetta for scoring full-atom structures.
 
-Energy terms using in talaris2013.wts
+Energy terms used in talaris2013.wts
 -------------------------------------
 
 ```
@@ -31,7 +31,7 @@ METHOD_WEIGHTS                             not an energy term itself, but the pa
 Additional energy terms for score12
 -----------------------------------
 
-Previous versions of Rosetta used the score12 energy function as the default full atom energy function. Many of the energy terms are the same as talaris2013 (though at different weights, and with different parameters), although there are some other terms used:
+Previous versions of Rosetta used the score12 energy function as the default full atom energy function. Many of the energy terms are the same as talaris2013 (though at different weights, and with different parameters), although other terms were also used:
 
 ```
 fa_pair                                    statistics based pair term, favors salt bridges. (Replaced by fa_elec)
