@@ -26,9 +26,8 @@ comment tags will be stripped from the documentation prior to being provided as 
 
 - [[A guide to developing in Rosetta]] - Outdated, RosettaCommons centric developer overview.
 - [[Before commit check]] - Things to check before submission.
-
 - [[App name]] - Template for Rosetta application documentation.
-- [[Template app documenation page]] - Alternative application documentation template.
+    - [[Template app documenation page]] - Alternative application documentation template.
 - [[ReviewerTemplate]] - A template for reviewers of application documentation.
 
 ### Pilot Apps Documentation
