@@ -1,4 +1,4 @@
-<!-- --- title: Loops File -->Loop File
+#Loops File
 
 Name
 ====
@@ -14,7 +14,7 @@ Application purpose
 
 Loop definitions are used to identify the residues in a loop. See: The -loops, the -loop\_file, and many others.
 
-Format
+File Format
 ======
 
 ```
@@ -34,5 +34,5 @@ For Example: A legal line in a loops file (the line by itself is a legal file):
 
 ```
 LOOP 23 30 26
-Loop from residues 23-30 with the cutpoint at 26.
 ```
+Loop from residues 23-30 with the cutpoint at 26.
