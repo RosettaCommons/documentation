@@ -1,15 +1,6 @@
-<!-- --- title: Namespacerosetta 1 1Io 1 1Pdb -->[Classes](#nested-classes)
+#core::io::pdb Namespace Reference
 
-rosetta::io::pdb Namespace Reference
-
-Classes used to read and write PDB files. [More...](#details)
-
-Classes
--------
-
-class
-
-PDBReader
+Classes used to read and write PDB files.
 
 Detailed Description
 --------------------
