@@ -1,4 +1,4 @@
-#UTracer - A tool for simplifying writings of unit tests
+#UTracer - A tool for simplifying writing unit tests
 
 UTracer is an object similar to core::util Tracer (see [[Tracer]] documentation page for more info). It main purpose is to capture user output, compare output with previously saved version and save new version in to '.\_tmp\_' file. In addition UTracer object can be used to capture output of specified channels inside core or protocols lib and compare this outputs to a file version.
 
