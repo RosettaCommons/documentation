@@ -1,13 +1,10 @@
-<!-- --- title: Jd2 -->New job distributor README
+#New job distributor README
 
- Author   
-Steven Lewis
+Author: Steven Lewis
 
 last updated 8/31/10
 
-New job distributor README It might make your life easier to read this in something with word-wrapping (a document editor, not a text editor)
-
--   author (of the readme): Steven Lewis [smlewi@gmail.com](#)
+-   author (of the readme): Steven Lewis (smlewi@gmail.com)
 -   author (of the code): Steven Lewis, Andrew Leaver-Fay
 -   author for SilentFile IO: James Thompson, Oliver Lange
 -   author for Parser concrete classes: Sarel Fleishman
@@ -16,7 +13,7 @@ New job distributor README It might make your life easier to read this in someth
 Am I using jd2?
 ===============
 
-Open up the executeable's code and search for the letters "jd2", if they're there, you're probably using jd2 and this documentation applies. If you find protocols::jobdist instead, this documentation probably does not apply.
+Open up the executable's code and search for the letters "jd2", if they're there, you're probably using jd2 and this documentation applies. If you find protocols::jobdist instead, this documentation probably does not apply.
 
 What work should be done? Singleton manager and polymorphic JobDistributor
 ==========================================================================
