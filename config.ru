@@ -9,6 +9,11 @@ require 'omnigollum'
 require 'omniauth/strategies/github'
 require 'omniauth/strategies/github_team_member'
 
+Gollum::Hook.register(:post_commit, :hook_id) do |committer, sha1|
+  committer.wiki.repo.git.pull
+  committer.wiki.repo.git.push
+end
+
 map '/docs' do
   # need to set this or else it uses http (no 's'), which causes github to give a bad URL error
   #OmniAuth.config.full_host = 'https://www.rosettacommons.org/docs'
@@ -27,7 +32,7 @@ map '/docs' do
   gollum_path = File.expand_path(File.dirname(__FILE__))
   Precious::App.set(:gollum_path, gollum_path)
   Precious::App.set(:default_markup, :markdown)
-  Precious::App.set(:wiki_options, {:universal_toc => false, :live_preview => false})
+  Precious::App.set(:wiki_options, {:universal_toc => false, :live_preview => false, :config => gollum_path+'config.rb'})
   Precious::App.set(:omnigollum, options)
   
   options[:authorized_users] = []
