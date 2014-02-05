@@ -1,11 +1,11 @@
-<!-- --- title: Namespaceutility 1 1Factory -->utility::factory Namespace Reference
+#utility::factory Namespace Reference
 
-A pluggable class factory system. [More...](#details)
+**>>>This namespace no longer exists<<<**
+
+A pluggable class factory system.
 
 Detailed Description
 --------------------
-
-A pluggable class factory system.
 
 For each abstract product type the factory can create objects of its concrete subtypes that have registered with the factory. The type to be created is selected by passing a key of a registered type to the factory's create function.
 
