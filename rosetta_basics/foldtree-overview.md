@@ -4,7 +4,7 @@ Metadata
 ========
 This document was written 1 Oct 2007 by Ian W. Davis and last updated 1 Oct 2007.
 
-The relevant Mini-Rosetta code is in core::kinematics. 
+The relevant code is in core::kinematics. 
 
 The fold tree
 =============
