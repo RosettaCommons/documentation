@@ -1,4 +1,4 @@
-<!-- --- title: Chemical Shift File -->Chemical Shift File
+#Chemical Shift File
 
 Name
 ====
@@ -15,14 +15,14 @@ Chemical shift data is stored in records one on each line. The records are colum
 Fields of chemical shift records
 
 ```
-Description      Data type              Columns     
+Description      Data type                  Columns     
 Amino acid code  1- or 3- letter string     1-3
-Residue number   decimal            5-8
-C shift      float              10-15
-CA shift     float                      17-22
-CB shift     float                      24-29
-HA shift     float                      31-36
-N shift      float                      38-43
+Residue number   decimal                    5-8
+C shift          float                      10-15
+CA shift         float                      17-22
+CB shift         float                      24-29
+HA shift         float                      31-36
+N shift          float                      38-43
 ```
 
 **Notes:**
@@ -31,7 +31,11 @@ N shift      float                      38-43
 -   Residue ids are positions as indicated in the PDB file.
 -   Atom types are as indicated in the PDB file.
 -   An unknown chemical shift value is represented by the value 9999.00.
--   For those familiar with printf each line is encoded as follows: " 0 0.00 0.00 0.00 0.00 0.00\\n"
+-   For those familiar with printf each line is encoded as follows: 
+
+    ```
+    "       0   0.00   0.00   0.00   0.00   0.00\n"
+    ```
 
 Example
 =======
