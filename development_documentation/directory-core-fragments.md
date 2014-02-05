@@ -1,14 +1,4 @@
-<!-- --- title: Directory Core Fragments -->Fragments Directory
-
-Table of Contents
-=================
-
--   Overview of Directory
--   Important Classes/Files in this Directory
--   Lateral Dependencies
--   Readmes, Code Snippets, and Tutorials
--   Code Design, Extension, and Comments
--   Index of Directory
+#core::fragments 
 
 Overview of Directory
 =====================
@@ -47,17 +37,14 @@ FragSets contain the basic data required for Fragment based alterations of confo
 
 You can steal fragments for poses. Say you have a particular set of backbone torsions in one protein that you would like to be available for your modeling. You can extract that fragment from the pose in the following manner
 
-`       //construct a Frame for the pos'th position of a pose with length len using BBTorsionSRFD (this is a rosetta++ like fragment)      `
-
-`       FrameOP frame = new Frame( pos, new FragData( new BBTorsionSRFD, len) );      `
-
-`       //steal the conformational data from pose      `
-
-`       frame->steal(pose);      `
-
-`       //add the frame to a fragset      `
-
-`       fragset->add(frame);      `
+```
+       //construct a Frame for the pos'th position of a pose with length len using BBTorsionSRFD (this is a rosetta++ like fragment)      
+       FrameOP frame = new Frame( pos, new FragData( new BBTorsionSRFD, len) );      
+       //steal the conformational data from pose      
+       frame->steal(pose);      
+       //add the frame to a fragset      
+       fragset->add(frame);      
+```
 
 the fragset now contains the fragment and can be used by a FragmentMover.
 
