@@ -1,6 +1,6 @@
 <!-- --- title: Platforms -->Platforms Information
 
-**This information is out of date. It needs to be updated for the current state of Rosetta compiling.**
+**This information is VERY out of date. It needs to be updated for the current state of Rosetta compiling.**
 
 Rosetta can be built and run on a number of platforms, described below. The level of support varies however.
 
@@ -14,39 +14,39 @@ Fully Support Platforms
 
 -   Darwin Kernel Version 9.6.0: root:xnu-1228.9.59\~1/RELEASE\_I386 i386
 
-    ~~~~ {.fragment}
+    ```
     Scons script: v1.2.0.r3842
     gcc-4.0.1
-    ~~~~
+    ```
 
 -   Darwin Kernel Version 9.5.2: root:xnu-1228.8.59\~2/RELEASE\_I386 i386
 
-    ~~~~ {.fragment}
+    ```
     Scons script: v1.0.1.r3363
     gcc-4.0.1 (GCC) 4.0.1
-    ~~~~
+    ```
 
 -   Linux 2.6.27-9-generic \#1 SMP x86\_64 GNU/Linux
 
-    ~~~~ {.fragment}
+    ```
     Scons script: v0.98.5.r3057
     gcc (GCC) 4.1.1, gcc (GCC) 4.2.4, gcc (GCC) 4.3.2
     Note: GCC with Ubuntu 4.3.2-1ubuntu12 and any version after it does not work
-    ~~~~
+    ```
 
 -   Linux 2.6.10-1.741\_FC3smp \#1 SMP i686 athlon i386 GNU/Linux
 
-    ~~~~ {.fragment}
+    ```
     Scons scripts v0.98.5.r3057
     gcc-4.1.1, gcc-3.4.4
-    ~~~~
+    ```
 
 -   Linux 2.6.9-78.0.8.ELsmp \#1 SMP Wed i686 i686 i386 GNU/Linux
 
-    ~~~~ {.fragment}
+    ```
     Scons scripts v1.2.0.r3842
     gcc (GCC) 3.4.6 20060404 (Red Hat 3.4.6-10)
-    ~~~~
+    ```
 
 The following platforms have partial support:
 =============================================
