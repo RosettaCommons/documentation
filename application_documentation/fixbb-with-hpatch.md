@@ -1,9 +1,9 @@
-<!-- --- title: Fixbb With Hpatch -->Documentation for using the fixed backbone design application, "fixbb", with the 'hpatch' solubility score term
+#Fixed backbone design application, "fixbb", with the 'hpatch' solubility score term
 
 Metadata
 ========
 
-This document was last edited on June 22, 2011 by Ron Jacak. The code was written by Ron Jacak and Andrew Leaver-Fay. The corresponding PI is Brian Kuhlman ( [bkuhlman@email.unc.edu](#) ).
+This document was last edited on June 22, 2011 by Ron Jacak. The code was written by Ron Jacak and Andrew Leaver-Fay. The corresponding PI is Brian Kuhlman (bkuhlman@email.unc.edu).
 
 Code and Demo
 =============
@@ -126,11 +126,11 @@ Rotamers
 -no_his_his_pairE                 Exclude the favorable pair term energy for HIS-HIS residue pairs - RECOMMENDED
 ```
 
--   Buried residues are those with \>= threshold (default: 18) neighbors within 10 Angstroms (Cbeta-distance). This threshold can be controlled by the -extrachi\_cutoff flag.
+\*   Buried residues are those with \>= threshold (default: 18) neighbors within 10 Angstroms (Cbeta-distance). This threshold can be controlled by the -extrachi\_cutoff flag.
 
 \*\* Aromatic residues are HIS, TYR, TRP, and PHE. Note: Including both -ex1 and -ex1\_aro does not increase the sampling for aromatic residues any more than including only the -ex1 flag. If however, both -ex1 and -ex1\_aro:level 4 are included on the command line, then aromatic residues will have more chi1 rotamer samples than non aromatic residues. Note also that -ex1\_aro can *only increase* the sampling for aromatic residues beyond that for non-aromatic residues. -ex1:level 4 and -ex1\_aro:level 1 together will have the same effect as -ex1:level 4 alone.
 
-\*\*\* More information about [[extra rotamer sampling levels|resfiles#extra-rotamer-commands]] , including recommended values, can be found on the [[resfile documentation page|resfiles]] .
+\*\*\* More information about [[extra rotamer sampling levels|resfiles#Extra-Rotamer-Commands:]], including recommended values, can be found on the [[resfile documentation page|resfiles]] .
 
 Because of the large number of metal-coordinating structures in the PDB, the pair energy term, which is meant to favor electrostatic interactions, gives a bonus to HIS-HIS residue pairs. Adding the -no\_his\_his\_pairE flag removes the bonus given to HIS-HIS residue pairs and reduces the number of designed histidines.
 
