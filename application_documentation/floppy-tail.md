@@ -1,17 +1,16 @@
-<!-- --- title:  Floppy Tail -->Documentation for FloppyTail application
-
- Author   
-Steven Lewis [smlewi@gmail.com](#)
+#FloppyTail application
 
 Metadata
 ========
 
-Last edited 1/24/13. Code by Steven Lewis. Corresponding PI Brian Kuhlman [bkuhlman@email.unc.edu](#) .
+Author: Steven Lewis (smlewi@gmail.com)
+
+Last edited 1/24/13. Code by Steven Lewis. Corresponding PI Brian Kuhlman (bkuhlman@email.unc.edu).
 
 Code and Demo
 =============
 
-The code is at `       rosetta/rosetta_source/src/apps/public/scenarios/FloppyTail/      ` ; there's an integration test+demo at `       rosetta/rosetta_source/test/integration/tests/FloppyTail/      ` . Note that the integration test is vastly under-cycled relative to getting it to do anything useful: the number of cycles it demonstrates should be sufficient to show some remodeling but not enough to get anywhere useful. To run that demo, go to that directory and run `       [path to executeable] -database [path to database] (at-symbol)options      `
+The code is at `       rosetta/rosetta_source/src/apps/public/scenarios/FloppyTail/      ` ; there's an integration test+demo at `       rosetta/rosetta_source/test/integration/tests/FloppyTail/      ` . Note that the integration test is vastly under-cycled relative to getting it to do anything useful: the number of cycles it demonstrates should be sufficient to show some remodeling but not enough to get anywhere useful. To run that demo, go to that directory and run `[path to executeable] -database [path to database] (at-symbol)options`
 
 References
 ==========
@@ -50,8 +49,8 @@ See test/integration/tests/FloppyTail/ for example usage. Basically all you need
 
 -   The code does not tolerate imperfections in the input PDB. Get rid of your heteroatoms, 0-occupancy regions, multiply-defined atoms, and waters beforehand.
 -   The code does not add your extension for you. You need to add starting coordinates (however meaningless) for the flexible tail. I had it pointing straight out into space (as it is in the demo).
--   See the fragment file input format [[Fragments Directory|directory-core-fragments]] for an explanation of how to make fragments.
--   See the constraint file input format [[Constraint File Instructions|constraint-file]] for an explantion of constraint files.
+-   See the [[fragment file]] input format for an explanation of how to make fragments.
+-   See the [[constraint file]] input format for an explanation of constraint files.
 
 Tips
 ====
@@ -75,7 +74,7 @@ This code was intended for a single purpose, but it may work if you have a simil
 Options
 =======
 
-FloppyTail options
+####FloppyTail options
 
 -   -flexible\_start\_resnum - integer - this is the start of the flexible tail in PDB numbering. (See below that you have an option for passing a MoveMap file instead).
 -   -flexible\_stop\_resnum - integer - this is the end of the flexible region, in PDB numbering. Not using this option means the entire chain after flexible\_start\_resnum. (See below that you have an option for passing a MoveMap file instead).
@@ -87,12 +86,12 @@ FloppyTail options
 -   -publication - boolean - If true, output system-specific results used in the demo and publication. Use FALSE for any other purpose; this boolean activates code including hardcoded references to particular residues and will cause either a crash or silly behavior on systems other than the demo/publication.
 -   -FloppyTail::cen\_weights - string - Use a custom centroid scorefunction for the centroid stage modeling.
 
-Kinematics Control options
+####Kinematics Control options
 
 -   -C\_root - boolean - If true, reroot the fold tree on the C-terminus. Use if you have an N-Terminal tail.
 -   -force\_linear\_fold\_tree - boolean - Force a linear fold tree. Use C\_root and reordering the chains in your input PDB as described above to ensure correct kinematics.
 
-Monte Carlo sampling control options
+####Monte Carlo sampling control options
 
 -   -FloppyTail::perturb\_temp - real - Monte Carlo temperature for perturb phase (0.8 used for production)
 -   -FloppyTail::perturb\_cycles - unsigned integer - number of perturb phase cycles (5000 used for production)
@@ -102,22 +101,24 @@ Monte Carlo sampling control options
 -   -FloppyTail::refine\_cycles - unsigned integer - number of refine phase cycles (3000 used for production)
 -   -FloppyTail::refine\_repack\_cycles - unsigned integer - Perform a repack/minimize every N cycles of refine mode (30 used for production)
 
-General options: All packing namespace options loaded by the PackerTask are respected. jd2 namespace options are respected. Anything very low-level, like the database paths, is respected.
+####General options: 
 
--   -packing::resfile - string - [[Resfile syntax and conventions|resfiles]] - resfile if you want one
+All packing namespace options loaded by the PackerTask are respected. jd2 namespace options are respected. Anything very low-level, like the database paths, is respected.
+
+-   -packing::resfile - string - [[Resfile|resfiles]] if you want one
 -   -packing::repack\_only - boolean - Tells the code not to perform design. Design is performed by default because PackerTasks behave that way.
--   -in::file::frag3 - string - [[Fragments Directory|directory-core-fragments]] - fragments if you've got them
--   -run::min\_type - string - [[Minimization overview and concepts|minimization-overview]] - minimizer type. dfpmin\_armijo\_nonmonotone used for production.
+-   -in::file::frag3 - string - [[Fragment file]] if you've got it
+-   -run::min\_type - string - [[Minimizer|minimization-overview]] type. dfpmin\_armijo\_nonmonotone used for production.
 -   -nstruct - integer - number of structures to generate
--   -constraints::cst\_file - string - [[Constraint File Instructions|constraint-file]] - for constraints (the centroid phase)
+-   -constraints::cst\_file - string - [[Constraint file]] - for constraints (the centroid phase)
 -   -constraints::cst\_weight - real - constraints weight (centroid phase)
--   -constraints::cst\_fa\_file - string - [[Constraint File Instructions|constraint-file]] - for constraints (the fullatom phase)
+-   -constraints::cst\_fa\_file - string - [[Constraint file]] - for constraints (the fullatom phase)
 -   -constraints::cst\_fa\_weight - real - constraints weight (fullatom phase)
 
 Multiple flexible linkers mode
 ==============================
 
-For release 3.4, FloppyTail supports multiple flexible linkers. To use these, you have to write your own MoveMap file to tell FloppyTail what is flexible, and pass it in via the flag in:file:movemap. The formatting is described in the header to the function core::kinematics::MoveMap::init\_from\_file (probably at core/kinematics/MoveMap.hh). Briefly, do this:
+For release 3.4, FloppyTail supports multiple flexible linkers. To use these, you have to write your own [[MoveMap file]] to tell FloppyTail what is flexible, and pass it in via the flag in:file:movemap. The formatting is described in the header to the function core::kinematics::MoveMap::init\_from\_file (probably at core/kinematics/MoveMap.hh). Briefly, do this:
 
 ```
 RESIDUE 20 30 BBCHI
