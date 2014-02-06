@@ -1,9 +1,9 @@
-<!-- --- title: Fixbb -->Documentation for the fixed backbone design application, "fixbb"
+#Fixed backbone design application, "fixbb"
 
 Metadata
 ========
 
-This document was edited Nov 1st 2008 by Yi Liu and again on May 11th, 2010 by Andrew Leaver-Fay. The `       fixbb      ` application is maintained by Brian Kuhlman's lab. Send questions to [bkuhlman@email.unc.edu](#)
+This document was edited Nov 1st 2008 by Yi Liu and again on May 11th, 2010 by Andrew Leaver-Fay. The `       fixbb      ` application is maintained by Brian Kuhlman's lab. Send questions to (bkuhlman@email.unc.edu)
 
 Code and Demo
 =============
