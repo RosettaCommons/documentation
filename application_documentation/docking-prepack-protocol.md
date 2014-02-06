@@ -1,12 +1,11 @@
 <!-- --- title: Docking Prepack Protocol -->Docking Prepack protocol (for Docking)
 
- Author   
-Robin Thottungal ( [raugust1@jhu.edu](#) ), Jeffrey Gray ( [jgray@jhu.edu](#) )
-
 Metadata
 ========
 
-Last edited 7/18/10. Corresponding PI Jeffrey Gray ( [jgray@jhu.edu](#) ).
+Author: Robin Thottungal (raugust1@jhu.edu), Jeffrey Gray (jgray@jhu.edu)
+
+Last edited 7/18/10. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
 
 Code and Demo
 =============
@@ -49,7 +48,7 @@ Note that in a default docking\_prepack run, side chain optimization is performe
 Modes
 -----
 
--   **[u'Docking\_Prepack protocol']** - additional optimization can be achived through the option system.
+-   **Docking\_Prepack protocol** - additional optimization can be achived through the option system.
 
 Input Files
 ===========
@@ -59,38 +58,29 @@ The only required input file is a pdb file containing two proteins with differen
 Options
 =======
 
-||
-|**Flag**|**Description**|**Type**|
-
-Protocol-Specific Options
+Basic protocol options
 -------------------------
 
--docking:partners [P1\_P2]
-
-Prepacking is done by separating chain P1 and chain P2
-
-String
-
--docking:partners LH\_A (moves chain A around fixed chains L and H)
-
-Prepacking is done by separating chain A and LH complex. Note that this will be usefull if you are planning to do docking between chain A and LH complex.
-
-String
+|**Flag**|**Description**|**Type**|
+|:-------|:--------------|:-------|
+|-docking:partners [P1\_P2] | Prepacking is done by separating chain P1 and chain P2 | String |
+|-docking:partners LH\_A (moves chain A around fixed chains L and H) | Prepacking is done by separating  chain A and LH complex. Note that this will be usefull if you are planning to do docking between chain A and LH complex. | String |
 
 optimization Flags
 ------------------
 
-||
+|**Flag**|**Description**|**Type**|
+|:-------|:--------------|:-------|
 |-docking::dock\_rtmin|Does Rotomer trial with side-chain minimization (see Wang, C et al, 2005 in reference) (note: not currently implemented in docking)|Boolean|
 |-docking::sc\_min|Does the side-chain global minimization over all the chi angles after packing.|Boolean|
 
 Relevant common Rosetta Flags
 -----------------------------
 
-||
-|-s 1abc.pdb|1abc.pdb is the pdb file with the protein-protien complex|
-|-database [P] 
- -database [path to rosetta database folder]|The Rosetta database.|
+|**Flag**|**Description**|**Type**|
+|:-------|:--------------|:-------|
+|-s 1abc.pdb|1abc.pdb is the pdb file with the protein-protein complex|
+|-database [path to rosetta database folder]|The Rosetta database.|
 
 Tips
 ====
@@ -98,13 +88,10 @@ Tips
 Expected Outputs
 ================
 
-```
-    1 PDB file for each structure generated and a 1 scorefile for each run with scoring and name information for each structure generated.
-```
+One PDB file for each structure generated and a 1 scorefile for each run with scoring and name information for each structure generated.
 
 New things since last release
 =============================
 
-```
-    Supports the modern job distributor (jd2).
-```
+Supports the modern job distributor (jd2).
+
