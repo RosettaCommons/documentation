@@ -1,12 +1,11 @@
-<!-- --- title:  Flex Pep Dock -->Documentation for the FlexPepDock application
-
- Author   
-Barak Raveh, Nir London, Ora Schueler-Furman
+#FlexPepDock
 
 Metadata
 ========
 
-Last updated July 24, 2011 ; PI: Ora Schueler-Furman [oraf@ekmd.huji.ac.il](#) .
+Author: Barak Raveh, Nir London, Ora Schueler-Furman
+
+Last updated July 24, 2011 ; PI: Ora Schueler-Furman (oraf@ekmd.huji.ac.il).
 
 Code and Demo
 =============
@@ -60,13 +59,13 @@ For more information, see the following tips about [correct usage of FlexPepDock
 Modes
 -----
 
--   **Pre-pack mode** ( [u'-flexpep\_prepack'] flag):
+-   **Pre-pack mode** ( -flexpep\_prepack flag):
      The pre-packing mode optimizes the side-chains of each monomer according to the Rosetta score12 energy function. Unless you know what you are doing, we strongly recommend pre-packing the input structures, and applying one of the peptide docking protocols to the resulting pre-packed structures, as this can improve model selection considerably (see below). However, in cases where side-chains have been previously optimized by Rosetta using the same scoring function, this step can be skipped.
 
 -   **Low-resolution *ab-initio* mode** (-lowres\_abinitio flag):
-     This is the main part of the *ab-initio* peptide docking protocol, for simultaneous *ab-initio* folding and docking of the peptide over the protein surface. This mode is typicalled used together with the refinement mode ( [u'-pep\_refine'] flag) - in this case, the peptide is first folded *de-novo* and then refined.
+     This is the main part of the *ab-initio* peptide docking protocol, for simultaneous *ab-initio* folding and docking of the peptide over the protein surface. This mode is typicalled used together with the refinement mode ( -pep\_refine flag) - in this case, the peptide is first folded *de-novo* and then refined.
 
--   **Refinement mode** ( [u'-pep\_refine'] flag)
+-   **Refinement mode** ( -pep\_refine flag)
      High-resolution refinement, starting from a coarse model of the complex. This protocol may be used together with the lowres\_preoptimize flag, see below. It is also used for refining the low-resolution structure that results from the low-resolution *ab-initio* protocol (these two modes can be used together)
      Important note: for most input files, we strongly recommend running the prepack mode (below) before running the *ab-initio* or Refinement protocols.
 
@@ -89,475 +88,113 @@ FlexPepDock requires the following inputs:
      See `        test/integration/tests/flexpepdock/input/1ER8.pdb       ` for an example in Refinement mode, or `        protocol_capture/FlexPepDock_AbInitio/input_file/2b1z.native.pdb       ` for *ab-initio* mode.
 
 -   **Fragment files (for *ab-initio* docking):**
-     3-mer, 5-mer and 9-mer Rosetta fragment files should be provided for the peptide sequence when using the *ab-initio* protocol (if the peptide length is smaller than 9, use 3-mer and 5-mer libraries). Note that fragments are not required for the receptor, but the fragment files for the peptide should be reindexed to account for the preceding receptor residues. For instance, if the receptor has 100 residues, the first resiude index in the fragment file for the peptide should be 101. The protocol capture script `        protocol_capture/FlexPepDock_AbInitio/scripts/frags/shift.sh       ` can be used to offset a fragment file. The protocol capture also enables automatic generation and offsetting of the entire fragment file (see README file). See example runs below in the [[Tips|app-name#tips]] section.
+     3-mer, 5-mer and 9-mer Rosetta fragment files should be provided for the peptide sequence when using the *ab-initio* protocol (if the peptide length is smaller than 9, use 3-mer and 5-mer libraries). Note that fragments are not required for the receptor, but the fragment files for the peptide should be reindexed to account for the preceding receptor residues. For instance, if the receptor has 100 residues, the first resiude index in the fragment file for the peptide should be 101. The protocol capture script `        protocol_capture/FlexPepDock_AbInitio/scripts/frags/shift.sh       ` can be used to offset a fragment file. The protocol capture also enables automatic generation and offsetting of the entire fragment file (see README file). See example runs below in the [Tips](#Tips) section.
 
 -   **Constraint file (optional):**
-     As in any other Rosetta protocol, please refer to the [[constraints file documentation page constraint_file]] for more information.
+     As in any other Rosetta protocol, please refer to the [[constraint file]] documentation page for more information.
 
 Options
 =======
 
-Note that the [u'-flexpep\_prepack'] and [u'-flexPepDockingMinimizeOnly'] flags are mutually exclusive with respect to the -lowres\_abinitio and [u'-pep\_refine'] , as they denote completely different modes of functionally (-pep\_refine and -lowres\_abinitio are commonly used together, for ab-initio peptide modeling followed by refinement).
+Note that the -flexpep\_prepack and -flexPepDockingMinimizeOnly' flags are mutually exclusive with respect to the -lowres\_abinitio and -pep\_refine, as they denote completely different modes of functionally (-pep\_refine and -lowres\_abinitio are commonly used together, for ab-initio peptide modeling followed by refinement).
 
 I. Common FlexPepDock flags:
 ----------------------------
 
-```
-
-
-
-   Flag
-
-   
-   
-
-   Description
-
-   
-   
-
-   Type
-
-   
-   
-
-   Default
-
-   
-  
- 
-
-
-
-   -receptor_chain
-  
- 
-  chain-id of receptor protein
-  
- 
-   String
-  
- first chain in input
-  
-
-
-
-
- -peptide_chain
- 
-  
- chain-id of peptide protein
-  
- 
-   String
-  
-  
- second chain in input
-  
- 
-
-
-
--lowres_abinitio
- 
- 
-  Low-resolution ab-initio folding and docking model.
- 
- 
-  String
- 
- 
-   false
- 
- 
-
-
-
--pep_refine
- 
- 
-  Refinement mode. (equivalent to obsolete
-  -rbMCM -torsionsMCM flags)
- 
- 
-  String
- 
- 
-   false
- 
- 
- 
-
-
--lowres_preoptimize
-  
-
-  Perform a preliminary round of centroid mode
-  optimization before Refinement. See more details
-  in Tips.
-  
- 
- Boolean
-  
- false
-  
- 
- 
-
-
--flexpep_prepack
-  
- Prepacking mode. Optimize the side-chains of each
-  monomer separately (without any docking).
-  
- 
- Boolean
-  
- false
-  
- 
- 
-
-
- -flexpep_score_only
-  
- Read in a complex, score it and output interface statistics
-  
- 
- Boolean
-  
- false
-  
- 
- 
-
-
--flexPepDockingMinimizeOnly
-  
- Minimization mode. Perform only a short minimization of
-      the input complex
-  
- 
- Boolean
-  
- false
-  
- 
- 
-
-
- -ref_startstruct
-  
- Alternative start structure for scoring statistics,
-  instead of the original start structure (useful as reference
-  for rescoring previous runs with the flexpep_score_only flag.)
-  
- 
- File
-  
- N/A
-  
- 
- 
-
-
-    -peptide_anchor
-  
-  
-  Set the peptide anchor residue manually. It is recommended to
-  override the default value only if one strongly suspects the critical
-    region for peptide binding is extremely remote from its center of mass.
-  
-  
-  Integer
-  
-  
-   Residue nearest to the peptide center of mass.
-  
- 
-
-
-```
+|  Flag  |  Description  |  Type  |  Default  |
+|:-------|:--------------|:-------|:----------|
+| -receptor_chain| chain-id of receptor protein| String| first chain in input|
+| -peptide_chain| chain-id of peptide protein|  String| second chain in input|
+|-lowres_abinitio| Low-resolution ab-initio folding and docking model.| String| false|
+|-pep_refine|Refinement mode. (equivalent to obsolete -rbMCM -torsionsMCM flags)| String| false|
+|-lowres_preoptimize| Perform a preliminary round of centroid mode optimization before Refinement. See more details in [Tips](#Tips).| Boolean| false|
+|-flexpep_prepack|Prepacking mode. Optimize the side-chains of each monomer separately (without any docking).| Boolean|false|
+|-flexpep_score_only| Read in a complex, score it and output interface statistics| Boolean| false|
+|-flexPepDockingMinimizeOnly| Minimization mode. Perform only a short minimization of the input complex|Boolean|false|
+| -ref_startstruct| Alternative start structure for scoring statistics,instead of the original start structure (useful as reference for rescoring previous runs with the -flexpep_score_only flag.)| File| N/A|
+|-peptide_anchor| Set the peptide anchor residue manually. It is recommended to override the default value only if one strongly suspects the critical region for peptide binding is extremely remote from its center of mass.| Integer| Residue nearest to the peptide center of mass.|
 
 II. Relevant Common Rosetta flags
 ---------------------------------
 
 More information on common Rosetta flags can be found in the [[relevant rosetta manual pages|Rosetta-Basics]]. In particular, flags related to the job-distributor (jd2), scoring function, constraint files and packing resfiles are identical to those in any other Rosetta protocol).
 
-```
-
-
-
-                Flag
-                
-                
-                    Description
-                
-            
-            
-
-
-                    -in::file::s
-          
-
-          Or
-          
-
-                    -in:file:silent
-                
-                
-                    Specify starting structure
-                    (in::file::s for PDB format, in:file:silent for silent file
-                    format).
-                
-            
-            
-
-
-                    -in::file::silent_struct_type  
-
-          -out::file::silent_struct_type
-                
-                
-                    Format of silent file to be read
-                    in/out. For silent output, use the binary file type since
-                    other types may not support ideal form
-                
-            
-            
-
-
-                    
--native
-                
-                
-
-                    Specify the native structure for which to compare in
-          RMSD calculations. This is a required flag. When the native
-          is not given, the starting structure is used
-          for reference.
-                
-            
-            
-
-
-                    -nstruct
-                
-                
-                    Number of models to create in the
-                    simulation
-                
-            
-            
-
-
-                    -unboundrot
-                
-                
-                    Add the position-sepcific rotamers of the specified
-                    structure to the rotamer library (usually used to include
-                    rotamers of unbound receptor)
-                
-            
-            
-
-
-                    -use_input_sc
-                
-                
-                    Include rotamer conformations from the input structure
-          during side-chain repacking. Unlike the -unboundrot flag,
-                    not all rotamers from the input structure are added each
-                    time to the rotamer library, only those conformations accepted
-                    at the end of each round are kept and the remaining
-                    conformations are lost.
-                
-            
-            
-
-
-                    -ex1/-ex1aro -ex2/-ex2aro -ex3 -ex4
-                
-                
-                    Adding extra side-chain rotamers
-          (highly   recommended). The -ex1 and -ex2aro flags were used in our
-                    own tests, and therefore are recommended as default values.
-                
-            
-            
-
-
-                    -database
-                
-                
-                    The Rosetta database
-                
-            
-            
-
-
-         -frag3 / -frag5 / -frag9
-        
-        
-          3mer / 5mer / 9mer fragments files for ab-initio peptide docking
-          (9mer fragments for peptides longer than 9).
-        
-     
-    
-
-
-```
+|  Flag  |  Description  |
+|:-------|:--------------|
+| -in::file::s  Or -in:file:silent| Specify starting structure (in::file::s for PDB format, in:file:silent for silent file format).|
+| -in::file::silent_struct_type  -out::file::silent_struct_type|Format of silent file to be read in/out. For silent output, use the binary file type since other types may not support ideal form|
+|-native|Specify the native structure for which to compare in RMSD calculations. This is a required flag. When the native is not given, the starting structure is used for reference.|
+|-nstruct|Number of models to create in the simulation|
+|-unboundrot|Add the position-sepcific rotamers of the specified structure to the rotamer library (usually used to include rotamers of unbound receptor)|
+|-use_input_sc|Include rotamer conformations from the input structure during side-chain repacking. Unlike the -unboundrot flag, not all rotamers from the input structure are added each time to the rotamer library, only those conformations accepted at the end of each round are kept and the remaining conformations are lost.|
+|-ex1/-ex1aro -ex2/-ex2aro -ex3 -ex4|Adding extra side-chain rotamers (highly   recommended). The -ex1 and -ex2aro flags were used in our own tests, and therefore are recommended as default values.|
+|-database|The Rosetta database|
+|-frag3 / -frag5 / -frag9|3mer / 5mer / 9mer fragments files for ab-initio peptide docking (9mer fragments for peptides longer than 9).|
 
 III. Expert flags
 -----------------
 
-```
-    
-
-
-                    Flag
-                
-                
-                    Description
-                
-                
-                    Type
-                
-                
-                    Default
-                
-            
-            
-
-
-                    -rep_ramp_cycles
-                
-                
-                    The number of outer cycles for the
-          protocol. In each cycle, the repulsive energy of Rosetta is gradually
-          rampped up and the attractive energy is rampped down, before inner-cycles
-          of Monte-Carlo with Minimiation (MCM) are applied.
-
-  </TD>
-  <TD>
-      Integer
-  </TD>
-  <TD>
-      10
-  </TD>
-```
-
--mcm\_cycles
-
-Number of inner-cycles for both rigid-body and torsion-angle Monte-Carlo with Minimization (MCM) procedures.
-
-Integer
-
-8
-
--smove\_angle\_range
-
-Defines the perturbations size of small/sheer moves.
-
-Real
-
-6.0
-
--extend\_peptide
-
-start the protocol with the peptide in extended conformation (neglect original peptide conformation ; extend from the anchor residue)
-
-Boolean
-
-false
-
--rbMCM
-
-Perform rigid body refinement by Monte-Carlo with Minimization (obsolete)
-
-Boolean
-
-false
-
--torsionsMCM
-
-Perform peptide backbone refinement by Monte-Carlo with Minimization (obsolete)
-
-Boolean
-
-false
-
--frag3/5/9\_weight
-
-Relative weight of different fragment libraries in ab-initio fragment insertion cycles.
-
-Real
-
-1.0 / 0.25 / 0.1
+|  Flag  |  Description  |  Type  |  Default  |
+|:-------|:--------------|:-------|:----------|
+|-rep_ramp_cycles|The number of outer cycles for the protocol. In each cycle, the repulsive energy of Rosetta is gradually rampped up and the attractive energy is rampped down, before inner-cycles of Monte-Carlo with Minimiation (MCM) are applied.|Integer|10|
+|-mcm\_cycles|Number of inner-cycles for both rigid-body and torsion-angle Monte-Carlo with Minimization (MCM) procedures.|Integer|8|
+|-smove\_angle\_range|Defines the perturbations size of small/sheer moves.|Real|6.0|
+|-extend\_peptide|start the protocol with the peptide in extended conformation (neglect original peptide conformation ; extend from the anchor residue)|Boolean|false|
+|-rbMCM|Perform rigid body refinement by Monte-Carlo with Minimization (obsolete)|Boolean|false|
+|-torsionsMCM|Perform peptide backbone refinement by Monte-Carlo with Minimization (obsolete)|Boolean|false|
+|-frag3/5/9\_weight|Relative weight of different fragment libraries in ab-initio fragment insertion cycles.|Real|1.0 / 0.25 / 0.1|
 
 Tips
 ====
 
-Example runs
+Examples
 ------------
 
 -   **Refinement - typical run in three steps:**
     1.  pre-pack your initial complex
 
-        ~~~~ {.fragment}
+        ```
          FlexPepDocking.{ext}
         -database ${rosetta_db} -s start.pdb -native native.pdb -flexpep_prepack
          -ex1 -ex2aro [-unboundrot unbound.pdb]
-        ~~~~
-
+        ```
     2.  generate 100 (or more) models with the -lowres\_preoptimize flag, and additional 100 models (or more) without this flag, by two separate runs (the low resolution can be skipped if you are in a hurry)
 
-        ~~~~ {.fragment}
+        ```
         FlexPepDocking.{ext}
         -database ${rosetta_db} -s start_0001.pdb -native native.pdb
         -out:file:silent decoys.silent -out:file:silent_struct_type binary
         -pep_refine -ex1 -ex2aro -use_input_sc
         -nstruct 100 -unboundrot unbound_receptor.pdb [ -lowres_preoptimize ]
-        ~~~~
-
+        ```
     3.  Open the output score file of both runs (score.sc by default), sort it by model score (second column), and choose the top-scoring models as candidate models.
 
 -   **Running the FlexPepDock *ab-initio* protocol:**
      Running the *ab-initio* protocol is a bit more complicated, since fragment files for the peptide need to be generated in advance, and their residue indices need to be offsetted to account for the receptor residues (as fragment files assume continuous indexing of residues between chains). Fortunately, the protocol capture folder `        protocol_capture/FlexPepDock_AbInitio/README       ` contains all information on how to automate this process. For manual runs, the following is needed:
-    1.  Create your initial complex structure (see [[Input files|app-name#inputs]] section for more information).
-
+    1.  Create your initial complex structure (see [Input files](#Input-Files) section for more information).
     2.  Pre-pack your initial complex as in FlexPepDock Refinement
-
     3.  Prepare 3-mer, 5-mer and 9-mer fragment files for the peptide using the fragment picker, as in any other Rosetta application (fragment libraries are not required for the receptor).
-
     4.  Assuming the receptor chain precedes the peptide chain, offset the indexing of the fragment file to account for it. In UNIX, this can be done by running the following sequence of commands:
-
-        ~~~~ {.fragment}
+        ```
         set ifragfile=<input frag file name>
         set ofragfile=<output frag file name>
         set nResReceptor=<# receptor residues>
         awk '{if ( substr ( $0,1,3 ) == "pos" ) {print substr ( $0,0,18 ) sprintf ("%4d",substr ( $0,19,4 ) + '"$nResReceptor"' ) substr ( $0,23,1000 ) ; } else {print ; }}' $ifragfile > $ofragfile
-        ~~~~
-
+        ```
     5.  Generate 50,000 (or other number of choice) output models using the FlexPepDock *ab-initio* protocol:
-
-        ~~~~ {.fragment}
+        ```
         FlexPepDocking.{ext}
         -database ${rosetta_db} -s start.pdb -native native.pdb
         -out:file:silent decoys.silent -out:file:silent_struct_type binary
         -lowres_abinitio -pep_refine -ex1 -ex2aro -use_input_sc
         -frag3 <frag3 file> -frag5 <frag5 file> -frag9 <frag9 file>
         -nstruct 50000 -unboundrot unbound_receptor.pdb
-        ~~~~
-
+        ```
     6.  You may rank the model according to the default score (second column in score file). However, our benchmarks indicate that ranking the models according to a new score, called *rewighted-score* , may be helpful (look for the column labeled "reweighted\_sc" in the score file).
-
     7.  We also found that clustering of the top-500 models using the Rosetta clustering application and choosing the clusters with lowest-energy representatives is helpful, and that good solutions are often found within the top 1-10 clusters. Clustering can be done (in UNIX) using the script `           protocol_capture/FlexPepDock_AbInitio/scripts/clustering/cluster.sh          ` , assuming the models are stored in a silent file, as follows.
-
-        ~~~~ {.fragment}
+        ```
         cluster.sh pdb-id 500 2 <scorefile> <reference-pdb> <models-silent-file> <score-type-column>
-        ~~~~
-
+        ```
         The last parameter is the column number of the score according to which you wish to choose the top-500 models. We recommend using the column labeled "reweighted\_sc" for this, as described above.
 
 More tips
@@ -607,58 +244,25 @@ Expected Outputs
 
 The output of a FlexPepDock run is a score file (score.sc by default) and k model structures (as specified by the -nstruct flag and the other common Rosetta input and output flags). The score of each model is the second column of the score file. Model selection should be made based on either the score or reweighted-score columns (which exhibited superior performance in the *ab-initio* benchmarks).
 
-```
-Interpretation of FlexPepDock-specific score terms: (for the common Rosetta scoring terms, please also see the relevant manual page).
-    
-```
 
-**total\_score** <sup>\*</sup>
+**Interpretation of FlexPepDock-specific score terms:** (for the common Rosetta scoring terms, please also see the [[relevant manual page|score-types]]).
 
-**Total score of the complex**
-
-**reweighted\_sc** <sup>\*</sup>
-
-Reweighted score of the complex, in which interface residues are given double weight, and peptide residues are given triple weight
-
-I\_bsa
-
-Buried surface area of the interface
-
-I\_hb
-
-Number of hydrogen bonds across the interface
-
-I\_pack
-
-Packing statistics of the interface
-
-I\_sc
-
-Interface score (sum over energy contributed by interface residues of both partners)
-
-pep\_sc
-
-Peptide score (sum over energy contributed by the peptide to the total score; consists of the internal peptide energy and the interface energy)
-
-I\_unsat
-
-Number of buried unsatisfied HB donors and acceptors at the interface.
-
-rms (ALL/BB/CA)
-
-RMSD between output model and the native structure, over all peptide (heavy/backbone/C-alpha) atoms
-
-rms (ALL/BB/CA)\_if
-
-RMSD between output model and the native structure, over all peptide interface (heavy/backbone/C-alpha) atoms
-
-startRMS(all/bb/ca)
-
-RMSD between start and native structures, over all peptide (heavy/backbone/C-alpha) atoms
+|**total\_score** <sup>\*</sup>|**Total score of the complex**|
+|:-----------------------------|:-----------------------------|
+|**reweighted\_sc** <sup>\*</sup>|Reweighted score of the complex, in which interface residues are given double weight, and peptide residues are given triple weight|
+|I\_bsa|Buried surface area of the interface|
+|I\_hb|Number of hydrogen bonds across the interface|
+|I\_pack|Packing statistics of the interface|
+|I\_sc|Interface score (sum over energy contributed by interface residues of both partners)|
+|pep\_sc|Peptide score (sum over energy contributed by the peptide to the total score; consists of the internal peptide energy and the interface energy)|
+|I\_unsat|Number of buried unsatisfied HB donors and acceptors at the interface.|
+|rms (ALL/BB/CA)|RMSD between output model and the native structure, over all peptide (heavy/backbone/C-alpha) atoms|
+|rms (ALL/BB/CA)\_if|RMSD between output model and the native structure, over all peptide interface (heavy/backbone/C-alpha) atoms|
+|startRMS(all/bb/ca)|RMSD between start and native structures, over all peptide (heavy/backbone/C-alpha) atoms|
 
 <sup>\*</sup> For all interface terms, the interface residues are defined as those whose C-Beta atoms (C-Alpha for Glycines) are up to 8A away from any corresponding atom in the partner protein
 
 Post Processing
 ===============
 
-Except for model selection by total score or reweighted score, and possibly clustering (see [[Tips|app-name#tips]] section), no special post-processing steps are needed. For the *ab-initio* protocol, the protocol capture README file in `   protocol_capture/FlexPepDock_AbInitio/  ` contains all the information needed for clustering. However, advanced users may optionally use Rosetta [[Commands for the cluster application|cluster]] directly for assessing whether top-scoring models converge to a consensus solution. For FlexPepDock Refinement, clustering is an optional step, and is not considered an integral part of the Refinement protocol, as described and tested in Raveh *et al.*
+Except for model selection by total score or reweighted score, and possibly clustering (see [Tips](#Tips) section), no special post-processing steps are needed. For the *ab-initio* protocol, the protocol capture README file in `   protocol_capture/FlexPepDock_AbInitio/  ` contains all the information needed for clustering. However, advanced users may optionally use Rosetta [[Commands for the cluster application|cluster]] directly for assessing whether top-scoring models converge to a consensus solution. For FlexPepDock Refinement, clustering is an optional step, and is not considered an integral part of the Refinement protocol, as described and tested in Raveh *et al.*
