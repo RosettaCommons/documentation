@@ -1,4 +1,4 @@
-$RNA 3D design: *rna\_design*
+#RNA 3D design: *rna\_design*
 
 Metadata
 ========
