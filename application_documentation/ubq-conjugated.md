@@ -1,12 +1,11 @@
-<!-- --- title:  U B Q Conjugated -->Documentation for UBQ\_E2\_thioester, UBQ\_Gp\_CYD-CYD, and UBQ\_Gp\_LYX-Cterm applications
-
- Author   
-Steven Lewis [smlewi@gmail.com](#)
+#UBQ chemically conjugated docking 
 
 Metadata
 ========
 
-Last edited 8/23/13. Code by Steven Lewis. Corresponding PI Brian Kuhlman [bkuhlman@email.unc.edu](#) .
+Author: Steven Lewis (smlewi@gmail.com)
+
+Last edited 8/23/13. Code by Steven Lewis. Corresponding PI Brian Kuhlman (bkuhlman@email.unc.edu).
 
 Note on contents and history
 ============================
