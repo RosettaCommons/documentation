@@ -1,10 +1,9 @@
-<!-- --- title:  V I P App -->Documentation for RosettaVIP Void Indentification and Packing application
-
- Author   
-Jim Havranek
+#RosettaVIP - Void Indentification and Packing application
 
 Metadata
 ========
+
+Author: Jim Havranek
 
 Feb. 2012 by Jim Havranek (havranek [at] genetics.wustl.edu).
 
