@@ -1,12 +1,11 @@
-<!-- --- title: Antibody Python Script -->Documents for RosettaAntibody3: a). The PreProcessing Python Script
-
- Author   
-Jianqing Xu ( [xubest@gmail.com](#) ), Daisuke Kuroda ( [dkuroda1981@gmail.com](#) ), Oana Lungu ( [olungu@utexas.edu](#) ), Jeffrey Gray ( [jgray@jhu.edu](#) )
+#RosettaAntibody3: a). The PreProcessing Python Script
 
 Metadata
 ========
 
-Last edited 4/25/2013. Corresponding PI Jeffrey Gray ( [jgray@jhu.edu](#) ).
+Author: Jianqing Xu (xubest@gmail.com), Daisuke Kuroda (dkuroda1981@gmail.com), Oana Lungu (olungu@utexas.edu), Jeffrey Gray (jgray@jhu.edu)
+
+Last edited 4/25/2013. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
 
 References
 ==========
@@ -19,7 +18,7 @@ We recommend the following articles for further studies of RosettaDock methodolo
 Application purpose
 ===========================================
 
-This is a python script for pre-processing for the antibody protocol: [https://svn.rosettacommons.org/source/trunk/antibody/scripts.v2/](https://svn.rosettacommons.org/source/trunk/antibody/scripts.v2/)
+This is a python script for pre-processing for the antibody protocol (developer only repository): [https://svn.rosettacommons.org/source/trunk/antibody/scripts.v2/](https://svn.rosettacommons.org/source/trunk/antibody/scripts.v2/)
 
 The script consists of 3 main steps:
 
