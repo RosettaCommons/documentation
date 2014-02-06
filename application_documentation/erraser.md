@@ -1,10 +1,9 @@
-<!-- --- title: Erraser -->Documentation for remodeling RNA crystallographic models with electron density constraint (ERRASER: Enumerative Real-Space Refinement ASsitted by Electron density under Rosetta)
-
- Author   
-Fang-Chieh Chou
+#Remodeling RNA crystallographic models with electron density constraint (ERRASER: Enumerative Real-Space Refinement ASsitted by Electron density under Rosetta)
 
 Metadata
 ========
+
+Author: Fang-Chieh Chou
 
 Mar. 2012 by Fang-Chieh Chou (fcchou [at] stanford.edu).
 
@@ -49,12 +48,12 @@ There is only one mode to run ERRASER at present.
 Input Files
 ===========
 
-Required file
+Required files
 -------------
 
 You need two files:
 
--   The starting stucture in standard pdb format. The ERRASER directly takes the standard pdb file and convert it to Rosetta format automatically, therfore no pre-processing is required.
+-   The starting structure in standard pdb format. The ERRASER directly takes the standard pdb file and convert it to Rosetta format automatically, therefore no pre-processing is required.
 
 -   A CCP4 electron density map file. This can be created by PHENIX or other refinement packages. The input map must be a CCP4 2mFo-DFc map. To avoid overfitting, Rfree reflection should be excluded during the creation of the map file.
 
@@ -71,29 +70,29 @@ Prior to running ERRASER, the following setup is required:
 1.  Download and install PHENIX from [http://www.phenix-online.org/](http://www.phenix-online.org/) . PHENIX is free for academic users.
 2.  Ensure you have correctly setup PHENIX. As a check, run the following command and see if it works:
 
-```
-phenix.rna_validate
-```
+    ```
+    phenix.rna_validate
+    ```
 
-1.  Check if you have the latest python (v2.7) installed. If not, go to the `        rosetta/rosetta_tools/ERRASER/       ` folder and run
+3.  Check if you have the latest python (v2.7) installed. If not, go to the `        rosetta/rosetta_tools/ERRASER/       ` folder and run
 
-```
-./convert_to_phenix.python
-```
+    ```
+    ./convert_to_phenix.python
+    ```
 
-This will change the default python used by the code to phenix-built-in python, instead of using system python.
+    This will change the default python used by the code to phenix-built-in python, instead of using system python.
 
-1.  Set up the environmental variable "\$ROSETTA", point it to the Rosetta folder. If you use bash, append the following lines to `        ~/.bashrc       ` :
+4.  Set up the environmental variable "\$ROSETTA", point it to the Rosetta folder. If you use bash, append the following lines to `        ~/.bashrc       ` :
 
-```
-ROSETTA=<YOUR_ROSETTA_PATH>; export ROSETTA
-```
+    ```
+    ROSETTA=<YOUR_ROSETTA_PATH>; export ROSETTA
+    ```
 
-Also add the ERRASER script folder to \$PATH. Here is a bash example:
+    Also add the ERRASER script folder to \$PATH. Here is a bash example:
 
-```
-PATH=$PATH:<YOUR_ROSETTA_PATH>/rosetta_tools/ERRASER/
-```
+    ```
+    PATH=$PATH:<YOUR_ROSETTA_PATH>/rosetta_tools/ERRASER/
+    ```
 
 Now you are ready to go!
 
@@ -107,7 +106,7 @@ The first two arguments are required – the input pdb file and the CCP4 map fil
 
 You can see examples of the output pdb file in `       example_output/      ` .
 
-How to include these files.
+Command-lines in some more detail.
 ---------------------------
 
 The above workflow should work, but its worth looking at the rosetta command-lines called by the python scripts to see what's going on.
@@ -239,4 +238,4 @@ At the end you will get a output pdb file in standard pdb format. The output fil
 New things since last release
 =============================
 
-All the application used here ( *erraser\_minimizer* , *swa\_rna\_analytical\_closure* and *swa\_rna\_main* ) are new as of Rosetta 3.4. A new electron density scoring method `       elec_dens_atomwise      ` is used in ERRASER. ERRASER also uses an updated rna torsional potential based on RNA09 dataset.
+All the application used here (*erraser\_minimizer* , *swa\_rna\_analytical\_closure* and *swa\_rna\_main*) are new as of Rosetta 3.4. A new electron density scoring method `       elec_dens_atomwise      ` is used in ERRASER. ERRASER also uses an updated rna torsional potential based on RNA09 dataset.
