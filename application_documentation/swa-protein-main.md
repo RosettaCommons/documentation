@@ -1,10 +1,9 @@
-<!-- --- title: Swa Protein Main -->Documentation for enumerative building of a protein loop [part of Stepwise Assembly modeling]
-
- Author   
-Rhiju Das
+#Enumerative building of a protein loop [part of Stepwise Assembly modeling]
 
 Metadata
 ========
+
+Author: Rhiju Das
 
 Written in 2013. Last update: Apr. 2013 by Rhiju Das (rhiju [at] stanford.edu).
 
@@ -39,7 +38,7 @@ The algorithm builds a loop de novo by enumerating through phi, psi, and omega a
 Limitations
 ===========
 
--   This demo is for short loops (\<6 residues), in which the complete enumeration can be carried out in a single Rosetta job. Running 'StepWise Assembly' on a longer loop requires a more complex workflow that carries out buildup of the loop across all possible residue-by-residue build paths. This full workflow is described in separate documentation [[see [Documentation for StepWise Assembly (SWA): enumerative building of a protein loop through systematic recursion|swa-protein-long-loop]] ].
+-   This demo is for short loops (\<6 residues), in which the complete enumeration can be carried out in a single Rosetta job. Running 'StepWise Assembly' on a longer loop requires a more complex workflow that carries out buildup of the loop across all possible residue-by-residue build paths. This full workflow is described in separate documentation see [[Enumerative building of a protein loop through systematic recursion|swa-protein-long-loop]].
 
 -   As with most other modes in Rosetta, the final ensemble of models is not guaranteed to be a Boltzmann ensemble. However the outputted models *are* expected to be a complete set of the lowest energy configurations stemming from a reasonably complete search of conformational space.
 
@@ -64,7 +63,7 @@ Required file
 
 You need only two input files to run `       swa_protein_main      ` loop modeling:
 
--   The [[fasta|rna-denovo#fasta]] fasta file: it is the sequence file for your full model (protein plus built loop).
+-   The [[fasta file]]: it is the sequence file for your full model (protein plus built loop).
 
 -   The input PDB file. It is OK to input this without any sidechains and without loops. You can also include a starting loop (its bond lengths and angles will be used for all models).
 
@@ -202,7 +201,7 @@ It can be useful for runs that refine a structure (e.g., the experimental struct
 generate_CA_constraints.py 2it7.pdb -cst_res 5-8 -coord_cst -anchor_res 1 -fade > 2it7_coordinate2.0.cst
 ```
 
-This python script is available in `       rosetta_tools/SWA_protein_python/generate_dag/      `
+This python script is available in `       rosetta/tools/SWA_protein_python/generate_dag/      `
 
 To incorporate into the loop modeling above, include in the `       swa_protein_main      ` command line a flag `       -cst_file2it7_coordinate2.0.cst      `
 
