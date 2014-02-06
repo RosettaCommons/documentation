@@ -1,10 +1,9 @@
-<!-- --- title: Swa Protein Long Loop -->Documentation for StepWise Assembly (SWA): enumerative building of a protein loop through systematic recursion
-
- Author   
-Rhiju Das
+#Enumerative building of a protein loop through systematic recursion
 
 Metadata
 ========
+
+Author: Rhiju Das
 
 Written in 2013. Last update: Apr. 2013 by Rhiju Das (rhiju [at] stanford.edu).
 
@@ -29,12 +28,12 @@ Sripakdeevong, P., Kladwang, W., and Das, R. (2011) "An enumerative stepwise ans
 Application purpose
 ===========================================
 
-This code is intended to give three-dimensional de novo models of protein segments at atomic accuracy without requiring input information from surrounding sidechains. This documentation presents the workflow for loops longer than 4-5 residues. See [[Documentation for enumerative building of a protein loop [part of Stepwise Assembly modeling]|swa-protein-main]] for short loops.
+This code is intended to give three-dimensional de novo models of protein segments at atomic accuracy without requiring input information from surrounding sidechains. This documentation presents the workflow for loops longer than 4-5 residues. See [[Enumerative building of a protein loop [part of Stepwise Assembly modeling]|swa-protein-main]] for short loops.
 
 Algorithm
 =========
 
-The algorithm builds a loop de novo by building fragments one residue at a time from the takeoff point and from the ending poiint, by complete backbone enumeration at each step. Models of the entire protein loop are created by exhaustively combining N-terminal and C-terminal fragments and subjecting to chain closure. Each single-residue rebuild or chain closure step is a Rosetta call to `       swa_protein_main      ` ; these calls are described in [[Documentation for enumerative building of a protein loop [part of Stepwise Assembly modeling]|swa-protein-main]] . The workflow is described as a directed acyclic graph (DAG) of Rosetta jobs with well-defined dependencies.
+The algorithm builds a loop de novo by building fragments one residue at a time from the takeoff point and from the ending poiint, by complete backbone enumeration at each step. Models of the entire protein loop are created by exhaustively combining N-terminal and C-terminal fragments and subjecting to chain closure. Each single-residue rebuild or chain closure step is a Rosetta call to `       swa_protein_main      ` ; these calls are described in [[Enumerative building of a protein loop [part of Stepwise Assembly modeling]|swa-protein-main]]. The workflow is described as a directed acyclic graph (DAG) of Rosetta jobs with well-defined dependencies.
 
 Limitations
 ===========
@@ -43,13 +42,13 @@ Limitations
 
 -   This method has been demonstrated to reach atomic accuracy for small motifs (12 residues or less), including cases that are not solvable by other Rosetta approaches such as fragment assembly or KIC loop modeling. However, in several cases it is one of the five lowest models that is atomically accurate, not the very lowest energy one. Problems in the Rosetta energy function become apparent in discriminating 'correct' loops when the conformational sampling is carried out exhaustively.
 
--   Carrying out full StepWise Assembly requires a master python script to setup the job, and another master python script to queue up the resulting computation, which is described as a directed acyclic graph. This full workflow is described in separate documentation [see [u'Documentation for StepWise Assembly (SWA): enumerative building of a protein loop through systematic recursion'] ].
+-   Carrying out full StepWise Assembly requires a master python script to setup the job, and another master python script to queue up the resulting computation, which is described as a directed acyclic graph. This full workflow is described in separate documentation [see [[Enumerative building of a protein loop through systematic recursion|swa-protein-long-loop]] ].
 
 -   As with most other modes in Rosetta, the final ensemble of models is not guaranteed to be a Boltzmann ensemble. However the outputted models *are* expected to be a complete set of the lowest energy configurations stemming from a reasonably complete search of conformational space.
 
 -   Minimization or sampling of tau [CA bond angle] is not being carried out.
 
--   This code is not fully integrated with RNA StepWise Assembly scripts [[see [Documentation for RNA loop modeling (lock-and-key problem) with Stepwise Assembly, using *swa_rna_main* and *swa_rna_util* executables|swa-rna-loop]] ], although their development stemmed from the original shared codebase. Python scripts for running the complete workflow are similar, but not the same. These codebases may potentially be unified in the near future to help tackle RNA/protein modeling such as the ribosome.
+-   This code is not fully integrated with RNA StepWise Assembly scripts [see [[RNA loop modeling (lock-and-key problem) with Stepwise Assembly|swa-rna-loop]] ], although their development stemmed from the original shared codebase. Python scripts for running the complete workflow are similar, but not the same. These codebases may potentially be unified in the near future to help tackle RNA/protein modeling such as the ribosome.
 
 Modes
 =====
@@ -68,8 +67,8 @@ export ROSETTA='/Users/rhiju/src/rosetta/'   [change to your Rosetta directory]
 You also need your system to know where the python scripts are for generating the DAG and running the jobs:
 
 ```
-PATH=$PATH:$ROSETTA/rosetta_tools/SWA_protein_python/generate_dag/
-PATH=$PATH:$ROSETTA/rosetta_tools/SWA_protein_python/run_dag_on_cluster/
+PATH=$PATH:$ROSETTA/rosetta/tools/SWA_protein_python/generate_dag/
+PATH=$PATH:$ROSETTA/rosetta/tools/SWA_protein_python/run_dag_on_cluster/
 ```
 
 Input Files
@@ -80,7 +79,7 @@ Required file
 
 You need only two input files to run `       swa_protein_main      ` loop modeling:
 
--   The [[fasta|rna-denovo#fasta]] fasta file: it is the sequence file for your full model (protein plus built loop).
+-   The [[fasta file]]: it is the sequence file for your full model (protein plus built loop).
 
 -   The input PDB file. It is OK to input this without any sidechains and without loops. You can also include a starting loop (its bond lengths and angles will be used for all models).
 
@@ -123,7 +122,7 @@ condor_dagman protein_build.dag
 
 We have found `       condor_dagman      ` to be extraordinarily slow, unfortunately. A further problem is that there is currently no good universal solution to running DAGs on clusters, although packages like Pegasus and newer versions of Hadoop appear promising.
 
-For our own purposes, we have developed in-house python scripts [available in `       rosetta_tools/SWA_protein_python/run_dag_on_cluster/      ` ] to run the jobs by kicking off a master node that can queue jobs to slave nodes. Most recently, we have been using PBS/torque ('qsub') queueing, and you can run the jobs using 100 cores with the command:
+For our own purposes, we have developed in-house python scripts [available in `       rosetta/tools/SWA_protein_python/run_dag_on_cluster/      ` ] to run the jobs by kicking off a master node that can queue jobs to slave nodes. Most recently, we have been using PBS/torque ('qsub') queueing, and you can run the jobs using 100 cores with the command:
 
 ```
  qsub README_QSUB
@@ -197,7 +196,7 @@ It can be useful for runs that refine a structure (e.g., the experimental struct
 generate_CA_constraints.py 2it7.pdb -cst_res 3-8 -coord_cst -anchor_res 1 -fade > 2it7_coordinate2.0.cst
 ```
 
-This python script is available in `       rosetta_tools/SWA_protein_python/generate_dag/      ` , which should already be in your path.
+This python script is available in `       rosetta/tools/SWA_protein_python/generate_dag/      ` , which should already be in your path.
 
 To incorporate into the loop modeling above, include in the `       generate_swa_protein_dag.py      ` command line a flag `       -cst_file 2it7_coordinate2.0.cst      `
 
