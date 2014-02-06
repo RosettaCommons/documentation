@@ -1,12 +1,11 @@
-<!-- --- title: Pepspec -->Documentation for pepspec application
-
- Author   
-Chris King [dr.chris.king@gmail.com](#)
+#Pepspec application
 
 Metadata
 ========
 
-Last updated 4/13/2010; P.I. Phil Bradley [pbradley@fhcrc.org](#)
+Author: Chris King (dr.chris.king@gmail.com)
+
+Last updated 4/13/2010; P.I. Phil Bradley (pbradley@fhcrc.org)
 
 Code and Demo
 =============
@@ -31,7 +30,7 @@ The pepspec application implements an anchored, flexible-backbone peptide dockin
 Limitations
 ===========
 
-This application is *NOT* for structure prediction of an entire protein. You need to have a model of the peptide-binding protein, although this model may be derived from experiment, homology modeling, or de novo protein folding. This applcation does *NOT* move the backbone of the input protein structure. Backbone ensembles can be generated with the [backrub](https://www.rosettacommons.org/internal/doc/mini/all_else/backrub.html) or [relax](https://www.rosettacommons.org/internal/doc/mini/all_else/relax_commands.html) applications. This application does *NOT* support de novo docking of the peptide anchor residue; you need to have at bare minimum a model of a protein-peptide complex homologous to your target protein. To dock a single residue with no knowledge of where the binding pocket might be, you may consider using the [docking](https://www.rosettacommons.org/internal/doc/mini/all_else/ligand_dock.html) application.
+This application is *NOT* for structure prediction of an entire protein. You need to have a model of the peptide-binding protein, although this model may be derived from experiment, homology modeling, or de novo protein folding. This applcation does *NOT* move the backbone of the input protein structure. Backbone ensembles can be generated with the [[backrub]] or [[relax]] applications. This application does *NOT* support de novo docking of the peptide anchor residue; you need to have at bare minimum a model of a protein-peptide complex homologous to your target protein. To dock a single residue with no knowledge of where the binding pocket might be, you may consider using the [[docking|ligand-dock]] application.
 
 Modes
 =====
@@ -41,7 +40,7 @@ This application has two major modes: Anchor Docking and Peptide Design. Anchor 
 Input Files
 ===========
 
-Anchor Docking Tips
+Anchor Docking Input Files
 -------------------
 
 -   Input structure (list): pepspec\_anchor\_dock requires an input structure of the target peptide-binding protein. pepspec\_anchor\_dock also accepts a list of input structures if sampling of a pre-generated protein conformational ensemble is desired.
@@ -51,7 +50,7 @@ Anchor Docking Tips
 
 for each homolog. It is highly recommended you perform the structural alignment of the homologues to your target structure ahead of time. This is necessary to insure that the homologue complex peptides' coordinates are properly superimposed in your target protein's reference frame. As long as peptide backbone coordinates can be gleaned from the homologues, all other aspects of the homologues' PDB model quality are irrelevant. You can optionally choose for Rosetta to attempt a sequence alignment and subsequent structural alignment of the homologue proteins to your target protein (-pepspec:seq\_align), but the alignment may not be ideal. I recommend using [Cealign](http://www.pymolwiki.org/index.php/Cealign) .
 
-Documentation for pepspec application
+Pepspec Input Files
 -------------------------------------
 
 -   Input structure(s): pepspec requires an input structure of a protein docked to an N-mer polypeptide. pepspec also accepts a list of input structures if sampling of a conformational ensemble is desired. Single-residue docked structures can be generated with the pep\_anchor\_dock application (see above).
@@ -68,11 +67,11 @@ You will probably only need to use General and Typical Options. These options wi
 
 -option:name [data\_type] - this is a description (default\_value)
 
-General Instruction
+General Options
 -------------------
 
 -   -database [file path] - the Rosetta 3 database location
--   -in: <file:s> [file path] - single input structure
+-   -in:file:s [file path] - single input structure
 -   -pepspec:pdb\_list [String] - instead of a single input structure, use a list of input structures ()
 -   -o [String] - this is a string to define the tag used to name the output scorefiles, pdbs, and pdb directories
 -   -ex1 - increase the chi1 resolution of the rotamer library
@@ -138,7 +137,7 @@ Pepspec Options (Extra)
 Benchmarking Options
 --------------------
 
--   -in: <file:native> [String] - native structure, for benchmarking ()
+-   -in:file:native [String] - native structure, for benchmarking ()
 -   -pepspec:native\_pep\_anchor [Integer] - native peptide anchor residue ()
 -   -pepspec:native\_pep\_chain [String] - native peptide anchor residue ()
 -   -pepspec:native\_align [Boolean] - align target structure to native for RMSD analysis (false)
@@ -158,11 +157,11 @@ Anchor Docking Tips
 -   If docking keeps failing due to clashing residues, check your structural alignment! If everything looks aligned, try increasing the clash tolerance (default 5.0) using -pepspec:clash\_cutoff. This can happen especially when trying to dock into a catalytic active site. Don’t worry, these clashes will be ignored in the next phase.
 -   After running, you may want to use the scorefile to filter out high-energy docked conformations before feeding the ensemble of docked structures into the peptide design phase.
 
-Documentation for pepspec application
+Pepspec Tips
 -------------------------------------
 
 -   A note on using peptide constraints: If you used the pepspec\_anchor\_dock app to get starting structures, it is possible that the peptide backbone constraint file was generated using only one or two homologue complexes as a reference. If this is the case, or you have reason to believe that peptides may in fact bind with backbone conformations not represented in the homologue set, then use of the constraints may prevent your simulation from ever generating the necessary diversity of peptide backbone structures. To avoid use of constraints, simply do not include a reference to the constraint file in you command line arguments. (e.g. delete the line "-pepspec::homol\_csts \*.cst" from you input arguments.) If you're not using constraints, you need to do much, MUCH more sampling (i.e. an order of magnitude more).
--   The target protein *must* be pre-packed before attempting peptide design! Failure to do this can result in crazy answers! If you are NOT using an input structure generated from the pepspec anchor docking phase, then use the [fixbb](https://www.rosettacommons.org/internal/doc/mini/all_else/fixed_backbone.html) application to repack all the sidechains.
+-   The target protein *must* be pre-packed before attempting peptide design! Failure to do this can result in crazy answers! If you are NOT using an input structure generated from the pepspec anchor docking phase, then use the [[fixbb]] application to repack all the sidechains.
 -   By default, only one structure per peptide backbone conformation is saved. This is because the sequence diversification phase would generate a huge number of similar structures. To save a structure for every line in the scorefile, use -pepspec:save\_all\_pdbs .
 -   The diversification stage can substantially slow down execution time. If you aren't worried about over-converging to one solution (e.g. if you are just trying to design one peptide ligand), you can suppress the behavior with to command line argument "-pepspec:diversify\_pep\_seqs false"
 
