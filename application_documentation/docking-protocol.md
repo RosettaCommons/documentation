@@ -1,12 +1,12 @@
-<!-- --- title: Docking Protocol -->Docking Protocol (RosettaDock)
-
- Author   
-Brian Weitzner ( [brian.weitzner@jhu.edu](#) ), Monica Berrondo ( [mberron1@jhu.edu](#) ), Krishna Kilambi ( [kkpraneeth@jhu.edu](#) ), Robin Thottungal ( [raugust1@jhu.edu](#) ), Sidhartha Chaudhury ( [sidc@jhu.edu](#) ), Chu Wang ( [chuwang@gmail.com](#) ), Jeffrey Gray ( [jgray@jhu.edu](#) )
+#Docking Protocol (RosettaDock)
 
 Metadata
 ========
 
-Last edited 7/18/2011. Corresponding PI Jeffrey Gray ( [jgray@jhu.edu](#) ).
+Authors:
+Brian Weitzner (brian.weitzner@jhu.edu), Monica Berrondo (mberron1@jhu.edu), Krishna Kilambi (kkpraneeth@jhu.edu), Robin Thottungal (raugust1@jhu.edu), Sidhartha Chaudhury (sidc@jhu.edu), Chu Wang (chuwang@gmail.com), Jeffrey Gray (jgray@jhu.edu)
+
+Last edited 7/18/2011. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
 
 Code and Demo
 =============
@@ -58,11 +58,11 @@ For particular targets, a variety of RosettaDock sampling strategies are often u
 Modes
 -----
 
--   **[u'Full protocol']** - The full protocol involved first exploring the conformational space of the partners through a low resolution search followed by all-atom local refinement through a Monte Carlo+Minimization algorithm.
--   **[u'Low Resolution Docking Only']** - The protein is represented as backbone plus centroid representation of sidechains, i.e. the sidechain is represented as one giant atom to save CPU time. In this stage RosettaDock attempts to find the rough orientation of the docking partners for the high-resolution search.
--   **[u'High Resolution Docking Only (Local Refinement)']** - All atoms in the protein are represented, and the position found in the low-resolution search is optimized. Rigid body MCM is alternated with sidechain repacking so that the sidechains can adjust to a new, more favorable orientation and vice versa. The high-resolution stage uses up the most CPU time of Rosetta.
--   **[u'Local High Resolution Minimization']** - Similar to Local refinement, all atoms in the protein are represented. A single run of minimization, as opposed to a series of Monte Carlo+Minimization cycles, is done to minimize the energy of the rigid body position. Minimization is followed by side-chain packing.
--   **[u'Global or local docking']** can be acheived by using different starting perturbation flags to generate a starting structure from the input structure.
+-   **Full protocol** - The full protocol involved first exploring the conformational space of the partners through a low resolution search followed by all-atom local refinement through a Monte Carlo+Minimization algorithm.
+-   **Low Resolution Docking Only** - The protein is represented as backbone plus centroid representation of sidechains, i.e. the sidechain is represented as one giant atom to save CPU time. In this stage RosettaDock attempts to find the rough orientation of the docking partners for the high-resolution search.
+-   **High Resolution Docking Only (Local Refinement)** - All atoms in the protein are represented, and the position found in the low-resolution search is optimized. Rigid body MCM is alternated with sidechain repacking so that the sidechains can adjust to a new, more favorable orientation and vice versa. The high-resolution stage uses up the most CPU time of Rosetta.
+-   **Local High Resolution Minimization** - Similar to Local refinement, all atoms in the protein are represented. A single run of minimization, as opposed to a series of Monte Carlo+Minimization cycles, is done to minimize the energy of the rigid body position. Minimization is followed by side-chain packing.
+-   **Global or local docking** can be achieved by using different starting perturbation flags to generate a starting structure from the input structure.
 
 Input Files
 ===========
@@ -70,24 +70,25 @@ Input Files
 The only required input file is a [[prepacked pdb file|docking-prepack-protocol]] containing two proteins with different chain IDs. Starting structures must be prepacked because the side chains are only packed at the interface during docking. Running docking prepack protocol ensures that the side chains outside of the docking interface have a low energy conformation which provides a better reference state for scoring. For more information on prepacking, see the [[Docking Prepack protocol documentation.|docking-prepack-protocol]]
 
 **Note:** The following flags should be given to every docking simulation: -ex1 -ex2aro.
- If you are using a starting structure with more than two polypeptide chains, you should include the -partners flag. If this flag is omitted, docking will dock the first two polypeptide chains in the strucutre.
+
+If you are using a starting structure with more than two polypeptide chains, you should include the -partners flag. If this flag is omitted, docking will dock the first two polypeptide chains in the strucutre.
 
 Standard Docking options
 ========================
 
-||
-|**Flag**|**Description**|**Type**|
 
-Protocol-Specific Options
+Basic protocol options
 -------------------------
 
-||
+|**Flag**|**Description**|**Type**|
+|:-------|:--------------|:-------|
 |-partners [P1\_P2]|Defines docking partners by chain ID for multichain docking. For example, "-partners LH\_A" moves chain A around the dimer of chains L and H.|String|
 
 Starting Perturbation Flags
 ---------------------------
 
-||
+|**Flag**|**Description**|**Type**|
+|:-------|:--------------|:-------|
 |-randomize1|Randomize the orientation of the first docking partner. (Only works with 2 partner docking).|Boolean|
 |-randomize2|Randomize the orientation of the second docking partner. (Only works with 2 partner docking).|Boolean|
 |-spin|Spin a second docking partner around axes from center of mass of the first partner to the second partner.|Boolean|
@@ -97,7 +98,8 @@ Starting Perturbation Flags
 Packing Flags
 -------------
 
-||
+|**Flag**|**Description**|**Type**|
+|:-------|:--------------|:-------|
 |-norepack1|Do not repack the sidechains on the first docking partner. (Only works with 2 partner docking).|Boolean|
 |-norepack2|Do not repack the sidechains on the second docking partner.|Boolean|
 |-sc\_min|Perform extra side chain minimization steps during packing steps.|Boolean|
@@ -110,46 +112,47 @@ Default mode of docking. No additional flags necessary.
 Low Resolution Docking Only Flags
 ---------------------------------
 
-||
+|**Flag**|**Description**|**Type**|
+|:-------|:--------------|:-------|
 |-low\_res\_protocol\_only|Only run the low resolution part of the protocol (skips all high resolution steps and only outputs low resolution structure).|Boolean|
 
 High Resolution Docking Only Flags
 ----------------------------------
 
-||
+|**Flag**|**Description**|**Type**|
+|:-------|:--------------|:-------|
 |-docking\_local\_refine|Refine the docking position in high resolution only (skips all low resolution steps of the protocol). Uses small perturbations of the positions, no large moves.|Boolean|
 
 Local High Resolution Minimization Flags
 ----------------------------------------
 
-||
+|**Flag**|**Description**|**Type**|
+|:-------|:--------------|:-------|
 |-docking\_local\_refine|Refine the docking position in high resolution only (skips all low resolution steps of the protocol). Uses small perturbations of the positions, no large moves.|Boolean|
 |-dock\_min|Does a single round of minimization in high resolution, skipping the mcm protocol.|Boolean|
 
 Relevant common Rosetta Flags
 -----------------------------
 
-||
+|**Flag**|**Description**|**Type**|
+|:-------|:--------------|:-------|
 |-s [S] OR -silent [S]|Specify the file name of the starting structure, [S] (in:file:s for PDB format, in:file:silent for silent file format).|String|
 |-native [S]|Specify the file name of the native structure, [S], for which to compare in RMSD calculations. If a native file is not passed in, all calculations are done using the starting structure as native.|String|
 |-nstruct [I]|Specify the number of decoys, [I], to generate.|Integer|
 |-database [P]|The path to the Rosetta database (e.g. \~/rosetta\_database).|String|
 |-use\_input\_sc|Use accepted rotamers from the input structure between Monte Carlo+Minimization (MCM) cycles. Unlike the -unboundrot flag from Rosetta++, not all rotamers from the input structure are added each time to the rotamer library, but only those accepted at the end of each round the remaining conformations are lost.|Boolean|
 |-ex1/-ex1aro -ex2/-ex2aro -ex3 -ex4|Adding extra side-chain rotamers (highly recommended). The -ex1 and -ex2aro flags were used in our own tests, and therefore are recommended as default values.|Boolean/Integer|
-|-constraints:cst\_file [[S]|Specify the name of the [constraint file|constraint-file]] , [S].|String|
+|-constraints:cst\_file [S]|Specify the name of the [[constraint file]], [S]. |String|
 
 Expert Flags
 ------------
 
-||
-|-dock\_mcm\_trans\_magnitude [T]|The magnitude of the translational perturbation during MCM steps in docking in Angstroms. 
- Defaults to 0.7 Å|Real|
-|-dock\_mcm\_rot\_magnitude [R]|The magnitude of the rotational perturbation during MCM steps in docking in degress. 
- Defaults to 5.0º|Real|
-|-docking\_centroid\_outer\_cycles [C]|Number of cycles to use in outer loop of docking low resolution protocol. 
- Defaults to 10.|Integer|
-|-docking\_centroid\_inner\_cycles [C]|Number of cycles to use in inner loop of docking low resolution protocol. 
- Defaults to 50.|Integer|
+|**Flag**|**Description**|**Type**|
+|:-------|:--------------|:-------|
+|-dock\_mcm\_trans\_magnitude [T]|The magnitude of the translational perturbation during MCM steps in docking in Angstroms. Defaults to 0.7 Å |Real|
+|-dock\_mcm\_rot\_magnitude [R]|The magnitude of the rotational perturbation during MCM steps in docking in degress. Defaults to 5.0º |Real|
+|-docking\_centroid\_outer\_cycles [C]|Number of cycles to use in outer loop of docking low resolution protocol. Defaults to 10. |Integer|
+|-docking\_centroid\_inner\_cycles [C]|Number of cycles to use in inner loop of docking low resolution protocol. Defaults to 50. |Integer|
 
 Tips
 ====
@@ -181,9 +184,7 @@ This will add a FLAT\_HARMONIC potential with the parameters 0 1 5 (recommended;
 Expected Outputs
 ================
 
-```
-    1 PDB file for each candidate docked model generated and a 1 scorefile for each run summarizing all generated models.
-```
+One PDB file for each candidate docked model generated and a 1 scorefile for each run summarizing all generated models.
 
 Post Processing
 ===============
