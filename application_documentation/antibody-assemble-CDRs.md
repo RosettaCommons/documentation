@@ -1,33 +1,33 @@
-<!-- --- title: Antibody Assemble  C D Rs -->Documents for RosettaAntibody3: b). Grafting CDR loops on Antibody Frameework
-
- Author   
-Jianqing Xu ( [xubest@gmail.com](#) ), Daisuke Kuroda ( [dkuroda1981@gmail.com](#) ), Oana Lungu ( [olungu@utexas.edu](#) ), Jeffrey Gray ( [jgray@jhu.edu](#) )
+#RosettaAntibody3: b). Grafting CDR loops on Antibody Framework
 
 Metadata
 ========
 
-Last edited 4/25/2013. Corresponding PI Jeffrey Gray ( [jgray@jhu.edu](#) ).
+Authors: 
+Jianqing Xu (xubest@gmail.com), Daisuke Kuroda (dkuroda1981@gmail.com), Oana Lungu (olungu@utexas.edu), Jeffrey Gray (jgray@jhu.edu)
+
+Last edited 4/25/2013. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
 
 Code for Reading Constraints
 ============================
 
 -   Application source code:
 
-    ~~~~ {.fragment}
+    ```
     rosetta/rosetta_source/src/apps/pilot/jianqing/antibody_assemble_CDRs.cc
-    ~~~~
+    ```
 
 -   Main mover source code:
 
-    ~~~~ {.fragment}
+    ```
     rosetta/rosetta_source/src/protocols/antibody2/GraftCDRLoopsProtocol.cc
-    ~~~~
+    ```
 
 -   To see demos of some different use cases see integration tests located in
 
-    ~~~~ {.fragment}
+    ```
     rosetta/rosetta_tests/integration/antibody_CDR_grafting 
-    ~~~~
+    ```
 
 To run Grafting Protocol, type the following in a command line:
 
@@ -64,7 +64,7 @@ FR.pdb (framework template)
  L1.pdb, L2.pdb, L3.pdb (L chain CDR templates)
  H1.pdb, H2.pdb, H3.pdb (H chain CDR templates)
 
-The preparation of these inputs can be found in the [[Documents for RosettaAntibody3: Protocol Workflow|antibody-protocol]]
+The preparation of these inputs can be found in the [[RosettaAntibody3: Protocol Workflow|antibody-protocol]]
 
 Flags
 =====
@@ -118,7 +118,7 @@ Flags
 
 -   Options: true or false
 
-FoldTree output
+Output
 ===============
 
 One pdb file with 6 CDR grafted.
