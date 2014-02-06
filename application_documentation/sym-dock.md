@@ -1,10 +1,9 @@
-<!-- --- title:  Sym Dock -->Documentation for the symmetric docking application
-
- Author   
-Ingemar André
+#Symmetric docking
 
 Metadata
 ========
+
+Author: Ingemar André
 
 This document was edited Aug 20th 2010 by Ingemar Andre. This application in rosetta was created by Ingemar André.
 
@@ -21,7 +20,7 @@ Andre I, Bradley P, Wang C, Baker D. Prediction of the structure of symmetrical 
 Application purpose
 ===========================================
 
-The application predicts the structure of symmetric homooligomeric protein assemblies starting from the structure of a single subunit. It is very similar in spirit to the standard protein-protein docking protocol and contains the same basic components. The relative subunit orientation and conformations of side-chains are simultaneously optimized for a symmetric protein assembly.
+The application predicts the structure of symmetric homooligomeric protein assemblies starting from the structure of a single subunit. It is very similar in spirit to the [[standard protein-protein docking protocol|docking-protocol]] and contains the same basic components. The relative subunit orientation and conformations of side-chains are simultaneously optimized for a symmetric protein assembly.
 
 Algorithm
 =========
@@ -51,7 +50,7 @@ General/Packing Options
 
 -   -database [file path] - the Rosetta 3 database location
 
--   -in: <file:s> [file path] - the input subunit structure
+-   -in:file:s [file path] - the input subunit structure
 
 -   -ex1, -ex2, -extrachi\_cutoff [num residues], etc. - increase the resolution of the rotamer library
 
@@ -101,7 +100,7 @@ A standard run would involve the following flags
 -symmetry:symmetric_rmsd
 ```
 
-If you want to cluster the result make sure to output silent files ( -out: <file:silent> and -out: <file:silent_struct_type> binary ) as the symmetry information is lost when outputting PDB files.
+If you want to cluster the result make sure to output silent files ( -out:file:silent and -out:file:silent_struct_type binary ) as the symmetry information is lost when outputting PDB files.
 
 Expected Outputs
 ================
