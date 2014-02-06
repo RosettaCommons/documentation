@@ -1,12 +1,11 @@
-<!-- --- title: Match -->Documentation for the match application
-
- Author   
-Florian Richter, Andrew Leaver-Fay
+#Match application
 
 Metadata
 ========
 
-This document was written by Florian Richter and Andrew Leaver-Fay in August 2010. The section about generating ligand grids was written by Lucas Nivon. The `       match      ` application is maintained by David Baker's lab. Send questions to [dabaker@u.washington.edu](#)
+Authors: Florian Richter, Andrew Leaver-Fay
+
+This document was written by Florian Richter and Andrew Leaver-Fay in August 2010. The section about generating ligand grids was written by Lucas Nivon. The `       match      ` application is maintained by David Baker's lab. Send questions to (dabaker@u.washington.edu)
 
 Code and Demo
 =============
@@ -44,9 +43,7 @@ Each collision-free placement of the transition state is called a "hit". If ther
 
 In the general case, the Matcher builds hits for each of several geometric constraints. The protein scaffold in the enzyme-design example generalizes to any macro-molecular polymer scaffold. The protein rotamers in the enzyme-design example generalizes to a set of conformations for the "upstream" partner. The transition state in the enzyme-design example generalizes to a "downstream" partner, which itself may have multiple conformations. "Upstream" and "Downstream" refer to the order in which the coordinates of the two partners are computed. The upstream coordinates are built first, the downstream coordinates second. Changes to the coordinates of the upstream partner propagate to the coordinates of the downstream partner. The downstream partner could in theory also be an entire protein – and may have it's own set of rotameric states. E.G. one might want to match a hydrogen-bond donor on the scaffold to a serine side-chain on the target (downstream) protein. The downstream partner should then be able to examine many serine rotamers for each conformation of the upstream rotamer. However, the matcher is not setup yet to handle entire proteins as downstream partners.
 
-A hit is represented in two parts: a discrete part and a continuous part. The discrete portion consists of four integers: 1. the build-point index on the scaffold, 2. the rotamer index on the upstream partner,
-
-1.  the external-geometry index, and 4. the rotamer index on the downstream partner. The continuous portion consists of 6 double-precision values representing the coordinate of the downstream partner in 6D. The first three values are the x,y and z coordinates of a particular atom in the downstream partner. The second three values are the phi, psi, and theta values describing the coordinate frame at this atom. These three "Euler angle" parameters describe three rotations: Z(psi) \* X(theta) \* Z(phi) \* I. They are described in greater detail in rosetta/rosetta\_source/src/numeric/HomogeneousTransform.hh, and the hit class is in rosetta/rosetta\_source/src/protocols/match/Hit.hh "Phi" and "psi" here have nothing to do with the protein-backbone angles. When a hit is binned, there are two sets of parameters that describe how wide the bins in each dimension should be: the Euclidean bin widths are for the xyz coordinates, and the Euler bin widths are for the Euler angles. The Euclidean bin widths are in Angstroms and the Euler bin widths are in degrees.
+A hit is represented in two parts: a discrete part and a continuous part. The discrete portion consists of four integers: 1. the build-point index on the scaffold, 2. the rotamer index on the upstream partner, 3.  the external-geometry index, and 4. the rotamer index on the downstream partner. The continuous portion consists of 6 double-precision values representing the coordinate of the downstream partner in 6D. The first three values are the x,y and z coordinates of a particular atom in the downstream partner. The second three values are the phi, psi, and theta values describing the coordinate frame at this atom. These three "Euler angle" parameters describe three rotations: Z(psi) \* X(theta) \* Z(phi) \* I. They are described in greater detail in rosetta/rosetta\_source/src/numeric/HomogeneousTransform.hh, and the hit class is in rosetta/rosetta\_source/src/protocols/match/Hit.hh "Phi" and "psi" here have nothing to do with the protein-backbone angles. When a hit is binned, there are two sets of parameters that describe how wide the bins in each dimension should be: the Euclidean bin widths are for the xyz coordinates, and the Euler bin widths are for the Euler angles. The Euclidean bin widths are in Angstroms and the Euler bin widths are in degrees.
 
 Algorithm
 =========
@@ -101,7 +98,7 @@ The secondary matching algorithm may be activated by including extra information
 
 When secondary matching is performed for a particular round, the hits that were generated in some prior round, or all prior rounds are gathered. Then the matcher begins its standard interation across all build positions, and for each build position, across all rotamers. After building a rotamer at a given build position, then the geometry between this rotamer and all earlier hits is measured and the hits which are within range on all the specified geometric parameters are considered hits for this round. Also availabe is a version of secondary matching where the desired interaction between the new rotamer and the geometry provided in the earlier hit (either a location of the downstream partner, or a the rotamer for a residue in a prior round) can be specified as requiring some certain energy cutoff; the weights for each of the terms you wish to consider and the total energy threshold for the pair interaction should be specified in the ALGORITHM\_INFO block of the geometric-constraint file.
 
-1.  Match enumeration
+2\.  Match enumeration
 
 There are three things to describe in this section: a) why this stage is referred to as an enumeration, b) why we have to search for matches 64 times instead of just once, and c) how matches are output.
 
@@ -132,26 +129,26 @@ There are two MatchProcessor classes: the MatchOutputter and the MatchConsolidat
 Both the MatchOutputter and the MatchConsolidator rely on MatchFilters and OutputWriters to filter matches and to actually write matches out in a particular format.
 
 Available match filters include:
- UpstreamCollisionFilter – purge matches where the upstream portions of the match collide with each other
- UpstreamDownstreamCollisionFilter – purge matches where the upstream and downstream portions collide
- LimitHitsPerRotamerFilter – purge matches if a particular rotamer has been output already too often FLORIAN VERIFY PLEASE
+* UpstreamCollisionFilter – purge matches where the upstream portions of the match collide with each other
+* UpstreamDownstreamCollisionFilter – purge matches where the upstream and downstream portions collide
+* LimitHitsPerRotamerFilter – purge matches if a particular rotamer has been output already too often FLORIAN VERIFY PLEASE
 
 Available output writers include: (described in greater detail below)
- PDBWriter
- CloudPDBWriter
- WriteKinemageOutputter
+* PDBWriter
+* CloudPDBWriter
+* WriteKinemageOutputter
 
 The MatchOutputter and the MatchConsolidator, when given a match in the process\_match function invocation, both verify that the match passes all filters. The MatchConsolidator does more work at this stage, but in the end, both the MatchOutputter and the MatchConsolidator hand a match which is slated for output to the OutputWriter.
 
 In between ensuring that a match passes all the filters, and when readying a match for output, the MatchConsolidator groups matches based on properties of those matches. It scores each match in a given group according to some criterion. There are two classes responsible for the grouping and for scoring: the MatchGrouper and the MatchEvaluator.
 
 Available MatchGroupers include:
- SameSequenceGrouper – two matches belong in the same group if their hits come from the same amino acds at the same scaffold build positions.
- SameRotamerGrouper – two matches belong in the same group if their hits come from the same rotamers of the same amino acids at the same scaffold build positions
- SameChiBinComboGrouper – two matches belong in the same group if their hits come from the same rotamer wells (as defined by the Dunbrack library) of the same amino acids at the same scaffold build positions.
+* SameSequenceGrouper – two matches belong in the same group if their hits come from the same amino acds at the same scaffold build positions.
+* SameRotamerGrouper – two matches belong in the same group if their hits come from the same rotamers of the same amino acids at the same scaffold build positions
+* SameChiBinComboGrouper – two matches belong in the same group if their hits come from the same rotamer wells (as defined by the Dunbrack library) of the same amino acids at the same scaffold build positions.
 
 Available MatchEvaluators include:
- DownstreamRMSEvaluator – report the score for a match as sum of square distances between all atoms in all downstream conformations; only available for the standard match definition; incompatible with the match\_dspos1 definition. The closer the hits are to each other, the lower the score.
+* DownstreamRMSEvaluator – report the score for a match as sum of square distances between all atoms in all downstream conformations; only available for the standard match definition; incompatible with the match\_dspos1 definition. The closer the hits are to each other, the lower the score.
 
 Limitations
 ===========
@@ -179,24 +176,23 @@ Options
 =======
 
 -   Matcher required options
-     -s \<scaffold pdb=""\> structure of the scaffold
-     -match:lig\_name \<name of="" ligand=""\> the name of the ligand to be matched
-     either -match:scaffold\_active\_site\_residues\_for\_geomcsts \< per geomcst posfile \>
-     or -match:scaffold\_active\_site\_residues \< posfile \>
-     -match:geometric\_constraint\_file \<cstfile\>
-     -extra\_res\_fa \<ligand .params file\>
-     and if gridlig files are used:
-     -match:grid\_boundary \<gridlig file\>=""\> the ligand grid file
-     -match:active\_site\_definition\_by\_gridlig \<gridlig file\>=""\> -required\_active\_site\_atom\_names \<atom name="" file\>=""\>
+    * -s \<scaffold pdb=""\> structure of the scaffold
+    * -match:lig\_name \<name of="" ligand=""\> the name of the ligand to be matched
+    * either -match:scaffold\_active\_site\_residues\_for\_geomcsts \< per geomcst posfile \> or -match:scaffold\_active\_site\_residues \< posfile \>
+    * -match:geometric\_constraint\_file \<cstfile\>
+    * -extra\_res\_fa \<ligand .params file\>
+    * and if gridlig files are used:
+        * -match:grid\_boundary \<gridlig file\>=""\> the ligand grid file
+        * -match:active\_site\_definition\_by\_gridlig \<gridlig file\>=""\> -required\_active\_site\_atom\_names \<atom name="" file\>=""\>
 
 -   The following options are relevant to the matcher but the default settings should work for most projects:
-     -match:output\_format \< format in which matches are output \>
-     -match\_grouper \< by what criterion matches are clustered by the CloudPDB writer or the consolidator \>
-     -output\_matchres\_only \<true/false\> determines if the whole pose is written for each match or only the matched site -enumerate\_ligand\_rotamers \<true/false\> determines whether the matcher tries all ligand conformers separately
-     -only\_enumerate\_non\_match\_redundant\_ligand\_rotamers \<true/false \> in case the matcher is enumerating ligand rotamers, this option will cause it to only enumerate those ligand rotamers where the ligand atoms that are involved in matching interactions are in different positions, i.e. depending on the system there will be a considerable speedup while the same number of unique matches should be found.
+    * -match:output\_format \< format in which matches are output \>
+    * -match\_grouper \< by what criterion matches are clustered by the CloudPDB writer or the consolidator \>
+    * -output\_matchres\_only \<true/false\> determines if the whole pose is written for each match or only the matched site -enumerate\_ligand\_rotamers \<true/false\> determines whether the matcher tries all ligand conformers separately
+    * -only\_enumerate\_non\_match\_redundant\_ligand\_rotamers \<true/false \> in case the matcher is enumerating ligand rotamers, this option will cause it to only enumerate those ligand rotamers where the ligand atoms that are involved in matching interactions are in different positions, i.e. depending on the system there will be a considerable speedup while the same number of unique matches should be found.
 
 -   Recommended general Rosetta options:
-     For matcher production runs, all the usual rosettta packing options should be used, i.e. ex1, ex2, use\_input\_sc. Further, in case there are many ligand conformers, the protocols.idealize tracer channel should be muted ( -mute protocols.idealize ).
+    * For matcher production runs, all the usual rosettta packing options should be used, i.e. ex1, ex2, use\_input\_sc. Further, in case there are many ligand conformers, the protocols.idealize tracer channel should be muted ( -mute protocols.idealize ).
 
 Generating ligand grid and pos files
 ====================================
@@ -220,12 +216,13 @@ A real example command line used for the rosetta/rosetta\_tests/integration/test
  /path/to/rosetta/rosetta\_source/bin/gen\_lig\_grids.linuxiccrelease -s 1a53\_nohet\_1.pdb 1a53\_ligand\_1.pdb @flags
 
 A detailed flags example (@flags):
- / -ignore\_unrecognized\_res \# ignore any ligands already present in the scaffold.pdb
- / -grid\_delta 0.5 \# grid spacing, Angstroms
- / -grid\_lig\_cutoff 4.0 \# cutoff from ligand, the grid will extend this far away from the ligand
- / -grid\_bb\_cutoff 2.25 \# cutoff from backbone, the grid will be pruned back this distance from the backbone
- / -grid\_active\_res\_cutoff 5.0 \# distance cutoff for active site residues to be included in the pos file; any amino acid within this distance from a ligand atom will be included in the pos file
-
+```
+-ignore_unrecognized_res # ignore any ligands already present in the scaffold.pdb
+-grid_delta 0.5 # grid spacing, Angstroms
+-grid_lig_cutoff 4.0 # cutoff from ligand, the grid will extend this far away from the ligand
+-grid_bb_cutoff 2.25 # cutoff from backbone, the grid will be pruned back this distance from the backbone
+-grid_active_res_cutoff 5.0 # distance cutoff for active site residues to be included in the pos file; any amino acid within this distance from a ligand atom will be included in the pos file
+```
 2) gen\_apo\_grids
 
 A full working example can be found in the associated integration test:
@@ -236,25 +233,29 @@ With gen\_apo\_grids the scaffold pdb should not have a ligand. In gen\_apo\_gri
 The gen\_apo\_grids app will generate a set of gridlig/pos files around the largest buried void in the scaffold (scaffold.pdb\_1.gridlig, \_1.pos), the second largest void (scaffold.pdb\_2.gridlig, \_2.pos), etc. These are to be used as the ligand grid in the matcher (with the match::grid\_boundary flag) and the posfile for the matcher (with the match::scaffold\_active\_site\_residues flag). In a subsequent matcher run the user can choose which of these gridlig/posfile combinations to use for the matcher, or simply run the matcher separately on every gridlig/posfile (in separate matcher runs), or select just a subset of gridlig/posfiles. In common usage one might start with only the largest gridlig (\_1.gridlig, \_1.pos) over a set of scaffold pdbs and then expand to include more gridlig/posfiles if the number of matches is not satisfactory.
 
 A generic command line:
- gen\_apo\_grids -s scaffold.pdb -database [database\_path] @flags
-
+```
+ gen_apo_grids -s scaffold.pdb -database [database_path] @flags
+```
 A real example command line used for rosetta/rosetta\_tests/integration/tests/gen\_apo\_grids example:
- /path/to/rosetta/rosetta\_source/bin/gen\_apo\_grids.linuxiccrelease -s 1a53\_nohet\_1.pdb @flags
-
+```
+ /path/to/rosetta/rosetta_source/bin/gen_apo_grids.linuxiccrelease -s 1a53_nohet_1.pdb @flags
+```
 A detailed flags example (@flags):
- / -mute all
- / -unmute apps.pilot.wendao.gen\_apo\_grids
- / -chname off
- / -constant\_seed
- / -ignore\_unrecognized\_res
- / -packstat:surface\_accessibility
- / -packstat:cavity\_burial\_probe\_radius 3.0 \# if the cavity ball can be touched by probe r\>3, then it's not in a pocket
- / -packstat:cluster\_min\_volume 30 \# minimum size of a pocket, smaller voids will not be considered
- / -packstat:min\_cluster\_overlap 1.0 \# cavity balls must overlap by this much to be clustered
- / -packstat:min\_cav\_ball\_radius 1.0 \# radius of smallest void-ball to consider
- / -packstat:min\_surface\_accessibility 1.4 \# voids-balls must be at least this exposed
+```
+  -mute all
+  -unmute apps.pilot.wendao.gen_apo_grids
+  -chname off
+  -constant_seed
+  -ignore_unrecognized_res
+  -packstat:surface_accessibility
+  -packstat:cavity_burial_probe_radius 3.0 # if the cavity ball can be touched by probe r>3, then it's not in a pocket
+  -packstat:cluster_min_volume 30 # minimum size of a pocket, smaller voids will not be considered
+  -packstat:min_cluster_overlap 1.0 # cavity balls must overlap by this much to be clustered
+  -packstat:min_cav_ball\radius 1.0 # radius of smallest void-ball to consider
+  -packstat:min_surface_accessibility 1.4 # voids-balls must be at least this exposed
+```
 
-troubleshooting: These apps should be in rosetta/rosetta\_source/bin. If it is not make sure that src/pilot\_apps.src.settings.all has the pilot app turned on under user wendao.
+Troubleshooting: These apps should be in rosetta/rosetta\_source/bin. If it is not make sure that src/pilot\_apps.src.settings.all has the pilot app turned on under user wendao.
 
 Manual generation of pos files
 ------------------------------
@@ -290,22 +291,22 @@ Since it is not certain that the desired input geometry can be matched into any 
  In case matches were found, the matcher can output them in three different formats: Pdb, CloudPdb, and kinemage, with CloudPdb being the recommended default. Which output format is used is determined by option -match:output\_format.
  When reading this section, one should remember that a match is a simply a set of hits, i.e. pairs of protein rotamers and a corresponding ligand placement (or, in the case of upstream matching, pairs of two protein rotamers). Depending on the sampling density for both protein rotamers and ligand placements specified in the cstfile, it is possible that several dozen or hundreds of ligand placements fall into the same hash bin, and enumerating all possible hit combinations can often lead to millions of highly similar matches.
 
-CloudPdb output format:
+**CloudPdb output format:**
  In this output format, the matcher will first cluster all matches. Clustering will happen according to the value specified for option -match:match\_grouper, which is described below. After all matches have been enumerated and clustered, for each cluster center one multimodel pdb file will be written that contains all unique protein rotamers and ligand placements for that cluster. For cluster centers that happen to have more then 100 unique ligand placements, one file will be written for each 100 unique ligand placements. The CloudPdb output format is the recommended output format.
 
-Pdb output format:
+**Pdb output format:**
  In this format, every match will be output as a separate pdb file. As mentioned above, in cases where the combinatorics of match enumeration lead to millions of matches, this output format can quickly fill up whole harddrives. To prevent this from happening, two options should be set to true when using this output format.
  -match:output\_matchres\_only will cause the output pdb files to only contain the matched residues and the ligand, but not the rest of the scaffold. Eventually a script can be used to insert the matches into the whole scaffold again.
  -match:consolidate\_matches will cause only a subset of matches to be output. Matches will be clustered according to the value for option -match:match\_grouper, and then for each cluster centear a number of matches (the number being determined by option -match:output\_matches\_per\_group ) will be randomly selected for output.
 
 For both CloudPdb and Pdb output formats the option -match:grouper is very important. This option can have the following values, and matches can be grouped/clustered accordingly:
 
-SameSequenceGrouper matches that have the same sequence (i.e. the residues are matched at identical positions ) will be grouped together
- SameSequenceAndDSPositionGrouper matches that have the same sequence and where the ligand placements are not further than -match:grouper\_downstream\_rmsd angstroms away will be clustered together. This is the default.
- SameChiBinComboGrouper matches where the protein rotamers are in the same chi bin will be grouped together
- SameRotamerComboGrouper matches that have the same protein rotamers will be grouped together.
+* SameSequenceGrouper matches that have the same sequence (i.e. the residues are matched at identical positions ) will be grouped together
+* SameSequenceAndDSPositionGrouper matches that have the same sequence and where the ligand placements are not further than -match:grouper\_downstream\_rmsd angstroms away will be clustered together. This is the default.
+* SameChiBinComboGrouper matches where the protein rotamers are in the same chi bin will be grouped together
+* SameRotamerComboGrouper matches that have the same protein rotamers will be grouped together.
 
-Kinemage output format
+**Kinemage output format**
  andrew
 
 Post Processing
@@ -318,9 +319,13 @@ Tips
 ====
 
 Two aspects that should be considered for every matching project are: 1) in what order to specify the blocks in the cstfile and 2) whether to use the ClassicMatching or SecondaryMatching algorithm for a given match residue.
- 1) On the order of the different match residues / cstfile blocks
- As a rule of thumb, the geometric constraints should be arranged in order of increasing sampling diversity, i.e. the constraint that is most clearly defined should go first in the cstfile. The reason is that the less sampling there is for a constraint, the less hits there will be, and this means there are less active voxels in the occupied space hash, which in turn leads to faster hit generation in the following rounds of hit generation ( see criterion c) in the discussion of the classic match algorithm above.)
- 2) On using Classic matching vs Secondary Matching.
+
+**1) On the order of the different match residues / cstfile blocks**
+
+As a rule of thumb, the geometric constraints should be arranged in order of increasing sampling diversity, i.e. the constraint that is most clearly defined should go first in the cstfile. The reason is that the less sampling there is for a constraint, the less hits there will be, and this means there are less active voxels in the occupied space hash, which in turn leads to faster hit generation in the following rounds of hit generation ( see criterion c) in the discussion of the classic match algorithm above.)
+
+**2) On using Classic matching vs Secondary Matching.**
+
  Each of these algorithms has advantages and disadvantages. The advantage of Classic Matching is that every hit generation stage is independent, i.e. constraint \#2 can generate hits without having to examine every hit from constraint 1. However, all 6 degress of freedom must be specified for Classic Matching. In cases where the desired chemical interaction is less well defined (i.e. a hydrogen bond, where only the distance, two angles, and maybe one dihedral are important), a large number of values will have to be sampled for non-important degrees of freedom, to ensure that all possible matches are found.
  The Secondary Matching algorithm does not have this disadvantage: the non-important degrees of freedom can simply be left unspecified, which means that any value will be accepted. On the other hand, the Secondary Matching algorithm does have the disadvantage that, for each upstream rotamer, it needs to examinate every hit from the previous matching rounds, which could take a long time depending on the number of previously generated hits.
 
