@@ -1,10 +1,9 @@
-<!-- --- title: Rna Design -->Documentation for RNA 3D design: *rna\_design*
-
- Author   
-Rhiju Das
+$RNA 3D design: *rna\_design*
 
 Metadata
 ========
+
+Author: Rhiju Das
 
 This document updates documentation written in 2008 by Rhiju Das (rhiju [at] stanford.edu) into the latest documentation format. Last update: April 2011.
 
@@ -24,7 +23,7 @@ Das, R., Karanicolas, J., and Baker, D. (2010), "Atomic accuracy in predicting a
 
 (Reprint available at [http://daslab.stanford.edu/pubs.html](http://daslab.stanford.edu/pubs.html) ).
 
-Application purpose
+Purpose
 ===========================================
 
 This code is intended to carry out fixed backbone design of RNA sequences given an input backbone.
@@ -48,7 +47,7 @@ Required file
 
 Just the PDB file with desired backbone.
 
-How to include these files.
+How to run with this file.
 ---------------------------
 
 ```
