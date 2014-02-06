@@ -1,12 +1,11 @@
-<!-- --- title: Antibody Protocol -->Documents for RosettaAntibody3: Protocol Workflow
-
- Author   
-Jianqing Xu ( [xubest@gmail.com](#) ), Daisuke Kuroda ( [dkuroda1981@gmail.com](#) ), Oana Lungu ( [olungu@utexas.edu](#) ), Jeffrey Gray ( [jgray@jhu.edu](#) )
+#RosettaAntibody3: Protocol Workflow
 
 Metadata
 ========
 
-Last edited 4/25/2013. Corresponding PI Jeffrey Gray ( [jgray@jhu.edu](#) ).
+Author: Jianqing Xu (xubest@gmail.com), Daisuke Kuroda (dkuroda1981@gmail.com), Oana Lungu (olungu@utexas.edu), Jeffrey Gray (jgray@jhu.edu)
+
+Last edited 4/25/2013. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
 
 References
 ==========
@@ -19,15 +18,16 @@ We recommend the following articles for further studies of RosettaDock methodolo
 Overview
 ========
 
-**Please realize this the overview is to speed you up to run the protocol asap with minimum knowledge. For details of each steps, please check
-** [[Documentation for RosettaAntibody3 application: the Python Pre-Processing Script|antibody-python-script]]
- [[Documentation for RosettaAntibody3 application: Antibody CDR Grafting Protocol|antibody-assemble-CDRs]]
- [[Documentation for RosettaAntibody3 application: Antibody Modeler Protocol (Loop H3 and VL-VH)|antibody-model-CDR-H3]]
+**Please realize this the overview is to speed you up to run the protocol asap with minimum knowledge. For details of each steps, please check**
+
+* [[RosettaAntibody3 application: the Python Pre-Processing Script|antibody-python-script]]
+* [[RosettaAntibody3 application: Antibody CDR Grafting Protocol|antibody-assemble-CDRs]]
+* [[RosettaAntibody3 application: Antibody Modeler Protocol (Loop H3 and VL-VH)|antibody-model-CDR-H3]]
 
 To build an antibody model from sequences of its light chain and heavy chain, you need
 
 1.  your input Fv sequences
-2.  antibody.py (Downloading antibody.py: [https://svn.rosettacommons.org/source/trunk/antibody/scripts.v2/](https://svn.rosettacommons.org/source/trunk/antibody/scripts.v2/) )
+2.  antibody.py (Downloading antibody.py from developer-only repository: [https://svn.rosettacommons.org/source/trunk/antibody/scripts.v2/](https://svn.rosettacommons.org/source/trunk/antibody/scripts.v2/) )
 3.  ProFit (Installing ProFit3.1: [http://www.bioinf.org.uk/software/profit/](http://www.bioinf.org.uk/software/profit/) )
 4.  BLAST (C++ version) (Installing BLAST: [http://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE\_TYPE=BlastDocs&DOC\_TYPE=Download](http://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=Download) )
 5.  Rosetta
@@ -38,7 +38,7 @@ Currently, antibody homology modelling is a 3 step process:
 2.  Grafting of CDR templates onto a FR template and Fv refinement
 3.  Intensive H3 modeling and VL/VH refinement
 
-Usage of Databases
+Usage for a Production Run
 ==================
 
 **Steps 1 and 2:**
@@ -67,13 +67,13 @@ The script calls two Rosetta executable (relax and antibody\_assemble\_CDRs) for
 [path to executable] /antibody_model_CDR_H3.[platform|linux/mac][compile|gcc/ ixx]release –database [path to database] @options
 ```
 
-Sample options for a production run may look like: (this is an example, see details in [[Documentation for RosettaAntibody3 application: Antibody Modeler Protocol (Loop H3 and VL-VH)|antibody-model-CDR-H3]] .
+Sample options for a production run may look like: (this is an example, see details in [[RosettaAntibody3 application: Antibody Modeler Protocol (Loop H3 and VL-VH)|antibody-model-CDR-H3]] .
 
 Flags starting from "-kic\_bump\_overlap\_factor 0.36" to "-loops:outer\_cycles 5" will turn on the NGK or KIC2 for H3 loop modeling. Without these flags, the code is running KIC1 for H3
 
 ```
     -nstruct 2000   
-    -s grafted.relaxed.pdb                         # Output of the antibody.py
+    -s grafted.relaxed.pdb                             # Output of the antibody.py
     -antibody::remodel              perturb_kic        # low-res H3 modeling
     -antibody::snugfit              true               # VL-VH orientation optimization via docking
     -antibody::refine               refine_kic         # high-res H3 modeling
@@ -86,7 +86,7 @@ Flags starting from "-kic\_bump\_overlap\_factor 0.36" to "-loops:outer\_cycles 
     -constraints:cst_file cter_constraint              # constraint file which can include one or two lines of below optional constraints: 
     -antibody:constrain_cter                           #   optional constraint (a) the H3 cterminus to be Kink/Extend
     -antibody:constrain_vlvh_qq                        #   optional constraint (b) the distance between two GLN-GLN residues one L and H chains
-    -kic_bump_overlap_factor 0.36                 # KIC1 become KIC2 (or NGK) after turning on the flags from here
+    -kic_bump_overlap_factor 0.36                      # KIC1 become KIC2 (or NGK) after turning on the flags from here
     -corrections:score:use_bicubic_interpolation false
     -loops:legacy_kic false
     -loops:kic_min_after_repack true
