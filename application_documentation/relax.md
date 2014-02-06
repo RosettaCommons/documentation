@@ -1,4 +1,4 @@
-<!-- --- title: Relax -->Commands for the relax application
+#Relax application
 
 Metadata
 ========
