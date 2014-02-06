@@ -1,4 +1,4 @@
-<!-- --- title: App Dock Design -->Dock Design Parser Applications
+#Dock Design Parser Applications
 
 Metadata
 ========
@@ -30,12 +30,12 @@ This file lists the Movers, Filters, their defaults, meanings and uses as recogn
 
 -   **XML Basic** whenever an xml statement is shown, the following convention will be used:
 
-    ~~~~ {.fragment}
+    ```
     <...> to define a branch statement (a statement that has more leaves)
     <.../> a leaf statement.
     "" defines input expected from the user with ampersand (&) defining the type that is expected (string, float, etc.)
     () defines the default value that the parser will use if that is not provided by the protocol.
-    ~~~~
+    ```
 
 PREDEFINITIONS
 --------------
@@ -49,23 +49,23 @@ The following are defined internally in the parser, and the protocol can use the
 -   **CompoundStatement filter:**
      This is a special filter that uses previously defined filters to construct a compound logical statement with AND, OR, XOR, NAND and NOR operations. By making compound statements of compound statements, esssentially all logical statements can be defined.
 
-    ~~~~ {.fragment}
+    ```
     <CompoundStatement name=(&string)>
         <OPERATION filter_name=(true_filter &string)/>
         <....
     </CompoundStatement>
-    ~~~~
+    ```
 
     where OPERATION is any of the operations defined in CAPS above.Note that the operations are performed in the order that they are defined. No precedence rules are enforced, so that any precedence has to be explicitly written by making compound statements of compound statements.Also note that the first OPERATION is ignored, and the value of the first filter is simply assigned to the filter's results.
 
 -   **Predefined ScoreFunctions:**
 
-    ~~~~ {.fragment}
+    ```
     score12:            exactly what you think.
     docking_score:      high resolution docking scorefxn (standard+docking_patch)
     docking_score_low:  low resolution docking scorefxn (interchain_cen)
     soft_rep:           soft_rep_design weights.
-    ~~~~
+    ```
 
 SCOREFXNS
 ---------
@@ -81,17 +81,17 @@ where scorefxn\_name will be used in the Movers and Filters sections to use the 
 -   **Scorefunction modifiers**
      The apply\_to\_pose section may set up constraints, in which case it becomes necessary to set the weights in all of the scorefunctions that are defined. The default weights for all the scorefunctions are defined globally in the apply\_to\_pose section, but each scorefunction definition may change this weight. The following modifiers are recognized:
 
-    ~~~~ {.fragment}
+    ```
     fnr=(the value set by apply_to_pose for favor_native_residue &float)
     hs_hash=(the value set by apply_to_pose for hotspot_hash &float)
-    ~~~~
+    ```
 
     For Example:
 
-    ~~~~ {.fragment}
+    ```
     <my_spiffy_score weights="soft_rep_design" patch="dock" fnr=6.0/>
     will multiply the favor_native_residue bonus by 6.0
-    ~~~~
+    ```
 
 APPLY\_TO\_POSE
 ---------------
@@ -100,13 +100,13 @@ This is a section that is used to change the input structure. The most likely us
 
 -   **Recognized movers:**
 
-    ~~~~ {.fragment}
+    ```
     <favor_native_residue bonus=(1.5 &bool)/>
-    ~~~~
+    ```
 
     sets residue\_type\_constraint to the pose and sets the bonus to 1.5.
 
-    ~~~~ {.fragment}
+    ```
     <hashing_constraints scorefxn=(score12 &string)
     stubfile=(stubs.pdb &string)
     redesign_chain=(2 &integer)
@@ -115,7 +115,7 @@ This is a section that is used to change the input structure. The most likely us
     apply_stub_self_energies=(1 &bool)
     apply_stub_bump_cutoff=(4.0 &float)
     pick_best_energy_constraint=(1 &bool)/>
-    ~~~~
+    ```
 
 MOVERS
 ------
@@ -132,40 +132,35 @@ where "mover\_name" belongs to a predefined set of possible movers that the pars
     1.  DockDesign mover:
          This is a special mover that allows making a single compound mover and filter vector (just like protocols).
 
-        ~~~~ {.fragment}
+        ```
         <DockDesign name=( &string)>
             <Add mover_name=( null &string) filter_name=( true_filter &string)/>
             ...
         </DockDesign>
-        ~~~~
-
+        ```
     2.  LoopOver mover:
          Allows looping over a mover using either iterations or a filter as a stopping condition (the first turns true). By using DockDesign mover above with loop can be useful, e.g., if making certain moves is expensive and then we want to exhaust other, shorter moves.
 
-        ~~~~ {.fragment}
+        ```
         <LoopOver name=(&string) mover_name=(&string) filter_name=( true_filter &string) iterations=(10 &Integer)/>
-        ~~~~
+        ```
 
-    Recognized Movers:
+-  Recognized Movers:
     1.  score\_low is the scorefxn to be used for centroid-level docking; score\_high is the scorefxn to be used for full atom docking; rb\_jump controls the jump number over which tocarry out rb motions.
 
-        ~~~~ {.fragment}
+        ```
         <Docking name="&string" score_low=(docking_score_low &string) score_high=(docking_score &string) fullatom=(0 &bool) local_refine=(0 &bool) view=(0 &bool) rb_jump=(1 &Integer)/>
-        ~~~~
-
-        .
-
+        ```
     2.  RepackMinimize does the design/repack and minimization steps using different score function as defined by the protocol. repack\_partner1 (and 2) defines which of the partners to design. If no particular residues are defined, the interface is repacked/designs. If specific residues are defined, then a shell of residues around those target residues are repacked/designed and minimized. repack\_non\_ala decides whether or not to change positions that are not ala. Useful for designing an ala\_pose so that positions that have been changed in previous steps are not redesigned. min\_rigid\_body minimize rigid body orientation. (as in docking)
 
-        ~~~~ {.fragment}
+        ```
         <RepackMinimize name="&string" scorefxn_repack=(score12 &string) scorefxn_minimize=(score12 &string) repack_partner1=(0 &bool) repack_partner2=(1 &bool) design=(1 &bool) interface_cutoff_distance=(8.0 &Real) repack_non_ala=(1 &bool) min_rigid_body=(1 &bool)>
           <residue pdb_num/res_num, see below/>
         </RepackMinimize>
-        ~~~~
-
+        ```
     3.  Same as for DesignMinimize with the addition that a list of target residues to be hbonded can be defined. Within a sphere of 'interface\_cutoff\_distance' of the target residues,the residues will be set to be designed.The residues that are allowed for design are restricted to hbonding residues according to whether donors (STRKWYQN) or acceptors (EDQNSTY) or both are defined. If residues have been designed that do not, after design, form hbonds to the target residues with energies lower than the hbond\_energy, then those are turned to Ala.
 
-        ~~~~ {.fragment}
+        ```
         <DesignMinimizeHbonds name=(design_minimize_hbonds &string) hbond_weight=(3.0 &float) scorefxn_design=(score12 &string) scorefxn_minimize=score12) donors="design donors? &bool" acceptors="design acceptors? &bool" bb_hbond=(0 &bool) sc_hbond=(1 &bool) hbond_energy=(-0.5 &float) interface_cutoff_distance=(8.0 &float) design_partner1=(0 &bool) design_partner2=(1 &bool) repack_non_ala=(1 &bool) min_rigid_body=(1 &bool)>
             <residue pdb_num="pdb residue and chain, e.g., 31B &string"/>
             <residue res_num="serially defined residue number, e.g., 212 &integer"/>
@@ -175,44 +170,39 @@ where "mover\_name" belongs to a predefined set of possible movers that the pars
         sc_hbond:                do backbone-sidechain and sidechain-sidechain hbonds count?
         hbond_energy:            what is the energy threshold below which an hbond is counted as such.
         repack_non_ala:          see RepackMinimize
-        ~~~~
-
+        ```
     4.  Turns either or both sides of an interface to Alanines (except for prolines and glycines that are left as in input) in a sphere of 'interface\_distance\_cutoff' around the interface. Useful as a step before design steps that try to optimize a particular part of the interface. The alanines are less likely to 'get in the way' of really good rotamers.
 
-        ~~~~ {.fragment}
+        ```
         <build_Ala_pose name=(ala_pose &string) partner1=(0 &bool) partner2=(1 &bool) interface_distance_cutoff=(8.0 &float)/>
-        ~~~~
-
+        ```
     5.  To be used after an ala pose was built (and the design moves are done) to retrieve the sidechains from the input pose that were set to Ala by build\_Ala\_pose. Sidechains that are different than Ala will not be changed.
 
-        ~~~~ {.fragment}
+        ```
         <SaveAndRetrieveSidechains name=(save_and_retrieve_sidechains &string)/>
-        ~~~~
-
+        ```
     6.  With the values defined above, backrub will only happen on residues 31B, serial 212, and the serial span 10-20. If no residues and spans are defined then all of the interface residues on the defined partner will be backrubbed by default.
 
-        ~~~~ {.fragment}
+        ```
         <Backrub name=(backrub &string) partner1=(0 &bool) partner2=(1 &bool) interface_distance_cutoff=(8.0 &Real) moves=(1000 &integer) sc_move_probability=(0.25 &float) scorefxn=(score12 &string)>
             <residue pdb_num="pdb residue and chain, e.g., 31B &string"/>
             <residue res_num="serially defined residue number, e.g., 212 &integer"/>
             <span begin="serially defined residue number, e.g., 10 &integer" end="serially defined residue number, e.g., 20 &integer"/>
         </Backrub>
-        ~~~~
-
+        ```
     7.  Places a stub on the scaffold. The stub is chosen using MC sampling using the score\_threshold and temp. parameters.repack\_non\_ala: see RepackMinimize
 
-        ~~~~ {.fragment}
+        ```
         <PlaceStub name=(&string) chain_to_design=(2 &integer) score_threshold=(-2.0 &Real) temperature=(0.8 &Real) repack_non_ala=(1 &bool) self_energy_trials=(2000 &Integer) two_sided_trials=(200 &Integer) stubfile=(&string) final_filter=(true_filter &string)/>
         self_energy_trials:              how many times should we try to place a stub and test its self energy (this is a fast step, so high is probably good).
         two_sided_trials:                how many two-sided trials to test (this is slow, so recommended is just slightly more than the number of stubs in the library).
         stubfile:                        using a stub file other than the one used to make constraints. This is useful for placing stubs one after the other.
         final_filter:                    one of the default DockDesignFilters or the ones defined by the user. This will be applied at the final stage of stub placement as the last
                                          test. Useful, e.g., if we want a stub to form an hbond to a particular target residue.
-        ~~~~
-
+        ```
     8.  Places the scaffold on a stub. The stub is chosen using MC sampling using the score\_threshold and temp. parameters.
 
-        ~~~~ {.fragment}
+        ```
         <PlaceScaffold name=(&string) chain_to_design=(2 &integer) score_threshold=(-2.0 &Real) temperature=(0.8 &Real) repack_non_ala=(1 &bool) distance=(2.0 &Real) self_energy_trials=(2000 &Integer) two_sided_trials=(2000 &Integer) stubfile=(&string) final_filter=(true_filter &string)/>
         repack_non_ala:                  see RepackMinimize
         distance:                        max distance from scaffold CA to stub CA
@@ -221,33 +211,29 @@ where "mover\_name" belongs to a predefined set of possible movers that the pars
         stubfile:                        using a stub file other than the one used to make constraints. This is useful for placing stubs one after the other.
         final_filter:                    one of the default DockDesignFilters or the ones defined by the user. This will be applied at the final stage of stub placement as
                                          the last test. Useful, e.g., if we want a stub to form an hbond to a particular target residue.
-        ~~~~
-
+        ```
     9.  Dumps a pdb. Recommended ONLY for debuggging as you can't change the name of the file during a run.
 
-        ~~~~ {.fragment}
+        ```
         <DumpPdb name=(&string) fname=(dump.pdb &string)/>
-        ~~~~
-
+        ```
     10. Performs something approximating r++ prepacking by doing sc minimization and repacking. Separates chains based on jump\_num, does prepacking, then reforms the complex.If jump\_num=0, then it will NOT separate chains at all.
 
-        ~~~~ {.fragment}
+        ```
         <Prepack name=(&string) scorefxn=(score_docking &string) jump_number=(1 &integer)/>
-        ~~~~
-
+        ```
     11. Do domain-assembly sampling by fragment insertion in a linker region. frag3 and frag9 specify the fragment-file names for 9-mer and 3-mer fragments.
 
-        ~~~~ {.fragment}
+        ```
         <DomainAssembly name=(&string) linker_start_(pdb_num/res_num, see above) linker_end_(pdb_num/res_num, see above) frag3=(&string) frag9=(&string)/>
-        ~~~~
-
+        ```
     12. Finds nstubs potential hotspot amino acids.Target\_resnum/distance are option, and specify an amino acid on the target to focus hotspot-finding. Attempting to use a core amino acid here will cause problems. Existing hashes can be read with "in=". Note that if the output file file ("out=") already exists, it will also be read in! This helps recover from job restarts on the clusters.The hotspot residues to find can be any name rosetta recognizes (note that mini uses all caps!). "ALL" is a special name that includes all amino acids except G and C. Threshold= specifies a special contact score that all found stubs must be better than or equal to.
 
-        ~~~~ {.fragment}
+        ```
         <HotspotHasher name=(&string) nstubs=(1000 &integer) target_resnum_(pdb_num/res_num, see above) target_distance=(15 &Real) in=(&string) out=(hash.stubs &string) threshold=(-1.0 &Real)>
             <residue type=(&string)/>
         </HotspotHasher>
-        ~~~~
+        ```
 
 FILTERS
 -------
@@ -263,68 +249,58 @@ where "filter\_name" belongs to a predefined set of possible filters that the pa
 -   **Recognized Filters:**
     1.  Computes the binding energy for the complex and if it is below the threshold returns true. o/w false. Useful for identifying complexes that have poor binding energy and killing their trajectory.
 
-        ~~~~ {.fragment}
+        ```
         <Ddg name=(ddg &string) scorefxn=(score12 &string) threshold=(-15 &float)/>
-        ~~~~
-
+        ```
     2.  Computes the number of residues in the interface specific by jump\_number and if it is above threshold returns true. o/w false. Useful as a quick and ugly filter after docking for making sure that the partners make contact.
 
-        ~~~~ {.fragment}
+        ```
         <ResInInterface name=(riif &string) residues=(20 &integer) jump_number=(1 &integer)/>
-        ~~~~
-
+        ```
     3.  This filter checks whether residues defined by res\_num/pdb\_num are hbonded with as many hbonds as defined by partners, where each hbond needs to have at most energy\_cutoff energy.
 
-        ~~~~ {.fragment}
+        ```
         backbone: should we count backbone-backbone hbonds?
         sidechain: should we count backbone-sidechain and sidechain-sidechain hbonds?
         <HbondsToResidue name=(hbonds_filter &string) partners="how many hbonding partners are expected &integer" energy_cutoff=(-0.5 &float) backbone=(0 &bool) sidechain=(1 &bool) "res_num/pdb_num see above">
-        ~~~~
-
+        ```
     4.  Computes the interface sasa and if it's **higher** than threshold passes.
 
-        ~~~~ {.fragment}
+        ```
         <Sasa name=(sasa_filter &string) threshold=(800 &float)/>
-        ~~~~
-
+        ```
     5.  Filters for poses that place a neighbour of the types specified around a target residue in the partner protein.
 
-        ~~~~ {.fragment}
+        ```
         <NeighborType name=(neighbor_filter &string) "res_num/pdb_num see above" distance=(8.0 &Real)>
             <Neighbor type=(&3-letter aa code)/>
         </NeighborType>
-        ~~~~
-
+        ```
     6.  How many residues are within an interaction distance of target\_residue across the interface. When used with neighbors=1 this degenerates to just checking whether or not a residue is at the interface.
 
-        ~~~~ {.fragment}
+        ```
         <ResidueBurial name=(&string) "res_num/pdb_num see above" distance=(8.0 &Real) neighbors=(1 &Integer)/>
-        ~~~~
-
+        ```
     7.  Maximum number of buried unsatisfied H-bonds allowed. If a jump number is specified (default=1), then this number is calculated across the interface of that jump. If jump\_num=0, then the filter is calculated for a monomer. Note that \#unsat for monomers is often much higher than 20.
 
-        ~~~~ {.fragment}
+        ```
         <BuriedUnsatHbonds name=(&string) jump_number=(1 &Size) cutoff=(20 &Size)/>
-        ~~~~
-
+        ```
     8.  What is the distance between two residues?
 
-        ~~~~ {.fragment}
+        ```
         <ResidueDistance name=(&string) res1_"res_num/pdb_num see above" res2_"resnum/pdb_num" distance=(8.0 &Real)/>
-        ~~~~
-
+        ```
     9.  Tests the energy of a particular residue.
 
-        ~~~~ {.fragment}
+        ```
         <EnergyPerResidue name=(energy_per_res_filter &string) scorefxn=(score12 &string) score_type=(total_score &string) pdb_num/res_num(see above) energy_cutoff=(0.0 &float)/>
-        ~~~~
-
+        ```
     10. Computes the energy of a particular score type for the entire pose and if that energy is lower than threshold, returns true.
 
-        ~~~~ {.fragment}
+        ```
         ScoreType name=(score_type_filter &string) scorefxn=(score12 &string) score_type=(&string) threshold=(&float)/>
-        ~~~~
-
+        ```
         Don't use these energy filters directly after centroid level moves, because the energies are likely to be extremely high.
 
 
