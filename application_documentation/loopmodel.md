@@ -1,4 +1,4 @@
-<!-- --- title: Loopmodel -->Documentation for the loop modeling application
+#Loop modeling application
 
 Metadata
 ========
@@ -8,7 +8,7 @@ This document was edited Nov 1st 2008 by Yi Liu. This application in Rosetta3 wa
 Example runs
 ============
 
-This file only contents loop relax example at this moment. See `       rosetta/rosetta_tests/integration/tests/loop_modeling      ` for an example loop relax run and input files.
+This file only contents loop relax example at this moment. See `       rosetta/main/tests/integration/tests/loop_modeling      ` for an example loop relax run and input files.
 
 References
 ==========
@@ -27,14 +27,14 @@ Input Files
 -   Start pdbs: The template pdb file and must have real coordinates for all template residues plus the first and last residue of each loop region.
 -   Loop file:
 
-    ~~~~ {.fragment}
+    ```
     column1  "LOOP":     The loop file identify tag
     column2  "integer":  Loop start residue number
     column3  "integer":  Loop end residue number
     column4  "integer":  Cut point residue number, >=startRes, <=endRes. default - let LoopRebuild choose cutpoint
     column5  "float":    Skip rate. default - never skip
     column6  "boolean":  Extend loop. Default false
-    ~~~~
+    ```
 
 -   Fragment files
 
