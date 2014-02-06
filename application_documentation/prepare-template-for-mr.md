@@ -1,7 +1,4 @@
-<!-- --- title: Prepare Template For Mr -->Documentation for the prepare\_template\_for\_MR companion script.
-
- Author   
-DOCUMENTATION AUTHOR GOES HERE
+#prepare\_template\_for\_MR.pl companion script
 
 Metadata
 ========
