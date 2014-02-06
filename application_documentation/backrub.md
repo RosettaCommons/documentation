@@ -1,12 +1,11 @@
-<!-- --- title: Backrub -->Documentation for the backrub application
-
- Author   
-Colin A. Smith
+#Backrub application
 
 Metadata
 ========
 
-This document was last updated August 10, 2010, by Colin A. Smith. The corresponding principal investigator is Tanja Kortemme [kortemme@cgl.ucsf.edu](#) .
+Author: Colin A. Smith
+
+This document was last updated August 10, 2010, by Colin A. Smith. The corresponding principal investigator is Tanja Kortemme (kortemme@cgl.ucsf.edu)
 
 Code and Demo
 =============
@@ -141,7 +140,7 @@ Simulation Options
                           files are given a *random* one will be picked.
 ```
 
-See the documentation about [[contraint files|constraint-file]] for more information.
+See the documentation about [[constraint files|constraint-file]] for more information.
 
 Initial Repack/Minimization
 ---------------------------
