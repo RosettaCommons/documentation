@@ -103,7 +103,7 @@ rna_denovo.<exe> -fasta chunk002_1lnt_.fasta -native chunk002_1lnt_RNA.pdb -para
 -out::file::silent chunk002_1lnt.out -cycles 1000 -minimize_rna -database <path to database>
 ```
 
-This command line also includes the "native" pdb, and will result in heavy-atom rmsd scores being calculated. Note again that the native pdb should have residues marked rA, rC, rG, and rU (see notes on PDB [[Format|loops-file#format]] below). The code again takes about 1 minute to generate two models. Finally, there are some notes on forcing other kinds of pairs below [ [u'Can I specify non-Watson-Crick pairs?'] ].
+This command line also includes the "native" pdb, and will result in heavy-atom rmsd scores being calculated. Note again that the native pdb should have residues marked rA, rC, rG, and rU (see notes on PDB [[Format|loops-file#format]] below). The code again takes about 1 minute to generate two models. Finally, there are some notes on forcing other kinds of pairs below [ [Can I specify non-Watson-Crick pairs?](#Can-I-specify-non-Watson-Crick-pairs?) ].
 
 Use Of Alternative Fragment Sources
 -----------------------------------
@@ -254,7 +254,7 @@ If you want to minimize under the low resolution RNA potential (used in FARNA), 
  grep SCORE SCORE.out
 ```
 
-But this is not recommended if you are trying to score a model deposited in the PDB or created by other software – see next [u'How do I just minimize?'] .
+But this is not recommended if you are trying to score a model deposited in the PDB or created by other software – see next [How do I just minimize?](#How-do-I-just-minimize?)
 
 How do I just minimize?
 -----------------------
@@ -271,12 +271,12 @@ If you want to minimize under the low resolution RNA potential (used in FARNA), 
  grep SCORE MINIMIZE.out
 ```
 
-You can extract models from silent files as described in [ [u'Extraction Of Models Into PDB Format'] ], but you'll also get models with the same names as your input with the suffix '\_minimize.pdb'.
+You can extract models from silent files as described in [Extraction Of Models Into PDB Format](#Extraction-Of-Models-Into-PDB-Format), but you'll also get models with the same names as your input with the suffix '\_minimize.pdb'.
 
 Other options
 -------------
 
-Check this section: [[Documentation for RNA assembly with experimental pair-wise constraints, using *rna_denovo* and *rna_helix* executables|rna-assembly]] .
+Check this section: [[RNA assembly with experimental pair-wise constraints|rna-assembly]] .
 
 Expected Outputs
 ================
@@ -300,7 +300,7 @@ Note that the PDBs have residue types marked as rA, rC, rG, and rU.
 How can I cluster models?
 -------------------------
 
-There is one executable for clustering, it currently requires that all the models be in a silent file and have scores. (If you don't have such a silent file, use the rna\_score executable described in [u'How do I just score?'] ). Here's the command line:
+There is one executable for clustering, it currently requires that all the models be in a silent file and have scores. (If you don't have such a silent file, use the rna\_score executable described in [How do I just score?](#How-do-I-just-score?) ). Here's the command line:
 
 ```
  rna_cluster.<exe>   -database <path to database>    -in:file:silent <silent file with models> -out:file:silent <silent file with clustered models>   [-cluster:radius <rmsd threshold>] [-nstruct <maximum number of clusters>]
