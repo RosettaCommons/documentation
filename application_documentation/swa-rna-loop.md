@@ -1,10 +1,9 @@
-<!-- --- title: Swa Rna Loop -->Documentation for RNA loop modeling (lock-and-key problem) with Stepwise Assembly, using *swa\_rna\_main* and *swa\_rna\_util* executables
-
- Author   
-Parin Sripakdeevong, Rhiju Das
+#RNA loop modeling (lock-and-key problem) with Stepwise Assembly
 
 Metadata
 ========
+
+Author: Parin Sripakdeevong, Rhiju Das
 
 March 2012 by Parin Sripakdeevong (sripakpa [at] stanford.edu) and Rhiju Das (rhiju [at] stanford.edu).
 
@@ -32,11 +31,11 @@ Limitations
 
 -   The enumerative nature of the method makes the full-calculation quite computationally expensive, requiring for example 15,000 CPU hours to build a single 6-nucleotides RNA loop. Is is therfore infeasible to perform the full-calculation on a single desktop/laptop computer. Instead the full-calculation is feasible only on a high-performance computer clusters.
 
--   The missing RNA loop needs to be single-stranded. The longest loop succesfully tested thus far is 10 nucleotides in length (see referenced paper for details).
+-   The missing RNA loop needs to be single-stranded. The longest loop successfully tested thus far is 10 nucleotides in length (see referenced paper for details).
 
--   Currently, the method only optimize the conformation of the missing RNA loop. The coordinates of the surrounding nucleotides inherited from [u'template\_PDB'] are fixed during the entire modeling process.
+-   Currently, the method only optimize the conformation of the missing RNA loop. The coordinates of the surrounding nucleotides inherited from [template\_PDB](#Required-file) are fixed during the entire modeling process.
 
--   Due to memory limitations, the full-length structure should not exceed 100 nucleotides [this includes the surrounding nucleotides inherited from [u'template\_PDB'] ].
+-   Due to memory limitations, the full-length structure should not exceed 100 nucleotides [this includes the surrounding nucleotides inherited from [template\_PDB](#Required-file) ].
 
 Modes
 =====
@@ -51,9 +50,9 @@ Required file
 
 You need two files:
 
--   The [u'template\_PDB'] file: A PDB file containing the coordinates of surrounding nucleotides in the vicinity of the missing RNA loop to be build. We recommend including all surrounding nucleotides within a 10-Angstrom vicinity of the missing RNA loop. An example is available at rosetta/demos/SWA\_RNA\_loop/rosetta\_inputs/template.pdb. Supplied PDB file must be in Rosetta RNA PDB format (see Note on PDB format for RNA).
+-   The template\_PDB file: A PDB file containing the coordinates of surrounding nucleotides in the vicinity of the missing RNA loop to be build. We recommend including all surrounding nucleotides within a 10-Angstrom vicinity of the missing RNA loop. An example is available at rosetta/demos/SWA\_RNA\_loop/rosetta\_inputs/template.pdb. Supplied PDB file must be in Rosetta RNA PDB format (see Note on PDB format for RNA).
 
--   The [[fasta|rna-denovo#fasta]] file: this is the sequence file of the full-length RNA. The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a, c, g and u. An example fasta file is available at rosetta/demos/SWA\_RNA\_loop/rosetta\_inputs/fasta.
+-   The [[fasta file]]: this is the sequence file of the full-length RNA. The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a, c, g and u. An example fasta file is available at rosetta/demos/SWA\_RNA\_loop/rosetta\_inputs/fasta.
 
 additional files:
 -----------------
