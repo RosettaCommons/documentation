@@ -1,10 +1,9 @@
-<!-- --- title: Extract Atomtree Diffs -->Documentation for the extract\_atomtree\_diffs application
-
- Author   
-Lucas Nivon
+#extract\_atomtree\_diffs application
 
 Metadata
 ========
+
+Author: Lucas Nivon
 
 This document was written 21 Sept 2010 by Lucas Nivon, based largely on the ligand\_dock documentation by Ian W. Davis.
 
@@ -43,10 +42,10 @@ Input Files
 
 This app requires an atomtree\_diff silent file (\*\_silent.out). If there is a ligand it requires the specification file for the ligand (\*.params) along with an associated conformations of the ligand (\*\_confs.fa.pdb.gz or just \*.pdb).
 
--   atomtree\_diff silent file (e.g. `        rosetta/rosetta_tests/integration/tests/extract_atomtree_diffs/inputs/7cpa_no_ligand_CP1_silent.out       ` )
--   ligand .params files and associated ligand pdb conformers (see [[ligand_dock|ligand-dock]] for details and examples at: `        rosetta/rosetta_tests/integration/tests/extract_atomtree_diffs/inputs/CP1.fa.params and CP1_confs.fa.pdb.gz       ` )
+-   atomtree\_diff silent file (e.g. `        rosetta/rosetta_tests/integration/tests/extract_atomtree_diffs/inputs/7cpa_no_ligand_CP1_silent.out       `)
+-   ligand .params files and associated ligand pdb conformers (see [[ligand_dock|ligand-dock]] for details and examples at: `        rosetta/rosetta_tests/integration/tests/extract_atomtree_diffs/inputs/CP1.fa.params and CP1_confs.fa.pdb.gz       `)
 
-An example command line to extract just one structure (using the files in `       rosetta/rosetta_tests/integration/tests/extract_atomtree_diffs      ` ):
+An example command line to extract just one structure (using the files in `       rosetta/rosetta_tests/integration/tests/extract_atomtree_diffs      `):
 
 ```
 ~/rosetta/rosetta_source/bin/extract_atomtree_diffs.linuxgccrelease -database ~/rosetta_database -extra_res_fa inputs/CP1.fa.params -s inputs/7cpa_no_ligand_CP1_silent.out -tags 7cpa_no_ligand_CP1_0_0012
@@ -75,7 +74,7 @@ JUMP 2 0.042857484863 0.122530593587 0.991538950131 -0.877881019816 0.4784104111
 END_POSE_TAG 7cpa_0_0_0001
 ```
 
-The format for each atomtree diff line is as follows ( `       rosetta/rosetta_source/src/core/io/atom_tree_diffs/atom_tree_diff.cc      ` ):
+The format for each atomtree diff line is as follows ( `       rosetta/rosetta_source/src/core/io/atom_tree_diffs/atom_tree_diff.cc      `):
  Format: resno atomno phi [theta [d]], only for atoms with changed DOFs
  Phi comes first because dihedrals change most often.
  Theta comes next because in most cases bond angles don't change, so we can omit it!
@@ -98,7 +97,7 @@ Atomtree diff files are plain text, and final scores are recorded on the SCORES 
 
 The following applies to output from ligand docking:
 
-Scores of interest include "total\_score", the overall Rosetta energy for the receptor-ligand complex; "interface\_delta", which estimates the binding energy as the difference between total\_score and the score of the separated components; and "ligand\_auto\_rms\_no\_super", the RMSD between the final ligand position and its position in the input (or `       -native      ` ) PDB file, accounting for any chemical symmetries (automorphisms). The individual components of total\_score are also present, as are the components of interface\_delta (prefixed by "if\_").
+Scores of interest include "total\_score", the overall Rosetta energy for the receptor-ligand complex; "interface\_delta", which estimates the binding energy as the difference between total\_score and the score of the separated components; and "ligand\_auto\_rms\_no\_super", the RMSD between the final ligand position and its position in the input (or `       -native      `) PDB file, accounting for any chemical symmetries (automorphisms). The individual components of total\_score are also present, as are the components of interface\_delta (prefixed by "if\_").
 
 Ian Davis reports good results with the following ranking scheme. First discard any structures where the ligand is not touching the protein (ligand\_is\_touching = 0). Then take the top 5% by total energy (total\_score). Then rank the rest by the interaction energy between protein and ligand only (interface\_delta); this is the score difference between the components together and the components pulled apart by 500A. Among the lowest energy structures, this eliminates some uncorrelated noise from minor variation in the protein and focuses on protein-ligand interactions. This is the scoring scheme implemented by `       best_ifaceE.py      ` , which can be run directly on the silent file to discover the "best" docking results.
 
@@ -112,13 +111,7 @@ Specify the input silent file. If there is a ligand specify the relevant params 
 -   -s [silent file]
 -   -extra\_res\_fa [ligand params file]
 -   -tags [the name of the desired tag]
--   Note that the tags can be read by hand directly in the silent.out file, as each structure begins with a POSE\_TAG line that specifies the tag name for that structure. The desired tags may come from another script, such as bestifaceE.py (For example:
-
-    ~~~~ {.fragment}
-    ~/rosetta/rosetta_source/src/apps/public/ligand_docking/best_ifaceE.py -n 10 1t3r_silent.out 
-    ~~~~
-
-    ).
+-   Note that the tags can be read by hand directly in the silent.out file, as each structure begins with a POSE\_TAG line that specifies the tag name for that structure. The desired tags may come from another script, such as bestifaceE.py (For example: `~/rosetta/rosetta_source/src/apps/public/ligand_docking/best_ifaceE.py -n 10 1t3r_silent.out`).
 
 Tips
 ====
