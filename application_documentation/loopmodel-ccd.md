@@ -1,12 +1,11 @@
-<!-- --- title: Loopmodel Ccd -->Documentation for fragment-based ccd loop modeling
-
- Author   
-Sinisa Bjelic and TJ Brunette
+#Fragment-based CCD loop modeling
 
 Metadata
 ========
 
-This document was last updated August 11, 2010 by TJ Brunette & Sinisa Bjelic. The corresponding PIs for this application are David Baker [dbaker@u.washington.edu](#) .
+Author: Sinisa Bjelic and TJ Brunette
+
+This document was last updated August 11, 2010 by TJ Brunette & Sinisa Bjelic. The corresponding PIs for this application are David Baker (dbaker@u.washington.edu) .
 
 Code and Demo
 =============
@@ -85,7 +84,7 @@ LOOP 88 95 92 0 1
 Options
 =======
 
-Options used in Loop Modeling
+####Options used in Loop Modeling
 
 Loop modeling control: A series of string options control what sorts of loop modeling you get. The executable contains many different loop modeling modes, you use string selections to tell it which paths to take.
 
@@ -176,7 +175,11 @@ For production runs, it is recommended to use the following flags. `       -loop
 quick\_ccd can also remodel termini. To do this set the cutpoint in the loops file to be equal to the last residue in the chain. For example for a 80 residue protein, if you want to remodel the first 10 residues the loop file would have 1 10 10 0 0
 
 quick\_ccd does not require constraints, but using constraints from homologs or experimental data can produce more accurate results. Output consists of a pdb and a scorefile. The job concludes with the following command:
- `       protocols.looprelax: ===              protocols::checkpoint: Deleting checkpoints of Loopbuild             `
+
+```
+protocols.looprelax: ===
+protocols::checkpoint: Deleting checkpoints of Loopbuild
+```
 
 Analyzing data
 --------------
