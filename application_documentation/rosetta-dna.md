@@ -1,10 +1,10 @@
-<!-- --- title: Rosetta D N A -->Documentation for RosettaDNA application
-
- Author   
-Justin Ashworth [ashwortj@uw.edu](#) , James Havranek [havranek@genetics.wustl.edu](#) , Phil Bradley [pbradley@fhcrc.org](#) , Carlos Duarte, David Baker [dabaker@uw.edu](#)
+#RosettaDNA application
 
 Metadata
 ========
+
+Author:
+Justin Ashworth (ashwortj@uw.edu) , James Havranek (havranek@genetics.wustl.edu) , Phil Bradley (pbradley@fhcrc.org) , Carlos Duarte, David Baker (dabaker@uw.edu)
 
 Last updated 2011-02-18. Corresponding authors are Justin Ashworth and David Baker.
 
@@ -32,7 +32,7 @@ References
 -   Ashworth J, Baker D. Assessment of the optimization of affinity and specificity at protein-DNA interfaces. Nucleic Acids Res. 2009 Jun;37(10):e73. PMID:19389725
 -   Ashworth J, Havranek JJ, Duarte CM, Sussman D, Monnat RJ Jr, Stoddard BL, Baker D. Computational redesign of endonuclease DNA binding and cleavage specificity. Nature. 2006 Jun 1;441(7093):656-9. PMID:16738662
 
-Application purpose
+Purpose
 ===========================================
 
 This application provides support for biophysical modeling of protein-DNA interactions. It provides sampling and energetic estimates of structural and mutational degrees of freedom in the protein-DNA interface.
@@ -69,7 +69,7 @@ Optional additional files:
 Options
 =======
 
-Protocol-Specific Options
+Basic protocol options
 -------------------------
 
 Most protocol-specific behavior is specified through the RosettaScripts interface. Here are examples of the primary class options:
