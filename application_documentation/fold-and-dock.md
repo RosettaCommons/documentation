@@ -1,10 +1,9 @@
-<!-- --- title: Fold And Dock -->Documentation for fold-and-dock application
-
- Author   
-Ingemar Andre
+#Fold And Dock
 
 Metadata
 ========
+
+Author: Ingemar Andre
 
 This document was edited Aug 22th 2010 by Ingemar André. This application in rosetta was created by Ingemar André. The original fold-and-dock protocol in rosetta++ was written by Rhiju Das and Ingemar André.
 
@@ -64,14 +63,14 @@ General/Packing Options
 
 -   -file:frag3, -file:frag9 - The location of fragment libraries
 
--   -ex1, -ex2, -extrachi\_cutoff [[num residues], etc. - increase the resolution of the rotamer library. Only used if [relax protocol|relax]] is called at the end of fold-and-dock.
+-   -ex1, -ex2, -extrachi\_cutoff [num residues], etc. - increase the resolution of the rotamer library. Only used if the relax protocol is called at the end of fold-and-dock.
 
-options
+Abinitio options
 -------
 
 All the abinitio options are valid in fold-and-dock. See the documentation for abinitio for a full explanation.
 
-options
+Relax options
 -------
 
 All the Relax options are valid in fold-and-dock. See the documentation for <relax> for a full explanation.
