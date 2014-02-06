@@ -1,10 +1,9 @@
-<!-- --- title: Rna Denovo -->Documentation for RNA 3D structure modeling: *rna\_denovo* , *rna\_database* , *rna\_extract* , *rna\_score* , *rna\_minimize* , and *rna\_cluster* applications
-
- Author   
-Rhiju Das
+#Rna Denovo: RNA 3D structure modeling
 
 Metadata
 ========
+
+Author: Rhiju Das
 
 Written in 2008. Last update: Nov. 2011 by Rhiju Das (rhiju [at] stanford.edu).
 
@@ -43,7 +42,7 @@ Limitations
 
 -   This method has been demonstrated to reach atomic accuracy for small motifs (12 residues or less) – the current bottleneck for larger RNAs is the difficulty of complete conformational sampling (as in other applications in Rosetta to, e.g., protein de novo modeling). On-going work attempts to resolve this issue, but requires great computational expense (see Sripakdeevong et al. paper above).
 
--   For larger RNAs, it appears most efficient to just carry out fragment assembly without refinement, specifying secondary structure (as described below). Although atomic accuracy is unlikely, models acccurate at nucleotide or helix resolution can be achieved, especially with constraints from experiments. See also: [[Documentation for RNA assembly with experimental pair-wise constraints, using *rna_denovo* and *rna_helix* executables|rna-assembly]] .
+-   For larger RNAs, it appears most efficient to just carry out fragment assembly without refinement, specifying secondary structure (as described below). Although atomic accuracy is unlikely, models acccurate at nucleotide or helix resolution can be achieved, especially with constraints from experiments. See also: [[RNA assembly with experimental pair-wise constraints|rna-assembly]].
 
 -   As with most other modes in Rosetta, the final ensemble of models is not guaranteed to be a Boltzmann ensemble.
 
@@ -64,13 +63,13 @@ Required file
 
 You need only one input file to run RNA structure modeling:
 
--   The [u'fasta'] fasta file: it is a sequence file for your rna.
+-   The [[fasta file]]: it is a sequence file for your rna.
 
 Optional additional files:
 --------------------------
 
--   A [u'Parameter files (".params") to specify Watson/Crick base pairs and strand boundaries'] file. This can specify base pairs that are held together during the run, as well as boundaries between independent chains.
--   Native pdb file, if all-heavy-atom rmsd's are desired. Must be in Rosetta's PDB [[Format|loops-file#format]] for RNA.
+-   A [Parameter files to specify Watson/Crick base pairs and strand boundaries](#Parameter-files-to-specify-Watson/Crick-base-pairs-and-strand-boundaries). This can specify base pairs that are held together during the run, as well as boundaries between independent chains.
+-   Native pdb file, if all-heavy-atom rmsd's are desired. Must be in Rosetta's [PDB format for RNA](#File-Format).
 
 How to include these files.
 ---------------------------
@@ -86,7 +85,7 @@ The code takes about 1 minute to generate two models.
 
 The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a,c,g, and u. The example fasta file is available in `       rosetta_source/test/integration/tests/rna_denovo/      ` .
 
-Parameter files (".params") to specify Watson/Crick base pairs and strand boundaries
+Parameter files to specify Watson/Crick base pairs and strand boundaries
 ------------------------------------------------------------------------------------
 
 RNA motifs are typically ensconced within Watson/Crick double helices, and involve several strands. [The most conserved loop of the signal recognition particle is an example, and is included here as chunk002\_1lnt\_RNA.pdb.] You can specify the bounding Watson/Crick base pairs in a "params file" with lines like the following:
@@ -162,7 +161,7 @@ Advanced [used in rna_assembly]
 Tips
 ====
 
-Format
+File Format
 ------
 
 Input and output PDB models have residues marked rA, rC, rG, and rU, due to historical reasons. If you have a "standard" PDB file, there is a python script available to convert it to Rosetta format:
