@@ -1,9 +1,9 @@
-<!-- --- title: Ligand Dock -->Documentation for the ligand\_dock application
+#Ligand\_dock application
 
 Metadata
 ========
 
-This document was written 4 Feb 2008 by Ian W. Davis and was last updated: \$Id\$
+This document was written 4 Feb 2008 by Ian W. Davis.
 
 Example runs
 ============
@@ -30,7 +30,7 @@ This application takes a receptor structure (typically a protein) and a small mo
 Algorithm
 =========
 
-The algorithm is similar to that in Meiler & Baker 2006, except with many fewer cycles of refinement; the full details of the flexible backbone docking algorithm appear in Davis & Baker 2008. The starting position for the ligand can be specified explicitly ( `       -docking:ligand:start_from X Y Z      ` ) or implicitly (starting coordinates in the PDB file). It is then typically perturbed by a relatively large, user specified amount (see sample flags, below) so as to explore the entire binding pocket. Then the Monte Carlo minimization begins: For 6 cycles, the ligand is slightly perturbed, sidechains are repacked, and if the energy hasn't increased too much all degrees of freedom are minimized. Cycles 1 and 4 get a full repack; the others just get rotamer trials. If ligand rotamers are supplied, then the ligand can be packed also. Each cycle is followed by a Monte Carlo accept/reject. At the end, the lowest energy pose is recovered and further minimized. If the protein backbone is to be minimized, it moves only during this final minimization. Interpretation of the output scores is described below.
+The algorithm is similar to that in Meiler & Baker 2006, except with many fewer cycles of refinement; the full details of the flexible backbone docking algorithm appear in Davis & Baker 2008. The starting position for the ligand can be specified explicitly (`-docking:ligand:start_from X Y Z`) or implicitly (starting coordinates in the PDB file). It is then typically perturbed by a relatively large, user specified amount (see sample flags, below) so as to explore the entire binding pocket. Then the Monte Carlo minimization begins: For 6 cycles, the ligand is slightly perturbed, sidechains are repacked, and if the energy hasn't increased too much all degrees of freedom are minimized. Cycles 1 and 4 get a full repack; the others just get rotamer trials. If ligand rotamers are supplied, then the ligand can be packed also. Each cycle is followed by a Monte Carlo accept/reject. At the end, the lowest energy pose is recovered and further minimized. If the protein backbone is to be minimized, it moves only during this final minimization. Interpretation of the output scores is described below.
 
 Overview
 ========
@@ -71,7 +71,7 @@ Here is a "checklist" for setting up a ligand docking experiment. Details for al
 Automatic RosettaLigand Setup (ARLS)
 ====================================
 
-Most of the steps to set up a RosettaLigand docking run have been automated by the `       arls.py      ` script ( `       rosetta/rosetta_source/src/apps/public/ligand_docking/      ` , run with –help for brief instructions). For those who prefer a manual approach, the individual steps are detailed in the following sections.
+Most of the steps to set up a RosettaLigand docking run have been automated by the `       arls.py      ` script (`rosetta/rosetta_source/src/apps/public/ligand_docking/`, run with –help for brief instructions). For those who prefer a manual approach, the individual steps are detailed in the following sections.
 
 The inputs to ARLS are *apo* protein structures (.pdb) and cofactor and ligand files (.mol, .sdf, or .mol2). I typically use PyMOL to edit the proteins, [Babel](http://openbabel.org/wiki/Main_Page) to convert PDB ligands to SDF, and [Avogadro](http://avogadro.openmolecules.net/wiki/Main_Page) to fix any mistakes in the SDF (all are free). You also need a file with one line per docking case, listing the protein name, cofactor name(s) if any, and ligand name (without file extensions). This file shows docking several compounds into an apo structure of farnesyl transferase, in most cases including a farnesyl pyrophosphate as a cofactor:
 
@@ -124,7 +124,7 @@ Special records can be added to the file to specify the atom tree root or split 
 
 If you want to use all the conformers in Rosetta's packer during the docking run, you must cat them all into one file and add a PDB\_ROTAMERS line to the bottom of the .params file. Otherwise, just the conformation in the input PDB will be used.
 
-Because I use `       -includeInput      ` with Omega, I need to omit the crystallographic ligand coordinates ( `       1t3r_0001.pdb      ` ) from the ligand conformer library. For docking benchmarks, those coordinates can be used for the reference ("native") structure, so Rosetta will calculate meaningful RMSD values.
+Because I use `       -includeInput      ` with Omega, I need to omit the crystallographic ligand coordinates (`       1t3r_0001.pdb      `) from the ligand conformer library. For docking benchmarks, those coordinates can be used for the reference ("native") structure, so Rosetta will calculate meaningful RMSD values.
 
 ```
 mkdir conf1
@@ -184,7 +184,7 @@ The input is essential, and is provided via the `       -s      ` switch. The na
 
 For cross docking, it is important not to include the co-crystal ligand coordinates in either the input or the unbound PDB file: If you do, it will bias the docking by giving Rosetta the bioactive ligand conformation as one of its rotamers. It's safe to include the co-crystal ligand coordinates in the "native" PDB file; these are only used for calculating RMS and will not influence the course of the docking.
 
-Usage of Databases
+Usage for a Production Run
 ==================
 
 A total of 2000 - 10000 docking trajectories are often necessary to be reasonably sure of correctly docking the ligand, depending on how well the location of the binding site is known. (Docking against the whole protein surface could require many times more trajectories.)
@@ -384,7 +384,7 @@ By clustering ligand poses, and choosing the best model from each low energy clu
 
 Although there is a clustering application within the Rosetta framework (the "cluster" application - see [[the documentation|cluster]] ), it is written to work primarily with protein structures, and by default works with C-alpha rmsd as the distance metric. Given that the Rosetta ligand\_dock application performs only limited backbone movement, and that most ligands do not have C-alpha atoms, the clusters thus obtained are unlikely to be relevant.
 
-A better alternative is to use the ligand-docking specific "select\_best\_unique\_ligand\_poses" application. This is a greedy algorithm clustering approach, which first filters structures by ligand\_is\_touching/total\_score as in the [u'Analysis of outputs'] section above. It then ranks structures by the interface\_delta metric, going down the list and outputting structures which are at least a given threshold of ligand-only rmsd away from any of the structures that have been output so far, up to a given maximum. It will also produce a file "cluster\_rms.tab" in the running directory giving the rmsd values between the output structures.
+A better alternative is to use the ligand-docking specific "select\_best\_unique\_ligand\_poses" application. This is a greedy algorithm clustering approach, which first filters structures by ligand\_is\_touching/total\_score as in the [Analysis of outputs](#Analysis-of-outputs) section above. It then ranks structures by the interface\_delta metric, going down the list and outputting structures which are at least a given threshold of ligand-only rmsd away from any of the structures that have been output so far, up to a given maximum. It will also produce a file "cluster\_rms.tab" in the running directory giving the rmsd values between the output structures.
 
 The select\_best\_unique\_ligand\_poses application uses the "jd2-style" options to control input and output. Note that the ligand\_is\_touching/total\_score/interface\_delta metrics are taken from the input files and not recomputed, so only atom\_tree\_diff and silent file inputs coming from the ligand\_dock application make sense as inputs.
 
@@ -405,7 +405,9 @@ Program-specific Options:
      -docking:ligand:min_rms         Ignore structure if rmsd to previously output structure is less than this (default 0.8)
 ```
 
-(\*1) For backwards compatability with previous versions of select\_best\_unique\_ligand\_poses, if the file passed to -in: <file:silent> looks like an atom\_tree\_diff, it will be treated as one. Explicitly set -in: <file:silent_struct_type> with the appropirate value to override this behavior. (\*2) For backwards compatability, if -out: <file:silent_strcut_type> is not set, the filename passed to -out: <file:silent> will be treated as if it were passed to -out: <file:atom_tree_diff> (\*3) If -docking:ligand:subset\_to\_keep is greater than 1.0, it will be interpreted as the number of top total\_score to keep, rather than a fraction.
+* (\*1) For backwards compatability with previous versions of select\_best\_unique\_ligand\_poses, if the file passed to -in:file:silent looks like an atom\_tree\_diff, it will be treated as one. Explicitly set -in:file:silent_struct_type with the appropriate value to override this behavior. 
+* (\*2) For backwards compatability, if -out:file:silent_struct_type is not set, the filename passed to -out:file:silent will be treated as if it were passed to -out:file:atom_tree_diff 
+* (\*3) If -docking:ligand:subset\_to\_keep is greater than 1.0, it will be interpreted as the number of top total\_score to keep, rather than a fraction.
 
 Estimating docking confidence (PRELIMINARY)
 ===========================================
