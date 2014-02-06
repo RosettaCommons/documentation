@@ -1,12 +1,11 @@
-<!-- --- title: Minirosetta Comparative Modeling -->Documentation for comparative modeling of protein structures
-
- Author   
-James Thompson
+#Comparative modeling of protein structures
 
 Metadata
 ========
 
-This document was last updated on November 21st, 2010 by James Thompson [tex@uw.edu](#) . The PI is David Baker [dabaker@uw.edu](#) . The Rosetta comparative modeling protocol was developed primarily by the following members of the Rosetta Commons:
+Author: James Thompson
+
+This document was last updated on November 21st, 2010 by James Thompson (tex@uw.edu) . The PI is David Baker (dabaker@uw.edu) . The Rosetta comparative modeling protocol was developed primarily by the following members of the Rosetta Commons:
 
 -   Carol Rohl
 -   Dylan Chivian
@@ -99,6 +98,6 @@ scores_from_program: 0.000000 0.998400
 --
 ```
 
-The first two lines represent the identifier of the query and template sequences, and 1be9A.pdb must provided on the command-line with the -in: <file:template_pdb> option (listed above). The string "1be9A\_4" should be a unique identifier for the sequence alignment. Alignment identifiers are stored in silent-files, and each structure in a silent-file should store which alignment was used as a template for model building.
+The first two lines represent the identifier of the query and template sequences, and 1be9A.pdb must provided on the command-line with the -in:file:template_pdb option (listed above). The string "1be9A\_4" should be a unique identifier for the sequence alignment. Alignment identifiers are stored in silent-files, and each structure in a silent-file should store which alignment was used as a template for model building.
 
-See the [[AbinitioRelax extract options|abinitio-relax#abinitiorelax-score-extract-options]] and [[AbinitioRelax cluster options|abinitio-relax#abinitiorelax-cluster-options]] for information on how to extract PDBs and cluster silent-files from comparative modeling.
+See the [[AbinitioRelax extract options|abinitio-relax#Options]] and [[AbinitioRelax cluster options|abinitio-relax#Options]] for information on how to extract PDBs and cluster silent-files from comparative modeling.
