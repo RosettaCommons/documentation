@@ -1,10 +1,9 @@
-<!-- --- title: Rna Thread -->Documentation for RNA threading and mutation: *rna\_thread*
-
- Author   
-Rhiju Das
+#Documentation for RNA threading and mutation: *rna\_thread*
 
 Metadata
 ========
+
+Author: Rhiju Das
 
 Added to documentation: June 2013
 
@@ -43,10 +42,10 @@ Limitations
 Input Files
 ===========
 
-Required file
+Required files
 -------------
 
--   The template PDB file. Must be in Rosetta RNA format (see [[Documentation for RNA 3D structure modeling: *rna_denovo* , *rna_database* , *rna_extract* , *rna_score* , *rna_minimize* , and *rna_cluster* applications|rna-denovo]] )
+-   The template PDB file. Must be in Rosetta RNA format (see [[Documentation for RNA 3D structure modeling|rna-denovo]] )
 -   An alignment fasta file. Example:
 
 ```
@@ -59,7 +58,7 @@ gguuggguugggaaguaucauggcuaaucaccaugaugcaaucggguugaacacuuaau---------------------
 
 If you just want to mutate sequence, can supply this on command line by -seq; see below rna\_mutate.
 
-How to include these files.
+How to run with this file.
 ---------------------------
 
 ```
@@ -81,8 +80,8 @@ Options
                                 same number of residues as template PDB.
 ```
 
-Other options
-=============
+Other
+=====
 
 If you just want to mutate some positions in an RNA and don't want to create a fasta file, you can run a command line like:
 
