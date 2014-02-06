@@ -1,10 +1,9 @@
-<!-- --- title: Rna Assembly -->Documentation for RNA assembly with experimental pair-wise constraints, using *rna\_denovo* and *rna\_helix* executables
-
- Author   
-Rhiju Das
+#RNA assembly with experimental pair-wise constraints
 
 Metadata
 ========
+
+Author: Rhiju Das
 
 Nov. 2011 by Rhiju Das (rhiju [at] stanford.edu).
 
@@ -56,15 +55,15 @@ Required file
 
 You need two files:
 
--   The [[fasta|rna-denovo#fasta]] fasta file: it is a sequence file for your rna. The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a,c,g, and u. The example fasta file is available in `        rosetta_tests/integration/tests/rna_denovo/       ` .
+-   The [[fasta file]]: it is a sequence file for your rna. The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a,c,g, and u. The example fasta file is available in `        rosetta_tests/integration/tests/rna_denovo/       ` .
 
 -   The secstruct secondary structure file: the secondary structure that you are assuming. This file needs to be a text file with one line, giving the RNA secondary structure in dot bracket notation. For example '((....))' denotes a hairpin structure in which the first two and last two bases are paired.
 
 Optional additional files:
 --------------------------
 
--   A [[Constraint File Instructions|constraint-file]] constraints file. This can specify bases that should make contact, based on experimental or phylogenetic information. See below for an example.
--   Native pdb file, if all-heavy-atom rmsd's are desired. Must be in Rosetta's PDB [[Format|loops-file#format]] for RNA.
+-   A [[constraint file]]. This can specify bases that should make contact, based on experimental or phylogenetic information. See below for an example.
+-   Native pdb file, if all-heavy-atom rmsd's are desired. Must be in Rosetta's PDB [[Format|rna-denovo#File-Format]] for RNA.
 
 How to run the job
 ------------------
@@ -89,7 +88,7 @@ Then run the Rosetta commands in :
 
 You can see examples of these files and their output in example\_output/. Please note that you can reduce or increase the number of models per motif with the 'nstruct' models; for a quick run through, you could change these to 2. In reality you will want to make 2000-4000 MOTIF models, and then several thousand ASSEMBLE models. [You can just use one STEM model per helix, as that is supposed to be an ideal helix.] The helical stem building should take only a few seconds per helix. The motif modeling will take longer – about 1 minute per model. The final assembly jobs will take 2-3 minutes per model for a 100-nt RNA, and longer for larger molecules.
 
-How to include these files.
+Command-lines in some more detail.
 ---------------------------
 
 The above workflow should work, but its worth looking at the rosetta command-lines in the README files to see what's going on. First, ideal A-form helices can be created with the command line:
@@ -164,12 +163,12 @@ These constraints give a bonus of –20.0 kcal/mol if the specified atom pairs a
 Options
 =======
 
-Some options are similar to those in RNA de novo modeling, but they have not been tested extensively. See [[Documentation for RNA 3D structure modeling: *rna_denovo* , *rna_database* , *rna_extract* , *rna_score* , *rna_minimize* , and *rna_cluster* applications|rna-denovo]] .
+Some options are similar to those in RNA de novo modeling, but they have not been tested extensively. See [[Documentation for RNA 3D structure modeling|rna-denovo]].
 
 Expected Outputs
 ================
 
-At the end of the protocol, your final models will be in a silent file called \*\_assemble.out. You can view scores, cluster, and extract pdb files. See [[Documentation for RNA 3D structure modeling: *rna_denovo* , *rna_database* , *rna_extract* , *rna_score* , *rna_minimize* , and *rna_cluster* applications|rna-denovo]] .
+At the end of the protocol, your final models will be in a silent file called \*\_assemble.out. You can view scores, cluster, and extract pdb files. See [[Documentation for RNA 3D structure modeling|rna-denovo]].
 
 New things since last release
 =============================
