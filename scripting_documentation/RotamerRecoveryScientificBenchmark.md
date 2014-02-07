@@ -1,4 +1,6 @@
-<!-- --- title: Rotamerrecoveryscientificbenchmark -->Introduction
+#Rotamer Recovery Scientific Benchmark
+
+Introduction
 ============
 
 Rotamer Recovery measures how far Rosetta's optimal conformation differs from some reference conformation. Along with sequence recovery and ddG prediction, rotamer recovery is one of the major methods of benchmarking the quality of the Rosetta score function.
