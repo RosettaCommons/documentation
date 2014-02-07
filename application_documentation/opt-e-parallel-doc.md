@@ -1,4 +1,4 @@
-#he optE\_parallel application
+#The optE\_parallel application
 
 Metadata
 ========
