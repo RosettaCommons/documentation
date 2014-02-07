@@ -1,4 +1,6 @@
-<!-- --- title: Twobodyfeaturesreporters -->PairFeatures
+#TwoBodyFeaturesReporters
+
+PairFeatures
 ------------
 
 The [PairFeatures](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/protocols/features/PairFeatures.hh) measures the distances between residues.
