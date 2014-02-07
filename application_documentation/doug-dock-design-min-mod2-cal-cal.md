@@ -1,12 +1,11 @@
-<!-- --- title: Doug Dock Design Min Mod2 Cal Cal -->Documentation for doug\_dock\_design\_min\_mod2\_cal\_cal application
-
- Author   
-P. Douglas Renfrew ( [renfrew@nyu.edu](#) )
+#Documentation for doug\_dock\_design\_min\_mod2\_cal\_cal application
 
 Metadata
 ========
 
-Documentation was last updated December 2011, by Doug Renfrew ( [renfrew@nyu.edu](#) ). The PI for this application is Brian Kuhlman ( [bkuhlman@email.unc.edu](#) ).
+Author: P. Douglas Renfrew (renfrew@nyu.edu)
+
+Documentation was last updated December 2011, by Doug Renfrew (renfrew@nyu.edu). The PI for this application is Brian Kuhlman (bkuhlman@email.unc.edu).
 
 Code and Demo
 =============
@@ -18,7 +17,7 @@ References
 
 P. Douglas Renfrew, Eun Jung Choi, Brian Kuhlman, "Using Noncanonical Amino Acids in Computational Protein-Peptide Interface Design" (2011) PLoS One.
 
-Application purpose
+Purpose
 ===========================================
 
 The DougsDockDesignMinimize (DDDM) protocol was used in the accompanying manuscript to redesign the protein/peptide interface of Calpain and a fragment of its inhibitory peptide calpastatin. A modified form was used as the example protocol in the advanced section of the Rosetta 3.0 release manual.
