@@ -1,6 +1,6 @@
 <!-- --- title: Rosettascripts Developer Guide -->*This page was modified in the Minicon 11 Wiki Update, but we didn't quite finish it for reasons of lack of time or knowledge. If you can finish it, please do!*
 
- Using RosettaScripts in its most basic sense involves organizing a workflow of [Mover](https://www.rosettacommons.org/internal/doc/mini/classprotocols_1_1moves_1_1_mover.html) classes that are defined and parameterized in an [XML-like scripting language](https://www.rosettacommons.org/internal/doc/mini/namespaceutility_1_1_tag.html) that is read and processed into an arbitrary minirosetta protocol at runtime. The use of Filter classes is also used to further control protocol flow.
+ Using RosettaScripts in its most basic sense involves organizing a workflow of [[Mover]] classes that are defined and parameterized in an XML-like scripting language that is read and processed into an arbitrary minirosetta protocol at runtime. The use of Filter classes is also used to further control protocol flow.
 
 DataMap
 -------
@@ -41,7 +41,7 @@ Alternatively, one can use the parse\_score\_function() convenience function in 
 
 #### Task Objects
 
-If your mover takes as input a packer task, you likely want to observe the directives in the \<TASKOPERATIONS\> section of the XML file. (See [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]] .)
+If your mover takes as input a packer task, you likely want to observe the directives in the \<TASKOPERATIONS\> section of the XML file. (See [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]].)
 
 A parse\_task\_operations() convenience function is provided for this purpose in protocols/RosettaScripts/util.hh. It parses the Tag pointer and Datamap appropriately, and returns an owning pointer to an appropriately constructed TaskFactory object.
 
@@ -67,7 +67,7 @@ Requirements are all the same as of Mover, with one exception that the Pose obje
 TaskOperations
 --------------
 
-[TaskOperations](https://www.rosettacommons.org/internal/doc/mini/classcore_1_1pack_1_1task_1_1_task_operation.html) that are specified in utility::Tag scripts in order to be utilized by Movers require careful (but relatively simple) implementation of virtual functions, a Creator class, and load-time registration in an init.cc file.
+[[TaskOperation]]s that are specified in utility::Tag scripts in order to be utilized by Movers require careful (but relatively simple) implementation of virtual functions, a Creator class, and load-time registration in an init.cc file.
 
 As of trunk revisions r34048, r34052, and r34063, DockDesignParser no longer owns its own TaskOperationFactory. There is now a singleton factory that lives at core::pack::task::operation::TaskOperationFactory. Also, protocols no longer need to manually register TaskOperations with this factory. Instead, TaskOperations are registered with the factory at "init" time (core/init.cc,protocols/init.cc,devel/init.cc) via Creator and Registrator classes. Creators are helper classes that make the TaskOperationFactory aware of how to create different flavors of TaskOperations. This way the TaskOperationFactory can store very-low-weight Creator classes, and only makes specific actual TaskOperations upon demand. This saves time, memory, and I/O. See the core/pack/task/operation/ directory and protocols/init.cc for examples of how these classes are implemented and cooperate.
 
@@ -75,7 +75,7 @@ As of trunk revisions r34048, r34052, and r34063, DockDesignParser no longer own
 
 These same principle apply to ResFilter and ResLvlTaskOperation classes, which are implemented in the same way TaskOperations.
 
-TaskOperations may implement their own [parse\_tag](https://www.rosettacommons.org/internal/doc/mini/search.php?query=TaskOperation%3A%3Aparse_tag) method to parse user-defined options.
+TaskOperations may implement their own parse\_tag method to parse user-defined options.
 
 THIS PAGE UNDER CONSTRUCTION
 ----------------------------
