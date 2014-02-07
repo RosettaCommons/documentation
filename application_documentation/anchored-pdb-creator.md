@@ -1,12 +1,11 @@
-<!-- --- title:  Anchored P D B Creator -->Documentation for AnchoredPDBCreator application
-
- Author   
-Steven Lewis [smlewi@gmail.com](#)
+#AnchoredPDBCreator application
 
 Metadata
 ========
 
-Code and documentation by Steven Lewis [smlewi@gmail.com](#) . This document was last updated 6/24/11 by Steven Lewis. The PI was Brian Kuhlman, [bkuhlman@email.unc.edu](#) .
+Author: Steven Lewis (smlewi@gmail.com)
+
+Code and documentation by Steven Lewis (smlewi@gmail.com). This document was last updated 6/24/11 by Steven Lewis. The PI was Brian Kuhlman, (bkuhlman@email.unc.edu).
 
 Example runs
 ============
