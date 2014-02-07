@@ -90,7 +90,7 @@ AtomAtomPairFeatures
 The distances between pairs of atoms is an indicator of the packing of a structure. Since there are a large number of atom pairs, here, the information is summarized by atom pair distributions for each pair of atom types (Rosetta AtomType -\> element type). See AtomInResidueAtomInResiduePairFeatures for an alternative binning of atom-atom interactions.
 
 -   **atom\_pairs** : Binned distribution of pairs of types of atoms
-    -   *atom\_type* : The AtomType of the central atom. This is a subset of the AtomTypes defined in the full-atom AtomTypeSet [atom\_properties.txt](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_database/chemical/atom_type_sets/fa_standard/atom_properties.txt) : *CAbb* , *CObb* , *OCbb* , *CNH2* , *COO* , *CH1* , *CH2* , *CH3* , *aroC* , *Nbb* , *Ntrp* , *Nhis* , *NH2O* , *Nlys* , *Narg* , *Npro* , *OH* , *ONH2* , *OOC* , *Oaro* , *Hpol* , *Hapo* , *Haro* , *HNbb* , *HOH* , and *S* .
+    -   *atom\_type* : The AtomType of the central atom. This is a subset of the AtomTypes defined in the full-atom AtomTypeSet (rosetta/main/database/chemical/atom_type_sets/fa_standard/atom_properties.txt) : *CAbb* , *CObb* , *OCbb* , *CNH2* , *COO* , *CH1* , *CH2* , *CH3* , *aroC* , *Nbb* , *Ntrp* , *Nhis* , *NH2O* , *Nlys* , *Narg* , *Npro* , *OH* , *ONH2* , *OOC* , *Oaro* , *Hpol* , *Hapo* , *Haro* , *HNbb* , *HOH* , and *S* .
     -   *element* : The element type of the second atom: *C* , *N* , *O* , and *H*
     -   *{lower/upper}\_break* : The boundaries for the distance bin
     -   *count* : The number of atom-atom instances of the correct type that occur in the specific distance range in the structure.
@@ -165,13 +165,13 @@ GeometricSolvationFeatures
 HBondFeatures
 -------------
 
-The [HBondFeatures](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/protocols/features/HBondFeatures.hh) measures the geometry of hydrogen bonds. The most current reference is [Tanja Kortemme, Alexandre V. Morozov, David Baker, An Orientation-dependent Hydrogen Bonding Potential Improves Prediction of Specificity and Structure for Proteins and Protein-Protein Complexes, (JMB 2003)](http://www.sciencedirect.com/science/article/B6WK7-47WBSCV-T/2/d7c673dd51017848231e7b9e8c05fbca) .
+The HBondFeatures (rosetta/main/source/src/protocols/features/HBondFeatures.hh) measures the geometry of hydrogen bonds. The most current reference is [Tanja Kortemme, Alexandre V. Morozov, David Baker, An Orientation-dependent Hydrogen Bonding Potential Improves Prediction of Specificity and Structure for Proteins and Protein-Protein Complexes, (JMB 2003)](http://www.sciencedirect.com/science/article/B6WK7-47WBSCV-T/2/d7c673dd51017848231e7b9e8c05fbca) .
 
 The features associated with hydrogen bonding include
 
 -   **hbond\_sites** : Conceptually these are positively and negatively charged functional groups that can form hydrogen bonds.
-    -   *atmNum* :For donor functional groups, atmNum is the atom number of the [polar hydrogen](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/chemical/ResidueType.hh#L364) . For acceptor functional groups, atmNum is the atom number of an [acceptor atom](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/chemical/ResidueType.hh#L384) .
-    -   *HBChemType* : The HBChemType string corresponding to an [HBAccChemType](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/types.hh#L77) or [HBDonChemType](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/types.hh#L102) depending on if the site is a donor or acceptor.
+    -   *atmNum* :For donor functional groups, atmNum is the atom number of the polar hydrogen. For acceptor functional groups, atmNum is the atom number of an acceptor atom.
+    -   *HBChemType* : The HBChemType string corresponding to an HBAccChemType or HBDonChemType (see rosetta/main/source/src/core/scoring/hbonds/types.hh) depending on if the site is a donor or acceptor.
 
 <!-- -->
 
@@ -197,10 +197,10 @@ The features associated with hydrogen bonding include
         -   *atm* : The *acceptor* atom
         -   *base* : The parent of the acceptor atom. This is the *base* .
         -   *bbase* : The parent of the base atom.
-        -   *base2* : The [alternate second base](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/chemical/ResidueType.cc#L1292) atom of the acceptor.
-            -   Note: The parent atom is defined by column 6 of the ICOOR\_SECTION in each [residue type params files](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_database/chemical/residue_type_sets/fa_standard/residue_types) .
+        -   *base2* : The alternate second base atom of the acceptor.
+            -   Note: The parent atom is defined by column 6 of the ICOOR\_SECTION in each residue type params files (see rosetta/main/database/chemical/residue_type_sets/fa_standard/residue_types) .
 
-        -   The [base to acceptor unit vector](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/hbonds_geom.cc#L1117) is [defined](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/hbonds_geom.cc#L1099) by the [hybridization type](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_database/chemical/atom_type_sets/fa_standard/atom_properties.txt) of the acceptor atom and the above atoms.
+        -   The base to acceptor unit vector is defined by the [hybridization type (see rosetta/main/database/chemical/atom_type_sets/fa_standard/atom_properties.txt) of the acceptor atom and the above atoms.
 
 <!-- -->
 
@@ -270,10 +270,10 @@ The features associated with hydrogen bonding include
             PRIMARY KEY(chem_type));
 
 -   **hbonds** : A *hydrogen bond* is defined to be a donor *hbond\_site* and acceptor *hbond\_site* where bonding energy is negative.
-    -   *HBEvalType* : The [hbond evaluation type](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/hbonds_geom.cc#L535) encodes the chemical context of the hydrogen bond.
-    -   *energy* : The [hbond energy](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/hbonds_geom.cc#L535) is computed by evaluating the geometric parameters of the hydrogen bond.
-    -   *envWeight* : If specified in the [HBondOptions](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/HBondOptions.hh#L64) , the energy of a hydrogen bond can depend upon the solvent environment [computed by](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/hbonds_geom.cc#L535) the [number of neighbors](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/hbonds.cc#L66) in the [10A neighbor graph](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/TenANeighborGraph.hh) .
-    -   *score\_weight* : The weight of this hydrogen bond in the provided score function. Each HBEvalType is associated with a [HBondWeighType](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/types.hh#L58) as a column in the [HBEval.csv](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_database/scoring/score_functions/hbonds/standard_params/HBEval.csv) file in a hbond parameter set. The HBondWeighType is then associated with a [ScoreType](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/ScoreType.hh#L35) via [hb\_eval\_type\_weight](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/hbonds.cc#L720) . To get the total energy multiply *energy* \* *envWeight* \* *score\_weight* .
+    -   *HBEvalType* : The hbond evaluation type (rosetta/main/source/src/core/scoring/hbonds/hbonds_geom.cc) encodes the chemical context of the hydrogen bond.
+    -   *energy* : The hbond energy is computed by evaluating the geometric parameters of the hydrogen bond.
+    -   *envWeight* : If specified in the HBondOptions (rosetta/main/source/src/core/scoring/hbonds/HBondOptions.hh), the energy of a hydrogen bond can depend upon the solvent environment computed by the number of neighbors in the 10A neighbor graph.
+    -   *score\_weight* : The weight of this hydrogen bond in the provided score function. Each HBEvalType is associated with a HBondWeighType (rosetta/main/source/src/core/scoring/hbonds/types.hh) as a column in the HBEval.csv (rosetta/main/database/scoring/score_functions/hbonds/standard_params/HBEval.csv) file in a hbond parameter set. The HBondWeighType is then associated with a ScoreType via hb\_eval\_type\_weight (rosetta/main/source/src/core/scoring/hbonds/hbonds.cc). To get the total energy multiply *energy* \* *envWeight* \* *score\_weight* .
     -   *donRank* : 0 if this is the only hbond at donor site. Otherwise *i* , where this hbond is the *i* th strongest hbond at the donor.
     -   *accRank* : 0 if this is the only hbond at acceptor site. Otherwise *i* , where this hbond is the *i* th strongest hbond at the acceptor.
 
@@ -298,7 +298,7 @@ The features associated with hydrogen bonding include
     -   *AHdist* : The distance between the *acceptor* and *hydrogen* atoms.
     -   *cosBAH* : The cosine of the angle defined by the *base* , *acceptor* and *hydrogen* atoms.
     -   *cosAHD* : The cosine of the angle defined by the *acceptor* , *hydrogen* and *donor* atoms.
-    -   *chi* : The [torsional angle](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/numeric/xyz.functions.hh#L224) defined by the *abase2* , *base* , *acceptor* and *hydrogen* atoms.
+    -   *chi* : The torsional angle defined by the *abase2* , *base* , *acceptor* and *hydrogen* atoms.
 
 <!-- -->
 
@@ -342,9 +342,9 @@ The features associated with hydrogen bonding include
 HBondParameterFeatures
 ----------------------
 
-The parameters for the hydrogen bond potential are specified in the minirosetta\_database as [parameter sets](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_database/scoring/score_functions/hbonds) . Each parameter set specifies polynomials, fade functions, and which are applied to which hydrogen bond chemical types. To indicate parameter set, either use *-hbond\_params \<database\_tag\>* set on the command line, or set *score\_function.energy\_method\_options().hbond\_options()-\>params\_database\_tag(\<database\_tag\>)* . See the [HBondDatabase](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/HBondDatabase.hh) class for more information.
+The parameters for the hydrogen bond potential are specified in the Rosetta database as  parameter sets (rosetta/main/database/scoring/score_functions/hbonds). Each parameter set specifies polynomials, fade functions, and which are applied to which hydrogen bond chemical types. To indicate parameter set, either use *-hbond\_params \<database\_tag\>* set on the command line, or set *score\_function.energy\_method\_options().hbond\_options()-\>params\_database\_tag(\<database\_tag\>)* . See the HBondDatabase class (rosetta/main/source/src/core/scoring/hbonds/HBondDatabase.hh) for more information.
 
--   **hbond\_fade\_interval** : Limited interaction between geometric dimensions are controlled by simple fading functions of the form \_\_/----\\\_\_. See the [FadeInterval](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/FadeInterval.hh) class for more information.
+-   **hbond\_fade\_interval** : Limited interaction between geometric dimensions are controlled by simple fading functions of the form \_\_/----\\\_\_. See the FadeInterval (rosetta/main/source/src/core/scoring/hbonds/FadeInterval.hh) class for more information.
     -   *database\_tag* : The hydrogen bond parameter set
     -   *name* : The name of the fade interval referenced in the *hbond\_evaluation\_types* table
     -   *junction\_type* : The junction type indicates how the function between the knots should be interpolated. Currently the options are *piecewise\_linear* , and *smooth* which uses a cubic spline with zero derivative at at the knots.
@@ -362,7 +362,7 @@ The parameters for the hydrogen bond potential are specified in the minirosetta\
             max0 REAL,
             PRIMARY KEY(database_tag, name));
 
--   **hbond\_polynomial\_1d** : One dimensional polynomials for each geometric dimension used to compute the hydrogen bond energy. See the [Polynomial\_1d](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/polynomials.hh) class for more information.
+-   **hbond\_polynomial\_1d** : One dimensional polynomials for each geometric dimension used to compute the hydrogen bond energy. See the Polynomial\_1d (rosetta/main/source/src/core/scoring/hbonds/polynomials.hh) class for more information.
     -   *database\_tag* : The hydrogen bond parameter set
     -   *name* : The name of the polynomial referenced in the *hbond\_evaluation\_types* table.
     -   *dimension* : The [geometric dimension](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/types.hh#L409) with which the polynomial should be used.
