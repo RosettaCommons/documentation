@@ -20,44 +20,44 @@ A features database contains all the structural information associated with a se
      Reporter Reporter  Reporter  Reporter     of structural data. Static data is indexed 
                                                per batch.
 
- [[Meta|MetaFeaturesReporters]]   
-Information about the batch of structures and the protocol that was used to generate it
+[[Meta|MetaFeaturesReporters]]   
+* Information about the batch of structures and the protocol that was used to generate it
 
-[[Protocol|MetaFeaturesReporters#ProtocolFeatures]] , [[Batch|MetaFeaturesReporters#BatchFeatures]] , [[JobData|MetaFeaturesReporters#JobDataFeatures]] , [[PoseComments|MetaFeaturesReporters#PoseCommentsFeatures]]
+* [[Protocol|MetaFeaturesReporters#ProtocolFeatures]] , [[Batch|MetaFeaturesReporters#BatchFeatures]] , [[JobData|MetaFeaturesReporters#JobDataFeatures]] , [[PoseComments|MetaFeaturesReporters#PoseCommentsFeatures]]
 
- [[Chemical|ChemicalFeaturesReporters]]   
-Chemical type information that is used to define molecular conformations
+[[Chemical|ChemicalFeaturesReporters]]   
+* Chemical type information that is used to define molecular conformations
 
-[[AtomType|ChemicalFeaturesReporters#AtomTypeFeatures]] , [[ResidueType|ChemicalFeaturesReporters#ResidueTypesFeatures]]
+* [[AtomType|ChemicalFeaturesReporters#AtomTypeFeatures]] , [[ResidueType|ChemicalFeaturesReporters#ResidueTypesFeatures]]
 
- [[One-Body|OneBodyFeaturesReporters]]   
-Features identified by a single residue
+[[One-Body|OneBodyFeaturesReporters]]   
+* Features identified by a single residue
 
-[[Residue|OneBodyFeaturesReporters#ResidueFeatures]] , [[ResidueConformation|OneBodyFeaturesReporters#ResidueConformationFeatures]] , [[ProteinResidueConformation|OneBodyFeaturesReporters#ProteinResidueConformationFeatures]] , [[RotamerFeatures|OneBodyFeaturesReporters#RotamerFeatures]] , [[ProteinBackboneTorsionAngle|OneBodyFeaturesReporters#ProteinBackboneTorsionAngleFeatures]] , [[ProteinBondGeometry|OneBodyFeaturesReporters#ProteinBondGeometryFeatures]] [[ResidueBurial|OneBodyFeaturesReporters#ResidueBurialFeatures]] , [[ResidueSecondaryStructure|OneBodyFeaturesReporters#ResidueSecondaryStructureFeatures]] , [[BetaTurnDetection|OneBodyFeaturesReporters#BetaTurnDetectionFeatures]] , [[RotamerBoltzmannWeight|OneBodyFeaturesReporters#RotamerBoltzmannWeightFeatures]]
+* [[Residue|OneBodyFeaturesReporters#ResidueFeatures]] , [[ResidueConformation|OneBodyFeaturesReporters#ResidueConformationFeatures]] , [[ProteinResidueConformation|OneBodyFeaturesReporters#ProteinResidueConformationFeatures]] , [[RotamerFeatures|OneBodyFeaturesReporters#RotamerFeatures]] , [[ProteinBackboneTorsionAngle|OneBodyFeaturesReporters#ProteinBackboneTorsionAngleFeatures]] , [[ProteinBondGeometry|OneBodyFeaturesReporters#ProteinBondGeometryFeatures]] [[ResidueBurial|OneBodyFeaturesReporters#ResidueBurialFeatures]] , [[ResidueSecondaryStructure|OneBodyFeaturesReporters#ResidueSecondaryStructureFeatures]] , [[BetaTurnDetection|OneBodyFeaturesReporters#BetaTurnDetectionFeatures]] , [[RotamerBoltzmannWeight|OneBodyFeaturesReporters#RotamerBoltzmannWeightFeatures]]
 
- [[Two-Body|TwoBodyFeaturesReporters]]   
-Features that are identified by a pair of residues
+[[Two-Body|TwoBodyFeaturesReporters]]   
+* Features that are identified by a pair of residues
 
-[[Pair|TwoBodyFeaturesReporters#PairFeatures]] , [[AtomAtomPair|TwoBodyFeaturesReporters#AtomAtomPairFeatures]] , [[AtomInResidueAtomInResiduePair|TwoBodyFeaturesReporters#AtomInResidueAtomInResiduePairFeatures]] , [[ProteinBackboneAtomAtomPair|TwoBodyFeaturesReporters#ProteinBackboneAtomAtomPairFeatures]] , [[HBond|TwoBodyFeaturesReporters#HBondFeatures]] , [[Orbital|TwoBodyFeaturesReporters#OrbitalFeatures]] , [[SaltBridge|TwoBodyFeaturesReporters#SaltBridgeFeatures]] , [[ChargeCharge|TwoBodyFeaturesReporters#ChargeChargeFeatures]] , [[LoopAnchor|TwoBodyFeaturesReporters#LoopAnchorFeatures]]
+* [[Pair|TwoBodyFeaturesReporters#PairFeatures]] , [[AtomAtomPair|TwoBodyFeaturesReporters#AtomAtomPairFeatures]] , [[AtomInResidueAtomInResiduePair|TwoBodyFeaturesReporters#AtomInResidueAtomInResiduePairFeatures]] , [[ProteinBackboneAtomAtomPair|TwoBodyFeaturesReporters#ProteinBackboneAtomAtomPairFeatures]] , [[HBond|TwoBodyFeaturesReporters#HBondFeatures]] , [[Orbital|TwoBodyFeaturesReporters#OrbitalFeatures]] , [[SaltBridge|TwoBodyFeaturesReporters#SaltBridgeFeatures]] , [[ChargeCharge|TwoBodyFeaturesReporters#ChargeChargeFeatures]] , [[LoopAnchor|TwoBodyFeaturesReporters#LoopAnchorFeatures]]
 
- [[Multi-Body|MultiBodyFeaturesReporters]]   
-Features that are identified by more than two residues
+[[Multi-Body|MultiBodyFeaturesReporters]]   
+* Features that are identified by more than two residues
 
-[[Structure|MultiBodyFeaturesReporters#StructureFeatures]] , [[PoseConformation|MultiBodyFeaturesReporters#PoseConformationFeatures]] , [[GeometricSolvation|MultiBodyFeaturesReporters#GeometricSolvationFeatures]] , [[RadiusOfGyration|MultiBodyFeaturesReporters#RadiusOfGyrationFeatures]] , [[Sandwich|MultiBodyFeaturesReporters#SandwichFeatures]] , [[Smotif|MultiBodyFeaturesReporters#SmotifFeatures]] , [[SecondaryStructureSegment|MultiBodyFeaturesReporters#SecondaryStructureSegmentFeatures]] , [[StrandBundle|MultiBodyFeaturesReporters#StrandBundleFeatures]]
+* [[Structure|MultiBodyFeaturesReporters#StructureFeatures]] , [[PoseConformation|MultiBodyFeaturesReporters#PoseConformationFeatures]] , [[GeometricSolvation|MultiBodyFeaturesReporters#GeometricSolvationFeatures]] , [[RadiusOfGyration|MultiBodyFeaturesReporters#RadiusOfGyrationFeatures]] , [[Sandwich|MultiBodyFeaturesReporters#SandwichFeatures]] , [[Smotif|MultiBodyFeaturesReporters#SmotifFeatures]] , [[SecondaryStructureSegment|MultiBodyFeaturesReporters#SecondaryStructureSegmentFeatures]] , [[StrandBundle|MultiBodyFeaturesReporters#StrandBundleFeatures]]
 
- [[Multi-Structure|MultiStructureFeaturesReporters]]   
-Features that are identified by more than one structure
+[[Multi-Structure|MultiStructureFeaturesReporters]]   
+* Features that are identified by more than one structure
 
-[[ProteinRMSD|MultiStructureFeaturesReporters#ProteinRMSDFeatures]] , [[ProteinRMSDNoSuperposition|MultiStructureFeaturesReporters#ProteinRMSDNoSuperpositionFeatures]] , [[RotamerRecovery|MultiStructureFeaturesReporters#RotamerRecoveryFeatures]]
+* [[ProteinRMSD|MultiStructureFeaturesReporters#ProteinRMSDFeatures]] , [[ProteinRMSDNoSuperposition|MultiStructureFeaturesReporters#ProteinRMSDNoSuperpositionFeatures]] , [[RotamerRecovery|MultiStructureFeaturesReporters#RotamerRecoveryFeatures]]
 
- [[Energy Function|EnergyFunctionFeaturesReporters]]   
-Feature models and their parameters used to create energy terms
+[[Energy Function|EnergyFunctionFeaturesReporters]]   
+* Feature models and their parameters used to create energy terms
 
-[[ScoreType|EnergyFunctionFeaturesReporters#ScoreTypeFeatures]] , [[ScoreFunction|EnergyFunctionFeaturesReporters#ScoreFunctionFeatures]] , [[StructureScores|EnergyFunctionFeaturesReporters#StructureScoresFeatures]] , [[ResidueScores|EnergyFunctionFeaturesReporters#ResidueScoresFeatures]] , [[ResidueTotalScores|EnergyFunctionFeaturesReporters#ResidueTotalScoresFeatures]] , [[HBondParameter|EnergyFunctionFeaturesReporters#HBondParameterFeatures]] , [[ScreeningFeatures|EnergyFunctionFeaturesReporters#ScreeningFeatures]]
+* [[ScoreType|EnergyFunctionFeaturesReporters#ScoreTypeFeatures]] , [[ScoreFunction|EnergyFunctionFeaturesReporters#ScoreFunctionFeatures]] , [[StructureScores|EnergyFunctionFeaturesReporters#StructureScoresFeatures]] , [[ResidueScores|EnergyFunctionFeaturesReporters#ResidueScoresFeatures]] , [[ResidueTotalScores|EnergyFunctionFeaturesReporters#ResidueTotalScoresFeatures]] , [[HBondParameter|EnergyFunctionFeaturesReporters#HBondParameterFeatures]] , [[ScreeningFeatures|EnergyFunctionFeaturesReporters#ScreeningFeatures]]
 
- [[Experimental|ExperimentalFeaturesReporters]]   
-Experimental data not defined by the atomic coordinates
+[[Experimental|ExperimentalFeaturesReporters]]   
+* Experimental data not defined by the atomic coordinates
 
-[[PdbData|ExperimentalFeaturesReporters#PdbDataFeatures]]
+* [[PdbData|ExperimentalFeaturesReporters#PdbDataFeatures]]
 
 
