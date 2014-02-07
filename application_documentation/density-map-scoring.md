@@ -1,9 +1,9 @@
-<!-- --- title: Density Map Scoring -->Scoring Structures with Electron Density
+#Scoring Structures with Electron Density
 
 Metadata
 ========
 
-Last edited 6/26/09. Code and documentation by Frank DiMaio [dimaio@u.washington.edu](#) .
+Last edited 6/26/09. Code and documentation by Frank DiMaio (dimaio@u.washington.edu).
 
 Overview
 ========
