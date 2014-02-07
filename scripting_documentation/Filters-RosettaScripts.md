@@ -1,4 +1,4 @@
-#Filters (Rosettascripts)
+#Filters (RosettaScripts)
 
 [[Return to RosettaScripts|RosettaScripts]]
 
@@ -11,6 +11,8 @@ Each filter definition has the following format:
 where "filter\_name" belongs to a predefined set of possible filters that the parser recognizes and are listed below, name is a unique identifier for this mover definition and then any number of parameters that the filter needs to be defined.
 
 If confidence is 1.0, then the filter is evaluated as in predicate logic (T/F). If the value is less than 0.999, then the filter is evaluated as fuzzy, so that it will return True in (1.0 - confidence) fraction of times it is probed. This should be useful for cases in which experimental data are ambiguous or uncertain.
+
+[[_TOC_]]
 
 Predefined Filters
 ------------------
@@ -285,13 +287,12 @@ One way to use this filter is to look at IE over real protein interfaces, see st
 
 IE statistics have been calculated for aromatics by Alex Ford (ZDOCK, prot/prot set) and Sagar Khare (CSAR, prot/ligand) sets (number of samples in paren):
 
-Values: mean(CSAR) SD(CSAR) mean(ZDOCK) SD (ZDOCK)
+|Values:    |  mean(CSAR) | SD(CSAR) |  mean(ZDOCK)  |  SD (ZDOCK) |
+|-----------|-------------|----------|---------------|-------------|
+|W          |  -8.8 (82)  | 2.3      |  -8.6         |   2.0       |
+|F          |  -7.3 (128) | 2        |  -7           |   1.9       |
+|Y          |  -7.4 (108) | 1.7      |  -6.5         |   2.2       |
 
-W -8.8 (82) 2.3 -8.6 2.0
-
-F -7.3 (128) 2 -7 1.9
-
-Y -7.4 (108) 1.7 -6.5 2.2
 
 #### ScoreType
 
@@ -446,7 +447,7 @@ Filter structures based on the geometry of helix pairings. Relating helix pairin
 -   bend: check bend of intra helix. This is not pairing related parameter, but for checking the intra helix bending. Basically, you don't need change this parameter.
 -   output\_id: the helix pair id to be output in score file. e.g. 1 means 1-2.A in 1-2.A;2-3.P.
 -   output\_type: parameter type to be output in score file, dist, cross, or align.
--   blueprint: By giving blueprint file, you can forcibly assign secondary structure. See for [blueprint](https://wiki.rosettacommons.org/index.php?title=Blueprint&action=edit&redlink=1 "Blueprint (page does not exist)")
+-   blueprint: By giving blueprint file, you can forcibly assign secondary structure. See for [[Blueprint]].
 
 #### SecondaryStructureFilter
 
@@ -1376,9 +1377,9 @@ This filter is designed as a means of quantifying Nobu and Rie's "foldability" m
 -   end\_res: The C-terminal residue of the piece of backbone to be rebuilt.
 -   motif: The secondary structure + abego to be used for the backbone region to be rebuilt. Taken from input pose if not specified. The format of this string is:
 
-    ~~~~ {style="white-space:pre-wrap"}
+    ```
     <Length><SS><ABEGO>-<Length2><SS2><ABEGO2>-...-<LengthN><SSN><ABEGON>
-    ~~~~
+    ```
 
     For example, "1LX-5HA-1LB-1LA-1LB-6EB" will build a one residue loop of any abego, followed by a 5-residue helix, followed by a 3-residue loop of ABEGO BAB, followed by a 6-residue strand.
 
