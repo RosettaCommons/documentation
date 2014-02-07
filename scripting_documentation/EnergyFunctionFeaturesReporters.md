@@ -1,4 +1,6 @@
-<!-- --- title: Energyfunctionfeaturesreporters -->ScoreTypeFeatures
+#EnergyFunctionFeaturesReporters
+
+ScoreTypeFeatures
 -----------------
 
 The ScoreTypeFeatures store the score types for as for all EnergyMethods.
