@@ -1,6 +1,6 @@
-<!-- --- title: Hshash Utils -->Documentation for hotspot hashing utility application
+#Hotspot hashing utility application
 
-Example runs
+Examples
 ============
 
 See `       rosetta/rosetta_tests/integration/tests/hshash_utils      ` for an example util usage and input files.
@@ -13,5 +13,5 @@ See rosetta/rosetta\_tests/integration/tests/hshash\_utils/ for example usage.
 Tips
 ====
 
--   Can do all kinds of things. Run with –help for options.
+-   Can do all kinds of things. Run with --help for options.
 
