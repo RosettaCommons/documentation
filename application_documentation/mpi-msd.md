@@ -1,9 +1,9 @@
-<!-- --- title: Mpi Msd -->Documentation for the mpi\_msd application for performing multistate design and distributing the load with MPI, "mpi\_msd"
+#Multistate design and distributing the load with MPI, "mpi\_msd"
 
 Metadata
 ========
 
-This document was created Apr 14th 2008 by Andrew Leaver-Fay The `       mpi_msd      ` application is maintained by Brian Kuhlman's lab. Send questions to [bkuhlman@email.unc.edu](#)
+This document was created Apr 14th 2008 by Andrew Leaver-Fay The `       mpi_msd      ` application is maintained by Brian Kuhlman's lab. Send questions to (bkuhlman@email.unc.edu)
 
 Code and Demo
 =============
@@ -19,7 +19,7 @@ This implementation of multistate design, and it is not the first, was / will-pr
 
 A. Leaver-Fay, R. Jacak, B. Stranges, and B. Kuhlman B (2011) "A generic algorithm for multistate protein design." PLoS-ONE, RosettaCon2010 special collection
 
-Application purpose
+Purpose
 ===========================================
 
 This application optimizes a single sequence to perform different ways in different context. It models the various contexts with several states; the energies of these states can then be combined with a fitness function in order to capture how well that sequence meets the design goals of the task. The application distributes its work across multiple CPUs with MPI so that the application can run fairly quickly even when hundreds of states are being modeled.
@@ -45,7 +45,7 @@ States and the Fitness Function File
 
 This portion of the documentation is broken down into several sections. Here is a list of them.
 
-=== Section: Table of Contents ===
+### Section: Table of Contents
 
 ```
    Overview
@@ -56,7 +56,7 @@ This portion of the documentation is broken down into several sections. Here is 
    STATE command
    STATE vector command
    State-Vector File Format
-   Expression Synatx
+   Expression Syntax
      POSE_ENERGY command
      POSE_ENERGY_VECTOR command
    SCALAR_EXPRESSION command
@@ -66,7 +66,7 @@ This portion of the documentation is broken down into several sections. Here is 
    FITNESS command
 ```
 
-=== Section: Overview ===
+### Section: Overview
 
 This section describes the file format for the state-declaration and fitness-function definition file. It begins by describing what a state is within this framework, and how it is defined. It then goes into detail on each of the seven commands that compose this fitness-function definition file
 
@@ -84,7 +84,7 @@ FITNESS
 
 Comments may be included by beginning a line in the fitness file with a sharp symbol ("\#") Any line that begins with a sharp symbol will be ignored. Blank lines are also ignored.
 
-=== Section: Entity and Entity Elements and the Entity Resfile ===
+### Section: Entity and Entity Elements and the Entity Resfile
 
 For historical reasons, each sequence that's examined by the genetic algorithm in the outer loop is called an "entity." Positions in this sequence are the entity elements; they range from 1 to N where N is the length of the entity (all entities have the same length). This nomenclature derives from the implementation of the genetic algorithm that Colin Smith and Justin Ashworth produced.
 
@@ -94,7 +94,7 @@ When writing an entity function file (described in detail in section ENTITY\_FUN
 
 To set up a multistate design run, the user must think about an abstract protein, the entity protein, which has one chain and N residues. The sequence of this protein is being optimized, but it's structure is never considered. Instead, the entity protein's sequence is assigned to the various states in the system as perscribed by the correspondence files. To describe the sequence space available to the entity protein, the user must define an entity resfile. The entity resfile controls the set of amino acids and rotamers built for every residue that's declared to correspond to a particular entity element. If residue 15 on chain A in a particular state is declared to correspond to entity-element 10, then the resfile commands for entity-element 10 taken from the entity resfile will be applied to residue 15.
 
-The entity resfile is almost exactly like a regular resfile, (See the resfile file format documentation here: [[Resfile syntax and conventions|resfiles]] Resfile) except it is proceeded by one extra line, which declares the number of residues in the entity protein (N). Then the usual resfile format is followed: the default commands (if any) are listed, then "start" appears on one line by itself, then the specific commands for particular residues on the entity protein (resid 1..N, chain A) are listed. For example the following is a valid entity resfile:
+The entity resfile is almost exactly like a regular resfile, (See the resfile file format documentation here: [[Resfile syntax and conventions|resfiles]]) except it is proceeded by one extra line, which declares the number of residues in the entity protein (N). Then the usual resfile format is followed: the default commands (if any) are listed, then "start" appears on one line by itself, then the specific commands for particular residues on the entity protein (resid 1..N, chain A) are listed. For example the following is a valid entity resfile:
 
 ```
 16
@@ -109,7 +109,7 @@ Do not use NATRO or NATAA commands with entity resfiles. Internally, there is a 
 
 If residue 15 on chain A in a particular state is declared to correspond to entity element 10, then when that state goes to build rotamers for residue 15 on chain A, it will use the "ALLAAxc EX 1 EX ARO 2" command taken from the entity resfile.
 
-=== Section: States: an Overview ===
+### Section: States: an Overview
 
 In this application, states are defined by three things:
 
@@ -123,7 +123,7 @@ The correspondence file is described in detail in the next section.
 
 The secondary resfile states which residues, besides those listed in the correspondence file, should be allowed to repack or redesign. Be very careful with this file, as it is possible to declare that all the rest of the residues in the PDB should be redesigned – this would be very expensive and would probably generate unwanted results.
 
-=== Section: Correspondence File Format ===
+### Section: Correspondence File Format
 
 Correspondence files are a central glue to multistate design: they specify the meaning of the entity sequence. The entity resfile will specify how many positions are in the entity protein, but it does not give any meaning to those positions. Meaning is imbued on the entity elements by declaring how those positions are followed by particular residues in particular states. It is impossible to set up a multistate design problem with this software without carefully considering what is stated in the correspondence files so do not skip this step.
 
@@ -196,9 +196,9 @@ Then the following correspondence files will be used for each of the five arrang
 
 (Again, note that residue 10 on both chains A and B are assigned to correspond to the same entity element.)
 
-=== Section: Secondary resfile ===
+### Section: Secondary resfile
 
-The secondary resfile states which residues, besides those already listed in the correspondence file, should be allowed to repack. The secondary resfile is formatted exactly as a regular resfile is formatted (See the resfile file format documentation here: [[Resfile syntax and conventions|resfiles]] Resfile). The secondary resfile specifies behaviors for every residue in the protein, but, if a particular residue (residue 10, e.g.) is declared to correspond to a particular entity element (entity element 6, e.g.), then the resfile behavior for that entity element is used at that residue (entity-resfile behavior for entity-element 6 is applied to residue 10, e.g.) instead of the secondary resfile behavior. The fact that this resfile's behavior is superceded by the entity resfile at some positions is why it is called "secondary."
+The secondary resfile states which residues, besides those already listed in the correspondence file, should be allowed to repack. The secondary resfile is formatted exactly as a regular resfile is formatted (See the resfile file format documentation here: [[Resfile syntax and conventions|resfiles]]). The secondary resfile specifies behaviors for every residue in the protein, but, if a particular residue (residue 10, e.g.) is declared to correspond to a particular entity element (entity element 6, e.g.), then the resfile behavior for that entity element is used at that residue (entity-resfile behavior for entity-element 6 is applied to residue 10, e.g.) instead of the secondary resfile behavior. The fact that this resfile's behavior is superceded by the entity resfile at some positions is why it is called "secondary."
 
 For example, continuing to build on the heterodimerization example described above, the following secondary resfile might be used to model (all) the dimer states:
 
@@ -225,7 +225,7 @@ which states that 6 additional residues on chains A and B (let's say these are t
 
 NOTE: The "NATRO" as the default command is critical in that it says that any residue not listed in this file or in the correspondence file should be held fixed. If no default command is given, then the "ALLAA" command is applied, meaning that all amino acids at all positions will be considered for every residue besides those listed in these two files. All positions would be optimized at every step in the multistate design protocol, and this would be very slow and consume tremendous amounts of memory.
 
-=== Section: STATE command ===
+### Section: STATE command
 
 A state is defined by three files
 
@@ -241,7 +241,7 @@ STATE <varname> <pdbfilename> <correspondencefilename> <secondaryrefilename>
 
 which declares one new state that should be modeled and declares the scalar variable, named "varname" which will be assigned the energy of the state after its rotamers have been packed with the a particular sequence.
 
-=== Section: STATE\_VECTOR command ===
+### Section: STATE\_VECTOR command
 
 The State vector command has the following syntax:
 
@@ -251,9 +251,9 @@ STATE_VECTOR <varname> <statevectorfile>
 
 where this command declares a set of states, one for every line in the state vector file, and declares a vector variable named varname. The format of the state vector file is described in the next section.
 
-=== Section: State-Vector File Format ===
+### Section: State-Vector File Format
 
-The file format for the state vecrtor file is a set of ordered triples, one per line, consisting of a 1) pdb file name, 2) a correspondence file name, and 3) a secondary resfile file name. Each line is turned into a state. Internally, each line in this file is assigned a name based on which position in this file it appears. This is important when examining the output from multistate design.
+The file format for the state vector file is a set of ordered triples, one per line, consisting of a 1) pdb file name, 2) a correspondence file name, and 3) a secondary resfile file name. Each line is turned into a state. Internally, each line in this file is assigned a name based on which position in this file it appears. This is important when examining the output from multistate design.
 
 E.g. If the fitness file contained this line:
 
@@ -299,7 +299,7 @@ Conf1.pdb AB.corr AB.2res
 
 In this case, three states with identical backbones, correspondence files, and secondary resfiles will be included in the design trajectory. This is useful when stochastic algorithms are used to pack the rotamers, so that a different stochastic trajectory will be used for each of the states. (The packing algorithms are all stochastic in this implementation of multistate design).
 
-=== Section: Expression Synatx ===
+### Section: Expression Syntax
 
 The SCALAR\_EXPRESSION, VECTOR\_VARIABLE, VECTOR\_EXPRESSION, and FITNESS commands depened on an "expression syntax." Expressions are recursively defined by the following production rules given in an EBNF-like syntax:
 
@@ -351,7 +351,7 @@ Literals are scientifically formatted numerals: e.g. "10" or "-2.3" or "6.4e-5"
 
 CAUTION: include spaces around everything. The string "3-4" would tokenize as "Literal(3) Literal(-4)" and this would produce a (confusing!) parsing error. Instead, the string "3 - 4" would tokenize as "Literal(3) MinusSign Literal(4)" and this would parse correctly.
 
-=== Section: POSE\_ENERGY command ===
+### Section: POSE\_ENERGY command
 
 The POSE\_ENERGY command allows you to score a PDB file once at the beginning of execution and to include that score as a constant in subsequent calculations. This could be useful if you want to subtract-out the difference between two different backbone conformations for the same chemical species.
 
@@ -361,7 +361,7 @@ The syntax for the POSE\_ENERGY command is
 POSE_ENERGY <varname> <pdb>
 ```
 
-=== Section: POSE\_ENERGY\_VECTOR command ===
+### Section: POSE\_ENERGY\_VECTOR command
 
 Like the POSE\_ENERGY command, the POSE\_ENERGY\_VECTOR command allows you to score structures and to use those scores in subsequent calculations. This command creates a vector variable instead of a scalar variable, so it could for example be used in VECTOR\_EXPRESSION commands.
 
@@ -373,7 +373,7 @@ POSE_ENERGY_VECTOR <varname> <listfilename>
 
 where the contents of \<listfilename\> should contain a list of pdbs, one per line. Empty lines and lines beginning with '\#' are ignored.
 
-=== Section: SCALAR\_EXPRESSION command ===
+### Section: SCALAR\_EXPRESSION command
 
 The syntax for the scalar expression command is:
 
@@ -383,7 +383,7 @@ SCALAR_EXPRESSION <varname> = <expression>
 
 where expression is a well-formed expression, and this command declares the scalar variable named "varname" which can be used in later expressions.
 
-=== Section: VECTOR\_VARIABLE command ===
+### Section: VECTOR\_VARIABLE command
 
 The vector variable command allows the user to combine scalar variables into vector variables. This could be useful if the user wants to use the "vector max" or "vector min" functions over a set of scalar variables. (To avoid confusion of between the vector max and min functions, the scalar max and min functions are not allowed.)
 
@@ -407,7 +407,7 @@ and then homodimers could be used in a subsequent vmin command, for example
 SCALAR_EXPRESSION best_homodimer = vmin( homodimers )
 ```
 
-=== Section: VECTOR\_EXPRESSION command ===
+### Section: VECTOR\_EXPRESSION command
 
 The vector expression command can be used to define more complicated vector variable operations. The command itself is significantly more complicated than the scalar vector commands. It can operate on multiple vector variables simultaneously as long as those vector variables have the same length.
 
@@ -435,7 +435,7 @@ VECTOR_EXPRESSION FOR x IN trpcage1 , y IN trpcage2 : trpcage_plus_2 = x + y + 2
 
 Such a command would be useful if two state-vector files had been created such that the backbone conformations matched up between corresponding positions and you only wanted to compare energies between states that had come from the same backbone conformations.
 
-=== Section: ENTITY\_FUNCTION command ===
+### Section: ENTITY\_FUNCTION command
 
 The ENTITY\_FUNCTION command is a launching point in the fitness file for the processing of an entirely separate file, an entity-function file. The ENTITY\_FUNCTON command merely declares a new scalar variable and points towards the entity-function file. Its syntax is
 
@@ -538,7 +538,7 @@ SCORE -1 * lt( chainA_charge, 1 )
 
 would return a negative value (which is favored) if chain A has a neutral or negative charge.
 
-=== Section: FITNESS command ===
+### Section: FITNESS command
 
 Exactly one FITNESS command must appear in the fitness function file. The value to which the expression defined in the FITNESS command evaluates for a particular sequence is the one that is used by the genetic algorithm to determine whether that sequence should be propagated to the next generation.
 
