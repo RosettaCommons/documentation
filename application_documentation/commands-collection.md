@@ -1,4 +1,4 @@
-<!-- --- title: Commands Collection -->Command lines collection for pilot/public applications
+#Command lines collection for pilot/public applications
 
 Metadata
 ========
@@ -19,83 +19,70 @@ Please read the options list to find the descriptions for each option in the com
 
 -   backrub:
 
-    ~~~~ {.fragment}
+    ```
     path/to/rosetta/rosetta_source/bin/backrub.linuxgccrelease -s 1cc8_model15.pdb -ex1 -ex2aro -ex1aro -backrub:pivot_residues 10 11 12 13 14 15 -packing:resfile Resfile -backrub:ntrials 5000 -backrub:mc_kt 1.0 -database path/to/rosetta/rosetta_database/ -out:nstruct 1000
-    ~~~~
+    ```
 
 -   scoring with rosetta:
 
-    ~~~~ {.fragment}
+    ```
     path/to/rosetta/rosetta_source/bin/backrub.linuxgccrelease -s 1cc8_model15.pdb -ex1 -ex2aro -ex1aro -backrub:pivot_residues 10 11 12 13 14 15 -packing:resfile Resfile -backrub:ntrials 5000 -backrub:mc_kt 1.0 -database path/to/rosetta/rosetta_database/ -out:nstruct 1000
-    ~~~~
+    ```
 
 -   scoring with rosetta:
 
-    ~~~~ {.fragment}
+    ```
     path/to/rosetta/rosetta_source/bin/backrub.linuxgccrelease -s 1cc8_model15.pdb -ex1 -ex2aro -ex1aro -backrub:pivot_residues 10 11 12 13 14 15 -packing:resfile Resfile -backrub:ntrials 5000 -backrub:mc_kt 1.0 -database path/to/rosetta/rosetta_database/ -out:nstruct 1000
-    ~~~~
+    ```
 
 -   relax with rosetta:
 
-    ~~~~ {.fragment}
+    ```
     path/to/rosetta/rosetta_source/bin/relax.linuxgccrelease -database /path/to/rosetta/rosetta_database/  -score:weights score13_env_hb -out:pdb -out:prefix relaxed -out:nstruct 100 -in:file:s 1utg_model39.pdb 
-    ~~~~
+    ```
 
 -   relax with constraints in rosetta:
 
-    ~~~~ {.fragment}
+    ```
     /path/to/rosetta/rosetta_source/bin/relax.linuxgccrelease -database path/to/rosetta/rosetta_database/  -score:weights score13_env_hb -out:pdb -out:prefix constrained -constraints:cst_file constraints_file -constraints:cst_weight 2.0 -out:nstruct 100 -in:file:s 1utg_model39f.pdb
-    ~~~~
+    ```
 
 -   loop modeling with constraints:
 
-    ~~~~ {.fragment}
+    ```
     add -constraints:cst_fa_file and -constraints:cst_fa_weight
     cst_weight can be higher (up to 10, even 100), sample constraints file:
     AtomPair CZ 64 CA 8 GAUSSIANFUNC 6.39 2.0
-    ~~~~
+    ```
 
 -   make a loop
 
-    ~~~~ {.fragment}
-     path/to/rosetta/rosetta_source/bin/minirosetta.linuxgccrelease @args
-
+    ```
+    path/to/rosetta/rosetta_source/bin/minirosetta.linuxgccrelease @args
+    ```
     with args file:
-
+    ```
     -in::file::s  threaded-model.pdb
-
     -database /path/to/rosetta/rosetta_database/
-
     -loops::frag_sizes 9 3 1
-
     -loops::frag_files aat000_09_05.200_v1_3 aat000_03_05.200_v1_3 none
-
     -loops::loop_file t000_.loopfile
-
     -score:weights score13_env_hb
-
     -psipred_ss2 fragments/t000_.psipred_ss2
-
     -run::protocol looprelax
-
     -loops::remodel quick_ccd
-
     -loops::relax fullrelax
-
     -out::nstruct 100
-
     -in:file:fullatom
-
     -out::pdb
-
     -out::prefix lr_decoys
-    ~~~~
+    ```
 
 -   packstate:
 
-    ~~~~ {.fragment}
+    ```
     /path/to/rosetta/rosetta_source/bin/packstat.linuxgccrelease -database /path/to/rosetta/rosetta_database -packstat:packstat_pdb -s 1shf.pdb
-    ~~~~
+    ```
 
 Command lines collected from Steven Lewis
 =========================================
@@ -104,27 +91,27 @@ Please read the options list to find the descriptions for each option in the com
 
 -   options file for pilot/rjha/MatchFilter.cc
 
-    ~~~~ {.fragment}
+    ```
     -database /path/to/rosetta/rosetta_database
     -options::user
     -run::version
     -mute core
     -l pdblist
-    ~~~~
+    ```
 
 -   options file for pilot/rjha/MetalInterfaceStructureCreator.cc
 
-    ~~~~ {.fragment}
+    ```
     -database /path/to/rosetta/rosetta_database
     -s NE2.pdb
     -run::version
     -options::user
     -resfile resfile
-    ~~~~
+    ```
 
 -   options file for pilot/rjha/MetalInterfaceStructureCreator.cc
 
-    ~~~~ {.fragment}
+    ```
     -database /path/to/rosetta/rosetta_database
     -s NE2.pdb
     -run::version
@@ -146,11 +133,11 @@ Please read the options list to find the descriptions for each option in the com
     -MetalInterface::partner2 (partner 2, defaults to ubc12.pdb)
     -MetalInterface::partner2_residue (which residue on ubc12 to replace,defaults to 62)
     -skip_sitegraft_repack
-    ~~~~
+    ```
 
 -   options file for pilot/smlewis/AnchoredDesign.cc
 
-    ~~~~ {.fragment}
+    ```
     -database /path/to/rosetta/rosetta_database
     -mute core.chemical core.scoring.etable core.io.database
     core.io.pdb.file_data core.conformation core.pack.pack_rotamers
@@ -179,20 +166,18 @@ Please read the options list to find the descriptions for each option in the com
     -AnchoredDesign::perturb_cycles 300
     -AnchoredDesign::refine_cycles 1000
     -nstruct 334
-    ~~~~
+    ```
 
 Command lines collected from Ben Stranges
 =========================================
 
 -   Sarel's dock\_design\_parser
 
-    ~~~~ {.fragment}
+    ```
     -database ../database  (path to database)
     -s pdbname.pdb  (structure to dock/design)
     -parser:protocol protocol_name.protocol  (the file that contains the XML formatted protocol to use)
     -parser:ntrials 10  (number of total times the parser is run)
     -nstruct 5  (total number of possible structures (pdbs) output)
     -parser:view  (gives graphics of protocol; need to compile with extras=graphics for this to work)
-    ~~~~
-
-
+    ```
