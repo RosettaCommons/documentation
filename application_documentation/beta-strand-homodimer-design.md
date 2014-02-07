@@ -1,7 +1,9 @@
-<!-- --- title: Beta Strand Homodimer Design -->Documentation for beta\_strand\_homodimer\_design suite of apps
+#beta\_strand\_homodimer\_design suite of apps
 
- Author   
-P. Ben Stranges [stranges@unc.edu](#) , PI is Brian Kuhlman: [bkuhlman@unc.edu](#)
+Metadata
+========
+
+Author: P. Ben Stranges (stranges@unc.edu), PI is Brian Kuhlman: (bkuhlman@unc.edu)
 
 Code and Demo
 =============
@@ -13,7 +15,7 @@ References
 
 -   Stranges PB, Machius M, Miley MJ, Tripathy A, and Kuhlman B. (2011) "Computational design of a symmetric homodimer using beta-strand assembly" PNAS in press.
 
-Application purpose
+Purpose
 ===========================================
 
 This code was written for a relatively singular application: finding proteins with surface exposed beta-strands, then trying to make and design a homodimer that will form via that beta-strand. It could be used for general homodimer design but has not been tested.
