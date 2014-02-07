@@ -35,7 +35,7 @@ Limitations
 
 -   Currently, the method only optimize the conformation of the missing RNA loop. The coordinates of the surrounding nucleotides inherited from [template\_PDB](#Required-file) are fixed during the entire modeling process.
 
--   Due to memory limitations, the full-length structure should not exceed 100 nucleotides [this includes the surrounding nucleotides inherited from [template\_PDB](#Required-file) ].
+-   Due to memory limitations, the full-length structure should not exceed 100 nucleotides [this includes the surrounding nucleotides inherited from [template\_PDB](#Required-file).
 
 Modes
 =====
@@ -57,7 +57,7 @@ You need two files:
 additional files:
 -----------------
 
--   The native\_PDB file: A PDB file containing the 'native' crystallographic or NMR structure. This PDB file should contain the coordinates of the coordinates of the native loop nucleotides plus the surrounding nucleotides inherited from [u'template\_PDB'] . The supplied native\_PDB file is not used to guide the modeling process and only used for reporting the RMSD of the generated rosetta models to the native loop. An example is available at rosetta/demos/SWA\_RNA\_loop/rosetta\_inputs/native.pdb. Supplied PDB file must be in Rosetta RNA PDB format (see Note on PDB format for RNA).
+-   The native\_PDB file: A PDB file containing the 'native' crystallographic or NMR structure. This PDB file should contain the coordinates of the coordinates of the native loop nucleotides plus the surrounding nucleotides inherited from [template\_PDB](#Required-file). The supplied native\_PDB file is not used to guide the modeling process and only used for reporting the RMSD of the generated rosetta models to the native loop. An example is available at rosetta/demos/SWA\_RNA\_loop/rosetta\_inputs/native.pdb. Supplied PDB file must be in Rosetta RNA PDB format (see Note on PDB format for RNA).
 
 Preprocessing of input files
 ============================
