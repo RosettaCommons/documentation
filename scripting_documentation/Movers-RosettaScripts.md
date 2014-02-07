@@ -10,6 +10,8 @@ Each mover definition has the following structure
 
 where "mover\_name" belongs to a predefined set of possible movers that the parser recognizes and are listed below, name is a unique identifier for this mover definition and then any number of parameters that the mover needs to be defined.
 
+[[_TOC_]]
+
 Mover Documentation Guide
 -------------------------
 
@@ -262,20 +264,20 @@ The MetropolisHastings mover uses submovers to perform the trial moves and optio
 
 1.  Defining the movers within MetropolisHastings:
 
-    ~~~~ {style="white-space:pre-wrap"}
+    ```
     <MetropolisHastings ...>
       <Backrub sampling_weight=(1 &Real) .../>
     </MetropolisHastings>
-    ~~~~
+    ```
 
 2.  Referencing previously defined movers:
 
-    ~~~~ {style="white-space:pre-wrap"}
+    ```
     <Backrub name=backrub .../>
     <MetropolisHastings ...>
       <Add mover_name=backrub sampling_weight=(1 &Real)/>
     </MetropolisHastings>
-    ~~~~
+    ```
 
 In either case, the probability that any given submover will be chosen during the simulation can be controlled using the sampling\_weight parameter. The sampling weights for all movers are automatically normalized to 1. Submovers used with MetropolisHastings must be subclasses of ThermodynamicMover.
 
@@ -636,7 +638,7 @@ Note that defaults are as for the MinMover class! Check MinMover.cc for the defa
 -   chi: minimize sidechains?
 -   bb: minimize backbone?
 -   jump: comma-separated list of jumps to minimize over (be sure this jump exists!). If set to "ALL", all jumps will be set to minimize. If set to "0", jumps will be set not to minimize.
--   type: minimizer type. linmin, dfpmin, dfpmin\_armijo, dfpmin\_armijo\_nomonotone. dfpmin minimzers can also be used with absolute tolerance (add "atol" to the minimizer type). See [https://www.rosettacommons.org/internal/doc/mini/all\_else/minimization\_overview.html](https://www.rosettacommons.org/internal/doc/mini/all_else/minimization_overview.html) for details.
+-   type: minimizer type. linmin, dfpmin, dfpmin\_armijo, dfpmin\_armijo\_nomonotone. dfpmin minimzers can also be used with absolute tolerance (add "atol" to the minimizer type). See the [[Minimization overview]] for details.
 -   tolerance: criteria for convergence of minimization. **The default is very loose, it's recommended to specify something less than 0.01.**
 -   MoveMap: The movemap can be programmed down to individual degrees of freedom. See FastRelax for more details.
 
@@ -869,9 +871,9 @@ Given a pose with a jump, this mover uses a fragment insertion monte carlo to co
 
 -   motif: The secondary structure + abego to be used for the backbone region to be rebuilt. Taken from input pose if not specified. The format of this string is:
 
-    ~~~~ {style="white-space:pre-wrap"}
+    ```
     <Length><SS><ABEGO>-<Length2><SS2><ABEGO2>-...-<LengthN><SSN><ABEGON>
-    ~~~~
+    ```
 
     For example, "1LX-5HA-1LB-1LA-1LB-6EB" will build a one residue loop of any abego, followed by a 5-residue helix, followed by a 3-residue loop of ABEGO BAB, followed by a 6-residue strand.
 
@@ -1406,9 +1408,9 @@ LoopInserters are responsible for building loops between residues loop\_anchor a
 
 -   LoophashLoopInserter
 
-    ~~~~ {style="white-space:pre-wrap"}
+    ```
     <LoophashLoopInserter name=(&string) loop_anchor=(&integer) loop_sizes=(&integer) modify_flanking_regions=(1/0) />
-    ~~~~
+    ```
 
     -   loop\_anchor: Starting residue number for loop inserter, for example with 'loop\_anchor=18', it will insert loops between loop\_anchor (=18) and loop\_anchor+1 (=19). Multiple loop\_anchors are possible like 'loop\_anchor=18, 35, 67', when there are 3 gaps. Residue numbers will be automatically renumbered as the mover runs.
     -   loop\_sizes: Size of newly added loop, for example with 'loop\_sizes=2,3,4,5', it will add loops of size 2\~5
@@ -1420,9 +1422,9 @@ LoopInserters are responsible for building loops between residues loop\_anchor a
 
 -   FragmentLoopInserter: Attempt to find single fragments that have ends with low-rmsd to the flanking residues of the loop to build.
 
-    ~~~~ {style="white-space:pre-wrap"}
+    ```
     <FragmentLoopInserter name=(&string) loop_anchor=(&int)/>
-    ~~~~
+    ```
 
  **LOOP CLOSERS**
 
@@ -1430,9 +1432,9 @@ LoopClosers are responsible for closing the recently build loops. These are just
 
 -   CCDLoopCloser - Use CCD to close recently built loop
 
-    ~~~~ {style="white-space:pre-wrap"}
+    ```
     <CCDLoopCloser name=(&string) />
-    ~~~~
+    ```
 
     -   max\_ccd\_moves\_per\_closure\_attempt: Maximum ccd moves per closure attempt (usually max\_ccd\_moves\_per\_closure\_attempt=10000 is enough).
     -   max\_closure\_attempts: Maximum number of attempts to close. Obviously high number like 100 would increase successful closing probability.
@@ -1441,9 +1443,9 @@ LoopClosers are responsible for closing the recently build loops. These are just
 
 -   LoopCreationMover
 
-    ~~~~ {style="white-space:pre-wrap"}
+    ```
     <LoopCreationMover name=(&string) loop_closer=(&LoopCloser name) loop_inserter=(&LoopInserter name) />
-    ~~~~
+    ```
 
     -   attempts\_per\_anchor: If 'attempts\_per\_anchor=10', it attempts to close per anchor 10 times. (recommended to use but attempts\_per\_anchor=0 by default)
     -   dump\_pdbs: If "dump\_pdbs=1", dump pdbs during after each addition residues, refinement, and closing of the loop
