@@ -1,7 +1,9 @@
-<!-- --- title: A Guide To Developing In Rosetta -->A Guide to Developing in Rosetta
+#A Guide to Developing in Rosetta
 
- Author   
-Kristian Kaufmann
+Metadata
+========
+
+Author: Kristian Kaufmann
 
 last modified: 11/08/2008
 
@@ -12,16 +14,18 @@ Overview
 
 This guide is written to introduce a new developer to useful tools and expected practices while developing Rosetta. This guide does not provide instruction on programming in C++. See other sources for guidance in learning C++. This guide walks the reader through
 
--   [u'Using subversion the version control system']
--   [u'Navigating the Rosetta library structure']
--   [u'Writing a simple application and documenting the code using Doxygen.']
--   [u'Documenting with Doxygen']
--   [u'Compiling the Rosetta library and application using SCons']
--   [u'Running and Writing Unit, Integration, Performance, and Scientific Tests']
--   [u'Procedures for successfully checkin in your code without breaking the build or Unit and Integration tests.']
+-   Using subversion the version control system
+-   Navigating the Rosetta library structure
+-   Writing a simple application and documenting the code using Doxygen.
+-   Documenting with Doxygen
+-   Compiling the Rosetta library and application using SCons
+-   Running and Writing Unit, Integration, Performance, and Scientific Tests
+-   Procedures for successfully checkin in your code without breaking the build or Unit and Integration tests.
 
 Using subversion the version control system
 ===========================================
+
+**We no longer use Subversion**
 
 A Guide to Using Subversion on the Command Line included in this manual contains a subset of these commands introduced in an order which might be needed for a new developer. Subversion is a widely used easy to leard version control system. For an in depth view into subversion see the subversion manual online at [http://svnbook.red-bean.com](http://svnbook.red-bean.com) . Several svn clients have been developed including some very easy to use graphical user interfaces see [http://subversion.tigris.org/links.html\#clients](http://subversion.tigris.org/links.html#clients) . The RosettaWiki https://wiki.rosettacommons.org/index.php/Tools:Subversion contains an extensive page on using subversion with several examples for many subversion commands.
 
@@ -54,7 +58,7 @@ Rosetta uses Doxygen to produce documentation. [[Tips for writing doxygen docume
 Compiling the Rosetta library and application using SCons
 =========================================================
 
-[[A Guide to Using SCons to Build Rosetta|using-scons]] demonstrates some simple features of the build system followed by a more detailed discussion of the build system structure and how it can be extended. Rosetta uses a custom SCons builder. The builder allows multiple build configurations.
+[[A Guide to Using SCons to Build Rosetta|Build-Documentation]] demonstrates some simple features of the build system followed by a more detailed discussion of the build system structure and how it can be extended. Rosetta uses a custom SCons builder. The builder allows multiple build configurations.
 
 Running and Writing Unit, Integration, Performance, and Scientific Tests
 ========================================================================
