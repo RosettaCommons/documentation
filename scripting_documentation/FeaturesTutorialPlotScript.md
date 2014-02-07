@@ -1,4 +1,6 @@
-<!-- --- title: Featurestutorialplotscript -->Simple Plot Script Tutorial
+#Features Tutorial: Plot script
+
+Simple Plot Script Tutorial
 ===========================
 
 This is a short tutorial that covers creating a plot from feature datasets.
@@ -6,11 +8,11 @@ This is a short tutorial that covers creating a plot from feature datasets.
 Introduction
 ------------
 
-The script plots the total number of residues in each sample source as a bar graph. The full code for this script is in the features scientific benchmark ( [tests/scientific/cluster/features/scripts/analysis/plots/EXAMPLE\_PLOT.R](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_tests/scientific/cluster/features/scripts/analysis/plots/EXAMPLE_PLOT.R) ).
+The script plots the total number of residues in each sample source as a bar graph. The full code for this script is in the features scientific benchmark ( rosetta/main/tests/scientific/cluster/features/scripts/analysis/plots/EXAMPLE\_PLOT.R ).
 
 The script uses SQL to extract the number of residues for each sample source in to an R data.frame, and then declares how the plot should look using ggplot2:
 
-[\<img alt="EXAMPLE PLOT 110311 with abrelaxlr5 110211 top4400 110211.png" height="400" src="EXAMPLE\_PLOT\_110311\_with\_abrelaxlr5\_110211\_top4400\_110211.png" width="525"/\>]
+[[/images/EXAMPLE_PLOT_110311_with_abrelaxlr5_110211_top4400_110211.png]]
 
 The Code
 --------
