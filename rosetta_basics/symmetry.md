@@ -10,14 +10,14 @@ This document was last edited 20090630. The original authors were Ingemar Andre 
 Introduction
 ============
 
-Many proteins assemble into structures with internal symmetry. The symmetry code in mini was developed to provide a framework to enforce symmetry in the conformation among equivalent subunits in the assembly. In order to maintain symmetry in a Rosetta simulation, three different types of degrees of freedoms needs to be symmetrically coupled: backbone, sidechain and rigid-body. Once a Pose is symmetrical, mini contains all the machinery to maintain symmetry for all types of operations that modifies the conformation. In this document the basic machinery responsible for symmetry is described. A typical user will not directly interact with this basic code, instead the control and description of symmetry in the system is maintained with input symmetry definitions.
+Many proteins assemble into structures with internal symmetry. The symmetry code in Rosetta3 was developed to provide a framework to enforce symmetry in the conformation among equivalent subunits in the assembly. In order to maintain symmetry in a Rosetta simulation, three different types of degrees of freedoms needs to be symmetrically coupled: backbone, sidechain and rigid-body. Once a Pose is symmetrical, Rosetta contains all the machinery to maintain symmetry for all types of operations that modifies the conformation. In this document the basic machinery responsible for symmetry is described. A typical user will not directly interact with this basic code, instead the control and description of symmetry in the system is maintained with input symmetry definitions.
 
 Symmetry in proteins
 ====================
 
 Proteins can adopt a range of different symmetries. The most common one is cyclic symmetry which involves n-fold rotation around a symmetry axis (Cn symmetry). A majority of symmetric proteins are homodimers that have C2 symmetry. Another common group is the Dihedral symmetries that combine one n-fold symmetry axis with perpendicular twofold symmetry axis. For example D2 symmetry involves a dimer of dimers. Yet more complicated symmetries can be found in the cubic group. Of particular interest is the icosahedral symmetries found in virus capsids. Icosahedra has 2-fold, 3-fold and 5-fold symmetries. Moving beyond point group symmetries, proteins can form filaments using helical symmetry which involves both rotational symmetry as well as translational symmetry. Finally, proteins crystalizes with spacegroup symmetries, a type of symmetry not found in biogical proteins.
 
-Mini is capable of describing all these types of symmetries. The only restriction is that all repeating units in the system must have a chemically identical environment. The smallest repeating unit with this property is the assymmetric unit of the system. The assymetric unit is typically identical to a subunit.
+Rosetta is capable of describing all these types of symmetries. The only restriction is that all repeating units in the system must have a chemically identical environment. The smallest repeating unit with this property is the assymmetric unit of the system. The assymetric unit is typically identical to a subunit.
 
 How to run with symmetry
 ========================
