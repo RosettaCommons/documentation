@@ -1,9 +1,9 @@
-<!-- --- title: Ca To Allatom -->Documentation for the ca\_to\_allatom application
+#ca\_to\_allatom application
 
 Metadata
 ========
 
-Last edited Oct 31 2010 by Frank DiMaio. Code by Frank DiMaio ( [dimaio@u.washington.edu](#) ). P.I.: David Baker.
+Last edited Oct 31 2010 by Frank DiMaio. Code by Frank DiMaio (dimaio@u.washington.edu). P.I.: David Baker.
 
 Code and Demo
 =============
@@ -15,7 +15,7 @@ References
 
 -   DiMaio F, Tyka MD, Baker ML, Chiu W, Baker D (2009). Refinement of protein structures into low-resolution density maps using rosetta. J. Mol. Biol. 392, 181-90.
 
-Application purpose
+Purpose
 ===========================================
 
 This is an application intended to aid in building a full-atom mdoel from a low-resolution C-alpha-only trace (such as hand-traced models from cryo-electron microscopy). The input to the protocol includes the initial C-alpha trace and a rigid-body segmentation file, which identifies secondary-structure elements in the initial trace.
@@ -58,12 +58,12 @@ A **vall file** (specified with -loops:vall) is used to generate backbone fragme
 Options
 =======
 
-The options listed below include those specific to the ca\_to\_allatom application and a selection of common flags that may be useful. If a post-run looprelax is enabled, then the app takes all [[looprelax|loopmodel]] and <relax> specific options. If modelling into density, the app takes all [[density-fitting|density-map-scoring]] options.
+The options listed below include those specific to the ca\_to\_allatom application and a selection of common flags that may be useful. If a post-run looprelax is enabled, then the app takes all [[looprelax|loopmodel]] and [[relax]] specific options. If modelling into density, the app takes all [[density-fitting|density-map-scoring]] options.
 
 **Common options:**
 
--   -in: <file:fullatom>
--   -in: <file:centroid_input>
+-   -in:file:fullatom
+-   -in:file:centroid_input
 
 These flags control whether fullatom or centroid models are used during the first two phases of the protocol (defaults to fullatom). The scorefunction given must agree with this.
 
@@ -117,7 +117,7 @@ Tips
 
 -   If the starting model has a lot of beta sheet it may be useful to perform centroid modeling with the fullatom backbone hydrogen bonding terms. Try a centroid weight file (using -RBSegmentRelax:rb\_scorefxn) like:
 
-    ~~~~ {.fragment}
+    ```
     env         1.0
     pair        1.0
     cbeta       1.0
@@ -126,7 +126,7 @@ Tips
     hbond_sr_bb 1.0
     rama        0.2
     rg          2.0
-    ~~~~
+    ```
 
 Post Processing
 ===============
