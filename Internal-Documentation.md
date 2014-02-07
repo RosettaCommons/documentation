@@ -6,7 +6,7 @@ It provides convenient access to documentation pages which aren't yet ready for 
 (If a page will never be in a state to be released to the public, consider putting it on the 
 internal RosettaCommons wiki instead.)
 
-All files stored under the internal_documents/ folder (use the rename function to move), 
+All files stored under the `internal_documents/` folder (use the rename function to move), 
 as well as everything which is placed between
 
 ```
