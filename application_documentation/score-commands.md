@@ -85,7 +85,7 @@ Database Output:
 
 ** Sample command:  relax.linuxgccrelease @flags > relax.log
 ** Options in flag file:
-   -database                 Path to minirosetta databases
+   -database                 Path to Rosetta databases
    -s                        Input file paths and name
    -relax:fast               Invokes a fast mode, which is almost as effective as a normal relax but 5-10 faster(optional)
 
