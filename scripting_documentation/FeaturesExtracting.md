@@ -1,4 +1,6 @@
-<!-- --- title: Featuresextracting -->FeaturesReporter
+#Features Extracting
+
+FeaturesReporter
 ================
 
 Implmenting a FeaturesReporter involves the following steps:
