@@ -1,10 +1,9 @@
-<!-- --- title: Reviewertemplate -->Reviewer's Template
-
- Author   
-Andrew Leaver-Fay
+#Reviewer's Template
 
 Metadata
 ========
+
+Author: Andrew Leaver-Fay
 
 Last edited by Andrew Leaver-Fay on April 6th, 2010.
 
