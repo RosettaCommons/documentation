@@ -1,4 +1,6 @@
-<!-- --- title: Rosettascripts -->-   [[Documentation for the RosettaScripts syntax|RosettaScripts-Documentation]]
+#RosettaScripts
+
+-   [[Documentation for the RosettaScripts syntax|RosettaScripts-Documentation]]
     -   [[Movers (RosettaScripts)|Movers-RosettaScripts]]
     -   [[Filters (RosettaScripts)|Filters-RosettaScripts]]
     -   [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]]
