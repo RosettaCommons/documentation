@@ -1,4 +1,6 @@
-<!-- --- title: Featurestutotiralrunfeaturesanalysis -->Comparing sample sources takes one or more databases of features and a set of analysis scripts and generated plots and statistics.
+<!-- --- title: Featurestutotiralrunfeaturesanalysis -->
+
+Comparing sample sources takes one or more databases of features and a set of analysis scripts and generated plots and statistics.
 
 Run compare\_sample\_sources.R
 ==============================
