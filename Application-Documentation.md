@@ -87,7 +87,6 @@ While most of these applications focus on prediction, many have options which wi
  
 - [[Match]] - Place a small molecule into a protein pocket so it satisfies given geometric constraints.  
 - [[Enzyme Design]] - Design a protein around a small molecule, with catalytic constraints.  
-    * [[enzyme-design-deprecated]] - draft documentation?  
 
 - [[RosettaRemodel]] - Redesign backbone and sequence of protein loops and secondary structure elements. 
     * [[Remodel]] - Additional remodel documentation
@@ -119,7 +118,7 @@ While most of these applications focus on prediction, many have options which wi
 
 ##Analysis
 
-- [[Score|score-commands]] - Determine the calculate Rosetta energy for structures.
+- [[Score|score-commands]] - Calculate Rosetta energy for structures.
 - [[Residue energy breakdown]] - Decompose scores into intra-residue and residue pair interactions.
 
 - [[Density map scoring]] - Score structures with electron density information.  
@@ -161,15 +160,3 @@ These applications serve mainly to support other Rosetta applications, or to ass
 - [[Collection of example commandlines|commands-collection]]
 
 - [[minirosetta]] - The "minirosetta" boinc wrapper application.
-
-
-$$$$$$$$$$$$$$$$$
-
-
-Was documented, documentation disappeared:
-
-- [[Idealization|app-idealization]] - Generate structures with ideal Rosetta bond lengths and angles that are as close as possible to the input structures.  
-
-- [[Commands for working with silent files|app-silentfile]]  
-
-
