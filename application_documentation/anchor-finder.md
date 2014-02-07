@@ -1,10 +1,11 @@
-<!-- --- title:  Anchor Finder --> Author   
-Steven Lewis [smlewi@gmail.com](#)
+#AnchorFinder
 
 Metadata
 ========
 
-Code and documentation by Steven Lewis [smlewi@gmail.com](#) . This document was last updated 6/24/11 by Steven Lewis. The PI was Brian Kuhlman, [bkuhlman@email.unc.edu](#) .
+Author: Steven Lewis (smlewi@gmail.com)
+
+Code and documentation by Steven Lewis (smlewi@gmail.com). This document was last updated 6/24/11 by Steven Lewis. The PI was Brian Kuhlman, (bkuhlman@email.unc.edu).
 
 Code and Demo
 =============
@@ -16,7 +17,7 @@ References
 
 -   Lewis SM, Kuhlman BA. Anchored design of protein-protein interfaces. PLoS One. 2011;6(6):e20872. Epub 2011 Jun 17.
 
-Application purpose
+Purpose
 ===========================================
 
 The purpose of AnchorFinder is to search for anchors in protein dimers. It is part of the overall AnchoredDesign suite. Briefly, anchors are regions in an interface that serve as handles and could be grafted from a natural interacting partner into a new scaffold (the purpose of the AnchoredPDBCreator application) and then flexibly designed around to create a new protein-protein interface between the original target and scaffold (the AnchoredDesign application).
@@ -26,7 +27,7 @@ It was written to help look for proteins useable for fixed-sequence benchmarking
 Compiling the Rosetta library and application using SCons
 =========================================================
 
-AnchorFinder is intended to be run "robustly". See also the "Robust Rosetta" documentation, [[(hopefully this is a clickable link to Robust Rosetta)|robust]] . AnchorFinder was run against the entire PDB at one point; robustification allows it to not crash on malformed PDBs.
+AnchorFinder is intended to be run "robustly". See also the "[[Robust Rosetta|robust]]" documentation.  AnchorFinder was run against the entire PDB at one point; robustification allows it to not crash on malformed PDBs.
 
 Algorithm
 =========
@@ -85,13 +86,27 @@ Expected Outputs
 
 Pdbname.data looks like this:
 
-Rows are residues, columns are chains, data are neighbors in that chain for each residue residue chain PDBdata DSSP 1 2 1 1 2 D L 7 0 2 1 3 D L 10 0 3 1 4 D L 14 0 ...
+Rows are residues, columns are chains, data are neighbors in that chain for each residue
+```
+residue chain   PDBdata DSSP    1       2
+1       1       2 D     L       7       0
+2       1       3 D     L       10      0
+3       1       4 D     L       14      0
+...
+```
 
 You can mine this later without rerunning AnchorFinder to look for anchors. The number of columns will grow if you have more than two chains in the PDB (which can still be valid input, if you have an asymmetric unit of 3 heterodimers).
 
 Goodfile.out looks like this:
 
-PDB pdb2vk1 window 45 loopness 5 nbrs 0 28 0 0 start 46 A pymol select pdb2vk1 and chain A and resi 46-50 PDB pdb2vk1 window 108 loopness 5 nbrs 0 25 0 0 start 109 A pymol select pdb2vk1 and chain A and resi 109-113 PDB pdb2vk1 window 109 loopness 5 nbrs 0 36 0 0 start 110 A pymol select pdb2vk1 and chain A and resi 110-114 PDB pdb2vk1 window 110 loopness 5 nbrs 0 46 0 0 start 111 A pymol select pdb2vk1 and chain A and resi 111-115 PDB pdb2vk1 window 111 loopness 5 nbrs 0 46 0 0 start 112 A pymol select pdb2vk1 and chain A and resi 112-116 PDB pdb2vk1 window 112 loopness 5 nbrs 0 47 0 0 start 113 A pymol select pdb2vk1 and chain A and resi 113-117
+```
+PDB pdb2vk1 window 45 loopness 5 nbrs 0 28 0 0 start 46 A pymol select pdb2vk1 and chain A and resi 46-50
+PDB pdb2vk1 window 108 loopness 5 nbrs 0 25 0 0 start 109 A pymol select pdb2vk1 and chain A and resi 109-113
+PDB pdb2vk1 window 109 loopness 5 nbrs 0 36 0 0 start 110 A pymol select pdb2vk1 and chain A and resi 110-114
+PDB pdb2vk1 window 110 loopness 5 nbrs 0 46 0 0 start 111 A pymol select pdb2vk1 and chain A and resi 111-115
+PDB pdb2vk1 window 111 loopness 5 nbrs 0 46 0 0 start 112 A pymol select pdb2vk1 and chain A and resi 112-116
+PDB pdb2vk1 window 112 loopness 5 nbrs 0 47 0 0 start 113 A pymol select pdb2vk1 and chain A and resi 113-117
+```
 
 Each line identifies the PDB, the window number, its loopness, its number of neighbors on each chain in the PDB (variable \# of columns), the starting residue PDB numbering for the window, and a Pymol selection for the window.
 
