@@ -1,12 +1,11 @@
-<!-- --- title: Ddg Monomer -->Documentation for the ddg\_monomer application
-
- Author   
-Andrew Leaver-Fay and Elizabeth Kellogg
+#ddg\_monomer application
 
 Metadata
 ========
 
-The documentation was last updated on 4/7/2011, by Andrew Leaver-Fay. Questions about this documentation should be directed to David Baker: [dabaker@u.washington.edu](#) .
+Author: Andrew Leaver-Fay and Elizabeth Kellogg
+
+The documentation was last updated on 4/7/2011, by Andrew Leaver-Fay. Questions about this documentation should be directed to David Baker: (dabaker@u.washington.edu).
 
 Code and Demo
 =============
@@ -30,19 +29,15 @@ The older, fixed-backbone, soft-repulsive scorefunction algorithm (analogous to 
 
 Kortemme et al. (2002) "A simple physical model for binding energy hot spots in protein-protein complexes", PNAS 22, 14116-21
 
-Application purpose
+Purpose
 ===========================================
 
 The purpose of this application is to predict the change in stability (the ddG) of a monomeric protein induced by a point mutation. The application takes as input the crystal structure of the wild-type (which must be first pre-minimized), and generates a structural model of the point-mutant. The ddG is given by the difference in rosetta energy between the wild-type structure and the point mutant structure. More precisely, 50 models each of the wild-type and mutant structures should be generated, and the most accurate ddG is taken as the difference between the mean of the top-3-scoring wild type structures and the top-3-scoring point-mutant structures.
 
-(What is this code supposed to do? What sorts of problems does it solve)
-
 Algorithm
 =========
 
-(Broadly, how does this code work? Does it have a centroid phase? A fullatom phase? Does it run repacking every so often?)
-
-There are two main ways that this application should be used: a high-resolution and a low-resolution way. They are nearly as accurate as each other with corellation coefficients of 0.69 and 0.68 on a set of 1210 mutations. These are described by the protocols on rows 16 and 3 of [Kellogg,2011], respectively.
+There are two main ways that this application should be used: a high-resolution and a low-resolution way. They are nearly as accurate as each other with correlation coefficients of 0.69 and 0.68 on a set of 1210 mutations. These are described by the protocols on rows 16 and 3 of [Kellogg,2011], respectively.
 
 A) High Resolution Protocol:
 
@@ -108,7 +103,7 @@ AtomPair CA 4 CA 2 HARMONIC 6.2647 0.5
 
 b) Mutation list files the files which specify mutations can follow either of two formats.
 
-1.  mutations can follow resfile format (described here [[Resfile syntax and conventions|resfiles]] Resfile). Each mutation specified will be performed as a single mutant. For example, a resfile like the following
+1.  mutations can follow resfile format (described at [[Resfile syntax and conventions|resfiles]]). Each mutation specified will be performed as a single mutant. For example, a resfile like the following
 
 ```
 1 A PIKAA AWTL
