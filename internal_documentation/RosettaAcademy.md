@@ -86,8 +86,9 @@ To know about how to navigate a terminal in Linux, you need to learn some basic 
 Rosetta is a unified software package for protein structure prediction and functional design. It has been used to predict protein structures with and without the aid of sparse experimental data, perform protein-protein and protein-small molecule docking, design novel proteins and redesign existing proteins for altered function. Rosetta allows for rapid tests of hypotheses in biomedical research which would be impossible or exorbitantly expensive to perform via traditional experimental methods. Thereby, Rosetta methods are becoming increasingly important in the interpretation of biological findings, e.g., from genome projects and in the engineering of therapeutics, probe molecules and model systems in biomedical research.
 
 Rosetta concepts:
-The following page describes a handful of very important Rosetta concepts - like FoldTree, AtomType, MoveMap, etc. To log in, use (Wiki, welcome1).
-* http://graylab.jhu.edu/Rosetta.Developer.Documentation/all_else/d7/dd4/mini_overview.html
+The following pages describe a handful of very important Rosetta concepts - like FoldTree, AtomType, MoveMap, etc.
+* [[Rosetta-overview]]
+* [[Rosetta-Basics]]
 
 Some really useful papers about Rosetta:
 * Kaufmann, Lemmon, DeLuca, Sheehan, Meiler: "Practically Useful: What the Rosetta Protein Modeling Suite Can Do for You" Biochemistry 2010: http://pubs.acs.org/doi/abs/10.1021/bi902153g
@@ -98,7 +99,7 @@ Some really useful papers about Rosetta:
 ### 3. Documentation
 #### TODO: Glossary: Rosetta and technical - Oana
 * https://wiki.rosettacommons.org/index.php/Glossary
-* http://graylab.jhu.edu/Rosetta.Developer.Documentation/all_else/d7/dd4/mini_overview.html
+* [[Rosetta-overview]]
 
 #### Documentation
 There is a decent documentation available: https://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/index.html. For newer documentation, please visit https://www.rosettacommons.org/manual_guide and click on the newest release.
