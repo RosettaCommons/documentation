@@ -1,12 +1,11 @@
-<!-- --- title: Opt E Parallel Doc -->Documentation for the optE\_parallel application
-
- Author   
-Andrew Leaver-Fay
+#he optE\_parallel application
 
 Metadata
 ========
 
-This document was written by Andrew Leaver-Fay in October 2013. The optE\_parallel code is maintained in the Kuhlman lab at UNC. Send questions to [aleaverfay@gmail.com](#) .
+Author: Andrew Leaver-Fay
+
+This document was written by Andrew Leaver-Fay in October 2013. The optE\_parallel code is maintained in the Kuhlman lab at UNC. Send questions to (aleaverfay@gmail.com).
 
 Code and Demo
 =============
