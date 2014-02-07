@@ -1,9 +1,9 @@
-<!-- --- title: Sequence Recovery -->Documentation for the sequence\_recovery application
+#The sequence\_recovery application
 
 Metadata
 ========
 
-This document was last updated on June 22, 2010, by Ron Jacak. The corresponding PI is Brian Kuhlman [bkuhlman@email.unc.edu](#) .
+This document was last updated on June 22, 2010, by Ron Jacak. The corresponding PI is Brian Kuhlman (bkuhlman@email.unc.edu).
 
 Code and Demo
 =============
@@ -18,8 +18,8 @@ Sequence recovery tests have been used extensively during the development of Ros
 -   Computational Protein Design with Explicit Consideration of Surface Hydrophobic Patches. R. Jacak, A. Leaver-Fay, and B. Kuhlman. *Submitted* .
 -   [Native protein sequences are close to optimal for their structures.](http://www.ncbi.nlm.nih.gov/pubmed/10984534) B. Kuhlman and D. Baker. PNAS 2000 Sep 12;97(19):10383-8.
 
-Application purpose
-===========================================
+Purpose
+========
 
 This application takes as input a set of native proteins and a corresponding set of redesigned proteins and outputs a table of core, overall, and surface sequence recoveries by amino acid type. A table of the native amino acid and to what residue type Rosetta mutated these positions is also output. The output is explained in more detail in the following sections.
 
