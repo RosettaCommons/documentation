@@ -1,4 +1,6 @@
-<!-- --- title: Multistructurefeaturesreporters -->ProteinRMSDFeatures
+#MultiStructureFeaturesReporters
+
+ProteinRMSDFeatures
 -------------------
 
 Compute the atom-wise root mean squared deviation between the conformation being reported and a previously saved conformation. There are several ways of specifying the reference structure, which are considered in the following order
