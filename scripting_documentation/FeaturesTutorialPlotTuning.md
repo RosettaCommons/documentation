@@ -1,4 +1,6 @@
-<!-- --- title: Featurestutorialplottuning -->Use Vector Graphics where possible
+#Features Tutorial: Plot Tuning
+
+Use Vector Graphics where possible
 ----------------------------------
 
 Editing Plots in Vector Graphics Programs
