@@ -30,6 +30,13 @@ comment tags will be stripped from the documentation prior to being provided as 
     - [[Template app documenation page]] - Alternative application documentation template.
 - [[ReviewerTemplate]] - A template for reviewers of application documentation.
 
+### Membrane Framework Project
+
+[[Rosetta Membrane Protein Framework (Project Page)]]
+- [[Configuring Rosetta with Membrane Proteins (User Docs)]]
+- [[Configuring Rosetta for Membrane Proteins (Developer Docs)]]
+- [[Supporting Membrane Proteins (Developer Documentation)]]
+
 ### Pilot Apps Documentation
 
 This is documentation for pilot apps and other unreleased code.
