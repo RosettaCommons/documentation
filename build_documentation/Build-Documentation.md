@@ -11,7 +11,7 @@ Note that scons-local is packaged with Rosetta3. Thus if scons is not installed 
 Building
 ========
 
-In order to build a debug version of the mini-rosetta executables, simply run scons like this:
+In order to build a debug version of the Rosetta executables, simply run scons like this:
 
 `       scons bin      `
 
@@ -59,7 +59,7 @@ Build and install executables in bin/ directory
 
 `       scons bin      `
 
-Build and install executables in bin/ directory if current working directory is a sub-directory mini. -D options tells scons to iteratively search towards the root for SConstruct file. The \# sign is an alias for the top build directory.
+Build and install executables in bin/ directory if current working directory is a sub-directory of source. -D options tells scons to iteratively search towards the root for SConstruct file. The \# sign is an alias for the top build directory.
 
 `       scons -D #bin      `
 
@@ -91,7 +91,7 @@ Parallelize build into 3 threads (faster on multiproc. machine). In fact some so
 
 `       scons -j3      `
 
-Use the version of scons that is distributed with mini. Useful for when scons is not installed on system
+Use the version of scons that is distributed with Rosetta. Useful for when scons is not installed on system
 
 `       python external/scons-local/scons.py      `
 
