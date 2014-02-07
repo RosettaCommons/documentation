@@ -1,4 +1,4 @@
-<!-- --- title: Before Commit Check -->List of things you should check in your code before committing it in to svn
+#List of things you should check in your code before committing it in to svn
 
 Overview
 ========
@@ -35,11 +35,11 @@ Integration Test
 
 -   Run the integration tests *before* committing any code. To run the integration tests. ('-j8' as above, optional.)
 
+```
 cd test/integration/
-
 ./integration.py -h
-
-./integration.py -j8 -d \$MINIROSETTA\_DATABASE
+./integration.py -j8 -d $MINIROSETTA_DATABASE
+```
 
 Note that your code should be compared to the results of running the integration tests on the same revision of the code without your changes. As with unit tests consults other developers if the results of the tests don't match.
 
