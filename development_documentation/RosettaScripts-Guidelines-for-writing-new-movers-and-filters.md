@@ -1,4 +1,6 @@
-<!-- --- title: Rosettascripts Guidelines For Writing New Movers And Filters -->*This page is not yet complete, and should be ignored until further notice*
+#RosettaScripts Guidelines For Writing New Movers And Filters
+
+*This page is not yet complete, and should be ignored until further notice*
 
 Overview
 --------
