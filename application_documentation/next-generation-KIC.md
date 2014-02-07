@@ -53,7 +53,7 @@ The following files are required for kinematic loop modeling:
                          using idealized bond lengths and angles. This is important for loop reconstruction benchmarks to ensure a starting loop 
                          conformation that is different from the original one, as well as for de novo loop construction/insertion with KIC, 
                          to create a connected starting loop conformation from single unconnected loop residues 
-                         (see tutorial at https://svn.rosettacommons.org/source/trunk/RosettaCon2011/demos/model_missing_loop/). 
+                         (see tutorial at rosetta/demos/public/model_missing_loop). 
     ```
 
     An example loop definition file can be found at `    rosetta/main/tests/integration/tests/next_generation_KIC/input/4fxn.loop`, which looks like this:
