@@ -45,5 +45,5 @@ There are a number of ThermodynamicObservers:
     -   [[SilentTrajectoryRecorder|Movers-RosettaScripts#SilentTrajectoryRecorder]] --- write snapshots using the job distributor
 
 -   [[MetricRecorder|Movers-RosettaScripts#MetricRecorder]] -- record selected torsion angles (currently) and other numerical features (in the future) to a tab delimited text file
--   [TrialCounterObserver](https://wiki.rosettacommons.org/index.php?title=TrialCounterObserver_(MetropolisHastings)&action=edit&redlink=1 "TrialCounterObserver (MetropolisHastings) (page does not exist)") --- observe acceptance rates of various moves at different temperatures
+-   [[TrialCounterObserver]] --- observe acceptance rates of various moves at different temperatures
 
