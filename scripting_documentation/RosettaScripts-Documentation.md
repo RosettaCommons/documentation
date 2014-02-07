@@ -1,4 +1,7 @@
-<!-- --- title: Rosettascripts Documentation -->"Skeleton" XML format
+#RosettaScripts Documentation
+
+
+"Skeleton" XML format
 ---------------------
 
 Copy, paste, fill in, and enjoy
@@ -81,7 +84,7 @@ Rosetta will carry out the order of operations specified in PROTOCOLS, starting 
 
 The movers do change the pose, and the output file will be the result of sequentially applying the movers in the protocols section. The standard scores of the output (either in the pdb, silent or score file) will be from the commandline-specified scorefunction, unless the OUTPUT tag is specified, in which case the corresponding score function from the SCOREFXNS block will be used.
 
-Additional example xml scripts, including examples for docking, protein interface design, and prepacking a protein complex, amongst others, can be found in the rosetta/rosetta\_demos/public/rosetta\_scripts/ directory. (Or online at [https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta\_demos/public/rosetta\_scripts](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_demos/public/rosetta_scripts) for those with svn access.)
+Additional example xml scripts, including examples for docking, protein interface design, and prepacking a protein complex, amongst others, can be found in the rosetta/rosetta\_demos/public/rosetta\_scripts/ directory. (Or online at [https://svn.rosettacommons.org/trac/browser/trunk/rosetta/demos/public/rosetta\_scripts](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_demos/public/rosetta_scripts) for those with svn access.)
 
 Example commandline
 -------------------
@@ -166,15 +169,24 @@ Occasionally it is desirable to run a series of different runs with slightly dif
 If the -parser:script\_vars option is set on the command line, every time a string like "%%variable\_name%%", is encountered in the XML file, it is replaced with the corresponding value from the command line.
 
 For example, a line in the XML like
- `   <AlaScan name=scan partner1=1 partner2=1 scorefxn=interface interface_distance_cutoff=%%cutoff%% repeats=%%repeat%%/>  `
- can be turned into
- `   <AlaScan name=scan partner1=1 partner2=1 scorefxn=interface interface_distance_cutoff=10.0 repeats=5/>  `
- with the command line option
- `   -parser:script_vars repeat=5 cutoff=10.0  `
- These values can be changed at will for different runs, for example:
- `   -parser:script_vars repeat=5 cutoff=15.0  `
- `   -parser:script_vars repeat=2 cutoff=10.0  `
- `   -parser:script_vars repeat=1 cutoff=9.0  `
+```
+<AlaScan name=scan partner1=1 partner2=1 scorefxn=interface interface_distance_cutoff=%%cutoff%% repeats=%%repeat%%/>
+```
+can be turned into
+```
+<AlaScan name=scan partner1=1 partner2=1 scorefxn=interface interface_distance_cutoff=10.0 repeats=5/>
+```
+with the command line option
+```
+   -parser:script_vars repeat=5 cutoff=10.0
+```
+
+These values can be changed at will for different runs, for example:
+```
+   -parser:script_vars repeat=5 cutoff=15.0
+   -parser:script_vars repeat=2 cutoff=10.0
+   -parser:script_vars repeat=1 cutoff=9.0
+```
 
 Multiple instances of the "%%var%%" string will all be substituted, as well as in any [[subroutine|Movers-RosettaScripts#Subroutine]] XML files. Note that while currently script\_vars are implemented as pure macro text substitution, this may change in the future, and any use aside from substituting tag values may not work. Particularly, any use of script variables to change the parsing structure of the XML file itself is explicitly \*not\* supported, and you have a devious mind for even considering it.
 
