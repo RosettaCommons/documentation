@@ -61,7 +61,7 @@ the command to perform pre-minimization is as follows:
 /path/to/minimize_with_cst.linuxgccrelease -in:file:l lst  -in:file:fullatom -ignore_unrecognized_res -fa_max_dis 9.0 -database /path/to/rosetta_database/ -ddg::harmonic_ca_tether 0.5 -score:weights standard -ddg::constraint_weight 1.0 -ddg::out_pdb_prefix min_cst_0.5 -ddg::sc_min_only false -score:patch rosetta_database/scoring/weights/score12.wts_patch > mincst.log
 ```
 
-this application will only take in a list of pdb structures, designated by -in: <file:l> lst the resulting minimized structures will have a prefix designated by -ddg::out\_pdb\_prefix. In this case the structures will have a prefix "min\_cst\_0.5" followed by the original input pdb name.
+this application will only take in a list of pdb structures, designated by -in:file:l lst the resulting minimized structures will have a prefix designated by -ddg::out\_pdb\_prefix. In this case the structures will have a prefix "min\_cst\_0.5" followed by the original input pdb name.
 
 as explained in the previous section, in order to obtain constraints based on the crystal structure, run the shell script: ./convert\_to\_cst\_file.sh on the log-file output (mincst.log)
 
