@@ -2572,27 +2572,24 @@ The available tracers are:
 
 1.  **StubMinimize**
      Without defining this submover, the protocol will simply perform a rigid body minimization as well as sc minimization of previous placed stubs in order to minimize towards the stub. Otherwise, a series of previously defined movers can be added, such as backrub, that will be applied for the stub minimization step. Before and after the list of stub minimize movers, there will be a rigid body minimization and a sc minimization of previously placed stubs. The bb\_cst\_weight determines how strong the constraints are that are derived from the stubs.
-
     -   mover\_name: a user previously defined design or minimize mover.
     -   bb\_cst\_weight: determines the strength of the constraints derived from the stubs. This value is a weight on the cb\_force, so larger values are stronger constraints.
 
     Valid/sensible StubMinimize movers are:
-
     -   BackrubDD
     -   LoopRemodel
 
 2.  **DesignMovers**
      Design movers are typically used once the stubs are placed to fill up the remaining interface, since placestub does not actually introduce any further design other than stub placement.
-
     -   mover\_name: a user previously defined design or minimize mover.
     -   use\_constraints: whether we should use coordinate constraints during this design mover
     -   coord\_cst\_std: the std of the coordinate constraint for this mover. The coord constraints are harmonic, and the force constant, k=1/std. The smaller the std, the stronger the constraint
 
     Valid/sensible DesignMovers are:
-
     -   RepackMinimize
 
 3.  **NotifyMovers**
+    Movers placed in this section will be notified not to repack the PlaceStub-placed residues. This is not necessary if placement movers are used in a nested (recursive) fashion, as the placement movers automatically notify movers nested in them of the hot-spot residues. Essentially, you want to make the downstream movers (you list under this section) aware about the placement decisions in this upstream mover. These movers will not be run at in this placestub, but will be subsequently aware of placed residues for subsequent use. Useful for running design moves after placestub is done, e.g., in loops. Put task awareness only in the deepest placestub mover (if PlaceStub is nested), where the final decisions about which residues harbour hot-spot residues is made.
 
 #### PlaceSimultaneously
 
