@@ -1,7 +1,9 @@
-<!-- --- title: Template App Documenation Page -->Template Doxygen Page for Documenting an Application
+#Template Doxygen Page for Documenting an Application
 
- Author   
-Kristian Kaufmann
+Metadata
+========
+
+Author: Kristian Kaufmann
 
 location: doc/template\_doxygen\_pages/TemplateAppDocPage.dox
 
@@ -13,19 +15,6 @@ Purpose
 =======
 
 The objective of this application is to perform these modeling tasks.
-
-Table of Contents
-=================
-
--   [u'Overview of the Application']
--   [u'Relevant Literature']
--   [u'Required Tools and Input files']
--   [u'Optional Tools and Input files']
--   [u'Location of Demo Files']
--   [u'Preprocessing of input files']
--   [u'Running the Application']
--   [u'Postprocessing of Files']
--   [u'Frequently Asked Questions']
 
 Overview of the Application
 ===========================
