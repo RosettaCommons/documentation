@@ -1,4 +1,4 @@
-<!-- --- title: Score Commands -->Commands for the scoring application
+#Score Commands
 
 Metadata
 ========
