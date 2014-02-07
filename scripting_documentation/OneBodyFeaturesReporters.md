@@ -1,4 +1,6 @@
-<!-- --- title: Onebodyfeaturesreporters -->ResidueFeatures
+#OneBody FeaturesReporters
+
+ResidueFeatures
 ---------------
 
 The ResidueFeatures stores information about each residue in a conformation.
