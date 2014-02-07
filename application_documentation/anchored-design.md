@@ -1,12 +1,11 @@
-<!-- --- title:  Anchored Design -->Documentation for AnchoredDesign application
-
- Author   
-Steven Lewis [smlewi@gmail.com](#)
+#AnchoredDesign application
 
 Metadata
 ========
 
-Code and documentation by Steven Lewis [smlewi@gmail.com](#) . This document was last updated 1/29/13 by Steven Lewis. The PI was Brian Kuhlman, [bkuhlman@email.unc.edu](#) .
+Author: Steven Lewis (smlewi@gmail.com)
+
+Code and documentation by Steven Lewis (smlewi@gmail.com) . This document was last updated 1/29/13 by Steven Lewis. The PI was Brian Kuhlman, (bkuhlman@email.unc.edu) .
 
 Example runs
 ============
@@ -22,14 +21,14 @@ References
 Purpose and Algorithm
 =====================
 
-AnchoredDesign is the main protocol discussed here. This protocol is meant to design interfaces between known target structures and new binding partners, using an "anchor" consisting of residues grafted from a known binding partner of the target onto the new scaffold. The idea is that this will reduce the conformational space we need to search and preclude the docking problem, while still leaving freedom to design the interface as necessary. The anchor should be grafted into a surface loop of the scaffold (see [[Documentation for AnchoredPDBCreator application|anchored-pdb-creator]] ). Loop remodeling of the anchor loop will move the scaffold with respect to the target, exposing different parts of their surfaces to one another. Loop remodeling of other (unanchored) surface loops is also implemented. This lets us design a new, flexible-backbone interface between new binding partners.
+AnchoredDesign is the main protocol discussed here. This protocol is meant to design interfaces between known target structures and new binding partners, using an "anchor" consisting of residues grafted from a known binding partner of the target onto the new scaffold. The idea is that this will reduce the conformational space we need to search and preclude the docking problem, while still leaving freedom to design the interface as necessary. The anchor should be grafted into a surface loop of the scaffold (see [[AnchoredPDBCreator application|anchored-pdb-creator]]). Loop remodeling of the anchor loop will move the scaffold with respect to the target, exposing different parts of their surfaces to one another. Loop remodeling of other (unanchored) surface loops is also implemented. This lets us design a new, flexible-backbone interface between new binding partners.
 
 Input Files
 ===========
 
 See rosetta/rosetta\_tests/integration/tests/AnchoredDesign/ for example usage.
 
-AnchoredDesign requires as inputs a starting structure, an anchor specification, and a loops specification ( [[Documentation for the loop modeling application|loopmodel]] ). The starting structure needs to have the anchor grafted into the scaffold (see [[Documentation for AnchoredPDBCreator application|anchored-pdb-creator]] and its documentation), and the anchor needs to be docked properly relative to the target. The anchor/target interaction WILL NOT CHANGE, since it was drawn from a crystal structure. The relationship between the scaffold and rest of the system is treated flexibly; the scaffold does need to be connected to the anchor but it's fine if the scaffold crashes horribly into the target (that will be worked out by the protocol).
+AnchoredDesign requires as inputs a starting structure, an anchor specification, and a loops specification ( See [[Loop modeling application|loopmodel]]). The starting structure needs to have the anchor grafted into the scaffold (see [[AnchoredPDBCreator application|anchored-pdb-creator]] and its documentation), and the anchor needs to be docked properly relative to the target. The anchor/target interaction WILL NOT CHANGE, since it was drawn from a crystal structure. The relationship between the scaffold and rest of the system is treated flexibly; the scaffold does need to be connected to the anchor but it's fine if the scaffold crashes horribly into the target (that will be worked out by the protocol).
 
 Note that the AnchoredDesign protocol respects the start, end, cut, and extended fields of the loop file. It ignores the skip\_rate field.
 
@@ -81,10 +80,10 @@ These options activate vicinity sampling in kinematic loop closure. (The default
 
 General options: All packing namespace options loaded by the PackerTask are respected. jd2 namespace options are respected. Anything very low-level, like the database paths, is respected.
 
--   packing::resfile - string - a [[Resfile syntax and conventions|resfiles]] resfile if you want one
+-   packing::resfile - string - a [[resfile|resfiles]] if you want one
 -   in::file::frag3 - string - fragments if you've got them
 -   run::min\_type - string - minimizer type. dfpmin\_armijo\_nonmonotone used for production.
--   loops::loop\_file - string - loops file, [[Documentation for the loop modeling application|loopmodel]] describes it
+-   loops::loop\_file - string - loops file, [[the documentation for the loop modeling application|loopmodel]] describes it
 
 PoseMetricCalculator flags include:
 
