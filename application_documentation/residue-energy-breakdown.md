@@ -44,7 +44,7 @@ SCORE:  input.pdb       1          MET           2          ASP      -0.715     
 SCORE:  input.pdb       1          MET           3          MET      -0.430      0.000      0.287           0.000   ...      0.000     -0.143   input.pdb_1_3
 ```
 
-Command Line Options
+Command Lines
 ====================
 
 Sample command:
