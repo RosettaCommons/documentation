@@ -1,12 +1,9 @@
-<!-- --- title: Zinc Heterodimer Design -->Documentation for zinc\_heterodimer\_design application
-
- Author   
-DOCUMENTATION AUTHOR GOES HERE
+#Zinc\_heterodimer\_design application
 
 Metadata
 ========
 
-Last updated on 12-12-12, Bryan Der ( [bder@email.unc.edu](#) ), Kuhlman lab ( [bkuhlman@email.unc.edu](#) ).
+Last updated on 12-12-12, Bryan Der (bder@email.unc.edu), Kuhlman lab (bkuhlman@email.unc.edu).
 
 Code and Demo
 =============
@@ -18,7 +15,7 @@ References
 
 unpublished protocol
 
-Application purpose
+Purpose
 ===========================================
 
 This protocol designs zinc-mediated heterodimers. One partner contains a three-residue zinc binding site, the second partner contains one surface zinc-coordinating residue. In the example given, partner 2 is ubiquitin, which contains a surface histidine.
@@ -53,7 +50,25 @@ Options
 
 These values are for production runs.
 
--resfile resfile \#the resfile default is NATAA, this will prevent mutation of the wild-type target. For the scaffold, all residues should be NOTAA HC. -nstruct 100 -partner1 2D4X.pdb -partner2 1UBQ.pdb -partner2\_residue 68 -match\_pdb 2D4X.C135-C137-H192\_match\_00161.pdb -skip\_sitegraft\_repack false \#the local region surrounding the zinc match residues is repacked by default. \#-AnchoredDesign::perturb\_temp -AnchoredDesign::perturb\_cycles 500 \#how many times to perturb the rigid-body orientation -AnchoredDesign::perturb\_show false \#true for debugging/visualization of rigid-body sampling -AnchoredDesign::refine\_cycles 10 \#how many times to run PackRotamersMover
+-resfile resfile \#the resfile default is NATAA, this will prevent mutation of the wild-type target. For the scaffold, all residues should be NOTAA HC. 
+
+-nstruct 100 
+
+-partner1 2D4X.pdb 
+
+-partner2 1UBQ.pdb 
+
+-partner2\_residue 68 
+
+-match\_pdb 2D4X.C135-C137-H192\_match\_00161.pdb 
+
+-skip\_sitegraft\_repack false \#the local region surrounding the zinc match residues is repacked by default. \#-AnchoredDesign::perturb\_temp 
+
+-AnchoredDesign::perturb\_cycles 500 \#how many times to perturb the rigid-body orientation 
+
+-AnchoredDesign::perturb\_show false \#true for debugging/visualization of rigid-body sampling 
+
+-AnchoredDesign::refine\_cycles 10 \#how many times to run PackRotamersMover
 
 Tips
 ====
