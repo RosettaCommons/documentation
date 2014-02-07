@@ -1,4 +1,4 @@
-## Internal Documentation
+# Internal Documentation
 
 This is the "front page" for the internal portion of the Rosetta documentation wiki.
 
