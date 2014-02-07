@@ -1,25 +1,9 @@
-<!-- --- title: Fragment Picking Old -->core::fragment::picking\_old User's Guide.
+#core::fragment::picking\_old User's Guide.
 
 Metadata
 ========
 
 This document was last edited 20090331. The original author was Yih-En Andrew Ban.
-
-Table of Contents
-=================
-
-1.  [[Introduction|symmetry#introduction]]
-2.  [u'Picking fragments from the Vall.']
-3.  [u'Fragment generation.']
-    -   [u'Available fragment generators.']
-
-4.  [u'Fragment evaluation.']
-    -   [u'Available fragment evaluators.']
-
-5.  [u'The layout of VallLibrary.']
-    -   [u'Accessing the scores, position indices, and length of a fragment after VallLibrarian::catalog().']
-
-6.  [u'Implementing a new fragment picker.']
 
 Introduction
 ============
@@ -35,197 +19,161 @@ A VallLibrary object stores the Vall data, and the default instance is accessed 
 
 The set of classes used to actually pick the fragments revolves around the VallLibrarian. This class runs through the data in VallLibrary, uses a collection of VallFragmentGen to define the length and type of fragments, and then scores those fragments using a collection of VallFragmentEval. The following annotated snippet of code from core/fragment/picking/vall/util.cc illustrates this breakdown:
 
+```
 // pick fragments from the Vall by a given secondary structure string
-
 core::fragment::FragDataList
-
-pick\_fragments\_by\_ss(
-
-std::string const ss, // secondary structure string composed of 'H', 'E', 'L', or 'D'
-
-core::Size const top\_n // return the top 'n' fragments
-
+pick_fragments_by_ss(
+  std::string const ss, // secondary structure string composed of 'H', 'E', 'L', or 'D'
+  core::Size const top_n // return the top 'n' fragments
 )
-
 {
+  using eval::IdentityEval;
+  using gen::LengthGen;
 
-using eval::IdentityEval;
+  // get the default Vall data
+  VallLibrary const & library = FragmentLibraryManager::get_instance()->get_Vall();
 
-using gen::LengthGen;
+  // the librarian used to evaluate all fragments in VallLibrary
+  VallLibrarian librarian;
 
-// get the default Vall data
+  // Use default fragment extent generator that creates a continuous
+  // fragment of the length of the secondary structure string, e.g. 9-mer.
+  // Multiple fragment extent generators may be added.
+  librarian.add_fragment_gen( new LengthGen( ss.length() ) );
 
-VallLibrary const & library = FragmentLibraryManager::get\_instance()-\>get\_Vall();
+  // Use a fragment evaluator class called IdentityEval that scores
+  // a fragment by it's secondary structure and/or amino acid string.
+  // Multiple evaluator classes may be added; the scores will be
+  // accumulated into a single score value.
+  librarian.add_fragment_eval( new IdentityEval( ss, 1.0, true ) );
 
-// the librarian used to evaluate all fragments in VallLibrary
+  // score all fragments in the library and store in a sorted list
+  librarian.catalog( library );
 
-VallLibrarian librarian;
-
-// Use default fragment extent generator that creates a continuous
-
-// fragment of the length of the secondary structure string, e.g. 9-mer.
-
-// Multiple fragment extent generators may be added.
-
-librarian.add\_fragment\_gen( new LengthGen( ss.length() ) );
-
-// Use a fragment evaluator class called IdentityEval that scores
-
-// a fragment by it's secondary structure and/or amino acid string.
-
-// Multiple evaluator classes may be added; the scores will be
-
-// accumulated into a single score value.
-
-librarian.add\_fragment\_eval( new IdentityEval( ss, 1.0, true ) );
-
-// score all fragments in the library and store in a sorted list
-
-librarian.catalog( library );
-
-// return the top 'n' scoring fragments in a FragDataList
-
-return librarian.top\_fragments( top\_n );
-
+  // return the top 'n' scoring fragments in a FragDataList
+  return librarian.top_fragments( top_n );
 }
+```
 
 Fragment generation.
 ====================
 
 The `       VallLibrarian      ` uses classes derived from `       VallFragmentGen      ` to generate fragment extents to be evaluated. The basic operation is to pass a `       VallFragmentGen      ` two `       VallResidueIterator      ` , one that points to where the fragment should start and one that points just past the last possible position of the fragment (i.e. the last position in a `       VallSection      ` ). The basic sketch of a class deriving from `       VallFragmentGen      ` is as follows:
 
+```
 class MyGen : public VallFragmentGen {
 
-public : // following methods are required
+public: // following methods are required
 
-virtual
+  virtual
+  VallFragmentGenOP clone() const;
 
-VallFragmentGenOP clone() const ;
-
-// Extent is typedef'd within VallFragmentGen.
-
-// In this method, implementer must make sure to set the boolean
-
-// public member data Extent::valid. If valid is 'true', then
-
-// the Librarian will pass the fragment to its evaluators. If
-
-// 'false' the fragment will be skipped.
-
-virtual
-
-Extent operator()( VallResidueIterator extent\_begin, VallResidueIterator section\_end ) const ;
+  // Extent is typedef'd within VallFragmentGen.
+  // In this method, implementer must make sure to set the boolean
+  // public member data Extent::valid.  If valid is 'true', then
+  // the Librarian will pass the fragment to its evaluators.  If
+  // 'false' the fragment will be skipped.
+  virtual
+  Extent operator()( VallResidueIterator extent_begin, VallResidueIterator section_end ) const;
 
 };
+```
 
 `       operator()      ` is used to generate the fragment extent and returns a new `       Extent      ` describing the start and stop of the fragment. An `       Extent      ` is a plain data struct with one convenience function, `       distance()      ` , to compute the length of the fragment. The public member data of an `       Extent      ` is as follows:
 
+```
 struct Extent {
 
-public : // member data
+public: // member data
 
-// points to the beginning of the fragment
+  // points to the beginning of the fragment
+  VallResidueIterator begin;
 
-VallResidueIterator begin;
+  // points just past the end of the fragment.
+  VallResidueIterator end;
 
-// points just past the end of the fragment.
-
-VallResidueIterator end;
-
-// If this is 'true', Librarian will pass this fragment extent
-
-// to be evaluated using its collection of VallFragmentEval.
-
-// If 'false', Librarian will skip it.
-
-bool valid;
+  // If this is 'true', Librarian will pass this fragment extent
+  // to be evaluated using its collection of VallFragmentEval.
+  // If 'false', Librarian will skip it.
+  bool valid;
 
 };
+```
 
 Available fragment generators.
 ------------------------------
 
 As of 20090331, the list of available fragment generators in `       core::fragment::picking::vall::gen      ` is:
 
- LengthGen   
-Generate fragment of a particular length.
+- **LengthGen**
+   * Generate fragment of a particular length.
 
- SecStructGen   
-Generate fragment of a particular length and required secondary structure.
+- **SecStructGen**
+    * Generate fragment of a particular length and required secondary structure.
 
 Fragment evaluation.
 ====================
 
 Fragment evaluation is performed via classes derived from `       VallFragmentEval      ` . An `       Extent      ` is passed in and evaluated, and the scores are accumulated in a `       VallFragmentScore      ` object. The methods for properly deriving from VallFragmentEval are as follows:
 
+```
 // sample fragment evaluator
-
 class MyEval : public VallFragmentEval {
 
-public : // the following are required
+public: // the following are required
 
-virtual
+  virtual
+  VallFragmentEvalOP clone() const;
 
-VallFragmentEvalOP clone() const ;
+  virtual
+  bool eval_impl( Extent const & extent, VallFragmentScore & fs ) {
+    // accumulate the score, e.g.
+    fs.score += the_score;
+  }
 
-virtual
+public: // the following are optional
 
-bool eval\_impl( Extent const & extent, VallFragmentScore & fs ) {
+  virtual
+  void pre_catalog_op( VallLibrary const & );
 
-// accumulate the score, e.g.
-
-fs.score += the\_score;
-
-}
-
-public : // the following are optional
-
-virtual
-
-void pre\_catalog\_op( VallLibrary const & );
-
-virtual
-
-void post\_catalog\_op( VallLibrary const & );
+  virtual
+  void post_catalog_op( VallLibrary const & );
 
 };
+```
 
 The work of evaluating the fragment defined by the `       Extent      ` goes in the `       eval_impl      ` method. `       eval_impl      ` only needs to evaluate the fragment and nothing else, operations such as storing the necessary Extent data are automatically taken care of by the base class. Two optional methods are defineable, `       pre_catalog_op      ` and `       post_catalog_op      ` , that will be called by the VallLibrarian during `       VallLibrarian::catalog      ` . These are run before and after the actual scoring, respectively. They exist so that the fragment evaluator may, for example, print a status message or gather statistics over the VallLibrary before scoring.
 
 The `       VallFragmentScore      ` struct accumulates the score within a single value and also has a convenience function, `       distance      ` , that returns the length of the fragment. The public member data is as follows:
 
+```
 struct VallFragmentScore {
 
-public : // member data
+public: // member data
 
-// NOTICE: The proper values for these two iterators are already
+  // NOTICE: The proper values for these two iterators are already
+  // stored by the base class VallFragmentEval, DO NOT set them
+  // inside the 'eval_impl' method when deriving from VallFragmentEval.
+  VallResidueConstIterator extent_begin;
+  VallResidueConstIterator extent_end;
 
-// stored by the base class VallFragmentEval, DO NOT set them
-
-// inside the 'eval\_impl' method when deriving from VallFragmentEval.
-
-VallResidueConstIterator extent\_begin;
-
-VallResidueConstIterator extent\_end;
-
-// The cumulative score. Add to this number inside
-
-// 'eval\_impl()' of your evaluator.
-
-Real score;
+  // The cumulative score.  Add to this number inside
+  // 'eval_impl()' of your evaluator.
+  Real score;
 
 };
+```
 
 Available fragment evaluators.
 ------------------------------
 
 As of 20090331, the list of available fragment evaluators in `       core::fragment::picking::vall::eval      ` is:
 
- IdentityEval   
-Comparison against secondary structure and/or amino acid string.
+- **IdentityEval**   
+    * Comparison against secondary structure and/or amino acid string.
 
- EnergyEval   
-Inserts the fragment into a Pose and evaluates a given ScoreFunction. Useful for evaluating chainbreak, constraints, etc.
+- **EnergyEval**
+    * Inserts the fragment into a Pose and evaluates a given ScoreFunction. Useful for evaluating chainbreak, constraints, etc.
 
 The layout of VallLibrary.
 ==========================
@@ -238,54 +186,45 @@ From lowest to highest level:
 
 All publically accessible iterators returned by data structures within the VallLibrary satisfy the RandomAccessIterator concept. A single VallResidue stored in VallLibrary can be directly accessed by a combination of two indices, the position of it's VallSection in the library and the 1-based index of the position of the residue within that section:
 
+```
 // assuming: VallLibrary library;
-
 // 1-based indexing for both indices
 
 // access into the library
-
-VallResidue const & residue = library[ section\_index ][ position\_index ];
+VallResidue const & residue = library[ section_index ][ position_index ];
 
 // retrieving indices
-
-residue.section\_index();
-
-residue.position\_index();
+residue.section_index();
+residue.position_index();
+```
 
 Accessing the scores, position indices, and length of a fragment after VallLibrarian::catalog().
 ------------------------------------------------------------------------------------------------
 
 After scoring the fragments in the Vall, it may be desirable to access the score objects so that, for example, the information about the fragments may be saved to file. The access interface is as follows:
 
+```
 // assuming: VallLibrary library;
-
-// VallLibrarian librarian;
-
+//           VallLibrarian librarian;
 using VallLibrarian::Scores;
 
 librarian.catalog( library );
 
 // grab reference to the scores
-
 Scores const & scores = librarian.scores();
 
 // run through scores
+for ( Scores::const_iterator s = scores.begin(), se = scores.end(); s != se; ++s ) {
+  // It is therefore possible to get the indices of the
+  // VallResidues, e.g.:
 
-for ( Scores::const\_iterator s = scores.begin(), se = scores.end(); s != se; ++s ) {
+  // index of the first residue's section within the library
+  s->extent_begin->section_index();
 
-// It is therefore possible to get the indices of the
-
-// VallResidues, e.g.:
-
-// index of the first residue's section within the library
-
-s-\>extent\_begin-\>section\_index();
-
-// index of the first residue within its section
-
-s-\>extent\_begin-\>position\_index();
-
+  // index of the first residue within its section
+  s->extent_begin->position_index();
 }
+```
 
 Implementing a new fragment picker.
 ===================================
