@@ -1,4 +1,6 @@
-<!-- --- title: Taskoperations (Rosettascripts) -->[[Return To RosettaScripts|RosettaScripts]]
+#Taskoperations (Rosettascripts)
+
+[[Return To RosettaScripts|RosettaScripts]]
 
 This section defines instances of the TaskOperation class hierarchy when used in the context of the Parser/RosettaScripts. They become available in the DataMap.
 
@@ -447,6 +449,26 @@ Do not allow disulfides to repack.
 
      <NoRepackDisulfides name=(&string) />
 
+### DatabaseThread
+
+This task operation uses a database of sequences and a template pdb to find on the pose a user defined start and end residues. A sequence length and threading start position are calculated and then a correct length sequence is randomly chosen from the database and threaded onto the pose.
+
+    <DatabaseThread name=(&string) databse=(&string) template_file=(&string) start_res=(&int) end_res=(&int) allow_design_around=(1&bool)
+
+    design_residues=(comma-delimited list) keep_original_identity=(comma-delimited list)/>
+
+To actually change the sequence of the pose, you have to call something like PackRotamersMover on the pose using this task operation. Notice that this only packs the threaded sequence, holding everything else constant.
+
+This task operation builds off of ThreadSequence so the same logic applies: 'X' means mark position for design, while ' ' or '\_' means mark pose residue to repacking only.
+
+-   database: The database should be a text file with a list of single letter amino acids (not fasta).
+-   template\_file: a pdb that serves as a constant template to map the start and end residues onto the pose in case that the length of the pose is altered during design.
+-   start\_res: the residue to start threading from. This is a residue in the template pdb. It is used to find the closest residue on the source pdb.
+-   end\_res: the residue to end the threading. This is a residue in the template pdb. It is used to find the closest residue on the source pdb. The delta between the end and start residue is used to find the desired sequence length in the database.
+-   allow\_design\_around: if set to false, only design the region that is threaded. The rest is set to repack.
+-   design\_residues: the same as placing 'X' in the target sequence. This trumps the sequence in the database so if a residue has a different identity in the database it is changed to 'X'.
+-   keep\_original\_identity: the same as placing a ' ' or a '\_' in the sequence. The pose residue is marked for repacking only. This trumps both the database sequence and the list from design\_residues.
+
 ### DesignAround
 
 Designs in shells around a user-defined list of residues. Restricts all other residues to repacking.
@@ -830,6 +852,146 @@ Option list
 -   neighbor\_cutoff: number of sequential neighbors to be excluded from calculation
 -   neighbor\_count\_cutoff: number of neighbors required for a core residue
 
+### HighestEnergyRegion
+
+Selects residues that have the highest per-residue energy. This task operation is stochastic to allow for variation in design regions. Residues are selected by this task operation as follows. First, all residues are ranked in order of total score of a region which consists of a sphere around the residue. Next, the first residue is selected based on a random number generator. The first residue in the list (the one with highest (worst) score) has a 50% probability of being selected, the second residue has 25% probability, and so on. If regions\_to\_design is \> 1, additional residues are selected using the same process, except with previously chosen residues removed from consideration.
+
+    <HighestEnergyRegion name=(&string) region_shell=(&real) regions_to_design=(&int) repack_non_selected=(&bool) scorefxn=(&string) />
+
+-   region\_shell: The radius of a sphere that surrounds the residue selected for mutation. All residues within this sphere will be set to design, and all residues outside of it will not be designed.
+-   repack\_non\_selected: If set, residues outside of the design sphere will be repacked, otherwise they will be fixed.
+-   regions\_to\_design: The number of residues (and regions based on the value of region\_shell) to be selected for design.
+-   scorefxn: Scorefunction to be used to determine scores of regions.
+
+**Example** The following example redesigns a sphere of 8 A radius centered in a poorly scoring region of the pose. Residues outside of the sphere are fixed.
+
+    <TASKOPERATIONS>
+        <HighestEnergyRegion name="des_high_energy" region_shell="8.0" regions_to_design="1" repack_non_selected="0" />
+    </TASKOPERATIONS>
+    <MOVERS>
+        <PackRotamersMover name="design" task_operations="des_high_energy" />
+    </MOVERS>
+    <PROTOCOLS>
+        <Add mover_name="design" />
+    </PROTOCOLS>
+
+### DesignByResidueCentrality
+
+Selects residues for design that have the highest value of residue centrality. Centrality is determined by the intra-protein interaction network. Residues are defined as interacting and receive an edge in the network if they have atoms that are \<= 4 angstroms apart. The residue centrality is the average of the average shortest path from each node to all other nodes, and can be used to identify residues that are structurally or functionally important.
+
+This task operation is stochastic to allow for variation in design regions. Residues are selected by this task operation as follows. First, all residues are ranked in order of network centrality. Next, the first residue is selected based on a random number generator. The first residue in the list (the one with highest centrality) has a 50% probability of being selected, the second residue has 25% probability, and so on. If regions\_to\_design is \> 1, additional residues are selected using the same process, except with previously chosen residues removed from consideration.
+
+    <DesignByResidueCentrality name=(&string) region_shell=(8.0 &real) regions_to_design=(1 &int) repack_non_selected=(0 &bool) />
+
+-   region\_shell: The radius of a sphere that surrounds the residue selected for mutation. All residues within this sphere will be set to design, and all residues outside of it will not be designed.
+-   repack\_non\_selected: If set, residues outside of the design sphere will be repacked, otherwise they will be fixed.
+-   regions\_to\_design: The number of residues (and regions based on the value of region\_shell) to be selected for design.
+
+**Example** The following example redesigns a sphere of 8 A radius centered at a residue of high centrality. Residues outside of the sphere are fixed.
+
+    <TASKOPERATIONS>
+        <DesignByResidueCentrality name="des_by_centrality" region_shell="8.0" regions_to_design="1" repack_non_selected="0" />
+    </TASKOPERATIONS>
+    <MOVERS>
+        <PackRotamersMover name="design" task_operations="des_by_centrality" />
+    </MOVERS>
+    <PROTOCOLS>
+        <Add mover_name="design" />
+    </PROTOCOLS>
+
+### DesignRandomRegion
+
+Simply chooses random residues from the pose. This task operation is stochastic to allow for variation in design regions. Each call to this operation results in a new randomly selected set of residues chosen for design.
+
+    <DesignRandomRegion name=(&string) region_shell=(&real) regions_to_design=(&int) repack_non_selected=(&bool) />
+
+-   region\_shell: The radius of a sphere that surrounds the residue selected for mutation. All residues within this sphere will be set to design, and all residues outside of it will not be designed.
+-   repack\_non\_selected: If set, residues outside of the design sphere will be repacked, otherwise they will be fixed.
+-   regions\_to\_design: The number of residues (and regions based on the value of region\_shell) to be selected for design.
+
+**Example** The following example redesigns a sphere of 8 A radius centered at a randomly selected residue. Residues outside of the sphere are fixed.
+
+    <TASKOPERATIONS>
+        <DesignRandomRegion name="des_random" region_shell="8.0" regions_to_design="1" repack_non_selected="0" />
+    </TASKOPERATIONS>
+    <MOVERS>
+        <PackRotamersMover name="design" task_operations="des_random" />
+    </MOVERS>
+    <PROTOCOLS>
+        <Add mover_name="design" />
+    </PROTOCOLS>
+
+### DesignCatalyticResidues
+
+Sets catalytic residues to designable. Prior to being called, this task operation REQUIRES that enzdes constraints be added to the pose. This can be accomplished using the \<AddOrRemoveMatchCsts /\> mover as shown in the example. This could be combined with the \<SetCatalyticResPackBehavior /\> task operation to set the catalytic residues to repack and design the spheres around them.
+
+    <DesignCatalyticResidues name=(&string) region_shell=(&real) regions_to_design=(&int) repack_non_selected=(&bool) />
+
+-   region\_shell: The radius of a sphere that surrounds the residue selected for mutation. All residues within this sphere will be set to design, and all residues outside of it will not be designed.
+-   repack\_non\_selected: If set, residues outside of the design sphere will be repacked, otherwise they will be fixed.
+-   regions\_to\_design: The number of residues (and regions based on the value of region\_shell) to be selected for design.
+
+**Example** The following example redesigns a sphere of 8 A radius centered at catalytic residues. Residues outside of the sphere are fixed.
+
+    <TASKOPERATIONS>
+        <SetCatalyticResPackBehavior name="repack_cat" fix_catalytic_aa="0" />
+        <DesignCatalyticResidues name="des_catalytic" region_shell="8.0" regions_to_design="1" repack_non_selected="0" />
+    </TASKOPERATIONS>
+    <MOVERS>
+        <AddOrRemoveMatchCsts name="add_csts" cstfile="my_csts.cst" cst_instruction="add_new" />
+        <PackRotamersMover name="design" task_operations="des_catalytic,repack_cat" />
+    </MOVERS>
+    <PROTOCOLS>
+        <Add mover_name="add_csts" />
+        <Add mover_name="design" />
+    </PROTOCOLS>
+
+### DesignByCavityProximity
+
+This task operations scans the protein to identify intra-protein voids, and selects residues for design based on their proximity to the voids. Residues are scored by the metric (distance\_to\_cavity\_center)/(volume\_of\_cavity) and the lowest scoring residues are selected for design.
+
+    <DesignByCavityProximity name=(&string) region_shell=(8.0 &real) regions_to_design=(1 &int) repack_non_selected=(0 &bool) />
+
+-   region\_shell: The radius of a sphere that surrounds the residue selected for mutation. All residues within this sphere will be set to design, and all residues outside of it will not be designed.
+-   repack\_non\_selected: If set, residues outside of the design sphere will be repacked, otherwise they will be fixed.
+-   regions\_to\_design: The number of residues (and regions based on the value of region\_shell) to be selected for design.
+
+**Example** The following example redesigns a sphere of 8 A radius centered at a residue near an intra-protein cavity. Residues outside of the sphere are fixed.
+
+    <TASKOPERATIONS>
+        <DesignByCavityProximity name="des_cavity" region_shell="8.0" regions_to_design="1" repack_non_selected="0" />
+    </TASKOPERATIONS>
+    <MOVERS>
+        <PackRotamersMover name="design" task_operations="des_cavity" />
+    </MOVERS>
+    <PROTOCOLS>
+        <Add mover_name="design" />
+    </PROTOCOLS>
+
+### DesignBySecondaryStructure
+
+Selects residues for design based on agreement with psipred secondary structure prediction. Residues which disagree with the secondary structure prediction are selected for design. This mover is stochastic in that residues which disagree in secondary structure prediction are selected randomly every time the task operation is called.
+
+    <DesignBySecondaryStructure name=(&string) region_shell=(8.0 &real) regions_to_design=(1 &int) repack_non_selected=(0 &bool) blueprint=("" &string) cmd=(&string) />
+
+-   region\_shell: The radius of a sphere that surrounds the residue selected for mutation. All residues within this sphere will be set to design, and all residues outside of it will not be designed.
+-   repack\_non\_selected: If set, residues outside of the design sphere will be repacked, otherwise they will be fixed.
+-   regions\_to\_design: The number of residues (and regions based on the value of region\_shell) to be selected for design.
+-   blueprint: a blueprint file which specifies the secondary structure at each position.
+-   cmd: **Required** Path to the runpsipred executable.
+
+**Example** The following example redesigns a sphere of 8 A radius centered at a residue with secondary structure prediction that disagrees with actual secondary structure. Residues outside of the sphere are fixed.
+
+    <TASKOPERATIONS>
+        <DesignBySecondaryStructure name="des_by_sspred" region_shell="8.0" regions_to_design="1" repack_non_selected="0" cmd="/path/to/runpsipred_single" />
+    </TASKOPERATIONS>
+    <MOVERS>
+        <PackRotamersMover name="design" task_operations="des_by_sspred" />
+    </MOVERS>
+    <PROTOCOLS>
+        <Add mover_name="design" />
+    </PROTOCOLS>
+
 Rotamer Specification
 ---------------------
 
@@ -847,7 +1009,7 @@ Includes current rotamers (eg - from input pdb) in the rotamer set. These rotame
 
 ### ExtraRotamersGeneric
 
-During packing, extra rotamers can be used to increase sampling. Use this TaskOperation to specify for all residues at once what extra rotamers should be used. Note: The *extrachi\_cutoff* is used to determine how many neighbors a residue must have before the extra rotamers are applied. For example of you want to apply extra rotamers to all residues, set *extrachi\_cutoff=0* . See the Extra Rotamer Commands section on the [[resfile syntax and convention|resfiles]] page for additional details.
+During packing, extra rotamers can be used to increase sampling. Use this TaskOperation to specify for all residues at once what extra rotamers should be used. Note: The *extrachi\_cutoff* is used to determine how many neighbors a residue must have before the extra rotamers are applied. For example of you want to apply extra rotamers to all residues, set *extrachi\_cutoff=0* . See the Extra Rotamer Commands section on the [[resfiles|resfiles#Extra-Rotamer-Commands:]] page for additional details.
 
      <ExtraRotamersGeneric name=(&string)
     ex1=(0 &boolean) ex2=(0 &boolean) ex3=(0 &boolean) ex4=(0 &boolean)
@@ -950,4 +1112,3 @@ AddRigidBodyLigandConfs, DisableZnCoordinationResiduesTaskOp, ExtraChiCutoff, Ex
 Residue Level TaskOperations:
 
 -   DisallowIfNonnativeRLT
-
