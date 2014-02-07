@@ -1,4 +1,6 @@
-<!-- --- title: Metropolishastings Documentation -->### MetropolisHastings (Overview)
+#MetropolisHastings Documentation -->
+
+### MetropolisHastings (Overview)
 
 The Metropolis-Hastings mover is the core of the canonical sampling framework in Rosetta. A call to apply of this mover performs a trajectory of a (canonical) Monte Carlo simulation. This can be used to estimate the thermodynamic distribution of conformational states for a given score function. See [http://en.wikipedia.org/wiki/Metropolis–Hastings\_algorithm](http://en.wikipedia.org/wiki/Metropolis–Hastings_algorithm) for more information.
 
