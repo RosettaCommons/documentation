@@ -14,7 +14,7 @@ Tutorials to Run Existing Feature Analysis
 -   [[Run feature analyses to compare sample sources|FeaturesTutotiralRunFeaturesAnalysis]]
     -   The features analysis scripts are R scripts to extract features, estimate distributions and compare the distributions through plots and statistics
 
--   [Look at interesting feature instances in PyMOL](https://wiki.rosettacommons.org/index.php?title=FeaturesTutorialInspectInstances&action=edit&redlink=1 "FeaturesTutorialInspectInstances (page does not exist)")
+-   [[Look at interesting feature instances in PyMOL|FeaturesTutorialInspectInstances]]
     -   Some time the quickest way to explore specific type of structural feature is to inspect a handful of examples. This tutorial shows how specific feature instances from an sqlite3 features database and then viewing them in pymol.
 
 Tutorials to Create New Feature Analysis
@@ -41,7 +41,7 @@ General Resources for Features Analysis
 -   [[Write a simple plot script|FeaturesTutorialPlotScript]]
     -   This tutorial shows the structure of a basic features analysis script and the components fit together.
 
--   [Run analysis script interactively in an R terminal](https://wiki.rosettacommons.org/index.php?title=FeaturesTutorialRunningInteractively&action=edit&redlink=1 "FeaturesTutorialRunningInteractively (page does not exist)")
+-   [[Run analysis script interactively in an R terminal|FeaturesTutorialRunningInteractively]]
     -   Running an analysis script interactively can be useful for creating and tuning an analysis script.
 
 -   [[Tune Plots to Publication Quality|FeaturesTutorialPlotTuning]]
