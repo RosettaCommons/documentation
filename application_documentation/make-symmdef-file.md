@@ -1,7 +1,4 @@
-<!-- --- title: Make Symmdef File -->Documentation for the Symmetry Definiton file creation script.
-
- Author   
-DOCUMENTATION AUTHOR GOES HERE
+#Symmetry Definiton file creation script.
 
 Metadata
 ========
