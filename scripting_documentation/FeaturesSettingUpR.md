@@ -1,4 +1,4 @@
-<!-- --- title: Featuressettingupr -->How to Set Up R for the Features Scientific Benchmark
+#How to Set Up R for the Features Scientific Benchmark
 =====================================================
 
 The Features Scientific Benchmark requires R version 2.11 or higher.
