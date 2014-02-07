@@ -4,16 +4,16 @@
 Implmenting a FeaturesReporter involves the following steps:
 
 1.  Implement the FeaturesReporter class interface (see directly below).
-2.  Add FeatureReporter to [FeaturesReporterFactory](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/protocols/features/FeaturesReporterFactory.cc) .
-3.  Add the FeatureReporter to the [FeatureReporterTests](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/test/protocols/features/FeaturesReporterTests.cxxtest.hh) Unit Test.
-4.  Consider adding the FeatureReporter to the [features](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_tests/integration/tests/features) integration test.
+2.  Add FeatureReporter to FeaturesReporterFactory (rosetta/main/source/src/protocols/features/FeaturesReporterFactory.cc).
+3.  Add the FeatureReporter to the FeatureReporterTests (rosetta/main/source/test/protocols/features/FeaturesReporterTests.cxxtest.hh) Unit Test.
+4.  Consider adding the FeatureReporter to the features integration test (rosetta/main/tests/integration/tests/features).
 5.  Document the FeatureReporter in the [[Features Database Schema|FeatureReporters]] page.
 6.  Add new types in <FeatureReporters> organizational page
 
 FeatureReporter Class Interface
 -------------------------------
 
-The [FeatureReporter](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/protocols/features/FeaturesReporter.hh) base class interface has the following components, which should be implemented by a new FeaturesReporter:
+The FeatureReporter (rosetta/main/source/src/protocols/features/FeaturesReporter.hh) base class interface has the following components, which should be implemented by a new FeaturesReporter:
 
 **Required Methods**
 
@@ -28,9 +28,9 @@ The [FeatureReporter](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/
 -   **load\_into\_pose** : If the data is used to initialize an aspect of a pose, put the logic here.
 -   **delete\_records** : Delete all records from the database associated with a structure.
 
-As an example consider the [PoseCommentsFeatures](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/protocols/features/PoseCommentsFeatures.hh) feature reporter. Arbitrary textual information may be associated with a pose in the form of *(key, val)* [comments](https://svn.rosettacommons.org/trac/browser/trunk/mini/src/core/pose/util.hh#L105) . The PoseCommentsFeatures FeaturesReporter extracts all defined comments to a table *pose\_comments* using the *struct\_id* and *key* as the primary key. The *struct\_id* references the the structures table that identifies each of the structures in the database.
+As an example consider the PoseCommentsFeatures (rosetta/main/source/protocols/features/PoseCommentsFeatures.hh) feature reporter. Arbitrary textual information may be associated with a pose in the form of *(key, val)* comments (See rosetta/main/source/src/core/pose/util.hh). The PoseCommentsFeatures FeaturesReporter extracts all defined comments to a table *pose\_comments* using the *struct\_id* and *key* as the primary key. The *struct\_id* references the the structures table that identifies each of the structures in the database.
 
-In the report\_features function, sessionOP is an owning pointer to the database where the features should be written. See the [database interface](https://wiki.rosettacommons.org/index.php?title=DatabaseInterface&action=edit&redlink=1 "DatabaseInterface (page does not exist)") for how to obtain and interact with database sessions.
+In the report\_features function, sessionOP is an owning pointer to the database where the features should be written. See the [[database interface|DatabaseIO]] for how to obtain and interact with database sessions.
 
     string
     PoseCommentsFeatures::type_name() const { return "PoseCommentsFeatures"; }
@@ -65,7 +65,7 @@ In the report\_features function, sessionOP is an owning pointer to the database
       return 0;
     }
 
--   A FeatureReporter may optionally be constructed with a ScoreFunction. For example, see the [RotamerRecoveryFeatures](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/protocols/features/RotamerRecoveryFeatures.hh) class.
+-   A FeatureReporter may optionally be constructed with a ScoreFunction. For example, see the RotamerRecoveryFeatures class (rosetta/main/source/protocols/features/RotamerRecoveryFeatures.hh).
 
 ReportToDB
 ==========
@@ -104,12 +104,12 @@ Since ReportToDB is simply a mover, it can be included in any Rosetta Protocol. 
 
        rosetta_scripts.linuxgccrelease -output:nooutput -l structures.list -parser:protocol parser_script.xml
 
-This will generate an SQLite3 database file *scores.db3* containing the features defined in each of the specified FeatureReporters for each structure in *structures.list* . See the [features](https://svn.rosettacommons.org/trac/browser/trunk/mini/test/integration/tests/features) integration test for a working example.
+This will generate an SQLite3 database file *scores.db3* containing the features defined in each of the specified FeatureReporters for each structure in *structures.list* . See the features integration test (rosetta/main/test/integration/tests/features) for a working example.
 
 Extracting Features In Parallel
 ===============================
 
-Currently the ReportToDB mover is not compatible with MPI runs. There is support however for partitioning a sample source into batches, generating features database for each batch and merging them together. See the [features\_parallel](https://svn.rosettacommons.org/trac/browser/trunk/mini/test/integration/tests/features_parallel) integration test for a working example.
+Currently the ReportToDB mover is not compatible with MPI runs. There is support however for partitioning a sample source into batches, generating features database for each batch and merging them together. See the features\_parallel integration test (rosetta/main/test/integration/tests/features_parallel) for a working example.
 
 For example if there are 1000 structures split into 4 batches then the scripts for the run processing the first batch would contain:
 
@@ -123,7 +123,7 @@ and the script for the run processsing the second batch would contain:
           ...
        </ReportToDB>
 
-After the runs are complete, locate the [merge\_databases.py](https://svn.rosettacommons.org/trac/browser/trunk/mini/test/scientific/cluster/features/sample_sources/merge_databases.py) script and run
+After the runs are complete, locate the merge\_databases.py script (rosetta/main/test/scientific/cluster/features/sample_sources/merge_databases.py) and run
 
        python merge_database.py features.db3 features.db3_*
 
