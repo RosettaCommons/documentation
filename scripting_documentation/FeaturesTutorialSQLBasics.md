@@ -1,4 +1,6 @@
-<!-- --- title: Featurestutorialsqlbasics -->SQL stands for *Structured Query Language* and is used to get information in and out of a relational database. The main benefit of storing information in a relational database is that the data can be quickly extracted using SQL.
+#Features Tutorial: SQL basics
+
+SQL stands for *Structured Query Language* and is used to get information in and out of a relational database. The main benefit of storing information in a relational database is that the data can be quickly extracted using SQL.
 
 This tutorial covers the basics of working with and extracting information from an SQLite3 database, which is just a *.db3* file in the filesystem.
 
