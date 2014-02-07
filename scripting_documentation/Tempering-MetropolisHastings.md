@@ -52,7 +52,7 @@ If multiple input files are specified (through the `   -in:file:s  ` or `   -in:
 
 An example command line for invoking a single 8 temperature-level replica exchange RosettaScript is as follows:
 
-`   mpirun -np 10 rosetta_scripts.mpi.<platform><compiler>release -database rosetta_database -parser:protocol metropolis_hastings.xml -in:file:s structure.pdb -run:n_replica 8  `
+    mpirun -np 10 rosetta_scripts.mpi.<platform><compiler>release -database rosetta_database -parser:protocol metropolis_hastings.xml -in:file:s structure.pdb -run:n_replica 8
 
 In this case, the `   metropolis_hastings.xml  ` would need to contain the following:
 
@@ -142,13 +142,13 @@ exchanges between the following cells: (1,1)\<-\>(1,2); (1,1)\<-\>(2,1); (1,2)\<
 
 #### ExchangeGrid
 
-[\<img alt="ExchangeGrid MHM.jpg" height="600" src="ExchangeGrid\_MHM.jpg" width="800"/\>]
+[[images/ExchangeGrid_MHM.jpg]]
 
 #### Replica Exchange sampling Docking Low-resolution Stage
 
 commandline:
 
-`   mpirun -np 14 rosetta_scripts.mpi.<platform><compilter>release -database rosetta_database -parser:protocol dock_cen.xml -in:file:s P.pdb -in:file:native native.pdb -partners A_B -score:weights interchain_cen -n_replica 3 -nstruct 4 -run:intermediate_structures -out:file:silent decoys.out -out:file:scorefile scores.fsc  `
+    mpirun -np 14 rosetta_scripts.mpi.<platform><compilter>release -database rosetta_database -parser:protocol dock_cen.xml -in:file:s P.pdb -in:file:native native.pdb -partners A_B -score:weights interchain_cen -n_replica 3 -nstruct 4 -run:intermediate_structures -out:file:silent decoys.out -out:file:scorefile scores.fsc
 
 RosettaScripts file `   dock_cen.xml  ` with comments to guide you through:
 
