@@ -1,4 +1,6 @@
-<!-- --- title: Movers (Rosettascripts) -->[[Return To RosettaScripts|RosettaScripts]]
+<!-- --- title: Movers (Rosettascripts) -->
+
+[[Return To RosettaScripts|RosettaScripts]]
 
 Each mover definition has the following structure
 
@@ -7,6 +9,8 @@ Each mover definition has the following structure
 ```
 
 where "mover\_name" belongs to a predefined set of possible movers that the parser recognizes and are listed below, name is a unique identifier for this mover definition and then any number of parameters that the mover needs to be defined.
+
+[[_TOC_]]
 
 Mover Documentation Guide
 -------------------------
