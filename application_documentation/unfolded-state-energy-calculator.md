@@ -1,12 +1,11 @@
-<!-- --- title:  Unfolded State Energy Calculator -->USEC Documentation for UnfoldedStateEnergyCalculator application
-
- Author   
-P. Douglas Renfrew ( [renfrew@nyu.edu](#) )
+#UnfoldedStateEnergyCalculator application
 
 Metadata
 ========
 
-State when the documentation was last updated December 2011 by P. Douglas Renfrew. The PI for this application is Brian Kuhlman ( [bkuhlman@email.unc.edu](#) ).
+Author: P. Douglas Renfrew (renfrew@nyu.edu)
+
+State when the documentation was last updated December 2011 by P. Douglas Renfrew. The PI for this application is Brian Kuhlman (bkuhlman@email.unc.edu).
 
 Code and Demo
 =============
@@ -18,7 +17,7 @@ References
 
 P. Douglas Renfrew, Eun Jung Choi, Brian Kuhlman, "Using Noncanonical Amino Acids in Computational Protein-Peptide Interface Design" (2011) PLoS One.
 
-Application purpose
+Purpose
 ===========================================
 
 Calculating the explicit unfolded state energies is the third of three steps toward being able to use a noncanonical amino acid (NCAA) in Rosetta. The explicit unfolded state energies of an amino acid represent the energy of an amino acid in the unfolded state of a protein and is used to replace the reference energies in Rosetta.
