@@ -1,10 +1,12 @@
-#Taskoperations (Rosettascripts)
+#TaskOperations (RosettaScripts)
 
 [[Return To RosettaScripts|RosettaScripts]]
 
 This section defines instances of the TaskOperation class hierarchy when used in the context of the Parser/RosettaScripts. They become available in the DataMap.
 
 TaskOperation classes are used by TaskFactory to configure the behavior of PackerTask when it is generated on-demand for routines that use the "packer" to reorganize/mutate sidechains. When used by certain Movers (at present, the PackRotamersMover and its subclasses), the TaskOperations control what happens during packing, usually by restriction "masks."
+
+[[_TOC_]]
 
 Example
 =======
