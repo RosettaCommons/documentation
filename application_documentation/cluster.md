@@ -1,4 +1,4 @@
-<!-- --- title: Cluster -->Commands for the cluster application
+#Cluster application
 
 Metadata
 ========
