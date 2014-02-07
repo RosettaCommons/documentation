@@ -74,7 +74,6 @@ While most of these applications focus on prediction, many have options which wi
 
 ###Peptide Docking
 - [[Flexible peptide docking|flex-pep-dock]] - Dock a flexible peptide to a protein.
-   * [[flex-pep-docking]] - draft documentation?
 
 ##Design
 - [[Fixed backbone design|fixbb]] - Optimize sidechain-rotamer placement and identity on fixed backbones.  
