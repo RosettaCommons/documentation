@@ -29,8 +29,8 @@ use the attribute *mover\_name* or *filter\_name* within your protocol tag.
 use the \<Add mover\_name=.../\> or \<Add filter\_name=.../\> tags. for example:
 
     <Your_Mover some_attr=...>
-    <Add mover_name="looper"/>
-    <Add filter_name="minimizer"/>
+        <Add mover_name="looper"/>
+        <Add filter_name="minimizer"/>
     </Your_Mover>
 
 #### Logical Operations
@@ -38,24 +38,24 @@ use the \<Add mover\_name=.../\> or \<Add filter\_name=.../\> tags. for example:
 Please refrain from using logical operations within your tag, as it will only overpopulate the schema. If you want to enable logical operations that contain filters , please use the CompoundStatement Filter. For example, the following Code:
 
     <SomeMover ... >
-    <AND filter_name ="filter1"/>
-    <AND filter_name="filter2"/>
+        <AND filter_name ="filter1"/>
+        <AND filter_name="filter2"/>
     </SomeMover>
 
 Should be:
 
     <CompoundStatement name="compoundFilter" .. >
-    <AND filter_name="filter2"/>
-    <AND filter_name="filter1"/>
+        <AND filter_name="filter2"/>
+        <AND filter_name="filter1"/>
     </CompoundStatement>
     <SomeMover ... filter_name="compoundFilter"/>
 
 OR
 
     <CompoundStatement name="compoundFilter" .. >
-    <AND filter_name="filter2"/>
-    <AND filter_name="filter1"/>
+        <AND filter_name="filter2"/>
+        <AND filter_name="filter1"/>
     </CompoundStatement>
     <SomeMover ... >
-    <Add filter_name="compoundFilter"/>
+        <Add filter_name="compoundFilter"/>
     </SomeMover>
