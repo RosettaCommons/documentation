@@ -1,10 +1,9 @@
-<!-- --- title: Hbs Design -->Documentation for the hbs\_design application
-
- Author   
-Kevin Drew, [kdrew@nyu.edu](#)
+#hbs\_design application
 
 Metadata
 ========
+
+Author: Kevin Drew, (kdrew@nyu.edu)
 
 Last updated December 7, 2012;
 
@@ -19,7 +18,7 @@ Documentation for the hbs\_design application
 
 The main references for the hbs\_design app are to be published in the PlosOne 2013 Rosetta Special Collection
 
-Application purpose
+Purpose
 ===========================================
 
 Hydrogen bond surrogates (HBS) are stabilized alpha helices. The first hydrogen bond is replaced by a covalent linker. Many protein interaction interfaces involve helices and there is interest in using hbs for protein interaction inhibitors. The rational design of hbs using the hbs\_design app attempts to find high affinity binders to target proteins.
@@ -45,180 +44,27 @@ Options
 I. Common hbs\_design flags:
 ----------------------------
 
-```
-
-
-
-   Flag
-
-   
-   
-
-   Description
-
-   
-   
-
-   Type
-
-   
-   
-
-   Default
-
-   
-  
- 
-
-
-
-   -hbs_design_positions
-  
- 
-  positions on hbs chain to be designed
-  
- 
-   list of numbers [ex. 1 2 3 6]
-  
- 
-    None, only repack, no design
-  
-
-
-
-
- -pert_num
- 
-  
-  number of pertubations made during pertubation phase
-  
- 
-   integer
-  
-  
-  10
-  
- 
-
-
-
- -design_loop_num
- 
- 
-  number of pertubation + design cycles
- 
- 
-  integer
- 
- 
-   10
- 
- 
-
-
-```
+| Flag | Description | Type | Default |
+|:-----|:------------|:-----|:--------|
+|-hbs_design_positions|positions on hbs chain to be designed|list of numbers [ex. 1 2 3 6]|None, only repack, no design|
+| -pert_num|number of pertubations made during pertubation phase| integer|10|
+|-design_loop_num|number of pertubation + design cycles|integer|10|
 
 II. Relevant Common Rosetta flags
 ---------------------------------
 
 More information on common Rosetta flags can be found in the [[relevant rosetta manual pages|Rosetta-Basics]]. In particular, flags related to the job-distributor (jd2), scoring function, constraint files and packing resfiles are identical to those in any other Rosetta protocol).
 
-```
+| Flag | Description | 
+|:-----|:------------|
+|-in::file::s Or -in:file:silent|Specify starting structure  (in::file::s for PDB format, in:file:silent for silent file format).|
+|-in::file::silent_struct_type AND -out::file::silent_struct_type|Format of silent file to be read in/out. For silent output, use the binary file type since other types may not support ideal form|
+|-nstruct|Number of models to create in the simulation|
+|-use_input_sc|Include rotamer conformations from the input structure during side-chain repacking. Unlike the -unboundrot flag, not all rotamers from the input structure are added each time to the rotamer library, only those conformations accepted at the end of each round are kept and the remaining conformations are lost.|
+|-ex1/-ex1aro -ex2/-ex2aro -ex3 -ex4|Adding extra side-chain rotamers|
+|-database|The Rosetta database|
+|-include_patches|Turn on patch files which are off by default.  Turning on patches/hbs_pre.txt and patches/hbs_post.txt is a requirement for hbs applications.   |
 
-
-
-                Flag
-                
-                
-                    Description
-                
-            
-            
-
-
-                    -in::file::s
-          
-
-          Or
-          
-
-                    -in:file:silent
-                
-                
-                    Specify starting structure
-                    (in::file::s for PDB format, in:file:silent for silent file
-                    format).
-                
-            
-            
-
-
-                    -in::file::silent_struct_type  
-
-          -out::file::silent_struct_type
-                
-                
-                    Format of silent file to be read
-                    in/out. For silent output, use the binary file type since
-                    other types may not support ideal form
-                
-            
-            
-
-
-                    -nstruct
-                
-                
-                    Number of models to create in the
-                    simulation
-                
-            
-            
-
-
-                    -use_input_sc
-                
-                
-                    Include rotamer conformations from the input structure
-          during side-chain repacking. Unlike the -unboundrot flag,
-                    not all rotamers from the input structure are added each
-                    time to the rotamer library, only those conformations accepted
-                    at the end of each round are kept and the remaining
-                    conformations are lost.
-                
-            
-            
-
-
-                    -ex1/-ex1aro -ex2/-ex2aro -ex3 -ex4
-                
-                
-                    Adding extra side-chain rotamers
-                
-            
-            
-
-
-                    -database
-                
-                
-                    The Rosetta database
-                
-            
-            
-
-
-                    -include_patches
-                
-                
-                    Turn on patch files which are off by default.  Turning on patches/hbs_pre.txt and patches/hbs_post.txt is a requirement for hbs applications.   
-                
-            
-     
-    
-
-
-```
 
 Tips
 ====
@@ -228,10 +74,9 @@ Example runs
 
 1.  generate 1000 (or more) models
 
-    ~~~~ {.fragment}
-     hbs_design.{ext}
-    -database ${rosetta_db} -include_patches patches/hbs_pre.txt patches/hbs_post.txt -s start.pdb -nstruct 1000 -hbs_design_positions 1 2 3 4 -pert_num 100 -design_loop_num 10
-    ~~~~
+    ```
+     hbs_design.{ext} -database ${rosetta_db} -include_patches patches/hbs_pre.txt patches/hbs_post.txt -s start.pdb -nstruct 1000 -hbs_design_positions 1 2 3 4 -pert_num 100 -design_loop_num 10
+    ```
 
 2.  Sort models by total score, take top 5%, sort by REPACK\_ENERGY\_DIFF. Inspect top models.
 
