@@ -175,9 +175,9 @@ Tips
 
 -   Docking now supports AtomPairConstraint, AmbiguousConstraint and SiteConstraint. To use a constraint with docking, you only need to add the option -constraints:cst\_file [[constraint_file|constraint-file]] . See the docking\_distance\_constraint and docking\_site\_constraint integration tests for examples. A SiteConstraint allows you to specify that a particular residue should be in contact with a particular chain. An example of a SiteConstraint is:
 
-    ~~~~ {.fragment}
+    ```
     SiteConstraint CA 4A D FLAT_HARMONIC 0 1 5
-    ~~~~
+    ```
 
 This will add a FLAT\_HARMONIC potential with the parameters 0 1 5 (recommended; see [[this page|constraint-file]] for more on constraint files) around the distance between the CA of residue 4 (PDB numbering) on chain A and the closest CA on chain D to the ScoreFunction.
 
