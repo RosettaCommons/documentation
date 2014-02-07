@@ -1,4 +1,4 @@
-#RosettaScripts Developer Guide -->
+#RosettaScripts Developer Guide
 
 *This page was modified in the Minicon 11 Wiki Update, but we didn't quite finish it for reasons of lack of time or knowledge. If you can finish it, please do!*
 
