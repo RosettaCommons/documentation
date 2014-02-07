@@ -3,7 +3,7 @@
 Metadata
 ========
 
-This document was last edited May 3rd 2013 by Jared Adolf-Bryfogle. This application in mini was created and documented by Mike Tyka, et al.
+This document was last edited May 3rd 2013 by Jared Adolf-Bryfogle. This application in Rosetta3 was created and documented by Mike Tyka, et al.
 
 Purpose and Algorithm
 =====================
