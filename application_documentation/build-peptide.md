@@ -1,12 +1,11 @@
-<!-- --- title:  Build Peptide -->Documentation for the BuildPeptide utility application
-
- Author   
-Barak Raveh
+#The BuildPeptide utility application
 
 Metadata
 ========
 
-Last updated July 24, 2011 ; PI: Ora Schueler-Furman [oraf@ekmd.huji.ac.il](#) .
+Author: Barak Raveh
+
+Last updated July 24, 2011 ; PI: Ora Schueler-Furman (oraf@ekmd.huji.ac.il).
 
 Code and Demo
 =============
@@ -27,52 +26,10 @@ BuildPeptide requires a fasta file in standard format as input.
 Options
 =======
 
-```
-
-
-
-   Flag
-
-   
-   
-
-   Description
-
-   
-   
-
-   Type
-
-   
-  
- 
-
-
-
-   -in:file:fasta
-  
- 
-   FASTA file with peptide sequence
-  
- 
-   string
-  
-
- 
-
-
-   -out:file:o
-  
- 
-   output PDB file name
-  
- 
-   string
-  
-
-
-
-```
+|Flag|Description|Type|
+|----|-----------|----|
+|-in:file:fasta|FASTA file with peptide sequence|string|
+|-out:file:o|output PDB file name|string|
 
 Tips
 ====
