@@ -1,4 +1,4 @@
-<!-- --- title: Movers (Rosettascripts) -->
+#Movers (RosettaScripts)
 
 [[Return To RosettaScripts|RosettaScripts]]
 
@@ -10,8 +10,6 @@ Each mover definition has the following structure
 
 where "mover\_name" belongs to a predefined set of possible movers that the parser recognizes and are listed below, name is a unique identifier for this mover definition and then any number of parameters that the mover needs to be defined.
 
-[[_TOC_]]
-
 Mover Documentation Guide
 -------------------------
 
@@ -19,7 +17,6 @@ Since RosettaScripts allows you to put Movers together in ways that have not bee
 
 -   General description of what the mover does
     -   Example: This is meant as an example of how to construct a Mover in RosettaScripts and how to describe all of the options that it takes. This outline was decided upon at Post-RosettaCon11-Minicon.
-
 -   XML code example:
 
 ```
@@ -31,20 +28,15 @@ Since RosettaScripts allows you to put Movers together in ways that have not bee
     -   **int\_option** describes how an integer tag is made. Let's say this represents \# of cycles of a loop to run, so the range would have to be \> 0.
     -   **real\_option** describes how to a Real option tag is made.
     -   **string\_option** is an example of how a string tag is made.
-
 -   What options must be provided?
     -   For example let's say that we need to pass a value to string\_option or the protocol will not not run, you would include something like this:
     -   string\_option="/path/to/some/file" needs to be defined to avoid mover exit.
-
 -   Expected input type:
     -   Does this mover expect a certain kind of pose (protein/DNA, 2 chains, monomer)
-
 -   Internal TaskOperations:
     -   Are there default TaskOperations (RestrictToInterface for example) that this mover uses, is there a way to override them?
-
 -   FoldTree / Constraint changes:
     -   Describe if/how the mover modifies the input (or default) FoldTree or Constraints
-
 -   If the mover can change the length of the pose say so.
 
 Predefined Movers
@@ -88,6 +80,14 @@ Calling another RosettaScript from within a RosettaScript
 This definition in effect generates a Mover that can then be incorporated into the RosettaScripts PROTOCOLS section. This allows a simplification and modularization of RosettaScripts.
 
 Recursions are allowed but will cause havoc.
+
+#### ContingentAcceptMover
+
+Calculates the value of a filter before and after the move, and returns false if the difference in filter values is greater than delta.
+
+```
+<ContingentAccept name=( &string) mover=(&string) filter=(&string) delta=(&Real)/>
+```
 
 #### IfMover
 
@@ -160,6 +160,54 @@ A task can optionally be included for automatic setting of the number of trials 
 
 ```
 <GenericMonteCarlo name=(&string) mover_name=(&string) filter_name=(&string) trials=(10 &integer) sample_type=(low, &string) temperature=(0, &Real) drift=(1 &bool) recover_low=(1 &bool) boltz_rank=(0 &bool) stopping_condition=(FalseFilter &string) preapply=(1 &bool) task_operations=(&string,&string,&string) task_scaling=(5 &integer)>
+```
+
+#### GenericSimulatedAnnealer
+
+Allows finding global minima by sampling structures using SimulatedAnnealing. Simulated annealing is essentially a monte carlo in which the acceptance temperature starts high (permissive) to allow energy wells to be found globally, and is gradually lowered so that the structure can proceed as far into the energy well as possible. Like the GenericMonteCarlo, any movers can be used for monte carlo moves and any filters with a functional report\_sm function can be used for evaluation. All options available to GenericMonteCarlo are usable in the GenericSimulatedAnnealer (see above), and only options unique to GenericSimulatedAnnealer are described here.
+
+Temperature scaling occurs automatically. Temparatures for all filters are multiplied by a scaling factor that ranges from 1.0 (at the start) and is reduced as the number of acceptances increases. The multiplier is equal to e\^(-anneal\_step/num\_filters). During each step, the GenericSimulatedAnnealer keeps track of the last several accepted poses (the number of accepted poses it keeps = history option). When improvements in the accepted scores slow, the annealer lowers the temperature to the next step.
+
+```
+<GenericSimulatedAnnealer name=(&string) mover_name=(&string) filter_name=(&string) trials=(10 &integer) sample_type=(low, &string) temperature=(0, &Real) drift=(1 &bool) recover_low=(1 &bool) boltz_rank=(0 &bool) stopping_condition=(FalseFilter &string) preapply=(1 &bool) adaptive_movers=(0 &bool) adaptation_period=(see below &integer) saved_accept_file_name=("" &string) saved_trial_file_name=("" &string) reset_baselines=(1 &bool) history=(10 &int) eval_period=(0 &int) periodic_mover=("" &string) checkpoint_file=("" &string) keep_checkpoint_file=(0 &bool) >
+  <Filters>
+     <AND filter_name=(&string) temperature=(&Real) sample_type=(low, &string) rank=(0 &bool)/>
+     ...
+  </Filters>
+</GenericMonteCarlo>
+```
+
+-   history: The number of accepted scores and poses to use to determine when to scale the temperatures.
+-   eval\_period: If set, the periodic\_mover will be run every eval\_period trials.
+-   checkpoint\_file: Saves progress to disk after every trial into a file with the specified name.
+-   keep\_checkpoint\_file: If true, the checkpoint files created by the SimulatedAnnealer will not be cleaned up.
+-   periodic\_mover: A user-specified mover that is run every eval\_period trials. This mover is NOT a monte carlo move, it does not count toward the number of trials, and its results are always accepted.
+
+**Example**
+ The following example uses the GenericSimulatedAnnealer to repeatedly redesign a protein to optimize agreement of secondary structure prediction with actual secondary structure without significant loss of score. It also relaxes the structure every 50 iterations. Although this example redesigns the entire protein at each iterations, this type of optimization should be restricted to small areas of the pose at a time for best results (see RestrictRegion mover).
+
+```
+<FILTERS>
+    <SSPrediction name="ss_pred" use_svm="0" cmd="/path/to/runpsipred_single" />
+    <ScoreType name="total_score" scorefxn="SFXN" score_type="total_score" threshold="0" confidence="0" />
+</FILTERS>
+<MOVERS>
+    <FastRelax name="relax" />
+    <PackRotamersMover name="design" />
+    <GenericSimulatedAnnealer name="optimize_pose"
+    mover_name="design" trials="500"
+    periodic_mover="relax" eval_period="50" history="10" 
+    bolz_rank="1" recover_low="1" preapply="0" drift="1" 
+    checkpoint_file="mc" keep_checkpoint_file="1"
+    filter_name="total_score" temperature="1.5" sample_type="low" > 
+        <Filters>
+            <AND filter_name="ss_pred" temperature="0.005" />
+        </Filters>
+    </GenericSimulatedAnnealer>
+</MOVERS>
+<PROTOCOLS>
+    <Add mover_name="optimize_pose" />
+</PROTOCOLS>
 ```
 
 #### MonteCarloTest
@@ -257,7 +305,7 @@ Repeatedly applies a sub-mover until the given filter returns a value within the
 -   mover - the mover to repeatedly apply
 -   filter - the filter to use when assaying for convergence (should return a reasonable value from report\_sm())
 -   delta - how close do the filter values have to be to count as converged
--   cycles - for how many mover applications does the filter value have to fall within `    delta   ` of the reference value before counting as converged. If the filter is outside of the range, the reference value is reset to the new filter value.
+-   cycles - for how many mover applications does the filter value have to fall within `      delta     ` of the reference value before counting as converged. If the filter is outside of the range, the reference value is reset to the new filter value.
 -   maxcycles - exit regardless if filter doesn't converge within this many applications of the mover - intended mainly as a safety check to prevent infinite recursion.
 
 #### RampMover
@@ -297,9 +345,9 @@ Report structural data to a [[relational database|Database-IO]] using a modular 
 
 -   **name** *(&string)* : The name assigned to this mover to be referenced in the MOVERS section of the RosettaScript.
 -   **[[database_connection_options|RosettaScripts-database-connection-options]]** : Options to connect to the relational database
--   **sample\_source** *(&string)* : A description for the *batch* of structures. This ends up in the `    description   ` column of the [[batches|MetaFeaturesReporters#BatchFeatures]] table.
+-   **sample\_source** *(&string)* : A description for the *batch* of structures. This ends up in the `      description     ` column of the [[batches|MetaFeaturesReporters#BatchFeatures]] table.
 -   **[[task_operations|RosettaScripts-Documentation#TASKOPERATIONS]]** : Restrict extraction of features to a subset of residues in a structure. A residue is *relevant* if it is *packable* . For multi-residue features, all residues must be *packable* for it to be reported.
--   **relevant\_residues\_mode** [ *explicit* `    default   ` , *implicit* ]: Determines which features should be reported given the set of relevant residues. With *explicit* all residues in a feature must be *relevant* to be reported. With *implicit* at least one residues in a feature must be *relevant* to be reported.
+-   **relevant\_residues\_mode** [ *explicit* `      default     ` , *implicit* ]: Determines which features should be reported given the set of relevant residues. With *explicit* all residues in a feature must be *relevant* to be reported. With *implicit* at least one residues in a feature must be *relevant* to be reported.
 
 **Feature Subtags** : Each features subtag applies a [[features reporter|FeatureReporters]] to the structure.
 
@@ -309,7 +357,6 @@ Report structural data to a [[relational database|Database-IO]] using a modular 
     -   **[[ProtocolFeatures|MetaFeaturesReporters#ProtocolFeatures]]** : About the Rosetta application execution.
     -   **[[BatchFeatures|MetaFeaturesReporters#BatchFeatures]]** : About the set of features extracted by this ReportToDB instance.
     -   **[[StructureFeatures|MultiBodyFeaturesReporters#StructureFeatures]]** : About each structure reportered by this ReportToDB instance. Note, currently each structure has a universally unique id, **struct\_id** that is used as a composite primary key in almost all feature tables.
-
 -   The following tables are created to help organize the features database:
     -   **features\_reporters** : The FeaturesReporters used in any batch in the database
 
@@ -349,7 +396,7 @@ Record a trajectory to a multimodel PDB file. Only record models every n times u
 <PDBTrajectoryRecorder stride=(100 &Size) filename=(traj.pdb &string) cumulate_jobs=(0 &bool) cumulate_replicas=(0 &bool)/>
 ```
 
-If run with MPI, the cumulate\_jobs and cumulate\_replicas parameters affect the filename where the trajectory is ultimately written. For instance, with the default filename parameter of `   traj.pdb  ` , input structure name of `   structname  ` , trajectory number of `   XXXX  ` , and replica number of `   YYY  ` , the following names will be generated given the options.
+If run with MPI, the cumulate\_jobs and cumulate\_replicas parameters affect the filename where the trajectory is ultimately written. For instance, with the default filename parameter of `     traj.pdb    ` , input structure name of `     structname    ` , trajectory number of `     XXXX    ` , and replica number of `     YYY    ` , the following names will be generated given the options.
 
 -   cumulate\_jobs=0 cumulate\_replicas=0: structname\_XXXX\_YYY\_traj.pdb
 -   cumulate\_jobs=0 cumulate\_replicas=1: structname\_XXXX\_traj.pdb
@@ -368,7 +415,7 @@ By default, this will actually generate PDB file output. To get silent file outp
 
      -out:file:silent <silent filename> -run:intermediate_structures
 
-If used within [MetropolisHastings](#MetropolisHastings) , the current job output name becomes part of the filename. If run with MPI, the cumulate\_jobs and cumulate\_replicas parameters affect the filename where the trajectory is ultimately written. For instance, with the default filename parameter of `   traj  ` , input structure name of `   structname  ` , trajectory number of `   XXXX  ` , replica number of `   YYY  ` , and `   -out:file:silent default.out  ` , the following names will be generated given the options.
+If used within [MetropolisHastings](#MetropolisHastings) , the current job output name becomes part of the filename. If run with MPI, the cumulate\_jobs and cumulate\_replicas parameters affect the filename where the trajectory is ultimately written. For instance, with the default filename parameter of `     traj    ` , input structure name of `     structname    ` , trajectory number of `     XXXX    ` , replica number of `     YYY    ` , and `     -out:file:silent default.out    ` , the following names will be generated given the options.
 
 -   cumulate\_jobs=0 cumulate\_replicas=0: default\_structname\_XXXX\_YYY\_traj.out
 -   cumulate\_jobs=0 cumulate\_replicas=1: default\_structname\_XXXX\_traj.out
@@ -388,14 +435,14 @@ Currently only torsion angles can be recorded, specified using the TorsionID. Th
 </MetricRecorder>
 ```
 
-If used within [MetropolisHastings](#MetropolisHastings) , the current job output name is prepended to filename. If run with MPI, the cumulate\_jobs and cumulate\_replicas parameters affect the filename where the metrics are ultimately written. For instance, with the default filename parameter of `   metrics.txt  ` , input structure name of `   structname  ` , trajectory number of `   XXXX  ` , and replica number of `   YYY  ` , the following names will be generated given the options.
+If used within [MetropolisHastings](#MetropolisHastings) , the current job output name is prepended to filename. If run with MPI, the cumulate\_jobs and cumulate\_replicas parameters affect the filename where the metrics are ultimately written. For instance, with the default filename parameter of `     metrics.txt    ` , input structure name of `     structname    ` , trajectory number of `     XXXX    ` , and replica number of `     YYY    ` , the following names will be generated given the options.
 
 -   cumulate\_jobs=0 cumulate\_replicas=0: structname\_XXXX\_YYY\_metrics.txt
 -   cumulate\_jobs=0 cumulate\_replicas=1: structname\_XXXX\_metrics.txt
 -   cumulate\_jobs=1 cumulate\_replicas=0: YYY\_metrics.txt
 -   cumulate\_jobs=1 cumulate\_replicas=1: metrics.txt
 
-If not used within MetropolisHastings, by default the current job output name will not be prepended to the filename, similar to `   metrics.txt  ` above. If `   prepend_output_name=1  ` , then it will be prepended following the format, `   structname_XXXX_metrics.txt  ` .
+If not used within MetropolisHastings, by default the current job output name will not be prepended to the filename, similar to `     metrics.txt    ` above. If `     prepend_output_name=1    ` , then it will be prepended following the format, `     structname_XXXX_metrics.txt    ` .
 
 #### AddJobPairData
 
@@ -635,16 +682,12 @@ It is reccomended to change the weights you are using to the **score12minpack** 
 -   What is the input FoldTree, what is the output FoldTree.
     -   The mover itself is not FoldTree sensitive, however the TaskOperations might be. This mover does not modify the fold tree.
     -   Does it take and output a default FoldTree or does it need/output a modified fold tree.
-
 -   Does it take a pose with a certain chemical or topological property?
     -   Does not require a special type of Pose.
-
 -   Does it change the length of the Pose?
     -   No.
-
 -   Does it change the ConstraintSet?
     -   No.
-
 -   When given some particular piece of data (mover? fragment set? scorefunction), does it keep a copy of it or a pointer to it?
     -   It does not modify the ScoreFunction.
 
@@ -813,6 +856,44 @@ Note that only one of the 5 can exist in a tag: extra\_scoring,ppk\_only,pep\_re
     <FlexPepDock name=(&string) min_only=(&boolean) pep_refine=(&boolean)
      lowres_abinitio=(&boolean) peptide_chain=(&string) receptor_chain=(&string) 
     ppk_only=(&boolean) scorefxn=(&string) extra_scoring=(&boolean)/>
+
+### Backbone Design
+
+#### ConnectJumps
+
+Given a pose with a jump, this mover uses a fragment insertion monte carlo to connect the specified termini. The new fragment will connect the C-terminal residue of jump1 to the N-terminal residue of jump2, and will have secondary structure and ramachandran space given by "motif." This mover uses the VarLengthBuild code.
+
+```
+<ConnectJumps name=(&string) motif=("" &string) jump1=(1 &int) jump2=(2 &int) overlap=(3 &int) scorefxn=(&string) />
+```
+
+-   motif: The secondary structure + abego to be used for the backbone region to be rebuilt. Taken from input pose if not specified. The format of this string is:
+
+    ~~~~ {style="white-space:pre-wrap"}
+    <Length><SS><ABEGO>-<Length2><SS2><ABEGO2>-...-<LengthN><SSN><ABEGON>
+    ~~~~
+
+    For example, "1LX-5HA-1LB-1LA-1LB-6EB" will build a one residue loop of any abego, followed by a 5-residue helix, followed by a 3-residue loop of ABEGO BAB, followed by a 6-residue strand.
+
+-   jump1: Indicates the jump which is to be located at the N-terminal end of the new fragment. Building will begin at the C-terminal residue of the jump.
+-   jump2: Indicates the jump which is to be located at the C-terminal end of the new fragment.
+-   overlap: Indicates the number of residues to rebuild before and after the new fragment. A value of 3 indicates that residues +/- 3 from the inserted segment will be rebuilt. This enable a smooth, continuous peptide chain.
+-   scorefxn: **Required** The scorefunction to be used in the fragment insertion.
+
+**Example**
+ The following example connects the first jump in the protein with a 3-residue loop, a 10 residue helix and a 3-residue loop, and rebuilds residues that are +/- 4 positions from the inserted segment.
+
+```
+<SCOREFXNS>
+    <SFXN name="SFXN" weights="fldsgn_cen" />
+</SCOREFXNS>
+<MOVERS>
+    <ConnectJumps name="connect" jump1="1" jump2="2" motif="3LX-10HA-3LX" scorefxn="SFXN" overlap="4" />
+</MOVERS>
+<PROTOCOLS>
+    <Add mover_name="connect" />
+</PROTOCOLS>
+```
 
 ### Backbone Movement
 
@@ -1422,13 +1503,14 @@ Calculate secondary structures based on dssp algorithm, and load the information
 Reads a PDB file from disk and concatenates it to the existing pose.
 
 ```
-<AddChain name=(&string) file_name=(&string) new_chain=(1&bool) scorefxn=(score12 &string) random_access=(0&bool)/>
+<AddChain name=(&string) file_name=(&string) new_chain=(1&bool) scorefxn=(score12 &string) random_access=(0&bool) swap_chain_number=(0 &Size)>/>
 ```
 
 -   file\_name: the name of the PDB file on disk.
 -   new\_chain: should the pose be concatenated as a new chain or just at the end of the existing pose?
 -   scorefxn: used for scoring the pose at the end of the concatenation. Also calls to detect\_disulfides are made in the code.
 -   random\_access: If true, you can write a list of file names in the file\_name field. At parse time one of these file names will be picked at random and throughout the trajectory this file name will be used. This saves command line variants.
+-   swap\_chain\_number: If specified, AddChain will delete the chain with number 'swap\_chain\_number' and add the new chain instead.
 
 #### AddChainBreak
 
@@ -1705,14 +1787,14 @@ For building multiple disulfides simultaneously using RemodelMover, use the foll
 <RemodelMover name=(&string) build_disulf=True match_rt_limit=(1.0 &Real) quick_and_dirty=(0 &Bool) bypass_fragments=(0 &Bool) min_disulfides=(1 &Real) max_disulfides=(1 &Real) min_loop=(1 &Real) fast_disulf=(0 &Bool)/>
 ```
 
--   `    build_disulf   ` : indicates that disulfides should be built into the structure
--   `     match_rt_limit    ` : RMSD limit between two residue backbones and a disulfide in the database, used to determine if a disulfide can be built between those residues. 1.0 is strict, 2.0 is loose, 6.0 is very loose, \>6 makes no difference.
+-   `      build_disulf     ` : indicates that disulfides should be built into the structure
+-   `      match_rt_limit     ` : RMSD limit between two residue backbones and a disulfide in the database, used to determine if a disulfide can be built between those residues. 1.0 is strict, 2.0 is loose, 6.0 is very loose, \>6 makes no difference.
 -   `      quick_and_dirty     ` : Bypass the refinement step within remodel; useful to save time if performing refinement elsewehere
--   `       bypass_fragments      ` : Bypasses rebuilding the structure from fragments
--   `        min_disulfides       ` : Specifies the minimum number of disulfides required in the output structure. If min\_disulfides is greater than the number of potential disulfides that pass match\_rt\_limit, the protocol will fail. **This is only read/applied if build\_disulf or fast\_disulf are set to true.**
--   `         min_disulfides        ` : Specifies the maximum number of disulfides allowed in the output structure.
--   `          min_loop         ` : Specifies the minimum number of residues between the two cysteines to be disulfide bonded; used to avoid disulfides that link pieces of chain that are already close in primary structure.
--   `           fast_disulf          ` : Sets the build\_disulf, quick\_and\_dirty, and bypass\_fragment flags to true. Also bypasses any design during remodel, including building the disulfide itself! This means that the remodel mover must be followed by a design mover such as FastDesign. This is my recommended method for building multiple disulfides into a *de novo* scaffold.
+-   `      bypass_fragments     ` : Bypasses rebuilding the structure from fragments
+-   `      min_disulfides     ` : Specifies the minimum number of disulfides required in the output structure. If min\_disulfides is greater than the number of potential disulfides that pass match\_rt\_limit, the protocol will fail. **This is only read/applied if build\_disulf or fast\_disulf are set to true.**
+-   `      min_disulfides     ` : Specifies the maximum number of disulfides allowed in the output structure.
+-   `      min_loop     ` : Specifies the minimum number of residues between the two cysteines to be disulfide bonded; used to avoid disulfides that link pieces of chain that are already close in primary structure.
+-   `      fast_disulf     ` : Sets the build\_disulf, quick\_and\_dirty, and bypass\_fragment flags to true. Also bypasses any design during remodel, including building the disulfide itself! This means that the remodel mover must be followed by a design mover such as FastDesign. This is my recommended method for building multiple disulfides into a *de novo* scaffold.
 
 Note that no blueprint is required when fast\_disulf or build\_disulf; if no blueprint is provided, all residues will be considered as potential cysteine locations.
 
@@ -1993,10 +2075,11 @@ Turns either or both sides of an interface to Alanines (except for prolines and 
 
 To be used after an ala pose was built (and the design moves are done) to retrieve the sidechains from the input pose that were set to Ala by build\_Ala\_pose. OR, to be used inside mini to recover sidechains after switching residue typesets. By default, sidechains that are different than Ala will not be changed, **unless** allsc is true. Please note that naming your mover "SARS" is almost certainly bad luck and strongly discouraged.
 
-    <SaveAndRetrieveSidechains name=(save_and_retrieve_sidechains &string) allsc=(0 &bool) task_operations=("" &string) two_steps=(0&bool)/>
+    <SaveAndRetrieveSidechains name=(save_and_retrieve_sidechains &string) allsc=(0 &bool) task_operations=("" &string) two_steps=(0&bool) multi_use=(0&bool)/>
 
 -   task\_operations: see [RepackMinimize](#RepackMinimize)
--   two\_steps: the first call to SARS only saves the sidechains, second call retrieves them. If this is false, the sidechains are saved at parsetime.
+-   two\_steps: the first call to SARS only saves the sidechains, second call retrieves them. If this is false, the sidechains are saved at parse time.
+-   multi\_use: If SaveAndRetrieveSidechains is used multiple times with two\_steps enabled throughout the xml protocol, multi\_use should be enabled. If not, the side chains saved the first time SaveAndRetrieveSidechains is called, will be retrieved for all the proceeding calls.
 
 #### AtomTree
 
@@ -2036,7 +2119,6 @@ Produces a set of rotamers from a given residue. Use after [AtomTree](#AtomTree)
     -   2 = explode chi1,2
     -   3 = explode chi1,2,3
     -   4 = explode chi1,2,3,4
-
 -   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
 -   shove: use the shove atom-type (reducing the repulsive potential on backbone atoms) for a comma-separated list of residue identities. e.g., shove=3A,40B.
 -   automatic\_connection: should TryRotamers set up the inverse-rotamer fold tree independently?
@@ -2153,9 +2235,9 @@ For protocol="automatic" (Based on Loop Modeling Application and LoopRemodel):
 
 #### DisulfideMover
 
-Introduces a disulfide bond into the interface. The best-scoring position for the disulfide bond is selected from among the residues listed in `   targets  ` . This could be quite time-consuming, so specifying a small number of residues in `   targets  ` is suggested.
+Introduces a disulfide bond into the interface. The best-scoring position for the disulfide bond is selected from among the residues listed in `     targets    ` . This could be quite time-consuming, so specifying a small number of residues in `     targets    ` is suggested.
 
-If no targets are specified on either interface partner, all residues on that partner are considered when searching for a disulfide. Thus including only a single residue for `   targets  ` results in a disulfide from that residue to the best position across the interface from it, and omitting the `   targets  ` param altogether finds the best disulfide over the whole interface.
+If no targets are specified on either interface partner, all residues on that partner are considered when searching for a disulfide. Thus including only a single residue for `     targets    ` results in a disulfide from that residue to the best position across the interface from it, and omitting the `     targets    ` param altogether finds the best disulfide over the whole interface.
 
 Disulfide bonds created by this mover, if any, are guaranteed to pass a DisulfideFilter.
 
@@ -2258,7 +2340,7 @@ We start by generating high affinity residue interactions between the design and
 
 #### RandomMutation
 
-Introduce a random mutation in a position allowed to redesign to an allowed residue identity. Control the residues and the target identities through `   task_operations  ` . The protein will be repacked according to `   task_operations  ` and `   scorefxn  ` to accommodate the mutated amino acid. The mover can work with symmetry poses; simply use SetupForSymmetry and run. It will figure out that it needs to do symmetric packing for itself.
+Introduce a random mutation in a position allowed to redesign to an allowed residue identity. Control the residues and the target identities through `     task_operations    ` . The protein will be repacked according to `     task_operations    ` and `     scorefxn    ` to accommodate the mutated amino acid. The mover can work with symmetry poses; simply use SetupForSymmetry and run. It will figure out that it needs to do symmetric packing for itself.
 
 This can be used in conjunction with GenericMonteCarlo to generate trajectories of affinity maturation.
 
@@ -2321,6 +2403,15 @@ Necessary:
 -   multiple filters must be defined with branch tags; see example below!
 
 Example:
+
+```
+<ParetoOptMutationMover name=popt task_operations=task relax_mover=min scorefxn=score12>
+    <Filters>
+       <AND filter_name=filter1 sample_type=low/>
+       <AND filter_name=filter2 sample_type=low/>
+    </Filters>
+</ParetoOptMutationMover>
+```
 
 Optional:
 
@@ -2537,6 +2628,46 @@ Most of the options are similar to PlaceStub above. Differences are mentioned be
 -   coor\_cst\_cutoff is the threshold coordinate constraint energy between the added hotspot residues and the one in the stub library. Use with stubscorefxn=backbone\_stub\_linear\_constraint. PlaceSimultaneously fails if placed residues deviates beyond this threshold.
 
 rb\_stub\_minimization, auction and stub\_score\_filter allow the user to specify the first moves and filtering steps of PlaceSimultaneously before PlaceSimultaneously is called proper. In this way, a configuration can be quickly triaged if it isn't compatible with placement (through Auction's filtering). If the configuration passes these filters and movers then PlaceSimultaneously can be run within loops of docking and placement, until a design is identified that produces reasonable ddg and sasa.
+
+#### RestrictRegion
+
+Makes a mutation to a pose, and creates a resfile task which repacks (no design) the mutated residue, and designs the region around the mutation. Residues far from the mutated residue are fixed. The residue to be mutated can be selected by several different metrics (see below). Useful for altering small regions of the pose during optimization without making large sequence changes.
+
+```
+<RestrictRegion name=(&string) type=(&string) resfile=("" &string) psipred_cmd=(&string) blueprint=(&string) task_operations=(task,task,task) num_regions=(&int) scorefxn=() />
+```
+
+-   type: Defines the method by which residues from the designable residues in the fast factory are selected for mutation. Possible types are:
+    -   random\_mutation: Choose a residue at random.
+    -   psipred: Choose residues with secondary structure that disagrees with psipred calculations.
+    -   packstat: Choose residues with poor packstat scores.
+    -   score: Choose residues with poor per-residue energy.
+    -   random: Randomly choose from one of the above.
+-   num\_regions: Number of mutations and regions to design
+-   resfile: RestrictRegion creates a resfile with the proper information. This resfile should be read by any mover or filter which needs to use the RestrictRegion functionality. The resfile created will include restrictions from the task factory that is passed to RestrictRegion.
+-   psipred\_cmd: Path to psipred executable. Required if the type is "psipred"
+-   scorefxn: Scorefunction to use for determining poorly scoring regions. Only used if the type is "score"
+-   task\_operations: Task factory which defines the possible mutations to the pose.
+-   blueprint: Path to blueprint file which contains secondary structure information. Used if the type is "psipred"
+
+**Example**
+
+```
+<SCOREFXNS>
+    <SFXN weights="talaris2013.wts" />
+</SCOREFXNS>
+<TASKOPERATIONS>
+    <ReadResfile name="restrict_resfile" filename="restrict.resfile" />
+</TASKOPERATIONS>
+<MOVERS>
+    <RestrictRegion name="restrict" resfile="restrict.resfile" type="random_mutation" num_regions="1" scorefxn="SFXN" />
+    <PackRotamersMover name="design_region" task_operations="restrict_resfile" scorefxn="SFXN" />
+</MOVERS>
+<PROTOCOLS>
+    <Add mover_name="restrict" />
+    <Add mover_name="design_region" />
+</PROTOCOLS>
+```
 
 #### StubScore
 
