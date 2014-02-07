@@ -1,9 +1,9 @@
-<!-- --- title: Loops From Density -->Documentation for the loops\_from\_density application
+#The loops\_from\_density application
 
 Metadata
 ========
 
-Last edited Oct 31 2010 by Frank DiMaio. Code by Frank DiMaio ( [dimaio@u.washington.edu](#) ). P.I.: David Baker.
+Last edited Oct 31 2010 by Frank DiMaio. Code by Frank DiMaio (dimaio@u.washington.edu). P.I.: David Baker.
 
 Code and Demo
 =============
