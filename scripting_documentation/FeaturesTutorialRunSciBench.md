@@ -1,4 +1,6 @@
-<!-- --- title: Featurestutorialrunscibench -->Introduction
+<!-- --- title: Featurestutorialrunscibench -->
+
+Introduction
 ============
 
 The **Features Scientific Benchmark** is used to compare batches of structures coming from different sources with respect to local chemical and geometric features. This tutorial describes how to run the features scientific benchmark. The general steps are
@@ -86,7 +88,7 @@ Each *sample\_source template* is a folder in *rosetta\_tests/features/sample\_s
 
 -   **submit.py** : This is a python script that implements and runs a class derived from the *BaseSampleSource* .
 
-Specify which sample sources to use by editing [features/sample\_sources/benchmark.list](https://svn.rosettacommons.org/trac/browser/trunk/mini/test/scientific/cluster/features/sample_sources/benchmark.list) . See the [Sample Sources](https://wiki.rosettacommons.org/index.php?title=FeaturesSampleSources&action=edit&redlink=1 "FeaturesSampleSources (page does not exist)") page for details about each sample source.\</li\>
+Specify which sample sources to use by editing rosetta/main/test/scientific/cluster/features/sample\_sources/benchmark.list. See the [[Sample Sources|FeaturesSampleSources]] page for details about each sample source.\</li\>
 
 Run features scientific benchmark using the features.py script
 
