@@ -1,10 +1,9 @@
-<!-- --- title:  Interface Analyzer -->Documentation for the InterfaceAnalyzer application
-
- Author   
-Steven Lewis, P. Ben Stranges, Jared Adolf-Bryfogle
+#InterfaceAnalyzer
 
 Metadata
 ========
+
+Author: Steven Lewis, P. Ben Stranges, Jared Adolf-Bryfogle
 
 Last updated 11/24/13 by Jared Adolf-Bryfogle. The PI is Brian Kuhlman, [bkuhlman@email.unc.edu](#) .
 
@@ -16,9 +15,9 @@ InterfaceAnalyzer has a suite of integration test/demos at rosetta/rosetta\_test
 References
 ==========
 
-No references are directly associated with this protocol. It was used with [[Documentation for AnchoredDesign application|anchored-design]] (see that app's documentation) and CAPRI21 interface descrimination.
+No references are directly associated with this protocol. It was used with the [[AnchoredDesign application|anchored-design]] (see that app's documentation) and CAPRI21 interface discrimination.
 
-Application purpose
+Purpose
 ===========================================
 
 This application combines a set of tools to, you guessed it, analyze interfaces. It calculates binding energies, buried interface surface areas, and other useful interface metrics. The bulk of the code is a Mover intended to be used at the tail end of interface modeling protocols; it considers that situation to be its primary client. This application is a front-end directly onto that Mover; it is considered a secondary purpose.
@@ -54,12 +53,12 @@ Modes
 
 The two major modes are for two-chain and multichain interfaces. For two-chain interfaces, you need to do nothing - but defining the interface won't hurt. For interfaces involving more than two chains, you need to tell the code which chains are in which group. Define the interface either through the -fixedchain or -interface options.
 
-Another variable that might count as a "mode" is tracer vs. PDB output. For this standalone executeable, printing results to the screen (and not bothering to output "result" PDBs matching the input) is desired (and defaulted). When InterfaceAnalyzerMover is used as part of a protocol it is more common to prefer the latter.
+Another variable that might count as a "mode" is tracer vs. PDB output. For this standalone executable, printing results to the screen (and not bothering to output "result" PDBs matching the input) is desired (and defaulted). When InterfaceAnalyzerMover is used as part of a protocol it is more common to prefer the latter.
 
 Input Files
 ===========
 
--   [[Resfile syntax and conventions|resfiles]] resfiles are supported for the separated-packing options
+-   [[Resfiles]] are supported for the separated-packing options
 
 Options
 =======
@@ -75,7 +74,7 @@ Describe the options your protocol uses.
 -   -pack\_separated (bool) - repack the exposed interfaces when calculating binding energy? Usually a good idea.
 -   -add\_regular\_scores\_to\_scorefile (bool) - performs a regular score12 score operation in addition to the InterfaceAnalyzer operations. Useful so that you don't have to combine scorefiles from score.cc or your original protocol. If you do not use this option, you may get extra fields full of zeroes in your scorefile.
 -   -use\_jobname (bool) - if using tracer output, this turns the tracer name into the name of the job. If you run this code on 50 inputs, the tracer name will change to match the input, labeling each line of output with the input to which it applies. Not relevant if not using tracer output.
--   -use\_resfile (bool) - warns the protocol to watch for the existence of a resfile if it is supposed to do any packing steps. (This is normally signealed by the existance of the -resfile flag, but here the underlying InterfaceAnalyzerMover is not intended to use -resfile under normal circumstances, so a separate flag is needed. You can still pass the resfile with -resfile.) Note that resfile commands indicating design are ignored; InterfaceAnalzyer does repacking ONLY.
+-   -use\_resfile (bool) - warns the protocol to watch for the existence of a resfile if it is supposed to do any packing steps. (This is normally signaled by the existence of the -resfile flag, but here the underlying InterfaceAnalyzerMover is not intended to use -resfile under normal circumstances, so a separate flag is needed. You can still pass the resfile with -resfile.) Note that resfile commands indicating design are ignored; InterfaceAnalzyer does repacking ONLY.
 -   -score:weights weightsfile - weight set for the scorefunction, defaults to Score12
 -   -score:patch patchfile - patch file for the scorefunction, defaults to Score12
 -   -pose\_metrics::inter\_group\_neighbors\_cutoff (real) - If using the multichain constructor (the -fixedchains option), this controls how far apart neighbors are detected - a residue is at the interface if it is within X angstroms of a residue in the other group; I think distances are determined by the nbr\_atom position, which the residue params file defines as usually c-beta. Defaults to 10 Angstroms.
@@ -83,12 +82,12 @@ Describe the options your protocol uses.
 
 General Rosetta/JD2 options are accepted: in:file:s, in:file:l, in:file:silent for input; -database for the database, etc.
 
--   It is STRONGLY suggested you use -out: <file:score_only> (scorefile) OR -out:jd2:no\_output (bool) to supress echoing input structures as outputs.
+-   It is STRONGLY suggested you use -out:file:score_only (scorefile) OR -out:jd2:no_output (bool) to suppress echoing input structures as outputs.
 
 Tips
 ====
 
--   It is STRONGLY suggested you use -out: <file:score_only> (scorefile) OR -out:jd2:no\_output (bool) to supress echoing input structures as outputs.
+-   It is STRONGLY suggested you use -out:file:score_only (scorefile) OR -out:jd2:no\_output (bool) to suppress echoing input structures as outputs.
 -   Overcalculate metrics and ignore the ones you don't understand/care about, rather than trying to get just the right set calculated.
 -   If using this as an application (rather than a Mover), the add\_regular\_scores\_to\_scorefile option will prevent you from getting extra zero columns in your scorefile. It's your choice depending on how you like processing your data.
 
@@ -98,7 +97,7 @@ Expected Outputs
 InterfaceAnalyzer generates a ton of data about your input structure. The following are fields in the scorefile or pdb (if -tracer\_data\_print is false) that will be added by this application.
 
 -   dSASA\_int: The solvent accessible area burried at the interface, in square Angstroms.
--   dG\_separated: The change in Rosetta energy when the interface forming chains are separated, versus when they are complexed: the binding energy. Calculated by actually separarting (and optionally repacking) the chains.
+-   dG\_separated: The change in Rosetta energy when the interface forming chains are separated, versus when they are complexed: the binding energy. Calculated by actually separating (and optionally repacking) the chains.
 -   dG\_separated/dSASAx100: Separated binding energy per unit interface area \* 100 to make units fit in score file. Scaling by dSASA controls for large interfaces having more energy. The factor of 100 is to allow standard 2.45 notation isntead of something like 2.45E-2.
 -   delta\_unsatHbonds: The number of buried, unsatisfied hydrogen bonds at the interface
 -   packstat: Rosetta's packing statistic score for the interface (0=bad, 1=perfect)
@@ -126,7 +125,7 @@ The following are fields that appear in the tracer output if -tracer\_data\_prin
 -   TOTAL SASA: Total sasa of the complex (NOT the interface)
 -   NUMBER OF RESIDUES: Number of residues in the complex
 -   AVG RESIDUE ENERGY: Total score divided by number of residues in the complex
--   INTERFACE DELTA SASA: dSASA\_int above; interface solvent accesible surface area buried by the complex
+-   INTERFACE DELTA SASA: dSASA\_int above; interface solvent accessible surface area buried by the complex
 -   CROSS-INTERFACE ENERGY SUMS: Binding energy calculated the "inaccurate", environment-insensitive way
 -   SEPARATED INTERFACE ENERGY DIFFERENCE: Binding energy calculated the "accurate" way by separating the chains and optionally repacking
 -   INTERFACE DELTA SASA/CROSS-INTERFACE ENERGY: Binding energy ("inaccurate") divided by SASA
@@ -137,7 +136,7 @@ The following are fields that appear in the tracer output if -tracer\_data\_prin
 Post Processing
 ===============
 
-This application is part of your post processing for other executeables; there is really no post-processing to do for itself.
+This application is part of your post processing for other executables; there is really no post-processing to do for itself.
 
 New things since last release
 =============================
