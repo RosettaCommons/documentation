@@ -3,7 +3,7 @@
 Metadata
 ========
 
-This document was edited Nov 1st 2008 by Yi Liu. This application in mini was created and documented by Mike Tyka,et al.
+This document was edited Nov 1st 2008 by Yi Liu. This application in Rosetta3 was created and documented by Mike Tyka,et al.
 
 Purpose and Algorithm
 =====================
