@@ -1384,7 +1384,8 @@ This filter is designed as a means of quantifying Nobu and Rie's "foldability" m
     For example, "1LX-5HA-1LB-1LA-1LB-6EB" will build a one residue loop of any abego, followed by a 5-residue helix, followed by a 3-residue loop of ABEGO BAB, followed by a 6-residue strand.
 
 **Example**
- The following example runs the foldability filter to rebuild the motif "2LX-5HA-3LX-5EB-2LX" 100 times. The rebuilding will take place starting at residue 30, and the score returned will be the percentage of times that folding this piece was successful.
+
+The following example runs the foldability filter to rebuild the motif "2LX-5HA-3LX-5EB-2LX" 100 times. The rebuilding will take place starting at residue 30, and the score returned will be the percentage of times that folding this piece was successful.
 
 ```
 <FILTERS>
