@@ -1,4 +1,6 @@
-<!-- --- title: Featuresschemageneration -->Overview
+#Features Schema Generation
+
+Overview
 --------
 
 The schema generator is a framework for generating SQL schemas that are backend independent. Currently supported backends are sqlite, postgresql, and mysql.
