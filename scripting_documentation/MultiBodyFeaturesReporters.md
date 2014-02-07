@@ -1,4 +1,6 @@
-<!-- --- title: Multibodyfeaturesreporters -->StructureFeatures
+#MultiBodyFeaturesReporters
+
+StructureFeatures
 -----------------
 
 A structure is a group of spatially organized residues. The definition corresponds with a Pose in Rosetta. Unfortunately in Rosetta there is not a well defined way to identify a Pose. For the purposes of the the features database, each structure is assigned a unique struct\_id. To facilitate connecting structures in the database with structures in structures Rosetta, the tag field is unique.
