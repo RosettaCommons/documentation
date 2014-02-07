@@ -1,12 +1,11 @@
-<!-- --- title: App Fragment Picker -->Fragment picking documentation for `       picker      ` application
-
- Author   
-Dominik Gront ( [dgront@chem.uw.edu.pl](#) )
+#Fragment picking documentation
 
 Metadata
 ========
 
-Last edited 4/22/11. Corresponding PI Dominik Gront ( [dgront@chem.uw.edu.pl](#) ).
+Author: Dominik Gront (dgront@chem.uw.edu.pl)
+
+Last edited 4/22/11. Corresponding PI Dominik Gront (dgront@chem.uw.edu.pl).
 
 Code and Demo
 =============
@@ -31,7 +30,7 @@ The algorithm and the code components have been described in:
 
 -   Gront D, Kulp DW, Vernon RM, Strauss CEM and Baker D, "Generalized fragment picking in Rosetta: design, protocols and applications", submitted to PLoS ONE
 
-Application purpose
+Purpose
 ===========================================
 
 Pick fragment sets for Rosetta protein structure modeling
@@ -39,11 +38,8 @@ Pick fragment sets for Rosetta protein structure modeling
 Algorithm
 =========
 
-[[/images/frag_picker_overview.png]]
-
-Figure 1: A general scheme of the fragment picking workflow
-
-Detail of the algorithm are described in Gront D. et al paper. In brief, the program reads a database file (nicknamed *vall* ), input query sequence or sequence profile and other files and produces fragment files for modeling with Rosetta. The picking process consists of three stages: preparation (reading input files, etc), actual fragment picking when the candidates are pushed into a collector, and a selection when the final fragment set is prepared based on the collected candidates.
+| [[/images/frag_picker_overview.png]]   Figure 1: A general scheme of the fragment picking workflow | Detail of the algorithm are described in Gront D. et al paper. In brief, the program reads a database file (nicknamed *vall* ), input query sequence or sequence profile and other files and produces fragment files for modeling with Rosetta. The picking process consists of three stages: preparation (reading input files, etc), actual fragment picking when the candidates are pushed into a collector, and a selection when the final fragment set is prepared based on the collected candidates. |
+|------|-----|
 
 Modes
 -----
@@ -59,95 +55,23 @@ Input Files
 
 There are many possible input files, depending on the picking protocol and scoring function. The most commonly used are:
 
-**file type**
-
-**description**
-
-**where does it come from**
-
-**who uses it**
-
-vall
-
-protein structures database, your fragments come from there.
-
-should be in Rosetta SVN repository. A copy of this file can be also downloaded from: [http://www.bioshell.pl/rosetta-related/vall.apr24.2008.extended.gz](http://www.bioshell.pl/rosetta-related/vall.apr24.2008.extended.gz)
-
-mandatory file
-
-.wghts
-
-defines scoring system for fragment selection
-
-edit one of the examples provided below
-
-mandatory file
-
-.fasta
-
-amino acid sequence
-
-you must already have it...
-
-mandatory file unless .chk is given
-
-.chk
-
-sequence profile created with PSI-Blast with further modifications (pseudocounts added)
-
-make\_fragments.pl script
-
-any sequence profile - based score, e.g. ProfileScoreL1; mandatory file unless .fasta is given
-
-.ss2
-
-secondary structure prediction in PsiPred format
-
-The easiest way is to run make\_fragments.pl script. You may also try to run a secondary prediction software on your own and then convert the resulst to the proper format. A script convert\_ss\_predictions.py can turn TALOS, Juffo, Porter and SAM into ss2.
-
-SecondarySimilarity or SecondaryIdentity scores
-
-.cst
-
-distance (or dihedral) constraints
-
-Convert your data (distances or torsion angle values) into the proper format.
-
-AtomPairConstraintsScore or DihedralConstraintsScore scores
-
-.tab
-
-chemical shifts in TALOS format
-
-NMR experiment; examples can be downloaded from BMRB database
-
-CSScore (CS-Rosetta protocol)
-
-.pdb
-
-reference structure in PDB format
-
-used for fragments' quality assessment
+|**file type**|**description**|**where does it come from**|**who uses it**|
+|-------------|---------------|---------------------------|---------------|
+|vall|protein structures database, your fragments come from there.|should be in Rosetta SVN repository. A copy of this file can be also downloaded from: [http://www.bioshell.pl/rosetta-related/vall.apr24.2008.extended.gz](http://www.bioshell.pl/rosetta-related/vall.apr24.2008.extended.gz)|mandatory file|
+|.wghts|defines scoring system for fragment selection|edit one of the examples provided below|mandatory file
+|.fasta|amino acid sequence|you must already have it...|mandatory file unless .chk is given|
+|.chk|sequence profile created with PSI-Blast with further modifications (pseudocounts added)|make\_fragments.pl script|any sequence profile - based score, e.g. ProfileScoreL1; mandatory file unless .fasta is given|
+|.ss2|secondary structure prediction in PsiPred format|The easiest way is to run make\_fragments.pl script. You may also try to run a secondary prediction software on your own and then convert the resulst to the proper format. A script convert\_ss\_predictions.py can turn TALOS, Juffo, Porter and SAM into ss2.|SecondarySimilarity or SecondaryIdentity scores
+|.cst|distance (or dihedral) constraints|Convert your data (distances or torsion angle values) into the proper format.|AtomPairConstraintsScore or DihedralConstraintsScore scores|
+|.tab|chemical shifts in TALOS format|NMR experiment; examples can be downloaded from BMRB database|CSScore (CS-Rosetta protocol)|
+|.pdb|reference structure in PDB format| |used for fragments' quality assessment|
 
 Note, that some of these files are produced by external programs:
 
-inputa data
-
-program
-
-notes
-
-sequence profile
-
-PsiBlast (the old version, not the C++ one!)
-
-Raw PsiBlast checkpoint is stored in a binary format. The file is processed by make\_fragments.pl script that adds pseudocounts to empty rows in the profile and saves it in a flat text format
-
-secondary structure prediciton
-
-PsiPred, Jufo, SAM, Porter
-
-All these programs require PsiBlast to be installed.fragment\_picker reads input secondary structure predicitons only in PsiPred's SS2 format. The ss\_pred\_converter.py script may be used to convert from other file formats
+|input data|program|notes|
+|----------|-------|-----|
+|sequence profile|PsiBlast (the old version, not the C++ one!)|Raw PsiBlast checkpoint is stored in a binary format. The file is processed by make\_fragments.pl script that adds pseudocounts to empty rows in the profile and saves it in a flat text format|
+|secondary structure prediction|PsiPred, Jufo, SAM, Porter|All these programs require PsiBlast to be installed.fragment\_picker reads input secondary structure predicitons only in PsiPred's SS2 format. The ss\_pred\_converter.py script may be used to convert from other file formats|
 
 Weight file for fragment picking
 --------------------------------
@@ -158,49 +82,35 @@ Weight value `       0.0      ` has a special meaning: such scores are evaluated
 
 Typical weight values are given below:
 
-[[/images/frag_scoring_UML.png]]
-
-Figure 2: UML diagram of the core fragment scoring classes
+[[/images/frag_scoring_UML.png]] 
+Figure 2: UML diagram of the core fragment scoring classes 
 
 For ab-initio prediction (quota protocol):
-
-\# score name priority wght max\_allowed extras
-
+```
+# score name priority wght max_allowed extras
 SecondarySimilarity 350 1.0 - psipred
-
 SecondarySimilarity 300 1.0 - sam
-
 SecondarySimilarity 250 1.0 - porter
-
 RamaScore 150 2.0 - psipred
-
 RamaScore 150 2.0 - porter
-
 RamaScore 150 2.0 - sam
-
 ProfileScoreL1 200 2.0 -
-
 PhiPsiSquareWell 100 0.0 -
-
 FragmentCrmsd 30 0.0 -
+```
 
 CS-Rosetta style fragment picking:
 
-\# score name priority wght max\_allowed extras
-
+```
+# score name priority wght max_allowed extras
 CSScore 375 3.0 -
-
 RamaScore 400 2.0 - talos
-
 SecondarySimilarity 350 3.0 - talos
-
 ProfileScoreL1 200 1.0 -
-
 PhiPsiSquareWell 100 0.0 -
-
 FragmentCrmsd 30 0.0 -
-
 GunnCostScore 20 0.0 -
+``` 
 
 Everything that starts at the fifth column goes to a score term maker as additional parameters. The most important application is to provide secondary structure prediction name for quota protocol.
 
@@ -210,8 +120,8 @@ Options
 Protocol-Specific Options
 -------------------------
 
-||
 |option|description|example|
+|------|-----------|-------|
 |in:file:native|Native PDB filename|2gb1.pdb|
 |in:file:vall|vall database for fragment picking|vall.dat.apr24.combo.aug09|
 |in:file:s|Name(s) of single PDB file(s) to process|2gb1.pdb|
@@ -285,13 +195,12 @@ From the implementation's point of view, a quota pool is a BoundedCollector whos
 Quota.def file
 --------------
 
-\#pool\_id pool\_name fraction
-
+```
+#pool_id pool_name fraction
 1 psipred 0.6
-
 2 porter 0.2
-
 3 sam 0.2
+```
 
 Quota allowance
 ---------------
@@ -301,7 +210,7 @@ is defined for each predictor by a Quota.def file. Default allocations are: PsiP
 Quota score - pool identification
 ---------------------------------
 
-As it has been mentioned in [u'Quota score'] section, some scores are switched on and off for different pools. To have it working properly, the two config files: [u'Weight file for fragment picking'] and [u'Quota.def file'] must contain matching string identifiers. Although the above examples use the predictors' names (psipred, porter and sam) for this purpose, one can use any arbitrary strings. The only limitation is that the three :
+As it has been mentioned in [Quota score](#Quota-score) section, some scores are switched on and off for different pools. To have it working properly, the two config files: [Weight file for fragment picking](#Weight-file-for-fragment-picking) and [Quota.def file](#Quota.def-file) must contain matching string identifiers. Although the above examples use the predictors' names (psipred, porter and sam) for this purpose, one can use any arbitrary strings. The only limitation is that the three :
 
 -   secondary prediction name given in a weight file
 -   quota pool name, given in Quota.def file
@@ -322,7 +231,9 @@ Tips
     -   say `          -frags:picking:query_pos 21 22 23 24 25 26 27 28 29         ` to pick fragments at the selected positions
 
 -   test for homologues contamination: In order to obtain objective results from ab-initio protein structure prediction bechmarks, fragment sets should not contain pieces of homologous proteins. The PDB codes of unwanted protein chains should be listed in a file and provided to the picker with -frags:denied\_pdb flag. This however does not quarantee the results are free from homologous fragments. It is recommended to check which PDB entries contribute to a fragment, e.g. by the following bash command:
-    cat aa2gb1.9mers | awk '{print \$1}' | uniq | grep -v 'position' | grep '.' | sort | uniq -c | sort -n
+    ```
+    cat aa2gb1.9mers | awk '{print $1}' | uniq | grep -v 'position' | grep '.' | sort | uniq -c | sort -n
+    ```
     Homologues structures introduces significantly more fragments than unrelated proteins. One should manually examine the most popular hits, possibly add them to the list of denied PDB ids and run the fragment picker once again.
 
 Expected Outputs
@@ -359,6 +270,4 @@ Fragment may be directly used by Rosetta 2.x and 3.x. Fragment score file may be
 New things since last release
 =============================
 
-```
 This is the first public release
-```
