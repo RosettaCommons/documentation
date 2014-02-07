@@ -1,4 +1,6 @@
-<!-- --- title: Chemicalfeaturesreporters -->AtomTypeFeatures
+#Chemical FeaturesReporters -->
+
+AtomTypeFeatures
 ----------------
 
         <feature name=AtomTypeFeatures/>
