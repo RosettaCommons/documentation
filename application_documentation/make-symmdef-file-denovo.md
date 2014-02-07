@@ -1,10 +1,9 @@
-<!-- --- title: Make Symmdef File Denovo -->Documentation for the Denovo Symmetry Definiton file creation script.
-
- Author   
-Ingemar André
+#Denovo Symmetry Definiton file creation script.
 
 Metadata
 ========
+
+Author: Ingemar André
 
 Last edited Aug 20 2010 by Ingemar André. Code by Ingemar Andre.
 
@@ -13,7 +12,7 @@ Code and Demo
 
 All the code is contained in the Python script rosetta/rosetta\_source/src/apps/pilot\_apps/andre/make\_symmdef\_file\_denovo.py.
 
-Application purpose
+Purpose
 ===========================================
 
 This script automatically creates symmetry definition files corresponding to the specified symmetry. It currently covers cyclical and dihedral symmetry.
@@ -21,7 +20,7 @@ This script automatically creates symmetry definition files corresponding to the
 Limitations
 ===========
 
-This routine does not create symmetry definition files for all types of symmetries. These have to be made by hand, see [[the symmetry definition guide|symmetry]] , or from a template by application of [[make_symmdef_file|make-symmdef-file]] to a known protein complex.
+This routine does not create symmetry definition files for all types of symmetries. These have to be made by hand, see [[the symmetry definition guide|symmetry]], or from a template by application of [[make_symmdef_file|make-symmdef-file]] to a known protein complex.
 
 Options
 =======
