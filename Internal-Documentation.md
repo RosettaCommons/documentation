@@ -39,7 +39,7 @@ comment tags will be stripped from the documentation prior to being provided as 
 
 ### Pilot Apps Documentation
 
-This is documentation for pilot apps and other unreleased code.
+This is documentation for not-yet-released applications.
 
 - [[multi-residue-ligand-dock]] - Docking of multiple ligand residues
 
