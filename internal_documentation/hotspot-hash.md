@@ -1,6 +1,6 @@
-<!-- --- title: Hotspot Hash -->Documentation for hotspot\_hashing application
+#hotspot\_hashing application
 
-Example runs
+Examples
 ============
 
 See `       rosetta/rosetta_tests/integration/tests/hotspot_hashing      ` for an example hotspot hashing run and input files.
