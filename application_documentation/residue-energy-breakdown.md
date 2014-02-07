@@ -1,4 +1,4 @@
-<!-- --- title: Residue Energy Breakdown -->Documentation of the residue\_energy\_breakdown utility
+#Residue Energy Breakdown
 
 Metadata
 ========
@@ -22,16 +22,16 @@ While the total (weighted) score should be the same as the sum of the individual
 Input
 =====
 
-Observes standard input flags (e.g. -in: <file:s,> -in: <file:silent,> etc.). Multiple input structures may be specified.
+Observes standard input flags (e.g. -in:file:s, -in:file:silent, etc.). Multiple input structures may be specified.
 
-The name of the output file is specified with -out: <file:silent>
+The name of the output file is specified with -out:file:silent
 
 Scorefunction weights files are specified with -score:weights and -score:patch, as usual.
 
-FoldTree output
+Output
 ===============
 
-A whitespace-seperated table of the *weighted* score breakdown. Residue numbering is in internal sequential format ("pose numbering"). Each residue pair is listed once, with the lower numbered residue as residue 1. For one body energies, the second residue is listed as "--", with type "onebody"
+A whitespace-separated table of the *weighted* score breakdown. Residue numbering is in internal sequential format ("pose numbering"). Each residue pair is listed once, with the lower numbered residue as residue 1. For one body energies, the second residue is listed as "--", with type "onebody"
 
 Sample Output:
 
