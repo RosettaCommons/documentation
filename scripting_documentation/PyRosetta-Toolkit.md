@@ -20,7 +20,7 @@ Copy the code from pyrosetta/SetPyRosettaEnvironment.sh to your .bashrc (linux) 
 
 **Setup PyMOL.**
 
-There is an awesome file you can put in your \$HOME directory called .pymolrc . There is a file: [PyMOLPyRosettaServer.py](http://www.pyrosetta.org/pymol_mover-tutorial) . Add this command to your .pymolrc 'run path\_to\_pyrosetta/PyMOLPyRosettaServer.py' This enables the connection to run every time you open PyMOL, and the GUI is heavily integrated to use this awesome PyRosetta feature.
+There is an awesome file you can put in your $HOME directory called .pymolrc . There is a file: [PyMOLPyRosettaServer.py](http://www.pyrosetta.org/pymol_mover-tutorial) . Add this command to your .pymolrc 'run path\_to\_pyrosetta/PyMOLPyRosettaServer.py' This enables the connection to run every time you open PyMOL, and the GUI is heavily integrated to use this awesome PyRosetta feature.
 
 **Run the GUI.**
 
