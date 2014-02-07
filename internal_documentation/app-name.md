@@ -1,12 +1,12 @@
-<!-- --- title:  App Name -->Documentation for AppName application
+#AppName application
 
- Author   
-DOCUMENTATION AUTHOR GOES HERE
 
 AppName should match the C++ application if applicable. If the document is an extension of a particular app, the c++ application should be within AppName (fixbb vs fixbb\_with\_hpatch)
 
 Metadata
 ========
+
+Author: DOCUMENTATION AUTHOR GOES HERE
 
 State when the documentation was last updated, by whom. State the PI for this application and their email address. They are the corresponding author.
 
@@ -20,8 +20,8 @@ References
 
 Note references associated with this publication. Also note if they contain implementation details that function as documentation.
 
-Application purpose
-===========================================
+Purpose
+=======
 
 What is this code supposed to do? What sorts of problems does it solve?
 
