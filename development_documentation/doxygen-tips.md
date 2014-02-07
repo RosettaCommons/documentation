@@ -111,7 +111,7 @@ If doxygen is in your path simply issue the command
 
 `       doxygen      `
 
-from within the toplevel mini directory. Note that the default Doxygen configuration takes hours to build. If you just want to build the Doxygen pages in the doc directory make the following substitution in the Doxyfile in the main mini directory. from
+from within the rosetta/main/source/ directory. Note that the default Doxygen configuration takes hours to build. If you just want to build the Doxygen pages in the doc directory make the following substitution in the Doxyfile in the main mini directory. from
 
 `       INPUT = src demo doc      `
 
