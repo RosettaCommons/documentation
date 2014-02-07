@@ -1,10 +1,9 @@
-<!-- --- title: Oop Design -->Documentation for the oop\_design application
-
- Author   
-Kevin Drew, [kdrew@nyu.edu](#)
+#oop\_design application
 
 Metadata
 ========
+
+Author: Kevin Drew, (kdrew@nyu.edu)
 
 Last updated November 30, 2012;
 
@@ -46,181 +45,27 @@ Options
 
 I. Common oop\_design flags:
 ----------------------------
+| Flag | Description | Type | Default |
+|:-----|:------------|:-----|:--------|
+|-oop_design_positions|positions on oop chain to be designed|list of numbers [ex. 1 2 3 6]|None, only repack, no design|
+| -pert_num| number of pertubations made during pertubation phase| integer|10|
+|-design_loop_num|number of pertubation + design cycles|integer|10|
 
-```
-
-
-
-   Flag
-
-   
-   
-
-   Description
-
-   
-   
-
-   Type
-
-   
-   
-
-   Default
-
-   
-  
- 
-
-
-
-   -oop_design_positions
-  
- 
-  positions on oop chain to be designed
-  
- 
-   list of numbers [ex. 1 2 3 6]
-  
- 
-    None, only repack, no design
-  
-
-
-
-
- -pert_num
- 
-  
-  number of pertubations made during pertubation phase
-  
- 
-   integer
-  
-  
-  10
-  
- 
-
-
-
- -design_loop_num
- 
- 
-  number of pertubation + design cycles
- 
- 
-  integer
- 
- 
-   10
- 
- 
-
-
-```
 
 II. Relevant Common Rosetta flags
 ---------------------------------
 
 More information on common Rosetta flags can be found in the [[relevant rosetta manual pages|Rosetta-Basics]]. In particular, flags related to the job-distributor (jd2), scoring function, constraint files and packing resfiles are identical to those in any other Rosetta protocol).
 
-```
-
-
-
-                Flag
-                
-                
-                    Description
-                
-            
-            
-
-
-                    -in::file::s
-          
-
-          Or
-          
-
-                    -in:file:silent
-                
-                
-                    Specify starting structure
-                    (in::file::s for PDB format, in:file:silent for silent file
-                    format).
-                
-            
-            
-
-
-                    -in::file::silent_struct_type  
-
-          -out::file::silent_struct_type
-                
-                
-                    Format of silent file to be read
-                    in/out. For silent output, use the binary file type since
-                    other types may not support ideal form
-                
-            
-            
-
-
-                    -nstruct
-                
-                
-                    Number of models to create in the
-                    simulation
-                
-            
-            
-
-
-                    -use_input_sc
-                
-                
-                    Include rotamer conformations from the input structure
-          during side-chain repacking. Unlike the -unboundrot flag,
-                    not all rotamers from the input structure are added each
-                    time to the rotamer library, only those conformations accepted
-                    at the end of each round are kept and the remaining
-                    conformations are lost.
-                
-            
-            
-
-
-                    -ex1/-ex1aro -ex2/-ex2aro -ex3 -ex4
-                
-                
-                    Adding extra side-chain rotamers
-                
-            
-            
-
-
-                    -database
-                
-                
-                    The Rosetta database
-                
-            
-            
-
-
-                    -include_patches
-                
-                
-                    Turn on patch files which are off by default.  Turning on patches/oop_pre.txt and patches/oop_post.txt is a requirement for oop applications.   
-                
-            
-     
-    
-
-
-```
+| Flag | Description | 
+|:-----|:------------|
+|-in::file::s Or -in:file:silent|Specify starting structure  (in::file::s for PDB format, in:file:silent for silent file format).|
+|-in::file::silent_struct_type AND -out::file::silent_struct_type|Format of silent file to be read in/out. For silent output, use the binary file type since other types may not support ideal form|
+|-nstruct|Number of models to create in the simulation|
+|-use_input_sc|Include rotamer conformations from the input structure during side-chain repacking. Unlike the -unboundrot flag, not all rotamers from the input structure are added each time to the rotamer library, only those conformations accepted at the end of each round are kept and the remaining conformations are lost.|
+|-ex1/-ex1aro -ex2/-ex2aro -ex3 -ex4|Adding extra side-chain rotamers|
+|-database|The Rosetta database|
+|-include_patches|Turn on patch files which are off by default.   Turning on patches/oop_pre.txt and patches/oop_post.txt is a requirement for oop applications.|
 
 Tips
 ====
@@ -230,10 +75,10 @@ Example runs
 
 1.  generate 1000 (or more) models
 
-    ~~~~ {.fragment}
+    ```
      oop_design.{ext}
     -database ${rosetta_db} -include_patches patches/oop_pre.txt patches/oop_post.txt -s start.pdb -nstruct 1000 -oop_design_positions 1 2 3 4 -pert_num 100 -design_loop_num 10
-    ~~~~
+    ```
 
 2.  Sort models by total score, take top 5%, sort by REPACK\_ENERGY\_DIFF. Inspect top models.
 
