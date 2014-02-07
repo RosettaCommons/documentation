@@ -1,4 +1,4 @@
-<!-- --- title: Minirosetta -->Boinc minirosetta application usage and overview
+#Boinc minirosetta application usage and overview
 
 Metadata
 ========
@@ -19,24 +19,40 @@ Command line application
 To build "minirosetta" as a command line application that can be run on local clusters (does not depend on Boinc), use the following scons commands as examples. General rosetta scons build options apply. Use "scons -h" for build system usage information.
 
 -   Debug build
+
+    ```
     scons bin/minirosetta.gcclinuxdebug
+    ```
+
 -   Release build
+
+    ```
     scons mode=release bin/minirosetta.gcclinuxrelease
+    ```
 
 Boinc application
 -----------------
 
 To build "minirosetta" as a Boinc application, use the following scons commands as examples. Note: extras=boinc,static must be used to create a static application for running on Boinc.
 
--   Debug build
-    scons extras=boinc, static bin/minirosetta.gcclinuxdebug
--   Release build
-    scons extras=boinc, static mode=release bin/minirosetta.gcclinuxrelease
+- Debug build
+
+   ```
+   scons extras=boinc, static bin/minirosetta.gcclinuxdebug
+   ```
+
+- Release build
+
+   ```
+   scons extras=boinc, static mode=release bin/minirosetta.gcclinuxrelease
+   ```
 
 Boinc optional arguments
 ========================
 
-[-in::file::zip \<zipped archive\>]
+```
+[-in::file::zip <zipped archive>]
+```
 
 A zipped archive file. Unzips contents into the run directory using the boinc\_zip library from BOINC before running the rosetta protocol. This is useful for input files and directories like the minirosetta database. For example, all input files can be zipped into one compressed archive file.
 
@@ -48,41 +64,57 @@ The following protocols can be run.
 Classic Abinitio and Relax ( -protocol abrelax )
 ------------------------------------------------
 
-This protocol runs classic abinitio and relax for de novo protein fold prediction. The relevant code is in classic\_abinitio\_relax\_impl.cc
+This protocol runs classic abinitio and relax for de novo protein fold prediction. The relevant code is in classic_abinitio_relax_impl.cc
 
 ### Basic Usage
 
-minirosetta [-protocol abrelax] [-fasta \<fasta file\> or -native \<native pdb\>] [-frag3 \<3mer frag file\>] [-frag9 \<9mer frag file\>] [options..]
+```
+minirosetta [-protocol abrelax] [-fasta <fasta file> or -native <native pdb>] [-frag3 <3mer frag file>] [-frag9 <9mer frag file>] [options..]
+```
 
 ### Optional arguments
 
 Additional standard minirosetta and protocol specific arguments also apply.
 
-[-nstruct \<int\>]
+```
+[-nstruct <int>]
+```
 
 number of decoys (default 1).
 
-[-increase\_cycles \<float\>]
+```
+[-increase_cycles <float>]
+```
 
 Increase number of cycles at each stage by this factor.
 
+```
 [-abinitio::relax]
+```
 
 Do relax after abinitio.
 
-[-out::file::silent \<silent file name\>]
+```
+[-out::file::silent <silent file name>]
+```
 
 Name of silent output file. Default is "default.out".
 
-[-out::silent\_gz]
+```
+[-out::silent_gz]
+```
 
 Gzip silent output file.
 
+```
 [-checkpoint]
+```
 
 Turn checkpointing on with default time interval (5 minutes).
 
-[-checkpoint\_interval \<int\>]
+```
+[-checkpoint_interval <int>]
+```
 
 Turn checkpointing on with given time interval in seconds.
 
