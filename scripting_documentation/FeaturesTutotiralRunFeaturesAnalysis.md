@@ -1,4 +1,4 @@
-<!-- --- title: Featurestutotiralrunfeaturesanalysis -->
+#Features Tutorial: Run features analysis -->
 
 Comparing sample sources takes one or more databases of features and a set of analysis scripts and generated plots and statistics.
 
