@@ -6,7 +6,7 @@ last modified: 2/7/2014 Jared Adolf-Bryfogle
 
 Rosetta uses a custom SCons builder. The builder allows multiple build configurations. This page demonstrates some simple features of the build system followed by a more detailed discussion of the build system structure and how it can be extended.
 
-Note that scons-local is packaged with Rosetta3. Thus if scons is not installed on your system replace all the folllowing "scons" calls with "python external/scons-local/scons.py"
+Note that scons-local is packaged with Rosetta3. Thus if scons is not installed on your system replace all the folllowing "scons" calls with "./scons.py"
 
 Building
 ========
