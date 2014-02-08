@@ -2,7 +2,7 @@
 ##A Guide to Using SCons to Build Rosetta
 Author: Kristian Kaufmann
 
-last modified: 11/08/2008
+last modified: 2/7/2014 Jared Adolf-Bryfogle
 
 Rosetta uses a custom SCons builder. The builder allows multiple build configurations. This page demonstrates some simple features of the build system followed by a more detailed discussion of the build system structure and how it can be extended.
 
@@ -11,13 +11,29 @@ Note that scons-local is packaged with Rosetta3. Thus if scons is not installed 
 Building
 ========
 
-In order to build a debug version of the Rosetta executables, simply run scons like this:
-
-`       scons bin      `
-
 In order to build release executables, add the flag 'mode=release' like this:
 
 `       scons bin mode=release      `
+
+In order to build debug executables, add the flag 'mode=debug'. These executables will run slower and should be only be used for debugging an application or protocol. If you have problems with an app, please first see the the moderated forum at    [rosettacommons](https://www.rosettacommons.org/forum)
+
+`       scons bin mode=debug      `
+
+To compile using 4 processors:
+
+`       scons bin mode=release -j4      `
+
+To build MPI executables, add the flag "extras=mpi". 
+ 
+`       scons bin mode=release extras=mpi      `
+
+
+If the default settings result in compile errors, copy source/tools/build/site.settings.topsail to site.settings (within the same directory) and edit to reflect your environment.  This is most useful for very specific cluster settings.  Your cluster admin should be able to help, and many common issues encountered while building mpi are covered on the [forum](https://www.rosettacommons.org/forum).   
+
+Clang compiler instead of gcc default:
+
+`       scons bin mode=release cxx=clang      `
+
 
 To display more rosetta specific build options call scons -h To display general scons build options call scons -H
 
