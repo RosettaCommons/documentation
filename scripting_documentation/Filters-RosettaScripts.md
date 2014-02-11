@@ -665,6 +665,7 @@ Computes the overall sasa of the pose. If it is \*\*higher\*\* than threshold, i
 -   hydrophobic: compute hydrophobic-only SASA?
 -   polar: compute polar\_only SASA?
 -   task\_operations: Only report the SASA for those residues specified as packable for the given taskoperations. If not specified, compute over all residues.
+-   report\_per\_residue\_sasa: Add the per-residue SASA to the tracer output.
 
 hydrophobic/polar are computed by discriminating each atom into polar (acceptor/donor or polar hydrogen) or hydrophobic (all else) and summing the SASA over each category.
 
