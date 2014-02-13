@@ -1,7 +1,11 @@
-# Required Inputs
-The membrane protein framework views a membrane protein as either spanning the membrane or embedded at a given depth in the membrane. For each pdb, you will need a (1) OCTOPUS span file (if spanning), (2) Lipophobicity Data file and (3) an Embedding Definition file. All required parsing scripts are located in `src/apps/public/membrane`
+Running Rosetta with membane proteins requires additional data from 3rd party apps for describing the topology and embedding of each membrane chain. The following inputs are required for running framework protocols: 
+* [[Membrane Spanning Topology Data]](#Membrane Spanning Topology Data)
+* Membrane lipophobicity data (recommended, but not required)
+* Membrane embedding data - initial parameters
 
-### OCTOPUS File
+All required parsing scripts discussed on this page are located in `src/apps/public/membrane`and detailed on the [[RosettaMembrane: Scripts and Tools]] page. 
+
+## Membrane Spanning Topology Data
 To generate a spanfile, go to [OCTOPUS](http://octopus.cbr.su.se/) and generate a topology file from the FASTA sequence. Below is an example format of the resulting file:
 
 ```
