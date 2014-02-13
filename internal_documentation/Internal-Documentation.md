@@ -32,7 +32,10 @@ comment tags will be stripped from the documentation prior to being provided as 
 
 ### RosettaMemrbrane: Membrane Protein Framework Project
 
-[[Rosetta Membrane Protein Framework (Project Page)]]
+**Current Pages**
+- [[RosettaMembrane Framework Overview]]
+
+**Old Pages (Will get rid of these soon...)**
 - [[Configuring Rosetta with Membrane Proteins (User Docs)]]
 - [[Configuring Rosetta for Membrane Proteins (Developer Docs)]]
 - [[Supporting Membrane Proteins (Developer Documentation)]]
