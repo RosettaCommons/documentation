@@ -1,13 +1,13 @@
-## Coding Conventions
-To improve development of protocols using the membrane framework, I am including some additional development guidelines to maintain the design and style throughout. 
+To improve development of protocols using the membrane framework, I am including some additional development guidelines to maintain the design, style, and quality of testing throughout. 
 
 Rosetta also has its own set of coding conventions which can be found here: [RosettaCommons Coding Conventions](https://wiki.rosettacommons.org/index.php/Coding_conventions)
 
+## Coding Conventions
+
 ### General Dos/Dont's
-* If adding a new membrane resource, manage it with a resource loader/io class. Do not independently call it but load it through membrane conformation. 
-* If using a custom fold tree topology, load the default membrane fold tree and then modify. Maintain all membrane and embedding residues added in initialization. 
-* Do not use virtual residues for additional membrane/embedding definitions. These are **not** the same - see [[Membrane Residue Types]] page for more info. 
-* If overriding the startstruct with a membrane protein, call the membrane protein factory in the top level apply function and use the resulting pose as the startstruct. **Do not** overwrite the starting structure created by JD2. 
+* **Adding a New Membrane Data Resource**: Manage all membrane data resources with the resource manager. This generally requires adding a resource loader, resource IO, resource options, and fallback options to `src/core/membrane/io`. Do not independently load the resource - load it through membrane conformation. 
+* **Membrane Residue Types**: Use membrane residue types (derived virtual types) and not virtual residues to define membrane parameters. Membrane residue types and virtual residue types are **not** the same - see [[Membrane Residue Types]] page for more info. 
+* **Loading a Membrane Protein**: If overriding the starting structure provided in #apply(pose), call the membrane protein factory and use the new pose throughout.**Do not** overwrite the starting structure created by JD2. 
 * You should only need to #include MembraneProteinFactory, MembraneConformation, and/or anything in `core/membrane/properties`. If you are including anything else in the core/membrane namespace, you are most likely using the framework incorrectnly. 
 
 ### Extending the Definition of a Membrane Protein
@@ -16,14 +16,15 @@ A membrane protein in Rosetta is defined such that it contains a membrane residu
 * Is this property general? Or does it only have to do with my specific task? 
 * How well does this property generalize to edge case proteins (example - membrane and non membrane chain poses)
 
-If you have considered all of these, go ahead - add it. 
+These considerations are to prevent adding properties that would prohibit the use of the framework with new protocols. TLDR - add definitions with caution. 
 
 ### Style Additions
 * Include all Required doxygen tags in header: @file, @brief, @details, @note MembraneCode, and @author - consistent with all other code in the membrane framework. 
 * Class definitions **must** contain custom copy constructor definitions. 
 
 ## Testing
-_All_ classes must be unit tested and pass the mpframework integration test. If you are extending the definition of a membrane protein (see conventions above), then add an invariant for it in the mpframework integration test app. This entire code base was rigorously unit tested to ensure that your code could be correctly unit tested so respect the community and write the test And lets be honest, you don't want to be 'that guy' who broke the code because you forgot to add tests. 
+
+_All_ classes must be unit tested and pass the mpframework integration test. This code base was unit tested such that all components are covered by test - therefore failing to write the test will reduce the quality of unit tests someone already wrote. Just write the test please :D
 
 ### Unit Testing
 The membrane framework is maintained using the following unit tests: 
