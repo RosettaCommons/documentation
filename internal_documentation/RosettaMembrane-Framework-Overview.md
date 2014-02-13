@@ -20,7 +20,7 @@ The framework is a developer tool. Each page below details its components, guide
 
 **Framework Development**
 - [[internal_documentation/Official RosettaMembrane Framework Project Page]]
-- [[Additional Coding Conventions and Testing Standards]]
+- [[Framework Coding Conventions and Testing]]
 - [[Setting up required inputs]]
 - [[Scripts and Tools]]
 
