@@ -40,3 +40,4 @@ Write xml definition file for membrane framework protocols given a PDB id. Scrip
 
 ```
 python write_mp_xml.py --workdir $(pwd) --chains chains.txt --outfile PDBID.xml
+```
