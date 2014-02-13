@@ -19,7 +19,7 @@ The **RosettaMembrane Framework** provides a generalized framework for modeling 
 The framework is a developer tool. Each page below details its components, guidelines on development and use, and how to get the most out of the framework: 
 
 **Framework Development**
-- [[Official Project Page]]
+- [[internal_documentation/Official RosettaMembrane Framework Project Page]]
 - [[Additional Coding Conventions and Testing Standards]]
 - [[Setting up required inputs]]
 - [[Scripts and Tools]]
