@@ -14,7 +14,7 @@ Much of Rosetta by default, is oriented for modeling soluble proteins. In previo
 
 The **RosettaMembrane Framework** provides a generalized framework for modeling membrane proteins in Rosetta. It is not an application, but a foundation for modeling of membrane proteins in existing and future protocols. Below is an overall landscape of the membrane protein framework: 
 
-[[/images/logo.png]]
+[[/internal_documentation/basic_structure_mpframework.png]]
 
 The framework is a developer tool. Each page below details its components, guidelines on development and use, and how to get the most out of the framework: 
 
