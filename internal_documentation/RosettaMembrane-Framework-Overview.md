@@ -10,9 +10,9 @@ Corresponding PI: Jeffrey Gray ([jgray@jhu.edu](jgray@jhu.edu))
 Last Modified: 2/12/2013
 
 ## About
-Much of Rosetta by default, is oriented for modeling soluble proteins. In previous, there are a few applications which use the membrane scoring function (Yarov-Yaravoy et al. 2006); membrane _ab initio_, relax, and comparative modeling. However, much of these do not provide a generic framework for modeling membrane protein conformation, kinematics, and scoring together. This makes it challenging to model membrane proteins and develop new modeling protocols in Rosetta. 
+By default, much of Rosetta is oriented for modeling membrane proteins. In previous, there have been a few applications that use the membrane scoring function (Yarov-Yaravoy et al. 2006); membrane _ab initio_, relax, and comparative modeling. However, many of these protocols do not provide a generalizable approach to modeling membrane protein conformation and kinematics. This creates significant barriers to further developing protocols for modeling membrane proteins in Rosetta. 
 
-The **RosettaMembrane Framework** provides a generalized framework for modeling membrane proteins in Rosetta. It is not an application, but a foundation for modeling of membrane proteins in existing and future protocols. Below is an overall landscape of the membrane protein framework: 
+The **RosettaMembrane Framework** provides a generalized framework for modeling membrane proteins. The framework is not an application; but provides the necessary components for modeling membrane protein conformation, topology, embedding, and kinematics. The framework also handles the large amounts of required data via the Resource manager and Below is an overall landscape of the membrane protein framework: 
 
 [[/internal_documentation/basic_structure_mpframework.png]]
 
