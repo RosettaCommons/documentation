@@ -4,8 +4,8 @@
 - Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
 
 ### Metadata
-Corresponding PI: Jeffrey Gray ([jgray@jhu.edu](jgray@jhu.edu))
-Advised by Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
+- Corresponding PI: Jeffrey Gray ([jgray@jhu.edu](jgray@jhu.edu))
+- Advised by Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
 
 Last Modified: 2/15/2013
 
