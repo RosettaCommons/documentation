@@ -1,4 +1,4 @@
-To improve development of protocols using the membrane framework, I am including some additional development guidelines to maintain the design, style, and quality of testing throughout. 
+The membrane framework was designed to be a general platform for protocols to use in modeling membrane proteins. Therefore, in further developing the framework it is important to maintain generality and important design decisions. The information below is geared toward this. 
 
 Rosetta also has its own set of coding conventions which can be found here: [RosettaCommons Coding Conventions](https://wiki.rosettacommons.org/index.php/Coding_conventions)
 
@@ -6,7 +6,7 @@ Rosetta also has its own set of coding conventions which can be found here: [Ros
 
 ### General Dos/Dont's
 * **Adding a New Membrane Data Resource**: Manage all membrane data resources with the resource manager. This generally requires adding a resource loader, resource IO, resource options, and fallback options to `src/core/membrane/io`. Do not independently load the resource - load it through membrane conformation. 
-* **Membrane Residue Types**: Use membrane residue types (derived virtual types) and not virtual residues to define membrane parameters. Membrane residue types and virtual residue types are **not** the same - see [[Membrane Residue Types]] page for more info. 
+* **Membrane Residue Types**: Use membrane residue types (derived virtual types) and not virtual residues to define membrane parameters. Membrane residue types and virtual residue types are **not** the same!! 
 * **Loading a Membrane Protein**: If overriding the starting structure provided in #apply(pose), call the membrane protein factory and use the new pose throughout.**Do not** overwrite the starting structure created by JD2. 
 * You should only need to #include MembraneProteinFactory, MembraneConformation, and/or anything in `core/membrane/properties`. If you are including anything else in the core/membrane namespace, you are most likely using the framework incorrectnly. 
 
