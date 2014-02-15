@@ -86,9 +86,6 @@ The following options can be applied to the scoring method. We advise against us
 ## Membrane Protein Factory
 The membrane protein factory is the top level of the membrane code, and is responsible for initializing and maintaining all elements in membrane conformation. It will create a membrane protein starting structure to pass off to a mover in a protocol. 
 
-
-
-# Membrane Scoring Terms
 The descriptions below come directly from Vladmir Yarov-Yaravoy’s documentation for the membrane ab initio application:
 
 |**Score**|**Description**|
