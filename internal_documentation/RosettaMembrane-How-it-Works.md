@@ -12,6 +12,18 @@ Both MEM and EMB residues are of amino acid type MPR (Membrane Protein Residue).
 ## Membrane Embedding Definitions
 There are several algorithms which can be used interchangeably to calculate the embedding of a membrane chain. These are discussed briefly in the framework setup documentation, and discussed in further detail here: 
 
+### Membrane Embedding Search Options
+
+Search for embedding is controlled by the following options. 
+|**Flag**|**Description**|**Type**|
+|---|---|---|
+|-embed_search:center_search|Use discrete search for membrane center|Boolean|
+|-embed_search:center_max_delta|Maximum membrane width deviation during center search (Angstroms)|Integer|
+|-embed_search:normal_search|Use discrete search for membrane normal|Boolean|
+|-embed_search:normal_start_angle|Magnitude of starting angle during normal search (degrees)|Integer|
+|-embed_search:normal_max_angle|Magnitude of angle deviation during normal search (degrees)|Integer|
+|-embed_search:normal_delta_angle|Maximum angle deviation allowed during search|Integer|
+
 ## Resource Management and Options
 There are two main forms of input to the membrane framework: resource manager data and general flags specified on the command-line. Both are required for using the framework. 
 
@@ -41,15 +53,7 @@ The remainder of inputs to the membrane code are managed by the resource manager
 
 
 
-### Membrane Embedding Search Options
-|**Flag**|**Description**|**Type**|
-|---|---|---|
-|-embed_search:center_search|Use discrete search for membrane center|Boolean|
-|-embed_search:center_max_delta|Maximum membrane width deviation during center search (Angstroms)|Integer|
-|-embed_search:normal_search|Use discrete search for membrane normal|Boolean|
-|-embed_search:normal_start_angle|Magnitude of starting angle during normal search (degrees)|Integer|
-|-embed_search:normal_max_angle|Magnitude of angle deviation during normal search (degrees)|Integer|
-|-embed_search:normal_delta_angle|Maximum angle deviation allowed during search|Integer|
+
 
 ### Scoring Options
 |**Flag**|**Description**|**Type**|
