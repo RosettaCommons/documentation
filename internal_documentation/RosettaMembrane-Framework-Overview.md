@@ -23,13 +23,7 @@ The framework is a developer tool. Each page below details its components, guide
 - [[RosettaMembrane: Coding Conventions and Testing]]
 - [[RosettaMembrane: Configuring Required Inputs]]
 - [[RosettaMembrane: Scripts and Tools]]
-
-**Framework Components**
-- [[Resource Management and Options]]
-- [[Membrane Residue Types]]
-- [[Membrane Embedding Definitions]]
-- [[Membrane Conformation]]
-- [[Top Level Membrane Protein Factory]]
+- [[RosettaMembrane: How it Works]]
 
 ## Code and Demo
 The code for implementing membrane proteins lives in `src/core/membrane`. Unit tests live in both `test/core/membrane` and `test/protocols/membrane`. Integration test application `mpframework_integration`
