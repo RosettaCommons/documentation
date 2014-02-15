@@ -7,7 +7,7 @@
 ### Metadata
 Corresponding PI: Jeffrey Gray ([jgray@jhu.edu](jgray@jhu.edu))
 
-Last Modified: 2/12/2013
+Last Modified: 2/14/2013
 
 ## About
 By default, much of Rosetta is oriented for modeling membrane proteins. In previous, there have been a few applications that use the membrane scoring function (Yarov-Yaravoy et al. 2006); membrane _ab initio_, relax, and comparative modeling. However, many of these protocols do not provide a generalizable approach to modeling membrane protein conformation and kinematics. This creates significant barriers to further developing protocols for modeling membrane proteins in Rosetta. 
@@ -18,7 +18,6 @@ The **RosettaMembrane Framework** provides a generalized framework for modeling 
 
 The framework is a developer tool. Each page below details its components, guidelines on development and use, and how to get the most out of the framework: 
 
-**Framework Development**
 - [[internal_documentation/Official RosettaMembrane Framework Project Page]]
 - [[RosettaMembrane: Coding Conventions and Testing]]
 - [[RosettaMembrane: Configuring Required Inputs]]
