@@ -9,24 +9,26 @@ This page is the Official development page for the membrane protein framework. I
 - Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
 - Advised by Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
 
-Last Modified: 2/12/2013
+Last Modified: 2/15/2013
 
 ### Motivation
 Rosetta is by default, oriented for modeling soluble proteins. To date, there are few applications which use membrane scoring (Yarov-Yaravoy et al. 2006); notably membrane _ab initio_, relax, and comparative modeling. However, because Rosetta does not account for conformational aspects specific to membrane-bound proteins, it is challenging to extend and develop new modeling protocols that can account for these differences. 
 
 The goal of the new RosettaMembrane is to provide a generalized framework for modeling the conformational and chemical characteristics of membrane proteins. By providing a more accurate representation of membrane protein conformation, we hope to provide a new platform for improved development of membrane-adapted Rosetta modeling protocols. Furthermore, by adapting the existing protocols to Rosetta 3 and designing an object-oriented framework, we hope that the design promotes evolvability within the Rosetta libraries. 
 
-This documentation describes the current progress in development of the membrane protein framework, coding conventions/guidelines, current tasks, and future tasks. In essence, this should serve as the developer's guide to using and developing RosettaMembrane Framework based protocols. 
+This page serves as a reference for current project tasks, developments, etc. 
 
 ### Design Objectives
-* Centralized development for membrane proteins
+* Model multi-chain membrane conformation
+* Represent full conformation and kinematics of membrane proteins
+* Support use of membrane spanning, monotopic, and peripheral membrane chains
+* Easily develop new protocols on top of this framework
+* Optimized for large proteins
+
+### Coding Objectives
 * Fully object-oriented code base (Rosetta3)
-* Support for multiple membrane chains
-* Support for hybrid systems - some membrane and some non-membrane chains
 * User intuitive application development and API
-* Effective representation of membrane protein conformation and scoring integration
-* Resource manager supported, jD2 supported
-* Can easily extend to additional features: symmetry, ligand-docking, protein-protein docking
+* Resource manager supported, JD2 supported
 
 ### Software Tasks (Still TODO)
 1. Load membrane proteins as starting structure with JD2
