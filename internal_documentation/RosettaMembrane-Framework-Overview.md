@@ -2,23 +2,23 @@
 
 ### Authors/Developers
 - Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
-- Advised by Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
 
 ### Metadata
 Corresponding PI: Jeffrey Gray ([jgray@jhu.edu](jgray@jhu.edu))
+Advised by Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
 
-Last Modified: 2/14/2013
+Last Modified: 2/15/2013
 
 ## About
-By default, much of Rosetta is oriented for modeling membrane proteins. In previous, there have been a few applications that use the membrane scoring function (Yarov-Yaravoy et al. 2006); membrane _ab initio_, relax, and comparative modeling. However, many of these protocols do not provide a generalizable approach to modeling membrane protein conformation and kinematics. This creates significant barriers to further developing protocols for modeling membrane proteins in Rosetta. 
+By default, much of Rosetta is oriented for modeling soluble proteins. In previous, there have been a few applications that use the membrane scoring function (Yarov-Yaravoy et al. 2006); membrane _ab initio_, relax, and comparative modeling. However, many of these protocols do not provide a generalizable approach to modeling membrane protein conformation and kinematics. This creates significant barriers to further developing protocols for modeling membrane proteins in Rosetta. 
 
-The **RosettaMembrane Framework** provides a generalized framework for modeling membrane proteins. The framework is not an application; but provides the necessary components for modeling membrane protein conformation, topology, embedding, and kinematics. The framework also handles the large amounts of required data via the Resource manager and Below is an overall landscape of the membrane protein framework: 
+The **RosettaMembrane Framework** provides a generalized framework for modeling membrane proteins. The framework is not an application; but provides the necessary components for modeling membrane protein conformation, topology, embedding, and kinematics. The framework also handles the large quantities of required data via the Resource manager. Below is an overall landscape of the membrane protein framework: 
 
 [[/internal_documentation/basic_structure_mpframework.png]]
 
 The framework is a developer tool. Each page below details its components, guidelines on development and use, and how to get the most out of the framework: 
 
-- [[internal_documentation/Official RosettaMembrane Framework Project Page]]
+- [[Official RosettaMembrane Framework Project Page]]
 - [[RosettaMembrane: Coding Conventions and Testing]]
 - [[RosettaMembrane: Configuring Required Inputs]]
 - [[RosettaMembrane: Scripts and Tools]]
