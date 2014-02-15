@@ -4,6 +4,9 @@ This page is the Official development page for the membrane protein framework. I
 
 ### Developers
 - Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
+
+## MetaData
+- Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
 - Advised by Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
 
 Last Modified: 2/12/2013
