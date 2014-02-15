@@ -10,19 +10,21 @@ The framework uses two new residue types: MEM and EMB. Both of these residues ar
 Both MEM and EMB residues are of amino acid type MPR (Membrane Protein Residue). 
 
 ## Membrane Embedding Definitions
-There are several algorithms which can be used interchangeably to calculate the embedding of a membrane chain. These are discussed briefly in the framework setup documentation, and discussed in further detail here: 
+There are several algorithms which can be used interchangeably to calculate the embedding of a membrane chain. Each algorithm can be applied to calculating the center, normal or both for a given membrane chain.  These are discussed briefly in the framework setup documentation, and discussed in further detail here: 
+* **user_defined**: The user provides a set of parameters (x, y, z) for the normal and center. The framework will use these parameters as the final starting parameters and not use any further computation. 
+* **from_topology**: Given a membrane topology definition, the embedding factory will calculate the center 
+from the average position between inner and outer residues (defined in SpanningTopology) and the normal vector as the normal to the average plane formed by the mp center residues. The from topoogy method will use the user defined values as starting parameters. 
+* **from_pdb**: The embedding factory will ignore user specified coordinates and set (0, 0, 0) and (0, 0, 1) for the center and normal respectively. Note, this means the chain embedding will directly overlap with the center and normal definition of the membrane. 
+* **from_search**: The from_search method will provide n cycles of a search and score method to search for the optimal membrane embedding using the membrane scoring function and filters as acceptance criteria. This method will use the user specified values as starting parameters. The "from_search' method can be controlled given the following advanced parameters which can be specified as Resource options in the resource definition file: 
 
-### Membrane Embedding Search Options
-
-Search for embedding is controlled by the following options. 
-|**Flag**|**Description**|**Type**|
+|**Option*|**Description**|**Type**|
 |---|---|---|
-|-embed_search:center_search|Use discrete search for membrane center|Boolean|
-|-embed_search:center_max_delta|Maximum membrane width deviation during center search (Angstroms)|Integer|
-|-embed_search:normal_search|Use discrete search for membrane normal|Boolean|
-|-embed_search:normal_start_angle|Magnitude of starting angle during normal search (degrees)|Integer|
-|-embed_search:normal_max_angle|Magnitude of angle deviation during normal search (degrees)|Integer|
-|-embed_search:normal_delta_angle|Maximum angle deviation allowed during search|Integer|
+|center_search|Use discrete search for membrane center|Boolean|
+|center_max_delta|Maximum membrane width deviation during center search (Angstroms)|Integer|
+|normal_search|Use discrete search for membrane normal|Boolean|
+|normal_start_angle|Magnitude of starting angle during normal search (degrees)|Integer|
+|normal_max_angle|Magnitude of angle deviation during normal search (degrees)|Integer|
+|normal_delta_angle|Maximum angle deviation allowed during search|Integer|
 
 ## Resource Management and Options
 There are two main forms of input to the membrane framework: resource manager data and general flags specified on the command-line. Both are required for using the framework. 
