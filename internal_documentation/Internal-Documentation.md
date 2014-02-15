@@ -32,13 +32,8 @@ comment tags will be stripped from the documentation prior to being provided as 
 
 ### RosettaMemrbrane: Membrane Protein Framework Project
 
-**Current Pages**
+**Current Main page**
 - [[RosettaMembrane Framework Overview]]
-
-**Old Pages (Will get rid of these soon...)**
-- [[Configuring Rosetta with Membrane Proteins (User Docs)]]
-- [[Configuring Rosetta for Membrane Proteins (Developer Docs)]]
-- [[Supporting Membrane Proteins (Developer Documentation)]]
 
 ### Pilot Apps Documentation
 
