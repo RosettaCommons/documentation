@@ -49,10 +49,10 @@ This is documentation for not-yet-released applications.
 ### Antibodies:
 
 [[CDR Cluster Identification]]
-- Identify North/Dunbrack CDR Clusters: 
+- Identify North/Dunbrack CDR Clusters 
 
-[[CDRCluster constrained Relax]]
-- Relax CDRs using constraints 
+[[CDR Cluster Constrained Relax]]
+- Relax CDRs cluster dihedral constraints 
 
 [[RosettaAntibodyDesign]]
-- Design Antibodies based on North clusters and cellular mimicry: 
+- Design Antibodies based on clusters and cellular mimicry
