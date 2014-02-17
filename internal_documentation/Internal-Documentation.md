@@ -52,7 +52,7 @@ This is documentation for not-yet-released applications.
 - Identify North/Dunbrack CDR Clusters 
 
 [[CDR Cluster Constrained Relax]]
-- Relax CDRs cluster dihedral constraints 
+- Relax CDRs using cluster-based dihedral constraints 
 
 [[RosettaAntibodyDesign]]
 - Design Antibodies based on clusters and cellular mimicry
