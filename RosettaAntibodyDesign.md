@@ -19,6 +19,7 @@ Designs should start with an antibody bound to a target antigen.  The antibody t
 
 
 # Options: 
-## -numbering_scheme Chothia_Scheme default: Acceptable options are: Options are: Chothia_Scheme, Enhanced_Chothia_Scheme, AHO_Scheme, IMGT_Scheme. Kabat_Scheme is also accepted, but not fully supported due to H1 numbering conventions.  Use Kabat_Scheme with caution.',
+## -numbering_scheme 
+Chothia_Scheme default: Acceptable options are: Options are: Chothia_Scheme, Enhanced_Chothia_Scheme, AHO_Scheme, IMGT_Scheme. Kabat_Scheme is also accepted, but not fully supported due to H1 numbering conventions.  Use Kabat_Scheme with caution.',
 
 # Post-analysis:
