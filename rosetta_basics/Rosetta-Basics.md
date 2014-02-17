@@ -29,6 +29,7 @@
 - [[Fragment file]] - Database of backbone fragment conformations
 - [[Loops file]] - Which regions of the protein should be rebuilt
 - [[Chemical shift file]] - NMR chemical shifts
+- [[Symmetry file|Symmetry#Symmetry-definitions]] - Dealing with symmetric proteins.
 
 ####Preparing structures to be used by Rosetta
 - [[Preparing structures]]
