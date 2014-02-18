@@ -170,6 +170,10 @@ or
 -   The NumNeighborsSelector uses the coordinate of each residue's neighbor atom as a representative and counts two residues as being neighbors if their neighbor atoms are within *distance\_cutoff* of each other.
 -   It is possible to include water residues in the neighbor count by setting the "count\_water" boolean to true
 
+
+Per Residue Specification
+=========================
+
 OperateOnResidueSubset
 ----------------------
 
@@ -188,8 +192,6 @@ or
 -   The ResidueSelector may be provided either through the "selector" option (in which case, the string provided to the option should refer to a previously declared ResidueSelector which can be found in the DataMap), or though an anonymously declared ResidueSelector whose definition is given as a sub-tag. Anonymously declared ResidueSelectors are not added to the DataMap.
 -   Existing ResLvlTaskOperations are defined [[below|TaskOperations-RosettaScripts#Residue-Level-TaskOperations]] .
 
-Per Residue Specification
-=========================
 
 OperateOnCertainResidues Operation
 ----------------------------------
