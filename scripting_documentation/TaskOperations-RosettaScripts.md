@@ -494,9 +494,9 @@ Restrict to repack only one or both termini on the specified chain.
 
 Design residues with selected amino acids depending on the enviroment(accessible surface area). The layer of each residue is assigned to one of the three basic layers(core, boundary or surface) depending on the accessible surface area of mainchain + CB.
 
-Aditional layers can be defined in the xml file by passing another taskoperation to get the residue selection. Only the residues that are mark as designable in the packer task are taken in consideration, any information of the available amino acids/rotamers selected by the taskoperation is not going to be considered. The amino acids to be used in each of this new layers has to be specified in the xml. Several taskoperations can be combined to the intersection between the different sets of designable residues.
+Aditional layers can be defined in the xml file by passing another taskoperation to get the residue selection. Only the residues that are marked as designable in the packer task are taken into consideration, any information about the available amino acids/rotamers selected by the taskoperation are not going to be considered. The amino acids to be used in each of this new layers has to be specified in the xml. Several taskoperations can be combined to the intersection between the different sets of designable residues.
 
-If resfile is read before calling this operation, this operation is not applied for the residues defined by PIKAA, NATAA or NATRO. Note that this task is ligand compatible, the ligand is simply set to be repackable but not designable. Optionally allow all amino acids to select residue subsets by SASA cutoffs.
+If a resfile is read before calling this operation, this operation is not applied for the residues defined by PIKAA, NATAA or NATRO. Note that this task is ligand compatible, the ligand is simply set to be repackable but not designable. Optionally allow all amino acids to select residue subsets by SASA cutoffs.
 
         <LayerDesign name=(&string layer) layer=(&string core_boundary_surface) pore_radius=(&real 2.0) core=(&real 20.0) surface=(&real 40.0) repack_non_design=(&bool 1) make_rasmol_script=(&bool 0) make_pymol_script=(&bool 0)   >
             <ATaskOperation name=task1 >
