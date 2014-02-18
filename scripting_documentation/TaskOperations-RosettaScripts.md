@@ -146,17 +146,17 @@ or
 
 #### NeighborhoodResidueSelector
 
-    <Neighbor name=(%string) resnums=(%string) distance=(10.0%float)/>
+    <Neighborhood name=(%string) resnums=(%string) distance=(10.0%float)/>
 
 or
 
-    <Neighbor name=(%string) selector=(%string) distance=(10.0%float)/>
+    <Neighborhood name=(%string) selector=(%string) distance=(10.0%float)/>
 
 or
 
-    <Neighbor name=(%string) distance=(10.0%float)>
+    <Neighborhood name=(%string) distance=(10.0%float)>
        <Selector ... />
-    </Neighbor>
+    </Neighborhood>
 
 -   The NeighborhoodResidueSelector selects all the residues within a certain distance cutoff of a focused set of residues.
 -   It sets each position in the ResidueSubset that corresponds to a residue within a certain distance of the focused set of residues as well as the residues in the focused set to true, and sets all other positions to false.
