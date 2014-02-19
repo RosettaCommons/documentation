@@ -524,6 +524,7 @@ TaskOperations can be combined together using the CombinedTasks tag, the nested 
              <AnotherTaskOperation />
         </CombinedTasks>
 
+_**Currently Deprecated, new syntax for residue assignment coming soon! **_
 After you combined tasks you need to assign residues, you can use the 'all' tag to assign residues for all the different secondary structure elements.
 
         <combined_task>
