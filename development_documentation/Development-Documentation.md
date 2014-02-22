@@ -3,6 +3,7 @@
 ##Developing for Rosetta
 
 - [[Rosetta overview]]
+- [[Using Git]] - Basic steps to working with git and committing code 
 - [[Doxygen tips]] - How to work with Rosetta's in-code documentation.
 - [[Writing an app]] - How to write your own Rosetta-based application.
 
