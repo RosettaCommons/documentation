@@ -1,9 +1,20 @@
-The RosettaMembrane framework is a framework in Rosetta for modeling the kinematics and conformation of membrane proteins. The information provided below aims to serve as a brief overview of how each component works at a more detailed level:  
+The purpose of the RosettaMembrane framework is to model the geometry of membrane proteins: where structures are positioned with respect to the membrane to inform important elements like fold trees, movers, and conformation. The purpose of this page is to describe the components of the membrane framework at a more detailed level: 
 
-## Membrane Residue Types
-The framework uses two new residue types: MEM and EMB. Both of these residues are virtual, they have no impact on the chemical properties of the structure and cannot be added to a polymer chain by bond (no upper/lower connect points). Instead, these residues can be added by jump and act as internal reference frames for the positioning of the chain with respect to the membrane. 
+## Conformation
+The goal of a membrane conformation is to describe elements of a membrane protein, such as topology, embedding and lipids accessibility, not normally described by Rosetta's base conformation class. Below is roughly what the conformation object looks like: 
 
-**Membrane Residues** (MEM) are constructed from three atoms - MPct, MPnm, and MPtk which note the membrane center, normal vector, and thickness respectively. These atom types are not virtual atoms but have virtual properties (so no chemical interactions and no connectivity). 
+[[/internal_documentation/conf_overview.png]]
+
+### Membrane Residue Types
+To define membrane and chain orientation, the framework uses two new residue types, MEM and EMB, derived from a virtual residue type. Becasue they are virtual, they have no impact on the chemical properties of the structure and cannot be added to a polymer chain by bond (no upper/lower connect points). Instead, these residues are added by jump by the framework and act as local coordinate frames. Below describes the purpose of each residue: 
+
+**Membrane Residue (MEM)** 
+Defines the membrane at the center of the pose coordinate frame. In particular, defines three parameters: MPct, MPnm, and MPtk which describe the membrane center, normal vector, and thickness respectively. These parameters always use the following values: 
+ * (MPct) Center = <0, 0, 0>
+ * (MPnm) Normal = <0, 0, 1> 
+ * (MPtk) Thicnkess = 30.0A. 
+
+Each atom type is also virtual. 
 
 **Embedding Residues** (EMB) are constructed from three atoms - MPct, MPnm, and MPdp which note the chain embedding center, normal vector, and depth in the membrane respectively. These atom types are not virtual atoms but have virtual properties (so no chemical interactions and no connectivity). 
 
