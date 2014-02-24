@@ -10,17 +10,18 @@ To define membrane and chain orientation, the framework uses two new residue typ
 
 **Membrane Residue (MEM)** 
 Defines the membrane at the center of the pose coordinate frame. In particular, defines three parameters: MPct, MPnm, and MPtk which describe the membrane center, normal vector, and thickness respectively. These parameters always use the following values: 
- * (MPct) Center = <0, 0, 0>
- * (MPnm) Normal = <0, 0, 1> 
- * (MPtk) Thicnkess = 30.0A. 
+ * (MPct) Center = (0, 0, 0)
+ * (MPnm) Normal = (0, 0, 1) 
+ * (MPtk) Thicnkess = 30.0A 
 
 Each atom type is also virtual. 
 
-**Embedding Residues** (EMB) are constructed from three atoms - MPct, MPnm, and MPdp which note the chain embedding center, normal vector, and depth in the membrane respectively. These atom types are not virtual atoms but have virtual properties (so no chemical interactions and no connectivity). 
+**Embedding Residues (EMB)**
+Defines the position of a particular chain with respect to the membrane. In particular, it defines three parameters using virtual atoms: MPct, MPnm, and MPdp which describe membrane chain embedding center, membrane chain embedding normal vector, and membrane chain depth with respect to membrane. These parameters can be defined from an embedding definition file which is described in detail in the next section.  
 
 Both MEM and EMB residues are of amino acid type MPR (Membrane Protein Residue). 
 
-## Membrane Embedding Definitions
+### Membrane Embedding Definitions
 There are several algorithms which can be used interchangeably to calculate the embedding of a membrane chain. Each algorithm can be applied to calculating the center, normal or both for a given membrane chain.  These are discussed briefly in the framework setup documentation, and discussed in further detail here: 
 * **user_defined**: The user provides a set of parameters (x, y, z) for the normal and center. The framework will use these parameters as the final starting parameters and not use any further computation. 
 * **from_topology**: Given a membrane topology definition, the embedding factory will calculate the center 
