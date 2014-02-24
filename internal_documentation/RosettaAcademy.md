@@ -53,6 +53,7 @@ This page is geared towards new members of the Rosetta community as a "fast" way
   * The options system (options and flags)
   * Resource Manager
   * Tests: unit tests, integration tests, scientific tests
+  * Merging code to master
 
 ====================================================================
 ![gollum](http://s2.quickmeme.com/img/86/86a343e34ab8ca051ce5a455eeba643a94b5f5dda96e558453d19f90cea15d99.jpg)
@@ -99,7 +100,8 @@ Some really useful papers about Rosetta:
 
 
 ### 3. Documentation
-#### TODO: Glossary: Rosetta and technical - Oana
+#### Glossary: Rosetta and technical
+Here are some useful links that will help you understand terminology that is used in Rosetta. Some concepts are also explained in the PyRosetta tutorials. 
 * https://wiki.rosettacommons.org/index.php/Glossary
 * [[Rosetta-overview]]
 
@@ -469,7 +471,7 @@ Scientific tests (or benchmarks) are required to test whether the output of a pr
 
 Note: Scientific tests are run every two weeks
 
-#### Contributing Code
+#### Merging code to master
 Once you have branched Rosetta, developed your feature and **fully tested** it, you are ready to contribute it to master - the main Rosetta code base. To do so, you have probably already reviewed the Rosetta Git conventions [Rosetta GitHub Practices](https://wiki.rosettacommons.org/index.php/GithubWorkflow) (if not, do so now!). However, this section is detailed walk-through of the merge process: providing some useful warnings and practices to be aware of. 
 
 1. In line with Rosetta Git practices, all development should be done in a branch. After committing changes and pushing to remote, go ahead and checkout master
