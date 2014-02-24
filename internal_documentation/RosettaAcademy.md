@@ -472,33 +472,4 @@ Scientific tests (or benchmarks) are required to test whether the output of a pr
 Note: Scientific tests are run every two weeks
 
 #### Merging code to master
-Once you have branched Rosetta, developed your feature and **fully tested** it, you are ready to contribute it to master - the main Rosetta code base. To do so, you have probably already reviewed the Rosetta Git conventions [Rosetta GitHub Practices](https://wiki.rosettacommons.org/index.php/GithubWorkflow) (if not, do so now!). However, this section is detailed walk-through of the merge process: providing some useful warnings and practices to be aware of. 
-
-1. In line with Rosetta Git practices, all development should be done in a branch. After committing changes and pushing to remote, go ahead and checkout master
-```
-git checkout master
-```
-2. Because other changes have most likely been made to master since when you originally branched, you will need to make your local copy of master up-to-date with the remote version. To do so, pull from master with the command below and resolve any merge conflicts: 
-```
-git pull
-```
-3. In the master branch, you can now merge in your changes with the command below. You will most likely need to resolve some merge conflicts. If conflicts are related to your change, accept your change. If not, accept whatever is in master.
-4. Your copy of master should now look mostly like what will be pushed/merged in master. Before pushing, it is important to **recompile your code** and **re-run your unit tests**. This will save you big headaches later.
-```
-git merge <branchname>
-``` 
-5. If your code compiles and tests pass locally, you are ready to push. Do so with the following command: 
-```
-git push origin master
-```
-
-Once you push to master, a few events will occur next. We want to ensure your changes did not break any other tests or features in Rosetta, so the [Test Server](http://rosettatests.graylab.jhu.edu/revs) will rebuild the code and re-run all of the unit and integration tests. After about an hour, you should get an email indicating one of the following: 
-* You successfully merged your code, the code builds and all of the tests pass!
-* You merged your code, but it broke the build
-* Your code built but one or more unit tests failed
-* Your code built but one or more integration tests failed
-
-If so, it is important to keep the following tips in mind: 
-* When the test server does a rebuild, your feature may cause a deeper rebuild of the code than normal. If your change is _really_ unrelated to an integration or unit test failure, it is possible that this is related to another failure yet to be addressed. When in doubt, ask someone in your lab or post to the developer's list.
-* If your code has broken the build, check your compiler settings. It is always good to try a clang and gcc build if you are not on a mac. 
-* If you never write a unit test, you could have either added a broken feature or easily broken someone else's feature. This is a great example of the importance of unit testing - they allow you to catch your own bugs, and inform others if a change impacts your feature. 
+Once you have branched Rosetta, developed your feature and **fully tested** it, you are ready to contribute it to master - the main Rosetta code base. To do so, you have probably already reviewed the Rosetta Git conventions [Rosetta GitHub Practices](https://wiki.rosettacommons.org/index.php/GithubWorkflow) (if not, do so now!). However, this page links to the **required** detailed process for committing code to Rosetta master: [Rosetta Wiki Page: Committing Code](https://wiki.rosettacommons.org/index.php/Committing_code)
