@@ -249,7 +249,7 @@ There are plenty of useful links available that are connected with Rosetta, in a
 ### 7. More Rosetta for developers
 
 #### Licensing
-To get Rosetta, you signed the developers agreement which also contained a lot of information about licensing third party software. Please also check out the wiki page here (https://wiki.rosettacommons.org/index.php/Licensing).
+To get Rosetta, you signed the developers agreement (http://rosettadesign.med.unc.edu/agreement/agreements.html) which also contained some information about licensing third party software. Please also check out the wiki page here (https://wiki.rosettacommons.org/index.php/Licensing). A good rule of thumb is NOT to use anything under GPL or LGPL license.
 
 #### Bootcamp (put together by Andrew Leaver-Fay and other members of the Commons)
 The Rosetta Bootcamp was given in April 2013 for the first time as a one-week workshop for beginning Rosetta developers. It contained both lectures as well as labs where participants applied their just-learned knowledge under the supervision of several Rosetta developers.
