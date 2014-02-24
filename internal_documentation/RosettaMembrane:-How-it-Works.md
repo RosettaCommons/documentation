@@ -1,6 +1,6 @@
 The purpose of the RosettaMembrane framework is to model the geometry of membrane proteins: where structures are positioned with respect to the membrane to inform important elements like fold trees, movers, and conformation. The purpose of this page is to describe the components of the membrane framework at a more detailed level: 
 
-## Conformation
+## Membrane Conformation
 The goal of a membrane conformation is to describe elements of a membrane protein, such as topology, embedding and lipids accessibility, not normally described by Rosetta's base conformation class. Below is roughly what the conformation object looks like: 
 
 [[/internal_documentation/conf_overview.png]]
@@ -22,10 +22,14 @@ Defines the position of a particular chain with respect to the membrane. In part
 Both MEM and EMB residues are of amino acid type MPR (Membrane Protein Residue). 
 
 ### Membrane Embedding Definitions
-There are several algorithms which can be used interchangeably to calculate the embedding of a membrane chain. Each algorithm can be applied to calculating the center, normal or both for a given membrane chain.  These are discussed briefly in the framework setup documentation, and discussed in further detail here: 
-* **user_defined**: The user provides a set of parameters (x, y, z) for the normal and center. The framework will use these parameters as the final starting parameters and not use any further computation. 
-* **from_topology**: Given a membrane topology definition, the embedding factory will calculate the center 
-from the average position between inner and outer residues (defined in SpanningTopology) and the normal vector as the normal to the average plane formed by the mp center residues. The from topoogy method will use the user defined values as starting parameters. 
+There are several algorithms which can be used to calculate parameters for defining the embedding of a membrane chain. The exact formatting of embedding definition files is described in the framework setup page. The purpose of this description is to discuss the actual algorithms. 
+
+**Methods for Computing Center and Normal Parameters**
+There are currently four methods for defining a center, normal or both. 
+* **user_defined**: The user provides a set of parameters (x, y, z) for the normal and center. The framework will use these parameters as the final embedding parameters.  
+* **from_topology**: Given a spanning topology definition, calculate the following parameters: 
+  * Center: average position between inner and outer residues
+  ( Normal: Normal to the plane formed by average center between inner and outer residues. 
 * **from_pdb**: The embedding factory will ignore user specified coordinates and set (0, 0, 0) and (0, 0, 1) for the center and normal respectively. Note, this means the chain embedding will directly overlap with the center and normal definition of the membrane. 
 * **from_search**: The from_search method will provide n cycles of a search and score method to search for the optimal membrane embedding using the membrane scoring function and filters as acceptance criteria. This method will use the user specified values as starting parameters. The "from_search' method can be controlled given the following advanced parameters which can be specified as Resource options in the resource definition file: 
 
