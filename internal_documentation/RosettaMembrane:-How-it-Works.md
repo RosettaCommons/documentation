@@ -1,11 +1,11 @@
 The purpose of the RosettaMembrane framework is to model the geometry of membrane proteins: where structures are positioned with respect to the membrane to inform important elements like fold trees, movers, and conformation. The purpose of this page is to describe the components of the membrane framework at a more detailed level: 
 
-## Membrane Protein Factory
+# Membrane Protein Factory
 The membrane protein factory is the top level of the membrane code, and is responsible for initializing and maintaining all elements in membrane conformation. It will create a membrane protein starting structure to pass off to a mover in a protocol. The MembraneProteinFactory class is currently called by the CreateMembranePoseMover which will create a membrane protein in your protocol. 
 
 **You should access the membrane framework directly through the mover - do not #include any class that is not MP conformation or in membrane properties - this is incorrect use of the framework. 
 
-## Membrane Conformation
+# Membrane Conformation
 The goal of a membrane conformation is to describe elements of a membrane protein, such as topology, embedding and lipids accessibility, not normally described by Rosetta's base conformation class. It manages the following data: 
 * A spanning topology object per chain
 * A lipids accessibility object per chain (if specified)
@@ -19,7 +19,7 @@ Below is roughly what the conformation object looks like:
 
 [[/internal_documentation/conf_overview.png]]
 
-### Membrane Residue Types
+## Membrane Residue Types
 To define membrane and chain orientation, the framework uses two new residue types, MEM and EMB, derived from a virtual residue type. Becasue they are virtual, they have no impact on the chemical properties of the structure and cannot be added to a polymer chain by bond (no upper/lower connect points). Instead, these residues are added by jump by the framework and act as local coordinate frames. Below describes the purpose of each residue: 
 
 **Membrane Residue (MEM)** 
@@ -35,7 +35,7 @@ Defines the position of a particular chain with respect to the membrane. In part
 
 Both MEM and EMB residues are of amino acid type MPR (Membrane Protein Residue). 
 
-### Membrane Embedding Definitions
+## Membrane Embedding Definitions
 There are several algorithms which can be used to calculate parameters for defining the embedding of a membrane chain. The exact formatting of embedding definition files is described in the framework setup page. The purpose of this description is to discuss the actual algorithms. 
 
 **Methods for Computing Center and Normal Parameters**
@@ -59,10 +59,10 @@ There are currently four methods for defining a center, normal or both.
 |normal_max_angle|Magnitude of angle deviation during normal search (degrees)|Integer|
 |normal_delta_angle|Maximum angle deviation allowed during search|Integer|
 
-### Input Handling: Resource Management and Flags
+# Input Handling: Resource Management and Flags
 There are two main forms of input to the membrane framework: resource manager data and general flags specified on the command-line. Both are required for using the framework. 
 
-### Command Line Options
+## Command Line Options
 Two overall command line options are required for running the membrane framework: 
 
 |**Flag**|**Description**|**Type**|
@@ -70,7 +70,7 @@ Two overall command line options are required for running the membrane framework
 |-in:membrane:membrane_chains|List of chains |Filename|
 |-jd2:resource_definition_files|Membrane protein resource definition file|Filename|
 
-### Resource Manager Data
+## Resource Manager Data
 The remainder of inputs to the membrane code are managed by the resource manager. Here I am documenting which resource loaders (and corresponding resource manager classes) correspond to which resources. All of this code is located in `src/core/membrane/io`.
 
 |**Resource**|**Description**|**Resource Manager Classes**|
@@ -82,7 +82,7 @@ The remainder of inputs to the membrane code are managed by the resource manager
 
 To add a new data resource associated with the membrane framework, _please use the resource manager_
 
-## Membrane Scoring Function - Options and Info
+# Membrane Scoring Function - Options and Info
 The membrane scoring function was developed by Vladmir Yarrov-Yaravoy and Patrick Barth in 2006 as a direct addition with the membrane _ab initio_ protocol. The membrane scoring function accounts for hydrophobic layers in the membrane, as well as differing residue pair interactions and penalizes topological features that would otherwize create significant energetic cost due to positioning in the membrane. 
 
 The following scoring terms are included in the current version of the scoring function. 
