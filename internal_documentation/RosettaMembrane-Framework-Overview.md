@@ -2,10 +2,10 @@
 
 ### Authors/Developers
 - Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
+- Advised by Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
 
 ### Metadata
 - Corresponding PI: Jeffrey Gray ([jgray@jhu.edu](jgray@jhu.edu))
-- Advised by Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
 
 Last Modified: 2/15/2013
 
@@ -14,7 +14,7 @@ By default, much of Rosetta is oriented for modeling soluble proteins. In previo
 
 The **RosettaMembrane Framework** provides a generalized framework for modeling membrane proteins. The framework is not an application; but provides the necessary components for modeling membrane protein conformation, topology, embedding, and kinematics. The framework also handles the large quantities of required data via the Resource manager. Below is an overall landscape of the membrane protein framework: 
 
-[[/internal_documentation/basic_structure_mpframework.png]]
+[[/internal_documentation/frmwk_overview.png]]
 
 The framework is a developer tool. Each page below details its components, guidelines on development and use, and how to get the most out of the framework: 
 
