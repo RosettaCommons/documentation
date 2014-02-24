@@ -41,8 +41,10 @@ This page is geared towards new members of the Rosetta community as a "fast" way
   * Useful links
 
 #####7. More Rosetta for developers
+  * Licensing
   * Bootcamp
   * Running code and git
+  * Where to put your new code
   * Notes on code design and implementation workflow
   * More notes
   * Compiling/running code
@@ -243,6 +245,10 @@ There are plenty of useful links available that are connected with Rosetta, in a
 
 
 ### 7. More Rosetta for developers
+
+#### Licensing
+To get Rosetta, you signed the developers agreement which also contained a lot of information about licensing third party software. Please also check out the wiki page here (https://wiki.rosettacommons.org/index.php/Licensing).
+
 #### Bootcamp (put together by Andrew Leaver-Fay and other members of the Commons)
 The Rosetta Bootcamp was given in April 2013 for the first time as a one-week workshop for beginning Rosetta developers. It contained both lectures as well as labs where participants applied their just-learned knowledge under the supervision of several Rosetta developers.
 
@@ -292,6 +298,11 @@ Below are the contents of the individual lectures/labs:
 #### Running code and git
 * make a separate directory outside of Rosetta where you run your exes and create files; this should be separate because your additional output files (as well as data) shouldn't be committed to the code base
 * make it a habit to add a new file to git immediately after you create it in source, this will make it much easier once you want to commit
+
+#### Where to put your new code
+When you are starting a coding project, make a new branch (git personal-tracked-branch mynewbranch) and start coding. **DO NOT PUT YOUR CODE IN /devel/ AS IT WILL BE PHASED OUT!!!** If you don't want your code to be released yet, just keep it in your branch until you are ready to merge your branch to master.
+
+If you are writing a completely new framework, it MIGHT make sense to create a subdirectory in /core/. Also, be sure to consider which other code or libraries you are using in your code because they need to be compiled BEFORE any of your code will be compiled, otherwise you will run into unresolvable errors at compile time. If you are unsure, ask someone. 
 
 #### Notes on code design and implementation workflow
 * before writing code, write down code design in every single detail, what are the interfaces between all the objects and classes you will create, what are the functions you need (and other people may need)? 
