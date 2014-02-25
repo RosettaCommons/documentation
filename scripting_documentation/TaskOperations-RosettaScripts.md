@@ -581,8 +581,6 @@ Cterm
 
 <!-- -->
 
-
-
      This example creates a new layer that combines BuildingBlockInterface(symmetric interface with SelectBySasa picking up the core of the complex
      since applying task operations returns the intersection of the sets this combined task will return the buried residues of the symmetric  interface.
 
@@ -780,6 +778,8 @@ Restrict Design and repacking to protein residues around the defined DNA bases
 -   base\_only: only residues within reach of the DNA bases are considered
 -   z\_cutoff: limit the protein interface positions to the ones that have a projection of their distance vector on DNA axis lower than this threshold. It prevents designs that are too far away along the helical axis
 
+<!--- BEGIN_INTERNAL -->
+
 ### BuildingBlockInterface
 
 (This is a devel TaskOperation and not available in released versions.)
@@ -794,17 +794,6 @@ For use when designing with symmetric building blocks. Prevents repacking at res
 -   bblock\_dist - The all-heavy atom cutoff distance used to specify residues that are making inter-subunit contacts within the building block. Because these residues are making presumably important intra-building block interactions, they are prevented from repacking unless they are clashing.
 -   fa\_rep\_cut - The cutoff used to determine whether residues making inter-subunit contacts within the building block are clashing.
 
-### RestrictToNonzeroSASA
-
-(This is a devel TaskOperation and not available in released versions.)
-
-Prevents repacking at residues that have zero SASA in the monomeric state (core residues). Allows user definition of the solvent probe radius.
-
-      <RestrictToNonzeroSASA name=(&string) probe_radius=(2.2 &Real) ncomp=(1 &Size) />
-
--   probe\_radius - The radius of the probe used to determine SASA.
--   ncomp - The number of distinct components in the system. The default of 1 should be valid in most cases, but for a symmetric assembly with 2 different building blocks for instance, ncomp=2.
-
 ### RestrictIdentities
 
 Used to specify a set of amino acid identities that are either restricted to repacking, or prevented from repacking altogether. Useful if you don't want to design away, for instance, prolines and glycines.
@@ -813,6 +802,8 @@ Used to specify a set of amino acid identities that are either restricted to rep
 
 -   identities - A comma-delimited list of the amino acid types that you'd like to prevent from being designed or repacked (e.g., "PRO,GLY").
 -   prevent\_repacking - Whether you want those identities to be prevented from repacking altogether (pass true) or just from being designed (pass false).
+
+<!--- END_INTERNAL --> 
 
 ### RestrictNativeResidues
 
@@ -830,6 +821,8 @@ Option list
 -   verbose ( default = 0 ) : Optional. If set to true, then will output a pymol selection string of all non-native residues to stdout.
 -   pdbname ( default = "" ) : Optional. Name of the reference pdb to be used as the "native" structure. May alternatively be specified by the in:file:native flag.
 
+<!--- BEGIN_INTERNAL -->
+
 ### RetrieveStoredTask
 
 (This is a devel TaskOperation and not available in released versions.)
@@ -839,6 +832,8 @@ Retrieves a stored packer task from the pose's cacheable data; must be used in c
       <RetrieveStoredTask name=(&string) task_name=(&string) />
 
 -   task\_name - The index where the stored task can be accessed in the pose's cacheable data. This must be identical to the task\_name used to store the task using the StoreTask mover.
+
+<!--- END_INTERNAL --> 
 
 ### ProteinCore
 
