@@ -1084,6 +1084,7 @@ This mover takes a non-symmetric pose composed of symmetric chains and transform
 
 subunit\_tolerance: maximum tolerated CA-rmsd between the chains. plane\_tolerance: maximum accepted displacement(angstroms) of the center of mass of the whole pose from the xy-plane.
 
+<!--- BEGIN_INTERNAL -->
 #### SymDofMover
 
 (This is a devel Mover and not available in released versions.)
@@ -1112,6 +1113,8 @@ Used to setup symmetric systems in which the input structures(s) are aligned alo
 -   angle\_deltas - For use with Gaussian sampling. The range within to sample around the user specified initial angle(s). Passed as a string with a comma-separated list (e.g. angle\_deltas="0.5,0.5".
 -   radial\_offsets - Can be used in any sampling mode. Offset value(s) are added to the corresponding radial\_disps before grid, uniform, or gaussian sampling is performed. Works with auto\_range. For example, if one wants to space out both symdofs a given structure by 2 angstroms, one can pass radial\_offsets="2,2" and auto\_range=true. Then, regardless of the sign of the radial disps, the subunits will be displaced 2 angstroms further from the origin (assuming the input subunit(s) start at the origin).
 
+<!--- END_INTERNAL --> 
+
 #### ExtractAsymmetricUnit
 
 The inverse of SetupForSymmetry: given a symmetric pose, make a nonsymmetric pose that contains only the asymmetric unit.
@@ -1134,6 +1137,7 @@ Used to extract a subset of the subunits from a symmetric pose based on contacts
 -   suffix - Optional suffix for the output pdb name.
 -   contact\_dist - Maximum CA or CB distance from any residue in the primary component(s) to any residue in another component for it to be considered a "neighbor" and added to the extracted subpose.
 -   extras - Boolean option to set whether or not full building blocks are extracted rather than just subunits.
+
 <!--- END_INTERNAL --> 
 
 #### ExtractAsymmetricPose
@@ -1217,6 +1221,8 @@ The following RosettaScript runs a protocol similar to Rosetta's symmetric fast 
 </ROSETTASCRIPTS>
 ```
 
+<!--- BEGIN_INTERNAL -->
+
 #### TaskAwareSymMinMover
 
 (This is a devel Mover and not available in released versions.)
@@ -1228,6 +1234,8 @@ A task-aware version of the SymMinMover that allows minimization of only certain
 -   bb - Whether to allow backbone minimization.
 -   chi - Whether to allow side chain minimization.
 -   rb - Whether to allow rigid body minimization.
+
+<!--- END_INTERNAL --> 
 
 #### Issues with Symmetry and Rosetta Scripts
 
@@ -1873,6 +1881,7 @@ Example:
 -   overwrite: above which threshold (e.g. delta score/delta ddg) a negative state will be counted in the Boltzmann fitness calculation. This prevents the dilution of negative states.
 -   OPERATION: any of the operations the following logical operations: NOT, AND, OR, XOR, NAND, NOR, ANDNOT, and ORNOT. Note that the operations are performed in the order that they are defined. No precedence rules are enforced, so that any precedence has to be explicitly written by making compound statements of compound statements. Note that the first OPERATION specified in the compound statement treated as a negation if NOT, ANDNOT, or ORNOT is specified.
 -   task\_operations: A comma-delimited list of task operations
+
 <!--- END_INTERNAL --> 
 
 #### VirtualRoot
