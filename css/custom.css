@@ -1,0 +1,7 @@
+table th td {
+    border: 1px solid black;
+}
+
+/*alternate table colors*/
+tr:nth-child(odd)       { background-color:#eee; }
+tr:nth-child(even)      { background-color:#fff; }
