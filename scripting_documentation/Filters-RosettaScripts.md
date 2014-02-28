@@ -1154,7 +1154,7 @@ If use\_probability is false, the filter returns the fraction of residues that m
 <SSPrediction name=(&string) threshold=(&real) use_probability=( true &bool) cmd=(&string) blueprint=( "" &string) use_svm=( true &bool ) />
 ```
 
--   threshold - If set, the filter returns true only if the calculated value is less than this number.
+-   threshold - If threshold is set and use_probability is true, the filter returns true only if the calculated value is less than this number. If use_probability is false, the filter returns true if the calculated value is greater than this number.
 -   use\_probability - If true, the probability information that psipred calculates will be used to determine the score. IF false, the filter will return the percentage of residues that match.
 -   cmd - Full path to runpsipred\_single or runpsipred executable. Must be specified if use\_svm=false
 -   blueprint - If specified, the filter will take desired secondary structure from a blueprint file, rather from DSSP on the pose.
