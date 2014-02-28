@@ -537,7 +537,7 @@ protocols.fldsgn.filters.SecondaryStructureFilter: LEEEEEEEELLLLEEEEEEEELLLLHHHH
 
 #### CavityVolume
 
-Uses Will Sheffler's packing code to estimate the total volume of intra-protein voids. The value returned is the sum of volumes of the computed cavities in Angstroms <sup>3</sup> . This filter currently has no options, but that may change in the future.
+Uses Will Sheffler's packing code to estimate the total volume of intra-protein voids. The value returned is the sum of volumes of the computed cavities in Angstroms <sup>3</sup>. A value of 20 is approximately equal to the volume of a carbon atom. This filter currently has no options, but that may change in the future.
 
 ```
 <CavityVolume name=(&string) />
