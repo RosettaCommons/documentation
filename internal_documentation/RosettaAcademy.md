@@ -72,8 +72,8 @@ To work in Rosetta, you need to know some basic biochemistry about amino acids a
 * http://www.rpi.edu/dept/bcbp/molbiochem/MBWeb/mb1/part2/protein.htm
 * http://www.ruppweb.org/xray/tutorial/protein_structure.htm
 
-#### FoldIt (developed by Firas Khatib, Bakerlab/Dartmouth College)
-FoldIt is a videogame created for the general public to solve real-life scientific puzzles involving protein structure and function. It is an excellent starting point to learn about protein structure as it does not require any previous knowledge. Once you download it, it will take you through tutorials where you are learning about all the moves and modifications you can do to a protein structure with a lot of fun along the way. Keep in mind that the terminology that FoldIt uses is a bit different than what we are using in Rosetta (even though the code underneath FoldIt is Rosetta code), but if you understand the concepts using FoldIt, you can easily apply them in Rosetta. Also, the score in FoldIt is opposite from Rosetta: in FoldIt a higher score is better, in Rosetta, a lower energy is desired.
+#### Foldit (developed by Center for Game Science at UW/Bakerlab/UMass Dartmouth)
+Foldit is a videogame created for the general public to solve real-life scientific puzzles involving protein structure and function. It is an excellent starting point to learn about protein structure as it does not require any previous knowledge. Once you download it, it will take you through tutorials where you are learning about all the moves and modifications you can do to a protein structure with a lot of fun along the way. Keep in mind that the terminology that Foldit uses is a bit different than what we are using in Rosetta (even though the code underneath Foldit is Rosetta code), but if you understand the concepts using Foldit, you can easily apply them in Rosetta. Also, the score in Foldit is opposite from Rosetta: in Foldit a higher score is better, in Rosetta, a lower energy is desired.
 
 Download it at http://fold.it/portal/
 
