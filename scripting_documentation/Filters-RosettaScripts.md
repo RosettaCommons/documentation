@@ -1435,7 +1435,7 @@ This filter is designed as a means of quantifying Nobu and Rie's "foldability" m
 
 **Example**
 
-The following example runs the foldability filter to rebuild the motif "2LX-5HA-3LX-5EB-2LX" 100 times. The rebuilding will take place starting at residue 30, and the score returned will be the percentage of times that folding this piece was successful.
+The following example runs the foldability filter to rebuild the motif "2LX-5HA-3LX-5EB-2LX" 100 times. The rebuilding will take place starting at residue 30, and the score returned will be the fractions of times (represented as a number between 0 and 1) that folding this piece was successful. The threshold result for success is highly dependent on fold, and can range from 0.05 to 1.0.
 
 ```
 <FILTERS>
