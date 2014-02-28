@@ -863,7 +863,7 @@ Note that only one of the 5 can exist in a tag: extra\_scoring,ppk\_only,pep\_re
 
 #### ConnectJumps
 
-Given a pose with a jump, this mover uses a fragment insertion monte carlo to connect the specified termini. The new fragment will connect the C-terminal residue of jump1 to the N-terminal residue of jump2, and will have secondary structure and ramachandran space given by "motif." This mover uses the VarLengthBuild code.
+Given a pose with a jump, this mover uses a fragment insertion monte carlo to connect the specified termini. The new fragment will connect the C-terminal residue of jump1 to the N-terminal residue of jump2, and will have secondary structure and ramachandran space given by "motif." This mover uses the VarLengthBuild code. The input pose must have at least two chains (jumps) to connect, or it will fail. 
 
 ```
 <ConnectJumps name=(&string) motif=("" &string) jump1=(1 &int) jump2=(2 &int) overlap=(3 &int) scorefxn=(&string) />
