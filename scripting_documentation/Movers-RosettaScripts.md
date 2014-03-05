@@ -489,6 +489,21 @@ RenderGridsToKinemage will output a Kinemage file representing 1 or more scoring
 -   high\_color: 3 comma sepeated floats describing the color of the minimum value of the grid. colors of grid points will be in a smooth gradient between low\_color and high\_color.
 -   stride: The "stride" of the grid. If stride is 1, every grid point will be output. if stride is 5, every 5th grid point will be output.
 
+#### PyMolMover
+PyMolMover will send a pose to an instance of the PyMol molecular visualization software running on the local host. Each call of the mover overwrites the object in PyMol. It is not a full featured as the version built in to PyRosetta but is extremely useful for visualizing the flow of a protocol or generating a frames for a movie of a protocol.
+
+```
+<PyMolMover name="&string" keep_history=(0 &bool) />
+```
+- keep\_history: each call to the mover store a pose in a new state/frame of an object in PyMol rather than overwriting it. Frames can be played back like a movie to visualize the flow of a protocol.
+
+**Prerequisites**
+
+To allow PyMol to listen for new poses, you need to run the following script from within PyMol, where *$PATH_TO_ROSETTA* is replaced by the path to you Rosetta installation.
+```
+run $PATH_TO_ROSETTA/Rosetta/main/source/src/python/bindings/PyMOLPyRosettaServer.py
+```
+
 ### Setup Movers
 
 #### SetupPoissonBoltzmannPotential
