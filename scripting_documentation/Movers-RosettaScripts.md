@@ -1678,7 +1678,12 @@ Span files have the following structure:
 
 (This is a devel Mover and not available in released versions.)
 
-Splice backbone dihedrals from source pdb onto target (input) pdb. Highly experimental and constantly changing (wiki might not be up to date). Ask Sarel.
+This is a fairly complicated mover with several different ways to operate:
+
+-   1. given a source pose: splices segments from source pose onto current pose and ccd closes it. Use either with from\_res to\_res options or with the task\_operations. Generates a database file with the dihedral angle data from the spliced segment.
+-   2. given a database file: splices segments from the database. If entry is left at 0, splices random entries.
+-   3. given a database file and a template file: splices segments from the database. The residue start and end in the database are mapped onto the template rather than the source pose.
+-   4. ccd on or off: Obviously ccd is very time consuming.
 
 ```
 <Splice name="&string" from_res=(&integer) to_res=(&integer) source_pdb=(&string) scorefxn=(score12 &string) ccd=(1 &bool) res_move=(4 &integer) rms_cutoff=(99999&real) task_operations=(&comma-delimited list of taskoperations) torsion_database=(&string) database_entry=(0&int) template_file=(""&string) thread_ala=(1&bool) equal_length=(0&bool)/>
@@ -1696,12 +1701,7 @@ Splice backbone dihedrals from source pdb onto target (input) pdb. Highly experi
 -   thread\_ala: thread alanine residues in all positions where source has no gly/pro or disagrees with current pose? If false, allows design at those positions.
 -   equal\_length: when sampling from a database, do you want to restrict only to entries with equal length to the current pose?
 
-This is a fairly complicated mover with several different way to operate:
 
--   1. given a source pose: splices section from source pose onto current pose and ccd closes it. Use either with from\_res to\_res options or with the task\_operations.
--   2. given a database file: splices segments from the database. If entry is left at 0, splices random entries.
--   3. given a database file and a template file: splices segments from the database. The residue start and end in the database are mapped onto the template rather than the source pose.
--   4. ccd on or off: Obviously ccd is very time consuming.
 
 #### SwitchResidueTypeSetMover
 
