@@ -29,6 +29,7 @@ General Description and Purpose
 RosettaScripts is meant to provide an xml-scriptable interface for conducting all of the tasks that interface design developers produce. With such a scriptable interface, it is hoped, it will be possible for non-programmers to 'mix-and-match' different design strategies and apply them to their own needs. It is also hoped that through a common interface, code-sharing between different people will be smoother. Note that at this point, the only movers and filters that are implemented in this application are the ones described below. More will be made available in future releases. At this point these include protocols from the protein-interface design, protein docking, enzyme-design, ligand-docking and -design, monomer design, and DNA-interface design groups. General movers for loop modeling and structure relaxation are also available.
 
 A paper describing RosettaScripts is available at: Fleishman et al. (2011) PLoS 1 6:e20161
+(http://www.plosone.org/article/fetchObject.action?uri=info%3Adoi%2F10.1371%2Fjournal.pone.0020161&representation=PDF)
 
 At the most abstract level, all of the computations that are needed in interface design fall into two categories: Movers and Filters. Movers change the conformation of the complex by acting on it, e.g., docking/design/minimization, and filters decide whether a given conformation should go on to the subsequent steps. Filters are meant to reduce the amount of computation that is conducted on conformations that show no promise. Then, a RosettaScript is merely a sequence of movers and filters.
 
@@ -460,4 +461,3 @@ The SCORINGGRIDS block is used to define ligand scoring grids (currently used on
 -   VdwGrid: A knowledge based potential derived grid approximating shape complementarity
 -   HbdGrid: A knowledge based potential derived grid approximating protein hydrogen bond donor interactions
 -   HbaGrid: A knowledge based potential derived grid approximating protein hydrogen bond acceptor interactions
-
