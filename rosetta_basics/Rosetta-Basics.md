@@ -8,6 +8,7 @@
 - [[AtomTree Overview]]
 - [[Symmetry]]
 
+
 ####Preparing structures to be used by Rosetta
 - [[Preparing structures]]
 - [[Preparing structures with relax|prepare-pdb-for-rosetta-with-relax]]
@@ -36,8 +37,19 @@
 - [[Fragment file]] - Database of backbone fragment conformations
 - [[Loops file]] - Which regions of the protein should be rebuilt
 - [[Chemical shift file]] - NMR chemical shifts
+- [[Residue Params file]] - Residue chemical information
 - [[Symmetry file|Symmetry#Symmetry-definitions]] - Dealing with symmetric proteins.
 
+####Working with Non-Protein Residues and Molecules
+- [[Enabling Params Files]]
+- [[DNA]]
+- [[RNA]]
+- [[Ligands]]
+- [[Water]]
+- [[Metals]]
+- [[Carbohydrates]]
+- [[Mineral Surfaces]]
+- [[Non-Cannonical Amino Acids]]
 
 ####Misc
 - [[Database support]] - Relational database support in Rosetta.
