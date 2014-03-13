@@ -42,6 +42,7 @@
 
 ####Working with Non-Protein Residues and Molecules
 - [[Enabling Params Files]]
+- [[Ignore Unrecognized]]
 - [[DNA]]
 - [[RNA]]
 - [[Ligands]]
