@@ -40,13 +40,6 @@ There are some other suggested changes:
 
     flag. This causes the PDB reader to stop reading multimodel NMR-derived PDBs after the first model.
 
--   pass the
-
-    ```
-    -jd2:delete_old_poses 
-    ```
-
-    flag. This causes JD2 to not leak memory by holding on to old input poses.
 
 -   Ignoring unrecognized residues with
 
