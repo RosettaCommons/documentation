@@ -1,12 +1,11 @@
 #Rosetta Basics
 
-####Fundamental Rosetta Concepts
-- [[Score Types]] - Description of common Rosetta score terms
-- [[Minimization Overview]] - Backbone and/or side chain degrees of freedom
-- [[Packer Task]] - Controlling which side chains can vary during rotamer optimization 
-- [[Foldtree Overview]]
-- [[AtomTree Overview]]
-- [[Symmetry]]
+####Preparing structures to be used by Rosetta
+- [[Preparing structures]]
+- [[Preparing structures with relax|prepare-pdb-for-rosetta-with-relax]]
+- [[Preparing ligands]]
+- [[Making rosetta robust for running on large number of inputs|robust]]
+
 
 ####Controlling Rosetta Execution
 - [[Database]] - The Rosetta database
@@ -31,11 +30,13 @@
 - [[Chemical shift file]] - NMR chemical shifts
 - [[Symmetry file|Symmetry#Symmetry-definitions]] - Dealing with symmetric proteins.
 
-####Preparing structures to be used by Rosetta
-- [[Preparing structures]]
-- [[Preparing structures with relax|prepare-pdb-for-rosetta-with-relax]]
-- [[Preparing ligands]]
-- [[Making rosetta robust for running on large number of inputs|robust]]
+####Fundamental Rosetta Concepts
+- [[Score Types]] - Description of common Rosetta score terms
+- [[Minimization Overview]] - Backbone and/or side chain degrees of freedom
+- [[Packer Task]] - Controlling which side chains can vary during rotamer optimization 
+- [[Foldtree Overview]]
+- [[AtomTree Overview]]
+- [[Symmetry]]
 
 ####Misc
 - [[Database support]] - Relational database support in Rosetta.
