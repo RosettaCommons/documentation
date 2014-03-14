@@ -88,3 +88,16 @@ Path related output options
 -out:path:pdb             PDB file output path. [Path]
 -out:path:score           Score file output path. [Path]
 ```
+
+Handy output options for debugging a protocol
+=============================================
+
+```
+-inout:dump_connect_info         Writes explicit CONECT records in the PDB file,
+                                 so that bonds are drawn between all connected
+                                 atoms. [Boolean]
+-inout:connect_info_cutoff       Sets the threshold for writing CONECT records.
+                                 Bonded atoms separated by more than this
+                                 distance (in Angstroms) have a CONECT record
+                                 written.  Set to 0.0 to write all bonds. [Real]
+```
