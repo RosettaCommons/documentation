@@ -17,12 +17,12 @@ Misc
 -out:pdb_gz                Compress (gzip) output pdbs", default="false". [Boolean]
 -out:pdb                   Output PDBs", default="false". [Boolean]
 -out:nooutput              Surpress outputfiles. Default="false". [Boolean]
--out:no_nstruct_label      Do not append _#### to tag for output structures
 -out:output                Force outputfiles. Default="false". [Boolean]
 -out:show_accessed_options At the end of the run show options that has been accessed
                            Default="false". [Boolean]
 -out:user_tag              Add this tag to structure tags: e.g., a process id.
                            Default="". [String]
+-out:no_nstruct_label      Do not append _#### to tag for output structures
 ```
 
 Tracer related options.
