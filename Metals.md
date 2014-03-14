@@ -35,8 +35,8 @@ The **-in:auto_setup_metals** flag has been added to handle import of metallopro
 
 Three additional flags control the behavior:
 * **-in:metals_detection_LJ_multiplier <value>** controls the threshold for detecting covalent interactions between metal ions and metal-binding residues.  A value of 1.5 means that a time and a half the sum of the van der Waals radii of the metal ion and potential metal-binding atoms is used as the threshold.
-* **-in:metals_distance_constraint_multiplier <value>** controls the strength of the distance constraint, with 1.0 being the default.  Note that if an **atom_pair_constraint** weight is set by a protocol or by a weights file, the strength is automatically scaled appropriately (i.e. doubling the **atom_pair_constraint** weight does _not_ necessitate halving the value set with this flag).
-* **-in:metals_angle_constraint_multiplier <value>** controls the strength of the angle constraint, with 1.0 being the default.  As before, if an **angle_constraint weight** is set by a protocol or by a weights file, the strength is automatically scaled appropriately.
+* **-in:metals_distance_constraint_multiplier <value>** controls the strength of the distance constraint, with 1.0 being the default.  Note that if an **atom_pair_constraint** weight is set by a protocol or by a weights file, the strength is automatically scaled appropriately (i.e. doubling the **atom_pair_constraint** weight does _not_ necessitate halving the value set with this flag).  If the value is set to 0, no atom_pair constraints are added.
+* **-in:metals_angle_constraint_multiplier <value>** controls the strength of the angle constraint, with 1.0 being the default.  As before, if an **angle_constraint weight** is set by a protocol or by a weights file, the strength is automatically scaled appropriately.  If the value is set to 0, no angle constraints are added.
 
 ## How does Rosetta know what residues can bind metals, and what atoms in those residues form the covalent bonds to metals?
 
