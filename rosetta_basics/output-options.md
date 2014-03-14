@@ -78,7 +78,7 @@ Files related output options
 -out:file:scorefile       Write a scorefile to the provided filename.
                           Default = "default.sc [String]
 -out:file:fullatom        Enable full-atom output of PDB or centroid structures.
-                          Default = "fault" [Boolean]
+                          Default = "false" [Boolean]
 ```
 
 Path related output options
@@ -95,9 +95,10 @@ Handy output options for debugging a protocol
 ```
 -inout:dump_connect_info         Writes explicit CONECT records in the PDB file,
                                  so that bonds are drawn between all connected
-                                 atoms. [Boolean]
+                                 atoms. Default = "false".  [Boolean]
 -inout:connect_info_cutoff       Sets the threshold for writing CONECT records.
                                  Bonded atoms separated by more than this
                                  distance (in Angstroms) have a CONECT record
-                                 written.  Set to 0.0 to write all bonds. [Real]
+                                 written.  Set to 0.0 to write all bonds.
+                                 Default = 3.0. [Real]
 ```
