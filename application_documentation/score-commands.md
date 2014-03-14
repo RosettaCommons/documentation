@@ -14,7 +14,7 @@ Command Line Options
 ====================
 
 ```
-** Sample command:  score_jd2.linuxgccrelease -database db_path -no_output
+** Sample command:  score_jd2.linuxgccrelease -database db_path -out:file:score_only score.sc -l PDBLIST.txt
 
 General:
    -database                                   Path to rosetta_database
@@ -59,7 +59,8 @@ General Database:
 
  General Output:
 
-   -out:file:score_only                           Only output the score file
+   -out:file:score_only                           Only output the score file.
+                                                   Must give score.sc or filename for it to work.
    -out:no_nstruct_label                          Do not append _#### to tag for output structures
    -out:overwrite                                 Overwrite structures if they already exist
    -out:path:all                                  Path where to write output data
