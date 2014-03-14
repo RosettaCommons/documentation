@@ -2,7 +2,7 @@
 
 Here is a list of common used output options.
 
-Misc
+General Output Options
 ====
 
 ```
@@ -23,6 +23,19 @@ Misc
 -out:user_tag              Add this tag to structure tags: e.g., a process id.
                            Default="". [String]
 -out:no_nstruct_label      Do not append _#### to tag for output structures
+```
+
+Relational Databases
+====================
+See [[here | rosetta_basics/Database-options ]] for more info
+```
+-out:use_database          Write out structures to database.
+                            Specify database via -inout:dbms:database_name and wanted structures with
+                            -in:file:tags [Boolean]
+-out:database_filter       Filter to use with database output.  Arguments for filter follow filter name [StringVector]
+-out:resume_batch          Specify 1 or more batch ids to finish an incomplete protocol.
+                            Only works with the DatabaseJobOutputter.
+                            The new jobs will be generated under a new protocol and batch ID
 ```
 
 Tracer related options.
