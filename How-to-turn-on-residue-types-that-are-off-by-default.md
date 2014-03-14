@@ -13,3 +13,6 @@ Typically, a user would have three usage cases:
 ## See also
 * Notes on [[params files|Residue Params file]], for adding new residue types that are not already in the Rosetta database.
 * Notes on working with [[noncanonical amino acids|Noncanonical Amino Acids]], [[metals|Metals]], [[carbohydrates|Carbohydrates]], _etc_.
+
+## Note for developers
+Adding new residue types to the Rosetta database is fine, but most types should probably be turned off (commented out) by default in *residue_types.txt*.  Rosetta's database includes a very large set of noncanonicals, which are not used (and need not be loaded into memory) by most users.
