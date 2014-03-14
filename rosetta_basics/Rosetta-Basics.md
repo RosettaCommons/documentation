@@ -20,7 +20,7 @@
 - [[Command options]] - Controlling Rosetta with command line options
     * [[Input options]]
     * [[Output options]]
-    * [[Relational Database options]]
+    * [[Relational Database options | Database-options]]
     * [[Run options]]
     * [[Score options]]
     * [[Packing options]]
