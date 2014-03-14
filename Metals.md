@@ -48,7 +48,7 @@ Absolutely.  The noncanonical amino acid (2,2'-bipyridin-5yl)alanine (BPY) has b
 
 ## Is there a good way to confirm that Rosetta is setting the atomic connectivity properly?
 
-Yes.  Explicit CONECT records can be written on PDB export by using the **-inout:connect_info_cutoff 0.0** and **-inout:dump_connect_info true** flags.  Bonds to the metal ion will be visible when the PDB output from Rosetta is loaded in PyMOL.
+Yes.  Explicit CONECT records can be written on PDB export by using the **-inout:connect_info_cutoff 0.0** and **-inout:dump_connect_info true** flags.  Bonds to the metal ion will be visible when the PDB output from Rosetta is loaded in PyMOL if you use these flags.
 
 ## I'd like to do other things with metals in my own protocols.  Where can I find the code for the functionality described here?
 
