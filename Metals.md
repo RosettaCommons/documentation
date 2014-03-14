@@ -52,3 +52,7 @@ Yes.  Explicit CONECT records can be written on PDB export by using the **-inout
 ## I'd like to do other things with metals in my own protocols.  Where can I find the code for the functionality described here?
 
 Utility functions are located in **src/core/pose/metalloproteins/util.cc** and **src/core/pose/util.cc**.  The **is_metal()** and **is_metalbinding()** methods have both been added to both the **core::chemical::ResidueType** and **core::conformation::Residue** classes, letting you query whether a residue is a metal ion or a metal-binding residue.  For metal-binding residues, the **get_metal_binding_atoms()** method in **ResidueType** and **Residue** provides a list of indices of metal-binding atoms.
+
+## Caveats
+
+This has not yet been tested with Cartesian minimization, the **cart_bonded** score term, or symmetry.  These might create problems.
