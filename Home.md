@@ -9,7 +9,7 @@ Rosetta is freely available to academic and government laboratories, with over 1
 
 ##Documentation
 
-Rosetta is distributed as source, and thus will require being [[compiled and installed|Build-Documentation]] before use. Before using Rosetta, you should familiarize yourself with the [[basic rosetta concepts|Rosetta Basics]] used throughout our applications. A compiled version of Rosetta contains a large variety of pre-made [[applications|Application-Documentation]] that were designed and created for a specific modeling tasks. For most users, these applications will be all you need. However, advanced users may find themselves wanting new applications that better suit their specific needs. In this case, please read our guides for [[developing Rosetta code|Development-Documentation]].
+Rosetta is distributed as source, and thus will require being [[compiled and installed|Build-Documentation]] before use. Before using Rosetta, you should familiarize yourself with the [[basic rosetta concepts|Rosetta Basics]] used throughout our applications. A compiled version of Rosetta contains a large variety of pre-made [[applications|Application-Documentation]] that were designed and created for specific modeling or design tasks. For most users, these applications will be all you need. However, advanced users may find themselves wanting new applications that better suit their specific needs. In this case, please read our guides for [[developing Rosetta code|Development-Documentation]].
 
 ##Documentation Quick Links
 
