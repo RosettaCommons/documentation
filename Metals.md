@@ -60,4 +60,5 @@ Good question.  Utility functions are located in **src/core/pose/metalloproteins
 
 ## Caveats
 
-This has not yet been tested with Cartesian minimization, the **cart_bonded** score term, or symmetry.  These might create problems.
+* Metals followed by a character (_e.g._ ZN1, CU2, etc.) are interpreted as the corresponding metal on PDB import.  This can create problems (_e.g._ CO2 is interpreted as cobalt, not carbon dioxide).
+* This has not yet been tested with Cartesian minimization, the **cart_bonded** score term, or symmetry.  These might create problems.
