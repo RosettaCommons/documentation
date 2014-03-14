@@ -29,7 +29,9 @@ The following lines are typically found in Ligand params files. This does not re
 
 -   **CHI** Defines a rotatable chi angle. A chi angle number is specified, followed by the names of the four atoms defining the angle
 
--  **PROPERTIES** A series of properties describing this ligand type or residue type.  Allowed properties include (though this list is not exhaustive): **PROTEIN POLYMER LIGAND COARSE METAL METALBINDING DNA RNA CARBOHYDRATE SURFACE POLAR CHARGED AROMATIC TERMINUS LOWER_TERMINUS UPPER_TERMINUS SC_ORBITALS**.
+-  **PROPERTIES** A series of properties describing this ligand type or residue type.  Allowed properties include (though this list is not exhaustive): PROTEIN POLYMER LIGAND COARSE METAL METALBINDING DNA RNA CARBOHYDRATE SURFACE POLAR CHARGED AROMATIC TERMINUS LOWER_TERMINUS UPPER_TERMINUS SC_ORBITALS.
+
+-  **METAL_BINDING_ATOMS**  A list of the names of atoms in this residue/ligand that can form covalent bonds to metal ions.
 
 -   **NBR\_ATOM** The PDB name of the "neighbor atom". In the case of ligands, this defaults to the atom that is closest to the geometric center of the ligand
 
