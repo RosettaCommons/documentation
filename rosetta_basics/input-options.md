@@ -34,6 +34,7 @@ Common PDB Input File Flags
 
 Relational Database Input
 ============================
+See [[here | rosetta_basics/Database-options ]] for more info
 ```
 -in:use_database                          Indicate that structures should be read from the given database
 -in:select_structures_from_database       An sql query to select which structures should be extracted. 
