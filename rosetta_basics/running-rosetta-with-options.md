@@ -37,9 +37,9 @@ The <code> -database flag </code> is the only option which must be given for eve
 
 Running Rosetta via MPI
 ========================
-If the Rosetta MPI executables were compiled, then in the executable directory there will be an extra set of executables specifically for MPI, for example <code>fixbb.mpi.linuxgccrelease </code>.  To run these executables, simply run them via mpirun for example: 
+If the Rosetta MPI executables were compiled, then in the executable directory there will be an extra set of executables specifically for MPI, for example <code>fixbb.mpi.linuxgccrelease </code>.  To run these executables, simply run them via mpiexec (or mpirun for older mpi implementations): 
 
-<code> mpirun -np 16 fixbb.mpi.linuxgccrelease -database /path/to/database @ flags </code>
+<code> mpiexec -np 16 fixbb.mpi.linuxgccrelease -database /path/to/database @ flags </code>
 
 Although typically used on large computer clusters, MPI can be installed on multiprocessor linux and mac machines.  If you have a shiny new 8 core desktop, use should be able to use MPI.  There are many different flavors of MPI, but openmpi seems to work well on both Ubuntu and MacOSX.
 
