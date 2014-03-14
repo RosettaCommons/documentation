@@ -43,9 +43,18 @@ If the Rosetta MPI executables were compiled, then in the executable directory t
 
 Although typically used on large computer clusters, MPI can be installed on multiprocessor linux and mac machines.  If you have a shiny new 8 core desktop, use should be able to use MPI.  There are many different flavors of MPI, but openmpi seems to work well on both Ubuntu and MacOSX.
 
+
 Most applications are currently compatible with MPI through [[The Job Distributor | rosetta_basics/jd2]]. See the MPI JobDistributor section for fine control over how Rosetta will use MPI with your run.
 
 A useful option to use when running Rosetta via mpi is <code> -mpi_tracer_to_file path/to/log/dir </code>.  This will separate the output of each processor into separate files.  
+
+Here is an example of the general command I put in a bash script to run via Qsub using environment variables for cluster runs:
+
+<pre>
+mpiexec -np $np --machinefile $HOME/dna.machinefile $program.mpi.linuxgccrelease -database
+$ROSETTA3/database -nstruct $nstruct -ex1 -add_orbitals -ex2 -use_input_sc -ignore_unrecognized_res @
+$flag -mpi_tracer_to_file $HOME/rosetta_run_logs/debug/$debug_log
+</pre>
 
 Option Groups and Layers
 =========================
