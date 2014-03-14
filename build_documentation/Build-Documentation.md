@@ -50,7 +50,7 @@ To build MPI executables, add the flag "extras=mpi" and copy source/tools/build/
 
 `      ./scons.py bin mode=release extras=mpi     `
 
-To build OpenMPI executables for local MPI runs, add the flag "extras=omp"
+To build OpenMP executables (which is not fully supported) add the flag "extras=omp"
 
 `      ./scons.py bin mode=release extras=omp     `
 
