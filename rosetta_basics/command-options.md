@@ -5,7 +5,7 @@ The command line is composed of two major parts. First, a path to an application
 Options listed on the command line
 ==================================
 
-Options can be listed with the command. Options, and arguments to the options, are separated by whitespace. A single or double colon is using to clarify options when there are multiple separate options with the same name. Multiple layers of colons may be needed.
+Options can be listed with the command. Options, and arguments to the options, are separated by whitespace. A single or double colon is using to clarify options using OptinGroups when there are multiple separate options with the same name. Multiple layers of colons may be needed.
 
 ```
 fixbb.macgccrelease -in:file:s myinput.pdb -database mypath
