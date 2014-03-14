@@ -1,5 +1,6 @@
 # Working with metalloproteins in Rosetta
 Documentation by Vikram K. Mulligan, Baker Laboratory (vmullig@uw.edu).  Created 13 March 2014
+**_NOTE: THESE CHANGES HAVE NOT YET BEEN ADDED TO THE MASTER BRANCH._**
 
 ## Short summary
 The **-in:auto_setup_metals** flag has been added to make it easy to import a PDB file containing a metalloprotein and to have Rosetta automatically detect covalent bonds to metal ions and create appropriate constraints.
@@ -60,5 +61,5 @@ Good question.  Utility functions are located in **src/core/pose/metalloproteins
 
 ## Caveats
 
-* Metals followed by a character (_e.g._ ZN1, CU2, etc.) are interpreted as the corresponding metal on PDB import.  This can create problems (_e.g._ CO2 is interpreted as cobalt, not carbon dioxide).
+* Metals followed by a "1" or "2" character (_e.g._ ZN1, CU2, etc.) are interpreted as the corresponding metal on PDB import.  This can create problems (_e.g._ CO2 is interpreted as cobalt, not carbon dioxide).
 * This has not yet been tested with Cartesian minimization, the **cart_bonded** score term, or symmetry.  These might create problems.
