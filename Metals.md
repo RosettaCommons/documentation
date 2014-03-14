@@ -1,5 +1,5 @@
 # Working with metalloproteins in Rosetta
-Documentation by Vikram K. Mulligan, Baker Laboratory (vmullig@uw.edu)
+Documentation by Vikram K. Mulligan, Baker Laboratory (vmullig@uw.edu).
 Created 13 March 2014
 
 ## Short summary
