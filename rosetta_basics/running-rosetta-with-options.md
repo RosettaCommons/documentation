@@ -1,6 +1,10 @@
-#How to use Rosetta options
+#How to use Run Rosetta
 
-The command line is composed of two major parts. First, a path to an application executable is required. Second part is a list of options for the particular Rosetta simulation.
+The command line is composed of two major parts. First, a path to an application executable is required, while the second part is a list of options for the particular Rosetta simulation.
+
+Rosetta Binary Location
+=======================
+After Rosetta is [[compiled | build_documentation/Build-Documentation ]], links to binary executables are copied to the Rosetta/main/bin directory.  Full paths to these executables need to be given when running Rosetta, unless this directory is added paths in your shell profile (~/.bashrc (linux), ~/.bash_profile (mac), etc). <code> export PATH=$PATH:/path/to/rosetta/bin </code>
 
 Options listed on the command line
 ==================================
@@ -23,11 +27,18 @@ Options can also be written in a flag file. In this file, put one option on each
  -score:weights centroid_des.wts
 ```
 
-If this file were called “option”, then it would be used like this (notice the @ symbol):
+If this file were called “flags”, then it would be used like this (notice the @ symbol):
 
 ```
-fixbb.macgccrelease @option
+fixbb.macgccrelease @ flags
 ```
+
+Note that other options can still be set before or after the flags file is specified
+
+
+The -Database flag
+========================
+The -database flag is the only option which must be given for every Rosetta run.  The database flag specifies the path to the Rosetta database (Rosetta/main/database) and is included so that Rosetta may be run from any directory on the file system.  Rosetta will also attempt to use the ROSETTA3_DB environment variable as well if the -database flag is not set or the path given to -database is incorrect.
 
 Options Groups and Layers
 =========================
