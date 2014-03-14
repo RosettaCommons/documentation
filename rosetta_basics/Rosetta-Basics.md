@@ -34,7 +34,7 @@
 
 ####Working with Non-Protein Residues and Molecules
 - General Guidance:
-    *  [[Enabling Params Files]]
+    *  [[How to turn on residue types that are off by default]]
     *  [[Ignore Unrecognized]]
     *  [[Scorefunction and Scoreterm Info | NC-scorefunction-info]]
 - [[DNA]]
