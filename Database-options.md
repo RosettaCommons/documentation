@@ -1,6 +1,6 @@
-
 Options for using relational databases such as with Rosetta.
-Currently supported backends: sqlite3, mysql, postgres
+
+Currently supported backends include: sqlite3, mysql, and postgres
 
 General
 =================
