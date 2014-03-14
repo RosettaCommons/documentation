@@ -14,7 +14,7 @@ Misc
 -in:file:residue_type_set       ResidueTypeSet for input files', default = 'fa_standard. [String]
 ```
 
-Commons PDB Input File Flags
+Common PDB Input File Flags
 ============================
 
 ```
