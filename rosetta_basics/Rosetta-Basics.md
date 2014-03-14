@@ -16,7 +16,6 @@
 - [[Making rosetta robust for running on large number of inputs|robust]]
 
 ####Controlling Rosetta Execution
-- [[Running an application]]
 - [[Database]] - The Rosetta database
 - [[Running Rosetta|Command options]] - Controlling Rosetta with command line options
     * [[Input options]]
