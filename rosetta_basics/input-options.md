@@ -32,7 +32,7 @@ Common PDB Input File Flags
                                 constraints on PDB import.
 ```
 
-Database Input:
+Relational Database Input
 ============================
 ```
 -in:use_database                          Indicate that structures should be read from the given database
