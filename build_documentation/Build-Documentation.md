@@ -30,9 +30,9 @@ To build MPI executables, add the flag "extras=mpi".
 
 If the default settings result in compile errors, copy source/tools/build/site.settings.topsail to site.settings (within the same directory) and edit to reflect your environment.  This is most useful for very specific cluster settings.  Your cluster admin should be able to help, and many common issues encountered while building mpi are covered on the [forum](https://www.rosettacommons.org/forum).   
 
-Clang compiler instead of gcc default:
+Clang compiler instead of gcc default (Which results in a much faster compile):
 
-`       scons bin mode=release cxx=clang      `
+`       scons bin mode=release cxx=clang    `
 
 
 To display more rosetta specific build options call scons -h To display general scons build options call scons -H
