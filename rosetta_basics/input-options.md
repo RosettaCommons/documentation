@@ -23,6 +23,8 @@ Commons PDB Input File Flags
 -in:file:native_exclude_res     Residue numbers to be excluded from RMS calculation. [IntegerVector]
 -in:file:fullatom               Enable full-atom input of PDB or centroid structures. [Boolean]
 -in:file:centroid_input         Enable centroid inputs of PDBs.  default = 'false' [Boolean]
+-in:auto_setup_metals           Enable automatic setup of covalent bonds to metal ions and appropriate
+                                constraints on PDB import.
 ```
 
 Fragment and Sequence Input File Flags
