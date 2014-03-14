@@ -10,7 +10,7 @@ Purpose and Algorithm
 
 This application simply rescores PDBs, silent files, and PDBs within relational databases. It also can be used for conversion - aka convert to/from silent files, PDBs, and relational databases.  Use Rosetta's [[general output options | rosetta_basics/output-options]] for file type conversions.
 
-The default behavior is to not echo PDBs, so only the scorefile will be output, but this can be controlled via cmd-line options.
+The default behavior is to not echo PDBs, so only the scorefile will be output. This can be controlled via cmd-line options.
 
 Command Line Options
 ====================
