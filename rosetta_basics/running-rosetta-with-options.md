@@ -6,7 +6,7 @@ Location of Rosetta Executables
 =======================
 After Rosetta is [[compiled | build_documentation/Build-Documentation ]], links to binary executables are copied to the Rosetta/main/bin directory.  Full paths to these executables need to be given when running Rosetta, unless this directory is added paths in your shell profile (~/.bashrc (linux), ~/.bash_profile (mac), etc). <code> export PATH=$PATH:/path/to/rosetta/bin </code>
 
-The -Database flag
+The -database flag
 ========================
 The -database flag is the only option which must be given for every Rosetta run.  The database flag specifies the path to the Rosetta database (Rosetta/main/database) and is included so that Rosetta may be run from any directory on the file system.  Rosetta will also attempt to use the ROSETTA3_DB environment variable as well if the -database flag is not set or the path given to -database is incorrect.
 
