@@ -17,3 +17,11 @@ General
 -inout:dbms:port                               the '-inout:dbms:mode postgres' flag
                                                   Consider using ~/.pgpass or ~/.my.cnf to store connection info
 ```
+
+Input
+============================
+```
+-in:use_database                          Indicate that structures should be read from the given database
+-in:select_structures_from_database       An sql query to select which structures should be extracted. 
+                                           ex:  "SELECT tag FROM structures WHERE tag = '7rsa';"
+```
