@@ -21,7 +21,7 @@ Even worse, the protonation state of histidine residues (which commonly coordina
 
 ## How have metalloproteins been handled in the past?
 
-Some people have created Enzdes-style geometric constraints files for each metalloprotein on which they want to work, but this is time-consuming and tedious, and requires user input that shouldn't be necessary.  It also requires that each protocol know how to use an Enzdes-style constraints file, and many do not.  Others have used virtual metal atoms, but this means that the scoring function ignores the charge on a metal ion, and creates other problems.  Some people have even created new metal-binding residue types that have included the metal, but this creates its own set of problems.
+Some people have created Enzdes-style geometric constraints files for each metalloprotein on which they want to work, but this is time-consuming and tedious, and requires user input that shouldn't be necessary.  It also requires that each protocol know how to use an Enzdes-style constraints file, and many do not.  Others have used virtual metal atoms, but this means that the scoring function ignores the charge on a metal ion, and creates other problems.  Some people have even created new metal-binding residue types that have included the metal, but this creates its own set of problems.  Finally, some have just worked with apo-metalloproteins (the metal-free versions of the proteins), which is valid in some cases, but is not a generally-applicable strategy.
 
 ## What's the better solution?
 
