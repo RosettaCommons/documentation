@@ -17,7 +17,7 @@ Even worse, the protonation state of histidine residues (which commonly coordina
 
 ## How have metalloproteins been handled in the past?
 
-Some people have created Enzdes-style geometric constraints files for each metalloprotein on which they want to work, but this is time-consuming and tedious, and requires user input that shouldn't be necessary.  Others have used virtual metal atoms, but this means that the scoring function ignores the charge on a metal ion, and creates other problems.
+Some people have created Enzdes-style geometric constraints files for each metalloprotein on which they want to work, but this is time-consuming and tedious, and requires user input that shouldn't be necessary.  Others have used virtual metal atoms, but this means that the scoring function ignores the charge on a metal ion, and creates other problems.  Some people have even created new metal-binding residue types that have included the metal, but this creates its own set of problems.
 
 ## What's the better solution?
 
@@ -34,3 +34,19 @@ Three additional flags control the behavior:
 * **-in:metals_detection_LJ_multiplier <value>** controls the threshold for detecting covalent interactions between metal ions and metal-binding residues.  A value of 1.5 means that a time and a half the sum of the van der Waals radii of the metal ion and potential metal-binding atoms is used as the threshold.
 * **-in:metals_distance_constraint_multiplier <value>** controls the strength of the distance constraint, with 1.0 being the default.  Note that if an **atom_pair_constraint** weight is set by a protocol or by a weights file, the strength is automatically scaled appropriately (i.e. doubling the **atom_pair_constraint** weight does _not_ necessitate halving the value set with this flag).
 * **-in:metals_angle_constraint_multiplier <value>** controls the strength of the angle constraint, with 1.0 being the default.  As before, if an **angle_constraint weight** is set by a protocol or by a weights file, the strength is automatically scaled appropriately.
+
+## How does Rosetta know what residues can bind metals, and what atoms in those residues form the covalent bonds to metals?
+
+Metal-binding residues have the **METALBINDING** property in their properties list (in the params file).  Additionally, metal-binding atoms are specified with the **METAL_BINDING_ATOMS <atomname1> <atomname2> ...** line (also in the params file).  Meanwhile, metal ions have the **METAL** property in their properties list.  Note: metal ions must have the metal atom as atom 1.
+
+## Does this work for noncanonical amino acid residues, too?
+
+Absolutely.  The noncanonical amino acid bipyridyl-alanine (BPY) has been added to the database, and can serve as a demonstration case.
+
+## Is there a good way to confirm that Rosetta is setting the atomic connectivity properly?
+
+Yes.  Explicit CONECT records can be written on PDB export by using the **-inout:connect_info_cutoff 0.0** and **-inout:dump_connect_info true** flags.  Bonds to the metal ion will be visible when the PDB output from Rosetta is loaded in PyMOL.
+
+## I'd like to do other things with metals in my own protocols.  Where can I find the code for the functionality described here?
+
+Utility functions are located in **src/core/pose/metalloproteins/util.cc** and **src/core/pose/util.cc**.  The **is_metal()** and **is_metalbinding()** methods have both been added to both the **core::chemical::ResidueType** and **core::conformation::Residue** classes, letting you query whether a residue is a metal ion or a metal-binding residue.  For metal-binding residues, the **get_metal_binding_atoms()** method in **ResidueType** and **Residue** provides a list of indices of metal-binding atoms.
