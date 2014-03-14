@@ -3,7 +3,7 @@
 Metadata
 ========
 
-This document was edited Nov 1st 2008 by Yi Liu. This application in Rosetta3 was created and documented by Mike Tyka,et al.
+This document was edited 3/14/2014 by Jared Adolf-Bryfogle. This application in Rosetta3 was created and documented by Mike Tyka,et al.
 
 Purpose and Algorithm
 =====================
@@ -14,7 +14,7 @@ Command Line Options
 ====================
 
 ```
-** Sample command:  score.linuxgccrelease @flags > score.log
+** Sample command:  score_jd2.linuxgccrelease @flag_file
 
 General:
    -database                                   Path to rosetta_database
@@ -25,7 +25,7 @@ General Input:
    -score:optH_weights                         Weights file for optH (default standard.wts w/ sc12 patch)
    -score:optH_patch                           Weights patch file for optH
    -ignore_unrecognized_res                    Alternatively, add residue params file to rosetta_database
-   -ignore_waters                              Ignore only water molecules
+   -ignore_waters                              Ignore only WAT water molecules
 
 PDB input:
    -in:file:s *.pdb   or                       PDB input file name
@@ -68,7 +68,7 @@ General Database:
    -out:file:scoretype <filename>                 Write scorefile (default default.sc)
 
 PDB Output:
-   -pdb                                           Output structures in PDB file format
+   -pdb                                           Output structures in PDB file format (Default)
    -pdb_gz                                        Output structures in zipped PDB file format
 
 Silent Output:
