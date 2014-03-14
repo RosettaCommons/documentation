@@ -8,7 +8,7 @@ This document was edited 3/14/2014 by Jared Adolf-Bryfogle. This application in 
 Purpose and Algorithm
 =====================
 
-This application simply rescores PDBs and silent files. It also can be used to extract PDBs from silent files, assemble PDBs into silent files.  
+This application simply rescores PDBs and silent files. It also can be used for conversion - aka convert to/from silent files and relational databases.  Use the general [[general output options | rosetta_basics/score-options]] for file type conversion.
 
 The default behavior is to not echo PDBs, so only the scorefile will be output, but this can be controlled via cmd-line options.
 
