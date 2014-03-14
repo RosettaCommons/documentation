@@ -101,4 +101,14 @@ Option "nstruct" is a Integer type option, you can use it as
 Getting help with options
 =========================
 
-There are a few good places to look for help. First, the documentation. Second, if you pass -help as a flag on the command line, Rosetta will spit out all existing options and then quit (ignoring other flags).
+There are a few good places to look for help. 
+
+1. Both the [[general documentation | rosetta_basics/Rosetta-Basics]] and [[app-specific docs |application_documentation/Application-Documentation]] are extremely helpful.
+
+2. If you pass <code>-help</code> as a flag on the command line, Rosetta will spit out all existing options and then quit (ignoring other flags).  
+
+3. Be sure to check out the demos and protocol captures for help with specific apps.  These are curated demonstrations of how to use a particular app, with options, general recommendations, input files, etc.  These demos are especially helpful for protocols that use RosettaScripts.
+
+4. Supplemental material of newer Rosetta papers should have the full command-line to use and all the options that were used to generate whatever data the paper is referring to.  Though there may be some option-name-drift through time, these research articles are a great place to start.  
+
+5. If you still require help to run a particular Rosetta application or protocol, checkout www.rosettacommons.org/forum for more information.  The corresponding author of the application or protocol may be able to help as well.
