@@ -48,9 +48,11 @@ If the Rosetta MPI executables were compiled, then in the executable directory t
 
 <code> mpirun -np 16 fixbb.mpi.linuxgccrelease -database /path/to/database @ flags </code>
 
-Most applications are currently compatible with MPI through [[JD2 | rosetta_basics/jd2]].  A useful option to use when running Rosetta via mpi is <code> -mpi_tracer_to_file path/to/log/dir </code>.  This will separate the output of each processor into separate files.  
+Although typically used on large computer clusters, MPI can be installed on multiprocessor linux and mac machines.  If you have a shiny new 8 core desktop, use should be able to use MPI.  There are many different flavors of MPI, but openmpi seems to work well on both Ubuntu and MacOSX.
 
-Although typically used on large computer clusters, MPI can be installed on multiprocessor linux and mac machines.  If you have a shiny new 8 core desktop, use MPI!!
+Most applications are currently compatible with MPI through [[The Job Distributor | rosetta_basics/jd2]]. See the MPI JobDistributor section for fine control over how Rosetta will use MPI with your run.
+
+A useful option to use when running Rosetta via mpi is <code> -mpi_tracer_to_file path/to/log/dir </code>.  This will separate the output of each processor into separate files.  
 
 Options Groups and Layers
 =========================
