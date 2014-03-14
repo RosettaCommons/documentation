@@ -50,7 +50,7 @@
 - [[Metals]]
 - [[Carbohydrates]]
 - [[Mineral Surfaces]]
-- [[Non-Cannonical Amino Acids]]
+- [[Noncanonical Amino Acids]]
 
 ####Misc
 - [[Database support]] - Relational database support in Rosetta.
