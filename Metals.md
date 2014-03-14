@@ -2,6 +2,9 @@
 Documentation by Vikram K. Mulligan, Baker Laboratory (vmullig@uw.edu)
 Created 13 March 2014
 
+## Short summary
+The **-in:auto_setup_metals** flag has been added to make it easy to import a PDB file containing a metalloprotein and to have Rosetta automatically detect covalent bonds to metal ions and create appropriate constraints.
+
 ## Usage cases
 In general, there are broad types of task that a user might want to do with a metalloprotein:
 * Predict the structure of a metalloprotein, including discovering metal-coordinating residues.  This is currently not easy in Rosetta, though this functionality might be added in the future.
