@@ -2,18 +2,24 @@
 
 The command line is composed of two major parts. First, a path to an application executable is required, while the second part is a list of options for the particular Rosetta simulation.
 
-Rosetta Binary Location
+Location of Rosetta Executables
 =======================
 After Rosetta is [[compiled | build_documentation/Build-Documentation ]], links to binary executables are copied to the Rosetta/main/bin directory.  Full paths to these executables need to be given when running Rosetta, unless this directory is added paths in your shell profile (~/.bashrc (linux), ~/.bash_profile (mac), etc). <code> export PATH=$PATH:/path/to/rosetta/bin </code>
+
+The -Database flag
+========================
+The -database flag is the only option which must be given for every Rosetta run.  The database flag specifies the path to the Rosetta database (Rosetta/main/database) and is included so that Rosetta may be run from any directory on the file system.  Rosetta will also attempt to use the ROSETTA3_DB environment variable as well if the -database flag is not set or the path given to -database is incorrect.
 
 Options listed on the command line
 ==================================
 
-Options can be listed with the command. Options, and arguments to the options, are separated by whitespace. A single or double colon is using to clarify options using OptinGroups when there are multiple separate options with the same name. Multiple layers of colons may be needed.
-
 ```
 fixbb.macgccrelease -in:file:s myinput.pdb -database mypath
 ```
+
+Options and arguments to the options, are separated by whitespace. A single or double colon is using to clarify options via OptionGroups when there are multiple separate options with the same name. Multiple layers of colons may be needed.
+
+
 
 Options listed in a file
 ========================
@@ -36,9 +42,15 @@ fixbb.macgccrelease @ flags
 Note that other options can still be set before or after the flags file is specified
 
 
-The -Database flag
+Running Rosetta via MPI
 ========================
-The -database flag is the only option which must be given for every Rosetta run.  The database flag specifies the path to the Rosetta database (Rosetta/main/database) and is included so that Rosetta may be run from any directory on the file system.  Rosetta will also attempt to use the ROSETTA3_DB environment variable as well if the -database flag is not set or the path given to -database is incorrect.
+If the Rosetta MPI executables were compiled, then in the executable directory there will be an extra set of executables specifically for MPI, for example fixbb.mpi.linuxgccrelease.  To run these executables, simply run them via mpirun for example: 
+
+<code> mpirun -np 16 fixbb.mpi.linuxgccrelease -database /path/to/database @ flags </code>
+
+Most applications are currently compatible with MPI through [[JD2 | rosetta_basics/jd2]].  A useful option to use when running Rosetta via mpi is <code> -mpi_tracer_to_file path/to/log/dir </code>.  This will separate the output of each processor into separate files.  
+
+Although typically used on large computer clusters, MPI can be installed on multiprocessor linux and mac machines.  If you have a shiny new 8 core desktop, use MPI!!
 
 Options Groups and Layers
 =========================
