@@ -1,20 +1,5 @@
 #Rosetta Basics
 
-####Fundamental Rosetta Concepts
-- [[Score Types]] - Description of common Rosetta score terms
-- [[Minimization Overview]] - Backbone and/or side chain degrees of freedom
-- [[Packer Task]] - Controlling which side chains can vary during rotamer optimization 
-- [[Foldtree Overview]]
-- [[AtomTree Overview]]
-- [[Symmetry]]
-
-
-####Preparing structures to be used by Rosetta
-- [[Preparing structures]]
-- [[Preparing structures with relax|prepare-pdb-for-rosetta-with-relax]]
-- [[Preparing ligands]]
-- [[Making rosetta robust for running on large number of inputs|robust]]
-
 ####Controlling Rosetta Execution
 - [[Database]] - The Rosetta database
 - [[Running Rosetta|running-rosetta-with-options]] - Controlling Rosetta with command line options
@@ -28,6 +13,11 @@
 - [[JD2]]
 - [[RNA-protein-changes]] - Changes to get Rosetta to read RNA & protein simultaneously (I don't think these are needed anymore.)
 
+####Preparing structures to be used by Rosetta
+- [[Preparing structures]]
+- [[Preparing structures with relax|prepare-pdb-for-rosetta-with-relax]]
+- [[Preparing ligands]]
+- [[Making rosetta robust for running on large number of inputs|robust]]
 
 ####Common File Formats
 - [[Fasta file]] - Input protein sequences
@@ -55,6 +45,14 @@
 - [[Carbohydrates]]
 - [[Mineral Surfaces]]
 - [[Noncanonical Amino Acids]]
+
+####Fundamental Rosetta Concepts
+- [[Score Types]] - Description of common Rosetta score terms
+- [[Minimization Overview]] - Backbone and/or side chain degrees of freedom
+- [[Packer Task]] - Controlling which side chains can vary during rotamer optimization 
+- [[Foldtree Overview]]
+- [[AtomTree Overview]]
+- [[Symmetry]]
 
 ####Misc
 - [[Database support]] - Relational database support in Rosetta.
