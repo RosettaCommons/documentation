@@ -32,6 +32,13 @@ Common PDB Input File Flags
                                 constraints on PDB import.
 ```
 
+Database Input:
+============================
+...
+-in:use_database                          Indicate that structures should be read from the given database
+-in:select_structures_from_database       An sql query to select which structures should be extracted.                                  ex:
+                                            "SELECT tag FROM structures WHERE tag = '7rsa';"
+
 Fragment and Sequence Input File Flags
 ======================================
 
