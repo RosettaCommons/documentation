@@ -11,5 +11,5 @@ Typically, a user would have three usage cases:
 * The user wishes to work with a set of noncanonical residues, and wants these to be loaded by default.  In this case, he or she should edit the file **database/chemical/residue_type_sets/fa_standard/residue_types.txt**, and uncomment lines for params files defining the residue types that he or she wants to use.
 
 ## See also
-* Notes on params files, for adding new residue types that are not already in the Rosetta database.
-* Notes on working with noncanonical amino acids, metals, carbohydrates, _etc_.
+* Notes on [[params files|Residue Params file]], for adding new residue types that are not already in the Rosetta database.
+* Notes on working with [[noncanonical amino acids|Noncanonical Amino Acids]], [[metals|Metals]], [[carbohydrates|Carbohydrates]], _etc_.
