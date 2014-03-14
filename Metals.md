@@ -43,7 +43,7 @@ Metal-binding residues have the **METALBINDING** property in their properties li
 
 ## Does this work for noncanonical amino acid residues, too?
 
-Absolutely.  The noncanonical amino acid bipyridyl-alanine (BPY) has been added to the database, and can serve as a demonstration case.
+Absolutely.  The noncanonical amino acid (2,2'-bipyridin-5yl)alanine (BPY) has been added to the database, and can serve as a demonstration case.
 
 ## Is there a good way to confirm that Rosetta is setting the atomic connectivity properly?
 
