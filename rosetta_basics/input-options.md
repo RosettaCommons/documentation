@@ -20,6 +20,8 @@ Commons PDB Input File Flags
 ```
 -in:file:s                      Name(s) of single PDB file(s) to process. [FileVector]
 -in:file:l                      File(s) containing list(s) of PDB files to process. [FileVector]
+-in:path                        Paths to search for input files.
+                                 Useful in combination with PDB lists that do not have full paths. [FileVector]
 -in:file:native                 Native PDB filename. [File]
 -in:file:native_exclude_res     Residue numbers to be excluded from RMS calculation. [IntegerVector]
 -in:file:fullatom               Enable full-atom input of PDB or centroid structures. [Boolean]
