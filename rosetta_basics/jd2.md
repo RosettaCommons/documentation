@@ -26,7 +26,8 @@ One concrete class is FileSystemJobDistributor, which distributes jobs to a sing
 
 ShuffleJobDistributor exists; this author is not sure of its purpose. I think it's for randomizing job run order; this is of value for its child BOINCJobDistributor. BOINC is used for the Rosetta project, setting up BOINC to use this distributor is beyond the scope of this documentation.
 
-There are four MPI flavors to choose from.
+MPI Job Distributors
+====================
 
 1) MPIWorkPartitionJobDistributor: this one is MPI in name only. Activate it with jd2::mpi\_work\_partition\_job\_distributor. Here, each processor looks at the job list and determines which jobs are its own from how many other processors there are (in other words, divide number of jobs by number of processors; each processor does that many). Its files contain an example. This KD has the best potential efficiency with MPI but isn't useful for big stuff, because you have to load-balance yourself by setting it up so that (njobs % nprocs) is either zero or close to nprocs. It is recommended only for small jobs, or jobs with tightly controlled runtimes. I use it for generating a small number of trajectories (100 jobs on 100 processors) to determine where to set my filters, then run large jobs under the next jd.
 
