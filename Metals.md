@@ -38,7 +38,7 @@ Three additional flags control the behavior:
 * **-in:metals_distance_constraint_multiplier <value>** controls the strength of the distance constraint, with 1.0 being the default.  Note that if an **atom_pair_constraint** weight is set by a protocol or by a weights file, the strength is automatically scaled appropriately (i.e. doubling the **atom_pair_constraint** weight does _not_ necessitate halving the value set with this flag).  If the value is set to 0, no atom_pair constraints are added.
 * **-in:metals_angle_constraint_multiplier <value>** controls the strength of the angle constraint, with 1.0 being the default.  As before, if an **angle_constraint** weight is set by a protocol or by a weights file, the strength is automatically scaled appropriately.  If the value is set to 0, no angle constraints are added.
 
-## How does Rosetta know what residues can bind metals, and what atoms in those residues form the covalent bonds to metals?
+## How does Rosetta know which residue types can bind metals?
 
 Metal-binding residues have the **METALBINDING** property in their properties list (in the params file).  Additionally, metal-binding atoms are specified with the **METAL_BINDING_ATOMS <atomname1> <atomname2> ...** line (also in the params file).  Meanwhile, metal ions have the **METAL** property in their properties list.  Note: metal ions must have the metal atom as atom 1.
 
@@ -50,9 +50,13 @@ Absolutely.  The noncanonical amino acid (2,2'-bipyridin-5yl)alanine (BPY) has b
 
 Yes.  Explicit CONECT records can be written on PDB export by using the **-inout:connect_info_cutoff 0.0** and **-inout:dump_connect_info true** flags.  Bonds to the metal ion will be visible when the PDB output from Rosetta is loaded in PyMOL if you use these flags.
 
-## I'd like to do other things with metals in my own protocols.  Where can I find the code for the functionality described here?
+## I'd like to do other things with metals in my own protocols.
 
-Utility functions are located in **src/core/pose/metalloproteins/util.cc** and **src/core/pose/util.cc**.  The **is_metal()** and **is_metalbinding()** methods have both been added to both the **core::chemical::ResidueType** and **core::conformation::Residue** classes, letting you query whether a residue is a metal ion or a metal-binding residue.  For metal-binding residues, the **get_metal_binding_atoms()** method in **ResidueType** and **Residue** provides a list of indices of metal-binding atoms.
+Can you ask that in the form of a question?
+
+## Where can I find the code for the functionality described here?
+
+Good question.  Utility functions are located in **src/core/pose/metalloproteins/util.cc** and **src/core/pose/util.cc**.  The **is_metal()** and **is_metalbinding()** methods have both been added to both the **core::chemical::ResidueType** and **core::conformation::Residue** classes, letting you query whether a residue is a metal ion or a metal-binding residue.  For metal-binding residues, the **get_metal_binding_atoms()** method in **ResidueType** and **Residue** provides a list of indices of metal-binding atoms.
 
 ## Caveats
 
