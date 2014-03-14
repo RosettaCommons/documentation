@@ -15,12 +15,22 @@ Because Rosetta knows nothing about metal ion covalent geometry by default, the 
 
 Even worse, the protonation state of histidine residues (which commonly coordinate metal ions) is, by default, set without any knowledge of the metal.  This often places hydrogen atoms inside the van der Waals radius of the metal ion.
 
-## What's the solution?
+## How have metalloproteins been handled in the past?
 
-The **-in:auto_setup_metals** flag automatically handles import of metalloproteins from PDB files.  This flag ensures the following:
+Some people have created Enzdes-style geometric constraints files for each metalloprotein on which they want to work, but this is time-consuming and tedious, and requires user input that shouldn't be necessary.  Others have used virtual metal atoms, but this means that the scoring function ignores the charge on a metal ion, and creates other problems.
+
+## What's the better solution?
+
+The **-in:auto_setup_metals** flag has been added to handle import of metalloproteins from PDB files automatically.  This flag ensures the following:
 * Rosetta automatically sets covalent bonds between metal ions and nearby metal-binding atoms on metal-binding residues.
 * Rosetta automatically creates distance constraints between metal ions and the atoms that bind them.  The distances are based on the geometry in the PDB file.
 * Rosetta automatically creates angle constraints between metal ions, the atoms that bind them, and the parent atoms to those atoms.  The angles are based on the geometry in the PDB file.
 * Rosetta sets the **atom_pair_constraint** and **angle_constraint** weights in the scorefunction to 1.0, if they have not already been set in the weights file.
+* Rosetta removes hydrogens from atoms that bind metal ions, and adjusts the charge on the residue appropriately (which can be important in special cases in which one residue coordinates multiple metal ions).
 
 ## How do I control the default behavior of the **-in:auto_setup_metals** flag?
+
+Three additional flags control the behavior:
+* **-in:metals_detection_LJ_multiplier <value>** controls the threshold for detecting covalent interactions between metal ions and metal-binding residues.  A value of 1.5 means that a time and a half the sum of the van der Waals radii of the metal ion and potential metal-binding atoms is used as the threshold.
+* **-in:metals_distance_constraint_multiplier <value>** controls the strength of the distance constraint, with 1.0 being the default.  Note that if an **atom_pair_constraint** weight is set by a protocol or by a weights file, the strength is automatically scaled appropriately (i.e. doubling the **atom_pair_constraint** weight does _not_ necessitate halving the value set with this flag).
+* **-in:metals_angle_constraint_multiplier <value>** controls the strength of the angle constraint, with 1.0 being the default.  As before, if an **angle_constraint weight** is set by a protocol or by a weights file, the strength is automatically scaled appropriately.
