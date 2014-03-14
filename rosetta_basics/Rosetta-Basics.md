@@ -41,8 +41,10 @@
 - [[Symmetry file|Symmetry#Symmetry-definitions]] - Dealing with symmetric proteins.
 
 ####Working with Non-Protein Residues and Molecules
-- [[Enabling Params Files]]
-- [[Ignore Unrecognized]]
+- General Guidance:
+    *  [[Enabling Params Files]]
+    *  [[Ignore Unrecognized]]
+    *  [[Scorefunction and Scoreterm Info | NC-scorefunction-info]]
 - [[DNA]]
 - [[RNA]]
 - [[Ligands]]
