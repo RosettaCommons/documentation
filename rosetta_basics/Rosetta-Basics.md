@@ -17,7 +17,7 @@
 
 ####Controlling Rosetta Execution
 - [[Database]] - The Rosetta database
-- [[Running Rosetta|Command options]] - Controlling Rosetta with command line options
+- [[Running Rosetta|running-rosetta-with-options]] - Controlling Rosetta with command line options
     * [[Input options]]
     * [[Output options]]
     * [[Relational Database options | Database-options]]
