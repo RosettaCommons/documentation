@@ -8,6 +8,7 @@ Misc
 ```
 -in:ignore_unrecognized_res     Do not abort if unknown residues are found in PDB file;  instead, ignore them.
                                 default='false' [Boolean].
+-in:ignore_waters               Ignore only WAT water molecules. Default=false. [Boolean].
 -in:path:database               Database file input search paths.
                                  If the database option is not given or the database is not found, 
                                  the ROSETTA3_DB environment variable is tried [PathVector]
