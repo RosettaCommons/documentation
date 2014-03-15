@@ -1,7 +1,5 @@
 # Working with metalloproteins in Rosetta
-Documentation by Vikram K. Mulligan, Baker Laboratory (vmullig@uw.edu).  Created 13 March 2014
-
-**_NOTE: THESE CHANGES HAVE NOT YET BEEN ADDED TO THE MASTER BRANCH._**
+By Vikram K. Mulligan, Baker Laboratory (vmullig@uw.edu).  Documentation created 13 March 2014; changes checked into master branch 14 March 2014.
 
 ## Short summary
 The **-in:auto_setup_metals** flag has been added to make it easy to import a PDB file containing a metalloprotein and to have Rosetta automatically detect covalent bonds to metal ions and create appropriate constraints.
