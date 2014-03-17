@@ -53,9 +53,9 @@
     *  [[MM Std Scorefunction | NC-scorefunction-info#MM-Standard-Scorefunction]]
     *  [[Orbitals Scorefunction | NC-scorefunction-info#Partial-Covalent-Interactions-Energy-Function-(Orbitals)]]
 - [[Symmetry]]
-- [[Minimization Overview]] - Backbone and/or side chain degrees of freedom
-- [[Packer Task]] - Controlling which side chains can vary during rotamer optimization 
-- [Advanced Topics](http://www.ncbi.nlm.nih.gov/pubmed/21187238)
+- [[Minimization | Minimization Overview]] - Backbone and/or side chain degrees of freedom
+- Advanced Topics
+    * [Rosetta3](http://www.ncbi.nlm.nih.gov/pubmed/21187238)
     * [[Foldtree Overview]]
     * [[AtomTree Overview]]
 
