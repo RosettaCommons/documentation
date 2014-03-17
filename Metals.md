@@ -56,7 +56,7 @@ Can you ask that in the form of a question?
 
 ## Where can I find the code for the functionality described here?
 
-Good question.  Utility functions are located in **src/core/pose/metalloproteins/util.cc** and **src/core/pose/util.cc**.  (Functions in the latter duplicate some of the functionality in **src/protocols/toolbox/match_enzdez_util/** with some modifications; in the future, this should probably be consolidated to avoid code duplication.)  The **is_metal()** and **is_metalbinding()** methods have both been added to both the **core::chemical::ResidueType** and **core::conformation::Residue** classes, letting you query whether a residue is a metal ion or a metal-binding residue.  For metal-binding residues, the **get_metal_binding_atoms()** method in **ResidueType** and **Residue** provides a list of indices of metal-binding atoms.
+Good question.  Utility functions are located in **src/core/util/metalloproteins_util.cc**.  (Functions in this file duplicate some of the functionality in **src/protocols/toolbox/match_enzdez_util/** with some modifications; in the future, this should probably be consolidated to avoid code duplication.)  The **is_metal()** and **is_metalbinding()** methods have both been added to both the **core::chemical::ResidueType** and **core::conformation::Residue** classes, letting you query whether a residue is a metal ion or a metal-binding residue.  For metal-binding residues, the **get_metal_binding_atoms()** method in **ResidueType** and **Residue** provides a list of indices of metal-binding atoms.
 
 ## Caveats
 
