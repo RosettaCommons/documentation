@@ -50,12 +50,13 @@
     *  [[Beta-Amino Acids]]
 
 ####Fundamental Rosetta Concepts
-- [[Score Types]] - Description of common Rosetta score terms
+- [[Scorefunctin and Score types | Score Types]] - Description of default Rosetta Scorefunctions and common score types
+- [[Symmetry]]
 - [[Minimization Overview]] - Backbone and/or side chain degrees of freedom
 - [[Packer Task]] - Controlling which side chains can vary during rotamer optimization 
 - [[Foldtree Overview]]
 - [[AtomTree Overview]]
-- [[Symmetry]]
+
 
 ####Misc
 - [[Database support]] - Relational database support in Rosetta.
