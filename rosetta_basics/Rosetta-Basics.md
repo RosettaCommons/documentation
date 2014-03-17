@@ -55,7 +55,7 @@
 - [[Symmetry]]
 - [[Minimization | Minimization Overview]] - Backbone and/or side chain degrees of freedom
 - Advanced Topics
-    * [Rosetta3](http://www.ncbi.nlm.nih.gov/pubmed/21187238)
+    * [Rosetta3 Archetecture](http://www.ncbi.nlm.nih.gov/pubmed/21187238)
     * [[Foldtree Overview]]
     * [[AtomTree Overview]]
 
