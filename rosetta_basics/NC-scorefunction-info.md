@@ -75,5 +75,6 @@ How to Use:
  -output_orbitals (optional. Outputs the orbitals in the pdb file)
 </pre>
 * Weight Set
+
  <code>orbitals.wts </code>(for pre-talaris2013 defaults), <code>orbitals_talaris2013.wts</code>, <code>orbitals_talaris2013_softrep.wts</code> (analogous to soft_rep/soft_rep_design scorefunction but not rigorously tested)
   
