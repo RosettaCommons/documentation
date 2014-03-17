@@ -3,8 +3,8 @@
 Standard Weights File
 =====================
 
-Talaris2013 is currently the default score file in Rosetta for scoring full-atom structures.
-The energy function and its corrections were tested in the paper [Leaver-Fay et al., Methods in Enzymology 2013](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3724755/): 
+Talaris2013 is currently the default score function in Rosetta for scoring full-atom structures.
+The energy function and its corrections were tested in the paper [Leaver-Fay et al., Methods in Enzymology 2013](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3724755/).  A full description of the changes this energy function introduces can be found [here](https://www.rosettacommons.org/node/3508#comment-6946).
 
 Energy terms used in talaris2013.wts
 -------------------------------------
@@ -42,3 +42,5 @@ dslf_cs_ang                                csangles score in current disulfide (
 dslf_ss_dih                                dihedral score in current disulfide (Replaced by dslf_fa13.) 
 dslf_ca_dih                                ca dihedral score in current disulfide (Replaced by dslf_fa13.)
 ```
+
+The score12 energy function can be used in current Rosetta versions, but the option <code> -restore_pre_talaris_2013_behavior must be passed.
