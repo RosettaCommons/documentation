@@ -1,6 +1,6 @@
-#General Scorefunctions and scoreterms for Non-canonicals, ligands, etc.
+#General Scorefunctions and scoreterms for non-protein residues and molecules
 
-With the addition of the talaris2013 scorefunction as the default Rosetta scorefunction, most non-protein structures can be scored, however other scorefunctions exist to better represent and sample some specific cases.
+With the addition of the talaris2013 scorefunction as the default Rosetta scorefunction, most non-protein structures can be scored, however other scorefunctions exist to better represent and sample non-protein residues and molecules
 
 ##ScoreFunctions
 ### MM Standard Scorefunction
