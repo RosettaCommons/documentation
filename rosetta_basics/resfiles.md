@@ -139,6 +139,8 @@ Commands for for controlling sequence identity
 
 Each command acts to restrict the allowed amino acids allowable at each position. If multiple commands are combined, only amino acids that are allowed by each command individually are included. This is a consequence of the commutativity property for operations on the PackerTask class.
 
+NOTE: It should be remembered that resfile commands are restrictive, rather than permissive. While residues which are disallowed will not be repacked/redesigned, various protocols provide additional restrictions which may further limit mutational identities. In particular, many protocols will prohibit redesigning disulfide cysteines, even when explicitly listed as mutatable in the resfile.
+
 - ALLAA ................ allow all 20 amino acids INCLUDING cysteine (same as ALLAAwc)
 
 - ALLAAwc .............. allow all 20 amino acids ( default )
