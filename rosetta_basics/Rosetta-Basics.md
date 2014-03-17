@@ -17,7 +17,6 @@
 - [[Preparing structures]]
 - [[Preparing structures with relax|prepare-pdb-for-rosetta-with-relax]]
 - [[Preparing ligands]]
-- [[Making rosetta robust for running on large number of inputs|robust]]
 
 ####Common File Formats
 - [[Fasta file]] - Input protein sequences
