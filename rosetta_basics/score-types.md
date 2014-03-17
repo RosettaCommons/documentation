@@ -43,4 +43,4 @@ dslf_ss_dih                                dihedral score in current disulfide (
 dslf_ca_dih                                ca dihedral score in current disulfide (Replaced by dslf_fa13.)
 ```
 
-The score12 energy function can be used in current Rosetta versions, but the option <code> -restore_pre_talaris_2013_behavior must be passed.
+The score12 energy function can be used in current Rosetta versions, but the option <code> -restore_pre_talaris_2013_behavior</code> must be passed.
