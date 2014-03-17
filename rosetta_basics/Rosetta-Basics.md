@@ -55,8 +55,9 @@
 - [[Symmetry]]
 - [[Minimization Overview]] - Backbone and/or side chain degrees of freedom
 - [[Packer Task]] - Controlling which side chains can vary during rotamer optimization 
-- [[Foldtree Overview]]
-- [[AtomTree Overview]]
+- [Advanced Topics](http://www.ncbi.nlm.nih.gov/pubmed/21187238)
+    * [[Foldtree Overview]]
+    * [[AtomTree Overview]]
 
 
 ####Misc
