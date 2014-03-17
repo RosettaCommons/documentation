@@ -51,7 +51,7 @@
 
 ####Fundamental Rosetta Concepts
 - [[Scorefunctions and Score types | Score Types]] - Description of the default Rosetta Scorefunction and common score types.
-    *  [[MM Std ScoreFunction | NC-scorefunction-info#MM-Standard-Scorefunction]]
+    *  [[MM Std Scorefunction | NC-scorefunction-info#MM-Standard-Scorefunction]]
     *  [[Orbitals Scorefunction | NC-scorefunction-info#Partial-Covalent-Interactions-Energy-Function-(Orbitals)]]
 - [[Symmetry]]
 - [[Minimization Overview]] - Backbone and/or side chain degrees of freedom
