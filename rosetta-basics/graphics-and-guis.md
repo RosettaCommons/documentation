@@ -3,7 +3,7 @@
 #Graphics Output
 ##OpenGL Graphics mode
 
-##Pymol Integration
+##Pymol Mover
 
 #Graphical User Interfaces
 
