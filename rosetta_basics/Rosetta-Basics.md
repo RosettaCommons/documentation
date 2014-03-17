@@ -11,7 +11,7 @@
     * [[Packing options]]
     * [[Full options list|full-options-list]] - A (mostly) complete list of availible Rosetta options.
 - [[JD2]]
-- [[Graphics]]
+- [[Graphics output and GUIs | graphics-and-guis]]
 
 ####Preparing structures to be used by Rosetta
 - [[Preparing structures]]
