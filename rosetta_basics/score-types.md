@@ -4,6 +4,7 @@ Standard Weights File
 =====================
 
 Talaris2013 is currently the default score file in Rosetta for scoring full-atom structures.
+The energy function and its corrections were tested in the paper [Leaver-Fay et al., Methods in Enzymology 2013](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3724755/): 
 
 Energy terms used in talaris2013.wts
 -------------------------------------
