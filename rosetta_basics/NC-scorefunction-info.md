@@ -1,6 +1,6 @@
-#Scoring non-protein residues and molecules
+#Scorefunctions that work well with protein and non-protein residues and molecules
 
-With the addition of the talaris2013 scorefunction as the default Rosetta scorefunction, most non-protein residues and molecules can be scored, however other scorefunctions exist that work well with protein, and non-protein residues and molecules.
+With the addition of the talaris2013 scorefunction as the default Rosetta scorefunction, most non-protein residues and molecules can be scored, however other scorefunctions exist that work well with protein and non-protein residues and molecules.
 
 ##ScoreFunctions
 ### MM Standard Scorefunction
