@@ -69,6 +69,35 @@ This is a special mover that allows making a single compound mover and filter ve
 -   mode: "sequence" - (default) perform the Mover/Filter pair in the specified sequence; "random\_order" - perform EACH of the defined Mover/Filter pairs one time in a random order; "single\_random" - randomly pick a SINGLE Mover/Filter pair from the list.
 -   apply\_probabilities: This only works in mode single\_random. You can set the probability that an individual submover will be called 0-1. The probabilities must sum to 1.0, or you'll get an error message. Notice that this is used by GenericMonteCarlo in its adaptive\_movers mode to adjust the probabilities of movers dynamically during a sampling trajectory.
 
+#### MultiplePoseMover
+
+This mover allows a multi-step "distribute and collect" protocol to be implemented in a single script, for example ab initio followed by RMSD clustering, or docking followed by design.
+
+See the [[MultiplePoseMover|RosettaScripts-MultiplePoseMover]] page for details and examples.
+
+#### MultipleOutputWrapper
+
+This is a simple wrapper that will execute the mover or ROSETTASCRIPTS protocol it contains to generate additional (derived) output poses from the original pose.
+This mover is designed to work with the MultiplePoseMover.
+"MoverName" is a placeholder for the actual name of the mover to be used.
+Use this wrapper if the mover you want to use does cannot provided more than one output pose (yet).
+
+```
+<MultipleOutputWrapper name=(&string) max_output_poses=(&integer)>
+    <MoverName .../>
+</MultipleOutputWrapper>
+```
+
+or
+
+<MultipleOutputWrapper name=(&string) max_output_poses=(&integer)>
+    <ROSETTASCRIPTS>
+        ...
+    </ROSETTASCRIPTS>
+</MultipleOutputWrapper>
+
+-   max\_output\_poses: Maximum number of output poses this wrapper should generate (i.e. how many times the inner mover is executed).
+
 #### Subroutine
 
 Calling another RosettaScript from within a RosettaScript
