@@ -147,9 +147,9 @@ NOTE: It should be remembered that resfile commands are restrictive, rather than
 
 - ALLAAxc .............. allow all amino acids except cysteine
 
-- POLAR ................ allow only canonical polar amino acids
+- POLAR ................ allow only canonical polar amino acids (DEHKNQRST)
 
-- APOLAR ............... allow only canonical non polar amino acids
+- APOLAR ............... allow only canonical non polar amino acids (ACFGILMPVWY)
 
 - NOTAA \<list of AAs\> .. disallow only the specified amino acids ( use one letter codes, undelimited like ACFYRT )
 
