@@ -2,7 +2,7 @@
 Documentation by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu).  Created 19 March 2014.
 
 ## Short summary
-Rosetta has full support for the D-amino acid mirror images of the 19 canonical L-amino acids, and these are fully functional with the **talaris 2013** scoring function.  This page has information on how to activate these residue types, as well as on working with other D-amino acids with noncanonical side chains.
+Rosetta has full support for the 19 D-amino acids that are mirror images of the 19 canonical L-amino acids, and these are fully functional with the **talaris 2013** scoring function.  This page has information on how to activate these residue types, as well as on working with other D-amino acids with noncanonical side chains.
 
 ## What are D-amino acids?
 D-alpha-amino acids are amino acids with inverted chirality at the alpha carbon relative to the conventional L-alpha-amino acids.  Conventionally, the mirror-image versions of the 19 canonical chiral amino acids are called by the same names (D-tyrosine is the mirror image of L-tyrosine, for example).  For the most part, D-amino acids are not incorporated into natural proteins, since the ribosome translates D-residues very inefficiently.  (There are some special cases in which posttranslational enzymatic modification of certain bacterial cell wall proteins produces a few D-residues.)
