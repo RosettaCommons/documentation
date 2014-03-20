@@ -17,10 +17,10 @@ Since few D-amino acid residues are found in the PDB, D-amino acids in the Roset
 In the case of the 19 "canonical" D-amino acids (that is, the D-amino acids that are mirror images of the 19 canonical L-amino acids), all terms in the **talaris2013** scoring function, as well as the **cart_bonded** term, use the statistical and scoring information for the corresponding L-amino acids, mirroring appropriate terms to ensure that mirror-image structures score and minimize identically.  To save memory, the database information loaded for the **fa_dun**, **p_aa_pp**, and **rama** terms for the L-amino acids is reused (with appropriate mirroring) for the corresponding D-amino acids, so this is not duplicated unnecessarily.
 
 In the case of "noncanonical" D-amino acids, some terms currently may not handle these properly.  These include:
-* **pro_close** (Doesn't know how to recognize "proline-like" D-amino acids)
-* **cart_bonded** (Doesn't know what the ideal geometry for noncanonicals is, as far as I know)
-* **rama** (Completely ignores noncanonicals, unless the **BACKBONE_AA** flag is set, and this flag currently only allows canonical L-amino acids to be specified)
-* **p_aa_pp** (Completely ignores noncanonicals, unless the **BACKBONE_AA** flag is set, and this flag currently only allows canonical L-amino acids to be specified)
+* **pro_close** (Doesn't know how to recognize "proline-like" noncanonical D-amino acids, like D-hydroxyproline.)
+* **cart_bonded** (Doesn't know what the ideal geometry for noncanonicals is, as far as I know.)
+* **rama** (Completely ignores noncanonicals, unless the **BACKBONE_AA** line is included in the params file, and this line currently only allows canonical L-amino acids to be specified.)
+* **p_aa_pp** (Completely ignores noncanonicals, unless the **BACKBONE_AA** line is included in the params file, and this line currently only allows canonical L-amino acids to be specified.)
 * **fa_dun** (This _can_ score D-noncanonicals properly, if provided with a rotamer library that is pre-mirrored for the D-version of the noncanonical)
 
 _PAGE STILL UNDER CONSTRUCTION_
