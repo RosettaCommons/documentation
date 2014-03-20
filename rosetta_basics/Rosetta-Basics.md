@@ -10,8 +10,11 @@
     * [[Score options]]
     * [[Packing options]]
     * [[Full options list|full-options-list]] - A (mostly) complete list of availible Rosetta options.
-- [[JD2]]
+- Scripting Rosetta
+    * [[RosettaScripts]]
+    * [[PyRosetta]]
 - [[Graphics output and GUIs | graphics-and-guis]]
+- [[JD2]]
 
 ####Preparing structures to be used by Rosetta
 - [[Preparing structures]]
@@ -64,4 +67,3 @@
 - [[Database support]] - Relational database support in Rosetta.
     *  [[Sqlite3-interface]] - More information on the sqlite database interface.
 - [[Full options list|full-options-list]] - A (mostly) complete list of availible Rosetta options.
-
