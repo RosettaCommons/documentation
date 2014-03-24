@@ -1750,9 +1750,9 @@ Typically, RosettaScripts assumes that poses are all-atom. In some cases, a cent
 <FavorNativeResidue bonus=(1.5 &bool)/>
 ```
 
-sets residue\_type\_constraint to the pose and sets the bonus to 1.5.
+Adds residue\_type\_constraints to the pose with the given bonus. The name is a slight misnomer -- the "native" residue which is favored is actually the identity of the residue of the current pose at apply time (-in:file:native is not used by this mover).
 
-Note: The use of this mover is somewhat deprecated in favor of FavorSequenceProfile with "scaling=prob matrix=IDENTITY" or with "scaling=none matrix=MATCH"
+For more flexible usage see FavorSequenceProfile.
 
 #### FavorSequenceProfile
 
