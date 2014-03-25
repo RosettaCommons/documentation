@@ -1047,7 +1047,7 @@ Adds ResidueTypeConstraint to the pose using ResidueTypeConstraint
 (gives preferential bonus point to selected residues)
 
 ```
-<ResidueTypeConstraintMover name=(&string) AA_name3=(&string) favor_bonus=(&real)/>
+<ResidueTypeConstraintMover name="&string" AA_name3="&string" favor_bonus=(0.5 &real)/>
 ```
 
 For example,
@@ -1055,11 +1055,11 @@ For example,
     ...
     <ROSETTASCRIPTS>
         <TASKOPERATIONS>
- 		<ReadResfile name=resfile filename=c.0.0_resfile_for_ideal_distance_between_sheets.txt/>
+             <ReadResfile name="resfile" filename="c.0.0_resfile_for_ideal_distance_between_sheets.txt"/>
         </TASKOPERATIONS>
         <SCOREFXNS>
-                <cart_score weights=talaris2013_cart>
-                  <Reweight scoretype=res_type_constraint weight=1/>
+                <cart_score weights="talaris2013_cart">
+                  <Reweight scoretype="res_type_constraint" weight="1"/>
                 </cart_score>
         </SCOREFXNS>
         <FILTERS>
