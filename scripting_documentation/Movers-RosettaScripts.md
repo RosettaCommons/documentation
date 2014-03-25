@@ -1041,6 +1041,46 @@ cst\_file: the file containing the constraint data. e.g.,:
 
 To remove constraints from the pose create a mover with cst\_file=none.
 
+#### ResidueTypeConstraintMover
+
+Adds ResidueTypeConstraint to the pose using ResidueTypeConstraint
+(gives preferential bonus point to selected residues)
+
+```
+<ResidueTypeConstraintMover name=(&string) AA_name3=(&string) favor_bonus=(&real)/>
+```
+
+For example,
+
+    ...
+    <ROSETTASCRIPTS>
+        <TASKOPERATIONS>
+		<ReadResfile name=resfile filename=c.0.0_resfile_for_ideal_distance_between_sheets.txt/>
+        </TASKOPERATIONS>
+        <SCOREFXNS>
+                <cart_score weights=talaris2013_cart>
+                  <Reweight scoretype=res_type_constraint weight=1/>
+                </cart_score>
+        </SCOREFXNS>
+        <FILTERS>
+        </FILTERS>
+        <MOVERS>
+		<SwitchResidueTypeSetMover name=to_fa set=fa_standard/>
+                <ResidueTypeConstraintMover name=favor_residue AA_name3=ASP,GLU favor_bonus=0.5/>
+                <FastRelax name=relax scorefxn=fa_score task_operations=resfile/>
+        </MOVERS>
+        <APPLY_TO_POSE>
+        </APPLY_TO_POSE>
+        <PROTOCOLS>
+           <Add mover=to_fa/>
+           <Add mover=favor_residue/>
+           <Add mover=relax/>
+       </PROTOCOLS>
+    </ROSETTASCRIPTS>
+    ...
+
+
+
 #### TaskAwareCsts
 
 Add coordinate constraints to all residues that are considered designable by the task\_operations. Mean and SD are hardwired to 0,1 at present. If you want to use this, don't forget to make downstream movers aware of coordinate constraints by changing their scorefxn's coordinate\_constraint weight.
