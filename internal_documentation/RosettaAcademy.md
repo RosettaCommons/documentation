@@ -341,7 +341,8 @@ If you are writing a completely new framework, it MIGHT make sense to create a s
   * for classes, run 'scons.py'
 * to compile an apps:
   * put <main>.cc into apps.pilot.src.settings file
-  * for apps, run 'scons.py bin mode=release' which puts the app into bin
+  * for apps, run 'scons.py bin mode=release'
+  * this creates a binary of your app in source/bin
 * to compile/run unit tests:
   * put <name>.cxxtest.hh into devel.test.settings file
   * compile: 'scons.py cat=test'
