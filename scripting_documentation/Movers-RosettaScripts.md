@@ -1052,14 +1052,14 @@ Adds ResidueTypeConstraint to the pose using ResidueTypeConstraint
 
 For example,
 
-    ...
-    <ROSETTASCRIPTS>
+```
+<ROSETTASCRIPTS>
         <TASKOPERATIONS>
-             <ReadResfile name="resfile" filename="c.0.0_resfile_for_ideal_distance_between_sheets.txt"/>
+             <ReadResfile name=resfile filename=c.0.0_resfile_for_ideal_distance_between_sheets.txt/>
         </TASKOPERATIONS>
         <SCOREFXNS>
-                <cart_score weights="talaris2013_cart">
-                  <Reweight scoretype="res_type_constraint" weight="1"/>
+                <cart_score weights=talaris2013_cart>
+                  <Reweight scoretype=res_type_constraint weight=1/>
                 </cart_score>
         </SCOREFXNS>
         <FILTERS>
@@ -1076,8 +1076,8 @@ For example,
            <Add mover=favor_residue/>
            <Add mover=RelaxDesign/>
        </PROTOCOLS>
-    </ROSETTASCRIPTS>
-    ...
+</ROSETTASCRIPTS>
+```
 
 
 
