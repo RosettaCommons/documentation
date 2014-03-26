@@ -205,7 +205,7 @@ Temperature scaling occurs automatically. Temparatures for all filters are multi
      <AND filter_name=(&string) temperature=(&Real) sample_type=(low, &string) rank=(0 &bool)/>
      ...
   </Filters>
-</GenericMonteCarlo>
+</GenericSimulatedAnnealer>
 ```
 
 -   history: The number of accepted scores and poses to use to determine when to scale the temperatures.
