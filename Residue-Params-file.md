@@ -1,5 +1,4 @@
 Author:  Sam DeLuca
-Edits: JKLeman
 
 An overview of params files
 ===========================
@@ -44,7 +43,14 @@ The following lines are typically found in Ligand params files. This does not re
     ICOOR_INTERNAL    A4  179.932453   59.543328    1.238233   A3   A2   A1
     ```
 
-    And the fields are the following: Child atom, phi angle (torsion angle between A1, A2, A3, A4), theta angle (improper angle = (180 - (angle between A4, A3, A2))), distance (between A4 and A3), parent atom, angle atom, torsion atom.
+    And the fields are the following: 
+   - Child atom
+   - phi angle (torsion angle between A1, A2, A3, A4)
+   - theta angle (improper angle = (180 - (angle between A4, A3, A2)))
+   - distance (between A4 and A3)
+   - parent atom
+   - angle atom
+   - torsion atom
 
 -   **PDB\_ROTAMERS** The path to a PDB file containing ligand rotamers
 
