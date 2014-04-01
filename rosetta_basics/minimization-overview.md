@@ -31,6 +31,12 @@ Unlike linmin, all the dfpmin algorithms are **multi step** algorithms, so they 
 
 Jim recommends dfpmin\_strong\_wolfe or dfpmin\_armijo\_nonmonotone.
 
+### With alternate minimization strategies
+
+The default minimizer in Rosetta works on torsional and rigid body degrees of freedom only. There are minimizer options which allow you to do additional minimization over bond lengths and angles as well, or to instead do minimization in Cartesian coordinate space, rather than in internal coordinate space. 
+
+However, when doing such minimization, the typical minimization flavors can be inordinately slow. For Cartesian and flexible bond length/angle minimization, it is *highly* recommended to use the "lbfgs_armijo_nonmonotone" minimizer instead.
+
 The meaning of tolerance
 ========================
 
