@@ -9,10 +9,10 @@ require 'omnigollum'
 require 'omniauth/strategies/github'
 require 'omniauth/strategies/github_team_member'
 
-#Gollum::Hook.register(:post_commit, :hook_id) do |committer, sha1|
-#  committer.wiki.repo.git.pull
-#  committer.wiki.repo.git.push
-#end
+Gollum::Hook.register(:post_commit, :hook_id) do |committer, sha1|
+  committer.wiki.repo.git.pull
+  committer.wiki.repo.git.push
+end
 
 map '/docs' do
   host = 'https://www.rosettacommons.org'
