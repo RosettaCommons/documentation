@@ -12,7 +12,7 @@ Handedness and conventions
 
 Rosetta uses a right-handed coordinate system, just as PDB files do: if the X axis points to the right and the Y axis points up, the Z axis points out of the screen towards you. Rotation matrices premultiply the coordinates they transform, i.e. Mv = v'. Matrices are 3x3 (rather than 4x4 "homogenous" coordinates) so rotation and translation are specified as two separate objects, a matrix and a vector.
 
-The fold tree
+The atom tree
 =============
 
 The atom tree is a data structure for tracking and manipulating both the Cartesian (xyz) and internal (length, angle, dihedral) coordinates of atoms, while keeping the two in sync. It is a tree in the computer science / graph theory sense: there is one atom that acts as the root of the tree, and all other atoms have exactly one parent and zero or more children.
