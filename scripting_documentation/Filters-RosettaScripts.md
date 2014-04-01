@@ -186,6 +186,19 @@ A special filter that allows movers to set its value (pass/fail). This value can
 <ContingentFilter name=(&string)/>
 ```
 
+#### PoseComment
+Test for the existence or the value of a comment in the pose. This is useful for controlling execution flow: if the pose comments have been modified you do one thing or another.
+
+```
+<PoseComment name=(&string) comment_name=(&string, "" ) comment_value=(&string, "") comment_exists=(&bool, false )/>
+```
+- comment_name: the key value of the comment
+- comment_value: the comment's value
+- comment_exists: check only whether the comment exists or not, regardless of its content.
+
+If you run with comment_name="" then all the pose comments are checked to find the requested value.
+
+
 #### Range
 
 This filter returns true if the return value of the given filter is between lower\_bound and upper\_bound.
