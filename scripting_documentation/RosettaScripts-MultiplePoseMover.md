@@ -196,7 +196,7 @@ Step 1: Classic Abinitio
 
 A ClassicAbinitio-like protocol that operates in 5 stages. The MoveMap parameter
 to SingleFragmentMover (SFM) can be used to control backbone torsion flexibility.
-SFM's policy parameter specifies the strategy used to select from the numerous
+SFMs policy parameter specifies the strategy used to select from the numerous
 fragments at a given insertion position. "uniform" selects uniformly among the
 possibilities. "smooth" chooses the fragment that, when inserted, minimizes
 distortion to the pose.
