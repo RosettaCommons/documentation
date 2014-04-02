@@ -158,7 +158,7 @@ Allows sampling structures by MonteCarlo with a mover. The score evaluation of p
 1) scoring by Filters
 
 ```
-<GenericMonteCarlo name=(&string) mover_name=(&string) filter_name=(&string) trials=(10 &integer) sample_type=(low, &string) temperature=(0, &Real) drift=(1 &bool) recover_low=(1 &bool) boltz_rank=(0 &bool) stopping_condition=(FalseFilter &string) preapply=(1 &bool) adaptive_movers=(0 &bool) adaptation_period=(see below &integer) saved_accept_file_name=("" &string) saved_trial_file_name=("" &string) reset_baselines=(1 &bool) progress_report=("" &string)>
+<GenericMonteCarlo name=(&string) mover_name=(&string) filter_name=(&string) trials=(10 &integer) sample_type=(low, &string) temperature=(0, &Real) drift=(1 &bool) recover_low=(1 &bool) boltz_rank=(0 &bool) stopping_condition=(FalseFilter &string) preapply=(1 &bool) adaptive_movers=(0 &bool) adaptation_period=(see below &integer) saved_accept_file_name=("" &string) saved_trial_file_name=("" &string) reset_baselines=(1 &bool) progress_file=("" &string)>
   <Filters>
      <AND filter_name=(&string) temperature=(&Real) sample_type=(low, &string) rank=(0 &bool)/>
      ...
@@ -182,7 +182,7 @@ Allows sampling structures by MonteCarlo with a mover. The score evaluation of p
 -   saved\_accept\_file\_name: save the most recent accepted structure in a temporary PDB? This allows recovery by checkpointing. Note that different processes would need to work from different directories or somehow control the checkpointing file name, else confusion will reign.
 -   saved\_trial\_file\_name: checkpointing file for the current trial number. Allows the mover to recover after failure.
 -   reset\_baselines: If the filter is of type Sigmoid/Operator/CompoundStatement, look for all subfilters of type Sigmoid and reset their baseline to the pose's current filter evaluation at trial=1. Useful in cases where you want to set the thresholds relative to the pose's evaluation at the start of the MC trajectory.
--   progress\_report: If specified opens a file in which each trial's outcome is reported (trial number, accept/reject, filter value, and pose sequence). Useful to monitor progress in MC.
+-   progress\_file: If specified opens a file in which each trial's outcome is reported (trial number, accept/reject, filter value, and pose sequence). Useful to monitor progress in MC.
 
 Multiple filters can be defined for an MC mover. These filters are then applied sequentially in the order listed and only if the pose passes the Metropolis criterion for all filters is it accepted. This allows the extension of MC to a multicriterion framework where more than one criterion is optimized, say the total score and the binding energy. See demos/rosetta\_scripts/experimental/computational\_affinity\_maturation\_strategy2 for an example. It's recommended to list the computationally expensive filters last, as later filters will only be calculated if the earlier filters all pass.
 
