@@ -22,15 +22,18 @@ Command Line Options
 Score Application Specific Options
 -score_app:linmin                           Run a quick linmin before scoring
 -rescore:verbose                            display score breakdown
--rescore:output_only                        dont rescore
 
 
 Quick Start Options
 -in:file:native                             native PDB if CaRMS is required
 -score:weights  weights                     weight set or weights file
 -score:patch  patch                         patch set
--nooutput                                   don't print PDB structures (default now)
--output                                     force printing of PDB structures
+
+-out:nooutput                               don't print PDB structures (default now)
+-out:output                                 force printing of PDB structures
+
+-out:file:score_only                        Only output score file (supress all other filetypes)
+-out:file:scorefile name.sc                 Name of scorefile (default score.sc)
 -out:file:silent                            write silent-out file
 -out:prefix  myprefix                       prefix the output structures with a string
 
