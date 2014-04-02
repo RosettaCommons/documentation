@@ -2,7 +2,7 @@
 
 ### Authors/Developers
 - Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
-- Advised by Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
+- Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
 
 ### Metadata
 - Corresponding PI: Jeffrey Gray ([jgray@jhu.edu](jgray@jhu.edu))
