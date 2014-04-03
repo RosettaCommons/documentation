@@ -46,6 +46,8 @@ This is documentation for not-yet-released applications.
 
 - [[multistate-design-ga]] - DNA interface multistate design  
 
+- [[RosettaPCS]] - Protein folding using Pseudo-Contact-Shift NMR restraints
+
 ### Antibodies:
 
 [[CDR Cluster Identification]]
