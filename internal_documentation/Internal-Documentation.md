@@ -35,6 +35,9 @@ comment tags will be stripped from the documentation prior to being provided as 
 **Current Main page**
 - [[RosettaMembrane Framework Overview]]
 
+## GeneralizedKIC: Generalized Kinematic Closure Project
+[[GeneralizedKIC]]
+
 ## Pilot Apps Documentation
 
 This is documentation for not-yet-released applications.
