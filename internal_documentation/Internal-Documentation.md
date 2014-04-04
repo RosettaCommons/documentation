@@ -35,7 +35,7 @@ comment tags will be stripped from the documentation prior to being provided as 
 **Current Main page**
 - [[RosettaMembrane Framework Overview]]
 
-## Cyclic Peptides Project
+## Cyclic Peptides / Geometrically-Constrained Polymers Project
 [[GeneralizedKIC]]
 
 ## Pilot Apps Documentation
