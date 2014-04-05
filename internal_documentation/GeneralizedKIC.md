@@ -25,9 +25,18 @@ In general, one must:
 
 5. Define one or more GeneralizedKICperturbers.  Each perturber samples conformation space for each closure attempt.
 
-**_This section is still being written_**
+6. Define one or more GeneralizedKICfilters.  Filters are applied after each closure attempt, and eliminate solutions that don't meet some criterion.
 
-# Failure cases
+7. Set the GeneralizedKICselector.  The selector chooses a single solution from the set of solutions found that pass all of the filters.
+
+8. That's it!  You should be happily closing loops, now.
+
+## Algorithm details
+
+The kinematic closure algorithm is described in detail in [Coutsias _et al_. (2004). _J. Comput. Chem._ 25(4):510-28.](http://www.ncbi.nlm.nih.gov/pubmed/14735570).
+**_This section is still being written.  A brief overview will be given here._**
+
+## Failure cases
 GeneralizedKIC cannot handle the following cases:
 * Multiple covalent connections between residues in the chain of residues to be closed.  (This is something that, in general, Rosetta handles poorly).
 * Loops involving salt bridges, cation-pi interactions, hydrogen bonds, or other noncovalent interactions.  (The GeneralizedKIC framework has been written with this in mind as a possible future extension, however.)  Note that coordinate covalent bonds between metal-binding residues and metal ions are considered "covalent" in Rosetta, and _are_ handled properly by GeneralizedKIC.
