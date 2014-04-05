@@ -33,7 +33,7 @@ In general, one must:
 
 ## Algorithm details
 
-The kinematic closure algorithm is described in detail in [Coutsias _et al_. (2004). _J. Comput. Chem._ 25(4):510-28.](http://www.ncbi.nlm.nih.gov/pubmed/14735570).
+The kinematic closure algorithm is described in detail in [Coutsias _et al_. (2004). _J. Comput. Chem._ 25(4):510-28.](http://www.ncbi.nlm.nih.gov/pubmed/14735570) and in [Mandell _et al_. (2009). _Nat. Methods._ 6(8)551-2.](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2847683/)
 
 **_This section is still being written.  A brief overview will be given here._**
 
