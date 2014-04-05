@@ -3,7 +3,7 @@ By Vikram K. Mulligan, Baker laboratory.  Documentation written 4 April 2014.
 The algorithm described here currently exists in the **collab/cycpep** and **vmullig/sidechainKIC** development branches, but will be checked into master shortly.  At that time, this documentation will be added to the primary documentation.
 
 ## Short summary
-GeneralizedKIC (short for _G_eneralized _Ki_nematic _C_losure) is a generalization of the existing kinematic closure machinery.  The generalized version works with arbitrary backbones, and with loops that go through side-chains, ligands, etc.
+GeneralizedKIC (short for _G_eneralized _Ki_nematic _C_losure) is a generalization of the existing kinematic closure machinery.  The generalized version works with arbitrary backbones, and with loops that go through side-chains, ligands, etc.  It has also been implemented with full RosettaScripts support, making it easy to incorporate into more complicated protocols.
 
 ## Usage cases
 Generalized KIC is useful for the following situations:
@@ -15,11 +15,13 @@ The above scenarios tend to be sub-problems of more complicated problems, partic
 ## General workflow
 In general, one must:
 
-1. Build or import a structure.  GeneralizedKIC cannot add residues or geometry.  If one wants to build a new loop, for example, one must add the new loop residues before calling GeneralizedKIC.  (In RosettaScripts, the PeptideStubMover is useful for building geometry from scratch or for adding residues to existing geometry.)
+1. Build or import a structure.  GeneralizedKIC cannot add residues or geometry.  If one wants to build a new loop, for example, one must add the new loop residues before calling GeneralizedKIC.  (In RosettaScripts, the **PeptideStubMover** is useful for building geometry from scratch or for adding residues to existing geometry.)
 
-2. Ensure that covalent linkages have been declared.  GeneralizedKIC will move atoms about to ensure ideal geometry, but cannot declare new chemical bonds.  (In RosettaScripts, the DeclareBond mover lets Rosetta know that certain residues are covalently attached to one another.)
+2. Ensure that covalent linkages have been declared.  GeneralizedKIC will move atoms about to ensure ideal geometry, but cannot declare new chemical bonds.  (In RosettaScripts, the **DeclareBond** mover lets Rosetta know that certain residues are covalently attached to one another.)
 
-3. Set the GeneralizedKIC options (number of closure attempts, whether the algorithm should accept the first successful closure or choose from all successful closure attempts, _etc._).
+3. Set the GeneralizedKIC options (number of closure attempts, whether the algorithm should accept the first successful closure or choose from all successful closure attempts, _etc._).  In RosettaScripts, the format is as follows:
+
+**_TO DO_**
 
 4. Define a series of residues for the GeneralizedKIC closure problem.  This must be an unbranched chain of residues with continuous covalent linkages.  When the GeneralizedKIC::apply() function is called, a continuous chain of atoms running through the selected residues is automatically chosen.
 
