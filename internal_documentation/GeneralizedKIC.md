@@ -34,10 +34,12 @@ In general, one must:
 ## Algorithm details
 
 The kinematic closure algorithm is described in detail in [Coutsias _et al_. (2004). _J. Comput. Chem._ 25(4):510-28.](http://www.ncbi.nlm.nih.gov/pubmed/14735570).
+
 **_This section is still being written.  A brief overview will be given here._**
 
 ## Failure cases
 GeneralizedKIC cannot handle the following cases:
 * Multiple covalent connections between residues in the chain of residues to be closed.  (This is something that, in general, Rosetta handles poorly).
 * Loops involving salt bridges, cation-pi interactions, hydrogen bonds, or other noncovalent interactions.  (The GeneralizedKIC framework has been written with this in mind as a possible future extension, however.)  Note that coordinate covalent bonds between metal-binding residues and metal ions are considered "covalent" in Rosetta, and _are_ handled properly by GeneralizedKIC.
+
 _**This page is under construction.**_
