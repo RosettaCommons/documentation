@@ -13,10 +13,6 @@ Generalized KIC is useful for the following situations:
 
 The above scenarios tend to be sub-problems of more complicated problems, particularly involving heavily cross-linked molecules for which one might wish to sample many conformations.
 
-## Example RosettaScripts
-
-**_TO DO_**
-
 ## General workflow
 In general, one must:
 
@@ -43,6 +39,19 @@ In general, one must:
 The kinematic closure algorithm is described in detail in [Coutsias _et al_. (2004). _J. Comput. Chem._ 25(4):510-28.](http://www.ncbi.nlm.nih.gov/pubmed/14735570) and in [Mandell _et al_. (2009). _Nat. Methods._ 6(8)551-2.](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2847683/)
 
 **_This section is still being written.  A brief overview will be given here._**
+
+## Example RosettaScripts
+
+```
+<ROSETTASCRIPTS>
+...
+     <MOVERS>
+     </MOVERS>
+...
+     <PROTOCOLS>
+     </PROTOCOLS>
+</ROSETTASCRIPTS>
+```
 
 ## Failure cases
 GeneralizedKIC cannot handle the following cases:
