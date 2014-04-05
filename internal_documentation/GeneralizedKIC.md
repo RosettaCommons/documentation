@@ -12,6 +12,10 @@ Generalized KIC is useful for the following situations:
 
 The above scenarios tend to be sub-problems of more complicated problems, particularly involving heavily cross-linked molecules for which one might wish to sample many conformations.
 
+## Example RosettaScripts
+
+**_TO DO_**
+
 ## General workflow
 In general, one must:
 
