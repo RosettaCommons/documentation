@@ -14,11 +14,17 @@ The above scenarios tend to be sub-problems of more complicated problems, partic
 
 ## General workflow
 In general, one must:
-1.  Build or import a structure.  GeneralizedKIC cannot add residues or geometry.  If one wants to build a new loop, for example, one must add these residues before calling GeneralizedKIC.  (In RosettaScripts, the PeptideStubMover is useful for building geometry from scratch or for adding residues to existing geometry.)
-2.  Ensure that covalent linkages have been declared.  GeneralizedKIC will move atoms about to ensure ideal geometry, but cannot declare new chemical bonds.  (In RosettaScripts, the DeclareBond mover lets Rosetta know that certain residues are covalently attached to one another.)
-3.  Set the GeneralizedKIC options (number of closure attempts, whether the algorithm should accept the first successful closure or choose from all successful closure attempts, _etc._).
-4.  Define a series of residues for the GeneralizedKIC closure problem.  This must be an unbranched chain of residues with continuous covalent linkages.  When the GeneralizedKIC::apply() function is called, a continuous chain of atoms running through the selected residues is automatically chosen.
-5.  Define one or more GeneralizedKICperturbers.  Each perturber samples conformation space for each closure attempt.
+
+1. Build or import a structure.  GeneralizedKIC cannot add residues or geometry.  If one wants to build a new loop, for example, one must add these residues before calling GeneralizedKIC.  (In RosettaScripts, the PeptideStubMover is useful for building geometry from scratch or for adding residues to existing geometry.)
+
+2. Ensure that covalent linkages have been declared.  GeneralizedKIC will move atoms about to ensure ideal geometry, but cannot declare new chemical bonds.  (In RosettaScripts, the DeclareBond mover lets Rosetta know that certain residues are covalently attached to one another.)
+
+3. Set the GeneralizedKIC options (number of closure attempts, whether the algorithm should accept the first successful closure or choose from all successful closure attempts, _etc._).
+
+4. Define a series of residues for the GeneralizedKIC closure problem.  This must be an unbranched chain of residues with continuous covalent linkages.  When the GeneralizedKIC::apply() function is called, a continuous chain of atoms running through the selected residues is automatically chosen.
+
+5. Define one or more GeneralizedKICperturbers.  Each perturber samples conformation space for each closure attempt.
+
 **_This section is still being written_**
 
 # Failure cases
