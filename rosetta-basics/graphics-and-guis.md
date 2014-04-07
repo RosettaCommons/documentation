@@ -7,6 +7,7 @@
 
 Relevant Flags:
 -show_simulation_in_pymol <Real>
+
 -keep_pymol_simulation_history
 
 #Graphical User Interfaces
