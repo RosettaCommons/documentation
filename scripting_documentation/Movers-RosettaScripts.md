@@ -1036,9 +1036,11 @@ Adds or replaces constraints in the pose using the constraints' read-from-file f
 cst\_file: the file containing the constraint data. e.g.,:
 
     ...
-    CoordinateConstraint CA 1 CA 380   27.514  34.934  50.283 HARMONIC 0 1
-    CoordinateConstraint CA 1 CA 381   24.211  36.849  50.154 HARMONIC 0 1
+    CoordinateConstraint CA 380 CA 1   27.514  34.934  50.283 HARMONIC 0 1
+    CoordinateConstraint CA 381 CA 1   24.211  36.849  50.154 HARMONIC 0 1
     ...
+The format for Coordinate constraint files is:
+CoordinateConstraint target_res anchor_res x y z function
 
 To remove constraints from the pose create a mover with cst\_file=none.
 
