@@ -5,6 +5,15 @@
 
 ##Pymol Mover
 
+Recommended Usage
+
+<RosettaScripts>
+
+foo
+bar
+
+</RosettaScripts>
+
 #Graphical User Interfaces
 
 ##Fold-It
