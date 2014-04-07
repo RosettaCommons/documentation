@@ -1027,10 +1027,10 @@ Remove any constraints from the pose.
 
 #### ConstraintSetMover
 
-Adds constraints to the pose using the constraints' read-from-file functionality.
+Adds or replaces constraints in the pose using the constraints' read-from-file functionality.
 
 ```
-<ConstraintSetMover name=(&string) cst_file=(&string)/>
+<ConstraintSetMover name=(&string) add_constraints=(false &bool) cst_file=(&string)/>
 ```
 
 cst\_file: the file containing the constraint data. e.g.,:
@@ -1041,6 +1041,8 @@ cst\_file: the file containing the constraint data. e.g.,:
     ...
 
 To remove constraints from the pose create a mover with cst\_file=none.
+
+-  add_constraints: if set to true, the constraints will be added to the current pose, otherwise, the constraints read from the disk will replace the current constraints in the pose. (this is tricky and confusing so beware!)
 
 #### ResidueTypeConstraintMover
 
