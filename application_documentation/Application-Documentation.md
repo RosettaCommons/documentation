@@ -84,7 +84,7 @@ While most of these applications focus on prediction, many have options which wi
 - [[Void Indentification and Packing|vip-app]] (RosettaVIP) - Identify and fill cavities in a protein.
 - [[Point mutation scan|pmut-scan-parallel]] - Identifiy stabilizing point mutants.  
 
-- [[Protein-protein design|app-dock-design]] - Protein-protein interaction design with RosettaScripts.  
+- [[Protein-protein design|app-dock-design]] - Protein-protein interface design with RosettaScripts.  
  
 - [[Match]] - Place a small molecule into a protein pocket so it satisfies given geometric constraints.  
 - [[Enzyme Design]] - Design a protein around a small molecule, with catalytic constraints.  
