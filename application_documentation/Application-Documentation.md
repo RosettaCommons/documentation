@@ -113,7 +113,7 @@ While most of these applications focus on prediction, many have options which wi
 
 - [[Zinc heterodimer design]] - Design zinc-mediated heterodimers.  
 
-- [[Beta strand homodimer design]] - Finding proteins with surface exposed beta-strands, then design a homodimers that will form via that beta-strand.  
+- [[Beta strand homodimer design]] - Find proteins with surface exposed beta-strands, then design a homodimer that will form via that beta-strand.  
 
 - [[DougsDockDesignMinimize|doug-dock-design-min-mod2-cal-cal]] - Redesign the protein/peptide interface of Calpain and a fragment of its inhibitory peptide calpastatin.
 
