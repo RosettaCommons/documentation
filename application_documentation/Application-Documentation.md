@@ -40,7 +40,7 @@ While most of these applications focus on prediction, many have options which wi
 - [[Floppy tail]] - Predict structures of long, flexible N-terminal or C-terminal regions.  
 
 ###Loop Modeling
--  [[Loop modeling|loopmodel]]
+-  [[Loop modeling overview|loopmodel]]
 -  [[CCD loop modeling|loopmodel-ccd]] - Sample loop conformations using fragments and the CCD closure algorithm.
 -  [[Kinematic loop modeling|loopmodel-kinematic]] - Sample loop conformations using the kinematic closure algorithm.
 -  [[Next-generation KIC]] - A newer version of loop modeling with kinematic closure.
