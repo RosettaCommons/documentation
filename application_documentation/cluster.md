@@ -3,12 +3,14 @@
 Metadata
 ========
 
-This document was edited May 25th 2010 by Mike Tyka. This application in mini was created and documented by Mike Tyka,et al.
+This document was edited May 25th 2014 by Jared Adolf-Bryfogle. This application in mini was created and documented by Mike Tyka,et al.
 
 Purpose and Algorithm
 =====================
 
-The "cluster" application in Rosetta carries out a simple clustering of structures (either PDB or silent file format). The algorithm is based on one of Phil Bradley's old programs (silent\_cluster\_c). Starting with a subset of structures (the first 400 structures) the algorithm finds the structure with the largest number of neighbors within the cluster radius and creates a first cluster with that structure as the cluster center and the neighbors part of and claimed by the cluster. The structures are removed from the pool of "unclaimed" structures. The algorithm is then repeated untill all structures are assigned a cluster. The remainder of structures are then assigned to clusters (this avoids having to calculate a full rms matrix) one by one. The rule is that any structure joins the cluster to who's cluster center it is most similar to. If the closest cluster is more then "cluster\_radius" away the structure will form a new cluster. This rule is applied to all remaining structures. Clusters can be size limited, sorted by energy etc.. (see options)
+The "cluster" application in Rosetta carries out a simple clustering of structures (either PDB or silent file format). The algorithm is based on one of Phil Bradley's old programs (silent\_cluster\_c). Starting with a subset of structures (the first 400 structures) the algorithm finds the structure with the largest number of neighbors within the cluster radius and creates a first cluster with that structure as the cluster center and the neighbors part of and claimed by the cluster. The structures are removed from the pool of "unclaimed" structures. The algorithm is then repeated untill all structures are assigned a cluster. The remainder of structures are then assigned to clusters (this avoids having to calculate a full rms matrix) one by one. The rule is that any structure joins the cluster to who's cluster center it is most similar to. If the closest cluster is more then "cluster\_radius" away the structure will form a new cluster. This rule is applied to all remaining structures. Clusters can be size limited, sorted by energy etc.. (see options) 
+
+Note that the cluster application cannot sometimes handle very large sets of structures.  It is recommended to use a program that has been optimized for such a purpose such as [Calibur](http://sourceforge.net/projects/calibur/) instead.
 
 Command Line Options
 ====================
