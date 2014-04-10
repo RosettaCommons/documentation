@@ -1185,12 +1185,12 @@ If use\_probability is false, the filter returns the fraction of residues that m
 If use\_probability is true AND mismatch\_probability is true, the score is the geometric average of the probability of picking the WRONG secondary structure type at all residue positions.  Minimizing this number will maximize the geometric average of the probability of picking the CORRECT secondary structure type at all residue positions.  This option should be the most correct method for comparing two sequences to determine their expected fragment quality based on their predicted secondary structure probabilities at each residue.
 
 ```
-<SSPrediction name=(&string) threshold=(&real) use_probability=( true &bool) cmd=(&string) blueprint=( "" &string) use_svm=( true &bool ) />
+<SSPrediction name=(&string) threshold=(&real) use_probability=( true &bool) mismatch_probability=( true &bool) cmd=(&string) blueprint=( "" &string) use_svm=( true &bool ) />
 ```
 
 -   threshold - If threshold is set and use_probability is true, the filter returns true only if the calculated value is less than this number. If use_probability is false, the filter returns true if the calculated value is greater than this number.
 -   use\_probability - If true, the probability information that psipred calculates will be used to determine the score. IF false, the filter will return the percentage of residues that match.
--   use\_probability - If true, the probability information that psipred calculates will be used to determine the score. IF false, the filter will return the percentage of residues that match.
+-   mismatch\_probability - If true AND use\_probability is true, the score is determined as the geometric average of the probability getting a WRONG secondary structure type at each position.  Just as in regular use_probability, you want to minimize this score.
 -   cmd - Full path to runpsipred\_single or runpsipred executable. Must be specified if use\_svm=false
 -   blueprint - If specified, the filter will take desired secondary structure from a blueprint file, rather from DSSP on the pose.
 -   use\_svm - If set, an SVM will be used to make secondary structure predictions instead of psipred. This requires downloading some database files. If false, the psipred executable specified by cmd will be used.
