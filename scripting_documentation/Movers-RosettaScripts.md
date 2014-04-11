@@ -1187,36 +1187,7 @@ This mover takes a non-symmetric pose composed of symmetric chains and transform
 
 subunit\_tolerance: maximum tolerated CA-rmsd between the chains. plane\_tolerance: maximum accepted displacement(angstroms) of the center of mass of the whole pose from the xy-plane.
 
-<!--- BEGIN_INTERNAL -->
-#### SymDofMover
-
-(This is a devel Mover and not available in released versions.)
-
-Used to setup symmetric systems in which the input structures(s) are aligned along the x, y, or z axis. All functionality, except for grid sampling, can handle any number of distinct input structures for multi-component symmetric systems (Grid sampling can handle 1 or 2). Each input structure is first translated along the specified axis (x, y, or z) by the value specified by the user in the radial\_disps option, then rotated about this same axis by the value specified by the user in the angles option, and lastly, if align\_axis is set to true (which is the default behavior), then the user specified axis (x, y, or z) is aligned to the correct axis corresponding to the sym\_dof\_name in the symmetry definition file. Following these initial manipulations of the input structures, a symmetric pose is generated using the user specified symmetry definition file. If one wishes to sample around the user defined radial\_disps and angles, then this can be done either through non-random grid sampling, random sampling from a Gaussian distribution within a user defined range, or random sampling from a uniform distribution within a user defined range. Each sampling method is driven by nstruct. If grid sampling is desired, then the user must specify radial\_disps\_range\_min, radial\_disps\_range\_max, angles\_range\_min, angle\_range\_max to define the range within to sample around the docked configuration and the bin sizes in which to sample these displacements and angles, which are set through the radial\_disp\_steps and angle\_steps options. If uniform sampling is desired, then the user must specify radial\_disps\_range\_min, radial\_disps\_range\_max, angles\_range\_min, and angle\_range\_max. If Gaussian sampling is desired, then the user must specify the radial\_disp\_deltas and angle\_deltas (a random number derived from a Gaussian distribution between -1 and 1 will then be multiplied by these step values and added to the initial radial\_disps or angles). If the auto\_range option is set to true, then the ranges set by the user for the grid or uniform sampling will be interpreted by the mover such that negative values move the structures toward the origin and positive values move the structures away from the origin (this is helpful if you have a mix of structures with negative or positive initial displacements, so that you can use a generic xml or run\_script for all of them).
-
-    <SymDofMover name=(&string)  symm_file=(&string)  sym_dof_names=(&string) axis=('z' &char) align_axis=(true &bool) auto_range=(false &bool) sampling_mode=("single_dock" &string) 
-    radial_disps=(&string) angles=(&string) radial_disps_range_min=(&string) radial_disps_range_max=(&string) angles_range_min=(&string) angles_range_max=(&string) radial_disp_steps=(&string) 
-    angle_steps=(&string) radial_disp_deltas=(&strings) angle_deltas=(&string) radial_offsets=(&strings)/>
-
--   symm\_file - Symmetry definition file.
--   sym\_dof\_names - Names of the sym\_dofs in the symmetry definition file along which one wishes to move or rotate the input. NOTE: For multicomponent systems, the order of the displacements, angles, ranges, and steps must correspond with the the order of the sym\_dof\_names. Passed as a string with comma-separated list (e.g. sym\_dof\_names="JTP1,JDP1")
--   axis - Axis (x, y, or z) along which to translate or rotate, and if align\_axis=true, which to align with the appropriate axis from the symmetry definition file.
--   align\_axis - Boolean to determine whether or not the axis along which the input structures are initially aligned needs to be realigned with the appropriate axis in the symmetry definition file.
--   auto\_range - Boolean to set the manner in which the user defined ranges for radial displacements are interpreted. If set to true, then the negative values for min or max displacement are interpreted as moving the structure closer to the origin and positive values away from the origin.
--   sampling\_mode - Which mode to use to sample around the initial configuration, if desired. "grid", "uniform", or "gaussian"
--   radial\_disps - Initial displacement(s) by which to translate the input structure(s) along the user specified axis. Passed as a string with a comma-separated list (e.g. radial\_disps="-65.4,109.2")
--   angles - Initial angle(s) by which to rotate the input structure(s) about the user specified axis. Passed as a comma-separated list (e.g. angles="-65.4,109.2")
--   radial\_disps\_range\_min - For use with grid or uniform sampling. Minimum distance(s) in Angstroms by which to modify the initial radial\_disps. Passed as a string with a comma-separated list (e.g. radial\_disps\_range\_min="-1,-1".
--   radial\_disps\_range\_max - For use with grid or uniform sampling. Maximum distance(s) in Angstroms by which to modify the initial radial\_disps. Passed as a string with a comma-separated list (e.g. radial\_disps\_range\_max="1,1".
--   angles\_range\_min - For use with grid or uniform sampling. Minimum angle(s) in degrees by which to rotate the structure around the initial angle(s) provided by the user. Passed as a string with a comma-separated list (e.g. angles\_range\_min="-1,-1".
--   angles\_range\_max - For use with grid or uniform sampling. Maximum angle(s) in degrees by which to rotate the structure around the initial angle(s) provided by the user. Passed as a string with a comma-separated list (e.g. angles\_range\_max="1,1".
--   radial\_disp\_steps - For use with grid sampling. Set the bin size(s) by which to sample within the user defined range(s). Passed as a string with a comma-separated list (e.g. radial\_disps\_steps="0.5,0.5".
--   angle\_steps - For use with grid sampling. Set the bin size(s) by which to sample within the user defined range(s). Passed as a string with a comma-separated list (e.g. angle\_steps="0.5,0.5".
--   radial\_disp\_deltas - For use with Gaussian sampling. The range within to sample inward and outward around the user specified initial displacement(s). Passed as a string with a comma-separated list (e.g. radial\_disp\_deltas="0.5,0.5".
--   angle\_deltas - For use with Gaussian sampling. The range within to sample around the user specified initial angle(s). Passed as a string with a comma-separated list (e.g. angle\_deltas="0.5,0.5".
--   radial\_offsets - Can be used in any sampling mode. Offset value(s) are added to the corresponding radial\_disps before grid, uniform, or gaussian sampling is performed. Works with auto\_range. For example, if one wants to space out both symdofs a given structure by 2 angstroms, one can pass radial\_offsets="2,2" and auto\_range=true. Then, regardless of the sign of the radial disps, the subunits will be displaced 2 angstroms further from the origin (assuming the input subunit(s) start at the origin).
-
-<!--- END_INTERNAL --> 
+ 
 
 #### ExtractAsymmetricUnit
 
@@ -1226,22 +1197,7 @@ The inverse of SetupForSymmetry: given a symmetric pose, make a nonsymmetric pos
 <ExtractAsymmetricUnit name=extract_asu/>
 ```
 
-<!--- BEGIN_INTERNAL -->
-#### ExtractSubpose
-
-(This is a devel Mover and not available in released versions.)
-
-Used to extract a subset of the subunits from a symmetric pose based on contacts with a user specified component (via sym\_dof\_name(s)). This subpose is dumped as a pdb with the user specified prefix, suffix, and basename derived from the job distributer. DOES NOT MODIFY THE POSE. For each sym\_dof\_name passed by the user, all neighboring subunits (as assessed by CA or CB contacts with the user specified contact\_distance (10.0 A by default)). If extras=true, then all the full building block for each sym\_dof will be extracted along with all touching building blocks.
-
-    <ExtractSubpose name=(&string) sym_dof_names=(&string) prefix=("" &string) suffix=("" &string) contact_dist=(10.0 &Real) extras=(0 &bool) />
-
--   sym\_dof\_names - Name(s) of the sym\_dofs corresponding to the primary component(s) to extract along with the neighboring subunits/building blocks. Passed as a string (optionally: with a comma-separated list).
--   prefix - Optional prefix for the output pdb name.
--   suffix - Optional suffix for the output pdb name.
--   contact\_dist - Maximum CA or CB distance from any residue in the primary component(s) to any residue in another component for it to be considered a "neighbor" and added to the extracted subpose.
--   extras - Boolean option to set whether or not full building blocks are extracted rather than just subunits.
-
-<!--- END_INTERNAL --> 
+ 
 
 #### ExtractAsymmetricPose
 
@@ -1324,21 +1280,7 @@ The following RosettaScript runs a protocol similar to Rosetta's symmetric fast 
 </ROSETTASCRIPTS>
 ```
 
-<!--- BEGIN_INTERNAL -->
-
-#### TaskAwareSymMinMover
-
-(This is a devel Mover and not available in released versions.)
-
-A task-aware version of the SymMinMover that allows minimization of only certain sets of residues specified by user-defined task operations.
-
-    <TaskAwareSymMinMover name=(&string) scorefxn=(&scorefxn) bb=(0 &bool) chi=(1 &bool) rb=(0 &bool) task_operations=(comma-delimited list of task operations) />
-
--   bb - Whether to allow backbone minimization.
--   chi - Whether to allow side chain minimization.
--   rb - Whether to allow rigid body minimization.
-
-<!--- END_INTERNAL --> 
+ 
 
 #### Issues with Symmetry and Rosetta Scripts
 
@@ -1941,53 +1883,7 @@ Establishes a non crystallographic symmetry (NCS) between residues. The mover se
 -   NCSend: forces sequence and conformation from source to target but does not set up any constraint. This tag applies only if symmetric\_sequence=1.
 
 
-<!--- BEGIN_INTERNAL -->
-#### StoreTask
-
-(This is a devel Mover and not available in released versions.)
-
-Creates a packer task by applying the user-specified task operations to the current pose and saves the packer task in the pose's cacheable data, allowing the task to be accessed, unchanged, at a later point in the RosettaScripts protocol. Must be used in conjunction with the RetrieveStoredTask task operation.
-
-    <StoreTaskMover name=(&string) task_name=(&string) task_operations=(comma-delimited list of task operations) overwrite=(0 &bool) />
-
--   task\_name - The index where the task will be stored in the pose's cacheable data. Must be identical to the task\_name used to retrieve the task using the RetrieveStoredTask task operation.
--   task\_operations - A comma-delimited list of task operations used to create the packer task.
--   overwrite - If set to true, will overwrite an existing task with the same task\_name if one exists.
-
-#### StoreCompoundTaskMover
-
-(This is a devel Mover and not available in released versions.)
-
-This mover uses previously defined task operations applied to the current pose to construct a new compound logical task with NOT, AND, OR, XOR, NAND, NOR, ANDNOT, and ORNOT operations. It then creates a packer task by applying the task operations to the current pose and saves the packer task in the pose's cacheable data, allowing the task to be accessed, unchanged, at a later point in the RosettaScripts protocol. Must be used in conjunction with the RetrieveStoredTask task operation. By making compound tasks of compound tasks, esssentially all logical tasks can be defined. Note: this mover has not yet been thoroughly tested. The source code is currently located in: src/devel/matdes/
-
-```
-<StoreCompoundTaskMover name=(&string) task_name=(&std::string) mode=("packable" &std::string) true_behavior=(&string) false_behavior=("prevent_repacking" &string) invert=(false &bool) verbose=(false &bool) overwrite=(false &bool)>
-<OPERATION task_operations=(comma-delimited list of operations &string)/> 
-<.... 
-</StoreCompoundTaskMover> 
-```
-
-Example:
-
-```
-<StoreCompoundTaskMover name=store_packable_any task_name=packable_any mode="packable" true_behavior="" false_behavior="prevent_repacking" invert=0 verbose=1 overwrite=0>
-    <OR task_operations=resfile1 />
-    <OR task_operations=resfile2 />
-    <OR task_operations=design_bbi />
-</StoreCompoundTaskMover>
-```
-
--   task\_name: The index where the task will be stored in the pose's cacheable data. Must be identical to the task\_name used to retrieve the task using the RetrieveStoredTask task operation.
--   mode: What property of the residues should be assessed? Options: packable or designable
--   true\_behavior: What behavior should be assigned to residues for which the compound task is true? Options: prevent\_repacking or restrict\_to\_repacking. If not set to one of these options, then by default these residues will remain designable.
--   false\_behavior: What behavior should be assigned to residues for which the compound task is false? Default: prevent\_repacking Options: prevent\_repacking or restrict\_to\_repacking. If false\_behavior="", then these residues will remain designable.
--   invert: setting to true will cause the final outcome to be inverted. If, for instance multiple AND statements are evaluated and each evaluates to true for a given residue, then the false\_behavior will be assigned to that residue.
--   verbose: setting to true will produce a pymol selection string for the positions assigned the true behavior
--   overwrite: above which threshold (e.g. delta score/delta ddg) a negative state will be counted in the Boltzmann fitness calculation. This prevents the dilution of negative states.
--   OPERATION: any of the operations the following logical operations: NOT, AND, OR, XOR, NAND, NOR, ANDNOT, and ORNOT. Note that the operations are performed in the order that they are defined. No precedence rules are enforced, so that any precedence has to be explicitly written by making compound statements of compound statements. Note that the first OPERATION specified in the compound statement treated as a negation if NOT, ANDNOT, or ORNOT is specified.
--   task\_operations: A comma-delimited list of task operations
-
-<!--- END_INTERNAL --> 
+ 
 
 #### VirtualRoot
 
