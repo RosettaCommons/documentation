@@ -61,3 +61,7 @@ This is documentation for not-yet-released applications.
 
 [[RosettaAntibodyDesign]]
 - Design Antibodies based on clusters and cellular mimicry
+
+### Methods
+[[Computing SASA in Rosetta]]
+ - Method for computing SASA in Rosetta written by Jared
