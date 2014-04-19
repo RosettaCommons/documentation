@@ -1632,12 +1632,13 @@ Reads a PDB file from disk and concatenates it to the existing pose.
 Adds a chainbreak at the specified position
 
 ```
-<AddChainBreak name=(&string) resnum=(&string) change_foldtree=(1 &bool) find_automatically=(0 &bool) distance_cutoff=(2.5&Real)/>
+<AddChainBreak name=(&string) resnum=(&string) change_foldtree=(1 &bool) find_automatically=(0 &bool) distance_cutoff=(2.5&Real) remove=(0 &bool)/>
 ```
 
 -   change\_foldtree: add a jump at the cut site.
 -   find\_automatically: find cutpoints automatically according to the distance between subsequent C and N atoms.
 -   distance\_cutoff: the distance cutoff between subsequent C and N atoms at which to decide that a cutpoint exists.
+-   remove: if true remove the chainbreak from the specified position rather than add it.
 
 #### FoldTreeFromLoops
 
@@ -2207,8 +2208,12 @@ To be used after an ala pose was built (and the design moves are done) to retrie
 Sets up an atom tree for use with subsequent movers. Connects pdb\_num on host\_chain to the nearest residue on the neighboring chain. Connection is made through connect\_to on host\_chain pdb\_num residue
 
 ```
-<AtomTree name=(&string) docking_ft=(0 &bool) pdb_num/res_num=(&string) connect_to=(see below for defaults &string) anchor_res=(pdb numbering) connect_from=(see below) host_chain=(2 &integer) simple_ft=(0&bool) two_parts_chain1=(0&bool)/>
+<AtomTree name=(&string) docking_ft=(0 &bool) pdb_num/res_num=(&string) connect_to=(see below for defaults &string) anchor_res=(pdb numbering) connect_from=(see below) host_chain=(2 &integer) simple_ft=(0&bool) two_parts_chain1=(0&bool) fold_tree_file=(&string)/>
 ```
+
+-   fold_tree_file: if this is set to a file name the mover will read a foldtree from a file and then impose it. Nothing more. Here's an example for a fold-tree definition:
+
+FOLD_TREE EDGE 1 18 -1 EDGE 18 32 1 EDGE 18 21 -1 EDGE 32 22 -1 EDGE 32 50 -1 EDGE 50 79 -1 EDGE 50 163 2 EDGE 163 98 -1 EDGE 98 82 3 EDGE 98 96 -1 EDGE 82 95 -1 EDGE 82 80 -1 EDGE 163 208 -1
 
 -   docking\_ft: set up a docking foldtree? if this is set all other options are ignored.
 -   simple\_ft: set a simple ft going from 1-\>chain1\_end; 1-\>chain2\_begin; chain2\_begin-\>chain2\_end; etc.
