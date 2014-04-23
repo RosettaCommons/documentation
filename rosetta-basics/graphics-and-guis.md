@@ -18,8 +18,7 @@ Relevant Flags:
 ####Command Line
 
 ```
--show_simulation_in_pymol [Real]     Both turns on show simulation and indicates the frequency a pose 
-                                      is sent to pymol in seconds
+-show_simulation_in_pymol [Real]     Both turns on show simulation and indicates the minimum frequency a pose is sent to pymol upon changes in seconds.  0 indicates that no packets are skipped!
 
 -keep_pymol_simulation_history       Keep the history of the simulation as seperate frames in pymol
 
