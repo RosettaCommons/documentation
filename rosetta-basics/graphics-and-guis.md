@@ -25,6 +25,7 @@ Relevant Flags:
 
 ```
 ###Drawbacks and workarounds
+If Length changes are occurring during the run, the PyMOL Mover may segfault as it tries to send the pose before certain components of the conformation are updated.  There is currently no work around to this.  
 
 #Graphical User Interfaces
 
