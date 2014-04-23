@@ -20,11 +20,15 @@ In general, one must:
 
 2. Ensure that covalent linkages have been declared.  GeneralizedKIC will move atoms about to ensure ideal geometry, but cannot declare new chemical bonds.  (In RosettaScripts, the **DeclareBond** mover lets Rosetta know that certain residues are covalently attached to one another.)
 
-3. Set the GeneralizedKIC options (number of closure attempts, whether the algorithm should accept the first successful closure or choose from all successful closure attempts, _etc._).  In RosettaScripts, this is handled as follows:
+3. Set the GeneralizedKIC options (number of closure attempts, whether the algorithm should accept the first successful closure or choose from all successful closure attempts, _etc._).  In RosettaScripts, this is handled inside the <MOVERS> block as follows:
 ```
-<GeneralizedKIC name="&string" closure_attempts=(2000 &int) stop_when_solution_found=(false &bool) selector="&string">
-     ...
-</GeneralizedKIC>
+<MOVERS>
+...
+     <GeneralizedKIC name="&string" closure_attempts=(2000 &int) stop_when_solution_found=(false &bool) selector="&string">
+          ...
+     </GeneralizedKIC>
+...
+</MOVERS>
 ```
 The **closure_attempts** parameter sets the number of times the algorithm will try to close the loop.  A setting of **0** means that it will keep trying indefinitely.  The **stop_when_solution_found** option determines whether a successful closure that passes filters means that the algorithm should accept what it has found and finish, or keep going until it has done as many attempts as specified by **closure_attempts** (at which point a solution would be chosen by the selector).  The **selector** flag is mandatory, and specifies the way in which a solution is chosen from among the successful solutions.  Currently, the only option is "random_selector", which chooses a solution that passes filters randomly, but other options will be added in the future.
 
