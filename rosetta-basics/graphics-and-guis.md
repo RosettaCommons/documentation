@@ -16,10 +16,14 @@ Relevant Flags:
 ####PyRosetta
 
 ####Command Line
--show_simulation_in_pymol [Real]                          Both turns on show simulation and indicates the frequency a pose is sent to pymol in seconds
 
--keep_pymol_simulation_history                            Keep the history of the simulation as seperate frames in pymol
+```
+-show_simulation_in_pymol [Real]     Both turns on show simulation and indicates the frequency a pose 
+                                      is sent to pymol in seconds
 
+-keep_pymol_simulation_history       Keep the history of the simulation as seperate frames in pymol
+
+```
 ###Drawbacks and workarounds
 
 #Graphical User Interfaces
