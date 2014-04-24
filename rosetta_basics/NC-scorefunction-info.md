@@ -2,8 +2,9 @@
 
 With the addition of the [[talaris2013 scorefunction | score-types]] as the default Rosetta scorefunction, most non-protein residues and molecules can be scored, however other scorefunctions exist that work well with protein and non-protein residues and molecules.
 
-##ScoreFunctions
-### MM Standard Scorefunction
+[[_TOC_]]
+
+## MM Standard Scorefunction
 Creator Names:
 * P. Douglas Renfrew (doug.renfrew@gmail.com)
 * Bonneau Lab
