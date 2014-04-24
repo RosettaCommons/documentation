@@ -1,6 +1,8 @@
-[[_TOC_]]
+
 
 #How to use Run Rosetta
+
+[[_TOC_]]
 
 The command line is composed of two major parts. First, a path to an application executable is required, while the second part is a list of options for the particular Rosetta simulation.
 
