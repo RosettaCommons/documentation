@@ -7,21 +7,22 @@
 ###Background
 The PyMOL Mover is a way to visualize your decoy (PDB) in PyMOL. One of its most powerful features is that it can color your decoy by score, or some component of the total score, as well. 
 
-The PyMOL Mover can be accessed through RosettaScripts, PyRosetta, or at the command line.
+The PyMOL Mover can be controlled through RosettaScripts, PyRosetta, or through the command line.
 
 ###Usage
 ####RosettaScripts
-Relevant Flags:
+[[See RosettaScripts Documentation | Movers-RosettaScripts#PyMolMover]]
 
 ####PyRosetta
+[See PyRosetta Documentation](http://www.pyrosetta.org/tutorials#TOC-PyMOL_Mover)
 
 ####Command Line
 
 ```
--show_simulation_in_pymol [Real]             Both turns on show simulation to output frames into 
-                                              pymol when the pose has changed and indicates the minimum
-                                              frequency a pose is sent to pymol upon changes in seconds. 
-                                              0 indicates that no packets are skipped!
+-show_simulation_in_pymol [Real, default=5]   Both turns on show simulation view to output frames into 
+                                               pymol when the pose has changed AND indicates the time
+                                               interval (in seconds) before another frame can be sent to pymol.
+                                               0 indicates that no packets are skipped!
 
 -update_pymol_on_energy_changes_only         Only update pymol on energy changes.  Useful if protein length
                                               changes are occurring.
