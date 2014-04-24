@@ -1,10 +1,9 @@
 
-
-#How to use Run Rosetta
-
-[[_TOC_]]
+#How to Run Rosetta
 
 The command line is composed of two major parts. First, a path to an application executable is required, while the second part is a list of options for the particular Rosetta simulation.
+
+[[_TOC_]]
 
 ##Location of Rosetta Executables
 After Rosetta is [[compiled | build_documentation/Build-Documentation ]], links to binary executables are copied to the Rosetta/main/bin directory.  Full paths to these executables need to be given when running Rosetta, unless this directory is added paths in your shell profile (~/.bashrc (linux), ~/.bash_profile (mac), etc). <code> export PATH=$PATH:/path/to/rosetta/bin </code>
@@ -20,7 +19,7 @@ fixbb.macgccrelease -in:file:s myinput.pdb -database mypath
 Options and arguments to the options, are separated by whitespace. A single or double colon is using to clarify options via OptionGroups when there are multiple separate options with the same name. Multiple layers of colons may be needed.
 
 
-##On the Command-line via Flag File
+##On the Command-line via a Flag File
 
 Options can also be written in a flag file. In this file, put one option on each line, still using the colon or double colon is using to specify the layers. An example options file appears below.
 
