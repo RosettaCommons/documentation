@@ -5,6 +5,8 @@ Metadata
 
 This document was edited by Colin Smith on 12/4/2008. Yi Liu created the initial page. Thanks Oliver and Firas for providing information.
 
+[[_TOC_]]
+
 File Formats
 ============
 
