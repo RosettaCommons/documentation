@@ -6,6 +6,8 @@ Compiling Rosetta 3
 
 The current build system is based on the tool [SCons](https://wiki.rosettacommons.org/index.php/Tools:SCons "Tools:SCons") ("Software Constructor") with some extensions. `     scons.py    ` is implemented as a Python script.  Scons can be called directly by the command <code>scons</code> if installed locally, or via the python script.
 
+[[_TOC_]]
+
 ### SCons
 
 You have multiple options for compiling Rosetta 3 with SCons. You can build either only the core libraries or both the libraries and the executables. Rosetta 3 can be compiled in two modes:
