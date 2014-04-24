@@ -1,5 +1,5 @@
 <!-- --- title: Relational Database Options -->
-Options for using relational databases such as with Rosetta.
+Options for using relational databases within Rosetta.
 
 Currently supported backends include: sqlite3, mysql, and postgres
 
