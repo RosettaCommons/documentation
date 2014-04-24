@@ -5,7 +5,7 @@
 
 ##Pymol Mover
 ###Background
-The PyMOL Mover is a way to visualize your decoy (PDB) in PyMOL. One of its most powerful features is that it can color your decoy by score, or some component of the total score, as well. 
+The PyMOL Mover is a way to visualize your decoy (PDB) in PyMOL. One of its most powerful features is that it can color your decoy by score or some component of the total score, as well as observe changes in real-time during a Rosetta protocol. 
 
 The PyMOL Mover can be controlled through RosettaScripts, PyRosetta, or through the command line.
 
