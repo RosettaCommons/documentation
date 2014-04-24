@@ -5,6 +5,8 @@ Metadata
 
 Last edited 01/14/11. Matthew O'Meara (mattjomeara@gmail.com).
 
+[[_TOC_]]
+
 Overview of Relational Databases
 ================================
 
