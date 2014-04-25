@@ -6,7 +6,9 @@ Metadata
 Authors:
 Brian Weitzner (brian.weitzner@jhu.edu), Monica Berrondo (mberron1@jhu.edu), Krishna Kilambi (kkpraneeth@jhu.edu), Robin Thottungal (raugust1@jhu.edu), Sidhartha Chaudhury (sidc@jhu.edu), Chu Wang (chuwang@gmail.com), Jeffrey Gray (jgray@jhu.edu)
 
-Last edited 7/18/2011. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
+Last edited 4/25/2014 by Jared Adolf-Bryfogle. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
+
+[[_TOC_]]
 
 Code and Demo
 =============
@@ -32,6 +34,7 @@ We recommend the following articles for further studies of RosettaDock methodolo
 -   Wang, C., Schueler-Furman, O., Baker, D. (2005). Improved side-chain modeling for protein-protein docking Protein Sci 14, 1328-1339.
 -   Wang, C., Bradley, P. and Baker, D. (2007) Protein-protein docking with backbone flexibility. Journal of Molecular Biology, 2007 Oct 19;373(2):503-19. Epub 2007 Aug 2.
 -   Chaudhury, S., Berrondo, M., Weitzner, B. D., Muthu, P., Bergman, H., Gray, J. J.; (2011) Benchmarking and analysis of protein docking performance in RosettaDock v3.2. PLoS One, Accepted for Publication
+
 
 Application purpose
 ===========================================
@@ -173,13 +176,27 @@ Tips
 
 -   For perturbation runs, generate at least 1,000 decoys. For global runs, generate between 10,000 and 100,000 (we know this requires a lot of cpu time and disk space).
 
--   Docking now supports AtomPairConstraint, AmbiguousConstraint and SiteConstraint. To use a constraint with docking, you only need to add the option -constraints:cst\_file [[constraint_file|constraint-file]] . See the docking\_distance\_constraint and docking\_site\_constraint integration tests for examples. A SiteConstraint allows you to specify that a particular residue should be in contact with a particular chain. An example of a SiteConstraint is:
+Constraints
+===========
+
+Docking now supports AtomPairConstraint, AmbiguousConstraint and SiteConstraint. To use a constraint with docking, you only need to add the option -constraints:cst\_file [[constraint_file|constraint-file]] . See the docking\_distance\_constraint and docking\_site\_constraint integration tests for examples. A SiteConstraint allows you to specify that a particular residue should be in contact with a particular chain. An example of a SiteConstraint is:
 
     ```
     SiteConstraint CA 4A D FLAT_HARMONIC 0 1 5
     ```
 
-This will add a FLAT\_HARMONIC potential with the parameters 0 1 5 (recommended; see [[this page|constraint-file]] for more on constraint files) around the distance between the CA of residue 4 (PDB numbering) on chain A and the closest CA on chain D to the ScoreFunction.
+This will add a FLAT\_HARMONIC potential with the parameters 0 1 5 (recommended; see [[this page|constraint-file]] for more on constraint files) around the distance between the CA of residue 4 (PDB numbering) on chain A and the closest CA on chain D to the ScoreFunction. The FLAT\_HARMONIC function with these parameters is centered on 0, with a spring constant of 1 and a window of 5. That is, there's no penalty for 5 around zero, and then starting at 5 the penalty goes up as d^2 for every d units past 5 you go.  
+
+If you are looking to have SiteContraints for any Atom of a particular residue to any atom of the chain specified, checkout the AmbiguousContraints
+
+If you want to dissallow certain residues, look into the SIGMOID function.  As Rocco Moretti explains from a forum post:I might recommend trying a SIGMOID function( (1/(1+exp(-slope*( x-x0 ))) - 0.5). This is set up to give a favorable value near zero (and for negative numbers) when the slope is positive, but you could try a negative slope to give a favorable value further away from zero. e.g.
+    
+    ```
+    SiteConstraint CA 16B A SIGMOID 5.0 -2.0
+    ```
+
+Would give a sigmoid constraint centered around 5 with values being disfavorable near zero and favorable greater than 5 (slope -4). You will likely need to play around with the slope and cutoff to get things the way you want. Also keep in mind that a sigmoid never quite reaches zero, so the constraint will always want to push things apart, but with a steep enough slope the effect will be negligible.
+
 
 Expected Outputs
 ================
@@ -197,4 +214,3 @@ New things since last release
 -   Supports the modern job distributor (jd2).
 -   Support for complex foldtrees including poses that have ligands.
 -   Support for [[constraints|constraint-file]] .
-
