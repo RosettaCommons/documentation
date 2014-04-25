@@ -80,6 +80,7 @@ Nested constraints take as their parameters one or more other constraints, and a
      END
      ```
     * Lowest of all specified constraints
+    * Only the one with  lowest energy is considered
 
 -   KofNConstraint:
      ```
