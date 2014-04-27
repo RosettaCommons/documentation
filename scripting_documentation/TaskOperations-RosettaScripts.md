@@ -458,7 +458,7 @@ Do not allow disulfides to repack.
 This task operation uses a database of sequences and a template pdb to find on the pose a user defined start and end residues. A sequence length and threading start position are calculated and then a correct length sequence is randomly chosen from the database and threaded onto the pose.
 
 ```
-<DatabaseThread name=(&string) database=(&string) template_file=(&string) start_res=(&int) end_res=(&int) allow_design_around=(1&bool) design_residues=(comma-delimited list) keep_original_identity=(comma-delimited list)/>
+<DatabaseThread name=(&string) database=("" &string) target_sequence=("" &string) template_file=(&string) start_res=(&int) end_res=(&int) allow_design_around=(1 &bool) design_residues=(comma-delimited list) keep_original_identity=(comma-delimited list)/>
 ```
 
 To actually change the sequence of the pose, you have to call something like PackRotamersMover on the pose using this task operation. Notice that this only packs the threaded sequence, holding everything else constant.
@@ -466,6 +466,7 @@ To actually change the sequence of the pose, you have to call something like Pac
 This task operation builds off of ThreadSequence so the same logic applies: 'X' means mark position for design, while ' ' or '\_' means mark pose residue to repacking only.
 
 -   database: The database should be a text file with a list of single letter amino acids (not fasta).
+-   target_sequence: The desired sequence if there is only one desired sequence (this can happen if the pose is changed during design such that the start and end positions are not constant. In such cases ThreadSequence is not useful). The task operation expects either a database or a target sequence and will fail if neither are provided. If both are provided the database will be ignored. 
 -   template\_file: a pdb that serves as a constant template to map the start and end residues onto the pose in case that the length of the pose is altered during design.
 -   start\_res: the residue to start threading from. This is a residue in the template pdb. It is used to find the closest residue on the source pdb.
 -   end\_res: the residue to end the threading. This is a residue in the template pdb. It is used to find the closest residue on the source pdb. The delta between the end and start residue is used to find the desired sequence length in the database.
