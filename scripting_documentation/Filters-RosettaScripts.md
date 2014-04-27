@@ -761,7 +761,7 @@ Computes the SASA for each hydrophobic residue (A, F, I, M, L, W, V, Y). The sco
 Compute a filter's value relative to a different pose's structure. This is useful for cases in which you want to know the effects of a mutation on different poses. An alignment of the pose being read from disk is made to the currently active pose (through the user defined alignment), and applies any sequence changes to the pose read from disk, while repacking a shell around each mutation. It can then apply a relax mover, report a filter's evaluation and dump a scored pose to disk. Works with symmetric poses as well.
 
 ```
-<RelativePose name=(&string) pdb_name=(&string) filter=(&string) relax_mover=(null &string) dump_pose=("" &string) alignment=(&string; see below) scorefxn=(score12 &string) packing_shell=(8.0 &Real) thread=(1 &bool) baseline=(1 &bool) unbound=(0 &bool) copy_stretch=(1&bool) rtmin=(0 &bool) symmetry_definition=("" &string)>
+<RelativePose name=(&string) pdb_name=(&string) filter=(&string) relax_mover=(null &string) dump_pose=("" &string) alignment=(&string; see below) scorefxn=(score12 &string) packing_shell=(8.0 &Real) thread=(1 &bool) baseline=(1 &bool) unbound=(0 &bool) copy_stretch=(1&bool) rtmin=(0 &bool) symmetry_definition=("" &string) copy_comments=("" &comma-delimited list)>
 ```
 
 -   pdb\_name: which is the reference pose to read from disk.
@@ -777,6 +777,7 @@ Compute a filter's value relative to a different pose's structure. This is usefu
 -   copy\_stretch: rather than threading the residue identities on the pose read from disk, copy the aligned segment from the current pose onto the pose read from disk (residue identities + conformations). No repacking is done, and then goes straight to relax. Obviously the segment should be prealigned for this to make any sense, and should probably only be used on entire chains rather than stretches within chains. Any way, take care in using. No guarantees.
 -   rtmin: do rtmin following repack?
 -   symmetry\_definition: if symmetric, enter the symmetry definition file here.
+-   copy_comments: a comma-delimited list of pose-comment key values to copy from the reference pose (the current pose computed in the trajectory) to the relative pose (from disk). Useful if conformational change needs to be communicated from the reference pose to the relative pose.
 
 #### Rmsd
 
