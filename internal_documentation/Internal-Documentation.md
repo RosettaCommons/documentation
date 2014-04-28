@@ -36,11 +36,11 @@ comment tags will be stripped from the documentation prior to being provided as 
 - [[RosettaMembrane Framework Overview]]
 
 ## Cyclic Peptides / Geometrically-Constrained Polymers Project
-[[Workflow]]
-[[PeptideStubMover]]
-[[DeclareBond]]
-[[SetTorsion]] -- updated with new functionality; documentation needs to be written
-[[GeneralizedKIC]] -- documentation incomplete
+- [[Workflow]]
+- [[PeptideStubMover]]
+- [[DeclareBond]]
+- [[SetTorsion]] -- updated with new functionality; documentation needs to be written
+- [[GeneralizedKIC]] -- documentation incomplete
 
 ## Pilot Apps Documentation
 
