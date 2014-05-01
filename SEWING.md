@@ -4,7 +4,7 @@ The SEWING protocol is a method for the rapid generation of denovo backbones tha
 The SewingHasher is the first step in the SEWING protocol. This step generates the input files used during later steps.
 
 ###Model Generation
-First we need a generate a set of models. The only currently supported mechanism for model generation is through the use of a Features database. The following set ReportToDB tag contains the minimal set of features.
+First we need a generate a set of models. The only currently supported mechanism for model generation is through the use of a [[Features database|FeaturesTutorials]]. The following set ReportToDB tag contains the minimal set of features.
 
 ```
 <ReportToDB name=features database_name=scores.db3>
