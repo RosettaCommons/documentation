@@ -66,6 +66,9 @@ This is documentation for not-yet-released applications.
 [[RosettaAntibodyDesign]]
 - Design Antibodies based on clusters and cellular mimicry
 
+### S.E.W.I.N.G. Protocol
+[[SEWING]]
+
 ### Methods
 [[Computing SASA in Rosetta]]
  - Method for computing SASA in Rosetta written by Jared
