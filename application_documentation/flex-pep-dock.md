@@ -103,7 +103,7 @@ I. Common FlexPepDock flags:
 
 |  Flag  |  Description  |  Type  |  Default  |
 |:-------|:--------------|:-------|:----------|
-| -receptor_chain| chain-id of receptor protein| String| first chain in input|
+| -receptor_chain| chain-id of receptor protein. Multichain receptor is supported (please note: for multichain receptors, the chains must be first and consecutive in the PDB).| String| first chain in input|
 | -peptide_chain| chain-id of peptide protein|  String| second chain in input|
 |-lowres_abinitio| Low-resolution ab-initio folding and docking model.| String| false|
 |-pep_refine|Refinement mode. (equivalent to obsolete -rbMCM -torsionsMCM flags)| String| false|
@@ -237,7 +237,7 @@ When you should / should not use FlexPepDock:
      In our tests, producing 200 models with the Refinement protocol typically takes 10 CPU hours (approximately 3 minutes per model). Substantial speedup gain is obtained by running parrallel proccesses using appropriate [[job-distributor|jd2]] flags (e.g.m for using MPI). The *ab-initio* protocol requires a much larger number of models (we experimented with 50,000 models), but the running time per model is similar (3-4 minutes). The running time may increase or decrease, depending mainly on the receptor size (for peptides of length 5-15).
 
 -   **Multichain receptors:**
-     Flexpepdock currently supports only the use of single-chain receptors. If you want to use a multichain receptor, you may be able to get away with hacking your input PDB to re-label all receptor chains as one big chain (removing termini atoms and TER cards). Renumbering is necessary only to resolve numbering conflicts.
+     In order for FlexPepDock to correctly handle multichain receptors, receptor chains MUST be first and consecutive in the PDB. Peptide chain comes after and last, ligands.
 
 Expected Outputs
 ================
