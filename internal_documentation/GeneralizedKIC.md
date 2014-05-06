@@ -32,8 +32,36 @@ In general, one must:
 ```
 The **closure_attempts** parameter sets the number of times the algorithm will try to close the loop.  A setting of **0** means that it will keep trying indefinitely.  The **stop_when_solution_found** option determines whether a successful closure that passes filters means that the algorithm should accept what it has found and finish, or keep going until it has done as many attempts as specified by **closure_attempts**, at which point a solution would be chosen by the selector.  (Note that, because a single attempt returns up to 16 closure solutions, the selector will be applied _even_ if **stop_when_solution_found** is set to true).  The **selector** flag is mandatory, and specifies the way in which a solution is chosen from among the successful solutions.  Currently, the only options are "random_selector", which chooses a solution that passes filters randomly, and "lowest_energy_selector", which chooses the lowest-energy solution that passes filters.  The **selector_scorefunction** flag allows a separate scorefunction to be used by the lowest_energy_selector; this is recommended since score terms based on side-chain packing may produce poor results, since the GeneralizedKIC algorithm does not call the packer.  Other selector options will be added in the future.  In some cases, the GeneralizedKIC mover will find no solution.  This could be because no solution exists (_e.g._ if the loop is too short for the endpoint separation, or if there is geometry blocking any path between the endpoints), because the sampling method used was too restrictive, or because too few attempts were made.  If this happens, the pose is left unaltered.  If the loop geometry is open, it is useful to have a means of aborting the trajectory in this case.  A ContingentFilter can be used for this purpose.  The ContingentFilter is a specialized filter that has its value set by a mover.  GeneralizedKIC can set the value of a ContingentFilter, specified using the **contingent_filter** flag, to true or false depending on whether the closure was successful or unsuccessful.  Subsequent application of the filter can then abort trajectories involving unsuccessful loop closure.
 
-4. Define a series of residues for the GeneralizedKIC closure problem.  This must be an unbranched chain of residues with continuous covalent linkages.  When the GeneralizedKIC::apply() function is called, a continuous chain of atoms running through the selected residues is automatically chosen.
-
+4. Define a series of residues for the GeneralizedKIC closure problem.  This must be an unbranched chain of residues with continuous covalent linkages.  When the GeneralizedKIC::apply() function is called, a continuous chain of atoms running through the selected residues is automatically chosen.  Residues are specified with **AddResidue** tags within a **GeneralizedKIC** block, as follows:
+```
+<MOVERS>
+...
+     <GeneralizedKIC ...>
+          <AddResidue index=(&int) />
+          <AddResidue index=(&int) />
+          <AddResidue index=(&int) />
+          ...
+     </GeneralizedKIC>
+...
+</MOVERS>
+```
+Residues must be added in a sequence corresponding to covalently-linked geometry.  For example, if one were closing a loop consisting of residues ALA45, LYS46, CYS47, CYS23, ASP22, and PHE21, where CYS47 and CYS23 were linked by a disulfide bond, one would write:
+```
+<MOVERS>
+...
+     <GeneralizedKIC ...>
+          <AddResidue index=45 />
+          <AddResidue index=46 />
+          <AddResidue index=47 />
+          <AddResidue index=23 />
+          <AddResidue index=22 />
+          <AddResidue index=21 />
+          ...
+     </GeneralizedKIC>
+...
+</MOVERS>
+```
+From the above example, we can see that loop segments may run backwards or forwards, or may involve residues that are far apart in linear sequence provided they are covalently linked.
 5. Define one or more GeneralizedKICperturbers.  Each perturber samples conformation space for each closure attempt.
 
 6. Define one or more GeneralizedKICfilters.  Filters are applied after each closure attempt, and eliminate solutions that don't meet some criterion.
