@@ -19,8 +19,8 @@ In general, one must:
 1.  Build or import a structure, which must include the loop residues to be closed (though these need not be in a closed conformation to start).
 2.  Ensure that covalent linkages have been declared with the **[[DeclareBond]]** mover.
 3.  Set the GeneralizedKIC options.
-4.  Define the loop to be closed.
-5.  Set perturber options.
+4.  Define the loop to be closed, and set pivots.
+5.  Set up one or more GeneralizedKIC perturbers, which determine how loop conformations will be sampled.
 6.  Define one or more GeneralizedKIC filters.
 7.  Set the GeneralizedKIC selector used to choose a solution from among those found.
 8.  Optionally, define a ContingentFilter to abort trajectories in which closure fails.
@@ -45,7 +45,7 @@ These steps are discussed in detail in the next section.
 ```
 The **closure_attempts** parameter sets the number of times the algorithm will try to close the loop.  A setting of **0** means that it will keep trying indefinitely.  The **stop_when_solution_found** option determines whether a successful closure that passes filters means that the algorithm should accept what it has found and finish, or keep going until it has done as many attempts as specified by **closure_attempts**, at which point a solution would be chosen by the selector.  (Note that, because a single attempt returns up to 16 closure solutions, the selector will be applied _even_ if **stop_when_solution_found** is set to true).  The **selector** flag is mandatory, and specifies the way in which a solution is chosen from among the successful solutions.  Currently, the only options are "random_selector", which chooses a solution that passes filters randomly, and "lowest_energy_selector", which chooses the lowest-energy solution that passes filters.  The **selector_scorefunction** flag allows a separate scorefunction to be used by the lowest_energy_selector; this is recommended since score terms based on side-chain packing may produce poor results, since the GeneralizedKIC algorithm does not call the packer.  Other selector options will be added in the future.  In some cases, the GeneralizedKIC mover will find no solution.  This could be because no solution exists (_e.g._ if the loop is too short for the endpoint separation, or if there is geometry blocking any path between the endpoints), because the sampling method used was too restrictive, or because too few attempts were made.  If this happens, the pose is left unaltered.  If the loop geometry is open, it is useful to have a means of aborting the trajectory in this case.  A ContingentFilter can be used for this purpose.  The ContingentFilter is a specialized filter that has its value set by a mover.  GeneralizedKIC can set the value of a ContingentFilter, specified using the **contingent_filter** flag, to true or false depending on whether the closure was successful or unsuccessful.  Subsequent application of the filter can then abort trajectories involving unsuccessful loop closure.
 
-4. Define a series of residues for the GeneralizedKIC closure problem.  This must be an unbranched chain of residues with continuous covalent linkages.  When the GeneralizedKIC::apply() function is called, a continuous chain of atoms running through the selected residues is automatically chosen.  Residues are specified with **AddResidue** tags within a **GeneralizedKIC** block, as follows:
+4. Define a series of residues for the GeneralizedKIC closure problem.  This must be an unbranched chain of residues with continuous covalent linkages.  When the GeneralizedKIC::apply() function is called, a continuous chain of atoms running through the selected residues is automatically chosen.  Residues are specified with **AddResidue** tags within a **GeneralizedKIC** block.  Pivot points must also be indicated explicitly, using the **SetPivots** tag.  Pivots are atoms in the chain of atoms to be closed that are flanked by bonds whose dihedral values will be solved for analytically by the closure algorithm in order to close the loop.  Currently, due to hard-coded assumptions in the kinematic closure numerical library, the first pivot must be the second atom in the chain to be closed, and the last pivot must be the second-to-last atom in the chain to be closed.  This restriction will be eliminated in a future version of GeneralizedKIC.
 ```
 <MOVERS>
 ...
@@ -53,6 +53,8 @@ The **closure_attempts** parameter sets the number of times the algorithm will t
           <AddResidue index=(&int) />
           <AddResidue index=(&int) />
           <AddResidue index=(&int) />
+          ...
+          <SetPivots res1=(&int) atom1="&string" res2=(&int) atom2="&string" res3=(&int) atom3="&string" />
           ...
      </GeneralizedKIC>
 ...
@@ -70,11 +72,14 @@ Residues must be added in a sequence corresponding to covalently-linked geometry
           <AddResidue index=22 />
           <AddResidue index=21 />
           ...
+          <SetPivots res1=45 atom1="CA" res2=23 atom2="SG" res3=21 atom3="CA" />
+          ...
      </GeneralizedKIC>
 ...
 </MOVERS>
 ```
-From the above example, we can see that loop segments may run backwards or forwards, or may involve residues that are far apart in linear sequence provided they are covalently linked.  Note that while the sequence of residues matter, the overall direction of the loop does not: we could just as happily have added residues in the reverse order (21->22->23->47->46->45).
+From the above example, we can see that loop segments may run backwards or forwards, or may involve residues that are far apart in linear sequence provided they are covalently linked.  Note that while the sequence of residues matter, the overall direction of the loop does not: we could just as happily have added residues in the reverse order (21->22->23->47->46->45).  In this example, we have arbitrarily chosen CYS23's SG atom as the middle pivot point, though any atom in the chain that is flanked by bonds that can rotate freely could have been chosen.
+
 5. Define one or more GeneralizedKICperturbers.  Each perturber samples conformation space for each closure attempt.
 
 6. Define one or more GeneralizedKICfilters.  Filters are applied after each closure attempt, and eliminate solutions that don't meet some criterion.
