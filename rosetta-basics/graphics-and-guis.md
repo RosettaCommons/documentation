@@ -14,7 +14,9 @@ The PyMOL Mover can be controlled through RosettaScripts, PyRosetta, or through 
 The PyMOL Mover creates a PyMolObserver and attaches it to a particular Pose.  This can be accomplished programmatically by making a call to protocols::moves::AddPyMolObserver.  The command line options listed below work only though JD2, but it is possible to programmatically activate the PyMol observer without using the command line at all.
 
 Separately from the Rosetta execution, you will need to launch PyMol on the computer where you will run your Rosetta executable.  Within the PyMol session, run the script /path/to/Rosetta/main/source/src/python/bindings/PyMOLPyRosettaServer.py:
+
     run /path/to/Rosetta/main/source/src/python/bindings/PyMOLPyRosettaServer.py
+
 which will prime your PyMol session to receive and display the coordinates sent to it from Rosetta.
 
 ###Usage
