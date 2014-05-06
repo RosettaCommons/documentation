@@ -16,6 +16,19 @@ The above scenarios tend to be sub-problems of more complicated problems, partic
 ## General workflow
 In general, one must:
 
+1.  Build or import a structure, which must include the loop residues to be closed (though these need not be in a closed conformation to start).
+2.  Ensure that covalent linkages have been declared with the **[[DeclareBond]]** mover.
+3.  Set the GeneralizedKIC options.
+4.  Define the loop to be closed.
+5.  Set perturber options.
+6.  Define one or more GeneralizedKIC filters.
+7.  Set the GeneralizedKIC selector used to choose a solution from among those found.
+8.  Optionally, define a ContingentFilter to abort trajectories in which closure fails.
+
+These steps are discussed in detail in the next section.
+
+## Detailed workflow
+
 1. Build or import a structure.  GeneralizedKIC cannot add residues or geometry.  If one wants to build a new loop, for example, one must add the new loop residues before calling GeneralizedKIC.  (In RosettaScripts, the **PeptideStubMover** is useful for building geometry from scratch or for adding residues to existing geometry.)
 
 2. Ensure that covalent linkages have been declared.  GeneralizedKIC will move atoms about to ensure ideal geometry, but cannot declare new chemical bonds.  (In RosettaScripts, the **DeclareBond** mover lets Rosetta know that certain residues are covalently attached to one another.)
