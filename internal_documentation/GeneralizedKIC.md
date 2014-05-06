@@ -71,7 +71,6 @@ Residues must be added in a sequence corresponding to covalently-linked geometry
           <AddResidue index=23 />
           <AddResidue index=22 />
           <AddResidue index=21 />
-          ...
           <SetPivots res1=45 atom1="CA" res2=23 atom2="SG" res3=21 atom3="CA" />
           ...
      </GeneralizedKIC>
