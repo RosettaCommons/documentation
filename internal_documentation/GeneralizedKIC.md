@@ -74,7 +74,7 @@ Residues must be added in a sequence corresponding to covalently-linked geometry
 ...
 </MOVERS>
 ```
-From the above example, we can see that loop segments may run backwards or forwards, or may involve residues that are far apart in linear sequence provided they are covalently linked.
+From the above example, we can see that loop segments may run backwards or forwards, or may involve residues that are far apart in linear sequence provided they are covalently linked.  Note that while the sequence of residues matter, the overall direction of the loop does not: we could just as happily have added residues in the reverse order (21->22->23->47->46->45).
 5. Define one or more GeneralizedKICperturbers.  Each perturber samples conformation space for each closure attempt.
 
 6. Define one or more GeneralizedKICfilters.  Filters are applied after each closure attempt, and eliminate solutions that don't meet some criterion.
