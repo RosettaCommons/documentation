@@ -13,7 +13,7 @@ The current build system is based on the tool [SCons](https://wiki.rosettacommon
 You have multiple options for compiling Rosetta 3 with SCons. You can build either only the core libraries or both the libraries and the executables. Rosetta 3 can be compiled in two modes:
 
 -   Debug mode — for development — no `      mode     ` option
--   Release mode — faster/tested and ready to go &mdashl `      mode=release     `
+-   Release mode — faster/tested and ready to go `      mode=release     `
 
 1.  Change directory to `      main/source     ` .
 2.  Type one of the following commands:
@@ -27,7 +27,9 @@ You have multiple options for compiling Rosetta 3 with SCons. You can build eith
         -   `          ./scons.py -j<number_of_processors_to_use>         `
         -   `          ./scons.py -j<number_of_processors_to_use> mode=release         `
 
-The `     -j8    ` flag would mean, "use at most 8 processes for building," and can be reasonably set as the number of free processors on your machine. Be aware that setting `     -j    ` to a very high value will cause the operating system to have difficulty scheduling jobs.
+The `     -j8    ` flag would mean, "use at most 8 processes for building," and can be reasonably set as the number of free processors on your machine. Be aware that setting `     -j    ` to a very high value will slow down the OS significantly.
+
+The `  -extras= ` flag is for extras such as MPI and static builds (See below).   If you want to have multiple extras, you need to specify it once with comma separation: ` -extras=mpi,static `.
 
 By default scons hashes and processes every file in the tree before performing a build. On a large tree (e.g. rosetta) and filesystem with high io latency (e.g. a NFS or GPFS filesystem) this causes ridiculously slow build times. In order to improve build times disable file hashing and allow caching of build dependency metadata. Add the follow lines to the project's root SConscript file:
 
@@ -56,7 +58,7 @@ To build OpenMP executables (which is not fully supported) add the flag "extras=
 
 `      ./scons.py bin mode=release extras=omp     `
 
-To build static executables, add the flag "extras=static":
+To build static executables, which can be moved to different computers with the same architecture/OS, add the flag "extras=static":
 
 `      ./scons.py bin mode=release extras=static     `
 
