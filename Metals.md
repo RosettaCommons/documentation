@@ -67,3 +67,4 @@ Good question.  Utility functions are located in **src/core/util/metalloproteins
 * Metals followed by a "1" or "2" character (_e.g._ ZN1, CU2, etc.) are interpreted as the corresponding metal on PDB import.  This can create problems (_e.g._ CO2 is interpreted as cobalt, not carbon dioxide).
 * This has not yet been tested with Cartesian minimization, the **cart_bonded** score term, or symmetry.  These might create problems.
 * Within RosettaScripts, constraint weights must be turned on explicitly in a user-defined scorefunction.
+* Any protocol or RosettaScripts mover that resets constraints will reset the metal constraints.
