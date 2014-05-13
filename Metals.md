@@ -1,8 +1,6 @@
 # Working With Metalloproteins in Rosetta
 By Vikram K. Mulligan, Baker Laboratory (vmullig@uw.edu).  Documentation created 13 March 2014; changes checked into master branch 14 March 2014.
 
-_**AT THIS TIME, AUTOMATIC METAL SETUP IS NOT CONSISTENTLY WORKING WELL WITHIN ROSETTASCRIPTS.  USE AT YOUR OWN RISK UNTIL THIS IS RESOLVED.**_
-
 ## Short summary
 The **-in:auto_setup_metals** flag has been added to make it easy to import a PDB file containing a metalloprotein and to have Rosetta automatically detect coordinate covalent bonds to metal ions and create appropriate constraints.
 
@@ -52,6 +50,10 @@ Absolutely.  The noncanonical amino acid (2,2'-bipyridin-5yl)alanine (BPY) has b
 
 Explicit CONECT records can be written on PDB export by using the **-inout:connect_info_cutoff 0.0** and **-inout:dump_connect_info true** flags.  Bonds to the metal ion will be visible when the PDB output from Rosetta is loaded in PyMOL if you use these flags.
 
+## Does this work within RosettaScripts?
+
+As of 13 May 2014, it does.  One caveat is that constraint weights must be turned on explicitly in the scorefunction used in order for metal constraints to work.  Additionally, any mover that clears constraints will clear the metal constraints.
+
 ## I'd like to do other things with metals in my own protocols.
 
 Can you ask that in the form of a question?
@@ -64,3 +66,4 @@ Good question.  Utility functions are located in **src/core/util/metalloproteins
 
 * Metals followed by a "1" or "2" character (_e.g._ ZN1, CU2, etc.) are interpreted as the corresponding metal on PDB import.  This can create problems (_e.g._ CO2 is interpreted as cobalt, not carbon dioxide).
 * This has not yet been tested with Cartesian minimization, the **cart_bonded** score term, or symmetry.  These might create problems.
+* Within RosettaScripts, constraint weights must be turned on explicitly in a user-defined scorefunction.
