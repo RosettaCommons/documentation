@@ -25,7 +25,8 @@ Options control run operations
 -run:seed_offset                This value will be added to the random number seed. Useful when
                                 using time as seed and submitting many jobs to clusters.Using the
                                 condor job id will force jobs that are started in the same second
-                                to still have different initial seeds".default='0'. [Integer] Used for non-MPI parellel runs
+                                to still have different initial seeds. Default='0'. [Integer] 
+                                Used for non-MPI parellel runs
 
 -run:delay                      Wait N seconds before doing anything at all. Useful for cluster
                                 job staggering. Default='0'. [String]
@@ -33,7 +34,7 @@ Options control run operations
 -run:nodelay                    Do not delay launch of Rosetta [Boolean]
 
 -run:random_delay               Wait a random amount of 0..N seconds before doing anything at all.
-                                Useful for cluster job staggering." Default='0'. [Integer]
+                                Useful for cluster job staggering. Default='0'. [Integer]
 
 -run:rng                        Random number generation algorithm: Currently only mt19937 is a
                                 accepted here. Default='mt19937'. legal=['mt19937']. [String]
