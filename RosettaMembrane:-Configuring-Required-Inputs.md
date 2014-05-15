@@ -51,7 +51,30 @@ Below is example usage of the script:
 ./run_lips.pl <myseq.fasta> <mytopo.span> /path/to/blastpgp /path/to/nr alignblast.pl
 ```
 
-## Embedding Definition
+## Setting up a job using inputs from commandline (recommended)
+Setting up a job using the commandline is the easiest way to run your protocol in the membrane framework. It only requires two files in addition to all the spanfiles and optional lipophilicity files.
+
+The **setup file** (for instance membrane_setup.txt) needs to contain one line for each chain in your protein:
+
+```
+1afo_A spanfile
+1afo_B user center 8 8 0 normal 8 8 8
+```
+1st column: File prefix that Rosetta will use for finding spanfiles (and optional lips files and PDB files)
+2nd column: There are three possibilities:
+* **spanfile**: Chain embedding is defined as given in the spanfile
+* **search**: Chain embedding is searched for using the RosettaMembrane energy function.
+* **user**: Chain embedding is defined by the user and is kept during the protocol. It requires at least either the center point defined by the user (center of the chain, as 8 8 0 in the above example) OR the normal vector defined by the user (normal vector of the chain, as 8 8 8 in the above example). The order of the center and normal vectors in this line doesn't matter. Also, if only one is given, the other setting will be searched for using the RosettaMembrane energy function. 
+
+The **flag file** only requires two additional lines:
+
+```
+-in:membrane
+-in:file:membrane_input setup.txt
+```
+
+## Setting up a job using the Resource Manager (more complex)
+### Embedding Definition
 In the membrane protein framework, _each chain_ of a pose also requires a specific membrane protein embedding definition. This definition defines a normal vector and center position of the chain with respect to Rosetta's defined implicit membrane (normal vec <0, 0, 1>, center position (0, 0, 0), thickness = 30A).
 
 For each chain, you will need to generate an embedding definition file. This file will either (a) specify the final embedding parameters used or (b) specify initial parameters for a more detailed calculation of the embedding. How these initial parameters are used is controlled by the following method tags in the normal and center fields.   
@@ -73,7 +96,7 @@ center        x y z  <tag>
 depth         <value>
 ```
 
-## Putting it All Together (Setting up a Job)
+### Resource Manager setup file
 The RosettaMembrane framework requires that one of these data files be generated for each chain specified. Therefore, the resource definition file (as part of the ResourceManager) is used as a means of organizing these inputs. For more about setting up resource description files, please refer to the ResourceManager documentation (note - still internal dox) 
 
 Below is an example Resource Definition file for a pose with 2 chains. 
