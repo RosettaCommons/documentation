@@ -52,7 +52,7 @@ Below is example usage of the script:
 ```
 
 ## Setting up a job using inputs from commandline (recommended)
-Setting up a job using the commandline is the easiest way to run your protocol in the membrane framework. It only requires two files in addition to all the spanfiles and optional lipophilicity files.
+Setting up a job using the commandline is the easiest way to run your protocol in the membrane framework. It only requires one file in addition to all the spanfiles, optional lipophilicity files, optional PDB files, and flags or options file.
 
 The **setup file** (for instance membrane_setup.txt) needs to contain one line for each chain in your protein:
 
@@ -64,7 +64,7 @@ The **setup file** (for instance membrane_setup.txt) needs to contain one line f
 2nd column: There are three possibilities:
 * **spanfile**: Chain embedding is defined as given in the spanfile
 * **search**: Chain embedding is searched for using the RosettaMembrane energy function.
-* **user**: Chain embedding is defined by the user and is kept during the protocol. It requires at least either the center point defined by the user (center of the chain, as 8 8 0 in the above example) OR the normal vector defined by the user (normal vector of the chain, as 8 8 8 in the above example). The order of the center and normal vectors in this line doesn't matter. Also, if only one is given, the other setting will be searched for using the RosettaMembrane energy function. 
+* **user**: Chain embedding is defined by the user and is kept during the protocol. It requires at least either the center point defined by the user (center of the chain, as 8 8 0 in the above example) OR the normal vector defined by the user (normal vector of the chain, as 8 8 8 in the above example). If both are known, both can be given in any order. Also, if only one is given, the other setting will be searched for using the RosettaMembrane energy function. 
 
 The **flag file** only requires two additional lines:
 
