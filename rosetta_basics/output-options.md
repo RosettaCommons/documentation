@@ -85,8 +85,10 @@ Path related output options
 ===========================
 
 ```
+-out:path:all             All Files output Path. Default = '.' [Path]
 -out:path:pdb             PDB file output path. [Path]
 -out:path:score           Score file output path. [Path]
+
 ```
 
 Handy output options for debugging a protocol
