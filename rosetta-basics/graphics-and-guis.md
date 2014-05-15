@@ -19,6 +19,9 @@ Separately from the Rosetta execution, you will need to launch PyMol on the comp
 
 which will prime your PyMol session to receive and display the coordinates sent to it from Rosetta.
 
+**TIP**: It is extremely useful to add this line to your $HOME/.pymolrc file.  That way, every time PyMOL is launched, the PyMOLPyRosettaServer.py script will be called.  Note also that you may have to create this file in the first place.  See the [pymolrc](http://www.pymolwiki.org/index.php/Pymolrc) section in the PyMOLWiki for more information on this awesome file.
+
+
 ###Usage
 ####RosettaScripts
 [[See RosettaScripts Documentation | Movers-RosettaScripts#PyMolMover]]
