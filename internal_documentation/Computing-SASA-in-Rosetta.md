@@ -1,7 +1,7 @@
 ## Metadata
 * Original Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 * Documentation Written/Edited by Rebecca Alford and Julia Koehler Leman
-* Last Edited: 4/14/14
+* Last Edited: 5/16/14
 
 ## Available Methods
 **core/scoring/sasa/SasaCalc.hh**
@@ -55,7 +55,7 @@ complexed_pose.metric(Sasa_, "residue_rel_hsasa", mv_complex_res_rel_hsasa);
 |-sasa:probe_radius|'Probe radius used by SasaCalc.  Default is radius of water, 1.4.  1.2 is also commonly used.'|Real|
 |-sasa:include_probe_radius_in_atom_radii|This is typically done in calculation of SASA, and in fact is one of the defining features of SASA.  Turn this off to calculate the Surface Area instead.|Boolean|
 |-sasa:include_only_C_S_in_hsasa|Include only carbon or sulfer in hsasa calculation.  This is typical.  Only revert to false if excluding polar atoms by charge or everything will be counted as hydrophobic. Note hydrogens are dealt with automatically.|Boolean|
-|-sasa:exclude_polar_atoms_by_charge_in_hsasa|Polar carbons and other atoms should not be included in hydrophobic hSASA - though historically they were.  Set this to false to get historic hsasa|Boolean|
+|-sasa:exclude_polar_atoms_by_charge_in_hsasa|Polar carbons and other atoms should not be included in hydrophobic hSASA - though historically they were.  Set this to false to get historic hsasa. default = .4|Boolean|
 |-sasa:polar_charge_cutoff|Charge cutoff (abs value) to use on heavy atoms if excluding hydrophobic atoms from hSASA calculation by charge. The default is optimized for protein atom types (which excludes only carbonyl and carboxyl carbons.  By default only carbon and sulfur are excluded.|Real|
-|-sasa:implicit_hydrogen_radii_set|The radii set to use when including hydrogens implicitly instead of explicitly. Chothia 1976 radii are used by the program Naccess.  chothia=naccess |String|
-|-sasa:explicit_hydrogen_radii_set|The radii set to use when including hydrogens explicitly. Default is reduce, which was generally agreed upon at Minicon 2014 and come from original data from Bondi (1964) and Gavezzotti (1983) .  LJ are the Rosetta leonard-jones radii, which are not quite exactly from Charmm.  Legacy radii were optimized for a no-longer-in-Rosetta scoreterm (Jerry Tsai et al 2003)|String|
+|-sasa:implicit_hydrogen_radii_set|The radii set to use when including hydrogens implicitly instead of explicitly. Chothia 1976 radii are used by the program Naccess.  chothia=naccess. legal = [chothia, naccess] |String|
+|-sasa:explicit_hydrogen_radii_set|The radii set to use when including hydrogens explicitly. Default is reduce, which was generally agreed upon at Minicon 2014 and come from original data from Bondi (1964) and Gavezzotti (1983) .  LJ are the Rosetta leonard-jones radii, which are not quite exactly from Charmm.  Legacy radii were optimized for a no-longer-in-Rosetta scoreterm (Jerry Tsai et al 2003). legal = [reduce, LJ, legacy] |String|
