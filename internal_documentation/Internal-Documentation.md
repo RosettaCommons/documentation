@@ -48,9 +48,9 @@ comment tags will be stripped from the documentation prior to being provided as 
 - [[SetTorsion]] -- updated with new functionality; documentation needs to be written
 - [[GeneralizedKIC]] -- documentation incomplete
 
-## Pilot Apps Documentation
+## Pilot Apps + Code Documentation
 
-This is documentation for not-yet-released applications.
+This is documentation for not-yet-released applications and code frameworks.
 
 - [[multi-residue-ligand-dock]] - Docking of multiple ligand residues
 
