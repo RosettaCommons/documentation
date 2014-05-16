@@ -317,25 +317,7 @@ Computes the energy of a particular score type for the entire pose and if that e
 <ScoreType name=(score_type_filter &string) scorefxn=(score12 &string) score_type=(total_score &string) threshold=(&float)/>
 ```
 
-<!--- BEGIN_INTERNAL -->
 
-#### AverageInterfaceEnergy
-
-(This is a devel Filter and not available in released versions.)
-
-Takes task operations to determine the repackable residues and then calculates/filters based on the average value across these residues for a desired score term or the total energy by default (using functions from the EnergyPerResidue filter). The threshold is set to 100000 by default so that it should function as a report filter unless the threshold is set by the user. Works for both symmetric and asymmetric poses, and poses with symmetric “building blocks”.
-
-```
-<AverageInterfaceEnergy name=(&string) task_operations=(&comma-delimited list of taskoperations) scorefxn=(score12 &string) score_type=(total_score &string) cutoff=(100000 &Real) bb_bb=(0 &bool) />
-```
-
--   task\_operations: task operations used to set the repackable residues
--   scorefxn: scorefunction to use during the energy calculations. Defaults to score12
--   score\_type: score term to calculate the average of across the repackable residues. Defaults total.
--   cutoff: Threshold for the highest permissible value for a passing design.
--   bb\_bb: See EnergyPerResidueFilter.
-
-<!--- END_INTERNAL -->
 
 #### ResidueSetChainEnergy
 
@@ -863,29 +845,7 @@ Maximum number of buried unsatisfied H-bonds allowed. If a jump number is specif
 <BuriedUnsatHbonds name=(&string) scorefxn=(&string) jump_number=(1 &Size) cutoff=(20 &Size) task_operations=(&string)/>
 ```
 
-<!--- BEGIN_INTERNAL -->
-#### BuriedUnsatHbonds2 
 
-Calculate the number of buried unsatisfied H-bonds across a given interface. (Specifically, the difference in the number of buried unsatisfied hydrogen bonds in the bound state versus the bound state. This uses a different algorithm than the BuriedUnsatHbonds filter above. Specifically (*** fill in details from Kevin's presentation ***)
-
-```
-<BuriedUnsatHbonds2 name=(&string) scorefxn=(&string) jump_number=(1 &Size) cutoff=(20 &Size) layered_sasa=(1 &bool) generous_hbonds=(1 &bool) sasa_burial_cutoff=(0.01 &Real) AHD_cutoff=(120.0 &Real) dist_cutoff=(3.0 &Real) hxl_dist_cutoff=(3.5 &Real) sulph_dist_cutoff=(3.3 &Real) metal_dist_cutoff=(2.7 &Real) task_operations=(&string) />
-```
-
-* scorefxn - The scorefunction to use to evaluate hydrogen bonding energy.
-* task_operations - If set, will calculate hydrogen just for residues set to be designable or packable in the task operations.
-* jump_number - The jump which describes the interface across which to calculate the number of hydrogen bonds. If jump_number=0, will compute the total number of unburied hbonds for entire structure.
-* cutoff - Filter is true if the number of unsatisfied hbonds is less than or equal to cutoff.
-* layered_sasa - ??? 
-* generous_hbonds - If true, use a generous definition of hydrogen bonds. (Includes more bb-involved hydrogen bonds, and turns off environmental dependent scoring.) 
-* sasa_burial_cutoff - ???
-* AHD_cutoff - Minimum accpetor-hydrogen-donor angle needed for regular hydrogen bonds.
-* dist_cutoff - Distance cutoff for regular hydrogen bonds
-* hxl_dist_cutoff - The distance cutoff for hydrogen bonds to hydroxyls.
-* sulph_dist_cutoff - The distance cutoff for hydrogen bonds to sulfur.
-* metal_dist_cutoff - The distance cutoff for "hydrogen bonds" to metals.
-
-<!--- END_INTERNAL -->
 
 #### DisulfideFilter
 
@@ -1079,28 +1039,7 @@ Substitutes Ala for each interface position separately and measures the differen
 -   partner2: report ddGs for everything downstream of the jump
 -   repack: repack in the bound and unbound states before reporting the energy (ddG). When false, don't repack (dG).
 
-<!--- BEGIN_INTERNAL -->
-
-#### TaskAwareAlaScan
-
-(This is a devel Filter and not available in released versions.)
-
-Takes a set of task operations from the user in order to more precisely specify a set of residues to analyze via alanine scanning (see above). Individually mutates each of the residues to alanine and calculates the change in binding energy (ddG).
-
-```
-<TaskAwareAlaScan name=(& string) task_operations=(comma-delimited list of task operations) jump=(1 &Size) repeats=(1 &Size) scorefxn=(&scorefxn) repack=(1 &bool) report_diffs=(1 &bool) exempt_identities=(comma-delimited list of amino acid identities) write2pdb=(0 &bool) />
-```
-
--   task\_operations - The task operations to use to identify which residues to scan. Designable or packable residues are scanned.
--   jump - Which jump to use for ddg calculations.
--   repeats - How many times to repeat the ddg calculations; the average of all the repeats is returned.
--   scorefxn - The score function used for the calculations.
--   repack - Whether to repack in the bound and unbound states before reporting the energy.
--   report\_diffs - Whether to report the changes in binding energy upon mutation (pass true), or the total binding energy for the mutated structure (pass false).
--   exempt\_identities - The user can exempt certain amino acid identities (for instance, glycine) from being mutated to alanine during scanning by specifying them here (e.g., "GLY,PRO").
--   write2pdb - Whether to write the residue-specific ddG information to the output .pdb file.
-
-<!--- END_INTERNAL --> 
+ 
 
 #### FilterScan
 
@@ -1155,28 +1094,7 @@ This filter \*always\* returns true, therefore it's not recommended to use it wi
 <PoseInfo name=(&string)/>
 ```
 
-<!--- BEGIN_INTERNAL -->
-
-#### SaveResfileToDisk
-
-(This is a devel Filter and not available in released versions.)
-
-Saves a resfile to the output directory that specifies the amino acid present at each position defined by a set of input task operations. Outputs "PIKAA X", where X is the current amino acid in the pose at that position.
-
-```
-<SaveResfileToDisk name=(&string) task_operations=(comma-delimited list of task operations) designable_only=(0 &bool) resfile_prefix=(&string) resfile_suffix=(&string) resfile_name=(&string) resfile_general_property=(NATAA &string) selected_resis_property=(&string) renumber_pdb=(0 &bool) />
-```
-
--   task\_operations - Used to define which residues are output to the resfile.
--   designable\_only - If true, only designable positions are output, otherwise all repackable positions are output.
--   resfile\_prefix - A prefix that will be appended to each output resfile.
--   resfile\_suffix - A suffix that will be appended to each output resfile.
--   resfile\_name - A name for the output resfile, that will go between the prefix and suffix, if specified. If resfile\_name is not specified, will get the current job name from the job distributor and use that.
--   resfile\_general\_property - What general property should go at the top of the output resfile.
--   selected\_resis\_property - What property to use for the selected residues (defaults to "PIKAA X", where X is the current amino acid in the pose.
--   renumber\_pdb - If true, use the numbering of residues corresponding to what would be output with the flag -out:file:renumber\_pdb. Otherwise use the current PDB numbering. (If you've already renumbered the residues, there should be no difference.)
-
-<!--- END_INTERNAL --> 
+ 
 
 #### SSPrediction
 
@@ -1346,110 +1264,7 @@ Are there any connections left to fulfill? If not, stop growing ligand
 
 See [[Movers (RosettaScripts)#StubScore|Movers-RosettaScripts#StubScore]]
 
-<!--- BEGIN_INTERNAL -->
-
-### MatDes
-
-#### OligomericAverageDegree
-
-(This is a devel Filter and not available in released versions.)
-
-A version of the AverageDegree filter (see above) that is compatible with oligomeric building blocks. Includes other subunits within the same building block in the neighbor count. Also works for monomeric building blocks.
-
-```
-<OligomericAverageDegree name=(&string) jump=(1 &Size) sym_dof_names=("" &string) threshold=(0 &Size) distance_threshold=(10.0 &Real) multicomp=(0 &bool) write2pdb=(0 &bool) task_operations=(comma-delimited list of task operations) />
-```
-
--   jump - Which jump separates the building block from others?
--   sym\_dof\_names - Which sym\_dofs separate the building blocks from the others (must also set multicomp=1 if it is a multicomponent symmetric system)?
--   threshold - How many residues need to be on average in the sphere of each of the residues under scrutiny in order for the filter to return true.
--   distance\_threshold - Size of sphere around each residue under scrutiny.
--   write2pdb - Whether to write the residue-level AverageDegree values to the output .pdb file.
--   multicomp - Set to true if the systems has multiple components.
--   task\_operations - Define residues under scrutiny (all repackable residues).
-
-#### SymUnsatHbonds
-
-(This is a devel Filter and not available in released versions.)
-
-Maximum number of buried unsatisfied H-bonds allowed across an interface. Works with both symmetric and asymmetric poses, as well as with poses with symmetric “building blocks”. Takes the current pose, uses the jump number or sym\_dof\_names and core::pose::symmetry::get\_sym\_aware\_jump\_num(pose,jump) to get the correct vector for translation into the unbound state, uses the RigidBodyTransMover to translate the pose into its unbound state, goes through every heavy atom in the asymmetric unit and finds cases where a polar is considered buried in the bound state, but not in the unbound state. If passes, will output the number of unsatisfied hydrogen bonds to the scorefile and tracer. Also outputs to the tracer the specific residues and atoms that are unsatisfied and a formatted string for easy selection in pymol.
-
-```
-<SymUnsatHbonds name=(&string) jump=(1 &size) sym_dof_names=("" &string) cutoff=(20 &size)/>
-```
-
--   jump: What jump to look at.
--   sym\_dof\_names: What jump(s) to look at. For multicomponent systems, one can simply pass the names of the sym\_dofs that control the master jumps. For one component systems, jump can still be used.
--   cutoff: Maximum number of buried unsatisfied H-bonds allowed.
-
-#### ClashCheck
-
-(This is a devel Filter and not available in released versions.)
-
-Calculate the number of heavy atoms clashing between building blocks.
-
-    <ClashCheck name=(&string) sym_dof_names=(&string) clash_dist=(3.5 &Real) nsub_bblock=(1 &Size) cutoff=(0 &Size) verbose=(0 &bool) write2pdb=(0 &bool)/>
-
--   clash\_dist - Distance between heavy atoms below which they are considered to be clashing. Note: A hard-coded cutoff of 2.6 is set for contacts between backbone carbonyl oxygens and nitrogens for bb-bb hbonds.
--   sym\_dof\_names - Only use with multicomponent systems. Name(s) of the sym\_dof(s) corresponding to the building block(s) between which to check for clashes.
--   nsub\_bblock - The number of subunits in the symmetric building block. Does not need to be set for multicomponent systems.
--   cutoff - Maximum number of allowable clashes.
--   verbose - If set to true, then will output a pymol selection string to the logfile with the clashing positions/atoms.
--   write2pdb - If set to true, then will output a pymol selection string to the output pdb with the clashing positions/atoms.
-
-#### InterfacePacking
-
-(This is a devel Filter and not available in released versions.)
-
-Calculates Will Sheffler's holes score for atoms at inter-building block interfaces.. Works with symmetric assemblies with one or more building blocks. Be sure to set the -holes:dalphaball option!
-
-    <InterfacePacking name=(&string) sym_dof_names=("" &string) contact_dist=(10.0 &Real) distance_cutoff=(9.0 &Real) lower_cutoff=(-5 &lower_cutoff) upper_cutoff=(5 &upper_cutoff)/>
-
--   sym\_dof\_names - Must be provided. Name(s) of the sym\_dof(s) corresponding to the building block(s) for which to calculate the holes score(s).
--   contact\_dist - Maximum distance between CA or CB atoms of the primary subunit(s) and the other subunits to be included in the subpose used for the holes calculations. (Should this be change to heavy atoms and set to be the same value as distance\_cutoff?)
--   distance\_cutoff - Maximum distance between heavy atoms of the primary subunit(s) and neighboring subunits in order for the holes score to be included in the calculation.
--   lower\_cutoff - Minimum passing holes score.
--   upper\_cutoff - Maximum passing holes score.
-
-#### MutationsFiler
-
-(This is a devel Filter and not available in released versions.)
-
-Determines mutated residues in current pose as compared to a reference pose. Can be used to stop trajectories if desired by setting a mutation\_threshold or rate\_threshold. The residues considered are restricted by task operations. By default, only designable residues are considered, but packable residues can also be considered if the option packable=true (useful for instance if a resfile is used to mutate some positions during the protocol, but only one AA was allowed to be considered during repack. Such a position is only considered packable). Outputs the number of mutations or the mutation rate (number of mutations divided by the number of designable (or packable) positions. Works with symmetric poses and symmetric "building blocks". The reference pose against which the recovery rate will be computed can be defined using the -in:file:native command-line flag.
-
-```
-<MutationsFilter name=(&string) rate_threshold=(0.0 &Real) task_operations=(comma-delimited list of operations &string) mutation_threshold=(100 &Size) report_mutations=(0 &bool) packable=(0 &bool) verbose=(0 &bool) write2pdb=(0 &bool) />
-```
-
--   rate\_threshold: Lower cutoff for the acceptable recovery rate for a passing design. Will fail if actual rate is below this threshold.
--   task\_operations: Define the designable residues or packable residues.
--   mutation\_threshold: Upper cutoff for the number of mutations for an acceptable design. Only matters if report\_mutations is set to true.
--   report\_mutations: Defaults to false. If set to true, then will act as a filter for the number of mutations rather than the rate.
--   verbose: Defaults to false. If set to true, then will output the mutated positions and identities to the tracer.
--   write2pdb: Defaults to false. If set to true, then will output the mutated positions and identities to the output pdb.
--   packable: Defaults to false. If set to true, then will also consider mutations at packable positions in addition to designable positions.
-
-#### GetRBDOFValues
-
-(This is a devel Filter and not available in released versions.)
-
-Calculates either the current translation or rotation across a user specified jump (referenced by jump\_id or sym\_dof\_name).
-
-```
-<GetRBDOFValues name=(&string)  jump=(1 &int) sym_dof_name=("" &string) verbose= (0 &bool) axis=('x' &char) get_disp=(0 &bool) get_angle=(0 &bool) init_disp=(0 &Real) init_angle=(0 &Real) get_init_value(0 &bool)/>
-```
-
--   jump: Jump number of movable jump for which to calculate the translation or rotation
--   sym\_dof\_name: Sym\_dof\_name for movable jump for which to calculate the translation or rotation
--   verbose: Output jump and corresponding displacement or angle to tracer
--   axis: Axis in local coordinate frame about which to calculate the translation or rotation (not currently set up to handle off axis values)
--   get\_disp: If set to true (and get\_disp is false), then will calculate the displacement across the specified jump
--   get\_angle: If set to true (and get\_angle is false), then will calculate the angle of rotation about the specified jump
--   init\_disp: Initial displacement value to add to each calculated value
--   init\_angle: Initial angle value to add to each calculated value
--   get\_init\_value: Get the initial displacement or angle for the specified jump from the SymDofMoverSampler
-
-<!--- END_INTERNAL --> 
+ 
 
 ### Backbone Design
 
