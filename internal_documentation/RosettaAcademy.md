@@ -346,7 +346,7 @@ If you are writing a completely new framework, it MIGHT make sense to create a s
 * to compile/run unit tests:
   * put <name>.cxxtest.hh into devel.test.settings file
   * compile: 'scons.py cat=test'
-  * run: 'test/run.py -d <database> -1 <class_name, w/o extensions or prefixes>'
+  * run: 'test/run.py -d \<database\> -1 \<class_name, w/o extensions or prefixes\> -c \<compiler\>'
 * it is best to compile the src using 'scons.py -j4' and then compile and run the tests
 * in cxxtest.hh don't comment out complete tests: compilation will fail 
 * add files at bottom of core.test.setting - other files than cxxtest.hh
