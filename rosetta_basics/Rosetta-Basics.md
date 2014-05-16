@@ -1,8 +1,10 @@
 #Rosetta Basics
 
 ####Controlling Rosetta Execution
-- [[Running Rosetta|running-rosetta-with-options]] - Controlling Rosetta with command line options
-    * [[Database]] - The Rosetta database
+- [[Running Rosetta|running-rosetta-with-options]]
+- [[Running Rosetta via MPI | running-rosetta-with-options#Running-Rosetta-via-MPI ]]
+- [[The Rosetta Database | Database]]
+- Common/Useful Rosetta Options
     * [[Input options]]
     * [[Output options]]
     * [[Relational Database options | Database-options]]
