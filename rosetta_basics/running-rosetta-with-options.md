@@ -1,4 +1,3 @@
-
 #How to Run Rosetta
 
 The command line is composed of two major parts. First, a path to an application executable is required, while the second part is a list of options for the particular Rosetta simulation.
@@ -33,7 +32,7 @@ Options can also be written in a flag file. In this file, put one option on each
 
 If this file were called “flags”, then it would be used like this (notice the @ symbol): <code> fixbb.macgccrelease @ flags </code>
 
-Note that other options can still be set before or after the flags file is specified
+Note that other options can still be set before or after the flags file is specified, and MULTIPLE flag files can be used - for example <code> @ flags1 @ flags2 @ flags3 </code>.  This will essentially combine flags1 through three - each time overiding any options set in the previous flags.  For setting multiple flag files through a _batch_ run, see the <code> -run:batches </code> option described in the run options.
 
 ##The -database flag
 The <code> -database flag </code> is the only option which must be given for every Rosetta run.  The database flag specifies the path to the Rosetta database (<code> Rosetta/main/database </code> ) and is included so that Rosetta may be run from any directory on the file system.  Rosetta will also attempt to use the <code> $ROSETTA3_DB </code> environment variable as well if the <code>-database</code> flag is not set or the path given to <code>-database</code> is incorrect.
