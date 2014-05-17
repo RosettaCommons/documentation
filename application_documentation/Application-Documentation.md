@@ -7,7 +7,7 @@ file a bug in our [issue tracker](http://bugs.rosettacommons.org).
 **Table of Contents** 
 
 - [[Scripting interfaces to Rosetta functionality|Application Documentation#Scripting-interfaces-to-Rosetta-functionality]]
-- [Structure Predition](#Structure-Prediction)
+- [Structure Prediction](#Structure-Prediction)
 - [Docking](#Docking)
 - [Design](#Design)
 - [Analysis](#Analysis)
