@@ -46,13 +46,13 @@ Responsible primarily for setting up build settings for sqlite3 and cppdb extern
 ### Settings
 
 #### site.settings
-The site.settings files in <code>main/source/tools/build</code> allow you to override any of the settings in the scons build system.  This allows you to add specific libraries, include paths, or overide very specific build settings. Both site and user .settings files are loaded via <code> main/source/tools/setup.py </code> via the main SConstruct file.  
+The site.settings files in <code>main/source/tools/build</code> allow you to override any of the settings in the scons build system.  This allows you to add specific libraries, include paths, or overide very specific build settings. Both site and user .settings files are loaded via <code>main/source/tools/setup.py</code> via the main SConstruct file.  
 
 #### basic.settings
-The basic.settings file in <code> main/source/tools/build </code> control settings for specific platforms and compilers.  If a new version of your favorite compiler is released and requires specific tweaks, here is where you would edit what it uses for cc, cxx, link settings, etc.  This file is also loaded by <code>main/source/tools/setup.py</code>
+The basic.settings file in <code>main/source/tools/build </code> control settings for specific platforms and compilers.  If a new version of your favorite compiler is released and requires specific tweaks, here is where you would edit what it uses for cc, cxx, link settings, etc.  This file is also loaded by <code>main/source/tools/setup.py</code>
 
 #### options.settings
-The options.settings file in <code> main/source/tools/build </code> is a compilation of what is actually supported by the Rosetta build system.  Supported compilers, modes, extras, and systems are loaded from here first by <code>main/source/tools/setup.py</code>
+The options.settings file in <code>main/source/tools/build</code> is a compilation of what is actually supported by the Rosetta build system.  Supported compilers, modes, extras, and systems are loaded from here first by <code>main/source/tools/setup.py</code>
 
 #### platforms
 Platforms are initially setup by functions in the <code>main/source/tools/build/setup_platforms</code> file.  If new computer architecture is being tested, add it to here first.  
