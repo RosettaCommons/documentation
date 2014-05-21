@@ -1,6 +1,6 @@
 #Remodel Documentation
 
-A demo for remodel is available in from the git checkout at `Rosetta/demos/public/design\_w\_flex\_loops\_using\_RosettaRemodel`
+A demo for remodel is available in from the git checkout at `Rosetta/demos/public/design_w_flex_loops_using_RosettaRemodel`
 
 **The remodel mode is a shortcut to the loop modeling tools in Rosetta, tailor-made for design purposes.** The basic components of the tool consists of a building stage (at the centroid level) and a design stage. Generally there is a "partial design" stage to direct simulation to satisfy packing requirements. Instructions are given using an input PDB file, a blueprint description of the task, and if needed, a constraint definition and a PDB containing a segment of a structure to be inserted to the starting PDB.
 
