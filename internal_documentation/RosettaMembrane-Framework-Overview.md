@@ -24,7 +24,7 @@ The framework is a developer tool. Each page below details its components, guide
 - [[RosettaMembrane: Scripts and Tools]]
 - [[RosettaMembrane: How it Works]]
 - [[RosettaMembrane Low Resolution Energy Function]]
-- [[RosettaMembrane: High Resolution Energy Function]]
+- [[RosettaMembrane High Resolution Energy Function]]
 
 ## Code and Demo
 The code for implementing membrane proteins lives in `src/core/membrane`. Unit tests live in both `test/core/membrane` and `test/protocols/membrane`. Integration test application `mpframework_integration`
