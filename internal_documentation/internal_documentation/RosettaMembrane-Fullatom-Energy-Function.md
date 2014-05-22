@@ -16,7 +16,7 @@ The Rosetta high resolution (fullatom) energy function for membrane proteins was
 Fullatom energy methods supported by the RosettaMembrane framework were added in April 2014. Terms, corresponding energy methods, and usage are described below. The score name is the name of the term you would use when setting up a weights file. 
 
 #### Fullatom Membrane Residue-Environment Term
-Score Name: FaMPEnv. Score the change in solvation free-energy of isolated atoms when transferred from water to membrane bilayer as a function of z position along the membrane normal. Energy method type: One Body context dependent. For Developers - code in `core/scoring/membrane/FaMPEnvEnergy.hh`
+Score Name: FaMPEnv. Score the change in solvation free-energy of isolated atoms when transferred from water to membrane bilayer. Scores are determined as a function of z position along the membrane normal. Energy method type: One Body context dependent. For Developers - code in `core/scoring/membrane/FaMPEnvEnergy.hh`
 
 #### Fullatom Membrane Solvation Energy term
 Score Name: FaMPSolv. Score change in solvation energy of an atom upon burial in the protein. Computed using the IMM1 potential (extends the EFF1 potential for membrane proteins, Lazaridus et al. 2003). Energy method type: Two body context dependent. For Developers - code in `core/scoring/membrane/FaMPSolvEnergy.hh`
