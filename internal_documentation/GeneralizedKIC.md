@@ -83,7 +83,7 @@ From the above example, we can see that loop segments may run backwards or forwa
 
 6. Define one or more GeneralizedKICfilters.  Filters are applied after each closure attempt, and eliminate solutions that don't meet some criterion.
 
-7. Set the GeneralizedKICselector.  The selector chooses a single solution from the set of solutions found that pass all of the filters.
+7. Set the GeneralizedKICselector.  The selector chooses a single solution from the set of solutions found that pass all of the filters.  See the [[documentation on GeneralizedKICselectors|GeneralizedKICselector]] for details.
 
 That's it!  You should be happily closing loops, now.
 
