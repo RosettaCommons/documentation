@@ -13,7 +13,7 @@ Last Modified: 5/22/2014
 The Rosetta low resolution (centroid-based) energy function for membrane proteins was developed in 2006 with the Membrane Ab Initio folding protocol (Yarov-Yaravoy et al. 2006). It was derived from 28 alpha helical membrane proteins and is knowledge-based. There are 6 low-resolution energy terms: a residue-environment energy, residue-residue energy, packing density, termini penalty, non helix penalty, and tm projection penalty. 
 
 ### Energy Terms
-A new set of energy terms supported by the RosettaMembrane framework was added in 2014. Terms, corresponding energy methods, and usage are described below. The score name is the name of the term you would use when setting up a weights file. 
+Terms supported by the RosettaMembrane framework were added in April 2014. Terms, corresponding energy methods, and usage are described below. The score name is the name of the term you would use when setting up a weights file. 
 
 #### Membrane Residue-Environment Term
 Score Name: MPEnv. Score per-residue interactions with the membrane environment using a 5 layer membrane (Layers: inner hydrophobic, outer hydrophobic, interface, polar, water). Energy Method type: One body context-dependent.  For Developers - code in `core/scoring/membrane/MPEnvEnergy.hh`.
