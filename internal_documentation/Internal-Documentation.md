@@ -47,6 +47,7 @@ comment tags will be stripped from the documentation prior to being provided as 
 - [[DeclareBond]]
 - [[SetTorsion]] -- updated with new functionality; documentation needs to be written
 - [[GeneralizedKIC]] -- documentation incomplete
+     - [[GeneralizedKICperturber]] -- documentation incomplete
 
 ## Pilot Apps + Code Documentation
 
