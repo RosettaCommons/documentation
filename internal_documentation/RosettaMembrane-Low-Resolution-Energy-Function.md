@@ -1,4 +1,4 @@
-# About
+## About
 
 ### Developers
 - Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com)) (Wrote this documentation + Rosetta3 terms)
