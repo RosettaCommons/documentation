@@ -36,7 +36,7 @@ Score Name: MPNonHelix. Penalty for non helix residues in the membrane. Uses Sec
 ## Scoring Options
 |**Option Name**|**Description**|**Type**|
 |---|---|---|
-|score:find_neighbors_3dgrid|score:find_neighbors_3dgrid|boolean|
+|score:find_neighbors_3dgrid|Use 3D lookup table in neighbor calculations|boolean|
 |membrane:no_interpolate_Mpair|switch off interpolation between 2 layers when a pair of residues is on the boundary|boolean|
 
 ## For Developers
