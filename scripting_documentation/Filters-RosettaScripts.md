@@ -1208,7 +1208,7 @@ Special Application Filters
 Computes the binding energy for the complex and if it is below the threshold returns true. o/w false. Useful for identifying complexes that have poor binding energy and killing their trajectory.
 
 ```
-<Ddg name=(ddg &string) scorefxn=(score12 &string) threshold=(-15 &float) jump=(1 &Integer) chain_num=(&int,&int...) repeats=(1 &Integer) repack=(true &bool) relax_mover=(&string) repack_bound=(true &bool) relax_bound=(false &bool) filter=(&string)/>
+<Ddg name=(ddg &string) scorefxn=(score12 &string) threshold=(-15 &float) jump=(1 &Integer) chain_num=(&int,&int...) repeats=(1 &Integer) repack=(true &bool) relax_mover=(&string) repack_bound=(true &bool) relax_bound=(false &bool) filter=(&string) extreme_value_removal=(false &bool)/>
 ```
 
 -   jump specifies which chains to separate. Jump=1 would separate the chains interacting across the first chain termination, jump=2, second etc.
@@ -1220,6 +1220,7 @@ Computes the binding energy for the complex and if it is below the threshold ret
 -   chain\_num: allows you to specify a list of chain numbers to use to calculate the ddg, rather than a single jump. You cannot move chain 1, moving all the other chains is the same thing as moving chain 1, so do that instead. Use independently of jump.
 -   translate\_by: How far to translate the unbound pose. Note: Default is now 100 Angstroms rather than 1000.
 -   filter: If specified, the given filter will be calculated in the bound and unbound state for the score, rather than the given scorefunction. Repacking, if any, will be done with the provided scorefunction.
+-   extreme_value_removal: compute ddg value <repeat> times, sort and remove the top and bottom evaluation. This should reduce the noise levels in trajectories involving 1000s of evaluations. If set to true, repeats must be set to at least 3.
 
 This filter supports the Poisson-Boltzmann energy method by setting the runtime environment to indicate the altering state, either bound or unbound. When used properly in conjunction with SetupPoissonBoltzmannPotential (mover), the energy method (see: core/scoring/methods/PoissonBoltzmannEnergy) is enabled to solve for the PDE only when the conformation in corresponding state has changed sufficiently enough. Because Ddg uses all-atom centroids to determine the separation vector when jump is used, it is highly recommended to use the chain\_num option instead to specify the movable chains, to avoid invalidating the unbound cache when there are slight changes to atom positions.
 
