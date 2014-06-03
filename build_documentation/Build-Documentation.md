@@ -22,17 +22,12 @@ To build:
 1.  Change directory to `main/source`.
 2.  Type one of the following commands:
     -    All executables   
-
         -   `./scons.py -j<number_of_processors_to_use> bin`
         -   `./scons.py -j<number_of_processors_to_use> mode=release bin`
-
     -    A specific executable (e.g. "relax") 
-
         -   `./scons.py -j<number_of_processors_to_use> <executable_name>`
         -   `./scons.py -j<number_of_processors_to_use> mode=release <executable_name>`
-
     -    libraries only   
-
         -   `./scons.py -j<number_of_processors_to_use>`
         -   `./scons.py -j<number_of_processors_to_use> mode=release`
 
