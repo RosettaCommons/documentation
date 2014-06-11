@@ -20,9 +20,6 @@ Here is a list of Score Function options
                                            Default='0.0' [Real]
 -score:ramaneighbors                       Uses neighbor-dependent ramachandran maps
                                            Default='false' [Boolean]
--score:rama_score_nonstandard_connections  Allow rama to score residues connected to residues that
-                                           are not adjacent in linear sequence.
-                                           Default='false' [Boolean]
 -score:optH_weights                        Name of weights file (without extension .wts) to use 
                                            during optH. [String]
 -score:optH_patch                          Name of weights file (without extension .wts) to use 
