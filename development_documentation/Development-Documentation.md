@@ -20,9 +20,9 @@ The documentation for the various libraries is a bit scattered.  Here is a parti
 
 **External libraries:**
 
-- [Boost 1.55.0 documentation](http://www.boost.org/doc/libs/1_55_0/)
+- [Boost 1.55.0 documentation (a very useful library intended to extend the standard C++ libraries with frequently-needed functionality)](http://www.boost.org/doc/libs/1_55_0/)
 - [The Eigen library (used for linear algebra, matrix manipulations, Eigenvector problems, etc.)](http://eigen.tuxfamily.org/dox/)
-- [Information and references (but no documentation) about DAlphaBall](https://simtk.org/project/xml/downloads.xml?group_id=212)
+- [Information and references (but no documentation) about DAlphaBall (used in Rosetta's holes score term)](https://simtk.org/project/xml/downloads.xml?group_id=212)
 
 
 ##Code organization
