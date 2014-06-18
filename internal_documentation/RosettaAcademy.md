@@ -1,91 +1,38 @@
-#RosettaAcademy (or "Rosetta for Newbies")
-
 This page is geared towards new members of the Rosetta community as a "fast" way to learn about Rosetta, how to use it and how to develop in Rosetta, if needed. The page is organized by increasing difficulty, starting out with basic tools needed, then tutorials for users and later for developers. If you are going through and find that important parts are missing, please add them to the page!
 
-====================================================================
-## Table of Contents
-#####1. Introduction to protein structure and visualization
-  * Visualization
-  * Basic biochemistry
-  * FoldIt
-  * Eterna - for RNA
-  * Introduction to Linux
-
-#####2. Introduction to Rosetta
-
-#####3. Documentation
-  * Glossary
-  * Documentation
-  * FAQ/Forum
-
-#####4. Course material
-
-#####5. Rosetta for users
-  * Download and compile Rosetta, git version control
-  * Meilerlab tutorials
-  * Demos
-
-#####6. Rosetta for users/developers
-  * Python
-  * C++
-  * ROSIE
-  * PyRosetta
-  * RosettaScripts and RosettaDiagrams
-  * CS-Rosetta
-  * Version control
-  * IDE: Xcode or Eclipse
-  * Coding conventions
-  * Library structure
-  * How to find stuff in Rosetta
-  * Doxygen documentation
-  * Useful links
-
-#####7. More Rosetta for developers
-  * Licensing
-  * Bootcamp
-  * Running code and git
-  * Where to put your new code
-  * Notes on code design and implementation workflow
-  * More notes
-  * Compiling/running code
-  * Debugging
-  * Error handling, asserts, and tracers
-  * The options system (options and flags)
-  * Resource Manager
-  * Tests: unit tests, integration tests, scientific tests
-  * Merging code to master
+[[_TOC_]]
 
 ====================================================================
 ![gollum](http://s2.quickmeme.com/img/86/86a343e34ab8ca051ce5a455eeba643a94b5f5dda96e558453d19f90cea15d99.jpg)
 ====================================================================
 
-### 1. Introduction to protein structure and visualization
-#### Visualization
+# 1. Introduction to protein structure and visualization
+## Visualization
 Most people in the community are using PyMol (download from http://www.pymol.org/). Tutorials on how to use it can be found at:
 * http://pymol.sourceforge.net/newman/userman.pdf 
 * http://www.bio.ph.ic.ac.uk/~scurry/pdfs/PyMOL_tutorial.pdf.
 
 Some people are using Chimera (http://www.cgl.ucsf.edu/chimera/), which seems to have some additional functionality for density maps if you are working with X-ray electron density maps or Cryo-EM maps. Tutorials can be found at http://www.cgl.ucsf.edu/chimera/docs/UsersGuide/frametut.html.
 
-#### Basic biochemistry
+## Basic biochemistry
 To work in Rosetta, you need to know some basic biochemistry about amino acids and protein structure. You can learn this by picking up a biochemistry book (such as Voet & Voet: Biochemistry) or look at:
 * http://www.rpi.edu/dept/bcbp/molbiochem/MBWeb/mb1/part2/protein.htm
 * http://www.ruppweb.org/xray/tutorial/protein_structure.htm
 
-#### Foldit (developed by Center for Game Science at UW, Bakerlab, and UMass Dartmouth (Firas Khatib))
+## Foldit (developed by Center for Game Science at UW, Bakerlab, and UMass Dartmouth (Firas Khatib))
 Foldit is a videogame created for the general public to solve real-life scientific puzzles involving protein structure and function. It is an excellent starting point to learn about protein structure as it does not require any previous knowledge. Once you download it, it will take you through tutorials where you are learning about all the moves and modifications you can do to a protein structure with a lot of fun along the way. Keep in mind that the terminology that Foldit uses is a bit different than what we are using in Rosetta (even though the code underneath Foldit is Rosetta code), but if you understand the concepts using Foldit, you can easily apply them in Rosetta. Also, the score in Foldit is opposite from Rosetta: in Foldit a higher score is better, in Rosetta, a lower energy is desired.
 
 Download it at http://fold.it/portal/
 
-#### Eterna - for RNA (developed by Rhiju Das, Stanford)
+## Eterna - for RNA (developed by Rhiju Das, Stanford)
 A similar tool to FoldIt is available for RNA. It was developed by Rhiju Das' lab at Stanford (http://www.stanford.edu/~rhiju/). You can play and learn about it here: http://eterna.cmu.edu/web/
 
-#### Introduction to Linux
+## Introduction to Linux
 To know about how to navigate a terminal in Linux, you need to learn some basic commands. There are plenty of resources available on the web: 
 * http://www.my-guides.net/en/guides/linux/basic-linux-commands
 * http://www.debianhelp.co.uk/commands.htm
 
-### 2. Introduction to Rosetta
+# 2. Introduction to Rosetta
 Rosetta is a unified software package for protein structure prediction and functional design. It has been used to predict protein structures with and without the aid of sparse experimental data, perform protein-protein and protein-small molecule docking, design novel proteins and redesign existing proteins for altered function. Rosetta allows for rapid tests of hypotheses in biomedical research which would be impossible or exorbitantly expensive to perform via traditional experimental methods. Thereby, Rosetta methods are becoming increasingly important in the interpretation of biological findings, e.g., from genome projects and in the engineering of therapeutics, probe molecules and model systems in biomedical research.
 
 Rosetta concepts:
@@ -99,28 +46,28 @@ Some really useful papers about Rosetta:
 * Leaver-Fay et. al: "ROSETTA3: An Object-Oriented Software Suite for the Simulation and Design of Macromolecules" Methods in Enzymology 2011: http://www.sciencedirect.com/science/article/pii/B9780123812704000196
 
 
-### 3. Documentation
-#### Glossary: Rosetta and technical
+# 3. Documentation
+## Glossary: Rosetta and technical
 Here are some useful links that will help you understand terminology that is used in Rosetta. Some concepts are also explained in the PyRosetta tutorials. 
 * https://wiki.rosettacommons.org/index.php/Glossary
 * [[Rosetta-overview]]
 
-#### Documentation
+## Documentation
 There is a decent documentation available: https://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/index.html. For newer documentation, please visit https://www.rosettacommons.org/manual_guide and click on the newest release.
 
-#### FAQ/Forum
+## FAQ/Forum
 The main RosettaCommons page is https://www.rosettacommons.org/. There is a Forum available on this page where you can post questions or look for answers for your specific problem (https://www.rosettacommons.org/forum).
 
 
-### 4. TODO: Course material
+# 4. TODO: Course material
 * Stanford lecture
 * Ora's/Orly's lectures
 * Brian Kuhlman's course
 * Jeff's lecture
 
 
-### 5. Rosetta for users
-#### Download and compile Rosetta, git version control
+# 5. Rosetta for users
+## Download and compile Rosetta, git version control
 If you won't be developing in Rosetta, you can download the release version here : https://www.rosettacommons.org/
 
 Most likely, you will be developing or at least running new code. In this case you have to download and compile the developers version of Rosetta. But before you do that, please follow the instructions here: https://wiki.rosettacommons.org/index.php/NewNewDevelopersPage#Administrative_-_take_care_of_these_IMMEDIATELY, especially:
@@ -132,17 +79,17 @@ After you have done that, follow the instructions on how to download and compile
 https://wiki.rosettacommons.org/index.php/GithubWorkflow
 You might want to look at the test-server (http://rosettatests.graylab.jhu.edu/revs) to figure out the latest revision for which all tests are running and get this revision. If you get the latest revision, it might be that not all tests are running so you might be downloading a 'broken' version. If you don't really understand much about git and github yet, don't worry, you will be going into much more detail later once you are actively developing in Rosetta (see below).
 
-#### Meilerlab tutorials (put together by Jens Meiler's lab, Vanderbilt University)
+## Meilerlab tutorials (put together by Jens Meiler's lab, Vanderbilt University)
 The Meiler lab has hosted one-week workshop in the past (usually some time in the spring) for members of the community, outside people and people from industry. The are an excellent starting point on how to run Rosetta, give plenty of information on how to prepare input files and how to process Rosetta output. The zip folder can be downloaded and unpacked - it contains subfolders for several Rosetta applications, including protein folding, docking, design, ligand docking, and loop modeling. Input files are provided and only minimal previous knowledge is assumed to go through these (like PyMol or Linux). You need to download and compile Rosetta to run these applications!
 
 Download the tutorials from 
 * http://structbio.vanderbilt.edu/comp/workshops/rosetta_13/tutorials_2013.tar.gz (download takes a while)
 
-#### Demos
+## Demos
 Once you downloaded and compiled Rosetta, you can also check out the demos folder at `Rosetta/demos`. This folder contains subfolders with easy-to-follow demonstrations and protocol captures on specific applications. Input files, readme's and commandlines are available in the folders. 
 
-### 6. Rosetta for users/developers
-#### Python
+# 6. Rosetta for users/developers
+## Python
 It is useful to know python when you want to use PyRosetta or to write scripts to prepare input files or analyze data. 
 * in-depth tutorial: http://docs.python.org/3.3/tutorial/
 * interactive tutorial: http://www.learnpython.org/
@@ -152,20 +99,20 @@ It is useful to know python when you want to use PyRosetta or to write scripts t
 	
 * book: http://www.amazon.com/Python-Dummies-Stef-Maruch/dp/0471778648/ref=sr_1_1?s=books&ie=UTF8&qid=1375469160&sr=1-1&keywords=python+for+dummies
 
-#### C++
+## C++
 If you want to develop in Rosetta, you need to learn C++. If you have never scripted before or know nothing about programming, it is recommended that you start with something easier than C++, such as Python (or Perl) to get the basics down. If you have scripting or other programming experience, here are useful references:
 	
 * short online videos - Bucky's tutorials: http://www.youtube.com/watch?v=tvC1WCdV1XU&list=PLC6E50B89DA30C77A
 	
 * book: Sam's teach yourself C++ in 21 days: http://www.amazon.com/Sams-Teach-Yourself-Edition-ebook/dp/B0028CK0GW/ref=sr_1_1?ie=UTF8&qid=1375469877&sr=8-1&keywords=c%2B%2B+sams+5th+edition
 
-#### ROSIE (set up by Sergey Lyskov, Jeff Gray's lab, Johns Hopkins)
+## ROSIE (set up by Sergey Lyskov, Jeff Gray's lab, Johns Hopkins)
 ROSIE is an abbreviation for "Rosetta Online Server that Includes Everyone". It is a server that runs several Rosetta applications without requiring the knowledge of Python, C++ or anything difficult. Perfect to use for the Newbie, however, only few applications are available and some of them are very specialized - more to come in the future. Check it out at http://antibody.graylab.jhu.edu/. Also, if you are a developer and are planning on setting up a server on ROSIE for your own application, contact Sergey Lyskov at sergey.lyskov[at]gmail.com and he will give you instructions on how to do it. It should be pretty quick and easy with about two pages of code or less!
 
-#### PyRosetta (developed by Jeff Gray's lab, Johns Hopkins)
+## PyRosetta (developed by Jeff Gray's lab, Johns Hopkins)
 If you know Python and you are planning on creating your own protocols, PyRosetta (developed in Jeffrey Gray's lab at Johns Hopkins) is an excellent way of using Rosetta and manipulating protein structures (If you don't know Python, it is much easier if you learn it before diving into PyRosetta). PyRosetta is basically a Python wrapper around the Rosetta C++ code so you can do pretty much everything with Python without knowing C++. For rewriting code, however, it is recomended to do that in C++. The tutorials for PyRosetta can be found at http://www.pyrosetta.org/tutorials with the password here: https://wiki.rosettacommons.org/index.php/PyRosetta
 
-#### RosettaScripts and RosettaDiagrams (developed by Sarel Fleishman's lab, Weizmann Institute, Israel)
+## RosettaScripts and RosettaDiagrams (developed by Sarel Fleishman's lab, Weizmann Institute, Israel)
 RosettaScripts is an XML-scriptable interface that allows users to mix and match protocols and carry out customizable tasks for various protocols. Detailed instructions on how to set them up are available at 
 https://wiki.rosettacommons.org/index.php/RosettaScripts
 
@@ -176,11 +123,11 @@ An extension of RosettaScripts is available with RosettaDiagrams that should mak
 
 Both RosettaScripts and RosettaDiagrams require a certain knowledge about Rosetta, which movers, filters, and task operations should be used in which order to obtain a certain outcome. 
 
-#### CS-Rosetta (developed by Oliver Lange's lab, TU Munich, Germany)
+## CS-Rosetta (developed by Oliver Lange's lab, TU Munich, Germany)
 CS-Rosetta is a version of Rosetta that uses NMR chemical shift restraints for ab initio folding or structure prediction. The toolbox of CS-Rosetta also includes automatic assignment of NOE resonances.
 * http://www.csrosetta.org/
 
-#### Version control
+## Version control
 If you are planning to develop in Rosetta and want to put together your own protocols and write code, now is the time to learn more about version control and all that comes with it. Version control is basically a history of the code base (similar to when you hit the 'save' button in a document) which is needed when over 100 developers are working on the code from all over the world at the same time. It makes it much easier to resolve coding conflicts (when multiple people are working on the same code) and much more difficult to "break" Rosetta - even though it is not completely impossible. ;o)
 
 Extended information from the above intro is available here: https://wiki.rosettacommons.org/index.php/Github but it is suggested to become intimately familiar with various git commands. Several online resources are available, among them:
@@ -188,7 +135,7 @@ Extended information from the above intro is available here: https://wiki.rosett
 * shorter cheat sheet: https://www.kernel.org/pub/software/scm/git/docs/everyday.html
 * short videos: http://www.youtube.com/GitHubGuides
 	
-#### IDE: Xcode or Eclipse
+## IDE: Xcode or Eclipse
 To write and develop code, it is much easier if you have an IDE (Integrated Development Environment) available. It is basically an editor and compiler, which also links to version control and has tons of nice little features like linking to functions somewhere else in the code, bracket completion, indentation, finding errors, etc. The two IDEs commonly used are 
 
 * Xcode - for Mac: https://wiki.rosettacommons.org/index.php/Tools:XCode
@@ -196,13 +143,11 @@ To write and develop code, it is much easier if you have an IDE (Integrated Deve
 
 Talk to your mentor which program he thinks is best so he can also give you advise on how to use it. And don't be discouraged, it takes a while to figure out the details.
 
-#### Coding conventions
+## Coding conventions
 Now that you know about version control, have set up your IDE and are knowledgeable about C++, you should read through the coding conventions and comply with them - no excuse!!! This will make it much easier in the long run for other people (and yourself) to read, understand and use your code in the way it is intended for. This also applies for Python code:
 * https://wiki.rosettacommons.org/index.php/Coding_Convention_and_Examples
 
-#### TODO: Library structure: Steven's hamburger talk
-
-#### How to find stuff in Rosetta
+## How to find stuff in Rosetta
 When you download Rosetta, it will automatically set up three independent github directories in Rosetta: 
 * demos
 * main
@@ -216,14 +161,14 @@ For Rosetta, people always say "The code is the documentation" - which is nice i
 	
 Write the documentation such that people who are not familiar with every detail of your code will be able to understand it but keep in mind who you are aiming your documentation for: the user or the developer. Please keep the correct documentation style in the correct places. 
 
-#### Doxygen/API documentation
+## Doxygen/API documentation
 User level documentation is a useful resource for learning how protocols in Rosetta work and how to use them. However, as developers it is important to also maintain more detailed documentation of the API (Application Programming Interface) which details how to navigate specific concepts and methods in the Rosetta library. 
 
 We maintain API documentation using Doxygen - a software package that will parse the Rosetta source code and generates html documentation from in-code documentation. This can be done by using specialized tags (i.e. @brief, @details, @author, @note, etc) when commenting code. Details for writing doxygen documentation in-code can be found at: 
 * http://graylab.jhu.edu/Rosetta.Developer.Documentation/core+protocols/d3/ddc/doxygen_tips.html
 * https://wiki.rosettacommons.org/index.php/Tools:Doxygen
 
-#### Useful links
+## Useful links
 There are plenty of useful links available that are connected with Rosetta, in addition to the ones described above:
 * New new developers page: https://wiki.rosettacommons.org/index.php/NewNewDevelopersPage
 
@@ -246,12 +191,12 @@ There are plenty of useful links available that are connected with Rosetta, in a
 * test-server: http://rosettatests.graylab.jhu.edu/revs
 
 
-### 7. More Rosetta for developers
+# 7. More Rosetta for developers
 
-#### Licensing
+## Licensing
 To get Rosetta, you signed the developers agreement (http://rosettadesign.med.unc.edu/agreement/agreements.html) which also contained some information about licensing third party software. Please also check out the wiki page here (https://wiki.rosettacommons.org/index.php/Licensing). A good rule of thumb is NOT to use anything under GPL or LGPL license.
 
-#### Bootcamp (put together by Andrew Leaver-Fay and other members of the Commons)
+## Bootcamp (put together by Andrew Leaver-Fay and other members of the Commons)
 The Rosetta Bootcamp was given in April 2013 for the first time as a one-week workshop for beginning Rosetta developers. It contained both lectures as well as labs where participants applied their just-learned knowledge under the supervision of several Rosetta developers.
 
 Tutorials: https://drive.google.com/folderview?id=0B7YNPpJXYWK8bEEwWnFqSkIzRnc&usp=sharing#grid
@@ -297,16 +242,16 @@ Below are the contents of the individual lectures/labs:
 * Lecture 9: 	Computational Thinking
 * Lecture 10: 	Databases: SQL
 
-#### Running code and git
+## Running code and git
 * make a separate directory outside of Rosetta where you run your exes and create files; this should be separate because your additional output files (as well as data) shouldn't be committed to the code base
 * make it a habit to add a new file to git immediately after you create it in source, this will make it much easier once you want to commit
 
-#### Where to put your new code
+## Where to put your new code
 When you are starting a coding project, make a new branch (git personal-tracked-branch mynewbranch) and start coding. **DO NOT PUT YOUR CODE IN /devel/ AS IT WILL BE PHASED OUT!!!** If you don't want your code to be released yet, just keep it in your branch until you are ready to merge your branch to master.
 
 If you are writing a completely new framework, it MIGHT make sense to create a subdirectory in /core/. Also, be sure to consider which other code or libraries you are using in your code because they need to be compiled BEFORE any of your code will be compiled, otherwise you will run into unresolvable errors at compile time. If you are unsure, ask someone. 
 
-#### Notes on code design and implementation workflow
+## Notes on code design and implementation workflow
 * before writing code, write down code design in every single detail, what are the interfaces between all the objects and classes you will create, what are the functions you need (and other people may need)? 
   * Think about it loooooong and hard, because if you implement something half-way thought through, you will spend 10x longer in refactoring it! 
   * Also, writing the actual code should only take you a fraction of the time you took to design it. And proper code design is one of the most important things for writing C++ code in Rosetta, because everything is so complex, even more so when you are a beginning developer!!!
@@ -328,13 +273,13 @@ If you are writing a completely new framework, it MIGHT make sense to create a s
 * debug your code
 * CLEAN UP YOUR CODE 
 
-#### More notes
+## More notes
 * choose names for classes and functions that are BOTH user-friendly AND developer-friendly. If your name could be interpreted in another way, choose a different one 
 * for refactoring, it is easier to create new files and copy over what you need instead of rewriting old code
 * debugging and refactoring is always easier if you put the files in the correct locations first, and then write unit tests for it
 * testing for non-existence: can only be done indirectly and not directly, since you are wanting the program to crash, but how do you test for it? One way to deal with this is to write the existing ones in a vector and then ask whether the vector contains your element of interest
 
-#### Compiling/running code
+## Compiling/running code
 * src and test are mirrored directories, put your classes in src and your test into test/ that contains the unit tests
 * to compile/run a class in src:
   * put <class>.hh, <class>.cpp into devel.src.settings file
@@ -351,7 +296,7 @@ If you are writing a completely new framework, it MIGHT make sense to create a s
 * in cxxtest.hh don't comment out complete tests: compilation will fail 
 * add files at bottom of core.test.setting - other files than cxxtest.hh
 
-#### Debugging
+## Debugging
 Below are some useful techniques for debugging code in Rosetta. Most programmers would be incredibly lucky if their code compiles and runs at the first try. Debugging is trial error and requires some creativity. It is often better to assume your code is wrong (it most likely is) and be surprised when your code compiles and all tests succeed! :o)
 
 Tools/Tricks
@@ -384,7 +329,7 @@ Other tips:
 * **Code and test defensively:** To write good code, pretend your user is a monkey and trying to find a bug in your code. Think about all possible edge cases and make sure you are handling them in your code. 
 * **Step through your code using comments:** Comment everything in a function out and run line by line before you figure out the source of error. 
 
-#### Some Tricky/Difficult to Debug Errors + Solutions 
+## Some Tricky/Difficult to Debug Errors + Solutions 
 Below is a non-comprehensive list of errors that were pretty ambiguous to debug. Feel free to add as you solve: 
 
 Library Code: 
@@ -414,14 +359,14 @@ vs.
 void test_myTest() {} // correct! 
 ```
 
-#### Error handling, asserts, and tracers 
+## Error handling, asserts, and tracers 
 * assert: function that evaluates and stops running program when not passed (doesn't crash program: crash is seg fault)
 * tracer: message; print statement
 * exception: for handling wrong user-input; developer can define exit if error occurs, exit is not always necessary
 * error handling: utility exit
 * retry_run: retry run if structure didn't fulfill restraints
 
-#### The Options System (Options and Flags)
+## The Options System (Options and Flags)
 Many protocols in Rosetta can be set up by specifying options and flags through the options system. As you begin to develop code, you will most likely find yourself adding an option or using an existing option. 
 
 To add an option to the options system: 
@@ -435,7 +380,7 @@ To include your option in a new application/class, you must #include:
 
 Where 'group' is the name of the option group. 
 
-#### The Resource Manager
+## The Resource Manager
 The options system is very useful for switching on/off parameters in protocols and recognizing some basic settings. However, many inputs into Rosetta are often resources, such as a PDB file that will be loaded into a pose or symmetry information that will be stored in a SymmData object. Because the options system is static, we would have to keep recreating these resources which takes a lot of memory, time, and energy. 
 
 The resource manager is Rosetta's solution to this problem. By defining your resources initially in a resource definition file, Rosetta will load these resources once and provide you access to them whenever needed. 
@@ -444,8 +389,8 @@ More info can be found about the Resource manager and how to integrate it into y
 https://wiki.rosettacommons.org/index.php/Projects:ResourceManager
 
 
-#### Tests: unit tests, integration tests, scientific tests
-##### Unit tests
+## Tests: unit tests, integration tests, scientific tests
+### Unit tests
 Unit tests are tests of a small piece of code in isolation. Examples are testing a single function or the correct setup of a constructor (= the creation of an object). Code should be written like an onion and most of the code should be unit tested. Actually, ALL of the code should be unit tested, however, there are functions that are impossible to unit test. 
 * unit tests are located in <code>test/devel</code>:
     * if compiling/running unit test, add file to <code>rosetta_source/test/devel.test.settings</code>
@@ -460,17 +405,17 @@ Unit tests are tests of a small piece of code in isolation. Examples are testing
 
 Note: All unit tests run **every time** modifications are made to the master code base
 
-##### Integration tests
+### Integration tests
 Integration tests check how your piece of code "integrates" into the rest of Rosetta. While running an integration test, the output of the code BEFORE the change is compared to the output of the code AFTER the change. Since Rosetta developers cannot understand all 3 million lines of code, integration tests only serve to test whether there is an expected change in output or not. They do NOT test whether the functions do what they are supposed to do (this is what unit tests are for) NOR do they tell you whether the output of a protocol is scientifically valid (this is what scientific tests are for).
 * https://wiki.rosettacommons.org/index.php/Integration_tests
 
 Note: All integration tests run **every time** modifications are made to the master code base
 
-##### Scientific tests
+### Scientific tests
 Scientific tests (or benchmarks) are required to test whether the output of a protocol is scientifically sound. If you are refining a protocol, you want to make sure that the results you are getting aren't any worse than from the previous implementation of the protocol. Likewise, when you are implementing a new protocol, you want to see how good or bad your results are and how they compare to other methods.
 * https://wiki.rosettacommons.org/index.php/Scientific_Benchmarks
 
 Note: Scientific tests are run every two weeks
 
-#### Merging code to master
+## Merging code to master
 Once you have branched Rosetta, developed your feature and **fully tested** it, you are ready to contribute it to master - the main Rosetta code base. To do so, you have probably already reviewed the Rosetta Git conventions [Rosetta GitHub Practices](https://wiki.rosettacommons.org/index.php/GithubWorkflow) (if not, do so now!). However, this page links to the **required** detailed process for committing code to Rosetta master: [Rosetta Wiki Page: Committing Code](https://wiki.rosettacommons.org/index.php/Committing_code)
