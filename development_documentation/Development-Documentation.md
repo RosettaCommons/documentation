@@ -13,11 +13,10 @@
 The documentation for the various libraries is a bit scattered.  Here is a partially-complete list:
 
 **Internal libraries:**
-
-- [The Rosetta 3.5 user manual, with documentation for the core and protocols libraries (not the latest version available to developers)](https://www.rosettacommons.org/manuals/archive/rosetta3.5_user_guide/)
-- [The Rosetta 3.4 user manual, with documentation for the core and protocols libraries and on RosettaScripts (an older version, for historical reference only)](https://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/)
 - [Doxygen documentation of core and protocols, for developers (built frequently to reflect the latest commits to master)](http://graylab.jhu.edu/Rosetta.Developer.Documentation/core+protocols/)
 - [Doxygen documentation for the basic, numeric, utility, and ObjexxFCL (Fortran compatibility) libraries, for developers (built frequently to reflect the latest commits to master)](http://graylab.jhu.edu/Rosetta.Developer.Documentation/all_else/)
+- [The Rosetta 3.5 user manual, with documentation for the core and protocols libraries (not the latest version available to developers)](https://www.rosettacommons.org/manuals/archive/rosetta3.5_user_guide/)
+- [The Rosetta 3.4 user manual, with documentation for the core and protocols libraries and on RosettaScripts (an older version, for historical reference only)](https://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/)
 
 **External libraries:**
 
