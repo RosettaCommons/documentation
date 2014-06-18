@@ -11,11 +11,15 @@
 
 ##Where is the documentation for the various Rosetta libraries?
 The documentation for the various libraries is a bit scattered.  Here is a partially-complete list:
+
 **Internal libraries:**
+
 - [The Rosetta 3.5 user manual, with documentation for the core and protocols libraries (not the latest version available to developers)](https://www.rosettacommons.org/manuals/archive/rosetta3.5_user_guide/)
 - [Doxygen documentation of core and protocols, for developers (built frequently to reflect the latest commits to master)](http://graylab.jhu.edu/Rosetta.Developer.Documentation/core+protocols/)
 - [Doxygen documentation for the basic, numeric, utility, and ObjexxFCL libraries, for developers (built frequently to reflect the latest commits to master)](http://graylab.jhu.edu/Rosetta.Developer.Documentation/all_else/)
+
 **External libraries:**
+
 - [Boost 1.55.0 documentation](http://www.boost.org/doc/libs/1_55_0/)
 - [The Eigen library (used for linear algebra, matrix manipulations, Eigenvector problems, etc.)](http://eigen.tuxfamily.org/dox/)
 - [Information and references (but no documentation) about DAlphaBall](https://simtk.org/project/xml/downloads.xml?group_id=212)
