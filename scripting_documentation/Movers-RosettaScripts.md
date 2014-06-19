@@ -1370,7 +1370,7 @@ ERROR:: Exit from: src/core/scoring/ScoreFunction.cc line: 547
 
 #### AlignChain
 
-Align a chain in the working pose to a chain in a pose on disk.
+Align a chain in the working pose to a chain in a pose on disk (CA superposition).
 
 ```
 <AlignChain name=(&string) source_chain=(0&Int) target_chain=(0&Int) target_name=(&string)/>
