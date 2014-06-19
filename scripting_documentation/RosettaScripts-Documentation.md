@@ -1,5 +1,6 @@
 #RosettaScripts Documentation
 
+[[_TOC_]]
 
 "Skeleton" XML format
 ---------------------
@@ -19,6 +20,7 @@ Copy, paste, fill in, and enjoy
             </APPLY_TO_POSE>
             <PROTOCOLS>
             </PROTOCOLS>
+            <OUTPUT />
     </ROSETTASCRIPTS>
 
 Anything outside of the \< \> notation is ignored and can be used to comment the xml file
