@@ -78,7 +78,7 @@ The RotamerRecoverFeatures is a wrapper for the [[rotamer_recovery|RotamerRecove
 
         <feature name=RotamerRecovery scfxn=(&string) protocol=(&string) comparer=(&string) mover=(&string)/>
 
-See the above link for explanations of the parameters.
+See the above link for explanations of the parameters. Give the features reporter either a protocol (RRProtocol string) or any other mover.  Specifying the pose to compare works the same way as the ProteinRMSDFeatures (-native flag, SavePoseMover, etc.)
 
 -   **rotamer\_recovery** : The rotamer\_recovery of a feature is how similar Rosetta's optimal conformation is compared to the input conformation when Rosetta's optimal conformation is biased to the input conformation.
     -   **struct\_id** , **resNum** : These are the primary keys for the *residues* table in the ResidueFeatures reporter
