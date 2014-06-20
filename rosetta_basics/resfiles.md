@@ -161,6 +161,8 @@ NOTE: It should be remembered that resfile commands are restrictive, rather than
 
 - EMPTY ................ disallow all canonical amino acids ( for use with non canonicals )
 
+- RESET ................ resets the task to its default state of canonicals ON and non-canonicals OFF ( for use with non canonicals )
+
 - NC \<ResidueTypeName\> . allow the specific possibly non canonical residue type; one residue type per NC command
 
 ```
@@ -177,7 +179,7 @@ start
 Commands for noncanonical residue types
 ---------------------------------------
 
-Noncanonical residue types do not obey the AND-commutativity in command order that the rest of the resfile displays; this is because they default to "off" position, and must perforce be activated instead of deactivated to use. The command to turn OFF the canonical types is EMPTY, and the command to turn ON a noncanonical type is "NC \<ResidueTypeName\>".
+Noncanonical residue types do not obey the AND-commutativity in command order that the rest of the resfile displays; this is because they default to "off" position, and must perforce be activated instead of deactivated to use. The command to turn OFF the canonical types is EMPTY, and the command to turn ON a noncanonical type is "NC \<ResidueTypeName\>". To use a mixture of canonical residues and non-canonical residue at the same positions, RESET must be used. 
 
 ```
 NATRO # default command that applies to everything without a non- default setting; do not repack
@@ -186,7 +188,7 @@ start
 
 10 A ALLAA NC ET1 # allow all 20 amino acids, plus noncanonical ET1
 11 A EMPTY NC R2 # disallow all 20 amino acids, allow only noncanonical R2
-15 A PIKAA ATSG NC SM1 # allow only ATSG and noncanonical SM1
+15 A RESET PIKAA ATSG NC SM1 # allow only ATSG and noncanonical SM1
 56 A EMPTY NC R2 NC T6 NC OP5 #allow only noncanonicals R2, T6, and OP5 (notice separate NC commands)
 #45 B NC E4 EMPTY #MALFORMED COMMAND: this will give you no residue types at all, resulting in NATRO behavior (EMPTY supersedes NC)
 #65 B NC F1 S2 T3 #MALFORMED COMMAND: this will crash because you need one NC command per noncanonical you want
