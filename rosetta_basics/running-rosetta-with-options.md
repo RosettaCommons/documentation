@@ -1,11 +1,34 @@
 #How to Run Rosetta
 
-The command line is composed of two major parts. First, a path to an application executable is required, while the second part is a list of options for the particular Rosetta simulation.
-
 [[_TOC_]]
 
+
+##Command Line Example
+The command line is composed of two major parts. First, a path to an application executable is required, while the second part is a list of options for the particular Rosetta simulation. For example:
+
+<code>path_to_some_rosetta_app.linuxgccrelease -database mypath/rosetta\_database other\_flags</code>
+
+
 ##Location of Rosetta Executables
-After Rosetta is [[compiled | build_documentation/Build-Documentation ]], links to binary executables are copied to the Rosetta/main/bin directory.  Full paths to these executables need to be given when running Rosetta, unless this directory is added paths in your shell profile (~/.bashrc (linux), ~/.bash_profile (mac), etc). <code> export PATH=$PATH:/path/to/rosetta/bin </code>
+After Rosetta is [[compiled | build_documentation/Build-Documentation ]], links to binary executables are copied to the Rosetta/main/bin directory.  **Full paths** to these executables need to be given when running Rosetta, _unless_ this directory is added to the **PATH** variable in your shell profile (~/.bashrc (linux), ~/.bash_profile (mac), etc). <code> export PATH=$PATH:/path/to/rosetta/bin </code>
+
+
+##Rosetta Database
+The Rosetta database contains important data files used by Rosetta during runs (for example, the definitions of what atoms are in alanine, atomic charges, Lennard-Jones radii, scorefunction weight files, ideal bond lengths and angles, rotamer libaries, etc).  Rosetta must in some way know the path to this directory.
+
+
+### Set DB for a _single_ Rosetta run
+
+If the ROSETTA3_DB environment variable is not set, you must specify the path to this database directory in the command line to run Rosetta simulations. For example: 
+* <code>rosetta.linuxgccrelease -database mypath/rosetta\_database other\_flags</code>
+
+### Set DB for _multiple_ Rosetta runs
+
+Rosetta will automatically check the <code>$ROSETTA3_DB</code> environment variable.  If this is present, the <code>-database</code> option need not be set. To set it temporarily in your shell session: 
+
+* <code>ROSETTA3_DB=path_to_rosetta_db</code>
+
+Set the variable in your shell's user settings file (which will run every time you open a terminal), such as for the default shell bash: <code>$HOME/.bashrc</code> for linux and <code>$HOME/.bash_profile</code> for mac.  Make sure to source this file <code> $HOME/.bashrc </code> or open a new tab so that the variable is set.  
 
 
 #Specifying Options
