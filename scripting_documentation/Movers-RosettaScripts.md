@@ -858,7 +858,7 @@ Options include:
 -   repeats (default 8)
 -   sc\_cst\_maxdist &integer. Sets up sidechain-sidechain constraints between atoms up to maxdist, at neighboring sidechains. Need to also call ramp\_constraints = false, otherwise these will be turned off in the later rounds of relax.
 -   task\_operations FastRelax will now respect any TaskOps passed to it. Please make sure to pass RestrictToRepacking or design will occur. If no TaskOps are passed, it will behave normally.
--   MoveMap name: this is optional and would actually not work with all movers, including FastRelax. The name allows the user to specify a movemap that can later be called by another mover without specifying all of the options. Movers that do not support this functionality will exit with an error message.
+-   MoveMap name: this is optional and would actually not work with all movers. The name allows the user to specify a movemap that can later be called by another mover without specifying all of the options. Movers that do not support this functionality will exit with an error message.
 -   jumps, bb torsions and chi angles are set to true (1) by default
 
 The MoveMap is initially set to minimize all degrees of freedom. The movemap lines are read in the order in which they are written in the xml file, and can be used to turn on or off dofs. The movemap is parsed only at apply time, so that the foldtree and the kinematic structure of the pose at the time of activation will be respected.
