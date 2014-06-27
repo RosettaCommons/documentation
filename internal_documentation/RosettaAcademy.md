@@ -401,7 +401,7 @@ Unit tests are tests of a small piece of code in isolation. Examples are testing
 * run single unit test:
     * from rosetta_source: <code>python test/run.py -d <rosetta_database> -1 <classname></code>
     * if your environment variable <code>$ROSETTA3_DB</code> is defined (type <code>echo $ROSETTA3_DB</code>), you don't need the flag -d
-* More: https://wiki.rosettacommons.org/index.php/Unit_tests
+* More information about unit tests and in particular which types of TS_ASSERT messages exist, see https://wiki.rosettacommons.org/index.php/Tools:Unit_Tests
 
 Note: All unit tests run **every time** modifications are made to the master code base
 
