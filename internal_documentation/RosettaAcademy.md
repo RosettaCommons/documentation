@@ -282,16 +282,20 @@ If you are writing a completely new framework, it MIGHT make sense to create a s
 ## Compiling/running code
 * src and test are mirrored directories, put your classes in src and your test into test/ that contains the unit tests
 * to compile/run a class in src:
-  * put <class>.hh, <class>.cpp into devel.src.settings file
+  * put <class>.hh, <class>.cpp into core.src.settings file
   * for classes, run 'scons.py'
 * to compile an apps:
   * put <main>.cc into apps.pilot.src.settings file
   * for apps, run 'scons.py bin mode=release'
   * this creates a binary of your app in source/bin
 * to compile/run unit tests:
-  * put <name>.cxxtest.hh into devel.test.settings file
+  * put <name>.cxxtest.hh into core.test.settings file
   * compile: 'scons.py cat=test'
+    * it won't compile if you comment out complete tests
+    * avoid a newline between 'void' and 'test_mytest()'
+    * put 'core_init();' into the setup
   * run: 'test/run.py -d \<database\> -1 \<class_name, w/o extensions or prefixes\> -c \<compiler\>'
+    * might not run if you omit the compiler in the commandline
 * it is best to compile the src using 'scons.py -j4' and then compile and run the tests
 * in cxxtest.hh don't comment out complete tests: compilation will fail 
 * add files at bottom of core.test.setting - other files than cxxtest.hh
