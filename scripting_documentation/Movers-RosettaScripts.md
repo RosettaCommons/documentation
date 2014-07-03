@@ -359,6 +359,18 @@ Repeatedly applies a given mover while ramping the score from a low value to a h
 
 ### Reporting/Saving
 
+#### SavePoseMover
+
+This mover allows one to save a pose at any time point through out a trajectory or from disk, and recall it any time point again to replace a current pose. Can also just be used with filter, eg. delta filters.
+
+```
+<SavePoseMover name=native restore_pose=(1, &bool) reference_name=(&string) pdb_file=(&string) />
+```
+
+-   restore\_pose - if you want to replace it
+-   reference\_name - is what the pose gets saved under. so to recall that one specific pose, just re-call it under the name given when first called.
+-   pdb\_file - Optional. If present, will load the given PDB file into the referenced pose at parse time.
+
 #### ReportToDB
 
 Report structural data to a [[relational database|Database-IO]] using a modular schema. Each [[FeaturesReporter|FeatureReporters]] is responsible for a set of tables that conceptually represents a type of geometric, chemical, or meta property of a structure. All features reportered though a single instance of the ReportToDB Mover will be grouped into a **batch** of structures.
@@ -1658,17 +1670,6 @@ the format for loops is: Start:End:Cut,Start:End:Cut...
 
 and either pdb or rosetta numbering are allowed. The start, end and cut points are computed at apply time so would respect loop length changes.
 
-#### SavePoseMover
-
-This mover allows one to save a pose at any time point through out a trajectory or from disk, and recall it any time point again to replace a current pose. Can also just be used with filter, eg. delta filters.
-
-```
-<SavePoseMover name=native restore_pose=(1, &bool) reference_name=(&string) pdb_file=(&string) />
-```
-
--   restore\_pose - if you want to replace it
--   reference\_name - is what the pose gets saved under. so to recall that one specific pose, just re-call it under the name given when first called.
--   pdb\_file - Optional. If present, will load the given PDB file into the referenced pose at parse time.
 
 #### Superimpose
 
