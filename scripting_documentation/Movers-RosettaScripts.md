@@ -857,7 +857,7 @@ impose\_constraints & constraints\_only can be used intermittently to break the 
 
 Performs the fast relax protocol.
 
-    <FastRelax name="&string" scorefxn=(score12 &string) repeats=(8 &int) task_operations=(&string, &string, &string)
+    <FastRelax name="&string" scorefxn=(score12 &string) repeats=(8 &int) task_operations=(&string, &string, &string) disable_design=(&bool)
       batch=(false &bool) cartesian=(false &bool) ramp_down_constraints=(false &bool) bondangle=(false &bool)
       bondlength=(false &bool) mintype=(dfpmin_armijo_nonmonotone &string)  >
        <MoveMap name=(""&string)>
@@ -872,7 +872,8 @@ Options include:
 -   scorefxn (default "score12")
 -   repeats (default 8)
 -   sc\_cst\_maxdist &integer. Sets up sidechain-sidechain constraints between atoms up to maxdist, at neighboring sidechains. Need to also call ramp\_constraints = false, otherwise these will be turned off in the later rounds of relax.
--   task\_operations FastRelax will now respect any TaskOps passed to it. Please make sure to pass RestrictToRepacking or design will occur. If no TaskOps are passed, it will behave normally.
+-   task\_operations FastRelax will now respect any TaskOps passed to it. However, the default behavior is now to add RestrictToRepacking operation unless <code>disable_design=false</code> is set.
+-   disable_design (default true) Disable design if TaskOps are passed?  Needs to be false if purposefully designing.
 -   MoveMap name: this is optional and would actually not work with all movers. The name allows the user to specify a movemap that can later be called by another mover without specifying all of the options. Movers that do not support this functionality will exit with an error message.
 -   jumps, bb torsions and chi angles are set to true (1) by default
 
