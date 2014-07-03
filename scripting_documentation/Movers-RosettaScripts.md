@@ -857,9 +857,10 @@ impose\_constraints & constraints\_only can be used intermittently to break the 
 
 Performs the fast relax protocol.
 
-    <FastRelax name="&string" scorefxn=(score12 &string) repeats=(8 &int) task_operations=(&string, &string, &string) disable_design=(&bool)
-      batch=(false &bool) cartesian=(false &bool) ramp_down_constraints=(false &bool) bondangle=(false &bool)
-      bondlength=(false &bool) mintype=(dfpmin_armijo_nonmonotone &string)  >
+    <FastRelax name="&string" scorefxn=(score12 &string) repeats=(8 &int) task_operations=(&string, &string, &string)
+      batch=(false &bool) ramp_down_constraints=(false &bool) 
+      cartesian=(false &bool) bondangle=(false &bool) bondlength=(false &bool)
+      mintype=(dfpmin_armijo_nonmonotone &string) >
        <MoveMap name=(""&string)>
           <Chain number=(&integer) chi=(&bool) bb=(&bool)/>
           <Jump number=(&integer) setting=(&bool)/>
