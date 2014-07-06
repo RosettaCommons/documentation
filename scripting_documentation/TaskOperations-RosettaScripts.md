@@ -358,7 +358,7 @@ SeqprofConsensus can also be operated with ProteinInterfaceDesign and RestrictTo
 -   probability\_larger\_than\_current: always allow identities with probabilities at least larger than that of the current residue seen in the PDB.
 -   ignore\_pose\_profile\_length\_mismatch: if set to 0 this will cause a utility exit if the pose and profile do not match.
 -   convert\_scores\_to\_probabilities: convert the PSSM scores (e.g., -4, +10) to probabilities in the 0-1 range.
--   keep\_native: If set to true adds the native sequence aa identity to allowed identities regardless of min\_aa\_probability cut-off.
+-   keep\_native: If set to true adds the native aa identity to allowed identities regardless of min\_aa\_probability cut-off.
 
 ### ReadResfile
 
