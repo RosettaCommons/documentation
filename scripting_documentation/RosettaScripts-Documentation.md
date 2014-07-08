@@ -41,20 +41,6 @@ The implementation for this behaviour is done by the following components:
      ParsedProtocol maintains a vector of pairs of movers and their associated filters. By using the TrueFilter or the NullMover, filters and movers can be essentially decoupled by any protocol. The setup of having pairs of movers and filters is used simply because in most contexts filters will be conceptually associated with a mover and vice versa.
 -   **DockDesignParser.cc** This function parses an xml file and populates DockDesignMover with pairs of Movers and Filters. All of the movers and filters that are supported should also be defined in this function.
 
-revert\_design\_to\_wt application
-----------------------------------
-
-This application is not yet strictly speaking part of RosettaScripts but is strongly related to the design purposes of RS. Work in ongoing to supersede this application with a more useful RS implementation. In the meantime here is an explanation.
-
-The application was described in:
-
-Fleishman et al. Science 332: 816. Here is the relevant excerpt:
-
-For each design that passed the abovementioned filters, the contribution of each amino-acid substitution at the interface is assessed by singly reverting residues to their wildtype identities and testing the effects of the reversion on the computed binding energy. If the difference in binding energy between the designed residue and the reverted one is less than 0.5R.e.u. in favor of the design, then the position is reverted to its wildtype identity. A Rosetta application to compute these values is available in the Rosetta release and is called revert\_design\_to\_native. A report of all residue changes was produced and each suggestion was reviewed manually.
-
-Usage: revert\_design\_to\_native -revert\_app:wt \<Native protein PDB\> -revert\_app:design \<Designed PDB\> -ex1 -ex2 -use\_input\_sc -database \<\> \> log
-
-Keep the log. At its end you'll find a summary of all mutations attempted and their significance for binding energy.
 
 Example XML file
 ----------------
@@ -192,6 +178,23 @@ These values can be changed at will for different runs, for example:
 ```
 
 Multiple instances of the "%%var%%" string will all be substituted, as well as in any [[subroutine|Movers-RosettaScripts#Subroutine]] XML files. Note that while currently script\_vars are implemented as pure macro text substitution, this may change in the future, and any use aside from substituting tag values may not work. Particularly, any use of script variables to change the parsing structure of the XML file itself is explicitly \*not\* supported, and you have a devious mind for even considering it.
+
+
+revert\_design\_to\_wt application
+----------------------------------
+
+This application is not yet strictly speaking part of RosettaScripts but is strongly related to the design purposes of RS. Work in ongoing to supersede this application with a more useful RS implementation. In the meantime here is an explanation.
+
+The application was described in:
+
+Fleishman et al. Science 332: 816. Here is the relevant excerpt:
+
+For each design that passed the abovementioned filters, the contribution of each amino-acid substitution at the interface is assessed by singly reverting residues to their wildtype identities and testing the effects of the reversion on the computed binding energy. If the difference in binding energy between the designed residue and the reverted one is less than 0.5R.e.u. in favor of the design, then the position is reverted to its wildtype identity. A Rosetta application to compute these values is available in the Rosetta release and is called revert\_design\_to\_native. A report of all residue changes was produced and each suggestion was reviewed manually.
+
+Usage: revert\_design\_to\_native -revert\_app:wt \<Native protein PDB\> -revert\_app:design \<Designed PDB\> -ex1 -ex2 -use\_input\_sc -database \<\> \> log
+
+Keep the log. At its end you'll find a summary of all mutations attempted and their significance for binding energy.
+
 
 ### Predefined Movers
 
