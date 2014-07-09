@@ -32,6 +32,20 @@ Common PDB Input File Flags
                                 constraints on PDB import.
 ```
 
+Small Molecule Options
+============================
+
+See also [[Residue Params file]]
+```
+-in:file:extra_res_fa              Full atom "params" files for small molecules or non-standard residues
+                                   [FileVector]                          
+-in:file:extra_res_path            Directory containing non-standard residue params files. [PathVector]
+-in:file:extra_res_cen             Centroid-mode "params" files for small molecules or non-standard
+                                   residues [FileVector]
+-in:file:remap_pdb_atom_names_for  When reading PDBs, use geometry to load atoms (instead of atom names)
+                                   for the residues with the given three letter codes [StringVector]
+```
+
 Relational Database Input
 ============================
 See [[here | rosetta_basics/Database-options ]] for more info
