@@ -285,7 +285,7 @@ If you are writing a completely new framework, it MIGHT make sense to create a s
   * put <class>.hh, <class>.cpp into core.src.settings file
   * for classes, run 'scons.py'
 * to compile an apps:
-  * put <main>.cc into apps.pilot.src.settings file
+  * put <main>.cc into pilot_apps.src.settings file
   * for apps, run 'scons.py bin mode=release'
   * this creates a binary of your app in source/bin
 * to compile/run unit tests:
