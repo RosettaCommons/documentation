@@ -860,7 +860,7 @@ Performs the fast relax protocol.
     <FastRelax name="&string" scorefxn=(score12 &string) repeats=(8 &int) task_operations=(&string, &string, &string)
       batch=(false &bool) ramp_down_constraints=(false &bool) 
       cartesian=(false &bool) bondangle=(false &bool) bondlength=(false &bool)
-      mintype=(dfpmin_armijo_nonmonotone &string) >
+      min_type=(dfpmin_armijo_nonmonotone &string) >
        <MoveMap name=(""&string)>
           <Chain number=(&integer) chi=(&bool) bb=(&bool)/>
           <Jump number=(&integer) setting=(&bool)/>
