@@ -10,9 +10,13 @@ The PyMolViewer enables real-time and interactive visualization of Rosetta simul
 
 ## Running the PyMol Mover
 The PyMol viewer can be run using the following steps: 
+
 1. Open a new session of PyMol. Run the `PyMolPyRosettaServer.py` server script which can be found in `source/src/python/bindings/`
+
 2. In your Rosetta application (which should be running in JD2), pass the flag `-show_simulation_in_pymol (Real)` where the integer specifies the frequency at which updates should be send to pymol. The default is 1. 
+
 3. Run your simulation and you will see conformation & energy updates proactively sent to PyMol!
+
 
 ## Extending the PyMol Mover
 Both the C++ and PyRosetta versions of the PyMol viewer contain a variety of features for updating the Pose. These include coloring by energies, showing hydrogen bonding networks, secondary structure, etc. It is very easy to extend the PyMol viewer to send over new information. Below are the basic steps: 
