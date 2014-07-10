@@ -13,7 +13,7 @@ The PyMol viewer can be run via the following steps:
 
 1. Open a new session of PyMol. Run the `PyMolPyRosettaServer.py` server script which can be found in `source/src/python/bindings/`
 
-2. In your Rosetta application (which should be running in JD2), pass the flag `-show_simulation_in_pymol (Real)` where the integer specifies the frequency at which updates should be send to pymol. The default is 1. 
+2. In your Rosetta application, pass the flag `-show_simulation_in_pymol (Real)` where the integer specifies the frequency at which updates should be send to pymol. The default is 1. 
 
 3. Run your simulation and you will see conformation & energy updates sent to PyMol!
 
@@ -21,15 +21,15 @@ The PyMol viewer can be run via the following steps:
 ## Extending the PyMol Mover
 Both the C++ and PyRosetta versions of the PyMol viewer contain a variety of features for updating the Pose. These include coloring by energies, showing hydrogen bonding networks, secondary structure, etc. It is very easy to extend the PyMol viewer to send over new information. Below are the basic steps: 
 
-(1) Add a method "send_xxx" to the `PyMolMover`, where "xxx" describes your feature. This method should extract information from the Pose or elsewhere needed to run PyMol commands. For example, visualization of secondary structure might require sending DSSP annotations (H, L, E, etc). 
+1. Add a method "send_xxx" to the `PyMolMover`, where "xxx" describes your feature. This method should extract information from the Pose or elsewhere needed to run PyMol commands. For example, visualization of secondary structure might require sending DSSP annotations (H, L, E, etc). 
 
-(2) The send_xxx method should compress information into a string method and sent via link_.send_message( my_msg ). Messages should start with a unique 3-letter string, contain a message length and name variable for parsing, and be .gzip or .bz2 compressed. 
+2. The send_xxx method should compress information into a string method and sent via link_.send_message( my_msg ). Messages should start with a unique 3-letter string, contain a message length and name variable for parsing, and be .gzip or .bz2 compressed. 
 
-(3) In the apply method of the PyMolMover, add a call to your send_xxx method to send information upon update. You might want to add flags to control this behavior - the more information Rosetta needs to communicate to PyMol in a given step, the longer the simulation will take. 
+3. In the apply method of the PyMolMover, add a call to your send_xxx method to send information upon update. You might want to add flags to control this behavior - the more information Rosetta needs to communicate to PyMol in a given step, the longer the simulation will take. 
 
-(4) In the PyMolPyRosettaServer.py script, write a new else if statement that will process a data packet starting with your unique string. After unpacking the message (there is example code for this in that script), execute your desired PyMol commands given this data. PyMol commands can be executed via the cmd interface. 
+4. In the PyMolPyRosettaServer.py script, write a new else if statement that will process a data packet starting with your unique string. After unpacking the message (there is example code for this in that script), execute your desired PyMol commands given this data. PyMol commands can be executed via the cmd interface. 
 
-(5) Go ahead and run the PyMol viewer as is (along with any new flags added to invoke your behavior). You should see your structure updating with your new included features.  
+5. Go ahead and run the PyMol viewer as is (along with any new flags added to invoke your behavior). You should see your structure updating with your new included features.  
 
 The PyMol viewer can be extended both in C++ and PyRosetta.  
 
