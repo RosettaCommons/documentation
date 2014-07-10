@@ -72,10 +72,10 @@ In the report\_features function, sessionOP is an owning pointer to the database
 ReportToDB
 ==========
 
-Use the ReportToDB mover with the Rosetta XML scripting to specify which features should be extracted to the features database.
+Use the ReportToDB mover with the Rosetta XML scripting to specify which features should be extracted to the features database. (Note: The TrajectoryReportToDB mover can also be used in Rosetta scripts or C++ to report features in trajectory form multiple times to DB for a single output).
 
 -   \<ReportToDB\> tag
-    -   **name** : Mover dentifier so it can be included in the PROTOCOLS block of the RosettaScripts
+    -   **name** : Mover identifier so it can be included in the PROTOCOLS block of the RosettaScripts
     -   [[Database Connection Options|RosettaScripts-database-connection-options]] : for options of how to connect to the database
     -   **sample\_source** : Short text description stored in the *sample\_source* table
     -   **protocol\_id** : (optional) Set the *protocol\_id* in the *protocols* table rather than auto-incrementing it.
