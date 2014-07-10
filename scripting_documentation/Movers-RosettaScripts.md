@@ -426,6 +426,30 @@ Additional Information:
 -   How to [[create|FeaturesExtracting]] a new FeaturesReporter.
 -   Usage of features analysis for doing [scientific benchmarking](http://contador.med.unc.edu/features/paper/features_optE_methenz_120710.pdf) of the Rosetta ScoreFunction.
 
+#### TrajectoryReportToDB
+
+The TrajectoryReportToDB mover is a subclass of [[ReportToDB|Movers-RosettaScripts#ReportToDB]] that can be used in Rosetta scripts to report features multiple times to a database for a single output, creating a "trajectory". Since this mover is a subclass of above, any tag or option described for ReportToDB can also be used here. See [[ReportToDB|Movers-RosettaScripts#ReportToDB]] for these options.
+
+Structures are mapped to cycle step in the trajectory\_structures\_steps table. To select all trajectory output for a particular run, group struct\_ids by output tag (found in the structures table).
+
+**ReportToDB Tag** :
+
+-   Any tag used in [[ReportToDB|Movers-RosettaScripts#ReportToDB]] can also be used in TrajectoryReportToDB
+-   **stride** *(&int)* : This one additional tag is unique to TrajectoryReportToDB. It controls the "stride", or how often trajectory features are reported in a simulation. Example: if stride is set to 10, then features will be reported every 10th iteration of the protocol.
+
+**Feature Subtags** : Same as [[ReportToDB|Movers-RosettaScripts#ReportToDB]]
+
+-   The following tables are created:
+    -   **trajectory\_structures\_steps** : Maps struct\_id to trajectory step count.
+
+<!-- -->
+
+        CREATE TABLE trajectory_structures_steps(
+             struct_id INTEGER NOT NULL,
+             step INTEGER NOT NULL,
+             FOREIGN KEY (struct_id) REFERENCES structures(struct_id) DEFERRABLE INITIALLY DEFERRED,
+             PRIMARY KEY (struct_id, step));
+
 #### DumpPdb
 
 Dumps a pdb. Recommended ONLY for debuggging as you can't change the name of the file during a run, although if tag\_time is true a timestamp with second resolution will be added to the filename, allowing for a limited amount of multi-dumping. If scorefxn is specified, a scored pdb will be dumped.
