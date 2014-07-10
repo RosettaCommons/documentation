@@ -79,3 +79,6 @@ The documentation for the various libraries is a bit scattered.  Here is a parti
 - [[UTracer]] - How to use the UTracer tool in writing unit tests
 - [[Mover test]] - How to write a unit test for a mover.  
 - [[Scientific test]] - How to create and run scientific tests
+
+##Creating Visualization Tools
+- [[Extending the PyMol Viewer]] Extending the PyMol Mover to add additional visualization features during Rosetta simulations
