@@ -9,13 +9,13 @@ Rosetta includes various tools for running interactive and visual simulations in
 The PyMolViewer enables real-time and interactive visualization of Rosetta simulations. Both Rosetta3 (C++) and PyMol use the PyMolMover: A mover that extracts information from the pose and sends it over a network. This information is then received in an active session of PyMol by running a script `PyMolPyRosettaServer.py`. This server script will parse the message received and run the appropriate PyMol commands for visualization. 
 
 ## Running the PyMol Mover
-The PyMol viewer can be run using the following steps: 
+The PyMol viewer can be run via the following steps: 
 
 1. Open a new session of PyMol. Run the `PyMolPyRosettaServer.py` server script which can be found in `source/src/python/bindings/`
 
 2. In your Rosetta application (which should be running in JD2), pass the flag `-show_simulation_in_pymol (Real)` where the integer specifies the frequency at which updates should be send to pymol. The default is 1. 
 
-3. Run your simulation and you will see conformation & energy updates proactively sent to PyMol!
+3. Run your simulation and you will see conformation & energy updates sent to PyMol!
 
 
 ## Extending the PyMol Mover
