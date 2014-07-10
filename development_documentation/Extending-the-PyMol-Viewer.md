@@ -6,7 +6,7 @@ Last Updated: 7/10/14
 ##Overview
 Rosetta includes various tools for running interactive and visual simulations including Foldit, the PyRosetta toolkit and the PyMol viewer. All of these tools are discussed broadly [here](https://www.rosettacommons.org/docs/latest/graphics-and-guis.html), but this page will specifically focus on extending features in the PyMol viewer. 
 
-The PyMolViewer enables real-time and interactive visualization of Rosetta simulations. Both Rosetta3 (C++) and PyMol contain a mover called the PyMolMover which will extract necessary information from the Pose and send it over the network. This information is then received on the python side by running a script `PyMolPyRosettaServer.py` in an active session of PyMol which will parse the message and run the appropriate PyMol commands for visualization. 
+The PyMolViewer enables real-time and interactive visualization of Rosetta simulations. Both Rosetta3 (C++) and PyMol use the PyMolMover: A mover that extracts information from the pose and sends it over a network. This information is then received in an active sesison of PyMol by running a script `PyMolPyRosettaServer.py`. This server script will parse the message recieved and run the appropriate PyMol commands for visualization. 
 
 ## Running the PyMol Mover
 The PyMol viewer can be run using the following steps: 
@@ -17,7 +17,7 @@ The PyMol viewer can be run using the following steps:
 ## Extending the PyMol Mover
 Both the C++ and PyRosetta versions of the PyMol viewer contain a variety of features for updating the Pose. These include coloring by energies, showing hydrogen bonding networks, secondary structure, etc. It is very easy to extend the PyMol viewer to send over new information. Below are the basic steps: 
 
-(1) Add a method "send_xxx" to the `PyMolMover` (either in PyRosetta or C++ Rosetta). This method can extract information from the Pose or elsewhere to run required PyMol commands. For example, visualization of secondary structure might require sending DSSP annotations (H, L, E, etc). The send_xxx method should compress information into a string method and sent via link_.send_message( my_msg ). Messages should start with a unique 3-letter string for parsing and can be .gzip or .bz2 compressed. 
+(1) Add a method "send_xxx" to the `PyMolMover`, where "xxx" describes your feature. This method should extract information from the Pose or elsewhere needed to run PyMol commands. For example, visualization of secondary structure might require sending DSSP annotations (H, L, E, etc). The send_xxx method should compress information into a string method and sent via link_.send_message( my_msg ). Messages should start with a unique 3-letter string, contain a message length and name variable for parsing, and be .gzip or .bz2 compressed. 
 
 (2) In the apply method of the PyMolMover, add a call to your send_xxx method to send information upon update. You might want to add flags to control this behavior - the more information Rosetta needs to communicate to PyMol in a given step, the longer the simulation will take. 
 
