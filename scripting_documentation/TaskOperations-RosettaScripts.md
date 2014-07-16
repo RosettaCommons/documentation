@@ -518,6 +518,7 @@ Option list
 -   make\_rasmol\_script: if true write a rasmol script coloring the residues by the three basic layers, core, boundary and surface.
 -   make\_pymol\_script: if true write a pymol script coloring the residues by the three basic layer and the aditional taskoperation defined layers..
 -   repack\_non\_design: if true side chains will be repacked, left untouched if otherwise.
+-   use\_sidehchain\_neighbors: if true, assign a residue's layers based on counting the number CA atoms from other residues within a cone in front of the residue's ca-cb vector.  Because this option is no longer SASA based, the layer assignments will always be identical regardless of the protein sequence; i.e. layers could be assigned based on a polyalanine backbone and it would make no difference.  This option changes the defaults for core and surface to neighbors < 2 (surface) and neighbors > 5.2 (core).  HOWEVER, these defaults will be overwritten if core and surface are manually specified in declaring the taskoperation!  So make sure you do not specify new core and surface settings appropriate for SASA when you are actually counting neighboring residues.  Note: this option has not been tested on nonstandard residue types...
 
 TaskOperations can be combined together using the CombinedTasks tag, the nested tasks don't need to be named, just declared with type and parameters.
 
