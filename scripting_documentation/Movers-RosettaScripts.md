@@ -426,6 +426,15 @@ Additional Information:
 -   How to [[create|FeaturesExtracting]] a new FeaturesReporter.
 -   Usage of features analysis for doing [scientific benchmarking](http://contador.med.unc.edu/features/paper/features_optE_methenz_120710.pdf) of the Rosetta ScoreFunction.
 
+#### ResetBaseline
+Use this mover to call the reset_baseline method in filters Operator and CompoundStatement. Monte Carlo mover takes care of
+resetting independently, so no need to reset if you use MC.
+
+```
+<ResetBaseline name=(&string) filter=(&filter)/>
+```
+- filter: the name of the Operator or CompoundStatement filter.
+
 #### TrajectoryReportToDB
 
 The TrajectoryReportToDB mover is a subclass of [[ReportToDB|Movers-RosettaScripts#ReportToDB]] that can be used in Rosetta scripts to report features multiple times to a database for a single output, creating a "trajectory". Since this mover is a subclass of above, any tag or option described for ReportToDB can also be used here. See [[ReportToDB|Movers-RosettaScripts#ReportToDB]] for these options.
