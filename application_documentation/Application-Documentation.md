@@ -27,8 +27,6 @@ While most of these applications focus on prediction, many have options which wi
 
 - [[Comparative modeling|minirosetta-comparative-modeling]] - Build structural models of proteins using one or more known structures as templates for modeling.  
 
-- [[RNA threading|rna-thread]] - Thread a new nucleotide sequence on an existing RNA structure.  
-
 - [[Fold-and-dock]] - Predict 3-dimentional structures of symetric homooligomers.  
 
 - [[Molecular replacement protocols|mr-protocols]] - Use Rosetta to build models for use in X-ray crystrallography molecular replacement.  
@@ -49,6 +47,7 @@ While most of these applications focus on prediction, many have options which wi
 
 ###RNA
 -  [[Rna denovo]] - Predict 3-dimensional structures of RNA from their nucleotide sequence.
+-  [[RNA threading|rna-thread]] - Thread a new nucleotide sequence on an existing RNA structure.  
 -  [[RNA loop modeling|swa-rna-loop]] - Build RNA loops using deterministic stepwise assembly.
 -  [[RNA assembly with experimental constraints|rna-assembly]] - Predict 3-dimensional structures of large RNAs with the help of experimental constraints
 -  [[ERRASER]] - Refine an RNA structure given electron density constraints.  
