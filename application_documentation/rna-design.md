@@ -51,7 +51,7 @@ How to run with this file.
 ---------------------------
 
 ```
-rna_design.<exe> -s chunk001_uucg_RNA.pdb   -nstruct 3  -ex1:level 4 -dump -score:weights rna_hires.wts -database <path to database>
+rna_design.<exe> -s chunk001_uucg_RNA.pdb   -nstruct 3  -ex1:level 4 -dump -score:weights farna/rna_hires.wts
 ```
 
 This demo redesigns a 'UUCG' tetraloop on a single-base pair RNA 'helix', as a small 6-nucleotide test case. As illustration, only 3 designs are output. It takes about 15 seconds to run. The typical sequence output is cuuggg (native is cuucgg).
