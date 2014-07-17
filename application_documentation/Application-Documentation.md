@@ -24,17 +24,13 @@ While most of these applications focus on prediction, many have options which wi
 - [[Ab initio modeling|abinitio-relax]] - Predict 3-dimensional structures of proteins from their amino acid sequences.  
     * [[Membrane abinitio]] - Ab initio for membrane proteins.  
     * [[Metalloprotein ab initio|metalloprotein-abrelax]] - Ab inito modeling of metalloproteins.  
-
 - [[Comparative modeling|minirosetta-comparative-modeling]] - Build structural models of proteins using one or more known structures as templates for modeling.  
-
-- [[Fold-and-dock]] - Predict 3-dimentional structures of symetric homooligomers.  
-
+- [[Fold-and-dock]] - Predict 3-dimensional structures of symetric homooligomers.  
+- [[ RNA ]](#RNA)
 - [[Molecular replacement protocols|mr-protocols]] - Use Rosetta to build models for use in X-ray crystrallography molecular replacement.  
     * [[Prepare template for MR]] - Setup script for molecular replacement protocols.  
-
 - [[Relax]] - "Locally" optimize structures, including assigning sidechain positions.  
 - [[Backrub]] - Create backbone ensembles using small, local backbone changes.  
-
 - [[Floppy tail]] - Predict structures of long, flexible N-terminal or C-terminal regions.  
 
 ###Loop Modeling
