@@ -42,7 +42,7 @@ While most of these applications focus on prediction, many have options which wi
     * [[Stepwise assembly of long loops|swa-protein-long-loop]] - For loops greater than 4-5 residues.  
 
 ###RNA
--  [[Rna denovo]] - Predict 3-dimensional structures of RNA from their nucleotide sequence.
+-  [[RNA denovo]] - Predict 3-dimensional structures of RNA from their nucleotide sequence with fragment assembly of RNA with full atom refinement.
 -  [[RNA threading|rna-thread]] - Thread a new nucleotide sequence on an existing RNA structure.  
 -  [[RNA loop modeling|swa-rna-loop]] - Build RNA loops using deterministic stepwise assembly.
 -  [[RNA assembly with experimental constraints|rna-assembly]] - Predict 3-dimensional structures of large RNAs with the help of experimental constraints
@@ -76,7 +76,7 @@ While most of these applications focus on prediction, many have options which wi
 - [[Fixed backbone design|fixbb]] - Optimize sidechain-rotamer placement and identity on fixed backbones.  
    * [[Fixed backbone design with hpatch|fixbb-with-hpatch]] - Fixed backbone design with a penalty for hydrophobic surface patches.  
 
-- [[Void Indentification and Packing|vip-app]] (RosettaVIP) - Identify and fill cavities in a protein.
+- [[Void Identification and Packing|vip-app]] (RosettaVIP) - Identify and fill cavities in a protein.
 - [[Point mutation scan|pmut-scan-parallel]] - Identifiy stabilizing point mutants.  
 
 - [[Protein-protein design|app-dock-design]] - Protein-protein interface design with RosettaScripts.  
