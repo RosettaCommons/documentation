@@ -72,7 +72,7 @@ Options
                                                  chi dihedral angle No. 4 means: EX_TWO_HALF_STEP_STDDEVS
                                                  [-1,-1/2,0,1/2,1 standard deviations].
 -dump                                            Generate pdb output,default:false. [Boolean]
--score:weights rna_hires.wts                     Name of weights file, default is standard. [String]
+-score:weights farna/rna_hires.wts               Name of weights file, default is standard. [String]
 -sample_chi                                      Sample chi (glycosidic torsion angle).
 -disable_o2star_rotamers                         Turn off sampling of 2'-OH proton position.
 ```
