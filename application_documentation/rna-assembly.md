@@ -16,7 +16,7 @@ For the full workflow check out:
 
 `       rosetta_demos/public/RNA_Assembly      `
 
-NOTE: This pipeline is largely deprecated; a new one, based on use of MOHCA-seq data and experience in the RNA puzzles trials, will be documented soon. Some info here: (http://biorxiv.org/content/early/2014/04/25/004556)[Preprint].
+NOTE: This pipeline is largely deprecated; a new one, based on use of MOHCA-seq data and experience in the RNA puzzles trials, will be documented soon. Some info here: (http://biorxiv.org/content/early/2014/04/25/004556).
 
 References
 ==========
