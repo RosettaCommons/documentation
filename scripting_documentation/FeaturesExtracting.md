@@ -125,9 +125,9 @@ and the script for the run processsing the second batch would contain:
           ...
        </ReportToDB>
 
-After the runs are complete, locate the merge\_databases.py script (rosetta/main/test/scientific/cluster/features/sample_sources/merge_databases.py) and run
+After the runs are complete, locate the merge.sh script (rosetta/main/test/scientific/cluster/features/sample_sources/merge.sh) and run
 
-       python merge_database.py features.db3 features.db3_*
+       bash merge.sh features.db3 features.db3_*
 
 Which will merge the features from each of the *features.db3\_xx* database into *features.db3* .
 
