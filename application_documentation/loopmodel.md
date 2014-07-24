@@ -3,65 +3,62 @@
 Metadata
 ========
 
-This document was edited Nov 1st 2008 by Yi Liu. This application in Rosetta3 was created by Michael Tyka, et al. Most of the contents are still based on the Rosetta++ loop tutorial written by Chu Wang 2007.
+This document was edited Jul 24th 2014 by Roland A. Pache. The original version of the application was created by Michael Tyka et al., and the first loop closure algorithm (CCD) was implemented by Chu Wang et al. in 2007.  The robotics-inspired kinematic closure (KIC) algorithm for loop closure was added by Daniel J. Mandell et al. in 2009, and the refined next generation KIC algorithm by Amelie Stein and Tanja Kortemme in 2013. The latest algorithmic development in loop modeling is KIC with fragments, added by Roland A. Pache and Tanja Kortemme in 2014. 
 
-Example runs
-============
-
-This file only contents loop relax example at this moment. See `       rosetta/main/tests/integration/tests/loop_modeling      ` for an example loop relax run and input files.
 
 References
 ==========
 
--   Qian, B., Raman, S., Das, R., Bradley, P., McCoy, A.J., Read, R.J. and Baker D. (2007). High resolution protein structure prediction and the crystallographic phase problem. Nature. manuscript accepted.
--   Wang, C., Bradley, P. and Baker, D. (2007) Protein-protein docking with backbone flexibility. Journal of Molecular Biology, in press, DOI, [http://dx.doi.org/10.1016/j.jmb.2007.07.050](http://dx.doi.org/10.1016/j.jmb.2007.07.050)
+-   Stein A, Kortemme T. (2013). Increased sampling of near-native protein conformations. PLoS One. 2013 May 21;8(5):e63090. doi: 10.1371/journal.pone.0063090. Print 2013. PMID: 23704889
+
+-   Mandell DJ, Coutsias EA, Kortemme T. (2009). Sub-angstrom accuracy in protein loop reconstruction by robotics-inspired conformational sampling. Nat Methods. 2009 Aug;6(8):551-2. doi: 10.1038/nmeth0809-551. PMID: 19644455
+
+-   Qian, B., Raman, S., Das, R., Bradley, P., McCoy, A.J., Read, R.J. and Baker D. (2007). High resolution protein structure prediction and the crystallographic phase problem. Nature. 2007 Nov 8;450(7167):259-64. Epub 2007 Oct 14. PMID: 17934447
+
+-   Wang, C., Bradley, P. and Baker, D. (2007) Protein-protein docking with backbone flexibility. J Mol Biol. 2007 Oct 19;373(2):503-19. Epub 2007 Aug 2. PMID: 17825317
+
 
 Purpose and Algorithm
 =====================
 
-This protocol was developed to be combined with Rosetta full atom structure refinement (relax mode) to streamline the task of comparative modeling. Briefly, it identifies structural variable regions from an ensemble of refined models by Rosetta fullatom refinement protocol and then models these loops using a protocol similar to the pose-based protocol.
+This protocol was originally developed to be combined with Rosetta full atom structure refinement (relax mode) to streamline the task of comparative modeling. It has since then evolved into a general protocol for modeling loops in protein structures. There are currently the following  algorithms available (can be selected using specific flags; see documentation pages for these different algorithms for details):
+
+-  [[CCD|application_documentation/loopmodel-ccd]]: fragment insertion with cyclic coordinate descent to close chain breaks
+
+-  [[KIC|application_documentation/loopmodel-kinematic]]: robotics-inspired kinematic closure combined with random sampling of non-pivot loop torsions from Ramachandran space
+
+-  [[next generation KIC|application_documentation/next-generation-KIC]]: refined version of KIC; using omega sampling, neighbor-dependent Ramachandran distributions and ramping of rama and fa_rep score terms to achieve higher loop reconstruction performance and increase sampling of sub-Angstrom conformations (recommended algorithm if no fragment data is available)
+
+-  KIC with fragments: fragment-based loop modeling using kinematic closure; combining the sampling powers of KIC and coupled phi/psi/omega degrees of freedom from protein fragment data to achieve higher loop reconstruction performance and the best sampling yet of sub-Angstrom conformations (recommended algorithm if fragment data is available) 
+
 
 Input Files
 ===========
 
--   Start pdbs: The template pdb file and must have real coordinates for all template residues plus the first and last residue of each loop region.
--   Loop file:
+Common input files include:
+-   Start pdb: Template pdb file with real coordinates for all residues plus the first and last residue of each loop region.
 
+-   Loop file:
     ```
     column1  "LOOP":     The loop file identify tag
     column2  "integer":  Loop start residue number
     column3  "integer":  Loop end residue number
-    column4  "integer":  Cut point residue number, >=startRes, <=endRes. default - let LoopRebuild choose cutpoint
-    column5  "float":    Skip rate. default - never skip
-    column6  "boolean":  Extend loop. Default false
+    column4  "integer":  Cut point residue number, >=startRes, <=endRes. Default: 0 (let LoopRebuild choose cutpoint)
+    column5  "float":    Skip rate. Default: 0 (never skip modeling this loop)
+    column6  "boolean":  Extend loop (i.e. idealize all bond lengths and angles). Default: 0 (false)
     ```
 
--   Fragment files
+-   Fragment files (for CCD and KIC with fragments)
+
 
 Command Line Options
 ====================
 
-You can run loop modeling with the following flags:
+Depending on the specific loop algorithm you choose ([[CCD|application_documentation/loopmodel-ccd]]/[[KIC|/application_documentation/loopmodel-kinematic]]/[[next generation KIC|application_documentation/next-generation-KIC]]/KIC with fragments), different sets of flags apply. 
+Please check the documentation for the respective algorithm for details. 
 
-```
--in::file::fullatom
--in::file::s inputs/4fxn.start_0001.pdb
--loops::loop_file inputs/4fxn.loop_file
--loops::frag_sizes 9 3 1
--loops::frag_files  inputs/cc4fxn_09_05.200_v1_3.gz inputs/cc4fxn_03_05.200_v1_3.gz none
--loops::ccd_closure
--loops::random_loop
-```
+For a full list of all available loop modeling flags, please check the [[full options list|full-options-list]]
 
-Other combinable flags:
-
-```
--loops::remodel [perturb_ccd|perturb_alc|quick_ccd|old_looprelax]     Centroid remodelling
--loops::refine [refine_ccd|refine_alc]                                Fullatom refinement
--loops::relax [fullrelax|shortrelax|fastrelax]                        Fullatom relax
-```
-
-For more information about loop modeling flags, please check the [[full options list|full-options-list]]
 
 loopmodel MPI
 =============
