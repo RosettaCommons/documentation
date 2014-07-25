@@ -50,6 +50,7 @@ Common input files include:
     column6  "boolean":  Extend loop (i.e. discard the native loop conformation and rebuild the loop from scratch,
                          idealizing all bond lengths and angles). Default: 0 (false)
     ```
+    **NOTE:** Residue indices in loop definition files refer to *Rosetta numbering* (numbered continuously from '1', including across multi-chain proteins). It may be useful to renumber starting structures with Rosetta numbering so loop defintions and PDB residue indices agree.
 
 -   Fragment files (for CCD and KIC with fragments)
 
