@@ -1,4 +1,4 @@
-#KIC with fragments
+#KIC with fragments (under development)
 
 Metadata
 ========
