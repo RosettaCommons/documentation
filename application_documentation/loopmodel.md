@@ -43,9 +43,10 @@ Common input files include:
     column1  "LOOP":     The loop file identify tag
     column2  "integer":  Loop start residue number
     column3  "integer":  Loop end residue number
-    column4  "integer":  Cut point residue number, >=startRes, <=endRes. Default: 0 (let LoopRebuild choose cutpoint)
+    column4  "integer":  Cut point residue number, >=startRes, <=endRes. Default: 0 (let the loop modeling code choose the cut point)
+                         Note: Setting the cut point outside the loop can lead to a segmentation fault. 
     column5  "float":    Skip rate. Default: 0 (never skip modeling this loop)
-    column6  "boolean":  Extend loop (i.e. idealize all bond lengths and angles). Default: 0 (false)
+    column6  "boolean":  Extend loop (i.e. discard the native loop conformation and rebuild the loop from scratch, idealizing all bond lengths and angles). Default: 0 (false)
     ```
 
 -   Fragment files (for CCD and KIC with fragments)
