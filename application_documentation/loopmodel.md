@@ -29,7 +29,7 @@ This protocol was originally developed to be combined with Rosetta full atom str
 
 -  [[next generation KIC|application_documentation/next-generation-KIC]]: refined version of KIC; using omega sampling, neighbor-dependent Ramachandran distributions and ramping of rama and fa_rep score terms to achieve higher loop reconstruction performance and increase sampling of sub-Angstrom conformations (recommended algorithm if no fragment data is available)
 
--  KIC with fragments: fragment-based loop modeling using kinematic closure; combining the sampling powers of KIC and coupled phi/psi/omega degrees of freedom from protein fragment data to achieve higher loop reconstruction performance and the best sampling yet of sub-Angstrom conformations (recommended algorithm if fragment data is available) 
+-  [[KIC with fragments|application_documentation/KIC_with_fragments]]: fragment-based loop modeling using kinematic closure; combining the sampling powers of KIC and coupled phi/psi/omega degrees of freedom from protein fragment data to achieve higher loop reconstruction performance and the best sampling yet of sub-Angstrom conformations (recommended algorithm if fragment data is available) 
 
 
 Input Files
@@ -54,7 +54,7 @@ Common input files include:
 Command Line Options
 ====================
 
-Depending on the specific loop algorithm you choose ([[CCD|application_documentation/loopmodel-ccd]]/[[KIC|/application_documentation/loopmodel-kinematic]]/[[next generation KIC|application_documentation/next-generation-KIC]]/KIC with fragments), different sets of flags apply. 
+Depending on the specific loop algorithm you choose ([[CCD|application_documentation/loopmodel-ccd]]/[[KIC|/application_documentation/loopmodel-kinematic]]/[[next generation KIC|application_documentation/next-generation-KIC]]/[[KIC with fragments|application_documentation/KIC_with_fragments]]), different sets of flags apply. 
 Please check the documentation for the respective algorithm for details. 
 
 For a full list of all available loop modeling flags, please check the [[full options list|full-options-list]]
