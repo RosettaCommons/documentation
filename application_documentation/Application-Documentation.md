@@ -38,6 +38,7 @@ While most of these applications focus on prediction, many have options which wi
 -  [[CCD loop modeling|loopmodel-ccd]] - Sample loop conformations using fragments and the CCD closure algorithm.
 -  [[Kinematic loop modeling|loopmodel-kinematic]] - Sample loop conformations using the kinematic closure algorithm.
 -  [[Next-generation KIC]] - A newer version of loop modeling with kinematic closure.
+-  [[KIC with fragments|KIC_with_fragments]] - The latest version of loop modeling, combining kinematic closure with sampling of coupled degrees of freedom from fragments.
 -  [[Stepwise assembly of protein loops|swa-protein-main]] - Generate three-dimensional de novo models of protein segments without surrounding sidechains.  
     * [[Stepwise assembly of long loops|swa-protein-long-loop]] - For loops greater than 4-5 residues.  
 
