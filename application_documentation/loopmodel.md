@@ -9,13 +9,13 @@ This document was edited Jul 24th 2014 by Roland A. Pache. The original version 
 References
 ==========
 
--   Stein A, Kortemme T. (2013). Increased sampling of near-native protein conformations. PLoS One. 2013 May 21;8(5):e63090. doi: 10.1371/journal.pone.0063090. Print 2013. PMID: 23704889
+-   Stein A, Kortemme T. (2013). Increased sampling of near-native protein conformations. *PLoS One*. 2013 May 21;8(5):e63090. doi: 10.1371/journal.pone.0063090. Print 2013. PMID: 23704889
 
--   Mandell DJ, Coutsias EA, Kortemme T. (2009). Sub-angstrom accuracy in protein loop reconstruction by robotics-inspired conformational sampling. Nat Methods. 2009 Aug;6(8):551-2. doi: 10.1038/nmeth0809-551. PMID: 19644455
+-   Mandell DJ, Coutsias EA, Kortemme T. (2009). Sub-angstrom accuracy in protein loop reconstruction by robotics-inspired conformational sampling. *Nat Methods*. 2009 Aug;6(8):551-2. doi: 10.1038/nmeth0809-551. PMID: 19644455
 
--   Qian, B., Raman, S., Das, R., Bradley, P., McCoy, A.J., Read, R.J. and Baker D. (2007). High resolution protein structure prediction and the crystallographic phase problem. Nature. 2007 Nov 8;450(7167):259-64. Epub 2007 Oct 14. PMID: 17934447
+-   Qian, B., Raman, S., Das, R., Bradley, P., McCoy, A.J., Read, R.J. and Baker D. (2007). High resolution protein structure prediction and the crystallographic phase problem. *Nature*. 2007 Nov 8;450(7167):259-64. Epub 2007 Oct 14. PMID: 17934447
 
--   Wang, C., Bradley, P. and Baker, D. (2007) Protein-protein docking with backbone flexibility. J Mol Biol. 2007 Oct 19;373(2):503-19. Epub 2007 Aug 2. PMID: 17825317
+-   Wang, C., Bradley, P. and Baker, D. (2007) Protein-protein docking with backbone flexibility. *J Mol Biol*. 2007 Oct 19;373(2):503-19. Epub 2007 Aug 2. PMID: 17825317
 
 
 Purpose and Algorithm
