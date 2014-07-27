@@ -158,12 +158,18 @@ The availiable ControlStrengths are: DOES_NOT_CONTROL, CAN_CONTROL, MUST_CONTROL
 
 I'm so glad you asked! The easiest way is to make it work with the [ScriptCM] framework. Here's how that works:
 
-1 Make your mover inherit from MoveMapMover instead of just Mover.
+- Make sure your mover is accessible in RosettaScripts
+- Make your mover inherit from MoveMapMover instead of just Mover.
+- Implement movemap
+- Implement set_movemap
+- Make sure your mover obeys the MoveMap that is passed in through set_movemap. (For extra credit, throw an exception of degrees of freedom are accessible in the MoveMap that your mover doesn't know how to move--e.g. torsion angles for a docking mover)
+- Profit!
 
-2 Implement movemap
+Then, put your mover inside a ScriptCM with the appropriate client Mover and Claim subtags. For example,
 
-3 Implement set_movemap
+    <ScriptCM name=my_mover>
+      <[Your Mover] [option1, option2, ...] />
+      <TorsionClaim backbone=1 control_strength=CAN_CONTROL selector=ChainA />
+    </ScriptCM>
 
-4 Make sure your mover obeys the MoveMap that is passed in through set_movemap. (For extra credit, throw an exception of degrees of freedom are accessible in the MoveMap that your mover doesn't know how to move--e.g. torsion angles for a docking mover)
-
-5 Profit!
+Would create cause a mover "my_mover" whose apply applies your special mover (as created by its parse_my_tag) with a MoveMap with all the available (i.e. not made unavailable by an EXCLUSIVE Claim) torsion angles in the ResidueSelector "ChainA" set to true.
