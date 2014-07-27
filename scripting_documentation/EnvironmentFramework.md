@@ -129,8 +129,20 @@ claims all backbone residues in the region selected by the ResidueSelector with 
 
 ###VirtResClaim
 
-The VirtResClaim creates a virtual residue and a jump from some base position to build that virtual residue. A cut is also created to ensure the new virtual residue is not attached to any chain. The "vrt_name" option sets the name of the virtual residue. If this virtual residue is to be used by other ClaimingMovers or claims, this is the name by which is should be referred. Note, however, that two VirtResClaims with the same name are not allowed--JumpClaims should be used to jump to and from the virtual residue when it does not need to be created.
+The VirtResClaim creates a virtual residue and a jump from some base position to build that virtual residue. A cut is also created to ensure the new virtual residue is not attached to any chain.
+
+The "vrt_name" option sets the name of the virtual residue. If this virtual residue is to be used by other ClaimingMovers or claims, this is the name by which is should be referred. Note, however, that two VirtResClaims with the same name are not allowed--JumpClaims should be used to jump to and from the virtual residue when it does not need to be created. This is an intentional choice to allow the system to catch errors of accidental virtual residue duplication. An example demonstrating the importance of this feature is CoMTrackerCMs _really do_ need their own virtual residues--other Claims using that virtual residue are, in some sense, just guests.
+
+Other options include "parent", a ResidueSelector or label indicating where the other end of the jump building the virtual residue should be and "jump_control_strength" setting the control strength of the built jump.
 
 ###CutBiasClaim
 
+The CutBiasClaim adjusts the chance that an automatic cut is placed at the selected residues by the value of the option "bias" (required). Also required are "range_start" and "range_end", which indicate the beginning and end of the region within the selection given by the option "label" are to be modified with that bias. For example,
+
+    <CutBiasClaim bias=0.0 region_start=1 region_end=3 label=ChainA/>
+
+would modify the cut bias of the first three residues in the selection ChainA to be zero (i.e. automatic cuts are forbidden). 
+
 ### ControlStrength
+
+The availiable ControlStrengths are: DOES_NOT_CONTROL, CAN_CONTROL, MUST_CONTROL, and EXCLUSIVE. Their names are more or less self-explanatory. DOES_NOT_CONTROL does not (and hence cannot) control the DoF of interest. EXCLUSIVE is always granted access unless another EXCLUSIVE claim for the same DoF exists, in which case an exception is thrown. CAN_CONTROL is granted access if and only if there are no EXCLUSIVE claims. If such access cannot be granted however, nothing happens. MUST_CONTROL is as CAN_CONTROL, but an exception is thrown if an EXCLUSIVE claim prevents this Claim from being granted access to the claim. In almost all cases, CAN_CONTROL is the most appropriate choice.
