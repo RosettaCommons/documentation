@@ -38,11 +38,9 @@ The FragmentJumpCM inserts beta-strand/beta-strand rigid-body translations into 
 
 The valid option sets for this ClaimingMover are:
 
-1 "topol_file" specifying a topology file. Such a file can be generated from a pdb file by Oliver Lange's "r_pdb2top" pilot app ("apps/pilot/olli/r_pdb2top.cc" as of this writing).
-
-2 "ss_info", "n_sheets", and "pairing_file". These respectively require a PsiPred .ss2 file, a number of sheets to build (usually 1 or 2), and a "pairing file" indicating a list of residue-residue pairings (see core::scoring::dssp::read_pairing_list for the required form of this file).
-
-3 "restart_only". In this case, the FragmentJumpCM requires the presence of JumpSampleData in the Pose's DataCache. Advanced use only.
+1. "topol_file" specifying a topology file. Such a file can be generated from a pdb file by Oliver Lange's "r_pdb2top" pilot app ("apps/pilot/olli/r_pdb2top.cc" as of this writing).
+2. "ss_info", "n_sheets", and "pairing_file". These respectively require a PsiPred .ss2 file, a number of sheets to build (usually 1 or 2), and a "pairing file" indicating a list of residue-residue pairings (see core::scoring::dssp::read_pairing_list for the required form of this file).
+3. "restart_only". In this case, the FragmentJumpCM requires the presence of JumpSampleData in the Pose's DataCache. Advanced use only.
 
 ## LoopCM
 
@@ -158,12 +156,12 @@ The availiable ControlStrengths are: DOES_NOT_CONTROL, CAN_CONTROL, MUST_CONTROL
 
 I'm so glad you asked! The easiest way is to make it work with the [ScriptCM] framework. Here's how that works:
 
-- Make sure your mover is accessible in RosettaScripts
-- Make your mover inherit from MoveMapMover instead of just Mover.
-- Implement movemap
-- Implement set_movemap
-- Make sure your mover obeys the MoveMap that is passed in through set_movemap. (For extra credit, throw an exception of degrees of freedom are accessible in the MoveMap that your mover doesn't know how to move--e.g. torsion angles for a docking mover)
-- Profit!
+1. Make sure your mover is accessible in RosettaScripts.
+2. Make your mover inherit from MoveMapMover instead of just Mover.
+3. Implement your mover::movemap
+4. Implement your mover::set_movemap
+5. Make sure your mover obeys the MoveMap that is passed in through set_movemap. (For extra credit, throw an exception of degrees of freedom are accessible in the MoveMap that your mover doesn't know how to move--e.g. torsion angles for a docking mover)
+6. Profit!
 
 Then, put your mover inside a ScriptCM with the appropriate client Mover and Claim subtags. For example,
 
