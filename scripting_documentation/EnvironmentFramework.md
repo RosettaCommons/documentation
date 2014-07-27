@@ -1,4 +1,4 @@
-The Environment framework, also known as the ToplogyBroker, is a tool for generating larger, more complex simulation systems out of small interchangeable parts. The intent is to make rapid protocol development in RosettaScript easier by allowing sampling strategies to be carried out simultaneously rather than in sequence by constructing a consensus FoldTree that satisfies all movers. Such Movers inherit from the ClaimingMover (CM) class.
+The Environment framework, also known as the ToplogyBroker 2.0, is a tool for generating larger, more complex simulation systems out of small interchangeable parts. The intent is to make rapid protocol development in RosettaScript easier by allowing sampling strategies to be carried out simultaneously rather than in sequence by constructing a consensus FoldTree that satisfies all movers. Such Movers inherit from the ClaimingMover (CM) class.
 
 **Author's Note:** If anything here doesn't make sense, doesn't work as advertised, or is otherwise demanding of attention, give me (the original developer) a shout at justinrporter at gmail.com. I spent quite a long time on this, and would love to see other folks using it, so if I can help, let me know!
 
@@ -96,3 +96,41 @@ The "Stage" subtag is used to add movers to particular substages of abinitio, wh
 The "Fragments" subtag is a macro used to add the appropriate ClassicFragmentMovers. Because three such movers exist (large fragments, normal insertion of small fragments, smooth insertion of small fragments) it is laborious to define all of these movers individually and add them to the appropriate stages using the usual API. This macro has the options "large" for 9-mer fragment files, "small" for 3-mer fragment files, and allows "selector" to set the ResidueSelector used to define the region of insertion. The 3-mer fragments loop fractions are also used to set cut biases used by the Broker to automatically place cuts (if necessary).
 
 ## ScriptCM
+
+The ScriptCM is the most flexible of the ClaimingMovers. It operates by dynamically instantiating movers and claims as the user describes in the RosettaScript. The following example creates a mover that minimizes a jump between two residue selections built by ResidueSelectors named "ChainA" and one named "ChainB":
+
+    <ScriptCM name=SideChainMin>
+      <MinMover />
+      <JumpClaim position1=ChainA position2=ChainB control_strength=MUST_CONTROL />
+    </ScriptCM>
+
+The only option taken by the top-level ScriptCM tag is name, which has no special meaning.
+
+There are two types of allowed subtags for the ScriptCM. The first is the mover-instantiation subtag. If the tag's name---in the above example, "MinMover"---is not a Claim (more on these later), then the ScriptCM tries to interpret it as a mover to be instantiated. This works just like mover instantiation in the rest of RosettaScripts works, except that the mover must inherit from MoveMapMover, which requires implementation of the methods movemap and set_movemap. Only one such "client mover" is allowed, and the ScriptCM's apply simply calls the client's apply.
+
+The second type of ScriptCM subtag is the Claim subtag. At the time of this writing, the available claims are: JumpClaim, TorsionClaim, XYZClaim, VirtResClaim, and CutBiasClaim. I don't expect this list to grow much, as there really aren't that many different kinds of DoFs available (only jump translations, jump rotations, torsions, bond length, and bond angles are represented in the atom tree), so think twice about writing your own. I (the author) would be happy to chat about this if you're thinking about it! Each of these Claims is used for selecting, and in some cases instantiating, certain DoFs within the nascent AtomTree during broking for movement by this ScriptCM. An arbitrary number of Claim subtags is permitted.
+
+After broking is completed, the ScriptCM passes a MoveMap based on what the claim(s) allow the ScriptCM access to in the consensus Conformation. This MoveMap is then passed to the client mover via the required set_movemap method.
+
+###JumpClaim
+
+As shown in the example, the JumpClaim simultaneously creates and claims access to a Jump between to arbitrary regions in the consensus Conformation. The position1 option takes either a label (usually a virtual residue) or a ResidueSelector and places one end of the jump-to-be there. If the selection or label refers to more than one residue, the first one is chosen. The position2 option is the same. If the given label does not exist, a virtual residue will be created with that name.
+
+The control_strength option sets control strength for the created jump RT (see ControlStrength). The "cut" option is the same as the position1 and position2 options, except that it sets the position of the cut built be the jump. It need not be between position1 and position2 but, if not specified, is chosen from the range between position1 and position2. The "atom1" and "atom2" options (must be supplied together) choose the atoms to and from (respectively) the jump is to be created. The default is "CA" if "physical_cut" is set to true or is placed such that the stub is within the residue--either "C" or "N" depending on folding direction--if "physical_cut" is false. In addition, the option "physical_cut" determines whether or not the upper and lower cut residues are scored as an artificial chainbreaks (false) or not (true). The jump must also be assigned a name via the "jump_label" option. At the moment, however, this name is only used as an internal unique identifier.
+
+###TorsionClaim
+
+The TorsionClaim claims access to a stretch of torsional angles. For example,
+
+    <TorsionClaim backbone=1 sidechain=0 selector=ChainA control_strength=CAN_CONTROL />
+ 
+claims all backbone residues in the region selected by the ResidueSelector with the name "ChainA" with the strength "CAN_CONTROL". The "backbone" and "sidechain" boolean options determine, respectively, if backbone and sidechain angles are to be claimed. The "control_strength" option sets the strength with which these residues are to be claimed (see ControlStrength). 
+###XYZClaim
+
+###VirtResClaim
+
+The VirtResClaim creates a virtual residue and a jump from some base position to build that virtual residue. A cut is also created to ensure the new virtual residue is not attached to any chain. The "vrt_name" option sets the name of the virtual residue. If this virtual residue is to be used by other ClaimingMovers or claims, this is the name by which is should be referred. Note, however, that two VirtResClaims with the same name are not allowed--JumpClaims should be used to jump to and from the virtual residue when it does not need to be created.
+
+###CutBiasClaim
+
+### ControlStrength
