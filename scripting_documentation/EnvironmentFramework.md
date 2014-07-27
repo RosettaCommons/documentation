@@ -125,7 +125,14 @@ The TorsionClaim claims access to a stretch of torsional angles. For example,
     <TorsionClaim backbone=1 sidechain=0 selector=ChainA control_strength=CAN_CONTROL />
  
 claims all backbone residues in the region selected by the ResidueSelector with the name "ChainA" with the strength "CAN_CONTROL". The "backbone" and "sidechain" boolean options determine, respectively, if backbone and sidechain angles are to be claimed. The "control_strength" option sets the strength with which these residues are to be claimed (see ControlStrength). 
+
 ###XYZClaim
+
+The XYZClaim claims access to all degrees of freedom buidling a particular set of residues. This includes all bond lengths, angles, torisons as well as any applicable jump rotation and translation DoFs. For example,
+
+    <XYZClaim selection=known_loop1 control_strength=EXCLUSIVE/>
+
+Asserts EXCLUSIVE control (see ControlStrengths) over all degrees of freedom building the residues in the ResidueSelection "known_loop1".
 
 ###VirtResClaim
 
