@@ -153,3 +153,17 @@ would modify the cut bias of the first three residues in the selection ChainA to
 ### ControlStrength
 
 The availiable ControlStrengths are: DOES_NOT_CONTROL, CAN_CONTROL, MUST_CONTROL, and EXCLUSIVE. Their names are more or less self-explanatory. DOES_NOT_CONTROL does not (and hence cannot) control the DoF of interest. EXCLUSIVE is always granted access unless another EXCLUSIVE claim for the same DoF exists, in which case an exception is thrown. CAN_CONTROL is granted access if and only if there are no EXCLUSIVE claims. If such access cannot be granted however, nothing happens. MUST_CONTROL is as CAN_CONTROL, but an exception is thrown if an EXCLUSIVE claim prevents this Claim from being granted access to the claim. In almost all cases, CAN_CONTROL is the most appropriate choice.
+
+# How do I get my special mover to work with the Environment?
+
+I'm so glad you asked! The easiest way is to make it work with the [ScriptCM] framework. Here's how that works:
+
+1 Make your mover inherit from MoveMapMover instead of just Mover.
+
+2 Implement movemap
+
+3 Implement set_movemap
+
+4 Make sure your mover obeys the MoveMap that is passed in through set_movemap. (For extra credit, throw an exception of degrees of freedom are accessible in the MoveMap that your mover doesn't know how to move--e.g. torsion angles for a docking mover)
+
+5 Profit!
