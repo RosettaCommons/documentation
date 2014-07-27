@@ -256,6 +256,7 @@ Using an Environment in your RosettaScripts is as easy as
 <PROTOCOL>
   <Add mover="SideChainMin"/>
 </PROTOCOL>
+```
 
 
 ## _Ab initio_ Example
@@ -366,6 +367,8 @@ For example:
 
   core::pose::Pose prot_pose = prot_pose = env.start( pose );
 
+...
+  my_mover->apply( prot_pose );
 ...
 
   core::pose::Pose final_pose = env.end( prot_pose );
