@@ -1,6 +1,6 @@
 The Environment framework, also known as the ToplogyBroker, is a tool for generating larger, more complex simulation systems out of small interchangeable parts. The intent is to make rapid protocol development in RosettaScript easier by allowing sampling strategies to be carried out simultaneously rather than in sequence by constructing a consensus FoldTree that satisfies all movers. Such Movers inherit from the ClaimingMover (CM) class.
 
-**Author's Note:** If anything here doesn't make sense, doesn't work as advertised, or is otherwise demanding of attention, give me (the original developer) a should at justinrporter at gmail.com. I spent quite a long time on this, and would love to see other folks using it, so if I can help, let me know!
+**Author's Note:** If anything here doesn't make sense, doesn't work as advertised, or is otherwise demanding of attention, give me (the original developer) a shout at justinrporter at gmail.com. I spent quite a long time on this, and would love to see other folks using it, so if I can help, let me know!
 
 # For the User
 There are a few currently available ClaimingMovers (abbreviated CM) that are ready to go:
@@ -53,6 +53,17 @@ The LoopCM builds one of the following four movers: LoopMover_Perturb_KIC, LoopM
 The "selector" tag references a ResidueSelector, which is used to determine the torsional angles that will be moved in the loop modeling. The selection is expanded by one residue to accommodate certain loop modelers' quirks.
 
 ## RigidChunkCM
+
+The RigidChunkCM holds a particular region of the pose constant (fixed to the coordinates in a given .pdb file) and prevents those torsional angles from being sampled by other movers. An example use:
+
+`<RigidChunkCM name=chunk region_file="core.rigid" template="template.pdb" />`
+
+makes a rigid chunk claimer called "chunk". The option region_file specifies a file The option "template" supplies the PDB file to copy from, or the special value "INPUT" uses the input pose at broker-time.
+
+`RIGID 1 16 0 0 0
+RIGID 36 46 0 0 0
+RIGID 56 63 0 0 0`
+
 ## CoMTrackerCM
 ## AbscriptLoopCloserCM
 ## AbscriptMover
