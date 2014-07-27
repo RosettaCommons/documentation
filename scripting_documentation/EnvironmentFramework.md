@@ -175,64 +175,6 @@ would modify the cut bias of the first three residues in the selection ChainA to
 
 The available ControlStrengths are: DOES_NOT_CONTROL, CAN_CONTROL, MUST_CONTROL, and EXCLUSIVE. Their names are more or less self-explanatory. DOES_NOT_CONTROL does not (and hence cannot) control the DoF of interest. EXCLUSIVE is always granted access unless another EXCLUSIVE claim for the same DoF exists, in which case an exception is thrown. CAN_CONTROL is granted access if and only if there are no EXCLUSIVE claims. If such access cannot be granted however, nothing happens. MUST_CONTROL is as CAN_CONTROL, but an exception is thrown if an EXCLUSIVE claim prevents this Claim from being granted access to the claim. In almost all cases, CAN_CONTROL is the most appropriate choice.
 
-# How do I get my mover to work with the Environment?
-
-I'm so glad you asked! The easiest way is to make it work with the ScriptCM framework, but if your mover does something special (and can't accept a MoveMap as it's information on what to move) or is an obligate ClaimingMover (doesn't make any sense outside of a Broker framework), then your best bet is to write a new ClaimingMover.
-
-## MoveMapMovers and ScriptCM
-
-First, take a look at the [ScriptCM](#ScriptCM) section above to see what it's all about. Here's how you can make your mover acceptable as a ScriptCM client mover:
-
-1. Make sure your mover is accessible in RosettaScripts.
-2. Make your mover inherit from MoveMapMover instead of just Mover.
-3. Implement your mover::movemap
-4. Implement your mover::set_movemap
-5. Make sure your mover obeys the MoveMap that is passed in through set_movemap. (For extra credit, throw an exception of degrees of freedom are accessible in the MoveMap that your mover doesn't know how to move--e.g. torsion angles for a docking mover)
-6. Profit!
-
-Then, put your mover inside a ScriptCM with the appropriate client Mover and Claim subtags. For example,
-
-```
-<ScriptCM name="my_mover">
-  <[Your Mover] [option1, option2, ...] />
-  <TorsionClaim backbone=1 control_strength="CAN_CONTROL" selector="ChainA" />
-</ScriptCM>
-```
-
-Would create cause a mover "my_mover" whose apply applies your special mover (as created by its own parse_my_tag) with a MoveMap with all the available (i.e. not made unavailable by an EXCLUSIVE Claim) torsion angles in the ResidueSelector "ChainA" set to true.
-
-## Obligate ClaimingMovers, dynamic claiming patterns, and unusual result management schemes
-
-If your mover meets one of the following criteria, you might consider writing a special ClaimingMover just for your class, because it might not fit neatly in the ScriptCM/MoveMapMover pattern.
-
-1. Doesn't make sense outside of a brokered Environment
-2. The claiming associated with your mover--either the construction of FoldTree/AtomTree elements or the DoFs that need to be controlled--is best determined dynamically by the code at broker-time or should be read from a file.
-3. Your effector move (the code that actually changes the numbers in the AtomTree) cannot handle a MoveMap, and requires instead some other indicator (for example, the UniformRigidBodyMover likes a Jump number, not a MoveMap).
-
-This is a bit more work (but not much!), but can produce some really elegant, flexible, user-friendly objects. Here's what you have to do:
-
-1. Decide what you're going to need to claim. There are really only a couple of options that are even theoretically possible, and they fall in to two categories: DoFs and FoldTree elements. FoldTree elements are cuts, jumps, and new virtual residues. DoFs are basically the numbers that the FoldTree elements give rise to: jump RTs and torsional angles (and, in obscure cases, bond lengths and angles). In general, brokering should not add to the physical system represented by the simulation, but only change the way that system is represented (this is the reason only virtual residue addition is currently supported).
-2. Looking at the list of existing [Claims](#ScriptCM) both in this article and in protocols/environment/claims to determine which Claims best express those needs.
-3. Implement ClaimingMover::yield_claims to pass those claims to the Broker.
-4. Implement ClaimingMover::passport_updated. This method is called whenever the ClaimingMover receives a new DofPassport, which contains all the information about which DoFs your ClaimingMover is allowed to access. Typically this hook is used to process the new passport and configure whichever data structure is used within the ClaimingMover to track target DoFs (e.g. Jump number). A particularly useful method is DofPassport::render, which produces a MoveMap from a DofPassport.
-4. Implement ClaimingMover::apply correctly. Because the consensus Conformation inside the pose runs security checks to ensure your mover is allowed to move the DoFs it is trying to move, every ClaimingMover must first authenticate using a [Resource Acquisition is Initialization](http://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization) pattern. The ClaimingMover instantiates an automatic (i.e. stack-allocated) DofUnlock as the first step in the apply function. It is almost always sufficient to simply cut and paste the following line (if the incoming Pose's name is "pose"):
-
-```
-DofUnlock activation( pose.conformation(), passport() );
-```
-
-It is absolutely crucial that the object be _named_, even if it never gets used, as it will be compiled out completely otherwise. This has tripped up the author nearly every time he wrote a new ClaimingMover.
-
-5. Profit!
-
-In general, ClaimingMovers are only a few hundred lines (at time of this writing, FragmentCM.cc is 244 lines, UniformRigidBodyCM is 175 lines), especially if they contain an existing mover that is responsible for the heavy-lifting in actually performing the numerical manipulations associated with the move.
-
-### Specialized features
-
-Many special features exist in the Broker system, but are not necessarily "canon" yet. In other words, they're features I'm experimenting with and reserve the right to remove if necessary. These include
-
-- Initialization. Currently, the Broker creates a special phase of broking before control flow is returned back to the protocol, wherein movers that claimed initialization control strengths higher than "DOES_NOT_CONTROL" are given a one-shot chance to set those DoFs. See protocols/abinitio/abscript/RigidChunkCM.cc for an example.
-- The ClaimingMover::broking_finished hook is intended to provide specialized information about the result of the brokering process to interested movers. It provides const access to a BrokerResult object which contains: the final Pose object, a std::map< Size, std::string > giving the position and name of new virtual residues, a fold tree that is stripped of all unphysical jumps (for some legacy loop closers), an std::set< Size > containing the position of all automatically-placed cuts, a WriteableCacheableMapCOP which contains any information placed in there by either the Broker (like automatic cuts) or other ClaimingMovers (currently only FragmentJumpCM), and a SequenceAnnotationCOP which contains label to pose-numbering information.
 
 # Using the Environment in RosettaScripts
 
@@ -380,3 +322,62 @@ For example:
 ```
 
 Many further examples are available as unit tests in test/protocols/environment/*.
+
+# How do I get my mover to work with the Environment?
+
+I'm so glad you asked! The easiest way is to make it work with the ScriptCM framework, but if your mover does something special (and can't accept a MoveMap as it's information on what to move) or is an obligate ClaimingMover (doesn't make any sense outside of a Broker framework), then your best bet is to write a new ClaimingMover.
+
+## MoveMapMovers and ScriptCM
+
+First, take a look at the [ScriptCM](#ScriptCM) section above to see what it's all about. Here's how you can make your mover acceptable as a ScriptCM client mover:
+
+1. Make sure your mover is accessible in RosettaScripts.
+2. Make your mover inherit from MoveMapMover instead of just Mover.
+3. Implement your mover::movemap
+4. Implement your mover::set_movemap
+5. Make sure your mover obeys the MoveMap that is passed in through set_movemap. (For extra credit, throw an exception of degrees of freedom are accessible in the MoveMap that your mover doesn't know how to move--e.g. torsion angles for a docking mover)
+6. Profit!
+
+Then, put your mover inside a ScriptCM with the appropriate client Mover and Claim subtags. For example,
+
+```
+<ScriptCM name="my_mover">
+  <[Your Mover] [option1, option2, ...] />
+  <TorsionClaim backbone=1 control_strength="CAN_CONTROL" selector="ChainA" />
+</ScriptCM>
+```
+
+Would create cause a mover "my_mover" whose apply applies your special mover (as created by its own parse_my_tag) with a MoveMap with all the available (i.e. not made unavailable by an EXCLUSIVE Claim) torsion angles in the ResidueSelector "ChainA" set to true.
+
+## Obligate ClaimingMovers, dynamic claiming patterns, and unusual result management schemes
+
+If your mover meets one of the following criteria, you might consider writing a special ClaimingMover just for your class, because it might not fit neatly in the ScriptCM/MoveMapMover pattern.
+
+1. Doesn't make sense outside of a brokered Environment
+2. The claiming associated with your mover--either the construction of FoldTree/AtomTree elements or the DoFs that need to be controlled--is best determined dynamically by the code at broker-time or should be read from a file.
+3. Your effector move (the code that actually changes the numbers in the AtomTree) cannot handle a MoveMap, and requires instead some other indicator (for example, the UniformRigidBodyMover likes a Jump number, not a MoveMap).
+
+This is a bit more work (but not much!), but can produce some really elegant, flexible, user-friendly objects. Here's what you have to do:
+
+1. Decide what you're going to need to claim. There are really only a couple of options that are even theoretically possible, and they fall in to two categories: DoFs and FoldTree elements. FoldTree elements are cuts, jumps, and new virtual residues. DoFs are basically the numbers that the FoldTree elements give rise to: jump RTs and torsional angles (and, in obscure cases, bond lengths and angles). In general, brokering should not add to the physical system represented by the simulation, but only change the way that system is represented (this is the reason only virtual residue addition is currently supported).
+2. Looking at the list of existing [Claims](#ScriptCM) both in this article and in protocols/environment/claims to determine which Claims best express those needs.
+3. Implement ClaimingMover::yield_claims to pass those claims to the Broker.
+4. Implement ClaimingMover::passport_updated. This method is called whenever the ClaimingMover receives a new DofPassport, which contains all the information about which DoFs your ClaimingMover is allowed to access. Typically this hook is used to process the new passport and configure whichever data structure is used within the ClaimingMover to track target DoFs (e.g. Jump number). A particularly useful method is DofPassport::render, which produces a MoveMap from a DofPassport.
+4. Implement ClaimingMover::apply correctly. Because the consensus Conformation inside the pose runs security checks to ensure your mover is allowed to move the DoFs it is trying to move, every ClaimingMover must first authenticate using a [Resource Acquisition is Initialization](http://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization) pattern. The ClaimingMover instantiates an automatic (i.e. stack-allocated) DofUnlock as the first step in the apply function. It is almost always sufficient to simply cut and paste the following line (if the incoming Pose's name is "pose"):
+
+```
+DofUnlock activation( pose.conformation(), passport() );
+```
+
+It is absolutely crucial that the object be _named_, even if it never gets used, as it will be compiled out completely otherwise. This has tripped up the author nearly every time he wrote a new ClaimingMover.
+
+5. Profit!
+
+In general, ClaimingMovers are only a few hundred lines (at time of this writing, FragmentCM.cc is 244 lines, UniformRigidBodyCM is 175 lines), especially if they contain an existing mover that is responsible for the heavy-lifting in actually performing the numerical manipulations associated with the move.
+
+### Specialized features
+
+Many special features exist in the Broker system, but are not necessarily "canon" yet. In other words, they're features I'm experimenting with and reserve the right to remove if necessary. These include
+
+- Initialization. Currently, the Broker creates a special phase of broking before control flow is returned back to the protocol, wherein movers that claimed initialization control strengths higher than "DOES_NOT_CONTROL" are given a one-shot chance to set those DoFs. See protocols/abinitio/abscript/RigidChunkCM.cc for an example.
+- The ClaimingMover::broking_finished hook is intended to provide specialized information about the result of the brokering process to interested movers. It provides const access to a BrokerResult object which contains: the final Pose object, a std::map< Size, std::string > giving the position and name of new virtual residues, a fold tree that is stripped of all unphysical jumps (for some legacy loop closers), an std::set< Size > containing the position of all automatically-placed cuts, a WriteableCacheableMapCOP which contains any information placed in there by either the Broker (like automatic cuts) or other ClaimingMovers (currently only FragmentJumpCM), and a SequenceAnnotationCOP which contains label to pose-numbering information.
