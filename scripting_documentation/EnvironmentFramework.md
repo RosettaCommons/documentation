@@ -60,9 +60,9 @@ The RigidChunkCM holds a particular region of the pose constant (fixed to the co
 
 makes a rigid chunk claimer called "chunk". The option "template" supplies the PDB file to copy from, or the special value "INPUT" uses the input pose at broker-time. The option region_file specifies a loops file for regions that should be held constant. For example,
 
-`RIGID 1 16 0 0 0`
-`RIGID 36 46 0 0 0`
-`RIGID 56 63 0 0 0`
+    RIGID 1 16 0 0 0
+    RIGID 36 46 0 0 0
+    RIGID 56 63 0 0 0
 
 would hold the regions 1-16, 26-46, and 56-63 fixed. The additional option 'label' indicates a ResidueSelector for the target region.
 
@@ -73,17 +73,26 @@ The CoMTrackerCM creates a virtual residue that tracks a particular set of atoms
 ## AbscriptLoopCloserCM
 The AbscriptLoopCloserCM uses the WidthFirstSlidingWindowLoopCloser (used in _ab initio_ to close unphysical chainbreaks) to fix loops. An example instantiation is
 
-    <AbscriptMover name=abinitio cycles=2 frags="frag9.dat" small_frags="frag3.dat" >
-    <Fragments large=frag9.dat small=frag3.dat/>
-    <Stage ids=I-IVb>
-    <Mover name=[MoverName]/>
-    </Stage>
-    </AbscriptMover>
+``
 
 ## AbscriptMover
 
 The AbscriptMover is a special mover container that is used to replicate the state of _ab initio_ in early 2014. An example instantiation is
 
-``
+    <AbscriptMover name=abinitio cycles=2 >
+     <Fragments large=frag9.dat small=frag3.dat/>
+     <Stage ids=I-IVb>
+      <Mover name=[MoverName1]/>
+     </Stage>
+     <Stage ids=II>
+      <Mover name=[MoverName2]/>
+     </Stage>
+    </AbscriptMover>
+
+Here, the cycles tag is equivalent to the "-run:increase_cycles" flag in standard _ab initio_, multiplying the number of _ab initio_ cycles by that factor.
+
+The "Stage" subtag is used to add movers to particular substages of abinitio, which given by the "id" option. Legal values are I, II, IIIa, IIIb, IVa, and IVb, and ranges are possible. Multiple Stage subtags are also possible. Stage III alternates between IIIa and IIIb and stage IV alternates between IVa and IVb. The "Mover" subtag of "Stage" names a mover with the "name" option (previously defined) to add.
+
+The "Fragments" subtag is a macro used to add the appropriate ClassicFragmentMovers. Because three such movers exist (large fragments, normal insertion of small fragments, smooth insertion of small fragments) it is laborious to define all of these movers individually and add them to the appropriate stages using the usual API. This macro has the options "large" for 9-mer fragment files, "small" for 3-mer fragment files, and allows "selector" to set the ResidueSelector used to define the region of insertion. The 3-mer fragments loop fractions are also used to set cut biases used by the Broker to automatically place cuts (if necessary).
 
 ## ScriptCM
