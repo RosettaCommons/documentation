@@ -233,7 +233,122 @@ Many special features exist in the Broker system, but are not necessarily "canon
 - Initialization. Currently, the Broker creates a special phase of broking before control flow is returned back to the protocol, wherein movers that claimed initialization control strengths higher than "DOES_NOT_CONTROL" are given a one-shot chance to set those DoFs. See protocols/abinitio/abscript/RigidChunkCM.cc for an example.
 - The ClaimingMover::broking_finished hook is intended to provide specialized information about the result of the brokering process to interested movers. It provides const access to a BrokerResult object which contains: the final Pose object, a std::map< Size, std::string > giving the position and name of new virtual residues, a fold tree that is stripped of all unphysical jumps (for some legacy loop closers), an std::set< Size > containing the position of all automatically-placed cuts, a WriteableCacheableMapCOP which contains any information placed in there by either the Broker (like automatic cuts) or other ClaimingMovers (currently only FragmentJumpCM), and a SequenceAnnotationCOP which contains label to pose-numbering information.
 
-### Using the Environment in C++ code
+# Using the Environment in RosettaScripts
+
+Using an Environment in your RosettaScripts is as easy as
+
+1. Defining your ClaimingMovers
+2. Creating an Environment block in the PROTOCOL section
+3. Adding your movers to the block.
+
+## A simple example:
+
+```
+<RESIDUE_SELECTORS>
+  <Chain name="ChainA" chains="A" />
+</RESIDUE_SELECTORS>
+<MOVERS>
+  <ScriptCM name="SideChainMin">
+    <MinMover />
+    <TorsionClaim backbone=0 sidechain=1 selector="ChainA" control_strength="MUST_CONTROL" />
+</ScriptCM>
+</MOVERS>
+<PROTOCOL>
+  <Add mover="SideChainMin"/>
+</PROTOCOL>
+
+
+## _Ab initio_ Example
+```
+<MOVERS>
+  <FragmentJumpCM name="jumps" topol_file="beta_sheets.top" />
+
+  <AbscriptMover name="abinitio" cycles=2 frags="frag9.dat" small_frags="frag3.dat" >
+    <Fragments large="frag9.dat" small="frag3.dat" />
+    <Stage ids="I-IVb" >
+      <Mover name="jumps" />
+    </Stage>
+  </AbscriptMover>
+
+  <AbscriptLoopCloserCM name="closer" fragfile="frag3.dat" />
+
+  <ResidueTypeSetSwitchMover name="fullatom" set="fa_standard" />
+  <FastRelax name="relax" repeats=5 />
+</MOVERS>
+
+<PROTOCOLS>
+  <Environment name="env" >
+    <Add mover="abinitio" />
+    <Add mover="closer" />
+  </Environment>
+  <Add mover="fullatom" />
+  <Add mover="relax" />
+</PROTOCOLS>
+```
+
+## Multi-body Docking Example
+
+```
+<RESIDUE_SELECTORS>
+  <Chain chains="A" name="ChainA" />
+  <Chain chains="B" name="ChainB" />
+  <Chain chains="C" name="ChainC" />
+</RESIDUE_SELECTORS>
+<MOVERS>
+  <CoMTrackerCM name="com_A" selector="ChainA" />
+  <CoMTrackerCM name="com_B" selector="ChainB" />
+  <CoMTrackerCM name="com_C" selector="ChainC" />
+
+  <UniformRigidBodyCM name="rigidA" mobile="com_A" stationary="star_center" />
+  <UniformRigidBodyCM name="rigidB" mobile="com_B" stationary="star_center" />
+  <UniformRigidBodyCM name="rigidC" mobile="com_C" stationary="star_center" />
+
+  <TrialMover name="multidock" movers="rigidA,rigidB,rigidC" trials=1000 [...] />
+</MOVERS>
+<PROTOCOLS>
+  <Environment name=multidock >
+    <Apply name=multidock/>
+  </Environment>
+</PROTOCOLS>
+```
+
+## (Asymmetric) Fold and Dock Example
+
+```
+<RESIDUE_SELECTORS>
+<Chain chains="A" name=ChainA />
+<Chain chains="B" name=ChainB />
+</RESIDUE_SELECTORS>
+
+<MOVERS>
+  <CoMTrackerCM name=com_A selector=ChainA />
+  <CoMTrackerCM name=com_B selector=ChainB />
+
+  <UniformRigidBodyCM name=rigid mobile=com_A stationary=com_B />
+
+  <AbscriptMover name=abinitio >
+    <Fragments small_frags=frags3A.txt large_frags=frags9A.txt selector=ChainA />
+    <Fragments small_frags=frags3B.txt large_frags=frags9B.txt selector=ChainB />
+    <Stage ids=I-IVb>
+      <Mover name=rigid />
+      <Mover name=com_A />
+      <Mover name=com_B />
+    </Stage>
+  </AbscriptMover>
+
+  <ResidueTypeSetSwitchMover name=fullatom set=fa_standard />
+  <FastRelax name=relax repeats=5 />
+</MOVERS>
+<PROTOCOLS>
+  <Environment name=fold_and_dock >
+    <Apply name=abintio />
+  </Environment>
+  <Add mover=fullatom />
+  <Add mover=relax />
+</PROTOCOLS>
+```
+
+# Using the Environment in C++ code
 
 Making a brokered Environment in your C++ code is as easy as
 
