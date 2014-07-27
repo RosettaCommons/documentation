@@ -3,6 +3,10 @@ The Environment framework, also known as the ToplogyBroker, is a tool for genera
 # For the User
 There are a few currently available ClaimingMovers (abbreviated CM) that are ready to go:
 * UniformRigidBodyCM: perform unbiased, rigid-body docking between two selected regions.
+
+
+asdf
+
 * FragmentCM: perform backbone torsion-angle fragment insertion on a target region.
 * FragmentJumpCM: beta-strand/beta-strand pairing fragment insertion
 * LoopCM: access to loop closure algorithms KIC and CCD modes refine and perturb
@@ -12,10 +16,37 @@ There are a few currently available ClaimingMovers (abbreviated CM) that are rea
 * ScriptCM: interface with the Broker system for an arbitrary movemap-accepting mover (_i.e._ inherits from MoveMapMover).
 
 ## UniformRigidBodyCM
+The UniformRigidBodyCM is a mover that interfaces between the broker and the UniformRigidBodyMover docking mover. The UniformRigidBodyMover expects a jump number but, for convenience, the UniformRigidBodyCM accepts ResidueSelectors or virtual residue names. For example,
+
+`<UniformRigidBodyCM name=rigid mobile=com_A stationary=com_B />`
+
+creates a UniformRigidBodyMover named 'rigid' that docks 'com_A' to 'com_B'. If 'com_A' is a defined ResidueSelector, the jump will be constructed to attach to the first residue in that selection. Otherwise, a virtual residue will be created with that name. It behaves identically for 'com_B'. The only difference between the 'mobile' and 'stationary' tags is that the jump is expected to originate at the stationary position, so that the origin of the rotation encoded by the jump is centered there.
+
+
 ## FragmentCM
+The FragmentCM does standard fragment insertion in a targeted region. A FragmentCM instantiation looks like:
+
+`<FragmentCM name=chA_large frag_type="classic" fragments="frags9A" selector=ChainA />`
+
+Here, the FragmentCm with the name "chA_large" is instantiated using the fragments in the file "frags9A" and told to insert those fragments using the "classic" policy (_c.f._ "smooth" insertion policy) in the region given by the ResidueSelector 'ChainA'.
+
+The "fragments" and "selector" options are required. The "frag_type" tag defaults to classic.
+
 ## FragmentJumpCM
+
+The FragmentJumpCM inserts beta-strand/beta-strand rigid-body translations into jumps between (predicted) adjacent beta-strands. An instantiation of this ClaimingMover looks like:
+
+<FragmentJumpCM name=jumps topol_file="beta_sheets.top" />
+
+The valid option sets for this ClaimingMover are:
+
+1 "topol_file" specifying a topology file. Such a file can be generated from a pdb file by Oliver Lange's "r_pdb2top" pilot app ("apps/pilot/olli/r_pdb2top.cc" as of this writing).
+2 "ss_info", "n_sheets", and "pairing_file". These respectively require a PsiPred .ss2 file, a number of sheets to build (usually 1 or 2), and a "pairing file" indicating a list of residue-residue pairings (see core::scoring::dssp::read_pairing_list for the required form of this file).
+3 "restart_only". In this case, the FragmentJumpCM requires the presence of JumpSampleData in the Pose's DataCache. Advanced use only.
+
 ## LoopCM
 ## RigidChunkCM
 ## CoMTrackerCM
 ## AbscriptLoopCloserCM
+## AbscriptMover
 ## ScriptCM
