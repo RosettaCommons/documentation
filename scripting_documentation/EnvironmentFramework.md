@@ -18,7 +18,9 @@ There are a few currently available ClaimingMovers (abbreviated CM) that are rea
 ## UniformRigidBodyCM
 The UniformRigidBodyCM is a mover that interfaces between the broker and the UniformRigidBodyMover docking mover. The UniformRigidBodyMover expects a jump number but, for convenience, the UniformRigidBodyCM accepts ResidueSelectors or virtual residue names. For example,
 
-`<UniformRigidBodyCM name=rigid mobile=com_A stationary=com_B />`
+```
+<UniformRigidBodyCM name="rigid" mobile="com_A" stationary="com_B" />
+```
 
 creates a UniformRigidBodyMover named 'rigid' that docks 'com_A' to 'com_B'. If 'com_A' is a defined ResidueSelector, the jump will be constructed to attach to the first residue in that selection. Otherwise, a virtual residue will be created with that name. It behaves identically for 'com_B'. The only difference between the 'mobile' and 'stationary' tags is that the jump is expected to originate at the stationary position, so that the origin of the rotation encoded by the jump is centered there.
 
@@ -26,7 +28,9 @@ creates a UniformRigidBodyMover named 'rigid' that docks 'com_A' to 'com_B'. If 
 ## FragmentCM
 The FragmentCM does standard fragment insertion in a targeted region. A FragmentCM instantiation looks like:
 
-`<FragmentCM name=chA_large frag_type="classic" fragments="frags9A" selector=ChainA />`
+```
+<FragmentCM name="chA_large" frag_type="classic" fragments="frags9A" selector="ChainA" />
+```
 
 Here, the FragmentCm with the name "chA_large" is instantiated using the fragments in the file "frags9A" and told to insert those fragments using the "classic" policy (_c.f._ "smooth" insertion policy) in the region given by the ResidueSelector 'ChainA'.
 
@@ -36,7 +40,9 @@ The "fragments" and "selector" options are required. The "frag_type" tag default
 
 The FragmentJumpCM inserts beta-strand/beta-strand rigid-body translations into jumps between (predicted) adjacent beta-strands. An instantiation of this ClaimingMover looks like:
 
-` <FragmentJumpCM name=jumps topol_file="beta_sheets.top" /> `
+```
+<FragmentJumpCM name="jumps" topol_file="beta_sheets.top" /> 
+```
 
 The valid option sets for this ClaimingMover are:
 
@@ -48,7 +54,9 @@ The valid option sets for this ClaimingMover are:
 
 The LoopCM builds one of the following four movers: LoopMover_Perturb_KIC, LoopMover_Refine_KIC, LoopMover_Perturb_CCD, LoopMover_Refine_CCD. The algorithm is given by "algorithm" tag ("CCD" or "KIC") the form is given by the "style" tag ("refine" or "perturb"). An example follows.
 
-`<LoopCM name=kic_refine style=refine algorithm=kic selector=loop1 />`
+```
+<LoopCM name="kic_refine" style="refine" algorithm="kic" selector="loop1" />
+```
 
 The "selector" tag references a ResidueSelector, which is used to determine the torsional angles that will be moved in the loop modeling. The selection is expanded by one residue to accommodate certain loop modelers' quirks.
 
@@ -56,7 +64,9 @@ The "selector" tag references a ResidueSelector, which is used to determine the 
 
 The RigidChunkCM holds a particular region of the pose constant (fixed to the coordinates in a given .pdb file) and prevents those torsional angles from being sampled by other movers. An example use:
 
-`<RigidChunkCM name=chunk region_file="core.rigid" template="template.pdb" />`
+```
+<RigidChunkCM name="chunk" region_file="core.rigid" template="template.pdb" />
+```
 
 makes a rigid chunk claimer called "chunk". The option "template" supplies the PDB file to copy from, or the special value "INPUT" uses the input pose at broker-time. The option region_file specifies a loops file for regions that should be held constant. For example,
 
@@ -79,15 +89,17 @@ The AbscriptLoopCloserCM uses the WidthFirstSlidingWindowLoopCloser (used in _ab
 
 The AbscriptMover is a special mover container that is used to replicate the state of _ab initio_ in early 2014. An example instantiation is
 
-    <AbscriptMover name=abinitio cycles=2 >
-     <Fragments large=frag9.dat small=frag3.dat/>
-     <Stage ids=I-IVb>
-      <Mover name=[MoverName1]/>
-     </Stage>
-     <Stage ids=II>
-      <Mover name=[MoverName2]/>
-     </Stage>
-    </AbscriptMover>
+```
+<AbscriptMover name="abinitio" cycles=2 >
+ <Fragments large="frag9.dat" small="frag3.dat" />
+ <Stage ids="I-IVb" >
+   <Mover name=[MoverName1]/>
+ </Stage>
+ <Stage ids="II">
+   <Mover name=[MoverName2]/>
+ </Stage>
+</AbscriptMover>
+```
 
 Here, the cycles tag is equivalent to the "-run:increase_cycles" flag in standard _ab initio_, multiplying the number of _ab initio_ cycles by that factor.
 
@@ -99,10 +111,12 @@ The "Fragments" subtag is a macro used to add the appropriate ClassicFragmentMov
 
 The ScriptCM is the most flexible of the ClaimingMovers. It operates by dynamically instantiating movers and claims as the user describes in the RosettaScript. The following example creates a mover that minimizes a jump between two residue selections built by ResidueSelectors named "ChainA" and one named "ChainB":
 
-    <ScriptCM name=SideChainMin>
-      <MinMover />
-      <JumpClaim position1=ChainA position2=ChainB control_strength=MUST_CONTROL />
-    </ScriptCM>
+```
+<ScriptCM name="SideChainMin" >
+  <MinMover />
+  <JumpClaim position1="ChainA" position2="ChainB" control_strength="MUST_CONTROL" />
+</ScriptCM>
+```
 
 The only option taken by the top-level ScriptCM tag is name, which has no special meaning.
 
@@ -122,7 +136,9 @@ The control_strength option sets the [ControlStrength](#ControlStrength) for the
 
 The TorsionClaim claims access to a stretch of torsional angles. For example,
 
-    <TorsionClaim backbone=1 sidechain=0 selector=ChainA control_strength=CAN_CONTROL />
+```
+<TorsionClaim backbone=1 sidechain=0 selector="ChainA" control_strength="CAN_CONTROL" />
+```
  
 claims all backbone residues in the region selected by the ResidueSelector with the name "ChainA" with the strength "CAN_CONTROL". The "backbone" and "sidechain" boolean options determine, respectively, if backbone and sidechain angles are to be claimed. The "control_strength" option sets the [ControlStrength](#ControlStrength) with which these residues are to be claimed. 
 
@@ -130,7 +146,9 @@ claims all backbone residues in the region selected by the ResidueSelector with 
 
 The XYZClaim claims access to all degrees of freedom buidling a particular set of residues. This includes all bond lengths, angles, torisons as well as any applicable jump rotation and translation DoFs. For example,
 
-    <XYZClaim selection=known_loop1 control_strength=EXCLUSIVE/>
+```
+<XYZClaim selection="known_loop1" control_strength="EXCLUSIVE"/>
+```
 
 Asserts EXCLUSIVE control (see ControlStrengths) over all degrees of freedom building the residues in the ResidueSelection "known_loop1".
 
@@ -146,7 +164,9 @@ Other options include "parent", a ResidueSelector or label indicating where the 
 
 The CutBiasClaim adjusts the chance that an automatic cut is placed at the selected residues by the value of the option "bias" (required). Also required are "range_start" and "range_end", which indicate the beginning and end of the region within the selection given by the option "label" are to be modified with that bias. For example,
 
-    <CutBiasClaim bias=0.0 region_start=1 region_end=3 label=ChainA/>
+````
+<CutBiasClaim bias=0.0 region_start=1 region_end=3 label="ChainA" />
+```
 
 would modify the cut bias of the first three residues in the selection ChainA to be zero (i.e. automatic cuts are forbidden). 
 
@@ -171,9 +191,11 @@ First, take a look at the [ScriptCM](#ScriptCM) section above to see what it's a
 
 Then, put your mover inside a ScriptCM with the appropriate client Mover and Claim subtags. For example,
 
-    <ScriptCM name=my_mover>
-      <[Your Mover] [option1, option2, ...] />
-      <TorsionClaim backbone=1 control_strength=CAN_CONTROL selector=ChainA />
-    </ScriptCM>
+```
+<ScriptCM name="my_mover">
+  <[Your Mover] [option1, option2, ...] />
+  <TorsionClaim backbone=1 control_strength="CAN_CONTROL" selector="ChainA" />
+</ScriptCM>
+```
 
 Would create cause a mover "my_mover" whose apply applies your special mover (as created by its own parse_my_tag) with a MoveMap with all the available (i.e. not made unavailable by an EXCLUSIVE Claim) torsion angles in the ResidueSelector "ChainA" set to true.
