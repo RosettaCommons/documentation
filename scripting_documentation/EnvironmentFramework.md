@@ -1,12 +1,10 @@
 The Environment framework, also known as the ToplogyBroker, is a tool for generating larger, more complex simulation systems out of small interchangeable parts. The intent is to make rapid protocol development in RosettaScript easier by allowing sampling strategies to be carried out simultaneously rather than in sequence by constructing a consensus FoldTree that satisfies all movers. Such Movers inherit from the ClaimingMover (CM) class.
 
+**Author's Note:** If anything here doesn't make sense, doesn't work as advertised, or is otherwise demanding of attention, give me (the original developer) a should at justinrporter at gmail.com. I spent quite a long time on this, and would love to see other folks using it, so if I can help, let me know!
+
 # For the User
 There are a few currently available ClaimingMovers (abbreviated CM) that are ready to go:
 * UniformRigidBodyCM: perform unbiased, rigid-body docking between two selected regions.
-
-
-asdf
-
 * FragmentCM: perform backbone torsion-angle fragment insertion on a target region.
 * FragmentJumpCM: beta-strand/beta-strand pairing fragment insertion
 * LoopCM: access to loop closure algorithms KIC and CCD modes refine and perturb
@@ -45,6 +43,13 @@ The valid option sets for this ClaimingMover are:
 3 "restart_only". In this case, the FragmentJumpCM requires the presence of JumpSampleData in the Pose's DataCache. Advanced use only.
 
 ## LoopCM
+
+The LoopCM builds one of the following four movers: LoopMover_Perturb_KIC, LoopMover_Refine_KIC, LoopMover_Perturb_CCD, LoopMover_Refine_CCD. The algorithm is given by "algorithm" tag ("CCD" or "KIC") the form is given by the "style" tag ("refine" or "perturb"). An example follows.
+
+`<LoopCM name=kic_refine style=refine algorithm=kic selector=loop1 />`
+
+The "selector" tag references a ResidueSelector, which is used to determine the torsional angles that will be moved in the loop modeling. The selection is expanded by one residue to accommodate certain loop modelers' quirks.
+
 ## RigidChunkCM
 ## CoMTrackerCM
 ## AbscriptLoopCloserCM
