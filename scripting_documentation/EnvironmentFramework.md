@@ -4,7 +4,8 @@ The Environment framework, also known as the ToplogyBroker 2.0, is a tool for ge
 
 [[_TOC_]]
 
-# For the User
+# Available ClaimingMovers
+
 There are a few currently available ClaimingMovers (abbreviated CM) that are ready to go:
 * [UniformRigidBodyCM](#UniformRigidBodyCM): perform unbiased, rigid-body docking between two selected regions.
 * [FragmentCM](#FragmentCM): perform backbone torsion-angle fragment insertion on a target region.
@@ -172,7 +173,7 @@ would modify the cut bias of the first three residues in the selection ChainA to
 
 ### ControlStrength
 
-The availiable ControlStrengths are: DOES_NOT_CONTROL, CAN_CONTROL, MUST_CONTROL, and EXCLUSIVE. Their names are more or less self-explanatory. DOES_NOT_CONTROL does not (and hence cannot) control the DoF of interest. EXCLUSIVE is always granted access unless another EXCLUSIVE claim for the same DoF exists, in which case an exception is thrown. CAN_CONTROL is granted access if and only if there are no EXCLUSIVE claims. If such access cannot be granted however, nothing happens. MUST_CONTROL is as CAN_CONTROL, but an exception is thrown if an EXCLUSIVE claim prevents this Claim from being granted access to the claim. In almost all cases, CAN_CONTROL is the most appropriate choice.
+The available ControlStrengths are: DOES_NOT_CONTROL, CAN_CONTROL, MUST_CONTROL, and EXCLUSIVE. Their names are more or less self-explanatory. DOES_NOT_CONTROL does not (and hence cannot) control the DoF of interest. EXCLUSIVE is always granted access unless another EXCLUSIVE claim for the same DoF exists, in which case an exception is thrown. CAN_CONTROL is granted access if and only if there are no EXCLUSIVE claims. If such access cannot be granted however, nothing happens. MUST_CONTROL is as CAN_CONTROL, but an exception is thrown if an EXCLUSIVE claim prevents this Claim from being granted access to the claim. In almost all cases, CAN_CONTROL is the most appropriate choice.
 
 # How do I get my mover to work with the Environment?
 
@@ -204,7 +205,7 @@ Would create cause a mover "my_mover" whose apply applies your special mover (as
 
 If your mover meets one of the following criteria, you might consider writing a special ClaimingMover just for your class, because it might not fit neatly in the ScriptCM/MoveMapMover pattern.
 
-1. Doesn't make sense outside of a BrokeredEnvironment
+1. Doesn't make sense outside of a brokered Environment
 2. The claiming associated with your mover--either the construction of FoldTree/AtomTree elements or the DoFs that need to be controlled--is best determined dynamically by the code at broker-time or should be read from a file.
 3. Your effector move (the code that actually changes the numbers in the AtomTree) cannot handle a MoveMap, and requires instead some other indicator (for example, the UniformRigidBodyMover likes a Jump number, not a MoveMap).
 
@@ -243,23 +244,25 @@ Using an Environment in your RosettaScripts is as easy as
 
 ## A simple example:
 
+In the following example, a ChainResidueSelector selecting chains named "A" and "B" are used to build a [UniformRigidBodyCM](#UniformRigidBodyCM) that docks those two chains to one another. 
+
 ```
 <RESIDUE_SELECTORS>
   <Chain name="ChainA" chains="A" />
+  <Chain name="ChainB" chains="B" />
 </RESIDUE_SELECTORS>
 <MOVERS>
-  <ScriptCM name="SideChainMin">
-    <MinMover />
-    <TorsionClaim backbone=0 sidechain=1 selector="ChainA" control_strength="MUST_CONTROL" />
-</ScriptCM>
+  <UniformRigidBodyCM name="dock" mobile="ChainA" stationary="ChainB" />
 </MOVERS>
 <PROTOCOL>
   <Add mover="SideChainMin"/>
 </PROTOCOL>
 ```
 
-
 ## _Ab initio_ Example
+
+The following example replicates an _ab initio_ run. The file "beta_sheets.top" contains a predicted beta-strand pairing topology, and the 9-mer and 3-mer fragments are in files called "frag9.dat" and "frag3.dat", respectively. Loops are closed after the [AbscriptMover](#AbscriptMover] runs all stages of abinitio by the [AbscriptLoopCloserCM], and then FastRelax refines the structure in full atom mode. The assumption is made here that the input pose is in centroid mode.
+
 ```
 <MOVERS>
   <FragmentJumpCM name="jumps" topol_file="beta_sheets.top" />
@@ -288,6 +291,8 @@ Using an Environment in your RosettaScripts is as easy as
 ```
 
 ## Multi-body Docking Example
+
+This example docks three chains (A, B, and C) to one another using a "star" FoldTree using [UniformRigidBodyCMs](#UniformRigidBodyCM). In other words, all three chains are docked to a central virtual residue. This is in contrast to a two-to-one docking scheme. A TrialMover is used to run 1000 cycles of docking. [CoMTrackerCMs](#CoMTrackerCM) create virtual residues centered at the center of mass of each chain, which are used as the other base of the jump building each chain.
 
 ```
 <RESIDUE_SELECTORS>
