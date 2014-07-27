@@ -2,6 +2,8 @@ The Environment framework, also known as the ToplogyBroker 2.0, is a tool for ge
 
 **Author's Note:** If anything here doesn't make sense, doesn't work as advertised, or is otherwise demanding of attention, give me (the original developer) a shout at justinrporter at gmail.com. I spent quite a long time on this, and would love to see other folks using it, so if I can help, let me know!
 
+[[_TOC_]]
+
 # For the User
 There are a few currently available ClaimingMovers (abbreviated CM) that are ready to go:
 * [UniformRigidBodyCM](#UniformRigidBodyCM): perform unbiased, rigid-body docking between two selected regions.
