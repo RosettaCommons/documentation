@@ -4,14 +4,14 @@ The Environment framework, also known as the ToplogyBroker 2.0, is a tool for ge
 
 # For the User
 There are a few currently available ClaimingMovers (abbreviated CM) that are ready to go:
-* UniformRigidBodyCM: perform unbiased, rigid-body docking between two selected regions.
-* FragmentCM: perform backbone torsion-angle fragment insertion on a target region.
-* FragmentJumpCM: beta-strand/beta-strand pairing fragment insertion
-* LoopCM: access to loop closure algorithms KIC and CCD modes refine and perturb
-* RigidChunkCM: fix a region to values given in a pdb file and prevent other movers from sampling there
-* CoMTrackerCM: generate a virtual residue that tracks the center of mass of a particular region
-* AbscriptLoopCloserCM: close loops using the WidthFirstSlidingWindowLoopCloser (used in _ab initio_ to close unphysical chainbreaks)
-* ScriptCM: interface with the Broker system for an arbitrary movemap-accepting mover (_i.e._ inherits from MoveMapMover).
+* [UniformRigidBodyCM](#UniformRigidBodyCM): perform unbiased, rigid-body docking between two selected regions.
+* [FragmentCM](#FragmentCM): perform backbone torsion-angle fragment insertion on a target region.
+* [FragmentJumpCM](#FragmentCM): beta-strand/beta-strand pairing fragment insertion
+* [LoopCM](#LoopCM): access to loop closure algorithms KIC and CCD modes refine and perturb
+* [RigidChunkCM](#RigidChunkCM): fix a region to values given in a pdb file and prevent other movers from sampling there
+* [CoMTrackerCM](#CoMTrackerCM): generate a virtual residue that tracks the center of mass of a particular region
+* [AbscriptLoopCloserCM](#AbscriptLoopCloserCM): close loops using the WidthFirstSlidingWindowLoopCloser (used in _ab initio_ to close unphysical chainbreaks)
+* [ScriptCM](#ScriptCM): interface with the Broker system for an arbitrary movemap-accepting mover (_i.e._ inherits from MoveMapMover).
 
 ## UniformRigidBodyCM
 The UniformRigidBodyCM is a mover that interfaces between the broker and the UniformRigidBodyMover docking mover. The UniformRigidBodyMover expects a jump number but, for convenience, the UniformRigidBodyCM accepts ResidueSelectors or virtual residue names. For example,
@@ -114,7 +114,7 @@ After broking is completed, the ScriptCM passes a MoveMap based on what the clai
 
 As shown in the example, the JumpClaim simultaneously creates and claims access to a Jump between to arbitrary regions in the consensus Conformation. The position1 option takes either a label (usually a virtual residue) or a ResidueSelector and places one end of the jump-to-be there. If the selection or label refers to more than one residue, the first one is chosen. The position2 option is the same. If the given label does not exist, a virtual residue will be created with that name.
 
-The control_strength option sets control strength for the created jump RT (see ControlStrength). The "cut" option is the same as the position1 and position2 options, except that it sets the position of the cut built be the jump. It need not be between position1 and position2 but, if not specified, is chosen from the range between position1 and position2. The "atom1" and "atom2" options (must be supplied together) choose the atoms to and from (respectively) the jump is to be created. The default is "CA" if "physical_cut" is set to true or is placed such that the stub is within the residue--either "C" or "N" depending on folding direction--if "physical_cut" is false. In addition, the option "physical_cut" determines whether or not the upper and lower cut residues are scored as an artificial chainbreaks (false) or not (true). The jump must also be assigned a name via the "jump_label" option. At the moment, however, this name is only used as an internal unique identifier.
+The control_strength option sets the [ControlStrength](#ControlStrength) for the created jump RT. The "cut" option is the same as the position1 and position2 options, except that it sets the position of the cut built be the jump. It need not be between position1 and position2 but, if not specified, is chosen from the range between position1 and position2. The "atom1" and "atom2" options (must be supplied together) choose the atoms to and from (respectively) the jump is to be created. The default is "CA" if "physical_cut" is set to true or is placed such that the stub is within the residue--either "C" or "N" depending on folding direction--if "physical_cut" is false. In addition, the option "physical_cut" determines whether or not the upper and lower cut residues are scored as an artificial chainbreaks (false) or not (true). The jump must also be assigned a name via the "jump_label" option. At the moment, however, this name is only used as an internal unique identifier.
 
 ###TorsionClaim
 
@@ -122,7 +122,7 @@ The TorsionClaim claims access to a stretch of torsional angles. For example,
 
     <TorsionClaim backbone=1 sidechain=0 selector=ChainA control_strength=CAN_CONTROL />
  
-claims all backbone residues in the region selected by the ResidueSelector with the name "ChainA" with the strength "CAN_CONTROL". The "backbone" and "sidechain" boolean options determine, respectively, if backbone and sidechain angles are to be claimed. The "control_strength" option sets the strength with which these residues are to be claimed (see ControlStrength). 
+claims all backbone residues in the region selected by the ResidueSelector with the name "ChainA" with the strength "CAN_CONTROL". The "backbone" and "sidechain" boolean options determine, respectively, if backbone and sidechain angles are to be claimed. The "control_strength" option sets the [ControlStrength](#ControlStrength) with which these residues are to be claimed. 
 
 ###XYZClaim
 
@@ -158,7 +158,7 @@ I'm so glad you asked! The easiest way is to make it work with the ScriptCM fram
 
 ## MoveMapMovers and ScriptCM
 
-First, take a look at the [ScriptCM](https://www.rosettacommons.org/docs/wiki/scripting_documentation/EnvironmentFramework#ScriptCM) section above to see what it's all about. Here's how you can make your mover acceptable as a ScriptCM client mover:
+First, take a look at the [ScriptCM](#ScriptCM) section above to see what it's all about. Here's how you can make your mover acceptable as a ScriptCM client mover:
 
 1. Make sure your mover is accessible in RosettaScripts.
 2. Make your mover inherit from MoveMapMover instead of just Mover.
