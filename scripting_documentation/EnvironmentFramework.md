@@ -154,7 +154,11 @@ The availiable ControlStrengths are: DOES_NOT_CONTROL, CAN_CONTROL, MUST_CONTROL
 
 # How do I get my special mover to work with the Environment?
 
-I'm so glad you asked! The easiest way is to make it work with the [ScriptCM] framework. Here's how that works:
+I'm so glad you asked! The easiest way is to make it work with the ScriptCM framework, but if your mover does something special (and can't accept a MoveMap as it's information on what to move) or is an obligate ClaimingMover (doesn't make any sense outside of a Broker framework), then your best bet is to write a new ClaimingMover.
+
+## MoveMapMovers and ScriptCM
+
+First, take a look at the [ScriptCM](https://www.rosettacommons.org/docs/wiki/scripting_documentation/EnvironmentFramework#ScriptCM) section above to see what it's all about. Here's how you can make your mover acceptable as a ScriptCM client mover:
 
 1. Make sure your mover is accessible in RosettaScripts.
 2. Make your mover inherit from MoveMapMover instead of just Mover.
@@ -170,4 +174,4 @@ Then, put your mover inside a ScriptCM with the appropriate client Mover and Cla
       <TorsionClaim backbone=1 control_strength=CAN_CONTROL selector=ChainA />
     </ScriptCM>
 
-Would create cause a mover "my_mover" whose apply applies your special mover (as created by its parse_my_tag) with a MoveMap with all the available (i.e. not made unavailable by an EXCLUSIVE Claim) torsion angles in the ResidueSelector "ChainA" set to true.
+Would create cause a mover "my_mover" whose apply applies your special mover (as created by its own parse_my_tag) with a MoveMap with all the available (i.e. not made unavailable by an EXCLUSIVE Claim) torsion angles in the ResidueSelector "ChainA" set to true.
