@@ -58,13 +58,32 @@ The RigidChunkCM holds a particular region of the pose constant (fixed to the co
 
 `<RigidChunkCM name=chunk region_file="core.rigid" template="template.pdb" />`
 
-makes a rigid chunk claimer called "chunk". The option region_file specifies a file The option "template" supplies the PDB file to copy from, or the special value "INPUT" uses the input pose at broker-time.
+makes a rigid chunk claimer called "chunk". The option "template" supplies the PDB file to copy from, or the special value "INPUT" uses the input pose at broker-time. The option region_file specifies a loops file for regions that should be held constant. For example,
 
-`RIGID 1 16 0 0 0
-RIGID 36 46 0 0 0
-RIGID 56 63 0 0 0`
+`RIGID 1 16 0 0 0`
+`RIGID 36 46 0 0 0`
+`RIGID 56 63 0 0 0`
+
+would hold the regions 1-16, 26-46, and 56-63 fixed. The additional option 'label' indicates a ResidueSelector for the target region.
 
 ## CoMTrackerCM
+
+The CoMTrackerCM creates a virtual residue that tracks a particular set of atoms in space. The only option is "mobile_selector", which indicates the region that is to be tracked. The "name" option is a bit special, as the virtual residue created will bear that name as well. Thus, other ClaimingMovers that need to jump to or from that residue use that name.
+
 ## AbscriptLoopCloserCM
+The AbscriptLoopCloserCM uses the WidthFirstSlidingWindowLoopCloser (used in _ab initio_ to close unphysical chainbreaks) to fix loops. An example instantiation is
+
+`<AbscriptMover name=abinitio cycles=2 frags="frag9.dat" small_frags="frag3.dat" >`
+`  <Fragments large=frag9.dat small=frag3.dat/>`
+   `<Stage ids=I-IVb>`
+      `<Mover name=[MoverName]/>`
+   `</Stage>`
+`</AbscriptMover>`
+
 ## AbscriptMover
+
+The AbscriptMover is a special mover container that is used to replicate the state of _ab initio_ in early 2014. An example instantiation is
+
+``
+
 ## ScriptCM
