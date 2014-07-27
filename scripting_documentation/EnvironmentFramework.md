@@ -34,12 +34,14 @@ The "fragments" and "selector" options are required. The "frag_type" tag default
 
 The FragmentJumpCM inserts beta-strand/beta-strand rigid-body translations into jumps between (predicted) adjacent beta-strands. An instantiation of this ClaimingMover looks like:
 
-<FragmentJumpCM name=jumps topol_file="beta_sheets.top" />
+` <FragmentJumpCM name=jumps topol_file="beta_sheets.top" /> `
 
 The valid option sets for this ClaimingMover are:
 
 1 "topol_file" specifying a topology file. Such a file can be generated from a pdb file by Oliver Lange's "r_pdb2top" pilot app ("apps/pilot/olli/r_pdb2top.cc" as of this writing).
+
 2 "ss_info", "n_sheets", and "pairing_file". These respectively require a PsiPred .ss2 file, a number of sheets to build (usually 1 or 2), and a "pairing file" indicating a list of residue-residue pairings (see core::scoring::dssp::read_pairing_list for the required form of this file).
+
 3 "restart_only". In this case, the FragmentJumpCM requires the presence of JumpSampleData in the Pose's DataCache. Advanced use only.
 
 ## LoopCM
