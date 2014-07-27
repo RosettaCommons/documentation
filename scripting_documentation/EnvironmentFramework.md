@@ -79,12 +79,20 @@ would hold the regions 1-16, 26-46, and 56-63 fixed. The additional option 'labe
 
 ## CoMTrackerCM
 
+```
+<CoMTrackerCM name=(&string) selector=(&string) />
+```
+
 The CoMTrackerCM creates a virtual residue that tracks a particular set of atoms in space. The only option is "mobile_selector", which indicates the region that is to be tracked. The "name" option is a bit special, as the virtual residue created will bear that name as well. Thus, other ClaimingMovers that need to jump to or from that residue use that name.
 
 ## AbscriptLoopCloserCM
-The AbscriptLoopCloserCM uses the WidthFirstSlidingWindowLoopCloser (used in _ab initio_ to close unphysical chainbreaks) to fix loops. An example instantiation is
+The AbscriptLoopCloserCM uses the WidthFirstSlidingWindowLoopCloser (used in _ab initio_ to close unphysical chainbreaks) to fix loops. An example instantiation is:
 
-``
+```
+<AbscriptLoopCloserCM name="closer" fragfile="frag3.dat" />
+```
+
+Where the fragfile option indicates a file where the fragments to be used to close the loop can be found.
 
 ## AbscriptMover
 
