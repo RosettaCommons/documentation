@@ -171,8 +171,6 @@ Options
 -   The following 'expert' options may be used to customize the behavior of KIC with fragments:
 
     ```
-    -loops:neighbor_dist            Only optimize side-chains with C-beta atoms within this many Angstrom of any loop 
-                                    C-beta atom. Default = '10.0'. To speed up runs, try '6.0'. [Float]
     -loops:max_kic_build_attempts   Number of times to attempt initial loop closure in the perturb stage.
                                     Try increasing to 1000000 if initial closure is failing. Default = 10000. [Integer]
     -loops:outer_cycles             Number of outer cycles for Monte Carlo (described above in Algorithm).
