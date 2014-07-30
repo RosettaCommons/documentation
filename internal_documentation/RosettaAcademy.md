@@ -89,7 +89,7 @@ Once you downloaded and compiled Rosetta, you can also check out the demos folde
 # 6. Rosetta for users/developers
 ## Python
 It is useful to know python when you want to use PyRosetta or to write scripts to prepare input files or analyze data. 
-* in-depth tutorial: http://docs.python.org/3.3/tutorial/
+* in-depth tutorial: https://docs.python.org/2.7/tutorial/
 * interactive tutorial: http://www.learnpython.org/
 	
 * cheat sheet: http://www.cogsci.rpi.edu/~destem/gamedev/python.pdf
