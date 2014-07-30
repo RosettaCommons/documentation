@@ -60,11 +60,8 @@ There is a decent documentation available: https://www.rosettacommons.org/manual
 The main RosettaCommons page is https://www.rosettacommons.org/. There is a Forum available on this page where you can post questions or look for answers for your specific problem (https://www.rosettacommons.org/forum).
 
 
-# 4. TODO: Course material
-* Stanford lecture
-* Ora's/Orly's lectures
-* Brian Kuhlman's course
-* Jeff's lecture
+# 4. Course material
+There is course material available from several labs who gave lectures about Rosetta. The material can be found on github under teaching resources: https://github.com/RosettaCommons/teaching_resources
 
 
 # 5. Rosetta for users
