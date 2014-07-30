@@ -62,5 +62,5 @@ The **selector_scorefunction** and **selector_kbt** tags are optional, and are o
 		<Reweight scoretype=atom_pair_constraint weight=1.0 />
 		<Reweight scoretype=angle_constraint weight=1.0 />
 		<Reweight scoretype=dihedral_constraint weight=1.0 />
-	</bb_hbond_tors>
+	</bb_hbond_tors_fadun_cst>
 ```
