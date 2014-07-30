@@ -48,7 +48,8 @@ comment tags will be stripped from the documentation prior to being provided as 
 - [[SetTorsion]] -- updated with new functionality; documentation needs to be written
 - [[GeneralizedKIC]] -- documentation incomplete
      - [[GeneralizedKICperturber]] -- documentation incomplete
-     - [[GeneralizedKICselector]] -- documentation incomplete
+     - [[GeneralizedKICfilter]] -- documentation incomplete
+     - [[GeneralizedKICselector]]
 
 ## Pilot Apps + Code Documentation
 
