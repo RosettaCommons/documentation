@@ -48,9 +48,7 @@ The following command line will perform a *de novo* reconstruction of a protein 
 rosetta/main/source/bin/loopmodel.<my_os>gccrelease -database <rosetta_database> -loops:remodel perturb_kic_with_fragments
 -loops:refine refine_kic_with_fragments -in:file:s <my_starting_structure>.pdb -in:file:fullatom -loops:loop_file
 <my_loopfile>.loop -nstruct <num_desired_models> -ex1 -ex2 -overwrite -loops:frag_sizes 9 3 1 -loops:frag_files 
-<my_starting_structure>.200.9mers.gz <my_starting_structure>.200.3mers.gz none -mute protocols.looprelax.FragmentPerturber
--mute core.fragments.ConstantLengthFragSet        
-
+<my_starting_structure>.200.9mers.gz <my_starting_structure>.200.3mers.gz none -mute protocols.looprelax.FragmentPerturber     
 ```
 
 
@@ -145,6 +143,11 @@ Options
     -loops:frag_sizes                           Defines the number of residues per fragment for the following set
                                                 of fragment libraries (e.g. 9 3 1). 
     -loops:frag_files                           Paths/names of the respective fragment libraries. [Files]
+    ```
+
+-   The following option is recommended to suppress output of fragment sampling details to stdout:
+    ```
+    -mute protocols.looprelax.FragmentPerturber Mutes FragmentPerturber output of sampling details. 
     ```
 
 -   The following general Rosetta options are commonly used with KIC with fragments:
