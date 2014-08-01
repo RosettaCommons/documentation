@@ -46,10 +46,10 @@ While most of these applications focus on prediction, many have options which wi
 ###RNA
 -  [[RNA denovo]] - Predict 3-dimensional structures of RNA from their nucleotide sequence with fragment assembly of RNA with full atom refinement (FARFAR).
 -  [[RNA threading|rna-thread]] - Thread a new nucleotide sequence on an existing RNA structure.  
--  [[RNA stepwise loop enumeration|swa-rna-loop]] - Build RNA loops using deterministic stepwise assembly.
+-  [[RNA stepwise loop enumeration|swa-rna-loop]] - Build RNA loops using deterministic stepwise assembly. See also  [[Stepwise monte carlo|stepwise]].
 -  [[RNA assembly with experimental constraints|rna-assembly]] - Predict 3-dimensional structures of large RNAs with the help of experimental constraints. Note – largely deprecated by newer pipeline (documentation coming soon).
 -  [[ERRASER]] - Refine an RNA structure given electron density constraints.  
--  [[Stepwise monte carlo|stepwise]] - Generate 3D models of protein, RNA, and protein/RNA loops, motifs, and interfaces. Stochastic version of stepwise assembly. See also  [[Stepwise monte carlo|stepwise]].
+-  [[Stepwise monte carlo|stepwise]] - Generate 3D models of protein, RNA, and protein/RNA loops, motifs, and interfaces. Stochastic version of stepwise assembly. 
 
 ##Docking
 ###Protein-Protein Docking
