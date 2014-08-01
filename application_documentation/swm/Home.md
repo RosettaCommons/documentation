@@ -1,1 +1,1 @@
-Go [[swm here]].
+Go [[here|swm]].
