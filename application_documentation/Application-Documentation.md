@@ -96,7 +96,7 @@ While most of these applications focus on prediction, many have options which wi
 
 - [[RNA design]] - Optimize RNA sequence for fixed backbones.  
 
--  [[Stepwise designs|swm]] - Simultaneously optimize sequence and structure for small RNA and protein segments. Part of the stepwise application.
+-  [[Stepwise design|swm]] - Simultaneously optimize sequence and structure for small RNA and protein segments. Part of the stepwise application.
 
 - [[Hydrogen bond surrogate design|hbs-design]] - Design stabilized alpha helical binders.
 - [[OOP design]] - Design proteins with oligooxopiperazine residues.  
