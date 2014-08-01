@@ -30,6 +30,8 @@ Application purpose
 
 This code is intended to give three-dimensional de novo models of protein segments at atomic accuracy without requiring input information from surrounding sidechains. Tested in applications to loop modeling in ab initio & comparative modeling. It is being extended to refining and finding alternative configurations for troublesome protein segments in crystallography, and to create de novo models of entire proteins.
 
+**A faster & easier version of this method called stepwise monte carlo has been developed, described [[here|swm]]**
+
 Algorithm
 =========
 
