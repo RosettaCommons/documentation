@@ -15,19 +15,21 @@ For a 'minimal' demo example of the stepwise macromolecular modeling protocol, s
 
 References
 ==========
-Work is unpublished at the time of writing. StepWise Monte Carlo is stochastic implementation of stepwise enumeration, which was described in the following papers
+Work is unpublished at the time of writing this documentation. StepWise Monte Carlo substantially accelerates the concept of stepwise assembly, which was described in the following papers:
 
 Sripakdeevong, P., Kladwang, W., and Das, R. (2011) "An enumerative stepwise ansatz enables atomic-accuracy RNA loop modeling", PNAS 108:20573-20578. [for loop modeling] [Paper](http://www.stanford.edu/~rhiju/Sripakdeevong_StepwiseAnsatz_2011.pdf) [Link](http://dx.doi.org/10.1073/pnas.1106516108)
+
+Das, R. (2013) "Atomic-accuracy prediction of protein loop structures enabled by an RNA-inspired ansatz", PLoS ONE 8(10): e74830. doi:10.1371/journal.pone.0074830 [Link](http://dx.doi.org/10.1371/journal.pone.0074830 .
 
 Application purpose
 ===========================================
 
-This code is intended to give three-dimensional de novo models of single-stranded RNAs or multi-stranded RNA motifs, with the prospect of reaching high (near-atomic-resolution) accuracy.
+This code is intended to give three-dimensional de novo models of RNA and protein motifs, with the prospect of reaching high (near-atomic-resolution) accuracy.
 
 Algorithm
 =========
 
-The RNA structure modeling algorithm in Rosetta is based on the assembly of short (1 to 3 nucleotide) fragments from existing RNA crystal structures whose sequences match subsequences of the target RNA. The Fragment Assembly of RNA (FARNA) algorithm is a Monte Carlo process, guided by a low-resolution knowledge-based energy function. The models can then be further refined in an all-atom potential to yield more realistic structures with cleaner hydrogen bonds and fewer clashes; the resulting energies are also better at discriminating native-like conformations from non-native conformations. The two-step protocol has been named FARFAR (Fragment Assembly of RNA with Full Atom Refinement).
+
 
 Limitations
 ===========
