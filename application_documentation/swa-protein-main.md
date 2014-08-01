@@ -19,7 +19,7 @@ For a 'minimal' demo, see:
 References
 ==========
 
-Das, R. (2013) "Atomic-accuracy prediction of protein loop structures enabled by an RNA-inspired ansatz", under review. [Preprint](http://arxiv.org/abs/1208.2680) .
+Das, R. (2013) "Atomic-accuracy prediction of protein loop structures enabled by an RNA-inspired ansatz", PLoS ONE 8(10): e74830. doi:10.1371/journal.pone.0074830 [Link](http://dx.doi.org/10.1371/journal.pone.0074830 .
 
 See also:
 
