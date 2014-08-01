@@ -7,9 +7,9 @@ Written in August 2014.
 Code and Demo
 =============
 
-The central code for the *stepwise* application is in `       src/protocols/stepwise      ` .
+The central code for the *stepwise* application is in ` src/apps/public/stepwise/stepwise.cc      src/protocols/stepwise      ` .
 
-For a 'minimal' demo example of the stepwise macromolecular modelig protocol, see:
+For a 'minimal' demo example of the stepwise macromolecular modeling protocol, see:
 
 `       rosetta_demos/public/stepwise      `
 
