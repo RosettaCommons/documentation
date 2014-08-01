@@ -1,4 +1,4 @@
-#Rna Denovo: RNA 3D structure modeling
+#swm: StepWise Monte Carlo for modeling small macromolecule puzzles (RNA, protein, and protein/RNA)
 
 Author: Rhiju Das
 
@@ -11,16 +11,11 @@ The central code for the *stepwise* application is in `       src/protocols/step
 
 For a 'minimal' demo example of the stepwise macromolecular modelig protocol, see:
 
-`       rosetta_demos/public/swm      `
+`       rosetta_demos/public/stepwise      `
 
 References
 ==========
-
-Das, R. and Baker, D. (2007), "Automated de novo prediction of native-like RNA tertiary structures", PNAS 104: 14664-14669. [for fragment assembly]. [Paper.](http://www.stanford.edu/~rhiju/Das_Baker_PNAS_2007.pdf) [Link.](http://www.pnas.org/content/104/37/14664.long)
-
-Das, R., Kudaravalli, M., et al. (2007) "Structural inference of native and partially folded RNA by high throughput contact mapping", PNAS, 4144-4149. [for modeling large RNAs with constraints]. [Paper.](http://www.stanford.edu/~rhiju/das_MOHCA08.pdf) [Link.](http://www.pnas.org/content/105/11/4144.long)
-
-Das, R., Karanicolas, J., and Baker, D. (2010), "Atomic accuracy in predicting and designing noncanonical RNA structure". Nature Methods 7:291-294. [for high resolution refinement] [Paper.](http://www.stanford.edu/~rhiju/DasKaranicolasBaker2010ALL.pdf) [Link.](http://www.nature.com/nmeth/journal/v7/n4/abs/nmeth.1433.html)
+Work is unpublished at the time of writing. StepWise Monte Carlo is a highly efficient, stochastic implementation of stepwise enumeration, described in the following papers
 
 Sripakdeevong, P., Kladwang, W., and Das, R. (2011) "An enumerative stepwise ansatz enables atomic-accuracy RNA loop modeling", PNAS 108:20573-20578. [for loop modeling] [Paper](http://www.stanford.edu/~rhiju/Sripakdeevong_StepwiseAnsatz_2011.pdf) [Link](http://dx.doi.org/10.1073/pnas.1106516108)
 
