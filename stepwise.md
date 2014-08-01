@@ -1,4 +1,4 @@
-#swm: StepWise Monte Carlo for modeling small macromolecule puzzles (RNA, protein, and protein/RNA)
+#stepewise: StepWise Monte Carlo for modeling small RNA & protein motifs
 
 Author: Rhiju Das
 
