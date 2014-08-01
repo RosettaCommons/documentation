@@ -40,8 +40,7 @@ While most of these applications focus on prediction, many have options which wi
 -  [[Kinematic loop modeling|loopmodel-kinematic]] - Sample loop conformations using the kinematic closure algorithm.
 -  [[Next-generation KIC]] - A newer version of loop modeling with kinematic closure.
 -  [[KIC with fragments|KIC_with_fragments]] - The latest version of loop modeling, combining kinematic closure with sampling of coupled degrees of freedom from fragments.
--  [[Stepwise assembly of protein loops|swa-protein-main]] - Generate three-dimensional de novo models of protein segments without surrounding sidechains.  
-    * [[Stepwise assembly of long loops|swa-protein-long-loop]] - For loops greater than 4-5 residues.  
+-  [[Stepwise assembly of protein loops|swa-protein-main]] - Generate three-dimensional de novo models of protein segments     * [[Stepwise assembly of long loops|swa-protein-long-loop]] - For loops greater than 4-5 residues.  
 -  [[Stepwise monte carlo|swm]] - Generate 3D models of protein, RNA, and protein/RNA loops, motifs, and interfaces. Stochastic version of stepwise assembly. 
 
 ###RNA
@@ -96,6 +95,8 @@ While most of these applications focus on prediction, many have options which wi
 - [[Rosetta DNA]] (RosettaDNA) - Design and modle protein interactions to DNA.  
 
 - [[RNA design]] - Optimize RNA sequence for fixed backbones.  
+
+-  [[Stepwise designs|swm]] - Simultaneously optimize sequence and structure for small RNA and protein segments. Part of the stepwise application.
 
 - [[Hydrogen bond surrogate design|hbs-design]] - Design stabilized alpha helical binders.
 - [[OOP design]] - Design proteins with oligooxopiperazine residues.  
