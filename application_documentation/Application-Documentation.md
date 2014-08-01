@@ -40,8 +40,8 @@ While most of these applications focus on prediction, many have options which wi
 -  [[Kinematic loop modeling|loopmodel-kinematic]] - Sample loop conformations using the kinematic closure algorithm.
 -  [[Next-generation KIC]] - A newer version of loop modeling with kinematic closure.
 -  [[KIC with fragments|KIC_with_fragments]] - The latest version of loop modeling, combining kinematic closure with sampling of coupled degrees of freedom from fragments.
--  [[Stepwise assembly of protein loops|swa-protein-main]] - Generate three-dimensional de novo models of protein segments     * [[Stepwise assembly of long loops|swa-protein-long-loop]] - For loops greater than 4-5 residues.  
--  [[Stepwise monte carlo|swm]] - Generate 3D models of protein, RNA, and protein/RNA loops, motifs, and interfaces. Stochastic version of stepwise assembly. 
+-  [[Stepwise assembly of protein loops|swa-protein-main]] - Generate three-dimensional de novo models of protein segments     * [[Stepwise assembly of long loops|swa-protein-long-loop]] - For loops greater than 4-5 residues. See also  [[Stepwise monte carlo|stepwise]].
+-  [[Stepwise monte carlo|stepwise]] - Generate 3D models of protein, RNA, and protein/RNA loops, motifs, and interfaces. Stochastic version of stepwise assembly. 
 
 ###RNA
 -  [[RNA denovo]] - Predict 3-dimensional structures of RNA from their nucleotide sequence with fragment assembly of RNA with full atom refinement (FARFAR).
@@ -49,7 +49,7 @@ While most of these applications focus on prediction, many have options which wi
 -  [[RNA stepwise loop enumeration|swa-rna-loop]] - Build RNA loops using deterministic stepwise assembly.
 -  [[RNA assembly with experimental constraints|rna-assembly]] - Predict 3-dimensional structures of large RNAs with the help of experimental constraints. Note – largely deprecated by newer pipeline (documentation coming soon).
 -  [[ERRASER]] - Refine an RNA structure given electron density constraints.  
--  [[Stepwise monte carlo|swm]] - Generate 3D models of protein, RNA, and protein/RNA loops, motifs, and interfaces. Stochastic version of stepwise assembly. 
+-  [[Stepwise monte carlo|stepwise]] - Generate 3D models of protein, RNA, and protein/RNA loops, motifs, and interfaces. Stochastic version of stepwise assembly. See also  [[Stepwise monte carlo|stepwise]].
 
 ##Docking
 ###Protein-Protein Docking
@@ -96,7 +96,7 @@ While most of these applications focus on prediction, many have options which wi
 
 - [[RNA design]] - Optimize RNA sequence for fixed backbones.  
 
--  [[Stepwise design|swm]] - Simultaneously optimize sequence and structure for small RNA and protein segments. Part of the stepwise application.
+-  [[Stepwise design|stepwise]] - Simultaneously optimize sequence and structure for small RNA and protein segments. Part of the stepwise application.
 
 - [[Hydrogen bond surrogate design|hbs-design]] - Design stabilized alpha helical binders.
 - [[OOP design]] - Design proteins with oligooxopiperazine residues.  
