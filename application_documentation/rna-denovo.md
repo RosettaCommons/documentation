@@ -1,8 +1,5 @@
 #Rna Denovo: RNA 3D structure modeling
 
-Metadata
-========
-
 Author: Rhiju Das
 
 Written in 2008. Last update: Nov. 2011 by Rhiju Das (rhiju [at] stanford.edu).
