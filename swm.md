@@ -15,7 +15,7 @@ For a 'minimal' demo example of the stepwise macromolecular modeling protocol, s
 
 References
 ==========
-Work is unpublished at the time of writing. StepWise Monte Carlo is a highly efficient, stochastic implementation of stepwise enumeration, described in the following papers
+Work is unpublished at the time of writing. StepWise Monte Carlo is stochastic implementation of stepwise enumeration, which was described in the following papers
 
 Sripakdeevong, P., Kladwang, W., and Das, R. (2011) "An enumerative stepwise ansatz enables atomic-accuracy RNA loop modeling", PNAS 108:20573-20578. [for loop modeling] [Paper](http://www.stanford.edu/~rhiju/Sripakdeevong_StepwiseAnsatz_2011.pdf) [Link](http://dx.doi.org/10.1073/pnas.1106516108)
 
