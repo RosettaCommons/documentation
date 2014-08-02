@@ -13,6 +13,8 @@ For a 'minimal' demo example of the stepwise macromolecular modeling protocol, s
 
 `       rosetta_demos/public/stepwise      `
 
+[![tetraloop animation on Youtube](http://img.youtube.com/vi/muTAOdPXkps/0.jpg)](http://www.youtube.com/watch?v=muTAOdPXkps)
+
 References
 ==========
 Work is unpublished at the time of writing this documentation. StepWise Monte Carlo substantially accelerates the concept of stepwise assembly, which was described in the following papers:
