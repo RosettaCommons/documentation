@@ -13,7 +13,8 @@ For a 'minimal' demo example of the stepwise macromolecular modeling protocol, s
 
 `       rosetta_demos/public/stepwise      `
 
-[![tetraloop animation on Youtube](http://img.youtube.com/vi/muTAOdPXkps/0.jpg)](http://www.youtube.com/watch?v=muTAOdPXkps)
+[![GCAA tetraloop animation on Youtube](http://img.youtube.com/vi/muTAOdPXkps/0.jpg)](http://www.youtube.com/watch?v=muTAOdPXkps)
+[![tetraloop design animation on Youtube](http://img.youtube.com/vi/5egRg78UR8Q/0.jpg)](http://www.youtube.com/watch?v=5egRg78UR8Q)
 
 References
 ==========
