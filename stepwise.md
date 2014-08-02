@@ -23,6 +23,8 @@ Sripakdeevong, P., Kladwang, W., and Das, R. (2011) "An enumerative stepwise ans
 
 Das, R. (2013) "Atomic-accuracy prediction of protein loop structures enabled by an RNA-inspired ansatz", PLoS ONE 8(10): e74830. doi:10.1371/journal.pone.0074830 [Link](http://dx.doi.org/10.1371/journal.pone.0074830).
 
+(A benchmark of this newer stochastic stepwise monte carlo framework is underway.)
+
 Application purpose
 ===========================================
 
