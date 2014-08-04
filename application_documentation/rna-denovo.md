@@ -100,7 +100,7 @@ rna_denovo.<exe> -fasta chunk002_1lnt_.fasta -native chunk002_1lnt_RNA.pdb -para
 -out::file::silent chunk002_1lnt.out -cycles 1000 -minimize_rna -database <path to database>
 ```
 
-This command line also includes the "native" pdb, and will result in heavy-atom rmsd scores being calculated. Note again that the native pdb should have residues marked rA, rC, rG, and rU (see notes on PDB [[Format|loops-file#format]] below). The code again takes about 1 minute to generate two models. Finally, there are some notes on forcing other kinds of pairs below [ [Can I specify non-Watson-Crick pairs?](#Can-I-specify-non-Watson-Crick-pairs?) ].
+This command line also includes the "native" pdb, and will result in heavy-atom rmsd scores being calculated. Note that in early Rosetta versions, native pdb was required to have residues marked rA, rC, rG, and rU, but this is no longer the case after 2014 (see notes on PDB [[Format|loops-file#format]] below). The code again takes about 1 minute to generate two models. Finally, there are some notes on forcing other kinds of pairs below [ [Can I specify non-Watson-Crick pairs?](#Can-I-specify-non-Watson-Crick-pairs?) ].
 
 Use Of Alternative Fragment Sources
 -----------------------------------
@@ -161,10 +161,10 @@ Tips
 File Format
 ------
 
-Input and output PDB models have residues marked rA, rC, rG, and rU, due to historical reasons. If you have a "standard" PDB file, there is a python script available to convert it to Rosetta format:
+Note that in older versions of Rosetta, the PDBs may have residue types marked as rA, rC, rG, and rU and unusual atom names. Versions of Rosetta released after 3.5 have residue and atom names matching BMRB/NDB standard nomenclature. If you have a "standard" PDB file, there is a python script available to convert it to current Rosetta format:
 
 ```
-tools/rna/make_rna_rosetta_ready.py <pdb file>
+tools/rna_tools/make_rna_rosetta_ready.py <pdb file>
 ```
 
 Can I specify non-Watson-Crick pairs?
