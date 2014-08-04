@@ -38,7 +38,9 @@ Das, R. (2013) "Atomic-accuracy prediction of protein loop structures enabled by
 Application purpose
 ===========================================
 
-The stepwise monte carlo code is intended to give three-dimensional de novo models of RNA and protein motifs, with the prospect of reaching high (near-atomic-resolution) accuracy. The code has been written in a highly modular and easy-to-run fashion so as to allow its testing to new problems by Rosetta developers, including non-natural backbones, cyclic peptides/nucleotides, disulfide-bonded proteins, and ligand docking.
+The stepwise monte carlo code is intended to give three-dimensional de novo models of RNA and protein motifs, with the prospect of reaching high accuracy. It differs from fragment assembly approaches in not relying on the database of known structures, and therefore is appropriate for problems that need to be modeled 'ab initio'. 
+
+Stepwise monte carlo is slower than fragment-based approaches, but appears comparable in speed to KIC-based loop modeling, and is much faster and easier to run than the original stepwise enumeration methods. The code has been written in a modular fashion so as to allow its testing to new problems by Rosetta developers, including non-natural backbones, cyclic peptides/nucleotides, disulfide-bonded proteins, and ligand docking.
 
 
 Algorithm
