@@ -10,7 +10,11 @@ Written in August 2014.
 Code and Demo
 =============
 
-A useful detailed description of the basis and conceptual framework is available in a 20-minute [presentation in keynote format](https://dl.dropboxusercontent.com/u/21569020/Das_SWM_RosettaDevMeetingTalk2014_keynote_format.zip). (This will go up on YouTube when Apple fixes the bug for movie export in the Keynote software.)
+A useful 20-minutes description of the basis and conceptual framework is available here:
+
+[![GCAA tetraloop animation on Youtube](http://img.youtube.com/vi/WtbTh9rFznY/0.jpg)](http://www.youtube.com/watch?v=WtbTh9rFznY)
+
+Slides are also available in keynote format [here](https://dl.dropboxusercontent.com/u/21569020/Das_SWM_RosettaDevMeetingTalk2014_keynote_format.zip). 
 
 The central code for the *stepwise* application is in ` src/apps/public/stepwise/stepwise.cc   ` with all important classes in `   src/protocols/stepwise      ` .
 
