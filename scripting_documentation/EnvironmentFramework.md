@@ -357,7 +357,7 @@ Then, put your mover inside a ScriptCM with the appropriate client Mover and Cla
 
 Would create cause a mover "my_mover" whose apply applies your special mover (as created by its own parse_my_tag) with a MoveMap with all the available (i.e. not made unavailable by an EXCLUSIVE Claim) torsion angles in the ResidueSelector "ChainA" set to true.
 
-## Obligate ClaimingMovers, dynamic claiming patterns, and unusual result management schemes
+## Developing New ClaimingMovers
 
 If your mover meets one of the following criteria, you might consider writing a special ClaimingMover just for your class, because it might not fit neatly in the ScriptCM/MoveMapMover pattern.
 
