@@ -53,7 +53,7 @@ Limitations
 
 -   This method is not guaranteed to give an exhaustive search of a physically realistic subspace of RNA/protein conformations, which was a nice feature of the original stepwise assembly work. Instead, like nearly all Rosetta protocols (KIC modeling, etc.) the sampling can return different solutions starting from different starting seeds, and you should check for convergence from independent runs.
 
--  The method is acutely sensitive to the assumed energy function, unlike other Rosetta protocols that either transit through low-resolution ('centroid') stages or make use of database fragments. 
+-  The method is acutely sensitive to the assumed energy function. This is in contrast to other Rosetta protocols that either transit through low-resolution ('centroid') stages or make use of database fragments; both strategies 'regularize' the search but preclude solution of problems in which low-resolution energy functions are not trustworthy or the fragment database is too sparse. 
 
 -  The method is intended to obey detailed balance, albeit on a perturbed energy landscape where each conformation's energy is mapped to the enegy of the closest local minimum. In problems involving multiple chains that are dock/undocked or chains closed/broken, the current move implementations do not quite obey detailed balance due to incorrect move schedule and omission of a Jacobian ratio, respectively. Both issues are fixable, and will be fixed in future releases.
 
