@@ -164,7 +164,7 @@ File Format
 Note that in older versions of Rosetta, the PDBs may have residue types marked as rA, rC, rG, and rU and unusual atom names. Versions of Rosetta released after 3.5 have residue and atom names matching BMRB/NDB standard nomenclature. If you have a "standard" PDB file, there is a python script available to convert it to current Rosetta format:
 
 ```
-tools/rna_tools/make_rna_rosetta_ready.py <pdb file>
+tools/rna_tools/bin/make_rna_rosetta_ready.py <pdb file>
 ```
 
 Can I specify non-Watson-Crick pairs?
