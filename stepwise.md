@@ -122,9 +122,9 @@ If you have an internal loop motif for an RNA, e.g, two strands connecting two h
 
 If you do not know the relative rigid body orientations of the two end helices (this is the typical use case), specify those two chunks in different PDB files.
 
-stepwise -in:file:fasta rosetta_inputs/1lnt.fasta -s rosetta_inputs/gu_gc_helix.pdb  rosetta_inputs/uc_ga_helix.pdb -out:file:silent swm_rebuild.out -extra_min_res 2 15 7 10 -terminal_res 1 8 9 16 -nstruct 20  -cycles 1000  -score:rna_torsion_potential RNA11_based_new  -native rosetta_inputs/native_1lnt_RNA.pdb
+`stepwise -in:file:fasta rosetta_inputs/1lnt.fasta -s rosetta_inputs/gu_gc_helix.pdb  rosetta_inputs/uc_ga_helix.pdb -out:file:silent swm_rebuild.out -extra_min_res 2 15 7 10 -terminal_res 1 8 9 16 -nstruct 20  -cycles 1000  -score:rna_torsion_potential RNA11_based_new  -native rosetta_inputs/native_1lnt_RNA.pdb`
 
-You'll see nucleotides being added to both helix starts, and eventually merging of the two 'sides' of the problem, as in this movie:
+The starting helices in this case came from the `rna_helix` application, which is briefly described [[here|rna-helix]]. The other new flag here is `-terminal_res`, which disallows stacking on those residues (its not really necessary here but prevents some silly moves). You'll see nucleotides being added to both helix starts, and eventually merging of the two 'sides' of the problem, as in this movie:
 
 If you do have coordinates for the two end helices (this may happen in loop refinement problems, incl. RNA crystallographic refinement), specify those two chunks in the same PDB file:
 
