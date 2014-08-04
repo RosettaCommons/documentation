@@ -147,9 +147,14 @@ See following demo directory for input files & README:
 
 `       rosetta/demos/public/stepwise_monte_carlo_rna_multiloop     `
 
-Proteins, and bulds from scratch
+Protein loops
 --------------------------------
-Protein loops can be handled in a similar way to above RNA cases. [Under the hood, they are treated the same way as RNA.] For both RNA and proteins stepwise monte carlo can also build models 'from scratch' (this feature will be optimized in the future so that you won't have to build, e.g., RNA helices). An example command line is:
+Protein loops can be handled in a similar way to above RNA cases. [Under the hood, they are treated the same way as RNA.] 
+** THIS IS NOT FILLED IN YET**
+
+Mini-proteins built from scratch
+--------------------------------
+For both RNA and proteins stepwise monte carlo can also build models 'from scratch' (this feature will be optimized in the future so that you won't have to build, e.g., RNA helices). An example command line is:
 
 
 `stepwise -fasta rosetta_inputs/2jof.fasta -native rosetta_inputs/2jof.pdb -score:weights stepwise/protein/protein_res_level_energy.wts -silent swm_rebuild.out -cycles 2000 -nstruct 50`
