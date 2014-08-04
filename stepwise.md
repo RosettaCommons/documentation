@@ -55,7 +55,7 @@ Limitations
 
 -  The method is acutely sensitive to the assumed energy function. This is in contrast to other Rosetta protocols that either transit through low-resolution ('centroid') stages or make use of database fragments; both strategies 'regularize' the search but preclude solution of problems in which low-resolution energy functions are not trustworthy or the fragment database is too sparse. 
 
--  The method is intended to obey detailed balance, albeit on a perturbed energy landscape where each conformation's energy is mapped to the enegy of the closest local minimum. In problems involving multiple chains that are dock/undocked or chains closed/broken, the current move implementations do not quite obey detailed balance due to incorrect move schedule and omission of a Jacobian ratio, respectively. Both issues are fixable, and will be fixed in future releases.
+-  The method is intended to obey detailed balance, albeit on a perturbed energy landscape where each conformation's energy is mapped to the energy of the closest local minimum. In problems involving multiple chains that are dock/undocked or chains closed/broken, the current move implementations do not quite obey detailed balance due to incorrect move schedule and omission of a Jacobian ratio, respectively. Both issues are fixable, and will be fixed in future releases.
 
 Modes
 =====
@@ -70,10 +70,12 @@ Input Files
 Required file
 -------------
 
-You typically will be using input files,
+You typically will be using two input files:
 
--   The [[fasta file]] is a sequence file for all the chains in your problem. For ease of use, you can specify sequence numbering and chain IDs.
--   The [[pdb file]] or set of files provide any input starting structures for the problem. See below for notes on how PDB should be numbered.
+-   The [[fasta file]] is a sequence file for all the chains in your full modeling problem. 
+For ease of use, you can specify sequence numbering and chain IDs.
+-   The [[pdb file]] or set of files provide any input starting structures for the problem. 
+Residues in PDB files should have chain and residue numbers that represent their actual values in the full modeling problem.
 
 Optional additional files:
 --------------------------
@@ -87,7 +89,11 @@ A sample command line is the following:
 ```
 stepwise -fasta 1zih.fasta -s start_helix.pdb  -out:file:silent swm_rebuild.out
 ```
-The code takes about 3 minutes to generate one model, using 50 cycles of stepwise monte carlo. Running more cycles (up to 500) essentially guarantees the solution of this problem, even on a single laptop. Here's an animation that reaches the known experimental structure. 
+The code takes about 3 minutes to generate one model, using 50 cycles of stepwise monte carlo. Running more cycles (up to 500) essentially guarantees the solution of this problem, even on a single laptop. 
+
+Here's an animation that reaches the known experimental structure. 
+
+[![GCAA tetraloop animation on Youtube](http://img.youtube.com/vi/muTAOdPXkps/0.jpg)](http://www.youtube.com/watch?v=muTAOdPXkps)
 
 Additional useful parameters:
 
@@ -95,18 +101,15 @@ Additional useful parameters:
 
 For RNA cases, `  -score:rna_torsion_potential RNA11_based_new -chemical::enlarge_H_lj  ` are currently in use to test an updated RNA torsional potential and to help prevent overcompression of RNA helices. These may be turned on by default at the time of publication of the method, after completion of benchmarking.
 
-[![GCAA tetraloop animation on Youtube](http://img.youtube.com/vi/muTAOdPXkps/0.jpg)](http://www.youtube.com/watch?v=muTAOdPXkps)
-
-
 Design
 ---------------------------
 Design is accomplished simply by specifying n ('unknown nucleotide') in the fasta file instead of a specific sequence at any positions that should be varied.
 
 ```
-stepwise -fasta NNNN.fasta -s start_helix.pdb  -out:file:silent swm_design.out  -cyces 500 -extra_min_res 4 9
+stepwise -fasta NNNN.fasta -s start_helix.pdb  -out:file:silent swm_design.out  -cycles 500 -extra_min_res 4 9
 ```
 
-Note the specification of additional cycles (500 instead of 50). This is necessary to ensure closed, conergent solutions, as the search conformation space is larger in design cases than pure structure predictionc ases.
+Note the specification of additional cycles (500 instead of 50). This is necessary to ensure closed, convergent solutions, as the search conformation space is larger in design cases than pure structure prediction cases.
 
 [![tetraloop design animation on Youtube](http://img.youtube.com/vi/5egRg78UR8Q/0.jpg)](http://www.youtube.com/watch?v=5egRg78UR8Q)
 
