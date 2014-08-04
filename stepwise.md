@@ -143,9 +143,19 @@ See following demo directory for input files & README:
 
 `       rosetta/demos/public/stepwise_monte_carlo_rna_multiloop     `
 
-Proteins
+Proteins, and bulds from scratch
 --------------------------------
+Protein loops can be handled in a similar way to above RNA cases. [Under the hood, they are treated the same way as RNA.] For both RNA and proteins stepwise monte carlo can also build models 'from scratch' (this feature will be optimized in the future so that you won't have to build, e.g., RNA helices). An example command line is:
 
+
+`stepwise -fasta rosetta_inputs/2jof.fasta -native rosetta_inputs/2jof.pdb -score:weights stepwise/protein/protein_res_level_energy.wts -silent swm_rebuild.out -cycles 2000 -nstruct 50`
+
+Here's a movie:
+[![Trp cage (2jof) animation on Youtube](http://img.youtube.com/vi/MRYZjEoVs5Q/0.jpg)](http://www.youtube.com/watch?v=MRYZjEoVs5Q)
+
+Most of the simulation may be spent flickering bits of secondary structure -- in the future, we will probably setup some precomputation of these bits so that computation can be focused on build up of the complete mini-protein structure.
+
+One interesting thing to note is that the packing of protein side-chains in stepwise monte carlo uses the new `allow_virtual_side_chains` setting and a score term `free_side_chain` that gives a bonus to residues for being virtualized (equal to 0.5 kcal times the number of side-chain torsions). This means that the side-chains only get instantiated if they can pack or form hydrogen bonds, and the results is a rather smoother conformational search.
 
 
 Options
