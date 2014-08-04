@@ -2,7 +2,7 @@
 
 Author: Rhiju Das
 
-Written in 2008. Last update: Nov. 2011 by Rhiju Das (rhiju [at] stanford.edu).
+Written in 2008. Last updates: Nov. 2011 and Aug. 2014 by Rhiju Das (rhiju [at] stanford.edu).
 
 Code and Demo
 =============
