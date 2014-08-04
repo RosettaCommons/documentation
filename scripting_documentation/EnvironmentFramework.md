@@ -308,11 +308,12 @@ This example docks three chains (A, B, and C) to one another using a "star" Fold
 
 Making a brokered Environment in your C++ code is as easy as
 
-1. Making an environment
-2. Registering your ClaimingMovers with the environment
-3. Saying "go."
+1. **Make an Environment**. There are a couple of options to set in the constructor (*e.g.* should the Environment look at the old FoldTree to resolve FoldTree cycles), but in most cases all you need to do is give it a name.
+2. **Register your ClaimingMovers** with the environment. This lets the Broker know that it needs to ask this mover for claims during broking.
+3. **Apply your movers.** Environment::start returns a pose which has a ProtectedConformation built in. This is the Pose with the consensus FoldTree and all the DoF protections attached. Apply your protocol to this object.
+4. **Close your environment.** Once you've executed your protocol (or want to move on to the next stage, either run by a different broker or not brokered), you need to clean up. Environment::end does this.
 
-For example:
+For a protocol with only one ClaimingMover (called MyClaimingMover), it might look like this.
 
 ```
   protocols::environment::Environment env( "env" );
@@ -322,9 +323,7 @@ For example:
 
   core::pose::Pose prot_pose = prot_pose = env.start( pose );
 
-...
   my_mover->apply( prot_pose );
-...
 
   core::pose::Pose final_pose = env.end( prot_pose );
 ```
