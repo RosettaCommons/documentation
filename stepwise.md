@@ -164,7 +164,7 @@ One interesting thing to note is that the packing of protein side-chains in step
 
 Options
 =======
-
+** THIS IS NOT UPDATED YET**
 ```
 Required:
 -in:database                                     Path to rosetta databases. [PathVector]
@@ -204,11 +204,15 @@ What if all the residues are not rebuilt?
 ------------------------
 If the runs are returning many incomplete and different solutions, increase the number of cycles. If the run returns the same solution over and over again with say, a missing U, stepwise monte carlo is telling you that it thinks that the entropic cost of structuring that nucleotide is not compensated by packing/hydrogen-bonding interactions in any available structural solutions. There are ways to force that bulge to get built (see below) through post-processing.
 
+
+Running specific moves
+-------------
+It is possible to run single specified moves given a starting structure, specified through `-move`. This is useful to 'unit test' specific moves, and also serves as a connection to the original stepwise enumeration. In particular, these moves are equivalent to the basic moves in the original stepwise assembly executables (swa_rna_main and swa_protein_main), but can have stochastic sampling of nucleotide/amino-acid conformations to minimize. Furthermore, use of the `-enumerate` flag recovers the original enumerative behavior. Example in ` tests/integration/tests/swm_rna_move_two_strands `. 
+
 What do the scores mean?
 ------------------------
-
-The score terms are similar to those in the standard Rosetta energy functions for protein or RNA (which themselves may be unified soon). For completenes, some additional terms relevant for stepwise applications are described here.
-
+The score terms are similar to those in the standard Rosetta energy functions for protein or RNA (which themselves may be unified soon). For completeness, some additional terms relevant for stepwise applications are described here.
+** THIS IS NOT UPDATED YET**
 ```
 ***Energy interpreter for fullatom silent output:
 score                                            Final total score
@@ -232,11 +236,6 @@ missing                                          number of residues not yet buil
 rms                                              all-heavy-atom RMSD to the native structure of built residues.
 ```
 
-Running specific moves
--------------
-It is possible to run single specified moves given a starting structure, specified through `-move`. This is useful to 'unit test' specific moves, and also serves as a connection to the original stepwise enumeration. In particular, these moves are equivalent to the basic moves in the original stepwise assembly executables (swa_rna_main and swa_protein_main), but can have stochastic sampling of nucleotide/amino-acid conformations to minimize. Furthermore, use of the `-enumerate` flag recovers the original enumerative behavior. Example in ` tests/integration/tests/swm_rna_move_two_strands `. 
-
-
 Expected Outputs
 ================
 
@@ -258,5 +257,3 @@ New things since last release
 =============================
 This is a new executable as of 2014.
 
-
-Added applications rna\_minimize, rna\_helix, rna\_cluster. Updated torsional potential to be smooth.
