@@ -10,7 +10,7 @@ This document updates documentation written in 2008 by Rhiju Das (rhiju [at] sta
 Code and Demo
 =============
 
-The central code for the *rna\_design* application is in `       apps/public/rna/rna_design.cc      ` with core routines run through the amazing Rosetta packer.
+The central code for the *rna\_design* application is in `       apps/public/rna/rna_design.cc      ` with core routines run through the Rosetta packer.
 
 For a 'minimal' demo example of RNA design:
 
@@ -38,6 +38,7 @@ Limitations
 
 -   This method does not currently include any optimization of the backbone positions.
 -   This method does not yet support the design of a subset of nucleotide positions.
+-   For a preview of how to do both effectively, check out the new [[stepwise|stepwise]] framework.
 
 Input Files
 ===========
@@ -60,7 +61,6 @@ Options
 =======
 
 ```
--database                                        Path to Rosetta databases. [PathVector]
 -in:file:s                                       Name(s) of single PDB file(s) to process. [FileVector]
 -nstruct                                         Number of times to process each input PDB. [Integer]
 -ex1:level <n>                                   Use extra chi1 sub-rotamers for all residues that pass
@@ -75,6 +75,7 @@ Options
 -score:weights farna/rna_hires.wts               Name of weights file, default is standard. [String]
 -sample_chi                                      Sample chi (glycosidic torsion angle).
 -disable_o2star_rotamers                         Turn off sampling of 2'-OH proton position.
+-database                                        (Optional) Path to rosetta databases. Default is based on location of rosetta executables. [PathVector]
 ```
 
 Tips
