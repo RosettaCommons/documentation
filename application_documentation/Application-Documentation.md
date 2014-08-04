@@ -26,8 +26,8 @@ While most of these applications focus on prediction, many have options which wi
     * [[Membrane abinitio]] - Ab initio for membrane proteins.  
     * [[Metalloprotein ab initio|metalloprotein-abrelax]] - Ab inito modeling of metalloproteins.  
 - [[Comparative modeling|minirosetta-comparative-modeling]] - Build structural models of proteins using one or more known structures as templates for modeling.  
-- [[Fold-and-dock]] - Predict 3-dimensional structures of symetric homooligomers.  
-- [ RNA ](#RNA) - see below for apps, including FARFAR & ERRASER.
+- [[Fold-and-dock]] - Predict 3-dimensional structures of symmetric homooligomers.  
+- [ RNA ](#RNA) - see below for apps, including FARFAR & ERRASER (crystallographic refinement).
 - [[Molecular replacement protocols|mr-protocols]] - Use Rosetta to build models for use in X-ray crystrallography molecular replacement.  
     * [[Prepare template for MR]] - Setup script for molecular replacement protocols.  
 - [[Relax]] - "Locally" optimize structures, including assigning sidechain positions.  
