@@ -31,4 +31,4 @@ KGYTLNIKFAAAAAVTIKANLIFANGSTQTAEFKGTFEKATSEAYAYADTLKKD
 NGEYTVDVADKGYTLNIKFA
 ```
 
-Some applications, including [stepwise|stepwise], take several chains as input, and allow chain and residues to be specified in tags like `C:10-121` in the FASTA headers.
+Some applications, including [[stepwise|stepwise]], take several chains as input, and allow chain and residues to be specified in tags like `C:10-121` in the FASTA headers.
