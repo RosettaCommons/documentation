@@ -10,7 +10,7 @@ Written in August 2014.
 Code and Demo
 =============
 
-A useful 20-minutes description of the basis and conceptual framework is available here:
+A useful 20-minute description of the basis and conceptual framework is available here:
 
 [![GCAA tetraloop animation on Youtube](http://img.youtube.com/vi/WtbTh9rFznY/0.jpg)](http://www.youtube.com/watch?v=WtbTh9rFznY)
 
