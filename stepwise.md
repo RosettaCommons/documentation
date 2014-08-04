@@ -18,7 +18,7 @@ For 'minimal' demo examples, including input files, of the stepwise macromolecul
 
 `       rosetta/demos/public/stepwise_monte_carlo_rna     `
 
-`        rosetta/demos/public/stepwise_monte_carlo_multi_loop_rna    `  
+`        rosetta/demos/public/stepwise_monte_carlo_rna_multiloop    `  
 
 `        rosetta/demos/public/stepwise_monte_carlo_protein     `
 
@@ -118,10 +118,14 @@ Note the specification of additional cycles (500 instead of 50). This is necessa
 
 Multiple loops
 ---------------------------
-If you have an internal loop motif for an RNA, e.g, two strands connecting two helices,  there are two ways to setup the problem. If you know the relative rigid body orientations of the two end helices, specify those two chunks in the same PDB file:
+If you have an internal loop motif for an RNA, e.g, two strands connecting two helices,  there are two ways to setup the problem. 
 
-If you do not know the relative rigid body orientations of the two end helices, specify those two chunks in different PDB files.
+If you do not know the relative rigid body orientations of the two end helices (this is the typical use case), specify those two chunks in different PDB files.
 
+stepwise -in:file:fasta rosetta_inputs/1lnt.fasta -s rosetta_inputs/gu_gc_helix.pdb  rosetta_inputs/uc_ga_helix.pdb -out:file:silent swm_rebuild.out -extra_min_res 2 15 7 10 -terminal_res 1 8 9 16 -nstruct 20  -cycles 1000  -score:rna_torsion_potential RNA11_based_new  -native rosetta_inputs/native_1lnt_RNA.pdb
+
+
+If you know the relative rigid body orientations of the two end helices, specify those two chunks in the same PDB file:
 
 
 
