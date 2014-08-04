@@ -75,7 +75,7 @@ A sample command line is the following:
 
 ```
 rna_denovo.<exe> -fasta chunk002_1lnt_.fasta -nstruct 2 -out::file::silent test.out -cycles 1000
--minimize_rna -database <path to database>
+-minimize_rna 
 ```
 
 The code takes about 1 minute to generate two models.
@@ -97,7 +97,7 @@ and then run:
 
 ```
 rna_denovo.<exe> -fasta chunk002_1lnt_.fasta -native chunk002_1lnt_RNA.pdb -params_file chunk002_1lnt_.prm -nstruct 2
--out::file::silent chunk002_1lnt.out -cycles 1000 -minimize_rna -database <path to database>
+-out::file::silent chunk002_1lnt.out -cycles 1000 -minimize_rna 
 ```
 
 This command line also includes the "native" pdb, and will result in heavy-atom rmsd scores being calculated. Note that in early Rosetta versions, native pdb was required to have residues marked rA, rC, rG, and rU, but this is no longer the case after 2014 (see notes on PDB [[Format|loops-file#format]] below). The code again takes about 1 minute to generate two models. Finally, there are some notes on forcing other kinds of pairs below [ [Can I specify non-Watson-Crick pairs?](#Can-I-specify-non-Watson-Crick-pairs?) ].
@@ -109,7 +109,6 @@ By default the RNA fragment assembly makes use of bond torsions derived from the
 
 ```
 rna_database.<exe>  -vall_torsions -s my_new_RNA1.pdb my_new_RNA2.pdb -o my_new_set.torsions
--database <path to database>
 ```
 
 The resulting file is just a text file with the RNA's torsion angles listed for each residue. Then, when creating models, use the following flag with the rna\_denovo application:
@@ -125,7 +124,6 @@ Options
 
 ```
 Required:
--in:database                                     Path to rosetta databases. [PathVector]
 -in:fasta                                        Fasta-formatted sequence file. [FileVector]
 
 Commonly used:
@@ -153,6 +151,7 @@ Advanced [used in rna_assembly]
 -in:file:silent                                  List of input files (in 'silent' format) that specify potential template structures or 'chunks'
 -chunk_res                                       Positions at which 'chunks' are applied. If there is more than one chunk file, specify indices for
                                                    the first file and then the second file, etc.
+-in:database                                     Path to rosetta databases. Default is based on location of rosetta executables. [PathVector]
 ```
 
 Tips
