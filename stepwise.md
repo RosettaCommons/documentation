@@ -14,7 +14,9 @@ The central code for the *stepwise* application is in ` src/apps/public/stepwise
 For 'minimal' demo examples, including input files, of the stepwise macromolecular modeling protocol, see:
 
 `       rosetta/demos/public/stepwise_monte_carlo_rna     `
+
 `        rosetta/demos/public/stepwise_monte_carlo_multi_loop_rna    `  
+
 `        rosetta/demos/public/stepwise_monte_carlo_protein     `
 
 Links to movies below illustrate these demos.
