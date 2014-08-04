@@ -1,4 +1,4 @@
-#stepewise: StepWise Monte Carlo for modeling small RNA & protein motifs
+#stepwise: StepWise Monte Carlo for modeling small RNA & protein motifs
 
 Author: Rhiju Das
 
