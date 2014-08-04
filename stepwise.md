@@ -7,52 +7,58 @@ Written in August 2014.
 Code and Demo
 =============
 
-The central code for the *stepwise* application is in ` src/apps/public/stepwise/stepwise.cc      src/protocols/stepwise      ` .
+A useful detailed description of the basis and conceptual framework is available in a 20-minute [presentation in keynote format](https://dl.dropboxusercontent.com/u/21569020/Das_SWM_RosettaDevMeetingTalk2014_keynote_format.zip). (This will go up on YouTube when Apple fixes the bug for movie export in the Keynote software.)
 
-For a 'minimal' demo example of the stepwise macromolecular modeling protocol, see:
+The central code for the *stepwise* application is in ` src/apps/public/stepwise/stepwise.cc   ` with all important classes in `   src/protocols/stepwise      ` .
 
-`       rosetta_demos/public/stepwise      `
+For 'minimal' demo examples, including input files, of the stepwise macromolecular modeling protocol, see:
 
-[![GCAA tetraloop animation on Youtube](http://img.youtube.com/vi/muTAOdPXkps/0.jpg)](http://www.youtube.com/watch?v=muTAOdPXkps)
-[![tetraloop design animation on Youtube](http://img.youtube.com/vi/5egRg78UR8Q/0.jpg)](http://www.youtube.com/watch?v=5egRg78UR8Q)
+`       rosetta/demos/public/stepwise_monte_carlo_rna     `
+`        rosetta/demos/public/stepwise_monte_carlo_multi_loop_rna    `  
+`        rosetta/demos/public/stepwise_monte_carlo_protein     `
+
+Links to movies below illustrate these demos.
+
+Additional useful command-lines are available as integration tests in directories with names like
+
+`       rosetta/main/tests/integration/tests/swm_*     `
+
 
 References
 ==========
-Work is unpublished at the time of writing this documentation. StepWise Monte Carlo substantially accelerates the concept of stepwise assembly, which was described in the following papers:
+Stepwise monte carlo is unpublished at the time of writing -- this documentation is intended to allow developers to test and expand the protocol while the Das lab is completing final benchmarks for RNA motifs. However, the method is an expansion of stepwise assembly, which has been described in previous references:
 
 Sripakdeevong, P., Kladwang, W., and Das, R. (2011) "An enumerative stepwise ansatz enables atomic-accuracy RNA loop modeling", PNAS 108:20573-20578. [for loop modeling] [Paper](http://www.stanford.edu/~rhiju/Sripakdeevong_StepwiseAnsatz_2011.pdf) [Link](http://dx.doi.org/10.1073/pnas.1106516108)
 
 Das, R. (2013) "Atomic-accuracy prediction of protein loop structures enabled by an RNA-inspired ansatz", PLoS ONE 8(10): e74830. doi:10.1371/journal.pone.0074830 [Link](http://dx.doi.org/10.1371/journal.pone.0074830).
 
-(A benchmark of this newer stochastic stepwise monte carlo framework is underway.)
 
 Application purpose
 ===========================================
 
-This code is intended to give three-dimensional de novo models of RNA and protein motifs, with the prospect of reaching high (near-atomic-resolution) accuracy.
+The stepwise monte carlo code is intended to give three-dimensional de novo models of RNA and protein motifs, with the prospect of reaching high (near-atomic-resolution) accuracy. The code has been written in a highly modular and easy-to-run fashion so as to allow its testing to new problems by Rosetta developers, including non-natural backbones, cyclic peptides/nucleotides, disulfide-bonded proteins, and ligand docking.
+
 
 Algorithm
 =========
 
-
+This monte carlo minimization method builds up models by moves that involve sampling and minimization of single residues, what we've previously termed a 'stepwise ansatz'. Unlike other modes of Rosetta, moves include the deletion and addition of single residues. Because these moves are concentrated at termini, they are accepted frequently and allow deep optimization of an all-atom energy function.  For some problems, poses can also be split and merged, and separate chains can be docked or undocked. This same stepwise framework and application also reimplements enumerative sampling, following a recursion relation described previously (the 'stepwise assembly' method); in future releases, the older code will be removed.
 
 Limitations
 ===========
 
--   This method has been demonstrated to reach atomic accuracy for small motifs (12 residues or less) – the current bottleneck for larger RNAs is the difficulty of complete conformational sampling (as in other applications in Rosetta to, e.g., protein de novo modeling). On-going work attempts to resolve this issue, but requires great computational expense (see Sripakdeevong et al. paper above).
+-   This method is not guaranteed to give an exhaustive search of a physically realistic subspace of RNA/protein conformations, which was a nice feature of the original stepwise assembly work. Instead, like nearly all Rosetta protocols (KIC modeling, etc.) the sampling can return different solutions starting from different starting seeds, and you should check for convergence from independent runs.
 
--   For larger RNAs, it appears most efficient to just carry out fragment assembly without refinement, specifying secondary structure (as described below). Although atomic accuracy is unlikely, models acccurate at nucleotide or helix resolution can be achieved, especially with constraints from experiments. See also: [[RNA assembly with experimental pair-wise constraints|rna-assembly]].
+-  The method is acutely sensitive to the assumed energy function, unlike other Rosetta protocols that either transit through low-resolution ('centroid') stages or make use of database fragments. 
 
--   As with most other modes in Rosetta, the final ensemble of models is not guaranteed to be a Boltzmann ensemble.
+-  The method is intended to obey detailed balance, albeit on a perturbed energy landscape where each conformation's energy is mapped to the enegy of the closest local minimum. In problems involving multiple chains that are dock/undocked or chains closed/broken, the current move implementations do not quite obey detailed balance due to incorrect move schedule and omission of a Jacobian ratio, respectively. Both issues are fixable, and will be fixed in future releases.
 
 Modes
 =====
 
--   By default, the code runs Monte Carlo fragment assembly, optimized in a knowledge-based low-resolution potential.
+-   By default, the code runs Stepwise Monte Carlo. 
 
--   It is strongly suggested that you run with "-minimize\_rna", which permits the refinement in the high-resolution Rosetta potential, and results in models with few steric clashes and 'cleaner' hydrogen bonds.
-
--   There are variations of the code that permit just scoring or just minimizing in the high resolution Rosetta potential. These are described below in Tips.
+-   It is possible to run single specified moves given a starting structure, specified through `-move`. See 'Tips' below.
 
 Input Files
 ===========
@@ -60,67 +66,59 @@ Input Files
 Required file
 -------------
 
-You need only one input file to run RNA structure modeling:
+You typically will be using input files,
 
--   The [[fasta file]]: it is a sequence file for your rna.
+-   The [[fasta file]] is a sequence file for all the chains in your problem. For ease of use, you can specify sequence numbering and chain IDs.
+-   The [[pdb file]] or set of files provide any input starting structures for the problem. See below for notes on how PDB should be numbered.
 
 Optional additional files:
 --------------------------
+-   Native pdb file, if rmsd computation is desired.
+-   Align pdb file, if one desires to keep the modeilng constrained to be close to this structure. [Note that this can be different from the native pdb file, if desired.]
 
--   A [Parameter files to specify Watson/Crick base pairs and strand boundaries](#Parameter-files-to-specify-Watson/Crick-base-pairs-and-strand-boundaries). This can specify base pairs that are held together during the run, as well as boundaries between independent chains.
--   Native pdb file, if all-heavy-atom rmsd's are desired. Must be in Rosetta's [PDB format for RNA](#File-Format).
-
-How to include these files.
+Basic use for structure prediction
 ---------------------------
-
 A sample command line is the following:
 
 ```
-rna_denovo.<exe> -fasta chunk002_1lnt_.fasta -nstruct 2 -out::file::silent test.out -cycles 1000
--minimize_rna -database <path to database>
+stepwise -fasta 1zih.fasta -s start_helix.pdb  -out:file:silent swm_rebuild.out
 ```
+The code takes about 3 minutes to generate one model, using 50 cycles of stepwise monte carlo. Running more cycles (up to 500) essentially guarantees the solution of this problem, even on a single laptop. Here's an animation that reaches the known experimental structure. 
 
-The code takes about 1 minute to generate two models.
+Additional useful parameters:
 
-The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a,c,g, and u. The example fasta file is available in `       rosetta_source/test/integration/tests/rna_denovo/      ` .
+ The flag `   -extra_min_res 4 9  ` would ask for the closing base pair of the starting helix to be minimized (but not subject to additions, deletions, or rotamer resampling) during the run. It is not obligatory, but allowing realxation of closing base pairs appears to generally improve convergence in this and other RNA cases.
 
-Parameter files to specify Watson/Crick base pairs and strand boundaries
-------------------------------------------------------------------------------------
+For RNA cases, `  -score:rna_torsion_potential RNA11_based_new -chemical::enlarge_H_lj  ` are currently in use to test an updated RNA torsional potential and to help prevent overcompression of RNA helices. These may be turned on by default at the time of publication of the method, after completion of benchmarking.
 
-RNA motifs are typically ensconced within Watson/Crick double helices, and involve several strands. [The most conserved loop of the signal recognition particle is an example, and is included here as chunk002\_1lnt\_RNA.pdb.] You can specify the bounding Watson/Crick base pairs in a "params file" with lines like the following:
+[![GCAA tetraloop animation on Youtube](http://img.youtube.com/vi/muTAOdPXkps/0.jpg)](http://www.youtube.com/watch?v=muTAOdPXkps)
 
-```
-CUTPOINT_OPEN 6    [means that one chain ends at residue 6]
-STEM PAIR 1 12 W W A    [means that residues 1 and 12 should form a base pair with their Watson-Crick edges in
-an antiparallel orientation]
-```
 
-and then run:
+Design
+---------------------------
+Design is accomplished simply by specifying n ('unknown nucleotide') in the fasta file instead of a specific sequence at any positions that should be varied.
 
 ```
-rna_denovo.<exe> -fasta chunk002_1lnt_.fasta -native chunk002_1lnt_RNA.pdb -params_file chunk002_1lnt_.prm -nstruct 2
--out::file::silent chunk002_1lnt.out -cycles 1000 -minimize_rna -database <path to database>
+stepwise -fasta NNNN.fasta -s start_helix.pdb  -out:file:silent swm_design.out  -cyces 500 -extra_min_res 4 9
 ```
 
-This command line also includes the "native" pdb, and will result in heavy-atom rmsd scores being calculated. Note again that the native pdb should have residues marked rA, rC, rG, and rU (see notes on PDB [[Format|loops-file#format]] below). The code again takes about 1 minute to generate two models. Finally, there are some notes on forcing other kinds of pairs below [ [Can I specify non-Watson-Crick pairs?](#Can-I-specify-non-Watson-Crick-pairs?) ].
+Note the specification of additional cycles (500 instead of 50). This is necessary to ensure closed, conergent solutions, as the search conformation space is larger in design cases than pure structure predictionc ases.
 
-Use Of Alternative Fragment Sources
------------------------------------
+[![tetraloop design animation on Youtube](http://img.youtube.com/vi/5egRg78UR8Q/0.jpg)](http://www.youtube.com/watch?v=5egRg78UR8Q)
 
-By default the RNA fragment assembly makes use of bond torsions derived from the large ribosome subunit crystal structure 1jj2, which have been pre-extracted in 1jj2. torsions (available in the database). If you want to use torsions drawn from a separate PDB (or set of PDBs), the following command will do the job.
+Multiple loops
+---------------------------
+If you have an internal loop motif for an RNA, e.g, two strands connecting two helices,  there are two ways to setup the problem. If you know the relative rigid body orientations of the two end helices, specify those two chunks in the same PDB file:
 
-```
-rna_database.<exe>  -vall_torsions -s my_new_RNA1.pdb my_new_RNA2.pdb -o my_new_set.torsions
--database <path to database>
-```
+If you do not know the relative rigid body orientations of the two end helices, specify those two chunks in different PDB files.
 
-The resulting file is just a text file with the RNA's torsion angles listed for each residue. Then, when creating models, use the following flag with the rna\_denovo application:
 
-```
--vall_torsions my_new_set.torsions
-```
 
-Similarly, the database of base pair geometries can be created with rna\_database -jump\_library, and then specified in the rna\_denovo application with -jump\_library\_file.
+
+Proteins
+--------------------------------
+
+
 
 Options
 =======
@@ -160,55 +158,16 @@ Advanced [used in rna_assembly]
 Tips
 ====
 
-File Format
-------
-
-Input and output PDB models have residues marked rA, rC, rG, and rU, due to historical reasons. If you have a "standard" PDB file, there is a python script available to convert it to Rosetta format:
-
-```
-tools/rna/make_rna_rosetta_ready.py <pdb file>
-```
-
-Can I specify non-Watson-Crick pairs?
--------------------------------------
-
-You can also specify base pairs that must be forced, even at the expense of creating temporary chainbreaks, in the params file, with a line like:
-
-```
-OBLIGATE PAIR 2 11 W W A
-```
-
-This also allows the specification of non-Watson-Crick base pairs. In the line above, you can change the W's to H (hoogsteen edge) or S (sugar edge); and the A to P (antiparallel to parallel). The base edges are essentially the same as those defined in the classification by Leontis & Westhof. The latter (A/P) are determined by the relative orientation of base normals. [The cis/trans classification of Leontis & Westhof would be an alternate to the A/P, but we found A/P more convenient to compute and to visually assess.] The base pairs are drawn from a library of base pairs extracted from the crystallographic model of the large ribosomal subunit 1JJ2.
-
-When specifying pairs, if there are not sufficient CUTPOINT\_OPEN's to allow all the pairs to form, the code will attempt to choose a (non-stem) RNA suite to put in a cutpoint, which can be closed during fragment assembly with the -close\_loops option. If you want to pre-specify where this cutpoint will be chosen, add a line like
-
-```
-CUTPOINT_CLOSED 6
-```
+What if all the residues are not rebuilt?
+------------------------
+If the runs are returning many incomplete and different solutions, increase the number of cycles. If the run returns the same solution over and over again with say, a missing U, stepwise monte carlo is telling you that it thinks that the entropic cost of structuring that nucleotide is not compensated by packing/hydrogen-bonding interactions in any available structural solutions. There are ways to force that bulge to get built (see below) through post-processing.
 
 What do the scores mean?
 ------------------------
 
-The most common question we get is on what the terms in the 'SCORE lines' of silent files mean. Here's a brief rundown, with more explanation in the papers cited above.
+The score terms are similar to those in the standard Rosetta energy functions for protein or RNA (which themselves may be unified soon). For completenes, some additional terms relevant for stepwise applications are described here.
 
 ```
-***Energy interpreter for low resolution silent output:
-score                                              Final total score
-rna_rg                                           Radius of gyration for RNA
-rna_vdw                                          Low resolution clash check for RNA
-rna_base_backbone                                Bases to 2'-OH, phosphates, etc.
-rna_backbone_backbone                            2'-OH to 2'-OH, phosphates, etc.
-rna_repulsive                                    Mainly phosphate-phosphate repulsion
-rna_base_pair_pairwise                           Base-base interactions (Watson-Crick and non-Watson-Crick)
-rna_base_pair                                    Base-base interactions (Watson-Crick and non-Watson-Crick)
-rna_base_axis                                    Force base normals to be parallel
-rna_base_stagger                     Force base pairs to be in same plane
-rna_base_stack                                   Stacking interactions
-rna_base_stack_axis                              Stacking interactions should involve parallel bases.
-atom_pair_constraint                             Harmonic constraints between atoms involved in Watson-Crick base
-                                                 pairs specified by the user in the params file
-rms                                              all-heavy-atom RMSD to the native structure
-
 ***Energy interpreter for fullatom silent output:
 score                                            Final total score
 fa_atr                                           Lennard-jones attractive between atoms in different residues
@@ -226,56 +185,15 @@ atom_pair_constraint                             Harmonic constraints between at
                                                  specified by the user in the params file
 angle_constraint                                 (not in use)
 
-N_WC                                             number of watson-crick base pairs
-N_NWC                                            number of non-watson-crick base pairs
-N_BS                                             number of base stacks
-
 [Following are provided if the user gives a native structure for reference]
-rms                                              all-heavy-atom RMSD to the native structure
-rms_stem                                         all-heavy-atom RMSD to helical segments in the native structure, defined by 'STEM' entries in the parameters file.
-f_natWC                                          fraction of native Watson-Crick base pairs recovered
-f_natNWC                                         fraction of native non-Watson-Crick base pairs recovered
-f_natBP                                          fraction of base pairs recovered
+missing                                          number of residues not yet built in the structure
+rms                                              all-heavy-atom RMSD to the native structure of built residues.
 ```
 
-How do I just score?
---------------------
-
-To get a score of an input PDB, you can run the 'denovo' protocol but ask there to be no fragment assembly cycles and no rounds of minimization:
-
-```
-rna_score.<exe> -database <path to database>  -s <pdb file> [<pdb file 2> ...] -out:file:silent SCORE.out  [-native <native pdb>]
-```
-
-If you want to minimize under the low resolution RNA potential (used in FARNA), add the flag '-score:weights rna\_lores.wts'. Then you can check the score in SCORE.out:
-
-```
- grep SCORE SCORE.out
-```
-
-But this is not recommended if you are trying to score a model deposited in the PDB or created by other software – see next [How do I just minimize?](#How-do-I-just-minimize?)
-
-How do I just minimize?
------------------------
-
-If you take a PDB created outside Rosetta, very small clashes may be strongly penalized by the Rosetta all-atom potential. Instead of scoring, you should probably do a short minimize, run:
-
-```
-rna_minimize.<exe> -database <path to database>  -s <pdb file> [<pdb file 2> ...] -out:file:silent MINIMIZE.out  [-native <native pdb>]
-```
-
-If you want to minimize under the low resolution RNA potential (used in FARNA), add the flag '-score:weights rna\_lores.wts'. Then check out the scores in MINIMIZE.out.
-
-```
- grep SCORE MINIMIZE.out
-```
-
-You can extract models from silent files as described in [Extraction Of Models Into PDB Format](#Extraction-Of-Models-Into-PDB-Format), but you'll also get models with the same names as your input with the suffix '\_minimize.pdb'.
-
-Other options
+Running specific moves
 -------------
+It is possible to run single specified moves given a starting structure, specified through `-move`. This is useful to 'unit test' specific moves, and also serves as a connection to the original stepwise enumeration. In particular, these moves are equivalent to the basic moves in the original stepwise assembly executables (swa_rna_main and swa_protein_main), but can have stochastic sampling of nucleotide/amino-acid conformations to minimize. Furthermore, use of the `-enumerate` flag recovers the original enumerative behavior. Example in ` tests/integration/tests/swm_rna_move_two_strands `. 
 
-Check this section: [[RNA assembly with experimental pair-wise constraints|rna-assembly]] .
 
 Expected Outputs
 ================
@@ -288,26 +206,15 @@ Post Processing
 Extraction Of Models Into PDB Format
 ------------------------------------
 
-The models from the above run are stored in compressed format in the file test.out, along with lines representing the score components. You can see the models in PDB format with the conversion command.
+The models from the above run are stored in compressed format in files like `swm_rebuild.out` You can see the models in PDB format with the conversion command.
 
 ```
-rna_extract.<exe>  -in:file:silent test.out -in:file:silent_struct_type  rna -database <path to database>
+extract_pdbs  -in:file:silent swm_rebuild.out
 ```
-
-Note that the PDBs have residue types marked as rA, rC, rG, and rU.
-
-How can I cluster models?
--------------------------
-
-There is one executable for clustering, it currently requires that all the models be in a silent file and have scores. (If you don't have such a silent file, use the rna\_score executable described in [How do I just score?](#How-do-I-just-score?) ). Here's the command line:
-
-```
- rna_cluster.<exe>   -database <path to database>    -in:file:silent <silent file with models> -out:file:silent <silent file with clustered models>   [-cluster:radius <rmsd threshold>] [-nstruct <maximum number of clusters>]
-```
-
-The way this clustering works is it simply goes through the models in order of energy, and if a model is more than the rmsd threshold than the existing clusters, it spawns a new cluster.
 
 New things since last release
 =============================
+This is a new executable as of 2014.
+
 
 Added applications rna\_minimize, rna\_helix, rna\_cluster. Updated torsional potential to be smooth.
