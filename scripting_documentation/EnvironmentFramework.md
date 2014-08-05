@@ -90,7 +90,7 @@ The CoMTrackerCM creates a virtual residue that tracks a particular set of atoms
 The AbscriptLoopCloserCM uses the WidthFirstSlidingWindowLoopCloser (used in _ab initio_ to close unphysical chainbreaks) to fix loops. An example instantiation is:
 
 ```
-<AbscriptLoopCloserCM name="closer" fragfile="frag3.dat" />
+<AbscriptLoopCloserCM name="closer" fragments="frag3.dat" />
 ```
 
 Where the fragfile option indicates a file where the fragments to be used to close the loop can be found.
@@ -101,7 +101,7 @@ The AbscriptMover is a special mover container that is used to replicate the sta
 
 ```
 <AbscriptMover name="abinitio" cycles=2 >
- <Fragments large="frag9.dat" small="frag3.dat" />
+ <Fragments large_frags="frag9.dat" small_frags="frag3.dat" />
  <Stage ids="I-IVb" >
    <Mover name=[MoverName1]/>
  </Stage>
@@ -227,7 +227,7 @@ The following example replicates an _ab initio_ run. The file "beta_sheets.top" 
 
   <AbscriptLoopCloserCM name="closer" fragfile="frag3.dat" />
 
-  <ResidueTypeSetSwitchMover name="fullatom" set="fa_standard" />
+  <SwitchResidueTypeSetMover name="fullatom" set="fa_standard" />
   <FastRelax name="relax" repeats=5 />
 </MOVERS>
 
