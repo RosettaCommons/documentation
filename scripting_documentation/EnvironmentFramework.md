@@ -232,7 +232,7 @@ The following example replicates an _ab initio_ run. The file "beta_sheets.top" 
 </MOVERS>
 
 <PROTOCOLS>
-  <Environment name="env" >
+  <Environment name="env" auto_cut=1 >
     <Apply mover="abinitio" />
     <Apply mover="closer" />
   </Environment>
@@ -297,7 +297,7 @@ This example docks three chains (A, B, and C) to one another using a "star" Fold
   <FastRelax name=relax repeats=5 />
 </MOVERS>
 <PROTOCOLS>
-  <Environment name=fold_and_dock >
+  <Environment name=fold_and_dock auto_cut=true >
     <Apply name=abintio />
   </Environment>
   <Add mover=fullatom />
