@@ -1,11 +1,26 @@
 #stepwise: StepWise Monte Carlo for modeling small RNA & protein motifs
 
-Metadata
-=============
+Application purpose
+===========================================
 
-Author: Rhiju Das
+The stepwise monte carlo code is intended to give three-dimensional de novo models of RNA and protein motifs, with the prospect of reaching high accuracy. It differs from fragment assembly approaches in not relying on the database of known structures, and therefore is appropriate for problems that need to be modeled 'ab initio'. 
 
-Written in August 2014.
+Stepwise monte carlo is slower than fragment-based approaches, but appears comparable in speed to KIC-based loop modeling, and is much faster and easier to run than the original stepwise enumeration methods. The code has been written in a modular fashion so as to allow its testing to new problems by Rosetta developers, including non-natural backbones, cyclic peptides/nucleotides, disulfide-bonded proteins, and ligand docking.
+
+
+Algorithm
+=========
+
+This monte carlo minimization method builds up models by moves that involve sampling and minimization of single residues, what we've previously termed a 'stepwise ansatz'. Unlike other modes of Rosetta, moves include the deletion and addition of single residues. Because these moves are concentrated at termini, they are accepted frequently and allow deep optimization of an all-atom energy function.  For some problems, poses can also be split and merged, and separate chains can be docked or undocked. This same stepwise framework and application also reimplements enumerative sampling, following a recursion relation described previously (the 'stepwise assembly' method); in future releases, the older code will be removed.
+
+Limitations
+===========
+
+-   This method is not guaranteed to give an exhaustive search of a physically realistic subspace of RNA/protein conformations, which was a nice feature of the original stepwise assembly work. Instead, like nearly all Rosetta protocols (KIC modeling, etc.) the sampling can return different solutions starting from different starting seeds, and you should check for convergence from independent runs.
+
+-  The method is acutely sensitive to the assumed energy function. This is in contrast to other Rosetta protocols that either transit through low-resolution ('centroid') stages or make use of database fragments; both strategies 'regularize' the search but preclude solution of problems in which low-resolution energy functions are not trustworthy or the fragment database is too sparse. 
+
+-  The method is intended to obey detailed balance, albeit on a perturbed energy landscape where each conformation's energy is mapped to the energy of the closest local minimum. In problems involving multiple chains that are dock/undocked or chains closed/broken, the current move implementations do not quite obey detailed balance due to incorrect move schedule and omission of a Jacobian ratio, respectively. Both issues are fixable, and will be fixed in future releases.
 
 Code and Demo
 =============
@@ -42,27 +57,6 @@ Sripakdeevong, P., Kladwang, W., and Das, R. (2011) "An enumerative stepwise ans
 Das, R. (2013) "Atomic-accuracy prediction of protein loop structures enabled by an RNA-inspired ansatz", PLoS ONE 8(10): e74830. doi:10.1371/journal.pone.0074830 [Link](http://dx.doi.org/10.1371/journal.pone.0074830).
 
 
-Application purpose
-===========================================
-
-The stepwise monte carlo code is intended to give three-dimensional de novo models of RNA and protein motifs, with the prospect of reaching high accuracy. It differs from fragment assembly approaches in not relying on the database of known structures, and therefore is appropriate for problems that need to be modeled 'ab initio'. 
-
-Stepwise monte carlo is slower than fragment-based approaches, but appears comparable in speed to KIC-based loop modeling, and is much faster and easier to run than the original stepwise enumeration methods. The code has been written in a modular fashion so as to allow its testing to new problems by Rosetta developers, including non-natural backbones, cyclic peptides/nucleotides, disulfide-bonded proteins, and ligand docking.
-
-
-Algorithm
-=========
-
-This monte carlo minimization method builds up models by moves that involve sampling and minimization of single residues, what we've previously termed a 'stepwise ansatz'. Unlike other modes of Rosetta, moves include the deletion and addition of single residues. Because these moves are concentrated at termini, they are accepted frequently and allow deep optimization of an all-atom energy function.  For some problems, poses can also be split and merged, and separate chains can be docked or undocked. This same stepwise framework and application also reimplements enumerative sampling, following a recursion relation described previously (the 'stepwise assembly' method); in future releases, the older code will be removed.
-
-Limitations
-===========
-
--   This method is not guaranteed to give an exhaustive search of a physically realistic subspace of RNA/protein conformations, which was a nice feature of the original stepwise assembly work. Instead, like nearly all Rosetta protocols (KIC modeling, etc.) the sampling can return different solutions starting from different starting seeds, and you should check for convergence from independent runs.
-
--  The method is acutely sensitive to the assumed energy function. This is in contrast to other Rosetta protocols that either transit through low-resolution ('centroid') stages or make use of database fragments; both strategies 'regularize' the search but preclude solution of problems in which low-resolution energy functions are not trustworthy or the fragment database is too sparse. 
-
--  The method is intended to obey detailed balance, albeit on a perturbed energy landscape where each conformation's energy is mapped to the energy of the closest local minimum. In problems involving multiple chains that are dock/undocked or chains closed/broken, the current move implementations do not quite obey detailed balance due to incorrect move schedule and omission of a Jacobian ratio, respectively. Both issues are fixable, and will be fixed in future releases.
 
 Modes
 =====
