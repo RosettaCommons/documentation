@@ -35,7 +35,7 @@ Additional useful command-lines are available as integration tests in directorie
 
 References
 ==========
-Stepwise monte carlo is unpublished at the time of writing -- this documentation is intended to allow developers to test and expand the protocol while the Das lab is completing final benchmarks for RNA motifs. However, the method is an expansion of stepwise assembly, which has been described in previous references:
+Stepwise monte carlo is unpublished at the time of writing &ndash; this documentation is intended to allow developers to test and expand the protocol while the Das lab is completing final benchmarks for RNA motifs. However, the method is an expansion of stepwise assembly, which has been described in previous references:
 
 Sripakdeevong, P., Kladwang, W., and Das, R. (2011) "An enumerative stepwise ansatz enables atomic-accuracy RNA loop modeling", PNAS 108:20573-20578. [for loop modeling] [Paper](http://www.stanford.edu/~rhiju/Sripakdeevong_StepwiseAnsatz_2011.pdf) [Link](http://dx.doi.org/10.1073/pnas.1106516108)
 
@@ -87,7 +87,7 @@ Residues in PDB files should have chain and residue numbers that represent their
 Optional additional files:
 --------------------------
 -   Native pdb file, if rmsd computation is desired.
--   Align pdb file, if one desires to keep the modeilng constrained to be close to this structure. [Note that this can be different from the native pdb file, if desired.]
+-   Align pdb file, if one desires to keep the modeling constrained to be close to this structure. [Note that this can be different from the native pdb file, if desired.]
 
 Basic use for structure prediction
 ---------------------------
@@ -150,7 +150,7 @@ See following demo directory for input files & README:
 Protein loops
 --------------------------------
 Protein loops can be handled in a similar way to above RNA cases. [Under the hood, they are treated the same way as RNA.] 
-** THIS IS NOT FILLED IN YET**
+**THIS IS NOT FILLED IN YET**
 
 Mini-proteins built from scratch
 --------------------------------
@@ -159,17 +159,17 @@ For both RNA and proteins stepwise monte carlo can also build models 'from scrat
 
 `stepwise -fasta rosetta_inputs/2jof.fasta -native rosetta_inputs/2jof.pdb -score:weights stepwise/protein/protein_res_level_energy.wts -silent swm_rebuild.out -cycles 2000 -nstruct 50`
 
-Here's a movie:
+Here's an animation of a trajectory that achieves a low energy structure:
+
 [![Trp cage (2jof) animation on Youtube](http://img.youtube.com/vi/MRYZjEoVs5Q/0.jpg)](http://www.youtube.com/watch?v=MRYZjEoVs5Q)
 
-Most of the simulation may be spent flickering bits of secondary structure -- in the future, we will probably setup some precomputation of these bits so that computation can be focused on build up of the complete mini-protein structure.
+Most of the simulation may be spent flickering bits of secondary structure &ndash; in the future, we will probably setup some precomputation of these bits so that computation can be focused on build up of the complete mini-protein structure.
 
 One interesting thing to note is that the packing of protein side-chains in stepwise monte carlo uses the new `allow_virtual_side_chains` setting and a score term `free_side_chain` that gives a bonus to residues for being virtualized (equal to 0.5 kcal times the number of side-chain torsions). This means that the side-chains only get instantiated if they can pack or form hydrogen bonds, and the results is a rather smoother conformational search.
 
-
 Options
 =======
-** THIS IS NOT UPDATED YET**
+**THIS IS NOT UPDATED YET**
 ```
 Required:
 -in:database                                     Path to rosetta databases. [PathVector]
@@ -217,7 +217,7 @@ It is possible to run single specified moves given a starting structure, specifi
 What do the scores mean?
 ------------------------
 The score terms are similar to those in the standard Rosetta energy functions for protein or RNA (which themselves may be unified soon). For completeness, some additional terms relevant for stepwise applications are described here.
-** THIS IS NOT UPDATED YET**
+**THIS IS NOT UPDATED YET**
 ```
 ***Energy interpreter for fullatom silent output:
 score                                            Final total score
