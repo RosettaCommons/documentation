@@ -228,24 +228,29 @@ It is possible to run single specified moves given a starting structure, specifi
 What do the scores mean?
 ------------------------
 The score terms are similar to those in the standard Rosetta energy functions for protein or RNA (which themselves may be unified soon). For completeness, some additional terms relevant for stepwise applications are described here.
-**THIS IS NOT UPDATED YET**
 ```
-***Energy interpreter for fullatom silent output:
+***Energy interpreter for silent output:
 score                                            Final total score
 fa_atr                                           Lennard-jones attractive between atoms in different residues
 fa_rep                                           Lennard-jones repulsive between atoms in different residues
 fa_intra_rep                                     Lennard-jones repulsive between atoms in the same residue
 lk_nonpolar                                      Lazaridis-karplus solvation energy, over nonpolar atoms
-hack_elec_rna_phos_phos                          Simple electrostatic repulsion term between phosphates
-hbond_sr_bb_sc                                   Backbone-sidechain hbonds close in primary sequence
+fa_elec_rna_phos_phos                            Distance-dep. dielectric Coulomb repulsion term between phosphates
+rna_torsion                                      RNA torsional potential.
+rna_sugar_close                                  Distance/angle constraints to keep riboses as closed rings.
+hbond_sr_bb_sc                                   Backbone-sidechain hbonds close in primary sequence (i,i+1)
 hbond_lr_bb_sc                                   Backbone-sidechain hbonds distant in primary sequence
 hbond_sc                                         Sidechain-sidechain hydrogen bond energy
-ch_bond                                          Carbon hydrogen bonds
-geom_sol                                         Geometric Solvation energy for polar atoms
-rna_torsion                                      RNA torsional potential.
-atom_pair_constraint                             Harmonic constraints between atoms involved in Watson-Crick base pairs
-                                                 specified by the user in the params file
-angle_constraint                                 (not in use)
+fa_stack                                         Extra van der Waals attraction for nucleobases, projected along base normal 
+stack_elec                                       Electrostatics for nucleobase atoms, projected along base normal. 
+geom_sol_fast                                    Geometric solvation energy for polar atoms (environment-independent)
+loop_close                                       Entropic cost for loops not yet instantiated but whose endpoints are fixed
+atom_pair_constraint                             any pairwise distance constraints (not implemented yet)
+coordinate_constraint                            any constraints to put atoms at specific coordinates (not implemented yet)
+ref                                              Cost for instantiation of a full RNA/protein residue, backbone + sidechain
+free_suite                                       Bonus for freeing a terminal phosphate or sugar
+free_2HOprime                                    Bonus for freeing a 2'-OH hydroxyl
+intermol                                         Cost of bringing two chains together at 1 M (-conc flag can change this)
 
 [Following are provided if the user gives a native structure for reference]
 missing                                          number of residues not yet built in the structure
