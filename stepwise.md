@@ -235,14 +235,9 @@ fa_atr                                           Lennard-jones attractive betwee
 fa_rep                                           Lennard-jones repulsive between atoms in different residues
 fa_intra_rep                                     Lennard-jones repulsive between atoms in the same residue
 lk_nonpolar                                      Lazaridis-karplus solvation energy, over nonpolar atoms
-fa_elec_rna_phos_phos                            Distance-dep. dielectric Coulomb repulsion term between phosphates
-rna_torsion                                      RNA torsional potential.
-rna_sugar_close                                  Distance/angle constraints to keep riboses as closed rings.
 hbond_sr_bb_sc                                   Backbone-sidechain hbonds close in primary sequence (i,i+1)
 hbond_lr_bb_sc                                   Backbone-sidechain hbonds distant in primary sequence
 hbond_sc                                         Sidechain-sidechain hydrogen bond energy
-fa_stack                                         Extra van der Waals attraction for nucleobases, projected along base normal 
-stack_elec                                       Electrostatics for nucleobase atoms, projected along base normal. 
 geom_sol_fast                                    Geometric solvation energy for polar atoms (environment-independent)
 loop_close                                       Entropic cost for loops not yet instantiated but whose endpoints are fixed
 atom_pair_constraint                             any pairwise distance constraints (not implemented yet)
@@ -251,6 +246,18 @@ ref                                              Cost for instantiation of a ful
 free_suite                                       Bonus for freeing a terminal phosphate or sugar
 free_2HOprime                                    Bonus for freeing a 2'-OH hydroxyl
 intermol                                         Cost of bringing two chains together at 1 M (-conc flag can change this)
+
+[RNA stuff]
+fa_elec_rna_phos_phos                            Distance-dep. dielectric Coulomb repulsion term between phosphates
+rna_torsion                                      RNA torsional potential.
+rna_sugar_close                                  Distance/angle constraints to keep riboses as closed rings.
+fa_stack                                         Extra van der Waals attraction for nucleobases, projected along base normal 
+stack_elec                                       Electrostatics for nucleobase atoms, projected along base normal. 
+
+[protein stuff]
+pro_close                                        Distance/angle constraints to keep prolines as closed rings.
+fa_pair                                          Lo-res propensity for protein side-chains to be near each other
+hbond_*                                          Other h-bond terms  
 
 [Following are provided if the user gives a native structure for reference]
 missing                                          number of residues not yet built in the structure
