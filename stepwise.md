@@ -272,11 +272,6 @@ missing                                          number of residues not yet buil
 rms                                              all-heavy-atom RMSD to the native structure of built residues.
 ```
 
-Expected Outputs
-================
-
-You will typically use the protocol to produce a silent file – how do you get the models out?
-
 Post Processing
 ===============
 
