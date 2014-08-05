@@ -240,12 +240,14 @@ hbond_lr_bb_sc                                   Backbone-sidechain hbonds dista
 hbond_sc                                         Sidechain-sidechain hydrogen bond energy
 geom_sol_fast                                    Geometric solvation energy for polar atoms (environment-independent)
 loop_close                                       Entropic cost for loops not yet instantiated but whose endpoints are fixed
+ref                                              Cost for instantiation of a full RNA/protein residue, backbone + sidechain
+free_suite                                       Bonus for freeing a terminal phosphate or sugar (may be unified with ref)
+free_2HOprime                                    Bonus for freeing a 2'-OH hydroxyl (may be unified with ref)
+intermol                                         Cost of bringing two chains together at 1 M (-conc flag can change this)
+other_pose                                       Score of sister poses (if building off separate PDBs, prior to merge)
+linear_chainbreak                                Closure term to keep chainbreaks together upon loop closure
 atom_pair_constraint                             any pairwise distance constraints (not implemented yet)
 coordinate_constraint                            any constraints to put atoms at specific coordinates (not implemented yet)
-ref                                              Cost for instantiation of a full RNA/protein residue, backbone + sidechain
-free_suite                                       Bonus for freeing a terminal phosphate or sugar
-free_2HOprime                                    Bonus for freeing a 2'-OH hydroxyl
-intermol                                         Cost of bringing two chains together at 1 M (-conc flag can change this)
 
 [RNA stuff]
 fa_elec_rna_phos_phos                            Distance-dep. dielectric Coulomb repulsion term between phosphates
@@ -257,7 +259,13 @@ stack_elec                                       Electrostatics for nucleobase a
 [protein stuff]
 pro_close                                        Distance/angle constraints to keep prolines as closed rings.
 fa_pair                                          Lo-res propensity for protein side-chains to be near each other
-hbond_*                                          Other h-bond terms  
+hbond_*                                          Other h-bond terms, probably will all get unified
+dslf_*                                           Disulfide geometry terms, unified in later score functions 
+rama                                             Score for phi/psi backbone combination 
+omega                                            Tether of protein backbone omega to 0° or 180°  
+fa_dun                                           Protein side chain energy
+p_aa_pp                                          -log P( aa | phi, psi ), enters into current bayesian formalism for score
+free_side_chain                                  bonus (of 0.5 * nchi) for virtualizing a protein side chain
 
 [Following are provided if the user gives a native structure for reference]
 missing                                          number of residues not yet built in the structure
