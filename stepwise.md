@@ -157,7 +157,7 @@ Input files & demo are in:
 
 `       rosetta/demos/public/stepwise_monte_carlo_protein_loop     `
 
-Animation coming soon...
+Animation coming soon... **NOTE AS OF AUG, 2014: THERE APPEARS TO BE A BUG THAT REDUCES CONFORMATIONAL SAMPLING EFFICIENCY FOR PROTEIN LOOPS, INTRODUCED DURING REFACTORING. I WILL REMOVE THIS WARNING WHEN I FIX THE BUG AND PUT IN THIS ANIMATION. -- Rhiju**
  
 Mini-proteins built from scratch
 --------------------------------
