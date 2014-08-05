@@ -184,8 +184,6 @@ Options
 Required:
 -in:fasta                                        Fasta-formatted sequence file. [FileVector]
 
-*In following, ChainResidueVector means input like "4 5 6 9 10", "4-6 9-10", or "A:4-6 B:9-10" are all acceptable from command-line.
-
 Commonly used:
 -s                                               Any starting PDBs onto which motifs will be built [FileVector]
 -cycles                                          Number of Monte Carlo cycles.[default 50]. [Integer]
@@ -193,125 +191,51 @@ Commonly used:
 -out:file:silent                                 Name of output file [scores and torsions, compressed format]. default="default.out" [String]
 -native                                          Native PDB filename. [File].
 
+**In following, ChainResidueVector means input like "4 5 6 9 10", "4-6 9-10", or "A:4-6 B:9-10" are all acceptable from command-line.**
+
 Less commonly used, but useful
 -extra_min_res                                   specify residues other than those being built that should be minimized [ChainResidueVector*]
 -sample_res                                      residues to build (default is to build everything in FASTA that is not in starting PDBs) [ChainResidueVector*]
 -score:weights                                   Weights file in database. [File]
 
-                   stepwise:   |                           |    | 
-                          move |                           | (S)| For SWM. Format: 'ADD 5 
-                               |                           |    |  BOND_TO_PREVIOUS 4'
-
 Advanced 
--in:file:silent                                  List of input files (in 'silent' format) that specify starting structure
+-num_random_samples                              Number of samples that need to pass filters before before minimizing best (default:20)
+-align_pdb                                       PDB to align to. Default will be -native, or any fixed residues in starting pose
+-move                                            For running single move. Format: 'ADD 5 BOND_TO_PREVIOUS 4'
+-enumerate                                       Use with -move. Force enumeration (SWA-like) instead of stochastic [Boolean] [default: false]
 -jump_res                                        optional: residues for defining jumps -- please supply in pairs [ChainResidueVector*]
 -root_res                                        optional: desired root res (used in SWM move testing) [ChainResidueVector*]
 -virtual_sugar_res                               optional: starting virtual sugars (used in SWM move testing) [ChainResidueVector*]  
--cutpoint_closed                                 closed cutpoints in full model [ChainResidueVector]
+-cutpoint_closed                                 closed cutpoints in full model [ChainResidueVector*]
 -cutpoint_open                                   open cutpoints in full model (redundant with FASTA readin) [ChainResidueVector*]
-                     enumerate |                     false |   B| For SWM. Force enumeration 
-                               |                           |    |  (SWA-like) instead of 
-                               |                           |    |  random
+-in:file:silent                                  List of input files (in 'silent' format) that specify starting structure
+-preminimize                                     Just prepack and minimize input poses
+-stepwise:rna:erraser                            Use KIC sampling instead of CCD closure (default:false)
+-bulge_res                                       optional: residues to keep uninstantiated
+-terminal_res                                    optional: RNA residues that are not allowed to stack during sampling
 
 Rarely used but listed with --help
--input_res                                      Residues numbers in starting files. 
--overwrite                                      Overwrite any prior silent files.
--full_model:other_poses                         list of PDB files containing other poses (this may be deprecated by -s)
-
-                verbose_scores |                     false |   B| Show all score components
-                skip_deletions |                     false |   B| no delete moves -- just for 
-                               |                           |    |  testing
-          add_delete_frequency |                       0.5 |   R| Frequency of add/delete vs. 
-                               |                           |    |  resampling
- minimize_single_res_frequency |                         0 |   R| Frequency with which to 
-                               |                           |    |  minimize the residue that 
-                               |                           |    |  just got rebuilt, instead 
-                               |                           |    |  of all
-        switch_focus_frequency |                       0.5 |   R| Frequency with which to 
-                               |                           |    |  switch the sub-pose that 
-                               |                           |    |  is being modeled
-just_min_after_mutation_frequency |                       0.5 |   R| After a mutation, how often 
-                               |                           |    |  to just minimize (without 
-                               |                           |    |  further sampling the 
-                               |                           |    |  mutated residue)
-    allow_internal_hinge_moves |                           |   B| Allow moves in which 
-                               |                           |    |  internal suites are 
-                               |                           |    |  sampled (hinge-like 
-                               |                           |    |  motions)
-    allow_internal_local_moves |                     false |   B| Allow moves in which 
-                               |                           |    |  internal cutpoints are 
-                               |                           |    |  created to allow ERRASER 
-                               |                           |    |  rebuilds
-              allow_skip_bulge |                     false |   B| Allow moves in which an 
-                               |                           |    |  intervening residue is 
-                               |                           |    |  skipped and the next one 
-                               |                           |    |  is modeled as floating 
-                               |                           |    |  base
-                   temperature |                         1 |   R| Monte Carlo temperature
-  allow_variable_bond_geometry |                           |   B| In 10% of moves, let bond 
-                               |                           |    |  angles & distance change
-                               |                           |    |
-
-
-            num_random_samples |                        20 |   I| In choose_random/monte-carlo 
-                               |                           |    |  mode, number of samples 
-                               |                           |    |  from swa residue sampler 
-                               |                           |    |  before minimizing best
-             num_pose_minimize |                         0 |   I| optional: 
-                               |                           |    |  set_num_pose_minimize by 
-                               |                           |    |  Minimizer
-                     align_pdb |                           |   S| PDB to align to. Default 
-                               |                           |    |  will be -native, or no 
-                               |                           |    |  alignment
-                   preminimize |                     false |   B| For SWM. Just prepack and 
-                               |                           |    |  minimize
-                               |                           |    |
-               stepwise:rna:   |                           |    | 
-                       erraser |                     false |   B| Use KIC sampling
-                               |                           |    |
-             full_model:rna:   |                           |    | 
-        force_syn_chi_res_list |                           | (I)| optional: sample only syn 
-                               |                           |    |  chi for the res in 
-                               |                           |    |  sampler.
-                               |                           |    |
-    force_centroid_interaction |                     false |   B| Require base stack or pair 
-                               |                           |    |  even for single residue 
-                               |                           |    |  loop closed (which could 
-                               |                           |    |  also be bulges!)
-                     bulge_res |                           | (I)| optional: residues to be 
-                               |                           |    |  turned into a bulge 
-                               |                           |    |  variant
-            rebuild_bulge_mode |                     false |   B| rebuild_bulge_mode (just for SWA backwards compatibility)
-                               |                           |    |
-             full_model:rna:   |                           |    | 
-                  terminal_res |                           | (I)| optional: residues that are 
-                               |                           |    |  not allowed to stack 
-                               |                           |    |  during sampling
-                               |                           |    |
-           stepwise:protein:   |                           |    | 
-        skip_coord_constraints |                     false |   B| Skip first stage of minimize 
-                               |                           |    |  with coordinate 
-                               |                           |    |  constraints
-        filter_native_big_bins |                     false |   B| Figure out various terms for 
-                               |                           |    |  score12 (no longer supported)
-               protein_prepack |                           |   B| In packing, prepack separate 
-                               |                           |    |  partitions (may not be supported)
-                   stepwise:   |                           |    | 
-                atr_rep_screen |                           |   B| In packing, screen for 
-                               |                           |    |  contacts (but no clash) 
-                               |                           |    |  between partitions before 
-                               |                           |    |  packing  [Boolean] [default true]
-                               |                           |    |
-           stepwise:protein:   |                           |    | 
-     allow_virtual_side_chains |                           |   B| In packing, allow virtual 
-                               |                           |    |  side chains [Boolean ] [default true]
-                     data_file |                           |   S| RDAT or legacy-format file 
-                               |                           |    |  with RNA chemical mapping 
-                               |                           |    |  data [File] (currently not in use, but will be soon)
-                        rna:   |                           |    | 
-                 corrected_geo |                           |   B| Use PHENIX-based RNA sugar 
-                               |                           |    |  close energy and params 
-                               |                           |    |  files [Boolean] [default true]
+-data_file                                       RDAT or legacy-format file with RNA chemical mapping data [File] (currently not in use, but will be soon)
+-stepwise:atr_rep_screen                         In packing, screen for contacts (but no clash) between partitions before packing (**default:true**)
+-allow_virtual_side_chains                       In packing, allow virtual side chains (**default:true**)
+-temperature                                     Temperature for Monte Carlo Minimization (default: 1.0)
+-input_res                                       Residues numbers in starting files. [ChainResidueVector*]
+-overwrite                                       Overwrite any prior silent files. (default:false)
+-full_model:other_poses                          list of PDB files containing other poses (this may be deprecated by -s)
+-skip_deletions                                  no delete moves -- just for testing (default:false)
+-add_delete_frequency                            Frequency of add/delete vs. resampling (default: 0.5)
+-minimize_single_res_frequency                   Frequency with which to minimize the residue that just got rebuilt, instead  of all (default: 0.0)
+-switch_focus_frequency                          Frequency with which to switch the sub-pose that is being modeled (default: 0.5)
+-just_min_after_mutation_frequency               After a mutation, how often to just minimize (without further sampling the mutated residue) (default: 0.5)
+-allow_internal_hinge_moves                      Allow moves in which internal suites are sampled (hinge-like motions) (default:true)
+-allow_internal_local_moves                      Allow moves in which internal cutpoints are created to allow ERRASER rebuilds (default:**false**)
+-allow_skip_bulge                                Allow moves in which an intervening residue is skipped and the next one is modeled as floating base (default:**false**)
+-allow_variable_bond_geometry                    In 10% of moves, let bond angles & distance change (default:false) (**warning: this may not work anymore**)
+-num_pose_minimize                               number of sampled poses to minimize within each stepwise move
+-full_model:rna:force_syn_chi_res_list           optional: sample only syn chi for these res in sampler [ChainResidueVector*]
+-force_centroid_interaction                      Require base stack or pair even for single residue loop closed (which could also be bulges!)
+-rebuild_bulge_mode                              rebuild_bulge_mode (just for SWA backwards compatibility)
+-corrected_geo                                   Use PHENIX-based RNA sugar close energy and bond geometry parameter files (default:true)
 ```
 
 Tips
