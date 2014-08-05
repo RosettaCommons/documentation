@@ -233,8 +233,8 @@ The following example replicates an _ab initio_ run. The file "beta_sheets.top" 
 
 <PROTOCOLS>
   <Environment name="env" >
-    <Add mover="abinitio" />
-    <Add mover="closer" />
+    <Apply mover="abinitio" />
+    <Apply mover="closer" />
   </Environment>
   <Add mover="fullatom" />
   <Add mover="relax" />
