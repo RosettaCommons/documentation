@@ -35,11 +35,13 @@ The central code for the *stepwise* application is in ` src/apps/public/stepwise
 
 For 'minimal' demo examples, including input files, of the stepwise macromolecular modeling protocol, see:
 
-`       rosetta/demos/public/stepwise_monte_carlo_rna     `
+`       rosetta/demos/public/stepwise_monte_carlo_rna_loop     `
 
 `        rosetta/demos/public/stepwise_monte_carlo_rna_multiloop    `  
 
-`        rosetta/demos/public/stepwise_monte_carlo_protein     `
+`        rosetta/demos/public/stepwise_monte_carlo_protein_loop     `
+
+`        rosetta/demos/public/stepwise_monte_carlo_mini_protein     `
 
 Links to movies below illustrate these demos.
 
@@ -116,7 +118,7 @@ Note the specification of additional cycles (500 instead of 50). This is necessa
 
 See following demo directory for input files & README:
 
-`       rosetta/demos/public/stepwise_monte_carlo_rna     `
+`       rosetta/demos/public/stepwise_monte_carlo_rna_loop     `
 
 Multiple loops
 ---------------------------
@@ -152,6 +154,7 @@ An example command line for rebuilding a loop from a starting structure with tha
 Note that most loop modeling problems can be accelerated by cutting out a small 'sub-problem'; this was carried out by hand in the example above, but probably could be set up to happen automatically in Rosetta. Notes on additional flags: `-from_scratch_frequency 0.0 -allow_split_off false` turn off sampling of dipeptides that can be modeled free and merged into the loop; they are not so useful here, although they don't hurt. Last, not much work has been carried out on the energy function. The `protein_res_level_energy.wts` weights is an adaptation of score12.wts, as was carried out in [this paper](http://dx.doi.org/10.1371/journal.pone.0074830).
 
 Input files & demo are in:
+
 `       rosetta/demos/public/stepwise_monte_carlo_protein_loop     `
 
 Animation coming soon...
@@ -170,6 +173,10 @@ Here's an animation of a trajectory that achieves a low energy structure:
 Most of the simulation may be spent flickering bits of secondary structure &ndash; in the future, we will probably setup some precomputation of these bits so that computation can be focused on build up of the complete mini-protein structure.
 
 One interesting thing to note is that the packing of protein side-chains in stepwise monte carlo uses the new `allow_virtual_side_chains` setting and a score term `free_side_chain` that gives a bonus to residues for being virtualized (equal to 0.5 kcal times the number of side-chain torsions). This means that the side-chains only get instantiated if they can pack or form hydrogen bonds, and the results is a rather smoother conformational search.
+
+
+Input files & demo are in:
+`       rosetta/demos/public/stepwise_monte_carlo_mini_protein    `
 
 Options
 =======
