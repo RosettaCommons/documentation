@@ -67,7 +67,7 @@ Limitations
 Modes
 =====
 
--   By default, the code runs Stepwise Monte Carlo. 
+-   By default, the code runs Stepwise Monte Carlo. Applications to RNA loops, mini-proteins, mixed RNA/protein, etc. are not different modes, but instead are defined by input sequences (see below). 
 
 -   It is possible to run single specified moves given a starting structure, specified through `-move`. See 'Tips' below.
 
