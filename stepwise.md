@@ -7,6 +7,12 @@ The stepwise monte carlo code is intended to give three-dimensional de novo mode
 
 Stepwise monte carlo is slower than fragment-based approaches, but appears comparable in speed to KIC-based loop modeling, and is much faster and easier to run than the original stepwise enumeration methods. The code has been written in a modular fashion so as to allow its testing to new problems by Rosetta developers, including non-natural backbones, cyclic peptides/nucleotides, disulfide-bonded proteins, and ligand docking.
 
+A useful 20-minute description of the basis and conceptual framework of stepwise monte carlo is available here:
+
+[![GCAA tetraloop animation on Youtube](http://img.youtube.com/vi/WtbTh9rFznY/0.jpg)](http://www.youtube.com/watch?v=WtbTh9rFznY)
+
+Slides are also available in keynote format [here](https://dl.dropboxusercontent.com/u/21569020/Das_SWM_RosettaDevMeetingTalk2014_keynote_format.zip). 
+
 
 Algorithm
 =========
@@ -24,12 +30,6 @@ Limitations
 
 Code and Demo
 =============
-
-A useful 20-minute description of the basis and conceptual framework of stepwise monte carlo is available here:
-
-[![GCAA tetraloop animation on Youtube](http://img.youtube.com/vi/WtbTh9rFznY/0.jpg)](http://www.youtube.com/watch?v=WtbTh9rFznY)
-
-Slides are also available in keynote format [here](https://dl.dropboxusercontent.com/u/21569020/Das_SWM_RosettaDevMeetingTalk2014_keynote_format.zip). 
 
 The central code for the *stepwise* application is in ` src/apps/public/stepwise/stepwise.cc   ` with all important classes in `   src/protocols/stepwise      ` .
 
