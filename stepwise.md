@@ -144,8 +144,18 @@ See following demo directory for input files & README:
 Protein loops
 --------------------------------
 Protein loops can be handled in a similar way to above RNA cases. [Under the hood, they are treated the same way as RNA.] 
-**THIS IS NOT FILLED IN YET**
 
+An example command line for rebuilding a loop from a starting structure with that loop excised:
+
+`stepwise -s noloop_mini_1alc_H.pdb -fasta mini_1alc.fasta -native mini_1alc.pdb -score:weights stepwise/protein/protein_res_level_energy.wts -silent swm_rebuild.out -from_scratch_frequency 0.0 -allow_split_off false -cycles 200 -nstruct 20`
+
+Note that most loop modeling problems can be accelerated by cutting out a small 'sub-problem'; this was carried out by hand in the example above, but probably could be set up to happen automatically in Rosetta. Notes on additional flags: `-from_scratch_frequency 0.0 -allow_split_off false` turn off sampling of dipeptides that can be modeled free and merged into the loop; they are not so useful here, although they don't hurt. Last, not much work has been carried out on the energy function. The `protein_res_level_energy.wts` weights is an adaptation of score12.wts, as was carried out in [this paper](http://dx.doi.org/10.1371/journal.pone.0074830).
+
+Input files & demo are in:
+`       rosetta/demos/public/stepwise_monte_carlo_protein_loop     `
+
+Animation coming soon...
+ 
 Mini-proteins built from scratch
 --------------------------------
 For both RNA and proteins stepwise monte carlo can also build models 'from scratch' (this feature will be optimized in the future so that you won't have to build, e.g., RNA helices). An example command line is:
@@ -255,4 +265,3 @@ extract_pdbs  -in:file:silent swm_rebuild.out
 New things since last release
 =============================
 This is a new executable as of 2014.
-
