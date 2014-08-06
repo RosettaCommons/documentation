@@ -41,8 +41,10 @@ Single constraints restrain the value of a single metric
 -   Dihedral: `Dihedral Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Atom4_Name Atom4_ResNum Func_Type Func_Def       `
     * Dihedral angle of Atom1-\>Atom2-\>Atom3-\>Atom4. Dihedral is measured in radians on -pi -\> pi.
 
--   CoordinateConstraint: `CoordinateConstraint Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom1_target_X_coordinate Atom1_target_Y_coordinate Atom1_target_Z_coordinate Func_Type Func_Def       `
+-   CoordinateConstraint: `CoordinateConstraint Atom1_Name Atom1_ResNum[Atom1_ChainID] Atom2_Name Atom2_ResNum[Atom2_ChainID] Atom1_target_X_coordinate Atom1_target_Y_coordinate Atom1_target_Z_coordinate Func_Type Func_Def       `
     * Constrain Atom1 to the XYZ position listed. Atom2 is used as a reference atom to determine when Atom1 has moved (so that Rosetta knows when to rescore it) - pick at atom that Atom1 will move relative to. CoordinateConstraint is compatible with PDB numbering.
+    * Atom_ResNum[Atom_ChainID] indicates a number with an optional letter together as a single token
+
 
 -   LocalCoordinateConstraint: `LocalCoordinateConstraint Atom1_Name Atom1_ResNum Atom2_Name Atom3_Name Atom4_Name Atom234_ResNum Atom1_target_X_coordinate Atom1_target_Y_coordinate Atom1_target_Z_coordinate Func_Type Func_Def       `
     * Constrain Atom1 to the XYZ position listed, relative to the coordinate frame defined by atoms 2/3/4 instead of the origin. LocalCoordinateConstraint is compatible with PDB numbering.
@@ -235,4 +237,3 @@ These function types cannot currently be specified in a file. They need to have 
 -   SG\_Dist
 -   SGSG\_Dihedral
 -   LK\_Sigmoidal
-
