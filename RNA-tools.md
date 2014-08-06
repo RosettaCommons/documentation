@@ -28,7 +28,7 @@ Some useful tools
 ==================
 Following are example command lines for several of these Python-based tools:
 
-pdb utilities
+PDB utilities
 -------------
 To change the residue numbers and chains in a file:
 
@@ -59,14 +59,58 @@ To excise particular residues from a PDB file:
 Again, the last argument is a prefix for the sliced PDB file.
 
 
-
-silent file utilities
+Silent file utilities
 ----------------------
-job setup
----------
-cluster setup
--------------
+'Silent files' are Rosetta's compressed file format that concatenates the scores for each model as well as the model coordinates (sometimes in a UU-encoded compressed format).
 
+To quickly get the number that goes with each score column (useful before making scatterplots in `gnuplot`), 
+
+`fields.py mysilentfile.out`
+
+To find the lowest energy 20 models within the silent file and run Rosetta's `extract_pdbs` executable to extract them:
+
+`extract_lowscore_decoys.py mysilentfile.out 20`
+
+To create a new silent file with just the lowest energy 20 models:
+
+`extract_lowscore_decoys_outfile.py mysilentfile.out -out 20`
+
+To concatenate several outfiles, renaming model tags to be unique:
+
+`cat_outfiles.py mysilentfile1.out mysilentfile2.out [ ... ]`
+
+
+RNA modeling utilities
+----------------------
+
+To generate a near-ideal A-form RNA helix that has good Rosetta energy (requires that `rna_helix` Rosetta executable is compiled): 
+
+`rna_helix.py -seq aacg cguu -o myhelix.pdb [ -resnum 5-8 20-23 ]`
+
+To strip out residues and HETATMs that are not recognizable as RNA from a PDB file:
+
+`make_rna_rosetta_ready.py rawmodel.pdb`
+
+To prepare files for an RNA denovo (fragment assembly of RNA with full atom refinement, FARFAR) job:
+
+`rna_denovo_setup.py -fasta mysequence.fasta -secstruct_file mysecstruct.txt`
+
+There are several more useful flags in `rna_denovo_setup.py` which are documented in [[rna_denovo_setup]].
+
+
+Cluster setup
+-------------
+These are largely geared towards clusters that the Das lab uses (stampede and other XSEDE resources; the BioX<sup>3</sup> computer at Stanford), but are meant to be easily generalized to new ones.
+
+To create submission files for a set of Rosetta command lines in a `README` file:
+
+`rosetta_submit.py README OUTDIR 40 [number of hours]`
+
+The directory `OUTDIR` will contain directories `0/`, `1/`, to `39/` for 40 jobs. Your command-line should have a flag like `-out:file:silent mymodels.out`, which will be elaborated into 40 jobs that will put the outfiles into these subdirectories.  Submission scripts for Condor, LSF, PBS, and SLURM (stampede) will show up in the directory along with (hopefully) a suggestion for how to run them on your cluster. Default number of hours is 16, but can be changed above. **If you set up on a new cluster, please update rosetta_submit.py so that others can take advantage of your work.**
+
+While running or after running, bring together models from the different outfiles into a single silent file by:
+
+`easy_cat.py OUTDIR`
 
 
 
