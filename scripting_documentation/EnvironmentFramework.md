@@ -265,7 +265,7 @@ This example docks three chains (A, B, and C) to one another using a "star" Fold
 </MOVERS>
 <PROTOCOLS>
   <Environment name=multidock >
-    <Apply name=multidock/>
+    <Apply name=dock/>
   </Environment>
 </PROTOCOLS>
 ```
