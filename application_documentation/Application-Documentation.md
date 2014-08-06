@@ -45,7 +45,7 @@ While most of these applications focus on prediction, many have options which wi
 
 ###RNA and RNA/protein
 -  [[RNA tools]] - Tools useful for RNA and RNA/proteinm including general PDB editing, cluster submission, job setup.
--  [[RNA denovo]] - Predict 3-dimensional structures of RNA from their nucleotide sequence with fragment assembly of RNA with full atom refinement (FARFAR).
+-  [[rna denovo setup]] - Predict 3-dimensional structures of RNA from their nucleotide sequence with fragment assembly of RNA with full atom refinement (FARFAR).
 -  [[RNA threading|rna-thread]] - Thread a new nucleotide sequence on an existing RNA structure.  
 -  [[RNA stepwise loop enumeration|swa-rna-loop]] - Build RNA loops using deterministic stepwise assembly. See also  [[Stepwise monte carlo|stepwise]].
 -  [[RNA assembly with experimental constraints|rna-assembly]] - Predict 3-dimensional structures of large RNAs with the help of experimental constraints. Note – largely deprecated by newer pipeline (documentation coming soon).
