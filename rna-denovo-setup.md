@@ -8,14 +8,14 @@
 Application purpose
 ===========================================
 
-This code allow build-up of three-dimensional de novo models of RNAs of sizes up to ~300 nts, given secondary structure and experimental constraints, and some human curation of submodels along the build-up path.
+This code allows build-up of three-dimensional de novo models of RNAs of sizes up to ~300 nts, given secondary structure and experimental constraints, and some human curation of submodels along the build-up path.
 
 Algorithm
 =========
 
-This documentation page emphasizes the easy setup of multiple jobs that permit the assembly of large RNAs. Each of the 'sub-jobs' is a helix creation, a run with the FARFAR (fragment assembly of RNA with full-atom refinement) de novo modeling application, or with the RNA comparative modeling application [rna_thread|rna-thread]. If desired, sub-models can be grafted together into bigger pieces. 
+This documentation page emphasizes the setup of multiple jobs that together permit the modeling of complex RNA folds. Each of the 'sub-jobs' is either a helix creation, a RNA comparative modeling job [rna_thread|rna-thread], or a run with the FARFAR (fragment assembly of RNA with full-atom refinement) de novo modeling application. If desired, sub-models can be grafted together into bigger pieces. 
 
-The input files, algorithm, etc. application are described [[here|rna denovo]], but a detailed understanding of those file formats is not necessary for modeling. 
+The input files, algorithm, etc. for the FARFAR application are described separately [[here|rna denovo]], but a detailed understanding of those file formats is not necessary for modeling. 
 
 
 Limitations
