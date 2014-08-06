@@ -293,13 +293,20 @@ This example docks three chains (A, B, and C) to one another using a "star" Fold
     </Stage>
   </AbscriptMover>
 
+  <AbscriptLoopCloserCM name=closerA fragments="frags3A" selector=ChainA />
+  <AbscriptLoopCloserCM name=closerB fragments="frags3B" selector=ChainB />
+
   <ResidueTypeSetSwitchMover name=fullatom set=fa_standard />
   <FastRelax name=relax repeats=5 />
-</MOVERS>
-<PROTOCOLS>
+
   <Environment name=fold_and_dock auto_cut=true >
     <Apply name=abintio />
+    <Apply name=closerA />
+    <Apply name=closerB />
   </Environment>
+</MOVERS>
+<PROTOCOLS>
+  <Add mover=fold_and_dock />
   <Add mover=fullatom />
   <Add mover=relax />
 </PROTOCOLS>
