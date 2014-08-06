@@ -260,7 +260,8 @@ This example docks three chains (A, B, and C) to one another using a "star" Fold
   <UniformRigidBodyCM name="rigidB" mobile="com_B" stationary="star_center" />
   <UniformRigidBodyCM name="rigidC" mobile="com_C" stationary="star_center" />
 
-  <TrialMover name="multidock" movers="rigidA,rigidB,rigidC" trials=1000 [...] />
+  <RandomMover name="dock_bag" movers="rigidA,rigidB,rigidC,com_A,com_B,com_C" />
+  <GenericMonteCarlo name="dock" scorefxn_name=[your scorefn] mover_name="dock_bag" temperature=2.0 trials=1000/>
 </MOVERS>
 <PROTOCOLS>
   <Environment name=multidock >
