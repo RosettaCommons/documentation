@@ -8,7 +8,7 @@
 Application purpose
 ===========================================
 
-This code allows build-up of three-dimensional de novo models of RNAs of sizes up to ~300 nts, given secondary structure and experimental constraints, and some human curation of submodels along the build-up path.
+This code allows build-up of three-dimensional de novo models of RNAs of sizes up to ~300 nts, given secondary structure and experimental constraints. It can be carried out reasonably automatically, but human curation of submodels along the build-up path may improve accuracy.
 
 Algorithm
 =========
