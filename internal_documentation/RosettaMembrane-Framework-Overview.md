@@ -37,13 +37,12 @@ Demos are coming soon! These will live in the RosettaCommons/demos repository un
 ## Subpages
 Below you can find more information on the membrane framework: 
 
-- [[RosettaMembrane: Coding Conventions and Testing]]
+- [[RosettaMembrane: Using the Membrane Framework]]
 - [[RosettaMembrane: Configuring Required Inputs]]
-- [[RosettaMembrane: Scripts and Tools]]
-- [[RosettaMembrane: How it Works]]
 - [[RosettaMembrane Low Resolution Energy Function]]
 - [[RosettaMembrane High Resolution Energy Function]]
-- [[RosettaMembrane: RosettaScripts Interfaces]]
+- [[RosettaMembrane: Scripts and Tools]]
+- [[RosettaMembrane: How it Works]]
 
 ## Legacy Code
 Previous implementations of membrane proteins in Rosetta can be accessed by supplying the membrane weights on the command line using -score::weights membrane_highres.wts with membrane ab initio flags (see Rosetta 3.5 manual)
