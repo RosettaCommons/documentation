@@ -256,9 +256,9 @@ This example docks three chains (A, B, and C) to one another using a "star" Fold
   <CoMTrackerCM name="com_B" selector="ChainB" />
   <CoMTrackerCM name="com_C" selector="ChainC" />
 
-  <UniformRigidBodyCM name="rigidA" mobile="com_A" stationary="star_center" />
-  <UniformRigidBodyCM name="rigidB" mobile="com_B" stationary="star_center" />
-  <UniformRigidBodyCM name="rigidC" mobile="com_C" stationary="star_center" />
+  <UniformRigidBodyCM name="rigidA" mobile_selector="com_A" stationary="star_center" />
+  <UniformRigidBodyCM name="rigidB" mobile_selector="com_B" stationary="star_center" />
+  <UniformRigidBodyCM name="rigidC" mobile_selector="com_C" stationary="star_center" />
 
   <TrialMover name="multidock" movers="rigidA,rigidB,rigidC" trials=1000 [...] />
 </MOVERS>
