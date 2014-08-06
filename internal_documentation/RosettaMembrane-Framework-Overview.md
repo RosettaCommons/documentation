@@ -19,13 +19,24 @@ This is the homepage for membrane framework documentation (and any derivative ap
 ## Main Source Code 
 The main membrane framework code lives in `core/conformation/membrane` and `protocols/membrane.` All of the code has corresponding sets of unit and integration tests. 
 
+To use the membrane framework in your protocols, include the `AddmembraneMover` at the top of your code. Syntax/example code is shown below: 
+
+```
+#include <protocols/membrane/AddMembraneMover.hh> 
+
+using namespace protocols::membrane;
+
+AddMembraneMoverOP add_memb = new AddMembraneMover(); 
+add_memb->apply( pose ); 
+
+```
+
 ## Demos
 Demos are coming soon! These will live in the RosettaCommons/demos repository under protocol_capture/2014
 
 ## Subpages
 Below you can find more information on the membrane framework: 
 
-- [[Official RosettaMembrane Framework Project Page]]
 - [[RosettaMembrane: Coding Conventions and Testing]]
 - [[RosettaMembrane: Configuring Required Inputs]]
 - [[RosettaMembrane: Scripts and Tools]]
