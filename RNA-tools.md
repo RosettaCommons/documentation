@@ -61,7 +61,7 @@ Again, the last argument is a prefix for the sliced PDB file.
 
 Silent file utilities
 ----------------------
-'Silent files' are Rosetta's compressed file format that concatenates the scores for each model as well as the model coordinates (sometimes in a UU-encoded compressed format).
+'Silent files' use Rosetta's compressed file format that concatenates the scores for each model as well as the model coordinates (sometimes in a UU-encoded compressed format that looks like gobbledygook).
 
 To quickly get the number that goes with each score column (useful before making scatterplots in `gnuplot`), 
 
