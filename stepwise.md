@@ -197,6 +197,7 @@ Less commonly used, but useful
 -extra_min_res                                   specify residues other than those being built that should be minimized [ChainResidueVector*]
 -sample_res                                      residues to build (default is to build everything in FASTA that is not in starting PDBs) [ChainResidueVector*]
 -score:weights                                   Weights file in database. [File]
+-make_movie                                      Output each TRIAL and ACCEPTED structure in the monte carlo to a silent file in the movie/ subdirectory. Useful for pymol movie making.
 
 Advanced 
 -num_random_samples                              Number of samples that need to pass filters before before minimizing best (default:20)
