@@ -106,7 +106,9 @@ To create submission files for a set of Rosetta command lines in a `README` file
 
 `rosetta_submit.py README OUTDIR 40 [number of hours]`
 
-The directory `OUTDIR` will contain directories `0/`, `1/`, to `39/` for 40 jobs. Your command-line should have a flag like `-out:file:silent mymodels.out`, which will be elaborated into 40 jobs that will put the outfiles into these subdirectories.  Submission scripts for Condor, LSF, PBS, and SLURM (stampede) will show up in the directory along with (hopefully) a suggestion for how to run them on your cluster. Default number of hours is 16, but can be changed above. **If you set up on a new cluster, please update rosetta_submit.py so that others can take advantage of your work.**
+The directory `OUTDIR` will contain directories `0/`, `1/`, to `39/` for 40 jobs. Your command-line should have a flag like `-out:file:silent mymodels.out`, which will be elaborated into flags like `-out:file:silent OUTDIR/0/mymodels.out` in the 40 jobs, so that theire outfiles will go into separate subdirectories and prevent file i/o conflicts.  
+
+Submission scripts for Condor, LSF, PBS, and SLURM (stampede) will show up in the directory along with (hopefully) a suggestion for how to run them on your cluster. Default number of hours is 16, but can be changed above. **If you set up on a new cluster, please update rosetta_submit.py so that others can take advantage of your work.**
 
 While running or after running, bring together models from the different outfiles into a single silent file by:
 
