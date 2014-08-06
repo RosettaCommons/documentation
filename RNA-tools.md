@@ -1,7 +1,9 @@
 Application purpose
 ===========================================
 
-A collection of tools for PDB editing, cluster submission, 'silent-file' processing, and setting up rna_denovo and ERRASER jobs. Under active development by the Das laboratory (Stanford). 
+A collection of tools for PDB editing, cluster submission, 'silent-file' processing, and setting up rna_denovo and ERRASER jobs. 
+
+Under active development by the Das laboratory (Stanford). 
 
 Code
 ====
