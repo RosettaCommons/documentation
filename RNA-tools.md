@@ -17,16 +17,24 @@ Include the following lines in your `.bashrc` (may be `.bash_profile` on some sy
 ```
 export ROSETTA='/home/yourhomedirectory/src/rosetta/'
 export PATH=$ROSETTA/tools/rna_tools/bin/:$PATH
-export PATH=$PATH:$ROSETTA/tools/ERRASER/
 source $ROSETTA/tools/rna_tools/INSTALL
 ```
 
 Instead of `/home/yourhomedirectory/`, use your actual path to Rosetta.
 
-Then open a new terminal or type `source ~/.bashrc` to activate these paths.
+Then open a new terminal or type `source ~/.bashrc` to activate these paths & tools.
 
 Some useful tools
 ==================
+pdb utilities
+-------------
+silent file utilities
+----------------------
+job setup
+---------
+cluster setup
+-------------
+
 
 
 
