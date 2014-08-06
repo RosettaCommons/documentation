@@ -1,8 +1,5 @@
 #Rna Denovo: RNA 3D structure modeling
 
-Author: Rhiju Das
-
-Written in 2008. Last updates: Nov. 2011 and Aug. 2014 by Rhiju Das (rhiju [at] stanford.edu).
 
 Code and Demo
 =============
@@ -308,3 +305,5 @@ New things since last release
 =============================
 
 Added applications rna\_minimize, rna\_helix, rna\_cluster. Updated torsional potential to be smooth.
+
+Written in 2008. Last updates: Nov. 2011 and Aug. 2014 by Rhiju Das (rhiju [at] stanford.edu).
