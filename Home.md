@@ -23,4 +23,4 @@ Rosetta is distributed as source, and thus will require being [[compiled and ins
 |[[/images/logo.png|align=center]]      |
 <!--- END_INTERNAL --> 
 
-
+<sub>Note to Rosetta developers: make edits at this [link](https://www.rosettacommons.org/docs/wiki/), and they will show up for all users [here](https://www.rosettacommons.org/docs/latest/) at the same time that weekly builds are released.</sub>
