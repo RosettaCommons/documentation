@@ -157,10 +157,12 @@ claims all backbone residues in the region selected by the ResidueSelector with 
 The XYZClaim claims access to all degrees of freedom buidling a particular set of residues. This includes all bond lengths, angles, torisons as well as any applicable jump rotation and translation DoFs. For example,
 
 ```
-<XYZClaim selection="known_loop1" control_strength="EXCLUSIVE"/>
+<XYZClaim selection="known_loop1" control_strength="EXCLUSIVE" relative="false" />
 ```
 
 Asserts EXCLUSIVE control (see ControlStrengths) over all degrees of freedom building the residues in the ResidueSelection "known_loop1".
+
+An important option for this claim is "relative." This option determines if the XYZClaim is intended to claim the XYZ position of the selection *relative* to itself or absolutely in space. This most often determines if the jump building the XYZClaim selection is claimed or not (although it could just as easily be a peptide bond as well).
 
 ###VirtResClaim
 
