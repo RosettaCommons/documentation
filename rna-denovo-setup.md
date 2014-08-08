@@ -4,7 +4,7 @@
 Application purpose
 ===========================================
 
-This code allows build-up of three-dimensional de novo models of RNAs of sizes up to ~300 nts, given secondary structure and experimental constraints. It can be carried out reasonably automatically, but human curation of submodels along the build-up path may improve accuracy. A fully automated pipeline is also in preparation (a previous iteration of this is described in [[rna assembly]] documentation).
+This code allows build-up of three-dimensional de novo models of RNAs of sizes up to ~300 nts, given secondary structure and experimental constraints. It can be carried out reasonably automatically, but human curation of submodels along the build-up path may improve accuracy. A fully automated pipeline is in preparation (a previous iteration of this is described in [[rna assembly]] documentation).
 
 Algorithm
 =========
@@ -127,7 +127,7 @@ Example files and output are in:
 
 Step 3. De novo model loops, junctions, & tertiary contacts of unknown structure by FARFAR
 ---------------------------
-To build motifs or several motifs together, we will use de novo Rosetta modeling. In this example, we'll model the motifs between H2 and H4, using our starting H2 and H4 helices as fixed boundary conditions. 
+To build motifs or several motifs together, we will use de novo Rosetta modeling. In this example, we'll model the motifs between H2 and H4, using our starting H2 and H4 helices as fixed boundary conditions.  Note that a more advanced method, [[stepwise modeling|stepwise]] is also available for high resolution modeling, but remains mostly untested in the context of buildup of large RNA complex folds.
 
 There is currently a wrapper script that sets up the job for the rna_denovo executable, which actually runs fragment assembly of RNA with full atom refinement (FARFAR) is not yet equipped to map numbers from our full modeling problem into the subproblem. We have to create it a little sub-problem and map all the residue numberings into the local problem.
 
@@ -209,7 +209,7 @@ Step 4. Build-up larger pieces by grafting or by more FARFAR
 ---------------------------
 Once you have several models of sub pieces, they can be combined in two ways.
 
-One option is to run further FARFAR jobs (rerun Step 3), but supplying solutions to sub-pdbs via `-s <pdb1> <pdb2> ...` into larger modeling jobs. This is particularly powerful if a set of serial jobs can be set up in which each new job builds an additional peripheral element or junction into a well-converged model of a sub-set.
+One option is to run further FARFAR jobs (rerun Step 3), but supplying solutions to sub-pdbs via `-s <pdb1> <pdb2> ...` into larger modeling jobs. This is particularly powerful if a set of jobs can be set up in which each new job builds an additional peripheral element or junction into a well-converged model of a sub-set modeled in a previous job – a stepwise buildup, analogous to what is being explored in [[high-resolution stepwise modeling|stepwise]].
 
 Alternatively, you can quickly graft two PDBs based on superimposition of shared residues, either using the `align` command in Pymol, or with the following Rosetta command lines:
 
