@@ -32,7 +32,7 @@ The main wrapper code is available through installation of [[RNA tools|rna-tools
 
 The RNA puzzles have offered useful testbeds of helix modeling, motif homology modeling, de novo modeling, and grafting to larger RNA structures. Examples of all four steps are available in:
 
-`       rosetta_demos/public/rna_puzzle      `
+`       demos/public/rna_puzzle      `
 
 References
 ==========
@@ -94,16 +94,40 @@ This application output the helix with chains A and B, but removing the chains p
 replace_chain_inplace.py  H2.pdb 
 ```
 
-To use the above python scripts, follow the directions for setting up [[RNA tools|rna-tools]].
+To setup the above python scripts, follow the directions for setting up [[RNA tools|rna-tools]].
+Example files and output are in:
+
+`       demos/public/rna_puzzle/step1_helix/      `
 
 Step 2. Use threading to build sub-pieces
 ---------------------------
 
 In the problem above, there is a piece which is a well-recognized motif, the UUCG apical loop.
 
+Let's model it by threading from an exemplar
+of the motif from the crystallographic database. There is one here:
+
+Download 1f7y.pdb from `http://pdb.org/pdb/explore/explore.do?structureId=1f7y`.
+
+Slice out the motif of interest:
 ```
-rna_thread
+pdbslice.py  1f7y.pdb  -subset B:31-38 uucg_
 ```
+
+Thread it into our actual sequence:
+```
+rna_thread -s uucg_1f7y.pdb  -seq ccuucggg -o uucg_1f7y_thread.pdb
+```
+
+Let's get the numbering to match our actual test case:
+
+```
+renumber_pdb_in_place.py uucg_1f7y_thread.pdb 24-31
+```
+
+Example files and output are in:
+
+`       demos/public/rna_puzzle/step2_thread/      `
 
 Step 3. De novo model loops, junctions, & tertiary contacts of unknown structure by FARFAR
 ---------------------------
