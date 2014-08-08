@@ -25,11 +25,30 @@
 		<div id="head">
 			<h1>{{ page.title }}</h1>
 			<ul class="actions">
+				<li class="search">
+					<script>
+					  (function() {
+					    var cx = '012232778698042022689:1zv1h-v_9o0';
+					    var gcse = document.createElement('script');
+					    gcse.type = 'text/javascript';
+					    gcse.async = true;
+					    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+					        '//www.google.com/cse/cse.js?cx=' + cx;
+					    var s = document.getElementsByTagName('script')[0];
+					    s.parentNode.insertBefore(gcse, s);
+					  })();
+					</script>
+					<gcse:searchbox></gcse:searchbox>
+				</li>
 				<li class="minibutton"><a href="{{ wiki.base_path }}/"
 					 class="action-home-page">Documentation home</a></li>
 				<li class="minibutton"><a href="https://www.rosettacommons.org/"
 					 class="action-home-page">RosettaCommons Website</a></li>
 			</ul>
+		</div>
+
+		<div id="search-results">
+			 <gcse:searchresults></gcse:searchresults>
 		</div>
 
 		<div id="wiki-content">
