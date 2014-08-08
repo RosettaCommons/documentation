@@ -8,7 +8,7 @@
 Application purpose
 ===========================================
 
-This code allows build-up of three-dimensional de novo models of RNAs of sizes up to ~300 nts, given secondary structure and experimental constraints. It can be carried out reasonably automatically, but human curation of submodels along the build-up path may improve accuracy.
+This code allows build-up of three-dimensional de novo models of RNAs of sizes up to ~300 nts, given secondary structure and experimental constraints. It can be carried out reasonably automatically, but human curation of submodels along the build-up path may improve accuracy. A fully automated pipeline is also in preparation (a previous iteration of this is described in [[rna assembly]] documentation).
 
 Algorithm
 =========
@@ -49,7 +49,7 @@ Input Files
 Required file
 -------------
 
-You need two input files to run RNA structure modeling:
+You need two input files to run structure modeling of complex RNA folds:
 
 -   The [[fasta file]]: it is a sequence file for your rna.
 -   The [[secondary structure file]]: text file with secondary structure in dot-parentheses notation.
@@ -61,17 +61,45 @@ Optional additional files:
 
 Making models
 ===========
+Following are examples for a sequence drawn from RNA puzzle 11, a long hairpin with several submotifs. The fasta file `RNAPZ11.fasta` looked like this:
+
+```
+> RNAPZ11 (7SK RNA 5' hairpin)
+gggaucugucaccccauugaucgccuucgggcugaucuggcuggcuaggcggguccc
+```
+
+and the secondary structure file `RNAPZ11.secstruct` for the whole problem looked like this:
+
+```
+((((((((((.((((...(((((((....))).)))).))..))...))))))))))
+gggaucugucaccccauugaucgccuucgggcugaucuggcuggcuaggcggguccc
+```
+
+There are four helices, H1, H2, H3, and H4.
+
 Step 1. Make helices
 ---------------------------
+
+Helices act as connectors between motifs. It can be useful to pre-build these and keep them fixed during each motif run, as grafting (Step 4 below) requires superimposition between shared pieces of separately built motifs.
 
 A sample command line is the following:
 
 ```
-rna_helix.py
+rna_helix.py  -o H2.pdb -seq cc gg -resnum 14-15 39-40
 ```
+
+This application output the helix with chains A and B, but removing the chains prevents some confusion with later steps, so you can run:
+
+```
+replace_chain_inplace.py  H2.pdb 
+```
+
+To use the above python scripts, follow the directions for setting up [[RNA tools|rna-tools]].
 
 Step 2. Use threading to build sub-pieces
 ---------------------------
+
+In the problem above, there is a piece which is a well-recognized motif, the UUCG apical loop.
 
 ```
 rna_thread
@@ -128,4 +156,3 @@ Expected Outputs
 ================
 
 You will typically use the protocol to produce a silent file – how do you get the models out?
-
