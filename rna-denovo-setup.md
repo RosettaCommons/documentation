@@ -1,10 +1,6 @@
 #RNA 3D structure modeling
 ==================================
 
-**STILL BEING DRAFTED BY RHIJU**
-**STILL BEING DRAFTED BY RHIJU**
-**STILL BEING DRAFTED BY RHIJU**
-
 Application purpose
 ===========================================
 
@@ -13,7 +9,7 @@ This code allows build-up of three-dimensional de novo models of RNAs of sizes u
 Algorithm
 =========
 
-This documentation page emphasizes the setup of multiple jobs that together permit the modeling of complex RNA folds. Each of the 'sub-jobs' is either a helix creation, a RNA comparative modeling job [rna_thread|rna-thread], or a run with the FARFAR (fragment assembly of RNA with full-atom refinement) de novo modeling application. If desired, sub-models can be grafted together into bigger pieces. 
+This documentation page emphasizes the setup of multiple jobs that together permit the modeling of complex RNA folds. Each of the 'sub-jobs' is either a helix creation, a RNA comparative modeling job [[rna_thread|rna-thread]], or a run with the FARFAR (fragment assembly of RNA with full-atom refinement) de novo modeling application. If desired, sub-models can be grafted together into bigger pieces. 
 
 The input files, algorithm, etc. for the FARFAR application are described separately [[here|rna denovo]], but a detailed understanding of those file formats is not necessary for modeling. 
 
@@ -131,52 +127,98 @@ Example files and output are in:
 
 Step 3. De novo model loops, junctions, & tertiary contacts of unknown structure by FARFAR
 ---------------------------
+To build motifs or several motifs together, we will use de novo Rosetta modeling. In this example, we'll model the motifs between H2 and H4, using our starting H2 and H4 helices as fixed boundary conditions. 
 
-Useful options for `rna_denovo_setup.py`
+There is currently a wrapper script that sets up the job for the rna_denovo executable, which actually runs fragment assembly of RNA with full atom refinement (FARFAR) is not yet equipped to map numbers from our full modeling problem into the subproblem. We have to create it a little sub-problem and map all the residue numberings into the local problem.
+
+Run the following command to set up the job:
+
+```
+rna_denovo_setup.py -fasta RNAPZ11.fasta \
+    -secstruct_file RNAPZ11_OPEN.secstruct \
+   -working_res 14-25 30-40 \
+   -s H2.pdb H4.pdb \
+   -fixed_stems \
+   -tag H2H3H4_run1b_openH3_SOLUTION1 \
+   -native example1.pdb 
+```
+
+You don't need to supply a native if you don't have it -- just useful
+to compute RMSDs as a reference.
+
+Then try this:
+
+```
+ source README_FARFAR
+```
+
+Example output after a couple of structures is in `example_output/`, and in this case goes to `H2H3H4_run1b_openH3_SOLUTION1.out`.
+
+For convergent results, you may have to do a full cluster run -- some tools are available for
+ `condor`, `qsub`, `slurm` queueing systems as part of [[rna tools|rna-tools]].
+
+Extract 10 lowest energy models:
+
+extract_lowenergy_decoys.py H2H3H4_run1b_openH3_SOLUTION1.out 10
+
+Inspect in Pymol. (For an automated workflow, you can also cluster these runs and just carry forward the top 5 clusters.)
+Demo files are available in:
+`       demos/public/rna_puzzle/step3_farfar/      `
+
+Some useful options for `rna_denovo_setup.py`
 
 ```
 Required:
--in:fasta                                        Fasta-formatted sequence file. [FileVector]
+-sequence                sequence supplied directly [string]
+  OR
+-fasta                   Fasta-formatted sequence file -- but concatenate all RNA chains in one sequence!
 
-Commonly used:
--out:file:silent                                 Name of output file [scores and torsions, compressed format]. default="default.out" [String]
--params_file                                     RNA params file name.[String]. For Example: -params_file chunk002_1lnt_.prm
--in:native                                       Native PDB filename. [File].
--out:nstruct                                     Number of models to make. default: 1. [Integer]
--minimize_rna                                    High resolution optimize RNA after fragment assembly.[Boolean]
--vary_geometry                                   Vary bond lengths and angles (with harmonic constraints near Rosetta ideal) for backbone and sugar degrees of freedom [Boolean]
+Commonly used options
+-secstruct               secondary structure in dot-parentheses notation (enclose in quotes)
+ OR
+-secstruct_file          file containint secondary structure on top line (can have sequence or anything else on later lines)
+-offset                  integer specifying how much to add to each sequence position to get conventional numbering (default: 0)
+-cutpoint_open           positions of any strand breaks
+-working_res             which residues to model in the desired sub-problem (example: '122-135 166-190', default is all res.)
+-fixed_stems             set up de novo modeling fold tree so that helices are connected by rigid-body transforms (default:false, but now recommended)
+-s                       list of PDB files to use; must have residue numbers corresponding to location in full modeling problem (default: no input files)
 
-Less commonly used, but useful
--cycles                                          Number of Monte Carlo cycles.[default 10000]. [Integer]
--filter_lores_base_pairs                         Filter for models that satisfy structure parameters. [Boolean]
--output_lores_silent_file                        If high resolution minimizing, output intermediate low resolution models. [Boolean]
--dump                                            Generate pdb output. [Boolean]
--vall_torsions                                   Source of RNA fragments. [default: 1jj2.torsions]. [Boolean]
--jump_library_file                               Source of base-pair rigid body transformations if base pairs are specified.
-                                                   [default: 1jj2_RNA_jump_library.dat] [String]
--close_loops                                     Attempt closure across chainbreaks by cyclic coordinate descent after fragment moves [Boolean]
--cst_file                                        Specify constraints (typically atom pairs) in Rosetta-style constraint file. [String]
--output_lores_silent_file                        if doing full-atom minimize, also save models after fragment assembly but before refinement (file will be called *.LORES.out) [Boolean]
--dump                                            output pdbs that occur during the run, even if using silent file output.
+Less commonly used options, but useful
+-nstruct                 number of structures for each FARFAR denovo modeling run to produce (default: 500)
+-tag                     string to put in front of all input files and final output file (default: name of working directory)
+-native_pdb              file with reference PDB for RMSD values (optional)
 
-Advanced [used in rna_assembly]
--in:file:silent                                  List of input files (in 'silent' format) that specify potential template structures or 'chunks'
--chunk_res                                       Positions at which 'chunks' are applied. If there is more than one chunk file, specify indices for
-                                                   the first file and then the second file, etc.
--in:database                                     Path to rosetta databases. Default is based on location of rosetta executables. [PathVector]
+Advanced options
+-out_script              name of output script with Rosetta command line (default: "README_FARFAR")
+-silent                  any *input* Rosetta silent files with multiple options for a subset of residues
+-input_silent_res        residue numbers that go with the silent files
+-no_minimize             do not carry out full-atom refinement, just fragment assembly under lo res score function.
+-working_native_pdb      supply a reference PDB file that has just working_res only.
+-cst_file                constraint file in old 'section-based' Rosetta constraint format
+-data_file               data file with, e.g., DMS data in 'DMS position value' format, or in RDAT format.
+-cutpoint_closed         specify that transient chain breaks occur at specific positions, rather than chosen randomly at loops
+-extra_minimize_res      positions that may be in input residues (specified in -s or -silent) but should be minimized
+-extra_minimize_chi_res  positions that may be in input residues (specified in -s or -silent) but side-chains should be minimized
+-virtual_anchor          poorly named; creates a virtual anchor necessary for rigid-body sampling of separate parts of the pose
+-obligate_pair           specify pairs of positions that must be in base pairs (perhaps at the expense of transient chain breaks elsewhere)
+-obligate_pair_explicit  like obligate pair, but specify sets of 5: <pos1> <pos2> <W/H/S> <W/H/S> <A/P>, where W/H/S means Watson-Crick/Hoogsteen/sugar edge; and A/P means antiparallel/parallel base normals.  
+-chain_connection        specify that pairings must occur between two sets of residues: SET1 <positions in set 1> SET2 <positions in set 2>
 ```
-
 
 Step 4. Build-up larger pieces by grafting or by more FARFAR
 ---------------------------
+Once you have several models of sub pieces, they can be combined in two ways.
+
+One option is to run further FARFAR jobs (rerun Step 3), but supplying solutions to sub-pdbs via `-s <pdb1> <pdb2> ...` into larger modeling jobs. This is particularly powerful if a set of serial jobs can be set up in which each new job builds an additional peripheral element or junction into a well-converged model of a sub-set.
+
+Alternatively, you can quickly graft two PDBs based on superimposition of shared residues, either using the `align` command in Pymol, or with the following Rosetta command lines:
+
+```
+rna_graft -s H2H3H4_run1b_openH3_SOLUTION1.pdb  uucg_1f7y_thread.pdb  -o graft_temp.pdb
+rna_graft -s graft_temp.pdb H1H2_run2_SOLUTION1.pdb  -o full_graft.pdb
+```
+Demo files are available in:
+`       demos/public/rna_puzzle/step4_graft/      `
 
 
 
-Tips
-====
-
-
-Expected Outputs
-================
-
-You will typically use the protocol to produce a silent file – how do you get the models out?
