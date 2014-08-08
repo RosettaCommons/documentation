@@ -14,7 +14,7 @@ Gollum::Hook.register(:post_commit, :hook_id) do |committer, sha1|
   committer.wiki.repo.git.push
 end
 
-map '/docs' do
+map '/docs/wiki' do
   host = 'https://www.rosettacommons.org'
   # need to set this or else it uses http (no 's'), which causes github to give a bad URL error
   OmniAuth.config.full_host = host
@@ -22,11 +22,11 @@ map '/docs' do
   options = {
     # OmniAuth::Builder block is passed as a proc
     :providers => Proc.new do
-      provider :githubteammember, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'], :scope => 'repo,user'
+      provider :githubteammember, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'], :scope => 'read:org,user:email'
     end,
     :dummy_auth => false,
     :route_prefix => '/__omnigollum__',
-    :base_path => '/docs',
+    :base_path => '/docs/wiki',
   }
 
    
