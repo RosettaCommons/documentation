@@ -732,3 +732,5 @@ ul.actions {
 .clearfloats {
   clear: both;
 }
+
+ul.actions li.search { width: 350px; }
