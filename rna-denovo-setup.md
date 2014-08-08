@@ -127,11 +127,9 @@ Example files and output are in:
 
 Step 3. De novo model loops, junctions, & tertiary contacts of unknown structure by FARFAR
 ---------------------------
-To build motifs or several motifs together, we will use de novo Rosetta modeling. In this example, we'll model the motifs between H2 and H4, using our starting H2 and H4 helices as fixed boundary conditions.  Note that a more advanced method, [[stepwise modeling|stepwise]] is also available for high resolution modeling, but remains mostly untested in the context of buildup of large RNA complex folds.
+To build motifs or several motifs together, we will use de novo Rosetta modeling. In this example, we'll model the motifs between H2 and H4, using our starting H2 and H4 helices as fixed boundary conditions.  Note that a more advanced method, [[stepwise modeling|stepwise]] is also available for high resolution modeling (and is actually easier to run the fragment assembly), but remains mostly untested in the context of buildup of large RNA complex folds; for motifs that have any kind of homology to existing junctions/motifs, FARFAR should be better & faster.
 
-There is currently a wrapper script that sets up the job for the rna_denovo executable, which actually runs fragment assembly of RNA with full atom refinement (FARFAR) is not yet equipped to map numbers from our full modeling problem into the subproblem. We have to create it a little sub-problem and map all the residue numberings into the local problem.
-
-Run the following command to set up the job:
+Fragment assembly of RNA with full atom refinement (FARFAR) is not yet equipped to map numbers from our full modeling problem into subproblems. We have to create input files to `rna_denovo` for a little sub-problem and map all the residue numberings into the local problem. There is currently a wrapper script that sets up this job:
 
 ```
 rna_denovo_setup.py -fasta RNAPZ11.fasta \
