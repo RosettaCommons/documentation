@@ -157,8 +157,12 @@ Input files & demo are in:
 
 `       rosetta/demos/public/stepwise_monte_carlo_protein_loop     `
 
-Animation coming soon... **NOTE AS OF AUG, 2014: THERE APPEARS TO BE A BUG THAT REDUCES CONFORMATIONAL SAMPLING EFFICIENCY FOR PROTEIN LOOPS, INTRODUCED DURING REFACTORING. I WILL REMOVE THIS WARNING WHEN I FIX THE BUG AND PUT IN THIS ANIMATION. -- Rhiju**
- 
+Here's an animation:
+
+[![1ALC loop modeling animation on Youtube](http://img.youtube.com/vi/9jxaVRizIxA/0.jpg)](http://www.youtube.com/watch?v=9jxaVRizIxA)
+
+One interesting thing to note is that the packing of protein side-chains in stepwise monte carlo uses the new `allow_virtual_side_chains` setting and a score term `free_side_chain` that gives a bonus to residues for being virtualized (equal to 0.5 kcal times the number of side-chain torsions). This means that the side-chains only get instantiated if they can pack or form hydrogen bonds, and the results is a rather smoother conformational search.
+
 Mini-proteins built from scratch
 --------------------------------
 For both RNA and proteins stepwise monte carlo can also build models 'from scratch' (this feature will be optimized in the future so that you won't have to build, e.g., RNA helices). An example command line is:
@@ -171,8 +175,6 @@ Here's an animation of a trajectory that achieves a low energy structure:
 [![Trp cage (2jof) animation on Youtube](http://img.youtube.com/vi/MRYZjEoVs5Q/0.jpg)](http://www.youtube.com/watch?v=MRYZjEoVs5Q)
 
 Most of the simulation may be spent flickering bits of secondary structure &ndash; in the future, we will probably setup some precomputation of these bits so that computation can be focused on build up of the complete mini-protein structure.
-
-One interesting thing to note is that the packing of protein side-chains in stepwise monte carlo uses the new `allow_virtual_side_chains` setting and a score term `free_side_chain` that gives a bonus to residues for being virtualized (equal to 0.5 kcal times the number of side-chain torsions). This means that the side-chains only get instantiated if they can pack or form hydrogen bonds, and the results is a rather smoother conformational search.
 
 
 Input files & demo are in:
@@ -232,7 +234,7 @@ Rarely used but listed with --help
 -allow_internal_local_moves                      Allow moves in which internal cutpoints are created to allow ERRASER rebuilds (default:**false**)
 -allow_skip_bulge                                Allow moves in which an intervening residue is skipped and the next one is modeled as floating base (default:**false**)
 -allow_variable_bond_geometry                    In 10% of moves, let bond angles & distance change (default:false) (**warning: this may not work anymore**)
--num_pose_minimize                               number of sampled poses to minimize within each stepwise move
+-num_pose_minimize                               number of sampled poses to minimize within each stepwise move (1 for RNA; 5 poses with lowest energy after packing for protein)
 -full_model:rna:force_syn_chi_res_list           optional: sample only syn chi for these res in sampler [ChainResidueVector*]
 -force_centroid_interaction                      Require base stack or pair even for single residue loop closed (which could also be bulges!)
 -rebuild_bulge_mode                              rebuild_bulge_mode (just for SWA backwards compatibility)
