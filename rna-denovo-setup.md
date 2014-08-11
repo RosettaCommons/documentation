@@ -212,8 +212,7 @@ One option is to run further FARFAR jobs (rerun Step 3), but supplying solutions
 Alternatively, you can quickly graft two PDBs based on superimposition of shared residues, either using the `align` command in Pymol, or with the following Rosetta command lines:
 
 ```
-rna_graft -s H2H3H4_run1b_openH3_SOLUTION1.pdb  uucg_1f7y_thread.pdb  -o graft_temp.pdb
-rna_graft -s graft_temp.pdb H1H2_run2_SOLUTION1.pdb  -o full_graft.pdb
+rna_graft -s H2H3H4_run1b_openH3_SOLUTION1.pdb  uucg_1f7y_thread.pdb  H1H2_run2_SOLUTION1.pdb -o full_graft.pdb
 ```
 Demo files are available in:
 `       demos/public/rna_puzzle/step4_graft/      `
