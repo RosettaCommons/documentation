@@ -7,9 +7,7 @@ SEWING stands for **S**tructure **E**xtension **WI**th **N**ative-fragment **G**
 2. [[Model comparison|SEWING#Model-comparison-with-geometric-hashing]] - Structurally compare models to one another using a geometric hashing algorithm
 3. [[Assembly|SEWING#Assembly-of-models]] - Stitch models together based on structural superimposition to form novel backbones
 
-##Protocol details
-
-###Model Generation
+##Model Generation
 First we need a generate a set of models. The only currently supported mechanism for model generation is through the use of a [[Features database|FeaturesTutorials]]. The following set ReportToDB tag contains the minimal set of features.
 
 ```
@@ -39,9 +37,7 @@ An example command line for generation of model files:
 -model_file_name pdb.models
 ```
 
-
-
-###Model comparison with geometric hashing
+##Model comparison with geometric hashing
 Once a Model file has been generated, the models need to be structurally compared to one another using a geometric hashing algorithm implemented in the SewingHasher.
 
 SewingHasher hashing flags
@@ -54,6 +50,4 @@ SewingHasher hashing flags
 -sewing:max_clash_score    The tolerance for number of atoms/segment of different atom types that end up in the same bin (default: 0)
 ```
 
-
-
-###Assembly of models
+##Assembly of models
