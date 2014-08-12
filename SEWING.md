@@ -39,6 +39,8 @@ An example command line for generation of model files:
 -model_file_name pdb.models
 ```
 
+
+
 ###Model comparison with geometric hashing
 Once a Model file has been generated, the models need to be structurally compared to one another using a geometric hashing algorithm implemented in the SewingHasher.
 
@@ -51,5 +53,7 @@ SewingHasher hashing flags
 -sewing:min_hash_score    The minimum number over overlapping atoms **per segment** that is considered a structure match
 -sewing:max_clash_score    The tolerance for number of atoms/segment of different atom types that end up in the same bin (default: 0)
 ```
+
+
 
 ###Assembly of models
