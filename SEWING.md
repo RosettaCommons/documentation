@@ -20,7 +20,7 @@ First we need a generate a set of models. The only currently supported mechanism
 
 SewingHasher model generation flags
 ```
--sewing:generate_models_from_db    Set to true for model generation
+-sewing:mode generate    Set to SewingHasher mode to 'generate' for model generation
 -inout:dbms:database_name          The SQL database file to generate models from
 -sewing:model_file_name            The name of the model file to be generated
 ```
@@ -28,16 +28,20 @@ SewingHasher model generation flags
 An example command line for generation of model files:
 ```
 /path/to/rosetta/bin/SewingHasher.linuxgccrelease \
--generate-models_from_db \
+-sewing:mode generate \
 -database_name pdb.db3 \
 -model_file_name pdb.models
 ```
 
 ###Model comparison with geometric hashing
-Once a Mode
+Once a Model file has been generated, the models need to be structurally compared to one another using a geometric hashing algorithm implemented in the SewingHasher.
 
 SewingHasher hashing flags
 ```
--model_file_name    The name of the file to read models from
--score_file_name    The name of the score file to output (used in later stages of SEWING)
-
+-sewing:mode hash    Set the sewing mode to 'hash' for geometric hashing
+-sewing:model_file_name    The name of the file to read models from
+-sewing:score_file_name    The name of the score file to output (used in later stages of SEWING)
+-sewing:num_segments_to_match    The exact of model segments to look for structural matches for. Any matches with less than, or more than, this number of segment matches will fail 
+-sewing:min_hash_score    The minimum number over overlapping atoms **per segment** that is considered a structure match
+-sewing:max_clash_score    The tolerance for number of atoms/segment of different atom types that end up in the same bin (default: 0)
+```
