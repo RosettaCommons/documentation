@@ -34,7 +34,7 @@ An example command line for generation of model files:
 /path/to/rosetta/bin/SewingHasher.linuxgccrelease \
 -sewing:mode generate \
 -database_name pdb.db3 \
--model_file_name pdb.models
+-sewing:model_file_name pdb.models
 ```
 
 ##Model comparison with geometric hashing
@@ -45,9 +45,19 @@ SewingHasher hashing flags
 -sewing:mode hash    Set the sewing mode to 'hash' for geometric hashing
 -sewing:model_file_name    The name of the file to read models from
 -sewing:score_file_name    The name of the score file to output (used in later stages of SEWING)
--sewing:num_segments_to_match    The exact of model segments to look for structural matches for. Any matches with less than, or more than, this number of segment matches will fail 
+-sewing:num_segments_to_match    The exact of model segments to look for structural matches for. Any matches with less than, or more than, this number of segment matches will fail. For continuous SEWING, only a value of 1 is supported
 -sewing:min_hash_score    The minimum number over overlapping atoms **per segment** that is considered a structure match
 -sewing:max_clash_score    The tolerance for number of atoms/segment of different atom types that end up in the same bin (default: 0)
 ```
 
+An example command line for comparison of model files:
+```
+/path/to/rosetta/bin/SewingHasher.linuxgccrelease \
+-sewing:mode hash \
+-sewing:model_file_name pdb.models \
+-sewing:score_file_name pdb.scores \
+-sewing:num_segments_to_match 1 \
+-sewing:min_hash_score 20 \
+-sewing:max_clash_score 0
+```
 ##Assembly of models
