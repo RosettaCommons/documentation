@@ -24,9 +24,9 @@ First we need a generate a set of models. The only currently supported mechanism
 
 SewingHasher model generation flags
 ```
--sewing:mode generate    Set to SewingHasher mode to 'generate' for model generation
--inout:dbms:database_name          The SQL database file to generate models from
--sewing:model_file_name            The name of the model file to be generated
+-sewing:mode generate           Set to SewingHasher mode to 'generate' for model generation
+-inout:dbms:database_name       The SQL database file to generate models from
+-sewing:model_file_name         The name of the model file to be generated
 ```
 
 An example command line for generation of model files:
@@ -42,12 +42,12 @@ Once a Model file has been generated, the models need to be structurally compare
 
 SewingHasher hashing flags
 ```
--sewing:mode hash    Set the sewing mode to 'hash' for geometric hashing
--sewing:model_file_name    The name of the file to read models from
--sewing:score_file_name    The name of the score file to output (used in later stages of SEWING)
--sewing:num_segments_to_match    The exact of model segments to look for structural matches for. Any matches with less than, or more than, this number of segment matches will fail. For continuous SEWING, only a value of 1 is supported
--sewing:min_hash_score    The minimum number over overlapping atoms **per segment** that is considered a structure match
--sewing:max_clash_score    The tolerance for number of atoms/segment of different atom types that end up in the same bin (default: 0)
+-sewing:mode hash               Set the sewing mode to 'hash' for geometric hashing
+-sewing:model_file_name         The name of the file to read models from
+-sewing:score_file_name         The name of the score file to output (used in later stages of SEWING)
+-sewing:num_segments_to_match   The exact of model segments to look for structural matches for. Any matches with less than, or more than, this number of segment matches will fail. For continuous SEWING, only a value of 1 is supported
+-sewing:min_hash_score          The minimum number over overlapping atoms **per segment** that is considered a structure match
+-sewing:max_clash_score         The tolerance for number of atoms/segment of different atom types that end up in the same bin (default: 0)
 ```
 
 An example command line for comparison of model files:
@@ -78,13 +78,48 @@ The final result should be a score file named pdb.scores.bin, this is the score 
 
 ##Assembly of models
 
-Assembly of backbones is accomplished by a Mover, and thus can be accessed via the [[RosettaScripts]] interface. There are currently several Movers implemented, each designed to accomplish different design goals. A brief outline of each is below.
+Assembly of backbones is accomplished by a Mover, and thus can be accessed via the [[RosettaScripts]] interface. There are currently several Movers implemented, each designed to accomplish different design goals. The base AssemblyMover has a handful of core methods which are overwritten by the various sub-movers. A flow chart for how all these methods relate to one another is below:
+
++------------------+    +-----------------+    +------------------------+    +---------------+
+|Get starting model+--->|Generate Assembly+--->|Filter complete Assembly+--->|Refine Assembly|
++------------------+    +-----------------+    +------------------------+    +---------------+
+                        /                 \                
+                       /                   \
+                      /                     \
+                  +-------------+   +----------+   +-----------+   +-----------------------+
+                  |get next edge+-->|check edge+-->|follow edge+-->|filter partial assembly|
+                  +-------------+   +----------+   +-----------+   +-----------------------+         
 
 ###Flags common to all SEWING movers
+```
+-sewing:model_file_name         The name of the file to read models from
+-sewing:score_file_name         The name of the file to read scores (edges) from
+-sewing:assembly_type generate  The type of Assembly to generate (allows 'continuous' and 'discontinuous')
+-sewing:num_edges_to_follow     The number of edges from the SewGraph that will be followed. Each edge adds more to the structure
+-sewing:base_native_bonus       The bonus in Rosetta energy units to give 'native' residues during design (default 1)
+-sewing:neighbor_cutoff         The cutoff for favoring natives. Any residue with fewer natives in the Assembly will not be favored (default: 16)
+-sewing:skip_refinement         If true, no full-atom refinement will be run on the completed Assembly
+-sewing:skip_filters            If true, all filters will be skipped during Assembly generation
+```
 
 ###RandomAssemblyMover
+The RandomAssemblyMover is the base class from which all other AssemblyMovers derive. This class simply traversed the graph in a random fashion until the required number of edges has been satisfied. Currently, this mover is only accessible via RosettaScripts. An example tag is below:
+
+```
+<RandomAssemblyMover
+    model_file=(&string)
+    score_file=(&string)
+    partial_filter=(&string)
+    complete_filter=(&string)
+    num_edges_to_follow=(&int)
+    max_attempts=(&int)
+    base_native_bonus=(&real)
+    neighbor_cutoff=(&int)
+/>
+```
 
 ###MotifDirectedAssemblyMover
+The MotifDirectedAssemblyMover modifies the Assembly generation of the RandomAssemblyMover by 
 
 ###SewingAppendMover
 
