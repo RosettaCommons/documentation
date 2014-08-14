@@ -60,4 +60,34 @@ An example command line for comparison of model files:
 -sewing:min_hash_score 20 \
 -sewing:max_clash_score 0
 ```
+
+Due to the computational expense of is recommended to run the above command using a large number of processors using MPI. The result will be one score plain-text file per MPI process (e.g. pdb.scores.0, pdb.scores.1, etc). For most production-size databases, the resultant score files will be very large. To increase speed during assembly it is required that the entire set of plain-text score files be converted into a single, binary score file. To accomplish this conversion, first combine the plain text score files:
+```
+cat pdb.scores.* > pdb.scores
+```
+
+Then, use the SewingHasher executable to convert this plain-text file to binary:
+```
+/path/to/rosetta/bin/SewingHasher.linuxgccrelease \
+-sewing:mode convert \
+-sewing:model_file_name pdb.models \
+-sewing:score_file_name pdb.scores
+```
+
+The final result should be a score file named pdb.scores.bin, this is the score file that will be used during the Assembly of SEWING backbones.
+
 ##Assembly of models
+
+Assembly of backbones is accomplished by a Mover, and thus can be accessed via the [[RosettaScripts|Rosetta-Scripts]] interface. There are currently several Movers implemented, each designed to accomplish different design goals. A brief outline of each is below.
+
+###Flags common to all SEWING movers
+
+###RandomAssemblyMover
+
+###MotifDirectedAssemblyMover
+
+###SewingAppendMover
+
+###RepeatAssemblyMover
+
+###NodeConstraintAssemblyMover 
