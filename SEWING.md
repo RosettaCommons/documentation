@@ -78,7 +78,7 @@ The final result should be a score file named pdb.scores.bin, this is the score 
 
 ##Assembly of models
 
-Assembly of backbones is accomplished by a Mover, and thus can be accessed via the [[RosettaScripts|Rosetta-Scripts]] interface. There are currently several Movers implemented, each designed to accomplish different design goals. A brief outline of each is below.
+Assembly of backbones is accomplished by a Mover, and thus can be accessed via the [[RosettaScripts]] interface. There are currently several Movers implemented, each designed to accomplish different design goals. A brief outline of each is below.
 
 ###Flags common to all SEWING movers
 
