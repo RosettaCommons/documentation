@@ -81,15 +81,15 @@ The final result should be a score file named pdb.scores.bin, this is the score 
 Assembly of backbones is accomplished by a Mover, and thus can be accessed via the [[RosettaScripts]] interface. There are currently several Movers implemented, each designed to accomplish different design goals. The base AssemblyMover has a handful of core methods which are overwritten by the various sub-movers. A flow chart for how all these methods relate to one another is below:
 
 ```
-+------------------+    +-----------------+    +------------------------+    +---------------+
-|Get starting model+--->|Generate Assembly+--->|Filter complete Assembly+--->|Refine Assembly|
-+------------------+    +-----------------+    +------------------------+    +---------------+
-                        /                 \                
-                       /                   \
-                      /                     \
-                  +-------------+   +----------+   +-----------+   +-----------------------+
-                  |get next edge+-->|check edge+-->|follow edge+-->|filter partial assembly|
-                  +-------------+   +----------+   +-----------+   +-----------------------+         
++---------------------+    +--------------------+    +---------------------------+    +------------------+
+|1. Get starting model+--->|2. Generate Assembly+--->|3. Filter complete Assembly+--->|4. Refine Assembly|
++---------------------+    +--------------------+    +---------------------------+    +------------------+
+                           |
+           +---------------|------------------------------------------------------------------------------+
+           |                                                                                              |
+           |  +-----------------+   +--------------+   +---------------+   +---------------------------+  |
+           |--|2A. get next edge+-->|2B. check edge+-->|2C. follow edge+-->|2D. filter partial assembly|--|
+              +-----------------+   +--------------+   +---------------+   +---------------------------+         
 ```
 
 ###Flags common to all SEWING movers
