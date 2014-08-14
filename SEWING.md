@@ -105,7 +105,18 @@ Assembly of backbones is accomplished by a Mover, and thus can be accessed via t
 ```
 
 ###RandomAssemblyMover
-The RandomAssemblyMover is the base class from which all other AssemblyMovers derive. This class simply traversed the graph in a random fashion until the required number of edges has been satisfied. Currently, this mover is only accessible via RosettaScripts. An example tag is below:
+The RandomAssemblyMover is the base class from which all other AssemblyMovers derive. In essence, this class simply traverses the graph in a random fashion until the required number of edges has been satisfied. A slightly more detailed description of each of the base AssemblyMover methods is:
+
+1. Get starting model --> Get a random model from the SewGraph
+2. Generate Assembly --> The following steps are repeated until the desired number of edges have been added, or until the max number of attempts is reached
+  2A. Get next edge --> Follow a random edge from the current node
+  2B. Check edge --> Check the edge for any backbone clashes it may introduce. If found, go back to step 1.
+  2C. Follow edge --> Add the target model from the current edge to the Assembly
+  2D. Partial filter ---> Generate a centroid pose from the Assembly and run user defined partial filters. If any fail, go back to step 1. Skipped if skip_filters=true.
+3. Complete filter --> Generate a centroid pose from the Assembly and run user defined complete filters. If any fail, go back to step 1. Skipped if skip_filters=true.
+4. Refine --> Generate a full-atom pose from the Assembly and do a refinement step. Refinement is carried out by running a FastRelax mover with coordinate constraints and centroid minimization (in the future, this may change to a allow use of a sub-mover for refinement).
+
+ Currently, this mover is only accessible via RosettaScripts. An example tag is below:
 
 ```
 <RandomAssemblyMover
