@@ -94,6 +94,7 @@ Assembly of backbones is accomplished by a Mover, and thus can be accessed via t
 
 ###Flags common to all SEWING movers
 ```
+-s                              The input PDB (ignored, but still required, for many SEWING Movers)
 -sewing:model_file_name         The name of the file to read models from
 -sewing:score_file_name         The name of the file to read scores (edges) from
 -sewing:assembly_type generate  The type of Assembly to generate (allows 'continuous' and 'discontinuous')
@@ -116,7 +117,10 @@ The RandomAssemblyMover is the base class from which all other AssemblyMovers de
 3. **Complete filter** - Generate a centroid pose from the Assembly and run user defined complete filters. If any fail, go back to step 1. Skipped if skip_filters=true.
 4. **Refine** - Generate a full-atom pose from the Assembly and do a refinement step. Refinement is carried out by running a FastRelax mover with coordinate constraints and centroid minimization (in the future, this may change to a allow use of a sub-mover for refinement).
 
- Currently, this mover is only accessible via RosettaScripts. An example tag is below:
+Currently, this mover is only accessible via RosettaScripts. 
+**Note that due to the fact that RosettaScripts uses the standard Rosetta Job Distributor, an input PDB is required (using the standard -s/-l flags). This PDB will be ignored.** 
+
+An example RosettaScripts tag is below:
 
 ```
 <RandomAssemblyMover
@@ -135,6 +139,7 @@ The RandomAssemblyMover is the base class from which all other AssemblyMovers de
 The MotifDirectedAssemblyMover modifies the Assembly generation of the RandomAssemblyMover by 
 
 ###SewingAppendMover
+The SewingAppendMover is a Mover that allows the addition of residues
 
 ###RepeatAssemblyMover
 
