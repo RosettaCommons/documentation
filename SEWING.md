@@ -126,12 +126,11 @@ An example RosettaScripts tag is below:
 
 ```
 <RandomAssemblyMover
-    model_file=(&string)
-    score_file=(&string)
     partial_filter=(&string)
     complete_filter=(&string)
     num_edges_to_follow=(&int)
     max_attempts=(&int)
+    max_edges_per_node=(&int)
     base_native_bonus=(&real)
     neighbor_cutoff=(&int)
 />
