@@ -145,7 +145,7 @@ The SewingAppendMover is a Mover that allows the addition of residues to a PDB t
 
 * **Get starting model** - The SewingAppendMover starts every Assembly with the Model generated from the input PDB (using the standard -s/-l flags)
 
-**Partial filter** - The partial filter step is extended to also check for any backbone clashes with the PDB supplied through the option sewing:partner_pdb flag.
+* **Partial filter** - The partial filter step is extended to also check for any backbone clashes with the PDB supplied through the option sewing:partner_pdb flag.
 
 The complete set of addition flags respected by the SewingAppendMover
 ```
