@@ -46,8 +46,8 @@ SewingHasher hashing flags
 -sewing:model_file_name         The name of the file to read models from
 -sewing:score_file_name         The name of the score file to output (used in later stages of SEWING)
 -sewing:num_segments_to_match   The exact of model segments to look for structural matches for. Any matches with less than, or more than, this number of segment matches will fail. For continuous SEWING, only a value of 1 is supported
--sewing:min_hash_score          The minimum number over overlapping atoms **per segment** that is considered a structure match
--sewing:max_clash_score         The tolerance for number of atoms/segment of different atom types that end up in the same bin (default: 0)
+-sewing:min_hash_score          The minimum number over overlapping atoms **per segment** that is considered a structure match (recommended value: >=10)
+-sewing:max_clash_score         The tolerance for number of atoms/segment of different atom types that end up in the same quarter-angstrom bin during geometric hashing (recommended value: 0)
 ```
 
 An example command line for comparison of model files:
@@ -160,10 +160,13 @@ The SewingAppendMover is a Mover that allows the addition of residues to a PDB t
 
 The complete set of additional flags respected by the SewingAppendMover
 ```
--sewing:partner_pdb           The 'partner' of the PDB being used as the starting model (usually a binding partner)
--sewing:pose_segment_starts   A vector of integers representing the starting residue (in Rosetta residue numbering) of each segment in the Model PDB (passed with the -s/-l flags)
--sewing:pose_segment_ends     A vector of integers representing the end residue (in Rosetta residue numbering) of each segment in the Model PDB (passed with the -s/-l flags)
--sewing:keep_model_residues   A vector of integers representing residues (in Rosetta residue numbering) that should not be allowed to change from their starting amino acid identity.
+-sewing:partner_pdb             The 'partner' of the PDB being used as the starting model (usually a binding partner)
+-sewing:pose_segment_starts     A vector of integers representing the starting residue (in Rosetta residue numbering) of each segment in the Model PDB (passed with the -s/-l flags)
+-sewing:pose_segment_ends       A vector of integers representing the end residue (in Rosetta residue numbering) of each segment in the Model PDB (passed with the -s/-l flags)
+-sewing:keep_model_residues     A vector of integers representing residues (in Rosetta residue numbering) that should not be allowed to change from their starting amino acid identity.
+-sewing:num_segments_to_match   The exact of model segments to look for structural matches for. Any matches with less than, or more than, this number of segment matches will fail. For continuous SEWING, only a value of 1 is supported
+-sewing:min_hash_score          The minimum number over overlapping atoms **per segment** that is considered a structure match (recommended value: >=10)
+-sewing:max_clash_score         The tolerance for number of atoms/segment of different atom types that end up in the same quarter-angstrom bin during geometric hashing
 ```
 
 ###RepeatAssemblyMover
