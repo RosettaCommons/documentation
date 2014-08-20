@@ -158,6 +158,8 @@ The SewingAppendMover is a Mover that allows the addition of residues to a PDB t
 
 * **Partial filter** - The partial filter step is extended to also check for any backbone clashes with the PDB supplied through the option sewing:partner_pdb flag.
 
+* **Refine** - The Refinement stage differs from the base class method in that the partner PDB is present during this stage. The partner backbone remains rigid, while the sidechain positions are allowed to change.
+
 The complete set of additional flags respected by the SewingAppendMover
 ```
 -sewing:partner_pdb             The 'partner' of the PDB being used as the starting model (usually a binding partner)
@@ -176,7 +178,11 @@ The complete set of additional flags respected by the SewingAppendMover
 
 Subclass of MotifDirectedAssemblyMover
 
-The RepeatAssemblyMover 
+The RepeatAssemblyMover is intended for the design of repeat proteins using the SEWING framework. Due to the graph-traversal based generation of backbones used by SEWING, repeat protein generation is relatively easy; one needs only to find cycles in the graph. The following modifications to base-class methods describe how this functionality is implemented.
+
+* **Generate Assembly** - First, the base class method is called, then this function searches for a back-edge from the last added node (a back-edge is an edge from the last to first node, completing the cycle) 
+
+* **Refine** - The Refinement stage for repeat proteins is modified to maintain a perfect repeat in both sequence and structure space.
 
 ----------------------
 
