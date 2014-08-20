@@ -4,11 +4,11 @@ The SEWING protocol is a method for the rapid generation of denovo backbones tha
 SEWING stands for **S**tructure **E**xtension **WI**th **N**ative-fragment **G**raphs. SEWING functions by identifying relatively large sub-structures, called models (2-5 pieces of secondary structure) from native PDBs, and then assembling these models based on structural similarity. SEWING can be broken down into three basic steps:
 
 1. [[Model Generation|SEWING#Model-Generation]] - Extraction of 'models' from native structures
-2. [[Model comparison|SEWING#Model-comparison-with-geometric-hashing]] - Structurally compare models to one another using a geometric hashing algorithm
+2. [[Model Comparison|SEWING#Model-comparison-with-geometric-hashing]] - Structurally compare models to one another using a geometric hashing algorithm
 3. [[Assembly|SEWING#Assembly-of-models]] - Stitch models together based on structural superimposition to form novel backbones
 
 ##Model Generation
-First we need a generate a set of models. The only currently supported mechanism for model generation is through the use of a [[Features database|FeaturesTutorials]]. The following set ReportToDB tag contains the minimal set of features.
+First we need to generate a set of models. The only currently supported mechanism for model generation is through the use of a [[Features database|FeaturesTutorials]]. The following set ReportToDB tag contains the minimal set of features.
 
 ```
 <ReportToDB name=features database_name=scores.db3>
