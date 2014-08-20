@@ -206,9 +206,12 @@ In the following example, a ChainResidueSelector selecting chains named "A" and 
 </RESIDUE_SELECTORS>
 <MOVERS>
   <UniformRigidBodyCM name="dock" mobile="ChainA" stationary="ChainB" />
+  <Environment name="dockenv">
+    <Mover name="dock"/>
+  <Environment/>
 </MOVERS>
 <PROTOCOL>
-  <Add mover="SideChainMin"/>
+  <Add mover="dockenv"/>
 </PROTOCOL>
 ```
 
