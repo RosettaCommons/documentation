@@ -107,6 +107,8 @@ Assembly of backbones is implemented within a Mover, and thus can be accessed vi
 -sewing:skip_filters            If true, all filters will be skipped during Assembly generation
 ```
 
+----------------------
+
 ###RandomAssemblyMover
 The RandomAssemblyMover is the base class from which all other AssemblyMovers derive (not necessarily directly). In essence, this class simply traverses the SewGraph in a random fashion until the required number of edges has been satisfied. A slightly more detailed description of each of the base AssemblyMover methods is:
 
