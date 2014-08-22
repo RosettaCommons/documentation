@@ -9,9 +9,9 @@ If you update the code or find something missing in this documentation, *please 
 ## The application
 - The `stepwise` application is available in `src/apps/public/stepwise/stepwise.cc`. It is documented for the general user, with illustrative demos (and movies!) [[here|stepwise]]. It is currently pretty concise, with most pose, monte carlo, and options setup delegated to classes in protocols/; see below. 
 
-If you add several lines to it to add functionality, great! Please also consider packaging those lines together and moving into the appropriate `util.cc` or other `protocols/` file, to keep this file concise. If you see a way to make this application more concise, even better!
+- If you add several lines to it to add functionality, great! Please also consider packaging those lines together and moving into the appropriate `util.cc` or other `protocols/` file, to keep this file concise. If you see a way to make this application more concise, even better!
 
-At the time of writing, there is also a `src/apps/public/stepwise/legacy/` subdirectory with `swa_protein_main`, `swa_rna_main`, and `swa_rna_util`. Almost all of the functionality of these older apps has now been reconstituted with much more modular classes. After some head-to-head comparisons in 2014-2015, publication of a methods paper on stepwise monte carlo, and updates to ERRASER, the plan is to remove this legacy code from the repository.
+- At the time of writing, there is also a `src/apps/public/stepwise/legacy/` subdirectory with `swa_protein_main`, `swa_rna_main`, and `swa_rna_util`. Almost all of the functionality of these older apps has now been reconstituted with much more modular classes. After some head-to-head comparisons in 2014-2015, publication of a methods paper on stepwise monte carlo, and updates to ERRASER, the plan is to remove this legacy code from the repository.
  
 - [[Monte Carlo Moves|stepwise-classes-moves]] and the move schedule 
 - [[SampleAndScreen|stepwise-sample-and-screen]] is a general class for enumerating or stochastically sampling residues (or rigid bodies) 
