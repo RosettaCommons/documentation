@@ -54,12 +54,13 @@ comment tags will be stripped from the documentation prior to being provided as 
      - [[GeneralizedKICselector]]
 
 ### Stepwise Assembly and Monte Carlo Project
-- [[Overview|stepwise-classes-overview]]
-- [[Monte Carlo Moves|stepwise-classes-moves]] -- what's available in stepwise modeling 
-- [[Sample-And-Screen|stepwise-sample-and-screen]] -- general class for enumerating or stochastically sampling residues (or rigid bodies) 
-- [[Samplers|stepwise-samplers]] -- these are concatenated together to define sampling -- can go through millions of poses!
-- [[Screeners|stepwise-screeners]] -- filter class that has useful hooks for samplers. 
-- [[FullModelInfo|swm-fullmodelinfo]] -- Core class used in adding/deleting/splitting/merging poses. 
+- [[Overview|stepwise-classes-overview]] of stepwise enumeration and monte carlo, both accessed through `stepwise` application
+- [[Monte Carlo Moves|stepwise-classes-moves]] and the move schedule 
+- [[SampleAndScreen|stepwise-sample-and-screen]] is a general class for enumerating or stochastically sampling residues (or rigid bodies) 
+- [[Samplers|stepwise-samplers]] are concatenated together to define the sampling loop, and can go through millions of poses.
+- [[Screeners|stepwise-screeners]] are filters with some specialized features to 'fast-forward' through the sampling loop and prevent memory effects in the pose. 
+- [[FullModelInfo|stepwise-fullmodelinfo]] is an important book-keeping object held by the pose used throughout the stepwise code. 
+- [[Score terms|stepwise-score]] calculate energies for a full model even if only subpieces are instantiated (other_pose, loop_close, free_side_chain).
 
 ### Pilot Apps + Code Documentation
 
