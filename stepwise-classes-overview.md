@@ -13,10 +13,13 @@ If you update the code or find something missing in this documentation, *please 
 
 - At the time of writing, there is also a `src/apps/public/stepwise/legacy/` subdirectory with `swa_protein_main`, `swa_rna_main`, and `swa_rna_util`. Almost all of the functionality of these older apps has now been reconstituted with much more modular classes. After some head-to-head comparisons in 2014-2015, publication of a methods paper on stepwise monte carlo, and updates to ERRASER, the plan is to remove this legacy code from the repository.
  
+## Protocols
 - [[Monte Carlo Moves|stepwise-classes-moves]] and the move schedule 
 - [[SampleAndScreen|stepwise-sample-and-screen]] is a general class for enumerating or stochastically sampling residues (or rigid bodies) 
 - [[Samplers|stepwise-samplers]] are concatenated together to define the sampling loop, and can go through millions of poses.
 - [[Screeners|stepwise-screeners]] are filters with some specialized features to 'fast-forward' through the sampling loop and prevent memory effects in the pose. 
+
+## Core
 - [[FullModelInfo|stepwise-fullmodelinfo]] is an important book-keeping object held by the pose used throughout the stepwise code. 
 - [[Score terms|stepwise-score]] calculate energies for a full model even if only subpieces are instantiated (other_pose, loop_close, free_side_chain).
 
