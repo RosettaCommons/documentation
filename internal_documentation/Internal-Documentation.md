@@ -36,12 +36,14 @@ comment tags will be stripped from the documentation prior to being provided as 
 - [[Cmake Overview and Specifics]]
 
 
-## RosettaMembrane: Membrane Protein Framework Project
+## Documentation for Specific Projects
+
+### RosettaMembrane: Membrane Protein Framework Project
 
 **Current Main page**
 - [[RosettaMembrane Framework Overview]]
 
-## Cyclic Peptides / Geometrically-Constrained Polymers Project
+### Cyclic Peptides / Geometrically-Constrained Polymers Project
 - [[Workflow]]
 - [[PeptideStubMover]]
 - [[DeclareBond]]
@@ -51,7 +53,7 @@ comment tags will be stripped from the documentation prior to being provided as 
      - [[GeneralizedKICfilter]] -- documentation incomplete
      - [[GeneralizedKICselector]]
 
-## Pilot Apps + Code Documentation
+### Pilot Apps + Code Documentation
 
 This is documentation for not-yet-released applications and code frameworks.
 
@@ -64,7 +66,7 @@ This is documentation for not-yet-released applications and code frameworks.
 
 - [[RosettaPCS]] - Protein folding using Pseudo-Contact-Shift NMR restraints
 
-### Antibodies:
+#### Antibodies:
 
 [[CDR Cluster Identification]]
 - Identify North/Dunbrack CDR Clusters 
@@ -75,9 +77,9 @@ This is documentation for not-yet-released applications and code frameworks.
 [[RosettaAntibodyDesign]]
 - Design Antibodies based on clusters and cellular mimicry
 
-### S.E.W.I.N.G. Protocol
+#### S.E.W.I.N.G. Protocol
 [[SEWING]]
 
-### Methods
+#### Methods
 [[Computing SASA in Rosetta]]
  - Method for computing SASA in Rosetta written by Jared
