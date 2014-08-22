@@ -7,7 +7,7 @@ If you update the code or find something missing in this documentation, *please 
 
 # Overview, by directory
 ## The application
-- The `stepwise` application is available in `src/apps/public/stepwise/stepwise.cc`. It is documented for the general user, with illustrative demos (and movies!) [[here|stepwise]]. It is currently pretty concise, with most pose, monte carlo, and options setup delegated to classes in protocols/; see below. 
+- The `stepwise` application is available in `src/apps/public/stepwise/stepwise.cc`. It is documented for the general user, with illustrative demos (and movies!) [[here|stepwise]]. It is currently pretty concise, with most `pose`, `StepWiseMonteCarlo`, and `StepWiseMonteCarloOptions` setup delegated to constructors and classes in `protocols/`; see below. 
 
 - If you add several lines to it to add functionality, great! Please also consider packaging those lines together and moving into the appropriate `util.cc` or other `protocols/` file, to keep this file concise. If you see a way to make this application more concise, even better!
 
