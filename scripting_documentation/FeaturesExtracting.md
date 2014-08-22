@@ -6,11 +6,12 @@ FeaturesReporter
 Implmenting a FeaturesReporter involves the following steps:
 
 1.  Implement the FeaturesReporter class interface (see directly below).
-2.  Add FeatureReporter to FeaturesReporterFactory (rosetta/main/source/src/protocols/features/FeaturesReporterFactory.cc).
-3.  Add the FeatureReporter to the FeatureReporterTests (rosetta/main/source/test/protocols/features/FeaturesReporterTests.cxxtest.hh) Unit Test.
-4.  Consider adding the FeatureReporter to the features integration test (rosetta/main/tests/integration/tests/features).
-5.  Document the FeatureReporter in the [[Features Database Schema|FeatureReporters]] page.
-6.  Add new types in <FeatureReporters> organizational page
+2.  Implement the FeaturesReporterCreator class interface (like you would for a mover).
+3.  Register the FeatureReporter with the FeaturesReporterRegistrator (rosetta/main/source/src/protocols/init/init.FeaturesReporterCreators.ihh and rosetta/main/source/src/protocols/init/init.FeaturesReporterRegistrators.ihh)
+4.  Add the FeatureReporter to the FeatureReporterTests (rosetta/main/source/test/protocols/features/FeaturesReporterTests.cxxtest.hh) Unit Test.
+5.  Consider adding the FeatureReporter to the features integration test (rosetta/main/tests/integration/tests/features).
+6.  Document the FeatureReporter in the [[Features Database Schema|FeatureReporters]] page.
+7.  Add new types in <FeatureReporters> organizational page
 
 FeatureReporter Class Interface
 -------------------------------
