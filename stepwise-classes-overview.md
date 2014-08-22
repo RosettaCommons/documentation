@@ -9,12 +9,43 @@ If you update the code or find something missing in this documentation, *please 
 ## The application
 - The `stepwise` application is available in `src/apps/public/stepwise/stepwise.cc`. It is documented for the general user, with illustrative demos (and movies!) [[here|stepwise]]. It is currently pretty concise, with most setup delegated to constructors and classes described below. 
 
-- If you add several lines to it to add functionality, great! Please also consider packaging those lines together and moving into the appropriate `util.cc` or other `protocols/` file, to keep this file concise. If you see a way to make this application more concise, even better!
+- If you add several lines to it to add functionality, great! Please also consider packaging those lines together and moving into the appropriate `util.cc` or other `protocols/` file, to keep this file concise -- send a note to rhiju for advice. If you see a way to make this application more concise, even better!
 
 - At the time of writing, there is also a `src/apps/public/stepwise/legacy/` subdirectory with `swa_protein_main`, `swa_rna_main`, and `swa_rna_util`. Almost all of the functionality of these older apps has now been reconstituted with much more modular classes. After some head-to-head comparisons in 2014-2015, publication of a methods paper on stepwise monte carlo, and updates to ERRASER, the plan is to remove this legacy code from the repository.
  
 ## Protocols
-- [[Monte Carlo Moves|stepwise-classes-moves]] and the move schedule 
+Almost all code relevant to stepwise monte carlo and assembly is in `src/protocols/stepwise`.
+The contents of this directory are as follows, in order of importance.
+
+# monte_carlo/
+Moves and schedule of stochastic sampling for stepwise monte carlo (abbreviated SWM throughout the code). More information on classes are summarized under [[Monte Carlo Moves|stepwise-classes-moves]].
+
+# modeler/
+Essentially every move in stepwise monte carlo (or stepwise enumeration) calls `StepWiseModeler`, which is in this directory. It takes a `pose` and a single position `moving residue`, and figures everything out from there, including  whether to sample of one terminal nucleotide (default for RNA), or two amino acids (default for protein); what the two partitions are that will move relative to each other (there are essentially always two!); and whether to do rigid body docking (if the moving residue's parent is a jump). This is where choices should be encoded for, e.g., non-natural polymers.
+
+Here is the  `apply` function for `StepWiseModeler`:
+```
+		initialize( pose );
+
+		do_prepacking( pose );
+		do_modeler( pose );
+		if ( modeler_successful() ) do_minimizing( pose );
+
+		reinitialize( pose );
+```
+• `initialize` figures out a bunch of working parameters -- which residues to move, any residues to CCD close, etc. -- into one object. All of this information can actually be derived from the pose & `moving_res`, but it was historical to have all of it readily available in one object. The function also re-roots the pose so that the biggest partition is fixed, and aligns it to an alignment pose; this 
+
+# StepWiseSampleAndScreen.cc
+
+# sampler/
+
+# screener/
+
+# options/
+
+# full_model_info/
+
+# legacy/
 - [[SampleAndScreen|stepwise-sample-and-screen]] is a general class for enumerating or stochastically sampling residues (or rigid bodies) 
 - [[Samplers|stepwise-samplers]] are concatenated together to define the sampling loop, and can go through millions of poses.
 - [[Screeners|stepwise-screeners]] are filters with some specialized features to 'fast-forward' through the sampling loop and prevent memory effects in the pose. 
