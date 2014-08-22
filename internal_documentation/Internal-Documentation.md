@@ -54,6 +54,7 @@ comment tags will be stripped from the documentation prior to being provided as 
      - [[GeneralizedKICselector]]
 
 ### Stepwise Assembly and Monte Carlo Project
+- [[General application documentation|stepwise]] is publically viewable.
 - [[Overview|stepwise-classes-overview]] of stepwise enumeration and monte carlo, both accessed through `stepwise` application
 - [[Monte Carlo Moves|stepwise-classes-moves]] and the move schedule 
 - [[SampleAndScreen|stepwise-sample-and-screen]] is a general class for enumerating or stochastically sampling residues (or rigid bodies) 
