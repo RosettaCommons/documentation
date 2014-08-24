@@ -32,11 +32,10 @@ The options framework for stepwise modeler derives from `basic::resource_manager
 ### full_model_info/
 
 ### legacy/
-- [[Samplers|stepwise-samplers]] are concatenated together to define the sampling loop, and can go through millions of poses.
-- [[Screeners|stepwise-screeners]] are filters with some specialized features to 'fast-forward' through the sampling loop and prevent memory effects in the pose. 
+This subdirectory has a lot of code written by P. Sripakdeevong & R. Das in 2009-2011 during tests of stepwise enumeration for RNA and proteins. It was not very modular, and the protein and RNA stuff was not unified; the modern `stepwise` framework fixes these issues. As mentioned above for `apps/public/stepwise/legacy`, these files will be removed after verification in 2015 that they can be fully deprecated.
 
 ## Core
-- [[FullModelInfo|stepwise-fullmodelinfo]] is an important book-keeping object held by the pose used throughout the stepwise code. 
-- [[Score terms|stepwise-score]] calculate energies for a full model even if only subpieces are instantiated (other_pose, loop_close, free_side_chain).
+- [[FullModelInfo|stepwise-fullmodelinfo]], in `src/core/pose/full_model_info/` is an important book-keeping object held by the pose used throughout the stepwise code. 
+- Several [[score terms|stepwise-score]] in `src/core/scoring/' calculate energies for a full model even if only subpieces are instantiated (`other_pose`, `loop_close`, `free_side_chain`).
 
 
