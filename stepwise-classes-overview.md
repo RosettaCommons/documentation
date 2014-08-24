@@ -40,7 +40,7 @@ This subdirectory has a lot of code written by P. Sripakdeevong & R. Das in 2009
 [[FullModelInfo|stepwise-fullmodelinfo]], in `src/core/pose/full_model_info/` is an important book-keeping object held by the pose used throughout the stepwise code. 
 
 ### scoring
-Several [[score terms|stepwise-score]] in `src/core/scoring/' calculate energies for a full model even if only subpieces are instantiated (`other_pose`, `loop_close`, `free_side_chain`).
+Several [[score terms|stepwise-score]] in `src/core/scoring/` calculate energies for a full model even if only subpieces are instantiated (`other_pose`, `loop_close`, `free_side_chain`).
 
 ### additional notes 
 Several helper functions developed for stepwise modeling have been lifted into various util.cc functions or classes. Of note are:
