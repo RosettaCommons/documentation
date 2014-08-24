@@ -19,6 +19,8 @@ std::cout << const_full_model_info( pose ).other_pose_list() << std::endl; // []
 
 ```
 
+More detailed examples of how to set up `full_model_info` are available in `src/protocols/stepwise/full_model_info/FullModelInfoSetupFromCommandLine`.
+
 # Note on numbering schemes
 ---------------------------
 There are three kinds of numbering schemes that we need to keep track of in stepwise modeling:
@@ -32,16 +34,20 @@ There are three kinds of numbering schemes that we need to keep track of in step
 # What is in FullModelInfo
 ---------------------------
 There are three things in FullModelInfo:
-### res_list
+### res_list_
 ------------
+This is a `utility::vector1< Size >` that holds the numbers of each residue in the current pose, in full-model numbering.
 
-### full_model_parameters_, a FullModelParameters object 
+### full_model_parameters_
 ----------------------------------------------------------
--This stores all information  related to the eventual full-length model. These include:
+This is a FullModelParameters object, and it stores all information related to the eventual full-length model. 
+These include:
 
 • full_sequence
 • 'conventional' numbering/chain scheme,
-•  cutpoint_open_in_full_model,  
+• cutpoint_open_in_full_model,  
+• fixed_domain (any residues that are part of input PDBs and should not move),
+etc.  
 
 See FullModelParameterType for full list of variables.
 
