@@ -32,3 +32,6 @@ In addition to `StepWiseModeler.cc`, this `modeler/` directory also contains sev
 • For protein, the parent of the specified residue is also sampled (as long as it is not a fixed part of an input PDB). This choice still permit full enumeration and was worked out in the paper on [stepwise assembly for proteins](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0074830).
 
 • StepWiseModeler can be used purely as a packer (no actual discrete sampling of any degrees of freedom), if `working_prepack_res` is set. This is useful in `-preminimize` modes for `stepwise`.
+
+
+Go back to [[StepWise Overview|stepwise-overview]].
