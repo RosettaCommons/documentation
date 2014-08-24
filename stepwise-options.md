@@ -1,6 +1,7 @@
 #Stepwise options classes
 
 # Inheritance Structure
+-----------------------
 `StepWiseBasicOptions`
 
  • `StepWiseMonteCarloOptions`
@@ -11,7 +12,12 @@
 
 *(Yes I know about potential issues with multiple inheritance, but I think they're avoided here, and the alternative solutions requires remembering to copy a huge number of options from class to class.)
 
+### Note on spawning a `ModelerOptions` from `StepWiseMonteCarloOptions`
+------------------------------------------------------------------------
+
 # Current Smorgasbord of Options
+--------------------------------
+
 
 ---
 Go back to [[StepWise Overview|stepwise-classes-overview]].
