@@ -62,10 +62,10 @@ See FullModelParameterType for full list of variables.
 
 - Note that integer lists are stored in two ways, for convenience:
   parameter_values_at_res
-   [ 0, 0, 1, 1, 0, 0, 2, 2 ] (has same size as full_sequence)
+   `[ 0, 0, 1, 1, 0, 0, 2, 2 ] (has same size as full_sequence)`
 
   parameter_values_as_res_lists -- same info as above, different format.
-    { 0:[1, 2, 5, 6],  1:[3, 4], 2:[7, 8] }
+    `{ 0:[1, 2, 5, 6],  1:[3, 4], 2:[7, 8] }`
 
 ### other_pose_list
 ----------------------------------------------------------
