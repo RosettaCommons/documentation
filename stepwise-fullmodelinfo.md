@@ -1,5 +1,7 @@
 #FullModelInfo
-`FullModelInfo` is in `src/core/pose/full_model_info/FullModelInfo.cc`
+`FullModelInfo` is an object cached inside the pose, and is necessary to keep track of all information related to how a pose 'fits in' to global stepwise modeling problem.
+
+Code for `FullModelInfo` is in `src/core/pose/full_model_info/FullModelInfo.cc`.
 
 # How to use
 FullModelInfo needs to be set up to do operations like adding & deleting. It contains info on everything in the full modeling problem. Example (sorry this hasn't been tested): 
@@ -12,6 +14,7 @@ pose::full_model_info::make_sure_full_model_info_is_setup( pose );  // will infe
 std::cout << const_full_model_info( pose ).full_sequence() << std::endl;  // aannnuu  (note fill-in with n's)
 std::cout << const_full_model_info( pose ).res_list() << std::endl; // [1, 2, 5, 6] 
 std::cout << const_full_model_info( pose ).conventional_numbering() << std::endl; // [22, 23, 27, 28]
+std::cout << const_full_model_info( pose ).other_pose_list() << std::endl; // [] (empty)
 
 ```
 
@@ -25,7 +28,8 @@ There are three kinds of numbering schemes that we need to keep track of in step
 • Conventional numbering (and chains). What you might see in PDB info -- [22, 23, 27, 28] in above case.
 
 # What is in FullModelInfo
-
+------
+There are three things in FullModelInfo:
 ### res_list
 
 ### full_model_parameters_, a FullModelParameters object 
