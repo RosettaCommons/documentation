@@ -71,7 +71,7 @@ See FullModelParameterType for full list of variables.
 ----------------------------------------------------------
 This is a vector of PoseOPs.  
 
-Suppose you're building a big model, and you have one pose for residues 22-28 and another two poses for residues 90-100 and for residues 120-130 built. In the stepwise framework, you'd hold on to the first pose, and it would contain references to the other poses in its `other_pose_list`.  In this example, the other poses would themselves have empty other_pose_list'.  
+Suppose you're building a big model, and you have one pose for residues 22-28 and another two poses for residues 90-100 and for residues 120-130 built. In the stepwise framework, you'd hold on to the first pose, and it would contain references to the other poses in its `other_pose_list`.  In this example, the other poses would themselves have empty other_pose_lists.  
 
 There are useful helper functions in `stepwise/modeler/util.hh` to `switch_focus_to_other_pose`.
 
