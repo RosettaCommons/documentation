@@ -43,7 +43,7 @@ which will prime your PyMol session to receive and display the coordinates sent 
 -update_pymol_on_conformation_changes_only   Only update pymol when the conformation object is changed.  
                                               Aka changes in XYZ, residuetype, lengths, etc.
   
--keep_pymol_simulation_history               Keep the history of the simulation as seperate frames in pymol
+-keep_pymol_simulation_history               Keep the history of the simulation as separate frames in pymol
 
 ```
 ###Drawbacks and workarounds
