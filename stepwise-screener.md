@@ -31,13 +31,15 @@ Holds two residue positions as private variables. This ends up being useful for 
 
 # Currently available `StepWiseScreener` classes
 ### Basic Actions
-`PoseSelectionScreener.cc` should be at the end of all screeners.
+`PoseSelectionScreener.cc` should be at the end of all screeners. It holds a StepWiseClusterer which collects poses and can cluster 'on-the-fly'.
 
 ###Common Filters
-`PartitionContactScreener.cc`
-`StepWiseResiduePairScreener.cc`
-`VDW_BinScreener.cc`
-`NativeRMSD_Screener.cc`
+`PartitionContactScreener.cc` looks at the two partitions whose intermediate connection (a jump or several backbone DOFS) is being sampled. Asks for no clashes, but some contact, essentially by computing `fa_atr` and `fa_rep` score terms for pairs of cross-partition residues.
+
+`VDW_BinScreener.cc` enables fast clash checks -- equivalent to a `BumpGrid` (and perhaps should use that object).
+
+`NativeRMSD_Screener.cc` for staying close to a reference pose. Takes advantage of alignment over largest partition that occurs in the [`StepWiseModeler`|stepwise-modeler] wrapper before running StepWiseSampleAndScreen.
+
 `BaseCentroidScreener.cc` is specific to RNA, and asks for at least one base pair or base stack between partitions of the pose.
 
 ### Chain Closure
@@ -63,4 +65,5 @@ Largely developed for sampling 'floating bases' for RNA -- docking of nucleotide
 `SugarInstantiator.cc` was used to instantiate riboses of 'floating' RNA bases that could make a possible hydrogen bond to something. May be deprecated soon.
 `BaseBinMapUpdater.cc` was used for rigid body sampling of RNA bases, but not supported anymore.
 
-Go back to [[StepWise Overview|stepwise-classes-overview]].
+Go back to [[StepWiseSampleAndScreen|stepwise-sample-and-screen]].
+Go all the way back to [[StepWise Overview|stepwise-classes-overview]].
