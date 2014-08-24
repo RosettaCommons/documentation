@@ -61,9 +61,13 @@ The way these objects works is best seen in the code itself, which is really sho
 # Notes on the code steps.
 • Note that this `StepWiseSampleAndScreen` does **not** take a `pose`! Instead the various poses at play are encoded in the `StepWiseScreener` objects, which hold the actual pose that is displayed in graphics, copies of the pose, a collection of poses (e.g. for the final clustering step), or no pose at all (e.g., in rigid body docking some Screeners just manipulate Stubs for speed).
 
-• The main loop involves traversing through the `StepWiseSampler` in `sampler`.
+• As promised, the main loop involves traversing through the `StepWiseSampler` in `sampler`.
 
-• At the heart of the loop through the `screeners_` gauntlet, is the `check_screen()`. If pass, we increment that screener's counter. This allows the output of a final 'cut table' at the end of the `StepWiseSampleAndScreen` via `output_counts()`. If we do not pass the check, the screener may hold instructions on how to `fast-forward` through the sampler loop.
+• Stochastic sampling involves setting `choose_random()` to true. In this case the sampling proceeds until `num_random_samples` poses are found. 
+
+• Enumerative sampling involves setting `choose_random()` to galse. In this case the sampling proceeds until the `sampler_` is exhausted, i.e., when `sampler_->not_end()` returns `false`. There is a way to stop early for integration tests (a type of `StepWiseScreener` called `IntegrationTestBreaker`, equivalent to a `break` in a loop).
+
+• At the heart of the loop through the `screeners_` gauntlet, is the `check_screen()`. If pass, we increment that screener's counter. This allows the output of a final 'cut table' at the end of the `StepWiseSampleAndScreen` via `output_counts()`. If we do not pass the check, the screener may hold instructions on how to `fast-forward` through the sampler loop. The latter action is equivalent to a `continue` in a loop.
 
 • The `update_movers` objects store information that can be passed from one `StepWiseScreener` to later ones. For example, if early one there is a ProteinCCD_ClosureScreener, it solves for backbone torsions that close a loop within its own private pose, and then encodes those torsions into a Mover (see `screener->add_mover` line). That mover is passed to later screeners (e.g., packers) holding their own private copies of the pose with potentially different variants or sequences -- they apply the closure solution and then do their thing. That's the line `if ( n > 1 ) screener->apply_mover( update_movers, 1, n - 1 );`.
 
