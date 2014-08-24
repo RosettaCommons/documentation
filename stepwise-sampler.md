@@ -3,29 +3,29 @@
 
 #How to use
 
-Codes in the folder `src/protocols/stepwise/StepWiseSampler` are for the rotamer sampler class and its subclass,
+Codes in the folder `src/protocols/stepwise/StepWiseSampler` are for the StepWiseSampler class and its subclasses,
 which is subclass of moves::Mover.
 
 Folder organization
 -------------------
 The root path contains generic abstract base classes and simple base
-classes for inheritence and basic functionality.
+classes for inheritance and basic functionality.
 
 Some classes take multiple rotamer sampler instances and assemble them in
-linear of combinatorial way for complex tasks (e.g. RotamerComb,
-RotamerSizedAny).
+linear of combinatorial way for complex tasks (e.g. StepWiseSamplerComb,
+StepWiseSamplerSizedAny).
 
-The `rna/` folder contains RNA specific Rotamer sampler for backbone, sugar
+The `rna/` folder contains RNA specific StepWiseSampler samplers for backbone, sugar
 ring and chi angle.
 
 How to use
 ----------
-Rotamer samplers apply new rotamer conformation to a pose until all rotamer
+StepWiseSampler samplers apply new rotamer conformation to a pose until all rotamer
 has been navigated.
 
 Example code:
 ```
-RNA_SuiteRotamer sampler( ... ); //Declaration
+RNA_SuiteStepWiseSampler sampler( ... ); //Declaration
 //Various settings
 sampler.set_fast( true );
 sampler.set_random( false ); //Controls random sampling
