@@ -10,6 +10,16 @@
 
 The architectures of each of these objects are described in the [[StepWiseSampler|stepwise-sampler]] and [[StepWiseScreener|stepwise-screener]] pages.
 
+# Why its written in this way
+• Basically this object replaces the massive loops within loops within loops that originally plagued the `stepwise` code. We replaced it because the old nested loops:
+ - It was hard to add in new functionalities, 
+ - The bookkeeping was getting tricky, i.e. if side-chains were packed at some point in the loop, we didn't always remember to reinitialize them before checking the next backbone configuration, and there were lots of memory effects.
+ - For speed, we hold different poses with different sets of ResidueTypeVariants (changing those out, e.g. to add chainbreak variants, is costly in Rosetta). Again, keeping track of which poses had accepted the backbone samples, etc., was getting complicated.
+ The StepWiseSampleAndScreen mostly solves these issues.
+ 
+• Another good feature of the StepWiseSampleAndScreen framework: it  only saves poses into memory when they've passed  all the screens. That allows it to handle sampling calculations that literally enumerate through tens of millions of samples. Alternatives that we considered, where we passed lists of Poses serially through different samplers, led to memory explosions.
+
+
 #The main loop.
 
 The way these objects works is best seen in the code itself, which is really short, actually:
@@ -42,3 +52,18 @@ The way these objects works is best seen in the code itself, which is really sho
 
 		} // sampler
 ```
+
+# Notes on the code steps.
+• Note that this `StepWiseSampleAndScreen` does **not** take a `pose`! Instead the various poses at play are encoded in the `StepWiseScreener` objects, which hold the actual pose that is displayed in graphics, copies of the pose, a collection of poses (e.g. for the final clustering step), or no pose at all (e.g., in rigid body docking some Screeners just manipulate Stubs for speed).
+
+• The main loop involves traversing through the `StepWiseSampler` in `sampler`.
+
+• At the heart of the loop through the `screeners_` gauntlet, is the `check_screen()`. If pass, we increment that screener's counter. This allows the output of a final 'cut table' at the end of the `StepWiseSampleAndScreen` via `output_counts()`. If we do not pass the check, the screener may hold instructions on how to `fast-forward` through the sampler loop.
+
+• The `update_movers` objects store information that can be passed from one `StepWiseScreener` to later ones. For example, if early one there is a ProteinCCD_ClosureScreener, it solves for backbone torsions that close a loop within its own private pose, and then encodes those torsions into a Mover (see `screener->add_mover` line). That mover is passed to later screeners (e.g., packers) holding their own private copies of the pose with potentially different variants or sequences -- they apply the closure solution and then do their thing. That's the line `if ( n > 1 ) screener->apply_mover( update_movers, 1, n - 1 );`.
+
+• The `restore_movers` is supposed to store the exact opposite of each `update_mover`. That's the line at the end of the loop `for ( Size m = 2; m <= last_passed_screener; m++ ) screeners_[ m ]->apply_mover( restore_movers, m - 1, 1 );`. This is not implemented yet for some `StepWiseScreener` match some historical choices, but will be setup soon -- its conceptually the right way to go.
+
+• The `set_ok_to_increment()` function is a kind of hack that makes these `StepWiseScreener` counters for inner loops bypass incrementing for certain RNA ribose sampling. (May deprecate soon).
+
+• Debugging StepWiseSampleAndScreener requires digging into the screeners and their poses; an example of this is in `early_exit_check` which currently is bypassed through an early `return`.
