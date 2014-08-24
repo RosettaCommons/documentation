@@ -1,5 +1,5 @@
 #StepWiseSampleAndScreen
-`StepWiseSampleAndScreen` carries out the main loop for stepwise sampling, either in enumerative mode or in stochastic mode. 
+`StepWiseSampleAndScreen` carries out the main loop for stepwise sampling, either in enumerative mode or in stochastic mode. Look in `src/protocols/stepwise/modeler/StepWiseConnectionSampler` for example setup.
 
 #Ingredients
 `StepWiseSampleAndScreen` is initialized with two things:
@@ -9,6 +9,28 @@
 • a vector of `StepWiseScreener` objects which delineate the gauntlet of filters, packers, and loop closers that are run after each sample is applied to the pose. Having these screeners in a particular order can accelerate sampling, and in a few cases there are some dependencies (e.g. a pose selection screener should go last, after side-chain packers, and after any loop closers pinpoint the backbone).
 
 The architectures of each of these objects are described in the [[StepWiseSampler|stepwise-sampler]] and [[StepWiseScreener|stepwise-screener]] pages.
+
+#How to use
+Example code
+```
+  StepWiseSamplerBaseOP sampler = new StepWiseSampler;
+  //  initialize -- see link to documentation for StepWiseSampler...
+  sampler->set_random( true );
+
+  utility::vector1< screener::StepWiseScreenerOP > screeners_;
+  //  initialize -- see link to documentation for StepWiseScreener...
+  clusterer_ = new align::StepWiseClusterer( options_ );
+  screeners_.push_back( new PoseSelectionScreener( pose, scorefxn_, clusterer_ ) );
+
+  StepWiseSampleAndScreen sample_and_screen( sampler, screeners );
+  sample_and_screen.set_verbose( true );
+  sample_and_screen.set_max_ntries( 100 ); // if sampler is in random mode
+  sample_and_screen.set_num_random_samples( 5 ); // find 5 poses 
+  sample_and_screen.run();
+
+  pose_list_ = clusterer_->pose_list(); // list of up to 5 poses in the last screener.
+
+```
 
 # Why its written in this way
 Basically this object replaces the massive loops within loops within loops that originally plagued the `stepwise` code. We replaced it because:
