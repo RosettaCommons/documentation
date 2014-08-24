@@ -1,5 +1,5 @@
 #StepWiseScreener
-`StepWiseScreener` objects are filters with some specialized features to 'fast-forward' through the sampling loop and prevent memory effects in the pose. The base class is in `src/protocols/stepwise/sampler/StepWiseSampler/`. The primary example of how to set up these objects is the `initialize_screeners` function of `StepWiseConnectionSampler`.
+`StepWiseScreener` objects are filters with some specialized features to 'fast-forward' through the sampling loop and prevent memory effects in the pose. The base class is in `src/protocols/screener/StepWiseScreener.cc`. The primary example of how to set up these objects is the `initialize_screeners` function of `StepWiseConnectionSampler`.
 
 # Most important functions 
 ###`bool check_screen()`
