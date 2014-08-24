@@ -2,7 +2,7 @@
 `StepWiseSampleAndScreen` carries out the main loop for stepwise sampling, either in enumerative mode or in stochastic mode. 
 
 #Ingredients
-It is initialized with two things:
+`StepWiseSampleAndScreen` is initialized with two things:
 
 • a `StepWiseSampler` objects which delineates the degrees of freedom to be sampled, their discrete values, and what order these go in. There are some tricks here to handle rigid body sampling. This `StepWiseSampler` object is typically itself the composition of several `StepWiseSampler` objects.
 
