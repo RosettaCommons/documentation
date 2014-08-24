@@ -2,6 +2,7 @@
 `StepWiseSampleAndScreen` carries out the main loop for stepwise sampling, either in enumerative mode or in stochastic mode. Look in `src/protocols/stepwise/modeler/StepWiseConnectionSampler` for example setup.
 
 #Ingredients
+------------
 `StepWiseSampleAndScreen` is initialized with two things:
 
 • a `StepWiseSampler` objects which delineates the degrees of freedom to be sampled, their discrete values, and what order these go in. There are some tricks here to handle rigid body sampling. This `StepWiseSampler` object is typically itself the composition of several `StepWiseSampler` objects.
@@ -11,7 +12,8 @@
 The architectures of each of these objects are described in the [[StepWiseSampler|stepwise-sampler]] and [[StepWiseScreener|stepwise-screener]] pages.
 
 #How to use
-Example code
+-----------
+**Not checked yet**
 ```
   StepWiseSamplerBaseOP sampler = new StepWiseSampler;
   //  initialize -- see link to documentation for StepWiseSampler...
@@ -33,6 +35,7 @@ Example code
 ```
 
 # Why its written in this way
+-----------------------------
 Basically this object replaces the massive loops within loops within loops that originally plagued the `stepwise` code. We replaced it because:
 
 • With the old nested loops:
@@ -48,7 +51,7 @@ The StepWiseSampleAndScreen mostly solves these issues.
 
 
 #The main loop
-
+--------------
 The way these objects works is best seen in the code itself, which is really short, actually:
 
 ```
@@ -81,6 +84,7 @@ The way these objects works is best seen in the code itself, which is really sho
 ```
 
 # Notes on the code steps.
+--------------------------
 • Note that this `StepWiseSampleAndScreen` does **not** take a `pose`! Instead the various poses at play are encoded in the `StepWiseScreener` objects, which hold the actual pose that is displayed in graphics, copies of the pose, a collection of poses (e.g. for the final clustering step), or no pose at all (e.g., in rigid body docking some Screeners just manipulate Stubs for speed).
 
 • As promised, the main loop involves traversing through the `StepWiseSampler` in `sampler`.
@@ -100,5 +104,5 @@ The way these objects works is best seen in the code itself, which is really sho
 • Debugging what is happening in StepWiseSampleAndScreener can require digging into the screeners and finding their internal state and/or poses; an example of this is in `early_exit_check`. This code block is currently bypassed through an early `return` but was left in as an example of how to dig into the main loop.
 
 
-
+---
 Go back to [[StepWise Overview|stepwise-classes-overview]].
