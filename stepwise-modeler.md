@@ -1,3 +1,5 @@
+`StepWiseModeler` takes a pose and a single position moving residue, and figures everything out from there, including  whether to sample of one terminal nucleotide (default for RNA), or two amino acids (default for protein); what the two partitions are that will move relative to each other (there are essentially always two!); and whether to do rigid body docking (if the moving residue's parent is a jump).
+
 Here is the  `apply` function for `StepWiseModeler`:
 ```
 		initialize( pose );
