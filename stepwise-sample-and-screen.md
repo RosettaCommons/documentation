@@ -11,12 +11,16 @@
 The architectures of each of these objects are described in the [[StepWiseSampler|stepwise-sampler]] and [[StepWiseScreener|stepwise-screener]] pages.
 
 # Why its written in this way
-• Basically this object replaces the massive loops within loops within loops that originally plagued the `stepwise` code. We replaced it because with the old nested loops:
+Basically this object replaces the massive loops within loops within loops that originally plagued the `stepwise` code. We replaced it because:
+
+• With the old nested loops:
+
  - It was hard to add in new functionalities
  - It was hard to change the order of different screens/filters/actions. 
  - Memory effects: e.g., if side-chains were packed at some point in the loop, we didn't always remember to reinitialize them before checking the next backbone configuration.
  - For speed, we hold different poses with different sets of ResidueTypeVariants (changing those out, e.g. to add chainbreak variants, is costly in Rosetta). Again, keeping track of which poses had accepted the backbone samples, etc., was getting complicated.
- The StepWiseSampleAndScreen mostly solves these issues.
+
+The StepWiseSampleAndScreen mostly solves these issues.
  
 • Another good feature of the StepWiseSampleAndScreen framework: it  only saves poses into memory when they've passed  all the screens. That allows it to handle sampling calculations that literally enumerate through tens of millions of samples. Alternatives that we considered, where we passed lists of Poses serially through different samplers, led to memory explosions.
 
