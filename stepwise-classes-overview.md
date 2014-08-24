@@ -7,11 +7,11 @@ If you update the code or find something missing in this documentation, *please 
 
 # The classes, by directory
 ## The application is `stepwise.cc`
-- The `stepwise` application is available in `src/apps/public/stepwise/stepwise.cc`. It is documented for the general user, with illustrative demos (and movies!) [[here|stepwise]]. It is currently pretty concise, with most setup delegated to constructors and classes described below. 
+• The `stepwise` application is available in `src/apps/public/stepwise/stepwise.cc`. It is documented for the general user, with illustrative demos (and movies!) [[here|stepwise]]. It is currently pretty concise, with most setup delegated to constructors and classes described below. 
 
-- If you add several lines to `stepwise.cc` to add functionality, great! Please also consider packaging those lines together and moving into the appropriate `util.cc` in a `protocols/stepwise/` subdirectory, to keep this main application file concise -- send a note to rhiju for advice. If you see a way to make this application more concise, even better!
+• If you add several lines to `stepwise.cc` to add functionality, great! Please also consider packaging those lines together and moving into the appropriate `util.cc` in a `protocols/stepwise/` subdirectory, to keep this main application file concise -- send a note to rhiju for advice. If you see a way to make this application more concise, even better!
 
-- At the time of writing, there is also a `src/apps/public/stepwise/legacy/` subdirectory with `swa_protein_main`, `swa_rna_main`, and `swa_rna_util`. Almost all of the functionality of these older apps has now been reconstituted with much more modular classes. After some head-to-head comparisons in 2014-2015, publication of a methods paper on stepwise monte carlo, and updates to ERRASER, the plan is to remove this legacy code from the repository.
+• At the time of writing, there is also a `src/apps/public/stepwise/legacy/` subdirectory with `swa_protein_main`, `swa_rna_main`, and `swa_rna_util`. Almost all of the functionality of these older apps has now been reconstituted with much more modular classes. After some head-to-head comparisons in 2014-2015, publication of a methods paper on stepwise monte carlo, and updates to ERRASER, the plan is to remove this legacy code from the repository.
  
 ## Protocols
 Almost all code relevant to stepwise monte carlo and assembly is in `src/protocols/stepwise`.
@@ -46,5 +46,4 @@ Several [[score terms|stepwise-score]] in `src/core/scoring/' calculate energies
 Several helper functions developed for stepwise modeling have been lifted into various util.cc functions or classes. Of note are:
 
 • `correctly_add_cutpoint_variants` in `core/pose/util.hh`. Not only adds CUTPOINT variants & virtual atoms for sealing chainbreaks but also sets up chemical bond structure for both RNA and protein. And removes other variants that are incompatible with cutpoints.
-
 • `pdbslice` in `core/pose/util.hh` cuts subsets of residues out of poses, with smart resetting of jump atoms & variant handling.
