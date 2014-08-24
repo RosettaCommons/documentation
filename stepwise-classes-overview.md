@@ -5,18 +5,20 @@ In prediction & design, the models we get back aren't always the lowest in Roset
 #An appeal
 If you update the code or find something missing in this documentation, *please take a minute to EDIT this documentation for future developers.* Or if you can't do it, send a note to rhiju@stanford.edu, who will coordinate updates. Thanks!
 
-# Workflow in a nutshell
+# Workflow, from the outermost to innermost layer of the onion
 (1) The `stepwise` app creates a `StepWiseMonteCarlo` object, which is a standard Rosetta `Mover`, and applies it to a `pose`. 
 
 (2) In `StepWiseMonteCarlo`, several cycles of Monte Carlo minimization are run on the pose, again using a standard Rosetta `MonteCarlo` object. 
 
 (3) Each cycle involves random selection of a `SWA_Move`. [There is also a mode where you can apply a single move for testing or for enumeration.]
 
-(4) Application of a `SWA_Move` means adding, deleting, splitting, or merging some residues in the pose; and then asking a `StepWiseModeler` to resample the affected DOFs. The resampled DOFs define a `move_element` which can be the backbone DOFS of a terminal residue, the internal covalent connection between contiguous residues, or a jump (re-docking).
+(4) Application of a `SWA_Move` means adding, deleting, splitting, or merging some residues in the pose; and then asking a `StepWiseModeler` to resample the affected DOFs. The resampled DOFs define a `move_element` which can be the backbone DOFS of a terminal residue, the internal covalent connection between contiguous residues, or a jump (re-docking). Its also possible to not make any covalent adds/deletes to the `pose` and just resampled a specific connection.
 
-(5) The `StepWiseModeler` does some aligning and packing of the pose and then initiates the core stepwise functionality, called a `StepWiseSampleAndScreen`. It then minimizes one (or sometimes more) resulting poses.
+(5) The `StepWiseModeler` does some aligning and packing of the pose and then runs a `StepWiseConnectionSampler` using a bunch of variables setup in `StepWiseWorkingParameters`. That's the key step. After that, the `StepWiseModeler` then minimizes one (or sometimes more) resulting poses.
 
-(6) The `StepWiseSampleAndScreen` object is the core 'main loop' in stepwise modeling. It involves plug-and-play of several possible `StepWiseSamplers` (defining the nested loops of DOF sampling) and `StepWiseScreeners` (the gauntlet of filters, closers, packers, and clusterers).
+(6) Based on the `StepWiseWorkingParameters`, the `StepWiseConnectionSampler` initializes and runs the core stepwise functionality, called a `StepWiseSampleAndScreen`.
+
+(7) `StepWiseSampleAndScreen` object is the core 'main loop' in stepwise modeling. It involves plug-and-play of several possible `StepWiseSamplers` (defining the nested loops of DOF sampling) and `StepWiseScreeners` (the gauntlet of filters, closers, packers, and clusterers).
 
 # Classes, by directory
 ## The application is `stepwise.cc`
