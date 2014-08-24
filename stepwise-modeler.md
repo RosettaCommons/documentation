@@ -16,7 +16,7 @@ Here is the  `apply` function for `StepWiseModeler`:
 
 • `do_prepacking` packs protein side-chains and RNA 2' hydroxyls, as well as any 5' or 3' phosphates that are hanging off RNA strands. By default, the packing allows virtualization of side-chains and RNA hydroxyls -- if there aren't enough contacts with those groups to define them, they are kept virtual (through bonuses in the `free_side_chain` and `free_2HOprime` terms).
 
-• `do_sampling` actually carries out the enumerative or stochastic sampling using the StepWiseConnectionSampler, which sets up a [SampleAndScreen|stepwise-sample-and-screen] (see below).  No minimizing occurs here, just a discrete grid search over backbone torsions or rigid-body DOFs.
+• `do_sampling` actually carries out the enumerative or stochastic sampling using the StepWiseConnectionSampler, which sets up a [[SampleAndScreen|stepwise-sample-and-screen]].  No minimizing occurs here, just a discrete grid search over backbone torsions or rigid-body DOFs.
 
 • `do_minimizing` takes the lowest energy pose(s) found in sampling, and carries out torsional minimization. How many poses to minimize is encoded in option `num_pose_minimize` (see [options/] below).
 
