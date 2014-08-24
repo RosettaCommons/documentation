@@ -48,7 +48,7 @@ for ( Size i = 1; i <= max_tries; ++i, ++sampler ) {
 }
 ```
 
-
+----
 Go back to [[StepWiseSampleAndScreen|stepwise-sample-and-screen]].
 
 Go all the way back to [[StepWise Overview|stepwise-classes-overview]].
