@@ -5,8 +5,8 @@ In prediction & design, the models we get back aren't always the lowest in Roset
 #An appeal
 If you update the code or find something missing in this documentation, *please take a minute to EDIT this documentation for future developers.* Thanks!
 
-# Overview, by directory
-## The application `stepwise`
+# The classes, by directory
+## The application is `stepwise.cc`
 - The `stepwise` application is available in `src/apps/public/stepwise/stepwise.cc`. It is documented for the general user, with illustrative demos (and movies!) [[here|stepwise]]. It is currently pretty concise, with most setup delegated to constructors and classes described below. 
 
 - If you add several lines to `stepwise.cc` to add functionality, great! Please also consider packaging those lines together and moving into the appropriate `util.cc` in a `protocols/stepwise/` subdirectory, to keep this main application file concise -- send a note to rhiju for advice. If you see a way to make this application more concise, even better!
@@ -35,11 +35,16 @@ Contains `FullModelInfoSetupFromCommandLine.cc`, code for setting up `FullModelI
 ### legacy/
 This subdirectory has a lot of code written by P. Sripakdeevong & R. Das in 2009-2011 during tests of stepwise enumeration for RNA and proteins. It was not very modular, and the protein and RNA stuff was not unified; the modern `stepwise` framework fixes these issues. As mentioned above for `apps/public/stepwise/legacy`, these files will be removed after verification in 2015 that they can be fully deprecated.
 
-## Core
+## There are some supporting classes in core
 ### full_model_info
 [[FullModelInfo|stepwise-fullmodelinfo]], in `src/core/pose/full_model_info/` is an important book-keeping object held by the pose used throughout the stepwise code. 
 
 ### scoring
 Several [[score terms|stepwise-score]] in `src/core/scoring/' calculate energies for a full model even if only subpieces are instantiated (`other_pose`, `loop_close`, `free_side_chain`).
 
+### additional notes 
+Several helper functions developed for stepwise modeling have been lifted into various util.cc functions or classes. Of note are:
 
+• `correctly_add_cutpoint_variants` in `core/pose/util.hh`. Not only adds CUTPOINT variants & virtual atoms for sealing chainbreaks but also sets up chemical bond structure for both RNA and protein. And removes other variants that are incompatible with cutpoints.
+
+• `pdbslice` in `core/pose/util.hh` cuts subsets of residues out of poses, with smart resetting of jump atoms & variant handling.
