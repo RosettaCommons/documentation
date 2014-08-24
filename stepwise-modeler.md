@@ -34,4 +34,4 @@ In addition to `StepWiseModeler.cc`, this `modeler/` directory also contains sev
 • StepWiseModeler can be used purely as a packer (no actual discrete sampling of any degrees of freedom), if `working_prepack_res` is set. This is useful in `-preminimize` modes for `stepwise`.
 
 
-Go back to [[StepWise Overview|stepwise-overview]].
+Go back to [[StepWise Overview|stepwise-classes-overview]].
