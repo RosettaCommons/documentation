@@ -1,13 +1,14 @@
 #StepWiseScreener
-`StepWiseScreener` objects are filters with some specialized features to 'fast-forward' through the sampling loop and prevent memory effects in the pose. The base class is in `src/protocols/screener/StepWiseScreener.cc`. The primary example of how to set up these objects is the `initialize_screeners` function of `StepWiseConnectionSampler`.
+`StepWiseScreener` objects are filters with some specialized features to 'fast-forward' through the sampling loop and prevent memory effects in the pose. The base class is in `src/protocols/screener/StepWiseScreener.cc`. The primary example of how to set up these objects is the `initialize_screeners()` function of `StepWiseConnectionSampler`.
 
 # Most important functions 
 ###`bool check_screen()`
 Return true/false if a filter.
+
 Return true if the job of this screener is to always pass, but to carry out an action -- and run the action (e.g., packing or loop closure) in this function.
 
 ###`bool name()`
-Required for output of final cut_table
+Required for output of final 'cut table' in [[`StepWiseSampleAndScreen`|stepwise-sample-and-screen]], the number of samples that pass each StepWiseScreener
 
 ###`StepWiseScreenerType type()`
 Register your `StepWiseScreener` in the enum in `StepWiseScreenerType.hh`.
@@ -38,7 +39,7 @@ Holds two residue positions as private variables. This ends up being useful for 
 
 `VDW_BinScreener.cc` enables fast clash checks -- equivalent to a `BumpGrid` (and perhaps should use that object).
 
-`NativeRMSD_Screener.cc` for staying close to a reference pose. Takes advantage of alignment over largest partition that occurs in the [`StepWiseModeler`|stepwise-modeler] wrapper before running StepWiseSampleAndScreen.
+`NativeRMSD_Screener.cc` for staying close to a reference pose. Takes advantage of alignment over largest partition that occurs in the [[`StepWiseModeler`|stepwise-modeler]] wrapper before running StepWiseSampleAndScreen.
 
 `BaseCentroidScreener.cc` is specific to RNA, and asks for at least one base pair or base stack between partitions of the pose.
 
@@ -56,13 +57,18 @@ Largely developed for sampling 'floating bases' for RNA -- docking of nucleotide
 
 ### Sampler fast-forwarding (advanced)
 `IntegrationTestBreaker.cc` is a special early 'shut-down' of sampling to make enumerative integration tests fast.
-`FastForwardToNextRigidBody.cc` and `FastForwardToNextResidueAlternative.cc`  are specialized to docking -- once a solution is found for the internal DOFS of two docked partitions, skip ahead to the next rigid body arrangment.
+
+`FastForwardToNextRigidBody.cc` and `FastForwardToNextResidueAlternative.cc`  are specialized to docking -- once a solution is found for the internal DOFs of two docked partitions, skip ahead to the next rigid body arrangment.
 
 ### Rarely used
 `TagDefinition.cc` can figure out and store a special tag in the pose. May be deprecated soon.
+
 `Scorer.cc` scores the pose with a specified scorefunction. Usually this happens anyway in other screeners, so this is not needed.
+
 `BulgeApplier.cc` was used for virtualizing RNA residues not making contact.  May be deprecated soon.
+
 `SugarInstantiator.cc` was used to instantiate riboses of 'floating' RNA bases that could make a possible hydrogen bond to something. May be deprecated soon.
+
 `BaseBinMapUpdater.cc` was used for rigid body sampling of RNA bases, but not supported anymore.
 
 Go back to [[StepWiseSampleAndScreen|stepwise-sample-and-screen]].
