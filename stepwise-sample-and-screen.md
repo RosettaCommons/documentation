@@ -47,7 +47,7 @@ The StepWiseSampleAndScreen mostly solves these issues.
 • Another good feature of the StepWiseSampleAndScreen framework: it  only saves poses into memory when they've passed  all the screens. That allows it to handle sampling calculations that literally enumerate through tens of millions of samples. Alternatives that we considered, where we passed lists of Poses serially through different samplers, led to memory explosions.
 
 
-#The main loop.
+#The main loop
 
 The way these objects works is best seen in the code itself, which is really short, actually:
 
