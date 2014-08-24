@@ -42,7 +42,7 @@ add_mover.set_stepwise_modeler( new StepWiseModeler( scorefxn ) );
 add_mover.apply( pose, 3 /*add res*/, 2 /*takeoff res*/ );   // imagine the pose has residues 1, 2, 7, 8
 ```
 
-What other documentation would be useful here?
+**What other documentation would be useful here?**
 
 ---
 Go back to [[StepWise Overview|stepwise-classes-overview]].
