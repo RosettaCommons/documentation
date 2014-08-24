@@ -30,6 +30,7 @@ These hold the various classes for enumerating or stochastically sampling residu
 The options framework for stepwise modeler derives from `basic::resource_manager::ResourceOptions`, with convenient inheritance from StepWiseBasicOptions to StepWiseMonteCarloOptions and to StepWiseBasicModelerOptions (which itself parents StepWiseModelerOptions). Reasonably full list of options summarized at the [[StepWiseOptions|stepwise-options]] page.
 
 ### full_model_info/
+Contains `FullModelInfoSetupFromCommandLine.cc`, code for setting up `FullModelInfo` object, held in pose, based on command-line input; see below.
 
 ### legacy/
 This subdirectory has a lot of code written by P. Sripakdeevong & R. Das in 2009-2011 during tests of stepwise enumeration for RNA and proteins. It was not very modular, and the protein and RNA stuff was not unified; the modern `stepwise` framework fixes these issues. As mentioned above for `apps/public/stepwise/legacy`, these files will be removed after verification in 2015 that they can be fully deprecated.
