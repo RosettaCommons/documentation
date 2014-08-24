@@ -77,6 +77,7 @@ There are useful helper functions in `stepwise/modeler/util.hh` to `switch_focus
 
 [Originally, there was a scheme in which having each pose held references to immediately neighboring poses to create a 'pose tree', which might have made some loop-closure energies easier to compute, but this was ditched.]
 
-
+---
+Go all the way back to [[StepWise Overview|stepwise-classes-overview]].
 
 
