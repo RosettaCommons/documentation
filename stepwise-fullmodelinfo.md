@@ -3,9 +3,11 @@
 
 Code for `FullModelInfo` is in `src/core/pose/full_model_info/FullModelInfo.cc`.
 
+Several powerful functions for dealing with poses with `full_model_info` objects are available in `stepwise/modeler/util.hh`, including `merge_two_poses_using_full_model_info`, `slice`, `split_pose`, `fix_up_residue_type_variants`, and `figure_out_moving_chain_breaks`.
+
 # How to use
 -------------
-FullModelInfo needs to be set up to do operations like adding & deleting. It contains info on everything in the full modeling problem. Example (sorry this hasn't been tested): 
+FullModelInfo needs to be set up to do operations like adding & deleting. It contains info on everything in the full modeling problem. Example (**sorry this hasn't been tested**): 
 
 ```
 
@@ -34,11 +36,12 @@ There are three kinds of numbering schemes that we need to keep track of in step
 # What is in FullModelInfo
 ---------------------------
 There are three things in FullModelInfo:
-### res_list_
+
+### res_list
 ------------
 This is a `utility::vector1< Size >` that holds the numbers of each residue in the current pose, in full-model numbering.
 
-### full_model_parameters_
+### full_model_parameters
 ----------------------------------------------------------
 This is a FullModelParameters object, and it stores all information related to the eventual full-length model. 
 These include:
@@ -63,3 +66,17 @@ See FullModelParameterType for full list of variables.
 
   parameter_values_as_res_lists -- same info as above, different format.
     { 0:[1, 2, 5, 6],  1:[3, 4], 2:[7, 8] }
+
+### other_pose_list
+----------------------------------------------------------
+This is a vector of PoseOPs.  
+
+Suppose you're building a big model, and you have one pose for residues 22-28 and another two poses for residues 90-100 and for residues 120-130 built. In the stepwise framework, you'd hold on to the first pose, and it would contain references to the other poses in its `other_pose_list`.  In this example, the other poses would themselves have empty other_pose_list'.  
+
+There are useful helper functions in `stepwise/modeler/util.hh` to `switch_focus_to_other_pose`.
+
+[Originally, there was a scheme in which having each pose held references to immediately neighboring poses to create a 'pose tree', which might have made some loop-closure energies easier to compute, but this was ditched.]
+
+
+
+
