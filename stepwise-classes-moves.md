@@ -1,6 +1,6 @@
 #StepWise Moves & Monte Carlo
 # Code
-Basic code running stepwise monte carlo is in `src/protocols/stepwise/monte_carlo/StepWiseMonteCarlo/'.
+Basic code running stepwise monte carlo is in `src/protocols/stepwise/monte_carlo/StepWiseMonteCarlo.hh`.
 
 # How to run it
 ----------------
