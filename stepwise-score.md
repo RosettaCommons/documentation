@@ -1,4 +1,4 @@
-# Special scoring Terms for stepwise
+# Special scoring terms develoepd for `stepwise`
 
 ### `other_pose`
 Part-way through building full `stepwise` models, there may be multiple, distinct poses modeling different parts of the overall macromolecule. This score term (see `src/core/scoring/methods/OtherPoseEnergy`) is activated on the primary pose, and carries out scoring on poses held in the `other_pose_list`. The sums are tallied up into the total score for the primary pose.
