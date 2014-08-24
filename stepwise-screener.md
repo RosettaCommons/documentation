@@ -3,7 +3,7 @@
 
 # Important functions that you should set.
 
-### bool check_screen()
+###`bool check_screen()`
 Return true/false if a filter.
 Return true if the job of this screener is to always pass, but to carry out an action -- and run the action (e.g., packing or loop closure) in this function.
 
