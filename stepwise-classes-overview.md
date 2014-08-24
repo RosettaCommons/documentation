@@ -31,7 +31,7 @@ An appeal: If you update the code or find something missing in this documentatio
 
 • At the time of writing, there is also a `src/apps/public/stepwise/legacy/` subdirectory with `swa_protein_main`, `swa_rna_main`, and `swa_rna_util`. Almost all of the functionality of these older apps has now been reconstituted with much more modular classes. After some head-to-head comparisons in 2014-2015, publication of a methods paper on stepwise monte carlo, and updates to ERRASER, the plan is to remove this legacy code from the repository.
  
-## Protocols
+## protocols
 ------------
 Almost all code relevant to stepwise monte carlo and assembly is in `src/protocols/stepwise`.
 The contents of this directory are as follows, in order of importance.
