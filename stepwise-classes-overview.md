@@ -24,7 +24,7 @@ Moves and schedule of stochastic sampling for stepwise monte carlo (abbreviated 
 Essentially every move in stepwise monte carlo (or stepwise enumeration) calls `StepWiseModeler`, which is in this directory. It takes a `pose` and a single position `moving residue`, and figures everything out from there. This is where choices should be encoded for, e.g., non-natural polymers or future moves that build residues through disulfides. More info is at the [[StepWiseModeler|stepwise-modeler]] page. Description of available options available at the [[StepWiseOptions|stepwise-options]] page.
 
 # StepWiseSampleAndScreen, sampler/, and screener/
-These hold the core 
+These hold the various classes for enumerating or stochastically sampling residues (or rigid bodies). Detailed description on the [[StepWiseSampleAndScreen|stepwise-sample-and-screen]] page.
 
 # options/
 The options framework for stepwise modeler derives from `basic::resource_manager::ResourceOptions`, with convenient inheritance from StepWiseBasicOptions to StepWiseMonteCarloOptions and to StepWiseBasicModelerOptions (which itself parents StepWiseModelerOptions). Reasonably full list of options summarized at the [[StepWiseOptions|stepwise-options]] page.
