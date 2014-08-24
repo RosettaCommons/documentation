@@ -15,6 +15,7 @@ Basic code running stepwise monte carlo is in `src/protocols/stepwise/monte_carl
 ```
 
 # What StepWiseMonteCarlo can do.
+---------------------------------
 A concise description of a move is given as a `SWA_Move`. The types of moves are the following (see `src/protocols/stepwise/monte_carlo/swa_move.hh`:
 
 • ADD  -- supply residue(s) to add to pose (in full model numbering). if a single covalent connection can be drawn from existing pose to residue, will be covalent; otherwise added by jump.
