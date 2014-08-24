@@ -4,6 +4,7 @@
 Code for `FullModelInfo` is in `src/core/pose/full_model_info/FullModelInfo.cc`.
 
 # How to use
+-------------
 FullModelInfo needs to be set up to do operations like adding & deleting. It contains info on everything in the full modeling problem. Example (sorry this hasn't been tested): 
 
 ```
@@ -19,6 +20,7 @@ std::cout << const_full_model_info( pose ).other_pose_list() << std::endl; // []
 ```
 
 # Note on numbering schemes
+---------------------------
 There are three kinds of numbering schemes that we need to keep track of in stepwise modeling:
 
 • Rosetta's pose numbering. In the above four residue pose, this would be [1, 2, 3, 4]. This numbering is also called `working` numbering throughout the stepwise code.
@@ -28,11 +30,13 @@ There are three kinds of numbering schemes that we need to keep track of in step
 • Conventional numbering (and chains). What you might see in PDB info -- [22, 23, 27, 28] in above case.
 
 # What is in FullModelInfo
-------
+---------------------------
 There are three things in FullModelInfo:
 ### res_list
+------------
 
 ### full_model_parameters_, a FullModelParameters object 
+----------------------------------------------------------
 -This stores all information  related to the eventual full-length model. These include:
 
 • full_sequence
