@@ -1,5 +1,7 @@
+# StepWiseModeler
 `StepWiseModeler` takes a pose and a single position moving residue, and figures everything out from there, including  whether to sample of one terminal nucleotide (default for RNA), or two amino acids (default for protein); what the two partitions are that will move relative to each other (there are essentially always two!); and whether to do rigid body docking (if the moving residue's parent is a jump).
 
+# Basic steps
 Here is the  `apply` function for `StepWiseModeler`:
 ```
 		initialize( pose );
@@ -21,3 +23,6 @@ Here is the  `apply` function for `StepWiseModeler`:
 • `reinitialize` zeros out several objects in `StepWiseModeler` in case it is reused (which it will be in `StepWiseMonteCarlo` applications). It also removes any native constraints added to the pose.
 
 In addition to `StepWiseModeler.cc`, this `modeler/` directory also contains several subdirectories and files for defining options classes, packers, and minimizers, as well as some code specific for protein and RNA sampling (which perhaps should be moved to another directory).
+
+# Notes
+
