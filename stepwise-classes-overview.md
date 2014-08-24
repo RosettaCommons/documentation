@@ -17,22 +17,21 @@ If you update the code or find something missing in this documentation, *please 
 Almost all code relevant to stepwise monte carlo and assembly is in `src/protocols/stepwise`.
 The contents of this directory are as follows, in order of importance.
 
-# monte_carlo/
+### monte_carlo/
 Moves and schedule of stochastic sampling for stepwise monte carlo (abbreviated SWM throughout the code). More information on classes are summarized under [[Monte Carlo Moves|stepwise-classes-moves]].
 
-# modeler/
+### modeler/
 Essentially every move in stepwise monte carlo (or stepwise enumeration) calls `StepWiseModeler`, which is in this directory. It takes a `pose` and a single position `moving residue`, and figures everything out from there. This is where choices should be encoded for, e.g., non-natural polymers or future moves that build residues through disulfides. More info is at the [[StepWiseModeler|stepwise-modeler]] page. Description of available options available at the [[StepWiseOptions|stepwise-options]] page.
 
-# StepWiseSampleAndScreen, sampler/, and screener/
+### StepWiseSampleAndScreen, sampler/, and screener/
 These hold the various classes for enumerating or stochastically sampling residues (or rigid bodies). Detailed description on the [[StepWiseSampleAndScreen|stepwise-sample-and-screen]] page.
 
-# options/
+### options/
 The options framework for stepwise modeler derives from `basic::resource_manager::ResourceOptions`, with convenient inheritance from StepWiseBasicOptions to StepWiseMonteCarloOptions and to StepWiseBasicModelerOptions (which itself parents StepWiseModelerOptions). Reasonably full list of options summarized at the [[StepWiseOptions|stepwise-options]] page.
 
-# full_model_info/
+### full_model_info/
 
-# legacy/
-- [[SampleAndScreen|stepwise-sample-and-screen]] is a general class for enumerating or stochastically sampling residues (or rigid bodies) 
+### legacy/
 - [[Samplers|stepwise-samplers]] are concatenated together to define the sampling loop, and can go through millions of poses.
 - [[Screeners|stepwise-screeners]] are filters with some specialized features to 'fast-forward' through the sampling loop and prevent memory effects in the pose. 
 
