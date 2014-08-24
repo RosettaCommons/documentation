@@ -21,37 +21,13 @@ The contents of this directory are as follows, in order of importance.
 Moves and schedule of stochastic sampling for stepwise monte carlo (abbreviated SWM throughout the code). More information on classes are summarized under [[Monte Carlo Moves|stepwise-classes-moves]].
 
 # modeler/
-Essentially every move in stepwise monte carlo (or stepwise enumeration) calls `StepWiseModeler`, which is in this directory. It takes a `pose` and a single position `moving residue`, and figures everything out from there, including  whether to sample of one terminal nucleotide (default for RNA), or two amino acids (default for protein); what the two partitions are that will move relative to each other (there are essentially always two!); and whether to do rigid body docking (if the moving residue's parent is a jump). This is where choices should be encoded for, e.g., non-natural polymers. More info is [[here|stepwise-modeler]].
+Essentially every move in stepwise monte carlo (or stepwise enumeration) calls `StepWiseModeler`, which is in this directory. It takes a `pose` and a single position `moving residue`, and figures everything out from there. This is where choices should be encoded for, e.g., non-natural polymers or future moves that build residues through disulfides. More info is at the [[StepWiseModeler|stepwise-modeler]] page. Description of available options available at the [[StepWiseOptions|stepwise-options]] page.
 
-Here is the  `apply` function for `StepWiseModeler`:
-```
-		initialize( pose );
-
-		do_prepacking( pose );
-		do_sampling( pose );
-		if ( sampling_successful() ) do_minimizing( pose );
-
-		reinitialize( pose );
-```
-• `initialize` figures out a bunch of working parameters -- which residues to move, any `bridge_res` residues to CCD close, etc. -- into one object. All of this information can actually be derived from the pose & `moving_res`, but it was historical to have all of it readily available in one object. The function also re-roots the pose so that the biggest partition is fixed, and aligns it to an alignment pose; this accelerates computation. Last, native constraints can be applied here if the `rmsd_screen` option is specified from command line.
-
-• `do_prepacking` packs protein side-chains and RNA 2' hydroxyls, as well as any 5' or 3' phosphates that are hanging off RNA strands. By default, the packing allows virtualization of side-chains and RNA hydroxyls -- if there aren't enough contacts with those groups to define them, they are kept virtual (through bonuses in the `free_side_chain` and `free_2HOprime` terms).
-
-• `do_sampling` actually carries out the enumerative or stochastic sampling using the StepWiseConnectionSampler, which sets up a [SampleAndScreen|stepwise-sample-and-screen] (see below).  No minimizing occurs here, just a discrete grid search over backbone torsions or rigid-body DOFs.
-
-• `do_minimizing` takes the lowest energy pose(s) found in sampling, and carries out torsional minimization. How many poses to minimize is encoded in option `num_pose_minimize` (see [options/] below).
-
-• `reinitialize` zeros out several objects in `StepWiseModeler` in case it is reused (which it will be in `StepWiseMonteCarlo` applications). It also removes any native constraints added to the pose.
-
-In addition to `StepWiseModeler.cc`, this `modeler/` directory also contains several subdirectories and files for defining options classes, packers, and minimizers, as well as some code specific for protein and RNA sampling (which perhaps should be moved to another directory).
-
-# StepWiseSampleAndScreen.cc
-
-# sampler/
-
-# screener/
+# StepWiseSampleAndScreen, sampler/, and screener/
+These hold the core 
 
 # options/
+The options framework for stepwise modeler derives from `basic::resource_manager::ResourceOptions`, with convenient inheritance from StepWiseBasicOptions to StepWiseMonteCarloOptions and to StepWiseBasicModelerOptions (which itself parents StepWiseModelerOptions). Reasonably full list of options summarized at the [[StepWiseOptions|stepwise-options]] page.
 
 # full_model_info/
 
