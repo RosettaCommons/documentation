@@ -26,7 +26,7 @@ A concise description of a move is given as a `SWA_Move`. The types of moves are
 
 • `RESAMPLE` -- sample a specific connection. Specify residue to move; connection will be inferred based on parent residue in pose. 
 
-• `RESAMPLE_INTERNAL_LOCAL` -- sample a specific internal residue, making a transient cutpoint after it, enforcing KIC-based chain closure, and removing the cutpoint variant. (ERRASER style -- kind of like a **backrub** but for RNA.)
+• `RESAMPLE_INTERNAL_LOCAL` -- (tested for RNA only so far) sample a specific internal residue, making a transient cutpoint after it, enforcing KIC-based chain closure, and removing the cutpoint variant. (ERRASER style -- kind of like a **backrub** but for RNA.)
 
 For each SWA_Move, the residue is specified, the type of connection ('AttachmentType') to a parent residue (BOND_TO_PREVIOUS, BOND_TO_NEXT,JUMP_TO_PREV_IN_CHAIN, JUMP_TO_NEXT_IN_CHAIN,JUMP_INTERCHAIN), and the parent residue. The last two pieces of information are basically redundant, but allow for consistency checks in Movers.
 
