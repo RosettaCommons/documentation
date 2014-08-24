@@ -1,9 +1,9 @@
 #StepWiseSampleAndScreen
 `StepWiseSampleAndScreen` carries out the main loop for stepwise sampling, either in enumerative mode or in stochastic mode. It is initialized with two things:
 
-• a vector of `StepWiseSampler` objects which delineate the degrees of freedom to be sampled, their discrete values, and what order these go in. There are some tricks here to handle rigid body sampling.
+• a `StepWiseSampler` objects which delineates the degrees of freedom to be sampled, their discrete values, and what order these go in. There are some tricks here to handle rigid body sampling. This `StepWiseSampler` object is typically itself the composition of several `StepWiseSampler` objects.
 
-• a vector of `StepWiseScreener` objects which delineate the gauntlet of filters, packers, and loop closers that are run after each sample is applied to the `pose`.
+• a vector of `StepWiseScreener` objects which delineate the gauntlet of filters, packers, and loop closers that are run after each sample is applied to the pose. Having these screeners in a particular order can accelerate sampling, and in a few cases there are some dependencies (e.g. a pose selection screener should go last, after side-chain packers, and after any loop closers pinpoint the backbone).
 
 The architectures of each of these objects are described in the [[StepWiseSampler|stepwise-sampler]] and [[StepWiseScreener|stepwise-screener]] pages.
 
