@@ -25,4 +25,10 @@ Here is the  `apply` function for `StepWiseModeler`:
 In addition to `StepWiseModeler.cc`, this `modeler/` directory also contains several subdirectories and files for defining options classes, packers, and minimizers, as well as some code specific for protein and RNA sampling (which perhaps should be moved to another directory).
 
 # Notes
+• StepWiseModeler can be used purely as a packer (no actual discrete sampling of any degrees of freedom), if `working_prepack_res` is set. This is useful in `-preminimize` modes for `stepwise`.
 
+• The input `moving_res` needs to actually be in the working numbering. I.e., if the pose has residues 1-4 and 7-12 of the full modeling problem posed, and we need to resample the connection from residue 7 to 8, supply '5' (the actual fifth residue in the pose). If thats too confusing, would be easy to refactor to accept the moving residue as full-numbering.
+
+• For RNA, the specified residue and its connection to its parent in the fold tree are sampled.
+
+• For protein, the parent of the specified residue is also sampled (as long as it is not a fixed part of an input PDB). This choice still permit full enumeration and was worked out in the paper on [stepwise assembly for proteins](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0074830).
