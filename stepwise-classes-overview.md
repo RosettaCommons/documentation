@@ -1,11 +1,12 @@
 # Stepwise documentation: Overview
 #A little history
+-----------------
 In prediction & design, the models we get back aren't always the lowest in Rosetta energy, especially if backbone movements need to be sampled. The stepwise assembly (SWA) approach was introduced into Rosetta by the Das lab to address conformational sampling bottlenecks for 10-20 residue problems. It finds very low energy structures through an enumeration over residue-by-residue steps & dynamic programming, and has outperformed fragment-based sampling where implemented – mostly RNA & RNA/protein problems. Despite interest from RosettaCommons labs, two barriers have precluded testing on problems like antibody modeling or protein interface design: SWA required queuing scripts specially customized to each cluster, and it was computationally expensive. The Das lab recently implemented a stepwise monte carlo (SWM) method that eliminates these barriers. SWM is embarassingly parallel and reduces computational expense from 10,000 CPU-hours to hours or minutes. The new `stepwise` framework also allows for sequence-optimization & constraints – necessary for design. A few straightforward steps would allow testing of the stepwise approach within any Rosetta protocol that invokes modeling/design over small sub-systems, including loops, enzyme active sites, and cyclic-peptides. This documentation is being written to help developers in different RosettaCommons labs to bring together separately evolving advances in protein and RNA sampling via the stepwise modeling framework and to allow wide testing of a powerful method that is complementary to most labs’ current sampling arsenals. 
 
-#An appeal
-If you update the code or find something missing in this documentation, *please take a minute to EDIT this documentation for future developers.* Or if you can't do it, send a note to rhiju@stanford.edu, who will coordinate updates. Thanks!
+An appeal: If you update the code or find something missing in this documentation, *please take a minute to EDIT this documentation for future developers.* Or if you can't do it, send a note to rhiju@stanford.edu, who will coordinate updates. Thanks!
 
 # Workflow, from the outermost to innermost layer of the onion
+--------------------------------------------------------------
 (1) The `stepwise` app creates a `StepWiseMonteCarlo` object, which is a standard Rosetta `Mover`, and applies it to a `pose`. 
 
 (2) In `StepWiseMonteCarlo`, several cycles of Monte Carlo minimization are run on the pose, again using a standard Rosetta `MonteCarlo` object. 
@@ -21,7 +22,9 @@ If you update the code or find something missing in this documentation, *please 
 (7) `StepWiseSampleAndScreen` object is the core 'main loop' in stepwise modeling. It involves plug-and-play of several possible `StepWiseSamplers` (defining the nested loops of DOF sampling) and `StepWiseScreeners` (the gauntlet of filters, closers, packers, and clusterers).
 
 # Classes, by directory
+-----------------------
 ## The application is `stepwise.cc`
+-----------------------------------
 • The `stepwise` application is available in `src/apps/public/stepwise/stepwise.cc`. It is documented for the general user, with illustrative demos (and movies!) [[here|stepwise]]. It is currently pretty concise, with most setup delegated to constructors and classes described below. 
 
 • If you add several lines to `stepwise.cc` to add functionality, great! Please also consider packaging those lines together and moving into the appropriate `util.cc` in a `protocols/stepwise/` subdirectory, to keep this main application file concise -- send a note to rhiju for advice. If you see a way to make this application more concise, even better!
@@ -29,6 +32,7 @@ If you update the code or find something missing in this documentation, *please 
 • At the time of writing, there is also a `src/apps/public/stepwise/legacy/` subdirectory with `swa_protein_main`, `swa_rna_main`, and `swa_rna_util`. Almost all of the functionality of these older apps has now been reconstituted with much more modular classes. After some head-to-head comparisons in 2014-2015, publication of a methods paper on stepwise monte carlo, and updates to ERRASER, the plan is to remove this legacy code from the repository.
  
 ## Protocols
+------------
 Almost all code relevant to stepwise monte carlo and assembly is in `src/protocols/stepwise`.
 The contents of this directory are as follows, in order of importance.
 
@@ -50,7 +54,8 @@ Contains `FullModelInfoSetupFromCommandLine.cc`, code for setting up `FullModelI
 ### legacy/
 This subdirectory has a lot of code written by P. Sripakdeevong & R. Das in 2009-2011 during tests of stepwise enumeration for RNA and proteins. It was not very modular, and the protein and RNA stuff was not unified; the modern `stepwise` framework fixes these issues. As mentioned above for `apps/public/stepwise/legacy`, these files will be removed after verification in 2015 that they can be fully deprecated.
 
-## There are some supporting classes in core
+## core
+--------------------------------------------
 ### full_model_info
 [[FullModelInfo|stepwise-fullmodelinfo]], in `src/core/pose/full_model_info/` is an important book-keeping object held by the pose used throughout the stepwise code. 
 
