@@ -5,7 +5,15 @@ In prediction & design, the models we get back aren't always the lowest in Roset
 #An appeal
 If you update the code or find something missing in this documentation, *please take a minute to EDIT this documentation for future developers.* Or if you can't do it, send a note to rhiju@stanford.edu, who will coordinate updates. Thanks!
 
-# The classes, by directory
+# Workflow in a nutshell
+(1) The `stepwise` app create a `StepWiseMonteCarlo` object, which is a standard Rosetta `Mover`, and apply it to a `pose`. 
+(2) In `StepWiseMonteCarlo`, several cycles of Monte Carlo minimization are run on the pose, again using a standard Rosetta `MonteCarlo` object. 
+(3) Each cycle involves random selection of a `SWA_Move`. [there is also a mode where you can apply a single move for testing or for enumeration.]
+(4) Application of a `SWA_Move` means adding, deleting, splitting, or merging some residues in the pose; and then carrying asking `StepWiseModeler` to resample the affected DOFs. The resampled DOFs define a `move_element` which can be the backbone DOFS of a terminal residue, the internal covalent connection between contiguous residues, or a jump (re-docking).
+(5) The `StepWiseModeler` does some aligning and packing of the pose, initiates the core stepwise functionality, called a `StepWiseSampleAndScreen`, and then minimizes one (or sometimes more) resulting poses.
+(6) The `StepWiseSampleAndScreen` object is the core 'main loop' in stepwise modeling. It involves plug-and-play of several possible `StepWiseSamplers` (defining the nested loops of DOF sampling) and `StepWiseScreeners` (the gauntlet of filters, closers, packers, and clusterers).
+
+# Classes, by directory
 ## The application is `stepwise.cc`
 • The `stepwise` application is available in `src/apps/public/stepwise/stepwise.cc`. It is documented for the general user, with illustrative demos (and movies!) [[here|stepwise]]. It is currently pretty concise, with most setup delegated to constructors and classes described below. 
 
