@@ -17,11 +17,11 @@ If you update the code or find something missing in this documentation, *please 
 Almost all code relevant to stepwise monte carlo and assembly is in `src/protocols/stepwise`.
 The contents of this directory are as follows, in order of importance.
 
-### monte_carlo/
-Moves and schedule of stochastic sampling for stepwise monte carlo (abbreviated SWM throughout the code). More information on classes are summarized under [[Monte Carlo Moves|stepwise-classes-moves]].
-
 ### modeler/
 Essentially every move in stepwise monte carlo (or stepwise enumeration) calls `StepWiseModeler`, which is in this directory. It takes a `pose` and a single position `moving residue`, and figures everything out from there. This is where choices should be encoded for, e.g., non-natural polymers or future moves that build residues through disulfides. More info is at the [[StepWiseModeler|stepwise-modeler]] page. Description of available options available at the [[StepWiseOptions|stepwise-options]] page.
+
+### monte_carlo/
+Moves and schedule of stochastic sampling for stepwise monte carlo (abbreviated SWM throughout the code). More information on classes are summarized under [[Monte Carlo Moves|stepwise-classes-moves]].
 
 ### StepWiseSampleAndScreen, sampler/, and screener/
 These hold the various classes for enumerating or stochastically sampling residues (or rigid bodies). Detailed description on the [[StepWiseSampleAndScreen|stepwise-sample-and-screen]] page.
