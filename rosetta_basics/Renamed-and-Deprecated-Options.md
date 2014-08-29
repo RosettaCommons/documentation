@@ -1,3 +1,5 @@
+#Renamed and Deprecated Options
+
 As Rosetta grows and changes, certain options which previously were used are now no longer relevant, or are renamed to be more consistent with other options. To assist in modernizing existing protocols, the following are details about options which have been either renamed, or have been removed from Rosetta entirely.
 
 Note that this is not a comprehensive list of option system changes, but instead lists just those options which are in semi-common usage for existing protocols. More esoteric options may not be listed.
