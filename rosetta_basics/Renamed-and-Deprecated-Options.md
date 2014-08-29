@@ -8,9 +8,15 @@ Note that this is not a comprehensive list of option system changes, but instead
 
 * `-residues:patch_selectors` --> `-chemical:patch_selectors`
 
+## Deprecated Options
+
+These options no longer function as one may expect, and should be replaced.
+
+* `-LoopModel:input_pdb` -- Specify input files with `-s` instead
+
 ## Removed Options
 
-These options have been removed because they no longer serve any functional purpose in Rosetta. In most cases they can be safely removed from your option files with no ill effects.
+These options have been removed because they no longer serve any functional purpose in Rosetta. Attempting to use them will result in an error. In most cases they can be safely removed from your option files with no ill effects.
 
 * `-ddg:use_bound_cst`
 * `-relax:membrane` -- Standard relax can now implicitly handle membrane proteins.
