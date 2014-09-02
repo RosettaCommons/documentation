@@ -1,5 +1,5 @@
 # Generalized Kinematic Closure
-By Vikram K. Mulligan, Baker laboratory.  Documentation written 4 April 2014.
+By Vikram K. Mulligan, Baker laboratory.  Documentation written 4 April 2014, and last updated on 2 September 2014.
 The algorithm described here currently exists in the **cycpep/collab** and **vmullig/cycpep** development branches, where it is under active development.  It has also been checked into the master branch, where it may be considered a beta feature.
 
 ## Short summary
