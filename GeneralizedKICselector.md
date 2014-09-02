@@ -29,7 +29,10 @@ The **selector_scorefunction** and **selector_kbt** tags are optional, and are o
      This selector chooses a solution randomly, but weighted by a factor of exp(-E/kbt).  This means that it must score the energy of each solution, so as with the lowest energy selector, this selector must be provided with a (preferably backbone-only) scorefunction with the **selector_scorefunction** tag.  It must also be provided with a Boltzmann temperature, in Rosetta energy units, with the **selector_kbt** tag.  The **selector_scorefunction** and **selector_kbt** tags are the only options considered by this selector.
 
 4.  Lowest RMSD (**selector="lowest_rmsd_selector"**)
-     This selector chooses the solution with the lowest RMSD to the input loop conformation.  It is therefore best used on structures that already have a closed loop conformation that you would like to perturb subtly (_e.g._ with the **[[perturb_dihedral|GeneralizedKICperturber]]** [[GeneralizedKIC perturber|GeneralizedKICperturber]]).
+     This selector chooses the solution with the lowest Cartesian-space RMSD to the input loop conformation.  It is therefore best used on structures that already have a closed loop conformation that you would like to perturb subtly (_e.g._ with the **[[perturb_dihedral|GeneralizedKICperturber]]** [[GeneralizedKIC perturber|GeneralizedKICperturber]]).
+
+5.  Lowest delta torsion (**selector="lowest_delta_torsion_selector"**)
+     This selector chooses the solution with the lowest _torsion_-space RMSD to the input loop conformation.  Like the **lowest_rmsd_selector**, it is best used on structures that already have a closed loop conformation that you would like to perturb subtly.
 
 ## Recommended scorefunctions for energy-based selectors
 
