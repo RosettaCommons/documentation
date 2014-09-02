@@ -48,7 +48,7 @@ comment tags will be stripped from the documentation prior to being provided as 
 - [[PeptideStubMover]]
 - [[DeclareBond]]
 - [[SetTorsion]] -- updated with new functionality; documentation needs to be written
-- [[GeneralizedKIC]] -- documentation incomplete
+- [[GeneralizedKIC]]
      - [[GeneralizedKICperturber]] -- documentation incomplete
      - [[GeneralizedKICfilter]] -- documentation incomplete
      - [[GeneralizedKICselector]]
