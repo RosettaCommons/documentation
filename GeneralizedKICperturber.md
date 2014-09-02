@@ -18,6 +18,7 @@ GeneralizedKIC perturbers alter the chain to be closed in some way prior to kine
 ## Shorthands
 
 Certain perturbers or perturber combinations have convenient shorthands.  For example, a common operation is to set a bond length and two flanking bond angles in order to close an open bond.  Currently-defined shorthands include:
+
 1.  **CloseBond**<br>This combines two **set_bondangle** and one **set_bondlength** perturbers, as well as an optional pair of **randomize_dihedral** perturbers for the flanking dihedral angles.  A **set_torsion** perturber also sets the torsion angle of the connection based on the user-specified **torsion** value; if this is not specified, a **randomize_torsion** perturber is substituted.  The **prioratom**, **prioratom_res**, **followingatom**, and **followingatom_res** options need only be specified if **randomize_flanking_torsions** is set to **true**.
 ```
 <GeneralizedKIC ...>
