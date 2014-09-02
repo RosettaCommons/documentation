@@ -1,7 +1,9 @@
 # GeneralizedKIC Selectors
 
+[[Return to RosettaScripts|RosettaScripts]]
+
 ## Overview
-GeneralizedKIC selectors (class protocols::GeneralizedKIC::GeneralizedKICselector) choose a single solution, based on some criterion, from the many solutions produced by GeneralizedKIC.  A single attempt at closure with GeneralizedKIC can produce 0 to 16 solutions, and one typically attempts many closures, so it is necessary to specify a method of choosing a single solution.
+[[GeneralizedKIC]] selectors (class protocols::GeneralizedKIC::GeneralizedKICselector) choose a single solution, based on some criterion, from the many solutions produced by GeneralizedKIC.  A single attempt at closure with GeneralizedKIC can produce 0 to 16 solutions, and one typically attempts many closures, so it is necessary to specify a method of choosing a single solution.
 
 ## Use within RosettaScripts
 Each [[GeneralizedKIC mover|GeneralizedKIC]] has one and only one GeneralizedKIC selector assigned to it.  In RosettaScripts, this must be specified in the **\<GeneralizedKIC\>** block as follows:
