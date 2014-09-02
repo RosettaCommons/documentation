@@ -43,13 +43,9 @@ These steps are discussed in detail in the next section.
 ...
 </MOVERS>
 ```
-The **closure_attempts** parameter sets the number of times the algorithm will try to close the loop.  A setting of **0** means that it will keep trying indefinitely.  The **stop_when_solution_found** option determines whether a successful closure that passes filters means that the algorithm should accept what it has found and finish, or keep going until it has done as many attempts as specified by **closure_attempts**, at which point a solution would be chosen by the selector.  (Note that, because a single attempt returns up to 16 closure solutions, the selector will be applied _even_ if **stop_when_solution_found** is set to true).  The **selector** flag is mandatory, and specifies the way in which a solution is chosen from among the successful solutions.  The **selector_scorefunction** flag allows a separate scorefunction to be used by those selectors that select based on energy or score; this is recommended since score terms based on side-chain packing may produce poor results, since the GeneralizedKIC algorithm does not call the packer.  Some selectors also take a temperature value, set by the **selector_kbt** option.  See the [[GeneralizedKIC Selector|GeneralizedKICselector]] documentation for more details.
+The **closure_attempts** parameter sets the number of times the algorithm will try to close the loop.  A setting of **0** means that it will keep trying indefinitely.  The **stop_when_solution_found** option determines whether a successful closure that passes filters means that the algorithm should accept what it has found and finish, or keep going until it has done as many attempts as specified by **closure_attempts**, at which point a solution would be chosen by the selector.  (Note that, because a single attempt returns up to 16 closure solutions, the selector will be applied _even_ if **stop_when_solution_found** is set to true).  The **selector** flag is mandatory, and specifies the way in which a solution is chosen from among the successful solutions.  The **selector_scorefunction** flag allows a separate scorefunction to be used by those selectors that select based on energy or score; this is recommended since score terms based on side-chain packing may produce poor results, since the GeneralizedKIC algorithm does not call the packer.  Some selectors also take a temperature value, set by the **selector_kbt** option.  See the [[GeneralizedKIC selector|GeneralizedKICselector]] documentation for more details.<br>In some cases, the GeneralizedKIC mover will find no solution.  This could be because no solution exists (_e.g._ if the loop is too short for the endpoint separation, or if there is geometry blocking any path between the endpoints), because the sampling method used was too restrictive, or because too few attempts were made.  If this happens, the pose is left unaltered.  If the loop geometry is open, it is useful to have a means of aborting the trajectory in this case.  A [[ContingentFilter|Filters-RosettaScripts#ContingentFilter]] can be used for this purpose.  The ContingentFilter is a specialized filter that has its value set by a mover.  GeneralizedKIC can set the value of a ContingentFilter, specified using the **contingent_filter** flag, to true or false depending on whether the closure was successful or unsuccessful.  Subsequent application of the filter can then abort trajectories involving unsuccessful loop closure.
 
-In some cases, the GeneralizedKIC mover will find no solution.  This could be because no solution exists (_e.g._ if the loop is too short for the endpoint separation, or if there is geometry blocking any path between the endpoints), because the sampling method used was too restrictive, or because too few attempts were made.  If this happens, the pose is left unaltered.  If the loop geometry is open, it is useful to have a means of aborting the trajectory in this case.  A [[ContingentFilter|Filters-RosettaScripts#ContingentFilter]] can be used for this purpose.  The ContingentFilter is a specialized filter that has its value set by a mover.  GeneralizedKIC can set the value of a ContingentFilter, specified using the **contingent_filter** flag, to true or false depending on whether the closure was successful or unsuccessful.  Subsequent application of the filter can then abort trajectories involving unsuccessful loop closure.
-
-4. Define a series of residues for the GeneralizedKIC closure problem.  This must be an unbranched chain of residues with continuous covalent linkages, listed in order from one end of the chain to the other.  When the GeneralizedKIC::apply() function is called, a continuous chain of atoms running through the selected residues is automatically chosen.  Residues are specified with **AddResidue** tags within a **GeneralizedKIC** block.  Pivot points must also be indicated explicitly, using the **SetPivots** tag.  Pivots are atoms in the chain of atoms to be closed that are flanked by bonds whose dihedral values will be solved for analytically by the closure algorithm in order to close the loop.  Currently, due to hard-coded assumptions in the kinematic closure numerical library, the first pivot must be the second atom in the chain to be closed, and the last pivot must be the second-to-last atom in the chain to be closed.  This restriction will be eliminated in a future version of GeneralizedKIC.
-
-Optionally, additional "tail" residues can also be listed.  These are residues that are either connected directly to the loop to be closed, or connected indirectly to this loop through other tail residues, and which move with the loop to be closed.  The **AddTailResidue** tag can be used to specify these.  Order is not important for the **AddTailResidue** flag.
+4. Define a series of residues for the GeneralizedKIC closure problem.  This must be an unbranched chain of residues with continuous covalent linkages, listed in order from one end of the chain to the other.  When the GeneralizedKIC::apply() function is called, a continuous chain of atoms running through the selected residues is automatically chosen.  Residues are specified with **AddResidue** tags within a **GeneralizedKIC** block.  Pivot points must also be indicated explicitly, using the **SetPivots** tag.  Pivots are atoms in the chain of atoms to be closed that are flanked by bonds whose dihedral values will be solved for analytically by the closure algorithm in order to close the loop.  Currently, due to hard-coded assumptions in the kinematic closure numerical library, the first pivot must be the second atom in the chain to be closed, and the last pivot must be the second-to-last atom in the chain to be closed.  This restriction will be eliminated in a future version of GeneralizedKIC.<br>Optionally, additional "tail" residues can also be listed.  These are residues that are either connected directly to the loop to be closed, or connected indirectly to this loop through other tail residues, and which move with the loop to be closed.  The **AddTailResidue** tag can be used to specify these.  Order is not important for the **AddTailResidue** flag.
 ```
 <MOVERS>
 ...
@@ -68,38 +64,38 @@ Optionally, additional "tail" residues can also be listed.  These are residues t
 ...
 </MOVERS>
 ```
-Residues must be added in a sequence corresponding to covalently-linked geometry.  For example, if one were closing a loop consisting of residues ALA45, LYS46, CYS47, CYS23, ASP22, and PHE21, where CYS47 and CYS23 were linked by a disulfide bond, one would write:
+For example, if one were closing a loop consisting of residues ALA44, CYS45, LYS46, CYS47, CYS23, ASP22, and PHE21, where CYS47 and CYS23 were linked by a disulfide bond, and where CYS45 were linked to CYS12 by another disulfide such that CYS12 was expected to move with CYS45, one would write:
 ```
 <MOVERS>
 ...
      <GeneralizedKIC ...>
+          <AddResidue index=4 />
           <AddResidue index=45 />
           <AddResidue index=46 />
           <AddResidue index=47 />
           <AddResidue index=23 />
           <AddResidue index=22 />
           <AddResidue index=21 />
-          <SetPivots res1=45 atom1="CA" res2=23 atom2="SG" res3=21 atom3="CA" />
+          <AddTailResidue index=12 />
+          <SetPivots res1=4 atom1="CA" res2=23 atom2="SG" res3=21 atom3="CA" />
           ...
      </GeneralizedKIC>
 ...
 </MOVERS>
 ```
-From the above example, we can see that loop segments may run backwards or forwards, or may involve residues that are far apart in linear sequence provided they are covalently linked.  Note that while the sequence of residues matter, the overall direction of the loop does not: we could just as happily have added residues in the reverse order (21->22->23->47->46->45).  In this example, we have arbitrarily chosen CYS23's SG atom as the middle pivot point, though any atom in the chain that is flanked by bonds that can rotate freely could have been chosen.
+From the above example, we can see that loop segments may run backwards or forwards, or may involve residues that are far apart in linear sequence provided they are covalently linked.  Note that while the sequence of residues matter, the overall direction of the loop does not: we could just as happily have added residues in the reverse order (21->22->23->47->46->45->44).  In this example, we have arbitrarily chosen CYS23's SG atom as the middle pivot point, though any atom in the chain that is flanked by bonds that can rotate freely could have been chosen.
 
-5. Define one or more GeneralizedKICperturbers.  Each perturber samples conformation space for each closure attempt.
+5. Define one or more GeneralizedKIC perturbers.  Each perturber samples conformation space for each closure attempt.  See [[GeneralizedKIC perturbers|GeneralizedKICperturbers]] for details.
 
-6. Define one or more GeneralizedKICfilters.  Filters are applied after each closure attempt, and eliminate solutions that don't meet some criterion.
+6. Define one or more GeneralizedKIC filters.  Filters are applied after each closure attempt, and eliminate solutions that don't meet some criterion.  See [[GeneralizedKIC filters|GeneralizedKICfilters]] for details.
 
-7. Set the GeneralizedKICselector.  The selector chooses a single solution from the set of solutions found that pass all of the filters.  See the [[documentation on GeneralizedKICselectors|GeneralizedKICselector]] for details.
+7. Set the GeneralizedKICselector.  The selector chooses a single solution from the set of solutions found that pass all of the filters.  See the [[documentation on GeneralizedKIC selectors|GeneralizedKICselector]] for details.
 
 That's it!  You should be happily closing loops, now.
 
 ## Algorithm details
 
-The kinematic closure algorithm is described in detail in [Coutsias _et al_. (2004). _J. Comput. Chem._ 25(4):510-28.](http://www.ncbi.nlm.nih.gov/pubmed/14735570) and in [Mandell _et al_. (2009). _Nat. Methods._ 6(8)551-2.](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2847683/)
-
-**_This section is still being written.  A brief overview will be given here._**
+The kinematic closure algorithm is described in detail in [Coutsias _et al_. (2004). _J. Comput. Chem._ 25(4):510-28.](http://www.ncbi.nlm.nih.gov/pubmed/14735570) and in [Mandell _et al_. (2009). _Nat. Methods._ 6(8)551-2.](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2847683/).  Briefly, given a rigid-body transform describing the position and orientation of the residue immediately following a loop relative to a residue immediately preceding a loop, a loop with N degrees of freedom now has N-6 effective degrees of freedom, the remaining 6 degrees of freedom being determined by the condition that the loop be closed.  This means that all but 6 degrees of freedom of the loop (_e.g._ all but 6 chain dihedral angles) may be sampled, perturbed, or set as one sees fit, and the remaining 6 degrees of freedom may be solved for analytically to impose the closure condition.  The GeneralizedKIC algorithm does just this, allowing the user to sample all but 6 degrees of freedom of the loop, then solve analytically for the remainining 6 (the dihedral angles flanking 3 pivot atoms) to ensure that the loop is closed.  For any given set of values for the other N-6 degrees of freedom, there may be anywhere from 0 to 16 solutions to the system of equations solved by the kinematic closure algorithm.
 
 ## Example RosettaScripts
 
@@ -193,5 +189,3 @@ This example creates a 10-residue cyclic peptide with a disulfide bond between t
 GeneralizedKIC cannot handle the following cases:
 * Multiple covalent connections between a single pair of residues in the chain of residues to be closed.  (This is something that, in general, Rosetta handles poorly).
 * Loops involving salt bridges, cation-pi interactions, hydrogen bonds, or other noncovalent interactions.  (The GeneralizedKIC framework has been written with this in mind as a possible future extension, however.)  Note that coordinate covalent bonds between metal-binding residues and metal ions are considered "covalent" in Rosetta, and _are_ handled properly by GeneralizedKIC.
-
-_**This page is under construction.**_
