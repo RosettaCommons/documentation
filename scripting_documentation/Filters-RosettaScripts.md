@@ -180,7 +180,7 @@ For truth value testing, the default is to return true if the value is less than
 
 #### ContingentFilter
 
-A special filter that allows movers to set its value (pass/fail). This value can then be used in the protocol together with IfMover to control the flow of execution depending on the success of the mover. Currently, none of the movers uses this filter.
+A special filter that allows movers to set its value (pass/fail). This value can then be used in the protocol together with IfMover to control the flow of execution depending on the success of the mover.
 
 ```
 <ContingentFilter name=(&string)/>
