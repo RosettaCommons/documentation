@@ -1,5 +1,7 @@
 # GeneralizedKIC Filters
 
+[[Return to RosettaScripts|RosettaScripts]]
+
 ## Overview
 [[GeneralizedKIC]] filters are evaluations performed rapidly, at low computational cost, on closed solutions found by the kinematic closure algorithm so that poor solutions may be discarded rapidly before computationally-expensive selectors are applied.
 
