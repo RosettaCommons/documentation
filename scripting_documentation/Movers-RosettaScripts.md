@@ -1444,7 +1444,7 @@ Kinematic closure is a computationally-inexpensive, analytical algorithm for loo
      ...
 </GeneralizedKIC>
 ```
-See the [[GeneralizedKIC documentation|GeneralizedKIC]] for details about [[GeneralizedKIC options|GeneralizedKIC]], and about GeneralizedKIC [[perturbers|GeneralizedKICperturber]], [[filters|GeneralizedKICfilter]], and [[selectors|GeneralizedKICselector]], as well as for usage examples.
+See the [[GeneralizedKIC documentation|GeneralizedKIC]] for details about [[GeneralizedKIC options|GeneralizedKIC]], and about GeneralizedKIC [[perturbers|GeneralizedKICperturber]], [[filters|GeneralizedKICfilter]], and [[selectors|GeneralizedKICselector]], as well as for usage examples.  _**Note:** GeneralizedKIC should currently be considered a "beta" feature.  Some details of the implementation are likely to change._
 
 ### Other Pose Manipulation
 
