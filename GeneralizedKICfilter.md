@@ -20,12 +20,15 @@ Fully manual invocation of a filter within RosettaScripts is accomplished accord
 ```
 
 ## Types of filters
+
 1.  Loop bump check (**type="loop_bump_check"**)<br>This applies a very simple, low-stringency bump check to each solution found, discarding solutions with obvious clashes.  The check is done in two steps.  First, every atom in the chain of atoms to be closed is checked against every other (with clashes between atoms in the same or adjacent residues ignored).  Second, every atom in the chain of atoms to be closed is checked against every mainchain atom (and, in the case of alpha- and beta-amino acids, beta carbon atoms) in every residue that is _not_ in the loop to be closed. which is _not_ directly connected to the loop to be closed, and which is not a tail residue.  Note that tail residues are never checked for clashes.  This filter takes no parameters, and has no shorthand.
+
 2.  Atom pair distance (**type="atom_pair_distance"**)<br>This discards any solution in which two specified atoms are not within a distance threshold specified with a Real parameter called **distance**.  The atoms are specified with two string parameters called **atom1** and **atom2**, and two integer-valued parameters called **res1** and **res2**.  If a Boolean parameter called **greater_than** is set to **true**, this filter will discard any solution in which the two specified atoms are not separated by _at least_ the distance specified.  Because this filter takes several parameters, a shorthand exists (see below).
 
 ## Shorthands
 
 The following shorthands are defined:
+
 1.  **AddAtomPairDistanceFilter**<br>This adds an **atom_pair_distance** filter and sets all of its parameters in one line:
 ```
 <GeneralizedKIC ...>
