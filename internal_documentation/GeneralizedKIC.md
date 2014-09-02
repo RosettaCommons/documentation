@@ -85,9 +85,9 @@ For example, if one were closing a loop consisting of residues ALA44, CYS45, LYS
 ```
 From the above example, we can see that loop segments may run backwards or forwards, or may involve residues that are far apart in linear sequence provided they are covalently linked.  Note that while the sequence of residues matter, the overall direction of the loop does not: we could just as happily have added residues in the reverse order (21->22->23->47->46->45->44).  In this example, we have arbitrarily chosen CYS23's SG atom as the middle pivot point, though any atom in the chain that is flanked by bonds that can rotate freely could have been chosen.
 
-5. Define one or more GeneralizedKIC perturbers.  Each perturber samples conformation space for each closure attempt.  See [[GeneralizedKIC perturbers|GeneralizedKICperturbers]] for details.
+5. Define one or more GeneralizedKIC perturbers.  Each perturber samples conformation space for each closure attempt.  See [[GeneralizedKIC perturbers|GeneralizedKICperturber]] for details.
 
-6. Define one or more GeneralizedKIC filters.  Filters are applied after each closure attempt, and eliminate solutions that don't meet some criterion.  See [[GeneralizedKIC filters|GeneralizedKICfilters]] for details.
+6. Define one or more GeneralizedKIC filters.  Filters are applied after each closure attempt, and eliminate solutions that don't meet some criterion.  See [[GeneralizedKIC filters|GeneralizedKICfilter]] for details.
 
 7. Set the GeneralizedKICselector.  The selector chooses a single solution from the set of solutions found that pass all of the filters.  See the [[documentation on GeneralizedKIC selectors|GeneralizedKICselector]] for details.
 
