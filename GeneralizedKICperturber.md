@@ -56,7 +56,6 @@ Certain perturbers or perturber combinations have convenient shorthands.  For ex
 </GeneralizedKIC>
 ```
 2.  **SampleCisPeptideBond**<br>This is a shorthand for the **sample_cis_peptide_bond** perturber.
-**true**.
 ```
 <GeneralizedKIC ...>
      ...
