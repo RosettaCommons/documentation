@@ -1,6 +1,6 @@
 # Generalized Kinematic Closure
 By Vikram K. Mulligan, Baker laboratory.  Documentation written 4 April 2014.
-The algorithm described here currently exists in the **collab/cycpep** and **vmullig/sidechainKIC** development branches, where it is under active development.  It has also been checked into the master branch, where it may be considered a beta feature.
+The algorithm described here currently exists in the **collab/cycpep** and **vmullig/cycpep** development branches, where it is under active development.  It has also been checked into the master branch, where it may be considered a beta feature.
 
 ## Short summary
 GeneralizedKIC (short for _G_eneralized _Ki_nematic _C_losure) is a generalization of the existing kinematic closure machinery.  The generalized version works with arbitrary backbones, and with loops that go through side-chains, ligands, etc.  It has also been implemented with full RosettaScripts support, making it easy to incorporate into more complicated protocols.
