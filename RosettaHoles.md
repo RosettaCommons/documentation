@@ -14,6 +14,7 @@ LIBS= -L/usr/local/lib
 
 
 Visualization in PyMOL
+
 from pymol import cmd
 
 def useRosettaRadii():
