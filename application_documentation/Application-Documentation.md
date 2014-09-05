@@ -130,6 +130,8 @@ While most of these applications focus on prediction, many have options which wi
 
 - [[Interface analyzer]] - Calculate metrics evaluating interfaces.  
 
+- [[RosettaHoles]] - Rapid assessment of protein core packing for structure prediction, design, and validation
+
 ##Utilities
 
 These applications serve mainly to support other Rosetta applications, or to assist in setting up or analyzing Rosetta runs.
