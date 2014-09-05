@@ -1,4 +1,4 @@
-Compiling RosettaHoles on mac:
+**Compiling RosettaHoles on mac:**
 
 CPU=macgcc
 NAMEFUL1=$(DIR)/$(NAME1).$(CPU)
@@ -13,7 +13,9 @@ INCS= -I/usr/local/include
 LIBS= -L/usr/local/lib
 
 
-Visualization in PyMOL
+**Command Line**
+
+**Visualization in PyMOL** 
 
 from pymol import cmd
 
@@ -59,3 +61,11 @@ cmd.extend('expandRadii',expandRadii)
 cmd.extend('contractRadii',contractRadii)
 cmd.extend("useTempRadii",useTempRadii)
 cmd.extend("showpacking",showpacking)
+
+
+**Representative Image**
+
+
+**Helpful Hints**
+* average over per-residue score
+*etc
