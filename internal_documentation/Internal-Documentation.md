@@ -61,8 +61,8 @@ _Developer facing documentation_
      - [[Objects for Membrane Representation]]
      - [[Membrane Energy Methods]]
      - [[Membrane Movers]]
--[[Guide to Developing new Membrane Framework Applications]] C++ Version
--[[Relevant Unit, Fingerprint, and Integration Tests]]
+- [[Guide to Developing new Membrane Framework Applications]] C++ Version
+- [[Relevant Unit, Fingerprint, and Integration Tests]]
 
 Outdated.... (wil deprecate 9/29/14)
 - [[RosettaMembrane Framework Overview]]
