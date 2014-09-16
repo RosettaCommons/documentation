@@ -40,6 +40,8 @@ comment tags will be stripped from the documentation prior to being provided as 
 
 ### Rosetta Membrane Framework Project
 
+Not ready for prime time...just writing for now!
+
 _User Facing Documentation_
 - [[Overview: Modeling Membrane Proteins in Rosetta]]
 - [[Membrane Scoring Functions]]
@@ -55,7 +57,7 @@ _User Facing Documentation_
 - [[Links to Previous Implementations]]
 
 _Developer facing documentation_
--[[About Membrane Framework Architecture]]
+- [[About Membrane Framework Architecture]]
      - [[Objects for Membrane Representation]]
      - [[Membrane Energy Methods]]
      - [[Membrane Movers]]
