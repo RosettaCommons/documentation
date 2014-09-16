@@ -38,9 +38,31 @@ comment tags will be stripped from the documentation prior to being provided as 
 
 ## Documentation for Specific Projects
 
-### RosettaMembrane: Membrane Protein Framework Project
+### Rosetta Membrane Framework Project
 
-**Current Main page**
+_User Facing Documentation_
+- [[Overview: Modeling Membrane Proteins in Rosetta]]
+- [[Membrane Scoring Functions]]
+- [[Membrane Sampling Moves]]
+- [[Visualizing Membrane Geometry with the PyMOLMover]]
+- [[Membrane Framework Applications]]
+     - [[Membrane Relax]]
+     - [[Membrane ∆∆G]]
+     - [[Membrane Protein-Protein Docking ]]
+     - [[Membrane Symmetric Protein-Protein Docking]]
+- [[Guide to Developing new Membrane Framework Applications]] RosettaScripts/PyRosetta Version
+- [[Index of Useful Scripts]]
+- [[Links to Previous Implementations]]
+
+_Developer facing documentation_
+-[[About Membrane Framework Architecture]]
+     - [[Objects for Membrane Representation]]
+     - [[Membrane Energy Methods]]
+     - [[Membrane Movers]]
+-[[Guide to Developing new Membrane Framework Applications]] C++ Version
+-[[Relevant Unit, Fingerprint, and Integration Tests]]
+
+Outdated.... (wil deprecate 9/29/14)
 - [[RosettaMembrane Framework Overview]]
 
 ### Cyclic Peptides / Geometrically-Constrained Polymers Project
