@@ -6,21 +6,26 @@
 ##Command Line Example
 The command line is composed of two major parts. First, a path to an application executable is required, while the second part is a list of options for the particular Rosetta simulation. For example:
 
-<code>path_to_some_rosetta_app.linuxgccrelease -database mypath/rosetta\_database other\_flags</code>
+<code>path_to/some_rosetta_app.linuxgccrelease -database mypath/rosetta\_database other\_flags</code>
 
 
 ##Location of Rosetta Executables
-After Rosetta is [[compiled | build_documentation/Build-Documentation ]], links to binary executables are copied to the Rosetta/main/bin directory.  **Full paths** to these executables need to be given when running Rosetta, _unless_ this directory is added to the **PATH** variable in your shell profile (~/.bashrc (linux), ~/.bash_profile (mac), etc). <code> export PATH=$PATH:/path/to/rosetta/bin </code>
+After Rosetta is [[compiled | build_documentation/Build-Documentation ]], links to binary executables are copied to the Rosetta/main/source/bin directory. (This is the bin/ directory off of the directory where you compiled the code.) **Full paths** to these executables need to be given when running Rosetta, _unless_ this directory is added to the **PATH** variable in your shell profile (~/.bashrc (linux), ~/.bash_profile (mac), etc). <code> export PATH=$PATH:/path/to/rosetta/bin </code>
 
 
 ##Rosetta Database
 The Rosetta database contains important data files used by Rosetta during runs (for example, the definitions of what atoms are in alanine, atomic charges, Lennard-Jones radii, scorefunction weight files, ideal bond lengths and angles, rotamer libaries, etc).  Rosetta must in some way know the path to this directory.
 
+### Autodetermination of database path
+
+If you have the Rosetta code and database directories laid out in the standard fashion (e.g. main/source/bin/ and main/database/), Rosetta can often automatically determine where the database directory should. If this does not work for you, or if you relocate or symlink the executables and/or database, you may need to explicitly set the database, as described below. Explicitly setting the database path on the commandline or with an environment variable will take precedence over the autodetermined database path.
 
 ### Set DB for a _single_ Rosetta run
 
 If the ROSETTA3_DB environment variable is not set, you must specify the path to this database directory in the command line to run Rosetta simulations. For example: 
 * <code>rosetta.linuxgccrelease -database mypath/rosetta\_database other\_flags</code>
+
+As with all Rosetta options, this can also be provided with an options file.
 
 ### Set DB for _multiple_ Rosetta runs
 
@@ -30,6 +35,7 @@ Rosetta will automatically check the <code>$ROSETTA3_DB</code> environment varia
 
 Set the variable in your shell's user settings file (which will run every time you open a terminal), such as for the default shell bash: <code>$HOME/.bashrc</code> for linux and <code>$HOME/.bash_profile</code> for mac.  Make sure to source this file <code> $HOME/.bashrc </code> or open a new tab so that the variable is set.  
 
+If the -database option is present on the commandline or in an options file, the value specified there will override any ROSETTA3_DB environment variable setting.
 
 #Specifying Options
 
@@ -41,9 +47,9 @@ fixbb.macgccrelease -in:file:s myinput.pdb -database mypath
 Options and arguments to the options, are separated by whitespace. A single or double colon is using to clarify options via OptionGroups when there are multiple separate options with the same name. Multiple layers of colons may be needed.
 
 
-##On the Command-line via a Flag File
+##On the Command-line via an Options File
 
-Options can also be written in a flag file. In this file, put one option on each line, still using the colon or double colon is using to specify the layers. An example options file appears below.
+Options can also be written in a options file (also called a flags file). In this file, put one option on each line, still using the colon or double colon is using to specify the layers. An example options file appears below.
 
 ```
  -database /home/yiliu/Programing/branches/rosetta_database
@@ -56,9 +62,6 @@ Options can also be written in a flag file. In this file, put one option on each
 If this file were called “flags”, then it would be used like this (notice the @ symbol): <code> fixbb.macgccrelease @ flags </code>
 
 Note that other options can still be set before or after the flags file is specified, and MULTIPLE flag files can be used - for example <code> @ flags1 @ flags2 @ flags3 </code>.  This will essentially combine flags1 through three - each time overiding any options set in the previous flags.  For setting multiple flag files through a _batch_ run, see the <code> -run:batches </code> option described in the run options.
-
-##The -database flag
-The <code> -database flag </code> is the only option which must be given for every Rosetta run.  The database flag specifies the path to the Rosetta database (<code> Rosetta/main/database </code> ) and is included so that Rosetta may be run from any directory on the file system.  Rosetta will also attempt to use the <code> $ROSETTA3_DB </code> environment variable as well if the <code>-database</code> flag is not set or the path given to <code>-database</code> is incorrect.
 
 Running Rosetta via MPI
 ========================
