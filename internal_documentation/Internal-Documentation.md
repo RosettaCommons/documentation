@@ -43,7 +43,7 @@ comment tags will be stripped from the documentation prior to being provided as 
 Not ready for prime time...just writing for now!
 
 _User Facing Documentation_
-- [[Overview: Modeling Membrane Proteins in Rosetta]]
+- [[Overview Modeling Membrane Proteins in Rosetta]]
 - [[Membrane Scoring Functions]]
 - [[Membrane Sampling Moves]]
 - [[Visualizing Membrane Geometry with the PyMOLMover]]
