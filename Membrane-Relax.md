@@ -11,7 +11,7 @@ Last Modified: 9/16/14
 
 ## Citation
 
-## About Membrane Relax 
+## About
 
 ## Code and Demo
 
