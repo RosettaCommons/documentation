@@ -47,7 +47,7 @@ _User Facing Documentation_
 - [[Visualizing Membrane Geometry with the PyMOLMover]]
 - [[Membrane Framework Applications]]
      - [[Membrane Relax]]
-     - [[Membrane ∆∆G]]
+     - [[Membrane ddG]]
      - [[Membrane Protein-Protein Docking ]]
      - [[Membrane Symmetric Protein-Protein Docking]]
 - [[Guide to Developing new Membrane Framework Applications]] RosettaScripts/PyRosetta Version
