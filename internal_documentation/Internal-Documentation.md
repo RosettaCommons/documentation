@@ -45,7 +45,7 @@ Not ready for prime time...just writing for now!
 _User Facing Documentation_
 - [[Overview Modeling Membrane Proteins in Rosetta]]
 - [[Visualizing Membrane Geometry with the PyMOLMover]]
-- [[Membrane Framework Applications]]
+- Membrane Framework Applications
      - [[Membrane Relax]]
      - [[Membrane ddG]]
      - [[Membrane Protein-Protein Docking ]]
