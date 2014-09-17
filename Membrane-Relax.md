@@ -7,22 +7,26 @@ Authors:
 
 Last Modified: 9/16/14
 
-# Citation
+## Citation
 
-# Code and Demo
+[[_TOC_]]
 
-# Application & Algorithm Description
+## About Membrane Relax 
 
-# Example Command Lines
+## Code and Demo
 
-# Options and Expert Flags
+## Detailed Algorithm Description
 
-# Resources for PyRosetta and RosettaScripts
+## Example Command Lines
 
-# Relevant Links
+## Options and Expert Flags
+
+## Resources for PyRosetta and RosettaScripts
+
+## Relevant Links
 
  - Link to membrane framework page
  - link to visualization page
 
-# References
+## References
 
