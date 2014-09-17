@@ -33,6 +33,8 @@ Describe 2 scoring functions for membranes, developed by xx and yy. Low res can 
 
 ## Membrane Sampling Moves 
 
+Brief introduction to importance of membrane-aware sampling, what that means, why you want to do it 
+
  - Set membrane position
  - Derive membrane position from structural topology
  - Optimize membrane position based on scoring function
