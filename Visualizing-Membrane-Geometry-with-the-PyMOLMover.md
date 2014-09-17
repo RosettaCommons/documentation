@@ -21,7 +21,3 @@ Link to previous documentation pages
 
  - evan's paper on the pymol viewer
  - pymol software
-
-
-
-## References
