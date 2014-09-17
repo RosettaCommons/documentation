@@ -1,3 +1,5 @@
+[[_TOC_]]
+
 ## Metadata
 
 Authors: 
@@ -8,8 +10,6 @@ Authors:
 Last Modified: 9/16/14
 
 ## Citation
-
-[[_TOC_]]
 
 ## About Membrane Relax 
 
