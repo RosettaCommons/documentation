@@ -1,3 +1,5 @@
+# How to use pointers correctly
+
 The following guide summarizes how to correctly use owning/access pointers. With the transition to the boost:: / std:: pointer classes, these rules must be followed to avoid compilation errors or run-time crashes (double free).
 
 Note:
