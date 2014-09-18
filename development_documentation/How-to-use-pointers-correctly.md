@@ -5,7 +5,7 @@ The following guide summarizes how to correctly use owning/access pointers. With
 Note:
 
 * OP = `utility::pointer::owning_ptr` AKA `std::shared_ptr` or `boost::shared_ptr`
-* AP = `utility::pointer::access_ptr` AKA `std::weak_ptr` or `boost::shared_ptr`
+* AP = `utility::pointer::access_ptr` AKA `std::weak_ptr` or `boost::weak_ptr`
 
 The pointer type is selectable at compilation-time. Boost pointers are the default (because they won't require a C++11 capable compiler); to compile with std:: pointers instead, build with extras=cxx11.
   
