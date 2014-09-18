@@ -45,7 +45,8 @@ The documentation for the various libraries is a bit scattered.  Here is a parti
 
 ##Rosetta style guidelines
 
-- [[Owning pointer usage guidlines]] - Working with Rosetta's smart pointer system.
+- [[How to use pointers correctly]] - Working with Rosetta's smart pointer system (new guide).
+- [[Owning pointer usage guidlines]] - Working with Rosetta's smart pointer system (old guide).
 
 ##Using particular classes - Some of this documention may be out of date.
 
