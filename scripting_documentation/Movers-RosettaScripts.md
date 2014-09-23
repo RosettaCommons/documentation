@@ -1453,7 +1453,7 @@ See the [[GeneralizedKIC documentation|GeneralizedKIC]] for details about [[Gene
 Align a chain in the working pose to a chain in a pose on disk (CA superposition).
 
 ```
-<AlignChain name=(&string) source_chain=(0&Int) target_chain=(0&Int) target_name=(&string)/>
+<AlignChain name=(&string) source_chain=(0&Int) SymMinMover name=min4 scorefxn=ramp_rep4 type=lbfgs_armijo_nonmonotone tolerance=0.00001 bb=1 chi=1 jump=ALL/target_chain=(0&Int) target_name=(&string)/>
 ```
 
 -   source\_chain: the chain number in the working pose. 0 means the entire pose.
@@ -2748,7 +2748,7 @@ Hotspot-based sidechain placement. This is the main workhorse of the hot-spot ce
 -   allowed\_host\_res: A list of residues on the host scaffold where the stub may be placed. The list should be comma-seperated and may contain either rosetta indices (e.g. 123) or pdb indices (e.g. 123A). Note that allowed residues must still pass the triage step (if enabled) and other restrictions on which residues may be designed (e.g. not proline).
 -   stubfile: using a stub file other than the one used to make constraints. This is useful for placing stubs one after the other.
 -   minimize\_rb: do we want to minimize the rb dof during stub placement? This will allow a previously placed stub to move a a little to accommodate the new stub. It's a good idea to use this with the previously placed stub adding its implied constraints.
--   after\_placement\_filter: The name of a filter to be applied immediately after stub placement and StubMinimize movers, but before the DesignMovers run. Useful for quick sanity check on the goodness of the stub.
+-   after\_placement\_filter: The name of a filter to be applied immediately after stub placement and StubMinimize movers, but before the DesignMovers run. Useful for quick sanity check on tstring) score_low=(score4Lhe goodness of the stub.
 -   final\_filter: The name of a filter to be applied at the final stage of stub placement as the last test, after DesignMovers run. Useful, e.g., if we want a stub to form an hbond to a particular target residue.
 -   max\_cb\_dist: the maximum cb-cb distance between stub and potential host residue to be considered for placement
 -   hurry: use a truncated scorefxn for minimization. large speed increases, doesn't seem to be less accurate.
@@ -2975,7 +2975,7 @@ The Transform mover is designed to replace the Translate, Rotate, and SlideToget
 -   cycles: The total number of steps to be performed in the monte carlo simulation. The lowest scoring accepted pose will be output by the mover
 -   repeats: The total number of repeats of the monte carlo simulation to be performed. if repeats \> 1, the simulation will be performed the specified number of times from the initial starting position, with the final pose selected.
 -   temperature: The boltzmann temperature for the monte carlo simulation. Temperature is held constant through the simulation. The higher the number, the higher the percentage of accepted moves will be. 5.0 is a good starting point. "Temperature" here does not reflect any real world units.
--   initial\_perturb: Make an initial, unscored translation away from the starting position. Translation will be selected from a random uniform distribution between 0 and the specified value (in angstroms). This is mostly useful for benchmarking
+-   initial\_perturb: Make an initial, unscored translation and rotation. Translation will be selected from a random uniform distribution between 0 and the specified value (in angstroms). Additionally, the ligand will be randomly rotated 360 degrees around each of the x, y, and z axes. Large values are useful for benchmarking to scramble the starting position, and small values are useful for docking rod-like ligands in narrow pockets, where the Monte Carlo nature of the protocol may not allow for end-over end ligand flipping.
 -   rmsd: The maximum RMSD to be sampled away from the starting position. if this option is specified, any move above the specified RMSD will be rejected.
 
 #### Translate
