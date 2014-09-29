@@ -13,7 +13,7 @@ Last edited 9/29/2014 by Jared Adolf-Bryfogle (jadolfbr@gmail.com).
 References
 ==========
 
-We recommend the following articles for further studies of RosettaDock methodology and applications:
+We recommend the following articles for further studies of RosettaAntibody methodology and applications:
 
 -   B. Weitzner, D. Kuroda, N. Marze, J. Xu & J. J. Gray, "Blind prediction performance of RosettaAntibody 3.0: Grafting, relaxation, kinematic loop modeling, and full CDR optimization." Proteins 82(8), 1611-1623 (2014)
 
