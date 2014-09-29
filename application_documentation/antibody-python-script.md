@@ -5,7 +5,7 @@ Metadata
 
 Author: Jianqing Xu (xubest@gmail.com), Daisuke Kuroda (dkuroda1981@gmail.com), Oana Lungu (olungu@utexas.edu), Jeffrey Gray (jgray@jhu.edu)
 
-Last edited 4/25/2013. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
+Last edited 9/28/2014 by Jared Adolf-Bryfogle. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
 
 References
 ==========
@@ -62,41 +62,75 @@ Options
 =======
 
 ```
-Options of the script:
+Usage: antibody.py [OPTIONS] [TESTS]
+
+ Script for preparing detecting antibodys and preparing info for Rosetta
+protocol.
+
+Options:
   -h, --help            show this help message and exit
-  --light-chain=LIGHT_CHAIN
-                        Specify the light chain.
-  --heavy-chain=HEAVY_CHAIN
-                        Specify the heavy chain.
-  --prefix=PREFIX       Prefix for output files. Should be dir name. Default
-                        is ./ string.
+  -L LIGHT_CHAIN, --light-chain=LIGHT_CHAIN
+                        Specify file with the light chain - pure IUPAC ASCII
+                        letter sequence, no FASTA headers.
+  -H HEAVY_CHAIN, --heavy-chain=HEAVY_CHAIN
+                        Specify file with the heavy chain - pure IUPAC ASCII
+                        letter sequence, no FASTA headers.
+  --prefix=PREFIX       Prefix for output files (directory name). Default is
+                        grafting/.
   --blast=BLAST         Specify path+name for 'blastall' executable. Default
                         is blastp [blast+].
-  --profit=PROFIT       Specify path+name for 'ProFIt' executable. Default is
-                        profit.
+  --superimpose-profit=SUPERIMPOSE_PROFIT
+                        (default).  Add full path as argument if necessary.
+  --superimpose-PyRosetta, --superimpose-pyrosetta
+                        Use PyRosetta to superimpose interface (boolean)
   --blast-database=BLAST_DATABASE
                         Specify path of blast database dir.
   --antibody-database=ANTIBODY_DATABASE
-                        Specify path of antibody database dir.
+                        Specify path of antibody database dir. Default:
+                        script_dir/antibody_database.
   --rosetta-database=ROSETTA_DATABASE
                         Specify path of rosetta database dir.
+  -x, --exclude-homologs
+                        Exclude homologs with default cutoffs
+  --homolog_exclusion=HOMOLOG_EXCLUSION
+                        Specify the cut-off for homolog exclusion during CDR
+                        or FR template selections.
+  --homolog_exclusion_cdr=HOMOLOG_EXCLUSION_CDR
+                        Specify the cut-off for homolog exclusion during CDR
+                        template selections.
+  --homolog_exclusion_fr=HOMOLOG_EXCLUSION_FR
+                        Specify the cut-off for homolog exclusion during FR
+                        template selections.
   --rosetta-bin=ROSETTA_BIN
-                        Specify path to 'rosetta_source/bin' dir where
-                        antibody_assemble_CDRs', idealize and relax executable
-                        expected to be found. Default is '<script
-                        location>/bin' (plasce symlink there) and if not found
-                        corresponding steps will be skipped.
+                        Specify path to 'rosetta/source/bin' directory,
+                        expected to harbor 'antibody_graft', 'idealize' and
+                        'relax' executables. Default is
+                        '$ROSETTA/main/source/bin, then <script location>/bin'
+                        (place symlink there). If a particular executable is
+                        not found and that is non-critical, corresponding
+                        steps will be skipped.
   --rosetta-platform=ROSETTA_PLATFORM
-                        Specify full extra+compier+build type for rosetta
-                        biniaries found in --rosetta-bin. For example use
+                        Specify full extra+compiler+build type for rosetta
+                        binaries found in --rosetta-bin. For example use
                         static.linuxgccrelease for static build on Linux.
-                        Default is dynamic release build of current OS
-  --idealize=IDEALIZE   Specify if idealize protocol should be running on
-                        final model [0/1]. (default: 0, which mean do not run
-                        idealize protocol)
-  --relax=RELAX         Specify if relax protocol should be running on final
-                        model [0/1]. (default: 1, which mean run relax
-                        protocol)
+                        Default are dynamic GCC release builds of the OS
+                        executing the script.
+  --idealize            Use idealize protocol on final model.
+  --constant-seed       Use constant-seed flag in Rosetta grafting run (for
+                        debugging).
+  --idealizeoff, --noidealize
+                        Do not use idealize protocol on final model. (default)
+  --relax               Use relax protocol on final model. (default)
+  --relaxoff, --norelax
+                        Do not use relax protocol on final model.
+  --skip-kink-constraints
+                        Skip generation of kink constraints file (require
+                        PyRosetta). Default is True.
+  --timeout=TIMEOUT     Maximum runtime for rosetta relax run (use 0 for
+                        unlimit), default is 900 - 15min limit
+  -q, --quick           Specify fast run (structure will have clashes).
+                        Prevents stem optimization and turns off relax,
+                        idealize.
   --FRL=FRL             Specify path or PDB code for FRL template. If
                         specified this will overwrite blast selection.
   --FRH=FRH             Specify path or PDB code for FRH template. If
@@ -124,21 +158,25 @@ Options of the script:
   --self-test-dir=SELF_TEST_DIR
                         Specify path for self test dir [default:self-test/].
   -v, --verbose         Generate verbose output.
-  --filter-by-sequence-length=FILTER_BY_SEQUENCE_LENGTH
-                        Boolen option [0/1] that control filetering results
-                        with filter_by_sequence_length function.
-  --filter-by-template-bfactor=FILTER_BY_TEMPLATE_BFACTOR
-                        Boolen option [0/1] that control filetering results
-                        with filter_by_template_bfactor function.
   --filter-by-outlier=FILTER_BY_OUTLIER
-                        Boolen option [0/1] that control filetering results
+                        Boolean option [0/1] that control filetering results
                         with filter_by_outlier function.
-  --filter-by-template-resolution=FILTER_BY_TEMPLATE_RESOLUTION
-                        Boolen option [0/1] that control filetering results
-                        with filter_by_template_resolution function.
+  --filter-by-sequence-length=FILTER_BY_SEQUENCE_LENGTH
+                        Boolean option [0/1] that control filetering results
+                        with filter_by_sequence_length function.
   --filter-by-alignment-length=FILTER_BY_ALIGNMENT_LENGTH
-                        Boolen option [0/1] that control filetering results
+                        Boolean option [0/1] that control filetering results
                         with filter_by_alignment_length function.
+  --filter-by-template-resolution=FILTER_BY_TEMPLATE_RESOLUTION
+                        Boolean option [0/1] that control filetering results
+                        with filter_by_template_resolution function.
+  --filter-by-sequence-homolog=FILTER_BY_SEQUENCE_HOMOLOG
+                        Boolean option [0/1] that control filetering results
+                        with filter_by_sequence_homolog function.
+  --filter-by-template-bfactor=FILTER_BY_TEMPLATE_BFACTOR
+                        Boolean option [0/1] that control filetering results
+                        with filter_by_template_bfactor function.
+
 ```
 
 New things since last release
