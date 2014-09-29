@@ -5,7 +5,10 @@ Metadata
 
 Author: Jianqing Xu (xubest@gmail.com), Daisuke Kuroda (dkuroda1981@gmail.com), Oana Lungu (olungu@utexas.edu), Jeffrey Gray (jgray@jhu.edu)
 
-Last edited 4/25/2013. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
+Corresponding PI Jeffrey Gray (jgray@jhu.edu).
+
+Last edited 9/29/2014 by Jared Adolf-Bryfogle (jadolfbr@gmail.com). 
+
 
 References
 ==========
@@ -43,8 +46,16 @@ Usage for a Production Run
 
 **Steps 1 and 2:**
 
+This command should be all in one line.  Separated for documentation
 ```
-./antibody.py --light-chain <input_l.fasta> --heavy-chain <input_h.fasta> --profit=<ProFit> --blast=<blast> --blast-database=<blast_database> --antibody-database=<antibody_database> --rosetta-bin=<rosetta/rosetta_sourse/bin> --rosetta-database=<rosetta_database>
+./antibody.py --light-chain <input_l.fasta> --heavy-chain <input_h.fasta> 
+--superimpose_profit <ProFit path> 
+--blast <blastp path> 
+--blast-database <blast_database path (in tools/antibody)> 
+--antibody-database <antibody_database path (in tools/antibody)> 
+--rosetta-bin <rosetta/rosetta_sourse/bin> 
+--rosetta-database <rosetta_database> 
+--rosetta-platform <rosetta binary extension if not gcc. Example: linuxclangrelease or static.linuxclangrelease>
 ```
 
 \<input\_l.fasta\> and \<input\_h.fasta\> are the files having sequences of the light and heavy chains, respectively, which you want to model.
