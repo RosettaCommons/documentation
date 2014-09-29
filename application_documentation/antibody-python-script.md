@@ -5,7 +5,9 @@ Metadata
 
 Author: Jianqing Xu (xubest@gmail.com), Daisuke Kuroda (dkuroda1981@gmail.com), Oana Lungu (olungu@utexas.edu), Jeffrey Gray (jgray@jhu.edu)
 
-Last edited 9/28/2014 by Jared Adolf-Bryfogle. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
+Corresponding PI Jeffrey Gray (jgray@jhu.edu).
+
+Last edited 9/28/2014 by Jared Adolf-Bryfogle. 
 
 References
 ==========
