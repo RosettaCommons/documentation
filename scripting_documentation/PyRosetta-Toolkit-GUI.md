@@ -6,7 +6,7 @@ Jared Adolf-Bryfogle
 Metadata
 --------
 
-Last edited April 2013. Code by Jared Adolf-Bryfogle \< [jadolfbr@gmail.com](mailto:jadolfbr@gmail.com) \>. 
+Last edited 10/1/14. Code by Jared Adolf-Bryfogle \< [jadolfbr@gmail.com](mailto:jadolfbr@gmail.com) \>. 
 
 The PI for this application is Roland Dunbrack \< [Roland.Dunbrack@fccc.edu](mailto:Roland.Dunbrack@fccc.edu) \>
 
