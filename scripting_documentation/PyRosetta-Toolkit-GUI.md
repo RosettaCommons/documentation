@@ -6,7 +6,9 @@ Jared Adolf-Bryfogle
 Metadata
 --------
 
-Last edited April 2013. Code by Jared Adolf-Bryfogle \< [jadolfbr@gmail.com](mailto:jadolfbr@gmail.com) \>. The PI for this application is Roland Dunbrack \< [Roland.Dunbrack@fccc.edu](mailto:Roland.Dunbrack@fccc.edu) \>
+Last edited April 2013. Code by Jared Adolf-Bryfogle \< [jadolfbr@gmail.com](mailto:jadolfbr@gmail.com) \>. 
+
+The PI for this application is Roland Dunbrack \< [Roland.Dunbrack@fccc.edu](mailto:Roland.Dunbrack@fccc.edu) \>
 
 Code and Demo
 -------------
@@ -33,7 +35,7 @@ Run the program:
 References
 ----------
 
-Jared Adolf-Bryfogle and Roland Dunbrack (2013) "The PyRosetta Toolkit: A Graphical User Interface for the Rosetta Software Suite. " PloS-ONE RosettaCON2012 special collection (Submitted)
+Jared Adolf-Bryfogle and Roland Dunbrack (2013) "[The PyRosetta Toolkit: A Graphical User Interface for the Rosetta Software Suite. ](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0066856)" PloS-ONE RosettaCON2012 special collection 
 
 Purpose
 -------
