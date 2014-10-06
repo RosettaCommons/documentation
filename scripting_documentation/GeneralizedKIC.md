@@ -16,6 +16,13 @@ Generalized KIC is useful for the following situations:
 
 The above scenarios tend to be sub-problems of more complicated problems, particularly involving heavily cross-linked molecules for which one might wish to sample many conformations.
 
+## Input and output
+GeneralizedKIC takes as input a pose that contains a covalently-connected chain of residues (a "loop", where the loop need not be connected solely by conventional backbone connections) to which the algorithm will be applied.  The chain of residues need not start out in a sensible conformation, nor need it consist of canonical alpha-amino acids.
+
+GeneralizedKIC will return a pose in which the loop in question has been put in a new, closed conformation (subject to user-specified sampling methods).  Only the loop residues (and any "tail" residues specified) will be moved by this mover; all other residues will remain in their starting positions.  The FoldTree is disregarded by the GeneralizedKIC mover, and will not be altered by it.  (Note: if a pre-selection mover is defined as described in the [[GeneralizedKIC selector|GeneralizedKICselector]] documentation, this mover can alter geometry outside of the loop to be closed, or could alter the FoldTree.)
+
+GeneralizedKIC returns a pose in which the 
+
 ## General workflow
 In general, one must:
 
