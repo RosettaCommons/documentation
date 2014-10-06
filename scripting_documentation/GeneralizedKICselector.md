@@ -11,7 +11,7 @@ Each [[GeneralizedKIC mover|GeneralizedKIC]] has one and only one GeneralizedKIC
 ```
 <MOVERS>
 ...
-     <GeneralizedKIC ... selector="&string" selector_scorefunction="&string" selector_kbt=(1.0 &real)>
+     <GeneralizedKIC ... selector="&string" selector_scorefunction="&string" selector_kbt=(1.0 &real) pre_selection_mover="&string">
           ...
      </GeneralizedKIC>
 ...
@@ -65,3 +65,9 @@ Energy-based selectors, such as the lowest energy and Boltzmann-weighted random 
 	<Reweight scoretype=dihedral_constraint weight=1.0 />
 </bb_hbond_tors_fadun_cst>
 ```
+
+## The pre-selection mover
+
+As an optional alternative to restricting oneself to backbone-only score terms, GeneralizedKIC permits the user to specify a pre-selection mover (**pre_selection_mover="&string"**) defined prior to the GeneralizedKIC block.  This permits side-chain moves, such as repacking or side-chain minimization, prior to scoring with the full energy function.  Note that this mover will be applied to _all_ candidate solutions passing filters, which makes this option potentially very computationally expensive!
+
+If a pre-selection mover is specified, the mover may alter geometry outside of the loop to be closed, or may alter the FoldTree, in which case these alterations will carry through to the final pose returned by GeneralizedKIC.  If one wishes to apply more than one pre-selection mover, they may be combined in a ParsedProtocol mover.
