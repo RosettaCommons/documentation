@@ -25,7 +25,7 @@ In general, one must:
 4.  Define the loop to be closed, and set pivots.
 5.  Set up one or more GeneralizedKIC perturbers, which determine how loop conformations will be sampled.
 6.  Define one or more GeneralizedKIC filters.
-7.  Set the GeneralizedKIC selector used to choose a solution from among those found.
+7.  Set the GeneralizedKIC selector used to choose a solution from among those found (and an optional pre-selection mover).
 8.  Optionally, define a ContingentFilter to abort trajectories in which closure fails.
 
 These steps are discussed in detail in the next section.
@@ -92,7 +92,9 @@ From the above example, we can see that loop segments may run backwards or forwa
 
 6. Define one or more GeneralizedKIC filters.  Filters are applied after each closure attempt, and eliminate solutions that don't meet some criterion.  See [[GeneralizedKIC filters|GeneralizedKICfilter]] for details.
 
-7. Set the GeneralizedKICselector.  The selector chooses a single solution from the set of solutions found that pass all of the filters.  See the [[documentation on GeneralizedKIC selectors|GeneralizedKICselector]] for details.
+7. Set the GeneralizedKICselector.  The selector chooses a single solution from the set of solutions found that pass all of the filters.  See the [[documentation on GeneralizedKIC selectors|GeneralizedKICselector]] for details, including details on the optional pre-selection mover (a mover applied to all solutions passing filters prior to application of the selector).
+
+8.  Optionally, a ContingentFilter may be defined to abort trajectories that result in no closed-loop solutions.
 
 That's it!  You should be happily closing loops, now.
 
