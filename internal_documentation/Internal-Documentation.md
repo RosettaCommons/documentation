@@ -110,3 +110,6 @@ This is documentation for not-yet-released applications and code frameworks.
 #### Methods
 [[Computing SASA in Rosetta]]
  - Method for computing SASA in Rosetta written by Jared
+
+[[Creating Global Objects - singletons]]
+ - Method for creating singletons that are threadsafe. Overview by Andrew.
