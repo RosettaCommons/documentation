@@ -367,16 +367,6 @@ Disulfide bonds created by this mover, if any, are guaranteed to pass a Disulfid
 
 -   targets: A comma-seperated list of residue numbers. These can be either with rosetta numbering (raw integer) or pdb numbering (integer followed by the chain letter, eg '123A'). Targets are required to be located in the interface. Default: All residues in the interface. *Optional*
 
-## MutateResidue
-
-Change a single residue to a different type. For instance, mutate Arg31 to an Asp.
-
-```
-<MutateResidue name=(&string) target=(&string) new_res=(&string) />
-```
-
--   target The location to mutate (eg 31A (pdb number) or 177 (rosetta index)). *Required*
--   new\_res The name of the residue to introduce. This string should correspond to the ResidueType::name() function (eg ASP). *Required*
 
 ## InterfaceRecapitulation
 
