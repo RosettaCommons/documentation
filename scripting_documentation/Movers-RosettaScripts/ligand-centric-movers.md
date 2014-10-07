@@ -1,3 +1,5 @@
+[[_TOC_]]
+
 ### Ligand docking
 
 These movers replace the executable for ligand docking and provide greater flexibility to the user in customizing the docking protocol. An example XML file for ligand docking is found here (link forthcoming). The movers below are listed in the order found in the old executable.
