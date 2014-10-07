@@ -121,13 +121,13 @@ Troubleshooting
 
 Here are some common issues seen with building Rosetta.
 
-###"sh: 1: o: not found"
+**"sh: 1: o: not found"**
 
 This indicates that you either don't have a compiler installed, or Rosetta is not able to find the compiler that you do have installed.
 
 At the commandline, execute `g++ --version` and `clang --version`. If one of them works, you can try specifying that compiler explicitly on the scons commandline with either `cxx=gcc` or `cxx=clang`. (This is a label, rather than the compiler command, so it cannot take arbitrary input.)
 
-#### A compiler is already installed
+ --> **A compiler is already installed**:
 
 If you know you have a compiler installed and it's in your path, you can copy `main/source/tools/build/site.settings.topsail` to `main/source/tools/build/site.settings`. You may also want to edit the lines:
 ```
@@ -143,7 +143,11 @@ to something like:
 ```
 where you substitute the compiler commands as appropriate.
 
-#### Install a compiler
+
+
+
+ --> **Install a compiler**:
+
 
 Many default installations of Mac and Linux do not come with a compiler installer, so you will need to install one separately. (Note that the following only applies if you have administrator rights to your machine. If you do not, talk to your sysadmin regarding the installation of a compiler.)
 
@@ -151,7 +155,7 @@ For Macs, install the XCode development packages. Even though you won't be compi
 
 For Linux, you will want to install the compiler package from your package management system. For Ubuntu and similar systems, the package "build-essential" installed with a command like `sudo apt-get install build-essential` will set your system up for compilation.
 
-### "cannot find -lz"
+**"cannot find -lz"**
 
 Rosetta requires the zlib compression library to be installed on your computer in order to properly compile. Talk to your system administrator about installing the development version of the zlib library. (The "development" version of the library is needed so that Rosetta can compile against the library.) 
 
