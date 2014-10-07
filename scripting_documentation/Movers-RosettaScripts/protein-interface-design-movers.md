@@ -1,4 +1,7 @@
-#### PatchdockTransform
+[[_TOC_]]
+
+
+## PatchdockTransform
 
 Uses the Patchdock output files to modify the configuration of the pose.
 
@@ -15,7 +18,7 @@ Since Patchdock reading is also enabled on the commandline, the defaults for eac
 
 If you choose from\_entry to\_entry limits that go beyond what's provided in the patchdock file, the upper limit would be automatically adjusted to the limit in the patchdock file.
 
-#### ProteinInterfaceMS
+## ProteinInterfaceMS
 
 Multistate design of a protein interface. The target state is the bound (input) complex and the two competitor states are the unbound partners and the unbound, unfolded partners. Uses genetic algorithms to select, mutate and recombine among a population of starting designed sequences. See Havranek & Harbury NSMB 10, 45 for details.
 
@@ -61,7 +64,7 @@ To make a plot of these functions use MatLab or some webserver, e.g., [http://ww
 
 The anchor\_offset value is used to set a competitor (negative) state at a certain energy above the best energy of the positive state. This is a computationally cheap assurance that as the specificity changes in favour of the positive state, the stability of the system is not overly compromised. Set anchor\_offset to a value that corresponds to the amount of energy that you're willing to forgo in favour of specificity.
 
-#### InterfaceAnalyzerMover
+## InterfaceAnalyzerMover
 
 Calculate binding energies, buried interface surface areas, packing statistics, and other useful interface metrics for the evaluation of protein interfaces.
 
@@ -79,7 +82,7 @@ Calculate binding energies, buried interface surface areas, packing statistics, 
 -   pack\_input: prepack before separating chains when calculating binding energy? Useful if these are non-Rosetta inputs
 -   ligandchain: Specify a single ligand chain by pdb chain ID. All chains in the protein other than this will be marked as fixed as if they were specified using fixedchains.
 
-#### Docking
+## Docking
 
 Does both centroid and full-atom docking
 
@@ -97,7 +100,7 @@ Does both centroid and full-atom docking
 -   design: Enable interface design for all chains downstream of the rb\_jump
 -   ignore\_default\_docking\_task: allows you to ignore the default docking task and only use the ones defined in your task\_operations section
 
-#### Docking with Hotspot
+## Docking with Hotspot
 
 Does centroid docking with long range hotspot constraints and interchain\_cen energy function.
 
@@ -116,7 +119,7 @@ Does centroid docking with long range hotspot constraints and interchain\_cen en
 -   file\_name is the name of stub library. Put on multiple lines if you have several stub libraries.
 -   cb\_force is the weighting factor in matching CB distance. Default to 1.0. Set to 0.0 when you are interested in matching backbone (Ca, C and N) only. Useful in using backbone hydrogen bond in hotspot library
 
-#### Prepack
+## Prepack
 
 Performs something approximating r++ prepacking (but less rigorously without rotamer-trial minimization) by doing sc minimization and repacking. Separates chains based on jump\_num, does prepacking, then reforms the complex. If jump\_num=0, then it will NOT separate chains at all.
 
@@ -131,7 +134,7 @@ Performs something approximating r++ prepacking (but less rigorously without rot
 -   min\_bb: minimize backbone in the bound state, before separating the partners. This option activates MoveMap parsing.
 -   MoveMap: just like in FastRelax and MinMover, but is only activated if min\_bb is set to true.
 
-#### RepackMinimize
+## RepackMinimize
 
 RepackMinimize does the design/repack and minimization steps using different score functions as defined by the protocol. For most purposes, the combination of PackRotamersMover with MinMover provide more flexibility and transparency than RepackMinimize, and are advised.
 
@@ -156,7 +159,7 @@ repack\_partner1 (and 2) defines which of the partners to design. If no particul
 
 If no repack\_partner1/2 options are set, you can specify repack=0/1 to control both. Similarly with design\_partner1/2 and design=0/1
 
-#### DesignMinimizeHBonds
+## DesignMinimizeHBonds
 
 Same as for RepackMinimize with the addition that a list of target residues to be hbonded can be defined. Within a sphere of 'interface\_cutoff\_distance' of the target residues,the residues will be set to be designed.The residues that are allowed for design are restricted to hbonding residues according to whether donors (STRKWYQN) or acceptors (EDQNSTY) or both are defined. If residues have been designed that do not, after design, form hbonds to the target residues with energies lower than the hbond\_energy, then those are turned to Ala.
 
@@ -174,7 +177,7 @@ Same as for RepackMinimize with the addition that a list of target residues to b
 -   optimize\_fold\_tree: see DockingProtocol
 -   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
 
-#### build\_Ala\_pose
+## build\_Ala\_pose
 
 Turns either or both sides of an interface to Alanines (except for prolines and glycines that are left as in input) in a sphere of 'interface\_distance\_cutoff' around the interface. Useful as a step before design steps that try to optimize a particular part of the interface. The alanines are less likely to 'get in the way' of really good rotamers.
 
@@ -184,7 +187,7 @@ Turns either or both sides of an interface to Alanines (except for prolines and 
 
 -   task\_operations: see [RepackMinimize](#RepackMinimize)
 
-#### SaveAndRetrieveSidechains
+## SaveAndRetrieveSidechains
 
 To be used after an ala pose was built (and the design moves are done) to retrieve the sidechains from the input pose that were set to Ala by build\_Ala\_pose. OR, to be used inside mini to recover sidechains after switching residue typesets. By default, sidechains that are different than Ala will not be changed, **unless** allsc is true. Please note that naming your mover "SARS" is almost certainly bad luck and strongly discouraged.
 
@@ -194,7 +197,7 @@ To be used after an ala pose was built (and the design moves are done) to retrie
 -   two\_steps: the first call to SARS only saves the sidechains, second call retrieves them. If this is false, the sidechains are saved at parse time.
 -   multi\_use: If SaveAndRetrieveSidechains is used multiple times with two\_steps enabled throughout the xml protocol, multi\_use should be enabled. If not, the side chains saved the first time SaveAndRetrieveSidechains is called, will be retrieved for all the proceeding calls.
 
-#### AtomTree
+## AtomTree
 
 Sets up an atom tree for use with subsequent movers. Connects pdb\_num on host\_chain to the nearest residue on the neighboring chain. Connection is made through connect\_to on host\_chain pdb\_num residue
 
@@ -215,7 +218,7 @@ FOLD_TREE EDGE 1 18 -1 EDGE 18 32 1 EDGE 18 21 -1 EDGE 32 22 -1 EDGE 32 50 -1 ED
 -   connect\_from: user can specify which atom the jump should start from. Currently only the pdb naming works. If not specified, the "optimal" atomic connection for anchor residue is chosen (that is to their functional groups).
 -   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
 
-#### SpinMover
+## SpinMover
 
 Allows random spin around an axis that is defined by the jump. Works preferentially good in combination with a loopOver or best a GenericMonteCarlo and other movers together. Use SetAtomTree to define the jump atoms.
 
@@ -223,7 +226,7 @@ Allows random spin around an axis that is defined by the jump. Works preferentia
 <SpinMover name=(&string) jump_num=(1 &integer)/>
 ```
 
-#### TryRotamers
+## TryRotamers
 
 Produces a set of rotamers from a given residue. Use after [AtomTree](#AtomTree) to generate inverse rotamers of a given residue.
 
@@ -242,7 +245,7 @@ Produces a set of rotamers from a given residue. Use after [AtomTree](#AtomTree)
 
 Each pass through TryRotamers will place the next rotamer at the given position. Increase -nstruct settings appropriately to obtain them all. Once all rotamers have been placed, TryRotamers will cause subsequent runs through the protocol with the same settings to fail.
 
-#### BackrubDD
+## BackrubDD
 
 Do backrub-style backbone and sidechain sampling.
 
@@ -262,7 +265,7 @@ Note: As of June 29, 2011, this mover was renamed from "Backrub" to "BackrubDD".
 -   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
 -   task\_operations: see [RepackMinimize](#RepackMinimize)
 
-#### BestHotspotCst
+## BestHotspotCst
 
 Removes Hotspot BackboneStub constraints from all but the best\_n residues, then reapplies constraints to only those best\_n residues with the given cb\_force constant. Useful to prune down a hotspot-derived constraint set to avoid getting multiple residues getting frustrated during minimization.
 
@@ -274,7 +277,7 @@ Removes Hotspot BackboneStub constraints from all but the best\_n residues, then
 -   chain\_to\_design: which chain to reapply constraints
 -   cb\_force: Cbeta force to use when reapplying constraints
 
-#### DomainAssembly (Not tested thoroughly)
+## DomainAssembly (Not tested thoroughly)
 
 Do domain-assembly sampling by fragment insertion in a linker region. frag3 and frag9 specify the fragment-file names for 9-mer and 3-mer fragments.
 
@@ -284,7 +287,7 @@ Do domain-assembly sampling by fragment insertion in a linker region. frag3 and 
 
 -   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
 
-#### LoopFinder
+## LoopFinder
 
 Finds loops in the current pose and loads them into the DataMap for use by subsequent movers (eg - LoopRemodel)
 
@@ -303,7 +306,7 @@ Finds loops in the current pose and loads them into the DataMap for use by subse
 -   mingap: minimum gap size between loops (exclusive, so mingap=1 -\> single-residue gaps are disallowed). Setting this to 0 will almost certainly cause problems!
 -   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
 
-#### LoopRemodel
+## LoopRemodel
 
 Perturbs and/or refines a set of user-defined loops. Useful to sample a variety of loop conformations.
 
@@ -324,7 +327,7 @@ Perturbs and/or refines a set of user-defined loops. Useful to sample a variety 
 -   refine: refine loops?
 -   design: perform design during loop modeling?
 
-#### LoopMoverFromCommandLine
+## LoopMoverFromCommandLine
 
 Perturbs and/or refines a set of loops from a loop file. Also takes in fragment libraries from command line (-loops:frag\_sizes , -loops:frag\_files). Has kinematic, ccd and automatic protocols.
 
@@ -350,7 +353,7 @@ For protocol="automatic" (Based on Loop Modeling Application and LoopRemodel):
 -   relax:'no','fastrelax','shortrelax','full relax'. Controls whether a full-structure relax occurs after loop modeling.
 -   intermedrelax: Currently not used; eventually may provide for a full-pose relax between centroid and full atom modeling.
 
-#### DisulfideMover
+## DisulfideMover
 
 Introduces a disulfide bond into the interface. The best-scoring position for the disulfide bond is selected from among the residues listed in `     targets    ` . This could be quite time-consuming, so specifying a small number of residues in `     targets    ` is suggested.
 
@@ -364,7 +367,7 @@ Disulfide bonds created by this mover, if any, are guaranteed to pass a Disulfid
 
 -   targets: A comma-seperated list of residue numbers. These can be either with rosetta numbering (raw integer) or pdb numbering (integer followed by the chain letter, eg '123A'). Targets are required to be located in the interface. Default: All residues in the interface. *Optional*
 
-#### MutateResidue
+## MutateResidue
 
 Change a single residue to a different type. For instance, mutate Arg31 to an Asp.
 
@@ -375,7 +378,7 @@ Change a single residue to a different type. For instance, mutate Arg31 to an As
 -   target The location to mutate (eg 31A (pdb number) or 177 (rosetta index)). *Required*
 -   new\_res The name of the residue to introduce. This string should correspond to the ResidueType::name() function (eg ASP). *Required*
 
-#### InterfaceRecapitulation
+## InterfaceRecapitulation
 
 Test a design mover for its recapitulation of the native sequence. Similar to SequenceRecovery filter below, except that this mover encompasses a design mover more specifically.
 
@@ -385,7 +388,7 @@ Test a design mover for its recapitulation of the native sequence. Similar to Se
 
 The specified mover needs to be derived from either DesignRepackMover or PackRotamersMover base class and to to have the packer task show which residues have been designed. The mover then computes how many residues were allowed to be designed and the number of residues that have changed and produces the sequence recapitulation rate. The pose at parse-time is used for the comparison.
 
-#### VLB (aka Variable Length Build)
+## VLB (aka Variable Length Build)
 
 Under development! All kudos to Andrew Ban of the Schief lab for making the Insert, delete, and rebuild segments of variable length. This mover will ONLY work with non-overlapping segments!
 
@@ -449,13 +452,13 @@ Very touchy. Watch out.
 
 For more information, see the various BuildInstructions in src/protocols/forge/build/
 
-### Computational 'affinity maturation' movers (highly experimental)
+# Computational 'affinity maturation' movers (highly experimental)
 
 These movers are meant to take an existing complex and improve it by subtly changing all relevant degrees of freedom while optimizing the interactions of key sidechains with the target. The basic idea is to carry out iterations of relax and design of the binder, designing a large sphere of residues around the interface (to get second/third shell effects).
 
 We start by generating high affinity residue interactions between the design and the target. The foldtree of the design is cut such that each target residue has a cut N- and C-terminally to it, and jumps are introduced from the target protein to the target residues on the design, and then the system is allowed to relax. This produces deformed designs with high-affinity interactions to the target surface. We then use the coordinates of the target residues to generate harmonic coordinate restraints and send this to a second cycle of relax, this time without deforming the backbone of the design. Example scripts are available in demo/rosetta\_scripts/computational\_affinity\_maturation/
 
-#### RandomMutation
+## RandomMutation
 
 Introduce a random mutation in a position allowed to redesign to an allowed residue identity. Control the residues and the target identities through `     task_operations    ` . The protein will be repacked according to `     task_operations    ` and `     scorefxn    ` to accommodate the mutated amino acid. The mover can work with symmetry poses; simply use SetupForSymmetry and run. It will figure out that it needs to do symmetric packing for itself.
 
@@ -465,7 +468,7 @@ This can be used in conjunction with GenericMonteCarlo to generate trajectories 
 <RandomMutation name=(&string) task_operations=(&string comma-separated taskoperations) scorefxn=(score12 &string)/>
 ```
 
-#### GreedyOptMutationMover
+## GreedyOptMutationMover
 
 This mover will first attempt isolated/independent mutations defined in the input task operation, score/filter them all, rank them by score, then attempt to combine them, starting with the best scoring single mutation, accepting the mutation only if the filter score decreases (see skip\_best\_check for optional exception), and working down the list to the end. Optionally test one of the top N mutations at each positions instead of just the best.
 
@@ -501,7 +504,7 @@ Optional:
 <GreedyOptMutationMover name=(&string) task_operations=(&string comma-separated taskoperations) filter=(&string) scorefxn=(score12 &string) relax_mover=(&string) sample_type=(low &string) diversify_lvl=(1 &int) dump_pdb=(0 &bool) dump_table=(0 &bool) rtmin=(0 &bool) stopping_condition=("" &string) stop_before_condition=(0 &bool) skip_best_check=(0 &bool) reset_delta_filters=(&string comma-separated deltafilters) design_shell=(-1, real) repack_shell=(8.0, &real)/>
 ```
 
-#### ParetoOptMutationMover
+## ParetoOptMutationMover
 
 This mover will first attempt isolated/independent mutations defined in the input task operation and score/filter them all using all defined filters. Then, the Pareto-optimal mutations are identified at each position (see: [http://en.wikipedia.org/wiki/Pareto\_efficiency\#Pareto\_frontier](http://en.wikipedia.org/wiki/Pareto_efficiency#Pareto_frontier) ), discarding the non-optimal mutations. Next, the mover attempts to combine the Pareto-optimal mutations at each position. To do this, it starts with the sequence position that has the best score for filter \#1, and combines each of n mutations at that position with m mutations at the next position, producing n\*m new designs. These n\*m designs are then filtered for Pareto-optimality, leaving only the Pareto-optimal set. This process is repeated to the last designable position, producing multiple structures
 
@@ -540,7 +543,7 @@ Optional:
 <ParetoOptMutationMover name=(&string) task_operations=(&string comma-separated taskoperations) scorefxn=(score12 &string) relax_mover=(&string) sample_type=(low &string) dump_pdb=(0 &bool)/>
 ```
 
-#### HotspotDisjointedFoldTree
+## HotspotDisjointedFoldTree
 
 Creates a disjointed foldtree where each selected residue has cuts N- and C-terminally to it.
 
@@ -552,7 +555,7 @@ Creates a disjointed foldtree where each selected residue has cuts N- and C-term
 -   chain: Anything other than chain 1 is untested, but should not be a big problem to make work.
 -   radius: what distance from the target protein constitutes interface. Used in conjunction with the ddG\_threshold to set the target residues automatically.
 
-#### AddSidechainConstraintsToHotspots
+## AddSidechainConstraintsToHotspots
 
 Adds harmonic constraints to sidechain atoms of target residues (to be used in conjunction with HotspotDisjointedFoldTree). Save the log files as those would be necessary for the next stage in affinity maturation.
 
@@ -563,7 +566,7 @@ Adds harmonic constraints to sidechain atoms of target residues (to be used in c
 -   resnums: the residues for which to add constraints. Notice that this list will be treated in addition to any residues that have cut points on either side.
 -   coord\_sdev: the standard deviation on the coordinate restraints. The lower the tighter the restraints.
 
-### Placement and Placement-associated Movers & Filters
+# Placement and Placement-associated Movers & Filters
 
 The placement method has been described in:
 
@@ -579,7 +582,7 @@ A few keywords used throughout the following section have special meaning and ar
 
 Hotspot residue-libraries can be read once by the SetupHotspotConstraintsMover. In this mover you can decide how many hotspot residues will be kept in memory for a given run. This number of residues will be chosen randomly from the residues that were read. In this way, you can read arbitrarily large hotspot residue libraries, but each trajectory will only iterate over a smaller set.
 
-#### Auction
+## Auction
 
 This is a special mover associated with PlaceSimultaneously, below. It carries out the auctioning of residues on the scaffold to hotspot sets without actually designing the scaffold. If pairing is unsuccessful Auction will report failure.
 
@@ -593,7 +596,7 @@ This is a special mover associated with PlaceSimultaneously, below. It carries o
 
 Note that none of the options, except for name, needs to be set up by the user if PlaceSimultaneously is notified of it. If PlaceSimultaneously is notified of this Auction mover, PlaceSimultaneously will set all of these options.
 
-#### MapHotspot
+## MapHotspot
 
 Map out the residues that might serve as a hotspot region on a target. This requires massive user guidance. Each hot-spot residue should be roughly placed by the user (at least as backbone) against the target. Each hot-spot residue should have a different chain ID. The method iterates over all allowed residue identities and all allowed rotamers for each residue. Tests its filters and for the subset that pass selects the lowest-energy residue by score12. Once the first hot-spot residue is identified it iterates over the next and so on until all hot-spot residues are placed. The output contains one file per residue identity combination.
 
@@ -613,7 +616,7 @@ Map out the residues that might serve as a hotspot region on a target. This requ
 -   scorefxn\_minimize: which scorefxn to use during rb/sc minimization.
 -   mover\_name: a mover (no restrictions) to run just before hot-spot residue minimization.
 
-#### PlacementMinimization
+## PlacementMinimization
 
 This is a special mover associated with PlaceSimultaneously, below. It carries out the rigid-body minimization towards all of the stubsets.
 
@@ -625,7 +628,7 @@ This is a special mover associated with PlaceSimultaneously, below. It carries o
 </PlacementMinimization>
 ```
 
-#### PlaceOnLoop
+## PlaceOnLoop
 
 Remodels loops using kinematic loop closure, including insertion and deletion of residues. Handles hotspot constraint application through these sequence changes.
 
@@ -639,7 +642,7 @@ At each try, a random choice of loop change will be picked and attempted. If the
 
 Demonstrated in JMB 413:1047
 
-#### PlaceStub
+## PlaceStub
 
 Hotspot-based sidechain placement. This is the main workhorse of the hot-spot centric method for protein-binder design. A paper describing the method and a benchmark will be published soon. The "stub" (hot-spot residue) is chosen at random from the provided stub set. To minimize towards the stub (during placement), the user can define a series of movers (StubMinimize tag) that can be combined with a weight. The weight determines the strength of the backbone stub constraints that will influence the mover it is paired with. Finally, a series of user-defined design movers (DesignMovers tag) are made and the result is filtered according to final\_filter. There are two main ways to use PlaceStub:
 
@@ -706,7 +709,7 @@ The available tracers are:
 3.  **NotifyMovers**
     Movers placed in this section will be notified not to repack the PlaceStub-placed residues. This is not necessary if placement movers are used in a nested (recursive) fashion, as the placement movers automatically notify movers nested in them of the hot-spot residues. Essentially, you want to make the downstream movers (you list under this section) aware about the placement decisions in this upstream mover. These movers will not be run at in this placestub, but will be subsequently aware of placed residues for subsequent use. Useful for running design moves after placestub is done, e.g., in loops. Put task awareness only in the deepest placestub mover (if PlaceStub is nested), where the final decisions about which residues harbour hot-spot residues is made.
 
-#### PlaceSimultaneously
+## PlaceSimultaneously
 
 Places hotspot residues simultaneously on a scaffold, rather than iteratively as in PlaceStub. It is faster therefore allowing more backbone sampling, and should be useful in placing more than 2 hotspots.
 
@@ -743,7 +746,7 @@ Most of the options are similar to PlaceStub above. Differences are mentioned be
 
 rb\_stub\_minimization, auction and stub\_score\_filter allow the user to specify the first moves and filtering steps of PlaceSimultaneously before PlaceSimultaneously is called proper. In this way, a configuration can be quickly triaged if it isn't compatible with placement (through Auction's filtering). If the configuration passes these filters and movers then PlaceSimultaneously can be run within loops of docking and placement, until a design is identified that produces reasonable ddg and sasa.
 
-#### RestrictRegion
+## RestrictRegion
 
 Makes a mutation to a pose, and creates a resfile task which repacks (no design) the mutated residue, and designs the region around the mutation. Residues far from the mutated residue are fixed. The residue to be mutated can be selected by several different metrics (see below). Useful for altering small regions of the pose during optimization without making large sequence changes.
 
@@ -783,7 +786,7 @@ Makes a mutation to a pose, and creates a resfile task which repacks (no design)
 </PROTOCOLS>
 ```
 
-#### StubScore
+## StubScore
 
 This is actually a filter (and should go under FILTERS), but it is tightly associated with the placement movers, so it's placed here. A special filter that is associated with PlaceSimultaneouslyMover. It checks whether in the current configuration the scaffold is 'feeling' any of the hotspot stub constraints. This is useful for quick triaging of hopeless configuration.
 
@@ -797,7 +800,7 @@ This is actually a filter (and should go under FILTERS), but it is tightly assoc
 
 Note that none of the flags of this filter need to be set if PlaceSimultaneously is notified of it. In that case, PlaceSimultaneously will set this StubScore filter's internal data to match its own.
 
-#### ddG
+## ddG
 
 This mover is useful for reporting the total or per-residue ddgs in cases where you don't want to use the ddG filter for some reason. (also, the ddg filter can't currently do per-residue ddgs). Ddg scores are reported as string-real pairs in the job. The total ddg score has the tag "ddg" and the each pre residue ddg has the tag "residue\_ddg\_n" where n is the residue number.
 
@@ -830,7 +833,7 @@ The script below shows how to enable PB with ddg mover. I have APBS (Adaptive Po
         <Add filter_name=.../>  more filtering
     </PROTOCOLS>
 
-#### ContactMap
+## ContactMap
 
 Calculate and output contact maps for each calculated structure
 
