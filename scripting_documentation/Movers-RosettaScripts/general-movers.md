@@ -768,6 +768,18 @@ See the [[GeneralizedKIC documentation|GeneralizedKIC]] for details about [[Gene
 
 # Other Pose Manipulation
 
+## MutateResidue
+
+Change a single residue to a different type. For instance, mutate Arg31 to an Asp.
+
+```
+<MutateResidue name=(&string) target=(&string) new_res=(&string) />
+```
+
+-   target The location to mutate (eg 31A (pdb number) or 177 (rosetta index)). *Required*
+-   new\_res The name of the residue to introduce. This string should correspond to the ResidueType::name() function (eg ASP). *Required*
+
+
 ## AlignChain
 
 Align a chain in the working pose to a chain in a pose on disk (CA superposition).
