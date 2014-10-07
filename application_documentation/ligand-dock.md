@@ -4,6 +4,8 @@ Metadata
 ========
 
 This document was written 4 Feb 2008 by Ian W. Davis.
+Lasted Edited 10/6/14 by Jared Adolf-Bryfogle.
+
 
 Example runs
 ============
@@ -20,7 +22,39 @@ Literature references
 Known bugs and limitations
 ==========================
 
-I'm sure there are many. In particular, it's currently designed for a single ligand as a single residue, which must be the last in the file. Gordon Lemmon, Kristian Kaufmann, and Andrew Leaver-Fay are in the process of implementing multi-residue ligands (June 2008).
+I'm sure there are many. In particular, it's currently designed for a single ligand as a single residue, which must be the last in the file. Gordon Lemmon, Kristian Kaufmann, and Andrew Leaver-Fay are in the process of implementing multi-residue ligands (June 2008).  
+
+Note that much of the continued development of RosettaLigand is within the RosettaScripts interface. See Combs, DeLuca, et al (2013). "Small molecule ligand docking into comparative models with Rosetta." Nature Protocols.    
+
+
+**Tips for running RosettaLigand via [[RS | scripting_documentation/Movers-RosettaScripts/ligand-centric-movers]]**
+
+_ScoreFunction_
+
+
+Be sure to use -restore_pre_talaris_defaults option and use the scorefunction from the paper.  You can also experiment with orbitals_talaris1013 (with the option -add_orbitals), however it has not been optimized for this purpose yet.
+
+If you use other scorefunctions, make sure to add these terms:
+
+   coordinate_constraint 1.0
+   atom_pair_constraint 1.0
+   angle_constraint 1.0
+   dihedral_constraint 1.0
+   chainbreak 1.0
+
+_Conformer Generation_
+
+
+Generating conformers for your ligand is very important.  However, there are a plethora of available tools to do so.  Take a look at Ebejer et al, "Freely Available Conformer Generation Methods: How Good Are They?" J Chem Info and Modeling.  Also, MOE and openeye omega seem to work well and are popular in the literature if you have a license.
+
+How to get these into Rosetta:
+
+Currently, you regenerate ligand conformations using your choice of conformer generation tools (i use MOE, some people like openeye omega, there are many options), and then output those conformations as a pdb file, with the conformations separated by  TER cards.  You then add a PDB_ROTAMERS line to your params file, like this:
+
+PDB_ROTAMERS path.pdb
+
+where path.pdb is the pdb file containing your rotamers. this path is relative to the params file (I usually keep them in the same directory).  These conformers will be imported as a single residue rotamer library, and can be sampled by the packer, or manually (as occurs in low resolution docking)
+
 
 Application purpose
 ===========================================
@@ -71,6 +105,7 @@ Here is a "checklist" for setting up a ligand docking experiment. Details for al
 Automatic RosettaLigand Setup (ARLS)
 ====================================
 
+-Deprecated- (still works, just generally not recommended any longer)
 Most of the steps to set up a RosettaLigand docking run have been automated by the `       arls.py      ` script (`rosetta/rosetta_source/src/apps/public/ligand_docking/`, run with –help for brief instructions). For those who prefer a manual approach, the individual steps are detailed in the following sections.
 
 The inputs to ARLS are *apo* protein structures (.pdb) and cofactor and ligand files (.mol, .sdf, or .mol2). I typically use PyMOL to edit the proteins, [Babel](http://openbabel.org/wiki/Main_Page) to convert PDB ligands to SDF, and [Avogadro](http://avogadro.openmolecules.net/wiki/Main_Page) to fix any mistakes in the SDF (all are free). You also need a file with one line per docking case, listing the protein name, cofactor name(s) if any, and ligand name (without file extensions). This file shows docking several compounds into an apo structure of farnesyl transferase, in most cases including a farnesyl pyrophosphate as a cofactor:
