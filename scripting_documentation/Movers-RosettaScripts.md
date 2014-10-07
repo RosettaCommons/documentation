@@ -61,12 +61,12 @@ Special Movers
 [[Special Movers | scripting_documentation/Movers-RosettaScripts/special-movers]]
 
 
-Protein Interface Design Movers
+Protein Interface Modeling/Design/Analysis Movers
 -------------------------------
 
 These movers are at least somewhat specific to the design of protein-protein interfaces. Attempting to use them with, for example, protein-DNA complexes may result in unexpected behavior.
 
-[[Protein Interface Design Movers | scripting_documentation/Movers-RosettaScripts/protein-interface-design-movers]]
+[[Protein Interface Modeling, Design, and Analysis Movers | scripting_documentation/Movers-RosettaScripts/protein-interface-design-movers]]
 
 
 
