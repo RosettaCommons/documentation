@@ -2,9 +2,17 @@
 
 [[Return To RosettaScripts|RosettaScripts]]
 
+
+TaskOperations are used by a TaskFactory to configure the behavior and create a PackerTask when it is generated on-demand for routines that use the "packer" to reorganize/mutate sidechains. The PackerTask controls which residues are packable, designable, or held fixed.  When used by certain Movers (at present, the PackRotamersMover and its subclasses), the set of TaskOperations control what happens during packing, usually by restriction "masks."  
+
+The PackerTask can be thought of as an ice sculpture.  By default, everything is able to pack AND design.  By using TaskOperations, or your set of chisels, one can limit packing/design to only certain residues.  As with ICE, once these residues are restricted, they generally cannot be turned back on.
+
+
+
+<code> For Developers </code> 
+
 This section defines instances of the TaskOperation class hierarchy when used in the context of the Parser/RosettaScripts. They become available in the DataMap.
 
-TaskOperation classes are used by TaskFactory to configure the behavior of PackerTask when it is generated on-demand for routines that use the "packer" to reorganize/mutate sidechains. When used by certain Movers (at present, the PackRotamersMover and its subclasses), the TaskOperations control what happens during packing, usually by restriction "masks."
 
 [[_TOC_]]
 
