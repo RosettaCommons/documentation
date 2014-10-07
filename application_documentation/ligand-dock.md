@@ -33,7 +33,7 @@ Note that much of the continued development of RosettaLigand is within the Roset
 _ScoreFunction_
 
 
-Be sure to use -restore_pre_talaris_defaults option and use the scorefunction from the paper.  You can also experiment with orbitals_talaris1013 (with the option -add_orbitals), however it has not been optimized for this purpose yet.
+Be sure to use -restore_pre_talaris_defaults option and use the scorefunction from the paper.  You can also experiment with orbitals_talaris1013 (with the option -add_orbitals and without -restore_pre_talaris_defaults), however it has not been optimized for this purpose yet.
 
 If you use other scorefunctions, make sure to add these terms:
 
