@@ -53,12 +53,12 @@ Has an empty apply. Will be used as the default mover in \<PROTOCOLS\> if no mov
 
 General Movers
 --------------
-[[General Movers | scripting_documentation/Movers-RosettaScripts/general-movers]]
+[[General Movers | general-movers]]
 
 
 Special Movers
 --------------
-[[Special Movers | scripting_documentation/Movers-RosettaScripts/special-movers]]
+[[Special Movers | special-movers]]
 
 
 Protein Interface Modeling/Design/Analysis Movers
@@ -66,19 +66,19 @@ Protein Interface Modeling/Design/Analysis Movers
 
 These movers are at least somewhat specific to the design of protein-protein interfaces. Attempting to use them with, for example, protein-DNA complexes may result in unexpected behavior.
 
-[[Protein Interface Modeling, Design, and Analysis Movers | scripting_documentation/Movers-RosettaScripts/protein-interface-design-movers]]
+[[Protein Interface Modeling, Design, and Analysis Movers | protein-interface-design-movers]]
 
 
 
 Ligand-centric Movers
 ---------------------
-[[Ligand Centric Movers | scripting_documentation/Movers-RosettaScripts/ligand-centric-movers]]
+[[Ligand Centric Movers | ligand-centric-movers]]
 
 
 DNA interface Design Movers
 ---------------------------
 
-[[DNA Interface Design Movers | scripting_documentation/Movers-RosettaScripts/dna-interface-design-movers]] 
+[[DNA Interface Design Movers | dna-interface-design-movers]] 
 
 Currently Undocumented
 ----------------------
