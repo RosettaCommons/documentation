@@ -802,32 +802,7 @@ Restrict Design and repacking to protein residues around the defined DNA bases
 -   base\_only: only residues within reach of the DNA bases are considered
 -   z\_cutoff: limit the protein interface positions to the ones that have a projection of their distance vector on DNA axis lower than this threshold. It prevents designs that are too far away along the helical axis
 
-<!--- BEGIN_INTERNAL -->
-
-### BuildingBlockInterface
-
-(This is a devel TaskOperation and not available in released versions.)
-
-For use when designing with symmetric building blocks. Prevents repacking at residues that are: 1) distant from the inter-building block interface, or 2) near the inter-building block interface, but also make intra-building block interface contacts that are not clashing.
-
-      <BuildingBlockInterface name=(&string) nsub_bblock=(1 &Size) sym_dof_names="" &string) contact_dist=(10.0 &Real) bblock_dist=(5.0 &Real) fa_rep_cut=(3.0 &Real) />
-
--   nsub\_bblock - The number of subunits in the symmetric building block (e.g., 3 for a trimer). This option is not needed for multicomponent systems.
--   sym\_dof\_names - Names of the sym\_dofs corresponding to the symmetric building blocks. (Eventually replace the need for this option by having is\_singlecomponent or is\_multicomponent utility functions). If no sym\_dof\_names are specified, then they will be extracted from the pose.
--   contact\_dist - Residues with beta carbons not within this distance of any beta carbon from another building block are prevented from repacking.
--   bblock\_dist - The all-heavy atom cutoff distance used to specify residues that are making inter-subunit contacts within the building block. Because these residues are making presumably important intra-building block interactions, they are prevented from repacking unless they are clashing.
--   fa\_rep\_cut - The cutoff used to determine whether residues making inter-subunit contacts within the building block are clashing.
-
-### RestrictIdentities
-
-Used to specify a set of amino acid identities that are either restricted to repacking, or prevented from repacking altogether. Useful if you don't want to design away, for instance, prolines and glycines.
-
-      <RestrictIdentities name=(&string) identities=(comma-delimited list of strings) prevent_repacking=(0 &bool) />
-
--   identities - A comma-delimited list of the amino acid types that you'd like to prevent from being designed or repacked (e.g., "PRO,GLY").
--   prevent\_repacking - Whether you want those identities to be prevented from repacking altogether (pass true) or just from being designed (pass false).
-
-<!--- END_INTERNAL --> 
+ 
 
 ### RestrictNativeResidues
 
@@ -845,19 +820,7 @@ Option list
 -   verbose ( default = 0 ) : Optional. If set to true, then will output a pymol selection string of all non-native residues to stdout.
 -   pdbname ( default = "" ) : Optional. Name of the reference pdb to be used as the "native" structure. May alternatively be specified by the in:file:native flag.
 
-<!--- BEGIN_INTERNAL -->
-
-### RetrieveStoredTask
-
-(This is a devel TaskOperation and not available in released versions.)
-
-Retrieves a stored packer task from the pose's cacheable data; must be used in conjunction with the StoreTask mover. Allows the caching and retrieval of tasks such that a packer task can be defined at an arbitrary point in a RosettaScripts protocol and used again later. This is useful when changes to the pose in the intervening time may result in a different packer task even though the same task operations are applied. Has the ancillary benefit of shortening the lists of task operations that frequently pepper RosettaScripts .xml files.
-
-      <RetrieveStoredTask name=(&string) task_name=(&string) />
-
--   task\_name - The index where the stored task can be accessed in the pose's cacheable data. This must be identical to the task\_name used to store the task using the StoreTask mover.
-
-<!--- END_INTERNAL --> 
+ 
 
 ### ProteinCore
 
