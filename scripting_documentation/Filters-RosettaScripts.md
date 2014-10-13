@@ -472,7 +472,7 @@ Filter structures based on the geometry of helix pairings. Relating helix pairin
 -   output\_type: parameter type to be output in score file, dist, cross, or align.
 -   blueprint: By giving blueprint file, you can forcibly assign secondary structure. See for [[Blueprint]].
 
-#### SecondaryStructureFilter
+#### SecondaryStructure
 
 ```
       <SecondaryStructure name=(&string, required) use_abego=(&int, optional) blueprint=(&string) ss=(&string) abego=(&string) />
@@ -531,7 +531,7 @@ protocols.fldsgn.filters.SecondaryStructureFilter: SS filter fail: current/filte
 protocols.fldsgn.filters.SecondaryStructureFilter: LEEEEEEEELLLLEEEEEEEELLLLHHHHHHHHHHHHHHHLLLEEEEEEELLLHHHHHHHHHHHHHHHHHLLLLhhEEEEELLEEEEEEEL was filtered with 90 residues matching LEEEEEEEELLLLEEEEEEEELLLHHHHHHHHHHHHHHHHLLLEEEEEEELLLHHHHHHHHHHHHHHHHHLLLLEEEEEEELLEEEEEEEL
 ```
 
-#### SecondaryStructureCountFilter
+#### SecondaryStructureCount
 
 Counts total number of DSSP-defined secondary structure elements of a given type(s).
 
