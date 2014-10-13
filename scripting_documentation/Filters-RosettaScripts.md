@@ -531,7 +531,7 @@ protocols.fldsgn.filters.SecondaryStructureFilter: SS filter fail: current/filte
 protocols.fldsgn.filters.SecondaryStructureFilter: LEEEEEEEELLLLEEEEEEEELLLLHHHHHHHHHHHHHHHLLLEEEEEEELLLHHHHHHHHHHHHHHHHHLLLLhhEEEEELLEEEEEEEL was filtered with 90 residues matching LEEEEEEEELLLLEEEEEEEELLLHHHHHHHHHHHHHHHHLLLEEEEEEELLLHHHHHHHHHHHHHHHHHLLLLEEEEEEELLEEEEEEEL
 ```
 
-#### SecondaryStructureFilter
+#### SecondaryStructureCountFilter
 
 Counts total number of DSSP-defined secondary structure elements of a given type(s).
 
@@ -541,6 +541,7 @@ Counts total number of DSSP-defined secondary structure elements of a given type
 
 - filter_helix_sheet: filter on sum of helix and sheet?
 - (the rest are pretty self-explanatory)
+```
 
 #### SecondaryStructureHasResidue
 
