@@ -531,6 +531,17 @@ protocols.fldsgn.filters.SecondaryStructureFilter: SS filter fail: current/filte
 protocols.fldsgn.filters.SecondaryStructureFilter: LEEEEEEEELLLLEEEEEEEELLLLHHHHHHHHHHHHHHHLLLEEEEEEELLLHHHHHHHHHHHHHHHHHLLLLhhEEEEELLEEEEEEEL was filtered with 90 residues matching LEEEEEEEELLLLEEEEEEEELLLHHHHHHHHHHHHHHHHLLLEEEEEEELLLHHHHHHHHHHHHHHHHHLLLLEEEEEEELLEEEEEEEL
 ```
 
+#### SecondaryStructureFilter
+
+Counts total number of DSSP-defined secondary structure elements of a given type(s).
+
+```
+<SecondaryStructureCount name=(&string) filter_helix_sheet=(1 &bool) filter_helix=(0 &bool) filter_sheet=(0 &bool) filter_loop=(0 &bool) num_helix==(0 &int) num_sheet==(0 &int) num_loop==(0 &int) min_helix_length=(4 &int) min_sheet_length=(3 &int) min_loop_length=(1 &int) 
+```
+
+- filter_helix_sheet: filter on sum of helix and sheet?
+- (the rest are pretty self-explanatory)
+
 #### SecondaryStructureHasResidue
 
 Counts fraction of DSSP-defined secondary structure elements that contain N or more of a given residue type(s). Useful for checking whether each helix/sheet secondary structure element in a de novo design structure has at least one hydrophobic residue. Uses 2 task operations to select residues (if designable it includes them in calculation); res_check_task_operations is used to select which residues to (not) check for correct aa identity, ss_select_task_operations is used to select which residues are included in the base count of total secondary structure elements. default task is all residues.
@@ -550,6 +561,7 @@ min_helix/sheet/loop_length: what defines SS element?
 
 #### HelixKink
 
+```
 <HelixKink name=(&string) bend=(20, &Real) resnums=(&string) helix_start=(1 &int)  helix_end=(1 &int)/>
 ```
 
