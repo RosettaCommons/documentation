@@ -541,7 +541,7 @@ Counts total number of DSSP-defined secondary structure elements of a given type
 
 - filter_helix_sheet: filter on sum of helix and sheet?
 - (the rest are pretty self-explanatory)
-```
+
 
 #### SecondaryStructureHasResidue
 
@@ -558,7 +558,6 @@ Counts fraction of DSSP-defined secondary structure elements that contain N or m
 - nres_required_per_secstruct: default to only one per element to count as a "yes" for that SS element
 - filter_helix/sheet/loop: yes/no. do we care about this type, or skip it entirely?
 min_helix/sheet/loop_length: what defines SS element?
-```
 
 #### HelixKink
 
