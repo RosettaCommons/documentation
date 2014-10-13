@@ -546,8 +546,10 @@ Counts fraction of DSSP-defined secondary structure elements that contain N or m
 - nres_required_per_secstruct: default to only one per element to count as a "yes" for that SS element
 - filter_helix/sheet/loop: yes/no. do we care about this type, or skip it entirely?
 min_helix/sheet/loop_length: what defines SS element?
-
 ```
+
+#### HelixKink
+
 <HelixKink name=(&string) bend=(20, &Real) resnums=(&string) helix_start=(1 &int)  helix_end=(1 &int)/>
 ```
 
