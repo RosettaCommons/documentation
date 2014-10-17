@@ -10,7 +10,7 @@ Context-independent two-body energy terms
 Short-ranged context-independent two-body score terms
 -----------------------------------------------------
 
-```
+```html
 fa_intra_atr
 fa_intra_sol
 fa_intra_RNA_base_phos_atr                 RNA-specific score term
@@ -58,7 +58,7 @@ pddf_score                                 Score based on pairwise distance dist
 pba Membrane all atom terms
 ---------------------------
 
-```
+```html
 fa_mbenv                                   Depth-dependent reference term
 fa_mbsolv                                  Burial + depth dependent term
 ```
@@ -66,7 +66,7 @@ fa_mbsolv                                  Burial + depth dependent term
 Split out fa_elec for RNA
 -------------------------
 
-```
+```html
 fa_elec_rna_phos_phos
 fa_elec_rna_phos_sugr
 fa_elec_rna_phos_base
@@ -90,7 +90,7 @@ rna_data_backbone                          Using chemical accessibility data for
 Carbon hydrogen bonds
 ---------------------
 
-```
+```html
 ch_bond                                    
 ch_bond_bb_bb
 ch_bond_sc_sc
@@ -100,7 +100,7 @@ ch_bond_bb_sc
 Proline closure energy
 ----------------------
 
-```
+```html
 rama2b
 vdw                                        Centroid
 cenpack                                    Centroid
@@ -112,9 +112,9 @@ hybrid_vdw                                 Hybrid centroid+fa
 Gaussian overlap
 ----------------
 
-```
+```html
 gauss
-rna_vdw                                    Low res clash check for RNA
+rna_vdw                                    Low-resolution clash check for RNA
 rna_base_backbone                          Bases to 2'-OH, phosphates, etc
 rna_backbone_backbone                      2'-OH to 2'-OH, phosphates, etc
 rna_repulsive                              Mainly phosphate-phosphate repulsion
@@ -133,21 +133,21 @@ This is a filtered version of the pairwise RNA low-resolution terms above, disal
 
 _This is not really pair-wise_ but is calculated in a finalize_energy step at the end of a 2-body score function.
 
-```
+```html
 rna_base_pair                              Base-base interactions (Watson-Crick and non-Watson-Crick)
 rna_base_axis                              Force base normals to be parallel
 rna_base_stagger                           Force base pairs to be in same plane
 rna_base_stack                             Stacking interactions
 rna_base_stack_axis                        Stacking interactions should involve parallel bases
-rna_mg                                     Knowledge-based term for mg(2+)RNA interactions for use in low res modeling
-rna_mg_rep                                 Ad-hoc, empirically validated term to prevent uncommon mg(2+)atom interactions
-rna_mg_indirect                            Knowledge-based term for mg(2+)RNA interactions for use in low res modeling
+rna_mg                                     Knowledge-based term for mg(2+)RNA interactions for use in low-resolution modeling
+rna_mg_rep                                 Ad hoc, empirically validated term to prevent uncommon mg(2+)atom interactions
+rna_mg_indirect                            Knowledge-based term for mg(2+)RNA interactions for use in low-resolution modeling
 ```
 
 High-resolution RNA terms
 -------------------------
 
-```
+```html
 rna_torsion                                RNA torsional potential
 rna_sugar_close                            Constraints to keep RNA sugar closed, and with reasonably ideal geometry
 fa_stack                                   Stacking interaction modeled as pairwise atom-atom interactions
@@ -160,20 +160,20 @@ stack_elec_base_bb
 DNA constraints-based torsional potentials
 ------------------------------------------
 
-```
+```html
 dna_bb_torsion
 dna_sugar_close
 dna_base_distance
 geom_sol_fast                              Context independent version. Currently tested only for RNA case
 geom_sol_fast_intra_RNA                    RNA specific score term
-fa_cust_pair_dist                          Custom short range 2b
+fa_cust_pair_dist                          Custom short range two-body
 custom_atom_pair
 ```
 
 All the orbitals scoretypes
 ---------------------------
 
-```
+```html
 orbitals_hpol_bb
 pci_cation_pi
 pci_pi_pi
@@ -187,7 +187,7 @@ Context-dependent two-body energy terms
 Short-ranged context-independent two-body score terms
 -----------------------------------------------------
 
-```
+```html
 fa_pair_aro_aro
 fa_pair_aro_pol
 fa_pair_pol_pol
@@ -199,14 +199,14 @@ hbond_intra                                Currently effects only RNA
 Protein-protein interface scores
 --------------------------------
 
-```
+```html
 interface_dd_pair
 ```
 
 Geometric solvation
 -------------------
 
-```
+```html
 geom_sol                                   Geometric solvation energy for polar atoms
 geom_sol_intra_RNA                         RNA-specific score term
 occ_sol_fitted
@@ -217,7 +217,7 @@ occ_sol_exact
 Centroid rotamer pair, P(r,ang,dih|aa)
 --------------------------------------
 
-```
+```html
 cen_rot_pair                               P(r|aa)
 cen_rot_pair_ang                           P(ang|r,aa)
 cen_rot_pair_dih                           P(dih|r,aa)
@@ -229,28 +229,28 @@ Mpair
 Sucker atom energy
 ------------------
 
-```
+```html
 suck
 ```
 
 RNA low-resolution terms
 ------------------------
 
-```
+```html
 rna_rg                                     Radius of gyration for RNA
 ```
 
 Nucleotide resolution thermodynamics
 ------------------------------------
 
-```
+```html
 loop_close                                 Loop closure terms - attempting to model full RNA folding free energy
 ```
 
 FACTS solvation model
 ---------------------
 
-```
+```html
 facts_elec
 facts_solv
 facts_sasa
@@ -259,7 +259,7 @@ facts_sasa
 Centroid inter-chain one-body (docking) scores
 ---------------------------------------
 
-```
+```html
 interchain_pair
 interchain_vdw
 ```
@@ -270,22 +270,22 @@ Other energy terms
 Miscellaneous
 -------------
 
-```
+```html
 gb_elec
 ```
 
 Full-atom disulfide terms
 -------------------------
 
-```
-dslf_cbs_ds                                Rreplaced by dslf_fa13 in talaris2013
+```html
+dslf_cbs_ds                                Replaced by dslf_fa13 in talaris2013
 ```
 
 
 Centroid disulfide terms
 ------------------------
 
-```
+```html
 dslfc_cen_dst
 dslfc_cb_dst
 dslfc_ang
@@ -296,7 +296,7 @@ dslfc_bb_dih
 Disulfide matching terms
 ------------------------
 
-```
+```html
 dslfc_rot
 dslfc_trans
 dslfc_RT
@@ -305,7 +305,7 @@ dslfc_RT
 Constraint terms
 ----------------
 
-```
+```html
 atom_pair_constraint                       Harmonic constraints between atoms involved in Watson-Crick base pairs specified by the user in the params file
 constant_constraint
 coordinate_constraint
@@ -321,7 +321,7 @@ rna_bond_geometry                          Deviations from ideal geometry
 Miscellaneous
 -------------
 
-```
+```html
 fa_dun_dev
 fa_dun_rot
 fa_dun_semi
@@ -337,7 +337,7 @@ nmer_svm
 envsmooth
 e_pH
 rna_bulge
-mg_ref                                     Chemical potential for mg(2+) ('reference weight' in Rosetta lingo)
+mg_ref                                     Chemical potential for mg(2+) ('reference weight' in Rosetta terminology)
 free_suite                                 Bonus for virtualizing RNA suite
 free_2HOprime                              Bonus for virtualizing RNA 2'-OH
 intermol                                   Cost of instantiating a chain form 1 M std state
@@ -349,7 +349,7 @@ other_pose                                 In preparation for multi-pose stuff
 PB potential
 ------------
 
-```
+```html
 PB_elec
 ```
 
@@ -359,7 +359,7 @@ Centroid whole structure energies
 Centroid whole structure energies
 ---------------------------------
 
-```
+```html
 cen_env_smooth                             fpd smooth centroid env
 cbeta_smooth                               fpd smooth cbeta
 cen_rot_env
@@ -387,7 +387,7 @@ abego                                      Informatic torsion-bin prediction
 Secondary structure scores
 ------------------------------------------
 
-```
+```html
 natbias_ss
 natbias_hs
 natbias_hh
@@ -397,7 +397,7 @@ natbias_stwist
 Amino acid composition score
 ----------------------------
 
-```
+```html
 aa_cmp
 dock_ens_conf                              Conformer reference energies for docking
 csa                                        NMR chemical shift anisotropy energy
@@ -413,7 +413,7 @@ Additional score terms
 Miscellaneous
 -------------
 
-```
+```html
 holes
 holes_decoy
 holes_resl
@@ -431,7 +431,7 @@ ProQ                                       MQAP
 Centroid interchain one-body (docking) scores
 ---------------------------------------------
 
-```
+```html
 interchain_env
 interchain_contact
 ```
@@ -439,7 +439,7 @@ interchain_contact
 Miscellaneous
 -------------
 
-```
+```html
 chainbreak
 linear_chainbreak
 overlap_chainbreak
@@ -458,7 +458,7 @@ total_score
 Neighbor Vector solvation approximation
 ---------------------------------------
 
-```
+```html
 neigh_vect
 neigh_count
 neigh_vect_raw
@@ -467,56 +467,56 @@ neigh_vect_raw
 Symmetry bonus
 --------------
 
-```
+```html
 symE_bonus
 ```
 
 Implicit ligand interactions (symmetry)
 ---------------------------------------
 
-```
+```html
 sym_lig
 ```
 
 Packing score energy
 ------------------------------------
 
-```
+```html
 pack_stat
 ```
 
 Model-quality metrics.
 ----------------------
 
-```
+```html
 rms                                        All-heavy-atom RMSD to the native structure
 ```
 
 ResidueConstraint terms
 ---------------------
 
-```
+```html
 res_type_constraint
 ```
 
 Residue Type linking constraint
 -------------------------------
 
-```
+```html
 res_type_linking_constraint
 ```
 
 PocketConstraint terms
 --------------------
 
-```
+```html
 pocket_constraint
 ```
 
 BackboneStubConstraint terms
 --------------------------
 
-```
+```html
 backbone_stub_constraint
 backbone_stub_linear_constraint
 surface
@@ -527,7 +527,7 @@ unfolded
 Fit-to-density score terms
 ---------------------
 
-```
+```html
 elec_dens_fast
 elec_dens_window
 elec_dens_whole_structure_ca
@@ -538,14 +538,14 @@ elec_dens_atomwise
 Patterson correlation score terms
 ---------------------
 
-```
+```html
 patterson_cc
 ```
 
 Crystallographic ML target
 --------------------------
 
-```
+```html
 xtal_ml
 xtal_rwork
 xtal_rfree
@@ -555,6 +555,6 @@ hpatch
 Membrane environment smooth
 ---------------------------
 
-```
+```html
 Menv_smooth
 ```
