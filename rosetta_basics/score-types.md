@@ -8,7 +8,7 @@ The default score function in Rosetta for scoring full-atom structures is curren
 Energy terms used in talaris2013.wts
 -------------------------------------
 
-```
+```html
 fa_atr                                     Lennard-Jones attractive between atoms in different residues
 fa_rep                                     Lennard-Jones repulsive between atoms in different residues
 fa_sol                                     Lazaridis-Karplus solvation energy
@@ -23,9 +23,9 @@ dslf_fa13                                  Disulfide geometry potential
 rama                                       Ramachandran preferences
 omega                                      Omega dihedral in the backbone
 fa_dun                                     Internal energy of sidechain rotamers as derived from Dunbrack's statistics
-p_aa_pp                                    Probability of amino acid at phi/psi
+p_aa_pp                                    Probability of amino acid at Φ/Ψ
 ref                                        Reference energy for each amino acid
-METHOD_WEIGHTS                             not an energy term itself, but the parameters for each amino acid used by the ref energy term 
+METHOD_WEIGHTS                             Not an energy term itself, but the parameters for each amino acid used by the ref energy term 
 ```
 
 Additional energy terms for score12
@@ -33,13 +33,13 @@ Additional energy terms for score12
 
 Previous versions of Rosetta used the score12 energy function as the default full atom energy function. Many of the energy terms are the same as talaris2013 (though at different weights, and with different parameters), although other terms were also used:
 
-```
+```html
 fa_pair                                    Statistics-based pair term, favors salt bridges (replaced by fa_elec in talaris2013)
-fa_plane                                   Pi-pi interaction between aromatic groups, by default = 0
+fa_plane                                   π-π interaction between aromatic groups, by default = 0
 dslf_ss_dst                                Distance score in current disulfide (replaced by dslf_fa13 in talaris2013)
 dslf_cs_ang                                Csangles score in current disulfide (replaced by dslf_fa13 in talaris2013)
 dslf_ss_dih                                Dihedral score in current disulfide (replaced by dslf_fa13 in talaris2013)
-dslf_ca_dih                                Ca dihedral score in current disulfide (replaced by dslf_fa13 in talaris2013)
+dslf_ca_dih                                Cα dihedral score in current disulfide (replaced by dslf_fa13 in talaris2013)
 ```
 
 The score12 energy function can be used in current Rosetta versions, but the option <code> -restore_pre_talaris_2013_behavior</code> must be passed.
