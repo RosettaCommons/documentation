@@ -300,10 +300,12 @@ Disulfide matching terms
 dslfc_rot
 dslfc_trans
 dslfc_RT
+```
 
 Constraint terms
 ----------------
 
+```
 atom_pair_constraint                       Harmonic constraints between atoms involved in Watson-Crick base pairs specified by the user in the params file
 constant_constraint
 coordinate_constraint
@@ -314,6 +316,7 @@ dunbrack_constraint
 site_constraint
 metalhash_constraint                       Rigid body, metal binding constraints for centroid mode
 rna_bond_geometry                          Deviations from ideal geometry
+```
 
 Miscellaneous
 -------------
