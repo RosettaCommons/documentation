@@ -4,8 +4,11 @@ Further Terms
 =====================
 This section supplements the main [[Score Types|rosetta_basics/score-types]] section with other energy terms available in Rosetta.
 
-Short-ranged ci2b scores
-------------------------
+Context-independent two-body energy terms
+=========================================
+
+Short-ranged context-independent two-body score terms
+-----------------------------------------------------
 
 ```
 fa_intra_atr
@@ -121,4 +124,104 @@ rna_base_stagger_pairwise                  Force base pairs to be in same plane
 rna_base_stack_pairwise                    Stacking interactions
 rna_base_stack_axis_pairwise               Stacking interactions should involve parallel bases
 rna_data_base                              Using chemical accessibility data for RNA
+```
+
+RNA terms
+---------
+
+This is a filtered version of the pairwise RNA low-resolution terms above, disallows a base edge to form more than one base pair, and disallows two bases to both stack and pair. 
+
+_This is not really pair-wise_ but is calculated in a finalize_energy step at the end of a 2-body score function.
+
+```
+rna_base_pair                              Base-base interactions (Watson-Crick and non-Watson-Crick)
+rna_base_axis                              Force base normals to be parallel
+rna_base_stagger                           Force base pairs to be in same plane
+rna_base_stack                             Stacking interactions
+rna_base_stack_axis                        Stacking interactions should involve parallel bases
+rna_mg                                     Knowledge-based term for mg(2+)RNA interactions for use in low res modeling
+rna_mg_rep                                 Ad-hoc, empirically validated term to prevent uncommon mg(2+)atom interactions
+rna_mg_indirect                            Knowledge-based term for mg(2+)RNA interactions for use in low res modeling
+```
+
+High-resolution RNA terms
+-------------------------
+
+```
+rna_torsion                                RNA torsional potential
+rna_sugar_close                            Constraints to keep RNA sugar closed, and with reasonably ideal geometry
+fa_stack                                   Stacking interaction modeled as pairwise atom-atom interactions
+fa_stack_aro
+stack_elec                                 Distance dependent dielectric between base atoms (attenuated parallel to plane)
+stack_elec_base_base
+stack_elec_base_bb
+```
+
+DNA constraints-based torsional potentials
+------------------------------------------
+
+```
+dna_bb_torsion
+dna_sugar_close
+dna_base_distance
+geom_sol_fast                              Context independent version. Currently tested only for RNA case
+geom_sol_fast_intra_RNA                    RNA specific score term
+fa_cust_pair_dist                          Custom short range 2b
+custom_atom_pair
+```
+
+All the orbitals scoretypes
+---------------------------
+
+```
+orbitals_hpol_bb
+pci_cation_pi
+pci_pi_pi
+pci_salt_bridge
+pci_hbond
+```
+
+Context-dependent two-body energy terms
+=======================================
+
+Short-ranged context-independent two-body score terms
+-----------------------------------------------------
+
+```
+fa_pair_aro_aro
+fa_pair_aro_pol
+fa_pair_pol_pol
+hbond_sr_bb_sc
+hbond_lr_bb_sc
+hbond_intra                                Currently effects only RNA
+```
+
+Protein-protein interface scores
+--------------------------------
+
+```
+interface_dd_pair
+```
+
+Geometric solvation
+-------------------
+
+```
+geom_sol                                   Geometric solvation energy for polar atoms
+geom_sol_intra_RNA                         RNA-specific score term
+occ_sol_fitted
+occ_sol_fitted_onebody
+occ_sol_exact
+```
+
+Centroid rotamer pair, P(r,ang,dih|aa)
+--------------------------------------
+
+```
+cen_rot_pair                               P(r|aa)
+cen_rot_pair_ang                           P(ang|r,aa)
+cen_rot_pair_dih                           P(dih|r,aa)
+pair                                       Centroid
+cen_pair_smooth                            fpd smooth centroid pair
+Mpair
 ```
