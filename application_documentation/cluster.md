@@ -32,7 +32,6 @@ cluster can take all general file IO options common to all Rosetta applications
    -score:weights            Supply a different weights file (default is score12)
    -score:patch              Supply a different patch file (default is score12)
    -run:shuffle              Use shuffle mode
-   -nstruct                  Make how many decoys per input structure ?
 ```
 
 Options specific to cluster
