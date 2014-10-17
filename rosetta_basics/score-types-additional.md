@@ -225,3 +225,119 @@ pair                                       Centroid
 cen_pair_smooth                            fpd smooth centroid pair
 Mpair
 ```
+
+Sucker atom energy
+------------------
+
+```
+suck
+```
+
+RNA low-resolution terms
+------------------------
+
+```
+rna_rg                                     Radius of gyration for RNA
+```
+
+Nucleotide resolution thermodynamics
+------------------------------------
+
+```
+loop_close                                 Loop closure terms - attempting to model full RNA folding free energy
+```
+
+FACTS solvation model
+---------------------
+
+```
+facts_elec
+facts_solv
+facts_sasa
+```
+
+Centroid inter-chain one body (docking) scores
+---------------------------------------
+
+```
+interchain_pair
+interchain_vdw
+```
+
+Other energy terms
+=======================================
+
+Miscellaneous
+-------------
+
+```
+gb_elec
+```
+
+Full-atom disulfide terms
+-------------------------
+
+```
+dslf_cbs_ds                                Rreplaced by dslf_fa13 in talaris2013
+```
+
+
+Centroid disulfide terms
+------------------------
+
+```
+dslfc_cen_dst
+dslfc_cb_dst
+dslfc_ang
+dslfc_cb_dih
+dslfc_bb_dih
+```
+
+Disulfide matching terms
+------------------------
+
+```
+dslfc_rot
+dslfc_trans
+dslfc_RT
+
+Constraint terms
+----------------
+
+atom_pair_constraint                       Harmonic constraints between atoms involved in Watson-Crick base pairs specified by the user in the params file
+constant_constraint
+coordinate_constraint
+angle_constraint
+dihedral_constraint
+big_bin_constraint
+dunbrack_constraint
+site_constraint
+metalhash_constraint                       Rigid body, metal binding constraints for centroid mode
+rna_bond_geometry                          Deviations from ideal geometry
+
+Miscellaneous
+-------------
+
+```
+fa_dun_dev
+fa_dun_rot
+fa_dun_semi
+dna_chi
+p_aa_pp_offset
+yhh_planarity
+h2o_intra
+ref_nc
+seqdep_ref
+nmer_ref
+nmer_pssm
+nmer_svm
+envsmooth
+e_pH
+rna_bulge
+mg_ref                                     Chemical potential for mg(2+) ('reference weight' in Rosetta lingo)
+free_suite                                 Bonus for virtualizing RNA suite
+free_2HOprime                              Bonus for virtualizing RNA 2'-OH
+intermol                                   Cost of instantiating a chain form 1 M std state
+special_rot
+other_pose                                 In preparation for multi-pose stuff
+```
