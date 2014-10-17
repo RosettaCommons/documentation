@@ -1,7 +1,7 @@
 #Additional Energy Terms In Rosetta 
 
 Further Terms
-=====================
+=============
 This section supplements the main [[Score Types|rosetta_basics/score-types]] section with other energy terms available in Rosetta.
 
 Context-independent two-body energy terms
@@ -256,7 +256,7 @@ facts_solv
 facts_sasa
 ```
 
-Centroid inter-chain one body (docking) scores
+Centroid inter-chain one-body (docking) scores
 ---------------------------------------
 
 ```
@@ -343,4 +343,218 @@ free_2HOprime                              Bonus for virtualizing RNA 2'-OH
 intermol                                   Cost of instantiating a chain form 1 M std state
 special_rot
 other_pose                                 In preparation for multi-pose stuff
+```
+
+
+PB potential
+------------
+
+```
+PB_elec
+```
+
+Centroid whole structure energies
+========================
+
+Centroid whole structure energies
+---------------------------------
+
+```
+cen_env_smooth                             fpd smooth centroid env
+cbeta_smooth                               fpd smooth cbeta
+cen_rot_env
+cen_rot_dun
+env
+cbeta
+DFIRE
+Menv
+Mcbeta
+Menv_non_helix
+Menv_termini
+Menv_tm_proj
+Mlipo
+rg                                         Radius of gyration
+rg_local                                   Radius of gyration for repeat proteins
+co                                         Contact order
+hs_pair
+ss_pair
+rsigma
+sheet
+burial                                     Informatic burial prediction
+abego                                      Informatic torsion-bin prediction
+```
+
+Secondary structure scores
+------------------------------------------
+
+```
+natbias_ss
+natbias_hs
+natbias_hh
+natbias_stwist
+```
+
+Amino acid composition score
+----------------------------
+
+```
+aa_cmp
+dock_ens_conf                              Conformer reference energies for docking
+csa                                        NMR chemical shift anisotropy energy
+dc                                         NMR dipolar coupling energy
+rdc                                        NMR residual dipolar coupling energy
+rdc_segments                               Fit alignment on multiple segments independently
+rdc_rohl
+```
+
+Additional score terms
+======================
+
+Miscellaneous
+-------------
+
+```
+holes
+holes_decoy
+holes_resl
+holes_min
+holes_min_mean
+rna_chem_shift                             RNA NMR chemical shift pseudo-energy term
+dab_sasa                                   Classic 1.4A probe solvant accessible surface area
+dab_sev                                    Solvent excluded volume - volume of atoms inflated by 1.4A
+sa                                         Nonpolar contribution in GBSA
+d2h_sa                                     Correlation between SASA and hydrogen exchange data
+ProQM                                      Membrane MQAP
+ProQ                                       MQAP
+```
+
+Centroid interchain one-body (docking) scores
+---------------------------------------------
+
+```
+interchain_env
+interchain_contact
+```
+
+Miscellaneous
+-------------
+
+```
+chainbreak
+linear_chainbreak
+overlap_chainbreak
+distance_chainbreak
+dof_constraint
+rama2b_offset
+omega2b_offset
+cart_bonded                                Cartesian bonded potential
+cart_bonded_angle                          Cartesian bonded potential
+cart_bonded_length                         Cartesian bonded potential
+cart_bonded_torsion                        Cartesian bonded potential
+total_score
+```
+
+
+Neighbor Vector solvation approximation
+---------------------------------------
+
+```
+neigh_vect
+neigh_count
+neigh_vect_raw
+```
+
+Symmetry bonus
+--------------
+
+```
+symE_bonus
+```
+
+Implicit ligand interactions (symmetry)
+---------------------------------------
+
+```
+sym_lig
+```
+
+Packing score energy
+------------------------------------
+
+```
+pack_stat
+```
+
+Model-quality metrics.
+----------------------
+
+```
+rms                                        All-heavy-atom RMSD to the native structure
+```
+
+ResidueConstraint terms
+---------------------
+
+```
+res_type_constraint
+```
+
+Residue Type linking constraint
+-------------------------------
+
+```
+res_type_linking_constraint
+```
+
+PocketConstraint terms
+--------------------
+
+```
+pocket_constraint
+```
+
+BackboneStubConstraint terms
+--------------------------
+
+```
+backbone_stub_constraint
+backbone_stub_linear_constraint
+surface
+p_aa
+unfolded
+```
+
+Fit-to-density score terms
+---------------------
+
+```
+elec_dens_fast
+elec_dens_window
+elec_dens_whole_structure_ca
+elec_dens_whole_structure_allatom
+elec_dens_atomwise
+```
+
+Patterson correlation score terms
+---------------------
+
+```
+patterson_cc
+```
+
+Crystallographic ML target
+--------------------------
+
+```
+xtal_ml
+xtal_rwork
+xtal_rfree
+hpatch
+```
+
+Membrane environment smooth
+---------------------------
+
+```
+Menv_smooth
 ```
