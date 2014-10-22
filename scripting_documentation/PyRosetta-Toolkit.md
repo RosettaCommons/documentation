@@ -24,7 +24,11 @@ There is an awesome file you can put in your $HOME directory called .pymolrc . T
 
 **Run the GUI.**
 
-cd into rosetta\_source/GUIs/pyrosetta\_toolkit. Type 'python pyrosetta\_toolkit.py' If sqlite3 has a problem loading, reinstall python with sqlite3. To do this, usually all you have to do is install sqlite3 and reinstall python. It may be more complex sometimes, so google it, and you'll find a ton of information.
+The GUI code exists both in the rosetta source code at <code>main/source/src/python/bindings/app/pyrosetta_toolkit</code> and in the PyRosetta binary distributions in <code> app/pyrosetta_toolkit</code> If you have sourced SetPyRosettaEnvironment.sh, an alias is created to launch the GUI using the <code>pyrosetta_toolkit</code> command.  
+
+If you have not compiled the PyRosetta bindings from the rosetta source code, please download and use the PyRosetta binaries (recommended if not a Rosetta developer).  Ignore the GUI in the rosetta source as it requires a full PyRosetta compilation.  
+
+If sqlite3 has a problem loading, reinstall python with sqlite3. To do this, usually all you have to do is install sqlite3 and reinstall python. It may be more complex sometimes, so google it, and you'll find a ton of information.
 
 **Load a PDB.**
 
