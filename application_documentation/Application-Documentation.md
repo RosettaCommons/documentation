@@ -53,6 +53,15 @@ While most of these applications focus on prediction, many have options which wi
 -  [[RNA assembly with experimental constraints|rna-assembly]] - Predict 3-dimensional structures of large RNAs with the help of experimental constraints. Note – largely deprecated by newer pipeline (documentation coming soon).
 -  [[ERRASER]] - Refine an RNA structure given electron density constraints.  
 
+###Antibody Modeling
+- [[Antibody protocol]] (RosettaAntibody3) - Overview of the antibody modeling protocol.  
+    * [[Antibody Python script]] - The setup script.  
+    * [[Grafting CDR loops|antibody-assemble-cdrs]] - Graft antibody CDR templates on the framework template to create a rough antibody model.  
+    * [[Modeling CDR H3|antibody-model-CDR-H3]] - Determine antibody structures by combining VL-VH docking and H3 loop modeling.
+
+- [[Camelid antibody docking|antibody-mode-camelid]] - Dock camelid antibodies to their antigens.
+- [[SnugDock | snugdock]] - Paratope structure optimization during antibody-antigen docking
+
 ##Docking
 ###Protein-Protein Docking
 - [[Protein-Protein docking|docking-protocol]] (RosettaDock) - Determine the structures of protein-protein complexes by using rigid body perturbations.  
@@ -61,14 +70,11 @@ While most of these applications focus on prediction, many have options which wi
 - [[Symmetric docking|sym-dock]] - Determine the structure of symmetric homooligomers.  
 
 - [[Chemically conjugated docking|ubq-conjugated]] - Determine the structures of ubiquitin conjugated proteins.  
- 
-###Antibody Docking
-- [[Antibody protocol]] (RosettaAntibody3) - Overview of the antibody modeling protocol.  
-    * [[Antibody Python script]] - The setup script.  
-    * [[Grafting CDR loops|antibody-assemble-cdrs]] - Graft antibody CDR templates on the framework template to create a rough antibody model.  
-    * [[Modeling CDR H3|antibody-model-CDR-H3]] - Determine antibody structures by combining VL-VH docking and H3 loop modeling.
 
+###Antibody Docking
 - [[Camelid antibody docking|antibody-mode-camelid]] - Dock camelid antibodies to their antigens.
+- [[SnugDock | snugdock]] - Paratope structure optimization during antibody-antigen docking
+
 
 ###Ligand Docking
 - [[Ligand docking|ligand-dock]] (RosettaLigand) - Determine the structure of protien-small molecule complexes.  
@@ -118,6 +124,7 @@ While most of these applications focus on prediction, many have options which wi
 - [[Beta strand homodimer design]] - Find proteins with surface exposed beta-strands, then design a homodimer that will form via that beta-strand.  
 
 - [[DougsDockDesignMinimize|doug-dock-design-min-mod2-cal-cal]] - Redesign the protein/peptide interface of Calpain and a fragment of its inhibitory peptide calpastatin.
+
 
 ##Analysis
 
