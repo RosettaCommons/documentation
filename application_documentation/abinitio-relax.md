@@ -4,7 +4,7 @@ Metadata
 ========
 
 Author: David E Kim
-This document was last updated on November, 2010 by David E Kim (dekim@uw.edu) . The PI is David Baker (dabaker@uw.edu) . The AbinitioRelax application was developed by numerous Rosetta Commons members, primarily:
+This document was last updated on October, 2014 by Jared Adolf-Bryfogle. The PI is David Baker (dabaker@uw.edu) . The AbinitioRelax application was developed by numerous Rosetta Commons members, primarily:
 
 -   Kim Simons
 -   Richard Bonneau
@@ -138,6 +138,9 @@ Models from a single silent output file can be clustered using the [[cluster.lin
 
 PDB files of the cluster members are extracted from the silent output file by the cluster application.
 
+We also recommend the use of the Calibur program for clustering models.  See http://www.biomedcentral.com/1471-2105/11/25 and http://sourceforge.net/projects/calibur/
+
+
 Tips
 ====
 
@@ -165,7 +168,7 @@ We recommend generating up to 20,000 to 30,000 models of the target sequence and
 
 In an ideal case, your sequence will have many homologs identified by search tools like PSI-BLAST. Sequence alignments can be extremely helpful in model selection. For example, conserved hydrophobic positions most likely represent the core of the protein so models that have sidechains exposed in such positions may be discarded. The same logic applies to conserved polar positions which are most likely on the surface. Additionally, conserved cysteine pairs may represent disulphides. Tools like Jalview to view alignments and PyMOL to view models are extremely helpful for model selection in this respect.
 
-Score versus RMSD plots may be helpful for identifying convergence towards the native structure for the target sequence and homologs. For example, the lowest scoring model can be used for the `       -in:file:native      ` input option when rescoring models with the [[score.linuxgccrelease|score-commands]] score application. A score versus RMSD plot from the resulting score file may show convergence (an energy funnel) towards the lowest scoring model. If an energy funnel exists, the lowest scoring model has a greater chance of being near-native.
+Score versus RMSD plots may be helpful for identifying convergence towards the native structure for the target sequence and homologs. For example, the lowest scoring model can be used for the `       -in:file:native      ` input option when rescoring models with the [[score.linuxgccrelease|score-commands]] score application. A score versus RMSD plot from the resulting score file may show convergence (an energy funnel) towards the lowest scoring model. If an energy funnel exists, the lowest scoring model has a greater chance of being near-native.  See https://www.rosettacommons.org/node/3813 and https://www.rosettacommons.org/content/how-make-benchmark for discussions on creating Score vs RMSD plots.  The [PyRosetta Toolkit GUI](https://www.rosettacommons.org/docs/wiki/scripting_documentation/PyRosetta-Toolkit-GUI) can also be used for score vs RMSD output and obtaining the set of lowest energy structures found during a run 
 
 Lowest scoring models that are in a cluster and that have a topology represented in the PDB also have a greater chance of being correct. Structure-structure comparison tools like Dali or Mammoth can be used to search against the PDB database.
 
