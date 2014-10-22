@@ -13,4 +13,4 @@ More extensive PyRosetta-specific documentation is availible:
 
 ##The PyRosetta Toolkit
 
-The [[PyRosetta Toolkit]] is a graphical frontend to PyRosetta.
+The [[PyRosetta Toolkit GUI]] is a graphical frontend to PyRosetta written in Python.  A Tutorial and overview of the code base and how to extend it for your own uses can be found [[here | PyRosetta Toolkit]]
