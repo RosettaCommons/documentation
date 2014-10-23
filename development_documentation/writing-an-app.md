@@ -8,4 +8,4 @@ One of the main design goals of Rosetta is that writing new applications and ext
 
 After reading this guide the reader should be able to write their own Rosetta application.
 
-This guide is under construction.
+This guide is under construction.  Clearly a "Writing a 'Writing a Rosetta Application'" page is needed.
