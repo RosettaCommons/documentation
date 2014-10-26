@@ -489,48 +489,10 @@ Optional:
 -   reset\_delta\_filters: comma-separated list of delta\_filters. Will reset the baseline value of each delta filter to match the "best pose" after each accepted mutation during the combining stage. Useful so that the mutations are still evaluated on an individual basis, in the context of the current best pose.
 -   rtmin: do rtmin following repack?
 -   parallel: run the point mutation calculator in parallel, use in conjunction with openMPI
+-   pareto: pareto mode will first attempt isolated/independent mutations defined in the input task operation and score/filter them all using all defined filters. Then, the Pareto-optimal mutations are identified at each position (see: [http://en.wikipedia.org/wiki/Pareto\_efficiency\#Pareto\_frontier (http://en.wikipedia.org/wiki/Pareto_efficiency#Pareto_frontier) ), discarding the non-optimal mutations. Next, the mover attempts to combine the Pareto-optimal mutations at each position. **this is a multiple pose mover, so use nstruct >1. -nstruct 100 is safe. The number of poses cached in memory is limited by nstruct to prevent memory overload**.
 
 ```
-<GreedyOptMutationMover name=(&string) task_operations=(&string comma-separated taskoperations) filter=(&string) scorefxn=(score12 &string) relax_mover=(&string) sample_type=(low &string) diversify_lvl=(1 &int) dump_pdb=(0 &bool) dump_table=(0 &bool) rtmin=(0 &bool) stopping_condition=("" &string) stop_before_condition=(0 &bool) skip_best_check=(0 &bool) reset_delta_filters=(&string comma-separated deltafilters) design_shell=(-1, real) repack_shell=(8.0, &real)/>
-```
-
-## ParetoOptMutationMover
-
-This mover will first attempt isolated/independent mutations defined in the input task operation and score/filter them all using all defined filters. Then, the Pareto-optimal mutations are identified at each position (see: [http://en.wikipedia.org/wiki/Pareto\_efficiency\#Pareto\_frontier](http://en.wikipedia.org/wiki/Pareto_efficiency#Pareto_frontier) ), discarding the non-optimal mutations. Next, the mover attempts to combine the Pareto-optimal mutations at each position. To do this, it starts with the sequence position that has the best score for filter \#1, and combines each of n mutations at that position with m mutations at the next position, producing n\*m new designs. These n\*m designs are then filtered for Pareto-optimality, leaving only the Pareto-optimal set. This process is repeated to the last designable position, producing multiple structures
-
-This mover is parallelizable with MPI. To use it, you must set the option parallel=1, and you must set the nstruct flag equal to nprocs - 1 at the command line.
-
-Important!: This mover produces multiple output structures from one input structure. To get rosetta\_scripts to output these, use nstruct \> 1. The number of structures produced is dependent on the number of filters defined. 2 filters commonly results in \~20 structures.
-
-Note: Each attempted mutation is always followed by repacking all residues in an 8 Å shell around the mutation site. The user-defined relax\_mover is called after that.
-
-Note: Producing the very first output structure requires calculating all point mutant filter scores, which may take a bit, but output of subsequent structures (with nstruct \> 1 ) will re-use this table if it's still valid, making subsequent design calculations significantly faster. However, the table must be recalculated each time if it is receiving different structures at each iteration (e.g. if movers that stochastically change the structure are being used before this mover is called).
-
-Necessary:
-
--   task\_operations: defines designable positions and identities
--   relax\_mover: a mover for post-repacking relaxation (e.g. minimization)
--   multiple filters must be defined with branch tags; see example below!
-
-Example:
-
-```
-<ParetoOptMutationMover name=popt task_operations=task relax_mover=min scorefxn=score12>
-    <Filters>
-       <AND filter_name=filter1 sample_type=low/>
-       <AND filter_name=filter2 sample_type=low/>
-    </Filters>
-</ParetoOptMutationMover>
-```
-
-Optional:
-
--   sample\_type: if your filter values are such that higher = better, use "sample\_type=high"
--   dump\_pdb: if you want to see a pdb of every trial mutation, add "dump\_pdb=1"
--   parallel: run the point mutation calculator in parallel, use in conjunction with openMPI
-
-```
-<ParetoOptMutationMover name=(&string) task_operations=(&string comma-separated taskoperations) scorefxn=(score12 &string) relax_mover=(&string) sample_type=(low &string) dump_pdb=(0 &bool)/>
+<GreedyOptMutationMover name=(&string) task_operations=(&string comma-separated taskoperations) filter=(&string) scorefxn=(score12 &string) relax_mover=(&string) sample_type=(low &string) pareto=(0 &bool) diversify_lvl=(1 &int) dump_pdb=(0 &bool) dump_table=(0 &bool) rtmin=(0 &bool) stopping_condition=("" &string) stop_before_condition=(0 &bool) skip_best_check=(0 &bool) reset_delta_filters=(&string comma-separated deltafilters) design_shell=(-1, real) repack_shell=(8.0, &real)/>
 ```
 
 ## HotspotDisjointedFoldTree
