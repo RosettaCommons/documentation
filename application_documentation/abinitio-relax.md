@@ -48,7 +48,8 @@ Input Files
 
 -   Native structure (optional). The native PDB structure may be used for benchmarking. When used, the RMSD to native is calculated for each model and provided as an extra column in the score line. Example: `        rosetta_demos/abinitio/input_files/1elw.pdb       `
 
--   Psipred secondary structure prediction psipred\_ss2 file (optional). The Psipred secondary structure prediction file is necessary when the -use\_filters and -kill\_hairpins options are used (see below). Note: the fragment webserver runs Psipred and provides the psipred\_ss2 output file. Example: `        rosetta_demos/abinitio/input_files/1elwA.psipred_ss2       `
+-   Psipred secondary structure prediction psipred\_ss2 file (optional). The Psipred secondary structure prediction file is necessary when the -use\_filters and -kill\_hairpins options are used (see below). Note: the fragment webserver runs Psipred and provides the psipred\_ss2 output file. Example: `        rosetta_demos/abinitio/input_files/1elwA.psipred_ss2. `
+Please note that the file format for these options has changed between Rosetta3.4 and 3.5 (the demo is also out of date).  Please see  [this](https://www.rosettacommons.org/content/killhairpin-error) post for more information.
 
 Options
 =======
@@ -89,7 +90,7 @@ There are several optional settings which have been benchmarked and tested thoro
                                                 performance hit.
 -kill_hairpins ./input_files/1elwA.psipred_ss2  Setup hairpin killing in score (kill hairpin file or psipred file). This option is useful for all-beta
                                                 or alpha-beta proteins with predicted strands adjacent in sequence since hairpins are often sampled too
-                                                frequently.
+                                                frequently.  Note that the file format has changed from 3.4 to 3.5.  See Input Files section.
 ```
 
 For running multiple jobs on a cluster the following options are useful:
