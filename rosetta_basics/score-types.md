@@ -24,8 +24,8 @@ rama                                       Ramachandran preferences
 omega                                      Omega dihedral in the backbone. A Harmonic constraint on planarity with standard deviation of ~6 deg.
 fa_dun                                     Internal energy of sidechain rotamers as derived from Dunbrack's statistics (2010 Rotamer Library used in Talaris2013)
 p_aa_pp                                    Probability of amino acid at Φ/Ψ
-ref                                        Reference energy for each amino acid
-METHOD_WEIGHTS                             Not an energy term itself, but the parameters for each amino acid used by the ref energy term 
+ref                                        Reference energy for each amino acid. Balances internal energy of amino acid terms.  Plays role in design.
+METHOD_WEIGHTS                             Not an energy term itself, but the parameters for each amino acid used by the ref energy term. 
 ```
 
 Additional energy terms for score12
