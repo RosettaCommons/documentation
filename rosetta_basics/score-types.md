@@ -21,7 +21,7 @@ hbond_bb_sc                                Sidechain-backbone hydrogen bond ener
 hbond_sc                                   Sidechain-sidechain hydrogen bond energy
 dslf_fa13                                  Disulfide geometry potential
 rama                                       Ramachandran preferences
-omega                                      Omega dihedral in the backbone
+omega                                      Omega dihedral in the backbone. A Harmonic constraint on planarity with standard deviation of ~6 deg.
 fa_dun                                     Internal energy of sidechain rotamers as derived from Dunbrack's statistics
 p_aa_pp                                    Probability of amino acid at Φ/Ψ
 ref                                        Reference energy for each amino acid
