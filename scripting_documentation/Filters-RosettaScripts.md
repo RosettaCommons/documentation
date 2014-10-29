@@ -861,6 +861,20 @@ Calculates the all atom RMSD for a single residue, either with or without the ba
 -   include\_backbone: Whether to include the backbone in the RMSD calculation. (It is recommended to set this to "true" for ligands and other residues which don't have a backbone.)
 -   threshold: In a truth value context, what's the maximum RMSD value which is considered to be passing.
 
+#### IRmsd
+
+Calculates an interface rmsd. Rmsd is calculated over all backbone atoms for those residues found in the interface of the reference structure. Interface residues are those residues which are within 8 Angstroms of any residue on the other side of the interface.
+
+```
+<IRmsd name=(&string) jump=(&int 1) threshold=(&Real 5) reference_pose=(&string) scorefxn=(&string talaris2013) />
+```
+
+- jump: Which jump defines the interface
+- threshold: In truth value contexts, evaluate to true if the calculated interface rmsd is less than this value
+- reference_pose: The name of the pose to calculate the rmsd with respect to. (From SavePoseMover). If not given, use the structure specified with -in:file:native instead. If no native pose or reference is given, use the input structure.
+- scorefxn: The scorefunction used in calculating the interface. (As the interface is defined by distance, rather than score, the choice of scorefunction is not critical.)
+
+
 #### SequenceRecovery
 
 Calculates the fraction sequence recovery of a pose compared to a reference pose. This is similar to the [[InterfaceRecapitulation|Movers-RosettaScripts#InterfaceRecapitulation]] mover, but does not require a design mover. Instead, the user can provide a list of task operations that describe which residues are designable in the pose. Works with symmetric poses and poses with symmetric "building blocks". Can also filter based on/report to the scorefile the number of mutations rather than the recovery rate if desired by using the report\_mutations and mutation\_threshold options. Will output the specific mutations to the tracer if the option verbose=1. The reference pose against which the recovery rate will be computed can be defined using the -in:file:native command-line flag. If that flag is not defined, the starting pose will be used as a reference.
