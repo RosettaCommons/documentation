@@ -140,3 +140,16 @@ There are a few good places to look for help.
 4. Supplemental material of newer Rosetta papers should have the full command-line to use and all the options that were used to generate whatever data the paper is referring to.  Though there may be some option-name-drift through time, these research articles are a great place to start.  
 
 5. If you still require help to run a particular Rosetta application or protocol, checkout www.rosettacommons.org/forum for more information.  The corresponding author of the application or protocol may be able to help as well.
+
+General tips for running Rosetta
+=========================
+* Most applications use the -s and -l options to specify a single input PDB or a file that lists PDBs, commonly called a PDBLIST.  The PDBList file should specify the full path to the PDB (one on each line), unless <code>-in:path:pdb directory/to/pdb/files</code> is specified.  See [[this page | input-options]] for more common input options.
+<br>
+<br>
+* By default, Rosetta will ignore atoms from an input PDB whose occupancy is 0.  If you are missing residues or atoms during a run, this is most likely the cause.  To have Rosetta read these atoms anyway, pass the option <code>-ignore_zero_occupancy false</code>
+<br>
+<br>
+* By default, Rosetta will fail to load a PDB on residues/ligands it does not recognize, although parameters for these residue types may exist.  This is due to the memory needed to understand all of these residue types and their potential chemical modifications (yes, ligands are a residue type.  Rosetta is residue-centric).  Rosetta probably has parameters for your particular residue type. To enable these residue types, see [[this page | How-to-turn-on-residue-types-that-are-off-by-default]].  To ignore these, pass the option <code>-ignore_unrecognized_res</code>
+<br>
+<br>
+* By default, Rosetta will fail to load a PDB with waters.  This is intentional, as most of the Rosetta applications do not deal with water molecules well and the default scorefunction uses implicit solvation. To have Rosetta read the common WAT type, pass the option <code>-ignore_waters false</code>
