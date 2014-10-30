@@ -8,6 +8,9 @@ Misc
 ```
 -in:ignore_unrecognized_res     Do not abort if unknown residues are found in PDB file;  instead, ignore them.
                                 default='false' [Boolean].
+-ignore_zero_occupancy          By default, Rosetta will ignore atoms in input PDB files whose occupancy
+                                is 0.  To read those atoms/residues anyway, pass false to this option. 
+                                default='true' [Boolean].
 -in:ignore_waters               Ignore only WAT water molecules. Default=false. [Boolean].
 -in:path:database               Database file input search paths.
                                  If the database option is not given or the database is not found, 
