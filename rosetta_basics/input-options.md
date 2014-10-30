@@ -1,6 +1,6 @@
 <!-- --- title: Input Options -->
 
-Here is a list of common used input options. For most of these options, the option groups (in:path etc) do not need to be given. 
+Here is a list of common used input options. For most of these options, the option groups (in:path etc) do not need to be given. The option groups need to be given only for options that have the same name as other options in other option groups.  Rosetta will warn you if this is the case.
 
 Misc
 ====
