@@ -10,7 +10,6 @@
     * [[Run options]]
     * [[Score options]]
     * [[Packing options]]
-    * [[Full options list|full-options-list]] - A (mostly) complete list of availible Rosetta options.
 - [[Renamed and Deprecated Options]]
 - Scripting Rosetta
     * [[RosettaScripts]]
