@@ -1351,7 +1351,11 @@ For building multiple disulfides simultaneously using RemodelMover, use the foll
 ```
 
 -   `      build_disulf     ` : indicates that disulfides should be built into the structure
--   `      match_rt_limit     ` : RMSD limit between two residue backbones and a disulfide in the database, used to determine if a disulfide can be built between those residues. 1.0 is strict, 2.0 is loose, 6.0 is very loose, \>6 makes no difference.
+-   `      use_match_rt    ` : Handles disulfide searching by computing the rotation-translation (RT) matrix between all pairs of residue backbones, and comparing these RT matrices to a database of known disulfides.  Euclidian distance is used to determine the similarity between the query RT matrix and each disulfide in the database.  The cutoff for similarity between the RT matrix and a known disulfide is match_rt_limit (below).  Default true.
+-   `      match_rt_limit     ` : Upper threshold for determining if two residues can form a disulfide based on the RT matrix between their backbone atoms.  1.0 is strict, 2.0 is loose, 6.0 is very loose, \>6 makes no difference.  Default 1.0.
+-   `      use_disulf_fa_score    ` : Handles disulfide searching by actually building disulfide bonds between all pairs of residues within a distance cutoff, minimizing these, scoring the disulfides using the default full-atom disulfide potential (dslf_fa13), and then applying an upper threshold.  Some backbone flexibility may be allowed in the minimization.  Default false.
+-   `      disulf_fa_max     ` : Upper threshold for determining if two residues can form a disulfide based on actually building and minimizing a disulfide there.  Default -0.25.
+-   `      relax_bb_for_disulf     ` : Allow backbone minimization during disulfide building using use_disulf_fa_score.  This backbone relaxation is done on a poly-alanine backbone and thus the backbone may be more flexible than is actually feasible for a given structure, resulting in accepting disulfides that will be strained on the actual structure.  Allowing backbone minimization should increase the overall number of possible disulfide bonds found.  Default false.
 -   `      quick_and_dirty     ` : Bypass the refinement step within remodel; useful to save time if performing refinement elsewehere
 -   `      bypass_fragments     ` : Bypasses rebuilding the structure from fragments
 -   `      min_disulfides     ` : Specifies the minimum number of disulfides required in the output structure. If min\_disulfides is greater than the number of potential disulfides that pass match\_rt\_limit, the protocol will fail. **This is only read/applied if build\_disulf or fast\_disulf are set to true.**
@@ -1360,6 +1364,7 @@ For building multiple disulfides simultaneously using RemodelMover, use the foll
 -   `      fast_disulf     ` : Sets the build\_disulf, quick\_and\_dirty, and bypass\_fragment flags to true. Also bypasses any design during remodel, including building the disulfide itself! This means that the remodel mover must be followed by a design mover such as FastDesign. This is my recommended method for building multiple disulfides into a *de novo* scaffold.
 -   `      keep_current_disulfides     ` : Will prevent Remodel from using a residue that is already part of a disulfide to form a new disulfide
 -   `      include_current_disulfides     ` : Forces Remodel to include the existing disulfides on the list of potential disulfides (not much purpose except for debugging).
+
 
 Note that no blueprint is required when fast\_disulf or build\_disulf; if no blueprint is provided, all residues will be considered as potential cysteine locations.
 
