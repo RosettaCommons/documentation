@@ -65,10 +65,6 @@ Outdated.... (wil deprecate 9/29/14)
 - [[PeptideStubMover]]
 - [[DeclareBond]]
 - [[SetTorsion]] -- updated with new functionality; documentation needs to be written
-- [[GeneralizedKIC]]
-     - [[GeneralizedKICperturber]]
-     - [[GeneralizedKICfilter]] -- documentation incomplete
-     - [[GeneralizedKICselector]]
 
 ### Stepwise Assembly and Monte Carlo Project
 - [[General application documentation|stepwise]] is publicly viewable.
