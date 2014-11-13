@@ -773,8 +773,8 @@ See the [[GeneralizedKIC documentation|GeneralizedKIC]] for details about [[Gene
 Generates a helical bundle using the Crick equations (which describe a helix of helices).  This mover is general enough to create arbitrary helices using arbitrary backbones.  Since strands are a special case of a helix (in which the turn per residue is about 180 degrees), the mover can also generate beta-barrels or other strand bundles.  The generated secondary structure elements are disconnected, so subsequent movers (e.g. <b>GeneralizedKIC</b>) must be invoked to connect them with loops.
 
 ```
-<MakeBundle name=(&string) reset=(true &bool) symmetry=(0 &int) set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) omega1=(0.0 &real) z1=(0.0 &real) delta_omega1=(0.0 &real) invert=(false &bool) >
-     <Helix set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) omega1=(0.0 &real) z1=(0.0 &real) delta_omega1=(0.0 &real) invert=(false &bool) />
+<MakeBundle name=(&string) reset=(true &bool) symmetry=(0 &int) set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) omega1=(0.0 &real) z1=(0.0 &real) delta_omega1=(0.0 &real) delta_t=(0.0 &real) invert=(false &bool) >
+     <Helix set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) omega1=(0.0 &real) z1=(0.0 &real) delta_omega1=(0.0 &real) delta_t=(0.0 &real) invert=(false &bool) />
 ...
 </MakeBundle>
 ```
@@ -782,13 +782,14 @@ Generates a helical bundle using the Crick equations (which describe a helix of 
 Options in the <b>MakeBundle</b> tag set defaults for the whole bundle.  Individual helices are added with the <b>Helix</b> sub-tags, each of which may include additional options overriding the defaults.  The parameters that can be adjusted are:
 
 <b>set_bondlengths, set_bondangles, set_dihedrals</b>: Should the mover be able to set each of these DOF types?  By default, only dihedrals are permitted to vary.  Allowing bond angles and bond lengths to vary creates non-ideal backbones, but which are flexible enough to more perfectly form a helix of helices.  (Slight deviations form perfect major helices are seen with only dihedrals being set.)<br/>
-<b>r0</b>: The major helix radius (the radius of the bundle).<br/>
-<b>omega0</b>:  The major helix turn per residue, in radians.  If set too high, no sensible geometry can be generated, and the mover throws an error.<br/>
+<b>r0</b>: The major helix radius (the radius of the bundle, in Angstroms).<br/>
+<b>omega0</b>:  The major helix turn per residue, in radians.  If set too high, no sensible geometry can be generated, and the mover throws an error.  <i>Note: All angular values are in <b>radians</b>.</i><br/>
 <b>delta_omega0</b>:  An offset value for <b>omega0</b> that will rotate the generated helix about the bundle axis.<br/>
 <b>crick_params_file</b>:  A filename containing parameters for the minor helix.  The Rosetta database currently contains three sets of minor helix parameters: "alpha_helix", "beta_strand", and "14_helix".  The first two are for the canonical alpha-amino acid secondary structures, and the third is the major helix type that beta-amino acids are observed to form.<br/>
 <b>omega1</b>:  The minor helix turn per residue.  This is usually set with a Crick parameters file, but this option overrides whatever value is read in from the file.<br/>
 <b>delta_omega1</b>:  An offset value for <b>omega1</b>.  This rotates the generated helix about the minor helix axis ("rolling" the helix).<br/>
 <b>z1</b>:  The minor helix rise per residue.  This is usually set with a Crick parameters file, but this option overrides whatever value is read in from the file.<br/>
+<b>delta_t</b>:  Shifts the registry of the helix.  (This value is the number of amino acid residues by which the helix should be shifted.)
 <b>invert</b>:  This reverses the direction of a helix, which makes it easy to generate antiparallel bundles or sheets.<br/>
 
 In addition, the following options can only be set for the bundle as a whole:
