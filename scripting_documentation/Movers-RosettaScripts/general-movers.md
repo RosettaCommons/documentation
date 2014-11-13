@@ -781,19 +781,19 @@ Generates a helical bundle using the Crick equations (which describe a helix of 
 
 Options in the <b>MakeBundle</b> tag set defaults for the whole bundle.  Individual helices are added with the <b>Helix</b> sub-tags, each of which may include additional options overriding the defaults.  The parameters that can be adjusted are:
 
-<b>set_bondlengths, set_bondangles, set_dihedrals</b>: Should the mover be able to set each of these DOF types?  By default, only dihedrals are permitted to vary.  Allowing bond angles and bond lengths to vary creates non-ideal backbones, but which are flexible enough to more perfectly form a helix of helices.  (Slight deviations form perfect major helices are seen with only dihedrals being set.)
-<b>r0</b>: The major helix radius (the radius of the bundle).
-<b>omega0</b>:  The major helix turn per residue, in radians.  If set too high, no sensible geometry can be generated, and the mover throws an error.
-<b>delta_omega0</b>:  An offset value for <b>omega0</b> that will rotate the generated helix about the bundle axis.
-<b>crick_params_file</b>:  A filename containing parameters for the minor helix.  The Rosetta database currently contains three sets of minor helix parameters: "alpha_helix", "beta_strand", and "14_helix".  The first two are for the canonical alpha-amino acid secondary structures, and the third is the major helix type that beta-amino acids are observed to form.
-<b>omega1</b>:  The minor helix turn per residue.  This is usually set with a Crick parameters file, but this option overrides whatever value is read in from the file.
-<b>delta_omega1</b>:  An offset value for <b>omega1</b>.  This rotates the generated helix about the minor helix axis ("rolling" the helix).
-<b>z1</b>:  The minor helix rise per residue.  This is usually set with a Crick parameters file, but this option overrides whatever value is read in from the file.
-<b>invert</b>:  This reverses the direction of a helix, which makes it easy to generate antiparallel bundles or sheets.
+<b>set_bondlengths, set_bondangles, set_dihedrals</b>: Should the mover be able to set each of these DOF types?  By default, only dihedrals are permitted to vary.  Allowing bond angles and bond lengths to vary creates non-ideal backbones, but which are flexible enough to more perfectly form a helix of helices.  (Slight deviations form perfect major helices are seen with only dihedrals being set.)<br/>
+<b>r0</b>: The major helix radius (the radius of the bundle).<br/>
+<b>omega0</b>:  The major helix turn per residue, in radians.  If set too high, no sensible geometry can be generated, and the mover throws an error.<br/>
+<b>delta_omega0</b>:  An offset value for <b>omega0</b> that will rotate the generated helix about the bundle axis.<br/>
+<b>crick_params_file</b>:  A filename containing parameters for the minor helix.  The Rosetta database currently contains three sets of minor helix parameters: "alpha_helix", "beta_strand", and "14_helix".  The first two are for the canonical alpha-amino acid secondary structures, and the third is the major helix type that beta-amino acids are observed to form.<br/>
+<b>omega1</b>:  The minor helix turn per residue.  This is usually set with a Crick parameters file, but this option overrides whatever value is read in from the file.<br/>
+<b>delta_omega1</b>:  An offset value for <b>omega1</b>.  This rotates the generated helix about the minor helix axis ("rolling" the helix).<br/>
+<b>z1</b>:  The minor helix rise per residue.  This is usually set with a Crick parameters file, but this option overrides whatever value is read in from the file.<br/>
+<b>invert</b>:  This reverses the direction of a helix, which makes it easy to generate antiparallel bundles or sheets.<br/>
 
 In addition, the following options can only be set for the bundle as a whole:
-<b>reset</b>:  If "true" (the default), then the input pose is deleted and new geometry is generated.  If "false", then the geometry is added to the input pose as new chains.
-<b>symmetry</b>:  Defines the radial symmetry of the bundle.  If set to something other than 0 (the default) or 1, then each helix specified is repeated this many times around the z-axis.  For example, if the script defined 2 helices and symmetry were set to 3, a total of 6 helices would be generated.  <i>Note:  At the present time, this mover does not automatically set up a symmetric conformation that symmetry-aware movers will respect.</i>  Other symmetrization movers must be invoked if the intent is to preserve symmetry during subsequent design or minimization steps.
+<b>reset</b>:  If "true" (the default), then the input pose is deleted and new geometry is generated.  If "false", then the geometry is added to the input pose as new chains.<br/>
+<b>symmetry</b>:  Defines the radial symmetry of the bundle.  If set to something other than 0 (the default) or 1, then each helix specified is repeated this many times around the z-axis.  For example, if the script defined 2 helices and symmetry were set to 3, a total of 6 helices would be generated.  <i>Note:  At the present time, this mover does not automatically set up a symmetric conformation that symmetry-aware movers will respect.</i>  Other symmetrization movers must be invoked if the intent is to preserve symmetry during subsequent design or minimization steps.<br/>
 
 # Other Pose Manipulation
 
