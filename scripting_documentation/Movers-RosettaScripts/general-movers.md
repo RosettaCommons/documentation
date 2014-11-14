@@ -288,6 +288,8 @@ Note that only one of the 5 can exist in a tag: extra\_scoring,ppk\_only,pep\_re
      lowres_abinitio=(&boolean) peptide_chain=(&string) receptor_chain=(&string) 
     ppk_only=(&boolean) scorefxn=(&string) extra_scoring=(&boolean)/>
 
+{{ md ../LoopModeling.md }}
+
 # Backbone Design
 
 ## ConnectJumps
