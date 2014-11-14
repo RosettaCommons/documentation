@@ -52,22 +52,35 @@ like this:
 ## LoopModeler
 
 LoopModeler carries out an entire loop modeling simulation, including the 
-build, centroid, and fullatom stages described above.  Each of these stages can 
+build, centroid, and fullatom steps described above.  Each of these steps can 
 be enabled, disabled, and otherwise configured.  By default, nothing needs to 
-be specified and a standard loop modeling simulation will be performed.
+be specified and a basic loop modeling simulation will be performed.
 
-Note that LoopModeler is really just a wrapper around the movers described 
-below.  It's role is to provide sensible defaults and to make it easy to 
-override some of those defaults without affecting others.  If you're willing 
-to manually specify the default parameters, you could run the exact same 
-simulation by composing the movers described below.  This approach would be 
-more verbose, but in some ways it would also be more flexible.
+For the loop building step, the default algorithm makes 10K attempts to create 
+an initial closed backbone using kinematic closure (KIC).  For both refinement 
+steps, the default algorithm uses a simulated annealing Monte Carlo algorithm
+with no score function ramping (ramping of the rama and repulsive terms can be 
+enabled).  In centroid mode, there are 5 annealing cycles, and in each the 
+temperature drops from 2.0 to 1.0 over 20 steps times the length of the loop(s) 
+being sampled.  The Monte Carlo moves are KIC followed by gradient 
+minimization.  In fullatom mode, there are 5 annealing cycles, and in each the 
+temperature drops from 1.5 to 0.5 over 20 steps times the length of the loop.  
+The Monte Carlo moves are KIC followed by sidechain repacking (once every 20 
+moves) or rotamer trials (otherwise) followed by gradient minimization of both 
+backbone and sidechain DOFs.
+
+Note that LoopModeler is really just a wrapper around the movers described in 
+the rest of this section.  It's role is to provide sensible defaults and to 
+make it easy to override some of those defaults without affecting others.  If 
+you're willing to manually specify the default parameters, you could run the 
+exact same simulation by composing other movers.  This approach would be more 
+verbose, but in some ways it would also be more flexible.
 
 ```xml
 <LoopModeler name=(&string) config=("" &string) fast=(no &bool) 
 scorefxn_cen=(&string) scorefxn_fa=(&string) auto_refine=(yes &bool) >
 
-    <Loop start=(&int) stop=(&int)/>
+    <Loop start=(&int) stop=(&int) />
 
     <Build skip=(no &bool) (any LoopBuilder option or subtag) />
 
@@ -75,7 +88,7 @@ scorefxn_cen=(&string) scorefxn_fa=(&string) auto_refine=(yes &bool) >
 
     <Fullatom skip=(no &bool) (any LoopProtocol option or subtag) />
 
-    <(Any LoopMover tags)/>
+    <(Any LoopMover tags) />
 
 </LoopModeler>
 
