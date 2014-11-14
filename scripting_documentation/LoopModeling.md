@@ -63,7 +63,7 @@ to manually specify the default parameters, you could run the exact same
 simulation by composing the movers described below.  This approach would be 
 more verbose, but in some ways it would also be more flexible.
 
-```
+```xml
 <LoopModeler name=(&string) config=("" &string) fast=(no &bool) 
 scorefxn_cen=(&string) scorefxn_fa=(&string) auto_refine=(yes &bool) >
 
