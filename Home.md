@@ -17,10 +17,6 @@ Rosetta is distributed as source, and thus will require being [[compiled and ins
 |:---------------------:|:------------------------:|:---------------------------:|:---------------------------:|
 |[[/images/hammer.png|align=center]] |[[/images/start_flag.png|align=center]]|[[/images/power.png|align=center]]        |[[/images/wrench.png|align=center]]       |
 
-<!--- BEGIN_INTERNAL -->
-|[[Internal Documentation]]|
-|:------------------------:|
-|[[/images/logo.png|align=center]]      |
-<!--- END_INTERNAL --> 
+ 
 
 <sub>Note to Rosetta developers: make edits at this [link](https://www.rosettacommons.org/docs/wiki/), and they will show up for all users [here](https://www.rosettacommons.org/docs/latest/) at the same time that weekly builds are released.</sub>
