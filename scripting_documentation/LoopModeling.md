@@ -75,7 +75,7 @@ scorefxn_cen=(&string) scorefxn_fa=(&string) auto_refine=(yes &bool) >
 
     <Fullatom skip=(no &bool) (any LoopProtocol option or subtag) />
 
-    <Any LoopMover tags/>
+    <(Any LoopMover tags)/>
 
 </LoopModeler>
 
