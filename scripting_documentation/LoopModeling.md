@@ -51,9 +51,35 @@ like this:
   
 ## LoopModeler
 
-General description
+LoopModeler carries out an entire loop modeling simulation, including the 
+build, centroid, and fullatom stages described above.  Each of these stages can 
+be enabled, disabled, and otherwise configured.  By default, nothing needs to 
+be specified and a standard loop modeling simulation will be performed.
 
-XML example
+Note that LoopModeler is really just a wrapper around the movers described 
+below.  It's role is to provide sensible defaults and to make it easy to 
+override some of those defaults without affecting others.  If you're willing 
+to manually specify the default parameters, you could run the exact same 
+simulation by composing the movers described below.  This approach would be 
+more verbose, but in some ways it would also be more flexible.
+
+```
+<LoopModeler name=(&string) config=("" &string) fast=(no &bool) 
+scorefxn_cen=(&string) scorefxn_fa=(&string) auto_refine=(yes &bool) >
+
+    <Loop start=(&int) stop=(&int)/>
+
+    <Build skip=(no &bool) (any LoopBuilder option or subtag) />
+
+    <Centroid skip=(no &bool) (any LoopProtocol option or subtag) />
+
+    <Fullatom skip=(no &bool) (any LoopProtocol option or subtag) />
+
+    <Any LoopMover tags/>
+
+</LoopModeler>
+
+```
 
 Tag description
 
