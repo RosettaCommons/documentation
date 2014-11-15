@@ -120,10 +120,9 @@ Options:
   because they allow you to change the real sampling move (e.g. KIC, CCD, 
   backrub, etc.) without having to worry about things loop modeling normally 
   does behind the scenes.  But if you may want to manually specify your own 
-  refinement moves, you have to disable auto_refine.
-
-  Note that this option can be specified either for the whole LoopModeler or 
-  individually in the Centroid of Fullatom tags.
+  refinement moves, you have to disable auto_refine.  Also note that this 
+  option can be specified either for the whole LoopModeler or individually in 
+  the Centroid of Fullatom tags.
 
 Subtags:
 
