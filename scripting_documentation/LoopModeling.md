@@ -80,7 +80,7 @@ verbose, but in some ways it would also be more flexible.
 <LoopModeler name=(&string) config=("" &string) fast=(no &bool) 
 scorefxn_cen=(&string) scorefxn_fa=(&string) auto_refine=(yes &bool) >
 
-    <Loop start=(&int) stop=(&int) />
+    <Loop start=(&int) stop=(&int) cut=(&int) skip_rate=(0.0 &real) rebuild=(no &bool) />
 
     <Build skip=(no &bool) (any LoopBuilder option or subtag) />
 
@@ -122,11 +122,22 @@ Options:
   does behind the scenes.  But if you may want to manually specify your own 
   refinement moves, you have to disable auto_refine.  Also note that this 
   option can be specified either for the whole LoopModeler or individually in 
-  the Centroid of Fullatom tags.
+  the Centroid or Fullatom subtags.
 
 Subtags:
 
-* 
+* Loop: Specify a loop to model.  This tag may be specified multiple times to 
+  sample multiple loops.   The skip rate controls how often that loop is 
+  skipped when picking a random loop to sample.  The rebuild flag controls 
+  whether or not the build step is skipped for that loop.
+
+* Build: Configure the build step.  
+
+* Centroid:
+
+* Fullatom:
+
+* Any LoopMover:
 
 Caveats
   fold tree
