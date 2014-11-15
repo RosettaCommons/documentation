@@ -64,8 +64,8 @@ enabled).  In centroid mode, there are 5 annealing cycles, and in each the
 temperature drops from 2.0 to 1.0 over 20 steps times the length of the loop(s) 
 being sampled.  The Monte Carlo moves are KIC followed by gradient 
 minimization.  In fullatom mode, there are 5 annealing cycles, and in each the 
-temperature drops from 1.5 to 0.5 over 20 steps times the length of the loop.  
-The Monte Carlo moves are KIC followed by sidechain repacking (once every 20 
+temperature drops from 1.5 to 0.5 over 20 steps times the length of the loop.  The
+Monte Carlo moves are KIC followed by sidechain repacking (once every 20 
 moves) or rotamer trials (otherwise) followed by gradient minimization of both 
 backbone and sidechain DOFs.
 
@@ -88,7 +88,7 @@ scorefxn_cen=(&string) scorefxn_fa=(&string) auto_refine=(yes &bool) >
 
     <Fullatom skip=(no &bool) (any LoopProtocol option or subtag) />
 
-    <(Any LoopMover tags) />
+    <(Any LoopMover tags) />...
 
 </LoopModeler>
 
