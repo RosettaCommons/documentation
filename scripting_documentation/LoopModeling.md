@@ -95,17 +95,17 @@ scorefxn_cen=(&string) scorefxn_fa=(&string) auto_refine=(yes &bool) >
 
 Options:
 
-* config: Set the base configuration to use.  The base configurations provide  
+* config: Set the base configuration to use.  The base configurations provide
   default values for every parameter of the simulation, but in practice they 
   mostly differ in how they configure the local backbone move used in the 
-  refinement steps.  Currently, this option must be either "kic" or  
+  refinement steps.  Currently, this option must be either "kic" or 
   "kic_with_frags".  "kic" is the default and carries out the algorithms 
   described above.  "kic_with_frags" is similar to "kic", but uses fragments 
   instead of Ramachandran samples to make backbone moves.  If you use 
   "kic_with_frags", you must also specify fragment files on the command line 
   using the '-loops:frag_sizes' and '-loops:frag_files' options.
 
-* fast: If "yes", the simulation will use a severely reduced number of cycles.  
+* fast: If "yes", the simulation will use a severely reduced number of cycles. 
   Only meant to be used for debugging.
 
 * scorefxn_cen: The score function to use for the centroid refinement step.
