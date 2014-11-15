@@ -78,7 +78,7 @@ verbose, but in some ways it would also be more flexible.
 
 ```xml
 <LoopModeler name=(&string) config=("" &string) loops_file=(&string) fast=(no &bool) 
-scorefxn_cen=(&string) scorefxn_fa=(&string) auto_refine=(yes &bool) >
+scorefxn_cen=(&string) scorefxn_fa=(&string) task_operation=(&string) auto_refine=(yes &bool) >
 
     <Loop start=(&int) stop=(&int) cut=(&int) skip_rate=(0.0 &real) rebuild=(no &bool) />
 
@@ -116,6 +116,12 @@ Options:
 
 * scorefxn_fa: The score function to use for the fullatom refinement step.
 
+* task_operation: The task operation to use for sidechain packing in the 
+  fullatom refinement step.  By default, all residues within 10A of the loop 
+  will be packed.  If you specify your own task operation, only the residues 
+  you specify will be packed or designed, so you are responsible for choosing a 
+  reasonable packing shell.
+
 * auto_refine: By default, both the centroid and fullatom steps automatically 
   run a refinement move after each backbone move.  In centroid mode, the 
   refinement move is just gradient minimization.  In fullatom mode, the 
@@ -140,25 +146,35 @@ Subtags:
   will be rebuilt.  You may also provide this tag with any option or subtag 
   that would be understood by LoopBuilder.
 
+* Any LoopMover: LoopMover subtags given within a LoopModeler tag control the 
+  local backbone Monte Carlo moves used in the centroid and fullatom refinement 
+  stages.  For example, this could be used to use backrub instead of KIC in an 
+  otherwise default loop modeling simulation.  The technical definition of a 
+  LoopMover is anything in C++ that inherits from LoopMover, but the practical 
+  definition is any Mover described on this page.  If you specify more than one 
+  LoopMover, they will be executed in the order specified.  If you only want to 
+  specify a backbone move for either centroid or fullatom mode, specify your 
+  LoopMover inside the Centroid or Fullatom subtag.
+
 * Centroid: Configure the centroid refinement step.  If "skip" is enabled, this 
   step will be skipped.  You may also provide this tag with any option or 
   subtag that would be understood by LoopProtocol.  This includes options to 
-  control how many moves to make and how annealing should work.  Subtags 
-  control how the MonteCarlo move itself works, and should be LoopMover tags.
+  control how many moves to make and how annealing should work.
 
 * Fullatom: Configure the fullatom refinement step.  If "skip" is enabled, this 
   step will be skipped.  You may also provide this tag with any option or 
   subtag that would be understood by LoopProtocol.  This includes options to 
-  control how many moves to make and how annealing should work.  Subtags 
-  control how the MonteCarlo move itself works, and should be LoopMover tags.
+  control how many moves to make and how annealing should work.
 
-* Any LoopMover:
-  
+Caveats:
 
-Caveats
-  fold tree
-  default task ops
-  expected input: protein
+* Only canonical protein backbones can be modeled by LoopModeler.  Noncanonical 
+  polymers and ligands can be present in the pose; they just can't be part of 
+  the regions being modeled.
+
+* LoopModeler ignores the fold tree in the input pose and creates its own based 
+  on the needs of the backbone moves that will be carried out.  The original 
+  fold tree is restored just before LoopModeler returns.
 
 ## LoopBuilder
 
