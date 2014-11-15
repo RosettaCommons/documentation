@@ -93,7 +93,41 @@ scorefxn_cen=(&string) scorefxn_fa=(&string) auto_refine=(yes &bool) >
 </LoopModeler>
 ```
 
-Tag description
+Options:
+
+* config: Set the base configuration to use.  The base configurations provide  
+  default values for every parameter of the simulation, but in practice they 
+  mostly differ in how they configure the local backbone move used in the 
+  refinement steps.  Currently, this option must be either "kic" or  
+  "kic_with_frags".  "kic" is the default and carries out the algorithms 
+  described above.  "kic_with_frags" is similar to "kic", but uses fragments 
+  instead of Ramachandran samples to make backbone moves.  If you use 
+  "kic_with_frags", you must also specify fragment files on the command line 
+  using the '-loops:frag_sizes' and '-loops:frag_files' options.
+
+* fast: If "yes", the simulation will use a severely reduced number of cycles.  
+  Only meant to be used for debugging.
+
+* scorefxn_cen: The score function to use for the centroid refinement step.
+
+* scorefxn_fa: The score function to use for the fullatom refinement step.
+
+* auto_refine: By default, both the centroid and fullatom steps automatically 
+  run a refinement move after each backbone move.  In centroid mode, the 
+  refinement move is just gradient minimization.  In fullatom mode, the 
+  refinement move is sidechain repacking/rotamer trials followed by gradient 
+  minimization.  These automatic refinement moves are normally convenient, 
+  because they allow you to change the real sampling move (e.g. KIC, CCD, 
+  backrub, etc.) without having to worry about things loop modeling normally 
+  does behind the scenes.  But if you may want to manually specify your own 
+  refinement moves, you have to disable auto_refine.
+
+  Note that this option can be specified either for the whole LoopModeler or 
+  individually in the Centroid of Fullatom tags.
+
+Subtags:
+
+* 
 
 Caveats
   fold tree
