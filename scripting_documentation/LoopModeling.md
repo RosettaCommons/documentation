@@ -105,8 +105,8 @@ Options:
   "kic_with_frags", you must also specify fragment files on the command line 
   using the '-loops:frag_sizes' and '-loops:frag_files' options.
 
-* fast: If "yes", the simulation will use a severely reduced number of cycles. 
-  Only meant to be used for debugging.
+* fast: If enabled, the simulation will use a severely reduced number of 
+  cycles.  Only meant to be used for debugging.
 
 * scorefxn_cen: The score function to use for the centroid refinement step.
 
