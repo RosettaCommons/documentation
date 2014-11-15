@@ -77,7 +77,7 @@ exact same simulation by composing other movers.  This approach would be more
 verbose, but in some ways it would also be more flexible.
 
 ```xml
-<LoopModeler name=(&string) config=("" &string) fast=(no &bool) 
+<LoopModeler name=(&string) config=("" &string) loops_file=(&string) fast=(no &bool) 
 scorefxn_cen=(&string) scorefxn_fa=(&string) auto_refine=(yes &bool) >
 
     <Loop start=(&int) stop=(&int) cut=(&int) skip_rate=(0.0 &real) rebuild=(no &bool) />
@@ -105,6 +105,10 @@ Options:
   "kic_with_frags", you must also specify fragment files on the command line 
   using the '-loops:frag_sizes' and '-loops:frag_files' options.
 
+* loops_file: The path to a loops file specifying which regions of backbone to 
+  model.  Note that this option will be silently ignored if one or more Loop 
+  subtags are given.
+
 * fast: If enabled, the simulation will use a severely reduced number of 
   cycles.  Only meant to be used for debugging.
 
@@ -127,17 +131,29 @@ Options:
 Subtags:
 
 * Loop: Specify a loop to model.  This tag may be specified multiple times to 
-  sample multiple loops.   The skip rate controls how often that loop is 
+  sample multiple loops.  The skip rate controls how often that loop is 
   skipped when picking a random loop to sample.  The rebuild flag controls 
-  whether or not the build step is skipped for that loop.
+  whether or not the build step is skipped for that loop.  These are the same 
+  fields that can be specified in a loops file.
 
-* Build: Configure the build step.  
+* Build: Configure the build step.  If "skip" is enabled, none of the loops 
+  will be rebuilt.  You may also provide this tag with any option or subtag 
+  that would be understood by LoopBuilder.
 
-* Centroid:
+* Centroid: Configure the centroid refinement step.  If "skip" is enabled, this 
+  step will be skipped.  You may also provide this tag with any option or 
+  subtag that would be understood by LoopProtocol.  This includes options to 
+  control how many moves to make and how annealing should work.  Subtags 
+  control how the MonteCarlo move itself works, and should be LoopMover tags.
 
-* Fullatom:
+* Fullatom: Configure the fullatom refinement step.  If "skip" is enabled, this 
+  step will be skipped.  You may also provide this tag with any option or 
+  subtag that would be understood by LoopProtocol.  This includes options to 
+  control how many moves to make and how annealing should work.  Subtags 
+  control how the MonteCarlo move itself works, and should be LoopMover tags.
 
 * Any LoopMover:
+  
 
 Caveats
   fold tree
