@@ -179,7 +179,7 @@ Caveats:
 
 ## LoopBuilder
 
-LoopBuilder builds in backbone atoms for loop regions where they are missing.  
+LoopBuilder builds in backbone atoms for loop regions where they are missing. 
 The backbones created by LoopBuilder will have ideal bond lengths, ideal bond 
 angles, and torsions picked from a Ramachandran distribution.  They should also 
 not clash too badly with the surrounding protein.  Other than that, these 
@@ -202,7 +202,9 @@ Options:
 
 * max_attempts: Building a backbone can take many attempts, because on each 
   attempt KIC may fail to find a solution or may find a solution that clashes
-  with the surrounding protein.
+  with the surrounding protein.  That said, the default is two or three orders 
+  of magnitude more attempts than are usually needed, so I can't really think 
+  of any situation in which you'd want to change this.
 
 * loop_file: Same as LoopModeler.
 
