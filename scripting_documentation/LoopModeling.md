@@ -82,13 +82,13 @@ scorefxn_cen=(&string) scorefxn_fa=(&string) task_operation=(&string) auto_refin
 
     <Loop start=(&int) stop=(&int) cut=(&int) skip_rate=(0.0 &real) rebuild=(no &bool) />
 
+    <(Any LoopMover tags) />...
+
     <Build skip=(no &bool) (any LoopBuilder option or subtag) />
 
     <Centroid skip=(no &bool) (any LoopProtocol option or subtag) />
 
     <Fullatom skip=(no &bool) (any LoopProtocol option or subtag) />
-
-    <(Any LoopMover tags) />...
 
 </LoopModeler>
 ```
@@ -142,19 +142,20 @@ Subtags:
   whether or not the build step is skipped for that loop.  These are the same 
   fields that can be specified in a loops file.
 
-* Build: Configure the build step.  If "skip" is enabled, none of the loops 
-  will be rebuilt.  You may also provide this tag with any option or subtag 
-  that would be understood by LoopBuilder.
-
 * Any LoopMover: LoopMover subtags given within a LoopModeler tag control the 
   local backbone Monte Carlo moves used in the centroid and fullatom refinement 
   stages.  For example, this could be used to use backrub instead of KIC in an 
   otherwise default loop modeling simulation.  The technical definition of a 
   LoopMover is anything in C++ that inherits from LoopMover, but the practical 
-  definition is any Mover described on this page.  If you specify more than one 
-  LoopMover, they will be executed in the order specified.  If you only want to 
-  specify a backbone move for either centroid or fullatom mode, specify your 
-  LoopMover inside the Centroid or Fullatom subtag.
+  definition is any Mover described on this page.  You may specify LoopMover 
+  tags before, after and/or within the Centroid and Fullatom tags.  If you 
+  specify more than one LoopMover, they will be executed in the order given.  
+  If you specify a LoopMover within the Centroid or Fullatom tags, it will only 
+  apply to that mode.
+
+* Build: Configure the build step.  If "skip" is enabled, none of the loops 
+  will be rebuilt.  You may also provide this tag with any option or subtag 
+  that would be understood by LoopBuilder.
 
 * Centroid: Configure the centroid refinement step.  If "skip" is enabled, this 
   step will be skipped.  You may also provide this tag with any option or 
@@ -178,7 +179,26 @@ Caveats:
 
 ## LoopBuilder
 
+LoopBuilder builds in backbone atoms for loop regions where they are missing.  
+The backbones created by LoopBuilder will have ideal bond lengths, ideal bond 
+angles, and torsions picked from a Ramachandran distribution.  They should also 
+not clash too badly with the surrounding protein.  Other than that, these 
+backbones are not optimized at all.  But they are ready to be optimized by 
+other movers.  Under the hood, LoopBuilder uses KIC to build backbones.  
+
+```xml
+<LoopBuilder name=(&string) max_attempts=(10000 &int) />
+```
+
+Options:
+
+* max_attempts: Building a backbone can take many attempts, because on each 
+  attempt KIC may fail to find a solution or may find a solution that clashes
+  with the surrounding protein.
+
 ## LoopProtocol
+
+LoopProtocol
 
 ## KicMover
 
