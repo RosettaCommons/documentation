@@ -212,6 +212,8 @@ Subtags:
 
 * Loop: See LoopModeler.
 
+Caveats: See LoopModeler
+
 ## LoopProtocol
 
 LoopProtocol optimizes a region of protein backbone using a simulated annealing 
@@ -311,6 +313,8 @@ Subtags:
   LoopMover is anything in C++ that inherits from LoopMover, but the practical 
   definition is any Mover described on this page.  If you specify more than one 
   LoopMover, they will be executed in the order given.
+
+Caveats: See LoopModeler
 
 ## KicMover
 
