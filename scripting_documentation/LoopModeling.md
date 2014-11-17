@@ -240,6 +240,10 @@ role is to allow you to change the sampling algorithm without having to worry
 about refinement steps that normally happen behind the scenes, but if necessary 
 they can be disabled.
 
+Note that LoopModeler calls LoopProtocol twice, once for centroid mode and once 
+for fullatom mode.  It's more common to use LoopModeler than it is to use 
+LoopProtocol directly.
+
 ```xml
 <LoopProtocol sfxn_cycles=(1 &int) temp_cycles=(1 &int ['x']) mover_cycles=(1 &int)
 ramp_rep=(no &bool) ramp_rama=(no &bool) ramp_temp=(yes &bool) initial_temp=(1.5 &real) final_temp=(0.5 &real)
@@ -328,7 +332,30 @@ Caveats:
 
 ## MinimizationRefiner
 
-## PrepareForCetroid
+## PrepareForCentroid
+
+Convert a pose into centroid mode in preparation for low-resolution loop 
+modeling.  This is used internally by LoopModeler.
+
+```xml
+<PrepareForCentroid name=(&string) />
+```
 
 ## PrepareForFullatom
 
+Convert a pose into fullatom mode in preparation for high-resolution loop 
+modeling.  This is used internally by LoopModeler.
+
+```xml
+<PrepareForFullatom name=(&string) force_repack=(no &bool) scorefxn=(&string) />
+```
+
+Options:
+
+* force_repack: By default, only sidechains that are part of the loop and 
+  sidechains that couldn't be recovered from the input structure are repacked 
+  when converting to fullatom mode.  If the input pose is already in fullatom 
+  mode, most positions may be left unchanged.  Enabling this option forces the 
+  entire protein to be repacked regardless.
+
+* scorefxn: The name of the score function to use for repacking.  Required.
