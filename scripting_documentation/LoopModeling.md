@@ -206,11 +206,11 @@ Options:
   two or three orders of magnitude more than are usually needed, so I can't 
   think of any situation in which you'd have to change this.
 
-* loop_file: Same as LoopModeler.
+* loop_file: See LoopModeler.
 
 Subtags:
 
-* Loop: Same as LoopModeler.
+* Loop: See LoopModeler.
 
 ## LoopProtocol
 
