@@ -186,8 +186,16 @@ not clash too badly with the surrounding protein.  Other than that, these
 backbones are not optimized at all.  But they are ready to be optimized by 
 other movers.  Under the hood, LoopBuilder uses KIC to build backbones.  
 
+Note that LoopModeler calls LoopBuilder, and that it's more common to use 
+LoopModeler than it is to use LoopBuilder directly.
+
 ```xml
-<LoopBuilder name=(&string) max_attempts=(10000 &int) />
+<LoopBuilder name=(&string) max_attempts=(10000 &int) loop_file=(&string)>
+
+    <Loop start=(&int) stop=(&int) cut=(&int) skip_rate=(0.0 &real) rebuild=(no &bool) />
+
+</LoopBuilder>
+
 ```
 
 Options:
@@ -196,9 +204,16 @@ Options:
   attempt KIC may fail to find a solution or may find a solution that clashes
   with the surrounding protein.
 
+* loop_file: Same as LoopModeler.
+
+Subtags:
+
+* Loop: Same as LoopModeler.
+
 ## LoopProtocol
 
-LoopProtocol
+LoopProtocol optimizes a region of protein backbone using a simulated annealing 
+MonteCarlo simulation.  
 
 ## KicMover
 
