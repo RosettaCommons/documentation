@@ -212,7 +212,9 @@ Subtags:
 
 * Loop: See LoopModeler.
 
-Caveats: See LoopModeler
+Caveats:
+
+* See LoopModeler.
 
 ## LoopProtocol
 
@@ -314,7 +316,9 @@ Subtags:
   definition is any Mover described on this page.  If you specify more than one 
   LoopMover, they will be executed in the order given.
 
-Caveats: See LoopModeler
+Caveats:
+
+* See LoopModeler.
 
 ## KicMover
 
