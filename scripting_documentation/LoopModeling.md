@@ -326,11 +326,100 @@ Caveats:
 
 ## KicMover
 
+Kinematic closure...
+
 ## RepackingRefiner
+
+Repack the sidechains in and around the loop being sampled.  This mover uses 
+the standard repacking algorithm in rosetta, which runs a Monte Carlo search 
+for the lowest scoring arrangement of sidechains on a fixed backbone scaffold.
+This mover is one of the default refiners in LoopModeler's fullatom step.
+
+```xml
+<RepackingRefiner name=(&string) task_operations=(&string) scorefxn=(&string) loop_file=(&string) />
+```
+
+Options:
+
+* task_operations: The residues to pack and/or design.  By default, any residue 
+  within 10A of the loop will be repacked and no residues will be designed.  If 
+  you specify your own task operations, nothing will be repacked by default, so 
+  make sure to let residues within some reasonable shell of the loop repack.
+
+* scorefxn: The score function used for packing.  Required if not being used as 
+  a subtag within some other LoopMover.
+
+* loop_file: See LoopModeler.
+
+Subtags:
+
+* Loop: See LoopModeler.
+
+Caveats:
+
+* The input pose must have sidechains, i.e. it must be in fullatom mode.
+
+* See LoopModeler.
 
 ## RotamerTrialsRefiner
 
+Use rotamer trials to quickly optimize the sidechains in and around the loop 
+being sampled.  Rotamer trials is a greedy algorithm for packing sidechains.
+Each residue is considered only once, and is placed in its optimal rotamer 
+given the present conformations of all its neighbors.  This mover is one of the 
+default refiners in LoopModeler's fullatom step.
+
+```xml
+<RotamerTrialsRefiner name=(&string) task_operations=(&string) scorefxn=(&string) loop_file=(&string) />
+```
+
+Options:
+
+* task_operations: The residues to optimize.  By default, any residue 
+  within 10A of the loop will be subjected to rotamer trials.  If you specify 
+  your own task operations, nothing will be repacked by default, so make sure 
+  to let residues within some reasonable shell of the loop repack.
+
+* scorefxn: The score function used for rotamer trials.  Required if not being 
+  used as a subtag within some other LoopMover.
+
+* loop_file: See LoopModeler.
+
+Subtags:
+
+* Loop: See LoopModeler.
+
+Caveats:
+
+* The input pose must have sidechains, i.e. it must be in fullatom mode.
+
+* See LoopModeler.
+
 ## MinimizationRefiner
+
+Perform gradient minimization on the loop being sampled.  Both the sidechain 
+and backbone atoms are allowed to move, and no restraints are used.  This mover 
+a default refiner in LoopModeler's centroid and fullatom steps, and often 
+accounts for a majority of LoopModeler's runtime.
+
+```xml
+<MinimizationRefiner name=(&string) scorefxn=(&string) loops_file=(&string) />
+```
+
+Options:
+
+* scorefxn: The score function used for rotamer trials.  Required if not being 
+  used as a subtag within some other LoopMover.
+
+* loop_file: See LoopModeler.
+
+Subtags:
+
+* Loop: See LoopModeler.
+
+Caveats:
+
+* See LoopModeler.
 
 ## PrepareForCentroid
 
