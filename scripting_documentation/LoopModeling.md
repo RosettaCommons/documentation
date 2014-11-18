@@ -191,9 +191,7 @@ Generate a backbone ensemble by skipping the initial build step:
 
 ```xml
 <LoopModeler name="modeler">
-
     <Build skip="yes" />
-
 </LoopModeler>
 ```
 
