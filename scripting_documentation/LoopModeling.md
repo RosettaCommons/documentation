@@ -351,6 +351,10 @@ Options:
 
 * loop_file: See LoopModeler.
 
+Subtags:
+
+* Loop: See LoopModeler.
+
 Caveats:
 
 * See LoopModeler.
