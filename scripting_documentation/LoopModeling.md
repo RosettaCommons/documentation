@@ -167,6 +167,36 @@ Subtags:
   subtag that would be understood by LoopProtocol.  This includes options to 
   control how many moves to make and how annealing should work.
 
+Examples:
+
+Run the standard loop modeling algorithm described at the top of this section:
+
+```xml
+<LoopModeler name="modeler" />
+```
+
+Use a fragment library to sample loop conformations:
+
+```xml
+<LoopModeler name="modeler" config="kic_with_frags" />
+```
+
+Run a quick test simulation with a vastly reduced number of iterations:
+
+```xml
+<LoopModeler name="modeler" fast="yes" />
+```
+
+Generate a backbone ensemble by skipping the initial build step:
+
+```xml
+<LoopModeler name="modeler">
+
+    <Build skip="yes" />
+
+</LoopModeler>
+```
+
 Caveats:
 
 * Only canonical protein backbones can be modeled by LoopModeler.  Noncanonical 
