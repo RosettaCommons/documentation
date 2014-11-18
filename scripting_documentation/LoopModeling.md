@@ -361,9 +361,12 @@ Caveats:
 
 References:
 
-* Mandell DJ, Coutsias EA, Kortemme T. (2009). Sub-angstrom accuracy in protein loop reconstruction by robotics-inspired conformational sampling. Nature Methods 6(8):551-2.
+* Mandell DJ, Coutsias EA, Kortemme T. (2009). Sub-angstrom accuracy in protein 
+  loop reconstruction by robotics-inspired conformational sampling. Nature 
+  Methods 6(8):551-2.
 
-* Coutsias EA, Seok C, Wester MJ, Dill KA. (2005). Resultants and loop closure. International Journal of Quantum Chemistry . 106(1), 176–189.
+* Coutsias EA, Seok C, Wester MJ, Dill KA. (2005). Resultants and loop closure. 
+  International Journal of Quantum Chemistry . 106(1), 176–189.
 
 ## RepackingRefiner
 
