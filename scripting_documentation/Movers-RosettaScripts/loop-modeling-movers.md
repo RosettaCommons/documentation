@@ -48,6 +48,8 @@ like this:
   you would generate at least 500 such models and take whichever has the lowest 
   energy.  You might also calculate an RMSD for each model relative to the 
   lowest scoring one and look for funnels in score vs. RMSD space.
+
+[[_TOC_]]
   
 ## LoopModeler
 
