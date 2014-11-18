@@ -7,6 +7,8 @@ can be used to predict structures for these regions.  As another, homology
 models often need to account for short insertions or deletions.  Loop modeling 
 can be used to predict how these sequence changes affect structure.
 
+[[_TOC_]]
+  
 Loop modeling in Rosetta is very configurable, but the basic algorithm goes 
 like this:
 
@@ -49,8 +51,6 @@ like this:
   energy.  You might also calculate an RMSD for each model relative to the 
   lowest scoring one and look for funnels in score vs. RMSD space.
 
-[[_TOC_]]
-  
 ## LoopModeler
 
 LoopModeler carries out an entire loop modeling simulation, including the 
