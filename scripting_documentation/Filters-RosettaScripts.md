@@ -336,7 +336,7 @@ Computes the energy of a particular score type for the entire pose and if that e
 Takes task operations to determine the packable residues and then calculates/filters based on the scores of those residues in one of three possible modes:
 1) total: the total score of all packable residues
 2) average: the average score of all packable residues
-3) individual: the scores of individual residues. That is, each residue must pass the user-defined threshold in order for the filter to pass
+3) individual: the scores of individual residues (in individual mode each residue must pass the user-defined threshold in order for the filter to pass).
 
 where the score type used to assess the score is set by the user (default is total_score).
 
