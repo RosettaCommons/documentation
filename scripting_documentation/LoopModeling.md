@@ -80,15 +80,15 @@ verbose, but in some ways it would also be more flexible.
 <LoopModeler name=(&string) config=("" &string) loops_file=(&string) fast=(no &bool) 
 scorefxn_cen=(&string) scorefxn_fa=(&string) task_operation=(&string) auto_refine=(yes &bool) >
 
-    <Loop start=(&int) stop=(&int) cut=(&int) skip_rate=(0.0 &real) rebuild=(no &bool) />
+    <Loop start=(&int) stop=(&int) cut=(&int) skip_rate=(0.0 &real) rebuild=(no &bool)/>
 
-    <(Any LoopMover tags) />...
+    <(Any LoopMover tags)/>...
 
-    <Build skip=(no &bool) (any LoopBuilder option or subtag) />
+    <Build skip=(no &bool) (any LoopBuilder option or subtag)/>
 
-    <Centroid skip=(no &bool) (any LoopProtocol option or subtag) />
+    <Centroid skip=(no &bool) (any LoopProtocol option or subtag)/>
 
-    <Fullatom skip=(no &bool) (any LoopProtocol option or subtag) />
+    <Fullatom skip=(no &bool) (any LoopProtocol option or subtag)/>
 
 </LoopModeler>
 ```
@@ -172,26 +172,26 @@ Examples:
 Run the standard loop modeling algorithm described at the top of this section:
 
 ```xml
-<LoopModeler name="modeler" />
+<LoopModeler name="modeler"/>
 ```
 
 Use a fragment library to sample loop conformations:
 
 ```xml
-<LoopModeler name="modeler" config="kic_with_frags" />
+<LoopModeler name="modeler" config="kic_with_frags"/>
 ```
 
 Run a quick test simulation with a vastly reduced number of iterations:
 
 ```xml
-<LoopModeler name="modeler" fast="yes" />
+<LoopModeler name="modeler" fast="yes"/>
 ```
 
 Generate a backbone ensemble by skipping the initial build step:
 
 ```xml
 <LoopModeler name="modeler">
-    <Build skip="yes" />
+    <Build skip="yes"/>
 </LoopModeler>
 ```
 
@@ -220,7 +220,7 @@ LoopModeler than it is to use LoopBuilder directly.
 ```xml
 <LoopBuilder name=(&string) max_attempts=(10000 &int) loop_file=(&string)>
 
-    <Loop start=(&int) stop=(&int) cut=(&int) skip_rate=(0.0 &real) rebuild=(no &bool) />
+    <Loop start=(&int) stop=(&int) cut=(&int) skip_rate=(0.0 &real) rebuild=(no &bool)/>
 
 </LoopBuilder>
 
@@ -277,11 +277,11 @@ LoopProtocol directly.
 ramp_rep=(no &bool) ramp_rama=(no &bool) ramp_temp=(yes &bool) initial_temp=(1.5 &real) final_temp=(0.5 &real)
 loop_file=(&string) scorefxn=(&string) auto_refine=(yes &bool) fast=(no &bool)>
 
-    <Loop start=(&int) stop=(&int) cut=(&int) skip_rate=(0.0 &real) rebuild=(no &bool) />
+    <Loop start=(&int) stop=(&int) cut=(&int) skip_rate=(0.0 &real) rebuild=(no &bool)/>
 
-    <AcceptanceCheck />
+    <AcceptanceCheck/>
 
-    <(Any LoopMover tags) />...
+    <(Any LoopMover tags)/>...
 
 </LoopProtocol>
 ```
@@ -366,7 +366,7 @@ scratch, modeling big conformational changes, modeling small conformational
 changes, and generating backbone ensembles.
 
 ```xml
-<KicMover name(&string) loop_file=(&string) />
+<KicMover name(&string) loop_file=(&string)/>
 ```
 
 Right now KicMover is not really customizable at all, but I'm hoping to change 
@@ -404,7 +404,7 @@ for the lowest scoring arrangement of sidechains on a fixed backbone scaffold.
 This mover is one of the default refiners in LoopModeler's fullatom step.
 
 ```xml
-<RepackingRefiner name=(&string) task_operations=(&string) scorefxn=(&string) loop_file=(&string) />
+<RepackingRefiner name=(&string) task_operations=(&string) scorefxn=(&string) loop_file=(&string)/>
 ```
 
 Options:
@@ -438,7 +438,7 @@ given the present conformations of all its neighbors.  This mover is one of the
 default refiners in LoopModeler's fullatom step.
 
 ```xml
-<RotamerTrialsRefiner name=(&string) task_operations=(&string) scorefxn=(&string) loop_file=(&string) />
+<RotamerTrialsRefiner name=(&string) task_operations=(&string) scorefxn=(&string) loop_file=(&string)/>
 ```
 
 Options:
@@ -471,7 +471,7 @@ a default refiner in LoopModeler's centroid and fullatom steps, and often
 accounts for a majority of LoopModeler's runtime.
 
 ```xml
-<MinimizationRefiner name=(&string) scorefxn=(&string) loops_file=(&string) />
+<MinimizationRefiner name=(&string) scorefxn=(&string) loops_file=(&string)/>
 ```
 
 Options:
@@ -495,7 +495,7 @@ Convert a pose into centroid mode in preparation for low-resolution loop
 modeling.  This is used internally by LoopModeler.
 
 ```xml
-<PrepareForCentroid name=(&string) />
+<PrepareForCentroid name=(&string)/>
 ```
 
 ## PrepareForFullatom
@@ -504,7 +504,7 @@ Convert a pose into fullatom mode in preparation for high-resolution loop
 modeling.  This is used internally by LoopModeler.
 
 ```xml
-<PrepareForFullatom name=(&string) force_repack=(no &bool) scorefxn=(&string) />
+<PrepareForFullatom name=(&string) force_repack=(no &bool) scorefxn=(&string)/>
 ```
 
 Options:
