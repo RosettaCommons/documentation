@@ -78,7 +78,7 @@ verbose, but in some ways it would also be more flexible.
 
 ```xml
 <LoopModeler name=(&string) config=("" &string) loops_file=(&string) fast=(no &bool) 
-scorefxn_cen=(&string) scorefxn_fa=(&string) task_operation=(&string) auto_refine=(yes &bool) >
+scorefxn_cen=(&string) scorefxn_fa=(&string) task_operation=(&string) auto_refine=(yes &bool)>
 
     <Loop start=(&int) stop=(&int) cut=(&int) skip_rate=(0.0 &real) rebuild=(no &bool)/>
 
