@@ -342,7 +342,7 @@ changes, and generating backbone ensembles.
 ```
 
 Right now KicMover is not really customizable at all, but I'm hoping to change 
-this in the near-ish future (current date: Nov 2014).  In particular, I want to 
+this in the near-ish future (dated November 2014).  In particular, I want to 
 add a general way to specify different algorithms for perturbing the torsions, 
 picking the pivots residues, and filtering the solutions.  In the meantime 
 though, this mover is pretty static.
