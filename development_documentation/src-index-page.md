@@ -39,7 +39,7 @@ Utility Library
 
 The utility directory contains utility classes such as [[utility::vector1|vector1]] (a base 1 indexed of child class of std::vector with a few extra additions), izstream a infilestream which allows reading of zipped files, and the [[tracer]] output class.  Broadly speaking, these classes are implemented in a project-agnostic manner (i.e. they need not be Rosetta-specific).  Classes in this directory sometimes have mathematical class methods, but algorithms for complicated calculations are typically relegated to the numeric directory.
 
-[[Basic Library|namespace-basic]]
+Basic Library
 =================
 
 The basic directory contains organizational and housekeeping classes specific to the Rosetta project.  Functions for accessing the Rosetta database typically reside here, for example, as does code for the Rosetta options system.
