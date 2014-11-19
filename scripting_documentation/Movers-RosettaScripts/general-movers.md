@@ -785,7 +785,14 @@ Options in the <b>MakeBundle</b> tag set defaults for the whole bundle.  Individ
 <b>r0</b>: The major helix radius (the radius of the bundle, in Angstroms).<br/>
 <b>omega0</b>:  The major helix turn per residue, in radians.  If set too high, no sensible geometry can be generated, and the mover throws an error.  <i>Note: All angular values are in <b>radians</b>.</i><br/>
 <b>delta_omega0</b>:  An offset value for <b>omega0</b> that will rotate the generated helix about the bundle axis.<br/>
-<b>crick_params_file</b>:  A filename containing parameters for the minor helix.  The Rosetta database currently contains three sets of minor helix parameters: "alpha_helix", "beta_strand", and "14_helix".  The first two are for the canonical alpha-amino acid secondary structures, and the third is the major helix type that beta-amino acids are observed to form.<br/>
+<b>crick_params_file</b>:  A filename containing parameters (e.g. minor helix radius, minor helix twist per residue, minor helix rise per residue, <i>etc.</i>) for the minor helix.  Crick parameters files for helices formed by arbitrary noncanonical backbones can be generated using the <b>fit_helixparams</b> app.  The Rosetta database currently contains six sets of minor helix parameters:<br/>
+- "alpha_helix": A standard L-amino acid right-handed alpha-helix, with phi=-64.8, psi=-41.0, and omega=180.0.<br/>
+- "beta_strand": An L-amino acid beta-strand, with phi=-135.0, psi=135.0, and omega=180.0.<br/>
+- "neutral_beta_strand": An unnaturally straight beta-strand, with phi=180.0, psi=180.0, and omega=180.0.  Both L- and D-amino acids can access this region of Ramachandran space.<br/>
+- "L_alpha_helix": A left-handed alpha-helix, as can be formed by D-amino acids.  Phi=64.8, psi=41.0, and omega=180.0.<br/>
+- "daa_beta_strand": A beta-strand formed by D-amino acids, mirroring that formed by L-amino acids.  Phi=135.0, psi=-135.0, and omega=180.0.<br/>
+- "14_helix": A left-handed helix formed by beta-amino acids.  Phi=-139.9, theta=59.5, psi=-138.7, and omega=180.0.<br/>
+
 <b>omega1</b>:  The minor helix turn per residue.  This is usually set with a Crick parameters file, but this option overrides whatever value is read in from the file.<br/>
 <b>delta_omega1</b>:  An offset value for <b>omega1</b>.  This rotates the generated helix about the minor helix axis ("rolling" the helix).<br/>
 <b>z1</b>:  The minor helix rise per residue.  This is usually set with a Crick parameters file, but this option overrides whatever value is read in from the file.<br/>
