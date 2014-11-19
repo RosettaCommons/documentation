@@ -3,7 +3,7 @@ Rosetta Documentation
 
 ##Documentation for Rosetta Applications.
 
-**For live editing of this documentation, go to the (current) official site of <http://koblet.med.unc.edu:1235/docs>**
+**For live editing of this documentation, go to the (current) official site of <https://www.rosettacommons.org/docs/wiki/>**
 
 (Log on with your GitHub account.)
 
