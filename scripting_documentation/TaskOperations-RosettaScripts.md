@@ -656,10 +656,10 @@ Cterm
 
           <LayerDesign name=layerdesign make_pymol_script=1 layer=core_boundary_surface>
 
-              <core>
-                <all append="AFGILMNPQVWYH" />
-                <all exclude="CRKDEST" />
-              </core>
+             <core>
+               <all append="AFGILMNPQVWYH" />
+               <all exclude="CRKDEST" />
+             </core>
 
              <boundary>
                <all append="AFGILMNPQVWYDEHKRST" />
@@ -667,11 +667,11 @@ Cterm
              </boundary>
 
              <surface>
-              <all append="AGMNPQDEHKRST" />
-              <all exclude="CILVFWY" />
+               <all append="AGMNPQDEHKRST" />
+               <all exclude="CILVFWY" />
              </surface>
 
-              </LayerDesign>
+          </LayerDesign>
 
         </TASKOPERATIONS>
 
