@@ -30,12 +30,14 @@ Numeric Library
 
 [[Numeric Library|namespace-numeric]]
 
+The numeric directory contains low-level functions that carry out mathematical operations.  While some of these might be general mathematics (calculating a fast Fourier transform, for example, or performing principal component analysis on a dataset), others might be Rosetta-specific calculations, or might be implemented in a Rosetta-specific manner.
+
 Utility Library
 ==============
 
 [[Utility Library|namespace-utility]] 
 
-The utility directory contains utility classes such as [[utility::vector1|vector1]] (a base 1 indexed of child class of std::vector with a few extra additions), izstream a infilestream which allows reading of zipped files, and the [[tracer]] output class
+The utility directory contains utility classes such as [[utility::vector1|vector1]] (a base 1 indexed of child class of std::vector with a few extra additions), izstream a infilestream which allows reading of zipped files, and the [[tracer]] output class.  Broadly speaking, these classes are implemented in a project-agnostic manner (i.e. they need not be Rosetta-specific).
 
 Protocols Library
 =================
