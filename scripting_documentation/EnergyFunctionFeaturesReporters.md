@@ -1,5 +1,29 @@
 #EnergyFunctionFeaturesReporters
 
+TotalScoreFeatures
+------------------
+Report the total score for each structure using whatever score function you like.  The difference between this reporter and the many others that deal with scores is simplicity.  This reporter only reports total scores and has a very simple schema.  In most cases, this is exactly what you want.  But if you need to break down your scores by type or by residue, then you will need to use one or more of the other reporters described in this section.
+
+Example:
+
+```
+<feature name="TotalScoreFeatures" scorefxn="talaris2013"/>
+```
+
+Options:
+
+* scorefxn: Required.  The name of the score function to report.
+
+Schema:
+
+```sql
+CREATE TABLE `total_scores` (
+  `struct_id` bigint(20) NOT NULL,
+  `score` double NOT NULL,
+  PRIMARY KEY (`struct_id`)
+)
+```
+
 ScoreTypeFeatures
 -----------------
 
