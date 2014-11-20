@@ -90,3 +90,27 @@ Arbitrary textual information may be associated with a pose in the form of *(key
             value TEXT,
             FOREIGN KEY (struct_id) REFERENCES structures (struct_id) DEFERRABLE INITIALLY DEFERRED,
             PRIMARY KEY(struct_id, key));
+
+RuntimeFeatures
+---------------
+Report how much time it took for each structure to be processed.  The database is populated with two fields: a string 'timestamp' telling the date & time when the protocol started and an integer 'elapsed_time' telling the number of seconds that elapsed while the protocol was running.
+
+Example:
+
+```
+<feature name="RuntimeFeatures"/>
+```
+
+Options: None
+
+Schema:
+
+```sql
+CREATE TABLE `runtimes` (
+  `struct_id` bigint(20) NOT NULL DEFAULT '0',
+  `timestamp` varchar(20) DEFAULT NULL,
+  `elapsed_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`struct_id`),
+  FOREIGN KEY (`struct_id`) REFERENCES `structures` (`struct_id`)
+)
+```
