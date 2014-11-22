@@ -78,6 +78,13 @@ makes a rigid chunk claimer called "chunk". The option "template" supplies the P
 
 would hold the regions 1-16, 26-46, and 56-63 fixed. The additional option 'label' indicates a ResidueSelector for the target region.
 
+Sometimes, it's useful to apply a mover to the template just after it's loaded in. For example, given a full-atom PDB, we'd sometimes like to convert it to a centroid representation for abinitio-style simulations (this avoids problems with differing numbers of atoms in the template and simulation). Here, a SwitchResidueTypeSetMover is applied to the template before the template is used to set internal degrees of freedom in hte simulation
+
+```
+<SwitchResidueTypeSetMover name="centroid" set="centroid" />
+<RigidChunkCM name="chunk" region_file="core.rigid" template="template.pdb" apply_to_template="centroid" />
+```
+
 ## CoMTrackerCM
 
 ```
