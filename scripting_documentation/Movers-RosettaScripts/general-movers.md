@@ -803,7 +803,7 @@ In addition, the following options can only be set for the bundle as a whole:
 
 <b>reset</b>:  If "true" (the default), then the input pose is deleted and new geometry is generated.  If "false", then the geometry is added to the input pose as new chains.<br/>
 <b>symmetry</b>:  Defines the radial symmetry of the bundle.  If set to something other than 0 (the default) or 1, then each helix specified is repeated this many times around the z-axis.  For example, if the script defined 2 helices and symmetry were set to 3, a total of 6 helices would be generated.  <i>Note:  At the present time, this mover does not automatically set up a symmetric conformation that symmetry-aware movers will respect.</i>  Other symmetrization movers must be invoked if the intent is to preserve symmetry during subsequent design or minimization steps.<br/>
-<b>symmetry_copies</b>:  Defines how many radially symmetric copies of the defined helices will be placed.  A value of 0 results in copies matching the symmetry (for example, given six-fold symmetry, one would get six copies of the defined helices about the z-axis.)<br/>
+<b>symmetry_copies</b>:  Defines how many radially symmetric copies of the defined helices will be placed.  A value of 0 results in copies matching the symmetry (for example, given six-fold symmetry, one would get six copies of the defined helices about the z-axis.)  Nonzero values result in only a subset of the symmetric copies being placed, permitting the generation of partial bundles.<br/>
 
 Example:  This script generates an antiparallel beta-barrel with a bundle of alpha-helices on the inside.
 ```
