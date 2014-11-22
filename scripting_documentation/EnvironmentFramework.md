@@ -226,7 +226,7 @@ The following example replicates an _ab initio_ run. The file "beta_sheets.top" 
   <FragmentJumpCM name="jumps" topol_file="beta_sheets.top" />
 
   <AbscriptMover name="abinitio" cycles=2 >
-    <Fragments large="frag9.dat" small="frag3.dat" />
+    <Fragments large_frags="frag9.dat" small_frags="frag3.dat" />
     <Stage ids="I-IVb" >
       <Mover name="jumps" weight=1.0 />
     </Stage>
