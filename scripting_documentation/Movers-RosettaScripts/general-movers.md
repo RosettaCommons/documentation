@@ -773,7 +773,7 @@ See the [[GeneralizedKIC documentation|GeneralizedKIC]] for details about [[Gene
 Generates a helical bundle using the Crick equations (which describe a helix of helices).  This mover is general enough to create arbitrary helices using arbitrary backbones.  Since strands are a special case of a helix (in which the turn per residue is about 180 degrees), the mover can also generate beta-barrels or other strand bundles.  The generated secondary structure elements are disconnected, so subsequent movers (e.g. <b>GeneralizedKIC</b>) must be invoked to connect them with loops.
 
 ```
-<MakeBundle name=(&string) reset=(true &bool) symmetry=(0 &int) set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) omega1=(0.0 &real) z1=(0.0 &real) delta_omega1=(0.0 &real) delta_t=(0.0 &real) invert=(false &bool) >
+<MakeBundle name=(&string) reset=(true &bool) symmetry=(0 &int) symmetry_copies=(0 &int) set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) omega1=(0.0 &real) z1=(0.0 &real) delta_omega1=(0.0 &real) delta_t=(0.0 &real) invert=(false &bool) >
      <Helix set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) omega1=(0.0 &real) z1=(0.0 &real) delta_omega1=(0.0 &real) delta_t=(0.0 &real) invert=(false &bool) />
 ...
 </MakeBundle>
@@ -803,6 +803,7 @@ In addition, the following options can only be set for the bundle as a whole:
 
 <b>reset</b>:  If "true" (the default), then the input pose is deleted and new geometry is generated.  If "false", then the geometry is added to the input pose as new chains.<br/>
 <b>symmetry</b>:  Defines the radial symmetry of the bundle.  If set to something other than 0 (the default) or 1, then each helix specified is repeated this many times around the z-axis.  For example, if the script defined 2 helices and symmetry were set to 3, a total of 6 helices would be generated.  <i>Note:  At the present time, this mover does not automatically set up a symmetric conformation that symmetry-aware movers will respect.</i>  Other symmetrization movers must be invoked if the intent is to preserve symmetry during subsequent design or minimization steps.<br/>
+<b>symmetry_copies</b>:  Defines how many radially symmetric copies of the defined helices will be placed.  A value of 0 results in copies matching the symmetry (for example, given six-fold symmetry, one would get six copies of the defined helices about the z-axis.)<br/>
 
 Example:  This script generates an antiparallel beta-barrel with a bundle of alpha-helices on the inside.
 ```
