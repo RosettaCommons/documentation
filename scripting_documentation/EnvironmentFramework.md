@@ -195,24 +195,26 @@ Using an Environment in your RosettaScripts is as easy as
 2. Creating an Environment block in the PROTOCOL section
 3. Adding your movers to the block.
 
-## A simple example:
+## A simple example
 
 In the following example, a ChainResidueSelector selecting chains named "A" and "B" are used to build a [UniformRigidBodyCM](#UniformRigidBodyCM) that docks those two chains to one another. 
 
 ```
-<RESIDUE_SELECTORS>
-  <Chain name="ChainA" chains="A" />
-  <Chain name="ChainB" chains="B" />
-</RESIDUE_SELECTORS>
-<MOVERS>
-  <UniformRigidBodyCM name="dock" mobile="ChainA" stationary="ChainB" />
-  <Environment name="dockenv">
-    <Mover name="dock"/>
-  <Environment/>
-</MOVERS>
-<PROTOCOL>
-  <Add mover="dockenv"/>
-</PROTOCOL>
+<ROSETTASCRIPTS>
+  <RESIDUE_SELECTORS>
+    <Chain name="ChainA" chains="A" />
+    <Chain name="ChainB" chains="B" />
+  </RESIDUE_SELECTORS>
+  <MOVERS>
+    <UniformRigidBodyCM name="dock" mobile="ChainA" stationary="ChainB" />
+    <Environment name="dockenv">
+      <Mover name="dock"/>
+    <Environment/>
+  </MOVERS>
+  <PROTOCOLS>
+    <Add mover="dockenv"/>
+  </PROTOCOLS>
+</ROSETTASCRIPTS>
 ```
 
 ## _Ab initio_ Example
