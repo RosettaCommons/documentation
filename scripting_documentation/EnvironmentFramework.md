@@ -10,9 +10,9 @@ A description of availiable ClaimingMovers is [here](scripting_documentation/Ava
 
 Using an Environment in your RosettaScripts is as easy as
 
-1. Defining your ClaimingMovers
-2. Creating an Environment block in the PROTOCOL section
-3. Adding your movers to the block.
+1. Define your ClaimingMovers.
+2. Add your ClaimingMovers to an Environment.
+3. Invoke your environment in the PROTOCOLS block.
 
 ## A simple example
 
