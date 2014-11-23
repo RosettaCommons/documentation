@@ -16,7 +16,7 @@ Using an Environment in your RosettaScripts is as easy as
 
 ## A simple example
 
-In the following example, a ChainResidueSelector selecting chains named "A" and "B" are used to build a [UniformRigidBodyCM](#UniformRigidBodyCM) that docks those two chains to one another. 
+In the following example, a ChainResidueSelector selecting chains named "A" and "B" are used to build a [UniformRigidBodyCM](scripting_documentation/Available-ClaimingMovers#UniformRigidBodyCM) that docks those two chains to one another. 
 
 ```
 <ROSETTASCRIPTS>
@@ -38,7 +38,7 @@ In the following example, a ChainResidueSelector selecting chains named "A" and 
 
 ## _Ab initio_ Example
 
-The following example replicates an _ab initio_ run. The file "beta_sheets.top" contains a predicted beta-strand pairing topology, and the 9-mer and 3-mer fragments are in files called "frag9.dat" and "frag3.dat", respectively. Loops are closed after the [AbscriptMover](#AbscriptMover] runs all stages of abinitio by the [AbscriptLoopCloserCM], and then FastRelax refines the structure in full atom mode. The assumption is made here that the input pose is in centroid mode.
+The following example replicates an _ab initio_ run. The file "beta_sheets.top" contains a predicted beta-strand pairing topology, and the 9-mer and 3-mer fragments are in files called "frag9.dat" and "frag3.dat", respectively. Loops are closed after the [AbscriptMover](scripting_documentation/Available-ClaimingMovers#AbscriptMover] runs all stages of abinitio by the [AbscriptLoopCloserCM](scripting_documentation/Available-ClaimingMovers#AbscriptLoopCloserCM), and then FastRelax refines the structure in full atom mode. The assumption is made here that the input pose is in centroid mode.
 
 ```
 <MOVERS>
@@ -69,7 +69,7 @@ The following example replicates an _ab initio_ run. The file "beta_sheets.top" 
 
 ## Multi-body Docking Example
 
-This example docks three chains (A, B, and C) to one another using a "star" FoldTree using [UniformRigidBodyCMs](#UniformRigidBodyCM). In other words, all three chains are docked to a central virtual residue. This is in contrast to a two-to-one docking scheme. A TrialMover is used to run 1000 cycles of docking. [CoMTrackerCMs](#CoMTrackerCM) create virtual residues centered at the center of mass of each chain, which are used as the other base of the jump building each chain.
+This example docks three chains (A, B, and C) to one another using a "star" FoldTree using [UniformRigidBodyCMs](scripting_documentation/Available-ClaimingMovers#UniformRigidBodyCM). In other words, all three chains are docked to a central virtual residue. This is in contrast to a two-to-one docking scheme. A TrialMover is used to run 1000 cycles of docking. [CoMTrackerCMs](scripting_documentation/Available-ClaimingMovers#CoMTrackerCM) create virtual residues centered at the center of mass of each chain, which are used as the other base of the jump building each chain.
 
 ```
 <RESIDUE_SELECTORS>
@@ -167,11 +167,11 @@ Many further examples are available as unit tests in test/protocols/environment/
 
 # How do I get my mover to work with the Environment?
 
-I'm so glad you asked! The easiest way is to make it work with the ScriptCM framework, but if your mover does something special (and can't accept a MoveMap as it's information on what to move) or is an obligate ClaimingMover (doesn't make any sense outside of a Broker framework), then your best bet is to write a new ClaimingMover.
+I'm so glad you asked! The easiest way is to make it work with the [ScriptCM](scripting_documentation/Available-ClaimingMovers#ScriptCM) framework, but if your mover does something special (and can't accept a MoveMap as it's information on what to move) or is an obligate ClaimingMover (doesn't make any sense outside of a Broker framework), then your best bet is to write a new ClaimingMover.
 
 ## MoveMapMovers and ScriptCM
 
-First, take a look at the [ScriptCM](#ScriptCM) section above to see what it's all about. Here's how you can make your mover acceptable as a ScriptCM client mover:
+First, take a look at the [ScriptCM](scripting_documentation/Available-ClaimingMovers#ScriptCM) section above to see what it's all about. Here's how you can make your mover acceptable as a ScriptCM client mover:
 
 1. Make sure your mover is accessible in RosettaScripts.
 2. Make your mover inherit from MoveMapMover instead of just Mover.
@@ -202,7 +202,7 @@ If your mover meets one of the following criteria, you might consider writing a 
 This is a bit more work (but not much!), but can produce some really elegant, flexible, user-friendly objects. Here's what you have to do:
 
 1. **Decide what needs claiming.** There are really only a couple of options that are even theoretically possible, and they fall in to two categories: DoFs and FoldTree elements. FoldTree elements are cuts, jumps, and new virtual residues. DoFs are basically the numbers that the FoldTree elements give rise to: jump RTs and torsional angles (and, in obscure cases, bond lengths and angles). In general, brokering should not add to the physical system represented by the simulation, but only change the way that system is represented (this is the reason only virtual residue addition is currently supported).
-2. **Couch your claiming needs as Claims.** Looking at the list of existing [Claims](#ScriptCM) both in this article and in protocols/environment/claims to determine which Claims best express those needs.
+2. **Couch your claiming needs as Claims.** Looking at the list of existing [Claims](scripting_documentation/Available-ClaimingMovers#ScriptCM) both in this article and in protocols/environment/claims to determine which Claims best express those needs.
 3. **Implement ClaimingMover::yield_claims** to pass those claims to the Broker.
 4. **Implement ClaimingMover::passport_updated.** This method is called whenever the ClaimingMover receives a new DofPassport, which contains all the information about which DoFs your ClaimingMover is allowed to access. Typically this hook is used to process the new passport and configure whichever data structure is used within the ClaimingMover to track target DoFs (e.g. Jump number). A particularly useful method is DofPassport::render, which produces a MoveMap from a DofPassport.
 4. **Implement ClaimingMover::apply** correctly. Because the consensus Conformation inside the pose runs security checks to ensure your mover is allowed to move the DoFs it is trying to move, every ClaimingMover must first authenticate using a [Resource Acquisition is Initialization](http://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization) pattern. The ClaimingMover instantiates an automatic (i.e. stack-allocated) DofUnlock as the first step in the apply function. It is almost always sufficient to simply cut and paste the following line (if the incoming Pose's name is "pose"):
