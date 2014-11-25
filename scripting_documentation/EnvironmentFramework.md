@@ -67,6 +67,35 @@ The following example replicates an _ab initio_ run. The file "beta_sheets.top" 
 </PROTOCOLS>
 ```
 
+## Modelling a Domain Insertion
+
+Consider the domain insertion protein AB, where protein A (with known structure) has protein B (structure unknown) inserted somewhere inside of it. While holding the A part of the fusion protein fixed, we would like to insert fragments in protein B, without perturbing the structure of A.
+
+```
+<MOVERS>
+  <AbscriptMover name="abinitio" cycles=2 >
+    <Fragments large_frags="frag9.dat" small_frags="frag3.dat" />
+    <Stage ids="I-IVb" >
+      <Mover name="jumps" weight=1.0 />
+    </Stage>
+  </AbscriptMover>
+
+  <AbscriptLoopCloserCM name="closer" fragfile="frag3.dat" />
+
+  <SwitchResidueTypeSetMover name="fullatom" set="fa_standard" />
+  <FastRelax name="relax" repeats=5 />
+</MOVERS>
+
+<PROTOCOLS>
+  <Environment name="env" auto_cut=1 >
+    <Apply mover="abinitio" />
+    <Apply mover="closer" />
+  </Environment>
+  <Add mover="fullatom" />
+  <Add mover="relax" />
+</PROTOCOLS>
+```
+
 ## Multi-body Docking Example
 
 This example docks three chains (A, B, and C) to one another using a "star" FoldTree using [UniformRigidBodyCMs](scripting_documentation/Available-ClaimingMovers#UniformRigidBodyCM). In other words, all three chains are docked to a central virtual residue. This is in contrast to a two-to-one docking scheme. A TrialMover is used to run 1000 cycles of docking. [CoMTrackerCMs](scripting_documentation/Available-ClaimingMovers#CoMTrackerCM) create virtual residues centered at the center of mass of each chain, which are used as the other base of the jump building each chain.
