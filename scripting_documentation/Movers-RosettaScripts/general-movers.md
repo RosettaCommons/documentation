@@ -817,6 +817,8 @@ Example:  This script generates an antiparallel beta-barrel with a bundle of alp
 
 ```
 
+Note that RosettaScripts requires some sort of input on which to operate, but this mover, by default, deletes input geometry and replaces it with the generated geometry.  When running RosettaScripts, one can either pass in a dummy PDB file with the -in:file:s flag, or a dummy FASTA file with the -in:file:fasta flag.
+
 # Other Pose Manipulation
 
 ## MutateResidue
