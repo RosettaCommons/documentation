@@ -72,29 +72,12 @@ The following example replicates an _ab initio_ run. The file "beta_sheets.top" 
 Consider the domain insertion protein AB, where protein A (with known structure) has protein B (structure unknown) inserted somewhere inside of it. While holding the A part of the fusion protein fixed, we would like to insert fragments in protein B, without perturbing the structure of A.
 
 ```
-<MOVERS>
-  <AbscriptMover name="abinitio" cycles=2 >
-    <Fragments large_frags="frag9.dat" small_frags="frag3.dat" />
-    <Stage ids="I-IVb" >
-      <Mover name="jumps" weight=1.0 />
-    </Stage>
-  </AbscriptMover>
-
-  <AbscriptLoopCloserCM name="closer" fragfile="frag3.dat" />
-
-  <SwitchResidueTypeSetMover name="fullatom" set="fa_standard" />
-  <FastRelax name="relax" repeats=5 />
-</MOVERS>
-
-<PROTOCOLS>
-  <Environment name="env" auto_cut=1 >
-    <Apply mover="abinitio" />
-    <Apply mover="closer" />
-  </Environment>
-  <Add mover="fullatom" />
-  <Add mover="relax" />
-</PROTOCOLS>
+   [SCRIPT]
 ```
+
+In this example of an algorithm that could be used in this situation relies on a [RigidChunkCM](scripting_documentation/Available-ClaimingMovers#RigidChunkCM), which is responsible for holding domain A fixed, and a [FragmentCM](scripting_documentation/Available-ClaimingMovers#FragmentCM), which is responsible for sampling the torsional space of domain B. The ResidueSelector `host` indicates the region in sequence space that is domain A--in this case, residue 1-X and Y-Z. The [RigidChunkCM](scripting_documentation/Available-ClaimingMovers#RigidChunkCM) then knows to apply residue 1-X of the template pose `1ubq.pdb` to residue 1-X of the fusion protein. When it reaches residue X, however, it stops. Residues X+1 to Y-1 are sampled by the [FragmentCM](scripting_documentation/Available-ClaimingMovers#FragmentCM). Then, residues Y-Z are held fixed to the conformation found in residues X+1 to END of `1ubq.pdb`. These rigid chunks of protein (1-X and Y-Z) are related in space by a jump, holding their position relative to one another fixed as well. The cut is placed randomly, weighted by the loop propensity in the FragmentCM.
+
+Of course, there are no guarantees that this example algorithm will work for your system (or any system). It hasn't been benchmarked, and exists solely to demonstrate the functionality of the Environment framework.
 
 ## Multi-body Docking Example
 
