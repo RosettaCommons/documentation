@@ -51,7 +51,7 @@ The following example replicates an _ab initio_ run. The file "beta_sheets.top" 
     </Stage>
   </AbscriptMover>
 
-  <AbscriptLoopCloserCM name="closer" fragfile="frag3.dat" />
+  <AbscriptLoopCloserCM name="closer" fragments="frag3.dat" />
 
   <SwitchResidueTypeSetMover name="fullatom" set="fa_standard" />
   <FastRelax name="relax" repeats=5 />
