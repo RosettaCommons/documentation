@@ -9,7 +9,8 @@ This mover operates on a pose generated with the MakeBundle mover.  It perturbs 
      delta_omega0_perturbation=(&real) delta_omega0_perturbation_type=(&string)
      delta_omega1_perturbation=(&real) delta_omega1_perturbation_type=(&string)
      delta_t_perturbation=(&real) delta_t_perturbation_type=(&string) >
-          <Helix r0_perturbation=(&real) r0_perturbation_type=(&string) r0_copies_helix=(&int)
+          <Helix helix_index=(&int)
+               r0_perturbation=(&real) r0_perturbation_type=(&string) r0_copies_helix=(&int)
                omega0_perturbation=(&real) omega0_perturbation_type=(&string) omega0_copies_helix=(&int)
                delta_omega0_perturbation=(&real) delta_omega0_perturbation_type=(&string) delta_omega0_copies_helix=(&int)
                delta_omega1_perturbation=(&real) delta_omega1_perturbation_type=(&string) delta_omega1_copies_helix=(&int)
