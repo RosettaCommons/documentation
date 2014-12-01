@@ -66,9 +66,6 @@ Outdated.... (wil deprecate 9/29/14)
 - [[DeclareBond]]
 - [[SetTorsion]] -- updated with new functionality; documentation needs to be written
 
-### Parametric Design
-- [[PerturbBundle]] mover.  (Will be moved into RosettaScripts documentation when this branch is merged.)
-
 ### Stepwise Assembly and Monte Carlo Project
 - [[General application documentation|stepwise]] is publicly viewable.
 - [[Overview|stepwise-classes-overview]] of stepwise enumeration and monte carlo, both accessed through `stepwise` application
