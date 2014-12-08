@@ -81,10 +81,10 @@ While most of these applications focus on prediction, many have options which wi
    * [[Extract atomtree diffs]] - Extract structures from the AtomTreeDiff file format.  
 
 ###Membrane Proteins
- - [[Membrane Fast Relax|membrane-fast-relax]] - High-resolution refinement of membrane protein structures with optimization of the membrane position using minimization (uses membrane framework)
- - [[Membrane ddG|membrane-ddG]] - Prediction of free energy changes upon mutation using the membrane framework
- - [[Membrane protein-protein docking|mpdocking]] - Protein-protein docking in the membrane (uses membrane framework)
- - [[Symmetric membrane protein-protein docking|mp-symdocking]] - Assemble symmetric complexes in the membrane environment (uses membrane framework)
+ - [[Membrane Fast Relax|Membrane-Fast-Relax]] - High-resolution refinement of membrane protein structures with optimization of the membrane position using minimization (uses membrane framework)
+ - [[Membrane ddG|Membrane-DDG]] - Prediction of free energy changes upon mutation using the membrane framework
+ - [[Membrane protein-protein docking|Membrane-Protein-Protein-Docking]] - Protein-protein docking in the membrane (uses membrane framework)
+ - [[Symmetric membrane protein-protein docking|Symmetric Membrane Protein-Protein Docking]] - Assemble symmetric complexes in the membrane environment (uses membrane framework)
  - [[Membrane Protein PyMOL Viewer|mp-viewer]] - Standalone application for visualization of membrane protein
 simulations in real-time using pymol (uses membrane framework)
 
