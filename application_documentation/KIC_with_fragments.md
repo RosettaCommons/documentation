@@ -48,7 +48,7 @@ The following command line will perform a *de novo* reconstruction of a protein 
 rosetta/main/source/bin/loopmodel.<my_os>gccrelease -database <rosetta_database> -loops:remodel perturb_kic_with_fragments
 -loops:refine refine_kic_with_fragments -in:file:s <my_starting_structure>.pdb -in:file:fullatom -loops:loop_file
 <my_loopfile>.loop -nstruct <num_desired_models> -ex1 -ex2 -overwrite -loops:frag_sizes 9 3 1 -loops:frag_files 
-<my_starting_structure>.200.9mers.gz <my_starting_structure>.200.3mers.gz none -mute protocols.looprelax.FragmentPerturber     
+<my_starting_structure>.200.9mers.gz <my_starting_structure>.200.3mers.gz none     
 ```
 
 
@@ -176,6 +176,13 @@ Options
     ```
     -loops:max_kic_build_attempts   Number of times to attempt initial loop closure in the perturb stage.
                                     Try increasing to 1000000 if initial closure is failing. Default = 10000. [Integer]
+    -loops:skip_initial_loop_build  This option allows to run KIC with fragments in both centroid and fullatom mode, but
+                                    without building the loop from scratch first. This can be useful for broad sampling 
+                                    of the given loop in the vicinity of its native conformation or for backbone ensemble
+                                    generation, where using fullatom refinement only would lead to ensembles of too low
+                                    conformational diversity. When modeling several loops simultaneously, if the initial
+                                    loop build should be skipped for only a subset of loops, instead set the given loop 
+                                    extend flag in the loop file to 0. 
     -loops:outer_cycles             Number of outer cycles for Monte Carlo (described above in Algorithm).
                                     Default = 5. [Integer]
     -loops:max_inner_cycles         Maximum number of inner cycles for Monte Carlo (described above in Algorithm). [Integer]
@@ -228,7 +235,7 @@ For benchmarking purposes, creating a score *vs* rmsd plot across decoys and loo
 Comparison to other loop modeling protocols
 ===============================
 
-Recent benchmarks using 45 12-residue loops have shown that KIC with fragments achieves sub-Angstrom loop-reconstruction accuracy (0.72 Å backbone rmsd), while considerably outperforming existing loop modeling protocols in the sampling of sub-Angstrom models (median fraction of sub-Angstrom models = 33% (without using homologs during fragment generation), compared to only 13% for next generation KIC, 6% for legacy KIC and 1% for CCD). 
+Recent benchmarks using 45 12-residue loops have shown that KIC with fragments achieves sub-Angstrom loop-reconstruction accuracy (0.72 Å backbone rmsd), while considerably outperforming existing loop modeling protocols in the sampling of sub-Angstrom models (median fraction of sub-Angstrom models = 30% (without using homologs during fragment generation), compared to only 13% for next generation KIC, 6% for legacy KIC and 2% for CCD). 
 
 
 New things since last release
