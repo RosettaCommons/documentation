@@ -14,10 +14,11 @@ The membrane in the Membrane Framework is represented as a virtual residue (MEM)
 
 The MembraneResidue is automatically printed to the PDB as the MEM residue in a HETATOM record. This allows for easy visualization of the membrane in Pymol. The normal vector is stored as an "atom" normalized to a length of 15. Since the normal is a vector in the coordinate system, but stored as a point in the PDB file, normalization to a length of 15 makes it immediately obvious in which general direction the normal shows if the center is close to the origin: 
 
-`HETATM 1323 THKN MEM C  81      15.000   0.000   0.000  1.00  0.00           X  `
-`HETATM 1324 CNTR MEM C  81      -1.425  -1.441   0.354  1.00  0.00           X  `
-`HETATM 1325 NORM MEM C  81       1.016  -3.866  14.954  1.00  0.00           X  `
-
+```
+HETATM 1323 THKN MEM C  81      15.000   0.000   0.000  1.00  0.00           X  
+HETATM 1324 CNTR MEM C  81      -1.425  -1.441   0.354  1.00  0.00           X  
+HETATM 1325 NORM MEM C  81       1.016  -3.866  14.954  1.00  0.00           X  
+```
 
 In the above example the normal vector is close to the direction of the positive z-coordinate, even though the exact normal vector would need to be calculated by (normal 'point' minus center point). 
 
