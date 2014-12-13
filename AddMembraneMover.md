@@ -1,3 +1,7 @@
+## TODO
+
+- expand
+
 ## Metadata
 
 The Rosetta Membrane Framework was developed by Julia Koehler Leman and Rebecca Alford at the Gray Lab at JHU. 
@@ -14,9 +18,11 @@ Creates a membrane pose from a regular pose by instantiating the MembraneInfo ob
 
 ## Code and documentation
 
+`protocols/membrane/AddMembraneMover.<>`
+
 ## Flags
 
-`-membrane_new::setup::spanfiles <spanfile 1>`
+`-membrane_new::setup::spanfiles <spanfile 1>` required flag; AddMembraneMover only uses the first spanfile.
 
 ## Example
 
