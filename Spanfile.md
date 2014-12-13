@@ -1,3 +1,8 @@
+## TODO
+
+- update path to script: is it also still in the folder of the pilot apps?
+- are the 3rd and 4th column used? If not, we can leave them out and describe difference in files
+
 ## Metadata
 
 The Rosetta Membrane Framework was developed by Julia Koehler Leman and Rebecca Alford at the Gray Lab at JHU. 
@@ -63,10 +68,13 @@ n2c
 
 1st line is comment line. 2nd line shows number of predicted transmembrane helices (4 in the command lines example below) and total number of residues (123 in the example below). 3rd line shows predicted topology of transmembrane helices in the membrane (currently only antiparallel topology is implemented). 4th line and all lines below show start and end residue numbers of each of the predicted transmembrane helices (current format repeats these numbers twice).
 
-
 ## Flags
 
+Spanfiles are read in using the option `-membrane_new::setup::spanfiles <spanfile 1> <spanfile 2>`. While most of the Membrane Framework only uses the first spanfile (check your log file!!!), some specific applications might use two or more: the MPDocking setup uses two. If in doubt, check your log carefully. 
+ 
 ## Example
+
+`-membrane_new::setup::spanfiles 1afo.span`
 
 ## References
 
