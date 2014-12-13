@@ -1,3 +1,8 @@
+## TODO
+
+- update information
+- include high-res scoring function
+
 ## Metadata
 
 The Rosetta Membrane Framework was developed by Julia Koehler Leman and Rebecca Alford at the Gray Lab at JHU. 
