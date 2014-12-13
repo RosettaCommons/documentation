@@ -1,3 +1,8 @@
+## TODO
+
+- location of code
+- more detailed description of how the residue is handled?
+
 ## Metadata
 
 The Rosetta Membrane Framework was developed by Julia Koehler Leman and Rebecca Alford at the Gray Lab at JHU. 
@@ -32,7 +37,7 @@ The MembraneResidue is a virtual residue that is connected to the kinematic laye
 
 ## Code and documentation
 
-
+TODO
 
 ## Flags
 
