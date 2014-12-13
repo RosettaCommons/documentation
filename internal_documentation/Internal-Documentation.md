@@ -42,7 +42,7 @@ comment tags will be stripped from the documentation prior to being provided as 
 - [[Overview]]
      - [[Membrane residue]]
      - [[Score functions]]
-- [[Inputs]]
+- Inputs
      - [[Spanfile]]
      - [[Lipsfile]]
      - [[PDB file]]
