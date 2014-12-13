@@ -2,6 +2,7 @@
 
 - update information
 - include high-res scoring function
+- update flags
 
 ## Metadata
 
