@@ -2,6 +2,7 @@
 
 - update path to script: is it also still in the folder of the pilot apps?
 - are the 3rd and 4th column used? If not, we can leave them out and describe difference in files
+- distinguish old and new flags
 
 ## Metadata
 
