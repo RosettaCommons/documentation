@@ -24,15 +24,25 @@ The *MembranePositionFromTopologyMover* uses the protein topology (SpanningTopol
 
 The **TransformIntoMembraneMover** does the reverse from above by using the protein topology and the protein structure to calculate an optimal position and orientation of the membrane to then rotate and translate the protein into this fixed coordinate frame. This mover should only be used for a **fixed membrane and a flexible protein** (i.e. the membrane residue is at the root of the FoldTree).
 
-The MembraneResidue can be present in the PDB file and can be read in using the flag `-membrane_new::setup::membrane_rsd <membrane residue number>`.
-
-MEM
-
-## Code and documentation
+The MembraneResidue can be present as a MEM residue in the HETATOM record in the PDB file and can be read in using the flag `-membrane_new::setup::membrane_rsd <membrane residue number>` for consecutive protocols. An example of this residue is this:
+ 
+```
+HETATM 1323 THKN MEM C  81      15.000   0.000   0.000  1.00  0.00           X  
+HETATM 1324 CNTR MEM C  81      -1.425  -1.441   0.354  1.00  0.00           X  
+HETATM 1325 NORM MEM C  81       1.016  -3.866  14.954  1.00  0.00           X  
+```
 
 ## Flags
 
+`-in::file::s <PDB input file>` to read in a PDB file
+
+`-membrane_new::setup::membrane_rsd <membrane residue number>` to read in the membrane residue
+
 ## Example
+
+`-in::file::s 1afo.pdb`
+
+`-membrane_new::setup::membrane_rsd 81`
 
 ## References
 
