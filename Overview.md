@@ -1,4 +1,8 @@
-## About
+## TODO
+
+add figure 2 from the paper
+
+## Metadata
 
 The Rosetta Membrane Framework was developed by Julia Koehler Leman and Rebecca Alford at the Gray Lab at JHU. 
 
