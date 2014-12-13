@@ -40,7 +40,6 @@ comment tags will be stripped from the documentation prior to being provided as 
 
 ### Rosetta Membrane Framework
 - [[Overview]]
-     - [[General structure]]
      - [[Membrane residue]]
      - [[Score functions]]
 - [[Inputs]]
