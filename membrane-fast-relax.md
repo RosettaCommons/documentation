@@ -36,11 +36,18 @@ cd mpframework-relax/scripts/
 ./octopus2span.pl octopus_pred.out > spanfile.txt
 ```
 
+## Options
+
+|**Flag**|**Description**|**Type**|
+|:-------|:--------------|:-------|
+|-parser:protocol <membrane_relax.xml>|Specify membrane relax protocol to rosetta scripts executable|XML Script|
+|-membrane_new:setup:spanfiles|Spanfile describing spanning topology of starting structure|String|
+|-membrane_new:scoring:hbond|Turn on depth-dependent hydrogen bonding term when using the membrane high resolution energy function|Boolean|
+
 ## Example Command Lines
 To run this application, use the following command line: 
 
 `./rosetta_scripts.<exe> -database /path/to/my/rosettadb @flags`
-
 
 ## References
 1. Tyka MD, Keedy DA, Andre I, DiMaio F, Song Y, et al. (2011) Alternate states of proteins revealed by detailed energy landscape mapping. J Mol Biol. 
