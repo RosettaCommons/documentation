@@ -32,8 +32,10 @@ The membrane relax application requires 1 input file:
   1. Generating a Spanfile
   A spanfile describing transmembrane spanning regions can be generated using the OCTOPUS server (http://octopus.cbr.su.se/). This file must be converted to a Rosetta spanfile format using octopus2span.pl. Example command is given below: 
 
-    cd mpframework-relax/scripts/
-    ./octopus2span.pl octopus_pred.out > spanfile.txt
+```
+cd mpframework-relax/scripts/
+./octopus2span.pl octopus_pred.out > spanfile.txt
+```
 
 ## Example Command Lines
 To run this application, use the following command line: 
