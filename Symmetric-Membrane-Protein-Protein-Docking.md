@@ -61,6 +61,8 @@ the user can generate a definition for this symmetry group independent of the st
 be found in src/apps/public/symmetry/make_symmdef_denovo.py. More information for using this script can 
 be found here: https://www.rosettacommons.org/docs/latest/make-symmdef-file-denovo.html
 
+## Options
+
 |**Flag**|**Description**|**Type**|
 |:-------|:--------------|:-------|
 |-membrane_new:setup:spanfiles|Spanfile describing spanning topology of starting structure|String|
