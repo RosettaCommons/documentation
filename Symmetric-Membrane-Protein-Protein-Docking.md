@@ -30,7 +30,9 @@ The membrane ddG application is implemented as a python script in PyRosetta. An 
 ## Example Command Lines
 Membrane Symmetric Protein-Protein Docking is a C++ application in the Rosetta 3 software suite. 
 
-Application: membrane_symmdocking.<platform-exe> 
+```
+./membrane_symdocking.<exe> -database /path/to/my/rosettadb @flags  
+```
 
 # Generating input files
 ## Generating Inputs
@@ -58,6 +60,13 @@ Symmetries can also be generated using a denovo protocol. If the user knows the 
 the user can generate a definition for this symmetry group independent of the structure. This script can 
 be found in src/apps/public/symmetry/make_symmdef_denovo.py. More information for using this script can 
 be found here: https://www.rosettacommons.org/docs/latest/make-symmdef-file-denovo.html
+
+|**Flag**|**Description**|**Type**|
+|:-------|:--------------|:-------|
+|-membrane_new:setup:spanfiles|Spanfile describing spanning topology of starting structure|String|
+|-membrane_new:scoring:hbond|Turn on depth-dependent hydrogen bonding term when using the membrane high resolution energy function|Boolean|
+|--symmetry:symmetry_definition|Symmetry definition file|Path|
+|-symmetry:initialize_rigid_body_dofs|Initialize rigid body configuration (symmetric)|Boolean|
 
 ## References
 1. DiMaio F, Leaver-Fay A, Bradley P, Baker D, André I (2011) Modeling Symmetric Macromolecular Structures in Rosetta3. PLoS ONE 6: e20450. 
