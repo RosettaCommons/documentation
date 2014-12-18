@@ -26,7 +26,6 @@ The membrane relax application combines the traditional fast relax algorithm wit
 This application uses the membrane framework and is implemented as a Rosetta script. The script can be found in the Rosetta/demos/protocol_captures/2014/mpframework-relax directory called membrane_relax.xml which is passed to the rosetta_scripts executable. 
 
 ## Generating Inputs
-### Generating Inputs
 The membrane relax application requires 1 input file: 
 
   1. Generating a Spanfile
