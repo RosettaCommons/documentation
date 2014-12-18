@@ -39,7 +39,6 @@ cd mpframework-pymol/scripts/
 
 |**Flag**|**Description**|**Type**|
 |:-------|:--------------|:-------|
-|-parser:protocol <membrane_relax.xml>|Specify membrane relax protocol to rosetta scripts executable|XML Script|
 |-membrane_new:setup:spanfiles|Spanfile describing spanning topology of starting structure|String|
 |-show_simulation_in_pymol 0|Use the PyMOL viewer to visualize membrane planes for structures|Boolean|
 |-packing:prepack_missing_sidechains false|Wait to repack sidechains during pdb initialization until the membrane pose is fully initialized with the membrane framework|Boolean|
