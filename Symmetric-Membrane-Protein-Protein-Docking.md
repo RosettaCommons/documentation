@@ -34,8 +34,7 @@ Membrane Symmetric Protein-Protein Docking is a C++ application in the Rosetta 3
 ./membrane_symdocking.<exe> -database /path/to/my/rosettadb @flags  
 ```
 
-# Generating input files
-## Generating Inputs
+## Generating input files
 The symmetric membrane protein-protein docking application requires two input files: 
 
 1. Generating a Spanfile: 
