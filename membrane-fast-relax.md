@@ -43,6 +43,7 @@ cd mpframework-relax/scripts/
 |-parser:protocol <membrane_relax.xml>|Specify membrane relax protocol to rosetta scripts executable|XML Script|
 |-membrane_new:setup:spanfiles|Spanfile describing spanning topology of starting structure|String|
 |-membrane_new:scoring:hbond|Turn on depth-dependent hydrogen bonding term when using the membrane high resolution energy function|Boolean|
+|-packing:prepack_missing_sidechains false|Wait to repack sidechains during pdb initialization until the membrane pose is fully initialized with the membrane framework|Boolean|
 
 ## Example Command Lines
 To run this application, use the following command line: 
