@@ -41,24 +41,23 @@ A spanfile describing transmembrane spanning regions can be generated using the 
 octopus2span.pl script. Use the following command: 
 
 ```
-    cd mpframework-symdock/scripts/
-    ./octopus2span.pl octopus_pred.out > spanfile.txt
+cd mpframework-symdock/scripts/
+./octopus2span.pl octopus_pred.out > spanfile.txt
 ```
 
-  2. Generate a Symmetry definition file
-  Symmetry definition files describe the symmetry of the system and serve as instructions to Rosetta for building the full starting complex from an asymmetric unit. This file can be generated using the 
-  make_symmdef_file.pl script in src/apps/public/symmetry/. Detailed information for generation of symmetry definition files can be found at https://www.rosettacommons.org/docs/latest/make-symmdef-file.html. In general, this script requires a PDB file, symmetry mode (NCS or PSEUDO only for membranes), specification of the asymmetric unit and symmetry group # if known. 
+2. Generate a Symmetry definition file
+Symmetry definition files describe the symmetry of the system and serve as instructions to Rosetta for building the full starting complex from an asymmetric unit. This file can be generated using the make_symmdef_file.pl script in src/apps/public/symmetry/. Detailed information for generation of symmetry definition files can be found at https://www.rosettacommons.org/docs/latest/make-symmdef-file.html. In general, this script requires a PDB file, symmetry mode (NCS or PSEUDO only for membranes), specification of the asymmetric unit and symmetry group # if known. 
 
-  The symmetry definition file in this example was generated with the following commandline. 
+The symmetry definition file in this example was generated with the following commandline. 
 
 ```
-    ./make_symmdef_file.pl -m NCS -p 1afo.pdb -r 10.0 -a A -b B:2 
+./make_symmdef_file.pl -m NCS -p 1afo.pdb -r 10.0 -a A -b B:2 
 ```
 
-  Symmetries can also be generated using a denovo protocol. If the user knows the symmetry group (e.g. C3), 
-  the user can generate a definition for this symmetry group independent of the structure. This script can 
-  be found in src/apps/pubilc/symmetry/make_symmdef_denovo.py. More information for using this script can 
-  be found here: https://www.rosettacommons.org/docs/latest/make-symmdef-file-denovo.html
+Symmetries can also be generated using a denovo protocol. If the user knows the symmetry group (e.g. C3), 
+the user can generate a definition for this symmetry group independent of the structure. This script can 
+be found in src/apps/public/symmetry/make_symmdef_denovo.py. More information for using this script can 
+be found here: https://www.rosettacommons.org/docs/latest/make-symmdef-file-denovo.html
 
 ## References
 1. Chaudhury S, Lyskov S, Gray JJ (2010) PyRosetta: a script-based interface for implementing molecular modeling algorithms using Rosetta.
