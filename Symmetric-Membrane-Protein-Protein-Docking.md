@@ -36,13 +36,14 @@ Application: membrane_symmdocking.<platform-exe>
 ## Generating Inputs
 The symmetric membrane protein-protein docking application requires two input files: 
 
-  1. Generating a Spanfile
-  A spanfile describing transmembrane spanning regions can be generated using the OCTOPUS server
-  (http://octopus.cbr.su.se/). This file must be converted to a Rosetta spanfile format using the
-  octopus2span.pl script. Use the following command: 
+1. Generating a Spanfile
+A spanfile describing transmembrane spanning regions can be generated using the OCTOPUS server (http://octopus.cbr.su.se/). This file must be converted to a Rosetta spanfile format using the
+octopus2span.pl script. Use the following command: 
 
+```
     cd mpframework-symdock/scripts/
     ./octopus2span.pl octopus_pred.out > spanfile.txt
+```
 
   2. Generate a Symmetry definition file
   Symmetry definition files describe the symmetry of the system and serve as instructions to Rosetta for building the full starting complex from an asymmetric unit. This file can be generated using the 
@@ -50,7 +51,9 @@ The symmetric membrane protein-protein docking application requires two input fi
 
   The symmetry definition file in this example was generated with the following commandline. 
 
+```
     ./make_symmdef_file.pl -m NCS -p 1afo.pdb -r 10.0 -a A -b B:2 
+```
 
   Symmetries can also be generated using a denovo protocol. If the user knows the symmetry group (e.g. C3), 
   the user can generate a definition for this symmetry group independent of the structure. This script can 
