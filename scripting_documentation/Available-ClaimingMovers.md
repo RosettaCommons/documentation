@@ -1,13 +1,4 @@
-There are a few currently available ClaimingMovers (abbreviated CM) that are ready to go:
-
-* [UniformRigidBodyCM](#UniformRigidBodyCM): perform unbiased, rigid-body docking between two selected regions.
-* [FragmentCM](#FragmentCM): perform backbone torsion-angle fragment insertion on a target region.
-* [FragmentJumpCM](#FragmentCM): beta-strand/beta-strand pairing fragment insertion
-* [LoopCM](#LoopCM): access to loop closure algorithms KIC and CCD modes refine and perturb
-* [RigidChunkCM](#RigidChunkCM): fix a region to values given in a pdb file and prevent other movers from sampling there
-* [CoMTrackerCM](#CoMTrackerCM): generate a virtual residue that tracks the center of mass of a particular region
-* [AbscriptLoopCloserCM](#AbscriptLoopCloserCM): close loops using the WidthFirstSlidingWindowLoopCloser (used in _ab initio_ to close unphysical chainbreaks)
-* [ScriptCM](#ScriptCM): interface with the Broker system for an arbitrary movemap-accepting mover (_i.e._ inherits from MoveMapMover).
+[[_TOC_]]
 
 # UniformRigidBodyCM
 The UniformRigidBodyCM is a mover that interfaces between the broker and the UniformRigidBodyMover docking mover. The UniformRigidBodyMover expects a jump number but, for convenience, the UniformRigidBodyCM accepts ResidueSelectors or virtual residue names. For example,
