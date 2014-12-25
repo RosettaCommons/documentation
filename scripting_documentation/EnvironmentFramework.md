@@ -53,15 +53,17 @@ The following example replicates an _ab initio_ run. The file "beta_sheets.top" 
 
   <AbscriptLoopCloserCM name="closer" fragments="frag3.dat" />
 
+  <Environment name="env" auto_cut=1 >
+    <Apply mover="abinitio" />
+    <Apply mover="closer" />
+  </Environment>
+
   <SwitchResidueTypeSetMover name="fullatom" set="fa_standard" />
   <FastRelax name="relax" repeats=5 />
 </MOVERS>
 
 <PROTOCOLS>
-  <Environment name="env" auto_cut=1 >
-    <Apply mover="abinitio" />
-    <Apply mover="closer" />
-  </Environment>
+  <Add mover="env" />
   <Add mover="fullatom" />
   <Add mover="relax" />
 </PROTOCOLS>
