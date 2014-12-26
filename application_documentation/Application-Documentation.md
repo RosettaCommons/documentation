@@ -52,6 +52,7 @@ While most of these applications focus on prediction, many have options which wi
 -  [[Stepwise monte carlo|stepwise]] - Generate 3D models of protein, RNA, and protein/RNA loops, motifs, and interfaces. Stochastic version of stepwise assembly. 
 -  [[RNA assembly with experimental constraints|rna-assembly]] - Predict 3-dimensional structures of large RNAs with the help of experimental constraints. Note – largely deprecated by newer pipeline (documentation coming soon).
 -  [[ERRASER]] - Refine an RNA structure given electron density constraints.  
+-  [[Sample around nucleobase]] - Visualizing energy functions by scanning probe molecules around a nucleobase.
 
 ###Antibody Modeling
 - [[Antibody protocol]] (RosettaAntibody3) - Overview of the antibody modeling protocol.  
