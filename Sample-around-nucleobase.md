@@ -1,5 +1,4 @@
-#Sample around nucleobase - Visualizing energy functions by scanning probe molecules around a nucleobase.
-Metadata
+#Sample around nucleobase
 ========
 
 Author: Rhiju Das
