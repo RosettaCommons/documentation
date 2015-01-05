@@ -9,7 +9,7 @@ Developed in summer 2012, Das Lab hackathon -- Kyle Beauchamp, Fang-Chieh Chou, 
 Extended to include phosphate by Rhiju Das in Dec. 2014.
 
 ### Scan methyl probe in base plane
-![Scan xy]( https://lh5.googleusercontent.com/TZysm5DWYuWzEY4en48H57y-1NBmYUkzcg_B3lmAeC9SJmGv9X4Xng3akpLP65YRB1rz1EvrBWY=w2165-h1235 "Scan methyl probe in base plane")
+![Scan xy]( images/score_xy_0.png "Scan methyl probe in base plane")
 
 ### Scan methyl probe 4.0 Å displaced from base plane
 ![Scan xy, displaced by 4.0 Å]( https://lh6.googleusercontent.com/2Gvh0olV9k1gpNViDhjSziG5-T7zlzEhyz4cfLcC6tO463jb92M77m_XBEZKTEWdSUtK4sV7RmI=w2178-h1296 "Scan methyl probe 4.0 Å displaced from base plane")
