@@ -6,7 +6,7 @@ Generates a helical bundle, sampling user-specified ranges of parameters and out
    set_bondlengths=(false &bool) set_bondangles=(false &bool) residue_name=("ALA" &string)
    crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) scorefxn=(&string)
    selection_type=("low"||"high" &string) pre_selection_mover=(&string) dump_pdbs=(false &bool)
-   pdb_prefix=("bgs_out" &string)
+   pdb_prefix=("bgs_out" &string) max_samples=(10000 &int)
     r0=(&real) OR ( r0_min=(&real) r0_max=(&real) r0_samples=(&int) )
     omega0=(&real) OR ( omega0_min=(&real) omega0_max=(&real) omega0_samples=(&int) )
     delta_omega0=(&real) OR ( delta_omega0_min=(&real) delta_omega0_max=(&real) delta_omega0_samples=(&int) )
@@ -27,7 +27,11 @@ Generates a helical bundle, sampling user-specified ranges of parameters and out
 </BundleGridSampler>
 ```
 
-Default parameter values or parameter ranges are set in the <b>BundleGridSampler</b> tag, and overrides are set in the individual <b>Helix</b> tags.  Note that default parameter ranges are applied separately to each helix.  For example, the following script would do 16 samples (4 each for r0 of helix 1 and r0 of helix 2):
+Default parameter values or parameter ranges are set in the <b>BundleGridSampler</b> tag, and overrides are set in the individual <b>Helix</b> tags.  Refer to the <b>MakeBundle</b> mover for options that both movers have in common.  Additional options include:
+- <b>[parameter]\_min</b>, <b>[parameter]_max</b>: Minimum and maximum parameter values for a range to be sampled.
+- <b>[parameter]\_samples</b>: The number of samples.  Note that the total number of samples is the product of all individual samples, and this can get quite large very fast.
+
+Note that default parameter ranges are applied separately to each helix.  For example, the following script would perform 16 samples (4 each for r0 of helix 1 and r0 of helix 2):
 
 ```
 <BundleGridSampler name="bgs1" helix_length=20 scorefxn="sfxn1" r0_low=5.0 r0_high=8.0 r0_samples=4 omega0=0.05 delta_omega0=0 delta_omega1=0 delta_t=0>
