@@ -4,7 +4,9 @@ Generates a helical bundle, sampling user-specified ranges of parameters and out
 ```
 <BundleGridSampler name=(&string) symmetry=(0 &int) symmetry_copies=(0 &int) set_dihedrals=(true &bool)
    set_bondlengths=(false &bool) set_bondangles=(false &bool) residue_name=("ALA" &string)
-   crick_params_file=("alpha_helix" &string)  helix_length=(0 &int)
+   crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) scorefxn=(&string)
+   selection_type=("low"||"high" &string) pre_selection_mover=(&string) dump_pdbs=(false &bool)
+   pdb_prefix=("bgs_out" &string)
     (r0=(&real) OR r0_min=(&real) r0_max=(&real) r0_samples=(&int))
     (omega0=(&real) OR omega0_min=(&real) omega0_max=(&real) omega0_samples=(&int))
     (delta_omega0=(&real) OR delta_omega0_min=(&real) delta_omega0_max=(&real) delta_omega0_samples=(&int))
@@ -13,3 +15,5 @@ Generates a helical bundle, sampling user-specified ranges of parameters and out
    >
 </BundleGridSampler>
 ```
+
+Default parameter values or parameter ranges are set in the <b>BundleGridSampler</b> tag, and overrides are set in the individual <b>Helix</b> tags.
