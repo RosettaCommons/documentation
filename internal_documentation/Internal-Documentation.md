@@ -86,6 +86,9 @@ _Developer facing documentation_
 Outdated.... (wil deprecate 9/29/14)
 - [[RosettaMembrane Framework Overview]]
 
+### Helical bundles project
+- [[BundleGridSampler]]
+
 ### Cyclic Peptides / Geometrically-Constrained Polymers Project
 - [[Workflow]]
 - [[PeptideStubMover]]
