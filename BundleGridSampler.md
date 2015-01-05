@@ -4,16 +4,16 @@ Generates a helical bundle, sampling user-specified ranges of parameters and out
 ```
 <BundleGridSampler name=(&string) symmetry=(0 &int) symmetry_copies=(0 &int) set_dihedrals=(true &bool)
    set_bondlengths=(false &bool) set_bondangles=(false &bool) residue_name=("ALA" &string)
-   crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) scorefxn=(&string)
-   selection_type=("low"||"high" &string) pre_selection_mover=(&string) dump_pdbs=(false &bool)
-   pdb_prefix=("bgs_out" &string) max_samples=(10000 &int)
+   crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) invert=(false &bool)
+   scorefxn=(&string) selection_type=("low"||"high" &string) pre_selection_mover=(&string)
+   dump_pdbs=(false &bool) pdb_prefix=("bgs_out" &string) max_samples=(10000 &int)
     r0=(&real) OR ( r0_min=(&real) r0_max=(&real) r0_samples=(&int) )
     omega0=(&real) OR ( omega0_min=(&real) omega0_max=(&real) omega0_samples=(&int) )
     delta_omega0=(&real) OR ( delta_omega0_min=(&real) delta_omega0_max=(&real) delta_omega0_samples=(&int) )
     delta_omega1=(&real) OR ( delta_omega1_min=(&real) delta_omega1_max=(&real) delta_omega1_samples=(&int) )
     delta_t=(&real) OR ( delta_t_min=(&real) delta_t_max=(&real) delta_t_samples=(&int) )
    >
-   <Helix set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool)
+   <Helix set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool) invert=(false &bool)
      residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string) helix_length=(0 &int)
      r0=(&real) OR (r0_copies_helix=(&int)) OR ( r0_min=(&real) r0_max=(&real) r0_samples=(&int) )
      omega0=(&real) OR (omega0_copies_helix=(&int)) OR ( omega0_min=(&real) omega0_max=(&real) omega0_samples=(&int) )
@@ -30,6 +30,7 @@ Generates a helical bundle, sampling user-specified ranges of parameters and out
 Default parameter values or parameter ranges are set in the <b>BundleGridSampler</b> tag, and overrides are set in the individual <b>Helix</b> tags.  Refer to the <b>MakeBundle</b> mover for options that both movers have in common.  Additional options include:
 - <b>[parameter]\_min</b>, <b>[parameter]_max</b>: Minimum and maximum parameter values for a range to be sampled.
 - <b>[parameter]\_samples</b>: The number of samples.  Note that the total number of samples is the product of all individual samples, and this can get quite large very fast.
+- <b>[parameter]\_copies\_helix</b>: This option may only be specified in a <b>Helix</b> sub-tag.  It indicates that a particular parameter for that helix is always set to the same value as that parameter from a previously-defined helix.  See below for an example.
 - <b>max\_samples</b>: The maximum number of samples permitted.  If the total number of samples is larger than this, the mover throws an error at apply time.  This is meant as a protection for the user, to prevent unreasonably large grid sampling jobs from being attempted.  The default value of 10,000 samples is conservative, and may be increased.
 - <b>scorefxn</b>: The scoring function to use.  This must be specified, since this mover selects the lowest-energy bundle generated.
 - <b>selection\_type</b>:  Although the lowest-energy bundle is selected by default ("low"), the user may optionally specify that the highest-energy bundle ("high") be selected instead.
