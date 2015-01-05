@@ -101,3 +101,8 @@ plot_contour.py score_xy_1.5.table score_xy_1.5.png
 plot_contour.py score_xy_3.table score_xy_3.png
 plot_contour.py score_xy_4.table score_xy_4.png
 ```
+
+Additional Information
+======================
+The previous hackathon results are summarized in the following slides
+https://drive.google.com/file/d/0By0BpYZBGuK-R2dhcEpKN0E4d28/view?usp=sharing 
