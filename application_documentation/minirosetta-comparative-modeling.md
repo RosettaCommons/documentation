@@ -79,6 +79,7 @@ Comparative modeling can be run using the minirosetta application with the follo
 
 -in:file:alignment t288_.result.filt.valid                                    Alignment file
 -cm:aln_format grishin                                                        Alignment file format
+#-cm:aln_format general                                                       if general format is used
 -in:file:template_pdb 1be9A.pdb                                               List of template PDBs
 -database path/to/rosetta/rosetta_database                                    Path to rosetta database
 -nstruct 1                                                                    Number of output structures
@@ -99,5 +100,14 @@ scores_from_program: 0.000000 0.998400
 ```
 
 The first two lines represent the identifier of the query and template sequences, and 1be9A.pdb must provided on the command-line with the -in:file:template_pdb option (listed above). The string "1be9A\_4" should be a unique identifier for the sequence alignment. Alignment identifiers are stored in silent-files, and each structure in a silent-file should store which alignment was used as a template for model building.
+
+If you provide alignment file in general format use the flag -cm:aln_format general
+The general format looks like:
+
+score 123.456
+t288_		1 VIAFRCPRSFMDQPLAEHFSPFRVQHMDLSNS------VIEVSTL
+1be9A 	1 ILSLRRSLSYVIQGMANIESLNLSGCYNLTDNGLGHAFVQEIGSL
+
+1be9A.pdb must provided on the command-line
 
 See the [[AbinitioRelax extract options|abinitio-relax#Options]] and [[AbinitioRelax cluster options|abinitio-relax#Options]] for information on how to extract PDBs and cluster silent-files from comparative modeling.
