@@ -30,6 +30,12 @@ Generates a helical bundle, sampling user-specified ranges of parameters and out
 Default parameter values or parameter ranges are set in the <b>BundleGridSampler</b> tag, and overrides are set in the individual <b>Helix</b> tags.  Refer to the <b>MakeBundle</b> mover for options that both movers have in common.  Additional options include:
 - <b>[parameter]\_min</b>, <b>[parameter]_max</b>: Minimum and maximum parameter values for a range to be sampled.
 - <b>[parameter]\_samples</b>: The number of samples.  Note that the total number of samples is the product of all individual samples, and this can get quite large very fast.
+- <b>max\_samples</b>: The maximum number of samples permitted.  If the total number of samples is larger than this, the mover throws an error at apply time.  This is meant as a protection for the user, to prevent unreasonably large grid sampling jobs from being attempted.  The default value of 10,000 samples is conservative, and may be increased.
+- <b>scorefxn</b>: The scoring function to use.  This must be specified, since this mover selects the lowest-energy bundle generated.
+- <b>selection\_type</b>:  Although the lowest-energy bundle is selected by default ("low"), the user may optionally specify that the highest-energy bundle ("high") be selected instead.
+- <b>pre\_selection\_mover</b>:  If specified, this mover will be applied to each generated bundle prior to energy evaluation.  This can be useful for side-chain packing or minimization as backbone conformations are sampled.  Note that this can greatly increase runtime, however.  Note also that, if a mover is used that alters the backbone conformation, the conformation may no longer lie within the Crick parameter space.
+- <b>dump\_pdbs</b>: If true, a PDB file is written for every bundle conformation sampled.  False by default.
+- <b>pdb\_prefix</b>: The prefix for the PDB filenames if PDB files are being written.  Filenames will be of the format [prefix]\_#####.pdb.  This defaults to "bgs_out".
 
 Note that default parameter ranges are applied separately to each helix.  For example, the following script would perform 16 samples (4 each for r0 of helix 1 and r0 of helix 2):
 
