@@ -36,7 +36,7 @@ Default parameter values or parameter ranges are set in the <b>BundleGridSampler
 </BundleGridSampler>
 ```
 
-In order to sample a range of parameters, keeping a parameter value for two different helices the same, the <b>[parameter]_copies_helix</b> option may be used in a <b>Helix</b> tag.  The helix to be copied must be declared before the helix that has the <b>[parameter]_copies_helix</b> option.  The following script, for example, carries out 4 samples, with r0 for both helices ranging from 5 to 8 (and always the same for both helices):
+In order to sample a range of parameters, keeping a parameter value for two different helices the same, the <b>[parameter]\_copies\_helix</b> option may be used in a <b>Helix</b> tag.  The helix to be copied must be declared before the helix that has the <b>[parameter]\_copies\_helix</b> option.  The following script, for example, carries out 4 samples, with r0 for both helices ranging from 5 to 8 (and always the same for both helices):
 
 ```
 <BundleGridSampler name="bgs1" helix_length=20 scorefxn="sfxn1" r0_low=5.0 r0_high=8.0 r0_samples=4 omega0=0.05 delta_omega0=0 delta_omega1=0 delta_t=0>
