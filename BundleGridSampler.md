@@ -27,7 +27,7 @@ Generates a helical bundle, sampling user-specified ranges of parameters and out
 </BundleGridSampler>
 ```
 
-Default parameter values or parameter ranges are set in the <b>BundleGridSampler</b> tag, and overrides are set in the individual <b>Helix</b> tags.  Refer to the <b>MakeBundle</b> mover for options that both movers have in common.  Additional options include:
+Default parameter values or parameter ranges are set in the <b>BundleGridSampler</b> tag, and overrides are set in the individual <b>Helix</b> tags.  Refer to the <a href="https://www.rosettacommons.org/docs/latest/general-movers.html#MakeBundle"><b>MakeBundle</b> mover</a> for options that both movers have in common.  Additional options include:
 - <b>[parameter]\_min</b>, <b>[parameter]_max</b>: Minimum and maximum parameter values for a range to be sampled.
 - <b>[parameter]\_samples</b>: The number of samples.  Note that the total number of samples is the product of all individual samples, and this can get quite large very fast.
 - <b>[parameter]\_copies\_helix</b>: This option may only be specified in a <b>Helix</b> sub-tag.  It indicates that a particular parameter for that helix is always set to the same value as that parameter from a previously-defined helix.  See below for an example.
