@@ -1,5 +1,5 @@
 ## BundleGridSampler
-Generates a helical bundle, sampling user-specified ranges of parameters and outputting the lowest-energy bundle encountered (and its accompanying parameter values).  Optionally, this mover can also output PDB files for all bundle geometries sampled.
+Generates a helical bundle, sampling user-specified ranges of parameters and outputting the lowest-energy bundle encountered (and its accompanying parameter values).  Optionally, this mover can also output PDB files for all bundle geometries sampled.  Note that because strands are special cases of helices, this mover can also be used to sample beta-barrel conformations or mixed alpha-beta structures.
 
 ```
 <BundleGridSampler name=(&string) symmetry=(0 &int) symmetry_copies=(0 &int) set_dihedrals=(true &bool)
