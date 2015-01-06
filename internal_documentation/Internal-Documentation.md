@@ -143,6 +143,10 @@ Features Reporters:
 RosettaScripts Documentation:
 - [[Generalized Antibody Design Framework RS]]
 
+Input Files:
+- [[CDR Instruction File]]
+ * CDR Level control of Antibody Design and CDRSets used for Antibody modeling
+
 #### S.E.W.I.N.G. Protocol
 [[SEWING]]
 
