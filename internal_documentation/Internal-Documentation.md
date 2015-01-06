@@ -124,13 +124,16 @@ This is documentation for not-yet-released applications and code frameworks.
 Utilities:
 - [[CDR Cluster Identification]]
    * Identify North/Dunbrack CDR Clusters 
-
 - [[CDR Cluster Constrained Relax]]
    * Relax CDRs using cluster-based dihedral constraints 
 
 Design:
 - [[RosettaAntibodyDesign]]
   * Knowledge-based Antibody Design based on CDR clusters and cellular mimicry
+- [[Antibody Design Strategy Analysis]]
+  * Methods for analyzing various antibody design strategies
+- [[Antibody Design Benchmark Analysis]]
+  * Methods for analyzing various antibody design benchmarks
 
 Features Reporters:
 - [[Antibody Features]]
