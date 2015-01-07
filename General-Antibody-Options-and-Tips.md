@@ -1,4 +1,6 @@
-#PDB Renumbering
+#Antibody General
+
+## PDB Numbering and CDR Definitions
 
 There are many numbering schemes and CDR definitions for antibodies in the literature.
 
@@ -7,7 +9,7 @@ To begin any current Rosetta Antibody protocol, one must first renumber their in
 - Chothia + Kabat: [AbNum](http://www.bioinf.org.uk/abs/abnum/)
 - AHO (Required for Antibody Design protocols): [PyIgClassify](http://dunbrack2.fccc.edu/PyIgClassify/)
 
-#Relavent Options
+##Relavent Options
 
 ```
 (antibody group - can be used like: antibody:numbering_scheme)
