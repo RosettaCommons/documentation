@@ -821,14 +821,15 @@ Note that RosettaScripts requires some sort of input on which to operate, but th
 
 
 ## BundleGridSampler
-Generates a helical bundle, sampling user-specified ranges of parameters and outputting the lowest-energy bundle encountered (and its accompanying parameter values).  Optionally, this mover can also output PDB files for all bundle geometries sampled.  Note that because a strand is a special case of a helix, this mover can also be used to sample beta-barrel conformations or mixed alpha-beta structures.
+Generates a helical bundle, sampling user-specified ranges of parameters and outputting the lowest-energy bundle encountered (and its accompanying parameter values).  Sampled parameters are evenly distributed in user-specified ranges; if more than one parameter is sampled, the mover samples an n-dimensional grid of sample values.  Optionally, this mover can also output PDB files for all bundle geometries sampled.  Note that because a strand is a special case of a helix, this mover can also be used to sample beta-barrel conformations or mixed alpha-beta structures.
 
 ```
 <BundleGridSampler name=(&string) symmetry=(0 &int) symmetry_copies=(0 &int) set_dihedrals=(true &bool)
    set_bondlengths=(false &bool) set_bondangles=(false &bool) residue_name=("ALA" &string)
    crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) invert=(false &bool)
    scorefxn=(&string) selection_type=("low"||"high" &string) pre_selection_mover=(&string)
-   dump_pdbs=(false &bool) pdb_prefix=("bgs_out" &string) max_samples=(10000 &int)
+   pre_selection_filter=(&string) dump_pdbs=(false &bool) pdb_prefix=("bgs_out" &string)
+   max_samples=(10000 &int)
     r0=(&real) OR ( r0_min=(&real) r0_max=(&real) r0_samples=(&int) )
     omega0=(&real) OR ( omega0_min=(&real) omega0_max=(&real) omega0_samples=(&int) )
     delta_omega0=(&real) OR ( delta_omega0_min=(&real) delta_omega0_max=(&real) delta_omega0_samples=(&int) )
@@ -857,6 +858,7 @@ Default parameter values or parameter ranges are set in the <b>BundleGridSampler
 - <b>scorefxn</b>: The scoring function to use.  This must be specified, since this mover selects the lowest-energy bundle generated.
 - <b>selection\_type</b>:  Although the lowest-energy bundle is selected by default ("low"), the user may optionally specify that the highest-energy bundle ("high") be selected instead.
 - <b>pre\_selection\_mover</b>:  If specified, this mover will be applied to each generated bundle prior to energy evaluation.  This can be useful for side-chain packing or minimization as backbone conformations are sampled.  Note that this can greatly increase runtime, however.  Note also that, if a mover is used that alters the backbone conformation, the conformation may no longer lie within the Crick parameter space.
+- <b>pre\_selection\_filter</b>:  If specified, this filter will be applied to each generated bundle prior to picking the lowest-energy bundle.  If PDB output has been turned on, only bundles passing filters will be written to disk.
 - <b>dump\_pdbs</b>: If true, a PDB file is written for every bundle conformation sampled.  False by default.
 - <b>pdb\_prefix</b>: The prefix for the PDB filenames if PDB files are being written.  Filenames will be of the format [prefix]\_#####.pdb.  This defaults to "bgs_out".
 
