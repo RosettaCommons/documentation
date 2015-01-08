@@ -77,7 +77,7 @@ More advanced build options are available - Details are hidden in the main/sourc
 
 #### MPI
 
-To build MPI executables, add the flag "extras=mpi" and copy main/source/tools/build/site.settings.topsail to main/source/tools/build/site.settings. You may need to make additional edits to the site.settings file if your MPI libraries are not in the standard locations. See [this post](https://www.rosettacommons.org/node/3931) for help with setting up MPI for Ubuntu linux.  Then compile with extras=mpi:
+To build MPI executables, add the flag "extras=mpi" and copy <code>main/source/tools/build/site.settings.topsail</code> to <code>main/source/tools/build/site.settings</code>. You may need to make additional edits to the site.settings file if your MPI libraries are not in the standard locations. See [this post](https://www.rosettacommons.org/node/3931) for help with setting up MPI for Ubuntu linux.  Then compile with extras=mpi:
 
 `      ./scons.py bin mode=release extras=mpi     `
 
