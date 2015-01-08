@@ -54,7 +54,7 @@ To use an alternate version of the compiler, you can use the option `cxx_ver` op
 
 `      ./scons.py -j<number_of_processors_to_use> cxx=clang cxx_ver=4.5     `
 
-To build MPI executables, add the flag "extras=mpi" and copy main/source/tools/build/site.settings.topsail to main/source/tools/build/site.settings. You may need to make additional edits to the file if your MPI libraries are not in the standard locations. Then compile with extras=mpi:
+To build MPI executables, add the flag "extras=mpi" and copy main/source/tools/build/site.settings.topsail to main/source/tools/build/site.settings. You may need to make additional edits to the file if your MPI libraries are not in the standard locations. See [this post](https://www.rosettacommons.org/node/3931) for help with setting up MPI for Ubuntu linux.  Then compile with extras=mpi:
 
 `      ./scons.py bin mode=release extras=mpi     `
 
