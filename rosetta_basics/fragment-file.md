@@ -23,8 +23,8 @@ Filename Format
     version     Version of NNMake, usually v1_3.
     ```
 
-Fragment File Content Format
-============================
+File Content Format
+==============
 
 Fragment files typically have the following format (Referred to a "rosetta++ format")
 
@@ -69,7 +69,7 @@ Column -- Meaning
 92-94  -- fragment number (unused)
 ```
 
-Everything after omega is ignored/discarded in modern Rosetta runs.
+Everything after omega is ignored/discarded in modern Rosetta runs, and may not even be present in all version of the fragment file.
 
 Make Fragments
 ==============
