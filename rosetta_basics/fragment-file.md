@@ -2,7 +2,7 @@
 
 Fragments are used in the assembly of proteins whether for structure prediction or design, to cut down on the size of the protein-folding search space. They are a core part of the Rosetta design. : Fragment libraries are used by many protocols but are a core part of ab initio.
 
-Format
+Filename Format
 ======
 
 -   **Fragment libraries follow a complex naming scheme:**
@@ -22,6 +22,54 @@ Format
     depth       Number of fragments of descending score which are kept in the library, usually 200.
     version     Version of NNMake, usually v1_3.
     ```
+
+Fragment File Content Format
+============================
+
+Fragment files typically have the following format (Referred to a "rosetta++ format")
+
+```
+position:            1 neighbors:          200
+{fragment data}
+position:            2 neighbors:          200
+{fragment data}
+```
+
+Where "position" is the pose number of the starting point of the fragment, and "neighbors" is the number of fragments (ignored on reading).
+
+"fragment data" consists of blank-line separated blocks of lines. Each block represents a fragment, and the number of lines in the blocks matches the size of the fragment.
+
+Each line in the fragment data typically looks like the following:
+
+```
+ 2oqo A   189 I L -140.176  157.939 -179.962   -0.776    5.007    51.121 3     0.000 P  1 F  1
+```
+
+The format is column based
+
+```html
+Column -- Meaning
+1      -- blank
+2-5    -- PDB code for the fragment origin
+7      -- chain ID for the origin PDB
+9-13   -- PDB residue number for the origin PDB
+15     -- amino acid identity in the origin PDB
+17     -- secondary structure for the origin PDB (Helix, Loop, Extended/beta)
+19-27  -- phi
+28-36  -- psi
+37-45  -- omega
+46-54  -- C-alpha x coordinate for origin PDB (optional)
+55-63  -- C-alpha y coordinate for origin PDB (optional)
+65-73  -- C-alpha z coordinate for origin PDB (optional)
+74-79  -- unknown (unused)
+80-85  -- unknown (unused)
+86     -- Literal "P" (unused)
+87-89  -- fragment position number, pose numbered (unused)
+91     -- Literal "F"(unused)
+92-94  -- fragment number (unused)
+```
+
+Everything after omega is ignored/discarded in modern Rosetta runs.
 
 Make Fragments
 ==============
