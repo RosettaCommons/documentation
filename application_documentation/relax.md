@@ -36,8 +36,8 @@ Relax can take all general file IO options common to all Rosetta applications wr
    -in:file:s                Input pdb file(s)
    -in:file:silent           Input silent file
    -in:file:fullatom         Read as fullatom input structure
-   -score:weights            Supply a different weights file (default is score12)
-   -score:patch              Supply a different patch file (default is score12)
+   -score:weights            Supply a different weights file from the Rosetta default
+   -score:patch              Supply a different patch file from the Rosetta default
    -run:shuffle              Use shuffle mode, treat structures in random order
    -nstruct                  Make how many decoys per input structure ?
 ```
