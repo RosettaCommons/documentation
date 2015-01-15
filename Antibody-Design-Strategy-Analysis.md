@@ -36,6 +36,21 @@ The path to this repository should be added to your pthonpath in your shell prof
 ### Clustal Omega
 The last thing you need to run all this is clustal Omega.  This is to create alignments between you top designs, and between your strategies.   See [http://www.clustal.org/omega/](this page) for download instructions.  The clustal binary executable should be renamed clustal_omega, and the directory in which it resides should be added to your path, for example: <code>export PATH=$PATH:/Users/jadolfbr/Documents/modeling/bin</code>
 
-##Running Analyze Antibody Design Strategy
+## Analyzing Antibody Design Strategies
 
-##Running Compare Antibody Design Strategies
+## Comparing Antibody Design Strategies
+
+### File
+![ ](https://github.com/RosettaCommons/documentation/blob/master/images/antibody_design_strat_analysis_file.png?raw=true)
+
+### Score
+![ ](https://github.com/RosettaCommons/documentation/blob/master/images/antibody_design_strat_analysis_score.png?raw=true)
+
+### Clustal
+![ ](https://github.com/RosettaCommons/documentation/blob/master/images/antibody_design_strat_analysis_clustal.png?raw=true)
+
+### Enrichments
+![ ](https://github.com/RosettaCommons/documentation/blob/master/images/antibody_design_strat_analysis_enrichments.png?raw=true)
+
+### Filters
+
