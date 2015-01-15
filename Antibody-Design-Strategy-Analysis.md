@@ -31,7 +31,7 @@ Rosetta should be compiled.  Rosetta will be used to run the FeaturesReporters t
 
 ### Rosetta Tools
 The Rosetta Tools repository should be [https://github.com/RosettaCommons/tools](cloned)
-The path to this repository should be added to your pthonpath in your shell profile. For example, I add this line to my zshrc file: <code>export PYTHONPATH=$PYTHONPATH:/Users/jadolfbr/Documents/modeling/rosetta/Rosetta/tools</code>
+The path to this repository should be added to your pthonpath in your shell profile. For example, I add this line to my zshrc file: <code>export PYTHONPATH=$PYTHONPATH:/Users/jadolfbr/Documents/modeling/rosetta/Rosetta/tools</code>  You will need to checkout the antibody_tools branch until I merge this into git. 
 
 ### Clustal Omega
 The last thing you need to run all this is clustal Omega.  This is to create alignments between you top designs, and between your strategies.   See [http://www.clustal.org/omega/](this page) for download instructions.  The clustal binary executable should be renamed clustal_omega, and the directory in which it resides should be added to your path, for example: <code>export PATH=$PATH:/Users/jadolfbr/Documents/modeling/bin</code>
