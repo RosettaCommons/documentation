@@ -54,5 +54,7 @@ If Length changes are occurring during the run, the PyMOL Mover may segfault as 
 ##Fold-It
 
 ##PyRosetta Toolkit
-
 See [[PyRosetta Toolkit GUI]]
+
+
+![ ](https://github.com/RosettaCommons/documentation/blob/master/images/pyrosetta_toolkit_main.png?raw=true)
