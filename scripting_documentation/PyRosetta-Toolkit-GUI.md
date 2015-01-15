@@ -15,7 +15,7 @@ The PI for this application is Roland Dunbrack \< [Roland.Dunbrack@fccc.edu](mai
 Code and Demo
 -------------
 
-The application is available in both rosetta\_source/GUIs/pyrosetta\_toolkit and in the newest PyRosetta binary releases.
+The application is available in both PyRosetta in <code>app/pyrosetta_toolkit</code> and in Rosetta Source at <code>main/source/src/python/bindings/app/pyrosetta_toolkit</code>
 
 PyRosetta Setup:
 
@@ -28,11 +28,11 @@ Optional PyMOL Integration Setup:
 Optional SCWRL Integration Setup:
 
 -   Obtain SCWRL from: [http://dunbrack.fccc.edu/scwrl4/](http://dunbrack.fccc.edu/scwrl4/)
--   Copy the exe/binary into the /GUIs/pyrosetta\_toolkit/SCWRL directory in the respective OS directory.
+-   Copy the exe/binary into the <code>pyrosetta/apps/pyrosetta_toolkit/SCWRL directory in the respective OS directory.
 
 Run the program:
 
--   Use `        ./pyrosetta_toolkit.py       ` within /GUIs/pyrosetta\_toolkit in rosetta\_source or the PyRosetta directory to run the application after setting up PyRosetta paths.
+-   Use <code>pyrosetta_toolkit</code> after running SetPyRosettaEnvironment.sh (creates an alias).  
 
 References
 ----------
