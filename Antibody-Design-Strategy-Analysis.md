@@ -15,6 +15,8 @@ Requirements include:
 - Rosetta Tools
 - Clustal Omega
 
+- **All Decoys should be uniquely named**
+
 A basic understanding of how to edit your shell profile (if using zsh, this can be edited via $HOME/.zshrc.  If you are using Bash on linux, the profile is at $HOME/.bashrc if mac, then $HOME/.bash_profile.  Remember, no spaces before or after any equal signs.  More information on this can be found throughout the web.  [http://docs.oracle.com/cd/E19683-01/806-7612/6jgfmsvrq/index.html](this) for example.
 
 ### PyRosetta Setup
@@ -55,7 +57,7 @@ Input can either be a txt file with a list of PDBs, or a directory of PDBs.
 
 ### Output
 - <code> --outdir </code>
-- - The relative or full output directory.  If not created, will create it.
+- - The relative or full output directory.  If not created, will create it.  Databases will be placed in outdir/databases
 
 - <code> --out_name </code>
 - - The output name of the resultant database.  
@@ -89,17 +91,53 @@ Not Recommended:
 
 
 ## Comparing Antibody Design Strategies
+This application compares and outputs alignments, scores, and sessions from pre-analyzed antibody designs.  Each strategy should have a features database associated with it. 
+ 
+Launch in the directory where the program exists, optionally passing the full or relative path to the main analysis directory. The program will look for a directory called /databases within that directory.  This is created using the analysis script. If no path is given, you can set the path in the File menu.
+
+<code>./compare_antibody_design_strategies.py traztuzimab/strategy_analysis</code>
+
+- Double click a strategy on the left to move it to the right box to analyze it. Double click a strategy from the right to remove it from the list.  
+
+- Select Run Antibody Features to run the set of R scripts to plot all available data and compare strategies.  This may take a fairly long time.  Cluster Features are used for recovery if a reference database is set in the file menu.  It is used mainly for benchmarking.
+
+- - Caveats: Hbond calculations can be extremely slow.  If they take too long, edit the file: <code> Rosetta/tools/antibody/analysis/antibody_features.json </code>.  This file has the list of all the R scripts we will run for the analysis.  Remove any hbond scripts you see, especially intra-cdr hbonds.  Make sure to be in a different branch if you are a developer.  We will add an option to include or exclude hydrogen bond calculations while running the features comparisons shortly. 
 
 ### File
 ![ ](https://github.com/RosettaCommons/documentation/blob/master/images/antibody_design_strat_analysis_file.png?raw=true)
 
+Here you can set a new analysis directory or add a new strategy.  If you have a reference PDB, it is useful to set it here.  If using a different scorefunction than talaris2013, it should be set here as well.  It is used to search for the database of interest.  You can also set the Top N.  This is used throughout the program and the default is 10.  Additionally, if you have a reference database (perhaps 100 relax models of the native decoy analyzed into a features database using analyze_antibody_design_strategies, it will set here and labeled as ref)
+
 ### Score
 ![ ](https://github.com/RosettaCommons/documentation/blob/master/images/antibody_design_strat_analysis_score.png?raw=true)
+
+- Output Score Stats
+- - Here we analyze the scores of all the decoys in the strategies selected and output stats including means and standard deviations of those scores (total, dG, and dSASA) as well as the top scoring - Both combined (over all the strategies) and individually.  Eventually, we will be able to set individual score terms to be included in this list.  I hope to get to this soon.  Optionally, you can copy the top scoring into a new directory and make a pymol session of them which includes any native antibody set. 
+
+- Copy All Decoys
+- - This will copy all the decoys into a new directory, with names reflecting the scores.  In addition, you can output the top scoring as a pymol session just like the other option.
+
 
 ### Clustal
 ![ ](https://github.com/RosettaCommons/documentation/blob/master/images/antibody_design_strat_analysis_clustal.png?raw=true)
 
+This runs Clustal Omega.  You can run them on the top of each score type (currently total_score, dG, dSASA), or ALL of your decoys.  You will get a chance to add additional clustal options when you select the button to run.
+
+- Set Max Processors
+- - Set the max number of processors to use for Clustal Omega.
+
+- Set Output Format
+- - Clustal can output in many formats.  Default is clustal.  
+
+- Set Soft Wrap
+- - You can set this large or small, and will tell clustal to only use a specific amount of spaces when outputting.  Default is 100.  
+
+Eventually, we will output Clustal alignments on only the CDRs of interest and or the framework.  
+
 ### Enrichments
 ![ ](https://github.com/RosettaCommons/documentation/blob/master/images/antibody_design_strat_analysis_enrichments.png?raw=true)
 
+Here, you can output CDR Length and Cluster alignments of the top scoring decoys, in addition to the overall enrichments of cluster and CDR length.
+
 ### Filters
+These are accessed by the File menu.  You can set dG, dSASA, and total score filters that will be used across the whole program (except for the Antibody Features R scripts).  You can also set custom filters that use sqlite3 syntax.  This is useful to exclude certain lengths or a minimum number of antigen contact.
