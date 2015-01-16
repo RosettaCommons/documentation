@@ -137,7 +137,14 @@ Eventually, we will output Clustal alignments on only the CDRs of interest and o
 ### Enrichments
 ![ ](https://github.com/RosettaCommons/documentation/blob/master/images/antibody_design_strat_analysis_enrichments.png?raw=true)
 
-Here, you can output CDR Length and Cluster alignments of the top scoring decoys, in addition to the overall enrichments of cluster and CDR length.
+- Recovery
+- - Output CDR Length and Cluster recoveries to the set reference antibody for combined and separate strategies.
+
+- Alignments
+- - Output CDR Length and Cluster alignments for combined and separate strategies.
+
+- Enrichment
+- - Not currently implemented.  Will eventually give enrichment information of each CDR length and cluster.  Perhaps even positional information derived from clustal omega and multiple CDR statistics.
 
 ### Filters
-These are accessed by the File menu.  You can set dG, dSASA, and total score filters that will be used across the whole program (except for the Antibody Features R scripts).  You can also set custom filters that use sqlite3 syntax.  This is useful to exclude certain lengths or a minimum number of antigen contact.
+These are accessed by the File menu.  You can set dG, dSASA, and total score filters that will be used across the whole program (except for the Antibody Features R scripts).  You can also set custom filters that use sqlite3 syntax.  This is useful to exclude certain lengths or a minimum number of antigen contacts.
