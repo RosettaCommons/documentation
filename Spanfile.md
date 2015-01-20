@@ -1,9 +1,3 @@
-## TODO
-
-- update path to script: is it also still in the folder of the pilot apps?
-- are the 3rd and 4th column used? If not, we can leave them out and describe difference in files
-- distinguish old and new flags
-
 ## Metadata
 
 The Rosetta Membrane Framework was developed by Julia Koehler Leman and Rebecca Alford at the Gray Lab at JHU. 
@@ -51,8 +45,7 @@ BRD4.span - transmembrane topology prediction file generated using octopus2span.
 `octopus2span.pl <OCTOPUS topology file>`
 
 Example command: 
-`<path to rosetta>/rosetta/main/source/src/apps/public/membrane_abinitio/octopus2span.pl BRD4.octopus`
-`<path to rosetta>/rosetta/`
+`<path to rosetta>/Rosetta/tools/membrane_tools/octopus2span.pl BRD4.octopus`
 
 Sample .span file:
 
@@ -61,13 +54,15 @@ TM region prediction for BRD4 predicted using OCTOPUS
 4 123
 antiparallel
 n2c
-   6    26     6    26
-  31    51    31    51
-  58    78    58    78
-  97   117    97   117
+   6    26
+  31    51
+  58    78
+  97   117
 ```
 
-1st line is comment line. 2nd line shows number of predicted transmembrane helices (4 in the command lines example below) and total number of residues (123 in the example below). 3rd line shows predicted topology of transmembrane helices in the membrane (currently only antiparallel topology is implemented). 4th line and all lines below show start and end residue numbers of each of the predicted transmembrane helices (current format repeats these numbers twice).
+1st line is comment line. 2nd line shows number of predicted transmembrane helices (4 in the command lines example below) and total number of residues (123 in the example below). 3rd line shows predicted topology of transmembrane helices in the membrane (currently only antiparallel topology is implemented). 4th line and all lines below show start and end residue numbers of each of the predicted transmembrane helices. 
+
+NOTE: The current format repeats the numbers once while the original format repeated them twice.
 
 ## Flags
 
@@ -76,6 +71,8 @@ Spanfiles are read in using the option `-membrane_new::setup::spanfiles <spanfil
 ## Example
 
 `-membrane_new::setup::spanfiles 1afo.span`
+
+NOTE: The flag for the original RosettaMembrane is `-in:file:spanfile 1afo.span` but this option will be deprecated. Please use the new one. 
 
 ## References
 
