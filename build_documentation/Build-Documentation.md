@@ -1,5 +1,16 @@
 <!-- --- title: Setting up Rosetta 3 -->
-This page describes how to install, compile, and test Rosetta 3 (formerly called "Mini") on one's own workstation.
+This page describes how to install, compile, and test Rosetta 3 (formerly called "Mini") on one's own workstation, or to a user directory on a scientific cluster.
+
+Clusters with Rosetta pre-installed
+-----------------------------------
+
+If you'll be running Rosetta on a scientific computation cluster, there may already be a version of Rosetta installed for general usage. Talk to your cluster administrator to see if there is a centrally-provided version available for your use.
+
+If your cluster doesn't have Rosetta already installed, or you wish to use a different version than the centrally installed one, don't worry - Rosetta is designed to be compiled and installed by regular users without administrative rights. As long as commonly available compilation tools are available for your use, you should be able to build and run Rosetta in your user directory without cluster administrator involvement.
+
+### Publicly accessible clusters with Rosetta pre-installed
+
+* As part of the XSEDE initiative, the [[TACC/Stampede|TACC]] cluster has Rosetta and PyRosetta centrally installed for authorized users. See the [[TACC]] page for more details.
 
 Compiling Rosetta 3
 -------------------
