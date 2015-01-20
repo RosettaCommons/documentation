@@ -12,7 +12,7 @@ For questions please contact:
 
 Several Movers are available in the Membrane Framework. Be aware that:
 - The **AddMembraneMover** NEEDS to be run to create a membrane pose from a regular pose. It instantiates the MembraneInfo object and the MembraneResidue.
-- **All other Movers are (unless otherwise stated) sensitive to which parts are moving during a protocol**, either the membrane or the protein! Using the wrong Mover will obviously result in incorrect output. 
+- **All other Movers are (unless otherwise stated) sensitive to which parts are moving during a protocol**, either the membrane or the protein! Using the wrong Mover will result in incorrect output. 
 
 ## Code and documentation
 
