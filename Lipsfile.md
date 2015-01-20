@@ -1,9 +1,3 @@
-## TODO
-
-- what is the flag for this???
-- distinguish different flags for old and new RosettaMembrane
-- example
-
 ## Metadata
 
 The Rosetta Membrane Framework was developed by Julia Koehler Leman and Rebecca Alford at the Gray Lab at JHU. 
@@ -50,11 +44,13 @@ Lipid exposed data: resnum mean-lipo lipophil entropy
 
 ## Flags
 
-TODO
+`-membrane_new:setup:lipsfile 1afo.lips4`
+
+NOTE: The flag for the original RosettaMembrane is `-in:file:lipofile 1afo.lips4` but this option will be deprecated. Please use the new flag!
 
 ## Example
 
-TODO
+An example of how the original RosettaMembrane used lips files can be found in `Rosetta/main/tests/integration/tests/membrane_abinitio`. This functionality has not yet been tested in the membrane framework.
 
 ## References
 
