@@ -1,7 +1,3 @@
-## TODO
-
-add figure 2 from the paper
-
 ## Metadata
 
 The Rosetta Membrane Framework was developed by Julia Koehler Leman and Rebecca Alford at the Gray Lab at JHU. 
@@ -30,7 +26,7 @@ The major aspects of this implementation are the following:
 
 - **Visualization:** The Membrane Framework is coupled to the PymolMover which allows real-time visualization of a Rosetta simulation with the membrane present and up-to-date. Pretty cool and useful stuff. 
 
-- **Applications:** Four main applications for membrane proteins (MPrelax, MPddG, MPdocking, symmetric MPdocking) are currently available with more to come. Not all applications are available for all interfaces, please see *Alford, Koehler Leman et al.* for more info. 
+- **Applications:** Four main applications for membrane proteins (MPrelax, MPddG, MPdocking, symmetric MPdocking) are currently available with more to come. Not all applications are available for all interfaces, please see *Alford, Koehler Leman et al.* for more info, especially Figure 2 in this paper. 
 
 ## More details
 
