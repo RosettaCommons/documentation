@@ -1,7 +1,3 @@
-## TODO
-
-- expand
-
 ## Metadata
 
 The Rosetta Membrane Framework was developed by Julia Koehler Leman and Rebecca Alford at the Gray Lab at JHU. 
@@ -14,7 +10,7 @@ For questions please contact:
 
 ## Description
 
-Creates a membrane pose from a regular pose by instantiating the MembraneInfo object and attaches the virtual MembraneResidue to the pose. 
+The Mover that invokes the MP_Framework and instantiates a membrane Pose is the AddMembraneMover. This mover is required for membrane protein modeling in Rosetta and must be called first. The AddMembraneMover adds the membrane residue to the Pose, sets up a default FoldTree, and initializes the MembraneInfo object. The correct setup of the root in the FoldTree for either a fixed membrane and movable protein or movable membrane and fixed protein is the responsibility of the protocol developer.
 
 ## Code and documentation
 
@@ -22,7 +18,13 @@ Creates a membrane pose from a regular pose by instantiating the MembraneInfo ob
 
 ## Flags
 
-`-membrane_new::setup::spanfiles <spanfile 1>` required flag; AddMembraneMover only uses the first spanfile.
+|**Flag**|**Description**|
+|:-------|:--------------|
+|`-membrane_new::setup::spanfiles <spanfile>` | required flag; AddMembraneMover only uses the first spanfile.|
+|`-membrane_new::setup::lipsfile <lipsfile>` | optional; functionality currently not tested for the new framework.|
+|`-membrane_new::setup::membrane_rsd <residue number for MEM residue>` | optional; reads in the MEM residue from previously generated framework PDB.|
+|`-membrane_new::setup::center <three real numbers defining the center point>` | optional; user can provide desired membrane center coordinate.|
+|`-membrane_new::setup::normal <three real numbers defining the normal vector>` | optional; user can provide desired membrane normal vector.|
 
 ## Example
 
