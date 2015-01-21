@@ -4,7 +4,7 @@
 - cite Evan's papers
 - more info about PymolMover
 - is the flag -membrane_new:view_in_pymol still relevant and used?
-- what about the VisualizeMembraneMover???
+- what about the VisualizeMembraneMover??? Better for Chimera; if you have Pymol, use PymolMover instead
 - add an image here?
 
 ## Metadata
