@@ -27,6 +27,7 @@ Several Movers are available in the Membrane Framework. Be aware that:
 ## Membrane-specific movers
 
 ### AddMembraneMover
+
 The Mover that invokes the MP_Framework and instantiates a membrane Pose is the AddMembraneMover. This mover is required for membrane protein modeling in Rosetta and must be called first. The AddMembraneMover adds the membrane residue to the Pose, sets up a default FoldTree, and initializes the MembraneInfo object. The correct setup of the root in the FoldTree for either a fixed membrane and movable protein or movable membrane and fixed protein is the responsibility of the protocol developer.
 
 |**Flag**|**Description**|
@@ -37,3 +38,39 @@ The Mover that invokes the MP_Framework and instantiates a membrane Pose is the 
 |`-membrane_new::setup::membrane_rsd <residue number for MEM residue>` | optional; reads in the MEM residue from previously generated framework PDB. If not given, Rosetta still searches for it and uses it if found.|
 |`-membrane_new::setup::center <three real numbers defining the center point>` | optional; user can provide desired membrane center coordinate.|
 |`-membrane_new::setup::normal <three real numbers defining the normal vector>` | optional; user can provide desired membrane normal vector.|
+
+### FlipMover
+
+
+### MembranePositionFromTopologyMover
+
+
+### RandomMembranePositionMover
+
+
+### SetMembranePositionMover
+
+
+### TransformIntoMembraneMover
+
+
+### TranslationRotationMover
+
+
+## Applications as Movers
+
+### MPrelaxMover
+
+To implement
+
+### MP_ddGMover
+
+To implement
+
+### MPDockingSetupMover
+
+
+### MPDockingMover
+
+
+### MPSymDockMover
