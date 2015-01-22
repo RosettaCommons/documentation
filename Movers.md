@@ -60,7 +60,9 @@ This Mover only applies to a fixed membrane and a movable protein. Similar to th
 
 ### TranslationRotationMover
 
-This class contains three movers: TranslationMover, RotationMover, and TranslationRotationMover. 
+This class contains three movers: TranslationMover, RotationMover, and TranslationRotationMover, all of which were only tested for a fixed membrane and a movable protein. 
+
+The TranslationMover translates a pose element based on the translation vector and an optional jump number. The default jump is the membrane jump.
 
 ## Applications as Movers
 
