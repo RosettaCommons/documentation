@@ -53,6 +53,7 @@ This Mover only applies to a fixed protein and movable membrane (i.e. one of the
 
 ### RandomMembranePositionMover
 
+Makes random perturbations to the center and normal of the MembraneResidue. Only works for a fixed protein and a movable membrane!
 
 ### SetMembranePositionMover
 
