@@ -60,6 +60,7 @@ This Mover only applies to a fixed membrane and a movable protein. Similar to th
 
 ### TranslationRotationMover
 
+This class contains three movers: TranslationMover, RotationMover, and TranslationRotationMover. 
 
 ## Applications as Movers
 
