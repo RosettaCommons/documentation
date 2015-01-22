@@ -3,12 +3,25 @@
 Metadata
 ========
 
-This document was last edited May 3rd 2013 by Jared Adolf-Bryfogle. This application in Rosetta3 was created and documented by Mike Tyka, et al.
+This document was last edited Jan 21st 2015 by Jared Adolf-Bryfogle. This application in Rosetta3 was created and documented by Mike Tyka, et al.
 
 Purpose and Algorithm
 =====================
 
 The "relax" application in Rosetta carries out the task of simple structural refinement of fullatom Rosetta models. It can also read Centroid models, in which case it will convert the model into a fullatom model and pack the sidechains. Relax does not carry out any extensive refinement and only searches the local conformational space neighbourhood.
+
+References
+==========
+
+P. Conway*, M. Tyka*, F. DiMaio*, D. Konerding and D. Baker (2013). Relaxation of backbone bond geometry improves protein energy landscape modeling.  Protein Science
+
+
+Firas Khatib,Seth Cooper,Michael D. Tyka,Kefan Xu, Ilya Makedon,Zoran Popović,David Baker, and Foldit Players (2011). Algorithm discovery by protein folding game players PNAS 2011 108 (47) 18949-18953;
+
+Tyka MD, Keedy DA, Andre I, Dimaio F, Song Y, et al. (2011) Alternate
+states of proteins revealed by detailed energy landscape mapping.
+Journal of molecular biology 405: 607–618.
+
 
 Input
 =====
