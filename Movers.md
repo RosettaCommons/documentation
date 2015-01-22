@@ -64,6 +64,10 @@ This class contains three movers: TranslationMover, RotationMover, and Translati
 
 The TranslationMover translates a pose element based on the translation vector and an optional jump number. The default jump is the membrane jump.
 
+The RotationMover rotates a pose element based on the old normal vector, the new (i.e. desired) normal vector, the rotation center, and optional jump number. The default jump is also the membrane jump.
+
+The TranslationRotationMover rotates / translates a pose element based on the old center and normal, the new (i.e. desired) center and normal, and optional jump number. This is useful for moving a pose element based on the comparison between the membrane center and normal and its computed embedding from the pose element. 
+
 ## Applications as Movers
 
 ### MPrelaxMover
