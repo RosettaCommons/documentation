@@ -1,7 +1,3 @@
-## TODO
-
-- expand
-
 ## Metadata
 
 The Rosetta Membrane Framework was developed by Julia Koehler Leman and Rebecca Alford at the Gray Lab at JHU. 
@@ -14,7 +10,7 @@ For questions please contact:
 
 ## Description
 
-The *MembranePositionFromTopologyMover* uses the protein topology (SpanningTopology from the spanfile) and the structure to calculate an optimal position and orientation (center and normal) of the membrane, as represented by the MembraneResidue. This mover should only be used for a **fixed protein and a flexible membrane** (i.e. a protein residue is at the root of the FoldTree).
+This Mover only applies to a fixed protein and movable membrane (i.e. one of the protein residues is at the root of the FoldTree). It uses knowledge of the trans-membrane spans (stored in the SpanningTopology object) and Cα coordinates to compute the centers and normals of each transmembrane span (i.e. EmbeddingDef objects), computes an average, and sets the membrane center and normal to these values. It should be noted that this mover does not continuously optimize the membrane center and normal using a minimization scheme, but rather provides a first estimation that can be subsequently refined (for instance using membrane relax or the MembraneRelaxMover).
 
 ## Code and documentation
 
