@@ -41,6 +41,7 @@ The Mover that invokes the MP_Framework and instantiates a membrane Pose is the 
 
 ### FlipMover
 
+This Mover flips a pose or part of the pose in the membrane and is tested only for a fixed membrane and a movable protein. Possible arguments are the jump number along which jump to flip the downstream partner, the flip axis, and the rotation angle. For the default constructor these values are the membrane jump, 180 degree angle, and the x-axis as rotation axis.  
 
 ### MembranePositionFromTopologyMover
 
