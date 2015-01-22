@@ -148,7 +148,7 @@ General tips for running Rosetta
 <br>
 * If you have a score file output and want to find the lowest energy structure, use the <code>sort</code> command.  You can sort on a particular column using the -kx option. See [this page](http://www.skorks.com/2010/05/sort-files-like-a-master-with-the-linux-sort-command-bash/) for more.
  - Sort by total score: <code>sort my_score_file.sc</code> 
- - Sort by energy term: <code>sort -k5 my_score_fike.sc</code>, which would sort by the 5th column, or the 4th score term.
+ - Sort by energy term: <code>sort -k5 my_score_file.sc</code>, which would sort by the 5th column, or the 4th score term.
 <br>
 <br>
 * By default, Rosetta will ignore atoms from an input PDB whose occupancy is 0.  If you are missing residues or atoms during a run, this is most likely the cause.  To have Rosetta read these atoms anyway, pass the option <code>-ignore_zero_occupancy false</code>
