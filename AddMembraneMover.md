@@ -20,9 +20,10 @@ The Mover that invokes the MP_Framework and instantiates a membrane Pose is the 
 
 |**Flag**|**Description**|
 |:-------|:--------------|
-|`-membrane_new::setup::spanfiles <spanfile>` | required flag; AddMembraneMover only uses the first spanfile.|
+|`-membrane_new::setup::spanfiles <spanfile>` | AddMembraneMover only uses the first spanfile. Not a requirement if a structure is given that is transformed into membrane coordinates: use spans_from_structure flag in this case.|
+|`-membrane_new::setup::spans_from_structure <bool>` | If no spanfile is given, the user has the option of creating a SpanningTopology object from the given structure. Structure must be transformed into membrane coordinates. Spanfile is written with this option: out.span |
 |`-membrane_new::setup::lipsfile <lipsfile>` | optional; functionality currently not tested for the new framework.|
-|`-membrane_new::setup::membrane_rsd <residue number for MEM residue>` | optional; reads in the MEM residue from previously generated framework PDB.|
+|`-membrane_new::setup::membrane_rsd <residue number for MEM residue>` | optional; reads in the MEM residue from previously generated framework PDB. If not given, Rosetta still searches for it and uses it if found.|
 |`-membrane_new::setup::center <three real numbers defining the center point>` | optional; user can provide desired membrane center coordinate.|
 |`-membrane_new::setup::normal <three real numbers defining the normal vector>` | optional; user can provide desired membrane normal vector.|
 
