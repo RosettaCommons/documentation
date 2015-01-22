@@ -1,6 +1,6 @@
 ## TODO
 
-add Movers for applications
+- add Movers for applications
 
 ## Metadata
 
