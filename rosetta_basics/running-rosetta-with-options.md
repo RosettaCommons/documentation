@@ -146,6 +146,11 @@ General tips for running Rosetta
 * Most applications use the -s and -l options to specify a single input PDB or a file that lists PDBs, commonly called a PDBLIST.  The PDBList file should specify the full path to the PDB (one on each line), unless <code>-in:path:pdb directory/to/pdb/files</code> is specified.  See [[this page | input-options]] for more common input options.
 <br>
 <br>
+* If you have a score file output and want to find the lowest energy structure, use the <code>sort</code> command.  You can sort on a particular column using the -kx option. See [this page](http://www.skorks.com/2010/05/sort-files-like-a-master-with-the-linux-sort-command-bash/) for more.
+ - Sort by total score: <code>sort my_score_file.sc</code> 
+ - Sort by energy term: <code>sort -k5 my_score_fike.sc</code>, which would sort by the 5th column, or the 4th score term.
+<br>
+<br>
 * By default, Rosetta will ignore atoms from an input PDB whose occupancy is 0.  If you are missing residues or atoms during a run, this is most likely the cause.  To have Rosetta read these atoms anyway, pass the option <code>-ignore_zero_occupancy false</code>
 <br>
 <br>
