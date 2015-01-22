@@ -56,7 +56,7 @@ This Mover only applies to a fixed protein and movable membrane (i.e. one of the
 
 ### TransformIntoMembraneMover
 
-The TransformIntoMembraneMover applies to a fixed membrane and a movable protein. Similar to the previous Mover it uses the trans-membrane spans and the Cα coordinates to compute the embedding of the complete protein based on the coordinates of trans-membrane spans. This Mover then transforms the protein into default (center at [0, 0, 0] and normal at [0, 0, 15]) or user-provided membrane coordinates such that the centers and normals of the overall EmbeddingDef and the membrane coincide. 
+This Mover only applies to a fixed membrane and a movable protein. Similar to the MembranePositionFromTopologyMover it uses the trans-membrane spans and the Cα coordinates to compute the embedding of the complete protein based on the coordinates of trans-membrane spans. This Mover then transforms the protein into default (center at [0, 0, 0] and normal at [0, 0, 15]) or user-provided membrane coordinates such that the centers and normals of the overall EmbeddingDef and the membrane coincide. 
 
 ### TranslationRotationMover
 
