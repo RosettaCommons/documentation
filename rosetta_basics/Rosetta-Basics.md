@@ -69,7 +69,7 @@
     * [Rosetta3 Architecture](http://www.ncbi.nlm.nih.gov/pubmed/21187238)
     * [[Foldtree Overview]]
     * [[AtomTree Overview]]
-- [[Loop modeling styles and algorithms]]
+    * [[Loop modeling styles and algorithms]]
 
 ####Misc
 - [[Database support]] - Relational database support in Rosetta.
