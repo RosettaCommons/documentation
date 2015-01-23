@@ -20,7 +20,6 @@
 
 ####Preparing structures to be used by Rosetta
 - [[Preparing structures]]
-- [[Preparing structures with relax|prepare-pdb-for-rosetta-with-relax]]
 - [[Preparing ligands]]
 
 ####Help
