@@ -22,6 +22,10 @@
 - [[Preparing structures with relax|prepare-pdb-for-rosetta-with-relax]]
 - [[Preparing ligands]]
 
+####Help
+- [RosettaCommons Forums](http://rosettacommons.org/forum)
+- [RosettaCommons Bug Tracker](http://bugs.rosettacommons.org)
+
 ####Common File Formats
 - [[Fasta file]] - Input protein sequences
 - [[Silent file]] - Rosetta-specific compact output representation
