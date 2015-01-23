@@ -13,6 +13,8 @@ The "relax" application in Rosetta carries out the task of simple structural ref
 References
 ==========
 
+Nivón LG, Moretti R, Baker D (2013) A Pareto-Optimal Refinement Method for Protein Design Scaffolds. PLoS ONE 8(4): e59004. [Paper](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0059004)
+
 P. Conway*, M. Tyka*, F. DiMaio*, D. Konerding and D. Baker (2013). Relaxation of backbone bond geometry improves protein energy landscape modeling.  Protein Science
 
 
