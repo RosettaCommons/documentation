@@ -126,8 +126,8 @@ No relax benchmark and rosetta scoring of native input structures:
 
 At this point, the astute reader might ask, what score terms became 438 Rosetta Energy Units (REU) better? We ranked the difference in scores over all structures, comparing the all-atom coordinate constraint protocol and the non-relaxed input structure. The biggest difference is fa\_dun (-192.4), followed by fa\_rep (-108.1), pro\_close (-26.4), hbond\_sc (-10.8) and omega (-8.5). Many input rotamers are close to but not in a "good" Dunbrack rotamer, and the backbone has to be slightly tweaked in order for that residue to get a good dunbrack score. Also many atoms are slightly too close, and they give the fa\_rep contribution.
 
-Original question from Ramesh Jha
-=================================
+Developer Discussion: Original question from Ramesh Jha
+=======================================================
 
 Is there a consensus protocol to create the starting PDBs to be used in mini? It is not unknown that the PDBs right from the Protein Data Bank are composed of artifacts and defects that can give an exceptional jump in energy if happened to be altered during a design protocol. In order to minimize this problem, there are a few things which can be tried and that I am aware of:
 
