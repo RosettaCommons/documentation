@@ -3,6 +3,12 @@
 ####Controlling Rosetta Execution
 - [[Running Rosetta|running-rosetta-with-options]]
 - [[Running Rosetta via MPI | running-rosetta-with-options#Running-Rosetta-via-MPI ]]
+- [[Renamed and Deprecated Options]]
+- Scripting Rosetta
+    * [[RosettaScripts]]
+    * [[PyRosetta]]
+- [[Graphics output and GUIs | graphics-and-guis]]
+- [[JD2]]
 - Common/Useful Rosetta Options
     * [[Input options]]
     * [[Output options]]
@@ -10,12 +16,6 @@
     * [[Run options]]
     * [[Score options]]
     * [[Packing options]]
-- [[Renamed and Deprecated Options]]
-- Scripting Rosetta
-    * [[RosettaScripts]]
-    * [[PyRosetta]]
-- [[Graphics output and GUIs | graphics-and-guis]]
-- [[JD2]]
 
 ####Preparing structures to be used by Rosetta
 - [[Preparing structures]]
