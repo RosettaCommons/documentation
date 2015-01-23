@@ -14,6 +14,11 @@ Structures derived straight from the PDB are almost never perfectly compatible w
 -   Less noise in the results caused by errors being handled in different ways in different trajectories
 -   Lower overall scores (you should never have positive score12 scores for a well folded protein)
 
+References
+==========
+
+Nivón LG, Moretti R, Baker D (2013) A Pareto-Optimal Refinement Method for Protein Design Scaffolds. PLoS ONE 8(4): e59004. [Paper](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0059004)
+
 How do I prepare structures?
 ============================
 
