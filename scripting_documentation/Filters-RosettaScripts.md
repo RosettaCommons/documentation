@@ -461,7 +461,7 @@ True if all residues in the interface are more than \<distance\> residues from t
 ### Geometry
 
 #### AngleToVector
-An ad hoc filter to compute the angle between two atoms on the first residue of a chain and a predetermined vector. The purpose of this filter is to test whether a small molecule is bound in a protein pocket in the 'correct' orientation.
+An ad hoc filter to compute the angle (in degrees, 0-180) between two atoms on the first residue of a chain and a predetermined vector. The purpose of this filter is to test whether a small molecule is bound in a protein pocket in the 'correct' orientation.
 
 ```
 <AngleToVector name=(&string) atm1=(&string) atm2=(&string) chain=(2&size) refx=(&real) refy=(&real) refz=(&real) min_angle=(0.0&real) max_angle=(90.0&real)/>
