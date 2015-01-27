@@ -3,7 +3,7 @@
 FeaturesReporter
 ================
 
-Implmenting a FeaturesReporter involves the following steps:
+Implementing a FeaturesReporter involves the following steps:
 
 1.  Implement the FeaturesReporter class interface (see directly below).
 2.  Implement the FeaturesReporterCreator class interface (like you would for a mover).
