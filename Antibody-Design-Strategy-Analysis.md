@@ -17,7 +17,7 @@ Requirements include:
 
 - **All Decoys should be uniquely named**
 
-A basic understanding of how to edit your shell profile (if using zsh, this can be edited via $HOME/.zshrc.  If you are using Bash on linux, the profile is at $HOME/.bashrc if mac, then $HOME/.bash_profile.  Remember, no spaces before or after any equal signs.  More information on this can be found throughout the web.  [http://docs.oracle.com/cd/E19683-01/806-7612/6jgfmsvrq/index.html](this) for example.
+A basic understanding of how to edit your shell profile (if using zsh, this can be edited via $HOME/.zshrc.  If you are using Bash on linux, the profile is at $HOME/.bashrc if mac, then $HOME/.bash_profile).  Remember, no spaces before or after any equal signs.  More information on this can be found throughout the web.  [http://docs.oracle.com/cd/E19683-01/806-7612/6jgfmsvrq/index.html](this) for example.
 
 ### PyRosetta Setup
 Download PyRosetta from [www.pyrosetta.org](here) or compile it from C++ Rosetta.
@@ -33,10 +33,10 @@ Rosetta should be compiled.  Rosetta will be used to run the FeaturesReporters t
 
 ### Rosetta Tools
 The Rosetta Tools repository should be [https://github.com/RosettaCommons/tools](cloned)
-The path to this repository should be added to your pthonpath in your shell profile. For example, I add this line to my zshrc file: <code>export PYTHONPATH=$PYTHONPATH:/Users/jadolfbr/Documents/modeling/rosetta/Rosetta/tools</code>  You will need to checkout the antibody_tools branch until I merge this into git. 
+The path to this repository should be added to your pthonpath in your shell profile. For example, I add this line to my zshrc file: <code>export PYTHONPATH=$PYTHONPATH:/Path/to/Rosetta/tools</code>  You will need to checkout the antibody_tools branch until I merge this into git. 
 
 ### Clustal Omega
-The last thing you need to run all this is clustal Omega.  This is to create alignments between you top designs, and between your strategies.   See [http://www.clustal.org/omega/](this page) for download instructions.  The clustal binary executable should be renamed clustal_omega, and the directory in which it resides should be added to your path, for example: <code>export PATH=$PATH:/Users/jadolfbr/Documents/modeling/bin</code>
+The last thing you need to run all this is clustal Omega.  This is to create alignments between you top designs, and between your strategies.   See [http://www.clustal.org/omega/](this page) for download instructions.  The clustal binary executable should be renamed clustal_omega, and the directory in which it resides should be added to your path, for example: <code>export PATH=$PATH:/path/to/Rosetta/bin</code>
 
 ## Analyzing Antibody Design Strategies
 This script, <code>analyze_antibody_design_strategy.py</code> analyzes one strategy at a time.  You should run it from the directory it is in.  Use <code>./analyze_antibody_design_strategy.py --help</code> to get an idea of the options available.  Generally, it should only presently be used for the creation of the FeaturesReporter databases. These will have an analysis of DGs, energies, hbonds, cdr lengths, etc for each PDB in the strategy.  It is useful to run the code via a shell script for all the strategies you have available, as these can be backgrounded to analyze multiple strategy runs simultaneously. 
