@@ -542,11 +542,13 @@ The set of allowed residues for each secondary structure type can be customized.
 
 Design residues with selected amino acids depending on the enviroment(accessible surface area). The layer of each residue is assigned to one of the three basic layers(core, boundary or surface) depending on the accessible surface area of mainchain + CB.
 
-Aditional layers can be defined in the xml file by passing another taskoperation to get the residue selection. Only the residues that are marked as designable in the packer task are taken into consideration, any information about the available amino acids/rotamers selected by the taskoperation are not going to be considered. The amino acids to be used in each of this new layers has to be specified in the xml. Several taskoperations can be combined to the intersection between the different sets of designable residues.
+Additional layers can be defined in the xml file by passing another taskoperation to get the residue selection. Only the residues that are marked as designable in the packer task are taken into consideration, any information about the available amino acids/rotamers selected by the taskoperation are not going to be considered. The amino acids to be used in each of this new layers has to be specified in the xml. Several taskoperations can be combined to the intersection between the different sets of designable residues.
 
-If a resfile is read before calling this operation, this operation is not applied for the residues defined by PIKAA, NATAA or NATRO. Note that this task is ligand compatible, the ligand is simply set to be repackable but not designable. Optionally allow all amino acids to select residue subsets by SASA cutoffs.
+LayerDesign, like all TaskOperations, obeys commutivity: the effect of applying another TaskOperation before LayerDesign is the same as the effect of applying it after LayerDesign.  However, residues defined by PIKAA, NATAA, or NATRO operations in a resfile are often "special" residues that one would like to leave alone.  The <b>ignore_pikaa_natro=true</b> option allows this, at the expense of breaking commutivity.  If the user uses this option, and if a resfile is read before calling LayerDesign, the LayerDesign operation is not applied for the residues defined by PIKAA, NATAA or NATRO in the resfile.
 
-        <LayerDesign name=(&string layer) layer=(&string core_boundary_surface) pore_radius=(&real 2.0) core=(&real 20.0) surface=(&real 40.0) repack_non_design=(&bool 1) make_rasmol_script=(&bool 0) make_pymol_script=(&bool 0)   >
+Note that this task is ligand compatible.  However, the user should set the ligand to be repackable but not designable with another TaskOperation.
+
+        <LayerDesign name=(&string layer) layer=(&string core_boundary_surface) pore_radius=(&real 2.0) core=(&real 20.0) surface=(&real 40.0) ignore_pikaa_natro=(&bool 0) repack_non_design=(&bool 1) make_rasmol_script=(&bool 0) make_pymol_script=(&bool 0)   >
             <ATaskOperation name=task1 >
                 <all copy_layer=(&string layer) append=(&string) exclude=(&string)  specification=(&string "designable")  operation=(&string "design") />
                 <SecStructType aas=(&string) append(&string) exclude=(&string) />            
@@ -561,9 +563,10 @@ Option list
 -   core ( default 20.0) : residues of which asa is \< core are defined as core
 -   surface ( default 40.0) : residues of which asa is \> surface are defined as surface
 -   (layer)\_(ss): set up the asa threshold for a specific secondary structure element in a particular layer. For example surface\_E=30 makes that for strand residues the asa cutoff is 30 instead of the one defined by surface.
--   make\_rasmol\_script: if true write a rasmol script coloring the residues by the three basic layers, core, boundary and surface.
--   make\_pymol\_script: if true write a pymol script coloring the residues by the three basic layer and the aditional taskoperation defined layers..
--   repack\_non\_design: if true side chains will be repacked, left untouched if otherwise.
+-   ignore\_pikaa\_natro: if true, and if a resfile is read before applying this TaskOperation, ignore any residues that have been set in the resfile with the PIKAA, NATRO, or NATAA commands.
+-   make\_rasmol\_script: if true, write a rasmol script coloring the residues by the three basic layers, core, boundary and surface.
+-   make\_pymol\_script: if true, write a pymol script coloring the residues by the three basic layer and the aditional taskoperation defined layers..
+-   repack\_non\_design: if true, side chains will be repacked, left untouched if otherwise.
 -   use\_sidechain\_neighbors: if true, assign a residue's layers based on counting the number CA atoms from other residues within a cone in front of the residue's ca-cb vector.  Because this option is no longer SASA based, the layer assignments will always be identical regardless of the protein sequence; i.e. layers could be assigned based on a polyalanine backbone and it would make no difference.  This option changes the defaults for core and surface to neighbors < 2 (surface) and neighbors > 5.2 (core).  HOWEVER, these defaults will be overwritten if core and surface are manually specified in declaring the taskoperation!  So make sure you do not specify new core and surface settings appropriate for SASA when you are actually counting neighboring residues.  Note: this option has not been tested on nonstandard residue types...
 
 TaskOperations can be combined together using the CombinedTasks tag, the nested tasks don't need to be named, just declared with type and parameters.
