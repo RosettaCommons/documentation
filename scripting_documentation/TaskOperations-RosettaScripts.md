@@ -586,8 +586,10 @@ After you combined tasks you need to assign residues, you can use the 'all' tag 
 The options for the "all" tag are the following:
 
 -   copy\_layer: layer from where to copy the residues definition, can be core, boundary, surface or a task defined layer.
--   append: append the following residues to the defined layer, the string is composed of one letter aminoacids code.
--   exclude: opposite as append.
+-   aa: assign the following residues to the defined layer.  The string is composed of one-letter amino acid codes.
+-   append: append the following residues to the defined layer (i.e. add them to any already allowed in this layer).  The string is composed of one-letter amino acid codes.
+-   exclude: opposite as append (delete residues from the list allowed for the layer).
+-   ncaa, ncaa_append, ncaa_exclude: these permit non-canonical residues to be specified, as a comma-separated list of three-letter codes.  Note that TaskOperations permitting noncanonical design follow <i>OR</i> commutativity rather than <i>AND</i> commutativity.  That is, if I have three TaskOperations and number 1 OR number 2 OR number 3 permits a particular non-canonical, the non-canonical will be permitted when all three are applied.  With canonical amino acids, the reverse is true: only if number 1 AND number 2 AND number 3 permit a particular residue will that residue be permitted.
 -   specification: What residues from the task operation should be considered as the layer. Options are "designable" (pick designable residues), "repacakble" (pick residues restricted to only repack) or "fixed" (residues marked by the task as not repackable). Default is "designable"
 -   operation: What to do with the specified layer. Default is 'design', other options are 'no\_design' (allow repacking) and 'omit' (prevent repacking).
 
@@ -654,13 +656,13 @@ Cterm
 
 <!-- -->
 
-     This example no.2 creates core_boundary_surface that designs differently by layers
+     This example no.2 creates core_boundary_surface that designs differently by layers.  In the core layer, the noncanonical amino acids D-valine and D-isoleucine are permitted.  (Note that when this script is run, the path to the params files for these noncanonicals will have to be provided with the -extra_res_fa flag.)
         <TASKOPERATIONS>
 
           <LayerDesign name=layerdesign make_pymol_script=1 layer=core_boundary_surface>
 
              <core>
-               <all append="AFGILMNPQVWYH" />
+               <all append="AFGILMNPQVWYH" ncaa_append="DVA,DIL"/>
                <all exclude="CRKDEST" />
              </core>
 
