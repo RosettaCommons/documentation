@@ -12,6 +12,16 @@ This app requires the Antibody Database.  A database of antibodies from the orig
 Designs should start with an antibody bound to a target antigen.  The antibody to start with can be a model of the framework required for a denovo design, or an antibody that is being affinity matured.  An antigen should also be included in the starting PDB file at a target epitope.  The program CAN computationally design an antibody to anywhere on the target protein, but a target epitope will increase the probability that the final design will work.  It is beyond the scope of this program to determine potential epitopes for binding, however servers and programs exist to predict these.  Site Constraints can be used to further limit the design.
 
 # Algorithm:
+There are two main algorithms that are currently available.  These can be specified using the <code>-design_protocol</code> flag.
+
+Briefly, the program consists of an outer loop that chooses a CDR and grafts a CDR from the CDRset (if set to graft), and an inner loop that minimizes the structure using a variety of methods and runs sequence design. 
+
+##Generalized Monte Carlo
+<code>-design_protocol generalized_monte_carlo</code>
+
+
+##Deterministic Graft
+<code>-design_protocol deterministic_graft</code>
 
 # Instruction File:
 
