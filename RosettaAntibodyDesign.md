@@ -3,7 +3,7 @@
 Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 PI: Roland Dunbrack
 
-Last Doc Update: 2/15/2014
+Last Doc Update: 2/6/2015
 
 [[_TOC_]]
 
