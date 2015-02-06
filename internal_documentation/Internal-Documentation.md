@@ -55,9 +55,8 @@ comment tags will be stripped from the documentation prior to being provided as 
      - [[Symmetric MP docking]]
      - [[Guide to develop applications]]
 - [[Flags]]
-     - [[Old RosettaMembrane (2006 / 2007)]]
+     - [[Old RosettaMembrane (2006)]]
      - [[New Membrane Framework (2014)]]
-- [[Old RosettaMembrane (2006 / 2007)]]
 
 #### OLD ####
 Not ready for prime time...just writing for now!
