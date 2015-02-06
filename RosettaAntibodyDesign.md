@@ -1,4 +1,4 @@
-#The Rosetta Antibody Design Manual
+#Rosetta Antibody Design Manual
 
 Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 PI: Roland Dunbrack
