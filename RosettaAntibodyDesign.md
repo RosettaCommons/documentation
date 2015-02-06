@@ -1,15 +1,17 @@
-#Rosetta Antibody Design Manual
+#The Rosetta Antibody Design Manual
 
 Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 PI: Roland Dunbrack
 
 Last Doc Update: 2/15/2014
 
+[[_TOC_]]
+
 # Overview:
-This app aims to design antibodies.  It has been tested for redesigns and affinity maturation, but is also actively being used for de-novo design. 
+This app is a generalized framework for the design of antibodies using Rosetta.  It can be used from denovo design to redesigns that improve binding affinity, optimize stability, or manipulate function.  It is a knowledge-based framework, rooted very much on our recent clustering of antibody CDR regions.  It uses the North/Dunbrack CDR definition.  The  [http://dunbrack2.fccc.edu/PyIgClassify/](PyIgClassify) server and databases were created primarily for this application. 
 
 # Setup:
-This app requires the Antibody Database.  A database of antibodies from the original paper is included in the paper.  A weekly updated database can be downloaded here: http://dunbrack2.fccc.edu/PyIgClassify/.  It should be placed in Rosetta/main/database/sampling/antibodies/
+This app requires the Rosetta Antibody Design Database.  A database of antibodies from the original paper is included in the paper.  A weekly updated database can be downloaded here: http://dunbrack2.fccc.edu/PyIgClassify/.  It should be placed in <code> Rosetta/main/database/sampling/antibodies/ </code>  The database contains renumbered CDR coordinates from the entire PDB and associated clusters, distances, sequence statistics, framework statistics, etc. that will be used throughout the protocol.
 
 Designs should start with an antibody bound to a target antigen (however optimizing just the antibody without the complex is also possible).  Camelid antibodies are fully supported.  The antibody to start with can be a model of the framework required for a denovo design, or an antibody that is being affinity matured.  An antigen should also be included in the starting PDB file at a target epitope.  The program CAN computationally design an antibody to anywhere on the target protein, but a target epitope will increase the probability that the final design will work.  It is beyond the scope of this program to determine potential epitopes for binding, however servers and programs exist to predict these.  Site Constraints can be used to further limit the design.
 
