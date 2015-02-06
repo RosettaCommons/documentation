@@ -19,17 +19,17 @@ Designs should start with an antibody bound to a target antigen (however optimiz
 The algorithm is meant to sample the diverse sequence, structure, and binding space of an antibody-antigen complex.  It can be tailored for a variety of design strategies and design projects.  Briefly, there consists of an outer and an inner optimization loop; each controlled by a separate monte carlo object.  Each outer cycle of the program chooses a CDR based on set weights.  That CDR can then be optimized by sampling a CDR structure from the given CDRSet (GraftDesign) and/or Sequence designed (SeqDesign), or simply structurally optimized.  The CDRSet, minimization types, and sequence design control is all done through the CDR Design Instruction file.  This file allows CDR-level control of the design process. 
 
 Outer Cycle:
--Choose CDR
--Graft CDR from CDRSet if enabled
--Add CircularHarmonic Cluster-based Dihedral Constraints or general constraints for small clusters
--Add Paratope SiteConstraints
--Add Epitope-Paratope SiteConstraints if enabled.
+- Choose CDR
+- Graft CDR from CDRSet if enabled
+- Add CircularHarmonic Cluster-based Dihedral Constraints or general constraints for small clusters
+- Add Paratope SiteConstraints
+- Add Epitope-Paratope SiteConstraints if enabled.
 
 Inner (Minimization) Cycle:
--Add Sequence design any time rotamers are repacked if enabled. CDRs, the framework, and the antigen may be designed.  See options for more.  
--Dock if enabled (short low-res/high-res dock).  Interface residues set to design will be designed. ( -do_dock )
--Optimize/sample the structure (CDRs currently) according to the instruction file.  Residues from neighboring regions are designed if enabled, essentially a neighbor residue shell is created with the CDR(s) being optimized according to the NEIGHBOR_MIN option in the instruction file, and any residues with a distance to those CDRs.  Any residues within regions set to design will design.  Design is accomplished through the use of Cluster-based Profiles or Conservative design.  The sequence design strategy can be controlled through the instructions file.  See the SequenceDesign section for more information on how these profiles are used during sequence optimization.
--Optimize the Rigid Body orientation of the antigen/antibody complex if enabled ( -do_rb_min ). 
+- Add Sequence design any time rotamers are repacked if enabled. CDRs, the framework, and the antigen may be designed.  See options for more.  
+- Dock if enabled (short low-res/high-res dock).  Interface residues set to design will be designed. ( -do_dock )
+- Optimize/sample the structure (CDRs currently) according to the instruction file.  Residues from neighboring regions are designed if enabled, essentially a neighbor residue shell is created with the CDR(s) being optimized according to the NEIGHBOR_MIN option in the instruction file, and any residues with a distance to those CDRs.  Any residues within regions set to design will design.  Design is accomplished through the use of Cluster-based Profiles or Conservative design.  The sequence design strategy can be controlled through the instructions file.  See the SequenceDesign section for more information on how these profiles are used during sequence optimization.
+- Optimize the Rigid Body orientation of the antigen/antibody complex if enabled ( -do_rb_min ). 
 
 
 ## Protocols:
@@ -49,25 +49,25 @@ These Mintypes can be independently set for each CDR through the instruction fil
 ### Pack
 
 ### Min
-Pack->Min
+- Pack->Min
 
 ### Cartesian Min
-Pack->Min
+- Pack->Min
 
 ### Relax
 
 ### Dualspace Relax
 
 ### Backrub
-backrub->pack
+- backrub->pack
 
 # Antibody Design Instruction File:
 The Antibody Design Instruction File handles CDR-level control of the algorithm and design.  It is used to create the CDRSet for sampling whole CDRs from the PDB, as well as fine-tuning the minimization steps and sequence design strategies.  For each option, 'ALL' can be given to control all of the CDRs at once.  Specific capitalization of commands are not needed, and are used for style. Commands are broken down into 4 types, each controlling different aspects of the protocol:
 
--GraftDesign
--SeqDesign
--CDRSet
--MinProtocol
+- GraftDesign
+- SeqDesign
+- CDRSet
+- MinProtocol
 
 ##GraftDesign
 
