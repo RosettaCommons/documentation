@@ -90,9 +90,36 @@ The Antibody Design Instruction File handles CDR-level control of the algorithm 
 #Options
 ## Basic Options: 
 
+- Protocol Steps
+
+- Protocol Rounds
+
+- Paratope + Epitope
+
+- Optimization Step
+
+- Regional Sequence Design
+
+
 ## Advanced Options:
 
-## Expert Options:
+- Constraint Control
+
+- Seq Design Control
+
+- Distance Detection
+
+- Outlier Control
+
+- Profile Stats
+
+
+## Expert Options
+
+- Fine Control
+
+- Benchmarking
+
 
 # Design Strategies
 
