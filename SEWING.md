@@ -80,19 +80,7 @@ The final result should be a score file named pdb.scores.bin, this is the score 
 
 Generating de novo backbones (or Assemblys) in the SEWING framework is accomplished by a simple graph traversal. The nodes in this graph, called the SewGraph, are the Models extracted in [[Step 1|SEWING#Model-Generation]] of the protocol. The edges are the structural matches found in [[Step 2|SEWING#Model-comparison-with-geometric-hashing]]] of SEWING.
 
-Assembly of backbones is implemented within a Mover, and thus can be accessed via the [[RosettaScripts]] interface. There are currently several Movers implemented, each designed to accomplish different design goals. The base AssemblyMover has a handful of core methods which are overwritten by the various sub-movers. A flow chart for how all these methods relate to one another is below:
-
-```
-+-----------------------+    +----------------------+    +--------------------+    +-----------+
-| 1. Get starting Model +--->| 2. Generate Assembly +--->| 3. Complete filter +--->| 4. Refine |
-+-----------------------+    +----------------------+    +--------------------+    +-----------+
-                                        |
-       ---------------------------------+----------------------------------------------------
-      /                                                                                      \
-      +-------------------+   +----------------+   +-----------------+   +--------------------+  
-      | 2A. Get next edge +-->| 2B. Check edge +-->| 2C. Follow edge +-->| 2D. Partial filter |
-      +-------------------+   +----------------+   +-----------------+   +--------------------+         
-```
+Assembly of backbones is implemented within a Mover, and thus can be accessed via the [[RosettaScripts]] interface. There are currently several Movers implemented, each designed to accomplish different design goals. The base AssemblyMover has a handful of core methods which are selectively implemented or overwritten by the various sub-movers.
 
 ###Flags common to all SEWING movers
 ```
@@ -125,7 +113,7 @@ The AssemblyMover is the abstract base class from which all other AssemblyMovers
 
 **Subclass of AssemblyMover**
 
-The MonteCarloAssemblyMover 
+The MonteCarloAssemblyMover is the standard mover for the SEWING framework. This mover will randomly add Models to build up an Assembly that satisfies a given set of requirements. The evaluation of requirements is handled by the RequirementSet, which is outlined in more detail below. The decision to add/reject a model during the creation of an Assembly is based on a Monte-Carlo algorithm that uses a fast Assembly-specific score function for evaluation. Currently, the Assembly score function simply penalizes backbone clashes, and rewards designable contacts using the MotifHash framework.
 
 Currently, this mover is only accessible via RosettaScripts. 
 **Note that due to the fact that RosettaScripts uses the standard Rosetta Job Distributor, an input PDB is required (using the standard -s/-l flags). This PDB will be ignored.** 
@@ -140,20 +128,15 @@ An example RosettaScripts tag is below:
 
 ----------------------
 
-###SewingAppendMover
+###AppendAssemblyMover
 
-**Subclass of MotifDirectedAssemblyMover**
+**Subclass of MonteCarloAssemblyMover**
 
-The SewingAppendMover is a Mover that allows the addition of residues to a PDB that is not incorporated into the SewGraph. Therefore, the first step in the SewingAppendMover is the addition of the new Model to the SewGraph, and the identification of any edges (structural matches) to this new node (The PDB Model). Aside from this change, the SewingAppendMover simply overwrites the following parent class methods:
-
-* **Get starting model** - The SewingAppendMover starts every Assembly with the Model generated from the input PDB (using the standard -s/-l flags)
-
-* **Partial filter** - The partial filter step is extended to also check for any backbone clashes with the PDB supplied through the option sewing:partner_pdb flag.
-
-* **Refine** - The Refinement stage differs from the base class method in that the partner PDB is present during this stage. The partner backbone remains rigid, while the sidechain positions are allowed to change.
+The SewingAppendMover is a Mover that allows the addition of residues to a PDB that is not incorporated into the SewGraph. Therefore, the first step in the SewingAppendMover is the addition of the new Model to the SewGraph, and the identification of any edges (structural matches) to this new node (The PDB Model). 
 
 The complete set of additional flags respected by the SewingAppendMover
 ```
+-s                              The input PDB to be appended to
 -sewing:partner_pdb             The 'partner' of the PDB being used as the starting model (usually a binding partner)
 -sewing:pose_segment_starts     A vector of integers representing the starting residue (in Rosetta residue numbering) of each segment in the Model PDB (passed with the -s/-l flags)
 -sewing:pose_segment_ends       A vector of integers representing the end residue (in Rosetta residue numbering) of each segment in the Model PDB (passed with the -s/-l flags)
@@ -168,12 +151,22 @@ The complete set of additional flags respected by the SewingAppendMover
 
 ###RepeatAssemblyMover
 
-**Subclass of MotifDirectedAssemblyMover**
+**Subclass of AssemblyMover**
 
-The RepeatAssemblyMover is intended for the design of repeat proteins using the SEWING framework. Due to the graph-traversal based generation of backbones used by SEWING, repeat protein generation is relatively easy; one needs only to find cycles in the graph. The following modifications to base-class methods describe how this functionality is implemented.
-
-* **Generate Assembly** - First, the base class method is called, then this function searches for a back-edge from the last added node (a back-edge is an edge from the last to first node, completing the cycle) 
-
-* **Refine** - The Refinement stage for repeat proteins is modified to maintain a perfect repeat in both sequence and structure space.
+The RepeatAssemblyMover is intended for the design of repeat proteins using the SEWING framework. Due to the graph-traversal based generation of backbones used by SEWING, repeat protein generation is relatively easy; one needs only to find cycles in the graph. This mover is currently under active development, and as such many of the features expected in a SEWING mover may not be implemented (for instance, this mover currently does not respect the RequirementSet)
 
 ----------------------
+
+###RequirementSet
+
+The RequirementSet is used by the various AssemblyMover implementation to restrict constructed Assemblies to have specific features. Requirements can currently take two forms: Global requirements, which are requirements place on the entire assembly; and Intra-Segment requirements, which are requirements placed on individual segments (usually secondary structure elements) that make up the Assembly. Below is a list of currently implemented requirements.
+
+####Global Requirements
+* GlobalLengthRequirement - A requirement that restricts the length of various secondary structure elements in the Assembly. This requirement takes three options: dssp_code, min_length, and max_length. For instance, the following requirement tag would force all alpha-helical segments in the assembly to be between 4 and 10 residues long.
+
+'''
+<GlobalLengthRequirement dssp='H' min_length=4 max_length=10 />
+'''
+ 
+
+ 
