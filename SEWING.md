@@ -164,9 +164,9 @@ The RequirementSet is used by the various AssemblyMover implementation to restri
 ####Global Requirements
 * GlobalLengthRequirement - A requirement that restricts the length of various secondary structure elements in the Assembly. This requirement takes three options: dssp_code, min_length, and max_length. For instance, the following requirement tag would force all alpha-helical segments in the assembly to be between 4 and 10 residues long.
 
-'''
+```
 <GlobalLengthRequirement dssp='H' min_length=4 max_length=10 />
-'''
+```
  
 
  
