@@ -149,6 +149,3 @@ Input Files:
 
 [[Global Objects-Singletons in Rosetta | internal_documentation/singletons]]
  - Creating singletons that are threadsafe. Andrew
-
-[[debugging test]]
-[[debugtest2]] [[debug test3]]
