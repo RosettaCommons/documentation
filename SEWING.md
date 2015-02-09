@@ -190,6 +190,8 @@ Note that all IntraSegment Requirement tags *must* be nested inside of an IntraS
 
 ```
 <IntraSegmentRequirements index=1>
+    #Put Requirement tags here!
+</IntraSegmentRequirements>
 ```
 
 * SegmentDsspRequirement - Require that the specified segment is a particular secondary structure
