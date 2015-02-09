@@ -113,17 +113,28 @@ The AssemblyMover is the abstract base class from which all other AssemblyMovers
 
 **Subclass of AssemblyMover**
 
-The MonteCarloAssemblyMover is the standard mover for the SEWING framework. This mover will randomly add Models to build up an Assembly that satisfies a given set of requirements. The evaluation of requirements is handled by the RequirementSet, which is outlined in more detail below. The decision to add/reject a model during the creation of an Assembly is based on a Monte-Carlo algorithm that uses a fast Assembly-specific score function for evaluation. Currently, the Assembly score function simply penalizes backbone clashes, and rewards designable contacts using the MotifHash framework.
+The MonteCarloAssemblyMover is the standard mover for the SEWING framework. This mover will randomly add Models to build up an Assembly that satisfies a given set of requirements. The evaluation of requirements is handled by the [[Requirement Set|SEWING#RequirementSet]], which is outlined in more detail below. The decision to add/reject a model during the creation of an Assembly is based on a Monte-Carlo algorithm that uses a fast Assembly-specific score function for evaluation. Currently, the Assembly score function simply penalizes backbone clashes, and rewards designable contacts using the MotifHash framework.
 
-Currently, this mover is only accessible via RosettaScripts. 
+Currently, this mover is only accessible via RosettaScripts. The below script will generate a 7-segment Assembly, in which the first segment must be an alpha-helix between 8 and 21 residues long.
 **Note that due to the fact that RosettaScripts uses the standard Rosetta Job Distributor, an input PDB is required (using the standard -s/-l flags). This PDB will be ignored.** 
 
 An example RosettaScripts tag is below:
 
 ```
 <MonteCarloAssemblyMover
-    
-/>
+    name=assemble
+    cycles=5000
+    min_segments=7
+    max_segments=7
+    add_probability=0.4
+    delete_probability=0.1
+    switch_probability=0.5
+>
+    <IntraSegmentRequirements index=1>
+        <SegmentDsspRequirement dssp="H" />
+        <SegmentLengthRequirement min_length=8 max_length=21 />
+    </IntraSegmentRequirements>
+</MonteCarloAssemblyMover>
 ```
 
 ----------------------
