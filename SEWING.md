@@ -166,6 +166,12 @@ The complete set of additional flags respected by the SewingAppendMover
 
 The RepeatAssemblyMover is intended for the design of repeat proteins using the SEWING framework. Due to the graph-traversal based generation of backbones used by SEWING, repeat protein generation is relatively easy; one needs only to find cycles in the graph. This mover is currently under active development, and as such many of the features expected in a SEWING mover may not be implemented (for instance, this mover currently does not respect the RequirementSet)
 
+
+**WARNING: Currently the num_repeating_segments options of this tag is misleading. The below tag will actually generate an assembly with 4 repeating segments (e.g. helix-loop-helix-loop). The final repeat in the created assembly will be missing the last segment (e.g. helix-loop-helix). This should be fixed soon and the documentation will be updated to reflex this change**
+```
+<RepeatAssemblyMover name="assemble" num_repeating_segments=2 />
+```
+
 ----------------------
 
 ###RequirementSet
@@ -178,6 +184,30 @@ The RequirementSet is used by the various AssemblyMover implementation to restri
 ```
 <GlobalLengthRequirement dssp='H' min_length=4 max_length=10 />
 ```
+
+####IntraSegment Requirements
+Note that all IntraSegment Requirement tags *must* be nested inside of an IntraSegmentRequirements tag. This tag takes one option, an 'index' which is used to dictate which segment to apply the requirement to in the final Assembly. For example, the tag below will apply all requirement sub-tags on the first (N-terminal) segment in the generated Assemblies.
+
+```
+<IntraSegmentRequirements index=1>
+```
+
+* SegmentDsspRequirement - Require that the specified segment is a particular secondary structure
+
+```
+<SegmentDsspRequirement dssp="H" />
+```
+
+* SegmentLengthRequirement - Require that the specified segment is between a given min and max length
+
+```
+<SegmentLengthRequirement min_length=8 max_length=21 />
+```
  
+* ResidueRetentionRequirement - A special requirement used by the [[AppendAssemblyMover|SEWING#AppendAssemblyMover]] class to force the retention of certain residues during the generation of chimeric segments. For instance, if you are building an Assembly off of a helical peptide and want to ensure that the chimera segment build off of this peptide doesn't remove the terminal residue. It is rare to use the tag-setup of this requirement as it is set up automatically by the `keep_model_residues` flag used by the AppendAssemblyMover.
+
+```
+<ResidueRetentionRequirement model_id=1 required_resnums="1 2 3" />
+```
 
  
