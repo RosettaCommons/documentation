@@ -78,14 +78,14 @@ For example, if one were closing a loop consisting of residues ALA44, CYS45, LYS
 <MOVERS>
 ...
      <GeneralizedKIC ...>
-          <AddResidue index=4 />
-          <AddResidue index=45 />
-          <AddResidue index=46 />
-          <AddResidue index=47 />
-          <AddResidue index=23 />
-          <AddResidue index=22 />
-          <AddResidue index=21 />
-          <AddTailResidue index=12 />
+          <AddResidue res_index=4 />
+          <AddResidue res_index=45 />
+          <AddResidue res_index=46 />
+          <AddResidue res_index=47 />
+          <AddResidue res_index=23 />
+          <AddResidue res_index=22 />
+          <AddResidue res_index=21 />
+          <AddTailResidue res_index=12 />
           <SetPivots res1=4 atom1="CA" res2=23 atom2="SG" res3=21 atom3="CA" />
           ...
      </GeneralizedKIC>

@@ -830,7 +830,7 @@ Generates a helical bundle, sampling user-specified ranges of parameters and out
    crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) invert=(false &bool)
    scorefxn=(&string) selection_type=("low"||"high" &string) pre_selection_mover=(&string)
    pre_selection_filter=(&string) dump_pdbs=(false &bool) pdb_prefix=("bgs_out" &string)
-   max_samples=(10000 &int)
+   max_samples=(10000 &int) reset=(true &bool)
     r0=(&real) OR ( r0_min=(&real) r0_max=(&real) r0_samples=(&int) )
     omega0=(&real) OR ( omega0_min=(&real) omega0_max=(&real) omega0_samples=(&int) )
     delta_omega0=(&real) OR ( delta_omega0_min=(&real) delta_omega0_max=(&real) delta_omega0_samples=(&int) )
@@ -856,6 +856,7 @@ Default parameter values or parameter ranges are set in the <b>BundleGridSampler
 - <b>[parameter]\_samples</b>: The number of samples.  Note that the total number of samples is the product of all individual samples, and this can get quite large very fast.
 - <b>[parameter]\_copies\_helix</b>: This option may only be specified in a <b>Helix</b> sub-tag.  It indicates that a particular parameter for that helix is always set to the same value as that parameter from a previously-defined helix.  See below for an example.
 - <b>max\_samples</b>: The maximum number of samples permitted.  If the total number of samples is larger than this, the mover throws an error at apply time.  This is meant as a protection for the user, to prevent unreasonably large grid sampling jobs from being attempted.  The default value of 10,000 samples is conservative, and may be increased.
+- <b>reset</b>: If true (the default setting), the pose is reset before generating bundles.  If false, the bundle geometry is added to the input geometry.
 - <b>scorefxn</b>: The scoring function to use.  This must be specified, since this mover selects the lowest-energy bundle generated.
 - <b>selection\_type</b>:  Although the lowest-energy bundle is selected by default ("low"), the user may optionally specify that the highest-energy bundle ("high") be selected instead.
 - <b>pre\_selection\_mover</b>:  If specified, this mover will be applied to each generated bundle prior to energy evaluation.  This can be useful for side-chain packing or minimization as backbone conformations are sampled.  Note that this can greatly increase runtime, however.  Note also that, if a mover is used that alters the backbone conformation, the conformation may no longer lie within the Crick parameter space.

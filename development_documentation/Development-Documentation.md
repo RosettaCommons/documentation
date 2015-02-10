@@ -13,16 +13,25 @@
 The documentation for the various libraries is a bit scattered.  Here is a partially-complete list:
 
 **Internal libraries:**
-- [Doxygen documentation of core and protocols, for developers (built frequently to reflect the latest commits to master)](http://graylab.jhu.edu/Rosetta.Developer.Documentation/core+protocols/)
-- [Doxygen documentation for the basic, numeric, utility, and ObjexxFCL (Fortran compatibility) libraries, for developers (built frequently to reflect the latest commits to master)](http://graylab.jhu.edu/Rosetta.Developer.Documentation/all_else/)
-- [The Rosetta 3.5 user manual, with documentation for the core and protocols libraries (not the latest version available to developers); curiously, this lacks RosettaScripts documentation](https://www.rosettacommons.org/manuals/archive/rosetta3.5_user_guide/)
-- [The Rosetta 3.4 user manual, with documentation for the core and protocols libraries and on RosettaScripts (an older version, for historical reference only)](https://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/)
+
+- Publicly available [Doxygen code documentation](https://www.rosettacommons.org/manuals/latest/main/) describing the interface to Rosetta objects and functions
+- Historical version of the documentation, including both user manual and code documentation.
+    - The [Rosetta 3.5 user manual](https://www.rosettacommons.org/manuals/archive/rosetta3.5_user_guide/), with documentation for the core and protocols libraries; curiously, this lacks RosettaScripts documentation
+    - The [Rosetta 3.4 user manual](https://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/), with documentation for the core and protocols libraries and on RosettaScripts (an older version, for historical reference only)
+
+<!--- BEGIN_INTERNAL -->
+For RosettaCommons developers, we have a version of the Doxygen documentation which also includes code. (Password protected access).
+
+- Doxygen documentation of [core and protocols](http://graylab.jhu.edu/Rosetta.Developer.Documentation/core+protocols/) (built frequently to reflect the latest commits to master)
+- Doxygen documentation for the [basic, numeric, utility, and ObjexxFCL (Fortran compatibility) libraries](http://graylab.jhu.edu/Rosetta.Developer.Documentation/all_else/), (built frequently to reflect the latest commits to master)
+
+<!--- END_INTERNAL -->
 
 **External libraries:**
 
-- [Boost 1.55.0 documentation (a very useful library intended to extend the standard C++ libraries with frequently-needed functionality)](http://www.boost.org/doc/libs/1_55_0/)
-- [The Eigen library (used for linear algebra, matrix manipulations, Eigenvector problems, etc.)](http://eigen.tuxfamily.org/dox/)
-- [Information and references (but no documentation) about DAlphaBall (used in Rosetta's holes score term)](https://simtk.org/project/xml/downloads.xml?group_id=212)
+- [Boost 1.55.0 documentation](http://www.boost.org/doc/libs/1_55_0/) (a very useful library intended to extend the standard C++ libraries with frequently-needed functionality)
+- [The Eigen library](http://eigen.tuxfamily.org/dox/) (used for linear algebra, matrix manipulations, Eigenvector problems, etc.)
+- [DAlphaBall](https://simtk.org/project/xml/downloads.xml?group_id=212) information and references (but no documentation), which is used in Rosetta's holes score term
 
 
 ##Code organization
