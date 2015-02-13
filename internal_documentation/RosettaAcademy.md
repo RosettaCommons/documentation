@@ -61,6 +61,8 @@ The main RosettaCommons page is https://www.rosettacommons.org/. There is a Foru
 # 4. Course material
 There is course material available from several labs who gave lectures about Rosetta. The material can be found on github under teaching resources: https://github.com/RosettaCommons/teaching_resources
 
+Lectures on Rosetta (closely following the PyRosetta book): http://goo.gl/GuUNDK
+
 
 # 5. Rosetta for users
 ## Download and compile Rosetta, git version control
