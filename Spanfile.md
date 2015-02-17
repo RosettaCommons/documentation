@@ -66,11 +66,11 @@ NOTE: The current format repeats the numbers once while the original format repe
 
 ## Flags
 
-Spanfiles are read in using the option `-membrane_new::setup::spanfiles <spanfile 1> <spanfile 2>`. While most of the Membrane Framework only uses the first spanfile (check your log file!!!), some specific applications might use two or more: the MPDocking setup uses two. If in doubt, check your log carefully. 
+Spanfiles are read in using the option `-mp::setup::spanfiles <spanfile 1> <spanfile 2>`. While most of the Membrane Framework only uses the first spanfile (check your log file!!!), some specific applications might use two or more: the MPDocking setup uses two. If in doubt, check your log carefully. 
  
 ## Example
 
-`-membrane_new::setup::spanfiles 1afo.span`
+`-mp::setup::spanfiles 1afo.span`
 
 NOTE: The flag for the original RosettaMembrane is `-in:file:spanfile 1afo.span` but this option will be deprecated. Please use the new one. 
 
