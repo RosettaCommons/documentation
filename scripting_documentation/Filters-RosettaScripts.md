@@ -1177,28 +1177,20 @@ Substitutes Ala for each interface position separately and measures the differen
 -   partner2: report ddGs for everything downstream of the jump
 -   repack: repack in the bound and unbound states before reporting the energy (ddG). When false, don't repack (dG).
 
-<!--- BEGIN_INTERNAL -->
+#### DdGScan
 
-#### TaskAwareAlaScan
-
-(This is a devel Filter and not available in released versions.)
-
-Takes a set of task operations from the user in order to more precisely specify a set of residues to analyze via alanine scanning (see above). Individually mutates each of the residues to alanine and calculates the change in binding energy (ddG).
+Takes a set of task operations from the user in order to more precisely specify a set of residues to analyze via ddG scanning. Individually mutates each of the residues to alanine (or whatever other resiude is defined in the task operations) and calculates the change in binding energy (ddG).
 
 ```
-<TaskAwareAlaScan name=(& string) task_operations=(comma-delimited list of task operations) jump=(1 &Size) repeats=(1 &Size) scorefxn=(&scorefxn) repack=(1 &bool) report_diffs=(1 &bool) exempt_identities=(comma-delimited list of amino acid identities) write2pdb=(0 &bool) />
+<DdGScan name=(& string) task_operations=(comma-delimited list of task operations) repeats=(1 &Size) scorefxn=(&scorefxn) report_diffs=(1 &bool) write2pdb=(0 &bool) />
 ```
 
 -   task\_operations - The task operations to use to identify which residues to scan. Designable or packable residues are scanned.
--   jump - Which jump to use for ddg calculations.
 -   repeats - How many times to repeat the ddg calculations; the average of all the repeats is returned.
--   scorefxn - The score function used for the calculations.
--   repack - Whether to repack in the bound and unbound states before reporting the energy.
+-   scorefxn - The score function used for the calculations. If a ddG mover is defined, this score function will be used in that mover as well, overriding any different score function defined in that mover.
 -   report\_diffs - Whether to report the changes in binding energy upon mutation (pass true), or the total binding energy for the mutated structure (pass false).
--   exempt\_identities - The user can exempt certain amino acid identities (for instance, glycine) from being mutated to alanine during scanning by specifying them here (e.g., "GLY,PRO").
+-   exempt\_identities - *DEPRECATED* The user used to be able to exempt certain amino acid identities (for instance, glycine) from being mutated to during scanning by specifying them here (e.g., "GLY,PRO"). Now, if you wish to exempt certain residue types, handle this directly in the task\_operations.
 -   write2pdb - Whether to write the residue-specific ddG information to the output .pdb file.
-
-<!--- END_INTERNAL --> 
 
 #### FilterScan
 
