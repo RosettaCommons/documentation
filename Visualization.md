@@ -1,11 +1,8 @@
 ## TODO
 
-- expand
-- cite Evan's papers
-- more info about PymolMover
+- more info about PymolMover?
 - is the flag -membrane_new:view_in_pymol still relevant and used?
-- what about the VisualizeMembraneMover??? Better for Chimera; if you have Pymol, use PymolMover instead
-- add an image here?
+- link to a video of how to use it
 
 ## Metadata
 
@@ -28,12 +25,15 @@ The Membrane Framework in Rosetta interacts with Pymol through the PymolPyRosett
 
 ## Code and documentation
 
-## Flags
+The **VisualizeMembraneMover** is a mover that adds virtual residues representing the membrane planes to the pose that can be visualized individually. It is less light-weight than the Pymol plugin described above because (1) the pose is extended by a large number of additional residues and (2) the membrane is represented by a grid of residues, instead of 4x2 points defining the dimensions of the membrane. It is still useful if you are using a visualization program different from Pymol.
 
-`-show_simulation_in_pymol 0` invokes the PymolMover. If the protein is a membrane protein, the membrane will be shown automatically. 
+The **VisualizeEmbeddingMover** is a mover that adds virtual residues for each transmembrane span and also the average of those representing the overall embedding of the pose in the membrane. Currently (2/17/15), the virtual residues are not updated after a move, so make sure to only call it at the last step in your protocol. 
 
-## Example
+## Command line
+
+`-show_simulation_in_pymol 0` invokes the PymolMover, updating the protein in Pymol every frame. If the protein is a membrane protein, the membrane will be shown automatically. 
 
 ## References
 
-* Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Tilley D, Elazar A, Gray JJ. (2015) An integrated framework enabling computational modeling and design of Membrane Proteins. PlosOne - in preparation 
+* Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Tilley DC, Elazar A, Gray JJ. (2015) An integrated framework enabling computational modeling and design of Membrane Proteins. PlosOne - in preparation 
+* Baugh EH, Lyskov S, Weitzner BD, Gray JJ (2011) Real-Time PyMOL Visualization for Rosetta and PyRosetta. PLoS ONE 6(8): e21931.
