@@ -1,13 +1,11 @@
-[[_TOC_]]
-
 ## Metadata
 
-Authors: 
- - Author: Rebecca F. Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
+Questions and comments to: 
  - Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
+ - Author: Rebecca F. Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
  - Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
 
-Last Updated: December 2014
+Last Updated: 2/17/15
 
 ## Citation
 Rosetta Revision #57518
@@ -27,7 +25,18 @@ The membrane ddG application is implemented as a python script in PyRosetta. An 
 ## Example Command Lines
 To run the membrane ddG script for this example case, run the python script (no arguments)
 
-./compute_ompLA_ddG.py
+`./compute_ompLA_ddG.py`
+
+A general script is also available in the protocol capture. It can be run as
+
+```
+./compute_ddG.py 
+-p <input PDB file> 
+-s <spanfile> 
+-o <output filename> 
+-r <residue number to mutate, pose residue number> 
+-m <optional: 1-letter code of residue to mutate into, for instance 'A' for alanine>
+```
 
 ## References
 1. Chaudhury S, Lyskov S, Gray JJ (2010) PyRosetta: a script-based interface for implementing molecular modeling algorithms using Rosetta.
