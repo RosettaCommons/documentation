@@ -29,7 +29,7 @@ In the above example the normal vector is close to the direction of the positive
 
 The thickness is stored on the x-axis for the sole reason to make Rosetta happy because a residue Stub (i.e. coordinate system) can only be created from three atoms that are not positioned on a line. For visualization purposes the thickness atom is not really needed, but the thickness value that the Membrane Framework used to create that decoy is stored (and can be therefore be easily accessed) as the THKN atom in the PDB file.
 
-The coordinates of the MembraneResidue are automatically updated during a simulation. An existing MembraneResidue from a previously run protocol can be read in for a new protocol using the option `-membrane_new::setup::membrane_rsd <membrane residue number>`.
+The coordinates of the MembraneResidue are automatically updated during a simulation. An existing MembraneResidue from a previously run protocol can be read in for a new protocol using the option `-mp::setup::membrane_rsd <membrane residue number>`.
 
 The MembraneResidue is connected to the pose by a jump in the FoldTree, anchored at the first residue of the protein, but written out into the PDB file as the last residue after the protein (HETATOM record of MEM). Depending on where the root of the FoldTree is, either the membrane or the protein is flexible or fixed: (1) If the MembraneResidue is at the root of the FoldTree, it remains fixed while the protein moves flexibly in this coordinate system. (2) If one of the protein residues is at the root of the FoldTree, the MembraneResidue (and therefore the membrane) moves flexibly in the coordinate system of the pose.
 
