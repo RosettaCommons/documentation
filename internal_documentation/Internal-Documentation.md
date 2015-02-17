@@ -53,30 +53,11 @@ comment tags will be stripped from the documentation prior to being provided as 
      - [[Membrane ddG]]
      - [[MP docking]]
      - [[Symmetric MP docking]]
-     - [[Guide to develop applications]]
 - Flags
      - [[Outdated RosettaMembrane from 2006]]
      - [[RosettaMP from 2014]]
 
 #### OLD ####
-Not ready for prime time...just writing for now!
-
-_User Facing Documentation_
-- [[Overview Modeling Membrane Proteins in Rosetta]]
-- [[Visualizing Membrane Geometry with the PyMOLMover]]
-- Membrane Framework Applications
-     - [[Membrane Relax]]
-     - [[Membrane ddG]]
-     - [[Membrane Protein-Protein Docking ]]
-     - [[Membrane Symmetric Protein-Protein Docking]]
-- [[Guide to Developing new Membrane Framework Applications]] RosettaScripts/PyRosetta Version
-
-_Developer facing documentation_
-- [[About Membrane Framework Architecture]]
-- [[Guide to Developing new Membrane Framework Applications]] C++ Version
-- [[Relevant Unit, Fingerprint, and Integration Tests]]
-
-Outdated.... (wil deprecate 9/29/14)
 - [[RosettaMembrane Framework Overview]]
 
 ### Helical bundles project
