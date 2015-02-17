@@ -38,7 +38,7 @@ comment tags will be stripped from the documentation prior to being provided as 
 
 ## Documentation for Specific Projects
 
-### Rosetta Membrane Framework
+### RosettaMP: the new Membrane Framework in Rosetta (developed in 2014)
 - [[Overview]]
      - [[Membrane residue]]
      - [[Embedding objects]]
