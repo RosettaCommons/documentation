@@ -44,7 +44,7 @@ Lipid exposed data: resnum mean-lipo lipophil entropy
 
 ## Flags
 
-`-membrane_new:setup:lipsfile 1afo.lips4`
+`-mp:setup:lipsfile 1afo.lips4`
 
 NOTE: The flag for the original RosettaMembrane is `-in:file:lipofile 1afo.lips4` but this option will be deprecated. Please use the new flag!
 
