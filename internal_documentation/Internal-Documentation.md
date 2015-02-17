@@ -41,6 +41,7 @@ comment tags will be stripped from the documentation prior to being provided as 
 ### Rosetta Membrane Framework
 - [[Overview]]
      - [[Membrane residue]]
+     - [[Embedding objects]]
      - [[Score functions]]
 - Inputs
      - [[Spanfile]]
