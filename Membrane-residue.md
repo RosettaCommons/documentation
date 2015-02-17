@@ -41,7 +41,9 @@ TODO
 
 ## Flags
 
-`-membrane_new::setup::membrane_rsd <membrane residue number>` for reading in the MEM residue. 
+The membrane residue (MEM HETATM lines in the PDB) is automatically detected by the AddMembraneMover. If for whatever reason (since protocols are still in development) more than one residue is present, the user can specify which residue should be considered by providing the flag
+
+`-mp::setup::membrane_rsd <membrane residue number>` for reading in the MEM residue. 
 
 ## References
 
