@@ -1,6 +1,13 @@
 #Rotamer Packing Options
 
 Rotamer Packing options can be used in fixed backbone design mode and other protocols.
+For most Rosetta protocols, the flags 
+
+* <code> -ex1 </code>
+* <code> -ex2 </code>
+* <code> -use_input_sc </code> 
+
+are sufficient and should be added to the command line. Please read the documentation for each protocol as this may not be useful for some. 
 
 Extra Chi Sub-Rotamers Options
 ==============================
