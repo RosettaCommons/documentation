@@ -148,6 +148,8 @@ simulations in real-time using pymol (uses membrane framework)
 
 - [[RosettaHoles]] - Rapid assessment of protein core packing for structure prediction, design, and validation
 
+- [[PeptiDerive]] - derives from a given interface the linear stretch that contributes most of the binding energy.
+
 ##Utilities
 
 These applications serve mainly to support other Rosetta applications, or to assist in setting up or analyzing Rosetta runs.
