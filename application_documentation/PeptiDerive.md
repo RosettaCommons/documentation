@@ -84,7 +84,7 @@ Below you can find an example as to how a phospho-serine should look like:
 Options
 =======
 
-Note: this section was added for convenience, but may be updated. It's best to look at the [[full options list]] for the most updated listing of options.
+Note: this section was added for convenience, but may be out-dated. It's best to also look at the [[full options list]], to make sure you're looking at the most updated listing of options.
 
 | Option name         | Type           | Description                                                  | Default |
 |---------------------|----------------|--------------------------------------------------------------|---------|
