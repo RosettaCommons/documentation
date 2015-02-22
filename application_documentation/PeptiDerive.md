@@ -14,6 +14,8 @@ The PeptiDerive app may be found under `apps/public/analysis/PeptideDeriver.cc`.
 
 A unit test for this application is in `test/protocols/analysis/PeptideDeriverFilterTests.cxxtest.hh`.
 
+PeptiDerive also comes as a [[RosettaScripts Filter flavor|Filters RosettaScripts#PeptideDeriver]].
+
 References
 ==========
 
