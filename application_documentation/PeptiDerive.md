@@ -19,7 +19,7 @@ References
 
 Original work published as:
 
-London N., Raveh B., Movshovitz-Attias D. Schueler-Furman O. (2010) "Can self-inhibitory peptides be derived from the interfaces of globular protein-protein interactions?", Proteins. V 78, pp 3140–9.
+London N., Raveh B., Movshovitz-Attias D., Schueler-Furman O. (2010) "Can self-inhibitory peptides be derived from the interfaces of globular protein-protein interactions?", Proteins. V 78, pp 3140–9.
 
 Purpose
 =======
@@ -34,17 +34,17 @@ Also, for a set of solved structures of structures of small molecules that inhib
 Algorithm
 =========
 
-Peptiderive uses a simple protocol for the selection and evaluation of protein-protein interface-derived peptides. Given the complex structure of an interaction between proteins A and B, a short minimization of the structure is performed using the Rosetta energy function to remove local clashes without changing the structure significantly. Then, a sliding window of amino acids, the length of which is determined by the user (e.g. a window of 10 amino acids), slides along the protein chain. Each fragment of the determined length is extracted from its protein context, termini charges are added, and then the interaction energy of this peptide with the other partner is estimated. The peptide that contributes the best interaction energy is selected to represent this interaction (the peptide can be located in either of the two protein partners).
+PeptiDerive uses a simple protocol for the selection and evaluation of protein-protein interface-derived peptides. Given the complex structure of an interaction between proteins A and B, a short minimization of the structure is performed using the Rosetta energy function to remove local clashes without changing the structure significantly. Then, a sliding window of amino acids, the length of which is determined by the user (e.g. a window of 10 amino acids), slides along the protein chain. Each fragment of the determined length is extracted from its protein context, termini charges are added, and then the interaction energy of this peptide with the other partner is estimated. The peptide that contributes the best interaction energy is selected to represent this interaction (the peptide can be located in either of the two protein partners).
 
 A coarse estimate of binding energy is provided by evaluating the interface energy, defined as the energy of a peptide in complex with the protein partner compared with the energy of peptide and protein alone. The binding energy for a peptide derived from protein A to receptor protein B is calculated as
 
-ΔΔG_A(pep)B = ΔG_A(pep)B - ΔG_A(pep) - ΔG_B
+*<center>&Delta;&Delta;G<sub>A<sub>pep</sub>B</sub> = &Delta;G<sub>A<sub>pep</sub>B</sub> - &Delta;G<sub>A<sub>pep</sub></sub> - &Delta;G<sub>B</sub></center>*
 
-The peptide that contributes the best ΔΔG_A(pep)B value is selected to represent this interaction. The relative contribution of this peptide to the total binding energy is obtained by comparing its binding energy to the estimated binding energy of the full protein complex,
+The peptide that contributes the best *&Delta;&Delta;G<sub>A<sub>pep</sub>B</sub>* value is selected to represent this interaction. The relative contribution of this peptide to the total binding energy is obtained by comparing its binding energy to the estimated binding energy of the full protein complex,
 
-ΔΔGAB = ΔG_AB - ΔG_A - ΔG_B
+*<center>&Delta;&Delta;G<sub>AB</sub> = &Delta;G<sub>AB</sub> - &Delta;G<sub>A</sub> - &Delta;G<sub>B</sub></center>*
 
-binding energy ∝ ΔΔG_A(pep)B / ΔΔG_A(pep)B
+*<center>contribution to binding energy &prop; &Delta;&Delta;G<sub>A<sub>pep</sub>B</sub> / &Delta;&Delta;G<sub>AB</sub></center>*
 
 This rough estimate is used for filtering of candidate inhibitory peptides.
 
@@ -60,12 +60,12 @@ Input Files
 
 The program expects a multi-chain PDB file.
 
-To avoid parsing problems, make sure your PDB file is made up of only ATOM and TER records, i.e. no heteroatoms (HETATM) are included, and that the occupancy column is filled (no double conformations or 0.00 occupancy).
+To avoid parsing problems, make sure your PDB file is made up of only `ATOM` and `TER` records, i.e. no heteroatoms (HETATM) are included, and that the occupancy column is filled (no double conformations or 0.00 occupancy).
 
 To use phosphorylated residues, make sure that:
 
-  * they are named correctly (i.e. TYR/SER/THR and not PTR/SEP)
-  * modified residue coordinates (as well as the phosphates) are included as ATOM records (rather than HETATM)
+  * they are named correctly (i.e. `TYR`/`SER`/`THR` and not `PTR`/`SEP`)
+  * modified residue coordinates (as well as the phosphates) are included as `ATOM` records (rather than `HETATM`)
 
 Below you can find an example as to how a phospho-serine should look like:
 
@@ -83,6 +83,8 @@ Below you can find an example as to how a phospho-serine should look like:
 
 Options
 =======
+
+Note: this section was added for convenience, but may be updated. It's best to look at the [full options list](full-options-list) for the most updated listing of options.
 
 | Option name         | Type           | Description                                                  | Default |
 |---------------------|----------------|--------------------------------------------------------------|---------|
