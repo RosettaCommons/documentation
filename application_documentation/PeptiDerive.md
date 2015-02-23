@@ -133,7 +133,7 @@ The output is in the following format:
 [entry_type] [seq_res_num] [peptide_interface_score] [disulfide_info]
 ```
 
-  - `total_interface_score` is the *&Delta;&Delta;G<sub>AB</sub>* of the complex (see [[Algorithm|#Algorithm]], above).
+  - `total_interface_score` is the *&Delta;&Delta;G<sub>AB</sub>* of the complex (see [[Algorithm|PeptiDerive#Algorithm]], above).
   - `entry_type` is
 
     - `0` for a sliding window entry (one per residue, except for the last *N* ones, where *N* is the sliding window size)
