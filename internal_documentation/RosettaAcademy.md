@@ -278,25 +278,26 @@ If you are writing a completely new framework, it MIGHT make sense to create a s
 * testing for non-existence: can only be done indirectly and not directly, since you are wanting the program to crash, but how do you test for it? One way to deal with this is to write the existing ones in a vector and then ask whether the vector contains your element of interest
 
 ## Compiling/running code
-* src and test are mirrored directories, put your classes in src and your test into test/ that contains the unit tests
-* to compile/run a class in src:
-  * put <class>.hh, <class>.cpp into core.src.settings file
-  * for classes, run 'scons.py'
-* to compile an apps:
-  * put <main>.cc into pilot_apps.src.settings.all file
-  * for apps, run 'scons.py bin mode=release'
-  * this creates a binary of your app in source/bin
+* `src` and `test` are (sort-of) mirrored directories. Put your classes in `src` and your unit tests into `test`.
+* to compile/run a class in `src`:
+  * put `<class>.hh`, `<class>.cpp` into `<library>.src.settings` file
+  * for classes, run `scons.py`
+* to compile apps:
+  * put `<main>.cc` into `pilot_apps.src.settings.all` file
+  * for apps, run `scons.py bin mode=release`
+  * this creates a binary of your app (and all apps, in fact) in the `bin` directory
 * to compile/run unit tests:
-  * put <name>.cxxtest.hh into core.test.settings file
-  * compile: 'scons.py cat=test'
+  * list your `<name>.cxxtest.hh` file in the appropriate `test/<module>.test.settings` file
+  * make sure to add any additional input files (e.g. `tracer.u`, `input.pdb`) in the `testinputfiles` section.
+  * compile: `scons.py cat=test`
     * it won't compile if you comment out complete tests
-    * avoid a newline between 'void' and 'test_mytest()'
-    * put 'core_init();' into the setup
-  * run: 'test/run.py -d \<database\> -1 \<class_name, w/o extensions or prefixes\> -c \<compiler\>'
+    * avoid a newline between `void` and `test_mytest()`
+    * put `<module>_init();` into the `setUp()` method
+  * run: `test/run.py -d \<database\> -1 \<class_name, w/o extensions or prefixes\> -c \<compiler\>`
     * might not run if you omit the compiler in the commandline
-* it is best to compile the src using 'scons.py -j4' and then compile and run the tests
-* in cxxtest.hh don't comment out complete tests: compilation will fail 
-* add files at bottom of core.test.setting - other files than cxxtest.hh
+* it is best to compile the src using `scons.py -j4` and then compile and run the tests
+* in `cxxtest.hh`, don't use block comments (`/* */`) to comment out tests: compilation will fail 
+
 
 ## Debugging
 Below are some useful techniques for debugging code in Rosetta. Most programmers would be incredibly lucky if their code compiles and runs at the first try. Debugging is trial error and requires some creativity. It is often better to assume your code is wrong (it most likely is) and be surprised when your code compiles and all tests succeed! :o)
