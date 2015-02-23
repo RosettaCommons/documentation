@@ -100,12 +100,48 @@ Note: this section was added for convenience, but may be out-dated. It's best to
 | `restrict_partners_to_chains` | list of characters | Only use chains listed here as partners. When empty, consider all chains. For each receptor-partner pair, a peptide is derived from the partner. | empty |
 | `do_minimize` | true/false | Perform minimization before everything. | true |
 | `optimize_cyclic_threshold` | real number | Value of peptide interface score percent of total isc from which to optimize cyclic peptide | 0.35 |
-
+| `report_format`             | string      | The format of the report. Either `basic` (easily parsable format) or `markdown` (pretty, readable, but verbose format). | `markdown` |
 
 Tips
 ====
 
+*Documentation pending*
+
 Expected Outputs
 ================
 
-*Documentation pending*
+Depending on the value of the `report_format` option, PeptiDerive outputs in one of two formats
+
+Markdown
+--------
+
+Markdown output is readable and self-explanatory. This is what we recommend for single-structure (or several-structure) runs.
+
+Note that numbering of residues is sequential, as opposed to author numbering. For the *Disulfide info* column contents format, see the *Basic* format description for `disulfide_info`.
+
+
+Basic
+-----
+
+The `basic` report format is stripped down of almost all descriptive elements, but it's easily parsable and is currently what we use for bulk runs.
+
+The output is in the following format:
+
+```
+> chain_pair: receptor= [receptor_chain_id] partner= [partner_chain_id] total_isc= [total_interface_score]
+>> peptide_length: [sliding_window_length]
+[entry_type] [seq_res_num] [peptide_interface_score] [disulfide_info]
+```
+
+  - `total_interface_score` is the *&Delta;&Delta;G<sub>AB</sub>* of the complex (see [[Algorithm|#Algorithm]], above).
+  - `entry_type` is
+
+    - `0` for a sliding window entry (one per residue, except for the last *N* ones, where *N* is the sliding window size)
+    - `1` to signify the best (linear) scoring peptide for the current chain pair and sliding window length
+    - `2` to signify the best cyclic scoring peptide (ditto)
+
+  - `seq_res_num` is the sequential residue numbers for this chain (as opposed to author numbering)
+  - `peptide_interface_score` is the *&Delta;&Delta;G<sub>A<sub>pep</sub>B</sub>*
+  - `disulfide_info` is a string describing the residues for a putative cyclic peptide, if one was determined to be relevant, and - if it was modeled (depending on whether the relative linear score is above the `optimize_cyclic_threshold`) - the interface score of the cyclic peptide. *Better documentation for this is pending.*
+
+In the future, we're hoping to create a `FeatureReporter` to allow aggregation of output to a database.
