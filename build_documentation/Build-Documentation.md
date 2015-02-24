@@ -44,7 +44,7 @@ To build:
 
 The `-j8` flag would mean, "use at most 8 processes for building," and can be reasonably set as the number of free processors on your machine. Be aware that setting `-j` to a very high value will slow down the OS significantly.
 
-The `-extras=` flag is for specialty compiles such as MPI and static builds (See below).   If you want to have multiple extras, supply the extras flag only once, and separate the multiple extras options with a comma, e.g. `-extras=mpi,static`.
+The `extras=` flag is for specialty compiles such as MPI and static builds (See below).   If you want to have multiple extras, supply the extras flag only once, and separate the multiple extras options with a comma, e.g. `extras=mpi,static`.
 
 By default scons hashes and processes every file in the tree before performing a build. On a large tree (e.g. rosetta) and filesystem with high IO latency (e.g. a NFS or GPFS filesystem) this causes ridiculously slow build times. In order to improve build times disable file hashing and allow caching of build dependency metadata. Add the follow lines to the project's root SConscript file:
 
