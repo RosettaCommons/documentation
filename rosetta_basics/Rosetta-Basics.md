@@ -32,12 +32,15 @@
 - [[Resfiles]] - Which residue sidechains can move and mutate
 - [[Movemap file]] - Which sidechains and backbones can move
 - [[Constraint file]] - Add energy restraints to scoring
-- [[Matcher (Enzdes) Constraint Files|match-cstfile-format]] - A constraint file specialized for protein-ligand interactions
 - [[Fragment file]] - Database of backbone fragment conformations
 - [[Loops file]] - Which regions of the protein should be rebuilt
-- [[Chemical shift file]] - NMR chemical shifts
 - [[Residue Params file]] - Residue chemical information
 - [[Symmetry file|Symmetry#Symmetry-definitions]] - Dealing with symmetric proteins.
+
+####Protocol-specific file formats
+- [[Matcher (Enzdes) Constraint Files|match-cstfile-format]] - A constraint file specialized for protein-ligand interactions
+- [[Chemical shift file]] - NMR chemical shifts
+- [[Bin transition probabilities file]] - Probabilities of transitioning from one mainchain torsion bin to another, used by some sampling schemes
 
 ####Working with Non-Protein Residues and Molecules
 - General Guidance:
