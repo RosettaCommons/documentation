@@ -76,7 +76,7 @@ Having specified that there will be six bins, we now need to define the bin name
 I_BIN <bin_name> <torsion_1_start_of_range> <torsion_1_end_of_range> <torsion_2_start_of_range> <torsion_2_end_of_range> ... <torsion_n_start_of_range> <torsion_n_end_of_range>
 ```
 
-Torsion values must lie between -180 degrees and 180 degrees.  If the end of range value is less than the start of range value for any torsion range, it is assumed that the bin runs from the start of the range to 180, then wraps back to -180 and up to the end of range value.
+Torsion values must lie between -180 degrees and 180 degrees.  If the end of range value is less than the start of range value for any torsion range, it is assumed that the bin runs from the start of the range to 180, then wraps back to -180 and up to the end of range value.  Note that bins must not overlap, and must cover the entire torsion space.
 
 Within each bin, the relative probability of a particular set of mainchain torsion values might not be equal.  In the case of alpha-amino acids, sub-bins may be defined automatically based on the Ramachandran map (and these permit Ramachandran-biased sampling within each bin).  The <b>SUB_BINS_I</b> and <b>SUB_BINS_IPLUS1</b> lines define how sub-bins will be set up.  Current options are "NONE" (<i>i.e.</i> uniform probability across the bin), "L_AA" (which uses the Ramachandran map for L-alanine to set up the sub-bin probability distribution), "D_AA" (which uses the Ramachandran map for D-alanine), or "GLY" (which uses the Ramachandran map for glycine).
 
@@ -94,3 +94,32 @@ I_BIN Oprime 0.0 180.0 -180.0 180.0 -90.0 90.0
 SUB_BINS_I L_AA
 IPLUS1_BINS_COPY_I
 ```
+
+The next few lines define properties that residues at positions i or i+1 MUST have (<b>PROPERTIES_I</b> and <b>PROPERTIES_IPLUS1</b> lines), and properties that they must NOT have (<b>NOT_PROPERTIES_I</b> and <b>NOT_PROPERTIES_IPLUS1</b> lines), for the rules defined by the current bin transition probabilities to apply to them.  In the present example, we require that the i and i+1 positions are alpha-amino acids and L-amino acids, and that they cannot be D-amino acids (which is redundant, but that's fine).
+
+```
+PROPERTIES_I L_AA ALPHA_AA
+PROPERTIES_IPLUS1 L_AA ALPHA_AA
+NOT_PROPERTIES_I D_AA
+NOT_PROPERTIES_IPLUS1 D_AA
+```
+
+The next few lines define residue identities for positions i or i+1.  If <b>RES_I</b> or <b>RES_IPLUS1</b> lines are present, each with a list of three-letter codes, then the residue at position i or i+1 MUST be one of the ones in the list in order for the bin transition rules to apply.  In this case, we have no list of required residues.  If <b>NOT_RES_I</b> or <b>NOT_RES_IPLUS1</b> lines are included, then the residue at position i or i+1 must NOT be one of the ones in the list in order for the bin transition rules to apply.  Here, we exclude glycine (even though this is redundant, since we have already required that the i and i+1 positions be L-amino acids).
+
+```
+NOT_RES_I GLY
+NOT_RES_IPLUS1 GLY
+```
+
+Finally, we actually define the transition matrix, with one line corresponding to each bin for position i (with the order the same as the <b>I_BIN</b> definition lines), and one column corresponding to each bin for position i+1 (with the order the same as the <b>IPLUS1_BIN</b> definition lines).  The matrix values are counts or un-normalized transition probabilities.  The algorithm will automatically normalize these and generate cumulative distribution functions for random sampling.
+
+```
+MATRIX	1670055	313251	87373	26201	3915	682
+MATRIX	363556	1205782	71936	34623	9406	1044
+MATRIX	39384	118400	17691	2634	705	63
+MATRIX	25528	35553	1949	2328	493	64
+MATRIX	3121	5916	176	183	171	70
+MATRIX	215	742	75	42	51	20
+```
+
+Additional <b>BEGIN</b> ... <b>END</b> blocks may be defined for as many bin transitions probability matrices as one wishes to define.  If a particular i/i+1 pair of residues matches the properties and residue identity criteria for more than one bin transition probability matrix, the first one encountered that matches is used (so it is best for the bin transition probability matrices to define non-overlapping criteria).
