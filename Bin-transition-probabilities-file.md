@@ -12,7 +12,7 @@ The defined transition probabilities are used by certain sampling schemes, and c
 
 Pre-defined bin transition probabilities files are located in the database/protocol_data/generalizedKIC/bin_params directory.  A sample bin transition probability file is shown below:
 
-'''
+```
 #ABBA.binparams
 #Created by Vikram K. Mulligan (vmullig@uw.edu), 2 February 2015
 #This file defines transition probabilities for the A, B, B', A', O, and O' bins.
@@ -50,4 +50,8 @@ MATRIX	25528	35553	1949	2328	493	64
 MATRIX	3121	5916	176	183	171	70
 MATRIX	215	742	75	42	51	20
 END
-'''
+```
+
+Bin transition probabilities files may be commented with the pound sign (#).  Anything past a pound sign character is ignored.
+
+Each bin transition probability file must define at least one bin transition probability matrix.  Each probability matrix defines a set of bins for position i, a set of bins for position i+1, a set of rules for what types of residues could be at positions i and i+1, and the actual (un-normalized) transition probabilities or counts.  Multiple matrices may be defined to allow different transition probabilities given different types of residues at positions i and i+1.  For example, the probability of transitioning to the normally prohibited regions of Ramachandran space is very low unless residue i+1 is a glyceine.  Each defined transition matrix must be flanked with <b>BEGIN</b> and <b>END</b> lines.
