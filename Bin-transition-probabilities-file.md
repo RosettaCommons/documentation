@@ -6,7 +6,7 @@ This page describes the .bin_params format, syntax, and conventions.
 
 Bin transition probabilities (.bin_params) files are used to define the probabilities of transitioning from one mainchain torsion bin at residue i to another bin at residue i+1.  For our purposes, a mainchain torsion bin is defined as a region in mainchain torsion space lying within well-defined, rectangular boundaries.  For example, bin "B" from the ABEGO definitions is defined as any mainchain conformation for which phi is between -180 and 0 degrees, psi is greater than 50 or less than -125 degrees, and omega is greater than 90 or less than -90 degrees.
 
-The defined transition probabilities are used by certain sampling schemes, and could be used for scoring as well.
+The defined transition probabilities are used by certain sampling schemes, and could be used for scoring as well.  Note that the format is intended to be completely general, so that it could be applied to alpha-amino acids, beta-amino acids, nucleic acids, other noncanonical building blocks, or mixed heteropolymers.
 
 ## Bin transition probabilities file format
 
@@ -54,4 +54,43 @@ END
 
 Bin transition probabilities files may be commented with the pound sign (#).  Anything past a pound sign character is ignored.
 
-Each bin transition probability file must define at least one bin transition probability matrix.  Each probability matrix defines a set of bins for position i, a set of bins for position i+1, a set of rules for what types of residues could be at positions i and i+1, and the actual (un-normalized) transition probabilities or counts.  Multiple matrices may be defined to allow different transition probabilities given different types of residues at positions i and i+1.  For example, the probability of transitioning to the normally prohibited regions of Ramachandran space is very low unless residue i+1 is a glyceine.  Each defined transition matrix must be flanked with <b>BEGIN</b> and <b>END</b> lines.
+Each bin transition probability file must define at least one bin transition probability matrix.  Each probability matrix defines a set of bins for position i, a set of bins for position i+1, a set of rules for what types of residues could be at positions i and i+1, and the actual (un-normalized) transition probabilities or counts.  Multiple matrices may be defined to allow different transition probabilities given different types of residues at positions i and i+1.  For example, the probability of transitioning to the normally prohibited regions of Ramachandran space is very low unless residue i+1 is a glycine.  Each defined transition matrix must be flanked with <b>BEGIN</b> and <b>END</b> lines.
+
+After the <b>BEGIN line</b>, the next two lines define the number of mainchain torsions (rotatable bonds) in residues i and i+1.  This is necessary since there is no assumption that this is being applied solely to alpha-amino acids.  In our example, though, we are defining transitions for alpha-amino acids, so the number of mainchain torsions at both positions is 3.
+
+```
+MAINCHAIN_TORSIONS_I 3
+MAINCHAIN_TORSIONS_IPLUS1 3
+```
+
+The next two lines specify the number of bins that will be defined at positions i and i+1.  In this example, both positions will have six bins defined.
+
+```
+BIN_COUNT_I 6
+BIN_COUNT_IPLUS1 6
+```
+
+Having specified that there will be six bins, we now need to define the bin names and boundaries.  We do so with <b>I_BIN</b> and <b>IPLUS1_BIN</b> lines, each with the following syntax:
+
+```
+I_BIN <bin_name> <torsion_1_start_of_range> <torsion_1_end_of_range> <torsion_2_start_of_range> <torsion_2_end_of_range> ... <torsion_n_start_of_range> <torsion_n_end_of_range>
+```
+
+Torsion values must lie between -180 degrees and 180 degrees.  If the end of range value is less than the start of range value for any torsion range, it is assumed that the bin runs from the start of the range to 180, then wraps back to -180 and up to the end of range value.
+
+Within each bin, the relative probability of a particular set of mainchain torsion values might not be equal.  In the case of alpha-amino acids, sub-bins may be defined automatically based on the Ramachandran map (and these permit Ramachandran-biased sampling within each bin).  The <b>SUB_BINS_I</b> and <b>SUB_BINS_IPLUS1</b> lines define how sub-bins will be set up.  Current options are "NONE" (<i>i.e.</i> uniform probability across the bin), "L_AA" (which uses the Ramachandran map for L-alanine to set up the sub-bin probability distribution), "D_AA" (which uses the Ramachandran map for D-alanine), or "GLY" (which uses the Ramachandran map for glycine).
+
+The number of <b>I_BIN</b> lines must match the <b>BIN_COUNT_I</b> line, and the number of <b>IPLUS1_BIN</b> lines must match the <b>BIN_COUNT_IPLUS1</b> line.  The exception is if the bins for the i+1 position are identical to the bins for the i position, in which case a shorthand is to include a <b>IPLUS1_BINS_COPY_I</b> line.  If an <b>IPLUS1_BINS_COPY_I</b> line is included, then <b>IPLUS1_BIN</b> and <b>SUB_BINS_IPLUS1</b> lines will not be required.
+
+So for the six bins in our example, we have the following lines:
+
+```
+I_BIN A -180.0 0.0 -125.0 50.0 90.0 -90.0
+I_BIN B -180.0 0.0 50.0 -125.0 90.0 -90.0
+I_BIN Aprime 0.0 180.0 -50.0 125.0 90.0 -90.0
+I_BIN Bprime 0.0 180.0 125 -50.0 90.0 -90.0
+I_BIN O -180.0 0.0 -180.0 180.0 -90.0 90.0
+I_BIN Oprime 0.0 180.0 -180.0 180.0 -90.0 90.0
+SUB_BINS_I L_AA
+IPLUS1_BINS_COPY_I
+```
