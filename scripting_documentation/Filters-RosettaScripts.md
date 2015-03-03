@@ -857,7 +857,7 @@ Calculates the Calpha RMSD over a user-specified set of residues. Superimpositio
 By default, the RMSD will be calculated to the input pose (pose at parse time). Use -in:file:native \<filename\> or reference_name= to choose an alternate reference pose.
 
 ```
-<Rmsd name=(&string) chains=("" &string) threshold=(5 &integer) superimpose=(1 &bool) reference_name=(&string) >
+<Rmsd name=(&string) chains=("" &string) threshold=(5 &integer) superimpose=(1 &bool) reference_name=(&string) by_aln=(0 &bool) aln_files=("" &string) template_names=("" &string) query_names=("" &string)>
     <residue res/pdb_num=(&string) />
     <span begin_(res/pdb_num)=("" &integer) end_(res/pdb_num)=(""&integer)/>
 </Rmsd>
@@ -870,6 +870,10 @@ By default, the RMSD will be calculated to the input pose (pose at parse time). 
 -   threshold: accept at this rmsd or lower
 -   superimpose: perform superimposition before rmsd calculation?
 -   reference_name: If given, use the pose saved with the SavePoseMover under the given reference_name as the reference.
+- by_aln: align pose to the relative pose according to a sequence alignment. 
+- aln_files: fasta format alignment files with the query and the template
+- template_names: name of the relative pose, as is written in the aln_files
+- query_names: name of the query pose, as is written in the aln_files
 
 #### SidechainRmsd
 
