@@ -27,6 +27,8 @@ Fully manual invocation of a filter within RosettaScripts is accomplished accord
 
 2.  Atom pair distance (**type="atom_pair_distance"**)<br>This discards any solution in which two specified atoms are not within a distance threshold specified with a Real parameter called **distance**.  The atoms are specified with two string parameters called **atom1** and **atom2**, and two integer-valued parameters called **res1** and **res2**.  If a Boolean parameter called **greater_than** is set to **true**, this filter will discard any solution in which the two specified atoms are not separated by _at least_ the distance specified.  Because this filter takes several parameters, a shorthand exists (see below).
 
+3.  Residue mainchain torsion bin (**type="backbone_bin"**)<br>This filter checks that a given residue's mainchain torsion values lie within a desired mainchain torsion bin.  This filter takes three additional parameters: a residue number (**residue=(&int)**), a [[bin transition probabilities file|Bin-transition-probabilities-file]] (**bin_params_file=(&string "ABBA.bin_params")**), and a bin name (**bin=(&string)**).
+
 ## Shorthands
 
 The following shorthands are defined:
