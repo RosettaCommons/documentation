@@ -78,7 +78,13 @@ I_BIN <bin_name> <torsion_1_start_of_range> <torsion_1_end_of_range> <torsion_2_
 
 Torsion values must lie between -180 degrees and 180 degrees.  If the end of range value is less than the start of range value for any torsion range, it is assumed that the bin runs from the start of the range to 180, then wraps back to -180 and up to the end of range value.  Note that bins must not overlap, and must cover the entire torsion space.
 
-Within each bin, the relative probability of a particular set of mainchain torsion values might not be equal.  In the case of alpha-amino acids, sub-bins may be defined automatically based on the Ramachandran map (and these permit Ramachandran-biased sampling within each bin).  The <b>SUB_BINS_I</b> and <b>SUB_BINS_IPLUS1</b> lines define how sub-bins will be set up.  Current options are "NONE" (<i>i.e.</i> uniform probability across the bin), "L_AA" (which uses the Ramachandran map for L-alanine to set up the sub-bin probability distribution), "D_AA" (which uses the Ramachandran map for D-alanine), "L_PRO" (which uses the Ramachandran map for L-proline), "D_PRO" (which uses the Ramachandran map for D-proline), or "GLY" (which uses the Ramachandran map for glycine).
+Within each bin, the relative probability of a particular set of mainchain torsion values might not be equal.  In the case of alpha-amino acids, sub-bins may be defined automatically based on the Ramachandran map (and these permit Ramachandran-biased sampling within each bin).  The <b>SUB_BINS_I</b> and <b>SUB_BINS_IPLUS1</b> lines define how sub-bins will be set up.  Current options are:
+- "NONE" (<i>i.e.</i> uniform probability across the bin)
+- "L_AA" (uses the Ramachandran map for L-alanine to set up the sub-bin probability distribution)
+- "D_AA" (uses the Ramachandran map for D-alanine)
+- "L_PRO" (uses the Ramachandran map for L-proline)
+- "D_PRO" (uses the Ramachandran map for D-proline)
+- "GLY" (uses the Ramachandran map for glycine).
 
 The number of <b>I_BIN</b> lines must match the <b>BIN_COUNT_I</b> line, and the number of <b>IPLUS1_BIN</b> lines must match the <b>BIN_COUNT_IPLUS1</b> line.  The exception is if the bins for the i+1 position are identical to the bins for the i position, in which case a shorthand is to include a <b>IPLUS1_BINS_COPY_I</b> line.  If an <b>IPLUS1_BINS_COPY_I</b> line is included, then <b>IPLUS1_BIN</b> and <b>SUB_BINS_IPLUS1</b> lines will not be required.
 
