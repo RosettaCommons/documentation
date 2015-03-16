@@ -259,7 +259,7 @@ It is possible to run single specified moves given a starting structure, specifi
 
 Conformational Space Annealing
 ------------------------------
-Conformational space annealing (CSA) is a new population-based optimization for stepwise monte carlo. Conformational space annealing (CSA) is a new population-based optimization for stepwise monte carlo. Conformational space annealing (CSA) is a new population-based optimization for stepwise monte carlo.  
+Conformational space annealing (CSA) is a new population-based optimization for stepwise monte carlo.  
 
 The following parameters define the amount of computation performed by stepwise, using CSA:
 ```
