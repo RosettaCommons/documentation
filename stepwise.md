@@ -270,10 +270,10 @@ Rosetta options:
 
  
 Compute per job:
-Total cycles  = <cycles> * <nstruct>
+total cycles  = <cycles> * <nstruct>
 
 Total Compute:
-Total cycles  = <cycles> * <nstruct> * <csa_bank_size>
+total cycles  = <cycles> * <nstruct> * <csa_bank_size>
 ```
 
 To run stepwise with CSA, create a `README_SWM` with the following command-line:
