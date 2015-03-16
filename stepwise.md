@@ -256,33 +256,38 @@ Running specific moves
 -------------
 It is possible to run single specified moves given a starting structure, specified through `-move`. This is useful to 'unit test' specific moves, and also serves as a connection to the original stepwise enumeration. In particular, these moves are equivalent to the basic moves in the original stepwise assembly executables (swa_rna_main and swa_protein_main), but can have stochastic sampling of nucleotide/amino-acid conformations to minimize. Furthermore, use of the `-enumerate` flag recovers the original enumerative behavior. Example in ` tests/integration/tests/swm_rna_move_two_strands `.
 
+
 Conformational Space Annealing
 ------------------------------
-Conformational space annealing (CSA) is a new population-based optimization for stepwise monte carlo. The following options define the amount of computation performed by stepwise, using CSA:
+Conformational space annealing (CSA) is a new population-based optimization for stepwise monte carlo. Conformational space annealing (CSA) is a new population-based optimization for stepwise monte carlo. Conformational space annealing (CSA) is a new population-based optimization for stepwise monte carlo.  
+
+The following parameters define the amount of computation performed by stepwise, using CSA:
 ```
-cycles        = # monte carlo cycles per update (specify as -cycles)
-nstruct       = # number of updates per number of structures in bank.
-csa_bank_size = total # of cycles to carry out by all nodes over all calculation.
-                (NOTE: the csa_bank_size should match the # of jobs used for the run)
-```
+Rosetta options:
+-cycles                               number of monte carlo cycles per update (default: 200)
+-nstruct                              number of updates per structure in bank (default: 20)
+-csa_bank_size                        number of structures stored in the bank (default: 0)
 
-Setup a `README_SWM` with the following command-line:
-
-`    stepwise @flags -cycles 200 -nstruct 20 -csa_bank_size 10  `
-
-Run the following command for setting up runs on a cluster:
-
-`    $ rosetta_submit.py README_SWM SWM <njobs> <nhours>        `
-
-Computation by each core: 
-
-`    Cycles (per core) = <nstruct> * <cycles>                   `
+ 
+Compute per job:
+Total cycles  = <cycles> * <nstruct>
 
 Total Compute:
+Total cycles  = <cycles> * <nstruct> * <csa_bank_size>
+```
 
-`    Cycles (total)    = <nstruct> * <cycles> * <csa_bank_size> `
+Each job knows the name of the silent file with the "bank" of models and updates it after doing some monte carlo steps. Each model in a bank has a "cycles" column (and its name is S_N, where N = cycles). This is the total number of cycles in the CSA calculation over all jobs completed at the time the model is saved to disk. Currently, decisions to replace models with "nearby" models are based on RMSD. The RMSD cutoff can be set via the `-csa_rmsd` option.
 
-Each node knows the name of the silent file with the "bank" of models and updates it after doing some monte carlo steps. Each model in a bank has a "cycles" column (and its name is S_N, where N = cycles). This is the total # cycles in the CSA calculation over all nodes completed at the time the model is saved to disk. Currently decisions to replace models with 'nearby' models are based on RMSD. The RMSD cutoff can be set via `-csa_rmsd`.
+To run stepwise with CSA, create a `README_SWM` with the following command-line:
+```
+stepwise @flags -cycles <cycles> -nstruct <nstruct> -csa_bank_size <csa_bank_size>
+```
+
+Then, run the following command to setup the run on a cluster:
+```
+rosetta_submit.py README_SWM SWM <njobs> <nhours>
+```
+NOTE: The `csa_bank_size` should match `njobs`, the number of cores running in parallel.
 
 
 What do the scores mean?
