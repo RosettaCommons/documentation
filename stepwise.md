@@ -259,9 +259,9 @@ It is possible to run single specified moves given a starting structure, specifi
 
 Conformational Space Annealing
 ------------------------------
-Conformational space annealing (CSA) is a new population-based optimization for stepwise monte carlo.  
+Conformational space annealing (CSA) is a new population-based optimization for stepwise monte carlo. When running stepwise with CSA, each job knows the name of a silent file with a "bank" of models and updates it after doing some monte carlo steps. Each model in the bank has a "cycles" column (and its name is S_N, where N = cycles). This is the total number of cycles in the CSA calculation over all jobs completed at the time the model is saved to disk. Currently, decisions to replace models with "nearby" models are based on RMSD. The RMSD cutoff can be set via the `-csa_rmsd` option.
 
-The following parameters define the amount of computation performed by stepwise, using CSA:
+The following parameters define the amount of computation performed by stepwise with CSA:
 ```
 Rosetta options:
 -cycles                               number of monte carlo cycles per update (default: 200)
@@ -276,14 +276,12 @@ Total Compute:
 Total cycles  = <cycles> * <nstruct> * <csa_bank_size>
 ```
 
-Each job knows the name of the silent file with the "bank" of models and updates it after doing some monte carlo steps. Each model in a bank has a "cycles" column (and its name is S_N, where N = cycles). This is the total number of cycles in the CSA calculation over all jobs completed at the time the model is saved to disk. Currently, decisions to replace models with "nearby" models are based on RMSD. The RMSD cutoff can be set via the `-csa_rmsd` option.
-
 To run stepwise with CSA, create a `README_SWM` with the following command-line:
 ```
 stepwise @flags -cycles <cycles> -nstruct <nstruct> -csa_bank_size <csa_bank_size>
 ```
 
-Then, run the following command to setup the run on a cluster:
+To setup the jobs on a cluster, run the following command:
 ```
 rosetta_submit.py README_SWM SWM <njobs> <nhours>
 ```
