@@ -239,6 +239,9 @@ Rarely used but listed with --help
 -force_centroid_interaction                      Require base stack or pair even for single residue loop closed (which could also be bulges!)
 -rebuild_bulge_mode                              rebuild_bulge_mode (just for SWA backwards compatibility)
 -corrected_geo                                   Use PHENIX-based RNA sugar close energy and bond geometry parameter files (default:true)
+-csa_bank_size                                   Do conformational space annealing with this number of models in the bank [Integer] [default: 0]
+-csa_rmsd                                        RMSD cutoff for calling two poses different in conformational space annealing [Real] [default: 1.0]
+-csa_output_rounds                               output silent files at intermediate stages (at integral multiples of bank size) [Boolean] [default: false]
 ```
 
 Tips
@@ -251,7 +254,36 @@ If the runs are returning many incomplete and different solutions, increase the 
 
 Running specific moves
 -------------
-It is possible to run single specified moves given a starting structure, specified through `-move`. This is useful to 'unit test' specific moves, and also serves as a connection to the original stepwise enumeration. In particular, these moves are equivalent to the basic moves in the original stepwise assembly executables (swa_rna_main and swa_protein_main), but can have stochastic sampling of nucleotide/amino-acid conformations to minimize. Furthermore, use of the `-enumerate` flag recovers the original enumerative behavior. Example in ` tests/integration/tests/swm_rna_move_two_strands `. 
+It is possible to run single specified moves given a starting structure, specified through `-move`. This is useful to 'unit test' specific moves, and also serves as a connection to the original stepwise enumeration. In particular, these moves are equivalent to the basic moves in the original stepwise assembly executables (swa_rna_main and swa_protein_main), but can have stochastic sampling of nucleotide/amino-acid conformations to minimize. Furthermore, use of the `-enumerate` flag recovers the original enumerative behavior. Example in ` tests/integration/tests/swm_rna_move_two_strands `.
+
+Conformational Space Annealing
+------------------------------
+Conformational space annealing (CSA) is a new population-based optimization for stepwise monte carlo. The following options define the amount of computation performed by stepwise, using CSA:
+```
+cycles        = # monte carlo cycles per update (specify as -cycles)
+nstruct       = # number of updates per number of structures in bank.
+csa_bank_size = total # of cycles to carry out by all nodes over all calculation.
+                (NOTE: the csa_bank_size should match the # of jobs used for the run)
+```
+
+Setup a `README_SWM` with the following command-line:
+
+`    stepwise @flags -cycles 200 -nstruct 20 -csa_bank_size 10  `
+
+Run the following command for setting up runs on a cluster:
+
+`    $ rosetta_submit.py README_SWM SWM <njobs> <nhours>        `
+
+Computation by each core: 
+
+`    Cycles (per core) = <nstruct> * <cycles>                   `
+
+Total Compute:
+
+`    Cycles (total)    = <nstruct> * <cycles> * <csa_bank_size> `
+
+Each node knows the name of the silent file with the "bank" of models and updates it after doing some monte carlo steps. Each model in a bank has a "cycles" column (and its name is S_N, where N = cycles). This is the total # cycles in the CSA calculation over all nodes completed at the time the model is saved to disk. Currently decisions to replace models with 'nearby' models are based on RMSD. The RMSD cutoff can be set via `-csa_rmsd`.
+
 
 What do the scores mean?
 ------------------------
