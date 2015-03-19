@@ -92,6 +92,8 @@ Options specific to relax
 
 (\*) See [[Constraint File Format|constraint-file]]
 
+(\*) See [[Movemap File Format|movemap-file]]
+
 Example
 =======
 
