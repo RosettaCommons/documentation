@@ -69,7 +69,7 @@ Options specific to relax
      -relax:jump_move false    Set all jumps to unmovable during minimization. 
      -relax:bb_move false      Set all backbone torsion angles to unmovable during minimization. 
      -relax:chi_move false     Set all chi torsion angles to unmovable during minimization. 
-     -in:file:movemap          Read in custom movemap (can be used to specifically define which jumps, bb and chi torsion angles are movable and which ones are not. By default, all are movable. Definitions in the custom movemap override the more general jump_move, bb_move and chi_move commands above. ) If the BB is set to move in the middle of a chain, one may want to add the 'chainbreak' term at a value of 100 to the scorefunction weight set used - or relax may break the backbone.
+     -in:file:movemap          Read in custom move map (see **, can be used to specifically define which jumps, bb and chi torsion angles are movable and which ones are not. By default, all are movable. Definitions in the custom movemap override the more general jump_move, bb_move and chi_move commands above. ) If the BB is set to move in the middle of a chain, one may want to add the 'chainbreak' term at a value of 100 to the scorefunction weight set used - or relax may break the backbone.
      -relax:respect_resfile    Respect and use the resfile specified with the general option, -packing:resfile, during the packing step.  Added to allow design during the FastRelax protocol.  Does not work with relax:coord_constrain_sidechains.
 
    Constraints: If you want constraints on for the entire relax run, set ramp_constraints to false (below) along with the other constraint flags. Constraints can be provided using either the cst_fa_file or cst_file options. If both options are used, priority will be given to the cst_fa_file constraints. Default weights for the constraints are 0. Built in options include backbone coordinate constraints, sidechain coordinate constraints and sidechain pairwise constraints. 
@@ -92,7 +92,7 @@ Options specific to relax
 
 (\*) See [[Constraint File Format|constraint-file]]
 
-(\*) See [[Movemap File Format|movemap-file]]
+(\*\*) See [[Movemap File Format|movemap-file]]
 
 Example
 =======
