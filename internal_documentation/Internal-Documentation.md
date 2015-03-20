@@ -52,6 +52,13 @@ comment tags will be stripped from the documentation prior to being provided as 
 - [[Movers]]
 - [[Visualization]]
 - [[Applications]]
+     - [[MP_relax]]
+     - [[MP_ddG]]
+     - [[MP_dock]]
+     - [[MP_symdock]]
+     - [[MP_spanfile_from_pdb]]
+     - [[MP_score]]
+
      - [[Membrane relax]]
      - [[Membrane ddG]]
      - [[MP docking]]
