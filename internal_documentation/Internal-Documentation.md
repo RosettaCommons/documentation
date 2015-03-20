@@ -56,6 +56,7 @@ comment tags will be stripped from the documentation prior to being provided as 
      - [[Membrane ddG]]
      - [[MP docking]]
      - [[Symmetric MP docking]]
+     - [[MP spanfile from PDB]]
      - [[MP scoring]]
 - Flags
      - [[Outdated RosettaMembrane from 2006]]
