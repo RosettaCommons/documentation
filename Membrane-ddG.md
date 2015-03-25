@@ -27,9 +27,9 @@ Measuring free energy changes upon mutation can inform our understanding of memb
 
 ## Algorithm Description
 The Membrane ddG application predicts the ddG by taking the difference in Rosetta energy between the native and mutated conformations. Several variations of this protocol are available: 
-* Default: Predict the ddG, repacking only at the mutated position
-* Include Repacking: Predict the ddG, repacking residues within a given radius of the mutated position (recommended radius is 8Å by Kellogg et al. 2011)
-* Include pH Calculations: Use a modified version of the Rosetta energy function that corrects for system pH and electrostatics. This option will load in an additional set of rotamers The default pH is 7.0. Additional information on pH calculations can be found in Kilambi et al. 2013 (ref below). 
+* **Default:** Predict the ddG, repacking only at the mutated position
+* **Include Repacking:** Predict the ddG, repacking residues within a given radius of the mutated position (recommended radius is 8Å by Kellogg et al. 2011)
+* **Include pH Calculations:** Use a modified version of the Rosetta energy function that corrects for system pH and electrostatics. This option will load in an additional set of rotamers The default pH is 7.0. Additional information on pH calculations can be found in Kilambi et al. 2013 (ref below). 
 
 ## Options
 The following options can be used to adjust settings for ∆∆G predictions
@@ -46,11 +46,13 @@ The following options can be used to adjust settings for ∆∆G predictions
 |--output_breakdown|-b|Output ddG score breakdown by weighted energy term into a scorefile. Default: score.sc|String|
 
 **Repacking**
+
 |**Flag**|**Short Flag**|**Description**|**Type**|
 |:-------|:-------|:--------------|:-------|
 |--repack_radius|-a|Repack the residues within this radius (in Å). Default value is 0Å|Real|
 
 **pH Options**
+
 |**Flag**|**Short Flag**|**Description**|**Type**|
 |:-------|:-------|:--------------|:-------|
 |--include_pH|-t|Include pH energy terms: e_pH and fa_elec. Default value is false.|Bool|
