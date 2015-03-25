@@ -34,7 +34,8 @@ The Membrane ddG application predicts the ddG by taking the difference in Rosett
 ## Options
 The following options can be used to adjust settings for ∆∆G predictions
 
-General options
+**General options**
+
 |**Flag**|**Short Flag**|**Description**|**Type**|
 |:-------|:--------------|:-------|
 |--in_pdb|-p|Input PDB file|String|
@@ -45,6 +46,7 @@ General options
 |--output_breakdown|-b|Output ddG score breakdown by weighted energy term into a scorefile. Default: score.sc|String|
 
 Repacking
+
 |**Flag**|**Short Flag**|**Description**|**Type**|
 |:-------|:--------------|:-------|
 |--repack_radius|-a|Repack the residues within this radius (in Å). Default value is 0Å|Real|
