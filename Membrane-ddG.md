@@ -16,11 +16,11 @@ PLoS Computational Biology (under review)
 
 ## Code and Demo
 The membrane ddG application is packaged with PyRosetta. The released version cab be found in: 
-'PyRosetta/app/membrane/predict_ddG.py.'
+`PyRosetta/app/membrane/predict_ddG.py.`
 
-The developmental version can be found in the Rosetta source code in 'source/src/python/bindings/app/membrane/predict_ddG.py' 
+The developmental version can be found in the Rosetta source code in `source/src/python/bindings/app/membrane/predict_ddG.py`
 
-A demo for this application can be found in 'Rosetta/demos/protocol_capture/2015/MPddG' 
+A demo for this application can be found in `Rosetta/demos/protocol_capture/2015/MPddG`
 
 ## Background
 Measuring free energy changes upon mutation can inform our understanding of membrane protein stability and variation and is a step toward design. In this application, we predict ddGs by measuring the difference in Rosetta energy for the native and mutated conformation. This application uses a modified version of the all atom energy function for membrane proteins, which includes the fa_elec term and pH energy (see below). The Membrane ddG application is part of the RosettaMP Framework. 
@@ -37,7 +37,7 @@ The following options can be used to adjust settings for ∆∆G predictions
 **General options**
 
 |**Flag**|**Short Flag**|**Description**|**Type**|
-|:-------|:--------------|:-------|
+|:-------|:-------|:--------------|:-------|
 |--in_pdb|-p|Input PDB file|String|
 |--in_span|-s|Input spanfile (transmembrane spanning regions of the protein)|String|
 |--out|-o|Output filename for ddG data. ddG predictions referenced by pose numbering. Default: ddG.out|String|
@@ -45,15 +45,14 @@ The following options can be used to adjust settings for ∆∆G predictions
 |--mut|-m|One-letter code of residue identity of the mutant. Example: A181F would be 'F'|Char|
 |--output_breakdown|-b|Output ddG score breakdown by weighted energy term into a scorefile. Default: score.sc|String|
 
-Repacking
-
+**Repacking**
 |**Flag**|**Short Flag**|**Description**|**Type**|
-|:-------|:--------------|:-------|
+|:-------|:-------|:--------------|:-------|
 |--repack_radius|-a|Repack the residues within this radius (in Å). Default value is 0Å|Real|
 
-pH Options
+**pH Options**
 |**Flag**|**Short Flag**|**Description**|**Type**|
-|:-------|:--------------|:-------|
+|:-------|:-------|:--------------|:-------|
 |--include_pH|-t|Include pH energy terms: e_pH and fa_elec. Default value is false.|Bool|
 |--pH_value|-v|pH Value at which to predict ddGs. Default value is pH 7. Must pass -include_pH first|Real|
 
