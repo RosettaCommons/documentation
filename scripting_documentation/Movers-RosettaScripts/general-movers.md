@@ -1192,7 +1192,6 @@ SegmentHybridize takes the principle from the cartesian hybridize protocol to cl
 -   to what residue inside the loop should the fragment be aligned to?
 
 ## Disulfidize
-Disulfidize Documentation
 
 Scans a protein and builds disulfides that join residues in one set of residues with those in another set. Non-protein and GLY residues are ignored. Residues to be joined must be min_loop residues apart in primary sequence. Potential disulfides are first identified by CB-CB distance, then by mutating the pair to CYS, forming a disulfide, and performing energy minimization.  If the energy is less than the user-specified cutoff, it is compared with a set of rotations and translations for all known disulfides.  If the "distance" resulting from this rotation and translation is less than the user-specified match_rt_limit, the pairing is considered a valid disulfide bond.
 
@@ -1203,7 +1202,9 @@ Once valid disulfides are found, they are combinatorially added. For example, if
 
 NOTE: This is a multiple pose mover. If non-multiple-pose-compatible movers are called AFTER this mover, only the first disulfide configuration will be returned.
 
+'''
 <Disulfidize name=(&string) set1=(&selector) set2=(&selector) match_rt_limit=(&float) max_disulf_score=(&float) min_loop=(&int) />
+'''
 
 - set1: Name of a residue selector which identifies a pool of residues which can connect to residues in set2 (default: all residues)
 - set2: Name of a residue selector which identifies a pool of residues which can connect to residues in set1 (default: all residues)
@@ -1215,7 +1216,8 @@ NOTE: This is a multiple pose mover. If non-multiple-pose-compatible movers are 
 
 **EXAMPLE**  The following example looks for 1-3 disulfides. All found disulfide configurations are then designed using FastDesign.
 
-> <Disulfidize name="disulf" min_disulfides="1" max_disulfides="3" max_disulf_score="0.3" min_loop="6" />
+'''
+<Disulfidize name="disulf" min_disulfides="1" max_disulfides="3" max_disulf_score="0.3" min_loop="6" />
 <MultiplePoseMover name="multi_fastdes" >
 	<ROSETTASCRIPTS>
 		<MOVERS>
@@ -1225,7 +1227,8 @@ NOTE: This is a multiple pose mover. If non-multiple-pose-compatible movers are 
 			<Add mover="fastdes" />
 		</PROTOCOLS>
 	</ROSETTASCRIPTS>
-</MultiplePoseMover> > 
+</MultiplePoseMover>
+'''
 
 
 ## Dssp
