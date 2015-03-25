@@ -1202,9 +1202,9 @@ Once valid disulfides are found, they are combinatorially added. For example, if
 
 NOTE: This is a multiple pose mover. If non-multiple-pose-compatible movers are called AFTER this mover, only the first disulfide configuration will be returned.
 
-'''
+```
 <Disulfidize name=(&string) set1=(&selector) set2=(&selector) match_rt_limit=(&float) max_disulf_score=(&float) min_loop=(&int) />
-'''
+```
 
 - set1: Name of a residue selector which identifies a pool of residues which can connect to residues in set2 (default: all residues)
 - set2: Name of a residue selector which identifies a pool of residues which can connect to residues in set1 (default: all residues)
@@ -1216,7 +1216,7 @@ NOTE: This is a multiple pose mover. If non-multiple-pose-compatible movers are 
 
 **EXAMPLE**  The following example looks for 1-3 disulfides. All found disulfide configurations are then designed using FastDesign.
 
-'''
+```
 <Disulfidize name="disulf" min_disulfides="1" max_disulfides="3" max_disulf_score="0.3" min_loop="6" />
 <MultiplePoseMover name="multi_fastdes" >
 	<ROSETTASCRIPTS>
@@ -1228,7 +1228,7 @@ NOTE: This is a multiple pose mover. If non-multiple-pose-compatible movers are 
 		</PROTOCOLS>
 	</ROSETTASCRIPTS>
 </MultiplePoseMover>
-'''
+```
 
 
 ## Dssp
