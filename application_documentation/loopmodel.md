@@ -3,7 +3,7 @@
 Metadata
 ========
 
-This document was edited March 25th 2015 by Shane Ó Conchúir. The original version of the application was created by Michael Tyka et al., and the first loop closure algorithm (CCD) was implemented by Chu Wang et al. in 2007.  The robotics-inspired kinematic closure (KIC) algorithm for loop closure was added by Daniel J. Mandell et al. in 2009, and the refined next generation KIC algorithm by Amelie Stein and Tanja Kortemme in 2013. The latest algorithmic development in loop modeling is KIC with fragments, added by Roland A. Pache and Tanja Kortemme in 2014. 
+This document was last updated March 25th, 2015, by Shane Ó Conchúir. The original version of the application was created by Michael Tyka et al., and the first loop closure algorithm (CCD) was implemented by Chu Wang et al. in 2007.  The robotics-inspired kinematic closure (KIC) algorithm for loop closure was added by Daniel J. Mandell et al. in 2009, and the refined next generation KIC algorithm by Amelie Stein and Tanja Kortemme in 2013. The latest algorithmic development in loop modeling is KIC with fragments, added by Roland A. Pache and Tanja Kortemme in 2014. 
 
 
 References
