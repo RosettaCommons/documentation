@@ -64,6 +64,14 @@ Please check the documentation for the respective algorithm for details.
 For a full list of all available loop modeling flags, please check the [[full options list|full-options-list]]
 
 
+Protocol capture
+================
+
+A protocol capture for some of the loop modeling algorithms above (KIC, next generation KIC, KIC with fragments) can 
+be downloaded from the [[Macromolecular modeling and design benchmarks|https://guybrush.ucsf.edu/benchmarks/captures/loop_modeling]] website. 
+The [[loop modeling page|https://guybrush.ucsf.edu/benchmarks/benchmarks/loop_modeling]] also lists suggested parameters to use for the different protocols.
+
+
 loopmodel MPI
 =============
 
