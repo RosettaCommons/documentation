@@ -5,7 +5,7 @@ Metadata
 
 Author: Colin A. Smith
 
-This document was last updated March 25, 2015, by Shane Ó Conchúir. The corresponding principal investigator is Tanja Kortemme (kortemme@cgl.ucsf.edu).
+This document was last updated March 25th, 2015, by Shane Ó Conchúir. The corresponding principal investigator is Tanja Kortemme (kortemme@cgl.ucsf.edu).
 
 Code and Demo
 =============
