@@ -5,7 +5,7 @@ Metadata
 
 Author: Colin A. Smith
 
-This document was last updated August 10, 2010, by Colin A. Smith. The corresponding principal investigator is Tanja Kortemme (kortemme@cgl.ucsf.edu).
+This document was last updated March 25, 2015, by Shane Ó Conchúir. The corresponding principal investigator is Tanja Kortemme (kortemme@cgl.ucsf.edu).
 
 Code and Demo
 =============
@@ -243,6 +243,13 @@ If you want to follow the guideline determined for specificity prediction on mut
 ```
 > process_specificity(temp_or_thresh=0.249)
 ```
+
+Protocol capture
+================
+
+A revised and maintained version of the original protocol capture for sequence tolerance can be downloaded from the 
+[[Macromolecular modeling and design benchmarks|https://guybrush.ucsf.edu/benchmarks/captures/sequence_tolerance]] website. The [[sequence tolerance page|https://guybrush.ucsf.edu/benchmarks/benchmarks/sequence_tolerance]] also describes expected performance for 
+the published benchmark sets.
 
 New things since last release
 =============================
