@@ -5,7 +5,7 @@ Metadata
 
 Author: Andrew Leaver-Fay and Elizabeth Kellogg
 
-The documentation was last updated March 25th, 2015, by Shane Ó Conchúir. Questions about this documentation should be directed to David Baker: (dabaker@u.washington.edu).
+The documentation was last updated March 26th, 2015, by Shane Ó Conchúir. Questions about this documentation should be directed to David Baker: (dabaker@u.washington.edu).
 
 Code and Demo
 =============
