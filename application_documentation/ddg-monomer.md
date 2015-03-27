@@ -206,7 +206,7 @@ Post Processing
 Protocol capture
 ================
 
-A protocol capture for the protocol from row 16 of the Kellogg et al. paper can be downloaded from the [[Macromolecular modeling and design benchmarks|https://guybrush.ucsf.edu/benchmarks/captures/DDG]] website. The [[ΔΔG  page|https://guybrush.ucsf.edu/benchmarks/benchmarks/DDG]] also lists the expected performance for different classes of mutation.
+A protocol capture for the protocol from row 16 of the Kellogg et al. paper can be downloaded from the [[Macromolecular modeling and design benchmarks|https://kortemmelab.ucsf.edu/benchmarks/captures/DDG]] website. The [[ΔΔG  page|https://kortemmelab.ucsf.edu/benchmarks/benchmarks/DDG]] also lists the expected performance for different classes of mutation.
 
 New things since last release
 =============================
