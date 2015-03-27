@@ -3,7 +3,7 @@
 Metadata
 ========
 
-This document was last updated March 25th, 2015, by Shane Ó Conchúir. The original version of the application was created by Michael Tyka et al., and the first loop closure algorithm (CCD) was implemented by Chu Wang et al. in 2007.  The robotics-inspired kinematic closure (KIC) algorithm for loop closure was added by Daniel J. Mandell et al. in 2009, and the refined next generation KIC algorithm by Amelie Stein and Tanja Kortemme in 2013. The latest algorithmic development in loop modeling is KIC with fragments, added by Roland A. Pache and Tanja Kortemme in 2014. 
+This document was last updated March 26th, 2015, by Shane Ó Conchúir. The original version of the application was created by Michael Tyka et al., and the first loop closure algorithm (CCD) was implemented by Chu Wang et al. in 2007.  The robotics-inspired kinematic closure (KIC) algorithm for loop closure was added by Daniel J. Mandell et al. in 2009, and the refined next generation KIC algorithm by Amelie Stein and Tanja Kortemme in 2013. The latest algorithmic development in loop modeling is KIC with fragments, added by Roland A. Pache and Tanja Kortemme in 2014. 
 
 
 References
@@ -68,8 +68,8 @@ Protocol capture
 ================
 
 A protocol capture for some of the loop modeling algorithms above (KIC, next generation KIC, KIC with fragments) can 
-be downloaded from the [[Macromolecular modeling and design benchmarks|https://guybrush.ucsf.edu/benchmarks/captures/loop_modeling]] website. 
-The [[loop modeling page|https://guybrush.ucsf.edu/benchmarks/benchmarks/loop_modeling]] also lists suggested parameters to use for the different protocols.
+be downloaded from the [[Macromolecular modeling and design benchmarks|https://kortemmelab.ucsf.edu/benchmarks/captures/loop_modeling]] website. 
+The [[loop modeling page|https://kortemmelab.ucsf.edu/benchmarks/benchmarks/loop_modeling]] also lists suggested parameters to use for the different protocols.
 
 
 loopmodel MPI
