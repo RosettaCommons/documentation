@@ -401,6 +401,8 @@ Restricts user-specified positions, which are aligned with positions in a source
 -   chain (default 1 &integer): which chain on the target pdb are we looking for aligned residues?
 -   design\_only\_target\_residues (default 0 &bool): if true, designs the target residues to the identities in source while repacking a 6A shell around each residue. If false, only restricts the allowed identities at the target residues, not impacting other residues.
 -   prevent\_repacking
+* repack_shell - change the repack shell, default is 6.0
+* design_shell - change the design shell, default is 0.01
 
 ### RestrictToAlignedSegments
 
