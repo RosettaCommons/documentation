@@ -1193,7 +1193,6 @@ SegmentHybridize takes the principle from the cartesian hybridize protocol to cl
 
 ## Disulfidize
 
-** THIS IS NOT IN MASTER YET, BUT WILL BE SOON.  It exists in git branch tlinsky/disulfidize **
 Scans a protein and builds disulfides that join residues in one set of residues with those in another set. Non-protein and GLY residues are ignored. Residues to be joined must be min_loop residues apart in primary sequence. Potential disulfides are first identified by CB-CB distance, then by mutating the pair to CYS, forming a disulfide, and performing energy minimization.  If the energy is less than the user-specified cutoff, it is compared with a set of rotations and translations for all known disulfides.  If the "distance" resulting from this rotation and translation is less than the user-specified match_rt_limit, the pairing is considered a valid disulfide bond.
 
 Once valid disulfides are found, they are combinatorially added. For example, if disulfides are identified between residues 3 and 16 and also between residues 23 and 50, the following configurations will be found:
