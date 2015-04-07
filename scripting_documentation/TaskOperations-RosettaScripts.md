@@ -137,9 +137,9 @@ or
 
 #### ResidueNameSelector
 ** 4/7/2015: This is not in master yet, but will be soon. It is currently available in the tlinsky/residuenameselector branch ** Selects residues by their full Rosetta name.
-'''
-<ResidueName residue_names=(&string) />
-'''
+
+    <ResidueName residue_names=(&string) />
+
 residue_names - A comma-separated list of Rosetta residue names (including patches). For example, "CYD" will select all disulfides, and "CYD,SER:NTermProteinFull,ALA" will select all disulfides, alanines, and N-terminal serines -- all other residues will not be selected (i.e. be false in the ResidueSubset object).
 
 ### Conformation Dependent Residue Selectors
