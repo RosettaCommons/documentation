@@ -431,13 +431,13 @@ Options for this mover include:
 -  **pre_scoring_mover**:  An optional mover that can be applied to the sampled poses before they are scored.  Sidechain-packing movers can be useful, here.  Mover exit status is respected, and failed movers result in discarded samples.
 -  **pre_coring_filter**:  An optional filter that can be applied to the sampled poses before they are scored.  Failed poses are discarded, and will not be selected even if they are the lowest in energy.
 -  **dump_pdbs**:  If true, a PDB file is written for every conformation sampled that passes pre-scoring movers and filters.  False by default.
--  **pdb_prefix**:  If dump_pdbs is true, this is the prefix for the PDB files that are written.  A number is appended.  The default is for the prefix to be "bgs_out" (i.e. so that the PDB files are "bgs_out_0001.pdb", "bgs_out_0002.pdb, etc.).
+-  **pdb_prefix**:  If dump_pdbs is true, this is the prefix for the PDB files that are written.  A number is appended.  The default is for the prefix to be "bgs_out" (i.e. so that the PDB files are "bgs_out_0001.pdb", "bgs_out_0002.pdb", etc.).
 -  **nstruct_mode**:  If true, then each job samples a different set of mainchain torsion values (with just one set of mainchain torsion values sampled per job).  This is useful for automatically splitting the sampling over many processors (assuming the MPI compilation of rosetta_scripts, which automatically splits jobs over processors, is used).  False by default, which means that every job samples every set of mainchain torsion values.
 -  **nstruct_repeats**:  If set to a value N greater than 1, N consecutive jobs will sample the same set of mainchain torsion values.  This is useful for repeat sampling -- if, for example, you want to apply a stochastic mover to each grid-point sampled.
 -  **residue_count**:  The number of residues in the generated chain.  Twelve (12) by default.
 -  **cap_ends**:  If true, the lower terminus is acetylated and the upper terminus is aminomethylated.  This can be a good idea for backbones linked by peptide bonds, to avoid charges at the ends of the helix.  False by default.
 
-Each **MainchainTorsion** tag has the following options:
+**MainchainTorsion** blocks are used to define mainchain torsions to sample, or to hold fixed.  If a mainchain torsion is not specified, it is held fixed at its default value (based on the residue params file).  Each **MainchainTorsion** tag has the following options:
 
 -  **index**:  The index of the mainchain torsion.  (e.g.  For alpha-amino acids, **index=1** is phi, **index=2** is psi, **index=3** is omega).
 -  **value**:  A fixed value to which this mainchain torsion should be set.  This prevents sampling, and cannot be used in conjunction with the **start**, **end**, or **samples** options.
