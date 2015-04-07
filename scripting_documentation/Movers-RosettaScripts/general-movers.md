@@ -424,7 +424,15 @@ Generates a chain of identical residues and samples sets of mainchain torsion va
 ```
 
 Options for this mover include:
-
+-  residue_name:  The residue type that the polymer will be built from.  Default alanine.
+-  scorefxn:  The scoring function used to pick the lowest-energy conformation (or highest-energy, if selection_type="high").  Required option.
+-  max_samples:  The maximum number of grid-points sampled.  If the total number of grid-points exceeds this number, an error will be thrown and Rosetta will terminate.  This is to prevent unrealistically vast grids from being attempted inadvertently, though the user can always raise this number to allow larger grids to be sampled.
+-  selection_type:  This is "low" by default, meaning that the lowest-energy conformation sampled (that passes pre-scoring movers and filters) will be the output pose.  Setting this to "high" results in the highest-energy conformation being selected.
+-  pre_scoring_mover:  An optional mover that can be applied to the sampled poses before they are scored.  Sidechain-packing movers can be useful, here.  Mover exit status is respected, and failed movers result in discarded samples.
+-  pre_coring_filter:  An optional filter that can be applied to the sampled poses before they are scored.  Failed poses are discarded, and will not be selected even if they are the lowest in energy.
+-  dump_pdbs:  If true, a PDB file is written for every conformation sampled that passes pre-scoring movers and filters.  False by default.
+-  pdb_prefix:  If dump_pdbs is true, this is the prefix for the PDB files that are written.  A number is appended.  The default is for the prefix to be "bgs_out" (i.e. so that the PDB files are "bgs_out_0001.pdb", "bgs_out_0002.pdb, etc.).
+-  nstruct_mode
 
 # Constraints
 
