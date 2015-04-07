@@ -412,6 +412,20 @@ This mover perturbs one or more residues in a stretch of polymer backbone in a b
 -   must_switch_bins:  If true, then the residue on which this mover is operating will be forced to switch to a different mainchain torsion bin.  If false, then the residue has some probability of remaining in the same mainchain torsion bin, in which case its mainchain torsion angles will be chosen randomly (based on the distribution within the bin, if that information is available).  False by default.
 -   repeats:  The number of times a move is applied, where a move consists of picking a single residue in the range and randomizing its mainchain torsion bin based on the transition probabilities with its neighbours.  Set to 1 by default, meaning that only one residue in the range will have its mainchain torsion values altered.
 
+## BackboneGridSampler
+Generates a chain of identical residues and samples sets of mainchain torsion values, setting every residue in the chain so that it has identical mainchain torsion values.  This is useful for identifying secondary structures (particularly internally hydrogen-bonded, helical secondary structures) of novel heteropolymers.
+
+```
+<BackboneGridSampler name=(&string) residue_name=("ALA" &string) scorefxn=(&string) max_samples=(10000 &int) selection_type=("low" &string) pre_scoring_mover=(&string) pre_scoring_filter=(&string) dump_pdbs=(false &bool) pdb_prefix=("bgs_out" &string) nstruct_mode=(false &bool) nstruct_repeats=(1 &int) residue_count=(12 &int) cap_ends=(false &bool)>
+     <MainchainTorsion index=(&int) (value=(&Real) | start=(&Real) end=(&Real) samples=(&int) />
+     <MainchainTorsion ... />
+     <MainchainTorsion ... />
+</BackboneGridSampler>
+```
+
+Options for this mover include:
+
+
 # Constraints
 
 ## ClearConstraintsMover
