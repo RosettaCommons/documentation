@@ -854,9 +854,9 @@ Options in the <b>MakeBundle</b> tag set defaults for the whole bundle.  Individ
 <b>omega1</b>:  The minor helix turn per residue.  This is usually set with a Crick parameters file, but this option overrides whatever value is read in from the file.<br/>
 <b>delta_omega1</b>:  An offset value for <b>omega1</b>.  This rotates the generated helix about the minor helix axis ("rolling" the helix).<br/>
 <b>z1</b>:  The minor helix rise per residue.  This is usually set with a Crick parameters file, but this option overrides whatever value is read in from the file.<br/>
-<b>delta_t</b>:  Shifts the registry of the helix.  (This value is the number of amino acid residues by which the helix should be shifted.)  Mainchain atoms are shifted along a path shaped like a helix of helices.
-<b>z1_offset</b>:  Shifts the helix along the minor helix axis.  (The distance is measured in Angstroms).  Mainchain atoms are shifted along a path shaped like a helix.
-<b>z0_offset</b>:  Shifts the helix along the major helix axis.  (The distance is measured in Angstroms).  Mainchain atoms are shifted along a path shaped like a straight line.
+<b>delta_t</b>:  Shifts the registry of the helix.  (This value is the number of amino acid residues by which the helix should be shifted.)  Mainchain atoms are shifted along a path shaped like a helix of helices.<br/>
+<b>z1_offset</b>:  Shifts the helix along the minor helix axis.  (The distance is measured in Angstroms).  Mainchain atoms are shifted along a path shaped like a helix.<br/>
+<b>z0_offset</b>:  Shifts the helix along the major helix axis.  (The distance is measured in Angstroms).  Mainchain atoms are shifted along a path shaped like a straight line.<br/>
 <b>invert</b>:  This reverses the direction of a helix, which makes it easy to generate antiparallel bundles or sheets.<br/>
 
 In addition, the following options can only be set for the bundle as a whole:
@@ -959,13 +959,17 @@ This mover operates on a pose generated with the MakeBundle mover.  It perturbs 
      omega0_perturbation=(&real) omega0_perturbation_type=(&string)
      delta_omega0_perturbation=(&real) delta_omega0_perturbation_type=(&string)
      delta_omega1_perturbation=(&real) delta_omega1_perturbation_type=(&string)
-     delta_t_perturbation=(&real) delta_t_perturbation_type=(&string) >
+     delta_t_perturbation=(&real) delta_t_perturbation_type=(&string)
+     z1_offset_perturbation=(&real) z1_offset_perturbation_type=(&string)
+     z0_offset_perturbation=(&real) z0_offset_perturbation_type=(&string) >
           <Helix helix_index=(&int)
                r0_perturbation=(&real) r0_perturbation_type=(&string) r0_copies_helix=(&int)
                omega0_perturbation=(&real) omega0_perturbation_type=(&string) omega0_copies_helix=(&int)
                delta_omega0_perturbation=(&real) delta_omega0_perturbation_type=(&string) delta_omega0_copies_helix=(&int)
                delta_omega1_perturbation=(&real) delta_omega1_perturbation_type=(&string) delta_omega1_copies_helix=(&int)
-               delta_t_perturbation=(&real) delta_t_perturbation_type=(&string) delta_t_copies_helix=(&int) />
+               delta_t_perturbation=(&real) delta_t_perturbation_type=(&string) delta_t_copies_helix=(&int)
+               z1_offset_perturbation=(&real) z1_offset_perturbation_type=(&string) z1_offset_copies_helix=(&int)
+               z0_offset_perturbation=(&real) z0_offset_perturbation_type=(&string) z0_offset_copies_helix=(&int) />
 </PerturbBundle>
 
 ```
@@ -976,7 +980,9 @@ Default options for all helices are set in the **PerturbBundle** tag.  A default
 <b>omega0</b>: The major helix twist per residue.<br/>
 <b>delta_omega0</b>: The radial offset about the major helix axis.<br/>
 <b>delta_omega1</b>: The rotation of the minor helix about the minor helix axis.<br/>
-<b>delta_t</b>: A value to offset the helix by a certain number of amino acid residues along its direction of propagation.<br/>
+<b>delta_t</b>: A value to offset the helix by a certain number of amino acid residues along its direction of propagation (i.e. along the helix-of-helices path through space).<br/>
+<b>z1_offset</b>: A value to offset the helix by a certain number Angstroms along the minor helix axis (i.e. a helical path through space).<br/>
+<b>z0_offset</b>: A value to offset the helix by a certain number Angstroms along the major helix axis (i.e. a straight path through space).<br/>
 
 # Other Pose Manipulation
 
