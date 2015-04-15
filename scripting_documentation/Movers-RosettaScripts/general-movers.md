@@ -831,7 +831,7 @@ See the [[GeneralizedKIC documentation|GeneralizedKIC]] for details about [[Gene
 Generates a helical bundle using the Crick equations (which describe a helix of helices).  This mover is general enough to create arbitrary helices using arbitrary backbones.  Since strands are a special case of a helix (in which the turn per residue is about 180 degrees), the mover can also generate beta-barrels or other strand bundles.  The generated secondary structure elements are disconnected, so subsequent movers (e.g. <b>GeneralizedKIC</b>) must be invoked to connect them with loops.
 
 ```
-<MakeBundle name=(&string) reset=(true &bool) symmetry=(0 &int) symmetry_copies=(0 &int) set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) omega1=(0.0 &real) z1=(0.0 &real) delta_omega1=(0.0 &real) delta_t=(0.0 &real) invert=(false &bool) >
+<MakeBundle name=(&string) reset=(true &bool) symmetry=(0 &int) symmetry_copies=(0 &int) set_dihedrals=(true &bool) set_bondlengths=(true &bool) set_bondangles=(true &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) omega1=(0.0 &real) z1=(0.0 &real) delta_omega1=(0.0 &real) delta_t=(0.0 &real) invert=(false &bool) >
      <Helix set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) omega1=(0.0 &real) z1=(0.0 &real) delta_omega1=(0.0 &real) delta_t=(0.0 &real) invert=(false &bool) />
 ...
 </MakeBundle>
@@ -839,7 +839,7 @@ Generates a helical bundle using the Crick equations (which describe a helix of 
 
 Options in the <b>MakeBundle</b> tag set defaults for the whole bundle.  Individual helices are added with the <b>Helix</b> sub-tags, each of which may include additional options overriding the defaults.  The parameters that can be adjusted are:
 
-<b>set_bondlengths, set_bondangles, set_dihedrals</b>: Should the mover be able to set each of these DOF types?  By default, only dihedrals are permitted to vary.  Allowing bond angles and bond lengths to vary creates non-ideal backbones, but which are flexible enough to more perfectly form a helix of helices.  (Slight deviations form perfect major helices are seen with only dihedrals being set.)<br/>
+<b>set_bondlengths, set_bondangles, set_dihedrals</b>: Should the mover be able to set each of these DOF types?  By default, all three are set by the mover.  Allowing bond angles and bond lengths to be set creates non-ideal backbones, but which are flexible enough to more perfectly form a helix of helices.  (Slight deviations form perfect major helices are seen with only dihedrals being set.)<br/>
 <b>r0</b>: The major helix radius (the radius of the bundle, in Angstroms).<br/>
 <b>omega0</b>:  The major helix turn per residue, in radians.  If set too high, no sensible geometry can be generated, and the mover throws an error.  <i>Note: All angular values are in <b>radians</b>.</i><br/>
 <b>delta_omega0</b>:  An offset value for <b>omega0</b> that will rotate the generated helix about the bundle axis.<br/>
@@ -883,7 +883,7 @@ Generates a helical bundle, sampling user-specified ranges of parameters and out
 
 ```
 <BundleGridSampler name=(&string) symmetry=(0 &int) symmetry_copies=(0 &int) set_dihedrals=(true &bool)
-   set_bondlengths=(false &bool) set_bondangles=(false &bool) residue_name=("ALA" &string)
+   set_bondlengths=(true &bool) set_bondangles=(true &bool) residue_name=("ALA" &string)
    crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) invert=(false &bool)
    scorefxn=(&string) selection_type=("low"||"high" &string) pre_selection_mover=(&string)
    pre_selection_filter=(&string) dump_pdbs=(false &bool) pdb_prefix=("bgs_out" &string)
