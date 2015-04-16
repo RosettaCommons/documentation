@@ -901,7 +901,7 @@ Generates a helical bundle, sampling user-specified ranges of parameters and out
    <Helix set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool) invert=(false &bool)
      residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string) helix_length=(0 &int)
      r0=(&real) OR (r0_copies_helix=(&int)) OR ( r0_min=(&real) r0_max=(&real) r0_samples=(&int) )
-     omega0=(&real) OR (omega0_copies_helix=(&int)) OR ( omega0_min=(&real) omega0_max=(&real) omega0_samples=(&int) )
+     omega0=(&real) OR (omega0_copies_helix=(&int)) OR (pitch_from_helix=(&int)) OR ( omega0_min=(&real) omega0_max=(&real) omega0_samples=(&int) )
      delta_omega0=(&real) OR (delta_omega0_copies_helix=(&int)) OR ( delta_omega0_min=(&real) delta_omega0_max=(&real) delta_omega0_samples=(&int) )
      delta_omega1=(&real) OR (delta_omega1_copies_helix=(&int)) OR ( delta_omega1_min=(&real) delta_omega1_max=(&real) delta_omega1_samples=(&int) )
      delta_t=(&real) OR (delta_t_copies_helix=(&int)) OR ( delta_t_min=(&real) delta_t_max=(&real) delta_t_samples=(&int) )
@@ -918,6 +918,7 @@ Default parameter values or parameter ranges are set in the <b>BundleGridSampler
 - <b>[parameter]\_min</b>, <b>[parameter]_max</b>: Minimum and maximum parameter values for a range to be sampled.
 - <b>[parameter]\_samples</b>: The number of samples.  Note that the total number of samples is the product of all individual samples, and this can get quite large very fast.
 - <b>[parameter]\_copies\_helix</b>: This option may only be specified in a <b>Helix</b> sub-tag.  It indicates that a particular parameter for that helix is always set to the same value as that parameter from a previously-defined helix.  See below for an example.
+- <b>pitch_from_helix</b>: This is a special case.  As an alternative to <b>omega0_copies_helix</b>, which indicates that the major helix twist per residue should be matched to that of another helix, the user may specify that the helical pitch (the rise along the major helical axis per turn about the major helical axis) be matched to that of another helix.  This is useful in the case of bundles in which different helices may lie different distances from the bundle axis (i.e. have different r0 values), but which still need to pack together nicely.  If the helix pitch is matched, helices can run parallel to other helices despite having different r0 values.  The major helix pitch will be maintained despite sampling changes in r0 or omega0.
 - <b>max\_samples</b>: The maximum number of samples permitted.  If the total number of samples is larger than this, the mover throws an error at apply time.  This is meant as a protection for the user, to prevent unreasonably large grid sampling jobs from being attempted.  The default value of 10,000 samples is conservative, and may be increased.
 - <b>reset</b>: If true (the default setting), the pose is reset before generating bundles.  If false, the bundle geometry is added to the input geometry.
 - <b>nstruct_mode</b>: By default, each separate trajectory samples all possible sets of Crick parameters and picks the lowest-energy one to pass to the next mover.  If you set nstruct_mode=true, then each separate trajectory (set using the -nstruct flag at the command line when calling the rosetta_scripts app) samples one set of Crick parameter values.  This is very useful in conjunction with the MPI compilation of RosettaScripts, since it provides an easy way to split the sampling over trajectories that will be handled in parallel.
@@ -964,7 +965,7 @@ This mover operates on a pose generated with the MakeBundle mover.  It perturbs 
      z0_offset_perturbation=(&real) z0_offset_perturbation_type=(&string) >
           <Helix helix_index=(&int)
                r0_perturbation=(&real) r0_perturbation_type=(&string) r0_copies_helix=(&int)
-               omega0_perturbation=(&real) omega0_perturbation_type=(&string) omega0_copies_helix=(&int)
+               omega0_perturbation=(&real) omega0_perturbation_type=(&string) omega0_copies_helix=(&int) pitch_from_helix=(&int)
                delta_omega0_perturbation=(&real) delta_omega0_perturbation_type=(&string) delta_omega0_copies_helix=(&int)
                delta_omega1_perturbation=(&real) delta_omega1_perturbation_type=(&string) delta_omega1_copies_helix=(&int)
                delta_t_perturbation=(&real) delta_t_perturbation_type=(&string) delta_t_copies_helix=(&int)
@@ -974,7 +975,7 @@ This mover operates on a pose generated with the MakeBundle mover.  It perturbs 
 
 ```
 
-Default options for all helices are set in the **PerturbBundle** tag.  A default perturber type for all perturbations can be set with the **default_perturbation_type** option; currently-accepted values are "gaussian" and "uniform".  These can be overridden on a parameter-by-parameter basis with individual **perturbation_type** options.  Default perturbation magnitudes are set with **perturbation** options.  If an option is omitted, that Crick parameter is not perturbed.  These can also be overridden on a helix-by-helix basis by adding **Helix** sub-tags.  In the sub-tags, if an option is omitted, that degree of freedom is not perturbed unless a default perturbation was set for it in the main tag.  In the sub-tags, helices can also be set to copy degrees of freedom of other helices with **copies_helix** options.  Perturbable Crick parameters include:
+Default options for all helices are set in the **PerturbBundle** tag.  A default perturber type for all perturbations can be set with the **default_perturbation_type** option; currently-accepted values are "gaussian" and "uniform".  These can be overridden on a parameter-by-parameter basis with individual **perturbation_type** options.  Default perturbation magnitudes are set with **perturbation** options.  If an option is omitted, that Crick parameter is not perturbed.  These can also be overridden on a helix-by-helix basis by adding **Helix** sub-tags.  In the sub-tags, if an option is omitted, that degree of freedom is not perturbed unless a default perturbation was set for it in the main tag.  In the sub-tags, helices can also be set to copy degrees of freedom of other helices with **copies_helix** options.  A special case of this is the **pitch_copies_helix** option, which will set omega0 to whatever value is necessary to ensure that one helix copies the major helix pitch (the rise along the major helix axis per turn about the major helix axis) of another helix.  Perturbable Crick parameters include:
 
 <b>r0</b>: The major helix radius.<br/>
 <b>omega0</b>: The major helix twist per residue.<br/>
