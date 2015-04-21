@@ -116,6 +116,15 @@ Functions are listed as "Func\_Type Func\_Def".
 
     [[/images/form_2.png]]
 
+-   `PERIODICBOUNDED period lb ub sd rswitch tag  `
+    * Note: Setting `rswitch` to anything other than 0.5 will create a discontinuity in the derivative. `rswitch` and `tag` should not be treated as optional.
+
+    A BOUNDED constraint after mapping the measured value to the range -period/2 to +period/2. Useful for angle measures centered on zero.
+
+-   `OFFSETPERIODICBOUNDED offset period lb ub sd rswitch tag  `
+
+    A BOUNDED constraint, where the measured value is (x - offset) mapped to the range -period/2 to +period/2. Useful for angle measures. (Note that lb and ub are interpreted after subtraction, so the true range of zero constraint is from lb+offfset to ub+offset.)
+
 -   `GAUSSIANFUNC mean sd tag`
     * Note: `tag` is NOT optional, as for BoundFunc/BOUNDED. If `tag = NOLOG, it triggers some undocumented behavior involving a logarithm of some sort.
 
@@ -131,6 +140,10 @@ Functions are listed as "Func\_Type Func\_Def".
 -   `CONSTANTFUNC  return_val       `
 
     [[/images/form_5.png]]
+
+-   `IDENTITY`
+
+    - f(x) = x
 
 -   `SCALARWEIGHTEDFUNC  weight Func_Type Func_Def       `
 
@@ -150,6 +163,42 @@ Functions are listed as "Func\_Type Func\_Def".
 
 -   `SIGMOID  x0 m       ` 
     * Two arguments; x0 is the center of the sigmoid func and m is its slope. It has hardcoded min/max of 0.5. The functional form is (1/(1+exp(-m\*( x-x0 ))) - 0.5.
+
+-   `SQUARE_WELL x0 depth`
+
+    - f(x) = 0      for x >= x0
+    - f(x) = depth  for x < x0
+
+    
+-   `SQUARE_WELL2 x0 width depth [DEGREES]`
+
+    For angle measures. Parameters are presumed to be in radians unless optional DEGREES tag is present
+
+    - f(x) = 0 for (x0-width) < x < (x0+width)
+    - f(x) = depth for x <= (x0-width) and x >= (x0+width)
+
+-   `LINEAR_PENALTY x0 depth width slope`
+
+    - f(x) = depth for (x0-width) <= x <= (x0+width)
+    - f(x) = depth + slope * (abs(x-x0) - width) for abs(x-x0) > width
+
+    (Currently has a bug in minimization calculations.)
+
+-   `KARPLUS A B C D x0 sd`
+
+    - f(x) = ((A*cos(x + D)^2 + B*cos(x + D) + C - x0)/sd)^2
+
+-   `SOEDINGFUNC w1 mean1 sd1 w2 mean2 sd2`
+
+    - f(x) = ln( w1*Gauss(x,mean1,sd1) + w2*Gauss(x,mean2,sd2) ) - ln( w2*Gauss(x,mean2,sd2) )
+
+    where Gauss(x,mean,sd) is the value of the normal distribution at x, given the mean and standard deviation
+
+-   `TOPOUT weight x0 limit`
+
+     Harmonic near x0, flat past limit
+
+     - f(x) = weight * limit^2 * ( 1 - e^( -(x-x0)^2/limit^2  ) )
 
 Function types are all implemented as subclasses of the core::scoring::constraints::Func class.
 
@@ -231,7 +280,6 @@ Other Function Types
 
 These function types cannot currently be specified in a file. They need to have read\_data methods implemented and be added to the FuncFactory constructor.
 
--   PeriodicBound
 -   ChainbreakDist
 -   CharmmPeriodic
 -   CircularPower
