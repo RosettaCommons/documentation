@@ -103,6 +103,10 @@ Functions are listed as "Func\_Type Func\_Def".
 
     [[/images/form_0.png]]
 
+-   `FLAT_HARMONIC  x0  sd  tol`
+
+    Zero in the range of `x0 - tol` to `x0 + tol`. Harmonic with width parameter sd outside that range. Basically, a HARMONIC potential _(see above)_ split at x0 with a 2*tol length region of zero inserted.
+
 -   `CIRCULARHARMONIC  x0 sd       `
 
     [[/images/form_1.png]]
