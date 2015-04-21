@@ -7,6 +7,17 @@ This document was edited by Colin Smith on 12/4/2008. Yi Liu created the initial
 
 [[_TOC_]]
 
+Overview
+========
+
+Rosetta constraints are additions to the scorefunction. (This corresponds to "restraints" in other programs.) They're used to score geometric and other features of the structure which may not be evaluated by standard scoreterms. For example, adding a scoring bias based on experimental knowledge.
+
+Each constraint consists of two parts: A) what's being measured B) how that measured value is transformed into a scoring bonus/penalty. These two parts can be mixed and matched to derive the desired behavior.
+
+In order for constraints to be correctly recognized by Rosetta, two things must occur. First, the constraints themselves must be applied to the pose (structure). How this is done is somewhat protocol dependent, but most often takes the form of an option or parameter which specifies which file contains the constraint specification. (The format of this file is described below.)
+
+The second requirement is that the scorefunction being used needs to have a non-zero weight for the appropriate constraint scoreterm. The particular scoreterm depends on the type of constraint being used. The value of the penalty/bonus consists of the sum of the raw constraint scores (from the measured value and the specified transforming function of all the constraints) multiplied by the weight of the appropriate score term in the score function. Many protocols which use constraints will turn the constraint weights on for you, but others will require you to specify a scorefunction weights file which has non-zero constraint terms.
+
 File Formats
 ============
 
@@ -18,7 +29,7 @@ Constraint_Type2 Constraint_Def2
 ...
 ```
 
-Generally speaking, the Constraint\_Type will contain a type, defining what sort of value to be constrained (distance, angle, dihedral, etc), and a series of atom and/or residue labels defining a specific quality to be constrained. Residue numbers are assumed to be in Rosetta numbering (from 1, no gaps), not PDB numbering. If you want PDB numbering, pass the chain letter immediately after the residue number (no spaces), residue 30 of chain A would be "30A", even if it is the first residue in the PDB (Rosetta numbering "1").
+Generally speaking, the Constraint\_Type will contain a type, defining what sort of value to be constrained (distance, angle, dihedral, etc), and a series of atom and/or residue labels defining a specific quality to be constrained. Residue numbers are assumed to be in Rosetta numbering (from 1, no gaps), not PDB numbering. If you want PDB numbering, pass the chain letter immediately after the residue number (no spaces), residue 30 of chain A would be "30A", even if it is the first residue in the PDB (Rosetta numbering "1"). Not all constraint types can take PDB numbering.
 
 The Constraint\_Def will define function by which the constraint is constrained, to answer the question: what should the score of the constraint be when the constrained value has a deviation of X units?
 
@@ -32,35 +43,58 @@ Single constraints
 
 Single constraints restrain the value of a single metric
 
--   AtomPair: `AtomPair Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Func_Type Func_Def`
+-   AtomPair: `AtomPair Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Func_Type Func_Def` 
+
+    <i>score term: atom_pair_constraint</i>
+
     * Constrains a distance between Atom1 and Atom2. AtomPairConstraint is compatible with PDB numbering.
 
 -   Angle: `Angle Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Func_Type Func_Def       `
+
+    <i>score term: angle_constraint</i>
+
     * Angle between Atom2-\>Atom1 vector and Atom2-\>Atom3 vector; the angle (passed as a value to the Func) appears to be measured in radians
 
 -   Dihedral: `Dihedral Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Atom4_Name Atom4_ResNum Func_Type Func_Def       `
+
+    <i>score term: dihedral_constraint</i>
+
     * Dihedral angle of Atom1-\>Atom2-\>Atom3-\>Atom4. Dihedral is measured in radians on -pi -\> pi.
 
 -   CoordinateConstraint: `CoordinateConstraint Atom1_Name Atom1_ResNum[Atom1_ChainID] Atom2_Name Atom2_ResNum[Atom2_ChainID] Atom1_target_X_coordinate Atom1_target_Y_coordinate Atom1_target_Z_coordinate Func_Type Func_Def       `
+
+    <i>score term: coordinate_constraint</i>
+
     * Constrain Atom1 to the XYZ position listed. Atom2 is used as a reference atom to determine when Atom1 has moved (so that Rosetta knows when to rescore it) - pick at atom that Atom1 will move relative to. CoordinateConstraint is compatible with PDB numbering.
     * Atom_ResNum[Atom_ChainID] indicates a number with an optional letter together as a single token
 
 
 -   LocalCoordinateConstraint: `LocalCoordinateConstraint Atom1_Name Atom1_ResNum Atom2_Name Atom3_Name Atom4_Name Atom234_ResNum Atom1_target_X_coordinate Atom1_target_Y_coordinate Atom1_target_Z_coordinate Func_Type Func_Def       `
+
+    <i>score term: coordinate_constraint</i>
+
     * Constrain Atom1 to the XYZ position listed, relative to the coordinate frame defined by atoms 2/3/4 instead of the origin. LocalCoordinateConstraint is compatible with PDB numbering.
 
 -   AmbiguousNMRDistance: `AmbiguousNMRDistance Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Func_Type Func_Def       `
+
+    <i>score term: atom_pair_constraint</i>
+
     * Distance between Atom1 and Atom2. The difference from AtomPairConstraint is that atom names are specially parsed to detect ambiguous hydrogens, which are either experimentally ambiguous or rotationally identical (like methyl hydrogens). The constraint applies to any hydrogens equivalent to the named hydrogen. The logic for determining which hydrogens are which is in src/core/scoring/constraints/AmbiguousNMRDistanceConstraints.cc:parse\_NMR\_name.
 
 -   SiteConstraint: `SiteConstraint Atom1_Name Atom1_ResNum Opposing_chain Func_Type Func_Def       `
+
+    <i>score term: atom_pair_constraint</i>
+
     * Constraint that a residue interacts with some other chain - roughly, that it is (or is not) in a binding site. The atom and resnum identify which atom is being checked for interactions with the opposing chain. Notice that "Constraint" is irregularly in its tag.
 
 -   BigBin: `BigBin ResNum Bin       `
 
+    <i>score term: dihedral_constraint</i>
+
 Nested constraints
 ------------------
 
-Nested constraints take as their parameters one or more other constraints, and allow optimization across multiple constraints. Typically in constraint files these are listed across multiple lines, with the name of the constraint opening the block of sub-constraints, and a line starting with "END" or "End" ending the block.
+Nested constraints take as their parameters one or more other constraints, and allow optimization across multiple constraints. Typically in constraint files these are listed across multiple lines, with the name of the constraint opening the block of sub-constraints, and a line starting with "END" or "End" ending the block. In general, the scoretypes used by the nested constraints depends on which sub-constraints are used (this can normally be mixed).
 
 -   MultiConstraint:
 
