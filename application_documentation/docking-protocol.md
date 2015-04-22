@@ -176,6 +176,8 @@ Tips
 
 -   For perturbation runs, generate at least 1,000 decoys. For global runs, generate between 10,000 and 100,000 (we know this requires a lot of cpu time and disk space).
 
+-   If the interface score doesn't show up in the scorefile and you want to add it, you can use the flag ```-score:docking_interface_score 1 ```
+
 Constraints
 ===========
 
