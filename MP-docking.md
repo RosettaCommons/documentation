@@ -59,6 +59,10 @@ Rosetta/main/source/bin/mpdocking.linuxgccrelease
 
 Generate at least 1000 models and analyze the data using interface score vs. RMSD plots. 
 
+## Tips
+
+If the interface score doesn't show up in the scorefile and you want to add it, you can use the flag ```-score:docking_interface_score 1 ```
+
 ## References
 * Gray, J. J.; Moughon, S.; Wang, C.; Schueler-Furman, O.; Kuhlman, B.; Rohl, C. A.; Baker, D., Protein-protein docking with simultaneous optimization of rigid-body displacement and side-chain conformations. Journal of Molecular Biology 2003, 331, (1), 281-299.
 * Chaudhury, S., Berrondo, M., Weitzner, B. D., Muthu, P., Bergman, H., Gray, J. J.; Benchmarking and analysis of protein docking performance in RosettaDock v3.2., PLoS One. 2011;6(8):e22477
