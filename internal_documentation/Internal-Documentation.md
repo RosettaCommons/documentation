@@ -62,7 +62,7 @@ comment tags will be stripped from the documentation prior to being provided as 
         - [[Membrane ddG]]
         - [[MP mutate relax]]
      - docking
-        - [[MP find interface: global docking]]
+        - [[MP find interface]] - global docking
         - [[MP docking]]
      - symmetry
         - [[Symmetric MP docking]]
