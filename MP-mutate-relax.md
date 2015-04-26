@@ -34,6 +34,7 @@ Rosetta/main/source/bin/mp_mutate_relax.macosclangrelease \
                                       # if no mutation file is given, please use the flag:
 -mp:mutate_relax:mutation A163F       # specified mutation to make. Either this flag or above one MUST be given.
 -mp:mutate_relax:iter 5 \             # optional, only build 5 models for ddG calculations. Default is 100
+-nstruct 1 \                          # required, MUST be 1, otherwise models will be overwritten n times!
 ```
 
 ## Reference
