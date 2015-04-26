@@ -2,9 +2,8 @@
 
 Questions and comments to:
 
-Julia Koehler Leman (julia.koehler1982@gmail.com)
-
-Corresponding PI: Jeffrey J. Gray (jgray@jhu.edu)
+- Julia Koehler Leman (julia.koehler1982@gmail.com)
+- Corresponding PI: Jeffrey J. Gray (jgray@jhu.edu)
 
 Last Updated: 4/26/15
 
