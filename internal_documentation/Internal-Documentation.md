@@ -54,10 +54,13 @@ comment tags will be stripped from the documentation prior to being provided as 
 - [[Applications]]
      - [[Membrane relax]]
      - [[Membrane ddG]]
+     - [[MP find interface: global docking]]
      - [[MP docking]]
      - [[Symmetric MP docking]]
      - [[MP spanfile from PDB]]
      - [[MP scoring]]
+     - [[MP quick relax]]
+     - [[MP mutate relax]]
 - Flags
      - [[Outdated RosettaMembrane from 2006]]
      - [[RosettaMP from 2014]]
