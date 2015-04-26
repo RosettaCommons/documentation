@@ -25,7 +25,7 @@ Rosetta/main/source/bin/mp_quick_relax.macosclangrelease \
 -in:file:native 1AFO_tr.pdb \         # superimposes the model onto the native, using CA atoms
 -mp:setup:spanfiles 1AFO__tr.span \ 
 -mp:quickrelax:angle_max 1.0 \        # maximum allowed dihedral angle change, typical value around 1.0, default 1.0
-                                      # 1.0 creates models with RMSDs around 0-2A around native
+                                      # 1.0 creates models with RMSDs of 0-2A around the native
 -mp:quickrelax:nmoves nres \          # number of times Small and ShearMover makes changes to protein
                                       # can be number or 'nres', taking all residues in the protein
                                       # default: 'nres'
