@@ -31,6 +31,10 @@ Rosetta/main/source/bin/mp_quick_relax.macosclangrelease \
                                       # default: 'nres'
 ```
 
+## Notes
+
+Has currently not been tested with constraints, is coming soon though. 
+
 ## Reference
 
 This reference only cites MPFastRelax; MPQuickRelax isn't published yet. 
