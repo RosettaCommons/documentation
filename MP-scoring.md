@@ -7,13 +7,6 @@ Questions and comments to:
 
 Last Updated: 3/17/15
 
-## Citation
-Rosetta Revision #57715
-
-Alford RF, Koehler Leman J, Weitzner BD, Duran A, Elazar A, Tilley DC, Gray JJ (2015)
-An integrated framework advancing membrane protein modeling and design
-PLoS Computational Biology (under revision) 
-
 ## Algorithm Description
 Scoring a membrane protein pose with a defined score function is one of the most basic and much needed functionality. For this, we hijacked the score_jd2 application and made it (at least partly) applicable for membrane proteins. 
 
@@ -49,3 +42,9 @@ Rosetta/main/source/bin/score_jd2.macosclangrelease \
 
 Both applications only score the protein and don't optimize the membrane position!
 Note: Make sure your numbering between PDB file and spanfile match!
+
+## Reference
+
+Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Elazar A, Tilley DC, Gray JJ (2015)
+An integrated framework advancing membrane protein modeling and design,
+PLoS Computational Biology (under revision) 
