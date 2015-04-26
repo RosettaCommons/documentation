@@ -22,28 +22,18 @@ Example flags:
 Rosetta/main/source/bin/mp_quick_relax.macosclangrelease \
 -database Rosetta/main/database \
 -in:file:s 1AFO_tr.pdb \
--in:file:native 1AFO_tr.pdb \  #superimposes the model onto the native, using 
--in:membrane \
--mp:setup:spanfiles 1AFO__tr.span \
--score:weights mpframework_smooth_fa_2012.wts \
+-in:file:native 1AFO_tr.pdb \         # superimposes the model onto the native, using CA atoms
+-mp:setup:spanfiles 1AFO__tr.span \ 
+-mp:quickrelax:angle_max 1.0 \        # maximum allowed dihedral angle change, typical value around 1.0, default 1.0
+                                      # 1.0 creates models with RMSDs around 0-2A around native
+-mp:quickrelax:nmoves nres \          # number of times Small and ShearMover makes changes to protein
+                                      # can be number or 'nres', taking all residues in the protein
+                                      # default: 'nres'
 ```
-
-**2) Having a fixed membrane a movable protein.** This does not require the protein to be transformed into membrane coordinates and works with a regular cleaned PDB file. However, it requires a spanfile as input. Example flags: 
-
-```
-Rosetta/main/source/bin/score_jd2.macosclangrelease \
--database Rosetta/main/database \
--in:file:s 1AFO.pdb \
--in:membrane \
--mp:setup:spanfiles 1AFO__tr.span \
--mp:setup:transform_into_membrane \
--score:weights mpframework_smooth_fa_2012.wts \
-```
-
-Both applications only score the protein and don't optimize the membrane position!
-Note: Make sure your numbering between PDB file and spanfile match!
 
 ## Reference
+
+This reference only cites MPFastRelax; MPQuickRelax isn't published yet. 
 
 Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Elazar A, Tilley DC, Gray JJ (2015)
 An integrated framework advancing membrane protein modeling and design,
