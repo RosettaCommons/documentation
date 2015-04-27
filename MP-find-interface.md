@@ -17,7 +17,7 @@ This algorithm does a global docking search in the membrane bilayer. It first su
 
 - TiltMover: tilts partner 2 towards (or away from) partner 1. Angle is random between +/-45 degrees.
 
-- FlipMover: flips partner 1 in the membrane around the axis connecting the partners. Angle is random between +/-45 degrees deviating from 180 flip.
+- FlipMover: flips partner 1 in the membrane around the axis connecting the partners. Angle is random between +/-45 degrees deviating from 180 flip. This mover can be de-activated with the flag `-mp:dock:allow_flips 0`
 
 The application is very coarse grained, i.e. does not do a local minimization around the interfaces. Instead, it samples a wide range of conformations, of which the lowest scoring ones (or better: lowest interface scoring ones) can then be locally refined. Runtimes are very fast, generating a decoy every ~2 seconds for an 80 residue protein, and every ~70 seconds for a 1000 residue protein.
 
@@ -37,6 +37,7 @@ Rosetta/main/source/bin/mp_find_interface.macosclangrelease \
 -mp:scoring:hbond 1 \                    # optional, for better scoring
 -mp:dock:lowres 1 \                      # use lowres score function for scoring, EITHER this flag or ...
 -mp:dock:highres 1 \                     # ... this flag must be given
+-mp:dock:allow_flips 0 \                 # optional, allow (1) or disallow (0) flipping partner 2 in the membrane; default: allow flips 
 -docking:partners A_B \                  # use chain A as docking partner 1 and chain B as docking partner 2
 -score::docking_interface_score 1 \      # optional, add the interface score to the score file
 -packing:pack_missing_sidechains false \ # don't pack sidechains until the membrane residue is added, sometimes needed
