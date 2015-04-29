@@ -136,7 +136,7 @@ or
 -   The ResidueIndexSelector sets the positions corresponding to the residues given in the resnums string to true, and all other positions to false.
 
 #### ResidueNameSelector
-** 4/7/2015: This is not in master yet, but will be soon. It is currently available in the tlinsky/residuenameselector branch ** Selects residues by their full Rosetta name.
+Selects residues by their full Rosetta residue type name.
 
     <ResidueName residue_names=(&string) />
 
