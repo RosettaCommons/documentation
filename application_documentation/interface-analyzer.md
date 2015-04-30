@@ -15,7 +15,9 @@ InterfaceAnalyzer has a suite of integration test/demos at rosetta/rosetta\_test
 References
 ==========
 
-No references are directly associated with this protocol. It was used with the [[AnchoredDesign application|anchored-design]] (see that app's documentation) and CAPRI21 interface discrimination.
+No references are directly associated with this protocol. It was used with the [[AnchoredDesign application|anchored-design]] (see that app's documentation), CAPRI21 interface discrimination, and the reference below.
+
+Stranges, P.B. and B. Kuhlman, A comparison of successful and failed protein interface designs highlights the challenges of designing buried hydrogen bonds. Protein Science, 2013. 22(1): p. 74-82.
 
 Purpose
 ===========================================
