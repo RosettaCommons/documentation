@@ -93,47 +93,49 @@ simulations in real-time using pymol (uses membrane framework)
 - [[Flexible peptide docking|flex-pep-dock]] - Dock a flexible peptide to a protein.
 
 ##Design
+- [[Anchored design]] - Design interfaces using an "anchor" of known interactions.  
+    * [[Anchored pdb creator]] - Prepare starting files for AnchoredDesign.  
+    * [[Anchor finder]] - Find interactions which can serve as "anchors" for AnchoredDesign. 
+ 
+- [[Beta strand homodimer design]] - Find proteins with surface exposed beta-strands, then design a homodimer that will form via that beta-strand.  
+
+- [[DougsDockDesignMinimize|doug-dock-design-min-mod2-cal-cal]] - Redesign the protein/peptide interface of Calpain and a fragment of its inhibitory peptide calpastatin.
+
+- [[Enzyme Design]] - Design a protein around a small molecule, with catalytic constraints. 
+
 - [[Fixed backbone design|fixbb]] - Optimize sidechain-rotamer placement and identity on fixed backbones.  
    * [[Fixed backbone design with hpatch|fixbb-with-hpatch]] - Fixed backbone design with a penalty for hydrophobic surface patches.  
 
-- [[Void Identification and Packing|vip-app]] (RosettaVIP) - Identify and fill cavities in a protein.
+- [[Hydrogen bond surrogate design|hbs-design]] - Design stabilized alpha helical binders.
+
+- [[Match]] - Place a small molecule into a protein pocket so it satisfies given geometric constraints.  
+
+- [[Multistate design|mpi-msd]] - Optimize proteins for multiple desired and undesired contexts.
+
+- [[OOP design]] - Design proteins with oligooxopiperazine residues.  
+
+- [[Pepspec]] - Evaluate and design peptide-protein interactions.  
+
 - [[Point mutation scan|pmut-scan-parallel]] - Identifiy stabilizing point mutants.  
 
 - [[Protein-protein design|app-dock-design]] - Protein-protein interface design with RosettaScripts.  
  
-- [[Match]] - Place a small molecule into a protein pocket so it satisfies given geometric constraints.  
-- [[Enzyme Design]] - Design a protein around a small molecule, with catalytic constraints.  
-
 - [[RosettaRemodel]] - Redesign backbone and sequence of protein loops and secondary structure elements. 
     * [[Remodel]] - Additional remodel documentation
-
-- [[Pepspec]] - Evaluate and design peptide-protein interactions.  
 
 - [[Rosetta DNA]] (RosettaDNA) - Design and modle protein interactions to DNA.  
 
 - [[RNA design]] - Optimize RNA sequence for fixed backbones.  
 
--  [[Stepwise design|stepwise]] - Simultaneously optimize sequence and structure for small RNA and protein segments. Part of the stepwise application.
-
-- [[Hydrogen bond surrogate design|hbs-design]] - Design stabilized alpha helical binders.
-- [[OOP design]] - Design proteins with oligooxopiperazine residues.  
-
-- [[Multistate design|mpi-msd]] - Optimize proteins for multiple desired and undesired contexts.
-
 - [[Sequence tolerance]] - Optimize proteins for library applications (e.g. phage or yeast display).  
 
-- [[Anchored design]] - Design interfaces using an "anchor" of known interactions.  
-    * [[Anchored pdb creator]] - Prepare starting files for AnchoredDesign.  
-    * [[Anchor finder]] - Find interactions which can serve as "anchors" for AnchoredDesign.  
+-  [[Stepwise design|stepwise]] - Simultaneously optimize sequence and structure for small RNA and protein segments. Part of the stepwise application.
 
 - [[Supercharge]] - Reengineer proteins for high net surface charges, to counter aggregation.  
 
+- [[Void Identification and Packing|vip-app]] (RosettaVIP) - Identify and fill cavities in a protein.
+
 - [[Zinc heterodimer design]] - Design zinc-mediated heterodimers.  
-
-- [[Beta strand homodimer design]] - Find proteins with surface exposed beta-strands, then design a homodimer that will form via that beta-strand.  
-
-- [[DougsDockDesignMinimize|doug-dock-design-min-mod2-cal-cal]] - Redesign the protein/peptide interface of Calpain and a fragment of its inhibitory peptide calpastatin.
-
 
 ##Analysis
 
