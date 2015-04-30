@@ -5,6 +5,15 @@ Standard Weights File
 
 The default score function in Rosetta for scoring full-atom structures is currently **talaris2013**.  The energy function and its corrections were tested in the papers [Leaver-Fay et al., Methods in Enzymology 2013](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3724755/) and [O’Meara et al., J. Chem. Theory Comput. 2015](https://dx.doi.org/10.1021/ct500864r)  A full description of the changes this energy function introduces can be found [here](https://www.rosettacommons.org/node/3508#comment-6946).  The **talaris2013** energy function is suitable for scoring canonical L-amino acids, their D-amino acid mirror images, and some rigid ligands (_e.g._ metal ions, phosphate, _etc._).  It can also work with noncanonical alpha-amino acid residues, provided that their params files are set up properly.  Backbone conformation terms will ignore beta-amino acids, flexible ligands, nucleic acids, _etc._
 
+References
+==========
+
+Rohl, C.A., et al., Protein structure prediction using Rosetta. Methods in enzymology, 2004. 383: p. 66-93.
+
+Kuhlman, B., et al., Design of a novel globular protein fold with atomic-level accuracy. Science, 2003. 302(5649): p. 1364-8.
+
+Kuhlman, B. and D. Baker, Native protein sequences are close to optimal for their structures. Proceedings of the National Academy of Sciences of the United States of America, 2000. 97(19): p. 10383-8.
+
 Energy terms used in talaris2013.wts
 -------------------------------------
 
