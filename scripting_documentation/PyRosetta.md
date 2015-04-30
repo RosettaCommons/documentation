@@ -10,6 +10,7 @@ More extensive PyRosetta-specific documentation is availible:
 * <http://www.pyrosetta.org/tutorials> - Tutorials on how to use PyRosetta
 * <http://www.pyrosetta.org/scripts> - Example scripts using PyRosetta
 
+A general overview of the general Rosetta object structure and organization can be found here: http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4083816/
 
 ##The PyRosetta Toolkit
 
