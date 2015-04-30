@@ -10,6 +10,7 @@ file a bug in our [issue tracker](http://bugs.rosettacommons.org).
 - [Structure Prediction](#Structure-Prediction)
 - [Docking](#Docking)
 - [Design](#Design)
+- [Membrane Proteins](#Membrane Proteins)
 - [Analysis](#Analysis)
 - [Utilities](#Utilities)
 - [Other](#Other)
@@ -87,7 +88,6 @@ While most of these applications focus on prediction, many have options which wi
 - [[Chemically conjugated docking|ubq-conjugated]] - Determine the structures of ubiquitin conjugated proteins.  
 
 
-
 ##Design
 
 ### General 
@@ -153,6 +153,14 @@ While most of these applications focus on prediction, many have options which wi
 
 - [[Protein-protein design|app-dock-design]] - Protein-protein interface design with RosettaScripts.
 
+##Membrane Proteins
+ - [[Membrane Fast Relax|Membrane-Fast-Relax]] - High-resolution refinement of membrane protein structures with optimization of the membrane position using minimization (uses membrane framework)
+ - [[Membrane ddG|Membrane-DDG]] - Prediction of free energy changes upon mutation using the membrane framework
+ - [[Membrane protein-protein docking|Membrane-Protein-Protein-Docking]] - Protein-protein docking in the membrane (uses membrane framework)
+ - [[Symmetric membrane protein-protein docking|Symmetric Membrane Protein-Protein Docking]] - Assemble symmetric complexes in the membrane environment (uses membrane framework)
+ - [[Membrane Protein PyMOL Viewer|mp-viewer]] - Standalone application for visualization of membrane protein
+simulations in real-time using pymol (uses membrane framework)
+
 ##Analysis
 
 ### Scoring 
@@ -176,19 +184,11 @@ While most of these applications focus on prediction, many have options which wi
 ### Packing Quality
 - [[RosettaHoles]] - Rapid assessment of protein core packing for structure prediction, design, and validation
 
-
-##Membrane Proteins
- - [[Membrane Fast Relax|Membrane-Fast-Relax]] - High-resolution refinement of membrane protein structures with optimization of the membrane position using minimization (uses membrane framework)
- - [[Membrane ddG|Membrane-DDG]] - Prediction of free energy changes upon mutation using the membrane framework
- - [[Membrane protein-protein docking|Membrane-Protein-Protein-Docking]] - Protein-protein docking in the membrane (uses membrane framework)
- - [[Symmetric membrane protein-protein docking|Symmetric Membrane Protein-Protein Docking]] - Assemble symmetric complexes in the membrane environment (uses membrane framework)
- - [[Membrane Protein PyMOL Viewer|mp-viewer]] - Standalone application for visualization of membrane protein
-simulations in real-time using pymol (uses membrane framework)
-
 ##Utilities
 
 These applications serve mainly to support other Rosetta applications, or to assist in setting up or analyzing Rosetta runs.
 
+### General
 - [[Build peptide]] - Build extended peptides or protein structures from sequences. 
 
 - [[CA to allatom]] - Build fullatom models from C-alpha-only traces.  
