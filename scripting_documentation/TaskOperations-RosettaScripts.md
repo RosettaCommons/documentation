@@ -136,11 +136,19 @@ or
 -   The ResidueIndexSelector sets the positions corresponding to the residues given in the resnums string to true, and all other positions to false.
 
 #### ResidueNameSelector
-Selects residues by their full Rosetta residue type name.
+Selects residues by their full Rosetta residue type name. At least one of residue_names and residue_name3 must be specified.
 
-    <ResidueName residue_names=(&string) />
+    <ResidueName residue_names=(&string) residue_name3=(&string) />
 
 residue_names - A comma-separated list of Rosetta residue names (including patches). For example, "CYD" will select all disulfides, and "CYD,SER:NTermProteinFull,ALA" will select all disulfides, alanines, and N-terminal serines -- all other residues will not be selected (i.e. be false in the ResidueSubset object).
+
+residue_name3 - A comma-separated list of 3-letter Rosetta residue names.  These will be selected regardless of variant type. For example, "SER" will select residues named "SER", "SER:NtermProteinFull", and "SER:Phosphorylated".
+
+**Example**
+This example will select all variants of ALA, C-terminal ASN residues, and disulfides:
+
+    <ResidueName residue_names="ASN:CtermProteinFull,CYD" residue_name3="ALA" />
+
 
 ### Conformation Dependent Residue Selectors
 
