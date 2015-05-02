@@ -1,4 +1,4 @@
-The Environment framework, also known as the ToplogyBroker 2.0, is a tool for generating larger, more complex simulation systems out of small interchangeable parts. The intent is to make rapid protocol development in RosettaScript easier by allowing sampling strategies to be carried out simultaneously rather than in sequence by constructing a consensus FoldTree that satisfies all movers. Such Movers inherit from the [ClientMover](/docs/wiki/scripting_documentation/ClientMovers) (CM) class.
+The Environment framework, also known as the ToplogyBroker 2.0, is a tool for generating larger, more complex simulation systems out of small interchangeable parts. The intent is to make rapid protocol development in RosettaScript easier by allowing sampling strategies to be carried out simultaneously rather than in sequence by constructing a consensus FoldTree that satisfies all movers. Such Movers inherit from the [[ClientMover|ClientMovers]] (CM) class.
 
 **Author's Note:** If anything here doesn't make sense, doesn't work as advertised, or is otherwise demanding of attention, give me (the original developer) a shout at justinrporter at gmail. I spent quite a long time on this, and would love to see other folks using it, so if I can help, let me know!
 
@@ -14,7 +14,7 @@ Using an Environment in your RosettaScripts is as easy as
 
 ## A simple example
 
-In the following example, a ChainResidueSelector selecting chains named "A" and "B" are used to build a [UniformRigidBodyCM](scripting_documentation/ClientMovers#UniformRigidBodyCM) that docks those two chains to one another. 
+In the following example, a ChainResidueSelector selecting chains named "A" and "B" are used to build a [[UniformRigidBodyCM|ClientMovers#UniformRigidBodyCM]] that docks those two chains to one another. 
 
 ```
 <ROSETTASCRIPTS>
@@ -36,7 +36,7 @@ In the following example, a ChainResidueSelector selecting chains named "A" and 
 
 ## _Ab initio_ Example
 
-The following example replicates an _ab initio_ run. The file "beta_sheets.top" contains a predicted beta-strand pairing topology, and the 9-mer and 3-mer fragments are in files called "frag9.dat" and "frag3.dat", respectively. Loops are closed after the [AbscriptMover](scripting_documentation/ClientMovers#AbscriptMover] runs all stages of abinitio by the [AbscriptLoopCloserCM](scripting_documentation/ClientMovers#AbscriptLoopCloserCM), and then FastRelax refines the structure in full atom mode. The assumption is made here that the input pose is in centroid mode.
+The following example replicates an _ab initio_ run. The file "beta_sheets.top" contains a predicted beta-strand pairing topology, and the 9-mer and 3-mer fragments are in files called "frag9.dat" and "frag3.dat", respectively. Loops are closed after the [[AbscriptMover|ClientMovers#AbscriptMover]] runs all stages of abinitio by the [[AbscriptLoopCloserCM|ClientMovers#AbscriptLoopCloserCM]], and then FastRelax refines the structure in full atom mode. The assumption is made here that the input pose is in centroid mode.
 
 ```
 <MOVERS>
@@ -67,7 +67,7 @@ The following example replicates an _ab initio_ run. The file "beta_sheets.top" 
 </PROTOCOLS>
 ```
 
-A fully working example use of this script to fold ubiquitin is availiable in the rosetta demos repository at `demos/protocol_capture/2015/broker/ubq/`.
+A fully working example use of this script to fold ubiquitin is available in the Rosetta demos repository at `demos/protocol_capture/2015/broker/ubq/`.
 
 ## Modelling a Domain Insertion
 
@@ -77,13 +77,15 @@ Consider the domain insertion protein AB, where protein A (with known structure)
    [SCRIPT]
 ```
 
-In this example of an algorithm that could be used in this situation relies on a [RigidChunkCM](scripting_documentation/ClientMovers#RigidChunkCM) `host`, which is responsible for holding domain A fixed, and a [FragmentCM](scripting_documentation/ClientMovers#FragmentCM), which is responsible for sampling the torsional space of domain B. The ResidueSelector `host_region` indicates the region in sequence space that is domain A--in this case, residue 1-X and Y-Z. `host` then knows to apply residue 1-X of the template pose `1ubq.pdb` to residue 1-X of the fusion protein. When it reaches residue X, however, it stops. Residues X+1 to Y-1 are sampled by the [FragmentCM](scripting_documentation/ClientMovers#FragmentCM). Then, residues Y-Z are held fixed to the conformation found in residues X+1 to END of `1ubq.pdb`. These rigid chunks of protein (1-X and Y-Z) are related in space by a jump, holding their position relative to one another fixed as well. The cut is placed randomly, weighted by the loop propensity in the FragmentCM.
+In this example of an algorithm that could be used in this situation relies on a [[RigidChunkCM|ClientMovers#RigidChunkCM]] `host`, which is responsible for holding domain A fixed, and a [[FragmentCM|ClientMovers#FragmentCM]], which is responsible for sampling the torsional space of domain B. The ResidueSelector `host_region` indicates the region in sequence space that is domain A--in this case, residue 1-X and Y-Z. `host` then knows to apply residue 1-X of the template pose `1ubq.pdb` to residue 1-X of the fusion protein. When it reaches residue X, however, it stops. Residues X+1 to Y-1 are sampled by the [[FragmentCM|ClientMovers#FragmentCM]]. Then, residues Y-Z are held fixed to the conformation found in residues X+1 to END of `1ubq.pdb`. These rigid chunks of protein (1-X and Y-Z) are related in space by a jump, holding their position relative to one another fixed as well. The cut is placed randomly, weighted by the loop propensity in the FragmentCM.
 
 Of course, there are no guarantees that this example algorithm will work for your system (or any system). It hasn't been benchmarked, and exists solely to demonstrate the functionality of the Environment framework.
 
+A fully working example use of this script is available in the Rosetta demos repository at `demos/protocol_capture/2015/broker/domain_insertion/`.
+
 ## Multi-body Docking Example
 
-This example docks three chains (A, B, and C) to one another using a "star" FoldTree using [UniformRigidBodyCMs](scripting_documentation/ClientMovers#UniformRigidBodyCM). In other words, all three chains are docked to a central virtual residue. This is in contrast to a two-to-one docking scheme. A TrialMover is used to run 1000 cycles of docking. [CoMTrackerCMs](scripting_documentation/ClientMovers#CoMTrackerCM) create virtual residues centered at the center of mass of each chain, which are used as the other base of the jump building each chain.
+This example docks three chains (A, B, and C) to one another using a "star" FoldTree using [[UniformRigidBodyCMs|ClientMovers#UniformRigidBodyCM]]. In other words, all three chains are docked to a central virtual residue. This is in contrast to a two-to-one docking scheme. A TrialMover is used to run 1000 cycles of docking. [[CoMTrackerCMs|ClientMovers#CoMTrackerCM]] create virtual residues centered at the center of mass of each chain, which are used as the other base of the jump building each chain.
 
 ```
 <RESIDUE_SELECTORS>
@@ -181,11 +183,11 @@ Many further examples are available as unit tests in test/protocols/environment/
 
 # How do I get my mover to work with the Environment?
 
-I'm so glad you asked! The easiest way is to make it work with the [ScriptCM](scripting_documentation/ClientMovers#ScriptCM) framework, but if your mover does something special (and can't accept a MoveMap as it's information on what to move) or is an obligate ClientMover (doesn't make any sense outside of a Broker framework), then your best bet is to write a new ClientMover.
+I'm so glad you asked! The easiest way is to make it work with the [[ScriptCM|ClientMovers#ScriptCM]] framework, but if your mover does something special (and can't accept a MoveMap as it's information on what to move) or is an obligate ClientMover (doesn't make any sense outside of a Broker framework), then your best bet is to write a new ClientMover.
 
 ## MoveMapMovers and ScriptCM
 
-First, take a look at the [ScriptCM](scripting_documentation/ClientMovers#ScriptCM) section above to see what it's all about. Here's how you can make your mover acceptable as a ScriptCM client mover:
+First, take a look at the [[ScriptCM|ClientMovers#ScriptCM]] section above to see what it's all about. Here's how you can make your mover acceptable as a ScriptCM client mover:
 
 1. Make sure your mover is accessible in RosettaScripts.
 2. Make your mover inherit from MoveMapMover instead of just Mover.
@@ -216,7 +218,7 @@ If your mover meets one of the following criteria, you might consider writing a 
 This is a bit more work (but not much!), but can produce some really elegant, flexible, user-friendly objects. Here's what you have to do:
 
 1. **Decide what needs claiming.** There are really only a couple of options that are even theoretically possible, and they fall in to two categories: DoFs and FoldTree elements. FoldTree elements are cuts, jumps, and new virtual residues. DoFs are basically the numbers that the FoldTree elements give rise to: jump RTs and torsional angles (and, in obscure cases, bond lengths and angles). In general, brokering should not add to the physical system represented by the simulation, but only change the way that system is represented (this is the reason only virtual residue addition is currently supported).
-2. **Couch your claiming needs as Claims.** Looking at the list of existing [Claims](scripting_documentation/ClientMovers#ScriptCM) both in this article and in protocols/environment/claims to determine which Claims best express those needs.
+2. **Couch your claiming needs as Claims.** Looking at the list of existing [[Claims|ClientMovers#ScriptCM]] both in this article and in protocols/environment/claims to determine which Claims best express those needs.
 3. **Implement `ClientMover::yield_claims`** to pass those claims to the Broker.
 4. **Implement `ClientMover::passport_updated`.** This method is called whenever the ClientMovers receives a new DofPassport, which contains all the information about which DoFs your ClientMovers is allowed to access. Typically this hook is used to process the new passport and configure whichever data structure is used within the ClientMovers to track target DoFs (e.g. Jump number). A particularly useful method is DofPassport::render, which produces a MoveMap from a DofPassport.
 4. **Implement ClientMovers::apply** correctly. Because the consensus Conformation inside the pose runs security checks to ensure your mover is allowed to move the DoFs it is trying to move, every ClientMovers must first authenticate using a [Resource Acquisition is Initialization](http://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization) pattern. The ClientMovers instantiates an automatic (i.e. stack-allocated) DofUnlock as the first step in the apply function. It is almost always sufficient to simply cut and paste the following line (if the incoming Pose's name is "pose"):
