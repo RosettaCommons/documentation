@@ -1,4 +1,6 @@
-ClaimingMovers are the modular components that make up any protocol using the Broker framework. There are several CMs that have already been implemented, and this page describes them. For information about how to write your own novel components for the Broker, check the [BrokeredEnvironment](/docs/wiki/scripting_documentation/BrokeredEnvironment) page.
+ClientMover are the modular components that make up any protocol using the Broker framework. There are several CMs that have already been implemented, and this page describes them. For information about how to write your own novel components for the Broker, check the [BrokeredEnvironment](/docs/wiki/scripting_documentation/BrokeredEnvironment) page.
+
+By default, the broker is configured not to accept movers that are not ClientMovers. This provides fail-fast (_i.e._ broker-time) feedback to the user that the mover being used is likely not broker-compatible, rather than waiting until the mover makes some illegal move 45 minutes into the protocol before failing. It is not inconceivable, however, that a mover that is not a broker client could have legal behavior. For example, modifying the PDBInfo object is not a broker-secured operation and can be performed freely by any mover. The default broker-time check for non-client movers can be suppressed by setting the `allow_pure_movers` option true in the definition of the brokered environment.
 
 [[_TOC_]]
 
@@ -25,13 +27,13 @@ The "fragments" and "selector" options are required. The "frag_type" tag default
 
 # FragmentJumpCM
 
-The FragmentJumpCM inserts beta-strand/beta-strand rigid-body translations into jumps between (predicted) adjacent beta-strands. An instantiation of this ClaimingMover looks like:
+The FragmentJumpCM inserts beta-strand/beta-strand rigid-body translations into jumps between (predicted) adjacent beta-strands. An instantiation of this ClientMover looks like:
 
 ```
 <FragmentJumpCM name="jumps" topol_file="beta_sheets.top" /> 
 ```
 
-The valid option sets for this ClaimingMover are:
+The valid option sets for this ClientMover are:
 
 1. "topol_file" specifying a topology file. Such a file can be generated from a pdb file by Oliver Lange's "r_pdb2top" pilot app ("apps/pilot/olli/r_pdb2top.cc" as of this writing). For example:
     `r_pdb2top.linuxgccrelease -in:file:s start.pdb -out:top start.top`
@@ -81,7 +83,7 @@ Multiple movers can be separated by commas. Thus `apply_to_template="centroid,fu
 <CoMTrackerCM name=(&string) selector=(&string) />
 ```
 
-The CoMTrackerCM creates a virtual residue that tracks a particular set of atoms in space. The only option is "mobile_selector", which indicates the region that is to be tracked. The "name" option is a bit special, as the virtual residue created will bear that name as well. Thus, other ClaimingMovers that need to jump to or from that residue use that name.
+The CoMTrackerCM creates a virtual residue that tracks a particular set of atoms in space. The only option is "mobile_selector", which indicates the region that is to be tracked. The "name" option is a bit special, as the virtual residue created will bear that name as well. Thus, other ClientMover that need to jump to or from that residue use that name.
 
 # AbscriptLoopCloserCM
 The AbscriptLoopCloserCM uses the WidthFirstSlidingWindowLoopCloser (used in _ab initio_ to close unphysical chainbreaks) to fix loops. An example instantiation is:
@@ -122,7 +124,7 @@ Scoring at each of the four stages is modified by the `-abinitio::stage1_patch`,
 
 # ScriptCM
 
-The ScriptCM is the most flexible of the ClaimingMovers. It operates by dynamically instantiating movers and claims as the user describes in the RosettaScript. The following example creates a mover that minimizes a jump between two residue selections built by ResidueSelectors named "ChainA" and one named "ChainB":
+The ScriptCM is the most flexible of the ClientMover. It operates by dynamically instantiating movers and claims as the user describes in the RosettaScript. The following example creates a mover that minimizes a jump between two residue selections built by ResidueSelectors named "ChainA" and one named "ChainB":
 
 ```
 <ScriptCM name="SideChainMin" >
@@ -171,7 +173,7 @@ An important option for this claim is "relative." This option determines if the 
 
 The VirtResClaim creates a virtual residue and a jump from some base position to build that virtual residue. A cut is also created to ensure the new virtual residue is not attached to any chain.
 
-The "vrt_name" option sets the name of the virtual residue. If this virtual residue is to be used by other ClaimingMovers or claims, this is the name by which is should be referred. Note, however, that two VirtResClaims with the same name are not allowed--JumpClaims should be used to jump to and from the virtual residue when it does not need to be created. This is an intentional choice to allow the system to catch errors of accidental virtual residue duplication. An example demonstrating the importance of this feature is CoMTrackerCMs _really do_ need their own virtual residues--other Claims using that virtual residue are, in some sense, just guests.
+The "vrt_name" option sets the name of the virtual residue. If this virtual residue is to be used by other ClientMover or claims, this is the name by which is should be referred. Note, however, that two VirtResClaims with the same name are not allowed--JumpClaims should be used to jump to and from the virtual residue when it does not need to be created. This is an intentional choice to allow the system to catch errors of accidental virtual residue duplication. An example demonstrating the importance of this feature is CoMTrackerCMs _really do_ need their own virtual residues--other Claims using that virtual residue are, in some sense, just guests.
 
 Other options include "parent", a ResidueSelector or label indicating where the other end of the jump building the virtual residue should be and "jump_control_strength" setting the control strength of the built jump.
 
