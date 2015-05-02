@@ -17,7 +17,7 @@ file a bug in our [issue tracker](http://bugs.rosettacommons.org).
 
 ##Scripting interfaces to Rosetta functionality
 - [[RosettaScripts]]: An XML-based scripting interface
-    * [[The Topology Broker|EnvironmentFramework]] - Rapid protocol prototyping in C++ and RosettaScripts
+    * [[The Topology Broker|BrokeredEnvironment]] - Rapid protocol prototyping in C++ and RosettaScripts
 - [[PyRosetta]]: Python wrappings for Rosetta
 
 ##Structure Prediction
