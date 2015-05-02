@@ -1,3 +1,5 @@
+ClaimingMovers are the modular components that make up any protocol using the Broker framework. There are several CMs that have already been implemented, and this page describes them. For information about how to write your own novel components for the Broker, check the [BrokeredEnvironment](/docs/wiki/scripting_documentation/BrokeredEnvironment) page.
+
 [[_TOC_]]
 
 # UniformRigidBodyCM
