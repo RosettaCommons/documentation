@@ -154,6 +154,9 @@ This example docks three chains (A, B, and C) to one another using a "star" Fold
   <Add mover=relax />
 </PROTOCOLS>
 ```
+#Availiable Client Movers
+
+We have a list of avaliable [[ClientMovers]].
 
 # Using the Environment in C++ code
 
