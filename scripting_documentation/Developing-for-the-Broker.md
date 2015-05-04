@@ -10,7 +10,7 @@ If you're
 
 ## MoveMapMovers and ScriptCM
 
-First, take a look at the [[ScriptCM|ClientMovers#ScriptCM]] section above to see what it's all about. Here's how you can make your mover acceptable as a ScriptCM client mover:
+First, take a look at the [[ScriptCM|ClientMovers#ScriptCM]]. Here's how you can make your mover acceptable as a ScriptCM client mover:
 
 1. Make sure your mover is accessible in RosettaScripts.
 2. Make your mover inherit from MoveMapMover instead of just Mover.
@@ -19,7 +19,7 @@ First, take a look at the [[ScriptCM|ClientMovers#ScriptCM]] section above to se
 5. Make sure your mover obeys the MoveMap that is passed in through set_movemap. (For extra credit, throw an exception of degrees of freedom are accessible in the MoveMap that your mover doesn't know how to move--e.g. torsion angles for a docking mover)
 6. Profit!
 
-Then, put your mover inside a ScriptCM with the appropriate client Mover and Claim subtags. For example,
+Then, put your mover inside a [[ScriptCM|ClientMovers#ScriptCM]] with the appropriate client Mover and Claim subtags. For example,
 
 ```
 <ScriptCM name="my_mover">
@@ -28,13 +28,13 @@ Then, put your mover inside a ScriptCM with the appropriate client Mover and Cla
 </ScriptCM>
 ```
 
-Would create cause a mover "my_mover" whose apply applies your special mover (as created by its own parse_my_tag) with a MoveMap with all the available (i.e. not made unavailable by an EXCLUSIVE Claim) torsion angles in the ResidueSelector "ChainA" set to true.
+Would create cause a mover "my_mover" whose apply applies your special mover (as created by its own parse_my_tag) with a MoveMap with all the available (i.e. not made unavailable by an `EXCLUSIVE` Claim) torsion angles in the ResidueSelector "ChainA" set to true.
 
 ## Developing New ClientMovers
 
-If your mover meets one of the following criteria, you might consider writing a special ClientMover just for your class, because it might not fit neatly in the ScriptCM/MoveMapMover pattern.
+If your mover meets one of the following criteria, you might consider writing a special [[ClientMover|ClientMovers]] just for your class, because it might not fit neatly in the [[ScriptCM|ClientMovers#ScriptCM]]/MoveMapMover pattern.
 
-1. Doesn't make sense outside of an Enviroment
+1. Doesn't make sense outside of an Environment
 2. The claiming associated with your mover--either the construction of FoldTree/AtomTree elements or the DoFs that need to be controlled--is best determined dynamically by the code at broker-time or should be read from a file.
 3. Your effector move (the code that actually changes the numbers in the AtomTree) cannot handle a MoveMap, and requires instead some other indicator (for example, the UniformRigidBodyMover likes a Jump number, not a MoveMap).
 
