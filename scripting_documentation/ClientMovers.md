@@ -60,7 +60,7 @@ The RigidChunkCM holds a particular region of the pose constant (fixed to the co
               selector="simulation_selector" />
 ```
 
-makes a rigid chunk claimer called "chunk". The option "template" supplies the PDB file to copy from, or if you supply the string "INPUT", it will use the state of the pose at broker-time.
+makes a RigidChunkCM called "chunk". The option "template" supplies the PDB file to copy from, or if you supply the string "INPUT", it will use the state of the pose at broker-time.
 
 The `RigidChunkCM` also requires direction as to which regions of the template structure to take. This is specified in one of several ways. The first way is to use the `region_file` option. It takes a [[loops file]] to specify regions *from the template* that will be used to insert into the simulation. For example,
 
@@ -130,7 +130,7 @@ Scoring at each of the four stages is modified by the `-abinitio::stage1_patch`,
 
 # ScriptCM
 
-The ScriptCM is the most flexible of the ClientMover. It operates by dynamically instantiating movers and claims as the user describes in the RosettaScript. The following example creates a mover that minimizes a jump between two residue selections built by ResidueSelectors named "ChainA" and one named "ChainB":
+The ScriptCM is the most flexible of the ClientMover. It operates by dynamically instantiating ClientMovers and [[EnvClaims]] as the user describes in the RosettaScript. The following example creates a mover that minimizes a jump between two residue selections built by ResidueSelectors named "ChainA" and one named "ChainB":
 
 ```
 <ScriptCM name="SideChainMin" >
@@ -141,8 +141,8 @@ The ScriptCM is the most flexible of the ClientMover. It operates by dynamically
 
 The only option taken by the top-level ScriptCM tag is name, which has no special meaning.
 
-There are two types of allowed subtags for the ScriptCM. The first is the mover-instantiation subtag. If the tag's name---in the above example, "MinMover"---is not a Claim (more on these later), then the ScriptCM tries to interpret it as a mover to be instantiated. This works just like mover instantiation in the rest of RosettaScripts works, except that the mover must inherit from MoveMapMover, which requires implementation of the methods movemap and set_movemap. Only one such "client mover" is allowed, and the ScriptCM's apply simply calls the client's apply.
+There are two types of allowed subtags for the ScriptCM. The first is the mover-instantiation subtag. If the tag's name (in the above example, "MinMover") is not an [[EnvClaim]] (more on these later), then the ScriptCM tries to interpret it as a mover to be instantiated. This works just like mover instantiation in the rest of [[RosettaScripts|RosettaScripts Documentation]] works, except that the mover must inherit from MoveMapMover, which requires implementation of the methods movemap and set_movemap. Only one such "client mover" is allowed, and the ScriptCM's apply simply calls the client's apply.
 
-The second type of ScriptCM subtag is the Claim subtag. At the time of this writing, the available claims are: JumpClaim, TorsionClaim, XYZClaim, VirtResClaim, and CutBiasClaim. I don't expect this list to grow much, as there really aren't that many different kinds of DoFs available (only jump translations, jump rotations, torsions, bond length, and bond angles are represented in the atom tree), so think twice about writing your own. I (the author) would be happy to chat about this if you're thinking about it! Each of these Claims is used for selecting, and in some cases instantiating, certain DoFs within the nascent AtomTree during broking for movement by this ScriptCM. An arbitrary number of Claim subtags is permitted.
+The second type of ScriptCM subtag is the Claim subtag. At the time of this writing, the available claims are: [[JumpClaim|EnvClaim#JumpClaim]], [[TorsionClaim|EnvClaim#TorsionClaim]], [[XYZClaim|EnvClaim#XYZClaim]], [[VirtResClaim|EnvClaim#VirtResClaim]], and [[CutBiasClaim|EnvClaim#CutBiasClaim]]. I don't expect this list to grow much, as there really aren't that many different kinds of DoFs available (only jump translations, jump rotations, torsions, bond length, and bond angles are represented in the atom tree), so think twice about writing your own. I (the author) would be happy to chat about this if you're thinking about it! Each of these Claims is used for selecting, and in some cases instantiating, certain DoFs within the nascent AtomTree during broking for movement by this ScriptCM. An arbitrary number of Claim subtags is permitted.
 
 After broking is completed, the ScriptCM passes a MoveMap based on what the claim(s) allow the ScriptCM access to in the consensus Conformation. This MoveMap is then passed to the client mover via the required set_movemap method.
