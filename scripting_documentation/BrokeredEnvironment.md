@@ -107,16 +107,20 @@ This example docks three chains (A, B, and C) to one another using a "star" Fold
   <UniformRigidBodyCM name="rigidC" mobile="com_C" stationary="star_center" />
 
   <RandomMover name="dock_bag" movers="rigidA,rigidB,rigidC,com_A,com_B,com_C" />
-  <GenericMonteCarlo name="dock" scorefxn_name=[your scorefn] mover_name="dock_bag" temperature=2.0 trials=1000/>
+  <GenericMonteCarlo name="dock" scorefxn_name="talaris2013" mover_name="dock_bag" temperature=2.0 trials=1000 />
+
+  <Environment name=multidock >
+    <Apply name=dock />
+  </Environment>
 </MOVERS>
 <PROTOCOLS>
-  <Environment name=multidock >
-    <Apply name=dock/>
-  </Environment>
+  <Add mover="multidock"/>
 </PROTOCOLS>
 ```
 
 ## (Asymmetric) Fold and Dock Example
+
+[[Fold and Dock]] is a protocol that was designed to obligate symmetric multimers. While the broker does not currently support symmetry, the broker does furnish functionality that allows for all parts of that protocol *except* symmetric mirroring. To demonstrate this, we constructed an example script to demonstrate how this might be achieved to simultaneously fold and dock an obligate heterodimer.
 
 ```
 <RESIDUE_SELECTORS>
