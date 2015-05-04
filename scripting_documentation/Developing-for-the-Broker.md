@@ -26,7 +26,7 @@ Then, put your mover inside a [[ScriptCM|ClientMovers#ScriptCM]] with the approp
 </ScriptCM>
 ```
 
-Would create cause a mover "my_mover" whose apply applies your special mover (as created by its own parse_my_tag) with a MoveMap with all the available (i.e. not made unavailable by an `EXCLUSIVE` Claim) torsion angles in the ResidueSelector "ChainA" set to true.
+Would create cause a mover "my_mover" whose apply applies your special mover (as created by its own `parse_my_tag` function) with a MoveMap with all the available (i.e. not made unavailable by an `EXCLUSIVE` Claim) torsion angles in the ResidueSelector "ChainA" set to true.
 
 ## Developing New ClientMovers
 
@@ -34,25 +34,25 @@ If your mover meets one of the following criteria, you might consider writing a 
 
 1. Doesn't make sense outside of an Environment
 2. The claiming associated with your mover--either the construction of FoldTree/AtomTree elements or the DoFs that need to be controlled--is best determined dynamically by the code at broker-time or should be read from a file.
-3. Your effector move (the code that actually changes the numbers in the AtomTree) cannot handle a MoveMap, and requires instead some other indicator (for example, the UniformRigidBodyMover likes a Jump number, not a MoveMap).
+3. Your effector move (the code that actually changes the numbers in the AtomTree) cannot handle a MoveMap, and requires instead some other indicator (for example, the UniformRigidBodyMover takes a Jump number, not a MoveMap).
 
 This is a bit more work (but not much!), but can produce some really elegant, flexible, user-friendly objects. Here's what you have to do:
 
 1. **Decide what needs claiming.** There are really only a couple of options that are even theoretically possible, and they fall in to two categories: DoFs and FoldTree elements. FoldTree elements are cuts, jumps, and new virtual residues. DoFs are basically the numbers that the FoldTree elements give rise to: jump RTs and torsional angles (and, in obscure cases, bond lengths and angles). In general, brokering should not add to the physical system represented by the simulation, but only change the way that system is represented (this is the reason only virtual residue addition is currently supported).
 2. **Couch your claiming needs as Claims.** Looking at the list of existing [[Claims|ClientMovers#ScriptCM]] both in this article and in protocols/environment/claims to determine which Claims best express those needs.
 3. **Implement `ClientMover::yield_claims`** to pass those claims to the Broker.
-4. **Implement `ClientMover::passport_updated`.** This method is called whenever the ClientMovers receives a new DofPassport, which contains all the information about which DoFs your ClientMovers is allowed to access. Typically this hook is used to process the new passport and configure whichever data structure is used within the ClientMovers to track target DoFs (e.g. Jump number). A particularly useful method is DofPassport::render, which produces a MoveMap from a DofPassport.
-4. **Implement ClientMovers::apply** correctly. Because the consensus Conformation inside the pose runs security checks to ensure your mover is allowed to move the DoFs it is trying to move, every ClientMovers must first authenticate using a [Resource Acquisition is Initialization](http://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization) pattern. The ClientMovers instantiates an automatic (i.e. stack-allocated) DofUnlock as the first step in the apply function. It is almost always sufficient to simply cut and paste the following line (if the incoming Pose's name is "pose"):
+4. **Implement `ClientMover::passport_updated`.** This method is called whenever the ClientMovers receives a new `DofPassport`, which contains all the information about which DoFs your ClientMovers is allowed to access. Typically this hook is used to process the new passport and configure whichever data structure is used within the ClientMovers to track target DoFs (e.g. Jump number). A particularly useful method is `DofPassport::render`, which produces a MoveMap from a `DofPassport`.
+4. **Implement ClientMovers::apply** correctly. Because the consensus Conformation inside the pose runs security checks to ensure your mover is allowed to move the DoFs it is trying to move, every [[ClientMover|ClientMovers]] must first authenticate using a [Resource Acquisition is Initialization](http://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization) pattern. The [[ClientMovers]] instantiates an automatic (i.e. stack-allocated) `DofUnlock` as the first step in the apply function. It is almost always sufficient to simply cut and paste the following line (if the incoming Pose's name is "pose"):
 
     ```
     DofUnlock activation( pose.conformation(), passport() );
     ```
 
-    It is absolutely crucial that the object be _named_, even if it never gets used, as it will be compiled out completely otherwise. This has tripped up the author nearly every time he wrote a new ClientMover.
+    It is absolutely crucial that the object be _named_, even if it never gets used, as it will be compiled out completely otherwise. This has tripped up the author nearly every time he wrote a new [[ClientMover|ClientMovers]].
 
-5. **Profit!** Add your new mover to an environment, and begin mixing and matching with other ClientMover.
+5. **Profit!** Add your new mover to an environment, and begin mixing and matching with other [[ClientMover|ClientMovers]].
 
-In general, ClientMovers are only a few hundred lines (at time of this writing, FragmentCM.cc is 244 lines, UniformRigidBodyCM is 175 lines), especially if they contain an existing mover that is responsible for the heavy-lifting in actually performing the numerical manipulations associated with the move.
+In general, [[ClientMovers]] are only a few hundred lines (at time of this writing, FragmentCM.cc is 244 lines, UniformRigidBodyCM.cc is 175 lines), especially if they contain an existing mover that is responsible for the heavy-lifting in actually performing the numerical manipulations associated with the move.
 
 ### Specialized features
 
@@ -81,6 +81,6 @@ The broker does not currently support design. Like symmetry, the reason for this
 
 Fortunately, there is only very rarely an actual need to vary chain lengths *during* sampling. A perfectly valid strategy when multiple lengths of chain need to be evaluated is to vary the length of the chain on a *per decoy* basis. In other words, choose a length once at the beginning of the trajectory and stick with it throughout, and sample the reasonable variance in length over decoy distribution, rather than within each decoy.
 
-Residue design, on the other hand, is less amenable to that strategy. To perform design that involves changes to the atom tree, the `DofPassport` must be updated, or at least be able to handle changing DOF_IDs.
+Residue design, on the other hand, is less amenable to that strategy. To perform design that involves changes to the atom tree, the `DofPassport` must be updated, or at least be able to handle changing `DOF_IDs`.
 
 There are a couple of ways this could be done. Because most design is side chain-swapping, the easiest way to do this would probably be to construct a way to claim an entire sidechain for design. This would claim `MUST CONTROL` access to the whole sidechain, and store access to all non-backbone atoms as a single entry in the `DofPassport`. For example, the entire backbone could be stored as a single `DOF_ID` with the atom number of the first non-backbone atom in the residue.
