@@ -1,4 +1,4 @@
-The Brokered Environment framework, also known as the ToplogyBroker 2.0, is a tool for generating larger, more complex simulation systems out of small interchangeable parts. The intent is to make rapid protocol development in RosettaScript easier by allowing sampling strategies to be carried out simultaneously rather than in sequence by constructing a consensus FoldTree that satisfies all movers. Such Movers inherit from the [[ClientMover|ClientMovers]] (CM) class.
+The Brokered Environment framework, also known as the ToplogyBroker 2.0, is a tool for generating larger, more complex simulation systems out of small interchangeable parts. The intent is to make rapid protocol development in [[RosettaScripts]], [[PyRosetta]], and even the C++ easier by allowing sampling strategies to be carried out simultaneously rather than in sequence by constructing a consensus FoldTree that satisfies all movers. Such Movers inherit from the [[ClientMover|ClientMovers]] (CM) class.
 
 **Author's Note:** If anything here doesn't make sense, doesn't work as advertised, or is otherwise demanding of attention, give me (the original developer) a shout at justinrporter at gmail. I spent quite a long time on this, and would love to see other folks using it, so if I can help, let me know!
 
@@ -10,7 +10,7 @@ We have a list of available [[ClientMovers]].
 
 # The Broker in RosettaScripts
 
-Using an brokered Environment in your RosettaScripts is as easy as
+Using an brokered Environment in your [[RosettaScripts]] is as easy as
 
 1. Define your ClientMovers.
 2. Add your ClientMovers to an Environment.
