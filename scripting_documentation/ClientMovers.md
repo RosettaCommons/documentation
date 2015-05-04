@@ -21,7 +21,7 @@ The FragmentCM does standard fragment insertion in a targeted region. A Fragment
 <FragmentCM name="chA_large" frag_type="classic" fragments="frags9A" selector="ChainA" />
 ```
 
-Here, the FragmentCM with the name "chA_large" is instantiated using the fragments in the file "frags9A" and told to insert those fragments using the "classic" policy (_c.f._ "smooth" insertion policy) in the region given by the ResidueSelector 'ChainA'. The option "initialize" can be used to set if the mover inserts a fragment at every position after broking is completed (useful during abinitio to start the structure off) or not. The option "nfrags" can be provided if there are a nonstandard number of fragments per position (default is 25)
+Here, the FragmentCM with the name "chA_large" is instantiated using the fragments in the [[fragment file]] "frags9A" and told to insert those fragments using the "classic" policy (_c.f._ "smooth" insertion policy) in the region given by the ResidueSelector 'ChainA'. The option "initialize" can be used to set if the mover inserts a fragment at every position after broking is completed (useful during *ab initio* to start the structure off) or not. The option "nfrags" can be provided if there are a nonstandard number of fragments per position (default is 25)
 
 The "fragments" and "selector" options are required. The "frag_type" tag defaults to classic.
 
@@ -74,7 +74,7 @@ An additional selector is used to select specific regions from the simulation fo
 
 To further complicate matters, regions do not need to be contiguous. A region can be, for example, residues *a*-*b* and (*c* - *d*). If that is the selection from the template and simulation selector selects residues *w*-*x* and (*y* - *z*), *a* will be paired with *w*, (*a* + *i*) will be paired with (*w* + *i*) for *i* [1,*b*-*a*]. If (*b* - *a*) < (*x* - *w*), then *c* will be paired with *w* + (*x* - *b*)--in other words, the pairing continues ignoring the break in residues completely.
 
-Sometimes, it's useful to apply a mover to the template just after it's loaded in. For example, given a full-atom PDB, we'd sometimes like to convert it to a centroid representation for abinitio-style simulations (this avoids problems with differing numbers of atoms in the template and simulation). Here, a SwitchResidueTypeSetMover is applied to the template before the template is used to set internal degrees of freedom in the simulation.
+Sometimes, it's useful to apply a mover to the template just after it's loaded in. For example, given a full-atom PDB, we'd sometimes like to convert it to a centroid representation for *ab initio*-style simulations (this avoids problems with differing numbers of atoms in the template and simulation). Here, a SwitchResidueTypeSetMover is applied to the template before the template is used to set internal degrees of freedom in the simulation.
 
 ```
 <SwitchResidueTypeSetMover name="centroid" set="centroid" />
@@ -120,7 +120,7 @@ The AbscriptMover is a special mover container that is used to replicate the sta
 
 Here, the cycles tag is equivalent to the "-run:increase_cycles" flag in standard _ab initio_, multiplying the number of _ab initio_ cycles by that factor. This is important to think about because the number of fragment insertions is a fixed number, and will not automatically increase with increasing protein size. Values between 2 and 10 are recommended depending upon the difficulty of the protein and availability of processor time.
 
-The "Stage" subtag is used to add movers to particular substages of abinitio, which given by the "id" option. Legal values are I, II, IIIa, IIIb, IVa, and IVb, and ranges are possible. Multiple Stage subtags are also possible. Stage III alternates between IIIa and IIIb and stage IV alternates between IVa and IVb. The "Mover" subtag of "Stage" names a mover with the "name" option (previously defined) to add.
+The "Stage" subtag is used to add movers to particular substages of *ab initio*, which given by the "id" option. Legal values are I, II, IIIa, IIIb, IVa, and IVb, and ranges are possible. Multiple Stage subtags are also possible. Stage III alternates between IIIa and IIIb and stage IV alternates between IVa and IVb. The "Mover" subtag of "Stage" names a mover with the "name" option (previously defined) to add.
 
 Stages can be skipped by providing the "skip_stages" option with values "1", "2", "3", or "4" (or multiple stages separated by commas). 
 
