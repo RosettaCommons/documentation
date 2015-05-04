@@ -67,7 +67,7 @@ The Broker architecture is described in a forthcoming paper in the RosettaCon 20
 
 ## Symmetry
 
-The broker does not currently support symmetry. The reason for this is *purely technical*, so it's eminently possible. The major problem is that both symmetry *and* the broker, are implementations of the Conformation object. Since we do not allow multiple inheritance in Rosetta, it's not currently possible to use both functionality sets at the same time.
+The broker does not currently support [[symmetry]]. The reason for this is *purely technical*, so it's eminently possible. The major problem is that both symmetry *and* the broker, are implementations of the Conformation object. Since we do not allow multiple inheritance in Rosetta, it's not currently possible to use both functionality sets at the same time.
 
 To solve this, symmetric behavior would need to be implemented for the `ProtectedConformation`. Either `ProtectedConformation` could be made to inherit from `SymmetricConformation` (such that all `ProtectedConformations` are symmetric, just sometimes symmetric with _n_ = 1), or `ProtectedConformation` could implement its own symmetric copying code.
 
