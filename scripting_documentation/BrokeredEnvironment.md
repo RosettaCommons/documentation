@@ -40,7 +40,7 @@ In the following example, a ChainResidueSelector selecting chains named "A" and 
 
 ## _Ab initio_ Example
 
-The following example replicates an _ab initio_ run. The file "beta_sheets.top" contains a predicted beta-strand pairing topology, and the 9-mer and 3-mer fragments are in files called "frag9.dat" and "frag3.dat", respectively. Loops are closed after the [[AbscriptMover|ClientMovers#AbscriptMover]] runs all stages of abinitio by the [[AbscriptLoopCloserCM|ClientMovers#AbscriptLoopCloserCM]], and then FastRelax refines the structure in full atom mode. The assumption is made here that the input pose is in centroid mode.
+The following example replicates an _[[ab initio|Abinitio Relax]]_ run. The file "beta_sheets.top" contains a predicted beta-strand pairing topology, and the 9-mer and 3-mer fragments are in [[fragment files|fragment file]] called "frag9.dat" and "frag3.dat", respectively. Loops are closed after the [[AbscriptMover|ClientMovers#AbscriptMover]] runs all stages of abinitio by the [[AbscriptLoopCloserCM|ClientMovers#AbscriptLoopCloserCM]], and then FastRelax refines the structure in full atom mode. The assumption is made here that the input pose is in centroid mode.
 
 A fully working example use of this script to fold ubiquitin is available in the Rosetta demos repository at `demos/protocol_capture/2015/broker/ubq/`.
 
