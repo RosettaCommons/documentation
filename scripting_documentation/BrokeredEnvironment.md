@@ -42,6 +42,8 @@ In the following example, a ChainResidueSelector selecting chains named "A" and 
 
 The following example replicates an _ab initio_ run. The file "beta_sheets.top" contains a predicted beta-strand pairing topology, and the 9-mer and 3-mer fragments are in files called "frag9.dat" and "frag3.dat", respectively. Loops are closed after the [[AbscriptMover|ClientMovers#AbscriptMover]] runs all stages of abinitio by the [[AbscriptLoopCloserCM|ClientMovers#AbscriptLoopCloserCM]], and then FastRelax refines the structure in full atom mode. The assumption is made here that the input pose is in centroid mode.
 
+A fully working example use of this script to fold ubiquitin is available in the Rosetta demos repository at `demos/protocol_capture/2015/broker/ubq/`.
+
 ```
 <MOVERS>
   <FragmentJumpCM name="jumps" topol_file="beta_sheets.top" />
@@ -71,14 +73,68 @@ The following example replicates an _ab initio_ run. The file "beta_sheets.top" 
 </PROTOCOLS>
 ```
 
-A fully working example use of this script to fold ubiquitin is available in the Rosetta demos repository at `demos/protocol_capture/2015/broker/ubq/`.
-
 ## Modelling a Domain Insertion
 
 Consider the domain insertion protein AB, where protein A (with known structure) has protein B (structure unknown) inserted somewhere inside of it. While holding the A part of the fusion protein fixed, we would like to insert fragments in protein B, without perturbing the structure of A.
 
 ```
-   [SCRIPT]
+<ROSETTASCRIPTS>
+  <RESIDUE_SELECTORS>
+    <!-- The crystal structure is missing density inside the inserted domain
+         (resids 267-275). As a result, we need to use a different numbering
+         scheme when we talk about the pdb as we do when we talk about the
+         extended chain that we're simulating. -->
+    <!-- host_domain_wo_linker selects the host domain when the residues
+         not modeled in the crystal structure are not present (i.e. crystal structure numbering). -->
+    <Index name="host_domain_wo_linker" resnums="1-159,288-339" />
+    <!-- "host domain_w_linker" selects the host domain when the residues
+         not modeled in the crystal structure ARE present (i.e. simulation numbering). -->
+    <Index name="host_domain_w_linker" resnums="1-159,295-346" />
+    <Not name="inserted_domain" selector="host_domain_w_linker" />
+  </RESIDUE_SELECTORS>
+  <MOVERS>
+    <SwitchResidueTypeSetMover name="centroid" set="centroid" />
+
+    <FragmentJumpCM name="jumps" topol_file="1uufA.top" />
+
+    <AbscriptMover name="abinitio" cycles="6" >
+      <Fragments large_frags="1uufA.frag9" small_frags="1uufA.frag3" />
+      <Stage ids="I-IVb" >
+        <Mover name="jumps" />
+      </Stage>
+    </AbscriptMover>
+    
+    <!-- "region_selector" : the selector that selects the residues from the pdb
+         "selector" : selector that selects the destination for residues selected by "region_selector"
+         "apply_to_template" : applies a mover to the template PDB before copying atomic coordinates;
+                               required, since we need a match in atom numbers and types to copy.
+    -->
+    <RigidChunkCM name="chunk" region_selector="host_domain_wo_linker"
+                  template="1uufA.pdb" selector="host_domain_w_linker"
+                  apply_to_template="centroid" />
+    <AbscriptLoopCloserCM name="closer" fragments="1uufA.frag3" />
+    
+    <Environment name="env" auto_cut="1" >
+      <Register mover="chunk" />
+      <Apply mover="abinitio" />
+      <Apply mover="closer" />
+    </Environment>
+
+    <SwitchResidueTypeSetMover name="fullatom" set="fa_standard" />
+
+    <!-- We've reduced the number of fastrelax repeats because it is so time-consuming. In "real life", this would need to be high(er). The default in abinitio is 5.-->
+    <FastRelax name="relax" repeats="2" />
+    
+  </MOVERS>
+  <FILTERS>
+  </FILTERS>
+  <PROTOCOLS>
+    <Add mover="centroid" />
+    <Add mover="env" />
+    <Add mover="fullatom" />
+    <Add mover="relax" />
+  </PROTOCOLS>
+</ROSETTASCRIPTS>
 ```
 
 In this example of an algorithm that could be used in this situation relies on a [[RigidChunkCM|ClientMovers#RigidChunkCM]] `host`, which is responsible for holding domain A fixed, and a [[FragmentCM|ClientMovers#FragmentCM]], which is responsible for sampling the torsional space of domain B. The ResidueSelector `host_region` indicates the region in sequence space that is domain A--in this case, residue 1-X and Y-Z. `host` then knows to apply residue 1-X of the template pose `1ubq.pdb` to residue 1-X of the fusion protein. When it reaches residue X, however, it stops. Residues X+1 to Y-1 are sampled by the [[FragmentCM|ClientMovers#FragmentCM]]. Then, residues Y-Z are held fixed to the conformation found in residues X+1 to END of `1ubq.pdb`. These rigid chunks of protein (1-X and Y-Z) are related in space by a jump, holding their position relative to one another fixed as well. The cut is placed randomly, weighted by the loop propensity in the FragmentCM.
@@ -124,8 +180,8 @@ This example docks three chains (A, B, and C) to one another using a "star" Fold
 
 ```
 <RESIDUE_SELECTORS>
-<Chain chains="A" name=ChainA />
-<Chain chains="B" name=ChainB />
+  <Chain chains="A" name=ChainA />
+  <Chain chains="B" name=ChainB />
 </RESIDUE_SELECTORS>
 
 <MOVERS>
