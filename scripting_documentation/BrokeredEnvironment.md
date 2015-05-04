@@ -1,4 +1,4 @@
-The Brokered Environment framework, also known as the ToplogyBroker 2.0, is a tool for generating larger, more complex simulation systems out of small interchangeable parts. The intent is to make rapid protocol development in [[RosettaScripts]], [[PyRosetta]], and even the C++ easier by allowing sampling strategies to be carried out simultaneously rather than in sequence by constructing a consensus FoldTree that satisfies all movers. Such Movers inherit from the [[ClientMover|ClientMovers]] (CM) class.
+The Brokered Environment framework, also known as the ToplogyBroker 2.0, is a tool for generating larger, more complex simulation systems out of small interchangeable parts. The intent is to make rapid protocol development in [[RosettaScripts]], [[PyRosetta]], and even the C++ easier by allowing sampling strategies to be carried out simultaneously rather than in sequence by constructing a consensus [[FoldTree|foldtree-overview]] that satisfies all movers. Such Movers inherit from the [[ClientMover|ClientMovers]] (CM) class.
 
 **Author's Note:** If anything here doesn't make sense, doesn't work as advertised, or is otherwise demanding of attention, give me (the original developer) a shout at justinrporter at gmail. I spent quite a long time on this, and would love to see other folks using it, so if I can help, let me know!
 
@@ -145,7 +145,7 @@ A fully working example use of this script is available in the Rosetta demos rep
 
 ## Multi-body Docking Example
 
-This example docks three chains (A, B, and C) to one another using a "star" FoldTree using [[UniformRigidBodyCMs|ClientMovers#UniformRigidBodyCM]]. In other words, all three chains are docked to a central virtual residue. This is in contrast to a two-to-one docking scheme. A TrialMover is used to run 1000 cycles of docking. [[CoMTrackerCMs|ClientMovers#CoMTrackerCM]] create virtual residues centered at the center of mass of each chain, which are used as the other base of the jump building each chain.
+This example docks three chains (A, B, and C) to one another using a "star" [[FoldTree|foldtree-overview]] using [[UniformRigidBodyCMs|ClientMovers#UniformRigidBodyCM]]. In other words, all three chains are docked to a central virtual residue. This is in contrast to a two-to-one docking scheme. A TrialMover is used to run 1000 cycles of docking. [[CoMTrackerCMs|ClientMovers#CoMTrackerCM]] create virtual residues centered at the center of mass of each chain, which are used as the other base of the jump building each chain.
 
 ```
 <RESIDUE_SELECTORS>
@@ -225,9 +225,9 @@ An implementation of a similar protocol using this paradigm, along with a detail
 
 This section is about building protocols that use the broker and existing [[ClaimingMovers]] to build a protocol/application in C++, not [[Developing for the Broker]]. Making a brokered Environment in your C++ code is as easy as
 
-1. **Make an Environment**. There are a couple of options to set in the constructor (*e.g.* should the Environment look at the old FoldTree to resolve FoldTree cycles), but in most cases all you need to do is give it a name.
+1. **Make an Environment**. There are a couple of options to set in the constructor (*e.g.* should the Environment look at the old [[FoldTree|foldtree-overview]] to resolve [[FoldTree|foldtree-overview]] cycles), but in most cases all you need to do is give it a name.
 2. **Register your ClientMovers** with the environment. This lets the Broker know that it needs to ask this mover for claims during broking.
-3. **Apply your movers.** Environment::start returns a pose which has a ProtectedConformation built in. This is the Pose with the consensus FoldTree and all the DoF protections attached. Apply your protocol to this object.
+3. **Apply your movers.** Environment::start returns a pose which has a ProtectedConformation built in. This is the Pose with the consensus [[FoldTree|foldtree-overview]] and all the DoF protections attached. Apply your protocol to this object.
 4. **Close your environment.** Once you've executed your protocol (or want to move on to the next stage, either run by a different broker or not brokered), you need to clean up. Environment::end does this.
 
 For a protocol with only one [[ClientMover|ClientMovers]] (called MyClientMover), it might look like this.
