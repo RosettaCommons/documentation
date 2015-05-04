@@ -55,18 +55,24 @@ The "selector" tag references a ResidueSelector, which is used to determine the 
 The RigidChunkCM holds a particular region of the pose constant (fixed to the coordinates in a given .pdb file) and prevents those torsional angles from being sampled by other movers. An example use:
 
 ```
-<RigidChunkCM name="chunk" region_file="core.rigid" template="template.pdb" />
+<RigidChunkCM name="chunk" 
+              template="1uufA.pdb" region_selector="template_selector"
+              selector="simulation_selector" />
 ```
 
-makes a rigid chunk claimer called "chunk". The option "template" supplies the PDB file to copy from, or the special value "INPUT" uses the input pose at broker-time. The option region_file specifies a loops file for regions that should be held constant. For example,
+makes a rigid chunk claimer called "chunk". The option "template" supplies the PDB file to copy from, or if you supply the string "INPUT", it will use the state of the pose at broker-time.
+
+The `RigidChunkCM` also requires direction as to which regions of the template structure to take. This is specified in one of several ways. The first way is to use the `region_file` option. It takes a [[loops file]] to specify regions *from the template* that will be used to insert into the simulation. For example,
 
     RIGID 1 16 0 0 0
     RIGID 36 46 0 0 0
     RIGID 56 63 0 0 0
 
-would hold the regions 1-16, 26-46, and 56-63 fixed. The additional option 'label' indicates a ResidueSelector for the target region.
+will take the regions 1-16, 26-46, and 56-63 from the template pose and insert them one-by-one into the residues specified by the `selector` option. Instead of using a [[loops file]], you can use a residue selector with the option `region_selector`, or an actual hard-coded region (*e.g.* "1-16,26-46,56-63") with the option `region`.
 
-An advanced technique is using an additional selector to select specific regions from the template structure to insert into the simulation pose. In this case, you can provide the "region_selector" option a ResidueSelector. Residues from the template ResidueSelector ("region_selector") and the simulation ResidueSelector ("selector") is pairwise ascending. In other words, if the template selector selects residues a-b and c-d from the template and simulation selector selects residues w-x and y-z in the simulation, a will be paired with w, a+1 will be paired with w+1 and so forth. If b < x, then c will be paired with w + (x - b). In other words, the pairing continues pairwise, ignoring the break in residues completely.
+An additional selector is used to select specific regions from the simulation for insertion. This is done by providing a ResidueSelector with the option `selector`. Correspondence from the template (`region_selector`, `region_file`, `region`) to the simulation ResidueSelector (`selector`) is simply pairwise starting at the first residue in each selection. So, if the regions are *a*-*b* and *x*-*y*, respectively, then residue *a* from the template will be inserted onto residue *x* in the simulation, residue *a* + 1 onto *x* + 1 and so forth, up to inserting residue *b* from the template onto residue *y* from the simulation. If *b*-*a* < *y*-*x* (*i.e.* there are more residues selected out of the template than in the simulation), the region will simply be truncated such that the last insertion of residue *b* from the template onto residue *x* + *b* - *a* in the simulation.
+
+To further complicate matters, regions do not need to be contiguous. A region can be, for example, residues *a*-*b* and *c*-*d*. If that is the selection from the template and simulation selector selects residues *w*-*x* and *y*-*z*, *a* will be paired with w, *a*+*i* will be paired with *w*+*i* for *i* [1,*b*-*a*]. If *b*-*a* < *x*-*w*, then *c* will be paired with *w* + (*x* - *b*)--in other words, the pairing continues ignoring the break in residues completely.
 
 Sometimes, it's useful to apply a mover to the template just after it's loaded in. For example, given a full-atom PDB, we'd sometimes like to convert it to a centroid representation for abinitio-style simulations (this avoids problems with differing numbers of atoms in the template and simulation). Here, a SwitchResidueTypeSetMover is applied to the template before the template is used to set internal degrees of freedom in the simulation.
 
