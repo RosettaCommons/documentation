@@ -4,7 +4,7 @@ The Brokered Environment framework, also known as the ToplogyBroker 2.0, is a to
 
 [[_TOC_]]
 
-#Available Client Movers
+#Available ClientMovers
 
 We have a list of available [[ClientMovers]].
 
