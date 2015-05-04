@@ -221,7 +221,7 @@ This example docks three chains (A, B, and C) to one another using a "star" Fold
 
 # The Broker in C++ Applications
 
-Making a brokered Environment in your C++ code is as easy as
+This section is about building protocols that use the broker and existing [[ClaimingMovers]] to build a protocol/application in C++, not [[Developing for the Broker]]. Making a brokered Environment in your C++ code is as easy as
 
 1. **Make an Environment**. There are a couple of options to set in the constructor (*e.g.* should the Environment look at the old FoldTree to resolve FoldTree cycles), but in most cases all you need to do is give it a name.
 2. **Register your ClientMovers** with the environment. This lets the Broker know that it needs to ask this mover for claims during broking.
@@ -243,7 +243,7 @@ For a protocol with only one [[ClientMover|ClientMovers]] (called MyClientMover)
   core::pose::Pose final_pose = env.end( prot_pose );
 ```
 
-Many further examples are available as unit tests in test/protocols/environment/*.
+Many further examples are available as unit tests in `test/protocols/environment/*`.
 
 # The Broker in PyRosetta
 
