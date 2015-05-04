@@ -141,7 +141,7 @@ In this example of an algorithm that could be used in this situation relies on a
 
 Of course, there are no guarantees that this example algorithm will work for your system (or any system). It hasn't been benchmarked, and exists solely to demonstrate the functionality of the Environment framework.
 
-A fully working example use of this script is available in the Rosetta demos repository at `demos/protocol_capture/2015/broker/domain_insertion/`.
+A fully working example use of this script is available in the Rosetta demos repository at `demos/protocol_capture/2015/broker/domain_insertion/`. A detailed description and analysis of this protocol is included in our paper for the RosettaCon 2014 PLoS ONE collection.
 
 ## Multi-body Docking Example
 
@@ -173,6 +173,8 @@ This example docks three chains (A, B, and C) to one another using a "star" Fold
   <Add mover="multidock"/>
 </PROTOCOLS>
 ```
+
+An implementation of a similar protocol using this paradigm, along with a detailed description and analysis, is included in our paper for the RosettaCon 2014 PLoS ONE collection.
 
 ## (Asymmetric) Fold and Dock Example
 
