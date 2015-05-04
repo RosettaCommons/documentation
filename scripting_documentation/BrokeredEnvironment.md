@@ -249,4 +249,6 @@ Many further examples are available as unit tests in `test/protocols/environment
 
 # The Broker in PyRosetta
 
-[[PyRosetta]] provides direct access to the C++ interface used by the broker. As a result, the PyRosetta interface for the broker should be only trivially different from the the [[C++ interface|BrokeredEnvironment#The-Broker-in-C++-Applications]]. It *should* work, but we haven't rigorously tested this. If you're interested, give it a try. If you run in to problems (or get it to work!) let us know what you did and how you did it so we can update this section.
+[[PyRosetta]] provides direct access to the C++ interface used by the broker. As a result, the PyRosetta interface for the broker should be only trivially different from the the [[C++ interface|BrokeredEnvironment#The-Broker-in-C++-Applications]].
+
+Since the Broker was not really developed with PyRosetta specifically in mind, it is not known if it is possible to define movers in PyRosetta that are broker-compatible. PyRosetta compatibility more generally *should* work, but we haven't rigorously tested this. If you're interested in PyRosetta + Broker, give it a try. If you run in to problems (or get it to work!) let us know what you did and how you did it so we can update this section.
