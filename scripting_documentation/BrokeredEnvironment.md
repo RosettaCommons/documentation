@@ -1,12 +1,16 @@
-The Environment framework, also known as the ToplogyBroker 2.0, is a tool for generating larger, more complex simulation systems out of small interchangeable parts. The intent is to make rapid protocol development in RosettaScript easier by allowing sampling strategies to be carried out simultaneously rather than in sequence by constructing a consensus FoldTree that satisfies all movers. Such Movers inherit from the [[ClientMover|ClientMovers]] (CM) class.
+The Brokered Environment framework, also known as the ToplogyBroker 2.0, is a tool for generating larger, more complex simulation systems out of small interchangeable parts. The intent is to make rapid protocol development in RosettaScript easier by allowing sampling strategies to be carried out simultaneously rather than in sequence by constructing a consensus FoldTree that satisfies all movers. Such Movers inherit from the [[ClientMover|ClientMovers]] (CM) class.
 
 **Author's Note:** If anything here doesn't make sense, doesn't work as advertised, or is otherwise demanding of attention, give me (the original developer) a shout at justinrporter at gmail. I spent quite a long time on this, and would love to see other folks using it, so if I can help, let me know!
 
 [[_TOC_]]
 
-# Using the Environment in RosettaScripts
+#Available Client Movers
 
-Using an Environment in your RosettaScripts is as easy as
+We have a list of available [[ClientMovers]].
+
+# The Broker in RosettaScripts
+
+Using an brokered Environment in your RosettaScripts is as easy as
 
 1. Define your ClientMovers.
 2. Add your ClientMovers to an Environment.
@@ -154,11 +158,8 @@ This example docks three chains (A, B, and C) to one another using a "star" Fold
   <Add mover=relax />
 </PROTOCOLS>
 ```
-#Availiable Client Movers
 
-We have a list of avaliable [[ClientMovers]].
-
-# Using the Environment in C++ code
+# The Broker in C++ Applications
 
 Making a brokered Environment in your C++ code is as easy as
 
@@ -167,7 +168,7 @@ Making a brokered Environment in your C++ code is as easy as
 3. **Apply your movers.** Environment::start returns a pose which has a ProtectedConformation built in. This is the Pose with the consensus FoldTree and all the DoF protections attached. Apply your protocol to this object.
 4. **Close your environment.** Once you've executed your protocol (or want to move on to the next stage, either run by a different broker or not brokered), you need to clean up. Environment::end does this.
 
-For a protocol with only one ClientMover (called MyClientMover), it might look like this.
+For a protocol with only one [[ClientMover|ClientMovers]] (called MyClientMover), it might look like this.
 
 ```
   protocols::environment::Environment env( "env" );
@@ -184,7 +185,11 @@ For a protocol with only one ClientMover (called MyClientMover), it might look l
 
 Many further examples are available as unit tests in test/protocols/environment/*.
 
-# How do I get my mover to work with the Environment?
+# The Broker in PyRosetta
+
+[[PyRosetta]] provides direct access to the C++ interface used by the broker. As a result, the PyRosetta interface for the broker should be only trivially different from the the [[C++ interface|BrokeredEnvironment#The-Broker-in-C++-Applications]]. It *should* work, but we haven't rigorously tested this. If you're interested, give it a try. If you run in to problems (or get it to work!) let us know what you did and how you did it so we can update this section.
+
+# How do I get my mover to work with the Broker?
 
 I'm so glad you asked! The easiest way is to make it work with the [[ScriptCM|ClientMovers#ScriptCM]] framework, but if your mover does something special (and can't accept a MoveMap as it's information on what to move) or is an obligate ClientMover (doesn't make any sense outside of a Broker framework), then your best bet is to write a new ClientMover.
 
@@ -214,7 +219,7 @@ Would create cause a mover "my_mover" whose apply applies your special mover (as
 
 If your mover meets one of the following criteria, you might consider writing a special ClientMover just for your class, because it might not fit neatly in the ScriptCM/MoveMapMover pattern.
 
-1. Doesn't make sense outside of a brokered Environment
+1. Doesn't make sense outside of an Enviroment
 2. The claiming associated with your mover--either the construction of FoldTree/AtomTree elements or the DoFs that need to be controlled--is best determined dynamically by the code at broker-time or should be read from a file.
 3. Your effector move (the code that actually changes the numbers in the AtomTree) cannot handle a MoveMap, and requires instead some other indicator (for example, the UniformRigidBodyMover likes a Jump number, not a MoveMap).
 
