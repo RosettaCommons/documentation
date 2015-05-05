@@ -23,7 +23,7 @@ The FragmentCM does standard fragment insertion in a targeted region. A Fragment
 
 Here, the FragmentCM with the name "chA_large" is instantiated using the fragments in the [[fragment file]] "frags9A" and told to insert those fragments using the "classic" policy (_c.f._ "smooth" insertion policy) in the region given by the ResidueSelector 'ChainA'. The option "initialize" can be used to set if the mover inserts a fragment at every position after broking is completed (useful during *ab initio* to start the structure off) or not. The option "nfrags" can be provided if there are a nonstandard number of fragments per position (default is 25)
 
-The "fragments" and "selector" options are required. The "frag_type" tag defaults to classic.
+The `fragments` and `selector` options are required. The `frag_type` tag defaults to classic.
 
 **Warning:** When assigning fragments to a selection, the first residue of the selection is taken as the position onto which to insert the first fragment in the fragment set. No further logic is used, meaning that if your fragment set is longer than your chain, it will try to insert fragments onto the following chain. Furthermore, there is **no check** to determine that the residue of the fragment matches the residue in the pose, so you want to be *very sure* that you're assigning the fragments to the correct region, or your data will be silently garbage. 
 
@@ -37,20 +37,20 @@ The FragmentJumpCM inserts beta-strand/beta-strand rigid-body translations into 
 
 The valid option sets for this ClientMover are:
 
-1. "topol_file" specifying a topology file. Such a file can be generated from a pdb file by Oliver Lange's "r_pdb2top" pilot app ("apps/pilot/olli/r_pdb2top.cc" as of this writing). For example:
+1. `topol_file` specifying a topology file. Such a file can be generated from a pdb file by Oliver Lange's `r_pdb2top` pilot app (`apps/pilot/olli/r_pdb2top.cc` as of this writing). For example:
     `r_pdb2top.linuxgccrelease -in:file:s start.pdb -out:top start.top`
-2. "ss_info", "n_sheets", and "pairing_file". These respectively require a PsiPred .ss2 file, a number of sheets to build (usually 1 or 2), and a "pairing file" indicating a list of residue-residue pairings (see core::scoring::dssp::read_pairing_list for the required form of this file).
-3. "restart_only". In this case, the FragmentJumpCM requires the presence of JumpSampleData in the Pose's DataCache. Advanced use only.
+2. `ss_info`, `n_sheets`, and `pairing_file`. These respectively require a PsiPred .ss2 file, a number of sheets to build (usually 1 or 2), and a "pairing file" indicating a list of residue-residue pairings (file format is unfortunately undocumented--see `core::scoring::dssp::read_pairing_list` for the required form of this file).
+3. `restart_only`. In this case, the FragmentJumpCM requires the presence of `JumpSampleData` in the Pose's DataCache. Advanced use only.
 
 # LoopCM
 
-The LoopCM builds one of the following four movers: LoopMover_Perturb_KIC, LoopMover_Refine_KIC, LoopMover_Perturb_CCD, LoopMover_Refine_CCD. The algorithm is given by "algorithm" tag ("CCD" or "KIC") the form is given by the "style" tag ("refine" or "perturb"). An example follows.
+The LoopCM builds one of the following four movers: LoopMover_Perturb_KIC, LoopMover_Refine_KIC, LoopMover_Perturb_CCD, LoopMover_Refine_CCD. The algorithm is given by `algorithm` tag ("CCD" or "KIC") the form is given by the "style" tag ("refine" or "perturb"). An example follows.
 
 ```
 <LoopCM name="kic_refine" style="refine" algorithm="kic" selector="loop1" />
 ```
 
-The "selector" tag references a ResidueSelector, which is used to determine the torsional angles that will be moved in the loop modeling. The selection is expanded by one residue to accommodate certain loop modelers' quirks.
+The `selector` tag references a ResidueSelector, which is used to determine the torsional angles that will be moved in the loop modeling. The selection is expanded by one residue to accommodate certain loop modelers' quirks.
 
 # RigidChunkCM
 
