@@ -25,6 +25,8 @@ Here, the FragmentCM with the name "chA_large" is instantiated using the fragmen
 
 The "fragments" and "selector" options are required. The "frag_type" tag defaults to classic.
 
+**Warning:** When assigning fragments to a selection, the first residue of the selection is taken as the position onto which to insert the first fragment in the fragment set. No further logic is used, meaning that if your fragment set is longer than your chain, it will try to insert fragments onto the following chain. Furthermore, there is **no check** to determine that the residue of the fragment matches the residue in the pose, so you want to be *very sure* that you're assigning the fragments to the correct region, or your data will be silently garbage. 
+
 # FragmentJumpCM
 
 The FragmentJumpCM inserts beta-strand/beta-strand rigid-body translations into jumps between (predicted) adjacent beta-strands. An instantiation of this ClientMover looks like:
