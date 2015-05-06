@@ -55,6 +55,13 @@ Single constraints restrain the value of a single metric
 
     * Angle between Atom2-\>Atom1 vector and Atom2-\>Atom3 vector; the angle (passed as a value to the Func) appears to be measured in radians
 
+-   NamedAngle: `NamedAngle Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Func_Type Func_Def       `
+
+    <i>score term: angle_constraint</i>
+
+    * Angle between Atom2-\>Atom1 vector and Atom2-\>Atom3 vector; the angle (passed as a value to the Func) appears to be measured in radians
+    * Atoms in NamedAngleConstraints are stored as names rather than numbers, as with AngleConstraint. Therefore, if atom numbers change while constraints are in the pose, the NamedAngleConstraint will still constraint the correct atoms, while the AngleConstraint may constrain unintended atoms. There is a small tradeoff in computational efficiency versus AngleConstraint. If you know your atom numbers will not change while the constraint is in the pose, AngleConstraint is a better option, but if they might change, NamedAngleConstraint will ensure that the correct atoms are constrained.
+ 
 -   Dihedral: `Dihedral Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Atom4_Name Atom4_ResNum Func_Type Func_Def       `
 
     <i>score term: dihedral_constraint</i>
