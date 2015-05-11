@@ -1,4 +1,4 @@
-#make-exemplar Commands
+#make_exemplar Commands
 
 Metadata
 ========
@@ -22,10 +22,10 @@ Command Line Options
 **Sample command**
 
 ```
-make-exemplar.linuxgccrelease -database ~/Rosetta/main/database -in:file:s input.pdb -central_relax_pdb_num 97:A,143:A -pocket_grid_size 12 -pocket_static_grid -pocket_filter_by_exemplar
+make_exemplar.linuxgccrelease -database ~/Rosetta/main/database -in:file:s input.pdb -central_relax_pdb_num 97:A,143:A -pocket_grid_size 12 -pocket_static_grid -pocket_filter_by_exemplar
 ```
 
-***make-exemplar options***
+***make_exemplar options***
 
 ```
 General Rosetta Options
