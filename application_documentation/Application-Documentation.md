@@ -184,6 +184,9 @@ simulations in real-time using pymol (uses membrane framework)
 ### Packing Quality
 - [[RosettaHoles]] - Rapid assessment of protein core packing for structure prediction, design, and validation
 
+### Surface pockets
+- [[Pocket measure|pocket-measure]] - Measure the "deep volume" of a surface pocket.
+
 ##Utilities
 
 These applications serve mainly to support other Rosetta applications, or to assist in setting up or analyzing Rosetta runs.
@@ -203,7 +206,11 @@ These applications serve mainly to support other Rosetta applications, or to ass
 
 - [[Loops from density]] - Create Rosetta loop files for regions of a protein with poor local fit to electron density.
 
+- [[Make exemplars|make-exemplar]] - Create an exemplar for surface pockets on a protein that touch a target residue.
+
 - [[OptE|opt-e-parallel-doc]] - Refit reference weights in a scorefunction to optimize given metrics.  
+
+- [[Pocket target residue suggestion|pocket-suggest-targets]] - Suggest the best pair of target residues for pocket optimization for the purpose of inhibiting a protein-protein interaction.
 
 - [[PyMol server]] - Observe what a running Rosetta program is doing by using PyMol.
 
@@ -219,3 +226,5 @@ These applications serve mainly to support other Rosetta applications, or to ass
 - [[Collection of example commandlines|commands-collection]]
 
 - [[minirosetta]] - The "minirosetta" boinc wrapper application.
+
+- [[Pocket relax|pocket-relax]] - Relax followed by full atom minimization and scoring with no PocketConstraint. Useful when performing pocket optimization.
