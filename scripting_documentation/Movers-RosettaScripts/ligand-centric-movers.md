@@ -7,7 +7,7 @@ These movers replace the executable for ligand docking and provide greater flexi
 #### StartFrom
 
 ```
-<StartFrom name="&string" chain="&string"/>
+<StartFrom name="&string" chain="&string" >
    <Coordinates x=(&float) y=(&float) z=(&float)/>
    <File filename=(&string) chain_for_hash=(&string)/>
 </StartFrom>
