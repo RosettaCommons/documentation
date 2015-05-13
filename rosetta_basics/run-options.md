@@ -14,6 +14,10 @@ Options control run operations
                                 time is exceeded no matter how many jobs were finished.
                                 Default='-1'. [Integer]
 
+-run:maxruntime_bufferfactor    If set, the JobDistributor will attempt to stop if there doesn't 
+                                appear to be enough time for `maxruntime_bufferfactor` more jobs 
+                                before maxruntime occurs. [Real]
+
 -run:constant_seed              Use a constant seed (1111111 unless specified). [Boolean]
 
 -run:jran                       Specify seed (requires -constant_seed).  Used for non-MPI parellel runs
