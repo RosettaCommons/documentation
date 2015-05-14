@@ -98,7 +98,7 @@ Assembly of backbones is implemented within a Mover, and thus can be accessed vi
 ----------------------
 
 ###AssemblyMover
-The AssemblyMover is the abstract base class from which all other AssemblyMovers derive (not necessarily directly). In essence, this class has some basic methods implemented that make it easier to build Assemblies from the SewGraph, and to then create Poses from those Assemblies. A few of the relevant functions are outline below:
+The AssemblyMover is the abstract base class from which all other AssemblyMovers derive (not necessarily directly). In essence, this class has some basic methods implemented that make it easier to build Assemblies from the SewGraph, and to then create Poses from those Assemblies. A few of the relevant functions are outlined below:
 
 * **generate_assembly** - A pure virtual function. This is the function that child movers will overwrite to actually create Assemblies
 * **add_starting_model** - Add a random starting model to the Assembly
