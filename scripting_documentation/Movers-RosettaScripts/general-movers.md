@@ -418,7 +418,7 @@ Generates a chain of identical residues and samples sets of mainchain torsion va
 
 ```
 <BackboneGridSampler name=(&string) residues_per_repeat=(1 &int) (residue_name=("ALA" &string) OR residue_name_1=("ALA" &string) residue_name_2=("ALA", &string), etc.) scorefxn=(&string) max_samples=(10000 &int) selection_type=("low" &string) pre_scoring_mover=(&string) pre_scoring_filter=(&string) dump_pdbs=(false &bool) pdb_prefix=("bgs_out" &string) nstruct_mode=(false &bool) nstruct_repeats=(1 &int) (residue_count=(12 &int) OR repeat_count=(12 &int)) cap_ends=(false &bool)>
-     <MainchainTorsion index=(&int) (value=(&Real) | start=(&Real) end=(&Real) samples=(&int) />
+     <MainchainTorsion res_index=(1 &int) index=(&int) (value=(&Real) | start=(&Real) end=(&Real) samples=(&int) />
      <MainchainTorsion ... />
      <MainchainTorsion ... />
 </BackboneGridSampler>
@@ -441,7 +441,8 @@ Options for this mover include:
 
 **MainchainTorsion** blocks are used to define mainchain torsions to sample, or to hold fixed.  If a mainchain torsion is not specified, it is held fixed at its default value (based on the residue params file).  Each **MainchainTorsion** tag has the following options:
 
--  **index**:  The index of the mainchain torsion.  (e.g.  For alpha-amino acids, **index=1** is phi, **index=2** is psi, **index=3** is omega).
+-  **res_index**:  The index of the residue in the repeating unit (1, 2, 3, etc.).  This defaults to 1, and need not be specified if there is only 1 residue per repeating unit.
+-  **index**:  The index of the mainchain torsion in the specified residue.  (e.g.  For alpha-amino acids, **index=1** is phi, **index=2** is psi, **index=3** is omega).
 -  **value**:  A fixed value to which this mainchain torsion should be set.  This prevents sampling, and cannot be used in conjunction with the **start**, **end**, or **samples** options.
 -  **start**:  The start value of a range to be sampled.  Cannot be used in conjunction with the **value** option.
 -  **end**:  The end value of a range to be sampled.  Cannot be used in conjunction with the **value** option.
