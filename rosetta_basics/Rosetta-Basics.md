@@ -2,7 +2,7 @@
 
 ####Controlling Rosetta Execution
 - [[Running Rosetta|running-rosetta-with-options]]
-- [[Running Rosetta via MPI | running-rosetta-with-options#Running-Rosetta-via-MPI ]]
+- [[Running Rosetta Parallel via MPI | running-rosetta-with-options#Running-Rosetta-via-MPI ]]
 - [[Graphics output and GUIs | graphics-and-guis]]
 - Scripting Rosetta
     * [[RosettaScripts]]
