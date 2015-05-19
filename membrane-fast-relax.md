@@ -11,9 +11,9 @@ Last Updated: May 2015
 ## Citation
 Rosetta Revision #57518
 
-Alford RF, Koehler Leman J, Weitzner BD, Duran A, Elazar A, Tiley D, Gray JJ (2015)
+Alford RF, Koehler Leman J, Weitzner BD, Gray JJ (2015)
 An integrated framework advancing membrane protein modeling and design
-PLoS ONE (in preparation) 
+PLosCompBio (Under Review) 
 
 ## About
 High-resolution refinement is key for advancing low resolution structures from x-ray
