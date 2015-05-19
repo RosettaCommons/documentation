@@ -3,11 +3,29 @@
 ####Controlling Rosetta Execution
 - [[Running Rosetta|running-rosetta-with-options]]
 - [[Running Rosetta via MPI | running-rosetta-with-options#Running-Rosetta-via-MPI ]]
+- [[Graphics output and GUIs | graphics-and-guis]]
 - Scripting Rosetta
     * [[RosettaScripts]]
     * [[PyRosetta]]
-- [[Graphics output and GUIs | graphics-and-guis]]
-- [[JD2]]
+
+####Fundamental Rosetta Concepts
+- [[Units in Rosetta]]
+
+- [[Scorefunctions and Score types | Score Types]] - Description of the default Rosetta Scorefunction and common score types.
+    *  [[MM Std Scorefunction | NC-scorefunction-info#MM-Standard-Scorefunction]]
+    *  [[Orbitals Scorefunction | NC-scorefunction-info#Partial-Covalent-Interactions-Energy-Function-(Orbitals)]]
+    *  [[Additional score types | score-types-additional]]
+- [[Symmetry]]
+- [[Minimization | Minimization Overview]] - Backbone and/or side chain degrees of freedom
+- Advanced Topics
+    * [Rosetta3 Architecture](http://www.ncbi.nlm.nih.gov/pubmed/21187238)
+    * [[Foldtree Overview]]
+    * [[AtomTree Overview]]
+    * [[Loop modeling styles and algorithms]]
+
+####Preparing structures to be used by Rosetta
+- [[Preparing structures]]
+- [[Preparing ligands]]
 
 #####Common/Useful Rosetta Options
 - [[Input options]]
@@ -17,14 +35,6 @@
 - [[Score options]]
 - [[Packing options]]
 - [[Renamed and Deprecated Options]]
-
-####Preparing structures to be used by Rosetta
-- [[Preparing structures]]
-- [[Preparing ligands]]
-
-####Help
-- [RosettaCommons Forums](http://rosettacommons.org/forum)
-- [RosettaCommons Bug Tracker](http://bugs.rosettacommons.org)
 
 ####Common File Formats
 - [[Fasta file]] - Input protein sequences
@@ -59,25 +69,15 @@
     *  [[Alpha-Amino Acids with Nonstandard Side-Chains]]
     *  [[Beta-Amino Acids]]
 
-####Fundamental Rosetta Concepts
-- [[Units in Rosetta]]
-
-- [[Scorefunctions and Score types | Score Types]] - Description of the default Rosetta Scorefunction and common score types.
-    *  [[MM Std Scorefunction | NC-scorefunction-info#MM-Standard-Scorefunction]]
-    *  [[Orbitals Scorefunction | NC-scorefunction-info#Partial-Covalent-Interactions-Energy-Function-(Orbitals)]]
-    *  [[Additional score types | score-types-additional]]
-- [[Symmetry]]
-- [[Minimization | Minimization Overview]] - Backbone and/or side chain degrees of freedom
-- Advanced Topics
-    * [Rosetta3 Architecture](http://www.ncbi.nlm.nih.gov/pubmed/21187238)
-    * [[Foldtree Overview]]
-    * [[AtomTree Overview]]
-    * [[Loop modeling styles and algorithms]]
-
 ####Misc
 - [[Database support]] - Relational database support in Rosetta.
     *  [[Sqlite3-interface]] - More information on the sqlite database interface.
 - [[Full options list|full-options-list]] - A (mostly) complete list of availible Rosetta options.
+- [[ Rosetta Job Distribution Discussion | JD2]]
+
+####Help
+- [RosettaCommons Forums](http://rosettacommons.org/forum)
+- [RosettaCommons Bug Tracker](http://bugs.rosettacommons.org)
 
 ##Documentation Quick Links
 
