@@ -6,7 +6,7 @@ Authors:
  - Author: Rebecca F. Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
  - Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
 
-Last Updated: December 2014
+Last Updated: May 2015
 
 ## Citation
 Rosetta Revision #57518
