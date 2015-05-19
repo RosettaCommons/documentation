@@ -2,9 +2,20 @@
 
 [[_TOC_]]
 
+## Starting References
+Leaver-Fay, A., et al., ROSETTA3: an object-oriented software suite for the simulation and design of macromolecules. Methods in enzymology, 2011. 487: p. 545.
+
+Kaufmann, K.W., et al., Practically useful: what the Rosetta protein modeling
+suite can do for you. Biochemistry, 2010. 49(14): p. 2987-98.
+
+##Servers 
+Many servers exist to run various Rosetta protocols.
+
+* [ROSIE](http://rosie.rosettacommons.org)
+* [Robetta](http://robetta.bakerlab.org)
 
 ##Command Line Example
-The command line is composed of two major parts. First, a path to an application executable is required, while the second part is a list of options for the particular Rosetta simulation. For example:
+Rosetta applications (including RosettaScripts) are typically run through a terminal window. The command line is composed of two major parts. First, a path to an application executable is required, while the second part is a list of options for the particular Rosetta simulation. For example:
 
 <code>path_to/some_rosetta_app.linuxgccrelease -database mypath/rosetta\_database other\_flags</code>
 
