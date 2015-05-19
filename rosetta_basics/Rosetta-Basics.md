@@ -78,3 +78,15 @@
 - [[Database support]] - Relational database support in Rosetta.
     *  [[Sqlite3-interface]] - More information on the sqlite database interface.
 - [[Full options list|full-options-list]] - A (mostly) complete list of availible Rosetta options.
+
+##Documentation Quick Links
+
+|[[Build Documentation]]|[[Application Documentation]]|[[Development Documentation]]|
+|:---------------------:|:------------------------:|:---------------------------:|:---------------------------:|
+|[[/images/hammer.png|align=center]] |[[/images/power.png|align=center]]        |[[/images/wrench.png|align=center]]       |
+
+<!--- BEGIN_INTERNAL -->
+|[[Internal Documentation]]|
+|:------------------------:|
+|[[/images/logo.png|align=center]]      |
+<!--- END_INTERNAL --> 
