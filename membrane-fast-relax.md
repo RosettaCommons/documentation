@@ -11,7 +11,7 @@ Last Updated: May 2015
 ## Citation
 Rosetta Revision #57518
 
-Alford RF, Koehler Leman J, Weitzner BD, Gray JJ (2015)
+Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Tiley DC, Elazar A, Gray JJ (2015)
 An integrated framework advancing membrane protein modeling and design
 PLosCompBio (Under Review) 
 
