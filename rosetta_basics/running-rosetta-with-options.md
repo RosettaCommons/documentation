@@ -76,7 +76,7 @@ Note that other options can still be set before or after the flags file is speci
 
 Running Rosetta via MPI
 ========================
-If the Rosetta MPI executables were compiled, then in the executable directory there will be an extra set of executables specifically for MPI, for example <code>fixbb.mpi.linuxgccrelease </code>.  To run these executables, simply run them via mpiexec (or mpirun for older mpi implementations): 
+In order to run Rosetta on a computational cluster or locally on many cores, most Rosetta protocols support parallel execution via MPI. If the Rosetta MPI executables were compiled, then in the executable directory there will be an extra set of executables specifically for MPI, for example <code>fixbb.mpi.linuxgccrelease </code>.  If these have not yet been compiled, please refer to the [[Setting Up Rosetta 3| Build-Documentation#MPI]] page for more information. To run these executables, simply run them via mpiexec (or mpirun for older mpi implementations): 
 
 <code> mpiexec -np 16 fixbb.mpi.linuxgccrelease -database /path/to/database @ flags </code>
 
