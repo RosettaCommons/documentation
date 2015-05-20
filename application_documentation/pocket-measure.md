@@ -41,7 +41,7 @@ Pocket Identification Options
    -pocket_min_size            Minimum pocket size to score, in cubic Angstroms, default is 10 cubic Angstroms
    -pocket_max_size            Maximum pocket size to report, in cubic Angstroms, 0 for no limit (default)
    -pocket_probe_radius        Radius of surface probe molecule, default 1.0 Angstroms
-   -pocket_side                Include only side chain residues for target surface, default=false
+   -pocket_side                Include only side chain atoms for target surface, default=false
    -pocket_filter_by_exemplar  Additional filter generates an exemplar and then restricts the pocket to that exemplars, defaul=false
    -pocket_ignore_buried       Ignore pockets that are not solvent exposed, default=true
    -pocket_only_buried         Identify only pockets buried in the protein core (automatically sets -pocket_ignored_buried false), default=false
