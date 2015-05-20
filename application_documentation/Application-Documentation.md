@@ -74,8 +74,10 @@ While most of these applications focus on prediction, many have options which wi
 
 ###Ligand Docking
 - [[Ligand docking|ligand-dock]] (RosettaLigand) - Determine the structure of protien-small molecule complexes.  
-   * [[Extract atomtree diffs]] - Extract structures from the AtomTreeDiff file format.  
-
+   * [[Extract atomtree diffs]] - Extract structures from the AtomTreeDiff file format.
+  
+- [[DARC|Docking Approach using Ray-Casting]] (DARC) - specifically target protein interaction sites.
+ 
 ###Peptide Docking
 - [[Flexible peptide docking|flex-pep-dock]] - Dock a flexible peptide to a protein.
 
