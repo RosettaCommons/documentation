@@ -889,7 +889,7 @@ Note that RosettaScripts requires some sort of input on which to operate, but th
 Generates a helical bundle, sampling user-specified ranges of parameters and outputting the lowest-energy bundle encountered (and its accompanying parameter values).  Sampled parameters are evenly distributed in user-specified ranges; if more than one parameter is sampled, the mover samples an n-dimensional grid of sample values.  Optionally, this mover can also output PDB files for all bundle geometries sampled.  Parameters are stored with the pose, and are written in REMARK lines on PDB output.  Note that because a strand is a special case of a helix, this mover can also be used to sample beta-barrel conformations or mixed alpha-beta structures.
 
 ```
-<BundleGridSampler name=(&string) symmetry=(0 &int) symmetry_copies=(0 &int) set_dihedrals=(true &bool)
+<BundleGridSampler name=(&string) use_degrees=(false &bool) symmetry=(0 &int) symmetry_copies=(0 &int) set_dihedrals=(true &bool)
    set_bondlengths=(true &bool) set_bondangles=(true &bool) residue_name=("ALA" &string)
    crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) invert=(false &bool)
    scorefxn=(&string) selection_type=("low"||"high" &string) pre_selection_mover=(&string)
@@ -960,7 +960,7 @@ This mover operates on a pose generated with the MakeBundle mover.  It perturbs 
 
 ```
 
-<PerturbBundle name=(&string) default_perturbation_type=(&string)
+<PerturbBundle name=(&string) use_degrees=(false &bool) default_perturbation_type=(&string)
      r0_perturbation=(&real) r0_perturbation_type=(&string)
      omega0_perturbation=(&real) omega0_perturbation_type=(&string)
      delta_omega0_perturbation=(&real) delta_omega0_perturbation_type=(&string)
