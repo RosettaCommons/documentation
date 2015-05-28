@@ -12,7 +12,7 @@ The corresponding principal investigator is John Karanicolas (johnk@ku.edu).
 Purpose and Algorithm
 =====================
 
-This application takes in a protein and ligand PDB file and outputs the "theta lig" value, which is the fraction of ligand that is exposed to the solvent in the complex. See the referred paper for more details.
+This application takes in a protein and ligand PDB files and outputs the "theta lig" value, which is the fraction of ligand that is exposed to the solvent in the complex. See the referred paper for more details.
 
 References
 ==========
