@@ -8,7 +8,7 @@ The corresponding principal investigator is John Karanicolas (johnk@ku.edu).
    REFERENCES
 --------------------------------------------------------------------------------
 
-Gowthaman R*, Miller SA*, Rogers S, Khowsathit J, Johnson DK, Liu C, Xu L, Anbanandam A, Aubé J, Roy A, and Karanicolas J. (2015). DARC: mapping surface topography by ray-casting for effective virtual screening at protein interaction sites.(in review)
+Gowthaman R*, Miller SA*, Rogers S, Khowsathit J, Johnson DK, Liu C, Xu L, Anbanandam A, Aubé J, Roy A, and Karanicolas J. (2015). DARC: mapping surface topography by ray-casting for effective virtual screening at protein interaction sites. (in review)
 *Authors contributed equally
 
 Gowthaman R, Lyskov S, and Karanicolas J. (2015). DARC 2.0 : Improved docking and virtual screening at protein interaction sites. (in review)
