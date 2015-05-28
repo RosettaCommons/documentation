@@ -1,4 +1,4 @@
-Author: Ragul Gowthaman (ragul@ku.edu), John Karanicolas (johnk@ku.edu)
+Author: Ragul Gowthaman (ragul@ku.edu)
 
 This document was last updated May 28, 2015, by Ragul Gowthaman.
  
