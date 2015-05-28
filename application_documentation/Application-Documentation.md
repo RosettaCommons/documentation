@@ -57,7 +57,7 @@ While most of these applications focus on prediction, many have options which wi
 -  [[ERRASER]] - Refine an RNA structure given electron density constraints.  
 -  [[Sample around nucleobase]] - Visualizing energy functions by scanning probe molecules around a nucleobase.
 -  [[RECCES]] - RNA free energy calculation with comprehensive sampling.
--  [[RNA pharmacophore]] - Extract and cluster the key features (rings, hbond donors & acceptors) from the RNA from a protein-RNA complex.
+-  [[RNA pharmacophore]] - Extract and cluster the key features (rings, hbond donors & acceptors) present in RNA from the structure of a protein-RNA complex.
 
 ###Antibody Modeling
 - [[Antibody protocol]] (RosettaAntibody3) - Overview of the antibody modeling protocol.  
