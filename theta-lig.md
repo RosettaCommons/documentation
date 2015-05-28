@@ -12,7 +12,7 @@ The corresponding principal investigator is John Karanicolas (johnk@ku.edu).
 Purpose and Algorithm
 =====================
 
-This application takes in a Protein and ligand PDB file and outputs the "theta lig" which is the fraction of ligand that is exposed to the solvent in the complex. See the referred paper for more details.
+This application takes in a protein and ligand PDB file and outputs the "theta lig" value, which is the fraction of ligand that is exposed to the solvent in the complex. See the referred paper for more details.
 
 References
 ==========
@@ -39,4 +39,3 @@ General Rosetta Options
 Tips
 ====
 
-* Because orientation of the protein can affect the exact identification of the pocket, which can have profound effects on the measured pocket volume, it is recommended to use the -pocket_num_angles flag with at least 100 to generate PocketGrids at multiple rotations and return the average pocket volume.
