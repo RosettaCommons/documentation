@@ -35,14 +35,12 @@ RNA_pharmacophore.macosclangrelease -input_protein protein.pdb -input_rna rna.pd
 ***RNA_pahrmacophore options***
 
 ```
+
+   -min_num_ring                Output clusters only if it contains at least the minimum number of ring moieties, default=2
+   -ring_ring_dist_cutoff       ring to ring distance cutoff for clustering, default=5
+   -ring_atm_dist_cutoff        ring to atom distance cutoff for clustering, default=5
 General Rosetta Options
    -database                   Path to rosetta databases
-
-
-RNA pharmacophore Options
-   -min_num_ring          Number of different pose angles to measure pocket score at, default is 1, but at least 100 is recommended to reduce grid and orientation artifacts
-   -ring_ring_dist_cutoff           Defines the dimensions of the PocketGrid centered on the target residue(s), or 10 Angstroms by default
-   -ring_atm_dist_cutoff                 Mark Pocket-Solvent-Pocket events as well, default=false
 
 ```
 
