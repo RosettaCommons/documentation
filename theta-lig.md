@@ -1,4 +1,4 @@
-#pocket_measure Commands
+#theta_ligand Commands
 
 Metadata
 ========
@@ -33,6 +33,8 @@ Command Line Options
 ```
 General Rosetta Options
    -database                   Path to rosetta databases
+
+```
 
 Tips
 ====
