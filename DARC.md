@@ -5,7 +5,7 @@ This document was last updated May 28, 2015, by Ragul Gowthaman.
 The corresponding principal investigator is John Karanicolas (johnk@ku.edu).
 
 --------------------------------------------------------------------------------
-   INSTRUCTIONS FOR RUNNING DARC PROTOCOL
+   REFERENCES
 --------------------------------------------------------------------------------
 
 Gowthaman R*, Miller SA*, Rogers S, Khowsathit J, Johnson DK, Liu C, Xu L, Anbanandam A, Aubé J, Roy A, and Karanicolas J. (2015). DARC: mapping surface topography by ray-casting for effective virtual screening at protein interaction sites(in review)
