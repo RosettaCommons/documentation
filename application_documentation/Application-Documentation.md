@@ -136,7 +136,7 @@ While most of these applications focus on prediction, many have options which wi
 
 - [[DougsDockDesignMinimize|doug-dock-design-min-mod2-cal-cal]] - Redesign the protein/peptide interface of Calpain and a fragment of its inhibitory peptide calpastatin.
 
-- [[theta-lig]] - find the fraction of ligand that is exposed to solvent in a protein ligand complex. 
+- [[theta-lig]] - Calculate the fraction of ligand that is exposed to solvent in a protein ligand complex. 
   
 ### RNA
 
