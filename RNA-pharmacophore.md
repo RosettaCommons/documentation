@@ -37,8 +37,8 @@ RNA_pharmacophore.macosclangrelease -input_protein protein.pdb -input_rna rna.pd
 ```
 
    -min_num_ring                Minimum number of ring moieties required to be present in the output clusters, default=2
-   -ring_ring_dist_cutoff       ring - ring distance cutoff for clustering, default=5
-   -ring_atm_dist_cutoff        ring - atom distance cutoff for clustering, default=5
+   -ring_ring_dist_cutoff       ring - ring distance cutoff to include in the cluster, default=5
+   -ring_atm_dist_cutoff        ring - atom distance cutoff to include in the cluster, default=5
 
 General Rosetta Options
    -database                   Path to rosetta databases
