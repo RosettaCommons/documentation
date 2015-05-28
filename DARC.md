@@ -7,6 +7,18 @@ The corresponding principal investigator is John Karanicolas (johnk@ku.edu).
 --------------------------------------------------------------------------------
    INSTRUCTIONS FOR RUNNING DARC PROTOCOL
 --------------------------------------------------------------------------------
+
+Gowthaman R*, Miller SA*, Rogers S, Khowsathit J, Johnson DK, Liu C, Xu L, Anbanandam A, Aubé J, Roy A, and Karanicolas J. (2015). DARC: mapping surface topography by ray-casting for effective virtual screening at protein interaction sites(in review)
+*Authors contributed equally
+
+Gowthaman R, Lyskov S, and Karanicolas J. (2015). DARC 2.0 : Improved docking and virtual screening at protein interaction sites. (in review)
+
+Khar KR, Goldschmidt L, Karanicolas J (2013) Fast Docking on Graphics Processing Units via Ray-Casting. PLoS ONE 8(8): e70661. doi:10.1371/journal.pone.0070661
+
+
+--------------------------------------------------------------------------------
+   INSTRUCTIONS FOR RUNNING DARC PROTOCOL
+--------------------------------------------------------------------------------
 Docking Approach using Ray Casting (DARC) is structure-based computational method 
 for carrying out virtual screening by docking small-molecules into protein surface pockets.
 In this demo, DARC is used to dock a small molecule in a pocket centered around residue 61 
