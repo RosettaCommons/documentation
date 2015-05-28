@@ -3,7 +3,7 @@
 Metadata
 ========
 
-Author: Ragul Gowthaman (ragul@ku.edu)
+Author: Ragul Gowthaman (g.ragul at gmail.com)
 
 This document was last updated May 28, 2015, by Ragul Gowthaman.
 
