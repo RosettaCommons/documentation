@@ -9,7 +9,7 @@ The corresponding principal investigator is John Karanicolas (johnk@ku.edu).
 --------------------------------------------------------------------------------
 Docking Approach using Ray Casting (DARC) is structure-based computational method 
 for carrying out virtual screening by docking small-molecules into protein surface pockets.
-IN this demo, DARC is used to dock a small molecule in a pocket centered around residue 61 
+In this demo, DARC is used to dock a small molecule in a pocket centered around residue 61 
 of the protein, E3 ubiquitin-protein ligase Mdm2  (PDB:4ERF). 
 
 --------------------------------------------------------------------------------
