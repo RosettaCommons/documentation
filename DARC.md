@@ -214,21 +214,36 @@ DARC_4ERF_0001_000.pdb is the final docked pose for multiple conformers.
 The output should look similar to:
 
 Rosetta/main/source/bin/DARC.macosclangrelease -protein 4ERF_0001.pdb -ligand 4ERF_XTL_0001.pdb -extra_res_fa 4ERF_XTL.params -ray_file ray_4ERF_0001_61.txt -espGrid_file DARC_4ERF.agd -num_particles 10 -num_runs 10
+
 core.init: Rosetta version 1e0e3a1462814b2fa93580e9e1b1f7ab81736efc 2014-11-19 15:22:07 -0600 from git@github.com:RosettaCommons/main.git
+
 core.init: command: /Users/ragul/Rosetta/main/source/bin/DARC.macosclangrelease -protein 4ERF_0001.pdb -ligand 4ERF_XTL_0001.pdb -extra_res_fa 4ERF_XTL.params -ray_file ray_4ERF_0001_61.txt -espGrid_file DARC_4ERF.agd -num_particles 10 -num_runs 10
+
 core.init: 'RNG device' seed mode, using '/dev/urandom', seed=590325598 seed_offset=0 real_seed=590325598
+
 core.init.random: RandomGenerator:init: Normal mode, seed=590325598 RG_type=mt19937
+
 core.init: Resolved executable path: /Users/ragul/Rosetta/main/source/bin/DARC.macosclangrelease
+
 core.init: Looking for database based on location of executable: /Users/ragul/Rosetta/main/database/
 core.chemical.ResidueTypeSet: Finished initializing fa_standard residue type set.  Created 738 residue types
 core.pack.task: Packer task: initialize from command line() 
+
 origin_space : 7.25
+
 Reading ligand 4ERF_XTL_0001.pdb
-core.pack.task: Packer task: initialize from command line() 
+
+core.pack.task: Packer task: initialize from command line()
+ 
 Starting PSO
+
 Time for DARC runs: 0.589119
+
 SCORES : 4ERF_0001_LG1	Conformer 1 has DARC Score : 4.29993
+
 
 In this case the DARC score for the final docked pose is 4.29993. This score can be use to compare with other ligand that are docked using the same ray file. The lower the score the better the match between the protein pocket and ligand. 'DARC_4ERF_0001_LG1.pdb' is the out file that containfs the final docked pose for single conformer.
 
+
 If we use the flag '-minimize_output_complex' the model will be minimized and we get the file 'mini_4ERF_0001_LG1.pdb' as output.
+
