@@ -118,11 +118,11 @@ $  Rosetta/main/source/bin/DARC.macosclangrelease -protein 4ERF_0001.pdb -ligand
 For docking multiple ligand conformers:
 $  Rosetta/main/source/bin/DARC.macosclangrelease -protein 4ERF_0001.pdb -ligand 000_conformers.pdb -extra_res_fa 000.params -ray_file ray_4ERF_0001_61.txt -espGrid_file DARC_4ERF_0001.agd 
 
-TO run DARC with shape only (without including electrostatics score):
+To run DARC with shape only (without including electrostatics score):
 
 $  Rosetta/main/source/bin/DARC.macosclangrelease -protein 4ERF_0001.pdb -ligand 000_conformers.pdb -extra_res_fa 000.params -ray_file ray_4ERF_0001_61.txt -espGrid_file -darc_shape_only
 
-TO search conformers on-the-fly:
+To search conformers on-the-fly:
 $  Rosetta/main/source/bin/DARC.macosclangrelease -protein 4ERF_0001.pdb -ligand 000_conformers.pdb -extra_res_fa 000.params -ray_file ray_4ERF_0001_61.txt -espGrid_file DARC_4ERF_0001.agd -search_conformers true
 
 The output of the DARC run is a docked model of the protein-ligand complex named “DARC_4ERF_0001_000.pdb”
