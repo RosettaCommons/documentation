@@ -1,0 +1,47 @@
+#RNA pharmacophore Commands
+
+Metadata
+========
+
+This document was last updated May 28, 2015, by Ragul Gowthaman (ragul@ku.edu).
+The corresponding principal investigator is John Karanicolas (johnk@ku.edu).
+
+Purpose and Algorithm
+=====================
+
+Building hotspot pharmacophores
+
+To select deeply buried RNA bases, the solvent accessible surface area (SASA) of each base in the RNA was calculated in the presence and absence of the protein. A base was carried forward if the change in SASA upon complexation was greater than a preset cutoff value (46.81 Å2 for adenine, 31.09 Å2 for cytosine, 45.06 Å2 for guanine and 52.66 Å2 for uracil); these values correspond to the median values of 344 non-redundant protein-RNA complexes retrieved from the Protein-RNA Interface Database (PRIDB) [2] in March 2013 (http://pridb.gdcb.iastate.edu/download/RB344.txt).
+Polar groups from the RNA that participate in intermolecular hydrogen bonding (as defined using the Rosetta energy function) are also included.
+
+The resulting interaction maps are then clustered using a modified version of Kruskal’s minimum spanning tree algorithm. We first build a complete graph, in which vertices are the ring moieties, and the edge weights are the Euclidean distances between vertices. Then we take edges in ascending order and cluster the end vertices of that edge if no cycle would be caused. We halt the clustering when the distance is greater than a user-specified cutoff value (default 5.0 Å). The donor/acceptor atoms are then assigned to the closest ring moieties if the distance is less than another user-specified value (default 5.0 Å). Finally, we output the pharmacophore templates if the cluster contains at least two ring moieties. 
+
+References
+==========
+
+Xia Y*, Gowthaman R*, Lan L, Rogers S, Wolfe A, Gomez C, Ramirez O, Tsao BW, Marquez RT, Yu J, Pillai M, Neufeld KL, Aubé J, Xu L, and Karanicolas J. (2015). Rationally designing inhibitors of the Musashi protein–RNA interaction by hotspot mimicry (in review)
+*Authors contributed equally
+
+Command Line Options
+====================
+
+**Sample command**
+
+```
+RNA_pharmacophore.macosclangrelease -input_protein protein.pdb -input_rna rna.pdb 
+```
+
+***RNA_pahrmacophore options***
+
+```
+General Rosetta Options
+   -database                   Path to rosetta databases
+
+
+RNA pharmacophore Options
+   -min_num_ring          Number of different pose angles to measure pocket score at, default is 1, but at least 100 is recommended to reduce grid and orientation artifacts
+   -ring_ring_dist_cutoff           Defines the dimensions of the PocketGrid centered on the target residue(s), or 10 Angstroms by default
+   -ring_atm_dist_cutoff                 Mark Pocket-Solvent-Pocket events as well, default=false
+
+```
+
