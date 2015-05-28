@@ -1,4 +1,4 @@
-#theta_ligand Commands
+#theta_lig Commands
 
 Metadata
 ========
@@ -12,7 +12,7 @@ The corresponding principal investigator is John Karanicolas (johnk@ku.edu).
 Purpose and Algorithm
 =====================
 
-This application takes in a protein and ligand PDB files and outputs the "theta lig" value, which is the fraction of ligand that is exposed to the solvent in the complex. See the referred paper for more details.
+This application takes in a protein and ligand PDB files and outputs the "theta-lig" value, which is the fraction of ligand that is exposed to the solvent in the complex. See the referred paper for more details.
 
 References
 ==========
@@ -25,7 +25,7 @@ Command Line Options
 **Sample command**
 
 ```
-~/Rosetta/main/source/bin/theta_ligand.macosgccrelease -input_bound_pdb protein_bound.pdb -input_unbound_pdb protein_unbund.pdb -input_ligand_pdb LIGAND_0001.pdb -extra_res_fa LIGAND.params
+~/Rosetta/main/source/bin/theta_lig.macosgccrelease -input_bound_pdb protein_bound.pdb -input_unbound_pdb protein_unbund.pdb -input_ligand_pdb LIGAND_0001.pdb -extra_res_fa LIGAND.params
 
 ```
 
