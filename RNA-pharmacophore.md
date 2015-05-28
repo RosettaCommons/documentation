@@ -4,6 +4,7 @@ Metadata
 ========
 
 This document was last updated May 28, 2015, by Ragul Gowthaman (ragul@ku.edu).
+
 The corresponding principal investigator is John Karanicolas (johnk@ku.edu).
 
 Purpose and Algorithm
