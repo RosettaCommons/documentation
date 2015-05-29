@@ -25,7 +25,7 @@ Command Line Options
 **Sample command**
 
 ```
-~/Rosetta/main/source/bin/theta_lig.macosgccrelease -input_bound_pdb protein_bound.pdb -input_unbound_pdb protein_unbund.pdb -input_ligand_pdb LIGAND_0001.pdb -extra_res_fa LIGAND.params
+~/Rosetta/main/source/bin/theta_lig.macosgccrelease -input_protein_ligand_complex protein_ligand_complex.pdb -input_protein protein.pdb -input_ligand LIGAND_0001.pdb -extra_res_fa LIGAND.params
 
 ```
 
@@ -35,6 +35,13 @@ General Rosetta Options
    -database                   Path to rosetta databases
 
 ```
+
+-input_protein_ligand_complex : PDB file of protein-ligand complex
+
+-input_protein : PDB file of bound protein
+ 
+-input_ligand : PDB file of bound ligand  
+
 
 Tips
 ====
