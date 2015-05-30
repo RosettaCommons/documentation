@@ -194,6 +194,21 @@ or
 -   It is possible to include water residues in the neighbor count by setting the "count\_water" boolean to true
 
 
+#### SecondaryStructureSelector
+
+    <SecondaryStructure name=(%string) ss=(%string) include_terminal_loops=(%bool, false) />
+
+SecondaryStructureSelector selects all residues with given secondary structure. For example, you might use it to select all loop residues in a pose.  SecondaryStructureSelector uses the secondary structure information in the pose to compute residues to select -- if that information is not present, it calls DSSP to determine the secondary structure of the pose.
+
+**ss** - The secondary structure types to be selected. This parameter is required. Valid secondary structure characters are 'E', 'H' and 'L'. To select loops, for example, use ss="L", and to select both helices and sheets, use ss="HE"
+
+**include_terminal_loops** - (default: false) If false, one-residue "loop" regions at the termini of chains will be ignored. If true, all residues will be considered for selection.
+
+**Example**
+The example below selects all residues in the pose with secondary structure 'H' or 'E'.
+
+    <SecondaryStructure name="all_non_loop" ss="HE" />
+ 
 Per Residue Specification
 =========================
 
