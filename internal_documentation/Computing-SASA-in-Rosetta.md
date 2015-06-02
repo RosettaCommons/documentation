@@ -1,6 +1,6 @@
 ## Metadata
 * Original Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
-* Documentation Written/Edited by Rebecca Alford and Julia Koehler Leman
+* Documentation Written/Edited by Rebecca Alford
 * Last Edited: 5/16/14
 
 ## Available Methods
