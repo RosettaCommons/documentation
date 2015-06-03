@@ -25,7 +25,8 @@
 
 ####Preparing structures to be used by Rosetta
 - [[Preparing structures]]
-- [[Preparing ligands]]
+    * [[Preparing PDB files for non-peptide polymers]]
+    * [[Preparing ligands]]
 
 #####Common/Useful Rosetta Options
 - [[Input options]]
