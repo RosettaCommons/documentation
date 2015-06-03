@@ -1,6 +1,6 @@
 More and more modelers are attempting to use Rosetta to model structures other than those limited to peptide chains, and this will only be increasing. Rosetta has shown great success with RNA modeling, and the modeling of non-canonical amino acids, peptidomimetics, and polysaccharide structures are in active development.
 
-Unfortunately, loading such structures from a PDB file into Rosetta can be challenging. The PDB format is not consistent for non-AA residues, the error-checking of such structures is poor, and researchers often ignore all but the most basic standard PDB record types, that in some cases are necessary for proper loading of a file.
+Unfortunately, loading such structures from a PDB file into Rosetta can be challenging. The PDB format is not consistent for non-AA residues, the error-checking of such structures is poor in the PDB, and researchers often ignore all but the most basic standard PDB record types, which in some cases are necessary for proper loading of a file.
 
 Below are some methods of getting your PDB structure to load into Rosetta properly.
 
@@ -33,30 +33,30 @@ XXX ALA
 xxx GLY
 ```
 
-To tell Rosetta to consider the alternate codes, simply use the `-allow_3_letter_codes` option:
+To tell Rosetta to consider the alternate codes, simply use the `-alternate_3_letter_codes` option:
 ```
--allow_3_letter_codes my_codes.codes
+-alternate_3_letter_codes my_codes.codes
 ```
 
 Several example files are present in the `database/input_output/3-letter_codes/` directory in the Rosetta database.
 
 One can specify multiple files for inclusion: (Note that if an alternate 3-letter code is present in multiple files or on multiple lines in the same file, the later pairings will overwrite the previous ones.)
 ```
--allow_3_letter_codes my_codes.codes her_codes.codes his_codes.codes
+-alternate_3_letter_codes my_codes.codes her_codes.codes his_codes.codes
 ``` 
 
 If you do not provide a full path, Rosetta will attempt to read the file from the `database/input_output/3-letter_codes/` directory in the Rosetta database. All of the following obtain the same result:
 ```
--allow_3_letter_codes ${ROSETTA}/database/input_output/3-letter_codes/glycam.codes
--allow_3_letter_codes ${ROSETTA}/database/input_output/3-letter_codes/glycam
--allow_3_letter_codes glycam.codes
--allow_3_letter_codes glycam
+-alternate_3_letter_codes ${ROSETTA}/database/input_output/3-letter_codes/glycam.codes
+-alternate_3_letter_codes ${ROSETTA}/database/input_output/3-letter_codes/glycam
+-alternate_3_letter_codes glycam.codes
+-alternate_3_letter_codes glycam
 ```
 
-If the -allow_3_letter_codes option is given, when Rosetta reads in a PDB it will first check to see if the 3-letter code is found in one of the alternate codes files. If it is, it will use the pairing in the supplied `.codes` files to translate the alternate code into a Rosetta 3-letter code. If the 3-letter code from the PDB file is not found as a alternate code in the `.codes` files, Rosetta will will try to use the 3-letter code it found in the PDB file directly.
+If the `-alternate_3_letter_codes` option is given, when Rosetta reads in a PDB it will first check to see if the 3-letter code is found in one of the alternate codes files. If it is, it will use the pairing in the supplied `.codes` files to translate the alternate code into a Rosetta 3-letter code. If the 3-letter code from the PDB file is not found as a alternate code in the `.codes` files, Rosetta will will try to use the 3-letter code it found in the PDB file directly.
 
 #### HETNAM Records
-There are cases when one might have or need to use the same 3-letter code to indicate distinct residue types. In such cases, one can use the PDB `HETNAM` record type to specify the full name of the base (unpatched) `ResidueType` needed that sequence position.
+There are cases when one might have or need to use the same 3-letter code to indicate distinct residue types. In such cases, one can use the PDB `HETNAM` record type to specify the full name of the base (unpatched) `ResidueType` needed at that sequence position.
 
 The standard PDB `HETNAM` record format is deficient for specifying this. Thus, Rosetta uses a "backwards-compatible", modified `HETNAM` record format.
 
