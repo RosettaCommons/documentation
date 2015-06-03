@@ -55,6 +55,8 @@ If you do not provide a full path, Rosetta will attempt to read the file from th
 
 If the `-alternate_3_letter_codes` option is given, when Rosetta reads in a PDB it will first check to see if the 3-letter code is found in one of the alternate codes files. If it is, it will use the pairing in the supplied `.codes` files to translate the alternate code into a Rosetta 3-letter code. If the 3-letter code from the PDB file is not found as a alternate code in the `.codes` files, Rosetta will will try to use the 3-letter code it found in the PDB file directly.
 
+(For an example of the use of the optional third column in `.codes` files, see the Carbohydrates section below.)
+
 #### HETNAM Records
 There are cases when one might have or need to use the same 3-letter code to indicate distinct residue types. In such cases, one can use the PDB `HETNAM` record type to specify the full name of the base (unpatched) `ResidueType` needed at that sequence position.
 
@@ -68,9 +70,9 @@ HETNAM GLC BETA-D-GLUCOSE
 
 Rosetta PDB `HETNAM` record line:
 ```
-HETNAM GAL A 1 ->4)-beta-D-Galp
+HETNAM GLC A 1 ->4)-beta-D-Glcp
 ``` 
-…which means that the `GAL` residue _at position A1_ requires the `->4)-beta-D-Galp` `ResidueType`.
+…which means that the `GLC` residue _at position A1_ requires the `->4)-beta-D-Glcp` `ResidueType`.
 
  **Note:** Currently, `HETNAM` records only work with saccharide residues, but this will be changed soon to include any type of residue.
 
@@ -79,6 +81,16 @@ HETNAM GAL A 1 ->4)-beta-D-Galp
 To load a PDB file with saccharide residues, use the `-include_sugars` and the `-override_rsd_type_limit` flags. If the glycan contains branches, you will need to allow use the `-read_pdb_link_records` flag. (See below.)
 
 Currently, loading of saccharide residues requires the use of `HETNAM` records, as described above, but shortly, one will be able to load (some) PDB files directly from the PDB or those generated from GLYCAM software, (which have their own unique 3-letter-codes,) using the `-alternate_3_letter_codes pdb_sugar` or `-alternate_3_letter_codes glycam` flags, as appropriate.
+
+The `glycam.codes` file makes use of the third column of the list of alternative codes to specify the base `ResidueType` directly. This is an alternative to the use of `HETNAM` records and works because a GLYCAM 3-letter code for a saccharide, unlike a PDB 3-letter code for one, is specific for a particular residue type. For example, using the 3-letter code `4GA` in a PDB file along with `-alternate_3_letter_codes glycam`, which includes the following line:
+```
+4GA Glc ->4)-alpha-D-Glcp
+```
+…will net the same result as using the 3-letter code `Glc` and the record
+```
+HETNAM Glc A 1 ->4)-alpha-D-Glcp
+```
+within a PDB file.
 
  **Note:** Rosetta carbohydrate functionality is actively in development and has not been published; please contact <JWLabonte@jhu.edu> for assistance/questions.
 
