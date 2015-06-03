@@ -20,7 +20,7 @@ Some classes of residue types can be "turned on" by the use of specific flag opt
 [[How to turn on residue types that are off by default]]
 
 #### Alternate 3-Letter Codes Files
-Within a special `.codes` file, one can specify a list of alternative 3-letter codes and their corresponding Rosetta 3-letter codes, as specified in the appropriate topology files. These files have a very simple format: the first column is an alternate 3-letter code; the second column is the Rosetta 3-letter code; and the third column (optional) is a Rosetta HETNAM record designation for that code.
+Within a special `.codes` file, one can specify a list of alternative 3-letter codes and the corresponding Rosetta 3-letter codes, as specified in the appropriate topology files. These `.codes` files have a very simple format: the first column is an alternate 3-letter code; the second column is the Rosetta 3-letter code; and the (optional) third column is a Rosetta HETNAM record designation for that code.
 
 An example file might contain a line like this:
 ```
@@ -33,27 +33,27 @@ XXX ALA
 xxx GLY
 ```
 
-To tell Rosetta to consider the alternate codes, simply use the `-allow_3_letter_codes` flag:
+To tell Rosetta to consider the alternate codes, simply use the `-allow_3_letter_codes` option:
 ```
 -allow_3_letter_codes my_codes.codes
 ```
 
-Several example files are present in the `database/input_output/3-letter_codes/` directory.
+Several example files are present in the `database/input_output/3-letter_codes/` directory in the Rosetta database.
 
-One can specify multiple files for inclusion: (Note that successive files will overwrite previous codes if there are conflicts.)
+One can specify multiple files for inclusion: (Note that if an alternate 3-letter code is present in multiple files or on multiple lines in the same file, the later pairings will overwrite the previous ones.)
 ```
 -allow_3_letter_codes my_codes.codes her_codes.codes his_codes.codes
 ``` 
 
-If you do not provide a full path, Rosetta will assume that you placed the `.codes` file in the `database/input_output/3-letter_codes/` directory. All of the following obtain the same result:
+If you do not provide a full path, Rosetta will attempt to read the file from the `database/input_output/3-letter_codes/` directory in the Rosetta database. All of the following obtain the same result:
 ```
--allow_3_letter_codes database/input_output/3-letter_codes/glycam.codes
--allow_3_letter_codes database/input_output/3-letter_codes/glycam
+-allow_3_letter_codes ${ROSETTA}/database/input_output/3-letter_codes/glycam.codes
+-allow_3_letter_codes ${ROSETTA}/database/input_output/3-letter_codes/glycam
 -allow_3_letter_codes glycam.codes
 -allow_3_letter_codes glycam
 ```
 
-When this flag is used, while it is considering which `ResidueType` to assign for a particular residue in the PDB file, it will first check to see if the 3-letter code is found in one of the alternate codes files. If it is, it will use the alternate code to find the `ResidueType` it needs; if not, it will try to use the code it found in the PDB file.
+If the -allow_3_letter_codes option is given, when Rosetta reads in a PDB it will first check to see if the 3-letter code is found in one of the alternate codes files. If it is, it will use the pairing in the supplied `.codes` files to translate the alternate code into a Rosetta 3-letter code. If the 3-letter code from the PDB file is not found as a alternate code in the `.codes` files, Rosetta will will try to use the 3-letter code it found in the PDB file directly.
 
 #### HETNAM Records
 There are cases when one might have or need to use the same 3-letter code to indicate distinct residue types. In such cases, one can use the PDB `HETNAM` record type to specify the full name of the base (unpatched) `ResidueType` needed that sequence position.
