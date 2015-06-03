@@ -55,9 +55,10 @@
 
 ####Working with Non-Protein Residues and Molecules
 - General Guidance:
-    *  [[General Control | Ignore Unrecognized]]
-    *  [[How to turn on residue types that are off by default]]
-    *  [[Scorefunction and Scoreterm Info | NC-scorefunction-info]]
+    * [[General Control | Ignore Unrecognized]]
+    * [[Preparing PDB files for non-peptide polymers]]
+    * [[How to turn on residue types that are off by default]]
+    * [[Scorefunction and Scoreterm Info | NC-scorefunction-info]]
 - [[DNA]]
 - [[RNA]]
 - [[Ligands]]
