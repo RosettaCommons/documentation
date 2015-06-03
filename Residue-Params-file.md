@@ -9,9 +9,9 @@ A set of params files for commonly seen residues and metals is included with ros
 
 The following lines are typically found in Ligand params files. This does not represent a complete documentation of the params fileformat. These files are read in core/chemical/residue\_io.cc
 
--   **NAME** The 3 letter name of the Residue. Must be unique among all residues loaded into Rosetta
+-   **NAME** The name of the Residue. Must be unique among all residues loaded into Rosetta
 
--   **IO\_STRING** The 3 letter and 1 letter codes representing the residue. 3 letter code is the same as NAME, 1 letter code is Z by default.
+-   **IO\_STRING** The 3 letter and 1 letter codes representing the residue. 3 letter code is _not_ unique; it does not need to be the same as the name. 1 letter code is Z by default.
 
 -   **TYPE** The type of residue being represented, should be 'LIGAND' for ligands, or 'POLYMER' for protein or DNA residues
 
