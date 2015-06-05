@@ -351,8 +351,7 @@ One or more torsions can be specified with ```<Torsion>``` blocks.  Torsions can
 -  **residue**: A residue number.  If ```"pick_atoms"``` is specified within a ```<Torsion>``` block, the torsion can be selected using ```<Atom#.../>``` sub-tags.
 - **angle**: The value to which the torsion will be set, if a number is provided as input here.  Alternatively, the user may specify "random", in which case the torsion is randomized completely, or "perturb", in which case a small random value is added to the current value of the torsion.  Finally, if ```torsion_name="rama"``` is used with an alpha-amino acid, the user may specify ```angle="rama_biased"```, in which case both phi and psi are randomized biased by the Ramachandran map for that amino acid type.
 - **perturbation_type**:  If ```angle="perturb"``` is used, this determines how the small random value that's added to the current angle is chosen.  The current options are ```"uniform"``` and ```"gaussian"```.  Defaults to ```"gaussian"``` if not specified.
-- **perturbation_magnitude**: If ```angle="perturb"``` is used, this determines the size of the 
-
+- **perturbation_magnitude**: If ```angle="perturb"``` is used, this determines the size of the perturbation.  Defaults to 1.0 if not specified.
 
 ## Shear
 
