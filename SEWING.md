@@ -240,6 +240,6 @@ For example,
 
 ## Dictionary
 * model: collection of segment, a node that can be connected by edges
-* segment: collection of residues, secondary structures that constitutes the model
+* segment: collection of residues, generally 2-5 pieces of secondary structure constitutes the segment, currently for continuous SEWING, 3 pieces of secondary structures called smotif (like HLH, or HLE) is a segment, 5 pieces of secondary structures as a segment for continuous SEWING are in development
 * residue: collection of atoms, constitutes the model
 * atom: collection of xyz coordinates and element
