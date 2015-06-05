@@ -238,3 +238,9 @@ For example,
           <Add mover=fastrelax/>
         </PROTOCOLS>
 ```
+
+## Dictionary
+model: collection of segment, a node that can be connected by edges
+segment: collection of residues, secondary structures that constitutes the model
+residue: collection of atoms, constitutes the model
+atom: collection of xyz coordinates and element
