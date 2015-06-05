@@ -1,6 +1,6 @@
 The SEWING protocol is a method for the rapid generation of denovo backbones that uses large segments of natural protein structure.
 
-The entire article is mainly about backbone generation by SEWING so
+The entire article is mainly about 'backbone generation by SEWING' so
 * for 'Sidechain Design aided by Sewing', go to
 [[Sidechain Design aided by Sewing|SEWING#Sidechain-Design-aided-by-Sewing]]
 * for jargons of 'SEWING' field, go to
