@@ -1,11 +1,10 @@
 The SEWING protocol is a method for the rapid generation of denovo backbones that uses large segments of natural protein structure.
 
-Below article is mainly about backbone generation by SEWING, 
-
-for 'Sidechain Design aided by Sewing', go to
+The entire article is mainly about backbone generation by SEWING so
+* for 'Sidechain Design aided by Sewing', go to
 [[Sidechain Design aided by Sewing|SEWING#Sidechain-Design-aided-by-Sewing]]
-
-for dictionary of 'SEWING' field, go to
+* for jargons of 'SEWING' field, go to
+[[Dictionary|SEWING#Dictionary]]
 
 ##Basic concepts
 SEWING stands for **S**tructure **E**xtension **WI**th **N**ative-fragment **G**raphs. SEWING functions by identifying relatively large sub-structures, called models (2-5 pieces of secondary structure, called segments) from native PDBs, and then assembling these models based on structural similarity. SEWING can be broken down into three basic steps:
@@ -240,7 +239,7 @@ For example,
 ```
 
 ## Dictionary
-model: collection of segment, a node that can be connected by edges
-segment: collection of residues, secondary structures that constitutes the model
-residue: collection of atoms, constitutes the model
-atom: collection of xyz coordinates and element
+* model: collection of segment, a node that can be connected by edges
+* segment: collection of residues, secondary structures that constitutes the model
+* residue: collection of atoms, constitutes the model
+* atom: collection of xyz coordinates and element
