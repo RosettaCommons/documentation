@@ -228,14 +228,14 @@ Therefore, one can give some bonus to these Sewing-derived-native-rotamers (add 
 
 For example,
 ```
-        <MOVERS>
-          <AssemblyConstraintsMover name=ACM native_rotamers_file=(native rotamer file name like 'test_0001_from_25.rot') native_bonus=(preferred bonus value, like '1')/>
-          <FastRelax name=fastrelax repeats=1 disable_design=false scorefxn=talaris_cart cartesian=1 task_operations=resfile,keep_curr,layerdesign delete_virtual_residues_after_FastRelax=1/>
-        </MOVERS>
-	<PROTOCOLS>
-          <Add mover_name="ACM"/>
-          <Add mover=fastrelax/>
-        </PROTOCOLS>
+<MOVERS>
+   <AssemblyConstraintsMover name=ACM native_rotamers_file=(native rotamer file name like 'test_0001_from_25.rot') native_bonus=(preferred bonus value, like '1')/>
+   <FastRelax name=fastrelax repeats=1 disable_design=false scorefxn=talaris_cart cartesian=1 task_operations=resfile,keep_curr,layerdesign delete_virtual_residues_after_FastRelax=1/>
+</MOVERS>
+<PROTOCOLS>
+   <Add mover_name="ACM"/>
+   <Add mover=fastrelax/>
+</PROTOCOLS>
 ```
 
 ## Dictionary
