@@ -96,10 +96,12 @@ For academic or commercial users, you can [[request a license|http://c4c.uwc4c.c
 These licenses are free for academic users.
 Once you have a license, you can [[download the code here|https://www.rosettacommons.org/software/license-and-download]].
 Note that the download comes as a [[tar archive|http://en.wikipedia.org/wiki/Tar_(computing)]].
+We don't distribute [[executables/binaries|http://en.wikipedia.org/wiki/Executable]] for most purposes, we distribute [[source code|http://en.wikipedia.org/wiki/Source_code]].
+As a consequence, you will need to [compile|http://en.wikipedia.org/wiki/Compiler]] the code before use.
 
 ##Installation on Mac/Linux
 
-Local installation implies that one will be using Rosetta through a [[command line interface (or terminal)|https://en.wikipedia.org/wiki/Command-line_interface]].
+Local installation implies that one will be using Rosetta through a [[command line interface (or terminal)|http://en.wikipedia.org/wiki/Command-line_interface]].
 For local users, you are unlikely to want to install Rosetta to the entire system. 
 Rosetta is quite happy installed in userspace, because it is designed to be compiled and installed by regular users without administrative rights.
 You may need administrative rights to install [[dependencies]].
@@ -116,6 +118,12 @@ Expect compilation to take a while (hours on one processor).
 See our extensive [[build documentation|Build-Documentation#compiling-rosetta-3]] for further instructions.
 
 ##Use on supercomputer clusters
-If you'll be running Rosetta on a scientific computation cluster, there may already be a version of Rosetta installed for general usage. Talk to your cluster administrator to see if there is a centrally-provided version available for your use.
+If you'll be running Rosetta on a scientific computation cluster, there may already be a version of Rosetta installed for general usage.
+Talk to your cluster administrator to see if there is a centrally-provided version available for your use.
 
-If your cluster doesn't have Rosetta already installed, or you wish to use a different version than the centrally installed one, don't worry - Rosetta is designed to be compiled and installed by regular users without administrative rights. As long as commonly available compilation tools are available for your use, you should be able to build and run Rosetta in your user directory without cluster administrator involvement. Just treat it like a [[local install into userspace|Getting-Started#installation-on-mac-linux]]
+If your cluster doesn't have Rosetta already installed, or you wish to use a different version than the centrally installed one, don't worry - Rosetta is designed to be compiled and installed by regular users without administrative rights. 
+As long as commonly available compilation tools are available for your use, you should be able to build and run Rosetta in your user directory without cluster administrator involvement. 
+Just treat it like a [[local install into userspace|Getting-Started#installation-on-mac-linux]].
+
+##Windows
+(sad_trombone_sound.mpg) Unfortunately, we are not able to support Rosetta on Windows. There are a few reasons:
