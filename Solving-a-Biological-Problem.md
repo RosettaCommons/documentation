@@ -1,15 +1,9 @@
 #Solving a Biological Problem
-
-Metadata
-========
-
 Author: Jeliazko Jeliazkov and Andrew Watkins 
-
-This document was last updated June 8, 2015, by both authors.
 
 [[_TOC_]]
 
-Solving a Biological Problem
+Types of Biological Problems
 =============
 
 **Others should feel free to add in their expertise to this article.**
