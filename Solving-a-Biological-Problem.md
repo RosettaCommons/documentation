@@ -150,6 +150,7 @@ At the same time, input structures are not perfect:
 * Crystal structures are of variable resolution and frequently lack hydrogens.
 * At the resolution where hydrogens cannot be visualized (at least 90% of the PDB) asparagine and glutamine oxygens and nitrogens cannot be distinguished from each other (ditto histidine tautomers) and are frequently misassigned.
 * NMR structures are frequently resolved via a few hundred constraints, rather than the thousands upon thousands in crystal structures.
+
 Most of all, the force fields used in these optimization efforts are arithmetically distinct from the Rosetta energy function.
 It is critical to obtain structures that are geometrically similar to the starting structure but that exist closer to a local minimum of the scoring function.
 This is important because every unit of strain energy in your starting structure can inappropriately bias sampling: bad moves can be accepted that would otherwise have been rejected because they relieve strain that already should have been addressed.
