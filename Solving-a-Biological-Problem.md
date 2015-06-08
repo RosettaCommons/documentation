@@ -56,21 +56,44 @@ On the other hand, biochemical information can be implemented as constraints [[(
 ### Docking Two Partners With Known Structures
 
 **How does docking prepack fit in? Should that be merged with docking?**
+**Can we elaborate further in this subsection?**
 
 In this case, (near) atomic-resolution structures have been determined for both interacting partners. 
-The structures should be prepared for docking in the standard manner (see [[preparing structures|prepare-pdb-for-rosetta-with-relax]]).
+The structures should be prepared for docking in the standard manner (see [[preparing structures|preparing-strucures]]).
 The [[docking protocol|docking-protocol]] would then search for the complex structure with minimal energy.
 
-Docking can emulate several biophysical models of protein—protein interactions:
+Docking can emulate several biophysical models of protein—protein interactions which are enumerated below.
 
-1. key and lock
-2. conformer selection
-3. induced fit
-4. conformer selection / induced fit.
+#### Docking According to the Lock and Key Model
+
+The lock and key model assumes that proteins interact in a rigid fashion; two proteins must have shape complemenetarity to interact.
+Assuming the two protein partners are not expected to have backbone motions upon binding, the problem can be approached with rigid-backbone docking.
+
+#### Docking According to the Conformer Selection Model
+
+Under the conformer selection model, proteins are viewed as a statistical ensemble of conformations including the bound and unbound conformations of each partner.
+For the bound complex to form, the bound conformations of each partner must encounter each other. 
+To computationally model this behaviour, an ensemble of structures can be generated for that partner (or both) using the [[relax protocol|relax]]. 
+To be useful for docking, an ensemble of structure should not deviate further than one Angstrom RMSD from the initial model.
+These ensembles of structures can be sampled during the docking protocol.
+
+#### Docking According to the Induced Fit Model
+
+The induced fit model offers an alternative to the prior two models.
+Induced fit holds that upon an encounter, proteins mutually affect each other.
+This is computationally modeled by minimizing backbone degrees of freedom (in addition to the typical minimization of side-chain degrees of freedom) in the high-resolution phase of the docking protocol.
+
+#### Docking According to the Conformer Selection and Induced Fit Model
+
+This is simply a combination of the prior two models.
+Computationally, an ensemble of structures and backbone minimization are both implemented.
 
 ### Docking Two Partners Where One Structure Is Unknown
 
-Difficult.
+This problem is slightly more complicated and more difficult.
+Results are less accurate due to the added necessity of homology or _de novo_ modeling one protein.
+The best approach is to input an ensemble of models for the protein of unknown structure.
+There is a caveat as ensemble docking swap models according to the Metropolis criterion and so the ensemble cannot have too much diversity or else it will be utterly useless.
 
 ### Docking Two Partners With Two Unknown Structures 
 
