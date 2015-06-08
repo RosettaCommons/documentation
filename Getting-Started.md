@@ -43,5 +43,3 @@ The other input is the choice of [[which Rosetta protocol|Solving-a-Biological-P
 Something about data analysis
 
 ***
-
-[[/uploads/cold_start_diagram.jpg]]
