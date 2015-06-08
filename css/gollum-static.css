@@ -76,8 +76,8 @@ a:hover, a:visited {
 /* @section body */
 
 .has-leftbar #wiki-body {
-  float: right;
-  clear: right;
+  float: left;
+  clear: left;
 }
 
 #wiki-body {
