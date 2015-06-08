@@ -77,6 +77,8 @@ Incorporating Experimental Data
 Potentially useful experimental data takes many forms.
 The very nature of Monte Carlo simulation strongly supports the incorporation of any type of experimental constraint, because all you need it to do is allow it to influence the distribution of generated structures.
 
+## Specialized Rosetta executables
+
 Rosetta has individual modules to handle particular forms of experimental constraint:
 
 * [mr_protocols](application_documentation/mr-protocols) is typically used _alongside_ Phaser; it uses Rosetta's comparative modeling to rebuild gaps and insertions in the template, as well as missing density, from fragments, followed by relaxation with constraints to experimental density.
@@ -85,6 +87,8 @@ You can then use Phaser again to re-score against crystallographic data.
 It requires the use of the refinement program PHENIX.
 * [loops from density](application_documentation/loops-from-density) is a script to take badly fit electron data and a cutoff suggesting how much of the pose you're willing to rebuild and to generate input "loops" files for loop modeling. 
 * [Chemical shift files](rosetta_basics/chemical-shift-file) provide data to a variety of protocols often collectively referred to as CSROSETTA that incorporate NMR constraints to refine structures
+
+## Experimental constraints  
 
 Frequently, you will encounter situations where you have knowledge about the experimental system that does not neatly fit into any of the above situations, or which provides very sparse or even conflicting information.
 This is all right: Rosetta's capacity for [working with constraints](rosetta_basics/constraint-file) will help to encode these sorts of weak information.
