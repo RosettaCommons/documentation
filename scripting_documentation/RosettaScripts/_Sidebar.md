@@ -10,6 +10,7 @@
   * [[Task Operations|TaskOperations-RosettaScripts]]
   * [[FeaturesReporters|FeatureReporters]]
   * [[Using KIC with RosettaScripts|GeneralizedKIC]]
+  * [[Databases with RosettaScripts|RosettaScripts-database-connection-options]]
  * [[TopologyBroker|BrokeredEnvironment]]
  * [[PyRosetta|PyRosetta]]
 * [[Development Documentation|development_documentation/Development-Documentation]]
