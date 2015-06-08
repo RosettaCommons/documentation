@@ -49,15 +49,23 @@ See: [[Comparative Modeling|minirosetta-comparative-modeling]] (potentially out 
 
 Another general question which can be interrogated by Rosetta is: given protein A and protein B, can I generate a plausible model for protein—protein interactions?
 This problem can be conflated with the protein structure prediction problem when the structure of either protein A, protein B, or both are unknown.
-Protein flexibility can play a role in protein docking. 
+Protein flexibility can play a role in protein docking by increasing the degrees of freedom. 
 For example, high RMSD between the bound and unbound states makes prediction of the bound state from the unbound states difficult. 
-On the other hand, biochemical information can be implemented as constraints [[(see below)|Incorporating-Experimental-Data]] in the scoring function during docking to (hopefully) improve model accuracy.
+On the other hand, biochemical information can be implemented as constraints [[(see below)|Solving-a-Biological-Problem#Incorporating-Experimental-Data]] in the scoring function during docking to (hopefully) improve model accuracy.
 
 ### Docking Two Partners With Known Structures
 
+**How does docking prepack fit in? Should that be merged with docking?**
+
 In this case, (near) atomic-resolution structures have been determined for both interacting partners. 
-The docking protocol would then search for the complex structure with minimal energy.
-In a perfect case, the unbound, input structures of both partners have sub-Angstrom RMSD from the bound structures.
+The structures should be prepared for docking in the standard manner (see [[preparing structures|prepare-pdb-for-rosetta-with-relax]]).
+The [[docking protocol|docking-protocol]] would then search for the complex structure with minimal energy.
+
+Docking can emulate several biophysical models of protein—protein interactions:
+1. key and lock
+2. conformer selection
+3. induced fit
+4. conformer selection / induced fit.
 
 ### Docking Two Partners Where One Structure Is Unknown
 
@@ -66,6 +74,8 @@ Difficult.
 ### Docking Two Partners With Two Unknown Structures 
 
 Just do not.
+
+### Docking Homooligomers
 
 ## Protein—Peptide Docking
 
