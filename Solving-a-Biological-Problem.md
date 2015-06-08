@@ -37,3 +37,14 @@ So, if you know that a residue has a large ddG upon mutation to alanine, you can
     * An AmbiguousConstraint only applies the lowest energy penalty of several constraints.
 Thus, if you know that two distant residues both ought to have a SiteConstraint applied, but they can't both bind at once, wrap them in an AmbiguousConstraint and you'll only evaluate the one your pose best satisfies.
     * Similarly, a KofNConstraint will apply the lowest k of n constraints.
+* You may simply have a limited amount of structural information that you need to encode without the formality of using an NMR structure solution module.
+(For example, your experimental collaborator knows that some NOE data suggests that a given residue is helical or otherwise that two atoms within the structure are proximal, but doesn't necessarily have data for you).
+    * Encode these as AtomPairConstraints and DihedralConstraints.
+	You may want to evaluate multiple possible well widths/flexibilities for the corresponding functions for those constraints.
+Remember that in these situations you are using constraints to _improve your sampling_.
+You are facing a titanic, terrifying configuration space and a number of structures that is, in comparison, pitiably small.
+Your aim is to enrich your nstruct as best you can with the _true_ free energy minimum (because we assume the experimental data is largely good).
+This means that the structures that come out of your protocol should be fairly robust.
+Suppose you have a small set of good-scoring decoys that come out of your protocol.
+You should be able to apply the same sampling protocol to those good-scoring decoys _without the constraints_ and the structure should not "blow up."
+Heuristics for determining the precise meaning of "blowing up" are case-dependent, but it is essential that you remove constraints and observe the behavior of your putative "good models." 
