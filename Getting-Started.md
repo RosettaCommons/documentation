@@ -97,7 +97,7 @@ These licenses are free for academic users.
 Once you have a license, you can [[download the code here|https://www.rosettacommons.org/software/license-and-download]].
 Note that the download comes as a [[tar archive|http://en.wikipedia.org/wiki/Tar_(computing)]].
 We don't distribute [[executables/binaries|http://en.wikipedia.org/wiki/Executable]] for most purposes, we distribute [[source code|http://en.wikipedia.org/wiki/Source_code]].
-As a consequence, you will need to [compile|http://en.wikipedia.org/wiki/Compiler]] the code before use.
+As a consequence, you will need to [[compile|http://en.wikipedia.org/wiki/Compiler]] the code before use.
 
 ##Installation on Mac/Linux
 
@@ -126,4 +126,8 @@ As long as commonly available compilation tools are available for your use, you 
 Just treat it like a [[local install into userspace|Getting-Started#installation-on-mac-linux]].
 
 ##Windows
-(sad_trombone_sound.mpg) Unfortunately, we are not able to support Rosetta on Windows. There are a few reasons:
+(sad_trombone_sound.mp3) Unfortunately, we are not able to support Rosetta on Windows.
+The two main reasons are that 1) almost all Windows computers are desktops/laptops with insufficient power to run most of Rosetta's applications, and 2) there are no free, easy-to-use C++ compilers available for Windows.
+If you have access to a native Windows C++ compiler, you may be able to get Rosetta running (this is how Rosetta@HOME, which runs on Windows, is produced).
+If you wish to install [[Cygwin|https://en.wikipedia.org/wiki/Cygwin]], it is technically possible to use G++ under Cygwin to compile Rosetta under Windows.
+Again, this is not supported, but it has been done.
