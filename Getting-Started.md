@@ -39,4 +39,5 @@ The other input is the choice of [[which Rosetta protocol|Solving-a-Biological-P
 3) Interpreting outputs
 
 Something about data analysis
-[[/uploads/Flow%20Chart%20for%20Cold%20Start.jpg]]
+
+[[/uploads/cold_start_diagram.graffle]]
