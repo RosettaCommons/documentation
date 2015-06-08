@@ -27,6 +27,8 @@ The other inputs are the choice of [[which Rosetta protocol|Solving-a-Biological
 
 3) Interpreting outputs
 
+THIS SECTION GOES SOMEWHERE ELSE ULTIMATELY
+
 LINKY LINKY TO A PAGE WE DIDN"T WRITE YET
 Rosetta's outputs are rarely simple to interpret.
 Rosetta is not like an Easy-Bake Oven, and you do not let it run for an hour, after which your baked protein structure answer.
@@ -42,5 +44,43 @@ There are applications than can run on lab-scale powerful computers (12-30 core 
 Most applications assume you have access to tens of thousands of hours of computer time to accumulate enough results to answer your question.
 The later sections of this document describe installing or using Rosetta at those different scales.
 
+Use of Public Rosetta Servers
+-----------------------------
+
+All of Rosetta's public servers are licensed for **NON-COMMERCIAL USE ONLY**.
+
+THIS SECTION SHOULD BECOME ITS OWN PAGE.
+
+1) ROSIE
+
+[ROSIE](http://rosie.rosettacommons.org/) is a server that many several Rosetta applications through a simple web interface.
+It is perfect for use by those new to Rosetta.
+Despite ROSIE's variety it offers only a slice of Rosetta's full functionality.
+Because this is a free public resource, computer time is limited, but runs can be downloaded and used to build Rosetta jobs on other resources.
+
+2) Robetta 
+
+[ROBETTA](http://robetta.bakerlab.org/) (Robot-Rosetta) is a server that provides _ab initio_ folding and structure prediction, as well as fragment selection for local runs of Rosetta.
+It also provides interface alanine scanning and DNA interface residue scanning.
+
+3) Rosetta Design Server
+
+The [Rosetta Design Server](http://rosettadesign.med.unc.edu/) provides access to Rosetta's [[fixbb]] fixed-backbone design protocol.
+
+4) Rosetta Backrub
+
+The [Backrub Server](https://kortemmelab.ucsf.edu/backrub/cgi-bin/rosettaweb.py?query=index) provides [[backrub]] ensembles, as well as alanine scanning.
+
+5) FlexPepDock
+
+The [FlexPepDock server](http://flexpepdock.furmanlab.cs.huji.ac.il/) provides [[FlexPepDock]]. 
+
 Local installation and use of Rosetta
 --------------------------------------
+
+For academic or commercial users, you can [[request a license|http://c4c.uwc4c.com/express_license_technologies/rosetta]].
+These licenses are free for academic users.
+Once you have a license, you can [[download the code here|https://www.rosettacommons.org/software/license-and-download]].
+Note that the download comes as a [[tar archive|http://en.wikipedia.org/wiki/Tar_(computing)]].
+
+* Installation on Mac/Linux
