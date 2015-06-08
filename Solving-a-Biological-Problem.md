@@ -101,6 +101,7 @@ Thus, if you know that two distant residues both ought to have a SiteConstraint 
 (For example, your experimental collaborator knows that some NOE data suggests that a given residue is helical or otherwise that two atoms within the structure are proximal, but doesn't necessarily have data for you).
     * Encode these as AtomPairConstraints and DihedralConstraints.
 	You may want to evaluate multiple possible well widths/flexibilities for the corresponding functions for those constraints.
+
 Remember that in these situations you are using constraints to _improve your sampling_.
 You are facing a titanic, terrifying configuration space and a number of structures that is, in comparison, pitiably small.
 Your aim is to enrich your nstruct as best you can with the _true_ free energy minimum (because we assume the experimental data is largely good).
