@@ -94,11 +94,16 @@ Just do not.
 
 ### Docking Homooligomers
 
-## Protein—Peptide Docking
+[[Symmetric Docking|sym-dock]] is useful for assembling multiple subunits according to a specific symmetry defined in a [[symmetry file|make-symmdef-file-denovo]].
 
-Docking a flexible peptide
+## Protein–Peptide Docking
 
-## Protein—Ligand Docking
+Protein–peptide docking is useful for determining the structure of a short, flexible peptide in the context of a receptor.
+Protein–peptide docking is most accurate for flexible peptides with in 5 Angstroms backbone RMSD of the native and in a starting position close to the receptor site.
+
+**describe several types of protein-peptide docking**
+
+## Protein–Ligand Docking
 
 RosettaLigand and DARC go here.
 
@@ -112,7 +117,16 @@ RosettaLigand and DARC go here.
 
 ### Enzyme Design
 
-## Caveats
+## Protein Loop Modeling
+
+Most protein flexibility is contained the loops. 
+Often times it is important to specifically model loops.
+
+## Filling in Crystal Density? (optional)
+
+Loop modeling and floppy tail can go here.
+
+## General Rosetta Caveats
 
 ## Publicly Available Resources (Servers)
 
