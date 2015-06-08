@@ -18,7 +18,7 @@ Index the problems here.
 
 ### Comparative Modeling (Homology Modeling)
 
-## Protein--Protein Docking
+## Protein`&mdash;`Protein Docking
 
 ## Protein--Ligand Docking
 
