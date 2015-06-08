@@ -7,6 +7,8 @@ Author: Jeliazko Jeliazkov and Andrew Watkins
 
 This document was last updated June 8, 2015, by both authors.
 
+[[_TOC_]]
+
 Solving a Biological Problem
 =============
 
