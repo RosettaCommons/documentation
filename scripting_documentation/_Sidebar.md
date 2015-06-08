@@ -3,9 +3,9 @@
 * [[Rosetta Basics|rosetta_basics/Rosetta-Basics]]
 * [[Application Documentation|application_documentation/Application-Documentation]]
 * [[Scripting Interfaces|scripting_documentation/Scripting-Documentation]]
- * [[RosettaScripts|scripting_documentation/RosettaScripts]]
- * [[TopologyBroker|scripting_documentation/BrokeredEnvironment]]
- * [[PyRosetta|scripting_documentation/PyRosetta]]
+ * [[RosettaScripts|RosettaScripts]]
+ * [[TopologyBroker|BrokeredEnvironment]]
+ * [[PyRosetta|PyRosetta]]
 * [[Development Documentation|development_documentation/Development-Documentation]]
 <flag>
 * [[Internal Documentation|internal_documentation/Internal-Documentation]]
