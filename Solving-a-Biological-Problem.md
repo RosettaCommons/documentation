@@ -20,9 +20,8 @@ Common problems which are in the realm of Rosetta are listed below.
 
 Note: put fold and dock in here as well as symmetry.
 
-Given a sequence, can I predict the protein structure?
-There are two general approaches to predicting protein structure: _de novo_ and comparative or homology modeling.
-
+The general question to be answered below: given a sequence, can I predict the protein structure?
+There are two approaches to predicting protein structure from sequence alone: _de novo_ and comparative or homology modeling.
 
 ### De Novo Modeling
 
@@ -35,6 +34,24 @@ _De novo_ structure prediction is accurate when modeling a small (<100 residues)
 Comparative modeling on the other hand tends to be successful when the target sequence (sequence of interest) has a high degree of sequence homology (>50%) with a protein whose structure has been determined.
 
 ## Protein—Protein Docking
+
+Another general question which can be interrogated by Rosetta is: given protein A and protein B, can I generate a plausible model for protein—protein interactions?
+This problem can be conflated with the protein structure prediction problem when the structure of either protein A, protein B, or both are unknown.
+Protein flexibility can play a role in protein docking. 
+For example, high RMSD between the bound and unbound states makes prediction of the bound state from the unbound states difficult. 
+On the other hand, biochemical information can be implemented as constraints in the scoring function during docking to (hopefully) improve model accuracy.
+
+### Docking Two Partners With Known Structures
+
+Reasonable.
+
+### Docking Two Partners Where One Structure Is Unknown
+
+Difficult.
+
+### Docking Two Partners With Two Unknown Structures
+
+Just do not.
 
 ## Protein—Ligand Docking
 
