@@ -5,50 +5,102 @@ Author: Jeliazko Jeliazkov and Andrew Watkins
 Types of Biological Problems
 =============
 
-**Others should feel free to add in their expertise to this article.**
+**Note: others should feel free to add in their expertise to this article.**
 
-There are many biological problems of interest, often stemming from the central idea that sequence confers structure which in turn confers function.
-Rosetta is a macromolecular modeling software capable of tackling some of these problems.
-Common problems which are in the realm of Rosetta are listed below.
+There are many biological problems which can be approached with Rosetta. 
+These topics often stem from the central idea that **sequence** confers **structure** which in turn confers **function**.
+For example, Rosetta was initially utilized to study _de novo_ protein structure prediction (sequence->function), while current applications can be as extensive as enzyme design (structure->function).
 
 ## Protein Structure Prediction
 
-**Note: put fold and dock in here as well as symmetry.**
-
 The general question to be answered below: given a sequence, can I predict the protein structure?
 There are two approaches to predicting protein structure from sequence alone: _de novo_ and comparative or homology modeling.
+There are also other, more specialized, approaches for particular tasks such as antibody homology modeling, symmetric homooligomer modeling, and membrane protein modeling.
 
 ### De Novo Modeling
 
-Rosetta was initially created with _de novo_ protein structure prediction in mind.
 _De novo_ structure prediction is useful when modeling a protein with low homology. 
 _De novo_ structure prediction is accurate when modeling a small (<100 residues), globular protein.
+
+See: [[Ab initio|abinitio-relax]].
 
 ### Comparative Modeling (Homology Modeling)
 
 Comparative modeling on the other hand tends to be successful when the target sequence (sequence of interest) has a high degree of sequence homology (>50%) with a protein whose structure has been determined.
 
+See: [[Comparative Modeling|minirosetta-comparative-modeling]] (potentially out of date) and [[Comparative Modeling via RosettaScripts|http://www.ncbi.nlm.nih.gov/pubmed/24035711]] (uses RosettaScripts) for more information.
+
+### Specialized Protocols
+
+* [[Symmetric folding and docking of homooligomeric proteins.|fold-and-dock]]
+* [[Homology modeling of antibody variable fragments.|antibody-protocol]]
+* [[Ab initio modeling of membrane proteins.|membrane-abinitio]]
+
+**Should we include demo dirs here?**
+
 ## Protein—Protein Docking
 
 Another general question which can be interrogated by Rosetta is: given protein A and protein B, can I generate a plausible model for protein—protein interactions?
 This problem can be conflated with the protein structure prediction problem when the structure of either protein A, protein B, or both are unknown.
-Protein flexibility can play a role in protein docking. 
+Protein flexibility can play a role in protein docking by increasing the degrees of freedom. 
 For example, high RMSD between the bound and unbound states makes prediction of the bound state from the unbound states difficult. 
-On the other hand, biochemical information can be implemented as constraints in the scoring function during docking to (hopefully) improve model accuracy.
+On the other hand, biochemical information can be implemented as constraints [[(see below)|Solving-a-Biological-Problem#Incorporating-Experimental-Data]] in the scoring function during docking to (hopefully) improve model accuracy.
 
 ### Docking Two Partners With Known Structures
 
-Reasonable.
+**How does docking prepack fit in? Should that be merged with docking?**
+**Can we elaborate further in this subsection?**
+
+In this case, (near) atomic-resolution structures have been determined for both interacting partners. 
+The structures should be prepared for docking in the standard manner (see [[preparing structures|preparing-strucures]]).
+The [[docking protocol|docking-protocol]] would then search for the complex structure with minimal energy.
+
+Docking can emulate several biophysical models of protein—protein interactions which are enumerated below.
+
+#### Docking According to the Lock and Key Model
+
+The lock and key model assumes that proteins interact in a rigid fashion; two proteins must have shape complemenetarity to interact.
+Assuming the two protein partners are not expected to have backbone motions upon binding, the problem can be approached with rigid-backbone docking.
+
+#### Docking According to the Conformer Selection Model
+
+Under the conformer selection model, proteins are viewed as a statistical ensemble of conformations including the bound and unbound conformations of each partner.
+For the bound complex to form, the bound conformations of each partner must encounter each other. 
+To computationally model this behaviour, an ensemble of structures can be generated for that partner (or both) using the [[relax protocol|relax]]. 
+To be useful for docking, an ensemble of structure should not deviate further than one Angstrom RMSD from the initial model.
+These ensembles of structures can be sampled during the docking protocol.
+
+#### Docking According to the Induced Fit Model
+
+The induced fit model offers an alternative to the prior two models.
+Induced fit holds that upon an encounter, proteins mutually affect each other.
+This is computationally modeled by minimizing backbone degrees of freedom (in addition to the typical minimization of side-chain degrees of freedom) in the high-resolution phase of the docking protocol.
+
+#### Docking According to the Conformer Selection and Induced Fit Model
+
+This is simply a combination of the prior two models.
+Computationally, an ensemble of structures and backbone minimization are both implemented.
 
 ### Docking Two Partners Where One Structure Is Unknown
 
-Difficult.
+This problem is slightly more complicated and more difficult.
+Results are less accurate due to the added necessity of homology or _de novo_ modeling one protein.
+The best approach is to input an ensemble of models for the protein of unknown structure.
+There is a caveat as ensemble docking swap models according to the Metropolis criterion and so the ensemble cannot have too much diversity or else it will be utterly useless.
 
-### Docking Two Partners With Two Unknown Structures
+### Docking Two Partners With Two Unknown Structures 
 
 Just do not.
 
+### Docking Homooligomers
+
+## Protein—Peptide Docking
+
+Docking a flexible peptide
+
 ## Protein—Ligand Docking
+
+RosettaLigand and DARC go here.
 
 ## Protein Design
 
@@ -63,6 +115,9 @@ Just do not.
 ## Caveats
 
 ## Publicly Available Resources (Servers)
+
+* [[http://rosie.rosettacommons.org/]]
+* [[http://robetta.bakerlab.org/]]
 
 Incorporating Experimental Data
 ==========

@@ -6,7 +6,7 @@ Metadata
 Authors:
 Brian Weitzner (brian.weitzner@jhu.edu), Monica Berrondo (mberron1@jhu.edu), Krishna Kilambi (kkpraneeth@jhu.edu), Robin Thottungal (raugust1@jhu.edu), Sidhartha Chaudhury (sidc@jhu.edu), Chu Wang (chuwang@gmail.com), Jeffrey Gray (jgray@jhu.edu)
 
-Last edited 4/25/2014 by Jared Adolf-Bryfogle. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
+Last edited 6/08/2015 by Jeliazko Jeliazkov. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
 
 [[_TOC_]]
 
@@ -33,6 +33,7 @@ We recommend the following articles for further studies of RosettaDock methodolo
 -   Gray, J. J.; Moughon, S.; Wang, C.; Schueler-Furman, O.; Kuhlman, B.; Rohl, C. A.; Baker, D., Protein-protein docking with simultaneous optimization of rigid-body displacement and side-chain conformations. Journal of Molecular Biology 2003, 331, (1), 281-299.
 -   Wang, C., Schueler-Furman, O., Baker, D. (2005). Improved side-chain modeling for protein-protein docking Protein Sci 14, 1328-1339.
 -   Wang, C., Bradley, P. and Baker, D. (2007) Protein-protein docking with backbone flexibility. Journal of Molecular Biology, 2007 Oct 19;373(2):503-19. Epub 2007 Aug 2.
+-   S. Chaudhury & J. J. Gray, "Conformer selection and induced fit in flexible backbone protein-protein docking using computational and NMR ensembles," J. Mol. Biol. 381(4), 1068-1087 (2008). [[Online|http://dx.doi.org/10.1016/j.jmb.2008.05.042]]
 -   Chaudhury, S., Berrondo, M., Weitzner, B. D., Muthu, P., Bergman, H., Gray, J. J.; (2011) Benchmarking and analysis of protein docking performance in RosettaDock v3.2. PLoS One, Accepted for Publication
 
 
@@ -75,6 +76,8 @@ The only required input file is a [[prepacked pdb file|docking-prepack-protocol]
 **Note:** The following flags should be given to every docking simulation: -ex1 -ex2aro.
 
 If you are using a starting structure with more than two polypeptide chains, you should include the -partners flag. If this flag is omitted, docking will dock the first two polypeptide chains in the strucutre.
+
+**Note:** An ensemble of input structures can be given using the follow flags: `-ensemble1 [partner_1_pdb_list]` or/and `-ensemble2 [partner_2_pdb_list]`.
 
 Standard Docking options
 ========================
