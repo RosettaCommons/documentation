@@ -1,4 +1,3 @@
-#Solving a Biological Problem
 Author: Jeliazko Jeliazkov and Andrew Watkins 
 
 [[_TOC_]]
