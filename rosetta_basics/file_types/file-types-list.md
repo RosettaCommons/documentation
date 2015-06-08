@@ -1,4 +1,4 @@
-#List of file types used in Rosetta
+#List of file types in Rosetta
 ##Protein structure input/output formats
 * **PDB**: Standard file format for input/output of single protein structures. See information on PDB file requirements [[here|preparing-structures]].
 * **[[Silent file|silent-file]]**: Useful for input/output of large numbers of structures.
