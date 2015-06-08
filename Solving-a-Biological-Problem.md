@@ -24,6 +24,7 @@ Common problems which are in the realm of Rosetta are listed below.
 
 The general question to be answered below: given a sequence, can I predict the protein structure?
 There are two approaches to predicting protein structure from sequence alone: _de novo_ and comparative or homology modeling.
+There are also other, more specialized, approaches for particular tasks such as antibody homology modeling, symmetric homooligomer modeling, and membrane protein modeling.
 
 ### De Novo Modeling
 
@@ -31,13 +32,19 @@ Rosetta was initially created with _de novo_ protein structure prediction in min
 _De novo_ structure prediction is useful when modeling a protein with low homology. 
 _De novo_ structure prediction is accurate when modeling a small (<100 residues), globular protein.
 
-See: [[Ab-initio|abinitio-relax]].
+See: [[Ab initio|abinitio-relax]].
 
 ### Comparative Modeling (Homology Modeling)
 
 Comparative modeling on the other hand tends to be successful when the target sequence (sequence of interest) has a high degree of sequence homology (>50%) with a protein whose structure has been determined.
 
-See: [[Comparative Modeling|minirosetta-comparative-modeling]] (potentially out of date) and [[http://www.ncbi.nlm.nih.gov/pubmed/24035711]] (uses RosettaScripts) for more information.
+See: [[Comparative Modeling|minirosetta-comparative-modeling]] (potentially out of date) and [[Comparative Modeling via RosettaScripts|http://www.ncbi.nlm.nih.gov/pubmed/24035711]] (uses RosettaScripts) for more information.
+
+### Specialized Protocols
+
+* [[Symmetric Fold and Dock|fold-and-dock]]
+* [[Antibody Modeling|antibody-protocol]]
+* [[Membrane Modeling|membrane-abinitio]]
 
 **Should we include demo dirs here?**
 
@@ -57,7 +64,7 @@ Reasonable.
 
 Difficult.
 
-### Docking Two Partners With Two Unknown Structures
+### Docking Two Partners With Two Unknown Structures 
 
 Just do not.
 
@@ -76,6 +83,9 @@ Just do not.
 ## Caveats
 
 ## Publicly Available Resources (Servers)
+
+* [[http://rosie.rosettacommons.org/]]
+* [[http://robetta.bakerlab.org/]]
 
 Incorporating Experimental Data
 ==========
