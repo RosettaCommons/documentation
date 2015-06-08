@@ -131,3 +131,8 @@ The two main reasons are that 1) almost all Windows computers are desktops/lapto
 If you have access to a native Windows C++ compiler, you may be able to get Rosetta running (this is how Rosetta@HOME, which runs on Windows, is produced).
 If you wish to install [[Cygwin|https://en.wikipedia.org/wiki/Cygwin]], it is technically possible to use G++ under Cygwin to compile Rosetta under Windows.
 Again, this is not supported, but it has been done.
+
+Use of Rosetta on national-scale supercomputing resources
+---------------------------------------------------------
+
+As part of the XSEDE initiative, the [[TACC/Stampede|TACC]] cluster has Rosetta and PyRosetta centrally installed for authorized users. See the [[TACC]] page for more details.
