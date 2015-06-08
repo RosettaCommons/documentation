@@ -99,7 +99,7 @@ Just do not.
 ## Protein–Peptide Docking
 
 Protein–peptide docking is useful for determining the structure of a short, flexible peptide in the context of a receptor.
-Protein–peptide docking is most accurate for flexible peptides with in 5 Angstroms backbone RMSD of the native and in a starting position close to the receptor site.
+Protein–peptide docking is most accurate for flexible peptides with in 5 Angstroms backbone RMSD of the native and in a starting position near to the peptide-binding site.
 
 **describe several types of protein-peptide docking**
 
