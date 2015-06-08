@@ -36,10 +36,28 @@ If you have a poorer-resolution structure, an NMR structure, a homology model, o
 
 2) Choosing the Rosetta protocol
 
-The other input is the choice of [[which Rosetta protocol|Solving-a-Biological-Problem]] to use and what options to choose.
+The other inputs are the choice of [[which Rosetta protocol|Solving-a-Biological-Problem]] to use, and what options LINKY or LINKY file inputs to use.
 
 3) Interpreting outputs
 
-Something about data analysis
+LINKY LINKY TO A PAGE WE DIDN"T WRITE YET
+Rosetta's outputs are rarely simple to interpret.
+Rosetta is not like an Easy-Bake Oven, and you do not let it run for an hour, after which your baked protein structure answer.
+Broadly, Rosetta algorithms run on [Metropolis Monte Carlo](http://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm).
+We chose these types of algorithms because they are comparatively efficient, but a necessary side effect is that one must run *many* Rosetta trajectories and sort through many outputs to determine the result of an experiment.
+You must be also be careful to restrict yourself to conclusions that are within the scope of your modeling (for example not overinterpreting LINKY constrained models).
 
+<<<<<<< HEAD
 ***
+=======
+4) Computational resources
+
+Rosetta software, as a whole, is written to run on supercomputers.
+There are applications that can run on laptop computers.
+There are applications than can run on lab-scale powerful computers (12-30 core range).
+Most applications assume you have access to tens of thousands of hours of computer time to accumulate enough results to answer your question.
+The later sections of this document describe installing or using Rosetta at those different scales.
+
+Local installation and use of Rosetta
+--------------------------------------
+>>>>>>> f466b568dcb8ef66f7453fdc4630e0db8330e252
