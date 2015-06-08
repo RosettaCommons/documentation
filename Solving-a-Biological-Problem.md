@@ -34,6 +34,6 @@ In particular:
 So, if you know that a residue has a large ddG upon mutation to alanine, you can probably apply a correspondingly large SiteConstraint to require that it be in the binding site.
 (Though, notably, you may not want it to have the same magnitude as the ddG.)
 * You can group constraints in a number of ways to accomodate mutually inconsistent data:
-** An AmbiguousConstraint only applies the lowest energy penalty of several constraints.
+    * An AmbiguousConstraint only applies the lowest energy penalty of several constraints.
 Thus, if you know that two distant residues both ought to have a SiteConstraint applied, but they can't both bind at once, wrap them in an AmbiguousConstraint and you'll only evaluate the one your pose best satisfies.
-** Similarly, a KofNConstraint will apply the lowest k of n constraints.
+    * Similarly, a KofNConstraint will apply the lowest k of n constraints.
