@@ -32,7 +32,7 @@ Rosetta's outputs are rarely simple to interpret.
 Rosetta is not like an Easy-Bake Oven, and you do not let it run for an hour, after which your baked protein structure answer.
 Broadly, Rosetta algorithms run on [Metropolis Monte Carlo](http://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm).
 We chose these types of algorithms because they are comparatively efficient, but a necessary side effect is that one must run *many* Rosetta trajectories and sort through many outputs to determine the result of an experiment.
-You must be also be careful to restrict yourself to conclusions that are within the scope of your modeling.
+You must be also be careful to restrict yourself to conclusions that are within the scope of your modeling (for example not overinterpreting LINKY constrained models).
 
 4) Computational resources
 
@@ -40,3 +40,7 @@ Rosetta software, as a whole, is written to run on supercomputers.
 There are applications that can run on laptop computers.
 There are applications than can run on lab-scale powerful computers (12-30 core range).
 Most applications assume you have access to tens of thousands of hours of computer time to accumulate enough results to answer your question.
+The later sections of this document describe installing or using Rosetta at those different scales.
+
+Local installation and use of Rosetta
+--------------------------------------
