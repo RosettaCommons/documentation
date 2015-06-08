@@ -135,4 +135,5 @@ Again, this is not supported, but it has been done.
 Use of Rosetta on national-scale supercomputing resources
 ---------------------------------------------------------
 
-As part of the XSEDE initiative, the [[TACC/Stampede|TACC]] cluster has Rosetta and PyRosetta centrally installed for authorized users. See the [[TACC]] page for more details.
+As part of the XSEDE initiative, the [[TACC/Stampede|TACC]] cluster has Rosetta and PyRosetta centrally installed for authorized users. 
+See the [[TACC]] page for more details.
