@@ -17,7 +17,12 @@ Rosetta itself can be operated as a ["black box"](https://en.wikipedia.org/wiki/
 
 1) Inputs to Rosetta
 
-Some text about inputs
+Rosetta will need two classes of inputs.
+The major input is the structure Rosetta should work on.
+Generally, if you have a high-resolution structure(s) (better than 2 Å) of your molecule, it can be used with Rosetta with minimal remediation LINKY LINKY.
+If you have a poorer-resolution structure, an NMR structure, a homology model, or no structure at all, then LINKY LINKY LINKY you must carefully consider how to prepare your structure for modeling and how this restricts the conclusions you may draw.
+
+The other input is the choice of [which Rosetta protocol](Solving-a-Biological-Problem) to use and what options to choose.
 
 2) Choosing the Rosetta protocol
 
