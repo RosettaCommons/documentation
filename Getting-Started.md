@@ -3,7 +3,8 @@ Getting started
 
 This page is written for an audience of scientists new to Rosetta: perhaps a first year graduate student, or young postdoc, who has received/started a project that needs "some computer modeling". 
 In other words, an individual coming to Rosetta from a cold start.
-Is Rosetta a good tool for the modeling you need to do? If so, how do you go about getting and using Rosetta?
+Is Rosetta a good tool for the modeling you need to do? 
+If so, how do you go about getting and using Rosetta?
 
 Rosetta is a very large software suite for macromolecular modeling. 
 By software suite, we mean that it is a large collection of computer code (mostly in C++, some in Python, a little in other languages), but it is not a single monolithic program.
@@ -88,9 +89,28 @@ The [FlexPepDock server](http://flexpepdock.furmanlab.cs.huji.ac.il/) provides [
 Local installation and use of Rosetta
 --------------------------------------
 
+This section is designed as a quick overview of running Rosetta, but there are more resources available in the 
+[[build documentation|Build-Documentation#compiling-rosetta-3]].
+
 For academic or commercial users, you can [[request a license|http://c4c.uwc4c.com/express_license_technologies/rosetta]].
 These licenses are free for academic users.
 Once you have a license, you can [[download the code here|https://www.rosettacommons.org/software/license-and-download]].
 Note that the download comes as a [[tar archive|http://en.wikipedia.org/wiki/Tar_(computing)]].
 
-* Installation on Mac/Linux
+##Installation on Mac/Linux
+
+Local installation implies that one will be using Rosetta through a [[command line interface (or terminal)|https://en.wikipedia.org/wiki/Command-line_interface]].
+For local users, you are unlikely to want to install Rosetta to the entire system. 
+Rosetta is quite happy installed in userspace, because it is designed to be compiled and installed by regular users without administrative rights.
+You may need administrative rights to install [[dependencies]].
+
+* First untar/uncompress your downloaded copy of the code (`tar -xvzf Rosetta[releasenumber].tar.gz`).
+
+* Next, navigate to the `source` directory: `cd main/source`.
+
+* Rosetta uses [[SCons|www.scons.org]] as a compile assistant.
+The basic compilation command for most use is `./scons.py -j<number_of_processors_to_use> mode=release bin`.
+Select an argument to `-j` that is one processor fewer than your computer has.
+Expect compilation to take a while (hours on one processor).
+
+See our extensive [[build documentation|Build-Documentation#compiling-rosetta-3]] for further instructions.
