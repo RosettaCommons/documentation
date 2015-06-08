@@ -1,5 +1,5 @@
 Getting started
--------------
+===========
 
 This page is written for an audience of scientists new to Rosetta: perhaps a first year graduate student, or young postdoc, who has received/started a project that needs "some computer modeling". 
 In other words, an individual coming to Rosetta from a cold start.
@@ -12,4 +12,12 @@ Generally, a user will choose some specific protocol within Rosetta and provide 
 
 Do I have what I need?
 -----------------
-Rosetta 
+Doing macromolecular modeling well—doing good science—requires careful consideration of your inputs to modeling, how the modeling is performed, and analysis of your outputs.
+Rosetta itself can be operated as a ["black box"](https://en.wikipedia.org/wiki/Black_box), but you are doing yourself and your science a disservice if you use it that way.
+1) Inputs to Rosetta
+Some text about inputs
+2) Choosing the Rosetta protocol
+Link to that thing Jelly and Andy are doing
+3) Interpreting outputs
+Something about data analysis
+
