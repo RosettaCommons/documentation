@@ -95,9 +95,9 @@ This is all right: Rosetta's capacity for [working with constraints](rosetta_bas
 In particular:
 * AmbiguousNMRDistance constraints encode distances between two atoms; importantly, rotationally equivalent/experimentally indistinguishable hydrogens are not distinguished.
 * SiteConstraint constraints penalize or reward the proximity of a residue in one chain to another chain.
-** Internally, these operate as AmbiguousConstraints (discussed below) wrapping AtomPair constraints
-** A subtype called SiteConstraintResidues constrains that a residue be near at least one of two other residues
-** FabConstraint penalizes the presence of non-CDR H3 loop residues at an antibody-antigen interface
+	* Internally, these operate as AmbiguousConstraints (discussed below) wrapping AtomPair constraints
+	* A subtype called SiteConstraintResidues constrains that a residue be near at least one of two other residues
+	* FabConstraint penalizes the presence of non-CDR H3 loop residues at an antibody-antigen interface
 * BigBin constraints allow you to place broad requirements on residue conformations (for example, you may specify any residues known to have cis dihedrals or to be near left handed helix conformations).
 So, if you know that a residue has a large ddG upon mutation to alanine, you can probably apply a correspondingly large SiteConstraint to require that it be in the binding site.
 (Though, notably, you may not want it to have the same magnitude as the ddG.)
