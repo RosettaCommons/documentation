@@ -42,9 +42,9 @@ See: [[Comparative Modeling|minirosetta-comparative-modeling]] (potentially out 
 
 ### Specialized Protocols
 
-* [[Symmetric Fold and Dock|fold-and-dock]]
-* [[Antibody Modeling|antibody-protocol]]
-* [[Membrane Modeling|membrane-abinitio]]
+* [[Symmetric folding and docking of homooligomeric proteins.|fold-and-dock]]
+* [[Homology modeling of antibody variable fragments.|antibody-protocol]]
+* [[Ab initio modeling of membrane proteins.|membrane-abinitio]]
 
 **Should we include demo dirs here?**
 
@@ -54,11 +54,13 @@ Another general question which can be interrogated by Rosetta is: given protein 
 This problem can be conflated with the protein structure prediction problem when the structure of either protein A, protein B, or both are unknown.
 Protein flexibility can play a role in protein docking. 
 For example, high RMSD between the bound and unbound states makes prediction of the bound state from the unbound states difficult. 
-On the other hand, biochemical information can be implemented as constraints in the scoring function during docking to (hopefully) improve model accuracy.
+On the other hand, biochemical information can be implemented as constraints [[(see below)|Incorporating-Experimental-Data]] in the scoring function during docking to (hopefully) improve model accuracy.
 
 ### Docking Two Partners With Known Structures
 
-Reasonable.
+In this case, (near) atomic-resolution structures have been determined for both interacting partners. 
+The docking protocol then 
+In a perfect case, the unbound, input structures of both partners have sub-Angstrom RMSD from the bound structures.
 
 ### Docking Two Partners Where One Structure Is Unknown
 
@@ -67,6 +69,10 @@ Difficult.
 ### Docking Two Partners With Two Unknown Structures 
 
 Just do not.
+
+## Protein—Peptide Docking
+
+Docking a flexible peptide
 
 ## Protein—Ligand Docking
 
