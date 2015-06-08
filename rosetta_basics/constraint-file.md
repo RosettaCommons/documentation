@@ -163,6 +163,37 @@ Function Types
 
 Functions are listed as "Func\_Type Func\_Def".
 
+-   Specialized for angles:
+
+	-   `CIRCULARHARMONIC  x0 sd       `
+
+	[[/images/form_1.png]]
+
+	-   `PERIODICBOUNDED period lb ub sd rswitch tag  `
+	* Note: Setting `rswitch` to anything other than 0.5 will create a discontinuity in the derivative. `rswitch` and `tag` should not be treated as optional.
+
+	A BOUNDED constraint after mapping the measured value to the range -period/2 to +period/2. Useful for angle measures centered on zero.
+
+	-   `OFFSETPERIODICBOUNDED offset period lb ub sd rswitch tag  `
+
+	A BOUNDED constraint, where the measured value is (x - offset) mapped to the range -period/2 to +period/2. Useful for angle measures. (Note that lb and ub are interpreted after subtraction, so the true range of zero constraint is from lb+offfset to ub+offset.)
+
+	-   `AMBERPERIODIC x0 n_period k`
+	
+	An AMBERPERIODIC function penalizes deviations from angle x0 by values from 0 to 2k, with n_period periods:
+		-	f(x) = k * (1 + cos( ( n_period * x ) - x0 ) )
+
+	-   `CHARMMPERIODIC x0 n_period k`
+
+	A CHARMMPERIODIC function penalizes deviations from angle x0 by values from 0 to k, with n_period periods:
+		-	f(x) = 0.5 * k * (1 - cos( n_period * ( x - x0 ) ) )
+
+	-   `CIRCULARSIGMOIDAL x0 n_period k`
+
+	A CIRCULARSIGMOIDAL function penalizes deviations from angle x0 by values from 0 to k, with n_period periods:
+
+		-	f(x) = 1/(1+ M_E ^ (-m*(x0-o1))) - 1/(1+M_E^(-m*(x0-o2)))
+
 -   `HARMONIC  x0 sd`
 
     [[/images/form_0.png]]
@@ -171,23 +202,10 @@ Functions are listed as "Func\_Type Func\_Def".
 
     Zero in the range of `x0 - tol` to `x0 + tol`. Harmonic with width parameter sd outside that range. Basically, a HARMONIC potential _(see above)_ split at x0 with a 2*tol length region of zero inserted.
 
--   `CIRCULARHARMONIC  x0 sd       `
-
-    [[/images/form_1.png]]
-
 -   ` BOUNDED lb ub sd rswitch tag  `
     * Note: Setting `rswitch` to anything other than 0.5 will create a discontinuity in the derivative. `rswitch` and `tag` should not be treated as optional.
 
     [[/images/form_2.png]]
-
--   `PERIODICBOUNDED period lb ub sd rswitch tag  `
-    * Note: Setting `rswitch` to anything other than 0.5 will create a discontinuity in the derivative. `rswitch` and `tag` should not be treated as optional.
-
-    A BOUNDED constraint after mapping the measured value to the range -period/2 to +period/2. Useful for angle measures centered on zero.
-
--   `OFFSETPERIODICBOUNDED offset period lb ub sd rswitch tag  `
-
-    A BOUNDED constraint, where the measured value is (x - offset) mapped to the range -period/2 to +period/2. Useful for angle measures. (Note that lb and ub are interpreted after subtraction, so the true range of zero constraint is from lb+offfset to ub+offset.)
 
 -   `GAUSSIANFUNC mean sd tag`
     * Note: `tag` is NOT optional, as for BoundFunc/BOUNDED. If `tag = NOLOG, it triggers some undocumented behavior involving a logarithm of some sort.
