@@ -11,7 +11,6 @@ By software suite, we mean that it is a large collection of computer code (mostl
 By macromolecular modeling, we mean the process of evaluating and ranking the physical plausibility of different structures of biological macromolecules (usually protein, but nucleic acids and ligands are significantly supported and support for implicit lipid membranes is growing). 
 Generally, a user will choose some specific protocol within Rosetta and provide that protocol with inputs for A) what structure to work on, and B) what options within the protocol are appropriate for the user's needs.
 
-<!DOCTYPE html>
 <html>
 <body>
 <map name="GraffleExport">
