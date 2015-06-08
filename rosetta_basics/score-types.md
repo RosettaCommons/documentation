@@ -27,6 +27,8 @@ Kuhlman, B., Dantas, G., Ireton, G. C., Varani, G., Stoddard, B. L., Baker, D., 
 
 Kuhlman, B. and D. Baker, _Native protein sequences are close to optimal for their structures_. Proceedings of the National Academy of Sciences of the United States of America, 2000. 97(19): p. 10383-8.
 
+Also, an [older presentation](http://www.rosettadesigngroup.com/workshops/RCW2007/presentations/GlennRosettacon2007.ppt) about scorefunctions
+
 Energy terms used in talaris2013.wts
 -------------------------------------
 
