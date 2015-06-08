@@ -1,3 +1,5 @@
+
+***
 Getting started
 ===========
 
@@ -9,6 +11,16 @@ Rosetta is a very large software suite for macromolecular modeling.
 By software suite, we mean that it is a large collection of computer code (mostly in C++, some in Python, a little in other languages), but it is not a single monolithic program.
 By macromolecular modeling, we mean the process of evaluating and ranking the physical plausibility of different structures of biological macromolecules (usually protein, but nucleic acids and ligands are significantly supported and support for implicit lipid membranes is growing). 
 Generally, a user will choose some specific protocol within Rosetta and provide that protocol with inputs for A) what structure to work on, and B) what options within the protocol are appropriate for the user's needs.
+
+<map name="GraffleExport">
+	<area shape=rect coords="330,305,421,376" href="http://localhost:4567/Getting-Started#do-i-have-what-i-need">
+	<area shape=rect coords="226,305,317,376" href="http://localhost:4567/Getting-Started#do-i-have-what-i-need">
+	<area shape=rect coords="122,305,213,376" href="http://localhost:4567/Getting-Started#do-i-have-what-i-need">
+	<area shape=rect coords="377,166,532,253" href="http://localhost:4567/Getting-Started#do-i-have-what-i-need">
+	<area shape=rect coords="11,166,166,253" href="http://localhost:4567/Getting-Started#do-i-have-what-i-need">
+	<area shape=rect coords="189,11,354,97" href="http://localhost:4567/Getting-Started#do-i-have-what-i-need">
+</map>
+<img border=0 src="file:///Users/elizabethlagesse/Desktop/Flow%20Chart%20for%20Cold%20Start/Flow%2520Chart%2520for%2520Cold%2520Start.jpg" usemap="#GraffleExport">
 
 Do I have what I need?
 -----------------
@@ -28,4 +40,4 @@ The other input is the choice of [[which Rosetta protocol|Solving-a-Biological-P
 3) Interpreting outputs
 
 Something about data analysis
-
+[[/uploads/Flow%20Chart%20for%20Cold%20Start.jpg]]
