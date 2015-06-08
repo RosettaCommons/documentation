@@ -21,17 +21,18 @@ Common problems which are in the realm of Rosetta are listed below.
 Note: put fold and dock in here as well as symmetry.
 
 Given a sequence, can I predict the protein structure?
-
 There are two general approaches to predicting protein structure: _de novo_ and comparative or homology modeling.
+
+
+### De Novo Modeling
 
 Rosetta was initially created with _de novo_ protein structure prediction in mind.
 _De novo_ structure prediction is useful when modeling a protein with low homology. 
 _De novo_ structure prediction is accurate when modeling a small (<100 residues), globular protein.
-Comparative modeling on the other hand tends to be successful when the target sequence (sequence of interest) has a high degree of sequence homology (>50%) with a protein whose structure has been determined.
-
-### De Novo Modeling
 
 ### Comparative Modeling (Homology Modeling)
+
+Comparative modeling on the other hand tends to be successful when the target sequence (sequence of interest) has a high degree of sequence homology (>50%) with a protein whose structure has been determined.
 
 ## Protein—Protein Docking
 
