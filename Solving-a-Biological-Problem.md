@@ -12,13 +12,15 @@ This document was last updated June 8, 2015, by both authors.
 Solving a Biological Problem
 =============
 
+**Others should feel free to add in their expertise to this article.**
+
 There are many biological problems of interest, often stemming from the central idea that sequence confers structure which in turn confers function.
 Rosetta is a macromolecular modeling software capable of tackling some of these problems.
 Common problems which are in the realm of Rosetta are listed below.
 
 ## Protein Structure Prediction
 
-Note: put fold and dock in here as well as symmetry.
+**Note: put fold and dock in here as well as symmetry.**
 
 The general question to be answered below: given a sequence, can I predict the protein structure?
 There are two approaches to predicting protein structure from sequence alone: _de novo_ and comparative or homology modeling.
