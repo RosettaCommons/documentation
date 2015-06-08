@@ -62,6 +62,7 @@ The structures should be prepared for docking in the standard manner (see [[prep
 The [[docking protocol|docking-protocol]] would then search for the complex structure with minimal energy.
 
 Docking can emulate several biophysical models of protein—protein interactions:
+
 1. key and lock
 2. conformer selection
 3. induced fit
