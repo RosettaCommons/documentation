@@ -20,7 +20,7 @@ Generally, a user will choose some specific protocol within Rosetta and provide 
 	<area shape=rect coords="11,166,166,253" href="http://localhost:4567/Getting-Started#do-i-have-what-i-need">
 	<area shape=rect coords="189,11,354,97" href="http://localhost:4567/Getting-Started#do-i-have-what-i-need">
 </map>
-<img border=0 src="file:///Users/elizabethlagesse/Desktop/Flow%20Chart%20for%20Cold%20Start/Flow%2520Chart%2520for%2520Cold%2520Start.jpg" usemap="#GraffleExport">
+<img border=0 src="file:///uploads/Flow%20Chart%20for%20Cold%20Start/Flow%2520Chart%2520for%2520Cold%2520Start.jpg" usemap="#GraffleExport">
 
 Do I have what I need?
 -----------------
