@@ -188,11 +188,15 @@ Functions are listed as "Func\_Type Func\_Def".
 	A CHARMMPERIODIC function penalizes deviations from angle x0 by values from 0 to k, with n_period periods:
 		-	f(x) = 0.5 * k * (1 - cos( n_period * ( x - x0 ) ) )
 
-	-   `CIRCULARSIGMOIDAL x0 n_period k`
+	-   `CIRCULARSIGMOIDAL xC m o1 o2`
 
-	A CIRCULARSIGMOIDAL function penalizes deviations from angle x0 by values from 0 to k, with n_period periods:
+	A CIRCULARSIGMOIDAL function penalizes deviations x0 from angles o1 and/or o2 by values from 0 to 1, with n_period periods:
 
 		-	f(x) = 1/(1+ M_E ^ (-m*(x0-o1))) - 1/(1+M_E^(-m*(x0-o2)))
+
+	-   `CIRCULARSPLINE weight [36 energy values]`
+
+	A CIRCULARSPLINE function sets up a periodic cubic spline trained on the provided energy values, which represent the centers of thirty-six 10 degree bins
 
 -   `HARMONIC  x0 sd`
 
@@ -281,6 +285,19 @@ Functions are listed as "Func\_Type Func\_Def".
      Harmonic near x0, flat past limit
 
      - f(x) = weight * limit^2 * ( 1 - e^( -(x-x0)^2/limit^2  ) )
+
+-   `ETABLE min max [many numbers]`
+
+	Defines a function via values ranging from min to max inclusive, spaced out by 0.1.
+Linear interpolation for intermediate values.
+
+-   `USOG num_gaussians mean1 sd1 mean2 sd2...`
+
+Defines an unweighted sum of a given number of Gaussians
+
+-   `SOG num_gaussians mean1 sd1 weight1 mean2 sd2 weight2...`
+
+Defines a weighted sum of a given number of Gaussians
 
 Function types are all implemented as subclasses of the core::scoring::constraints::Func class.
 
