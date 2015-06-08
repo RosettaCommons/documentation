@@ -49,6 +49,13 @@ Single constraints restrain the value of a single metric
 
     * Constrains a distance between Atom1 and Atom2. AtomPairConstraint is compatible with PDB numbering.
 
+-   NamedAtomPair: `NamedAtomPair Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Func_Def       `
+
+	<i>score term: atom_pair_constraint</i>
+
+	* Constrains a distance between Atom1 and Atom2.
+	* Atoms in NamedAtomPairConstraints are stored as names rather than numbers, as with AtomPairConstraint. Therefore, if atom numbers change while constraints are in the pose, the NamedAngleConstraint will still constraint the correct atoms, while the AngleConstraint may constrain unintended atoms. There is a small tradeoff in computational efficiency versus AngleConstraint. If you know your atom numbers will not change while the constraint is in the pose, AngleConstraint is a better option, but if they might change, NamedAngleConstraint will ensure that the correct atoms are constrained.
+
 -   Angle: `Angle Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Func_Type Func_Def       `
 
     <i>score term: angle_constraint</i>
@@ -56,20 +63,26 @@ Single constraints restrain the value of a single metric
     * Angle between Atom2-\>Atom1 vector and Atom2-\>Atom3 vector; the angle (passed as a value to the Func) appears to be measured in radians
     * NOTE: AngleConstraint uses atom numbers to internally track the constrained atoms for efficiency. If the atom numbers change while the AngleConstraint is in the pose, the constraint could be applied to the wrong atoms. If you know your atom numbers will not change while the constraint is in the pose, AngleConstraint is the best option, but if they might change (e.g. by design or changing residue type set), NamedAngleConstraint will ensure that the correct atoms are constrained.
 
--   NamedAngle: `NamedAngle Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Func_Type Func_Def       `
+-   NamedAngle: `NamedAngle Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Func_Type Func_Def`
 
     <i>score term: angle_constraint</i>
 
     * Angle between Atom2-\>Atom1 vector and Atom2-\>Atom3 vector; the angle (passed as a value to the Func) appears to be measured in radians
     * Atoms in NamedAngleConstraints are stored as names rather than numbers, as with AngleConstraint. Therefore, if atom numbers change while constraints are in the pose, the NamedAngleConstraint will still constraint the correct atoms, while the AngleConstraint may constrain unintended atoms. There is a small tradeoff in computational efficiency versus AngleConstraint. If you know your atom numbers will not change while the constraint is in the pose, AngleConstraint is a better option, but if they might change, NamedAngleConstraint will ensure that the correct atoms are constrained.
  
--   Dihedral: `Dihedral Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Atom4_Name Atom4_ResNum Func_Type Func_Def       `
+-   Dihedral: `Dihedral Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Atom4_Name Atom4_ResNum Func_Type Func_Def`
 
     <i>score term: dihedral_constraint</i>
 
     * Dihedral angle of Atom1-\>Atom2-\>Atom3-\>Atom4. Dihedral is measured in radians on -pi -\> pi.
 
--   CoordinateConstraint: `CoordinateConstraint Atom1_Name Atom1_ResNum[Atom1_ChainID] Atom2_Name Atom2_ResNum[Atom2_ChainID] Atom1_target_X_coordinate Atom1_target_Y_coordinate Atom1_target_Z_coordinate Func_Type Func_Def       `
+-   Dihedral: `DihedralPair Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Atom4_Name Atom4_ResNum Atom5_Name Atom5_ResNum Atom6_Name Atom6_ResNum Atom7_Name Atom7_ResNum Atom8_Name Atom8_ResNum Func_Type Func_Def`
+
+	<i>score term: dihedral_constraint</i>
+
+	* Constrains that the dihedral angles defined by Atom1-\>Atom2-\>Atom3-\>Atom4 and Atom5-\>Atom6-\>Atom7-\>Atom8 be identical.
+
+-   CoordinateConstraint: `CoordinateConstraint Atom1_Name Atom1_ResNum[Atom1_ChainID] Atom2_Name Atom2_ResNum[Atom2_ChainID] Atom1_target_X_coordinate Atom1_target_Y_coordinate Atom1_target_Z_coordinate Func_Type Func_Def`
 
     <i>score term: coordinate_constraint</i>
 
@@ -77,27 +90,36 @@ Single constraints restrain the value of a single metric
     * Atom_ResNum[Atom_ChainID] indicates a number with an optional letter together as a single token
 
 
--   LocalCoordinateConstraint: `LocalCoordinateConstraint Atom1_Name Atom1_ResNum Atom2_Name Atom3_Name Atom4_Name Atom234_ResNum Atom1_target_X_coordinate Atom1_target_Y_coordinate Atom1_target_Z_coordinate Func_Type Func_Def       `
+-   LocalCoordinateConstraint: `LocalCoordinateConstraint Atom1_Name Atom1_ResNum Atom2_Name Atom3_Name Atom4_Name Atom234_ResNum Atom1_target_X_coordinate Atom1_target_Y_coordinate Atom1_target_Z_coordinate Func_Type Func_Def`
 
     <i>score term: coordinate_constraint</i>
 
     * Constrain Atom1 to the XYZ position listed, relative to the coordinate frame defined by atoms 2/3/4 instead of the origin. LocalCoordinateConstraint is compatible with PDB numbering.
 
--   AmbiguousNMRDistance: `AmbiguousNMRDistance Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Func_Type Func_Def       `
+-   AmbiguousNMRDistance: `AmbiguousNMRDistance Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Func_Type Func_Def`
 
     <i>score term: atom_pair_constraint</i>
 
     * Distance between Atom1 and Atom2. The difference from AtomPairConstraint is that atom names are specially parsed to detect ambiguous hydrogens, which are either experimentally ambiguous or rotationally identical (like methyl hydrogens). The constraint applies to any hydrogens equivalent to the named hydrogen. The logic for determining which hydrogens are which is in src/core/scoring/constraints/AmbiguousNMRDistanceConstraints.cc:parse\_NMR\_name.
 
--   SiteConstraint: `SiteConstraint Atom1_Name Atom1_ResNum Opposing_chain Func_Type Func_Def       `
+-   SiteConstraint: `SiteConstraint Atom1_Name Atom1_ResNum Opposing_chain Func_Type Func_Def`
 
     <i>score term: atom_pair_constraint</i>
 
     * Constraint that a residue interacts with some other chain - roughly, that it is (or is not) in a binding site. The atom and resnum identify which atom is being checked for interactions with the opposing chain. Notice that "Constraint" is irregularly in its tag.
 
--   BigBin: `BigBin ResNum Bin       `
+-   SiteConstraintResidues: `SiteConstraintResidues Atom1_ResNum Atom1_Name Res2 Res3 Func_Type Func_Def`
+
+	<i>score term: atom_pair_constraint</i>
+
+	* Constraint that a residue interacts with at least one of two other residues. The atom and resnum identify which atom is being checked for interactions with the CA atoms of the other residues.
+
+-   BigBin: `BigBin res_number bin_char sdev`
 
     <i>score term: dihedral_constraint</i>
+
+	* Specify wide bins for particular residues by letter. 'O' requires a cis-like omega angle (-10 to 10 degrees); 'G' requires positive phi and psi on [ -100, 100 ]; 'E' requires positive phi and psi on [ 100, -90 ]; 'A' requires negative phi and psi on [ -50, 30 ]; 'B' requires negative phi and psi on [ 100, 175 ].
+
 
 Nested constraints
 ------------------
@@ -141,6 +163,37 @@ Function Types
 
 Functions are listed as "Func\_Type Func\_Def".
 
+-   Specialized for angles:
+
+	-   `CIRCULARHARMONIC  x0 sd       `
+
+	[[/images/form_1.png]]
+
+	-   `PERIODICBOUNDED period lb ub sd rswitch tag  `
+	* Note: Setting `rswitch` to anything other than 0.5 will create a discontinuity in the derivative. `rswitch` and `tag` should not be treated as optional.
+
+	A BOUNDED constraint after mapping the measured value to the range -period/2 to +period/2. Useful for angle measures centered on zero.
+
+	-   `OFFSETPERIODICBOUNDED offset period lb ub sd rswitch tag  `
+
+	A BOUNDED constraint, where the measured value is (x - offset) mapped to the range -period/2 to +period/2. Useful for angle measures. (Note that lb and ub are interpreted after subtraction, so the true range of zero constraint is from lb+offfset to ub+offset.)
+
+	-   `AMBERPERIODIC x0 n_period k`
+	
+	An AMBERPERIODIC function penalizes deviations from angle x0 by values from 0 to 2k, with n_period periods:
+		-	f(x) = k * (1 + cos( ( n_period * x ) - x0 ) )
+
+	-   `CHARMMPERIODIC x0 n_period k`
+
+	A CHARMMPERIODIC function penalizes deviations from angle x0 by values from 0 to k, with n_period periods:
+		-	f(x) = 0.5 * k * (1 - cos( n_period * ( x - x0 ) ) )
+
+	-   `CIRCULARSIGMOIDAL x0 n_period k`
+
+	A CIRCULARSIGMOIDAL function penalizes deviations from angle x0 by values from 0 to k, with n_period periods:
+
+		-	f(x) = 1/(1+ M_E ^ (-m*(x0-o1))) - 1/(1+M_E^(-m*(x0-o2)))
+
 -   `HARMONIC  x0 sd`
 
     [[/images/form_0.png]]
@@ -149,23 +202,10 @@ Functions are listed as "Func\_Type Func\_Def".
 
     Zero in the range of `x0 - tol` to `x0 + tol`. Harmonic with width parameter sd outside that range. Basically, a HARMONIC potential _(see above)_ split at x0 with a 2*tol length region of zero inserted.
 
--   `CIRCULARHARMONIC  x0 sd       `
-
-    [[/images/form_1.png]]
-
 -   ` BOUNDED lb ub sd rswitch tag  `
     * Note: Setting `rswitch` to anything other than 0.5 will create a discontinuity in the derivative. `rswitch` and `tag` should not be treated as optional.
 
     [[/images/form_2.png]]
-
--   `PERIODICBOUNDED period lb ub sd rswitch tag  `
-    * Note: Setting `rswitch` to anything other than 0.5 will create a discontinuity in the derivative. `rswitch` and `tag` should not be treated as optional.
-
-    A BOUNDED constraint after mapping the measured value to the range -period/2 to +period/2. Useful for angle measures centered on zero.
-
--   `OFFSETPERIODICBOUNDED offset period lb ub sd rswitch tag  `
-
-    A BOUNDED constraint, where the measured value is (x - offset) mapped to the range -period/2 to +period/2. Useful for angle measures. (Note that lb and ub are interpreted after subtraction, so the true range of zero constraint is from lb+offfset to ub+offset.)
 
 -   `GAUSSIANFUNC mean sd tag`
     * Note: `tag` is NOT optional, as for BoundFunc/BOUNDED. If `tag = NOLOG, it triggers some undocumented behavior involving a logarithm of some sort.
