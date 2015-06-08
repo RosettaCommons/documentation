@@ -12,15 +12,13 @@ This document was last updated June 8, 2015, by both authors.
 Solving a Biological Problem
 =============
 
-**Others should feel free to add in their expertise to this article.**
+**Note: others should feel free to add in their expertise to this article.**
 
-There are many biological problems of interest, often stemming from the central idea that sequence confers structure which in turn confers function.
-Rosetta is a macromolecular modeling software capable of tackling some of these problems.
-Common problems which are in the realm of Rosetta are listed below.
+There are many biological problems which can be approached with Rosetta. 
+These topics often stem from the central idea that **sequence** confers **structure** which in turn confers **function**.
+For example, Rosetta was initially utilized to study _de novo_ protein structure prediction (sequence->function), while current applications can be as extensive as enzyme design (structure->function).
 
 ## Protein Structure Prediction
-
-**Note: put fold and dock in here as well as symmetry.**
 
 The general question to be answered below: given a sequence, can I predict the protein structure?
 There are two approaches to predicting protein structure from sequence alone: _de novo_ and comparative or homology modeling.
@@ -28,7 +26,6 @@ There are also other, more specialized, approaches for particular tasks such as 
 
 ### De Novo Modeling
 
-Rosetta was initially created with _de novo_ protein structure prediction in mind.
 _De novo_ structure prediction is useful when modeling a protein with low homology. 
 _De novo_ structure prediction is accurate when modeling a small (<100 residues), globular protein.
 
@@ -59,7 +56,7 @@ On the other hand, biochemical information can be implemented as constraints [[(
 ### Docking Two Partners With Known Structures
 
 In this case, (near) atomic-resolution structures have been determined for both interacting partners. 
-The docking protocol then 
+The docking protocol would then search for the complex structure with minimal energy.
 In a perfect case, the unbound, input structures of both partners have sub-Angstrom RMSD from the bound structures.
 
 ### Docking Two Partners Where One Structure Is Unknown
@@ -75,6 +72,8 @@ Just do not.
 Docking a flexible peptide
 
 ## Protein—Ligand Docking
+
+RosettaLigand and DARC go here.
 
 ## Protein Design
 
