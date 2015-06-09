@@ -4,7 +4,6 @@
 * [[Application Documentation|application_documentation/Application-Documentation]]
 * [[Scripting Interfaces|scripting_documentation/Scripting-Documentation]]
  * [[RosettaScripts|RosettaScripts]]
-    * [[RosettaScripts Syntax|RosettaScripts-Documentation]]
     * [[Movers|Movers-RosettaScripts]]
     * [[Filters|Filters-RosettaScripts]]
     * [[Task Operations|TaskOperations-RosettaScripts]]
