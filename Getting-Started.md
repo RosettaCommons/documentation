@@ -49,26 +49,16 @@ There are applications than can run on lab-scale powerful computers (12-30 core 
 Most applications assume you have access to tens of thousands of hours of computer time to accumulate enough results to answer your question.
 The later sections of this document describe installing or using Rosetta at those different scales.
 
-Use of Public Rosetta Servers
+Public Rosetta Servers
 -----------------------------
 
-All of Rosetta's public servers are licensed for **NON-COMMERCIAL USE ONLY**.
+All of [[Rosetta's public servers|Rosetta-Servers]] are licensed for **NON-COMMERCIAL USE ONLY**.  The servers of broadest interest are touched on here, but see [[here|Rosetta-Servers]] and [[here|https://www.rosettacommons.org/software/servers]] for more complete lists.
 
 * [ROSIE](http://rosie.rosettacommons.org/) is a server that many several Rosetta applications through a simple web interface.
 It is perfect for use by those new to Rosetta.
 Despite ROSIE's variety it offers only a slice of Rosetta's full functionality.
-Because this is a free public resource, computer time is limited, but runs can be downloaded and used to build Rosetta jobs on other resources.
 
 * [ROBETTA](http://robetta.bakerlab.org/) (Robot-Rosetta) is a server that provides _ab initio_ folding and structure prediction, as well as fragment selection for local runs of Rosetta.
-It also provides interface alanine scanning and DNA interface residue scanning.
-
-* The [Rosetta Design Server](http://rosettadesign.med.unc.edu/) provides access to Rosetta's [[fixbb]] fixed-backbone design protocol.
-
-* The [Backrub Server](https://kortemmelab.ucsf.edu/backrub/cgi-bin/rosettaweb.py?query=index) provides [[backrub]] ensembles, as well as alanine scanning.
-
-* The [FlexPepDock server](http://flexpepdock.furmanlab.cs.huji.ac.il/) provides [[FlexPepDock]]. 
-
-* [RosettaDiagrams](http://www.rosettadiagrams.org/) provides a graphical interactive service to produce [[RosettaScripts]] XML files, with some ability to run the scripts as well.
 
 Local installation and use of Rosetta
 --------------------------------------
