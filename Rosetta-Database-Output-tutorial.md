@@ -13,7 +13,7 @@ The current implementation permits 2 formats of databases - mysql and
 sqlite.
 
 Creating a Rosetta run with a Database output
-=============================================
+---------------------------------------------
 
 In order to use the database output feature you have to include 2 basic
 flags: (for mysql you will also need the following flags - mysql::host,
@@ -34,20 +34,19 @@ Using these command line flags is fairly simple, for example:
     -database $ROSETTA_DB -ex1 -ex2 -use_input_sc -nstruct  1 -out:use_database -inout:database_filename results.db
 
 Getting structures out of the database
-======================================
+--------------------------------------
 
 How to get results of the database to a pdb file(s)?
 
-Getting all the decoys out of the database
-------------------------------------------
+###Getting all the decoys out of the database
+
 
 In order to get all the structures out of the database , you can use the
 score\_jd2 flag with the following options:
 
 *-inout:database\_filename* file.db *-in:use\_database* *-out:pdb*
 
-Getting specific decoys out of the database
--------------------------------------------
+###Getting specific decoys out of the database
 
 If you want to acquire only a subset of structures (for example, the
 ones that have total\_score\<0) you just input a query to sqlite3:
@@ -67,8 +66,8 @@ the following way:
     $ROSETTA_BIN/score_jd2.linuxgccrelease -inout:database_filename results.db 
     -in:use_database -out:pdb -in:file:tags `cat structures.txt` -database $ROSETTA_DB
 
-Moving old results to a database file
--------------------------------------
+###Moving old results to a database file
+
 
 Again , we'll use the score\_jd2 application to rescore a set of pdb
 files and directing the output to a database:
@@ -76,12 +75,12 @@ files and directing the output to a database:
     score_jd2.linuxgccrelease -s decoy_* -database $ROSETTA_DB -out:use_database -inout:database_filename results.db
 
 Useful queries
-==============
+--------------
 
 **TODO** ...
 
 Links
-=====
+-----
 
 [Simple sqlite examples](http://www.sqlite.org/sqlite.html)
 
