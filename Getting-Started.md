@@ -40,7 +40,7 @@ You should still [[prepare your structure for modeling|preparing-structures]], b
 
 The other inputs are the choice of [[which Rosetta protocol|Solving-a-Biological-Problem]] to use, and [[what options|running-rosetta-with-options#specifying-options]] or [[file inputs|file-types-list#commonly-used-input-files]] to use.
 
-4) Computational resources
+3) Computational resources
 
 Rosetta software, as a whole, is written to run on supercomputers, but can be run on [[many different scales|Rosetta-on-different-scales]].
 Most applications can give "dry runs" for testing on any computer.
