@@ -1,0 +1,11 @@
+#Rosetta command-line options
+
+The following page gives an overview of the most commonly used categories of options in Rosetta. **This is not a complete listing** and is only meant to give a brief description of commonly used options.
+
+*For a more comprehensive list of Rosetta command line options, see the [[full options list|full-options-list]].* Note that some application-specific options may not be included in the full options list.
+
+* [[Input options|input-options]]: Options to supply input files to Rosetta and control the way Rosetta reads and processes those files.
+* [[Output options|output-options]]: 
+* [[Run options|run-options]]
+* [[Score options|score-options]]
+* [[Packing options|packing-options]]
