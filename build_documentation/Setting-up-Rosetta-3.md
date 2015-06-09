@@ -1,13 +1,12 @@
 #Setting up Rosetta 3
 
-This page describes how to install, compile, and test Rosetta 3 (formerly called "Mini") on one's own workstation (on a [supported platform](https://wiki.rosettacommons.org/index.php/Supported_Platforms "Supported Platforms") .
+This page describes how to install, compile, and test Rosetta 3 [[(formerly called "Mini")|RosettaTimeline] on a [supported platform](https://wiki.rosettacommons.org/index.php/Supported_Platforms "Supported Platforms") .
 
-Cloning Rosetta 3
------------------
+##Basic Installation
+-------------------
+Installation instructions for most situations can be found on the [[Getting Started|Getting-Started##local-installation-and-use-of-rosetta] page. 
 
-1.  See the [GithubWorkflow](https://wiki.rosettacommons.org/index.php/GithubWorkflow "GithubWorkflow") page for current information on getting the Rosetta source and setting up your git repository.
-
-Compiling Rosetta 3
+##Additional Build Information for Individual Workstations
 -------------------
 
 The current build system is based on the tool [SCons](https://wiki.rosettacommons.org/index.php/Tools:SCons "Tools:SCons") ("Software Constructor") with some extensions. `     scons.py    ` is implemented as a Python script.
@@ -46,7 +45,6 @@ By default, `     scons    ` uses GCC to compile. To use an alternate compiler, 
 
 `      ./scons.py -j<number_of_processors_to_use> cxx=clang     `
 
-NOTE: Use `     clang    ` if you can. It is quicker and gives better error messages. Win/Win. You will save yourself a lot of time trying to reverse engineer GCC compiler errors. And there are binaries to install it. Triple win.
 
 To use an alternate version of the compiler, you can use the option `     cxx_ver    ` option with whatever version you have (here 4.5):
 
