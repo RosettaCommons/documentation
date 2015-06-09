@@ -21,12 +21,12 @@ Note: Python 2.6 or better is required. Works with Python 2.7, but not Python 3.
 2. Either download a copy of PyRosetta or checkout the repository.
     1. Download a copy of PyRosetta from [[here|http://www.pyrosetta.org/dow]].
         - Extract said copy with `$ tar -vjxf PyRosetta-<version>.tar.bz2`. Everything to run PyRosetta is contained within this directory.
-    2. Alternatively, if you have a RosettaCommons GitHub account, you can checkout a PyRosetta repository (updated weekly) by running `$ git clone http://login@git-repository-address`. For example, to get the OS X namespace (see below) build one would run `$ git clone http://login@graylab.jhu.edu/download/PyRosetta/git/release/PyRosetta.namespace.mac.release.git`.
+    2. Alternatively, if you have a RosettaCommons GitHub account, you can checkout a PyRosetta repository (updated weekly) by running `$ git clone http://login@git-repository-address`. For example, to get the OS X namespace (see below for monolith vs. namespace) build one would run ```$ git clone http://login@graylab.jhu.edu/download/PyRosetta/git/release/PyRosetta.namespace.mac.release.git```. 
 3. From within the main PyRosetta directory, run `$ source SetPyRosettaEnvironment.sh` or append it to your .bashrc file and source that.
 4. Test your PyRosetta installation by running the line `import rosetta; rosetta.init()` in PyRosetta. Output should be about the PyRosetta version and random seed.
     - Exiting the PyRosetta prior to running Python should help avoid path issues or confirm that your path is properly set.
 
-Note, namespace vs. monolith: According to Sergey, in the namespace build each C++ namespace has its own shared library which the kernel needs to load, resolve symbols, and so on. 
+**Namespace vs. monolith:** According to Sergey, in the namespace build each C++ namespace has its own shared library which the kernel needs to load, resolve symbols, and so on. 
 Hence, importing in the namespace build is IO heavy.
 The monolith build on the other hand, has all the C++ namespaces defined in a single C++ library.
 For example, importing rosetta (via PyRosetta) in the namespace build on Stampede (NFS with high latency) could take up to 20 minutes.
