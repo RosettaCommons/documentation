@@ -48,9 +48,12 @@ shown below.
 -   *NLFragmentGroup*~3~ (residues 66-80) =\> orange
 -   *NLFragmentGroup*~4~ (residues 84-88) =\> yellow
 
-[![An example used to illustrate the mapping between segments in the
+An example used to illustrate the mapping between segments in the
 non-local abinitio file format and sections of protein
-1a19a.](/images/6/6b/1a19a.png)](/index.php/File:1a19a.png "An example used to illustrate the mapping between segments in the non-local abinitio file format and sections of protein 1a19a.")
+1a19a.
+
+[[/images/1a19a.png]]
+
 
     {
     2,-110.466,126.421,174.600,97.539,49.731,-2.920
