@@ -80,15 +80,3 @@
 ####Help
 - [RosettaCommons Forums](http://rosettacommons.org/forum)
 - [RosettaCommons Bug Tracker](http://bugs.rosettacommons.org)
-
-##Documentation Quick Links
-
-|[[Build Documentation]]|[[Application Documentation]]|[[Development Documentation]]|
-|:---------------------:|:------------------------:|:---------------------------:|:---------------------------:|
-|[[/images/hammer.png|align=center]] |[[/images/power.png|align=center]]        |[[/images/wrench.png|align=center]]       |
-
-<!--- BEGIN_INTERNAL -->
-|[[Internal Documentation]]|
-|:------------------------:|
-|[[/images/logo.png|align=center]]      |
-<!--- END_INTERNAL --> 
