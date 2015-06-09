@@ -4,6 +4,7 @@
 * [[Application Documentation|application_documentation/Application-Documentation]]
 * [[Scripting Interfaces|scripting_documentation/Scripting-Documentation]]
 * [[Development Documentation|development_documentation/Development-Documentation]]
-<flag>
 * [[Internal Documentation|internal_documentation/Internal-Documentation]]
-<flag>
+
+* [[Glossary]]
+* [[Options list|full-options-list]]

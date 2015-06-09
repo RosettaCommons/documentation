@@ -1,4 +1,7 @@
 <!-- --- title: Setting up Rosetta 3 -->
+
+###If you are new to Rosetta, start [[here|Getting-Started]].
+
 This page describes how to install, compile, and test Rosetta 3 (formerly called "Mini") on one's own workstation, or to a user directory on a scientific cluster.
 
 Clusters with Rosetta pre-installed
@@ -238,17 +241,3 @@ Miscellaneous
 
 - Additional [[build]] documentation.
 - An out-dated list of [[platforms]] supported by Rosetta.
-
-
-
-##Documentation Quick Links
-
-|[[Rosetta Basics]]        |[[Application Documentation]]|[[Development Documentation]]|
-|:---------------------:|:------------------------:|:---------------------------:|:---------------------------:|
-|[[/images/start_flag.png|align=center]]|[[/images/power.png|align=center]]        |[[/images/wrench.png|align=center]]       |
-
-<!--- BEGIN_INTERNAL -->
-|[[Internal Documentation]]|
-|:------------------------:|
-|[[/images/logo.png|align=center]]      |
-<!--- END_INTERNAL --> 

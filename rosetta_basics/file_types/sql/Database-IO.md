@@ -1,4 +1,4 @@
-<!-- --- title: Database Io -->Database Support in Rosetta
+<!-- --- title: Database IO -->Database Support in Rosetta
 ===========================
 
 Database Drivers
