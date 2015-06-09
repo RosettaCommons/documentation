@@ -1,25 +1,18 @@
 #RosettaScripts
 
-    -   [[Movers (RosettaScripts)|Movers-RosettaScripts]]
-    -   [[Filters (RosettaScripts)|Filters-RosettaScripts]]
-    -   [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]]
+-   [[Movers (RosettaScripts)|Movers-in-RosettaScripts]]
+-   [[Filters (RosettaScripts)|Filters-in-RosettaScripts]]
+-   [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]]
+-   [[Composite protocols with RosettaScripts interfaces|Composite-protocols]]
 -   [[RosettaScripts database connection options|RosettaScripts-database-connection-options]]
 -   Features Reporter Framework
     -   [[FeaturesTutorials]]
     -   [[FeatureReporters]]
     -   [[FeaturesRScripts]]
--   [[MetropolisHastings Documentation|MetropolisHastings-Documentation]]
-    -   [[MetropolisHastingsMover]]
-    -   [[SimulatedAnnealing (MetropolisHastings)|SimulatedAnnealing-MetropolisHastings]]
-    -   [[Tempering (MetropolisHastings)|Tempering-MetropolisHastings]]
--   [[Generalized Kinematic Closure (GeneralizedKIC) Documentation|GeneralizedKIC]]
-    -   [[GeneralizedKIC perturbers|GeneralizedKICperturber]]
-    -   [[GeneralizedKIC filters|GeneralizedKICfilter]]
-    -   [[GeneralizedKIC selectors|GeneralizedKICselector]]
 -   [[RosettaScripts Developer Guide|RosettaScripts-Developer-Guide]]
 -   [[RosettaScripts Guidelines for writing new movers and filters|RosettaScripts-Guidelines-for-writing-new-movers-and-filters]]
 
-This page documents the RosettaScripts syntax. 
+This page documents the RosettaScripts syntax and common methods by which you can use RosettaScripts to combine Rosetta movers.
 
 [[_TOC_]]
 
