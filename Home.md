@@ -9,20 +9,15 @@ Rosetta is freely available to academic and government laboratories, with over 1
 
 If you think you're ready to give Rosetta a try, we suggest [[starting here|Getting-Started]].
 
-##Documentation
 
-Rosetta is distributed as source, and thus will require being [[compiled and installed|Build-Documentation]] before use. Before using Rosetta, you should familiarize yourself with the [[basic rosetta concepts|Rosetta Basics]] used throughout our applications. A compiled version of Rosetta contains a large variety of pre-made [[applications|Application-Documentation]] that were designed and created for specific modeling or design tasks. For most users, these applications will be all you need. However, advanced users may find themselves wanting new applications that better suit their specific needs. In this case, please read our guides for [[developing Rosetta code|Development-Documentation]].
 
-##Documentation Quick Links
 
-|[[Build Documentation]]|[[Rosetta Basics]]        |[[Application Documentation]]|[[Development Documentation]]|[[Solving a Biological Problem]]|
-|:---------------------:|:------------------------:|:---------------------------:|:---------------------------:|:---------------------------------:|
-|[[/images/hammer.png|align=center]] |[[/images/start_flag.png|align=center]]|[[/images/power.png|align=center]]|[[/images/wrench.png|align=center]]|[[/images/wrench.png|align=center]]
 
-<!--- BEGIN_INTERNAL -->
-|[[Internal Documentation]]|
-|:------------------------:|
-|[[/images/logo.png|align=center]]      |
-<!--- END_INTERNAL --> 
+==============
+
+
+
+
+
 
 <sub>Note to Rosetta developers: make edits at this [link](https://www.rosettacommons.org/docs/wiki/), and they will show up for all users [here](https://www.rosettacommons.org/docs/latest/) at the same time that weekly builds are released.</sub>
