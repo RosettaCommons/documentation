@@ -2,8 +2,8 @@
 
 Author:
 * Relaxation with all-heavy-atom constraints by Lucas Nivon and Rocco Moretti.
-* Other answers collated by Steven Lewis and Ramesh Jha
-* Last edited by Jeliazko Jeliazkov
+* Other answers collated by Steven Lewis and Ramesh Jha.
+* Last edited by Jeliazko Jeliazkov.
 
 [[_TOC_]]
 
@@ -176,21 +176,21 @@ Is there a consensus protocol to create the starting PDBs to be used in mini (Ro
 It is not unknown that the PDBs right from the Protein Data Bank are composed of artifacts and defects that can give an exceptional jump in energy if happened to be altered during a design protocol. 
 In order to minimize this problem, there are a few things which can be tried and that I am aware of:
 
-1. Repack (with or without -use\_input\_sc)
-2. Repack w/ sc\_min
-3. Relax (fast relax w/ or w/o use\_input\_sc)
+1. Repack (with or without `-use_input_sc`)
+2. Repack w/ `sc_min`
+3. Relax (fast relax w/ or w/o `use_input_sc`)
 4. Idealize
 
-Having tried all of them, I thought the option 3, was the best one, where I used fast relax while using -use\_input\_sc flag. 
+Having tried all of them, I thought the option 3, was the best one, where I used fast relax while using `-use_input_sc` flag. 
 But recently I observed that though 'relax' is able to substantially decrease the energy of starting PDBs, also result in subtle movements in the backbones and a PDB which could accommodate a ligand could not anymore after being relaxed.
 
 ## James's Reply
 
-Try adding the -constrain\_relax\_to\_start\_coords option to your protocol \#3.
+Try adding the `-constrain_relax_to_start_coords` option to your protocol \#3.
 
 ## Ben's Reply
 
-I've been using a protocol that does sc & bb minimization, full packing with -use\_input\_sc, then minimization of bb, rb, and sc. 
+I've been using a protocol that does sc & bb minimization, full packing with `-use_input_sc`, then minimization of bb, rb, and sc. 
 It's located in: `rosetta/rosetta\_source/src/apps/pilot/stranges/InterfaceStructMaker.cc`. 
 The idea with this is that it keeps things from moving too far from the starting structure. 
 There's no backbone sampling so I typically find RMSD to the crystal structure to be \< 1.0. 
@@ -216,7 +216,7 @@ I'm pasting my typical options file below:
 
 ## Sagar's Reply
 
-I just use repack with sc\_min, and include the ligand in the process.
+I just use repack with `-sc_min`, and include the ligand in the process.
 
 ## Rocco's Reply
 
@@ -246,8 +246,8 @@ With a second addendum from Andrew Leaver-Fay:
 
 I thought I might point out two things:
 
--   1) ex1aro doesn't do anything extra if you already have ex1 on your command line. You can however set the sampling level for ex1aro to be higher than for ex1; e.g. -ex1 -ex1aro:level 4. This is stated very explicitly in the option documentation, yet still surprises a lot of people. In Rosetta++, -ex1aro behaved as if it were -ex1aro:level 4.
--   2) Mike has observed that extra rotamers will not yield better energy structures out of relax; they will however slow it down.
+1. ex1aro doesn't do anything extra if you already have ex1 on your command line. You can however set the sampling level for ex1aro to be higher than for ex1; e.g. `-ex1 -ex1aro:level 4`. This is stated very explicitly in the option documentation, yet still surprises a lot of people. In Rosetta++, `-ex1aro` behaved as if it were `-ex1aro:level 4`.
+2. Mike has observed that extra rotamers will not yield better energy structures out of relax; they will however slow it down.
 
 # Limitations
 
