@@ -12,6 +12,8 @@ The [[results analysis|Analyzing-Results]] page also addresses the issue.
 
 The diagram sketches out different experiments available on a logarithmic nstruct scale.
 Assume computer time is positively correlated with nstruct.
+
+TODO: ask Elizabeth to image map this
 ![Diagram: log scale in nstruct Rosetta protocols](uploads/nstruct_scale.png "log scale in nstruct Rosetta protocols")
 
 10<sup>0</sup>
@@ -21,3 +23,11 @@ The notable entries here are [[scoring]] and [[minimization]].
 Running the minimizer directly on an input structure is relatively rare (it will immediately get trapped in a local minimum) but plausible.
 Scoring a structure is a very common event.
 
+10<sup>1</sup>
+------------------
+At this scale, we can consider protocols that are intended to have a very small search space and those that can be completely sampled.
+10 to 100 models are reasonable for most [[structure preparation]] efforts, because these efforts are meant to be tightly constrained to the starting model, only fixing serious errors.
+This range is also reasonable for minor [[repacking|fixbb]] experiments.
+
+10<sup>2</sup>
+------------------
