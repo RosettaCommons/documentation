@@ -4,4 +4,6 @@
 * **[[RNA|RNA]]**
 * **[[Metals|Metals]]**
 
-Support for many other residues and ligands (other than (L)-canonical amino acids) requires the input of a [[residue params file|Residue-Params-file]].  More information can be found [[here|How-to-turn-on-residue-types-that-are-off-by-default]].
+Many other residues and ligands (other than (L)-canonical amino acids) are included in the Rosetta database but are disabled by default. Instructions for enabling them can be found  [[here|How-to-turn-on-residue-types-that-are-off-by-default]]. 
+
+Molecules with params files that are not currently included in the Rosetta database require the input of a [[residue params file|Residue-Params-file]] using the `-in:file:extra_res_fa`, `-in:file:extra_res_path`, or `-in:file:extra_res_cen` command-line options documented [[here|input-options]].
