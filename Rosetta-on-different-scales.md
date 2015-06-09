@@ -39,7 +39,9 @@ Sampling only the sidechains leads to a relatively small and less frustrated sea
 The archetypical application here is [[fixed backbone design|fixbb]].
 Again, fixbb can run on small scales because the guts of the packing algorithm are very optimized and run many cycles internally.
 Fixbb generally fast and runs on a laptop, although large design jobs may require more memory than less powerful computers will have.
-ANDY TODO: coupled moves?
+Coupled moves, available as an executable (coupled_moves) or a RosettaScripts mover (CoupledMover), incorporates a limited amount of coupled (hence the name) backbone and sidechain flexibility via the BackrubMover; it also has facilities for ligand manipulation.
+Importantly, it uses the BoltzmannRotamerMover to select rotamers for each position, rather than the packer, which improves speed and can lead to greater sequence diversity, making it a great choice for diversifying one's starting structure.
+Because it considers and discards many solutions per eventually produced decoy, relatively few decoys are needed, though the time needed to produce each one is considerably longer than all but the largest fixbb jobs.
 
 10<sup>3</sup>
 ------------------
