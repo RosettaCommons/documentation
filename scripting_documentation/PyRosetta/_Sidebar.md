@@ -10,6 +10,6 @@
     * [[GUI for PyRosettaToolkit|PyRosetta-Toolkit-GUI]]
     * [[PyRosetta website|http://www.pyrosetta.org]]
 * [[Development Documentation|development_documentation/Development-Documentation]]
-<flag>
+<!---BEGIN_INTERNAL-->
 * [[Internal Documentation|internal_documentation/Internal-Documentation]]
-<flag>
+<!---END_INTERNAL-->
