@@ -81,9 +81,7 @@ The required files are in: `rosetta/rosetta_source/src/apps/public/relax_w_allat
 
 There is also a demo with a constraint file rather than flags at: `rosetta/rosetta_demos/public/prepare_pdb_for_rosetta_with_relax`.
 
-## Generating Constraints File for your PDB
-
-### Short Protocol (recommended)
+### Short Protocol (recommended, no constraint file)
 
 Relax with all-heavy-atom constraints is built into the relax application itself. 
 If this is a new structure you may want to first clean it up using the above script. Relax proceeds as follows:
@@ -107,7 +105,7 @@ By default relax uses a harmonic constraint with the strength adjusted by `coord
 If `coord_cst_width` is specified, a flat-bottomed, linear-walled constraint is used, with the size of the flat-bottomed well controlled by `coord_cst_width` (smaller=tighter), and the slope of the walls by `coord_cst_stdev` (smaller=tighter). 
 More on constraint functions can be found [[here|constraint-file#function-types]].
 
-### Longer Protocol (not recommended)
+### Longer Protocol (not recommended, using a constraint file)
 
 In general the short protocol is preferred for most applications, since this version is more complicated and the two give nearly identical results. 
 In this protocol an separate script first generates side-chain atom constraints from an input PDB, then the relax protocol is run with this pre-generated constrain file. 
