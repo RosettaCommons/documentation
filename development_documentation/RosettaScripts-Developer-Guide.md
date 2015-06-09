@@ -4,7 +4,7 @@
 
 *This page was modified in the Minicon 11 Wiki Update, but we didn't quite finish it for reasons of lack of time or knowledge. If you can finish it, please do!*
 
- Using RosettaScripts in its most basic sense involves organizing a workflow of [[Mover]] classes that are defined and parameterized in an XML-like scripting language that is read and processed into an arbitrary minirosetta protocol at runtime. The use of Filter classes is also used to further control protocol flow.
+ Using RosettaScripts in its most basic sense involves organizing a workflow of [[Mover|Movers-RosettaScripts]] classes that are defined and parameterized in an XML-like scripting language that is read and processed into an arbitrary minirosetta protocol at runtime. The use of Filter classes is also used to further control protocol flow.
 
 DataMap
 -------

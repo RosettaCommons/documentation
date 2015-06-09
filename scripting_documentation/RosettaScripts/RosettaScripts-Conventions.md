@@ -1,6 +1,6 @@
 #RosettaScripts Conventions
 
-*This page is not yet complete, and should be ignored until further notice*
+*Note: This page is not a complete listing of all RosettaScripts conventions*
 
 Overview
 --------
@@ -16,7 +16,7 @@ All score function attributes should begin with *scorefxn*. In case 2 score func
 
 ### Task Operations
 
-A task operations attribute should be named *task\_operations*, and will contain a comma separated list of all task operations.
+A task operations attribute should be named *task\_operations*, and will contain a comma separated list (without spaces) of all task operations.
 
 ### Contained Movers / Filters
 
@@ -24,7 +24,7 @@ There are several ways you can include other modules in your own module:
 
 #### One mover / filter
 
-use the attribute *mover\_name* or *filter\_name* within your protocol tag.
+Use the attribute *mover\_name* or *filter\_name* within your protocol tag.
 
 #### Several movers / filters
 

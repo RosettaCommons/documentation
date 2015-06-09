@@ -6,7 +6,7 @@
  * [[RosettaScripts|RosettaScripts]]
     * [[Movers|Movers-RosettaScripts]]
     * [[Filters|Filters-RosettaScripts]]
-    * [[Formatting conventions|RosettaScripts-Guidelines-for-writing-new-movers-and-filters]]
+    * [[Formatting conventions|RosettaScripts-Conventions]]
     * [[Task Operations|TaskOperations-RosettaScripts]]
     * [[FeaturesReporters|Features-reporter-overview]]
     * [[Composite Protocols|Composite-protocols]]

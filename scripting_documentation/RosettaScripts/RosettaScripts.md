@@ -4,7 +4,7 @@
 -   [[Filters (RosettaScripts)|Filters-RosettaScripts]]
 -   [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]]
 -   [[Composite protocols with RosettaScripts interfaces|Composite-protocols]]
--   [[RosettaScripts Formatting Conventions|RosettaScripts-Guidelines-for-writing-new-movers-and-filters]]
+-   [[RosettaScripts Formatting Conventions|RosettaScripts-Conventions]]
 -   [[RosettaScripts database connection options|RosettaScripts-database-connection-options]]
 -   [[Overview of the Features Reporter framework|Features-reporter-overview]]
 -   [[RosettaScripts Developer Guide|RosettaScripts-Developer-Guide]]
