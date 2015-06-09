@@ -1,0 +1,86 @@
+#Energy Terms In Rosetta 
+
+Standard Weights File
+=====================
+
+The default score function in Rosetta for scoring full-atom structures is currently **talaris2013**.  The energy function and its corrections were tested in the papers 
+
+[Leaver-Fay et al., Methods in Enzymology 2013](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3724755/)
+
+[O’Meara et al., J. Chem. Theory Comput. 2015](https://dx.doi.org/10.1021/ct500864r)  
+
+A full description of the changes this energy function introduces can be found [here](https://www.rosettacommons.org/node/3508#comment-6946).  
+
+The **talaris2013** energy function is suitable for scoring canonical L-amino acids, their D-amino acid mirror images, and some rigid ligands (_e.g._ metal ions, phosphate, _etc._).  It can also work with noncanonical alpha-amino acid residues, provided that their params files are set up properly.  Backbone conformation terms will ignore beta-amino acids, flexible ligands, nucleic acids, _etc._
+
+References
+==========
+
+O'Meara, M. J., Leaver-Fay, A., Tyka, M., Stein, A., Houlihan, K., DiMaio, F., Bradley, P., Kortemme, T., Baker, D., Snoeyink, J.,
+_A Combined Covalent-Electrostatic Model of Hydrogen Bonding Improves Structure Prediction with Rosetta. Journal of Chemical Theory and Computation_, 2015.
+
+Leaver-Fay, A., O'Meara, M. J., Tyka, M., Jacak, R., Song, Y., Kellogg, E. H., Thompson, J., Davis, I. W., Pache, R. A., Lyskov, S., Gray, J. J., Kortemme, T., Richardson, J. S., Havranek, J. J., Snoeyink, J., Baker, D., Kuhlman, B., _Scientific benchmarks for guiding macromolecular energy function improvement_. Methods in enzymology, 2013. 523: p. 109.
+
+Rohl, C. A., Strauss, C. EM., Misura, K. MS., Baker, D., Protein structure prediction using Rosetta. Methods in enzymology, 2004. 383: p. 66-93.
+
+Kuhlman, B., Dantas, G., Ireton, G. C., Varani, G., Stoddard, B. L., Baker, D., _Design of a novel globular protein fold with atomic-level accuracy_. Science, 2003. 302(5649): p. 1364-8.
+
+Kuhlman, B. and D. Baker, _Native protein sequences are close to optimal for their structures_. Proceedings of the National Academy of Sciences of the United States of America, 2000. 97(19): p. 10383-8.
+
+Energy terms used in talaris2013.wts
+-------------------------------------
+
+```html
+fa_atr                                     Lennard-Jones attractive between atoms in different residues
+fa_rep                                     Lennard-Jones repulsive between atoms in different residues
+fa_sol                                     Lazaridis-Karplus solvation energy
+fa_intra_rep                               Lennard-Jones repulsive between atoms in the same residue
+fa_elec                                    Coulombic electrostatic potential with a distance-dependant dielectric   
+pro_close                                  Proline ring closure energy
+hbond_sr_bb                                Backbone-backbone hbonds close in primary sequence
+hbond_lr_bb                                Backbone-backbone hbonds distant in primary sequence
+hbond_bb_sc                                Sidechain-backbone hydrogen bond energy
+hbond_sc                                   Sidechain-sidechain hydrogen bond energy
+dslf_fa13                                  Disulfide geometry potential
+rama                                       Ramachandran preferences
+omega                                      Omega dihedral in the backbone. A Harmonic constraint on planarity with standard deviation of ~6 deg.
+fa_dun                                     Internal energy of sidechain rotamers as derived from Dunbrack's statistics (2010 Rotamer Library used in Talaris2013)
+p_aa_pp                                    Probability of amino acid at Φ/Ψ
+ref                                        Reference energy for each amino acid. Balances internal energy of amino acid terms.  Plays role in design.
+METHOD_WEIGHTS                             Not an energy term itself, but the parameters for each amino acid used by the ref energy term. 
+```
+
+Additional energy terms for score12
+-----------------------------------
+
+Previous versions of Rosetta used the score12 energy function as the default full atom energy function. Many of the energy terms are the same as talaris2013 (though at different weights, and with different parameters), although other terms were also used:
+
+```html
+fa_pair                                    Statistics-based pair term, favors salt bridges (replaced by fa_elec in talaris2013)
+fa_plane                                   π-π interaction between aromatic groups, by default = 0
+dslf_ss_dst                                Distance score in current disulfide (replaced by dslf_fa13 in talaris2013)
+dslf_cs_ang                                Csangles score in current disulfide (replaced by dslf_fa13 in talaris2013)
+dslf_ss_dih                                Dihedral score in current disulfide (replaced by dslf_fa13 in talaris2013)
+dslf_ca_dih                                Cα dihedral score in current disulfide (replaced by dslf_fa13 in talaris2013)
+```
+
+The score12 energy function can be used in current Rosetta versions, but the option <code> -restore_pre_talaris_2013_behavior</code> must be passed.
+
+
+
+Additional Resources
+=====================
+
+*  [[MM Std Scorefunction | NC-scorefunction-info#MM-Standard-Scorefunction]]
+
+*  [[Orbitals Scorefunction | NC-scorefunction-info#Partial-Covalent-Interactions-Energy-Function-(Orbitals)]]
+
+*  [[Additional score types | score-types-additional]]
+
+
+Shapovalov, M.V. and R.L. Dunbrack, _A smoothed backbone-dependent rotamer library for proteins derived from adaptive kernel density estimates and regressions_. Structure, 2011. 19(6): p. 844-858.
+
+Dunbrack, R.L. and F.E. Cohen, _Bayesian statistical analysis of protein side‐chain rotamer preferences_. Protein Science, 1997. 6(8): p. 1661-1681.
+
+Lazaridis, T. and M. Karplus, _Effective energy function for proteins in solution_. Proteins: Structure, Function, and Bioinformatics, 1999. 35(2): p. 133-152.
+

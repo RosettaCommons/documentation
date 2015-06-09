@@ -11,7 +11,7 @@ The most common distance unit in Rosetta is the Angstrom (1x10^-10 meter, or 0.1
 Angles
 ======
 
-Most user-facing usage of angular measures are in degrees. However, radian measures are used internally in parts of Rosetta, so use of angular measures in radians for input/output is possible, depending on protocol. In particular, angle and dihedral constraints (including their specification in input constraint files) are specified in radians.
+Most user-facing usage of angular measures are in degrees. However, radian measures are used internally in parts of Rosetta, so use of angular measures in radians for input/output is possible, depending on protocol.
 
 Time
 ====
