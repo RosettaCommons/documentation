@@ -41,7 +41,7 @@ See: [[Comparative Modeling|minirosetta-comparative-modeling]] (potentially out 
 * [[Homology modeling of antibody variable fragments.|antibody-protocol]]
 * [[Ab initio modeling of membrane proteins.|membrane-abinitio]]
 
-## Protein—Protein Docking
+## Protein–Protein Docking
 
 Another general question which can be interrogated by Rosetta is: given protein A and protein B, can I generate a plausible model for protein—protein interactions?
 This problem can be conflated with the protein structure prediction problem when the structure of either protein A, protein B, or both are unknown.
@@ -67,7 +67,7 @@ In this case, (near) atomic-resolution structures have been determined for both 
 The structures should be prepared for docking in the standard manner (see [[preparing structures|preparing-structures]]).
 The [[docking protocol|docking-protocol]] would then search for the complex structure with minimal energy.
 
-Docking can emulate several biophysical models of protein—protein interactions which are enumerated below.
+Docking can emulate several biophysical models of protein–protein interactions which are enumerated below.
 
 #### Docking According to the Lock and Key Model
 
@@ -110,22 +110,22 @@ Success would be extremely unlikely due to the large amount of sampling needed t
 
 [[Symmetric Docking|sym-dock]] is useful for assembling multiple subunits according to a specific symmetry defined in a [[symmetry file|make-symmdef-file-denovo]].
 
-## Protein—Peptide Docking <!-- This might be an em-dash rather than a hyphen. -->
+## Protein–Peptide Docking
 
 Protein–peptide docking is useful for determining the structure of a short, flexible peptide in the context of a receptor.
-Rosetta has [protein–peptide docking](application_documentation/flex_pep_dock) methods that work best starting from an approximate model with a starting position near to the peptide-binding site; within five Angstroms backbone RMSD is ideal.
+Rosetta has [protein–peptide docking](application_documentation/flex_pep_dock) methods that work best starting from an approximate model with a starting position near to the peptide–binding site; within five Angstroms backbone RMSD is ideal.
 Thus, it is not generally tractable to concurrently sample peptide conformations and all the possible binding sites on the surface of the protein.
 Rosetta also has the capacity to sample conformations of peptidomimetic molecules, such as oligooxopiperazines, hydrogen bond surrogate helices, stapled peptides, peptoids, beta peptides, and more.
 
-## Protein—Ligand Docking <!-- This might be an em-dash rather than a hyphen. -->
+## Protein–Ligand Docking 
 
 Can I predict how a small molecule will interact with my protein? 
-As with protein—protein docking, the better your initial structures are, the more likely you are to produce an accurate model (see above).
-[[RosettaLigand|ligand-dock]] or [[RosettaLigand via RosettaScripts||http://dx.doi.org/10.1007%2F978-1-61779-465-0_10]] can be used to predict protein—ligand interactions.
+As with protein–protein docking, the better your initial structures are, the more likely you are to produce an accurate model (see above).
+[[RosettaLigand|ligand-dock]] or [[RosettaLigand via RosettaScripts||http://dx.doi.org/10.1007%2F978-1-61779-465-0_10]] can be used to predict protein–ligand interactions.
 RosettaLigand run via the executable (is currently outdated).
 It is preferred to dock ligands via RosettaScripts. 
 An alternative method, is to use [[Docking Approach using Ray Casting (DARC)|DARC]]. 
-Unlike RosettaLigand, which explores protein—ligand interactions in a biological manner via translations and rotations (correct me if this is wrong), DARC evaluates the shape complementarity of a ligand for a pocket on the protein surface.
+Unlike RosettaLigand, which explores protein–ligand interactions in a biological manner via translations and rotations (correct me if this is wrong), DARC evaluates the shape complementarity of a ligand for a pocket on the protein surface.
 
 ## Protein Design
 
