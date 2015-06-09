@@ -58,7 +58,7 @@ python clean_pdb.py <pdb> <chain id>
 
 We looked for a way to simultaneously minimize Rosetta energy and keep all heavy atoms in a crystal structure as close as possible to their starting positions. 
 As many posts below—or hard-won experience—will show, running relax on a structure will often move the backbone a few Angstroms. 
-The best way we have found to perform the simultaneous optimization is to run relax with constraints always turned on (typically constraints ramp down in the late cycles of a relax run) and to constrain not just backbone but also side-chain atoms (which can be done with both [[flags|]] or a [[constraint file|constraint-file]], see [[preparing-structures#generating-constraints-file-for-your-pdb]]).
+The best way we have found to perform the simultaneous optimization is to run relax with constraints always turned on (typically constraints ramp down in the late cycles of a relax run) and to constrain not just backbone but also side-chain atoms (which can be done with both flags or a [[constraint file|constraint-file]], see [[preparing-structures#generating-constraints-file-for-your-pdb]]).
 This protocol has been tested on a benchmark set of 51 proteins and found to increase sequence recovery in enzyme design by 5% as compared with design in raw PDB structures. 
 It accomplishes this with only .077 Angstrom RMSD over the set of proteins (C-alpha RMSD) from raw PDB to relaxed-with-csts PDB. 
 A more complete description of the data leading to this protocol is below.
