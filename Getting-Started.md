@@ -93,7 +93,7 @@ The [FlexPepDock server](http://flexpepdock.furmanlab.cs.huji.ac.il/) provides [
 
 6) RosettaDiagrams
 
-[RosettaDiagrams](http://www.rosettadiagrams.org/) provides a graphical interactive service to produce [[RosettaScripts]] XML files (it does not run them).
+[RosettaDiagrams](http://www.rosettadiagrams.org/) provides a graphical interactive service to produce [[RosettaScripts]] XML files, with some ability to run the scripts as well.
 
 Local installation and use of Rosetta
 --------------------------------------
