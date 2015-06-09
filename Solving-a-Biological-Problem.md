@@ -9,7 +9,12 @@ Types of Biological Problems
 
 There are many biological problems which can be approached with Rosetta. 
 These topics often stem from the central idea that **sequence** confers **structure** which in turn confers **function**.
-For example, Rosetta was initially utilized to study _de novo_ protein structure prediction (sequence->function), while current applications can be as extensive as enzyme design (structure->function).
+For example, Rosetta was initially utilized for _de novo_ protein structure prediction (sequence->function), while current applications can be as extensive as enzyme design (structure->function).
+
+Generally speaking (for most biological problems), the computational challenges faced are two-fold. 
+First, can we adequately sample the space where the solution to our problem lives.
+Second, can we identify said solution, if we have sampled it.
+This should be kept in mind when deciding on which protocol to apply to your problem, how many models to generate, and which score function to use.
 
 ## Protein Structure Prediction
 
@@ -20,6 +25,7 @@ There are also other, more specialized, approaches for particular tasks such as 
 ### De Novo Modeling
 
 _De novo_ structure prediction is useful when modeling a protein with low homology. 
+In the _de novo_ algorithm, the protein sequence is initiated in an extended conformation and "folded" by changes in phi/psi angles sampled from n-mer fragment libraries.
 _De novo_ structure prediction is accurate when modeling a small (<100 residues), globular protein.
 
 See: [[Ab initio|abinitio-relax]].
@@ -52,7 +58,7 @@ On the other hand, biochemical information can be implemented as constraints [[(
 **Can we elaborate further in this subsection?**
 
 In this case, (near) atomic-resolution structures have been determined for both interacting partners. 
-The structures should be prepared for docking in the standard manner (see [[preparing structures|preparing-strucures]]).
+The structures should be prepared for docking in the standard manner (see [[preparing structures|preparing-structures]]).
 The [[docking protocol|docking-protocol]] would then search for the complex structure with minimal energy.
 
 Docking can emulate several biophysical models of protein—protein interactions which are enumerated below.
