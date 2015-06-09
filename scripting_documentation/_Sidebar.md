@@ -7,6 +7,6 @@
  * [[TopologyBroker|BrokeredEnvironment]]
  * [[PyRosetta|PyRosetta]]
 * [[Development Documentation|development_documentation/Development-Documentation]]
-<flag>
+<!---BEGIN_INTERNAL-->
 * [[Internal Documentation|internal_documentation/Internal-Documentation]]
-<flag>
+<!---END_INTERNAL-->

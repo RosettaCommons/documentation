@@ -2,11 +2,10 @@
 
 ##Developing for Rosetta
 
-- [[Rosetta overview]]
-- [[Using Git]] - Basic steps to working with git and committing code 
+- [[Rosetta overview]] - Explanations of key concepts in Rosetta.
+- [[Glossary]] - Brief definitions of Rosetta-related terms
 - [[Doxygen tips]] - How to work with Rosetta's in-code documentation.
 - [[Writing an app]] - How to write your own Rosetta-based application.
-- [[Packer Task]] - Controlling which side chains can vary during rotamer optimization 
 - [[Making rosetta robust for running on large number of inputs|robust]]
 
 ##Where is the documentation for the various Rosetta libraries?
@@ -93,16 +92,3 @@ For RosettaCommons developers, we have a version of the Doxygen documentation wh
 ## Visualization Tools
 - [[Extending the PyMol Viewer]] Extending the PyMol Mover to add additional visualization features during Rosetta simulations
 - [[Resources for Visualization in PyMol]] Resources for visualizing Rosetta simulations in PyMol
-
-
-##Documentation Quick Links
-
-|[[Build Documentation]]|[[Rosetta Basics]]        |[[Application Documentation]]|
-|:---------------------:|:------------------------:|:---------------------------:|:---------------------------:|
-|[[/images/hammer.png|align=center]]    |[[/images/start_flag.png|align=center]]|[[/images/power.png|align=center]]        |
-
-<!--- BEGIN_INTERNAL -->
-|[[Internal Documentation]]|
-|:------------------------:|
-|[[/images/logo.png|align=center]]      |
-<!--- END_INTERNAL --> 

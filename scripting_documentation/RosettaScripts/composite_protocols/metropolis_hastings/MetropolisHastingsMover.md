@@ -5,5 +5,5 @@
     -   [[Tempering-Schemes|MetropolisHastings-Documentation#TemperatureControllers]]
     -   [[ThermodynamicObservers|MetropolisHastings-Documentation#ThermodynamicObservers]]
 
--   [[Guidelines for writing new movers and filters|RosettaScripts-Guidelines-for-writing-new-movers-and-filters]]
+-   [[Guidelines for combining movers/filters|RosettaScripts-Conventions]]
 

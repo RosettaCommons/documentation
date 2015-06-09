@@ -2,8 +2,7 @@ Author: Jeliazko Jeliazkov and Andrew Watkins
 
 [[_TOC_]]
 
-Types of Biological Problems
-=============
+#Types of Biological Problems
 
 **Note: others should feel free to add in their expertise to this article.**
 
@@ -42,26 +41,33 @@ See: [[Comparative Modeling|minirosetta-comparative-modeling]] (potentially out 
 * [[Homology modeling of antibody variable fragments.|antibody-protocol]]
 * [[Ab initio modeling of membrane proteins.|membrane-abinitio]]
 
-**Should we include demo dirs here?**
+## Protein–Protein Docking
 
-## Protein—Protein Docking
-
-Another general question which can be interrogated by Rosetta is: given protein A and protein B, can I generate a plausible model for protein—protein interactions?
+Another general question which can be interrogated by Rosetta is: given protein A and protein B, can I generate a plausible model for protein–protein interactions?
 This problem can be conflated with the protein structure prediction problem when the structure of either protein A, protein B, or both are unknown.
 Protein flexibility can play a role in protein docking by increasing the degrees of freedom. 
 For example, high RMSD between the bound and unbound states makes prediction of the bound state from the unbound states difficult. 
 On the other hand, biochemical information can be implemented as constraints [[(see below)|Solving-a-Biological-Problem#Incorporating-Experimental-Data]] in the scoring function during docking to (hopefully) improve model accuracy.
 
-### Docking Two Partners With Known Structures
+In general, there are three types of docking: global, local, and local refine. 
+These are all run via the [[docking protocol|docking-protocol]], but differ in flags.
 
-**How does docking prepack fit in? Should that be merged with docking?**
-**Can we elaborate further in this subsection?**
+**Global docking** entails a random initial placement of both partners, a low-resolution centroid phase with (relatively) large rigid-body translations, and a high-resolution, full-atom phase with smaller perturbations and side-chain repacking/minimization.
+
+**Local docking** is identical to global docking except the initial placement of the partners is not random thereby ensuring that interactions are sampled about the initial configuration.
+
+**Local refinement docking** only uses the high-resolution, full-atom phase.
+
+See the [[docking protocol|docking-protocol]] for more information on how to run a docking simulation.
+Note: side-chains should be [[pre-packed|docking-prepack-protocol]] prior to docking to globally minimize side-chain energies since docking only packs side-chains at the interface.
+
+### Docking Two Partners With Known Structures
 
 In this case, (near) atomic-resolution structures have been determined for both interacting partners. 
 The structures should be prepared for docking in the standard manner (see [[preparing structures|preparing-structures]]).
 The [[docking protocol|docking-protocol]] would then search for the complex structure with minimal energy.
 
-Docking can emulate several biophysical models of protein—protein interactions which are enumerated below.
+Docking can emulate several biophysical models of protein–protein interactions which are enumerated below.
 
 #### Docking According to the Lock and Key Model
 
@@ -81,6 +87,7 @@ These ensembles of structures can be sampled during the docking protocol.
 The induced fit model offers an alternative to the prior two models.
 Induced fit holds that upon an encounter, proteins mutually affect each other.
 This is computationally modeled by minimizing backbone degrees of freedom (in addition to the typical minimization of side-chain degrees of freedom) in the high-resolution phase of the docking protocol.
+As of June 9th, 2015, there is a `-bb_min_res` flag which can be used to specify residues with backbone degrees of freedom during minimization, but backbone minimization during docking has not been thoroughly tested.
 
 #### Docking According to the Conformer Selection and Induced Fit Model
 
@@ -96,7 +103,8 @@ There is a caveat as ensemble docking swap models according to the Metropolis cr
 
 ### Docking Two Partners With Two Unknown Structures 
 
-Just do not.
+Plausible, but this is **not recommended**. 
+Success would be extremely unlikely due to the large amount of sampling needed to (A) accurately model one partner, (B) accurately model the other partner, and (C) accurately model the interaction between the two partners.
 
 ### Docking Homooligomers
 
@@ -105,34 +113,67 @@ Just do not.
 ## Protein–Peptide Docking
 
 Protein–peptide docking is useful for determining the structure of a short, flexible peptide in the context of a receptor.
-Rosetta has [protein–peptide docking](application_documentation/flex_pep_dock) methods that work best starting from an approximate model with a starting position near to the peptide-binding site; within five Angstroms backbone RMSD is ideal.
+Rosetta has [protein–peptide docking](application_documentation/flex_pep_dock) methods that work best starting from an approximate model with a starting position near to the peptide–binding site; within five Angstroms backbone RMSD is ideal.
 Thus, it is not generally tractable to concurrently sample peptide conformations and all the possible binding sites on the surface of the protein.
 Rosetta also has the capacity to sample conformations of peptidomimetic molecules, such as oligooxopiperazines, hydrogen bond surrogate helices, stapled peptides, peptoids, beta peptides, and more.
 
-**describe several types of protein-peptide docking**
+## Protein–Ligand Docking 
 
-## Protein–Ligand Docking
-
-RosettaLigand and DARC go here.
+Can I predict how a small molecule will interact with my protein? 
+As with protein–protein docking, the better your initial structures are, the more likely you are to produce an accurate model (see above).
+[[RosettaLigand|ligand-dock]] or [[RosettaLigand via RosettaScripts||http://dx.doi.org/10.1007%2F978-1-61779-465-0_10]] can be used to predict protein–ligand interactions.
+RosettaLigand run via the executable (is currently outdated).
+It is preferred to dock ligands via RosettaScripts. 
+An alternative method, is to use [[Docking Approach using Ray Casting (DARC)|DARC]]. 
+Unlike RosettaLigand, which explores protein–ligand interactions in a biological manner via translations and rotations (correct me if this is wrong), DARC evaluates the shape complementarity of a ligand for a pocket on the protein surface.
 
 ## Protein Design
 
-### De Novo Protein Design
+While protein structure prediction seeks to identify low energy structures in space, protein design seeks to identify amino acid identities in sequence space.
+Protein design can be used to study both how sequence confers structure (i.e. predicting the amino acid sequence of a given fold) or how structure confers function (i.e. predicting the amino acid sequence for a given function).
+Due to the breadth of these challenges, protocols are either specific or custom generated using one of the [[Rosetta scripting interfaces|Scripting-Documentation]].
+
 
 ### Protein Redesign
 
+One could envision a simple design problem where they seek to stabilize a known protein structure.
+A reasonable assumption to make is that there will not be large changes in protein fold.
+Hence, this problem is approached with [[fixed backbone design|fixbb]] where side-chain identities are sampled to identify those which minimize energy on the current backbone. 
+Further, if design is yield an amino acid sequence favoring hydrophobic residues then [[fixed backbone design can be run with consideration of hydrophobic surface patches||fixbb-with-hpatch]].
+However, newer score functions have more or less limited this problem.
+
+Other design problems of interest may include: 
+- scanning for [[stabilizing point mutations|pmut-scan-parallel]], 
+- [[Sequence Tolerance|sequence-tolerance]]
+- [[Multistate Design|mpi-msd]]
+- [[RosettaRemodel|rosettaremodel]]
+- [[More Remodel Docs|Remodel]]
+- [[Surface Charge|supercharge]]
+- [[I.D. and Fill Cavities|vip-app]]
+
 ### Protein Interface Design
 
+[[Anchored Design|anchored-design]]
+[[Peptide Design|pepspec]]
+
 ### Enzyme Design
+
+[[Enzyme Design|enzyme-design]]
 
 ## Protein Loop Modeling
 
 Most protein flexibility is contained the loops. 
 Often times it is important to specifically model loops.
 
+## Solving Crystal Structures
+
 ## Filling in Crystal Density? (optional)
 
 Loop modeling and floppy tail can go here.
+
+## What If My Question Is Unanswered? 
+
+[[i-want-to-do-x]]
 
 ## General Rosetta Caveats
 
@@ -141,8 +182,7 @@ Loop modeling and floppy tail can go here.
 * [[http://rosie.rosettacommons.org/]]
 * [[http://robetta.bakerlab.org/]]
 
-Incorporating Experimental Data
-==========
+#Incorporating Experimental Data
 
 Potentially useful experimental data takes many forms.
 The very nature of Monte Carlo simulation strongly supports the incorporation of any type of experimental constraint, because all you need it to do is allow it to influence the distribution of generated structures. 
