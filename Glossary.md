@@ -99,6 +99,12 @@ The complex structure that is used for reference in docking and rmsd calculation
 Coordinates with spatial positions specified by xyz coordinates. Contrast this with **internal coordinates**.
 The conversion between the two is **kinematics**. 
 
+#### Cartesian minimization
+
+**Gradient minimization** based on moving atoms in xyz Cartesian space, rather than with **internal coordinates**.
+
+This requires an extra term (cart_bonded) to maintain bond lengths and angles to their near-ideal values.
+
 #### CCD
 
 Cyclic coordinate descent. A **loop closure** protocol where backbone dihedrals are progressively adjusted to minimize
@@ -310,7 +316,13 @@ interactions are calculated in the atomistic scale (atom-atom pairwise).
 
 #### GDT
 
-#### GDT-MM
+Global Distance Test. A metric used in CASP instead of **RMSD**, which is less sensitive to regions of unaligned structure.
+
+[Insert reference here]
+
+#### GDTMM
+
+A Rosetta-specific name for GDT. 
 
 #### gradient
 
@@ -320,8 +332,7 @@ interactions are calculated in the atomistic scale (atom-atom pairwise).
 
 #### homologue
 
-Evolutionarily related proteins. They usually have similar structure and
-sequences,
+Evolutionarily related proteins. They usually have similar structure and sequences,
 but don't necessarily have to. Within Rosetta however we are only
 interested in homologues that are similar in structure. Ones that are
 similar in sequence but not in structure are not necessarily useful,
@@ -353,11 +364,20 @@ threading.
 
 #### idealization
 
+Rosetta normally works only with changing **dihedral** angles. The process of idealization
+is changing a structure to use ideal bond lengths and angles
+
+See also **Cartesian minimization** which works with non-ideal
+bond lengths and angles.  
+
 #### implicit solvation model
 
 #### interface
 
 #### internal coordinates
+
+Storage of the positions of atom based on bond lengths, angles and dihedrals, rather than **Cartesian coordinates** 
+(xyz coordinates). The conversion between the two is kinematics.
 
 #### jump
 
