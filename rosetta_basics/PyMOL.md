@@ -17,6 +17,8 @@ and is explained
 need to install the python-dev and glutg3-dev packages and possibly the
 mesa-common-dev package as well.
 
+Information on making movies in PyMOL can be found at  [http://www.pymolwiki.org/index.php/PLoS](http://www.pymolwiki.org/index.php/PLoS).
+
 PyMOL\_Mover
 ------------
 
