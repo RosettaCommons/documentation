@@ -43,3 +43,10 @@ ANDY TODO: coupled moves?
 
 10<sup>3</sup>
 ------------------
+At this scale, we begin to consider experiments that introduce non-sidechain degrees of freedom.
+Introducing backbone flexibility is very expensive in terms of search space, so we next introduce rigid-body freedoms instead, allowing for small docking problems.  ANDY TODO: peptidomimetics?
+This scale is also useful for moderately constrained [[relax]] runs used as part of [[structure preparation]] or at the tail end of [[ab initio structure prediction]].
+In this regime, you will generally want something more powerful than your desktop computer: either a many-core lab workhorse or a small run on a lab-scale cluster.
+
+10<sup>3</sup>
+------------------
