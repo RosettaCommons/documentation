@@ -4,11 +4,12 @@ Getting started
 This page is written for an audience of scientists new to Rosetta: perhaps a first year graduate student, or young postdoc, who has received/started a project that needs "some computer modeling". 
 In other words, an individual coming to Rosetta from a cold start.
 Is Rosetta a good tool for the modeling you need to do? If so, how do you go about getting and using Rosetta?
+If you are already comfortable with the concepts, feel free to skip ahead.
 
 Rosetta is a very large software suite for macromolecular modeling. 
 By software suite, we mean that it is a large collection of computer code (mostly in C++, some in Python, a little in other languages), but it is not a single monolithic program.
-By macromolecular modeling, we mean the process of evaluating and ranking the physical plausibility of different structures of biological macromolecules (usually protein, but nucleic acids and ligands are significantly supported and support for implicit lipid membranes is growing). 
-Generally, a user will choose some specific protocol within Rosetta and provide that protocol with inputs for A) what structure to work on, and B) what options within the protocol are appropriate for the user's needs.
+By [[macromolecular modeling|Modelling-Resources]], we mean the process of evaluating and ranking the physical plausibility of different structures of biological macromolecules (usually protein, but nucleic acids and ligands are significantly supported and support for implicit lipid membranes is growing). 
+Generally, a user will [[choose some specific protocol within Rosetta|Solving-a-Biological-Problem]] and provide that protocol with inputs for A) what structure to work on, and B) what options within the protocol are appropriate for the user's needs.
 
 <img src="/uploads/coldStart.png" usemap="#GraffleExport" alt="missing image">
 
@@ -21,6 +22,8 @@ Generally, a user will choose some specific protocol within Rosetta and provide 
 	<area shape=rect coords="189,11,354,97" href="http://localhost:4567/Getting-Started#do-i-have-what-i-need">
 </map>
 
+[[_TOC_]]
+
 Do I have what I need?
 -----------------
 Doing macromolecular modeling well—doing good science—requires careful consideration of your inputs, how the modeling is performed, and analysis of your outputs.
@@ -29,28 +32,19 @@ Rosetta itself can be operated as a ["black box"](https://en.wikipedia.org/wiki/
 1) Inputs to Rosetta
 
 The major input to Rosetta is the input structure.
-Generally, if you have a high-resolution structure(s) (better than 2 Å) of your molecule, it can be used with Rosetta with minimal remediation LINKY LINKY.
-If you have a poorer-resolution structure, an NMR structure, a homology model, or no structure at all, then LINKY LINKY LINKY you must carefully consider how to prepare your structure for modeling and how this restricts the conclusions you may draw.
+Generally, if you have a high-resolution structure(s) (better than 2 Å) of your molecule, it can be used with Rosetta with [[few changes|preparing-structures]].
+If you have a poorer-resolution structure, an NMR structure, a homology model, or no structure at all, then your task will be much harder.
+You should still [[prepare your structure for modeling|preparing-structures]], but be aware that modeling is less efficient and effective when starting from poor quality structures and [[interpreting results|Analyzing-Results]] is more challenging.
 
 2) Choosing the Rosetta protocol
 
-The other inputs are the choice of [[which Rosetta protocol|Solving-a-Biological-Problem]] to use, and what options LINKY or LINKY file inputs to use.
-
-3) Interpreting outputs
-
-THIS SECTION GOES SOMEWHERE ELSE ULTIMATELY
-
-LINKY LINKY TO A PAGE WE DIDN"T WRITE YET
-Rosetta's outputs are rarely simple to interpret.
-Rosetta is not like an Easy-Bake Oven, and you do not let it run for an hour, after which your baked protein structure answer.
-Broadly, Rosetta algorithms run on [Metropolis Monte Carlo](http://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm).
-We chose these types of algorithms because they are comparatively efficient, but a necessary side effect is that one must run *many* Rosetta trajectories and sort through many outputs to determine the result of an experiment.
-You must be also be careful to restrict yourself to conclusions that are within the scope of your modeling (for example not overinterpreting LINKY constrained models).
+The other inputs are the choice of [[which Rosetta protocol|Solving-a-Biological-Problem]] to use, and [[what options|running-rosetta-with-options#specifying-options]] or [[file inputs|file-types-list#commonly-used-input-files]] to use.
 
 4) Computational resources
 
-Rosetta software, as a whole, is written to run on supercomputers.
-There are applications that can run on laptop computers.
+Rosetta software, as a whole, is written to run on supercomputers, but can be run on [[many different scales|Rosetta-on-different-scales]].
+Most applications can give "dry runs" for testing on any computer.
+A few applications that can run on laptop computers.
 There are applications than can run on lab-scale powerful computers (12-30 core range).
 Most applications assume you have access to tens of thousands of hours of computer time to accumulate enough results to answer your question.
 The later sections of this document describe installing or using Rosetta at those different scales.
@@ -91,7 +85,7 @@ As a consequence, you will need to [[compile|http://en.wikipedia.org/wiki/Compil
 
 Local installation implies that one will be using Rosetta through a [[command line interface (or terminal)|http://en.wikipedia.org/wiki/Command-line_interface]].
 For local users, you are unlikely to want to install Rosetta to the entire system. 
-Rosetta is quite happy to be compiled and installed by regular users without administrative rights.
+Rosetta is quite happy to be compiled and installed by regular users without administrative rights - this is how the developers use it.
 You may need administrative rights to install [[dependencies]].
 
 * First untar/uncompress your downloaded copy of the code (`tar -xvzf Rosetta[releasenumber].tar.gz`).
@@ -108,7 +102,8 @@ See our extensive [[build documentation|Build-Documentation#compiling-rosetta-3]
 
 ###Windows
 Unfortunately, we are not currently able to support Rosetta on Windows.
-There are few free, easy-to-use C++ compilers available for Windows, and other options (such as dual booting) are not reliable. 
+There are few free, easy-to-use C++ compilers available for Windows, and they use slightly different C++ standards.
+[[Dual booting|http://en.wikipedia.org/wiki/Multi-booting#Windows_and_Linux]] is an option, but we cannot setting them up (we can help you with Rosetta on your Linux partition).
 
 ###Use on supercomputer clusters
 If you'll be running Rosetta on a scientific computation cluster, there may already be a version of Rosetta installed for general usage.
