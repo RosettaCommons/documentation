@@ -52,6 +52,18 @@ To run the script:
 python clean_pdb.py <pdb> <chain id>
 ```
 
+## Clean PDBs with Ligand
+
+There are cases where your PDB may contain a HETATM ligand, for obvious reasons you may want to relax the PDB with the ligand.
+We often clean structures to replace non-canonical amino acids with their closest counterparts using `clean_pdb_keep_ligand.py`:
+```
+python clean_pdb_keep_ligand.py your_structure_original.pdb -ignorechain
+```
+
+These protocols are designed for a single-chain PDB. 
+For multiple chains we recommend that you split the PDB into one for each chain and run the protocol separately on each. 
+While the previous script (clean_pdb.py) discarded most to all HETATM records, this script keeps HETATMs which are not non-canonical ligands.
+
 # Relax With All-Heavy-Atom Constraints: Introduction
 
 (See also the [[relax documentation|relax]] .)
@@ -69,18 +81,9 @@ The required files are in: `rosetta/rosetta_source/src/apps/public/relax_w_allat
 
 There is also a demo with a constraint file rather than flags at: `rosetta/rosetta_demos/public/prepare_pdb_for_rosetta_with_relax`.
 
-## Prepare PDB for Relax (do this first)
+## Generating Constraints File for your PDB
 
-These protocols are designed for a single-chain PDB. 
-For multiple chains we recommend that you split the PDB into one for each chain and run the protocol separately on each. 
-Note that we often **clean** (add section and link) structures to replace non-canonical amino acids with their closest counterparts using `clean_pdb_keep_ligand.py`:
-```
-python clean_pdb_keep_ligand.py your_structure_original.pdb -ignorechain
-```
-
-# Generating Constraints File for your PDB
-
-## Short Protocol (recommended)
+### Short Protocol (recommended)
 
 Relax with all-heavy-atom constraints is built into the relax application itself. 
 If this is a new structure you may want to first clean it up using the above script. Relax proceeds as follows:
@@ -104,7 +107,7 @@ By default relax uses a harmonic constraint with the strength adjusted by `coord
 If `coord_cst_width` is specified, a flat-bottomed, linear-walled constraint is used, with the size of the flat-bottomed well controlled by `coord_cst_width` (smaller=tighter), and the slope of the walls by `coord_cst_stdev` (smaller=tighter). 
 More on constraint functions can be found [[here|constraint-file#function-types]].
 
-## Longer Protocol (not recommended)
+### Longer Protocol (not recommended)
 
 In general the short protocol is preferred for most applications, since this version is more complicated and the two give nearly identical results. 
 In this protocol an separate script first generates side-chain atom constraints from an input PDB, then the relax protocol is run with this pre-generated constrain file. 
