@@ -37,11 +37,12 @@ Note: Windows is seldom supported in the Rosetta community. Requires Python 2.7.
 3. Test your PyRosetta installation by running the line `import rosetta; rosetta.init()` in Python. Output should be about the PyRosetta version and random seed.
 
 **Namespace vs. monolith:** According to Sergey, in the namespace build each C++ namespace has its own shared library which the kernel needs to load, resolve symbols, and so on. 
-Hence, importing in the namespace build is IO heavy.
+Hence, importing in the namespace build is IO heavy, but memory light.
 The monolith build on the other hand, has all the C++ namespaces defined in a single C++ library.
 For example, importing rosetta (via PyRosetta) in the namespace build on Stampede (NFS with high latency) could take up to 20 minutes.
 Doing the same with the monolith build would require about 7 seconds. 
-Disclaimer: I have not actually tested any of these, but rather I am reporting them verbatim from an email from Sergey.
+The current recommendation is namespace for machines with memory constraints (e.g. less than 4 GB per thread) or for local development. 
+For production runs on clusters (typically using the NSF filesystem), use monolith. 
 
 ## The PyRosetta Toolkit
 

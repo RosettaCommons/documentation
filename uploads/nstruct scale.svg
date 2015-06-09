@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="612px" height="792px" viewBox="0 0 612 792" enable-background="new 0 0 612 792" xml:space="preserve">
+<g>
+	<g>
+		<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="-5091" y1="-7741" x2="-5091" y2="-7291.32"/>
+		<g>
+			<path d="M-5091-7279.25c-2.107-5.68-5.703-12.727-9.512-17.095l9.512,3.44l9.51-3.44
+				C-5085.299-7291.977-5088.895-7284.93-5091-7279.25z"/>
+		</g>
+	</g>
+</g>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="-5091" y1="-7741" x2="-5069" y2="-7741"/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="-5091" y1="-7674" x2="-5069" y2="-7674"/>
+<text transform="matrix(1 0 0 1 -5066.5 -7738.125)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="12">10   deterministic algorithms:</tspan><tspan x="0" y="14.4" font-family="'ArialMT'" font-size="12">minimize, score</tspan></text>
+<text transform="matrix(1 0 0 1 -5053.5 -7743.875)" font-family="'ArialMT'" font-size="8">0</text>
+<text transform="matrix(1 0 0 1 -5066.5 -7671.125)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="12">10   structure preparation:</tspan><tspan x="0" y="14.4" font-family="'ArialMT'" font-size="12">tightly constrained relax, repacking</tspan><tspan x="0" y="28.8" font-family="'ArialMT'" font-size="12">a shell of residues after making a </tspan><tspan x="0" y="43.2" font-family="'ArialMT'" font-size="12">point mutation on a good structure</tspan></text>
+<text transform="matrix(1 0 0 1 -5053.5 -7676.875)" font-family="'ArialMT'" font-size="8">1</text>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="-5090.75" y1="-7674" x2="-5068.75" y2="-7674"/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="-5090.75" y1="-7607" x2="-5068.75" y2="-7607"/>
+<text transform="matrix(1 0 0 1 -5066.25 -7604.125)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="12">10   internal sampling:</tspan><tspan x="0" y="14.4" font-family="'ArialMT'" font-size="12">coupled moves, fixed backbone design</tspan></text>
+<text transform="matrix(1 0 0 1 -5053.25 -7609.875)" font-family="'ArialMT'" font-size="8">2</text>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="-5091" y1="-7607" x2="-5069" y2="-7607"/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="-5091" y1="-7540" x2="-5069" y2="-7540"/>
+<text transform="matrix(1 0 0 1 -5066.5 -7537.125)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="12">10   structure preparation:</tspan><tspan x="0" y="14.4" font-family="'ArialMT'" font-size="12">relax with looser constraints optimal</tspan><tspan x="0" y="28.8" font-family="'ArialMT'" font-size="12">for production-scale runs;</tspan><tspan x="0" y="43.2" font-family="'ArialMT'" font-size="12">repack and dock peptidomimetics</tspan></text>
+<text transform="matrix(1 0 0 1 -5053.5 -7542.875)" font-family="'ArialMT'" font-size="8">3</text>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="-5091" y1="-7540" x2="-5069" y2="-7540"/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="-5091" y1="-7473" x2="-5069" y2="-7473"/>
+<text transform="matrix(1 0 0 1 -5066.5 -7470.125)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="12">10   dock-design algorithms:</tspan><tspan x="0" y="14.4" font-family="'ArialMT'" font-size="12">repack a protein and dock/design</tspan><tspan x="0" y="28.8" font-family="'ArialMT'" font-size="12">a binding partner, perhaps with</tspan><tspan x="0" y="43.2" font-family="'ArialMT'" font-size="12">minimization at the end</tspan></text>
+<text transform="matrix(1 0 0 1 -5053.5 -7475.875)" font-family="'ArialMT'" font-size="8">4</text>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="-5091" y1="-7473" x2="-5069" y2="-7473"/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="-5091" y1="-7406" x2="-5069" y2="-7406"/>
+<text transform="matrix(1 0 0 1 -5066.5 -7403.125)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="12">10   design plus flexibility:</tspan><tspan x="0" y="14.4" font-family="'ArialMT'" font-size="12">FastRelax, Backrub, or some kind</tspan><tspan x="0" y="28.8" font-family="'ArialMT'" font-size="12">of loop modeling combined with</tspan><tspan x="0" y="43.2" font-family="'ArialMT'" font-size="12">design. Complex composite protocols.</tspan></text>
+<text transform="matrix(1 0 0 1 -5053.5 -7408.875)" font-family="'ArialMT'" font-size="8">5</text>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="-5091" y1="-7406" x2="-5069" y2="-7406"/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="-5091" y1="-7339" x2="-5069" y2="-7339"/>
+<text transform="matrix(1 0 0 1 -5066.5 -7336.125)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="12">10   structure determination:</tspan><tspan x="0" y="14.4" font-family="'Arial-ItalicMT'" font-size="12">ab initio</tspan><tspan x="41.361" y="14.4" font-family="'ArialMT'" font-size="12"> folding, homology </tspan><tspan x="0" y="28.8" font-family="'ArialMT'" font-size="12">modeling from poor MSA</tspan></text>
+<text transform="matrix(1 0 0 1 -5053.5 -7341.875)" font-family="'ArialMT'" font-size="8">6</text>
+<text transform="matrix(1 0 0 1 -5080.207 -7776.375)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="12">Appropriate Number of Structures</tspan><tspan x="63.709" y="14.4" font-family="'ArialMT'" font-size="12">(“nstruct”)</tspan></text>
+</svg>
