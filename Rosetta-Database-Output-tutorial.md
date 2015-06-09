@@ -28,8 +28,7 @@ output format
 
 *-inout:database\_mode* - default is sqlite3 so we won’t touch that.
 
-\
- using these command line flags is fairly simple, for example:
+Using these command line flags is fairly simple, for example:
 
     $ROSETTA_BIN/<protocol>.linuxgccrelease -s 1SFI_cyc.pdb 
     -database $ROSETTA_DB -ex1 -ex2 -use_input_sc -nstruct  1 -out:use_database -inout:database_filename results.db
