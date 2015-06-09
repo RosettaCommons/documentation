@@ -2,7 +2,7 @@ Rosetta Database Output tutorial
 ================================
 
 Overview
-========
+--------
 
 Rosetta allows us to generate output in several ways, most of them
 include 'regular' or compressed pdb files. (silent files, pdb\_gz, etc)
