@@ -67,6 +67,8 @@ Modes
 -   **High Resolution Docking Only (Local Refinement)** - All atoms in the protein are represented, and the position found in the low-resolution search is optimized. Rigid body MCM is alternated with sidechain repacking so that the sidechains can adjust to a new, more favorable orientation and vice versa. The high-resolution stage uses up the most CPU time of Rosetta.
 -   **Local High Resolution Minimization** - Similar to Local refinement, all atoms in the protein are represented. A single run of minimization, as opposed to a series of Monte Carlo+Minimization cycles, is done to minimize the energy of the rigid body position. Minimization is followed by side-chain packing.
 -   **Global or local docking** can be achieved by using different starting perturbation flags to generate a starting structure from the input structure.
+    - Global docking entails randomizing the initial partner positions followed by a low-resolution phase, high-resolution phase, and minimization phase (i.e. the full protocol).
+    - Local docking should not randomize the initial protein positions, but should include a low-resolution phase, high-resolution phase, and minimization phase.
 
 Input Files
 ===========
