@@ -20,11 +20,6 @@ Generally, a user will choose some specific protocol within Rosetta and provide 
 	<area shape=rect coords="11,166,166,253" href="http://localhost:4567/Getting-Started#do-i-have-what-i-need">
 	<area shape=rect coords="189,11,354,97" href="http://localhost:4567/Getting-Started#do-i-have-what-i-need">
 </map>
-<img border=0 src="/uploads/coldStart.png" usemap="#GraffleExport">
-
-![an image](/uploads/coldStart.png)
-
-![alttext](/uploads/coldStart)
 
 Do I have what I need?
 -----------------
@@ -101,7 +96,6 @@ Note that the download comes as a [[tar archive|http://en.wikipedia.org/wiki/Tar
 We don't distribute [[executables/binaries|http://en.wikipedia.org/wiki/Executable]] for most purposes, we distribute [[source code|http://en.wikipedia.org/wiki/Source_code]].
 As a consequence, you will need to [[compile|http://en.wikipedia.org/wiki/Compiler]] the code before use.
 
-<<<<<<< HEAD
 * Installation on Mac/Linux
 =======
 ##Installation on Mac/Linux
@@ -142,4 +136,3 @@ Use of Rosetta on national-scale supercomputing resources
 
 As part of the XSEDE initiative, the [[TACC/Stampede|TACC]] cluster has Rosetta and PyRosetta centrally installed for authorized users. 
 See the [[TACC]] page for more details.
->>>>>>> 1870602dc6a279758ac982b544f3d161e4b32881
