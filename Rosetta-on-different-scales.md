@@ -54,5 +54,17 @@ In this regime, you will generally want something more powerful than your deskto
 
 10<sup>4</sup>
 ------------------
-At this scale, we are able to start seriously sampling larger scale docking problems while repacking and even redesigning. JELLY TODO: global vs local docking?  These sorts of problems you will need serious hardware to run: either long periods of time (overnight to days) on lab workhorses, small runs on lab-scale clusters (hundreds of CPUs), or tiny runs on large supercomputers.
+At this scale, we are able to start seriously sampling larger scale docking problems while repacking and even redesigning
+JELLY TODO: global vs local docking?
+These sorts of problems you will need serious hardware to run: either long periods of time (overnight to days) on lab workhorses, small runs on lab-scale clusters (hundreds of CPUs), or tiny runs on large supercomputers.
 
+10<sup>5</sup>
+------------------
+At this scale, we gain the ability to start sampling backbone flexibility, while still considering sidechain and rigid-body degrees of freedom.
+We are able to sample enough to start thinking about [[backrub]] or [[FastRelax]] ensembles.
+This regime is also considered reasonable sampling for most flexible-backbone interface design protocols.
+Fixed sequence protocols are faster than design protocols in this space.
+The computing resources needed scale from heavy use of a 500-CPU lab cluster to moderately large runs on large supercomputers (hundreds of processors for many days).
+
+10<sup>6</sup>
+------------------
