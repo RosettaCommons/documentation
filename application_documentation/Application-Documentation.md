@@ -55,6 +55,7 @@ While most of these applications focus on prediction, many have options which wi
  *  [[RNA tools]] - Tools useful for RNA and RNA/proteinm including general PDB editing, cluster submission, job setup.
  *  [[RNA threading|rna-thread]] - Thread a new nucleotide sequence on an existing RNA structure.  
  *  [[RNA motif prediction|rna denovo]] - Model RNA motifs with fragment assembly of RNA with full atom refinement (FARFAR).
+ * [[CS Rosetta RNA]]: Refines and scores an RNA structure using NMR chemical shift data.
 -  [[RNA stepwise loop enumeration|swa-rna-loop]] - Build RNA loops using deterministic stepwise assembly. See also  [[Stepwise monte carlo|stepwise]].
 -  [[Stepwise monte carlo|stepwise]] - Generate 3D models of protein, RNA, and protein/RNA loops, motifs, and interfaces. Stochastic version of stepwise assembly. 
 -  [[RNA assembly with experimental constraints|rna-assembly]] - Predict 3-dimensional structures of large RNAs with the help of experimental constraints. Note – largely deprecated by newer pipeline (documentation coming soon).
@@ -76,7 +77,7 @@ While most of these applications focus on prediction, many have options which wi
 - [[SnugDock | snugdock]] - Paratope structure optimization during antibody-antigen docking
 
 ###Ligand Docking
-- [[Ligand docking|ligand-dock]] (RosettaLigand) - Determine the structure of protien-small molecule complexes.  
+- [[Ligand docking|ligand-dock]] (RosettaLigand) - Determine the structure of protein-small molecule complexes.  
    * [[Extract atomtree diffs]] - Extract structures from the AtomTreeDiff file format.
 
 - [[Docking Approach using Ray-Casting|DARC]] (DARC) - Docking method to specifically target protein interaction sites.

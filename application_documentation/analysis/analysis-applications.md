@@ -14,3 +14,4 @@
 * [[Theta ligand]]: Given PDB files for a protein and ligand, outputs the fraction of the ligand that is exposed to solvent in the bound complex.
 * [[RosettaHoles]]: Rapid assessment of protein core packing for structure prediction, design, and validation.
 * [[FeaturesReporters|Features-reporter-overview]]
+* [[RECCES]]: RNA free energy calculation with comprehensive sampling.
