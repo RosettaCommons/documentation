@@ -4,7 +4,7 @@ With the addition of the [[talaris2013 scorefunction | score-types]] as the defa
 
 [[_TOC_]]
 
-## MM Standard Scorefunction
+## MM Standard Scorefunction <a name="MM-Standard-Scorefunction" />
 Creator Names:
 * P. Douglas Renfrew (doug.renfrew@gmail.com)
 * Bonneau Lab

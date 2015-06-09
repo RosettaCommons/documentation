@@ -11,9 +11,9 @@
 * **[[Residue params files|Residue-Params-file]]**: Stores chemical and geometric information for a residue or ligand. Useful when running Rosetta with [[non-protein residues|non-protein-residues]].
 
 ##Protocol-specific input files
-* **[[Match constraint files|match-cstfile-format]]**: File type specifying geometric constraints for the [[match application|match]].
-* **[[Chemical shift files|chemical-shift-file]]**: Chemical shift information used with [[CS-Rosetta|CS-Rosetta]].
-* **[[Bin transition probabilities files|Bin-transition-probabilities-file]]**
+* **[[Match constraint files|match-cstfile-format]]**: File specifying geometric constraints for the [[match application|match]].
+* **[[Chemical shift files|chemical-shift-file]]**: NMR chemical shift information used with [[CS-Rosetta|CS-Rosetta]].
+* **[[Bin transition probabilities files|Bin-transition-probabilities-file]]**: Probabilities of transitioning from one mainchain torsion bin to another, used by some sampling schemes.
 * **[[Loops files|loops-file]]**: Specifies loop definitions used in loop modeling.
 
 ##Database input/output
