@@ -2,13 +2,16 @@
 
 ####Controlling Rosetta Execution
 - [[Running Rosetta|running-rosetta-with-options]]
-- [[Running Rosetta Parallel via MPI | running-rosetta-with-options#Running-Rosetta-via-MPI ]]
+- [[Running Rosetta Parallel via MPI | running-rosetta-with-options#mpi ]]
 - [[Graphics output and GUIs | graphics-and-guis]]
 - Scripting Rosetta
     * [[RosettaScripts]]
     * [[PyRosetta]]
 
 ####Fundamental Rosetta Concepts
+
+- [[Overview of concepts in Rosetta|Rosetta-overview]]
+
 - [[Units in Rosetta]]
 
 - [[Scorefunctions and Score types | Score Types]] - Description of the default Rosetta Scorefunction and common score types.
@@ -21,7 +24,7 @@
     * [Rosetta3 Architecture](http://www.ncbi.nlm.nih.gov/pubmed/21187238)
     * [[Foldtree Overview]]
     * [[AtomTree Overview]]
-    * [[Loop modeling styles and algorithms]]
+    * [[Loop modeling styles and algorithms|loopmodel-algorithms]]
 
 ####Preparing structures to be used by Rosetta
 - [[Preparing structures]]
