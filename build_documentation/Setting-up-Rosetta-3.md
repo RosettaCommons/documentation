@@ -1,13 +1,13 @@
 #Setting up Rosetta 3
 
-This page describes how to install, compile, and test Rosetta 3 [(formerly called "Mini")|RosettaTimeline] on a [supported platform](https://wiki.rosettacommons.org/index.php/Supported_Platforms "Supported Platforms") .
+This page describes how to install, compile, and test Rosetta 3 \( [formerly called "Mini"|RosettaTimeline] \) on a [supported platform](https://wiki.rosettacommons.org/index.php/Supported_Platforms "Supported Platforms") .
 
 ##Basic Installation
--------------------
-Installation instructions for most situations can be found on the [Getting Started|Getting-Started#local-installation-and-use-of-rosetta] page. 
+====================
+Installation instructions for most situations can be found on the [[Getting Started|Getting-Started#local-installation-and-use-of-rosetta]] page. 
 
 ##Additional Build Information for Individual Workstations
--------------------
+====================
 
 The current build system is based on the tool [SCons](https://wiki.rosettacommons.org/index.php/Tools:SCons "Tools:SCons") ("Software Constructor") with some extensions. `     scons.py    ` is implemented as a Python script.
 
