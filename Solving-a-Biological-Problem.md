@@ -110,37 +110,62 @@ Success would be extremely unlikely due to the large amount of sampling needed t
 
 [[Symmetric Docking|sym-dock]] is useful for assembling multiple subunits according to a specific symmetry defined in a [[symmetry file|make-symmdef-file-denovo]].
 
-## Protein–Peptide Docking
+## Protein—Peptide Docking <!-- This might be an em-dash rather than a hyphen. -->
 
 Protein–peptide docking is useful for determining the structure of a short, flexible peptide in the context of a receptor.
 Rosetta has [protein–peptide docking](application_documentation/flex_pep_dock) methods that work best starting from an approximate model with a starting position near to the peptide-binding site; within five Angstroms backbone RMSD is ideal.
 Thus, it is not generally tractable to concurrently sample peptide conformations and all the possible binding sites on the surface of the protein.
 Rosetta also has the capacity to sample conformations of peptidomimetic molecules, such as oligooxopiperazines, hydrogen bond surrogate helices, stapled peptides, peptoids, beta peptides, and more.
 
-**describe several types of protein-peptide docking**
+## Protein—Ligand Docking <!-- This might be an em-dash rather than a hyphen. -->
 
-## Protein–Ligand Docking
-
-RosettaLigand and DARC go here.
+Can I predict how a small molecule will interact with my protein? 
+As with protein—protein docking, the better your initial structures are, the more likely you are to produce an accurate model (see above).
+[[RosettaLigand|ligand-dock]] or [[RosettaLigand via RosettaScripts||http://dx.doi.org/10.1007%2F978-1-61779-465-0_10]] can be used to predict protein—ligand interactions.
+RosettaLigand run via the executable (is currently outdated).
+It is preferred to dock ligands via RosettaScripts. 
+An alternative method, is to use [[Docking Approach using Ray Casting (DARC)|DARC]]. 
+Unlike RosettaLigand, which explores protein—ligand interactions in a biological manner via translations and rotations (correct me if this is wrong), DARC evaluates the shape complementarity of a ligand for a pocket on the protein surface.
 
 ## Protein Design
+
+[[Fixed Backbone Design|fixbb]]
+[[Sequence Tolerance|sequence-tolerance]]
+[[Multistate Design|mpi-msd]]
+[[RosettaRemodel|rosettaremodel]]
+[[More Remodel Docs|Remodel]]
 
 ### De Novo Protein Design
 
 ### Protein Redesign
 
+[[Stabilizing Point Mutations|pmut-scan-parallel]]
+[[Surface Charge|supercharge]]
+[[I.D. and Fill Cavities|vip-app]]
+
 ### Protein Interface Design
 
+[[Anchored Design|anchored-design]]
+[[Peptide Design|pepspec]]
+
 ### Enzyme Design
+
+[[Enzyme Design|enzyme-design]]
 
 ## Protein Loop Modeling
 
 Most protein flexibility is contained the loops. 
 Often times it is important to specifically model loops.
 
+## Solving Crystal Structures
+
 ## Filling in Crystal Density? (optional)
 
 Loop modeling and floppy tail can go here.
+
+## What If My Question Is Unanswered? 
+
+[[i-want-to-do-x]]
 
 ## General Rosetta Caveats
 
