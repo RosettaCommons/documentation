@@ -5,10 +5,7 @@
 -   [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]]
 -   [[Composite protocols with RosettaScripts interfaces|Composite-protocols]]
 -   [[RosettaScripts database connection options|RosettaScripts-database-connection-options]]
--   Features Reporter Framework
-    -   [[FeaturesTutorials]]
-    -   [[FeatureReporters]]
-    -   [[FeaturesRScripts]]
+-   [[Overview of the Features Reporter framework|Features-reporter-overview]]
 -   [[RosettaScripts Developer Guide|RosettaScripts-Developer-Guide]]
 -   [[RosettaScripts Guidelines for writing new movers and filters|RosettaScripts-Guidelines-for-writing-new-movers-and-filters]]
 
