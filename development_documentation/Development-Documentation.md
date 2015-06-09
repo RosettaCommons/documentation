@@ -2,11 +2,10 @@
 
 ##Developing for Rosetta
 
-- [[Rosetta overview]]
-- [[Using Git]] - Basic steps to working with git and committing code 
+- [[Rosetta overview]] - Explanations of key concepts in Rosetta.
+- [[Glossary]] - Brief definitions of Rosetta-related terms
 - [[Doxygen tips]] - How to work with Rosetta's in-code documentation.
 - [[Writing an app]] - How to write your own Rosetta-based application.
-- [[Packer Task]] - Controlling which side chains can vary during rotamer optimization 
 - [[Making rosetta robust for running on large number of inputs|robust]]
 
 ##Where is the documentation for the various Rosetta libraries?
