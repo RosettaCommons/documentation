@@ -1,4 +1,7 @@
 <!-- --- title: Setting up Rosetta 3 -->
+
+###If you are new to Rosetta, start [[here|Getting-Started]].
+
 This page describes how to install, compile, and test Rosetta 3 (formerly called "Mini") on one's own workstation, or to a user directory on a scientific cluster.
 
 Clusters with Rosetta pre-installed

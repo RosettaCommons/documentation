@@ -1,15 +1,26 @@
 #Rosetta Basics
 
+###If you are new to Rosetta, start [[here|Getting-Started]].
+
+###If you are trying to find the right protocol to use for your biological application, look [[here|Solving-a-Biological-Problem]].
+
 ####Controlling Rosetta Execution
 - [[Running Rosetta|running-rosetta-with-options]]
 - [[Running Rosetta Parallel via MPI | running-rosetta-with-options#mpi ]]
 - [[Graphics output and GUIs | graphics-and-guis]]
+    * [[PyMOL]]
+    * [[PyRosetta Toolkit GUI]]
+    * Fold-It
 - [[Scripting Rosetta|Scripting-Documentation]]
     * [[RosettaScripts]]
     * [[PyRosetta]]
     * [[Topology Broker|BrokeredEnvironment]]
-
+- [[Analyzing Results]]
 ####[[Fundamental Rosetta Concepts|Rosetta-overview]]
+
+- [[Brief history of Rosetta|Rosetta-timeline]]
+
+- [[Glossary of terms|Glossary]]
 
 - [[Units in Rosetta]]
 

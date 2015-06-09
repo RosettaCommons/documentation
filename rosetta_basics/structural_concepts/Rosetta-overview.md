@@ -2,6 +2,8 @@
 
 This document was originally written 11 Nov 2007 by Chu Wang and last updated 8 Jun 2015.
 
+*For brief definitions of Rosetta-related terms, check the [[glossary]].*
+
 Metadata
 ========
 

@@ -9,10 +9,9 @@
  * [[Non-protein Residues|non-protein-residues]]
  * [[Preparing Structures|preparing-structures]]
  * [[Command line options|options-overview]]
- * [[Symmetry in Rosetta|symmetry]]
 * [[Application Documentation|application_documentation/Application-Documentation]]
 * [[Scripting Interfaces|scripting_documentation/Scripting-Documentation]]
 * [[Development Documentation|development_documentation/Development-Documentation]]
-<flag>
+<!---BEGIN_INTERNAL-->
 * [[Internal Documentation|internal_documentation/Internal-Documentation]]
-<flag>
+<!---END_INTERNAL-->

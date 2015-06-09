@@ -5,11 +5,11 @@
 #Graphics Output
 ##OpenGL Graphics mode
 
-##Pymol Mover
+##[[Pymol Mover|PyMOL]]
 ###Background
 The PyMOL Mover is a way to visualize your decoy (PDB) in PyMOL. One of its most powerful features is that it can color your decoy by score or some component of the total score, as well as observe changes in real-time during a Rosetta protocol. 
 
-The PyMOL Mover can be controlled through RosettaScripts, PyRosetta, or through the command line.
+The PyMOL Mover can be controlled through [[RosettaScripts]], [[PyRosetta]], or through the command line.
 
 The PyMOL Mover creates a PyMolObserver and attaches it to a particular Pose.  This can be accomplished programmatically by making a call to protocols::moves::AddPyMolObserver.  The command line options listed below work only though JD2, but it is possible to programmatically activate the PyMol observer without using the command line at all.
 
