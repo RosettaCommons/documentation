@@ -7,15 +7,17 @@ Rosetta began as a structure prediction tool, and has consistently been a strong
 
 Rosetta is freely available to academic and government laboratories, with over 10,000 free licenses already in use. An active support forum allows users to easily collaborate within the broad research community of Rosetta users. To download Rosetta, please [[request a license|http://c4c.uwc4c.com/express_license_technologies/rosetta]].
 
+If you think you're ready to give Rosetta a try, we suggest [[starting here|Getting-Started]].
+
 ##Documentation
 
 Rosetta is distributed as source, and thus will require being [[compiled and installed|Build-Documentation]] before use. Before using Rosetta, you should familiarize yourself with the [[basic rosetta concepts|Rosetta Basics]] used throughout our applications. A compiled version of Rosetta contains a large variety of pre-made [[applications|Application-Documentation]] that were designed and created for specific modeling or design tasks. For most users, these applications will be all you need. However, advanced users may find themselves wanting new applications that better suit their specific needs. In this case, please read our guides for [[developing Rosetta code|Development-Documentation]].
 
 ##Documentation Quick Links
 
-|[[Build Documentation]]|[[Rosetta Basics]]        |[[Application Documentation]]|[[Development Documentation]]|
-|:---------------------:|:------------------------:|:---------------------------:|:---------------------------:|
-|[[/images/hammer.png|align=center]] |[[/images/start_flag.png|align=center]]|[[/images/power.png|align=center]]        |[[/images/wrench.png|align=center]]       |
+|[[Build Documentation]]|[[Rosetta Basics]]        |[[Application Documentation]]|[[Development Documentation]]|[[Solving a Biological Problem]]|
+|:---------------------:|:------------------------:|:---------------------------:|:---------------------------:|:---------------------------------:|
+|[[/images/hammer.png|align=center]] |[[/images/start_flag.png|align=center]]|[[/images/power.png|align=center]]|[[/images/wrench.png|align=center]]|[[/images/wrench.png|align=center]]
 
 <!--- BEGIN_INTERNAL -->
 |[[Internal Documentation]]|
