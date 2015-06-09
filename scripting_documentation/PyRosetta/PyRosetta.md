@@ -7,7 +7,7 @@ PyRosetta is available as a separate download (independent of C++ Rosetta). See 
 More extensive PyRosetta-specific documentation is available:
 * <http://www.pyrosetta.org/documentation> - The main PyRosetta documentation page (thorough, but not too helpful for beginners)
 * <http://www.pyrosetta.org/faq> - Frequently asked questions about PyRosetta
-* <http://www.pyrosetta.org/tutorials> - Tutorials on how to use PyRosetta (best to dive in here)
+* <http://www.pyrosetta.org/tutorials> - Tutorials on how to use PyRosetta (**best to dive in here**)
 * <http://www.pyrosetta.org/scripts> - Example scripts using PyRosetta (somewhat useful)
 * <http://www.pyrosetta.org/home/what-is-pyrosetta> - Brief, general overview of PyRosetta
 * <http://www.pyrosetta.org/dow> - Link to download PyRosetta, installation instructions at the bottom of page.
@@ -26,8 +26,15 @@ Note: Python 2.6 or better is required. Works with Python 2.7, but not Python 3.
         $ git clone http://login@graylab.jhu.edu/download/PyRosetta/git/release/PyRosetta.namespace.mac.release.git
         ```
 3. From within the main PyRosetta directory, run `$ source SetPyRosettaEnvironment.sh` or append it to your .bashrc file and source that.
-4. Test your PyRosetta installation by running the line `import rosetta; rosetta.init()` in PyRosetta. Output should be about the PyRosetta version and random seed.
-    - Exiting the PyRosetta prior to running Python should help avoid path issues or confirm that your path is properly set.
+4. Test your PyRosetta installation by running the line `import rosetta; rosetta.init()` in Python. Output should be about the PyRosetta version and random seed.
+    - Exiting the PyRosetta directory prior to running Python should help avoid path issues or confirm that your path is properly set.
+
+## Quick Start Guide for Windows
+Note: Windows is seldom supported in the Rosetta community. Requires Python 2.7.
+
+1. Obtain a [[license|http://c4c.uwc4c.com/express_license_technologies/pyrosetta]] for PyRosetta.
+2. Download and unzip a copy of PyRosetta from [[here|http://www.pyrosetta.org/dow]].
+3. Test your PyRosetta installation by running the line `import rosetta; rosetta.init()` in Python. Output should be about the PyRosetta version and random seed.
 
 **Namespace vs. monolith:** According to Sergey, in the namespace build each C++ namespace has its own shared library which the kernel needs to load, resolve symbols, and so on. 
 Hence, importing in the namespace build is IO heavy.
