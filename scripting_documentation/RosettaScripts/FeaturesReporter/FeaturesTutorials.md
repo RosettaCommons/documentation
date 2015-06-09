@@ -13,7 +13,7 @@ Tutorials to Run Existing Feature Analysis
 -   [[Generating a features database for sample source|FeaturesTutorialRunSciBench]]
     -   The features scientific benchmark is on the RosettaTests cluster. Running it locally is often a good starting point to in depth analysis. This tutorial starts from checking out the source to looking plots.
 
--   [[Run feature analyses to compare sample sources|FeaturesTutotiralRunFeaturesAnalysis]]
+-   [[Run feature analyses to compare sample sources|FeaturesTutorialRunFeaturesAnalysis]]
     -   The features analysis scripts are R scripts to extract features, estimate distributions and compare the distributions through plots and statistics
 
 -   [[Look at interesting feature instances in PyMOL|FeaturesTutorialInspectInstances]]
