@@ -43,7 +43,7 @@ See: [[Comparative Modeling|minirosetta-comparative-modeling]] (potentially out 
 
 ## Protein–Protein Docking
 
-Another general question which can be interrogated by Rosetta is: given protein A and protein B, can I generate a plausible model for protein—protein interactions?
+Another general question which can be interrogated by Rosetta is: given protein A and protein B, can I generate a plausible model for protein–protein interactions?
 This problem can be conflated with the protein structure prediction problem when the structure of either protein A, protein B, or both are unknown.
 Protein flexibility can play a role in protein docking by increasing the degrees of freedom. 
 For example, high RMSD between the bound and unbound states makes prediction of the bound state from the unbound states difficult. 
@@ -129,19 +129,27 @@ Unlike RosettaLigand, which explores protein–ligand interactions in a biologic
 
 ## Protein Design
 
-[[Fixed Backbone Design|fixbb]]
-[[Sequence Tolerance|sequence-tolerance]]
-[[Multistate Design|mpi-msd]]
-[[RosettaRemodel|rosettaremodel]]
-[[More Remodel Docs|Remodel]]
+While protein structure prediction seeks to identify low energy structures in space, protein design seeks to identify amino acid identities in sequence space.
+Protein design can be used to study both how sequence confers structure (i.e. predicting the amino acid sequence of a given fold) or how structure confers function (i.e. predicting the amino acid sequence for a given function).
+Due to the breadth of these challenges, protocols are either specific or custom generated using one of the [[Rosetta scripting interfaces|Scripting-Documentation]].
 
-### De Novo Protein Design
 
 ### Protein Redesign
 
-[[Stabilizing Point Mutations|pmut-scan-parallel]]
-[[Surface Charge|supercharge]]
-[[I.D. and Fill Cavities|vip-app]]
+One could envision a simple design problem where they seek to stabilize a known protein structure.
+A reasonable assumption to make is that there will not be large changes in protein fold.
+Hence, this problem is approached with [[fixed backbone design|fixbb]] where side-chain identities are sampled to identify those which minimize energy on the current backbone. 
+Further, if design is yield an amino acid sequence favoring hydrophobic residues then [[fixed backbone design can be run with consideration of hydrophobic surface patches||fixbb-with-hpatch]].
+However, newer score functions have more or less limited this problem.
+
+Other design problems of interest may include: 
+- scanning for [[stabilizing point mutations|pmut-scan-parallel]], 
+- [[Sequence Tolerance|sequence-tolerance]]
+- [[Multistate Design|mpi-msd]]
+- [[RosettaRemodel|rosettaremodel]]
+- [[More Remodel Docs|Remodel]]
+- [[Surface Charge|supercharge]]
+- [[I.D. and Fill Cavities|vip-app]]
 
 ### Protein Interface Design
 
