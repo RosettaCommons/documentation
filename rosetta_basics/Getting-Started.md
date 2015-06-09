@@ -8,7 +8,7 @@ If you are already comfortable with the concepts, feel free to skip ahead.
 
 Rosetta is a very large software suite for macromolecular modeling. 
 By software suite, we mean that it is a large collection of computer code (mostly in C++, some in Python, a little in other languages), but it is not a single monolithic program.
-By [[macromolecular modeling|Modelling-Resources]], we mean the process of evaluating and ranking the physical plausibility of different structures of biological macromolecules (usually protein, but nucleic acids and ligands are significantly supported and support for implicit lipid membranes is growing). 
+By [[macromolecular modeling|Resources-for-learning-biophysics-and-computational-modeling]], we mean the process of evaluating and ranking the physical plausibility of different structures of biological macromolecules (usually protein, but nucleic acids and ligands are significantly supported and support for implicit lipid membranes is growing). 
 Generally, a user will [[choose some specific protocol within Rosetta|Solving-a-Biological-Problem]] and provide that protocol with inputs for A) what structure to work on, and B) what options within the protocol are appropriate for the user's needs.
 
 <img src="/uploads/coldStart.png" usemap="#GraffleExport" alt="missing image">
