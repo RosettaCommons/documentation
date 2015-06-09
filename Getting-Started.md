@@ -104,6 +104,7 @@ See our extensive [[build documentation|Build-Documentation#compiling-rosetta-3]
 Unfortunately, we are not currently able to support Rosetta on Windows.
 There are few free, easy-to-use C++ compilers available for Windows, and they use slightly different C++ standards.
 [[Dual booting|http://en.wikipedia.org/wiki/Multi-booting#Windows_and_Linux]] is an option, but we cannot setting them up (we can help you with Rosetta on your Linux partition).
+[[PyRosetta|scripting_documentation/PyRosetta/PyRosetta]], a Python-based interface to Rosetta, is supported on Windows.
 
 ###Use on supercomputer clusters
 If you'll be running Rosetta on a scientific computation cluster, there may already be a version of Rosetta installed for general usage.
@@ -117,5 +118,5 @@ Just treat it like a [[local install into userspace|Getting-Started#installation
 Use of Rosetta on national-scale supercomputing resources
 ---------------------------------------------------------
 
-As part of the XSEDE initiative, the [[TACC/Stampede|TACC]] cluster has Rosetta and PyRosetta centrally installed for authorized users. 
+As part of the XSEDE initiative, the [[TACC/Stampede|TACC]] cluster has Rosetta and [[PyRosetta|scripting_documentation/PyRosetta/PyRosetta]] centrally installed for authorized users. 
 See the [[TACC]] page for more details.
