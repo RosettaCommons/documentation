@@ -91,6 +91,10 @@ The [Backrub Server](https://kortemmelab.ucsf.edu/backrub/cgi-bin/rosettaweb.py?
 
 The [FlexPepDock server](http://flexpepdock.furmanlab.cs.huji.ac.il/) provides [[FlexPepDock]]. 
 
+6) RosettaDiagrams
+
+[RosettaDiagrams](http://www.rosettadiagrams.org/) provides a graphical interactive service to produce [[RosettaScripts]] XML files (it does not run them).
+
 Local installation and use of Rosetta
 --------------------------------------
 
