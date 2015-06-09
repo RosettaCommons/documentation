@@ -1,6 +1,10 @@
+# Rosetta Encyclopedia
+
+[[_TOC_]]
+
 ### Broken Chain Sampling (Jumping) 
 
-Broken chain sampling (Jumping) is an important tool to improve sampling of proteins with high-contact order beta-strands and to allow resampling of specific beta-strand topologies during RASREC. To form a specific strand-strand contact between two residues i and j, the chain is cut in any location (preferably loop regions) between residues i and j. The two independent chains are then put into contact at residue i and j using one of the relative rigid body orientation that is found in the strand-strand database (rosetta_database/scoring/score_functions/jump_templates_SSpairs_v2.dat). The generalized fragment sampling implemented in ROSETTA3 allows further to sample other relative rigid body orientations from the strand-strand database during the fragment assembly stages of the structure calculation protocols. Fragments taken from the strand-strand database are characterized by their direction (parallels, anti-parallel) and their pleating (CA atoms point inward/outward). Since exchange of conformations between these classes would be too disruptive during folding, we select one of the 4 classes for each jumping position at the beginning of a folding simulation and then exchange fragments for each jumping position according to its class identity.
+Broken chain sampling (Jumping) is an important tool to improve sampling of proteins with high-contact order beta-strands and to allow resampling of specific beta-strand topologies during RASREC. To form a specific strand-strand contact between two residues i and j, the chain is cut in any location (preferably loop regions) between residues i and j. The two independent chains are then put into contact at residue i and j using one of the relative rigid body orientation that is found in the strand-strand database (main/database/scoring/score_functions/jump_templates_SSpairs_v2.dat). The generalized fragment sampling implemented in ROSETTA3 allows further to sample other relative rigid body orientations from the strand-strand database during the fragment assembly stages of the structure calculation protocols. Fragments taken from the strand-strand database are characterized by their direction (parallels, anti-parallel) and their pleating (CA atoms point inward/outward). Since exchange of conformations between these classes would be too disruptive during folding, we select one of the 4 classes for each jumping position at the beginning of a folding simulation and then exchange fragments for each jumping position according to its class identity.
 The position and class of strand-strand contacts can be defined by input files. It is possible to define multiple pairs for jumps including multiple classes (direction, pleating) for the same pair of residues. In this case specific pairs and contact classes are selected randomly at the beginning of each folding trajectory and subsequently kept constant.
 
 The beta-strand topology is the collection of residue pairs that are bonded by backbone hydrogen bonds and for which both residues are in extended conformation(beta-sheet). These pairs are usually organized in parallel or anti-parallel stretches which we call strand-strand contact. Anti-parallel strand-strand contacts, that start with the pairing of residue i, j have also the pairs i+1, j-1, i+2, j-2 etc. Hence, it makes sense to define an invariant quantity called register for each pair i,j as r=j-i for j>i. In parallel strand-strand contacts the register is defined as r=i+j. Sometimes a residue is skipped which creates a bulge and leads to a change of the register within a single strand-strand contact. ROSETTA3 has a condensed file-format to describe such topologies precisely. Such a topology file can be created using the application r_pdb2top using structures in pdb or silent format as input. If multiple structures are used as input, the program creates a topology description for each input structure and additionally scores the topologies such that topologies with high consensus among the input-models are ranked higher. This scoring is described in detail in Ref. [Lange2012a].
@@ -12,7 +16,7 @@ If beta-strand topologies are not available one can also just define a plain lis
 For each jump that fixes a strand-strand contact the protocol has to introduce an artificial chainbreak to avoid circularity in the AtomTree. This chainbreak has to be closed before the structure can be refined during the relax stage. To prepare the closing we ramp up a chainbreak energy penalty. During abinitio stages stageI through stageIII the linear_chainbreak energy term is used. During stage IV the overlap_chainbreak is switched on additionally. The weight for the linear-chainbreak energy is computed as W=S*IC, where IC is given by flag -jumps::increase_chainbreaks
 with default 1.0, S depends on the stages as follows 0.25/3, 2.5/3*IP, 0.5/3*IP, (1.5*IP+2.5)/3 for stages stageII, stageIIIa, stageIIIb and stageIV, respectively, and IP the intra-stage progress (0...1, for multi-block stages stageIII and stageIV).
 
-    [Lange2012a] Resolution-adapted recombination of structural features significantly improves sampling in restraint-guided structure calculation., Lange, Oliver F., and Baker David, Proteins, 2012/00/01, Volume 80, Issue 3, p.884 - 895, (2012)
+[Lange2012a] Resolution-adapted recombination of structural features significantly improves sampling in restraint-guided structure calculation., Lange, Oliver F., and Baker David, Proteins, 2012/00/01, Volume 80, Issue 3, p.884 - 895, (2012)
 
 ### Chainbreak Energy
 
@@ -52,7 +56,6 @@ Before the fragment assembly can commence a fragment library has to be construct
 
 For the beta-jump sampling, fragments are categorized into 4 types according to direction (parallel, anti-parallel) and pleating (inward, outward) of the strand-strand contact. A file in the rosetta-database has ca. 1000 conformations in each category taken from high-resolution protein structures. No further information but the category is used for their selection. 
 
-
 [Lange2012a] Resolution-adapted recombination of structural features significantly improves sampling in restraint-guided structure calculation.,
 Lange, Oliver F., and Baker David, Proteins, 2012/00/01, Volume 80, Issue 3, p.884 - 895, (2012)
 
@@ -73,8 +76,8 @@ It is important to be aware that the fragment picking process can pick fragments
 
 ﻿Most protocols in Rosetta take 0 or 1 input structure and generate exactly 1 output structure. Usually one wants to run these protocols repeatedly and preferably distribute that work-load over multiple processors. The Job-Distributor is responsible to handle the technicalities of this on different platforms and queuing systems and to provide a common interface for all applications.
 
- (Beware there is an outdated version of the job-distributor that also leads to a slightly different interface and behaviour. The
- Job-Distributor you should be working with exclusively has the splendid name JD2. If you are using an obsolete application you may be victim to the Job-Distributor called “jobdist”. If so, obnoxiously prod your favorite Rosetta developer until he updates the application to JD2. It is not difficult to do so. )
+(Beware there is an outdated version of the job-distributor that also leads to a slightly different interface and behaviour. The
+ Job-Distributor you should be working with exclusively has the splendid name JD2. If you are using an obsolete application you may be victim to the Job-Distributor called “jobdist”. If so, obnoxiously prod your favorite Rosetta developer until he updates the application to JD2. It is not difficult to do so.)
 
 ### Move
 
@@ -138,7 +141,7 @@ Protocols are usually implemented in C++ but can also be implemented using the P
 ### Rosetta Database 
 
 ﻿The database contains common parameters and settings that are not specific to a particular system.
- You are responsible for telling the Rosetta application where the database can be found (e.g., with the flag -database ). A convenient alternative is to set the ROSETTA3_DB environment variable in your .bashrc or .cshrc. Bash-users, for instance, would insert the line export ROSETTA3_DB=$HOME/rosetta/rosetta_database if they had installed the rosetta distribution in their home-directory.
+ You are responsible for telling the Rosetta application where the database can be found (e.g., with the flag -database ). A convenient alternative is to set the ROSETTA3_DB environment variable in your .bashrc or .cshrc. Bash-users, for instance, would insert the line export ROSETTA3_DB=$HOME/rosetta/main/database if they had installed the Rosetta distribution in their home-directory.
 
 ### ScoreFunction 
 
@@ -149,7 +152,7 @@ ScoreFunctions are often changed throughout a Protocol, which simply means that 
 A couple of predefined weight sets can be found in the Rosetta Database under scoring/weights/.... Many Rosetta applications honor the flags -score:weights and -score:patch to choose the weight-file (from the database or in the local directory) and allow successive application of patches. Unfortunately, the use of these particular flags is not consistent through-out all applications, and others require one to specify more than one ScoreFunction. In the latter case, the standard flags are often used to specify the ScoreFunction used to compute the score of the final output structure.
 
 New scoring terms can be added as a novel EnergyMethod to Rosetta but this is somewhat involved and requires skills in C++.
- Most things, however, can be achieved by changing the weights of the scoring terms.
+Most things, however, can be achieved by changing the weights of the scoring terms.
 
 ### Silent Files
 ﻿
@@ -166,6 +169,3 @@ Each frame in a silent file has a unique identifier, which is in colloquial lang
 Note that problems can occur if a) decoy-tags are not unique (e.g., after concatenation) or b) the number of columns in the SCORE: line changes.  The provided python tools can deal with changing number of columns if a new SCORE-header line is provided in front of each column change (see above; -out:file:silent_print_all_score_headers). However, simple grep-commands might loose the changed SCORE-header, and thus should be used with care. 
 
 The trajectory format is now widely used in the RosettaCommunity and is recommended over the use of single PDB files.
-
-
-
