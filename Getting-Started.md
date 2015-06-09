@@ -60,31 +60,19 @@ Use of Public Rosetta Servers
 
 All of Rosetta's public servers are licensed for **NON-COMMERCIAL USE ONLY**.
 
-THIS SECTION SHOULD BECOME ITS OWN PAGE.
-
-1) ROSIE
-
-[ROSIE](http://rosie.rosettacommons.org/) is a server that many several Rosetta applications through a simple web interface.
+* [ROSIE](http://rosie.rosettacommons.org/) is a server that many several Rosetta applications through a simple web interface.
 It is perfect for use by those new to Rosetta.
 Despite ROSIE's variety it offers only a slice of Rosetta's full functionality.
 Because this is a free public resource, computer time is limited, but runs can be downloaded and used to build Rosetta jobs on other resources.
 
-2) Robetta 
-
-[ROBETTA](http://robetta.bakerlab.org/) (Robot-Rosetta) is a server that provides _ab initio_ folding and structure prediction, as well as fragment selection for local runs of Rosetta.
+* [ROBETTA](http://robetta.bakerlab.org/) (Robot-Rosetta) is a server that provides _ab initio_ folding and structure prediction, as well as fragment selection for local runs of Rosetta.
 It also provides interface alanine scanning and DNA interface residue scanning.
 
-3) Rosetta Design Server
+* The [Rosetta Design Server](http://rosettadesign.med.unc.edu/) provides access to Rosetta's [[fixbb]] fixed-backbone design protocol.
 
-The [Rosetta Design Server](http://rosettadesign.med.unc.edu/) provides access to Rosetta's [[fixbb]] fixed-backbone design protocol.
+* The [Backrub Server](https://kortemmelab.ucsf.edu/backrub/cgi-bin/rosettaweb.py?query=index) provides [[backrub]] ensembles, as well as alanine scanning.
 
-4) Rosetta Backrub
-
-The [Backrub Server](https://kortemmelab.ucsf.edu/backrub/cgi-bin/rosettaweb.py?query=index) provides [[backrub]] ensembles, as well as alanine scanning.
-
-5) FlexPepDock
-
-The [FlexPepDock server](http://flexpepdock.furmanlab.cs.huji.ac.il/) provides [[FlexPepDock]]. 
+* The [FlexPepDock server](http://flexpepdock.furmanlab.cs.huji.ac.il/) provides [[FlexPepDock]]. 
 
 Local installation and use of Rosetta
 --------------------------------------
@@ -96,27 +84,31 @@ Note that the download comes as a [[tar archive|http://en.wikipedia.org/wiki/Tar
 We don't distribute [[executables/binaries|http://en.wikipedia.org/wiki/Executable]] for most purposes, we distribute [[source code|http://en.wikipedia.org/wiki/Source_code]].
 As a consequence, you will need to [[compile|http://en.wikipedia.org/wiki/Compiler]] the code before use.
 
-* Installation on Mac/Linux
 =======
-##Installation on Mac/Linux
+###Installation on Mac/Linux
 
 Local installation implies that one will be using Rosetta through a [[command line interface (or terminal)|http://en.wikipedia.org/wiki/Command-line_interface]].
 For local users, you are unlikely to want to install Rosetta to the entire system. 
-Rosetta is quite happy installed in userspace, because it is designed to be compiled and installed by regular users without administrative rights.
+Rosetta is quite happy to be compiled and installed by regular users without administrative rights.
 You may need administrative rights to install [[dependencies]].
 
 * First untar/uncompress your downloaded copy of the code (`tar -xvzf Rosetta[releasenumber].tar.gz`).
 
 * Next, navigate to the `source` directory: `cd main/source`.
 
-* Rosetta uses [[SCons|http://www.scons.org]] as a compile assistant.
-The basic compilation command for most use is `./scons.py -j<number_of_processors_to_use> mode=release bin`.
-Select an argument to `-j` that is one processor fewer than your computer has.
+* Rosetta uses [[SCons|http://www.scons.org]] as a compile assistant. You will likely need to [[download| http://www.scons.org/download.php]] and install this first. 
+
+* The basic compilation command is `./scons.py -j<number_of_processors_to_use> mode=release bin`.
+Replace <number_of_processors_to_use> with a number one processor fewer than your computer has.
 Expect compilation to take a while (hours on one processor).
 
-See our extensive [[build documentation|Build-Documentation#compiling-rosetta-3]] for further instructions.
+See our extensive [[build documentation|Build-Documentation#compiling-rosetta-3]] for further instructions and troubleshooting.
 
-##Use on supercomputer clusters
+###Windows
+Unfortunately, we are not currently able to support Rosetta on Windows.
+There are few free, easy-to-use C++ compilers available for Windows, and other options (such as dual booting) are not reliable. 
+
+###Use on supercomputer clusters
 If you'll be running Rosetta on a scientific computation cluster, there may already be a version of Rosetta installed for general usage.
 Talk to your cluster administrator to see if there is a centrally-provided version available for your use.
 
@@ -124,12 +116,6 @@ If your cluster doesn't have Rosetta already installed, or you wish to use a dif
 As long as commonly available compilation tools are available for your use, you should be able to build and run Rosetta in your user directory without cluster administrator involvement. 
 Just treat it like a [[local install into userspace|Getting-Started#installation-on-mac-linux]].
 
-##Windows
-(sad_trombone_sound.mp3) Unfortunately, we are not able to support Rosetta on Windows.
-The two main reasons are that 1) almost all Windows computers are desktops/laptops with insufficient power to run most of Rosetta's applications, and 2) there are no free, easy-to-use C++ compilers available for Windows.
-If you have access to a native Windows C++ compiler, you may be able to get Rosetta running (this is how Rosetta@HOME, which runs on Windows, is produced).
-If you wish to install [[Cygwin|https://en.wikipedia.org/wiki/Cygwin]], it is technically possible to use G++ under Cygwin to compile Rosetta under Windows.
-Again, this is not supported, but it has been done.
 
 Use of Rosetta on national-scale supercomputing resources
 ---------------------------------------------------------
