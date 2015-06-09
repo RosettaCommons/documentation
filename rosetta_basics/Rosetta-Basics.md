@@ -21,6 +21,7 @@
 - [[Brief history of Rosetta|Rosetta-timeline]]
 
 - [[Glossary of terms|Glossary]]
+    - [[Longer form descriptions|RosettaEncyclopedia]]
 
 - [[Units in Rosetta]]
 

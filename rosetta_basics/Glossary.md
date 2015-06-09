@@ -672,12 +672,9 @@ Core::kinematics class for defining residue connectivity.
 
 #### MolProbity package
 
-MolProbity is a general-purpose web server offering quality validation
-for 3D structures of proteins, nucleic acids and complexes. It provides
-detailed all-atom contact analysis of any steric problems within the
-molecules as well as updated dihedral-angle diagnostics and it can
-calculate and display the H-bond and van der Waals contacts in the
-interfaces between components.
+[[MolProbity|http://molprobity.biochem.duke.edu/]] is a general-purpose web server offering quality validation
+for 3D structures of proteins, nucleic acids and complexes.
+It provides detailed all-atom contact analysis of any steric problems within the molecules as well as updated dihedral-angle diagnostics and it can calculate and display the H-bond and van der Waals contacts in the interfaces between components.
 
 *MolProbity: all-atom contacts and structure validation for proteins and
 nucleic acids, Davis et al., Nucleic Acids Res. 2007 July; 35(Web Server

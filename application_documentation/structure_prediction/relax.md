@@ -1,14 +1,16 @@
 #Relax application
 
-Metadata
-========
+Purpose
+=======
 
-This document was last edited Jan 21st 2015 by Jared Adolf-Bryfogle. This application in Rosetta3 was created and documented by Mike Tyka, et al.
+Relax is the main protocol for simple all-atom refinement of structures in the Rosetta force-field. 
+Relax does not do extensive refinement and only searches the local conformational space around the starting structure. 
+Relax is thus often used in conjunction with more aggressive sampling protocols like fragment assembly (abinitio) and loop modelling. 
+To evaluate different conformations based on their Rosetta all-atom score one usually has to apply relax.
 
-Purpose and Algorithm
-=====================
+It can also read centroid models, in which case it will convert the model into a fullatom model and pack the sidechains. Relax does not carry out any extensive refinement and only searches the local conformational space neighbourhood.
 
-The "relax" application in Rosetta carries out the task of simple structural refinement of fullatom Rosetta models. It can also read Centroid models, in which case it will convert the model into a fullatom model and pack the sidechains. Relax does not carry out any extensive refinement and only searches the local conformational space neighbourhood.
+It is further advisable to apply relax only to previously idealized structures. Idealization avoids that score differences arise due to non-ideal geometry (e.g., at the position of former chain-breaks introduced during an aggressive sampling stage and removed by loop closing).
 
 References
 ==========
@@ -110,6 +112,10 @@ Description of algorithm
 For virtually all situations it should be sufficient to use either -relax:quick or -relax:thorough and not worry about all the options.
 
 The fast relax modes work by running many sidechain repack and minimisation cycles ramping up and down the repulsive weight of the forcefield. This sort of "pulses" the structure in successive collapse and expansion phases which "wiggles" the atoms into a low energy state. No explicit moves are done (this was found not to be useful as most moves are rejected and dont help lowering the energy). Not that despite that fact, the structure can change up to 2-3 A from the starting conformation during the minimisation cycles.
+
+The basic principle of the relax protocol is to interlace packing of sidechains with gradient based minimization of torsional degrees of freedom.
+A typical relax cycle consist of 4 rounds of repacking followed by gradient base minimization in torsion space. 
+The repulsive contribution to the total energy is scaled to 2%, 25%, 55% and 100% in the 1st, 2nd, 3rd and last round, respectively. Relax can be run with a different number of cycles (default is 5) and from all cycles performed the best scoring pose is selected.
 
 FastRelax is a more modern version of the initial fast relax algotihm which is more flexible and allows definition of a specific script of relax events (how exactly the repack and minimisation cycles are interlaced and what paramters they should take). This is defined in a script file. An example script file looks like this:
 
