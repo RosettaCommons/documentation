@@ -4,6 +4,7 @@ Jeff Gray at Johns Hopkins teaches a course very relevant to understanding how t
 It even has videos of lectures.
 
 Some other suggestions:
+* Fersht: Structure and Mechanism in Protein Science: A Guide to Enzyme Catalysis and Protein Folding
 * Voet & Voet: Biochemistry
 * Brandon & Tooze: Introduction to Protein Structure
 * [[Richardson: Anatomy and Taxonomy of Protein Structure|http://kinemage.biochem.duke.edu/teaching/anatax/]]
