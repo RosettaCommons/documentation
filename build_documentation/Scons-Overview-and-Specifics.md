@@ -1,8 +1,4 @@
-#Scons Overview
-
-## Metadata
-* Original Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
-* Last Edited: 5/16/14
+Original Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 ## Browsing the build system:
 It is recommended to load the source directory as a PyCharm project.  PyCharm is a great and free IDE for python.  Next, add the following file types File->Settings->File Types [Python] under IDE settings:
