@@ -27,4 +27,5 @@ It also provides [[interface alanine scanning]] and [[DNA interface residue scan
 
 * [RosettaDiagrams](http://www.rosettadiagrams.org/) provides a graphical interactive service to produce [[RosettaScripts]] XML files, with some ability to run the scripts as well.
 
-TODO: continue with other servers
+* [[FunHunt|http://funhunt.furmanlab.cs.huji.ac.il/]], short for funnel hunt, tries to distinguish correct protein-protein complex orientations from decoy orientations.
+It searches for [[energy landscape|Glossary#general-terms_energy-landscape]] funnels using Rosetta's docking code.
