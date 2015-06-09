@@ -1,6 +1,7 @@
 Using Rosetta requires some pre-existing understanding of biochemistry, biophysics, and molecular modeling.
 
 Jeff Gray at Johns Hopkins teaches a course very relevant to understanding how to work with Rosetta, and that [[course page|http://graylab.jhu.edu/courses/540.414/]] is a fantastic (and often Rosetta-specific) resource.
+It even has videos of lectures.
 
 Some other suggestions:
 * Voet & Voet: Biochemistry
