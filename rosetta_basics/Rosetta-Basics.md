@@ -28,11 +28,11 @@
     * [[Loop modeling styles and algorithms|loopmodel-algorithms]]
 
 ####Preparing structures to be used by Rosetta
-- [[Preparing structures]]
-    * [[Preparing PDB files for non-peptide polymers]]
-    * [[Preparing ligands]]
+* [[Preparing typical PDB files|preparing-structures]]
+* [[Preparing PDB files for non-peptide polymers]]
+* [[Preparing ligands]]
 
-#####[[Common/Useful Rosetta Options|options-overview]]
+####[[Common/Useful Rosetta Options|options-overview]]
 - [[Input options]]
 - [[Output options]]
 - [[Relational Database options | Database-options]]
@@ -77,6 +77,7 @@
 
 ####Misc
 - [[Database support]] - Relational database support in Rosetta.
+    *  [[Database input/output|Database-IO]] - Platform-specific information on Rosetta database support.
     *  [[Sqlite3-interface]] - More information on the sqlite database interface.
 - [[Full options list|full-options-list]] - A (mostly) complete list of availible Rosetta options.
 - [[ Rosetta Job Distribution Discussion | JD2]]
