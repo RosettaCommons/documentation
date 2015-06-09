@@ -17,95 +17,95 @@ Timeline
 Note: Over the years Rosetta versioning nomenclature has changed. One of the more stable methods is derived from the svn version, which has been extended into the git years. These numbers are listed below starting with 'r'.
 
 * 2003-08
-** The first RosettaCon meeting. RosettaCon is an annual meeting of Rosetta users and developers from around the world.
+    * The first RosettaCon meeting. RosettaCon is an annual meeting of Rosetta users and developers from around the world.
 
 * 2003-11
-** Publication of Top7, the first design of a novel topology. [Kuhlman, et al.](http://www.sciencemag.org/content/302/5649/1364) 
+    * Publication of Top7, the first design of a novel topology. [Kuhlman, et al.](http://www.sciencemag.org/content/302/5649/1364) 
 
 * 2004-02 
-** Publication of an alanine scanning protocol in Rosetta [Kortemme et al.](http://stke.sciencemag.org/cgi/content/full/sigtrans;2004/219/pl2)
-** The [Robetta alanine scanning server](http://robetta.bakerlab.org/alascansubmit.jsp) goes online.
+    * Publication of an alanine scanning protocol in Rosetta [Kortemme et al.](http://stke.sciencemag.org/cgi/content/full/sigtrans;2004/219/pl2)
+    * The [Robetta alanine scanning server](http://robetta.bakerlab.org/alascansubmit.jsp) goes online.
 
 * 2005-06
-** Rosetta@Home was launched.
+    * Rosetta@Home was launched.
 
 * 2005 Summer
-** Rosetta 2.0 released. Rosetta++ was a automatic translation of the Fortran code of Rosetta into C++.
+    * Rosetta 2.0 released. Rosetta++ was a automatic translation of the Fortran code of Rosetta into C++.
 
 * 2006-09
-** Rosetta 2.1 released (r8080)
+    * Rosetta 2.1 released (r8080)
 
 * Late 2006 to Early 2007
-** The automatic translation of Rosetta++ was found to be unworkable for continued support. An effort to re-write Rosetta using object-oriented design was launched. Codenamed "mini", this was to become Rosetta3. 
+    * The automatic translation of Rosetta++ was found to be unworkable for continued support. An effort to re-write Rosetta using object-oriented design was launched. Codenamed "mini", this was to become Rosetta3. 
 
 * 2007-02
-** Rosetta 2.1.1 released (r13074)
+    * Rosetta 2.1.1 released (r13074)
 
 * Summer 2007
-** Development of Rosetta3 is seriously underway.
+    * Development of Rosetta3 is seriously underway.
 
 * 2007-11
-** Rosetta 2.1.2 released (r15394)
+    * Rosetta 2.1.2 released (r15394)
 
 * 2007-09
-** Rosetta 2.2 released (r16310)
+    * Rosetta 2.2 released (r16310)
 
 * 2008-01
-** Most new development switches over to the Rosetta3 platform 
+    * Most new development switches over to the Rosetta3 platform 
 
 * 2008-04
-** Rosetta 2.3 released (r20729)
+    * Rosetta 2.3 released (r20729)
 
 * Spring 2008
-** Publication of two papers demonstrating *de novo* enzyme design. [Jiang, et al.](http://www.sciencemag.org/content/319/5868/1387) and [Röthlisberger](http://www.nature.com/nature/journal/v453/n7192/full/nature06879.html)
+    * Publication of two papers demonstrating *de novo* enzyme design. [Jiang, et al.](http://www.sciencemag.org/content/319/5868/1387) and [Röthlisberger, et al.](http://www.nature.com/nature/journal/v453/n7192/full/nature06879.html)
 
 * 2008-05
-** The public beta of [Foldit](http://fold.it) is launched.
+    * The public beta of [Foldit](http://fold.it) is launched.
 
 * 2009-02
-** Rosetta 3.0 released (r26316)
-*** Rosetta3 is sometimes referred to as "mini", the "codename" during development.
+    * Rosetta 3.0 released (r26316)
+        * Rosetta3 is sometimes referred to as "mini", the "codename" during development.
 
 * 2009-09
-** Rosetta 3.1 released (r32532)
+    * Rosetta 3.1 released (r32532)
 
 * 2009-11
-** The initial version of PyRosetta is released.
+    * The initial version of PyRosetta is released.
 
 * 2010-03
-** Rosetta 2.3.1 released
+    * Rosetta 2.3.1 released
 
 * 2010-07
-** Design of an enzyme for the Diels-Alder reaction, a reaction unprecedented in nature. [Siegel et al.](http://www.sciencemag.org/content/329/5989/309)
+    * Design of an enzyme for the Diels-Alder reaction, a reaction unprecedented in nature. [Siegel et al.](http://www.sciencemag.org/content/329/5989/309)
 
 * 2010-11
-** Rosetta 3.2 released (r39284)
+    * Rosetta 3.2 released (r39284)
 
 * 2011-02
-** Rosetta 3.2.1 released (r40885)
+    * Rosetta 3.2.1 released (r40885)
 
 * 2011-06
-** Rosetta 3.3 released (r42941)
+    * Rosetta 3.3 released (r42941)
 
 * 2012-03
-** Rosetta 3.4 released (r48002)
-** [ROSIE](http://rosie.graylab.jhu.edu/about) goes online.
+    * Rosetta 3.4 released (r48002)
+    * [ROSIE](http://rosie.graylab.jhu.edu/about) goes online.
 
 * 2012-06
-** Design of self-assembling nanomaterials. [King, et al.](http://www.sciencemag.org/content/336/6085/1171)
+    * Design of self-assembling nanomaterials. [King, et al.](http://www.sciencemag.org/content/336/6085/1171)
 
 * 2013-02
-** Rosetta 3.5 released (r53488)
+    * Rosetta 3.5 released (r53488)
 
 * 2013-05
-** Rosetta moves from svn to git for version control.
+    * Rosetta moves from svn to git for version control.
 
 * 2013-08
-** Rosetta switched the default scorefunction from score12 to talaris2013. (r55611)
+    * Rosetta switched the default scorefunction from score12 to talaris2013. (r55611)
 
 * 2013-09
-** *de novo* design of ligand binding proteins. [Tinberg, et al.](http://www.nature.com/nature/journal/v501/n7466/full/nature12443.html) 
+    * *de novo* design of ligand binding proteins. [Tinberg, et al.](http://www.nature.com/nature/journal/v501/n7466/full/nature12443.html) 
 
 * 2014-04
-** Rosetta moves to a weekly release schedule. The first weekly release version is *Rosetta 2014.15.56658*
+    * Rosetta moves to a weekly release schedule. The first weekly release version is *Rosetta 2014.15.56658*
 
