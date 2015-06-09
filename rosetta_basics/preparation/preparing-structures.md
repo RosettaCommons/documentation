@@ -2,6 +2,7 @@
 
 Author:
 * Relaxation with all-heavy-atom constraints by Lucas Nivon and Rocco Moretti.
+* Clean PDB section by Jeliazko Jeliazkov.
 * Other answers collated by Steven Lewis and Ramesh Jha.
 
 [[_TOC_]]
