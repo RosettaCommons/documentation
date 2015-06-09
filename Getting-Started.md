@@ -54,7 +54,7 @@ Public Rosetta Servers
 
 All of [[Rosetta's public servers|Rosetta-Servers]] are licensed for **NON-COMMERCIAL USE ONLY**.  The servers of broadest interest are touched on here, but see [[here|Rosetta-Servers]] and [[here|https://www.rosettacommons.org/software/servers]] for more complete lists.
 
-* [ROSIE](http://rosie.rosettacommons.org/) is a server that many several Rosetta applications through a simple web interface.
+* [ROSIE](http://rosie.rosettacommons.org/) is a server that offers several Rosetta applications through a simple web interface.
 It is perfect for use by those new to Rosetta.
 Despite ROSIE's variety it offers only a slice of Rosetta's full functionality.
 
