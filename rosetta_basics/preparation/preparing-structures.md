@@ -30,7 +30,27 @@ What follows is a protocol that has been benchmarked for enzyme design and shoul
 
 # Cleaning PDBs for Rosetta
 
-TODO
+Parsing a PDB structure downloaded from the [[PDB|http://www.rcsb.org/pdb/home/home.do]] often results in an error.
+This is mostly due to the PDB containing extraneous information (such as waters which are not modeled by Rosetta).
+Occasionally, this is due to Rosetta not being able to parse a particular chemical entity.
+
+The simplest way to clean a PDB file is by running the following command-line expression:
+
+```
+grep "^ATOM" SOME.pdb > SOME.clean.pdb
+```
+
+**Warning:** this is rather barbaric and will get rid of PDB information which could be valuable.
+
+There is also a script, `tools/protein_tools/scripts/clean_pdb.py`, for cleaning the PDB which will remove most lines that cannot be parsed by Rosetta.
+As of June 9th, 2015, the script leaves only lines starting with 'ATOM' or 'TER' and removes 'HETATM' records unless the residue is a selenomethionine.
+It also removes residues with 0 occupancy.
+See the script header for more information.
+To run the script:
+
+```
+python clean_pdb.py <pdb> <chain id>
+```
 
 # Relax With All-Heavy-Atom Constraints: Introduction
 
