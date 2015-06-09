@@ -37,12 +37,13 @@ For RosettaCommons developers, we have a version of the Doxygen documentation wh
 - [[Rosetta library structure]] - Overview of how the Rosetta library is structured.
 - [[src index page]] - Overview of the src directory.
 
-- [[Namespace core]]
+- [[Namespace core|src-index-page#core]]
     * [[Namespace core::chemical|Namespace core-chemical]]
     * [[Namespace core::conformation|Namespace core-conformation]]
         * [[Namespace core::conformation::idealization|Namespace core-conformation-idealization]]
     * [[Namespace core::io::pdb|Namespace core-io-pdb]]
     * [[Namespace core::scoring|Namespace core-scoring]]
+    * [[Namespace core::fragments|directory-core-fragments]]
 - [[Namespace utility]]
     * [[Namespace utility::factory|Namespace utility-factory]]
     * [[Namespace utility::io|Namespace utility-io]]
@@ -56,12 +57,10 @@ For RosettaCommons developers, we have a version of the Doxygen documentation wh
 - [[How to use pointers correctly]] - Working with Rosetta's smart pointer system (new guide).
 - [[Owning pointer usage guidlines]] - Working with Rosetta's smart pointer system (old guide).
 
-##Using particular classes - Some of this documention may be out of date.
+##Using particular classes
 
-- [[Owning pointers]] - Rosetta's shared-ownership intrusive reference counted smart pointer.
+- [[Owning pointers]] - Rosetta's shared-ownership intrusive reference counted smart pointer.  Currently implemented using boost::shared_ptr.
     * [[Access pointers]] - An "owning pointer" which doesn't take ownership.
-    * [[ReferenceCount]] - How owning pointers are implemented.
-    * [[ReferenceCountMI]] - ReferenceCount for multiple inheritance.
 - [[Vector1]] - Rosetta's 1-based indexing vector class.
     * [[Vector0]] - A 0-based indexing version of vector1.
     * [[VectorL]] - The generalized L-based indexing vector, from which vector1 and vector0 are derived.
@@ -90,5 +89,6 @@ For RosettaCommons developers, we have a version of the Doxygen documentation wh
 - [[Scientific test]] - How to create and run scientific tests
 
 ## Visualization Tools
+
+- [[PyMOL]] Resources for visualizing Rosetta simulations in PyMol
 - [[Extending the PyMol Viewer]] Extending the PyMol Mover to add additional visualization features during Rosetta simulations
-- [[Resources for Visualization in PyMol]] Resources for visualizing Rosetta simulations in PyMol

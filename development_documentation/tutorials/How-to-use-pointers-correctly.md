@@ -1,5 +1,7 @@
 # How to use pointers correctly
 
+##How to correctly use owning and access pointers
+
 The following guide summarizes how to correctly use owning/access pointers. With the transition to the boost:: / std:: pointer classes, these rules must be followed to avoid compilation errors or run-time crashes (double free).
 
 Note:
@@ -96,3 +98,16 @@ These are OK:
 `SomeAP ap2( ap );`  
 
 Questions, Suggestions? Email Luki: lugo@uw.edu
+
+##Should I use owning pointers or a reference (&) in my class/function?
+
+This is a set of guidelines for choosing between Owning Pointer (OP) and 'const &' coding style for class data members and function arguments.
+
+-   Use OPs when objects are passed into a different object which will retain partial ownership.
+-   Use references (&) where objects are passed and are going to be modified
+-   Use const references (const &) where objects are passed and are not going to be modified
+
+To decide which data type is appropriate for your function/class, consider the following questions:
+
+    1.  Will an instance of your class own this data? i.e: is the data life span exactly the same as that of a class instance? In this case, you probably do not need to use an OP.
+    2.  Is your class holding "someone else's data", i.e. 'referencing' it? If this is the case, then you should probably use an OP.
