@@ -8,7 +8,7 @@ Here, we have categorized Rosetta's major applications and RosettaScripts-enable
 Structure determination via fragment substitution
 -------------
 -	AbinitioRelax app
--	AbscriptLoopCloserCM mover
+-	AbscriptLoopCloserCM mover  
 	handles loop closure in ab initio relax circumstances
 -	AbscriptMover mover
 
@@ -17,20 +17,20 @@ Structure determination via fragment substitution
 
 Structure optimization
 -------------
--	idealize_jd2 app
-IdealizeMover
+-	idealize_jd2 app  
+IdealizeMover  
 Replace every residue with a version with bond lengths and angles from the database.
 Add constraints to maintain original hydrogen bonds.
 Then, minimize every side-chain and backbone dihedral (except proline phi) using dfpmin.
 -	minimize app
 -	FinalMinimizer mover
--	TaskAwareSymMinMover mover
-SymMinMover mover
+-	TaskAwareSymMinMover mover  
+SymMinMover mover  
 minimize with symmetry
 
 Backbone degrees of freedom
 -------------
--	backrub app
+-	backrub app  
 A particular form of backbone movement intended to coordinate with maintaining particular side chain positions.
 
 Sidechain degrees of freedom
@@ -40,16 +40,16 @@ Sidechain degrees of freedom
 
 Docking
 -------------
--	DARC app
+-	DARC app  
 Via a ray casting algorithm particularly fast on GPUs
--	FlexPepDocking app
+-	FlexPepDocking app  
 Concurrently samples backbone degrees of freedom on the peptide
--	UBQ_E2_thioester app
-UBQ_Gp_CYD-CYD app
-UBQ_Gp_LYX-Cterm app
+-	UBQ_E2_thioester app  
+UBQ_Gp_CYD-CYD app  
+UBQ_Gp_LYX-Cterm app  
 Docking given a chemical constraint between the two partners 
--	SymDock app
-SymDockProtocol mover
+-	SymDock app  
+SymDockProtocol mover  
 Symmetric oligomer docking
 
 Chemical connectivity
