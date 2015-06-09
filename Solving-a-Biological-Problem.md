@@ -2,7 +2,7 @@ Author: Jeliazko Jeliazkov and Andrew Watkins
 
 [[_TOC_]]
 
-# Types of Biological Problems
+#Types of Biological Problems
 
 **Note: others should feel free to add in their expertise to this article.**
 
@@ -149,8 +149,7 @@ Loop modeling and floppy tail can go here.
 * [[http://rosie.rosettacommons.org/]]
 * [[http://robetta.bakerlab.org/]]
 
-Incorporating Experimental Data
-==========
+#Incorporating Experimental Data
 
 Potentially useful experimental data takes many forms.
 The very nature of Monte Carlo simulation strongly supports the incorporation of any type of experimental constraint, because all you need it to do is allow it to influence the distribution of generated structures. 
