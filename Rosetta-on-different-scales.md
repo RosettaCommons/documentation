@@ -10,6 +10,14 @@ Additionally, the question of how many nstruct are necessary is heuristic and sp
 This document attempts to address in a harder sense how many nstruct models one wants for different types of experiments (and why!), and in a softer sense approximately how much computer time we are talking about.
 The [[results analysis|Analyzing-Results]] page also addresses the issue.
 
+Broadly, the number of models one needs to address a problem is related to the size of the search space, which is related to the number and type of degrees of freedom.
+The major classes of degrees of freedom, in order of complexity, are:
+* sidechain rotamer freedom (small numbers of atoms move)
+* sidechain design freedom (functionally a superset of rotameric freedom: some rotamer just have different atoms)
+* rigid body freedom (docking problems)
+* backbone freedom (moving the backbone atoms relative to one another)
+Backbone freedom is most expensive because it is a very rugged search space (tightly packed atoms must be moved carefully) and, as a consequence of [[internal coordinate folding]], large motions can produce lever arm effects that disturb large parts of models.
+
 The diagram sketches out different experiments available on a logarithmic nstruct scale.
 Assume computer time is positively correlated with nstruct.
 
@@ -54,7 +62,8 @@ In this regime, you will generally want something more powerful than your deskto
 
 10<sup>4</sup>
 ------------------
-At this scale, we are able to start seriously sampling larger scale docking problems while repacking and even redesigning
+At this scale, we are able to start seriously sampling larger scale docking problems while repacking and even redesigning.
+This is also reasonable for smallish backbone sampling protocols, like [[loop modeling]] of a single, moderate-length loop.
 JELLY TODO: global vs local docking?
 These sorts of problems you will need serious hardware to run: either long periods of time (overnight to days) on lab workhorses, small runs on lab-scale clusters (hundreds of CPUs), or tiny runs on large supercomputers.
 
@@ -66,5 +75,10 @@ This regime is also considered reasonable sampling for most flexible-backbone in
 Fixed sequence protocols are faster than design protocols in this space.
 The computing resources needed scale from heavy use of a 500-CPU lab cluster to moderately large runs on large supercomputers (hundreds of processors for many days).
 
-10<sup>6</sup>
+10<sup>6</sup> and up
 ------------------
+At this scale, we can address any problem you can imagine.
+_ab initio_ [[structure prediction]] involves starting with no model at all, only a sequence, so its possible backbone conformational search space must be very well sampled.
+Fully atomic protocols at this scale are *very* expensive computationally, requiring serious use of national-scale supercomputing resources.
+Structure prediction is often less than fully atomic - most stages use [[centroid]]s instead.
+This is much faster, so some experiments in this regime can be surprisingly fast, needing much less than an order of magnitude more time (or even less time in an absolute sense) than earlier tiers.
