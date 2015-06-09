@@ -78,7 +78,7 @@ files and directing the output to a database:
 Useful queries
 ==============
 
-**TBD** ...
+**TODO** ...
 
 Links
 =====
