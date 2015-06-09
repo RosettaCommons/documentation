@@ -238,17 +238,3 @@ Miscellaneous
 
 - Additional [[build]] documentation.
 - An out-dated list of [[platforms]] supported by Rosetta.
-
-
-
-##Documentation Quick Links
-
-|[[Rosetta Basics]]        |[[Application Documentation]]|[[Development Documentation]]|
-|:---------------------:|:------------------------:|:---------------------------:|:---------------------------:|
-|[[/images/start_flag.png|align=center]]|[[/images/power.png|align=center]]        |[[/images/wrench.png|align=center]]       |
-
-<!--- BEGIN_INTERNAL -->
-|[[Internal Documentation]]|
-|:------------------------:|
-|[[/images/logo.png|align=center]]      |
-<!--- END_INTERNAL --> 
