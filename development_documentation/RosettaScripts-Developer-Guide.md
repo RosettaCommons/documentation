@@ -24,6 +24,35 @@ In order to be supported under the Parser scheme, a Mover class (any class that 
 
 Note that the function signatures for parse\_my\_tag and the other functions should match the ones from the Mover base class exactly (including const status), otherwise the derived method will not be called.
 
+Documenting your mover
+
+Since RosettaScripts allows you to put Movers together in ways that have not been tried before there are a few things you **NEED** to answer when documenting your mover:
+
+-   General description of what the mover does
+-   Example: This is meant as an example of how to construct a Mover in RosettaScripts and how to describe all of the options that it takes. This outline was decided upon at Post-RosettaCon11-Minicon.
+-   XML code example:
+
+```
+<MyMover name="&string" bool_option=(1 &bool) int_option=(50 &int) string_option=(&string) real_option=(2.2 &Real) scorefxn=(default_scorefxn &string) task_operations=(&string,&string,&string)/>)
+```
+
+-   What the tags do:
+-   **bool\_option** describes how a boolean tag is made. Default is true.
+-   **int\_option** describes how an integer tag is made. Let's say this represents \# of cycles of a loop to run, so the range would have to be \> 0.
+-   **real\_option** describes how to a Real option tag is made.
+-   **string\_option** is an example of how a string tag is made.
+-   What options must be provided?
+-   For example let's say that we need to pass a value to string\_option or the protocol will not not run, you would include something like this:
+-   string\_option="/path/to/some/file" needs to be defined to avoid mover exit.
+-   Expected input type:
+-   Does this mover expect a certain kind of pose (protein/DNA, 2 chains, monomer)
+-   Internal TaskOperations:
+-   Are there default TaskOperations (RestrictToInterface for example) that this mover uses, is there a way to override them?
+-   FoldTree / Constraint changes:
+-   Describe if/how the mover modifies the input (or default) FoldTree or Constraints
+-   If the mover can change the length of the pose say so.
+
+
 ### Getting Parameter data
 
 The parse\_my\_tag function can obtain passed parameters through the passed TagPtr object. Two functions are relevant:
