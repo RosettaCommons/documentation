@@ -6,8 +6,9 @@
  * [[RosettaScripts|RosettaScripts]]
  * [[TopologyBroker|BrokeredEnvironment]]
  * [[PyRosetta|PyRosetta]]
-  * [[PyRosetta Toolkit|PyRosetta-Toolkit]]
-  * [[GUI for PyRosettaToolkit|PyRosetta-Toolkit-GUI]]
+    * [[PyRosetta Toolkit|PyRosetta-Toolkit]]
+    * [[GUI for PyRosettaToolkit|PyRosetta-Toolkit-GUI]]
+    * [[PyRosetta website|www.pyrosetta.org]]
 * [[Development Documentation|development_documentation/Development-Documentation]]
 <flag>
 * [[Internal Documentation|internal_documentation/Internal-Documentation]]
