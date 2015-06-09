@@ -237,16 +237,3 @@ These applications serve mainly to support other Rosetta applications, or to ass
 
 - [[Pocket relax|pocket-relax]] - Relax followed by full atom minimization and scoring with no PocketConstraint. Useful when performing pocket optimization.
 
-
-
-##Documentation Quick Links
-
-|[[Build Documentation]]|[[Rosetta Basics]]        |[[Development Documentation]]|
-|:---------------------:|:------------------------:|:---------------------------:|:---------------------------:|
-|[[/images/hammer.png|align=center]] |[[/images/start_flag.png|align=center]]|[[/images/wrench.png|align=center]]|
-
-<!--- BEGIN_INTERNAL -->
-|[[Internal Documentation]]|
-|:------------------------:|
-|[[/images/logo.png|align=center]]      |
-<!--- END_INTERNAL --> 
