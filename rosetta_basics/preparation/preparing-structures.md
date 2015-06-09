@@ -3,7 +3,6 @@
 Author:
 * Relaxation with all-heavy-atom constraints by Lucas Nivon and Rocco Moretti.
 * Other answers collated by Steven Lewis and Ramesh Jha.
-* Last edited by Jeliazko Jeliazkov.
 
 [[_TOC_]]
 
