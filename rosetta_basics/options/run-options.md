@@ -1,6 +1,6 @@
 <!-- --- title: Run Options -->
 
-Here is a list of common/useful output options.  Please see the full option list and the particular application you are using for more.
+Here is a list of common/useful run options.  Please see the full option list and the particular application you are using for more.
 
 Options control run operations
 ==============================

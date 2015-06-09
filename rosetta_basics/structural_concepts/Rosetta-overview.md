@@ -54,12 +54,12 @@ Kinematic Layer
 
 We have covered most of the "chemical" layer (from Pose to Conformation to Residue to ResidueType to AtomType) and lets move on to the "kinematic" layer to see how the degrees of freedom in the system are actually translated into actual atoms positions for scoring. The essential pieces of data of kinematic layer are FoldTree and AtomTree, which are solely the brainchildren of Phil Bradley.
 
-FoldTree
+[[FoldTree|foldtree-overview]]
 --------
 
 FoldTree is a residue-based description of macromolecular system and has been extensively implemented in Rosettta++ recent development. For more information, one can refer to two reference papers: Bradley et al, Proteins, 2006; Wang et al, JMB, 2007 or see [[FoldTree Overview and Concepts|foldtree-overview]] . Basically, each residue is connected another residue in the tree either via a peptide connection or a rigid-body connection ("Jump"). DOFs of the system are backbone and sidechain torsion angles and rigid-body transformations. Changes to these DOFs can be propagated properly in the FoldTree to generate desired structural changes.
 
-AtomTree
+[[AtomTree|atomtree-overview]]
 --------
 
 AtomTree provides an even more general framework to model biomacormolecular system. As its name stands for, it represents all atoms in the system in a tree-like topology as compared to the residue-based representation in FoldTree. Atoms are connected to each other via bond distance, bond angles and torision/improper angles, and rigid-body transformation, all of which are potential DOFs of the system. (FoldTree can be thought as a special AtomTree in which bond length/angles are fixed and only torsional/rigid-body DOFs are allowed). Not only does the AtomTree allow users to treat more DOFs, its atom-based representation also has great advantage for handling non-polymer-type molecules with arbitrary atom connections, such as small chemical ligands. For more information, one can refer to a very good overview description on some important concepts to understand AtomTree written by Ian Davis ( [[AtomTree oveerview and concepts|atomtree-overview]] ). Here are a few basic key points:
@@ -77,7 +77,7 @@ There are numerous member functions to manipulate AtomTree, such as, deleting/at
 
 The last thing listed here about AtomTree is that change to any DOFs will be recorded in the cached data in Conformation, i.e., this torsion has moved or this rigid-body has moved so that it will be passed along to scoring routines for efficient and accurate energy evaluation.
 
-Scoring
+[[Scoring|scoring-explained]]
 =======
 
 I have not plowed through the scoring/energies part yet and this probably needs more input from Andrew and Phil.
@@ -120,7 +120,7 @@ The purpose of MoveMap is similar to those "set\_allow\_move" functions in Roset
 Packer and Rotamer\_trials
 --------------------------
 
-Both objects perform rotamer-based sidechain/sequence optimization given a Pose. The information about what to be repacked or redesigned is wrapped into the PackerTask object, which can be supported by many command line options that are quite similar to those used in Rosetta++.
+Both objects perform rotamer-based sidechain/sequence optimization given a Pose. The information about what to be repacked or redesigned is wrapped into the [[PackerTask|packer-task]] object, which can be supported by many command line options that are quite similar to those used in Rosetta++.
 
 Mover
 -----
