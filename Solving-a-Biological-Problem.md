@@ -2,8 +2,7 @@ Author: Jeliazko Jeliazkov and Andrew Watkins
 
 [[_TOC_]]
 
-Types of Biological Problems
-=============
+# Types of Biological Problems
 
 **Note: others should feel free to add in their expertise to this article.**
 
@@ -51,7 +50,7 @@ For example, high RMSD between the bound and unbound states makes prediction of 
 On the other hand, biochemical information can be implemented as constraints [[(see below)|Solving-a-Biological-Problem#Incorporating-Experimental-Data]] in the scoring function during docking to (hopefully) improve model accuracy.
 
 In general, there are three types of docking: global, local, and local refine. 
-These are all run via the docking protocol, but differ in flags.
+These are all run via the [[docking protocol|docking-protocol]], but differ in flags.
 
 **Global docking** entails a random initial placement of both partners, a low-resolution centroid phase with (relatively) large rigid-body translations, and a high-resolution, full-atom phase with smaller perturbations and side-chain repacking/minimization.
 
@@ -88,6 +87,7 @@ These ensembles of structures can be sampled during the docking protocol.
 The induced fit model offers an alternative to the prior two models.
 Induced fit holds that upon an encounter, proteins mutually affect each other.
 This is computationally modeled by minimizing backbone degrees of freedom (in addition to the typical minimization of side-chain degrees of freedom) in the high-resolution phase of the docking protocol.
+As of June 9th, 2015, there is a `-bb_min_res` flag which can be used to specify residues with backbone degrees of freedom during minimization, but backbone minimization during docking has not been thoroughly tested.
 
 #### Docking According to the Conformer Selection and Induced Fit Model
 
@@ -103,7 +103,8 @@ There is a caveat as ensemble docking swap models according to the Metropolis cr
 
 ### Docking Two Partners With Two Unknown Structures 
 
-Just do not.
+Plausible, but this is **not recommended**. 
+Success would be extremely unlikely due to the large amount of sampling needed to (A) accurately model one partner, (B) accurately model the other partner, and (C) accurately model the interaction between the two partners.
 
 ### Docking Homooligomers
 
