@@ -97,10 +97,10 @@ Starting Perturbation Flags
 
 |**Flag**|**Description**|**Type**|
 |:-------|:--------------|:-------|
-|-randomize1|Randomize the orientation of the first docking partner. (Only works with 2 partner docking).|Boolean|
-|-randomize2|Randomize the orientation of the second docking partner. (Only works with 2 partner docking).|Boolean|
-|-spin|Spin a second docking partner around axes from center of mass of the first partner to the second partner.|Boolean|
-|-dock\_pert [T] [R]|To create a starting strucutre from the input structure, randomly perturb the input structure using a gaussian for translation and rotation with standard deviations [T] and [R]. Recommended usage is "-dock\_pert 3 8"|RealVector|
+|-randomize1|Randomize the orientation of the first docking partner. (Only works with 2 partner docking). (Global).|Boolean|
+|-randomize2|Randomize the orientation of the second docking partner. (Only works with 2 partner docking). (Global).|Boolean|
+|-spin|Spin a second docking partner around axes from center of mass of the first partner to the second partner. (Global).|Boolean|
+|-dock\_pert [T] [R]|To create a starting strucutre from the input structure, randomly perturb the input structure using a gaussian for translation and rotation with standard deviations [T] and [R]. Recommended usage is "-dock\_pert 3 8". (Global and Local).|RealVector|
 |-uniform\_trans [R]|Uniform random repositioning of the second partner about the first partner within a sphere of the given radius, [R].|Real|
 
 Packing Flags
