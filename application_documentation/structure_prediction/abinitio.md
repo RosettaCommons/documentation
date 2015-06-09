@@ -1,4 +1,4 @@
-### Abinitio
+# Abinitio
 
 #### Basic Algorithm, FragmentSampler
 
@@ -25,19 +25,19 @@ An application that uses the abinitio protocol and is, for example, started in t
 
 Input Options
 ```
--in:file:native ./input_files/1elw.pdb 	Native structure (optional)
--in:file:fasta ./input_files/1elwA.fasta 	Protein sequence in fasta format (required)
+-in:file:native ./input_files/1elw.pdb 	                Native structure (optional)
+-in:file:fasta ./input_files/1elwA.fasta 	        Protein sequence in fasta format (required)
 -in:file:frag3 ./input_files/aa1elwA03_05.200_v1_3 	Fragment library: 3-residue fragments (required)
 -in:file:frag9 ./input_files/aa1elwA09_05.200_v1_3 	Fragment library: 9-residue fragments (required)
--database ../../rosetta_database 	Path to rosetta database (required if not ROSETTA3_DB environment variable is set)
+-database ../../rosetta_database 	                Path to rosetta database (required if not ROSETTA3_DB environment variable is set)
 ```
 
 Output options
 ```
--nstruct 1 	Number of output structures (default=1).
+-nstruct 1 	                        Number of output structures (default=1).
 -out:file:silent 1elwA_silent.out 	Use silent file output, use filename after this flag (default=default.out).
-(or -out:pdb) 	Use PDB file output (default=false).
--out:path /my/path 	Path where PDB output files will be written to (default='.').
+(or -out:pdb) 	                        Use PDB file output (default=false).
+-out:path /my/path 	                Path where PDB output files will be written to (default='.').
 ```
 
 Algorithmic options
@@ -50,53 +50,77 @@ There are several optional settings which have been benchmarked and tested thoro
 -abinitio:rg_reweight 0.5 	Reweight contribution of radius of gyration to total score by this scale factor (recommended).
 -abinitio:rsd_wt_helix 0.5 	Reweight env,pair,cb for helix residues by this factor (recommended).
 -abinitio:rsd_wt_loop 0.5 	Reweight env,pair,cb for loop residues by this factor (recommended).
--abinitio:stage1_patch 	Supply patch file for the score0 ScoreFunction used in Stage1
--abinitio:stage2_patch 	Supply patch file for the score1 ScoreFunction used in Stage2
+-abinitio:stage1_patch 	        Supply patch file for the score0 ScoreFunction used in Stage1
+-abinitio:stage2_patch 	        Supply patch file for the score1 ScoreFunction used in Stage2
 -abinitio:stage3a_patch 	Supply patch file for the score2 ScoreFunction used in Stage3
 -abinitio:stage3b_patch 	Supply patch file for the score5 ScoreFunction used in Stage3
--abinitio:stage4_patch 	Supply patch file for the score3 ScoreFunction used in Stage4
+-abinitio:stage4_patch 	        Supply patch file for the score3 ScoreFunction used in Stage4
 -abinitio:skip_stages 1 2 3 4 	list all stages (1-4) that should be skipped (default=None)
--abinitio:recover_low_in_stages 1 2 3 4 	after the sampling cycles of a given block are finished the lowest scoring pose recorded during the sampling is recovered, use this flag to switch this off for individual stages
+-abinitio:recover_low_in_stages 1 2 3 4     after the sampling cycles of a given block are finished the 
+                                            lowest scoring pose recorded during the sampling is recovered,
+                                            use this flag to switch this off for individual stages
 ```
 
 Constraint and Jumping options
 
 These flags are implemented in ConstraintFragmentSampler .cc
 ```
--constraints:cst_weight 1.0 	Patches the weight for the ScoreType atom_pair_constraint in all scores (score0, score1, score2, score5 and score3) used for abinitio. This change is applied after patching via -stageX_patch.
--fold_cst:seq_sep_stages f1 f2 f3 	Restraints and chainbreak-penalties are considered based on their sequence separation. The maximum sequence separation an active restraint can have is slowly ramped up. The target values for the ramping can be controlled for the end-points of stage 2, 3 and 4, and are given as fraction of total length of protein (default=0.15, 1.0, 1.2).
--fold_cst:skip_on_noviolation_in_stage1 	In Stage1 the maximum restraint sequence separation is incremented in steps of 2 residues. After each increment a block of sampling cycles is performed. This option allows to terminate (or skip) sampling no restraint is violated at a given time.
--constraint:threshold 	control the threshold above which a constraint is violated (default=1).
--fold_cst:no_recover_low_at_constraint_switch 	When new constraints are turned (seq_sep_stages) the MonteCarlo object has to be reset and the previously found lowest energy pose will be lost. To avoid loosing this information, we usually carry out a recover_low before switching on new constraints. Use this flag to avoid this extra recover_low.
--jumps:ramp_chainbreaks 	smoothly ramp up the weights for ScoreTypes linear_chainbreak and overlap_chainbreak (recommended, default=true).
--jumps:increase_chainbreak 	factor for the ramping of chainbreaks (default=1.0).
--jumps:overlap_chainbreak 	use the overlap chainbreak in stage4 (recommended, default=false).
--jumps:chainbreak_weight_stage1 	Set the weight for ScoreType linear_chainbreak for Stage1. Irrelevant if ramping of chainbreaks is active.
--jumps:chainbreak_weight_stage2 	Set the weight for ScoreType linear_chainbreak for Stage2. Irrelevant if ramping of chainbreaks is active.
--jumps:chainbreak_weight_stage3 	Set the weight for ScoreType linear_chainbreak for Stage3. Irrelevant if ramping of chainbreaks is active.
--jumps:chainbreak_weight_stage4 	Set the weight for ScoreType linear_chainbreak for Stage4. Irrelevant if ramping of chainbreaks is active.
+-constraints:cst_weight 1.0 	                Patches the weight for the ScoreType atom_pair_constraint in
+                                                all scores (score0, score1, score2, score5 and score3) used
+                                                for abinitio. This change is applied after patching via
+                                                -stageX_patch.
+-fold_cst:seq_sep_stages f1 f2 f3 	        Restraints and chainbreak-penalties are considered based on
+                                                their sequence separation. The maximum sequence separation an
+                                                active restraint can have is slowly ramped up. The target values
+                                                for the ramping can be controlled for the end-points of stage
+                                                2, 3 and 4, and are given as fraction of total length of
+                                                protein (default=0.15, 1.0, 1.2).
+-fold_cst:skip_on_noviolation_in_stage1         In Stage1 the maximum restraint sequence separation is incremented 
+                                                in steps of 2 residues. After each increment a block of sampling 
+                                                cycles is performed. This option allows to terminate (or skip) 
+                                                sampling no restraint is violated at a given time.
+-constraint:threshold 	                        control the threshold above which a constraint is violated (default=1).
+-fold_cst:no_recover_low_at_constraint_switch 	When new constraints are turned (seq_sep_stages) the MonteCarlo object
+                                                has to be reset and the previously found lowest energy pose will be lost.
+                                                To avoid loosing this information, we usually carry out a recover_low
+                                                before switching on new constraints. Use this flag to avoid this extra
+                                                recover_low.
+-jumps:ramp_chainbreaks 	                smoothly ramp up the weights for ScoreTypes linear_chainbreak and
+                                                overlap_chainbreak (recommended, default=true).
+-jumps:increase_chainbreak 	                factor for the ramping of chainbreaks (default=1.0).
+-jumps:overlap_chainbreak 	                use the overlap chainbreak in stage4 (recommended, default=false).
+-jumps:chainbreak_weight_stage1 	        Set the weight for ScoreType linear_chainbreak for Stage1. 
+                                                Irrelevant if ramping of chainbreaks is active.
+-jumps:chainbreak_weight_stage2 	        Set the weight for ScoreType linear_chainbreak for Stage2. 
+                                                Irrelevant if ramping of chainbreaks is active.
+-jumps:chainbreak_weight_stage3 	        Set the weight for ScoreType linear_chainbreak for Stage3. 
+                                                Irrelevant if ramping of chainbreaks is active.
+-jumps:chainbreak_weight_stage4 	        Set the weight for ScoreType linear_chainbreak for Stage4. 
+                                                Irrelevant if ramping of chainbreaks is active.
 ```
 
 Processing options
 
 For running multiple jobs on a cluster the following options are useful:
 ```
--constant_seed 	Use a constant seed (1111111 unless specified with -jran)
--jran 1234567 	Specify seed. Should be unique among jobs (requires -constant_seed)
--seed_offset 10 	This value will be added to the random number seed. Useful when using time as seed and submitting many
-jobs to a cluster. If jobs are started in the same second they will still have different initial seeds
-when using a unique offset. If using Condor (http://www.cs.wisc.edu/condor), the Condor process id,
-$(Process), can be used for this. For example "-seed_offset $(Process)" can be used in the condor submit file.
--run:dry_run 	no sampling cycles, just initialize all objects (for testing, default=False)
+-constant_seed 	        Use a constant seed (1111111 unless specified with -jran)
+-jran 1234567 	        Specify seed. Should be unique among jobs (requires -constant_seed)
+-seed_offset 10 	This value will be added to the random number seed. Useful when using 
+                        time as seed and submitting many jobs to a cluster. If jobs are started 
+                        in the same second they will still have different initial seeds when using 
+                        a unique offset. If using Condor (http://www.cs.wisc.edu/condor), the Condor 
+                        process id, $(Process), can be used for this. 
+                        For example "-seed_offset $(Process)" can be used in the condor submit file.
+-run:dry_run 	        no sampling cycles, just initialize all objects (for testing, default=False)
 -run:test_cycles 	only a single sampling cycle per stage (for testing, default=False)
 ```
 
 #### Source Code 
 
-The top-level mover that encodes the abrelax protocol is called AbrelaxMover and resides in rosetta_source/src/protocols/abinitio.
+The top-level mover that encodes the abrelax protocol is called AbrelaxMover and resides in main/source/src/protocols/abinitio.
 
 This top-level mover calls the Movers for the fragment assembly protocol (abinitio), and relax protocol. If beta-strand jumping is used non-natural chainbreaks have to be closed, and the AbrelaxMover will the protocols for loop-closing and idealize before the relax stage.
 
-The fragment assembly protocol is encoded in the Movers FragmentSampler and its derived class ConstraintFragmentSampler which reside in rosetta_source/src/protocols/abinitio.
+The fragment assembly protocol is encoded in the Movers FragmentSampler and its derived class ConstraintFragmentSampler which reside in main/source/src/protocols/abinitio.
 
-The AbrelaxMover works closely together with the TopologyBroker module that resides in rosetta_source/src/protocols/topology_broker. The TopologyBroker module handles the introduction of restraints, and the determines the kinematics of beta-strands through its ConstraintClaimer and TemplateJumpClaimer classes, respectively.
+The AbrelaxMover works closely together with the TopologyBroker module that resides in main/source/src/protocols/topology_broker. The TopologyBroker module handles the introduction of restraints, and the determines the kinematics of beta-strands through its ConstraintClaimer and TemplateJumpClaimer classes, respectively.
