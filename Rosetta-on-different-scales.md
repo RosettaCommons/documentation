@@ -46,7 +46,12 @@ Because it considers and discards many solutions per eventually produced decoy, 
 10<sup>3</sup>
 ------------------
 At this scale, we begin to consider experiments that introduce non-sidechain degrees of freedom.
-Introducing backbone flexibility is very expensive in terms of search space, so we next introduce rigid-body freedoms instead, allowing for small docking problems.  ANDY TODO: peptidomimetics?
+Introducing backbone flexibility is very expensive in terms of search space, so we next introduce rigid-body freedoms instead, allowing for small docking problems.  
+For example, it is very common to perform so-called dock-design algorithms, where one runs repeated cycles of rigid body refinement docking alternated with repacking and design.
+These algorithms are particularly valuable for optimizing protein-peptide and protein-peptidomimetic interfaces.  
+Peptides have relatively few backbone dihedrals, so small perturbations do not inflate the sampling problem too much.
+Even better is the use-case for peptidomimetics, which are molecules closely derived from or related to peptides with improved pharmacological and typically conformational properties.
+A peptidomimetic molecule might have only one or two stable conformations per residue subunit, meaning that even full sampling of peptidomimetic conformational space is compatible with rigid body docking, packing, and design.
 This scale is also useful for moderately constrained [[relax]] runs used as part of [[structure preparation]] or at the tail end of [[ab initio structure prediction]].
 In this regime, you will generally want something more powerful than your desktop computer: either a many-core lab workhorse or a small run on a lab-scale cluster.
 
