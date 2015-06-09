@@ -93,7 +93,8 @@ See our extensive [[build documentation|Build-Documentation#compiling-rosetta-3]
 ###Windows
 Unfortunately, we are not currently able to support Rosetta on Windows.
 There are few free, easy-to-use C++ compilers available for Windows, and they use slightly different C++ standards.
-[[Dual booting|http://en.wikipedia.org/wiki/Multi-booting#Windows_and_Linux]] is an option, but we cannot setting them up (we can help you with Rosetta on your Linux partition).
+[[Dual booting|http://en.wikipedia.org/wiki/Multi-booting#Windows_and_Linux]] is an option.
+We cannot help set up Windows/Linux dual boots, but we can help with Rosetta on the Linux partition.
 [[PyRosetta|scripting_documentation/PyRosetta/PyRosetta]], a Python-based interface to Rosetta, is supported on Windows.
 
 ###Use on supercomputer clusters
