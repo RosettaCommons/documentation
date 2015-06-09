@@ -1,15 +1,13 @@
-<!-- --- title: Platforms -->Platforms Information
+**NOTE: This information may be out of date**
 
-**This information is VERY out of date. It needs to be updated for the current state of Rosetta compiling.**
+Rosetta can be built and run on a number of platforms, described below. However, the level of support varies:
 
-Rosetta can be built and run on a number of platforms, described below. The level of support varies however.
+-   **Full support** means we have tested Rosetta on the platform both programmatically and scientifically and have the expertise to handle questions about it.
+-   **Partial support** means we have built and run Rosetta on the given platform. We have not done extensive testing of the scientific results, so your mileage may vary. We will try to answer questions, and walk you through particular builds.
+-   **No support** means that we have not been able to try Rosetta on that platform. It may work or it may not. If you run into trouble we will answer whatever we can, but be aware that we may not be able to help. If you can get it to work, please tell us.
+-   **Doesn't work** means that we know (or have reason to believe) that you can't run Rosetta on the platform. If you successfully run it, let us know.
 
--   Full support means we have tested Rosetta on the platform both programmatically and scientifically and have the expertise to handle questions about it.
--   Partial support means we have built and run Rosetta on the given platform. We have not done extensive testing of the scientific results, so your mileage may vary. We will try to answer questions, and walk you through particular builds.
--   No support. We have not been able to try the combination. It may work or it may not. If you run into trouble we will answer whatever we can, but be aware that we may not be able to help. If you can get it to work, please tell us.
--   Doesn't work. We know or believe that you can't run Rosetta on the platform. If you successfully run it, let us know.
-
-Fully Support Platforms
+##Full Support
 =======================
 
 -   Darwin Kernel Version 9.6.0: root:xnu-1228.9.59\~1/RELEASE\_I386 i386
@@ -48,7 +46,7 @@ Fully Support Platforms
     gcc (GCC) 3.4.6 20060404 (Red Hat 3.4.6-10)
     ```
 
-The following platforms have partial support:
+##Partial Support
 =============================================
 
 -   Fedora Core Linux v3 or greater, x86, 32-bit, GCC 4.0 (\*)(\*\*)
@@ -58,7 +56,7 @@ The following platforms have partial support:
 
 Note: (\*) These should work because of the similarity between Fedora Core and RedHat Enterprise Linux but were not explicitly tested. (\*\*)For GCC version 4.0 and above, we recommend the latest versions of the 4.0 and 4.1. However, we do not have full support.
 
-The following platforms have no support and was not tested. They might work or not but we do not know.
+##No Support/Not Tested
 ======================================================================================================
 
 -   Fedora Core Linux on IA64 (Itanium), any compiler (\*\*)
