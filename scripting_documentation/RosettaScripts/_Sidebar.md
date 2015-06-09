@@ -4,16 +4,17 @@
 * [[Application Documentation|application_documentation/Application-Documentation]]
 * [[Scripting Interfaces|scripting_documentation/Scripting-Documentation]]
  * [[RosettaScripts|RosettaScripts]]
-    * [[RosettaScripts Syntax|RosettaScripts-Documentation]]
     * [[Movers|Movers-RosettaScripts]]
     * [[Filters|Filters-RosettaScripts]]
+    * [[Formatting conventions|RosettaScripts-Conventions]]
     * [[Task Operations|TaskOperations-RosettaScripts]]
-    * [[FeaturesReporters|FeatureReporters]]
-    * [[Using KIC with RosettaScripts|GeneralizedKIC]]
+    * [[FeaturesReporters|Features-reporter-overview]]
+    * [[Composite Protocols|Composite-protocols]]
     * [[Databases with RosettaScripts|RosettaScripts-database-connection-options]]
+    * [[For Developers|RosettaScripts-Developer-Guide]]
  * [[TopologyBroker|BrokeredEnvironment]]
  * [[PyRosetta|PyRosetta]]
 * [[Development Documentation|development_documentation/Development-Documentation]]
-<flag>
+<!---BEGIN_INTERNAL-->
 * [[Internal Documentation|internal_documentation/Internal-Documentation]]
-<flag>
+<!---END_INTERNAL-->

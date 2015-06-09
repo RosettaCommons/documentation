@@ -1,15 +1,30 @@
 #Rosetta Basics
 
+###If you are new to Rosetta, start [[here|Getting-Started]].
+
+###If you are trying to find the right protocol to use for your biological application, look [[here|Solving-a-Biological-Problem]].
+
 ####Controlling Rosetta Execution
 - [[Running Rosetta|running-rosetta-with-options]]
-- [[Running Rosetta Parallel via MPI | running-rosetta-with-options#Running-Rosetta-via-MPI ]]
+- [[Running Rosetta Parallel via MPI | running-rosetta-with-options#mpi ]]
 - [[Graphics output and GUIs | graphics-and-guis]]
-- Scripting Rosetta
+    * [[PyMOL]]
+    * [[PyRosetta Toolkit GUI]]
+    * Fold-It
+- [[Scripting Rosetta|Scripting-Documentation]]
     * [[RosettaScripts]]
     * [[PyRosetta]]
+    * [[Topology Broker|BrokeredEnvironment]]
+- [[Analyzing Results]]
+####[[Fundamental Rosetta Concepts|Rosetta-overview]]
 
-####Fundamental Rosetta Concepts
+- [[Brief history of Rosetta|Rosetta-timeline]]
+
+- [[Glossary of terms|Glossary]]
+
 - [[Units in Rosetta]]
+
+- [[Scoring|scoring-explained]]
 
 - [[Scorefunctions and Score types | Score Types]] - Description of the default Rosetta Scorefunction and common score types.
     *  [[MM Std Scorefunction | NC-scorefunction-info#MM-Standard-Scorefunction]]
@@ -21,14 +36,14 @@
     * [Rosetta3 Architecture](http://www.ncbi.nlm.nih.gov/pubmed/21187238)
     * [[Foldtree Overview]]
     * [[AtomTree Overview]]
-    * [[Loop modeling styles and algorithms]]
+    * [[Loop modeling styles and algorithms|loopmodel-algorithms]]
 
 ####Preparing structures to be used by Rosetta
-- [[Preparing structures]]
-    * [[Preparing PDB files for non-peptide polymers]]
-    * [[Preparing ligands]]
+* [[Preparing typical PDB files|preparing-structures]]
+* [[Preparing PDB files for non-peptide polymers]]
+* [[Preparing ligands]]
 
-#####Common/Useful Rosetta Options
+####[[Common/Useful Rosetta Options|options-overview]]
 - [[Input options]]
 - [[Output options]]
 - [[Relational Database options | Database-options]]
@@ -53,7 +68,7 @@
 - [[Chemical shift file]] - NMR chemical shifts
 - [[Bin transition probabilities file]] - Probabilities of transitioning from one mainchain torsion bin to another, used by some sampling schemes
 
-####Working with Non-Protein Residues and Molecules
+####[[Working with Non-Protein Residues and Molecules|non-protein-residues]]
 - General Guidance:
     * [[General Control | Ignore Unrecognized]]
     * [[Preparing PDB files for non-peptide polymers]]
@@ -73,6 +88,7 @@
 
 ####Misc
 - [[Database support]] - Relational database support in Rosetta.
+    *  [[Database input/output|Database-IO]] - Platform-specific information on Rosetta database support.
     *  [[Sqlite3-interface]] - More information on the sqlite database interface.
 - [[Full options list|full-options-list]] - A (mostly) complete list of availible Rosetta options.
 - [[ Rosetta Job Distribution Discussion | JD2]]

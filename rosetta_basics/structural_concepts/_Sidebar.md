@@ -5,18 +5,23 @@
  * [[Units in Rosetta|Units-in-Rosetta]]
  * [[Scoring in Rosetta|scoring-explained]]
  * [[Structural concepts in Rosetta|Rosetta-overview]]
-  * [[Atom Tree|atomtree-overview]]
-  * [[Fold Tree|foldtree-overview]]
-  * [[Minimization|minimization-overview]]
-  * [[PackerTask|packer-task]]
+    * [[Glossary]]
+    * [[Atom Tree|atomtree-overview]]
+    * [[Fold Tree|foldtree-overview]]
+    * [[Minimization|minimization-overview]]
+    * [[PackerTask|packer-task]]
+    * [[Symmetry in Rosetta|symmetry]]
  * [[File Formats in Rosetta|file-types-list]]
  * [[Non-Protein Residues|non-protein-residues]]
  * [[Preparing Structures|preparing-structures]]
  * [[Command line options|options-overview]]
- * [[Symmetry in Rosetta|symmetry]]
+
 * [[Application Documentation|application_documentation/Application-Documentation]]
 * [[Scripting Interfaces|scripting_documentation/Scripting-Documentation]]
 * [[Development Documentation|development_documentation/Development-Documentation]]
-<flag>
+<!---BEGIN_INTERNAL-->
 * [[Internal Documentation|internal_documentation/Internal-Documentation]]
-<flag>
+<!---END_INTERNAL-->
+
+*[[Glossary]]
+*[[Options list|full-options-list]]
