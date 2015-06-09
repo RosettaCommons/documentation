@@ -34,7 +34,9 @@ This scale will generally be fast and can run on a laptop.
 
 10<sup>2</sup>
 ------------------
-At this scale, we can consider smaller experiments like [[fixed backbone design|fixbb]].
+At this scale, we can consider smaller experiments sampling mostly non-backbone internal degrees of freedom: the sidechains.
+Sampling only the sidechains leads to a relatively small and less frustrated search space, partly because very few atoms move at a time and there are never large concerted (or unconcerted) movements of many atoms.
+The archetypical application here is [[fixed backbone design|fixbb]].
 Again, fixbb can run on small scales because the guts of the packing algorithm are very optimized and run many cycles internally.
 Fixbb generally fast and runs on a laptop, although large design jobs may require more memory than less powerful computers will have.
 ANDY TODO: coupled moves?
