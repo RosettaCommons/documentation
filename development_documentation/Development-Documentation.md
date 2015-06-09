@@ -93,16 +93,3 @@ For RosettaCommons developers, we have a version of the Doxygen documentation wh
 ## Visualization Tools
 - [[Extending the PyMol Viewer]] Extending the PyMol Mover to add additional visualization features during Rosetta simulations
 - [[Resources for Visualization in PyMol]] Resources for visualizing Rosetta simulations in PyMol
-
-
-##Documentation Quick Links
-
-|[[Build Documentation]]|[[Rosetta Basics]]        |[[Application Documentation]]|
-|:---------------------:|:------------------------:|:---------------------------:|:---------------------------:|
-|[[/images/hammer.png|align=center]]    |[[/images/start_flag.png|align=center]]|[[/images/power.png|align=center]]        |
-
-<!--- BEGIN_INTERNAL -->
-|[[Internal Documentation]]|
-|:------------------------:|
-|[[/images/logo.png|align=center]]      |
-<!--- END_INTERNAL --> 
