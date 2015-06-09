@@ -1,7 +1,6 @@
-
 **NOTE: This information may be out of date**
 
-Rosetta can be built and run on a number of platforms, described below. The level of support varies however.
+Rosetta can be built and run on a number of platforms, described below. However, the level of support varies:
 
 -   **Full support** means we have tested Rosetta on the platform both programmatically and scientifically and have the expertise to handle questions about it.
 -   **Partial support** means we have built and run Rosetta on the given platform. We have not done extensive testing of the scientific results, so your mileage may vary. We will try to answer questions, and walk you through particular builds.
