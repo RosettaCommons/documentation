@@ -1,6 +1,5 @@
+Scientific Benchmarks
 =====================
-
-From RosettaWiki
 
 Scientific Benchmarks are tests that compare Rosetta generated structure
 predictions with experimental observations. Assessing the accuracy of
@@ -85,12 +84,11 @@ one boolean field, '\_isTestPass'. Here is an example
        { 'rotamer_recovery_rate_at_all_positions' : .37, '_isTestPass' : True }
 
 With this file, when tests are run on the Testing Server, the results
-can be processed and reported on the testing web page
-[[1]](http://rosettatests.graylab.jhu.edu/analyze).
+can be processed and reported on the testing web page.
 
 Also have the analyze script write a file **.results.log**. The contents
 of this file will be appended to the Nightly Tests email sent to the
-*[Rosetta-minirosetta-logs]* mailing list.
+*Rosetta-minirosetta-logs* mailing list.
 
 ### How To Run Local Scientific Benchmarks
 
