@@ -21,7 +21,7 @@ Pose <a name="pose" />
 
 "Pose" in Rosetta3 represents a certain state of molecular system to be modeled or simulated, such as protein, nucleic acid, small chemical ligand, and complexes with any combination of them. It stores information of chemical compositions and DOFs of the system. It can receive instructions on what changes are to be made on DOFs and know how to update atom XYZ positions given such changes. It keeps information of energy cached data and knows how to evaluate the energy of itself efficiently, based on the updated atom positions and energy evaluation methods to be used. In a standard modeling protocol, a Pose is initialized either from an input structure or from scratch, and then goes through a sequence/combination of operations which will change its DOFs to sample the conformational space and evaluate its energy so that the lowest-energy state can be located. There are two essential components in a Pose object, "Conformation" and "Energies", the former of which is in charge of translating changes on "DOF"s to XYZ atom positions and the latter of which is responsible for updating individual "Energy" components given the updated atom coordinates.
 
-Conformation
+Conformation <a name="conformation" />
 ============
 
 As mentioned above, "Conformation" layer maintains a molecular representation of the system to be modeled and is responsible for translating any changes on DOFs of the system to actual changes of atom Cartesian coordinates. This object has three categories of data:
@@ -35,7 +35,7 @@ Residue <a name="residue" />
 
 Each Pose/Conformation is broken down into small units called "Residues", which could be amino acids, nucleic acids or any group atoms with certain rules of what they are and how they are connected, such as a small chemical ligand moiety. The chemical content of a Residue is stored in an object called "ResidueType" and aside from that each Residue has other data storing actual coordinate information of each atom it contains as well as coordinate-related data such as mainchain/sidechain torsion angles, sequence position etc. For example, in a protein there might be multiple Leucine residues, each of which will be an individual "Residue" object. Each Leu Residue has its own coordinate data, but all Leu will have the same Leu ResidueType which contains information on what are the atoms, their names, chemical elements and connectivity. This setup also allows a sidechain Rotamer to be represented just as a Residue.
 
-Chemical Layer
+Chemical Layer <a name="chemical" />
 ==============
 
 ResidueType <a name="residuetype" />

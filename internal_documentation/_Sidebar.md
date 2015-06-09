@@ -6,5 +6,5 @@
 * [[Development Documentation|development_documentation/Development-Documentation]]
 * [[Internal Documentation|internal_documentation/Internal-Documentation]]
 
-*[[Glossary]]
-*[[Options list|full-options-list]]
+* [[Glossary]]
+* [[Options list|full-options-list]]

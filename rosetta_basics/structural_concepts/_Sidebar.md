@@ -3,9 +3,11 @@
 * [[Rosetta Basics|rosetta_basics/Rosetta-Basics]]
  * [[Running Rosetta|running-rosetta-with-options]]
  * [[Units in Rosetta|Units-in-Rosetta]]
- * [[Scoring in Rosetta|scoring-explained]]
- * [[Structural concepts in Rosetta|Rosetta-overview]]
-    * [[Glossary]]
+
+ * [[How Rosetta works|Rosetta-overview]]
+    * [[Pose|Rosetta-overview#pose]]
+    * [[Scoring in Rosetta|scoring-explained]]
+    * [[Score functions|score-types]]
     * [[Atom Tree|atomtree-overview]]
     * [[Fold Tree|foldtree-overview]]
     * [[Minimization|minimization-overview]]
@@ -23,5 +25,5 @@
 * [[Internal Documentation|internal_documentation/Internal-Documentation]]
 <!---END_INTERNAL-->
 
-*[[Glossary]]
-*[[Options list|full-options-list]]
+* [[Glossary]]
+* [[Options list|full-options-list]]

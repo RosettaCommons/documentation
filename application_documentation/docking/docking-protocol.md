@@ -67,6 +67,8 @@ Modes
 -   **High Resolution Docking Only (Local Refinement)** - All atoms in the protein are represented, and the position found in the low-resolution search is optimized. Rigid body MCM is alternated with sidechain repacking so that the sidechains can adjust to a new, more favorable orientation and vice versa. The high-resolution stage uses up the most CPU time of Rosetta.
 -   **Local High Resolution Minimization** - Similar to Local refinement, all atoms in the protein are represented. A single run of minimization, as opposed to a series of Monte Carlo+Minimization cycles, is done to minimize the energy of the rigid body position. Minimization is followed by side-chain packing.
 -   **Global or local docking** can be achieved by using different starting perturbation flags to generate a starting structure from the input structure.
+    - Global docking entails randomizing the initial partner positions followed by a low-resolution phase, high-resolution phase, and minimization phase (i.e. the full protocol).
+    - Local docking should not randomize the initial protein positions, but should include a low-resolution phase, high-resolution phase, and minimization phase.
 
 Input Files
 ===========
@@ -95,10 +97,10 @@ Starting Perturbation Flags
 
 |**Flag**|**Description**|**Type**|
 |:-------|:--------------|:-------|
-|-randomize1|Randomize the orientation of the first docking partner. (Only works with 2 partner docking).|Boolean|
-|-randomize2|Randomize the orientation of the second docking partner. (Only works with 2 partner docking).|Boolean|
-|-spin|Spin a second docking partner around axes from center of mass of the first partner to the second partner.|Boolean|
-|-dock\_pert [T] [R]|To create a starting strucutre from the input structure, randomly perturb the input structure using a gaussian for translation and rotation with standard deviations [T] and [R]. Recommended usage is "-dock\_pert 3 8"|RealVector|
+|-randomize1|Randomize the orientation of the first docking partner. (Only works with 2 partner docking). (Global).|Boolean|
+|-randomize2|Randomize the orientation of the second docking partner. (Only works with 2 partner docking). (Global).|Boolean|
+|-spin|Spin a second docking partner around axes from center of mass of the first partner to the second partner. (Global).|Boolean|
+|-dock\_pert [T] [R]|To create a starting strucutre from the input structure, randomly perturb the input structure using a gaussian for translation and rotation with standard deviations [T] and [R]. Recommended usage is "-dock\_pert 3 8". (Global and Local).|RealVector|
 |-uniform\_trans [R]|Uniform random repositioning of the second partner about the first partner within a sphere of the given radius, [R].|Real|
 
 Packing Flags

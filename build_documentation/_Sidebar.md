@@ -13,5 +13,5 @@
 * [[Internal Documentation|internal_documentation/Internal-Documentation]]
 <!---END_INTERNAL-->
 
-*[[Glossary]]
-*[[Options list|full-options-list]]
+* [[Glossary]]
+* [[Options list|full-options-list]]
