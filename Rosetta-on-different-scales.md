@@ -37,9 +37,7 @@ This scale will generally be fast and can run on a laptop.
 At this scale, we can consider smaller experiments like [[fixed backbone design|fixbb]].
 Again, fixbb can run on small scales because the guts of the packing algorithm are very optimized and run many cycles internally.
 Fixbb generally fast and runs on a laptop, although large design jobs may require more memory than less powerful computers will have.
-ANDY TODO: PAIRED MOVES
-
-
-
-
 ANDY TODO: coupled moves?
+
+10<sup>3</sup>
+------------------
