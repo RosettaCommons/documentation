@@ -28,6 +28,10 @@ In other words, your main protocol dictates your preparation protocol.
 Remember that all you're really doing here is relaxing into Rosetta's energy function—you're not necessarily making it objectively more correct (although clashes are generally wrong), you're really just making Rosetta like it better. 
 What follows is a protocol that has been benchmarked for enzyme design and should work for any design situation, and then a series of suggestions from Rosetta developers for other situations.
 
+# Cleaning PDBs for Rosetta
+
+TODO
+
 # Relax With All-Heavy-Atom Constraints: Introduction
 
 (See also the [[relax documentation|relax]] .)
@@ -89,17 +93,17 @@ Certain users might prefer this protocol because it allows you to see a list of 
 
 1. Generate side-chain coordinate constraints on your PDB using `sidechain_cst_3.py`:
 
-```
-python sidechain_cst_3.py your_structure.pdb 0.1 0.5
-``` 
-[output: your\_structure\_sc.cst]
+    ```
+    python sidechain_cst_3.py your_structure.pdb 0.1 0.5
+    ``` 
+    [output: your\_structure\_sc.cst]
 
 2. Run relax using these constraints and with a custom relax script to force constraints to stay on during the entire run. 
 Run time is approximately 30 minutes for a 340 residue protein.
 
-```
-relax.linuxgccrelease  -database rosetta/rosetta_database -relax:script rosetta/rosetta_source/src/apps/public/relax_w_allatom_cst/always_constrained_relax_script -constrain_relax_to_start_coords -constraints:cst_fa_file your_structure_sc.cst -s your_structure.pdb [-extra_res_fa your_ligand.params]
-```
+    ```
+    relax.linuxgccrelease  -database rosetta/rosetta_database -relax:script rosetta/rosetta_source/src/apps/public/relax_w_allatom_cst/always_constrained_relax_script -constrain_relax_to_start_coords -constraints:cst_fa_file your_structure_sc.cst -s your_structure.pdb [-extra_res_fa your_ligand.params]
+    ```
 
 The bracketed `extra_res_fa` only applies if there are any ligand(s) in the structure. 
 The example flags file listed below was used in testing:
