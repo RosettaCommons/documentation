@@ -4,12 +4,20 @@ It is partly because Rosetta is largely written by professional biophysicists wh
 (That said, the [[inner loops|https://en.wikipedia.org/wiki/Inner_loop]] really are quite optimized by people who knew what they were doing!)
 
 This page talks about Rosetta in terms of both `nstruct`—the Rosetta flag to control the **n**umber of **struct**ures generated—and the computer time needed to generate those structures.
-Ideally, one always runs enough models to answer their modeling question.
+Ideally, one always runs enough models to sample enough of the search space to answer their modeling question.
 In the real world, experimenters are constrained by computer time.
 Additionally, the question of how many nstruct are necessary is heuristic and specific to the problem.
 This document attempts to address in a harder sense how many nstruct models one wants for different types of experiments (and why!), and in a softer sense approximately how much computer time we are talking about.
 The [[results analysis|Analyzing-Results]] page also addresses the issue.
 
+The diagram sketches out different experiments available on a logarithmic nstruct scale.
+Assume computer time is positively correlated with nstruct.
 ![Diagram: log scale in nstruct Rosetta protocols](uploads/nstruct_scale.png "log scale in nstruct Rosetta protocols")
 
-The diagram sketches out 
+10<sup>0</sup>
+------------------
+At this logarithmic scale, one single model, we can use Rosetta protocols that are deterministic: protocols that are not employing a Monte Carlo search.
+The notable entries here are [[scoring]] and [[minimization]].
+Running the minimizer directly on an input structure is relatively rare (it will immediately get trapped in a local minimum) but plausible.
+Scoring a structure is a very common event.
+
