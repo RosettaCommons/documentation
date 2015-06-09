@@ -22,12 +22,24 @@ At this logarithmic scale, one single model, we can use Rosetta protocols that a
 The notable entries here are [[scoring]] and [[minimization]].
 Running the minimizer directly on an input structure is relatively rare (it will immediately get trapped in a local minimum) but plausible.
 Scoring a structure is a very common event.
+This scale will generally be fast and can run on a laptop.
 
 10<sup>1</sup>
 ------------------
 At this scale, we can consider protocols that are intended to have a very small search space and those that can be completely sampled.
 10 to 100 models are reasonable for most [[structure preparation]] efforts, because these efforts are meant to be tightly constrained to the starting model, only fixing serious errors.
 This range is also reasonable for minor [[repacking|fixbb]] experiments.
+Repacking is feasible because it samples *very extensively* inside the protocol, so relatively few nstruct are needed.
+This scale will generally be fast and can run on a laptop.
 
 10<sup>2</sup>
 ------------------
+At this scale, we can consider smaller experiments like [[fixed backbone design|fixbb]].
+Again, fixbb can run on small scales because the guts of the packing algorithm are very optimized and run many cycles internally.
+Fixbb generally fast and runs on a laptop, although large design jobs may require more memory than less powerful computers will have.
+ANDY TODO: PAIRED MOVES
+
+
+
+
+ANDY TODO: coupled moves?
