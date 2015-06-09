@@ -1,4 +1,4 @@
-Projects:ResourceManager
+ResourceManager Details
 ========================
 
 ResourceManager Documentation
@@ -104,7 +104,7 @@ Resource Definitions Syntax
 
 Once the resource definition file has been prepared it may be specified
 on the command line for a particular protocol using the option
--resource\_definition\_files. An example is below.\
+-resource\_definition\_files. An example is below.
 
     loopmodel.macosclangrelease @flags -resource_definition_files test.xml
 
@@ -421,7 +421,7 @@ protocols
 Writing Unit Tests
 ==================
 
-(added by Rebecca Alford - rfalford12@gmail.com)
+(added by Rebecca Alford)
 
 So you have written some resource loaders, but now you would like to
 load these resources into a unit test. To do so, follow the steps below:
@@ -471,7 +471,7 @@ test/core/membrane/io/LoadAllResourcesTest.cxxtest.hh)
 Possible FAQ
 ============
 
-(added by Rebecca Alford - rfalford12@gmail.com)
+(added by Rebecca Alford)
 
 To add locators, options, loaders, and fallback configurations,
 remember to register your new classes in the appropriate init.ihh files
