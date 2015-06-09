@@ -48,5 +48,5 @@ Introducing backbone flexibility is very expensive in terms of search space, so 
 This scale is also useful for moderately constrained [[relax]] runs used as part of [[structure preparation]] or at the tail end of [[ab initio structure prediction]].
 In this regime, you will generally want something more powerful than your desktop computer: either a many-core lab workhorse or a small run on a lab-scale cluster.
 
-10<sup>3</sup>
+10<sup>4</sup>
 ------------------
