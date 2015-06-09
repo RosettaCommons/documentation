@@ -8,7 +8,7 @@
  * [[PyRosetta|PyRosetta]]
     * [[PyRosetta Toolkit|PyRosetta-Toolkit]]
     * [[GUI for PyRosettaToolkit|PyRosetta-Toolkit-GUI]]
-    * [[PyRosetta website|www.pyrosetta.org]]
+    * [[PyRosetta website|http://www.pyrosetta.org]]
 * [[Development Documentation|development_documentation/Development-Documentation]]
 <flag>
 * [[Internal Documentation|internal_documentation/Internal-Documentation]]
