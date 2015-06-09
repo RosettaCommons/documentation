@@ -42,8 +42,6 @@ See: [[Comparative Modeling|minirosetta-comparative-modeling]] (potentially out 
 * [[Homology modeling of antibody variable fragments.|antibody-protocol]]
 * [[Ab initio modeling of membrane proteins.|membrane-abinitio]]
 
-**Should we include demo dirs here?**
-
 ## Protein—Protein Docking
 
 Another general question which can be interrogated by Rosetta is: given protein A and protein B, can I generate a plausible model for protein—protein interactions?
@@ -52,10 +50,19 @@ Protein flexibility can play a role in protein docking by increasing the degrees
 For example, high RMSD between the bound and unbound states makes prediction of the bound state from the unbound states difficult. 
 On the other hand, biochemical information can be implemented as constraints [[(see below)|Solving-a-Biological-Problem#Incorporating-Experimental-Data]] in the scoring function during docking to (hopefully) improve model accuracy.
 
-### Docking Two Partners With Known Structures
+In general, there are three types of docking: global, local, and local refine. 
+These are all run via the docking protocol, but differ in flags.
 
-**How does docking prepack fit in? Should that be merged with docking?**
-**Can we elaborate further in this subsection?**
+**Global docking** entails a random initial placement of both partners, a low-resolution centroid phase with (relatively) large rigid-body translations, and a high-resolution, full-atom phase with smaller perturbations and side-chain repacking/minimization.
+
+**Local docking** is identical to global docking except the initial placement of the partners is not random thereby ensuring that interactions are sampled about the initial configuration.
+
+**Local refinement docking** only uses the high-resolution, full-atom phase.
+
+See the [[docking protocol|docking-protocol]] for more information on how to run a docking simulation.
+Note: side-chains should be [[pre-packed|docking-prepack-protocol]] prior to docking to globally minimize side-chain energies since docking only packs side-chains at the interface.
+
+### Docking Two Partners With Known Structures
 
 In this case, (near) atomic-resolution structures have been determined for both interacting partners. 
 The structures should be prepared for docking in the standard manner (see [[preparing structures|preparing-structures]]).
