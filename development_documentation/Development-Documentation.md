@@ -8,6 +8,7 @@
 - [[Writing an app]] - How to write your own Rosetta-based application.
 - [[Packer Task]] - Controlling which side chains can vary during rotamer optimization 
 - [[Making rosetta robust for running on large number of inputs|robust]]
+- [[SCons overview|scons]]
 
 ##Where is the documentation for the various Rosetta libraries?
 The documentation for the various libraries is a bit scattered.  Here is a partially-complete list:
