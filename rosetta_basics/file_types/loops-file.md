@@ -44,6 +44,7 @@ Loop from residues 23-30 with the cutpoint at 26.
 * [[Rosetta Basics]]: The Rosetta Basics home page
 * [[Structure prediction applications]]: List of applications for structure prediction, including loop modeling applications
 * [[Loop modeling algorithms|loopmodel-algorithms]]
+* [[Structure prediction applications]]: Contains links to several applications for loop modeling
 * [[Options overview]]: Overview of Rosetta command line options
 * [[Glossary]]: Brief definitions of Rosetta terms
 * [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.

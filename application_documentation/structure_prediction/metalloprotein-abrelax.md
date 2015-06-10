@@ -5,24 +5,13 @@ Metadata
 
 Author: Chu Wang; transcribed by Steven Lewis (smlewi@gmail.com)
 
-This page is a copy of an email sent by Chu Wang, the author of this code. The transcription into the doc folder was performed 6/18/12 by Steven Lewis. It is known that this documentation is not yet "up to spec".
+The transcription into the doc folder was performed 6/18/12 by Steven Lewis. It is known that this documentation is not yet "up to spec".
 
-Notes from Chu
-==============
+Protocols for the metalloprotein abrelax application are based on standard protein folding and loop modeling protocols (see documentation for the [[abinitio-relax]] application) with additional constraint files.
 
-Hi Steven,
+In addition to the input files required for [[abinitio relax]], the following input files are required to run this application:
 
-I don't remember writing one, and below is an email I sent to Bryan Der from your lab a while ago regarding how to set zinc constraints in Rosetta. Maybe you can put it somewhere for people to refer to (since I don't have written access to Rosetta svn repository any more). Thanks.
-
-Chu
-
-Hi Bryan,
-
-I have not been following up with updated versions of Rosetta for a while, but there should be an integration test in the following location with all example input files. I am not sure there is a formal documentation around, but the protocols are based on standard protein folding and loop modeling protocols with additional constraint files. Here are a few additional files you will need:
-
-/trunk/mini/test/integration/tests/metalloprotein\_abrelax/input
-
-1.  fasta – more annotated than the standard one with [CYZ] or [HIS] to mark the residues that chelate the zinc, and Z[ZN] at the end for extra "zinc" residue.
+1.  [[fasta file]] – This file contains the protein sequence to be modeled. The sequence required for this application must be more annotated than the standard one with [CYZ] or [HIS] to mark the residues that chelate the zinc, and Z[ZN] at the end for extra "zinc" residue.
 
 2.  residue\_pair\_jump\_cst – explanation after \#\#
 
@@ -48,6 +37,39 @@ I have not been following up with updated versions of Rosetta for a while, but t
 
     each blocks as above can define one zinc binding site and if you have more than one zinc, append more blocks like this.
 
-3.  cen\_cst or fa\_cst files.– this is used to define constraints to keep chelating geometry optimal between zinc and other three chelating residues. The files are in standard Rosetta distance and angular constraints format.
+3.  cen\_cst or fa\_cst files: These files are used to define constraints to keep chelating geometry optimal between zinc and other three chelating residues. The files are in standard Rosetta distance and angular constraints format (see the [[constraint file]] documentation).
 
-Hope this helps.
+
+For examples of metalloprotein-abrelax input files, please check the integration test input. [[Integration tests]] for the `metalloprotein_abrelax` application are located in the following directory:
+
+`main/test/integration/tests/metalloprotein_abrelax/`
+
+All necessary input files for these integration tests can be found in:
+
+`main/test/integration/tests/metalloprotein_abrelax/input/`
+
+##See Also
+
+* [[Metals]]: More information on working with metals in Rosetta
+* [[Constraint file]]: Constraint file format
+* [[Fasta file]]: Fasta file format
+* [[Fragment file]]: Fragment file format (required for abinitio structure prediction)
+* [[Structure prediction applications]]: A list of other applications to be used for structure prediction
+  * [[Abinitio-relax]]: Application for predicting protein structures using only sequence information
+    * [[Further details on the abinitio-relax application|abinitio]]
+  * [[Membrane abinitio]]: Ab initio for membrane proteins.  
+  - [[Comparative modeling|minirosetta-comparative-modeling]]: Build structural models of proteins using one or more known structures as templates for modeling (uses the minirosetta application).
+    * [[Minirosetta]]: More information on the minirosetta application.
+  * [[Metalloprotein ab initio|metalloprotein-abrelax]]: Ab inito modeling of metalloproteins.  
+  - [[Backrub]]: Create backbone ensembles using small, local backbone changes.  
+  - [[Floppy tail]]: Predict structures of long, flexible N-terminal or C-terminal regions.
+  - [[Fold-and-dock]]: Predict 3-dimensional structures of symmetric homooligomers.  
+  - [[Molecular replacement protocols|mr-protocols]]: Use Rosetta to build models for use in X-ray crystallography molecular replacement.  
+    * [[Prepare template for MR]]: Setup script for molecular replacement protocols.  
+  - [[Relax]]: "Locally" optimize structures, including assigning sidechain positions.
+* [[Application Documentation]]: List of Rosetta applications
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Comparing structures]]: Essay on comparing structures
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files

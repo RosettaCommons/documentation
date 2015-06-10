@@ -174,3 +174,27 @@ Score versus RMSD plots may be helpful for identifying convergence towards the n
 Lowest scoring models that are in a cluster and that have a topology represented in the PDB also have a greater chance of being correct. Structure-structure comparison tools like Dali or Mammoth can be used to search against the PDB database.
 
 
+##See Also
+
+* [[Abinitio]]: Further details on this application
+* [[Fasta file]]: Fasta file format
+* [[Fragment file]]: Fragment file format (required for abinitio structure prediction)
+* [[Structure prediction applications]]: A list of other applications to be used for structure prediction
+  * [[NonlocalAbinitio]]: Application for predicting protein structure given some prior structural information
+  * [[Membrane abinitio]]: Ab initio for membrane proteins.  
+  - [[Comparative modeling|minirosetta-comparative-modeling]]: Build structural models of proteins using one or more known structures as templates for modeling (uses the minirosetta application).
+    * [[Minirosetta]]: More information on the minirosetta application.
+  * [[Metalloprotein ab initio|metalloprotein-abrelax]]: Ab inito modeling of metalloproteins.  
+  - [[Backrub]]: Create backbone ensembles using small, local backbone changes.  
+  - [[Comparative modeling|minirosetta-comparative-modeling]]: Build structural models of proteins using one or more known structures as templates for modeling.  
+  - [[Floppy tail]]: Predict structures of long, flexible N-terminal or C-terminal regions.
+  - [[Fold-and-dock]]: Predict 3-dimensional structures of symmetric homooligomers.  
+  - [[Molecular replacement protocols|mr-protocols]]: Use Rosetta to build models for use in X-ray crystallography molecular replacement.  
+    * [[Prepare template for MR]]: Setup script for molecular replacement protocols.  
+  - [[Relax]]: "Locally" optimize structures, including assigning sidechain positions.
+* [[Application Documentation]]: List of Rosetta applications
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Comparing structures]]: Essay on comparing structures
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files

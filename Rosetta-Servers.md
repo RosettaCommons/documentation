@@ -23,7 +23,7 @@ It also provides [[interface alanine scanning]] and [[DNA interface residue scan
 
 * The [Backrub Server](https://kortemmelab.ucsf.edu/backrub/cgi-bin/rosettaweb.py?query=index) provides [[backrub]] ensembles, as well as [[alanine scanning]].
 
-* The [FlexPepDock server](http://flexpepdock.furmanlab.cs.huji.ac.il/) provides [[FlexPepDock]]. 
+* The [FlexPepDock server](http://flexpepdock.furmanlab.cs.huji.ac.il/) provides [[flex-pep-dock]]. 
 
 * [RosettaDiagrams](http://www.rosettadiagrams.org/) provides a graphical interactive service to produce [[RosettaScripts]] XML files, with some ability to run the scripts as well.
 

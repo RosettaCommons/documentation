@@ -262,7 +262,7 @@ rather than a reducing environment (like the inside of the cell).
 
 This covalent attachment can greatly stabilize the folding of a protein. 
 
-#### docking
+#### docking <a name="docking" />
 
 Assembling two separate proteins (or protein-ligand,
 protein-surface) into their biologically relevant structure and finding
