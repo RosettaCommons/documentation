@@ -39,3 +39,14 @@ rosetta_source/src/python/apps/public/batch_molfile_to_params.py -d /path/to/ros
 ```
 
 A new directory called "params" will be created in the directory you executed the script from. This directory will have a subdirectory for each processed molfile, and this directory will contain the params file and associated ligand pdb file. In some cases molfile\_to\_params is unable to successfully create a params file. In this case, the script will continue, and the path to the failed mol file will be printed to stdout.
+
+##See Also
+
+* [[Making Rosetta robust against malformed PDBs|robust]]
+* [[Non-protein residues]]: Guide to using non-protein molecules with Rosetta
+* [[Residue Params file]]: File to specify chemical and geometric information for ligands and residues.
+* [[Preparing structures]]: Preparing typical protein structures for use in Rosetta
+* [[Preparing PDB files for non-peptide polymers]]
+* [[Preparing PDB files containing protein and RNA|RNA-protein-changes]]
+* [[Running Rosetta with options]]: Instructions for running Rosetta applications on the command line
+* [[File types list]]: File types used in Rosetta

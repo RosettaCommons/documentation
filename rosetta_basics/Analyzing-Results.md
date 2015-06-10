@@ -11,7 +11,7 @@ Not every sequence yields a folding funnel at all (granted, not every sequence y
 (Not to overwhelm with caveats, but _in theory_ you could imagine that conformational space might simply be fifty times larger than what you've actually sampled, and your observed funnel is merely a sub-funnel describing some portion of that space. So unsurprisingly, unless you have a true native structure, you can't tell how close you are.)
 But, much as in an MD simulation, you can observe the likelihood that you have not converged declining, and that's good enough.
 After all, you're just converging with respect to the scoring function you're using. By your millionth decoy of _ab initio_, the error in the scoring function is almost certainly much greater than imperfection in your sampling.
-(Doing fixed backbone design, you have almost certainly reach that point by decoy one hundred.)
+(Doing fixed backbone design, you have likely reached that point by decoy one hundred.)
 
 The point is that the very first thing you should do is make sure that you are making enough structures.
 As a work-around to help you accomplish more effective sampling with a certain number of structures, you can break your protocol into multiple phases.
@@ -22,12 +22,12 @@ If real-life constraints prevent you from generating 20,000-100,000 decoys, whic
 
 So, processing results can take many forms.
 Important highlights of this process include:
--	Clustering serves two purposes. 
-First, there is little point in performing a second stage of sampling using two near-identical structures generated from the first stage: it is a very inefficient way to traverse structure space.
-Second, there is valuable confirmation that a result is valid that can be obtained from clustering. A large cluster of a given energy is more likely to contain a global minimum than a much smaller cluster, even if the smaller cluster has a slightly better energy.
-This is because the global minimum is more likely to have more low-energy structures surrounding it, while false positives are likely flukes, structurally speaking.
-Moreover, most Rosetta scoring is still fairly coarse; for example, unless you're using the cart_bonded scoring term, bond lengths and angles are immutable.
-So it is very likely that the broad Rosetta scoring function minimum masks a deeper free energy minimum that you might find via another orthogonal sampling method.
+-	Clustering, which serves two purposes. 
+	-	First, there is little point in performing a second stage of sampling using two near-identical structures generated from the first stage: it is a very inefficient way to traverse structure space.
+	-	Second, there is valuable confirmation that a result is valid that can be obtained from clustering. A large cluster of a given energy is more likely to contain a global minimum than a much smaller cluster, even if the smaller cluster has a slightly better energy.
+		This is because the global minimum is more likely to have more low-energy structures surrounding it, while false positives are likely flukes, structurally speaking.
+		Moreover, most Rosetta scoring is still fairly coarse; for example, unless you're using the cart_bonded scoring term, bond lengths and angles are immutable.
+		So it is very likely that the broad Rosetta scoring function minimum masks a deeper free energy minimum that you might find via another orthogonal sampling method.
 -	Choosing the best cluster centroids (or, if you already have few, well distributed structures, the best models) by some metric.
 This metric generally ought to correspond to the _physical reality_ of the model.
 An overall scoring function is typically a good choice.
@@ -40,3 +40,16 @@ In cases like _ab initio_ folding, the two scoring functions are likely identica
 In cases like interface design, in contrast, you want to first select good models, but you might sort your "successful" models by their interface energy, because that better reflects your functional objective.
 Of course, better interface energies should correlate with better scores, but sometimes a good score is caused by better packing distant from the interface.
 Similarly, good interface energies coming from low-scoring structures may be entirely meaningless.
+
+##See Also
+
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
+* [[Comparing structures]]: Essay on comparing structures
+* [[Units in Rosetta]]: Gives descriptions of Rosetta Energy Units and other units of measurement.
+* [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files
+* [[Rosetta Servers]]: Web-based servers for Rosetta applications
+* [[Resources for learning biophysics and computational modeling]]
+
+

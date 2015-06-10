@@ -150,3 +150,12 @@ Mover <a name="mover" />
 
 The design of this object has been brainstormed by many Rosetta developers, with the aim of creating a prototype class for representing any type of operations on a Pose which will change its structure. The setup of this class allows it to be easily extended to create new composite types of moves from single-type moves. Each Mover will take in a Pose and has a "apply" method which will do some certain changes to the Pose. Examples of single-type moves are SmallMover/ShearMove will do perform classical Rosetta small/shear backbone moves, RigidBodyMover that will change a rigid-body (jump) DOF. MonteCarlo, Minimization and Packer can also be considered as special type of Movers. So combining them can create Movers that carry out tasks like SmallMinTrial or RigidBodyPackerTrial etc. A single Mover or a series of Movers can also be applied repeatedly in a number of cycles. Moreover, a Protocol itself can be deemed as a composite Mover which is essentially constructed by combining any single-type Mover objects.
 
+##See Also
+
+* [[Rosetta Basics]]: Rosetta basics homepage
+* [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
+* [[Glossary]]: Brief definitions of Rosetta terms.
+* [[Symmetry]]: Information about working with symmetry in Rosetta
+* [[Resources for learning biophysics and computational modeling]]
+* [[RosettaTimeline]]: History of Rosetta
+* [[Development Documentation]]: Page for people who want to write new code for Rosetta

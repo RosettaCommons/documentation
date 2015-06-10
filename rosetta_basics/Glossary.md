@@ -7,6 +7,8 @@ in the code, biophysics concepts, and adminstrivia. Many of these are terms of
 art in structural biology with the particular nuances that apply in
 Rosetta.
 
+See also a [[more in-depth discussion of some topics|RosettaEncyclopedia]].
+
 [[_TOC_]]
 
 General Terms
@@ -20,6 +22,8 @@ In Rosetta, _ab_ _initio_ modeling uses statistical information from the **PDB**
 **fragments** and **statistical potentials**.
 
 #### all-atom modeling
+
+See **fullatom**.
 
 #### alpha helix
 
@@ -60,6 +64,8 @@ See also **main chain**
 
 #### backbone accuracy
 
+#### backrub
+
 #### base
 
 The non-**backbone** portion of a nucleotide.
@@ -96,6 +102,8 @@ Docking where the structure of the docked complex is unknown.
 
 The complex structure that is used for reference in docking and rmsd calculations is determined experimentally by X-rays/NMR. 
 
+#### broker
+
 #### Cartesian coordinates
 
 Coordinates with spatial positions specified by xyz coordinates. Contrast this with **internal coordinates**.
@@ -120,7 +128,7 @@ A reduced representation mode, used for simplifying the representation of the sy
 to permit faster sampling and scoring.
 
 For proteins, each residue is represented by five **backbone atoms** 
-(N, Ca, C, O and the polar hydrogen on N) and one pseudo-atom, 
+(N, CA, C, O and the polar hydrogen on N) and one pseudo-atom, 
 the “centroid,” to represent the **side chain**.
 
 [Explain further how centroid is calculated.]
@@ -134,6 +142,8 @@ the “centroid,” to represent the **side chain**.
 In Rosetta, a chain is a single, covalently connected molecule.
 
 In the **PDB** format, a chain is all residues which share a chain identification label.
+
+#### chainbreak
 
 #### chi angles
 
@@ -218,6 +228,11 @@ replace to find the solutions.
 ref: Qian et. al. High-resolution structure prediction and the
 crystallographic phase problem. Nature 450, 259-264 (2007)
 
+#### database
+
+The Rosetta database directory contains key parameters for Rosetta. 
+Examples of stored information is force field, definition of monomers (see: **residue types**), representation of the model, fundamental constant parameters, etc. 
+
 #### ddG
 
 Also known as ΔΔG. The change in binding energy free energy (ΔG) upon a mutation. 
@@ -259,7 +274,7 @@ the lower free energy of the complex.
 
 #### electrostatic interactions
 
-#### energy landscape
+#### energy landscape <a name="general-terms_energy-landscape" />
 
 #### explicit water
 
@@ -279,6 +294,10 @@ A pass/fail check on structure quality during the middle of a run. Filters are a
 wasting computational time on **trajectories** which are unlikely to result in successful results.
 Relevant **metrics** are calculated and those structures with poor values are discarded. 
 
+#### flag file
+
+Also **options file**: a file that contains a set of flags (possibly with their respective parameters) to control the program or protocol. You can load it as an option when you start the program, instead of typing all options at the command line.
+
 #### flexible backbone design
 
 **Design** of a protein where the the **backbone** is allowd to move during design.
@@ -297,7 +316,11 @@ By changing the fold tree you can limit the propigation of these effects, keepin
 protein backbone fixed which would normally move. 
 
 See also **atom tree** and **kinematics**.
-  
+
+#### force field
+
+See **scorefunction**.
+
 #### fragment
 
 A section of a protein. Typical Rosetta usage is for 3- and 9-mer **backbone** fragments selected from **PDB** structures. 
@@ -305,6 +328,10 @@ A section of a protein. Typical Rosetta usage is for 3- and 9-mer **backbone** f
 #### fragment insertion
 
 Placing backbone **dihedrals** from a **fragment** into the structure. Used frequently for **loop modeling** and **ab initio**.  
+
+#### fragment picker
+
+A Rosetta application used to pick fragments. 
 
 #### fullatom
 
@@ -366,8 +393,7 @@ threading.
 
 #### idealization
 
-Rosetta normally works only with changing **dihedral** angles. The process of idealization
-is changing a structure to use ideal bond lengths and angles
+Rosetta normally works only with changing **dihedral** angles. The idealize application program loads the pdb file and replaces all bond lengths and plane angles with the values defined in Rosetta database. The result of this simulation is non-deterministic, so many runs may be attempted. 
 
 See also **Cartesian minimization** which works with non-ideal
 bond lengths and angles.  
@@ -381,7 +407,11 @@ bond lengths and angles.
 Storage of the positions of atom based on bond lengths, angles and dihedrals, rather than **Cartesian coordinates** 
 (xyz coordinates). The conversion between the two is kinematics.
 
+#### jd2
+
 #### jump
+
+#### KIC (Kinematic closure)
 
 #### kinematics
 
@@ -413,6 +443,12 @@ In Rosetta code a loop is anything between two fixed ends that you want to model
 
 #### minimization
 
+#### minirosetta
+
+The name of Rosetta3 project during initial development.
+
+Also, the name of a wrapper program which exposes multiple protocols, mainly used for Rosetta@Home.
+ 
 #### monomer
 
 #### Monomeric protein
@@ -429,6 +465,8 @@ changes.
 
 #### Monte Carlo minimization
 
+#### Mover
+
 #### mutation
 
 #### moiety
@@ -436,6 +474,10 @@ changes.
 #### native water
 
 #### neighbors
+
+#### NNMAKE
+
+An earlier version of the **fragment picker** application.
 
 #### Normal perturbation
 
@@ -451,9 +493,21 @@ changes.
 
 #### perturbation
 
+#### pilot apps
+
+Rosetta applications written by the community that have not been yet officially released. 
+
+#### pose
+
 #### protein
 
 #### protocol
+
+Workflow to do specific calculations in Rosetta; sometimes a protocol uses **movers**. 
+
+#### query
+
+#### quota
 
 #### radius of divergence
 
@@ -463,17 +517,19 @@ changes.
 
 #### refinement
 
-Starting from a
-low-resolution
-model, use the [full-atom energy
-function](https://wiki.rosettacommons.org/index.php/Glossary#full-atom_energy_function "Glossary")
-to modify the
-conformation
-so it is closer to an experimentally determined structure.
+Starting from a low-resolution model, use the **full-atom** **energy function**
+to modify the conformation so it is closer to an experimentally determined structure.
 
 #### relax
 
+#### repack
+
 #### representation
+
+How Rosetta sees a protein molecule. Rosetta supports two representation:
+
+1. **fullatom** - full atom representation, slow but accurate.
+2. **centroid** - a reduced representation. faster, but less precise.
 
 #### residue
 
@@ -491,6 +547,10 @@ coordinate data, but all Leu will have the same Leu ResidueType which
 contains information on what are the atoms, their names, chemical
 elements and connectivity. This setup also allows a sidechain Rotamer to
 be represented just as a Residue.
+
+#### residue types
+
+A set of atoms defined for each residue known to Rosetta. The set defines also bonds and local geometry. The data are stored in **database**). Each kind of residue normally has distinct ResidueType objects for each of the different Rosetta **representation**.
 
 #### resolution
 
@@ -517,10 +577,7 @@ values are to be expected calculating it in various places.]
 #### rotamer
 
 [Is this describing rotamers or the algorithm?] In the docking
-algorithm,
-side-chains
-are added to the protein
-backbones
+algorithm, side-chains are added to the protein backbones
 using the Dunbrack rotamer packing algorithm where the rotamers
 (side-chain conformations) are created from specific number of
 chi1,2,3,4 angles to the backbone structure. *Protein Sci (1997),
@@ -542,23 +599,25 @@ the optimal combination of rotamers (sidechains) is found using a simulated-anne
 
 #### scorefile
 
+A flat-text file produced by Rosetta applications that contain all energy component values. Each row provides values for a single pose (structure). An equivalent file is can be also made from a **silent file** by the following grep command: 
+
+    grep SCORE silentfile.out > scorefile.sc
+
+#### score cut
+
 #### scoring
 
-#### Scoring filter
+#### scoring filter
 
 #### scoring function
 
 #### secondary structure
 
-Secondary structures describe classes of local
-conformations
+Secondary structures describe classes of local conformations
 of a molecule (usually a nucleic acid or protein). The most basic
-formulation of protein secondary structure classes are [alpha
-helices](https://wiki.rosettacommons.org/index.php/Glossary#alpha_helix "Glossary"),
-[beta
-sheets](https://wiki.rosettacommons.org/index.php/Glossary#beta_sheet "Glossary"),
-and
-loops.
+formulation of protein secondary structure classes are **alpha helices**,
+**beta sheets**, and loops.
+
 In ab-initio projects, Rosetta uses secondary structure prediction
 programs to predict the secondary structure of the target protein. The
 predicted secondary structure is then used to select fragments from the
@@ -590,11 +649,22 @@ input in a \*.fasta file format.
 
 The 20 aminoacids contain an amino group (NH2), a carboxylic acid group (COOH), and any of various sideChains R, and have the basic formula NH2-CH-COOH(R) 
 
+#### silent file
+
+A flat-text file that stores poses (structures) computed with Rosetta along with the relevant scores (energies). By default, the file name is default.out but it may be changed with `-out::silent` flag.
+
+The file contains only internal degrees of freedom of a pose (Phi, Psi, omega and Chi angles). 
+**Cartesian coordinates** must be restored with extract_pdbs application. 
+
 #### simulated annealing
 
 #### solvent accessible surface area (SASA)
 
 Solvent Accessible Surface Area
+
+#### ss2
+
+File format used to store secondary structure information. Originally introduced by PsiPred program (by D. Jones) 
 
 #### structure
 
@@ -625,6 +695,11 @@ of the target protein sequence.
 #### unbound docking
 
 the crystal PDB structures of the 2 proteins are determined separately and then combined into one complex 
+
+#### Vall
+
+Pronounced "V-all". The Vall database is a condensed representation of the entire PDB for the purpose of fragment picking. The **fragment picker** filters the Vall database based on the sequence and secondary structure predictions (and other information) to pull out those backbone conformations which represent the desired fragments.
+
 
 Rosetta- or related software-specific concepts
 ----------------------------------------------
@@ -680,7 +755,7 @@ It provides detailed all-atom contact analysis of any steric problems within the
 nucleic acids, Davis et al., Nucleic Acids Res. 2007 July; 35(Web Server
 issue): W375–W383.*
 
-#### MoveMap
+#### MoveMap <a name="movemap" />
 
 Core::kinematics class which contains lists of mobile and immobile
 degrees of freedom.
@@ -806,3 +881,10 @@ The [tests](http://rosettatests.graylab.jhu.edu/revs) ensure that:
 -   the integration tests are correct
 -   and many other things
 
+##See Also
+
+* [[RosettaEncyclopedia]]: Detailed descriptions of Rosetta terms
+* [[Rosetta overview]]: Overview of major concepts in Rosetta
+* [[Resources for learning biophysics and computational modeling]]
+* [[RosettaTimeline]]: History of Rosetta
+* [[Units in Rosetta]]: Explains measurement units used in Rosetta

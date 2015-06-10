@@ -22,3 +22,11 @@ In coding details, the interfaces are as follows:
 -   Command objects should treat the input line as constant. They should increment the input line position as appropriate (++ once to account for the name itself, ++ again for each argument read and "used up").
 
 Of course, the resfile only exists to modify the PackerTask. You will also have to modify the PackerTask\_, or some child class, to include the set functions and data members you wish to modify.
+
+##See Also
+
+* [[Development tutorials home page|devel-tutorials]]
+* [[Development Documentation]]: The development documentation home page
+* [[Resfiles]]: Resfile syntax and conventions
+* [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
+
