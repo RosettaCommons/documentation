@@ -377,21 +377,45 @@ See [[RosettaScriptsPlacement]] for more information.
 
 **[[ContactMap|ContactMapMover]]** -
 
+## Ligand-centric Movers
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Ligand docking
 
-* [[General Movers | general-movers]]
+These movers replace the executable for ligand docking and provide greater flexibility to the user in customizing the docking protocol. An example XML file for ligand docking can be found in the demos directory under Rosetta/demos/protocol_capture/2015/rosettaligand_transform/. The movers below are listed in the order they generally occur in a ligand docking protocol.
 
-* [[Special Movers | special-movers]]
-* [[Loop Modeling Movers | loop-modeling-movers]]
-* These movers are at least somewhat specific to the design of protein-protein interfaces. Attempting to use them with, for example, protein-DNA complexes may result in unexpected behavior.
+**[[StartFrom|StartFromMover]]** -
 
-[[Protein Interface Modeling, Design, and Analysis Movers | protein-interface-design-movers]]
-* [[Ligand Centric Movers | ligand-centric-movers]]
-* [[DNA Interface Design Movers | dna-interface-design-movers]] 
+**[[Transform|TransformMover]]** -
 
-Currently Undocumented
-----------------------
-The following Movers are available through RosettaScripts, but are not currently documented. See the code (particularly the respective parse\_my\_tag() and apply() functions) for details. (Some may be undocumented as they are experimental/not fully functional.)
+**[[Translate|TranslateMover]]** -
 
-AddEncounterConstraintMover, BackboneSampler, BackrubSidechain, BluePrintBDR, CAcstGenerator, CCDLoopCloser, CartesianSampler, CircularPermutation, CloseFold, CompoundTranslate, ConformerSwitchMover, ConstraintFileCstGenerator, CoordinateCst, DefineMovableLoops, DesignProteinBackboneAroundDNA, DnaInterfaceMinMover, DnaInterfaceMultiStateDesign, DockSetupMover, DockingInitialPerturbation, EnzdesRemodelMover, ExtendedPoseMover, FavorNonNativeResidue, FlxbbDesign, FragmentLoopInserter, GenericSymmetricSampler, GridInitMover, GrowPeptides, HamiltonianExchange, HotspotHasher, Hybridize, InsertZincCoordinationRemarkLines, InterlockAroma, InverseRotamersCstGenerator, InvrotTreeCstGenerator, IterativeLoophashLoopInserter, JumpRotamerSidechain, LigandDesign, LoadVarSolDistSasaCalculatorMover, LoadZnCoordNumHbondCalculatorMover, LoopHash, LoopHashDiversifier, LoopMover\_Perturb\_CCD, LoopMover\_Perturb\_KIC, LoopMover\_Perturb\_QuickCCD, LoopMover\_Perturb\_QuickCCD\_Moves, LoopMover\_Refine\_Backrub, LoopMover\_Refine\_CCD, LoopMover\_Refine\_KIC, LoopMover\_SlidingWindow, LoopRefineInnerCycleContainer, LoopRelaxMover, LoophashLoopInserter, MatchResiduesMover, MatcherMover, MinimizeBackbone, ModifyVariantType, ModulatedMover, MotifDnaPacker, NtoCCstGenerator, PDBReload, ParallelTempering, PerturbChiSidechain, PerturbRotamerSidechain, PlaceSurfaceProbe, RandomConformers, RemodelLoop, RemoveCsts, RepackTrial, ResidueVicinityCstCreator, RigidBodyPerturbNoCenter, RotamerRecoveryMover, Rotates, SaneMinMover, ScoreMover, SeedFoldTree, SeedSetupMover, SeparateDnaFromNonDna, SetAACompositionPotential, SetChiMover, SetSecStructEnergies, SetupForDensityScoring, SetupHotspotConstraints, SetupHotspotConstraintsLoops, ShearMinCCDTrial, SheetCstGenerator, ShoveResidueMover, SimulatedTempering, SmallMinCCDTrial, StapleMover, StoreCombinedStoredTasksMover, SwapSegment, Symmetrizer, TempWeightedMetropolisHastings, ThermodynamicRigidBodyPerturbNoCenter, TrialCounterObserver, load\_unbound\_rot, profile
+**[[Rotate|RotateMover]]** -
+
+**[[SlideTogether|SlideTogetherMover]]** -
+
+**[[HighResDocker|HighResDockerMover]]** -
+
+**[[FinalMinimizer|FinalMinimizerMover]]** -
+
+**[[InterfaceScoreCalculator|InterfaceScoreCalculatorMover]]** -
+
+**[[ComputeLigandRDF|ComputeLigandRDFMover]]** -
+
+### Enzyme Design
+
+**[[EnzRepackMinimize|EnzRepackMinimizeMover]]** -
+
+**[[AddOrRemoveMatchCsts|AddOrRemoveMatchCstsMover]]** -
+
+**[[PredesignPerturbMover]]** -
+
+### Ligand design
+
+**[[GrowLigand|GrowLigandMover]]** -
+
+**[[AddHydrogens|AddHydrogensMover]]** -
+
+## DNA Interface Design Movers
+
+**[[DnaInterfacePacker|DnaInterfacePackerMover]]** -
+
