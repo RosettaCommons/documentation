@@ -755,7 +755,7 @@ It provides detailed all-atom contact analysis of any steric problems within the
 nucleic acids, Davis et al., Nucleic Acids Res. 2007 July; 35(Web Server
 issue): W375–W383.*
 
-#### MoveMap
+#### MoveMap <a name="movemap" />
 
 Core::kinematics class which contains lists of mobile and immobile
 degrees of freedom.

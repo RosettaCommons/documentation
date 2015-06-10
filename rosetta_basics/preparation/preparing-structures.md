@@ -1,5 +1,7 @@
 #How to prepare structures for use in Rosetta
 
+*This page describes the standard procedure for preparing protein structures for Rosetta. To prepare ligands for use with Rosetta, see the [[preparing ligands]] page. To prepare non-peptide polymers, see the [[preparing PDB files for non-peptide polymers]] page.  For PDB files containing both proteins and RNA, see the [[RNA-protein changes]] page.
+
 Author:
 * Relaxation with all-heavy-atom constraints by Lucas Nivon and Rocco Moretti.
 * Clean PDB section by Jeliazko Jeliazkov.
@@ -282,5 +284,11 @@ Are structures clustered (if so, give a command line)?
 Is it obvious when either the application has succeeded or if it has failed (e.g. if the protocol makes predictions like "This is the docked conformation of proteins A and B"). 
 In the case of designs, how should designs be selected?
 
-# See Also
+## See Also
+
 * [[Making Rosetta robust against malformed PDBs|robust]]
+* [[Preparing ligands]]: Preparing ligands for use in Rosetta
+* [[Preparing PDB files for non-peptide polymers]]
+* [[Preparing PDB files containing protein and RNA|RNA-protein-changes]]
+* [[Running Rosetta with options]]: Instructions for running Rosetta applications on the command line
+* [[File types list]]: File types used in Rosetta
