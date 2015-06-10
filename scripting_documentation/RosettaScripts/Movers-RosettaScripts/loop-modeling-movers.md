@@ -1,4 +1,5 @@
 # Loop Modeling
+## Loop Modeling
 
 The goal of loop modeling is to predict the conformation of a relatively short 
 stretch of protein backbone and sidechain.  As one example, it's not uncommon 

@@ -1,4 +1,5 @@
 # MetricRecorder
+## MetricRecorder
 
 Record numeric metrics to a tab-delimited text file. Only record metrics every n times using stride. Append ".gz" to filename to use compression.
 

@@ -1,4 +1,5 @@
 # SilentTrajectoryRecorder
+## SilentTrajectoryRecorder
 
 Record a trajectory of snapshots as silent-file.
 

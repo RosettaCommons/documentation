@@ -1,4 +1,5 @@
 # ParsedProtocol (formerly DockDesign)
+## ParsedProtocol (formerly DockDesign)
 
 This is a special mover that allows making a single compound mover and filter vector (just like protocols). The optional option mode changes the order of operations within the protocol, as defined by the option. If undefined, mode defaults to the historical functionality, which is operation of the Mover/Filter pairs in the defined order.
 

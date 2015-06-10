@@ -1,5 +1,7 @@
 # AddJobPairData
 
+## AddJobPairData
+
 Add an arbitrary piece of data to the current Job, which will be output in the silent file, database, etc. This is useful for adding metadata to keep track of data generated using multiple experimental conditions.
 
 The data appended to the Job consists of a key and a value. The key is a string, and the value can be either a real or string. The mover is used like this:

@@ -1,4 +1,5 @@
 # GenericMonteCarlo
+## GenericMonteCarlo
 
 Allows sampling structures by MonteCarlo with a mover. The score evaluation of pose during MC are done by Filters that can do report\_sm(), not only ScoreFunctions.
  You can choose either format:

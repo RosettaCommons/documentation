@@ -1,4 +1,5 @@
 # WriteLigandMolFile
+## WriteLigandMolFile
 
 ```
 <WriteLigandMolFile name=(&string) chain=(&string) directory=(&string) prefix=(&string)/>

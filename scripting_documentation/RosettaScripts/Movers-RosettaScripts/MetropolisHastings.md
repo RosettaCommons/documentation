@@ -1,4 +1,5 @@
 # MetropolisHastings
+## MetropolisHastings
 
 This mover performs [[Metropolis-Hastings Monte Carlo simulations|MetropolisHastingsMover]] , which can be used to estimate the thermodynamic distribution of conformational states for a given score function, temperature, and set of underlying movers. See the dedicated [[MetropolisHastings Documentation|MetropolisHastings-Documentation]] page for more information.
 

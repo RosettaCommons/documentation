@@ -1,4 +1,5 @@
 # IteratedConvergence
+## IteratedConvergence
 
 Repeatedly applies a sub-mover until the given filter returns a value within the given delta for the given number of cycles
 
