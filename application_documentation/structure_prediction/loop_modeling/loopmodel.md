@@ -58,7 +58,7 @@ Common input files include:
 Command Line Options
 ====================
 
-Depending on the specific loop algorithm you choose ([[CCD|application_documentation/loopmodel-ccd]]/[[KIC|/application_documentation/loopmodel-kinematic]]/[[next generation KIC|application_documentation/next-generation-KIC]]/[[KIC with fragments|application_documentation/KIC_with_fragments]]), different sets of flags apply. 
+Depending on the specific loop algorithm you choose ([[CCD|loopmodel-ccd]]/[[KIC|loopmodel-kinematic]]/[[next generation KIC|next-generation-KIC]]/[[KIC with fragments|KIC_with_fragments]]), different sets of flags apply. 
 Please check the documentation for the respective algorithm for details. 
 
 For a full list of all available loop modeling flags, please check the [[full options list|full-options-list]]
