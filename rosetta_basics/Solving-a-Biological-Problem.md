@@ -184,7 +184,7 @@ The fastest, but least accurate method is cyclic coordinate descent ([[CCD|loopm
 CCD closes a loop by iteratively solving for phi/psi angles which position the mobile terminus closer to the target anchor after fragment insertion.
 CCD is generally not recommended but can be used in specific cases (e.g. when time is a limiting factor).
 The currently (June 10th, 2015) accepted method of loop modeling is next-generation KIC ([[NGK|next-generation-KIC]]).
-NGK sampling can be enhanced/concerted with fragments ([[KIC with fragments|KIC_with_fragments]]).
+KIC sampling can be enhanced/concerted with fragments ([[KIC with fragments|KIC_with_fragments]]).
 There also exists an alternative, Monte Carlo stepwise, loop modeling method which can be applied to proteins and **RNA**.
 Unfortunately, stepwise loop modeling (for [[proteins|swa-protein-main]] and [[RNA|stepwise]]) tends to be slow.
 
