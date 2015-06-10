@@ -35,6 +35,8 @@ The purpose of the tests in this fashion is to ensure that there are not *unexpe
 
 You can also get into the habit of [[test-driven development|https://en.wikipedia.org/wiki/Test-driven_development]] as [[described below|#using-integration-tests-as-a-development-tool]]. 
 
+TODO fix this link
+
 Running integration tests
 ==========================
 Unfortunately, the integration tests uniquely require you to run them on code **without** the changes you intend to verify.
