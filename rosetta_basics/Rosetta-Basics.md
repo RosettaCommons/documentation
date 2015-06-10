@@ -16,6 +16,7 @@
     * [[PyRosetta]]
     * [[Topology Broker|BrokeredEnvironment]]
 - [[Analyzing Results]]
+
 ####[[Fundamental Rosetta Concepts|Rosetta-overview]]
 
 - [[Brief history of Rosetta|RosettaTimeline]]
@@ -31,8 +32,13 @@
     *  [[MM Std Scorefunction | NC-scorefunction-info#MM-Standard-Scorefunction]]
     *  [[Orbitals Scorefunction | NC-scorefunction-info#Partial-Covalent-Interactions-Energy-Function-(Orbitals)]]
     *  [[Additional score types | score-types-additional]]
+
 - [[Symmetry]]
+
 - [[Minimization | Minimization Overview]] - Backbone and/or side chain degrees of freedom
+
+- [[Comparing Structures]]
+
 - Advanced Topics
     * [Rosetta3 Architecture](http://www.ncbi.nlm.nih.gov/pubmed/21187238)
     * [[Foldtree Overview]]
