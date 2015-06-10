@@ -564,6 +564,9 @@ atoms or bonds and angles are frozen for the backbone.
 
 #### rigid-body orientation
 
+#### Rohl review
+This term refers to Rohl et. al., 2004, [Protein structure prediction using Rosetta.](http://www.ncbi.nlm.nih.gov/pubmed/15063647), the earliest review paper of Rosetta.  See its entry in the [[Rosetta Canon]].
+
 #### root mean square deviation (RMSD)
 
 [It's not enough to just explain how RMSD is calculated: it's also
