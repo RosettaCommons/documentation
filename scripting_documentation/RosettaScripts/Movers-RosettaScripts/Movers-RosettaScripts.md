@@ -174,6 +174,8 @@ These are movers that should be usable in most cases with most systems.
 
 ### Symmetry
 
+See [[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScripts.
+
 **[[SetupForSymmetry]]** - 
 
 **[[DetectSymmetry]]** - 
@@ -186,19 +188,15 @@ These are movers that should be usable in most cases with most systems.
 
 **[[ExtractAsymmetricPose]]** - 
 
-**[[SymPackRotamersMover and SymRotamerTrialsMover]]** - 
+**[[SymPackRotamersMover]]** and SymRotamerTrialsMover - 
 
 **[[SymMinMover]]** - 
 
-**[[Example: Symmetric FastRelax]]** - 
-
 **[[TaskAwareSymMinMover]]** - 
-
-**[[Issues with Symmetry and Rosetta Scripts]]** - 
 
 ### Kinematic Closure Movers
 
-**[[Generalized Kinematic Closure (GeneralizedKIC)|GeneralizedKIC]] - 
+**[[Generalized Kinematic Closure (GeneralizedKIC)|GeneralizedKIC]]** - 
 
 ### Parametric Backbone Generation
 
@@ -264,7 +262,7 @@ These are movers that should be usable in most cases with most systems.
 
 **[[RollMover]]** - 
 
-**[[RemodelMover]** (including building disulfides) - 
+**[[RemodelMover]]** (including building disulfides) - 
 
 **[[SetupNCS]]** - 
 
