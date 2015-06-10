@@ -15,7 +15,7 @@ Generally, a user will [[choose some specific protocol within Rosetta|Solving-a-
 <img src="/uploads/coldStart.png" usemap="#GraffleExport" alt="missing image">
 
 <map name="GraffleExport">
-	<area shape="rect" coords="330,305,421,376" href="##do-i-have-what-i-need">
+	<area shape="rect" coords="330,305,421,376" href="#test">
 	<area shape="rect" coords="226,305,317,376" href="#do-i-have-what-i-need">
 	<area shape="rect" coords="122,305,213,376" href="##Use-of-Public-Rosetta-Servers">
 	<area shape="rect" coords="377,166,532,253" href="Getting-Started/##Use of Public Rosetta Servers">
@@ -25,7 +25,7 @@ Generally, a user will [[choose some specific protocol within Rosetta|Solving-a-
 
 [[_TOC_]]
 
-##Do I have what I need?
+Do I have what I need?
 -----------------
 Doing macromolecular modeling well—doing good science—requires careful consideration of your inputs, how the modeling is performed, and analysis of your outputs.
 Rosetta itself can be operated as a ["black box"](https://en.wikipedia.org/wiki/Black_box), but you are doing yourself and your science a disservice if you use it that way.
@@ -50,7 +50,9 @@ There are applications than can run on lab-scale powerful computers (12-30 core 
 Most applications assume you have access to tens of thousands of hours of computer time to accumulate enough results to answer your question.
 The later sections of this document describe installing or using Rosetta at those different scales.
 
-##Use of Public Rosetta Servers
+<a name="test"></a> 
+
+Use of Public Rosetta Servers
 -----------------------------
 
 All of Rosetta's public servers are licensed for **NON-COMMERCIAL USE ONLY**.
@@ -106,7 +108,7 @@ Unfortunately, we are not currently able to support Rosetta on Windows.
 There are few free, easy-to-use C++ compilers available for Windows, and they use slightly different C++ standards.
 [[Dual booting|http://en.wikipedia.org/wiki/Multi-booting#Windows_and_Linux]] is an option, but we cannot setting them up (we can help you with Rosetta on your Linux partition).
 
-###Use on supercomputer clusters
+##Use on supercomputer clusters
 If you'll be running Rosetta on a scientific computation cluster, there may already be a version of Rosetta installed for general usage.
 Talk to your cluster administrator to see if there is a centrally-provided version available for your use.
 
