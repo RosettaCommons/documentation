@@ -49,23 +49,32 @@ The results from the runs of Rosetta with your changes are called the `new` data
 
 Generating the `ref` from an separate copy of Rosetta
 -----------------------------------------------------
-If you have a clean, unmodified copy of 
+If you have two copies of Rosetta on your hard drive, you can generate the `ref` in one that's checked out to `master`.
+
+1. Make sure `master` is up to date. You could choose to compare to any revision, especially for tracking down bugs, but for most purposes, comparing to the most recent master is correct.
+    `cd /path/to/Rosetta/main/source && git checkout master && git pull  `
+2. Compile in **full application release** mode - obviously this blows away any old compile
+    `  ./scons.py -j<number_of_processors_to_use> mode=release bin  `
+3. Change to the testing directory.
+    `  cd ../tests/integration  `
+4. Make sure there are no integration test results already (delete the `new` and `ref` from any previous run).
+    `  rm -r new/ ref/  `
+5. Run the test.
+    `  ./integration.py -j<number_of_processors_to_use>  `
+6. You should see this for a successful run:
+```
+Just generated 'ref' results [renamed 'new' to 'ref'];  run again after making changes.
+```
+
+##If `integration.py` failed to run tests
+If most/all of the tests failed, you may have something misconfigured.
+The most likely problem is that your compilation failed in step 2 above.
+If you compiled with clang, pass `-c clang` to inform `integration.py` to look for your clang executables. 
+`integration.py` also accepts --mode and --extras flags analogous to [[scons]] when building, to help it look for the right executables.
+`integration.py --help` prints a useful help list, and there is a `README` in its directory that can help as well.
+If all else fails, ask the mailing list.
 
 
-### Integration tests
-
-Running `     integration.py    ` for the first time will generate a folder called `     ref    ` in `     rosetta/rosetta_tests/integration    ` . Whenever you make a change, run the integration test and compare your new test output (located in the `     new    ` folder) with that in the `     ref    ` folder.
-
-Run the test as follows:
-
-1.  Compile in *full application release* mode, as shown above.
-    `        ./scons.py -j<number_of_processors_to_use> mode=release bin       `
-2.  Change directories.
-    `        cd ../tests/integration       `
-3.  Run the test.
-    `        ./integration.py -j<number_of_processors_to_use> -d ../../database -c <optional_compiler_specification>       `
-
-(To generate a fresh `     ref    ` folder, simply delete it and re-run the integration test to generate a new `     ref    ` folder. When you are running the test for the first time, some of the database binaries get made. But this process is not required for the subsequent runs, so regenerating the `     ref    ` folder will fix this problem.)
 
 To compare the two directories, type: `     diff -r new ref    `
 
@@ -79,6 +88,8 @@ To run one test:
 
 Generating the `ref` from the same copy of Rosetta
 --------------------------------------------------
+If you only have one copy of Rosetta installed, you are in the unfortunate position of needing two sets of binaries from one 
+
 
 Generating the `new` and getting the test results
 -------------------------------------------------
@@ -91,6 +102,10 @@ Expected breaks
 
 Unexpected changes
 ------------------
+
+Trivial changes
+-----------------
+(Errors with making database files)
 
 Writing integration tests
 =========================
