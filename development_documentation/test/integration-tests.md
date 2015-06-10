@@ -9,7 +9,7 @@ What integration tests do and not do
 The integration tests are "black box tests" that examine the results of big chunks of code.
 
 Generally, an integration test:
-* runs one executaable with a reasonable set of inputs and flags
+* runs one executable with a reasonable set of inputs and flags
 * finishes within 30 seconds
 * runs to completion without an error message 
 * ensures that code has not changed accidentally from one revision to the next
@@ -69,7 +69,7 @@ If you have two copies of Rosetta on your hard drive, you can generate the `ref`
 Just generated 'ref' results [renamed 'new' to 'ref'];  run again after making changes.
 ```
 
-##If `integration.py` failed to run tests
+###If `integration.py` failed to run tests
 If most/all of the tests failed, you may have something misconfigured.
 The most likely problem is that your compilation failed in step 2 above.
 If you compiled with clang, pass `-c clang` to inform `integration.py` to look for your clang executables. 
