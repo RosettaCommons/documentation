@@ -13,16 +13,17 @@ For a pull request, it will not use a single commit, but merge between the base 
 
 ![submitting a SHA1 and testing](uploads/running_tests_on_server_1.jpg)
 
-After you select tests that you want to run, you can click 'Run tests for this commits' to schedule selected tests. 
+After you select tests that you want to run, you can click `Run tests for this commits` to schedule selected tests. 
 When choosing tests please avoid running ones that you don't really need. 
-And especially be careful when using 'select all' button since some tests could take considerable time to run. 
-When debugging a particular test it is probably a good idea to run just this particular test intend of whole set which will reduce load on server and reduce server turnaround time. 
-Also, for your convenience there is green button 'select standard tests' that will select standard test set that we schedule for each new revision of the master branch.
+Be careful when using 'select all' button since some tests could take considerable time to run. 
+When debugging a particular test it is probably a good idea to run just this particular test instead of a whole set which will reduce server load and turnaround time. 
+For your convenience there is green button 'select standard tests' that will run the same tests run on merges to master.
 
-After scheduling tests Testing server will take you to revision page on which results will appear. 
-Additionally it will send you commit acknowledgment email containing link to result page and when testing complete will notify you of the results. 
+After scheduling tests, the testing server will take you to a revision page on which results will appear. 
+Additionally it will send you a commit acknowledgment email containing a link to the result page.
+When testing complete is complete, another email will notify you of the results. 
 
-Regression tests such as integration or score tests scheduled that way will have their results compared to latest successful run of the same test from master branch. 
+Regression tests such as [[integration|integration tests]] or [[score tests]] scheduled this way will have their results compared to latest successful run of the same test from master branch. 
 This effectively allows you to get an idea of what tests will change when you merge this commit to the master branch.
 
 
