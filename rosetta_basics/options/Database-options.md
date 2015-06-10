@@ -52,3 +52,5 @@ Output
 * [[Rosetta Database Output Tutorial]]
 * [[SQLite3 Interface]]: Specific information on using SQLite3 with Rosetta
 * [[Database support]]: Advanced details on Rosetta's interface with databases
+* [[RosettaScripts database connection options]]
+* [[The Rosetta database|database]]: Information about the main database included with Rosetta and specified by the -in:path:database flag (separate topic)

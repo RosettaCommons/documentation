@@ -278,6 +278,7 @@ Heuristics for determining the precise meaning of "blowing up" are case-dependen
 
 ##See Also
 
+* [[I want to do x]]: Guides to specific types of structural pertubations using RosettaScripts
 * [[Resources for learning biophysics and computational modeling]]
 * [[Getting Started]]: A page for people new to Rosetta
 * [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
