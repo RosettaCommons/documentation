@@ -272,9 +272,88 @@ See **[[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaSc
 
 **[[VirtualRoot|VirtualRootMover]]** - 
 
+## Computational 'affinity maturation' movers
+
+**[[RandomMutation|RandomMutationMover]] -
+
+**[[GreedyOptMutationMover]] -
+
+## Protein Interface Modeling, Design, and Analysis Movers
+
+These movers are at least somewhat specific to the design of protein-protein interfaces. Attempting to use them with, for example, protein-DNA complexes may result in unexpected behavior.
+
+**[[PatchdockTransform|PatchdockTransformMover]] -
+
+**[[ProteinInterfaceMS|ProteinInterfaceMSMover]] -
+
+**[[InterfaceAnalyzerMover]] -
+
+**[[Docking|DockingMover]] -
+
+**[[Docking with Hotspot|Docking with HotspotMover]] -
+
+**[[Prepack|PrepackMover]] -
+
+**[[RepackMinimize|RepackMinimizeMover]] -
+
+**[[DesignMinimizeHBonds|DesignMinimizeHBondsMover]] -
+
+**[[build\_Ala\_pose|BuildAlaPoseMover]] -
+
+**[[SaveAndRetrieveSidechains|SaveAndRetrieveSidechainsMover]] -
+
+**[[AtomTree|AtomTreeMover]] -
+
+**[[SpinMover]] -
+
+**[[TryRotamers|TryRotamersMover]] -
+
+**[[BackrubDD|BackrubDDMover]] -
+
+**[[BestHotspotCst|BestHotspotCstMover]] -
+
+**[[DomainAssembly|DomainAssemblyMover]] (Not tested thoroughly) -
+
+**[[LoopFinder|LoopFinderMover]] -
+
+**[[LoopRemodel|LoopRemodelMover]] -
+
+**[[LoopMoverFromCommandLine|LoopMoverFromCommandLineMover]] -
+
+**[[DisulfideMover]] -
+
+**[[InterfaceRecapitulation|InterfaceRecapitulationMover]] -
+
+**[[VLB|VLBMover]] (aka Variable Length Build) -
+
+**[[HotspotDisjointedFoldTree|HotspotDisjointedFoldTreeMover]] -
+
+**[[AddSidechainConstraintsToHotspots|AddSidechainConstraintsToHotspotsMover]] -
 
 
+### Placement and Placement-associated Movers & Filters
 
+See [[RosettaScriptsPlacement]] for more information.
+
+**[[Auction|AuctionMover]] -
+
+**[[MapHotspot|MapHotspotMover]] -
+
+**[[PlacementMinimization|PlacementMinimizationMover]] -
+
+**[[PlaceOnLoop|PlaceOnLoopMover]] -
+
+**[[PlaceStub|PlaceStubMover]] -
+
+**[[PlaceSimultaneously|PlaceSimultaneouslyMover]] -
+
+**[[RestrictRegion|RestrictRegionMover]] -
+
+**[[StubScore|StubScoreMover]] -
+
+**[[ddG|ddGMover]] -
+
+**[[ContactMap|ContactMapMover]] -
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
