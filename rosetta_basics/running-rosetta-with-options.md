@@ -138,6 +138,12 @@ Option "nstruct" is a Integer type option, you can use it as
 -nstruct 10
 ```
 
+Option "backrub:pivot_residues" is a IntegerVector type option, so
+
+```
+-backrub:pivot_residues 10 11 12 13
+```
+
 Getting help with options
 =========================
 
