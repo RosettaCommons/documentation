@@ -152,8 +152,10 @@ The design of this object has been brainstormed by many Rosetta developers, with
 
 ##See Also
 
+* [[Rosetta Basics]]: Rosetta basics homepage
 * [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
 * [[Glossary]]: Brief definitions of Rosetta terms.
+* [[Symmetry]]: Information about working with symmetry in Rosetta
 * [[Resources for learning biophysics and computational modeling]]
 * [[RosettaTimeline]]: History of Rosetta
 * [[Development Documentation]]: Page for people who want to write new code for Rosetta
