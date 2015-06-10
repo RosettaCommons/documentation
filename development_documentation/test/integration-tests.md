@@ -39,6 +39,8 @@ TODO fix this link
 
 Running tests on the server
 ===========================
+Sergey did an awesome thing with pictures!
+
 
 Running integration tests
 ==========================
