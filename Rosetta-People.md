@@ -1,6 +1,7 @@
 This page is the "Rosetta Glory", by analogy to the Rosetta [[Glossary]]: a list of important folks in the Rosetta community.  This page is intentionally kept clear of pictures and contact info for privacy reasons - you will be able to find these people on the rosetta-devel [[email list|https://wiki.rosettacommons.org/index.php/Mailing_Lists]] if necessary.
 
 A comprehensive list of RosettaCommons PIs can be found [[here|https://www.rosettacommons.org/about]].
+The PIs are not otherwise documented on this page.
 
 ####Andrew Leaver-Fay
 Andrew is the benevolent dictator of the Rosetta codebase.
