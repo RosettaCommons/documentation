@@ -1,68 +1,74 @@
-<!-- --- title: Platforms -->Platforms Information
+Supported Platforms
+===================
 
-**This information is VERY out of date. It needs to be updated for the current state of Rosetta compiling.**
+Rosetta should be able to be able to be built on most modern Linux and Mac systems.
+Development of Rosetta happens by a number of different people on a wide variety of systems,
+therefore, many of the up-to-date configurations have been tested by developers.
+We are aware that user's ability to update compilers on clusters is limited, and therefore
+endevor to keep Rosetta compatible with most systems in common use.
 
-Rosetta can be built and run on a number of platforms, described below. The level of support varies however.
+At this point we do not have a list of officially supported platforms. 
+Instead, below are listed some of the configurations used by the Rosetta developer community.
+Omission from this list is not a statement that Rosetta will not run on that platform,
+merely that it is a configuration that is not actively tested. 
 
--   Full support means we have tested Rosetta on the platform both programmatically and scientifically and have the expertise to handle questions about it.
--   Partial support means we have built and run Rosetta on the given platform. We have not done extensive testing of the scientific results, so your mileage may vary. We will try to answer questions, and walk you through particular builds.
--   No support. We have not been able to try the combination. It may work or it may not. If you run into trouble we will answer whatever we can, but be aware that we may not be able to help. If you can get it to work, please tell us.
--   Doesn't work. We know or believe that you can't run Rosetta on the platform. If you successfully run it, let us know.
+Testing server configuration
+------------------------------
 
-Fully Support Platforms
-=======================
+The following is the configuration of the internal testing servers.
+All released have been validated to run on these systems.
 
--   Darwin Kernel Version 9.6.0: root:xnu-1228.9.59\~1/RELEASE\_I386 i386
+(As of May 2015)
 
-    ```
-    Scons script: v1.2.0.r3842
-    gcc-4.0.1
-    ```
+- CentOS 7.0 and 7.1
+  - clang 3.4
+  - gcc 4.8
 
--   Darwin Kernel Version 9.5.2: root:xnu-1228.8.59\~2/RELEASE\_I386 i386
+- Ubuntu 12.04 "Precise Pangolin"
+  - gcc 4.6
 
-    ```
-    Scons script: v1.0.1.r3363
-    gcc-4.0.1 (GCC) 4.0.1
-    ```
+- MacOS 10.9.5 "Mavericks" (Darwin 13.4)
+  - clang 6.0 (LLVM version 3.5)
 
--   Linux 2.6.27-9-generic \#1 SMP x86\_64 GNU/Linux
 
-    ```
-    Scons script: v0.98.5.r3057
-    gcc (GCC) 4.1.1, gcc (GCC) 4.2.4, gcc (GCC) 4.3.2
-    Note: GCC with Ubuntu 4.3.2-1ubuntu12 and any version after it does not work
-    ```
+Developer machine configurations
+--------------------------------
 
--   Linux 2.6.10-1.741\_FC3smp \#1 SMP i686 athlon i386 GNU/Linux
+The following systems are used by the Rosetta development community,  
+either during the development of Rosetta or for cluster runs.
 
-    ```
-    Scons scripts v0.98.5.r3057
-    gcc-4.1.1, gcc-3.4.4
-    ```
+(As of May 2015)
 
--   Linux 2.6.9-78.0.8.ELsmp \#1 SMP Wed i686 i686 i386 GNU/Linux
+- MacOS X.9 ("Mavericks") & X.10 ("Yosemite")
+    - clang 4.1 (llvm 3.1), 6.1(llvm 3.6) 
 
-    ```
-    Scons scripts v1.2.0.r3842
-    gcc (GCC) 3.4.6 20060404 (Red Hat 3.4.6-10)
-    ```
+- CentOS 4.5 to 7.0
+    - gcc 4.4 to 4.8
+    - clang 3.3 to 3.4
+    - icc 10 to 14
 
-The following platforms have partial support:
-=============================================
+- Redhat Enterprise Linux 6.4
+    - gcc 4.7
+    - icc 11 to 15
 
--   Fedora Core Linux v3 or greater, x86, 32-bit, GCC 4.0 (\*)(\*\*)
--   RedHat Enterprise Linux v3 or greater, x86, 32-bit, Intel C++ 9.1 (\*)
--   RedHat Enterprise Linux v3 or greater, x86, 32-bit, GCC 4.0(\*\*)
--   MinGW on Microsoft Windows XP, 32-bit, GCC 3.4
+- Scientific Linux 
+    - gcc 4.4
+    - clang 3.4
 
-Note: (\*) These should work because of the similarity between Fedora Core and RedHat Enterprise Linux but were not explicitly tested. (\*\*)For GCC version 4.0 and above, we recommend the latest versions of the 4.0 and 4.1. However, we do not have full support.
+- Ubuntu 12.04, 14.04, and 15.04
+    - gcc 4.4 to 4.9
+    - clang 3.0 to 3.6
 
-The following platforms have no support and was not tested. They might work or not but we do not know.
-======================================================================================================
+- Debian
+    - gcc 4.7 to 4.9
+    - clang 3.5  
 
--   Fedora Core Linux on IA64 (Itanium), any compiler (\*\*)
--   RedHat Enterprise Linux on IA64 (Itanium), any compiler (\*\*)
--   Mac OS X 10.4 on x86, 64-bit, GCC 4.0 Any other platform, including but not limited to: Solaris, Irix, Debian Linux, Ubuntu Linux.
+Known unsupported configurations
+--------------------------------
 
-Note: (\*\*) We expect to be able to support Itanium in future releases but we simply haven't been able to test it.
+The following systems are known not to work with Rosetta,
+and are unlikely to be made to do so in the forseeable future.
+
+- Windows
+    - Compilation of Rosetta on all versions of Windows is unsupported.
+

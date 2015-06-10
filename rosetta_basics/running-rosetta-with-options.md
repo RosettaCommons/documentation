@@ -74,7 +74,7 @@ If this file were called “flags”, then it would be used like this (notice th
 
 Note that other options can still be set before or after the flags file is specified, and MULTIPLE flag files can be used - for example <code> @ flags1 @ flags2 @ flags3 </code>.  This will essentially combine flags1 through three - each time overiding any options set in the previous flags.  For setting multiple flag files through a _batch_ run, see the <code> -run:batches </code> option described in the run options.
 
-Running Rosetta via MPI
+Running Rosetta via MPI <a name="mpi" />
 ========================
 In order to run Rosetta on a computational cluster or locally on many cores, most Rosetta protocols support parallel execution via MPI. If the Rosetta MPI executables were compiled, then in the executable directory there will be an extra set of executables specifically for MPI, for example <code>fixbb.mpi.linuxgccrelease </code>.  If these have not yet been compiled, please refer to the [[Setting Up Rosetta 3| Build-Documentation#MPI]] page for more information. To run these executables, simply run them via mpiexec (or mpirun for older mpi implementations): 
 
@@ -169,3 +169,5 @@ General tips for running Rosetta
 <br>
 <br>
 * By default, Rosetta will fail to load a PDB with waters.  This is intentional, as most of the Rosetta applications do not deal with water molecules well and the default scorefunction uses implicit solvation. To have Rosetta read the common WAT type, pass the option <code>-ignore_waters false</code>
+
+* For a general guide on making Rosetta robust against malformed input PDBs, see [[this page|robust]].
