@@ -1,7 +1,5 @@
 * [[Home|Home]]
 * [[Build Documentation|build_documentation/Build-Documentation]]
- * [[Additional build information|build]]
- * [[Setting up Minirosetta|Setting-up-Rosetta-3]]
  * [[Running Rosetta on TACC|TACC]]
  * [[Supported platforms|platforms]]
 * [[Rosetta Basics|rosetta_basics/Rosetta-Basics]]
