@@ -39,8 +39,7 @@ TODO fix this link
 
 Running tests on the server
 ===========================
-Sergey did an awesome thing with pictures!
-
+The [[testing server]] can run the integration tests for you! This is fantastic if you are developing on a computer with limited resources, or don't have time and want a computer to do things for you. See [[this page|Running-Tests-on-the-Test-Server]] for details.
 
 Running integration tests
 ==========================
@@ -155,8 +154,15 @@ Ignore these.
 Another set of unimportant changes are if you get messages about writing database binaries.
 These occur the first time Rosetta is run (like if you got a new copy for separate `ref` generation).
 
+Running MPI integration tests
+=============================
+
+
+
 Writing integration tests
 =========================
+
+
 
 Using integration tests as a development tool
 =============================================
