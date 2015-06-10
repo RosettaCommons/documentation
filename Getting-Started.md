@@ -1,6 +1,8 @@
 Getting started
 ===========
 
+[[test|#test]]
+
 This page is written for an audience of scientists new to Rosetta: perhaps a first year graduate student, or young postdoc, who has received/started a project that needs "some computer modeling". 
 In other words, an individual coming to Rosetta from a cold start.
 Is Rosetta a good tool for the modeling you need to do? If so, how do you go about getting and using Rosetta?
