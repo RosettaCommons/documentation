@@ -37,6 +37,9 @@ You can also get into the habit of [[test-driven development|https://en.wikipedi
 
 TODO fix this link
 
+Running tests on the server
+===========================
+
 Running integration tests
 ==========================
 Unfortunately, the integration tests uniquely require you to run them on code **without** the changes you intend to verify.
@@ -45,7 +48,7 @@ Astute readers have realized this means you either need two parallel compiled co
 The results from the runs of "unmodified" Rosetta are called the `ref` data.
 The results from the runs of Rosetta with your changes are called the `new` data.
 
-`ref` and `new` are so named because these are the names of the subdirectories created within `{Rosetta}/main/tests/integration` holding the two sets of data.
+`ref` and `new` are so named because these are the names of the subdirectories created within `{Rosetta}/main/tests/integration` holding the two sets of data.  The instructions for the runs themselves are in the `tests` subfolder (of integration, so `tests/integration/tests`).
 
 Generating the `ref` from an separate copy of Rosetta
 -----------------------------------------------------
@@ -74,25 +77,57 @@ If you compiled with clang, pass `-c clang` to inform `integration.py` to look f
 `integration.py --help` prints a useful help list, and there is a `README` in its directory that can help as well.
 If all else fails, ask the mailing list.
 
-
-
-To compare the two directories, type: `     diff -r new ref    `
-
-To run one test:
-
-`      ./integration.py my_test -d ../../database -c <optional_compiler_specification>     `
-
-
-
-
-
 Generating the `ref` from the same copy of Rosetta
 --------------------------------------------------
-If you only have one copy of Rosetta installed, you are in the unfortunate position of needing two sets of binaries from one 
-
+If you only have one copy of Rosetta installed, you are in the unfortunate position of needing two sets of binaries from one copy of the code.
+You're just stuck with recompiling between `ref` and `new` generation.
+Follow the same instructions [[as above]] - just be careful you have no local uncommitted changes before checking out `master`.
 
 Generating the `new` and getting the test results
 -------------------------------------------------
+So far, you've 'run the integration tests' but not tested anything - you just made the `ref`.
+Generating the `new` to compare it with is concurrent with checking the differences.
+You must generate the `new` results from a copy of Rosetta with the changes you need to test.
+
+If you generated your `ref` from a _different_ copy of Rosetta, you need to copy the ref directory from that location to your copy of Rosetta with changes: 
+```
+cp -a /path/to/vanilla_Rosetta/main/tests/integration/tests/ref /path/to/development_Rosetta/main/tests/integration```
+
+(You may wish to use `mv` over `cp` for speed, with the obvious caveat that it won't be in the old location anymore).
+
+If you generated your `ref` in one copy of the code, your `ref` is already in place.
+
+To actually run the tests:
+
+1. Make sure your branch is up to date. Generally you want to merge in from `master` immediately before testing (you probably pulled `master` before generating `ref`). This ensures you are testing only the differences introduced by **your** changes. This might not be a trivial merge step!
+    `cd /path/to/Rosetta/main/source && git checkout {MYBRANCH} && git merge master `
+2. Compile in **full application release** mode - obviously this blows away any old compile
+    `  ./scons.py -j<number_of_processors_to_use> mode=release bin  `
+3. Change to the testing directory.
+    `  cd ../tests/integration  `
+4. Check to make sure you have the `ref` data you generated recently.
+5. Run the test. Notice this is the exact same command as before - integration.py does the same work, and just puts the results in `new` if `ref` already exists.
+    `  ./integration.py -j<number_of_processors_to_use>  `
+6. For a successful run, you'll see: :
+```
+Running Test HOW_TO_MAKE_TESTS
+bash /home/smlewis/Rosetta/main/tests/integration/new/HOW_TO_MAKE_TESTS/command.sh
+Finished HOW_TO_MAKE_TESTS                        in   0 seconds	 [~   1 test (100%) started,    0 in queue,    0 running]
+
+ok   HOW_TO_MAKE_TESTS
+All tests passed.
+```
+
+The parts about HOW_TO_MAKE_TESTS will be repeated for each test (all several hundred of them).  All tests passed will appear once at the bottom.
+
+If tests fail, you will get 
+```
+FAIL AnchoredDesign
+    nonempty diff ref/AnchoredDesign/SOMEFILENAME new/AnchoredDesign/SOMEFILENAME
+
+345 test(s) failed.  Use 'diff' to compare results.
+```
+
 
 What to do when an integration test breaks
 ===========================================
