@@ -91,7 +91,8 @@ You must generate the `new` results from a copy of Rosetta with the changes you 
 
 If you generated your `ref` from a _different_ copy of Rosetta, you need to copy the ref directory from that location to your copy of Rosetta with changes: 
 ```
-cp -a /path/to/vanilla_Rosetta/main/tests/integration/tests/ref /path/to/development_Rosetta/main/tests/integration```
+cp -a /path/to/vanilla_Rosetta/main/tests/integration/tests/ref /path/to/development_Rosetta/main/tests/integration
+```
 
 (You may wish to use `mv` over `cp` for speed, with the obvious caveat that it won't be in the old location anymore).
 
