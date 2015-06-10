@@ -27,7 +27,7 @@ TODO: ask Elizabeth to image map this
 10<sup>0</sup>
 ------------------
 At this logarithmic scale, one single model, we can use Rosetta protocols that are deterministic: protocols that are not employing a Monte Carlo search.
-The notable entries here are [[scoring]] and [[minimization]].
+The notable entries here are [[scoring|scoring-explained]] and [[minimization|minimization-overview]].
 Running the minimizer directly on an input structure is relatively rare (it will immediately get trapped in a local minimum) but plausible.
 Scoring a structure is a very common event.
 This scale will generally be fast and can run on a laptop.
@@ -35,7 +35,7 @@ This scale will generally be fast and can run on a laptop.
 10<sup>1</sup>
 ------------------
 At this scale, we can consider protocols that are intended to have a very small search space and those that can be completely sampled.
-10 to 100 models are reasonable for most [[structure preparation]] efforts, because these efforts are meant to be tightly constrained to the starting model, only fixing serious errors.
+10 to 100 models are reasonable for most [[structure preparation|preparing-structures]] efforts, because these efforts are meant to be tightly constrained to the starting model, only fixing serious errors.
 This range is also reasonable for minor [[repacking|fixbb]] experiments.
 Repacking is feasible because it samples *very extensively* inside the protocol, so relatively few nstruct are needed.
 This scale will generally be fast and can run on a laptop.
@@ -62,14 +62,14 @@ These algorithms are particularly valuable for optimizing protein-peptide and pr
 Peptides have relatively few backbone dihedrals, so small perturbations do not inflate the sampling problem too much.
 Even better is the use-case for peptidomimetics, which are molecules closely derived from or related to peptides with improved pharmacological and typically conformational properties.
 A peptidomimetic molecule might have only one or two stable conformations per residue subunit, meaning that even full sampling of peptidomimetic conformational space is compatible with rigid body docking, packing, and design.
-This scale is also useful for moderately constrained [[relax]] runs used as part of [[structure preparation]] or at the tail end of [[ab initio structure prediction]].
+This scale is also useful for moderately constrained [[relax]] runs used as part of [[structure preparation|preparing-structures]] or at the tail end of [[ab initio structure prediction|abinitio-relax]].
 In this regime, you will generally want something more powerful than your desktop computer: either a many-core lab workhorse or a small run on a lab-scale cluster.
 
 10<sup>4</sup>
 ------------------
 At this scale, we are able to start seriously sampling larger scale docking problems while repacking and even redesigning.
-This is also reasonable for smallish backbone sampling protocols, like [[loop modeling]] of a single, moderate-length loop.
-JELLY TODO: global vs local docking?
+This is also reasonable for smallish backbone sampling protocols, like [[loop modeling|loopmodel]] of a single, moderate-length loop.
+This is also the bare-minimum of sampling required for local [[docking|docking-protocol]], where the initial protein configuration is close to the biological configuration.
 These sorts of problems you will need serious hardware to run: either long periods of time (overnight to days) on lab workhorses, small runs on lab-scale clusters (hundreds of CPUs), or tiny runs on large supercomputers.
 
 10<sup>5</sup>
@@ -77,13 +77,15 @@ These sorts of problems you will need serious hardware to run: either long perio
 At this scale, we gain the ability to start sampling backbone flexibility, while still considering sidechain and rigid-body degrees of freedom.
 We are able to sample enough to start thinking about [[backrub]] or [[FastRelax]] ensembles.
 This regime is also considered reasonable sampling for most flexible-backbone interface design protocols.
+Global [[docking|docking-protocol]] becomes plausible.
 Fixed sequence protocols are faster than design protocols in this space.
 The computing resources needed scale from heavy use of a 500-CPU lab cluster to moderately large runs on large supercomputers (hundreds of processors for many days).
 
 10<sup>6</sup> and up
 ------------------
-At this scale, we can address any problem you can imagine.
-_ab initio_ [[structure prediction]] involves starting with no model at all, only a sequence, so its possible backbone conformational search space must be very well sampled.
+At this scale, we can attempt to address any problem you can imagine.
+_ab initio_ [[structure prediction|abinitio-relax]] involves starting with no model at all, only a sequence, so its possible backbone conformational search space must be very well sampled.
+This is the ideal scale for [[docking|docking-protocol]].
 Fully atomic protocols at this scale are *very* expensive computationally, requiring serious use of national-scale supercomputing resources.
 Structure prediction is often less than fully atomic - most stages use [[centroid]]s instead.
 This is much faster, so some experiments in this regime can be surprisingly fast, needing much less than an order of magnitude more time (or even less time in an absolute sense) than earlier tiers.
