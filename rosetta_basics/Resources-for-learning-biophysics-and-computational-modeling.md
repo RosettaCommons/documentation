@@ -26,6 +26,3 @@ Some other suggestions:
 * [[Commands collection]]: A list of example command lines for running Rosetta executable files
 * [[Rosetta Servers]]: Web-based servers for Rosetta applications
 * [[Scripting Documentation]]: Scripting interfaces to Rosetta
-
-
-
