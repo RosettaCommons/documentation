@@ -27,6 +27,14 @@ They do not:
 
 Running integration tests
 ==========================
+Unfortunately, the integration tests uniquely require you to run them on code **without** the changes you intend to verify.
+Integration tests function by literally comparing Rosetta output from two runs of Rosetta: one compiled with your changes, one compiled without your changes.
+Astute readers have realized this means you either need two parallel compiled copies of Rosetta, or you need to compile twice to do the tests.
+The results from the runs of "unmodified" Rosetta are called the `ref` data.
+The results from the runs of Rosetta with your changes are called the `new` data.
+
+Generating the `ref` from an separate copy of Rosetta
+-----------------------------------------------------
 
 
 A note on the name
