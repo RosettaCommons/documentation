@@ -1,7 +1,5 @@
 Getting started
 ===========
-<a href="test"></a>
-[[test|Getting-Started#test]]
 
 This page is written for an audience of scientists new to Rosetta: perhaps a first year graduate student, or young postdoc, who has received/started a project that needs "some computer modeling". 
 In other words, an individual coming to Rosetta from a cold start.
@@ -17,7 +15,7 @@ Generally, a user will [[choose some specific protocol within Rosetta|Solving-a-
 <img src="/uploads/coldStart.png" usemap="#GraffleExport" alt="missing image">
 
 <map name="GraffleExport">
-	<area shape="rect" coords="330,305,421,376" href="Getting-Started#test">
+	<area shape="rect" coords="330,305,421,376" href="[[Getting-Started#test]]">
 	<area shape="rect" coords="226,305,317,376" <a href="Getting-Started#test"></a>>
 	<area shape="rect" coords="122,305,213,376" href="Getting-Started#test">
 	<area shape="rect" coords="377,166,532,253" href="Getting-Started/##Use of Public Rosetta Servers">
