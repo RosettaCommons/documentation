@@ -9,7 +9,7 @@ What integration tests do and not do
 The integration tests are "black box tests" that examine the results of big chunks of code.
 
 Generally, an integration test:
-* runs one executeable with a reasonable set of inputs and flags
+* runs one executaable with a reasonable set of inputs and flags
 * finishes within 30 seconds
 * runs to completion without an error message 
 * ensures that code has not changed accidentally from one revision to the next
@@ -49,12 +49,48 @@ The results from the runs of Rosetta with your changes are called the `new` data
 
 Generating the `ref` from an separate copy of Rosetta
 -----------------------------------------------------
+If you have a clean, unmodified copy of 
+
+
+### Integration tests
+
+Running `     integration.py    ` for the first time will generate a folder called `     ref    ` in `     rosetta/rosetta_tests/integration    ` . Whenever you make a change, run the integration test and compare your new test output (located in the `     new    ` folder) with that in the `     ref    ` folder.
+
+Run the test as follows:
+
+1.  Compile in *full application release* mode, as shown above.
+    `        ./scons.py -j<number_of_processors_to_use> mode=release bin       `
+2.  Change directories.
+    `        cd ../tests/integration       `
+3.  Run the test.
+    `        ./integration.py -j<number_of_processors_to_use> -d ../../database -c <optional_compiler_specification>       `
+
+(To generate a fresh `     ref    ` folder, simply delete it and re-run the integration test to generate a new `     ref    ` folder. When you are running the test for the first time, some of the database binaries get made. But this process is not required for the subsequent runs, so regenerating the `     ref    ` folder will fix this problem.)
+
+To compare the two directories, type: `     diff -r new ref    `
+
+To run one test:
+
+`      ./integration.py my_test -d ../../database -c <optional_compiler_specification>     `
+
+
+
+
 
 Generating the `ref` from the same copy of Rosetta
 --------------------------------------------------
 
 Generating the `new` and getting the test results
 -------------------------------------------------
+
+What to do when an integration test breaks
+===========================================
+
+Expected breaks
+---------------
+
+Unexpected changes
+------------------
 
 Writing integration tests
 =========================
