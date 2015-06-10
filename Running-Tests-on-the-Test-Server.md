@@ -58,14 +58,13 @@ Or merge button will become green if all is good:
 
 Canceling scheduled tests
 =========================
-If you happened to schedule the wrong tests or pushed a few revisions in a row to your pull request branch you might want to cancel scheduled tests that are no longer relevant (for example because newer revision of same branch is already scheduled for testing as well). 
-You can cancel all scheduled tests for a given revision (only for non master branch) on revision web page or you can cancel individual tests on test web page. 
-To do so press red 'cancel all queued test' button. 
+If you happened to schedule the wrong tests or pushed a few revisions in a row to your pull request branch you might want to cancel scheduled tests that are no longer relevant (for example because a newer revision of the same branch is already scheduled for testing as well). 
+You can cancel all scheduled tests for a given revision (except for `master`) on revision's web page or you can cancel individual tests on the test's web page. 
+To do so press the red 'cancel all queued test' button. 
 Similarly you can re-queue all or individual tests later with white 'queue canceled test' button. 
-
 
 Testing of custom branches
 ==========================
-It is now possible to instruct testing server to track any custom branch from our GitHub main repository and run custom set of tests for each push in a similar way we do this for master and some other branches. 
-This will allow you to monitor code difference, states of build tests and regression tests changes for each push. 
-If you happen to work on a project for which this seems appropriate for example a project involving multiple developers working on the same protocol or just want to track your lab branch - please let me know and I will add your branch to tracking list.
+It is possible to instruct the testing server to track any custom branch from our GitHub main repository and run a custom set of tests for each push like we do for `master` and some other branches. 
+This will allow you to monitor code differences, states of build tests and regression tests changes for each push. 
+If you happen to work on a project for which this seems appropriate—for example a project involving multiple developers working on the same protocol or just want to track your lab branch—let [[Sergey Lyskov|Rosetta-Glory]] know and he will add your branch to tracking list.
