@@ -2,11 +2,13 @@
 
 This page describes how to install, compile, and test Rosetta 3 \( [formerly called "Mini"] (RosettaTimeline) \) on a [supported platform](https://wiki.rosettacommons.org/index.php/Supported_Platforms "Supported Platforms") .
 
-##Basic Installation
-====================
-Installation instructions for most situations can be found on the [[Getting Started|Getting-Started#local-installation-and-use-of-rosetta]] page. 
+[[_TOC_]]
 
-##Alternative Build Environment Setup for Individual Workstations
+##Basic Setup
+====================
+Build environment setup instructions for most situations can be found on the [[Getting Started|Getting-Started#local-installation-and-use-of-rosetta]] page. 
+
+##Alternative Setup for Individual Workstations
 ====================
 
 The current build system is based on the tool [SCons](https://wiki.rosettacommons.org/index.php/Tools:SCons "Tools:SCons") ("Software Constructor") with some extensions. `     scons.py    ` is implemented as a Python script.
@@ -93,12 +95,18 @@ Alternatives:
 
 You _may_ be able to compile Rosetta by using cygwin for windows ( [http://www.cygwin.com/](http://www.cygwin.com/) ). Such usage is not tested by Rosetta developers though, and may not work.
 
+##Dependencies
+====================
+
+##Troubleshooting
+====================
 
 ##Testing
 ====================
 
 There are two sets of tests to run to ensure everything is working properly, unit tests and integration tests. (See [Testing Rosetta](xxxx) .)
 
-### Cleaning 
+##Cleaning 
+====================
 
     rm -rf build/src; rm .sconsign.dblite  
