@@ -4,11 +4,14 @@ This is very useful for running tests with remote/RosettaCommons resources inste
 Submitting arbitrary revision, branch or pull-request for testing
 =================================================================
 
-Now you can visit http://benchmark.graylab.jhu.edu/submit (or click the link 'Submit' at Benchmark web site) and submit your commits for testing. 
-To do that you need enter either git-sha1, name-of-the-branch or pull-request-id number. 
-After clicking arrow button testing server will query GitHub for commit info and if it was able to find it present commit information and list of tests that could be scheduled for this revision. 
-If you used branch-name testing server will use current head of the specified branch and for pull request it will not use a single commit but merge between base and target brach and display git sha1 that will be used for merges:
+You can visit http://benchmark.graylab.jhu.edu/submit (or click the link 'Submit' at Benchmark web site) and submit your commits for testing. 
+You will need a git commit sha1, the name of your branch, or a [[pull request]] id to identify what to test.
+After you click the arrow button, the testing server will query GitHub for commit info.
+If the commit was found, you will be presented with commit information (for confirmation) and a list of tests that could be scheduled for this revision. 
+If you used a branch name, the testing server will use the current head of the specified branch.
+For a pull request, it will not use a single commit, but merge between the base and target branch and display the git sha1 that would be used for merges:
 
+![submitting a SHA1 and testing](uploads/running_tests_on_server_1.jpg)
 
 After you select tests that you want to run, you can click 'Run tests for this commits' to schedule selected tests. 
 When choosing tests please avoid running ones that you don't really need. 
