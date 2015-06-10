@@ -1,7 +1,7 @@
 Getting started
 ===========
 <a href="test"></a>
-[[test|#test]]
+[[test|Getting-Started#test]]
 
 This page is written for an audience of scientists new to Rosetta: perhaps a first year graduate student, or young postdoc, who has received/started a project that needs "some computer modeling". 
 In other words, an individual coming to Rosetta from a cold start.
@@ -53,6 +53,7 @@ Most applications assume you have access to tens of thousands of hours of comput
 The later sections of this document describe installing or using Rosetta at those different scales.
 
 <a name="test"></a> 
+<a name="test" />
 
 Use of Public Rosetta Servers
 -----------------------------
