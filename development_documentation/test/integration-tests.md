@@ -34,10 +34,6 @@ Just run the whole set of tests before you merge, as part of the [[before you me
 Remember that it is perfectly ok if there are expected integration test changes due to code you changed: if you've rewritten your protocol, of course its tests will change!
 The purpose of the tests in this fashion is to ensure that there are not *unexpected* changed, and that the changes that are expected are *explicable* from the code that changed.
 
-You can also get into the habit of [[test-driven development|https://en.wikipedia.org/wiki/Test-driven_development]] as [[described below|#using-integration-tests-as-a-development-tool]]. 
-
-TODO fix this link
-
 Running tests on the server
 ===========================
 The [[testing server]] can run the integration tests for you! This is fantastic if you are developing on a computer with limited resources, or don't have time and want a computer to do things for you. See [[this page|Running-Tests-on-the-Test-Server]] for details.
@@ -187,11 +183,6 @@ The folder `main/tests/integration/tests/HOW_TO_MAKE_TESTS` describes how to do 
 * Do ensure your test is **short**, less than 30 seconds - we have many hundred, and we don't have all day.  Many tests (and therefore executables) respect a `-run:test_cycles` rosetta option for this purpose.
 
 Writing MPI tests is discussed [[elsewhere|Writing-MPI-Integration-Tests]].
-
-Using integration tests as a development tool
-=============================================
-
-
 
 A note on the name
 ==================
