@@ -17,9 +17,9 @@ Generally, a user will [[choose some specific protocol within Rosetta|Solving-a-
 <img src="/uploads/coldStart.png" usemap="#GraffleExport" alt="missing image">
 
 <map name="GraffleExport">
-	<area shape="rect" coords="330,305,421,376" href="#test">
-	<area shape="rect" coords="226,305,317,376" <a href="#do-i-have-what-i-need"></a>>
-	<area shape="rect" coords="122,305,213,376" href="##Use-of-Public-Rosetta-Servers">
+	<area shape="rect" coords="330,305,421,376" href="Getting-Started#test">
+	<area shape="rect" coords="226,305,317,376" <a href="Getting-Started#test"></a>>
+	<area shape="rect" coords="122,305,213,376" href="Getting-Started#test">
 	<area shape="rect" coords="377,166,532,253" href="Getting-Started/##Use of Public Rosetta Servers">
 	<area shape="rect" coords="11,166,166,253" href="Getting-Started/#Use of Public Rosetta Servers">
 	<area shape="rect" coords="189,11,354,97" href="Getting-Started#Use of Public Rosetta Servers">
