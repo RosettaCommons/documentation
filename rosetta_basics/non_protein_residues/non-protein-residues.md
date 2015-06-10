@@ -12,4 +12,10 @@ Molecules with params files that are not currently included in the Rosetta datab
 If you instead want Rosetta to automatically remove residues or ligands that it does not recognize (e.g. if those residues or ligands do not affect your protocol), you may want to [[ignore unrecognized residues|Ignore-Unrecognized]].
 
 ##See Also
+
 * [[NC scorefunction info]]: Information on scorefunctions that work well with non-protein residues and molecules.
+* [[Options in Rosetta|options-overview]]
+* [[How to turn on residue types that are off by default]]
+* [[Params files|Residue Params file]]: Notes for adding new residue types that are not already in the Rosetta database.
+* [[Preparing structures for Rosetta|preparing-structures]]
+* [[Making your code robust against malformed PDBs|robust]]
