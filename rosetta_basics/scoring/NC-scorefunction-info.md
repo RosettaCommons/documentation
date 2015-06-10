@@ -86,3 +86,4 @@ How to Use:
 * [[Additional score terms|score-types-additional]]
 * [[Hydrogen bond energy term|hbonds]]
 * [[Guides for non-protein inputs|non-protein-residues]]
+* [[Scoring options|score-options]]

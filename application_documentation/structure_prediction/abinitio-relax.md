@@ -51,7 +51,7 @@ Input Files
 -   Psipred secondary structure prediction psipred\_ss2 file (optional). The Psipred secondary structure prediction file is necessary when the -use\_filters and -kill\_hairpins options are used (see below). Note: the fragment webserver runs Psipred and provides the psipred\_ss2 output file. Example: `        rosetta_demos/abinitio/input_files/1elwA.psipred_ss2. `
 Please note that the file format for these options has changed between Rosetta3.4 and 3.5 (the demo is also out of date).  Please see  [this](https://www.rosettacommons.org/content/killhairpin-error) post for more information.
 
-Options
+Options <a name="Options" />
 =======
 
 AbinitioRelax

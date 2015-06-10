@@ -187,3 +187,5 @@ General tips for running Rosetta
 * [[Resources for learning biophysics and computational modeling]]
 * [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 * [[Comparing structures]]: Essay on comparing structures
+* [[Using the ResourceManager|ResourceManager]]
+* [[Non-protein Residues]]: Information on running Rosetta with non-protein residues and ligands
