@@ -121,7 +121,7 @@ Rosetta also has the capacity to sample conformations of peptidomimetic molecule
 
 Can I predict how a small molecule will interact with my protein? 
 As with protein–protein docking, the better your initial structures are, the more likely you are to produce an accurate model (see above).
-[[RosettaLigand|ligand-dock]] or [[RosettaLigand via RosettaScripts||http://dx.doi.org/10.1007%2F978-1-61779-465-0_10]] can be used to predict protein–ligand interactions.
+[[RosettaLigand|ligand-dock]] or [[RosettaLigand via RosettaScripts|http://dx.doi.org/10.1007%2F978-1-61779-465-0_10]] can be used to predict protein–ligand interactions.
 RosettaLigand run via the executable (is currently outdated).
 It is preferred to dock ligands via RosettaScripts. 
 An alternative method, is to use [[Docking Approach using Ray Casting (DARC)|DARC]]. 
