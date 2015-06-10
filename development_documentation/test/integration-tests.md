@@ -178,8 +178,13 @@ Writing MPI tests is discussed [[elsewhere|Writing-MPI-Integration-Tests]].
 
 Writing integration tests
 =========================
-
-
+An integration test is simply a shell script with a Rosetta command line with appropriate options stored in a flags file.
+The folder `main/tests/integration/tests/HOW_TO_MAKE_TESTS` describes how to do it.
+* Create a new folder/subdirectory for your test.
+* Create a file named command in that directory from the `HOW_TO_MAKE_TESTS` template.  It will check for the existence of the executable it needs, run it, and sanitize the output (to remove several classes of common irrelevant diffs like timing reports).
+* Add the inputs and flags files your script needs.
+* Don't forget to add everything to `git`.
+* Do ensure your test is **short**, less than 30 seconds - we have many hundred, and we don't have all day.  Many tests (and therefore executables) respect a `-run:test_cycles` rosetta option for this purpose.
 
 Writing MPI tests is discussed [[elsewhere|Writing-MPI-Integration-Tests]].
 
