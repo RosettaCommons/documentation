@@ -206,12 +206,9 @@ For explicit refinement of crystallography data, see [[here|density-map-scoring]
 
 [[i-want-to-do-x]]
 
-## General Rosetta Caveats
-
 ## Publicly Available Resources (Servers)
 
-* [[http://rosie.rosettacommons.org/]]
-* [[http://robetta.bakerlab.org/]]
+See [[here|Rosetta-Servers]].
 
 #Incorporating Experimental Data
 
