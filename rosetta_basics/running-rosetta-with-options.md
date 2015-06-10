@@ -169,3 +169,5 @@ General tips for running Rosetta
 <br>
 <br>
 * By default, Rosetta will fail to load a PDB with waters.  This is intentional, as most of the Rosetta applications do not deal with water molecules well and the default scorefunction uses implicit solvation. To have Rosetta read the common WAT type, pass the option <code>-ignore_waters false</code>
+
+* For a general guide on making Rosetta robust against malformed input PDBs, see [[this page|robust]].

@@ -282,3 +282,5 @@ Are structures clustered (if so, give a command line)?
 Is it obvious when either the application has succeeded or if it has failed (e.g. if the protocol makes predictions like "This is the docked conformation of proteins A and B"). 
 In the case of designs, how should designs be selected?
 
+# See Also
+* [[Making Rosetta robust against malformed PDBs|robust]]
