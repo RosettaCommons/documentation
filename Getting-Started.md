@@ -50,8 +50,6 @@ There are applications than can run on lab-scale powerful computers (12-30 core 
 Most applications assume you have access to tens of thousands of hours of computer time to accumulate enough results to answer your question.
 The later sections of this document describe installing or using Rosetta at those different scales.
 
-<a name="test"></a> 
-<a name="test" />
 
 Use of Public Rosetta Servers
 -----------------------------
