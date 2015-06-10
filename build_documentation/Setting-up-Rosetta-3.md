@@ -8,6 +8,10 @@ This page describes how to install, compile, and test Rosetta 3 \( [formerly cal
 ====================
 Build environment setup instructions for most situations can be found on the [[Getting Started|Getting-Started#local-installation-and-use-of-rosetta]] page. 
 
+## Publicly accessible clusters with Rosetta pre-installed
+====================
+* As part of the XSEDE initiative, the [[TACC/Stampede|TACC]] cluster has Rosetta and PyRosetta centrally installed for authorized users. See the [[TACC]] page for more details.
+
 ##Alternative Setup for Individual Workstations
 ====================
 
@@ -95,20 +99,70 @@ You _may_ be able to compile Rosetta by using cygwin for windows ( [http://www.c
 
 ###Message Passing Interface (MPI)
 
+MPI (the **M**essage **P**assing **I**nterface) is a standard for process-level parallelization. Independent processes can coordinate what they're doing by sending messages to one another, but cannot access the same memory space or directly interfere with one another's execution. Although most of Rosetta has not been parallelized, some apps (such as rosetta\_scripts) are set up for at least job-level parallelism (permitting automatic distribution of jobs over available processes), and some specialized pilot apps (such as vmullig/design\_cycpeptide\_MPI) take advantage of parallel processing in a non-trivial way.
+
 To build MPI executables, add the flag "extras=mpi" and copy main/source/tools/build/site.settings.topsail to main/source/tools/build/site.settings. You may need to make additional edits to the site.settings file if your MPI libraries are not in the standard locations. See this post for help with setting up MPI for Ubuntu linux. Then compile with extras=mpi:
 
+```
 ./scons.py bin mode=release extras=mpi
+```
 
 ##Dependencies
 ====================
 
 ##Troubleshooting
 ====================
+Here are some common issues seen with building Rosetta.
+
+**"sh: 1: o: not found"**
+
+This indicates that you either don't have a compiler installed, or Rosetta is not able to find the compiler that you do have installed.
+
+At the commandline, execute `g++ --version` and `clang --version`. If one of them works, you can try specifying that compiler explicitly on the scons commandline with either `cxx=gcc` or `cxx=clang`. (This is a label, rather than the compiler command, so it cannot take arbitrary input.)
+
+ --> **A compiler is already installed**:
+
+If you know you have a compiler installed and it's in your path, you can copy `main/source/tools/build/site.settings.topsail` to `main/source/tools/build/site.settings`. You may also want to edit the lines:
+```
+"overrides" : {
+},
+```
+to something like:
+```
+"overrides" : {
+    "cc" : "<C compiler command>",
+    "cxx" : "<C++ compiler command>",
+},
+```
+where you substitute the compiler commands as appropriate.
+
+
+
+
+ --> **Install a compiler**:
+
+
+Many default installations of Mac and Linux do not come with a compiler installer, so you will need to install one separately. (Note that the following only applies if you have administrator rights to your machine. If you do not, talk to your sysadmin regarding the installation of a compiler.)
+
+For Macs, install the XCode development packages. Even though you won't be compiling Rosetta through XCode, installing it will also install a compiler. (Clang, for recent versions of MacOS.)
+
+For Linux, you will want to install the compiler package from your package management system. For Ubuntu and similar systems, the package "build-essential" installed with a command like `sudo apt-get install build-essential` will set your system up for compilation.
+
+**"cannot find -lz"**
+
+Rosetta requires the zlib compression library to be installed on your computer in order to properly compile. Talk to your system administrator about installing the development version of the zlib library. (The "development" version of the library is needed so that Rosetta can compile against the library.) 
+
+For Ubuntu and related distributions, install the zlib1g-dev package (e.g. with `sudo apt-get install zlib1g-dev`)
 
 ##Testing
 ====================
 
 There are two sets of tests to run to ensure everything is working properly, unit tests and integration tests. (See [Testing Rosetta](xxxx) .)
+
+####MPI
+Compilation in MPI mode permits specialized JobDistributors to be used; the function of these JobDistributors, and their integration with other components of Rosetta, can only be tested by running special integration tests in MPI mode by passing the ```--mpi-tests``` flag to integration.py. Selective failure of these tests will probably mean that the parallel JobDistributors have been broken in some way.
+
+The MPI-mode build test simply tries to compile Rosetta with the ```-extras=mpi``` flag passed to scons. Selective failure of this build means that code surrounded by ```#ifdef USEMPI ... #endif``` lines has errors in it.
 
 ##Cleaning 
 ====================
