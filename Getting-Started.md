@@ -18,7 +18,7 @@ Generally, a user will [[choose some specific protocol within Rosetta|Solving-a-
 
 <map name="GraffleExport">
 	<area shape="rect" coords="330,305,421,376" href="#test">
-	<area shape="rect" coords="226,305,317,376" href="#do-i-have-what-i-need">
+	<area shape="rect" coords="226,305,317,376" <a href="#do-i-have-what-i-need"></a>>
 	<area shape="rect" coords="122,305,213,376" href="##Use-of-Public-Rosetta-Servers">
 	<area shape="rect" coords="377,166,532,253" href="Getting-Started/##Use of Public Rosetta Servers">
 	<area shape="rect" coords="11,166,166,253" href="Getting-Started/#Use of Public Rosetta Servers">
