@@ -2,6 +2,7 @@ Rosetta's *integration tests* are a set of testing tools that test short protoco
 They are useful for determining whether code behavior **changes** but not whether it is **correct**. 
 The tests live in `{Rosetta}/main/tests/integration`: the main repository, but not directly with the code.
 **Developers are expected to run these tests before merging code to `master`.**
+Non-developers should have no interest in the integration tests, unless they want to examine them as short demos.
 
 What integration tests do and not do
 ====================================
@@ -135,6 +136,8 @@ What to do when an integration test breaks
 
 You can check the changes with `diff` - either run `diff` manually, or `integration.py --compareonly --fulldiff` to automatically diff all integration test results.
 
+If you need to re-run the tests repeatedly, `integration.py` takes the names of individual test directories as arguments, so you need not run all many hundred each time: `integration.py test1 test2 test3...`
+
 Expected breaks
 ---------------
 If the only test result changes are ones that you expect from your code changes, you're in great shape!
@@ -147,6 +150,13 @@ If there are unexpected changes, you'll have to examine the test diffs to determ
 Presumably you understand your own code well enough to determine their source.
 It is common for unexpected changes to result from accidental dissimilarities between the `new` and `ref` runs - like the two tested branches are based off different versions of `master`.
 
+An unfortunately common change case is scattered "trajectory changes" - where small early numerical changes led to trajectory differences that ultimately resulted in hugely changed output log files.
+These are usually due to different inlining, differently initialized variables, or something else subtle.
+On very rare occasion it's "just a compiler thing" and not the fault of the developer.
+The community has struggled mightily over the years with unstable integration tests that show pernicious occasional changes.
+If you're uncertain, don't merge!
+Just [[pull request]] and get help from  the experts.
+
 Trivial changes
 -----------------
 Some changes are trivial - like if you get reports of different file paths that are obviously due to your having generated `ref` in a separate copy of Rosetta.
@@ -156,13 +166,22 @@ These occur the first time Rosetta is run (like if you got a new copy for separa
 
 Running MPI integration tests
 =============================
+We now have the ability to run integration tests in [[MPI]], mostly for for testing the integration of components with the parallel [[JobDistributors]].  Instructions for running tests are as before, except you need `-extras=mpi` as an argument to `scons` and `-mpi-tests` as an argument to `integration.py`.
 
+1.  Compile in *full application release* mode with **-extras=mpi**.
+    `./scons.py -j<number_of_processors_to_use> mode=release bin -extras=mpi`
+2.  Change directories. `cd ../tests/integration`
+3.  Run the test with the **--mpi-tests** flag.
+    `./integration.py -j<num_procs> -c <compiler> --mpi-tests`
 
+Writing MPI tests is discussed [[elsewhere|Writing-MPI-Integration-Tests]].
 
 Writing integration tests
 =========================
 
 
+
+Writing MPI tests is discussed [[elsewhere|Writing-MPI-Integration-Tests]].
 
 Using integration tests as a development tool
 =============================================
