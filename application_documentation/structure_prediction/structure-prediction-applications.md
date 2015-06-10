@@ -2,7 +2,8 @@
 
 While most of these applications focus on prediction, many have options which will also allow design.
 
-- [[Ab initio modeling|abinitio-relax]]: Predict 3-dimensional structures of proteins from their amino acid sequences.  
+- [[Ab initio modeling|abinitio-relax]]: Predict 3-dimensional structures of proteins from their amino acid sequences.
+    * [[Abinitio]]: Further documentation on the abinitio protocol
     * [[Membrane abinitio]]: Ab initio for membrane proteins.  
     * [[Metalloprotein ab initio|metalloprotein-abrelax]]: Ab inito modeling of metalloproteins.  
 - [[Backrub]]: Create backbone ensembles using small, local backbone changes.  
@@ -22,6 +23,7 @@ While most of these applications focus on prediction, many have options which wi
 -  [[Kinematic loop modeling|loopmodel-kinematic]]: Sample loop conformations using the kinematic closure algorithm.
 -  [[Next-generation KIC]]: A newer version of loop modeling with kinematic closure.
 -  [[KIC with fragments|KIC_with_fragments]]: The latest version of loop modeling, combining kinematic closure with sampling of coupled degrees of freedom from fragments.
+-  [[Loop closing]]: Closing chainbreaks introduced during modeling.
 -  [[Stepwise assembly of protein loops|swa-protein-main]]: Generate three-dimensional de novo models of protein segments    :  [[Stepwise assembly of long loops|swa-protein-long-loop]]: For loops greater than 4-5 residues. See also  [[Stepwise monte carlo|stepwise]].
 -  [[Stepwise monte carlo|stepwise]]: Generate 3D models of protein, RNA, and protein/RNA loops, motifs, and interfaces. Stochastic version of stepwise assembly. 
 

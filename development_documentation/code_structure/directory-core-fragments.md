@@ -1,29 +1,27 @@
-#core::fragments 
+#core::fragment
 
 Overview of Directory
 =====================
 
-Fragments contains Classes and Functions related to modeling with fragments of structure.
+Fragment contains Classes and Functions related to modeling with fragments of structure.
 
 Important Classes/Files in this Directory
 =========================================
 
-users will only need to be familar with these classes
------------------------------------------------------
+###Users will only need to be familar with these classes
+
 
 -   FragSet A container class for fragments
 -   FragmentIO A IO class for reading and writing FragSets
 -   FragmentMover A mover which takes a FragSet and applies randomly selected fragments to the pose. This class actual exist in the protocols library. It is mentioned here as the main interface for code in this directory.
 
-Lateral Dependencies
-====================
-
-Email Oliver asking him to fill in this section.
 
 Readmes, Code Snippets, and Tutorials
 =====================================
 
-This section should contain links for Readmes, Code Snippets, and Tutorials enabling developers to use the code/files located in this directory.
+For information on generating fragment files, see the [[fragment file]] documentation. 
+
+Examples of code using elements from core::fragments can be found insource/src/protocols/simple_moves/FragmentMover.* among others.  
 
 Code Design, Extension, and Comments
 ====================================

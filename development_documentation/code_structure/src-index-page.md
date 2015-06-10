@@ -7,7 +7,7 @@ From a conceptual standpoint, the src directory contains all the C++ code specfi
 
 
 
-Core Library
+Core Library <a name="core" />
 ============
 
 [[/images/core_structure.png]]

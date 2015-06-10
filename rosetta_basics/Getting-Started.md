@@ -8,7 +8,7 @@ If you are already comfortable with the concepts, feel free to skip ahead.
 
 Rosetta is a very large software suite for macromolecular modeling. 
 By software suite, we mean that it is a large collection of computer code (mostly in C++, some in Python, a little in other languages), but it is not a single monolithic program.
-By [[macromolecular modeling|Modelling-Resources]], we mean the process of evaluating and ranking the physical plausibility of different structures of biological macromolecules (usually protein, but nucleic acids and ligands are significantly supported and support for implicit lipid membranes is growing). 
+By [[macromolecular modeling|Resources-for-learning-biophysics-and-computational-modeling]], we mean the process of evaluating and ranking the physical plausibility of different structures of biological macromolecules (usually protein, but nucleic acids and ligands are significantly supported and support for implicit lipid membranes is growing). 
 Generally, a user will [[choose some specific protocol within Rosetta|Solving-a-Biological-Problem]] and provide that protocol with inputs for A) what structure to work on, and B) what options within the protocol are appropriate for the user's needs.
 
 <img src="/uploads/coldStart.png" usemap="#GraffleExport" alt="missing image">
@@ -40,7 +40,7 @@ You should still [[prepare your structure for modeling|preparing-structures]], b
 
 The other inputs are the choice of [[which Rosetta protocol|Solving-a-Biological-Problem]] to use, and [[what options|running-rosetta-with-options#specifying-options]] or [[file inputs|file-types-list#commonly-used-input-files]] to use.
 
-4) Computational resources
+3) Computational resources
 
 Rosetta software, as a whole, is written to run on supercomputers, but can be run on [[many different scales|Rosetta-on-different-scales]].
 Most applications can give "dry runs" for testing on any computer.
@@ -49,26 +49,16 @@ There are applications than can run on lab-scale powerful computers (12-30 core 
 Most applications assume you have access to tens of thousands of hours of computer time to accumulate enough results to answer your question.
 The later sections of this document describe installing or using Rosetta at those different scales.
 
-Use of Public Rosetta Servers
+Public Rosetta Servers
 -----------------------------
 
-All of Rosetta's public servers are licensed for **NON-COMMERCIAL USE ONLY**.
+All of [[Rosetta's public servers|Rosetta-Servers]] are licensed for **NON-COMMERCIAL USE ONLY**.  The servers of broadest interest are touched on here, but see [[here|Rosetta-Servers]] and [[here|https://www.rosettacommons.org/software/servers]] for more complete lists.
 
-* [ROSIE](http://rosie.rosettacommons.org/) is a server that many several Rosetta applications through a simple web interface.
+* [ROSIE](http://rosie.rosettacommons.org/) is a server that offers several Rosetta applications through a simple web interface.
 It is perfect for use by those new to Rosetta.
 Despite ROSIE's variety it offers only a slice of Rosetta's full functionality.
-Because this is a free public resource, computer time is limited, but runs can be downloaded and used to build Rosetta jobs on other resources.
 
 * [ROBETTA](http://robetta.bakerlab.org/) (Robot-Rosetta) is a server that provides _ab initio_ folding and structure prediction, as well as fragment selection for local runs of Rosetta.
-It also provides interface alanine scanning and DNA interface residue scanning.
-
-* The [Rosetta Design Server](http://rosettadesign.med.unc.edu/) provides access to Rosetta's [[fixbb]] fixed-backbone design protocol.
-
-* The [Backrub Server](https://kortemmelab.ucsf.edu/backrub/cgi-bin/rosettaweb.py?query=index) provides [[backrub]] ensembles, as well as alanine scanning.
-
-* The [FlexPepDock server](http://flexpepdock.furmanlab.cs.huji.ac.il/) provides [[FlexPepDock]]. 
-
-* [RosettaDiagrams](http://www.rosettadiagrams.org/) provides a graphical interactive service to produce [[RosettaScripts]] XML files, with some ability to run the scripts as well.
 
 Local installation and use of Rosetta
 --------------------------------------
@@ -103,7 +93,9 @@ See our extensive [[build documentation|Build-Documentation#compiling-rosetta-3]
 ###Windows
 Unfortunately, we are not currently able to support Rosetta on Windows.
 There are few free, easy-to-use C++ compilers available for Windows, and they use slightly different C++ standards.
-[[Dual booting|http://en.wikipedia.org/wiki/Multi-booting#Windows_and_Linux]] is an option, but we cannot setting them up (we can help you with Rosetta on your Linux partition).
+[[Dual booting|http://en.wikipedia.org/wiki/Multi-booting#Windows_and_Linux]] is an option.
+We cannot help set up Windows/Linux dual boots, but we can help with Rosetta on the Linux partition.
+[[PyRosetta|scripting_documentation/PyRosetta/PyRosetta]], a Python-based interface to Rosetta, is supported on Windows.
 
 ###Use on supercomputer clusters
 If you'll be running Rosetta on a scientific computation cluster, there may already be a version of Rosetta installed for general usage.
@@ -117,5 +109,5 @@ Just treat it like a [[local install into userspace|Getting-Started#installation
 Use of Rosetta on national-scale supercomputing resources
 ---------------------------------------------------------
 
-As part of the XSEDE initiative, the [[TACC/Stampede|TACC]] cluster has Rosetta and PyRosetta centrally installed for authorized users. 
+As part of the XSEDE initiative, the [[TACC/Stampede|TACC]] cluster has Rosetta and [[PyRosetta|scripting_documentation/PyRosetta/PyRosetta]] centrally installed for authorized users. 
 See the [[TACC]] page for more details.

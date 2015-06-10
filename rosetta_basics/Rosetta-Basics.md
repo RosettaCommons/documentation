@@ -18,9 +18,10 @@
 - [[Analyzing Results]]
 ####[[Fundamental Rosetta Concepts|Rosetta-overview]]
 
-- [[Brief history of Rosetta|Rosetta-timeline]]
+- [[Brief history of Rosetta|RosettaTimeline]]
 
 - [[Glossary of terms|Glossary]]
+    - [[Longer form descriptions|RosettaEncyclopedia]]
 
 - [[Units in Rosetta]]
 

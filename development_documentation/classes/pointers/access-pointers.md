@@ -1,5 +1,7 @@
 #utility::pointer::access\_ptr Class Reference
 
+*For guidelines on using owning and access pointers, please see the [[how to use pointers correctly]] page.*
+
 Detailed Description
 --------------------
 
