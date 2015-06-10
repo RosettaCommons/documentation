@@ -1,4 +1,5 @@
 Setting up Rosetta 3
+===========
 
 This page describes how to install, compile, and test Rosetta 3 \( [formerly called "Mini"] (RosettaTimeline) \) on a [supported platform](https://wiki.rosettacommons.org/index.php/Supported_Platforms "Supported Platforms") .
 
