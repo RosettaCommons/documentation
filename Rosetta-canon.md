@@ -59,33 +59,33 @@ Leaver-Fay et al. describe OptE, a methodology for using sequence-recovery and r
 
 Docking
 --------------
+* Gray JJ, Moughon S, Wang C, Schueler-Furman O, Kuhlman B, Rohl CA, Baker D (2003)  
+[Protein-protein docking with simultaneous optimization of rigid-body displacement and side-chain conformations.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=12875852)
+J Mol Biol 331:281-99  
+Gray et al. produce the first effort in Rosetta to couple rigid-body docking and sidechain optimization; in so doing, they frequently obtain binding funnels that typically recapitulate at least 25% of binding contacts.
+
+* Chaudhury S, Gray JJ (2008)  
+[Conformer selection and induced fit in flexible backbone protein-protein docking using computational and NMR ensembles.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=18640688)  
+J Mol Biol 381:1068-87  
+Chaudhury and Gray demonstrate algorithms that echo traditional lock-in-key complexing (rigid body docking) and more sophisticated models (conformer selection via EnsembleDock; induced fit via backbone minimization on the smaller partner of the complex; a combination of both) and validate the EnsembleDocking protocol by illustrating that docking-competent conformers exist in the unbound ensemble.
+
 * Sircar A, Chaudhury S, Kilambi KP, Berrondo M, Gray JJ (2010)  
 [A generalized approach to sampling backbone conformations with RosettaDock for CAPRI rounds 13-19.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=20535822)  
 Proteins 78:3115-23  
 Sircar et al. describe their use of the EnsembleDock and SnugDock algorithms to generate improved docking models for the CAPRI competition.
 
-* Chaudhury S, Gray JJ (2008)  
-[Conformer selection and induced fit in flexible backbone protein-protein docking using computational and NMR ensembles.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=18640688)  
-J Mol Biol 381:1068-87  
-Chaudhury and Gray demonstrate algorithms that echo traditional lock-in-key complexation (rigid body docking) and more sophisticated models (conformer selection via EnsembleDock; induced fit via backbone minimization on the smaller partner of the complex; a combination of both) and validate the EnsembleDocking protocol by illustrating that docking-competent conformers exist in the unbound ensemble.
-
-* Gray JJ, Moughon S, Wang C, Schueler-Furman O, Kuhlman B, Rohl CA, Baker D (2003)  
-[Protein-protein docking with simultaneous optimization of rigid-body displacement and side-chain conformations.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=12875852)
-J Mol Biol 331:281-99  
-Gray et al. produce the first effort in Rosetta to couple rigid-body docking and sidechain optimization; in so doing, they frequently obtain binding funnels that typically recapitulate at least 25% of binding contacts.
- 
 Design
 --------------
-* Guntas G, Purbeck C, Kuhlman B (2010)  
-[Engineering a protein-protein interface using a computationally designed library.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=20974935)  
-Proc Natl Acad Sci U S A 107:19296-301  
-Computational design at twenty amino acid positions was used to semi-direct two protein libraries, which greatly outperformed the control library where all residues were allowed: the former produced multiple mid-nanomolar binders while the latter could not produce bunders under fifty micromolar after four rounds of selection.
-
 * Kuhlman B, Dantas G, Ireton GC, Varani G, Stoddard BL, Baker D (2003)  
 [Design of a novel globular protein fold with atomic-level accuracy.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=14631033)  
 Science 302:1364-8  
 Kuhlman et al. demonstrate the computational design of a protein with an entirely novel fold.
 The significance of this result arises because prior design efforts involved stabilizing or modifying existing, known folds; the ability to _de novo_ create a protein was wholly original.
+
+* Guntas G, Purbeck C, Kuhlman B (2010)  
+[Engineering a protein-protein interface using a computationally designed library.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=20974935)  
+Proc Natl Acad Sci U S A 107:19296-301  
+Computational design at twenty amino acid positions was used to semi-direct two protein libraries, which greatly outperformed the control library where all residues were allowed: the former produced multiple mid-nanomolar binders while the latter could not produce bunders under fifty micromolar after four rounds of selection.
 
 Ligand docking
 --------------
