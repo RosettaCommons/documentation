@@ -1,7 +1,7 @@
 # OperateOnCertainResidues Operation
 ## OperateOnCertainResidues Operation
 
-**This TaskOperation is deprecated. Use [[ResidueSelectors]] instead.
+**This TaskOperation is deprecated. Use [[ResidueSelectors]] instead.**
 
 Allows specification of [[Residue-Level TaskOperations]] based on residue properties specified with [ResFilters](#ResFilters) .
 
