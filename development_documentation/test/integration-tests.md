@@ -128,19 +128,29 @@ FAIL AnchoredDesign
 345 test(s) failed.  Use 'diff' to compare results.
 ```
 
-
 What to do when an integration test breaks
 ===========================================
 
+You can check the changes with `diff` - either run `diff` manually, or `integration.py --compareonly --fulldiff` to automatically diff all integration test results.
+
 Expected breaks
 ---------------
+If the only test result changes are ones that you expect from your code changes, you're in great shape!
+You can merge your code to `master`, or be confident that you understand your code works, etc.
+Be sure to mark expected integration test changes in the [[commit message|before you commit]] when you merge to `master`.
 
 Unexpected changes
 ------------------
+If there are unexpected changes, you'll have to examine the test diffs to determine what they are, and figure out where they come from.
+Presumably you understand your own code well enough to determine their source.
+It is common for unexpected changes to result from accidental dissimilarities between the `new` and `ref` runs - like the two tested branches are based off different versions of `master`.
 
 Trivial changes
 -----------------
-(Errors with making database files)
+Some changes are trivial - like if you get reports of different file paths that are obviously due to your having generated `ref` in a separate copy of Rosetta.
+Ignore these.
+Another set of unimportant changes are if you get messages about writing database binaries.
+These occur the first time Rosetta is run (like if you got a new copy for separate `ref` generation).
 
 Writing integration tests
 =========================
