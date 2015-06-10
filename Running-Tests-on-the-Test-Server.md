@@ -26,35 +26,35 @@ When testing complete is complete, another email will notify you of the results.
 Regression tests such as [[integration|integration tests]] or [[score tests]] scheduled this way will have their results compared to latest successful run of the same test from master branch. 
 This effectively allows you to get an idea of what tests will change when you merge this commit to the master branch.
 
-
 Automatic testing of Pull Requests 
 ==================================
-When your pull request (for any branch, not necessary master) is almost ready to merge it is a good idea to test it before merging to avoid breaking any tests. 
-Testing server is now capable of automatically tracking and testing each push to the branch associated with currently open pull request. 
-All you need to do is to mark this pull request with 'ready for testing' label. 
-To do this open your pull request page on GitHub and click on 'labels' in upper right part of the page and select 'ready for testing' label:
+When your [[pull request]] (for any branch, not necessarily master) is almost ready to merge, it is a good idea to test it before merging to avoid breaking any tests. 
+The testing server is now capable of automatically tracking and testing each push to the branch associated with a currently open pull request. 
+All you need to do is to mark this pull request with a 'ready for testing' label. 
+To do this open your pull request page on GitHub and click on 'labels' in upper right part of the page and select the 'ready for testing' label:
 
+![ready-for-testing-label](uploads/running_tests_on_server_2.jpg)
 
+After this is done the testing server will automatically schedule tests for the current pull request merge as well as all consequent merges. 
+If you want to instruct the testing server to stop tracking this particular pull request simply remove the 'ready for testing' label.
 
-After this is done Testing Server will automatically schedule current pull request merge as well as all consequent merges. 
-If you want to instruct Testing Server to stop tracking this particular pull request simply remove 'ready for testing' label.
+After the testing server's scheduled tests run, the merge button on your pull request should change to the 'pending state' and the 'Details' link will take you to this revision's page on benchmark web site:
 
-After Testing Server scheduled tests run the merge button on your pull request should change to the 'pending state' and 'Details' link will take you to revision page on benchmark web site:
+![pending-for-testing-label](uploads/running_tests_on_server_3.png)
 
+As soon as the pull request tests are finished, the testing server will post results back to GitHub along with a short message. 
+And each tested commit in the pull request will have either green check mark or red cross depending on test results. 
+You can also hover over this icon with the cursor to display the message associated with this merge or click the icon to view the revision page with test results on Benchmark website:
 
-As soon as pull-request tests are finished Testing Server will post results back to GitHub along with a short message. 
-And each tested commit in pull request will have either green check mark or red cross depending of test results. 
-You can also hover over this icon with cursor to display message associated with this merge or click icon to view revision page with test results on Benchmark website:
+![test-status-via-github](uploads/running_tests_on_server_4.png)
 
+Also, depending on tests' results, the merge button on your pull request will now turn red if there are any broken tests:
 
-
-Also, depending of tests results the merge button on your pull request will now turn red if there are any broken tests:
-
-
+![bad-tests-no-merge](uploads/running_tests_on_server_5.png)
 
 Or merge button will become green if all is good:
 
-
+![good-tests-merge](uploads/running_tests_on_server_6.png)
 
 Canceling scheduled tests
 =========================
