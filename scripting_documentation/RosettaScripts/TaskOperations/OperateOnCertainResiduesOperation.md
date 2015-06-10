@@ -1,9 +1,9 @@
 # OperateOnCertainResidues Operation
 ## OperateOnCertainResidues Operation
 
-**This TaskOperation is deprecated. Use [[ResidueSelectors]] instead.**
+**This TaskOperation is deprecated. Use [[ResidueSelectors]] and [[OperateOnResidueSubset|OperateOnResidueSubsetOperation]] instead.**
 
-Allows specification of [[Residue-Level TaskOperations]] based on residue properties specified with [ResFilters](#ResFilters) .
+Allows specification of [[Residue Level TaskOperations]] based on residue properties specified with [ResFilters](#ResFilters) .
 
 Example:
 
@@ -12,7 +12,7 @@ Example:
       <ResidueHasProperty property=PROTEIN/> //Only one ResFilter per OperateOnCertainResidues block
     </OperateOnCertainResidues>
 
-[[include:Residue-Level TaskOperations]]
+[[include:scripting_documentation/RosettaScripts/TaskOperations/Residue-Level-TaskOperations]]
 
 ResFilters
 ----------
