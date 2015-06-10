@@ -41,8 +41,6 @@ By default scons hashes and processes every file in the tree before performing a
 
 These settings are described on the [scons gofast](http://www.scons.org/wiki/GoFastButton) page.
 
-###More useful build commands (Mac/Linux)
-
 By default, `     scons    ` uses GCC to compile. To use an alternate compiler, such as CLang, use the `     cxx    ` option:
 
 `      ./scons.py -j<number_of_processors_to_use> cxx=clang     `
@@ -94,6 +92,12 @@ Alternatives:
 * Dual Boot with [Linux](https://help.ubuntu.com/community/WindowsDualBoot). (usually the best option) 
 
 You _may_ be able to compile Rosetta by using cygwin for windows ( [http://www.cygwin.com/](http://www.cygwin.com/) ). Such usage is not tested by Rosetta developers though, and may not work.
+
+###Message Passing Interface (MPI)
+
+To build MPI executables, add the flag "extras=mpi" and copy main/source/tools/build/site.settings.topsail to main/source/tools/build/site.settings. You may need to make additional edits to the site.settings file if your MPI libraries are not in the standard locations. See this post for help with setting up MPI for Ubuntu linux. Then compile with extras=mpi:
+
+./scons.py bin mode=release extras=mpi
 
 ##Dependencies
 ====================
