@@ -1,1 +1,0 @@
-Will be replaced with text from setting up Rosetta 3 page
