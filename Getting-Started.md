@@ -22,6 +22,12 @@ Generally, a user will [[choose some specific protocol within Rosetta|Solving-a-
 	<area shape=rect coords="189,11,354,97" href="http://localhost:4567/Getting-Started#do-i-have-what-i-need">
 </map>
 
+<imagemap>
+Image:/uploads/coldStart.png|alt = Alt
+rect 330 305 421 376 [[RosettaHistory]]
+desc none
+<imagemap>
+
 [[_TOC_]]
 
 Do I have what I need?
