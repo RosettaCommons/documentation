@@ -1,28 +1,30 @@
-#Mover test Howto
+#Unit tests for movers using UMoverTest
 
-The test::UMoverTest package provides a system for quickly and simple way to add new Unit test for Movers classes using UMoverTest class and macros.
+The test::UMoverTest package provides a system to quickly and simply add new unit tests for Mover classes.
 
-The purpose of this document is to provide user with HowTo document to help create new unit tests.
+The purpose of this document is to provide users with a guide for creating new unit tests using this package.
 
-Requirements:
+##Requirements
 
--   descended of Mover class with apply that modify Pose object (ie not a tool mover like RepeatMover etc). For the rest of document we will Mover that we want to test as 'NewMover'.
--   NewMover should implement virtual function: void test\_move(core::pose::Pose & pose).
+-   The class to be tested inherits from Mover and has an `apply` function that modifies the Pose object (i.e. not a tool mover like RepeatMover etc). For the rest of the document we will refer to the class to be tested as 'NewMover'.
+-   NewMover should implement the virtual function `void test_move(core::pose::Pose & pose)`.
 
-1. Deciding on location for Unit Test. In most cases, if NewMover is not require any special initialization, then good location for adding unit test will be existing file: test/protocols/moves/MoversTest.cxxtest.hh
-2.  creating unit test macro. In function MoversTest.cxxtest.hh:test\_AllMovers: add following line: TEST\_MOVER(NewMover, "protocols/moves/test\_in.pdb", "protocols/moves/newmover\_out.pdb");
-3.  Compile rosetta and its unit test by running: 'scons -j8 && scons -j8 cat=test'. Make sure that both compilation finished without error.
-4.  Run unit test to create pdb file on which NewMover was applied: 'python test/run.py -database \~/rosetta\_database'
-5.  Unit test for test\_AllMovers will fail - that to be expected. Failing message will be something like:
+##Instructions
+1. *Decide on a location for the unit test.* In most cases, if NewMover does not require any special initialization, then a good location for adding the unit test will be the existing file: source/test/protocols/moves/MoversTest.cxxtest.hh.
+2.  *Create the unit test macro*. In the function `test_AllMovers` in MoversTest.cxxtest.hh, add the following line: 
+    ```TEST_MOVER(NewMover, "protocols/moves/test_in.pdb", "protocols/moves/newmover_out.pdb");```
+3.  Compile rosetta and its unit tests by running: `scons -j8 && scons -j8 cat=test`. Make sure that both compilations finished without errors.
+4.  Run the unit test to create the pdb file on which NewMover will be applied: ```python test/run.py -database ~/rosetta_database```
+5.  Unit test for `test_AllMovers` will fail - that is to be expected. The fail message will be something like:
 
     ```
-    Test suite: MoversTest (test/protocols/moves/MoversTest.cxxtest.hh) File: ./test/protocols/moves/MoversTest.cxxtest.hh Line:47 MoversTest::NewMoverFiles are not equal! CXXTEST\_ERROR: test\_AllMovers:NewMover Failed!
-    In MoversTest::test\_AllMovers: ./test/protocols/moves/MoversTest.cxxtest.hh:47: Error: Test failed: test\_AllMovers CXXTEST\_ERROR: test\_AllMovers Failed!
+    Test suite: MoversTest (test/protocols/moves/MoversTest.cxxtest.hh) File: ./test/protocols/moves/MoversTest.cxxtest.hh Line:47 MoversTest::NewMoverFiles are not equal! CXXTEST_ERROR: test_AllMovers:NewMover Failed!
+    In MoversTest::test_AllMovers: ./test/protocols/moves/MoversTest.cxxtest.hh:47: Error: Test failed: test_AllMovers CXXTEST_ERROR: test_AllMovers Failed!
     ````
 
-6.  Check if the result PDB file is correct. Find output PDB file in the test build folder inside protocols/moves. File name will be: 'newmover\_out.pdb.\_tmp\_' (Note; depending of the platform path to PDB may vary. For example for gcc build on Linux it may be:'build/test/debug/linux/2.6/32/x86/gcc/protocols/moves') Load output PDB in to pymol or otherwise check if output PDB is correct.
-7.  Rename and copy output pdb file to test/protocols/moves/newmover\_out.pdb.
-8.  Modify test/protocols.test.settings by adding line: "moves/newmoves\_out.pdb", in to 'testinputfiles = [ "moves/test\_in.pdb", ' group.
-9.  Recompile rosetta's unit tests. Note: you will need to modify file MoversTest.cxxtest.hh to trigger copy file mechanics.
-10.  Run unit test, make sure it complete without errors.
+6.  Check if the resulting PDB file is correct. Find the output PDB file in the test build folder inside protocols/moves. File name will be: 'newmover\_out.pdb.\_tmp\_' (Note: depending on your platform and compiler, the path to the PDB may vary. For example, for the gcc build on Linux it may be:'build/test/debug/linux/2.6/32/x86/gcc/protocols/moves'.) Load the output PDB in PyMOL or otherwise check if it is correct.
+7.  Rename and copy the output pdb file to test/protocols/moves/newmover\_out.pdb.
+8.  Modify test/protocols.test.settings by adding the line: `moves/newmoves_out.pdb`, into the `testinputfiles = [ "moves/test_in.pdb", ` group.
+9.  Recompile Rosetta's unit tests. Note: you will need to modify the file MoversTest.cxxtest.hh to trigger copy file mechanics.
+10.  Run the unit test and make sure it completes without errors.
 
