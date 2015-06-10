@@ -139,7 +139,7 @@ Due to the breadth of these challenges, protocols are either specific or custom 
 One could envision a simple design problem where they seek to stabilize a known protein structure.
 A reasonable assumption to make is that there will not be large changes in protein fold.
 Hence, this problem is approached with [[fixed backbone design|fixbb]] where side-chain amino acid identities are sampled to identify those which minimize energy on the current backbone. 
-Further, if design is yield an amino acid sequence favoring hydrophobic residues then [[fixed backbone design can be run with consideration of hydrophobic surface patches||fixbb-with-hpatch]].
+Further, if design is yield an amino acid sequence favoring hydrophobic residues then [[fixed backbone design can be run with consideration of hydrophobic surface patches|fixbb-with-hpatch]].
 However, new score functions have limited this problem.
 
 Other design problems of interest may include: 
@@ -190,7 +190,13 @@ Unfortunately, stepwise loop modeling (for [[proteins|swa-protein-main]] and [[R
 
 See the [[Kortemme Lab benchmark server|https://guybrush.ucsf.edu/benchmarks/benchmarks/loop_modeling]] for a comparison.
 
-What if I am modeling a protein with a disordered region?
+#### What if I am modeling a protein with a disordered region?
+
+You probably should not be doing this using Rosetta, if at all. 
+Disordered proteins are dynamic in the context of a cell.
+It is unlikely that any static, _in silico_, model of a disordered protein or protein region will be very accurate.
+However, if you have a specific question, such as "can my disordered tail of 20 residues plausibly interact with this other region of my protein?"
+Then you may begin to approach this question with [[FloppyTail|floppy-tail]].
 
 ## Solving Crystal Structures
 
