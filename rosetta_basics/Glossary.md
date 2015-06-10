@@ -689,6 +689,9 @@ amino acids of a target protein onto the 3D structure of a template
 according to a sequence alignment. A comparative model can then be build
 of the target protein sequence.
 
+#### Top7 / Top7 paper
+Top7 is the name of [a protein](http://www.rcsb.org/pdb/explore.do?structureId=1qys) _de novo_ designed with Rosetta. Its paper, [Design of a novel globular protein fold with atomic-level accuracy] (http://www.ncbi.nlm.nih.gov/pubmed/?term=14631033), is also of broad interest for its description of the early energy function.
+
 #### torsion angles
 
 #### trajectory
