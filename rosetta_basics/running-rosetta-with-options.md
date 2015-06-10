@@ -177,6 +177,7 @@ General tips for running Rosetta
 
 * [[Getting Started]]: A page for people new to Rosetta
 * [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
+* [[TACC]]: Information for running Rosetta on the TACC/Stampede cluster.
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
 * [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
 * [[Commands collection]]: A list of example command lines for running Rosetta executable files
