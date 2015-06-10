@@ -177,22 +177,24 @@ For modeling of missing loops on existent protein structures, you can use any of
 
 ### Modeling Loops in Regions of Low Homology or with No Secondary Structure
 
-** FloppyTail ? **
+What if I am building a homology model and there are regions with low homology or no predicted secondary structure?
+These are the typical problems solved by loop modeling algorithms.
+Most loop modeling algorithms in Rosetta are contained within a single executable and run by setting different flags.
+The fastest, but least accurate method is cyclic coordinate descent (([[CCD|loopmodel-ccd]])).
+CCD closes a loop by iteratively solving for phi/psi angles which position the mobile terminus closer to the target anchor after fragment insertion.
+CCD is generally not recommended but can be used in specific cases (e.g. when time is a limiting factor).
+The currently (June 10th, 2015) accepted method of loop modeling is next-generation KIC ([[NGK|next-generation-KIC]]).
+NGK sampling can be enhanced/concerted with fragments ([[KIC with fragments|KIC_with_fragments]]).
+There also exists an alternative, Monte Carlo stepwise, loop modeling method which can be applied to proteins and **RNA**.
+Unfortunately, stepwise loop modeling (for [[proteins|swa-protein-main]] and [[RNA|stepwise]]) tends to be slow.
 
-In general, there are five loop modeling algorithms:
-- cyclic coordinate descent ([[CCD|loopmodel-ccd]])
-- kinematic closure ([[KIC|loopmodel-kinematic]], deprecated)
-- next-generation KIC ([[NGK|next-generation-KIC]], use this)
-- [[KIC with fragments|KIC_with_fragments]] (more concerted sampling)
-- stepwise modeling of protein/RNA loops [[swa-protein-main]]
+See the [[Kortemme Lab benchmark server||https://guybrush.ucsf.edu/benchmarks/benchmarks/loop_modeling]] for a comparison.
+
+What if I am modeling a protein with a disordered region?
 
 ## Solving Crystal Structures
 
 For explicit refinement of crystallography data, see [[here|density-map-scoring]].
-
-## Filling in Crystal Density? (optional)
-
-Loop modeling and floppy tail can go here.
 
 ## What If My Question Is Unanswered? 
 
