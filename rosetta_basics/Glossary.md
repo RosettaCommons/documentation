@@ -645,6 +645,10 @@ input in a \*.fasta file format.
 
 #### sequence number
 
+#### Shultzy's
+[[Shultzy's|http://www.shultzys.com/]] is a favorite bar and sausage grill of the Rosetta community when in Seattle for RosettaCON.
+It's on the east side of The Ave.
+
 #### side chain
 
 The 20 aminoacids contain an amino group (NH2), a carboxylic acid group (COOH), and any of various sideChains R, and have the basic formula NH2-CH-COOH(R) 
@@ -673,6 +677,12 @@ File format used to store secondary structure information. Originally introduced
 #### tautomers
 
 #### template
+
+#### Thai Tom
+Thai Tom is one of the two 'Rosetta restaurants' that many developers like to visit in Seattle before/after RosettaCON.
+4543 University Way NE, Seattle, WA 98105 (it's on the west side of The Ave). 
+Excellent Thai food, can be very spicy.
+Wait times are a problem if 40 Rosetta people show up at once.
 
 #### threading
 
