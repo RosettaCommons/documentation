@@ -1,33 +1,33 @@
 #The Rosetta canon
 
-_In the beginning Baker created the Centroid and the Fragment._  
+_In the beginning Rosetta was created from the Centroid and the Fragment._  
 _And the Fullatom Pose was without Conformation, and Null; and darkness_ was _upon the potential energy surface. And the Students of Baker moved upon the face of protein structure._  
-_And Baker said, Let there be the Metropolis criterion: and there was convergence._  
-_And Baker saw the folding funnel, that_ it was _good: and Baker divided the models from the decoys._  
-
--- I can't remember any more of the KJV
+_And Rosetta said, Let there be the Metropolis criterion: and there was convergence._  
+_And Rosetta saw the folding funnel, and saw that it was good._ 
+_Thus the Students of Baker divided the models from the decoys._  
 
 Rosetta has a relatively long academic history, and there is a substantial set of papers that are foundational to both the content of the code-base and the accomplishments of its users.
 We distilled these references to a core canon: the papers we assume each other have read, the papers we wish we had read, the papers we should have read, and, in lucky cases, the papers we have read.
 
+These are organized by field in order of Rosetta entering the field, and chronological order within each group.
 
 
 Protein Structure
 --------------
-* DiMaio F, Leaver-Fay A, Bradley P, Baker D, Andre I (2011)  
-[Modeling symmetric macromolecular structures in Rosetta3.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=21731614)  
-PLoS One 6:e20450  
-DiMaio et al. describe a framework for efficiently modeling highly symmetric oligomers using a single monomer, the inter-monomer interface, and mathematical relationships between subunits.
+* Simons KT, Bonneau R, Ruczinski I, Baker D (1999)  
+[Ab initio protein structure prediction of CASP III targets using ROSETTA.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=10526365)    
+Proteins Suppl 3:171-6  
+The first use of the Rosetta algorithm successfully predicted ab initio protein structures to an RMSD within 6.4, 6.0, and 3.8A.
 
 * Raveh B, London N, Schueler-Furman O (2010)  
 [Sub-angstrom modeling of complexes between flexible peptides and globular proteins.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=20455260)  
 Proteins 78:2029-40  
 Raveh et al. describe algorithms to predict the bound state of flexible peptides in protein pockets.
 
-* Simons KT, Bonneau R, Ruczinski I, Baker D (1999)  
-[Ab initio protein structure prediction of CASP III targets using ROSETTA.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=10526365)    
-Proteins Suppl 3:171-6  
-The first use of the Rosetta algorithm successfully predicted ab initio protein structures to an RMSD within 6.4, 6.0, and 3.8A.
+* DiMaio F, Leaver-Fay A, Bradley P, Baker D, Andre I (2011)  
+[Modeling symmetric macromolecular structures in Rosetta3.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=21731614)  
+PLoS One 6:e20450  
+DiMaio et al. describe a framework for efficiently modeling highly symmetric oligomers using a single monomer, the inter-monomer interface, and mathematical relationships between subunits.
 
 Scoring
 --------------
