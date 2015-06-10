@@ -111,7 +111,7 @@ Unfortunately, we are not currently able to support Rosetta on Windows.
 There are few free, easy-to-use C++ compilers available for Windows, and they use slightly different C++ standards.
 [[Dual booting|http://en.wikipedia.org/wiki/Multi-booting#Windows_and_Linux]] is an option, but we cannot setting them up (we can help you with Rosetta on your Linux partition).
 
-##Use on supercomputer clusters
+###Use on supercomputer clusters
 If you'll be running Rosetta on a scientific computation cluster, there may already be a version of Rosetta installed for general usage.
 Talk to your cluster administrator to see if there is a centrally-provided version available for your use.
 
