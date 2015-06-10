@@ -59,12 +59,12 @@ These are all run via the [[docking protocol|docking-protocol]], but differ in f
 **Local refinement docking** only uses the high-resolution, full-atom phase.
 
 See the [[docking protocol|docking-protocol]] for more information on how to run a docking simulation.
-Note: side-chains should be [[pre-packed|docking-prepack-protocol]] prior to docking to globally minimize side-chain energies since docking only packs side-chains at the interface.
+**Note:** side-chains should be [[pre-packed|docking-prepack-protocol]] prior to docking to globally minimize side-chain energies since docking only packs side-chains at the interface.
 
 ### Docking Two Partners With Known Structures
 
 In this case, (near) atomic-resolution structures have been determined for both interacting partners. 
-The structures should be prepared for docking in the standard manner (see [[preparing structures|preparing-structures]]).
+The structures should be prepared for docking in the standard manner (see [[preparing structures|preparing-structures]], [[pre-packed|docking-prepack-protocol]]).
 The [[docking protocol|docking-protocol]] would then search for the complex structure with minimal energy.
 
 Docking can emulate several biophysical models of protein–protein interactions which are enumerated below.
@@ -138,18 +138,18 @@ Due to the breadth of these challenges, protocols are either specific or custom 
 
 One could envision a simple design problem where they seek to stabilize a known protein structure.
 A reasonable assumption to make is that there will not be large changes in protein fold.
-Hence, this problem is approached with [[fixed backbone design|fixbb]] where side-chain identities are sampled to identify those which minimize energy on the current backbone. 
-Further, if design is yield an amino acid sequence favoring hydrophobic residues then [[fixed backbone design can be run with consideration of hydrophobic surface patches||fixbb-with-hpatch]].
-However, newer score functions have more or less limited this problem.
+Hence, this problem is approached with [[fixed backbone design|fixbb]] where side-chain amino acid identities are sampled to identify those which minimize energy on the current backbone. 
+Further, if design is yield an amino acid sequence favoring hydrophobic residues then [[fixed backbone design can be run with consideration of hydrophobic surface patches|fixbb-with-hpatch]].
+However, new score functions have limited this problem.
 
 Other design problems of interest may include: 
 - scanning for [[stabilizing point mutations|pmut-scan-parallel]], 
-- [[Sequence Tolerance|sequence-tolerance]]
-- [[Multistate Design|mpi-msd]]
-- [[RosettaRemodel|rosettaremodel]]
-- [[More Remodel Docs|Remodel]]
-- [[Surface Charge|supercharge]]
-- [[I.D. and Fill Cavities|vip-app]]
+- specificity prediction and library design with [[sequence tolerance|sequence-tolerance]]
+- [[multistate design|mpi-msd]] of different functions in different contexts
+- [[RosettaRemodel|rosettaremodel]] is a generalized framework for flexible backbone design
+    - [[More RosettaRemodel documentation|Remodel]]
+- improving solubility and reversibility of folding with [[surface charge|supercharge]]
+- improving hydrophobic packing by [[void identification and packing|vip-app]]
 
 ### Protein Interface Design
 
@@ -162,14 +162,45 @@ Other design problems of interest may include:
 
 ## Protein Loop Modeling
 
-Most protein flexibility is contained the loops. 
-Often times it is important to specifically model loops.
+Loop modeling is a complex and central element of protein structure prediction and design.
+There are two typical biological problems:
+- modeling loops into regions of low electron density in crystal structures
+- modeling loops into regions of low homology or with no secondary structure in homology models
+There exist a variety of tools for approaching these tasks.
+For an overview of loop modeling in Rosetta, please see [[this|loopmodel]].
+
+### Modeling Loops in Regions of Low Electron Density
+
+For explicit refinement of crystallography data, see [[here|density-map-scoring]].
+
+For modeling of missing loops on existent protein structures, you can use any of the methods in the section below.
+
+### Modeling Loops in Regions of Low Homology or with No Secondary Structure
+
+What if I am building a homology model and there are regions with low homology or no predicted secondary structure?
+These are the typical problems solved by loop modeling algorithms.
+Most loop modeling algorithms in Rosetta are contained within a single executable and run by setting different flags.
+The fastest, but least accurate method is cyclic coordinate descent ([[CCD|loopmodel-ccd]]).
+CCD closes a loop by iteratively solving for phi/psi angles which position the mobile terminus closer to the target anchor after fragment insertion.
+CCD is generally not recommended but can be used in specific cases (e.g. when time is a limiting factor).
+The currently (June 10th, 2015) accepted method of loop modeling is next-generation KIC ([[NGK|next-generation-KIC]]).
+NGK sampling can be enhanced/concerted with fragments ([[KIC with fragments|KIC_with_fragments]]).
+There also exists an alternative, Monte Carlo stepwise, loop modeling method which can be applied to proteins and **RNA**.
+Unfortunately, stepwise loop modeling (for [[proteins|swa-protein-main]] and [[RNA|stepwise]]) tends to be slow.
+
+See the [[Kortemme Lab benchmark server|https://guybrush.ucsf.edu/benchmarks/benchmarks/loop_modeling]] for a comparison.
+
+#### What if I am modeling a protein with a disordered region?
+
+You probably should not be doing this using Rosetta, if at all. 
+Disordered proteins are dynamic in the context of a cell.
+It is unlikely that any static, _in silico_, model of a disordered protein or protein region will be very accurate.
+However, if you have a specific question, such as "can my disordered tail of 20 residues plausibly interact with this other region of my protein?"
+Then you may begin to approach this question with [[FloppyTail|floppy-tail]].
 
 ## Solving Crystal Structures
 
-## Filling in Crystal Density? (optional)
-
-Loop modeling and floppy tail can go here.
+For explicit refinement of crystallography data, see [[here|density-map-scoring]].
 
 ## What If My Question Is Unanswered? 
 
@@ -202,7 +233,7 @@ At the same time, input structures are not perfect:
 Most of all, the force fields used in these optimization efforts are arithmetically distinct from the Rosetta energy function.
 It is critical to obtain structures that are geometrically similar to the starting structure but that exist closer to a local minimum of the scoring function.
 This is important because every unit of strain energy in your starting structure can inappropriately bias sampling: bad moves can be accepted that would otherwise have been rejected because they relieve strain that already should have been addressed.
-There is a [complete write-up](rosetta_basics/preparing-structures) of preparing starting structures appropriately.
+There is a [[complete write-up|preparing-structures]] of preparing starting structures appropriately.
 
 ## Specialized Rosetta executables
 
@@ -244,3 +275,16 @@ This means that the structures that come out of your protocol should be fairly r
 Suppose you have a small set of good-scoring decoys that come out of your protocol.
 You should be able to apply the same sampling protocol to those good-scoring decoys _without the constraints_ and the structure should not "blow up."
 Heuristics for determining the precise meaning of "blowing up" are case-dependent, but it is essential that you remove constraints and observe the behavior of your putative "good models." 
+
+##See Also
+
+* [[Resources for learning biophysics and computational modeling]]
+* [[Getting Started]]: A page for people new to Rosetta
+* [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Comparing structures]]: Essay on comparing structures
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files
+* [[Rosetta Servers]]: Web-based servers for Rosetta applications
+* [[Scripting Documentation]]: Scripting interfaces to Rosetta
+* [[RosettaEncyclopedia]]: Detailed descriptions of Rosetta terms
+* [[Rosetta overview]]: Overview of major concepts in Rosetta

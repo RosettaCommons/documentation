@@ -1,5 +1,8 @@
 <!-- --- title: Relational Database Options -->
+
 Options for using relational databases within Rosetta.
+
+**NOTE:** Not to be confused with the option to specify the [[Rosetta database|database]], which is found in the [[input options]].
 
 Currently supported backends include: sqlite3, mysql, and postgres
 
@@ -38,3 +41,14 @@ Output
                             Only works with the DatabaseJobOutputter.
                             The new jobs will be generated under a new protocol and batch ID
 ```
+
+##See Also
+
+* [[Full options list]]
+* [[Options overview]]: Description of options in Rosetta
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
+* [[Database IO]]: Information on input/output to different database formats using Rosetta
+* [[Rosetta Database Output Tutorial]]
+* [[SQLite3 Interface]]: Specific information on using SQLite3 with Rosetta
+* [[Database support]]: Advanced details on Rosetta's interface with databases
