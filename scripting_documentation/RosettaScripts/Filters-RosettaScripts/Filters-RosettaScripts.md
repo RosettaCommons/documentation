@@ -66,7 +66,7 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[EnergyPerResidue|EnergyPerResidueFilter]]** -
 
-**[[Residue Interaction Energy|Residue Interaction EnergyFilter]]** -
+**[[Residue Interaction Energy|ResidueIEFilter]]** -
 
 **[[ScoreType|ScoreTypeFilter]]** -
 
@@ -102,7 +102,7 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[HelixKink|HelixKinkFilter]]** -
 
-**[[Bond geometry and omga angle|Bond geometry and omga angleFilter]]** -
+**[[Bond geometry and omega angle|GeometryFilter]]** -
 
 **[[HSSTriplet|HSSTripletFilter]]** -
 
@@ -156,7 +156,7 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[BuriedUnsatHbonds|BuriedUnsatHbondsFilter]]** -
 
-**[[BuriedUnsatHbonds2 |BuriedUnsatHbonds2 Filter]]** -
+**[[BuriedUnsatHbonds2|BuriedUnsatHbonds2Filter]]** -
 
 **[[DisulfideFilter]]** -
 
@@ -230,6 +230,8 @@ These filters are used primarily for the reports they generate in the log and/or
 
 **[[StubScore|StubScoreFilter]]** -
 
+<!--- BEGIN_INTERNAL -->
+
 ### MatDes
 
 **[[OligomericAverageDegree|OligomericAverageDegreeFilter]]** -
@@ -240,9 +242,11 @@ These filters are used primarily for the reports they generate in the log and/or
 
 **[[InterfacePacking|InterfacePackingFilter]]** -
 
-**[[MutationsFiler|MutationsFilerFilter]]** -
+**[[MutationsFilter|MutationsFilter]]** -
 
 **[[GetRBDOFValues|GetRBDOFValuesFilter]]** -
+
+<!--- END_INTERNAL -->
 
 ### Backbone Design
 
