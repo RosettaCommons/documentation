@@ -2,7 +2,7 @@ There are special [[integration tests]] for testing the workings of parallelized
 These can be run by passing the `--mpi-tests` flag to integration.py. 
 These tests require Rosetta to be compiled first with the `-extras=mpi` flag passed to scons.  
 
-Where standard integration tests are set up based on the `command` files in the tests/integration/tests/<testname>/ directories, MPI integration tests are defined in `command.mpi` files.
+Where standard integration tests are set up based on the `command` files in the `tests/integration/tests/<testname>/` directories, MPI integration tests are defined in `command.mpi` files.
 Where a typical `command` file runs the Rosetta executable directly, `command.mpi` files call `mpirun`, specify the number of processes to launch, and pass the Rosetta executable to `mpirun`.
 Note that MPI-level parallelism is inherently stochastic: any slave process may finish its work before any other, meaning that one needs to set up integration tests carefully to test only for unexpected variation and not for this normal variation.
 
