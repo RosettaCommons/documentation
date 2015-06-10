@@ -90,6 +90,7 @@ Lazaridis, T. and M. Karplus, _Effective energy function for proteins in solutio
 
 * [[Scoring explained]]
 * [[Additional score terms|score-types-additional]]
+* [[Units in Rosetta]]: Gives a description of Rosetta energy units
 * [[Hydrogen bond energy term|hbonds]]
 * [[Scorefunctions for noncanonical residues and molecules|NC-scorefunction-info]]
 * [[Adding new score terms|new-energy-method]]

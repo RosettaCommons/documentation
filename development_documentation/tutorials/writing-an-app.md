@@ -12,6 +12,7 @@ This guide is under construction.  Clearly a "Writing a 'Writing a Rosetta Appli
 
 ##See Also
 
+* [[Development tutorials home page|devel-tutorials]]
 * [[Development Documentation]]: The development documentation home page
 * [[Application Documentation]]: Information on existing Rosetta apps
 * [[Rosetta tests]]: Links to pages on running and writing tests in Rosetta
@@ -19,7 +20,7 @@ This guide is under construction.  Clearly a "Writing a 'Writing a Rosetta Appli
 * [[Owning/access pointer usage guide|How-to-use-pointers-correctly]]
 * [[Using the ResourceManager|ResourceManager]]
 * [[Doxygen documentation guide|doxygen-tips]]
-* [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
+* [[RosettaEncyclopedia]]: Detailed descriptions of concepts in Rosetta.
 * [[RosettaScripts]]: Instructions for writing RosettaScripts, the Rosetta XML interface
 * [[PyRosetta]]: Wiki page for PyRosetta, the independent Python interface to Rosetta
 * [[Build Documentation]]: Information on building Rosetta

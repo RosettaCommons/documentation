@@ -24,7 +24,9 @@ The following is a list of guides for using specific Rosetta features or perform
 
 * [[Development Documentation]]: The development documentation home page
 * [[Rosetta tests]]: Links to pages on running and writing tests in Rosetta
+* [[Rosetta overview]]: Overview of major concepts in Rosetta
 * [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
+* [[Glossary]]: Defines key Rosetta terms
 * [[RosettaScripts]]: Wiki page for RosettaScripts, the Rosetta XML interface
 * [[PyRosetta]]: Wiki page for PyRosetta, the independent Python interface to Rosetta
 * [[RosettaTimeline]]: History of Rosetta
