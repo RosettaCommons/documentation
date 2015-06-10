@@ -11,13 +11,14 @@ We distilled these references to a core canon: the papers we assume each other h
 
 These are organized by field in order of Rosetta entering the field, and chronological order within each group.
 
+[[_TOC_]]
 
-Protein Structure
---------------
+Protein Structure Prediction
+-----------------
 * Simons KT, Bonneau R, Ruczinski I, Baker D (1999)  
 [Ab initio protein structure prediction of CASP III targets using ROSETTA.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=10526365)    
 Proteins Suppl 3:171-6  
-The first use of the Rosetta algorithm successfully predicted ab initio protein structures to an RMSD within 6.4, 6.0, and 3.8A.
+The first use of the Rosetta algorithm successfully predicted ab initio protein structures to an RMSD within 6.4, 6.0, and 3.8Å.
 
 * Raveh B, London N, Schueler-Furman O (2010)  
 [Sub-angstrom modeling of complexes between flexible peptides and globular proteins.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=20455260)  
@@ -31,21 +32,30 @@ DiMaio et al. describe a framework for efficiently modeling highly symmetric oli
 
 Scoring
 --------------
-* Leaver-Fay A, O'Meara MJ, Tyka M, Jacak R, Song Y, Kellogg EH, Thompson J, Davis IW, Pache RA, Lyskov S, Gray JJ, Kortemme T, Richardson JS, Havranek JJ, Snoeyink J, Baker D, Kuhlman B (2013)  
-[Scientific benchmarks for guiding macromolecular energy function improvement.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=23422428)  
-Methods Enzymol 523:109-43  
-Leaver-Fay et al. describe OptE, a methodology for using sequence-recovery and rotamer-recovery benchmarks to improve weights sets for scoring functions and describe talaris2013, the current state-of-the-art general purpose Rosetta energy function.
+* Rohl CA, Strauss CE, Misura KM, Baker D (2004) [Protein structure prediction using Rosetta.](http://www.ncbi.nlm.nih.gov/pubmed/15063647)
+This paper, often called the **Rohl review**, is a window into Rosetta's early scorefunction, and remains an excellent reference for early forms of the score function terms. It can be a little hard to find online, but paper photocopies float around most Rosetta labs.
 
-* Kellogg EH, Leaver-Fay A, Baker D (2011)  
+* Kuhlman B, Dantas G, Ireton GC, Varani G, Stoddard BL, Baker D (2003)  
+[Design of a novel globular protein fold with atomic-level accuracy.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=14631033)  
+Science 302:1364-8  
+This paper, often called the **Top7 paper**, is primarily a design paper (see below), but is important for scoring as it introduces sequence-related energy terms (reference energies, p_aa_pp, etc).
+The supplemental is most relevant for scoring.
+
+<!--* Kortemme T, Kim DE, Baker D (2004)  
+[Computational alanine scanning of protein-protein interfaces.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=14872095)  
+Sci STKE 2004:pl2  
+Kortemme et al. exhibit an alanine scanning algorithm for protein-protein interfaces that correctly predicts 79% of hot spot residues.-->
+
+<!--* Kellogg EH, Leaver-Fay A, Baker D (2011)  
 [Role of conformational sampling in computing mutation-induced changes in protein structure and stability.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=21287615)  
 Proteins 79:830-8  
 Kellogg et al. explore methods for computing the stability change corresponding to a point mutation in a protein with variable conformational sampling and scoring function selection.
+-->
 
-* Kortemme T, Kim DE, Baker D (2004)  
-[Computational alanine scanning of protein-protein interfaces.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=14872095)  
-Sci STKE 2004:pl2  
-Kortemme et al. exhibit an alanine scanning algorithm for protein-protein interfaces that correctly predicts 79% of hot spot residues.
-
+* Leaver-Fay A, O'Meara MJ, Tyka M, Jacak R, Song Y, Kellogg EH, Thompson J, Davis IW, Pache RA, Lyskov S, Gray JJ, Kortemme T, Richardson JS, Havranek JJ, Snoeyink J, Baker D, Kuhlman B (2013)  
+[Scientific benchmarks for guiding macromolecular energy function improvement.] (http://www.ncbi.nlm.nih.gov/pubmed/23422428)  
+Methods Enzymol 523:109-43  
+Leaver-Fay et al. describe OptE, a methodology for using sequence-recovery and rotamer-recovery benchmarks to improve weights sets for scoring functions and describe [[Talaris2013]], the current state-of-the-art general purpose Rosetta energy function.
 
 Docking
 --------------
