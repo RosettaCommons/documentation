@@ -165,4 +165,4 @@ The MPI-mode build test simply tries to compile Rosetta with the ```-extras=mpi`
 ##Cleaning 
 ====================
 
-rm -rf build/src; rm .sconsign.dblite  
+'''rm -rf build/src; rm .sconsign.dblite'''  
