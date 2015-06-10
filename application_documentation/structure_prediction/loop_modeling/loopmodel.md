@@ -76,3 +76,17 @@ loopmodel MPI
 =============
 
 The loopmodel executable has a separate MPI implementation from the JD2 implementation that serves most of Rosetta. As normal, just compile Rosetta in mpi (add extras=mpi to the scons command line when compiling) to activate MPI. When you run loopmodel.mpi.\*\*\*, it will expect that you have precreated output directories for it, named ./output\_\#, where \# is the zero-indexed processor rank (and you need one for each processor). So, for a 8-processor MPI job, created output\_0, output\_1, ..., output\_7.
+
+## See Also
+
+* [[Structure prediction applications]]: A list of other applications to be used for structure prediction, including loop modeling
+* [[Fragment file]]: Fragment file format (required for abinitio structure prediction)
+* [[Loops file]]: File format for specifying loops for loop modeling
+* [[Loop modeling algorithms|loopmodel-algorithms]]
+* [[Application Documentation]]: List of Rosetta applications
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Comparing structures]]: Essay on comparing structures
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files
+

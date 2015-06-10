@@ -1,1 +1,0 @@
-Go [[here|application_documentation/stepwise/Stepwise_Home.md]]

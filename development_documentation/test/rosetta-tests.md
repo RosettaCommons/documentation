@@ -8,7 +8,16 @@ Rosetta has 4 sets of tests. Unit tests check particular functions of the Rosett
     	-   [[Writing unit tests for movers using UMoverTest|mover-test]]
     	-   [[UTracer]], a tool to simplify writing unit tests
     -   [[Running unit tests|run-unit-test]]
-
 -   [[How to create and run scientific tests|Scientific-Benchmarks]]
+    - [[Detailed Balance scientific tests|DetailedBalanceScientificBenchmark]]
+    - [[Docking scientific tests|DockingScientificBenchmark]]
 -   [[Performance Benchmarks]]
 -   [[Integration Tests]]
+    - [[Writing MPI Integration Tests]]
+-   [[Testing server]]
+    - [[Running tests on the test server]]
+
+##See Also
+
+* [[Development Documentation]]: The main development documentation page
+* [[Development tutorials|devel-tutorials]]: Tutorials for developers
