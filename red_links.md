@@ -1,1 +1,1 @@
-<<FindRedLinks>>
+<<FindRedLinks()>>
