@@ -33,7 +33,8 @@ Just run the whole set of tests before you merge, as part of the [[before you me
 Remember that it is perfectly ok if there are expected integration test changes due to code you changed: if you've rewritten your protocol, of course its tests will change!
 The purpose of the tests in this fashion is to ensure that there are not *unexpected* changed, and that the changes that are expected are *explicable* from the code that changed.
 
-You can also get into the habit of [[test-driven development|https://en.wikipedia.org/wiki/Test-driven_development]] and 
+You can also get into the habit of [[test-driven development|https://en.wikipedia.org/wiki/Test-driven_development]] as [[described below|development_documentation/test/integration-tests#using-integration-tests-as-a-development-tool]]. 
+
 Running integration tests
 ==========================
 Unfortunately, the integration tests uniquely require you to run them on code **without** the changes you intend to verify.
