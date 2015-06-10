@@ -290,7 +290,7 @@ These movers are at least somewhat specific to the design of protein-protein int
 
 **[[Docking|DockingMover]]** -
 
-**[[Docking with Hotspot|Docking with HotspotMover]]** -
+**[[DockWithHotspotMover]]** -
 
 **[[Prepack|PrepackMover]]** -
 
@@ -298,7 +298,7 @@ These movers are at least somewhat specific to the design of protein-protein int
 
 **[[DesignMinimizeHBonds|DesignMinimizeHBondsMover]]** -
 
-**[[build\_Ala\_pose|BuildAlaPoseMover]]** -
+**[[build_Ala_pose|BuildAlaPoseMover]]** -
 
 **[[SaveAndRetrieveSidechains|SaveAndRetrieveSidechainsMover]]** -
 
@@ -312,7 +312,7 @@ These movers are at least somewhat specific to the design of protein-protein int
 
 **[[BestHotspotCst|BestHotspotCstMover]]** -
 
-**[[DomainAssembly|DomainAssemblyMover]] (Not tested thoroughly) -
+**[[DomainAssembly|DomainAssemblyMover]]** (Not tested thoroughly) -
 
 **[[LoopFinder|LoopFinderMover]]** -
 
@@ -324,7 +324,7 @@ These movers are at least somewhat specific to the design of protein-protein int
 
 **[[InterfaceRecapitulation|InterfaceRecapitulationMover]]** -
 
-**[[VLB|VLBMover]] (aka Variable Length Build) -
+**[[VLB|VLBMover]]** (aka Variable Length Build) -
 
 **[[HotspotDisjointedFoldTree|HotspotDisjointedFoldTreeMover]]** -
 
@@ -349,7 +349,7 @@ See [[RosettaScriptsPlacement]] for more information.
 
 **[[RestrictRegion|RestrictRegionMover]]** -
 
-**[[StubScore|StubScoreMover]]** -
+**[[StubScore|StubScoreFilter]]** -
 
 **[[ddG|ddGMover]]** -
 
