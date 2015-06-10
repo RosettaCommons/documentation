@@ -59,12 +59,12 @@ These are all run via the [[docking protocol|docking-protocol]], but differ in f
 **Local refinement docking** only uses the high-resolution, full-atom phase.
 
 See the [[docking protocol|docking-protocol]] for more information on how to run a docking simulation.
-Note: side-chains should be [[pre-packed|docking-prepack-protocol]] prior to docking to globally minimize side-chain energies since docking only packs side-chains at the interface.
+**Note:** side-chains should be [[pre-packed|docking-prepack-protocol]] prior to docking to globally minimize side-chain energies since docking only packs side-chains at the interface.
 
 ### Docking Two Partners With Known Structures
 
 In this case, (near) atomic-resolution structures have been determined for both interacting partners. 
-The structures should be prepared for docking in the standard manner (see [[preparing structures|preparing-structures]]).
+The structures should be prepared for docking in the standard manner (see [[preparing structures|preparing-structures]], [[pre-packed|docking-prepack-protocol]]).
 The [[docking protocol|docking-protocol]] would then search for the complex structure with minimal energy.
 
 Docking can emulate several biophysical models of protein–protein interactions which are enumerated below.
@@ -138,18 +138,18 @@ Due to the breadth of these challenges, protocols are either specific or custom 
 
 One could envision a simple design problem where they seek to stabilize a known protein structure.
 A reasonable assumption to make is that there will not be large changes in protein fold.
-Hence, this problem is approached with [[fixed backbone design|fixbb]] where side-chain identities are sampled to identify those which minimize energy on the current backbone. 
+Hence, this problem is approached with [[fixed backbone design|fixbb]] where side-chain amino acid identities are sampled to identify those which minimize energy on the current backbone. 
 Further, if design is yield an amino acid sequence favoring hydrophobic residues then [[fixed backbone design can be run with consideration of hydrophobic surface patches||fixbb-with-hpatch]].
-However, newer score functions have more or less limited this problem.
+However, new score functions have limited this problem.
 
 Other design problems of interest may include: 
 - scanning for [[stabilizing point mutations|pmut-scan-parallel]], 
-- [[Sequence Tolerance|sequence-tolerance]]
-- [[Multistate Design|mpi-msd]]
-- [[RosettaRemodel|rosettaremodel]]
-- [[More Remodel Docs|Remodel]]
-- [[Surface Charge|supercharge]]
-- [[I.D. and Fill Cavities|vip-app]]
+- specificity prediction and library design with [[sequence tolerance|sequence-tolerance]]
+- [[multistate design|mpi-msd]] of different functions in different contexts
+- [[RosettaRemodel|rosettaremodel]] is a generalized framework for flexible backbone design
+    - [[More RosettaRemodel documentation|Remodel]]
+- improving solubility and reversibility of folding with [[surface charge|supercharge]]
+- improving hydrophobic packing by [[void identification and packing|vip-app]]
 
 ### Protein Interface Design
 
@@ -162,10 +162,33 @@ Other design problems of interest may include:
 
 ## Protein Loop Modeling
 
-Most protein flexibility is contained the loops. 
-Often times it is important to specifically model loops.
+Loop modeling is a complex and central element of protein structure prediction and design.
+There are two typical biological problems:
+- modeling loops into regions of low electron density in crystal structures
+- modeling loops into regions of low homology or with no secondary structure in homology models
+There exist a variety of tools for approaching these tasks.
+For an overview of loop modeling in Rosetta, please see [[this|loopmodel]].
+
+### Modeling Loops in Regions of Low Electron Density
+
+For explicit refinement of crystallography data, see [[here|density-map-scoring]].
+
+For modeling of missing loops on existent protein structures, you can use any of the methods in the section below.
+
+### Modeling Loops in Regions of Low Homology or with No Secondary Structure
+
+** FloppyTail ? **
+
+In general, there are five loop modeling algorithms:
+- cyclic coordinate descent ([[CCD|loopmodel-ccd]])
+- kinematic closure ([[KIC|loopmodel-kinematic]], deprecated)
+- next-generation KIC ([[NGK|next-generation-KIC]], use this)
+- [[KIC with fragments|KIC_with_fragments]] (more concerted sampling)
+- stepwise modeling of protein/RNA loops [[swa-protein-main]]
 
 ## Solving Crystal Structures
+
+For explicit refinement of crystallography data, see [[here|density-map-scoring]].
 
 ## Filling in Crystal Density? (optional)
 
@@ -202,7 +225,7 @@ At the same time, input structures are not perfect:
 Most of all, the force fields used in these optimization efforts are arithmetically distinct from the Rosetta energy function.
 It is critical to obtain structures that are geometrically similar to the starting structure but that exist closer to a local minimum of the scoring function.
 This is important because every unit of strain energy in your starting structure can inappropriately bias sampling: bad moves can be accepted that would otherwise have been rejected because they relieve strain that already should have been addressed.
-There is a [complete write-up](rosetta_basics/preparing-structures) of preparing starting structures appropriately.
+There is a [[complete write-up|preparing-structures]] of preparing starting structures appropriately.
 
 ## Specialized Rosetta executables
 
