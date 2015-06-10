@@ -1,9 +1,9 @@
 #The Rosetta canon
 
 _In the beginning Baker created the Centroid and the Fragment._  
-_And the Fullatom Pose was without Conformation, and Null; and darkness_ was _upon the potential energy surface._ And the Students of Baker moved upon the face of protein structure._
-_And Baker said, Let there be the Metropolis criterion: and there was convergence._
-_And Baker saw the folding funnel, that_ it was _good: and Baker divided the models from the decoys._
+_And the Fullatom Pose was without Conformation, and Null; and darkness_ was _upon the potential energy surface. And the Students of Baker moved upon the face of protein structure._  
+_And Baker said, Let there be the Metropolis criterion: and there was convergence._  
+_And Baker saw the folding funnel, that_ it was _good: and Baker divided the models from the decoys._  
 
 -- I can't remember any more of the KJV
 
