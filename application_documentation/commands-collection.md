@@ -8,7 +8,7 @@ This document was edited Nov 10th 2008 by Yi Liu. Credits go to developers who h
 Instructions
 ============
 
--   There is no specific examples for every pilot applications in the rosetta trunk yet.
+-   There are no specific examples for every pilot applications in the rosetta trunk yet.
 -   Make sure that you have the application in the pilot\_apps.src.settings.
 -   Or, you can build all pilot applications with the scons flag pilot\_apps\_all
 
