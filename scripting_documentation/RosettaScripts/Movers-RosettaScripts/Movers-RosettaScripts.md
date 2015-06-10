@@ -12,9 +12,9 @@ where "mover\_name" belongs to a predefined set of possible movers that the pars
 
 * Predefined Movers
 
-The following are defined internally in the parser, and the protocol can use them without defining them explicitly.
+Predefined Movers are defined internally in the parser, and the protocol can use them without defining them explicitly.
 
-**NullMover**
+**NullMover** - Does nothing.
 
 Has an empty apply. Will be used as the default mover in \<PROTOCOLS\> if no mover\_name is specified. Can be explicitly specified, with the name "null".
 
