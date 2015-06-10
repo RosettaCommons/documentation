@@ -25,42 +25,70 @@ Meta Movers don't do anything to the pose themselves, but cobmine or modify the 
 ### Combining Movers
 
 **[[ParsedProtocol]]** (formerly DockDesign) - Make RosettaScripts subroutines.
-**[[MultiplePoseMover]] - 
-**[[MultipleOutputWrapper]] - 
-**[[Subroutine]] - 
-**[[ContingentAcceptMover]] - 
-**[[IfMover]] - 
-**[[RandomMover]] - 
+
+**[[MultiplePoseMover]]** - Allows "distribute and collect" from certain submovers.
+
+**[[MultipleOutputWrapper]]** - Convert a single output mover to multiple output.
+
+**[[Subroutine]]** - Run another XML file as a subroutine.
+
+**[[ContingentAcceptMover]]** - Fail if a submover doesn't improve a filter value.
+
+**[[IfMover]]** - Run different movers based on a filter value.
+
+**[[RandomMover]]** - Randomly choose a mover from a weighted list.
 
 ### Looping/Monte Carlo Movers
 
-**[[LoopOver]] - 
-**[[GenericMonteCarlo]] - 
-**[[GenericSimulatedAnnealer]] - 
-**[[MonteCarloTest]] - 
-**[[MonteCarloRecover]] - 
-**[[MonteCarloUtil]] - 
-**[[MetropolisHastings]] - 
-**[[IteratedConvergence]] - 
-**[[RampMover]] - 
+**[[LoopOver]]** - Repeatedly apply a mover.
+
+**[[GenericMonteCarlo]]** - Repeatedly apply a mover in a Monte Carlo fashion.
+
+**[[GenericSimulatedAnnealer]]** - Repeatedly apply a mover in a Monte Carlo fashion with ramped temperatures.
+
+**[[MonteCarloTest]]** - 
+
+**[[MonteCarloRecover]]** - 
+
+**[[MonteCarloUtil]]** - 
+
+**[[MetropolisHastings]]**
+
+**[[IteratedConvergence]]** - Repeatedly apply a mover until a filter gives stable values. 
+
+**[[RampMover]]** - Repeatedly apply a mover while changing a score term.
 
 ### Reporting/Saving
 
-**[[SavePoseMover]] - 
-**[[ReportToDB]] - 
-**[[ResetBaseline]] - 
-**[[TrajectoryReportToDB]] - 
-**[[DumpPdb]] - 
-**[[PDBTrajectoryRecorder]] - 
-**[[SilentTrajectoryRecorder]] - 
-**[[MetricRecorder]] - 
-**[[AddJobPairData]] - 
-**[[WriteLigandMolFile]] - 
-**[[RenderGridsToKinemage]] - 
-**[[PyMolMover]] - 
+**[[SavePoseMover]]** - Save or retrieve a pose for use in another mover/filter.
+
+**[[ReportToDB]]** - Report structural data to a relational database.
+
+**[[ResetBaseline]]** - 
+
+**[[TrajectoryReportToDB]]** - 
+
+**[[DumpPdb]]** - Save a pose to disk.
+
+**[[PDBTrajectoryRecorder]]** - 
+
+**[[SilentTrajectoryRecorder]]** - 
+
+**[[MetricRecorder]]** - 
+
+**[[AddJobPairData]]** - 
+
+**[[WriteLigandMolFile]]** - 
+
+**[[RenderGridsToKinemage]]** - 
+
+**[[PyMolMover]]** - Send a pose to PyMol.
 
 ### Setup Movers
-**[[SetupPoissonBoltzmannPotential]] - 
+
+**[[SetupPoissonBoltzmannPotential]]** - 
+
+## General Movers
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
