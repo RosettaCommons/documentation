@@ -278,6 +278,28 @@ See **[[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaSc
 
 **[[GreedyOptMutationMover]]** -
 
+## Loop Modeling Movers
+
+See [[RosettaScriptsLoopModeling]] for an overview.
+
+**[[LoopModeler|LoopModelerMover]] - 
+
+**[[LoopBuilder|LoopBuilderMover]] - 
+
+**[[LoopProtocol|LoopProtocolMover]] - 
+
+**[[KicMover]] - 
+
+**[[RepackingRefiner|RepackingRefinerMover]] - 
+
+**[[RotamerTrialsRefiner|RotamerTrialsRefinerMover]] - 
+
+**[[MinimizationRefiner|MinimizationRefinerMover]] - 
+
+**[[PrepareForCentroid|PrepareForCentroidMover]] - 
+
+**[[PrepareForFullatom|PrepareForFullatomMover]] - 
+
 ## Protein Interface Modeling, Design, and Analysis Movers
 
 These movers are at least somewhat specific to the design of protein-protein interfaces. Attempting to use them with, for example, protein-DNA complexes may result in unexpected behavior.
