@@ -174,7 +174,7 @@ These are movers that should be usable in most cases with most systems.
 
 ### Symmetry
 
-See **[[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScripts.
+See [[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScripts.
 
 **[[SetupForSymmetry|SetupForSymmetryMover]]** - 
 
@@ -282,23 +282,23 @@ See **[[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaSc
 
 See [[RosettaScriptsLoopModeling]] for an overview.
 
-**[[LoopModeler|LoopModelerMover]] - 
+**[[LoopModeler|LoopModelerMover]]** - 
 
-**[[LoopBuilder|LoopBuilderMover]] - 
+**[[LoopBuilder|LoopBuilderMover]]** - 
 
-**[[LoopProtocol|LoopProtocolMover]] - 
+**[[LoopProtocol|LoopProtocolMover]]** - 
 
-**[[KicMover]] - 
+**[[KicMover]]** - 
 
-**[[RepackingRefiner|RepackingRefinerMover]] - 
+**[[RepackingRefiner|RepackingRefinerMover]]** - 
 
-**[[RotamerTrialsRefiner|RotamerTrialsRefinerMover]] - 
+**[[RotamerTrialsRefiner|RotamerTrialsRefinerMover]]** - 
 
-**[[MinimizationRefiner|MinimizationRefinerMover]] - 
+**[[MinimizationRefiner|MinimizationRefinerMover]]** - 
 
-**[[PrepareForCentroid|PrepareForCentroidMover]] - 
+**[[PrepareForCentroid|PrepareForCentroidMover]]** - 
 
-**[[PrepareForFullatom|PrepareForFullatomMover]] - 
+**[[PrepareForFullatom|PrepareForFullatomMover]]** - 
 
 ## Protein Interface Modeling, Design, and Analysis Movers
 
