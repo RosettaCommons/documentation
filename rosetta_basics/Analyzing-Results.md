@@ -1,12 +1,12 @@
 Analyzing Results
 ===========
 
-The overview of a Rosetta protocol is extraordinarily generic: you take a set of input data that specifies large parts of the sequence and conformation of a putative protein, you do some sampling of the degrees of freedom in question, and then you pick the "best" results drawn from that sampling procedure.
+The overview of a Rosetta protocol is extraordinarily generic: you take a set of input data that specifies large parts of the sequence and conformation space of a putative protein, you do some sampling of the degrees of freedom in question, and then you pick the "best" results drawn from that sampling procedure.
 This document concerns itself with one aspect of the second step and, primarily, with the third step.
 The glaring question the second step leaves open is the precise amount of sampling necessary to arrive at a reasonable set of structures to analyze.
-Like in a molecular dynamics simulation, you can generally isolate determine whether you have gotten as close to the "right answer" as possible given your sampling criteria.
+Like in a molecular dynamics simulation, you can generally determine whether you have gotten as close to the "right answer" as possible given your sampling criteria.
 
-The classic example is in _ab initio_ folding, where one frequently will plot score versus rmsd and obtain a "folding funnel," where large rmsds correspond to poor scores (and a relatively low score derivative) and, as rmsd approaches the native, rapidly improving scores, leading to a cluster of near-native conformations.
+The classic example is in _ab initio_ folding, where one will plot score versus rmsd to native and obtain a "folding funnel," where large rmsds correspond to poor scores (and a relatively low score derivative) and, as rmsd approaches the native, rapidly improving scores, leading to a cluster of near-native conformations.
 Not every sequence yields a folding funnel at all (granted, not every sequence yields a folded protein in reality either!) but _for the most part_, a folding funnel is some evidence of convergence.
 (Not to overwhelm with caveats, but _in theory_ you could imagine that conformational space might simply be fifty times larger than what you've actually sampled, and your observed funnel is merely a sub-funnel describing some portion of that space. So unsurprisingly, unless you have a true native structure, you can't tell how close you are.)
 But, much as in an MD simulation, you can observe the likelihood that you have not converged declining, and that's good enough.
