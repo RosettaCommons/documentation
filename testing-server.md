@@ -1,4 +1,10 @@
 TODO: this is intentionally fragmentary, this is the only part of an email I needed to move at this time
 
 
-	Comments on Revisions. It is now possible to add comments on any acknowledged revision. To add comment simply login with your git hub account and type comment text. While posting you can also select 'notify the list' check box if you want notification of this comment to be sent not only to the author of revision and people who have already commented on this particular revision but to the mailing list associated with this branch (rosetta-log list in case of master branch). You can also delete your existing comments (you need to be logged-in) by pressing cross button on top-right of your comment. As you might already know our GitHub repositories only can accumulate history and does not allow rewriting of history, so if you pushed some revision with wrong/empty/merge commit message there is no way to undo this action. So in such situation you can use comment feature to supply additional information for future records or just communicate with the other developers:
+######Comments on Revisions
+It is now possible to add comments on any acknowledged revision. 
+To add comment simply login with your git hub account and type comment text. 
+While posting you can also select 'notify the list' check box if you want notification of this comment to be sent not only to the author of revision and people who have already commented on this particular revision but to the mailing list associated with this branch (rosetta-log list in case of master branch). 
+You can also delete your existing comments (you need to be logged-in) by pressing cross button on top-right of your comment. 
+As you might already know our GitHub repositories only can accumulate history and does not allow rewriting of history, so if you pushed some revision with wrong/empty/merge commit message there is no way to undo this action. 
+So in such situation you can use comment feature to supply additional information for future records or just communicate with the other developers:
