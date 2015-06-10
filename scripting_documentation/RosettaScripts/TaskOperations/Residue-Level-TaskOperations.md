@@ -1,7 +1,9 @@
+<!-- --- title: Residue Level TaskOperations -->
+
 Residue Level TaskOperations
 ----------------------------
 
-Use these as a subtag for special OperateOnCertainResidues TaskOperation. Only one may be used per OperateOnCertainResidues
+Use these as a subtag for [[OperateOnResidueSubset|OperateOnResidueSubsetOperation]] (or the deprecated [[OperateOnCertainResidues|OperateOnCertainResiduesOperation]]). Only one may be used per OperateOnResidueSubset/OperateOnCertainResidues tag.
 
 ### RestrictToRepackingRLT
 
