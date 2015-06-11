@@ -8,13 +8,13 @@ Author: Steven Lewis (smlewi - at - gmail.com)
 Code and documentation by Steven Lewis (smlewi - at - gmail.com).
 The PI was Brian Kuhlman, (bkuhlman - at - email.unc.edu) .
 
-Example runs
-============
-
-The executable's source is at `main/source/src/apps/public/interface_design/anchored_design/AnchoredDesign.cc`. 
-Most of the code is in the libraries at `src/protocols/anchored_design/`. 
-There is an [[integration test]] at `main/tests/integration/tests/AnchoredDesign/` which functions as a small demo. 
-There are more extensive demos with more documentation at `demo/protocol_capture/anchored_design`, `demo/public/anchored_design`, and `demo/public/domain_insertion`, which are online at TODO these three links.
+Example runs and code location
+===============================
+<!-- this is not in backticks for code boxes because it shatters the wrapping-->
+The executable's source is at Rosetta/main/source/src/apps/public/interface_design/anchored_design/AnchoredDesign.cc. 
+Most of the code is in the libraries at Rosetta/main/src/protocols/anchored_design/. 
+There is an [[integration test|integration tests]] at Rosetta/main/main/tests/integration/tests/AnchoredDesign/ which functions as a small demo. 
+There are more extensive demos with more documentation at `Rosetta/demo/protocol_capture/anchored_design`, `Rosetta/demo/public/anchored_design`, and `Rosetta/demo/public/domain_insertion`, which are online at TODO these three links to the online demos.
 
 References
 ==========
