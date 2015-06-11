@@ -46,13 +46,13 @@ Meta Movers don't do anything to the pose themselves, but cobmine or modify the 
 
 **[[GenericSimulatedAnnealer|GenericSimulatedAnnealerMover]]** - Repeatedly apply a mover in a Monte Carlo fashion with ramped temperatures.
 
-**[[MonteCarloTest|MonteCarloTestMover]]** - 
+**[[MonteCarloTest|MonteCarloTestMover]]** - Tests the Monte Carlo criterion of a mover 
 
-**[[MonteCarloRecover|MonteCarloRecoverMover]]** - 
+**[[MonteCarloRecover|MonteCarloRecoverMover]]** - Recovers a pose from the generic monte carlo mover
 
-**[[MonteCarloUtil|MonteCarloUtilMover]]** - 
+**[[MonteCarloUtil|MonteCarloUtilMover]]** - (developer release only) Recovers the lowest energy pose of a given Monte Carlo object
 
-**[[MetropolisHastings|MetropolisHastingsMover]]**
+**[[MetropolisHastings|MetropolisHastingsMover]]** - Performs Metropolis-Hastings Monte Carlo simulations
 
 **[[IteratedConvergence|IteratedConvergenceMover]]** - Repeatedly apply a mover until a filter gives stable values. 
 
@@ -64,43 +64,43 @@ Meta Movers don't do anything to the pose themselves, but cobmine or modify the 
 
 **[[ReportToDB|ReportToDBMover]]** - Report structural data to a relational database.
 
-**[[ResetBaseline|ResetBaselineMover]]** - 
+**[[ResetBaseline|ResetBaselineMover]]** - Reset the baseline (not needed for MC)
 
-**[[TrajectoryReportToDB|TrajectoryReportToDBMover]]** - 
+**[[TrajectoryReportToDB|TrajectoryReportToDBMover]]** - Reports multiple structures to an output forming a trajectory
 
 **[[DumpPdb|DumpPdbMover]]** - Save a pose to disk.
 
-**[[PDBTrajectoryRecorder|PDBTrajectoryRecorderMover]]** - 
+**[[PDBTrajectoryRecorder|PDBTrajectoryRecorderMover]]** - Records a multimodel PDB file
 
-**[[SilentTrajectoryRecorder|SilentTrajectoryRecorderMover]]** - 
+**[[SilentTrajectoryRecorder|SilentTrajectoryRecorderMover]]** - Records a trajectory in a silent file
 
-**[[MetricRecorder|MetricRecorderMover]]** - 
+**[[MetricRecorder|MetricRecorderMover]]** - Record metrics in a text file
 
-**[[AddJobPairData|AddJobPairDataMover]]** - 
+**[[AddJobPairData|AddJobPairDataMover]]** - Add a key:value pair to the current job for inclusion in output
 
-**[[WriteLigandMolFile|WriteLigandMolFileMover]]** - 
+**[[WriteLigandMolFile|WriteLigandMolFileMover]]** - Create a V2000 mol file for each pose
 
-**[[RenderGridsToKinemage|RenderGridsToKinemageMover]]** - 
+**[[RenderGridsToKinemage|RenderGridsToKinemageMover]]** - (for debugging) Creates a Kinemage file containing scoring grid(s)
 
-**[[PyMolMover]]** - Send a pose to PyMol.
+**[[PyMolMover]]** - Send a pose to PyMol
 
 ### Setup Movers
 
-**[[SetupPoissonBoltzmannPotential|SetupPoissonBoltzmannPotentialMover]]** - 
+**[[SetupPoissonBoltzmannPotential|SetupPoissonBoltzmannPotentialMover]]** - Runtime environment initialization for the PB solver (ddG mover)
 
 ## General Movers
 
-These are movers that should be usable in most cases with most systems.
+These are movers that should be usable in most cases with most systems
 
 ### Packing/Minimization
 
-**[[ForceDisulfides|ForceDisulfidesMover]]** - 
+**[[ForceDisulfides|ForceDisulfidesMover]]** - Ensures that unrecognized disulfides are formed and bond geometry is correct
 
-**[[PackRotamersMover]]** - 
+**[[PackRotamersMover]]** - Repacks sidechains
 
-**[[PackRotamersMoverPartGreedy|PackRotamersMoverPartGreedyMover]]** - 
+**[[PackRotamersMoverPartGreedy|PackRotamersMoverPartGreedyMover]]** - Optimizes around target residues and repacks sidechains
 
-**[[MinMover]]** - 
+**[[MinMover]]** - Minimizes either the sidechains and/or backbone
 
 **[[CutOutDomain|CutOutDomainMover]]** - 
 
