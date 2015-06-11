@@ -1,4 +1,5 @@
 # IfThenFilter
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## IfThenFilter
 
 ```

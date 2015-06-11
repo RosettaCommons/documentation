@@ -1,4 +1,5 @@
 # Rmsd
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## Rmsd
 
 Calculates the Calpha RMSD over a user-specified set of residues. Superimposition is optional. Selections are additive, so choosing a chain, and individual residue, and span will result in RMSD calculation over all residues selected. If no residues are selected, the filter uses all residues in the pose. 

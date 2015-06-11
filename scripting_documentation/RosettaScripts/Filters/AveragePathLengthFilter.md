@@ -1,4 +1,5 @@
 # AveragePathLength
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## AveragePathLength
 
 Computes the [average shortest path length](http://en.wikipedia.org/wiki/Average_path_length) on the "network" of the single-chain protein topology, considering residues as nodes and peptide and disulfide bonds as edges. Natural proteins with many disulfides tend to select disulfide configurations that minimize average path length, although average path length is a poorer metric for placing disulfides than the more correct disulfide entropy filter (below), so in general there is no longer a reason to use this filter.

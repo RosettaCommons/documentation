@@ -1,4 +1,5 @@
 # AlaScan
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## AlaScan
 
 Substitutes Ala for each interface position separately and measures the difference in ddg compared to the starting structure. The filter always returns true. The output is only placed in the REPORT channel of the tracer output. Repeats causes multiple ddg calculations to be averaged, giving better converged values.

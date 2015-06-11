@@ -1,4 +1,5 @@
 # FileRemove
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## FileRemove
 
 Remove a file from disk. Useful to clean up at the end of a trajectory, if we saved any intermediate files. But you need to know in advance the names of all files you want to delete. It doesn't support wildcards.

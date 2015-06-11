@@ -1,4 +1,5 @@
 # RotamerBoltzmannWeight
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## RotamerBoltzmannWeight
 
 Approximates the Boltzmann probability for the occurrence of a rotamer. The method, usage examples, and analysis scripts are published in Fleishman et al. (2011) Protein Sci. 20:753.
