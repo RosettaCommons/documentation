@@ -256,10 +256,15 @@ manually manipulate the relative position of two bodies across a jump
 
 Chemical connectivity
 -------------
--	[[ForceDisulfides|ForceDisulfidesMover]]
+-	[[ForceDisulfides|ForceDisulfidesMover]]  
+Given a list of residue pairs (for example, disulfides), repack residue shells around them but do not change the CYS-type residues themselves.  
 -	DisulfideInsertion  
--	[[DisulfideMover]] 
--	[[Disulfidize|DisulfidizeMover]]
+Mutates two residue positions to CYS:disulfide, link them conformationally, and add constraints to have good disulfide distance, angle, and dihedral to the pose.
+Intended for adding a disulfide to short potentially macrocyclic peptides.
+-	[[DisulfideMover]]  
+Given two residue positions, mutate both to CYS:disulfide and link them conformationally; do no repacking or minimization
+-	[[Disulfidize|DisulfidizeMover]]  
+Tries every possible pair of residues in a pose to try to introduce one or more new disulfides as long as they score well
 
 Design
 -------------
