@@ -177,45 +177,45 @@ These are movers that should be usable in most cases with most systems
 
 See [[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScripts.
 
-**[[SetupForSymmetry|SetupForSymmetryMover]]** - 
+**[[SetupForSymmetry|SetupForSymmetryMover]]** - Symmeterizes a pose based on a definition file
 
-**[[DetectSymmetry|DetectSymmetryMover]]** - 
+**[[DetectSymmetry|DetectSymmetryMover]]** - Symmeterizes a pose composed of symmetric chains
 
-**[[SymDofMover]]** - 
+**[[SymDofMover]]** - Sets up symmetric systems of aligned structures
 
-**[[ExtractAsymmetricUnit|ExtractAsymmetricUnitMover]]** - 
+**[[ExtractAsymmetricUnit|ExtractAsymmetricUnitMover]]** - Turn symmetric pose into a nonsymmetric pose (inverse of SetupForSymmetry)
 
-**[[ExtractSubpose|ExtractSubposeMover]]** - 
+**[[ExtractSubpose|ExtractSubposeMover]]** - (Developer) Extracts a subset of a symmetric pose without modifying the original
 
-**[[ExtractAsymmetricPose|ExtractAsymmetricPoseMover]]** - 
+**[[ExtractAsymmetricPose|ExtractAsymmetricPoseMover]]** - (similar to ExtractAsymmetricUnit) Turns symmetric pose into nonsymmetric pose
 
-**[[SymPackRotamersMover]]** and SymRotamerTrialsMover - 
+**[[SymPackRotamersMover]]** and SymRotamerTrialsMover - Symmetric versions of PackRotamers and RotamerTrials
 
-**[[SymMinMover]]** - 
+**[[SymMinMover]]** - Symmetric version of MinMover
 
-**[[TaskAwareSymMinMover]]** - 
+**[[TaskAwareSymMinMover]]** - (developer) Similar to SymMinMover, but allows minimization of only certain residues
 
 ### Kinematic Closure Movers
 
-**[[Generalized Kinematic Closure (GeneralizedKIC)|GeneralizedKICMover]]** - 
+**[[Generalized Kinematic Closure (GeneralizedKIC)|GeneralizedKICMover]]** - Loop closure and conformational sampling 
 
 ### Parametric Backbone Generation
 
-**[[MakeBundle|MakeBundleMover]]** - 
+**[[MakeBundle|MakeBundleMover]]** - Uses the Crick equations to create a helix of helices or beta barrel
 
-**[[BundleGridSampler|BundleGridSamplerMover]]** - 
+**[[BundleGridSampler|BundleGridSamplerMover]]** - Creates a helix of helices or beta barrel by sampling parameters and choosing the one with the lowest energy
 
-**[[PerturbBundle|PerturbBundleMover]]** - 
+**[[PerturbBundle|PerturbBundleMover]]** - Performs iterative Monte Carlo searches of Crick parameter space 
 
 ### Other Pose Manipulation
 
-**[[MutateResidue|MutateResidueMover]]** - 
+**[[MutateResidue|MutateResidueMover]]** - Changes a residue to a different type
 
-**[[AlignChain|AlignChainMover]]** - 
+**[[AlignChain|AlignChainMover]]** - Align the Calpha atoms of chains in two different poses
 
-**[[BluePrintBDR|BluePrintBDRMover]]** - 
+**[[BluePrintBDR|BluePrintBDRMover]]** - Make a centroid structure from a PDB file
 
-**[[ModifyVariantType|ModifyVariantTypeMover]]** - 
+**[[ModifyVariantType|ModifyVariantTypeMover]]** - Adds or removes variant types of a set of residues
 
 **[[MotifGraft|MotifGraftMover]]** - 
 
