@@ -4,7 +4,7 @@
 
 Described in Whitehead et al., Nat Biotechnol. 30:543
 
-Scan all mutations allowed by `     task_operations    ` and test against a filter. Produces a report on the filter's values for each mutation as well as a resfile that says which mutations are allowed. The filter can work with symmetry poses; simply use SetupForSymmetry and run. It will figure out that it needs to do symmetric packing for itself.
+Scan all mutations allowed by `     task_operations    ` and test against a filter. Produces a report on the filter's values for each mutation as well as a resfile that says which mutations are allowed. The filter can work with symmetry poses; simply use [[SetupForSymmetry]] and run. It will figure out that it needs to do symmetric packing for itself.
 
 ```
 <FilterScan name=(&string) scorefxn=(score12 &string) task_operations=(comma separated list) triage_filter=(true_filter &string) dump_pdb=(0 &bool) filter=(&string) report_all=(0 &bool) relax_mover=(null &string) resfile_name=(<PDB>.resfile &string) resfile_general_property=("nataa" &string) delta=(0 &bool) unbound=(0 &bool) jump=(1 &int) rtmin=(0&bool) delta_filters=(comma delimited list of filters) score_log_file=("" &string)/>
@@ -33,3 +33,7 @@ The reported values from filter will appear in a Tracer called ResidueScan, so -
 
 Use the unbound option only on a Prepacked structure with jump\_number=1, o/w the reference energy (baseline) won't make any sense.
 
+## See also
+
+* [[AlaScanFilter]]
+* [[DdgScanFilter]]

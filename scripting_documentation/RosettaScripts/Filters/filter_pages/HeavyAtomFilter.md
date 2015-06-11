@@ -8,3 +8,7 @@
 
 Stop growing this designed ligand once we reach this heavy atom limit
 
+## See also:
+
+* [[Ligand docking|ligand-dock]]
+* [[CompleteConnectionsFilter]]

@@ -17,6 +17,7 @@ Substitutes Ala for each interface position separately and measures the differen
 
 ## See Also
 
+* [[Docking applications|docking-applications]]
 * [[DdgFilter]]
 * [[ddGMover]]
 * [[DdGScanFilter]]
