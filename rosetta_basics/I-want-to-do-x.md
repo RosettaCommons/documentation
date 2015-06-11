@@ -73,7 +73,7 @@ pose combination
 -	[[SetupForSymmetry|SetupForSymmetryMover]]  
 Necessary before doing anything else symmetrically
 -	[[AddHydrogens|AddHydrogensMover]]  
-adds and optimizes missing hydrogens
+adds and optimizes missing hydrogens  
 <!--
 -	AddMembraneMover  
 adds a membrane to a structure when needed
@@ -270,6 +270,7 @@ docking and design of noncanonical backbones (peptidomimetics)
 	-	[[FavorSequenceProfile|FavorSequenceProfileMover]]
 	-	[[FavorSymmetricSequence|FavorSymmetricSequenceMover]]
 	-	FindConsensusSequence
+
 Analysis
 -------------
 -	[[InterfaceAnalyzerMover]]
@@ -295,7 +296,7 @@ minimize with symmetry
 -	fold and dock
 	-	SymFoldandDockMoveRbJumpMover
 	-	SymFoldandDockSlideTrialMover
-	-	SymFoldandDockRbTrialMover
+	-	SymFoldandDockRbTrialMover  
 <!--
 -	MPSymDockMover
 -->
