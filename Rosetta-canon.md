@@ -111,7 +111,7 @@ Loop modeling
 [Protein-protein docking with backbone flexibility.](http://www.ncbi.nlm.nih.gov/pubmed/17825317)
 Mol Biol. 2007 Oct 19;373(2):503-19.  
 The title is a little misleading.
-This paper is valuable for introducing the [[FoldTree]] and [[CCD]] (cyclic coordinate descent) loop closure to Rosetta.
+This paper is valuable for introducing the [[FoldTree|foldtree-overview]] and [[CCD|loopmodel-ccd]] (cyclic coordinate descent) loop closure to Rosetta.
 
 * Mandell DJ, Coutsias EA, Kortemme T (2009)  
 [Sub-angstrom accuracy in protein loop reconstruction by robotics-inspired conformational sampling.] (http://www.ncbi.nlm.nih.gov/pubmed/19644455)    
