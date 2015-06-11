@@ -12,7 +12,7 @@ This document was last updated October 10, 2012 by Amelie Stein. The correspondi
 Code and Demo
 =============
 
-The current application for this method (in Rosetta 3.4) is `       bin/loopmodel.<my_os>gccrelease      ` . The major protocol movers are `       src/protocols/moves/KinematicMover      ` , which performs a localized kinematic perturbation to a peptide chain, `       src/protocols/loops/loop_mover/perturb/LoopMover_KIC      ` and `       src/protocols/loops/loop_mover/refine/LoopMover_KIC      ` , which wrap the KinematicMover into a Monte Carlo protocol for loop modeling, and `       src/protocols/comparative_modeling/LoopRelaxMover      ` , which allows the protocols in LoopMover\_KIC to be combined with other loop modeling protocols. A basic usage example that briefly remodels an 8-residue loop is the `       kinematic_looprelax      ` integration test, which resides at `       rosetta_tests/integration/tests/kinematic_looprelax      ` .
+The current application for this method (in Rosetta 3.4) is `       bin/loopmodel.<my_os>gccrelease      ` . The major protocol movers are `       src/protocols/moves/KinematicMover      ` , which performs a localized kinematic perturbation to a peptide chain, `       src/protocols/loops/loop_mover/perturb/LoopMover_KIC      ` and `       src/protocols/loops/loop_mover/refine/LoopMover_KIC      ` , which wrap the KinematicMover into a Monte Carlo protocol for loop modeling, and `       src/protocols/comparative_modeling/LoopRelaxMover      ` , which allows the protocols in LoopMover\_KIC to be combined with other loop modeling protocols. A basic usage example that briefly remodels an 8-residue loop is the `       kinematic_looprelax      ` integration test, which resides at `       main/tests/integration/tests/kinematic_looprelax      ` .
 
 For reproducing the benchmark results for dataset 1 and 2 of the Mandell *et al.* (2009) paper (see reference below), please checkout Rosetta revision 24219 from the subversion system. In this older version of Rosetta, the kinematic loop modeling application is `       bin/loop_test.<my_os>gccrelease      ` . Being a pilot app, for proper compilation, please ensure that in the file `       src/pilot_apps.src.settings.all      ` the application `       loop_test      ` is not commented out and then compile Rosetta, using the `       scons.py      ` script from the current Rosetta distribution (Rosetta 3.3) with the command line
 
@@ -65,7 +65,7 @@ The following command lines will perform a *de novo* reconstruction of a protein
 Using Rosetta 3.4:
 
 ```
-rosetta/rosetta_source/bin/loopmodel.<my_os>gccrelease -database <rosetta_database_path> -loops:remodel perturb_kic -loops:refine refine_kic -in:file:s <my_starting_structure>.pdb -in:file:fullatom -loops:loop_file <my_loopfile>.loop -nstruct <num_desired_models> -ex1 -ex2 -overwrite
+rosetta/main/source/bin/loopmodel.<my_os>gccrelease -database <rosetta_database_path> -loops:remodel perturb_kic -loops:refine refine_kic -in:file:s <my_starting_structure>.pdb -in:file:fullatom -loops:loop_file <my_loopfile>.loop -nstruct <num_desired_models> -ex1 -ex2 -overwrite
 ```
 
 Using the old version of Rosetta (Rosetta revision 24219) from the original publication by Mandell *et al.* (2009, see [References](#References) ):

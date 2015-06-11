@@ -10,7 +10,7 @@ This document was edited Aug 22th 2010 by Ingemar André. This application in ro
 Code and Demo
 =============
 
-The code for the fold-and-dock application is in `       rosetta/rosetta_source/src/protocols/topology_broker/FoldAndDockClaimer.cc      ` . See `       rosetta/rosetta_tests/integration/tests/fold_and_dock      ` for an example of fold-and/dock protocol and input files. Run without the -run:test\_cycles for a real case prediction example. Fold-and-dock uses the topology broker framework and the actual excecutable is the minirosetta application, `       rosetta/rosetta_source/src/apps/public/boinc/minirosetta.cc      `
+The code for the fold-and-dock application is in `       rosetta/main/source/src/protocols/topology_broker/FoldAndDockClaimer.cc      ` . See `       rosetta/main/tests/integration/tests/fold_and_dock      ` for an example of fold-and/dock protocol and input files. Run without the -run:test\_cycles for a real case prediction example. Fold-and-dock uses the topology broker framework and the actual excecutable is the minirosetta application, `       rosetta/main/source/src/apps/public/boinc/minirosetta.cc      `
 
 References
 ==========
