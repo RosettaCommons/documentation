@@ -25,7 +25,7 @@ AnchoredPDBCreator exists to create starting files for AnchoredDesign - it will 
 
 This app assumes you have three structures: an anchor and target in separate PDBs, which are bound to each other relative to the same coordinate origin, and a scaffold PDB (origin unimportant). Generally your anchor and target will be from the same crystal structure. The protocol inserts the anchor's sequence AND COORDINATES into a loop of the scaffold, and runs a fast dirty minimization to try to keep the scaffold and target from crashing into each other. It is not intended to produce low-energy structures...just structures good enough to look at their numbering while designing a resfile, etc. It tries to ensure that the modified loop has at most ONE chainbreak or bad omega angle (which can be fixed in later loop modeling). It does NOT try to prevent eclipsing of the loop onto the scaffold or the target - again, AnchoredDesign will deal with that.
 
-The workhorse is protocols::pose\_manipulation::insert\_pose\_into\_pose. This code inserts the anchor into the scaffold and attempts loop closure (this is effectively a domain insertion problem). Interfacing with the target occurs inside AnchoredPDBCreator proper.
+The workhorse is protocols::pose_manipulation::insert_pose_into_pose. This code inserts the anchor into the scaffold and attempts loop closure (this is effectively a domain insertion problem). Interfacing with the target occurs inside AnchoredPDBCreator proper.
 
 Input Files
 ===========
@@ -55,11 +55,11 @@ Options
 
 AnchoredPDBCreator defines a small handful of options:
 
--   scaffold\_loop - string - scaffold anchor loop location file
--   scaffold\_pdb - string - scaffold pdb file
--   anchor\_pdb - string - anchor pdb file
--   target\_pdb - string - target pdb file
--   APDBC\_cycles - unsigned integer - number of cycles in insert\_pose\_into\_pose
+-   scaffold_loop - string - scaffold anchor loop location file
+-   scaffold_pdb - string - scaffold pdb file
+-   anchor_pdb - string - anchor pdb file
+-   target_pdb - string - target pdb file
+-   APDBC_cycles - unsigned integer - number of cycles in insert_pose_into_pose
 
 Standard job distributor options like nstruct are obeyed as well.
 
@@ -68,12 +68,12 @@ Expected Outputs
 
 The protocol will produce nstruct result structures with the anchor inserted into the scaffold, and the anchor aligned against the target. You should expect the scaffold loop newly containing the anchor to be closed and in a reasonable conformation. You should not expect the scaffold/target interface to be reasonable (or even not clashing; they may overlap). Generating the interface is the job of AnchoredDesign instead.
 
-The scorefile will report LAM\_total, which is the score from Loop Analyzer Mover. This sums the scores for he ramachandran, omega, chainbreak, and peptide bond scores for the residues in the loops.
+The scorefile will report LAM_total, which is the score from Loop Analyzer Mover. This sums the scores for he ramachandran, omega, chainbreak, and peptide bond scores for the residues in the loops.
 
 Post Processing
 ===============
 
-Essentially the only quality of the results that matters is the quality of loop closure; everything else is meant to be handled by AnchoredDesign. To pick a model for AnchoredDesign, sort by LAM\_total, examine the lowest scoring handful of models to see which you like best, and move on.
+Essentially the only quality of the results that matters is the quality of loop closure; everything else is meant to be handled by AnchoredDesign. To pick a model for AnchoredDesign, sort by LAM_total, examine the lowest scoring handful of models to see which you like best, and move on.
 
 New things since last release
 =============================
