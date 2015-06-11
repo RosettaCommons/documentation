@@ -152,7 +152,7 @@ This is the **Rosetta3 paper** that describes the transition from C++-but-monoli
 * Cooper S, Khatib F, Treuille A, Barbero J, Lee J, Beenen M, Leaver-Fay A, Baker D, Popović Z, Players F (2010)  
 [Predicting protein structures with a multiplayer online game.] (http://www.ncbi.nlm.nih.gov/pubmed/20686574)  
 Nature 466:756-60  
-Cooper et al.'s development of the [[FoldIt]] game showed that highly parallel human intuition is a useful tool for, well, folding it (proteins).
+Cooper et al.'s development of the [[FoldIt|fold.it]] game showed that highly parallel human intuition is a useful tool for, well, folding it (proteins).
 
 * Chaudhury S, Lyskov S, Gray JJ (2010)  
 [PyRosetta: a script-based interface for implementing molecular modeling algorithms using Rosetta.](http://www.ncbi.nlm.nih.gov/pubmed/20061306)  
