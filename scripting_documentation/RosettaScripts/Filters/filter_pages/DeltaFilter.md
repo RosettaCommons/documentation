@@ -19,5 +19,8 @@ Computes the difference in a filter's value compared to the input structure
 -   reference\_pdb: use reference pose from disk
 -   changing_baseline: reset baseline value to current value after every accept
 
-The filter is evaluated at parsetime and its internal value (through report\_sm) is saved. At apply time, the filter's report\_sm is called again, and the delta is evaluated.
+The filter is evaluated at parse time and its internal value (through report\_sm) is saved. At apply time, the filter's report\_sm is called again, and the delta is evaluated.
 
+## See also
+
+* [[BindingStrain]]
