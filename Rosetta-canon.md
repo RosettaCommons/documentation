@@ -44,7 +44,7 @@ The supplemental is most relevant for scoring.
 * Leaver-Fay A, O'Meara MJ, Tyka M, Jacak R, Song Y, Kellogg EH, Thompson J, Davis IW, Pache RA, Lyskov S, Gray JJ, Kortemme T, Richardson JS, Havranek JJ, Snoeyink J, Baker D, Kuhlman B (2013)  
 [Scientific benchmarks for guiding macromolecular energy function improvement.] (http://www.ncbi.nlm.nih.gov/pubmed/23422428)  
 Methods Enzymol 523:109-43  
-Leaver-Fay et al. describe OptE, a methodology for using sequence-recovery and rotamer-recovery benchmarks to improve weights sets for scoring functions and describe [[Talaris2013]], the current state-of-the-art general purpose Rosetta energy function.
+Leaver-Fay et al. describe OptE, a methodology for using sequence-recovery and rotamer-recovery benchmarks to improve weights sets for scoring functions and describe [[Talaris2013|score-types]], the current state-of-the-art general purpose Rosetta energy function.
 
 Docking
 --------------
@@ -111,7 +111,7 @@ Loop modeling
 [Protein-protein docking with backbone flexibility.](http://www.ncbi.nlm.nih.gov/pubmed/17825317)
 Mol Biol. 2007 Oct 19;373(2):503-19.  
 The title is a little misleading.
-This paper is valuable for introducing the [[FoldTree]] and [[CCD]] (cyclic coordinate descent) loop closure to Rosetta.
+This paper is valuable for introducing the [[FoldTree|foldtree-overview]] and [[CCD|loopmodel-ccd]] (cyclic coordinate descent) loop closure to Rosetta.
 
 * Mandell DJ, Coutsias EA, Kortemme T (2009)  
 [Sub-angstrom accuracy in protein loop reconstruction by robotics-inspired conformational sampling.] (http://www.ncbi.nlm.nih.gov/pubmed/19644455)    
@@ -163,7 +163,7 @@ Chaudhury et al. developed a Python based scripting interface to Rosetta functio
 [[RosettaScripts: A Scripting Language Interface to the Rosetta Macromolecular Modeling Suite|http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0020161]]  
 PLoS ONE 6(6): e20161  
 Fleishman et al. develop an XML-like interface to directly access protocol-level functionalities (and as such requires a compiled version of C++ Rosetta).
-RosettaScripts allows the user to circumnavigate coding in C++, which in turn permits for the rapid development of new protocols.
+[[RosettaScripts]] allows the user to circumnavigate coding in C++, which in turn permits for the rapid development of new protocols.
 
 Peptidomimetics
 ---------------
