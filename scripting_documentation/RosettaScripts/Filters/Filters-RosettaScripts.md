@@ -16,11 +16,11 @@ If confidence is 1.0, then the filter is evaluated as in predicate logic (T/F). 
 
 ## Predefined Filters
 
-Simple filter which are availible without explicitly defining them.
+Simple filter which are available without explicitly defining them.
 
-**[[TrueFilter]]** -
+**[[TrueFilter]]** - Always passes.
 
-**[[FalseFilter]]** -
+**[[FalseFilter]]** - Never passes.
 
 ## Special Filters
 
@@ -30,13 +30,13 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[CombinedValue|CombinedValueFilter]]** -
 
-**[[CalculatorFilter]]** -
+**[[CalculatorFilter]]** - Combine multiple filters with a mathematical expression.
 
-**[[ReplicateFilter]]** -
+**[[ReplicateFilter]]** - Repeat a filter multiple times and average.
 
 **[[Boltzmann|BoltzmannFilter]]** -
 
-**[[MoveBeforeFilter]]** -
+**[[MoveBeforeFilter]]** - Apply a mover before applying the filter.
 
 **[[Operator|OperatorFilter]]** -
 
@@ -54,11 +54,15 @@ Filters which are useful for combining, modifying or working with other filters 
 
 ### Basic Filters
 
-**[[ResidueCount|ResidueCountFilter]]** -
+**[[ResidueCount|ResidueCountFilter]]** - Filter based on the total number of residues.
 
 **[[NetCharge|NetChargeFilter]]** -
 
 ### Energy/Score
+
+**[[ScoreType|ScoreTypeFilter]]** - Filter based on a particular score term.
+
+**[[TaskAwareScoreType|TaskAwareScoreTypeFilter]]** (Formerly AverageInterfaceEnergy) - 
 
 **[[BindingStrain|BindingStrainFilter]]** -
 
@@ -68,21 +72,17 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[Residue Interaction Energy|ResidueIEFilter]]** -
 
-**[[ScoreType|ScoreTypeFilter]]** -
-
-**[[TaskAwareScoreType|TaskAwareScoreTypeFilter]]** (Formerly AverageInterfaceEnergy) -
-
 **[[ResidueSetChainEnergy|ResidueSetChainEnergyFilter]]** -
 
 ### Distance
 
-**[[ResidueDistance|ResidueDistanceFilter]]** -
+**[[ResidueDistance|ResidueDistanceFilter]]** - Filter based on the distance between two residues.
 
 **[[AtomicContact|AtomicContactFilter]]** -
 
 **[[AtomicContactCount|AtomicContactCountFilter]]** -
 
-**[[AtomicDistance|AtomicDistanceFilter]]** -
+**[[AtomicDistance|AtomicDistanceFilter]]** - Filter based on the distance between two atoms.
 
 **[[TerminusDistance|TerminusDistanceFilter]]** -
 
@@ -90,7 +90,7 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[AngleToVector|AngleToVectorFilter]]** -
 
-**[[Torsion|TorsionFilter]]** -
+**[[Torsion|TorsionFilter]]** - Filter based on the value of a dihedral.
 
 **[[HelixPairing|HelixPairingFilter]]** -
 
@@ -118,7 +118,7 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[NeighborType|NeighborTypeFilter]]** -
 
-**[[ResInInterface|ResInInterfaceFilter]]** -
+**[[ResInInterface|ResInInterfaceFilter]]** - Filter based on the total number of residues in the interface.
 
 **[[ShapeComplementarity|ShapeComplementarityFilter]]** -
 
@@ -128,9 +128,9 @@ Filters which are useful for combining, modifying or working with other filters 
 
 ### Burial
 
-**[[TotalSasa|TotalSasaFilter]]** -
+**[[TotalSasa|TotalSasaFilter]]** - Filter based on the total solvent accessible surface area of the pose.
 
-**[[Sasa|SasaFilter]]** -
+**[[Sasa|SasaFilter]]** - Filter based on the solvent accessible surface area of an *interface*.
 
 **[[ResidueBurial|ResidueBurialFilter]]** -
 
@@ -140,11 +140,11 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[RelativePose|RelativePoseFilter]]** -
 
-**[[Rmsd|RmsdFilter]]** -
+**[[Rmsd|RmsdFilter]]** - Filter based on the C-alpha RMSD to a reference structure. 
 
 **[[SidechainRmsd|SidechainRmsdFilter]]** -
 
-**[[IRmsd|IRmsdFilter]]** -
+**[[IRmsd|IRmsdFilter]]** - Filter based on backbone RMSD over residues in the interface.
 
 **[[SequenceRecovery|SequenceRecoveryFilter]]** -
 
@@ -158,7 +158,7 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[BuriedUnsatHbonds2|BuriedUnsatHbonds2Filter]]** -
 
-**[[DisulfideFilter]]** -
+**[[DisulfideFilter]]** - Filter based on the presence of a disulfide across an interface.
 
 **[[AveragePathLength|AveragePathLengthFilter]]** -
 
@@ -168,7 +168,7 @@ Filters which are useful for combining, modifying or working with other filters 
 
 These filters are used primarily for the reports they generate in the log and/or score and silent files, more so than their ability to end a run.
 
-**[[DesignableResidues|DesignableResiduesFilter]]** -
+**[[DesignableResidues|DesignableResiduesFilter]]** - Report which residues are designable.
 
 **[[Expiry|ExpiryFilter]]** -
 
@@ -190,11 +190,11 @@ These filters are used primarily for the reports they generate in the log and/or
 
 **[[FilterScan|FilterScanFilter]]** -
 
-**[[Time|TimeFilter]]** -
+**[[Time|TimeFilter]]** - Report how long a sequence of movers/filters takes.
 
 **[[PeptideDeriver|PeptideDeriverFilter]]** -
 
-**[[PoseInfo|PoseInfoFilter]]** -
+**[[PoseInfo|PoseInfoFilter]]** - Report basic information about the pose to the tracer.
 
 **[[SaveResfileToDisk|SaveResfileToDiskFilter]]** -
 
@@ -204,7 +204,7 @@ These filters are used primarily for the reports they generate in the log and/or
 
 ### Binding
 
-**[[Ddg|DdgFilter]]** -
+**[[Ddg|DdgFilter]]** - Filter based on the binding energy.
 
 **[[InterfaceBindingEnergyDensityFilter]]** -
 
@@ -214,7 +214,7 @@ These filters are used primarily for the reports they generate in the log and/or
 
 **[[DiffAtomBurial|DiffAtomBurialFilter]]** -
 
-**[[LigInterfaceEnergy|LigInterfaceEnergyFilter]]** -
+**[[LigInterfaceEnergy|LigInterfaceEnergyFilter]]** - Filter based on binding energy of a ligand.
 
 **[[EnzScore|EnzScoreFilter]]** -
 
@@ -222,13 +222,13 @@ These filters are used primarily for the reports they generate in the log and/or
 
 ### Ligand design
 
-**[[HeavyAtom|HeavyAtomFilter]]** -
+**[[HeavyAtom|HeavyAtomFilter]]** - Filter based on the number of heavy atoms in a residue.
 
-**[[CompleteConnections|CompleteConnectionsFilter]]** -
+**[[CompleteConnections|CompleteConnectionsFilter]]** - Filter based on unfulfilled connections.
 
 ### Hotspot Design
 
-**[[StubScore|StubScoreFilter]]** -
+**[[StubScore|StubScoreFilter]]** - Filter based on if the scaffold is 'feeling' any of the hotspot stub constraints.
 
 <!--- BEGIN_INTERNAL -->
 
