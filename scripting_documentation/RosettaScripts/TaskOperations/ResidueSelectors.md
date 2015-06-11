@@ -1,9 +1,9 @@
+<!-- --- title: ResidueSelectors -->
+
 ResidueSelectors
-================
+----------------
 
-##ResidueSelectors
-
-ResidueSelectors define a subset of residues from a Pose. Their apply() method takes a Pose and a ResidueSubset (a utility::vector1\< bool \>), and modifies the ResidueSubset. Unlike a PackerTask, a ResidueSubset does not have a commutativity requirement, so the on/off status for residue *i* can be changed as many times as necessary. Once a ResidueSubset has been constructed, a ResLevelTaskOperation (see [[below|TaskOperations-RosettaScripts#Residue-Level-TaskOperations]] ) may be applied to the ResidueLevelTasks which have a "true" value in the ResidueSubset. ResidueSelectors should be declared in their own block and named, or declared as subtags of other ResidueSelectors or of TaskOperations that accept ResidueSelectors (such as the OperateOnResidueSubset task operation).
+ResidueSelectors define a subset of residues from a Pose. Their apply() method takes a Pose and a ResidueSubset (a utility::vector1\< bool \>), and modifies the ResidueSubset. Unlike a PackerTask, a ResidueSubset does not have a commutativity requirement, so the on/off status for residue *i* can be changed as many times as necessary. Once a ResidueSubset has been constructed, a [[Residue Level TaskOperation|Residue Level TaskOperations]] may be applied to the ResidueLevelTasks which have a "true" value in the ResidueSubset. ResidueSelectors should be declared in their own block and named, or declared as subtags of other ResidueSelectors or of TaskOperations that accept ResidueSelectors (such as the OperateOnResidueSubset task operation).
 
 The purpose of separating the residue selection logic from the modifications that TaskOperations perform on a PackerTask is to make available the complicated logic of selecting residues that often lives in TaskOperations. If you have a complicated TaskOperation, consider splitting it into a ResidueSelector and operations on the residues it selects.
 
