@@ -227,6 +227,7 @@ New Features in Rosetta 3.2
 * [[Fasta file]]: Fasta file format
 * [[Fragment file]]: Fragment file format (required for abinitio structure prediction)
 * [[Backrub Server (external link)|https://kortemmelab.ucsf.edu/backrub/cgi-bin/rosettaweb.py?query=index]]: Web-based server that provides backrub ensembles for academic users
+* [[BackrubMover]]: The RosettaScripts backrub mover
 * [[Structure prediction applications]]: A list of other applications to be used for structure prediction
   * [[Abinitio relax]]: Application for predicting protein structures from sequences
     * [[Abinitio]]: More details on this application

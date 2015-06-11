@@ -25,4 +25,10 @@ Each pass through TryRotamers will place the next rotamer at the given position.
 * [[PackRotamersMover]]
 * [[PackRotamersMoverPartGreedyMover]]
 * [[Fixbb]]: Application to pack rotamers
+* [[MinPackMover]]
+* [[PrepackMover]]
+* [[RepackMinimizeMover]]
+* [[RotamerTrialsMover]]
+* [[RotamerTrialsMinMover]]
+* [[RotamerTrialsRefinerMover]]
 * [[I want to do x]]: Guide to choosing a mover

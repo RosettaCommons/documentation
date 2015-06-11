@@ -31,3 +31,9 @@ run $PATH_TO_ROSETTA/Rosetta/main/source/src/python/bindings/PyMOLPyRosettaServe
 ```
 
 
+##See Also
+
+* [[PyMOL]]: More information on Rosetta's interface with PyMOL
+* [[PyMOL website (external)|http://www.pymol.org]]
+* [[Graphics and GUIs]]: Home page for graphical interfaces with Rosetta
+* [[Extending the PyMol Viewer]]: How to add new functionality to Rosetta's PyMOL Mover

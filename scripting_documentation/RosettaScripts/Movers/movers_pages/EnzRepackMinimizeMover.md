@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## EnzRepackMinimize
 
-EnzRepackMinimize, similar in spirit to RepackMinimize mover, does the design/repack followed by minimization of a protein-ligand (or TS model) interface with enzyme design style constraints (if present, see AddOrRemoveMatchCsts mover) using specified score functions and minimization dofs. Only design/repack or minimization can be done by setting appropriate tags. A shell of residues around the ligand are repacked/designed and/or minimized. If constrained optimization or cst\_opt is specified, ligand neighbors are converted to Ala, minimization performed, and original neighbor sidechains are placed back.
+EnzRepackMinimize, similar in spirit to [[RepackMinimizeMover]], does the design/repack followed by minimization of a protein-ligand (or TS model) interface with enzyme design style constraints (if present, see [[AddOrRemoveMatchCstsMover]]) using specified score functions and minimization dofs. Only design/repack or minimization can be done by setting appropriate tags. A shell of residues around the ligand are repacked/designed and/or minimized. If constrained optimization or cst\_opt is specified, ligand neighbors are converted to Ala, minimization performed, and original neighbor sidechains are placed back.
 
 ```
 <EnzRepackMinimize name="&string" scorefxn_repack=(score12 &string) scorefxn_minimize=(score12 &string) cst_opt=(0 &bool) design=(0 &bool) repack_only=(0 &bool) fix_catalytic=(0 &bool) minimize_rb=(1 &bool) rb_min_jumps=("" &comma-delimited list of jumps) minimize_bb=(0 &bool) minimize_sc=(1 &bool) minimize_lig=(0 & bool) min_in_stages=(0 &bool) backrub=(0 &bool) cycles=(1 &integer) task_operations=(comma separated string list)/>
@@ -25,3 +25,8 @@ EnzRepackMinimize, similar in spirit to RepackMinimize mover, does the design/re
 -   task\_operations: list of task operations to define the packable/designable residues, as well as the minimizable residues (the minimizable resiudes will the packable residues as well as such surrounding residues as needed to allow for efficient minimization). If explicit task\_operations are given, the design/repack\_only flags will not change them. (So it is possible to have design happen with the repack\_only flag set.) -- If task\_operations are not given, the default (command line controlled) enzyme\_design task will be used. Keep in mind that the default flags are to design everything and not to do interface detection, so being explicit with flags is recommended.
 
 
+##See Also
+
+* [[Match constraints file format|match-cstfile-format]]
+* [[AddOrRemoveMatchCstsMover]]
+* [[Match]]: The match command line application

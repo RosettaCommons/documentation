@@ -13,3 +13,8 @@ Switches the residue sets (e.g., allatom-\>centroid, or vice versa).
 Typically, RosettaScripts assumes that poses are all-atom. In some cases, a centroid pose is needed, e.g., for centroid scoring, and this mover is used in those cases.
 
 
+##See Also
+
+* [[PrepareForFullatomMover]]
+* [[PrepareForCentroidMover]]
+* [[I want to do x]]: Guide to choosing a mover

@@ -19,4 +19,5 @@ See Rohl CA, et al. (2004) Methods Enzymol. Protein structure prediction using R
 ##See Also
 
 * [[SmallMover]]
+* [[SetTorsionMover]]
 * [[I want to do x]]: Guide to choosing a mover

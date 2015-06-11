@@ -34,3 +34,8 @@ The script below shows how to enable PB with ddg mover. I have APBS (Adaptive Po
     </PROTOCOLS>
 
 
+##See Also
+
+* [[SetupPoissonBoltzmannPotentialMover]]
+* [[ddg-monomer]]: Application for calculating ddg values for monomeric proteins
+* [[I want to do x]]: Guide to choosing a mover

@@ -14,3 +14,10 @@ Give a bonus to the secondary structures specified by a blueprint header. For ex
 -   natbias\_ss = score bonus for a correct pair.
 
 
+##See Also
+
+* [[BluePrintBDRMover]]: Commonly used with SetSecStructEnergies
+* [[RemodelMover]]
+* [[SetTemperatureFactorMover]]
+* [[SetTorsionMover]]
+* [[I want to do x]]: Guide to choosing a mover

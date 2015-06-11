@@ -11,3 +11,8 @@ Translate chains.
 -   x,y,z: Specify the axis along which to translate. The vector will be normalized to unit length before use. All zeros (the default) results in automatic apply-time setting of the direction on the axis between the approximate centers of the two components being separated.
 
 
+##See Also
+
+* [[TransformMover]]
+* [[TranslateMover]]
+* [[I want to do x]]: Guide to choosing a mover

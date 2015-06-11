@@ -15,3 +15,8 @@ This is a special mover associated with PlaceSimultaneously, below. It carries o
 Note that none of the options, except for name, needs to be set up by the user if PlaceSimultaneously is notified of it. If PlaceSimultaneously is notified of this Auction mover, PlaceSimultaneously will set all of these options.
 
 
+##See Also
+
+* [[PlaceSimultaneouslyMover]]
+* [[RosettaScriptsPlacement]]
+* [[I want to do x]]: Guide to choosing a mover
