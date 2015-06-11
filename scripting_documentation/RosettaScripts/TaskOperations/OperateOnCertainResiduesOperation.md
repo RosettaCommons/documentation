@@ -1,4 +1,4 @@
-# OperateOnCertainResidues Operation
+# OperateOnCertainResidues
 ## OperateOnCertainResidues Operation
 
 **This TaskOperation is deprecated. Use [[ResidueSelectors]] and [[OperateOnResidueSubset|OperateOnResidueSubsetOperation]] instead.**
