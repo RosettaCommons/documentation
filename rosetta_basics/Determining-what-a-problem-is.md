@@ -37,7 +37,13 @@ Problems Rosetta cannot solve
 There are three major classes of problems Rosetta cannot solve. 
 Generally, if you've put a lot of effort into it, you may be in one of these categories.
 
-1. The problem is well formed and addressed with the correct methods, but fails due to broad [[challenges in macromolecular modeling|rosetta_basics/Challenges-in-Macromolecular-Modeling]], like the scoring problem and search problem. This is 100% Rosetta's fault.
+1. The problem is well formed and addressed with the correct methods, but fails due to broad [[challenges in macromolecular modeling|rosetta_basics/Challenges-in-Macromolecular-Modeling]], like the scoring problem and search problem. 
+This is 100% Rosetta's fault.
 
-2. The problem can be addressed, but not enough computer time was spent: the problem is undersampled
+2. The problem can be addressed, but [[not enough computer time|rosetta_basics/Rosetta-on-different-scales]] was spent: the problem is undersampled. 
 
+3. The problem is well-formed, but very complex.
+It may be within Rosetta's capability, but not using a preexisting protocol - perhaps it requires a long [[RosettaScript]].
+Perhaps it is just beyond what Rosetta can do, requiring only a [[Mover|Glossary#mover]] or two. 
+This sort of project is reasonable for a Rosetta developer graduate student, but perhaps not as a minor project for a cellular biology grad student in a non-Rosetta lab.
+We do see projects of this type fairly frequently on the Rosetta Forums.
