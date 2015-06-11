@@ -63,7 +63,7 @@ To use an alternate version of the compiler, you can use the option `     cxx_ve
 
 `      ./scons.py -j<number_of_processors_to_use> cxx=clang cxx_ver=4.5     `
 
-For more build options, such as only compiling only one executable or apbs - Please take a look at the SConstruct File in rosetta\_source
+For more build options, such as only compiling only one executable or apbs - Please take a look at the SConstruct File in main/source
 
 ###Build Rosetta using the Rosetta Xcode Project (Mac)
 

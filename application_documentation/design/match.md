@@ -43,7 +43,7 @@ Each collision-free placement of the transition state is called a "hit". If ther
 
 In the general case, the Matcher builds hits for each of several geometric constraints. The protein scaffold in the enzyme-design example generalizes to any macro-molecular polymer scaffold. The protein rotamers in the enzyme-design example generalizes to a set of conformations for the "upstream" partner. The transition state in the enzyme-design example generalizes to a "downstream" partner, which itself may have multiple conformations. "Upstream" and "Downstream" refer to the order in which the coordinates of the two partners are computed. The upstream coordinates are built first, the downstream coordinates second. Changes to the coordinates of the upstream partner propagate to the coordinates of the downstream partner. The downstream partner could in theory also be an entire protein – and may have it's own set of rotameric states. E.G. one might want to match a hydrogen-bond donor on the scaffold to a serine side-chain on the target (downstream) protein. The downstream partner should then be able to examine many serine rotamers for each conformation of the upstream rotamer. However, the matcher is not setup yet to handle entire proteins as downstream partners.
 
-A hit is represented in two parts: a discrete part and a continuous part. The discrete portion consists of four integers: 1. the build-point index on the scaffold, 2. the rotamer index on the upstream partner, 3.  the external-geometry index, and 4. the rotamer index on the downstream partner. The continuous portion consists of 6 double-precision values representing the coordinate of the downstream partner in 6D. The first three values are the x,y and z coordinates of a particular atom in the downstream partner. The second three values are the phi, psi, and theta values describing the coordinate frame at this atom. These three "Euler angle" parameters describe three rotations: Z(psi) \* X(theta) \* Z(phi) \* I. They are described in greater detail in rosetta/rosetta\_source/src/numeric/HomogeneousTransform.hh, and the hit class is in rosetta/rosetta\_source/src/protocols/match/Hit.hh "Phi" and "psi" here have nothing to do with the protein-backbone angles. When a hit is binned, there are two sets of parameters that describe how wide the bins in each dimension should be: the Euclidean bin widths are for the xyz coordinates, and the Euler bin widths are for the Euler angles. The Euclidean bin widths are in Angstroms and the Euler bin widths are in degrees.
+A hit is represented in two parts: a discrete part and a continuous part. The discrete portion consists of four integers: 1. the build-point index on the scaffold, 2. the rotamer index on the upstream partner, 3.  the external-geometry index, and 4. the rotamer index on the downstream partner. The continuous portion consists of 6 double-precision values representing the coordinate of the downstream partner in 6D. The first three values are the x,y and z coordinates of a particular atom in the downstream partner. The second three values are the phi, psi, and theta values describing the coordinate frame at this atom. These three "Euler angle" parameters describe three rotations: Z(psi) \* X(theta) \* Z(phi) \* I. They are described in greater detail in rosetta/main/source/src/numeric/HomogeneousTransform.hh, and the hit class is in rosetta/main/source/src/protocols/match/Hit.hh "Phi" and "psi" here have nothing to do with the protein-backbone angles. When a hit is binned, there are two sets of parameters that describe how wide the bins in each dimension should be: the Euclidean bin widths are for the xyz coordinates, and the Euler bin widths are for the Euler angles. The Euclidean bin widths are in Angstroms and the Euler bin widths are in degrees.
 
 Algorithm
 =========
@@ -236,7 +236,7 @@ A generic command line:
 ```
  gen_apo_grids -s scaffold.pdb -database [database_path] @flags
 ```
-A real example command line used for rosetta/rosetta\_tests/integration/tests/gen\_apo\_grids example:
+A real example command line used for rosetta/main/tests/integration/tests/gen\_apo\_grids example:
 ```
  /path/to/rosetta/main/source/bin/gen_apo_grids.linuxiccrelease -s 1a53_nohet_1.pdb @flags
 ```
@@ -255,7 +255,7 @@ A detailed flags example (@flags):
   -packstat:min_surface_accessibility 1.4 # voids-balls must be at least this exposed
 ```
 
-Troubleshooting: These apps should be in rosetta/rosetta\_source/bin. If it is not make sure that src/pilot\_apps.src.settings.all has the pilot app turned on under user wendao.
+Troubleshooting: These apps should be in rosetta/main/source/bin. If it is not make sure that src/pilot\_apps.src.settings.all has the pilot app turned on under user wendao.
 
 Manual generation of pos files
 ------------------------------

@@ -10,7 +10,7 @@ Last edited Aug 20 2010 by Ingemar André. Code by Ingemar Andre.
 Code and Demo
 =============
 
-All the code is contained in the Python script rosetta/rosetta\_source/src/apps/pilot\_apps/andre/make\_symmdef\_file\_denovo.py.
+All the code is contained in the Python script rosetta/main/source/src/apps/pilot\_apps/andre/make\_symmdef\_file\_denovo.py.
 
 Purpose
 ===========================================
