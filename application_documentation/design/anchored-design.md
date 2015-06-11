@@ -196,7 +196,7 @@ Rosetta 3.3 is the first release. Benchmarking modes were added for 3.4 (I think
 
 ##See Also
 
-* [[AnchorFinder | anchored-finder ]]: Locates plausible anchors at protein-protein interfaces.
+* [[AnchorFinder | anchor-finder ]]: Locates plausible anchors at protein-protein interfaces.
 * [[AnchoredPDBCreator | anchored-pdb-creator ]]: Creates input 
 * [[Design applications | design-applications]]: other design applications
 * [[Application Documentation]]: Application documentation home page
