@@ -11,7 +11,10 @@ The PI was Brian Kuhlman, (bkuhlman - at - email.unc.edu) .
 Example runs
 ============
 
-The executable's source is at `Rosetta/main/source/src/apps/public/interface_design/anchored_design/AnchoredDesign.cc`. Most of the code is in the libraries at `src/protocols/anchored_design/`.  There is an [[integration test]] at `Rosetta/main/tests/integration/tests/AnchoredDesign/` which functions as a small demo. There are more extensive demos with more documentation at `Rosetta/demo/protocol_capture/anchored_design`, `Rosetta/demo/public/anchored_design`, and `Rosetta/demo/public/domain_insertion`, which are online at TODO these three links.
+The executable's source is at `main/source/src/apps/public/interface_design/anchored_design/AnchoredDesign.cc`. 
+Most of the code is in the libraries at `src/protocols/anchored_design/`. 
+There is an [[integration test]] at `main/tests/integration/tests/AnchoredDesign/` which functions as a small demo. 
+There are more extensive demos with more documentation at `demo/protocol_capture/anchored_design`, `demo/public/anchored_design`, and `demo/public/domain_insertion`, which are online at TODO these three links.
 
 References
 ==========
@@ -80,7 +83,7 @@ AnchoredDesign has a sub-namespace for filtering:
 -   filters::omega - boolean - do not print trajectories with any loop omega torsions more than 30 degrees from trans
 
 These options activate vicinity sampling in kinematic loop closure. (The default is to use random samples from the Ramachandran distribution for the non-pivot torsions in the loop; these options instead perturb the existing loop slightly). 
-This is almost certainly out-of-date due to the development of [[Next-Generation KIC]] loop closure.
+This is almost certainly out-of-date due to the development of [[Next Generation KIC]] loop closure.
 
 -   loops::vicinity_sampling - bool - activate vicinity sampling
 -   loops::vicinity_degree - real - degree range of perturbation; default is 1 degree
@@ -90,7 +93,7 @@ General options: All packing namespace options loaded by the PackerTask are resp
 -   packing::resfile - string - a [[resfile|resfiles]] if you want one
 -   in::file::frag3 - string - fragments if you've got them
 -   run::min_type - string - minimizer type. dfpmin_armijo_nonmonotone used for production.
--   loops::loop_file - string - [[loops file]],
+-   loops::loop_file - string - [[loops file]]
 
 PoseMetricCalculator flags include:
 
