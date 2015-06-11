@@ -16,3 +16,12 @@ Counts fraction of DSSP-defined secondary structure elements that contain N or m
 - filter_helix/sheet/loop: yes/no. do we care about this type, or skip it entirely?
 min_helix/sheet/loop_length: what defines SS element?
 
+## See also:
+
+* [[AbInitio Modeling|abinitio-relax]]
+* [[Loop Modeling|loopmodel]]
+* [[AngleToVectorFilter]]
+* [[DsspMover]]
+* [[GeometryFilter]]
+* [[SecondaryStructureFilter]]
+* [[TorsionFilter]]

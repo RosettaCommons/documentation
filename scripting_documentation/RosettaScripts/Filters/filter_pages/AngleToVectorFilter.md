@@ -25,4 +25,7 @@ Specifying the x,y,z components of the normalized vector atm1 - atm2. Now, use t
 * [[DockingMover]]
 * [[DockingProtocolMover]]
 * [[DockWithHotspotMover]]
-
+* [[TorsionFilter]]
+* [[GeometryFilter]]
+* [[SecondaryStructureFilter]]
+* [[SecondaryStructureHasResidueFilter]]
