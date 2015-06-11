@@ -1,7 +1,8 @@
 #I want to sample X
 
-Typically, users come to an input structure with the notion that they want to perform a particular type of sampling, whether via running an application or using a RosettaScripts mover.
-Here, we have categorized Rosetta's RosettaScripts-enabled movers by the type of structural perturbation they perform.
+Ususally, users come to Rosetta with an idea of the [[biological problem they want to solve|rosetta_basics/Solving-a-Biological-Problem]]. Sometimes, users come with an input structure and the notion that they want to perform a particular type of sampling, whether via running an application or using a RosettaScripts mover.
+Here, we have categorized Rosetta's RosettaScripts-enabled movers by the type of structural perturbation they perform, but the [[biological problems|rosetta_basics/Solving-a-Biological-Problem]] page will better serve you for application use.
+If neither page helps, perhaps you haven't determined [[what the problem is|linky]]?
 
 What we can't help you with
 -----------
