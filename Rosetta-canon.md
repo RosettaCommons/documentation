@@ -176,3 +176,10 @@ Drew et al. create custom modes for backbone sampling to incorporate peptidomime
 [A rotamer library to enable modeling and design of peptoid foldamers.] (http://www.ncbi.nlm.nih.gov/pubmed/24823488)    
 J Am Chem Soc 136:8772-82  
 Renfrew et al. demonstrate that peptoid residues (N-alkylated or arylated glycines) have sidechain conformations that fall neatly into rotamer bins much like peptides and demonstrate two methods for constructing rotamer libraries to model them.
+
+##See Also
+
+* [[Rosetta overview]]: Overview of major concepts in Rosetta
+* [[RosettaEncyclopedia]]: Detailed descriptions of Rosetta terms
+* [[Glossary]]: Brief definitions of Rosetta terms
+* [[Rosetta Timeline]]: Landmark Rosetta papers
