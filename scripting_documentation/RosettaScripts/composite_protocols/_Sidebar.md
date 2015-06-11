@@ -19,6 +19,10 @@
    * [[FeaturesReporters|Features-reporter-overview]]
 
    * [[Composite Protocols|Composite-protocols]]
+     
+     * [[GeneralizedKIC]]
+     
+     * [[MetropolisHastings|MetropolisHastings-Documentation]]
 
    * [[Databases with RosettaScripts|RosettaScripts-database-connection-options]]
 
