@@ -48,12 +48,12 @@ Per Residue Specification
 
 **[[OperateOnResidueSubset|OperateOnResidueSubsetOperation]]** - Use [[ResidueSelectors]] and [[Residue Level TaskOperations]] to specify a particular behavior on a particular subset of residues.  
 
-[[OperateOnCertainResidues Operation|OperateOnCertainResiduesOperations]] - An older way of specifying particular groups of residues. Deprecated. Use OperateOnResidueSubset instead.
+[[OperateOnCertainResidues Operation|OperateOnCertainResiduesOperation]] - An older way of specifying particular groups of residues. Deprecated. Use OperateOnResidueSubset instead.
 
 Specialized TaskOperations
 ==========================
 
-List of current TaskOperation classes in the core library (\* indicates use-at-own-risk/not sufficiently tested/still under development):
+\* indicates use-at-own-risk/not sufficiently tested/still under development
 
 Position/Identity Specification
 -------------------------------
