@@ -17,3 +17,13 @@ Evaluate the given helix-strand-strand triplets. Calculates distance between str
 -   output_id: Specifies which HSS triplet in the list of input HSS triplets will be reported
 -   output_type: Valid values are "dist" and "angle" -- dist returns the distance of the HSS triplet specified by output_id, and angle returns the angle
 
+## See also
+
+* [[AbInitio Modeling|abinitio-relax]]
+* [[Loop Modeling|loopmodel]]
+* [[HelixKinkFilter]]
+* [[HelixPairingFilter]]
+* [[SecondaryStructureFilter]]
+* [[SecondaryStructureCountFilter]]
+* [[SecondaryStructureHasResidueFilter]]
+
