@@ -106,35 +106,41 @@ The RosettaLigand logic was transitioned to XML.
 
 RNA
 --------------
-* Sripakdeevong P, Kladwang W, Das R (2011)  
-[An enumerative stepwise ansatz enables atomic-accuracy RNA loop modeling.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=22143768)  
-Proc Natl Acad Sci U S A 108:20573-8  
-Sripakdevong et al. discuss an ansatz by which they enumerate and score RNA loop conformations, enabling the solution of heretofore intractable "RNA puzzles"
-
 * Das R, Baker D (2007)  
 [Automated de novo prediction of native-like RNA tertiary structures.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=17726102)  
 Proc Natl Acad Sci U S A 104:14664-9  
 Das and Baker describe successful prediction of RNA structure from sequence data.
 They reproduce 90% of Watson-Crick base pairs and more than one third of noncanonical features.
 
+* Sripakdeevong P, Kladwang W, Das R (2011)  
+[An enumerative stepwise ansatz enables atomic-accuracy RNA loop modeling.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=22143768)  
+Proc Natl Acad Sci U S A 108:20573-8  
+Sripakdevong et al. discuss an ansatz by which they enumerate and score RNA loop conformations, enabling the solution of heretofore intractable "RNA puzzles"
+
+
 Enzyme Design
 --------------
+* Jiang L, Althoff EA, Clemente FR, Doyle L, Röthlisberger D, Zanghellini A, Gallaher JL, Betker JL, Tanaka F, Barbas CF 3rd, Hilvert D, Houk KN, Stoddard BL, Baker D (2008)
+[De novo computational design of retro-aldol enzymes.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=18323453)
+Science 319:1387-91
+
 * Siegel JB, Zanghellini A, Lovick HM, Kiss G, Lambert AR, St Clair JL, Gallaher JL, Hilvert D, Gelb MH, Stoddard BL, Houk KN, Michael FE, Baker D (2010)  
 [Computational design of an enzyme catalyst for a stereoselective bimolecular Diels-Alder reaction.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=20647463)  
 Science 329:309-13  
 Siegel et al. design a stereoselective and chemoselective Diels-Alderase, obtain its crystal structure, and illustrate that mutations at the putative binding site can tune its substrate specificity. 
 
-* Jiang L, Althoff EA, Clemente FR, Doyle L, Röthlisberger D, Zanghellini A, Gallaher JL, Betker JL, Tanaka F, Barbas CF 3rd, Hilvert D, Houk KN, Stoddard BL, Baker D (2008)
-[De novo computational design of retro-aldol enzymes.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=18323453)
-Science 319:1387-91
-
 Loop modeling
 --------------
+* Wang C, Bradley P, Baker D (2007)
+[Protein-protein docking with backbone flexibility.](http://www.ncbi.nlm.nih.gov/pubmed/17825317)
+Mol Biol. 2007 Oct 19;373(2):503-19.  
+The title is a little misleading.
+This paper is valuable for introducing the [[FoldTree]] and [[CCD]] (cyclic coordinate descent) loop closure to Rosetta.
+
 * Mandell DJ, Coutsias EA, Kortemme T (2009)  
-[Sub-angstrom accuracy in protein loop reconstruction by robotics-inspired conformational sampling.] ()    
+[Sub-angstrom accuracy in protein loop reconstruction by robotics-inspired conformational sampling.] (http://www.ncbi.nlm.nih.gov/pubmed/19644455)    
 Nat Methods 6:551-2  
 Mandell et al. describe the kinematic loop closure algorithm for remodeling protein loop geometry.
-
 
 Rosetta development
 -------------
