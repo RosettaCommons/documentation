@@ -100,7 +100,7 @@ Position/Identity Specification
 
 **[[SelectBySASA|SelectBySASAOperation]]** - Repack residue based on surface exposure.
 
-**[[SetCatalyticResPackBehavior|SetCatalyticResPackBehaviorOperation]]** - Turn of packing or design for residue in enzdes constraints. 
+**[[SetCatalyticResPackBehavior|SetCatalyticResPackBehaviorOperation]]** - Turn of packing or design for residue in [[enzdes constraints|match-cstfile-format]]. 
 
 **[[RestrictToTermini|RestrictToTerminiOperation]]** - Only repack termini.
 
