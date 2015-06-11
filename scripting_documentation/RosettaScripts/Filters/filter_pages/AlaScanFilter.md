@@ -19,3 +19,4 @@ Substitutes Ala for each interface position separately and measures the differen
 
 * [[DdgFilter]]
 * [[DdGScanFilter]]
+* [[FilterScan]]
