@@ -23,10 +23,10 @@ A structure is a group of spatially organized residues. The definition correspon
 PoseConformationFeatures
 ------------------------
 
-The [PoseConformationFeatures](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/protocols/features/PoseConformationFeatures.hh) measures the conformation level information in a Pose. Together with the [ProteinResidueConformationFeatures](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/protocols/features/PoseConformationFeatures.hh) , the atomic coordinates can be reconstructed. To facilitate creating poses from conformation structure data stored in the features database, PoseConformationFeatures has a *load\_into\_pose* method.
+The PoseConformationFeatures reporter measures the conformation level information in a Pose. Together with the ProteinResidueConformationFeatures, the atomic coordinates can be reconstructed. To facilitate creating poses from conformation structure data stored in the features database, PoseConformationFeatures has a *load\_into\_pose* method.
 
 -   **pose\_conformations** : This table stores information about sequence of residues in the conformation.
-    -   *annotated\_sequence* : The [annotated sequence](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/pose/Pose.hh#L646) string of residue types that make up the conformation
+	-   *annotated\_sequence* : The [annotated sequence](Glossary#annotatedsequence) string of residue types that make up the conformation
     -   *total\_residue* : The number of residues in the conformation
     -   *fullatom* : The ResidueTypeSet is *FA\_STANDARD* if true, and *CENTROID* if false.
 
@@ -42,7 +42,7 @@ The [PoseConformationFeatures](https://svn.rosettacommons.org/trac/browser/trunk
 -   **fold\_trees** : The fold tree specifies a graph of how the residues are attached together. If the residues are thought of as vertices, each row in the *fold\_trees* table specifies a directed edge.
     -   *(start\_res, start\_atom)* : The initial residue and the attachment atom within the residue
     -   *(end\_res, end\_atom)* : The terminal residue and the attachment atom with the residue
-    -   *label* : -2 if it is a *CHEMICAL* edge, -1 if is a *PEPTIDE* edge, and 1, 2, ... is a *JUMP* attachment. See here for [details](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/kinematics/Edge.hh#L35) . The geometry of the *JUMP* attachments is stored in the *jumps* table.
+    -   *label* : -2 if it is a *CHEMICAL* edge, -1 if is a *PEPTIDE* edge, and 1, 2, ... is a *JUMP* attachment. The geometry of the *JUMP* attachments is stored in the *jumps* table.
     -   *keep\_stub\_in\_residue* : For completeness, the option to keep stub in residue is stored.
 
 <!-- -->
@@ -113,7 +113,7 @@ RadiusOfGyrationFeatures
 Measure the radius of gyration for each structure. The radius of gyration measure of how compact a structure is in O(n). It is the expected displacement of mass from the center of mass. The Wikipedia page is has some [information](http://en.wikipedia.org/wiki/Radius_of_gyration) . Also see, Lobanov MY, Bogatyreva NS, Galzitskaya OV. [Radius of gyration as an indicator of protein structure compactness](http://www.springerlink.com/content/v01q1r143528u261/) . Molecular Biology. 2008;42(4):623-628.
 
 -   **radius\_of\_gyration** :
-    -   *radius\_of\_gyration* : Let *C* be the center of mass and *ri* be the position of residue *i'* th of *n* residues, then the radius of gyration is defined to be *Rg = SQRT{SUM\_{ri}(ri-C)\^2/(n-1)}* . Note: the normalizing factor is *n-1* to be consistent with r++. Atoms with variant type "REPLONLY" are ignored. See the [RG\_Energy\_Fast](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/methods/RG_Energy_Fast.hh) class for more details.
+    -   *radius\_of\_gyration* : Let *C* be the center of mass and *ri* be the position of residue *i'* th of *n* residues, then the radius of gyration is defined to be *Rg = SQRT{SUM\_{ri}(ri-C)\^2/(n-1)}* . Note: the normalizing factor is *n-1* to be consistent with r++. Atoms with variant type "REPLONLY" are ignored.
 
 <!-- -->
 

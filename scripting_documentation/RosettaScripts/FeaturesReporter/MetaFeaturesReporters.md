@@ -78,7 +78,7 @@ Store *string* , *string* - *string* , and *string* - *real* data associated wit
 PoseCommentsFeatures
 --------------------
 
-Arbitrary textual information may be associated with a pose in the form of *(key, val)* [comments](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/pose/util.hh#L105) . The [PoseCommentsFeatures](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/protocols/features/PoseCommentsFeatures.hh) stores this information as a feature.
+Arbitrary textual information may be associated with a pose in the form of *(key, val)* comments. The PoseCommentsFeatures reporter stores this information as a feature.
 
 -   **pose\_comments** : All pose comments are extracted using.
 

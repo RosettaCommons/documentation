@@ -18,7 +18,7 @@ For the full workflow check out:
 
 `       rosetta_demos/public/RNA_Assembly      `
 
-NOTE: This pipeline is largely deprecated; a new one, based on use of MOHCA-seq data and experience in the RNA puzzles trials, will be documented soon. Some info here: (http://biorxiv.org/content/early/2014/04/25/004556).
+NOTE: This pipeline is largely deprecated; a new one, based on use of MOHCA-seq data and experience in the RNA puzzles trials, will be documented soon. Some info here: [[http://biorxiv.org/content/early/2014/04/25/004556]].
 
 References
 ==========
@@ -178,3 +178,18 @@ New things since last release
 =============================
 
 This application is new as of Rosetta 3.4.
+
+##See Also
+
+* [[RNA Denovo]]: The main rna_denovo application page
+* [[RNA applications]]: The RNA applications home page
+* [[Structure Prediction Applications]]: List of structure prediction applications
+* [[RNA applications]]: The RNA applications home page
+* [[Structure Prediction Applications]]: List of structure prediction applications
+* [[Application Documentation]]: Home page for application documentation
+* [[RNA]]: Guide to working with RNA in Rosetta
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Comparing structures]]: Essay on comparing structures
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files

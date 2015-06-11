@@ -8,7 +8,7 @@ This document was last edited on 11/2/12 by Steven Lewis. The code was written b
 Code and Demo
 =============
 
-The code for the pmut scan protocol lives primarily in `       rosetta/rosetta_source/src/protocols/pmut_scan      ` in the classes PointMutScanDriver and Mutant. The Mutant class is a helper class which holds information about single, double (or higher order) mutants and their respective mutations. The PointMutScanDriver class is responsible for determining which mutants to make, distributing the jobs to all available CPUs and scoring all the structures. The protocol is started via the pmut\_scan\_parallel application, the code for which can be found in `       rosetta/rosetta_source/src/apps/pilot/ronj/pmut_scan_parallel      ` . Unit tests for the protocol can be found at `       rosetta/rosetta_source/test/protocols/pmut_scan      ` . Integration tests for the protocol can be found at `       rosetta/rosetta_tests/integration/tests/pmut_scan      ` .
+The code for the pmut scan protocol lives primarily in `       rosetta/main/source/src/protocols/pmut_scan      ` in the classes PointMutScanDriver and Mutant. The Mutant class is a helper class which holds information about single, double (or higher order) mutants and their respective mutations. The PointMutScanDriver class is responsible for determining which mutants to make, distributing the jobs to all available CPUs and scoring all the structures. The protocol is started via the pmut\_scan\_parallel application, the code for which can be found in `       rosetta/main/source/src/apps/pilot/ronj/pmut_scan_parallel      ` . Unit tests for the protocol can be found at `       rosetta/main/source/test/protocols/pmut_scan      ` . Integration tests for the protocol can be found at `       rosetta/main/tests/integration/tests/pmut_scan      ` .
 
 References
 ==========
@@ -136,31 +136,31 @@ Example Command Lines
 To run a scan for stabilizing **single (point) mutants** on the PDB 1ABC:
 
 ```
-[mpirun -np 100] ~/rosettabin/pmut_scan_parallel.macosgccrelease -database ~/rosettadb -s 1ABC.pdb.gz -ex1 -ex2 -extrachi_cutoff 1 -use_input_sc -ignore_unrecognized_res -no_his_his_pairE -multi_cool_annealer 10 -mute basic core
+[mpirun -np 100] rosetta/main/source/bin/pmut_scan_parallel.macosgccrelease -database ~/rosettadb -s 1ABC.pdb.gz -ex1 -ex2 -extrachi_cutoff 1 -use_input_sc -ignore_unrecognized_res -no_his_his_pairE -multi_cool_annealer 10 -mute basic core
 ```
 
 To run a scan for stabilizing **double** mutants on the PDB 1ABC:
 
 ```
-[mpirun -np 100] ~/rosettabin/pmut_scan_parallel.macosgccrelease -database ~/rosettadb -s 1ABC.pdb.gz -double_mutant_scan -ex1 -ex2 -extrachi_cutoff 1 -use_input_sc -ignore_unrecognized_res -no_his_his_pairE -multi_cool_annealer 10 -mute basic core
+[mpirun -np 100] rosetta/main/source/bin/pmut_scan_parallel.macosgccrelease -database ~/rosettadb -s 1ABC.pdb.gz -double_mutant_scan -ex1 -ex2 -extrachi_cutoff 1 -use_input_sc -ignore_unrecognized_res -no_his_his_pairE -multi_cool_annealer 10 -mute basic core
 ```
 
 To run a scan for stabilizing double mutants on the PDB 1ABC and **output structures** for mutants found to be stabilizing:
 
 ```
-[mpirun -np 100] ~/rosettabin/pmut_scan_parallel.macosgccrelease -database ~/rosettadb -s 1ABC.pdb.gz -double_mutant_scan -output_mutant_structures -ex1 -ex2 -extrachi_cutoff 1 -use_input_sc -ignore_unrecognized_res -no_his_his_pairE -multi_cool_annealer 10 -mute basic core
+[mpirun -np 100] rosetta/main/source/bin/pmut_scan_parallel.macosgccrelease -database ~/rosettadb -s 1ABC.pdb.gz -double_mutant_scan -output_mutant_structures -ex1 -ex2 -extrachi_cutoff 1 -use_input_sc -ignore_unrecognized_res -no_his_his_pairE -multi_cool_annealer 10 -mute basic core
 ```
 
 To score a pre-determined **list of mutants** and create output structures for each of them:
 
 ```
-[mpirun -np 100] ~/rosettabin/pmut_scan_parallel.macosgccrelease -database ~/rosettadb -s 1ABC.pdb.gz -mutants_list mutants.txt -output_mutant_structures -ex1 -ex2 -ex3 -extrachi_cutoff 1 -use_input_sc -ignore_unrecognized_res -no_his_his_pairE -multi_cool_annealer 10 -mute basic core
+[mpirun -np 100] rosetta/main/source/bin/pmut_scan_parallel.macosgccrelease -database ~/rosettadb -s 1ABC.pdb.gz -mutants_list mutants.txt -output_mutant_structures -ex1 -ex2 -ex3 -extrachi_cutoff 1 -use_input_sc -ignore_unrecognized_res -no_his_his_pairE -multi_cool_annealer 10 -mute basic core
 ```
 
 To score a pre-determined list of mutants, create output structures for each of them, and do **increased sampling** around chi angles 1 and 2:
 
 ```
-[mpirun -np 100] ~/rosettabin/pmut_scan_parallel.macosgccrelease -database ~/rosettadb -s 1ABC.pdb.gz -mutants_list mutants.txt -output_mutant_structures -ex1 -ex1:level 3 -ex2 -ex2:level 3 -ex3 -extrachi_cutoff 1 -use_input_sc -ignore_unrecognized_res -no_his_his_pairE -multi_cool_annealer 10 -mute basic core
+[mpirun -np 100] rosetta/main/source/bin/pmut_scan_parallel.macosgccrelease -database ~/rosettadb -s 1ABC.pdb.gz -mutants_list mutants.txt -output_mutant_structures -ex1 -ex1:level 3 -ex2 -ex2:level 3 -ex3 -extrachi_cutoff 1 -use_input_sc -ignore_unrecognized_res -no_his_his_pairE -multi_cool_annealer 10 -mute basic core
 ```
 
 Mutant List file format

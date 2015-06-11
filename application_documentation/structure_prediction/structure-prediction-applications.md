@@ -51,6 +51,7 @@ While most of these applications focus on prediction, many have options which wi
 ##See Also
 
 * [[Minirosetta]]: More information on the MiniRosetta app
+* [[Rosetta Servers]]: Servers that provide access to some Rosetta applications
 * [[Application Documentation]]: List of Rosetta applications
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
 * [[Comparing structures]]: Essay on comparing structures

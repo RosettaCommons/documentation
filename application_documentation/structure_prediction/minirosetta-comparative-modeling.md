@@ -18,7 +18,7 @@ This document was last updated on November 21st, 2010 by James Thompson (tex@uw.
 Code and Demo
 =============
 
-The code for running comparative modeling is in `       rosetta/rosetta_source/src/protocols/comparative_modeling      ` and `       rosetta/rosetta_source/src/protocols/loops      ` . See the `       rosetta/rosetta_tests/integration/tests/threading      ` directory for an example command-line and input files.
+The code for running comparative modeling is in `       rosetta/main/source/src/protocols/comparative_modeling      ` and `       rosetta/main/source/src/protocols/loops      ` . See the `       rosetta/tests/integration/tests/threading      ` directory for an example command-line and input files.
 
 References
 ==========

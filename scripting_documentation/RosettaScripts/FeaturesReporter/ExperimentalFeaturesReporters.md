@@ -3,7 +3,7 @@
 PdbDataFeatures
 ---------------
 
-The [PdbDataFeatures](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/protocols/features/PdbDataFeatures.hh) records information that is stored in the protein databank structure format.
+The PdbDataFeatures records information that is stored in the protein databank structure format.
 
         <feature name=PdbDataFeatures/>
 

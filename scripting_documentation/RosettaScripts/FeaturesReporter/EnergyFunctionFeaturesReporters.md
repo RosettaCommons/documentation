@@ -173,9 +173,9 @@ The ResidueTotalScoresFeatures stores for each residue the total score for the o
 HBondParameterFeatures
 ----------------------
 
-The parameters for the hydrogen bond potential are specified in the minirosetta\_database as [parameter sets](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_database/scoring/score_functions/hbonds) . Each parameter set specifies polynomials, fade functions, and which are applied to which hydrogen bond chemical types. To indicate parameter set, either use *-hbond\_params \<database\_tag\>* set on the command line, or set *score\_function.energy\_method\_options().hbond\_options()-\>params\_database\_tag(\<database\_tag\>)* . See the [HBondDatabase](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/HBondDatabase.hh) class for more information.
+The parameters for the hydrogen bond potential are specified in the Rosetta database as parameter sets. Each parameter set specifies polynomials, fade functions, and which are applied to which hydrogen bond chemical types. To indicate parameter set, either use *-hbond\_params \<database\_tag\>* set on the command line, or set *score\_function.energy\_method\_options().hbond\_options()-\>params\_database\_tag(\<database\_tag\>)* . 
 
--   **hbond\_fade\_interval** : Limited interaction between geometric dimensions are controlled by simple fading functions of the form \_\_/----\\\_\_. See the [FadeInterval](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/FadeInterval.hh) class for more information.
+-   **hbond\_fade\_interval** : Limited interaction between geometric dimensions are controlled by simple fading functions of the form \_\_/----\\\_\_.
     -   *database\_tag* : The hydrogen bond parameter set
     -   *name* : The name of the fade interval referenced in the *hbond\_evaluation\_types* table
     -   *junction\_type* : The junction type indicates how the function between the knots should be interpolated. Currently the options are *piecewise\_linear* , and *smooth* which uses a cubic spline with zero derivative at at the knots.
@@ -193,10 +193,10 @@ The parameters for the hydrogen bond potential are specified in the minirosetta\
             max0 REAL,
             PRIMARY KEY(database_tag, name));
 
--   **hbond\_polynomial\_1d** : One dimensional polynomials for each geometric dimension used to compute the hydrogen bond energy. See the [Polynomial\_1d](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/polynomials.hh) class for more information.
+-   **hbond\_polynomial\_1d** : One dimensional polynomials for each geometric dimension used to compute the hydrogen bond energy. 
     -   *database\_tag* : The hydrogen bond parameter set
     -   *name* : The name of the polynomial referenced in the *hbond\_evaluation\_types* table.
-    -   *dimension* : The [geometric dimension](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/types.hh#L409) with which the polynomial should be used.
+    -   *dimension* : The geometric dimension with which the polynomial should be used.
     -   *xmin* , *xmax* : The polynomial is truncated beyond the *xmin* and *xmax* values.
     -   *root1* , *root2* : The values where the polynomial equals 0.
     -   *degree* : The number of coefficients in the polynomial. For example 10x\^2 - 3x + 1 would have degree 3.
@@ -226,17 +226,17 @@ The parameters for the hydrogen bond potential are specified in the minirosetta\
             c_k REAL,
             PRIMARY KEY(database_tag, name));
 
--   **hbond\_evaluation\_types** : Associate to (donor chemical type, acceptor chemical type, sequence separation) hydrogen bond types, the which fade intervals, polynomials and weight types to be used in evaluating and assigning hydrogen bond energy. See [hbonds\_geom.cc](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/hbonds_geom.hh) for where they are actually used.
+-   **hbond\_evaluation\_types** : Associate to (donor chemical type, acceptor chemical type, sequence separation) hydrogen bond types, the which fade intervals, polynomials and weight types to be used in evaluating and assigning hydrogen bond energy.
     -   *database\_tag* : The hydrogen bond parameter set
-    -   *don\_chem\_type* : The [donor chemical type](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/types.hh#L102) component of the hydrogen bond type. This is the value used in the hbond\_site.HBChemType column when the site is a hydrogen bond donor.
-    -   *acc\_chem\_type* : The [acceptor chemical type](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/types.hh#L77) component of the hydrogen bond type. This is the value used in the hbond\_site.HBChemType column when the site is a hydrogen bond acceptor.
-    -   *separation* : The [sequence separation type](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/types.hh#L355) component of the hydrogen bond type. This is used as a proxy for participation in local sequence motifs like intra-helix hydrogen bonding. NOTE: Separation is [defined](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/hbonds_geom.cc#512) as *acc\_resNum* - *don\_resNum* when both residues are polymers and on the same chain and infinity otherwise.
+    -   *don\_chem\_type* : The donor chemical type component of the hydrogen bond type. This is the value used in the hbond\_site.HBChemType column when the site is a hydrogen bond donor.
+    -   *acc\_chem\_type* : The acceptor chemical type component of the hydrogen bond type. This is the value used in the hbond\_site.HBChemType column when the site is a hydrogen bond acceptor.
+    -   *separation* : The sequence separation type component of the hydrogen bond type. This is used as a proxy for participation in local sequence motifs like intra-helix hydrogen bonding. NOTE: Separation is defined as *acc\_resNum* - *don\_resNum* when both residues are polymers and on the same chain and infinity otherwise.
     -   *AHdist\_{short/long}\_fade* : The fading functions to be applied to the AHdist polynomial evaluations. The short/long distinction allows for different angle dependence for hydrogen bonds that have different bond lengths. The distinction follows in spirit the behavior originally described in [Kortemme 2003](http://www.sciencedirect.com/science/article/B6WK7-47WBSCV-T/2/d7c673dd51017848231e7b9e8c05fbca) .
     -   *{cosBAH/cosAHD}\_fade* : The fading functions to be applied to the cosBAH/cosAHD polynomial evaluations.
     -   *AHdist* : Polynomial to be used for the evaluation of the Acceptor -- Hydrogen distance geometric degree of freedom.
     -   *cosBAH\_{short/long}* : Polynomials to be used for the evaluation of the cosine of the Acceptor Base -- Acceptor -- Hydrogen geometric degree of freedom.
     -   *cosAHD\_{short/long}* : Polynomials to be used for the evaluation of the cosine of the Acceptor -- Hydrogen -- Donor geometric degree of freedom.
-    -   *weight\_type* : Which slot in the score vector the energy of the hydrogen bond should be accumulated into. See the [WeightType](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/types.hh#L55) for allowable types.
+    -   *weight\_type* : Which slot in the score vector the energy of the hydrogen bond should be accumulated into. See the WeightType for allowable types.
 
 <!-- -->
 

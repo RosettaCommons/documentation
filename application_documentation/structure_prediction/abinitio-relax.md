@@ -17,7 +17,7 @@ This document was last updated on October, 2014 by Jared Adolf-Bryfogle. The PI 
 Code and Demo
 =============
 
-The ab initio executable is in `       rosetta_source/src/apps/public/AbinitioRelax.cc      ` . The source code for the ab initio protocol is in `       rosetta_source/src/protocols/abinitio/AbrelaxApplication.cc      ` . See the `       rosetta_demos/abinitio      ` directory for an example ab initio run which includes input files, expected output files, and an example run log. The example command exists in `       rosetta_demos/abinitio/readme.txt      ` . Input files exist in `       rosetta_demos/abinitio/input_files      ` . Expected output files exist in `       rosetta_demos/abinitio/output_files      ` . An example run log exist in `       rosetta_demos/abinitio/log      ` .
+The ab initio executable is in `       main/source/src/apps/public/AbinitioRelax.cc      ` . The source code for the ab initio protocol is in `       main/source/src/protocols/abinitio/AbrelaxApplication.cc      ` . See the `       demos/abinitio      ` directory for an example ab initio run which includes input files, expected output files, and an example run log. The example command exists in `       demos/abinitio/readme.txt      ` . Input files exist in `       demos/abinitio/input_files      ` . Expected output files exist in `       demos/abinitio/output_files      ` . An example run log exist in `       demos/abinitio/log      ` .
 
 References
 ==========
@@ -179,6 +179,7 @@ Lowest scoring models that are in a cluster and that have a topology represented
 * [[Abinitio]]: Further details on this application
 * [[Fasta file]]: Fasta file format
 * [[Fragment file]]: Fragment file format (required for abinitio structure prediction)
+* [[ROBETTA (external link)|http://robetta.bakerlab.org/]]: Server that provides *ab initio* folding and structure prediction, as well as fragment picking, for academic users
 * [[Structure prediction applications]]: A list of other applications to be used for structure prediction
   * [[NonlocalAbinitio]]: Application for predicting protein structure given some prior structural information
   * [[Membrane abinitio]]: Ab initio for membrane proteins.  

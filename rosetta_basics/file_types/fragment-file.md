@@ -118,6 +118,7 @@ Make Fragments
 ##See Also
 
 * [[File types list]]: List of file types used in Rosetta
+* [[ROBETTA (external link)|http://robetta.bakerlab.org/]]: Web server that provides free fragment picking and other services for academic users
 * [[Rosetta Basics]]: The Rosetta Basics home page
 * [[Structure prediction applications]]: List of applications for structure prediction, many of which use fragments files
 * [[Options overview]]: Overview of Rosetta command line options

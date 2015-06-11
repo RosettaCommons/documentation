@@ -8,7 +8,7 @@ The central code for the *rna\_denovo* application is in `       src/protocols/r
 
 For a 'minimal' demo example of the RNA fragment assembly and full-atom minimization protocol and input files, see
 
-`       rosetta_demos/public/RNA_Denovo      `
+`       demos/public/RNA_Denovo      `
 
 References
 ==========
@@ -77,9 +77,9 @@ rna_denovo.<exe> -fasta chunk002_1lnt_.fasta -nstruct 2 -out::file::silent test.
 
 The code takes about 1 minute to generate two models.
 
-The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a,c,g, and u. The example fasta file is available in `       rosetta_source/test/integration/tests/rna_denovo/      ` .
+The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a,c,g, and u. The example fasta file is available in `       main/tests/integration/tests/rna_denovo/      ` .
 
-Parameter files to specify Watson/Crick base pairs and strand boundaries
+Parameter files to specify Watson/Crick base pairs and strand boundaries < a name="Parameter-files-to-specify-Watson/Crick-base-pairs-and-strand-boundaries />
 ------------------------------------------------------------------------------------
 
 RNA motifs are typically ensconced within Watson/Crick double helices, and involve several strands. [The most conserved loop of the signal recognition particle is an example, and is included here as chunk002\_1lnt\_RNA.pdb.] You can specify the bounding Watson/Crick base pairs in a "params file" with lines like the following:
@@ -154,7 +154,7 @@ Advanced [used in rna_assembly]
 Tips
 ====
 
-File Format
+File Format <a name="File-Format" />
 ------
 
 Note that in older versions of Rosetta, the PDBs may have residue types marked as rA, rC, rG, and rU and unusual atom names. Versions of Rosetta released after 3.5 have residue and atom names matching BMRB/NDB standard nomenclature. If you have a "standard" PDB file, there is a python script available to convert it to current Rosetta format:
@@ -163,7 +163,7 @@ Note that in older versions of Rosetta, the PDBs may have residue types marked a
 tools/rna_tools/bin/make_rna_rosetta_ready.py <pdb file>
 ```
 
-Can I specify non-Watson-Crick pairs?
+Can I specify non-Watson-Crick pairs? <a name="Can-I-specify-non-Watson-Crick-pairs?" />
 -------------------------------------
 
 You can also specify base pairs that must be forced, even at the expense of creating temporary chainbreaks, in the params file, with a line like:
@@ -232,7 +232,7 @@ f_natNWC                                         fraction of native non-Watson-C
 f_natBP                                          fraction of base pairs recovered
 ```
 
-How do I just score?
+How do I just score? < a name="How-do-I-just-score?" />
 --------------------
 
 To get a score of an input PDB, you can run the 'denovo' protocol but ask there to be no fragment assembly cycles and no rounds of minimization:
@@ -249,7 +249,7 @@ If you want to minimize under the low resolution RNA potential (used in FARNA), 
 
 But this is not recommended if you are trying to score a model deposited in the PDB or created by other software – see next [How do I just minimize?](#How-do-I-just-minimize?)
 
-How do I just minimize?
+How do I just minimize? < a name="How-do-I-just-minimize?" />
 -----------------------
 
 If you take a PDB created outside Rosetta, very small clashes may be strongly penalized by the Rosetta all-atom potential. Instead of scoring, you should probably do a short minimize, run:
@@ -279,7 +279,7 @@ You will typically use the protocol to produce a silent file – how do you get 
 Post Processing
 ===============
 
-Extraction Of Models Into PDB Format
+Extraction Of Models Into PDB Format < a name="Extraction-Of-Models-Into-PDB-Format" />
 ------------------------------------
 
 The models from the above run are stored in compressed format in the file test.out, along with lines representing the score components. You can see the models in PDB format with the conversion command.
@@ -307,3 +307,16 @@ New things since last release
 Added applications rna\_minimize, rna\_helix, rna\_cluster. Updated torsional potential to be smooth.
 
 Written in 2008. Last updates: Nov. 2011 and Aug. 2014 by Rhiju Das (rhiju [at] stanford.edu).
+
+
+##See Also
+
+* [[RNA applications]]: The RNA applications home page
+* [[Structure Prediction Applications]]: List of structure prediction applications
+* [[Application Documentation]]: Home page for application documentation
+* [[RNA]]: Guide to working with RNA in Rosetta
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Comparing structures]]: Essay on comparing structures
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files
