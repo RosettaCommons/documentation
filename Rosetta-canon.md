@@ -159,6 +159,11 @@ Cooper et al.'s development of the [[FoldIt]] game showed that highly parallel h
 Bioinformatics 26:689-91  
 Chaudhury et al. developed a Python based scripting interface to Rosetta functionality ([[PyRosetta]]), permitting users to easily compose protocols without interacting with the C++ layer.
 
+* Sarel J. Fleishman , Andrew Leaver-Fay, Jacob E. Corn, Eva-Maria Strauch, Sagar D. Khare, Nobuyasu Koga, Justin Ashworth, Paul Murphy, Florian Richter, Gordon Lemmon, Jens Meiler, David Baker (2011)
+[RosettaScripts: A Scripting Language Interface to the Rosetta Macromolecular Modeling Suite|http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0020161]
+Fleishman et al. develop an XML-like interface to directly access protocol-level functionalities (and as such requires a compiled version of C++ Rosetta).
+RosettaScripts allows the user to circumnavigate coding in C++, which in turn permits for the rapid development of new protocols.
+
 Peptidomimetics
 ---------------
 * Drew K, Renfrew PD, Craven TW, Butterfoss GL, Chou FC, Lyskov S, Bullock BN, Watkins A, Labonte JW, Pacella M, Kilambi KP, Leaver-Fay A, Kuhlman B, Gray JJ, Bradley P, Kirshenbaum K, Arora PS, Das R, Bonneau R (2013)  
