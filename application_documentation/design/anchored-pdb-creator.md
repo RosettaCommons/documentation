@@ -11,7 +11,7 @@ The PI was Brian Kuhlman, (bkuhlman -- at -- email.unc.edu).
 Example runs and code location
 ============
 
-The code is at `       Rosetta/main/src/apps/public/interface_design/anchored_design/AnchoredPDBCreator.cc      ` ; there's an integration test at `       Rosetta/main/tests/integration/tests/AnchoredDesign/      ` . There is a more extensive demo with more documentation at `Rosetta/demo/protocol_capture/anchored_design` and  `Rosetta/demo/public/anchored_design`, which are online at TODO these links to the online demos.
+The code is at `Rosetta/main/source/src/apps/public/interface_design/anchored_design/AnchoredPDBCreator.cc` ; there's an integration test at `Rosetta/main/tests/integration/tests/AnchoredDesign/` . There is a more extensive demo with more documentation at `Rosetta/demo/protocol_capture/anchored_design` and  `Rosetta/demo/public/anchored_design`, which are online at TODO these links to the online demos.
 
 References
 ==========
