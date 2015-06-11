@@ -1,5 +1,4 @@
-"I want to do _x_. How do I do _x_?"
-===========
+#I want to sample X
 
 Typically, users come to an input structure with the notion that they want to perform a particular type of sampling, whether via running an application or using a RosettaScripts mover.
 Here, we have categorized Rosetta's RosettaScripts-enabled movers by the type of structural perturbation they perform.
