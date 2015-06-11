@@ -8,12 +8,14 @@
 
 There are many biological problems which can be approached with Rosetta. 
 These topics often stem from the central idea that **sequence** confers **structure** which in turn confers **function**.
-For example, Rosetta was initially utilized for _de novo_ protein structure prediction (sequence->function), while current applications can be as extensive as enzyme design (structure->function).
+For example, Rosetta was initially utilized for _de novo_ protein structure prediction (sequence->structure), while current applications can be as extensive as enzyme design (function->sequence).
 
 Generally speaking (for most biological problems), the computational challenges faced are two-fold. 
-First, can we adequately sample the space where the solution to our problem lives.
-Second, can we identify said solution, if we have sampled it.
+First, can we adequately sample the space where the solution to our problem lives?
+Second, can we identify said solution, if we have sampled it?
 This should be kept in mind when deciding on which protocol to apply to your problem, how many models to generate, and which score function to use.
+
+If this page doesn't have a problem that sounds like yours, our page on [[I want to do X]] might.
 
 ## Protein Structure Prediction
 
@@ -204,11 +206,7 @@ For explicit refinement of crystallography data, see [[here|density-map-scoring]
 
 ## What If My Question Is Unanswered? 
 
-[[i-want-to-do-x]]
-
-## Publicly Available Resources (Servers)
-
-See [[here|Rosetta-Servers]].
+It may be that your question cannot be answered. Or, perhaps you can construct a protocol out of [[RosettaScripts]] or [[PyRosetta]].  See [[i-want-to-do-x|this page]] for more details.
 
 #Incorporating Experimental Data
 
