@@ -76,6 +76,7 @@ With loop\_sizes=2,3,4,5, in loop inserter, loop\_sizes in ResourceOptions shoul
 
 ##See Also
 
+* [[RosettaScriptsLoopModeling]]
 * [[Loopmodel application|loopmodel]]
 * [[Loop file format|loops-file]]
 * [[Fragments file format|fragment-file]]

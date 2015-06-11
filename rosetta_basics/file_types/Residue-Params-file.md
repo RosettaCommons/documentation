@@ -5,7 +5,7 @@ An overview of params files
 
 Params files store a variety of chemical and geometric information. 
 
-A set of params files for commonly seen residues and metals is included with rosetta, and can be found in rosetta_database/chemical/residue_type_sets
+A set of params files for commonly seen residues and metals is included with rosetta, and can be found in Rosetta/main/database/chemical/residue_type_sets
 
 The following lines are typically found in Ligand params files. This does not represent a complete documentation of the params fileformat. These files are read in core/chemical/residue\_io.cc
 

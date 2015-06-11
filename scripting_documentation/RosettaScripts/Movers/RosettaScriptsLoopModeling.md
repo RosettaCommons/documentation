@@ -62,3 +62,8 @@ like this:
 * [[PrepareForCentroid|PrepareForCentroidMover]]
 * [[PrepareForFullatom|PrepareForFullatomMover]]
 
+##See Also
+
+* [[Loopmodel application|loopmodel]]
+* [[Loop file format|loops-file]]
+* [[Fragments file format|fragment-file]]

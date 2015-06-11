@@ -79,9 +79,9 @@ A more complete description of the data leading to this protocol is below.
 
 # Relax With All-Heavy-Atom Constraints: Protocol
 
-The required files are in: `rosetta/rosetta_source/src/apps/public/relax_w_allatom_cst`. 
+The required files are in: `Rosetta/main/source/src/apps/public/relax_w_allatom_cst`. 
 
-There is also a demo with a constraint file rather than flags at: `rosetta/rosetta_demos/public/prepare_pdb_for_rosetta_with_relax`.
+There is also a demo with a constraint file rather than flags at: `Rosetta/demos/public/prepare_pdb_for_rosetta_with_relax`.
 
 ### Short Protocol (recommended, no constraint file)
 
@@ -89,7 +89,7 @@ Relax with all-heavy-atom constraints is built into the relax application itself
 If this is a new structure you may want to first clean it up using the above script. Relax proceeds as follows:
 
 ```
-relax.linuxgccrelease  -database rosetta/rosetta_database [-extra_res_fa your_ligand.params] -relax:constrain_relax_to_start_coords -relax:coord_constrain_sidechains -relax:ramp_constraints false -s your_structure.pdb
+relax.linuxgccrelease  -database Rosetta/main/database [-extra_res_fa your_ligand.params] -relax:constrain_relax_to_start_coords -relax:coord_constrain_sidechains -relax:ramp_constraints false -s your_structure.pdb
 ```
 
 The flags file can contain whatever packing and scorefunction flags you wish to use. We recommend at least:
@@ -125,7 +125,7 @@ Certain users might prefer this protocol because it allows you to see a list of 
 Run time is approximately 30 minutes for a 340 residue protein.
 
     ```
-    relax.linuxgccrelease  -database rosetta/rosetta_database -relax:script rosetta/rosetta_source/src/apps/public/relax_w_allatom_cst/always_constrained_relax_script -constrain_relax_to_start_coords -constraints:cst_fa_file your_structure_sc.cst -s your_structure.pdb [-extra_res_fa your_ligand.params]
+    relax.linuxgccrelease  -database Rosetta/main/database -relax:script Rosetta/main/source/src/apps/public/relax_w_allatom_cst/always_constrained_relax_script -constrain_relax_to_start_coords -constraints:cst_fa_file your_structure_sc.cst -s your_structure.pdb [-extra_res_fa your_ligand.params]
     ```
 
 The bracketed `extra_res_fa` only applies if there are any ligand(s) in the structure. 
@@ -221,7 +221,7 @@ Relax actually will do explicit bb sampling thus gives a lower energy structure 
 I'm pasting my typical options file below:
 
 ```
--database /Users/stranges/rosetta/rosetta_database
+-database Rosetta/main/database
 -nstruct 20
 -ndruns 10
 -no_his_his_pairE
