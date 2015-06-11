@@ -81,3 +81,12 @@ set_dof BASEJUMP x(50) angle_x(0:360) angle_y(0:360) angle_z(0:360)
 ```
 
 The actual format of the symmetry definition file is described in the [[Symmetry User's Guide.|symmetry]]
+
+
+## See Also
+
+* [[Types of input files | file-types-list]] used in Rosetta.
+* [[Symmetry]]: on symmetry mode
+* [[Utility applications | utilities-applications]]: other utility applications
+* [[Application Documentation]]: Application documentation home page
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
