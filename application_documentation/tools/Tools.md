@@ -132,8 +132,8 @@ main/source/src/apps/public/ligand_docking/prune_atdiff_top5pct.py
 main/source/src/apps/public/ligand_docking/get_scores.py  
 &#8195; - Extract the SCORES line of an AtomTreeDiff file into tabular format.
 
-main/source/src/apps/public/ligand_docking/plot_funnels.R --
-
+main/source/src/apps/public/ligand_docking/plot_funnels.R
+&#8195; - 
 
 ### Constrained Relax
 
