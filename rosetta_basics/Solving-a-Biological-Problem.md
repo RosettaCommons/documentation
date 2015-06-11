@@ -1,11 +1,5 @@
 #Solving a Biological Problem
 
-[[_TOC_]]
-
-#Types of Biological Problems
-
-**Note: others should feel free to add in their expertise to this article.**
-
 There are many biological problems which can be approached with Rosetta. 
 These topics often stem from the central idea that **sequence** confers **structure** which in turn confers **function**.
 For example, Rosetta was initially utilized for _de novo_ protein structure prediction (sequence->structure), while current applications can be as extensive as enzyme design (function->sequence).
@@ -15,7 +9,12 @@ First, can we adequately sample the space where the solution to our problem live
 Second, can we identify said solution, if we have sampled it?
 This should be kept in mind when deciding on which protocol to apply to your problem, how many models to generate, and which score function to use.
 
-If this page doesn't have a problem that sounds like yours, our page on [[I want to do X]] might.
+If this page doesn't have a problem that sounds like yours, it may be that you haven't determined [[what the problem is|linky]], or that we can't solve it. 
+If you are thinking of your problem from an angle of sampling a specific degree of freedom, see [[this page|I want to do X]].
+
+[[_TOC_]]
+
+#Types of Biological Problems
 
 ## Protein Structure Prediction
 
