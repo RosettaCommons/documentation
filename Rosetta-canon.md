@@ -32,7 +32,7 @@ DiMaio et al. describe a framework for efficiently modeling highly symmetric oli
 
 Scoring
 --------------
-* Rohl CA, Strauss CE, Misura KM, Baker D (2004) [Protein structure prediction using Rosetta.](http://www.ncbi.nlm.nih.gov/pubmed/15063647)
+* Rohl CA, Strauss CE, Misura KM, Baker D (2004) [Protein structure prediction using Rosetta.](http://www.ncbi.nlm.nih.gov/pubmed/15063647) Methods in Enzymology.  
 This paper, often called the **Rohl review**, is a window into Rosetta's early scorefunction, and remains an excellent reference for early forms of the score function terms. It can be a little hard to find online, but paper photocopies float around most Rosetta labs.
 
 * Kuhlman B, Dantas G, Ireton GC, Varani G, Stoddard BL, Baker D (2003)  
