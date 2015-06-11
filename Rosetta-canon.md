@@ -152,7 +152,7 @@ This is the **Rosetta3 paper** that describes the transition from C++-but-monoli
 * Cooper S, Khatib F, Treuille A, Barbero J, Lee J, Beenen M, Leaver-Fay A, Baker D, Popović Z, Players F (2010)  
 [Predicting protein structures with a multiplayer online game.] (http://www.ncbi.nlm.nih.gov/pubmed/20686574)  
 Nature 466:756-60  
-Cooper et al.'s development of the [[FoldIt|https://fold.it/portal/]] game showed that highly parallel human intuition is a useful tool for, well, folding it (proteins).
+Cooper et al.'s development of the [[FoldIt]] game showed that highly parallel human intuition is a useful tool for, well, folding it (proteins).
 
 * Chaudhury S, Lyskov S, Gray JJ (2010)  
 [PyRosetta: a script-based interface for implementing molecular modeling algorithms using Rosetta.](http://www.ncbi.nlm.nih.gov/pubmed/20061306)  
@@ -163,7 +163,7 @@ Chaudhury et al. developed a Python based scripting interface to Rosetta functio
 [[RosettaScripts: A Scripting Language Interface to the Rosetta Macromolecular Modeling Suite|http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0020161]]  
 PLoS ONE 6(6): e20161  
 Fleishman et al. develop an XML-like interface to directly access protocol-level functionalities (and as such requires a compiled version of C++ Rosetta).
-RosettaScripts allows the user to circumnavigate coding in C++, which in turn permits for the rapid development of new protocols.
+[[RosettaScripts]] allows the user to circumnavigate coding in C++, which in turn permits for the rapid development of new protocols.
 
 Peptidomimetics
 ---------------
