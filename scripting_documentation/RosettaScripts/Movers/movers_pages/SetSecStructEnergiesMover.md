@@ -1,4 +1,5 @@
 # SetSecStructEnergies
+*Back to [[Mover|Movers-RosettaScripts]] page.*
 ## SetSecStructEnergies
 
 Give a bonus to the secondary structures specified by a blueprint header. For example "1-4.A.99" in a blueprint would specify an antiparallel relationship between strand 1 and strand 4; when this is present a bonus (negative) score is applied to the pose.

@@ -149,6 +149,7 @@ Make sure that the system in \*\_symm.pdb looks right before submitting a symmet
 ## See Also
 
 * [[Types of input files | file-types-list]] used in Rosetta.
+* [[Symmetry]]: on symmetry mode
 * [[Utility applications | utilities-applications]]: other utility applications
 * [[Application Documentation]]: Application documentation home page
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.

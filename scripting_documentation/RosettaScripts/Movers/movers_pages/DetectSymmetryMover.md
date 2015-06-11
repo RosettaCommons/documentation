@@ -1,4 +1,5 @@
 # DetectSymmetry
+*Back to [[Mover|Movers-RosettaScripts]] page.*
 ## DetectSymmetry
 
 This mover takes a non-symmetric pose composed of symmetric chains and transforms it into a symmetric system. It only works with cyclic symmetries from C2 to C99.

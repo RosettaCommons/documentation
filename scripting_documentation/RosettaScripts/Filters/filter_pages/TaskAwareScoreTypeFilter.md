@@ -1,4 +1,5 @@
 # TaskAwareScoreType
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## TaskAwareScoreType  (Formerly AverageInterfaceEnergy)
 
 Takes task operations to determine the packable residues and then calculates/filters based on the scores of those residues in one of three possible modes:

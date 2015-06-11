@@ -1,4 +1,5 @@
 # Delta
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## Delta
 
 Computes the difference in a filter's value compared to the input structure

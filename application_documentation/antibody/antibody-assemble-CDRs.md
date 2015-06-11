@@ -14,19 +14,19 @@ Code for Reading Constraints
 -   Application source code:
 
     ```
-    rosetta/rosetta_source/src/apps/pilot/jianqing/antibody_assemble_CDRs.cc
+    rosetta/main/source/src/apps/public/antibody/antibody_graft.cc
     ```
 
 -   Main mover source code:
 
     ```
-    rosetta/rosetta_source/src/protocols/antibody2/GraftCDRLoopsProtocol.cc
+    rosetta/main/source/src/protocols/antibody/GraftCDRLoopsProtocol.cc
     ```
 
 -   To see demos of some different use cases see integration tests located in
 
     ```
-    rosetta/rosetta_tests/integration/antibody_CDR_grafting 
+    rosetta/tests/integrationi/tests/antibody_graft 
     ```
 
 To run Grafting Protocol, type the following in a command line:

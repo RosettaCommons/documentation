@@ -1,4 +1,5 @@
 # FileExist
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## FileExist
 
 Does a file exist on disk? Useful to see whether we're recovering from a checkpoint

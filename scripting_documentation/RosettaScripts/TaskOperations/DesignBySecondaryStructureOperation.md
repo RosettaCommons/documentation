@@ -1,4 +1,5 @@
 # DesignBySecondaryStructure
+*Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## DesignBySecondaryStructure
 
 Selects residues for design based on agreement with psipred secondary structure prediction. Residues which disagree with the secondary structure prediction are selected for design. This mover is stochastic in that residues which disagree in secondary structure prediction are selected randomly every time the task operation is called.

@@ -1,4 +1,5 @@
 # SetupForSymmetry
+*Back to [[Mover|Movers-RosettaScripts]] page.*
 ## SetupForSymmetry
 
 Given a symmetry definition file that describes configuration and scoring of a symmetric system, this mover "symmetrizes" an asymmetric pose. For example, given the symmetry definition file 'C2.symm':

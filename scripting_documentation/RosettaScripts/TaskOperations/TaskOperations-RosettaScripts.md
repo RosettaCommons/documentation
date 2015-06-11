@@ -2,11 +2,9 @@
 
 [[Return To RosettaScripts|RosettaScripts]]
 
-
 TaskOperations are used by a TaskFactory to configure the behavior and create a PackerTask when it is generated on-demand for routines that use the "packer" to reorganize/mutate sidechains. The PackerTask controls which residues are packable, designable, or held fixed.  When used by certain Movers (at present, the PackRotamersMover and its subclasses), the set of TaskOperations control what happens during packing, usually by restriction "masks."  
 
 The PackerTask can be thought of as an ice sculpture.  By default, everything is able to pack AND design.  By using TaskOperations, or your set of chisels, one can limit packing/design to only certain residues.  As with ICE, once these residues are restricted, they generally cannot be turned back on.
-
 
 <code> For Developers </code> 
 
@@ -25,14 +23,14 @@ Example
       <PreventRepacking name=NotBeingUsedHereButPresenceOkay/>
       <RestrictResidueToRepacking name=restrict_Y100 resnum=100/>
       <RestrictToRepacking name=rtrp/>
-      <OperateOnCertainResidues name=NoPackNonProt>
-        <PreventRepackingRLT/>
-        <ResidueLacksProperty property=PROTEIN/>
-      </OperateOnCertainResidues>
+      <OperateOnResidueSubset name=NoPackHelix>
+          <SecondaryStructure ss="H" />
+          <PreventRepackingRLT/>
+      </OperateOnResidueSubset/>
     </TASKOPERATIONS>
     ...
     <MOVERS>
-      <PackRotamersMover name=packrot scorefxn=sf task_operations=rrf,NoPackNonProt,rtrp,restrict_Y100/>
+      <PackRotamersMover name=packrot scorefxn=sf task_operations=rrf,NoPackHelix,rtrp,restrict_Y100/>
     </MOVERS>
     ...
 
@@ -48,12 +46,10 @@ Per Residue Specification
 
 **[[OperateOnResidueSubset|OperateOnResidueSubsetOperation]]** - Use [[ResidueSelectors]] and [[Residue Level TaskOperations]] to specify a particular behavior on a particular subset of residues.  
 
-[[OperateOnCertainResidues Operation|OperateOnCertainResiduesOperation]] - An older way of specifying particular groups of residues. Deprecated. Use OperateOnResidueSubset instead.
+[[OperateOnCertainResidues Operation|OperateOnCertainResiduesOperation]] - An older way of specifying particular groups of residues. **Deprecated** - use OperateOnResidueSubset instead.
 
 Specialized TaskOperations
 ==========================
-
-\* indicates use-at-own-risk/not sufficiently tested/still under development
 
 Position/Identity Specification
 -------------------------------
@@ -80,6 +76,44 @@ Position/Identity Specification
 
 **[[RestrictAbsentCanonicalAAS|RestrictAbsentCanonicalAASOperation]]** - Limit design to specified amino acids.
 
+**[[DisallowIfNonnative|DisallowIfNonnativeOperation]]** - Do not design to certain residues, but allow them if they already exist.
+
+<!--- BEGIN_INTERNAL -->
+**[[RestrictIdentities|RestrictIdentitiesOperation]]** - Do not design residues with a particular starting identity.
+<!--- END_INTERNAL --> 
+
+### Property-based specification
+
+**[[SelectResiduesWithinChain|SelectResiduesWithinChainOperation]]** - Do not pack/design residues based on their position in a chain.
+
+**[[DsspDesign|DsspDesignOperation]]** - Specify design identity based on secondary structure.
+
+**[[LayerDesign|LayerDesignOperation]]** - Specify design identity based on secondary structure and burial.
+
+**[[SelectBySASA|SelectBySASAOperation]]** - Repack residue based on surface exposure.
+
+**[[SetCatalyticResPackBehavior|SetCatalyticResPackBehaviorOperation]]** - Turn of packing or design for residues in [[enzdes constraints|match-cstfile-format]]. 
+
+**[[DesignCatalyticResidues|DesignCatalyticResiduesOperation]]** - Only design residues surrounding the residues in [[enzdes constraints|match-cstfile-format]]. 
+
+**[[RestrictToTermini|RestrictToTerminiOperation]]** - Only repack termini.
+
+**[[NoRepackDisulfides|NoRepackDisulfidesOperation]]** - Do not repack disulfide residues.
+
+**[[ProteinCore|ProteinCoreOperation]]** - Do not design residues in the protein core.
+
+**[[HighestEnergyRegion|HighestEnergyRegionOperation]]** - Design only residues which have a bad energy.
+
+**[[DesignByResidueCentrality|DesignByResidueCentralityOperation]]** - Design only residues which have a high inter-connectedness to other residues.
+
+**[[DesignByCavityProximity|DesignByCavityProximityOperation]]** - Only design residues around voids.
+
+**[[DesignBySecondaryStructure|DesignBySecondaryStructureOperation]]** -Do not design residues which match their secondary structure predictions.
+
+**[[DesignRandomRegion|DesignRandomRegionOperation]]** - Design only a random section of the pose. 
+
+**[[ConsensusLoopDesign|ConsensusLoopDesignOperation]]** - Only design to amino acids in loops which match the ABEGO torsion bins.
+
 ### Interface/Neighborhood Specifications
 
 **[[DesignAround|DesignAroundOperation]]** - Limit design and repack to a certain distance around specified residues. 
@@ -92,78 +126,36 @@ Position/Identity Specification
 
 **[[DetectProteinLigandInterface|DetectProteinLigandInterfaceOperation]]** - Only repack and design residues near a specified protein/ligand interface.
 
-### Property-based specification
+**[[RestrictDesignToProteinDNAInterface|RestrictDesignToProteinDNAInterfaceOperation]]** - Limit repacking and design to residues around DNA.
 
-**[[DsspDesign|DsspDesignOperation]]** - Specify design identity based on secondary structure.
+<!--- BEGIN_INTERNAL -->
+**[[BuildingBlockInterface|BuildingBlockInterfaceOperation]]** - Only design residues near the interface of symmetric building blocks.
+<!--- END_INTERNAL --> 
 
-**[[LayerDesign|LayerDesignOperation]]** - Specify design identity based on secondary structure and burial.
+### Input-based design
 
-**[[SelectBySASA|SelectBySASAOperation]]** - Repack residue based on surface exposure.
+**[[ThreadSequence|ThreadSequenceOperation]]** - Design to identities of a provided sequence.
 
-**[[SetCatalyticResPackBehavior|SetCatalyticResPackBehaviorOperation]]** - Turn of packing or design for residue in [[enzdes constraints|match-cstfile-format]]. 
+**[[AlignedThread|AlignedThreadOperation]]** - Design to identities in a FASTA file.
 
-**[[RestrictToTermini|RestrictToTerminiOperation]]** - Only repack termini.
+**[[JointSequence|JointSequenceOperation]]** - Design only to identities common to multiple inputs.
+
+**[[RestrictNativeResidues|RestrictNativeResiduesOperation]]** - Turn off design or repacking to residues which are the same as the native pose.
+
+**[[SeqprofConsensus|SeqprofConsensusOperation]]** - Design residues based off a PSSM.
+
+**[[RestrictIdentitiesAtAlignedPositions|RestrictIdentitiesAtAlignedPositionsOperation]]** - Restrict design to the sequence of a provided PDB.
+
+**[[RestrictToAlignedSegments|RestrictToAlignedSegmentsOperation]]** - Only design at aligned segments.
+
+**[[DatabaseThread|DatabaseThreadOperation]]** - Design based off a sequence in a database.
+
 
 ### Misc.
 
-**[[SelectResiduesWithinChain|SelectResiduesWithinChainOperation]]** -
-
-**[[SeqprofConsensus|SeqprofConsensusOperation]]** -
-
-
-**[[RestrictIdentitiesAtAlignedPositions|RestrictIdentitiesAtAlignedPositionsOperation]]** -
-
-**[[RestrictToAlignedSegments|RestrictToAlignedSegmentsOperation]]** -
-
-
-
-
-
-**[[NoRepackDisulfides|NoRepackDisulfidesOperation]]** -
-
-**[[DatabaseThread|DatabaseThreadOperation]]** -
-
-**[[AlignedThread|AlignedThreadOperation]]** -
-
-
-**[[DisallowIfNonnative|DisallowIfNonnativeOperation]]** -
-
-**[[ThreadSequence|ThreadSequenceOperation]]** -
-
-**[[JointSequence|JointSequenceOperation]]** -
-
-**[[RestrictDesignToProteinDNAInterface|RestrictDesignToProteinDNAInterfaceOperation]]** -
-
-
 <!--- BEGIN_INTERNAL -->
-**[[BuildingBlockInterface|BuildingBlockInterfaceOperation]]** -
-
-**[[RestrictIdentities|RestrictIdentitiesOperation]]** -
+**[[RetrieveStoredTask|RetrieveStoredTaskOperation]]** - Use a task stored by a [[StoreTaskMover]].
 <!--- END_INTERNAL --> 
-
-**[[RestrictNativeResidues|RestrictNativeResiduesOperation]]** -
-
-<!--- BEGIN_INTERNAL -->
-**[[RetrieveStoredTask|RetrieveStoredTaskOperation]]** -
-<!--- END_INTERNAL --> 
-
-**[[ProteinCore|ProteinCoreOperation]]** -
-
-**[[HighestEnergyRegion|HighestEnergyRegionOperation]]** -
-
-**[[DesignByResidueCentrality|DesignByResidueCentralityOperation]]** -
-
-**[[DesignRandomRegion|DesignRandomRegionOperation]]** -
-
-**[[DesignCatalyticResidues|DesignCatalyticResiduesOperation]]** -
-
-**[[DesignByCavityProximity|DesignByCavityProximityOperation]]** -
-
-**[[DesignBySecondaryStructure|DesignBySecondaryStructureOperation]]** -
-
-**[[InteractingRotamerExplosion|InteractingRotamerExplosionOperation]]** -
-
-**[[ConsensusLoopDesign|ConsensusLoopDesignOperation]]** -
 
 Rotamer Specification
 ---------------------
@@ -175,6 +167,8 @@ Rotamer Specification
 **[[ExtraRotamersGeneric|ExtraRotamersGenericOperation]]** - Sample residue chi angles much more finely during packing.
 
 **[[RotamerExplosion|RotamerExplosionOperation]]** - Sample residue chi angles much more finely during packing.
+
+**[[InteractingRotamerExplosion|InteractingRotamerExplosionOperation]]** - Increase sampling of rotamers that score well with a specified target residue.
 
 **[[LimitAromaChi2|LimitAromaChi2Operation]]** - Don't use aromatics rotamers known to be spurious design.
 

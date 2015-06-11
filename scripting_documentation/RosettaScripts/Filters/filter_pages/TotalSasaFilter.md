@@ -1,4 +1,5 @@
 # TotalSasa
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## TotalSasa
 
 Computes the overall sasa of the pose. If it is \*\*higher\*\* than threshold, it passes. However, it also has the option for an upper\_threshold, where it fails if it is above the upper\_threshold.

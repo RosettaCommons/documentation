@@ -1,4 +1,5 @@
 # DesignByCavityProximity
+*Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## DesignByCavityProximity
 
 This task operations scans the protein to identify intra-protein voids, and selects residues for design based on their proximity to the voids. Residues are scored by the metric (distance\_to\_cavity\_center)/(volume\_of\_cavity) and the lowest scoring residues are selected for design.

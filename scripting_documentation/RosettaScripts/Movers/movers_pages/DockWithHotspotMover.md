@@ -1,4 +1,5 @@
 # DockWithHotspotMover
+*Back to [[Mover|Movers-RosettaScripts]] page.*
 ## DockWithHotspotMover
 
 Does centroid docking with long range hotspot constraints and interchain\_cen energy function.

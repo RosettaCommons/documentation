@@ -13,9 +13,9 @@ Last edited 6/08/2015 by Jeliazko Jeliazkov. Corresponding PI Jeffrey Gray (jgra
 Code and Demo
 =============
 
--   Application source code: ` rosetta/rosetta_source/src/apps/public/docking/docking_protocol.cc `
--   Main mover source code: ` rosetta/rosetta_source/src/protocols/docking/DockingProtocol.cc  `
--   To see demos of some different use cases see integration tests located in `        rosetta/rosetta_tests/integration/docking*       ` (docking\_full\_protocol, docking\_local\_refine, docking\_local\_refine\_min, docking\_low\_res, docking\_distance\_constraint, docking\_site\_constraint).
+-   Application source code: `        rosetta/main/source/src/apps/public/docking/docking_protocol.cc       `
+-   Main mover source code: `        rosetta/main/source/src/protocols/docking/DockingProtocol.cc       `
+-   To see demos of some different use cases see integration tests located in `        rosetta/main/tests/integration/tests/docking*       ` (docking\_full\_protocol, docking\_local\_refine, docking\_local\_refine\_min, docking\_low\_res, docking\_distance\_constraint, docking\_site\_constraint).
 
 To run docking, type the following in a commandline:
 

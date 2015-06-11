@@ -1,4 +1,5 @@
 # Sigmoid
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## Sigmoid
 
 Part of the fuzzy-logic design algorithm:

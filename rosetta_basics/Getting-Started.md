@@ -12,6 +12,7 @@ By [[macromolecular modeling|Resources-for-learning-biophysics-and-computational
 Generally, a user will [[choose some specific protocol within Rosetta|Solving-a-Biological-Problem]] and provide that protocol with inputs for A) what structure to work on, and B) what options within the protocol are appropriate for the user's needs.
 
 
+<<RawHtml(
 <img src="/uploads/coldStart.png" usemap="#GraffleExport" alt="missing image">
 
 <map name="GraffleExport">
@@ -22,6 +23,7 @@ Generally, a user will [[choose some specific protocol within Rosetta|Solving-a-
 	<area shape="rect" coords="11,166,166,253" href="Getting-Started/#Use of Public Rosetta Servers">
 	<area shape="rect" coords="189,11,354,97" href="Getting-Started#Use of Public Rosetta Servers">
 </map>
+)>>
 
 [[_TOC_]]
 

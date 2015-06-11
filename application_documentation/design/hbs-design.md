@@ -10,8 +10,8 @@ Last updated December 7, 2012;
 Code and Demo
 =============
 
--   Application source code: `        rosetta/rosetta_source/src/apps/public/noncanonical_backbones/hbs_design.cc       `
--   For a demonstration of a basic run see integration folder ( `        rosetta/rosetta_tests/integration/tests/hbs_design/       ` ) and demo folder ( `        rosetta/rosetta_demos/hbs_design       ` ).
+-   Application source code: `        rosetta/main/source/src/apps/public/noncanonical_backbones/hbs_design.cc       `
+-   For a demonstration of a basic run see integration folder ( `        rosetta/main/tests/integration/tests/hbs_design/       ` ) and demo folder ( `        rosetta/demos/public/hbs_design       ` ).
 
 Documentation for the hbs\_design application
 =============================================

@@ -1,4 +1,5 @@
 # RepackMinimize
+*Back to [[Mover|Movers-RosettaScripts]] page.*
 ## RepackMinimize
 
 RepackMinimize does the design/repack and minimization steps using different score functions as defined by the protocol. For most purposes, the combination of PackRotamersMover with MinMover provide more flexibility and transparency than RepackMinimize, and are advised.

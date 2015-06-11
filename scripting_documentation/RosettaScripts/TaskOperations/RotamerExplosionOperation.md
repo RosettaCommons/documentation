@@ -1,4 +1,5 @@
 # RotamerExplosion
+*Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## RotamerExplosion
 
 Sample residue chi angles much more finely during packing. Currently hardcoded to use three 1/3 step standard deviation.

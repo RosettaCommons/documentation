@@ -1,4 +1,5 @@
 # Ddg
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## Ddg
 
 Computes the binding energy for the complex and if it is below the threshold returns true. o/w false. Useful for identifying complexes that have poor binding energy and killing their trajectory.

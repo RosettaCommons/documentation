@@ -1,4 +1,5 @@
 # MinPackMover
+*Back to [[Mover|Movers-RosettaScripts]] page.*
 ## MinPackMover
 
 Packs then minimizes a sidechain before calling MonteCarlo on the change. It can be modified with user supplied ScoreFunction or TaskOperation. It does not do backbone, ridged body minimization.

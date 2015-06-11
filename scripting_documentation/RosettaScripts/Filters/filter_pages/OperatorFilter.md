@@ -1,4 +1,5 @@
 # Operator
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## Operator
 
 Part of the fuzzy-logic design algorithm:

@@ -15,7 +15,7 @@ This page documents three applications, UBQ\_E2\_thioester, UBQ\_Gp\_CYD-CYD, an
 Code and Demo
 =============
 
-The code is at `       source/src/apps/public/scenarios/chemically_conjugated_docking/      ` ; there's an integration test+demo at `       source/test/integration/tests/UBQ_E2_thioester/      ` . The same is true for the other versions of the application (altering the path as appropriate). Note that the integration test is vastly under-cycled relative to getting it to do anything useful: the number of cycles it demonstrates should be sufficient to show some remodeling but not enough to get anywhere useful. To run that demo, go to that directory and run `       [path to executeable] -database [path to database] (at-symbol)options      `
+The code is at `       rosetta/main/source/src/apps/public/scenarios/chemically_conjugated_docking/      ` ; there's an integration test+demo at `       rosetta/main/tests/integration/tests/UBQ_E2_thioester/      ` . The same is true for the other versions of the application (altering the path as appropriate). Note that the integration test is vastly under-cycled relative to getting it to do anything useful: the number of cycles it demonstrates should be sufficient to show some remodeling but not enough to get anywhere useful. To run that demo, go to that directory and run `       [path to executeable] -database [path to database] (at-symbol)options      `
 
 References
 ==========
@@ -70,7 +70,7 @@ The code was not originally meant for generic use and may be fragile for new use
 Input Files
 ===========
 
-See test/integration/tests/UBQ\_E2\_thioester/ for example usage. Basically all you need is an input structure.
+See tests/integration/tests/UBQ\_E2\_thioester/ for example usage. Basically all you need is an input structure.
 
 -   You will NOT be using standard job distributor inputs (-s/-l PDBs or silent files.). Use -UBQpdb and -E2pdb (or GTPasepdb) to pass in those structures.
 -   Ensure that the code has the correct path to the CYX residue type. It will be in your rosetta database; the path is in the integration test/demo. %(database)s/chemical/residue\_type\_sets/fa\_standard/residue\_types/sidechain\_conjugation/CYX.params is its current location. (NOTE: this will probably move for post-3.5 when Talaris2013 comes out.)

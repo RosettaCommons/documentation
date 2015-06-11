@@ -1,4 +1,5 @@
 # BackboneGridSampler
+*Back to [[Mover|Movers-RosettaScripts]] page.*
 ## BackboneGridSampler
 
 Generates a chain of identical residues and samples sets of mainchain torsion values, setting all residues to have the same set of mainchain torsion values.  This is useful for identifying secondary structures (particularly internally hydrogen-bonded, helical secondary structures) of novel heteropolymers.  Note that this mover discards any input geometry.

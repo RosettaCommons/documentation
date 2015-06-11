@@ -1,4 +1,5 @@
 # PSSM2Bfactor
+*Back to [[Mover|Movers-RosettaScripts]] page.*
 ## PSSM2Bfactor
 
 Set the temperature (b-)factor column in the PDB based on filter's per-residue PSSM score. Sets by default PSSM scores less than -1 to 50, and larger than 5 to 0 in the B-factor column. Between -1 and 5 there is a linear gradient.

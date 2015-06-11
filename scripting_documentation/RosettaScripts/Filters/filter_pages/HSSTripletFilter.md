@@ -1,4 +1,5 @@
 # HSSTriplet
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## HSSTriplet
 
 Evaluate the given helix-strand-strand triplets. Calculates distance between strand pair and helix, and the angle between the plane of the sheet and the helix. Returns true if the distance is between min_dist and max_dist, and if the angle is between min_angle and max_angle. Also can report a value based on output_id and output_type.

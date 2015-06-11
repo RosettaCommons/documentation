@@ -1,4 +1,5 @@
 # RestrictNativeResidues
+*Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## RestrictNativeResidues
 
 Restrict or prevent repacking of native residues. Accepts a native pose (reference pose) from the command line (via in:file:native) or via the pdbname tag. Loops over all residues and compares the current amino acid at each position to the amino acid in the same position in the reference pose. If the identity is the same, then the residue is either prevented from repacking (if prevent\_repacking option is set to true) or restricted to repacking. Invert behavior to non-native residues by using flag 'invert'.

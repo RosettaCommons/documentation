@@ -1,4 +1,5 @@
 # BridgeChains
+*Back to [[Mover|Movers-RosettaScripts]] page.*
 ## BridgeChains
 
 Given a pose with a jump, this mover uses a fragment insertion monte carlo to connect the specified termini. The new fragment will connect the C-terminal residue of jump1 to the N-terminal residue of jump2, and will have secondary structure and ramachandran space given by "motif." This mover uses the VarLengthBuild code. The input pose must have at least two chains (jumps) to connect, or it will fail. 

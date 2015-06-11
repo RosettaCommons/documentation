@@ -1,4 +1,5 @@
 # HelixPairing
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## HelixPairing
 
 Filter structures based on the geometry of helix pairings. Relating helix pairing geometry, this filter provides three parameters, dist, cross, and align, and the structures of which parameters are "below" thresholds are filtered.

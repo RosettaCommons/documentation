@@ -1,4 +1,5 @@
 # StubScore
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## StubScore
 
 This is actually a filter (and should go under FILTERS), but it is tightly associated with the placement movers, so it's placed here. A special filter that is associated with PlaceSimultaneouslyMover. It checks whether in the current configuration the scaffold is 'feeling' any of the hotspot stub constraints. This is useful for quick triaging of hopeless configuration.

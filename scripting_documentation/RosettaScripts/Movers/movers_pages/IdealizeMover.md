@@ -1,4 +1,5 @@
 # Idealize
+*Back to [[Mover|Movers-RosettaScripts]] page.*
 ## Idealize
 
 Some protocols (LoopHashing) require the pose to have ideal bond lengths and angles. Idealize forces these values and then minimizes the pose in a stripped-down energy function (rama, disulf, and proline closure) and in the presence of coordinate constraints. Typically causes movements of 0.1A from original pose, but the scores deteriorate. It is therefore recommended to follow idealization with some refinement.

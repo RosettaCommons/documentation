@@ -1,4 +1,5 @@
 # EnzRepackMinimize
+*Back to [[Mover|Movers-RosettaScripts]] page.*
 ## EnzRepackMinimize
 
 EnzRepackMinimize, similar in spirit to RepackMinimize mover, does the design/repack followed by minimization of a protein-ligand (or TS model) interface with enzyme design style constraints (if present, see AddOrRemoveMatchCsts mover) using specified score functions and minimization dofs. Only design/repack or minimization can be done by setting appropriate tags. A shell of residues around the ligand are repacked/designed and/or minimized. If constrained optimization or cst\_opt is specified, ligand neighbors are converted to Ala, minimization performed, and original neighbor sidechains are placed back.
