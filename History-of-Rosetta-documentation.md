@@ -1,9 +1,9 @@
 #History of Rosetta documentation
 
 Historically, Rosetta has had five major types/sources/locations of documentation:
-* in-code documentation that documents classes and functions very granularly, the Doxygen documentation
-* with-the-code application documentation, originally written in Doxygen as well, but ported to this wiki instead (the "Gollum wiki", or the "documentation wiki")
-* a private MediaWiki (think Wikipedia) wiki, called RosettaWiki
+* In-code documentation that documents classes and functions very granularly, the Doxygen documentation
+* With-the-code application documentation, originally written in Doxygen as well, but ported to this wiki instead (the "Gollum wiki", or the "documentation wiki")
+* A private MediaWiki (think Wikipedia) wiki, called RosettaWiki
 * Collections of demos, usually in a folder or repository associated with the source code
 * Supplemental materials of various papers (important ones are probably in the [[Rosetta Canon]])
 
