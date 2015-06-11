@@ -18,7 +18,7 @@ servers can be found on the [[Rosetta Servers]] page.
 ##Command Line Example
 Rosetta applications (including RosettaScripts) are typically run through a terminal window. The command line is composed of two major parts. First, a path to an application executable is required, while the second part is a list of options for the particular Rosetta simulation. For example:
 
-<code>path_to/some_rosetta_app.linuxgccrelease -database mypath/rosetta\_database other\_flags</code>
+<code>path_to/some_rosetta_app.linuxgccrelease -database path/to/rosetta/Rosetta/main/database other\_flags</code>
 
 
 ##Location of Rosetta Executables
