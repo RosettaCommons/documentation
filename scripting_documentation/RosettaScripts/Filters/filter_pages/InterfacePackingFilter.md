@@ -2,9 +2,6 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## InterfacePacking
 
-(This is a devel Filter and not available in released versions.)
-
-<!--- BEGIN_INTERNAL -->
 Calculates Will Sheffler's holes score for atoms at inter-building block interfaces.. Works with symmetric assemblies with one or more building blocks. Be sure to set the -holes:dalphaball option!
 
     <InterfacePacking name=(&string) sym_dof_names=("" &string) contact_dist=(10.0 &Real) distance_cutoff=(9.0 &Real) lower_cutoff=(-5 &lower_cutoff) upper_cutoff=(5 &upper_cutoff)/>
@@ -15,4 +12,10 @@ Calculates Will Sheffler's holes score for atoms at inter-building block interfa
 -   lower\_cutoff - Minimum passing holes score.
 -   upper\_cutoff - Maximum passing holes score.
 
-<!--- END_INTERNAL -->
+## See also
+
+* [[ClashCheckFilter]]
+* [[GetRBDOFValuesFilter]]
+* [[MutationsFilter]]
+* [[OligomericAverageDegreeFilter]]
+* [[SymUnsatHbondsFilter]]

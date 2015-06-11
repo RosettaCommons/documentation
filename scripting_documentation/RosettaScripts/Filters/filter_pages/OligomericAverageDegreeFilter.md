@@ -2,9 +2,6 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## OligomericAverageDegree
 
-(This is a devel Filter and not available in released versions.)
-
-<!--- BEGIN_INTERNAL -->
 A version of the AverageDegree filter (see above) that is compatible with oligomeric building blocks. Includes other subunits within the same building block in the neighbor count. Also works for monomeric building blocks.
 
 ```
@@ -19,4 +16,10 @@ A version of the AverageDegree filter (see above) that is compatible with oligom
 -   multicomp - Set to true if the systems has multiple components.
 -   task\_operations - Define residues under scrutiny (all repackable residues).
 
-<!--- END_INTERNAL -->
+## See also
+
+* [[GetRBDOFAverageDegreeFilter]]
+* [[SymUnsatHbondsFilter]]
+* [[ClashCheckFilter]]
+* [[InterfacePackingFilter]]
+* [[MutationsFilter]]
