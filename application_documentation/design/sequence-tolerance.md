@@ -10,7 +10,7 @@ This document was last updated March 26th, 2015, by Shane Ó Conchúir. The corr
 Code and Demo
 =============
 
-The code for the sequence\_tolerance application is in src/apps/public/sequence\_tolerance.cc. An integration test and demo is located in rosetta/rosetta\_tests/integration/tests/sequence\_tolerance. The abstract genetic algorithm classes are located in the protocols::genetic\_algorithm namespace. The concrete subclasses are located in the protocols::multistate\_design namespace.
+The code for the sequence\_tolerance application is in src/apps/public/sequence\_tolerance.cc. An integration test and demo is located in rosetta/main/tests/integration/tests/sequence\_tolerance. The abstract genetic algorithm classes are located in the protocols::genetic\_algorithm namespace. The concrete subclasses are located in the protocols::multistate\_design namespace.
 
 References
 ==========

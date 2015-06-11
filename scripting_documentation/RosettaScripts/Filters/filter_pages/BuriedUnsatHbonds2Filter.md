@@ -2,7 +2,7 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## BuriedUnsatHbonds2 
 
-(This is a devel filter and not availible in the released version.)
+(This is a devel filter and not available in the released version.)
 
 <!--- BEGIN_INTERNAL -->
 
@@ -24,6 +24,10 @@ Calculate the number of buried unsatisfied H-bonds across a given interface. (Sp
 * hxl_dist_cutoff - The distance cutoff for hydrogen bonds to hydroxyls.
 * sulph_dist_cutoff - The distance cutoff for hydrogen bonds to sulfur.
 * metal_dist_cutoff - The distance cutoff for "hydrogen bonds" to metals.
+
+## See Also
+
+* [[BuriedUnsatHbonds]]
 
 <!--- END_INTERNAL -->
 

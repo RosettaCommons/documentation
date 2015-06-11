@@ -10,13 +10,13 @@ The documentation was last updated March 26th, 2015, by Shane Ó Conchúir. Ques
 Code and Demo
 =============
 
-The ddg\_monomer application lives in rosetta/rosetta\_source/src/apps/public/ddg/ddg\_monomer.cc (This file had previously been named "fix\_bb\_monomer\_ddg.cc", but has been renamed since it now moves the backbone). This file houses the main() function. The central subroutines invoked by this file live in the ddGMover class defined in rosetta/rosetta\_source/src/protocols/moves/ddGMover.hh and rosetta/rosetta\_source/src/protocols/moves/ddGMover.cc.
+The ddg\_monomer application lives in rosetta/main/source/src/apps/public/ddg/ddg\_monomer.cc (This file had previously been named "fix\_bb\_monomer\_ddg.cc", but has been renamed since it now moves the backbone). This file houses the main() function. The central subroutines invoked by this file live in the ddGMover class defined in rosetta/main/source/src/protocols/moves/ddGMover.hh and rosetta/main/source/src/protocols/moves/ddGMover.cc.
 
-A helper application, minimize\_with\_cst, lives in rosetta/rosetta\_source/src/apps/public/ddg/minimize\_with\_cst.cc.
+A helper application, minimize\_with\_cst, lives in rosetta/main/source/src/apps/public/ddg/minimize\_with\_cst.cc.
 
-A helper script for generating one of the input files needed by the ddg\_monomer application lives in rosetta/rosetta\_source/src/apps/public/ddg/convert\_to\_cst\_file.sh.
+A helper script for generating one of the input files needed by the ddg\_monomer application lives in rosetta/main/source/src/apps/public/ddg/convert\_to\_cst\_file.sh.
 
-An integration test for this application lives in rosetta/rosetta\_tests/integration/tests/ddG\_of\_mutation/. The test in this directory runs a shortened trajectory for predicting the wild-type and mutant energies. To turn this into a production-run example, set the value for the "-ddg:iterations" flag given in the file "rosetta/rosetta\_tests/integration/tests/ddG\_of\_mutations/flags" to 50.
+An integration test for this application lives in rosetta/main/tests/integration/tests/ddG\_of\_mutation/. The test in this directory runs a shortened trajectory for predicting the wild-type and mutant energies. To turn this into a production-run example, set the value for the "-ddg:iterations" flag given in the file "rosetta/main/tests/integration/tests/ddG\_of\_mutations/flags" to 50.
 
 References
 ==========

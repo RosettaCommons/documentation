@@ -59,7 +59,7 @@ Required file
 
 You need two files:
 
--   The [[fasta file]]: it is a sequence file for your rna. The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a,c,g, and u. The example fasta file is available in `        rosetta_tests/integration/tests/rna_denovo/       ` .
+-   The [[fasta file]]: it is a sequence file for your rna. The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a,c,g, and u. The example fasta file is available in `        main/tests/integration/tests/rna_denovo/       ` .
 
 -   The secstruct secondary structure file: the secondary structure that you are assuming. This file needs to be a text file with one line, giving the RNA secondary structure in dot bracket notation. For example '((....))' denotes a hairpin structure in which the first two and last two bases are paired.
 

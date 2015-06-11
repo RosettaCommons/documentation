@@ -35,7 +35,7 @@ This script will give each molfile a unique 3 letter code, and parses the rosett
 you can run it like this:
 
 ```
-rosetta_source/src/python/apps/public/batch_molfile_to_params.py -d /path/to/rosetta/rosetta_database --script_path=/path/to/molfile_to_params.py list_of_molfiles.txt
+Rosetta/main/source/src/python/apps/public/batch_molfile_to_params.py -d /path/to/rosetta/Rosetta/main/database --script_path=/path/to/molfile_to_params.py list_of_molfiles.txt
 ```
 
 A new directory called "params" will be created in the directory you executed the script from. This directory will have a subdirectory for each processed molfile, and this directory will contain the params file and associated ligand pdb file. In some cases molfile\_to\_params is unable to successfully create a params file. In this case, the script will continue, and the path to the failed mol file will be printed to stdout.

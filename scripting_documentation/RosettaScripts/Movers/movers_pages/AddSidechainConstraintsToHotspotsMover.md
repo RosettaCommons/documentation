@@ -16,7 +16,17 @@ Adds harmonic constraints to sidechain atoms of target residues (to be used in c
 
 * [[ConstraintSetMover]]
 * [[Constraints file format|constraint-file]]
+* [[BestHotspotCstMover]]
 * [[AtomCoordinateCstMover]]
 * [[ClearConstraintsMover]]
 * [[AddConstraintsToCurrentConformationMover]]
 * [[TaskAwareCstsMover]]
+* [[RosettaScriptsPlacement]]: Movers related to hotspots, etc.
+* [[DockWithHotspotMover]]
+* [[HotspotDisjointedFoldTreeMover]]
+* [[MapHotspotMover]]
+* [[PlaceStubMover]]
+* [[PlaceSimultaneouslyMover]]
+* [[PlaceOnLoopMover]]
+* [[PlacementMinimizationMover]]
+* [[I want to do x]]: Guide to choosing a mover

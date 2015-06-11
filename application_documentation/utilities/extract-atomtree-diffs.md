@@ -42,10 +42,10 @@ Input Files
 
 This app requires an atomtree\_diff silent file (\*\_silent.out). If there is a ligand it requires the specification file for the ligand (\*.params) along with an associated conformations of the ligand (\*\_confs.fa.pdb.gz or just \*.pdb).
 
--   atomtree\_diff silent file (e.g. `        rosetta/rosetta_tests/integration/tests/extract_atomtree_diffs/inputs/7cpa_no_ligand_CP1_silent.out       `)
--   ligand .params files and associated ligand pdb conformers (see [[ligand_dock|ligand-dock]] for details and examples at: `        rosetta/rosetta_tests/integration/tests/extract_atomtree_diffs/inputs/CP1.fa.params and CP1_confs.fa.pdb.gz       `)
+-   atomtree\_diff silent file (e.g. `        rosetta/main/tests/integration/tests/extract_atomtree_diffs/inputs/7cpa_no_ligand_CP1_silent.out       `)
+-   ligand .params files and associated ligand pdb conformers (see [[ligand_dock|ligand-dock]] for details and examples at: `        rosetta/main/tests/integration/tests/extract_atomtree_diffs/inputs/CP1.fa.params and CP1_confs.fa.pdb.gz       `)
 
-An example command line to extract just one structure (using the files in `       rosetta/rosetta_tests/integration/tests/extract_atomtree_diffs      `):
+An example command line to extract just one structure (using the files in `       rosetta/main/tests/integration/tests/extract_atomtree_diffs      `):
 
 ```
 ~/rosetta/main/source/bin/extract_atomtree_diffs.linuxgccrelease -database ~/rosetta_database -extra_res_fa inputs/CP1.fa.params -s inputs/7cpa_no_ligand_CP1_silent.out -tags 7cpa_no_ligand_CP1_0_0012

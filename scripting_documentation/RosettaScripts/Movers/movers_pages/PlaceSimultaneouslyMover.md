@@ -38,3 +38,16 @@ Most of the options are similar to PlaceStub above. Differences are mentioned be
 rb\_stub\_minimization, auction and stub\_score\_filter allow the user to specify the first moves and filtering steps of PlaceSimultaneously before PlaceSimultaneously is called proper. In this way, a configuration can be quickly triaged if it isn't compatible with placement (through Auction's filtering). If the configuration passes these filters and movers then PlaceSimultaneously can be run within loops of docking and placement, until a design is identified that produces reasonable ddg and sasa.
 
 
+##See Also
+
+* [[RosettaScriptsPlacement]]
+* [[AddSidechainConstraintsToHotspotsMover]]
+* [[BestHotspotCstMover]]
+* [[DockWithHotspotMover]]
+* [[HotspotDisjointedFoldTreeMover]]
+* [[MapHotspotMover]]
+* [[PlaceStubMover]]
+* [[PlaceSimultaneouslyMover]]
+* [[PlaceOnLoopMover]]
+* [[PlacementMinimizationMover]]
+* [[I want to do x]]: Guide to choosing a mover

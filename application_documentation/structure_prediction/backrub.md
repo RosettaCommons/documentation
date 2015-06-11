@@ -10,7 +10,7 @@ This document was last updated August 10, 2010, by Colin A. Smith. The correspon
 Code and Demo
 =============
 
-The code for the backrub application is in rosetta/rosetta\_source/src/apps/public/backrub.cc. An integration test and demo is located in rosetta/rosetta\_tests/integration/tests/backrub. Backrub moves are made with the BackrubMover. Side chain moves are made with the SidechainMover. Backbone phi/psi moves are made with the SmallMover.
+The code for the backrub application is in rosetta/main/source/src/apps/public/backrub.cc. An integration test and demo is located in rosetta/main/tests/integration/tests/backrub. Backrub moves are made with the BackrubMover. Side chain moves are made with the SidechainMover. Backbone phi/psi moves are made with the SmallMover.
 
 The additional example below simulates loop 6 of triosephosphate isomerase. **Note that the resfile uses residue numbering from the PDB. The pivot residues are specified using absolute internal residue numbering.**
 

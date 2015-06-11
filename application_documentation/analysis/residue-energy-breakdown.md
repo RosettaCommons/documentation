@@ -56,7 +56,7 @@ residue_energy_breakdown.linuxgccrelease -database ~/rosetta_database -in:file:s
 Example
 =======
 
-See the integration test at rosetta/rosetta\_tests/integration/tests/residue\_energy\_breakdown for an example.
+See the integration test at rosetta/main/tests/integration/tests/residue\_energy\_breakdown for an example.
 
 
 ##See Also

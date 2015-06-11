@@ -63,7 +63,7 @@ To use an alternate version of the compiler, you can use the option `     cxx_ve
 
 `      ./scons.py -j<number_of_processors_to_use> cxx=clang cxx_ver=4.5     `
 
-For more build options, such as only compiling only one executable or apbs - Please take a look at the SConstruct File in rosetta\_source
+For more build options, such as only compiling only one executable or apbs - Please take a look at the SConstruct File in main/source
 
 ###Build Rosetta using the Rosetta Xcode Project (Mac)
 
@@ -189,7 +189,7 @@ Run the test with one of the following commands:
 
 ### Integration tests
 
-Running `     integration.py    ` for the first time will generate a folder called `     ref    ` in `     rosetta/rosetta_tests/integration    ` . Whenever you make a change, run the integration test and compare your new test output (located in the `     new    ` folder) with that in the `     ref    ` folder.
+Running `     integration.py    ` for the first time will generate a folder called `     ref    ` in `     rosetta/main/tests/integration    ` . Whenever you make a change, run the integration test and compare your new test output (located in the `     new    ` folder) with that in the `     ref    ` folder.
 
 Run the test as follows:
 
