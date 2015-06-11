@@ -1,4 +1,4 @@
-<<FixedTableOfContents()>>
+<<FixedTableOfContents(Filters-RosettaScripts)>>
 
 [[Getting Started]]
 
