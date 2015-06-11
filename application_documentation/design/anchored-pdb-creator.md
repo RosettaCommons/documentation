@@ -82,8 +82,8 @@ Rosetta 3.3 is the first release.
 
 ##See Also
 
-* [[Anchor finder | anchored-finder ]]: Locates plausible anchors at protein-protein interfaces (inputs for this protocol).
-* [[Anchored design | anchored-design ]]: Actually designing anchored interfaces located by this application
+* [[AnchorFinder | anchor-finder ]]: Locates plausible anchors at protein-protein interfaces (inputs for this protocol).
+* [[AnchoredDesign | anchored-design ]]: Actually designing anchored interfaces located by this application
 * [[Design applications | design-applications]]: other design applications
 * [[Application Documentation]]: Application documentation home page
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
