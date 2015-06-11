@@ -95,7 +95,7 @@ The workaround is to subclass the JobInputter. One of the major purposes for its
 
 Where does the extra data go? One place would be the Pose itself, in the DataCache. Another choice would be to also subclass the Job object and put it there. Either way you're pointer casting to extract the data.
 
-Alternatively, the [[ResourceManager]] works with JD2 to facilitate accessing extra data resources from within a protocol.
+Alternatively, the [[ResourceManager]] works with JD2 to facilitate accessing extra data resources from within a protocol. In RosettaScripts, see documentation for the [[MultiplePoseMover]].
 
 ##See Also
 

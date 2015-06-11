@@ -53,7 +53,9 @@ Chemical shift input :
 ##See Also
 
 * [[File types list]]: List of file types used in Rosetta
-* [[CS-Rosetta webpage (offsite)|http://spin.niddk.nih.gov/bax/software/CSROSETTA/]]
+* [[CS-Rosetta wiki page|CS-Rosetta]]
+* [[Official CS-Rosetta website (external link)|http://csrosetta.chemistry.ucsc.edu/]]
+* [[Additional CS-Rosetta information (external link)|http://spin.niddk.nih.gov/bax/software/CSROSETTA/]]
 * [[CS Rosetta RNA]]: RNA modeling application that uses chemical shift data
 * [[Rosetta Basics]]: The Rosetta Basics home page
 * [[Options overview]]: Overview of Rosetta command line options

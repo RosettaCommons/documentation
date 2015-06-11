@@ -9,9 +9,6 @@ Rosetta.
 
 See also a [[more in-depth discussion of some topics|RosettaEncyclopedia]].
 
-General Terms
--------------
-
 #### _ab_ _initio_ structure predition
 
 Prediction of molecular structure given only its sequence. Known also as **de novo modeling**.
@@ -46,6 +43,10 @@ Rosetta will often record the sequence of a protein as the one letter amino acid
 
 #### Antibody fragment
 
+#### Atom
+
+A class storing the Cartesian position of an atom in a Residue.
+
 #### atom free diagrams
 
 #### atom tree
@@ -54,7 +55,15 @@ The atom tree connects atoms in the **pose**, and is used to convert
 **internal coordinates** into **cartesian coordinates**. Normally 
 derived from the **fold tree**.
 
+#### AtomTree
+
+Core::kinematics class for defining atomic connectivity.
+
 #### atom positions
+
+#### AtomType
+
+A class which stores the properies of a particular kind of atom. (e.g. a carboxylate oxygen)
 
 #### backbone
 
@@ -104,6 +113,10 @@ Docking where the structure of the docked complex is unknown.
 
 The complex structure that is used for reference in docking and rmsd calculations is determined experimentally by X-rays/NMR. 
 
+#### branches
+
+See trunk.
+
 #### broker
 
 #### Cartesian coordinates
@@ -147,6 +160,10 @@ In the **PDB** format, a chain is all residues which share a chain identificatio
 
 #### chainbreak
 
+#### ChemicalManager
+
+A singleton class in Rosetta which keeps track of things like ResidueTypeSets.
+
 #### chi angles
 
 Chi angles are the **dihedral angles** which control the **heavy atom** positions of **side chain** residues.
@@ -163,9 +180,22 @@ so chi1 would be the **dihedral** between N-Ca-Cb-Cg.
 Clustering of structures involves grouping structures with "similar" structures. These groups of similar structures
 are called "clusters". The measure of structure similarity are typically either **RMSD** or **GDT**.  
 
+#### commit
+
+This is a term related to how version control
+is used. A commit is when you upload your changes from your computer to
+the common code source.
+
 #### conformation
 
 The three dimensional organization of atoms in a structure.
+
+#### Conformation
+
+A class which contains Residue objects and FoldTree.
+This is the part of the Pose which keeps track of coordinates.
+This is linked by the kinematic layer to describe
+internal-coordinate folding.
 
 #### contact order
 
@@ -251,6 +281,13 @@ A **model** produced by a computational protocol.
 
 Optimization of the amino acid sequence of a protein.
 
+#### devel
+
+devel is one of the libraries
+within the Rosetta project. It contains code that is documented and
+tested but not necessarily scientifically validated to work
+well: code still under *devel*opment. It is not availible in the released version.
+
 #### dihedral angle
 
 A four-body angle encoding the respective orientation of two atoms around the axis connecting two other atoms.
@@ -274,9 +311,19 @@ the lower free energy of the complex.
 
 #### Dunbrack loop optimization
 
+#### Dunbrack score
+
 #### electrostatic interactions
 
+#### Energies
+
+A class in Pose which stores the energies computed by the ScoreFunction.
+
 #### energy landscape <a name="general-terms_energy-landscape" />
+
+#### EnergyMethod
+
+The class which implements the scoring of a particular **score term** for the **ScoreFunction**.
 
 #### explicit water
 
@@ -308,6 +355,7 @@ Also **options file**: a file that contains a set of flags (possibly with their 
 
 Optimization (**packing**) of the side chain conformations, where the **backbone** is allowed to move during optimization.
 
+#### FoldTree
 #### fold tree
 
 A directed, acyclic graph (tree) connecting all the residues in the **pose**. The fold tree is the 
@@ -318,6 +366,7 @@ By changing the fold tree you can limit the propigation of these effects, keepin
 protein backbone fixed which would normally move. 
 
 See also **atom tree** and **kinematics**.
+
 
 #### force field
 
@@ -450,7 +499,17 @@ In Rosetta code a loop is anything between two fixed ends that you want to model
 The name of Rosetta3 project during initial development.
 
 Also, the name of a wrapper program which exposes multiple protocols, mainly used for Rosetta@Home.
- 
+
+#### MolProbity
+
+[[MolProbity|http://molprobity.biochem.duke.edu/]] is a general-purpose web server offering quality validation
+for 3D structures of proteins, nucleic acids and complexes.
+It provides detailed all-atom contact analysis of any steric problems within the molecules as well as updated dihedral-angle diagnostics and it can calculate and display the H-bond and van der Waals contacts in the interfaces between components.
+
+*MolProbity: all-atom contacts and structure validation for proteins and
+nucleic acids, Davis et al., Nucleic Acids Res. 2007 July; 35(Web Server
+issue): W375–W383.*
+
 #### monomer
 
 #### Monomeric protein
@@ -467,7 +526,17 @@ changes.
 
 #### Monte Carlo minimization
 
+#### MoveMap <a name="movemap" />
+
+A class in Rosetta which contains lists of mobile and immobile
+degrees of freedom. Normally used during minimization to specify
+which parts of the Pose can be minimized. (e.g. for fixed backbone minimization)
+
 #### Mover
+
+An abstract class and parent of all protocols. Every protocol in Rosetta
+has to inherit from this class and implement the apply function, which
+then alters the Pose and implements the protocol.
 
 #### mutation
 
@@ -487,6 +556,10 @@ An earlier version of the **fragment picker** application.
 
 #### one-body energy
 
+#### PackerTask
+
+A class which sets up what is allowed in packing.
+
 #### packing
 
 #### Parallel perturbation
@@ -499,7 +572,12 @@ An earlier version of the **fragment picker** application.
 
 Rosetta applications written by the community that have not been yet officially released. 
 
-#### pose
+#### Pose
+
+Represents a molecular structure in Rosetta (of proteins, RNA, etc) and
+contains all of its properties such as Energies, **FoldTree**, Conformation**
+and more. Each and every **Mover**
+in Rosetta operates on a pose through its *apply* function.
 
 #### protein
 
@@ -523,6 +601,15 @@ Starting from a low-resolution model, use the **full-atom** **energy function**
 to modify the conformation so it is closer to an experimentally determined structure.
 
 #### relax
+
+#### release
+
+The Releases are when we make Rosetta code available to academic and industrial users. 
+The code in trunk is copied into a branch in git, cleaned up
+to remove unreleaseable code (usually devel and pilot_apps,
+then posted for wider use. 
+We are currently on a "weekly release" schedule, where a new release is produced more-or-less each week.
+(It is not every week, as certain weeks the code does not pass our quality control measures.)
 
 #### repack
 
@@ -553,6 +640,18 @@ be represented just as a Residue.
 #### residue types
 
 A set of atoms defined for each residue known to Rosetta. The set defines also bonds and local geometry. The data are stored in **database**). Each kind of residue normally has distinct ResidueType objects for each of the different Rosetta **representation**.
+
+#### Residue
+
+A class in Rosetta which stores the coordinates and details about a specific residue in a **Pose**.
+
+#### ResidueType
+
+A class in Rosetta specifying how a particular residue behaves chemically. It does not contain the coordinates of the residue (that is stored in a **Residue** object), but rather things like chemical connectivity and atom properties.
+
+#### ResidueTypeSet
+
+A class containing a collection of **ResidueTypes** all of the same type. The standard ResidueTypeSets are **centroid** and **fullatom**.
 
 #### resolution
 
@@ -622,6 +721,14 @@ A flat-text file produced by Rosetta applications that contain all energy compon
 
 #### scoring function
 
+#### ScoreFunction
+
+The class in Rosetta which handles scoring the pose. 
+A particular Rosetta run can use multiple different ScoreFunctions,
+each with their own **weights files** and settings.
+
+#### score term
+
 #### secondary structure
 
 Secondary structures describe classes of local conformations
@@ -685,9 +792,27 @@ File format used to store secondary structure information. Originally introduced
 
 #### taboo
 
+#### TaskFactory
+
+A class to set up new PackerTasks as needed, by applying a number of TaskOperations.
+
+#### TaskOperation
+
 #### tautomers
 
 #### template
+
+#### test servers
+
+The Gray lab maintains a [[testing server]]
+which runs a set of standardized tests on each
+commit of the code to trunk.
+The [tests](http://benchmark.graylab.jhu.edu/) ensure that:
+
+-   the code compiles
+-   the unit tests pass
+-   the integration tests are correct
+-   and many other things
 
 #### Thai Tom
 Thai Tom is one of the two 'Rosetta restaurants' that many developers like to visit in Seattle before/after RosettaCON.
@@ -714,6 +839,12 @@ Top7 is the name of [a protein](http://www.rcsb.org/pdb/explore.do?structureId=1
 
 #### trajectory
 
+#### trunk
+
+trunk is a name for where the developers' current version of Rosetta
+lives. It's called trunk because it's the main line of the code; side
+development projects are in branches. Also known as [[master|Glossary#master]].
+
 #### two-body energy
 
 #### unbound docking
@@ -724,186 +855,9 @@ the crystal PDB structures of the 2 proteins are determined separately and then 
 
 Pronounced "V-all". The Vall database is a condensed representation of the entire PDB for the purpose of fragment picking. The **fragment picker** filters the Vall database based on the sequence and secondary structure predictions (and other information) to pull out those backbone conformations which represent the desired fragments.
 
+#### weights file
 
-Rosetta- or related software-specific concepts
-----------------------------------------------
-
-#### Atom
-
-Core::conformation class giving an (x,y,z) triple to an
-AtomType.
-
-#### AtomType
-
-Core::chemical class.
-
-#### AtomTree
-
-Core::kinematics class for defining atomic connectivity.
-
-#### ChemicalManager
-
-Core::chemical singleton class.
-
-Manages Chemicals
-
-#### Conformation
-
-Core::conformation class which contains
-Residue
-objects. This is linked by the kinematic layer to describe
-internal-coordinate folding.
-
-#### Dunbrack score
-
-#### Energies
-
-Core::scoring class to cache scores. It lives in
-Pose.
-
-#### EnergyMethods
-
-Core::scoring class.
-
-#### FoldTree
-
-Core::kinematics class for defining residue connectivity.
-
-#### MolProbity package
-
-[[MolProbity|http://molprobity.biochem.duke.edu/]] is a general-purpose web server offering quality validation
-for 3D structures of proteins, nucleic acids and complexes.
-It provides detailed all-atom contact analysis of any steric problems within the molecules as well as updated dihedral-angle diagnostics and it can calculate and display the H-bond and van der Waals contacts in the interfaces between components.
-
-*MolProbity: all-atom contacts and structure validation for proteins and
-nucleic acids, Davis et al., Nucleic Acids Res. 2007 July; 35(Web Server
-issue): W375–W383.*
-
-#### MoveMap <a name="movemap" />
-
-Core::kinematics class which contains lists of mobile and immobile
-degrees of freedom.
-
-#### Mover
-
-An abstract class and parent of all protocols. Every protocol in Rosetta
-has to inherit from this class and implement the apply function (which
-is the one that does all the magic...)
-
-#### PackerTask
-
-A class which sets up what is allowed in packing.
-
-#### Pose
-
-Represents a molecular structure in Rosetta (of proteins, RNA, etc) and
-contains all of its properties such as
-Energies
-,
-FoldTree
-,
-Conformation
-and more. Each and every
-Mover
-in Rosetta operates on a pose through its *apply* function
-
-#### Residue
-
-Core::conformation class which puts
-Atom
-objects on a
-ResidueType
-skeleton.
-
-#### ResidueType
-
-Core::chemical class for
-defining which atoms are in a residue (or ligand) and
-how they connect internally.
-
-#### ResidueTypeSet
-
-Core::chemical class.
-
-#### ScoreFunction
-
-Core::scoring class which scores and contains pointers to
-EnergyMethods.
-
-#### ScoringManager
-
-Core::scoring singleton class.
-
-#### TaskFactory
-
-A class to set up new
-PackerTasks
-as needed.
-Administrative terms
---------------------
-
-#### release
-
-The
-Releases
-are when we make Rosetta code available to academic and industrial
-users. The code in
-trunk
-is copied into a branch in
-SVN, cleaned up
-to remove unreleaseable code (usually
-devel
-and
-pilot\_apps,
-then posted for wider use. We usually have two releases a year (Rosetta
-3.1, 3.2, 3.3, etc). See also the [List of
-releases](https://wiki.rosettacommons.org/index.php?title=List_of_releases&action=edit&redlink=1 "List of releases (page does not exist)").
-
-Revision control concepts
--------------------------
-
-#### branches
-
-See
-trunk.
-
-#### commit
-
-This is a term related to how [version
-control](https://wiki.rosettacommons.org/index.php/Source_repository "Source repository")
-is used. A commit is when you upload your changes from your computer to
-the common code source.
-
-#### devel
-
-devel is one of the
-libraries
-within the Rosetta project. It contains code that is documented and
-tested (ha ha!) but not necessarily scientifically validated to work
-well: code still under *devel*opment.
-
-#### trunk
-
-trunk is a name for where the developers' current version of Rosetta
-lives. It's called trunk because it's the main line of the code; side
-development projects are in branches.
-
-#### test servers
-
-The [Gray
-lab](https://wiki.rosettacommons.org/index.php?title=Gray_lab&action=edit&redlink=1 "Gray lab (page does not exist)")
-maintains a suite of [testing
-servers](https://wiki.rosettacommons.org/index.php/Test_server "Test server")
-which run a set of standardized tests on each
-commit
-of the code to
-trunk.
-The [tests](http://rosettatests.graylab.jhu.edu/revs) ensure that:
-
--   the code compiles
--   the unit tests pass
--   the integration tests are correct
--   and many other things
+The file which specifies the coefficients to use when linearly combining **score terms** into a **scoring function**.
 
 ##See Also
 

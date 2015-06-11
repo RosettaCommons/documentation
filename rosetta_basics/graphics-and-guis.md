@@ -63,6 +63,7 @@ See [[PyRosetta Toolkit GUI]]
 
 * [[PyMOL website (external)|http://www.pymol.org]]
 * [[Comparing structures]]: Essay on comparing structures
+* [[Rosetta Servers]]: Web-based interfaces for certain Rosetta features
 * [[Extending the PyMol Viewer]]: How to add new functionality to Rosetta's PyMOL Mover
 * [[Glossary]]: Brief definitions of Rosetta terms
 * [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.

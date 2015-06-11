@@ -64,6 +64,7 @@ OR
 
 ##See Also
 
+* [[RosettaDiagrams (external link)|http://www.rosettadiagrams.org/]]: Provides a graphical interactive service to produce RosettaScripts XML files, with some ability to run the scripts as well.
 * [[RosettaScripts]]: The RosettaScripts home page
 * [[RosettaScripts Movers|Movers-RosettaScripts]]
 * [[RosettaScripts Filters|Filters-RosettaScripts]]
