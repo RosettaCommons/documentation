@@ -20,19 +20,19 @@ This page documents the RosettaScripts syntax and common methods by which you ca
 Copy, paste, fill in, and enjoy
 ```
 <ROSETTASCRIPTS>
-<SCOREFXNS>
-</SCOREFXNS>
-<TASKOPERATIONS>
-</TASKOPERATIONS>
-<FILTERS>
-</FILTERS>
-<MOVERS>
-</MOVERS>
-<APPLY_TO_POSE>
-</APPLY_TO_POSE>
-<PROTOCOLS>
-</PROTOCOLS>
-<OUTPUT />
+    <SCOREFXNS>
+    </SCOREFXNS>
+    <TASKOPERATIONS>
+    </TASKOPERATIONS>
+    <FILTERS>
+    </FILTERS>
+    <MOVERS>
+    </MOVERS>
+    <APPLY_TO_POSE>
+    </APPLY_TO_POSE>
+    <PROTOCOLS>
+    </PROTOCOLS>
+    <OUTPUT />
 </ROSETTASCRIPTS>
 ```
 Anything outside of the \< \> notation is ignored and can be used to comment the xml file
