@@ -64,7 +64,7 @@ Options and arguments to the options, are separated by whitespace. A single or d
 Options can also be written in a options file (also called a flags file). In this file, put one option on each line, still using the colon or double colon is using to specify the layers. An example options file appears below.
 
 ```
- -database /home/yiliu/Programing/branches/rosetta_database
+ -database /home/yiliu/Programing/branches/Rosetta/main/database
  -in:file:s 1l2y_centroid.pdb
  -in:centroid_input
  -score:weights centroid_des.wts
@@ -123,7 +123,7 @@ All the option types are pre-defined, and you can figure out the the type of par
 For Example: Option "database" is a Path type option, so it is followed by path format parameters as
 
 ```
--database yourpath/rosetta_database
+-database yourpath/Rosetta/main/database
 ```
 
 Option "ex1" is a Boolean type option and set to be false by default, so you can activate it as

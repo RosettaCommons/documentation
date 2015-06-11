@@ -33,7 +33,7 @@ Rosetta has support for interacting with SQLite3, MySQL and PostgreSQL database 
     -   [PostgreSQL](http://www.postgresql.org/) is a client-server architecture
     -   To build Rosetta with PostgreSQL support:
         -   Build `        libpq       ` and install it in the `        LD_LIBRARY_PATH       ` environment variable (note: make sure to use the same client library version as the database server).
-        -   Symlink the `        postgreSQL       ` direcotry into `        rosetta_source/external/dbio/       ` .
+        -   Symlink the `        postgreSQL       ` direcotry into `        Rosetta/main/source/external/dbio/       ` .
         -   Compile with `        extras=postgres       `
 
 database connection information can be specified with these RosettaScripts and or command line [[options|RosettaScripts-database-connection-options]] .

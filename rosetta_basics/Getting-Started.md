@@ -52,12 +52,7 @@ There are applications than can run on lab-scale powerful computers (12-30 core 
 Most applications assume you have access to tens of thousands of hours of computer time to accumulate enough results to answer your question.
 The later sections of this document describe installing or using Rosetta at those different scales.
 
-<<<<<<< HEAD:rosetta_basics/Getting-Started.md
 Public Rosetta Servers
-=======
-
-Use of Public Rosetta Servers
->>>>>>> picard:Getting-Started.md
 -----------------------------
 
 All of [[Rosetta's public servers|Rosetta-Servers]] are licensed for **NON-COMMERCIAL USE ONLY**.  The servers of broadest interest are touched on here, but see [[here|Rosetta-Servers]] and [[here|https://www.rosettacommons.org/software/servers]] for more complete lists.
