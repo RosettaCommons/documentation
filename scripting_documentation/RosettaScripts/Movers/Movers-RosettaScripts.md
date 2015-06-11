@@ -120,21 +120,21 @@ These are movers that should be usable in most cases with most systems
 
 ### Idealize/Relax
 
-**[[Idealize|IdealizeMover]]** - 
+**[[Idealize|IdealizeMover]]** - Forces ideal bond lengths and angles
 
-**[[FastRelax|FastRelaxMover]]** - 
+**[[FastRelax|FastRelaxMover]]** - Performs FastRelax all-atom refinement
 
-**[[FastDesign|FastDesignMover]]** - 
+**[[FastDesign|FastDesignMover]]** - Performs FastRelax all-atom refinement, but adds design-related features
 
 ### Docking/Assembly
 
-**[[DockingProtocol|DockingProtocolMover]]** - 
+**[[DockingProtocol|DockingProtocolMover]]** - Performs full docking protocol with current defaults
 
-**[[FlexPepDock|FlexPepDockMover]]** - 
+**[[FlexPepDock|FlexPepDockMover]]** - Performs ab initio or refinement peptide docking
 
 ### Backbone Design
 
-**[[BridgeChains|BridgeChainsMover]]** - 
+**[[BridgeChains|BridgeChainsMover]]** - Connects chains using fragment insertion Monte Carlo
 
 ### Backbone Movement
 
