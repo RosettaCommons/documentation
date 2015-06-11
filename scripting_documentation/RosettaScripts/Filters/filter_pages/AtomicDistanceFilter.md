@@ -7,4 +7,10 @@ Are two specified atoms within a cutoff distance? More specific than AtomicConta
 ```
 <AtomicDistance name=(&string) residue1=(&string) atomname1=(&string) atomtype1=(&string) residue2=(&sring) atomname2=(&string) atomtype2=(&string) distance=(4.0 &integer)/>
 ```
+## See Also
+
+* [[AtomicContactFilter]]
+* [[AtomicContactCountFilter]]
+* [[ResidueCountFilter]]
+* [[ResidueDistanceFilter]]
 

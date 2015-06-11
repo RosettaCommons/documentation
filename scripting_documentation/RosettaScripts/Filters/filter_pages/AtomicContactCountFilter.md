@@ -53,6 +53,7 @@ To count atomic contacts between aromatic and apolar residues, an OperateOnCerta
 
 * [[AtomicContactFilter]]
 * [[AtomicDistanceFilter]]
+* [[ResidueCountFilter]]
 * [[ResidueDistanceFilter]]
 * [[PlaceSimultaneouslyMover]]
 
