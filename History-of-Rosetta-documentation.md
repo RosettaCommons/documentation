@@ -13,21 +13,31 @@ Rosetta documentation has usually been focused on the needs of the moment, but n
 
 Early documentation
 ===================
-The only surviving early documentation is that embedded in the literature, particularly in papers of the [[Rosetta Canon]] or others in our 
+The only surviving early documentation is that embedded in the literature, particularly in papers of the [[Rosetta Canon]] or others in our [publication list](http://www.rosettacommons.org/about/pubs).
+
+RosettaWiki
+===========
+The (private) RosettaWiki was created around 2003. Originally, it held all sorts of documentation, as well as RosettaCommons organizational stuff (like RosettaCON agendas). Unfortunately, as a private web wiki, it is neither integrated with the codebase, nor available publicly. We have been transitioning documentation off this wiki (although it will remain in use for private RosettaCommons purposes like planning RosettaCONs).
 
 Doxygen days
 ============
 By the [[early days|Rosetta timeline]] of "mini" (Rosetta3) development, Doxygen ([web link](http://www.doxygen.org) ([Wikipedia entry](http://en.wikipedia.org/wiki/Doxygen)) documentation was used to [[granular code documentation|development_documentation/tutorials/doxygen-tips]].
-This documentation has never been very complete but is still otherwise intact and used, and the generated documentation is available (privately) here: TODO LINKY.
+This documentation has never been very complete but is still otherwise intact and used, and the generated documentation is available [here](http://www.rosettacommons.org/manuals/latest/main/).
 
 When developers began to get serious about writing application documentation, they stuck with the Doxygen system in place and used it to build formatted webpages of just application documentation.
 
 Unfortunately that system did not last wrong: the Rosetta codebase is very large, and Doxygen processing of both the source tree AND the application documentation took prohibitively long, due to Doxygen's tools for automatically linking keywords.
-Both documentation sources remained 
+Both documentation sources remained but became split in their purpose.
+Doxygen is a terrible markup format for mostly prose application documentation, and so the developers wanted a more useful documentation format, which led to the Gollum wiki.
 
+Gollum Wiki
+===========
+[[After|Rosetta-timeline]] the Rosetta community transitioned the codebase from SVN to GitHub, Tim Jacobs prototyped the use of a git-based wiki format (Gollum) with the Rosetta documentation. This wiki could be generated off git-maintained files in a Rosetta git repository that lived alongside the code, but also be processed for public release as a live HTML documentation site, meeting most needs. This wiki was populated by copying all of the Doxygen application documentation over, along with (over time) most of the RosettaWiki documentation.
 
 XRW 2015
 ==========
+Despite all the effort we put in to writing documentation, it has never been considered good. Part of the problem is that organization has always been an issue
+
 The Rosetta community sought to improve its documentation and organized a week-long meeting during which seven developers would contribute to that cause.
 
 We primarily worked on the following projects:
