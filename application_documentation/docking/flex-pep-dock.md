@@ -269,6 +269,7 @@ Except for model selection by total score or reweighted score, and possibly clus
 
 ##See Also
 
+* [[FlexPepDock Server (external link)|http://flexpepdock.furmanlab.cs.huji.ac.il/]]: Web-based server that performs FlexPepDock for academic users.
 * [[Docking Applications]]: Home page for docking applications
 * [[Preparing structures]]: Notes on preparing structures for use in Rosetta
 * [[Application Documentation]]: List of Rosetta applications
