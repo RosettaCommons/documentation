@@ -1,4 +1,4 @@
-#About this wiki
+#History of Rosetta documentation
 
 The Rosetta documentation began as Doxygen tags stripped from the code, combined with material from a MediaWiki.
 It was organized roughly according to some of the MediaWiki categories that had been ported. As a result, there was too little documentation in some places (meta-Rosetta concepts, organizing documentation, cross-references) and too much in others (five pages about installing Rosetta).
