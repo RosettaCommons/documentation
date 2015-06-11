@@ -13,7 +13,7 @@
 <!---BEGIN_INTERNAL-->
 [[Internal Documentation|internal_documentation/Internal-Documentation]]
 
-[[Missing Links|internal_documentation/missing_links/_Sidebar]]
+[[Missing Links|internal_documentation/missing_links/control_panel]]
 <!---END_INTERNAL-->
 
 [[Glossary]]
