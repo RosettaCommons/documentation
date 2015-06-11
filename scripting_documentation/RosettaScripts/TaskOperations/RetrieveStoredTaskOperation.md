@@ -1,4 +1,5 @@
-### RetrieveStoredTask
+# RetrieveStoredTask
+## RetrieveStoredTask
 
 (This is a devel TaskOperation and not available in released versions.)
 
