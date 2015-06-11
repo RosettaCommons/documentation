@@ -44,7 +44,7 @@ The supplemental is most relevant for scoring.
 * Leaver-Fay A, O'Meara MJ, Tyka M, Jacak R, Song Y, Kellogg EH, Thompson J, Davis IW, Pache RA, Lyskov S, Gray JJ, Kortemme T, Richardson JS, Havranek JJ, Snoeyink J, Baker D, Kuhlman B (2013)  
 [Scientific benchmarks for guiding macromolecular energy function improvement.] (http://www.ncbi.nlm.nih.gov/pubmed/23422428)  
 Methods Enzymol 523:109-43  
-Leaver-Fay et al. describe OptE, a methodology for using sequence-recovery and rotamer-recovery benchmarks to improve weights sets for scoring functions and describe [[Talaris2013]], the current state-of-the-art general purpose Rosetta energy function.
+Leaver-Fay et al. describe OptE, a methodology for using sequence-recovery and rotamer-recovery benchmarks to improve weights sets for scoring functions and describe [[Talaris2013|score-types]], the current state-of-the-art general purpose Rosetta energy function.
 
 Docking
 --------------
@@ -111,7 +111,7 @@ Loop modeling
 [Protein-protein docking with backbone flexibility.](http://www.ncbi.nlm.nih.gov/pubmed/17825317)
 Mol Biol. 2007 Oct 19;373(2):503-19.  
 The title is a little misleading.
-This paper is valuable for introducing the [[FoldTree]] and [[CCD]] (cyclic coordinate descent) loop closure to Rosetta.
+This paper is valuable for introducing the [[FoldTree|foldtree-overview]] and [[CCD|loopmodel-ccd]] (cyclic coordinate descent) loop closure to Rosetta.
 
 * Mandell DJ, Coutsias EA, Kortemme T (2009)  
 [Sub-angstrom accuracy in protein loop reconstruction by robotics-inspired conformational sampling.] (http://www.ncbi.nlm.nih.gov/pubmed/19644455)    
@@ -152,7 +152,7 @@ This is the **Rosetta3 paper** that describes the transition from C++-but-monoli
 * Cooper S, Khatib F, Treuille A, Barbero J, Lee J, Beenen M, Leaver-Fay A, Baker D, Popović Z, Players F (2010)  
 [Predicting protein structures with a multiplayer online game.] (http://www.ncbi.nlm.nih.gov/pubmed/20686574)  
 Nature 466:756-60  
-Cooper et al.'s development of the [[FoldIt]] game showed that highly parallel human intuition is a useful tool for, well, folding it (proteins).
+Cooper et al.'s development of the [[FoldIt|https://fold.it/portal/]] game showed that highly parallel human intuition is a useful tool for, well, folding it (proteins).
 
 * Chaudhury S, Lyskov S, Gray JJ (2010)  
 [PyRosetta: a script-based interface for implementing molecular modeling algorithms using Rosetta.](http://www.ncbi.nlm.nih.gov/pubmed/20061306)  
@@ -176,3 +176,10 @@ Drew et al. create custom modes for backbone sampling to incorporate peptidomime
 [A rotamer library to enable modeling and design of peptoid foldamers.] (http://www.ncbi.nlm.nih.gov/pubmed/24823488)    
 J Am Chem Soc 136:8772-82  
 Renfrew et al. demonstrate that peptoid residues (N-alkylated or arylated glycines) have sidechain conformations that fall neatly into rotamer bins much like peptides and demonstrate two methods for constructing rotamer libraries to model them.
+
+##See Also
+
+* [[Rosetta overview]]: Overview of major concepts in Rosetta
+* [[RosettaEncyclopedia]]: Detailed descriptions of Rosetta terms
+* [[Glossary]]: Brief definitions of Rosetta terms
+* [[Rosetta Timeline]]: Landmark Rosetta papers
