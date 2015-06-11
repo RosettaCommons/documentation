@@ -149,3 +149,13 @@ class Gollum::Macro::MissingLinksPage < Gollum::Macro
   end
 
 end
+
+
+class Gollum::Macro::RawHtml < Gollum::Macro
+
+  def render(*html)
+      html.join(' ')
+  end
+
+end
+
