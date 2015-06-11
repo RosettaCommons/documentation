@@ -137,7 +137,7 @@ Run membrane ab initio application with the following flags:
 -in:file:lipofile BRD4.lips4              Lipophilicity prediction (see above)
 -in:file:frag3 aaBRD4_03_05.200_v1_3      3-residue fragments
 -in:file:frag9 aaBRD4_09_05.200_v1_3      9-residue fragments
--in:path:database ~rosetta_database       Path to rosetta database
+-in:path:database /path/to/rosetta/main/database       Path to rosetta database
 -abinitio:membrane                        Membrane ab initio application
 -score:find_neighbors_3dgrid              Use a 3D lookup table for residue neighbors calculations
 -membrane:no_interpolate_Mpair            Switch off the interpolation between the two layers for the Mpair term
@@ -197,7 +197,7 @@ Convert silent file output into pdb file using score application as follows:
 -score:find_neighbors_3dgrid \
 -score:weights score_membrane.wts \
 -out:nstruct 1 \
--database ~rosetta_database \
+-database /path/to/rosetta/main/database \
 -out:output \
 -nstruct 1
 ```

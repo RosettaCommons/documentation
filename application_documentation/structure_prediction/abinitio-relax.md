@@ -65,7 +65,7 @@ You can run the AbinitioRelax application with the following flags (to list all 
 (or -in:file:fasta ./input_files/1elwA.fasta)       Protein sequence in fasta format (required if native structure is not provided)
 -in:file:frag3 ./input_files/aa1elwA03_05.200_v1_3  3-residue fragments (fragments file)
 -in:file:frag9 ./input_files/aa1elwA09_05.200_v1_3  9-residue fragments (fragments file)
--database ../../rosetta_database                    Path to rosetta database
+-database path/to/rosetta/main/database             Path to rosetta database
 -abinitio:relax                                     Do a relax after abinitio ("abrelax" protocol), default=false.
 
 -nstruct 1                                          Number of output structures
@@ -109,7 +109,7 @@ The standard command line for optimal performance is shown below (nstruct should
 
 ```
 ../../bin/AbinitioRelax.linuxgccrelease \
-        -database ../../rosetta_database \
+        -database /path/to/rosetta/main/database \
         -in:file:fasta ./input_files/1elwA.fasta \
         -in:file:native ./input_files/1elw.pdb \
         -in:file:frag3 ./input_files/aa1elwA03_05.200_v1_3 \

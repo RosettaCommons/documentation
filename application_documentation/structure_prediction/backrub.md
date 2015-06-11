@@ -45,7 +45,7 @@ start
 223 A NATAA
 230 A NATAA
 END_RESFILE
-backrub -database rosetta_database -s 2YPI.pdb -ignore_unrecognized_res -resfile 2YPI.resfile
+backrub -database /path/to/rosetta/main/database -s 2YPI.pdb -ignore_unrecognized_res -resfile 2YPI.resfile
         -pivot_residues 127 128 129 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178
 ```
 

@@ -131,7 +131,7 @@ Running ARLS with this list produces a collection of scripts that automate the s
 
 Also, the Rosetta flags controlling the prepacking and docking steps are written to some \*.flags files. The meaning of most options is commented in these files.
 
-ARLS uses a variety of other binaries and scripts to do its work. It should usually be able to find the Rosetta source, but may need help to find the rosetta\_database and the OpenEye tools; see –mini, –database, and –openeye. If you do not have the OpenEye tools, you should –skip-omega and –skip-charges. In that case, you'll need to make sure that the small molecule input files already contain all the conformers you want to consider. You should also provide partial charges (use .mol2 format), or you'll get the default Rosetta (protein) charges.
+ARLS uses a variety of other binaries and scripts to do its work. It should usually be able to find the Rosetta source, but may need help to find the /path/to/rosetta/main/database and the OpenEye tools; see –mini, –database, and –openeye. If you do not have the OpenEye tools, you should –skip-omega and –skip-charges. In that case, you'll need to make sure that the small molecule input files already contain all the conformers you want to consider. You should also provide partial charges (use .mol2 format), or you'll get the default Rosetta (protein) charges.
 
 Preparing the small-molecule ligand for docking
 ===============================================
@@ -177,7 +177,7 @@ Preparing the protein receptor for docking
 Only sidechains near the initial ligand position are repacked during docking, to save time. This means *all* sidechains should be repacked before docking, so that any pre-existing clashes (according to Rosetta's energy function) can be resolved. Otherwise, a ligand placed near the clashing residues will allow them to repack and thus gain a large energy bonus that does not accurately reflect its binding affinity in that position. A program `       ligand_rpkmin      ` is provided for this purpose; one should use the same `       -ex#      ` flags as will be used during docking.
 
 ```
-~/rosetta/main/source/bin/ligand_rpkmin.macosgccrelease -database ~/rosetta/rosetta_database/ -ex1 -ex2 -ex1aro -extrachi_cutoff 1 \
+~/rosetta/main/source/bin/ligand_rpkmin.macosgccrelease -database ~/rosetta/main/database/ -ex1 -ex2 -ex1aro -extrachi_cutoff 1 \
   -no_optH false -flip_HNQ -docking:ligand:old_estat -docking:ligand:soft_rep -nstruct 10 -s 1t3r.pdb
 ```
 
@@ -243,10 +243,10 @@ The FLAGS.txt file (any name will do) contains most of the flags that specify be
  -path
   ## On a large cluster, the database should be on a local scratch disk
   ## to avoid over-taxing NFS.
-  -database /scratch/USERS/davis/rosetta/rosetta_database
+  -database /scratch/USERS/davis/rosetta/main/database
   ## "Fallback" database locations can also be specified,
   ## in case the primary database is missing on some nodes:
-  -database /work/davis/rosetta/rosetta_database
+  -database /work/davis/rosetta/main/database
  -file
   ## You must supply .params files for any residue types (ligands)
   ## that are not present in the standard Rosetta database.
@@ -397,7 +397,7 @@ The label "7cpa\_0\_0\_0001" is a "tag", used for uniquely identifying each dock
 The supplied script `       best_ifaceE.py      ` will read a silent file and print the tags of the best-scoring poses. In the Bash shell, you can use this output directly to get the 10 best poses:
 
 ```
-~/rosetta/main/source/bin/extract_atomtree_diffs.macosgccrelease -database ~/rosetta/rosetta_database -extra_res_fa input/1t3r.params \
+~/rosetta/main/source/bin/extract_atomtree_diffs.macosgccrelease -database ~/rosetta/main/database -extra_res_fa input/1t3r.params \
   -s 1t3r_silent.out -tags $(~/rosetta/main/source/src/apps/public/ligand_docking/best_ifaceE.py -n 10 1t3r_silent.out)
 ```
 

@@ -48,7 +48,7 @@ Options specific to cluster
    -cluster:sort_groups_by_energy              Sort clusters by energy.
 
 Examples:
-cluster -database ~/rosetta_database -in:file:silent silent.out -in::file::binary_silentfile -in::file::fullatom -native 1a19.pdb
+cluster -database /path/to/rosetta/main/database -in:file:silent silent.out -in::file::binary_silentfile -in::file::fullatom -native 1a19.pdb
 clustered Poses are given output names in the form of:
 c.i.j, which denotes the jth member of the ith cluster.
 ```

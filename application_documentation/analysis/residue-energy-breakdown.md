@@ -50,7 +50,7 @@ Command Lines
 Sample command:
 
 ```
-residue_energy_breakdown.linuxgccrelease -database ~/rosetta_database -in:file:s input.pdb -out:file:silent energy_breakdown.out
+residue_energy_breakdown.linuxgccrelease -database ~/rosetta/main/database -in:file:s input.pdb -out:file:silent energy_breakdown.out
 ```
 
 Example
