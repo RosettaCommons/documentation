@@ -1,4 +1,5 @@
 # BestHotspotCst
+*Back to [[Mover|Movers-RosettaScripts]] page.*
 ## BestHotspotCst
 
 Removes Hotspot BackboneStub constraints from all but the best\_n residues, then reapplies constraints to only those best\_n residues with the given cb\_force constant. Useful to prune down a hotspot-derived constraint set to avoid getting multiple residues getting frustrated during minimization.

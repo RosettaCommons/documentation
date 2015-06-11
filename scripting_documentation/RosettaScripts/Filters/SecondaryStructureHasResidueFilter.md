@@ -1,4 +1,5 @@
 # SecondaryStructureHasResidue
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## SecondaryStructureHasResidue
 
 Counts fraction of DSSP-defined secondary structure elements that contain N or more of a given residue type(s). Useful for checking whether each helix/sheet secondary structure element in a de novo design structure has at least one hydrophobic residue. Uses 2 task operations to select residues (if designable it includes them in calculation); res_check_task_operations is used to select which residues to (not) check for correct aa identity, ss_select_task_operations is used to select which residues are included in the base count of total secondary structure elements. default task is all residues.

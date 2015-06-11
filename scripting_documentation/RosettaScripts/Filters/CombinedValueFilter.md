@@ -1,4 +1,5 @@
 # CombinedValue filter
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## CombinedValue filter
 
 This is a special filter that calculates a weighted sum based on previously defined filters.

@@ -1,4 +1,5 @@
 # ddG
+*Back to [[Mover|Movers-RosettaScripts]] page.*
 ## ddG
 
 This mover is useful for reporting the total or per-residue ddgs in cases where you don't want to use the ddG filter for some reason. (also, the ddg filter can't currently do per-residue ddgs). Ddg scores are reported as string-real pairs in the job. The total ddg score has the tag "ddg" and the each per residue ddg has the tag "residue\_ddg\_n" where n is the residue number.

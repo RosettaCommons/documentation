@@ -1,4 +1,5 @@
 # SwitchResidueTypeSetMover
+*Back to [[Mover|Movers-RosettaScripts]] page.*
 ## SwitchResidueTypeSetMover
 
 Switches the residue sets (e.g., allatom-\>centroid, or vice versa).

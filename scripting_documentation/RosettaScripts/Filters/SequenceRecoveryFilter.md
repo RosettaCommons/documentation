@@ -1,4 +1,5 @@
 # SequenceRecovery
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## SequenceRecovery
 
 Calculates the fraction sequence recovery of a pose compared to a reference pose. This is similar to the [[InterfaceRecapitulation|Movers-RosettaScripts#InterfaceRecapitulation]] mover, but does not require a design mover. Instead, the user can provide a list of task operations that describe which residues are designable in the pose. Works with symmetric poses and poses with symmetric "building blocks". Can also filter based on/report to the scorefile the number of mutations rather than the recovery rate if desired by using the report\_mutations and mutation\_threshold options. Will output the specific mutations to the tracer if the option verbose=1. The reference pose against which the recovery rate will be computed can be defined using the -in:file:native command-line flag. If that flag is not defined, the starting pose will be used as a reference.

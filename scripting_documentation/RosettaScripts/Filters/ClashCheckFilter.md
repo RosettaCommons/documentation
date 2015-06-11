@@ -1,4 +1,5 @@
 # ClashCheck
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## ClashCheck
 
 (This is a devel Filter and not available in released versions.)

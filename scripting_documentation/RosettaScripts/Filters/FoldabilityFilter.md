@@ -1,4 +1,5 @@
 # Foldability
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## Foldability
 
 Rebuilds a given segment of an input pose a specified number of times using fragment-based assembly. First, the given segment of backbone is removed from the pose. Next, the segment is rebuilt from the N-terminal position of the removed segment by folding from extended chain. No chainbreak constraints are used to prevent biasing the folding. A folding attempt is considered successful if the rebuilt C-terminal end is near the C-terminal end of the original segment, and failed if the C-terminal end is distant from that of the original segment. Secondary structure and torsion bins (i.e. ABEGO) used for fragments are taken from in input pose, or optionally specified in the "motif" option. The score returned is a number between 0 and 1 equal to the ratio of successful folding attempts to total folding attempts.

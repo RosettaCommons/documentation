@@ -1,4 +1,5 @@
 # ShapeComplementarity
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## ShapeComplementarity
 
 Calculates the Lawrence & Coleman shape complementarity using a port of the original Fortran code from CCP4's sc. Symmetry aware. Can be calculated across a jump (default behavior) or the two surfaces can be specified by explicitly providing lists of the residues making up each surface.

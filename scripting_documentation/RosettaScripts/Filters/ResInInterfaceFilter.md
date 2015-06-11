@@ -1,4 +1,5 @@
 # ResInInterface
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## ResInInterface
 
 Computes the number of residues in the interface specific by jump\_number and if it is above threshold returns true. o/w false. Useful as a quick and ugly filter after docking for making sure that the partners make contact.

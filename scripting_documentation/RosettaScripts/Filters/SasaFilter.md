@@ -1,4 +1,5 @@
 # Sasa
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## Sasa
 
 Computes the sasa specifically in the interface. If it is \*\*higher\*\* than threshold, it passes. However, it also has the option for an upper\_threshold, where it fails if it is above the upper\_threshold.

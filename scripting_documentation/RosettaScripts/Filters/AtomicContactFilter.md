@@ -1,4 +1,5 @@
 # AtomicContact
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## AtomicContact
 
 Do two residues have any pair of atoms within a cutoff distance? Somewhat more subtle than ResidueDistance (which works by neighbour atoms). Iterates over all atom types of a residue, according to the user specified restrictions (sidechain, backbone, protons)

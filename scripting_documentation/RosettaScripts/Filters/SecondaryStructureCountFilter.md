@@ -1,4 +1,5 @@
 # SecondaryStructureCount
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## SecondaryStructureCount
 
 Counts total number of DSSP-defined secondary structure elements of a given type(s).

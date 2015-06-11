@@ -1,4 +1,5 @@
 # Boltzmann
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## Boltzmann
 
 Returns the Boltzmann weighted sum of a set of positive and negative filters. The fitness is actually defined as -F with [-1-0] range (-1 most optimal, 0 least).

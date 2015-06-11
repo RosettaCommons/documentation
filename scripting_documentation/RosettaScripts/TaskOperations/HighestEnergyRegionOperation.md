@@ -1,4 +1,5 @@
 # HighestEnergyRegion
+*Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## HighestEnergyRegion
 
 Selects residues that have the highest per-residue energy. This task operation is stochastic to allow for variation in design regions. Residues are selected by this task operation as follows. First, all residues are ranked in order of total score of a region which consists of a sphere around the residue. Next, the first residue is selected based on a random number generator. The first residue in the list (the one with highest (worst) score) has a 50% probability of being selected, the second residue has 25% probability, and so on. If regions\_to\_design is \> 1, additional residues are selected using the same process, except with previously chosen residues removed from consideration.

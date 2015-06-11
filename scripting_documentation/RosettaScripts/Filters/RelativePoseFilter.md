@@ -1,4 +1,5 @@
 # RelativePose
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## RelativePose
 
 Compute a filter's value relative to a different pose's structure. This is useful for cases in which you want to know the effects of a mutation on different poses. An alignment of the pose being read from disk is made to the currently active pose (through the user defined alignment), and applies any sequence changes to the pose read from disk, while repacking a shell around each mutation. It can then apply a relax mover, report a filter's evaluation and dump a scored pose to disk. Works with symmetric poses as well.

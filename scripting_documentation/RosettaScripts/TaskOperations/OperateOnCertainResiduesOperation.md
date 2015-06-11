@@ -1,4 +1,5 @@
 # OperateOnCertainResidues
+*Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## OperateOnCertainResidues Operation
 
 **This TaskOperation is deprecated. Use [[ResidueSelectors]] and [[OperateOnResidueSubset|OperateOnResidueSubsetOperation]] instead.**

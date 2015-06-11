@@ -1,4 +1,5 @@
 # Residue Interaction Energy
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## Residue Interaction Energy
 
 Finds the ineraction energy (IE) for the specified residue over the interface (interface=1) or the entire pose (interface=0). Then applies an interaction penalty if the IE is above the specified cutoff, such that penalty = sum (IE(res)-(cutoff)). e.g. if the residue is a trp with IE -5 and cutoff of -6.5 the penalty is 1.5.

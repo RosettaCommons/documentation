@@ -1,4 +1,5 @@
 # CalculatorFilter
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## CalculatorFilter
 
     <CalculatorFilter name=(&string) equation=(&string) threshold=(&real 0) >

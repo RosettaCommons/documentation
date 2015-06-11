@@ -1,4 +1,5 @@
 # PlaceStub
+*Back to [[Mover|Movers-RosettaScripts]] page.*
 ## PlaceStub
 
 Hotspot-based sidechain placement. This is the main workhorse of the hot-spot centric method for protein-binder design. A paper describing the method and a benchmark will be published soon. The "stub" (hot-spot residue) is chosen at random from the provided stub set. To minimize towards the stub (during placement), the user can define a series of movers (StubMinimize tag) that can be combined with a weight. The weight determines the strength of the backbone stub constraints that will influence the mover it is paired with. Finally, a series of user-defined design movers (DesignMovers tag) are made and the result is filtered according to final\_filter. There are two main ways to use PlaceStub:

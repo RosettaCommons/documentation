@@ -1,4 +1,5 @@
 # SidechainRmsd
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## SidechainRmsd
 
 Calculates the all atom RMSD for a single residue, either with or without the backbone atoms. The RMSD calculated is the automorphic RMSD, so it will compensate for symmetric rearrangments. (For example, Phe ring flips.) No superposition is performed prior to rmsd calculation.

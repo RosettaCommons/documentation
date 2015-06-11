@@ -1,4 +1,5 @@
 # SymMinMover
+*Back to [[Mover|Movers-RosettaScripts]] page.*
 ## SymMinMover
 
 The symmetric version of min mover (they take the same tags as asymmetric version). Notice that to refine symmetric degrees of freedom, all jumps must be allowed to move with the tag 'jump=ALL'.

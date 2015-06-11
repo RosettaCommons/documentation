@@ -1,4 +1,5 @@
 # SSPrediction
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 ## SSPrediction
 
 (This is a devel Filter and not available in released versions.)
