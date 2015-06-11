@@ -1,11 +1,13 @@
 #Tools
 
-## General Rosetta Tools
+[[_TOC_]]
 
 This page is a list of accessory scripts which are helpful in working with Rosetta input/output and job running.
 
 Many of these scripts have further help options. 
 Try running them without any arguments or with the '-h' flag to get further information.
+
+## General Rosetta Tools
 
 ### Input Preparation
 
@@ -202,7 +204,7 @@ main/source/src/utility/tools/make_templates.py
 ## Scripting Utilities
 
 main/source/src/python/apps/public/amino_acids.py  
-&#8195; Data about amino acids and their properties
+&#8195; Data about amino acids and their properties.
 
 main/source/src/python/apps/public/param_utils.py  
 &#8195; Functions for manipulating params files.
@@ -217,7 +219,7 @@ main/source/src/python/rosetta_py/utility/rankorder.py
 &#8195; Functions for sorting data.
 
 main/source/src/python/rosetta_py/utility/ForkManager.py  
-&#8195; Utilities for handling multiprocessing
+&#8195; Utilities for handling multiprocessing.
 
 main/source/src/python/rosetta_py/utility/r3.py  
 &#8195; A 3D vector class for python.
@@ -228,7 +230,8 @@ main/source/src/python/rosetta_py/utility/r3.py
 main/source/GUIs/rosetta_flag_file_builder/  
 &#8195; 
 
-main/source/src/python/packaged_bindings/ --
+main/source/src/python/packaged_bindings/
+&#8195; 
 
 main/source/src/python/bindings/  
 &#8195; 
