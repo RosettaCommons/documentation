@@ -18,4 +18,3 @@
 * [[SecondaryStructureFilter]]
 * [[SecondaryStructureCountFilter]]
 * [[SecondaryStructureHasResidueFilter]]
-* [[HelixKinkFilter]]
