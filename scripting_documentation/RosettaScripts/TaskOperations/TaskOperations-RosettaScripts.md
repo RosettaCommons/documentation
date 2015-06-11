@@ -58,29 +58,66 @@ Specialized TaskOperations
 Position/Identity Specification
 -------------------------------
 
+### General Specification
+
+**[[PreventRepacking|PreventRepackingOperation]]** - Do not pack a particular residue.
+
+**[[PreventResiduesFromRepacking|PreventResiduesFromRepackingOperation]]** - Do not pack a specified set of residues.
+
+**[[RestrictToRepacking|RestrictToRepackingOperation]]** - Do not design any residues.
+ 
+**[[RestrictResidueToRepacking|RestrictResidueToRepackingOperation]]** - Do not design a particular residue.
+
+**[[RestrictResiduesToRepacking|RestrictResiduesToRepackingOperation]]** - Do not design a specified set of residues.
+
+**[[RestrictChainToRepacking|RestrictChainToRepackingOperation]]** - Do not design a particular chain.
+
+### General Design Specification
+
+**[[ReadResfile|ReadResfileOperation]]** - Read a [[resfile|resfiles]] and apply the specified behavior.
+
+**[[ReadResfileFromDB|ReadResfileFromDBOperation]]** - Apply a [[resfile|resfiles]] stored in a relational database.
+
+**[[RestrictAbsentCanonicalAAS|RestrictAbsentCanonicalAASOperation]]** - Limit design to specified amino acids.
+
+### Interface/Neighborhood Specifications
+
+**[[DesignAround|DesignAroundOperation]]** - Limit design and repack to a certain distance around specified residues. 
+
+**[[RestrictToInterface|RestrictToInterfaceOperation]]** - Restricts to a protein/protein interface.
+
+**[[RestrictToInterfaceVector|RestrictToInterfaceVectorOperation]]** - Restricts to a protein/protein interface.
+
+**[[ProteinInterfaceDesign|ProteinInterfaceDesignOperation]]** - Only repack and design residues near a specified protein/protein interface.
+
+**[[DetectProteinLigandInterface|DetectProteinLigandInterfaceOperation]]** - Only repack and design residues near a specified protein/ligand interface.
+
+### Property-based specification
+
+**[[DsspDesign|DsspDesignOperation]]** - Specify design identity based on secondary structure.
+
+**[[LayerDesign|LayerDesignOperation]]** - Specify design identity based on secondary structure and burial.
+
+**[[SelectBySASA|SelectBySASAOperation]]** - Repack residue based on surface exposure.
+
+**[[SetCatalyticResPackBehavior|SetCatalyticResPackBehaviorOperation]]** - Turn of packing or design for residue in enzdes constraints. 
+
+**[[RestrictToTermini|RestrictToTerminiOperation]]** - Only repack termini.
+
+### Misc.
+
 **[[SelectResiduesWithinChain|SelectResiduesWithinChainOperation]]** -
 
 **[[SeqprofConsensus|SeqprofConsensusOperation]]** -
 
-**[[ReadResfile|ReadResfileOperation]]** -
-
-**[[ReadResfileFromDB|ReadResfileFromDBOperation]]** -
 
 **[[RestrictIdentitiesAtAlignedPositions|RestrictIdentitiesAtAlignedPositionsOperation]]** -
 
 **[[RestrictToAlignedSegments|RestrictToAlignedSegmentsOperation]]** -
 
-**[[RestrictChainToRepacking|RestrictChainToRepackingOperation]]** -
 
-**[[RestrictToRepacking|RestrictToRepackingOperation]]** -
 
-**[[RestrictResidueToRepacking|RestrictResidueToRepackingOperation]]** -
 
-**[[RestrictResiduesToRepacking|RestrictResiduesToRepackingOperation]]** -
-
-**[[PreventRepacking|PreventRepackingOperation]]** -
-
-**[[PreventResiduesFromRepacking|PreventResiduesFromRepackingOperation]]** -
 
 **[[NoRepackDisulfides|NoRepackDisulfidesOperation]]** -
 
@@ -88,27 +125,6 @@ Position/Identity Specification
 
 **[[AlignedThread|AlignedThreadOperation]]** -
 
-**[[DesignAround|DesignAroundOperation]]** -
-
-**[[RestrictToTermini|RestrictToTerminiOperation]]** -
-
-**[[DsspDesign|DsspDesignOperation]]** -
-
-**[[LayerDesign|LayerDesignOperation]]** -
-
-**[[SelectBySASA|SelectBySASAOperation]]** -
-
-**[[RestrictToInterface|RestrictToInterfaceOperation]]** -
-
-**[[RestrictToInterfaceVector|RestrictToInterfaceVectorOperation]]** -
-
-**[[ProteinInterfaceDesign|ProteinInterfaceDesignOperation]]** -
-
-**[[DetectProteinLigandInterface|DetectProteinLigandInterfaceOperation]]** -
-
-**[[SetCatalyticResPackBehavior|SetCatalyticResPackBehaviorOperation]]** -
-
-**[[RestrictAbsentCanonicalAAS|RestrictAbsentCanonicalAASOperation]]** -
 
 **[[DisallowIfNonnative|DisallowIfNonnativeOperation]]** -
 
@@ -152,42 +168,42 @@ Position/Identity Specification
 Rotamer Specification
 ---------------------
 
-**[[InitializeFromCommandline|InitializeFromCommandlineOperation]]** -
+**[[InitializeFromCommandline|InitializeFromCommandlineOperation]]** - Apply certain command line packer behavior flags. 
 
-**[[IncludeCurrent|IncludeCurrentOperation]]** -
+**[[IncludeCurrent|IncludeCurrentOperation]]** - Tell the packer to also consider the input rotamer.
 
-**[[ExtraRotamersGeneric|ExtraRotamersGenericOperation]]** -
+**[[ExtraRotamersGeneric|ExtraRotamersGenericOperation]]** - Sample residue chi angles much more finely during packing.
 
-**[[RotamerExplosion|RotamerExplosionOperation]]** -
+**[[RotamerExplosion|RotamerExplosionOperation]]** - Sample residue chi angles much more finely during packing.
 
-**[[LimitAromaChi2|LimitAromaChi2Operation]]** -
+**[[LimitAromaChi2|LimitAromaChi2Operation]]** - Don't use aromatics rotamers known to be spurious design.
 
-**[[AddLigandMotifRotamers|AddLigandMotifRotamersOperation]]** -
+**[[AddLigandMotifRotamers|AddLigandMotifRotamersOperation]]** - Include native-like interactions to a ligand based on a database file.
 
-**[[ImportUnboundRotamers|ImportUnboundRotamersOperation]]** -
+**[[ImportUnboundRotamers|ImportUnboundRotamersOperation]]** - Include rotamers from a PDB file.
 
-**[[SampleRotamersFromPDB|SampleRotamersFromPDBOperation]]** -
+**[[SampleRotamersFromPDB|SampleRotamersFromPDBOperation]]** - Limit rotamers to ones similar to those in a PDB file.
 
 
 Packer Behavior Modification
 ----------------------------
 
-**[[ModifyAnnealer|ModifyAnnealerOperation]]** -
+**[[ModifyAnnealer|ModifyAnnealerOperation]]** - Change the behavior of the packer.
 
-**[[ProteinLigandInterfaceUpweighter|ProteinLigandInterfaceUpweighterOperation]]** -
+**[[ProteinLigandInterfaceUpweighter|ProteinLigandInterfaceUpweighterOperation]]** - Increase the contribution of protein/ligand interactions during design.
 
 Development/Testing
 -------------------
 
-**[[InitializeExtraRotsFromCommandline|InitializeExtraRotsFromCommandlineOperation]]** -
+**[[InitializeExtraRotsFromCommandline|InitializeExtraRotsFromCommandlineOperation]]** - (Under development)
 
-**[[SetRotamerCouplings|SetRotamerCouplingsOperation]]** -
+**[[SetRotamerCouplings|SetRotamerCouplingsOperation]]** - (Under development)
 
-**[[AppendRotamer|AppendRotamerOperation]]** -
+**[[AppendRotamer|AppendRotamerOperation]]** - (Under development)
 
-**[[AppendRotamerSet|AppendRotamerSetOperation]]** -
+**[[AppendRotamerSet|AppendRotamerSetOperation]]** - (Under development)
 
-**[[PreserveCBeta|PreserveCBetaOperation]]** -
+**[[PreserveCBeta|PreserveCBetaOperation]]** - (Under development)
 
-**[[RestrictYSDesign|RestrictYSDesignOperation]]** -
+**[[RestrictYSDesign|RestrictYSDesignOperation]]** - Restrict amino acid choices during design to Tyr and Ser.
 
