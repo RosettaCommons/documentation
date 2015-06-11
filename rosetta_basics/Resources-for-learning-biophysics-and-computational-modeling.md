@@ -3,7 +3,7 @@ Using Rosetta requires some pre-existing understanding of biochemistry, biophysi
 Jeff Gray at Johns Hopkins teaches a course very relevant to understanding how to work with Rosetta, and that [[course page|http://graylab.jhu.edu/courses/540.414/]] is a fantastic (and often Rosetta-specific) resource.
 It even has videos of lectures.
 
-Some other suggestions:
+Some other education suggestions:
 * Fersht: Structure and Mechanism in Protein Science: A Guide to Enzyme Catalysis and Protein Folding
 * Voet & Voet: Biochemistry
 * Brandon & Tooze: Introduction to Protein Structure
