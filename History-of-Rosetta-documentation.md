@@ -61,21 +61,17 @@ We primarily worked on the following projects:
 
 * Meta-Rosetta
 	* [[Analyzing results]]
-	* [[Choosing sampling scale|Rosetta scale]]
+	* [[Choosing sampling scale|rosetta_basics/Rosetta-on-different-scales]]
 	* [[Problems that arise in macromolecular modeling|rosetta_basics/Challenges-in-Macromolecular-Modeling]]
 	* [[External educational resources|rosetta_basics/Resources-for-learning-biophysics-and-computational-modeling]]
-	* [[Rosetta history]]
+	* [[Rosetta history|Rosetta timeline]]
 	* Logic of [[solving a biological problem|rosetta_basics/Solving-a-Biological-Problem]]
-	* Incorporating experimental data as constraints
+	* [[Incorporating experimental data as constraints]]
 	* [[Rosetta literary canon|Rosetta Canon]]
 
+* Demos
+	* Most of the Rosetta demos' READMEs were converted into a separate wiki. It needs to remain separate for technical reasons, and can't display the demo inputs, etc, but allows for easy reading of the demo READMEs.
+
 * Additional information
-	* Remaining MediaWiki and externally available but generally useful resources ported
-	* All demo and protocol capture readmes are incorporated into the Gollum wiki and formatted 
+	* Remaining MediaWiki and externally available but generally useful resources ported (like long emails to the developers' mailing list)
 	* Peptidomimetics documentation
-
-
-
-## About this document specifically
-
-This directory contains a static capture of the Rosetta documentation wiki.  It is not supported as a user-editable wiki, but a fixed capture of its contents are released each week with new code releases.  Your weekly release should have a documentation/_site directory, which contains Home.html.  Load Home.html in your browser of choice and the documentation will work as a non-editable wiki in the browser.
