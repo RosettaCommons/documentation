@@ -14,7 +14,7 @@ The purpose of this document is to provide users with a guide for creating new u
 2.  *Create the unit test macro*. In the function `test_AllMovers` in MoversTest.cxxtest.hh, add the following line: 
     ```TEST_MOVER(NewMover, "protocols/moves/test_in.pdb", "protocols/moves/newmover_out.pdb");```
 3.  Compile rosetta and its unit tests by running: `scons -j8 && scons -j8 cat=test`. Make sure that both compilations finished without errors.
-4.  Run the unit test to create the pdb file on which NewMover will be applied: ```python test/run.py -database ~/rosetta_database```
+4.  Run the unit test to create the pdb file on which NewMover will be applied: ```python test/run.py -database path/to/rosetta/main/database```
 5.  Unit test for `test_AllMovers` will fail - that is to be expected. The fail message will be something like:
 
     ```

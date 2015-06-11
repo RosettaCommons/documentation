@@ -17,10 +17,10 @@ How to achieve compatibility?
 
 All the files necessary for RNA/protein compatability already exist in the rosetta database. All that we'll be doing is copying the RNA parameter files and patch files from the rna residue type set to the full atom standard residue type set.
 
-1. Copy the RNA parameter files (RAD.params, RCY.params, etc) from (rosetta\_database path)/chemical/residue\_type\_sets/rna/residue\_types/ to (rosetta\_database path)/chemical/residue\_type\_sets/fa\_standard/residue\_types/nucleic/
-2. Copy the RNA patch files (LowerRNA.txt and UpperRNA.txt) from (rosetta\_database path)/chemical/residue\_type\_sets/rna/patches/ to (rosetta\_database path)/chemical/residue\_type\_sets/fa\_standard/patches/
-3. Open (rosetta\_database path)/chemical/residue\_type\_sets/fa\_standard/residue\_types.txt and add the RNA parameter files' names under the Nucleic Acid Types heading
-4. Open (rosetta\_database path)/chemical/residue\_type\_sets/fa\_standard/patches.txt and add the RNA patch files' names
+1. Copy the RNA parameter files (RAD.params, RCY.params, etc) from /path/to/rosetta/main/database/chemical/residue\_type\_sets/rna/residue\_types/ to /path/to/rosetta/main/database/chemical/residue\_type\_sets/fa\_standard/residue\_types/nucleic/
+2. Copy the RNA patch files (LowerRNA.txt and UpperRNA.txt) from /path/to/rosetta/main/database/chemical/residue\_type\_sets/rna/patches/ to /path/to/rosetta/main/database/chemical/residue\_type\_sets/fa\_standard/patches/
+3. Open /path/to/rosetta/main/database/chemical/residue\_type\_sets/fa\_standard/residue\_types.txt and add the RNA parameter files' names under the Nucleic Acid Types heading
+4. Open /path/to/rosetta/main/database/chemical/residue\_type\_sets/fa\_standard/patches.txt and add the RNA patch files' names
 
 With these 4 simple changes, we have achieved compatablity between RNA and protein in full atom mode
 

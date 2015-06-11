@@ -239,7 +239,7 @@ Always returns false. Can be explicitly specified with the name "false\_filter".
 SCOREFUNCTIONS
 --------------
 
-The SCOREFXNS section defines scorefunctions that will be used in Filters and Movers. This can be used to define any of the scores defined in the rosetta\_database
+The SCOREFXNS section defines scorefunctions that will be used in Filters and Movers. This can be used to define any of the scores defined in the path/to/rosetta/main/database
 
 ```
 <"scorefxn_name" weights=("empty" &string) patch=(&string)>

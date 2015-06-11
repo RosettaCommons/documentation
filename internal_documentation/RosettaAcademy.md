@@ -402,7 +402,7 @@ Unit tests are tests of a small piece of code in isolation. Examples are testing
 * compile all unit tests (can't compile just a single one, compiles all):
     * from main/source: <code>./scons.py -j<number of processors> cat=test</code>
 * run single unit test:
-    * from main/source: <code>python test/run.py -d <rosetta_database> -1 <classname></code>
+    * from main/source: <code>python test/run.py -d <path_to_rosetta_database> -1 <classname></code>
     * if your environment variable <code>$ROSETTA3_DB</code> is defined (type <code>echo $ROSETTA3_DB</code>), you don't need the flag -d
 * More information about unit tests and in particular which types of TS_ASSERT messages exist, see https://wiki.rosettacommons.org/index.php/Tools:Unit_Tests
 
