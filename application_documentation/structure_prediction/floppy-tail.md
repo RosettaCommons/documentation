@@ -23,7 +23,7 @@ You may want to look at the online supplemental info for that paper for a differ
 
 This paper uses FloppyTail but is not related to development.  Key idea: the paper authors were able to productively use FloppyTail without significant assistance from the code's author.
 
--  [Zhang J, Lewis SM, Kuhlman B, Lee AL. Supertertiary structure of the MAGUK core from PSD-95. Structure. 2013 Mar 5;21(3):402-13.] (http://www.ncbi.nlm.nih.gov/pubmed/23395180) (pubmed link). 
+-  [Zhang J, Lewis SM, Kuhlman B, Lee AL. Supertertiary structure of the MAGUK core from PSD-95. Structure. 2013 Mar 5;21(3):402-13.] (http://www.ncbi.nlm.nih.gov/pubmed/23395180) (pubmed link)
 
 This paper uses FloppyTail to generate models consistent with NMR and SAXS data for interpretation of a structure of biological interest.
 
