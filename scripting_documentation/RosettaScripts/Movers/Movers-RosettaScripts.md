@@ -138,11 +138,11 @@ These are movers that should be usable in most cases with most systems
 
 ### Backbone Movement
 
-**[[SetTorsion|SetTorsionMover]]** - 
+**[[SetTorsion|SetTorsionMover]]** - Sets torsion to a specified or random value
 
-**[[Shear|ShearMover]]** - 
+**[[Shear|ShearMover]]** - Makes shear-style torsion moves that minimize downstream propagation
 
-**[[Small|SmallMover]]** - 
+**[[Small|SmallMover]]** - Makes small-move-style torsion moves (no propagation minimization)
 
 **[[Backrub|BackrubMover]]** - 
 
