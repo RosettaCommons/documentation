@@ -7,7 +7,7 @@ _And Rosetta saw the folding funnel, and saw that it was good._
 _Thus the Students of Baker divided the models from the decoys._  
 
 Rosetta has a relatively long academic history, and there is a substantial set of papers that are foundational to both the content of the code-base and the accomplishments of its users.
-We distilled these references to a core canon: the papers we assume each other have read, the papers we wish we had read, the papers we should have read, and, in lucky cases, the papers we have read.
+We distilled these references to a core canon: the papers we assume each other to have read, the papers we wish we had read, the papers we should have read, and, in lucky cases, the papers we have read.
 
 These are organized by field in order of Rosetta entering the field, and chronological order within each group.
 
