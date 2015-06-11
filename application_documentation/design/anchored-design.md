@@ -3,9 +3,10 @@
 Metadata
 ========
 
-Author: Steven Lewis (smlewi@gmail.com)
+Author: Steven Lewis (smlewi - at - gmail.com)
 
-Code and documentation by Steven Lewis (smlewi@gmail.com) . This document was last updated 1/29/13 by Steven Lewis. The PI was Brian Kuhlman, (bkuhlman@email.unc.edu) .
+Code and documentation by Steven Lewis (smlewi - at - gmail.com).
+The PI was Brian Kuhlman, (bkuhlman - at - email.unc.edu) .
 
 Example runs
 ============
@@ -15,8 +16,13 @@ The code is at `       rosetta/rosetta_source/src/apps/public/interface_design/a
 References
 ==========
 
--   Lewis SM, Kuhlman BA. Anchored design of protein-protein interfaces. PLoS One. 2011;6(6):e20872. Epub 2011 Jun 17.
--   Gulyani A, Vitriol E, Allen R, Wu J, Gremyachinskiy D, Lewis S, Dewar B, Graves LM, Kay BK, Kuhlman B, Elston T, Hahn KM. A biosensor generated via high-throughput screening quantifies cell edge Src dynamics. Nat Chem Biol. 2011 Jun 12;7(7):437-44. doi: 10.1038/nchembio.585.
+-   [Lewis SM, Kuhlman BA. Anchored design of protein-protein interfaces. PLoS One. 2011;6(6):e20872. Epub 2011 Jun 17.](http://www.ncbi.nlm.nih.gov/pubmed/21698112) (pubmed link)
+
+This paper describes how the code functions and computational benchmarking of the non-design aspects of the protocol.
+
+-   [Gulyani A, Vitriol E, Allen R, Wu J, Gremyachinskiy D, Lewis S, Dewar B, Graves LM, Kay BK, Kuhlman B, Elston T, Hahn KM. A biosensor generated via high-throughput screening quantifies cell edge Src dynamics. Nat Chem Biol. 2011 Jun 12;7(7):437-44. doi: 10.1038/nchembio.585.](http://www.ncbi.nlm.nih.gov/pubmed/21666688) (pubmed link)
+
+This paper describes the generation of a biosensor whose mode of activity is rationalized through the help of AnchoredDesign-derived models.
 
 Purpose and Algorithm
 =====================
