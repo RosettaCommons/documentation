@@ -56,4 +56,16 @@ loops.txt
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
 * [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
 
-The purpose of this comment is to improve the searchability of this page: loops file loops file loops file loop file loop file loop file
+The purpose of this remaining text is to improve the searchability of this page: 
+
+loops file 
+
+loops file 
+
+loops file 
+
+loop file 
+
+loop file 
+
+loop file
