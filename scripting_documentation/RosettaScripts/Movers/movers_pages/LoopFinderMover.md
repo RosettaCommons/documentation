@@ -24,6 +24,7 @@ Finds loops in the current pose and loads them into the DataMap for use by subse
 
 ##See Also
 
+* [[RosettaScriptsLoopModeling]]
 * [[Loopmodel application|loopmodel]]
 * [[Loop file format|loops-file]]
 * [[LoopBuilderMover]]

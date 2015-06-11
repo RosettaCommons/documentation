@@ -13,6 +13,7 @@ Changes a loop length without closing it.
 
 ##See Also
 
+* [[RosettaScriptsLoopModeling]]
 * [[Loopmodel application|loopmodel]]
 * [[Loop file format|loops-file]]
 * [[LoopBuilderMover]]

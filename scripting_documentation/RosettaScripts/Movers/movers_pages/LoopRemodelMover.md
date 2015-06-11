@@ -23,6 +23,7 @@ Perturbs and/or refines a set of user-defined loops. Useful to sample a variety 
 
 ##See Also
 
+* [[RosettaScriptsLoopModeling]]
 * [[Loopmodel application|loopmodel]]
 * [[Loop file format|loops-file]]
 * [[Fragments file format|fragment-file]]
