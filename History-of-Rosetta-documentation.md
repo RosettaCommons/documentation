@@ -75,3 +75,9 @@ We primarily worked on the following projects:
 * Additional information
 	* Remaining MediaWiki and externally available but generally useful resources ported (like long emails to the developers' mailing list)
 	* Peptidomimetics documentation
+
+Searchability
+=============
+A large part of the Rosetta documentation's problem is searchability and discoverability of what's already been written. 
+We have attempted to address both problems with the XRW2015 rewrite, but are somewhat hobbled by the available search tools. 
+Gollum's embedded search tool is not very good, and using Google's page search is effective but injects ads.
