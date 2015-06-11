@@ -18,7 +18,7 @@ This page documents the RosettaScripts syntax and common methods by which you ca
 ---------------------
 
 Copy, paste, fill in, and enjoy
-
+```
 <ROSETTASCRIPTS>
 <SCOREFXNS>
 </SCOREFXNS>
@@ -34,7 +34,7 @@ Copy, paste, fill in, and enjoy
 </PROTOCOLS>
 <OUTPUT />
 </ROSETTASCRIPTS>
-
+```
 Anything outside of the \< \> notation is ignored and can be used to comment the xml file
 
 General Description and Purpose
