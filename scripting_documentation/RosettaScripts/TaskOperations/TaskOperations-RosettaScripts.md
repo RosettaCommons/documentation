@@ -48,7 +48,7 @@ Per Residue Specification
 
 **[[OperateOnResidueSubset|OperateOnResidueSubsetOperation]]** - Use [[ResidueSelectors]] and [[Residue Level TaskOperations]] to specify a particular behavior on a particular subset of residues.  
 
-[[OperateOnCertainResidues Operation]] - An older way of specifying particular groups of residues. Deprecated. Use OperateOnResidueSubset instead.
+[[OperateOnCertainResidues Operation|OperateOnCertainResiduesOperations]] - An older way of specifying particular groups of residues. Deprecated. Use OperateOnResidueSubset instead.
 
 Specialized TaskOperations
 ==========================
