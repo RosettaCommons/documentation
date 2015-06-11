@@ -14,8 +14,6 @@
 
    * [[Filters|Filters-RosettaScripts]]
 
-   * [[Formatting conventions|RosettaScripts-Conventions]]
-
    * [[Task Operations|TaskOperations-RosettaScripts]]
 
    * [[FeaturesReporters|Features-reporter-overview]]
@@ -23,6 +21,8 @@
    * [[Composite Protocols|Composite-protocols]]
 
    * [[Databases with RosettaScripts|RosettaScripts-database-connection-options]]
+
+   * [[Formatting conventions|RosettaScripts-Conventions]]
 
    * [[For Developers|RosettaScripts-Developer-Guide]]
 
