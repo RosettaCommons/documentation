@@ -9,7 +9,7 @@ Code and documentation by Steven Lewis (smlewi -- at -- gmail.com). The PI was B
 Code and Demo
 =============
 
-The code for this application lives in Rosetta/main/source/src/apps/public/interface_design/anchored_design/AnchorFinder.cc. Its [[mover]] is embedded in the application file. There is a demo in the integration tests (Rosetta/main/tests/integration/tests/AnchorFinder). There is a more extensive demo with more documentation at `Rosetta/demo/public/anchored_design` or in the demo section of the release.
+The code for this application lives in Rosetta/main/source/src/apps/public/interface_design/anchored_design/AnchorFinder.cc. Its [[mover|Glossary]] is embedded in the application file. There is a demo in the integration tests (Rosetta/main/tests/integration/tests/AnchorFinder). There is a more extensive demo with more documentation at `Rosetta/demo/public/anchored_design` or in the demo section of the release.
 
 References
 ==========
