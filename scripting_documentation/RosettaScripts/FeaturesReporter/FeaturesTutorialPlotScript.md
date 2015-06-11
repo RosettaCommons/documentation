@@ -33,9 +33,11 @@ Here is the meat of the script.
 How the Script Works
 --------------------
 
+#### This file no longer exists.
+
 To run this script call *compare\_sample\_sources.R* with like this:
 
-        rosetta_test/scientific/cluster/features/compare_sample_sources.R \
+        Rosetta/main/tests/scientific/cluster/features/compare_sample_sources.R \
            --script scripts/analysis/plots/EXAMPLE_PLOT.R \
            /path/to/features_SampleSource1.db3 \
            /path/to/features_SampleSource2.db3

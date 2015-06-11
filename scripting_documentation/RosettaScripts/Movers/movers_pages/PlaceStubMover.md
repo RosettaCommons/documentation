@@ -68,3 +68,15 @@ The available tracers are:
     Movers placed in this section will be notified not to repack the PlaceStub-placed residues. This is not necessary if placement movers are used in a nested (recursive) fashion, as the placement movers automatically notify movers nested in them of the hot-spot residues. Essentially, you want to make the downstream movers (you list under this section) aware about the placement decisions in this upstream mover. These movers will not be run at in this placestub, but will be subsequently aware of placed residues for subsequent use. Useful for running design moves after placestub is done, e.g., in loops. Put task awareness only in the deepest placestub mover (if PlaceStub is nested), where the final decisions about which residues harbour hot-spot residues is made.
 
 
+##See Also
+
+* [[RosettaScriptsPlacement]]
+* [[AddSidechainConstraintsToHotspotsMover]]
+* [[BestHotspotCstMover]]
+* [[DockWithHotspotMover]]
+* [[HotspotDisjointedFoldTreeMover]]
+* [[MapHotspotMover]]
+* [[PlaceSimultaneouslyMover]]
+* [[PlaceOnLoopMover]]
+* [[PlacementMinimizationMover]]
+* [[I want to do x]]: Guide to choosing a mover

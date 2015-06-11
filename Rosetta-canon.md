@@ -11,6 +11,8 @@ We distilled these references to a core canon: the papers we assume each other t
 
 These are organized by field in order of Rosetta entering the field, and chronological order within each group.
 
+A more complete (but probably not 100% complete) list can be found [here](http://www.rosettacommons.org/about/pubs).
+
 [[_TOC_]]
 
 Protein Structure Prediction

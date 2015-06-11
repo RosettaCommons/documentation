@@ -3,12 +3,12 @@
 PairFeatures
 ------------
 
-The [PairFeatures](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/protocols/features/PairFeatures.hh) measures the distances between residues.
+The PairFeatures reporter measures the distances between residues.
 
 -   **residue\_pairs** : The information stored here follows 'pair' EnergyMethod. The functional form for the pair EnergyMethod is described in [Simons, K.T., et al, Improved Recognition of Native-Like Protein Structures Using a Combination of Sequence-Dependent and Sequence-Independent Features of Proteins, (Proteins 1999).](http://www.ncbi.nlm.nih.gov/pubmed/10336385,)
     -   *resNum{1/2}* : the rosetta Residue indices of residues involved. Note, each pair is only recorded once and resNum1 \< resNum2.
     -   *res{1/2}\_10A\_neighbors* : Number of neighbors for each residue, used as a proxy for burial. (These columns are going to be moved to the **residue\_burial** table soon.)
-    -   A *residue center* is represented by the [actcoord](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/conformation/Residue.hh#L1384) which is defined to be the average geometric center of of the ACT\_COORD\_ATOMS specified in the [residue type params](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_database/chemical/#residue_type_sets/fa_standard/residue_types) file for each residue type.
+    -   A *residue center* is represented by the actcoord, which is defined to be the average geometric center of of the ACT\_COORD\_ATOMS specified in the residue type params file for each residue type.
     -   *actcoord\_dist* : The cartesian distance between residue centers.
     -   *polymeric\_sequence\_dist* : The sequence distance between the residues. If either residue is not a *polymer* residue or if they are on different chains, this is -1.
 
@@ -35,7 +35,7 @@ AtomAtomPairFeatures
 The distances between pairs of atoms is an indicator of the packing of a structure. Since there are a large number of atom pairs, here, the information is summarized by atom pair distributions for each pair of atom types (Rosetta AtomType -\> element type). See AtomInResidueAtomInResiduePairFeatures for an alternative binning of atom-atom interactions.
 
 -   **atom\_pairs** : Binned distribution of pairs of types of atoms
-    -   *atom\_type* : The AtomType of the central atom. This is a subset of the AtomTypes defined in the full-atom AtomTypeSet [atom\_properties.txt](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_database/chemical/atom_type_sets/fa_standard/atom_properties.txt) : *CAbb* , *CObb* , *OCbb* , *CNH2* , *COO* , *CH1* , *CH2* , *CH3* , *aroC* , *Nbb* , *Ntrp* , *Nhis* , *NH2O* , *Nlys* , *Narg* , *Npro* , *OH* , *ONH2* , *OOC* , *Oaro* , *Hpol* , *Hapo* , *Haro* , *HNbb* , *HOH* , and *S* .
+    -   *atom\_type* : The AtomType of the central atom. This is a subset of the AtomTypes defined in the full-atom AtomTypeSet atom\_properties.txt: *CAbb* , *CObb* , *OCbb* , *CNH2* , *COO* , *CH1* , *CH2* , *CH3* , *aroC* , *Nbb* , *Ntrp* , *Nhis* , *NH2O* , *Nlys* , *Narg* , *Npro* , *OH* , *ONH2* , *OOC* , *Oaro* , *Hpol* , *Hapo* , *Haro* , *HNbb* , *HOH* , and *S* .
     -   *element* : The element type of the second atom: *C* , *N* , *O* , and *H*
     -   *{lower/upper}\_break* : The boundaries for the distance bin
     -   *count* : The number of atom-atom instances of the correct type that occur in the specific distance range in the structure.
@@ -80,7 +80,7 @@ The distances between pairs of atoms is an indicator of the packing of a structu
 ProteinBackboneAtomAtomPairFeatures
 -----------------------------------
 
-The [ProteinBackboneAtomAtomPairFeatures](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/protocols/features/ProteinBackboneAtomAtomPairFeatures.hh) reporter measures all the atom pair distances between backbone atoms in pairs residues where the action coordinate is within 10A. This follows the analysis done in *Song Y, Tyka M, Leaver-Fay A, Thompson J, Baker D. Structure guided forcefield optimization. Proteins: Structure, Function, and Bioinformatics. 2011* . There, they looked at these distances for pairs of residues that form secondary structure.
+The ProteinBackboneAtomAtomPairFeatures reporter measures all the atom pair distances between backbone atoms in pairs residues where the action coordinate is within 10A. This follows the analysis done in *Song Y, Tyka M, Leaver-Fay A, Thompson J, Baker D. Structure guided forcefield optimization. Proteins: Structure, Function, and Bioinformatics. 2011* . There, they looked at these distances for pairs of residues that form secondary structure.
 
 -   **protein\_backbone\_atom\_atom\_pairs** :
     -   *resNum{1,2}* : The indices of the protein residues. Note: resNum1 \< resNum2.
@@ -104,7 +104,7 @@ The [ProteinBackboneAtomAtomPairFeatures](https://svn.rosettacommons.org/trac/br
 HBondFeatures
 -------------
 
-The [HBondFeatures](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/protocols/features/HBondFeatures.hh) measures the geometry of hydrogen bonds. The most current reference is [Tanja Kortemme, Alexandre V. Morozov, David Baker, An Orientation-dependent Hydrogen Bonding Potential Improves Prediction of Specificity and Structure for Proteins and Protein-Protein Complexes, (JMB 2003)](http://www.sciencedirect.com/science/article/B6WK7-47WBSCV-T/2/d7c673dd51017848231e7b9e8c05fbca) .
+The HBondFeatures reporter measures the geometry of hydrogen bonds. The most current reference is [Tanja Kortemme, Alexandre V. Morozov, David Baker, An Orientation-dependent Hydrogen Bonding Potential Improves Prediction of Specificity and Structure for Proteins and Protein-Protein Complexes, (JMB 2003)](http://www.sciencedirect.com/science/article/B6WK7-47WBSCV-T/2/d7c673dd51017848231e7b9e8c05fbca) .
 
 The HBondFeatures feature reporter takes the following options:
 
@@ -116,8 +116,8 @@ The HBondFeatures feature reporter takes the following options:
 The features associated with hydrogen bonding include
 
 -   **hbond\_sites** : Conceptually these are positively and negatively charged functional groups that can form hydrogen bonds.
-    -   *atmNum* :For donor functional groups, atmNum is the atom number of the [polar hydrogen](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/chemical/ResidueType.hh#L364) . For acceptor functional groups, atmNum is the atom number of an [acceptor atom](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/chemical/ResidueType.hh#L384) .
-    -   *HBChemType* : The HBChemType string corresponding to an [HBAccChemType](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/types.hh#L77) or [HBDonChemType](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/types.hh#L102) depending on if the site is a donor or acceptor.
+    -   *atmNum* :For donor functional groups, atmNum is the atom number of the polar hydrogen. For acceptor functional groups, atmNum is the atom number of an acceptor atom.
+    -   *HBChemType* : The HBChemType string corresponding to an HBAccChemType or HBDonChemType depending on if the site is a donor or acceptor.
 
 <!-- -->
 
@@ -143,10 +143,10 @@ The features associated with hydrogen bonding include
         -   *atm* : The *acceptor* atom
         -   *base* : The parent of the acceptor atom. This is the *base* .
         -   *bbase* : The parent of the base atom.
-        -   *base2* : The [alternate second base](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/chemical/ResidueType.cc#L1292) atom of the acceptor.
-            -   Note: The parent atom is defined by column 6 of the ICOOR\_SECTION in each [residue type params files](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_database/chemical/residue_type_sets/fa_standard/residue_types) .
+        -   *base2* : The alternate second base atom of the acceptor.
+            -   Note: The parent atom is defined by column 6 of the ICOOR\_SECTION in each residue type params files.
 
-        -   The [base to acceptor unit vector](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/hbonds_geom.cc#L1117) is [defined](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/hbonds_geom.cc#L1099) by the [hybridization type](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_database/chemical/atom_type_sets/fa_standard/atom_properties.txt) of the acceptor atom and the above atoms.
+        -   The base to acceptor unit vector is defined by the hybridization type of the acceptor atom and the above atoms.
 
 <!-- -->
 
@@ -216,10 +216,10 @@ The features associated with hydrogen bonding include
             PRIMARY KEY(chem_type));
 
 -   **hbonds** : A *hydrogen bond* is defined to be a donor *hbond\_site* and acceptor *hbond\_site* where bonding energy is negative.
-    -   *HBEvalType* : The [hbond evaluation type](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/hbonds_geom.cc#L535) encodes the chemical context of the hydrogen bond.
-    -   *energy* : The [hbond energy](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/hbonds_geom.cc#L535) is computed by evaluating the geometric parameters of the hydrogen bond.
-    -   *envWeight* : If specified in the [HBondOptions](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/HBondOptions.hh#L64) , the energy of a hydrogen bond can depend upon the solvent environment [computed by](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/hbonds_geom.cc#L535) the [number of neighbors](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/hbonds.cc#L66) in the [10A neighbor graph](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/TenANeighborGraph.hh) .
-    -   *score\_weight* : The weight of this hydrogen bond in the provided score function. Each HBEvalType is associated with a [HBondWeighType](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/types.hh#L58) as a column in the [HBEval.csv](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_database/scoring/score_functions/hbonds/standard_params/HBEval.csv) file in a hbond parameter set. The HBondWeighType is then associated with a [ScoreType](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/ScoreType.hh#L35) via [hb\_eval\_type\_weight](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/hbonds.cc#L720) . To get the total energy multiply *energy* \* *envWeight* \* *score\_weight* .
+    -   *HBEvalType* : The hbond evaluation type encodes the chemical context of the hydrogen bond.
+    -   *energy* : The hbond energy is computed by evaluating the geometric parameters of the hydrogen bond.
+    -   *envWeight* : If specified in the HBondOptions, the energy of a hydrogen bond can depend upon the solvent environment computed by the number of neighbors in the 10A neighbor graph.
+    -   *score\_weight* : The weight of this hydrogen bond in the provided score function. Each HBEvalType is associated with a HBondWeighType as a column in the HBEval.csv file in a hbond parameter set. The HBondWeighType is then associated with a ScoreType via hb\_eval\_type\_weight. To get the total energy multiply *energy* \* *envWeight* \* *score\_weight* .
     -   *donRank* : The donRank is the rank of the HBond at the donor site. It is 0 if this is the only hbond at donor site. Otherwise donRank is *i* , where this hbond is the *i* th strongest hbond at its donor, beginning with *i* =1.
     -   *accRank* : The accRank is the rank of the HBond at the acceptor site. It is 0 if this is the only hbond at acceptor site. Otherwise accRank *i* , where this hbond is the *i* th strongest hbond at its acceptor, beginning with *i* =1.
 
@@ -249,7 +249,7 @@ The features associated with hydrogen bonding include
     -   *cosAHD* : The cosine of the angle defined by the *acceptor* , *hydrogen* and *donor* atoms.
         -   NOTE: The angle is the exterior angle: cosAHD=1 when linear and cosAHD=0 when perpendicular
 
-    -   *chi* : The [torsional angle](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/numeric/xyz.functions.hh#L224) defined by the *abase2* , *base* , *acceptor* and *hydrogen* atoms. NOTE: The value is in radians, [-pi, pi].
+    -   *chi* : The torsional angle defined by the *abase2* , *base* , *acceptor* and *hydrogen* atoms. NOTE: The value is in radians, [-pi, pi].
 
 <!-- -->
 

@@ -8,7 +8,7 @@ The central code for the *rna\_denovo* application is in `       src/protocols/r
 
 For a 'minimal' demo example of the RNA fragment assembly and full-atom minimization protocol and input files, see
 
-`       rosetta_demos/public/RNA_Denovo      `
+`       demos/public/RNA_Denovo      `
 
 References
 ==========
@@ -77,7 +77,7 @@ rna_denovo.<exe> -fasta chunk002_1lnt_.fasta -nstruct 2 -out::file::silent test.
 
 The code takes about 1 minute to generate two models.
 
-The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a,c,g, and u. The example fasta file is available in `       rosetta_source/test/integration/tests/rna_denovo/      ` .
+The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a,c,g, and u. The example fasta file is available in `       main/tests/integration/tests/rna_denovo/      ` .
 
 Parameter files to specify Watson/Crick base pairs and strand boundaries < a name="Parameter-files-to-specify-Watson/Crick-base-pairs-and-strand-boundaries />
 ------------------------------------------------------------------------------------
