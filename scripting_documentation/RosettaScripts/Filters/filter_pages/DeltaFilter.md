@@ -24,3 +24,4 @@ The filter is evaluated at parse time and its internal value (through report\_sm
 ## See also
 
 * [[BindingStrain]]
+* [[DeltaFilter]]
