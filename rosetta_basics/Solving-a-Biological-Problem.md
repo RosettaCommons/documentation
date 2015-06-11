@@ -205,7 +205,7 @@ For explicit refinement of crystallography data, see [[here|density-map-scoring]
 
 ## What If My Question Is Unanswered? 
 
-It may be that your question cannot be answered. Or, perhaps you can construct a protocol out of [[RosettaScripts]] or [[PyRosetta]].  See [[i-want-to-do-x|this page]] for more details.
+It may be that your question cannot be answered. Or, perhaps you can construct a protocol out of [[RosettaScripts]] or [[PyRosetta]].  See [[this page|I want to do X]] for more details.
 
 #Incorporating Experimental Data
 
