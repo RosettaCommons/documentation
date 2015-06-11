@@ -20,3 +20,9 @@ How to use it
 1. Open pymol 
 2. run /path/to/rosetta/src/python/bindings/PyMOLPyRosettaServer.py 
 3. Start a Rosetta run with the flag -show\_simulation\_in\_pymol X, where X is how many seconds pass between PyMOL updates. 5 is default; low values may overload your computer.
+
+## See Also
+
+* [[Utility applications | utilities-applications]]: other utility applications
+* [[Application Documentation]]: Application documentation home page
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.

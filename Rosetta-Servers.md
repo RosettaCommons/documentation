@@ -5,8 +5,6 @@ LINKY TODO: add links to protocol documentation for the more specific servers?
 
 The [[RosettaCommons|https://www.rosettacommons.org/about]] (the group of labs that maintain Rosetta) maintains a number of [[servers for free public academic use|https://www.rosettacommons.org/software/servers]]. Commercial use, or paid use on cloud resources, is not supported at this time.
 
-[[_TOC_]]
-
 * [ROSIE](http://rosie.rosettacommons.org/) is a server that offers several (14) Rosetta applications through a simple web interface.
 It is perfect for use by those new to Rosetta.
 Instead of dealing with Rosetta command lines, you are presented with an web page [[GUI|https://en.wikipedia.org/wiki/Graphical_user_interface]] for each application.
