@@ -10,9 +10,9 @@ Last edited 7/18/10. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
 Code and Demo
 =============
 
--   Application source code: `        rosetta/rosetta_source/src/apps/public/docking/docking_prepack_protocol.cc       `
--   Main mover source code: `        rosetta/rosetta_source/src/protocols/docking/DockingPrepackProtocol.cc       `
--   To see demos of some different use cases see integration tests located in `        rosetta/rosetta_tests/integration/docking_prepack*       ` (docking\_prepack\_protocol).
+-   Application source code: `        rosetta/main/source/src/apps/public/docking/docking_prepack_protocol.cc       `
+-   Main mover source code: `        rosetta/main/source/src/protocols/docking/DockingPrepackProtocol.cc       `
+-   To see demos of some different use cases see integration tests located in `        rosetta/main/tests/integration/tests/docking_prepack*       ` (docking\_prepack\_protocol).
 
 To run docking\_prepack, type the following in a commandline:
 
