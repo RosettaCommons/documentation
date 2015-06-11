@@ -1,21 +1,20 @@
 #AnchorFinder
 
-Metadata
-========
+#####Metadata
 
-Author: Steven Lewis (smlewi@gmail.com)
+Author: Steven Lewis (smlewi -- at -- gmail.com)
 
-Code and documentation by Steven Lewis (smlewi@gmail.com). This document was last updated 6/24/11 by Steven Lewis. The PI was Brian Kuhlman, (bkuhlman@email.unc.edu).
+Code and documentation by Steven Lewis (smlewi -- at -- gmail.com). The PI was Brian Kuhlman, (bkuhlman -- at -- email.unc.edu).
 
 Code and Demo
 =============
 
-The code for this application lives in rosetta/rosetta_source/src/apps/public/interface_design/anchored_design/AnchorFinder.cc. Its mover is embedded in the application file. There is a demo in the integration tests (rosetta/rosetta_tests/integration/tests/AnchorFinder). There is a more extensive demo with more documentation at rosetta/rosetta_demos/AnchoredDesign, or in the demo section of the release.
+The code for this application lives in Rosetta/main/source/src/apps/public/interface_design/anchored_design/AnchorFinder.cc. Its [[mover|Glossary]] is embedded in the application file. There is a demo in the integration tests (Rosetta/main/tests/integration/tests/AnchorFinder). There is a more extensive demo with more documentation at `Rosetta/demo/public/anchored_design` or in the demo section of the release.
 
 References
 ==========
 
--   Lewis SM, Kuhlman BA. Anchored design of protein-protein interfaces. PLoS One. 2011;6(6):e20872. Epub 2011 Jun 17.
+-   [Lewis SM, Kuhlman BA. Anchored design of protein-protein interfaces. PLoS One. 2011;6(6):e20872. Epub 2011 Jun 17.](http://www.ncbi.nlm.nih.gov/pubmed/21698112) (pubmed link)
 
 Purpose
 ===========================================
@@ -122,7 +121,10 @@ Rosetta 3.3 is the first release.
 
 ##See Also
 
-* [[Anchored design | anchored-design ]]: Actually designing anchored interfaces located by this application
+
+* [[AnchoredDesign | anchored-design ]]: Actually designing anchored interfaces located by this application
+* [[AnchoredPDBCreator | anchored-pdb-creator ]]: Creates input for the next step of this workflow.
+
 * [[Design applications | design-applications]]: other design applications
 * [[Application Documentation]]: Application documentation home page
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.

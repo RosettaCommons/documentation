@@ -1,7 +1,6 @@
 #AnchoredDesign application
 
-Metadata
-========
+#####Metadata
 
 Author: Steven Lewis (smlewi - at - gmail.com)
 
@@ -197,7 +196,8 @@ Rosetta 3.3 is the first release. Benchmarking modes were added for 3.4 (I think
 ##See Also
 
 * [[AnchorFinder | anchor-finder ]]: Locates plausible anchors at protein-protein interfaces.
-* [[AnchoredPDBCreator | anchored-pdb-creator ]]: Creates input 
+* [[AnchoredPDBCreator | anchored-pdb-creator ]]: Creates input for this application.
+
 * [[Design applications | design-applications]]: other design applications
 * [[Application Documentation]]: Application documentation home page
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
