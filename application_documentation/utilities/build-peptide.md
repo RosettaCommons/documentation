@@ -10,8 +10,8 @@ Last updated July 24, 2011 ; PI: Ora Schueler-Furman (oraf@ekmd.huji.ac.il).
 Code and Demo
 =============
 
--   Application source code: `        rosetta/rosetta_source/src/apps/public/flexpep_docking/BuildPeptide.cc       `
--   For a demonstration of a basic run of the BuildPeptide utility application, see `        rosetta/rosetta_tests/integration/tests/BuildPeptide       `
+-   Application source code: `        rosetta/main/source/src/apps/public/flexpep_docking/BuildPeptide.cc       `
+-   For a demonstration of a basic run of the BuildPeptide utility application, see `        rosetta/main/tests/integration/tests/BuildPeptide       `
 
 Application purpose
 ===========================================

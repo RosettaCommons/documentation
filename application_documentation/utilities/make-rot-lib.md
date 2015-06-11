@@ -10,7 +10,7 @@ The documentation was last updated in December 2011, by P. Douglas Renfrew. The 
 Code and Demo
 =============
 
-The main mover is located in the application code at `       rosetta_source/src/protocols/make_rot_lib      ` . The application code is located at `       rosetta_source/src/apps/public/ncaa_utilities/make_rot_lib.cc      ` . The integration tests can be found at `       rosetta_tests/integration/tests/make_rot_lib/      ` . The demo can be found at `       rosetta_demos/make_rot_lib/      ` .
+The main mover is located in the application code at `       main/source/src/protocols/make_rot_lib      ` . The application code is located at `       main/source/src/apps/public/ncaa_utilities/make_rot_lib.cc      ` . The integration tests can be found at `       main/tests/integration/tests/make_rot_lib/      ` . The demo can be found at `       demos/public/make_rot_lib/      ` .
 
 References
 ==========

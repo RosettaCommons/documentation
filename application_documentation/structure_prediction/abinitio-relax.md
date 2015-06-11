@@ -17,7 +17,7 @@ This document was last updated on October, 2014 by Jared Adolf-Bryfogle. The PI 
 Code and Demo
 =============
 
-The ab initio executable is in `       rosetta_source/src/apps/public/AbinitioRelax.cc      ` . The source code for the ab initio protocol is in `       rosetta_source/src/protocols/abinitio/AbrelaxApplication.cc      ` . See the `       rosetta_demos/abinitio      ` directory for an example ab initio run which includes input files, expected output files, and an example run log. The example command exists in `       rosetta_demos/abinitio/readme.txt      ` . Input files exist in `       rosetta_demos/abinitio/input_files      ` . Expected output files exist in `       rosetta_demos/abinitio/output_files      ` . An example run log exist in `       rosetta_demos/abinitio/log      ` .
+The ab initio executable is in `       main/source/src/apps/public/AbinitioRelax.cc      ` . The source code for the ab initio protocol is in `       main/source/src/protocols/abinitio/AbrelaxApplication.cc      ` . See the `       demos/abinitio      ` directory for an example ab initio run which includes input files, expected output files, and an example run log. The example command exists in `       demos/abinitio/readme.txt      ` . Input files exist in `       demos/abinitio/input_files      ` . Expected output files exist in `       demos/abinitio/output_files      ` . An example run log exist in `       demos/abinitio/log      ` .
 
 References
 ==========

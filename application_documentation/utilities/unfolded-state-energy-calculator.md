@@ -10,7 +10,7 @@ State when the documentation was last updated December 2011 by P. Douglas Renfre
 Code and Demo
 =============
 
-The main mover is located in the application code at `       rosetta_source/src/protocols/unfolded_state_energy_calculator      ` . The application code is located at `       rosetta_source/src/apps/public/ncaa_utilities/UnfoldedStateEnergyCalculator.cc      ` . The integration tests can be found at `       rosetta_tests/integration/tests/unfolded_state_energy_calc/      ` . The demo can be found at `       rosetta_demos/UnfoldedStateEnergyCalculator/      ` .
+The main mover is located in the application code at `       main/source/src/protocols/unfolded_state_energy_calculator      ` . The application code is located at `       main/source/src/apps/public/ncaa_utilities/UnfoldedStateEnergyCalculator.cc      ` . The integration tests can be found at `       main/tests/integration/tests/unfolded_state_energy_calc/      ` . The demo can be found at `       demos/public/UnfoldedStateEnergyCalculator/      ` .
 
 References
 ==========

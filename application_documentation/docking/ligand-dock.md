@@ -107,7 +107,7 @@ Automatic RosettaLigand Setup (ARLS)
 ====================================
 
 -Deprecated- (still works, just generally not recommended any longer)
-Most of the steps to set up a RosettaLigand docking run have been automated by the `       arls.py      ` script (`rosetta/rosetta_source/src/apps/public/ligand_docking/`, run with –help for brief instructions). For those who prefer a manual approach, the individual steps are detailed in the following sections.
+Most of the steps to set up a RosettaLigand docking run have been automated by the `       arls.py      ` script (`rosetta/main/source/src/apps/public/ligand_docking/`, run with –help for brief instructions). For those who prefer a manual approach, the individual steps are detailed in the following sections.
 
 The inputs to ARLS are *apo* protein structures (.pdb) and cofactor and ligand files (.mol, .sdf, or .mol2). I typically use PyMOL to edit the proteins, [Babel](http://openbabel.org/wiki/Main_Page) to convert PDB ligands to SDF, and [Avogadro](http://avogadro.openmolecules.net/wiki/Main_Page) to fix any mistakes in the SDF (all are free). You also need a file with one line per docking case, listing the protein name, cofactor name(s) if any, and ligand name (without file extensions). This file shows docking several compounds into an apo structure of farnesyl transferase, in most cases including a farnesyl pyrophosphate as a cofactor:
 
@@ -136,7 +136,7 @@ ARLS uses a variety of other binaries and scripts to do its work. It should usua
 Preparing the small-molecule ligand for docking
 ===============================================
 
-Rosetta defines ligand topology, rotatable bonds, atom types, partial charges, etc in a .params file; the starting coordinates are stored in PDB format. A script called `       molfile_to_params.py      ` has been supplied in `       rosetta/rosetta_source/src/python/apps/      ` to help in producing these files from a typical small molecule format (.mol, .sdf, or .mol2).
+Rosetta defines ligand topology, rotatable bonds, atom types, partial charges, etc in a .params file; the starting coordinates are stored in PDB format. A script called `       molfile_to_params.py      ` has been supplied in `       rosetta/main/source/src/python/apps/      ` to help in producing these files from a typical small molecule format (.mol, .sdf, or .mol2).
 
 In most cases, one starts from a random 3D conformation or a 2D or 1D chemical formula (e.g. SMILES) and needs to generate a library of plausible, low-energy conformations. I use OpenEye's Omega, like this:
 
@@ -398,7 +398,7 @@ The supplied script `       best_ifaceE.py      ` will read a silent file and pr
 
 ```
 ~/rosetta/main/source/bin/extract_atomtree_diffs.macosgccrelease -database ~/rosetta/rosetta_database -extra_res_fa input/1t3r.params \
-  -s 1t3r_silent.out -tags $(~/rosetta/rosetta_source/src/apps/public/ligand_docking/best_ifaceE.py -n 10 1t3r_silent.out)
+  -s 1t3r_silent.out -tags $(~/rosetta/main/source/src/apps/public/ligand_docking/best_ifaceE.py -n 10 1t3r_silent.out)
 ```
 
 Atomtree diff files are plain text, and final scores are recorded on the SCORES lines. These can be easily processed by scripts to select the best results. I often convert to a table of scores (CSV or equivalent) and do analysis in R; you could do the same in Excel, etc.

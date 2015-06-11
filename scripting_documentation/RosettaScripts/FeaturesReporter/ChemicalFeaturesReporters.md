@@ -131,7 +131,7 @@ ResidueTypes store information about the chemical nature of the residue. The inf
 -   **residue\_type\_bond** : The covalent bonds in the residue type
     -   *residue\_type\_set\_name* : The name of the ResidueTypeSet e.g. *fa\_standard* or *centroid* .
     -   *atom1* , *atom2* : The atoms participating in the bond where the atom index of *atom1* is less than the atom index of *atom2* .
-    -   *bond\_type* : The [type](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/chemical/ResidueType.fwd.hh#L51) of chemical bond.
+    -   *bond\_type* : The [type](Glossary#residuetype) of chemical bond.
 
 <!-- -->
 

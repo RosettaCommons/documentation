@@ -10,7 +10,7 @@ This document was written 21 Sept 2010 by Lucas Nivon, based largely on the liga
 Code and Demo
 =============
 
-See `       rosetta/rosetta_tests/integration/tests/extract_atomtree_diffs      ` for an example atomtree\_diff format "silent file" and example usage. Note that this differs from the non-atomtree-diff format silent file because it stores one reference structure at the beginning followed by a diff for each structure from the reference structure.
+See `       rosetta/tests/integration/tests/extract_atomtree_diffs      ` for an example atomtree\_diff format "silent file" and example usage. Note that this differs from the non-atomtree-diff format silent file because it stores one reference structure at the beginning followed by a diff for each structure from the reference structure.
 
 References
 ==========
@@ -48,7 +48,7 @@ This app requires an atomtree\_diff silent file (\*\_silent.out). If there is a 
 An example command line to extract just one structure (using the files in `       rosetta/rosetta_tests/integration/tests/extract_atomtree_diffs      `):
 
 ```
-~/rosetta/rosetta_source/bin/extract_atomtree_diffs.linuxgccrelease -database ~/rosetta_database -extra_res_fa inputs/CP1.fa.params -s inputs/7cpa_no_ligand_CP1_silent.out -tags 7cpa_no_ligand_CP1_0_0012
+~/rosetta/main/source/bin/extract_atomtree_diffs.linuxgccrelease -database ~/rosetta_database -extra_res_fa inputs/CP1.fa.params -s inputs/7cpa_no_ligand_CP1_silent.out -tags 7cpa_no_ligand_CP1_0_0012
 ```
 
 A rosetta run will produce an atomtree diff format silent file that contains the endpoint of every trajectory. These silent files can be safely concatenated to give a single output file per ligand. Make sure to use `       -out:prefix      ` and/or `       -out:suffix      ` with each process to ensure unique tag names, however.
@@ -74,7 +74,7 @@ JUMP 2 0.042857484863 0.122530593587 0.991538950131 -0.877881019816 0.4784104111
 END_POSE_TAG 7cpa_0_0_0001
 ```
 
-The format for each atomtree diff line is as follows ( `       rosetta/rosetta_source/src/core/io/atom_tree_diffs/atom_tree_diff.cc      `):
+The format for each atomtree diff line is as follows ( `       rosetta/main/source/src/core/io/atom_tree_diffs/atom_tree_diff.cc      `):
  Format: resno atomno phi [theta [d]], only for atoms with changed DOFs
  Phi comes first because dihedrals change most often.
  Theta comes next because in most cases bond angles don't change, so we can omit it!
@@ -85,14 +85,14 @@ The label "7cpa\_0\_0\_0001" is a "tag", used for uniquely identifying each dock
 The supplied script `       best_ifaceE.py      ` will read a silent file and print the tags of the best-scoring poses. In the Bash shell, you can use this output directly to get the 10 best poses:
 
 ```
-~/rosetta/rosetta_source/bin/extract_atomtree_diffs.macosgccrelease -database ~/rosetta_database -extra_res_fa input/1t3r.params \
-  -s 1t3r_silent.out -tags $(~/rosetta/rosetta_source/src/apps/public/ligand_docking/best_ifaceE.py -n 10 1t3r_silent.out)
+~/rosetta/main/source/bin/extract_atomtree_diffs.macosgccrelease -database ~/rosetta_database -extra_res_fa input/1t3r.params \
+  -s 1t3r_silent.out -tags $(~/rosetta/main/source/src/apps/public/ligand_docking/best_ifaceE.py -n 10 1t3r_silent.out)
 ```
 
 Atomtree diff files are plain text, and final scores are recorded on the SCORES lines. These can be easily processed by scripts to select the best results. It can be useful to convert to a table of scores (CSV or equivalent) and do analysis in R; one could do the same in Excel, etc.
 
 ```
-~/rosetta/rosetta_source/src/apps/public/ligand_docking/get_scores.py < 1t3r_silent.out > 1t3r_scores.tab
+~/rosetta/main/source/src/apps/public/ligand_docking/get_scores.py < 1t3r_silent.out > 1t3r_scores.tab
 ```
 
 The following applies to output from ligand docking:
@@ -111,7 +111,7 @@ Specify the input silent file. If there is a ligand specify the relevant params 
 -   -s [silent file]
 -   -extra\_res\_fa [ligand params file]
 -   -tags [the name of the desired tag]
--   Note that the tags can be read by hand directly in the silent.out file, as each structure begins with a POSE\_TAG line that specifies the tag name for that structure. The desired tags may come from another script, such as bestifaceE.py (For example: `~/rosetta/rosetta_source/src/apps/public/ligand_docking/best_ifaceE.py -n 10 1t3r_silent.out`).
+-   Note that the tags can be read by hand directly in the silent.out file, as each structure begins with a POSE\_TAG line that specifies the tag name for that structure. The desired tags may come from another script, such as bestifaceE.py (For example: `~/rosetta/main/source/src/apps/public/ligand_docking/best_ifaceE.py -n 10 1t3r_silent.out`).
 
 Tips
 ====
