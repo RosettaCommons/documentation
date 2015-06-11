@@ -32,7 +32,7 @@ Currently the feature is only supported by the **ddG** mover and filter.
 
 <!-- -->
 
-    export LD_LIBRARY_PATH=/path/to/rosetta/rosetta_source/external/apbs/apbs-1.4-rosetta/lib:${LD_LIBRARY_PATH}
+    export LD_LIBRARY_PATH=/path/to/rosetta/Rosetta/main/source/external/apbs/apbs-1.4-rosetta/lib:${LD_LIBRARY_PATH}
 
 -   In your rosetta script, call **SetupPoissonBoltzmannPotential** before any PB-enabled scorefxn (i.e. scorefxn with **pb\_elec** ) is evaluated.
 

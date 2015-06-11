@@ -78,8 +78,8 @@ ProteinResidueConformationFeatures
 The conformation of protein residues is described by the coordinates of each atom. A reduced representation is just specifying the values for each torsional angle degree of freedom, these include the backbone and sidechain torsional angles. Since Proteins have only canonical amino acids, there are at most 4 torsional angles in the sidechains.
 
 -   **protein\_residue\_conformation** : The degrees of freedom in each residue conformation.
-    -   *secstruct* : The secondary structure of the residue. NOTE: this is not computed by DSSP but taken from fragments. See [Pose::secstruct()](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/pose/Pose.hh#L589) .
-    -   *phi* , *psi* , *omega* : Backbone torsional angles
+    -   *secstruct* : The secondary structure of the residue. NOTE: this is not computed by DSSP but taken from fragments.
+	-   *phi* , *psi* , *omega* : Backbone torsional angles
     -   *chi\** : Sidechain torsional angles
 
 <!-- -->
@@ -97,7 +97,7 @@ The conformation of protein residues is described by the coordinates of each ato
             chi4 REAL,
             FOREIGN KEY (struct_id, seqpos) REFERENCES residues (struct_id, resNum) DEFERRABLE INITIALLY DEFERRED);"
 
--   **residue\_atom\_coords** : The atomic coordinates for each residue. Note if all of the residues are [ideal](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/conformation/util.hh#L78) , then this table is not populated.
+-   **residue\_atom\_coords** : The atomic coordinates for each residue. Note if all of the residues are ideal, then this table is not populated.
     -   *x* , *y* , *z* : Atomic coordinates in lab coordinate frame.
 
 <!-- -->
@@ -114,7 +114,7 @@ The conformation of protein residues is described by the coordinates of each ato
 ProteinBackboneTorsionAngleFeatures
 -----------------------------------
 
-The [ProteinBackboneTorsionAngleFeatures](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/protocols/features/ProteinBackboneTorsionAngleFeatures.hh) stores the backbone torsion angle degrees of freedom needed represent proteins made with canonical backbones.
+The ProteinBackboneTorsionAngleFeatures reporter stores the backbone torsion angle degrees of freedom needed represent proteins made with canonical backbones.
 
 -   **protein\_backbone\_torsion\_angles** :
     -   *phi* : The torsion angle defined by *C\_(i-1)* , *N\_i* , *Ca\_i* , and *C\_i* atoms (-180, 180)

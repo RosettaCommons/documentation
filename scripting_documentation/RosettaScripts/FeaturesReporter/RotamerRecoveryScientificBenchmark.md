@@ -220,7 +220,7 @@ Biweekly Rotamer Recovery
 The *biweekly* rotamer recovery test is over a set of 54 small monomeric structures and is meant to be run on a single machine and take about an hour.
 
          #initialize input
-         cd rosetta_tests/scientific/biweekly/rotamer_recovery
+         cd Rosetta/main/tests/scientific/biweekly/rotamer_recovery
          svn checkout https://svn.rosettacommons.org/source/trunk/mini.data/tests/scientific/tests/rotamer_recovery/inputs inputs
          cd ../..
 
@@ -252,7 +252,9 @@ Features Rotamer Recovery
 
 The *features* rotamer recovery is meant to be run on a large set of native conformations, such as the top8000 set from the Richardson's lab, on a computer cluster. Here, the computed the rotamer recovery results and additional structural features are extracted to a relational database, which can be used to classify and analyze patterns of rotamer recovery. See the features documentation for detailed instruction for how to [[run the features scientific benchmark|FeaturesTutorialRunSciBench]] .
 
-        cd rosetta_tests/features/sample_sources/top8000_rotamer_recovery_score12prime_MinPack
+#### This directory no longer exists
+
+        cd Rosetta/main/tests/features/sample_sources/top8000_rotamer_recovery_score12prime_MinPack
         # follow directions in README.txt and input/README.txt to initialize input
         # check the sample source configuration.
         cd ..
@@ -268,8 +270,8 @@ rotamer\_recovery application
 
 The rotamer recovery application is a stand alone method for measuring the rotamer recovery for a set of native structures.
 
-        ./rosetta_source/bin/rotamer_recovery.<platform><compiler><mode> \
-            -database <rosetta_database> \
+       Rosetta/main/source/bin/rotamer_recovery.<platform><compiler><mode> \
+            -database Rosetta/main/database/ > \
             [Additional options]
             -l <inputs.list> \
             -rotamer_recovery:protocol <RRProtocol> \
