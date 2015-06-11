@@ -133,3 +133,18 @@ New things since last release
 =============================
 
 This application is new as of Rosetta 3.4.
+
+* [[Protein loop modeling with Stepwise Assembly|swa-protein-main]]
+  * [[Further information on this application's workflow|swa-protein-long-loop]]
+* [[Stepwise MonteCarlo application|stepwise]]
+* [[Overview of Stepwise classes|stepwise-classes-overview]]
+* [[Structure prediction applications]]: Includes links to these and other applications for loop modeling
+* [[RNA applications]]: Applications to be used with RNA or RNA and proteins
+* [[RNA]]: More information on working with RNA in Rosetta
+* [[RosettaScripts]]: The RosettaScripts home page
+* [[Application Documentation]]: List of Rosetta applications
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Comparing structures]]: Essay on comparing structures
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files
