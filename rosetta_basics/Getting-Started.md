@@ -11,16 +11,19 @@ By software suite, we mean that it is a large collection of computer code (mostl
 By [[macromolecular modeling|Resources-for-learning-biophysics-and-computational-modeling]], we mean the process of evaluating and ranking the physical plausibility of different structures of biological macromolecules (usually protein, but nucleic acids and ligands are significantly supported and support for implicit lipid membranes is growing). 
 Generally, a user will [[choose some specific protocol within Rosetta|Solving-a-Biological-Problem]] and provide that protocol with inputs for A) what structure to work on, and B) what options within the protocol are appropriate for the user's needs.
 
+
+<<RawHtml(
 <img src="/uploads/coldStart.png" usemap="#GraffleExport" alt="missing image">
 
 <map name="GraffleExport">
-	<area shape=rect coords="330,305,421,376" href="http://localhost:4567/Getting-Started#do-i-have-what-i-need">
-	<area shape=rect coords="226,305,317,376" href="http://localhost:4567/Getting-Started#do-i-have-what-i-need">
-	<area shape=rect coords="122,305,213,376" href="http://localhost:4567/Getting-Started#do-i-have-what-i-need">
-	<area shape=rect coords="377,166,532,253" href="http://localhost:4567/Getting-Started#do-i-have-what-i-need">
-	<area shape=rect coords="11,166,166,253" href="http://localhost:4567/Getting-Started#do-i-have-what-i-need">
-	<area shape=rect coords="189,11,354,97" href="http://localhost:4567/Getting-Started#do-i-have-what-i-need">
+	<area shape="rect" coords="330,305,421,376" href="[[Getting-Started#test]]">
+	<area shape="rect" coords="226,305,317,376" href="Getting-Started#test">
+	<area shape="rect" coords="122,305,213,376" href="Getting-Started#test">
+	<area shape="rect" coords="377,166,532,253" href="Getting-Started/##Use of Public Rosetta Servers">
+	<area shape="rect" coords="11,166,166,253" href="Getting-Started/#Use of Public Rosetta Servers">
+	<area shape="rect" coords="189,11,354,97" href="Getting-Started#Use of Public Rosetta Servers">
 </map>
+)>>
 
 [[_TOC_]]
 
@@ -49,7 +52,12 @@ There are applications than can run on lab-scale powerful computers (12-30 core 
 Most applications assume you have access to tens of thousands of hours of computer time to accumulate enough results to answer your question.
 The later sections of this document describe installing or using Rosetta at those different scales.
 
+<<<<<<< HEAD:rosetta_basics/Getting-Started.md
 Public Rosetta Servers
+=======
+
+Use of Public Rosetta Servers
+>>>>>>> picard:Getting-Started.md
 -----------------------------
 
 All of [[Rosetta's public servers|Rosetta-Servers]] are licensed for **NON-COMMERCIAL USE ONLY**.  The servers of broadest interest are touched on here, but see [[here|Rosetta-Servers]] and [[here|https://www.rosettacommons.org/software/servers]] for more complete lists.
