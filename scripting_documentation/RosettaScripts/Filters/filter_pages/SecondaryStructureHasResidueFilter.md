@@ -23,5 +23,6 @@ min_helix/sheet/loop_length: what defines SS element?
 * [[AngleToVectorFilter]]
 * [[DsspMover]]
 * [[GeometryFilter]]
+* [[HelixKinkFilter]]
 * [[SecondaryStructureFilter]]
 * [[TorsionFilter]]

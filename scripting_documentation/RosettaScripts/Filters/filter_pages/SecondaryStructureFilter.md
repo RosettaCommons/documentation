@@ -66,5 +66,6 @@ protocols.fldsgn.filters.SecondaryStructureFilter: LEEEEEEEELLLLEEEEEEEELLLLHHHH
 * [[AngleToVectorFilter]]
 * [[DsspMover]]
 * [[GeometryFilter]]
+* [[HelixKinkFilter]]
 * [[SecondaryStructureHasResidueFilter]]
 * [[TorsionFilter]]
