@@ -86,7 +86,7 @@ The supplied script `       best_ifaceE.py      ` will read a silent file and pr
 
 ```
 ~/rosetta/main/source/bin/extract_atomtree_diffs.macosgccrelease -database ~/rosetta_database -extra_res_fa input/1t3r.params \
-  -s 1t3r_silent.out -tags $(~/rosetta/rosetta_source/src/apps/public/ligand_docking/best_ifaceE.py -n 10 1t3r_silent.out)
+  -s 1t3r_silent.out -tags $(~/rosetta/main/source/src/apps/public/ligand_docking/best_ifaceE.py -n 10 1t3r_silent.out)
 ```
 
 Atomtree diff files are plain text, and final scores are recorded on the SCORES lines. These can be easily processed by scripts to select the best results. It can be useful to convert to a table of scores (CSV or equivalent) and do analysis in R; one could do the same in Excel, etc.
