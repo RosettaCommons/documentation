@@ -1,88 +1,138 @@
-class Gollum::Macro::FindRedLinks < Gollum::Macro
-  def render(*args)
+class Gollum::Macro::MissingLinksPage < Gollum::Macro
 
-    if @wiki.pages.size > 0
-      '<ul id="pages">' + @wiki.pages.map { |p| "<li>#{p.name}</li>" }.join + '</ul>'
+  class MissingLink < StandardError
+  end
+
+  def render(page_num, num_pages)
+    @markup = Gollum::Markup.new @page
+    @tags = Gollum::Filter::Tags.new(@markup)
+    @tag_cache = {}
+
+    # First, find all the broken links in the entire wiki and store them in a 
+    # data structure called broken_links.  This structure maps page titles to 
+    # lists of all the broken links on that page.
+
+    html = ''
+    broken_links = {}
+    start_time = Time.now
+
+    i = 1
+    @wiki.pages.each do |page|
+      @tags.extract(page.text_data)
+
+      broken_links[page.title] = []
+
+      # The Tags filter doesn't really provide an API, so we have to cheat and 
+      # reach into it to get access to the hash of all the tags in a page that 
+      # it creates during extract().
+
+      @tags.instance_variable_get(:@map).each do |key, tag|
+
+        # Check the tags for missing links.  Each function checks a different 
+        # type of tag.  When a function is passed a tag of a type that it is 
+        # not responsible for, it returns false and the tags is passed onto 
+        # the next next function.  When a function is passed a tag of a type 
+        # it is responsible for, it checks to make sure that link's target 
+        # actually exists.  If it does, the function returns true to break the 
+        # chain.  If it doesn't, the function raises a MissingLink error.  This 
+        # error is caught immediately and causes the tag to be added to the 
+        # list of broken links.
+
+        begin 
+          check_toc_tag(tag) || \
+          check_include_tag(tag) || \
+          check_link_tag(tag)
+        rescue MissingLink
+          broken_links[page.title] << tag
+        end
+
+      end
+
+      # The web browser gives up and resets the connection before all the 
+      # missing links can be found, so limit the search to a few seconds.
+
+      elapsed_time = Time.now - start_time
+      puts "#{i}/#{@wiki.pages.size}\t#{elapsed_time}"
+      i += 1
+      #if elapsed_time > 29
+      #  html += "<p>The search for missing links was aborted after <b>%.1f seconds</b>.  Fix some links and reload to get more.</p>" % elapsed_time
+      #  break
+      #end
     end
 
-      # broken_links = {}
-      #
-      # for each page in the wiki:
-      #     tags = Filter::Tags.new()
-      #     tags.extract(page.data)
-      #
-      #     for tag in tags.map:
-      #         @wiki_or_markup.find_file(tag)
-      #
-      #         if not found:
-      #             broken_links[page.path].append(tag)
-      #
-      # html = ''
-      #
-      # for page, red_links in sorted(broken_links):
-      #     html += "<h2>#{page}</h2>\n"
-      #     html += "<ul>\n"
-      #
-      #     for link in red_links:
-      #         page += "<li>#{link}</li>"
-      #
-      #     html += "</ul>"
-      #
-      # return html
+    # Generate an HTML report of all the broken links discovered above.  Skip 
+    # pages that don't have any broken links.
 
-    args.map { |a| "@#{a}@" }.join("\n")
-  end
-end
+    html += "<h1>Missing Links (#{page_num}/#{num_pages})</h1>\n"
 
+    broken_links.each do |page_title, missing_links|
+      next if missing_links.empty?
 
-class Gollum::Macro::LinkDemos < Gollum::Macro
-  def render(demos_root)
-    page_dir = File.dirname(@page.path)
-    demos_dir = File.join(page_dir, demos_root)
-    abs_page_dir = File.join(@wiki.path, page_dir)
-    abs_demos_dir = File.join(abs_page_dir, demos_root)
-    abs_demos_glob = File.join(abs_demos_dir, '*/')
+      html += "#{page_title}\n"
+      #html += "<ul>\n"
+      html += "<pre>\n"
 
-    html = "<ul>\n"
+      missing_links.each do |error_message|
+        #html += "<li>[[#{error_message}]]</li>\n"
+        html += "[[#{error_message}]]\n"
+      end
 
-    Dir[abs_demos_glob].sort.each do |abs_demo_dir|
-        demo_name = File.basename(abs_demo_dir)
-        demo_readme = File.join(demos_dir, demo_name, 'README')
-        abs_readme_glob = File.join(abs_demo_dir, '[Rr][Ee][Aa][Dd][Mm][Ee]*')
-        readme_exists = Dir[abs_readme_glob].select{|x|
-            Gollum::Page.parse_filename(x) != []
-        }.any?
-
-        html += %{<li><a class="internal #{readme_exists ? 'present' : 'absent'}" href="#{demo_readme}">#{demo_name}</a></li>\n}
+      #html += "</ul>\n"
+      html += "</pre>\n"
     end
 
-    html += "</ul>"
+    html
   end
-end
 
-class Gollum::Macro::LinkDemosViaSlowMarkup < Gollum::Macro
-  def render(demos_root)
-    links = []
+  def check_toc_tag(tag)
+    tag.strip == '_TOC_'
+  end
 
-    page_dir = File.dirname(@page.path)
-    demos_dir = File.join(page_dir, demos_root)
-    demos_glob = File.join(@wiki.path, page_dir, demos_root, '*/')
+  def check_include_tag(tag)
+    return unless /^include:/.match(tag)
 
-    Dir[demos_glob].sort.each do |demo_dir|
-      demo_name = File.basename(demo_dir)
-      demo_readme = File.join(demos_dir, demo_name, 'readme')
-      links << "- [[#{demo_name}|#{demo_readme}]]"
+    page_name = tag[8..-1]
+    resolved_page_name = ::File.expand_path(page_name, "/"+@markup.dir)
+
+    if not find_page_from_name(resolved_page_name)
+      raise MissingLink
     end
 
-    # Gollum will spend a long time doing a breadth-first search for files if I
-    # have it format the links for me.  It would be significantly faster if I
-    # formatted the HTML myself, and but then my formatting my not be in sync
-    # with Gollum's.  Perhaps I can find the specific method Gollum uses to 
-    # format links.
-
-    markup = Gollum::Markup.new @page
-    markup.render_default(links.join("\n"))
+    return true
   end
+
+  def check_link_tag(tag)
+    parts = tag.split('|')
+    return if parts.size.zero?
+
+    # If any part of the tag is a valid path, then the link is ok.  We have to 
+    # check all the parts because we can't know a priori which part is supposed 
+    # to be a path.  It's the first part for images but the second part for 
+    # links.
+
+    parts.each do |part|
+      name = part.strip
+      canonical_name = @page.class.cname(name)
+
+
+      if name =~ /^https?:\/\//i
+        return true
+      elsif @tag_cache.key?(name)
+        return @tag_cache[name]
+      elsif @markup.find_file(name)
+        @tag_cache[name] = true
+        return true
+      elsif @tags.send(:find_page_from_name, canonical_name)
+        @tag_cache[name] = true
+        return true
+      else
+        @tag_cache[name] = false
+      end
+    end
+
+    # If the function gets this far, no valid links were found.
+
+    raise MissingLink
+  end
+
 end
-
-
