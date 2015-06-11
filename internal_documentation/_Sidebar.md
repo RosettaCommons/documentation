@@ -9,4 +9,4 @@
 * [[Glossary]]
 * [[Options list|full-options-list]]
 
-* [[Missing Links|internal_documentation/missing_links/_Sidebar.md]]
+* [[Missing Links|internal_documentation/missing_links/_Sidebar]]
