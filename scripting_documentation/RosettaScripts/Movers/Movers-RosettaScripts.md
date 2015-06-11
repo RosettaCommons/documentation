@@ -144,33 +144,34 @@ These are movers that should be usable in most cases with most systems
 
 **[[Small|SmallMover]]** - Makes small-move-style torsion moves (no propagation minimization)
 
-**[[Backrub|BackrubMover]]** - 
+**[[Backrub|BackrubMover]]** - Makes local rotations around two backbone atoms
 
-**[[InitializeByBins|InitializeByBinsMover]]** - 
+**[[InitializeByBins|InitializeByBinsMover]]** - Randomizes stretches of backbone based on torsion bins
 
-**[[PerturbByBins|PerturbByBinsMover]]** - 
+**[[PerturbByBins|PerturbByBinsMover]]** - Perturbs stretches of backbone based on torsion bins
 
-**[[BackboneGridSampler|BackboneGridSamplerMover]]** - 
+**[[BackboneGridSampler|BackboneGridSamplerMover]]** - Generates a residue chain and samples torsion angles
+
 
 ### Constraints
 
-**[[ClearConstraintsMover]]** - 
+**[[ClearConstraintsMover]]** - Removes constraints from the pose
 
-**[[ConstraintSetMover]]** - 
+**[[ConstraintSetMover]]** - Adds constraints to the pose
 
-**[[ResidueTypeConstraintMover]]** - 
+**[[ResidueTypeConstraintMover]]** - Constrains residue type
 
-**[[TaskAwareCsts|TaskAwareCstsMover]]** - 
+**[[TaskAwareCsts|TaskAwareCstsMover]]** - Adds constraints to residues designated by task_operations
 
-**[[AddConstraintsToCurrentConformationMover]]** - 
+**[[AddConstraintsToCurrentConformationMover]]** - Adds constraints based on the current conformation
 
-**[[AtomCoordinateCstMover]]** - 
+**[[AtomCoordinateCstMover]]** - Adds coordinate constraints for Relax
 
-**[[FavorSymmetricSequence|FavorSymmetricSequenceMover]]** - 
+**[[FavorSymmetricSequence|FavorSymmetricSequenceMover]]** - Adds constraints to prefer symmetric sequences
 
 ### Fragment Insertion
 
-**[[SingleFragmentMover]]** - 
+**[[SingleFragmentMover]]** - Performs a single fragment insertion
 
 ### Symmetry
 
