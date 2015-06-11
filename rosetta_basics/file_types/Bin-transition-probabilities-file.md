@@ -129,3 +129,14 @@ MATRIX	215	742	75	42	51	20
 ```
 
 Additional <b>BEGIN</b> ... <b>END</b> blocks may be defined for as many bin transitions probability matrices as one wishes to define.  If a particular i/i+1 pair of residues matches the properties and residue identity criteria for more than one bin transition probability matrix, the first one encountered that matches is used (so it is best for the bin transition probability matrices to define non-overlapping criteria).
+
+##See Also
+
+* [[File types list]]: List of file types used in Rosetta
+* [[General RosettaScripts movers|general-movers]]: Includes movers that take a bin transition probabilities file
+* [[Rosetta Basics]]: The Rosetta Basics home page
+* [[Options overview]]: Overview of Rosetta command line options
+* [[Glossary]]: Brief definitions of Rosetta terms
+* [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
+* [[Rosetta overview]]: Overview of major concepts in Rosetta
+* [[Application Documentation]]: Links to documentation for a variety of Rosetta applications

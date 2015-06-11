@@ -22,12 +22,16 @@ Types of Scientific Benchmarks
 There are two types of scientific benchmarks:
 
 -   **Biweekly Scientific Benchmarks**:
+    - *Note that in practice, biweekly benchmarks are run at best effort (repeatedly when they finish).
     -   These are meant to be either:
         -   unit tests that can catch bugs and unintended changes to the
             energy function and protocols that cannot be detected by the
             integration tests because of run to run variation.
         -   fast tests of energy function / protocol predictive
             accuracy.
+    -   These tests take less than 128 hours to run on a single CPU and are run on a regular basis.
+    -   Biweekly tests can be found in main/tests/scientific/biweekly/.  They are organized in a similar way to [[integration tests]].
+
     -   ----------------------------
     -   [[Detailed Balanced|DetailedBalanceScientificBenchmark]]
     -   RNA de novo
@@ -45,12 +49,20 @@ There are two types of scientific benchmarks:
 
 -   -   ----------------------------
 
--   **Energy Function Scientific Benchmarks**: These are meant to test
+-   **Cluster Scientific Benchmarks** (Energy Function Scientific Benchmarks): These are meant to test
     the quality of an energy function across a broad set of tests that
     represent realistic scientific prediction protocols. They are
     intended to be run by a researcher who wants to test a candidate
     energy function for becoming the standard energy function in
     Rosetta.
+
+    -   These tests are found in main/tests/scientific/cluster/.
+    -   Unlike biweekly tests, these tests must provide two bash scripts instead of one:
+    	- The "submit" script is called first and is expected to prepare and submit the 
+	appropriate number of jobs to run your test and then exit.
+	- The "analyze" script runs after these jobs are finished. It creates the proper log
+	file and yaml file and places them in the "/output" folder. Any additional files that you
+	want to save as "results" should also be saved there.
     -   Each test should be able to run in less than 50,000 cpu hours
     -   ----------------------------
     -   LoopHash decoy discrimination
@@ -67,8 +79,14 @@ Usage
 
 ### How to Create a Local Scientific Benchmark
 
-​1) Create a folder in main/test/scientific/tests/\<test\_name\>
+*If your test requires you to create a new application, please commit it to this location: source/src/apps/benchmark/scientific/*
 
+​1) Create a folder in main/test/scientific/tests/\<test\_name\>.  
+   Each individual test can have the following subdirectories:
+-   /input : stores all input data. 
+-   /output : stores important output data. Contents of this folder will stored along with log and yaml in the database and will be accessible from the web.
+-   /tmp : place for temporary files (like \~1000 decoys, if you need it). Contents of this folder will be ignored by the testing daemon and not stored anywhere. (You can store temp files in /input too if you really need too, just make sure it is not overwriting any input files).
+   
 ​2) Collect a small sample of experimental data such as crystal
 structures, NMR data for the new test.
 
@@ -86,9 +104,9 @@ one boolean field, '\_isTestPass'. Here is an example
 With this file, when tests are run on the Testing Server, the results
 can be processed and reported on the testing web page.
 
-Also have the analyze script write a file **.results.log**. The contents
+Also have the analyze script write a file **.results.log**, to contain human-readable text-based results. The contents
 of this file will be appended to the Nightly Tests email sent to the
-*Rosetta-minirosetta-logs* mailing list.
+*Rosetta-logs* mailing list.
 
 ### How To Run Local Scientific Benchmarks
 
@@ -255,3 +273,9 @@ each target. In the CVS repository, there is an example, 1a32\_.tbz. To
 setup, create the directory BENCH\_HOME/fragments/abinitio\_set01 and
 untar the file (tar -xvjf 1a32\_.tbz) in that directory.
 
+##See Also
+
+* [[Testing home page|rosetta-tests]]
+* [[Development documentation home page|Development-Documentation]]
+* [[RosettaEncyclopedia]]
+* [[Glossary]]

@@ -2,7 +2,7 @@
 
 Author: Matthew O'Meara and Steven Lewis
 
-This page describes the resfile format, syntax, and conventions. The resfile contains information which is input into the PackerTask and controls the Packer. Internal details for the commands can be found at the [[How to write new resfile commands|resfile-reader]] residue-level options how-to.
+This page describes the resfile format, syntax, and conventions. The resfile contains information which is input into the [[PackerTask|Packer-Task]] and controls the Packer. Internal details for the commands can be found at the [[How to write new resfile commands|resfile-reader]] residue-level options how-to.
 
 Resfile Syntax and Semantics
 ====================
@@ -275,3 +275,11 @@ start
 88 B NOTAA C #loop
 #89 B NOTAA C #loop
 ```
+##See Also
+
+* [[File types list]]: List of file types used in Rosetta
+* [[Packer Task]]: Description of the PackerTask
+* [[Rosetta overview]]: Overview of key Rosetta concepts
+* [[Options overview]]: Overview of main Rosetta options groups
+* [[Full options list]]
+* [[Writing new resfile commands|resfile-reader]]

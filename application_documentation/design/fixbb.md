@@ -169,3 +169,13 @@ New Features In Rosetta3.2
 ==========================
 
 Rosetta3.2 includes the Lazy Interaction Graph which had not yet been ported from Rosetta++ in version 3.1.
+
+##See Also
+
+* Fixbb can be run with the [[ hpatch score term| fixbb-with-hpatch ]] to prevent the development of surface hydrophobic patches
+* [[Design applications | design-applications]]: other design applications
+* [[Application Documentation]]: Application documentation home page
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
+* [[Preparing structures]]: How to prepare structures for use in Rosetta

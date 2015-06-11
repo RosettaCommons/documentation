@@ -2,7 +2,7 @@
 
 ##How to correctly use owning and access pointers
 
-The following guide summarizes how to correctly use owning/access pointers. With the transition to the boost:: / std:: pointer classes, these rules must be followed to avoid compilation errors or run-time crashes (double free).
+The following guide summarizes how to correctly use [[owning pointers]] and [[acess pointers]]. With the transition to the boost:: / std:: pointer classes, these rules must be followed to avoid compilation errors or run-time crashes (double free).
 
 Note:
 
@@ -111,3 +111,11 @@ To decide which data type is appropriate for your function/class, consider the f
 
     1.  Will an instance of your class own this data? i.e: is the data life span exactly the same as that of a class instance? In this case, you probably do not need to use an OP.
     2.  Is your class holding "someone else's data", i.e. 'referencing' it? If this is the case, then you should probably use an OP.
+
+##See Also
+
+* [[Development tutorials home page|devel-tutorials]]
+* [[Development Documentation]]: The development documentation home page
+* [[Owning pointers]]
+* [[Access pointers]]
+* [[Writing an app]]

@@ -118,3 +118,11 @@ update\_energy.
 
 ` pyobs = PyMOL_Observer() pyobs.add_observer(pose) pyobs.pymol.update_energy=True`
 
+##See Also
+
+* [[PyMOL website (external)|http://www.pymol.org]]
+* [[Graphics and GUIs]]: Home page for graphical interfaces with Rosetta
+* [[Comparing structures]]: Essay on comparing structures
+* [[Extending the PyMol Viewer]]: How to add new functionality to Rosetta's PyMOL Mover
+* [[PyRosetta Toolkit]]: Tutorials for using/modifying the PyRosetta Toolkit GUI
+* [[PyRosetta Toolkit GUI]]: Information on the PyRosetta Toolkit user interface
