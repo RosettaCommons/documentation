@@ -15,3 +15,11 @@ where OPERATION is any of the operations defined in CAPS above.Note that the ope
 
 Note that the first OPERATION specified in the compound statement treated as a negation if NOT, ANDNOT, or ORNOT is specified.
 
+## See also
+
+* [[BoltzmannFilter]
+* [[CombinedValueFilter]
+* [[CalculatorFilter]]
+* [[ReplicateFilter]]
+* [[SigmoidFilter]]
+

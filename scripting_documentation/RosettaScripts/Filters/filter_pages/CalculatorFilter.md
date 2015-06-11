@@ -29,3 +29,11 @@ Example:
 
 CAVEAT: The parsing of the equation is a little touchy and black-box at the moment. Diagnostic error messages are poor at best. I'd recommend starting with a simple equation and working your way up (bad equations should be detected at parse-time.)
 
+## See also
+
+* [[BoltzmannFilter]]
+* [[CompoundStatementFilter]
+* [[CombinedValueFilter]
+* [[ReplicateFilter]]
+* [[SigmoidFilter]]
+
