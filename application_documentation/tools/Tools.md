@@ -54,7 +54,7 @@ main/source/src/apps/public/electron_density/prepare_template_for_MR.pl
 &#8195; - 
 
 
-### Job Runing
+### Job Running
 
 main/source/src/python/apps/public/parallel.py  
 &#8195; - Utility for running a large number of command lines in parallel.
