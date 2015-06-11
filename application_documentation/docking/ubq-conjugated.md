@@ -15,7 +15,7 @@ This page documents three applications, UBQ\_E2\_thioester, UBQ\_Gp\_CYD-CYD, an
 Code and Demo
 =============
 
-The code is at `       rosetta/rosetta_source/src/apps/public/scenarios/chemically_conjugated_docking/      ` ; there's an integration test+demo at `       rosetta/rosetta_source/test/integration/tests/UBQ_E2_thioester/      ` . The same is true for the other versions of the application (altering the path as appropriate). Note that the integration test is vastly under-cycled relative to getting it to do anything useful: the number of cycles it demonstrates should be sufficient to show some remodeling but not enough to get anywhere useful. To run that demo, go to that directory and run `       [path to executeable] -database [path to database] (at-symbol)options      `
+The code is at `       source/src/apps/public/scenarios/chemically_conjugated_docking/      ` ; there's an integration test+demo at `       source/test/integration/tests/UBQ_E2_thioester/      ` . The same is true for the other versions of the application (altering the path as appropriate). Note that the integration test is vastly under-cycled relative to getting it to do anything useful: the number of cycles it demonstrates should be sufficient to show some remodeling but not enough to get anywhere useful. To run that demo, go to that directory and run `       [path to executeable] -database [path to database] (at-symbol)options      `
 
 References
 ==========
@@ -163,3 +163,15 @@ Changes since last release
 ==========================
 
 Rosetta 3.3 was the first release. For the 3.4 release, the UBQ\_Gp series of applications was added. For 3.5, the constraint code was factored out into a constraint file publication.cst, and some system-specific details in the code were altered to run under a "publication" flag. With these changes, UBQ\_Gp\_CYX-Cterm was deprecated and deleted. Two-ubiquitins, multi-body, and loops modes were added. Also for 3.5, an issue with omega angles near the conjugation bond was corrected. The omega nearest the bond now starts at 180 degrees instead of 140.
+
+##See Also
+
+* [[Docking Applications]]: Home page for docking applications
+* [[Preparing structures]]: Notes on preparing structures for use in Rosetta
+* [[Application Documentation]]: List of Rosetta applications
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[RosettaScripts]]: Homepage for the RosettaScripts interface to Rosetta
+* [[Comparing structures]]: Essay on comparing structures
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files

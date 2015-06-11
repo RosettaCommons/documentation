@@ -13,8 +13,8 @@ Last edited 6/08/2015 by Jeliazko Jeliazkov. Corresponding PI Jeffrey Gray (jgra
 Code and Demo
 =============
 
--   Application source code: `        rosetta/rosetta_source/src/apps/public/docking/docking_protocol.cc       `
--   Main mover source code: `        rosetta/rosetta_source/src/protocols/docking/DockingProtocol.cc       `
+-   Application source code: ` rosetta/rosetta_source/src/apps/public/docking/docking_protocol.cc `
+-   Main mover source code: ` rosetta/rosetta_source/src/protocols/docking/DockingProtocol.cc  `
 -   To see demos of some different use cases see integration tests located in `        rosetta/rosetta_tests/integration/docking*       ` (docking\_full\_protocol, docking\_local\_refine, docking\_local\_refine\_min, docking\_low\_res, docking\_distance\_constraint, docking\_site\_constraint).
 
 To run docking, type the following in a commandline:
@@ -218,6 +218,18 @@ Sort scorefile by score using commandline sort function. For global docking simu
 New things since last release
 =============================
 
--   Supports the modern job distributor (jd2).
+-   Supports the modern job distributor [[jd2]].
 -   Support for complex foldtrees including poses that have ligands.
 -   Support for [[constraints|constraint-file]] .
+
+##See Also
+
+* [[Docking Applications]]: Home page for docking applications
+* [[Preparing structures]]: Notes on preparing structures for use in Rosetta
+* [[Application Documentation]]: List of Rosetta applications
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[RosettaScripts]]: Homepage for the RosettaScripts interface to Rosetta
+* [[Comparing structures]]: Essay on comparing structures
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files
