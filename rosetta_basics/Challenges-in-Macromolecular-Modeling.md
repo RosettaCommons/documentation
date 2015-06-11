@@ -1,37 +1,36 @@
 #Challenges in Macromolecular Modeling
 
 ## Introduction
-Clearly, the computational modeling of biological macromolecules is not a closed field.
-Rosetta cannot precisely model every single given macromolecule.
-Barring human/operator error, there are two general problems which make modeling challenging.
+No single modeling system, Rosetta included, can produce perfect solutions to every modeling problem.
+Barring human/operator error, issues that prevent perfect solutions owe to either scoring or sampling.
 
-The first problem is referred to as the *scoring problem*: given a set of models of macromolecular structures, say proteins, can the Rosetta scoring function (or any scoring function) rank the models such that the best scoring (lowest energy) model is representative of the protein/macromolecule occurring in nature?
+The *scoring problem* asks whether, given a set of models, the scoring function can rank the models such that the best scoring model is representative of the natural or optimal macromolecular sequence and structure?
 
-The second problem is known as the *sampling problem*: how do we know that, during a simulation, enough of conformational space has been explored to sample the conformation occurring in nature?
+The *sampling problem* asks whether a set of models includes the naturally occurring or optimal sequence and structure in the first place.
 
 [[_TOC_]]
 
 ## The Scoring Problem
-As stated in the introduction, the scoring problem is the challenge of developing a scoring function which can identify the native conformation.
-Inaccurate scoring is a difficult problem to overcome, but should be relatively straightforward to diagnose.
-If a native structure is available, this can be done by scoring the native structure and comparing the score of the native to that of the models.
-If the native score is much higher than that of the models, then either the native was not relaxed (see [[here|preparing-structures]]) or the score function is flawed.
-The most direct way to fix this problem is the either (a) develop a different metric for scoring (whether it be using a different score function or developing one of your own) or (b) implement a [[constraint|constraint-file]] which effectively appends a term to the scoring function.
+You may simply be getting the wrong answer because the scoring function favors a non-native conformation or sequence.
+This is quite easy to diagnose if you _know_ the native conformation or sequence.
+Simply score a relaxed ensemble derived from it and compare to the ensemble of your models; if the native score is much higher than that of the models, then either the native was not relaxed (see [[here|preparing-structures]]) or the score function is flawed.
+In such a case, you can test your hypothesis about the discrepancy involved by implementing a [[constraint|constraint-file]] which effectively appends a term to the scoring function.
+For example, if a few residues ought to form a strand (by experimental data), restrain their dihedrals and see if that produces native-like structures.
+
+When you do not have a native structure, you can't determine whether you're scoring properly or not nearly so easily. At best, you could obtain some weak evidence if you have structures of very closely related proteins; if the scoring function consistently fails them in this sense, it may be a poor choice for your case as well.
 
 ## The Sampling Problem
-As stated in the introduction, the sampling problem is the challenge of _actually_ sampling the native conformation or even sampling about native in conformation space.
-
-Generally, this problem can be subdivided into two categories:
-1. Does the algorithm sample enough?
-2. Does the algorithm sample the relevant degrees of freedom?
-
+There are two reasons you may not be sampling the native sequence or structure: 
 ### Sampling the Wrong Degrees of Freedom
-In theory, protocols should be designed to sample relevant degrees of freedom and this is not something an end user should be concerned with.
-However, if working with a scripting language or a particular problem which is not directly address by a published protocol, this can be a concern.
+Your [choice of protocol](I want to do x) is critical. If you want to fold a protein sequence _ab initio_, do not build an extended peptide, run the minimizer, and hope.
+(Similarly, do not build an extended peptide and run a Monte Carlo trajectory of [SmallMoves](SmallMover) for several decades.) 
+
+There are subtle errors, too.
+For example, maybe your protein has a cis peptide bond (at a non proline position).
+These are rare but hardly unheard of, and in many situations you will not sample that conformation unless you force Rosetta to consider the possibility.
+Furthermore, what if your protein has a strained bond angle because of a highly constrained geometry? You may not even realize that Cartesian minimization, or other modalities for bond angle and length optimization, are an option.
 
 ### Not Sampling Enough
 Often times, a new user will not "sample enough". 
-This means that the user has not generated (or simulated) enough models.
+This means that the user has not generated enough models.
 See [[Rosetta on different scales|Rosetta-on-different-scales]] for more on how much sampling should be done.
-
-
