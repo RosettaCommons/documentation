@@ -14,6 +14,7 @@ Some movers (e.g., [[PlaceSimultaneouslyMover]]) can set a filter's internal res
 
 * [[AtomicContactCountFilter]]
 * [[AtomicDistanceFilter]]
+* [[ResidueCountFilter]]
 * [[ResidueDistanceFilter]]
 * [[PlaceSimultaneouslyMover]]
 
