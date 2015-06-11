@@ -230,7 +230,7 @@ The LoopHash algorithms constitute a very rapid way to draw on loop conformation
 -	CCDLoopCloser
 -	CCDLoopClosureMover
 -	DefineMovableLoops
--	[[GeneralizedKIC]] 
+-	[[GeneralizedKIC]]  
 An enormous, intricate system that largely operates on its own to perform kinematic loop closure on an arbitrary sequence of atoms.
 
 Docking
