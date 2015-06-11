@@ -9,7 +9,7 @@ First, can we adequately sample the space where the solution to our problem live
 Second, can we identify said solution, if we have sampled it?
 This should be kept in mind when deciding on which protocol to apply to your problem, how many models to generate, and which score function to use.
 
-If this page doesn't have a problem that sounds like yours, it may be that you haven't determined [[what the problem is|linky]], or that we can't solve it. 
+If this page doesn't have a problem that sounds like yours, it may be that you haven't determined [[what the problem is|Determining-what-a-problem-is]], or that we can't solve it. 
 If you are thinking of your problem from an angle of sampling a specific degree of freedom, see [[this page|I want to do X]].
 
 [[_TOC_]]
