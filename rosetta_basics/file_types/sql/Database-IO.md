@@ -80,7 +80,7 @@ Database IO is implemented simply as a fixed set of FeaturesReporters:
 Possible issues for cluster based jobs:
 
 -   SQLite3 database are hard on file systems so be careful when using it with a shared filesystem!
--   Databases can be merged because the features have composite primary keys that includes the structure primary key, **struct\_id** , that at least partially randomized. to merge sqlite3 database consider using the merge script in rosetta\_tests/features/sample\_sources/merge.sh.
+-   Databases can be merged because the features have composite primary keys that includes the structure primary key, **struct\_id** , that at least partially randomized. to merge sqlite3 database consider using the merge script in main/tests/features/sample\_sources/merge.sh.
 
 -   -in:use\_database
 -   -out:use\_database \<bool\> *output files to the database*

@@ -10,13 +10,13 @@ The documentation was last updated March 26th, 2015, by Shane Ó Conchúir. Ques
 Code and Demo
 =============
 
-The ddg\_monomer application lives in rosetta/rosetta\_source/src/apps/public/ddg/ddg\_monomer.cc (This file had previously been named "fix\_bb\_monomer\_ddg.cc", but has been renamed since it now moves the backbone). This file houses the main() function. The central subroutines invoked by this file live in the ddGMover class defined in rosetta/rosetta\_source/src/protocols/moves/ddGMover.hh and rosetta/rosetta\_source/src/protocols/moves/ddGMover.cc.
+The ddg\_monomer application lives in rosetta/main/source/src/apps/public/ddg/ddg\_monomer.cc (This file had previously been named "fix\_bb\_monomer\_ddg.cc", but has been renamed since it now moves the backbone). This file houses the main() function. The central subroutines invoked by this file live in the ddGMover class defined in rosetta/main/source/src/protocols/moves/ddGMover.hh and rosetta/main/source/src/protocols/moves/ddGMover.cc.
 
-A helper application, minimize\_with\_cst, lives in rosetta/rosetta\_source/src/apps/public/ddg/minimize\_with\_cst.cc.
+A helper application, minimize\_with\_cst, lives in rosetta/main/source/src/apps/public/ddg/minimize\_with\_cst.cc.
 
-A helper script for generating one of the input files needed by the ddg\_monomer application lives in rosetta/rosetta\_source/src/apps/public/ddg/convert\_to\_cst\_file.sh.
+A helper script for generating one of the input files needed by the ddg\_monomer application lives in rosetta/main/source/src/apps/public/ddg/convert\_to\_cst\_file.sh.
 
-An integration test for this application lives in rosetta/rosetta\_tests/integration/tests/ddG\_of\_mutation/. The test in this directory runs a shortened trajectory for predicting the wild-type and mutant energies. To turn this into a production-run example, set the value for the "-ddg:iterations" flag given in the file "rosetta/rosetta\_tests/integration/tests/ddG\_of\_mutations/flags" to 50.
+An integration test for this application lives in rosetta/main/tests/integration/tests/ddG\_of\_mutation/. The test in this directory runs a shortened trajectory for predicting the wild-type and mutant energies. To turn this into a production-run example, set the value for the "-ddg:iterations" flag given in the file "rosetta/main/tests/integration/tests/ddG\_of\_mutations/flags" to 50.
 
 References
 ==========
@@ -25,7 +25,7 @@ The new algorithm for performing limited relaxation of the backbone was publishe
 
 E. Kellogg, A. Leaver-Fay, and D. Baker, (2011) "Role of conformational sampling in computing mutation-induced changes in protein structure and stability", Proteins: Structure, Function, and Bioinformatics. V 79, pp 830–838.
 
-The older, fixed-backbone, soft-repulsive scorefunction algorithm (analogous to that described in row 4 of [Kellogg 2011] but with weights trained towards recapitulating alanine-scanning mutation experiments. weights are in rosetta/rosetta\_database/scoring/weights/ddg\_monomer.wts) was published in:
+The older, fixed-backbone, soft-repulsive scorefunction algorithm (analogous to that described in row 4 of [Kellogg 2011] but with weights trained towards recapitulating alanine-scanning mutation experiments. weights are in rosetta/main/database/scoring/weights/ddg\_monomer.wts) was published in:
 
 Kortemme et al. (2002) "A simple physical model for binding energy hot spots in protein-protein complexes", PNAS 22, 14116-21
 
@@ -58,7 +58,7 @@ Preminimization of the Input Structures: The experimentally determined structure
 the command to perform pre-minimization is as follows:
 
 ```
-/path/to/minimize_with_cst.linuxgccrelease -in:file:l lst  -in:file:fullatom -ignore_unrecognized_res -fa_max_dis 9.0 -database /path/to/rosetta_database/ -ddg::harmonic_ca_tether 0.5 -score:weights standard -ddg::constraint_weight 1.0 -ddg::out_pdb_prefix min_cst_0.5 -ddg::sc_min_only false -score:patch rosetta_database/scoring/weights/score12.wts_patch > mincst.log
+/path/to/minimize_with_cst.linuxgccrelease -in:file:l lst  -in:file:fullatom -ignore_unrecognized_res -fa_max_dis 9.0 -database /path/to/rosetta/main/database/ -ddg::harmonic_ca_tether 0.5 -score:weights standard -ddg::constraint_weight 1.0 -ddg::out_pdb_prefix min_cst_0.5 -ddg::sc_min_only false -score:patch rosetta/main/database/scoring/weights/score12.wts_patch > mincst.log
 ```
 
 this application will only take in a list of pdb structures, designated by -in:file:l lst the resulting minimized structures will have a prefix designated by -ddg::out\_pdb\_prefix. In this case the structures will have a prefix "min\_cst\_0.5" followed by the original input pdb name.
@@ -151,7 +151,7 @@ The following flags are required / recommended to generate the proper behavior o
 -ddg:weight_file soft_rep_design # Use soft-repulsive weights for the initial sidechain optimization stage
 -ddg:minimization_scorefunction <weights file> # optional -- the weights file to use, if not given, then "score12" will be used (score12 = standard.wts + score12.wts_patch)
 -ddg::minimization_patch <weights patch file > # optional -- the weight-patch file to apply to the weight file; does not have to be given
--database /path/to/rosetta_database #the full oath to the database is required
+-database /path/to/rosetta/main/database #the full oath to the database is required
 -fa_max_dis 9.0 # optional -- if not given, the default value of 9.0 Angstroms is used.
 -ddg::iterations 50 # 50 is the recommended number of iterations
 -ddg::dump_pdbs true # write out PDB files for the structures, one for the wildtype and one for the pointmutant for each iteration
@@ -178,7 +178,7 @@ The following flags are required / recommended to generate the proper behavior o
 -in:file:s <pdbfile of the preminimized wildtype structure> # the PDB file of the structure on which point mutations should be made
 -ddg::mut_file <mutfile> # the list of point mutations to consider in this run
 -ddg:weight_file soft_rep_design # Use soft-repulsive weight set
--database /path/to/rosetta_database #the full oath to the database is required
+-database /path/to/rosetta/main/database #the full oath to the database is required
 -fa_max_dis 9.0 # optional -- if not given, the default value of 9.0 Angstroms is used.
 -ddg::iterations 50 # 50 is the recommended number of iterations
 -ddg::dump_pdbs true # write out PDB files for the structures, one for the wildtype and one for the pointmutant for each iteration

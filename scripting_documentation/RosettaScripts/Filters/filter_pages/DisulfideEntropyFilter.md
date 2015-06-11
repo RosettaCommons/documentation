@@ -36,3 +36,7 @@ where `     tightness    ` is user specified. Larger values for tightness lead t
 <DisulfideEntropy name="&string" tightness=(0 &Real) lower_bound=(0 &Real)/>
 ```
 
+## See also:
+
+* [[DisulfideEntropyFilter]]
+* [[DisulfideFilter]]

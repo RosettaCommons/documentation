@@ -55,7 +55,7 @@ A general command line one would use for refining a weak molecular replacement s
 
 ```
 bin/mr_protocols.default.linuxgccrelease \
-    -database ../rosetta_database \
+    -database /path/to/rosetta/main/database \
     -MR:mode cm \
     -in:file:extended_pose 1 \
     -in:file:fasta 1crb.fasta \

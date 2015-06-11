@@ -63,7 +63,7 @@ Database location - REQUIRED
 ----------------------------
 
 ```
--database <path/to//database>   Specifies the location of the rosetta_database
+-database <path/to/rosetta/main/database>   Specifies the location of the rosetta database
 ```
 
 Other options
@@ -79,14 +79,14 @@ Other options
 A sample command line for running the sequence\_recovery application would be as follows:
 
 ```
-sequencerecovery.macosgccrelease -database ~/rosetta_database/ -native_pdb_list seqrecovery.list -redesign_pdb_list redesigned.list
+sequencerecovery.macosgccrelease -database /path/to/rosetta/main/database/ -native_pdb_list seqrecovery.list -redesign_pdb_list redesigned.list
 -ignore_unrecognized_res
 ```
 
 A sample command line for running the sequence\_recovery application using a tagfile to restrict the calculation to only surface residues (even though this is done by default) would be as follows:
 
 ```
-sequencerecovery.macosgccrelease -database ~/rosetta_database -native_pdb_list seqrecovery.list -redesign_pdb_list redesigned.list
+sequencerecovery.macosgccrelease -database path/to/rosetta/main/database -native_pdb_list seqrecovery.list -redesign_pdb_list redesigned.list
 -parse_tagfile taskoperations.tagfile -ignore_unrecognized_res
 ```
 

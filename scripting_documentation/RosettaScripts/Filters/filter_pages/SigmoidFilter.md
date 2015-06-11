@@ -26,3 +26,11 @@ Baseline can only be set within the Rosetta code and is triggered by Operator fi
 
 By setting baseline\_checkpoint to a file name, the baseline will be saved to a file, and will be read from it in case of failure/recovery. This is useful in case a long MC trajectory has been pre-empted and needs to be restarted. Reading the baseline from the checkpointing file is only triggered if the MC trial is greater than 1. If it's 1, the baseline is instead computed and written to the checkpointing file.
 
+## See also
+
+* [[BoltzmannFilter]]
+* [[CompoundStatementFilter]
+* [[CombinedValueFilter]
+* [[CalculatorFilter]]
+* [[ReplicateFilter]]
+

@@ -75,7 +75,7 @@ column5  "float":    Skip rate. default - never skip
 column6  "boolean":  Extend loop. Default false
 ```
 
-An example loop definition file can be found at rosetta/rosetta\_tests/integration/tests/kinematic\_looprelax/input/4fxn.loop, which looks like this:
+An example loop definition file can be found at rosetta/main/tests/integration/tests/kinematic\_looprelax/input/4fxn.loop, which looks like this:
 
 ```
 LOOP 88 95 92 0 1

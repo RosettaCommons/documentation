@@ -8,3 +8,7 @@ Maximum number of buried unsatisfied H-bonds allowed. If a jump number is specif
 <BuriedUnsatHbonds name=(&string) scorefxn=(&string) jump_number=(1 &Size) cutoff=(20 &Size) task_operations=(&string)/>
 ```
 
+# See Also:
+
+* [[HbondsToResidueFilter]]
+* [[HbondsToAtomFilter]]

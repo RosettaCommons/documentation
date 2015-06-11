@@ -575,10 +575,10 @@ Tips
 Example command lines
 =====================
 
-Input files for all of these examples can be found in the integration test folder for RosettaRemodel, `       rosetta/rosetta_tests/tests/remodel/      ` .
+Input files for all of these examples can be found in the integration test folder for RosettaRemodel, `       rosetta/main/tests/integration/tests/remodel/      ` .
 
 ```
-rosetta/main/source/bin/remodel.macosgccrelease -database ~/rosetta_database/ -s 2ci2.renumbered.pdb -remodel:blueprint blueprint.2ci2.remodel -run:chain A -remodel:num_trajectory 2 -remodel:quick_and_dirty -overwrite
+rosetta/main/source/bin/remodel.macosgccrelease -database rosetta/main/database/ -s 2ci2.renumbered.pdb -remodel:blueprint blueprint.2ci2.remodel -run:chain A -remodel:num_trajectory 2 -remodel:quick_and_dirty -overwrite
 ```
 
 ```
@@ -598,7 +598,7 @@ blueprint.2ci2.remodel (excerpt):
 Use Remodel to sample alternate backbone conformations (and change the identity of) loop residues 37-44, but use the quick\_and\_dirty mode (which disables CCD loop closure and shortens runtime considerably). To hold the identity of the residues fixed, the resfile assignment PIKAA X should be added at the end of the line for each of the residues being remodelled.
 
 ```
-rosetta/main/source/bin/remodel.macosgccrelease -database ~/rosetta_database/ -s 2ci2.renumbered.pdb -remodel:blueprint blueprint.2ci2.disulfides -remodel:build_disulf -remodel:match_rt_limit 6.0 
+rosetta/main/source/bin/remodel.macosgccrelease -database rosetta/main/database/ -s 2ci2.renumbered.pdb -remodel:blueprint blueprint.2ci2.disulfides -remodel:build_disulf -remodel:match_rt_limit 6.0 
 -remodel:disulf_landing_range 1 65 -remodel:bypass_fragments -remodel:use_clusters false -no_optH false -remodel:num_trajectory 1 -remodel:save_top 5 -remodel:use_pose_relax true -correct -overwrite 
 -mute core.pack > log
 ```
@@ -608,14 +608,14 @@ Use Remodel to find disulfides in the PDB 2ci2.renumbered.pdb beteween residues 
 NOTE: In this case num\_trajectory is 1, but we have requested outputting of the top 5 structures. This is because there is more than one possible disulfide in this one structure, and Remodel will consider them all in the 1 trajectory. However, it will only output the 5 best ones. If only 4 are possible, only 4 will be generated.
 
 ```
-rosetta/main/source/bin/remodel.macosgccrelease -database ~/rosetta_database/ -s 2ci2.renumbered.pdb -remodel:blueprint blueprint.2ci2.disulfides -remodel:build_disulf -remodel:match_rt_limit 1.5 -remodel:use_clusters false
+rosetta/main/source/bin/remodel.macosgccrelease -database rosetta/main/database/ -s 2ci2.renumbered.pdb -remodel:blueprint blueprint.2ci2.disulfides -remodel:build_disulf -remodel:match_rt_limit 1.5 -remodel:use_clusters false
 -no_optH false -remodel:num_trajectory 3 -remodel:save_top 3 -remodel:use_pose_relax true -correct -overwrite -mute core.pack > log
 ```
 
 Use Remodel to **build** disulfides in the PDB 2ci2.renumbered.pdb, with a score of **1.5** or better to observed disulfide distributions and outputting at most 3 possible disulfided structures, and use fast relax to minimize the disulfided structures. Note that in this example "-remodel:bypass\_fragments" is not present, so Remodel will change the backbone of residues 7-14 to find better disulfides. In fact, Remodel will go through 3 trajectories in which it will remodel the residues specified in the blueprint file and then check for disulfides between the rebuilt region and the landing region. The top 3 disulfided structures will be output.
 
 ```
-rosetta/main/source/bin/remodel.macosgccrelease -database ~/rosetta_database/ -s 2ci2.renumbered.pdb -remodel:blueprint blueprint.2ci2.domaininsertion -remodel:domainFusion:insert_segment_from_pdb 2ci2.insert.pdb
+rosetta/main/source/bin/remodel.macosgccrelease -database rosetta/main/database/ -s 2ci2.renumbered.pdb -remodel:blueprint blueprint.2ci2.domaininsertion -remodel:domainFusion:insert_segment_from_pdb 2ci2.insert.pdb
 -remodel:quick_and_dirty -run:chain A -remodel:num_trajectory 3 -overwrite
 ```
 

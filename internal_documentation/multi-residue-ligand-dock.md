@@ -50,7 +50,7 @@ See readme\_for\_multi\_ligand\_dock\_demos within the demo directory shown abov
 Preprocessing of input files
 ============================
 
-rosetta/rosetta\_source/src/apps/public/ligand\_docking/pdb\_to\_molfile can be used to create a mol file for your ligand Next rosetta/rosetta\_source/python/apps/public/molfile2params can be used to create the necessary ligand .params files.
+rosetta/main/source/src/apps/public/ligand\_docking/pdb\_to\_molfile can be used to create a mol file for your ligand Next rosetta/main/source/python/apps/public/molfile2params can be used to create the necessary ligand .params files.
 
 Running the Application
 =======================

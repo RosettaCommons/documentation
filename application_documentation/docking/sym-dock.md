@@ -10,7 +10,7 @@ This document was edited Aug 20th 2010 by Ingemar Andre. This application in ros
 Code and Demo
 =============
 
-The code for the symmetric docking application is in rosetta/rosetta\_source/src/apps/pilot/andre/SymDock.cc. See `       rosetta/rosetta_tests/integration/tests/symmetric_docking      ` for an example of symmetric docking protocol and input files.
+The code for the symmetric docking application is in rosetta/main/source/src/apps/pilot/andre/SymDock.cc. See `       rosetta/tests/integration/tests/symmetric_docking      ` for an example of symmetric docking protocol and input files.
 
 References
 ==========
