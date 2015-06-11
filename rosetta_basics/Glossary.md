@@ -577,6 +577,12 @@ values are to be expected calculating it in various places.]
 
 [It's not enough to just explain how RMSD is calculated: it's also important to discuss what significance it plays in Rosetta, and what values are to be expected calculating it in various places.] 
 
+#### Rosetta++
+Rosetta++ was the 2.x edition of Rosetta.
+It is so-named because it was in C++, as a human-assisted machine translation of the original FORTRAN Rosetta.
+
+#### Rosetta3 paper
+[ROSETTA3: an object-oriented software suite for the simulation and design of macromolecules] (http://www.ncbi.nlm.nih.gov/pubmed/21187238), which was the paper that described the transition from C++-but-monolithic Rosetta++ to [object-oriented](https://en.wikipedia.org/wiki/Object-oriented_programming)-C++ Rosetta3.
 #### rotamer
 
 [Is this describing rotamers or the algorithm?] In the docking
