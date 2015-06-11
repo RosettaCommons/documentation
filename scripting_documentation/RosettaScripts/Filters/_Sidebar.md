@@ -1,4 +1,4 @@
-[[Filters-RosettaScripts_TOC_]]
+[[Filters-RosettaScripts#_TOC_]]
 
 [[Getting Started]]
 
