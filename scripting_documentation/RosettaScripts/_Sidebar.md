@@ -1,3 +1,5 @@
+[[_TOC_]]
+
 [[Getting Started]]
 
 [[Build Documentation|build_documentation/Build-Documentation]]
