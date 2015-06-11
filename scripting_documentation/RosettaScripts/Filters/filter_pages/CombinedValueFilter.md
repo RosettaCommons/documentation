@@ -15,3 +15,11 @@ By default, the value is a straight sum of the calculated values (not the logica
 
 For truth value contexts, the filter evaluates to true if the weighted sum if less than or equal to the given `     threshold    ` .
 
+## See also
+
+* [[BoltzmannFilter]
+* [[CompoundStatementFilter]
+* [[CalculatorFilter]]
+* [[ReplicateFilter]]
+* [[SigmoidFilter]]
+
