@@ -4,9 +4,6 @@ This document was originally written 11 Nov 2007 by Chu Wang and last updated 8 
 
 *For brief definitions of Rosetta-related terms, check the [[glossary]].*
 
-Metadata
-========
-
 This document is written for the purpose of helping developers to grasp some key concepts in Rosetta3. The knowledge, based on which this document is written, is mainly from my personal experience of learning and using Rosetta3 and it is very likely that some parts of this document may not be accurate due to my limited understanding. Moreover, all credits should go to Phil Bradley and Andrew Leaver-Fay, who have laid a solid foundation for Rosetta3, as well as all other Rosetta3 developers who have done tremendous amount of work for Rosetta3 development. Please feel free to add/modify/correct/update any part of its content as necessary.
 
 Rosetta philosophy
