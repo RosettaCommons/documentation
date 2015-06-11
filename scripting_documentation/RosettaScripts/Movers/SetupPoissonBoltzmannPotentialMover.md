@@ -1,4 +1,5 @@
 # SetupPoissonBoltzmannPotential
+*Back to [[Mover|Movers-RosettaScripts]] page.*
 ## SetupPoissonBoltzmannPotential
 
 Initialize the runtime environment for Poisson-Boltzmann solver. It allows keeping track of protein mutations to minimize the number of PB evaluations.

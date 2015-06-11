@@ -1,4 +1,5 @@
 # MinMover
+*Back to [[Mover|Movers-RosettaScripts]] page.*
 ## MinMover
 
 Does minimization over sidechain and/or backbone

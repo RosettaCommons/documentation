@@ -1,4 +1,5 @@
 # GenericSimulatedAnnealer
+*Back to [[Mover|Movers-RosettaScripts]] page.*
 ## GenericSimulatedAnnealer
 
 Allows finding global minima by sampling structures using SimulatedAnnealing. Simulated annealing is essentially a monte carlo in which the acceptance temperature starts high (permissive) to allow energy wells to be found globally, and is gradually lowered so that the structure can proceed as far into the energy well as possible. Like the GenericMonteCarlo, any movers can be used for monte carlo moves and any filters with a functional report\_sm function can be used for evaluation. All options available to GenericMonteCarlo are usable in the GenericSimulatedAnnealer (see above), and only options unique to GenericSimulatedAnnealer are described here. The specified filters are applied sequentially in the order listed and only if the pose passes the Metropolis criterion for all filters is the move accepted. See the documentation for GenericMonteCarlo for more details on acceptance.

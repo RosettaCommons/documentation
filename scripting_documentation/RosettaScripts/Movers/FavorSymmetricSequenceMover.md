@@ -1,4 +1,5 @@
 # FavorSymmetricSequence
+*Back to [[Mover|Movers-RosettaScripts]] page.*
 ## FavorSymmetricSequence
 
 Add ResidueTypeLinkingConstraints to the pose such that a symmetric sequence (CATCATCAT) will be favored during design. You should add this mover before sequence design is performed.

@@ -1,4 +1,5 @@
 # SetupNCS
+*Back to [[Mover|Movers-RosettaScripts]] page.*
 ## SetupNCS
 
 Establishes a non crystallographic symmetry (NCS) between residues. The mover sets dihedral constraints on backbone and side chains to force residues to maintain the same conformation. The amino acid type can be enforced too. This mover does not perform any minimization, so it is usually followed by MinMover or RelaxMover.
