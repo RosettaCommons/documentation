@@ -1,5 +1,4 @@
-"I want to do _x_. How do I do _x_?"
-===========
+#I want to sample X
 
 Typically, users come to an input structure with the notion that they want to perform a particular type of sampling, whether via running an application or using a RosettaScripts mover.
 Here, we have categorized Rosetta's RosettaScripts-enabled movers by the type of structural perturbation they perform.
@@ -55,6 +54,7 @@ Structure determination via fragment substitution
 	handles loop closure in ab initio relax circumstances
 -	AbscriptMover
 
+<!--
 Structure generation
 -------------
 -	[[BackboneGridSampler|BackboneGridSamplerMover]]
@@ -73,18 +73,42 @@ pose combination
 -	[[SetupForSymmetry|SetupForSymmetryMover]]  
 Necessary before doing anything else symmetrically
 -	[[AddHydrogens|AddHydrogensMover]]  
-adds and optimizes missing hydrogens
-<!--
+adds and optimizes missing hydrogens  
 -	AddMembraneMover  
 adds a membrane to a structure when needed
--	SymmetricAddMembraneMover
--->
+-	SymmetricAddMembraneMover  
 -	GrowPeptides
 -	From electron density:
 	-	IdealizeHelices
 	-	RecomputeDensityMap
 	-	CartesianSampler
-	
+-->
+Structure generation
+-------------
+-   [[BackboneGridSampler|BackboneGridSamplerMover]]
+-   BuildSheet
+-   [[BundleGridSampler|BundleGridSamplerMover]]
+-   [[PerturbBundle|PerturbBundleMover]]
+-   PerturbBundleHelix
+-   [[MakeBundle|MakeBundleMover]]
+-   MakeBundleHelix
+-   [[MakePolyX|MakePolyXMover]]
+-   BackboneSampler
+-   FitSimpleHelix
+-   InsertPoseIntoPoseMover
+pose combination
+-   [[build_Ala_pose|BuildAlaPoseMover]]
+-   [[SetupForSymmetry|SetupForSymmetryMover]]
+Necessary before doing anything else symmetrically
+-   [[AddHydrogens|AddHydrogensMover]]
+adds and optimizes missing hydrogens
+-   SymmetricAddMembraneMover
+-   GrowPeptides
+-   From electron density:
+    -   IdealizeHelices
+	-   RecomputeDensityMap
+	-   CartesianSampler
+
 
 Structure optimization
 -------------
@@ -205,7 +229,7 @@ The LoopHash algorithms constitute a very rapid way to draw on loop conformation
 -	CCDLoopCloser
 -	CCDLoopClosureMover
 -	DefineMovableLoops
--	[[GeneralizedKIC]] 
+-	[[GeneralizedKIC]]  
 An enormous, intricate system that largely operates on its own to perform kinematic loop closure on an arbitrary sequence of atoms.
 
 Docking
@@ -270,6 +294,7 @@ docking and design of noncanonical backbones (peptidomimetics)
 	-	[[FavorSequenceProfile|FavorSequenceProfileMover]]
 	-	[[FavorSymmetricSequence|FavorSymmetricSequenceMover]]
 	-	FindConsensusSequence
+
 Analysis
 -------------
 -	[[InterfaceAnalyzerMover]]
@@ -278,6 +303,27 @@ Analysis
 -	[[MetricRecorder|MetricRecorderMover]]
 -	LoadVarSolDistSasaCalculatorMover
 -	LoadZnCoordNumHbondCalculatorMover
+
+<!--
+Symmetric interfaces
+-------------
+-	[[SymRotamerTrialsMover|SymPackRotamersMover]]
+-	[[SymPackRotamersMover]]  
+-	SymDockProtocol  
+Symmetric oligomer docking
+-	Symmetrizer  
+Functionally an optimization mover; will take a pose with sufficiently small deviations from symmetry and resolve them.
+-	[[TaskAwareSymMinMover]]  
+[[SymMinMover]]  
+minimize with symmetry  
+-	[[DetectSymmetry|DetectSymmetryMover]]  
+-	GenericSymmetricSampler
+-	fold and dock
+	-	SymFoldandDockMoveRbJumpMover
+	-	SymFoldandDockSlideTrialMover
+	-	SymFoldandDockRbTrialMover  
+-	MPSymDockMover
+-->
 
 Symmetric interfaces
 -------------
@@ -295,10 +341,7 @@ minimize with symmetry
 -	fold and dock
 	-	SymFoldandDockMoveRbJumpMover
 	-	SymFoldandDockSlideTrialMover
-	-	SymFoldandDockRbTrialMover
-<!--
--	MPSymDockMover
--->
+	-	SymFoldandDockRbTrialMover  
 
 Molecular dynamics codes
 -------------

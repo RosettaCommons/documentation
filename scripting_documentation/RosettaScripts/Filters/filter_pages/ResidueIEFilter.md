@@ -18,4 +18,10 @@ IE statistics have been calculated for aromatics by Alex Ford (ZDOCK, prot/prot 
 |F          |  -7.3 (128) | 2        |  -7           |   1.9       |
 |Y          |  -7.4 (108) | 1.7      |  -6.5         |   2.2       |
 
+## See also
+
+* [[EnergyPerResidueFilter]]
+* [[HbondsToResidueFilter]]
+* [[ResidueDistanceFilter]]
+* [[ResidueBurialFilter]]
 

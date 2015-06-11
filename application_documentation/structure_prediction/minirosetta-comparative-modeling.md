@@ -81,7 +81,7 @@ Comparative modeling can be run using the minirosetta application with the follo
 -cm:aln_format grishin                                                        Alignment file format
 #-cm:aln_format general                                                       if general format is used
 -in:file:template_pdb 1be9A.pdb                                               List of template PDBs
--database path/to/rosetta/rosetta_database                                    Path to rosetta database
+-database path/to/rosetta/main/database                                       Path to rosetta database
 -nstruct 1                                                                    Number of output structures
 -out:file:silent t288_.silent.out                                             Use silent file output, use filename after this flag, default=default.out
 (or -out:pdb)                                                                 Use PDB file output, default=false

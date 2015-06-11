@@ -10,7 +10,7 @@ This document was last updated August 10, 2010, by Colin A. Smith. The correspon
 Code and Demo
 =============
 
-The code for the backrub application is in rosetta/rosetta\_source/src/apps/public/backrub.cc. An integration test and demo is located in rosetta/rosetta\_tests/integration/tests/backrub. Backrub moves are made with the BackrubMover. Side chain moves are made with the SidechainMover. Backbone phi/psi moves are made with the SmallMover.
+The code for the backrub application is in rosetta/main/source/src/apps/public/backrub.cc. An integration test and demo is located in rosetta/main/tests/integration/tests/backrub. Backrub moves are made with the BackrubMover. Side chain moves are made with the SidechainMover. Backbone phi/psi moves are made with the SmallMover.
 
 The additional example below simulates loop 6 of triosephosphate isomerase. **Note that the resfile uses residue numbering from the PDB. The pivot residues are specified using absolute internal residue numbering.**
 
@@ -45,7 +45,7 @@ start
 223 A NATAA
 230 A NATAA
 END_RESFILE
-backrub -database rosetta_database -s 2YPI.pdb -ignore_unrecognized_res -resfile 2YPI.resfile
+backrub -database /path/to/rosetta/main/database -s 2YPI.pdb -ignore_unrecognized_res -resfile 2YPI.resfile
         -pivot_residues 127 128 129 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178
 ```
 

@@ -11,7 +11,7 @@ This document was last updated July 27, 2014 by Roland A. Pache. The correspondi
 Code and Demo
 ===========
 
-The current application for this method is `       bin/loopmodel.<my_os>gccrelease      ` . The protocol is based on Kale Kundert's refactored KIC code. The main classes are `    src/protocols/kinematic_closure/KicMover      ` , which performs a localized kinematic perturbation to a peptide chain, `       src/protocols/loop_modeling/LoopBuilder.cc      `, which now allows the use of fragment data for the initial loop build (after discarding the native loop conformation), `       src/protocols/kinematic_closure/perturbers/FragmentPerturber      `, which samples loop conformations using coupled phi/psi/omega torsions from the given frament libraries, and `       src/protocols/comparative_modeling/LoopRelaxMover      `, which allows the combination with other loop modeling protocols. A basic usage example that briefly remodels an 8-residue loop is the `       KIC_with_fragments      ` integration test, which resides at `       rosetta_tests/integration/tests/KIC_with_fragments      `.
+The current application for this method is `       bin/loopmodel.<my_os>gccrelease      ` . The protocol is based on Kale Kundert's refactored KIC code. The main classes are `    src/protocols/kinematic_closure/KicMover      ` , which performs a localized kinematic perturbation to a peptide chain, `       src/protocols/loop_modeling/LoopBuilder.cc      `, which now allows the use of fragment data for the initial loop build (after discarding the native loop conformation), `       src/protocols/kinematic_closure/perturbers/FragmentPerturber      `, which samples loop conformations using coupled phi/psi/omega torsions from the given frament libraries, and `       src/protocols/comparative_modeling/LoopRelaxMover      `, which allows the combination with other loop modeling protocols. A basic usage example that briefly remodels an 8-residue loop is the `       KIC_with_fragments      ` integration test, which resides at `       main/tests/integration/tests/KIC_with_fragments      `.
 
 
 References
@@ -45,7 +45,7 @@ Quick Start Example
 The following command line will perform a *de novo* reconstruction of a protein loop (the starting coordinates will be discarded and the loop will be modeled from scratch), followed by all-atom refinement with extra rotamers. In order to discard the starting coordinates of the loop, be sure the 'Extend loop' field in the loop definition file is set to '1' (this ensures that an initial loop build is performed and idealizes loop bond lengths and angles; for details see [Input Files](#Input-Files) and [Options](#Options)).
 
 ```
-rosetta/main/source/bin/loopmodel.<my_os>gccrelease -database <rosetta_database> -loops:remodel perturb_kic_with_fragments
+rosetta/main/source/bin/loopmodel.<my_os>gccrelease -database </path/to/rosetta/main/database> -loops:remodel perturb_kic_with_fragments
 -loops:refine refine_kic_with_fragments -in:file:s <my_starting_structure>.pdb -in:file:fullatom -loops:loop_file
 <my_loopfile>.loop -nstruct <num_desired_models> -ex1 -ex2 -overwrite -loops:frag_sizes 9 3 1 -loops:frag_files 
 <my_starting_structure>.200.9mers.gz <my_starting_structure>.200.3mers.gz none     

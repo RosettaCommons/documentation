@@ -11,3 +11,10 @@ Looks for voids at protein/protein interfaces using Will Sheffler's packstat. Th
 -   jump: Which jump to calculate InterfaceHoles across?
 -   threshold: return false if above this number
 
+## See Also:
+
+* [[Protein-protein docking|docking-protocol]]
+* [[CavityVolumeFilter]]
+* [[ShapeComplementarityFilter]]
+* [[SSShapeComplementarityFilter]]
+* [[ExposedHydrophobicsFilter]]

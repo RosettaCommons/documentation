@@ -59,16 +59,16 @@ Using the templates in the `       run_dir      ` the `       make_folders_resfi
 Running DougsDockDesignMinimizeInterface Protocol
 =================================================
 
-To run the protocol modifications need to made to files in the database. In the file `       rosetta_database/chemical/residue_type_sets/fa_standard/residue_types.txt      ` all of the paths to the residue type parameter files under the L-NCAA heading need to be uncommented by removing the "\#" from the front of the line. Additionally the rotamer libraries for the NCAA are not provided in the default Rosetta database because they are more than 400MB. The rotamer libraries for the NCAAs added in the accompanying publication are provided as supplemental information.
+To run the protocol modifications need to made to files in the database. In the file `       database/chemical/residue_type_sets/fa_standard/residue_types.txt      ` all of the paths to the residue type parameter files under the L-NCAA heading need to be uncommented by removing the "\#" from the front of the line. Additionally the rotamer libraries for the NCAA are not provided in the default Rosetta database because they are more than 400MB. The rotamer libraries for the NCAAs added in the accompanying publication are provided as supplemental information.
 
-**Note:** Turning on all of the additional residue types dramatically increases the number of residue types and the memory footprint of Rosetta. The memory foot print can be reduced by commenting out unnecessary patches in the `       rosetta_database/chemical/residue_type_sets/fa_standard/patches.txt      ` file. For the DougsDockDesignMinimizeProtocol all but the `       NtermProteinFull.txt      ` and `       CtermProteinFull.txt      ` can be safely commented out by placing "\#" symbols at the beginning of each line of the patches.txt except for the lines that say `       NtermProteinFull.txt      ` " and " `       CtermProteinFull.txt      ` .
+**Note:** Turning on all of the additional residue types dramatically increases the number of residue types and the memory footprint of Rosetta. The memory foot print can be reduced by commenting out unnecessary patches in the `       database/chemical/residue_type_sets/fa_standard/patches.txt      ` file. For the DougsDockDesignMinimizeProtocol all but the `       NtermProteinFull.txt      ` and `       CtermProteinFull.txt      ` can be safely commented out by placing "\#" symbols at the beginning of each line of the patches.txt except for the lines that say `       NtermProteinFull.txt      ` " and " `       CtermProteinFull.txt      ` .
 
 To run the protocol as in the accompanying publication preform the following commands starting at the demo directory.
 
 ```
 $ cd run_dir
 $ cd pos_610_MPA
-$ /PATH/TO/ROSETTA/bin/doug_dock_design_min_mod2_cal_cal.macosgccrelease -database /PATH/TO/rosetta_database -s ../../inputs/1NX1_clean_repack_min_all.pdb -resfile ../resfile_pos_603_MPA -nstruct 255 -inner_num 45 -pert_num 25 -ia_ener 100 -use_input_sc -pdb_gz
+$ /PATH/TO/ROSETTA/bin/doug_dock_design_min_mod2_cal_cal.macosgccrelease -database /PATH/TO/rosetta/main/database -s ../../inputs/1NX1_clean_repack_min_all.pdb -resfile ../resfile_pos_603_MPA -nstruct 255 -inner_num 45 -pert_num 25 -ia_ener 100 -use_input_sc -pdb_gz
 ```
 
 The above command generates 255 structures and will take approximately 5 minutes per structure depending on your hardware.

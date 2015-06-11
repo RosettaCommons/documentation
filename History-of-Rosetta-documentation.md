@@ -1,9 +1,9 @@
 #History of Rosetta documentation
 
-Historically, Rosetta has had four major types/sources/locations of documentation:
-* in-code documentation that documents classes and functions very granularly, the Doxygen documentation
-* with-the-code application documentation, originally written in Doxygen as well, but ported to this wiki instead (the "Gollum wiki", or the "documentation wiki")
-* a private MediaWiki (think Wikipedia) wiki, called RosettaWiki
+Historically, Rosetta has had five major types/sources/locations of documentation:
+* In-code documentation that documents classes and functions very granularly, the Doxygen documentation
+* With-the-code application documentation, originally written in Doxygen as well, but ported to this wiki instead (the "Gollum wiki", or the "documentation wiki")
+* A private MediaWiki (think Wikipedia) wiki, called RosettaWiki
 * Collections of demos, usually in a folder or repository associated with the source code
 * Supplemental materials of various papers (important ones are probably in the [[Rosetta Canon]])
 
@@ -36,9 +36,13 @@ Gollum Wiki
 
 XRW 2015
 ==========
-Despite all the effort we put in to writing documentation, it has never been considered good. Part of the problem is that organization has always been an issue
+Despite all the effort we put in to writing documentation, it has never been considered good. Part of the problem is that organization has always been a challenge. 
+Rosetta is designed to solve [the hardest problem we know about](http://xkcd.com/1430), and is thus naturally a very complex program. 
+Most Rosetta users come in understanding the science but with little knowledge of using command line interfaces to interact with supercomputers, and are understandably frustrated at the unfamiliar equipment and disinclined to forgive the software that they're having trouble with. 
+Most Rosetta code (and documentation) is written by amateur programmers who are professional scientists, which leads to awkward code and only afterthought documentation.
 
-The Rosetta community sought to improve its documentation and organized a week-long meeting during which seven developers would contribute to that cause.
+In June 2015, the Rosetta community sought to improve its documentation and organized a week-long meeting during which seven developers would meet for 15-hour days to write everything they knew and organize everything they could find about Rosetta. 
+This project was called e**X**treme **R**osetta **W**eek 2015: XRW2015.
 
 We primarily worked on the following projects:
 * Reorganization
@@ -50,29 +54,30 @@ We primarily worked on the following projects:
 		* Removal of specific files from top-level directories
 	* Indices
 		* Glossary of terms
-		* Glory of people
-		* Gl... something of servers
+		* List of public servers
 		* more subfolders for e.g. applications, RosettaScripts, etc.
 			* Index pages for every directory
 			* individual pages for every RosettaScripts tag
 
 * Meta-Rosetta
-	* Analyzing results
-	* Choosing sampling scale
-	* Problems that arise from macromolecular modeling
-	* External educational resources
-	* Rosetta history
-	* Logic of solving a biological problem
-	* Incorporating experimental data as constraints
-	* Rosetta literary canon
+	* [[Analyzing results]]
+	* [[Choosing sampling scale|rosetta_basics/Rosetta-on-different-scales]]
+	* [[Problems that arise in macromolecular modeling|rosetta_basics/Challenges-in-Macromolecular-Modeling]]
+	* [[External educational resources|rosetta_basics/Resources-for-learning-biophysics-and-computational-modeling]]
+	* [[Rosetta history|Rosetta timeline]]
+	* Logic of [[solving a biological problem|rosetta_basics/Solving-a-Biological-Problem]]
+	* [[Incorporating experimental data as constraints]]
+	* [[Rosetta literary canon|Rosetta Canon]]
+
+* Demos
+	* Most of the Rosetta demos' READMEs were converted into a separate wiki. It needs to remain separate for technical reasons, and can't display the demo inputs, etc, but allows for easy reading of the demo READMEs.
 
 * Additional information
-	* Remaining MediaWiki and externally available but generally useful resources ported
-	* All demo and protocol capture readmes are incorporated into the Gollum wiki and formatted 
+	* Remaining MediaWiki and externally available but generally useful resources ported (like long emails to the developers' mailing list)
 	* Peptidomimetics documentation
 
-
-
-## About this document specifically
-
-This directory contains a static capture of the Rosetta documentation wiki.  It is not supported as a user-editable wiki, but a fixed capture of its contents are released each week with new code releases.  Your weekly release should have a documentation/_site directory, which contains Home.html.  Load Home.html in your browser of choice and the documentation will work as a non-editable wiki in the browser.
+Searchability
+=============
+A large part of the Rosetta documentation's problem is searchability and discoverability of what's already been written. 
+We have attempted to address both problems with the XRW2015 rewrite, but are somewhat hobbled by the available search tools. 
+Gollum's embedded search tool is not very good, and using Google's page search is effective but injects ads.

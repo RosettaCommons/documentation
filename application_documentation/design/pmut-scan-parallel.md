@@ -57,7 +57,7 @@ Database location - REQUIRED
 ----------------------------
 
 ```
--database <path/to/rosetta/rosetta_database>     Specifies the location of the rosetta_database
+-database <path/to/rosetta/main/database>     Specifies the location of the rosetta_database
 ```
 
 Application Options

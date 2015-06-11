@@ -10,7 +10,7 @@ This document was last updated March 26th, 2015, by Shane Ó Conchúir. The corr
 Code and Demo
 =============
 
-The code for the sequence\_tolerance application is in src/apps/public/sequence\_tolerance.cc. An integration test and demo is located in rosetta/rosetta\_tests/integration/tests/sequence\_tolerance. The abstract genetic algorithm classes are located in the protocols::genetic\_algorithm namespace. The concrete subclasses are located in the protocols::multistate\_design namespace.
+The code for the sequence\_tolerance application is in src/apps/public/sequence\_tolerance.cc. An integration test and demo is located in rosetta/main/tests/integration/tests/sequence\_tolerance. The abstract genetic algorithm classes are located in the protocols::genetic\_algorithm namespace. The concrete subclasses are located in the protocols::multistate\_design namespace.
 
 References
 ==========
@@ -207,7 +207,7 @@ AA:106:F AA:107:D AA:108:T AA:109:W AA:110:V
 This is the command line that would be used to run sequence\_tolerance:
 
 ```
-sequence_tolerance -database rosetta_database -s mystructure_0001_low.pdb
+sequence_tolerance -database /path/to/rosetta/main/database -s mystructure_0001_low.pdb
 -resfile myresfile.resfile -ex1 -ex2 -ex1aro -ex2aro -extrachi_cutoff 0
 -seq_tol:fitness_master_weights 1 1 1 2 -ms:generations 1 -ms:pop_size 3
 -ms:checkpoint:prefix myprefix -ms:checkpoint:interval 200

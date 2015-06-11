@@ -18,4 +18,12 @@ Returns the Boltzmann weighted sum of a set of positive and negative filters. Th
 
 Useful for balancing counteracting objectives.
 
+## See also
+
+* [[CompoundStatementFilter]
+* [[CombinedValueFilter]
+* [[CalculatorFilter]]
+* [[ReplicateFilter]]
+* [[SigmoidFilter]]
+
 

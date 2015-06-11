@@ -73,13 +73,13 @@ Database location - REQUIRED
 ----------------------------
 
 ```
--database <path/to/rosetta/rosetta_database>     Specifies the location of the rosetta_database
+-database <path/to/rosetta/main/database>     Specifies the location of the rosetta_database
 ```
 
 Weights file - REQUIRED
 -----------------------
 
-The hpatch score is activated by giving the term a nonzero weight in the energy function. The score:weights flag can be used to specify a different set of weights for a simulation. By default, the option will look for weights files in the database directory rosetta/rosetta\_database/scoring/weights/ or in the current directory. The file design\_hpatch.wts is distributed with Rosetta and has the standard Rosetta energy function weights with the hpatch score turned on and reweighted reference energies.
+The hpatch score is activated by giving the term a nonzero weight in the energy function. The score:weights flag can be used to specify a different set of weights for a simulation. By default, the option will look for weights files in the database directory rosetta/main/database/scoring/weights/ or in the current directory. The file design\_hpatch.wts is distributed with Rosetta and has the standard Rosetta energy function weights with the hpatch score turned on and reweighted reference energies.
 
 ```
 -score:weights design_hpatch.wts  This flag instructs the application to use the weights specified in the database file 'design_hpatch.wts'

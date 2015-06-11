@@ -10,7 +10,7 @@ Last edited Aug 20 2010 by Ingemar André. Code by Ingemar Andre.
 Code and Demo
 =============
 
-All the code is contained in the Python script rosetta/rosetta\_source/src/apps/pilot\_apps/andre/make\_symmdef\_file\_denovo.py.
+All the code is contained in the Python script rosetta/main/source/src/apps/pilot\_apps/andre/make\_symmdef\_file\_denovo.py.
 
 Purpose
 ===========================================
@@ -56,7 +56,7 @@ common options:
 Expected Outputs
 ================
 
-A sample command line to generate a trimer. The same command was used to create the symmetry definition for the symmetric docking integration test (rosetta/rosetta\_tests/integration/tests/symmetric\_docking):
+A sample command line to generate a trimer. The same command was used to create the symmetry definition for the symmetric docking integration test (rosetta/main/tests/integration/tests/symmetric\_docking):
 
 ```
 make_symmdef_file_denovo.py -symm_type cn -nsub 3

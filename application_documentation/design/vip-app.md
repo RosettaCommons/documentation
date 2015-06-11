@@ -14,11 +14,11 @@ This code uses the RosettaHoles approach to identify problematic buried cavities
 
 For the full workflow check out:
 
-`       rosetta_demos/public/vip      `
+`       demos/public/vip      `
 
 For a 'minimal' demo example (that omits the post-mutation relaxation step), see
 
-`       rosetta_tests/integration/tests/vip/      `
+`       tests/integration/tests/vip/      `
 
 References
 ==========

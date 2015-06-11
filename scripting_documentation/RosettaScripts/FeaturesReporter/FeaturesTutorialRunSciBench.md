@@ -84,7 +84,7 @@ Sample Source Templates
 
 The features scientific benchmark has sample source templates which are used to setup configuration information to do feature extraction for an input dataset.
 
-Each *sample\_source template* is a folder in *rosetta\_tests/features/sample\_sources/* with the following files:
+Each *sample\_source template* is a folder in *main/tests/features/sample\_sources/* with the following files:
 
 -   **submit.py** : This is a python script that implements and runs a class derived from the *BaseSampleSource* .
 

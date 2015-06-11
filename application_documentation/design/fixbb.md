@@ -124,7 +124,7 @@ Annealer
 Other
 
 ```
--database <path/to/rosetta/rosetta_database>     Specify the location of the rosetta_database (required)
+-database <path/to/rosetta/main/database>     Specify the location of the rosetta_database (required)
 
 -overwrite             Overwrite the output files, even if they already exist.
 

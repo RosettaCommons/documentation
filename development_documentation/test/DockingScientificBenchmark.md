@@ -51,7 +51,7 @@ Running
 
 3.  Investigate results
 
-             cd rosetta_tests/scientific/cluster/docking_local_refine/outputs
+             cd main/tests/scientific/cluster/docking_local_refine/outputs
 
 ##See Also
 

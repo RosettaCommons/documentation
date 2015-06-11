@@ -43,7 +43,7 @@ Command Line Options
 **Sample command**
 
 ```
-relax.linuxgccrelease -database ~/rosetta_database -in:file:s input.pdb -in:file:fullatom -native 1a19.pdb -out:file:silent default.out -relax:quick
+relax.linuxgccrelease -database /path/to/rosetta/main/database -in:file:s input.pdb -in:file:fullatom -native 1a19.pdb -out:file:silent default.out -relax:quick
 ```
 
 Relax can take all general file IO options common to all Rosetta applications written with JD2: (see JD2 documentation for details)

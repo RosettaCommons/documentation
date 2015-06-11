@@ -23,11 +23,11 @@ It was necessitated by that fact that David Baker's postdocs, the early Rosetta 
 
 
 * 2003-08
-    * The first [[RosettaCON]] meeting. RosettaCON is an annual meeting of Rosetta users and developers from around the world.
+    * The first [[RosettaCON|Glossary#rosettacon]] meeting. RosettaCON is an annual meeting of Rosetta users and developers from around the world.
 As Rosetta grew, the Rosetta development world was no longer confined to just David Baker's lab.
 
 * ?????TODO
-    * [Robetta|Rosetta-Servers] goes online, serving fragment file generation and protein structure prediction.
+    * [[Robetta|Rosetta-Servers]] goes online, serving fragment file generation and protein structure prediction.
 
 * 2003-11
     * Publication of Top7, the first design of a novel topology. [Kuhlman, et al.](http://www.sciencemag.org/content/302/5649/1364) 
