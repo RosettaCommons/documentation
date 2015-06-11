@@ -22,7 +22,7 @@ The diagram sketches out different experiments available on a logarithmic nstruc
 Assume computer time is positively correlated with nstruct.
 
 TODO: ask Elizabeth to image map this
-![Diagram: log scale in nstruct Rosetta protocols](uploads/nstruct_scale.png "log scale in nstruct Rosetta protocols")
+![Diagram: log scale in nstruct Rosetta protocols](nstruct_scale.png "log scale in nstruct Rosetta protocols")
 
 10<sup>0</sup>
 ------------------
