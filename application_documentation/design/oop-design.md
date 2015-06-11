@@ -10,10 +10,10 @@ Last updated November 30, 2012;
 Code and Demo
 =============
 
--   Application source code: `        rosetta/rosetta_source/src/apps/public/noncanonical_backbones/oop_design.cc       `
--   Mover source code: `        rosetta/rosetta_source/src/protocols/simple_moves/oop/OopRandomSmallMover.cc       `
--   Mover source code: `        rosetta/rosetta_source/src/protocols/simple_moves/oop/OopRandomPuckMover.cc       `
--   For a demonstration of a basic run see integration folder ( `        rosetta/rosetta_tests/integration/tests/oop_design/       ` ) and demo folder ( `        rosetta/rosetta_demos/oop_design       ` ).
+-   Application source code: `        rosetta/main/source/src/apps/public/noncanonical_backbones/oop_design.cc       `
+-   Mover source code: `        rosetta/main/source/src/protocols/simple_moves/oop/OopRandomSmallMover.cc       `
+-   Mover source code: `        rosetta/main/source/src/protocols/simple_moves/oop/OopRandomPuckMover.cc       `
+-   For a demonstration of a basic run see integration folder ( `        rosetta/main/tests/integration/tests/oop_design/       ` ) and demo folder ( `        rosetta/demos/public/oop_design       ` ).
 
 Documentation for the oop\_design application
 =============================================

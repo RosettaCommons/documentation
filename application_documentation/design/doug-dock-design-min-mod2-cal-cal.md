@@ -10,7 +10,7 @@ Documentation was last updated December 2011, by Doug Renfrew (renfrew@nyu.edu).
 Code and Demo
 =============
 
-The main mover is located in the application code at `       rosetta_source/src/apps/public/scenarios/doug_dock_design_min_mod2_cal_cal.cc      ` . The integration tests can be found at `       rosetta_tests/integration/tests/doug_dock_design_min_mod2_cal_cal/      ` . The demo can be found at `       rosetta_demos/doug_dock_design_min_mod2_cal_cal/      ` .
+The main mover is located in the application code at `       rosetta/main/source/src/apps/public/scenarios/doug_dock_design_min_mod2_cal_cal.cc      ` . The integration tests can be found at `       rosetta/main/tests/integration/tests/doug_dock_design_min_mod2_cal_cal/      ` . The demo can be found at `       rosetta/demos/public/doug_dock_design_min_mod2_cal_cal/      ` .
 
 References
 ==========
