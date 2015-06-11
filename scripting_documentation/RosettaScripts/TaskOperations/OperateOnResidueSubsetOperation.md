@@ -1,4 +1,5 @@
 #OperateOnResidueSubset
+*Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ##OperateOnResidueSubset
 
     <OperateOnResidueSubset name=(%string) selector=(%string) >

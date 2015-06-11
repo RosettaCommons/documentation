@@ -1,4 +1,5 @@
 # DesignByResidueCentrality
+*Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## DesignByResidueCentrality
 
 Selects residues for design that have the highest value of residue centrality. Centrality is determined by the intra-protein interaction network. Residues are defined as interacting and receive an edge in the network if they have atoms that are \<= 4 angstroms apart. The residue centrality is the average of the average shortest path from each node to all other nodes, and can be used to identify residues that are structurally or functionally important.

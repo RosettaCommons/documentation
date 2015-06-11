@@ -1,4 +1,5 @@
 # ExtraRotamersGeneric
+*Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## ExtraRotamersGeneric
 
 During packing, extra rotamers can be used to increase sampling. Use this TaskOperation to specify for all residues at once what extra rotamers should be used. Note: The *extrachi\_cutoff* is used to determine how many neighbors a residue must have before the extra rotamers are applied. For example of you want to apply extra rotamers to all residues, set *extrachi\_cutoff=0* . See the Extra Rotamer Commands section on the [[resfiles|resfiles#Extra-Rotamer-Commands:]] page for additional details.

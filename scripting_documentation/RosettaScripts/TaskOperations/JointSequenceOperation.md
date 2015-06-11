@@ -1,4 +1,5 @@
 # JointSequence
+*Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## JointSequence
 
     <JointSequence use_current=(true &bool)  use_native=(false &bool) filename=(&string) native=(&string) use_natro=(false &bool) 

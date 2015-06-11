@@ -1,4 +1,5 @@
 # InteractingRotamerExplosion
+*Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## InteractingRotamerExplosion
 
 Task Operation that oversamples rotamers that score well with a specified target residue (or set thereof). Note that this TaskOP by itself does not select or deselect any residue positions for design. Rather, it builds extra rotamers of the residue types and at positions that were allowed by previously used TaskOPs. This means that this TaskOP should be used in conjunction with other TaskOPs that take care of which regions to design.

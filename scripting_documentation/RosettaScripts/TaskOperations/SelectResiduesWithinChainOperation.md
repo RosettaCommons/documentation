@@ -1,4 +1,5 @@
 # SelectResiduesWithinChain
+*Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## SelectResiduesWithinChain
 
 Selects a list of residues within a chain for design/repacking according to internal chain numbering. If modify\_unselected\_residues is true all other residues are set to norepack.

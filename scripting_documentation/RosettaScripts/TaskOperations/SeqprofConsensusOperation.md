@@ -1,4 +1,5 @@
 # SeqprofConsensus
+*Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## SeqprofConsensus
 
 Read PSSM sequence profiles and at each position allow only identities that pass a certain threshold in the PSSM. The code mentions symmetry-support, but I haven't tested this.
