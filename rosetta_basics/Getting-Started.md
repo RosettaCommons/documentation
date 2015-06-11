@@ -44,7 +44,7 @@ The other inputs are the choice of [[which Rosetta protocol|Solving-a-Biological
 
 Rosetta software, as a whole, is written to run on supercomputers, but can be run on [[many different scales|Rosetta-on-different-scales]].
 Most applications can give "dry runs" for testing on any computer.
-A few applications that can run on laptop computers.
+A few applications can run on laptop computers.
 There are applications than can run on lab-scale powerful computers (12-30 core range).
 Most applications assume you have access to tens of thousands of hours of computer time to accumulate enough results to answer your question.
 The later sections of this document describe installing or using Rosetta at those different scales.
@@ -75,7 +75,7 @@ As a consequence, you will need to [[compile|http://en.wikipedia.org/wiki/Compil
 
 Local installation implies that one will be using Rosetta through a [[command line interface (or terminal)|http://en.wikipedia.org/wiki/Command-line_interface]].
 For local users, you are unlikely to want to install Rosetta to the entire system. 
-Rosetta is quite happy to be compiled and installed by regular users without administrative rights - this is how the developers use it.
+Rosetta is quite happy to be compiled and installed by regular users without administrative rights — this is how the developers use it.
 You may need administrative rights to install [[dependencies]].
 
 * First untar/uncompress your downloaded copy of the code (`tar -xvzf Rosetta[releasenumber].tar.gz`).
@@ -101,7 +101,7 @@ We cannot help set up Windows/Linux dual boots, but we can help with Rosetta on 
 If you'll be running Rosetta on a scientific computation cluster, there may already be a version of Rosetta installed for general usage.
 Talk to your cluster administrator to see if there is a centrally-provided version available for your use.
 
-If your cluster doesn't have Rosetta already installed, or you wish to use a different version than the centrally installed one, don't worry - Rosetta is designed to be compiled and installed by regular users without administrative rights. 
+If your cluster doesn't have Rosetta already installed, or you wish to use a different version than the centrally installed one, don't worry — Rosetta is designed to be compiled and installed by regular users without administrative rights. 
 As long as commonly available compilation tools are available for your use, you should be able to build and run Rosetta in your user directory without cluster administrator involvement. 
 Just treat it like a [[local install into userspace|Getting-Started#installation-on-mac-linux]].
 

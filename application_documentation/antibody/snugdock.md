@@ -1,2 +1,11 @@
-#SnugDock
-Documentation pending... In the mean time see [[Sircar A and Gray JJ (2010)|doi:10.1371/journal.pcbi.1000644]].
+# SnugDock
+
+## Authors
+Aroop Sircar and Jeffery J. Gray
+
+## Publication
+[[SnugDock: Paratope Structural Optimization during Antibody-Antigen Docking Compensates for Errors in Antibody Homology Models|http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000644]]
+
+## Overview
+
+The author has provided no documentation on this wiki, but the paper is quite good and freely available.
