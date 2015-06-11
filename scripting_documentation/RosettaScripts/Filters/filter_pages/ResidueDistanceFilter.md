@@ -12,8 +12,12 @@ Either \*res\_num or \*pdb\_num may be specified for res1 and res2. See [[Rosett
 
 ## See Also
 
-* [[AtomicDistanceFilter]]
-* [[AtomicContactFilter]]
 * [[AtomicContactCountFilter]]
+* [[AtomicContactFilter]]
+* [[AtomicDistanceFilter]]
+* [[EnergyPerResidueFilter]]
+* [[HbondsToResidueFilter]]
+* [[ResidueBurialFilter]]
 * [[ResidueCountFilter]]
+* [[ResidueInteractionEnergyFilter]]
 

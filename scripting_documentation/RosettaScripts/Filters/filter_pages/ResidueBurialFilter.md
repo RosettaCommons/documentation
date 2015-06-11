@@ -12,4 +12,10 @@ How many residues are within an interaction distance of target\_residue across t
 -   residue\_fraction\_buried: what fraction of the total residues defined as designable by the taskfactory should actually be buried in order to return false. The default (0.0001) effectively means that 1 suffices. Set to 1.0 if you want all residues to be buried.
 -   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
 
+## See also
+
+* [[EnergyPerResidueFilter]]
+* [[HbondsToResidueFilter]]
+* [[ResidueDistanceFilter]]
+* [[ResidueIEFilter]]
 
