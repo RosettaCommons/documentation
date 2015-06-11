@@ -185,7 +185,7 @@ See [[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScri
 
 **[[ExtractAsymmetricUnit|ExtractAsymmetricUnitMover]]** - Turn symmetric pose into a nonsymmetric pose (inverse of SetupForSymmetry)
 
-**[[ExtractSubpose|ExtractSubposeMover]]** - (Developer) Extracts a subset of a symmetric pose without modifying the original
+**[[ExtractSubpose|ExtractSubposeMover]]** - (Developer release only) Extracts a subset of a symmetric pose without modifying the original
 
 **[[ExtractAsymmetricPose|ExtractAsymmetricPoseMover]]** - (similar to ExtractAsymmetricUnit) Turns symmetric pose into nonsymmetric pose
 
@@ -193,7 +193,7 @@ See [[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScri
 
 **[[SymMinMover]]** - Symmetric version of MinMover
 
-**[[TaskAwareSymMinMover]]** - (developer) Similar to SymMinMover, but allows minimization of only certain residues
+**[[TaskAwareSymMinMover]]** - (developer release only) Similar to SymMinMover, but allows minimization of only certain residues
 
 ### Kinematic Closure Movers
 
@@ -217,51 +217,51 @@ See [[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScri
 
 **[[ModifyVariantType|ModifyVariantTypeMover]]** - Adds or removes variant types of a set of residues
 
-**[[MotifGraft|MotifGraftMover]]** - 
+**[[MotifGraft|MotifGraftMover]]** - Grafts a motif into pose(s)
 
-**[[LoopCreationMover]]** - 
+**[[LoopCreationMover]]** - (developer release only) Build loops to bridge gaps in a structure
 
-**[[SegmentHybridize|SegmentHybridizeMover]]** - 
+**[[SegmentHybridize|SegmentHybridizeMover]]** - Closes loops using fragment insertion and cartesian minimization
 
-**[[Disulfidize|DisulfidizeMover]]** - 
+**[[Disulfidize|DisulfidizeMover]]** - Finds potential disulfide bond positions based on Calpha - Cbeta distance
 
-**[[Dssp|DsspMover]]** - 
+**[[Dssp|DsspMover]]** - Calculates secondary structure using dssp
 
-**[[AddChain|AddChainMover]]** - 
+**[[AddChain|AddChainMover]]** - Adds a PDB file to an existing pose
 
-**[[AddChainBreak|AddChainBreakMover]]** - 
+**[[AddChainBreak|AddChainBreakMover]]** - Add a break at a specific position
 
-**[[FoldTreeFromLoops|FoldTreeFromLoopsMover]]** - 
+**[[FoldTreeFromLoops|FoldTreeFromLoopsMover]]** - Defines a fold tree based on the end points of a loop
 
-**[[Superimpose|SuperimposeMover]]** - 
+**[[Superimpose|SuperimposeMover]]** - Superimpose the current pose on another stored pose
 
-**[[SetSecStructEnergies|SetSecStructEnergiesMover]]** - 
+**[[SetSecStructEnergies|SetSecStructEnergiesMover]]** - Biases the score toward particular secondary structural elements
 
-**[[SwitchChainOrder|SwitchChainOrderMover]]** - 
+**[[SwitchChainOrder|SwitchChainOrderMover]]** - Reorders (or removes) the chains in a pose 
 
-**[[LoadPDB|LoadPDBMover]]** - 
+**[[LoadPDB|LoadPDBMover]]** - Replaces current PDB with another
 
-**[[LoopLengthChange|LoopLengthChangeMover]]** - 
+**[[LoopLengthChange|LoopLengthChangeMover]]** - Changes the length of a loop
 
-**[[MakePolyX|MakePolyXMover]]** - 
+**[[MakePolyX|MakePolyXMover]]** - Converts a pose into a polymer of a single amino acid type
 
-**[[MembraneTopology|MembraneTopologyMover]]** - 
+**[[MembraneTopology|MembraneTopologyMover]]** - Inserts membrane topology from a membrane span file into a pose
 
-**[[Splice|SpliceMover]]** - 
+**[[Splice|SpliceMover]]** - (developer release only) Various methods of splicing segments into the current pose
 
-**[[SwitchResidueTypeSetMover]]** - 
+**[[SwitchResidueTypeSetMover]]** - Toggles between centroid and full atom modes
 
-**[[FavorNativeResidue|FavorNativeResidueMover]]** - 
+**[[FavorNativeResidue|FavorNativeResidueMover]]** - Constrains the residue type by favoring the type present when applied
 
-**[[FavorSequenceProfile|FavorSequenceProfileMover]]** - 
+**[[FavorSequenceProfile|FavorSequenceProfileMover]]** - Constrains the residue type using one of several profiles
 
-**[[SetTemperatureFactor|SetTemperatureFactorMover]]** - 
+**[[SetTemperatureFactor|SetTemperatureFactorMover]]** - Sets the temperature factor column in a PDB file
 
-**[[PSSM2Bfactor|PSSM2BfactorMover]]** - 
+**[[PSSM2Bfactor|PSSM2BfactorMover]]** - Sets the temperature factor column in a PDB file based on PSSM score
 
-**[[RigidBodyTransMover]]** - 
+**[[RigidBodyTransMover]]** - Translates a chain along an axis
 
-**[[RollMover]]** - 
+**[[RollMover]]** - Rotates pose a given angle over a given axis
 
 **[[RemodelMover]]** (including building disulfides) - 
 
