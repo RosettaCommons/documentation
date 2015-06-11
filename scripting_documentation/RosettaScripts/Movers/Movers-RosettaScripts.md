@@ -100,23 +100,23 @@ These are movers that should be usable in most cases with most systems
 
 **[[PackRotamersMoverPartGreedy|PackRotamersMoverPartGreedyMover]]** - Optimizes around target residues and repacks sidechains
 
-**[[MinMover]]** - Minimizes either the sidechains and/or backbone
+**[[MinMover]]** - Minimizes sidechains and/or backbone
 
-**[[CutOutDomain|CutOutDomainMover]]** - 
+**[[CutOutDomain|CutOutDomainMover]]** - Uses a template to remove specified residues
 
-**[[TaskAwareMinMover]]** - 
+**[[TaskAwareMinMover]]** - Minimizes sidechains and/or backbone with positions specified by TaskOperations
 
-**[[MinPackMover]]** - 
+**[[MinPackMover]]** - Packs and minimizes a side chain, calls Monte Carlo
 
-**[[Sidechain|SidechainMover]]** - 
+**[[Sidechain|SidechainMover]]** - "off rotamer" sidechain-only moves
 
-**[[SidechainMC|SidechainMCMover]]** - 
+**[[SidechainMC|SidechainMCMover]]** - "off rotamer" sidechain-only Monte Carlo sampling
 
-**[[RotamerTrialsMover]]** - 
+**[[RotamerTrialsMover]]** - Cycles through residues to find the lowest energy rotamer for each
 
-**[[RotamerTrialsMinMover]]** - 
+**[[RotamerTrialsMinMover]]** - Cycles through residues to find each lowest energy rotamer in the context of the current pose
 
-**[[ConsensusDesignMover]]** - 
+**[[ConsensusDesignMover]]** - Mutates residues to create a consensus of multiple sequences, while considering the scores of the residues
 
 ### Idealize/Relax
 
