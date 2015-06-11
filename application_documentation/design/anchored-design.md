@@ -1,7 +1,6 @@
 #AnchoredDesign application
 
-Metadata
-========
+#####Metadata
 
 Author: Steven Lewis (smlewi - at - gmail.com)
 
