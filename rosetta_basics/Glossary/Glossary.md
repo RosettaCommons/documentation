@@ -404,6 +404,13 @@ Global Distance Test. A metric used in CASP instead of **RMSD**, which is less s
 
 A Rosetta-specific name for GDT. 
 
+#### Git
+The most widely used distributed version control system, used to control the Rosetta code. 
+We use GitHub for hosting.
+
+#### Gollum
+[Gollum](http://github.com/gollum/gollum#gollum----a-wiki-built-on-top-of-git) (external link) is a Git-based wiki, used to create this wiki you are reading.
+
 #### gradient
 
 #### gradient-based minimization
