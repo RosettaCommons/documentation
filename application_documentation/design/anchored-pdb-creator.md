@@ -3,20 +3,20 @@
 Metadata
 ========
 
-Author: Steven Lewis (smlewi@gmail.com)
+Author: Steven Lewis (smlewi -- at -- gmail.com)
 
-Code and documentation by Steven Lewis (smlewi@gmail.com). This document was last updated 6/24/11 by Steven Lewis. The PI was Brian Kuhlman, (bkuhlman@email.unc.edu).
+Code and documentation by Steven Lewis (smlewi -- at -- gmail.com).
+The PI was Brian Kuhlman, (bkuhlman -- at -- email.unc.edu).
 
-Example runs
+Example runs and code location
 ============
 
-The code is at `       rosetta/rosetta_source/src/apps/public/interface_design/anchored_design/AnchoredPDBCreator.cc      ` ; there's an integration test at `       rosetta/rosetta_tests/integration/tests/AnchoredDesign/      ` . There is a more extensive demo with more documentation at rosetta/rosetta\_demos/AnchoredDesign, or in the demo section of the release.
+The code is at `       Rosetta/main/src/apps/public/interface_design/anchored_design/AnchoredPDBCreator.cc      ` ; there's an integration test at `       Rosetta/main/tests/integration/tests/AnchoredDesign/      ` . There is a more extensive demo with more documentation at `Rosetta/demo/protocol_capture/anchored_design` and  `Rosetta/demo/public/anchored_design`, which are online at TODO these links to the online demos.
 
 References
 ==========
 
--   Lewis SM, Kuhlman BA. Anchored design of protein-protein interfaces. PLoS One. 2011;6(6):e20872. Epub 2011 Jun 17.
--   Gulyani A, Vitriol E, Allen R, Wu J, Gremyachinskiy D, Lewis S, Dewar B, Graves LM, Kay BK, Kuhlman B, Elston T, Hahn KM. A biosensor generated via high-throughput screening quantifies cell edge Src dynamics. Nat Chem Biol. 2011 Jun 12;7(7):437-44. doi: 10.1038/nchembio.585.
+-   [Lewis SM, Kuhlman BA. Anchored design of protein-protein interfaces. PLoS One. 2011;6(6):e20872. Epub 2011 Jun 17.](http://www.ncbi.nlm.nih.gov/pubmed/21698112) (pubmed link)
 
 Purpose and Algorithm
 =====================
