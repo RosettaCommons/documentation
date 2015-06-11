@@ -1,4 +1,4 @@
-Author: Jeliazko Jeliazkov and Andrew Watkins 
+#Solving a Biological Problem
 
 [[_TOC_]]
 
