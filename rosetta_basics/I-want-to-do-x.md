@@ -77,7 +77,7 @@ adds and optimizes missing hydrogens
 <!--
 -	AddMembraneMover  
 adds a membrane to a structure when needed
--	SymmetricAddMembraneMover
+-	SymmetricAddMembraneMover  
 -->
 -	GrowPeptides
 -	From electron density:
