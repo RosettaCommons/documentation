@@ -9,8 +9,6 @@ Rosetta.
 
 See also a [[more in-depth discussion of some topics|RosettaEncyclopedia]].
 
-[[_TOC_]]
-
 General Terms
 -------------
 
