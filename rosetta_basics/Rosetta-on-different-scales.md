@@ -1,3 +1,5 @@
+# Rosetta on Different Scales
+
 Rosetta is a very hungry program in terms of computer time.
 This is partly because protein modeling is about the [[hardest problem|http://xkcd.com/1430/]] we know.
 It is partly because Rosetta is largely written by professional biophysicists who are less experienced at software engineering and totally inexperienced with [[optimizing|https://en.wikipedia.org/wiki/Program_optimization]] algorithms for speed.
@@ -77,8 +79,8 @@ These sorts of problems you will need serious hardware to run: either long perio
 At this scale, we gain the ability to start sampling backbone flexibility, while still considering sidechain and rigid-body degrees of freedom.
 We are able to sample enough to start thinking about [[backrub]] or [[FastRelax]] ensembles.
 This regime is also considered reasonable sampling for most flexible-backbone interface design protocols.
-Global [[docking|docking-protocol]] becomes plausible.
 Fixed sequence protocols are faster than design protocols in this space.
+Global [[docking|docking-protocol]], where large swathes of rigid-body space must be explored becomes plausible.
 The computing resources needed scale from heavy use of a 500-CPU lab cluster to moderately large runs on large supercomputers (hundreds of processors for many days).
 
 10<sup>6</sup> and up
