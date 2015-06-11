@@ -37,6 +37,10 @@ Similar proteins without evolutionary relationships. See also **homologue**.
 Rosetta **homology modeling** doesn't actually need strict evolutionary relationships,
 and can use **analogues** as **templates**.
 
+#### annotated sequence
+
+Rosetta will often record the sequence of a protein as the one letter amino acid codes, expanding when necessary with square brackets to indicate patches like post-translational modifications.
+
 #### Antibody fragment
 
 #### Atom

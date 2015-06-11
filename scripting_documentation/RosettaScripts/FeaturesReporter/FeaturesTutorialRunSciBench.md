@@ -92,7 +92,7 @@ Specify which sample sources to use by editing rosetta/main/test/scientific/clus
 
 Run features scientific benchmark using the features.py script
 
-        rosetta_tests/features.py [OPTIONS] [RUN]
+        Rosetta/main/tests/features/features.py [OPTIONS] [RUN]
 
 ### Options for features.py
 

@@ -365,7 +365,7 @@ The parameters for the hydrogen bond potential are specified in the Rosetta data
 -   **hbond\_polynomial\_1d** : One dimensional polynomials for each geometric dimension used to compute the hydrogen bond energy. See the Polynomial\_1d (rosetta/main/source/src/core/scoring/hbonds/polynomials.hh) class for more information.
     -   *database\_tag* : The hydrogen bond parameter set
     -   *name* : The name of the polynomial referenced in the *hbond\_evaluation\_types* table.
-    -   *dimension* : The [geometric dimension](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/types.hh#L409) with which the polynomial should be used.
+    -   *dimension* : The geometric dimension with which the polynomial should be used.
     -   *xmin* , *xmax* : The polynomial is truncated beyond the *xmin* and *xmax* values.
     -   *root1* , *root2* : The values where the polynomial equals 0.
     -   *degree* : The number of coefficients in the polynomial. For example 10x\^2 - 3x + 1 would have degree 3.
@@ -395,17 +395,17 @@ The parameters for the hydrogen bond potential are specified in the Rosetta data
             c_k REAL,
             PRIMARY KEY(database_tag, name));
 
--   **hbond\_evaluation\_types** : Associate to (donor chemical type, acceptor chemical type, sequence separation) hydrogen bond types, the which fade intervals, polynomials and weight types to be used in evaluating and assigning hydrogen bond energy. See [hbonds\_geom.cc](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/hbonds_geom.hh) for where they are actually used.
+-   **hbond\_evaluation\_types** : Associate to (donor chemical type, acceptor chemical type, sequence separation) hydrogen bond types, the which fade intervals, polynomials and weight types to be used in evaluating and assigning hydrogen bond energy.
     -   *database\_tag* : The hydrogen bond parameter set
-    -   *don\_chem\_type* : The [donor chemical type](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/types.hh#L102) component of the hydrogen bond type. This is the value used in the hbond\_site.HBChemType column when the site is a hydrogen bond donor.
-    -   *acc\_chem\_type* : The [acceptor chemical type](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/types.hh#L77) component of the hydrogen bond type. This is the value used in the hbond\_site.HBChemType column when the site is a hydrogen bond acceptor.
-    -   *separation* : The [sequence separation type](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/types.hh#L355) component of the hydrogen bond type. This is used as a proxy for participation in local sequence motifs like intra-helix hydrogen bonding. NOTE: Separation is [defined](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/hbonds_geom.cc#512) as *acc\_resNum* - *don\_resNum* when both residues are polymers and on the same chain and infinity otherwise.
-    -   *AHdist\_{short/long}\_fade* : The fading functions to be applied to the AHdist polynomial evaluations. The short/long distinction allows for different angle dependence for hydrogen bonds that have different bond lengths. The distinction follows in spirit the behavior originally described in [Kortemme 2003](http://www.sciencedirect.com/science/article/B6WK7-47WBSCV-T/2/d7c673dd51017848231e7b9e8c05fbca) .
+    -   *don\_chem\_type* : The donor chemical type component of the hydrogen bond type. This is the value used in the hbond\_site.HBChemType column when the site is a hydrogen bond donor.
+    -   *acc\_chem\_type* : The acceptor chemical type component of the hydrogen bond type. This is the value used in the hbond\_site.HBChemType column when the site is a hydrogen bond acceptor.
+    -   *separation* : The sequence separation type component of the hydrogen bond type. This is used as a proxy for participation in local sequence motifs like intra-helix hydrogen bonding. NOTE: Separation is defined as *acc\_resNum* - *don\_resNum* when both residues are polymers and on the same chain and infinity otherwise.
+    -   *AHdist\_{short/long}\_fade* : The fading functions to be applied to the AHdist polynomial evaluations. The short/long distinction allows for different angle dependence for hydrogen bonds that have different bond lengths. The distinction follows in spirit the behavior originally described in Kortemme 2003.
     -   *{cosBAH/cosAHD}\_fade* : The fading functions to be applied to the cosBAH/cosAHD polynomial evaluations.
     -   *AHdist* : Polynomial to be used for the evaluation of the Acceptor -- Hydrogen distance geometric degree of freedom.
     -   *cosBAH\_{short/long}* : Polynomials to be used for the evaluation of the cosine of the Acceptor Base -- Acceptor -- Hydrogen geometric degree of freedom.
     -   *cosAHD\_{short/long}* : Polynomials to be used for the evaluation of the cosine of the Acceptor -- Hydrogen -- Donor geometric degree of freedom.
-    -   *weight\_type* : Which slot in the score vector the energy of the hydrogen bond should be accumulated into. See the [WeightType](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/hbonds/types.hh#L55) for allowable types.
+    -   *weight\_type* : Which slot in the score vector the energy of the hydrogen bond should be accumulated into. See the WeightType for allowable types.
 
 <!-- -->
 
@@ -585,12 +585,12 @@ The OrbitalFeatures stores information about chemical interactions involving orb
 PairFeatures
 ------------
 
-The [PairFeatures](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/protocols/features/PairFeatures.hh) measures the distances between residues.
+PairFeatures measures the distances between residues.
 
 -   **residue\_pairs** : The information stored here follows 'pair' EnergyMethod. The functional form for the pair EnergyMethod is described in [Simons, K.T., et al, Improved Recognition of Native-Like Protein Structures Using a Combination of Sequence-Dependent and Sequence-Independent Features of Proteins, (Proteins 1999).](http://www.ncbi.nlm.nih.gov/pubmed/10336385,)
     -   *resNum{1/2}* : the rosetta Residue indices of residues involved. Note, each pair is only recorded once and resNum1 \< resNum2.
     -   *res{1/2}\_10A\_neighbors* : Number of neighbors for each residue, used as a proxy for burial. (These columns are going to be moved to the **residue\_burial** table soon.)
-    -   A *residue center* is represented by the [actcoord](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/conformation/Residue.hh#L1384) which is defined to be the average geometric center of of the ACT\_COORD\_ATOMS specified in the [residue type params](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_database/chemical/#residue_type_sets/fa_standard/residue_types) file for each residue type.
+	-   A *residue center* is represented by the actcoord which is defined to be the average geometric center of of the ACT\_COORD\_ATOMS specified in the [residue type](Glossary#residuetype) params file for each residue type.
     -   *actcoord\_dist* : The cartesian distance between residue centers.
     -   *polymeric\_sequence\_dist* : The sequence distance between the residues. If either residue is not a *polymer* residue or if they are on different chains, this is -1.
 
@@ -613,7 +613,7 @@ The [PairFeatures](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/ros
 PdbDataFeatures
 ---------------
 
-The [PdbDataFeatures](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/protocols/features/PdbDataFeatures.hh) records information that is stored in the protein databank structure format.
+PdbDataFeatures records information that is stored in the protein databank structure format.
 
         <feature name=PdbDataFeatures/>
 
@@ -659,7 +659,7 @@ The [PdbDataFeatures](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/
 PoseCommentFeatures
 -------------------
 
-Arbitrary textual information may be associated with a pose in the form of *(key, val)* [comments](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/pose/util.hh#L105) . The [PoseCommentsFeatures](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/protocols/features/PoseCommentsFeatures.hh) stores this information as a feature.
+Arbitrary textual information may be associated with a pose in the form of *(key, val)* comments. The PoseCommentsFeatures stores this information as a feature.
 
 -   **pose\_comments** : All pose comments are extracted using.
 
@@ -675,10 +675,10 @@ Arbitrary textual information may be associated with a pose in the form of *(key
 PoseConformationFeatures
 ------------------------
 
-The [PoseConformationFeatures](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/protocols/features/PoseConformationFeatures.hh) measures the conformation level information in a Pose. Together with the [ProteinResidueConformationFeatures](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/protocols/features/PoseConformationFeatures.hh) , the atomic coordinates can be reconstructed. To facilitate creating poses from conformation structure data stored in the features database, PoseConformationFeatures has a *load\_into\_pose* method.
+PoseConformationFeatures measures the conformation level information in a Pose. Together with the ProteinResidueConformationFeatures, the atomic coordinates can be reconstructed. To facilitate creating poses from conformation structure data stored in the features database, PoseConformationFeatures has a *load\_into\_pose* method.
 
 -   **pose\_conformations** : This table stores information about sequence of residues in the conformation.
-    -   *annotated\_sequence* : The [annotated sequence](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/pose/Pose.hh#L646) string of residue types that make up the conformation
+	-   *annotated\_sequence* : The [annotated sequence](Glossary#annotated-sequence) string of residue types that make up the conformation
     -   *total\_residue* : The number of residues in the conformation
     -   *fullatom* : The ResidueTypeSet is *FA\_STANDARD* if true, and *CENTROID* if false.
 
@@ -694,7 +694,7 @@ The [PoseConformationFeatures](https://svn.rosettacommons.org/trac/browser/trunk
 -   **fold\_trees** : The fold tree specifies a graph of how the residues are attached together. If the residues are thought of as vertices, each row in the *fold\_trees* table specifies a directed edge.
     -   *(start\_res, start\_atom)* : The initial residue and the attachment atom within the residue
     -   *(end\_res, end\_atom)* : The terminal residue and the attachment atom with the residue
-    -   *label* : -2 if it is a *CHEMICAL* edge, -1 if is a *PEPTIDE* edge, and 1, 2, ... is a *JUMP* attachment. See here for [details](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/kinematics/Edge.hh#L35) . The geometry of the *JUMP* attachments is stored in the *jumps* table.
+    -   *label* : -2 if it is a *CHEMICAL* edge, -1 if is a *PEPTIDE* edge, and 1, 2, ... is a *JUMP* attachment. The geometry of the *JUMP* attachments is stored in the *jumps* table.
     -   *keep\_stub\_in\_residue* : For completeness, the option to keep stub in residue is stored.
 
 <!-- -->
@@ -746,7 +746,7 @@ The [PoseConformationFeatures](https://svn.rosettacommons.org/trac/browser/trunk
 ProteinBackboneAtomAtomPairFeatures
 -----------------------------------
 
-The [ProteinBackboneAtomAtomPairFeatures](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/protocols/features/ProteinBackboneAtomAtomPairFeatures.hh) reporter measures all the atom pair distances between backbone atoms in pairs residues where the action coordinate is within 10A. This follows the analysis done in *Song Y, Tyka M, Leaver-Fay A, Thompson J, Baker D. Structure guided forcefield optimization. Proteins: Structure, Function, and Bioinformatics. 2011* . There, they looked at these distances for pairs of residues that form secondary structure.
+The ProteinBackboneAtomAtomPairFeatures reporter measures all the atom pair distances between backbone atoms in pairs residues where the action coordinate is within 10A. This follows the analysis done in *Song Y, Tyka M, Leaver-Fay A, Thompson J, Baker D. Structure guided forcefield optimization. Proteins: Structure, Function, and Bioinformatics. 2011* . There, they looked at these distances for pairs of residues that form secondary structure.
 
 -   **protein\_backbone\_atom\_atom\_pairs** :
     -   *resNum{1,2}* : The indices of the protein residues. Note: resNum1 \< resNum2.
@@ -770,7 +770,7 @@ The [ProteinBackboneAtomAtomPairFeatures](https://svn.rosettacommons.org/trac/br
 ProteinBackboneTorsionAngleFeatures
 -----------------------------------
 
-The [ProteinBackboneTorsionAngleFeatures](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/protocols/features/ProteinBackboneTorsionAngleFeatures.hh) stores the backbone torsion angle degrees of freedom needed represent proteins made with canonical backbones.
+The ProteinBackboneTorsionAngleFeatures reporter stores the backbone torsion angle degrees of freedom needed represent proteins made with canonical backbones.
 
 -   **protein\_backbone\_torsion\_angles** :
     -   *phi* : The torsion angle defined by *C\_(i-1)* , *N\_i* , *Ca\_i* , and *C\_i* atoms (-180, 180)
@@ -794,7 +794,7 @@ ProteinResidueConformationFeatures
 The conformation of protein residues is described by the coordinates of each atom. A reduced representation is just specifying the values for each torsional angle degree of freedom, these include the backbone and sidechain torsional angles. Since Proteins have only canonical amino acids, there are at most 4 torsional angles in the sidechains.
 
 -   **protein\_residue\_conformation** : The degrees of freedom in each residue conformation.
-    -   *secstruct* : The secondary structure of the residue. NOTE: this is not computed by DSSP but taken from fragments. See [Pose::secstruct()](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/pose/Pose.hh#L589) .
+    -   *secstruct* : The secondary structure of the residue. NOTE: this is not computed by DSSP but taken from fragments.
     -   *phi* , *psi* , *omega* : Backbone torsional angles
     -   *chi\** : Sidechain torsional angles
 
@@ -813,7 +813,7 @@ The conformation of protein residues is described by the coordinates of each ato
             chi4 REAL,
             FOREIGN KEY (struct_id, seqpos) REFERENCES residues (struct_id, resNum) DEFERRABLE INITIALLY DEFERRED);"
 
--   **residue\_atom\_coords** : The atomic coordinates for each residue. Note if all of the residues are [ideal](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/conformation/util.hh#L78) , then this table is not populated.
+-   **residue\_atom\_coords** : The atomic coordinates for each residue. Note if all of the residues are ideal, then this table is not populated.
     -   *x* , *y* , *z* : Atomic coordinates in lab coordinate frame.
 
 <!-- -->
@@ -900,7 +900,7 @@ RadiusOfGyrationFeatures
 Measure the radius of gyration for each structure. The radius of gyration measure of how compact a structure is in O(n). It is the expected displacement of mass from the center of mass. The Wikipedia page is has some [information](http://en.wikipedia.org/wiki/Radius_of_gyration) . Also see, Lobanov MY, Bogatyreva NS, Galzitskaya OV. [Radius of gyration as an indicator of protein structure compactness](http://www.springerlink.com/content/v01q1r143528u261/) . Molecular Biology. 2008;42(4):623-628.
 
 -   **radius\_of\_gyration** :
-    -   *radius\_of\_gyration* : Let *C* be the center of mass and *ri* be the position of residue *i'* th of *n* residues, then the radius of gyration is defined to be *Rg = SQRT{SUM\_{ri}(ri-C)\^2/(n-1)}* . Note: the normalizing factor is *n-1* to be consistent with r++. Atoms with variant type "REPLONLY" are ignored. See the [RG\_Energy\_Fast](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/scoring/methods/RG_Energy_Fast.hh) class for more details.
+    -   *radius\_of\_gyration* : Let *C* be the center of mass and *ri* be the position of residue *i'* th of *n* residues, then the radius of gyration is defined to be *Rg = SQRT{SUM\_{ri}(ri-C)\^2/(n-1)}* . Note: the normalizing factor is *n-1* to be consistent with r++. Atoms with variant type "REPLONLY" are ignored.
 
 <!-- -->
 
@@ -1122,7 +1122,7 @@ ResidueTypes store information about the chemical nature of the residue. The inf
 -   **residue\_type\_bond** : The covalent bonds in the residue type
     -   *residue\_type\_set\_name* : The name of the ResidueTypeSet e.g. *FA\_STANDARD* or *CENTROID* .
     -   *atom1* , *atom2* : The atoms participating in the bond where the atom index of *atom1* is less than the atom index of *atom2* .
-    -   *bond\_type* : The [type](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_source/src/core/chemical/ResidueType.fwd.hh#L51) of chemical bond.
+	-   *bond\_type* : The type of chemical bond.
 
 <!-- -->
 
