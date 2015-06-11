@@ -15,3 +15,6 @@ This filter was written in the context of protein interface design, so it may no
 -   sidechain: should we count backbone-sidechain and sidechain-sidechain hbonds?
 -   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
 
+
+* [[HBuriedUnsatHbondsFilter]]
+* [[HbondsToAtomFilter]]

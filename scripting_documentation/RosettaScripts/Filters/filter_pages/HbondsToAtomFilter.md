@@ -16,3 +16,7 @@ This filter was written in the context of protein interface design, so it may no
 -   atomname: to which atom in the given residue are hydrogens counted?
 -   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
 
+## See Also
+
+* [[BuriedUnsatHbondsFilter]]
+* [[HbondsToResidueFilter]]
