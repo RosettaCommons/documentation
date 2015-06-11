@@ -9,8 +9,6 @@ Rosetta.
 
 See also a [[more in-depth discussion of some topics|RosettaEncyclopedia]].
 
-[[_TOC_]]
-
 General Terms
 -------------
 
@@ -564,6 +562,9 @@ atoms or bonds and angles are frozen for the backbone.
 
 #### rigid-body orientation
 
+#### Rohl review
+This term refers to Rohl et. al., 2004, [Protein structure prediction using Rosetta](http://www.ncbi.nlm.nih.gov/pubmed/15063647), the earliest review paper of Rosetta.  See its entry in the [[Rosetta Canon]].
+
 #### root mean square deviation (RMSD)
 
 [It's not enough to just explain how RMSD is calculated: it's also
@@ -574,6 +575,12 @@ values are to be expected calculating it in various places.]
 
 [It's not enough to just explain how RMSD is calculated: it's also important to discuss what significance it plays in Rosetta, and what values are to be expected calculating it in various places.] 
 
+#### Rosetta++
+Rosetta++ was the 2.x edition of Rosetta.
+It is so-named because it was in C++, as a human-assisted machine translation of the original FORTRAN Rosetta.
+
+#### Rosetta3 paper
+[ROSETTA3: an object-oriented software suite for the simulation and design of macromolecules] (http://www.ncbi.nlm.nih.gov/pubmed/21187238), which was the paper that described the transition from C++-but-monolithic Rosetta++ to [object-oriented](https://en.wikipedia.org/wiki/Object-oriented_programming)-C++ Rosetta3.
 #### rotamer
 
 [Is this describing rotamers or the algorithm?] In the docking
@@ -695,6 +702,9 @@ proteins with known structure. Threading is the process of placing the
 amino acids of a target protein onto the 3D structure of a template
 according to a sequence alignment. A comparative model can then be build
 of the target protein sequence.
+
+#### Top7 / Top7 paper
+Top7 is the name of [a protein](http://www.rcsb.org/pdb/explore.do?structureId=1qys) _de novo_ designed with Rosetta. Its paper, [Design of a novel globular protein fold with atomic-level accuracy] (http://www.ncbi.nlm.nih.gov/pubmed/?term=14631033), is also of broad interest for its description of the early energy function.
 
 #### torsion angles
 

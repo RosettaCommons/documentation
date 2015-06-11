@@ -237,7 +237,8 @@ Miscellaneous
 *or*
 
     rm -rf build/src; rm .sconsign.dblite  
-# See Also
+
+## See Also
 
 - Additional [[build]] documentation.
 - An out-dated list of [[platforms]] supported by Rosetta.

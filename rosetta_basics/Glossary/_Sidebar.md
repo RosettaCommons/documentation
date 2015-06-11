@@ -1,3 +1,5 @@
+[[_TOC_]]
+
 [[Getting Started]]
 
 [[Build Documentation|build_documentation/Build-Documentation]]
@@ -19,6 +21,7 @@
 * [[Command line options|options-overview]]
 
 [[Application Documentation|application_documentation/Application-Documentation]]
+
 [[Scripting Interfaces|scripting_documentation/Scripting-Documentation]]
 
 [[Development Documentation|development_documentation/Development-Documentation]]
