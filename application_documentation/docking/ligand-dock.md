@@ -449,3 +449,17 @@ Estimating docking confidence (PRELIMINARY)
 ===========================================
 
 A confidence index can be calculated as the correlation between energy score and the distance (RMSD) from the lowest energy pose. This method assumes that there is one low energy binding mode. Further Reading: [Maria I. Zavodszky, Andrew W. Stumpff-Kane, David J. Lee, and Michael Feig. **Scoring confidence index: statistical evaluation of ligand binding mode predictions** , *Journal of computer aided design* 1999, **23** (5):289-299](http://www.springerlink.com/content/nr435h2q15366664)
+
+
+##See Also
+
+* [[Docking Applications]]: Home page for docking applications
+* [[Preparing ligands]]: Notes on preparing ligands for use in Rosetta
+* [[Non-protein residues]]: Notes on using non-protein molecules with Rosetta
+* [[Application Documentation]]: List of Rosetta applications
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[RosettaScripts]]: Homepage for the RosettaScripts interface to Rosetta
+* [[Comparing structures]]: Essay on comparing structures
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files

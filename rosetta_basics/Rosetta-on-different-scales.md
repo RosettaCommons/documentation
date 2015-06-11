@@ -94,8 +94,10 @@ This is much faster, so some experiments in this regime can be surprisingly fast
 
 ##See Also
 
+* [[Challenges in Macromolecular Modeling]]: Discusses the problems of sampling and scoring in protein modeling.
 * [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 * [[Comparing structures]]: Essay on comparing structures
+* [[I want to do x]]: Guide on performing different forms of sampling in Rosetta
 * [[Resources for learning biophysics and computational modeling]]
 * [[Getting Started]]: A page for people new to Rosetta
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta

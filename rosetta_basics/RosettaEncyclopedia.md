@@ -181,6 +181,7 @@ The trajectory format is now widely used in the RosettaCommunity and is recommen
 
 * [[Glossary]]: Brief definitions of Rosetta terms
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
+* [[Rosetta canon]]: List of important Rosetta papers
 * [[Resources for learning biophysics and computational modeling]]
 * [[RosettaTimeline]]: History of Rosetta
 * [[Units in Rosetta]]: Explains measurement units used in Rosetta

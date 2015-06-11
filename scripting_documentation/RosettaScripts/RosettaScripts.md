@@ -482,6 +482,7 @@ The SCORINGGRIDS block is used to define ligand scoring grids (currently used on
 
 ##See Also
 
+* [[RosettaDiagrams (external link)|http://www.rosettadiagrams.org/]]: Provides a graphical interactive service to produce RosettaScripts XML files, with some ability to run the scripts as well.
 * [[I want to do x]]: Guide for making specific structural pertubations using RosettaScripts
 * [[Scripting Documentation]]: The Scripting Documentation home page
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta

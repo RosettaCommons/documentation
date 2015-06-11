@@ -15,3 +15,11 @@ You may see him as APL in in-code comments.
 Sergey maintains our [[testing server]] resources, as well as ROSIE, one of our major [[Rosetta servers]].
 He is very responsive to requests for new features on either set of servers.
 He is also a great person to talk to with questions about the testing architecture.
+
+##See Also
+
+* [[Rosetta canon]]: List of important Rosetta papers
+* [[Rosetta overview]]: Overview of major concepts in Rosetta
+* [[RosettaEncyclopedia]]: Detailed descriptions of Rosetta terms
+* [[Glossary]]: Brief definitions of Rosetta terms
+* [[Rosetta Timeline]]: Landmark Rosetta papers

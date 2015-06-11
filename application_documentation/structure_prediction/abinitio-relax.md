@@ -179,6 +179,7 @@ Lowest scoring models that are in a cluster and that have a topology represented
 * [[Abinitio]]: Further details on this application
 * [[Fasta file]]: Fasta file format
 * [[Fragment file]]: Fragment file format (required for abinitio structure prediction)
+* [[ROBETTA (external link)|http://robetta.bakerlab.org/]]: Server that provides *ab initio* folding and structure prediction, as well as fragment picking, for academic users
 * [[Structure prediction applications]]: A list of other applications to be used for structure prediction
   * [[NonlocalAbinitio]]: Application for predicting protein structure given some prior structural information
   * [[Membrane abinitio]]: Ab initio for membrane proteins.  
