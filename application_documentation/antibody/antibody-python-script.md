@@ -1,4 +1,4 @@
-#RosettaAntibody3: a). The PreProcessing Python Script
+# RosettaAntibody3: The PreProcessing Python Script
 
 Metadata
 ========
