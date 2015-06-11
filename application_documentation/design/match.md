@@ -212,7 +212,7 @@ The gen\_lig\_grids app will generate a set of grids around the ligand binding p
 A generic command line:
  gen\_lig\_grids -s scaffold.pdb ligand.pdb -database [database\_path] @flags
 
-A real example command line used for the rosetta/rosetta\_tests/integration/tests/gen\_lig\_grids example:
+A real example command line used for the rosetta/main/tests/integration/tests/gen\_lig\_grids example:
  /path/to/rosetta/main/source/bin/gen\_lig\_grids.linuxiccrelease -s 1a53\_nohet\_1.pdb 1a53\_ligand\_1.pdb @flags
 
 A detailed flags example (@flags):

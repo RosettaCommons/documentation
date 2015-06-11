@@ -16,7 +16,7 @@ A helper application, minimize\_with\_cst, lives in rosetta/main/source/src/apps
 
 A helper script for generating one of the input files needed by the ddg\_monomer application lives in rosetta/main/source/src/apps/public/ddg/convert\_to\_cst\_file.sh.
 
-An integration test for this application lives in rosetta/main/tests/integration/tests/ddG\_of\_mutation/. The test in this directory runs a shortened trajectory for predicting the wild-type and mutant energies. To turn this into a production-run example, set the value for the "-ddg:iterations" flag given in the file "rosetta/rosetta\_tests/integration/tests/ddG\_of\_mutations/flags" to 50.
+An integration test for this application lives in rosetta/main/tests/integration/tests/ddG\_of\_mutation/. The test in this directory runs a shortened trajectory for predicting the wild-type and mutant energies. To turn this into a production-run example, set the value for the "-ddg:iterations" flag given in the file "rosetta/main/tests/integration/tests/ddG\_of\_mutations/flags" to 50.
 
 References
 ==========

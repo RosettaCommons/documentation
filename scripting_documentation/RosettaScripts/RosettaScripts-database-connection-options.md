@@ -24,7 +24,7 @@ Sqlite3 Specific Options
 ------------------------
 
 -   **database\_name** : The path and filename of the sqlite3 database. Usually it has a *.db3* extension.
--   **database\_separate\_db\_per\_mpi\_process** : Append to the end of the database filename *\_\<mpi\_rank\>* . This is useful, for example in writing out separate database in parallel and then merging them together afterwards [(See tests/features/sample\_sources/merge.sh)](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_tests/features/sample_sources/merge.sh) .
+-   **database\_separate\_db\_per\_mpi\_process** : Append to the end of the database filename *\_\<mpi\_rank\>* . This is useful, for example in writing out separate database in parallel and then merging them together afterwards [(See main/tests/features/sample\_sources/merge.sh)](https://github.com/RosettaCommons/main/blob/master/tests/features/sample_sources/merge.sh) .
 -   **database\_readonly** : Open the database file so it cannot be modified.
 
 PostgreSQL Specific Options

@@ -189,7 +189,7 @@ Run the test with one of the following commands:
 
 ### Integration tests
 
-Running `     integration.py    ` for the first time will generate a folder called `     ref    ` in `     rosetta/rosetta_tests/integration    ` . Whenever you make a change, run the integration test and compare your new test output (located in the `     new    ` folder) with that in the `     ref    ` folder.
+Running `     integration.py    ` for the first time will generate a folder called `     ref    ` in `     rosetta/main/tests/integration    ` . Whenever you make a change, run the integration test and compare your new test output (located in the `     new    ` folder) with that in the `     ref    ` folder.
 
 Run the test as follows:
 

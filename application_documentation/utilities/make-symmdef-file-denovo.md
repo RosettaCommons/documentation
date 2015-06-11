@@ -56,7 +56,7 @@ common options:
 Expected Outputs
 ================
 
-A sample command line to generate a trimer. The same command was used to create the symmetry definition for the symmetric docking integration test (rosetta/rosetta\_tests/integration/tests/symmetric\_docking):
+A sample command line to generate a trimer. The same command was used to create the symmetry definition for the symmetric docking integration test (rosetta/main/tests/integration/tests/symmetric\_docking):
 
 ```
 make_symmdef_file_denovo.py -symm_type cn -nsub 3

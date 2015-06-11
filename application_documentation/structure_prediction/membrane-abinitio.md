@@ -15,7 +15,7 @@ This document was last updated on July 17, 2012 by Vladimir Yarov-Yarovoy (yarov
 Code and Demo
 =============
 
-The membrane ab initio executable is in src/apps/public/membrane\_abinitio/membrane\_abinitio2.cc. See /rosetta/rosetta\_tests/integration/tests/membrane\_abinitio directory for an example membrane ab initio run and input files.
+The membrane ab initio executable is in src/apps/public/membrane\_abinitio/membrane\_abinitio2.cc. See /rosetta/main/tests/integration/tests/membrane\_abinitio directory for an example membrane ab initio run and input files.
 
 References
 ==========
