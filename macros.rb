@@ -3,7 +3,7 @@ class Gollum::Macro::MissingLinksPage < Gollum::Macro
   class MissingLink < StandardError
   end
 
-  def render(page_num, num_pages)
+  def render(fraction_num, num_fractions)
     @markup = Gollum::Markup.new @page
     @tags = Gollum::Filter::Tags.new(@markup)
     @tag_cache = {}
@@ -15,17 +15,29 @@ class Gollum::Macro::MissingLinksPage < Gollum::Macro
     html = ''
     broken_links = {}
     start_time = Time.now
+    fraction_num = fraction_num.to_i
+    num_fractions = num_fractions.to_i
+    num_pages = @wiki.pages.size
+    num_checked_pages = 0
 
-    i = 1
-    @wiki.pages.each do |page|
-      @tags.extract(page.text_data)
+    sorted_pages = @wiki.pages.sort{|a,b| a.title.downcase <=> b.title.downcase}
 
-      broken_links[page.title] = []
+    sorted_pages.each_with_index do |page, i|
+      # It takes long enough to find all the missing links in the wiki that 
+      # Sinatra or Rack (I'm not sure which) gives up and sends an empty 
+      # response before the search completes.  This made it necessary to split 
+      # the search into several pages, which is what the logic below manages.
+
+      next if i * num_fractions / num_pages + 1 != fraction_num
+
+      broken_links[page] = []
+      num_checked_pages += 1
 
       # The Tags filter doesn't really provide an API, so we have to cheat and 
       # reach into it to get access to the hash of all the tags in a page that 
       # it creates during extract().
 
+      @tags.extract(page.text_data)
       @tags.instance_variable_get(:@map).each do |key, tag|
 
         # Check the tags for missing links.  Each function checks a different 
@@ -43,41 +55,31 @@ class Gollum::Macro::MissingLinksPage < Gollum::Macro
           check_include_tag(tag) || \
           check_link_tag(tag)
         rescue MissingLink
-          broken_links[page.title] << tag
+          broken_links[page] << tag
         end
 
       end
-
-      # The web browser gives up and resets the connection before all the 
-      # missing links can be found, so limit the search to a few seconds.
-
-      elapsed_time = Time.now - start_time
-      puts "#{i}/#{@wiki.pages.size}\t#{elapsed_time}"
-      i += 1
-      #if elapsed_time > 29
-      #  html += "<p>The search for missing links was aborted after <b>%.1f seconds</b>.  Fix some links and reload to get more.</p>" % elapsed_time
-      #  break
-      #end
     end
 
     # Generate an HTML report of all the broken links discovered above.  Skip 
     # pages that don't have any broken links.
 
-    html += "<h1>Missing Links (#{page_num}/#{num_pages})</h1>\n"
+    html += "<h1>Missing Links (#{fraction_num}/#{num_fractions})</h1>\n"
+    html += "<p>Showing missing links for #{num_checked_pages} of #{num_pages} pages in the wiki.</p>\n"
 
-    broken_links.each do |page_title, missing_links|
+    broken_links.each do |page, missing_links|
       next if missing_links.empty?
 
-      html += "#{page_title}\n"
-      #html += "<ul>\n"
+      page_link = File.join(@wiki.base_path, page.url_path)
+      page_title = page.title[0].upcase + page.title.slice(1..-1)
+
+      html += "<a href=\"#{page_link}\">#{page_title}</a>\n"
       html += "<pre>\n"
 
       missing_links.each do |error_message|
-        #html += "<li>[[#{error_message}]]</li>\n"
         html += "[[#{error_message}]]\n"
       end
 
-      #html += "</ul>\n"
       html += "</pre>\n"
     end
 
