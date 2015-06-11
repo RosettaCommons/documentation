@@ -8,7 +8,7 @@ For example: "We need to check if these mutations are OK at this site. Find some
 This is a great project and potentially super valuable, but it is a [[hard, hard question|http://xkcd.com/1430]]; machine learning algorithms trained on sequence data and dozens of structural features drawn from Rosetta-derived ensembles frequently get the right answer, but not always, and just looking at the change in Rosetta score won't get you there.
 Unfortunately, there is no simple IsThisMutationTolerated module to answer questions like this.
 
-This is not an error on your part or the part of your PI; this is an important opportunity for you to figure out what sort of sampling is necessary to answer your question.
+This is not an error on your part or the part of your PI: this is an important opportunity for you to figure out what sort of sampling is necessary to answer your question.
 For example, suppose one of the mutations is alanine-to-proline at the second position of an alpha helix.
 This is the third most common position for proline in alpha helices; thus, it is very improbable but not impossible.
 So the question is: how fold-breaking is this mutation?
