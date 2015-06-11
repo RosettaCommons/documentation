@@ -83,21 +83,26 @@ Kuhlman et al. demonstrate the computational design of a protein with an entirel
 The significance of this result arises because prior design efforts involved stabilizing or modifying existing, known folds; the ability to _de novo_ create a protein was wholly original.
 
 * Guntas G, Purbeck C, Kuhlman B (2010)  
-[Engineering a protein-protein interface using a computationally designed library.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=20974935)  
+[Engineering a protein-protein interface using a computationally designed library.] (http://www.ncbi.nlm.nih.gov/pubmed/20974935)  
 Proc Natl Acad Sci U S A 107:19296-301  
 Computational design at twenty amino acid positions was used to semi-direct two protein libraries, which greatly outperformed the control library where all residues were allowed: the former produced multiple mid-nanomolar binders while the latter could not produce bunders under fifty micromolar after four rounds of selection.
 
 Ligand docking
 --------------
+* Meiler J, Baker D (2006)  
+[ROSETTALIGAND: protein-small molecule docking with full side-chain flexibility.] (http://www.ncbi.nlm.nih.gov/pubmed/16972285)  
+Proteins 65:538-48  
+The original incorporation of ligand molecules into Rosetta, due to Meiler and Baker, permitted rotamer optimization on the protein partner and obtains a correlation of 0.63 for interaction energy versus experimental binding energy.
+
 * Davis IW, Baker D (2009)  
-[RosettaLigand docking with full ligand and receptor flexibility.](http://www.ncbi.nlm.nih.gov/pubmed/?term=19041878)
+[RosettaLigand docking with full ligand and receptor flexibility.](http://www.ncbi.nlm.nih.gov/pubmed/19041878)
 J Mol Biol 385:381-92  
 Davis and Baker incorporate receptor flexibility via backbone minimization and obtain correct cross-docking ligand orientations within 2A RMSD in 64% of cases.
 
-* Meiler J, Baker D (2006)  
-[ROSETTALIGAND: protein-small molecule docking with full side-chain flexibility.] (http://www.ncbi.nlm.nih.gov/pubmed/?term=16972285)  
-Proteins 65:538-48  
-The original incorporation of ligand molecules into Rosetta, due to Meiler and Baker, permitted rotamer optimization on the protein partner and obtains a correlation of 0.63 for interaction energy versus experimental binding energy.
+* Lemmon G, Meiler J. (2012)
+[Rosetta Ligand docking with flexible XML protocols.](http://www.ncbi.nlm.nih.gov/pubmed/22183535)
+Methods Mol Biol. 2012;819:143-55  
+The RosettaLigand logic was transitioned to XML.
 
 RNA
 --------------
