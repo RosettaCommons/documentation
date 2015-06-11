@@ -103,3 +103,4 @@ This application is new as of Rosetta 3.4.
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
 * [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 * [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
+* [[Preparing structures]]: How to prepare structures for use in Rosetta

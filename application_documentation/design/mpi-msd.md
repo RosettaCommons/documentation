@@ -613,3 +613,4 @@ This is the first time that the "mpi\_msd" multistate design application has bee
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
 * [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 * [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
+* [[Preparing structures]]: How to prepare structures for use in Rosetta
