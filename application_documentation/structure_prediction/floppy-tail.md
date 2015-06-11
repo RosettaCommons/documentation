@@ -3,9 +3,9 @@
 Metadata
 ========
 
-Author: Steven Lewis (smlewi@gmail.com)
+Author: Steven Lewis (smlewi - at - gmail.com)
 
-Last edited 1/24/13. Code by Steven Lewis. Corresponding PI Brian Kuhlman (bkuhlman@email.unc.edu).
+Code by Steven Lewis. Corresponding PI Brian Kuhlman (bkuhlman - at - email.unc.edu).
 
 Code and Demo
 =============
@@ -15,13 +15,17 @@ The code is at `       rosetta/rosetta_source/src/apps/public/scenarios/FloppyTa
 References
 ==========
 
--   Kleiger G, Saha A, Lewis S, Kuhlman B, Deshaies RJ. Rapid E2-E3 assembly and disassembly enable processive ubiquitylation of cullin-RING ubiquitin ligase substrates. Cell. 2009 Nov 25;139(5):957-68. PubMed PMID: 19945379.
+-   [Kleiger G, Saha A, Lewis S, Kuhlman B, Deshaies RJ. Rapid E2-E3 assembly and disassembly enable processive ubiquitylation of cullin-RING ubiquitin ligase substrates. Cell. 2009 Nov 25;139(5):957-68. PubMed PMID: 19945379.](http://www.ncbi.nlm.nih.gov/pubmed/19945379) (pubmed link)
 
 You may want to look at the online supplemental info for that paper for a different presentation of how the code works.
 
--   Crawley SW, Gharaei MS, Ye Q, Yang Y, Raveh B, London N, Schueler-Furman O, Jia Z, Côté GP. Autophosphorylation activates Dictyostelium myosin II heavy chain kinase A by providing a ligand for an allosteric binding site in the alpha-kinase domain. J Biol Chem. 2011 Jan 28;286(4):2607-16. Epub 2010 Nov 11.
+-   [Crawley SW, Gharaei MS, Ye Q, Yang Y, Raveh B, London N, Schueler-Furman O, Jia Z, Côté GP. Autophosphorylation activates Dictyostelium myosin II heavy chain kinase A by providing a ligand for an allosteric binding site in the alpha-kinase domain. J Biol Chem. 2011 Jan 28;286(4):2607-16. Epub 2010 Nov 11.](http://www.ncbi.nlm.nih.gov/pubmed/21071445) (pubmed link)
 
-This paper uses FloppyTail but is not related to development.
+This paper uses FloppyTail but is not related to development.  Key idea: the paper authors were able to productively use FloppyTail without significant assistance from the code's author.
+
+-  [Zhang J, Lewis SM, Kuhlman B, Lee AL. Supertertiary structure of the MAGUK core from PSD-95. Structure. 2013 Mar 5;21(3):402-13.] (http://www.ncbi.nlm.nih.gov/pubmed/23395180) (pubmed link). 
+
+This paper uses FloppyTail to generate models consistent with NMR and SAXS data for interpretation of a structure of biological interest.
 
 Application purpose
 ===========================================
