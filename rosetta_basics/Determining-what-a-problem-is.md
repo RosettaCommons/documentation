@@ -1,5 +1,7 @@
 #What to do when you can't figure out how to model your problem
 
+You should be here if you weren't able to determine how to address your modeling problem with our pages on [[Solving a Biological Problem]] or [[I want to sample X|I want to do x]].
+
 Sometimes, new graduate students in non-Rosetta labs are given vague problem statements.
 At least, they are vague with respect to the Rosetta worldview and documentation.
 For example: "We need to check if these mutations are OK at this site. Find some computational protein design software to check them out before you order oligos." 
