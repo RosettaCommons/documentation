@@ -12,3 +12,9 @@ Set the temperature (b-)factor column in the PDB based on filter's per-residue P
 -   Value\_for\_red: All PSSM scoring with value and higher will be converted to 50 in the Bfactor column. Default 0.
 
 
+##See Also
+
+* [[SetTemperatureFactorMover]]
+* [[FavorSequenceProfileMover]]
+* [[ConsensusDesignMover]]
+* [[I want to do x]]: Guide to choosing a mover

@@ -16,6 +16,7 @@ This mover is somewhat deprecated in favor of the more general GenericMonteCarlo
 ##See Also
 
 * [[GenericMonteCarloMover]]
+* [[RandomMover]]
 * [[MonteCarloTestMover]]
 * [[MonteCarloUtilMover]]
 * [[MonteCarloRecoverMover]]

@@ -46,10 +46,11 @@ A task can optionally be included for automatic setting of the number of trials 
 
 ##See Also
 
+* [[GenericSimulatedAnnealerMover]]
+* [[RandomMover]]
 * [[MonteCarloTestMover]]
 * [[MonteCarloUtilMover]]
 * [[MonteCarloRecoverMover]]
-* [[GenericSimulatedAnnealerMover]]
 * [[LoopOverMover]]
 * [[SubroutineMover]]
 * [[MultiplePoseMover]]

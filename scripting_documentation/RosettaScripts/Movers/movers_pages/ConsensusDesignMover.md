@@ -15,3 +15,8 @@ This mover will mutate residues to the most-frequently occuring residues in a mu
 -   invert\_task: A common usage case is to take an interface/ligand packer task and then do consensus design for everything outside of that design (which is presumably optimized by rosetta for binding). That use requires a task that is the opposite of the original task. This flag turns on that inverted task.
 
 
+##See Also
+
+* [[FavorSequenceProfileMover]]
+* [[PSSM2BfactorMover]]
+* [[I want to do x]]: Guide to choosing a mover

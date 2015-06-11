@@ -47,3 +47,11 @@ To make a plot of these functions use MatLab or some webserver, e.g., [http://ww
 The anchor\_offset value is used to set a competitor (negative) state at a certain energy above the best energy of the positive state. This is a computationally cheap assurance that as the specificity changes in favour of the positive state, the stability of the system is not overly compromised. Set anchor\_offset to a value that corresponds to the amount of energy that you're willing to forgo in favour of specificity.
 
 
+##See Also
+
+* [[Multistate design application|mpi-msd]]
+* [[DnaInterfacePackerMover]]
+* [[InterfaceAnalyzerMover]]
+* [[InterfaceRecapitulationMover]]
+* [[InterfaceScoreCalculatorMover]]
+* [[I want to do x]]: Guide to choosing a mover

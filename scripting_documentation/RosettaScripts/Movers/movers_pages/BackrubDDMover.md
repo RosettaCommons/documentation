@@ -21,3 +21,9 @@ Note: As of June 29, 2011, this mover was renamed from "Backrub" to "BackrubDD".
 -   task\_operations: see [RepackMinimize](#RepackMinimize)
 
 
+##See Also
+
+* [[BackrubMover]]: Backrub-style backbone movements
+* [[Backrub]]: The backrub application
+* [[Backrub Server (external link)|https://kortemmelab.ucsf.edu/backrub/cgi-bin/rosettaweb.py?query=index]]: Web-based server that provides backrub ensembles for academic users
+* [[I want to do x]]: Guide to choosing a mover

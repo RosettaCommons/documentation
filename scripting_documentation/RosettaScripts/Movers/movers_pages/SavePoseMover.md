@@ -13,3 +13,7 @@ This mover allows one to save a pose at any time point through out a trajectory 
 -   pdb\_file - Optional. If present, will load the given PDB file into the referenced pose at parse time.
 
 
+##See Also
+
+* [[SaveAndRetrieveSidechainsMover]]
+* [[I want to do x]]: Guide to choosing a mover

@@ -13,7 +13,7 @@ This mover is one of the default refiners in LoopModeler's fullatom step.
 
 Options:
 
-* task_operations: The residues to pack and/or design.  By default, any residue 
+* [[task_operations|TaskOperations-RosettaScripts]]: The residues to pack and/or design.  By default, any residue 
   within 10A of the loop will be repacked and no residues will be designed.  If 
   you specify your own task operations, nothing will be repacked by default, so 
   make sure to let residues within some reasonable shell of the loop repack.
@@ -21,16 +21,24 @@ Options:
 * scorefxn: The score function used for packing.  Required if not being used as 
   a subtag within some other LoopMover.
 
-* loop_file: See LoopModeler.
+* [[loop_file|loops-file]]: See [[LoopModelerMover]].
 
 Subtags:
 
-* Loop: See LoopModeler.
+* Loop: See [[LoopModelerMover]].
 
 Caveats:
 
 * The input pose must have sidechains, i.e. it must be in fullatom mode.
 
-* See LoopModeler.
+* See [[LoopModelerMover]].
 
 
+##See Also
+
+* [[LoopModelerMover]]
+* [[RosettaScriptsLoopModeling]]
+* [[Loop file format|loops-file]]
+* [[Loopmodel application|loopmodel]]
+* [[LoopRemodelMover]]
+* [[PackRotamersMover]]

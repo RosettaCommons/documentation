@@ -1,6 +1,0 @@
-# RestrictYSDesign
-*Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
-## RestrictYSDesign
-
-Restrict amino acid choices during design to Tyr and Ser. This is similar to the restricted YS alphabet used by Sidhu's group during in vitro evolution experiments. Under development and untested. Use at your own risk.
-

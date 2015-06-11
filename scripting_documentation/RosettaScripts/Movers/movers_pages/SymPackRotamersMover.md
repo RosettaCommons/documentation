@@ -15,6 +15,13 @@ The symmetric versions of pack rotamers and rotamer trials movers (they take the
 * [[Symmetry]]: Using symmetry in Rosetta
 * [[SymmetryAndRosettaScripts]]
 * [[Fixbb]]: Application to pack rotamers
+* [[PackRotamersMover]]
+* [[PackRotamersMoverPartGreedyMover]]
+* [[TryRotamersMover]]
+* [[MinPackMover]]
+* [[RotamerTrialsMover]]
+* [[RotamerTrialsMinMover]]
+* [[RotamerTrialsRefinerMover]]
 * [[SetupForSymmetryMover]]
 * [[SetupNCSMover]]
 * [[DetectSymmetryMover]]
