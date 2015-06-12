@@ -8,6 +8,12 @@ Furthermore, specific revisions from any branch can be tested.
 Ultimately, the test server should limit the frequency of breaking master.
 See [[Running-Tests-on-the-Test-Server]] for full detail on how to use the testing server.
 
+Below are sections which should be completed/written.
+
+### Orientation (How to Interpret the Testing Server)
+
+### What to Do in Case of a Failed Test
+
 ######Comments on Revisions
 It is now possible to add comments on any acknowledged revision. 
 To add a comment, simply login with your github account and type your comment text. 
