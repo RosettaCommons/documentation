@@ -118,7 +118,7 @@ If you want to run only one test or just one suite, you will need to supply the 
 
 ##See Also
 
-* [[Guide to writing unit tests|test]]
+* [[Guide to writing unit tests|writing-unit-tests]]
 * [[UTracer]], a tool to simplify writing unit tests
 * [[Writing unit tests for movers using UMoverTest|mover-test]]
 * [[Testing home page|rosetta-tests]]

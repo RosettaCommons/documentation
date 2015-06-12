@@ -30,7 +30,7 @@ The purpose of this document is to provide users with a guide for creating new u
 
 ##See Also
 
-* [[Guide to writing unit tests|test]]
+* [[Guide to writing unit tests|writing-unit-tests]]
 * [[UTracer]], a tool to simplify writing unit tests
 * [[Running unit tests|run-unit-test]]
 * [[Testing home page|rosetta-tests]]
