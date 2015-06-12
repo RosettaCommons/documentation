@@ -12,15 +12,12 @@ This page describes how to install, compile, and test Rosetta 3 [[formerly calle
 [[_TOC_]]
 
 ##Basic Setup
-====================
 Build environment setup instructions for most situations can be found on the [[Getting Started|Getting-Started#local-installation-and-use-of-rosetta]] page. 
 
 ## Publicly accessible clusters with Rosetta pre-installed
-====================
 * As part of the XSEDE initiative, the [[TACC/Stampede|TACC]] cluster has Rosetta and PyRosetta centrally installed for authorized users. See the [[TACC]] page for more details.
 
 ##Alternative Setup for Individual Workstations
-====================
 
 The current build system is based on the tool [SCons](https://wiki.rosettacommons.org/index.php/Tools:SCons "Tools:SCons") ("Software Constructor") with some extensions. `     scons.py    ` is implemented as a Python script.
 
@@ -115,7 +112,6 @@ To build MPI executables, add the flag "extras=mpi" and copy main/source/tools/b
 ```
 
 ##Dependencies/Troubleshooting
-====================
 Rosetta requires a compiler (most gcc or clang are fine) and the zlib compression library development package. Instructions for acquiring either are below, sorted by what sorts of error messages they give if you are missing them.
 
 **"sh: 1: o: not found"**
@@ -170,11 +166,6 @@ The MPI-mode build test simply tries to compile Rosetta with the ```-extras=mpi`
 
 ##Cleaning 
 ====================
-
-```rm -rf build/src; rm .sconsign.dblite```
-
-Cleaning your binaries
--------------
 `cd Rosetta/main/source/ && rm -r build/* && rm .sconsign.dblite` will remove old binaries.
 
 ## See Also
