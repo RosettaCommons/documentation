@@ -24,29 +24,29 @@ Simple filter which are available without explicitly defining them.
 
 Filters which are useful for combining, modifying or working with other filters and movers.
 
-**[[CompoundStatement|CompoundStatementFilter]]** - uses previously defined filters to construct a compound logical statement with NOT, AND, OR, XOR, NAND, NOR, ANDNOT, and ORNOT operations
+**[[CompoundStatement|CompoundStatementFilter]]** - Uses previously defined filters with logical operations to construct a compound filter.
 
-**[[CombinedValue|CombinedValueFilter]]** -
+**[[CombinedValue|CombinedValueFilter]]** - Weighted sum of multiple filters.
 
 **[[CalculatorFilter]]** - Combine multiple filters with a mathematical expression.
 
 **[[ReplicateFilter]]** - Repeat a filter multiple times and average.
 
-**[[Boltzmann|BoltzmannFilter]]** -
+**[[Boltzmann|BoltzmannFilter]]** - Boltzmann weighted sum of positive/negative filters.
 
 **[[MoveBeforeFilter]]** - Apply a mover before applying the filter.
 
-**[[Operator|OperatorFilter]]** -
+**[[Operator|OperatorFilter]]** - Apply a fuzzy logic operation to a set of filters.
 
-**[[Sigmoid|SigmoidFilter]]** -
+**[[Sigmoid|SigmoidFilter]]** - Transform a filter's value according to a sigmoid function.
 
-**[[IfThenFilter]]** -
+**[[IfThenFilter]]** - Evaluate to a value contingent on the true/false value of other filters.
 
-**[[ContingentFilter]]** -
+**[[ContingentFilter]]** - A special filter that allows movers to set its value (pass/fail).
 
-**[[PoseComment|PoseCommentFilter]]** -
+**[[PoseComment|PoseCommentFilter]]** - Test for the existence or the value of a comment in the pose.
 
-**[[Range|RangeFilter]]** -
+**[[Range|RangeFilter]]** - Returns true if the value of a given filter is in a given range.
 
 ## General Filters
 
@@ -54,23 +54,23 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[ResidueCount|ResidueCountFilter]]** - Filter based on the total number of residues.
 
-**[[NetCharge|NetChargeFilter]]** -
+**[[NetCharge|NetChargeFilter]]** - Filter based on simple sum of protein charge.
 
 ### Energy/Score
 
 **[[ScoreType|ScoreTypeFilter]]** - Filter based on a particular score term.
 
-**[[TaskAwareScoreType|TaskAwareScoreTypeFilter]]** (Formerly AverageInterfaceEnergy) - 
+**[[TaskAwareScoreType|TaskAwareScoreTypeFilter]]** (Formerly AverageInterfaceEnergy) - Filter on score of "packable" residues.
 
-**[[BindingStrain|BindingStrainFilter]]** -
+**[[BindingStrain|BindingStrainFilter]]** - Filter on energetic strain in a bound monomer.
 
-**[[Delta|DeltaFilter]]** -
+**[[Delta|DeltaFilter]]** - Compute difference from native of filter value.
 
-**[[EnergyPerResidue|EnergyPerResidueFilter]]** -
+**[[EnergyPerResidue|EnergyPerResidueFilter]]** - Filter on energy of specific selection (residue(s), interface, protein).
 
-**[[Residue Interaction Energy|ResidueIEFilter]]** -
+**[[Residue Interaction Energy|ResidueIEFilter]]** - Filter on energy of specific residue in the context of an interface or pose.
 
-**[[ResidueSetChainEnergy|ResidueSetChainEnergyFilter]]** -
+**[[ResidueSetChainEnergy|ResidueSetChainEnergyFilter]]** - Filter on energy of residue set (either in chain or selection).
 
 ### Distance
 
