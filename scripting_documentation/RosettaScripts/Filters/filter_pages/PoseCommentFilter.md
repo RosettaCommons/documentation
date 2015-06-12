@@ -13,5 +13,7 @@ Test for the existence or the value of a comment in the pose. This is useful for
 
 If you run with comment_name="" then all the pose comments are checked to find the requested value.
 
+## See also:
 
-
+* [[LoadPDBMover]]
+* [[PoseInfoFilter]]

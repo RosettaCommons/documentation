@@ -11,3 +11,7 @@ This filter \*always\* returns true, therefore it's not recommended to use it wi
 <PoseInfo name=(&string)/>
 ```
 
+## See also:
+
+* [[LoadPDBMover]]
+* [[PoseCommentFilter]]

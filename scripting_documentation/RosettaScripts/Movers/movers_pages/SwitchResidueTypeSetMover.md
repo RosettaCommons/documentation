@@ -17,4 +17,5 @@ Typically, RosettaScripts assumes that poses are all-atom. In some cases, a cent
 
 * [[PrepareForFullatomMover]]
 * [[PrepareForCentroidMover]]
+* [[Centroid vs fullatom]]
 * [[I want to do x]]: Guide to choosing a mover

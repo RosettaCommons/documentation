@@ -16,6 +16,8 @@
 
   * [[Score functions|score-types]]
 
+  * [[Centroid vs Fullatom]]
+
   * [[Atom Tree|atomtree-overview]]
 
   * [[Fold Tree|foldtree-overview]]

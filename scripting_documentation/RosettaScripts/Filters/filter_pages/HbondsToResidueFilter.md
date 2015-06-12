@@ -13,14 +13,14 @@ This filter was written in the context of protein interface design, so it may no
 -   partners: how many hbonding partners are expected 
 -   backbone: should we count backbone-backbone hbonds?
 -   sidechain: should we count backbone-sidechain and sidechain-sidechain hbonds?
--   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
+-   pdb\_num/res\_num: see [[RosettaScripts#rosettascripts-conventions_specifying-residuess]]
 
 ## See also
 
 * [[EnergyPerResidueFilter]]
-* [[HBuriedUnsatHbondsFilter]]
+* [[BuriedUnsatHbondsFilter]]
 * [[HbondsToAtomFilter]]
 * [[ResidueBurialFilter]]
 * [[ResidueDistanceFilter]]
-* [[ResidueInteractionEnergy]]
+* [[ResidueInteractionEnergy|ResidueIEFilter]]
 

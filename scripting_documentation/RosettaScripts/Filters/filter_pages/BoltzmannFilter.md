@@ -23,6 +23,7 @@ Useful for balancing counteracting objectives.
 * [[CompoundStatementFilter]]
 * [[CombinedValueFilter]]
 * [[CalculatorFilter]]
+* [[OperatorFilter]]
 * [[ReplicateFilter]]
 * [[SigmoidFilter]]
 

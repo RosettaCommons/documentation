@@ -27,7 +27,7 @@ Calculate the number of buried unsatisfied H-bonds across a given interface. (Sp
 
 ## See Also
 
-* [[BuriedUnsatHbonds]]
+* [[BuriedUnsatHbondsFilter]]
 
 <!--- END_INTERNAL -->
 
