@@ -93,7 +93,7 @@ This contains all the `ScoreFunction` and all the common terms that go in it, an
 
 ###Core.4
 Core.4 is concerned with optimization algorithms - ways to minimize the energy of the pose. 
-<!--- nocaps for style ---> `optimization` contains the "minimizer", which efficiently finds local energy minima.
+`optimization` contains the "minimizer", which efficiently finds local energy minima.
 `pack` contains the packer, which efficiently searches for sequence/rotamer minima for a given backbone.
 Note the repeated use of efficiently: this code is tightly integrated with other `core` classes for speed!
 
@@ -140,9 +140,21 @@ Protocols Library
 
 [[/images/protocols_structure.png]]
 
-The protocols directory contains higher level code which makes use of the core directory components to accomplish modeling tasks. The code in this directory should be in a state such that it is useable by a general audience (Please provide adequate documentation for all code placed in this directory). One of the main base classes to be aware of is the Mover class. This class is the interface class from which most Rosetta developers inherit when creating new modeling protocols. Most developers will interface with the Rosetta code at this level unless they need to extend the model representation capabilities of Rosetta.
+The protocols directory contains higher level code which makes use of the core directory components to accomplish modeling tasks. 
+The code in this directory should be in a state such that it is usable by a general audience.
+Developers are expected to provide adequate documentation for all code placed in this directory. 
+One of the main base classes to be aware of is the [[Mover]] class. 
+This class is the interface class from which most Rosetta developers inherit when creating new modeling protocols. 
+Most developers will interface with the Rosetta code at this level unless they need to extend the model representation capabilities of Rosetta.
 
 Like the core directory, the protocols directory has been split into several library levels, with code in each level only allowed to depend on the levels below it. 
+
+Protocols library organization is controlled by a series of protocols_X.#.src.settings files in `src/`, where X is a letter and # is a number. 
+The numbers are the dependency level of each library, and the letters arrange similar-level sublibraries into a laterally equivalent group. 
+In other words, libraries at the same number level have the same dependencies, but do not depend on each other: in fact they are forbidden from depending on each other.
+
+STEVEN TODO MENTAL NOTE: why did we split them like this
+
 
 Development Library
 ===================
