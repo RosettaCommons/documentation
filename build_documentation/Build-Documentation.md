@@ -5,9 +5,9 @@
 This page describes how to install, compile, and test Rosetta 3 (formerly called "Mini") on one's own workstation, or to a user directory on a scientific cluster.
 
 Setting up Rosetta 3
-===========
+====================
 
-This page describes how to install, compile, and test Rosetta 3 \( [formerly called "Mini"] (RosettaTimeline) \) on a [supported platform](https://wiki.rosettacommons.org/index.php/Supported_Platforms "Supported Platforms") .
+This page describes how to install, compile, and test Rosetta 3 [[formerly called "Mini"|Rosetta-Timeline]] on a [[platform|supported platform]].
 
 [[_TOC_]]
 
