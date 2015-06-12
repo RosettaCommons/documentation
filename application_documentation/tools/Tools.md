@@ -731,13 +731,7 @@ tools/SWA_RNA_python/SWA_dagman_python/dagman/DAG_slave.py
 tools/SWA_RNA_python/SWA_dagman_python/dagman/generic_empty_reducer.py    
 &#8195; - 
 
-tools/SWA_RNA_python/SWA_dagman_python/dagman/__init__.py    
-&#8195; - 
-
 tools/SWA_RNA_python/SWA_dagman_python/dagman/submit_DAG_job.py    
-&#8195; - 
-
-tools/SWA_RNA_python/SWA_dagman_python/database/__init__.py    
 &#8195; - 
 
 tools/SWA_RNA_python/SWA_dagman_python/database/SWA_amino_acids.py    
@@ -764,9 +758,6 @@ tools/SWA_RNA_python/SWA_dagman_python/FARFAR_DAG/FARFAR_rna_build_dagman.py
 tools/SWA_RNA_python/SWA_dagman_python/FARFAR_DAG/FARFAR_rna_build_dagman_util.py    
 &#8195; - 
 
-tools/SWA_RNA_python/SWA_dagman_python/FARFAR_DAG/__init__.py    
-&#8195; - 
-
 tools/SWA_RNA_python/SWA_dagman_python/FARFAR_DAG/setup_FARFAR_job_files_parse_options.py    
 &#8195; - 
 
@@ -774,9 +765,6 @@ tools/SWA_RNA_python/SWA_dagman_python/FARFAR_DAG/setup_FARFAR_job_files.py
 &#8195; - 
 
 tools/SWA_RNA_python/SWA_dagman_python/FARFAR_DAG/setup_FARFAR_job_files_util.py    
-&#8195; - 
-
-tools/SWA_RNA_python/SWA_dagman_python/__init__.py    
 &#8195; - 
 
 tools/SWA_RNA_python/SWA_dagman_python/misc/calculate_pairwise_RMSD.py    
@@ -861,9 +849,6 @@ tools/SWA_RNA_python/SWA_dagman_python/misc/fix_pymol_output_pdb.py
 &#8195; - 
 
 tools/SWA_RNA_python/SWA_dagman_python/misc/get_OLLM_chain_closure_only_regions.py    
-&#8195; - 
-
-tools/SWA_RNA_python/SWA_dagman_python/misc/__init__.py    
 &#8195; - 
 
 tools/SWA_RNA_python/SWA_dagman_python/misc/invert_chain_sequence.py    
@@ -1025,13 +1010,7 @@ tools/SWA_RNA_python/SWA_dagman_python/old_dagman_works_with_condor/DAG_slave.py
 tools/SWA_RNA_python/SWA_dagman_python/old_dagman_works_with_condor/generic_empty_reducer.py    
 &#8195; - 
 
-tools/SWA_RNA_python/SWA_dagman_python/old_dagman_works_with_condor/__init__.py    
-&#8195; - 
-
 tools/SWA_RNA_python/SWA_dagman_python/old_dagman_works_with_condor/submit_DAG_job.py    
-&#8195; - 
-
-tools/SWA_RNA_python/SWA_dagman_python/parser/__init__.py    
 &#8195; - 
 
 tools/SWA_RNA_python/SWA_dagman_python/parser/SWA_parse_benchmark.py    
@@ -1047,9 +1026,6 @@ tools/SWA_RNA_python/SWA_dagman_python/parser/SWA_parse_rosetta_options.py
 &#8195; - 
 
 tools/SWA_RNA_python/SWA_dagman_python/scheduler/infinite_loop.py    
-&#8195; - 
-
-tools/SWA_RNA_python/SWA_dagman_python/scheduler/__init__.py    
 &#8195; - 
 
 tools/SWA_RNA_python/SWA_dagman_python/scheduler/kill_all_slave_jobs.py    
@@ -1103,9 +1079,6 @@ tools/SWA_RNA_python/SWA_dagman_python/SWA_DAG/DAG_rebuild_bulge_reducer.py
 tools/SWA_RNA_python/SWA_dagman_python/SWA_DAG/DAG_rebuild_bulge_util.py    
 &#8195; - 
 
-tools/SWA_RNA_python/SWA_dagman_python/SWA_DAG/__init__.py    
-&#8195; - 
-
 tools/SWA_RNA_python/SWA_dagman_python/SWA_DAG/setup_SWA_RNA_dag_job_files.py    
 &#8195; - 
 
@@ -1142,9 +1115,6 @@ tools/SWA_RNA_python/SWA_dagman_python/SWA_DAG/SWA_sampling_post_process_util.py
 tools/SWA_RNA_python/SWA_dagman_python/SWA_DAG/SWA_sampling_pre_process.py    
 &#8195; - 
 
-tools/SWA_RNA_python/SWA_dagman_python/swa_revival/__init__.py    
-&#8195; - 
-
 tools/SWA_RNA_python/SWA_dagman_python/swa_revival/plot_silent_file_scores.py    
 &#8195; - 
 
@@ -1179,9 +1149,6 @@ tools/SWA_RNA_python/SWA_dagman_python/utility/extract_FR3D_data_functions.py
 &#8195; - 
 
 tools/SWA_RNA_python/SWA_dagman_python/utility/extract_MC_annotate_data_functions.py    
-&#8195; - 
-
-tools/SWA_RNA_python/SWA_dagman_python/utility/__init__.py    
 &#8195; - 
 
 tools/SWA_RNA_python/SWA_dagman_python/utility/list_operations.py    
@@ -1341,9 +1308,6 @@ tools/hts_tools/make_startfom_files.py
 &#8195; - 
 
 tools/hts_tools/prepare_sdfs_for_bcl.py    
-&#8195; - 
-
-tools/hts_tools/sdf_parser/__init__.py    
 &#8195; - 
 
 tools/hts_tools/sdf_parser/MolFile.py    
@@ -1590,22 +1554,10 @@ main/source/src/python/rosetta_py/utility/r3.py
 tools/protein_tools/rosettautil/bcl/file_formats.py    
 &#8195; - 
 
-tools/protein_tools/rosettautil/bcl/__init__.py    
-&#8195; - 
-
-tools/protein_tools/rosettautil/graphics/__init__.py    
-&#8195; - 
-
 tools/protein_tools/rosettautil/graphics/plotting.py    
 &#8195; - 
 
-tools/protein_tools/rosettautil/__init__.py    
-&#8195; - 
-
 tools/protein_tools/rosettautil/protein/alignment.py    
-&#8195; - 
-
-tools/protein_tools/rosettautil/protein/__init__.py    
 &#8195; - 
 
 tools/protein_tools/rosettautil/protein/naccess.py    
@@ -1618,9 +1570,6 @@ tools/protein_tools/rosettautil/protein/PSSM.py
 &#8195; - 
 
 tools/protein_tools/rosettautil/protein/util.py    
-&#8195; - 
-
-tools/protein_tools/rosettautil/rosetta/__init__.py    
 &#8195; - 
 
 tools/protein_tools/rosettautil/rosetta/loops.py    
@@ -1645,9 +1594,6 @@ tools/protein_tools/rosettautil/rosetta/weights.py
 &#8195; - 
 
 tools/protein_tools/rosettautil/util/fileutil.py    
-&#8195; - 
-
-tools/protein_tools/rosettautil/util/__init__.py    
 &#8195; - 
 
 
