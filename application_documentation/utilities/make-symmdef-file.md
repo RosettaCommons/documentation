@@ -1,14 +1,11 @@
-#Symmetry Definiton file creation script.
+#Symmetry Definition file creation script.
 
-Metadata
-========
-
-Last edited May 31 2010 by Frank DiMaio. Code by Frank DiMaio and Ingemar Andre.
+*Last edited May 31 2010 by Frank DiMaio. Code by Frank DiMaio and Ingemar Andre.*
 
 Code and Demo
 =============
 
-All the code is contained in the Perl script src/apps/public/symmetry/make\_symmdef\_file.pl.
+All the code is contained in the Perl script src/apps/public/symmetry/make_symmdef_file.pl.
 
 Application purpose
 ===========================================
