@@ -8,8 +8,8 @@ This page once hosted documentation on Rosetta's deprecated [[ReferenceCount|Glo
 
 ##See Also
 
-* [[How to use pointers correctly]]
 * [[Owning pointer|owning-pointers]]
+* [[How to use pointers correctly]]
 * [[Src index page]]: Description of Rosetta library structure and code layout in the src directory
 * [[Rosetta directory structure|rosetta-library-structure]]: Descriptions of contents of the major subdirectories in the Rosetta `main` directory
 * [[Glossary]]: Brief definitions of Rosetta terms
