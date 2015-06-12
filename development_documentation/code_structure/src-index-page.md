@@ -1,23 +1,30 @@
 #An overview of the src directory
 
-From a conceptual standpoint, the src directory contains all the C++ code specfic to Rosetta. The directory structure within Rosetta delineates conceptual dependencies. A Rosetta developer should keep in mind the layered architecture depicted in the figure below. The arrows represent allowed dependency flows. Any code dependency on directories not accessible by following the arrows is not allowed. A strict vertical code dependency has been observed thus far in writing Rosetta code. Historically lateral independence within sub directories has not been required, however recent design decisions have identified this as a goal. Consequently, the figure below should be updated to display those dependencies as they are achieved.
-
+From a conceptual standpoint, the src directory contains all the C++ code specific to Rosetta. 
+The directory structure within Rosetta delineates conceptual dependencies. 
+A Rosetta developer should keep in mind the layered architecture depicted in the figure below. 
+The arrows represent allowed dependency flows. 
+Any code dependency on directories not accessible by following the arrows is not allowed. 
+A strict vertical code dependency has been observed thus far in writing Rosetta code. 
+This figure demonstrates the relationships between the libraries:
 
 [[/images/RosettaLib.png]]
-
 
 ObjexxFCL Library
 ================
 
-The `ObjexxFCL` library provides the infrastructure needed to emulate Fortran by code that has been translated from Fortran 77 to C++. It is heavily used in Rosetta at present, but will gradually disappear as Rosetta becomes more object-oriented.
+The `ObjexxFCL` library provides the infrastructure needed to emulate Fortran by code that has been translated from Fortran 77 to C++. 
+It is lightly used in Rosetta at present, having gradually disappeared as Rosetta became more object-oriented - the [[Rosetta to Rosetta++ to Rosetta3|Rosetta timeline]] transition. 
+It remains to support some legacy code.
 
 Utility Library
 ==============
 
 [[Utility Library|namespace-utility]] 
 
-
-The utility directory contains utility classes that are (at least in theory) not Rosetta-specific such as [[utility::vector1|vector1]] (a base 1 indexed of child class of std::vector with a few extra additions) and izstream (an infilestream which allows reading of zipped files).  Broadly speaking, these classes are implemented in a project-agnostic manner (i.e. they need not be Rosetta-specific).  Classes in this directory sometimes have mathematical class methods, but algorithms for complicated calculations are typically relegated to the numeric directory.
+The utility directory contains utility classes that are (at least in theory) not Rosetta-specific such as [[utility::vector1|vector1]] (a base 1 indexed of child class of std::vector with a few extra additions) and izstream (an infilestream which allows reading of zipped files). 
+Broadly speaking, these classes are implemented in a project-agnostic manner (i.e. they need not be Rosetta-specific). 
+Classes in this directory sometimes have mathematical class methods, but algorithms for complicated calculations are better placed in the numeric directory.
 
 ###Namespaces within utility
 * [[utility|namespace-utility]]
@@ -41,24 +48,59 @@ Numeric Library
 
 [[Numeric Library|namespace-numeric]]
 
-The numeric directory contains low-level functions that carry out mathematical operations.  While some of these might be general mathematics (calculating a fast Fourier transform, for example, or performing principal component analysis on a dataset), others might be Rosetta-specific calculations or might be implemented in a Rosetta-specific manner.
+The numeric directory contains low-level functions that carry out mathematical operations. 
+While some of these might be general mathematics (calculating a fast Fourier transform, for example, or performing principal component analysis on a dataset), others might be Rosetta-specific calculations or might be implemented in a Rosetta-specific manner.
 
+Basic Library <a name="basic" />
+===============================
 
-Basic Library
-=================
-
-The basic directory contains organizational and housekeeping classes specific to the Rosetta project.  Functions for accessing the Rosetta database typically reside here, for example, as does code for the Rosetta options system.  Certain Rosetta-specific tools, such as the [[tracer]], can also be found in the basic library.
+The basic directory contains organizational and housekeeping classes specific to the Rosetta project. 
+Functions for accessing the Rosetta database typically reside here, for example, as does code for the Rosetta options system. 
+Certain Rosetta-specific tools, such as the [[tracer]], can also be found in the basic library.
 
 Core Library <a name="core" />
-============
+==============================
 
 [[/images/core_structure.png]]
 
-The core directory contains classes that manage most of the internal machinery of Rosetta. This includes topics such as chemical representations of models, conformational representations of models, low-level operations on conformations, and energetic evaluation ([[scoring|scoring-explained]]) of models.
+The core directory contains classes that manage most of the internal machinery of Rosetta. 
+This includes topics such as chemical representations of models, conformational representations of models, low-level operations on conformations, and energetic evaluation ([[scoring|scoring-explained]]) of models.
 
-TODO: Steven, could you provide a description of roughly what falls into each of these levels?
+###Core.1
+The only important contents of this library level are the `graph` classes (graph in the computer science sense).
 
-###Namespace documentation (incomplete)
+###Core.2
+This library contains three important sections:
+
+####Chemical
+The chemical directory, which contains important classes like `ResidueType`, is how Rosetta understands the concept of what atoms are in a chemical entity and how the atoms are connected.
+
+####Kinematics
+The kinematics directory, which contains classes like `AtomTree`, `MoveMap`, and `FoldTree`, is how Rosetta propagates motion through a structure.  TODO linky internal coordinate kinematics
+ 
+####Conformation
+The `Conformation` class is what happens when you thread together `Residue` classes (based on `ResidueType`s) according to the kinematics dictated by the `AtomTree` - basically, a structure!
+
+###Core.3
+
+####Scoring
+Fairly self explanatory: now that `Conformation` gets us a structure, how do we score it?
+This contains all the `ScoreFunction` and all the common terms that go in it, and an `Energies` object to store the result of a scoring operation.
+
+####Pose
+`Pose`, one of the two most important classes in Rosetta, lives here.
+`Pose` is the marriage of a `Conformation` and an `Energies` object holding its scores.
+
+###Core.4
+Core.4 is concerned with optimization algorithms - ways to minimize the energy of the pose. 
+`optimization` contains the "minimizer", which efficiently finds local energy minima.
+`pack` contains the packer, which efficiently searches for sequence/rotamer minima for a given backbone.
+Note the repeated use of efficiently: this code is tightly integrated with other `core` classes for speed!
+
+###Core.5
+This library contains several items, the most important of which is the `init` machinery that initializes each run of Rosetta (reads the options from command line, sets up the random number generator, etc.)
+
+###Documentation by namespace (incomplete)
 
 * [[core::chemical|namespace-core-chemical]]
 * [[core::conformation|namespace-core-conformation]]
@@ -93,18 +135,26 @@ For a general overview of Rosetta concepts (including many concepts from core), 
     - [[How to add a new scoring term|new-energy-method]]
     - [[Constraints file formats|constraint-file]]
  
-
-
-
-
 Protocols Library
 =================
 
 [[/images/protocols_structure.png]]
 
-The protocols directory contains higher level code which makes use of the core directory components to accomplish modeling tasks. The code in this directory should be in a state such that it is useable by a general audience (Please provide adequate documentation for all code placed in this directory). One of the main base classes to be aware of is the Mover class. This class is the interface class from which most Rosetta developers inherit when creating new modeling protocols. Most developers will interface with the Rosetta code at this level unless they need to extend the model representation capabilities of Rosetta.
+The protocols directory contains higher level code which makes use of the core directory components to accomplish modeling tasks. 
+The code in this directory should be in a state such that it is usable by a general audience.
+Developers are expected to provide adequate documentation for all code placed in this directory. 
+One of the main base classes to be aware of is the [[Mover]] class. 
+This class is the interface class from which most Rosetta developers inherit when creating new modeling protocols. 
+Most developers will interface with the Rosetta code at this level unless they need to extend the model representation capabilities of Rosetta.
 
 Like the core directory, the protocols directory has been split into several library levels, with code in each level only allowed to depend on the levels below it. 
+
+Protocols library organization is controlled by a series of protocols_X.#.src.settings files in `src/`, where X is a letter and # is a number. 
+The numbers are the dependency level of each library, and the letters arrange similar-level sublibraries into a laterally equivalent group. 
+In other words, libraries at the same number level have the same dependencies, but do not depend on each other: in fact they are forbidden from depending on each other.
+
+STEVEN TODO MENTAL NOTE: why did we split them like this
+
 
 Development Library
 ===================
