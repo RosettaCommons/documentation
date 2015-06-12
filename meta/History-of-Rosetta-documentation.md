@@ -65,7 +65,7 @@ We primarily worked on the following projects:
 	* [[Problems that arise in macromolecular modeling|Challenges-in-Macromolecular-Modeling]]
 	* [[External educational resources|Resources-for-learning-biophysics-and-computational-modeling]]
 	* [[Rosetta history|Rosetta timeline]]
-	* Logic of [[solving a biological problem|Solving-a-Biological-Problem]]
+	* Logic of [[solving a biological problem|Incorporating-Experimental-Data]]
 	* [[Incorporating experimental data as constraints]]
 	* [[Rosetta literary canon|Rosetta Canon]]
 
