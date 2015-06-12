@@ -7,7 +7,7 @@ This page describes how to install, compile, and test Rosetta 3 (formerly called
 Setting up Rosetta 3
 ====================
 
-This page describes how to install, compile, and test Rosetta 3 [[formerly called "Mini"|Rosetta-Timeline]] on a [[platform|supported platform]].
+This page describes how to install, compile, and test Rosetta 3 [[formerly called "Mini"|Rosetta-Timeline]] on a [[supported platform|platform]].
 
 [[_TOC_]]
 
