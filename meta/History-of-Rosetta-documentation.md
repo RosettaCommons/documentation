@@ -61,12 +61,12 @@ We primarily worked on the following projects:
 
 * Meta-Rosetta
 	* [[Analyzing results]]
-	* [[Choosing sampling scale|rosetta_basics/Rosetta-on-different-scales]]
-	* [[Problems that arise in macromolecular modeling|rosetta_basics/Challenges-in-Macromolecular-Modeling]]
-	* [[External educational resources|rosetta_basics/Resources-for-learning-biophysics-and-computational-modeling]]
+	* [[Choosing sampling scale|Rosetta-on-different-scales]]
+	* [[Problems that arise in macromolecular modeling|Challenges-in-Macromolecular-Modeling]]
+	* [[External educational resources|Resources-for-learning-biophysics-and-computational-modeling]]
 	* [[Rosetta history|Rosetta timeline]]
-	* Logic of [[solving a biological problem|rosetta_basics/Solving-a-Biological-Problem]]
-	* [[Incorporating experimental data as constraints]]
+	* Logic of [[solving a biological problem|Solving-a-Biological-Problem]]
+	* [[Incorporating experimental data as constraints|Incorporating-Experimental-Data]]
 	* [[Rosetta literary canon|Rosetta Canon]]
 
 * Demos

@@ -20,5 +20,5 @@ Either \*res\_num or \*pdb\_num may be specified for res1 and res2. See [[Rosett
 * [[ResidueBurialFilter]]
 * [[ResidueCountFilter]]
 * [[ResidueIEFilter]]
-* [[TerminusDistance]]
+* [[TerminusDistanceFilter]]
 
