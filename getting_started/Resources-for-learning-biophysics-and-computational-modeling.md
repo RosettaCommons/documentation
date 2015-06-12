@@ -20,8 +20,9 @@ Some other education suggestions:
 * [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
 * [[Rosetta overview]]: Overview of Rosetta concepts
-* [[RosettaEncyclopedia]]: Detailed descriptions of Rosetta terms
+* [[FAQ]]: Frequently Asked Questions
 * [[Glossary]]: Brief definitions of Rosetta terms
+* [[RosettaEncyclopedia]]: Detailed descriptions of Rosetta terms
 * [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
 * [[Commands collection]]: A list of example command lines for running Rosetta executable files
 * [[Rosetta Servers]]: Web-based servers for Rosetta applications
