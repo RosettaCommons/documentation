@@ -93,7 +93,7 @@ This contains all the `ScoreFunction` and all the common terms that go in it, an
 
 ###Core.4
 Core.4 is concerned with optimization algorithms - ways to minimize the energy of the pose. 
-<!--- nocaps for style --->`optimization` contains the "minimizer", which efficiently finds local energy minima.
+<!--- nocaps for style ---> `optimization` contains the "minimizer", which efficiently finds local energy minima.
 `pack` contains the packer, which efficiently searches for sequence/rotamer minima for a given backbone.
 Note the repeated use of efficiently: this code is tightly integrated with other `core` classes for speed!
 
