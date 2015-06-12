@@ -204,19 +204,19 @@ These filters are used primarily for the reports they generate in the log and/or
 
 **[[Ddg|DdgFilter]]** - Filter based on the binding energy.
 
-**[[InterfaceBindingEnergyDensityFilter]]** -
+**[[InterfaceBindingEnergyDensityFilter]]** - Filter based on ddG dived by SASA (using the respective filters).
 
 ### Ligand docking and enzyme design
 
-**[[DSasa|DSasaFilter]]** -
+**[[DSasa|DSasaFilter]]** - Filter on delta SASA for bound/unbound ligand.
 
-**[[DiffAtomBurial|DiffAtomBurialFilter]]** -
+**[[DiffAtomBurial|DiffAtomBurialFilter]]** - Compares the DSasa of two specified atoms and checks to see if one is greater or less than other.
 
 **[[LigInterfaceEnergy|LigInterfaceEnergyFilter]]** - Filter based on binding energy of a ligand.
 
-**[[EnzScore|EnzScoreFilter]]** -
+**[[EnzScore|EnzScoreFilter]]** - Calculates scores of a pose taking into account (or not) enzdes style cst_energy.
 
-**[[RepackWithoutLigand|RepackWithoutLigandFilter]]** -
+**[[RepackWithoutLigand|RepackWithoutLigandFilter]]** - Calculates delta_energy or RMSD of protein residues in a protein-ligand interface when the ligand is removed and the interface repacked.
 
 ### Ligand design
 
@@ -232,23 +232,23 @@ These filters are used primarily for the reports they generate in the log and/or
 
 ### MatDes
 
-**[[OligomericAverageDegree|OligomericAverageDegreeFilter]]** -
+**[[OligomericAverageDegree|OligomericAverageDegreeFilter]]** - A version of the AverageDegree filter (see above) that is compatible with oligomeric building blocks.
 
-**[[SymUnsatHbonds|SymUnsatHbondsFilter]]** -
+**[[SymUnsatHbonds|SymUnsatHbondsFilter]]** - Filter on maximum number of buried unsatisfied H-bonds allowed across an interface.
 
-**[[ClashCheck|ClashCheckFilter]]** -
+**[[ClashCheck|ClashCheckFilter]]** - Calculate the number of heavy atoms clashing between building blocks.
 
-**[[InterfacePacking|InterfacePackingFilter]]** -
+**[[InterfacePacking|InterfacePackingFilter]]** - Calculates Will Sheffler's holes score for atoms at inter-building block interfaces.
 
-**[[MutationsFilter|MutationsFilter]]** -
+**[[MutationsFilter|MutationsFilter]]** - Determines mutated residues in current pose as compared to a reference pose. 
 
-**[[GetRBDOFValues|GetRBDOFValuesFilter]]** -
+**[[GetRBDOFValues|GetRBDOFValuesFilter]]** - Calculates either the current translation or rotation across a user specified jump.
 
 <!--- END_INTERNAL -->
 
 ### Backbone Design
 
-**[[Foldability|FoldabilityFilter]]** -
+**[[Foldability|FoldabilityFilter]]** - Rebuilds a given segment of an input pose a specified number of times using fragment-based assembly.
 
 ##See Also
 
