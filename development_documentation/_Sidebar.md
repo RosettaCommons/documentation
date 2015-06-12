@@ -16,6 +16,8 @@
 
 * [[Code structure|rosetta-library-structure]]
 
+* [[Coding Conventions]]
+
 * [[Common Errors]]
 
 <!---BEGIN_INTERNAL-->
