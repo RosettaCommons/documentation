@@ -3,6 +3,10 @@
 [[_TOC_]]
 
 ## Starting References
+
+You may be interested in reading [[Getting Started]]. 
+More similar recommendations can be found scrolling to the bottom of this page, in the See Also section.
+
 Leaver-Fay, A., et al., ROSETTA3: an object-oriented software suite for the simulation and design of macromolecules. Methods in enzymology, 2011. 487: p. 545.
 
 Kaufmann, K.W., et al., Practically useful: what the Rosetta protein modeling
