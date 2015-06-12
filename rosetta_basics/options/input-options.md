@@ -71,14 +71,14 @@ Silent Input File Flags
 =======================
 
 ```
--in:file:silent                 Silent input filename(s). [FileVector]
--in:file:silent_list            Silent input filename list(s) - like -l is to -s. [FileVector]
--in:file:silent_optH            Call optH when reading a silent file. [Boolean]
--in:file:silent_structure_type  Type of SilentStruct object to use in silent-file input'.
-                                Default='protein', [String]
--in:file:silent_read_through_errors         Try to salvage damaged silent files
--in:file:silent_score_prefix    Prefix that is appended to all scores read in from a silent-file',
-                                default='' [String]
+-in:file:silent                           Silent input filename(s). [FileVector]
+-in:file:silent_list                      Silent input filename list(s) - like -l is to -s. [FileVector]
+-in:file:silent_optH                      Call optH when reading a silent file. [Boolean]
+-in:file:silent_structure_type            Type of SilentStruct object to use in silent-file input'.
+                                          Default='protein', [String]
+-in:file:silent_read_through_errors       Try to salvage damaged silent files
+-in:file:silent_score_prefix              Prefix that is appended to all scores read in from a silent-file',
+                                          default='' [String]
 ```
 
 Scoring
