@@ -28,7 +28,7 @@ Perhaps the RMSD over "functionally relevant" residues would be helpful, but tha
 
 In brief: most biological questions you are given are complicated and require extensive thought. 
 Talk with your PI to ensure that you are translating their requests into the right sort of modeling.
-[[This page|rosetta_basics/Solving-a-Biological-Problem]] considers what to do with Rosetta from a biological problem standpoint, and [[this page|rosetta_basics/I-want-to-do-x]] does the same from a sampling degrees of freedom standpoint.  
+[[This page|Solving-a-Biological-Problem]] considers what to do with Rosetta from a biological problem standpoint, and [[this page|I-want-to-do-x]] does the same from a sampling degrees of freedom standpoint.  
 Be sure that you understand the problem before you devote lots of computer time to it.
 (Of course, lots of computer time is sometimes the problem itself: hard problems require lots of computer time, maybe more than you have available.)
 
@@ -39,7 +39,7 @@ Problems Rosetta cannot solve
 There are three major classes of problems Rosetta cannot solve. 
 Generally, if you've put a lot of effort into it, you may be in one of these categories.
 
-1. The problem is well formed and addressed with the correct methods, but fails due to broad [[challenges in macromolecular modeling|rosetta_basics/Challenges-in-Macromolecular-Modeling]], like the scoring problem and search problem. 
+1. The problem is well formed and addressed with the correct methods, but fails due to broad [[challenges in macromolecular modeling|Challenges-in-Macromolecular-Modeling]], like the scoring problem and search problem. 
 This is 100% Rosetta's fault.
 
 2. The problem can be addressed, but [[not enough computer time|rosetta_basics/Rosetta-on-different-scales]] was spent: the problem is undersampled. 

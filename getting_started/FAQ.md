@@ -6,7 +6,7 @@ This is a list of some of the more frequently asked questions about Rosetta.
 See Also:
 * [[Infrequently Asked Questions]] - less commonly asked questions. 
 * [[Glossary]] - short definitions of Rosetta-related terms.
-* [[Rosetta Encyclopedia]] - longer form explanations of Rosetta-related concepts. 
+* [[RosettaEncyclopedia]] - longer form explanations of Rosetta-related concepts. 
 
 #### How can I get a Rosetta software license?
 
@@ -96,7 +96,7 @@ The documention for each application should list most of the relevant options fo
 
 The [[options overview]] should list options which affect most protocols in Rosetta.
 
-A list of almost all of the options Rosetta recognizes is at the [[full option list]]. (Not every protocol understands every option, though.)
+A list of almost all of the options Rosetta recognizes is at the [[full options list]]. (Not every protocol understands every option, though.)
 
 #### Does Rosetta support running with MPI? Or do I have to launch multiple serial jobs?
 
