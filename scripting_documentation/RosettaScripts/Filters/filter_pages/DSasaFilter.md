@@ -16,3 +16,5 @@ Computes the fractional interface delta\_sasa for a ligand on a ligand-protein i
 * [[DiffAtomBurialFilter]]
 * [[LigInterfaceEnergyFilter]]
 * [[RepackWithoutLigandFilter]]
+* [[SasaFilter]]
+* [[TotalSasaFilter]]

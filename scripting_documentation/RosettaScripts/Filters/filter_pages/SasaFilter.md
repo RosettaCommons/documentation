@@ -16,3 +16,12 @@ Computes the sasa specifically in the interface. If it is \*\*higher\*\* than th
 
 hydrophobic/polar are computed by discriminating each atom into polar (acceptor/donor or polar hydrogen) or hydrophobic (all else) and summing the delta SASA over each category. Notice that at this point only total sasa can be computed across jumps other than 1. Trying to compute hydrophobic or polar sasa across any other jump will cause an exit during parsing.
 
+## See also
+
+* [[Protein-protein docking|docking-protocol]]
+* [[TotalSasaFilter]]
+* [[DSasaFilter]]
+* [[NetChargeFilter]]
+* [[PackStatFilter]]
+* [[InterfaceBindingEnergyDensityFilter]]
+
