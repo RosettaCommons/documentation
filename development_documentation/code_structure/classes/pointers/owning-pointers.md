@@ -7,7 +7,7 @@ This has two purposes.
 First, the pointed-to object won't be deleted unless all owning pointers are deleted (preventing segfaults).
 Second, the pointed-to object will be deleted automatically if all owning pointers to it are deleted (preventing memory leaks).
 
-This page once hosted documentation on Rosetta's deprecated [[ReferenceCount|Glossary#referencecount]] based smart pointer system.
+This page once hosted documentation on Rosetta's deprecated [[ReferenceCount]] based smart pointer system.
 
 ##See Also
 
