@@ -20,7 +20,7 @@ Note that the first OPERATION specified in the compound statement treated as a n
 * [[BoltzmannFilter]]
 * [[CombinedValueFilter]]
 * [[CalculatorFilter]]
-* [[IfThenFilterFilter]]
+* [[IfThenFilter]]
 * [[ReplicateFilter]]
 * [[SigmoidFilter]]
 
