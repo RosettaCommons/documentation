@@ -40,6 +40,10 @@ Examples
      0   V  EX  R   (insert a residue, Val, sheet, any abego, rebuild)
      2   V  EB  .   (position 2, Val, sheet, abego type B, do not rebuild)
 
-Note that this is often used with a SetSecStructEnergies mover, which would be applied first, both calling the same blueprint file with a header indicating the desired pairing. See SetSecStructEnergies for more.
+Note that this is often used with a SetSecStructEnergies mover, which would be applied first, both calling the same blueprint file with a header indicating the desired pairing. See [[SetSecStructEnergiesMover]] for more.
 
 
+##See Also
+
+* [[RemodelMover]]
+* [[I want to do x]]: Guide to choosing a mover

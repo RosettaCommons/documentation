@@ -1,0 +1,156 @@
+# LayerDesign
+*Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
+## LayerDesign
+
+Design residues with selected amino acids depending on the enviroment(accessible surface area). The layer of each residue is assigned to one of the three basic layers(core, boundary or surface) depending on the accessible surface area of mainchain + CB.
+
+Additional layers can be defined in the xml file by passing another taskoperation to get the residue selection. Only the residues that are marked as designable in the packer task are taken into consideration, any information about the available amino acids/rotamers selected by the taskoperation are not going to be considered. The amino acids to be used in each of this new layers has to be specified in the xml. Several taskoperations can be combined to the intersection between the different sets of designable residues.
+
+LayerDesign, like all TaskOperations, obeys commutivity: the effect of applying another TaskOperation before LayerDesign is the same as the effect of applying it after LayerDesign.  However, residues defined by PIKAA, NATAA, or NATRO operations in a resfile are often "special" residues that one would like to leave alone.  The <b>ignore_pikaa_natro=true</b> option allows this, at the expense of breaking commutivity.  If the user uses this option, and if a resfile is read before calling LayerDesign, the LayerDesign operation is not applied for the residues defined by PIKAA, NATAA or NATRO in the resfile.
+
+Note that this task is ligand compatible.  However, the user should set the ligand to be repackable but not designable with another TaskOperation.
+
+        <LayerDesign name=(&string layer) layer=(&string core_boundary_surface) pore_radius=(&real 2.0) core=(&real 20.0) surface=(&real 40.0) ignore_pikaa_natro=(&bool 0) repack_non_design=(&bool 1) make_rasmol_script=(&bool 0) make_pymol_script=(&bool 0)   >
+            <ATaskOperation name=task1 >
+                <all copy_layer=(&string layer) append=(&string) exclude=(&string)  specification=(&string "designable")  operation=(&string "design") />
+                <SecStructType aas=(&string) append(&string) exclude=(&string) />            
+            </ATaskOperation >
+        </LayerDesign>
+
+Option list
+
+-   layer ( default "core\_boundary\_surface\_other" ) : layer to be designed, other ex. core\_surface means only design core and surface layer, other refers to the additional layers defined with packertasks
+-   use\_original\_non\_designed\_layer ( default, 0 ) : restrict to repacking the non design layers
+-   pore\_radius ( default 2.0) : pore radius for calculating accessible surface area
+-   core ( default 20.0) : residues of which asa is \< core are defined as core
+-   surface ( default 40.0) : residues of which asa is \> surface are defined as surface
+-   (layer)\_(ss): set up the asa threshold for a specific secondary structure element in a particular layer. For example surface\_E=30 makes that for strand residues the asa cutoff is 30 instead of the one defined by surface.
+-   ignore\_pikaa\_natro: if true, and if a resfile is read before applying this TaskOperation, ignore any residues that have been set in the resfile with the PIKAA, NATRO, or NATAA commands.
+-   make\_rasmol\_script: if true, write a rasmol script coloring the residues by the three basic layers, core, boundary and surface.
+-   make\_pymol\_script: if true, write a pymol script coloring the residues by the three basic layer and the aditional taskoperation defined layers..
+-   repack\_non\_design: if true, side chains will be repacked, left untouched if otherwise.
+-   use\_sidechain\_neighbors: if true, assign a residue's layers based on counting the number CA atoms from other residues within a cone in front of the residue's ca-cb vector.  Because this option is no longer SASA based, the layer assignments will always be identical regardless of the protein sequence; i.e. layers could be assigned based on a polyalanine backbone and it would make no difference.  This option changes the defaults for core and surface to neighbors < 2 (surface) and neighbors > 5.2 (core).  HOWEVER, these defaults will be overwritten if core and surface are manually specified in declaring the taskoperation!  So make sure you do not specify new core and surface settings appropriate for SASA when you are actually counting neighboring residues.  Note: this option has not been tested on nonstandard residue types...
+
+TaskOperations can be combined together using the CombinedTasks tag, the nested tasks don't need to be named, just declared with type and parameters.
+
+        <CombinedTasks name=combined_task>
+             <ATaskOperation />
+             <AnotherTaskOperation />
+        </CombinedTasks>
+
+_**Currently Deprecated, new syntax for residue assignment coming soon! **_
+After you combined tasks you need to assign residues, you can use the 'all' tag to assign residues for all the different secondary structure elements.
+
+        <combined_task>
+            <all copy_layer=(&string) append=(&string) exclude=(&string)  specification=(&string "designable")  operation=(&string "design")/>
+        </combine_task>
+
+The options for the "all" tag are the following:
+
+-   copy\_layer: layer from where to copy the residues definition, can be core, boundary, surface or a task defined layer.
+-   aa: assign the following residues to the defined layer.  The string is composed of one-letter amino acid codes.
+-   append: append the following residues to the defined layer (i.e. add them to any already allowed in this layer).  The string is composed of one-letter amino acid codes.
+-   exclude: opposite as append (delete residues from the list allowed for the layer).
+-   ncaa, ncaa_append, ncaa_exclude: these permit non-canonical residues to be specified, as a comma-separated list of three-letter codes.  Note that TaskOperations permitting noncanonical design follow <i>OR</i> commutativity rather than <i>AND</i> commutativity.  That is, if I have three TaskOperations and number 1 OR number 2 OR number 3 permits a particular non-canonical, the non-canonical will be permitted when all three are applied.  With canonical amino acids, the reverse is true: only if number 1 AND number 2 AND number 3 permit a particular residue will that residue be permitted.
+-   specification: What residues from the task operation should be considered as the layer. Options are "designable" (pick designable residues), "repacakble" (pick residues restricted to only repack) or "fixed" (residues marked by the task as not repackable). Default is "designable"
+-   operation: What to do with the specified layer. Default is 'design', other options are 'no\_design' (allow repacking) and 'omit' (prevent repacking).
+
+After an all operation other definitions can be performed, for example:
+
+        <combined_task>
+            <all copy_layer=surface/>
+            <Strand append="F"/>
+        </combine_task>
+
+copies the layer definition from surface and adds Phe to the available residue types only to the residues on the strands.
+
+Below are the selected amino acid types for each layer, this can be overwritten in the xml:
+
+core
+
+-   Loop: AFILPVWY
+-   Strand: FIL VWY
+-   Helix: AFIL VWY ( P only at the beginning of helix )
+-   HelixCapping: DNST
+
+boundary
+
+-   Loop: ADEFGIKLNPQRSTVWY
+-   Strand: DEF IKLN QRSTVWY
+-   Helix: ADE IKLN QRSTVWY ( P only at the beginning of helix )
+-   HelixCapping: DNST
+
+surface
+
+-   Loop: DEGHKNPQRST
+-   Strand: DE HKN QRST
+-   Helix: DE HKN QRST ( P only at the beginning of helix )
+-   HelixCapping: DNST
+
+Nterm
+
+-   all: ACDEFGHIKLMNPQRSTVWY
+
+Cterm
+
+-   all: ACDEFGHIKLMNPQRSTVWY
+
+<!-- -->
+
+     This example creates a new layer that combines BuildingBlockInterface(symmetric interface with SelectBySasa picking up the core of the complex
+     since applying task operations returns the intersection of the sets this combined task will return the buried residues of the symmetric  interface.
+
+    <LayerDesign name=layer layer=other >
+
+        <CombinedTasks name=symmetric_interface_core>
+            <BuildingBlockInterface  />
+            <SelectBySASA state=bound core=1 />
+        </CombinedTasks>
+
+         assign to the new layer for the interface core the same residues as for the surface and append for all possible secondary structures , append  phe and a leu to all ss types.
+
+        <symmetric_interface_core>
+            <all copy_layer=surface append="FL"/>
+        </symmetric_interface_core>
+
+    </LayerDesign>
+
+
+<!-- -->
+
+     This example no.2 creates core_boundary_surface that designs differently by layers.  In the core layer, the noncanonical amino acids D-valine and D-isoleucine are permitted.  (Note that when this script is run, the path to the params files for these noncanonicals will have to be provided with the -extra_res_fa flag.)
+        <TASKOPERATIONS>
+
+          <LayerDesign name=layerdesign make_pymol_script=1 layer=core_boundary_surface>
+
+             <core>
+               <all append="AFGILMNPQVWYH" ncaa_append="DVA,DIL"/>
+               <all exclude="CRKDEST" />
+             </core>
+
+             <boundary>
+               <all append="AFGILMNPQVWYDEHKRST" />
+               <all exclude="C" />
+             </boundary>
+
+             <surface>
+               <all append="AGMNPQDEHKRST" />
+               <all exclude="CILVFWY" />
+             </surface>
+
+          </LayerDesign>
+
+        </TASKOPERATIONS>
+
+##See Also
+
+* [[Design applications|Design-applications]]: Various methods for doing design in Rosetta
+* [[RosettaScripts|RosettaScripts]]: Using RosettaScripts
+* [[Task Operations | TaskOperations-RosettaScripts]]: Other TaskOperations in RosettaScripts
+* [[Conventions in RosettaScripts|RosettaScripts-Conventions]]
+* [[I want to do x]]: Guide for making specific structural pertubations using RosettaScripts
+* [[Scripting Interfaces|scripting_documentation/Scripting-Documentation]]: Other ways to interact with Rosetta in customizable ways
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
+* [[Preparing structures]]: How to prepare structures for use in Rosetta

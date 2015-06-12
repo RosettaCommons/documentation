@@ -11,6 +11,7 @@ The Translate mover is for performing a course random movement of a small molecu
 ##See Also
 
 * [[TransformMover]]: Designed to replace the TranslateMover, RotateMover, and SlideTogetherMover
+* [[RigidBodyTransMover]]
 * [[RotateMover]]
 * [[SlideTogetherMover]]
 * [[I want to do x]]: Guide to choosing a mover

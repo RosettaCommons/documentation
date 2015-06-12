@@ -16,4 +16,5 @@ Set a list of cysteine pairs to form disulfides and repack their surroundings. U
 
 * [[DisulfideMover]]
 * [[DisulfidizeMover]]
+* [[RemodelMover]]
 * [[I want to do x]]: Guide to choosing a mover

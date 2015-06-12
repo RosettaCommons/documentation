@@ -121,6 +121,7 @@ update\_energy.
 ##See Also
 
 * [[PyMOL website (external)|http://www.pymol.org]]
+* [[PyMolMover]]: RosettaScripts PyMolMover documentation
 * [[Graphics and GUIs]]: Home page for graphical interfaces with Rosetta
 * [[Comparing structures]]: Essay on comparing structures
 * [[Extending the PyMol Viewer]]: How to add new functionality to Rosetta's PyMOL Mover

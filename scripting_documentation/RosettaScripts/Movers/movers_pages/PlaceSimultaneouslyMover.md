@@ -40,6 +40,7 @@ rb\_stub\_minimization, auction and stub\_score\_filter allow the user to specif
 
 ##See Also
 
+* [[AuctionMover]]: Special mover associated with PlaceSimultaneously
 * [[RosettaScriptsPlacement]]
 * [[AddSidechainConstraintsToHotspotsMover]]
 * [[BestHotspotCstMover]]

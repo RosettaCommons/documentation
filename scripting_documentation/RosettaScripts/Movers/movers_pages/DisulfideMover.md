@@ -20,4 +20,5 @@ Disulfide bonds created by this mover, if any, are guaranteed to pass a Disulfid
 
 * [[ForceDisulfidesMover]]
 * [[DisulfidizeMover]]
+* [[RemodelMover]]
 * [[I want to do x]]: Guide to choosing a mover

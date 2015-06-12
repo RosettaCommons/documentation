@@ -15,3 +15,7 @@ RenderGridsToKinemage will output a Kinemage file representing 1 or more scoring
 -   stride: The "stride" of the grid. If stride is 1, every grid point will be output. if stride is 5, every 5th grid point will be output.
 
 
+##See Also
+
+* [[TransformMover]]: Uses scoring grids
+* [[I want to do x]]: Guide to choosing a mover

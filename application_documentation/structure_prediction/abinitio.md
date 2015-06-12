@@ -29,7 +29,7 @@ Input Options
 -in:file:fasta ./input_files/1elwA.fasta 	        Protein sequence in fasta format (required)
 -in:file:frag3 ./input_files/aa1elwA03_05.200_v1_3 	Fragment library: 3-residue fragments (required)
 -in:file:frag9 ./input_files/aa1elwA09_05.200_v1_3 	Fragment library: 9-residue fragments (required)
--database ../../rosetta_database 	                Path to rosetta database (required if not ROSETTA3_DB environment variable is set)
+-database path/to/rosetta/main/database 	        Path to rosetta database (required if not ROSETTA3_DB environment variable is set)
 ```
 
 Output options

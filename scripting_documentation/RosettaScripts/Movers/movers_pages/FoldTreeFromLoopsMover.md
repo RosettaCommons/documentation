@@ -17,6 +17,8 @@ and either pdb or rosetta numbering are allowed. The start, end and cut points a
 ##See Also
 
 * [[FoldTree overview]]
+* [[VirtualRootMover]]
+* [[HotspotDisjointedFoldTreeMover]]
 * [[Loop file format|loops-file]]
 * [[LoopModelerMover]]
 * [[Loopmodel application|loopmodel]]

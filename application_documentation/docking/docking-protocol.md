@@ -147,7 +147,7 @@ Relevant common Rosetta Flags
 |-s [S] OR -silent [S]|Specify the file name of the starting structure, [S] (in:file:s for PDB format, in:file:silent for silent file format).|String|
 |-native [S]|Specify the file name of the native structure, [S], for which to compare in RMSD calculations. If a native file is not passed in, all calculations are done using the starting structure as native.|String|
 |-nstruct [I]|Specify the number of decoys, [I], to generate.|Integer|
-|-database [P]|The path to the Rosetta database (e.g. \~/rosetta\_database).|String|
+|-database [P]|The path to the Rosetta database (e.g. /path/to/rosetta/main/database).|String|
 |-use\_input\_sc|Use accepted rotamers from the input structure between Monte Carlo+Minimization (MCM) cycles. Unlike the -unboundrot flag from Rosetta++, not all rotamers from the input structure are added each time to the rotamer library, but only those accepted at the end of each round the remaining conformations are lost.|Boolean|
 |-ex1/-ex1aro -ex2/-ex2aro -ex3 -ex4|Adding extra side-chain rotamers (highly recommended). The -ex1 and -ex2aro flags were used in our own tests, and therefore are recommended as default values.|Boolean/Integer|
 |-constraints:cst\_file [S]|Specify the name of the [[constraint file]], [S]. |String|

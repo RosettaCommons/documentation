@@ -12,3 +12,9 @@ By default, the mover will add a virtual root residue to the pose if one does no
 
 Currently VirtualRoot with remove true is very conservative in removing virtual root residues, and won't remove the residue if it's no longer the root residue, if pose length changes mean that the root residue falls at a different numeric position, or if the virtual root residue wasn't added by a VirtualRoot mover with "removable" set. Don't depend on the behavior of no-op removals, though, as the mover may become more permissive in the future.
 
+##See Also
+
+* [[FoldTree overview]]
+* [[FoldTreeFromLoopsMover]]
+* [[HotspotDisjointedFoldTreeMover]]
+* [[I want to do x]]

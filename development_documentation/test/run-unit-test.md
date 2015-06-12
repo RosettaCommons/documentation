@@ -51,17 +51,17 @@ Sometimes it is necessary to run a test by hand. To do this, you need first to l
 
 `       cd build/test/debug/linux/2.6/32/x86/gcc      `
 
-`       ./core.test –database ~/rosetta_database --mute core      `
+`       ./core.test –database /path/to/rosetta/main/database --mute core      `
 
 If you want to run only one test or just one suite, you will need to supply the name of the test function or name of the suite as the **first** argument to the test executable. Here are examples of running only test\_simple\_min and suite MyTestSuite from core tests:
 
 `       cd build/test/debug/linux/2.6/32/x86/gcc      `
 
-`       ./core.test test_simple_min --database ~/rosetta_database --mute core      `
+`       ./core.test test_simple_min --database /path/to/rosetta/main/database --mute core      `
 
 `       cd build/test/debug/linux/2.6/32/x86/gcc      `
 
-`       ./core.test MyTestSuite –database ~/rosetta_database --mute core      `
+`       ./core.test MyTestSuite –database /path/to/rosetta/main/database --mute core      `
 
 ##See Also
 

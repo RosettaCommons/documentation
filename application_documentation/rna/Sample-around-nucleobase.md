@@ -57,7 +57,7 @@ To sample a 'carbon' probe atom:
 To sample a water (sampling all possible orientations and outputting Boltzmann summed free energies)
 
 ```
- nucleobase_sample_around   [-s a_RNA.pdb]  -sample_water  [ -extra_res ~/rosetta_database/chemical/residue_type_sets/fa_standard/residue_types/water/TP3.params ]
+ nucleobase_sample_around   [-s a_RNA.pdb]  -sample_water  [ -extra_res /path/to/rosetta/main/database/chemical/residue_type_sets/fa_standard/residue_types/water/TP3.params ]
 ```
 
 To sample a nucleobase

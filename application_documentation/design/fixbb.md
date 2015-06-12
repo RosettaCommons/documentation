@@ -124,7 +124,7 @@ Annealer
 Other
 
 ```
--database <path/to/rosetta/rosetta_database>     Specify the location of the rosetta_database (required)
+-database <path/to/rosetta/main/database>     Specify the location of the rosetta_database (required)
 
 -overwrite             Overwrite the output files, even if they already exist.
 
@@ -175,6 +175,7 @@ Rosetta3.2 includes the Lazy Interaction Graph which had not yet been ported fro
 * Fixbb can be run with the [[ hpatch score term| fixbb-with-hpatch ]] to prevent the development of surface hydrophobic patches
 * [[Rosetta Design Server (external link)|http://rosettadesign.med.unc.edu/]]: Web-based server for fixed backbone design
 * [[Design applications | design-applications]]: other design applications
+* [[PackRotamersMover]]: RosettaScripts mover for rotamer repacking/design
 * [[Application Documentation]]: Application documentation home page
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
 * [[Analyzing Results]]: Tips for analyzing results generated using Rosetta

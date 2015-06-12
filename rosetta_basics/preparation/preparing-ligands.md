@@ -5,7 +5,7 @@ Author:  Sam DeLuca
 Why is this process necessary?
 ==============================
 
-Rosetta uses Params files to store precomputed information about the geometry and chemistry of residues and ligands. A params file is required for each residue encountered in a PDB. A set of params files for commonly seen residues and metals is included with rosetta, and can be found in rosetta\_database/chemical/residue\_type\_sets
+Rosetta uses Params files to store precomputed information about the geometry and chemistry of residues and ligands. A params file is required for each residue encountered in a PDB. A set of params files for commonly seen residues and metals is included with rosetta, and can be found in /path/to/rosetta/main/database/chemical/residue\_type\_sets
 
 * An overview of the Params File type can be found [[here | Residue-Params-file]]
 

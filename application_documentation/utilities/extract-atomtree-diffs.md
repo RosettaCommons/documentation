@@ -48,7 +48,7 @@ This app requires an atomtree\_diff silent file (\*\_silent.out). If there is a 
 An example command line to extract just one structure (using the files in `       rosetta/main/tests/integration/tests/extract_atomtree_diffs      `):
 
 ```
-~/rosetta/main/source/bin/extract_atomtree_diffs.linuxgccrelease -database ~/rosetta_database -extra_res_fa inputs/CP1.fa.params -s inputs/7cpa_no_ligand_CP1_silent.out -tags 7cpa_no_ligand_CP1_0_0012
+~/rosetta/main/source/bin/extract_atomtree_diffs.linuxgccrelease -database /path/to/rosetta/main/database -extra_res_fa inputs/CP1.fa.params -s inputs/7cpa_no_ligand_CP1_silent.out -tags 7cpa_no_ligand_CP1_0_0012
 ```
 
 A rosetta run will produce an atomtree diff format silent file that contains the endpoint of every trajectory. These silent files can be safely concatenated to give a single output file per ligand. Make sure to use `       -out:prefix      ` and/or `       -out:suffix      ` with each process to ensure unique tag names, however.
@@ -85,7 +85,7 @@ The label "7cpa\_0\_0\_0001" is a "tag", used for uniquely identifying each dock
 The supplied script `       best_ifaceE.py      ` will read a silent file and print the tags of the best-scoring poses. In the Bash shell, you can use this output directly to get the 10 best poses:
 
 ```
-~/rosetta/main/source/bin/extract_atomtree_diffs.macosgccrelease -database ~/rosetta_database -extra_res_fa input/1t3r.params \
+~/rosetta/main/source/bin/extract_atomtree_diffs.macosgccrelease -database /path/to/rosetta/main/database -extra_res_fa input/1t3r.params \
   -s 1t3r_silent.out -tags $(~/rosetta/main/source/src/apps/public/ligand_docking/best_ifaceE.py -n 10 1t3r_silent.out)
 ```
 

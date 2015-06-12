@@ -17,6 +17,8 @@ Creates a disjointed foldtree where each selected residue has cuts N- and C-term
 
 * [[FoldTree Overview]]
 * [[RosettaScriptsPlacement]]
+* [[FoldTreeFromLoopsMover]]
+* [[VirtualRootMover]]
 * [[AddSidechainConstraintsToHotspotsMover]]
 * [[BestHotspotCstMover]]
 * [[DockWithHotspotMover]]

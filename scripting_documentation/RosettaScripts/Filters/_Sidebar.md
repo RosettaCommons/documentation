@@ -1,5 +1,3 @@
-[[_TOC_]]
-
 [[Getting Started]]
 
 [[Build Documentation|build_documentation/Build-Documentation]]
@@ -41,3 +39,5 @@
 [[Glossary]]
 
 [[Options list|full-options-list]]
+
+<<FixedTableOfContents(Filters-RosettaScripts)>>

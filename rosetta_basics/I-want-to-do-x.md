@@ -54,6 +54,7 @@ Structure determination via fragment substitution
 	handles loop closure in ab initio relax circumstances
 -	AbscriptMover
 
+<!--
 Structure generation
 -------------
 -	[[BackboneGridSampler|BackboneGridSamplerMover]]
@@ -73,17 +74,41 @@ pose combination
 Necessary before doing anything else symmetrically
 -	[[AddHydrogens|AddHydrogensMover]]  
 adds and optimizes missing hydrogens  
-<!--
 -	AddMembraneMover  
 adds a membrane to a structure when needed
--	SymmetricAddMembraneMover
--->
+-	SymmetricAddMembraneMover  
 -	GrowPeptides
 -	From electron density:
 	-	IdealizeHelices
 	-	RecomputeDensityMap
 	-	CartesianSampler
-	
+-->
+Structure generation
+-------------
+-   [[BackboneGridSampler|BackboneGridSamplerMover]]
+-   BuildSheet
+-   [[BundleGridSampler|BundleGridSamplerMover]]
+-   [[PerturbBundle|PerturbBundleMover]]
+-   PerturbBundleHelix
+-   [[MakeBundle|MakeBundleMover]]
+-   MakeBundleHelix
+-   [[MakePolyX|MakePolyXMover]]
+-   BackboneSampler
+-   FitSimpleHelix
+-   InsertPoseIntoPoseMover
+pose combination
+-   [[build_Ala_pose|BuildAlaPoseMover]]
+-   [[SetupForSymmetry|SetupForSymmetryMover]]
+Necessary before doing anything else symmetrically
+-   [[AddHydrogens|AddHydrogensMover]]
+adds and optimizes missing hydrogens
+-   SymmetricAddMembraneMover
+-   GrowPeptides
+-   From electron density:
+    -   IdealizeHelices
+	-   RecomputeDensityMap
+	-   CartesianSampler
+
 
 Structure optimization
 -------------
@@ -204,7 +229,7 @@ The LoopHash algorithms constitute a very rapid way to draw on loop conformation
 -	CCDLoopCloser
 -	CCDLoopClosureMover
 -	DefineMovableLoops
--	[[GeneralizedKIC]] 
+-	[[GeneralizedKIC]]  
 An enormous, intricate system that largely operates on its own to perform kinematic loop closure on an arbitrary sequence of atoms.
 
 Docking
@@ -231,10 +256,15 @@ manually manipulate the relative position of two bodies across a jump
 
 Chemical connectivity
 -------------
--	[[ForceDisulfides|ForceDisulfidesMover]]
+-	[[ForceDisulfides|ForceDisulfidesMover]]  
+Given a list of residue pairs (for example, disulfides), repack residue shells around them but do not change the CYS-type residues themselves.  
 -	DisulfideInsertion  
--	[[DisulfideMover]] 
--	[[Disulfidize|DisulfidizeMover]]
+Mutates two residue positions to CYS:disulfide, link them conformationally, and add constraints to have good disulfide distance, angle, and dihedral to the pose.
+Intended for adding a disulfide to short potentially macrocyclic peptides.
+-	[[DisulfideMover]]  
+Given two residue positions, mutate both to CYS:disulfide and link them conformationally; do no repacking or minimization
+-	[[Disulfidize|DisulfidizeMover]]  
+Tries every possible pair of residues in a pose to try to introduce one or more new disulfides as long as they score well
 
 Design
 -------------
@@ -279,6 +309,7 @@ Analysis
 -	LoadVarSolDistSasaCalculatorMover
 -	LoadZnCoordNumHbondCalculatorMover
 
+<!--
 Symmetric interfaces
 -------------
 -	[[SymRotamerTrialsMover|SymPackRotamersMover]]
@@ -296,9 +327,26 @@ minimize with symmetry
 	-	SymFoldandDockMoveRbJumpMover
 	-	SymFoldandDockSlideTrialMover
 	-	SymFoldandDockRbTrialMover  
-<!--
 -	MPSymDockMover
 -->
+
+Symmetric interfaces
+-------------
+-	[[SymRotamerTrialsMover|SymPackRotamersMover]]
+-	[[SymPackRotamersMover]]  
+-	SymDockProtocol  
+Symmetric oligomer docking
+-	Symmetrizer  
+Functionally an optimization mover; will take a pose with sufficiently small deviations from symmetry and resolve them.
+-	[[TaskAwareSymMinMover]]  
+[[SymMinMover]]  
+minimize with symmetry  
+-	[[DetectSymmetry|DetectSymmetryMover]]  
+-	GenericSymmetricSampler
+-	fold and dock
+	-	SymFoldandDockMoveRbJumpMover
+	-	SymFoldandDockSlideTrialMover
+	-	SymFoldandDockRbTrialMover  
 
 Molecular dynamics codes
 -------------

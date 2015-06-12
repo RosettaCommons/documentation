@@ -6,7 +6,7 @@
 <Transform name="&string" chain="&string" box_size="&real" move_distance="&real" angle="&real" cycles="&int" repeats="&int" temperature="&real" initial_perturb="&real" rmsd="&real"/>
 ```
 
-The Transform mover is designed to replace the Translate, Rotate, and SlideTogether movers, and typically exhibits faster convergence and better scientific performance than these movers. The Transform mover performs a monte carlo search of the ligand binding site using precomputed scoring grids. Currently, this mover only supports docking of a single ligand, and requires that Scoring Grids be specified and computed.
+The Transform mover is designed to replace the Translate, Rotate, and SlideTogether movers, and typically exhibits faster convergence and better scientific performance than these movers. The Transform mover performs a monte carlo search of the ligand binding site using precomputed scoring grids. Currently, this mover only supports docking of a single ligand, and requires that [[Scoring Grids be specified and computed|RenderGridsToKinemageMover]].
 
 -   chain: The ligand chain, specified as the PDB chain ID
 -   box\_size: The maximum translation that can occur from the ligand starting point. the "box" here is actually a sphere with the specified radius. Any move that results in the center of the ligand moving outside of this radius will be rejected
@@ -21,7 +21,9 @@ The Transform mover is designed to replace the Translate, Rotate, and SlideToget
 
 ##See Also
 
+* [[RenderGridsToKinemageMover]]: Computes and outputs scoring grids.
 * [[TranslateMover]]
 * [[RotateMover]]
 * [[SlideTogetherMover]]
+* [[RigidBodyTransMover]]: Performs rigid body translation of chains
 * [[I want to do x]]: Guide to choosing a mover

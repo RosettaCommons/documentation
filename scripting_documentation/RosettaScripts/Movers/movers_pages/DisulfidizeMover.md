@@ -44,4 +44,5 @@ NOTE: This is a multiple pose mover. If non-multiple-pose-compatible movers are 
 
 * [[DisulfideMover]]
 * [[ForceDisulfidesMover]]
+* [[RemodelMover]]
 * [[I want to do x]]: Guide to choosing a mover

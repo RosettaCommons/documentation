@@ -45,7 +45,7 @@ Quick Start Example
 The following command line will perform a *de novo* reconstruction of a protein loop (the starting coordinates will be discarded and the loop will be modeled from scratch), followed by all-atom refinement with extra rotamers. In order to discard the starting coordinates of the loop, be sure the 'Extend loop' field in the loop definition file is set to '1' (this ensures that an initial loop build is performed and idealizes loop bond lengths and angles; for details see [Input Files](#Input-Files) and [Options](#Options)).
 
 ```
-rosetta/main/source/bin/loopmodel.<my_os>gccrelease -database <rosetta_database> -loops:remodel perturb_kic_with_fragments
+rosetta/main/source/bin/loopmodel.<my_os>gccrelease -database </path/to/rosetta/main/database> -loops:remodel perturb_kic_with_fragments
 -loops:refine refine_kic_with_fragments -in:file:s <my_starting_structure>.pdb -in:file:fullatom -loops:loop_file
 <my_loopfile>.loop -nstruct <num_desired_models> -ex1 -ex2 -overwrite -loops:frag_sizes 9 3 1 -loops:frag_files 
 <my_starting_structure>.200.9mers.gz <my_starting_structure>.200.3mers.gz none     
