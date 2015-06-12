@@ -2,9 +2,12 @@
 
 Potentially useful experimental data takes many forms.
 The very nature of Monte Carlo simulation strongly supports the incorporation of any type of experimental constraint, because all you need it to do is allow it to influence the distribution of generated structures. 
-(Important note: Rosetta, historically, calls _constraints_ what other computational packages refer to as _restraints_.
-That is, we are not fixing a degree of freedom and removing it from sampling and scoring.
-Rather, we are adding a scoring term that penalizes deviations from particular values of that degree of freedom.)
+
+##Constraints vs. Restraints
+Rosetta calls _constraints_ what other computational packages refer to as _restraints_.
+In Rosetta, a constraint does not fix a degree of freedom and removing it from sampling and scoring.
+Rather, we are adding a scoring term that penalizes deviations from particular values of that degree of freedom.
+Restraints have no particular name - it's just making sure that degree of freedom is not free, for example in a [[MoveMap|Glossary#movemap]].
 
 ## Input structures
 
@@ -12,10 +15,11 @@ Truly, the largest experimentally derived sampling bias to a biological problem 
 After all, you are using those structures precisely because you trust them enough _not_ to want to perform _ab initio_ structure prediction, so you want the bias that starting from them provides.
 At the same time, input structures are not perfect:
 * Crystal structures are of variable resolution and frequently lack hydrogens.
+* Crystal structures are of shockingly high quality variation within a single structure.
 * At the resolution where hydrogens cannot be visualized (at least 90% of the PDB) asparagine and glutamine oxygens and nitrogens cannot be distinguished from each other (ditto histidine tautomers) and are frequently misassigned.
 * NMR structures are frequently resolved via a few hundred constraints, rather than the thousands upon thousands in crystal structures.
 
-Most of all, the force fields used in these optimization efforts are arithmetically distinct from the Rosetta energy function.
+Most of all, the force fields used in these optimization efforts are arithmetically and algorithmically distinct from the Rosetta energy function.
 It is critical to obtain structures that are geometrically similar to the starting structure but that exist closer to a local minimum of the scoring function.
 This is important because every unit of strain energy in your starting structure can inappropriately bias sampling: bad moves can be accepted that would otherwise have been rejected because they relieve strain that already should have been addressed.
 There is a [[complete write-up|preparing-structures]] of preparing starting structures appropriately.
@@ -63,15 +67,10 @@ Heuristics for determining the precise meaning of "blowing up" are case-dependen
 
 ##See Also
 
-* [[I want to do x]]: Guides to specific types of structural pertubations using RosettaScripts
+* [[I want to do x]]: Guides to specific types of structural perturbations using RosettaScripts
 * [[Resources for learning biophysics and computational modeling]]
-* [[Getting Started]]: A page for people new to Rosetta
+* [[Getting Started]]: A page for people new to Rosetta 
 * [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
 * [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
-* [[Comparing structures]]: Essay on comparing structures
-* [[Commands collection]]: A list of example command lines for running Rosetta executable files
-* [[Rosetta Servers]]: Web-based servers for Rosetta applications
 * [[Scripting Documentation]]: Scripting interfaces to Rosetta
-* [[RosettaEncyclopedia]]: Detailed descriptions of Rosetta terms
-* [[Glossary]]: Brief definitions of Rosetta terms
-* [[Rosetta overview]]: Overview of major concepts in Rosetta
+* [[CS-rosetta]]
