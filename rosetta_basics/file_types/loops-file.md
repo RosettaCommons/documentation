@@ -4,7 +4,7 @@
 Application purpose
 ===========================================
 
-Loop definitions are used to identify the residues in a loop for [[loop modeling]].
+Loop definitions are used to identify the residues in a loop for [[loop modeling|loopmodel]].
 
 File Format
 ======
