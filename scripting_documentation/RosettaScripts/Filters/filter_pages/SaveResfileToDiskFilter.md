@@ -2,9 +2,6 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## SaveResfileToDisk
 
-(This is a devel Filter and not available in released versions.)
-
-<!--- BEGIN_INTERNAL -->
 Saves a resfile to the output directory that specifies the amino acid present at each position defined by a set of input task operations. Outputs "PIKAA X", where X is the current amino acid in the pose at that position.
 
 ```
@@ -20,5 +17,7 @@ Saves a resfile to the output directory that specifies the amino acid present at
 -   selected\_resis\_property - What property to use for the selected residues (defaults to "PIKAA X", where X is the current amino acid in the pose.
 -   renumber\_pdb - If true, use the numbering of residues corresponding to what would be output with the flag -out:file:renumber\_pdb. Otherwise use the current PDB numbering. (If you've already renumbered the residues, there should be no difference.)
 
-<!--- END_INTERNAL --> 
+## See also
 
+* [[TaskOperations-RosettaScripts]]
+* [[Protein-protein docking|docking-protocol]]
