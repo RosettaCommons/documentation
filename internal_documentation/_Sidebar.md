@@ -13,6 +13,12 @@
 <!---BEGIN_INTERNAL-->
 [[Internal Documentation|internal_documentation/Internal-Documentation]]
 
+* [[RosettaAcademy]]
+
+* [[GithubWorkflow]]
+
+* [[Checklist for committing code|before-commit-check]]
+
 [[Missing Links|internal_documentation/missing_links/control_panel]]
 <!---END_INTERNAL-->
 
