@@ -18,3 +18,6 @@ Since Patchdock reading is also enabled on the commandline, the defaults for eac
 If you choose from\_entry to\_entry limits that go beyond what's provided in the patchdock file, the upper limit would be automatically adjusted to the limit in the patchdock file.
 
 
+##See Also
+
+* [[I want to do x]]: Guide to choosing a mover

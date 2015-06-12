@@ -11,10 +11,10 @@ A special filter that allows movers to set its value (pass/fail). This value can
 ## See Also
 
 * [[BoltzmannFilter]]
-* [[CalculatorFilterFilter]]
+* [[CalculatorFilter]]
 * [[CombinedValueFilter]]
 * [[CompoundStatementFilter]]
 * [[IfMover]]
-* [[IfThenFilterFilter]]
+* [[IfThenFilter]]
 * [[SigmoidFilter]]
 

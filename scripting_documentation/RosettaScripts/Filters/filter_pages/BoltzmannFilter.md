@@ -20,8 +20,8 @@ Useful for balancing counteracting objectives.
 
 ## See also
 
-* [[CompoundStatementFilter]
-* [[CombinedValueFilter]
+* [[CompoundStatementFilter]]
+* [[CombinedValueFilter]]
 * [[CalculatorFilter]]
 * [[ReplicateFilter]]
 * [[SigmoidFilter]]

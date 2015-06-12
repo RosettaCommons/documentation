@@ -19,8 +19,8 @@ For truth value testing, the default is to return true if the value is less than
 
 * [[CompoundStatementFilter]]
 * [[CombinedValueFilter]]
-* [[CalculatorFilterFilter]]
+* [[CalculatorFilter]]
 * [[BoltzmannFilter]]
 * [[SigmoidFilter]]
-* [[ContingentFilterFilter]]
+* [[ContingentFilter]]
 
