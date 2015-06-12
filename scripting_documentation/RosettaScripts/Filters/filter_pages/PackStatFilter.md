@@ -12,3 +12,11 @@ Computes packing statistics.
 -   chain: jump on which to separate the complex before computing packstat. 0 means not to separate the complex.
 -   repeats: How many times to repeat the calculation.
 
+## See also
+
+* [[Design in Rosetta|application_documentation/design/design-applications]]
+* [[BuriedUnsatHbondsFilter]]
+* [[CavityVolumeFilter]]
+* [[ExposedHydrophobicsFilter]]
+* [[PackRotamersMover]]
+* [[SasaFilter]]
