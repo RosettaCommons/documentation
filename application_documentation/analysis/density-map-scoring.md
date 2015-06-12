@@ -25,7 +25,7 @@ Sample 1: relax a structure 1cid.pdb into a map 1cid\_5A.mrc using the hi-res sc
 
 ```
 bin/relax.linuxgccrelease \
- -database ~/rosetta_database \
+ -database ~/rosetta/main/database \
  -in:file:s 1cid.pdb \
  -score:weights score13_env_hb \
  -relax:fast \
@@ -45,7 +45,7 @@ Sample 2: remodel the loops specified in 1cid.loopfile in structure 1cid.pdb int
 
 ```
 bin/loopmodel.linuxgccrelease \
- -database ~/rosetta_database \
+ -database ~/rosetta/main/database \
  -s 1cid.pdb \
  -score:weights score13_env_hb \
  -loops::frag_sizes 9 3 1 \
@@ -129,3 +129,13 @@ The third option is intended for comparative modelling cases where there may be 
 A function has also been added, **core::scoring::electron\_density::add\_dens\_scores\_from\_cmdline\_to\_scorefxn(ScoreFunction&)** , which uses values of -edensity:sliding\_window\_wt, edensity:whole\_structure\_ca\_wt and edensity:whole\_structure\_allatom\_wt to update the score function.
 
 For protocols which do not modify the root of the fold tree, this is all that is needed to make use of fit-to-density scoring (although additional moves that modify the rigid-body orientation of the system may be necessary to produce meaningful results).
+
+##See Also
+
+* [[Analysis applications | analysis-applications]]: other design applications
+* [[Point mutation scan| pmut-scan-parallel ]]: Parallel detection of stabilizing point mutations using design
+* [[Application Documentation]]: Application documentation home page
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
+

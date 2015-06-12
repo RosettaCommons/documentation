@@ -46,7 +46,7 @@ scores_from_program: 0 1.00
 
 While multiple pairs of template alignment files are accepted, it is generally recommended to run just a single template/alignment with each job.
 
-In addition, [[fragment filea|fragment file]] may also be required, depending on the options selected. Rebuilding of gaps is done by fragment insertion (as in Rosetta ab initio); thus two backbone fragment files (3-mers and 9-mers) must be given. The [[application for building these|app-fragment-picker]] is included with rosetta but requires some external tools/databases. The easiest way to generate fragments is to use the Robetta server ( [http://robetta.bakerlab.org/fragmentsubmit.jsp](http://robetta.bakerlab.org/fragmentsubmit.jsp) ). The fragment files should be built with the full-length sequence; rosetta handles remapping the fragments if not all gaps are rebuilt.
+In addition, a [[fragment file|fragment file]] may also be required, depending on the options selected. Rebuilding of gaps is done by fragment insertion (as in Rosetta ab initio); thus two backbone fragment files (3-mers and 9-mers) must be given. The [[application for building these|app-fragment-picker]] is included with rosetta but requires some external tools/databases. The easiest way to generate fragments is to use the Robetta server ( [http://robetta.bakerlab.org/fragmentsubmit.jsp](http://robetta.bakerlab.org/fragmentsubmit.jsp) ). The fragment files should be built with the full-length sequence; rosetta handles remapping the fragments if not all gaps are rebuilt.
 
 Options
 =======
@@ -55,7 +55,7 @@ A general command line one would use for refining a weak molecular replacement s
 
 ```
 bin/mr_protocols.default.linuxgccrelease \
-    -database ../rosetta_database \
+    -database /path/to/rosetta/main/database \
     -MR:mode cm \
     -in:file:extended_pose 1 \
     -in:file:fasta 1crb.fasta \
@@ -173,3 +173,16 @@ Post Processing
 ===============
 
 Models resulting from this protocol are generally subjected to a 10% scoring cut, then rescored against the raw crystallographic data with Phaser. A sample script showing the use of Phaser may be found in the demos folder demo/electron\_density/molecular\_replacement. Using this score as a selection criteria, some small set of models can then be chosen for further refinement or for autobuilding.
+
+
+##See Also
+
+* [[Prepare template for MR]]: Setup script for molecular replacement protocols.  
+* [[Fragment file]]: Fragment file format
+* [[Structure prediction applications]]: A list of other applications to be used for structure prediction
+* [[Application Documentation]]: List of Rosetta applications
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Comparing structures]]: Essay on comparing structures
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files

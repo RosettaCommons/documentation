@@ -19,7 +19,7 @@ The match / enzdes geometric constraint file ( from hereon referred to as 'cstfi
 
 1.  a number of amino acids and a small molecule ligand or substrate and
 2.  how these different amino acids and the ligand are spatially/geometrically positioned with respect to each other.
-     This information in the cstfile is used by the matcher to try to graft the desired site into a protein structure, and by the enzyme\_design code (from hereon referred to as 'enzdes' ) to constrain active sites to the desired geometry during rotamer packing and minimization. Example cstfiles can be found in the integration tests for the matcher ( `        rosetta/rosetta_tests/integration/tests/match/inputs/1n9l_CHbN/Est_CHbkupb_d2n_match.cst       ` , `        rosetta/rosetta_tests/integration/tests/match/inputs/1c2t/1c2t_xtal_BUHis.cst       ` , `        rosetta/rosetta_tests/integration/tests/match/inputs/6cpa/6cpa_xtal.cst       ` ), enzdes ( `        rosetta/rosetta_tests/integration/tests/enzdes/inputs/Est_CHba_d2n.cst       ` ), and cstfile\_to\_theozyme\_pdb `        rosetta/rosetta_tests/integration/tests/cstfile_to_theozyme_pdb/inputs/CTP_RKRE_1acid2acid.cst       `
+     This information in the cstfile is used by the matcher to try to graft the desired site into a protein structure, and by the enzyme\_design code (from hereon referred to as 'enzdes' ) to constrain active sites to the desired geometry during rotamer packing and minimization. Example cstfiles can be found in the integration tests for the matcher ( `        Rosetta/main/tests/integration/tests/match/inputs/1n9l_CHbN/Est_CHbkupb_d2n_match.cst       ` , `        Rosetta/main/tests/integration/tests/match/inputs/1c2t/1c2t_xtal_BUHis.cst       ` , `        Rosetta/main/tests/integration/tests/match/inputs/6cpa/6cpa_xtal.cst       ` ), enzdes ( `        Rosetta/main/tests/integration/tests/enzdes/inputs/Est_CHba_d2n.cst       ` ), and cstfile\_to\_theozyme\_pdb `        Rosetta/main/tests/integration/tests/cstfile_to_theozyme_pdb/inputs/CTP_RKRE_1acid2acid.cst       `
      While the matcher is only able to find sites that contain one ligand and a number of protein residues interacting with this ligand or with another protein residue, in enzdes a cstfile can be used to also constrain geometries between a protein protein interface, two ligands, or within a single protein. The public app rosetta/rosetta\_source/src/apps/public/enzdes/CstfileToTheozymePDB.cc can create a .pdb model of the theozyme geometry specified in a cstfile. When developing a theozyme it is recommended to run this app to confirm that the desired geometry is correctly encoded by the cstfile. Details about using this app can be found below in Section "Using the CstfileToTheozymePDB executable".
 
 Description of the cstfile format
@@ -153,7 +153,7 @@ all these options can be combined, i.e. if you add the following to a block in y
   ALGORITHM_INFO::END
 ```
 
-Only positions in the posfile that are at the n terminus of a helix, are relatively rigid, are not too exposed but also not too buried will be matched. The code for these exclusions resides in `       rosetta/rosetta_source/src/protocols/match/MatchPositionModifiers.hh/cc      `
+Only positions in the posfile that are at the n terminus of a helix, are relatively rigid, are not too exposed but also not too buried will be matched. The code for these exclusions resides in `       Rosetta/main/source/src/protocols/match/MatchPositionModifiers.hh/cc      `
 
 Using the CstfileToTheozymePDB executable
 ===================================
@@ -174,3 +174,15 @@ WARNING: Four things need to be considered when using this app, most importantly
 4.  Positions of side chains will be calculated against the first ligand rotamer. Positions of side chains interacting with other side chains (upstream upstream interactions ) will also be calculated against the first side chain rotamer.
 
 In summary, this application should be used to make sure that Rosetta understands the geometry in a cstfile in the way that the user envisions it. When using cstfiles developed with the help of this app in matching or enzdes, one shouldn't forget to adjust the cstfile for sampling parameters and/or secondary matching with some undefined degrees of freedom.
+
+##See Also
+
+* [[File types list]]: List of file types used in Rosetta
+* [[Rosetta Basics]]: The Rosetta Basics home page
+* [[Match]]: Documentation for the match application
+* [[Constraints files|constraint-file]]: Rosetta constraints file format (not for the match application)
+* [[Options overview]]: Overview of Rosetta command line options
+* [[Glossary]]: Brief definitions of Rosetta terms
+* [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
+* [[Rosetta overview]]: Overview of major concepts in Rosetta
+* [[Application Documentation]]: Links to documentation for a variety of Rosetta applications

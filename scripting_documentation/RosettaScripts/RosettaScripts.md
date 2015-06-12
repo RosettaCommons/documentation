@@ -18,23 +18,23 @@ This page documents the RosettaScripts syntax and common methods by which you ca
 ---------------------
 
 Copy, paste, fill in, and enjoy
-
+```
 <ROSETTASCRIPTS>
-<SCOREFXNS>
-</SCOREFXNS>
-<TASKOPERATIONS>
-</TASKOPERATIONS>
-<FILTERS>
-</FILTERS>
-<MOVERS>
-</MOVERS>
-<APPLY_TO_POSE>
-</APPLY_TO_POSE>
-<PROTOCOLS>
-</PROTOCOLS>
-<OUTPUT />
+    <SCOREFXNS>
+    </SCOREFXNS>
+    <TASKOPERATIONS>
+    </TASKOPERATIONS>
+    <FILTERS>
+    </FILTERS>
+    <MOVERS>
+    </MOVERS>
+    <APPLY_TO_POSE>
+    </APPLY_TO_POSE>
+    <PROTOCOLS>
+    </PROTOCOLS>
+    <OUTPUT />
 </ROSETTASCRIPTS>
-
+```
 Anything outside of the \< \> notation is ignored and can be used to comment the xml file
 
 General Description and Purpose
@@ -85,14 +85,14 @@ Rosetta will carry out the order of operations specified in PROTOCOLS, starting 
 
 The movers do change the pose, and the output file will be the result of sequentially applying the movers in the protocols section. The standard scores of the output (either in the pdb, silent or score file) will be from the commandline-specified scorefunction, unless the OUTPUT tag is specified, in which case the corresponding score function from the SCOREFXNS block will be used.
 
-Additional example xml scripts, including examples for docking, protein interface design, and prepacking a protein complex, amongst others, can be found in the rosetta/rosetta\_demos/public/rosetta\_scripts/ directory. (Or online at [https://svn.rosettacommons.org/trac/browser/trunk/rosetta/demos/public/rosetta\_scripts](https://svn.rosettacommons.org/trac/browser/trunk/rosetta/rosetta_demos/public/rosetta_scripts) for those with svn access.)
+Additional example xml scripts, including examples for docking, protein interface design, and prepacking a protein complex, amongst others, can be found in the Rosetta/demos/public/rosetta\_scripts/ directory. 
 
 Example commandline
 -------------------
 
 The following command line would run the above protocol, given that the protocol file name is ala\_scan.xml
 
-bin/rosetta_scripts.linuxgccrelease -s < INPUT PDB FILE NAME > -use_input_sc -nstruct 20 -jd2:ntrials 2 -database ~/minirosetta_database/ 
+Rosetta/main/source/bin/rosetta_scripts.linuxgccrelease -s < INPUT PDB FILE NAME > -use_input_sc -nstruct 20 -jd2:ntrials 2 -database Rosetta/main/database/ 
 -ex1 -ex2 -parser:protocol ala_scan.xml -parser:view
 
 The ntrials flag specifies how many trajectories to start per nstruct. In this case, each of 20 trajectories would make two attempts at outputting a structure. If no ntrials is specified, a default value of 1 is assumed.
@@ -239,7 +239,7 @@ Always returns false. Can be explicitly specified with the name "false\_filter".
 SCOREFUNCTIONS
 --------------
 
-The SCOREFXNS section defines scorefunctions that will be used in Filters and Movers. This can be used to define any of the scores defined in the rosetta\_database
+The SCOREFXNS section defines scorefunctions that will be used in Filters and Movers. This can be used to define any of the scores defined in the path/to/rosetta/main/database
 
 ```
 <"scorefxn_name" weights=("empty" &string) patch=(&string)>
@@ -478,3 +478,16 @@ The SCORINGGRIDS block is used to define ligand scoring grids (currently used on
 -   VdwGrid: A knowledge based potential derived grid approximating shape complementarity
 -   HbdGrid: A knowledge based potential derived grid approximating protein hydrogen bond donor interactions
 -   HbaGrid: A knowledge based potential derived grid approximating protein hydrogen bond acceptor interactions
+
+
+##See Also
+
+* [[RosettaDiagrams (external link)|http://www.rosettadiagrams.org/]]: Provides a graphical interactive service to produce RosettaScripts XML files, with some ability to run the scripts as well.
+* [[I want to do x]]: Guide for making specific structural perturbations using RosettaScripts
+* [[Scripting Documentation]]: The Scripting Documentation home page
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Getting Started]]: A page for people new to Rosetta
+* [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files
+* [[Rosetta Servers]]: Web-based servers for Rosetta applications
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.

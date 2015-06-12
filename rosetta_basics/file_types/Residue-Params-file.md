@@ -5,7 +5,7 @@ An overview of params files
 
 Params files store a variety of chemical and geometric information. 
 
-A set of params files for commonly seen residues and metals is included with rosetta, and can be found in rosetta_database/chemical/residue_type_sets
+A set of params files for commonly seen residues and metals is included with rosetta, and can be found in Rosetta/main/database/chemical/residue_type_sets
 
 The following lines are typically found in Ligand params files. This does not represent a complete documentation of the params fileformat. These files are read in core/chemical/residue\_io.cc
 
@@ -55,3 +55,14 @@ The following lines are typically found in Ligand params files. This does not re
 -   **PDB\_ROTAMERS** The path to a PDB file containing ligand rotamers
 
 See this page for more information: http://graylab.jhu.edu/pyrosetta/downloads/documentation/PyRosetta_Workshops_Appendix_B.pdf
+
+##See Also
+
+* [[File types list]]: File types used in Rosetta
+* [[Non-protein residues]]: Guide to using non-protein molecules with Rosetta
+* [[How to turn on residue types that are off by default]]
+* [[Making Rosetta robust against malformed PDBs|robust]]
+* [[Preparing ligand files for use with Rosetta|preparing ligands]]
+* [[Preparing PDB files for non-peptide polymers]]
+* [[Preparing PDB files containing protein and RNA|RNA-protein-changes]]
+* [[Running Rosetta with options]]: Instructions for running Rosetta applications on the command line

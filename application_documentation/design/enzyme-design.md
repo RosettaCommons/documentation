@@ -10,9 +10,9 @@ This document was mostly written by Florian Richter (floric@u.washington.edu), l
 Code and Demo
 =============
 
-The application executable is in rosetta/rosetta\_source/src/apps/public/enzdes/enzyme\_design.cc Most code resides in rosetta/rosetta\_source/src/protocols/enzdes/ and rosetta/rosetta\_source/src/protocols/toolbox/match\_enzdes\_util/. the most basic mover is the EnzdesFixBBMover, rosetta/rosetta\_source/src/protocols/enzdes/EnzdesFixBBProtocol.hh/cc
+The application executable is in rosetta/main/source/src/apps/public/enzdes/enzyme\_design.cc Most code resides in rosetta/main/source/src/protocols/enzdes/ and rosetta/main/source/src/protocols/toolbox/match\_enzdes\_util/. the most basic mover is the EnzdesFixBBMover, rosetta/main/source/src/protocols/enzdes/EnzdesFixBBProtocol.hh/cc
 
-A basic usage example is the enzdes integration test, found in rosetta/rosetta\_tests/integration/tests/enzdes/ To do a production run, the flags file from the enzdes integration test should be expanded by the desired rotamer packing options (ex1, ex2, use\_input\_sc, linmem\_ig ), the number n (usually 2-4) of iterative design/minimization cycles the user would like to do (-design\_min\_cycles n ) and of course by the number of structures the user would like to produce (-nstruct). All options pertaining to enzdes are in the options documentation, [[options documentation page|full-options-list]] , section enzdes
+A basic usage example is the enzdes integration test, found in rosetta/main/tests/integration/tests/enzdes/ To do a production run, the flags file from the enzdes integration test should be expanded by the desired rotamer packing options (ex1, ex2, use\_input\_sc, linmem\_ig ), the number n (usually 2-4) of iterative design/minimization cycles the user would like to do (-design\_min\_cycles n ) and of course by the number of structures the user would like to produce (-nstruct). All options pertaining to enzdes are in the options documentation, [[options documentation page|full-options-list]] , section enzdes
 
 References
 ==========
@@ -47,7 +47,7 @@ Setup of catalytic constraints
 
 2) Specification of catalytic constraints
 
-Once the user has decided what the catalytic constraints should be like, (in terms of the geometric relationship between a catalytic residue and the substrate, or between two catalytic residues), these need to be specified in a constraints file (or cstfile in short). The cstfile format documentation can be found at [[Cstfile format documentation.|match-cstfile-format]] An example of a cstfile can be found in `       rosetta/rosetta_tests/integration/tests/enzdes/inputs/Est_CHba_d2n.cst      ` . It describes the iteraction between a cysteine and a ligand abbreviated with name D2N.
+Once the user has decided what the catalytic constraints should be like, (in terms of the geometric relationship between a catalytic residue and the substrate, or between two catalytic residues), these need to be specified in a constraints file (or cstfile in short). The cstfile format documentation can be found at [[Cstfile format documentation.|match-cstfile-format]] An example of a cstfile can be found in `       rosetta/main/tests/integration/tests/enzdes/inputs/Est_CHba_d2n.cst      ` . It describes the iteraction between a cysteine and a ligand abbreviated with name D2N.
 
 Declaration of the catalytic residues in the input-pdb:
 
@@ -216,7 +216,7 @@ If option -enzdes:final\_repack\_without\_ligand is active, the generated struct
 
 ####Ranking the results:
 
-Figuring out which designs of the usually high number of models to express is non trivial. As described above, if the scorefile option is used, every design is automatically evaluated with respect to a few dozen criteria. Ideally, one would want to only pick one or a few designs to express. Therefore, the designs need to be ranked according to some criteria. There is no clear answer as to what these criteria should be. One approach currently used in the Baker group is the following: first, a subset of the 4-5 most important criteria is picked, i.e. total\_score, ligand binding energy/SR\_interface\_E\_1\_2, total constraint score of the catalytic residues (all\_cst), packstat, and buried unsatisfied polars of the ligand. Then, for each of these criteria, a minimum value is decided, which all designs considered for expression have to exceed ( i.e. total\_score has to be lower than the corresponding Rosetta score of the undesigned scaffold, ligand\_binding energy has to be \< -10.0, and all\_cst has to be \< 1.0 ). The script 'DesignSelect.pl' (in rosetta/rosetta\_source/src/apps/public/enzdes ) can then be used to go through the output file and select only those structures that fulfill all of the required criteria.
+Figuring out which designs of the usually high number of models to express is non trivial. As described above, if the scorefile option is used, every design is automatically evaluated with respect to a few dozen criteria. Ideally, one would want to only pick one or a few designs to express. Therefore, the designs need to be ranked according to some criteria. There is no clear answer as to what these criteria should be. One approach currently used in the Baker group is the following: first, a subset of the 4-5 most important criteria is picked, i.e. total\_score, ligand binding energy/SR\_interface\_E\_1\_2, total constraint score of the catalytic residues (all\_cst), packstat, and buried unsatisfied polars of the ligand. Then, for each of these criteria, a minimum value is decided, which all designs considered for expression have to exceed ( i.e. total\_score has to be lower than the corresponding Rosetta score of the undesigned scaffold, ligand\_binding energy has to be \< -10.0, and all\_cst has to be \< 1.0 ). The script 'DesignSelect.pl' (in rosetta/main/source/src/apps/public/enzdes ) can then be used to go through the output file and select only those structures that fulfill all of the required criteria.
 
 To use DesignSelect.pl, one needs a Rosetta output file, as well as a file stating the necessary requirements. For example, if the outfile design.out contains data for a number of Rosetta designs, for an active site containing 3 protein residues (i.e. the ligand is 'catalytic' residue 4) and one wants to select only those that have a ligand binding energy \< -10.0 and a catalytic constraint score \< 1.0, then rank the selected designs by total score, one needs to write a requirements file containing the following lines:
 ```
@@ -271,3 +271,12 @@ New things since last release
 =============================
 
 New feature for evaluating designs: The -final\_repack\_without\_ligand option has been added since the last release.
+
+##See Also
+
+* [[Design applications | design-applications]]: other design applications
+* [[Application Documentation]]: Application documentation home page
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
+* [[Preparing structures]]: How to prepare structures for use in Rosetta

@@ -1,22 +1,21 @@
 #AnchoredPDBCreator application
 
-Metadata
-========
+#####Metadata
 
-Author: Steven Lewis (smlewi@gmail.com)
+Author: Steven Lewis (smlewi -- at -- gmail.com)
 
-Code and documentation by Steven Lewis (smlewi@gmail.com). This document was last updated 6/24/11 by Steven Lewis. The PI was Brian Kuhlman, (bkuhlman@email.unc.edu).
+Code and documentation by Steven Lewis (smlewi -- at -- gmail.com).
+The PI was Brian Kuhlman, (bkuhlman -- at -- email.unc.edu).
 
-Example runs
+Example runs and code location
 ============
 
-The code is at `       rosetta/rosetta_source/src/apps/public/interface_design/anchored_design/AnchoredPDBCreator.cc      ` ; there's an integration test at `       rosetta/rosetta_tests/integration/tests/AnchoredDesign/      ` . There is a more extensive demo with more documentation at rosetta/rosetta\_demos/AnchoredDesign, or in the demo section of the release.
+The code is at `Rosetta/main/source/src/apps/public/interface_design/anchored_design/AnchoredPDBCreator.cc` ; there's an integration test at `Rosetta/main/tests/integration/tests/AnchoredDesign/` . There is a more extensive demo with more documentation at `Rosetta/demo/protocol_capture/anchored_design` and  `Rosetta/demo/public/anchored_design`, which are online at TODO these links to the online demos.
 
 References
 ==========
 
--   Lewis SM, Kuhlman BA. Anchored design of protein-protein interfaces. PLoS One. 2011;6(6):e20872. Epub 2011 Jun 17.
--   Gulyani A, Vitriol E, Allen R, Wu J, Gremyachinskiy D, Lewis S, Dewar B, Graves LM, Kay BK, Kuhlman B, Elston T, Hahn KM. A biosensor generated via high-throughput screening quantifies cell edge Src dynamics. Nat Chem Biol. 2011 Jun 12;7(7):437-44. doi: 10.1038/nchembio.585.
+-   [Lewis SM, Kuhlman BA. Anchored design of protein-protein interfaces. PLoS One. 2011;6(6):e20872. Epub 2011 Jun 17.](http://www.ncbi.nlm.nih.gov/pubmed/21698112) (pubmed link)
 
 Purpose and Algorithm
 =====================
@@ -25,7 +24,7 @@ AnchoredPDBCreator exists to create starting files for AnchoredDesign - it will 
 
 This app assumes you have three structures: an anchor and target in separate PDBs, which are bound to each other relative to the same coordinate origin, and a scaffold PDB (origin unimportant). Generally your anchor and target will be from the same crystal structure. The protocol inserts the anchor's sequence AND COORDINATES into a loop of the scaffold, and runs a fast dirty minimization to try to keep the scaffold and target from crashing into each other. It is not intended to produce low-energy structures...just structures good enough to look at their numbering while designing a resfile, etc. It tries to ensure that the modified loop has at most ONE chainbreak or bad omega angle (which can be fixed in later loop modeling). It does NOT try to prevent eclipsing of the loop onto the scaffold or the target - again, AnchoredDesign will deal with that.
 
-The workhorse is protocols::pose\_manipulation::insert\_pose\_into\_pose. This code inserts the anchor into the scaffold and attempts loop closure (this is effectively a domain insertion problem). Interfacing with the target occurs inside AnchoredPDBCreator proper.
+The workhorse is protocols::pose_manipulation::insert_pose_into_pose. This code inserts the anchor into the scaffold and attempts loop closure (this is effectively a domain insertion problem). Interfacing with the target occurs inside AnchoredPDBCreator proper.
 
 Input Files
 ===========
@@ -55,11 +54,11 @@ Options
 
 AnchoredPDBCreator defines a small handful of options:
 
--   scaffold\_loop - string - scaffold anchor loop location file
--   scaffold\_pdb - string - scaffold pdb file
--   anchor\_pdb - string - anchor pdb file
--   target\_pdb - string - target pdb file
--   APDBC\_cycles - unsigned integer - number of cycles in insert\_pose\_into\_pose
+-   scaffold_loop - string - scaffold anchor loop location file
+-   scaffold_pdb - string - scaffold pdb file
+-   anchor_pdb - string - anchor pdb file
+-   target_pdb - string - target pdb file
+-   APDBC_cycles - unsigned integer - number of cycles in insert_pose_into_pose
 
 Standard job distributor options like nstruct are obeyed as well.
 
@@ -68,14 +67,26 @@ Expected Outputs
 
 The protocol will produce nstruct result structures with the anchor inserted into the scaffold, and the anchor aligned against the target. You should expect the scaffold loop newly containing the anchor to be closed and in a reasonable conformation. You should not expect the scaffold/target interface to be reasonable (or even not clashing; they may overlap). Generating the interface is the job of AnchoredDesign instead.
 
-The scorefile will report LAM\_total, which is the score from Loop Analyzer Mover. This sums the scores for he ramachandran, omega, chainbreak, and peptide bond scores for the residues in the loops.
+The scorefile will report LAM_total, which is the score from Loop Analyzer Mover. This sums the scores for he ramachandran, omega, chainbreak, and peptide bond scores for the residues in the loops.
 
 Post Processing
 ===============
 
-Essentially the only quality of the results that matters is the quality of loop closure; everything else is meant to be handled by AnchoredDesign. To pick a model for AnchoredDesign, sort by LAM\_total, examine the lowest scoring handful of models to see which you like best, and move on.
+Essentially the only quality of the results that matters is the quality of loop closure; everything else is meant to be handled by AnchoredDesign. To pick a model for AnchoredDesign, sort by LAM_total, examine the lowest scoring handful of models to see which you like best, and move on.
 
 New things since last release
 =============================
 
 Rosetta 3.3 is the first release.
+
+##See Also
+
+* [[AnchorFinder | anchor-finder ]]: Locates plausible anchors at protein-protein interfaces (inputs for this protocol).
+* [[AnchoredDesign | anchored-design ]]: Actually designing anchored interfaces instantiated by this application
+
+* [[Design applications | design-applications]]: other design applications
+* [[Application Documentation]]: Application documentation home page
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
+* [[Preparing structures]]: How to prepare structures for use in Rosetta

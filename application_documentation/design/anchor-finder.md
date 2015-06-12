@@ -1,21 +1,20 @@
 #AnchorFinder
 
-Metadata
-========
+#####Metadata
 
-Author: Steven Lewis (smlewi@gmail.com)
+Author: Steven Lewis (smlewi -- at -- gmail.com)
 
-Code and documentation by Steven Lewis (smlewi@gmail.com). This document was last updated 6/24/11 by Steven Lewis. The PI was Brian Kuhlman, (bkuhlman@email.unc.edu).
+Code and documentation by Steven Lewis (smlewi -- at -- gmail.com). The PI was Brian Kuhlman, (bkuhlman -- at -- email.unc.edu).
 
 Code and Demo
 =============
 
-The code for this application lives in rosetta/rosetta\_source/src/apps/public/interface\_design/anchored\_design/AnchorFinder.cc. Its mover is embedded in the application file. There is a demo in the integration tests (rosetta/rosetta\_tests/integration/tests/AnchorFinder). There is a more extensive demo with more documentation at rosetta/rosetta\_demos/AnchoredDesign, or in the demo section of the release.
+The code for this application lives in Rosetta/main/source/src/apps/public/interface_design/anchored_design/AnchorFinder.cc. Its [[mover|Glossary]] is embedded in the application file. There is a demo in the integration tests (Rosetta/main/tests/integration/tests/AnchorFinder). There is a more extensive demo with more documentation at `Rosetta/demo/public/anchored_design` or in the demo section of the release.
 
 References
 ==========
 
--   Lewis SM, Kuhlman BA. Anchored design of protein-protein interfaces. PLoS One. 2011;6(6):e20872. Epub 2011 Jun 17.
+-   [Lewis SM, Kuhlman BA. Anchored design of protein-protein interfaces. PLoS One. 2011;6(6):e20872. Epub 2011 Jun 17.](http://www.ncbi.nlm.nih.gov/pubmed/21698112) (pubmed link)
 
 Purpose
 ===========================================
@@ -58,19 +57,19 @@ Options
 
 AnchorFinder options consist of flags to control what it looks for in an anchor and where it puts the data:
 
--   window\_size (integer) length of windows for consideration - 4 or 5 or 6, etc, contiguous residues at a time? I suggest 5 residue windows.
+-   window_size (integer) length of windows for consideration - 4 or 5 or 6, etc, contiguous residues at a time? I suggest 5 residue windows.
 -   loopness (real between 0 and 1) What fraction of this window should have loop secondary structure as assigned by DSSP? It takes it as a decimal between 0-1, I suggest 0.6 (which translates to 3/5 residues for a 5 residue window) to 1 (all residues loop).
--   nbrs\_per\_residue (integer) How many cross-interface interactions per residue should the window have? I suggest a minimum of 4. This translates to 20 (redundancy included) cross-interface interactions for a 5 residue window. By redundancy, I mean residues 43 and 44 on chain A can both interact with residue 234 on chain B and it will count as two interactions
+-   nbrs_per_residue (integer) How many cross-interface interactions per residue should the window have? I suggest a minimum of 4. This translates to 20 (redundancy included) cross-interface interactions for a 5 residue window. By redundancy, I mean residues 43 and 44 on chain A can both interact with residue 234 on chain B and it will count as two interactions
 -   bestoutfile (filename) What file name should the good interactions be printed to? I leave it as an exercise to the reader to pick their own file name. Defaults to goodfile.out.
 
 Suggested general rosetta options include:
 
 -   database (file path) You'll need the database, as usual
 -   s or l (file paths) input pdbs, either as a list to s or in a file to l.
--   obey\_ENDMDL (boolean) This flag causes the PDB reader to stop reading NMR models after the first model in the file; otherwise you get multimodel messes with 20 chains atop one another (and tremendous false neighbor counts).
--   packing:pack\_missing\_sidechains false (boolean) Pass false to this flag to skip packing inputs - it's a waste of time for these purposes.
--   packing:prevent\_repacking (boolean) Probably has no effect, but it won't hurt. Packing is a waste of your time here.
--   jd2:no\_output (boolean) You don't need the PDB inputs echoed as outputs, it'll just waste your disk space. This prevents that output.
+-   obey_ENDMDL (boolean) This flag causes the PDB reader to stop reading NMR models after the first model in the file; otherwise you get multimodel messes with 20 chains atop one another (and tremendous false neighbor counts).
+-   packing:pack_missing_sidechains false (boolean) Pass false to this flag to skip packing inputs - it's a waste of time for these purposes.
+-   packing:prevent_repacking (boolean) Probably has no effect, but it won't hurt. Packing is a waste of your time here.
+-   jd2:no_output (boolean) You don't need the PDB inputs echoed as outputs, it'll just waste your disk space. This prevents that output.
 
 Tips
 ====
@@ -119,3 +118,15 @@ New things since last release
 =============================
 
 Rosetta 3.3 is the first release.
+
+##See Also
+
+
+* [[AnchoredDesign | anchored-design ]]: Actually designing anchored interfaces located by this application
+* [[AnchoredPDBCreator | anchored-pdb-creator ]]: Creates input for the next step of this workflow.
+
+* [[Design applications | design-applications]]: other design applications
+* [[Application Documentation]]: Application documentation home page
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Preparing structures]]: How to prepare structures for use in Rosetta

@@ -8,7 +8,7 @@ This document was edited 3/14/2014 by Jared Adolf-Bryfogle. This application in 
 Purpose and Algorithm
 =====================
 
-This application simply rescores PDBs, silent files, and PDBs within relational databases. It also can be used for conversion - aka convert to/from silent files, PDBs, and relational databases.  Use Rosetta's [[general output options | rosetta_basics/output-options]] for file type conversions.
+This application simply rescores PDBs, silent files, and PDBs within relational databases. It also can be used for conversion - aka convert to/from silent files, PDBs, and relational databases.  Use Rosetta's [[general output options|output-options]] for file type conversions.
 
 The default behavior is to not echo PDBs, so only the scorefile will be output. This can be controlled via cmd-line options.
 
@@ -53,3 +53,13 @@ Tips
 * If you want to find the lowest energy structure easily, use the <code>sort</code> command.  You can sort on a particular column using the -kx option. See [this page](http://www.skorks.com/2010/05/sort-files-like-a-master-with-the-linux-sort-command-bash/) for more.
  - Sort by total score: <code>sort my_score_file.sc</code> 
  - Sort by energy term: <code>sort -k5 my_score_file.sc</code>, which would sort by the 5th column, or the 4th score term.
+
+
+##See Also
+
+* [[Analysis applications | analysis-applications]]: other design applications
+* [[Application Documentation]]: Application documentation home page
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
+

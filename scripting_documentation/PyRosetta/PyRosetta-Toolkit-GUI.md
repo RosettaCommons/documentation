@@ -3,10 +3,10 @@
  **Author:**   
 Jared Adolf-Bryfogle
 
-![ ](https://github.com/RosettaCommons/documentation/blob/master/images/pyrosetta_toolkit_main.png?raw=true)
+![[images/pyrosetta_toolkit_main.png]]
 
 Metadata
---------
+-------
 
 Last edited 10/1/14. Code by Jared Adolf-Bryfogle \< [jadolfbr@gmail.com](mailto:jadolfbr@gmail.com) \>. 
 
@@ -105,7 +105,7 @@ Protocols:
 -   : : A number of rounds can be set for all protocols. By default, if more than one round is set, the boltzmann criterion is applied to the pose after each round using the current scorefunction. This is especially useful for packing or design. Here, you can control the temperature, and the behavior of what happens each round and if the lowest energy pose is recovered at the end of the run.
 
 ### Visualization Menu
-![ ](https://github.com/RosettaCommons/documentation/blob/master/images/pyrosetta_toolkit_pymol.png?raw=true)
+![[images/pyrosetta_toolkit_pymol.png]]
 PyMOL Integration through the PyMOL Mover. A pose can be shown in PyMOL at any time. Regions can be colored, and the PyMOL Observer can be enabled that updates pymol upon structural and energetic changes to the current pose.
 
 -   Advanced PyMOL Visualization button
@@ -243,3 +243,6 @@ Changes since last release
 --------------------------
 
 This will be the first release
+
+##See Also
+

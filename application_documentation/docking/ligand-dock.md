@@ -1,5 +1,8 @@
 #Ligand\_dock application
 
+
+##NOTE: Use of this app is no longer recommended for ligand docking. Use [[RosettaScripts]] instead. See [[HighResDockerMover]] for example.
+
 Metadata
 ========
 
@@ -11,7 +14,7 @@ Lasted Edited 10/6/14 by Jared Adolf-Bryfogle.
 Example runs
 ============
 
-See `       rosetta/rosetta_tests/integration/tests/ligand_dock_7cpa      ` for an example docking run and input files. Note that the flags there do NOT reflect current best practice, and the flags in this document are a better guide.
+See `       rosetta/main/tests/integration/tests/ligand_dock_7cpa      ` for an example docking run and input files. Note that the flags there do NOT reflect current best practice, and the flags in this document are a better guide.
 
 Literature references
 =====================
@@ -107,7 +110,7 @@ Automatic RosettaLigand Setup (ARLS)
 ====================================
 
 -Deprecated- (still works, just generally not recommended any longer)
-Most of the steps to set up a RosettaLigand docking run have been automated by the `       arls.py      ` script (`rosetta/rosetta_source/src/apps/public/ligand_docking/`, run with –help for brief instructions). For those who prefer a manual approach, the individual steps are detailed in the following sections.
+Most of the steps to set up a RosettaLigand docking run have been automated by the `       arls.py      ` script (`rosetta/main/source/src/apps/public/ligand_docking/`, run with –help for brief instructions). For those who prefer a manual approach, the individual steps are detailed in the following sections.
 
 The inputs to ARLS are *apo* protein structures (.pdb) and cofactor and ligand files (.mol, .sdf, or .mol2). I typically use PyMOL to edit the proteins, [Babel](http://openbabel.org/wiki/Main_Page) to convert PDB ligands to SDF, and [Avogadro](http://avogadro.openmolecules.net/wiki/Main_Page) to fix any mistakes in the SDF (all are free). You also need a file with one line per docking case, listing the protein name, cofactor name(s) if any, and ligand name (without file extensions). This file shows docking several compounds into an apo structure of farnesyl transferase, in most cases including a farnesyl pyrophosphate as a cofactor:
 
@@ -131,12 +134,12 @@ Running ARLS with this list produces a collection of scripts that automate the s
 
 Also, the Rosetta flags controlling the prepacking and docking steps are written to some \*.flags files. The meaning of most options is commented in these files.
 
-ARLS uses a variety of other binaries and scripts to do its work. It should usually be able to find the Rosetta source, but may need help to find the rosetta\_database and the OpenEye tools; see –mini, –database, and –openeye. If you do not have the OpenEye tools, you should –skip-omega and –skip-charges. In that case, you'll need to make sure that the small molecule input files already contain all the conformers you want to consider. You should also provide partial charges (use .mol2 format), or you'll get the default Rosetta (protein) charges.
+ARLS uses a variety of other binaries and scripts to do its work. It should usually be able to find the Rosetta source, but may need help to find the /path/to/rosetta/main/database and the OpenEye tools; see –mini, –database, and –openeye. If you do not have the OpenEye tools, you should –skip-omega and –skip-charges. In that case, you'll need to make sure that the small molecule input files already contain all the conformers you want to consider. You should also provide partial charges (use .mol2 format), or you'll get the default Rosetta (protein) charges.
 
 Preparing the small-molecule ligand for docking
 ===============================================
 
-Rosetta defines ligand topology, rotatable bonds, atom types, partial charges, etc in a .params file; the starting coordinates are stored in PDB format. A script called `       molfile_to_params.py      ` has been supplied in `       rosetta/rosetta_source/src/python/apps/      ` to help in producing these files from a typical small molecule format (.mol, .sdf, or .mol2).
+Rosetta defines ligand topology, rotatable bonds, atom types, partial charges, etc in a .params file; the starting coordinates are stored in PDB format. A script called `       molfile_to_params.py      ` has been supplied in `       rosetta/main/source/src/python/apps/      ` to help in producing these files from a typical small molecule format (.mol, .sdf, or .mol2).
 
 In most cases, one starts from a random 3D conformation or a 2D or 1D chemical formula (e.g. SMILES) and needs to generate a library of plausible, low-energy conformations. I use OpenEye's Omega, like this:
 
@@ -147,13 +150,13 @@ In most cases, one starts from a random 3D conformation or a 2D or 1D chemical f
 Then I use OpenEye's AM1-BCC implementation to calculate partial charges. (You must have a valid license and OpenEye libraries and Python bindings installed to use assign\_charges.py; feel free to substitute some other program you like.) Only the partial charges on the first conformer in the .mol2 file are used by subsequent steps, so there's no point in calculating charges for all conformers. If all charges are left as zero / unassigned (i.e. you skip this step), default partial charges for Rosetta's atom types will be used.
 
 ```
-~/rosetta/rosetta_source/src/apps/public/ligand_docking/assign_charges.py < 1t3r_confs.mol2 > 1t3r_charges.mol2
+~/rosetta/main/source/src/apps/public/ligand_docking/assign_charges.py < 1t3r_confs.mol2 > 1t3r_charges.mol2
 ```
 
 Special records can be added to the file to specify the atom tree root or split the molecule into multiple residues, but these are not generally used right now. Otherwise, `       molfile_to_params.py      ` is controlled by command line parameters.
 
 ```
-~/rosetta/rosetta_source/src/python/apps/public/molfile_to_params.py -n DAR -k 1t3r.kin -p 1t3r 1t3r_charges.mol2
+~/rosetta/main/source/src/python/apps/public/molfile_to_params.py -n DAR -k 1t3r.kin -p 1t3r 1t3r_charges.mol2
 ```
 
 `       -n      ` gives the three-letter code that will be used for the PDB residue name, `       -p      ` controls naming of the output files, and `       -k      ` produces a kinemage illustration of the ligand (optional, but useful for debugging; see [http://kinemage.biochem.duke.edu](http://kinemage.biochem.duke.edu) to download KiNG for viewing).
@@ -177,7 +180,7 @@ Preparing the protein receptor for docking
 Only sidechains near the initial ligand position are repacked during docking, to save time. This means *all* sidechains should be repacked before docking, so that any pre-existing clashes (according to Rosetta's energy function) can be resolved. Otherwise, a ligand placed near the clashing residues will allow them to repack and thus gain a large energy bonus that does not accurately reflect its binding affinity in that position. A program `       ligand_rpkmin      ` is provided for this purpose; one should use the same `       -ex#      ` flags as will be used during docking.
 
 ```
-~/rosetta/rosetta_source/bin/ligand_rpkmin.macosgccrelease -database ~/rosetta/rosetta_database/ -ex1 -ex2 -ex1aro -extrachi_cutoff 1 \
+~/rosetta/main/source/bin/ligand_rpkmin.macosgccrelease -database ~/rosetta/main/database/ -ex1 -ex2 -ex1aro -extrachi_cutoff 1 \
   -no_optH false -flip_HNQ -docking:ligand:old_estat -docking:ligand:soft_rep -nstruct 10 -s 1t3r.pdb
 ```
 
@@ -243,10 +246,10 @@ The FLAGS.txt file (any name will do) contains most of the flags that specify be
  -path
   ## On a large cluster, the database should be on a local scratch disk
   ## to avoid over-taxing NFS.
-  -database /scratch/USERS/davis/rosetta/rosetta_database
+  -database /scratch/USERS/davis/rosetta/main/database
   ## "Fallback" database locations can also be specified,
   ## in case the primary database is missing on some nodes:
-  -database /work/davis/rosetta/rosetta_database
+  -database /work/davis/rosetta/main/database
  -file
   ## You must supply .params files for any residue types (ligands)
   ## that are not present in the standard Rosetta database.
@@ -397,14 +400,14 @@ The label "7cpa\_0\_0\_0001" is a "tag", used for uniquely identifying each dock
 The supplied script `       best_ifaceE.py      ` will read a silent file and print the tags of the best-scoring poses. In the Bash shell, you can use this output directly to get the 10 best poses:
 
 ```
-~/rosetta/rosetta_source/bin/extract_atomtree_diffs.macosgccrelease -database ~/rosetta/rosetta_database -extra_res_fa input/1t3r.params \
-  -s 1t3r_silent.out -tags $(~/rosetta/rosetta_source/src/apps/public/ligand_docking/best_ifaceE.py -n 10 1t3r_silent.out)
+~/rosetta/main/source/bin/extract_atomtree_diffs.macosgccrelease -database ~/rosetta/main/database -extra_res_fa input/1t3r.params \
+  -s 1t3r_silent.out -tags $(~/rosetta/main/source/src/apps/public/ligand_docking/best_ifaceE.py -n 10 1t3r_silent.out)
 ```
 
 Atomtree diff files are plain text, and final scores are recorded on the SCORES lines. These can be easily processed by scripts to select the best results. I often convert to a table of scores (CSV or equivalent) and do analysis in R; you could do the same in Excel, etc.
 
 ```
-~/rosetta/rosetta_source/src/apps/public/ligand_docking/get_scores.py < 1t3r_silent.out > 1t3r_scores.tab
+~/rosetta/main/source/src/apps/public/ligand_docking/get_scores.py < 1t3r_silent.out > 1t3r_scores.tab
 ```
 
 Scores of interest include "total\_score", the overall Rosetta energy for the receptor-ligand complex; "interface\_delta", which estimates the binding energy as the difference between total\_score and the score of the separated components; and "ligand\_auto\_rms\_no\_super", the RMSD between the final ligand position and its position in the input (or `       -native      ` ) PDB file, accounting for any chemical symmetries (automorphisms). The individual components of total\_score are also present, as are the components of interface\_delta (prefixed by "if\_").
@@ -449,3 +452,17 @@ Estimating docking confidence (PRELIMINARY)
 ===========================================
 
 A confidence index can be calculated as the correlation between energy score and the distance (RMSD) from the lowest energy pose. This method assumes that there is one low energy binding mode. Further Reading: [Maria I. Zavodszky, Andrew W. Stumpff-Kane, David J. Lee, and Michael Feig. **Scoring confidence index: statistical evaluation of ligand binding mode predictions** , *Journal of computer aided design* 1999, **23** (5):289-299](http://www.springerlink.com/content/nr435h2q15366664)
+
+
+##See Also
+
+* [[Docking Applications]]: Home page for docking applications
+* [[Preparing ligands]]: Notes on preparing ligands for use in Rosetta
+* [[Non-protein residues]]: Notes on using non-protein molecules with Rosetta
+* [[Application Documentation]]: List of Rosetta applications
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[RosettaScripts]]: Homepage for the RosettaScripts interface to Rosetta
+* [[Comparing structures]]: Essay on comparing structures
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files

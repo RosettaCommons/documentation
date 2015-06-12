@@ -84,3 +84,19 @@ Fortunately, there is only very rarely an actual need to vary chain lengths *dur
 Residue design, on the other hand, is less amenable to that strategy. To perform design that involves changes to the atom tree, the `DofPassport` must be updated, or at least be able to handle changing `DOF_IDs`.
 
 There are a couple of ways this could be done. Because most design is side chain-swapping, the easiest way to do this would probably be to construct a way to claim an entire sidechain for design. This would claim `MUST CONTROL` access to the whole sidechain, and store access to all non-backbone atoms as a single entry in the `DofPassport`. For example, the entire backbone could be stored as a single `DOF_ID` with the atom number of the first non-backbone atom in the residue.
+
+##See Also
+
+* [[Topology Broker home page|BrokeredEnvironment]]
+* [[Development Documentation]]: Home page for developer documentation
+* [[Scripting Documentation]]: Scripting interfaces to Rosetta
+* [[RosettaScripts]]: RosettaScripts home page
+* [[PyRosetta]]: PyRosetta wiki page
+* [[Developer tutorials|devel-tutorials]]
+* [[I want to do x]]: Guide for making specific structural perturbations using RosettaScripts
+* [[Getting Started]]: A page for people new to Rosetta
+* [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Rosetta Servers]]: Web-based servers for Rosetta applications
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.

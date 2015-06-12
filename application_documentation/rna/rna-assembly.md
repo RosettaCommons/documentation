@@ -18,7 +18,7 @@ For the full workflow check out:
 
 `       rosetta_demos/public/RNA_Assembly      `
 
-NOTE: This pipeline is largely deprecated; a new one, based on use of MOHCA-seq data and experience in the RNA puzzles trials, will be documented soon. Some info here: (http://biorxiv.org/content/early/2014/04/25/004556).
+NOTE: This pipeline is largely deprecated; a new one, based on use of MOHCA-seq data and experience in the RNA puzzles trials, will be documented soon. Some info here: [[http://biorxiv.org/content/early/2014/04/25/004556]].
 
 References
 ==========
@@ -59,7 +59,7 @@ Required file
 
 You need two files:
 
--   The [[fasta file]]: it is a sequence file for your rna. The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a,c,g, and u. The example fasta file is available in `        rosetta_tests/integration/tests/rna_denovo/       ` .
+-   The [[fasta file]]: it is a sequence file for your rna. The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a,c,g, and u. The example fasta file is available in `        main/tests/integration/tests/rna_denovo/       ` .
 
 -   The secstruct secondary structure file: the secondary structure that you are assuming. This file needs to be a text file with one line, giving the RNA secondary structure in dot bracket notation. For example '((....))' denotes a hairpin structure in which the first two and last two bases are paired.
 
@@ -178,3 +178,18 @@ New things since last release
 =============================
 
 This application is new as of Rosetta 3.4.
+
+##See Also
+
+* [[RNA Denovo]]: The main rna_denovo application page
+* [[RNA applications]]: The RNA applications home page
+* [[Structure Prediction Applications]]: List of structure prediction applications
+* [[RNA applications]]: The RNA applications home page
+* [[Structure Prediction Applications]]: List of structure prediction applications
+* [[Application Documentation]]: Home page for application documentation
+* [[RNA]]: Guide to working with RNA in Rosetta
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Comparing structures]]: Essay on comparing structures
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files

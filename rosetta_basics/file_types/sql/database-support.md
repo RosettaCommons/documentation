@@ -67,7 +67,7 @@ Currently only SQLite3 databases are supported, though if adding more database t
     sessionOP db_session = dsm->get_session(database_filename);
 ```
 
-The DatabaseSessionManager is singleton mananaged on non-mpi builds and boost::auto\_ptr managed for mpi builds. One thing to note: In order use owning pointers with a session object use the utility::sql\_database::session. It derives from both cppdb::session and [[utility::pointer::ReferenceCount|ReferenceCount]] .
+The DatabaseSessionManager is singleton mananaged on non-mpi builds and boost::auto\_ptr managed for mpi builds. One thing to note: In order to use owning pointers with a session object use the utility::sql\_database::session. It derives from cppdb::session.
 
 Usually your application will want to use the database filename the user specifies in the option system:
 
@@ -132,3 +132,12 @@ Another main task is to execute queries over a database. For example:
 For a working expanded example see test/utility/sql\_database/DatabaseSessionManagerTests.cxxtest.hh
 
 For more documentation on the cppdb API see the [CppDB Online Documentation](http://cppcms.sourceforge.net/sql/cppdb/index.html) and external/dbio/cppdb/frontend.h.
+
+##See Also
+
+* [[Database IO]]: Information on input/output to different database formats using Rosetta
+* [[Rosetta Database Output Tutorial]]
+* [[SQLite3 Interface]]: Specific information on using SQLite3 with Rosetta
+* [[Database options]]: List of options related to using databases with Rosetta
+* [[RosettaScripts database connection options]]
+* [[The Rosetta database|database]]: Information about the main database included with Rosetta and specified by the -in:path:database flag (separate topic)

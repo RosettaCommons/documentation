@@ -29,7 +29,7 @@ Input Options
 -in:file:fasta ./input_files/1elwA.fasta 	        Protein sequence in fasta format (required)
 -in:file:frag3 ./input_files/aa1elwA03_05.200_v1_3 	Fragment library: 3-residue fragments (required)
 -in:file:frag9 ./input_files/aa1elwA09_05.200_v1_3 	Fragment library: 9-residue fragments (required)
--database ../../rosetta_database 	                Path to rosetta database (required if not ROSETTA3_DB environment variable is set)
+-database path/to/rosetta/main/database 	        Path to rosetta database (required if not ROSETTA3_DB environment variable is set)
 ```
 
 Output options
@@ -124,3 +124,28 @@ This top-level mover calls the Movers for the fragment assembly protocol (abinit
 The fragment assembly protocol is encoded in the Movers FragmentSampler and its derived class ConstraintFragmentSampler which reside in main/source/src/protocols/abinitio.
 
 The AbrelaxMover works closely together with the TopologyBroker module that resides in main/source/src/protocols/topology_broker. The TopologyBroker module handles the introduction of restraints, and the determines the kinematics of beta-strands through its ConstraintClaimer and TemplateJumpClaimer classes, respectively.
+
+
+#See Also
+
+* [[Abinitio relax]]: Main page for this application
+* [[Fasta file]]: Fasta file format
+* [[Fragment file]]: Fragment file format (required for abinitio structure prediction)
+* [[Structure prediction applications]]: A list of other applications to be used for structure prediction
+  * [[NonlocalAbinitio]]: Application for predicting protein structure given some prior structural information
+  * [[Membrane abinitio]]: Ab initio for membrane proteins.  
+  - [[Comparative modeling|minirosetta-comparative-modeling]]: Build structural models of proteins using one or more known structures as templates for modeling (uses the minirosetta application).
+    * [[Minirosetta]]: More information on the minirosetta application.
+  * [[Metalloprotein ab initio|metalloprotein-abrelax]]: Ab inito modeling of metalloproteins.  
+  - [[Backrub]]: Create backbone ensembles using small, local backbone changes.  
+  - [[Floppy tail]]: Predict structures of long, flexible N-terminal or C-terminal regions.
+  - [[Fold-and-dock]]: Predict 3-dimensional structures of symmetric homooligomers.  
+  - [[Molecular replacement protocols|mr-protocols]]: Use Rosetta to build models for use in X-ray crystallography molecular replacement.  
+    * [[Prepare template for MR]]: Setup script for molecular replacement protocols.  
+  - [[Relax]]: "Locally" optimize structures, including assigning sidechain positions.
+* [[Application Documentation]]: List of Rosetta applications
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Comparing structures]]: Essay on comparing structures
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files

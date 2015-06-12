@@ -22,7 +22,7 @@ The utility directory contains utility classes that are (at least in theory) not
 ###Namespaces within utility
 * [[utility|namespace-utility]]
 * [[utility::io|namespace-utility-io]]
-* [[utility::factory|namespace-utility-factory]]
+* [[utility::factory|namespace-utility-factory]] **NO LONGER EXISTS**
 * [[utility::keys|namespace-utility-keys]]
 * [[utility::options|namespace-utility-options]]
 
@@ -62,7 +62,7 @@ TODO: Steven, could you provide a description of roughly what falls into each of
 
 * [[core::chemical|namespace-core-chemical]]
 * [[core::conformation|namespace-core-conformation]]
-  * [[core::conformation::idealization|namespace-core-conformation-idealization]]
+  * [[core::conformation::idealization|namespace-core-conformation-idealization]] **NO LONGER EXISTS**
 * [[core::io::pdb|namespace-core-io-pdb]]
 * [[core::scoring|namespace-core-scoring]]
 
@@ -120,3 +120,11 @@ Adding New Subdirectories
 =========================
 
 New subdirectories in one of the above existing directories can be added much more readily without damaging the overall structure of the library. First determine which level of the library the new concepts fit into. If one is unsure of where new code should be placed, consult experienced Rosetta developers. This can either be in one's lab or (even better) send a message out to the developer mailing list (One might find out that someone else has a complimentary idea with a starting point already available).
+
+##See Also
+
+* [[Rosetta directory structure|rosetta-library-structure]]: Descriptions of contents of the major subdirectories in the Rosetta `main` directory
+* [[Glossary]]: Brief definitions of Rosetta terms
+* [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
+* [[Rosetta overview]]: Overview of major concepts in Rosetta
+* [[Development Documentation]]: The main development documentation page

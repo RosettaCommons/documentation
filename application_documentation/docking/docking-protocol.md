@@ -13,9 +13,9 @@ Last edited 6/08/2015 by Jeliazko Jeliazkov. Corresponding PI Jeffrey Gray (jgra
 Code and Demo
 =============
 
--   Application source code: `        rosetta/rosetta_source/src/apps/public/docking/docking_protocol.cc       `
--   Main mover source code: `        rosetta/rosetta_source/src/protocols/docking/DockingProtocol.cc       `
--   To see demos of some different use cases see integration tests located in `        rosetta/rosetta_tests/integration/docking*       ` (docking\_full\_protocol, docking\_local\_refine, docking\_local\_refine\_min, docking\_low\_res, docking\_distance\_constraint, docking\_site\_constraint).
+-   Application source code: `        rosetta/main/source/src/apps/public/docking/docking_protocol.cc       `
+-   Main mover source code: `        rosetta/main/source/src/protocols/docking/DockingProtocol.cc       `
+-   To see demos of some different use cases see integration tests located in `        rosetta/main/tests/integration/tests/docking*       ` (docking\_full\_protocol, docking\_local\_refine, docking\_local\_refine\_min, docking\_low\_res, docking\_distance\_constraint, docking\_site\_constraint).
 
 To run docking, type the following in a commandline:
 
@@ -147,7 +147,7 @@ Relevant common Rosetta Flags
 |-s [S] OR -silent [S]|Specify the file name of the starting structure, [S] (in:file:s for PDB format, in:file:silent for silent file format).|String|
 |-native [S]|Specify the file name of the native structure, [S], for which to compare in RMSD calculations. If a native file is not passed in, all calculations are done using the starting structure as native.|String|
 |-nstruct [I]|Specify the number of decoys, [I], to generate.|Integer|
-|-database [P]|The path to the Rosetta database (e.g. \~/rosetta\_database).|String|
+|-database [P]|The path to the Rosetta database (e.g. /path/to/rosetta/main/database).|String|
 |-use\_input\_sc|Use accepted rotamers from the input structure between Monte Carlo+Minimization (MCM) cycles. Unlike the -unboundrot flag from Rosetta++, not all rotamers from the input structure are added each time to the rotamer library, but only those accepted at the end of each round the remaining conformations are lost.|Boolean|
 |-ex1/-ex1aro -ex2/-ex2aro -ex3 -ex4|Adding extra side-chain rotamers (highly recommended). The -ex1 and -ex2aro flags were used in our own tests, and therefore are recommended as default values.|Boolean/Integer|
 |-constraints:cst\_file [S]|Specify the name of the [[constraint file]], [S]. |String|
@@ -218,6 +218,18 @@ Sort scorefile by score using commandline sort function. For global docking simu
 New things since last release
 =============================
 
--   Supports the modern job distributor (jd2).
+-   Supports the modern job distributor [[jd2]].
 -   Support for complex foldtrees including poses that have ligands.
 -   Support for [[constraints|constraint-file]] .
+
+##See Also
+
+* [[Docking Applications]]: Home page for docking applications
+* [[Preparing structures]]: Notes on preparing structures for use in Rosetta
+* [[Application Documentation]]: List of Rosetta applications
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[RosettaScripts]]: Homepage for the RosettaScripts interface to Rosetta
+* [[Comparing structures]]: Essay on comparing structures
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files

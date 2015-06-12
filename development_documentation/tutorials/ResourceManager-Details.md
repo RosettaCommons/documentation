@@ -163,7 +163,7 @@ directory `/path/to/input/pdbs` and uses the symmetry definitions file
                    The "1xu1FH_D_symmetry_definition" resource is a SymmData object that
                    is used to convert an asymmetric unit into a symmetric conformation.
                    The symmetry definition file is created using the perl script in
-                   rosetta_source/src/apps/public/symmetry/make_symmdef_file.pl.  
+                   main/source/src/apps/public/symmetry/make_symmdef_file.pl.  
 
            </Resources>
 
@@ -481,3 +481,13 @@ manager code. Some templates have a fixed RG seed and if you forget to
 change it your entire unit testing suite will crash. Cannot have to
 equivalent seeds.
 
+##See Also
+
+* [[ResourceManager Main Page|ResourceManager]]
+* [[Development tutorials home page|devel-tutorials]]
+* [[Development Documentation]]: The development documentation home page
+* [[Application Documentation]]: Information on existing Rosetta apps
+* [[RosettaScripts]]: Instructions for writing RosettaScripts, the Rosetta XML interface
+* [[Using the job distributor|jd2]]
+* [[RosettaEncyclopedia]]: Detailed descriptions of concepts in Rosetta.
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables

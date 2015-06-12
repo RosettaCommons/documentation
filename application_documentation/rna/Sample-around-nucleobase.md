@@ -57,7 +57,7 @@ To sample a 'carbon' probe atom:
 To sample a water (sampling all possible orientations and outputting Boltzmann summed free energies)
 
 ```
- nucleobase_sample_around   [-s a_RNA.pdb]  -sample_water  [ -extra_res ~/rosetta_database/chemical/residue_type_sets/fa_standard/residue_types/water/TP3.params ]
+ nucleobase_sample_around   [-s a_RNA.pdb]  -sample_water  [ -extra_res /path/to/rosetta/main/database/chemical/residue_type_sets/fa_standard/residue_types/water/TP3.params ]
 ```
 
 To sample a nucleobase
@@ -106,3 +106,18 @@ Additional Information
 ======================
 The previous hackathon results are summarized in the following slides
 https://drive.google.com/file/d/0By0BpYZBGuK-R2dhcEpKN0E4d28/view?usp=sharing 
+
+
+##See Also
+
+* [[RNA applications]]: List of RNA applications
+* [[Utilities Applications]]: List of utilities applications
+* [[Tools]]: Python-based tools for use in Rosetta
+* [[Application Documentation]]: Home page for application documentation
+* [[RNA]]: Guide to working with RNA in Rosetta
+* [[Fixbb]]: App commonly used for design and/or threading with proteins
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Comparing structures]]: Essay on comparing structures
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files

@@ -14,11 +14,11 @@ This code uses the RosettaHoles approach to identify problematic buried cavities
 
 For the full workflow check out:
 
-`       rosetta_demos/public/vip      `
+`       demos/public/vip      `
 
 For a 'minimal' demo example (that omits the post-mutation relaxation step), see
 
-`       rosetta_tests/integration/tests/vip/      `
+`       tests/integration/tests/vip/      `
 
 References
 ==========
@@ -95,3 +95,12 @@ New things since last release
 =============================
 
 This application is new as of Rosetta 3.4.
+
+##See Also
+
+* [[Design applications | design-applications]]: other design applications
+* [[Application Documentation]]: Application documentation home page
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
+* [[Preparing structures]]: How to prepare structures for use in Rosetta

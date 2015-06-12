@@ -1,18 +1,10 @@
 #Loops File
 
-Name
-====
-
-Any name is fine as long as you specify the correct file name in the command lines. For Example:
-
-```
-*.loops 
-```
 
 Application purpose
 ===========================================
 
-Loop definitions are used to identify the residues in a loop. See: The -loops, the -loop\_file, and many others.
+Loop definitions are used to identify the residues in a loop for [[loop modeling|loopmodel]].
 
 File Format
 ======
@@ -36,3 +28,46 @@ For Example: A legal line in a loops file (the line by itself is a legal file):
 LOOP 23 30 26
 ```
 Loop from residues 23-30 with the cutpoint at 26.
+
+Name
+====
+
+Rosetta's `-loop_file` flag (and others) are just taking a file name or file path, so any name is fine as long as you specify it.  For example:
+
+```
+my_protein.loops 
+loopsfile
+loop_file
+top7.loops
+loops.txt
+```
+
+
+##See Also
+
+* [[File types list]]: List of file types used in Rosetta
+* [[Rosetta Basics]]: The Rosetta Basics home page
+* [[Structure prediction applications]]: List of applications for structure prediction, including loop modeling applications
+* [[Loop modeling algorithms|loopmodel-algorithms]]
+* [[Structure prediction applications]]: Contains links to several applications for loop modeling
+* [[Options overview]]: Overview of Rosetta command line options
+* [[Glossary]]: Brief definitions of Rosetta terms
+* [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
+* [[Rosetta overview]]: Overview of major concepts in Rosetta
+* [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
+
+<!--
+The purpose of this remaining text is to improve the searchability of this page: 
+loops file 
+loops file 
+loops file 
+loop file 
+loop file 
+loop file
+loop file 
+loop file 
+loop file
+loop file 
+loop file 
+loop file
+//-->

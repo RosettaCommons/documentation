@@ -10,7 +10,7 @@ State when the documentation was last updated December 2011 by P. Douglas Renfre
 Code and Demo
 =============
 
-The main mover is located in the application code at `       rosetta_source/src/protocols/unfolded_state_energy_calculator      ` . The application code is located at `       rosetta_source/src/apps/public/ncaa_utilities/UnfoldedStateEnergyCalculator.cc      ` . The integration tests can be found at `       rosetta_tests/integration/tests/unfolded_state_energy_calc/      ` . The demo can be found at `       rosetta_demos/UnfoldedStateEnergyCalculator/      ` .
+The main mover is located in the application code at `       main/source/src/protocols/unfolded_state_energy_calculator      ` . The application code is located at `       main/source/src/apps/public/ncaa_utilities/UnfoldedStateEnergyCalculator.cc      ` . The integration tests can be found at `       main/tests/integration/tests/unfolded_state_energy_calc/      ` . The demo can be found at `       demos/public/UnfoldedStateEnergyCalculator/      ` .
 
 References
 ==========
@@ -77,7 +77,7 @@ Continuing the ornithine example we have used in the two previous protocol captu
 
 ```
 $ cd outputs
-$ PATH/TO/bin/UnfoldedStateEnergyCalculator.macosgccrelease -database PATH/TO/rosetta_database -ignore_unrecognized_res -ex1 -ex2 -extrachi_cutoff 0 -l ../inputs/cullpdb_pc20_res1.6_R0.25_d110520_chains1859_list_pruned -residue_name C40 -mute all -unmute devel.UnfoldedStateEnergyCalculator -unmute protocols.jd2.PDBJobInputer -no_optH true -detect_disulf false >& ufsec_log_c40 &
+$ PATH/TO/bin/UnfoldedStateEnergyCalculator.macosgccrelease -database PATH/TO/rosetta/main/database -ignore_unrecognized_res -ex1 -ex2 -extrachi_cutoff 0 -l ../inputs/cullpdb_pc20_res1.6_R0.25_d110520_chains1859_list_pruned -residue_name C40 -mute all -unmute devel.UnfoldedStateEnergyCalculator -unmute protocols.jd2.PDBJobInputer -no_optH true -detect_disulf false >& ufsec_log_c40 &
 ```
 
 **NOTE:** The extension on your executable my be different.
@@ -109,3 +109,11 @@ New things since last release
 =============================
 
 This application is new for the Rosetta 3.4 release.
+
+## See Also
+
+* [[Utility applications | utilities-applications]]: other utility applications
+* [[MakeRotLib | make-rot-lib]]: for creating noncanonical rotamer libraries
+* [[Noncanonical Amino Acids]]: How to work with noncanonical amino acids
+* [[Application Documentation]]: Application documentation home page
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.

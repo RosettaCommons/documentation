@@ -8,7 +8,7 @@ This document was edited Nov 10th 2008 by Yi Liu. Credits go to developers who h
 Instructions
 ============
 
--   There is no specific examples for every pilot applications in the rosetta trunk yet.
+-   There are no specific examples for every pilot applications in the rosetta trunk yet.
 -   Make sure that you have the application in the pilot\_apps.src.settings.
 -   Or, you can build all pilot applications with the scons flag pilot\_apps\_all
 
@@ -20,31 +20,31 @@ Please read the options list to find the descriptions for each option in the com
 -   backrub:
 
     ```
-    path/to/rosetta/rosetta_source/bin/backrub.linuxgccrelease -s 1cc8_model15.pdb -ex1 -ex2aro -ex1aro -backrub:pivot_residues 10 11 12 13 14 15 -packing:resfile Resfile -backrub:ntrials 5000 -backrub:mc_kt 1.0 -database path/to/rosetta/rosetta_database/ -out:nstruct 1000
+    path/to/rosetta/source/bin/backrub.linuxgccrelease -s 1cc8_model15.pdb -ex1 -ex2aro -ex1aro -backrub:pivot_residues 10 11 12 13 14 15 -packing:resfile Resfile -backrub:ntrials 5000 -backrub:mc_kt 1.0 -database path/to/rosetta/main/database/ -out:nstruct 1000
     ```
 
 -   scoring with rosetta:
 
     ```
-    path/to/rosetta/rosetta_source/bin/backrub.linuxgccrelease -s 1cc8_model15.pdb -ex1 -ex2aro -ex1aro -backrub:pivot_residues 10 11 12 13 14 15 -packing:resfile Resfile -backrub:ntrials 5000 -backrub:mc_kt 1.0 -database path/to/rosetta/rosetta_database/ -out:nstruct 1000
+    path/to/rosetta/source/bin/backrub.linuxgccrelease -s 1cc8_model15.pdb -ex1 -ex2aro -ex1aro -backrub:pivot_residues 10 11 12 13 14 15 -packing:resfile Resfile -backrub:ntrials 5000 -backrub:mc_kt 1.0 -database path/to/rosetta/main/database/ -out:nstruct 1000
     ```
 
 -   scoring with rosetta:
 
     ```
-    path/to/rosetta/rosetta_source/bin/backrub.linuxgccrelease -s 1cc8_model15.pdb -ex1 -ex2aro -ex1aro -backrub:pivot_residues 10 11 12 13 14 15 -packing:resfile Resfile -backrub:ntrials 5000 -backrub:mc_kt 1.0 -database path/to/rosetta/rosetta_database/ -out:nstruct 1000
+    path/to/rosetta/source/bin/backrub.linuxgccrelease -s 1cc8_model15.pdb -ex1 -ex2aro -ex1aro -backrub:pivot_residues 10 11 12 13 14 15 -packing:resfile Resfile -backrub:ntrials 5000 -backrub:mc_kt 1.0 -database path/to/rosetta/main/database/ -out:nstruct 1000
     ```
 
 -   relax with rosetta:
 
     ```
-    path/to/rosetta/rosetta_source/bin/relax.linuxgccrelease -database /path/to/rosetta/rosetta_database/  -score:weights score13_env_hb -out:pdb -out:prefix relaxed -out:nstruct 100 -in:file:s 1utg_model39.pdb 
+    path/to/rosetta/source/bin/relax.linuxgccrelease -database /path/to/rosetta/main/database/  -score:weights score13_env_hb -out:pdb -out:prefix relaxed -out:nstruct 100 -in:file:s 1utg_model39.pdb 
     ```
 
 -   relax with constraints in rosetta:
 
     ```
-    /path/to/rosetta/rosetta_source/bin/relax.linuxgccrelease -database path/to/rosetta/rosetta_database/  -score:weights score13_env_hb -out:pdb -out:prefix constrained -constraints:cst_file constraints_file -constraints:cst_weight 2.0 -out:nstruct 100 -in:file:s 1utg_model39f.pdb
+    /path/to/rosetta/source/bin/relax.linuxgccrelease -database path/to/rosetta/main/database/  -score:weights score13_env_hb -out:pdb -out:prefix constrained -constraints:cst_file constraints_file -constraints:cst_weight 2.0 -out:nstruct 100 -in:file:s 1utg_model39f.pdb
     ```
 
 -   loop modeling with constraints:
@@ -58,12 +58,12 @@ Please read the options list to find the descriptions for each option in the com
 -   make a loop
 
     ```
-    path/to/rosetta/rosetta_source/bin/minirosetta.linuxgccrelease @args
+    path/to/rosetta/source/bin/minirosetta.linuxgccrelease @args
     ```
     with args file:
     ```
     -in::file::s  threaded-model.pdb
-    -database /path/to/rosetta/rosetta_database/
+    -database /path/to/rosetta/main/database/
     -loops::frag_sizes 9 3 1
     -loops::frag_files aat000_09_05.200_v1_3 aat000_03_05.200_v1_3 none
     -loops::loop_file t000_.loopfile
@@ -81,18 +81,18 @@ Please read the options list to find the descriptions for each option in the com
 -   packstate:
 
     ```
-    /path/to/rosetta/rosetta_source/bin/packstat.linuxgccrelease -database /path/to/rosetta/rosetta_database -packstat:packstat_pdb -s 1shf.pdb
+    /path/to/rosetta/source/bin/packstat.linuxgccrelease -database /path/to/rosetta/main/database -packstat:packstat_pdb -s 1shf.pdb
     ```
 
 Command lines collected from Steven Lewis
 =========================================
 
-Please read the options list to find the descriptions for each option in the commands
+####The following are example flags files. The associated applications are deprecated, documented elsewhere, or are not available for public use; these are intended only as generic examples.
 
 -   options file for pilot/rjha/MatchFilter.cc
 
     ```
-    -database /path/to/rosetta/rosetta_database
+    -database /path/to/rosetta/main/database
     -options::user
     -run::version
     -mute core
@@ -102,7 +102,7 @@ Please read the options list to find the descriptions for each option in the com
 -   options file for pilot/rjha/MetalInterfaceStructureCreator.cc
 
     ```
-    -database /path/to/rosetta/rosetta_database
+    -database /path/to/rosetta/main/database
     -s NE2.pdb
     -run::version
     -options::user
@@ -112,7 +112,7 @@ Please read the options list to find the descriptions for each option in the com
 -   options file for pilot/rjha/MetalInterfaceStructureCreator.cc
 
     ```
-    -database /path/to/rosetta/rosetta_database
+    -database /path/to/rosetta/main/database
     -s NE2.pdb
     -run::version
     -options::user
@@ -138,7 +138,7 @@ Please read the options list to find the descriptions for each option in the com
 -   options file for pilot/smlewis/AnchoredDesign.cc
 
     ```
-    -database /path/to/rosetta/rosetta_database
+    -database /path/to/rosetta/main/database
     -mute core.chemical core.scoring.etable core.io.database
     core.io.pdb.file_data core.conformation core.pack.pack_rotamers
     core.pack.task
@@ -181,3 +181,14 @@ Command lines collected from Ben Stranges
     -nstruct 5  (total number of possible structures (pdbs) output)
     -parser:view  (gives graphics of protocol; need to compile with extras=graphics for this to work)
     ```
+
+##See Also
+
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
+* [[Getting Started]]: A page for people new to Rosetta
+* [[Scripting Documentation]]: Scripting interfaces to Rosetta
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Comparing structures]]: Essay on comparing structures
+* [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
+* [[TACC]]: Information for running Rosetta on the TACC/Stampede cluster.

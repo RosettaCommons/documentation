@@ -10,7 +10,7 @@ Jan. 2013 by Bryan Der (bder [at] email.unc.edu), Kuhlman lab (bkuhlman [at] ema
 Code and Demo
 =============
 
-The code lives in a single file, src/apps/public/supercharge.cc integration test: rosetta\_tests/integration/tests/supercharge demo: rosetta\_demos/public/supercharge Production runs are still quick and light, it just requires packrotamers for surface positions, and we recommend running the protocol several times using a variety of target net charges. Experimentally, it's hard to say what the optimal net charge will be, so a spectrum of net charges should be tested at the bench.
+The code lives in a single file, src/apps/public/supercharge.cc integration test: main/tests/integration/tests/supercharge demo: demos/public/supercharge Production runs are still quick and light, it just requires packrotamers for surface positions, and we recommend running the protocol several times using a variety of target net charges. Experimentally, it's hard to say what the optimal net charge will be, so a spectrum of net charges should be tested at the bench.
 
 References
 ==========
@@ -267,3 +267,13 @@ New things since last release
 =============================
 
 If you've made improvements, note them here.
+
+##See Also
+
+* [[Design applications | design-applications]]: other design applications
+* [[Application Documentation]]: Application documentation home page
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
+* [[Preparing structures]]: How to prepare structures for use in Rosetta
+

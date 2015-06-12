@@ -8,9 +8,9 @@ This document was edited Nov 1st 2008 by Yi Liu and again on May 11th, 2010 by A
 Code and Demo
 =============
 
-See `       rosetta/rosetta_tests/integration/tests/fixbb      ` for an example of fixed backbone design protocol and input files. A production run can be made from the `       command      ` file by adding the flags -ex1 and -ex2 for the fullatom run. The centroid-mode run is already a "production run" in that it cannot be made to take more time than it does already.
+See `       rosetta/tests/integration/tests/fixbb      ` for an example of fixed backbone design protocol and input files. A production run can be made from the `       command      ` file by adding the flags -ex1 and -ex2 for the fullatom run. The centroid-mode run is already a "production run" in that it cannot be made to take more time than it does already.
 
-The majority of the classes for the fixbb application live in `       rosetta/rosetta_source/src/core/pack      ` . The main interface class is the `       PackerTask      ` which lives in `       rosetta/rosetta_source/src/core/pack/task      ` . Rotamers are held in instances of class `       RotamerSet      ` which are in turn held in an instance of class `       RotamerSets      ` ; these classes live in `       rosetta/rosetta_source/src/core/pack/rotamer_set      ` . Rotamer-pair energies are held in one of several "interaction graph" classes, which live in namespace `       core::pack::interaction_graph      ` . The annealer classes live in `       rosetta/rosetta_source/src/core/pack/annealer      ` The application itself lives in `       rosetta/rosetta_source/src/apps/public/design/fixbb.cc      ` and invokes the `       PackRotamersMover      ` that lives in `       rosetta/rosetta_source/src/protocols/moves/PackRotamersMover.cc      `
+The majority of the classes for the fixbb application live in `       rosetta/main/source/src/core/pack      ` . The main interface class is the `       PackerTask      ` which lives in `       rosetta/main/source/src/core/pack/task      ` . Rotamers are held in instances of class `       RotamerSet      ` which are in turn held in an instance of class `       RotamerSets      ` ; these classes live in `       rosetta/main/source/src/core/pack/rotamer_set      ` . Rotamer-pair energies are held in one of several "interaction graph" classes, which live in namespace `       core::pack::interaction_graph      ` . The annealer classes live in `       rosetta/main/source/src/core/pack/annealer      ` The application itself lives in `       rosetta/main/source/src/apps/public/design/fixbb.cc      ` and invokes the `       PackRotamersMover      ` that lives in `       rosetta/main/source/src/protocols/moves/PackRotamersMover.cc      `
 
 References
 ==========
@@ -124,7 +124,7 @@ Annealer
 Other
 
 ```
--database <path/to/rosetta/rosetta_database>     Specify the location of the rosetta_database (required)
+-database <path/to/rosetta/main/database>     Specify the location of the rosetta_database (required)
 
 -overwrite             Overwrite the output files, even if they already exist.
 
@@ -169,3 +169,15 @@ New Features In Rosetta3.2
 ==========================
 
 Rosetta3.2 includes the Lazy Interaction Graph which had not yet been ported from Rosetta++ in version 3.1.
+
+##See Also
+
+* Fixbb can be run with the [[ hpatch score term| fixbb-with-hpatch ]] to prevent the development of surface hydrophobic patches
+* [[Rosetta Design Server (external link)|http://rosettadesign.med.unc.edu/]]: Web-based server for fixed backbone design
+* [[Design applications | design-applications]]: other design applications
+* [[PackRotamersMover]]: RosettaScripts mover for rotamer repacking/design
+* [[Application Documentation]]: Application documentation home page
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
+* [[Preparing structures]]: How to prepare structures for use in Rosetta

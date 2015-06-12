@@ -1,16 +1,13 @@
 #Denovo Symmetry Definiton file creation script.
 
-Metadata
-========
+*Author: Ingemar André*
 
-Author: Ingemar André
-
-Last edited Aug 20 2010 by Ingemar André. Code by Ingemar Andre.
+*Last edited Aug 20 2010 by Ingemar André. Code by Ingemar Andre.*
 
 Code and Demo
 =============
 
-All the code is contained in the Python script rosetta/rosetta\_source/src/apps/pilot\_apps/andre/make\_symmdef\_file\_denovo.py.
+All the code is contained in the Python script main/source/src/apps/public/symmetry/make_symmdef_file_denovo.py.
 
 Purpose
 ===========================================
@@ -56,7 +53,7 @@ common options:
 Expected Outputs
 ================
 
-A sample command line to generate a trimer. The same command was used to create the symmetry definition for the symmetric docking integration test (rosetta/rosetta\_tests/integration/tests/symmetric\_docking):
+A sample command line to generate a trimer. The same command was used to create the symmetry definition for the symmetric docking integration test (rosetta/main/tests/integration/tests/symmetric\_docking):
 
 ```
 make_symmdef_file_denovo.py -symm_type cn -nsub 3
@@ -81,3 +78,12 @@ set_dof BASEJUMP x(50) angle_x(0:360) angle_y(0:360) angle_z(0:360)
 ```
 
 The actual format of the symmetry definition file is described in the [[Symmetry User's Guide.|symmetry]]
+
+
+## See Also
+
+* [[Types of input files | file-types-list]] used in Rosetta.
+* [[Symmetry]]: on symmetry mode
+* [[Utility applications | utilities-applications]]: other utility applications
+* [[Application Documentation]]: Application documentation home page
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.

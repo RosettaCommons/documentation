@@ -16,7 +16,7 @@ Code and Demo
 -   Fast tests and demos: `        test/integration/tests/dna_interface_design/       `
 -   Scientific tests: `        test/scientific/cluster/dna_interface_design/       `
 
-To run the demos (integration tests), obtain the source package, enter directory [rosetta\_source]/test/integration/, and run the command line:
+To run the demos (integration tests), obtain the source package, enter directory main/tests/integration, and run the command line:
 
 ```
 ./integration.py dna_interface_design
@@ -113,3 +113,12 @@ Expected Outputs
 ================
 
 These protocols output files through the JobDistributor scheme. Normally, this results in a PDB file. Often, this PDB file will contain header information that describes the results of the analysis.
+
+##See Also
+
+* [[Design applications | design-applications]]: other design applications
+* [[Application Documentation]]: Application documentation home page
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
+* [[Preparing structures]]: How to prepare structures for use in Rosetta

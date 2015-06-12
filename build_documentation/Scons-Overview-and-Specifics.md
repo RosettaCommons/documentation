@@ -56,3 +56,11 @@ The options.settings file in <code>main/source/tools/build</code> is a compilati
 
 #### platforms
 Platforms are initially setup by functions in the <code>main/source/tools/build/setup_platforms</code> file.  If new computer architecture is being tested, add it to here first.  
+
+##See Also
+
+* [[Build Documentation]]: Information on setting up Rosetta
+* [[Getting Started]]: A page for people new to Rosetta. New users start here.
+* [[TACC]]: Information for running Rosetta on the TACC/Stampede cluster.
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files
+* [[Platforms]]: Supported platforms for Rosetta

@@ -5,7 +5,7 @@ Author:  Sam DeLuca
 Why is this process necessary?
 ==============================
 
-Rosetta uses Params files to store precomputed information about the geometry and chemistry of residues and ligands. A params file is required for each residue encountered in a PDB. A set of params files for commonly seen residues and metals is included with rosetta, and can be found in rosetta\_database/chemical/residue\_type\_sets
+Rosetta uses Params files to store precomputed information about the geometry and chemistry of residues and ligands. A params file is required for each residue encountered in a PDB. A set of params files for commonly seen residues and metals is included with rosetta, and can be found in /path/to/rosetta/main/database/chemical/residue\_type\_sets
 
 * An overview of the Params File type can be found [[here | Residue-Params-file]]
 
@@ -35,7 +35,18 @@ This script will give each molfile a unique 3 letter code, and parses the rosett
 you can run it like this:
 
 ```
-rosetta_source/src/python/apps/public/batch_molfile_to_params.py -d /path/to/rosetta/rosetta_database --script_path=/path/to/molfile_to_params.py list_of_molfiles.txt
+Rosetta/main/source/src/python/apps/public/batch_molfile_to_params.py -d /path/to/rosetta/Rosetta/main/database --script_path=/path/to/molfile_to_params.py list_of_molfiles.txt
 ```
 
 A new directory called "params" will be created in the directory you executed the script from. This directory will have a subdirectory for each processed molfile, and this directory will contain the params file and associated ligand pdb file. In some cases molfile\_to\_params is unable to successfully create a params file. In this case, the script will continue, and the path to the failed mol file will be printed to stdout.
+
+##See Also
+
+* [[Making Rosetta robust against malformed PDBs|robust]]
+* [[Non-protein residues]]: Guide to using non-protein molecules with Rosetta
+* [[Residue Params file]]: File to specify chemical and geometric information for ligands and residues.
+* [[Preparing structures]]: Preparing typical protein structures for use in Rosetta
+* [[Preparing PDB files for non-peptide polymers]]
+* [[Preparing PDB files containing protein and RNA|RNA-protein-changes]]
+* [[Running Rosetta with options]]: Instructions for running Rosetta applications on the command line
+* [[File types list]]: File types used in Rosetta

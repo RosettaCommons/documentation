@@ -8,7 +8,7 @@ Author: P. Ben Stranges (stranges@unc.edu), PI is Brian Kuhlman: (bkuhlman@unc.e
 Code and Demo
 =============
 
-The code is at `       rosetta/rosetta_source/src/apps/public/scenarios/beta_strand_homodimer/      ` ; there's an integration test at `       rosetta/rosetta_tests/integration/tests/beta_strand_homodimer/      ` . However if you want to actually use the code you should look at the demo: `       rosetta/rosetta_demos/beta_strand_homodimer_design/      `
+The code is at `       rosetta/main/source/src/apps/public/scenarios/beta_strand_homodimer/      ` ; there's an integration test at `       rosetta/main/tests/integration/tests/beta_strand_homodimer/      ` . However if you want to actually use the code you should look at the demo: `       rosetta/demos/public/beta_strand_homodimer_design/      `
 
 References
 ==========
@@ -32,7 +32,7 @@ The homodimer model generated above was used to generate the symmetry definition
 Input Files
 ===========
 
-See the demo at: `       rosetta/rosetta_demos/public/beta_strand_homodimer_design      `
+See the demo at: `       rosetta/main/demos/public/beta_strand_homodimer_design      `
 
 Options
 =======
@@ -102,14 +102,23 @@ These protocols are specific for one method of finding exposed beta-strands and 
 Expected Outputs
 ================
 
-See the full description in `       rosetta/rosetta_demos/beta_strand_homodimer_design/README      `
+See the full description in `       rosetta/main/demos/public/beta_strand_homodimer_design/README      `
 
 Post Processing
 ===============
 
-The demo located in `       rosetta/rosetta_demos/beta_strand_homodimer_design/      ` has a full description of how to handle outputs.
+The demo located in `       rosetta/main/demos/public/beta_strand_homodimer_design/      ` has a full description of how to handle outputs.
 
 Changes since last release
 ==========================
 
 3.4 is the first release of this code. - stranges
+
+##See Also
+
+* [[Design applications | design-applications]]: other design applications
+* [[Application Documentation]]: Application documentation home page
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
+* [[Preparing structures]]: How to prepare structures for use in Rosetta

@@ -18,3 +18,16 @@ Each atom of an amino acid is assigned an ideal key identified by the CSD parame
 A call to idealize either the backbone or a specific sidechain will assign ideal values to bond lengths, bond angles, and torsion angles and tetrads in that order. (Note that the idealization of tetrads involves the conversion from an equivalent torsion angle). The positions of the atoms, however, are not updated until a refold occurs. Since the system operates under high precision, the idealization of the HIS, PHE, PRO, TRP, TYR sidechains leaves their rings in an inconsistent state and refold would detect this as an error. To avoid this situation, the idealization of those rings repairs the rings by reassigning several bond lengths and angles which idealization has made inconsistent. The current approach is simple and only intended to maintain a consistent state - it is intended that future versions of idealization will optimally adjusts the ideal ring parameters so that they are self-consistent. Note that in the current code, the reassigned values will require updating if any dependent ideal value is modified.
 
 Finally, when refolding after idealization, an anchor point within the protein must first be established from which to refold. Currently, functions are provided to initialize the N, CA, and C atoms of either terminus to positions which match the ideal geometries.
+
+* [[src Index Page]]: Explains the organization of Rosetta code in the `src` directory
+* More namespaces in core:
+  * [[core::conformation namespace|namespace-core-conformation]]
+  * [[core::chemical|namespace-core-chemical]]
+  * [[core::fragments|namespace-core-fragments]]
+  * [[core::io::pdb|namespace-core-io-pdb]]
+  * [[core::scoring|namespace-core-scoring]]
+* [[Rosetta directory structure|rosetta-library-structure]]: Descriptions of contents of the major subdirectories in the Rosetta `main` directory
+* [[Glossary]]: Brief definitions of Rosetta terms
+* [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
+* [[Rosetta overview]]: Overview of major concepts in Rosetta
+* [[Development Documentation]]: The main development documentation page

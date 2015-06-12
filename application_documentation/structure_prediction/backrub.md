@@ -10,7 +10,7 @@ This document was last updated August 10, 2010, by Colin A. Smith. The correspon
 Code and Demo
 =============
 
-The code for the backrub application is in rosetta/rosetta\_source/src/apps/public/backrub.cc. An integration test and demo is located in rosetta/rosetta\_tests/integration/tests/backrub. Backrub moves are made with the BackrubMover. Side chain moves are made with the SidechainMover. Backbone phi/psi moves are made with the SmallMover.
+The code for the backrub application is in rosetta/main/source/src/apps/public/backrub.cc. An integration test and demo is located in rosetta/main/tests/integration/tests/backrub. Backrub moves are made with the BackrubMover. Side chain moves are made with the SidechainMover. Backbone phi/psi moves are made with the SmallMover.
 
 The additional example below simulates loop 6 of triosephosphate isomerase. **Note that the resfile uses residue numbering from the PDB. The pivot residues are specified using absolute internal residue numbering.**
 
@@ -45,7 +45,7 @@ start
 223 A NATAA
 230 A NATAA
 END_RESFILE
-backrub -database rosetta_database -s 2YPI.pdb -ignore_unrecognized_res -resfile 2YPI.resfile
+backrub -database /path/to/rosetta/main/database -s 2YPI.pdb -ignore_unrecognized_res -resfile 2YPI.resfile
         -pivot_residues 127 128 129 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178
 ```
 
@@ -222,3 +222,28 @@ New Features in Rosetta 3.2
 
 -   Multi-model PDB trajectories can now be recorded for a backrub simulation. See -backrub:trajectory and associated options.
 
+##See Also
+
+* [[Fasta file]]: Fasta file format
+* [[Fragment file]]: Fragment file format (required for abinitio structure prediction)
+* [[Backrub Server (external link)|https://kortemmelab.ucsf.edu/backrub/cgi-bin/rosettaweb.py?query=index]]: Web-based server that provides backrub ensembles for academic users
+* [[BackrubMover]]: The RosettaScripts backrub mover
+* [[Structure prediction applications]]: A list of other applications to be used for structure prediction
+  * [[Abinitio relax]]: Application for predicting protein structures from sequences
+    * [[Abinitio]]: More details on this application
+  * [[NonlocalAbinitio]]: Application for predicting protein structure given some prior structural information
+  * [[Membrane abinitio]]: Ab initio for membrane proteins.  
+  - [[Comparative modeling|minirosetta-comparative-modeling]]: Build structural models of proteins using one or more known structures as templates for modeling (uses the minirosetta application).
+    * [[Minirosetta]]: More information on the minirosetta application.
+  * [[Metalloprotein ab initio|metalloprotein-abrelax]]: Ab inito modeling of metalloproteins.  
+  - [[Floppy tail]]: Predict structures of long, flexible N-terminal or C-terminal regions.
+  - [[Fold-and-dock]]: Predict 3-dimensional structures of symmetric homooligomers.  
+  - [[Molecular replacement protocols|mr-protocols]]: Use Rosetta to build models for use in X-ray crystallography molecular replacement.  
+    * [[Prepare template for MR]]: Setup script for molecular replacement protocols.  
+  - [[Relax]]: "Locally" optimize structures, including assigning sidechain positions.
+* [[Application Documentation]]: List of Rosetta applications
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Comparing structures]]: Essay on comparing structures
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files

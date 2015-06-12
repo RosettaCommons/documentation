@@ -1,5 +1,7 @@
 # DARC
 
+##NOTE: Use of this app is no longer recommended for ligand docking. Use [[RosettaScripts]] instead. See [[HighResDockerMover]].
+
 # Metadata
 Author: Ragul Gowthaman (ragul@ku.edu)
 
@@ -35,7 +37,7 @@ of the protein, E3 ubiquitin-protein ligase Mdm2  (PDB:4ERF).
 present in the protein and remove redundant chains. Although Rosetta will build any missing atoms 
 including hydrogens in input protein PDB files on the fly defore it uses them, we need to prepare 
 the protein to generate the electrostatic potential grid. 
-This is one way to dump the protein after building missing atoma and added hydrogens:
+This is one way to dump the protein after building missing atoms and added hydrogens:
 `$ Rosetta/main/source/bin/score.linuxgccrelease -in:file:s 4ERF.pdb -out:output -no_optH false`
 which gives the output protein 4ERF_0001.pdb
 
@@ -291,3 +293,16 @@ In this case the DARC score for the final docked pose is 4.29993. This score can
 
 If we use the flag '-minimize_output_complex' the model will be minimized and we get the file 'mini_4ERF_0001_LG1.pdb' as output.
 
+
+##See Also
+
+* [[Docking Applications]]: Home page for docking applications
+* [[Preparing ligands]]: Notes on preparing ligands for use in Rosetta
+* [[Non-protein residues]]: Notes on using non-protein molecules with Rosetta
+* [[Application Documentation]]: List of Rosetta applications
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[RosettaScripts]]: Homepage for the RosettaScripts interface to Rosetta
+* [[Comparing structures]]: Essay on comparing structures
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files

@@ -10,8 +10,8 @@ Last updated July 24, 2011 ; PI: Ora Schueler-Furman (oraf@ekmd.huji.ac.il).
 Code and Demo
 =============
 
--   Application source code: `        rosetta/rosetta_source/src/apps/public/flexpep_docking/BuildPeptide.cc       `
--   For a demonstration of a basic run of the BuildPeptide utility application, see `        rosetta/rosetta_tests/integration/tests/BuildPeptide       `
+-   Application source code: `        rosetta/main/source/src/apps/public/flexpep_docking/BuildPeptide.cc       `
+-   For a demonstration of a basic run of the BuildPeptide utility application, see `        rosetta/main/tests/integration/tests/BuildPeptide       `
 
 Application purpose
 ===========================================
@@ -22,7 +22,7 @@ Input Files
 ===========
 
 BuildPeptide requires a fasta file in standard format as input.
-
+/Users/amw579/Rosetta/documentation/application_documentation/utilities/ca-to-allatom.md
 Options
 =======
 
@@ -42,3 +42,9 @@ Expected Outputs
 ================
 
 The output of a BuildPeptide run is a PDB-format file of the peptide in an extended full-atom conformation. Side-chain rotamers are arbitrary. This can be used for e.g., creating an initial structure for a [[FlexPepDock|flex-pep-dock]] ab-initio run.
+
+## See Also
+
+* [[Utility applications | utilities-applications]]: other utility applications
+* [[Application Documentation]]: Application documentation home page
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.

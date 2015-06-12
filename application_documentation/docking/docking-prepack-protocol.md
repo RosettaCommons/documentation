@@ -10,9 +10,9 @@ Last edited 7/18/10. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
 Code and Demo
 =============
 
--   Application source code: `        rosetta/rosetta_source/src/apps/public/docking/docking_prepack_protocol.cc       `
--   Main mover source code: `        rosetta/rosetta_source/src/protocols/docking/DockingPrepackProtocol.cc       `
--   To see demos of some different use cases see integration tests located in `        rosetta/rosetta_tests/integration/docking_prepack*       ` (docking\_prepack\_protocol).
+-   Application source code: `        rosetta/main/source/src/apps/public/docking/docking_prepack_protocol.cc       `
+-   Main mover source code: `        rosetta/main/source/src/protocols/docking/DockingPrepackProtocol.cc       `
+-   To see demos of some different use cases see integration tests located in `        rosetta/main/tests/integration/tests/docking_prepack*       ` (docking\_prepack\_protocol).
 
 To run docking\_prepack, type the following in a commandline:
 
@@ -95,3 +95,13 @@ New things since last release
 
 Supports the modern job distributor (jd2).
 
+* [[Docking Protocol]]: Main protocol for protein-protein docking
+* [[Docking Applications]]: Home page for docking applications
+* [[Non-protein residues]]: Notes on using non-protein molecules with Rosetta
+* [[Application Documentation]]: List of Rosetta applications
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[RosettaScripts]]: Homepage for the RosettaScripts interface to Rosetta
+* [[Comparing structures]]: Essay on comparing structures
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files

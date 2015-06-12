@@ -10,7 +10,7 @@ This document was edited Aug 22th 2010 by Ingemar André. This application in ro
 Code and Demo
 =============
 
-The code for the fold-and-dock application is in `       rosetta/rosetta_source/src/protocols/topology_broker/FoldAndDockClaimer.cc      ` . See `       rosetta/rosetta_tests/integration/tests/fold_and_dock      ` for an example of fold-and/dock protocol and input files. Run without the -run:test\_cycles for a real case prediction example. Fold-and-dock uses the topology broker framework and the actual excecutable is the minirosetta application, `       rosetta/rosetta_source/src/apps/public/boinc/minirosetta.cc      `
+The code for the fold-and-dock application is in `       rosetta/main/source/src/protocols/topology_broker/FoldAndDockClaimer.cc      ` . See `       rosetta/main/tests/integration/tests/fold_and_dock      ` for an example of fold-and/dock protocol and input files. Run without the -run:test\_cycles for a real case prediction example. Fold-and-dock uses the topology broker framework and the actual excecutable is the minirosetta application, `       rosetta/main/source/src/apps/public/boinc/minirosetta.cc      `
 
 References
 ==========
@@ -109,8 +109,8 @@ Fold-and-dock options
 -fold_and_dock:rotate_anchor_to_x - Rotate the anchor residue to the x-axis before applying rigid body transformations.
 -fold_and_dock:trans_mag_smooth - Translation perturbation size for smooth refineme.
 -fold_and_dock:rot_mag_smooth - Rotational perturbation size for smooth refinement.
--fold_and_dock:rb_rot_magnitude - Rotational perturbation size for rigid body pertubations.
--fold_and_dock:rb_trans_magnitude Translational perturbation size rigid body pertubations.
+-fold_and_dock:rb_rot_magnitude - Rotational perturbation size for rigid body perturbations.
+-fold_and_dock:rb_trans_magnitude Translational perturbation size rigid body perturbations.
 -fold_and_dock:rigid_body_cycles - Number of rigid bosy cycles during fold and dock fragment insertion.
 -fold_and_dock:rigid_body_frequency - The fraction of times rigid body cycles are applied during fragment assembly moves.
 -fold_and_dock:rigid_body_disable_mc - Dissallow moves to be accepted locally by Monte Carlo criteria within the rigid body mover.
@@ -175,3 +175,40 @@ Post Processing
 ===============
 
 The same procedures used for regular abinitio are used for fold-and-dock. If you have a native reference generate a score vs rmsd plot and lock for a funnel. Without reference structure cluster the 200-400 lowest energy models using the [[cluster app|cluster]] (for some cases you may want to calculate a symmetric rms during clutering. Add -symmetry:symmetric\_rmsd as an option to the cluster app).
+
+
+##See Also
+
+* [[Fasta file]]: Fasta file format
+* [[Fragment file]]: Fragment file format (required for abinitio structure prediction)
+* [[Structure prediction applications]]: A list of other applications to be used for structure prediction
+  * [[Abinitio relax]]: Predict protein structure from its sequence
+    * [[Abinitio]]: Details on this application
+  * [[NonlocalAbinitio]]: Application for predicting protein structure given some prior structural information
+  * [[Membrane abinitio]]: Ab initio for membrane proteins.  
+  - [[Comparative modeling|minirosetta-comparative-modeling]]: Build structural models of proteins using one or more known structures as templates for modeling (uses the minirosetta application).
+    * [[Minirosetta]]: More information on the minirosetta application.
+  * [[Metalloprotein ab initio|metalloprotein-abrelax]]: Ab inito modeling of metalloproteins.  
+  - [[Backrub]]: Create backbone ensembles using small, local backbone changes.  
+  - [[Floppy tail]]: Predict structures of long, flexible N-terminal or C-terminal regions.
+  - [[Fold-and-dock]]: Predict 3-dimensional structures of symmetric homooligomers.  
+  - [[Molecular replacement protocols|mr-protocols]]: Use Rosetta to build models for use in X-ray crystallography molecular replacement.  
+    * [[Prepare template for MR]]: Setup script for molecular replacement protocols.  
+  - [[Relax]]: "Locally" optimize structures, including assigning sidechain positions.
+* [[Docking applications]]
+  - [[Camelid Antibody Modeling|antibody-mode-camelid]]: Docking antibody with their antigens
+  - [[SnugDock | snugdock]]: Paratope structure optimization during antibody-antigen docking
+  - [[Ligand docking|ligand-dock]] (RosettaLigand): Determine the structure of protein-small molecule complexes.  
+    * [[Extract atomtree diffs]]: Extract structures from the AtomTreeDiff file format.
+    - [[Docking Approach using Ray-Casting|DARC]] (DARC): Docking method to specifically target protein interaction sites.
+    - [[Flexible peptide docking|flex-pep-dock]]: Dock a flexible peptide to a protein.
+    - [[Protein-Protein docking|docking-protocol]] (RosettaDock): Determine the structures of protein-protein complexes by using rigid body perturbations.  
+      * [[Docking prepack protocol]]: Prepare structures for protein-protein docking.  
+    - [[Symmetric docking|sym-dock]]: Determine the structure of symmetric homooligomers.  
+    - [[Chemically conjugated docking|ubq-conjugated]]: Determine the structures of ubiquitin conjugated proteins.  
+* [[Application Documentation]]: List of Rosetta applications
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Comparing structures]]: Essay on comparing structures
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files

@@ -51,7 +51,7 @@ See also [[Residue Params file]]
 
 Relational Database Input
 ============================
-See [[here | rosetta_basics/Database-options ]] for more info
+See [[here | Database-options ]] for more info
 ```
 -in:use_database                          Indicate that structures should be read from the given database
 -in:select_structures_from_database       An sql query to select which structures should be extracted. 
@@ -71,14 +71,14 @@ Silent Input File Flags
 =======================
 
 ```
--in:file:silent                 Silent input filename(s). [FileVector]
--in:file:silent_list            Silent input filename list(s) - like -l is to -s. [FileVector]
--in:file:silent_optH            Call optH when reading a silent file. [Boolean]
--in:file:silent_structure_type  Type of SilentStruct object to use in silent-file input'.
-                                Default='protein', [String]
--in:file:silent_read_through_errors         Try to salvage damaged silent files
--in:file:silent_score_prefix    Prefix that is appended to all scores read in from a silent-file',
-                                default='' [String]
+-in:file:silent                           Silent input filename(s). [FileVector]
+-in:file:silent_list                      Silent input filename list(s) - like -l is to -s. [FileVector]
+-in:file:silent_optH                      Call optH when reading a silent file. [Boolean]
+-in:file:silent_structure_type            Type of SilentStruct object to use in silent-file input'.
+                                          Default='protein', [String]
+-in:file:silent_read_through_errors       Try to salvage damaged silent files
+-in:file:silent_score_prefix              Prefix that is appended to all scores read in from a silent-file',
+                                          default='' [String]
 ```
 
 Scoring
@@ -89,3 +89,13 @@ Scoring
                             Such as proline geometry and his tautomerization' default = 'false'
                             [Boolean]
 ```
+
+
+##See Also
+
+* [[Options overview]]: Description of options in Rosetta
+* [[Output options]]
+* [[Full options list]]
+* [[File types list]]: Links to documentation for different file types used in Rosetta
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
