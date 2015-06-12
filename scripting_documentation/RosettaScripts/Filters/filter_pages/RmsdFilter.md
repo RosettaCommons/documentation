@@ -25,3 +25,7 @@ By default, the RMSD will be calculated to the input pose (pose at parse time). 
 - template_names: name of the relative pose, as is written in the aln_files
 - query_names: name of the query pose, as is written in the aln_files
 
+## See also
+
+* [[IRmsdFilter]]
+* [[SidechainRmsdFilter]]
