@@ -36,7 +36,7 @@ Loop modeling using KIC with fragments has several important applications in str
 -   **Loop reconstruction:** The *de novo* prediction of the conformation of a peptide segment given its sequence, where the initial backbone and side-chain conformations are discarded
 -   **Loop refinement:** Finding low-energy conformations for a given peptide conformation and sequence
 
-Although this documentation refers to modeling loop regions, in practice the KIC with fragments protocol can be applied to any protein segments at least 3 residues in length, given the availability of fragment data (which can be generated for any amino acid sequence of interest, using either the free [Robetta web server](http://robetta.bakerlab.org/) or the [fragment picker application](application_documentation/app-fragment-picker); see [Using Fragment Files in Rosetta](rosetta_basics/fragment-file) for details).
+Although this documentation refers to modeling loop regions, in practice the KIC with fragments protocol can be applied to any protein segments at least 3 residues in length, given the availability of fragment data (which can be generated for any amino acid sequence of interest, using either the free [Robetta web server](http://robetta.bakerlab.org/) or the [fragment picker application](app-fragment-picker); see [Using Fragment Files in Rosetta](fragment-file) for details).
 
 
 Quick Start Example
@@ -55,7 +55,7 @@ rosetta/main/source/bin/loopmodel.<my_os>gccrelease -database </path/to/rosetta/
 Algorithm
 =======
 
-Kinematic closure (KIC) is an analytic calculation inspired by robotics techniques for rapidly determining the possible conformations of linked objects subject to constraints. In the KIC with fragments protocol, coupled phi/psi/omega torsion angles from consecutive residues in protein fragments (by default 9mers, 3mers or 1mers) are used to sample all but 6 torsional degrees of freedom. Those remaining 6 torsions (the phi/psi dihedral angles of the 3 pivot residues), are solved analytically by KIC. This formulation allows for rapid sampling of large conformational spaces. (In contrast to [[KIC|application_documentation/loopmodel-kinematic]] and [[next generation KIC|application_documentation/next-generation-KIC]], the vicinity sampling flags do not apply, since non-pivot torsions are always picked from fragment data. )
+Kinematic closure (KIC) is an analytic calculation inspired by robotics techniques for rapidly determining the possible conformations of linked objects subject to constraints. In the KIC with fragments protocol, coupled phi/psi/omega torsion angles from consecutive residues in protein fragments (by default 9mers, 3mers or 1mers) are used to sample all but 6 torsional degrees of freedom. Those remaining 6 torsions (the phi/psi dihedral angles of the 3 pivot residues), are solved analytically by KIC. This formulation allows for rapid sampling of large conformational spaces. (In contrast to [[KIC|loopmodel-kinematic]] and [[next generation KIC|next-generation-KIC]], the vicinity sampling flags do not apply, since non-pivot torsions are always picked from fragment data. )
 
 For details on the geometric steps taken by the underlying kinematic solver, please see the supplementary material of Mandell *et al.* referenced above.
 
