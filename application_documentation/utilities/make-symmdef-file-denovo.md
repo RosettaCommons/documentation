@@ -1,16 +1,13 @@
 #Denovo Symmetry Definiton file creation script.
 
-Metadata
-========
+*Author: Ingemar André*
 
-Author: Ingemar André
-
-Last edited Aug 20 2010 by Ingemar André. Code by Ingemar Andre.
+*Last edited Aug 20 2010 by Ingemar André. Code by Ingemar Andre.*
 
 Code and Demo
 =============
 
-All the code is contained in the Python script rosetta/rosetta\_source/src/apps/pilot\_apps/andre/make\_symmdef\_file\_denovo.py.
+All the code is contained in the Python script main/source/src/apps/public/symmetry/make_symmdef_file_denovo.py.
 
 Purpose
 ===========================================
