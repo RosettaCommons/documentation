@@ -51,13 +51,15 @@ Numeric Library
 The numeric directory contains low-level functions that carry out mathematical operations. 
 While some of these might be general mathematics (calculating a fast Fourier transform, for example, or performing principal component analysis on a dataset), others might be Rosetta-specific calculations or might be implemented in a Rosetta-specific manner.
 
-Basic Library
-=================
+Basic Library <a name="basic" />
+===============================
 
-The basic directory contains organizational and housekeeping classes specific to the Rosetta project.  Functions for accessing the Rosetta database typically reside here, for example, as does code for the Rosetta options system.  Certain Rosetta-specific tools, such as the [[tracer]], can also be found in the basic library.
+The basic directory contains organizational and housekeeping classes specific to the Rosetta project. 
+Functions for accessing the Rosetta database typically reside here, for example, as does code for the Rosetta options system. 
+Certain Rosetta-specific tools, such as the [[tracer]], can also be found in the basic library.
 
 Core Library <a name="core" />
-============
+==============================
 
 [[/images/core_structure.png]]
 
