@@ -196,12 +196,18 @@ See the [[Kortemme Lab benchmark server|https://guybrush.ucsf.edu/benchmarks/ben
 You probably should not be doing this using Rosetta, if at all. 
 Disordered proteins are dynamic in the context of a cell.
 It is unlikely that any static, _in silico_, model of a disordered protein or protein region will be very accurate.
+Rosetta's scorefunctions are parameterized on crystallized proteins, not disordered proteins. 
 However, if you have a specific question, such as "can my disordered tail of 20 residues plausibly interact with this other region of my protein?"
 Then you may begin to approach this question with [[FloppyTail|floppy-tail]].
 
 ## Solving Crystal Structures
 
-For explicit refinement of crystallography data, see [[here|density-map-scoring]].
+* For explicit refinement of crystallography data, see [[here|density-map-scoring]].
+
+* [mr_protocols](application_documentation/mr-protocols) is typically used _alongside_ Phaser / PHENIX; it uses Rosetta's comparative modeling to rebuild gaps and insertions in the template, as well as missing density, from fragments, followed by relaxation with constraints to experimental density.
+You can then use Phaser / PHENIX again to re-score against crystallographic data.
+
+* [loops from density](application_documentation/loops-from-density) is a script to take badly fit electron data and a cutoff suggesting how much of the pose you're willing to rebuild and to generate input "loops" files for loop modeling. 
 
 ## What If My Question Is Unanswered? 
 
@@ -233,11 +239,9 @@ There is a [[complete write-up|preparing-structures]] of preparing starting stru
 
 Rosetta has individual modules to handle particular forms of experimental constraint:
 
-* [mr_protocols](application_documentation/mr-protocols) is typically used _alongside_ Phaser; it uses Rosetta's comparative modeling to rebuild gaps and insertions in the template, as well as missing density, from fragments, followed by relaxation with constraints to experimental density.
-You can then use Phaser again to re-score against crystallographic data.
 * [ERRASER](application_documentation/erraser) refines RNA structures from electron density (crystallographic data); it constitutes a workflow of _erraser_minimize_, _swa_rna_analytical_closure_, and _swa_rna_main.
 It requires the use of the refinement program PHENIX.
-* [loops from density](application_documentation/loops-from-density) is a script to take badly fit electron data and a cutoff suggesting how much of the pose you're willing to rebuild and to generate input "loops" files for loop modeling. 
+
 * [Chemical shift files](rosetta_basics/chemical-shift-file) provide data to a variety of protocols often collectively referred to as CSROSETTA that incorporate NMR constraints to refine structures
 
 ## Experimental constraints  
