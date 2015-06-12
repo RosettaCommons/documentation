@@ -14,3 +14,7 @@ Reports the numbers of residues that align with a segment on source pose.
 
 Taskoperation RestrictToAlignedSegments supersedes this filter as it allows more than one segment to be defined. Use that taskoperation and feed it to DesignableResidues filter to find aligned residues in the input pose.
 
+## See also:
+
+* [[Design in Rosetta|application_documentation/design/design-applications]]
+
