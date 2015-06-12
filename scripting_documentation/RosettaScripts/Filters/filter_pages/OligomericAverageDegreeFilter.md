@@ -2,7 +2,7 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## OligomericAverageDegree
 
-A version of the AverageDegree filter (see above) that is compatible with oligomeric building blocks. Includes other subunits within the same building block in the neighbor count. Also works for monomeric building blocks.
+A version of the AverageDegree filter (see [[here|AverageDegreeFilter]]) that is compatible with oligomeric building blocks. Includes other subunits within the same building block in the neighbor count. Also works for monomeric building blocks.
 
 ```
 <OligomericAverageDegree name=(&string) jump=(1 &Size) sym_dof_names=("" &string) threshold=(0 &Size) distance_threshold=(10.0 &Real) multicomp=(0 &bool) write2pdb=(0 &bool) task_operations=(comma-delimited list of task operations) />
@@ -18,7 +18,7 @@ A version of the AverageDegree filter (see above) that is compatible with oligom
 
 ## See also
 
-* [[GetRBDOFAverageDegreeFilter]]
+* [[GetRBDOFValuesFilter]]
 * [[SymUnsatHbondsFilter]]
 * [[ClashCheckFilter]]
 * [[InterfacePackingFilter]]

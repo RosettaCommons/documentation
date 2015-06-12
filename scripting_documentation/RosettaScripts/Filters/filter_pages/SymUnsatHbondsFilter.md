@@ -15,7 +15,7 @@ Maximum number of buried unsatisfied H-bonds allowed across an interface. Works 
 ## See also
 
 * [[ClashCheckFilter]]
-* [[GetRBDOFValueFilter]]
+* [[GetRBDOFValuesFilter]]
 * [[InterfacePackingFilter]]
 * [[MutationsFilter]]
 * [[OligomericAverageDegreeFilter]]

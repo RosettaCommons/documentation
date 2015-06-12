@@ -84,7 +84,7 @@ For RosettaCommons developers, we have a version of the Doxygen documentation wh
 
 - [[Rosetta tests]] - A guide to running and writing tests for Rosetta
 - [[Run unit test]] - How to run the unit tests.
-- [[Write unit test|test]] - Writing unit tests.
+- [[Write unit test|writing-unit-tests]] - Writing unit tests.
 - [[UTracer]] - How to use the UTracer tool in writing unit tests
 - [[Mover test]] - How to write a unit test for a mover.  
 - [[Integration tests]]
