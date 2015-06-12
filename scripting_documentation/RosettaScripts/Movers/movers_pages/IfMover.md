@@ -8,4 +8,9 @@ Implements a simple IF (filter(pose)) THEN true\_mover(pose) ELSE false\_mover(p
 <If name=( &string) filter_name=(&string) true_mover_name=(&string) false_mover_name=(null &string)/>
 ```
 
+##See Also
 
+* [[ContingentAcceptMover]]
+* [[ParsedProtocolMover]]
+* [[Home page for RosettaScripts filters|Filters-RosettaScripts]]
+* [[I want to do x]]: Guide for choosing a mover

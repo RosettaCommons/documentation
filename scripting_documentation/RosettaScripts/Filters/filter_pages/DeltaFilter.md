@@ -25,3 +25,4 @@ The filter is evaluated at parse time and its internal value (through report\_sm
 
 * [[BindingStrainFilter]]
 * [[DeltaFilter]]
+* [[GreedyOptMutationMover]]

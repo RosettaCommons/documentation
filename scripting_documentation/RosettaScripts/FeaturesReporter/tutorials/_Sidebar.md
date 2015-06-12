@@ -17,6 +17,12 @@
    * [[Task Operations|TaskOperations-RosettaScripts]]
 
    * [[FeaturesReporters|Features-reporter-overview]]
+     
+     * [[FeaturesTutorials]]
+
+     * [[FeatureReporters]]
+
+     * [[FeaturesRScripts]]
 
    * [[Composite Protocols|Composite-protocols]]
 
@@ -39,3 +45,5 @@
 [[Glossary]]
 
 [[Options list|full-options-list]]
+
+<<FixedTableOfContents(FeaturesTutorials)>>

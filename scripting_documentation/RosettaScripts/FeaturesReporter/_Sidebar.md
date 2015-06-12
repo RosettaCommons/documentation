@@ -17,6 +17,12 @@
    * [[Task Operations|TaskOperations-RosettaScripts]]
 
    * [[FeaturesReporters|Features-reporter-overview]]
+     
+     * [[FeaturesTutorials]]
+
+     * [[FeatureReporters]]
+
+     * [[FeaturesRScripts]]
 
    * [[Composite Protocols|Composite-protocols]]
 

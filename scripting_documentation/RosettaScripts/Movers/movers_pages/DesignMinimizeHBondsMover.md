@@ -1,4 +1,4 @@
-# DesignMinimizeHBonds
+# designminimizehbonds
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## DesignMinimizeHBonds
 
@@ -19,3 +19,9 @@ Same as for RepackMinimize with the addition that a list of target residues to b
 -   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
 
 
+##See Also
+
+* [[RepackMinimizeMover]]
+* [[MinPackMover]]
+* [[PackRotamersMover]]
+* [[I want to do x]]: Guide to choosing a mover

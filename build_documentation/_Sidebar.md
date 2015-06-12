@@ -7,7 +7,7 @@
 
 * [[Running Rosetta on TACC|TACC]]
 
-* [[Advanced Scons information|Scons]]
+* [[Advanced Scons information|Scons-Overview-and-Specifics]]
 
 [[Rosetta Basics|rosetta_basics/Rosetta-Basics]]
 

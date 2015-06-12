@@ -1,5 +1,7 @@
 # DARC
 
+##NOTE: Use of this app is no longer recommended for ligand docking. Use [[RosettaScripts]] instead. See [[HighResDockerMover]].
+
 # Metadata
 Author: Ragul Gowthaman (ragul@ku.edu)
 
