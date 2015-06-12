@@ -319,27 +319,27 @@ These movers are at least somewhat specific to the design of protein-protein int
 
 **[[RepackMinimize|RepackMinimizeMover]]** - Design/repack and minimization for protein complexes
 
-**[[DesignMinimizeHBonds|DesignMinimizeHBondsMover]]** - 
+**[[DesignMinimizeHBonds|DesignMinimizeHBondsMover]]** - Similar to RepackResidues, but with a definable set of target residues
 
-**[[build_Ala_pose|BuildAlaPoseMover]]** -
+**[[build_Ala_pose|BuildAlaPoseMover]]** - Turns interface residues to alanine in preparation for design steps
 
-**[[SaveAndRetrieveSidechains|SaveAndRetrieveSidechainsMover]]** -
+**[[SaveAndRetrieveSidechains|SaveAndRetrieveSidechainsMover]]** - Saves the side chain data lost when switching residue types
 
-**[[AtomTree|AtomTreeMover]]** -
+**[[AtomTree|AtomTreeMover]]** - Connects residues on two different chains with an AtomTree
 
-**[[SpinMover]]** -
+**[[SpinMover]]** - Allows random spin around an axis defined by an atom tree
 
-**[[TryRotamers|TryRotamersMover]]** -
+**[[TryRotamers|TryRotamersMover]]** - Produces a set of rotamers for a given residue or residues
 
-**[[BackrubDD|BackrubDDMover]]** -
+**[[BackrubDD|BackrubDDMover]]** - Backrub-style backbone and sidechain sampling
 
-**[[BestHotspotCst|BestHotspotCstMover]]** -
+**[[BestHotspotCst|BestHotspotCstMover]]** - Removes constraints from all but the best residues to avoid problems with minimization
 
-**[[DomainAssembly|DomainAssemblyMover]]** (Not tested thoroughly) -
+**[[DomainAssembly|DomainAssemblyMover]]** (Not tested thoroughly) - Performs domain assembly sampling via fragment insertion
 
-**[[LoopFinder|LoopFinderMover]]** -
+**[[LoopFinder|LoopFinderMover]]** - Finds loops in the current pose and saves them for later use
 
-**[[LoopRemodel|LoopRemodelMover]]** -
+**[[LoopRemodel|LoopRemodelMover]]** - 
 
 **[[LoopMoverFromCommandLine|LoopMoverFromCommandLineMover]]** -
 
