@@ -2,9 +2,6 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## ClashCheck
 
-(This is a devel Filter and not available in released versions.)
-
-<!--- BEGIN_INTERNAL -->
 Calculate the number of heavy atoms clashing between building blocks.
 
     <ClashCheck name=(&string) sym_dof_names=(&string) clash_dist=(3.5 &Real) nsub_bblock=(1 &Size) cutoff=(0 &Size) verbose=(0 &bool) write2pdb=(0 &bool)/>
@@ -16,4 +13,10 @@ Calculate the number of heavy atoms clashing between building blocks.
 -   verbose - If set to true, then will output a pymol selection string to the logfile with the clashing positions/atoms.
 -   write2pdb - If set to true, then will output a pymol selection string to the output pdb with the clashing positions/atoms.
 
-<!--- END_INTERNAL -->
+## See also
+
+* [[GetRBDOFValuesFilter]]
+* [[InterfacePackingFilter]]
+* [[MutationsFilter]]
+* [[OligomericAverageDegreeFilter]]
+* [[SymUnsatHbondsFilter]]

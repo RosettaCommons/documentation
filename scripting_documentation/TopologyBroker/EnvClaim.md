@@ -61,7 +61,7 @@ The available ControlStrengths are: `DOES_NOT_CONTROL`, `CAN_CONTROL`, `MUST_CON
 * [[RosettaScripts]]: RosettaScripts home page
 * [[Writing an app]]: Tutorial for writing a C++ app
 * [[Developer Documentation]]: Home page for developer documentation
-* [[I want to do x]]: Guide for making specific structural pertubations using RosettaScripts
+* [[I want to do x]]: Guide for making specific structural perturbations using RosettaScripts
 * [[Getting Started]]: A page for people new to Rosetta
 * [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
 * [[Commands collection]]: A list of example command lines for running Rosetta executable files

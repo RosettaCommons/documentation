@@ -3,6 +3,10 @@
 [[_TOC_]]
 
 ## Starting References
+
+You may be interested in reading [[Getting Started]]. 
+More similar recommendations can be found scrolling to the bottom of this page, in the See Also section.
+
 Leaver-Fay, A., et al., ROSETTA3: an object-oriented software suite for the simulation and design of macromolecules. Methods in enzymology, 2011. 487: p. 545.
 
 Kaufmann, K.W., et al., Practically useful: what the Rosetta protein modeling
@@ -186,7 +190,7 @@ General tips for running Rosetta
 * [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
 * [[TACC]]: Information for running Rosetta on the TACC/Stampede cluster.
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
-* [[I want to do x]]: Guide to making specific structural pertubations using RosettaScripts
+* [[I want to do x]]: Guide to making specific structural perturbations using RosettaScripts
 * [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
 * [[Commands collection]]: A list of example command lines for running Rosetta executable files
 * [[Rosetta Servers]]: Web-based servers for Rosetta applications

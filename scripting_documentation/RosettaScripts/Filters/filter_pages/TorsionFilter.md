@@ -14,3 +14,10 @@
 
 not setting torsion, will cause the report of both phi and psi. Not specifying resnum will cause a report of all residues. If you want to filter on a given torsion, you have to specify both resnum the torsion and the higher/upper values.
 
+## See also:
+
+* [[AngleToVectorFilter]]
+* [[GeometryFilter]]
+* [[SecondaryStructureFilter]]
+* [[SecondaryStructureHasResidueFilter]]
+

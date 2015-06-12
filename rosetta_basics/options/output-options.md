@@ -27,7 +27,7 @@ General Output Options
 
 Relational Databases
 ====================
-See [[here | rosetta_basics/Database-options ]] for more info
+See [[here | Database-options ]] for more info
 ```
 -out:use_database          Write out structures to database.
                             Specify database via -inout:dbms:database_name and wanted structures with

@@ -9,3 +9,10 @@ More information on CS-Rosetta is available externally at [[http://spin.niddk.ni
 - [[CS Rosetta RNA]]: An application that uses CS Rosetta to predict RNA structures
 - [[Structure prediction applications]]: List of applications for predicting protein and RNA structures
 - [[Glossary]]
+
+<!-- Hidden Key Words to Aid Local Search-ability
+chemical shift
+CS
+NMR
+nuclear magnetic resonance
+//-->
