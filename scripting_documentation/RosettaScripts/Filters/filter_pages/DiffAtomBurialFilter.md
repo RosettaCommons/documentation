@@ -21,5 +21,5 @@ pdb\_num/res\_num: see [[RosettaScripts#rosettascripts-conventions_specifying-re
 
 * [[Ligand Docking|ligand-dock]]
 * [[DSasaFilter]]
-* [[LigInterfaceEnergy]]
-* [[RepackWithoutLigand]]
+* [[LigInterfaceEnergyFilter]]
+* [[RepackWithoutLigandFilter]]
