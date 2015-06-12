@@ -1,12 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'rubygems'
-require 'bundler'
-Bundler.setup(:default)
-
-require 'gollum/app'
-require 'nokogiri'
-
 # This file contains configuration for the Gollum wiki itself.  If you are 
 # running Gollum locally, use the `--config` flag to apply this configuration:
 #
@@ -129,7 +122,7 @@ class Gollum::Macro::MissingLinksPage < Gollum::Macro
     page_name = tag[8..-1]
     resolved_page_name = ::File.expand_path(page_name, "/"+@markup.dir)
 
-    if not find_page_from_name(resolved_page_name)
+    if not @tags.send(:find_page_from_name, resolved_page_name)
       raise MissingLink
     end
 

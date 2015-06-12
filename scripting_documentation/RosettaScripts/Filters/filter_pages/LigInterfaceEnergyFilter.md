@@ -14,5 +14,4 @@ include\_cstE=1 will \*not\* subtract out the cst energy from interface energy. 
 
 * [[Ligand Docking|ligand-dock]]
 * [[DSasaFilter]]
-* [[LigInterfaceEnergy]]
-* [[RepackWithoutLigand]]
+* [[RepackWithoutLigandFilter]]
