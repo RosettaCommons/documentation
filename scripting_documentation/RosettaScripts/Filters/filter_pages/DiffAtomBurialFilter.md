@@ -10,7 +10,7 @@ Compares the DSasa of two specified atoms and checks to see if one is greater or
 <DiffAtomBurial name=(&string)  res1_res_num/res1_pdb_num=(0, see res_num/pdb_num convention) res2_res_num/res2_pdb_num=(0, see convention) atomname1=(&string) atomname2=(&string) sample_type=(&string)/>
 ```
 
-pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
+pdb\_num/res\_num: see [[RosettaScripts#rosettascripts-conventions_specifying-residues]]
 
 -   res1\_res\_num/res2\_res\_num: conventional pose numbering of rosetta, res\_num=0 will mean ligand (Assuming there is only one ligand)
 -   res1\_pdb\_num/res2\_pdb\_num: conventional pdb\_numbering such as 100A (residue 100 chain A), 1X (residue 1 chain X e.g. of ligand)
