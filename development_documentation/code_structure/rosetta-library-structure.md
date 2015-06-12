@@ -1,6 +1,6 @@
 #A Guide to the Structure of the Rosetta Library
 
-The rosetta/main/source directory contains seven top level directories of which every developer should be aware.
+The `rosetta/main/source` directory contains seven top level directories of which every developer should be aware.
 
 -   `src/` The src directory contains all the source files for the rosetta library. See [[An overview page for the src directory of the Rosetta|src-index-page]] for more information.
 -   `test/` The test directory contains source files for rosetta's unit tests. The integration, and scientific tests now live in rosetta/main/tests. Together, these two sets of tests are used to verify that the rosetta library is functioning correctly. See [[A Guide to Running and Writing Tests for Rosetta|rosetta-tests]] for more information on Rosetta Tests.
