@@ -260,6 +260,10 @@ replace to find the solutions.
 ref: Qian et. al. High-resolution structure prediction and the
 crystallographic phase problem. Nature 450, 259-264 (2007)
 
+#### CxxTest
+This is the framework we use for [[unit tests]].
+See also [[http://cxxtest.com]].
+
 #### database
 
 The Rosetta database directory contains key parameters for Rosetta. 
