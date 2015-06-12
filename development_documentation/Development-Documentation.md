@@ -54,8 +54,7 @@ For RosettaCommons developers, we have a version of the Doxygen documentation wh
 
 ##Rosetta style guidelines
 
-- [[How to use pointers correctly]] - Working with Rosetta's smart pointer system (new guide).
-- [[Owning pointer usage guidlines]] - Working with Rosetta's smart pointer system (old guide).
+- [[How to use pointers correctly]] - Working with Rosetta's smart pointer system.
 
 ##Using particular classes
 
@@ -70,9 +69,9 @@ For RosettaCommons developers, we have a version of the Doxygen documentation wh
 - [[Directory-core-fragments]] - Using the classed located in src/core/fragments/
 
 - [[xyzVector]] - A vector specialized for Cartesian coordinate use.
-    * [[xyzVector example]]
+
 - [[xyzMatrix]] - A 3x3 matrix class specialized for Cartesian coordinate use.
-    * [[xyzMatrix example]]
+
 
 ##How to extend Rosetta
 
@@ -81,12 +80,15 @@ For RosettaCommons developers, we have a version of the Doxygen documentation wh
 
 ##Testing changes
 
+###See the 
+
 - [[Rosetta tests]] - A guide to running and writing tests for Rosetta
 - [[Run unit test]] - How to run the unit tests.
 - [[Write unit test|test]] - Writing unit tests.
 - [[UTracer]] - How to use the UTracer tool in writing unit tests
 - [[Mover test]] - How to write a unit test for a mover.  
-- [[Scientific test]] - How to create and run scientific tests
+- [[Integration tests]]
+- [[Scientific Benchmarks]] - How to create and run scientific tests
 
 ## Visualization Tools
 
