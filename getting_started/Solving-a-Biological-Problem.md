@@ -32,7 +32,8 @@ See: [[Ab initio|abinitio-relax]].
 
 ### Comparative Modeling (Homology Modeling)
 
-Comparative modeling on the other hand tends to be successful when the target sequence (sequence of interest) has a high degree of sequence homology (>50%) with a protein whose structure has been determined.
+Comparative modeling on the other hand tends to be successful when the target sequence (sequence of interest) has a high degree of sequence homology (>50%) with a protein whose structure has been determined. 
+Typically, the protein sequence of interest is threaded on to the determined structure and the areas of low homology are modeled by loop closure (see below) or another technique.
 
 See: [[Comparative Modeling|minirosetta-comparative-modeling]] (potentially out of date) and [[Comparative Modeling via RosettaScripts|http://www.ncbi.nlm.nih.gov/pubmed/24035711]] (uses RosettaScripts) for more information.
 
