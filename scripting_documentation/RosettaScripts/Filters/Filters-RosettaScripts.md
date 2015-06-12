@@ -130,37 +130,37 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[Sasa|SasaFilter]]** - Filter based on the solvent accessible surface area of an *interface*.
 
-**[[ResidueBurial|ResidueBurialFilter]]** -
+**[[ResidueBurial|ResidueBurialFilter]]** - Number of residues within interaction distance across interface of target residue.
 
-**[[ExposedHydrophobics|ExposedHydrophobicsFilter]]** -
+**[[ExposedHydrophobics|ExposedHydrophobicsFilter]]** - Computes the SASA for each hydrophobic residue.
 
 ### Comparison
 
-**[[RelativePose|RelativePoseFilter]]** -
+**[[RelativePose|RelativePoseFilter]]** - Compute a filter's value relative to a different pose's structure.
 
 **[[Rmsd|RmsdFilter]]** - Filter based on the C-alpha RMSD to a reference structure. 
 
-**[[SidechainRmsd|SidechainRmsdFilter]]** -
+**[[SidechainRmsd|SidechainRmsdFilter]]** - Compute RMSD for a single sidechain.
 
 **[[IRmsd|IRmsdFilter]]** - Filter based on backbone RMSD over residues in the interface.
 
-**[[SequenceRecovery|SequenceRecoveryFilter]]** -
+**[[SequenceRecovery|SequenceRecoveryFilter]]** - Calculates the fraction sequence recovery of a pose compared to a reference pose. 
 
 ### Bonding
 
-**[[HbondsToResidue|HbondsToResidueFilter]]** -
+**[[HbondsToResidue|HbondsToResidueFilter]]** - Filter on number of h-bonding partners to a residue(s).
 
-**[[HbondsToAtom|HbondsToAtomFilter]]** -
+**[[HbondsToAtom|HbondsToAtomFilter]]** - Filter on number of h-bonding partners to an atom(s).
 
-**[[BuriedUnsatHbonds|BuriedUnsatHbondsFilter]]** -
+**[[BuriedUnsatHbonds|BuriedUnsatHbondsFilter]]** - Filter on maximum number of buried unsatisfied h-bonds.
 
-**[[BuriedUnsatHbonds2|BuriedUnsatHbonds2Filter]]** -
+**[[BuriedUnsatHbonds2|BuriedUnsatHbonds2Filter]]** - Filter on number of unsatisfied h-bonds at interfaces (different algorithm from filter above, currently devel only).
 
 **[[DisulfideFilter]]** - Filter based on the presence of a disulfide across an interface.
 
-**[[AveragePathLength|AveragePathLengthFilter]]** -
+**[[AveragePathLength|AveragePathLengthFilter]]** - Compute shortest graph path length where residues are nodes and covalent bonds are edges.
 
-**[[DisulfideEntropy|DisulfideEntropyFilter]]** -
+**[[DisulfideEntropy|DisulfideEntropyFilter]]** - Compute the change in configurational entropy due to disulfide bond formation.
 
 ## Report Filters
 
@@ -168,35 +168,35 @@ These filters are used primarily for the reports they generate in the log and/or
 
 **[[DesignableResidues|DesignableResiduesFilter]]** - Report which residues are designable.
 
-**[[Expiry|ExpiryFilter]]** -
+**[[Expiry|ExpiryFilter]]** - Filter based on length of simulation (in seconds).
 
-**[[FileExist|FileExistFilter]]** -
+**[[FileExist|FileExistFilter]]** - Does a file exist on disk?
 
-**[[FileRemove|FileRemoveFilter]]** -
+**[[FileRemove|FileRemoveFilter]]** - Remove a file from disk.
 
-**[[RelativeSegmentFilter]]** -
+**[[RelativeSegmentFilter]]** - Reports the numbers of residues that align with a segment on source pose.
 
-**[[Report|ReportFilter]]** -
+**[[Report|ReportFilter]]** - This filter reports the value of another filter with the current job name.
 
-**[[RotamerBoltzmannWeight|RotamerBoltzmannWeightFilter]]** -
+**[[RotamerBoltzmannWeight|RotamerBoltzmannWeightFilter]]** - Reports the Boltzmann probability for the occurrence of a rotamer.
 
-**[[StemFinder|StemFinderFilter]]** -
+**[[StemFinder|StemFinderFilter]]** - Compare PDBs to template to identify stems for splicing segments.
 
-**[[AlaScan|AlaScanFilter]]** -
+**[[AlaScan|AlaScanFilter]]** - Reports ddG of alanine scanning.
 
-**[[DdGScan|DdGScanFilter]]** -
+**[[DdGScan|DdGScanFilter]]** - Reports ddG of alanine scanning on specific residues.
 
-**[[FilterScan|FilterScanFilter]]** -
+**[[FilterScan|FilterScanFilter]]** - Scan all mutations allowed by task\_operations and test against a filter.
 
 **[[Time|TimeFilter]]** - Report how long a sequence of movers/filters takes.
 
-**[[PeptideDeriver|PeptideDeriverFilter]]** -
+**[[PeptideDeriver|PeptideDeriverFilter]]** - Derive linear peptide contributing most to binding energy.
 
 **[[PoseInfo|PoseInfoFilter]]** - Report basic information about the pose to the tracer.
 
-**[[SaveResfileToDisk|SaveResfileToDiskFilter]]** -
+**[[SaveResfileToDisk|SaveResfileToDiskFilter]]** - Save resfile to output directory.
 
-**[[SSPrediction|SSPredictionFilter]]** -
+**[[SSPrediction|SSPredictionFilter]]** - Generate secondary structure predictions from sequence (devel filter).
 
 ## Special Application Filters
 
