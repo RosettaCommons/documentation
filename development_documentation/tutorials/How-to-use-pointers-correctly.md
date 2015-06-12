@@ -2,7 +2,7 @@
 
 ##How to correctly use owning and access pointers
 
-The following guide summarizes how to correctly use [[owning pointers]] and [[acess pointers]]. With the transition to the boost:: / std:: pointer classes, these rules must be followed to avoid compilation errors or run-time crashes (double free).
+The following guide summarizes how to correctly use [[owning pointers]] and [[access pointers]]. With the transition to the boost:: / std:: pointer classes, these rules must be followed to avoid compilation errors or run-time crashes (double free).
 
 Note:
 
