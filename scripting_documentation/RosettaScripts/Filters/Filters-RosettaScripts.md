@@ -82,7 +82,7 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[AtomicDistance|AtomicDistanceFilter]]** - Filter based on the distance between two atoms.
 
-**[[TerminusDistance|TerminusDistanceFilter]]** - **Poor documentation**.
+**[[TerminusDistance|TerminusDistanceFilter]]** - Distance in sequence from either terminus to interface.
 
 ### Geometry
 
@@ -98,7 +98,7 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[SecondaryStructureHasResidue|SecondaryStructureHasResidueFilter]]** - Count fraction of secondary structure element positions containing specific residue.
 
-**[[HelixKink|HelixKinkFilter]]** - **Poor documentation**.
+**[[HelixKink|HelixKinkFilter]]** - Vaguely, filter based on helix topology.
 
 **[[Geometry|GeometryFilter]]** - Bond geometry and omega angle constraints
 
@@ -106,23 +106,23 @@ Filters which are useful for combining, modifying or working with other filters 
 
 ### Packing/Connectivity
 
-**[[CavityVolume|CavityVolumeFilter]]** -
+**[[CavityVolume|CavityVolumeFilter]]** - Always returns true, but calculates intra-protein cavity volume.
 
-**[[AverageDegree|AverageDegreeFilter]]** -
+**[[AverageDegree|AverageDegreeFilter]]** - Count number of residues within a distance of another selection of residues.
 
-**[[PackStat|PackStatFilter]]** -
+**[[PackStat|PackStatFilter]]** - Compute packing statistics.
 
-**[[InterfaceHoles|InterfaceHolesFilter]]** -
+**[[InterfaceHoles|InterfaceHolesFilter]]** - Identify voids and protein-protein interfaces.
 
-**[[NeighborType|NeighborTypeFilter]]** -
+**[[NeighborType|NeighborTypeFilter]]** - Search for residue type within a radius of a target residue.
 
 **[[ResInInterface|ResInInterfaceFilter]]** - Filter based on the total number of residues in the interface.
 
-**[[ShapeComplementarity|ShapeComplementarityFilter]]** -
+**[[ShapeComplementarity|ShapeComplementarityFilter]]** - Filter on shape complementarity of interface.
 
-**[[SSShapeComplementarity|SSShapeComplementarityFilter]]** (SecondaryStructureShapeComplementarity) -
+**[[SSShapeComplementarity|SSShapeComplementarityFilter]]** (SecondaryStructureShapeComplementarity) - Filter on secondary structure shape complementarity.
 
-**[[SpecificResiduesNearInterface|SpecificResiduesNearInterfaceFilter]]** -
+**[[SpecificResiduesNearInterface|SpecificResiduesNearInterfaceFilter]]** - Filter on specific residues near interface.
 
 ### Burial
 

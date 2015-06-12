@@ -886,5 +886,5 @@ This is the winter Rosetta developer's meeting, which moves around the country t
 * [[RosettaEncyclopedia]]: Detailed descriptions of Rosetta terms
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
 * [[Resources for learning biophysics and computational modeling]]
-* [[RosettaTimeline]]: History of Rosetta
+* [[Rosetta Timeline]]: History of Rosetta
 * [[Units in Rosetta]]: Explains measurement units used in Rosetta

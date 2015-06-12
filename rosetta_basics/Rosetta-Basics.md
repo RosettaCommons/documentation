@@ -19,7 +19,7 @@
 
 ####[[Fundamental Rosetta Concepts|Rosetta-overview]]
 
-- [[Brief history of Rosetta|RosettaTimeline]]
+- [[Brief history of Rosetta|Rosetta-Timeline]]
 
 - [[Glossary of terms|Glossary]]
     - [[Longer form descriptions|RosettaEncyclopedia]]
@@ -86,7 +86,7 @@
     * [[Scorefunction and Scoreterm Info | NC-scorefunction-info]]
 - [[DNA]]
 - [[RNA]]
-- [[Ligands]]
+- [[Ligands|preparing-ligands]]
 - [[Water]]
 - [[Metals]]
 - [[Carbohydrates]]
