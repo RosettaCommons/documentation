@@ -161,7 +161,7 @@ While most of these applications focus on prediction, many have options which wi
 ##Membrane Proteins <a name="Membrane-Proteins" />
  - [[Membrane Fast Relax|Membrane-Fast-Relax]] - High-resolution refinement of membrane protein structures with optimization of the membrane position using minimization (uses membrane framework)
  - [[Membrane ddG|Membrane-DDG]] - Prediction of free energy changes upon mutation using the membrane framework
- - [[Membrane protein-protein docking|Membrane-Protein-Protein-Docking]] - Protein-protein docking in the membrane (uses membrane framework)
+ - [[Membrane protein-protein docking|MP-docking]] - Protein-protein docking in the membrane (uses membrane framework)
  - [[Symmetric membrane protein-protein docking|Symmetric Membrane Protein-Protein Docking]] - Assemble symmetric complexes in the membrane environment (uses membrane framework)
  - [[Membrane Protein PyMOL Viewer|mp-viewer]] - Standalone application for visualization of membrane protein
 simulations in real-time using pymol (uses membrane framework)
