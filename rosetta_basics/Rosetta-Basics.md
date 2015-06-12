@@ -10,7 +10,7 @@
 - [[Graphics output and GUIs | graphics-and-guis]]
     * [[PyMOL]]
     * [[PyRosetta Toolkit GUI]]
-    * Fold-It
+    * [[Fold-It|foldit]]
 - [[Scripting Rosetta|Scripting-Documentation]]
     * [[RosettaScripts]]
     * [[PyRosetta]]

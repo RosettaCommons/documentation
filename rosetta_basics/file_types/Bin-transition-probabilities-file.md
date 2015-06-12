@@ -133,7 +133,7 @@ Additional <b>BEGIN</b> ... <b>END</b> blocks may be defined for as many bin tra
 ##See Also
 
 * [[File types list]]: List of file types used in Rosetta
-* [[General RosettaScripts movers|general-movers]]: Includes movers that take a bin transition probabilities file
+* [[General RosettaScripts movers|Movers-RosettaScripts#general-movers]]: Includes movers that take a bin transition probabilities file
 * [[Rosetta Basics]]: The Rosetta Basics home page
 * [[Options overview]]: Overview of Rosetta command line options
 * [[Glossary]]: Brief definitions of Rosetta terms

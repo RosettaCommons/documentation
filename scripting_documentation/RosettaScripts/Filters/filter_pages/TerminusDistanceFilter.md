@@ -11,3 +11,13 @@ True, if all residues in the interface are more than _n_ residues from the N or 
 -   jump\_number: Which jump to use for calculating the interface?
 -   distance: how many residues must each interface residue be from a terminus? (sequence distance)
 
+## See also
+
+* [[Protein-protein docking|docking-protocol]]
+* [[CavityVolumeFilter]]
+* [[InterfaceHolesFilter]]
+* [[ShapeComplementarityFilter]]
+* [[ExposedHydrophobicsFilter]]
+* [[ResidueDistanceFilter]]
+* [[SpecificResiduesNearInterfaceFilter]]
+

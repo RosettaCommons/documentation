@@ -90,7 +90,7 @@ Rosetta will delete residues which are missing too many backbone atoms.
 "Missing" includes those atoms which are marked with zero occupancy in the PDB.
 Add the flag "-ignore_zero_occupancy false" to change this behavior.
 
-If the backbone atoms are completely missing, use the [[loop modeling]] protocol to build in the residues.  
+If the backbone atoms are completely missing, use the [[loopmodel]] protocol to build in the residues.  
 
 #### Is there somewhere I can see the Rosetta options/flags/arguments for the commands?
 
@@ -98,7 +98,9 @@ The documentation for each application should list most of the relevant options 
 
 The [[options overview]] should list options which affect most protocols in Rosetta.
 
-A list of almost all of the options Rosetta recognizes is at the [[full option list]]. (Not every protocol understands every option, though.)
+
+A list of almost all of the options Rosetta recognizes is at the [[full options list]]. (Not every protocol understands every option, though.)
+
 
 #### Does Rosetta support running with MPI? Or do I have to launch multiple serial jobs?
 
