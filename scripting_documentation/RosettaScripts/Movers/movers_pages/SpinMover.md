@@ -14,5 +14,5 @@ Allows random spin around an axis that is defined by the jump. Works preferentia
 * [[FoldTree Overview]]
 * [[GenericMonteCarloMover]]
 * [[LoopOverMover]]
-* [[SetAtomTreeMover]]
+* [[AtomTreeMover]]
 * [[I want to do x]]: Guide to choosing a mover
