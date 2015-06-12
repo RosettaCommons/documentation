@@ -76,33 +76,33 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[ResidueDistance|ResidueDistanceFilter]]** - Filter based on the distance between two residues.
 
-**[[AtomicContact|AtomicContactFilter]]** -
+**[[AtomicContact|AtomicContactFilter]]** - Are any atoms on two residues within a cutoff distance?
 
-**[[AtomicContactCount|AtomicContactCountFilter]]** -
+**[[AtomicContactCount|AtomicContactCountFilter]]** - Count number of carbon-carbon contacts.
 
 **[[AtomicDistance|AtomicDistanceFilter]]** - Filter based on the distance between two atoms.
 
-**[[TerminusDistance|TerminusDistanceFilter]]** -
+**[[TerminusDistance|TerminusDistanceFilter]]** - **Poor documentation**.
 
 ### Geometry
 
-**[[AngleToVector|AngleToVectorFilter]]** -
+**[[AngleToVector|AngleToVectorFilter]]** - Filter on angle between two atoms on the first residue of a chain and a given vector.
 
 **[[Torsion|TorsionFilter]]** - Filter based on the value of a dihedral.
 
-**[[HelixPairing|HelixPairingFilter]]** -
+**[[HelixPairing|HelixPairingFilter]]** - Filter structures based on the geometry of helix pairings.
 
-**[[SecondaryStructure|SecondaryStructureFilter]]** -
+**[[SecondaryStructure|SecondaryStructureFilter]]** - Filter structures based on secondary structure.
 
-**[[SecondaryStructureCount|SecondaryStructureCountFilter]]** -
+**[[SecondaryStructureCount|SecondaryStructureCountFilter]]** - Count number of a single secondary structure element. 
 
-**[[SecondaryStructureHasResidue|SecondaryStructureHasResidueFilter]]** -
+**[[SecondaryStructureHasResidue|SecondaryStructureHasResidueFilter]]** - Count fraction of secondary structure element positions containing specific residue.
 
-**[[HelixKink|HelixKinkFilter]]** -
+**[[HelixKink|HelixKinkFilter]]** - **Poor documentation**.
 
 **[[Geometry|GeometryFilter]]** - Bond geometry and omega angle constraints
 
-**[[HSSTriplet|HSSTripletFilter]]** -
+**[[HSSTriplet|HSSTripletFilter]]** - Evaluate the given helix-strand-strand triplets. 
 
 ### Packing/Connectivity
 
