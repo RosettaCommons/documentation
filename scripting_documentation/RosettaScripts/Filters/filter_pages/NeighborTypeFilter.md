@@ -10,7 +10,7 @@ Filter for poses that place a neighbour of the types specified around a target r
 </NeighborType>
 ```
 
--   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
+-   pdb\_num/res\_num: see [[RosettaScripts#rosettascripts-conventions_specifying-residues]]
 
 ## See also:
 
