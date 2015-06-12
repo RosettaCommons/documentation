@@ -11,7 +11,7 @@ Try running them without any arguments or with the '-h' flag to get further info
 
 ### Input Preparation
 
-### PDB
+#### PDB
 
 tools/protein_tools/scripts/clean_pdb.py    
 &#8195; - Prepare PDBs for Rosetta by cleaning and renumbering residues. 
