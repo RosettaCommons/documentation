@@ -19,6 +19,8 @@
 
 * [[RNA-specific applications|rna-applications]]
 
+* [[Tools]]
+
 * [[Full apps list|apps]]
 
 [[Scripting Interfaces|scripting_documentation/Scripting-Documentation]]
