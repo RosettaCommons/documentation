@@ -219,7 +219,7 @@ It requires the use of the refinement program PHENIX.
 
 ## Solving NMR structures
 
-* [Chemical shift files](rosetta_basics/chemical-shift-file) provide data to a variety of protocols often collectively referred to as [[CSROSETTA]] that incorporate NMR constraints to refine structures
+* [Chemical shift files](rosetta_basics/chemical-shift-file) provide data to a variety of protocols often collectively referred to as [[CS-ROSETTA]] that incorporate NMR constraints to refine structures
 
 ## What If My Question Is Unanswered? 
 
