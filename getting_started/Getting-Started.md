@@ -79,7 +79,7 @@ As a consequence, you will need to [[compile|http://en.wikipedia.org/wiki/Compil
 Local installation implies that one will be using Rosetta through a [[command line interface (or terminal)|http://en.wikipedia.org/wiki/Command-line_interface]].
 For local users, you are unlikely to want to install Rosetta to the entire system. 
 Rosetta is quite happy to be compiled and installed by regular users without administrative rights — this is how the developers use it.
-You may need administrative rights to install [[dependencies]].
+You may need administrative rights to install [[dependencies|Build-Documentation#dependencies]].
 
 * First untar/uncompress your downloaded copy of the code (`tar -xvzf Rosetta[releasenumber].tar.gz`).
 

@@ -12,15 +12,12 @@ This page describes how to install, compile, and test Rosetta 3 [[formerly calle
 [[_TOC_]]
 
 ##Basic Setup
-====================
 Build environment setup instructions for most situations can be found on the [[Getting Started|Getting-Started#local-installation-and-use-of-rosetta]] page. 
 
 ## Publicly accessible clusters with Rosetta pre-installed
-====================
 * As part of the XSEDE initiative, the [[TACC/Stampede|TACC]] cluster has Rosetta and PyRosetta centrally installed for authorized users. See the [[TACC]] page for more details.
 
 ##Alternative Setup for Individual Workstations
-====================
 
 The current build system is based on the tool [SCons](https://wiki.rosettacommons.org/index.php/Tools:SCons "Tools:SCons") ("Software Constructor") with some extensions. `     scons.py    ` is implemented as a Python script.
 
@@ -115,7 +112,7 @@ To build MPI executables, add the flag "extras=mpi" and copy main/source/tools/b
 ```
 
 ##Dependencies/Troubleshooting
-====================
+<a name="dependencies"/>
 Rosetta requires a compiler (most gcc or clang are fine) and the zlib compression library development package. Instructions for acquiring either are below, sorted by what sorts of error messages they give if you are missing them.
 
 **"sh: 1: o: not found"**
@@ -159,9 +156,8 @@ Rosetta requires the zlib compression library to be installed on your computer i
 For Ubuntu and related distributions, install the zlib1g-dev package (e.g. with `sudo apt-get install zlib1g-dev`)
 
 ##Testing
-====================
 
-There are two sets of tests to run to ensure everything is working properly, unit tests and integration tests. (See [Testing Rosetta](xxxx) .)
+There are two sets of tests to run to ensure everything is working properly, unit tests and integration tests. (See [[Testing Rosetta|rosetta-tests]].)
 
 ####MPI
 Compilation in MPI mode permits specialized JobDistributors to be used; the function of these JobDistributors, and their integration with other components of Rosetta, can only be tested by running special integration tests in MPI mode by passing the ```--mpi-tests``` flag to integration.py. Selective failure of these tests will probably mean that the parallel JobDistributors have been broken in some way.
@@ -169,12 +165,6 @@ Compilation in MPI mode permits specialized JobDistributors to be used; the func
 The MPI-mode build test simply tries to compile Rosetta with the ```-extras=mpi``` flag passed to scons. Selective failure of this build means that code surrounded by ```#ifdef USEMPI ... #endif``` lines has errors in it.
 
 ##Cleaning 
-====================
-
-```rm -rf build/src; rm .sconsign.dblite```
-
-Cleaning your binaries
--------------
 `cd Rosetta/main/source/ && rm -r build/* && rm .sconsign.dblite` will remove old binaries.
 
 ## See Also
