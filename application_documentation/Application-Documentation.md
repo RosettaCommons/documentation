@@ -242,6 +242,7 @@ These applications serve mainly to support other Rosetta applications, or to ass
 
 - [[minirosetta]] - The "minirosetta" boinc wrapper application.
 
+* [[Tools]]: List of useful accessory scripts included with Rosetta
 
 ##See Also
 
