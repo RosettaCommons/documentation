@@ -237,6 +237,7 @@ It may be that your question cannot be answered. Or, perhaps you can construct a
 * [[Commands collection]]: A list of example command lines for running Rosetta executable files
 * [[Rosetta Servers]]: Web-based servers for Rosetta applications
 * [[Scripting Documentation]]: Scripting interfaces to Rosetta
-* [[RosettaEncyclopedia]]: Detailed descriptions of Rosetta terms
+* [[FAQ]]: Frequently Asked Questions
 * [[Glossary]]: Brief definitions of Rosetta terms
+* [[RosettaEncyclopedia]]: Detailed descriptions of Rosetta terms
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
