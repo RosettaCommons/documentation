@@ -11,7 +11,7 @@ Comments are an excellent way to pseudo-amend bad commit messages!
 Our GitHub repositories only accumulate history and do not allow rewriting of history, so if you pushed some revision with a wrong/empty/merge commit message there is no way to undo this action. 
 Instead, use the comment feature to supply additional information for future records, or just communicate with the other developers:
 
-![developer comment example](uploads/developer_comment_test_server_example.jpg)
+![developer comment example](images/developer_comment_test_server_example.jpg)
 
 ##See Also
 
