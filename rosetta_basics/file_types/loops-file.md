@@ -58,28 +58,16 @@ loops.txt
 
 <!--
 The purpose of this remaining text is to improve the searchability of this page: 
-
 loops file 
-
 loops file 
-
 loops file 
-
 loop file 
-
 loop file 
-
 loop file
-
 loop file 
-
 loop file 
-
 loop file
-
 loop file 
-
 loop file 
-
 loop file
 //-->
