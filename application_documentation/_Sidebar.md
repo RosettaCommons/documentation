@@ -19,7 +19,7 @@
 
 * [[RNA-specific applications|rna-applications]]
 
-* [[Minirosetta|minirosetta]]
+* [[Full apps list|apps]]
 
 [[Scripting Interfaces|scripting_documentation/Scripting-Documentation]]
 
