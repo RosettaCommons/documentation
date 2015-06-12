@@ -1,3 +1,5 @@
+#Common Errors and How To Avoid Them
+
 * For comparisons of signed and unsigned variables, the problem is most often that you incorrectly used an `int` when you should have used `Size`, per our conventions.
   * If you need a negative number, you *still* should not be using `int`; use `SSize`.
   * If you don't fix the root problem, you can always cast, but in that case, follow the conventions and use `static_cast<int>()`, not `(int)()`.
