@@ -73,8 +73,10 @@ core_init_with_additional_options( "-score_only -out:file:fullatom" );
 
 ##See Also
 
-* [[UTracer]], a tool to simplify writing unit tests
-* [[Writing unit tests for movers using UMoverTest|mover-test]]
+* [[Unit Test|unit tests]] overview/philosophy
 * [[Running unit tests|run-unit-test]]
+* [[UMoverTest|mover-test]], a tool for unit testing Mover classes
+* [[UTracer]], a tool to simplify writing unit tests by comparing text _en masse_
+
 * [[Testing home page|rosetta-tests]]
 * [[Development documentation home page|Development-Documentation]]
