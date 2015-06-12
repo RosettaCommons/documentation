@@ -223,7 +223,7 @@ An implementation of a similar protocol using this paradigm, along with a detail
 
 # The Broker in C++ Applications
 
-This section is about building protocols that use the broker and existing [[ClaimingMovers]] to build a protocol/application in C++, not [[Developing for the Broker]]. Making a brokered Environment in your C++ code is as easy as
+This section is about building protocols that use the broker and existing [[ClientMovers]] to build a protocol/application in C++, not [[Developing for the Broker]]. Making a brokered Environment in your C++ code is as easy as:
 
 1. **Make an Environment**. There are a couple of options to set in the constructor (*e.g.* should the Environment look at the old [[FoldTree|foldtree-overview]] to resolve [[FoldTree|foldtree-overview]] cycles), but in most cases all you need to do is give it a name.
 2. **Register your ClientMovers** with the environment. This lets the Broker know that it needs to ask this mover for claims during broking.

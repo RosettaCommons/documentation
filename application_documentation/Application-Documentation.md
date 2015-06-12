@@ -158,10 +158,6 @@ While most of these applications focus on prediction, many have options which wi
 
 - [[Beta strand homodimer design]] - Find proteins with surface exposed beta-strands, then design a homodimer that will form via that beta-strand.  
 
-### Protein-Protein Interfaces
-
-- [[Protein-protein design|app-dock-design]] - Protein-protein interface design with RosettaScripts.
-
 ##Membrane Proteins <a name="Membrane-Proteins" />
  - [[Membrane Fast Relax|Membrane-Fast-Relax]] - High-resolution refinement of membrane protein structures with optimization of the membrane position using minimization (uses membrane framework)
  - [[Membrane ddG|Membrane-DDG]] - Prediction of free energy changes upon mutation using the membrane framework
