@@ -256,7 +256,7 @@ These filters are used primarily for the reports they generate in the log and/or
 * [[Conventions in RosettaScripts|RosettaScripts-Conventions]]
 * [[RosettaScripts Movers|Movers-RosettaScripts]]
 * [[RosettaScripts TaskOperations|TaskOperations-RosettaScripts]]
-* [[I want to do x]]: Guide for making specific structural pertubations using RosettaScripts
+* [[I want to do x]]: Guide for making specific structural perturbations using RosettaScripts
 * [[Scripting Documentation]]: The Scripting Documentation home page
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
 * [[Getting Started]]: A page for people new to Rosetta

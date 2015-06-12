@@ -74,7 +74,7 @@ Several helper functions developed for stepwise modeling have been lifted into v
 * [[Stepwise options]]: Options classes for Stepwise code
 * [[Writing an application]]
 * [[Development Documentation]]: The home page for development documentation
-* [[I want to do x]]: Guide to selecting movers for structural pertubations
+* [[I want to do x]]: Guide to selecting movers for structural perturbations
 * [[Stepwise]]: The StepWise MonteCarlo application
 * Applications for deterministic stepwise assembly:
   * [[Stepwise assembly for protein loops|swa-protein-main]]
