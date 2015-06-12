@@ -42,7 +42,7 @@ Generally, if you've put a lot of effort into it, you may be in one of these cat
 1. The problem is well formed and addressed with the correct methods, but fails due to broad [[challenges in macromolecular modeling|Challenges-in-Macromolecular-Modeling]], like the scoring problem and search problem. 
 This is 100% Rosetta's fault.
 
-2. The problem can be addressed, but [[not enough computer time|rosetta_basics/Rosetta-on-different-scales]] was spent: the problem is undersampled. 
+2. The problem can be addressed, but [[not enough computer time|Rosetta-on-different-scales]] was spent: the problem is undersampled. 
 
 3. The problem is well-formed, but very complex.
 It may be within Rosetta's capability, but not using a preexisting protocol - perhaps it requires a long [[RosettaScript|RosettaScripts]].
@@ -55,5 +55,5 @@ We do see projects of this type fairly frequently on the Rosetta Forums.
 * [[Resources for learning biophysics and computational modeling]]
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
 * [[I want to do x]]: Guide on performing different forms of sampling in Rosetta
-* [[Rosetta on different scales|rosetta_basics/Rosetta-on-different-scales]]: A discussion of how much work you need to do to solve a problem
+* [[Rosetta on different scales|Rosetta-on-different-scales]]: A discussion of how much work you need to do to solve a problem
 * [[Challenges in Macromolecular Modeling]]: Discusses the problems of sampling and scoring in protein modeling.

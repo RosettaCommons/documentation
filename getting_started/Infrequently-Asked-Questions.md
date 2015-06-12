@@ -8,7 +8,7 @@ In truth this is a grab-bag for short bits of documentation which have not (yet)
 See Also:
 * [[FAQ]] - Frequently Asked Questions 
 * [[Glossary]] - short definitions of Rosetta-related terms.
-* [[Rosetta Encyclopedia]] - longer form explanations of Rosetta-related concepts. 
+* [[RosettaEncyclopedia]] - longer form explanations of Rosetta-related concepts. 
 
 #### What is RosettaDesign?
 

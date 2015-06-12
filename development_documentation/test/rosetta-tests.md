@@ -9,11 +9,11 @@ Rosetta has 4 sets of tests:
 Information on reading and writing these tests can be found in the pages linked below. We have an excellent
 [[Testing server]] that runs all of these tests for us on a regular basis.
 
--   Unit Tests
+-   [[Unit Tests]]
     -   [[Running unit tests|run-unit-test]]
     -	[[Writing unit tests|writing-unit-tests]]
-    	-   [[Writing unit tests for movers using UMoverTest|mover-test]]
-    	-   [[UTracer]], a tool to simplify writing unit tests
+    	-   [[UMoverTest|mover-test]], a tool for unit testing Mover classes
+    	-   [[UTracer]], a tool to simplify writing unit tests by comparing text _en masse_
 
 -   [[Integration Tests]]
     - [[Writing MPI Integration Tests]]
