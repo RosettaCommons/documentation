@@ -13,4 +13,4 @@ Computes the interaction energy between 2 groups of residues: 1. a set of residu
 * [[Design in Rosetta|application_documentation/design/design-applications]]
 * [[EnergyPerResidueFilter]]
 * [[PackRotamersMover]]
-* [[ResidueInteractionEnergyFilter]]
+* [[ResidueIEFilter]]
