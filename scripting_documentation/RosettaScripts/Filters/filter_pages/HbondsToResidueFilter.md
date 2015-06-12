@@ -22,5 +22,5 @@ This filter was written in the context of protein interface design, so it may no
 * [[HbondsToAtomFilter]]
 * [[ResidueBurialFilter]]
 * [[ResidueDistanceFilter]]
-* [[ResidueInteractionEnergy]]
+* [[ResidueInteractionEnergy|ResidueIEFilter]]
 
