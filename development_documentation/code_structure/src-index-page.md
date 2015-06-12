@@ -78,8 +78,27 @@ The chemical directory, which contains important classes like `ResidueType`, is 
 ####Kinematics
 The kinematics directory, which contains classes like `AtomTree`, `MoveMap`, and `FoldTree`, is how Rosetta propagates motion through a structure.  TODO linky internal coordinate kinematics
  
-###Conformation
+####Conformation
 The `Conformation` class is what happens when you thread together `Residue` classes (based on `ResidueType`s) according to the kinematics dictated by the `AtomTree` - basically, a structure!
+
+###Core.3
+
+####Scoring
+Fairly self explanatory: now that `Conformation` gets us a structure, how do we score it?
+This contains all the `ScoreFunction` and all the common terms that go in it, and an `Energies` object to store the result of a scoring operation.
+
+####Pose
+`Pose`, one of the two most important classes in Rosetta, lives here.
+`Pose` is the marriage of a `Conformation` and an `Energies` object holding its scores.
+
+###Core.4
+Core.4 is concerned with optimization algorithms - ways to minimize the energy of the pose. 
+<!--nocaps for style-->`optimization` contains the "minimizer", which efficiently finds local energy minima.
+`pack` contains the packer, which efficiently searches for sequence/rotamer minima for a given backbone.
+Note the repeated use of efficiently: this code is tightly integrated with other `core` classes for speed!
+
+###Core.5
+This library contains several items, the most important of which is the `init` machinery that initializes each run of Rosetta (reads the options from command line, sets up the random number generator, etc.)
 
 ###Documentation by namespace (incomplete)
 
