@@ -109,8 +109,8 @@ Fold-and-dock options
 -fold_and_dock:rotate_anchor_to_x - Rotate the anchor residue to the x-axis before applying rigid body transformations.
 -fold_and_dock:trans_mag_smooth - Translation perturbation size for smooth refineme.
 -fold_and_dock:rot_mag_smooth - Rotational perturbation size for smooth refinement.
--fold_and_dock:rb_rot_magnitude - Rotational perturbation size for rigid body pertubations.
--fold_and_dock:rb_trans_magnitude Translational perturbation size rigid body pertubations.
+-fold_and_dock:rb_rot_magnitude - Rotational perturbation size for rigid body perturbations.
+-fold_and_dock:rb_trans_magnitude Translational perturbation size rigid body perturbations.
 -fold_and_dock:rigid_body_cycles - Number of rigid bosy cycles during fold and dock fragment insertion.
 -fold_and_dock:rigid_body_frequency - The fraction of times rigid body cycles are applied during fragment assembly moves.
 -fold_and_dock:rigid_body_disable_mc - Dissallow moves to be accepted locally by Monte Carlo criteria within the rigid body mover.
