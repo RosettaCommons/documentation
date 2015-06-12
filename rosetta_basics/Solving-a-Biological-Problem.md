@@ -133,7 +133,7 @@ Unlike RosettaLigand, which explores protein–ligand interactions in a biologic
 While protein structure prediction seeks to identify low energy structures in space, protein design seeks to identify amino acid identities in sequence space.
 Protein design can be used to study both how sequence confers structure (i.e. predicting the amino acid sequence of a given fold) or how structure confers function (i.e. predicting the amino acid sequence for a given function).
 Due to the breadth of these challenges, protocols are either specific or custom generated using one of the [[Rosetta scripting interfaces|Scripting-Documentation]].
-
+Broadly, protein design can be performed with the use of a [[resfile]] and flags whenever sidechains are repacked.
 
 ### Protein Redesign
 
@@ -174,6 +174,8 @@ For an overview of loop modeling in Rosetta, please see [[this|loopmodel]].
 
 For explicit refinement of crystallography data, see [[here|density-map-scoring]].
 
+[loops from density](application_documentation/loops-from-density) is a script to take badly fit electron data and a cutoff suggesting how much of the pose you're willing to rebuild and to generate input "loops" files for loop modeling. 
+
 For modeling of missing loops on existent protein structures, you can use any of the methods in the section below.
 
 ### Modeling Loops in Regions of Low Homology or with No Secondary Structure
@@ -200,6 +202,11 @@ Rosetta's scorefunctions are parameterized on crystallized proteins, not disorde
 However, if you have a specific question, such as "can my disordered tail of 20 residues plausibly interact with this other region of my protein?"
 Then you may begin to approach this question with [[FloppyTail|floppy-tail]].
 
+## Nucleic Acids modeling
+
+* [ERRASER](application_documentation/erraser) refines RNA structures from electron density (crystallographic data); it constitutes a workflow of _erraser_minimize_, _swa_rna_analytical_closure_, and _swa_rna_main.
+It requires the use of the refinement program PHENIX.
+
 ## Solving Crystal Structures
 
 * For explicit refinement of crystallography data, see [[here|density-map-scoring]].
@@ -207,7 +214,12 @@ Then you may begin to approach this question with [[FloppyTail|floppy-tail]].
 * [mr_protocols](application_documentation/mr-protocols) is typically used _alongside_ Phaser / PHENIX; it uses Rosetta's comparative modeling to rebuild gaps and insertions in the template, as well as missing density, from fragments, followed by relaxation with constraints to experimental density.
 You can then use Phaser / PHENIX again to re-score against crystallographic data.
 
-* [loops from density](application_documentation/loops-from-density) is a script to take badly fit electron data and a cutoff suggesting how much of the pose you're willing to rebuild and to generate input "loops" files for loop modeling. 
+* [ERRASER](application_documentation/erraser) refines RNA structures from electron density (crystallographic data); it constitutes a workflow of _erraser_minimize_, _swa_rna_analytical_closure_, and _swa_rna_main.
+It requires the use of the refinement program PHENIX.
+
+## Solving NMR structures
+
+* [Chemical shift files](rosetta_basics/chemical-shift-file) provide data to a variety of protocols often collectively referred to as [[CSROSETTA]] that incorporate NMR constraints to refine structures
 
 ## What If My Question Is Unanswered? 
 
@@ -234,15 +246,6 @@ Most of all, the force fields used in these optimization efforts are arithmetica
 It is critical to obtain structures that are geometrically similar to the starting structure but that exist closer to a local minimum of the scoring function.
 This is important because every unit of strain energy in your starting structure can inappropriately bias sampling: bad moves can be accepted that would otherwise have been rejected because they relieve strain that already should have been addressed.
 There is a [[complete write-up|preparing-structures]] of preparing starting structures appropriately.
-
-## Specialized Rosetta executables
-
-Rosetta has individual modules to handle particular forms of experimental constraint:
-
-* [ERRASER](application_documentation/erraser) refines RNA structures from electron density (crystallographic data); it constitutes a workflow of _erraser_minimize_, _swa_rna_analytical_closure_, and _swa_rna_main.
-It requires the use of the refinement program PHENIX.
-
-* [Chemical shift files](rosetta_basics/chemical-shift-file) provide data to a variety of protocols often collectively referred to as CSROSETTA that incorporate NMR constraints to refine structures
 
 ## Experimental constraints  
 
