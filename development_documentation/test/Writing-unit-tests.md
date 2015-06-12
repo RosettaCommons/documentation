@@ -1,13 +1,27 @@
 #Writing Unit tests
 
--   [[How to run unit tests.|run-unit-test]]
--   [[Using UTracer for simplifying writings of unit tests|UTracer]]
--   [[Mover test HowTo|mover-test]]
+_If you aren't a developer, you may have wanted to learn [[how to run unit tests|run-unit-test]]._
 
-Additional asserts.
-===================
 
-Literally compare files, line by line: `TS_ASSERT_FILE_EQ`. This assert will pass if files are equal and generate unit test error otherwise. Example:
+Rosetta-specific unit test tools:
+=================================
+
+### UTracers for integration-test style output capture comparison
+[[Utracer]]s are a two-edged sword: it makes it easy to have a "test" of "compare all this output X to this reference output Y".
+These are easy to write but are often not testing units.
+If you "unit" is not **completely deterministic** across **all architectures**, this is go down in flames and you should have written an [[integration test|integration tests]].
+
+### UMoverTest
+The [[UMoverTest|mover-test]] is a tool for testing [[Mover]] classes.
+It can't test their `apply` function, but if you write your Mover cleverly this will still do a good job.
+
+### TS_ASSERTs to test file comparisons
+
+Literally compare files, line by line: `TS_ASSERT_FILE_EQ`. 
+This assert will pass if files are equal and generate unit test error otherwise. 
+This has the same caveats as UTracers above: great if you just want to compare 20 things with little C++, but dangerous if you are really integration testing protocols.
+
+Example:
 
 ```
 #include <cxxtest/TestSuite.h>
@@ -15,7 +29,7 @@ Literally compare files, line by line: `TS_ASSERT_FILE_EQ`. This assert will pas
 TS_ASSERT_FILE_EQ( "original.pdb" , "new.pdb" ); // will generate error if files are different
 ```
 
- Compare files as a string of double numbers: `TS_ASSERT_FILE_EQ_AS_DOUBLE`. This command reads two text files, converts each to a vector of doubles (using space as separator), and compares the vectors of doubles using specified absolute and relative tolerance. Example:
+Compare files as a string of double numbers: `TS_ASSERT_FILE_EQ_AS_DOUBLE`. This command reads two text files, converts each to a vector of doubles (using space as separator), and compares the vectors of doubles using specified absolute and relative tolerance. Example:
 
 ```
 #include <cxxtest/TestSuite.h>
@@ -25,8 +39,13 @@ TS_ASSERT_FILE_EQ_AS_DOUBLE( "original_score.txt" , "new_score.txt" ,
                              .001, // absolute tolerance
                              .1); // relative tolerance
 ```
-Additional functions
-=====================
+
+Dealing with the option system
+==============================
+
+Rosetta is unfortunately quite dependent on its command line options system, but running unit tests does not offer much in the way of command line interaction.
+`test/run.py` certainly won't let you run different tests under different option environments.
+This section explains how you can set the option environment on a per-test basis, with this magic:
 
 `inline void core_init_with_additional_options( std::string const & commandline_in )` 
 
