@@ -1,4 +1,4 @@
-## What is Rosetta??
+## What is Rosetta?
 Rosetta is a comprehensive software suite for modeling macromolecular structures. As a flexible, multi-purpose application, it includes tools for structure prediction, design, and remodeling of proteins and nucleic acids. Since 1998, Rosetta web servers have run billions of structure prediction and protein design simulations.
 
 Researchers use Rosetta to better understand treatments of infectious diseases, cancers, and autoimmune disorders. Further applications involve the development of vaccines, new materials, targeted protein binders, and enzyme design.
