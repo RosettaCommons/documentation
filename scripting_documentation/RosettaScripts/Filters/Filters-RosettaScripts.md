@@ -82,7 +82,7 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[AtomicDistance|AtomicDistanceFilter]]** - Filter based on the distance between two atoms.
 
-**[[TerminusDistance|TerminusDistanceFilter]]** - **Poor documentation**.
+**[[TerminusDistance|TerminusDistanceFilter]]** - Distance in sequence from either terminus to interface.
 
 ### Geometry
 
