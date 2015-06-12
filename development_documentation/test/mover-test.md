@@ -47,7 +47,6 @@ In MoversTest::test_AllMovers: ./test/protocols/moves/MoversTest.cxxtest.hh:47: 
 * [[Unit Test|unit tests]] overview/philosophy
 * [[Running unit tests|run-unit-test]]
 * [[Writing unit tests|writing-unit-tests]]
-* [[UMoverTest|mover-test]], a tool for unit testing Mover classes
 * [[UTracer]], a tool to simplify writing unit tests by comparing text _en masse_
 
 * [[Mover description|Rosetta-overview#mover]]
