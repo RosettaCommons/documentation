@@ -34,6 +34,7 @@ CAVEAT: The parsing of the equation is a little touchy and black-box at the mome
 * [[BoltzmannFilter]]
 * [[CompoundStatementFilter]
 * [[CombinedValueFilter]
+* [[IfThenFilterFilter]]
 * [[ReplicateFilter]]
 * [[SigmoidFilter]]
 
