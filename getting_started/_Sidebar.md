@@ -1,5 +1,17 @@
 [[Getting Started]]
 
+* [[Solving a Biological Problem]]
+
+* [[I want to sample X|I-want-to-do-x]]
+
+* [[Classifying problems|Determining what a problem is]]
+
+* [[Analyzing Results]]
+
+* [[Learning biophysics|Resources-for-learning-biophysics-and-computational-modeling]]
+
+* [[Rosetta canon]]
+
 [[Build Documentation|build_documentation/Build-Documentation]]
 
 [[Rosetta Basics|rosetta_basics/Rosetta-Basics]]
