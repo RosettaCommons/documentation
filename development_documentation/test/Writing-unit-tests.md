@@ -2,13 +2,16 @@
 
 _If you aren't a developer, you may have wanted to learn [[how to run unit tests|run-unit-test]]._
 
-The purpose of [[unit testing|http://en.wikipedia.org/wiki/Unit_testing]] (wikipedia link) is to ensure that small chunks of code run _correctly_. 
-Writing good unit tests is very important, but something the community has traditionally failed at—our unit test coverage is very poor, and many of the tests we do have are shallow. 
-Good unit tests become easy when using [[test-driven development|http://en.wikipedia.org/wiki/Test-driven_development]] (wikipedia link), but this sort of skill at programming is a challenge for the professional biophysicists / amateur programmers who make up our developer base.
+Before writing unit tests, be sure you understand [[what they are|unit tests]].
 
-TODO: Andrew LF has given presentations on the importance of unit tests / test-driven development - they would be excellent to include here (planned for XRW2015, but ran out of time.
+TODO: The content that should populate this page is still largely hosted on the wiki.rosettacommons.org mediawiki, and can be moved as soon as convenient.  DO leave mediawiki links in place until the text is moved.
 
-Actually writing unit tests in Rosetta uses the **CXXTEST** framework. 
+Unit tests in Rosetta use the **CxxTest** framework.  If you are interested in why we chose this framework: https://wiki.rosettacommons.org/index.php/DecidingOnCxxTest.  (TODO: move this.)
+
+Ultra-brief advice on writing unit tests: find one related to what you are testing, and write something similar to what it is doing. 
+Code duplication is not too much of a concern in unit tests (testing Mover X and Mover Y may end up doing a lot of the same things), although obviously avoid it when you can.
+
+Longer instructions on writing unit tests can be found on the old wiki here: https://wiki.rosettacommons.org/index.php/Tools:Unit_Tests (TODO: move this.)
 
 Rosetta-specific unit test tools:
 =================================
