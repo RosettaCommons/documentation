@@ -1,4 +1,4 @@
-#Running unit tests.
+#Running unit tests
 
 There are three ways to run unit tests:
 
