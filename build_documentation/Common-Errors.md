@@ -82,3 +82,10 @@ PhenixInterface::setAlgorithm(
 * chars cannot be appended to strings with `+`.  To append a char to a string, you must cast it first.  (I suggest using `std::string(1, my_char)`.)
 
 * ints cannot be appended to strings with `+` either.  To append an int to a string, you must cast it first.  (I suggest using `boost::lexical_cast<std::string)(my_int)`.)
+
+
+##See Also
+
+* [[Build Documentation]]
+* [[Scons Overview and Specifics]]: Detailed information on the Scons compiling system
+* [[FAQ]]
