@@ -24,5 +24,5 @@ From the documentation directory, launch the gollum server with the following co
 
 Then point your web browser at the following URL: <http://localhost:7364>  
 
-RosettaCommons members can get more informatio [here](https://wiki.rosettacommons.org/index.php/Local_Gollum).
+RosettaCommons members can get more information [here](https://wiki.rosettacommons.org/index.php/Local_Gollum).
 
