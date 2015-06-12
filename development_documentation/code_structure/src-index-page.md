@@ -1,21 +1,30 @@
 #An overview of the src directory
 
-From a conceptual standpoint, the src directory contains all the C++ code specfic to Rosetta. The directory structure within Rosetta delineates conceptual dependencies. A Rosetta developer should keep in mind the layered architecture depicted in the figure below. The arrows represent allowed dependency flows. Any code dependency on directories not accessible by following the arrows is not allowed. A strict vertical code dependency has been observed thus far in writing Rosetta code. This figure demonstrates the relationships between the libraries:
+From a conceptual standpoint, the src directory contains all the C++ code specific to Rosetta. 
+The directory structure within Rosetta delineates conceptual dependencies. 
+A Rosetta developer should keep in mind the layered architecture depicted in the figure below. 
+The arrows represent allowed dependency flows. 
+Any code dependency on directories not accessible by following the arrows is not allowed. 
+A strict vertical code dependency has been observed thus far in writing Rosetta code. 
+This figure demonstrates the relationships between the libraries:
 
 [[/images/RosettaLib.png]]
 
 ObjexxFCL Library
 ================
 
-The `ObjexxFCL` library provides the infrastructure needed to emulate Fortran by code that has been translated from Fortran 77 to C++. It is lightly used in Rosetta at present, having gradually disappeared as Rosetta became more object-oriented - the [[Rosetta to Rosetta++ to Rosetta3|Rosetta timeline]] transition. It remains to support some legacy code.
+The `ObjexxFCL` library provides the infrastructure needed to emulate Fortran by code that has been translated from Fortran 77 to C++. 
+It is lightly used in Rosetta at present, having gradually disappeared as Rosetta became more object-oriented - the [[Rosetta to Rosetta++ to Rosetta3|Rosetta timeline]] transition. 
+It remains to support some legacy code.
 
 Utility Library
 ==============
 
 [[Utility Library|namespace-utility]] 
 
-
-The utility directory contains utility classes that are (at least in theory) not Rosetta-specific such as [[utility::vector1|vector1]] (a base 1 indexed of child class of std::vector with a few extra additions) and izstream (an infilestream which allows reading of zipped files).  Broadly speaking, these classes are implemented in a project-agnostic manner (i.e. they need not be Rosetta-specific).  Classes in this directory sometimes have mathematical class methods, but algorithms for complicated calculations are typically relegated to the numeric directory.
+The utility directory contains utility classes that are (at least in theory) not Rosetta-specific such as [[utility::vector1|vector1]] (a base 1 indexed of child class of std::vector with a few extra additions) and izstream (an infilestream which allows reading of zipped files). 
+Broadly speaking, these classes are implemented in a project-agnostic manner (i.e. they need not be Rosetta-specific). 
+Classes in this directory sometimes have mathematical class methods, but algorithms for complicated calculations are better placed in the numeric directory.
 
 ###Namespaces within utility
 * [[utility|namespace-utility]]
