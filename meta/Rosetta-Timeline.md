@@ -111,7 +111,7 @@ As Rosetta grew, the Rosetta development world was no longer confined to just Da
     * Rosetta moves from svn to git for version control.
 
 * 2013-08
-    * Rosetta switched the default scorefunction from [[score12]] to [[talaris2013]]. (r55611)
+    * Rosetta switched the default scorefunction from [[score12|score-types#score12]] to [[talaris2013|score-types#talaris2013]]. (r55611)
 
 * 2013-09
     * *de novo* design of ligand binding proteins. [Tinberg, et al.](http://www.nature.com/nature/journal/v501/n7466/full/nature12443.html) 
