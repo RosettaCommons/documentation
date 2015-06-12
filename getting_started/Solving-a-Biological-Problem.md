@@ -133,7 +133,7 @@ Unlike RosettaLigand, which explores protein–ligand interactions in a biologic
 While protein structure prediction seeks to identify low energy structures in space, protein design seeks to identify amino acid identities in sequence space.
 Protein design can be used to study both how sequence confers structure (i.e. predicting the amino acid sequence of a given fold) or how structure confers function (i.e. predicting the amino acid sequence for a given function).
 Due to the breadth of these challenges, protocols are either specific or custom generated using one of the [[Rosetta scripting interfaces|Scripting-Documentation]].
-Broadly, protein design can be performed with the use of a [[resfile]] and flags whenever sidechains are repacked.
+Broadly, protein design can be performed with the use of a [[resfiles]] and flags whenever sidechains are repacked.
 
 ### Protein Redesign
 
