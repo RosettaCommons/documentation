@@ -156,9 +156,8 @@ Rosetta requires the zlib compression library to be installed on your computer i
 For Ubuntu and related distributions, install the zlib1g-dev package (e.g. with `sudo apt-get install zlib1g-dev`)
 
 ##Testing
-====================
 
-There are two sets of tests to run to ensure everything is working properly, unit tests and integration tests. (See [Testing Rosetta](xxxx) .)
+There are two sets of tests to run to ensure everything is working properly, unit tests and integration tests. (See [[Testing Rosetta|rosetta-tests]].)
 
 ####MPI
 Compilation in MPI mode permits specialized JobDistributors to be used; the function of these JobDistributors, and their integration with other components of Rosetta, can only be tested by running special integration tests in MPI mode by passing the ```--mpi-tests``` flag to integration.py. Selective failure of these tests will probably mean that the parallel JobDistributors have been broken in some way.
@@ -166,7 +165,6 @@ Compilation in MPI mode permits specialized JobDistributors to be used; the func
 The MPI-mode build test simply tries to compile Rosetta with the ```-extras=mpi``` flag passed to scons. Selective failure of this build means that code surrounded by ```#ifdef USEMPI ... #endif``` lines has errors in it.
 
 ##Cleaning 
-====================
 `cd Rosetta/main/source/ && rm -r build/* && rm .sconsign.dblite` will remove old binaries.
 
 ## See Also
