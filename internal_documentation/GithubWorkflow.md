@@ -238,3 +238,9 @@ gitk is the "default" git visualization tools and is installed by default along 
 ###SVN / git equivalences
 
 There are many commands in git which have identical names, however the functionality of these commands are frequently different. [[Git SVN Crash Course|http://git.or.cz/course/svn.html]] is a useful comparison of git and svn commands, offering rough equivalents in git to common svn operations.  Due to the fundamentally different nature of git and svn, the caveats and limitations associated with these equivalents are completely different.  For example, when copying a file in svn, using 'svn cp' instead of 'cp' is required, while the use of 'git cp' is optional. The [[Pro Git|http://git-scm.com/book]] ebook is a useful reference for those interested in the details of the basic git commands.
+
+
+##See Also
+
+* [[Development Documentation]]
+* [[GitHubWorkflow]]
