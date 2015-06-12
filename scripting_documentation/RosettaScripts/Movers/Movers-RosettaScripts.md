@@ -263,63 +263,63 @@ See [[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScri
 
 **[[RollMover]]** - Rotates pose a given angle over a given axis
 
-**[[RemodelMover]]** (including building disulfides) - 
+**[[RemodelMover]]** (including building disulfides) - Loop building and refinement using Remodel
 
-**[[SetupNCS|SetupNCSMover]]** - 
+**[[SetupNCS|SetupNCSMover]]** - Sets up non crystallographic symmetry between residues and forces residues to maintain conformation and type
 
-**[[StoreTask|StoreTaskMover]]** - 
+**[[StoreTask|StoreTaskMover]]** - (Developer release only) Creates and stores a packer task in the current pose
 
-**[[StoreCompoundTaskMover]]** - 
+**[[StoreCompoundTaskMover]]** - (Developer release only) Constructs compound logical tasks and stores them in the current pose
 
-**[[VirtualRoot|VirtualRootMover]]** - 
+**[[VirtualRoot|VirtualRootMover]]** - Create virtual residue and reroot pose foldtree on the new residue
 
 ## Computational 'affinity maturation' movers
 
-**[[RandomMutation|RandomMutationMover]]** -
+**[[RandomMutation|RandomMutationMover]]** - Introduce a random mutation in a re-designable position
 
-**[[GreedyOptMutationMover]]** -
+**[[GreedyOptMutationMover]]** - Introduces mutations, scores them, combines them and accepts the combinations based on score
 
 ## Loop Modeling Movers
 
 See [[RosettaScriptsLoopModeling]] for an overview.
 
-**[[LoopModeler|LoopModelerMover]]** - 
+**[[LoopModeler|LoopModelerMover]]** - Performs a standard loop modeling simulation
 
-**[[LoopBuilder|LoopBuilderMover]]** - 
+**[[LoopBuilder|LoopBuilderMover]]** - Builds backbone atoms for loops with missing residues
 
-**[[LoopProtocol|LoopProtocolMover]]** - 
+**[[LoopProtocol|LoopProtocolMover]]** - Optimizes the backbone of a loop region via a Monte Carlo simulation
 
-**[[KicMover]]** - 
+**[[KicMover]]** - Generates backbone conformations using the kinematic closure algorithm 
 
-**[[RepackingRefiner|RepackingRefinerMover]]** - 
+**[[RepackingRefiner|RepackingRefinerMover]]** - Refines the sidechains around a loop using the standard repacker
 
-**[[RotamerTrialsRefiner|RotamerTrialsRefinerMover]]** - 
+**[[RotamerTrialsRefiner|RotamerTrialsRefinerMover]]** - Refines the sidechains in and around a loop using rotamer trials
 
-**[[MinimizationRefiner|MinimizationRefinerMover]]** - 
+**[[MinimizationRefiner|MinimizationRefinerMover]]** - Refines loop backbone and sidechains via gradient minimization
 
-**[[PrepareForCentroid|PrepareForCentroidMover]]** - 
+**[[PrepareForCentroid|PrepareForCentroidMover]]** - Converts a pose to centroid mode
 
-**[[PrepareForFullatom|PrepareForFullatomMover]]** - 
+**[[PrepareForFullatom|PrepareForFullatomMover]]** - Converts a pose to fullatom mode
 
 ## Protein Interface Modeling, Design, and Analysis Movers
 
 These movers are at least somewhat specific to the design of protein-protein interfaces. Attempting to use them with, for example, protein-DNA complexes may result in unexpected behavior.
 
-**[[PatchdockTransform|PatchdockTransformMover]]** -
+**[[PatchdockTransform|PatchdockTransformMover]]** - Modifies the pose configuration using a Patchdock file
 
-**[[ProteinInterfaceMS|ProteinInterfaceMSMover]]** -
+**[[ProteinInterfaceMS|ProteinInterfaceMSMover]]** - Protein interface design where the bound state is compared to the unbound state and the unbound unfolded state
 
-**[[InterfaceAnalyzerMover]]** -
+**[[InterfaceAnalyzerMover]]** - Calculates metrics for evaluating protein interfaces
 
-**[[Docking|DockingMover]]** -
+**[[Docking|DockingMover]]** - Performs docking in centroid or fullatom mode
 
-**[[DockWithHotspotMover]]** -
+**[[DockWithHotspotMover]]** - Performs docking in centroid mode with constraints
 
-**[[Prepack|PrepackMover]]** -
+**[[Prepack|PrepackMover]]** - Minimizes and repacks protein complexes
 
-**[[RepackMinimize|RepackMinimizeMover]]** -
+**[[RepackMinimize|RepackMinimizeMover]]** - Design/repack and minimization for protein complexes
 
-**[[DesignMinimizeHBonds|DesignMinimizeHBondsMover]]** -
+**[[DesignMinimizeHBonds|DesignMinimizeHBondsMover]]** - 
 
 **[[build_Ala_pose|BuildAlaPoseMover]]** -
 
