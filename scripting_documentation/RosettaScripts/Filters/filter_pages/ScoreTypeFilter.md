@@ -10,7 +10,7 @@ Computes the energy of a particular score type for the entire pose and if that e
 
 ## See also:
 
-* [[TaskAwareScoreType]]
-* [[EnergyPerResidue]]
-* [[rosetta_basics/scoring/score-types]]
+* [[Score Types|rosetta_basics/scoring/score-types]]
+* [[TaskAwareScoreTypeFilter]]
+* [[EnergyPerResidueFilter]]
 
