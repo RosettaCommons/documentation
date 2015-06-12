@@ -73,7 +73,7 @@ map '/docs/wiki' do
   
   options[:authorized_users] = []
 
-  #Precious::App.register Omnigollum::Sinatra
+  Precious::App.register Omnigollum::Sinatra
   #Precious::App.set(:sessions, { :key => 'rack_session' })
   Precious::App.settings.mustache[:templates] = gollum_path + '/templates'
 

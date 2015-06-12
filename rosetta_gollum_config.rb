@@ -17,7 +17,6 @@ WIKI_OPTIONS = {
   :h1_title => true,
   :sidebar => :left,
   :mathjax => true,
-  :ref => 'xrw/thin',
 }
 
 Precious::App.set(:default_markup, :markdown)
