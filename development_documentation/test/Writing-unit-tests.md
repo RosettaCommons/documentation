@@ -22,7 +22,7 @@ These are easy to write but are often not testing units.
 If you "unit" is not **completely deterministic** across **all architectures**, this is go down in flames and you should have written an [[integration test|integration tests]].
 
 ### UMoverTest
-The [[UMoverTest|mover-test]] is a tool for testing [[Mover]] classes.
+The [[UMoverTest|mover-test]] is a tool for testing [[Mover|Glossary#mover]] classes.
 It can't test their `apply` function, but if you write your Mover cleverly this will still do a good job.
 
 ### TS_ASSERTs to test file comparisons
