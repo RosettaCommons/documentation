@@ -1,13 +1,28 @@
 #!/usr/bin/env ruby
 
+# This file contains configuration for the Gollum wiki itself.  If you are 
+# running Gollum locally, use the `--config` flag to apply this configuration:
+#
+#     $ gollum --config rosetta_gollum_config.rb
+#
+# If you are running Gollum via Thin (a web server), this configuration should 
+# be applied automatically.  Specifically, the `config.ru` imports this file 
+# and should get loaded by Rack without any intervention on your part.
+
 # Specify the wiki options.
-wiki_options = {
-  :live_preview => false,
+
+WIKI_OPTIONS = {
   :universal_toc => false,
-  :sidebar => :left
+  :live_preview => false,
+  :h1_title => true,
+  :sidebar => :left,
+  :mathjax => true,
 }
 
-Precious::App.set(:wiki_options, wiki_options)
+Precious::App.set(:default_markup, :markdown)
+Precious::App.set(:wiki_options, WIKI_OPTIONS)
+
+# Define a few useful macros.
 
 class Gollum::Macro::MissingLinksPage < Gollum::Macro
 
@@ -149,7 +164,6 @@ class Gollum::Macro::MissingLinksPage < Gollum::Macro
   end
 
 end
-
 
 class Gollum::Macro::RawHtml < Gollum::Macro
 
