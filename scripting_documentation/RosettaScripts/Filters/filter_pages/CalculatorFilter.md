@@ -32,10 +32,9 @@ CAVEAT: The parsing of the equation is a little touchy and black-box at the mome
 ## See also
 
 * [[BoltzmannFilter]]
-* [[CompoundStatementFilter]
-* [[CombinedValueFilter]
-* [[IfThenFilterFilter]]
-* [[OperatorFilter]]
+* [[CompoundStatementFilter]]
+* [[CombinedValueFilter]]
+* [[IfThenFilter]]
 * [[ReplicateFilter]]
 * [[SigmoidFilter]]
 

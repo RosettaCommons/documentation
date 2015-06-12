@@ -179,6 +179,7 @@ The trajectory format is now widely used in the RosettaCommunity and is recommen
 
 ##See Also
 
+* [[FAQ]]: Frequently Asked Questions
 * [[Glossary]]: Brief definitions of Rosetta terms
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
 * [[Rosetta canon]]: List of important Rosetta papers

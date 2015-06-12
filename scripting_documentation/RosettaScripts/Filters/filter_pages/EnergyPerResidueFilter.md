@@ -10,7 +10,7 @@ score_type=(total_score &string) pdb_num/res_num=(&string) energy_cutoff=(0.0 &f
 whole_interface=(0 &bool) jump_number=(1 &int) interface_distance_cutoff=(8.0 &float) bb_bb=(0, bool) resn resns=("1" &string)/> whole_protein=(0 &int) resnums=(&string)
 ```
 
--   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
+-   pdb\_num/res\_num: see [[RosettaScripts#rosettascripts-conventions_specifying-residues]]
 -   resnums, a list of residue numbers (1,2,3 for pose numbering or 1A,2A,3A for pdb numbering) to filter through
 
 ## See also
