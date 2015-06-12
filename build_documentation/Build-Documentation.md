@@ -112,6 +112,7 @@ To build MPI executables, add the flag "extras=mpi" and copy main/source/tools/b
 ```
 
 ##Dependencies/Troubleshooting
+<a name="dependencies"/>
 Rosetta requires a compiler (most gcc or clang are fine) and the zlib compression library development package. Instructions for acquiring either are below, sorted by what sorts of error messages they give if you are missing them.
 
 **"sh: 1: o: not found"**
