@@ -3,7 +3,7 @@
 TODO: This page is a work in progress cobbled together from private emails and should be re-written in a more presentable form.
 
 The testing server can be found at [[http://benchmark.graylab.jhu.edu/]]. 
-It was designed to automatically test pull requests to master prior to merging with master. 
+It was designed to automatically test master after merging and to test pull requests to master prior to merging with master. 
 Furthermore, specific revisions from any branch can be tested. 
 Ultimately, the test server should limit the frequency of breaking master.
 See [[Running-Tests-on-the-Test-Server]] for full detail on how to use the testing server.

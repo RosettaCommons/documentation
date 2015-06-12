@@ -253,17 +253,22 @@ Work through one by one and keep poses that are at least min_rmsd away from the 
 Model flexible protein loops with one of many algorithms, including CCD (cyclic coordinate descent) and KIC (kinematic closure).
 
 ###gen_apo_grids
-Generate grids for the apo (unliganded) form of the protein. 
+Generate grids for the _apo_ (unliganded) form of the protein by searching the chemistry around the pocket. 
 
 ###gen_lig_grids
+Generate grids for the _holo_ protein-ligand structure.
 
 ###match
+Orient residues around a ligand to match particular scaffold atoms.
 
 ###membrane_abinitio2
+Ab initio fold a membrane protein. Functionally, this is just a wrapper around Abrelax that is responsive to to to membrane-specific options.
 
 ###extract_motifs
+Extract and score key motifs from residue side chains from a given PDB and output them.
 
 ###incorporate_motifs
+Identify flexible regions in a pose using the loops framework and use a collection of inverse rotamers drawn from the motif library to attempt to close the loop. 
 
 ###MakeRotLib
 Calculates a rotamer library for a given set of backbone angles for a given ResidueType.
@@ -272,6 +277,7 @@ Calculates a rotamer library for a given set of backbone angles for a given Resi
 Calculates the unfolded state energy (a type of reference energy used by the mm_std energy function) for a ResidueType.
 
 ###r_noe_assign
+Generate constraint files based on a provided file of well-formatted NOEs and write assignments based on the structure of the native pose provided.
 
 ###hbs_design
 Design a fixed complex of protein and hydrogen bond surrogate scaffold. HBS are constrained helix mimetics made of canonical or noncanonical amino acids with a macrocycle constraining the first several residues of the backbone.
@@ -283,22 +289,31 @@ Design a fixed complex of protein and oligooxopiperazine scaffold. Oligooxopiper
 Design a fixed complex of protein and peptoid scaffold. Peptoids are N-alkyl or N-aryl glycine residues; many peptoid-specific side chains are incorporated into Rosetta.
 
 ###pepspec
+Optionally extend a peptide a number of residues; perform design and minimization to massage it into the binding pocket. Has both low and high resolution phases. 
 
 ###pepspec_anchor_dock
+Anchored, flexible backbone peptide docking to set up structures for pepspec.
 
 ###pocket_relax
+Relax a shell of pocket residues around a target exemplar residue.
 
 ###pocket_suggest_target_residues_by_ddg
+Obtain target pocket by analyzing a ddg file and evaluating individual residue pockets therein.
 
 ###pocket_measure
+Measure statistics and grid data for a desired pocket.
 
 ###make_exemplar
+Evaluates a pocket around a desired residue intended to form an "exemplar." See documentation for the series of applications: pocket_relax, pocket_suggest_target_residues_by_ddg, pocket_measure, and make_exemplar.
 
 ###nucleobase_sample_around
+Sample probe atoms or molecules of desired size around a nucleobase. 
 
 ###recces_turner
+Extensive RNA structural sampling and analysis.
 
 ###rna_features
+Much as the [FeaturesReporter] framework exports a variety of protein features to databases, this applicatoin will extract critical features from RNA structures.
 
 ###rna_graft
 Graft multiple RNA sequences together.
@@ -307,6 +322,7 @@ Graft multiple RNA sequences together.
 Produce an idealized RNA helix from a sequence, for use in subsequent grafting.
 
 ###rna_predict_chem_map
+Predict what the chem map (a common piece of data used for experimental RNA structure determination) would be for a given structural model.
 
 ###rna_suitename
 
