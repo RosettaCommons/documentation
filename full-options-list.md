@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2014-08-22
+Generated: 2015-06-12
 
 _Note that some application specific options may not be present in this list._
 
@@ -52,8 +52,10 @@ _Note that some application specific options may not be present in this list._
 <dd>Distances between metals and metal-binding atoms are constrained using harmonic potentials, scaled by this multiplier.  Default 1.0.  Set to 0.0 to skip adding distance constraints.<br/>Default: 1.0<br/></dd>
 <dt><b>-metals_angle_constraint_multiplier</b> \<Real\></dt>
 <dd>Angles between metals, metal-binding atoms, and metal-binding atom parents are constrained using circular harmonic potentials, scaled by this multiplier.  Default 1.0. Set to 0.0 to skip adding angle constraints.<br/>Default: 1.0<br/></dd>
+<dt><b>-alternate_3_letter_codes</b> \<StringVector\></dt>
+<dd>Specify the filename(s) of (a) *.codes files that includes a list of alternative 3-letter codes.  The default directory is database/input_output/3-letter_codes/ but any path can be provided.  Duplicate codes in successive files will overwrite previous ones.<br/></dd>
 <dt><b>-fix_disulf</b> \<File\></dt>
-<dd>Specify disulfide connectivity via a file.  Disulfides are specified as two whitespace-seperated residue indices per line.  This option replaces the old '-run:fix_disulf' option.<br/></dd>
+<dd>Specify disulfide connectivity via a file.  Disulfides are specified as two whitespace-separated residue indices per line.  This option replaces the old '-run:fix_disulf' option.<br/></dd>
 <dt><b>-missing_density_to_jump</b> \<Boolean\></dt>
 <dd>If missing density is found in input pdbs, replace with a jump<br/>Default: false<br/></dd>
 <dt><b>-target_residues</b> \<IntegerVector\></dt>
@@ -132,7 +134,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-extra_res</b> \<FileVector\></dt>
 <dd>.params file(s) for new residue types (e.g. ligands)<br/></dd>
 <dt><b>-extra_res_fa</b> \<FileVector\></dt>
-<dd>.params file(s) for new fullatom residue types (e.g. ligands)<br/></dd>
+<dd>.params file(s) for new fullatom residue types (e.g. ligands)<br/>Default: []<br/></dd>
 <dt><b>-extra_res_mol</b> \<FileVector\></dt>
 <dd>.mol file(s) for new fullatom residue types (e.g. ligands)<br/></dd>
 <dt><b>-extra_res_database</b> \<String\></dt>
@@ -364,7 +366,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-membrane_pdb</b> \<Boolean\></dt>
 <dd>Write out the membrane in the PDB - on/off.<br/></dd>
 <dt><b>-membrane_pdb_thickness</b> \<Real\></dt>
-<dd>Thickness of the written membrane in the PDB file. Using this flag, turns on -out:membrane_pdb automatically. If flag is not given, it uses the default (30) or the one from the -membrane_new:thickness flag.<br/></dd>
+<dd>Thickness of the written membrane in the PDB file. Using this flag, turns on -out:membrane_pdb automatically. If flag is not given, it uses the default (30) or the one from the -mp:thickness flag.<br/></dd>
 <dt><b>-use_database</b> \<Boolean\></dt>
 <dd>Write out structures to database.  Specify database via -inout:dbms:database_name and wanted structures with -in:file:tags<br/></dd>
 <dt><b>-database_protocol_id</b> \<Integer\></dt>
@@ -456,6 +458,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Omit outputting centroids<br/>Default: false<br/></dd>
 <dt><b>-output_orbitals</b> \<Boolean\></dt>
 <dd>Output all orbitals into PDB.<br/>Default: false<br/></dd>
+<dt><b>-no_scores_in_pdb</b> \<Boolean\></dt>
+<dd>Do not output the scoretable at the end of the output PDB.<br/>Default: false<br/></dd>
 <dt><b>-renumber_pdb</b> \<Boolean\></dt>
 <dd>Use Rosetta residue numbering and arbitrary chain labels in pdb output.<br/>Default: false<br/></dd>
 <dt><b>-pdb_parents</b> \<Boolean\></dt>
@@ -472,6 +476,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Force ResidueConformationFeatures to treat the structure as nonideal.  If you know all your structures are non-ideal this decreases pose output time<br/>Default: true<br/></dd>
 <dt><b>-write_pdb_link_records</b> \<Boolean\></dt>
 <dd>Sets whether or not the LINK records in PDB files are written.  The default value is false.<br/>Default: false<br/></dd>
+<dt><b>-write_pdb_parametric_info</b> \<Boolean\></dt>
+<dd>If true, parametric poses have their parameter info included in the REMARK lines of the output PDB file.  True by default.<br/>Default: true<br/></dd>
 <dt><b>-dont_rewrite_dunbrack_database</b> \<Boolean\></dt>
 <dd>Disables the default behavior of rewriting the Dunrack library in binary format if a binary version is not found<br/></dd>
 <dt><b>-frag_prefix</b> \<String\></dt>
@@ -508,6 +514,10 @@ _Note that some application specific options may not be present in this list._
 <dd>run MPIMultiCommJobDistributor with n_replica processes per job<br/>Default: 1<br/></dd>
 <dt><b>-shuffle</b> \<Boolean\></dt>
 <dd>Shuffle job order<br/>Default: false<br/></dd>
+<dt><b>-msd_job_dist</b> \<Boolean\></dt>
+<dd>Use MSD Job Distributor<br/>Default: false<br/></dd>
+<dt><b>-msd_randomize</b> \<Boolean\></dt>
+<dd>Randomize order of input poses for MSD<br/>Default: false<br/></dd>
 <dt><b>-n_cycles</b> \<Integer\></dt>
 <dd>Option to control miscellaneous cycles within protocols.  This has no core meaning - it is meant to reduce option-bloat by having every protocol define separate cycles options.  Check your protocol's documentation to see if it is used.<br/>Range: 1-<br/>Default: 1<br/></dd>
 <dt><b>-repeat</b> \<Integer\></dt>
@@ -516,6 +526,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Maximum number of iterations of dfpmin<br/>Default: 200<br/></dd>
 <dt><b>-maxruntime</b> \<Integer\></dt>
 <dd>Maximum runtime in seconds. JobDistributor will signal end if time is exceeded no matter how many jobs were finished.<br/>Default: -1<br/></dd>
+<dt><b>-maxruntime_bufferfactor</b> \<Real\></dt>
+<dd>If set, the JobDistributor will attempt to stop if there doesn't appear to be enough time for `maxruntime_bufferfactor` jobs before maxruntime occurs.<br/>Default: 0<br/></dd>
 <dt><b>-write_failures</b> \<Boolean\></dt>
 <dd>write failed structures to output<br/>Default: false<br/></dd>
 <dt><b>-benchmark</b> \<Boolean\></dt>
@@ -640,6 +652,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Only update the simulation in pymol on conformation change.<br/>Default: false<br/></dd>
 <dt><b>-keep_pymol_simulation_history</b> \<Boolean\></dt>
 <dd>Keep history when using show_simulation_in_pymol flag?<br/>Default: false<br/></dd>
+<dt><b>-insert_disulfide_constraint_weight</b> \<Real\></dt>
+<dd>Weight of the constraints on disulfide bonds formed by the DisulfideInsertionMover; EXPERIMENTAL<br/>Default: 0.0<br/></dd>
 </dl>
 + <h2>-jd2</h2>
 <dl>
@@ -652,7 +666,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-mpi_nowait_for_remaining_jobs</b> \<Boolean\></dt>
 <dd>exit immediately (not graceful -- not complete) if the last job has been sent out<br/>Default: false<br/></dd>
 <dt><b>-mpi_timeout_factor</b> \<Real\></dt>
-<dd>timeout is X times average job-completion time - set to 0 to switch off<br/>Default: 3<br/></dd>
+<dd>timeout is X times average job-completion time - set to 0 to switch off<br/>Default: 0<br/></dd>
 <dt><b>-mpi_work_partition_job_distributor</b> \<Boolean\></dt>
 <dd>determine if we should use the WorkPartition job distributor<br/>Default: false<br/></dd>
 <dt><b>-mpi_file_buf_job_distributor</b> \<Boolean\></dt>
@@ -681,6 +695,14 @@ _Note that some application specific options may not be present in this list._
 <dd>Specify all the jobs and all of their resources to the new JD2ResourceManager system<br/></dd>
 <dt><b>-checkpoint_file</b> \<File\></dt>
 <dd>write/read nstruct-based checkpoint files to the desired filename.<br/></dd>
+<dt><b>-nthreads</b> \<Integer\></dt>
+<dd>The maximum number of threads to run at once using the MultiThreadedJobDistributor<br/></dd>
+<dt><b>-failed_job_exception</b> \<Boolean\></dt>
+<dd>If JD2 encounters an error during job execution, raise an exception at the end of the run<br/>Default: true<br/></dd>
+<dt><b>-max_nstruct_in_memory</b> \<Integer\></dt>
+<dd>If nstruct is set higher than this number, JD2 will keep only this many jobs in memory in the jobs list at any given time (to keep the jobs list from filling up memory).  As jobs complete, they will be deleted and the jobs list will be filled out with new jobs.  This option is intended for exteremly large runs on systems like the Blue Gene/Q supercomputer.  To disable this sort of memory management, set this option to 0.<br/>Default: 1000000<br/></dd>
+<dt><b>-sequential_mpi_job_distribution</b> \<Boolean\></dt>
+<dd>If specified, MPI versions of the JobDistributor send jobs to each slave in sequence (slave1, slave2, slave3 etc.).  False by default.  Note that this should NOT be used for production runs; it is intended only for regression tests in which non-sequential job distribution would result in stochastic variations.<br/>Default: false<br/></dd>
 </dl>
 + <h2>-score</h2>
 <dl>
@@ -719,7 +741,17 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-output_etables</b> \<String\></dt>
 <dd>Write out etables to files with given prefix<br/></dd>
 <dt><b>-analytic_etable_evaluation</b> \<Boolean\></dt>
-<dd>Instead of interpolating between bins, use an analytic evaluation of the lennard-jones and solvation energis<br/>Default: true<br/></dd>
+<dd>Instead of interpolating between bins, use an analytic evaluation of the lennard-jones and solvation energies<br/>Default: true<br/></dd>
+<dt><b>-put_intra_into_total</b> \<Boolean\></dt>
+<dd>Put intra-residue terms inside hbond, geom_sol_fast, fa_atr. (Contributions will not show up in hbond_intra, fa_atr_intra_xover4.) Off for proteins by default.<br/>Default: false<br/></dd>
+<dt><b>-include_intra_res_protein</b> \<Boolean\></dt>
+<dd>Include computation of intra-residue terms for proteins.<br/>Default: false<br/></dd>
+<dt><b>-fa_stack_base_base_only</b> \<Boolean\></dt>
+<dd>Only calculate fa_stack for RNA base/base.<br/>Default: true<br/></dd>
+<dt><b>-geom_sol_interres_path_distance_cutoff</b> \<Integer\></dt>
+<dd>Minimum no. bonds between atoms in different residues to calculate geom_sol<br/>Default: 0<br/></dd>
+<dt><b>-geom_sol_intrares_path_distance_cutoff</b> \<Integer\></dt>
+<dd>Minimum no. bonds between atoms in same residues to calculate geom_sol<br/>Default: 6<br/></dd>
 <dt><b>-rms_target</b> \<Real\></dt>
 <dd>Target of RMS optimization for RMS_Energy EnergyMethod<br/>Default: 0.0<br/></dd>
 <dt><b>-ramaneighbors</b> \<Boolean\></dt>
@@ -728,6 +760,10 @@ _Note that some application specific options may not be present in this list._
 <dd>Name of weights file (without extension .wts) to use during optH<br/></dd>
 <dt><b>-optH_patch</b> \<String\></dt>
 <dd>Name of weights file (without extension .wts) to use during optH<br/></dd>
+<dt><b>-hb_don_strength</b> \<StringVector\></dt>
+<dd>Modification of hbond donor-atom strengths, over-rides any database file settings. Format is -hb_don_strength <atm1>:<wt1> <atm2>:<wt2> ...   For example -hb_don_strength hbdon_IND:1.5 hbdon_AHX:0.5<br/></dd>
+<dt><b>-hb_acc_strength</b> \<StringVector\></dt>
+<dd>Modification of hbond acceptor-atom strengths, over-rides any database file settings. Format is -hb_acc_strength <atm1>:<wt1> <atm2>:<wt2> ...   For example -hb_acc_strength hbacc_CXA:1.5 hbdon_HXL:0.5<br/></dd>
 <dt><b>-hbond_params</b> \<String\></dt>
 <dd>Directory name in the database for which hydrogen bond parameters to use.<br/>Default: "sp2_elec_params"<br/></dd>
 <dt><b>-hbond_bb_per_residue_energy</b> \<Boolean\></dt>
@@ -747,13 +783,31 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-disable_orientation_dependent_rna_ch_o_bonds</b> \<Boolean\></dt>
 <dd>Do not use orientation-dependent potential for RNA carbon hydrogen bonds<br/>Default: false<br/></dd>
 <dt><b>-rna_torsion_potential</b> \<String\></dt>
-<dd>In RNA torsion calculation, directory containing 1D torsional potentials<br/>Default: "BLAHBLAHBLAH"<br/></dd>
+<dd>In RNA torsion calculation, directory containing 1D torsional potentials<br/>Default: "ps_04282011"<br/></dd>
 <dt><b>-rna_suite_potential</b> \<String\></dt>
-<dd>In RNA calculation, directory containing suite potentials<br/>Default: ""<br/></dd>
+<dd>In RNA calculation, directory containing suite potentials<br/>Default: "Richardson"<br/></dd>
+<dt><b>-suiteness_bonus</b> \<String\></dt>
+<dd>In RNA calculation, directory containing suiteness bonus definition<br/>Default: "Richardson"<br/></dd>
 <dt><b>-rna_torsion_skip_chainbreak</b> \<Boolean\></dt>
 <dd>Don't score RNA torsions located at the chain_breaks (aside from the ones that will be closed)<br/>Default: true<br/></dd>
+<dt><b>-rna_chemical_shift_verbose</b> \<Boolean\></dt>
+<dd>print out chemical shifts; useful for debug<br/>Default: false<br/></dd>
+<dt><b>-rna_chemical_shift_larmord</b> \<Boolean\></dt>
+<dd>Use LARMORD to calculate 1H chemical shifts<br/>Default: false<br/></dd>
 <dt><b>-rna_chemical_shift_exp_data</b> \<String\></dt>
 <dd>rna_chemical_shift_exp_data<br/>Default: ""<br/></dd>
+<dt><b>-rna_chemical_shift_larmord_par</b> \<String\></dt>
+<dd>larmord parameters file<br/>Default: "larmord_1.0_nocut_parameters.dat"<br/></dd>
+<dt><b>-rna_chemical_shift_larmord_wt</b> \<String\></dt>
+<dd>larmord expected accuracy file<br/>Default: "larmord_noweights.txt"<br/></dd>
+<dt><b>-rna_chemical_shift_larmord_ref</b> \<String\></dt>
+<dd>larmord reference  chemical shift file<br/>Default: "larmord_1.0_reference_shifts.dat"<br/></dd>
+<dt><b>-rna_chemical_shift_larmord_nei</b> \<String\></dt>
+<dd>larmord neighbor atom shift file<br/>Default: "larmord_1.0_neighbor_atoms.dat"<br/></dd>
+<dt><b>-rna_chemical_shift_larmord_cut</b> \<Real\></dt>
+<dd>larmord distance cutoff<br/>Default: 9999.9<br/></dd>
+<dt><b>-rna_chemical_shift_larmord_beta</b> \<Real\></dt>
+<dd>larmord beta value (the exponent)<br/>Default: -3.0<br/></dd>
 <dt><b>-rna_chemical_shift_H5_prime_mode</b> \<String\></dt>
 <dd>rna_chemical_shift_H5_prime_mode<br/>Default: ""<br/></dd>
 <dt><b>-rna_chemical_shift_include_res</b> \<IntegerVector\></dt>
@@ -822,6 +876,12 @@ _Note that some application specific options may not be present in this list._
 <dd>Amount to penalize instantiation of a 5' or 3' phosphate<br/>Default: 0.25<br/></dd>
 <dt><b>-free_side_chain_bonus</b> \<Real\></dt>
 <dd>Amount to reward virtualization of a protein side chain, per free chi<br/>Default: -0.5<br/></dd>
+<dt><b>-bond_angle_sd_polar_hydrogen</b> \<Real\></dt>
+<dd>Standard deviation for bond_geometry angle term with -vary_polar_hydrogen_geometry flag, in degrees<br/>Default: 60.0<br/></dd>
+<dt><b>-bond_torsion_sd_polar_hydrogen</b> \<Real\></dt>
+<dd>Standard deviation for bond_geometry torsion term with -vary_polar_hydrogen_geometry flag, in degrees<br/>Default: 30.0<br/></dd>
+<dt><b>-rna_bulge_bonus_once_per_loop</b> \<Boolean\></dt>
+<dd>For legacy stepwise term rna_bulge in SWM runs, compute bulge bonus on a per-loop basis, rather than a bonus for each virtual residue.<br/>Default: true<br/></dd>
 <dt><b>-rg_local_span</b> \<IntegerVector\></dt>
 <dd>First,last res in rg_local. For example to calc rg_local from 1-20 would be 1,20<br/>Default: 0<br/></dd>
 <dt><b>-unmodifypot</b> \<Boolean\></dt>
@@ -842,10 +902,44 @@ _Note that some application specific options may not be present in this list._
 <dd>changes the dielectric constant for hack-elec energy<br/>Default: 10.0<br/></dd>
 <dt><b>-elec_r_option</b> \<Boolean\></dt>
 <dd>changes the dielectric from distance dependent to distance independent<br/>Default: false<br/></dd>
+<dt><b>-elec_sigmoidal_die</b> \<Boolean\></dt>
+<dd>changes the dielectric from distance dependent to sigmoidal<br/>Default: false<br/></dd>
+<dt><b>-elec_sigmoidal_die_D</b> \<Real\></dt>
+<dd>D parameter for sigmoidal dielectric<br/>Default: 78.0<br/></dd>
+<dt><b>-elec_sigmoidal_die_D0</b> \<Real\></dt>
+<dd>D0 parameter for sigmoidal dielectric<br/>Default: 2.0<br/></dd>
+<dt><b>-elec_sigmoidal_die_S</b> \<Real\></dt>
+<dd>S parameter for sigmoidal dielectric<br/>Default: 0.36<br/></dd>
 <dt><b>-intrares_elec_correction_scale</b> \<Real\></dt>
 <dd>Intrares elec scaling factor for free DOF atoms<br/>Default: 0.05<br/></dd>
 <dt><b>-smooth_fa_elec</b> \<Boolean\></dt>
 <dd>Smooth the discontinuities in the elec energy function using a sigmoidal term<br/>Default: true<br/></dd>
+<dt><b>-grpelec_fade_type</b> \<String\></dt>
+<dd>use standard way (shift/switch function) of Coulomb function for fa_grpelec<br/>Default: "false"<br/></dd>
+<dt><b>-grpelec_fade_param1</b> \<Real\></dt>
+<dd>fading distance for shift/switch<br/>Default: 1.0<br/></dd>
+<dt><b>-grpelec_fade_param2</b> \<Real\></dt>
+<dd>exponent for shift<br/>Default: 1.0<br/></dd>
+<dt><b>-elec_group_file</b> \<String\></dt>
+<dd>file where group information is stored<br/>Default: "/scoring/score_functions/elec_group_def.dat"<br/></dd>
+<dt><b>-elec_group_extrafile</b> \<String\></dt>
+<dd>file where group information for extra_res is stored<br/>Default: ""<br/></dd>
+<dt><b>-grpelec_fade_hbond</b> \<Boolean\></dt>
+<dd>fade grpelec for hbonding group<br/>Default: false<br/></dd>
+<dt><b>-grpelec_max_qeps</b> \<RealVector\></dt>
+<dd>Max abs charge for the group types, used when fading hbond [nonpolar/polar/charged]<br/>Default: ['0', '0.10', '0.25', '0.5']<br/></dd>
+<dt><b>-grpelec_context_dependent</b> \<Boolean\></dt>
+<dd>whether grpelec depends on context<br/>Default: false<br/></dd>
+<dt><b>-grp_cpfxn</b> \<Boolean\></dt>
+<dd>rule for trying cpfxn on group<br/>Default: true<br/></dd>
+<dt><b>-grpelec_cpfxn_weight</b> \<RealVector\></dt>
+<dd>cpfxn weight on group(1-4/1-5/>1-5)<br/>Default: ['0.0', '0.2', '1.0']<br/></dd>
+<dt><b>-elec_context_minstrength</b> \<Real\></dt>
+<dd>strength at min burial <br/>Default: 0.2<br/></dd>
+<dt><b>-elec_context_minburial</b> \<Real\></dt>
+<dd>num. cb assigned as min burial <br/>Default: 7.0<br/></dd>
+<dt><b>-elec_context_maxburial</b> \<Real\></dt>
+<dd>num. cb assigned as max burial<br/>Default: 24.0<br/></dd>
 <dt><b>-facts_GBpair_cut</b> \<Real\></dt>
 <dd>GBpair interaction distance cutoff (same as elec_max_dis)<br/>Default: 10.0<br/></dd>
 <dt><b>-facts_kappa</b> \<Real\></dt>
@@ -928,6 +1022,8 @@ _Note that some application specific options may not be present in this list._
 <dd>length of nmers in nmer_ref score<br/>Default: 9<br/></dd>
 <dt><b>-just_calc_rmsd</b> \<Boolean\></dt>
 <dd>In rna_score, just calculate rmsd -- do not replace score.<br/>Default: false<br/></dd>
+<dt><b>-envsmooth_zero_negatives</b> \<Boolean\></dt>
+<dd>use alternative envsmooth table with a floor of 0.0 (envsmooth awards no energy bonus)<br/>Default: false<br/></dd>
 </dl>
 + <h3>-score:saxs</h3>
 <dl>
@@ -961,6 +1057,57 @@ _Note that some application specific options may not be present in this list._
 <dd>step of q used in spectra calculations (in [A^-1])<br/>Default: 0.01<br/></dd>
 <dt><b>-fit_pddf_area</b> \<Boolean\></dt>
 <dd>PDDF curve for a scored pose will be normalized to match the area under the reference PDDF curve<br/>Default: false<br/></dd>
+</dl>
++ <h3>-score:fiber_diffraction</h3>
+<dl>
+<dt><b>-fiber_diffraction</b> \<Boolean\></dt>
+<dd>fiber_diffraction option group<br/></dd>
+<dt><b>-layer_lines</b> \<File\></dt>
+<dd>reads layer_lines from a file<br/></dd>
+<dt><b>-a</b> \<Real\></dt>
+<dd>number of subunits per repeat<br/>Default: 0<br/></dd>
+<dt><b>-b</b> \<Real\></dt>
+<dd>number of turns per repeat<br/>Default: 0<br/></dd>
+<dt><b>-p</b> \<Real\></dt>
+<dd>subunit rise<br/>Default: 0<br/></dd>
+<dt><b>-radius</b> \<Real\></dt>
+<dd>helical radius<br/>Default: 0<br/></dd>
+<dt><b>-resolution_cutoff_low</b> \<Real\></dt>
+<dd>ignore intensity data below this point<br/>Default: 0.05<br/></dd>
+<dt><b>-resolution_cutoff_high</b> \<Real\></dt>
+<dd>ignore intensity data above this point<br/>Default: 0.5<br/></dd>
+<dt><b>-max_bessel_order</b> \<Integer\></dt>
+<dd>maximum number of bessel orders used in simulations<br/>Default: 50<br/></dd>
+<dt><b>-cn_symmetry</b> \<Integer\></dt>
+<dd>cn symmetry at one z level (along fibrilar axis)<br/>Default: 0<br/></dd>
+<dt><b>-b_factor</b> \<Real\></dt>
+<dd>b_factor value<br/>Default: 20<br/></dd>
+<dt><b>-b_factor_solv</b> \<Real\></dt>
+<dd>b_factor_solv value<br/>Default: 400<br/></dd>
+<dt><b>-b_factor_solv_K</b> \<Real\></dt>
+<dd>b_factor_solv_K value<br/>Default: 0.4<br/></dd>
+<dt><b>-grid_reso</b> \<Real\></dt>
+<dd>resolution for density sampling on the grid<br/>Default: 0.5<br/></dd>
+<dt><b>-grid_r</b> \<Integer\></dt>
+<dd>number of grid points along r<br/>Default: 256<br/></dd>
+<dt><b>-grid_phi</b> \<Integer\></dt>
+<dd>number of grid points along phi<br/>Default: 128<br/></dd>
+<dt><b>-grid_z</b> \<Integer\></dt>
+<dd>number of grid points along z<br/>Default: 256<br/></dd>
+<dt><b>-qfht_K1</b> \<Real\></dt>
+<dd>value of K1 for Hankel sampling<br/>Default: 2.0<br/></dd>
+<dt><b>-qfht_K2</b> \<Real\></dt>
+<dd>value of K2 for Hankel sampling<br/>Default: 2.2<br/></dd>
+<dt><b>-chi_iterations</b> \<Integer\></dt>
+<dd>number of iterations to calculate chi e.g. number of layer lines<br/>Default: 0<br/></dd>
+<dt><b>-rfactor_refinement</b> \<Boolean\></dt>
+<dd>R-factor refinement<br/>Default: false<br/></dd>
+<dt><b>-output_fiber_spectra</b> \<Boolean\></dt>
+<dd>Output intensity, reciprocal R, layer line<br/>Default: false<br/></dd>
+<dt><b>-gpu_processor</b> \<Integer\></dt>
+<dd>GPU processor number - for systems with more than 1<br/>Default: 0<br/></dd>
+<dt><b>-centroid_density_mass</b> \<Real\></dt>
+<dd>density mass of centroid<br/>Default: 0.0<br/></dd>
 </dl>
 + <h2>-packing</h2>
 <dl>
@@ -1111,6 +1258,17 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-completion_notify_frequency</b> \<Integer\></dt>
 <dd>tell Archive every X completed decoys<br/>Default: 100<br/></dd>
 </dl>
++ <h2>-rings</h2>
+<dl>
+<dt><b>-rings</b> \<Boolean\></dt>
+<dd>rings option group<br/></dd>
+<dt><b>-lock_rings</b> \<Boolean\></dt>
+<dd>Sets whether or not alternative ring conformations will be sampled by the protocol, (e.g, ring flips or puckering).  Only low-energy conformers will be sampled, if known.  Otherwise, all ideal ring conformers will be sampled.  The default value is false.<br/>Default: false<br/></dd>
+<dt><b>-idealize_rings</b> \<Boolean\></dt>
+<dd>Sets whether or not the ring conformations of input poses are idealized (set to the lowest-energy ring conformer, according to the toplogy file for that residue).  The default is false: the input ring conformations will be used.<br/>Default: false<br/></dd>
+<dt><b>-sample_high_energy_conformers</b> \<Boolean\></dt>
+<dd>Sets whether or not even ring conformations that are energy energy maxima will be sampled by the protocol.  The default value is false; however, if the low energy ring conformers are not listed in the topology files, all ideal ring conformers will be sampled anyway.<br/>Default: false<br/></dd>
+</dl>
 + <h2>-chemical</h2>
 <dl>
 <dt><b>-chemical</b> \<Boolean\></dt>
@@ -1119,8 +1277,6 @@ _Note that some application specific options may not be present in this list._
 <dd>Names of the residue-type-set patches which should not be applied; if you know which patches you do not need for a particular run, this flag can reduce your memory use<br/></dd>
 <dt><b>-include_patches</b> \<StringVector\></dt>
 <dd>Names of the residue-type-set patches which should be applied even if excluded/commented out in patches.txt; useful for testing non-default patches<br/></dd>
-<dt><b>-enlarge_H_lj</b> \<Boolean\></dt>
-<dd>Use larger LJ_WDEPTH for Hs to avoid RNA clashes<br/>Default: false<br/></dd>
 <dt><b>-add_atom_type_set_parameters</b> \<StringVector\></dt>
 <dd>Additional AtomTypeSet extra-parameter files that should be read; format is a sequence of paired strings: <atom-type-set-tag1> <filename1> <atom-type-set-tag2> <filename2> ...<br/></dd>
 <dt><b>-set_atom_properties</b> \<StringVector\></dt>
@@ -1129,13 +1285,25 @@ _Note that some application specific options may not be present in this list._
 <dd>allow patch files that have CMDLINE_SELECTOR tags can be switched on with this option<br/>Default: []<br/></dd>
 <dt><b>-override_rsd_type_limit</b> \<Boolean\></dt>
 <dd>over-ride cap on number of residue types.<br/>Default: false<br/></dd>
+<dt><b>-clone_atom_types</b> \<StringVector\></dt>
+<dd>Optionally clone atom types; copies all properties, which can then be diverged via -set_atom_properties. -clone_atom_types format should be:: -clone_atom_types <set1>:<atomname1>:<cloned-atomname1> <set2>:<atomname2>:<cloned-atomname2> ...; for example: '-chemical:clone_atom_types fa_standard:OOC:OOC2' <br/></dd>
+<dt><b>-reassign_atom_types</b> \<StringVector\></dt>
+<dd>Switch the atomtype assignments for atoms in specified residue types. Useful along with -clone_atom_types. -reassign_atom_types format should be:: -reassign_atom_types <rsd-type-set1-name>:<rsd-type1-name>:<atom-type1-name>:<new-atom-type1-name>   <rsd-type-set2-name>:<rsd-type2-name>:<atom-type2-name>:<new-atom-type2-name> ...; for example: '-chemical:reassign_atom_types fa_standard:ARG:NE:NtpR' <br/></dd>
+<dt><b>-reassign_icoor</b> \<StringVector\></dt>
+<dd>Update icoor parameters for specified atom types. -reassign_icoor format should be:: -reassign_icoor <rsd-type-set1-name>:<rsd-type1-name>:<atom1-name>:<the-six-icoor-params-as-a-comma-separated-list>   <rsd-type-set2-name>:<rsd-type2-name>:<atom2-name>:<icoorparams2> ...; for example: -chemical:reassign_icoor fa_standard:ADE:UPPER:-180,60,1.6,O3',C3',C4' <br/></dd>
+<dt><b>-set_atomic_charge</b> \<StringVector\></dt>
+<dd>Modify atomic charge from the command line. Happens at time of params file reading, so changes will propagate to patched versions of the residue type. Format is: -chemical:set_atomic_charge <rsd-type-set1-name>:<rsd-type1-name>:<atom1-name>:<new-charge> <rsd-type-set2-name>:<rsd-type2-name>:<atom2-name>:<new-charge>  ... For example: '-chemical:set_atomic_charge fa_standard:ARG:NE:-1' <br/></dd>
+<dt><b>-enlarge_H_lj</b> \<Boolean\></dt>
+<dd>Use larger LJ_WDEPTH for Hs to avoid RNA clashes<br/>Default: false<br/></dd>
+<dt><b>-no_hbonds_to_ester_oxygens</b> \<Boolean\></dt>
+<dd>no H-bonds to nucleic acid ester oxygens O3', O4', O5'<br/>Default: false<br/></dd>
 </dl>
 + <h2>-constraints</h2>
 <dl>
 <dt><b>-constraints</b> \<Boolean\></dt>
 <dd>constraints option group<br/></dd>
 <dt><b>-exit_on_bad_read</b> \<Boolean\></dt>
-<dd>exit if error is encountered reading constraints<br/>Default: false<br/></dd>
+<dd>exit if error is encountered reading constraints<br/>Default: true<br/></dd>
 <dt><b>-cst_file</b> \<StringVector\></dt>
 <dd>constraints filename(s) for centoroid. When multiple files are given a *random* one will be picked.<br/></dd>
 <dt><b>-cst_weight</b> \<Real\></dt>
@@ -1197,6 +1365,8 @@ _Note that some application specific options may not be present in this list._
 <dd>corrections option group<br/></dd>
 <dt><b>-beta</b> \<Boolean\></dt>
 <dd>use beta score function<br/>Default: false<br/></dd>
+<dt><b>-newdna</b> \<Boolean\></dt>
+<dd>Apply some dna-specific mods to chemical/scoring (for testing)<br/>Default: false<br/></dd>
 <dt><b>-correct</b> \<Boolean\></dt>
 <dd>turn on default corrections:-corrections::chemical:icoor_05_2009-corrections::score:p_aa_pp scoring/score_functions/P_AA_pp/P_AA_pp_08.2009-corrections::score:p_aa_pp_nogridshift-corrections::score:p_aa_pp_nogridshift-corrections::score:rama_not_squared-corrections::score:rama_map scoring/score_functions/rama/Rama.10.2009.yfsong.dat-scoring::hbond_params helix_hb_06_2009-corrections::score:hbond_fade 1.9 2.3 2.3 2.6 0.3 0.7 0.0 0.05-corrections::score:ch_o_bond_potential scoring/score_functions/carbon_hbond/ch_o_bond_potential_near_min_yf.dat<br/>Default: false<br/></dd>
 <dt><b>-hbond_sp2_correction</b> \<Boolean\></dt>
@@ -1273,6 +1443,38 @@ _Note that some application specific options may not be present in this list._
 <dd>Use PARSE charge set.<br/></dd>
 <dt><b>-expand_st_chi2sampling</b> \<Boolean\></dt>
 <dd>Ugly temporary hack.  Expand the chi2 sampling for serine and threonine in the fa_standard residue type set so that samples are taken every 20 degrees (instead of every 60 degrees.  This will soon be changed in the SER and THR params files themselves.  This flag can be used with any residue type set (including the pre-talaris fa_standard version, and with the fa_standard_05.2009_icoor version) but is unncessary for the talaris2013 version (currently named fa_standard) as the expanded SER and THR sampling is already encoded in .params files for these two residues<br/>Default: false<br/></dd>
+</dl>
++ <h2>-corrections</h2>
+<dl>
+<dt><b>-shapovalov_lib_fixes_enable</b> \<Boolean\></dt>
+<dd>Apply new code by Maxim Shapovalov from Dunbrack Lab such as for reading/using dun, rama, prop libraries in new format and options for applying different bug fixes. False value will employ old libraries and old code.<br/>Default: false<br/></dd>
+</dl>
++ <h3>-corrections:shapovalov_lib</h3>
+<dl>
+<dt><b>-shapovalov_lib</b> \<Boolean\></dt>
+<dd>shapovalov_lib option group<br/></dd>
+<dt><b>-shap_dun10_enable</b> \<Boolean\></dt>
+<dd>Enable new Shapovalov's dun10 fix if the umbrella option is on, shapovalov_lib_fixes<br/>Default: true<br/></dd>
+<dt><b>-shap_dun10_smooth_level</b> \<String\></dt>
+<dd>Smoothing level either numeric or word keyword, possible values are 1 or lowest_smooth, 2 or lower_smooth, 3 or low_smooth, 4 or average_smooth, 5 or higher_smooth, 6 or highest_smooth.<br/>Default: "3"<br/></dd>
+<dt><b>-shap_dun10_dir</b> \<String\></dt>
+<dd>Name of the new format dun10 dir<br/>Default: "rotamer/shapovalov/StpDwn_5-5-5"<br/></dd>
+<dt><b>-shap_dun10_use_minus_log_P_ignore_P</b> \<Boolean\></dt>
+<dd>Use minus log P from text libraries only and ignore any P.<br/>Default: false<br/></dd>
+<dt><b>-shap_rama_enable</b> \<Boolean\></dt>
+<dd>Enable new Shapovalov's Rama fix if the umbrella option is on, shapovalov_lib_fixes<br/>Default: true<br/></dd>
+<dt><b>-shap_rama_smooth_level</b> \<String\></dt>
+<dd>Smoothing level either numeric or word keyword, possible values are 1 or lowest_smooth, 2 or lower_smooth, 3 or higher_smooth, 4 or highest_smooth.<br/>Default: "4"<br/></dd>
+<dt><b>-shap_rama_map</b> \<File\></dt>
+<dd>New Ramachandran file in the new format used by rama<br/>Default: "scoring/score_functions/rama/shapovalov/kappa25/all.ramaProb"<br/></dd>
+<dt><b>-shap_rama_nogridshift</b> \<Boolean\></dt>
+<dd>With correct flag there is a bug. Rama09_noEH_kernel25_it08.dat is used where prob values are reported exactly at the 10-deg grid while Rama_smooth_dyn.dat_ss_6.4 has values reported in the middle of bins. There is no need for 5-deg shift for newer Rama maps with values reported at the grid.<br/>Default: true<br/></dd>
+<dt><b>-shap_p_aa_pp_enable</b> \<Boolean\></dt>
+<dd>Enable new Shapovalov's propensity map fix if the umbrella option is on, shapovalov_lib_fixes<br/>Default: true<br/></dd>
+<dt><b>-shap_p_aa_pp_smooth_level</b> \<String\></dt>
+<dd>Smoothing level either numeric or word keyword, possible values are 1 or low_smooth, 2 or high_smooth.<br/>Default: "2"<br/></dd>
+<dt><b>-shap_p_aa_pp</b> \<String\></dt>
+<dd>Name of the new Shapovalov's P_AA_PP potential file (search in the local directory first, then look in the database)<br/>Default: "scoring/score_functions/P_AA_pp/shapovalov/10deg/kappa50/a20.prop"<br/></dd>
 </dl>
 + <h2>-evaluation</h2>
 <dl>
@@ -1530,6 +1732,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Abrelax uses FASlidingWindowLoopClosure... <br/>Default: false<br/></dd>
 <dt><b>-combine_rate</b> \<Real\></dt>
 <dd>Combine successive loops at this rate<br/>Default: 0.0<br/></dd>
+<dt><b>-skip_initial_loop_build</b> \<Boolean\></dt>
+<dd>Skip the initial loop build step where existing loop torsions are discarded and the loop is built from scratch. <br/>Default: false<br/></dd>
 <dt><b>-remodel</b> \<String\></dt>
 <dd><br/>Default: "no"<br/></dd>
 <dt><b>-intermedrelax</b> \<String\></dt>
@@ -1584,8 +1788,10 @@ _Note that some application specific options may not be present in this list._
 <dd>Allow takeoff phi/psi to move during loop modeling<br/>Default: false<br/></dd>
 <dt><b>-extend_length</b> \<Integer\></dt>
 <dd>Number of alanine residues to append after cutpoint in loopextend app<br/>Range: 0-<br/>Default: 0<br/></dd>
-<dt><b>-outer_cycles</b> \<Integer\></dt>
-<dd>outer cycles in fullatom loop refinement<br/>Range: 1-<br/>Default: 5<br/></dd>
+<dt><b>-perturb_outer_cycles</b> \<Integer\></dt>
+<dd>number of outer cycles in the perturbation (centroid) stage<br/>Range: 1-<br/>Default: 5<br/></dd>
+<dt><b>-refine_outer_cycles</b> \<Integer\></dt>
+<dd>number of outer cycles in the fullatom refinement stage<br/>Range: 1-<br/>Default: 5<br/></dd>
 <dt><b>-max_inner_cycles</b> \<Integer\></dt>
 <dd>maxium number of inner cycles in fullatom loop refinement<br/>Range: 1-<br/>Default: 1<br/></dd>
 <dt><b>-repack_period</b> \<Integer\></dt>
@@ -1610,6 +1816,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Perform sampling of omega angles around 179.6 for trans, and including 0 for pre-prolines -- default false, for legacy reasons<br/>Default: false<br/></dd>
 <dt><b>-kic_bump_overlap_factor</b> \<Real\></dt>
 <dd>allow some atomic overlap in initial loop closures (should be remediated in subsequent repacking and minimization)<br/>Default: 0.36<br/></dd>
+<dt><b>-minimize_max_iter</b> \<Integer\></dt>
+<dd>Max iteration of minimization during MC<br/>Default: 200<br/></dd>
 <dt><b>-restrict_kic_sampling_to_torsion_string</b> \<String\></dt>
 <dd>restrict kinematic loop closure sampling to the phi/psi angles specified in the torsion string<br/>Default: ""<br/></dd>
 <dt><b>-derive_torsion_string_from_native_pose</b> \<Boolean\></dt>
@@ -1718,14 +1926,14 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-temperature</b> \<Real\></dt>
 <dd>Temperature (roughly in units of kT) to use when accepting a move that does not improve the Ramachandran score.<br/>Default: 0.25<br/></dd>
 </dl>
-+ <h2>-membrane_new</h2>
++ <h2>-mp</h2>
 <dl>
-<dt><b>-membrane_new</b> \<Boolean\></dt>
-<dd>membrane_new option group<br/></dd>
-<dt><b>-anchored_foldtree</b> \<Boolean\></dt>
-<dd>Build a fold tree anchored by a VRT so the membrane and protein have explicit jumps to modify<br/></dd>
+<dt><b>-mp</b> \<Boolean\></dt>
+<dd>mp option group<br/></dd>
 <dt><b>-thickness</b> \<Real\></dt>
-<dd>User-defined membrane thickness. Overwrites default thickness of 60A.<br/></dd>
+<dd>Thickness of the membrane used by the high resolution scoring function. Overwrites default thickness of 30A.<br/></dd>
+<dt><b>-steepness</b> \<Real\></dt>
+<dd>Control transition region between polar and nonpoar phases for the membrane model used by the high resolution energy function. Default = 10 gives a 6A transition region.<br/></dd>
 <dt><b>-center_start</b> \<RealVector\></dt>
 <dd>Starting point for center search. Example: 3 2 4.<br/></dd>
 <dt><b>-center_delta</b> \<Real\></dt>
@@ -1768,50 +1976,95 @@ _Note that some application specific options may not be present in this list._
 <dd>Penalty if structure-based spanning doesn't match spanfile - on/off.<br/></dd>
 <dt><b>-wt_spanning</b> \<Real\></dt>
 <dd>Weight for spanning penalty.<br/></dd>
-<dt><b>-view_in_pymol</b> \<Boolean\></dt>
-<dd>When the PyMol viewer is enabled, add points to explicitly define the membrane planes and view during the simulation<br/></dd>
 </dl>
-+ <h3>-membrane_new:viewer</h3>
++ <h3>-mp:viewer</h3>
 <dl>
 <dt><b>-viewer</b> \<Boolean\></dt>
 <dd>viewer option group<br/></dd>
 <dt><b>-thickness</b> \<Real\></dt>
-<dd>Thicnkess of membrane to visualize<br/>Default: 12.5<br/></dd>
+<dd>Thickness of membrane to visualize<br/>Default: 15<br/></dd>
 <dt><b>-num_points</b> \<Integer\></dt>
 <dd>Number of points to define the membrane planes. x >= 3<br/></dd>
 </dl>
-+ <h3>-membrane_new:visualize</h3>
++ <h3>-mp:visualize</h3>
 <dl>
 <dt><b>-visualize</b> \<Boolean\></dt>
 <dd>visualize option group<br/></dd>
+<dt><b>-embedding</b> \<Boolean\></dt>
+<dd>Visualize embedding centers and normals for each TMspan<br/></dd>
 <dt><b>-spacing</b> \<Real\></dt>
 <dd>Spacing of virtual membrane residues representing the membrane planes<br/>Default: 5<br/></dd>
 <dt><b>-width</b> \<Real\></dt>
 <dd>Width of membrane planes for n by n plane<br/>Default: 100<br/></dd>
 <dt><b>-thickness</b> \<Real\></dt>
-<dd>Thicnkess of membrane to visualize<br/>Default: 12.5<br/></dd>
+<dd>Thickness of membrane to visualize<br/>Default: 15<br/></dd>
 <dt><b>-plane_radius</b> \<Real\></dt>
 <dd>Radius of membrane planes to draw in PyMol - part of the PyMol viewer plugin<br/></dd>
 </dl>
-+ <h3>-membrane_new:scoring</h3>
++ <h3>-mp:scoring</h3>
 <dl>
 <dt><b>-scoring</b> \<Boolean\></dt>
 <dd>scoring option group<br/></dd>
 <dt><b>-hbond</b> \<Boolean\></dt>
 <dd>Hydrogen bonding energy correction for membrane proteins<br/></dd>
 </dl>
-+ <h3>-membrane_new:setup</h3>
++ <h3>-mp:setup</h3>
 <dl>
 <dt><b>-setup</b> \<Boolean\></dt>
 <dd>setup option group<br/></dd>
 <dt><b>-spanfiles</b> \<StringVector\></dt>
 <dd>Spanning topology file from Octopus<br/></dd>
+<dt><b>-spans_from_structure</b> \<Boolean\></dt>
+<dd>Uses spanning topology computed from the PDB; requires the protein to be transformed into the membrane coordinate frame!<br/></dd>
 <dt><b>-lipsfile</b> \<String\></dt>
 <dd>List of lips files by chain<br/>Default: "mypdb.lips4"<br/></dd>
 <dt><b>-center</b> \<RealVector\></dt>
 <dd>membrane center x,y,z<br/></dd>
 <dt><b>-normal</b> \<RealVector\></dt>
 <dd>membrane normal x,y,z<br/></dd>
+<dt><b>-membrane_rsd</b> \<Real\></dt>
+<dd>membrane residue number<br/></dd>
+<dt><b>-transform_into_membrane</b> \<Boolean\></dt>
+<dd>score_jd2: transform protein into fixed membrane before scoring; spanfile required<br/></dd>
+<dt><b>-position_from_topo</b> \<Boolean\></dt>
+<dd>determine a membrane position from the transmembrane spans of the protein<br/></dd>
+</dl>
++ <h3>-mp:dock</h3>
+<dl>
+<dt><b>-dock</b> \<Boolean\></dt>
+<dd>dock option group<br/></dd>
+<dt><b>-weights_cen</b> \<String\></dt>
+<dd>Scorefunction for low-resolution step.<br/></dd>
+<dt><b>-weights_fa</b> \<String\></dt>
+<dd>Scorefunction for high-resolution step.<br/></dd>
+<dt><b>-lowres</b> \<Boolean\></dt>
+<dd>Use centroid score function for finding interface.<br/></dd>
+<dt><b>-highres</b> \<Boolean\></dt>
+<dd>Use full-atom score function for finding interface.<br/></dd>
+<dt><b>-allow_flips</b> \<Boolean\></dt>
+<dd>Allow partner 2 to flip in the membrane during global search. Default: yes.<br/></dd>
+<dt><b>-flexible_bb</b> \<Boolean\></dt>
+<dd>Do a flexible backbone docking: runs relax before and after docking.<br/></dd>
+</dl>
++ <h3>-mp:quickrelax</h3>
+<dl>
+<dt><b>-quickrelax</b> \<Boolean\></dt>
+<dd>quickrelax option group<br/></dd>
+<dt><b>-angle_max</b> \<Real\></dt>
+<dd>Maximum allowed change in dihedral angles. Typical values around 1.<br/></dd>
+<dt><b>-nmoves</b> \<String\></dt>
+<dd>Number of moves allowed. Typical value is close to the number of residues in the protein: [nres] is allowed value. <br/></dd>
+</dl>
++ <h3>-mp:mutate_relax</h3>
+<dl>
+<dt><b>-mutate_relax</b> \<Boolean\></dt>
+<dd>mutate_relax option group<br/></dd>
+<dt><b>-mutation</b> \<String\></dt>
+<dd>Single mutation: Format: One-letter code / residue number / one-letter code. Example: A163F<br/></dd>
+<dt><b>-mutant_file</b> \<String\></dt>
+<dd>Input file containing mutations<br/></dd>
+<dt><b>-iter</b> \<Integer\></dt>
+<dd>Number of iterations to run. Typically 100.<br/></dd>
 </dl>
 + <h2>-membrane</h2>
 <dl>
@@ -1952,6 +2205,19 @@ _Note that some application specific options may not be present in this list._
 <dd>distance in angstroms (def. 10.0) for calculating interfaces between domains with InterGroupNeighborsCalculator<br/>Default: 10.0<br/></dd>
 <dt><b>-semiex_water_burial_cutoff</b> \<Real\></dt>
 <dd>water hbond states fraction cutiff for SemiExplicitWaterUnsatisfiedPolarsCalculator (0.0,1.0)<br/>Default: 0.25<br/></dd>
+</dl>
++ <h3>-pose_metrics:shobuns</h3>
+<dl>
+<dt><b>-shobuns</b> \<Boolean\></dt>
+<dd>shobuns option group<br/></dd>
+<dt><b>-tgt_amino</b> \<String\></dt>
+<dd>Target amino acid type<br/>Default: "_none_"<br/></dd>
+<dt><b>-tgt_atom</b> \<String\></dt>
+<dd>Target atom name<br/>Default: "_none_"<br/></dd>
+<dt><b>-tgt_res</b> \<File\></dt>
+<dd>File specifying a subset of target residues<br/>Default: ""<br/></dd>
+<dt><b>-sho_cutoff</b> \<Real\></dt>
+<dd>max SHO value for an atom to be considered solvent exposed<br/>Default: 4.9<br/></dd>
 </dl>
 + <h2>-rigid</h2>
 <dl>
@@ -2259,22 +2525,36 @@ _Note that some application specific options may not be present in this list._
 <dd>The numbering scheme of the PDB file. Options are: Chothia_Scheme, Enhanced_Chothia_Scheme, AHO_Scheme, IMGT_Scheme. Kabat_Scheme is also accepted, but not fully supported due to H1 numbering conventions.  Use Kabat_Scheme with caution.<br/>Default: "Chothia_Scheme"<br/></dd>
 <dt><b>-cdr_definition</b> \<String\></dt>
 <dd>The CDR definition to use.  Current Options are: Chothia, Aroop, North, Kabat, Martin<br/>Default: "Aroop"<br/></dd>
+<dt><b>-light_chain</b> \<String\></dt>
+<dd>Type of light chain if known.  Only used for design for now.<br/>Default: "unknown"<br/></dd>
 <dt><b>-check_cdr_chainbreaks</b> \<Boolean\></dt>
 <dd>Check CDRs of input antibody for chainbreaks upon initializing RosettaAntibody and RosettaAntibodyDesign.  Chainbreaks found will result in the model not proceeding. A peptide bond in the loop is considered broken if its C-N bond is > 2.0 A<br/>Default: true<br/></dd>
 <dt><b>-check_cdr_pep_bond_geom</b> \<Boolean\></dt>
 <dd>Check CDRs of input antibody for bad peptide bond geometry.  This checks Ca-C-N and C-N-Ca bond angles for -large- deviations from the min max values found in a recent analysis of protein geometry  - Conformation dependence of backbone geometry in proteins. Structure -.  If found, the model will not proceed.  Use FastRelax with bond angle min to fix issues.  These issues usually arise from poorly resolved crystal loops or incorrectly solved structures.  Many older antibody structures have some of these issues.<br/>Default: false<br/></dd>
 <dt><b>-graft_l1</b> \<Boolean\></dt>
 <dd>Graft CDR L1 from template<br/>Default: false<br/></dd>
+<dt><b>-l1_template</b> \<String\></dt>
+<dd>Choose specified template for CDR L1 grafting<br/>Default: "l1.pdb"<br/></dd>
 <dt><b>-graft_l2</b> \<Boolean\></dt>
 <dd>Graft CDR L2 from template<br/>Default: false<br/></dd>
+<dt><b>-l2_template</b> \<String\></dt>
+<dd>Choose specified template for CDR L2 grafting<br/>Default: "l2.pdb"<br/></dd>
 <dt><b>-graft_l3</b> \<Boolean\></dt>
 <dd>Graft CDR L3 from template<br/>Default: false<br/></dd>
+<dt><b>-l3_template</b> \<String\></dt>
+<dd>Choose specified template for CDR L3 grafting<br/>Default: "l3.pdb"<br/></dd>
 <dt><b>-graft_h1</b> \<Boolean\></dt>
 <dd>Graft CDR H1 from template<br/>Default: false<br/></dd>
+<dt><b>-h1_template</b> \<String\></dt>
+<dd>Choose specified template for CDR H1 grafting<br/>Default: "h1.pdb"<br/></dd>
 <dt><b>-graft_h2</b> \<Boolean\></dt>
 <dd>Graft CDR H2 from template<br/>Default: false<br/></dd>
+<dt><b>-h2_template</b> \<String\></dt>
+<dd>Choose specified template for CDR H2 grafting<br/>Default: "h2.pdb"<br/></dd>
 <dt><b>-graft_h3</b> \<Boolean\></dt>
 <dd>Graft CDR H3 from template<br/>Default: false<br/></dd>
+<dt><b>-h3_template</b> \<String\></dt>
+<dd>Choose specified template for CDR H3 grafting<br/>Default: "h3.pdb"<br/></dd>
 <dt><b>-h3_no_stem_graft</b> \<Boolean\></dt>
 <dd>Graft CDR H3 from template, use stem to superimpose, but do not copy the stem<br/>Default: false<br/></dd>
 <dt><b>-packonly_after_graft</b> \<Boolean\></dt>
@@ -2319,71 +2599,132 @@ _Note that some application specific options may not be present in this list._
 <dd>The option to turn on/off the cterminal constrain penalty in loop scoring function<br/>Default: false<br/></dd>
 <dt><b>-constrain_vlvh_qq</b> \<Boolean\></dt>
 <dd>The option to turn on/off the VL-VH QQ H-bond in docking scoring function<br/>Default: false<br/></dd>
+<dt><b>-snug_loops</b> \<Boolean\></dt>
+<dd>Allow CDR loop backbone flexibility during minimization<br/>Default: false<br/></dd>
+<dt><b>-input_fv</b> \<File\></dt>
+<dd>input antibody variable (Fv) region<br/>Default: "FR02.pdb"<br/></dd>
 <dt><b>-camelid</b> \<Boolean\></dt>
 <dd>Camelid input with only heavy (VH) chain<br/>Default: false<br/></dd>
 <dt><b>-camelid_constraints</b> \<Boolean\></dt>
 <dd>Display constraints file for use with camelid H3 modeler<br/>Default: false<br/></dd>
+<dt><b>-use_mean_cluster_cst_data</b> \<Boolean\></dt>
+<dd>Use CDR Dihedral cluster-based constraints which have the means as the actual cluster means.  Setting this to false will use constraints that have the means set as cluster center data.<br/>Default: true<br/></dd>
+<dt><b>-force_use_of_cluster_csts_with_outliers</b> \<Boolean\></dt>
+<dd>Force the use of cluster dihedral constraints to use ones with outliers.<br/>Default: false<br/></dd>
+<dt><b>-cluster_csts_stats_cutoff</b> \<Integer\></dt>
+<dd>Value for cluster-based dihedral csts -> general dihedral csts switch.  If number of total structures used for cluster-based constraints is less than this value, general dihedral constraints will be used.  More data = better predictability.<br/>Default: 10<br/></dd>
+<dt><b>-general_dihedral_cst_phi_sd</b> \<Real\></dt>
+<dd>Standard deviation to use for phi while using general dihedral circular harmonic constraints<br/>Default: 16.0<br/></dd>
+<dt><b>-general_dihedral_cst_psi_sd</b> \<Real\></dt>
+<dd>Standard deviation to use for psi while using general dihedral circular harmonic constraints<br/>Default: 16.0<br/></dd>
 </dl>
 + <h3>-antibody:design</h3>
 <dl>
 <dt><b>-design</b> \<Boolean\></dt>
 <dd>design option group<br/></dd>
+<dt><b>-base_instructions</b> \<String\></dt>
+<dd>The Default/Baseline instructions file. Should not need to be changed.<br/>Default: "/sampling/antibodies/design/default_instructions.txt"<br/></dd>
 <dt><b>-instructions</b> \<String\></dt>
-<dd>Path for instruction file<br/>Default: "/sampling/antibodies/design/default_instructions.txt"<br/></dd>
+<dd>Path to CDR Instruction File<br/></dd>
 <dt><b>-antibody_database</b> \<String\></dt>
-<dd>Path to the Antibody Database.  Download from dunbrack.fccc.edu<br/>Default: "/sampling/antibodies/antibody_database_rosetta.db"<br/></dd>
+<dd>Path to the current Antibody Database, updated weekly.  Download from http://dunbrack2.fccc.edu/PyIgClassify/ <br/>Default: "/sampling/antibodies/antibody_database_rosetta_design.db"<br/></dd>
+<dt><b>-paper_ab_db</b> \<Boolean\></dt>
+<dd>Force the use the Antibody Database with data from the North clustering paper.  This is included in Rosetta, but is not recommended for general use. If a newer antibody database is not found, we will use this. The full ab db is available at http://dunbrack2.fccc.edu/PyIgClassify/<br/>Default: false<br/></dd>
+<dt><b>-paper_ab_db_path</b> \<String\></dt>
+<dd>Path to the North paper ab_db path.  Only used if -paper_ab_db option is passed<br/>Default: "/sampling/antibodies/antibody_database_rosetta_design_north_paper.db"<br/></dd>
 <dt><b>-design_cdrs</b> \<StringVector\></dt>
-<dd>Design these CDRs in graft and sequence design steps (if enabled).  Use instead of an instruction file.  If an instruction file is given, will override FIX options for both stages.<br/></dd>
-<dt><b>-do_graft_design</b> \<Boolean\></dt>
-<dd>Run the GraftDesign step for low-resolution cluster-based CDR structural sampling. Overrides instruction file.<br/>Default: true<br/></dd>
-<dt><b>-do_post_graft_design_modeling</b> \<Boolean\></dt>
-<dd>Run dock/min modeling step after the graft design step if run.<br/>Default: false<br/></dd>
-<dt><b>-do_sequence_design</b> \<Boolean\></dt>
-<dd>Run the CDRDesign step for high-resolution cluster-based CDR sequence design. Overrides instruction file.<br/>Default: true<br/></dd>
-<dt><b>-do_post_design_modeling</b> \<Boolean\></dt>
-<dd>Run dock/min modeling step after the sequence design step if run<br/>Default: false<br/></dd>
-<dt><b>-graft_rounds</b> \<Integer\></dt>
-<dd>Rounds for graft_design.  Each round is one CDR graft from set<br/>Default: 1000<br/></dd>
-<dt><b>-top_graft_designs</b> \<Integer\></dt>
-<dd>Number of top graft designs to keep (ensemble).  These will be written to a PDB and each move onto the next step in the protocol.<br/>Default: 10<br/></dd>
-<dt><b>-initial_perturb</b> \<Boolean\></dt>
-<dd>Run the docking perturber post graft.  Controlled by command-line flags.  See docking manual.  It will at least slide into contact.<br/>Default: false<br/></dd>
-<dt><b>-use_deterministic</b> \<Boolean\></dt>
-<dd>Use the deterministic algorithm if graft rounds is <= number of possible permutations.  This involves multiple grafts per permutation in random CDR order, but always starts with the starting structure.  You only try each full permutation once, but no monte carlo boltzmann propagation of good models or designs occur.  Will still, however, keep the top x best structures found after each graft round has completed.<br/>Default: false<br/></dd>
-<dt><b>-dump_post_graft_designs</b> \<Boolean\></dt>
-<dd>Write the top ensembles to file directly after the graft-design step and after any optional modeling.<br/>Default: false<br/></dd>
-<dt><b>-interface_dis</b> \<Real\></dt>
-<dd>Interface distance cutoff.  Used for repacking of interface, etc.<br/>Default: 6.0<br/></dd>
-<dt><b>-neighbor_dis</b> \<Real\></dt>
-<dd>Neighbor distance cutoff.  Used for repacking after graft, minimization, etc.<br/>Default: 4.0<br/></dd>
-<dt><b>-dock_post_graft</b> \<Boolean\></dt>
-<dd>Run a short lowres + highres docking step after each graft and before any minimization. Inner/Outer loops for highres are hard coded, while low-res can be changed through regular low_res options.<br/>Default: false<br/></dd>
-<dt><b>-pack_post_graft</b> \<Boolean\></dt>
-<dd>Pack CDR and neighbors after each graft.  Before any docking or minimization.<br/>Default: true<br/></dd>
-<dt><b>-rb_min_post_graft</b> \<Boolean\></dt>
+<dd>Design these CDRs in graft and sequence design steps.  Use to override instructions file<br/></dd>
+<dt><b>-top_designs</b> \<Integer\></dt>
+<dd>Number of top designs to keep (ensemble).  These will be written to a PDB and each move onto the next step in the protocol.<br/>Default: 1<br/></dd>
+<dt><b>-design_protocol</b> \<String\></dt>
+<dd>Set the main protocol to use.  Note that deterministic is currently only available for the grafting of one CDR.<br/>Default: "generalized_monte_carlo"<br/></dd>
+<dt><b>-run_snugdock</b> \<Boolean\></dt>
+<dd>Run snugdock on each ensemble after designing.<br/>Default: false<br/></dd>
+<dt><b>-run_relax</b> \<Boolean\></dt>
+<dd>Run Dualspace Relax on each ensemble after designing (after snugdock if run).<br/>Default: false<br/></dd>
+<dt><b>-paratope</b> \<StringVector\></dt>
+<dd>Use these CDRs as the paratope. Default is all of them.  Currently only used for constraints. Note that these site constraints are only used during docking unless -enable_full_protocol_atom_pair_cst is set.<br/></dd>
+<dt><b>-epitope</b> \<StringVector\></dt>
+<dd>Use these residues as the antigen epitope.  Default is to auto-identify them within the set interface distance at protocol start if epitope constraints are enabled. Currently only used for constraints.  PDB Numbering. Optional insertion code. Example: 1A 1B 1B:A. Note that these site constraints are only used during docking unless -enable_full_protocol_atom_pair_cst is set.<br/>Default: []<br/></dd>
+<dt><b>-use_epitope_constraints</b> \<Boolean\></dt>
+<dd>Enable use of epitope constraints to add SiteConstraints between the epitope and paratope.  Note that paratope constraints are always used.  Note that these site constraints are only used during docking unless -global_atom_pair_cst_scoring is set.<br/>Default: false<br/></dd>
+<dt><b>-dihedral_cst_weight</b> \<Real\></dt>
+<dd>Weight to use for CDR CircularHarmonic cluster-based or general constraints that are automatically added to each structure and updated after each graft. Set to zero if you dont want to use these constraints. Note that they are not used for the backrub mintype. Overrides weight/patch settings.<br/>Default: 1.0<br/></dd>
+<dt><b>-atom_pair_cst_weight</b> \<Real\></dt>
+<dd>Weight to use for Epitope/Paratope SiteConstraints.  Paratope Side contraints are always used.  Set to zero to completely abbrogate these constraints. Overrides weight/patch settings.<br/>Default: 0.01<br/></dd>
+<dt><b>-global_dihedral_cst_scoring</b> \<Boolean\></dt>
+<dd>Use the dihedral cst score throughout the protocol, including final scoring of the poses instead of just during minimization step<br/>Default: true<br/></dd>
+<dt><b>-global_atom_pair_cst_scoring</b> \<Boolean\></dt>
+<dd>Use the atom pair cst score throughout the protocol, including final scoring of the poses instead of just during docking. Typically, the scoreterm is set to zero for scorefxns other than docking to decrease bias via loop lengths, relax, etc.  It may indeed help to target a particular epitope quicker during monte carlo design if epitope constraints are in use, as well for filtering final models on score towards a particular epitope if docking.<br/>Default: false<br/></dd>
+<dt><b>-do_dock</b> \<Boolean\></dt>
+<dd>Run a short lowres + highres docking step after each graft and before any minimization. Inner/Outer loops for highres are hard coded, while low-res can be changed through regular low_res options.  If sequence design is enabled, will design regions/CDRs set during the high-res dock. Recommended to <br/>Default: false<br/></dd>
+<dt><b>-do_rb_min</b> \<Boolean\></dt>
 <dd>Minimize the ab-ag interface post graft and any docking/cdr min by minimizing the jump<br/>Default: false<br/></dd>
-<dt><b>-dock_rounds</b> \<Integer\></dt>
-<dd>Number of rounds for post_graft docking.  If you are seeing badly docked structures, increase this value.<br/>Default: 2<br/></dd>
-<dt><b>-ab_dock_chains</b> \<String\></dt>
-<dd>Override the antibody dock chains.  Used for if your creating a bivalent antibody where only L or H is docking antigen.  Also used if you are creating an antibody where you are only interested in L or H primarily being the binding site.  Changing the default is not recommended for general use.<br/>Default: "LH"<br/></dd>
-<dt><b>-design_method</b> \<String\></dt>
-<dd>Design method to use.<br/>Default: "fixbb"<br/></dd>
-<dt><b>-design_rounds</b> \<Integer\></dt>
-<dd>Number of CDRDesign rounds.  If using relaxed_design, only one round recommended.<br/>Default: 3<br/></dd>
-<dt><b>-design_scorefxn</b> \<String\></dt>
-<dd>Scorefunction to use during design.  Orbitals_talaris2013_softrep works well for fixedbb, orbitals_talaris2013 works well for relaxed design. If not set will use the main scorefunction set.<br/></dd>
-<dt><b>-benchmark_basic_design</b> \<Boolean\></dt>
-<dd>Used to benchmark basic design vs probabilistic vs conservative.  Not for general use.<br/>Default: false<br/></dd>
-<dt><b>-stats_cutoff</b> \<Integer\></dt>
-<dd>Value for probabilistic -> conservative design switch.  If number of total sequences used for probabilistic design for a particular cdr cluster being designed is less than this value, conservative design will occur.  This is why the default graft settings are type 1 clusters.  More data = better predictability.<br/>Default: 10<br/></dd>
-<dt><b>-sample_zero_probs_at</b> \<Integer\></dt>
-<dd>Value for probabilstic design.  Probability that a normally zero prob will be chosen as a potential residue each time packer task is called.  Increase to increase variablility of positions.  Use with caution.<br/>Default: 0<br/></dd>
-<dt><b>-conservative_h3_design</b> \<Boolean\></dt>
-<dd>Use a conservative strategy for H3 design. Instructions file overwrites this setting<br/>Default: true<br/></dd>
-<dt><b>-turn_conservation</b> \<Boolean\></dt>
-<dd>try to conserve turn structure using known turn-based conservative mutations during conservative design.<br/>Default: true<br/></dd>
-<dt><b>-extend_native_cdrs</b> \<Boolean\></dt>
-<dd>extend native CDRs as part of the graft design step.  Used for benchmarking<br/>Default: false<br/></dd>
+<dt><b>-dock_min_dock</b> \<Boolean\></dt>
+<dd>Do Dock -> Min -> Dock instead of Dock->Min where you would otherwise want 2 cycles. Must already be passing do_dock<br/>Default: false<br/></dd>
+<dt><b>-outer_cycle_rounds</b> \<Integer\></dt>
+<dd>Rounds for outer loop of the protocol (not for deterministic_graft ).  Each round chooses a CDR and designs<br/>Default: 150<br/></dd>
+<dt><b>-inner_cycle_rounds</b> \<Integer\></dt>
+<dd>Number of times to run the inner minimization protocol after each graft.  Higher (2-3) rounds recommended for pack/min/backrub mintypes or if including dock in the protocol.<br/>Default: 1<br/></dd>
+<dt><b>-dock_cycle_rounds</b> \<Integer\></dt>
+<dd>Number of rounds for any docking.  If you are seeing badly docked structures, increase this value.<br/>Default: 1<br/></dd>
+<dt><b>-interface_dis</b> \<Real\></dt>
+<dd>Interface distance cutoff.  Used for repacking of interface, epitope detection, etc.<br/>Default: 8.0<br/></dd>
+<dt><b>-neighbor_dis</b> \<Real\></dt>
+<dd>Neighbor distance cutoff.  Used for repacking after graft, minimization, etc.<br/>Default: 6.0<br/></dd>
+<dt><b>-use_outliers</b> \<Boolean\></dt>
+<dd>Include outlier data for GraftDesign, profile-based sequence design stats, and cluster-based dihedral constraints.  Outliers are defined as having a dihedral distance of > 40 degrees and an RMSD of >1.5 A to the cluster center.  Use to increase sampling of small or rare clusters.<br/>Default: false<br/></dd>
+<dt><b>-use_H3_graft_outliers</b> \<Boolean\></dt>
+<dd>Include outliers when grafting H3.  H3 does not cluster well, so most structures have high dihedral distance and RMSD to the cluster center.  Due to this, cluster-based dihedral constraints for H3 are not used.  Sequence profiles can be used for clusters, but not usually.<br/>Default: true<br/></dd>
+<dt><b>-use_only_H3_kinked</b> \<Boolean\></dt>
+<dd>Remove any non-kinked CDRs from the CDRSet if grafting H3.  For now, the match is based on the ramachandran area of the last two residues of the H3. Kinked in this case is defined as having AB or DB regions at the end.  Will be improved for detection.<br/>Default: false<br/></dd>
+<dt><b>-design_antigen</b> \<Boolean\></dt>
+<dd>Design antigen residues during sequence design.  Intelligently.  Typically, only the neighbor antigen residues of designing cdrs or interfaces will be co-designed.  Useful for specific applications.<br/>Default: false<br/></dd>
+<dt><b>-design_framework</b> \<Boolean\></dt>
+<dd>Design framework residues during sequence design.  Typically done with only neighbor residues of designing CDRs or during interface minimization.<br/>Default: false<br/></dd>
+<dt><b>-conservative_framework_design</b> \<Boolean\></dt>
+<dd>If designing Framework positions, use conservative mutations instead of all of them.<br/>Default: true<br/></dd>
+<dt><b>-design_H3_stem</b> \<Boolean\></dt>
+<dd>Enable design of the first 2 and last 3 residues of the H3 loop if sequence designing H3.  These residues play a role in the extended vs kinked H3 conformation.  Designing these residues may negatively effect the overall H3 structure by potentially switching a kinked loop to an extended and vice versa.  Rosetta may get it right.  But it is off by default to err on the cautious side of design. Sequence designing H3 may be already risky.<br/>Default: false<br/></dd>
+<dt><b>-design_proline</b> \<Boolean\></dt>
+<dd>Enable proline design.  Profiles for proline are very good, but designing them is a bit risky.  Enable this if you are feeling daring.<br/>Default: false<br/></dd>
+<dt><b>-sample_zero_probs_at</b> \<Real\></dt>
+<dd>Value for probabilstic design.  Probability that a normally zero prob will be chosen as a potential residue each time packer task is called.  Increase to increase variablility of positions. <br/>Default: 0<br/></dd>
+<dt><b>-force_mutate_framework_for_cluster</b> \<Boolean\></dt>
+<dd>Force framework mutations that maintain certain clusters. Currently L1-11-1 vs L1-11-2.  See North cluster paper for these dependencies, or checkout rosetta/database/sampling/antibodies/design/cluster_framework_mutations.txt<br/>Default: true<br/></dd>
+<dt><b>-seq_design_stats_cutoff</b> \<Integer\></dt>
+<dd>Value for probabilistic -> conservative sequence design switch.  If number of total sequences used for probabilistic design for a particular cdr cluster being designed is less than this value, conservative design will occur. More data = better predictability.<br/>Default: 10<br/></dd>
+<dt><b>-seq_design_profile_samples</b> \<Integer\></dt>
+<dd>If designing using profiles, this is the number of times the profile is sampled each time packing done.  Increase this number to increase variability of designs - especially if not using relax as the mintype.<br/>Default: 1<br/></dd>
+<dt><b>-use_light_chain_type</b> \<Boolean\></dt>
+<dd>Use the light chain type, lambda or kappa IF given via option -antibody:light_chain.  This limits any aspect of the design protocol to use only data and cdrs for the given antibody type.  It (will) also add lambda vs kappa optimization steps such as L4 optimization.  Extremely useful for denovo design as lambda/kappa mixing can result in lower stability and non-expression of designs.  Failed mixed designs would then require manual framework mutations, framework switching, or other optimizations for succes.  Use PyIgClassify (see docs) to identify your framework as lambda or kappa.  Switch this to false or do not pass the -light_chain option to increase sampling with a greater risk of failed designs.<br/>Default: true<br/></dd>
+<dt><b>-idealize_graft_cdrs</b> \<Boolean\></dt>
+<dd>Idealize the CDR before grafting.  May help or hinder.  Still testing.<br/>Default: false<br/></dd>
+<dt><b>-add_backrub_pivots</b> \<StringVector\></dt>
+<dd>Additional backrub pivot residues if running backrub as the MinType. PDB Numbering. Optional insertion code. Example: 1A 1B 1B:A.  Can also specify ranges: 1A-10:A.  Note no spaces in the range.<br/></dd>
+<dt><b>-inner_kt</b> \<Real\></dt>
+<dd>KT used in the inner min monte carlo after each graft.<br/>Default: 2.0<br/></dd>
+<dt><b>-outer_kt</b> \<Real\></dt>
+<dd>KT used for the outer graft Monte Carlo.  Each graft step will use this value<br/>Default: 1.0<br/></dd>
+<dt><b>-benchmark_graft_design</b> \<Boolean\></dt>
+<dd>Start graft design with a new set of CDRs as to not bias the run with native CDRs.<br/>Default: false<br/></dd>
+<dt><b>-adapt_graft</b> \<Boolean\></dt>
+<dd>Adapt the grafting algorithm to increase rate of closed grafts.  Takes more time.  Grafts that cannot be closed may not be very compatable with the framework in the first place.<br/>Default: true<br/></dd>
+<dt><b>-enable_adapt_graft_cartesian</b> \<Boolean\></dt>
+<dd>Cartesian minimization seems to be causing numerous bugs since the Lukis AST pointer rewrite.  These only happen on the cluster and it is very difficult to reproduce them. Until this is fixed, we can skip the cartesian adaptation where cartesian minimization would run when the graft could not close properly.  Exceptions are wrapped so that when it does fail we skip the graft. Set this to false to disable its use<br/>Default: true<br/></dd>
+<dt><b>-remove_antigen</b> \<Boolean\></dt>
+<dd>Remove the antigen from the pose before doing any design on it<br/>Default: false<br/></dd>
+<dt><b>-add_graft_log_to_pdb</b> \<Boolean\></dt>
+<dd>Add the full graft log to the output pose.  Must also pass -pdb_comments option.<br/>Default: false<br/></dd>
+<dt><b>-mutate_framework_for_cluster</b> \<Boolean\></dt>
+<dd>Mutate the framework to maintain certain clusters post-graft.<br/>Default: false<br/></dd>
+</dl>
++ <h2>-task_operations</h2>
+<dl>
+<dt><b>-task_operations</b> \<Boolean\></dt>
+<dd>task_operations option group<br/></dd>
+<dt><b>-cons_design_data_source</b> \<String\></dt>
+<dd>Data source used for the ConservativeDesignOperation.  This guides the set of allowed mutations.  Higher blosum means higher conservation (numbers indicate sequence similarity cutoffs.<br/>Default: "blosum62"<br/></dd>
 </dl>
 + <h2>-assembly</h2>
 <dl>
@@ -2406,6 +2747,30 @@ _Note that some application specific options may not be present in this list._
 <dd>minimum backrub segment size (atoms)<br/>Default: 3<br/></dd>
 <dt><b>-max_atoms</b> \<Integer\></dt>
 <dd>maximum backrub segment size (atoms)<br/>Default: 34<br/></dd>
+<dt><b>-ntrials</b> \<Integer\></dt>
+<dd>number of Monte Carlo trials to run<br/>Default: 1000<br/></dd>
+<dt><b>-sc_prob</b> \<Real\></dt>
+<dd>probability of making a side chain move<br/>Default: 0.25<br/></dd>
+<dt><b>-sm_prob</b> \<Real\></dt>
+<dd>probability of making a small move<br/>Default: 0<br/></dd>
+<dt><b>-sc_prob_uniform</b> \<Real\></dt>
+<dd>probability of uniformly sampling chi angles<br/>Default: 0.1<br/></dd>
+<dt><b>-sc_prob_withinrot</b> \<Real\></dt>
+<dd>probability of sampling within the current rotamer<br/>Default: 0.0<br/></dd>
+<dt><b>-mc_kt</b> \<Real\></dt>
+<dd>value of kT for Monte Carlo<br/>Default: 0.6<br/></dd>
+<dt><b>-mm_bend_weight</b> \<Real\></dt>
+<dd>weight of mm_bend bond angle energy term<br/>Default: 1.0<br/></dd>
+<dt><b>-initial_pack</b> \<Boolean\></dt>
+<dd>force a repack at the beginning regardless of whether mutations are set in the resfile<br/>Default: false<br/></dd>
+<dt><b>-minimize_movemap</b> \<File\></dt>
+<dd>specify degrees of freedom for minimization<br/></dd>
+<dt><b>-trajectory</b> \<Boolean\></dt>
+<dd>record a trajectory<br/>Default: false<br/></dd>
+<dt><b>-trajectory_gz</b> \<Boolean\></dt>
+<dd>gzip the trajectory<br/>Default: false<br/></dd>
+<dt><b>-trajectory_stride</b> \<Integer\></dt>
+<dd>write out a trajectory frame every N steps<br/>Default: 100<br/></dd>
 </dl>
 + <h2>-batch_relax</h2>
 <dl>
@@ -2657,6 +3022,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Only ever make N clusters or less<br/>Default: 1000<br/></dd>
 <dt><b>-gdtmm</b> \<Boolean\></dt>
 <dd>Cluster by gdtmm instead of RMS<br/>Default: false<br/></dd>
+<dt><b>-skip_align</b> \<Boolean\></dt>
+<dd>Cluster without aligning the structures<br/>Default: false<br/></dd>
 <dt><b>-sort_groups_by_energy</b> \<Boolean\></dt>
 <dd>Sort clusters by energy<br/>Default: false<br/></dd>
 <dt><b>-sort_groups_by_size</b> \<Boolean\></dt>
@@ -2769,12 +3136,12 @@ _Note that some application specific options may not be present in this list._
 <dl>
 <dt><b>-hybridize</b> \<Boolean\></dt>
 <dd>hybridize option group<br/></dd>
-<dt><b>-template_list</b> \<File\></dt>
-<dd>Input list of templates, constaints, cluster, and weights<br/></dd>
 <dt><b>-starting_template</b> \<IntegerVector\></dt>
 <dd>Define starting templates<br/></dd>
 <dt><b>-realign_domains</b> \<Boolean\></dt>
 <dd>domain parse and realign the starting templates<br/>Default: true<br/></dd>
+<dt><b>-realign_domains_stage2</b> \<Boolean\></dt>
+<dd>realign the starting templates to the pose after stage1<br/>Default: true<br/></dd>
 <dt><b>-add_non_init_chunks</b> \<Boolean\></dt>
 <dd>non chunks from templates other than the initial one<br/>Default: false<br/></dd>
 <dt><b>-stage1_increase_cycles</b> \<Real\></dt>
@@ -2784,33 +3151,19 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-stage2min_increase_cycles</b> \<Real\></dt>
 <dd>Scale minimizer cycles after stage 2<br/>Default: 1.0<br/></dd>
 <dt><b>-stage1_probability</b> \<Real\></dt>
-<dd>Probability of running stage 1, 0=never, 1=always<br/>Default: 1.0<br/></dd>
-<dt><b>-stage1_weights</b> \<String\></dt>
-<dd>weight for fold tree hybridize stage<br/>Default: "score3"<br/></dd>
-<dt><b>-stage1_patch</b> \<String\></dt>
-<dd>weight patch for fold tree hybridize stage<br/>Default: ""<br/></dd>
+<dd>Probability of hybridizing in stage 1, 0=never, 1=always<br/>Default: 1.0<br/></dd>
 <dt><b>-skip_stage2</b> \<Boolean\></dt>
 <dd>skip cartesian fragment hybridize stage<br/>Default: false<br/></dd>
 <dt><b>-no_global_frame</b> \<Boolean\></dt>
 <dd>no global-frame fragment insertions<br/>Default: false<br/></dd>
 <dt><b>-linmin_only</b> \<Boolean\></dt>
 <dd>linmin only in stage 2<br/>Default: false<br/></dd>
-<dt><b>-stage2_weights</b> \<String\></dt>
-<dd>weight for cartesian fragment hybridize stage<br/>Default: "score4_smooth_cart"<br/></dd>
-<dt><b>-stage2_patch</b> \<String\></dt>
-<dd>weight patch for cartesian fragment hybridize stage<br/>Default: ""<br/></dd>
 <dt><b>-relax</b> \<Integer\></dt>
 <dd>if n==1, perform relax at end; if n>1 perform batch relax over n centroids<br/>Default: 0<br/></dd>
 <dt><b>-frag_weight_aligned</b> \<Real\></dt>
 <dd>Probability of fragment insertion in the aligned region<br/>Default: 0.<br/></dd>
 <dt><b>-max_registry_shift</b> \<Integer\></dt>
 <dd>maximum registry shift<br/>Default: 0<br/></dd>
-<dt><b>-alignment_from_template_seqpos</b> \<Boolean\></dt>
-<dd>alignment from template resSeq<br/>Default: true<br/></dd>
-<dt><b>-alignment_from_chunk_mapping</b> \<IntegerVector\></dt>
-<dd>alignment from secondary structure mapping<br/></dd>
-<dt><b>-realign_domains_stage2</b> \<Boolean\></dt>
-<dd>realign the starting templates to the pose after stage1<br/>Default: false<br/></dd>
 <dt><b>-frag_1mer_insertion_weight</b> \<Real\></dt>
 <dd>weight for 1mer fragment insertions where fragments are not allowed vs. template chunk insertions in stage1<br/>Default: 0.0<br/></dd>
 <dt><b>-small_frag_insertion_weight</b> \<Real\></dt>
@@ -2840,8 +3193,6 @@ _Note that some application specific options may not be present in this list._
 <dd>Prefix of contactMap filename<br/>Default: "contact_map_"<br/></dd>
 <dt><b>-distance_cutoff</b> \<Real\></dt>
 <dd>Cutoff Backbone distance for two atoms to be considered interacting<br/>Default: 10.0<br/></dd>
-<dt><b>-energy_cutoff</b> \<Real\></dt>
-<dd>Energy_Cutoff (percentage value - only affecting silent file input)<br/>Range: 0.0-1.0<br/>Default: 1.0<br/></dd>
 <dt><b>-region_def</b> \<String\></dt>
 <dd>Region definition for comparison eg: 1-10:20-30,40-50,A:ligand=X<br/>Default: ""<br/></dd>
 <dt><b>-row_format</b> \<Boolean\></dt>
@@ -3102,6 +3453,10 @@ _Note that some application specific options may not be present in this list._
 <dd>list of one or more positions in the input pdb, eg: -pdb_pos 125:A 127:A 4:C<br/>Default: ""<br/></dd>
 <dt><b>-methylate</b> \<StringVector\></dt>
 <dd>list of one or more positions in the input pdb to be methylated, eg: -methylate 125:A 127:A 4:C<br/>Default: ""<br/></dd>
+<dt><b>-lk_ball_wtd_tag</b> \<String\></dt>
+<dd>No description<br/></dd>
+<dt><b>-lk_ball_wtd_prefactors</b> \<RealVector\></dt>
+<dd>6 scale factors that are applied to the lk_ball_wtd per-atom weights; the order is <donor-iso> <donor-ball> <acceptor-iso> <acceptor-ball> <don+acc-iso> <don+acc-ball>; where <don+acc> means atom-types that are both donors and acceptors (SP3 hybridized OH for example)<br/></dd>
 </dl>
 + <h3>-dna:design</h3>
 <dl>
@@ -3594,23 +3949,6 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-fast_relax_sequence_file</b> \<File\></dt>
 <dd>use this FastRelax protocol for loop-selection<br/></dd>
 </dl>
-+ <h2>-fingerprint</h2>
-<dl>
-<dt><b>-fingerprint</b> \<Boolean\></dt>
-<dd>fingerprint option group<br/></dd>
-<dt><b>-atom_radius_scale</b> \<Real\></dt>
-<dd>Scale to shrink the radius of atom<br/>Default: 0.9<br/></dd>
-<dt><b>-atom_radius_buffer</b> \<Real\></dt>
-<dd>Value to subtract from all atomic radii, to match PocketGrid buffer thickness<br/>Default: 1.0<br/></dd>
-<dt><b>-include_hydrogens</b> \<Boolean\></dt>
-<dd>include hydrogen atoms for fingerprint<br/>Default: false<br/></dd>
-<dt><b>-square_score</b> \<Boolean\></dt>
-<dd>square the terms in DARC scoring function<br/>Default: false<br/></dd>
-<dt><b>-set_origin</b> \<Integer\></dt>
-<dd>option to set orgin: 0 to choose origin based on R(rugedness) value, 1 for protein_center, 2 for eggshell_bottom, 3 for vector form eggshell_plane closest to protein_center, 4 for vector form eggshell_plane distant to protein_center<br/>Default: 0<br/></dd>
-<dt><b>-origin_res_num</b> \<Integer\></dt>
-<dd>residue to be used as origin<br/>Default: 0<br/></dd>
-</dl>
 + <h2>-flexpack</h2>
 <dl>
 <dt><b>-flexpack</b> \<Boolean\></dt>
@@ -3653,6 +3991,14 @@ _Note that some application specific options may not be present in this list._
 <dd>Just do simple minimization on input structure<br/>Default: false<br/></dd>
 <dt><b>-extend_peptide</b> \<Boolean\></dt>
 <dd>start the protocol with the peptide in extended conformation<br/>Default: false<br/></dd>
+<dt><b>-place_peptide_on_binding_site</b> \<Boolean\></dt>
+<dd>places peptide on the binding using SiteConstraints<br/>Default: false<br/></dd>
+<dt><b>-sample_pcs</b> \<Integer\></dt>
+<dd>number of principle components to use for initial peptide placement and flipping<br/>Range: 0-<br/>Default: 0<br/></dd>
+<dt><b>-SlideIntoContact</b> \<Boolean\></dt>
+<dd>Slides peptide toward or away from receptor to remove clashes<br/>Default: false<br/></dd>
+<dt><b>-recalculate_foldtree</b> \<Boolean\></dt>
+<dd>recalculates foldtree after random RB perturbation<br/>Default: false<br/></dd>
 <dt><b>-pep_refine</b> \<Boolean\></dt>
 <dd>High-resolution peptide refinement over receptor surface, equivalent to the obsolete -rbMCM -torsionsMCM flags<br/>Default: false<br/></dd>
 <dt><b>-rbMCM</b> \<Boolean\></dt>
@@ -3811,9 +4157,9 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-rot_mag_smooth</b> \<Real\></dt>
 <dd>rotational perturbation size for smooth refinement<br/>Default: 1.0<br/></dd>
 <dt><b>-rb_rot_magnitude</b> \<Real\></dt>
-<dd>rotational perturbation size for rigid body perturbations<br/>Default: 8.0<br/></dd>
+<dd>rotational perturbation size for rigid body pertubations<br/>Default: 8.0<br/></dd>
 <dt><b>-rb_trans_magnitude</b> \<Real\></dt>
-<dd>translational perturbation size rigid body perturbations<br/>Default: 3.0<br/></dd>
+<dd>translational perturbation size rigid body pertubations<br/>Default: 3.0<br/></dd>
 <dt><b>-rigid_body_cycles</b> \<Integer\></dt>
 <dd>number of rigid bosy cycles during fold and dock fragment insertion<br/>Default: 50<br/></dd>
 <dt><b>-move_anchor_frequency</b> \<Real\></dt>
@@ -3895,6 +4241,8 @@ _Note that some application specific options may not be present in this list._
 <dl>
 <dt><b>-frags</b> \<Boolean\></dt>
 <dd>frags option group<br/></dd>
+<dt><b>-j</b> \<Integer\></dt>
+<dd>Number of threads to use<br/></dd>
 <dt><b>-filter_JC</b> \<Boolean\></dt>
 <dd>Filter J-coupling values in the dynamic range <br/>Default: false<br/></dd>
 <dt><b>-bounded_protocol</b> \<Boolean\></dt>
@@ -4115,6 +4463,8 @@ _Note that some application specific options may not be present in this list._
 <dd>indexed_structure_store option group<br/></dd>
 <dt><b>-fragment_store</b> \<File\></dt>
 <dd>Fragment store. [.h5] file<br/></dd>
+<dt><b>-fragment_threshold_distance</b> \<Real\></dt>
+<dd>sets the fragment threshold distance when being read in by the VallLookback score function<br/>Default: 0.4<br/></dd>
 </dl>
 + <h2>-lh</h2>
 <dl>
@@ -4194,7 +4544,11 @@ _Note that some application specific options may not be present in this list._
 <dd>No description<br/>Default: true<br/></dd>
 <dt><b>-max_loophash_per_structure</b> \<Integer\></dt>
 <dd>No description<br/>Default: 1<br/></dd>
+<dt><b>-prob_terminus_ramapert</b> \<Real\></dt>
+<dd>Prob. to run ramapert instead of fraginsert on terminus<br/>Default: 0.0<br/></dd>
 <dt><b>-rms_limit</b> \<Real\></dt>
+<dd>How to deal with returned relaxed structures<br/>Default: 2.0<br/></dd>
+<dt><b>-similarity_reference</b> \<Real\></dt>
 <dd>How to deal with returned relaxed structures<br/>Default: 2.0<br/></dd>
 <dt><b>-centroid_only</b> \<Boolean\></dt>
 <dd>false<br/>Default: false<br/></dd>
@@ -4210,6 +4564,56 @@ _Note that some application specific options may not be present in this list._
 <dd>Holds the initial per residue sample weights<br/></dd>
 <dt><b>-radius_size</b> \<Real\></dt>
 <dd>tune the radius for hypershell<br/>Default: 2<br/></dd>
+<dt><b>-max_ref_lib_size</b> \<Integer\></dt>
+<dd>No description<br/>Default: 2<br/></dd>
+<dt><b>-multi_objective_functions</b> \<StringVector\></dt>
+<dd>What to use as the objective function<br/>Default: utility::vector1<std::string>(1,"score")<br/></dd>
+<dt><b>-additional_objective_functions</b> \<StringVector\></dt>
+<dd>What to add for the multi-objective function<br/></dd>
+<dt><b>-edensity_weight_for_sampling</b> \<Real\></dt>
+<dd>weight for elec_dens_fast in WorkUnit_Samplers<br/>Default: 0.0<br/></dd>
+<dt><b>-mpi_master_schfile</b> \<String\></dt>
+<dd>schedule file<br/>Default: ""<br/></dd>
+<dt><b>-mpi_master_cpu_weight</b> \<IntegerVector\></dt>
+<dd>weight on number of slaves<br/>Default: ['0.0']<br/></dd>
+<dt><b>-mpi_loophash_scan_type</b> \<String\></dt>
+<dd>No description<br/>Default: "random"<br/></dd>
+<dt><b>-mpi_read_structure_for_emperor</b> \<Boolean\></dt>
+<dd>No description<br/>Default: true<br/></dd>
+<dt><b>-mpi_packmin_init</b> \<Boolean\></dt>
+<dd>No description<br/>Default: false<br/></dd>
+<dt><b>-max_sample_per_structure</b> \<Integer\></dt>
+<dd>No description<br/>Default: 1<br/></dd>
+<dt><b>-loop_string</b> \<String\></dt>
+<dd>string to be parsed for loop region, e.g. 1-10,15-20,32-38<br/>Default: ""<br/></dd>
+<dt><b>-seg_string</b> \<String\></dt>
+<dd>string to be parsed for segment region, e.g. 1-10,15-20,32-38<br/>Default: ""<br/></dd>
+<dt><b>-loopresdef</b> \<StringVector\></dt>
+<dd>String vector that tells connectivity, e.g. peptide:1,2,3,4,5-6 SSbond:3,2,1-9,8,7,6<br/>Default: ['']<br/></dd>
+<dt><b>-pert_init_loop</b> \<Boolean\></dt>
+<dd>Try perturbing loops from starting structure at the beginning<br/>Default: false<br/></dd>
+<dt><b>-NMdist</b> \<Real\></dt>
+<dd>normalmodemover distance cut<br/>Default: 10.0<br/></dd>
+<dt><b>-objective_dominate_cut</b> \<RealVector\></dt>
+<dd>cut for objective function domination<br/>Default: ['0.0', '0.0', '3.0']<br/></dd>
+<dt><b>-objective_cut_increment</b> \<RealVector\></dt>
+<dd>objective_dominate_cut increment for every call<br/>Default: ['0.0', '0.0', '0.0']<br/></dd>
+<dt><b>-similarity_method</b> \<String\></dt>
+<dd>No description<br/>Default: "sum"<br/></dd>
+<dt><b>-similarity_measure</b> \<String\></dt>
+<dd>No description<br/>Default: "Sscore"<br/></dd>
+<dt><b>-similarity_tolerance</b> \<Real\></dt>
+<dd>No description<br/>Default: 0.5<br/></dd>
+<dt><b>-parent_selection_kT</b> \<Real\></dt>
+<dd>No description<br/>Default: 0.2<br/></dd>
+<dt><b>-sim_replace_obj</b> \<String\></dt>
+<dd>No description<br/>Default: "goap"<br/></dd>
+<dt><b>-ulr_mulfactor</b> \<Real\></dt>
+<dd>No description<br/>Default: 1.8<br/></dd>
+<dt><b>-filter_up_to_maxlib</b> \<Boolean\></dt>
+<dd>No description<br/>Default: false<br/></dd>
+<dt><b>-minimize_after_nmsearch</b> \<Boolean\></dt>
+<dd>No description<br/>Default: false<br/></dd>
 </dl>
 + <h3>-lh:fragpdb</h3>
 <dl>
@@ -4257,12 +4661,12 @@ _Note that some application specific options may not be present in this list._
 <dd>make_rot_lib option group<br/></dd>
 <dt><b>-options_file</b> \<File\></dt>
 <dd>path to make rot lib options file<br/></dd>
-<dt><b>-two_fold_symetry_135_315</b> \<IntegerVector\></dt>
-<dd>the chi number at which to apply two fold symetry across the 135/315 axis<br/></dd>
-<dt><b>-two_fold_symetry_0_180</b> \<IntegerVector\></dt>
-<dd>the chi number at which to apply two fold symetry across the 0/180 axis<br/></dd>
-<dt><b>-three_fold_symetry_90_210_330</b> \<IntegerVector\></dt>
-<dd>the chi number at which to apply two fold symetry across the 0/180 axis<br/></dd>
+<dt><b>-two_fold_symmetry_135_315</b> \<IntegerVector\></dt>
+<dd>the chi number at which to apply two fold symmetry across the 135/315 axis<br/></dd>
+<dt><b>-two_fold_symmetry_0_180</b> \<IntegerVector\></dt>
+<dd>the chi number at which to apply two fold symmetry across the 0/180 axis<br/></dd>
+<dt><b>-three_fold_symmetry_90_210_330</b> \<IntegerVector\></dt>
+<dd>the chi number at which to apply two fold symmetry across the 0/180 axis<br/></dd>
 </dl>
 + <h2>-match</h2>
 <dl>
@@ -4429,59 +4833,47 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-mh</b> \<Boolean\></dt>
 <dd>mh option group<br/></dd>
 <dt><b>-motif_out_file</b> \<String\></dt>
-<dd>file to dump ResPairMotifs to<br/>Default: "default"<br/></dd>
+<dd>file to dump ResPairMotifs to<br/>Default: "motifs"<br/></dd>
 <dt><b>-harvest_motifs</b> \<FileVector\></dt>
 <dd>files to harvest ResPairMotifs from<br/>Default: "SPECIFY_ME_DUMMY"<br/></dd>
 <dt><b>-print_motifs</b> \<FileVector\></dt>
 <dd>files to print ResPairMotifs from<br/>Default: "SPECIFY_ME_DUMMY"<br/></dd>
+<dt><b>-remove_duplicates</b> \<FileVector\></dt>
+<dd>files to remove dup ResPairMotifs from<br/>Default: "SPECIFY_ME_DUMMY"<br/></dd>
 <dt><b>-dump_motif_pdbs</b> \<FileVector\></dt>
 <dd>files to extract ResPairMotifs clusters from<br/>Default: "SPECIFY_ME_DUMMY"<br/></dd>
 <dt><b>-merge_motifs</b> \<FileVector\></dt>
 <dd>files to merge ResPairMotifs from<br/>Default: "SPECIFY_ME_DUMMY"<br/></dd>
-<dt><b>-generate_reverse_motifs</b> \<Boolean\></dt>
+<dt><b>-merge_scores</b> \<FileVector\></dt>
+<dd>files to merge scores from<br/>Default: "SPECIFY_ME_DUMMY"<br/></dd>
+<dt><b>-merge_motifs_one_per_bin</b> \<Boolean\></dt>
 <dd>keep only one motif per hash bin (for sepcified grid)<br/>Default: false<br/></dd>
+<dt><b>-gen_reverse_motifs_on_load</b> \<Boolean\></dt>
+<dd><br/>Default: false<br/></dd>
 <dt><b>-dump_input_pdb</b> \<FileVector\></dt>
 <dd>files to dump biount interpretation from<br/>Default: "SPECIFY_ME_DUMMY"<br/></dd>
-<dt><b>-xform_score_data</b> \<FileVector\></dt>
-<dd>motif hash data for scoring<br/></dd>
-<dt><b>-xform_score_data_ee</b> \<FileVector\></dt>
-<dd>motif hash data for scoring<br/></dd>
-<dt><b>-xform_score_data_eh</b> \<FileVector\></dt>
-<dd>motif hash data for scoring<br/></dd>
-<dt><b>-xform_score_data_he</b> \<FileVector\></dt>
-<dd>motif hash data for scoring<br/></dd>
-<dt><b>-xform_score_data_hh</b> \<FileVector\></dt>
-<dd>motif hash data for scoring<br/></dd>
-<dt><b>-xform_score_data_sspair</b> \<FileVector\></dt>
-<dd>motif hash data for scoring strand pairings<br/></dd>
-<dt><b>-input_motifs</b> \<FileVector\></dt>
-<dd>motifs to score with<br/>Default: "SPECIFY_ME_DUMMY"<br/></dd>
+<dt><b>-score_pdbs</b> \<FileVector\></dt>
+<dd>files to score with input counts file<br/>Default: "SPECIFY_ME_DUMMY"<br/></dd>
+<dt><b>-sequence_recovery</b> \<FileVector\></dt>
+<dd>pdb files to score<br/>Default: "SPECIFY_ME_DUMMY"<br/></dd>
+<dt><b>-explicit_motif_score</b> \<FileVector\></dt>
+<dd>pdb files to score<br/>Default: "SPECIFY_ME_DUMMY"<br/></dd>
 <dt><b>-harvest_scores</b> \<FileVector\></dt>
 <dd>get counts from ResPairMotif files and dump to binary counts file<br/>Default: ""<br/></dd>
 <dt><b>-print_scores</b> \<File\></dt>
 <dd>print a binary counts file<br/>Default: ""<br/></dd>
 <dt><b>-dump_matching_motifs</b> \<FileVector\></dt>
 <dd>pdb files to score<br/>Default: "SPECIFY_ME_DUMMY"<br/></dd>
-<dt><b>-dump_matching_motifs_cutoff</b> \<Real\></dt>
-<dd>rms cutoff<br/>Default: 1.0<br/></dd>
 <dt><b>-score_across_chains_only</b> \<Boolean\></dt>
 <dd>ignore intra-chain motifs<br/>Default: false<br/></dd>
-<dt><b>-dump_motif_pdbs_min_counts</b> \<Integer\></dt>
-<dd>min counts to dump<br/>Default: 99999999<br/></dd>
-<dt><b>-hash_cart_size</b> \<Real\></dt>
-<dd>dimensions of binned space<br/>Default: 12.0<br/></dd>
-<dt><b>-hash_cart_resl</b> \<Real\></dt>
-<dd>width of cartesian bin<br/>Default: 0.8<br/></dd>
-<dt><b>-hash_angle_resl</b> \<Real\></dt>
-<dd>width of euler angle bin<br/>Default: 15.0<br/></dd>
+<dt><b>-normalize_score_ncontact</b> \<Boolean\></dt>
+<dd>normalize by total num contacts<br/>Default: true<br/></dd>
 <dt><b>-harvest_motifs_min_hh_ends</b> \<Integer\></dt>
 <dd>restrict to middle of hilix contacts <br/>Default: 0<br/></dd>
-<dt><b>-harvest_scores_min_count</b> \<Integer\></dt>
-<dd> <br/>Default: 0<br/></dd>
 <dt><b>-ignore_io_errors</b> \<Boolean\></dt>
 <dd> <br/>Default: false<br/></dd>
 <dt><b>-motif_match_radius</b> \<Real\></dt>
-<dd>width of euler angle bin<br/>Default: 0.6<br/></dd>
+<dd>width of euler angle bin<br/>Default: 9e9<br/></dd>
 <dt><b>-merge_similar_motifs</b> \<RealVector\></dt>
 <dd>give 3 hash params<br/></dd>
 </dl>
@@ -4489,23 +4881,189 @@ _Note that some application specific options may not be present in this list._
 <dl>
 <dt><b>-score</b> \<Boolean\></dt>
 <dd>score option group<br/></dd>
+<dt><b>-background_weight</b> \<Real\></dt>
+<dd>weight on cb contacts, kinda<br/>Default: 0.0<br/></dd>
+<dt><b>-ca_cb_clash_weight</b> \<Real\></dt>
+<dd>weight on cb clashes, kinda<br/>Default: 1.0<br/></dd>
 <dt><b>-noloops</b> \<Boolean\></dt>
-<dd>ignore loop ss in scored structs<br/>Default: true<br/></dd>
+<dd>ignore loop ss in scored structs<br/>Default: false<br/></dd>
+<dt><b>-nosheets</b> \<Boolean\></dt>
+<dd>ignore strand ss in scored structs<br/>Default: false<br/></dd>
+<dt><b>-nohelix</b> \<Boolean\></dt>
+<dd>ignore helix ss in scored structs<br/>Default: false<br/></dd>
+<dt><b>-spread_ss_element</b> \<Boolean\></dt>
+<dd><br/>Default: false<br/></dd>
+<dt><b>-min_cover_fraction</b> \<Real\></dt>
+<dd><br/>Default: 0.0<br/></dd>
 <dt><b>-strand_pair_weight</b> \<Real\></dt>
-<dd>ignore loop ss in scored structs<br/>Default: 1.0<br/></dd>
+<dd><br/>Default: 1.0<br/></dd>
+<dt><b>-anti_polar_weight</b> \<Real\></dt>
+<dd><br/>Default: 1.0<br/></dd>
 <dt><b>-min_contact_pairs</b> \<Real\></dt>
-<dd>ignore loop ss in scored structs<br/>Default: 0.0<br/></dd>
+<dd><br/>Default: 1.0<br/></dd>
 <dt><b>-max_contact_pairs</b> \<Real\></dt>
-<dd>ignore loop ss in scored structs<br/>Default: 9e9<br/></dd>
+<dd><br/>Default: 9e9<br/></dd>
+<dt><b>-max_cb_dis</b> \<Real\></dt>
+<dd><br/>Default: 9.0<br/></dd>
+<dt><b>-coverage_pow</b> \<Real\></dt>
+<dd><br/>Default: 0.0<br/></dd>
+<dt><b>-use_ss1</b> \<Boolean\></dt>
+<dd><br/>Default: true<br/></dd>
+<dt><b>-use_ss2</b> \<Boolean\></dt>
+<dd><br/>Default: true<br/></dd>
+<dt><b>-use_aa1</b> \<Boolean\></dt>
+<dd><br/>Default: false<br/></dd>
+<dt><b>-use_aa2</b> \<Boolean\></dt>
+<dd><br/>Default: false<br/></dd>
+<dt><b>-use_log</b> \<Boolean\></dt>
+<dd><br/>Default: true<br/></dd>
+</dl>
++ <h3>-mh:path</h3>
+<dl>
+<dt><b>-path</b> \<Boolean\></dt>
+<dd>path option group<br/></dd>
+<dt><b>-biounit</b> \<StringVector\></dt>
+<dd>path to search for biounits in the ab/1abc.pdb1.gz format<br/>Default: utility::vector1<std::string>()<br/></dd>
+<dt><b>-biounit_ideal</b> \<StringVector\></dt>
+<dd>idealized biounit coords, missing PDBInfo metadatab<br/>Default: utility::vector1<std::string>()<br/></dd>
+<dt><b>-pdb</b> \<StringVector\></dt>
+<dd>path to search for pdbs in the ab/1abc.pdb.gz format<br/>Default: utility::vector1<std::string>()<br/></dd>
+<dt><b>-motifs</b> \<StringVector\></dt>
+<dd>concrete motifs in .rpm.bin.gz format<br/>Default: utility::vector1<std::string>()<br/></dd>
+<dt><b>-motifs_SC_SC</b> \<StringVector\></dt>
+<dd>concrete SC_SC motifs, try to replace with path::motifs<br/>Default: utility::vector1<std::string>()<br/></dd>
+<dt><b>-motifs_SC_BB</b> \<StringVector\></dt>
+<dd>concrete SC_BB motifs, try to replace with path::motifs<br/>Default: utility::vector1<std::string>()<br/></dd>
+<dt><b>-motifs_BB_BB</b> \<StringVector\></dt>
+<dd>concrete BB_BB motifs, try to replace with path::motifs<br/>Default: utility::vector1<std::string>()<br/></dd>
+<dt><b>-motifs_BB_PH</b> \<StringVector\></dt>
+<dd>concrete BB_PH motifs, try to replace with path::motifs<br/>Default: utility::vector1<std::string>()<br/></dd>
+<dt><b>-motifs_BB_PO</b> \<StringVector\></dt>
+<dd>concrete BB_PO motifs, try to replace with path::motifs<br/>Default: utility::vector1<std::string>()<br/></dd>
+<dt><b>-motifs_PH_PO</b> \<StringVector\></dt>
+<dd>concrete PH_PO motifs, try to replace with path::motifs<br/>Default: utility::vector1<std::string>()<br/></dd>
+<dt><b>-scores</b> \<StringVector\></dt>
+<dd>motif hash data for scoring, mixed, may not use<br/></dd>
+<dt><b>-scores_SC_SC</b> \<StringVector\></dt>
+<dd>motif hash data for scoring SC_SC<br/></dd>
+<dt><b>-scores_SC_BB</b> \<StringVector\></dt>
+<dd>motif hash data for scoring SC_BB<br/></dd>
+<dt><b>-scores_BB_BB</b> \<StringVector\></dt>
+<dd>motif hash data for scoring<br/></dd>
+<dt><b>-scores_BB_PH</b> \<StringVector\></dt>
+<dd>motif hash data for scoring BB_PH<br/></dd>
+<dt><b>-scores_BB_PO</b> \<StringVector\></dt>
+<dd>motif hash data for scoring BB_PO<br/></dd>
+<dt><b>-scores_PH_PO</b> \<StringVector\></dt>
+<dd>motif hash data for scoring strand pairings<br/></dd>
+<dt><b>-scores_frags</b> \<StringVector\></dt>
+<dd>motif hash data for scoring strand pairings<br/></dd>
+</dl>
++ <h3>-mh:harvest</h3>
+<dl>
+<dt><b>-harvest</b> \<Boolean\></dt>
+<dd>harvest option group<br/></dd>
+<dt><b>-hash_cart_resl</b> \<Real\></dt>
+<dd>width of cartesian bin<br/>Default: 0.8<br/></dd>
+<dt><b>-hash_angle_resl</b> \<Real\></dt>
+<dd>width of euler angle bin<br/>Default: 15.0<br/></dd>
+<dt><b>-smoothing_factor</b> \<Real\></dt>
+<dd>smoothing radius exp(-d/resl**2 * factor)<br/>Default: 1.0<br/></dd>
+<dt><b>-idealize</b> \<Boolean\></dt>
+<dd><br/>Default: false<br/></dd>
+<dt><b>-dump</b> \<Boolean\></dt>
+<dd><br/>Default: false<br/></dd>
+<dt><b>-min_bin_val</b> \<Real\></dt>
+<dd><br/>Default: 0.0<br/></dd>
+<dt><b>-sep_aa</b> \<Boolean\></dt>
+<dd><br/>Default: false<br/></dd>
+<dt><b>-sep_aa1</b> \<Boolean\></dt>
+<dd><br/>Default: false<br/></dd>
+<dt><b>-sep_aa2</b> \<Boolean\></dt>
+<dd><br/>Default: false<br/></dd>
+<dt><b>-sep_ss</b> \<Boolean\></dt>
+<dd><br/>Default: false<br/></dd>
+<dt><b>-sep_dssp</b> \<Boolean\></dt>
+<dd><br/>Default: false<br/></dd>
+<dt><b>-sep_lj</b> \<RealVector\></dt>
+<dd><br/>Default: utility::vector1<double>()<br/></dd>
+<dt><b>-sep_hb</b> \<RealVector\></dt>
+<dd><br/>Default: utility::vector1<double>()<br/></dd>
+<dt><b>-sep_nbrs</b> \<RealVector\></dt>
+<dd><br/>Default: utility::vector1<double>()<br/></dd>
+<dt><b>-sep_bfac</b> \<RealVector\></dt>
+<dd><br/>Default: utility::vector1<double>()<br/></dd>
+<dt><b>-sep_dist</b> \<RealVector\></dt>
+<dd><br/>Default: utility::vector1<double>()<br/></dd>
+<dt><b>-weight_by_energy</b> \<Boolean\></dt>
+<dd><br/>Default: true<br/></dd>
+<dt><b>-max_rmsd</b> \<Real\></dt>
+<dd>skip structure if refined rms to input is higher than this<br/>Default: 0.5<br/></dd>
+<dt><b>-max_res</b> \<Integer\></dt>
+<dd>max res in biounit (or whatever) for harvest<br/>Default: 1000<br/></dd>
+<dt><b>-agg_with_max</b> \<Boolean\></dt>
+<dd><br/>Default: false<br/></dd>
+<dt><b>-multiplier</b> \<Real\></dt>
+<dd><br/>Default: 1.0<br/></dd>
+</dl>
++ <h3>-mh:match</h3>
+<dl>
+<dt><b>-match</b> \<Boolean\></dt>
+<dd>match option group<br/></dd>
+<dt><b>-interface_only</b> \<Boolean\></dt>
+<dd><br/>Default: true<br/></dd>
+<dt><b>-ss</b> \<Boolean\></dt>
+<dd><br/>Default: true<br/></dd>
+<dt><b>-ss1</b> \<Boolean\></dt>
+<dd><br/>Default: true<br/></dd>
+<dt><b>-ss2</b> \<Boolean\></dt>
+<dd><br/>Default: true<br/></dd>
+<dt><b>-aa</b> \<Boolean\></dt>
+<dd><br/>Default: false<br/></dd>
+<dt><b>-aa1</b> \<Boolean\></dt>
+<dd><br/>Default: false<br/></dd>
+<dt><b>-aa2</b> \<Boolean\></dt>
+<dd><br/>Default: false<br/></dd>
+</dl>
++ <h3>-mh:dump</h3>
+<dl>
+<dt><b>-dump</b> \<Boolean\></dt>
+<dd>dump option group<br/></dd>
+<dt><b>-limit_per_pair</b> \<Integer\></dt>
+<dd><br/>Default: 999999<br/></dd>
+<dt><b>-max_per_res</b> \<Integer\></dt>
+<dd><br/>Default: 30<br/></dd>
+<dt><b>-max_ca_dis</b> \<Real\></dt>
+<dd><br/>Default: 12.0<br/></dd>
+<dt><b>-max_rms</b> \<Real\></dt>
+<dd><br/>Default: 0.5<br/></dd>
+<dt><b>-resfile_min_pair_score</b> \<Real\></dt>
+<dd><br/>Default: 0.00<br/></dd>
+<dt><b>-resfile_min_tot_score</b> \<Real\></dt>
+<dd><br/>Default: 0.00<br/></dd>
+<dt><b>-resfile_dump</b> \<Boolean\></dt>
+<dd><br/>Default: false<br/></dd>
+<dt><b>-symmetric_motifs</b> \<Boolean\></dt>
+<dd><br/>Default: false<br/></dd>
 </dl>
 + <h3>-mh:filter</h3>
 <dl>
 <dt><b>-filter</b> \<Boolean\></dt>
 <dd>filter option group<br/></dd>
 <dt><b>-filter_harvest</b> \<Boolean\></dt>
-<dd>filter while harvesting<br/>Default: true<br/></dd>
+<dd>filter while harvesting<br/>Default: false<br/></dd>
 <dt><b>-filter_io</b> \<Boolean\></dt>
 <dd>filter while reading filter<br/>Default: true<br/></dd>
+<dt><b>-pdb</b> \<String\></dt>
+<dd>4/5 letter pdb code<br/></dd>
+<dt><b>-lig</b> \<String\></dt>
+<dd>3 letter lig code<br/></dd>
+<dt><b>-motif_type</b> \<String\></dt>
+<dd>bb pb sc pp<br/></dd>
+<dt><b>-restype1</b> \<String\></dt>
+<dd>allowed res types for res1<br/>Default: "ACDEFGHIKLMNPQRSTVWY"<br/></dd>
+<dt><b>-restype2</b> \<String\></dt>
+<dd>allowed res types for res2<br/>Default: "ACDEFGHIKLMNPQRSTVWY"<br/></dd>
 <dt><b>-restype</b> \<String\></dt>
 <dd>allowed res types<br/>Default: "ACDEFGHIKLMNPQRSTVWY"<br/></dd>
 <dt><b>-restype_one</b> \<String\></dt>
@@ -4516,6 +5074,8 @@ _Note that some application specific options may not be present in this list._
 <dd>disallowed res types at least one not<br/>Default: "ACGP"<br/></dd>
 <dt><b>-seqsep</b> \<Integer\></dt>
 <dd>min filter seqsep<br/>Default: 0<br/></dd>
+<dt><b>-max_seqsep</b> \<Integer\></dt>
+<dd>min filter seqsep<br/>Default: 99999<br/></dd>
 <dt><b>-no_hb_bb</b> \<Boolean\></dt>
 <dd>no bb hbonded<br/>Default: false<br/></dd>
 <dt><b>-mindist2</b> \<Real\></dt>
@@ -4544,8 +5104,12 @@ _Note that some application specific options may not be present in this list._
 <dd>filter max hb_bb_sc (default 999.0 = no filtering<br/>Default: 999.0<br/></dd>
 <dt><b>-hb_bb</b> \<Real\></dt>
 <dd>filter max hb_bb (default 999.0 = no filtering<br/>Default: 999.0<br/></dd>
+<dt><b>-occupancy</b> \<Real\></dt>
+<dd>filter min occupancy (default 0.0 = no filtering<br/>Default: 0.0<br/></dd>
 <dt><b>-coorderr</b> \<Real\></dt>
-<dd>filter max bfac coorderr = sqrt(B/8*pi**2)) (default 999.0 = no filtering)<br/>Default: 999.0<br/></dd>
+<dd>filter max bfac coorderr = sqrt(B/8*pi**2)) (default 999.0 = no filtering<br/>Default: 999.0<br/></dd>
+<dt><b>-uniformfrag</b> \<Boolean\></dt>
+<dd>is frag and all same ss in frag<br/>Default: false<br/></dd>
 <dt><b>-faatr_or_hbbb</b> \<Real\></dt>
 <dd>filter require atr or hb (bb allowed) below thresh<br/>Default: 999.0<br/></dd>
 <dt><b>-faatr_or_hb</b> \<Real\></dt>
@@ -4556,6 +5120,8 @@ _Note that some application specific options may not be present in this list._
 <dd><br/>Default: false<br/></dd>
 <dt><b>-nodisulf</b> \<Boolean\></dt>
 <dd><br/>Default: false<br/></dd>
+<dt><b>-score</b> \<Real\></dt>
+<dd>filter on ResPairMotir::score()<br/>Default: 999.0<br/></dd>
 </dl>
 + <h2>-motifs</h2>
 <dl>
@@ -4749,6 +5315,10 @@ _Note that some application specific options may not be present in this list._
 <dd>Disable environmental dependent weighting of hydrogen bonds involving DNA<br/></dd>
 <dt><b>-optE_no_protein_fa_elec</b> \<Boolean\></dt>
 <dd>Instruct the IterativeOptEDriver to use the soft-repulsion etable<br/>Default: false<br/></dd>
+<dt><b>-centroid_rot</b> \<Boolean\></dt>
+<dd>Use CENTROID_ROT vdw radii<br/>Default: false<br/></dd>
+<dt><b>-centroid_rot_min</b> \<Boolean\></dt>
+<dd>Use CENTROID_ROT_MIN vdw radii<br/>Default: false<br/></dd>
 <dt><b>-design_first</b> \<Boolean\></dt>
 <dd>Do not optimize the weights in the context of the native structure, but rather, start by designing the protein with the input weight set.  Requires that all score types listed in -optE::free have specificed weights.<br/></dd>
 <dt><b>-n_design_cycles</b> \<Integer\></dt>
@@ -5174,6 +5744,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Generate exemplar PDB files<br/>Default: false<br/></dd>
 <dt><b>-pocket_filter_by_exemplar</b> \<Boolean\></dt>
 <dd>Restrict the pocket to the exemplars<br/>Default: false<br/></dd>
+<dt><b>-pocket_dump_rama</b> \<Boolean\></dt>
+<dd>Generate Ramachandran maps for each pocket cluster<br/>Default: false<br/></dd>
 <dt><b>-pocket_restrict_size</b> \<Boolean\></dt>
 <dd>Pockets that are too large return score of 0<br/>Default: false<br/></dd>
 <dt><b>-pocket_ignore_buried</b> \<Boolean\></dt>
@@ -5196,14 +5768,104 @@ _Note that some application specific options may not be present in this list._
 <dd>Distance to consider pocket buried<br/>Default: 2.0<br/></dd>
 <dt><b>-pocket_exemplar_vdw_pen</b> \<Real\></dt>
 <dd>Temporary max penalty for vdW class in exemplar discovery<br/>Default: 300.0<br/></dd>
-<dt><b>-print_grid</b> \<Boolean\></dt>
+<dt><b>-pocket_debug_output</b> \<Boolean\></dt>
+<dd>Print any and all debuggind output related to pockets<br/>Default: false<br/></dd>
+<dt><b>-dump_pocketGrid</b> \<Boolean\></dt>
+<dd>print the pocket grid points into a PDB file<br/>Default: false<br/></dd>
+<dt><b>-dump_Grid</b> \<Boolean\></dt>
 <dd>print the grid points into a PDB file<br/>Default: false<br/></dd>
+<dt><b>-extend_eggshell</b> \<Boolean\></dt>
+<dd>Extend the eggshell points<br/>Default: false<br/></dd>
+<dt><b>-extend_eggshell_dist</b> \<Real\></dt>
+<dd>Distance to extend eggshell<br/>Default: 1<br/></dd>
 <dt><b>-extra_eggshell_dist</b> \<Real\></dt>
 <dd>Distance to extend extra eggshell points<br/>Default: 4<br/></dd>
 <dt><b>-eggshell_dist</b> \<Real\></dt>
 <dd>Distance to extend eggshell points from ligand atoms<br/>Default: 4<br/></dd>
+<dt><b>-reduce_rays</b> \<Boolean\></dt>
+<dd>reduce no. of rays by rounding and removing duplicate xyz coordinates<br/>Default: true<br/></dd>
 <dt><b>-pocket_static_grid</b> \<Boolean\></dt>
 <dd>No autoexpanding grid<br/>Default: false<br/></dd>
+<dt><b>-dump_espGrid</b> \<Boolean\></dt>
+<dd>print the electrostaticpotential grid into a PDB file<br/>Default: false<br/></dd>
+<dt><b>-dump_connollySurface</b> \<Boolean\></dt>
+<dd>print the connolly surface points into a PDB file<br/>Default: false<br/></dd>
+<dt><b>-esp_buffer_dist</b> \<Real\></dt>
+<dd>buffer dist added to Vdw radius atom while assigining electrostatic potential values<br/>Default: 0.5<br/></dd>
+<dt><b>-round_pocketGrid_center</b> \<Boolean\></dt>
+<dd>round_pocketGrid_center<br/>Default: true<br/></dd>
+</dl>
++ <h2>-gen_pharmacophore</h2>
+<dl>
+<dt><b>-gen_pharmacophore</b> \<Boolean\></dt>
+<dd>gen_pharmacophore option group<br/></dd>
+<dt><b>-clash_distance_cutoff</b> \<Real\></dt>
+<dd>clash distance cutoff to include ideal hydrogen bonding atoms<br/>Default: 1.0<br/></dd>
+<dt><b>-ring_sasa_cutoff</b> \<Integer\></dt>
+<dd>ring_sasa_cutoff to include in pharmacophore<br/>Default: 25<br/></dd>
+<dt><b>-min_num_ring</b> \<Integer\></dt>
+<dd>minimimum number of rings to be in a cluster<br/>Default: 1<br/></dd>
+<dt><b>-ring_ring_dist_cutoff</b> \<Real\></dt>
+<dd>ring - ringatom distance to include in the pharmacophore clusters<br/>Default: 5.0<br/></dd>
+<dt><b>-ring_atm_dist_cutoff</b> \<Real\></dt>
+<dd>ring - hbond atom distance to include in the pharmacophore clusters<br/>Default: 5.0<br/></dd>
+</dl>
++ <h2>-fingerprint</h2>
+<dl>
+<dt><b>-fingerprint</b> \<Boolean\></dt>
+<dd>fingerprint option group<br/></dd>
+<dt><b>-print_eggshell</b> \<Boolean\></dt>
+<dd>print the eggshell points into a PDB file<br/>Default: false<br/></dd>
+<dt><b>-atom_radius_scale</b> \<Real\></dt>
+<dd>Scale to shrink the radius of atom<br/>Default: 0.9<br/></dd>
+<dt><b>-atom_radius_buffer</b> \<Real\></dt>
+<dd>Value to subtract from all atomic radii, to match PocketGrid buffer thickness<br/>Default: 1.0<br/></dd>
+<dt><b>-packing_weight</b> \<Real\></dt>
+<dd>Add weight to rho large deviation<br/>Default: 1<br/></dd>
+<dt><b>-dist_cut_off</b> \<Real\></dt>
+<dd>set cut_off distance to add packing weight<br/>Default: 5<br/></dd>
+<dt><b>-include_extrashell_to_set_origin</b> \<Boolean\></dt>
+<dd>include extrashell points to set origin<br/>Default: false<br/></dd>
+<dt><b>-include_hydrogens</b> \<Boolean\></dt>
+<dd>include hydrogen atoms for fingerprint<br/>Default: false<br/></dd>
+<dt><b>-multiple_origin</b> \<Boolean\></dt>
+<dd>set multiple origin points for ray casting<br/>Default: false<br/></dd>
+<dt><b>-use_DARC_gpu</b> \<Boolean\></dt>
+<dd>use GPU when computing DARC score<br/>Default: false<br/></dd>
+<dt><b>-square_score</b> \<Boolean\></dt>
+<dd>square the terms in DARC scoring function<br/>Default: false<br/></dd>
+<dt><b>-darc_components</b> \<Boolean\></dt>
+<dd>get the score for individual components in DARC scoring function<br/>Default: false<br/></dd>
+<dt><b>-set_origin</b> \<Integer\></dt>
+<dd>option to set orgin: 0 to choose origin based on R(rugedness) value, 1 for protein_center, 2 for eggshell_bottom, 3 for vector from eggshell_plane closest to protein_center, 4 for vector from eggshell_plane distant to protein_center, 5 for choosing a residue center as origin(use the flag -origin_res_num for choosing the residue number)<br/>Default: 0<br/></dd>
+<dt><b>-origin_res_num</b> \<String\></dt>
+<dd>Residue number:(optional)Chain to be used as origin for ray-casting<br/>Default: "1"<br/></dd>
+<dt><b>-add_esp</b> \<Boolean\></dt>
+<dd>add electrostatic calculations<br/>Default: false<br/></dd>
+<dt><b>-darc_shape_only</b> \<Boolean\></dt>
+<dd>darc with shape only<br/>Default: false<br/></dd>
+<dt><b>-darc_elsts_only</b> \<Boolean\></dt>
+<dd>darc with electrostatics only<br/>Default: false<br/></dd>
+<dt><b>-esp_weight</b> \<Real\></dt>
+<dd>add weight for electrostatic energy<br/>Default: 0.024<br/></dd>
+<dt><b>-esp_protein_wt</b> \<Real\></dt>
+<dd>add weight for electrostatic energy inside protein<br/>Default: 0<br/></dd>
+<dt><b>-esp_surface_wt</b> \<Real\></dt>
+<dd>add weight for electrostatic energy on protein surface<br/>Default: 0<br/></dd>
+<dt><b>-delphi_grid</b> \<Boolean\></dt>
+<dd>input electrostatic potential grid if from DELPHI, default is ZAP grid<br/>Default: false<br/></dd>
+<dt><b>-cap_e_potential</b> \<Real\></dt>
+<dd>max/min value to cap electrostatic potential<br/>Default: 10.0<br/></dd>
+<dt><b>-return_zero_darc_score</b> \<Boolean\></dt>
+<dd>return 0 as darc score<br/>Default: false<br/></dd>
+<dt><b>-set_surface_esp_to_zero</b> \<Boolean\></dt>
+<dd>set surface electrostatic potential to zero<br/>Default: false<br/></dd>
+<dt><b>-set_protein_esp_to_zero</b> \<Boolean\></dt>
+<dd>set protein electrostatic potential to zero<br/>Default: true<br/></dd>
+<dt><b>-inp_lig</b> \<String\></dt>
+<dd>inp_lig<br/>Default: "inp_lig.pdb"<br/></dd>
+<dt><b>-ref_lig</b> \<String\></dt>
+<dd>ref_lig<br/>Default: "ref_lig.pdb"<br/></dd>
 </dl>
 + <h2>-ProQ</h2>
 <dl>
@@ -5331,7 +5993,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-default_repeats</b> \<Integer\></dt>
 <dd>Default number of repeats done by FastRelax. Has no effect if a custom script is used!<br/>Default: 5<br/></dd>
 <dt><b>-dualspace</b> \<Boolean\></dt>
-<dd>Do 3 FastRelax cycles of internal coordinate relax followed by two cycles of Cartesian relax - cart_bonded energy term is required, pro_close energy term should be turned off, and use of -relax::minimize_bond_angles is recommended<br/></dd>
+<dd>Do 3 FastRelax cycles of internal coordinate relax followed by two cycles of Cartesian relax - cart_bonded energy term is required, pro_close energy term should be turned off, and use of -relax::minimize_bond_angles is recommended.  Use of the -nonideal flag switches all these and sets up correct min cycles, minimizer type, etc.<br/></dd>
 <dt><b>-ramady</b> \<Boolean\></dt>
 <dd>Run ramady code which aleviates stuck bad ramachandran energies<br/>Default: false<br/></dd>
 <dt><b>-ramady_rms_limit</b> \<Real\></dt>
@@ -5703,6 +6365,17 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-annealer</b> \<Boolean\></dt>
 <dd>Run the annealer and output the rotamers it chose<br/>Default: false<br/></dd>
 </dl>
++ <h2>-sample_around</h2>
+<dl>
+<dt><b>-sample_around</b> \<Boolean\></dt>
+<dd>sample_around option group<br/></dd>
+<dt><b>-alpha_increment</b> \<Real\></dt>
+<dd>if sampling jump, rotation increment, in degrees<br/>Default: 40.0<br/></dd>
+<dt><b>-cosbeta_increment</b> \<Real\></dt>
+<dd>if sampling jump, cosbeta increment, no units<br/>Default: 0.25<br/></dd>
+<dt><b>-gamma_increment</b> \<Real\></dt>
+<dd>if sampling jump, rotation increment, in degrees<br/>Default: 40.0<br/></dd>
+</dl>
 + <h2>-sicdock</h2>
 <dl>
 <dt><b>-sicdock</b> \<Boolean\></dt>
@@ -5794,6 +6467,8 @@ _Note that some application specific options may not be present in this list._
 <dd>ask swa residue sampler for a random solution<br/>Default: false<br/></dd>
 <dt><b>-num_random_samples</b> \<Integer\></dt>
 <dd>In choose_random/monte-carlo mode, number of samples from swa residue sampler before minimizing best<br/>Default: 20<br/></dd>
+<dt><b>-max_tries_multiplier_for_ccd</b> \<Integer\></dt>
+<dd>In choose_random/monte-carlo mode, when CCD closure needs to occur, multiple # tries by this factor<br/>Default: 10<br/></dd>
 <dt><b>-num_pose_minimize</b> \<Integer\></dt>
 <dd>optional: set_num_pose_minimize by Minimizer<br/>Default: 0<br/></dd>
 <dt><b>-atr_rep_screen</b> \<Boolean\></dt>
@@ -5804,6 +6479,10 @@ _Note that some application specific options may not be present in this list._
 <dd>For SWM. Force enumeration (SWA-like) instead of random<br/>Default: false<br/></dd>
 <dt><b>-preminimize</b> \<Boolean\></dt>
 <dd>For SWM. Just prepack and minimize<br/>Default: false<br/></dd>
+<dt><b>-test_all_moves</b> \<Boolean\></dt>
+<dd>Try all moves from starting pose, recursing through additions <br/>Default: false<br/></dd>
+<dt><b>-new_move_selector</b> \<Boolean\></dt>
+<dd>For SWM. Use new move selector which does keep track of proposal probabilities.<br/>Default: false<br/></dd>
 <dt><b>-dump</b> \<Boolean\></dt>
 <dd>Dump intermediate silent & PDB files<br/>Default: false<br/></dd>
 <dt><b>-VERBOSE</b> \<Boolean\></dt>
@@ -5814,10 +6493,26 @@ _Note that some application specific options may not be present in this list._
 <dd>keep sampled residues within this rmsd from the native pose<br/>Default: 0.0<br/></dd>
 <dt><b>-skip_minimize</b> \<Boolean\></dt>
 <dd>Skip minimize, e.g. in prepack step<br/>Default: false<br/></dd>
+<dt><b>-virtualize_packable_moieties_in_screening_pose</b> \<Boolean\></dt>
+<dd>Virtualize 2'-OH, terminal phosphates in stepwise contact screening, before actual packing <br/>Default: false<br/></dd>
 <dt><b>-sampler_silent_file</b> \<String\></dt>
 <dd>In StepWiseConnectionSampler, where to output all poses that pass filters<br/>Default: ""<br/></dd>
+<dt><b>-superimpose_over_all</b> \<Boolean\></dt>
+<dd>In final superimposition, do not keep any domains fixed, superimpose over everything<br/>Default: false<br/></dd>
 <dt><b>-move</b> \<StringVector\></dt>
 <dd>For SWM. Format: 'ADD 5 BOND_TO_PREVIOUS 4'<br/>Default: []<br/></dd>
+<dt><b>-min_type</b> \<String\></dt>
+<dd>Minimizer type<br/>Default: "dfpmin_armijo_nonmonotone"<br/></dd>
+<dt><b>-min_tolerance</b> \<Real\></dt>
+<dd>Minimizer tolerance<br/>Default: 0.000025<br/></dd>
+<dt><b>-vary_polar_hydrogen_geometry</b> \<Boolean\></dt>
+<dd>Optimize hydrogens that form hydrogen bonds<br/>Default: false<br/></dd>
+<dt><b>-output_minimized_pose_list</b> \<Boolean\></dt>
+<dd>Use legacy output that puts out all minimized poses; set to true in legacy SWA<br/>Default: false<br/></dd>
+<dt><b>-virtualize_free_moieties_in_native</b> \<Boolean\></dt>
+<dd>Virtualize bulges, terminal phosphates, and 2' hydroxyls detected to be non-interacting ('free') in native pose. I.e., do not calculate RMSD over those atoms.<br/>Default: true<br/></dd>
+<dt><b>-output_cluster_size</b> \<Boolean\></dt>
+<dd>Output cluster_size in StepWiseClusterer as an extra score in the pose<br/>Default: false<br/></dd>
 </dl>
 + <h3>-stepwise:monte_carlo</h3>
 <dl>
@@ -5830,9 +6525,11 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-allow_internal_hinge_moves</b> \<Boolean\></dt>
 <dd>Allow moves in which internal suites are sampled (hinge-like motions)<br/>Default: true<br/></dd>
 <dt><b>-allow_internal_local_moves</b> \<Boolean\></dt>
-<dd>Allow moves in which internal cutpoints are created to allow ERRASER rebuilds<br/>Default: false<br/></dd>
+<dd>Allow moves in which internal cutpoints are created to allow ERRASER rebuilds<br/>Default: true<br/></dd>
 <dt><b>-allow_skip_bulge</b> \<Boolean\></dt>
 <dd>Allow moves in which an intervening residue is skipped and the next one is modeled as floating base<br/>Default: false<br/></dd>
+<dt><b>-skip_bulge_frequency</b> \<Real\></dt>
+<dd>Compared to 'normal' add moves, how often to skip a bulge and do addition.<br/>Default: 0.0<br/></dd>
 <dt><b>-from_scratch_frequency</b> \<Real\></dt>
 <dd>Allow modeling of 'free' dinucleotides that are not part of input poses<br/>Default: 0.1<br/></dd>
 <dt><b>-allow_split_off</b> \<Boolean\></dt>
@@ -5843,8 +6540,12 @@ _Note that some application specific options may not be present in this list._
 <dd>Monte Carlo temperature<br/>Default: 1.0<br/></dd>
 <dt><b>-add_delete_frequency</b> \<Real\></dt>
 <dd>Frequency of add/delete vs. resampling<br/>Default: 0.5<br/></dd>
+<dt><b>-docking_frequency</b> \<Real\></dt>
+<dd>Frequency of docking vs. folding moves<br/>Default: 0.2<br/></dd>
+<dt><b>-submotif_frequency</b> \<Real\></dt>
+<dd>Frequency of submotif additions<br/>Default: 0.0<br/></dd>
 <dt><b>-intermolecular_frequency</b> \<Real\></dt>
-<dd>Frequency of intermolecular (docking) vs. intramolecular folding moves<br/>Default: 0.2<br/></dd>
+<dd>Same as -docking_frequency, to be deprecated soon<br/>Default: 0.2<br/></dd>
 <dt><b>-minimize_single_res_frequency</b> \<Real\></dt>
 <dd>Frequency with which to minimize the residue that just got rebuilt, instead of all<br/>Default: 0.0<br/></dd>
 <dt><b>-allow_variable_bond_geometry</b> \<Boolean\></dt>
@@ -5857,6 +6558,23 @@ _Note that some application specific options may not be present in this list._
 <dd>In ResampleMover, docking partners can change anywhere across connected chains. Force the new partners to be close to the old ones.<br/>Default: true<br/></dd>
 <dt><b>-make_movie</b> \<Boolean\></dt>
 <dd>create silent files in movie/ with all steps and accepted steps<br/>Default: false<br/></dd>
+<dt><b>-recover_low</b> \<Boolean\></dt>
+<dd>Output lowest energy model in monte carlo, not the last frame<br/>Default: true<br/></dd>
+<dt><b>-save_times</b> \<Boolean\></dt>
+<dd>Save modeling time for each model<br/>Default: false<br/></dd>
+<dt><b>-use_precomputed_library</b> \<Boolean\></dt>
+<dd>In from_scratch moves, do not sample dinucleotides explicitly, but instead use library saved to disk.<br/>Default: true<br/></dd>
+</dl>
++ <h4>-stepwise:monte_carlo:csa</h4>
+<dl>
+<dt><b>-csa</b> \<Boolean\></dt>
+<dd>csa option group<br/></dd>
+<dt><b>-csa_bank_size</b> \<Integer\></dt>
+<dd>Do conformational space annealing (population monte carlo) with this number of models in the bank<br/>Default: 0<br/></dd>
+<dt><b>-csa_rmsd</b> \<Real\></dt>
+<dd>RMSD cutoff for calling two poses different in conformational space annealing (population monte carlo)<br/>Default: 1.0<br/></dd>
+<dt><b>-csa_output_rounds</b> \<Boolean\></dt>
+<dd>output silent files at intermediate stages (at integral multiples of bank_size)<br/>Default: false<br/></dd>
 </dl>
 + <h3>-stepwise:rna</h3>
 <dl>
@@ -5868,22 +6586,26 @@ _Note that some application specific options may not be present in this list._
 <dd>native_edensity_score_cutoff<br/>Default: -1.0<br/></dd>
 <dt><b>-o2prime_legacy_mode</b> \<Boolean\></dt>
 <dd>complete virtualization of O2' hydrogen during sampling, and then complete restoration and packing<br/>Default: false<br/></dd>
+<dt><b>-allow_virtual_o2prime_hydrogens</b> \<Boolean\></dt>
+<dd>allow O2' hydrogen to be virtualized during packing.<br/>Default: false<br/></dd>
 <dt><b>-sampler_perform_phosphate_pack</b> \<Boolean\></dt>
-<dd>perform terminal phosphate packing inside StepWiseRNA_ResidueSampler<br/>Default: true<br/></dd>
+<dd>perform terminal phosphate packing inside StepWiseRNA_ResidueSampler<br/>Default: false<br/></dd>
+<dt><b>-force_phosphate_instantiation</b> \<Boolean\></dt>
+<dd>Require terminal phosphates to be instantiated.<br/>Default: false<br/></dd>
 <dt><b>-distinguish_pucker</b> \<Boolean\></dt>
 <dd>distinguish pucker when cluster:both in sampler and clusterer<br/>Default: true<br/></dd>
 <dt><b>-finer_sampling_at_chain_closure</b> \<Boolean\></dt>
-<dd>Samplerer: finer_sampling_at_chain_closure<br/>Default: false<br/></dd>
+<dd>Sampler: finer_sampling_at_chain_closure<br/>Default: false<br/></dd>
 <dt><b>-PBP_clustering_at_chain_closure</b> \<Boolean\></dt>
-<dd>Samplerer: PBP_clustering_at_chain_closure<br/>Default: false<br/></dd>
+<dd>Sampler: PBP_clustering_at_chain_closure<br/>Default: false<br/></dd>
 <dt><b>-sampler_allow_syn_pyrimidine</b> \<Boolean\></dt>
 <dd>sampler_allow_syn_pyrimidine<br/>Default: false<br/></dd>
 <dt><b>-sampler_extra_chi_rotamer</b> \<Boolean\></dt>
-<dd>Samplerer: extra_syn_chi_rotamer<br/>Default: false<br/></dd>
+<dd>Sampler: extra_syn_chi_rotamer<br/>Default: false<br/></dd>
 <dt><b>-sampler_extra_beta_rotamer</b> \<Boolean\></dt>
-<dd>Samplerer: extra_beta_rotamer<br/>Default: false<br/></dd>
+<dd>Sampler: extra_beta_rotamer<br/>Default: false<br/></dd>
 <dt><b>-sampler_extra_epsilon_rotamer</b> \<Boolean\></dt>
-<dd>Samplerer: extra_epsilon_rotamer<br/>Default: true<br/></dd>
+<dd>Sampler: extra_epsilon_rotamer<br/>Default: true<br/></dd>
 <dt><b>-force_centroid_interaction</b> \<Boolean\></dt>
 <dd>Require base stack or pair even for single residue loop closed (which could also be bulges!)<br/>Default: false<br/></dd>
 <dt><b>-virtual_sugar_legacy_mode</b> \<Boolean\></dt>
@@ -5913,19 +6635,19 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-parin_favorite_output</b> \<Boolean\></dt>
 <dd> parin_favorite_output <br/>Default: true<br/></dd>
 <dt><b>-reinitialize_CCD_torsions</b> \<Boolean\></dt>
-<dd>Samplerer: reinitialize_CCD_torsions: Reinitialize_CCD_torsion to zero before every CCD chain closure<br/>Default: false<br/></dd>
+<dd>Sampler: reinitialize_CCD_torsions: Reinitialize_CCD_torsion to zero before every CCD chain closure<br/>Default: false<br/></dd>
 <dt><b>-sample_both_sugar_base_rotamer</b> \<Boolean\></dt>
-<dd>Samplerer: Super hacky for SQUARE_RNA<br/>Default: false<br/></dd>
+<dd>Sampler: Super hacky for SQUARE_RNA<br/>Default: false<br/></dd>
 <dt><b>-sampler_include_torsion_value_in_tag</b> \<Boolean\></dt>
-<dd>Samplerer:include_torsion_value_in_tag<br/>Default: true<br/></dd>
+<dd>Sampler:include_torsion_value_in_tag<br/>Default: true<br/></dd>
 <dt><b>-sampler_assert_no_virt_sugar_sampling</b> \<Boolean\></dt>
 <dd>sampler_assert_no_virt_sugar_sampling<br/>Default: false<br/></dd>
 <dt><b>-sampler_try_sugar_instantiation</b> \<Boolean\></dt>
 <dd>for floating base sampling, try to instantiate sugar if it looks promising<br/>Default: false<br/></dd>
 <dt><b>-do_not_sample_multiple_virtual_sugar</b> \<Boolean\></dt>
-<dd> Samplerer: do_not_sample_multiple_virtual_sugar <br/>Default: false<br/></dd>
+<dd> Sampler: do_not_sample_multiple_virtual_sugar <br/>Default: false<br/></dd>
 <dt><b>-sample_ONLY_multiple_virtual_sugar</b> \<Boolean\></dt>
-<dd> Samplerer: sample_ONLY_multiple_virtual_sugar <br/>Default: false<br/></dd>
+<dd> Sampler: sample_ONLY_multiple_virtual_sugar <br/>Default: false<br/></dd>
 <dt><b>-allow_base_pair_only_centroid_screen</b> \<Boolean\></dt>
 <dd>allow_base_pair_only_centroid_screen<br/>Default: false<br/></dd>
 <dt><b>-minimizer_rename_tag</b> \<Boolean\></dt>
@@ -5976,8 +6698,6 @@ _Note that some application specific options may not be present in this list._
 <dd>If we want floating base to be connected via a jump to an anchor res (with no intervening virtual residues), specify the anchor.<br/>Default: 0<br/></dd>
 <dt><b>-allow_chain_boundary_jump_partner_right_at_fixed_BP</b> \<Boolean\></dt>
 <dd>mainly just to get Hermann nano - square RNA modeling to work<br/>Default: false<br/></dd>
-<dt><b>-bulge_res</b> \<IntegerVector\></dt>
-<dd>optional: residues to be turned into a bulge variant<br/>Default: []<br/></dd>
 <dt><b>-rebuild_bulge_mode</b> \<Boolean\></dt>
 <dd>rebuild_bulge_mode<br/>Default: false<br/></dd>
 <dt><b>-virtual_sugar_keep_base_fixed</b> \<Boolean\></dt>
@@ -6005,10 +6725,6 @@ _Note that some application specific options may not be present in this list._
 <dd>sample beta strand pairing -- later need to specify parallel/antiparallel<br/>Default: false<br/></dd>
 <dt><b>-ghost_loops</b> \<Boolean\></dt>
 <dd>Virtualize loops in centroid screening<br/>Default: false<br/></dd>
-<dt><b>-min_type</b> \<String\></dt>
-<dd>Minimizer type<br/>Default: "dfpmin_armijo_nonmonotone"<br/></dd>
-<dt><b>-min_tolerance</b> \<Real\></dt>
-<dd>Minimizer tolerance<br/>Default: 0.000025<br/></dd>
 <dt><b>-centroid_screen</b> \<Boolean\></dt>
 <dd>Centroid Screen<br/>Default: false<br/></dd>
 <dt><b>-centroid_score_diff_cut</b> \<Real\></dt>
@@ -6045,6 +6761,8 @@ _Note that some application specific options may not be present in this list._
 <dd>In packing, allow virtual side chains<br/>Default: true<br/></dd>
 <dt><b>-protein_prepack</b> \<Boolean\></dt>
 <dd>In packing, prepack separate partitions<br/>Default: true<br/></dd>
+<dt><b>-disulfide_file</b> \<String\></dt>
+<dd>File with pairs of numbers for desired disulfides.<br/>Default: ""<br/></dd>
 </dl>
 + <h2>-full_model</h2>
 <dl>
@@ -6056,10 +6774,12 @@ _Note that some application specific options may not be present in this list._
 <dd>closed cutpoints in full model<br/>Default: []<br/></dd>
 <dt><b>-other_poses</b> \<StringVector\></dt>
 <dd>list of PDB files containing other poses<br/></dd>
-<dt><b>-extra_min_res</b> \<ResidueChainVector\></dt>
-<dd>specify residues other than those being built that should be minimized<br/>Default: []<br/></dd>
 <dt><b>-jump_res</b> \<ResidueChainVector\></dt>
 <dd>optional: residues for defining jumps -- please supply in pairs<br/>Default: []<br/></dd>
+<dt><b>-extra_min_res</b> \<ResidueChainVector\></dt>
+<dd>specify residues other than those being built that should be minimized<br/>Default: []<br/></dd>
+<dt><b>-extra_min_jump_res</b> \<ResidueChainVector\></dt>
+<dd>specify jump-connected pairs  other than those being built that should be minimized<br/>Default: []<br/></dd>
 <dt><b>-root_res</b> \<ResidueChainVector\></dt>
 <dd>optional: desired root res (used in SWM move testing)<br/>Default: []<br/></dd>
 <dt><b>-virtual_sugar_res</b> \<ResidueChainVector\></dt>
@@ -6072,6 +6792,8 @@ _Note that some application specific options may not be present in this list._
 <dd>residues over which to calculate rms for SWA. Not in wide use anymore.<br/>Default: []<br/></dd>
 <dt><b>-working_res</b> \<ResidueChainVector\></dt>
 <dd>residues that are being built [by default will be set from sample_res and any input pdbs]<br/>Default: []<br/></dd>
+<dt><b>-motif_mode</b> \<Boolean\></dt>
+<dd>in fixed PDB parts, minimize residues right next to loops & disallow pair/stacking in most distal residues<br/>Default: false<br/></dd>
 </dl>
 + <h3>-full_model:rna</h3>
 <dl>
@@ -6081,10 +6803,16 @@ _Note that some application specific options may not be present in this list._
 <dd>optional: residues that are not allowed to stack during sampling<br/>Default: []<br/></dd>
 <dt><b>-force_syn_chi_res_list</b> \<ResidueChainVector\></dt>
 <dd>optional: sample only syn chi for the res in sampler.<br/>Default: []<br/></dd>
+<dt><b>-force_anti_chi_res_list</b> \<ResidueChainVector\></dt>
+<dd>optional: sample only anti chi for the res in sampler.<br/>Default: []<br/></dd>
 <dt><b>-force_north_sugar_list</b> \<ResidueChainVector\></dt>
 <dd>optional: sample only north sugar for the res in sampler.<br/>Default: []<br/></dd>
 <dt><b>-force_south_sugar_list</b> \<ResidueChainVector\></dt>
 <dd>optional: sample only south sugar for the res in sampler.<br/>Default: []<br/></dd>
+<dt><b>-bulge_res</b> \<ResidueChainVector\></dt>
+<dd>optional: residues to be turned into a bulge variant<br/>Default: []<br/></dd>
+<dt><b>-sample_sugar_res</b> \<ResidueChainVector\></dt>
+<dd>optional: residues in fixed input pose whose sugars can still move<br/>Default: []<br/></dd>
 </dl>
 + <h2>-strand_assembly</h2>
 <dl>
@@ -6213,6 +6941,10 @@ _Note that some application specific options may not be present in this list._
 <dd>unfolded_state option group<br/></dd>
 <dt><b>-unfolded_energies_file</b> \<File\></dt>
 <dd>path to an alternative unfolded state energies file<br/></dd>
+<dt><b>-split_unfolded_energies_file</b> \<File\></dt>
+<dd>path to an alternative split unfolded state energies file<br/></dd>
+<dt><b>-split_unfolded_energies_atom_type</b> \<String\></dt>
+<dd>name of the atom type specfied in the file defeined by the split_unfolded_energies_file option<br/></dd>
 </dl>
 + <h2>-wum</h2>
 <dl>
@@ -6346,6 +7078,35 @@ _Note that some application specific options may not be present in this list._
 <dd>murphp option group<br/></dd>
 <dt><b>-inv_kin_lig_loop_design_filename</b> \<String\></dt>
 <dd>input filename to be used for inv_kin_lig_loop_design<br/></dd>
+</dl>
++ <h2>-peptide_deriver</h2>
+<dl>
+<dt><b>-peptide_deriver</b> \<Boolean\></dt>
+<dd>peptide_deriver option group<br/></dd>
+<dt><b>-pep_lengths</b> \<IntegerVector\></dt>
+<dd>Length(s) of derived peptides<br/>Default: ['10']<br/></dd>
+<dt><b>-skip_zero_isc</b> \<Boolean\></dt>
+<dd>Makes derivation go faster by skipping peptides with 0 interface score<br/>Default: true<br/></dd>
+<dt><b>-dump_peptide_pose</b> \<Boolean\></dt>
+<dd>Output pose with peptide cut out (best one for each chain pair)<br/>Default: false<br/></dd>
+<dt><b>-dump_cyclic_poses</b> \<Boolean\></dt>
+<dd>Output each cyclic peptide pose (those that are modeled; which is determined by -optimize_cyclic_threshold)<br/>Default: false<br/></dd>
+<dt><b>-dump_prepared_pose</b> \<Boolean\></dt>
+<dd>Output each receptor-partner pose as Peptiderive sees it, i.e. after preparation (minimization and disulfide detection)<br/>Default: false<br/></dd>
+<dt><b>-dump_report_file</b> \<Boolean\></dt>
+<dd>Send PeptideDeriver output to a file (<input_name>.peptiderive.txt)<br/>Default: true<br/></dd>
+<dt><b>-restrict_receptors_to_chains</b> \<StringVector\></dt>
+<dd>Only use chains listed here as receptors. When empty, consider all chains.<br/>Default: []<br/></dd>
+<dt><b>-restrict_partners_to_chains</b> \<StringVector\></dt>
+<dd>Only use chains listed here as partners. When empty, consider all chains. For each receptor-partner pair, a peptide is derived from the partner.<br/>Default: []<br/></dd>
+<dt><b>-do_minimize</b> \<Boolean\></dt>
+<dd>Perform minimization before everything.<br/>Default: true<br/></dd>
+<dt><b>-optimize_cyclic_threshold</b> \<Real\></dt>
+<dd>Choose value of peptide interface score percent of total isc from which to optimize cyclic peptide<br/>Default: 0.35<br/></dd>
+<dt><b>-report_format</b> \<String\></dt>
+<dd>The format of the report. Either 'basic' (easily parsable format) or 'markdown' (pretty, readable, but verbose format).<br/>Default: "markdown"<br/></dd>
+<dt><b>-report_gzip</b> \<Boolean\></dt>
+<dd>Gzip report file (only if -dump_report_file is enabled)<br/>Default: false<br/></dd>
 </dl>
 + <h2>-phil</h2>
 <dl>
