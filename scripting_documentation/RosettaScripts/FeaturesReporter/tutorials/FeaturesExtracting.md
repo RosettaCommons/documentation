@@ -33,7 +33,7 @@ The FeatureReporter (rosetta/main/source/src/protocols/features/FeaturesReporter
 
 As an example consider the PoseCommentsFeatures (rosetta/main/source/protocols/features/PoseCommentsFeatures.hh) feature reporter. Arbitrary textual information may be associated with a pose in the form of *(key, val)* comments (See rosetta/main/source/src/core/pose/util.hh). The PoseCommentsFeatures FeaturesReporter extracts all defined comments to a table *pose\_comments* using the *struct\_id* and *key* as the primary key. The *struct\_id* references the the structures table that identifies each of the structures in the database.
 
-In the report\_features function, sessionOP is an owning pointer to the database where the features should be written. See the [[database interface|DatabaseIO]] for how to obtain and interact with database sessions.
+In the report\_features function, sessionOP is an owning pointer to the database where the features should be written. See the [[database interface|Database IO]] for how to obtain and interact with database sessions.
 
     string
     PoseCommentsFeatures::type_name() const { return "PoseCommentsFeatures"; }

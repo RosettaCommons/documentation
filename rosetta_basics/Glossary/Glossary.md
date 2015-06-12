@@ -687,12 +687,6 @@ This term refers to Rohl et. al., 2004, [Protein structure prediction using Rose
 
 #### root mean square deviation (RMSD)
 
-[It's not enough to just explain how RMSD is calculated: it's also
-important to discuss what significance it plays in Rosetta, and what
-values are to be expected calculating it in various places.]
-
-#### root mean square deviation (RMSD)
-
 [It's not enough to just explain how RMSD is calculated: it's also important to discuss what significance it plays in Rosetta, and what values are to be expected calculating it in various places.] 
 
 #### Rosetta
@@ -842,6 +836,10 @@ Thai Tom is one of the two 'Rosetta restaurants' that many developers like to vi
 4543 University Way NE, Seattle, WA 98105 (it's on the west side of The Ave). 
 Excellent Thai food, can be very spicy.
 Wait times are a problem if 40 Rosetta people show up at once.
+
+#### theozyme
+A theozyme, or "theoretical enzyme," is a convention used from enzyme design.
+Unsurprisingly, it's a good idea to generate a geometrically idea active site to stabilize the desired transition state conformation; once you set that up, you can thread it onto a pose.
 
 #### threading
 

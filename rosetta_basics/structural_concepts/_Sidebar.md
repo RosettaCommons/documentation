@@ -46,6 +46,8 @@
 [[Internal Documentation|internal_documentation/Internal-Documentation]]
 <!---END_INTERNAL-->
 
+[[FAQ]]
+
 [[Glossary]]
 
 [[Options list|full-options-list]]

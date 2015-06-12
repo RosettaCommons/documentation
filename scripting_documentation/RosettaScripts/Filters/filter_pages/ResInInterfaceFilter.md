@@ -15,4 +15,5 @@ Computes the number of residues in the interface specified by jump\_number.  Ret
 * [[InterfaceHolesFilter]]
 * [[ShapeComplementarityFilter]]
 * [[ExposedHydrophobicsFilter]]
-* [[ResideDistanceFilter]]
+* [[ResidueDistanceFilter]]
+* [[SpecificResiduesNearInterfaceFilter]]

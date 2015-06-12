@@ -32,7 +32,8 @@ See: [[Ab initio|abinitio-relax]].
 
 ### Comparative Modeling (Homology Modeling)
 
-Comparative modeling on the other hand tends to be successful when the target sequence (sequence of interest) has a high degree of sequence homology (>50%) with a protein whose structure has been determined.
+Comparative modeling on the other hand tends to be successful when the target sequence (sequence of interest) has a high degree of sequence homology (>50%) with a protein whose structure has been determined. 
+Typically, the protein sequence of interest is threaded on to the determined structure and the areas of low homology are modeled by loop closure (see below) or another technique.
 
 See: [[Comparative Modeling|minirosetta-comparative-modeling]] (potentially out of date) and [[Comparative Modeling via RosettaScripts|http://www.ncbi.nlm.nih.gov/pubmed/24035711]] (uses RosettaScripts) for more information.
 
@@ -133,7 +134,7 @@ Unlike RosettaLigand, which explores protein–ligand interactions in a biologic
 While protein structure prediction seeks to identify low energy structures in space, protein design seeks to identify amino acid identities in sequence space.
 Protein design can be used to study both how sequence confers structure (i.e. predicting the amino acid sequence of a given fold) or how structure confers function (i.e. predicting the amino acid sequence for a given function).
 Due to the breadth of these challenges, protocols are either specific or custom generated using one of the [[Rosetta scripting interfaces|Scripting-Documentation]].
-Broadly, protein design can be performed with the use of a [[resfile]] and flags whenever sidechains are repacked.
+Broadly, protein design can be performed with the use of a [[resfiles]] and flags whenever sidechains are repacked.
 
 ### Protein Redesign
 
@@ -219,7 +220,7 @@ It requires the use of the refinement program PHENIX.
 
 ## Solving NMR structures
 
-* [Chemical shift files](rosetta_basics/chemical-shift-file) provide data to a variety of protocols often collectively referred to as [[CSROSETTA]] that incorporate NMR constraints to refine structures
+* [Chemical shift files](rosetta_basics/chemical-shift-file) provide data to a variety of protocols often collectively referred to as [[CS-ROSETTA]] that incorporate NMR constraints to refine structures
 
 ## What If My Question Is Unanswered? 
 
@@ -227,6 +228,7 @@ It may be that your question cannot be answered. Or, perhaps you can construct a
 
 ##See Also
 
+* [[Incorporating Experimental Data]]
 * [[I want to do x]]: Guides to specific types of structural perturbations using RosettaScripts
 * [[Resources for learning biophysics and computational modeling]]
 * [[Getting Started]]: A page for people new to Rosetta
