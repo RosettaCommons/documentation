@@ -4,7 +4,7 @@
 
 Access pointers (access_ptr) are part of a smart pointer system.  access_ptr is a simple pointer wrapper that you can't (directly) delete that is meant for pointing to access objects that are not owned. access_ptr objects can be stored in STL containers and are as small and as fast as raw pointers. Deletion of the wrapped pointer is still possible so this is not bulletproof against determined misuse.
 
-This page once hosted documentation on Rosetta's deprecated [[ReferenceCount|Glossary#referencecount]] based smart pointer system.
+This page once hosted documentation on Rosetta's deprecated [[ReferenceCount]] based smart pointer system.
 
 ##See Also
 
