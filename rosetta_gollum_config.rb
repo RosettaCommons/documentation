@@ -1,5 +1,12 @@
 #!/usr/bin/env ruby
 
+require 'rubygems'
+require 'bundler'
+Bundler.setup(:default)
+
+require 'gollum/app'
+require 'nokogiri'
+
 # This file contains configuration for the Gollum wiki itself.  If you are 
 # running Gollum locally, use the `--config` flag to apply this configuration:
 #
