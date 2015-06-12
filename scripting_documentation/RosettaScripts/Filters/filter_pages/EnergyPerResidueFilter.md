@@ -18,4 +18,4 @@ whole_interface=(0 &bool) jump_number=(1 &int) interface_distance_cutoff=(8.0 &f
 * [[HbondsToResidueFilter]]
 * [[ResidueBurialFilter]]
 * [[ResidueDistanceFilter]]
-* [[ResidueInteractionEnergyFilter]]
+* [[ResidueIEFilter]]
