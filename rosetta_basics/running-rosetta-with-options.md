@@ -3,6 +3,10 @@
 [[_TOC_]]
 
 ## Starting References
+
+You may be interested in reading [[Getting Started]]. 
+More similar recommendations can be found scrolling to the bottom of this page, in the See Also section.
+
 Leaver-Fay, A., et al., ROSETTA3: an object-oriented software suite for the simulation and design of macromolecules. Methods in enzymology, 2011. 487: p. 545.
 
 Kaufmann, K.W., et al., Practically useful: what the Rosetta protein modeling
@@ -18,7 +22,7 @@ servers can be found on the [[Rosetta Servers]] page.
 ##Command Line Example
 Rosetta applications (including RosettaScripts) are typically run through a terminal window. The command line is composed of two major parts. First, a path to an application executable is required, while the second part is a list of options for the particular Rosetta simulation. For example:
 
-<code>path_to/some_rosetta_app.linuxgccrelease -database mypath/rosetta\_database other\_flags</code>
+<code>path_to/some_rosetta_app.linuxgccrelease -database path/to/rosetta/Rosetta/main/database other\_flags</code>
 
 
 ##Location of Rosetta Executables
@@ -35,7 +39,7 @@ If you have the Rosetta code and database directories laid out in the standard f
 ### Set DB for a _single_ Rosetta run
 
 If the ROSETTA3_DB environment variable is not set, you must specify the path to this database directory in the command line to run Rosetta simulations. For example: 
-* <code>rosetta.linuxgccrelease -database mypath/rosetta\_database other\_flags</code>
+* <code>rosetta.linuxgccrelease -database path/to/rosetta/main/database other\_flags</code>
 
 As with all Rosetta options, this can also be provided with an options file.
 
@@ -64,7 +68,7 @@ Options and arguments to the options, are separated by whitespace. A single or d
 Options can also be written in a options file (also called a flags file). In this file, put one option on each line, still using the colon or double colon is using to specify the layers. An example options file appears below.
 
 ```
- -database /home/yiliu/Programing/branches/rosetta_database
+ -database /home/yiliu/Programing/branches/Rosetta/main/database
  -in:file:s 1l2y_centroid.pdb
  -in:centroid_input
  -score:weights centroid_des.wts
@@ -123,7 +127,7 @@ All the option types are pre-defined, and you can figure out the the type of par
 For Example: Option "database" is a Path type option, so it is followed by path format parameters as
 
 ```
--database yourpath/rosetta_database
+-database yourpath/Rosetta/main/database
 ```
 
 Option "ex1" is a Boolean type option and set to be false by default, so you can activate it as
@@ -186,7 +190,7 @@ General tips for running Rosetta
 * [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
 * [[TACC]]: Information for running Rosetta on the TACC/Stampede cluster.
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
-* [[I want to do x]]: Guide to making specific structural pertubations using RosettaScripts
+* [[I want to do x]]: Guide to making specific structural perturbations using RosettaScripts
 * [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
 * [[Commands collection]]: A list of example command lines for running Rosetta executable files
 * [[Rosetta Servers]]: Web-based servers for Rosetta applications

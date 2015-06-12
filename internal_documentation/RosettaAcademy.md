@@ -396,13 +396,13 @@ https://wiki.rosettacommons.org/index.php/Projects:ResourceManager
 ### Unit tests
 Unit tests are tests of a small piece of code in isolation. Examples are testing a single function or the correct setup of a constructor (= the creation of an object). Code should be written like an onion and most of the code should be unit tested. Actually, ALL of the code should be unit tested, however, there are functions that are impossible to unit test. 
 * unit tests are located in <code>test/devel</code>:
-    * if compiling/running unit test, add file to <code>rosetta_source/test/devel.test.settings</code>
-    * if writing class: add file in <code>rosetta_source/src/devel.src.settings</code>
+    * if compiling/running unit test, add file to <code>main/source/test/devel.test.settings</code>
+    * if writing class: add file in <code>main/source/src/devel.src.settings</code>
 * every unit test needs a <code>core_init()</code> and a <code>tearDown()</code> method. 
 * compile all unit tests (can't compile just a single one, compiles all):
-    * from rosetta_source: <code>./scons.py -j<number of processors> cat=test</code>
+    * from main/source: <code>./scons.py -j<number of processors> cat=test</code>
 * run single unit test:
-    * from rosetta_source: <code>python test/run.py -d <rosetta_database> -1 <classname></code>
+    * from main/source: <code>python test/run.py -d <path_to_rosetta_database> -1 <classname></code>
     * if your environment variable <code>$ROSETTA3_DB</code> is defined (type <code>echo $ROSETTA3_DB</code>), you don't need the flag -d
 * More information about unit tests and in particular which types of TS_ASSERT messages exist, see https://wiki.rosettacommons.org/index.php/Tools:Unit_Tests
 

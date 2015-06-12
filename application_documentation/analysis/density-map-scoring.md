@@ -25,7 +25,7 @@ Sample 1: relax a structure 1cid.pdb into a map 1cid\_5A.mrc using the hi-res sc
 
 ```
 bin/relax.linuxgccrelease \
- -database ~/rosetta_database \
+ -database ~/rosetta/main/database \
  -in:file:s 1cid.pdb \
  -score:weights score13_env_hb \
  -relax:fast \
@@ -45,7 +45,7 @@ Sample 2: remodel the loops specified in 1cid.loopfile in structure 1cid.pdb int
 
 ```
 bin/loopmodel.linuxgccrelease \
- -database ~/rosetta_database \
+ -database ~/rosetta/main/database \
  -s 1cid.pdb \
  -score:weights score13_env_hb \
  -loops::frag_sizes 9 3 1 \

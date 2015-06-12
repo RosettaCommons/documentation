@@ -8,9 +8,9 @@ This document was created Apr 14th 2008 by Andrew Leaver-Fay The `       mpi_msd
 Code and Demo
 =============
 
-See `       rosetta/rosetta_tests/integration/tests/mpi_multistate_design      ` for a quick example of a multistate design trajectory. This example performs single state design using the multistate design framework. See also `       rosetta/rosetta_demos/andrew/multistate      ` for a more involved example. In this directory, the "README" file directs your attention to a set of input files for a fairly involved multistate design problem of redesigning the interface of a homodimer so that it forms a heterodimer. This example takes about 80 minutes to run when using 10 CPUs and MPI.
+See `       rosetta/main/tests/integration/tests/mpi_multistate_design      ` for a quick example of a multistate design trajectory. This example performs single state design using the multistate design framework. See also `       rosetta/demos/private/andrew/multistate      ` for a more involved example. In this directory, the "README" file directs your attention to a set of input files for a fairly involved multistate design problem of redesigning the interface of a homodimer so that it forms a heterodimer. This example takes about 80 minutes to run when using 10 CPUs and MPI.
 
-The majority of the classes for the mpi\_msd application live in `       rosetta/rosetta_source/src/protocols/pack_daemon      ` .
+The majority of the classes for the mpi\_msd application live in `       rosetta/main/source/src/protocols/pack_daemon      ` .
 
 References
 ==========
@@ -609,6 +609,7 @@ This is the first time that the "mpi\_msd" multistate design application has bee
 ##See Also
 
 * [[Design applications | design-applications]]: other design applications
+* [[ProteinInterfaceMSMover]]: RosettaScripts mover for multistate design
 * [[Application Documentation]]: Application documentation home page
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
 * [[Analyzing Results]]: Tips for analyzing results generated using Rosetta

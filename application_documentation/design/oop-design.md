@@ -10,10 +10,10 @@ Last updated November 30, 2012;
 Code and Demo
 =============
 
--   Application source code: `        rosetta/rosetta_source/src/apps/public/noncanonical_backbones/oop_design.cc       `
--   Mover source code: `        rosetta/rosetta_source/src/protocols/simple_moves/oop/OopRandomSmallMover.cc       `
--   Mover source code: `        rosetta/rosetta_source/src/protocols/simple_moves/oop/OopRandomPuckMover.cc       `
--   For a demonstration of a basic run see integration folder ( `        rosetta/rosetta_tests/integration/tests/oop_design/       ` ) and demo folder ( `        rosetta/rosetta_demos/oop_design       ` ).
+-   Application source code: `        rosetta/main/source/src/apps/public/noncanonical_backbones/oop_design.cc       `
+-   Mover source code: `        rosetta/main/source/src/protocols/simple_moves/oop/OopRandomSmallMover.cc       `
+-   Mover source code: `        rosetta/main/source/src/protocols/simple_moves/oop/OopRandomPuckMover.cc       `
+-   For a demonstration of a basic run see integration folder ( `        rosetta/main/tests/integration/tests/oop_design/       ` ) and demo folder ( `        rosetta/demos/public/oop_design       ` ).
 
 Documentation for the oop\_design application
 =============================================
@@ -38,7 +38,7 @@ Input Files
 oop\_design requires the following inputs:
 
 -   **Starting structure:**
-     The starting structure should have two chains, where the first should be the target protein and the second the oop scaffold (see demo inputs for example). The starting conformation should be close to a plausible binding mode because the oop\_design app does not do large pertubations. The starting structure should also be refined prior to input where the recommended procedure is to do relax with constraints (reference).
+     The starting structure should have two chains, where the first should be the target protein and the second the oop scaffold (see demo inputs for example). The starting conformation should be close to a plausible binding mode because the oop\_design app does not do large perturbations. The starting structure should also be refined prior to input where the recommended procedure is to do relax with constraints (reference).
 
 Options
 =======
@@ -48,8 +48,8 @@ I. Common oop\_design flags:
 | Flag | Description | Type | Default |
 |:-----|:------------|:-----|:--------|
 |-oop_design_positions|positions on oop chain to be designed|list of numbers [ex. 1 2 3 6]|None, only repack, no design|
-| -pert_num| number of pertubations made during pertubation phase| integer|10|
-|-design_loop_num|number of pertubation + design cycles|integer|10|
+| -pert_num| number of perturbations made during perturbation phase| integer|10|
+|-design_loop_num|number of perturbation + design cycles|integer|10|
 
 
 II. Relevant Common Rosetta flags
@@ -86,7 +86,7 @@ Limitations:
 ------------
 
 -   **Start with good binding mode:**
-     This application does not do large pertubations and therefore only minimally explores the space around the input structure. Use experimental evidience, a full docking app or estimate the binding mode by hotspot residues of native complex.
+     This application does not do large perturbations and therefore only minimally explores the space around the input structure. Use experimental evidience, a full docking app or estimate the binding mode by hotspot residues of native complex.
 
 -   **Target model:**
      This application assumes the backbone of the target structure is in a fixed conformation and does not do flexible backbone moves.

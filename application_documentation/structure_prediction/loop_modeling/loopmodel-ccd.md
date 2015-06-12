@@ -10,12 +10,12 @@ This document was last updated August 11, 2010 by TJ Brunette & Sinisa Bjelic. T
 Code and Demo
 =============
 
-The application for this method is `       rosetta/rosetta_source/bin/loopmodel.*      ` . The main ccd loop movers are perturb\_ccd which exists in `       rosetta/rosetta_source/src/protocols/loops/LoopMover_CCD.cc      ` and quick\_ccd which exists in `       LoopMover_QuickCCD.cc      ` . Both protocols generate loops by assembling them from fragments by Monte Carlo sampling and uses CCD to close the loops. The most commonly used method for fragment-based loop modeling is currently quick\_ccd. Option -loops:remodel quick\_ccd\_moves is no longer in widespread use, but exists for backward compatibility.
+The application for this method is `       rosetta/main/source/bin/loopmodel.*      ` . The main ccd loop movers are perturb\_ccd which exists in `       rosetta/main/source/src/protocols/loops/LoopMover_CCD.cc      ` and quick\_ccd which exists in `       LoopMover_QuickCCD.cc      ` . Both protocols generate loops by assembling them from fragments by Monte Carlo sampling and uses CCD to close the loops. The most commonly used method for fragment-based loop modeling is currently quick\_ccd. Option -loops:remodel quick\_ccd\_moves is no longer in widespread use, but exists for backward compatibility.
 
 A usage example that remodels 10 and 5-residue loops is in the loop\_modeling integration test, found here:
 
 ```
-rosetta/rosetta_tests/integration/tests/loop_modeling
+rosetta/main/tests/integration/tests/loop_modeling
 ```
 
 References
@@ -75,7 +75,7 @@ column5  "float":    Skip rate. default - never skip
 column6  "boolean":  Extend loop. Default false
 ```
 
-An example loop definition file can be found at rosetta/rosetta\_tests/integration/tests/kinematic\_looprelax/input/4fxn.loop, which looks like this:
+An example loop definition file can be found at rosetta/main/tests/integration/tests/kinematic\_looprelax/input/4fxn.loop, which looks like this:
 
 ```
 LOOP 88 95 92 0 1

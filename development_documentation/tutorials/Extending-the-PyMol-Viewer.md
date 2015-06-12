@@ -41,7 +41,8 @@ Baugh EH, Lyskov S, Weitzner BD, Gray JJ (2011) Real-Time PyMOL Visualization fo
 
 * [[Development tutorials home page|devel-tutorials]]
 * [[Development Documentation]]: The development documentation home page
-* [[PyMOL]]: Wiki page for PyMOL
+* [[PyMOL]]: Wiki page for PyMOL and the PyMOL Mover
+* [[PyMolMover]]: RosettaScripts PyMolMover page
 * [[PyMOL website (external)|http://www.pymol.org]]
 * [[Graphics and GUIs]]: Home page for graphical interfaces with Rosetta
 * [[Comparing structures]]: Essay on comparing structures

@@ -10,7 +10,7 @@ This document was edited Aug 20th 2010 by Ingemar Andre. This application in ros
 Code and Demo
 =============
 
-The code for the symmetric docking application is in rosetta/rosetta\_source/src/apps/pilot/andre/SymDock.cc. See `       rosetta/rosetta_tests/integration/tests/symmetric_docking      ` for an example of symmetric docking protocol and input files.
+The code for the symmetric docking application is in rosetta/main/source/src/apps/pilot/andre/SymDock.cc. See `       rosetta/tests/integration/tests/symmetric_docking      ` for an example of symmetric docking protocol and input files.
 
 References
 ==========
@@ -111,3 +111,18 @@ Post Processing
 ===============
 
 The same procedures used for regular docking are used for symmetric docking. If you have a native reference generate a score vs rmsd plot and look for a funnel. Without a reference structure cluster the 200-400 lowest energy models using the cluster app. For some cases you may want to calculate a symmetric rms during clutering. Add -symmetry:symmetric\_rmsd as an option to the cluster app.
+
+
+
+##See Also
+
+* [[Docking Applications]]: Home page for docking applications
+* [[Symmetry]]: Information on using Rosetta with symmetry
+* [[Preparing structures]]: Notes on preparing structures for use in Rosetta
+* [[Application Documentation]]: List of Rosetta applications
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[RosettaScripts]]: Homepage for the RosettaScripts interface to Rosetta
+* [[Comparing structures]]: Essay on comparing structures
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+* [[Commands collection]]: A list of example command lines for running Rosetta executable files

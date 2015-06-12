@@ -3811,9 +3811,9 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-rot_mag_smooth</b> \<Real\></dt>
 <dd>rotational perturbation size for smooth refinement<br/>Default: 1.0<br/></dd>
 <dt><b>-rb_rot_magnitude</b> \<Real\></dt>
-<dd>rotational perturbation size for rigid body pertubations<br/>Default: 8.0<br/></dd>
+<dd>rotational perturbation size for rigid body perturbations<br/>Default: 8.0<br/></dd>
 <dt><b>-rb_trans_magnitude</b> \<Real\></dt>
-<dd>translational perturbation size rigid body pertubations<br/>Default: 3.0<br/></dd>
+<dd>translational perturbation size rigid body perturbations<br/>Default: 3.0<br/></dd>
 <dt><b>-rigid_body_cycles</b> \<Integer\></dt>
 <dd>number of rigid bosy cycles during fold and dock fragment insertion<br/>Default: 50<br/></dd>
 <dt><b>-move_anchor_frequency</b> \<Real\></dt>

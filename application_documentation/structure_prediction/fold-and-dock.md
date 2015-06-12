@@ -10,7 +10,7 @@ This document was edited Aug 22th 2010 by Ingemar André. This application in ro
 Code and Demo
 =============
 
-The code for the fold-and-dock application is in `       rosetta/rosetta_source/src/protocols/topology_broker/FoldAndDockClaimer.cc      ` . See `       rosetta/rosetta_tests/integration/tests/fold_and_dock      ` for an example of fold-and/dock protocol and input files. Run without the -run:test\_cycles for a real case prediction example. Fold-and-dock uses the topology broker framework and the actual excecutable is the minirosetta application, `       rosetta/rosetta_source/src/apps/public/boinc/minirosetta.cc      `
+The code for the fold-and-dock application is in `       rosetta/main/source/src/protocols/topology_broker/FoldAndDockClaimer.cc      ` . See `       rosetta/main/tests/integration/tests/fold_and_dock      ` for an example of fold-and/dock protocol and input files. Run without the -run:test\_cycles for a real case prediction example. Fold-and-dock uses the topology broker framework and the actual excecutable is the minirosetta application, `       rosetta/main/source/src/apps/public/boinc/minirosetta.cc      `
 
 References
 ==========
@@ -109,8 +109,8 @@ Fold-and-dock options
 -fold_and_dock:rotate_anchor_to_x - Rotate the anchor residue to the x-axis before applying rigid body transformations.
 -fold_and_dock:trans_mag_smooth - Translation perturbation size for smooth refineme.
 -fold_and_dock:rot_mag_smooth - Rotational perturbation size for smooth refinement.
--fold_and_dock:rb_rot_magnitude - Rotational perturbation size for rigid body pertubations.
--fold_and_dock:rb_trans_magnitude Translational perturbation size rigid body pertubations.
+-fold_and_dock:rb_rot_magnitude - Rotational perturbation size for rigid body perturbations.
+-fold_and_dock:rb_trans_magnitude Translational perturbation size rigid body perturbations.
 -fold_and_dock:rigid_body_cycles - Number of rigid bosy cycles during fold and dock fragment insertion.
 -fold_and_dock:rigid_body_frequency - The fraction of times rigid body cycles are applied during fragment assembly moves.
 -fold_and_dock:rigid_body_disable_mc - Dissallow moves to be accepted locally by Monte Carlo criteria within the rigid body mover.

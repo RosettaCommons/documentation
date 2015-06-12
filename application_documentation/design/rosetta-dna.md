@@ -16,7 +16,7 @@ Code and Demo
 -   Fast tests and demos: `        test/integration/tests/dna_interface_design/       `
 -   Scientific tests: `        test/scientific/cluster/dna_interface_design/       `
 
-To run the demos (integration tests), obtain the source package, enter directory [rosetta\_source]/test/integration/, and run the command line:
+To run the demos (integration tests), obtain the source package, enter directory main/tests/integration, and run the command line:
 
 ```
 ./integration.py dna_interface_design

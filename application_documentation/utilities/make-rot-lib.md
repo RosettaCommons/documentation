@@ -10,7 +10,7 @@ The documentation was last updated in December 2011, by P. Douglas Renfrew. The 
 Code and Demo
 =============
 
-The main mover is located in the application code at `       rosetta_source/src/protocols/make_rot_lib      ` . The application code is located at `       rosetta_source/src/apps/public/ncaa_utilities/make_rot_lib.cc      ` . The integration tests can be found at `       rosetta_tests/integration/tests/make_rot_lib/      ` . The demo can be found at `       rosetta_demos/make_rot_lib/      ` .
+The main mover is located in the application code at `       main/source/src/protocols/make_rot_lib      ` . The application code is located at `       main/source/src/apps/public/ncaa_utilities/make_rot_lib.cc      ` . The integration tests can be found at `       main/tests/integration/tests/make_rot_lib/      ` . The demo can be found at `       demos/public/make_rot_lib/      ` .
 
 References
 ==========
@@ -108,7 +108,7 @@ The next step is to run the MakeRotLib protocol on each of the input files we cr
 
 ```
 $ cd outputs
-$ PATH/TO/ROSETTA/bin/make_rot_lib.macosgccrelease -database PATH/TO/rosetta_database -rot_lib_options_file ../inputs/C40_rot_lib_options_-60_-40.in >& C40_rot_lib_options_-60_-40.log &
+$ PATH/TO/ROSETTA/bin/make_rot_lib.macosgccrelease -database PATH/TO/rosetta/main/database -rot_lib_options_file ../inputs/C40_rot_lib_options_-60_-40.in >& C40_rot_lib_options_-60_-40.log &
 ```
 
 **Note:** The extension on your executable maybe different.
@@ -146,7 +146,7 @@ $ ../scripts/make_final_from_phi_psi.pl C40
 The single file rotamer library should be called `       C40.rotlib      ` . The file should be placed in the ncaa\_rotlibs directory in the database.
 
 ```
-$ cp C40.rotlibs PATH/TO/DATABASE/rosetta_database/ncaa_rotlibs/
+$ cp C40.rotlibs PATH/TO/DATABASE/rosetta/main/database/ncaa_rotlibs/
 ```
 
 Modifying the ResidueType Paramater File
@@ -155,8 +155,8 @@ Modifying the ResidueType Paramater File
 The last step is modifying the residue type parameter file to use the new rotamer library. To do this we need to add the name of the rotamer library, the number chi angles it describes, and how many bins there are for each chi angle to the Residue type parameter file. The ornithine rotamer library is called C40.rotlib and the rotamer library describes 3 chi angles and each of those 3 chi angle has 3 rotamer numbers. So we would use the following commands to add that information to the file we created in HowToMakeResidueTypeParamFiles.
 
 ```
-$ echo "NCAA_ROTLIB_PATH C40.rotlib" >> PATH/TO/rosetta_database/chemical/residue_type_sets/fa_standard/residue_types/l-ncaa/ornithine.params
-$ echo "NCAA_ROTLIB_NUM_ROTAMER_BINS 3 3 3 3" >> PATH/TO/rosetta_database/chemical/residue_type_sets/fa_standard/residue_types/l-ncaa/ornithine.params
+$ echo "NCAA_ROTLIB_PATH C40.rotlib" >> PATH/TO/rosetta/main/database/chemical/residue_type_sets/fa_standard/residue_types/l-ncaa/ornithine.params
+$ echo "NCAA_ROTLIB_NUM_ROTAMER_BINS 3 3 3 3" >> PATH/TO/rosetta/main/database/chemical/residue_type_sets/fa_standard/residue_types/l-ncaa/ornithine.params
 ```
 
 New things since last release

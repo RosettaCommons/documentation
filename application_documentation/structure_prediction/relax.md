@@ -43,7 +43,7 @@ Command Line Options
 **Sample command**
 
 ```
-relax.linuxgccrelease -database ~/rosetta_database -in:file:s input.pdb -in:file:fullatom -native 1a19.pdb -out:file:silent default.out -relax:quick
+relax.linuxgccrelease -database /path/to/rosetta/main/database -in:file:s input.pdb -in:file:fullatom -native 1a19.pdb -out:file:silent default.out -relax:quick
 ```
 
 Relax can take all general file IO options common to all Rosetta applications written with JD2: (see JD2 documentation for details)
@@ -284,6 +284,8 @@ For development and optimization, these options are also present. These are prov
 * [[Preparing structures]]: Page on preparing structures for use in Rosetta using relax.
 * [[Structure prediction applications]]: A list of other applications to be used for structure prediction
 * [[Design applications]]: A list of other applications that can be used for design.
+* [[FastRelaxMover]]: Using relax (without design) with RosettaScripts
+* [[FastDesignMover]]: Using relax (with design) with RosettaScripts
 * [[Application Documentation]]: List of Rosetta applications
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
 * [[Comparing structures]]: Essay on comparing structures

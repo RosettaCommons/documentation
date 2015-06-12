@@ -10,7 +10,7 @@ Last updated 11/24/13 by Jared Adolf-Bryfogle. The PI is Brian Kuhlman, [bkuhlma
 Code and Demo
 =============
 
-InterfaceAnalyzer has a suite of integration test/demos at rosetta/rosetta\_tests/integration/tests/InterfaceAnalyzer. The application resides at rosetta/rosetta\_source/src/apps/public/analysis/InterfaceAnalyzer.cc, and its mover at rosetta/rosetta\_source/src/protocols/anchored\_design/InterfaceAnalyzerMover.\*
+InterfaceAnalyzer has a suite of integration test/demos at rosetta/main/tests/integration/tests/InterfaceAnalyzer. The application resides at rosetta/main/source/src/apps/public/analysis/InterfaceAnalyzer.cc, and its mover at rosetta/main/source/src/protocols/anchored\_design/InterfaceAnalyzerMover.\*
 
 References
 ==========

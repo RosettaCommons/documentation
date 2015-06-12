@@ -33,7 +33,7 @@ Rosetta has support for interacting with SQLite3, MySQL and PostgreSQL database 
     -   [PostgreSQL](http://www.postgresql.org/) is a client-server architecture
     -   To build Rosetta with PostgreSQL support:
         -   Build `        libpq       ` and install it in the `        LD_LIBRARY_PATH       ` environment variable (note: make sure to use the same client library version as the database server).
-        -   Symlink the `        postgreSQL       ` direcotry into `        rosetta_source/external/dbio/       ` .
+        -   Symlink the `        postgreSQL       ` direcotry into `        Rosetta/main/source/external/dbio/       ` .
         -   Compile with `        extras=postgres       `
 
 database connection information can be specified with these RosettaScripts and or command line [[options|RosettaScripts-database-connection-options]] .
@@ -80,7 +80,7 @@ Database IO is implemented simply as a fixed set of FeaturesReporters:
 Possible issues for cluster based jobs:
 
 -   SQLite3 database are hard on file systems so be careful when using it with a shared filesystem!
--   Databases can be merged because the features have composite primary keys that includes the structure primary key, **struct\_id** , that at least partially randomized. to merge sqlite3 database consider using the merge script in rosetta\_tests/features/sample\_sources/merge.sh.
+-   Databases can be merged because the features have composite primary keys that includes the structure primary key, **struct\_id** , that at least partially randomized. to merge sqlite3 database consider using the merge script in main/tests/features/sample\_sources/merge.sh.
 
 -   -in:use\_database
 -   -out:use\_database \<bool\> *output files to the database*
@@ -117,5 +117,6 @@ At present 4 database filters are implemented:
 * [[SQLite3 Interface]]: Specific information on using SQLite3 with Rosetta
 * [[Database support]]: Advanced details on Rosetta's interface with databases
 * [[RosettaScripts database connection options]]
+* [[Features reporter overview]]: Home page for the Features Reporter, a tool for outputting information to databases using Rosetta
 * [[Database options]]: Database-related command line options
 * [[The Rosetta database|database]]: Information about the main database included with Rosetta and specified by the -in:path:database flag (separate topic)

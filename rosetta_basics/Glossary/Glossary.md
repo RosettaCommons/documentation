@@ -37,6 +37,10 @@ Similar proteins without evolutionary relationships. See also **homologue**.
 Rosetta **homology modeling** doesn't actually need strict evolutionary relationships,
 and can use **analogues** as **templates**.
 
+#### annotated sequence
+
+Rosetta will often record the sequence of a protein as the one letter amino acid codes, expanding when necessary with square brackets to indicate patches like post-translational modifications.
+
 #### Antibody fragment
 
 #### Atom
@@ -400,6 +404,13 @@ Global Distance Test. A metric used in CASP instead of **RMSD**, which is less s
 
 A Rosetta-specific name for GDT. 
 
+#### Git
+The most widely used distributed version control system, used to control the Rosetta code. 
+We use GitHub for hosting.
+
+#### Gollum
+[Gollum](http://github.com/gollum/gollum#gollum----a-wiki-built-on-top-of-git) (external link) is a Git-based wiki, used to create this wiki you are reading.
+
 #### gradient
 
 #### gradient-based minimization
@@ -488,6 +499,9 @@ In Rosetta code a loop is anything between two fixed ends that you want to model
 
 #### metric
 
+#### MiniCON
+This was the winter Rosetta developer's meeting, which moved around the country to be hosted by different RosettaCommons labs. We discussed code issues of wide interest and narrow. The name has changed to Winter RosettaCON.
+
 #### minimization
 
 #### minirosetta
@@ -495,6 +509,9 @@ In Rosetta code a loop is anything between two fixed ends that you want to model
 The name of Rosetta3 project during initial development.
 
 Also, the name of a wrapper program which exposes multiple protocols, mainly used for Rosetta@Home.
+
+#### MiniRosettaCON
+See MiniCON.
 
 #### MolProbity
 
@@ -674,22 +691,28 @@ values are to be expected calculating it in various places.]
 
 [It's not enough to just explain how RMSD is calculated: it's also important to discuss what significance it plays in Rosetta, and what values are to be expected calculating it in various places.] 
 
+#### Rosetta
+Best software ever? Or merely the easiest to use? You decide!
+
 #### Rosetta++
 Rosetta++ was the 2.x edition of Rosetta.
 It is so-named because it was in C++, as a human-assisted machine translation of the original FORTRAN Rosetta.
 
 #### Rosetta3 paper
 [ROSETTA3: an object-oriented software suite for the simulation and design of macromolecules] (http://www.ncbi.nlm.nih.gov/pubmed/21187238), which was the paper that described the transition from C++-but-monolithic Rosetta++ to [object-oriented](https://en.wikipedia.org/wiki/Object-oriented_programming)-C++ Rosetta3.
-#### rotamer
 
-[Is this describing rotamers or the algorithm?] In the docking
-algorithm, side-chains are added to the protein backbones
-using the Dunbrack rotamer packing algorithm where the rotamers
-(side-chain conformations) are created from specific number of
-chi1,2,3,4 angles to the backbone structure. *Protein Sci (1997),
-6,1661*
+#### RosettaCommons
+This is [the organization](http://www.rosettacommons.org/) that manages the intellectual property of the Rosetta code.
+
+#### RosettaCON
+This is a summer convention held every year, usually around the last week of July-first week of August, usually at the [Sleeping Lady](http://www.sleepinglady.com/) in Leavenworth, WA.
+It's a scientific conference just for Rosetta developers and users in industry or RosettaCommons labs, along with a few invited speakers.
+
+#### Rosetta Developer's Meeting
+This is a one-day addendum to RosettaCON, usually held at the University of Washington in Seattle the day before RosettaCON. It's used to handle Rosetta code issues of wide interest that are too technical for the RosettaCON audience.
 
 #### rotamer
+Rotamers, rotameric isomers, represent the most stable sidechain configurations, which are commonly observed in crystal structures. Using rotamers allows Rosetta to efficiently consider many discrete side chain conformations, where continuous side chain motion would be expensive.
 
 #### rotamer pair
 
@@ -854,6 +877,9 @@ Pronounced "V-all". The Vall database is a condensed representation of the entir
 #### weights file
 
 The file which specifies the coefficients to use when linearly combining **score terms** into a **scoring function**.
+
+#### Winter RosettaCON
+This is the winter Rosetta developer's meeting, which moves around the country to be hosted by different RosettaCommons labs. We discuss code issues of wide interest and narrow.
 
 ##See Also
 

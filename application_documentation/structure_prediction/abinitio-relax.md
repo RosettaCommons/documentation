@@ -17,7 +17,7 @@ This document was last updated on October, 2014 by Jared Adolf-Bryfogle. The PI 
 Code and Demo
 =============
 
-The ab initio executable is in `       rosetta_source/src/apps/public/AbinitioRelax.cc      ` . The source code for the ab initio protocol is in `       rosetta_source/src/protocols/abinitio/AbrelaxApplication.cc      ` . See the `       rosetta_demos/abinitio      ` directory for an example ab initio run which includes input files, expected output files, and an example run log. The example command exists in `       rosetta_demos/abinitio/readme.txt      ` . Input files exist in `       rosetta_demos/abinitio/input_files      ` . Expected output files exist in `       rosetta_demos/abinitio/output_files      ` . An example run log exist in `       rosetta_demos/abinitio/log      ` .
+The ab initio executable is in `       main/source/src/apps/public/AbinitioRelax.cc      ` . The source code for the ab initio protocol is in `       main/source/src/protocols/abinitio/AbrelaxApplication.cc      ` . See the `       demos/abinitio      ` directory for an example ab initio run which includes input files, expected output files, and an example run log. The example command exists in `       demos/abinitio/readme.txt      ` . Input files exist in `       demos/abinitio/input_files      ` . Expected output files exist in `       demos/abinitio/output_files      ` . An example run log exist in `       demos/abinitio/log      ` .
 
 References
 ==========
@@ -65,7 +65,7 @@ You can run the AbinitioRelax application with the following flags (to list all 
 (or -in:file:fasta ./input_files/1elwA.fasta)       Protein sequence in fasta format (required if native structure is not provided)
 -in:file:frag3 ./input_files/aa1elwA03_05.200_v1_3  3-residue fragments (fragments file)
 -in:file:frag9 ./input_files/aa1elwA09_05.200_v1_3  9-residue fragments (fragments file)
--database ../../rosetta_database                    Path to rosetta database
+-database path/to/rosetta/main/database             Path to rosetta database
 -abinitio:relax                                     Do a relax after abinitio ("abrelax" protocol), default=false.
 
 -nstruct 1                                          Number of output structures
@@ -109,7 +109,7 @@ The standard command line for optimal performance is shown below (nstruct should
 
 ```
 ../../bin/AbinitioRelax.linuxgccrelease \
-        -database ../../rosetta_database \
+        -database /path/to/rosetta/main/database \
         -in:file:fasta ./input_files/1elwA.fasta \
         -in:file:native ./input_files/1elw.pdb \
         -in:file:frag3 ./input_files/aa1elwA03_05.200_v1_3 \
@@ -179,6 +179,7 @@ Lowest scoring models that are in a cluster and that have a topology represented
 * [[Abinitio]]: Further details on this application
 * [[Fasta file]]: Fasta file format
 * [[Fragment file]]: Fragment file format (required for abinitio structure prediction)
+* [[ROBETTA (external link)|http://robetta.bakerlab.org/]]: Server that provides *ab initio* folding and structure prediction, as well as fragment picking, for academic users
 * [[Structure prediction applications]]: A list of other applications to be used for structure prediction
   * [[NonlocalAbinitio]]: Application for predicting protein structure given some prior structural information
   * [[Membrane abinitio]]: Ab initio for membrane proteins.  

@@ -9,7 +9,7 @@ The Rosetta database contains important data files used by Rosetta during runs (
 
 
 You have to specify the path to this database directory in the command line to run Rosetta simulations. For example: 
-* <code>rosetta.linuxgccrelease -database mypath/rosetta\_database other\_flags</code>
+* <code>rosetta.linuxgccrelease -database /path/to/rosetta/main/database other\_flags</code>
 
 
 #Set for multiple Rosetta runs:

@@ -4,7 +4,7 @@
 Application purpose
 ===========================================
 
-Loop definitions are used to identify the residues in a loop for [[loop modeling]].
+Loop definitions are used to identify the residues in a loop for [[loop modeling|loopmodel]].
 
 File Format
 ======
@@ -56,28 +56,18 @@ loops.txt
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
 * [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
 
+<!--
 The purpose of this remaining text is to improve the searchability of this page: 
-
 loops file 
-
 loops file 
-
 loops file 
-
 loop file 
-
 loop file 
-
 loop file
-
 loop file 
-
 loop file 
-
 loop file
-
 loop file 
-
 loop file 
-
 loop file
+//-->

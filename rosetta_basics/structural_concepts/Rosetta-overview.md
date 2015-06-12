@@ -4,9 +4,6 @@ This document was originally written 11 Nov 2007 by Chu Wang and last updated 8 
 
 *For brief definitions of Rosetta-related terms, check the [[glossary]].*
 
-Metadata
-========
-
 This document is written for the purpose of helping developers to grasp some key concepts in Rosetta3. The knowledge, based on which this document is written, is mainly from my personal experience of learning and using Rosetta3 and it is very likely that some parts of this document may not be accurate due to my limited understanding. Moreover, all credits should go to Phil Bradley and Andrew Leaver-Fay, who have laid a solid foundation for Rosetta3, as well as all other Rosetta3 developers who have done tremendous amount of work for Rosetta3 development. Please feel free to add/modify/correct/update any part of its content as necessary.
 
 Rosetta philosophy
@@ -41,17 +38,17 @@ Chemical Layer <a name="chemical" />
 ResidueType <a name="residuetype" />
 -----------
 
-ResidueType contains information related to the chemical representation of a residue, for example, things like how many atoms it has, what is the index of first hydrogen atom and which atoms could be potential hydrogen bonding donors and acceptors, etc. Each individual ResidueType is created by inputting data from a [["params" file|Residue-Params-file]]. (see rosetta\_database/chemical/residue\_type\_sets/fa\_standard/residue\_types/l-caa/ALA.params for an example), which contains information on how to define properties of this ResidueType. The advantage of using ResidueType params file is obvious:
+ResidueType contains information related to the chemical representation of a residue, for example, things like how many atoms it has, what is the index of first hydrogen atom and which atoms could be potential hydrogen bonding donors and acceptors, etc. Each individual ResidueType is created by inputting data from a [["params" file|Residue-Params-file]]. (see /path/to/rosetta/main/database/chemical/residue\_type\_sets/fa\_standard/residue\_types/l-caa/ALA.params for an example), which contains information on how to define properties of this ResidueType. The advantage of using ResidueType params file is obvious:
 
 -   They can be grouped based on different level of representation, for example, a centroid Lysine will have less atoms than a full-atom Lysine. So all centroid residues are grouped into one ResidueTypeSet and all full-atom residues are grouped into another set. And based on the ResidueTypes a Pose of Residues have, one can model the system in different types of representations, i.e., centroid first, then coase-grained, and finally full-atom.
--   A new ResidueType can be easily created by "Patching" onto an existing ResidueType. A particular example is to create a N/C-terminal ResidueType, which differs from its base type only by adding a couple of atoms. Such "difference" is encoded in a "patch" file (which can also be founded in rosetta\_database/chemical/residue\_type\_set/fa\_standard/patches/...) and is applied to existing base ResidueTypes to create VariantTypes. Once these variant types are linked to the corresponding Residues in a Pose, we can model the biomacromolecules with more accurate physical/chemical representation.
+-   A new ResidueType can be easily created by "Patching" onto an existing ResidueType. A particular example is to create a N/C-terminal ResidueType, which differs from its base type only by adding a couple of atoms. Such "difference" is encoded in a "patch" file (which can also be founded in /path/to/rosetta/main/database/chemical/residue\_type\_set/fa\_standard/patches/...) and is applied to existing base ResidueTypes to create VariantTypes. Once these variant types are linked to the corresponding Residues in a Pose, we can model the biomacromolecules with more accurate physical/chemical representation.
 
 Besides chemical data, a ResidueType also contains information how to generate an idealized copy of a Residue. However, to be consistent with atom-tree representation in kinematic layer, ResidueType geometries are encoded in "internal coordinates" instead of "Cartesian coordinates". That is, for each atom in this ResidueType, a set of parameters are defined to instruct how to generate this atom from a set of (three) reference/stub atoms. These parameters, bond length, bond angle and torsion angle, are essentially DOFs in atom-tree. In addition to the internal coordinate data, a ResidueType object also contains information about how they can be connected to other ResidueTypes. For example, each amino acid ResidueType has two polymer connections, "backbone N" connecting to its lower end and "backbone C" connecting to its upper end. A cysteine ResidueType could have another non-polymer connection which allows its sulfur to be connected with a sulfur atom from another cysteine. Multi-residue ligands are also connected with those non-polymer connections.
 
 AtomType <a name="atomtype" />
 --------
 
-A ResidueType has a group of atoms, more precisely, a group of atom names and their atom\_type\_index. By these atom\_type\_indexes, the actual chemical properties of individual atoms – its AtomType, such as chemical element, charges, LJ radius and LK solvation volume can be looked up from AtomTypeSet. In rosetta\_database/chemical/atom\_type\_sets/..., there are input files containing data of atom properties and a new AtomType can be easily created by supplying necessary data in that file. An AtomTypeSet object is linked with a ResidueType so that the ResidueType knows what atoms are supported and can look up their properties as necessary.
+A ResidueType has a group of atoms, more precisely, a group of atom names and their atom\_type\_index. By these atom\_type\_indexes, the actual chemical properties of individual atoms – its AtomType, such as chemical element, charges, LJ radius and LK solvation volume can be looked up from AtomTypeSet. In /path/to/rosetta/main/database/chemical/atom\_type\_sets/..., there are input files containing data of atom properties and a new AtomType can be easily created by supplying necessary data in that file. An AtomTypeSet object is linked with a ResidueType so that the ResidueType knows what atoms are supported and can look up their properties as necessary.
 
 Kinematic Layer
 ===============
@@ -99,7 +96,7 @@ A ScoreFunction has a set of weights, each of which is for an individual energy 
 ScoreFunctionFactory <a name="scorefunctionfactory />
 --------------------
 
-This object mainly facilitates initializing ScoreFunction weights from an external file and additionally applying a patch to add or remove or change subset of the weights as necessary. A list of defined scoring function weights can be found in rosetta\_database/scoring/weights.
+This object mainly facilitates initializing ScoreFunction weights from an external file and additionally applying a patch to add or remove or change subset of the weights as necessary. A list of defined scoring function weights can be found in /path/to/rosetta/main/database/scoring/weights.
 
 Protocol related
 ================
@@ -155,6 +152,7 @@ The design of this object has been brainstormed by many Rosetta developers, with
 * [[Rosetta Basics]]: Rosetta basics homepage
 * [[RosettaEncyclopedia]]: Detailed descriptions of concepts in Rosetta.
 * [[Glossary]]: Brief definitions of Rosetta terms.
+* [[Rosetta canon]]: List of important Rosetta papers
 * [[Symmetry]]: Information about working with symmetry in Rosetta
 * [[Resources for learning biophysics and computational modeling]]
 * [[RosettaTimeline]]: History of Rosetta

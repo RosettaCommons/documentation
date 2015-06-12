@@ -8,9 +8,9 @@ This document was last edited on June 22, 2011 by Ron Jacak. The code was writte
 Code and Demo
 =============
 
-The hpatch score is meant to be used primarily with fixed backbone design, using the [[fixbb application|fixbb]] . See `       rosetta/rosetta_tests/integration/tests/fixbb/      ` for an example of a fixed backbone design simulation and all the necessary input files. To activate the hpatch score during a fixed backbone design simulation, one additional flag needs to be added on the command line (described below).
+The hpatch score is meant to be used primarily with fixed backbone design, using the [[fixbb application|fixbb]] . See `       rosetta/main/tests/integration/tests/fixbb/      ` for an example of a fixed backbone design simulation and all the necessary input files. To activate the hpatch score during a fixed backbone design simulation, one additional flag needs to be added on the command line (described below).
 
-Because the hpatch score is a nonpairwise-decomposable score term, the logic for evaluating the score is contained inside InteractionGraph classes. These classes serve two purposes: they hold the rotamer-pair energies that are used during sequence optimization, and they evaluate the non-pairwise decomposable score terms. Most of the code is contained in `       rosetta/rosetta_source/src/core/pack/interaction_graph/      ` . The hpatch score can be optimized using any application that performs design, but the most common way to use the score is via the fixbb application. The [[fixbb application|fixbb]] lives in `       rosetta/rosetta_source/src/apps/public/design/fixbb.cc      ` and invokes the `       PackRotamersMover      ` that lives in `       rosetta/rosetta_source/src/protocols/moves/PackRotamersMover.cc      `
+Because the hpatch score is a nonpairwise-decomposable score term, the logic for evaluating the score is contained inside InteractionGraph classes. These classes serve two purposes: they hold the rotamer-pair energies that are used during sequence optimization, and they evaluate the non-pairwise decomposable score terms. Most of the code is contained in `       rosetta/main/source/src/core/pack/interaction_graph/      ` . The hpatch score can be optimized using any application that performs design, but the most common way to use the score is via the fixbb application. The [[fixbb application|fixbb]] lives in `       rosetta/main/source/src/apps/public/design/fixbb.cc      ` and invokes the `       PackRotamersMover      ` that lives in `       rosetta/main/source/src/protocols/moves/PackRotamersMover.cc      `
 
 References
 ==========
@@ -73,13 +73,13 @@ Database location - REQUIRED
 ----------------------------
 
 ```
--database <path/to/rosetta/rosetta_database>     Specifies the location of the rosetta_database
+-database <path/to/rosetta/main/database>     Specifies the location of the rosetta_database
 ```
 
 Weights file - REQUIRED
 -----------------------
 
-The hpatch score is activated by giving the term a nonzero weight in the energy function. The score:weights flag can be used to specify a different set of weights for a simulation. By default, the option will look for weights files in the database directory rosetta/rosetta\_database/scoring/weights/ or in the current directory. The file design\_hpatch.wts is distributed with Rosetta and has the standard Rosetta energy function weights with the hpatch score turned on and reweighted reference energies.
+The hpatch score is activated by giving the term a nonzero weight in the energy function. The score:weights flag can be used to specify a different set of weights for a simulation. By default, the option will look for weights files in the database directory rosetta/main/database/scoring/weights/ or in the current directory. The file design\_hpatch.wts is distributed with Rosetta and has the standard Rosetta energy function weights with the hpatch score turned on and reweighted reference energies.
 
 ```
 -score:weights design_hpatch.wts  This flag instructs the application to use the weights specified in the database file 'design_hpatch.wts'

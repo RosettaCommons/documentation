@@ -10,7 +10,7 @@ Code by Steven Lewis. Corresponding PI Brian Kuhlman (bkuhlman - at - email.unc.
 Code and Demo
 =============
 
-The code is at `       rosetta/rosetta_source/src/apps/public/scenarios/FloppyTail/      ` ; there's an integration test+demo at `       rosetta/rosetta_source/test/integration/tests/FloppyTail/      ` . Note that the integration test is vastly under-cycled relative to getting it to do anything useful: the number of cycles it demonstrates should be sufficient to show some remodeling but not enough to get anywhere useful. To run that demo, go to that directory and run `[path to executeable] -database [path to database] (at-symbol)options`
+The code is at `       rosetta/main/source/src/apps/public/scenarios/FloppyTail/      ` ; there's an integration test+demo at `       rosetta/main/tests/integration/tests/FloppyTail/      ` . Note that the integration test is vastly under-cycled relative to getting it to do anything useful: the number of cycles it demonstrates should be sufficient to show some remodeling but not enough to get anywhere useful. To run that demo, go to that directory and run `[path to executeable] -database [path to database] (at-symbol)options`
 
 References
 ==========
@@ -49,7 +49,7 @@ This code is NOT intended to do "half-abinitio" where you know half a structure 
 Input Files
 ===========
 
-See test/integration/tests/FloppyTail/ for example usage. Basically all you need is an input structure.
+See tests/integration/tests/FloppyTail/ for example usage. Basically all you need is an input structure.
 
 -   The code does not tolerate imperfections in the input PDB. Get rid of your heteroatoms, 0-occupancy regions, multiply-defined atoms, and waters beforehand.
 -   The code does not add your extension for you. You need to add starting coordinates (however meaningless) for the flexible tail. I had it pointing straight out into space (as it is in the demo).

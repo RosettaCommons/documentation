@@ -163,7 +163,7 @@ directory `/path/to/input/pdbs` and uses the symmetry definitions file
                    The "1xu1FH_D_symmetry_definition" resource is a SymmData object that
                    is used to convert an asymmetric unit into a symmetric conformation.
                    The symmetry definition file is created using the perl script in
-                   rosetta_source/src/apps/public/symmetry/make_symmdef_file.pl.  
+                   main/source/src/apps/public/symmetry/make_symmdef_file.pl.  
 
            </Resources>
 

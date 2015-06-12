@@ -18,7 +18,7 @@ This document was last updated on November 21st, 2010 by James Thompson (tex@uw.
 Code and Demo
 =============
 
-The code for running comparative modeling is in `       rosetta/rosetta_source/src/protocols/comparative_modeling      ` and `       rosetta/rosetta_source/src/protocols/loops      ` . See the `       rosetta/rosetta_tests/integration/tests/threading      ` directory for an example command-line and input files.
+The code for running comparative modeling is in `       rosetta/main/source/src/protocols/comparative_modeling      ` and `       rosetta/main/source/src/protocols/loops      ` . See the `       rosetta/tests/integration/tests/threading      ` directory for an example command-line and input files.
 
 References
 ==========
@@ -81,7 +81,7 @@ Comparative modeling can be run using the minirosetta application with the follo
 -cm:aln_format grishin                                                        Alignment file format
 #-cm:aln_format general                                                       if general format is used
 -in:file:template_pdb 1be9A.pdb                                               List of template PDBs
--database path/to/rosetta/rosetta_database                                    Path to rosetta database
+-database path/to/rosetta/main/database                                       Path to rosetta database
 -nstruct 1                                                                    Number of output structures
 -out:file:silent t288_.silent.out                                             Use silent file output, use filename after this flag, default=default.out
 (or -out:pdb)                                                                 Use PDB file output, default=false

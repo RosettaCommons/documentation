@@ -10,7 +10,7 @@ This document was written by Florian Richter and Andrew Leaver-Fay in August 201
 Code and Demo
 =============
 
-The matcher executable is compiled from rosetta/rosetta\_source/src/apps/public/match/match.cc. The classes that constitute the matcher live in the directory (and subdirectories of) rosetta/rosetta\_source/src/protocols/match/ and rosetta/rosetta\_source/src/protocols/toolbox/match\_enzdes\_util/. The details for many of the classes are described in greater detail within the doxygen tags, and are recommended as a source for more details than can be given in this document. Demos for the matcher are given in rosetta/rosetta\_tests/integration/tests/match/.
+The matcher executable is compiled from rosetta/main/source/src/apps/public/match/match.cc. The classes that constitute the matcher live in the directory (and subdirectories of) rosetta/main/source/src/protocols/match/ and rosetta/main/source/src/protocols/toolbox/match\_enzdes\_util/. The details for many of the classes are described in greater detail within the doxygen tags, and are recommended as a source for more details than can be given in this document. Demos for the matcher are given in rosetta/main/tests/integration/tests/match/.
 
 References
 ==========
@@ -43,7 +43,7 @@ Each collision-free placement of the transition state is called a "hit". If ther
 
 In the general case, the Matcher builds hits for each of several geometric constraints. The protein scaffold in the enzyme-design example generalizes to any macro-molecular polymer scaffold. The protein rotamers in the enzyme-design example generalizes to a set of conformations for the "upstream" partner. The transition state in the enzyme-design example generalizes to a "downstream" partner, which itself may have multiple conformations. "Upstream" and "Downstream" refer to the order in which the coordinates of the two partners are computed. The upstream coordinates are built first, the downstream coordinates second. Changes to the coordinates of the upstream partner propagate to the coordinates of the downstream partner. The downstream partner could in theory also be an entire protein – and may have it's own set of rotameric states. E.G. one might want to match a hydrogen-bond donor on the scaffold to a serine side-chain on the target (downstream) protein. The downstream partner should then be able to examine many serine rotamers for each conformation of the upstream rotamer. However, the matcher is not setup yet to handle entire proteins as downstream partners.
 
-A hit is represented in two parts: a discrete part and a continuous part. The discrete portion consists of four integers: 1. the build-point index on the scaffold, 2. the rotamer index on the upstream partner, 3.  the external-geometry index, and 4. the rotamer index on the downstream partner. The continuous portion consists of 6 double-precision values representing the coordinate of the downstream partner in 6D. The first three values are the x,y and z coordinates of a particular atom in the downstream partner. The second three values are the phi, psi, and theta values describing the coordinate frame at this atom. These three "Euler angle" parameters describe three rotations: Z(psi) \* X(theta) \* Z(phi) \* I. They are described in greater detail in rosetta/rosetta\_source/src/numeric/HomogeneousTransform.hh, and the hit class is in rosetta/rosetta\_source/src/protocols/match/Hit.hh "Phi" and "psi" here have nothing to do with the protein-backbone angles. When a hit is binned, there are two sets of parameters that describe how wide the bins in each dimension should be: the Euclidean bin widths are for the xyz coordinates, and the Euler bin widths are for the Euler angles. The Euclidean bin widths are in Angstroms and the Euler bin widths are in degrees.
+A hit is represented in two parts: a discrete part and a continuous part. The discrete portion consists of four integers: 1. the build-point index on the scaffold, 2. the rotamer index on the upstream partner, 3.  the external-geometry index, and 4. the rotamer index on the downstream partner. The continuous portion consists of 6 double-precision values representing the coordinate of the downstream partner in 6D. The first three values are the x,y and z coordinates of a particular atom in the downstream partner. The second three values are the phi, psi, and theta values describing the coordinate frame at this atom. These three "Euler angle" parameters describe three rotations: Z(psi) \* X(theta) \* Z(phi) \* I. They are described in greater detail in rosetta/main/source/src/numeric/HomogeneousTransform.hh, and the hit class is in rosetta/main/source/src/protocols/match/Hit.hh "Phi" and "psi" here have nothing to do with the protein-backbone angles. When a hit is binned, there are two sets of parameters that describe how wide the bins in each dimension should be: the Euclidean bin widths are for the xyz coordinates, and the Euler bin widths are for the Euler angles. The Euclidean bin widths are in Angstroms and the Euler bin widths are in degrees.
 
 Algorithm
 =========
@@ -203,7 +203,7 @@ The ligand grid (\*.gridlig) file specifies where the target (ligand) can lie in
 1) gen\_lig\_grids
 
 A full working example can be found in the associated integration test:
- rosetta/rosetta\_tests/integration/tests/gen\_lig\_grids/
+ rosetta/main/tests/integration/tests/gen\_lig\_grids/
 
 Starting from a scaffold pdb (1a53.pdb), first split out one scaffold chain and its associated ligand. The scaffold (without any HETATM lines) should be a single chain with no other lines, only the ATOM lines of that chain, scaffold.pdb (1a53\_nohet\_1.pdb). The ligand should be the ligand from that chain, with only the HETATM lines and no other lines, ligand.pdb (1a53\_ligand\_1.pdb).
 
@@ -212,8 +212,8 @@ The gen\_lig\_grids app will generate a set of grids around the ligand binding p
 A generic command line:
  gen\_lig\_grids -s scaffold.pdb ligand.pdb -database [database\_path] @flags
 
-A real example command line used for the rosetta/rosetta\_tests/integration/tests/gen\_lig\_grids example:
- /path/to/rosetta/rosetta\_source/bin/gen\_lig\_grids.linuxiccrelease -s 1a53\_nohet\_1.pdb 1a53\_ligand\_1.pdb @flags
+A real example command line used for the rosetta/main/tests/integration/tests/gen\_lig\_grids example:
+ /path/to/rosetta/main/source/bin/gen\_lig\_grids.linuxiccrelease -s 1a53\_nohet\_1.pdb 1a53\_ligand\_1.pdb @flags
 
 A detailed flags example (@flags):
 ```
@@ -226,7 +226,7 @@ A detailed flags example (@flags):
 2) gen\_apo\_grids
 
 A full working example can be found in the associated integration test:
- rosetta/rosetta\_tests/integration/tests/gen\_apo\_grids/
+ rosetta/main/tests/integration/tests/gen\_apo\_grids/
 
 With gen\_apo\_grids the scaffold pdb should not have a ligand. In gen\_apo\_grids Rosetta will identify the most likely locations for a ligand binding site and create corresponding gridlig/pos files, using the RosettaHoles algorithm. If there is a ligand the user should, in general, use gen\_lig\_grids unless the crystal structure ligand binding site is undesirable/untrustworthy. Starting from a scaffold pdb (1a53.pdb) first split out one scaffold chain, which presumably does not contain a ligand. The scaffold (without any HETATM lines) should be a single chain with no other lines, only the ATOM lines of that chain, scaffold.pdb (1a53\_nohet\_1.pdb).
 
@@ -236,9 +236,9 @@ A generic command line:
 ```
  gen_apo_grids -s scaffold.pdb -database [database_path] @flags
 ```
-A real example command line used for rosetta/rosetta\_tests/integration/tests/gen\_apo\_grids example:
+A real example command line used for rosetta/main/tests/integration/tests/gen\_apo\_grids example:
 ```
- /path/to/rosetta/rosetta_source/bin/gen_apo_grids.linuxiccrelease -s 1a53_nohet_1.pdb @flags
+ /path/to/rosetta/main/source/bin/gen_apo_grids.linuxiccrelease -s 1a53_nohet_1.pdb @flags
 ```
 A detailed flags example (@flags):
 ```
@@ -255,7 +255,7 @@ A detailed flags example (@flags):
   -packstat:min_surface_accessibility 1.4 # voids-balls must be at least this exposed
 ```
 
-Troubleshooting: These apps should be in rosetta/rosetta\_source/bin. If it is not make sure that src/pilot\_apps.src.settings.all has the pilot app turned on under user wendao.
+Troubleshooting: These apps should be in rosetta/main/source/bin. If it is not make sure that src/pilot\_apps.src.settings.all has the pilot app turned on under user wendao.
 
 Manual generation of pos files
 ------------------------------

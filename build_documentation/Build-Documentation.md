@@ -1,15 +1,13 @@
-<<<<<<< HEAD
 <!-- --- title: Setting up Rosetta 3 -->
 
 ###If you are new to Rosetta, start [[here|Getting-Started]].
 
 This page describes how to install, compile, and test Rosetta 3 (formerly called "Mini") on one's own workstation, or to a user directory on a scientific cluster.
-=======
-Setting up Rosetta 3
-===========
->>>>>>> picard
 
-This page describes how to install, compile, and test Rosetta 3 \( [formerly called "Mini"] (RosettaTimeline) \) on a [supported platform](https://wiki.rosettacommons.org/index.php/Supported_Platforms "Supported Platforms") .
+Setting up Rosetta 3
+====================
+
+This page describes how to install, compile, and test Rosetta 3 [[formerly called "Mini"|Rosetta-Timeline]] on a [[supported platform|platforms]].
 
 [[_TOC_]]
 
@@ -63,7 +61,7 @@ To use an alternate version of the compiler, you can use the option `     cxx_ve
 
 `      ./scons.py -j<number_of_processors_to_use> cxx=clang cxx_ver=4.5     `
 
-For more build options, such as only compiling only one executable or apbs - Please take a look at the SConstruct File in rosetta\_source
+For more build options, such as only compiling only one executable or apbs - Please take a look at the SConstruct File in main/source
 
 ###Build Rosetta using the Rosetta Xcode Project (Mac)
 
@@ -118,7 +116,11 @@ To build MPI executables, add the flag "extras=mpi" and copy main/source/tools/b
 
 ##Troubleshooting
 ====================
-Here are some common issues seen with building Rosetta.
+Here are some common issues seen with building Rosetta.  
+
+###Dependencies
+Rosetta requires a compiler (most gcc or clang are fine) and the zlib compression library development package.
+Instructions for acquiring either are below, sorted by what sorts of error messages they give if you are missing them.
 
 **"sh: 1: o: not found"**
 
@@ -142,11 +144,7 @@ to something like:
 ```
 where you substitute the compiler commands as appropriate.
 
-
-
-
 --> **Install a compiler**:
-
 
 Many default installations of Mac and Linux do not come with a compiler installer, so you will need to install one separately. (Note that the following only applies if you have administrator rights to your machine. If you do not, talk to your sysadmin regarding the installation of a compiler.)
 
@@ -160,7 +158,6 @@ Rosetta requires the zlib compression library to be installed on your computer i
 
 For Ubuntu and related distributions, install the zlib1g-dev package (e.g. with `sudo apt-get install zlib1g-dev`)
 
-<<<<<<< HEAD
 Testing Rosetta 3
 -----------------
 This should not be necessary outside of the developers version, but is here in case it is needed by the community.
@@ -189,7 +186,7 @@ Run the test with one of the following commands:
 
 ### Integration tests
 
-Running `     integration.py    ` for the first time will generate a folder called `     ref    ` in `     rosetta/rosetta_tests/integration    ` . Whenever you make a change, run the integration test and compare your new test output (located in the `     new    ` folder) with that in the `     ref    ` folder.
+Running `     integration.py    ` for the first time will generate a folder called `     ref    ` in `     rosetta/main/tests/integration    ` . Whenever you make a change, run the integration test and compare your new test output (located in the `     new    ` folder) with that in the `     ref    ` folder.
 
 Run the test as follows:
 
@@ -209,35 +206,10 @@ To run one test:
 `      ./integration.py my_test -d ../../database -c <optional_compiler_specification>     `
 
 
-Miscellaneous
+Cleaning your binaries
 -------------
-
-### Cleaning Rosetta 3
-
-    ./scons.py -c 
-    rm .sconsign.dblite
-
-*or*
-
-    rm -rf build/src; rm .sconsign.dblite  
+`cd Rosetta/main/source/ && rm -r build/* && rm .sconsign.dblite` will remove old binaries.
 
 ## See Also
 
 - Additional [[build]] documentation.
-- An out-dated list of [[platforms]] supported by Rosetta.
-=======
-##Testing
-====================
-
-There are two sets of tests to run to ensure everything is working properly, unit tests and integration tests. (See [Testing Rosetta](xxxx) .)
-
-####MPI
-Compilation in MPI mode permits specialized JobDistributors to be used; the function of these JobDistributors, and their integration with other components of Rosetta, can only be tested by running special integration tests in MPI mode by passing the ```--mpi-tests``` flag to integration.py. Selective failure of these tests will probably mean that the parallel JobDistributors have been broken in some way.
-
-The MPI-mode build test simply tries to compile Rosetta with the ```-extras=mpi``` flag passed to scons. Selective failure of this build means that code surrounded by ```#ifdef USEMPI ... #endif``` lines has errors in it.
-
-##Cleaning 
-====================
-
-```rm -rf build/src; rm .sconsign.dblite```
->>>>>>> picard
