@@ -14,3 +14,7 @@ Calculates the all atom RMSD for a single residue, either with or without the ba
 -   include\_backbone: Whether to include the backbone in the RMSD calculation. (It is recommended to set this to "true" for ligands and other residues which don't have a backbone.)
 -   threshold: In a truth value context, what's the maximum RMSD value which is considered to be passing.
 
+## See also
+
+* [[RmsdFilter]]
+* [[IRmsdFilter]]

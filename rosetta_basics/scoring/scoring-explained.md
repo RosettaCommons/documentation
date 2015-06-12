@@ -74,8 +74,6 @@ One EnergyMethod can map to multiple ScoreTypes.  For example, the [[hydrogen bo
 
 
 
-
-
 ##See Also
 
 * [[Rosetta overview]]

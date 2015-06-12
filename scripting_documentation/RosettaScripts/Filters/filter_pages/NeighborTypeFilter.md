@@ -12,3 +12,12 @@ Filter for poses that place a neighbour of the types specified around a target r
 
 -   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
 
+## See also:
+
+* [[Docking applications|docking-applications]]
+* [[Task Operations|TaskOperations-RosettaScripts]]
+* [[ResidueDistanceFilter]]
+* [[AtomicContactFilter]]
+* [[AtomicContactCountFilter]]
+* [[AtomicDistanceFilter]]
+* [[TerminusDistanceFilter]]

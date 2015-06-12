@@ -14,5 +14,6 @@ Repeats a given filter the given number of times. It then trims off the highest 
 * [[CompoundStatementFilter]]
 * [[CombinedValueFilter]]
 * [[CalculatorFilter]]
+* [[OperatorFilter]]
 * [[SigmoidFilter]]
 

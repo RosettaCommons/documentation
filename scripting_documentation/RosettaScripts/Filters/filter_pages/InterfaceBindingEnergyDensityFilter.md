@@ -12,3 +12,8 @@ Takes two other filters: Ddg and Sasa. Computes Ddg/Sasa and returns the value. 
 -   ddG\_filter is the name of a previously defined Ddg filter
 -   threshold sets the fail condition for the filter, this filter fails if Ddg/Sasa is not below the threshold.
 
+See also:
+
+* [[Docking applications|docking-applications]]
+* [[DdgFilter]]
+* [[SasaFilter]]

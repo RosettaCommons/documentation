@@ -13,3 +13,7 @@ Calculates an interface rmsd. Rmsd is calculated over all backbone atoms for tho
 - reference_pose: The name of the pose to calculate the rmsd with respect to. (From SavePoseMover). If not given, use the structure specified with -in:file:native instead. If no native pose or reference is given, use the input structure.
 - scorefxn: The scorefunction used in calculating the interface. (As the interface is defined by distance, rather than score, the choice of scorefunction is not critical.)
 
+## See also
+
+* [[RmsdFilter]]
+* [[SidechainRmsdFilter]]

@@ -183,6 +183,7 @@ Renfrew et al. demonstrate that peptoid residues (N-alkylated or arylated glycin
 ##See Also
 
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
-* [[RosettaEncyclopedia]]: Detailed descriptions of Rosetta terms
+* [[FAQ]]: Frequently Asked Questions
 * [[Glossary]]: Brief definitions of Rosetta terms
+* [[RosettaEncyclopedia]]: Detailed descriptions of Rosetta terms
 * [[Rosetta Timeline]]: Landmark Rosetta papers

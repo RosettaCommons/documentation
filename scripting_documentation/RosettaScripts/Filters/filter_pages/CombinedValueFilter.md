@@ -21,6 +21,7 @@ For truth value contexts, the filter evaluates to true if the weighted sum if le
 * [[CompoundStatementFilter]]
 * [[CalculatorFilter]]
 * [[IfThenFilter]]
+* [[OperatorFilter]]
 * [[ReplicateFilter]]
 * [[SigmoidFilter]]
 

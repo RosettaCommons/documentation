@@ -21,6 +21,8 @@
 
 - [[Brief history of Rosetta|Rosetta-Timeline]]
 
+- [[FAQ]]
+
 - [[Glossary of terms|Glossary]]
     - [[Longer form descriptions|RosettaEncyclopedia]]
 
@@ -113,6 +115,7 @@
 ##See Also
 
 * [[Getting Started]]: A page for people new to Rosetta. New users start here.
+* [[FAQ]]: Frequently Asked Questions
 * [[Glossary]]: Brief definitions of Rosetta terms
 * [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
