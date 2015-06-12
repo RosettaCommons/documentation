@@ -44,10 +44,12 @@ In MoversTest::test_AllMovers: ./test/protocols/moves/MoversTest.cxxtest.hh:47: 
 10) Run the unit test and make sure it completes without errors.
 
 ##See Also
-
-* [[Guide to writing unit tests|writing-unit-tests]]
-* [[UTracer]], a tool to simplify writing unit tests
+* [[Unit Test|unit tests]] overview/philosophy
 * [[Running unit tests|run-unit-test]]
+* [[Writing unit tests|writing-unit-tests]]
+* [[UTracer]], a tool to simplify writing unit tests by comparing text _en masse_
+
+* [[Mover description|Rosetta-overview#mover]]
+
 * [[Testing home page|rosetta-tests]]
 * [[Development documentation home page|Development-Documentation]]
-* [[Mover description|Rosetta-overview#mover]]
