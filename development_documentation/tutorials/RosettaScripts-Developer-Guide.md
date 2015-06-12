@@ -100,7 +100,7 @@ Requirements are all the same as of Mover, with one exception that the Pose obje
 TaskOperations
 --------------
 
-[[TaskOperation]]s that are specified in utility::Tag scripts in order to be utilized by Movers require careful (but relatively simple) implementation of virtual functions, a Creator class, and load-time registration in an init.cc file.
+[[TaskOperations|TaskOperations-RosettaScripts]] that are specified in utility::Tag scripts in order to be utilized by Movers require careful (but relatively simple) implementation of virtual functions, a Creator class, and load-time registration in an init.cc file.
 
 As of trunk revisions r34048, r34052, and r34063, DockDesignParser no longer owns its own TaskOperationFactory. There is now a singleton factory that lives at core::pack::task::operation::TaskOperationFactory. Also, protocols no longer need to manually register TaskOperations with this factory. Instead, TaskOperations are registered with the factory at "init" time (core/init.cc,protocols/init.cc,devel/init.cc) via Creator and Registrator classes. Creators are helper classes that make the TaskOperationFactory aware of how to create different flavors of TaskOperations. This way the TaskOperationFactory can store very-low-weight Creator classes, and only makes specific actual TaskOperations upon demand. This saves time, memory, and I/O. See the core/pack/task/operation/ directory and protocols/init.cc for examples of how these classes are implemented and cooperate.
 
