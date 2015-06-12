@@ -98,7 +98,9 @@ The documentation for each application should list most of the relevant options 
 
 The [[options overview]] should list options which affect most protocols in Rosetta.
 
-A list of almost all of the options Rosetta recognizes is at the [[full-options-list]]. (Not every protocol understands every option, though.)
+
+A list of almost all of the options Rosetta recognizes is at the [[full options list]]. (Not every protocol understands every option, though.)
+
 
 #### Does Rosetta support running with MPI? Or do I have to launch multiple serial jobs?
 

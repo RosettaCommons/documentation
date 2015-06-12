@@ -5,7 +5,7 @@ The very nature of Monte Carlo simulation strongly supports the incorporation of
 
 ##Constraints vs. Restraints
 Rosetta calls _constraints_ what other computational packages refer to as _restraints_.
-In Rosetta, a constraint does not fix a degree of freedom and removing it from sampling and scoring.
+In Rosetta, a constraint does not fix a degree of freedom and remove it from sampling and scoring.
 Rather, we are adding a scoring term that penalizes deviations from particular values of that degree of freedom.
 Restraints have no particular name - it's just making sure that degree of freedom is not free, for example in a [[MoveMap|Glossary#movemap]].
 
@@ -69,8 +69,9 @@ Heuristics for determining the precise meaning of "blowing up" are case-dependen
 
 * [[I want to do x]]: Guides to specific types of structural perturbations using RosettaScripts
 * [[Resources for learning biophysics and computational modeling]]
+* [[CS-Rosetta]]: Uses RNA chemical shift data with Rosetta for structure prediction
+* [[Solving a Biological Problem]]
 * [[Getting Started]]: A page for people new to Rosetta 
 * [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
 * [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 * [[Scripting Documentation]]: Scripting interfaces to Rosetta
-* [[CS-rosetta]]
