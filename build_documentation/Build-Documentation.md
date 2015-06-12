@@ -212,4 +212,6 @@ Cleaning your binaries
 
 ## See Also
 
-- Additional [[build]] documentation.
+* [[Getting Started]]
+* [[Platforms]]: Supported platforms for Rosetta
+* [[Scons Overview and Specifics]]: Detailed information on the Scons compiling system

@@ -84,7 +84,7 @@ For RosettaCommons developers, we have a version of the Doxygen documentation wh
 
 - [[Rosetta tests]] - A guide to running and writing tests for Rosetta
 - [[Run unit test]] - How to run the unit tests.
-- [[Write unit test|test]] - Writing unit tests.
+- [[Write unit test|writing-unit-tests]] - Writing unit tests.
 - [[UTracer]] - How to use the UTracer tool in writing unit tests
 - [[Mover test]] - How to write a unit test for a mover.  
 - [[Integration tests]]
@@ -100,7 +100,7 @@ For RosettaCommons developers, we have a version of the Doxygen documentation wh
 * [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
 * [[RosettaScripts]]: Wiki page for RosettaScripts, the Rosetta XML interface
 * [[PyRosetta]]: Wiki page for PyRosetta, the independent Python interface to Rosetta
-* [[RosettaTimeline]]: History of Rosetta
+* [[Rosetta Timeline]]: History of Rosetta
 * [[Getting Started]]: A page for people new to Rosetta
 * [[Build Documentation]]: Information on building Rosetta
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables
