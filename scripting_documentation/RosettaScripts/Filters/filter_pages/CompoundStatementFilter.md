@@ -21,6 +21,7 @@ Note that the first OPERATION specified in the compound statement treated as a n
 * [[CombinedValueFilter]]
 * [[CalculatorFilter]]
 * [[IfThenFilter]]
+* [[OperatorFilter]]
 * [[ReplicateFilter]]
 * [[SigmoidFilter]]
 
