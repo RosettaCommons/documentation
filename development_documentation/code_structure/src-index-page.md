@@ -63,11 +63,25 @@ Core Library <a name="core" />
 
 [[/images/core_structure.png]]
 
-The core directory contains classes that manage most of the internal machinery of Rosetta. This includes topics such as chemical representations of models, conformational representations of models, low-level operations on conformations, and energetic evaluation ([[scoring|scoring-explained]]) of models.
+The core directory contains classes that manage most of the internal machinery of Rosetta. 
+This includes topics such as chemical representations of models, conformational representations of models, low-level operations on conformations, and energetic evaluation ([[scoring|scoring-explained]]) of models.
 
-TODO: Steven, could you provide a description of roughly what falls into each of these levels?
+###Core.1
+The only important contents of this library level are the `graph` classes (graph in the computer science sense).
 
-###Namespace documentation (incomplete)
+###Core.2
+This library contains three important sections:
+
+####Chemical
+The chemical directory, which contains important classes like `ResidueType`, is how Rosetta understands the concept of what atoms are in a chemical entity and how the atoms are connected.
+
+####Kinematics
+The kinematics directory, which contains classes like `AtomTree`, `MoveMap`, and `FoldTree`, is how Rosetta propagates motion through a structure.  TODO linky internal coordinate kinematics
+ 
+###Conformation
+The `Conformation` class is what happens when you thread together `Residue` classes (based on `ResidueType`s) according to the kinematics dictated by the `AtomTree` - basically, a structure!
+
+###Documentation by namespace (incomplete)
 
 * [[core::chemical|namespace-core-chemical]]
 * [[core::conformation|namespace-core-conformation]]
@@ -102,10 +116,6 @@ For a general overview of Rosetta concepts (including many concepts from core), 
     - [[How to add a new scoring term|new-energy-method]]
     - [[Constraints file formats|constraint-file]]
  
-
-
-
-
 Protocols Library
 =================
 
