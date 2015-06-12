@@ -17,8 +17,8 @@ Note that the first OPERATION specified in the compound statement treated as a n
 
 ## See also
 
-* [[BoltzmannFilter]
-* [[CombinedValueFilter]
+* [[BoltzmannFilter]]
+* [[CombinedValueFilter]]
 * [[CalculatorFilter]]
 * [[IfThenFilterFilter]]
 * [[ReplicateFilter]]
