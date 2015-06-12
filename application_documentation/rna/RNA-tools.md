@@ -100,7 +100,7 @@ To prepare files for an RNA denovo (fragment assembly of RNA with full atom refi
 
 `rna_denovo_setup.py -fasta mysequence.fasta -secstruct_file mysecstruct.txt`
 
-There are several more useful flags in `rna_denovo_setup.py` which are documented in [[rna_denovo_setup]].
+There are several more useful flags in `rna_denovo_setup.py` which are documented in [[rna_denovo_setup|rna-denovo-setup]].
 
 
 Cluster setup

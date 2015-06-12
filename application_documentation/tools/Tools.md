@@ -1798,6 +1798,6 @@ tools/willclang/*
 
 * [[Utilities Applications]]
 * [[Analysis Applications]]
-* [[Applications Documentation]]: Home page for applications
+* [[Application Documentation]]: Home page for applications
 * [[Instructions for setting up R|FeaturesTutorialRBasics]]
 * [[PyMOL]]
