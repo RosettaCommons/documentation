@@ -18,7 +18,7 @@ A version of the AverageDegree filter (see above) that is compatible with oligom
 
 ## See also
 
-* [[GetRBDOFAverageDegreeFilter]]
+* [[GetRBDOFValuesFilter]]
 * [[SymUnsatHbondsFilter]]
 * [[ClashCheckFilter]]
 * [[InterfacePackingFilter]]
