@@ -12,3 +12,8 @@ The original publication describing FoldIt can be found [[here (PubMed link)|htt
 * [[Rosetta Servers]]: Web-based portals for Rosetta pages
 * [[Rosetta@Home Wikipedia page (external link)|http://en.wikipedia.org/wiki/Rosetta@home]]: Distributed computing project for some Rosetta applications
 * [[Resources for learning biophysics and computational modeling]]
+
+<!-- Hidden HTML Key Words for Search-ability
+FoldIt Game
+Rosetta Game
+//-->
