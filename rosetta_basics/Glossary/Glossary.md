@@ -612,6 +612,11 @@ Workflow to do specific calculations in Rosetta; sometimes a protocol uses **mov
 
 #### Randomizing rigid-body orientation
 
+#### ReferenceCount
+ReferenceCount was the core class in the smart pointer system that Rosetta3 used up until 2015. 
+Nearly every class in Rosetta ultimately inherits from this class. 
+The class remains as an empty class, because it was too hard to move after Luki Goldschmidt's transition to our [[newer smart pointers|development_documentation/tutorials/How-to-use-pointers-correctly]], and because having a base class for nearly all classes is useful for the Pose DataCache.
+
 #### refinement
 
 Starting from a low-resolution model, use the **full-atom** **energy function**
