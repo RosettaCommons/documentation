@@ -1,15 +1,13 @@
 #An overview of the src directory
 
-From a conceptual standpoint, the src directory contains all the C++ code specfic to Rosetta. The directory structure within Rosetta delineates conceptual dependencies. A Rosetta developer should keep in mind the layered architecture depicted in the figure below. The arrows represent allowed dependency flows. Any code dependency on directories not accessible by following the arrows is not allowed. A strict vertical code dependency has been observed thus far in writing Rosetta code. Historically lateral independence within sub directories has not been required, however recent design decisions have identified this as a goal. Consequently, the figure below should be updated to display those dependencies as they are achieved.
-
+From a conceptual standpoint, the src directory contains all the C++ code specfic to Rosetta. The directory structure within Rosetta delineates conceptual dependencies. A Rosetta developer should keep in mind the layered architecture depicted in the figure below. The arrows represent allowed dependency flows. Any code dependency on directories not accessible by following the arrows is not allowed. A strict vertical code dependency has been observed thus far in writing Rosetta code. This figure demonstrates the relationships between the libraries:
 
 [[/images/RosettaLib.png]]
-
 
 ObjexxFCL Library
 ================
 
-The `ObjexxFCL` library provides the infrastructure needed to emulate Fortran by code that has been translated from Fortran 77 to C++. It is heavily used in Rosetta at present, but will gradually disappear as Rosetta becomes more object-oriented.
+The `ObjexxFCL` library provides the infrastructure needed to emulate Fortran by code that has been translated from Fortran 77 to C++. It is lightly used in Rosetta at present, having gradually disappeared as Rosetta became more object-oriented - the [[Rosetta to Rosetta++ to Rosetta3|Rosetta timeline]] transition. It remains to support some legacy code.
 
 Utility Library
 ==============
