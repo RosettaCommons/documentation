@@ -31,7 +31,7 @@ I'm sure there are many. In particular, it's currently designed for a single lig
 Note that much of the continued development of RosettaLigand is within the RosettaScripts interface. See Combs, DeLuca, et al (2013). "Small molecule ligand docking into comparative models with Rosetta." Nature Protocols.    
 
 
-**Tips for running RosettaLigand via [[RS | scripting_documentation/Movers-RosettaScripts/ligand-centric-movers]]**
+**Tips for running RosettaLigand via [[RS | Movers-RosettaScripts#ligand-centric-movers]]**
 
 _ScoreFunction_
 
