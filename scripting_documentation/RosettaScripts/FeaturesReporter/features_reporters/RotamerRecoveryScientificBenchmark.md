@@ -54,7 +54,7 @@ RRComparerRotBins
 
 For each of the two residues, the torsional degrees of freedom are mapped to discrete *rotameric* conformation states. Then identity of the rotamer bin for each sidechain angle are compared, one at a time, until they do not match. The score is the number of bins that did not match and the rotamer is *recovered* if all of the bins do match.
 
-Note: The definitions of the rotamer bins is defined by the Dunbrack libraries in the rosetta\_database. See for example the *-corrections::score::dun10* flag. Since the rotamer bins depend on the rotamer library used, this score is not meaningful results across different rotamer libraries.
+Note: The definitions of the rotamer bins is defined by the Dunbrack libraries in the path/to/rosetta/main/database. See for example the *-corrections::score::dun10* flag. Since the rotamer bins depend on the rotamer library used, this score is not meaningful results across different rotamer libraries.
 
 Note: Currently this comparer will fail if the residues are not the same canonical amino acid.
 

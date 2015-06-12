@@ -8,7 +8,7 @@ AtomTypeFeatures
 The atom-level chemical information stored in the rosetta AtomTypeSet. This includes base parameters for the Lennard Jones Van der Waals term and Lazaridis Karplus solvation model.
 
 -   **atom\_types** : The atom type in the atom type set along with Lennard Jones and Lazaridis Karplus parameters
-    -   *atom\_type\_set\_name* : The name of the atom type set. For atom type tests stored in the database the parameters are in the following directory *rosetta\_database/chemical/atom\_type\_sets/\<atom\_type\_set\_name\>*
+    -   *atom\_type\_set\_name* : The name of the atom type set. For atom type tests stored in the database the parameters are in the following directory */path/to/rosetta/main/database/chemical/atom\_type\_sets/\<atom\_type\_set\_name\>*
     -   *name* : The name of the atom type
     -   *lennard\_jones\_{radius/well\_depth}* : The base parameters for the Lennard Jones Van der Waals term.
     -   *lazaridis\_karplus\_{lambda, degrees\_of\_freedom, volume}* : The base parameters for the Lazardis Karplus solvation model
@@ -78,7 +78,7 @@ The atom-level chemical information stored in the rosetta AtomTypeSet. This incl
 ResidueTypesFeatures
 --------------------
 
-ResidueTypes store information about the chemical nature of the residue. The information is read in from the from *rosetta\_database/chemical/residue\_type\_sets/\<residue\_type\_set\_name\>/residue\_types/* .
+ResidueTypes store information about the chemical nature of the residue. The information is read in from the from */path/to/rosetta/main/database/chemical/residue\_type\_sets/\<residue\_type\_set\_name\>/residue\_types/* .
 
 -   **residue\_type** :
     -   *residue\_type\_set\_name* : The name of the ResidueTypeSet. e.g. *fa\_standard* or *centroid* .

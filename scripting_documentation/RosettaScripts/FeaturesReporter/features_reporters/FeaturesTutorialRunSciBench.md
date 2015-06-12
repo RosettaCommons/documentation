@@ -115,6 +115,6 @@ These are the command line options used to run *features.py*
     -   **--mini\_home** : The path to rosetta\_source, with ../../rosetta\_source being default
     -   **--compiler** : The compiler used to compile Rosetta (e.g. gcc, icc, clang), with gcc being default
     -   **--mode** : The mode used to compile Rosetta (e.g. release, debug), with release being default
-    -   **--database** : Path to rosetta\_database (it will use the value in \$ROSETTA3\_DB by default)
+    -   **--database** : Path to /path/to/rosetta/main/database (it will use the value in \$ROSETTA3\_DB by default)
 
 
