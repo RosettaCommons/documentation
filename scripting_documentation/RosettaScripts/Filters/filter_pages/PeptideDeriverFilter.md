@@ -20,3 +20,6 @@ Implementation of the Peptiderive protocol. Since all the options are equivalent
     />
 ```
 
+## See also:
+
+* [[PeptiDerive]]
