@@ -9,5 +9,6 @@ Dumps a pdb. Recommended ONLY for debuggging as you can't change the name of the
 
 ##See Also
 
+* [[LoadPDBMover]]
 * [[SavePoseMover]]
 * [[I want to do x]]: Guide to choosing a mover

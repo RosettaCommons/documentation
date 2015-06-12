@@ -13,6 +13,7 @@ Turns either or both sides of an interface to Alanines (except for prolines and 
 
 ##See Also
 
+* [[MakePolyXMover]]
 * [[SaveAndRetrieveSidechainsMover]]
 * [[PackRotamersMoverPartGreedyMover]]
 * [[PredesignPerturbMover]]

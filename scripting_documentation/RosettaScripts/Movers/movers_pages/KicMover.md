@@ -44,4 +44,11 @@ References:
 * Coutsias EA, Seok C, Wester MJ, Dill KA. (2005). Resultants and loop closure. 
   International Journal of Quantum Chemistry . 106(1), 176–189.
 
+##See Also
 
+* [[GeneralizedKICMover]]: Version robust to non-protein backbones
+* [[RosettaScriptsLoopModeling]]
+* [[Loops file]]: File format for specifying loops for loop modeling
+* [[Loop modeling algorithms|loopmodel-algorithms]]
+* [[Structure prediction applications]]: A list of command line applications to be used for structure prediction, including loop modeling
+* [[I want to do x]]: Guide to choosing a mover
