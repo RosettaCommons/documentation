@@ -3,6 +3,10 @@
 [[_TOC_]]
 
 ## Starting References
+
+You may be interested in reading [[Getting Started]]. 
+More similar recommendations can be found scrolling to the bottom of this page, in the See Also section.
+
 Leaver-Fay, A., et al., ROSETTA3: an object-oriented software suite for the simulation and design of macromolecules. Methods in enzymology, 2011. 487: p. 545.
 
 Kaufmann, K.W., et al., Practically useful: what the Rosetta protein modeling
@@ -18,15 +22,18 @@ servers can be found on the [[Rosetta Servers]] page.
 ##Command Line Example
 Rosetta applications (including RosettaScripts) are typically run through a terminal window. The command line is composed of two major parts. First, a path to an application executable is required, while the second part is a list of options for the particular Rosetta simulation. For example:
 
-<code>path_to/some_rosetta_app.linuxgccrelease -database path/to/rosetta/Rosetta/main/database other\_flags</code>
+```
+path_to/some_rosetta_app.linuxgccrelease -database path/to/rosetta/Rosetta/main/database other\_flags
+```
 
+For a few examples, see the [[commands collection]] page.
 
 ##Location of Rosetta Executables
 After Rosetta is [[compiled | build_documentation/Build-Documentation ]], links to binary executables are copied to the Rosetta/main/source/bin directory. (This is the bin/ directory off of the directory where you compiled the code.) **Full paths** to these executables need to be given when running Rosetta, _unless_ this directory is added to the **PATH** variable in your shell profile (~/.bashrc (linux), ~/.bash_profile (mac), etc). <code> export PATH=$PATH:/path/to/rosetta/bin </code>
 
 
-##Rosetta Database
-The Rosetta database contains important data files used by Rosetta during runs (for example, the definitions of what atoms are in alanine, atomic charges, Lennard-Jones radii, scorefunction weight files, ideal bond lengths and angles, rotamer libaries, etc).  Rosetta must in some way know the path to this directory.
+##[[Rosetta Database|database]]
+The Rosetta database contains important data files used by Rosetta during runs (for example, the definitions of what atoms are in alanine, atomic charges, Lennard-Jones radii, scorefunction weight files, ideal bond lengths and angles, rotamer libaries, etc).  Rosetta must in some way know the path to this directory. 
 
 ### Autodetermination of database path
 
@@ -84,7 +91,7 @@ In order to run Rosetta on a computational cluster or locally on many cores, mos
 Although typically used on large computer clusters, MPI can be installed on multiprocessor linux and mac machines.  If you have a shiny new 8 core desktop, use should be able to use MPI.  There are many different flavors of MPI, but openmpi seems to work well on both Ubuntu and MacOSX.
 
 
-Most applications are currently compatible with MPI through [[The Job Distributor | rosetta_basics/jd2]]. See the MPI JobDistributor section for fine control over how Rosetta will use MPI with your run.
+Most applications are currently compatible with MPI through [[The Job Distributor |jd2]]. See the MPI JobDistributor section for fine control over how Rosetta will use MPI with your run.
 
 A useful option to use when running Rosetta via mpi is <code> -mpi_tracer_to_file path/to/log/dir </code>.  This will separate the output of each processor into separate files.  
 
@@ -186,7 +193,7 @@ General tips for running Rosetta
 * [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
 * [[TACC]]: Information for running Rosetta on the TACC/Stampede cluster.
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
-* [[I want to do x]]: Guide to making specific structural pertubations using RosettaScripts
+* [[I want to do x]]: Guide to making specific structural perturbations using RosettaScripts
 * [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
 * [[Commands collection]]: A list of example command lines for running Rosetta executable files
 * [[Rosetta Servers]]: Web-based servers for Rosetta applications

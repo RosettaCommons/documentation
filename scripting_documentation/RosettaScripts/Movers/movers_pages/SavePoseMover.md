@@ -16,4 +16,5 @@ This mover allows one to save a pose at any time point through out a trajectory 
 ##See Also
 
 * [[SaveAndRetrieveSidechainsMover]]
+* [[DumpPdbMover]]
 * [[I want to do x]]: Guide to choosing a mover

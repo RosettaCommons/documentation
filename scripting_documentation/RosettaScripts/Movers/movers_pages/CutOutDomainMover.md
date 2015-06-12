@@ -12,4 +12,9 @@ Cuts a pose based on a template pdb. The two structures have to be aligned. The 
 -   suffix: suffix of outputted structure
 -   source\_pdb: name of pdb to be cut
 
+##See Also
 
+* [[ExtractSubposeMover]]
+* [[ExtractAsymmetricUnitMover]]
+* [[ExtractAsymmetricPoseMover]]
+* [[I want to do x]]: Guide to choosing a mover

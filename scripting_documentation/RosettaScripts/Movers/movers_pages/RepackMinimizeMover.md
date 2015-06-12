@@ -28,8 +28,7 @@ If no repack\_partner1/2 options are set, you can specify repack=0/1 to control 
 
 ##See Also
 
-##See Also
-
+* [[DesignMinimizeHbondsMover]]
 * [[PackRotamersMover]]
 * [[MinMover]]
 * [[MinPackMover]]

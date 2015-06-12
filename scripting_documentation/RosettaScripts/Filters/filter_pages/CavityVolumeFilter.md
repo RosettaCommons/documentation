@@ -25,4 +25,6 @@ Uses Will Sheffler's packing code to estimate the total volume of intra-protein 
 * [[InterfaceHolesFilter]]
 * [[ShapeComplementarityFilter]]
 * [[SSShapeComplementarityFilter]]
+* [[ResInInterfaceFilter]]
+* [[SpecificResiduesNearInterfaceFilter]]
 * [[ExposedHydrophobicsFilter]]

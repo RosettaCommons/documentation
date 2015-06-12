@@ -117,5 +117,6 @@ At present 4 database filters are implemented:
 * [[SQLite3 Interface]]: Specific information on using SQLite3 with Rosetta
 * [[Database support]]: Advanced details on Rosetta's interface with databases
 * [[RosettaScripts database connection options]]
+* [[Features reporter overview]]: Home page for the Features Reporter, a tool for outputting information to databases using Rosetta
 * [[Database options]]: Database-related command line options
 * [[The Rosetta database|database]]: Information about the main database included with Rosetta and specified by the -in:path:database flag (separate topic)

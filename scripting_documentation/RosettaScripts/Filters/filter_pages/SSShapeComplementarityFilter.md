@@ -33,4 +33,6 @@ The following example XML will create a SecondaryStructureShapeComplementarity f
 * [[CavityVolumeFilter]]
 * [[InterfaceHolesFilter]]
 * [[ShapeComplementarityFilter]]
+* [[SpecificResiduesNearInterfaceFilter]]
+* [[ResInInterfaceFilter]]
 * [[ExposedHydrophobicsFilter]]

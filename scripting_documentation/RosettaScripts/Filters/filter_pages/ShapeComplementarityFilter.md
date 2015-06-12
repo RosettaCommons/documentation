@@ -28,4 +28,6 @@ Set write\_int\_area to add the SC interface area to the scorefile. Use sym\_dof
 * [[InterfaceHolesFilter]]
 * [[SSShapeComplementarityFilter]]
 * [[ExposedHydrophobicsFilter]]
+* [[ResInInterfaceFilter]]
+* [[SpecificResiduesNearInterfaceFilter]]
 

@@ -2,10 +2,6 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## GetRBDOFValues
 
-(This is a devel Filter and not available in released versions.)
-
-<!--- END_INTERNAL -->
-
 Calculates either the current translation or rotation across a user specified jump (referenced by jump\_id or sym\_dof\_name).
 
 ```
@@ -22,5 +18,10 @@ Calculates either the current translation or rotation across a user specified ju
 -   init\_angle: Initial angle value to add to each calculated value
 -   get\_init\_value: Get the initial displacement or angle for the specified jump from the SymDofMoverSampler
 
-<!--- END_INTERNAL --> 
+## See also
 
+* [[ClashCheckFilter]]
+* [[InterfacePackingFilter]]
+* [[MutationsFilter]]
+* [[OligomericAverageDegreeFilter]]
+* [[SymUnsatHbondsFilter]]

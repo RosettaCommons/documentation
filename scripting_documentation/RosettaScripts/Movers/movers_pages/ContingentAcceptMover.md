@@ -8,3 +8,10 @@ Calculates the value of a filter before and after the move, and returns false if
 <ContingentAccept name=( &string) mover=(&string) filter=(&string) delta=(&Real)/>
 ```
 
+##See Also
+
+* [[IfMover]]
+* [[ParsedProtocolMover]]
+* [[Home page for RosettaScripts filters|Filters-RosettaScripts]]
+* [[GenericMonteCarloMover]]
+* [[I want to do x]]: Guide for choosing a mover

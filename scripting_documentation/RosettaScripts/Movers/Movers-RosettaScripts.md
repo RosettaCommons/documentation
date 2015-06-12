@@ -46,13 +46,13 @@ Meta Movers don't do anything to the pose themselves, but cobmine or modify the 
 
 **[[GenericSimulatedAnnealer|GenericSimulatedAnnealerMover]]** - Repeatedly apply a mover in a Monte Carlo fashion with ramped temperatures.
 
-**[[MonteCarloTest|MonteCarloTestMover]]** - 
+**[[MonteCarloTest|MonteCarloTestMover]]** - Tests the Monte Carlo criterion of a mover 
 
-**[[MonteCarloRecover|MonteCarloRecoverMover]]** - 
+**[[MonteCarloRecover|MonteCarloRecoverMover]]** - Recovers a pose from the generic monte carlo mover
 
-**[[MonteCarloUtil|MonteCarloUtilMover]]** - 
+**[[MonteCarloUtil|MonteCarloUtilMover]]** - (developer release only) Recovers the lowest energy pose of a given Monte Carlo object
 
-**[[MetropolisHastings|MetropolisHastingsMover]]**
+**[[MetropolisHastings|MetropolisHastingsMover]]** - Performs Metropolis-Hastings Monte Carlo simulations
 
 **[[IteratedConvergence|IteratedConvergenceMover]]** - Repeatedly apply a mover until a filter gives stable values. 
 
@@ -64,318 +64,319 @@ Meta Movers don't do anything to the pose themselves, but cobmine or modify the 
 
 **[[ReportToDB|ReportToDBMover]]** - Report structural data to a relational database.
 
-**[[ResetBaseline|ResetBaselineMover]]** - 
+**[[ResetBaseline|ResetBaselineMover]]** - Reset the baseline (not needed for MC)
 
-**[[TrajectoryReportToDB|TrajectoryReportToDBMover]]** - 
+**[[TrajectoryReportToDB|TrajectoryReportToDBMover]]** - Reports multiple structures to an output forming a trajectory
 
 **[[DumpPdb|DumpPdbMover]]** - Save a pose to disk.
 
-**[[PDBTrajectoryRecorder|PDBTrajectoryRecorderMover]]** - 
+**[[PDBTrajectoryRecorder|PDBTrajectoryRecorderMover]]** - Records a multimodel PDB file
 
-**[[SilentTrajectoryRecorder|SilentTrajectoryRecorderMover]]** - 
+**[[SilentTrajectoryRecorder|SilentTrajectoryRecorderMover]]** - Records a trajectory in a silent file
 
-**[[MetricRecorder|MetricRecorderMover]]** - 
+**[[MetricRecorder|MetricRecorderMover]]** - Record metrics in a text file
 
-**[[AddJobPairData|AddJobPairDataMover]]** - 
+**[[AddJobPairData|AddJobPairDataMover]]** - Add a key:value pair to the current job for inclusion in output
 
-**[[WriteLigandMolFile|WriteLigandMolFileMover]]** - 
+**[[WriteLigandMolFile|WriteLigandMolFileMover]]** - Create a V2000 mol file for each pose
 
-**[[RenderGridsToKinemage|RenderGridsToKinemageMover]]** - 
+**[[RenderGridsToKinemage|RenderGridsToKinemageMover]]** - (for debugging) Creates a Kinemage file containing scoring grid(s)
 
-**[[PyMolMover]]** - Send a pose to PyMol.
+**[[PyMolMover]]** - Send a pose to PyMol
 
 ### Setup Movers
 
-**[[SetupPoissonBoltzmannPotential|SetupPoissonBoltzmannPotentialMover]]** - 
+**[[SetupPoissonBoltzmannPotential|SetupPoissonBoltzmannPotentialMover]]** - Runtime environment initialization for the PB solver (ddG mover)
 
 ## General Movers
 
-These are movers that should be usable in most cases with most systems.
+These are movers that should be usable in most cases with most systems
 
 ### Packing/Minimization
 
-**[[ForceDisulfides|ForceDisulfidesMover]]** - 
+**[[ForceDisulfides|ForceDisulfidesMover]]** - Ensures that unrecognized disulfides are formed and bond geometry is correct
 
-**[[PackRotamersMover]]** - 
+**[[PackRotamersMover]]** - Repacks sidechains
 
-**[[PackRotamersMoverPartGreedy|PackRotamersMoverPartGreedyMover]]** - 
+**[[PackRotamersMoverPartGreedy|PackRotamersMoverPartGreedyMover]]** - Optimizes around target residues and repacks sidechains
 
-**[[MinMover]]** - 
+**[[MinMover]]** - Minimizes sidechains and/or backbone
 
-**[[CutOutDomain|CutOutDomainMover]]** - 
+**[[CutOutDomain|CutOutDomainMover]]** - Uses a template to remove specified residues
 
-**[[TaskAwareMinMover]]** - 
+**[[TaskAwareMinMover]]** - Minimizes sidechains and/or backbone with positions specified by TaskOperations
 
-**[[MinPackMover]]** - 
+**[[MinPackMover]]** - Packs and minimizes a side chain, calls Monte Carlo
 
-**[[Sidechain|SidechainMover]]** - 
+**[[Sidechain|SidechainMover]]** - "off rotamer" sidechain-only moves
 
-**[[SidechainMC|SidechainMCMover]]** - 
+**[[SidechainMC|SidechainMCMover]]** - "off rotamer" sidechain-only Monte Carlo sampling
 
-**[[RotamerTrialsMover]]** - 
+**[[RotamerTrialsMover]]** - Cycles through residues to find the lowest energy rotamer for each
 
-**[[RotamerTrialsMinMover]]** - 
+**[[RotamerTrialsMinMover]]** - Cycles through residues to find each lowest energy rotamer in the context of the current pose
 
-**[[ConsensusDesignMover]]** - 
+**[[ConsensusDesignMover]]** - Mutates residues to create a consensus of multiple sequences, while considering the scores of the residues
 
 ### Idealize/Relax
 
-**[[Idealize|IdealizeMover]]** - 
+**[[Idealize|IdealizeMover]]** - Forces ideal bond lengths and angles
 
-**[[FastRelax|FastRelaxMover]]** - 
+**[[FastRelax|FastRelaxMover]]** - Performs FastRelax all-atom refinement
 
-**[[FastDesign|FastDesignMover]]** - 
+**[[FastDesign|FastDesignMover]]** - Performs FastRelax all-atom refinement, but adds design-related features
 
 ### Docking/Assembly
 
-**[[DockingProtocol|DockingProtocolMover]]** - 
+**[[DockingProtocol|DockingProtocolMover]]** - Performs full docking protocol with current defaults
 
-**[[FlexPepDock|FlexPepDockMover]]** - 
+**[[FlexPepDock|FlexPepDockMover]]** - Performs ab initio or refinement peptide docking
 
 ### Backbone Design
 
-**[[BridgeChains|BridgeChainsMover]]** - 
+**[[BridgeChains|BridgeChainsMover]]** - Connects chains using fragment insertion Monte Carlo
 
 ### Backbone Movement
 
-**[[SetTorsion|SetTorsionMover]]** - 
+**[[SetTorsion|SetTorsionMover]]** - Sets torsion to a specified or random value
 
-**[[Shear|ShearMover]]** - 
+**[[Shear|ShearMover]]** - Makes shear-style torsion moves that minimize downstream propagation
 
-**[[Small|SmallMover]]** - 
+**[[Small|SmallMover]]** - Makes small-move-style torsion moves (no propagation minimization)
 
-**[[Backrub|BackrubMover]]** - 
+**[[Backrub|BackrubMover]]** - Makes local rotations around two backbone atoms
 
-**[[InitializeByBins|InitializeByBinsMover]]** - 
+**[[InitializeByBins|InitializeByBinsMover]]** - Randomizes stretches of backbone based on torsion bins
 
-**[[PerturbByBins|PerturbByBinsMover]]** - 
+**[[PerturbByBins|PerturbByBinsMover]]** - Perturbs stretches of backbone based on torsion bins
 
-**[[BackboneGridSampler|BackboneGridSamplerMover]]** - 
+**[[BackboneGridSampler|BackboneGridSamplerMover]]** - Generates a residue chain and samples torsion angles
+
 
 ### Constraints
 
-**[[ClearConstraintsMover]]** - 
+**[[ClearConstraintsMover]]** - Removes constraints from the pose
 
-**[[ConstraintSetMover]]** - 
+**[[ConstraintSetMover]]** - Adds constraints to the pose
 
-**[[ResidueTypeConstraintMover]]** - 
+**[[ResidueTypeConstraintMover]]** - Constrains residue type
 
-**[[TaskAwareCsts|TaskAwareCstsMover]]** - 
+**[[TaskAwareCsts|TaskAwareCstsMover]]** - Adds constraints to residues designated by task_operations
 
-**[[AddConstraintsToCurrentConformationMover]]** - 
+**[[AddConstraintsToCurrentConformationMover]]** - Adds constraints based on the current conformation
 
-**[[AtomCoordinateCstMover]]** - 
+**[[AtomCoordinateCstMover]]** - Adds coordinate constraints for Relax
 
-**[[FavorSymmetricSequence|FavorSymmetricSequenceMover]]** - 
+**[[FavorSymmetricSequence|FavorSymmetricSequenceMover]]** - Adds constraints to prefer symmetric sequences
 
 ### Fragment Insertion
 
-**[[SingleFragmentMover]]** - 
+**[[SingleFragmentMover]]** - Performs a single fragment insertion
 
 ### Symmetry
 
 See [[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScripts.
 
-**[[SetupForSymmetry|SetupForSymmetryMover]]** - 
+**[[SetupForSymmetry|SetupForSymmetryMover]]** - Symmeterizes a pose based on a definition file
 
-**[[DetectSymmetry|DetectSymmetryMover]]** - 
+**[[DetectSymmetry|DetectSymmetryMover]]** - Symmeterizes a pose composed of symmetric chains
 
-**[[SymDofMover]]** - 
+**[[SymDofMover]]** - Sets up symmetric systems of aligned structures
 
-**[[ExtractAsymmetricUnit|ExtractAsymmetricUnitMover]]** - 
+**[[ExtractAsymmetricUnit|ExtractAsymmetricUnitMover]]** - Turn symmetric pose into a nonsymmetric pose (inverse of SetupForSymmetry)
 
-**[[ExtractSubpose|ExtractSubposeMover]]** - 
+**[[ExtractSubpose|ExtractSubposeMover]]** - (Developer release only) Extracts a subset of a symmetric pose without modifying the original
 
-**[[ExtractAsymmetricPose|ExtractAsymmetricPoseMover]]** - 
+**[[ExtractAsymmetricPose|ExtractAsymmetricPoseMover]]** - (similar to ExtractAsymmetricUnit) Turns symmetric pose into nonsymmetric pose
 
-**[[SymPackRotamersMover]]** and SymRotamerTrialsMover - 
+**[[SymPackRotamersMover]]** and SymRotamerTrialsMover - Symmetric versions of PackRotamers and RotamerTrials
 
-**[[SymMinMover]]** - 
+**[[SymMinMover]]** - Symmetric version of MinMover
 
-**[[TaskAwareSymMinMover]]** - 
+**[[TaskAwareSymMinMover]]** - (developer release only) Similar to SymMinMover, but allows minimization of only certain residues
 
 ### Kinematic Closure Movers
 
-**[[Generalized Kinematic Closure (GeneralizedKIC)|GeneralizedKICMover]]** - 
+**[[Generalized Kinematic Closure (GeneralizedKIC)|GeneralizedKICMover]]** - Loop closure and conformational sampling 
 
 ### Parametric Backbone Generation
 
-**[[MakeBundle|MakeBundleMover]]** - 
+**[[MakeBundle|MakeBundleMover]]** - Uses the Crick equations to create a helix of helices or beta barrel
 
-**[[BundleGridSampler|BundleGridSamplerMover]]** - 
+**[[BundleGridSampler|BundleGridSamplerMover]]** - Creates a helix of helices or beta barrel by sampling parameters and choosing the one with the lowest energy
 
-**[[PerturbBundle|PerturbBundleMover]]** - 
+**[[PerturbBundle|PerturbBundleMover]]** - Performs iterative Monte Carlo searches of Crick parameter space 
 
 ### Other Pose Manipulation
 
-**[[MutateResidue|MutateResidueMover]]** - 
+**[[MutateResidue|MutateResidueMover]]** - Changes a residue to a different type
 
-**[[AlignChain|AlignChainMover]]** - 
+**[[AlignChain|AlignChainMover]]** - Align the Calpha atoms of chains in two different poses
 
-**[[BluePrintBDR|BluePrintBDRMover]]** - 
+**[[BluePrintBDR|BluePrintBDRMover]]** - Make a centroid structure from a PDB file
 
-**[[ModifyVariantType|ModifyVariantTypeMover]]** - 
+**[[ModifyVariantType|ModifyVariantTypeMover]]** - Adds or removes variant types of a set of residues
 
-**[[MotifGraft|MotifGraftMover]]** - 
+**[[MotifGraft|MotifGraftMover]]** - Grafts a motif into pose(s)
 
-**[[LoopCreationMover]]** - 
+**[[LoopCreationMover]]** - (developer release only) Build loops to bridge gaps in a structure
 
-**[[SegmentHybridize|SegmentHybridizeMover]]** - 
+**[[SegmentHybridize|SegmentHybridizeMover]]** - Closes loops using fragment insertion and cartesian minimization
 
-**[[Disulfidize|DisulfidizeMover]]** - 
+**[[Disulfidize|DisulfidizeMover]]** - Finds potential disulfide bond positions based on Calpha - Cbeta distance
 
-**[[Dssp|DsspMover]]** - 
+**[[Dssp|DsspMover]]** - Calculates secondary structure using dssp
 
-**[[AddChain|AddChainMover]]** - 
+**[[AddChain|AddChainMover]]** - Adds a PDB file to an existing pose
 
-**[[AddChainBreak|AddChainBreakMover]]** - 
+**[[AddChainBreak|AddChainBreakMover]]** - Add a break at a specific position
 
-**[[FoldTreeFromLoops|FoldTreeFromLoopsMover]]** - 
+**[[FoldTreeFromLoops|FoldTreeFromLoopsMover]]** - Defines a fold tree based on the end points of a loop
 
-**[[Superimpose|SuperimposeMover]]** - 
+**[[Superimpose|SuperimposeMover]]** - Superimpose the current pose on another stored pose
 
-**[[SetSecStructEnergies|SetSecStructEnergiesMover]]** - 
+**[[SetSecStructEnergies|SetSecStructEnergiesMover]]** - Biases the score toward particular secondary structural elements
 
-**[[SwitchChainOrder|SwitchChainOrderMover]]** - 
+**[[SwitchChainOrder|SwitchChainOrderMover]]** - Reorders (or removes) the chains in a pose 
 
-**[[LoadPDB|LoadPDBMover]]** - 
+**[[LoadPDB|LoadPDBMover]]** - Replaces current PDB with another
 
-**[[LoopLengthChange|LoopLengthChangeMover]]** - 
+**[[LoopLengthChange|LoopLengthChangeMover]]** - Changes the length of a loop
 
-**[[MakePolyX|MakePolyXMover]]** - 
+**[[MakePolyX|MakePolyXMover]]** - Converts a pose into a polymer of a single amino acid type
 
-**[[MembraneTopology|MembraneTopologyMover]]** - 
+**[[MembraneTopology|MembraneTopologyMover]]** - Inserts membrane topology from a membrane span file into a pose
 
-**[[Splice|SpliceMover]]** - 
+**[[Splice|SpliceMover]]** - (developer release only) Various methods of splicing segments into the current pose
 
-**[[SwitchResidueTypeSetMover]]** - 
+**[[SwitchResidueTypeSetMover]]** - Toggles between centroid and full atom modes
 
-**[[FavorNativeResidue|FavorNativeResidueMover]]** - 
+**[[FavorNativeResidue|FavorNativeResidueMover]]** - Constrains the residue type by favoring the type present when applied
 
-**[[FavorSequenceProfile|FavorSequenceProfileMover]]** - 
+**[[FavorSequenceProfile|FavorSequenceProfileMover]]** - Constrains the residue type using one of several profiles
 
-**[[SetTemperatureFactor|SetTemperatureFactorMover]]** - 
+**[[SetTemperatureFactor|SetTemperatureFactorMover]]** - Sets the temperature factor column in a PDB file
 
-**[[PSSM2Bfactor|PSSM2BfactorMover]]** - 
+**[[PSSM2Bfactor|PSSM2BfactorMover]]** - Sets the temperature factor column in a PDB file based on PSSM score
 
-**[[RigidBodyTransMover]]** - 
+**[[RigidBodyTransMover]]** - Translates a chain along an axis
 
-**[[RollMover]]** - 
+**[[RollMover]]** - Rotates pose a given angle over a given axis
 
-**[[RemodelMover]]** (including building disulfides) - 
+**[[RemodelMover]]** (including building disulfides) - Loop building and refinement using Remodel
 
-**[[SetupNCS|SetupNCSMover]]** - 
+**[[SetupNCS|SetupNCSMover]]** - Sets up non crystallographic symmetry between residues and forces residues to maintain conformation and type
 
-**[[StoreTask|StoreTaskMover]]** - 
+**[[StoreTask|StoreTaskMover]]** - (Developer release only) Creates and stores a packer task in the current pose
 
-**[[StoreCompoundTaskMover]]** - 
+**[[StoreCompoundTaskMover]]** - (Developer release only) Constructs compound logical tasks and stores them in the current pose
 
-**[[VirtualRoot|VirtualRootMover]]** - 
+**[[VirtualRoot|VirtualRootMover]]** - Create virtual residue and reroot pose foldtree on the new residue
 
 ## Computational 'affinity maturation' movers
 
-**[[RandomMutation|RandomMutationMover]]** -
+**[[RandomMutation|RandomMutationMover]]** - Introduce a random mutation in a re-designable position
 
-**[[GreedyOptMutationMover]]** -
+**[[GreedyOptMutationMover]]** - Introduces mutations, scores them, combines them and accepts the combinations based on score
 
 ## Loop Modeling Movers
 
 See [[RosettaScriptsLoopModeling]] for an overview.
 
-**[[LoopModeler|LoopModelerMover]]** - 
+**[[LoopModeler|LoopModelerMover]]** - Performs a standard loop modeling simulation
 
-**[[LoopBuilder|LoopBuilderMover]]** - 
+**[[LoopBuilder|LoopBuilderMover]]** - Builds backbone atoms for loops with missing residues
 
-**[[LoopProtocol|LoopProtocolMover]]** - 
+**[[LoopProtocol|LoopProtocolMover]]** - Optimizes the backbone of a loop region via a Monte Carlo simulation
 
-**[[KicMover]]** - 
+**[[KicMover]]** - Generates backbone conformations using the kinematic closure algorithm 
 
-**[[RepackingRefiner|RepackingRefinerMover]]** - 
+**[[RepackingRefiner|RepackingRefinerMover]]** - Refines the sidechains around a loop using the standard repacker
 
-**[[RotamerTrialsRefiner|RotamerTrialsRefinerMover]]** - 
+**[[RotamerTrialsRefiner|RotamerTrialsRefinerMover]]** - Refines the sidechains in and around a loop using rotamer trials
 
-**[[MinimizationRefiner|MinimizationRefinerMover]]** - 
+**[[MinimizationRefiner|MinimizationRefinerMover]]** - Refines loop backbone and sidechains via gradient minimization
 
-**[[PrepareForCentroid|PrepareForCentroidMover]]** - 
+**[[PrepareForCentroid|PrepareForCentroidMover]]** - Converts a pose to centroid mode
 
-**[[PrepareForFullatom|PrepareForFullatomMover]]** - 
+**[[PrepareForFullatom|PrepareForFullatomMover]]** - Converts a pose to fullatom mode
 
 ## Protein Interface Modeling, Design, and Analysis Movers
 
 These movers are at least somewhat specific to the design of protein-protein interfaces. Attempting to use them with, for example, protein-DNA complexes may result in unexpected behavior.
 
-**[[PatchdockTransform|PatchdockTransformMover]]** -
+**[[PatchdockTransform|PatchdockTransformMover]]** - Modifies the pose configuration using a Patchdock file
 
-**[[ProteinInterfaceMS|ProteinInterfaceMSMover]]** -
+**[[ProteinInterfaceMS|ProteinInterfaceMSMover]]** - Protein interface design where the bound state is compared to the unbound state and the unbound unfolded state
 
-**[[InterfaceAnalyzerMover]]** -
+**[[InterfaceAnalyzerMover]]** - Calculates metrics for evaluating protein interfaces
 
-**[[Docking|DockingMover]]** -
+**[[Docking|DockingMover]]** - Performs docking in centroid or fullatom mode
 
-**[[DockWithHotspotMover]]** -
+**[[DockWithHotspotMover]]** - Performs docking in centroid mode with constraints
 
-**[[Prepack|PrepackMover]]** -
+**[[Prepack|PrepackMover]]** - Minimizes and repacks protein complexes
 
-**[[RepackMinimize|RepackMinimizeMover]]** -
+**[[RepackMinimize|RepackMinimizeMover]]** - Design/repack and minimization for protein complexes
 
-**[[DesignMinimizeHBonds|DesignMinimizeHBondsMover]]** -
+**[[DesignMinimizeHBonds|DesignMinimizeHBondsMover]]** - Similar to RepackResidues, but with a definable set of target residues
 
-**[[build_Ala_pose|BuildAlaPoseMover]]** -
+**[[build_Ala_pose|BuildAlaPoseMover]]** - Turns interface residues to alanine in preparation for design steps
 
-**[[SaveAndRetrieveSidechains|SaveAndRetrieveSidechainsMover]]** -
+**[[SaveAndRetrieveSidechains|SaveAndRetrieveSidechainsMover]]** - Saves the side chain data lost when switching residue types
 
-**[[AtomTree|AtomTreeMover]]** -
+**[[AtomTree|AtomTreeMover]]** - Connects residues on two different chains with an AtomTree
 
-**[[SpinMover]]** -
+**[[SpinMover]]** - Allows random spin around an axis defined by an atom tree
 
-**[[TryRotamers|TryRotamersMover]]** -
+**[[TryRotamers|TryRotamersMover]]** - Produces a set of rotamers for a given residue or residues
 
-**[[BackrubDD|BackrubDDMover]]** -
+**[[BackrubDD|BackrubDDMover]]** - Backrub-style backbone and sidechain sampling
 
-**[[BestHotspotCst|BestHotspotCstMover]]** -
+**[[BestHotspotCst|BestHotspotCstMover]]** - Removes constraints from all but the best residues to avoid problems with minimization
 
-**[[DomainAssembly|DomainAssemblyMover]]** (Not tested thoroughly) -
+**[[DomainAssembly|DomainAssemblyMover]]** (Not tested thoroughly) - Performs domain assembly sampling via fragment insertion
 
-**[[LoopFinder|LoopFinderMover]]** -
+**[[LoopFinder|LoopFinderMover]]** - Finds loops in the current pose and saves them for later use
 
-**[[LoopRemodel|LoopRemodelMover]]** -
+**[[LoopRemodel|LoopRemodelMover]]** - Samples loop conformations through perturbation and refinement
 
-**[[LoopMoverFromCommandLine|LoopMoverFromCommandLineMover]]** -
+**[[LoopMoverFromCommandLine|LoopMoverFromCommandLineMover]]** - Uses various protocols to perturb and refine loops in a loop file
 
-**[[DisulfideMover]]** -
+**[[DisulfideMover]]** - Creates disulfide bonds among set of target residues in an interface
 
-**[[InterfaceRecapitulation|InterfaceRecapitulationMover]]** -
+**[[InterfaceRecapitulation|InterfaceRecapitulationMover]]** - Tests design movers for their ability to recover the native sequence
 
-**[[VLB|VLBMover]]** (aka Variable Length Build) -
+**[[VLB|VLBMover]]** (aka Variable Length Build) - Improves complex structures through 'computational affinity' methods
 
-**[[HotspotDisjointedFoldTree|HotspotDisjointedFoldTreeMover]]** -
+**[[HotspotDisjointedFoldTree|HotspotDisjointedFoldTreeMover]]** - Produces a disjointed foldtree for selected residue(s)
 
-**[[AddSidechainConstraintsToHotspots|AddSidechainConstraintsToHotspotsMover]]** -
+**[[AddSidechainConstraintsToHotspots|AddSidechainConstraintsToHotspotsMover]]** - Adds constraints to sidechain atoms in preparation for affinity maturation
 
 
 ### Placement and Placement-associated Movers & Filters
 
 See [[RosettaScriptsPlacement]] for more information.
 
-**[[Auction|AuctionMover]]** -
+**[[Auction|AuctionMover]]** - Auctions residues to hotspot sets 
 
-**[[MapHotspot|MapHotspotMover]]** -
+**[[MapHotspot|MapHotspotMover]]** - Maps potential hotspot residues
 
-**[[PlacementMinimization|PlacementMinimizationMover]]** -
+**[[PlacementMinimization|PlacementMinimizationMover]]** - Performs rigid-body minimization
 
-**[[PlaceOnLoop|PlaceOnLoopMover]]** -
+**[[PlaceOnLoop|PlaceOnLoopMover]]** - Performs loop remodeling with kinematic loop closure and handles hotspot constraint application
 
-**[[PlaceStub|PlaceStubMover]]** -
+**[[PlaceStub|PlaceStubMover]]** - Placement of sidechains using the hot-spot method of protein-binder design
 
-**[[PlaceSimultaneously|PlaceSimultaneouslyMover]]** -
+**[[PlaceSimultaneously|PlaceSimultaneouslyMover]]** - Similar to PlaceStub, but places residues simultaneously rather than iteratively
 
-**[[RestrictRegion|RestrictRegionMover]]** -
+**[[RestrictRegion|RestrictRegionMover]]** - Allows for design of small sections of a pose without long range effects
 
-**[[StubScore|StubScoreFilter]]** -
+**[[StubScore|StubScoreFilter]]** - Filters for hopeless configurations based on whether or not hotspot constraints are effective
 
-**[[ddG|ddGMover]]** -
+**[[ddG|ddGMover]]** - Calculates overall or per-residue ddG
 
-**[[ContactMap|ContactMapMover]]** -
+**[[ContactMap|ContactMapMover]]** - Produces contact maps for structure(s)
 
 ## Ligand-centric Movers
 
@@ -383,41 +384,41 @@ See [[RosettaScriptsPlacement]] for more information.
 
 These movers replace the executable for ligand docking and provide greater flexibility to the user in customizing the docking protocol. An example XML file for ligand docking can be found in the demos directory under Rosetta/demos/protocol_capture/2015/rosettaligand_transform/. The movers below are listed in the order they generally occur in a ligand docking protocol.
 
-**[[StartFrom|StartFromMover]]** -
+**[[StartFrom|StartFromMover]]** - Moves a ligand to user-specified coordinates
 
-**[[Transform|TransformMover]]** -
+**[[Transform|TransformMover]]** - Performs ligand docking moves using a Monte Carlo search and provided scoring grids
 
-**[[Translate|TranslateMover]]** -
+**[[Translate|TranslateMover]]** - Moves a small molecule in a random position within a specified sphere
 
-**[[Rotate|RotateMover]]** -
+**[[Rotate|RotateMover]]** - Performs random rotations and keeps poses based on a filter
 
-**[[SlideTogether|SlideTogetherMover]]** -
+**[[SlideTogether|SlideTogetherMover]]** - Ensures that rotated and translated ligands are close enough to the protein to complete high resolution docking
 
-**[[HighResDocker|HighResDockerMover]]** -
+**[[HighResDocker|HighResDockerMover]]** - Uses rotamer trials, ligand perturbations, and repacking to complete docking
 
-**[[FinalMinimizer|FinalMinimizerMover]]** -
+**[[FinalMinimizer|FinalMinimizerMover]]** - Performs gradient minimization of a docked pose
 
-**[[InterfaceScoreCalculator|InterfaceScoreCalculatorMover]]** -
+**[[InterfaceScoreCalculator|InterfaceScoreCalculatorMover]]** - Calculates interface score by subtracting that of the separated partners from that of the complex
 
-**[[ComputeLigandRDF|ComputeLigandRDFMover]]** -
+**[[ComputeLigandRDF|ComputeLigandRDFMover]]** - Computes radial distribution functions using protein-protein or protein-ligand atom pairs
 
 ### Enzyme Design
 
-**[[EnzRepackMinimize|EnzRepackMinimizeMover]]** -
+**[[EnzRepackMinimize|EnzRepackMinimizeMover]]** - Design/repack and minimization for enzyme design
 
-**[[AddOrRemoveMatchCsts|AddOrRemoveMatchCstsMover]]** -
+**[[AddOrRemoveMatchCsts|AddOrRemoveMatchCstsMover]]** - Adds or removes pairwise geometric constraints for a pose
 
-**[[PredesignPerturbMover]]** -
+**[[PredesignPerturbMover]]** - Perturbs a ligand in an active site, randomly rotates/translates, and accepts based on Boltzmann criteria
 
 ### Ligand design
 
-**[[GrowLigand|GrowLigandMover]]** -
+**[[GrowLigand|GrowLigandMover]]** - Connects a random fragment to a growing ligand
 
-**[[AddHydrogens|AddHydrogensMover]]** -
+**[[AddHydrogens|AddHydrogensMover]]** - Saturates incomplete connections
 
 ## DNA Interface Design Movers
 
-**[[DnaInterfacePacker|DnaInterfacePackerMover]]** -
+**[[DnaInterfacePacker|DnaInterfacePackerMover]]** - Minimizes sidechains and calculates binding energy 
 
 ##See Also
 

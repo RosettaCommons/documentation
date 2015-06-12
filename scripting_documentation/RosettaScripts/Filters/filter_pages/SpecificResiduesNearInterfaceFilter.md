@@ -8,3 +8,12 @@ Filter for poses that have a specific set of residues near the interface. For ex
 <SpecificResiduesNearInterface name=(&string) task_operation=(&string)/>
 ```
 
+## See also
+
+* [[Protein-protein docking|docking-protocol]]
+* [[CavityVolumeFilter]]
+* [[InterfaceHolesFilter]]
+* [[ShapeComplementarityFilter]]
+* [[ExposedHydrophobicsFilter]]
+* [[ResidueDistanceFilter]]
+* [[ResInInterfaceFilter]]

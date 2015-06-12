@@ -10,7 +10,7 @@ How many residues are within an interaction distance of target\_residue across t
 
 -   task\_operations: the task factory will be used to determine what residues are designable. If any of these residues pass the burial threshold, the filter will return true; o/w false. Allows setting the burial filter dynamically at runtime.
 -   residue\_fraction\_buried: what fraction of the total residues defined as designable by the taskfactory should actually be buried in order to return false. The default (0.0001) effectively means that 1 suffices. Set to 1.0 if you want all residues to be buried.
--   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
+-   pdb\_num/res\_num: see [[RosettaScripts#rosettascripts-conventions_specifying-residues]]
 
 ## See also
 

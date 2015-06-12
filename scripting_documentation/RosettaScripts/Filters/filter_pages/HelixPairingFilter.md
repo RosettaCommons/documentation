@@ -15,5 +15,13 @@ Filter structures based on the geometry of helix pairings. Relating helix pairin
 -   bend: check bend of intra helix. This is not pairing related parameter, but for checking the intra helix bending. Basically, you don't need change this parameter.
 -   output\_id: the helix pair id to be output in score file. e.g. 1 means 1-2.A in 1-2.A;2-3.P.
 -   output\_type: parameter type to be output in score file, dist, cross, or align.
--   blueprint: By giving blueprint file, you can forcibly assign secondary structure. See for [[Blueprint]].
+-   blueprint: By giving blueprint file, you can forcibly assign secondary structure. See [[rosettaremodel]] and [[Remodel]] for blueprint info.
 
+## See also
+
+* [[AbInitio Modeling|abinitio-relax]]
+* [[Loop Modeling|loopmodel]]
+* [[HelixKinkFilter]]
+* [[SecondaryStructureFilter]]
+* [[SecondaryStructureCountFilter]]
+* [[SecondaryStructureHasResidueFilter]]

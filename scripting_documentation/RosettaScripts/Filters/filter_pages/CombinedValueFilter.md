@@ -17,9 +17,11 @@ For truth value contexts, the filter evaluates to true if the weighted sum if le
 
 ## See also
 
-* [[BoltzmannFilter]
-* [[CompoundStatementFilter]
+* [[BoltzmannFilter]]
+* [[CompoundStatementFilter]]
 * [[CalculatorFilter]]
+* [[IfThenFilter]]
+* [[OperatorFilter]]
 * [[ReplicateFilter]]
 * [[SigmoidFilter]]
 

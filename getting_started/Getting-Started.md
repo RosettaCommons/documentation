@@ -120,7 +120,7 @@ See the [[TACC]] page for more details.
 
 * [[Resources for learning biophysics and computational modeling]]
 * [[Build Documentation]]: Information on setting up Rosetta
-* [[I want to do x]]: Guides to specific types of structural pertubations using RosettaScripts
+* [[I want to do x]]: Guides to specific types of structural perturbations using RosettaScripts
 * [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
 * [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 * [[Comparing structures]]: Essay on comparing structures
@@ -128,5 +128,6 @@ See the [[TACC]] page for more details.
 * [[Rosetta Servers]]: Web-based servers for Rosetta applications
 * [[Scripting Documentation]]: Scripting interfaces to Rosetta
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
-* [[RosettaEncyclopedia]]: Detailed descriptions of Rosetta terms
+* [[FAQ]]: Frequently asked questions
 * [[Glossary]]: Brief definitions of Rosetta terms
+* [[RosettaEncyclopedia]]: Detailed descriptions of Rosetta terms

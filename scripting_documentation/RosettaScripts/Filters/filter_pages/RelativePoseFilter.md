@@ -23,3 +23,7 @@ Compute a filter's value relative to a different pose's structure. This is usefu
 -   symmetry\_definition: if symmetric, enter the symmetry definition file here.
 -   copy_comments: a comma-delimited list of pose-comment key values to copy from the reference pose (the current pose computed in the trajectory) to the relative pose (from disk). Useful if conformational change needs to be communicated from the reference pose to the relative pose.
 
+## See also
+
+* [[CombinedValueFilter]]
+* [[MoveBeforeFilter]]

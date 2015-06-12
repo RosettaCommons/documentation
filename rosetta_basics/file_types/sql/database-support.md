@@ -67,7 +67,7 @@ Currently only SQLite3 databases are supported, though if adding more database t
     sessionOP db_session = dsm->get_session(database_filename);
 ```
 
-The DatabaseSessionManager is singleton mananaged on non-mpi builds and boost::auto\_ptr managed for mpi builds. One thing to note: In order use owning pointers with a session object use the utility::sql\_database::session. It derives from both cppdb::session and [[utility::pointer::ReferenceCount|ReferenceCount]] .
+The DatabaseSessionManager is singleton mananaged on non-mpi builds and boost::auto\_ptr managed for mpi builds. One thing to note: In order to use owning pointers with a session object use the utility::sql\_database::session. It derives from cppdb::session.
 
 Usually your application will want to use the database filename the user specifies in the option system:
 

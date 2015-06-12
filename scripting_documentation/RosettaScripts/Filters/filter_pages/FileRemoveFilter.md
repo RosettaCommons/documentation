@@ -11,3 +11,6 @@ Remove a file from disk. Useful to clean up at the end of a trajectory, if we sa
 -   filenames: list of file names separated by comma, e.g., 3r2x\_0001.pdb,3r2x\_0002.pdb
 -   delete\_contents\_only: if true, only eliminates the contents of the file but leaves a placeholder file of size 0bytes.
 
+## See also
+
+* [[FileExistFilter]]

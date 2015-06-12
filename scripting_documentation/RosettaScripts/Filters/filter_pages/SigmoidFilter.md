@@ -7,7 +7,7 @@ Warszawski S, Netzer R, Tawfik DS, Fleishman SJ. A 'fuzzy'-logic language for en
 
 See Operator filter for more details.
 
-Transform a filter's value according to a sigmoid: fx = 1 / ( 1 + exp[ x - offset - baseline ] \* steepness ) )
+Transform a filter's value according to a sigmoid: $$f(x) = 1 / ( 1 + (steepness)e^{ (x - offset - baseline) } ) )$$
 
 The midpoint for the filter is at offset and steepness determines how steeply it climbs at the midpoint.
 
@@ -29,8 +29,10 @@ By setting baseline\_checkpoint to a file name, the baseline will be saved to a 
 ## See also
 
 * [[BoltzmannFilter]]
-* [[CompoundStatementFilter]
-* [[CombinedValueFilter]
+* [[CompoundStatementFilter]]
+* [[CombinedValueFilter]]
 * [[CalculatorFilter]]
+* [[IfThenFilter]]
+* [[OperatorFilter]]
 * [[ReplicateFilter]]
 

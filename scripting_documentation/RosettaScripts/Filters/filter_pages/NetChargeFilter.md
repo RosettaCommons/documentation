@@ -15,3 +15,9 @@ This filter sums up all of the positively and negatively charged amino acids in 
 
 This filter assigns basic residues LYS and ARG residues to +1, while acidic residues ASP and GLU are assigned to -1.
 
+## See also:
+
+* [[TotalSasaFilter]]
+* [[SasaFilter]]
+* [[ResidueBurialFilter]]
+* [[ExposedHydrophobicsFilter]]

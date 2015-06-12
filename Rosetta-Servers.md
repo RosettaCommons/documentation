@@ -1,8 +1,6 @@
 Rosetta servers
 ===================
 
-LINKY TODO: add links to protocol documentation for the more specific servers?
-
 The [[RosettaCommons (external link)|https://www.rosettacommons.org/about]] (the group of labs that maintain Rosetta) maintains a number of [[servers for free public academic use (external link)|https://www.rosettacommons.org/software/servers]]. Commercial use, or paid use on cloud resources, is not supported at this time.
 
 * [ROSIE (external link)](http://rosie.rosettacommons.org/) is a server that offers several (14) Rosetta applications through a simple web interface.
@@ -15,11 +13,11 @@ ROSIE runs can be downloaded and used to build Rosetta jobs that you run on your
 
 * [ROBETTA (external link)](http://robetta.bakerlab.org/) (Robot-Rosetta) is a server that provides [[_ab initio_|abinitio-relax]] folding and structure prediction, as well as [[fragment|fragment-file]] selection for local runs of Rosetta.
 This is the oldest Rosetta server, set up to provide for Rosetta's original functions.
-It also provides [[interface alanine scanning]] and [[DNA interface residue scanning]].
+It also provides [[interface alanine scanning|interface analyzer]] and [[DNA interface residue scanning|Rosetta DNA]].
 
 * The [Rosetta Design Server](http://rosettadesign.med.unc.edu/) provides access to Rosetta's [[fixbb]] fixed-backbone design protocol.
 
-* The [Backrub Server](https://kortemmelab.ucsf.edu/backrub/cgi-bin/rosettaweb.py?query=index) provides [[backrub]] ensembles, as well as [[alanine scanning]].
+* The [Backrub Server](https://kortemmelab.ucsf.edu/backrub/cgi-bin/rosettaweb.py?query=index) provides [[backrub]] ensembles, as well as [[alanine scanning|pmut-scan-parallel]].
 
 * The [FlexPepDock server](http://flexpepdock.furmanlab.cs.huji.ac.il/) provides [[flex-pep-dock]]. 
 

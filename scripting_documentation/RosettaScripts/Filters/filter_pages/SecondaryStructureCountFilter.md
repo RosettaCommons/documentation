@@ -12,4 +12,11 @@ WARNING: This filter's report_sm (found in scorefile) is always a dummy "0" valu
 - filter_helix_sheet: filter on sum of helix and sheet?
 - (the rest are pretty self-explanatory)
 
+## See also
 
+* [[AbInitio Modeling|abinitio-relax]]
+* [[Loop Modeling|loopmodel]]
+* [[HelixKinkFilter]]
+* [[HelixPairingFilter]]
+* [[SecondaryStructureFilter]]
+* [[SecondaryStructureHasResidueFilter]]

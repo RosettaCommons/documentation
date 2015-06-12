@@ -16,7 +16,7 @@ What is the average degree connectivity of a subset of residues? Found to be use
 
 * [[DockingMover]]
 * [[DockingProtocolMover]]
-* [[DockingWithHotspotMover]]
+* [[DockWithHotspotMover]]
 * [[InterfaceBindingEnergyDensityFilter]]
 * [[InterfaceHolesFilter]]
 * [[InterfacePackingFilter]]

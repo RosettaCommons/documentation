@@ -14,7 +14,7 @@ By default, the RMSD will be calculated to the input pose (pose at parse time). 
 ```
 
 -   chains: list of chains (eg - "AC") to use for RMSD calculation
--   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
+-   pdb\_num/res\_num: see [[RosettaScripts#rosettascripts-conventions_specifying-residues]]
 -   residue: add a new leaf for each residue to include (can use rosetta index or pdb number)
 -   span: contiguous span of residues to include (rosetta index or pdb number)
 -   threshold: accept at this rmsd or lower
@@ -25,3 +25,7 @@ By default, the RMSD will be calculated to the input pose (pose at parse time). 
 - template_names: name of the relative pose, as is written in the aln_files
 - query_names: name of the query pose, as is written in the aln_files
 
+## See also
+
+* [[IRmsdFilter]]
+* [[SidechainRmsdFilter]]

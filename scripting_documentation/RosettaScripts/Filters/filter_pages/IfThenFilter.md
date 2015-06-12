@@ -15,3 +15,13 @@ Evaluate to a value contingent on the true/false value of other filters. Each of
 
 For truth value testing, the default is to return true if the value is less than or equal to the given threshold. If lower\_threshold is true, then IfThenFilter returns true if the value is greater than or equal to the threshold.
 
+## See also
+
+* [[CompoundStatementFilter]]
+* [[CombinedValueFilter]]
+* [[CalculatorFilter]]
+* [[BoltzmannFilter]]
+* [[OperatorFilter]]
+* [[SigmoidFilter]]
+* [[ContingentFilter]]
+

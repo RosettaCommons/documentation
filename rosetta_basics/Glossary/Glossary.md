@@ -260,6 +260,10 @@ replace to find the solutions.
 ref: Qian et. al. High-resolution structure prediction and the
 crystallographic phase problem. Nature 450, 259-264 (2007)
 
+#### CxxTest
+This is the framework we use for [[unit tests]].
+See also [[http://cxxtest.com]].
+
 #### database
 
 The Rosetta database directory contains key parameters for Rosetta. 
@@ -884,5 +888,5 @@ This is the winter Rosetta developer's meeting, which moves around the country t
 * [[RosettaEncyclopedia]]: Detailed descriptions of Rosetta terms
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
 * [[Resources for learning biophysics and computational modeling]]
-* [[RosettaTimeline]]: History of Rosetta
+* [[Rosetta Timeline]]: History of Rosetta
 * [[Units in Rosetta]]: Explains measurement units used in Rosetta
