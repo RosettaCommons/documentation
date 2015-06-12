@@ -150,7 +150,7 @@ While most of these applications focus on prediction, many have options which wi
 
 ### DNA
 
-- [[Rosetta DNA]] (RosettaDNA) - Design and modle protein interactions to DNA. 
+- [[Rosetta DNA]] (RosettaDNA) - Design and model protein interactions to DNA. 
 
 ### Secondary Structure
 

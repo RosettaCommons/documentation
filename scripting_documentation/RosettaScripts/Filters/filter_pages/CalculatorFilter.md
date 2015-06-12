@@ -35,6 +35,7 @@ CAVEAT: The parsing of the equation is a little touchy and black-box at the mome
 * [[CompoundStatementFilter]
 * [[CombinedValueFilter]
 * [[IfThenFilterFilter]]
+* [[OperatorFilter]]
 * [[ReplicateFilter]]
 * [[SigmoidFilter]]
 

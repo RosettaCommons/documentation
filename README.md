@@ -26,3 +26,9 @@ Then point your web browser at the following URL: <http://localhost:7364>
 
 RosettaCommons members can get more information [here](https://wiki.rosettacommons.org/index.php/Local_Gollum).
 
+##Markup
+Gollum allows two types of link markup: `[[text like this|link target]]` (reverse MediaWiki) and `[text like this](link target)`.  The first is preferred: the second looks like a complete link whether it is valid or not, but the first will redlink if the target does not exist.
+
+The wiki has a git backend for diffs.
+It is better to try to separate sentences with endlines, so that git diffs will work most efficiently. 
+Sentences ending with ". " are concatenated as part of one paragraph in the HTML.

@@ -23,4 +23,5 @@ Options:
 
 * [[PrepareForCentroidMover]]
 * [[SwitchResidueTypeSetMover]]
+* [[Centroid vs fullatom]]
 * [[I want to do x]]: Guide to choosing a mover
