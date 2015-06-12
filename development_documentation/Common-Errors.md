@@ -86,6 +86,7 @@ PhenixInterface::setAlgorithm(
 
 ##See Also
 
+* [[Development Documentation]]
 * [[Build Documentation]]
 * [[Scons Overview and Specifics]]: Detailed information on the Scons compiling system
 * [[FAQ]]

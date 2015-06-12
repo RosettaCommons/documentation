@@ -16,6 +16,8 @@
 
 * [[Code structure|rosetta-library-structure]]
 
+* [[Common Errors]]
+
 <!---BEGIN_INTERNAL-->
 [[Internal Documentation|internal_documentation/Internal-Documentation]]
 <!---END_INTERNAL-->

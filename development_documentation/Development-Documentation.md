@@ -97,6 +97,7 @@ For RosettaCommons developers, we have a version of the Doxygen documentation wh
 
 ##See Also
 
+* [[Common Errors]]: Common errors seen when compiling Rosetta and how to fix them.
 * [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
 * [[RosettaScripts]]: Wiki page for RosettaScripts, the Rosetta XML interface
 * [[PyRosetta]]: Wiki page for PyRosetta, the independent Python interface to Rosetta
