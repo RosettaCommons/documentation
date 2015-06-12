@@ -48,8 +48,8 @@ Numeric Library
 
 [[Numeric Library|namespace-numeric]]
 
-The numeric directory contains low-level functions that carry out mathematical operations.  While some of these might be general mathematics (calculating a fast Fourier transform, for example, or performing principal component analysis on a dataset), others might be Rosetta-specific calculations or might be implemented in a Rosetta-specific manner.
-
+The numeric directory contains low-level functions that carry out mathematical operations. 
+While some of these might be general mathematics (calculating a fast Fourier transform, for example, or performing principal component analysis on a dataset), others might be Rosetta-specific calculations or might be implemented in a Rosetta-specific manner.
 
 Basic Library
 =================
