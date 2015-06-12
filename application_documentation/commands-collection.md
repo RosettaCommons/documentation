@@ -87,7 +87,7 @@ Please read the options list to find the descriptions for each option in the com
 Command lines collected from Steven Lewis
 =========================================
 
-Please read the options list to find the descriptions for each option in the commands
+####The following are example flags files. The associated applications are deprecated, documented elsewhere, or are not available for public use; these are intended only as generic examples.
 
 -   options file for pilot/rjha/MatchFilter.cc
 

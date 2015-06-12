@@ -11,6 +11,7 @@ The default score function in Rosetta for scoring full-atom structures is curren
 
 A full description of the changes this energy function introduces can be found [here](https://www.rosettacommons.org/node/3508#comment-6946).  
 
+< a name="talaris2013" />
 The **talaris2013** energy function is suitable for scoring canonical L-amino acids, their D-amino acid mirror images, and some rigid ligands (_e.g._ metal ions, phosphate, _etc._).  It can also work with noncanonical alpha-amino acid residues, provided that their params files are set up properly.  Backbone conformation terms will ignore beta-amino acids, flexible ligands, nucleic acids, _etc._
 
 References
@@ -52,7 +53,7 @@ ref                                        Reference energy for each amino acid.
 METHOD_WEIGHTS                             Not an energy term itself, but the parameters for each amino acid used by the ref energy term. 
 ```
 
-Additional energy terms for score12
+Additional energy terms for score12 < a name="score12" />
 -----------------------------------
 
 Previous versions of Rosetta used the score12 energy function as the default full atom energy function. Many of the energy terms are the same as talaris2013 (though at different weights, and with different parameters), although other terms were also used:
