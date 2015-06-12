@@ -13,6 +13,8 @@ Try running them without any arguments or with the '-h' flag to get further info
 
 #### PDB
 
+* See also [[preparing structures]].
+
 tools/protein_tools/scripts/clean_pdb.py    
 &#8195; - Prepare PDBs for Rosetta by cleaning and renumbering residues. 
 
@@ -29,6 +31,8 @@ tools/protein_tools/scripts/remove_loop_coords.py
 &#8195; - Zero out coordinates of atoms marked as loop in a loop file. 
 
 #### Ligands
+
+* See also [[preparing ligands]].
 
 main/source/src/python/apps/public/molfile_to_params.py    
 &#8195; - Make Rosetta *.params files. 
@@ -54,10 +58,12 @@ main/source/src/apps/public/symmetry/[[make_symmdef_file.pl|make-symmdef-file]]
 
 #### Membrane
 
-main/source/src/apps/public/membrane_abinitio/octopus2span.pl    
+* Examples of script usage are given at the [[membrane abinitio]] page.
+
+main/source/src/apps/public/membrane_abinitio/[[octopus2span.pl|spanfile]]    
 &#8195; - Convert an Octopus topology file to a Rosetta span file.
 
-main/source/src/apps/public/membrane_abinitio/run_lips.pl    
+main/source/src/apps/public/membrane_abinitio/[[run_lips.pl|lipsfile]]    
 &#8195; - Run lipophilicity predictions.
 
 main/source/src/apps/public/membrane_abinitio/alignblast.pl    
@@ -66,16 +72,16 @@ main/source/src/apps/public/membrane_abinitio/alignblast.pl
 
 #### RosettaMembrane Framework
 
-See [[RosettaMembrane Framework Overview]] for overview, and
+* See [[RosettaMembrane Framework Overview]] for overview, and
 [[RosettaMembrane:-Scripts-and-Tools]] for more details about the scripts.
 
 tools/membrane_tools/prep_mpdb.py    
 &#8195; - Prep all required datafiles for the RosettaMembrane Framework.
 
-tools/membrane_tools/octopus2span.pl    
+tools/membrane_tools/[[octopus2span.pl|spanfile]]    
 &#8195; - Convert an Octopus topology file to a Rosetta span file.
 
-tools/membrane_tools/run_lips.pl    
+tools/membrane_tools/[[run_lips.pl|lipsfile]]    
 &#8195; - Generate a lipid accessibility file.
 
 tools/membrane_tools/alignblast.pl    
@@ -90,7 +96,7 @@ tools/membrane_tools/mptest_ut.py
 
 #### Electron Density
 
-main/source/src/apps/public/electron_density/prepare_template_for_MR.pl    
+main/source/src/apps/public/electron_density/[[prepare_template_for_MR.pl|prepare-template-for-mr]]   
 &#8195; - 
 
 
@@ -101,6 +107,8 @@ tools/analysis/contactMapTools.py
 
 
 #### Fragments
+
+* For more information see [[app-fragment-picker]] and [[Fragment file]].
 
 tools/fragment_tools/make_fragments.pl    
 &#8195; - Generate fragments from a fasta file.
@@ -294,10 +302,12 @@ tools/python_pdb_structure/vector3d.py
 
 ### Ligand Docking
 
+* See [[Ligand dock]] for an overview.
+
 main/source/src/apps/public/ligand_docking/[[arls.py|ligand-dock]]    
 &#8195; - Automatic RosettaLigand setup.
 
-main/source/src/apps/public/ligand_docking/best_ifaceE.py    
+main/source/src/apps/public/ligand_docking/[[best_ifaceE.py|extract-atomtree-diffs]]    
 &#8195; - Prints the tags of the 'best' structures from a ligand docking run.
 
 main/source/src/apps/public/ligand_docking/pdb_to_molfile.py    
@@ -306,7 +316,7 @@ main/source/src/apps/public/ligand_docking/pdb_to_molfile.py
 main/source/src/apps/public/ligand_docking/prune_atdiff_top5pct.py    
 &#8195; - Extract the top 5% by total score from an AtomTreeDiff file.
 
-main/source/src/apps/public/ligand_docking/get_scores.py    
+main/source/src/apps/public/ligand_docking/[[get_scores.py|extract-atomtree-diffs]]    
 &#8195; - Extract the SCORES line of an AtomTreeDiff file into tabular format.
 
 main/source/src/apps/public/ligand_docking/plot_funnels.R    
@@ -315,7 +325,7 @@ main/source/src/apps/public/ligand_docking/plot_funnels.R
 
 ### Antibody
 
-tools/antibody/antibody.py    
+tools/antibody/[[antibody.py|antibody-python-script]]    
 &#8195; - Pre-processing script for antibody protocol.
 
 tools/antibody/antibody_repertoire.py    
@@ -372,6 +382,8 @@ tools/protein_tools/scripts/setup_RosettaCM.py
 
 ### RNA
 
+* See [[RNA tools]] for more information.
+
 tools/rna_tools/bin/amino_acids.py    
 &#8195; - 
 
@@ -421,7 +433,7 @@ tools/rna_tools/bin/helix_preassemble_setup.py
 &#8195; - 
 
 tools/rna_tools/bin/make_rna_rosetta_ready.py    
-&#8195; - 
+&#8195; - [[rna-denovo]]
 
 tools/rna_tools/bin/make_tag.py    
 &#8195; - 
@@ -442,7 +454,7 @@ tools/rna_tools/bin/pdb2fasta.py
 &#8195; - 
 
 tools/rna_tools/bin/pdbslice.py    
-&#8195; - 
+&#8195; - [[rna-denovo-setup]]
 
 tools/rna_tools/bin/pdbsubset.py    
 &#8195; - 
@@ -463,7 +475,7 @@ tools/rna_tools/bin/read_pdb.py
 &#8195; - 
 
 tools/rna_tools/bin/renumber_pdb_in_place.py    
-&#8195; - 
+&#8195; - [[rna-denovo-setup]]
 
 tools/rna_tools/bin/reorder_pdb.py    
 &#8195; - 
@@ -472,7 +484,7 @@ tools/rna_tools/bin/reorder_to_standard_pdb.py
 &#8195; - 
 
 tools/rna_tools/bin/replace_chain_inplace.py    
-&#8195; - 
+&#8195; - [[rna-denovo-setup]]
 
 tools/rna_tools/bin/replace_chain.py    
 &#8195; - 
@@ -481,10 +493,10 @@ tools/rna_tools/bin/rna_denovo_jobscript.py
 &#8195; - 
 
 tools/rna_tools/bin/rna_denovo_setup.py    
-&#8195; - 
+&#8195; - [[rna-denovo-setup]]
 
 tools/rna_tools/bin/rna_helix.py    
-&#8195; - 
+&#8195; - [[rna-denovo-setup]]
 
 tools/rna_tools/bin/rna_server_conversions.py    
 &#8195; - 
@@ -553,7 +565,7 @@ tools/rna_tools/job_setup/rna_denovo_jobscript.py
 &#8195; - 
 
 tools/rna_tools/job_setup/rna_denovo_setup.py    
-&#8195; - 
+&#8195; - [[rna-denovo-setup]]
 
 tools/rna_tools/job_setup/rna_server_conversions.py    
 &#8195; - 
@@ -592,13 +604,13 @@ tools/rna_tools/pdb_util/pdb2fasta.py
 &#8195; - 
 
 tools/rna_tools/pdb_util/pdbslice.py    
-&#8195; - 
+&#8195; - [[rna-denovo-setup]]
 
 tools/rna_tools/pdb_util/pdbsubset.py    
 &#8195; - 
 
 tools/rna_tools/pdb_util/plot_contour.py    
-&#8195; - 
+&#8195; - [[Sample-around-nucleobase]]
 
 tools/rna_tools/pdb_util/prepare_rna_puzzle_submissions.py    
 &#8195; - 
@@ -607,7 +619,7 @@ tools/rna_tools/pdb_util/read_pdb.py
 &#8195; - 
 
 tools/rna_tools/pdb_util/renumber_pdb_in_place.py    
-&#8195; - 
+&#8195; - [[rna-denovo-setup]]
 
 tools/rna_tools/pdb_util/reorder_pdb.py    
 &#8195; - 
@@ -616,13 +628,13 @@ tools/rna_tools/pdb_util/reorder_to_standard_pdb.py
 &#8195; - 
 
 tools/rna_tools/pdb_util/replace_chain_inplace.py    
-&#8195; - 
+&#8195; - [[rna-denovo-setup]]
 
 tools/rna_tools/pdb_util/replace_chain.py    
 &#8195; - 
 
 tools/rna_tools/pdb_util/rna_helix.py    
-&#8195; - 
+&#8195; - [[rna-denovo-setup]]
 
 tools/rna_tools/silent_util/cat_outfiles.py    
 &#8195; - 
@@ -645,13 +657,13 @@ tools/rna_tools/sym_link.py
 ### Stepwise assembly
 
 tools/SWA_protein_python/generate_dag/generate_CA_constraints.py    
-&#8195; - 
+&#8195; - [[swa-protein-main]] [[swa-protein-long-loop]]
 
 tools/SWA_protein_python/generate_dag/generate_constraints.py    
 &#8195; - 
 
 tools/SWA_protein_python/generate_dag/generate_swa_protein_dag.py    
-&#8195; - 
+&#8195; - [[swa-protein-long-loop]]
 
 tools/SWA_protein_python/generate_dag/get_sequence.py    
 &#8195; - 
@@ -693,7 +705,7 @@ tools/SWA_protein_python/run_dag_on_cluster/SWA_parse_options.py
 &#8195; - 
 
 tools/SWA_protein_python/run_dag_on_cluster/SWA_pseudo_dagman_continuous.py    
-&#8195; - 
+&#8195; - [[swa-protein-long-loop]]
 
 tools/SWA_protein_python/run_dag_on_cluster/SWA_sampling_post_process.py    
 &#8195; - 
@@ -939,7 +951,7 @@ tools/SWA_RNA_python/SWA_dagman_python/misc/SWA_copy_non_full_length_regions.py
 &#8195; - 
 
 tools/SWA_RNA_python/SWA_dagman_python/misc/SWA_extract_pdb.py    
-&#8195; - 
+&#8195; - [[swa-rna-loop]]
 
 tools/SWA_RNA_python/SWA_dagman_python/misc/SWA_filter_outfile_wrapper.py    
 &#8195; - 
@@ -948,7 +960,7 @@ tools/SWA_RNA_python/SWA_dagman_python/misc/SWA_filter_silent_file.py
 &#8195; - 
 
 tools/SWA_RNA_python/SWA_dagman_python/misc/SWA_make_rna_rosetta_ready.py    
-&#8195; - 
+&#8195; - [[swa-rna-loop]]
 
 tools/SWA_RNA_python/SWA_dagman_python/misc/SWA_mutate_residues.py    
 &#8195; - 
@@ -1080,7 +1092,7 @@ tools/SWA_RNA_python/SWA_dagman_python/SWA_DAG/DAG_rebuild_bulge_util.py
 &#8195; - 
 
 tools/SWA_RNA_python/SWA_dagman_python/SWA_DAG/setup_SWA_RNA_dag_job_files.py    
-&#8195; - 
+&#8195; - [[swa-rna-loop]]
 
 tools/SWA_RNA_python/SWA_dagman_python/SWA_DAG/submit_SWA_rna_minimize_benchmark.py    
 &#8195; - 
@@ -1187,13 +1199,15 @@ tools/SWA_RNA_python/SWA_dagman_python/utility/USER_PATHS.py
 
 ### ERRASER
 
+* See [[Erraser]] for more information.
+
+tools/ERRASER/erraser.py    
+&#8195; - 
+
 tools/ERRASER/erraser_analysis.py    
 &#8195; - 
 
 tools/ERRASER/erraser_option.py    
-&#8195; - 
-
-tools/ERRASER/erraser.py    
 &#8195; - 
 
 tools/ERRASER/erraser_single_res_analysis.py    
@@ -1244,17 +1258,21 @@ tools/recces/util.py
 
 ### Remodel
 
+See also the [[Remodel]] and [[RosettaRemodel]] documentation.
+
 tools/remodel/getBluePrintFromCoords.pl    
 &#8195; - 
 
 
 ### ddG monomer
 
-main/source/src/apps/public/ddg/convert_to_cst_file.sh    
+main/source/src/apps/public/ddg/[[convert_to_cst_file.sh|ddg-monomer]]    
 &#8195; - Convert ddG logfile to a constraint file.
 
 
 ### Pepspec
+
+* See [[Pepspec]] for more info.
 
 tools/analysis/apps/gen_pepspec_pwm.py    
 &#8195; - Generate a position weight matrix from PepSpec output. 
@@ -1491,7 +1509,7 @@ tools/analysis/apps/sequence_tolerance.R
 
 ## Build scripts
 
-main/source/scons.py    
+main/source/[[scons.py|Build Documentation]]    
 &#8195; - Main script for Rosetta compilation.
 
 main/source/ninja_build.py    
@@ -1500,13 +1518,13 @@ main/source/ninja_build.py
 
 ## Test scripts
 
-main/source/test/run.py    
+main/source/test/[[run.py|run-unit-test]]    
 &#8195; - Run the unit tests.
 
-main/tests/integration/integration.py    
+main/tests/integration/[[integration.py|integration-tests]]    
 &#8195; - Run the integration tests.
 
-main/tests/benchmark/benchmark.py    
+main/tests/benchmark/[[benchmark.py|testing-server]]    
 &#8195; - Run the benchmark server tests locally.
 
 main/tests/sfxn_fingerprint/sfxn_fingerprint.py    
