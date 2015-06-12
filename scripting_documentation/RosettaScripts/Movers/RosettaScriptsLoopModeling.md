@@ -64,6 +64,8 @@ like this:
 
 ##See Also
 
+* [[Loop modeling algorithms|loopmodel-algorithms]]
 * [[Loopmodel application|loopmodel]]
+* [[Structure prediction applications]]: A list of command line applications to be used for structure prediction, including loop modeling
 * [[Loop file format|loops-file]]
 * [[Fragments file format|fragment-file]]

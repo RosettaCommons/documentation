@@ -1,8 +1,11 @@
 #List of docking applications
 
+
 ###Antibody Docking
 - [[Camelid antibody docking|antibody-mode-camelid]]: Dock camelid antibodies to their antigens.
 - [[SnugDock | snugdock]]: Paratope structure optimization during antibody-antigen docking
+
+##NOTE: Use of command line apps is no longer recommended for ligand docking. Use [[RosettaScripts]] instead. See [[HighResDockerMover]] for example.
 
 ###Ligand Docking
 - [[Ligand docking|ligand-dock]] (RosettaLigand): Determine the structure of protein-small molecule complexes.  

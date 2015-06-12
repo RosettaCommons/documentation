@@ -1,5 +1,8 @@
 #Ligand\_dock application
 
+
+##NOTE: Use of this app is no longer recommended for ligand docking. Use [[RosettaScripts]] instead. See [[HighResDockerMover]] for example.
+
 Metadata
 ========
 

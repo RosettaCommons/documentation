@@ -32,3 +32,10 @@ Kinematic closure is a computationally-inexpensive, analytical algorithm for loo
 See the [[GeneralizedKIC documentation|GeneralizedKIC]] for details about [[GeneralizedKIC options|GeneralizedKIC]], and about GeneralizedKIC [[perturbers|GeneralizedKICperturber]], [[filters|GeneralizedKICfilter]], and [[selectors|GeneralizedKICselector]], as well as for usage examples.  _**Note:** GeneralizedKIC should currently be considered a "beta" feature.  Some details of the implementation are likely to change._
 
 
+##See Also
+
+* [[RosettaScriptsLoopModeling]]
+* [[Loops file]]: File format for specifying loops for loop modeling
+* [[Loop modeling algorithms|loopmodel-algorithms]]
+* [[Structure prediction applications]]: A list of command line applications to be used for structure prediction, including loop modeling
+* [[I want to do x]]: Guide to choosing a mover

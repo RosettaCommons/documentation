@@ -17,6 +17,7 @@ Give a bonus to the secondary structures specified by a blueprint header. For ex
 ##See Also
 
 * [[BluePrintBDRMover]]: Commonly used with SetSecStructEnergies
+* [[DsspMover]]
 * [[RemodelMover]]
 * [[SetTemperatureFactorMover]]
 * [[SetTorsionMover]]
