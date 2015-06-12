@@ -24,7 +24,7 @@ Simple filter which are available without explicitly defining them.
 
 Filters which are useful for combining, modifying or working with other filters and movers.
 
-**[[CompoundStatement|CompoundStatementFilter]]** -
+**[[CompoundStatement|CompoundStatementFilter]]** - uses previously defined filters to construct a compound logical statement with NOT, AND, OR, XOR, NAND, NOR, ANDNOT, and ORNOT operations
 
 **[[CombinedValue|CombinedValueFilter]]** -
 
