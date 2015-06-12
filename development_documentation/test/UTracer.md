@@ -2,8 +2,8 @@
 
 UTracer is an object similar to core::util Tracer (see [[Tracer]] documentation page for more info). It main purpose is to capture user output, compare output with previously saved version and save new version in to `._tmp_` file. In addition UTracer object can be used to capture output of specified channels inside core or protocols lib and compare this outputs to a file version.
 
-Creating UTracer object.
-========================
+Creating UTracer object
+=======================
 
 Create a `UTracer` object and supply the name of the file to which output will be compared. For example:
 
@@ -30,8 +30,8 @@ The straight-forward way to create one for future unit tests, is to:
 
 Repeat steps 4 and 5 when you need to update your UTracer file because of expected code changes.
 
-Using UTracer object.
-=====================
+Using UTracer object
+====================
 
 To use UTracer object simply send output to it using '\<\<' C++ operator. In additional to handling standard build-in C++ type it is possible to serialize vector, vector1 and map's type. For example:
 
@@ -132,9 +132,10 @@ It is also possible to use UTracer to monitor and compare output of other Tracer
     ```
 
 ##See Also
-
-* [[Guide to writing unit tests|writing-unit-tests]]
-* [[Writing unit tests for movers using UMoverTest|mover-test]]
+* [[Unit Test|unit tests]] overview/philosophy
 * [[Running unit tests|run-unit-test]]
+* [[Writing unit tests|writing-unit-tests]]
+* [[UMoverTest|mover-test]], a tool for unit testing Mover classes
+
 * [[Testing home page|rosetta-tests]]
 * [[Development documentation home page|Development-Documentation]]
