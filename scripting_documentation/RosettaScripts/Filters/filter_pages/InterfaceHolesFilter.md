@@ -18,4 +18,5 @@ Looks for voids at protein/protein interfaces using Will Sheffler's packstat. Th
 * [[ShapeComplementarityFilter]]
 * [[SSShapeComplementarityFilter]]
 * [[ResInInterfaceFilter]]
+* [[SpecificResiduesNearInterfaceFilter]]
 * [[ExposedHydrophobicsFilter]]

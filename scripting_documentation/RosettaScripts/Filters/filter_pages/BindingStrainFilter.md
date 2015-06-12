@@ -20,3 +20,4 @@ Dissociates the complex and takes the unbound energy. Then, repacks and calls th
 
 * [[Protein-protein docking|docking-protocol]]
 * [[ResInInterfaceFilter]]
+* [[SpecificResiduesNearInterfaceFilter]]
