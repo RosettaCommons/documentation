@@ -339,44 +339,44 @@ These movers are at least somewhat specific to the design of protein-protein int
 
 **[[LoopFinder|LoopFinderMover]]** - Finds loops in the current pose and saves them for later use
 
-**[[LoopRemodel|LoopRemodelMover]]** - 
+**[[LoopRemodel|LoopRemodelMover]]** - Samples loop conformations through perturbation and refinement
 
-**[[LoopMoverFromCommandLine|LoopMoverFromCommandLineMover]]** -
+**[[LoopMoverFromCommandLine|LoopMoverFromCommandLineMover]]** - Uses various protocols to perturb and refine loops in a loop file
 
-**[[DisulfideMover]]** -
+**[[DisulfideMover]]** - Creates disulfide bonds among set of target residues in an interface
 
-**[[InterfaceRecapitulation|InterfaceRecapitulationMover]]** -
+**[[InterfaceRecapitulation|InterfaceRecapitulationMover]]** - Tests design movers for their ability to recover the native sequence
 
-**[[VLB|VLBMover]]** (aka Variable Length Build) -
+**[[VLB|VLBMover]]** (aka Variable Length Build) - Improves complex structures through 'computational affinity' methods
 
-**[[HotspotDisjointedFoldTree|HotspotDisjointedFoldTreeMover]]** -
+**[[HotspotDisjointedFoldTree|HotspotDisjointedFoldTreeMover]]** - Produces a disjointed foldtree for selected residue(s)
 
-**[[AddSidechainConstraintsToHotspots|AddSidechainConstraintsToHotspotsMover]]** -
+**[[AddSidechainConstraintsToHotspots|AddSidechainConstraintsToHotspotsMover]]** - Adds constraints to sidechain atoms in preparation for affinity maturation
 
 
 ### Placement and Placement-associated Movers & Filters
 
 See [[RosettaScriptsPlacement]] for more information.
 
-**[[Auction|AuctionMover]]** -
+**[[Auction|AuctionMover]]** - Auctions residues to hotspot sets 
 
-**[[MapHotspot|MapHotspotMover]]** -
+**[[MapHotspot|MapHotspotMover]]** - Maps potential hotspot residues
 
-**[[PlacementMinimization|PlacementMinimizationMover]]** -
+**[[PlacementMinimization|PlacementMinimizationMover]]** - Performs rigid-body minimization
 
-**[[PlaceOnLoop|PlaceOnLoopMover]]** -
+**[[PlaceOnLoop|PlaceOnLoopMover]]** - Performs loop remodeling with kinematic loop closure and handles hotspot constraint application
 
-**[[PlaceStub|PlaceStubMover]]** -
+**[[PlaceStub|PlaceStubMover]]** - Placement of sidechains using the hot-spot method of protein-binder design
 
-**[[PlaceSimultaneously|PlaceSimultaneouslyMover]]** -
+**[[PlaceSimultaneously|PlaceSimultaneouslyMover]]** - Similar to PlaceStub, but places residues simultaneously rather than iteratively
 
-**[[RestrictRegion|RestrictRegionMover]]** -
+**[[RestrictRegion|RestrictRegionMover]]** - Allows for design of small sections of a pose without long range effects
 
-**[[StubScore|StubScoreFilter]]** -
+**[[StubScore|StubScoreFilter]]** - Filters for hopeless configurations based on whether or not hotspot constraints are effective
 
-**[[ddG|ddGMover]]** -
+**[[ddG|ddGMover]]** - Calculates overall or per-residue ddG
 
-**[[ContactMap|ContactMapMover]]** -
+**[[ContactMap|ContactMapMover]]** - Produces contact maps for structure(s)
 
 ## Ligand-centric Movers
 
@@ -384,39 +384,39 @@ See [[RosettaScriptsPlacement]] for more information.
 
 These movers replace the executable for ligand docking and provide greater flexibility to the user in customizing the docking protocol. An example XML file for ligand docking can be found in the demos directory under Rosetta/demos/protocol_capture/2015/rosettaligand_transform/. The movers below are listed in the order they generally occur in a ligand docking protocol.
 
-**[[StartFrom|StartFromMover]]** -
+**[[StartFrom|StartFromMover]]** - Moves a ligand to user-specified coordinates
 
-**[[Transform|TransformMover]]** -
+**[[Transform|TransformMover]]** - Performs ligand docking moves using a Monte Carlo search and provided scoring grids
 
-**[[Translate|TranslateMover]]** -
+**[[Translate|TranslateMover]]** - Moves a small molecule in a random position within a specified sphere
 
-**[[Rotate|RotateMover]]** -
+**[[Rotate|RotateMover]]** - Performs random rotations and keeps poses based on a filter
 
-**[[SlideTogether|SlideTogetherMover]]** -
+**[[SlideTogether|SlideTogetherMover]]** - Ensures that rotated and translated ligands are close enough to the protein to complete high resolution docking
 
-**[[HighResDocker|HighResDockerMover]]** -
+**[[HighResDocker|HighResDockerMover]]** - Uses rotamer trials, ligand perturbations, and repacking to complete docking
 
-**[[FinalMinimizer|FinalMinimizerMover]]** -
+**[[FinalMinimizer|FinalMinimizerMover]]** - Performs gradient minimization of a docked pose
 
-**[[InterfaceScoreCalculator|InterfaceScoreCalculatorMover]]** -
+**[[InterfaceScoreCalculator|InterfaceScoreCalculatorMover]]** - Calculates interface score by subtracting that of the separated partners from that of the complex
 
-**[[ComputeLigandRDF|ComputeLigandRDFMover]]** -
+**[[ComputeLigandRDF|ComputeLigandRDFMover]]** - Computes radial distribution functions using protein-protein or protein-ligand atom pairs
 
 ### Enzyme Design
 
-**[[EnzRepackMinimize|EnzRepackMinimizeMover]]** -
+**[[EnzRepackMinimize|EnzRepackMinimizeMover]]** - Design/repack and minimization for enzyme design
 
-**[[AddOrRemoveMatchCsts|AddOrRemoveMatchCstsMover]]** -
+**[[AddOrRemoveMatchCsts|AddOrRemoveMatchCstsMover]]** - Adds or removes pairwise geometric constraints for a pose
 
-**[[PredesignPerturbMover]]** -
+**[[PredesignPerturbMover]]** - Perturbs a ligand in an active site, randomly rotates/translates, and accepts based on Boltzmann criteria
 
 ### Ligand design
 
-**[[GrowLigand|GrowLigandMover]]** -
+**[[GrowLigand|GrowLigandMover]]** - Connects a random fragment to a growing ligand
 
-**[[AddHydrogens|AddHydrogensMover]]** -
+**[[AddHydrogens|AddHydrogensMover]]** - Saturates incomplete connections
 
 ## DNA Interface Design Movers
 
-**[[DnaInterfacePacker|DnaInterfacePackerMover]]** -
+**[[DnaInterfacePacker|DnaInterfacePackerMover]]** - Minimizes sidechains and calculates binding energy 
 
