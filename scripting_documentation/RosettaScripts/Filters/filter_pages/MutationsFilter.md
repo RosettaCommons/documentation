@@ -2,9 +2,6 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## MutationsFilter
 
-(This is a devel Filter and not available in released versions.)
-
-<!--- BEGIN_INTERNAL -->
 Determines mutated residues in current pose as compared to a reference pose. Can be used to stop trajectories if desired by setting a mutation\_threshold or rate\_threshold. The residues considered are restricted by task operations. By default, only designable residues are considered, but packable residues can also be considered if the option packable=true (useful for instance if a resfile is used to mutate some positions during the protocol, but only one AA was allowed to be considered during repack. Such a position is only considered packable). Outputs the number of mutations or the mutation rate (number of mutations divided by the number of designable (or packable) positions. Works with symmetric poses and symmetric "building blocks". The reference pose against which the recovery rate will be computed can be defined using the -in:file:native command-line flag.
 
 ```
@@ -19,4 +16,13 @@ Determines mutated residues in current pose as compared to a reference pose. Can
 -   write2pdb: Defaults to false. If set to true, then will output the mutated positions and identities to the output pdb.
 -   packable: Defaults to false. If set to true, then will also consider mutations at packable positions in addition to designable positions.
 
-<!--- END_INTERNAL -->
+## See also
+
+* [[TaskOperations-RosettaScripts]]
+* [[ClashCheckFilter]]
+* [[DesignableResiduesFilter]]
+* [[GetRBDOFValuesFilter]]
+* [[InterfacePackingFilter]]
+* [[OligomericAverageDegreeFilter]]
+* [[SymUnsatHbondsFilter]]
+

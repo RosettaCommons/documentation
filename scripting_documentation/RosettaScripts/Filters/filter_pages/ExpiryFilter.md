@@ -10,3 +10,6 @@ Has a predetermined number of seconds elapsed since the start of the trajectory?
 
 -   seconds: how many seconds until this triggers failure?
 
+## See also
+
+* [[TimeFilter]]

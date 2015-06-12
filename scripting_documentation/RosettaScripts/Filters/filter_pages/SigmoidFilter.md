@@ -32,5 +32,6 @@ By setting baseline\_checkpoint to a file name, the baseline will be saved to a 
 * [[CompoundStatementFilter]
 * [[CombinedValueFilter]
 * [[CalculatorFilter]]
+* [[IfThenFilterFilter]]
 * [[ReplicateFilter]]
 

@@ -100,7 +100,7 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[HelixKink|HelixKinkFilter]]** -
 
-**[[Bond geometry and omega angle|GeometryFilter]]** -
+**[[Geometry|GeometryFilter]]** - Bond geometry and omega angle constraints
 
 **[[HSSTriplet|HSSTripletFilter]]** -
 

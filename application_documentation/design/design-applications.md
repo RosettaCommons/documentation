@@ -30,7 +30,7 @@
 
 ##Protein-Protein Interface Design
 
-* [[Protein-protein design|app-dock-design]]: Protein-protein interface design with RosettaScripts.
+* [[Protein-protein design|docking-protocol]]: Protein-protein interface design with RosettaScripts.
 * [[Zinc heterodimer design]]: Design zinc-mediated heterodimers.  
 
 ##Enzymes

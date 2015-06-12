@@ -1,6 +1,6 @@
-# Bond geometry and omga angle
+# Geometry Filter
 *Back to [[Filters|Filters-RosettaScripts]] page.*
-## Bond geometry and omga angle
+## Geometry Filter
 
 ```
 <Geometry name=(&string) omega=(165&Real) cart_bonded=(20 &Real) start=(1 &residue number) end=("100000" &residue number) />
@@ -11,4 +11,9 @@
 -   start: starting residue number to scan
 -   end: ending residue number
 
+## See also:
 
+* [[AngleToVectorFilter]]
+* [[SecondaryStructureFilter]]
+* [[SecondaryStructureHasResidueFilter]]
+* [[TorsionFilter]]
