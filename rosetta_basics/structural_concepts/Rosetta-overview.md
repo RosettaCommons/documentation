@@ -157,5 +157,5 @@ For a list of movers, see the [[RosettaScripts Movers list|Movers-RosettaScripts
 * [[Rosetta canon]]: List of important Rosetta papers
 * [[Symmetry]]: Information about working with symmetry in Rosetta
 * [[Resources for learning biophysics and computational modeling]]
-* [[RosettaTimeline]]: History of Rosetta
+* [[Rosetta Timeline]]: History of Rosetta
 * [[Development Documentation]]: Page for people who want to write new code for Rosetta
