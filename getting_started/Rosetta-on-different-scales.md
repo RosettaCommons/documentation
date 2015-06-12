@@ -77,7 +77,7 @@ These sorts of problems you will need serious hardware to run: either long perio
 10<sup>5</sup>
 ------------------
 At this scale, we gain the ability to start sampling backbone flexibility, while still considering sidechain and rigid-body degrees of freedom.
-We are able to sample enough to start thinking about [[backrub]] or [[FastRelax]] ensembles.
+We are able to sample enough to start thinking about [[backrub]] or [[FastRelax|relax]] ensembles.
 This regime is also considered reasonable sampling for most flexible-backbone interface design protocols.
 Fixed sequence protocols are faster than design protocols in this space.
 Global [[docking|docking-protocol]], where large swathes of rigid-body space must be explored becomes plausible.

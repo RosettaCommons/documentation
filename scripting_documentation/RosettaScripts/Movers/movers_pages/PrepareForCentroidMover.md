@@ -12,4 +12,5 @@ modeling.  This is used internally by LoopModeler.
 
 * [[PrepareForFullatomMover]]
 * [[SwitchResidueTypeSetMover]]
+* [[Centroid vs fullatom]]
 * [[I want to do x]]: Guide to choosing a mover

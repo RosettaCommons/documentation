@@ -14,5 +14,5 @@ Computes the fractional interface delta\_sasa for a ligand on a ligand-protein i
 
 * [[Ligand Docking|ligand-dock]]
 * [[DiffAtomBurialFilter]]
-* [[LigInterfaceEnergy]]
-* [[RepackWithoutLigand]]
+* [[LigInterfaceEnergyFilter]]
+* [[RepackWithoutLigandFilter]]

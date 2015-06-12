@@ -114,13 +114,9 @@ To build MPI executables, add the flag "extras=mpi" and copy main/source/tools/b
 ./scons.py bin mode=release extras=mpi
 ```
 
-##Troubleshooting
+##Dependencies/Troubleshooting
 ====================
-Here are some common issues seen with building Rosetta.  
-
-###Dependencies
-Rosetta requires a compiler (most gcc or clang are fine) and the zlib compression library development package.
-Instructions for acquiring either are below, sorted by what sorts of error messages they give if you are missing them.
+Rosetta requires a compiler (most gcc or clang are fine) and the zlib compression library development package. Instructions for acquiring either are below, sorted by what sorts of error messages they give if you are missing them.
 
 **"sh: 1: o: not found"**
 
@@ -144,7 +140,11 @@ to something like:
 ```
 where you substitute the compiler commands as appropriate.
 
+
+
+
 --> **Install a compiler**:
+
 
 Many default installations of Mac and Linux do not come with a compiler installer, so you will need to install one separately. (Note that the following only applies if you have administrator rights to your machine. If you do not, talk to your sysadmin regarding the installation of a compiler.)
 
@@ -158,53 +158,20 @@ Rosetta requires the zlib compression library to be installed on your computer i
 
 For Ubuntu and related distributions, install the zlib1g-dev package (e.g. with `sudo apt-get install zlib1g-dev`)
 
-Testing Rosetta 3
------------------
-This should not be necessary outside of the developers version, but is here in case it is needed by the community.
+##Testing
+====================
 
-There are two sets of tests to run to ensure everything is working properly, unit tests and integration tests.  The unit tests require a compile in debug mode as well as a special build of the tests themselves, whereas the integration test requires a compile in release mode. (The commands below assume that you are still in the `     main/source    ` directory.) 
+There are two sets of tests to run to ensure everything is working properly, unit tests and integration tests. (See [Testing Rosetta](xxxx) .)
 
-### Unit tests
+####MPI
+Compilation in MPI mode permits specialized JobDistributors to be used; the function of these JobDistributors, and their integration with other components of Rosetta, can only be tested by running special integration tests in MPI mode by passing the ```--mpi-tests``` flag to integration.py. Selective failure of these tests will probably mean that the parallel JobDistributors have been broken in some way.
 
-Compile in debug mode, as shown above(You only need to compile the libraries.) along with the tests.
+The MPI-mode build test simply tries to compile Rosetta with the ```-extras=mpi``` flag passed to scons. Selective failure of this build means that code surrounded by ```#ifdef USEMPI ... #endif``` lines has errors in it.
 
-`        ./scons.py -j<number_of_processors_to_use> && ./scons.py -j<number_of_processors_to_use> cat=test       `
+##Cleaning 
+====================
 
-Run the test with one of the following commands:
-
--   `        test/run.py -j<number_of_processors_to_use> -d ../database -c <optional_compiler_specification>       `
-
-...to watch the details displayed in standard output,...
-
--   `        test/run.py -j<number_of_processors_to_use> -d ../database -c <optional_compiler_specification> --mute all       `
-
-...to silence the details and simply see the current test and the final results, **or** ...
-
--   `        test/run.py -j<number_of_processors_to_use> -d ../database -c <optional_compiler_specification>       ` -1 ClassNameOfMyUnitTestSuite
-
-...to run a single unit test suite.
-
-### Integration tests
-
-Running `     integration.py    ` for the first time will generate a folder called `     ref    ` in `     rosetta/main/tests/integration    ` . Whenever you make a change, run the integration test and compare your new test output (located in the `     new    ` folder) with that in the `     ref    ` folder.
-
-Run the test as follows:
-
-1.  Compile in *full application release* mode, as shown above.
-    `        ./scons.py -j<number_of_processors_to_use> mode=release bin       `
-2.  Change directories.
-    `        cd ../tests/integration       `
-3.  Run the test.
-    `        ./integration.py -j<number_of_processors_to_use> -d ../../database -c <optional_compiler_specification>       `
-
-(To generate a fresh `     ref    ` folder, simply delete it and re-run the integration test to generate a new `     ref    ` folder. When you are running the test for the first time, some of the database binaries get made. But this process is not required for the subsequent runs, so regenerating the `     ref    ` folder will fix this problem.)
-
-To compare the two directories, type: `     diff -r new ref    `
-
-To run one test:
-
-`      ./integration.py my_test -d ../../database -c <optional_compiler_specification>     `
-
+```rm -rf build/src; rm .sconsign.dblite```
 
 Cleaning your binaries
 -------------
