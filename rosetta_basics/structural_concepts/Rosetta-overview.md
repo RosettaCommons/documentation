@@ -111,9 +111,9 @@ This object is used to determine whether a change made to a pose will be accepte
 AtomTreeMinimizer <a name="minimizer" />
 -----------------
 
-Since the kinematic setup for a Pose is solely via AtomTree now, the optimization function is carried out by this AtomTreeMinimizer object. This object has a member function called "run" which takes a <a href="#pose">Pose</a>, a <a href="#movemap">MoveMap</a>, a <a href="#scorefunction>ScoreFunction</a> and a MinimizerOption wrapper object to perform the task of energy minimization. The object energy function to be minimized is obviously from ScoreFunction and the variables are those DOFs in the Pose/Conformation/AtomTree. Which subset of DOFs are to be minimized is specified by this MoveMap object and what type of minimization to be carried out is defined in the MinimizerOption object (it also has minimization tolerance value and other minimization-related parameters). For more information on minimization, see [[Minimization overview and concepts|minimization-overview]] .
+Since the kinematic setup for a Pose is solely via AtomTree now, the optimization function is carried out by this AtomTreeMinimizer object. This object has a member function called "run" which takes a <a href="#pose">Pose</a>, a <a href="#movemap">MoveMap</a>, a <a href="scorefunction ">ScoreFunction</a> and a MinimizerOption wrapper object to perform the task of energy minimization. The object energy function to be minimized is obviously from ScoreFunction and the variables are those DOFs in the Pose/Conformation/AtomTree. Which subset of DOFs are to be minimized is specified by this MoveMap object and what type of minimization to be carried out is defined in the MinimizerOption object (it also has minimization tolerance value and other minimization-related parameters). For more information on minimization, see [[Minimization overview and concepts|minimization-overview]] .
 
-MoveMap <a name="movemap">
+MoveMap <a name="movemap" />
 -------
 
 The purpose of MoveMap is to enable/disable certain types of DOFs in the system. For example, omega is fixed but phi/psi/chi are flexible. MoveMap is isolated from Pose in Rosetta3 and is passed separately to the AtomTreeMinimzer. A MoveMap supports enabling/disabling a specific type of DOFs, such as bond length and angles; or certain DOFs of a single residue, such as backbone torsion of residue i; or individual DOF in the AtomTree, such as torsion angle associated with atom j in residue i. This provides more freedom for users to control what DOFs to be optimized.
@@ -146,6 +146,8 @@ Mover <a name="mover" />
 -----
 
 The design of this object has been brainstormed by many Rosetta developers, with the aim of creating a prototype class for representing any type of operations on a Pose which will change its structure. The setup of this class allows it to be easily extended to create new composite types of moves from single-type moves. Each Mover will take in a Pose and has a "apply" method which will do some certain changes to the Pose. Examples of single-type moves are SmallMover/ShearMove will do perform classical Rosetta small/shear backbone moves, RigidBodyMover that will change a rigid-body (jump) DOF. MonteCarlo, Minimization and Packer can also be considered as special type of Movers. So combining them can create Movers that carry out tasks like SmallMinTrial or RigidBodyPackerTrial etc. A single Mover or a series of Movers can also be applied repeatedly in a number of cycles. Moreover, a Protocol itself can be deemed as a composite Mover which is essentially constructed by combining any single-type Mover objects.
+
+For a list of movers, see the [[RosettaScripts Movers list|Movers-RosettaScripts]]
 
 ##See Also
 
