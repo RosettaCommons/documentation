@@ -8,3 +8,9 @@ Computes the interaction energy between 2 groups of residues: 1. a set of residu
 <ResidueSetChainEnergy name=(residue_set_chain_energy_filter &string) scorefxn=(score12 &string) score_type=(total_score &string) resnums=(&string) chain=(0 &int) threshold=(&float)/>
 ```
 
+## See also
+
+* [[Design in Rosetta|application_documentation/design/design-applications]]
+* [[EnergyPerResidueFilter]]
+* [[PackRotamersMover]]
+* [[ResidueInteractionEnergyFilter]]

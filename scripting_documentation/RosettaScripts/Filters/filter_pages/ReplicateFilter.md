@@ -11,8 +11,8 @@ Repeats a given filter the given number of times. It then trims off the highest 
 ## See also
 
 * [[BoltzmannFilter]]
-* [[CompoundStatementFilter]
-* [[CombinedValueFilter]
+* [[CompoundStatementFilter]]
+* [[CombinedValueFilter]]
 * [[CalculatorFilter]]
 * [[OperatorFilter]]
 * [[SigmoidFilter]]
