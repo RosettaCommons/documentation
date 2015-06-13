@@ -89,12 +89,12 @@ The Rosetta Commons copyright header is required for every source code *file* in
 * **Watch for long argument lists.** Function calls then become difficult to write, read, and maintain. Instead, try to move the member function to a class where it is more appropriate and/or pass objects in as arguments &mdash; *e.g.*, if a function needs to know several things about a rotamer, (its chi angles, the way those chi angles were produced, the amino acid type, the chi bins, *etc.*,) wrap all of those individual pieces of data into a `Rotamer` object. Then a single parameter (a `Rotamer const &` perhaps) may be passed to the function instead of many.
 
 #####Inheritance
-* **Define OP typedefs for classes in their corresponding `.fwd.hh` files. (See explanation about owning pointers in [[#General.|General]] above.) **Note**: It is no longer necessary for classes to be derived from ReferenceCount. See [[How to use pointers correctly]] for information on the new pointer system.
+* **Define OP typedefs for classes in their corresponding `.fwd.hh` files. (See explanation about owning pointers in [[#General.|Coding-Conventions#General]] above.) **Note**: It is no longer necessary for classes to be derived from ReferenceCount. See [[How to use pointers correctly]] for information on the new pointer system.
 ** Dynamically allocated objects must be put into owning pointers at the time of their allocation.
 
 * **Avoid multiple inheritance.**
 
-* **Don't use protected inheritance.** Private inheritence can be a useful alternative to containment, but we generally prefer containment.
+* **Don't use protected inheritance.** Private inheritance can be a useful alternative to containment, but we generally prefer containment.
 
 ####File Inclusion
 Why does file inclusion matter? Compilation speed &mdash; and sometimes, the ability to compile at all! Reckless #inclusion produces long build times when compiling from scratch and long re-build times after making modifications. The majority of development is thus spent compiling and recompiling; you waste your time and the valuable time of your colleagues with bad #inclusion practices.(Consider that Rosetta++, because of its circular `#include`s, could not be compiled on any BlueGene machines without a special modification to the BlueGene compiler.)
@@ -137,7 +137,7 @@ void MyClass::set_int( int input_int ) {
   * Exception: if  classY derives from class X, then Y.hh must #include <X.hh>
   * Exception: if class Y contains class X, then Y.hh must #include <X.hh>
     * It is prefereable that class Y contain an owning pointer to X (an XOP) instead of an X.  If containment is handled through owning pointers, then Y can get away with #include'ing X.fwd.hh
-* No cyclic #inclusion amongst libraries.  We maintain a directed-acyclic graph (DAG) structure.  See [[below|Coding_Conventions#Library_Dependencies]].  
+* No cyclic #inclusion amongst libraries.  We maintain a directed-acyclic graph (DAG) structure.  See [[below|Coding-Conventions#Library Dependencies]].  
 * STL containers (std::list, std::map, std::string, etc.) cannot be portably forward declared but including <set> and <map> can greatly slow down build times. Using a wrapper class that accesses the std::set or std::map through a pointer can insulate your code from those headers: contact a support person for help on this.
   * STL did provide one very useful forward declaration file: iosfwd.  If your class has io functionality, then in your class' .hh file, you can #include <iosfwd> instead of #including <iostream>. For example, the following class could use iosfwd:
 <pre> YourClass const & operator << ( std::iostream &, YourClass const & ) )</pre>
@@ -157,7 +157,7 @@ Cyclic inclusion complicates the code and build system and slows compiling.  The
 * Lower-level: utility (vector1, [[owning pointers]], [[options system|namespace-utility-options]], utility_exit())
 * Low-level: [[numeric|namespace-numeric]] (random number generator, [[xyzVector]])
 * Mid-level: core ([[scoring|namespace-core-scoring]], pose, packer) (this is where most of the things we think of as Rosetta functionality are)
-* High-level: protocols ([[movers|Mover]], monte carlo, fully developed code)
+* High-level: protocols ([[movers|Movers]], monte carlo, fully developed code)
 * Higher-level: devel (high-level stuff under development, which will move to protocols as it matures)
 * Highest-level: apps (all executeables, thus not really library) (as an aside, applications not in apps/pilot should not inherit from devel)
 
@@ -394,7 +394,7 @@ where `my_function` begins with
 * izstream is where -in:path option is used, so by loading files using izstream, everyone benefits from path control as well.
 
 ###Commenting Guideline
-The comment blocks at the beginning of Rosetta functions have been  formatted to be compatible with the [http://www.stack.nl/~dimitri/doxygen/ Doxygen] auto-documentation program.
+The comment blocks at the beginning of Rosetta functions have been  formatted to be compatible with the [[http://www.stack.nl/~dimitri/doxygen/Doxygen]] auto-documentation program.
 
 #### Comment Format
 * All functions should be at least documented with the `@brief` Doxygen command.
@@ -429,7 +429,7 @@ void fold_protein( std::string const & sequence );
 * Do not commit code containing direct output to std::cout and std::cerr in to libraries code base (core, protocols, devel). Unless you planing to terminate program abnormally (i.e:utility_exit(...)) because of the hard error. In that case you can use cerr output to provide additional information for your error messages.
 * Name tracer channel according to your file path. For example file core/io/pdb/file_data.cc should have Tracer channel named as 'core.io.pdb.file_data'. It is possible that in some circumstances channel with different name can be used - ask.
 * If you need to create tracer with custom channel names - just add it after namespaces.filename, for example:
-```  core.scoring.constraints.EnzConstraintIO.custom_fancy_name_for_channel```
+` core.scoring.constraints.EnzConstraintIO.custom_fancy_name_for_channel `
 *  Try to minimize amount of output produced with level core::util::t_info and above. By default output your messages with level t_debug or lower. Use higher levels only if you think that your message will be informative to the others.
 * Avoid printing data to tracers in inner loops.  Even if the tracer is muted and the message is not sent to the screen, the creation and destruction of the strings which are sent to the tracer can slow down the code tremendously.
 * To output message with pre-defined priority use Tracer object proxy data members: TR.Fatal, TR.Error, TR.Warning, TR.Info, TR.Debug, TR.Trace.
@@ -453,8 +453,6 @@ The following templates can assist in learning the coding conventions. They also
 * [[Mover class source file template for Eclipse|https://wiki.rosettacommons.org/index.php/Mover_class_source_file_template_for_Eclipse]]
 * [[Pilot application source file template for Eclipse|https://wiki.rosettacommons.org/index.php/Pilot_application_source_file_template_for_Eclipse]]
 
-----
-
 ## [[Integration Test|integration-tests]] Guidelines
 * run integration tests *before* commiting any code
 * make sure that no unexpected changes result from your code
@@ -464,13 +462,9 @@ it is hard for others to see that the integration test changes are all expected 
 pathological. Hence, it is good practice to break down such commits into parts. Ideally you can 
 isolate the lines/files that cause integration test changes and commit them independently from the remaining code-changes that leave the integration tests invariant.
 
-----
-
 ##Unit Test Guidelines
 * Build and run unit test *before* committing any code.
 * If your changes break tests - fix them after ensuring that results are correct. If you can't fix some of the test/not sure if results correct, contact developer (or mini list) responsible for this test and ask for help.
-
-----
 
 ##Rosetta 3 Coding FAQ
 * I'm getting really frustrated, because I updated my version of Rosetta, and now it won't compile my demo directory.
@@ -499,7 +493,6 @@ isolate the lines/files that cause integration test changes and commit them inde
        }
    }
 ```
-----
 
 ##Useful links
 To deal with the formatting problem we could use a code beautifiers like...
