@@ -22,6 +22,7 @@ Set the variable in your shell's user settings file, such as for the default she
 
 ##See Also
 
+* [[Database Conventions]]: Conventions to use when adding files to the Rosetta database
 * [[Input options]]: Input options for Rosetta, including the option specifying the Rosetta database
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
 * [[RosettaEncyclopedia]]: Detailed descriptions of Rosetta terms

@@ -3,6 +3,7 @@
 The following is a list of guides for using specific Rosetta features or performing specific tasks in Rosetta. This is not meant to tell you everything you need to know about developing in Rosetta; rather, it is intended as a resource to help you with some specific tasks.
 
 ##General development guides
+* [[Coding Conventions]]
 * [[Writing an app]]
 * [[Developing for RosettaScripts|RosettaScripts-Developer-Guide]]
 
@@ -15,6 +16,8 @@ The following is a list of guides for using specific Rosetta features or perform
 * [[Extending the PyMOL Viewer|Extending-the-PyMol-Viewer]]
 * [[Writing new resfile commands|resfile-reader]]
 * [[Adding new score terms|new-energy-method]]
+* [[Database Conventions]]: Conventions when adding files to the Rosetta database
+
 
 ##Miscellaneous
 * [[Making your code robust against malformed PDBs|robust]]

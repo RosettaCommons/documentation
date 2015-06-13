@@ -112,7 +112,7 @@ Most Rosetta protocols, though, are intrinsically serial for each output structu
 
 We highly recommend to use the Robetta server to create fragment file. <http://robetta.bakerlab.org/fragmentsubmit.jsp> It is possible to run fragment picking locally, but requires the installation of a number of dependencies and is non-trivial.
 
-#### What is and "unrecognized residue"?
+#### What is an "unrecognized residue"?
 
 Rosetta requires a chemical specification of each residue and how they behave. By default it can recognize a fair number of the important residues, but does not understand things like ligands. See [[preparing ligands]] for details on how to get Rosetta to recognize your residue.
 

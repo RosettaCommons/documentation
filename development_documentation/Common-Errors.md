@@ -1,3 +1,5 @@
+#Common Errors and How To Avoid Them
+
 * For comparisons of signed and unsigned variables, the problem is most often that you incorrectly used an `int` when you should have used `Size`, per our conventions.
   * If you need a negative number, you *still* should not be using `int`; use `SSize`.
   * If you don't fix the root problem, you can always cast, but in that case, follow the conventions and use `static_cast<int>()`, not `(int)()`.
@@ -21,18 +23,26 @@ public:
 ```
 
 * To fix an unused parameter warning, simply remove the variable name from the declaration:
-```void foo(char bar);```
+```
+void foo(char bar);
+```
 to:
-```void foo(char /*bar*/);``` 
+```
+void foo(char /*bar*/);
+```
 or (better, if you never intend to use `bar` in the implementation of `foo`):
-```void foo(char);```
+```
+void foo(char);
+```
+
+>>>>>>> 39737bef0814ff5f067e725d7984346053b2f888
 * To compare a "non-pointer" with `NULL`, use `get()` on the `OP`.
 
 * To avoid "foo will be initiallized after bar" warnings, initialize in the same order as the private data is listed in the `.hh` file.
 
 * If you can't use `core::Size` to fix a type comparison warning (because you are lower than `core`), use `platform::Size` instead.
 
-*Code like this:
+* Code like this:
 ```
 foo = R"bar(
         var1, var2
@@ -86,6 +96,7 @@ PhenixInterface::setAlgorithm(
 
 ##See Also
 
+* [[Development Documentation]]
 * [[Build Documentation]]
 * [[Scons Overview and Specifics]]: Detailed information on the Scons compiling system
 * [[FAQ]]

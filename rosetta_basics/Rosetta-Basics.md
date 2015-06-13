@@ -6,7 +6,8 @@
 
 ####Controlling Rosetta Execution
 - [[Running Rosetta|running-rosetta-with-options]]
-- [[Running Rosetta Parallel via MPI | running-rosetta-with-options#mpi ]]
+  - [[Fixing errors]]
+- [[Running Rosetta Parallel via MPI |MPI]]
 - [[Graphics output and GUIs | graphics-and-guis]]
     * [[PyMOL]]
     * [[PyRosetta Toolkit GUI]]

@@ -12,11 +12,15 @@
 
   * [[Pose|Rosetta-overview#pose]]
 
+  * [[Mover]]
+
   * [[Scoring in Rosetta|scoring-explained]]
 
   * [[Score functions|score-types]]
 
   * [[Centroid vs Fullatom]]
+
+  * [[VariantTypes and ResidueProperties]]
 
   * [[Atom Tree|atomtree-overview]]
 

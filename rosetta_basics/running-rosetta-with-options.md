@@ -188,6 +188,7 @@ General tips for running Rosetta
 
 ##See Also
 
+* [[Fixing errors]]: Troubleshooting common errors in Rosetta
 * [[Getting Started]]: A page for people new to Rosetta. New users start here.
 * [[Build Documentation]]: Information on setting up Rosetta
 * [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs

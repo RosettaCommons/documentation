@@ -37,7 +37,7 @@ The following lines are typically found in Ligand params files. This does not re
 
 -   **NBR\_RADIUS** The radius of gyration of the ligand, used to define the overall size of the ligand.
 
--   **ICOOR\_INTERNAL** The internal coordinates of an atom. The format goes backwards and looks like this:
+-   **ICOOR\_INTERNAL** The [[internal coordinates]] of an atom. The format goes backwards and looks like this:
 
     ```
     ICOOR_INTERNAL    A4  179.932453   59.543328    1.238233   A3   A2   A1
