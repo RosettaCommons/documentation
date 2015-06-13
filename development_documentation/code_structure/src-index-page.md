@@ -183,13 +183,17 @@ These levels each have many lettered sublibaries, organized by vague similarity 
 This is not a library, this is just the protocols `init` layer.
 It has a ton of Registrators and Creators for the [[Factory|http://en.wikipedia.org/wiki/Factory_method_pattern]] (wikipedia link)-managed Rosetta classes.
 
-Development Library
-===================
+Devel Library
+=============
 
-devel\_index\_page The devel directory is a staging area for protocols. Essential code in this area is not considered mature. Standards of documentation are lax (Note though that documenting code after the fact is much more difficult, so it is HIGHLY recommended that a developer provide good documentation even for code that is fluctuating rapidly. It will make your life easier and more productive, and your colleagues will appreciate your thoroughness). Code in this library is not included in Rosetta releases.
+The devel directory is a staging area for protocols in development, which is NOT included in Rosetta releases. 
+Code in this area is not considered mature. 
+Standards of documentation are lax. 
+Documenting code after the fact is much more difficult, so it is HIGHLY recommended that a developer provide good documentation even for code that is fluctuating rapidly. 
+It will make your life easier and more productive, and your colleagues will appreciate your thoroughness.
 
 Adding New Directories in "top level" of src **(Don't do it!)**
-============================================
+===============================================================
 
 New directories in the "top level" of src should only be added after consulting with the general community. New directories indicate that the design of the suite of libraries is insufficient. Design decisions affect the entire community. Hence, input from the community should be solicited. Once a decision has been reached, add a new section to this page explaining the place of the new directory in relation to the rest of the code. 
 
