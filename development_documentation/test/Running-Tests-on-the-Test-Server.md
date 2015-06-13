@@ -69,7 +69,7 @@ Testing of custom branches
 ==========================
 It is possible to instruct the testing server to track any custom branch from our GitHub main repository and run a custom set of tests for each push like we do for `master` and some other branches. 
 This will allow you to monitor code differences, states of build tests and regression tests changes for each push. 
-If you happen to work on a project for which this seems appropriate—for example a project involving multiple developers working on the same protocol or just want to track your lab branch—let [[Sergey Lyskov|Rosetta-Glory]] know and he will add your branch to tracking list.
+If you happen to work on a project for which this seems appropriate—for example a project involving multiple developers working on the same protocol or just want to track your lab branch—let [[Sergey Lyskov|Rosetta-People]] know and he will add your branch to tracking list.
 
 ##See Also
 

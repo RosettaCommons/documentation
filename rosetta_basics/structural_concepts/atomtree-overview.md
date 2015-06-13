@@ -5,7 +5,9 @@ Metadata
 
 This document was written 18 Sep 2007 by Ian W. Davis and last updated 18 Sep 2007.
 
-The relevant code is in core::kinematics and core::kinematics::tree. ("Kinematics" deals with conversion between Cartesian coordinates and internal coordinates, often discussed in terms of robot arms.) 
+The relevant code is in core::kinematics and core::kinematics::tree. ("Kinematics" deals with conversion between Cartesian coordinates and [[internal coordinates]], often discussed in terms of robot arms.) 
+
+
 
 Handedness and conventions
 ==========================
@@ -38,7 +40,7 @@ The root of the atom tree and the pseudo-root of each new independent group (e.g
 
 Every bonded atom needs to know about two stubs: its "input stub", which is set up by its parent and is the system in which its internal coordinates are specified; and its own stub with itself at the origin, which it sets up for determining the input stubs of its children.
 
-Internal coordinates, the simple case
+[[Internal coordinates]], the simple case
 =====================================
 
 The simplest case arises in a long, unbranched chain of atoms, such as in a straight-chain hydrocarbon or lysine sidechain. Consider child atom A with parent B, B's parent C, and C's parent D. The internal coordinates of A are given as the distance, d, from B; the angle, theta, between vectors C-\>B and B-\>A (i.e., 180 - theta is the bond angle C-B-A); and the torsion angle A-B-C-D, which is called phi.
