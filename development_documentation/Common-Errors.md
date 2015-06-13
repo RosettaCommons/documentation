@@ -23,15 +23,17 @@ public:
 ```
 
 * To fix an unused parameter warning, simply remove the variable name from the declaration:
-`void foo(char bar);`
-
+```
+void foo(char bar);
+```
 to:
-
-`void foo(char /*bar*/);`
-
+```
+void foo(char /*bar*/);
+```
 or (better, if you never intend to use `bar` in the implementation of `foo`):
-
-`void foo(char);`
+```
+void foo(char);
+```
 
 * To compare a "non-pointer" with `NULL`, use `get()` on the `OP`.
 
@@ -39,7 +41,7 @@ or (better, if you never intend to use `bar` in the implementation of `foo`):
 
 * If you can't use `core::Size` to fix a type comparison warning (because you are lower than `core`), use `platform::Size` instead.
 
-*Code like this:
+* Code like this:
 ```
 foo = R"bar(
         var1, var2
