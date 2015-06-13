@@ -16,9 +16,7 @@ When a pull request is made, all developers who are set to watch the repository 
 
 ##Pull Requests and the Testing Server
 
-Once you have submitted a pull request for your branch, you can have it tested automatically using Rosetta's [[testing server]]. Once a pull request has been labeled "ready for testing", the testing server will automatically indicate whether the pull request can be automatically merged (i.e. it passes testing):  
-[[!successful_pull_request]]  
- whether the pull request causes integration test changes ("MERGE WITH CAUTION"), or whether the commit is not yet ready to merge.  When the pull request passes testing or causes integration test changes, a green button (see above) will become active, allowing any user to merge the pull request into master.  
+Once you have submitted a pull request for your branch, you can have it tested automatically using Rosetta's [[testing server]]. Once a pull request has been labeled "ready for testing", the testing server will automatically indicate whether the pull request can be automatically merged (i.e. it passes testing), whether the pull request causes integration test changes ("MERGE WITH CAUTION"), or whether the commit is not yet ready to merge.  When the pull request passes testing or causes integration test changes, a green button will become active, allowing any user to merge the pull request into master.  
 
 ##See Also
 
