@@ -24,10 +24,15 @@ public:
 
 * To fix an unused parameter warning, simply remove the variable name from the declaration:
 `void foo(char bar);`
+
 to:
+
 `void foo(char /*bar*/);`
+
 or (better, if you never intend to use `bar` in the implementation of `foo`):
+
 `void foo(char);`
+
 * To compare a "non-pointer" with `NULL`, use `get()` on the `OP`.
 
 * To avoid "foo will be initiallized after bar" warnings, initialize in the same order as the private data is listed in the `.hh` file.
