@@ -192,11 +192,6 @@ Standards of documentation are lax.
 Documenting code after the fact is much more difficult, so it is HIGHLY recommended that a developer provide good documentation even for code that is fluctuating rapidly. 
 It will make your life easier and more productive, and your colleagues will appreciate your thoroughness.
 
-Adding New Directories in "top level" of src **(Don't do it!)**
-===============================================================
-
-New directories in the "top level" of src should only be added after consulting with the general community. New directories indicate that the design of the suite of libraries is insufficient. Design decisions affect the entire community. Hence, input from the community should be solicited. Once a decision has been reached, add a new section to this page explaining the place of the new directory in relation to the rest of the code. 
-
 Adding New Subdirectories
 =========================
 
