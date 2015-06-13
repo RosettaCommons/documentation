@@ -1,10 +1,15 @@
 #Making a Pull Request
 
-Rather than merging their code directly into the master branch of the Rosetta main repository, any significant changes (beyond very minor changes) are now made using GitHub pull requests. 
-These requests can (and should) be made considerably before the branch in question is ready to merge as they provide a mechanism for developers to 1) let other developers know what sorts of changes they are making, 2) to get feedback from other developers (particularly those who may be familiar with relevant areas of the code), and 3) to provide a simple and straightforward mechanism to ensure that the branch will not "break" the code via automatic testing through the [[testing server]].
+Rather than merging a branch directly into the master branch of the Rosetta main repository, any significant changes are now made using GitHub pull requests. 
+These requests can (and should) be made long before the branch in question is ready to merge, as they provide a mechanism for developers to:
+-	let other developers know what sorts of changes they are making, 
+-	get feedback from other developers (particularly those who may be familiar with relevant areas of the code), and 
+-	provide a simple and straightforward mechanism to ensure that the branch will not "break" the code via automatic testing through the [[testing server]].
 
-Before making a pull request, a developer must first make a branch that is tracked on GitHub (see the [[GithubWorkflow]] page for more details). All code should be committed to this branch.
-To create a pull request, first go to the main GitHub page for the main repository and select your branch from the drop-down menu. Clicking the button to the left of this menu will open a page comparing the branch to (by default) master, and a button will be available to create a pull request. 
+Before making a pull request, a developer must first make a branch that is tracked on GitHub (see the [[GithubWorkflow]] page for more details).
+All code should be committed to this branch.
+To create a pull request, first go to the main GitHub page for the main repository and select your branch from the drop-down menu.
+Clicking the button to the left of this menu will open a page comparing the branch to (by default) master, and a button will be available to create a pull request. 
 
 When a pull request is made, all developers who are set to watch the repository will receive a notification. Developers are encouraged to review and comment on one anothers' pull requests.
 
