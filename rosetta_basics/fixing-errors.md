@@ -81,3 +81,10 @@ Segmentation faults (segfaults) are one of the hardest errors to debug. They're 
 Do check that all your inputs are correct and that there aren't any obvious errors in your configuration. Also, the extra error checking in debug mode (e.g. relax.linuxgccdebug) can often change a segfault into an assertion error. Often though, figuring out the cause of a segfault requires running Rosetta under a debugger and developer attention.
 
 Take heart, though. Ideally, Rosetta should never result in a segfault. At the very least the developer should have done error checking and printed out an interpretable error message. If you encounter a segfault, please submit a bug report to either the Rosetta bug tracker <https://bugs.rosettacommons.org> or to the Rosetta forums <https://www.rosettacommons.org/forum>.
+
+
+##See Also
+
+* [[Running Rosetta with options]]
+* [[MPI]]: Information about running Rosetta in MPI mode
+* [[Troubleshooting Rosetta development|Common errors]]

@@ -12,6 +12,7 @@ This page once hosted documentation on Rosetta's deprecated [[ReferenceCount]] b
 * [[How to use pointers correctly]]
 * [[Src index page]]: Description of Rosetta library structure and code layout in the src directory
 * [[Rosetta directory structure|rosetta-library-structure]]: Descriptions of contents of the major subdirectories in the Rosetta `main` directory
+* [[ReferenceCount]]: Formerly used for owning and access pointers (now deprecated)
 * [[Glossary]]: Brief definitions of Rosetta terms
 * [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
 * [[Rosetta overview]]: Overview of major concepts in Rosetta

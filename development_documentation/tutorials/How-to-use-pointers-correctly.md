@@ -119,4 +119,5 @@ To decide which data type is appropriate for your function/class, consider the f
 * [[Development Documentation]]: The development documentation home page
 * [[Owning pointers]]
 * [[Access pointers]]
+* [[ReferenceCount]]: Formerly used for owning and access pointers (now deprecated)
 * [[Writing an app]]
