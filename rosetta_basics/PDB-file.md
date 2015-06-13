@@ -13,7 +13,7 @@ Most other records are ignored.
 TODO: Insert comments about the specialty usage of other records
 
 ##See Also
-
+* [[Preparing structures]]: Preparing PDBs for use with Rosetta
 * [[File types list]]: List of file types used in Rosetta
 * [[Input options]]: Command line options for Rosetta input
 * [[Output options]]: Command line options for Rosetta output

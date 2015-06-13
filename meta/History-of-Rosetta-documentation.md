@@ -45,12 +45,12 @@ In June 2015, the Rosetta community sought to improve its documentation and orga
 This project was called e**X**treme **R**osetta **W**eek 2015: XRW2015.
 
 We primarily worked on the following projects:
-* Reorganization
+* Reorganization  **Note**: Sharon Guffy (guffysl) was primarily responsible for page moving, organization, and linking and is therefore now noted as the author/last person to update many of the pages on this wiki.
 	* Useful code navigation
 		* navigational sidebars (you'll see it on the left!) for each directory
 		* "see also" sections at the end of virtually every page
 		* cross-linking most valid uses of Rosetta-relevant phrases to wiki articles and glossary entries
-	* Reorganization of files and directories
+	* Reorganization of files and directories 
 		* Removal of specific files from top-level directories
 	* Indices
 		* Glossary of terms
