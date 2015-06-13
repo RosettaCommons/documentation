@@ -3,7 +3,7 @@
 * **[[Flags files|namespace-utility-options#flagsfile]]**: File used to specify multiple options on the command line using the syntax @flags_file.
 
 ##Protein structure input/output formats
-* **PDB**: Standard file format for input/output of single protein structures. See information on PDB file requirements [[here|preparing-structures]].
+* **[[PDB file]]**: Standard file format for input/output of single protein structures. See information on PDB file requirements [[here|preparing-structures]].
 * **[[Silent file|silent-file]]**: Useful for input/output of large numbers of structures.
 
 ##Commonly used input files

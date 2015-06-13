@@ -157,9 +157,9 @@ Cyclic inclusion complicates the code and build system and slows compiling.  The
 * Lower-level: utility (vector1, [[owning pointers]], [[options system|namespace-utility-options]], utility_exit())
 * Low-level: [[numeric|namespace-numeric]] (random number generator, [[xyzVector]])
 * Mid-level: core ([[scoring|namespace-core-scoring]], pose, packer) (this is where most of the things we think of as Rosetta functionality are)
-* High-level: protocols ([[movers|Movers]], monte carlo, fully developed code)
+* High-level: protocols ([[movers|Mover]], monte carlo, fully developed code)
 * Higher-level: devel (high-level stuff under development, which will move to protocols as it matures)
-* Highest-level: apps (all executeables, thus not really library) (as an aside, applications not in apps/pilot should not inherit from devel)
+* Highest-level: apps (all executables, thus not really library) (as an aside, applications not in apps/pilot should not inherit from devel)
 
 ####Naming 
 * **`CamelCase` for class names**

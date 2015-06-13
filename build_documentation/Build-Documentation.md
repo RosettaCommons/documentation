@@ -19,7 +19,7 @@ Build environment setup instructions for most situations can be found on the [[G
 
 ##Alternative Setup for Individual Workstations
 
-The current build system is based on the tool [SCons](https://wiki.rosettacommons.org/index.php/Tools:SCons "Tools:SCons") ("Software Constructor") with some extensions. `     scons.py    ` is implemented as a Python script.
+The current build system is based on the tool [[SCons|Scons-Overview-and-Specifics]] ("Software Constructor") with some extensions. `     scons.py    ` is implemented as a Python script.
 
 ###SCons (Mac/Linux)
 
