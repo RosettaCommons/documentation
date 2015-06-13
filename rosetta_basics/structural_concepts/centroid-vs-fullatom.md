@@ -15,3 +15,56 @@ After large-scale sampling in centroid mode, poses are generally converted back 
 * [[Glossary]]
 * [[Scoring explained]]
 * [[Score types]]
+
+
+<!--- Gollum search optimization keywords
+centroid
+centroid
+centroid
+centroid
+centroid
+centroid
+centroid
+centroid
+centroid
+centroid
+centroid
+centroid
+centroid
+centroid
+centroid
+full atom
+full atom
+full atom
+full atom
+full atom
+full atom
+full atom
+full atom
+full atom
+full atom
+full atom
+full atom
+full atom
+full atom
+full atom
+full atom
+fullatom
+fullatom
+fullatom
+fullatom
+fullatom
+fullatom
+fullatom
+fullatom
+fullatom
+fullatom
+fullatom
+fullatom
+fullatom
+fullatom
+fullatom
+fullatom 
+--->
+
+
