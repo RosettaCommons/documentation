@@ -43,7 +43,7 @@ For RosettaCommons developers, we have a version of the Doxygen documentation wh
         * [[Namespace core::conformation::idealization|Namespace core-conformation-idealization]]
     * [[Namespace core::io::pdb|Namespace core-io-pdb]]
     * [[Namespace core::scoring|Namespace core-scoring]]
-    * [[Namespace core::fragments|directory-core-fragments]]
+    * [[Namespace core::fragments|namespace-core-fragments]]
 - [[Namespace utility]]
     * [[Namespace utility::factory|Namespace utility-factory]]
     * [[Namespace utility::io|Namespace utility-io]]
@@ -66,7 +66,7 @@ For RosettaCommons developers, we have a version of the Doxygen documentation wh
 - [[Tracer]] - Using the tracer output class.
 
 - [[Hbonds]] - Dealing with the Hbond energy terms.
-- [[Directory-core-fragments]] - Using the classed located in src/core/fragments/
+- [[namespace-core-fragments]] - Using the classed located in src/core/fragments/
 
 - [[xyzVector]] - A vector specialized for Cartesian coordinate use.
 
