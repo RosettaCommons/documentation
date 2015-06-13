@@ -65,6 +65,7 @@ Core Library <a name="core" />
 
 The core directory contains classes that manage most of the internal machinery of Rosetta. 
 This includes topics such as chemical representations of models, conformational representations of models, low-level operations on conformations, and energetic evaluation ([[scoring|scoring-explained]]) of models.
+The current structure was instituted at a weeklong event [[XRW1|Glossary#xrw1]].
 
 ###Core.1
 The only important contents of this library level are the `graph` classes (graph in the computer science sense).
@@ -153,18 +154,43 @@ Protocols library organization is controlled by a series of protocols_X.#.src.se
 The numbers are the dependency level of each library, and the letters arrange similar-level sublibraries into a laterally equivalent group. 
 In other words, libraries at the same number level have the same dependencies, but do not depend on each other: in fact they are forbidden from depending on each other.
 
-STEVEN TODO MENTAL NOTE: why did we split them like this
+When the protocols library was split at [[XRW2|Glossary#xrw2]], we were partly trying to institute order, and partly trying to fix a problem.
+The protocols library (the largest in Rosetta) had grown to the point that linking was **very slow**, and took more memory in the linking step (>2GB, remember this was a while ago) than many developers' computers had. 
+Ultimately, the former goal of organization proved elusive or impossible, but we met the second goal by splitting the previously monolithic protocols into *many* libraries.
+As a consequence, to a great degree, the organization is only by fiat.
+[[This page|XRW2 email archive]] documents decisions made at the time.
+The description of the library levels is much deeper than here, but only partial.
 
+If you are trying to determine "where your code goes", and there isn't a good answer below, the answer is "find something similar and put it in the same sublibrary", so long as the dependencies are otherwise legal (only pointing to lower numbers).
+Lateral dependencies within a sublibrary are legal.
 
-Development Library
-===================
+###Important Protocols library levels:
 
-devel\_index\_page The devel directory is a staging area for protocols. Essential code in this area is not considered mature. Standards of documentation are lax (Note though that documenting code after the fact is much more difficult, so it is HIGHLY recommended that a developer provide good documentation even for code that is fluctuating rapidly. It will make your life easier and more productive, and your colleagues will appreciate your thoroughness). Code in this library is not included in Rosetta releases.
+####Protocols.1
+Lots of goodies live here, including [[the job distributor|JD2]], the base class [[Mover]] and some of the simple Movers, the base class [[Filter|filters-rosettascripts]] and simple Filters, the [[RosettaScripts]] machinery.
 
-Adding New Directories in "top level" of src **(Don't do it!)**
-============================================
+####Protocols.2
+Your code should almost certainly not go here.
 
-New directories in the "top level" of src should only be added after consulting with the general community. New directories indicate that the design of the suite of libraries is insufficient. Design decisions affect the entire community. Hence, input from the community should be solicited. Once a decision has been reached, add a new section to this page explaining the place of the new directory in relation to the rest of the code. 
+####Protocols.3
+This level contains the vast majority of Movers and Filters that do simple things (as opposed to complex or highly specific Movers that live with their protocol directly).
+It also contains `loops` machinery and `toolbox`, which holds lots of generic tools for detecting and manipulating classes or groups of residues (think interface-detection machinery, etc).
+
+####Protocols.4-6
+These levels each have many lettered sublibaries, organized by vague similarity and number of files, but it's kind of a mess. I'm sorry I can't help more.
+
+####Protocols.7
+This is not a library, this is just the protocols `init` layer.
+It has a ton of Registrators and Creators for the [[Factory|http://en.wikipedia.org/wiki/Factory_method_pattern]] (wikipedia link)-managed Rosetta classes.
+
+Devel Library
+=============
+
+The devel directory is a staging area for protocols in development, which is NOT included in Rosetta releases. 
+Code in this area is not considered mature. 
+Standards of documentation are lax. 
+Documenting code after the fact is much more difficult, so it is HIGHLY recommended that a developer provide good documentation even for code that is fluctuating rapidly. 
+It will make your life easier and more productive, and your colleagues will appreciate your thoroughness.
 
 Adding New Subdirectories
 =========================
