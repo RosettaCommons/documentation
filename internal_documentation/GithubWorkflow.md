@@ -56,7 +56,9 @@ Branching and merging is the preferred development pattern in git, and because t
 :will download main (source, tools and database), tools and demos.  It will also configure these repositories to add some useful aliases, hooks and a commit message template. Follow the instructions when prompted.  "wget https://raw.github.com/RosettaCommons/rosetta_clone_tools/master/get_rosetta.sh" will also work for Linux systems that default to wget not curl, but get_rosetta.sh itself depends on curl. If your mac complains because your curl doesnt know the https protocol, then you can update it (sudo port install curl +ssl ).
 
 If the curl command above fails (at the time of writing, there was an SSL certification issue), try this instead:
-``` curl -kL https://raw.github.com/RosettaCommons/rosetta_clone_tools/master/get_rosetta.sh > get_rosetta.sh && bash get_rosetta.sh ```
+``` 
+curl -kL https://raw.github.com/RosettaCommons/rosetta_clone_tools/master/get_rosetta.sh > get_rosetta.sh && bash get_rosetta.sh 
+```
 
 
 ###Recommended Workflow
@@ -88,22 +90,23 @@ This development model can be distilled into five simple rules:
 
 A basic development flow following these guidelines would proceed as:
 
-* For new development, create a branch from the currently checked out revision: ```git personal-tracked-branch BRANCHNAME```
+* For new development, create a branch from the currently checked out revision: 
+`git personal-tracked-branch BRANCHNAME`
 This command will create a branch in your local repository named BRANCHNAME and a remote branch named `<github_username>/BRANCHNAME`.  The newly created branch will then be checked out. 
 
 * If the branch you wish to contribute to already exists on the github server:
-```git checkout <github_username>/BRANCHNAME```
+`git checkout <github_username>/BRANCHNAME`
 If your local repository is up to date ("git fetch origin"), this will create a local branch that will track the remote branch.
 
 * Commit your code to your branch. See the [[Git-Guide|http://rogerdudler.github.io/git-guide/]], [[GitReady|http://gitready.com/]] and [[Git Book|http://git-scm.com/doc]] for assistance. 
 When you commit the commit message template will be opened in your git editor. 
 Fill out the template, save the file and exit. 
-If you want to change the git editor, use ```git config --global core.editor "EDITOR_NAME"```.
+If you want to change the git editor, use `git config --global core.editor "EDITOR_NAME"`.
 
 * Push your branch regularly to github so that it is backed up and available to others.
-```git push origin <githubusername>/BRANCHNAME```
+`git push origin <githubusername>/BRANCHNAME`
 If you want to push everything (all the branches in your repository) and you only have one remote configured (this is the case unless you explicitly add another remote), you can just use
-```git push```
+`git push`
 **Note**: there are probably many cases where you do not want to push everything.  If you have not pulled from github, you may not have all the commits in other branches, and so if you try to run "git push," it will be rejected with the (distressing) comment that you should try the --force flag, i.e. "git push --force".  Do not try to push with the --force flag.  For more information on commands you should not use, check out [[this page (still on media wiki)|https://wiki.rosettacommons.org/index.php/GitNoNoCommands]].
 **Note**: If you're using git 1.8 or higher, "git push" will try to push only the branch you have checked out.
 **Note**: After 5/13/2013, if you have updated your gitconfig, then git versions earlier than 1.8 should also push only the branch you have checked out.
@@ -198,13 +201,15 @@ you can now stage and commit your changes in your new branch
 These are installed in your .git/config file when you use the configure_rosetta_repo.sh script.
 
 `git show-graph`: Print an ascii art representation of the current branch, with commit-ids and one sentance commit message summaries.  This is an alias to 
-```   log --graph --abbrev-commit --pretty=oneline```
+```
+   log --graph --abbrev-commit --pretty=oneline
+```
 
 `git personal-tracked-branch`: Set up a new feature branch in your username namespace that tracks the remote.  The following command will create a branch called `<username>/test`:
-``` git personal-tracked-branch test```
+` git personal-tracked-branch test`
 
 `git tracked-branch`: Set up a new namespaced branch that tracks the remote.  The following command will create a branch called `group1/test`:
-``` git tracked-branch test group1```
+`git tracked-branch test group1`
 
 ###Working on multiple machines###
 
