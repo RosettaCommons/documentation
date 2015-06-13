@@ -1,5 +1,7 @@
 #What are "internal coordinates" and why does Rosetta use them?
 
+_This is an essay, but feel free to fill it with links as necessary._
+
 In Cartesian terms, each atom of each residue represents three degrees of freedom.
 Each atomic position varies independently and could be separately optimized.
 In fact, in [[Cartesian minimization]], particular Rosetta protocols do precisely that.
@@ -20,7 +22,7 @@ Relying on internal coordinates provides a tiny subset of all Cartesian space an
 Particular protocols rely on Cartesian coordinate and minimization, and that is fine. But unless there is a strong reason to do so, or unless you have reason to believe that you have in your initial sampling gotten sufficiently close to the desired answer already that the majority of the degrees of freedom are well constrained and the rest can be optimized.
 This echoes a common motif in Rosetta specifically and in Monte Carlo simulation in general (in any circumstance where you have to sample a big space and have to settle for not doing so exhaustively):
 You are much better off sampling degrees of freedom asynchronously.
-This is why there exist two phases to many protocols (low- and high-resolution), for example.
+This is why there exist two phases to many protocols ([[low- and high-resolution|centroid-vs-fullatom]]), for example.
 Exploiting the reduced set of variables provided by relying on internal coordinates is essential to Rosetta sampling algorithms.
 
 
