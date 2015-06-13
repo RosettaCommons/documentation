@@ -12,7 +12,7 @@
 
   * [[Pose|Rosetta-overview#pose]]
 
-  * [[Movers]]
+  * [[Mover]]
 
   * [[Scoring in Rosetta|scoring-explained]]
 
