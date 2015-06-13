@@ -170,6 +170,5 @@ The MPI-mode build test simply tries to compile Rosetta with the ```-extras=mpi`
 ## See Also
 
 * [[Getting Started]]
-* [[Common errors]]: Common errors when building Rosetta
 * [[Platforms]]: Supported platforms for Rosetta
 * [[Scons Overview and Specifics]]: Detailed information on the Scons compiling system

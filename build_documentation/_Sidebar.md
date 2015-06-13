@@ -8,8 +8,6 @@
 
 * [[Advanced Scons information|Scons-Overview-and-Specifics]]
 
-* [[Common Errors]]
-
 [[Rosetta Basics|rosetta_basics/Rosetta-Basics]]
 
 [[Application Documentation|application_documentation/Application-Documentation]]
