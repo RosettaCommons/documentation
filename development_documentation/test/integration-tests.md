@@ -4,7 +4,7 @@ The tests live in `{Rosetta}/main/tests/integration`: the main repository, but n
 **Developers are expected to run these tests before merging code to `master`.**
 Non-developers should have no interest in the integration tests, unless they want to examine them as short demos.
 
-What integration tests do and not do
+What integration tests do and do not do
 ====================================
 
 The integration tests are "black box tests" that examine the results of big chunks of code.
@@ -21,8 +21,8 @@ They do not:
  * They are long enough to have numerical noise and processor difference effects (which are grabbed by Monte Carlo and blown into full trajectory differences).  This is a known weakness and just the way it is.
 * Produce scientifically useful results
  * The short runtime is more important than result validity
- * This is the goal of [[scientific tests]]
- * Runtime in an absolute sense is checked by [[performance tests]]
+ * This is the goal of [[scientific tests|Scientific-Benchmarks]]
+ * Runtime in an absolute sense is checked by [[performance tests|Performance-Benchmarks]]
 * check that the code works right
  * Integration tests only check that it runs the same as before, not that it's right
  * This is the goal of [[unit tests]]
