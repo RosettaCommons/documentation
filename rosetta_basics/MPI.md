@@ -55,6 +55,7 @@ TODO
 
 ##See Also
 
+* [[JD2]]: The Job Distributor, commonly used when running MPI protocols
 * [[Running Rosetta with options]]
 * [[Build Documentation]]: Information on building Rosetta
 * [[Rosetta Basics]]
