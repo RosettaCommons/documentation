@@ -1,7 +1,7 @@
 # MPI
 ## Using Rosetta with MPI
 
-MPI ([Message Passing Interface](https://en.wikipedia.org/wiki/Message_Passing_Interface) is a method to coordinate processing runs across multiple processors and multiple machines. Many of the large computational clusters use MPI to manage running jobs.
+MPI ([Message Passing Interface](https://en.wikipedia.org/wiki/Message_Passing_Interface)) is a method to coordinate processing runs across multiple processors and multiple machines. Many of the large computational clusters use MPI to manage running jobs.
 
 MPI is intended for programs which require frequent coordination between processors during the run. Most Rosetta protocols are considered to be "trivially parallelizable" - each output structure is generated in isolation from other output structures. Therefore, there is little distinction between a single multiprocessor run with MPI and multiple single processor runs. In these protocols, MPI is only used to coordinate outputting structures between the processors. The two advantages of an MPI run is slightly better handling of output (multiple single processor runs require post-processing to combine outputs), and the ability to run on clusters which require running with MPI.
 
