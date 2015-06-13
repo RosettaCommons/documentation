@@ -22,3 +22,9 @@ This echoes a common motif in Rosetta specifically and in Monte Carlo simulation
 You are much better off sampling degrees of freedom asynchronously.
 This is why there exist two phases to many protocols (low- and high-resolution), for example.
 Exploiting the reduced set of variables provided by relying on internal coordinates is essential to Rosetta sampling algorithms.
+
+
+##See Also
+
+* [[Atomtree overview]]
+* [[Rosetta overview]]

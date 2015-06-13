@@ -2,7 +2,7 @@
 
 Further Terms
 =============
-This section supplements the main [[Score Types|rosetta_basics/score-types]] section with other energy terms available in Rosetta.
+This section supplements the main [[Score Types|score-types]] section with other energy terms available in Rosetta.
 
 Context-independent two-body energy terms
 =========================================

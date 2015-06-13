@@ -1,10 +1,12 @@
+#Integration Tests
+
 Rosetta's *integration tests* are a set of testing tools that test short protocol runs before and after changes to the code, and compare the protocols' output to check for unexpected changes. 
 They are useful for determining whether code behavior **changes** but not whether it is **correct**. 
 The tests live in `{Rosetta}/main/tests/integration`: the main repository, but not directly with the code.
 **Developers are expected to run these tests before merging code to `master`.**
 Non-developers should have no interest in the integration tests, unless they want to examine them as short demos.
 
-What integration tests do and not do
+What integration tests do and do not do
 ====================================
 
 The integration tests are "black box tests" that examine the results of big chunks of code.
@@ -21,8 +23,8 @@ They do not:
  * They are long enough to have numerical noise and processor difference effects (which are grabbed by Monte Carlo and blown into full trajectory differences).  This is a known weakness and just the way it is.
 * Produce scientifically useful results
  * The short runtime is more important than result validity
- * This is the goal of [[scientific tests]]
- * Runtime in an absolute sense is checked by [[performance tests]]
+ * This is the goal of [[scientific tests|Scientific-Benchmarks]]
+ * Runtime in an absolute sense is checked by [[performance tests|Performance-Benchmarks]]
 * check that the code works right
  * Integration tests only check that it runs the same as before, not that it's right
  * This is the goal of [[unit tests]]
@@ -30,7 +32,7 @@ They do not:
 When to run integration tests
 =============================
 **Developers are expected to run integration tests before merging to `master`.**
-Just run the whole set of tests before you merge, as part of the [[before you merge]] protocol.
+Just run the whole set of tests before you merge, as part of the [[before you merge|before-commit-check]] protocol.
 Remember that it is perfectly ok if there are expected integration test changes due to code you changed: if you've rewritten your protocol, of course its tests will change!
 The purpose of the tests in this fashion is to ensure that there are not *unexpected* changed, and that the changes that are expected are *explicable* from the code that changed.
 
@@ -71,7 +73,7 @@ Just generated 'ref' results [renamed 'new' to 'ref'];  run again after making c
 If most/all of the tests failed, you may have something misconfigured.
 The most likely problem is that your compilation failed in step 2 above.
 If you compiled with clang, pass `-c clang` to inform `integration.py` to look for your clang executables. 
-`integration.py` also accepts --mode and --extras flags analogous to [[scons]] when building, to help it look for the right executables.
+`integration.py` also accepts --mode and --extras flags analogous to [[scons|Scons-Overview-and-Specifics]] when building, to help it look for the right executables.
 `integration.py --help` prints a useful help list, and there is a `README` in its directory that can help as well.
 If all else fails, ask the mailing list.
 
@@ -79,7 +81,7 @@ Generating the `ref` from the same copy of Rosetta
 --------------------------------------------------
 If you only have one copy of Rosetta installed, you are in the unfortunate position of needing two sets of binaries from one copy of the code.
 You're just stuck with recompiling between `ref` and `new` generation.
-Follow the same instructions [[as above]] - just be careful you have no local uncommitted changes before checking out `master`.
+Follow the same instructions as above - just be careful you have no local uncommitted changes before checking out `master`.
 
 Generating the `new` and getting the test results
 -------------------------------------------------
@@ -138,7 +140,7 @@ Expected breaks
 ---------------
 If the only test result changes are ones that you expect from your code changes, you're in great shape!
 You can merge your code to `master`, or be confident that you understand your code works, etc.
-Be sure to mark expected integration test changes in the [[commit message|before you commit]] when you merge to `master`.
+Be sure to mark expected integration test changes in the [[commit message|before-commit-check]] when you merge to `master`.
 
 Unexpected changes
 ------------------
@@ -162,7 +164,7 @@ These occur the first time Rosetta is run (like if you got a new copy for separa
 
 Running MPI integration tests
 =============================
-We now have the ability to run integration tests in [[MPI]], mostly for for testing the integration of components with the parallel [[JobDistributors]].  Instructions for running tests are as before, except you need `-extras=mpi` as an argument to `scons` and `-mpi-tests` as an argument to `integration.py`.
+We now have the ability to run integration tests in [[MPI]], mostly for for testing the integration of components with the parallel [[JobDistributors|jd2]].  Instructions for running tests are as before, except you need `-extras=mpi` as an argument to `scons` and `-mpi-tests` as an argument to `integration.py`.
 
 1.  Compile in *full application release* mode with **-extras=mpi**.
     `./scons.py -j<number_of_processors_to_use> mode=release bin -extras=mpi`

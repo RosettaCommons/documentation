@@ -10,7 +10,7 @@ There are many operations that take Movers, and specifically the JobDistributor 
 The sampling in question is generally organized in the apply() function, where other movers, protocols, and pose-altering functionality may be called.
 In order to be functional in RosettaScripts, a Mover must implement a parse_my_tag function that interprets the XML tag, a fresh_instance function, and a clone function.
 
-## Novers within Rosetta
+## Movers within Rosetta
 The Mover is arguably the second most important class in Rosetta, next to the Pose.
 The Pose contains a structure that the Mover has the unique responsibility of managing.
 Most Movers fit into one of four categories:

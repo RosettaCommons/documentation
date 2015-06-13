@@ -23,18 +23,26 @@ public:
 ```
 
 * To fix an unused parameter warning, simply remove the variable name from the declaration:
-```void foo(char bar);```
+```
+void foo(char bar);
+```
 to:
-```void foo(char /*bar*/);``` 
+```
+void foo(char /*bar*/);
+```
 or (better, if you never intend to use `bar` in the implementation of `foo`):
-```void foo(char);```
+```
+void foo(char);
+```
+
+>>>>>>> 39737bef0814ff5f067e725d7984346053b2f888
 * To compare a "non-pointer" with `NULL`, use `get()` on the `OP`.
 
 * To avoid "foo will be initiallized after bar" warnings, initialize in the same order as the private data is listed in the `.hh` file.
 
 * If you can't use `core::Size` to fix a type comparison warning (because you are lower than `core`), use `platform::Size` instead.
 
-*Code like this:
+* Code like this:
 ```
 foo = R"bar(
         var1, var2
