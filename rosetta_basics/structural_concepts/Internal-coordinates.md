@@ -2,7 +2,7 @@
 
 In Cartesian terms, each atom of each residue represents three degrees of freedom.
 Each atomic position varies independently and could be separately optimized.
-In fact, in [Cartesian minimization], particular Rosetta protocols do precisely that.
+In fact, in [[Cartesian minimization]], particular Rosetta protocols do precisely that.
 
 The issue is that, broadly speaking, 3N degrees of freedom is just too many!
 So we obtain an approximation to these degrees of freedom that make our lives much easier and require us to search much less space.
