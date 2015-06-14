@@ -13,7 +13,7 @@ Generally, a user will [[choose some specific protocol within Rosetta|Solving-a-
 
 
 <<RawHtml(
-<img src="/uploads/coldStart.png" usemap="#GraffleExport" alt="missing image">
+<img src="images/coldStart.png" usemap="#GraffleExport" alt="missing image">
 
 <map name="GraffleExport">
 	<area shape="rect" coords="330,305,421,376" href="[[Getting-Started#test]]">
