@@ -36,7 +36,7 @@ require 'gollum/app'
 require_relative './rosetta_gollum_config.rb'
 
 
-map '/docs/wiki' do
+map '/docs/static' do
   gollum_path = File.expand_path(File.dirname(__FILE__))
   Precious::App.set(:gollum_path, gollum_path)
 
