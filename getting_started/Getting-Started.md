@@ -94,11 +94,12 @@ Expect compilation to take a while (hours on one processor).
 See our extensive [[build documentation|Build-Documentation#compiling-rosetta-3]] for further instructions and troubleshooting.
 
 ###Windows
-Unfortunately, we are not currently able to support Rosetta on Windows.
+Unfortunately, we are not currently able to support the whole of Rosetta on Windows.
 There are few free, easy-to-use C++ compilers available for Windows, and they use slightly different C++ standards.
-[[Dual booting|http://en.wikipedia.org/wiki/Multi-booting#Windows_and_Linux]] is an option.
+[[Dual booting|http://en.wikipedia.org/wiki/Multi-booting#Windows_and_Linux]] or [[virtual machines|https://en.wikipedia.org/wiki/Virtual_machine]] running Linux/MacOS are options.
 We cannot help set up Windows/Linux dual boots, but we can help with Rosetta on the Linux partition.
-[[PyRosetta|scripting_documentation/PyRosetta/PyRosetta]], a Python-based interface to Rosetta, is supported on Windows.
+A subset of Rosetta that is required by
+[[PyRosetta|scripting_documentation/PyRosetta/PyRosetta]], a Python-based interface to Rosetta, is supported on Windows and made available on http://www.pyrosetta.org.
 
 ###Use on supercomputer clusters
 If you'll be running Rosetta on a scientific computation cluster, there may already be a version of Rosetta installed for general usage.
