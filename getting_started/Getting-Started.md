@@ -13,15 +13,15 @@ Generally, a user will [[choose some specific protocol within Rosetta|Solving-a-
 
 
 <<RawHtml(
-<img src="/images/coldStart.png" usemap="#GraffleExport" alt="missing image">
+<img src="../images/coldStart.png" usemap="#GraffleExport" alt="missing image">
 
 <map name="GraffleExport">
-	<area shape="rect" coords="330,305,421,376" href="[[Getting-Started#test]]">
-	<area shape="rect" coords="226,305,317,376" href="Getting-Started#test">
-	<area shape="rect" coords="122,305,213,376" href="Getting-Started#test">
-	<area shape="rect" coords="377,166,532,253" href="Getting-Started/##Use of Public Rosetta Servers">
-	<area shape="rect" coords="11,166,166,253" href="Getting-Started/#Use of Public Rosetta Servers">
-	<area shape="rect" coords="189,11,354,97" href="Getting-Started#Use of Public Rosetta Servers">
+	<area shape="rect" coords="330,305,421,376" href="Getting-Started#local-installation-and-use-of-rosetta_use-on-supercomputer-clusters">
+	<area shape="rect" coords="226,305,317,376" href="Getting-Started#local-installation-and-use-of-rosetta_installation-on-mac-linux">
+	<area shape="rect" coords="122,305,213,376" href="Getting-Started#local-installation-and-use-of-rosetta_windows">
+	<area shape="rect" coords="377,166,532,253" href="Getting-Started#use-of-rosetta-on-national-scale-supercomputing-resources">
+	<area shape="rect" coords="11,166,166,253" href="Getting-Started#public-rosetta-servers">
+	<area shape="rect" coords="189,11,354,97" href="Getting-Started#do-i-have-what-i-need">
 </map>
 )>>
 
