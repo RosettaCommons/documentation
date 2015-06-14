@@ -21,6 +21,7 @@ Generally, a user will [[choose some specific protocol within Rosetta|Solving-a-
 	<area shape="rect" coords="122,305,213,376" href="Getting-Started#local-installation-and-use-of-rosetta_windows">
 	<area shape="rect" coords="377,166,532,253" href="Getting-Started#use-of-rosetta-on-national-scale-supercomputing-resources">
 	<area shape="rect" coords="11,166,166,253" href="Getting-Started#public-rosetta-servers">
+	<area shape="rect" coords="194,166,349,253" href="Getting-Started#local-installation-and-use-of-rosetta">	
 	<area shape="rect" coords="189,11,354,97" href="Getting-Started#do-i-have-what-i-need">
 </map>
 )>>
