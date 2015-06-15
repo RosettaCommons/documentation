@@ -109,7 +109,7 @@ This is documentation for not-yet-released applications and code frameworks.
 
 - [[RosettaPCS]] - Protein folding using Pseudo-Contact-Shift NMR restraints
 
-#### Antibodies:
+#### Antibodies
 [[General Antibody Options and Tips]]
 
 Utilities:
