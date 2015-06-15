@@ -23,8 +23,18 @@ Backbone freedom is most expensive because it is a very rugged search space (tig
 The diagram sketches out different experiments available on a logarithmic nstruct scale.
 Assume computer time is positively correlated with nstruct.
 
-TODO: ask Elizabeth to image map this
-![Diagram: log scale in nstruct Rosetta protocols](nstruct_scale.png "log scale in nstruct Rosetta protocols")
+<<RawHtml(
+<img src="Rosetta-on-different-scales.png" usemap="#GraffleExport" alt="missing logarithm scale image">
+<map name="GraffleExport">
+	<area shape=rect coords="89,1146,574,1259" href="http://www.google.com">
+	<area shape=rect coords="89,972,574,1117" href="http://www.google.com">
+	<area shape=rect coords="89,805,574,951" href="http://www.google.com">
+	<area shape=rect coords="89,646,574,791" href="http://www.google.com">
+	<area shape=rect coords="89,519,574,598" href="http://www.google.com">
+	<area shape=rect coords="89,327,574,472" href="http://www.google.com">
+	<area shape=rect coords="89,201,574,280" href="http://www.google.com">
+</map>
+)>>
 
 10<sup>0</sup>
 ------------------
