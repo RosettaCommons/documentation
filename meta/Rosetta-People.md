@@ -1,3 +1,4 @@
+#Rosetta people
 <!---BEGIN_INTERNAL-->
 This page is the "Rosetta Glory", by analogy to the Rosetta [[Glossary]]: a list of important folks in the Rosetta community.  This page is intentionally kept clear of pictures and contact info for privacy reasons - you will be able to find these people on the rosetta-devel [[email list|https://wiki.rosettacommons.org/index.php/Mailing_Lists]] if necessary.
 <!---END_INTERNAL-->
