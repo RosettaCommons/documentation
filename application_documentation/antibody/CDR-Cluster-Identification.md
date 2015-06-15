@@ -1,4 +1,4 @@
-#CDR Cluster Identification Utility App
+#CDR Cluster Identification
 
 Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
