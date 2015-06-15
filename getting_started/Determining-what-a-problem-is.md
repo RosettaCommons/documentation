@@ -46,10 +46,9 @@ This is 100% Rosetta's fault.
 
 3. The problem is well-formed, but very complex.
 It may be within Rosetta's capability, but not using a preexisting protocol - perhaps it requires a long [[RosettaScript|RosettaScripts]].
-Perhaps it is just beyond what Rosetta can do, requiring only a [[Mover|Glossary#mover]] or two. 
+Perhaps it is just beyond what Rosetta can do, requiring a new [[Mover]] or two. 
 This sort of project is reasonable for a Rosetta developer graduate student, but perhaps not as a minor project for a cellular biology grad student in a non-Rosetta lab.
-We do see projects of this type fairly frequently on the Rosetta Forums.
-
+We do see projects of this complexity fairly frequently on the [[Rosetta Forums]].
 
 ##See Also
 * [[Resources for learning biophysics and computational modeling]]
