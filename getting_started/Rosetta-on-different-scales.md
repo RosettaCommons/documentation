@@ -26,13 +26,13 @@ Assume computer time is positively correlated with nstruct.
 <<RawHtml(
 <img src="Rosetta-on-different-scales.png" usemap="#GraffleExport" alt="missing logarithm scale image">
 <map name="GraffleExport">
-	<area shape=rect coords="89,1146,574,1259" href="http://www.google.com">
-	<area shape=rect coords="89,972,574,1117" href="http://www.google.com">
-	<area shape=rect coords="89,805,574,951" href="http://www.google.com">
-	<area shape=rect coords="89,646,574,791" href="http://www.google.com">
-	<area shape=rect coords="89,519,574,598" href="http://www.google.com">
-	<area shape=rect coords="89,327,574,472" href="http://www.google.com">
-	<area shape=rect coords="89,201,574,280" href="http://www.google.com">
+	<area shape=rect coords="89,1146,574,1259" href="Rosetta-on-different-scales#100">
+	<area shape=rect coords="89,972,574,1117" href="Rosetta-on-different-scales">
+	<area shape=rect coords="89,805,574,951" href="Rosetta-on-different-scales">
+	<area shape=rect coords="89,646,574,791" href="Rosetta-on-different-scales">
+	<area shape=rect coords="89,519,574,598" href="Rosetta-on-different-scales">
+	<area shape=rect coords="89,327,574,472" href="Rosetta-on-different-scales">
+	<area shape=rect coords="89,201,574,280" href="Rosetta-on-different-scales">
 </map>
 )>>
 
