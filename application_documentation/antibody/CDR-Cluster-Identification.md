@@ -1,4 +1,5 @@
 Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
+
 PI: Roland Dunbrack
 
 # Overview
@@ -31,7 +32,7 @@ App: identify_cdr_clusters
 Typical Rosetta input/output options are followed. MPI is supported, pass the <code>-l</code> option to identify a list of PDBs.  Use <code>-no_output</code> to not have pdb files echoed.  Make sure to pass <code>-numbering_scheme</code> with your antibody's numbering scheme if it is not renumbered in Chothia.
 
 ## Example Command Line:
-<code> identify_cdr_clusters.macosclangrelease -numbering_scheme AHO_Scheme -ignore_unrecognized_res -no_output -s 2J88.pdb </code>
+_identify_cdr_clusters.macosclangrelease -numbering_scheme AHO_Scheme -ignore_unrecognized_res -no_output -s 2J88.pdb_
 
 ##See Also
 
