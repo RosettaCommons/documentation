@@ -439,6 +439,7 @@ void fold_protein( std::string const & sequence );
   static basic::Tracer TR("core.io.pdb.file_data");
 ```
 ----
+
 ##Coding Templates
 The following templates can assist in learning the coding conventions. They also will save you a lot of time. Please add your own Rosetta 3 coding-convention-compliant templates to list below, which is organized by IDE and file type.
 
