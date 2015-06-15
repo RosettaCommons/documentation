@@ -43,7 +43,7 @@ Locally minimize a structure using a given scoring function and minimization typ
 ### [[minimize_ppi]]
 Minimize a ligand at an interface and dump a lot of analysis information.
 
-### [[packstat]]
+### [[packstat | RosettaHoles]]
 Computes advanced cavity detection statistics on PDB structures to analyze packing quality.
 
 ### [[relax]]
@@ -52,13 +52,13 @@ Perform cycles of all-atom minimization and sidechain repacking with a ramping r
 ### [[remodel]]
 Massively versatile application for expanding and contracting structures; it essentially brings the sampling framework of loop modeling to scenarios that require design.
 
-### [[sequence_tolerance]]
+### [[sequence_tolerance | Sequence tolerance]]
 This application uses a genetic algorithm and repeated backrub sampling with a resfile to optimize the sequence of a protein and explore the range of residue identities that that structure permits.
 
 ### [[SymDock]]
 Dock a set of symmetric oligomers.
 
-### [[vip]]
+### [[vip | RosettaHoles]]
 Locate buried voids using an early version of RosettaHoles and attempt point mutants that might reduce void volume.
 
 ### [[contactMap]]
@@ -70,25 +70,25 @@ Obtain weighted RMSD of a set of decoys, align them, and write them out.
 ### [[fast_clustering]]
 Obtain weighted RMSD of a set of decoys and then cluster them, using a more traditional clustering algorithm than cluster.
 
-### [[InterfaceAnalyzer]]
+### [[InterfaceAnalyzer | Interface analyzer]]
 Performs extensive analysis on the residues present at the interface, generating a wide variety of metrics.
 
-### [[PeptideDeriver]]
+### [[PeptideDeriver | PeptiDerive]]
 Form a peptide macrocycle from a conformation of a peptide in a binding pocket.
 
 ### [[per_residue_energies]], [[residue_energy_breakdown]]
 Prints out the per residue energy breakdown for every residue in a pose.
 
-### [[score]], [[score_jd2]]
+### [[score]], [[score_jd2 | score-commands]]
 Scores a given PDB with the requested scoring function. Can also be used to extract models with a given tag from a silent file into a PDB. score_jd2 takes advantage of the modern job distributor.
 
 ### [[antibody_legacy]]
 Legacy code to perform antibody structure determination.
 
-### [[antibody_graft]]
+### [[antibody_graft | antibody-assemble-cdrs]]
 Graft new loop onto an existing antibody framework.
 
-### [[antibody_H3]]
+### [[antibody_H3 | antibody-model-CDR-H3]]
 Models the CDR H3 loop of an antibody in conjunction with optimizing surrounding loops and VH/VL orientation.
 
 ### [[minirosetta|Glossary#minirosetta]]
@@ -142,7 +142,7 @@ Minimize with constraints on all pairs of CA atoms. I
 Repacks a pose using a resfile.
 Naturally, fixbb's iconic use is for fixed-backbone design; this is identical internally to repacking a pose using a resfile and merely allowing rotamers of other amino acids at one or more positions.
 
-### [[mpi_msd]]
+### [[mpi_msd | mpi-msd]]
 Perform multistate design using a genetic algorithm with a structure ensuring that corresponding residues in different states are packed to the same rotamer, using MPI.
 
 ### [[pmut_scan_parallel]]
@@ -164,7 +164,7 @@ Intended to mutate exposed residues to predominantly have positive or negative c
 Can set a target charge or not; can be run in a deterministic AvNAPSA mode or  a stochastic pack_rotamers mode.
 By default, only mutates to lysine for positive mode or glutamate (except starting from asparagine) in negative mode; can accept custom reference energies in Rosetta mode.
 
-### [[zinc_heterodimer_design]]
+### [[zinc_heterodimer_design | Zinc heterodimer design]]
 Designs three residues of a zinc binding site on ankyrin, then use a residue from the other protein to define the interface orientation, sample rigid body space, then design.
 
 ### [[zinc2_homodimer_setup]]
@@ -174,23 +174,23 @@ Grid searches zinc-zinc axis rotations and dumps uneclipsed poses with good meta
 ### [[zinc2_homodimer_design]]
 Symmetric design on a zinc-mediated homodimer, with minimization of sidechains, backbones, and the jump.
 
-### [[docking_prepack_protocol]]
+### [[docking_prepack_protocol ]]
 Prepacks the interface between a pair of chains to prepare for a docking simulation.
 
-### [[docking_protocol]]
+### [[docking_protocol | docking-protocol]]
 The main workhorse of classical rigid body docking, which can perform both the low resolution global centroid protocol and the high resolution refinement protocol.
 
 ### [[loops_from_density]]
 Given a structure and electron density data to which it has a poor fit, generate loops files that would make Rosetta remodel up to the given fraction of the starting structure.
 
-### [[mr_protocols]]
+### [[mr_protocols | mr-protocols]]
 Uses fragments to perform a molecular replacement protocol into electron density data.
 
 ### [[CstfileToTheozymePDB]]
 Given an enzyme constraint file, produces an inverse rotamer tree of the residues in question (which form a geometrically ideal "theoretical enzyme") and dump it as a multimodel PDB.
 As "stealth functionality," can take a PDB using -s that will be aligned to the theozyme created.
 
-### [[enzyme_design]]
+### [[enzyme_design | Enzyme Design]]
 Performs fixed or flexible backbone enzyme design with ligand rotamer sampling.
 
 ### [[rna_cluster]]
@@ -221,16 +221,16 @@ Employs iber diffraction data to refine protein structures.
 ### [[BuildPeptide]]
 Builds a peptide of a given sequence in extended conformation.
 
-### [[FlexPepDocking]]
+### [[FlexPepDocking | flex-pep-dock]]
 Dock a peptide in a binding pocket with full peptide backbone flexibility. A starting pose with the peptide near its putative binding pocket is preferred, though in the ab initio mode, no knowledge about the peptide's final conformation is needed.
 
-### [[AnchoredDesign]]
+### [[AnchoredDesign | Anchored design]]
 Design a protein-protein interface anchored by a portion grafted from a native interface.
 
-### [[AnchoredPDBCreator]]
+### [[AnchoredPDBCreator | Anchored pdb creator]]
 Grafts an "anchor" region from one protein onto another to help the latter protein successfully bind the former's native partner.
 
-### [[AnchorFinder]]
+### [[AnchorFinder | Anchor finder]]
 Locate interfaces in the PDB that have "anchor" regions of high loopiness and excellent interface binding energies, to be grafted onto other proteins to aid in dimerization.
 
 ### [[validate_database]]
@@ -239,7 +239,7 @@ Ensure that the Rosetta database is internally consistent (for example, the Dunb
 ### [[extract_atomtree_diffs]]
 Atomtree_diff silent files are a particular format of silent file; this application converts them into many PDB files.
 
-### [[ligand_dock]]
+### [[ligand_dock | ligand-dock]]
 Dock ligands to proteins. DEPRECATED BY RosettaScripts movers. Use is not supported and is only relevant for consistency with legacy workflows.
 
 ### [[ligand_rpkmin]]
@@ -249,7 +249,7 @@ Minimize and repack sidechains, for preparing structures prior to ligand docking
 Take top 5% of poses by total score, sorted by interface energy.
 Work through one by one and keep poses that are at least min_rmsd away from the poses kept thus far.
 
-### [[loopmodel]]
+### [[loopmodel | loopmodel]]
 Model flexible protein loops with one of many algorithms, including CCD (cyclic coordinate descent) and KIC (kinematic closure).
 
 ### [[gen_apo_grids]]
@@ -258,7 +258,7 @@ Generate grids for the _apo_ (unliganded) form of the protein by searching the c
 ### [[gen_lig_grids]]
 Generate grids for the _holo_ protein-ligand structure.
 
-### [[match]]
+### [[match | Match]]
 Orient residues around a ligand to match particular scaffold atoms.
 
 ### [[membrane_abinitio2]]
