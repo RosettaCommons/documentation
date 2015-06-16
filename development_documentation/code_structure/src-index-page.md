@@ -14,9 +14,9 @@ This figure demonstrates the relationships between the libraries:
 	<area shape=poly coords="738,720,738,764,540,764,540,720,738,720" href=src-index-page#objexxfcl-library>
 	<area shape=rect coords="516,590,763,633" href=src-index-page#objexxfcl-library>
 	<area shape=poly coords="303,720,303,764,104,764,104,720,303,720" href=src-index-page#objexxfcl-library>
-	<area shape=rect coords="79,307,327,351" href=src-index-page#basic-library>
-	<area shape=rect coords="78,211,326,254" href=src-index-page#numeric-library>
-	<area shape=rect coords="78,114,326,158" href=src-index-page#utility-library>
+	<area shape=rect coords="55,200,227,250" href=src-index-page#basic-library>
+	<area shape=rect coords="55,150,226,175" href=src-index-page#numeric-library>
+	<area shape=rect coords="55,70,226,120" href=src-index-page#utility-library>
 	<area shape=rect coords="55,10,225,50" href=src-index-page#objexxfcl-library>
 </map>
 )>>
