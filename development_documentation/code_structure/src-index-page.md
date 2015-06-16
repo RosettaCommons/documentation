@@ -17,7 +17,7 @@ This figure demonstrates the relationships between the libraries:
 	<area shape=rect coords="79,307,327,351" href=src-index-page#basic-library>
 	<area shape=rect coords="78,211,326,254" href=src-index-page#numeric-library>
 	<area shape=rect coords="78,114,326,158" href=src-index-page#utility-library>
-	<area shape=rect coords="50,17,250,60" href=src-index-page#objexxfcl-library>
+	<area shape=rect coords="55,10,225,50" href=src-index-page#objexxfcl-library>
 </map>
 )>>
 
