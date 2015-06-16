@@ -17,7 +17,7 @@ This figure demonstrates the relationships between the libraries:
 	<area shape=rect coords="79,307,327,351" href="http://www.google.com">
 	<area shape=rect coords="78,211,326,254" href="http://www.google.com">
 	<area shape=rect coords="78,114,326,158" href="http://www.google.com">
-	<area shape=rect coords="78,17,326,60" href="http://www.google.com">
+	<area shape=rect coords="78,17,326,60" href=src-index-page#objexxfcl-library>
 </map>
 )>>
 
