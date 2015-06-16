@@ -13,7 +13,7 @@ This figure demonstrates the relationships between the libraries:
 <map name="RosettaLibraries">
 	<area shape=rect coords="255,375,325,400" href=src-index-page#devel-library>
 	<area shape=rect coords="55,375,225,400" href=src-index-page#protocols-library>
-	<area shape=rect coords="10,280,300,370" href=src-index-page#core-library>
+	<area shape=rect coords="10,285,295,365" href=src-index-page#core-library>
 	<area shape=rect coords="55,220,227,250" href=src-index-page#basic-library>
 	<area shape=rect coords="55,150,226,175" href=src-index-page#numeric-library>
 	<area shape=rect coords="55,80,226,110" href=src-index-page#utility-library>
