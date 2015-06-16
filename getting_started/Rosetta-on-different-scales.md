@@ -18,7 +18,7 @@ The major classes of degrees of freedom, in order of complexity, are:
 * sidechain design freedom (functionally a superset of rotameric freedom: some rotamer just have different atoms)
 * rigid body freedom (docking problems)
 * backbone freedom (moving the backbone atoms relative to one another)
-Backbone freedom is most expensive because it is a very rugged search space (tightly packed atoms must be moved carefully) and, as a consequence of [[internal coordinate folding]], large motions can produce lever arm effects that disturb large parts of models.
+Backbone freedom is most expensive because it is a very rugged search space (tightly packed atoms must be moved carefully) and, as a consequence of [[internal coordinate folding|internal coordinates]], large motions can produce lever arm effects that disturb large parts of models.
 
 The diagram sketches out different experiments available on a logarithmic nstruct scale.
 Assume computer time is positively correlated with nstruct.
