@@ -23,16 +23,17 @@ Backbone freedom is most expensive because it is a very rugged search space (tig
 The diagram sketches out different experiments available on a logarithmic nstruct scale.
 Assume computer time is positively correlated with nstruct.
 
+<!--- NOTE the image map is upside-down for whatever reason --->
 <<RawHtml(
 <img src="Rosetta-on-different-scales.png" usemap="#GraffleExport" alt="missing logarithm scale image">
 <map name="GraffleExport">
-	<area shape=rect coords="89,1146,574,1259" href="Rosetta-on-different-scales#100">
-	<area shape=rect coords="89,972,574,1117" href="Rosetta-on-different-scales">
-	<area shape=rect coords="89,805,574,951" href="Rosetta-on-different-scales">
-	<area shape=rect coords="89,646,574,791" href="Rosetta-on-different-scales">
-	<area shape=rect coords="89,519,574,598" href="Rosetta-on-different-scales">
-	<area shape=rect coords="89,327,574,472" href="Rosetta-on-different-scales">
-	<area shape=rect coords="89,201,574,280" href="Rosetta-on-different-scales">
+	<area shape=rect coords="89,1146,574,1259" href="Rosetta-on-different-scales#106">
+	<area shape=rect coords="89,972,574,1117" href="Rosetta-on-different-scales#105">
+	<area shape=rect coords="89,805,574,951" href="Rosetta-on-different-scales#104">
+	<area shape=rect coords="89,646,574,791" href="Rosetta-on-different-scales#103">
+	<area shape=rect coords="89,519,574,598" href="Rosetta-on-different-scales#102">
+	<area shape=rect coords="89,327,574,472" href="Rosetta-on-different-scales#101">
+	<area shape=rect coords="89,201,574,280" href="Rosetta-on-different-scales#100">
 </map>
 )>>
 
