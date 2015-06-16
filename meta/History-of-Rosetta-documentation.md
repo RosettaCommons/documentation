@@ -82,8 +82,28 @@ A large part of the Rosetta documentation's problem is searchability and discove
 We have attempted to address both problems with the XRW2015 rewrite, but are somewhat hobbled by the available search tools. 
 Gollum's embedded search tool is not very good, and using Google's page search is effective but injects ads.
 
-<!-- Hidden HTML Keywords for Searchability
+<!-- Hidden HTML Keywords for Searchability - (repeats to push it up the list)
 History
+History
+History
+History
+History
+History
+History
+History
+History
+History
+History
+History
+Documentation
+Documentation
+Documentation
+Documentation
+Documentation
+Documentation
+Documentation
+Documentation
+Documentation
 Documentation
 XRW
 Wiki
