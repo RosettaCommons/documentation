@@ -27,13 +27,13 @@ Assume computer time is positively correlated with nstruct.
 <<RawHtml(
 <img src="Rosetta-on-different-scales.png" usemap="#GraffleExport" alt="missing logarithm scale image">
 <map name="GraffleExport">
-	<area shape=rect coords="89,1146,574,1259" href="Rosetta-on-different-scales#106-and-up">
-	<area shape=rect coords="89,972,574,1117" href="Rosetta-on-different-scales#105">
-	<area shape=rect coords="89,805,574,951" href="Rosetta-on-different-scales#104">
-	<area shape=rect coords="89,646,574,791" href="Rosetta-on-different-scales#103">
-	<area shape=rect coords="89,519,574,598" href="Rosetta-on-different-scales#102">
-	<area shape=rect coords="89,327,574,472" href="Rosetta-on-different-scales#101">
-	<area shape=rect coords="89,201,574,280" href="Rosetta-on-different-scales#100">
+	<area shape=rect coords="89,1130,574,1240" href="Rosetta-on-different-scales#106-and-up">
+	<area shape=rect coords="89,950,574,1100" href="Rosetta-on-different-scales#105">
+	<area shape=rect coords="89,780,574,925" href="Rosetta-on-different-scales#104">
+	<area shape=rect coords="89,625,574,770" href="Rosetta-on-different-scales#103">
+	<area shape=rect coords="89,500,574,570" href="Rosetta-on-different-scales#102">
+	<area shape=rect coords="89,310,574,450" href="Rosetta-on-different-scales#101">
+	<area shape=rect coords="89,190,574,270" href="Rosetta-on-different-scales#100">
 </map>
 )>>
 
