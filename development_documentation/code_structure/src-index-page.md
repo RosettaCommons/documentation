@@ -11,12 +11,12 @@ This figure demonstrates the relationships between the libraries:
 <<RawHtml(
 <img src="RosettaLibraries.png" usemap="#RosettaLibraries" alt="missing library hierarchy image">
 <map name="RosettaLibraries">
-	<area shape=poly coords="738,720,738,764,540,764,540,720,738,720" href="http://www.google.com">
-	<area shape=rect coords="516,590,763,633" href="http://www.google.com">
-	<area shape=poly coords="303,720,303,764,104,764,104,720,303,720" href="http://www.google.com">
-	<area shape=rect coords="79,307,327,351" href="http://www.google.com">
-	<area shape=rect coords="78,211,326,254" href="http://www.google.com">
-	<area shape=rect coords="78,114,326,158" href="http://www.google.com">
+	<area shape=poly coords="738,720,738,764,540,764,540,720,738,720" href=src-index-page#objexxfcl-library>
+	<area shape=rect coords="516,590,763,633" href=src-index-page#objexxfcl-library>
+	<area shape=poly coords="303,720,303,764,104,764,104,720,303,720" href=src-index-page#objexxfcl-library>
+	<area shape=rect coords="79,307,327,351" href=src-index-page#basic-library>
+	<area shape=rect coords="78,211,326,254" href=src-index-page#numeric-library>
+	<area shape=rect coords="78,114,326,158" href=src-index-page#utility-library>
 	<area shape=rect coords="78,17,326,60" href=src-index-page#objexxfcl-library>
 </map>
 )>>
@@ -52,8 +52,7 @@ Classes in this directory sometimes have mathematical class methods, but algorit
 * [[xyzVector]]
 * [[xyzMatrix]]
 
-Numeric Library
-===============
+##Numeric Library
 
 [[Numeric Library|namespace-numeric]]
 
