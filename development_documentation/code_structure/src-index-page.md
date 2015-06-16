@@ -11,8 +11,8 @@ This figure demonstrates the relationships between the libraries:
 <<RawHtml(
 <img src="RosettaLibraries.png" usemap="#RosettaLibraries" alt="missing library hierarchy image">
 <map name="RosettaLibraries">
-	<area shape=rect coords="255,375,325,400" href=src-index-page#devel-library>
-	<area shape=rect coords="55,375,225,400" href=src-index-page#protocols-library>
+	<area shape=rect coords="300,375,525,400" href=src-index-page#devel-library>
+	<area shape=rect coords="10,385,295,465" href=src-index-page#protocols-library>
 	<area shape=rect coords="10,285,295,365" href=src-index-page#core-library>
 	<area shape=rect coords="55,220,227,250" href=src-index-page#basic-library>
 	<area shape=rect coords="55,150,226,175" href=src-index-page#numeric-library>
