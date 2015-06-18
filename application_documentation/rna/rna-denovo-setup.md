@@ -203,7 +203,7 @@ Advanced options
 -chain_connection        specify that pairings must occur between two sets of residues: SET1 <positions in set 1> SET2 <positions in set 2>
 ```
 
-Step 4. Build-up larger pieces by grafting or by more FARFAR
+Step 4. Build-up larger pieces by grafting or by more FARFAR <a name="rna-graft" />
 ---------------------------
 Once you have several models of sub pieces, they can be combined in two ways.
 
