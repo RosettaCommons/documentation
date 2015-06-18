@@ -79,7 +79,7 @@ The code takes about 1 minute to generate two models.
 
 The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a,c,g, and u. The example fasta file is available in `       main/tests/integration/tests/rna_denovo/      ` .
 
-Parameter files to specify Watson/Crick base pairs and strand boundaries < a name="Parameter-files-to-specify-Watson/Crick-base-pairs-and-strand-boundaries />
+Parameter files to specify Watson/Crick base pairs and strand boundaries
 ------------------------------------------------------------------------------------
 
 RNA motifs are typically ensconced within Watson/Crick double helices, and involve several strands. [The most conserved loop of the signal recognition particle is an example, and is included here as chunk002\_1lnt\_RNA.pdb.] You can specify the bounding Watson/Crick base pairs in a "params file" with lines like the following:
@@ -154,7 +154,7 @@ Advanced [used in rna_assembly]
 Tips
 ====
 
-File Format <a name="File-Format" />
+File Format 
 ------
 
 Note that in older versions of Rosetta, the PDBs may have residue types marked as rA, rC, rG, and rU and unusual atom names. Versions of Rosetta released after 3.5 have residue and atom names matching BMRB/NDB standard nomenclature. If you have a "standard" PDB file, there is a python script available to convert it to current Rosetta format:
@@ -163,7 +163,7 @@ Note that in older versions of Rosetta, the PDBs may have residue types marked a
 tools/rna_tools/bin/make_rna_rosetta_ready.py <pdb file>
 ```
 
-Can I specify non-Watson-Crick pairs? <a name="Can-I-specify-non-Watson-Crick-pairs?" />
+Can I specify non-Watson-Crick pairs? 
 -------------------------------------
 
 You can also specify base pairs that must be forced, even at the expense of creating temporary chainbreaks, in the params file, with a line like:
@@ -232,7 +232,7 @@ f_natNWC                                         fraction of native non-Watson-C
 f_natBP                                          fraction of base pairs recovered
 ```
 
-How do I just score? < a name="How-do-I-just-score?" />
+How do I just score?
 --------------------
 
 To get a score of an input PDB, you can run the 'denovo' protocol but ask there to be no fragment assembly cycles and no rounds of minimization:
@@ -249,7 +249,7 @@ If you want to minimize under the low resolution RNA potential (used in FARNA), 
 
 But this is not recommended if you are trying to score a model deposited in the PDB or created by other software – see next [How do I just minimize?](#How-do-I-just-minimize?)
 
-How do I just minimize? < a name="How-do-I-just-minimize?" />
+How do I just minimize? 
 -----------------------
 
 If you take a PDB created outside Rosetta, very small clashes may be strongly penalized by the Rosetta all-atom potential. Instead of scoring, you should probably do a short minimize, run:
@@ -279,7 +279,7 @@ You will typically use the protocol to produce a silent file – how do you get 
 Post Processing
 ===============
 
-Extraction Of Models Into PDB Format < a name="Extraction-Of-Models-Into-PDB-Format" />
+Extraction Of Models Into PDB Format
 ------------------------------------
 
 The models from the above run are stored in compressed format in the file test.out, along with lines representing the score components. You can see the models in PDB format with the conversion command.
