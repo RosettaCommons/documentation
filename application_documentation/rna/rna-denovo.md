@@ -164,7 +164,7 @@ tools/rna_tools/bin/make_rna_rosetta_ready.py <pdb file>
 ```
 
 ##Can I specify non-Watson-Crick pairs? 
-
+<a name="Can-I-specify-non-Watson-Crick-pairs?" />
 
 You can also specify base pairs that must be forced, even at the expense of creating temporary chainbreaks, in the params file, with a line like:
 
