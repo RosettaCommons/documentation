@@ -354,36 +354,36 @@ If a design is sufficiently comparable to the native score, we revert
 ### [[rosetta_scripts]]
 Runs an XML-specified protocol composed of particular Movers, Filters, and TaskOperations that have been made compatible with RosettaScripts.
 
-### [[rosettaDNA]]
+### [[rosettaDNA|rosetta-dna]]
 Runs the DockDesignParser, allows access to protein-DNA information and code, and uses a customized PDB output to add protein-DNA specific information.
 
-### [[exposed_strand_finder]]
+### [[exposed_strand_finder|beta-strand-homodimer-design]]
 Locates exposed beta strands within the provided PDB as a potential target for homodimerization with a designed beta strand.
 
-### [[homodimer_design]]
+### [[homodimer_design|beta-strand-homodimer-design]]
 Actually performs homodimer design on a fixed beta strand scaffold.
 
-### [[homodimer_maker]]
+### [[homodimer_maker|beta-strand-homodimer-design]]
 Orients two copies of one chain so that a previously exposed beta strand became aligned to each other to form a homodimer.
 
-### [[ca_to_allatom]]  
+### [[ca_to_allatom|ca-to-allatom]]  
 Given a low resolution structure that therefore only contains a trace of the alpha carbons, expand the CA atoms to full residues and perform extensive sampling.
 
-### [[doug_dock_design_min_mod2_cal_cal]]
+### [[doug_dock_design_min_mod2_cal_cal|doug-dock-design-min-mod2-cal-cal]]
 A dock-design application originally written to exemplify the wonders of what the new job distributor and object-oriented Rosetta 3.0+ can do for you.
 Docks and designs and minimizes a peptide in a binding pocket with minimal flexibility.
 
-### [[FloppyTail]]
+### [[FloppyTail|floppy-tail]]
 Explores large swaths of conformational space to enumerate possible conformations for a disordered tail of a protein. 
 _Does not_ provide positive information; there is not a fixed conformation for this tail in any event, but it can provide information about whether a region of conformational space is accessible or inaccessible.
 
-### [[UBQ_E2_thioester]]
+### [[UBQ_E2_thioester|ubq-conjugated]]
 Given a starting PDB with a cysteine and a PDB of ubiquitin (though truly applicable to any protein), conjugate the C-terminus of the ubiquitin PDB to the cysteine indicated and then dock the two proteins together subject to that constraint.
 
-### [[UBQ_Gp_CYD-CYD ]]
+### [[UBQ_Gp_CYD-CYD|ubq-conjugated]]
 Given a starting PDB with a cysteine and a PDB of ubiquitin (though truly applicable to any protein containing a cysteine), form a disulfide from the two cysteines indicated and then dock the two proteins together subject to that constraint.
 
-### [[UBQ_Gp_LYX-Cterm]]
+### [[UBQ_Gp_LYX-Cterm|ubq-conjugated]]
 Given a starting PDB with a lysine and a PDB of ubiquitin (though truly applicable to any protein), conjugate the C-terminus of the ubiquitin PDB to the lysine indicated and then dock the two proteins together subject to that constraint.
 
 ### [[optE_parallel|opt-e-parallel-doc]]
