@@ -4,7 +4,7 @@ The entire article is mainly about 'backbone generation by SEWING' so
 * for 'Sidechain Design aided by Sewing', go to
 [[Sidechain Design aided by Sewing|SEWING#sidechain-design-aided-by-sewing]]
 * for jargons of 'SEWING' field, go to
-[[Dictionary|SEWING#Dictionary]]
+[[Dictionary|SEWING#dictionary]]
 
 ##Basic concepts
 SEWING stands for **S**tructure **E**xtension **WI**th **N**ative-fragment **G**raphs. SEWING functions by identifying relatively large sub-structures, called models (2-5 pieces of secondary structure, called segments) from native PDBs, and then assembling these models based on structural similarity. SEWING can be broken down into three basic steps:
@@ -238,7 +238,7 @@ For example,
 </PROTOCOLS>
 ```
 
-## Dictionary
+##Dictionary
 * model: a node that can be connected by edges, basically a collection of segments
 * segment: a collection of secondary structures, technically dssp_codes, generally 2-5 pieces of secondary structure constitute the segment, currently for continuous SEWING, 3 pieces of secondary structures called smotif (like HLH, or HLE) is a segment, 5 pieces of secondary structures as a segment for continuous SEWING are in development
 * secondary structures: a collection of residues like H, L, E
