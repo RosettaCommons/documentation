@@ -41,5 +41,3 @@
 [[Glossary]]
 
 [[Options list|full-options-list]]
-
-<<FixedTableOfContents(Filters-RosettaScripts)>>
