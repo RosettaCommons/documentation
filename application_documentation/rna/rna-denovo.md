@@ -1,8 +1,8 @@
 #Rna Denovo: RNA 3D structure modeling
 
 
-Code and Demo
-=============
+#Code and Demo
+
 
 The central code for the *rna\_denovo* application is in `       src/protocols/rna/RNA_DeNovoProtocol.cc      ` .
 
@@ -10,8 +10,8 @@ For a 'minimal' demo example of the RNA fragment assembly and full-atom minimiza
 
 `       demos/public/RNA_Denovo      `
 
-References
-==========
+#References
+
 
 Das, R. and Baker, D. (2007), "Automated de novo prediction of native-like RNA tertiary structures", PNAS 104: 14664-14669. [for fragment assembly]. [Paper.](http://www.stanford.edu/~rhiju/Das_Baker_PNAS_2007.pdf) [Link.](http://www.pnas.org/content/104/37/14664.long)
 
@@ -21,18 +21,17 @@ Das, R., Karanicolas, J., and Baker, D. (2010), "Atomic accuracy in predicting a
 
 Sripakdeevong, P., Kladwang, W., and Das, R. (2011) "An enumerative stepwise ansatz enables atomic-accuracy RNA loop modeling", PNAS 108:20573-20578. [for loop modeling] [Paper](http://www.stanford.edu/~rhiju/Sripakdeevong_StepwiseAnsatz_2011.pdf) [Link](http://dx.doi.org/10.1073/pnas.1106516108)
 
-Application purpose
-===========================================
+#Application purpose
+
 
 This code is intended to give three-dimensional de novo models of single-stranded RNAs or multi-stranded RNA motifs, with the prospect of reaching high (near-atomic-resolution) accuracy.
 
-Algorithm
-=========
+#Algorithm
 
 The RNA structure modeling algorithm in Rosetta is based on the assembly of short (1 to 3 nucleotide) fragments from existing RNA crystal structures whose sequences match subsequences of the target RNA. The Fragment Assembly of RNA (FARNA) algorithm is a Monte Carlo process, guided by a low-resolution knowledge-based energy function. The models can then be further refined in an all-atom potential to yield more realistic structures with cleaner hydrogen bonds and fewer clashes; the resulting energies are also better at discriminating native-like conformations from non-native conformations. The two-step protocol has been named FARFAR (Fragment Assembly of RNA with Full Atom Refinement).
 
-Limitations
-===========
+#Limitations
+
 
 -   This method has been demonstrated to reach atomic accuracy for small motifs (12 residues or less) – the current bottleneck for larger RNAs is the difficulty of complete conformational sampling (as in other applications in Rosetta to, e.g., protein de novo modeling). On-going work attempts to resolve this issue, but requires great computational expense (see Sripakdeevong et al. paper above).
 
@@ -40,8 +39,8 @@ Limitations
 
 -   As with most other modes in Rosetta, the final ensemble of models is not guaranteed to be a Boltzmann ensemble.
 
-Modes
-=====
+#Modes
+
 
 -   By default, the code runs Monte Carlo fragment assembly, optimized in a knowledge-based low-resolution potential.
 
@@ -49,24 +48,24 @@ Modes
 
 -   There are variations of the code that permit just scoring or just minimizing in the high resolution Rosetta potential. These are described below in Tips.
 
-Input Files
-===========
+#Input Files
 
-Required file
--------------
+
+##Required file
+
 
 You need only one input file to run RNA structure modeling:
 
 -   The [[fasta file]]: it is a sequence file for your rna.
 
-Optional additional files:
---------------------------
+##Optional additional files:
+
 
 -   A [Parameter files to specify Watson/Crick base pairs and strand boundaries](#parameter-files-to-specify-watson/crick-base-pairs-and-strand-boundaries). This can specify base pairs that are held together during the run, as well as boundaries between independent chains.
 -   Native pdb file, if all-heavy-atom rmsd's are desired. Must be in Rosetta's [PDB format for RNA](#File-Format).
 
-How to include these files.
----------------------------
+##How to include these files.
+
 
 A sample command line is the following:
 
@@ -79,8 +78,7 @@ The code takes about 1 minute to generate two models.
 
 The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a,c,g, and u. The example fasta file is available in `       main/tests/integration/tests/rna_denovo/      ` .
 
-Parameter files to specify Watson/Crick base pairs and strand boundaries
-------------------------------------------------------------------------------------
+##Parameter files to specify Watson/Crick base pairs and strand boundaries
 
 RNA motifs are typically ensconced within Watson/Crick double helices, and involve several strands. [The most conserved loop of the signal recognition particle is an example, and is included here as chunk002\_1lnt\_RNA.pdb.] You can specify the bounding Watson/Crick base pairs in a "params file" with lines like the following:
 
@@ -99,8 +97,8 @@ rna_denovo.<exe> -fasta chunk002_1lnt_.fasta -native chunk002_1lnt_RNA.pdb -para
 
 This command line also includes the "native" pdb, and will result in heavy-atom rmsd scores being calculated. Note that in early Rosetta versions, native pdb was required to have residues marked rA, rC, rG, and rU, but this is no longer the case after 2014 (see notes on PDB [[Format|loops-file#format]] below). The code again takes about 1 minute to generate two models. Finally, there are some notes on forcing other kinds of pairs below [ [Can I specify non-Watson-Crick pairs?](#Can-I-specify-non-Watson-Crick-pairs?) ].
 
-Use Of Alternative Fragment Sources
------------------------------------
+##Use Of Alternative Fragment Sources
+
 
 By default the RNA fragment assembly makes use of bond torsions derived from the large ribosome subunit crystal structure 1jj2, which have been pre-extracted in 1jj2. torsions (available in the database). If you want to use torsions drawn from a separate PDB (or set of PDBs), the following command will do the job.
 
@@ -116,8 +114,8 @@ The resulting file is just a text file with the RNA's torsion angles listed for 
 
 Similarly, the database of base pair geometries can be created with rna\_database -jump\_library, and then specified in the rna\_denovo application with -jump\_library\_file.
 
-Options
-=======
+#Options
+
 
 ```
 Required:
@@ -151,11 +149,11 @@ Advanced [used in rna_assembly]
 -in:database                                     Path to rosetta databases. Default is based on location of rosetta executables. [PathVector]
 ```
 
-Tips
-====
+#Tips
 
-File Format 
-------
+
+##File Format 
+
 
 Note that in older versions of Rosetta, the PDBs may have residue types marked as rA, rC, rG, and rU and unusual atom names. Versions of Rosetta released after 3.5 have residue and atom names matching BMRB/NDB standard nomenclature. If you have a "standard" PDB file, there is a python script available to convert it to current Rosetta format:
 
@@ -163,8 +161,8 @@ Note that in older versions of Rosetta, the PDBs may have residue types marked a
 tools/rna_tools/bin/make_rna_rosetta_ready.py <pdb file>
 ```
 
-Can I specify non-Watson-Crick pairs? 
--------------------------------------
+##Can I specify non-Watson-Crick pairs? 
+
 
 You can also specify base pairs that must be forced, even at the expense of creating temporary chainbreaks, in the params file, with a line like:
 
@@ -180,8 +178,8 @@ When specifying pairs, if there are not sufficient CUTPOINT\_OPEN's to allow all
 CUTPOINT_CLOSED 6
 ```
 
-What do the scores mean?
-------------------------
+##What do the scores mean?
+
 
 The most common question we get is on what the terms in the 'SCORE lines' of silent files mean. Here's a brief rundown, with more explanation in the papers cited above.
 
@@ -232,8 +230,8 @@ f_natNWC                                         fraction of native non-Watson-C
 f_natBP                                          fraction of base pairs recovered
 ```
 
-How do I just score?
---------------------
+##How do I just score?
+
 
 To get a score of an input PDB, you can run the 'denovo' protocol but ask there to be no fragment assembly cycles and no rounds of minimization:
 
@@ -249,8 +247,8 @@ If you want to minimize under the low resolution RNA potential (used in FARNA), 
 
 But this is not recommended if you are trying to score a model deposited in the PDB or created by other software – see next [How do I just minimize?](#How-do-I-just-minimize?)
 
-How do I just minimize? 
------------------------
+##How do I just minimize? 
+
 
 If you take a PDB created outside Rosetta, very small clashes may be strongly penalized by the Rosetta all-atom potential. Instead of scoring, you should probably do a short minimize, run:
 
@@ -266,21 +264,21 @@ If you want to minimize under the low resolution RNA potential (used in FARNA), 
 
 You can extract models from silent files as described in [Extraction Of Models Into PDB Format](#Extraction-Of-Models-Into-PDB-Format), but you'll also get models with the same names as your input with the suffix '\_minimize.pdb'.
 
-Other options
--------------
+##Other options
+
 
 Check this section: [[RNA assembly with experimental pair-wise constraints|rna-assembly]] .
 
-Expected Outputs
-================
+#Expected Outputs
+
 
 You will typically use the protocol to produce a silent file – how do you get the models out?
 
-Post Processing
-===============
+#Post Processing
 
-Extraction Of Models Into PDB Format
-------------------------------------
+
+##Extraction Of Models Into PDB Format
+
 
 The models from the above run are stored in compressed format in the file test.out, along with lines representing the score components. You can see the models in PDB format with the conversion command.
 
@@ -290,8 +288,8 @@ rna_extract.<exe>  -in:file:silent test.out -in:file:silent_struct_type  rna -da
 
 Note that the PDBs have residue types marked as rA, rC, rG, and rU.
 
-How can I cluster models?
--------------------------
+##How can I cluster models?
+
 
 There is one executable for clustering, it currently requires that all the models be in a silent file and have scores. (If you don't have such a silent file, use the rna\_score executable described in [How do I just score?](#How-do-I-just-score?) ). Here's the command line:
 
@@ -301,8 +299,8 @@ There is one executable for clustering, it currently requires that all the model
 
 The way this clustering works is it simply goes through the models in order of energy, and if a model is more than the rmsd threshold than the existing clusters, it spawns a new cluster.
 
-New things since last release
-=============================
+#New things since last release
+
 
 Added applications rna\_minimize, rna\_helix, rna\_cluster. Updated torsional potential to be smooth.
 
