@@ -80,6 +80,7 @@ The fasta file has the RNA name on the first line (after \>), and the sequence o
 
 ##Parameter files to specify Watson/Crick base pairs and strand boundaries
 
+<a name=parameter-files-to-specify-watson/crick-base-pairs-and-strand-boundaries />
 RNA motifs are typically ensconced within Watson/Crick double helices, and involve several strands. [The most conserved loop of the signal recognition particle is an example, and is included here as chunk002\_1lnt\_RNA.pdb.] You can specify the bounding Watson/Crick base pairs in a "params file" with lines like the following:
 
 ```
