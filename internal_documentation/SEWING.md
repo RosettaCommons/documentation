@@ -239,7 +239,7 @@ For example,
 ```
 
 ##Dictionary
-* model: a node that can be connected by edges, basically a collection of segments
+* model: a node that can be connected by edges, basically a collection of segments, defined as struct whose elements are 	model_id, pdb_code, structure_id, distance, hoist_angle, packing_angle and meridian_angle
 
 * segment: a collection of secondary structures, technically dssp_codes, generally 2-5 pieces of secondary structure constitute the segment. Currently for continuous SEWING, 3 pieces of secondary structures called smotif (like HLH, or HLE) is a segment (5 pieces of secondary structures as a segment for continuous SEWING are in development by Doonam)
 
@@ -261,4 +261,5 @@ ATOM 4 15.74 48.774 -24.711
 RESIDUE 36 0 MET 176.763 56.221 51.5357
 ATOM 1 14.138 47.299 -24.189
 ATOM 2 13.007 48.172 -24.336
+...
 ```
