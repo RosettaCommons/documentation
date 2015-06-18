@@ -280,7 +280,7 @@ You will typically use the protocol to produce a silent file – how do you get 
 
 
 ##Extraction Of Models Into PDB Format
-
+<a name="Extraction-Of-Models-Into-PDB-Format" />
 
 The models from the above run are stored in compressed format in the file test.out, along with lines representing the score components. You can see the models in PDB format with the conversion command.
 
