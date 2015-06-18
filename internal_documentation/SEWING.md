@@ -239,9 +239,9 @@ For example,
 ```
 
 ##Dictionary
-* model: A node that can be connected by edges, basically a collection of segments, defined as struct whose elements are 	model_id, pdb_code, structure_id, distance, hoist_angle, packing_angle and meridian_angle
+* model: A node that can be connected by edges. A collection of segments. Defined as struct whose elements are 	model_id, pdb_code, structure_id, distance, hoist_angle, packing_angle and meridian_angle
 
-* segment: A collection of secondary structures, defined as struct whose elements are segment_id, dssp_code and chimera BOOLEAN. Generally 2-5 pieces of secondary structure constitute the segment. Currently for continuous SEWING, 3 pieces of secondary structures called smotif (like HLH, or HLE) is a segment (5 pieces of secondary structures as a segment for continuous SEWING are in development by Doonam)
+* segment: A collection of secondary structures. Defined as struct whose elements are segment_id, dssp_code and chimera BOOLEAN. Generally, 2-5 pieces of secondary structure constitute the segment. Currently for continuous SEWING, 3 pieces of secondary structures called smotif (like HLH, or HLE) is a segment (5 pieces of secondary structures as a segment for continuous SEWING are in development by Doonam)
 
 * secondary structures: H, L, E
 
