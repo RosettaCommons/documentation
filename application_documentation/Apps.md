@@ -62,7 +62,7 @@ Dock a set of symmetric oligomers.
 Locate buried voids using an early version of RosettaHoles and attempt point mutants that might reduce void volume.
 
 ### [[contactMap]]
-Detemine what residues contact each other.
+Determine what residues contact each other.
 
 ### [[ensemble_analysis]]
 Obtain weighted RMSD of a set of decoys, align them, and write them out.
@@ -313,7 +313,7 @@ Sample probe atoms or molecules of desired size around a nucleobase.
 Extensive RNA structural sampling and analysis.
 
 ### [[rna_features]]
-Much as the [FeaturesReporter] framework exports a variety of protein features to databases, this applicatoin will extract critical features from RNA structures.
+Much as the [FeaturesReporter] framework exports a variety of protein features to databases, this application will extract critical features from RNA structures.
 
 ### [[rna_graft|rna-denovo-setup#rna-graft]]
 Graft multiple RNA sequences together.
