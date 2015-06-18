@@ -386,5 +386,5 @@ Given a starting PDB with a cysteine and a PDB of ubiquitin (though truly applic
 ### [[UBQ_Gp_LYX-Cterm]]
 Given a starting PDB with a lysine and a PDB of ubiquitin (though truly applicable to any protein), conjugate the C-terminus of the ubiquitin PDB to the lysine indicated and then dock the two proteins together subject to that constraint.
 
-### [[optE_parallel]]
+### [[optE_parallel|opt-e-parallel-doc]]
 Optimize the weights of a provided energy functions to produce excellent sequence recovery and rotamer recovery.
