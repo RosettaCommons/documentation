@@ -155,7 +155,7 @@ Advanced [used in rna_assembly]
 
 
 ##File Format 
-
+<a name="File-Format" />
 
 Note that in older versions of Rosetta, the PDBs may have residue types marked as rA, rC, rG, and rU and unusual atom names. Versions of Rosetta released after 3.5 have residue and atom names matching BMRB/NDB standard nomenclature. If you have a "standard" PDB file, there is a python script available to convert it to current Rosetta format:
 
@@ -233,7 +233,7 @@ f_natBP                                          fraction of base pairs recovere
 ```
 
 ##How do I just score?
-
+<a name="How-do-I-just-score?" />
 
 To get a score of an input PDB, you can run the 'denovo' protocol but ask there to be no fragment assembly cycles and no rounds of minimization:
 
@@ -250,7 +250,7 @@ If you want to minimize under the low resolution RNA potential (used in FARNA), 
 But this is not recommended if you are trying to score a model deposited in the PDB or created by other software – see next [How do I just minimize?](#How-do-I-just-minimize?)
 
 ##How do I just minimize? 
-
+<a name="How-do-I-just-minimize?" />
 
 If you take a PDB created outside Rosetta, very small clashes may be strongly penalized by the Rosetta all-atom potential. Instead of scoring, you should probably do a short minimize, run:
 
@@ -291,7 +291,7 @@ rna_extract.<exe>  -in:file:silent test.out -in:file:silent_struct_type  rna -da
 Note that the PDBs have residue types marked as rA, rC, rG, and rU.
 
 ##How can I cluster models?
-
+<a name="How-can-I-cluster-models?" />
 
 There is one executable for clustering, it currently requires that all the models be in a silent file and have scores. (If you don't have such a silent file, use the rna\_score executable described in [How do I just score?](#How-do-I-just-score?) ). Here's the command line:
 
