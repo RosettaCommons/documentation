@@ -261,7 +261,7 @@ Generate grids for the _holo_ protein-ligand structure.
 ### [[match | Match]]
 Orient residues around a ligand to match particular scaffold atoms.
 
-### [[membrane_abinitio2]]
+### [[membrane_abinitio2|membrane-abinitio]]
 Ab initio fold a membrane protein. Functionally, this is just a wrapper around Abrelax that is responsive to to to membrane-specific options.
 
 ### [[extract_motifs]]
@@ -270,19 +270,19 @@ Extract and score key motifs from residue side chains from a given PDB and outpu
 ### [[incorporate_motifs]]
 Identify flexible regions in a pose using the loops framework and use a collection of inverse rotamers drawn from the motif library to attempt to close the loop. 
 
-### [[MakeRotLib]]
+### [[MakeRotLib|make-rot-lib]]
 Calculates a rotamer library for a given set of backbone angles for a given ResidueType.
 
-### [[UnfoldedStateEnergyCalculator]]
+### [[UnfoldedStateEnergyCalculator|unfolded-energy-state-calculator]]
 Calculates the unfolded state energy (a type of reference energy used by the mm_std energy function) for a ResidueType.
 
 ### [[r_noe_assign]]
 Generate constraint files based on a provided file of well-formatted NOEs and write assignments based on the structure of the native pose provided.
 
-### [[hbs_design]]
+### [[hbs_design|hbs-design]]
 Design a fixed complex of protein and hydrogen bond surrogate scaffold. HBS are constrained helix mimetics made of canonical or noncanonical amino acids with a macrocycle constraining the first several residues of the backbone.
 
-### [[oop_design]]
+### [[oop_design|oop-design]]
 Design a fixed complex of protein and oligooxopiperazine scaffold. Oligooxopiperazines are helix surface mimetics made of canonical or noncanonical amino acids with six-membered rings constraining the backbone
 
 ### [[peptoid_design]]
