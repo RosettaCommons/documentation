@@ -200,7 +200,7 @@ Generating ligand grid and pos files
 The ligand grid (\*.gridlig) file specifies where the target (ligand) can lie in the active site. The pos file specifies the active site residues from which each constraint is permitted to originate – e.g. if the pos file only lists 50,60 then all constraints must originate from either residue 50 or residue 60.
  These files can be generated from a pdb with a ligand (gen\_lig\_grids; the files are generated around the space the wild-type ligand already occupies) or from a pdb without a ligand (gen\_apo\_grids; rosetta identifies large pockets of empty space and generates the gridlig and posfile around those pockets).
 
-1) gen\_lig\_grids
+1) gen\_lig\_grids  < a name="gen-lig-grids" />
 
 A full working example can be found in the associated integration test:
  rosetta/main/tests/integration/tests/gen\_lig\_grids/
@@ -223,7 +223,7 @@ A detailed flags example (@flags):
 -grid_bb_cutoff 2.25 # cutoff from backbone, the grid will be pruned back this distance from the backbone
 -grid_active_res_cutoff 5.0 # distance cutoff for active site residues to be included in the pos file; any amino acid within this distance from a ligand atom will be included in the pos file
 ```
-2) gen\_apo\_grids
+2) gen\_apo\_grids <a name="gen-apo-grids" />
 
 A full working example can be found in the associated integration test:
  rosetta/main/tests/integration/tests/gen\_apo\_grids/

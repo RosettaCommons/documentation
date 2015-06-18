@@ -174,7 +174,7 @@ echo "PDB_ROTAMERS 1t3r_confs.pdb" >> 1t3r.params
 
 When running Rosetta, the 1t3r.params and 1t3r\_confs.pdb files must be in the same directory as each other.
 
-Preparing the protein receptor for docking
+Preparing the protein receptor for docking <a name="ligand_rpkmin" />
 ==========================================
 
 Only sidechains near the initial ligand position are repacked during docking, to save time. This means *all* sidechains should be repacked before docking, so that any pre-existing clashes (according to Rosetta's energy function) can be resolved. Otherwise, a ligand placed near the clashing residues will allow them to repack and thus gain a large energy bonus that does not accurately reflect its binding affinity in that position. A program `       ligand_rpkmin      ` is provided for this purpose; one should use the same `       -ex#      ` flags as will be used during docking.
@@ -416,7 +416,7 @@ I've gotten good results with the following ranking scheme. I first discard any 
 
 If the initial position of the ligand is meaningful (e.g. benchmarking to reproduce a known binding mode), the you can plot interface\_delta for these top-scoring structures against ligand\_auto\_rms\_no\_super and you should get a nice docking funnel. The ligand\_auto\_rms\_with\_super can be used to see how much ligand conformational variation you're getting in the output structures. (The difference is whether or not the ligands are superimposed; the "auto" is short for "automorphism", which means certain kinds of chemical symmetry are accounted for when calculating the RMS.)
 
-Clustering ligand poses
+Clustering ligand poses <a name="selectbestuniqueligandposes" />
 =======================
 
 By clustering ligand poses, and choosing the best model from each low energy cluster, one can curate a small set of possible binding modes for further investigation.
