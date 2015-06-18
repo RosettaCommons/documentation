@@ -241,6 +241,20 @@ For example,
 ##Dictionary
 * model: a node that can be connected by edges, basically a collection of segments
 * segment: a collection of secondary structures, technically dssp_codes, generally 2-5 pieces of secondary structure constitute the segment, currently for continuous SEWING, 3 pieces of secondary structures called smotif (like HLH, or HLE) is a segment, 5 pieces of secondary structures as a segment for continuous SEWING are in development
-* secondary structures: a collection of residues like H, L, E
+* secondary structures: H, L, E
 * residue: technically residue_type, a collection of atoms
 * atom: a collection of xyz coordinates and element
+
+Example of "model", "segment", "residue", "atom"
+```
+MODEL 80 6 11.9294 130.065 159.192 -27.0884 /Users/tjacobs2/PROJECTS/datasets/top8000/top8000_chains_70//1a2zFH_C.pdb
+SEGMENT 7 E 1
+RESIDUE 35 0 ALA -1
+ATOM 1 17.602 46.603 -24.591
+ATOM 2 16.364 46.555 -23.862
+ATOM 3 15.398 47.642 -24.323
+ATOM 4 15.74 48.774 -24.711
+RESIDUE 36 0 MET 176.763 56.221 51.5357
+ATOM 1 14.138 47.299 -24.189
+ATOM 2 13.007 48.172 -24.336
+```
