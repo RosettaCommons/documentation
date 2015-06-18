@@ -127,7 +127,7 @@ Employs ray casting algorithms (optimized for execution on GPUs) to achieve liga
 ### [[make_ray_files]]
 Creates input files for using ray casting for alignment. This application is separate in large part because DARC benefits from GPU acceleration and this would not.
 
-### [[ddg_monomer]]
+### [[ddg_monomer|ddg-monomer]]
 Finds the energy of mutation for point mutations (or multiple mutations) of a given PDB.
 Samples ensembles of wild type and mutant and gives the energies of each as either the average of the lowest three energies, the lowest energy, or the average energy.
 
