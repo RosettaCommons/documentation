@@ -62,7 +62,7 @@ You need only one input file to run RNA structure modeling:
 Optional additional files:
 --------------------------
 
--   A [Parameter files to specify Watson/Crick base pairs and strand boundaries](#Parameter-files-to-specify-Watson/Crick-base-pairs-and-strand-boundaries). This can specify base pairs that are held together during the run, as well as boundaries between independent chains.
+-   A [Parameter files to specify Watson/Crick base pairs and strand boundaries](#parameter-files-to-specify-watson/crick-base-pairs-and-strand-boundaries). This can specify base pairs that are held together during the run, as well as boundaries between independent chains.
 -   Native pdb file, if all-heavy-atom rmsd's are desired. Must be in Rosetta's [PDB format for RNA](#File-Format).
 
 How to include these files.
