@@ -6,6 +6,8 @@ The tests live in `{Rosetta}/main/tests/integration`: the main repository, but n
 **Developers are expected to run these tests before merging code to `master`.**
 Non-developers should have no interest in the integration tests, unless they want to examine them as short demos.
 
+[[_TOC_]]
+
 What integration tests do and do not do
 ====================================
 
