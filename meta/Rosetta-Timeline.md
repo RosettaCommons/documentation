@@ -127,7 +127,7 @@ As Rosetta grew, the Rosetta development world was no longer confined to just Da
 * [[Units in Rosetta]]: Explains measurement units used in Rosetta
 * [[Rosetta Canon]]: Landmark Rosetta papers
 
-<--- Hidden keywords for Gollum's search tool (which is grep), repeats to bump in listing)
+<!-- Hidden keywords for Gollum's search tool (which is grep), repeats to bump in listing)
 History
 History
 History
