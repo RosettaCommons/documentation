@@ -164,6 +164,21 @@ Ignore these.
 Another set of unimportant changes are if you get messages about writing database binaries.
 These occur the first time Rosetta is run (like if you got a new copy for separate `ref` generation).
 
+Cosmetic changes versus trajectory changes
+------------------------------------------
+"Cosmetic changes" usually means the output is different in form but not content.
+For example, maybe you changed the name of a Tracer - many lines will differ because of the Tracer tag but not in their information content - this is "cosmetic". 
+These are never concerning.
+
+"Trajectory changes" is when the result is different - for example, the coordinates of the resulting PDB are altered, and the scores reported are different.
+These need to be understood.
+
+.test_did_not_run.log
+---------------------
+Sometimes you get a file `.test_did_not_run.log`. 
+The system is set up so that if this file exists, the test **ALWAYS** fails.
+It means the test did not run because the executable didn't exist, or it crashed and exited improperly. 
+
 Running MPI integration tests
 =============================
 We now have the ability to run integration tests in [[MPI]], mostly for for testing the integration of components with the parallel [[JobDistributors|jd2]].  Instructions for running tests are as before, except you need `-extras=mpi` as an argument to `scons` and `-mpi-tests` as an argument to `integration.py`.
