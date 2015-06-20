@@ -17,6 +17,7 @@ SEWING stands for **S**tructure **E**xtension **WI**th **N**ative-fragment **G**
 First we need to generate a set of models. The only currently supported mechanism for model generation is through the use of a [[Features database|FeaturesTutorials]]. The following set ReportToDB tag contains the minimal set of features.
 
 ```xml
+<MOVERS>
 <ReportToDB name=features database_name=scores.db3>
     <feature name=ResidueFeatures />
     <feature name=PoseConformationFeatures />
@@ -26,6 +27,7 @@ First we need to generate a set of models. The only currently supported mechanis
     <feature name=SecondaryStructureSegmentFeatures />
     <feature name=SmotifFeatures />
 </ReportToDB>
+</MOVERS>
 ```
 
 An example command line for generation of 'Features database' that will be used to generate model files:
