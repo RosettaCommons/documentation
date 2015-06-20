@@ -28,6 +28,13 @@ First we need to generate a set of models. The only currently supported mechanis
 </ReportToDB>
 ```
 
+An example command line for generation of 'Features database' that will be used to generate model files:
+```
+/path/to/rosetta/bin/rosetta_scripts.default.linuxgccrelease \
+-protocol features.xml \
+-dbms:database_name pdb.db3 
+```
+
 SewingHasher model generation flags
 ```
 -sewing:mode generate           Set to SewingHasher mode to 'generate' for model generation
