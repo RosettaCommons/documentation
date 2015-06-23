@@ -1,11 +1,14 @@
 #Hydrogen Bond Energy Term
 
+**TODO: This page is out of date and in need of an update by someone familiar with the material.**
+
+The hydrogen bond energy term identifies and scores hydrogen bonds.
+
 Metadata
 ========
 
 This document was written by Matthew O'Meara on 6/18/2008
 
-The hydrogen bond energy term identifies and scores hydrogen bonds.
 
 HBEvalType
 ==========
@@ -15,15 +18,15 @@ Each hydrogen bond has an HBEvalType that identifies what type it is. All hydrog
 Overview
 ========
 
-To use the hydrogen bond energy term there are three conceptual steps. First identify all the relevent bonds, second classify the hydrogen bonds based on their chemical type, environment, background hbonds etc, and then third score the hydrogen bonds.
+To use the hydrogen bond energy term there are three conceptual steps. First, identify all the relevent bonds; second, classify the hydrogen bonds based on their chemical type, environment, background hbonds, etc.; and third, score the hydrogen bonds.
 
 Identification
 ==============
 
-The goal of the identification step is to create an HBondSet object that contains exactly the hydrogen bonds of interest. If it containst two many, then they will need to be filtered more later, if they contain not enough then more will need to be found later, when all that should happen in this step.
+The goal of the identification step is to create an HBondSet object that contains exactly the hydrogen bonds of interest. If it contains too many, then they will need to be filtered more later; if they contain not enough then more will need to be found later, when all that should happen in this step.
 
 -   Create new HBondSet set to receive identified hbonds. Set pass in or set hbond options for hbond\_set. Call fill\_hbond\_set excluding unwanted hbonds to fill hbond\_set.
--   Extract a portion of an exising HBondSet such as from pose.energies().data().get( HBOND\_SET ).
+-   Extract a portion of an existing HBondSet such as from pose.energies().data().get( HBOND\_SET ).
 -   Create HBondSet by giving explicit donor acceptor residues identify\_hbonds\_1way.
 
 Classification
@@ -40,9 +43,9 @@ Currently the evaluation for hydrogen bonds follows
 
 Kortemme, T., A. V. Morozov and D. Baker (2003). "An orientation-dependent hydrogen bonding potential improves prediction of specificity and structure for proteins and protein-protein complexes." J Mol Biol 326(4): 1239-59.
 
-Jack Snoeyink has re-implemented it as a efficient polynomial evaulation.
+Jack Snoeyink has re-implemented it as a efficient polynomial evaluation.
 
-The derivative evaulation follows what is described in,
+The derivative evaluation follows what is described in,
 
 Wedemeyer, W., Baker, D., "Efficient minimization of angle-dependent potentials for polypeptides in internal coordinates", Proteins: Structure, Function, and Bioinformatics Volume 53 Issue 2, Pages 262-272
 
@@ -53,18 +56,18 @@ A hydrogen bond donor and a hydrogen bond acceptor are considered hydrogen bonde
 
 Note: If there is a backbone-backbone hydrogen bond then neither the donor nor the acceptor residues are allowed to participate in a backbone-sidechain hydrogen bond. According to Brian Kuhlman, this was put in the early days of Rosetta because the hydrogen bond energy term at the time put overly favored serines on helixes because they would form backbone-backbone hbonds for the helix and backbone-sidechain bonds away from the helix.
 
-Refactoring and plan for improvments
+Refactoring and plan for improvements
 ====================================
 
 1) Move options into HBondOptions class
 
 2) Use emap to assign energies from hbonds
 
-3) Only put hbonds in HBondSets that are actually relevent (rather than filtering when they are used)
+3) Only put hbonds in HBondSets that are actually relevant (rather than filtering when they are used)
 
 4) Merge non-protein/non-dna hbond code with rest of hbond code.
 
-5) Make new HBEvalTypes so evaluation and energy assignment can be handled uniformally
+5) Make new HBEvalTypes so evaluation and energy assignment can be handled uniformly
 
 6) Clean up header files
 
@@ -83,6 +86,7 @@ Plans:
 5) Implement evaluation functions for distributions with coupled parameters.
 
 ##See Also
+
 
 * [[Rosetta overview]]
 * [[Units in Rosetta]]: Gives a description of Rosetta energy units
