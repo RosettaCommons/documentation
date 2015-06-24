@@ -10,6 +10,8 @@
 
 * [[Learning biophysics|Resources-for-learning-biophysics-and-computational-modeling]]
 
+* [[Incorporating experimental data|Incorporating-Experimental-Data]]
+
 * [[Rosetta canon]]
 
 [[Build Documentation|build_documentation/Build-Documentation]]
