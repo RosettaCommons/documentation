@@ -109,6 +109,10 @@ Typical biopolymers are proteins, RNA, DNA and carbohydrates.
 
 Docking where the structure of the docked complex is unknown.
 
+#### bootcamp
+
+An intense week-long Rosetta training session for new developers. 
+
 #### bound docking
 
 The complex structure that is used for reference in docking and rmsd calculations is determined experimentally by X-rays/NMR. 
