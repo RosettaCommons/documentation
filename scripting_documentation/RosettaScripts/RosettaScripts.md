@@ -58,7 +58,7 @@ Example XML file
 ----------------
 
 The following simple example will compute ala-scanning values for each residue in the protein interface:
-
+```
 <ROSETTASCRIPTS>
 <SCOREFXNS>
 <interface weights=interface/>
@@ -80,7 +80,7 @@ The following simple example will compute ala-scanning values for each residue i
 </PROTOCOLS>
 <OUTPUT scorefxn=interface />
 </ROSETTASCRIPTS>
-
+```
 Rosetta will carry out the order of operations specified in PROTOCOLS, starting with docking (in this case this is all-atom docking using the soft\_rep weights). It will then apply alanine scanning, repeated 5 times for better convergence, for every residue on both sides of the interface computing the binding energies using the interface weight set (counting mostly attractive energies). The binding energy (ddg) and surface area (sasa) will also be computed. All of the values will be output in a .report file. Notice that since ddg and sasa are assigned confidence=0, they are not used here as filters that can terminate a trajectory per se, but rather for reporting the values for the complex. An important point is that filters never change the sequence or conformation of the structure, so the ddg and sasa values are reported for the input structure following docking, with the alanine-scanning results ignored.
 
 The movers do change the pose, and the output file will be the result of sequentially applying the movers in the protocols section. The standard scores of the output (either in the pdb, silent or score file) will be from the commandline-specified scorefunction, unless the OUTPUT tag is specified, in which case the corresponding score function from the SCOREFXNS block will be used.
