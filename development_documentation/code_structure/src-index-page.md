@@ -27,7 +27,7 @@ The `ObjexxFCL` library provides the infrastructure needed to emulate Fortran by
 It is lightly used in Rosetta at present, having gradually disappeared as Rosetta became more object-oriented - the [[Rosetta to Rosetta++ to Rosetta3|Rosetta timeline]] transition. 
 It remains to support some legacy code.
 
-#Utility Library
+##Utility Library
 
 [[Utility Library|namespace-utility]] 
 
