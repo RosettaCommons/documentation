@@ -3,7 +3,7 @@ Page created by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory, 26 June 2
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## StorePoseSnapshot
 
-If one is working on a protocol in which one wishes to insert, delete, or append a variable number of residues, then apply subsequent movers to residues whose indices may have changed, this can create a lot of headaches.  The StorePoseSnapshot mover is intended as a means of permitting a user to store a named snapshot or "reference pose" at a particular point in a protocol, then use the residue numbering of the pose <i>at that point</i> for movers and filters that might be applied sometime later, after pose indices may have been altered by insertions or deletions.
+Rosetta's sequential residue numbering can create headaches in protocols in which residues are to be inserted or deleted, and in which one wishes subsequently to refer to residues past the insertion or deletion point.  The StorePoseSnapshot mover is intended as a means of permitting a user to store a named snapshot or "reference pose" at a particular point in a protocol, then use the residue numbering of the pose <i>at that point in the protocol</i> for movers and filters that might be applied sometime later, after pose indices may have been altered by insertions or deletions.
 
 The syntax for the mover is very simple:
 
