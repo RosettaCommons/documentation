@@ -2,8 +2,10 @@ Page created by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory, 25 June 2
 
 ## Ways in which users can specify residues
 
-Historically, users could specify residue indices in one of two ways: using Rosetta's internal numbering (<i>e.g.</i> ```7```), in which each residue in each pose is given a unique, continuous, 1-based index, or using PDB numbering (<i>e.g.</i> ```7A```), in which the user must specify a residue index and a chain letter.  A third option has also been added: using reference poses, in which a known position from an earlier stage of a pose is used to select a position in the current pose.  The format for this is:<br/> 
-```refpose(<refpose_name>,<Rosetta_index_in_refpose>)±<residue_offset>```.<br/>
+Historically, users could specify residue indices in one of two ways: using Rosetta's internal numbering (<i>e.g.</i> ```7```), in which each residue in each pose is given a unique, continuous, 1-based index, or using PDB numbering (<i>e.g.</i> ```7A```), in which the user must specify a residue index and a chain letter.  A third option has also been added: using reference poses, in which a known position from an earlier stage of a pose is used to select a position in the current pose.  The format for this is:
+ 
+```refpose(<refpose_name>,<Rosetta_index_in_refpose>)±<residue_offset>```
+
 For example, at a particular point in a script, I could create a snapshot of the pose using the StorePoseSnapshot mover, and call it "refpose1".  I could then apply movers that alter the residue numbering (inserting residues, deleting residues, <i>etc.</i>), then tell Rosetta that I want to mutate the residue that's three residues past the residue that was residue 12 when I took the pose snapshot using the string ```refpose(refpose1,12)+3```.  This can be particularly handy when working with variable-length loops.
 
 ## How the reference pose machinery works internally:
@@ -16,6 +18,8 @@ So long as movers that add, insert, or delete residues do so by calling the vari
 
 ## Getting movers and filters that take residue indices as input to understand reference poses
 
-Previously, movers that could parse both Rosetta numbering and PDB numbering did so by calling the ```core::pose::parse_resnum()``` function in core/pose/selection.cc.  This function is still used for this purpose, although now it can <i>also</i> parse reference pose numbers.  However, it does not do so by default.  In order to permit a mover or filter to take advantage of reference poses, the following small changes must be made:<br/>
-- The mover or filter must store a string for the residue selection rather than an integer or a core::Size.  This adds negligibly to the memory overhead of the mover or filter.<br/>
+Previously, movers that could parse both Rosetta numbering and PDB numbering did so by calling the ```core::pose::parse_resnum()``` function in core/pose/selection.cc.  This function is still used for this purpose, although now it can <i>also</i> parse reference pose numbers.  However, it does not do so by default.  In order to permit a mover or filter to take advantage of reference poses, the following small changes must be made:
+
+- The mover or filter must store a string for the residue selection rather than an integer or a core::Size.  This adds negligibly to the memory overhead of the mover or filter.
+
 - In the mover or filter's ```apply()``` function (<i>NOT in its</i> ```parse_my_tag``` <i>function!</i>), the mover or filter should call ```core::pose::parse_resnum()```, with ```check_for_refpose=true``` to convert the string into a Rosetta index for the current state of the pose.  This adds negligibly to the computational cost of the mover or filter, but it must be done at apply time rather than initial setup time because the whole point of reference poses is that the pose length or numbering might change from the start of a script or protocol to the point at which a mover or filter is applied.  Note that if ```check_for_refpose=false``` (the default), then the function doesn't consider whether the string could specify reference pose numbering, and only performs the old behaviour of checking for Rosetta or PDB numbering.  This is to prevent movers that have not been modified to parse residue numbering at apply time from using reference poses.
