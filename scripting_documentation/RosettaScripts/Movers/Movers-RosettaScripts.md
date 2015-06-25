@@ -62,6 +62,8 @@ Meta Movers don't do anything to the pose themselves, but cobmine or modify the 
 
 **[[SavePoseMover]]** - Save or retrieve a pose for use in another mover/filter.
 
+**[[StorePoseSnapshot|StorePoseSnapshotMover]]** - Store a snapshot of the current residue numbering in the pose as a named reference pose, so that subsequent movers can use the current state's residue numbering even if residue numbering has changed.
+
 **[[ReportToDB|ReportToDBMover]]** - Report structural data to a relational database.
 
 **[[ResetBaseline|ResetBaselineMover]]** - Reset the baseline (not needed for MC)
