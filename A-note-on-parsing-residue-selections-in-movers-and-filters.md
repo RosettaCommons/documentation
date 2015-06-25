@@ -31,7 +31,8 @@ Previously, movers that could parse both Rosetta numbering and PDB numbering did
 - In the mover or filter's ```apply()``` function (<i>NOT in its</i> ```parse_my_tag``` <i>function!</i>), the mover or filter should call ```core::pose::parse_resnum()```, with ```check_for_refpose=true``` to convert the string into a Rosetta index for the current state of the pose.  This adds negligibly to the computational cost of the mover or filter, but it must be done at apply time rather than initial setup time because the whole point of reference poses is that the pose length or numbering might change from the start of a script or protocol to the point at which a mover or filter is applied.  Note that if ```check_for_refpose=false``` (the default), then the function doesn't consider whether the string could specify reference pose numbering, and only performs the old behaviour of checking for Rosetta or PDB numbering.  This is to prevent movers that have not been modified to parse residue numbering at apply time from using reference poses.
 
 ## Where does the code live?
--- ReferencePose and ReferencePoseSet classes are in core/pose/reference_pose/
--- Utility functions for updating reference poses have been added to core/pose/Pose.cc.
--- The StorePoseSnapshot mover is in protocols/simple_moves/StorePoseSnapshot.cc.
--- The MutateResidue mover, which serves as an example of how movers can be modified to use reference poses, is in protocols/simple_moves/MutateResidue.cc.
+
+* ReferencePose and ReferencePoseSet classes are in core/pose/reference_pose/
+* Utility functions for updating reference poses have been added to core/pose/Pose.cc.
+* The StorePoseSnapshot mover is in protocols/simple_moves/StorePoseSnapshot.cc.
+* The MutateResidue mover, which serves as an example of how movers can be modified to use reference poses, is in protocols/simple_moves/MutateResidue.cc.
