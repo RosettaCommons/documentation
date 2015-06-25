@@ -12,7 +12,7 @@ For example, at a particular point in a script, I could create a snapshot of the
 
 ## How the reference pose machinery works internally:
 
-Pose objects now store an owning pointer to a ReferencePoseSet object.  By default, this owning pointer is null, costing nearly nothing in memory overhead.  When the StorePoseSnapshot mover is applied, a ReferencePoseSet object is created (if none exists), the owning pointer is set to point to it, and a new ReferencePose object is created within the ReferencePoseSet and initialized.  A ReferencePose object stores a mapping of <old_pose_index_in_reference_state>-><current_pose_index_in_current_state>.  If the residue in the reference state has ceased to exist, the mapping will be onto residue 0.  The map is initialized to be a simple mapping of each residue onto itself, since the pose length and numbering has not yet been modified.
+Pose objects now store an owning pointer to a ReferencePoseSet object.  By default, this owning pointer is null, costing nearly nothing in memory overhead.  When the StorePoseSnapshot mover is applied, a ReferencePoseSet object is created (if none exists), the owning pointer is set to point to it, and a new ReferencePose object is created within the ReferencePoseSet and initialized.  A ReferencePose object stores a mapping of ```<old_pose_index_in_reference_state>-><current_pose_index_in_current_state>```.  If the residue in the reference state has ceased to exist, the mapping will be onto residue 0.  The map is initialized to be a simple mapping of each residue onto itself, since the pose length and numbering has not yet been modified.
 
 ## Getting movers that alter pose length to update stored reference poses
 
