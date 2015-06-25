@@ -44,3 +44,5 @@ Here's an example of how the mover might be used with other movers that take adv
 ```
 
 Movers and filters that can use reference pose numbering parse input of the form ```refpose(<reference_pose_name>,<index_in_reference_pose>)±<offset>```, where the offset permits a user to specify that the target residue is N residues before or after a particular residue corresponding to an index in the reference pose.  Note that because this is a new, experimental feature, only the [[MutateResidue|MutateResidueMover]] currently supports reference pose residue numbering as an input, though it is easy to modify other movers to permit this (see [[this note|A note on parsing residue selections in movers and filters]] in the developers' documentation for information on how to do this).
+
+<b>Warning:</b>  Reference poses have not been tested with symmetry!  Use at your own risk with symmetric poses!
