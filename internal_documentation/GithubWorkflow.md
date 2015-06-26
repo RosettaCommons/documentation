@@ -107,7 +107,7 @@ If you want to change the git editor, use `git config --global core.editor "EDIT
 `git push origin <githubusername>/BRANCHNAME`
 If you want to push everything (all the branches in your repository) and you only have one remote configured (this is the case unless you explicitly add another remote), you can just use
 `git push`
-**Note**: there are probably many cases where you do not want to push everything.  If you have not pulled from github, you may not have all the commits in other branches, and so if you try to run "git push," it will be rejected with the (distressing) comment that you should try the --force flag, i.e. "git push --force".  Do not try to push with the --force flag.  For more information on commands you should not use, check out [[this page (still on media wiki)|https://wiki.rosettacommons.org/index.php/GitNoNoCommands]].
+**Note**: there are probably many cases where you do not want to push everything.  If you have not pulled from github, you may not have all the commits in other branches, and so if you try to run "git push," it will be rejected with the (distressing) comment that you should try the --force flag, i.e. "git push --force".  Do not try to push with the --force flag.  For more information on commands you should not use, check out [[this page|GitNoNoCommands]].
 **Note**: If you're using git 1.8 or higher, "git push" will try to push only the branch you have checked out.
 **Note**: After 5/13/2013, if you have updated your gitconfig, then git versions earlier than 1.8 should also push only the branch you have checked out.
 
@@ -247,5 +247,7 @@ There are many commands in git which have identical names, however the functiona
 
 ##See Also
 
+* [[Git Sometimes Commands]]: Other useful Git commands
+* [[GitNoNoCommands]]: Git commands that you should **not** use with RosettaCommons repositories
 * [[Development Documentation]]
 * [[Pull Requests]]
