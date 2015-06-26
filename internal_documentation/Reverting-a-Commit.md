@@ -167,3 +167,9 @@ If you did the revert through Github, you can simply use the revert button on fo
 If you did the revert manually, the likely way you want to handle it is to make a clean branch off of master. In this branch, revert the revert you just made. Then also merge the branch which is based off of the old commits. Fix up the branch so that it compiles and the tests pass, and things look like they should. Then merge that branch back into master, check and push as normal.
 
 You only have to revert the revert once, so if you have multiple such branches, the first gets the revert of the revert, but the subsequent ones can simply be merged like normal.
+
+##See Also
+
+* [[Git Sometimes Commands]]
+* [[GithubWorkflow]]
+* [[GitNoNoCommands]]
