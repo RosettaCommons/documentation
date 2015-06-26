@@ -2,13 +2,7 @@
 
 Rosetta 3 (formerly MiniRosetta) is an object-oriented implementation of Rosetta that has been rewritten in C++ from the ground up by a core team of developers. These guidelines are intended to help new (and to remind old/current) Rosetta developers to learn, maintain, and improve the reliability, clarity, and performance of the code while we continue its development and modernization. 
 
-See also:
-* [[Rosetta database conventions|Database-Conventions]];
-* [[Python coding conventions for Rosetta (Media wiki)|https://wiki.rosettacommons.org/index.php/User:Labonte/Sandbox]];
-* the [[List of things you should check before committing your code|before-commit-check]]
-* [[Rosetta overview]] to know about Rosetta 3;
-* [[Tutorials for developers|devel-tutorials]]; 
-* [[List of Common Warnings and How to Avoid Them|Common-Errors]]
+
 
 ##Conventions
 ###Copyright Header
@@ -505,3 +499,12 @@ To deal with the formatting problem we could use a code beautifiers like...
 
 To Speed up code...
 * [[Simple tips to optimize code|http://www.tantalon.com/pete/cppopt/asyougo.htm]](Ex: always pass string by reference)
+
+##See Also
+
+* [[Rosetta database conventions|Database-Conventions]]
+* [[Python coding conventions for Rosetta (Media wiki)|https://wiki.rosettacommons.org/index.php/User:Labonte/Sandbox]]
+* the [[List of things you should check before committing your code|before-commit-check]]
+* [[Rosetta overview]] to know about Rosetta 3
+* [[Tutorials for developers|devel-tutorials]]
+* [[List of Common Warnings and How to Avoid Them|Common-Errors]]
