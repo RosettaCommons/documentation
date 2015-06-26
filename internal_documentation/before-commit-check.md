@@ -42,7 +42,7 @@ After commit
 
 Additional information about our current coding guideline can be found [[here|Coding-Conventions]]
 
-Information on Commenting Guidelines (external link):[[https://www.rosettacommons.org/internal/doc/Rosetta++CommentingGuidelines.html]]
+Information on Commenting Guidelines (TODO: How do you even get access to this page?): [[https://www.rosettacommons.org/internal/doc/Rosetta++CommentingGuidelines.html]]
 
 ##See Also
 
