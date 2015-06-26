@@ -51,7 +51,7 @@ comment tags will be stripped from the documentation prior to being provided as 
 - Inputs
      - [[Spanfile]]
      - [[Lipsfile]]
-     - [[PDB file]]
+     - [[PDB file|RosettaMembrane-PDB-file]]
 - [[Movers]]
 - [[Visualization]]
 - [[Applications]]
