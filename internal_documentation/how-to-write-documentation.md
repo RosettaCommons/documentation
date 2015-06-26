@@ -44,7 +44,7 @@ The first step in documenting your tag is to decide where it should fit into
 the documentation.  Every documented mover fits into the hierarchy that begins 
 on the [[RosettaScripts]] page.  The first level of hierarchy pertains only to 
 what kind of tag you wrote; i.e. a [[Mover|Movers-RosettaScripts]], a [[Filter 
-|Filters-RosettaScripts]], a [[TaskOperation|TaskOpertions-RosettaScripts]], 
+|Filters-RosettaScripts]], a [[TaskOperation|TaskOperations-RosettaScripts]], 
 etc.  The next level of hierarchy depends on what your tag actually does.
 
 For example, let me assume that your tag is a Mover.  In this case, to decide 
