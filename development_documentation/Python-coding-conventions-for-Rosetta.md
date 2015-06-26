@@ -1,12 +1,14 @@
 #Python Coding Conventions for Rosetta
 
-[[_TOC_]]
-
 As more and more code is written in Python &mdash; both [[PyRosetta]] protocols and [[other accessory scripts|Tools]] &mdash; it will be good to have a consistency and quality to our code. This page presents a list of guidelines and conventions for writing Python code in the Rosetta community.
 
 This page is modeled after the C++ coding conventions; for the list of those conventions, see: [[Coding Conventions]].
 
 If not otherwise stated, the Python style guidelines presented in [[PEP 8|http://www.python.org/dev/peps/pep-0008/]] should be followed.
+
+
+[[_TOC_]]
+
 
 ##Conventions
 ###File Layout
