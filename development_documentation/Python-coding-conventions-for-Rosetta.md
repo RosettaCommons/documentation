@@ -42,7 +42,7 @@ The Rosetta Commons copyright header is required for every source code *file* in
 </pre>
 
 #####Main Docstring
-Immediately below the copyright notice block comments should go the "docstring" for the <code>.py</code> file. (See more on [[documentation|#documentation]] below, including how [[Doxygen|http://www.stack.nl/~dimitri/doxygen/]] reads Python comments.) This text should be opened and closed by a triplet of double quotes (<code>"""</code>). 
+Immediately below the copyright notice block comments should go the "docstring" for the <code>.py</code> file. (See more on [[documentation|Python-coding-conventions-for-Rosetta#documentation]] below, including how [[Doxygen|http://www.stack.nl/~dimitri/doxygen/]] reads Python comments.) This text should be opened and closed by a triplet of double quotes (<code>"""</code>). 
 
 Include headers such as "Brief:", "Params:", "Output:", "Example:", "Remarks:", "Author:", ''etc''. 
 
@@ -185,7 +185,7 @@ where <code>my_method()</code> begins with
 * **Avoid multiple inheritance.**
 
 * All custom exceptions should inherit from <code>Exception</code>. **Do not use string exceptions.** (They were removed in Python 2.6. See [[Exception Handling|#exception-handling]] below.)
-  * As with any class, include a docstring. (See [[Documentation|#documentation]] below.)
+  * As with any class, include a docstring. (See [[Documentation|Python-coding-conventions-for-Rosetta#documentation]] below.)
 
 * **Check the type of arguments passed to a Python class method if it is possible that that method could be called from both Python and C++.**
 <!--TODO Check if this is still true -->
