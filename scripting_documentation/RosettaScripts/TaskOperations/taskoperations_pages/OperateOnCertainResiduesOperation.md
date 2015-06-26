@@ -13,7 +13,7 @@ Example:
       <ResidueHasProperty property=PROTEIN/> //Only one ResFilter per OperateOnCertainResidues block
     </OperateOnCertainResidues>
 
-[[include:/scripting_documentation/RosettaScripts/TaskOperations/Residue-Level-TaskOperations]]
+[[include:scripting_documentation/RosettaScripts/TaskOperations/taskoperations_pages/Residue-Level-TaskOperations]]
 
 ResFilters
 ----------
