@@ -249,5 +249,6 @@ There are many commands in git which have identical names, however the functiona
 
 * [[Git Sometimes Commands]]: Other useful Git commands
 * [[GitNoNoCommands]]: Git commands that you should **not** use with RosettaCommons repositories
+* [[Reverting a commit]]: Case study for reverting a bad commit
 * [[Development Documentation]]
 * [[Pull Requests]]
