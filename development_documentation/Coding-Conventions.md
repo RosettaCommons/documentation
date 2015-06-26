@@ -61,7 +61,7 @@ The Rosetta Commons copyright header is required for every source code *file* in
   * a `.fwd.hh` file. (See [[File Inclusion|Coding-Conventions#File-Inclusion]] below for details about what to include in each file.)
 
 #####Member data
-* All persistent data must live as member data of a class.  **No global data.** (See [[Global Data in Rosetta (media wiki link)|https://wiki.rosettacommons.org/index.php/GlobalDataInRosetta3]] ).
+* All persistent data must live as member data of a class.  **No global data.** (See [[Global Data in Rosetta]] ).
 
 * All data must be private; **protected data is forbidden.**
   * If derived classes need to have read access to private data, compose accessor functions.
@@ -271,7 +271,7 @@ utility::pointer::down_pointer_cast< Bar >( foo ); // returns a BarOP
 ```
 
 #### Thread Safety
-* (See the discussion on global data [[ here (media wiki)|https://wiki.rosettacommons.org/index.php/GlobalDataInRosetta3]])
+* (See the discussion on global data [[ here |Global-Data-in-Rosetta]])
 * Never use non-const static data in any method.  Constant static data is ok.  If you don’t know what static data is, don’t declare anything to be static.
 * Our multi-threading model is:
   * no more than one thread per pose;
