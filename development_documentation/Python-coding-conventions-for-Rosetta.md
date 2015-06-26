@@ -1,5 +1,7 @@
 #Python Coding Conventions for Rosetta
 
+[[_TOC_]]
+
 As more and more code is written in Python &mdash; both [[PyRosetta]] protocols and [[other accessory scripts|Tools]] &mdash; it will be good to have a consistency and quality to our code. This page presents a list of guidelines and conventions for writing Python code in the Rosetta community.
 
 This page is modeled after the C++ coding conventions; for the list of those conventions, see: [[Coding Conventions]].
@@ -270,6 +272,7 @@ use:
 ----
 
 ###Documentation
+
 ####Docstrings
 [[Doxygen|http://www.stack.nl/~dimitri/doxygen/]] can autodocument Python code in addition to C++ code, but in the case of Python, it simply reads the <code>__doc__</code> attribute of every module, class, and method. This is why it is crucial to put all class and method docstrings indented *below* the declaration line. Otherwise, they will not be stored in the proper <code>__doc__</code> variable. (In Python,...
 <pre>
