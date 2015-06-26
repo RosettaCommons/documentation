@@ -503,7 +503,7 @@ To Speed up code...
 ##See Also
 
 * [[Rosetta database conventions|Database-Conventions]]
-* [[Python coding conventions for Rosetta (Media wiki)|https://wiki.rosettacommons.org/index.php/User:Labonte/Sandbox]]
+* [[Python coding conventions for Rosetta]]
 * the [[List of things you should check before committing your code|before-commit-check]]
 * [[Rosetta overview]] to know about Rosetta 3
 * [[Tutorials for developers|devel-tutorials]]
