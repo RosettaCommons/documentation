@@ -8,7 +8,7 @@ If you didn't use a pull request, or you only want to revert *part* of your merg
 
 ###Worked Example
 
-We're going to be using git revert, but to do that, we'll need to know the SHA1 hashes of the commits. 56493 and 56494 are the test server identification numbers. We can go to  [[http://benchmark.graylab.jhu.edu/revisions]] to get the correspondence. So we either scroll down to find them, or we can go to http://benchmark.graylab.jhu.edu/revision/master&lt;version_num&gt; to go directly to the commit. The SHA1 hash is listed in the "GitHub commit link". Note that we'll also need the mainline version for the version prior to the commit we're reverting.
+We're going to be using git revert, but to do that, we'll need to know the SHA1 hashes of the commits. 56493 and 56494 are the test server identification numbers. We can go to  [[http://benchmark.graylab.jhu.edu/revisions]] to get the correspondence. So we either scroll down to find them, or we can go to `http://benchmark.graylab.jhu.edu/revision/master/<version_num>` to go directly to the commit. The SHA1 hash is listed in the "GitHub commit link". Note that we'll also need the mainline version for the version prior to the commit we're reverting.
 
 <pre>
 56494 - 199441208b2b2f2
