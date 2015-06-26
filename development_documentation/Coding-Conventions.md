@@ -61,7 +61,7 @@ The Rosetta Commons copyright header is required for every source code *file* in
   * a `.fwd.hh` file. (See [[File Inclusion|Coding-Conventions#File-Inclusion]] below for details about what to include in each file.)
 
 #####Member data
-* All persistent data must live as member data of a class.  **No global data.** (See [[Global Data in Rosetta (media wiki link)|GlobalDataInRosetta3]] ).
+* All persistent data must live as member data of a class.  **No global data.** (See [[Global Data in Rosetta (media wiki link)|https://wiki.rosettacommons.org/index.php/GlobalDataInRosetta3]] ).
 
 * All data must be private; **protected data is forbidden.**
   * If derived classes need to have read access to private data, compose accessor functions.
