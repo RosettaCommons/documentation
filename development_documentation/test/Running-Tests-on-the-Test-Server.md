@@ -7,7 +7,7 @@ Submitting arbitrary revision, branch or pull-request for testing
 =================================================================
 
 You can visit http://benchmark.graylab.jhu.edu/submit (or click the link 'Submit' at Benchmark web site) and submit your commits for testing. 
-You will need a git commit sha1, the name of your branch, or a [[pull request]] id to identify what to test.
+You will need a git commit sha1, the name of your branch, or a [[pull request|pull requests]] id to identify what to test.
 After you click the arrow button, the testing server will query GitHub for commit info.
 If the commit was found, you will be presented with commit information (for confirmation) and a list of tests that could be scheduled for this revision. 
 If you used a branch name, the testing server will use the current head of the specified branch.
