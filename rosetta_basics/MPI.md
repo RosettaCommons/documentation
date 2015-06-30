@@ -23,6 +23,9 @@ Compilation of MPI mode Rosetta requires access to the MPI libraries and headers
 
 The location of MPI libraries and headers need to be specified in the file `main/source/tools/build/site.settings`. There are a number of examples for various clusters in that directory in the `main/source/tools/build/site.settings.*` files. `main/source/tools/build/site.settings.topsail` is a good starting point. Simply copy it to `main/source/tools/build/site.settings`. Further adjustment may be needed.
 
+### Installing MPI itself
+We cannot support installing MPI itself on all possible systems, but for Linux systems, the package `openmpi-bin` is usually the right place to start.
+
 ## Running Rosetta with MPI
 
 ### Launching MPI jobs
