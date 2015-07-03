@@ -16,6 +16,7 @@ Helix types are defined with crick_params files, located in the Rosetta database
 Options in the <b>MakeBundle</b> tag set defaults for the whole bundle.  Individual helices are added with the <b>Helix</b> sub-tags, each of which may include additional options overriding the defaults.  The parameters that can be adjusted are:
 
 <b>set_bondlengths, set_bondangles, set_dihedrals</b>: Should the mover be able to set each of these DOF types?  By default, all three are set by the mover.  Allowing bond angles and bond lengths to be set creates non-ideal backbones, but which are flexible enough to more perfectly form a helix of helices.  (Slight deviations form perfect major helices are seen with only dihedrals being set.)<br/>
+<b>residue_name</b>: The type of residue from which the helix should be constructed.  In the case of helices with repeating units of more than one residue (e.g. collagen), one must specify a comma-separated list of residue types (e.g. "PRO,PRO,GLY").<br/>
 <b>r0</b>: The major helix radius (the radius of the bundle, in Angstroms).<br/>
 <b>omega0</b>:  The major helix turn per residue, in radians (or degrees, if use_degrees is set to true).  If set too high, no sensible geometry can be generated, and the mover throws an error.  <i>Note: All angular values are in <b>radians</b> unless use_degrees is set to true.</i><br/>
 <b>delta_omega0</b>:  An offset value for <b>omega0</b> that will rotate the generated helix about the bundle axis.<br/>
