@@ -4,6 +4,8 @@
 
 Generates a helical bundle using the Crick equations (which describe a helix of helices).  This mover is general enough to create arbitrary helices using arbitrary backbones.  Since strands are a special case of a helix (in which the turn per residue is about 180 degrees), the mover can also generate beta-barrels or other strand bundles.  The generated secondary structure elements are disconnected, so subsequent movers (e.g. <b>GeneralizedKIC</b>) must be invoked to connect them with loops.  Parameters are stored with the pose, and are written in REMARK lines on PDB output.
 
+Helix types are defined with crick_params files, located in the Rosetta database in database/protocol_data/crick_parameters (or provided by the user).  Support for Crick parameter files defining helices in which the repeating unit is more than one residue has recently been added.
+
 ```
 <MakeBundle name=(&string) use_degrees=(false &bool) reset=(true &bool) symmetry=(0 &int) symmetry_copies=(0 &int) set_dihedrals=(true &bool) set_bondlengths=(true &bool) set_bondangles=(true &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) omega1=(0.0 &real) z1=(0.0 &real) delta_omega1=(0.0 &real) delta_t=(0.0 &real) z1_offset=(0.0 &real) z0_offset=(0.0 &real) invert=(false &bool) >
      <Helix set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) omega1=(0.0 &real) z1=(0.0 &real) delta_omega1=(0.0 &real) delta_t=(0.0 &real) z1_offset=(0.0 &real) z0_offset=(0.0 &real) invert=(false &bool) />
@@ -17,10 +19,11 @@ Options in the <b>MakeBundle</b> tag set defaults for the whole bundle.  Individ
 <b>r0</b>: The major helix radius (the radius of the bundle, in Angstroms).<br/>
 <b>omega0</b>:  The major helix turn per residue, in radians (or degrees, if use_degrees is set to true).  If set too high, no sensible geometry can be generated, and the mover throws an error.  <i>Note: All angular values are in <b>radians</b> unless use_degrees is set to true.</i><br/>
 <b>delta_omega0</b>:  An offset value for <b>omega0</b> that will rotate the generated helix about the bundle axis.<br/>
-<b>crick_params_file</b>:  A filename containing parameters (e.g. minor helix radius, minor helix twist per residue, minor helix rise per residue, <i>etc.</i>) for the minor helix.  Crick parameters files for helices formed by arbitrary noncanonical backbones can be generated using the <b>fit_helixparams</b> app.  The Rosetta database currently contains six sets of minor helix parameters:<br/>
+<b>crick_params_file</b>:  A filename containing parameters (e.g. minor helix radius, minor helix twist per residue, minor helix rise per residue, <i>etc.</i>) for the minor helix.  Crick parameters files for helices formed by arbitrary noncanonical backbones can be generated using the <b>fit_helixparams</b> app.  The Rosetta database currently contains several sets of minor helix parameters:<br/>
 - "alpha_helix": A standard L-amino acid right-handed alpha-helix, with phi=-64.8, psi=-41.0, and omega=180.0.  Note that the turn per residue for this helix is 98.65 degrees, not exactly 100 degrees.<br/>
 - "alpha_helix_100": An L-amino acid right-handed alpha-helix, with phi=-62.648, psi=-41.0, and omega=180.0, yielding a turn per residue of 100 degrees.  This is for backward compatibility with the Python scripts used to generate helical bundles previously.
 - "beta_strand": An L-amino acid beta-strand, with phi=-135.0, psi=135.0, and omega=180.0.<br/>
+- "collagen": <b>EXPERIMENTAL</b>.  This generates a collagen helix.  This is experimental because the repeating unit in this helix is a three-residue repeat rather than a single residue.
 - "neutral_beta_strand": An unnaturally straight beta-strand, with phi=180.0, psi=180.0, and omega=180.0.  Both L- and D-amino acids can access this region of Ramachandran space.<br/>
 - "L_alpha_helix": A left-handed alpha-helix, as can be formed by D-amino acids.  Phi=64.8, psi=41.0, and omega=180.0.<br/>
 - "daa_beta_strand": A beta-strand formed by D-amino acids, mirroring that formed by L-amino acids.  Phi=135.0, psi=-135.0, and omega=180.0.<br/>
