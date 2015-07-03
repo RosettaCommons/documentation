@@ -18,6 +18,7 @@ Generates a helical bundle, sampling user-specified ranges of parameters and out
     delta_t=(&real) OR ( delta_t_min=(&real) delta_t_max=(&real) delta_t_samples=(&int) )
     z1_offset=(&real) OR (z1_offset_min=(&real) z1_offset_max=(&real) z1_offset_sample=(&int))
     z0_offset=(&real) OR (z0_offset_min=(&real) z0_offset_max=(&real) z0_offset_sample=(&int))
+    repeating_unit_offset=0(&int)
    >
    <Helix set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool) invert=(false &bool)
      residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string) helix_length=(0 &int)
@@ -28,6 +29,7 @@ Generates a helical bundle, sampling user-specified ranges of parameters and out
      delta_t=(&real) OR (delta_t_copies_helix=(&int)) OR ( delta_t_min=(&real) delta_t_max=(&real) delta_t_samples=(&int) )
      z1_offset=(&real) OR (z1_offset_copies_helix=(&int)) OR ( z1_offset_min=(&real) z1_offset_max=(&real) z1_offset_samples=(&int) )
      z0_offset=(&real) OR (z0_offset_copies_helix=(&int)) OR ( z0_offset_min=(&real) z0_offset_max=(&real) z0_offset_samples=(&int) )
+     repeating_unit_offset=0(&int)
    >
    <Helix ...>
    <Helix ...>
