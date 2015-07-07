@@ -148,7 +148,7 @@ Filters which are useful for combining, modifying or working with other filters 
 
 ### Bonding
 
-**[[HbondsToResidue|HbondsToResidueFilter]]** - Filter on number of h-bonding partners to a residue(s).
+**[[HbondsToResidue|HbondsToResidueFilter]]** - Filter on number of h-bonding partners to a residue.
 
 **[[HbondsToAtom|HbondsToAtomFilter]]** - Filter on number of h-bonding partners to an atom(s).
 
