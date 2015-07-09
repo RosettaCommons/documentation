@@ -64,7 +64,7 @@ There are several optional settings which have been benchmarked and tested thoro
 Constraint and Jumping options
 
 These flags are implemented in ConstraintFragmentSampler .cc
-```
+<pre>
 -constraints:cst_weight 1.0 	                Patches the weight for the ScoreType atom_pair_constraint in
                                                 all scores (score0, score1, score2, score5 and score3) used
                                                 for abinitio. This change is applied after patching via
@@ -97,12 +97,12 @@ These flags are implemented in ConstraintFragmentSampler .cc
                                                 Irrelevant if ramping of chainbreaks is active.
 -jumps:chainbreak_weight_stage4 	        Set the weight for ScoreType linear_chainbreak for Stage4. 
                                                 Irrelevant if ramping of chainbreaks is active.
-```
+</pre>
 
 Processing options
 
 For running multiple jobs on a cluster the following options are useful:
-```
+<pre>
 -constant_seed 	        Use a constant seed (1111111 unless specified with -jran)
 -jran 1234567 	        Specify seed. Should be unique among jobs (requires -constant_seed)
 -seed_offset 10 	This value will be added to the random number seed. Useful when using 
@@ -113,7 +113,7 @@ For running multiple jobs on a cluster the following options are useful:
                         For example "-seed_offset $(Process)" can be used in the condor submit file.
 -run:dry_run 	        no sampling cycles, just initialize all objects (for testing, default=False)
 -run:test_cycles 	only a single sampling cycle per stage (for testing, default=False)
-```
+</pre>
 
 #### Source Code 
 
