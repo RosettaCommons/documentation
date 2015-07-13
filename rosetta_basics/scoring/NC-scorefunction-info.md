@@ -78,7 +78,25 @@ How to Use:
 * Weight Set
 
  <code>orbitals.wts </code>(for pre-talaris2013 defaults), <code>orbitals_talaris2013.wts</code>, <code>orbitals_talaris2013_softrep.wts</code> (analogous to soft_rep/soft_rep_design scorefunction but not rigorously tested)
-  
+
+## General ring closure term (**ring_close**)
+Creator: Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
+
+Although not a full scorefunction itself, the **ring_close** score term is meant to be a generalized version of the part of the **pro_close** term that holds the proline ring closed during minimization.  Since Rosetta thinks about molecules as a branching tree of atoms (the AtomTree), rings cannot be properly represented during minimization, meaning that there must be a cutpoint in any cyclic chain of atoms.  This could result in rings drifting open during minimization.  The **pro_close** term creates a harmonic potential between proline's delta carbon and a virtual atom ("shadow atom") attached to the mainchain nitrogen.  This holds the proline ring closed.  The **ring_close** score term does the same for any "shadow atom" and its real counterpart, on any residue type.
+
+Shadow atoms are defined in the params file for a ResidueType with **VIRTUAL_SHADOW** lines.  Typically, one wants to have two such lines in order to enforce closure of a ring.  For example, in the cis-ACPC params file, we have:
+
+```
+VIRTUAL_SHADOW VCM CM
+VIRTUAL_SHADOW VCD CD
+```
+
+The above lines indicate that the VCM virtual atom (which is attached to the CD atom that is part of the cis-ACPC ring) is expected to "shadow", or match the position of the mainchain CM atom, and the VCD virtual atom (which is attached to the mainchain CM atom) is expected to "shadow" the CD atom.  In order to enforce this, a scorefunction with the **ring_close** score term turned on must be used.
+
+Note that there are three scoring terms that all enforce closure of proline: **ring_close**, **pro_close**, and **cart_bonded**.  To avoid double-counting, these functions should not be used together.  The **ring_close** term is intended for use in situations in which the minimizer can move only the torsional degrees of freedom, so that it would be unduly expensive to use the **cart_bonded** scoring term.
+
+Note also that **pro_close** has two behaviours: in addition to enforcing ring closure of proline residues, it also imposes torsional constraints on the psi torsion angle of the preceding residue.  If one wishes to continue to use **pro_close** for the latter purpose, but have **ring_close** handle ring closure, you can disable the ring closure part of **pro_close** with the **-score:no_pro_close_ring_closure** flag.
+
 ##See Also
 
 * [[Scoring explained]]
