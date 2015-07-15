@@ -11,7 +11,7 @@ SEWING stands for **S**tructure **E**xtension **WI**th **N**ative-fragment **G**
 
 1. [[Model Generation|SEWING#model-generation]] - Extraction of 'models' from native structures
 2. [[Model Comparison|SEWING#model-comparison-with-geometric-hashing]] - Structurally compare models to one another using a geometric hashing algorithm
-3. [[Assembly|SEWING#Assembly-of-models]] - Stitch models together based on structural superimposition to form novel backbones
+3. [[Assembly|SEWING#assembly-of-models]] - Stitch models together based on structural superimposition to form novel backbones
 
 ##Model Generation
 First we need to generate a set of models. The only currently supported mechanism for model generation is through the use of a [[Features database|FeaturesTutorials]]. The following set ReportToDB tag contains the minimal set of features.
