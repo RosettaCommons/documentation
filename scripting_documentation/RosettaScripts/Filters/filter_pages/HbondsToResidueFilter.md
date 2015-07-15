@@ -15,7 +15,7 @@ This filter was originally written in the context of protein interface design, a
 -   backbone: Should we count hydrogen bonds involving backbone?
 -   sidechain: Should we count hydrogen bonds involving sidechains?
 -   bb_bb: Should we count backbone-backbone hydrogen bonds?
--   residue: The residue number whose hydrogen bonding we're examining.  This can be a Rosetta number (e.g. "32"), a PDB number (e.g. "12B"), or a number based on references poses (e.g. "refpose(snapshot1,35)").  See the note on [[this page|RosettaScripts-Conventions]] about the RosettaScripts conventions for residue indices.
+-   residue: The residue number whose hydrogen bonding we're examining.  This can be a Rosetta number (e.g. "32"), a PDB number (e.g. "12B"), or a number based on reference poses (e.g. "refpose(snapshot1,35)").  See the note on [[this page|RosettaScripts-Conventions]] about the RosettaScripts conventions for residue indices.
 -   from_other_chains: Should we count hydrogen bonds between the specified residue and residues in other chains?  Default true.
 -   from_same_chain: Should we count hydrogen bonds between the specified residue and residues in the same chain?  Default true.
 
