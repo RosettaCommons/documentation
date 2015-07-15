@@ -152,6 +152,30 @@ An example RosettaScripts tag is below:
 </MonteCarloAssemblyMover>
 ```
 
+
+An example of motif.flags (MonteCarloAssemblyMover requires this as well) is below:
+
+```xml
+-mh:match:ss1 true    # for "explicit" motifs that get dumped at the end, match target SS
+-mh:match:ss2 true    # for "explicit" motifs that get dumped at the end, match binder SS
+-mh:match:aa1 false   # for "explicit" motifs that get dumped at the end, match target AA
+-mh:match:aa2 false   # for "explicit" motifs that get dumped at the end, match binder AA
+
+-mh:score:use_ss1 true         # applicable only to "BB_BB motifs, match secondary structure on first (target) res"
+-mh:score:use_ss2 true         # applicable only to "BB_BB motifs, match secondary structure on second (binder) res"
+-mh:score:use_aa1 false        # applicable only to "BB_BB motifs, match AA identity on first (target) res"
+-mh:score:use_aa2 false        # applicable only to "BB_BB motifs, match AA identity on second (binder) res"
+
+-mh:path:motifs       /home/kimdn/db/motifhash_data/xsmax_bb_ss_AILV_resl0.8_msc0.3/xsmax_bb_ss_AILV_resl0.8_msc0.3.rpm.bin.gz
+-mh:path:scores_BB_BB /home/kimdn/db/motifhash_data/xsmax_bb_ss_AILV_resl0.8_msc0.3/xsmax_bb_ss_AILV_resl0.8_msc0.3
+
+-mh:gen_reverse_motifs_on_load false     # I think the inverse motifs are already in the datafiles
+
+-mh::dump::max_rms 0.4
+-mh::dump::max_per_res 20
+```
+
+
 ----------------------
 
 ###AppendAssemblyMover
@@ -171,6 +195,8 @@ The complete set of additional flags respected by the SewingAppendMover
 -sewing:min_hash_score          The minimum number over overlapping atoms **per segment** that is considered a structure match (recommended value: >=10)
 -sewing:max_clash_score         The tolerance for number of atoms/segment of different atom types that end up in the same quarter-angstrom bin during geometric hashing
 ```
+
+AppendAssemblyMover does not need to specify motif.flags (while MonteCarloAssemblyMover does require this)
 
 ----------------------
 
@@ -248,15 +274,23 @@ For example,
 ```
 
 ##Dictionary
+* atom: A collection of xyz coordinates and element
+
 * model: A node that can be connected by edges. A collection of segments. Generally, 2-5 pieces of segment constitute the model. Currently for continuous SEWING, 3 pieces of secondary structures called smotif (like HLH, or HLE) is a model (5 pieces of secondary structures as a model for continuous SEWING are in active development). Defined as struct whose elements are model_id, pdb_code, structure_id, distance, hoist_angle, packing_angle and meridian_angle. 
 
-* segment: A collection of secondary structures. As of now just 1 secondary structure equals 1 segment.
-
-* secondary structures: H, L, E
+* motif: Designability score. Basically it shows that how well hydrophobic parts of secondary structures are well pack with each other. Will Sheffler in Baker lab made this.
 
 * residue: Technically residue_type, a collection of atoms
 
-* atom: A collection of xyz coordinates and element
+* secondary structures: H, L, E
+
+* segment: A collection of secondary structures. As of now just 1 secondary structure equals 1 segment.
+
+
+
+
+
+
 
 Example of "model", "segment", "residue", "atom"
 ```
