@@ -232,6 +232,9 @@ Note that all IntraSegment Requirement tags *must* be nested inside of an IntraS
 ```xml
 <IntraSegmentRequirements index=1>
     #Put Requirement tags here!
+    #for example,
+    <SegmentDsspRequirement dssp="H" />
+    <SegmentLengthRequirement min_length=11 />
 </IntraSegmentRequirements>
 ```
 
