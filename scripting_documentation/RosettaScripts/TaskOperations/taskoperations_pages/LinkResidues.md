@@ -44,3 +44,5 @@ This script designs a protein according to the a particular resfile, while ensur
 ### Known Bugs:
 
 * This task operation will print "singular unlinked position" warnings and eventually cause a Segmentation Fault if there are any positions in the protein that are allowed to design but are not specified in a LinkGroup.  You can work around this by simply specifying every position you want to design in a LinkGroup.  If you have a position that you don't want to be linked to anything, make a LinkGroup that only specifies that position.  This will "link the position to itself", which is what you want. 
+
+* There must be at least one position in your resfile that's allowed to design that's not part of a LinkGroup, otherwise you'll get a Segmentation Fault.
