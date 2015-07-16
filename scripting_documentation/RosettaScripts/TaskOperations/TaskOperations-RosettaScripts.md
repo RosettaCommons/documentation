@@ -78,6 +78,8 @@ Position/Identity Specification
 
 **[[DisallowIfNonnative|DisallowIfNonnativeOperation]]** - Do not design to certain residues, but allow them if they already exist.
 
+**[[LinkResidues]]** - Constrain groups of residues to mutate together.
+
 <!--- BEGIN_INTERNAL -->
 **[[RestrictIdentities|RestrictIdentitiesOperation]]** - Do not design residues with a particular starting identity.
 <!--- END_INTERNAL --> 
