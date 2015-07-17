@@ -71,8 +71,6 @@ In order to sample a range of parameters, keeping a parameter value for two diff
 </BundleGridSampler>
 ```
 
-
-
 ##See Also
 
 * [[MakeBundleMover]]
