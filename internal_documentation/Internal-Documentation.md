@@ -139,8 +139,8 @@ Input Files:
  * CDR Level control of Antibody Design and CDRSets used for Antibody modeling
 
 #### S.E.W.I.N.G. Protocol
-[[SEWING]]
-[[Sidechain Design aided by Sewing]]
+- [[SEWING]]
+- [[Sidechain Design aided by Sewing]]
 
 
 #### Methods
