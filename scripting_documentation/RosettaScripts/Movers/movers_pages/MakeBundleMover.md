@@ -64,6 +64,8 @@ Note that RosettaScripts requires some sort of input on which to operate, but th
 ##See Also
 
 * [[BundleGridSamplerMover]]
+* [[PerturbBundle mover|PerturbBundleMover]]
+* [[BundleReporter filter|BundleReporterFilter]]
 * [[Symmetry]]: Using symmetry in Rosetta
 * [[SymmetryAndRosettaScripts]]
 * [[SetupForSymmetryMover]]
@@ -71,6 +73,5 @@ Note that RosettaScripts requires some sort of input on which to operate, but th
 * [[DetectSymmetryMover]]
 * [[SymMinMover]]
 * [[SymPackRotamersMover]]
-* [[MakeBundleMover]]
 * [[ExtractAsymmetricUnitMover]]
 * [[ExtractAsymmetricPoseMover]]
