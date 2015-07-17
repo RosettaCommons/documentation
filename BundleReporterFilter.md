@@ -22,7 +22,7 @@ This filter can be useful in cases in which one wants to do very large sampling 
 
 - A **[[BundleGridSampler mover|BundleGridSamplerMover]]**, probably in nstruct mode, to generate initial geometry.
 - One or more filters to discard backbone configurations that are obviously "bad" (e.g. with mainchain clashes).  To this point, the protocol is extremely computationally inexpensive.
-- One or more design movers (e.g. [[FastDesign]], with backbone fixed).  This is the relatively computationally expensive step.
+- One or more design movers (e.g. [[FastDesign|FastDesignMover]], with backbone fixed).  This is the relatively computationally expensive step.
 - One or more filters to determine whether a design is "good".
 - The **BundleReporter** filter to report parameters for those designs passing filters, with the "ALWAYS_FALSE" behaviour set so that no structures are written out to disk.
 
