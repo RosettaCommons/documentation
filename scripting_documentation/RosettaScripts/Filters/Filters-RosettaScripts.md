@@ -166,6 +166,8 @@ Filters which are useful for combining, modifying or working with other filters 
 
 These filters are used primarily for the reports they generate in the log and/or score and silent files, more so than their ability to end a run.
 
+**[[BundleReport|BundleReportFilter]]** - Report the helical bundle parameters and energy of a parametrically-generated pose.
+
 **[[DesignableResidues|DesignableResiduesFilter]]** - Report which residues are designable.
 
 **[[Expiry|ExpiryFilter]]** - Filter based on length of simulation (in seconds).
