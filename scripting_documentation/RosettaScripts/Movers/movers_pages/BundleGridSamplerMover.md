@@ -73,10 +73,10 @@ In order to sample a range of parameters, keeping a parameter value for two diff
 
 ##See Also
 
-* [[MakeBundleMover]]
+* [[MakeBundle mover|MakeBundleMover]]
 * [[PerturbBundle mover|PerturbBundleMover]]
 * [[BundleReporter filter|BundleReporterFilter]]
-* [[BackboneGridSamplerMover]]
+* [[BackboneGridSampler mover|BackboneGridSamplerMover]]
 * [[Symmetry]]: Using symmetry in Rosetta
 * [[SymmetryAndRosettaScripts]]
 * [[SetupForSymmetryMover]]
