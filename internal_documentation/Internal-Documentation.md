@@ -140,6 +140,8 @@ Input Files:
 
 #### S.E.W.I.N.G. Protocol
 [[SEWING]]
+[[Sidechain Design aided by Sewing]]
+
 
 #### Methods
 [[Computing SASA in Rosetta]]
