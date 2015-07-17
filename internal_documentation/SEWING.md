@@ -2,7 +2,7 @@ The SEWING protocol is a method for the rapid generation of denovo backbones tha
 
 The entire article is mainly about 'backbone generation by SEWING' so
 * for 'Sidechain Design aided by Sewing', go to
-[[Sidechain Design aided by Sewing|SEWING#sidechain-design-aided-by-sewing]]
+[[Sidechain Design aided by Sewing|sidechain-design-aided-by-sewing]]
 * for jargons of 'SEWING' field, go to
 [[Dictionary|SEWING#dictionary]]
 
