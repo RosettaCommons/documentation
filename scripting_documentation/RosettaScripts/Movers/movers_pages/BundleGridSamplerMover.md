@@ -76,6 +76,8 @@ In order to sample a range of parameters, keeping a parameter value for two diff
 ##See Also
 
 * [[MakeBundleMover]]
+* [[PerturbBundle mover|PerturbBundleMover]]
+* [[BundleReporter filter|BundleReporterFilter]]
 * [[BackboneGridSamplerMover]]
 * [[Symmetry]]: Using symmetry in Rosetta
 * [[SymmetryAndRosettaScripts]]
@@ -84,7 +86,6 @@ In order to sample a range of parameters, keeping a parameter value for two diff
 * [[DetectSymmetryMover]]
 * [[SymMinMover]]
 * [[SymPackRotamersMover]]
-* [[MakeBundleMover]]
 * [[ExtractAsymmetricUnitMover]]
 * [[ExtractAsymmetricPoseMover]]
 * [[I want to do x]]: Guide to choosing a mover
