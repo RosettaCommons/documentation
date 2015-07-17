@@ -203,11 +203,11 @@ See [[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScri
 
 ### Parametric Backbone Generation
 
-**[[MakeBundle|MakeBundleMover]]** - Uses the Crick equations to create a helix of helices or beta barrel
+**[[MakeBundle|MakeBundleMover]]** - Uses the Crick equations to create a helix of helices or beta barrel, given user-specified parameter values.
 
-**[[BundleGridSampler|BundleGridSamplerMover]]** - Creates a helix of helices or beta barrel by sampling parameters and choosing the one with the lowest energy
+**[[BundleGridSampler|BundleGridSamplerMover]]** - Creates a helix of helices or beta barrel by sampling user-defined parameter ranges and choosing the set of parameter values yielding the lowest-energy structure.
 
-**[[PerturbBundle|PerturbBundleMover]]** - Performs iterative Monte Carlo searches of Crick parameter space 
+**[[PerturbBundle|PerturbBundleMover]]** - Takes a parametrically-generated helical bundle pose and alters the helical parameters slightly to perturb the bundle geometry.  Good for making moves as part of a Monte Carlo search of parameter space.
 
 ### Other Pose Manipulation
 
