@@ -141,7 +141,7 @@ Input Files:
 #### S.E.W.I.N.G. Protocol
 - [[SEWING]]
 - [[Sidechain Design aided by Sewing]]
-
+- [[SEWING Dictionary]]
 
 #### Methods
 [[Computing SASA in Rosetta]]
