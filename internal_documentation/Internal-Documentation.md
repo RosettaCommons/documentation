@@ -140,6 +140,7 @@ Input Files:
 
 #### S.E.W.I.N.G. Protocol
 - [[SEWING]]
+ * [[Model Generation]] 
 - [[Sidechain Design aided by Sewing]]
 - [[SEWING Dictionary]]
 
