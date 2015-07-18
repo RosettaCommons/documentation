@@ -10,47 +10,9 @@ The entire article is mainly about 'backbone generation by SEWING' so
 SEWING stands for **S**tructure **E**xtension **WI**th **N**ative-fragment **G**raphs. SEWING functions by identifying relatively large sub-structures, called models (2-5 pieces of secondary structure, called segments) from native PDBs, and then assembling these models based on structural similarity. SEWING can be broken down into three basic steps:
 
 1. [[Model Generation|model-generation]] - Extraction of 'models' from native structures
-2. [[Model Comparison|SEWING#model-comparison-with-geometric-hashing]] - Structurally compare models to one another using a geometric hashing algorithm
+2. [[Model Comparison|model-comparison-with-geometric-hashing]] - Structurally compare models to one another using a geometric hashing algorithm
 3. [[Assembly|SEWING#assembly-of-models]] - Stitch models together based on structural superimposition to form novel backbones
 
-##Model comparison with geometric hashing
-Once a Model file has been generated, the models need to be structurally compared to one another using a geometric hashing algorithm implemented in the SewingHasher.
-
-SewingHasher hashing flags
-```
--sewing:mode hash               Set the sewing mode to 'hash' for geometric hashing
--sewing:model_file_name         The name of the file to read models from
--sewing:score_file_name         The name of the score file to output (used in later stages of SEWING)
--sewing:num_segments_to_match   The exact of model segments to look for structural matches for. Any matches with less than, or more than, this number of segment matches will fail. For continuous SEWING, only a value of 1 is supported
--sewing:min_hash_score          The minimum number over overlapping atoms **per segment** that is considered a structure match (recommended value: >=10)
--sewing:max_clash_score         The tolerance for number of atoms/segment of different atom types that end up in the same quarter-angstrom bin during geometric hashing (recommended value: 0)
-```
-
-An example command line for comparison of model files:
-```
-/path/to/rosetta/bin/SewingHasher.linuxgccrelease \
--sewing:mode hash \
--sewing:model_file_name pdb.models \
--sewing:score_file_name pdb.scores \
--sewing:num_segments_to_match 1 \
--sewing:min_hash_score 20 \
--sewing:max_clash_score 0
-```
-
-Due to the computational expense, it is recommended to run the above command using a large number of processors using MPI. The result will be one score plain-text file per MPI process (e.g. pdb.scores.0, pdb.scores.1, etc). For most production-size databases, the resultant score files will be very large. To increase speed during assembly, it is required that the entire set of plain-text score files be converted into a single, binary score file. To accomplish this conversion, first combine the plain text score files:
-```
-cat pdb.scores.* > pdb.scores
-```
-
-Then, use the SewingHasher executable to convert this plain-text file to binary:
-```
-/path/to/rosetta/bin/SewingHasher.linuxgccrelease \
--sewing:mode convert \
--sewing:model_file_name pdb.models \
--sewing:score_file_name pdb.scores
-```
-
-The final result should be a score file named pdb.scores.bin, this is the score file that will be used during the Assembly of SEWING backbones.
 
 ##Assembly of models
 
