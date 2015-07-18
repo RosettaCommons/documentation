@@ -1,4 +1,3 @@
-
 ##Dictionary
 * atom: A collection of xyz coordinates and element
 
@@ -12,11 +11,12 @@
 
 * segment: A collection of secondary structures. As of now just 1 secondary structure equals 1 segment.
 
-
-
-
-
-
+* SewingHasher: Three modes are possible
+``` 
+generate: generates a model file from an sqlite database
+hash: score all models against each other and create a plain text score file (MPI required)
+convert: convert a plain text score file to a binary score file. This is required by the SEWING movers
+```
 
 Example of "model", "segment", "residue", "atom"
 ```
