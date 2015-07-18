@@ -49,13 +49,13 @@ Unless the target backbone to design is random, ModelTrimmer needs to trim model
 -s                              The input PDB (ignored, but still required, for many SEWING Movers)
 -sewing:model_file_name         The name of the file to read models from
 -new_model_file_name            The name of the trimmed model file
--sewing::remove_any_dssp        Remove any models that contain this DSSP (H,E,L)
--sewing::min_helix_length       Remove any models that has less number of helix residues than this
--sewing::max_helix_length       Remove any models that has more number of helix residues than this
--sewing::min_strand_length      Remove any models that has less number of strand residues than this
--sewing::max_strand_length      Remove any models that has more number of strand residues than this
--sewing::min_loop_length        Remove any models that has less number of loop residues than this
--sewing::max_loop_length        Remove any models that has more number of loop residues than this
+-sewing::remove_any_dssp        Remove any model that contain this DSSP (H,E,L)
+-sewing::min_helix_length       Remove any model that has less number of helix residues than this
+-sewing::max_helix_length       Remove any model that has more number of helix residues than this
+-sewing::min_strand_length      Remove any model that has less number of strand residues than this
+-sewing::max_strand_length      Remove any model that has more number of strand residues than this
+-sewing::min_loop_length        Remove any model that has less number of loop residues than this
+-sewing::max_loop_length        Remove any model that has more number of loop residues than this
 ```
 
 An example command line for ModelTrimmer:
