@@ -36,3 +36,40 @@ An example command line for generation of model files:
 -database_name pdb.db3 \
 -sewing:model_file_name pdb.models
 ```
+
+
+----------------------
+
+###ModelTrimmer
+
+Unless the target backbone to design is random, ModelTrimmer needs to trim models leaving only relavent models to speed up during 'model comparison' and 'assembly of models'.
+
+###Possible flags for ModelTrimmer
+```
+-s                              The input PDB (ignored, but still required, for many SEWING Movers)
+-sewing:model_file_name         The name of the file to read models from
+-new_model_file_name            The name of the trimmed model file
+-sewing::remove_any_dssp        Remove any models that contain this DSSP (H,E,L)
+-sewing::min_helix_length       Remove any models that has less number of helix residues than this
+-sewing::max_helix_length       Remove any models that has more number of helix residues than this
+-sewing::min_strand_length      Remove any models that has less number of strand residues than this
+-sewing::max_strand_length      Remove any models that has more number of strand residues than this
+-sewing::min_loop_length        Remove any models that has less number of loop residues than this
+-sewing::max_loop_length        Remove any models that has more number of loop residues than this
+```
+
+An example command line for ModelTrimmer:
+```
+/path/to/rosetta/bin/ModelTrimmer.default.linuxgccrelease @flags_ModelTrimmer
+```
+
+An example of flags_ModelTrimmer:
+```
+-s input_files/1_1_1TEN_A_res-renum.pdb #just for jd2
+-mute -mute basic.io core.chemical core.conformation core.io core.pack core.scoring protocols.jd2
+
+-sewing:model_file_name basic.models
+-new_model_file_name basic_trimmed.models
+
+-sewing::remove_any_dssp H
+```
