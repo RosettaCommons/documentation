@@ -142,6 +142,7 @@ Input Files:
 - [[SEWING]]
  * [[Model Generation]] 
  * [[Model comparison with geometric hashing]] 
+ * [[Assembly of models]] 
 - [[Sidechain Design aided by Sewing]]
 - [[SEWING Dictionary]]
 
