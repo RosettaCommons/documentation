@@ -141,6 +141,7 @@ Input Files:
 #### S.E.W.I.N.G. Protocol
 - [[SEWING]]
  * [[Model Generation]] 
+ * [[Model comparison with geometric hashing]] 
 - [[Sidechain Design aided by Sewing]]
 - [[SEWING Dictionary]]
 
