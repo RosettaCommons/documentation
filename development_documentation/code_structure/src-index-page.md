@@ -105,7 +105,7 @@ This contains all the `ScoreFunction` and all the common terms that go in it, an
 
 ####Pose
 `Pose`, one of the two most important classes in Rosetta, lives here.
-`Pose` is the marriage of a `Conformation` and an `Energies` object holding its scores.
+[[Pose|RosettaEncyclopedia#pose]] is the marriage of a `Conformation` and an `Energies` object holding its scores.
 
 ###Core.4
 Core.4 is concerned with optimization algorithms - ways to minimize the energy of the pose. 
