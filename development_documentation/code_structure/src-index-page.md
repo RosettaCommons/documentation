@@ -70,16 +70,13 @@ Certain Rosetta-specific tools, such as the [[tracer]], can also be found in the
 <<RawHtml(
 <img src="RosettaCores.png" usemap="#RosettaCores" alt="missing Core library hierarchy image">
 <map name="RosettaCores">
-        <area shape=rect coords="98,627,274,726" href=src-index-page#Core.5>
-        <area shape=rect coords="98,479,274,578" href=src-index-page#Core.4>
-        <area shape=rect coords="98,330,274,431" href=src-index-page#Core.3>
-        <area shape=rect coords="98,182,274,281" href=src-index-page#Core.2>
-        <area shape=rect coords="98,99,274,132" href=src-index-page#Core.1>
+        <area shape=rect coords="98,627,274,726" href=src-index-page#core-library_core-5>
+        <area shape=rect coords="98,479,274,578" href=src-index-page#core-library_core-4>
+        <area shape=rect coords="98,330,274,431" href=src-index-page#core-library_core-3>
+        <area shape=rect coords="98,182,274,281" href=src-index-page#core-library_core-2>
+        <area shape=rect coords="98,99,274,132" href=src-index-page#core-library_core-1>
 </map>
 )>>
-
-
-[[./RosettaCores.png]]
 
 The core directory contains classes that manage most of the internal machinery of Rosetta. 
 This includes topics such as chemical representations of models, conformational representations of models, low-level operations on conformations, and energetic evaluation ([[scoring|scoring-explained]]) of models.
