@@ -43,6 +43,7 @@ An example command line for generation of model files:
 ```
 /path/to/rosetta/bin/SewingHasher.linuxgccrelease \
 -sewing:mode generate \
+-sewing:mode generate_five_ss_model # it will generate five secondary structures' models \
 -database_name pdb.db3 \
 -sewing:model_file_name pdb.models
 ```
