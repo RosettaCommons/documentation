@@ -30,6 +30,7 @@ An example command line for generation of 'Features database' that will be used 
 ----------------------
 
 ###Actual Model Generation
+After building features database, let's generate real models from this DB.
 
 SewingHasher model generation flags
 ```
