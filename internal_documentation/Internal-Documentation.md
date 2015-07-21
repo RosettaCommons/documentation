@@ -77,8 +77,8 @@ comment tags will be stripped from the documentation prior to being provided as 
 #### OLD ####
 - [[RosettaMembrane Framework Overview]]
 
-### Helical bundles project
-- [[BundleGridSampler]]
+### Design-specific scoring terms ###
+[[Repeat stretch energy (aa_repeat_energy)|Repeat-stretch-energy]] -- A scoring term that penalizes long stretches of repeating sequence (*e.g.* poly-Q sequences).
 
 ### Cyclic Peptides / Geometrically-Constrained Polymers Project
 - [[Workflow]]
