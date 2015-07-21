@@ -1,5 +1,10 @@
 ##Model Generation
-First we need to generate a set of models. The only currently supported mechanism for model generation is through the use of a [[Features database|FeaturesTutorials]]. The following set ReportToDB tag contains the minimal set of features.
+First we need to generate a set of models. The only currently supported mechanism for model generation is through the use of a [[Features database|FeaturesTutorials]]. 
+
+----------------------
+
+###Feature Database Building
+The following set ReportToDB tag contains the minimal set of features.
 
 ```xml
 <MOVERS>
@@ -21,6 +26,10 @@ An example command line for generation of 'Features database' that will be used 
 -protocol features.xml \
 -dbms:database_name pdb.db3 
 ```
+
+----------------------
+
+###Actual Model Generation
 
 SewingHasher model generation flags
 ```
