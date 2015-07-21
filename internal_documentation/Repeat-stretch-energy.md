@@ -25,4 +25,6 @@ The lines starting with a pound sign (**#**) are ignored.  The relevant line is 
 
 ## Organization of the code
 - The scoring method lives in ```core/scoring/methods/AARepeatEnergy.cc``` and ```core/scoring/methods/AARepeatEnergy.hh```.
-- The whole-body energy is evaluated by the ```AARepeatEnergy::finalize_total_energy()```
+- The whole-body energy is evaluated by the ```AARepeatEnergy::finalize_total_energy()``` function, which takes a pose as input.
+- This function calls ```AARepeatEnergy::calculate_aa_repeat_energy()```, which takes a vector of const owning pointers to **Residue** objects as input and returns a whole-pose energy value.  This function can be called by external code.
+- A unit test is located in ```source/test/core/scoring/methods/AARepeatEnergy.cxxtest.hh```.  This test first scores the trp cage miniprotein, which has a three-proline repeat sequence.  It then adds polyalanine repeat sequences to the end of the trp cage and repeats the scoring, confirming that the expected score value results each time.
