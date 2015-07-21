@@ -77,8 +77,11 @@ comment tags will be stripped from the documentation prior to being provided as 
 #### OLD ####
 - [[RosettaMembrane Framework Overview]]
 
+### JD3 -- version 3 of the JobDistributor system ###
+- TODO
+
 ### Design-specific scoring terms ###
-[[Repeat stretch energy (aa_repeat_energy)|Repeat-stretch-energy]] -- A scoring term that penalizes long stretches of repeating sequence (*e.g.* poly-Q sequences).
+- [[Repeat stretch energy (aa_repeat_energy)|Repeat-stretch-energy]] -- A scoring term that penalizes long stretches of repeating sequence (*e.g.* poly-Q sequences).
 
 ### Cyclic Peptides / Geometrically-Constrained Polymers Project
 - [[Workflow]]
