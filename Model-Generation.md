@@ -42,7 +42,7 @@ SewingHasher model generation flags
 An example command line for generation of model files:
 ```
 /path/to/rosetta/bin/SewingHasher.linuxgccrelease \
--sewing:mode generate \
+-sewing:mode generate # it will generate three secondary structures (smotif)' models \
 -sewing:mode generate_five_ss_model # it will generate five secondary structures' models \
 -database_name pdb.db3 \
 -sewing:model_file_name pdb.models
