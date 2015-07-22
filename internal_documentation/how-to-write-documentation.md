@@ -168,9 +168,9 @@ Some other special comments are recognized as well.  Inside these comments you
 can use a lot of different markup commands to control how doxygen formats the 
 output.  All of these commands start with `@`:
 
-    /// @brief A function to print a coridal greeting.
-    /// @details This function demonstrates both the way to write a simple C++ 
-    /// program and to document that function.
+    /// @brief A function to print a cordial greeting.
+    /// @details This function demonstrates both how to write a simple C++ 
+    /// program and how to document that function.
 
     void hello_world() {
         std::cout << "Hello world!" << std::endl;
