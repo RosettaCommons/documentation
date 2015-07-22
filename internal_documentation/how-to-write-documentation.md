@@ -81,7 +81,7 @@ Your documentation should include the following sections:
 How to document a new application
 ---------------------------------
 If you are looking for information on how to write an new application, check 
-out the page on [[writing an application|writing-an-app].  Once you've written 
+out the page on [[writing an application|writing-an-app]].  Once you've written 
 your application, your next step is to document it.  Each application should 
 have its own page documenting in detail:
 
