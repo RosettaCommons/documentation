@@ -19,6 +19,8 @@
 
 * [[Checklist for committing code|before-commit-check]]
 
+[[How to Write Documentation|internal_documentation/how-to-write-documentation]]
+
 [[Missing Links|internal_documentation/missing_links/control_panel]]
 <!---END_INTERNAL-->
 
