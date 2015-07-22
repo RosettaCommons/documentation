@@ -275,6 +275,8 @@ See [[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScri
 
 **[[VirtualRoot|VirtualRootMover]]** - Create virtual residue and reroot pose foldtree on the new residue
 
+**[[HBNet|HBNetStapleInterface|HBNetLigand|HBNetCore]]** - (Developer release only) A method for designing explicit hydrogen bond networks
+
 ## Computational 'affinity maturation' movers
 
 **[[RandomMutation|RandomMutationMover]]** - Introduce a random mutation in a re-designable position
