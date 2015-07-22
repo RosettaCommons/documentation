@@ -20,6 +20,6 @@ UNDER CONSTRUCTION
 
 ##See Also
 
-* [[PerturbBundleMove]]
+* [[PerturbBundleMover]]
 * [[BundleGridSampler]]
 
