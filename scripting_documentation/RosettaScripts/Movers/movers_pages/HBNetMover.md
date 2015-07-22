@@ -6,6 +6,7 @@ UNDER CONSTRUCTION
 This 
 
 *For details on [[how to design hydrogen bond networks into helical bundles|HBNet-HelicalBundle]].*
+**For details on [[how HBNet works|HBNet-HowItWorks]].*
 
 ```
 <HBNetStapleInterface name=(&string) hb_threshold=(&real -0.85) stringent_satisfaction=(&bool true) />
