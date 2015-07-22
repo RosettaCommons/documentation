@@ -13,6 +13,8 @@
 <!---BEGIN_INTERNAL-->
 [[Internal Documentation|internal_documentation/Internal-Documentation]]
 
+* [[How to write documentation||how_to_write_documentation]]
+
 * [[RosettaAcademy]]
 
 * [[GithubWorkflow]]
