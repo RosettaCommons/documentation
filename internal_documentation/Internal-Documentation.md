@@ -43,39 +43,18 @@ comment tags will be stripped from the documentation prior to being provided as 
 
 ## Documentation for Specific Projects
 
-### RosettaMP: the new Membrane Framework in Rosetta (developed in 2014)
-- [[Overview]]
-     - [[Membrane residue]]
-     - [[Embedding objects]]
-     - [[Score functions]]
-- Inputs
-     - [[Spanfile]]
-     - [[Lipsfile]]
-     - [[PDB file|RosettaMembrane-PDB-file]]
-- [[Movers]]
-- [[Visualization]]
-- [[Applications]]
-     - Setup
-        - [[MP spanfile from PDB]]
-     - Relax
-        - [[Membrane relax]]
-        - [[MP quick relax]]
-     - ddG
-        - [[MP scoring]]
-        - [[Membrane ddG]]
-        - [[MP mutate relax]]
-     - docking
-        - [[MP docking setup]]
-        - [[MP find interface]] - global docking
-        - [[MP docking]]
-     - symmetry
-        - [[Symmetric MP docking]]
-- Flags
-     - [[Outdated RosettaMembrane from 2006]]
-     - [[RosettaMP from 2014]]
+### Modeling membrane proteins with RosettaMP
+- [[ RosettaMP Current Projects | RosettaMP-CurrentProjects ]]
 
-#### OLD ####
-- [[RosettaMembrane Framework Overview]]
+    #### Applications
+    - Docking: 
+        - [[ Global Docking in the Membrane | RosettaMP-MPFindInterface ]]
+    - Relax: 
+        - [[ Mutate Relax | RosettaMP-MutateRelax ]]
+        - [[ Quick Relax | RosettaMP-QuickRelax ]]
+
+    #### Score Functions
+    - [[ Chemical representation of the Lipid Bilayer | RosettaMP-MPChemicalProfile ]]
 
 ### Helical bundles project
 - [[BundleGridSampler]]
