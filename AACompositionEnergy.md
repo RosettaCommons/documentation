@@ -4,7 +4,12 @@ Last edited 23 July 2015.
 
 ## Purpose and algorithm
 
-This scoring term is intended for use during design, to penalize deviations from a desired residue type composition.  For example, a user could specify that the protein was to have no more than 5% alanines, no more than 3 glycines, at least 4 prolines, and be 40% to 50% hydrophobic with 5% aromatics.  Calculating a score based on residue type composition is easy and fast, but is inherently not pairwise-decomposable.  This scoring term is intended to work with Alex Ford's recent changes to the packer that permit fast-to-calculate but non-pairwise-decomposable scoring terms to be used during packing or design.
+This scoring term is intended for use during design, to penalize deviations from a desired residue type composition.  For example, a user could specify that the protein was to have no more than 5% alanines, no more than 3 glycines, at least 4 prolines, and be 40% to 50% hydrophobic with 5% aromatics.  Calculating a score based on residue type composition is easy and fast, but is inherently not pairwise-decomposable.  This scoring term is intended to work with Alex Ford's recent changes to the packer that permit fast-to-calculate but non-pairwise-decomposable scoring terms to be used during packing or design.<br/>
+<br/>
+The basic idea is that the algorithm does the following:
+- Goes through and counts the number of residues of the types that it is supposed to count.  (For example, it counts alanines if the user has set a cap on the alanine fraction, or aromatics, or whatnot.)
+- Calculates the difference between the desired number and the observed number.
+- Imposes a penalty, based on a lookup table, as a function of that difference.  For example, the user might decide that there should be no penalty for being within 1 residue of ideal, but that the penalty should increase sharply if we're more than 2 over and gradually of we're more than 2 under the desired number.  The user can provide the lookup table in ```.comp``` files that define the behaviour of this score term (see below).
 
 ## User control
 
