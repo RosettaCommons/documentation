@@ -44,17 +44,23 @@ comment tags will be stripped from the documentation prior to being provided as 
 ## Documentation for Specific Projects
 
 ### Modeling membrane proteins with RosettaMP
-- [[ RosettaMP Current Projects | RosettaMP-CurrentProjects ]]
+Below is a list of current projects for RosettaMP in master but still under
+active development. 
+
+    #### Movers & Methods in development
+    - [[ Movers | RosettaMP-Internal-Movers ]]
+    - [[ Methods | RosettaMP-Internal-Methods ]]
+
+    #### Score Functions
+    - [[ Chemical representation of the Lipid Bilayer | RosettaMP-Internal-MPChemicalProfile ]]
 
     #### Applications
     - Docking: 
-        - [[ Global Docking in the Membrane | RosettaMP-MPFindInterface ]]
+        - [[ Global Docking in the Membrane | RosettaMP-Internal-MPFindInterface ]]
     - Relax: 
-        - [[ Mutate Relax | RosettaMP-MutateRelax ]]
-        - [[ Quick Relax | RosettaMP-QuickRelax ]]
+        - [[ Mutate Relax | RosettaMP-Internal-MPMutateRelax ]]
+        - [[ Quick Relax | RosettaMP-Internal-MPQuickRelax ]]
 
-    #### Score Functions
-    - [[ Chemical representation of the Lipid Bilayer | RosettaMP-MPChemicalProfile ]]
 
 ### Helical bundles project
 - [[BundleGridSampler]]
