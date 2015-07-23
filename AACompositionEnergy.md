@@ -17,13 +17,27 @@ A ```.comp``` file consists of one or more ```PENALTY_DEFINITION``` blocks, each
 - ```NOT_PROPERTIES <property1> <property2> <property3>...``` (Used in conjunction with ```PROPERTIES``` and as an alternative to ```TYPE```, this indicates that this block sets the prevalence of residues that have the properties listed in the ```PROPERTIES``` line *and* do *not* have the properties listed on this line.)
 - ```DELTA_START <integer>``` (This indicates how far from the desired number of residues our penalties table extends.  For example, a value of '-5' means that we will be providing penalty values for up to five residues fewer than the desired number.)
 - ```DELTA_END <integer>``` (This indicates how far beyond the desired number of residues our penalties table extends.  For example, a value of '7' means that we will be providing penalty values for up to seven residues more than the desired number.)
-- ```PENALTIES <float1> <float2> <float3> ...``` (The actual penalties table.  Entries must be provided for every integer value from DELTA_START to DELTA_END.  These values represent the energetic penalty for having N residues too few, N+1 residues too few, N+2 residues too few ... M-1 residues too many, M residues too many.)
+- ```PENALTIES <float1> <float2> <float3> ...``` (The actual penalties table.  Entries must be provided for every integer value from DELTA_START to DELTA_END.  These values represent the energetic penalty for having N residues too few, N+1 residues too few, N+2 residues too few ... M-1 residues too many, M residues too many.  The penalty values at the extreme ends of the range are applied if residue type counts fall outside of the range.)
 - ```FRACTION <float>``` (This indicates that this residue type, or residues with the defined properties, are ideally this fraction of the total.  For example, a value of 0.25 would mean that, ideally, a quarter of residues in the protein were those defined by this ```PENALTY_DEFINITION```.)
 -  ```ABSOLUTE <integer>``` (An alternative to ```FRACTION```, this indicates the absolute value of residues of the given type or properties desired in the structure.  For example, a value of 3 would mean that we want 3 residues of the given type or properties.)
 - ```END_PENALTY_DEFINITION``` (Ends the block).
 
-The ```PENALTY_DEFINITION```, ```DELTA_START```, ```DELTA_END```, ```PENALTIES```, and ```END_PENALTY_DEFINITION``` lines are always required.  One ```FRACTION``` *or* one ```ABSOLUTE``` line must also be present (but not both).  Either a ```TYPE``` line, *or* a ```PROPERTIES``` / ```NOT_PROPERTIES``` pair of lines must be present (though if the latter, you can have either ```PROPERTIES``` or ```NOT_PROPERTIES``` or both).
+The ```PENALTY_DEFINITION```, ```DELTA_START```, ```DELTA_END```, ```PENALTIES```, and ```END_PENALTY_DEFINITION``` lines are always required.  One ```FRACTION``` *or* one ```ABSOLUTE``` line must also be present (but not both).  Either a ```TYPE``` line, *or* a ```PROPERTIES``` / ```NOT_PROPERTIES``` pair of lines must be present (though if the latter, you can have either ```PROPERTIES``` or ```NOT_PROPERTIES``` or both).  Here's an example ```.comp``` file that penalizes deviatoins from having 10% aromatic residues in a protein (note that the pound sign can be used to comment one of these files):
 
+```
+# This is a .comp file for requiring that a structure be ten percent aromatic.
+# File created 21 July 2015 by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory.
+# This penalty definition block specifies that, for aromatics, there will be a 100-point penalty for
+# having ANY fewer or ANY more than the desired number of aromatic residues.
+PENALTY_DEFINITION
+PROPERTIES AROMATIC
+NOT_PROPERTIES POLAR CHARGED
+DELTA_START -1
+DELTA_END 1
+PENALTIES 100 0 100
+FRACTION 0.1
+END_PENALTY_DEFINITION
+```
 
 ## Organization of the code
 
