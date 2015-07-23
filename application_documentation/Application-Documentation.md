@@ -159,7 +159,7 @@ While most of these applications focus on prediction, many have options which wi
 - [[Beta strand homodimer design]] - Find proteins with surface exposed beta-strands, then design a homodimer that will form via that beta-strand.  
 
 ##Membrane Proteins <a name="Membrane-Proteins" />
- - [[Membrane Fast Relax|Membrane-Fast-Relax]] - High-resolution refinement of membrane protein structures with optimization of the membrane position using minimization (uses membrane framework)
+ - [[Membrane Fast Relax|RosettaMP-App-MPFastRelax]] - High-resolution refinement of membrane protein structures with optimization of the membrane position using minimization (uses membrane framework)
  - [[Membrane ddG|Membrane-DDG]] - Prediction of free energy changes upon mutation using the membrane framework
  - [[Membrane protein-protein docking|MP-docking]] - Protein-protein docking in the membrane (uses membrane framework)
  - [[Symmetric membrane protein-protein docking|Symmetric Membrane Protein-Protein Docking]] - Assemble symmetric complexes in the membrane environment (uses membrane framework)
