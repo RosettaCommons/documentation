@@ -9,6 +9,7 @@ In the default mode, the filter simply checks the ABEGO of all residues before p
 * use_statistical_potential - If true, the bicublic spline fit to the statistical potential of Ramachandran space will be used to evaluate the torsions. If false, residues in potentially bad torsion bins will be counted. (default = false)
 
 **Example**
+
     <PreProline name="prepro" use_statistical_potential="0" />
 
 
