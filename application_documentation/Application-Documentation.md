@@ -162,7 +162,7 @@ While most of these applications focus on prediction, many have options which wi
  - [[Membrane Fast Relax|RosettaMP-App-MPFastRelax]] - High-resolution refinement of membrane protein structures with optimization of the membrane position using minimization (uses membrane framework)
  - [[Membrane ddG|RosettaMP-App-MPddG]] - Prediction of free energy changes upon mutation using the membrane framework
  - [[Membrane protein-protein docking|RosettaMP-App-MPDock]] - Protein-protein docking in the membrane (uses membrane framework)
-    = [[Setup for Membrane protein-protein docking|RosettaMP-App-MPDockSetup]] - Setup tools required to run MPDock
+ - [[Setup for Membrane protein-protein docking|RosettaMP-App-MPDockSetup]] - Setup tools required to run MPDock
  - [[Symmetric membrane protein-protein docking|RosettaMP-App-MPSymDock]] - Assemble symmetric complexes in the membrane environment (uses membrane framework)
  - [[Membrane Protein PyMOL Viewer|RosettaMP-App-MPPyMOLViewer]] - Standalone application for visualization of membrane protein simulations in real-time using pymol (uses membrane framework)
  - [[Trans-membrane spans from PDB|RosettaMP-App-MPSpanFromPDB]] - Calculate trans-membrane spans from the PDB structure
