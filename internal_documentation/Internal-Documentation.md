@@ -44,8 +44,6 @@ comment tags will be stripped from the documentation prior to being provided as 
 ## Documentation for Specific Projects
 
 ### Modeling membrane proteins with RosettaMP
-Below is a list of current projects for RosettaMP in master but still under
-active development. 
 
     #### Movers & Methods in development
     - [[ Movers | RosettaMP-Internal-Movers ]]
