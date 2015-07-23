@@ -83,6 +83,7 @@ See [[how to write documentation|how-to-write-documentation]] for more details.
 
 ### Design-specific scoring terms ###
 - [[Repeat stretch energy (aa_repeat_energy)|Repeat-stretch-energy]] -- A scoring term that penalizes long stretches of repeating sequence (*e.g.* poly-Q sequences).
+- [[Residue composition energy (aa_composition)|AACompositionEnergy]] -- A scoring term that penalizes deviation from a desired residue type composition (e.g. no more than 7% alanines; at least one aromatic; at least 40% hydrophobic).
 
 ### Cyclic Peptides / Geometrically-Constrained Polymers Project
 - [[Workflow]]
