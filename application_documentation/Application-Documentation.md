@@ -170,6 +170,7 @@ While most of these applications focus on prediction, many have options which wi
     - [[ Embedding | RosettaMP-KeyElements-Embedding ]]
     - [[ Movers | RosettaMP-KeyElements-Movers ]]
     - [[ Energy Functions | RosettaMP-KeyElements-EnergyFunction ]]
+    - [[ Visualization | RosettaMP-KeyElements-Visualization ]]
 
 ### Applications
  - [[Membrane Fast Relax|RosettaMP-App-MPFastRelax]] - High-resolution refinement of membrane protein structures with optimization of the membrane position using minimization (uses membrane framework)
