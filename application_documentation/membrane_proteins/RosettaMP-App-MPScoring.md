@@ -1,8 +1,8 @@
 ## Metadata
 
 Questions and comments to: 
- - Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
  - Rebecca F. Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
+ - Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
  - Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
 
 Last Updated: 3/17/15
