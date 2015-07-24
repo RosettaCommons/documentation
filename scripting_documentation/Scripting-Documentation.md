@@ -21,8 +21,8 @@
 ##Pyrosetta
 
 * [[Overview|PyRosetta]]
-* [[PyRosetta Toolkit]]
 * [[PyRosetta Toolkit GUI]]
+* [[PyRosetta Toolkit GUI API]]
 * [[Full PyRosetta website|http://www.pyrosetta.org]]
 
 ##See Also
