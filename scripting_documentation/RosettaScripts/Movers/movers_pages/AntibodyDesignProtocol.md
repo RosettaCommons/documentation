@@ -34,10 +34,10 @@ Runs the full Rosetta Antibody Design (RAbD) Protocol.  Requires an AHo numbered
 
 ##See Also
 
+* [[Rosetta Antibody Design (RAbD) Manual | RosettaAntibodyDesign]]
+* [[General Antibody Tips | General-Antibody-Options-and-Tips]]
 * [[Antibody Movers | Movers-RosettaScripts#antibody-modeling-and-design-movers]]
 * [[Antibody TaskOperations | TaskOperations-RosettaScripts#antibody-and-cdr-specific-operations]]
-* [[Rosetta Antibody Design (RAbD) Manual | RosettaAntibodyDesign]]
 * [[AntibodyDesignProtocol]]
 * [[AntibodyDesignMover]]
-* [[General Antibody Tips | General-Antibody-Options-and-Tips]]
 * [[I want to do x]]: Guide to choosing a mover
