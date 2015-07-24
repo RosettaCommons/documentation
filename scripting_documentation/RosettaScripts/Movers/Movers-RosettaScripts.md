@@ -160,9 +160,9 @@ These are movers that should be usable in most cases with most systems
 
 **[[AddChain|AddChainMover]]** - Adds a PDB file to an existing pose
 
-**[[AnchoredGraftMover]]** - Grafts a region of one pose into another using the same method used for [[ The Anchored Design Protocol | anchored-design]].  Also used for RabD Antibody Design Protocol. 
+**[[AnchoredGraftMover]]** - Grafts a region of one pose into another using the same method used for [[ The Anchored Design Protocol | anchored-design]].  Also used in the RabD Antibody Design Protocol. 
 
-**[[CCDEndsGraftMover]]** - Grafts a region of one pose into another using superposition of insert ends and CCD arms to close the graft.  Used for RabD Antibody Design Protocol. 
+**[[CCDEndsGraftMover]]** - Grafts a region of one pose into another using superposition of insert ends and CCD arms to close the graft.  Used in the RabD Antibody Design Protocol. 
 
 **[[InsertPoseIntoPoseMover]]** - Inserts one pose into another.  Does not do any structure optimization.  
 
