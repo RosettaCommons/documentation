@@ -9,7 +9,7 @@ PI: Roland Dunbrack
 
 ###Purpose
 
-Run typical Rosetta application like minimization, docking, FastRelax, pack (with or without design) by constructing this mover.  Currently the API is not connected to RosettaScripts, but this is planned.  Use PyRosetta for now to access or email me for more information.  
+Run typical Rosetta protocols like minimization, docking, FastRelax, backrub, pack - [ all with or without design ] by constructing this mover.  Currently the API is not connected to RosettaScripts, but this is planned.  Use PyRosetta for now to access or email me for more information.  
 
 
 
