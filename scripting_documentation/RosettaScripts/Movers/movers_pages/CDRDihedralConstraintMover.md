@@ -3,9 +3,10 @@
 ## CDRDihedralConstraintMover
 
 ###Author
-Jared Adolf-Bryfogle; jadolfbr@gmail.com
-
+Jared Adolf-Bryfogle; jadolfbr@gmail.com; 
 PI: Roland Dunbrack
+
+Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
 
 ###Purpose
 Adds Circular Harmonic Dihedral Constraints to the Phi and Psi dihedral angles to a particular CDR either using the current computed North/Dunbrack CDR Cluster (requires AHo numbered antibody) or general constraints.  These constraints keep the CDR structure from moving too much during backbone optimization such as FastRelax. Please see the [[constraints | constraint-file#constraint-types]] page for more information on constraints and [[this page | General-Antibody-Options-and-Tips]] for more information on antibody numbering. 
@@ -38,10 +39,10 @@ Adds Circular Harmonic Dihedral Constraints to the Phi and Psi dihedral angles t
 
 ##See Also
 
-* [[I want to do x]]: Guide to choosing a mover
+* [[General Antibody Tips | General-Antibody-Options-and-Tips]]
 * [[Antibody Movers | Movers-RosettaScripts#antibody-modeling-and-design-movers]]
 * [[Antibody TaskOperations | TaskOperations-RosettaScripts#antibody-and-cdr-specific-operations]]
 * [[ParatopeSiteConstraintMover]]
 * [[ParatopeEpitopeSiteConstraintMover]]
 * [[Constraint File Overview | constraint-file#constraint-types]]
-* [[General Antibody Tips | General-Antibody-Options-and-Tips]]
+* [[I want to do x]]: Guide to choosing a mover
