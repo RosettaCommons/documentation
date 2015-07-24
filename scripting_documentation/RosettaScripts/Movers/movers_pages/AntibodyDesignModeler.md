@@ -19,6 +19,5 @@ Run typical Rosetta application like minimization, docking, FastRelax, pack (wit
 * [[Antibody TaskOperations | TaskOperations-RosettaScripts#antibody-and-cdr-specific-operations]]
 * [[AntibodyDesignMover]]
 * [[AntibodyDesignProtocol]]
-* [[Constraint File Overview | constraint-file#constraint-types]]
 * [[General Antibody Tips | General-Antibody-Options-and-Tips]]
 * [[I want to do x]]: Guide to choosing a mover
