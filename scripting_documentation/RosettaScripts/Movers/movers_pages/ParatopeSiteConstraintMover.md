@@ -3,9 +3,10 @@
 ## ParatopeSiteConstraintMover
 
 ###Author
-Jared Adolf-Bryfogle; jadolfbr@gmail.com
-
+Jared Adolf-Bryfogle; jadolfbr@gmail.com; 
 PI: Roland Dunbrack
+
+Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
 
 ###Purpose
 
