@@ -3,9 +3,10 @@
 ## DisableCDRsOperation
 
 ###Author
-Jared Adolf-Bryfogle; jadolfbr@gmail.com; RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
-
+Jared Adolf-Bryfogle; jadolfbr@gmail.com; 
 PI: Roland Dunbrack
+
+Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
 
 ###Purpose
 Disable Packing and/or design of a set of CDRs.  By default, disables both packing and design of all CDRs.
