@@ -161,16 +161,16 @@ While most of these applications focus on prediction, many have options which wi
 ##Membrane Proteins <a name="Membrane-Proteins" />
 
 ### Getting Started
-    - [[ Overview | RosettaMP-GettingStarted-Overview]]
-    - [[ Preparing Inputs | RosettaMP-GettingStarted-PreparingInputs]]
-    - [[ Options (Flags) | RosettaMP-GettingStarted-Options]]
+- [[ Overview | RosettaMP-GettingStarted-Overview]]
+- [[ Preparing Inputs | RosettaMP-GettingStarted-PreparingInputs]]
+- [[ Options (Flags) | RosettaMP-GettingStarted-Options]]
 
 ### Key Elements in RosettaMP
-    - [[ Membrane Representation (Residue) | RosettaMP-KeyElements-MembraneRsd ]]
-    - [[ Embedding | RosettaMP-KeyElements-Embedding ]]
-    - [[ Movers | RosettaMP-KeyElements-Movers ]]
-    - [[ Energy Functions | RosettaMP-KeyElements-EnergyFunction ]]
-    - [[ Visualization | RosettaMP-KeyElements-Visualization ]]
+- [[ Membrane Representation (Residue) | RosettaMP-KeyElements-MembraneRsd ]]
+- [[ Embedding | RosettaMP-KeyElements-Embedding ]]
+- [[ Movers | RosettaMP-KeyElements-Movers ]]
+- [[ Energy Functions | RosettaMP-KeyElements-EnergyFunction ]]
+- [[ Visualization | RosettaMP-KeyElements-Visualization ]]
 
 ### Applications
  - [[Membrane Fast Relax|RosettaMP-App-MPFastRelax]] - High-resolution refinement of membrane protein structures with optimization of the membrane position using minimization (uses membrane framework)
