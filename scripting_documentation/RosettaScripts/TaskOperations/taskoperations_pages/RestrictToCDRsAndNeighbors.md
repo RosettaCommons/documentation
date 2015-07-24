@@ -2,6 +2,12 @@
 *Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## RestrictToCDRsAndNeighbors
 
+###Author
+Jared Adolf-Bryfogle; jadolfbr@gmail.com; 
+PI: Roland Dunbrack
+
+Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
+
 ### Brief
 Task Operation to restrict packing/design to specific CDRs and neighbors. Will disable packing/design for all other residues.
 See the [[DisableAntibodyRegionOperation]] and [[DisableCDRsOperation]] to further restrict the TaskFactory.
