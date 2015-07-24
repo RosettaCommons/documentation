@@ -45,7 +45,7 @@ FALLBACK STRATEGIES:
 -   cdrs (&string,&string) (default=all cdrs):  Select the set of CDRs you wish to restrict to (ex: H1 or h1)
 -   numbering_scheme (&string):  Set the antibody numbering scheme.  This option can also be set through the command line.  See [[General Antibody Tips | General-Antibody-Options-and-Tips]] for more info.
 -   include_native_restype (&bool) (default=true):  Include the native residue type when sampling? 
--   picking_rounds (&size) (default=1): 
+-   picking_rounds (&size) (default=1): Set the number of times a residutype is chosen from the distribution each time the packer is generated.  Increase this number to increase variability of design.
  
 ### Design Strategies
 
