@@ -124,7 +124,7 @@ Utilities:
    * Application to Relax CDRs using cluster-based dihedral constraints 
 
 Design:
-- [[RosettaAntibodyDesign]]
+- [[Rosetta Antibody Designer (RAbD) | RosettaAntibodyDesign]]
   * Application for knowledge-based Antibody Design based on CDR clusters and cellular mimicry
 - [[Antibody Design Strategy Analysis]]
   * Methods for analyzing various antibody design strategies
