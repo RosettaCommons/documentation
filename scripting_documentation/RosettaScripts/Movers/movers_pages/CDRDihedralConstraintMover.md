@@ -43,6 +43,5 @@ Adds Circular Harmonic Dihedral Constraints to the Phi and Psi dihedral angles o
 * [[Antibody TaskOperations | TaskOperations-RosettaScripts#antibody-and-cdr-specific-operations]]
 * [[ParatopeSiteConstraintMover]]
 * [[ParatopeEpitopeSiteConstraintMover]]
-
 * [[Constraint File Overview | constraint-file#constraint-types]]
 * [[General Antibody Tips | General-Antibody-Options-and-Tips]]
