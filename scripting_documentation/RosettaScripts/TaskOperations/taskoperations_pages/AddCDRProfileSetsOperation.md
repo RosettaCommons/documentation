@@ -15,7 +15,7 @@ Add Cluster-based sets of mutations as a TaskOperation. Essentially samples full
 
 Note that by default, a data cutoff of 10 is set.  If the cluster has less than 10 sequences it will be skipped. Use the set_cutoff function to change this.
 
-**This TaskOperation is not currently recommended for H3 as it does not cluster well, but could be used to sample whole sequences for particular lengths.**
+**This TaskOperation is not currently recommended for H3 as it does not cluster well**
 
 
 ```
