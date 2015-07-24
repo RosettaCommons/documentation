@@ -3,9 +3,10 @@
 ## AntibodyDesignMover
 
 ###Author
-Jared Adolf-Bryfogle; jadolfbr@gmail.com
-
+Jared Adolf-Bryfogle; jadolfbr@gmail.com; 
 PI: Roland Dunbrack
+
+Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
 
 Note: Full documentation for the RAbD protocol is not currently complete but will be by September, 2015.  Please email me if you wish to use the RAbD protocol or collaborate. 
 
