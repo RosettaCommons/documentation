@@ -1,22 +1,8 @@
-## TODO
-
-- more info about PymolMover?
-- is the flag -membrane_new:view_in_pymol still relevant and used?
-- link to a video of how to use it
-
-## Metadata
-
-The Rosetta Membrane Framework was developed by Julia Koehler Leman and Rebecca Alford at the Gray Lab at JHU. 
-Last updated: 12/12/14. 
-
-For questions please contact: 
-- Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
-- Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
-- Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
+# Membrane visualization with the PyMOL Viewer
 
 ## Description
 
-The Membrane Framework in Rosetta interacts with Pymol through the PymolPyRosettaServer.py script in `<path to Rosetta>/Rosetta/main/source/src/python/bindings/`. Two membrane planes are visualized and updated in real-time during a Rosetta simulation. To run it
+The Membrane Framework in Rosetta interacts with Pymol through the PyMOL Mover. For more information, please see the general visualization page. When the membrane framework is in use,  two membrane planes are visualized and updated in real-time during a Rosetta simulation. To run it
 
 1. open pymol first
 2. run the PymolPyRosettaServer.py script inside Pymol
