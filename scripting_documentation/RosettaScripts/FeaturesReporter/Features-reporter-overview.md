@@ -10,7 +10,7 @@ We also document individual FeatureReporters and R scripts useful for post-proce
 
 -	[[FeatureReporters]]
 -	[[FeaturesTutorials]]
--	[[FeaturesRScripts]]
+-	[[Writing new Features R Scripts | FeaturesRScripts]]
 
 
 ##See Also
