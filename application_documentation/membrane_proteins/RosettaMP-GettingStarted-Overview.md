@@ -1,20 +1,21 @@
-## Metadata
+## Overview
 
-The Rosetta Membrane Framework was developed by Rebecca Alford and Julia Koehler Leman at the Gray Lab at JHU. 
+For modeling membrane proteins, Rosetta relies on a framework called RosettaMP for representing the physical and chemical characteristics of the membrane environment. RosettaMP was developed by Rebecca Alford and Julia Koehler Leman at the GrayLab at Johns Hopkins in 2015 and is described in *Alford, Koehler Leman et al. 2015*
 
-Last updated: 7/23/15 
+[[rosettamp_overview.png]]
 
-For questions please contact: 
-- Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
-- Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
-- Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
+[[_TOC_]]
+ 
+## History
 
-## Description
+In 2006 and 2007, the first membrane protein modeling applications were added to Rosetta by Valdimir Yarov-Yarovoy, Patrick Barth and Bjoern Wallner. These applications introduced a low- and high- resolution scoring function and laid the groundwork for ab initio folding in the membrane bilayer. In order to advance membrane protein modeling in Rosetta, we needed a framework fully integrated with Rosetta 3. 
 
-The original RosettaMembrane was developed by Vladimir Yarov-Yarovoy, Patrick Barth, and Bjoern Wallner before the re-implementation of Rosetta as Rosetta3. Much of the code was implemented as scores in a few classes that also contained functionality for input file handling, computing of membrane embedding, and the protocol themselves, which were Membrane Relax and Membrane AbInitio at the time. Since newer concepts such as the FoldTree were not connected to this code, implementation of new protocols were a major hurdle. We therefore decided to create a completely new implementation of this code to (1) greatly facilitate new protocol development for membrane proteins, (2) connect this code to newer concepts such as FoldTree, Movers, Graph, ScoreFunctionFactory, etc, (3) improve user-friendliness, (4) make protocols available for RosettaScripts, PyRosetta, and commandline. For more detail please see *Alford, Koehler Leman et al.* 
+In 2014, we decided to create a completely new machinery for membrane modeling to (1) greatly facilitate new protocol development for membrane proteins, (2) connect this code to newer concepts such as FoldTree, Movers, Graph, ScoreFunctionFactory, etc, (3) improve user-friendliness, (4) make protocols available for RosettaScripts, PyRosetta, and commandline. For more detail please see *Alford, Koehler Leman et al.* 
+
+## Elements of RosettaMP
 
 The major aspects of this implementation are the following:
-- **MembraneResidue:** In contrast to the original RosettaMembrane, the membrane is now represented as a virtual residue (MEM) added to the pose. It stores the center point of the membrane, the membrane normal vector, and the thickness. The thickness value stored in MEM is half of the "true" membrane thickness, since the membrane is currently regarded as symmetric around z = 0 being at the center of the membrane. In the membrane coordinate system (right handed) the membrane is currently regarded as a flat membrane in the xy-plane with the membrane normal showing in the positive z direction. 
+- **[[ MembraneResidue | RosettaMP-KeyElements-MembraneRsd ]]** In contrast to the original RosettaMembrane, the membrane is now represented as a virtual residue (MEM) added to the pose. It stores the center point of the membrane, the membrane normal vector, and the thickness. The thickness value stored in MEM is half of the "true" membrane thickness, since the membrane is currently regarded as symmetric around z = 0 being at the center of the membrane. In the membrane coordinate system (right handed) the membrane is currently regarded as a flat membrane in the xy-plane with the membrane normal showing in the positive z direction. 
 
 - **MembraneInfo:** The MembraneInfo class is the main hub for storing all membrane-related data in the pose. This includes the membrane center, normal, thickness, SpanningTopology (from spanfile), and Lipophilicity (from lipsfile). It is part of conformation and therefore centrally accessible through the pose in most parts of Rosetta, especially the protocol level (MembraneInfo lives in core2 so it is accessible to everything below in the hierarchy). Since the membrane is represented by a virtual residue that can move during a Rosetta protocol, the membrane center and normal in MembraneInfo are automatically updated after a move. The MembraneInfo object is instantiated, i.e. a pose is converted into a membrane pose, by applying the AddMembraneMover. 
 
@@ -37,6 +38,14 @@ Four major classes are also of interest: Span, SpanningTopology, EmbeddingDef, a
 `core2/conformation/membrane` has several classes: MembraneInfo, Span, SpanningTopology, LipidAccInfo (from lips files). The latter three are classes storing information that can be obtained from the protein sequence using prediction servers.
 
 `protocols3/membrane/geometry` contains the EmbeddingDef and Embedding classes and `protocols3/membrane` contains most of the movers. 
+
+## Contact
+
+
+
+- Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
+- Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
+- Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
 
 ## References
 
