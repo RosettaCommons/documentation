@@ -31,15 +31,7 @@ The major aspects of this implementation are the following:
 
 - **Applications:** Four main applications for membrane proteins (MPrelax, MPddG, MPdocking, symmetric MPdocking) are currently available with more to come. Not all applications are available for all interfaces, please see *Alford, Koehler Leman et al.* for more info, especially Figure 2 in this paper. 
 
-## Code and documentation
-
-`core2/conformation/membrane` has several classes: MembraneInfo, Span, SpanningTopology, LipidAccInfo (from lips files). The latter three are classes storing information that can be obtained from the protein sequence using prediction servers.
-
-`protocols3/membrane/geometry` contains the EmbeddingDef and Embedding classes and `protocols3/membrane` contains most of the movers. 
-
 ## Contact
-
-
 
 - Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
 - Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
