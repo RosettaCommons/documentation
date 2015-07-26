@@ -7,6 +7,8 @@ These tutorials are meant for researchers interested in evaluating structure pre
 
 If there is a specific tutorial you think or would like to see here--please add it to the list at the bottom of requested tutorials!
 
+[[_TOC_]]
+
 Tutorials to Run Existing Feature Analysis
 ------------------------------------------
 
