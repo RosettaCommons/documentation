@@ -1,3 +1,5 @@
+# Getting Started Modeling Membrane Proteins with RosettaMP
+
 ## Overview
 
 For modeling membrane proteins, Rosetta relies on a framework called RosettaMP for representing the physical and chemical characteristics of the membrane environment. RosettaMP was developed by Rebecca Alford and Julia Koehler Leman at the GrayLab at Johns Hopkins in 2015 and is described in *Alford, Koehler Leman et al. 2015*
