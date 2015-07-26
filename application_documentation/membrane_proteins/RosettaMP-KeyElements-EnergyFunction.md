@@ -1,12 +1,4 @@
-## Metadata
-
-The Rosetta Membrane Framework was developed by Julia Koehler Leman and Rebecca Alford at the Gray Lab at JHU. 
-Last updated: 12/12/14. 
-
-For questions please contact: 
-- Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
-- Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
-- Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
+# Membrane Energy Functions (RosettaMP) 
 
 ## Overview
 The 2014 implementation of the Membrane Framework uses the same science (i.e. score terms) of the original RosettaMembrane implementation. While the original RosettaMembrane implementation was kept (`core/scoring/methods`), the score terms were re-implemented and cleaned up (`core/scoring/membrane`) while the interface to the ScoreFunctionFactory was established. 
@@ -45,9 +37,15 @@ Score Name: MPNonHelix. Penalty for non helix residues in the membrane. Uses Sec
 ## For Developers
 The set of terms described above are only for use with the new membrane framework protocols. The old set of energy terms can be found in `core/scoring/methods.`
 
+## Contact
+
+- Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
+- Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
+- Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
+
 ## References
 
-* Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Tilley D, Elazar A, Gray JJ. (2015) An integrated framework enabling computational modeling and design of Membrane Proteins. PlosOne - in preparation 
+* Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Tilley D, Elazar A, Gray JJ. (2015) An integrated framework advancing membrane protein modeling and design. PLoS Computational Biology - Accepted (*co first authors)
 
 ## References for original RosettaMembrane
 
