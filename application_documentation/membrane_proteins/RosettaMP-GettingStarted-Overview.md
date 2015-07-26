@@ -25,7 +25,7 @@ The major aspects of this implementation are the following:
 
 - **[[Energy Function: | RosettaMP-KeyElements-EnergyFunction]]** During the re-implementation of the Membrane Framework we kept the original low-resolution and high-resolution ScoreFunctions of RosettaMembrane. 
 
-- **[[Movers: RosettaMP-KeyElements-Movers]]** Several Movers are available with more being implemented as needed. The most important one is the AddMembraneMover that creates a membrane pose from a regular pose - it requires a spanfile to be read in. When using Movers, please pay attention whether they are suited for your particular protocol, as many movers are specific to either (1) a fixed membrane and movable protein, or (2) a movable membrane and a fixed protein. 
+- **[[Movers: | RosettaMP-KeyElements-Movers]]** Several Movers are available with more being implemented as needed. The most important one is the AddMembraneMover that creates a membrane pose from a regular pose - it requires a spanfile to be read in. When using Movers, please pay attention whether they are suited for your particular protocol, as many movers are specific to either (1) a fixed membrane and movable protein, or (2) a movable membrane and a fixed protein. 
 
 - **[[Visualization: | RosettaMP-KeyElements-Visualization]]** The Membrane Framework is coupled to the PymolMover which allows real-time visualization of a Rosetta simulation with the membrane present and up-to-date.
 
