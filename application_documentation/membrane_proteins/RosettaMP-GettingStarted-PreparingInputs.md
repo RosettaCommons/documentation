@@ -150,7 +150,7 @@ An example of how the original RosettaMembrane used lips files can be found in `
 
 ## References
 
-* Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Tilley D, Elazar A, Gray JJ. (2015) An integrated framework enabling computational modeling and design of Membrane Proteins. PlosOne - in preparation 
+* Alford RF*, Koehler Leman J*, Weitzner BD, Duran AM, Tilley D, Elazar A, Gray JJ. (2015) An integrated framework advancing membrane protein modeling and design. PLoS Computational Biology - Accepted (*co first authors)
 
 ## References for original RosettaMembrane
 
