@@ -61,7 +61,6 @@ General Resources for Features Analysis
 
 * [[Features reporter overview]]: The home page for FeaturesReporters
 * [[FeatureReporters]]: List of implemented FeatureReporters
-* [[FeaturesRScripts]]: R scripts for post-processing data
 * [[RosettaScripts home page|RosettaScripts]]
 * [[RosettaScripts database connection options]]
 * [[Database IO]]: Input/output to databases using Rosetta
