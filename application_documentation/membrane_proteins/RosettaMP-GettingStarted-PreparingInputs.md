@@ -138,10 +138,6 @@ Lipid exposed data: resnum mean-lipo lipophil entropy
   ...
 ```
 
-### Code and documentation
-
-`core/conformation/membrane` contains the LipidAccInfo class that stores the information from the lips file. 
-
 ### Flags
 
 `-mp:setup:lipsfile 1afo.lips4`
