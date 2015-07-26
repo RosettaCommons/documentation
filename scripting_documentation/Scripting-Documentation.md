@@ -22,7 +22,7 @@
 
 * [[Overview|PyRosetta]]
 * [[PyRosetta Toolkit GUI]]
-* [[PyRosetta Toolkit GUI API]]
+* [[PyRosetta Toolkit GUI API | PyRosetta Toolkit]]
 * [[Full PyRosetta website|http://www.pyrosetta.org]]
 
 ##See Also
