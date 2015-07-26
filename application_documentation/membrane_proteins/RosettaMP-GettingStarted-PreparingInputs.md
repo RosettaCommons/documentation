@@ -148,9 +148,15 @@ NOTE: The flag for the original RosettaMembrane is `-in:file:lipofile 1afo.lips4
 
 An example of how the original RosettaMembrane used lips files can be found in `Rosetta/main/tests/integration/tests/membrane_abinitio`. This functionality has not yet been tested in the membrane framework.
 
+## Contact
+
+- Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
+- Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
+- Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
+
 ## References
 
-* Alford RF*, Koehler Leman J*, Weitzner BD, Duran AM, Tilley D, Elazar A, Gray JJ. (2015) An integrated framework advancing membrane protein modeling and design. PLoS Computational Biology - Accepted (*co first authors)
+* Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Tilley D, Elazar A, Gray JJ. (2015) An integrated framework advancing membrane protein modeling and design. PLoS Computational Biology - Accepted (*co first authors)
 
 ## References for original RosettaMembrane
 
