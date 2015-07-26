@@ -1,14 +1,26 @@
 # Membrane Energy Functions (RosettaMP) 
 
-## Overview
-The 2014 implementation of the Membrane Framework uses the same science (i.e. score terms) of the original RosettaMembrane implementation. While the original RosettaMembrane implementation was kept (`core/scoring/methods`), the score terms were re-implemented and cleaned up (`core/scoring/membrane`) while the interface to the ScoreFunctionFactory was established. 
+[[_TOC_]]
 
-The Rosetta low resolution (centroid-based) energy function for membrane proteins was developed in 2006 with the Membrane Ab Initio folding protocol (*Yarov-Yaravoy et al. 2006*). It was derived from 28 alpha helical membrane proteins and is knowledge-based. There are 6 low-resolution energy terms: a residue-environment energy, residue-residue energy, packing density, termini penalty, non-helix penalty, and TMprojection penalty. 
+## Overview
+The current implementation of RosettaMP uses the same science (i.e. score terms) of the original RosettaMembrane implementation. To increase the flexibility & user-friendliness, we implemented a new interface for these terms. The science & interface for the low- and high-resolution scoring functions are described below. 
+
+## Low Resolution Scoring Function
+
+The Rosetta low resolution (centroid-based) energy function for membrane proteins was developed in 2006 with the Membrane Ab Initio folding protocol (*Yarov-Yaravoy et al. 2006*). It was derived from 28 alpha helical membrane proteins and is knowledge-based.
+
+### Membrane Representation
+The low resolution energy function divides the membrane bilayer into two or five layers describing various regions of the membrane environment. Scoring per-residue, residue-residue and packing interactions depends upon position in a specific layer. The five-layer representation is described below: 
+
+[[ rosettamp_lowres.png ]]
+
+### Scoring Function
+The energy function includes six terms: a residue-environment energy, residue-residue energy, packing density, termini penalty, non-helix penalty, and TMprojection penalty. 
 
 **For a detailed description of all score terms, their functional form and their weights for specific applications, please see Alford, Koehler Leman et al.**
 
-### Energy Terms
-Terms supported by the RosettaMembrane framework were added in April 2014. Terms, corresponding energy methods, and usage are described below. The score name is the name of the term you would use when setting up a weights file. 
+### Individual energy terms
+Terms, corresponding energy methods, and usage are described below. The score name is the name of the term you would use when setting up a weights file. 
 
 #### Membrane Residue-Environment Term
 Score Name: MPEnv. Score per-residue interactions with the membrane environment using a 5 layer membrane (Layers: inner hydrophobic, outer hydrophobic, interface, polar, water). Energy Method type: One body context-dependent.  For Developers - code in `core/scoring/membrane/MPEnvEnergy.hh`.
@@ -28,14 +40,31 @@ Score Name: MPTMProj. Penalty for helices longer than thickness of the membrane.
 #### Membrane Non Helix Penalty
 Score Name: MPNonHelix. Penalty for non helix residues in the membrane. Uses Secondary structure in Rosetta (or provided). Energy Method Type: One body context independent energy. For Developers - code in `core/scoring/membrane/MPNonHelixPenalty.hh`
 
-## Scoring Options
+### Score Options
 |**Option Name**|**Description**|**Type**|
 |---|---|---|
 |score:find_neighbors_3dgrid|Use 3D lookup table in neighbor calculations|boolean|
 |membrane:no_interpolate_Mpair|switch off interpolation between 2 layers when a pair of residues is on the boundary|boolean|
 
-## For Developers
-The set of terms described above are only for use with the new membrane framework protocols. The old set of energy terms can be found in `core/scoring/methods.`
+## High-Resolution Scoring Function
+The Rosetta high resolution (all atom) energy function was developed in 2007 with the high-resolution ab initio and refinement protocols (Barth *et al.* 2007) and is based on the Implicit Membrane Model by Lazaridis (2003). 
+
+### Membrane Representation
+The high-resolution energy function represents the membrane bilyaer as a hydrophobic slab of fixed thickness, T (where the default thickness is 30Ang). This gives a hydrophobic core of 18A with transition regions of 6A on either side. This membrane representation is illustrated below: 
+
+[[ rosettamp_hires.png ]]
+
+### Scoring function
+The high-resolution score function combines terms from the score12 energy function with terms for membrane solvation, environment and a correction for strength of hydrogen bonds in the membrane. 
+
+**For a detailed description of all score terms, their functional form and their weights for specific applications, please see Alford, Koehler Leman et al.**
+
+### Individual Energy Terms
+#### Membrane Solvation
+Score Name: fa_mpsolv. Score a pair of residues given their depth in the membrane bilayer
+
+#### Membrane environment
+Score Name: fa_mpenv. Score a single residue given its depth in the membrane bilayer 
 
 ## Contact
 
