@@ -70,44 +70,10 @@ In the report\_features function, sessionOP is an owning pointer to the database
 
 -   A FeatureReporter may optionally be constructed with a ScoreFunction. For example, see the RotamerRecoveryFeatures class (rosetta/main/source/protocols/features/RotamerRecoveryFeatures.hh).
 
-ReportToDB
-==========
 
-Use the ReportToDB mover with the Rosetta XML scripting to specify which features should be extracted to the features database. (Note: The TrajectoryReportToDB mover can also be used in Rosetta scripts or C++ to report features in trajectory form multiple times to DB for a single output).
-
--   \<ReportToDB\> tag
-    -   **name** : Mover identifier so it can be included in the PROTOCOLS block of the RosettaScripts
-    -   [[Database Connection Options|RosettaScripts-database-connection-options]] : for options of how to connect to the database
-    -   **sample\_source** : Short text description stored in the *sample\_source* table
-    -   **protocol\_id** : (optional) Set the *protocol\_id* in the *protocols* table rather than auto-incrementing it.
-    -   **cache\_size** : The maximum amount of memory to use before writing to the database ( [sqlite3 only](http://www.sqlite.org/pragma.html#pragma_cache_size) ).
-    -   **tast\_operations** : Restrict extracting features to a relevant subset of residues. Since task operations were designed as tasks for side-chain remodeling, residue features are reported when the residue is "packable". If a features reporter involves more than one residue, the convention is that it is only reported if each residue is specified.
-
--   \<feature\> tag (subtag of \<ReportToDB\>)
-    -   **name** : Specify a FeatureReporter to include in database
-
-<!-- -->
-
-        <ROSETTASCRIPTS>
-            <SCOREFXNS>
-                <s weights=score12_w_corrections/>
-            </SCOREFXNS>
-            <MOVERS>
-                <ReportToDB name=features database_name=scores.db3>
-                    <feature name=ScoreTypeFeatures/>
-                    <feature name=StructureScoresFeatures scfxn=s/>
-                </ReportToDB>
-            </MOVERS>
-            <PROTOCOLS>
-                    <Add mover_name=features/>
-            </PROTOCOLS>
-        </ROSETTASCRIPTS>
-
-Since ReportToDB is simply a mover, it can be included in any Rosetta Protocol. For example, to extract the features from a set of pdb files listed in *structures.list* , and the above script saved in *parser\_script.xml* , execute the following command:
-
-       rosetta_scripts.linuxgccrelease -output:nooutput -l structures.list -parser:protocol parser_script.xml
-
-This will generate an SQLite3 database file *scores.db3* containing the features defined in each of the specified FeatureReporters for each structure in *structures.list* . See the features integration test (rosetta/main/test/integration/tests/features) for a working example.
+Extracting Features
+==============================
+See [[Generating Feature Databases | FeaturesTutorialRunSciBench#generate-feature-databases ]] for more information.
 
 Extracting Features In Parallel
 ===============================
@@ -136,3 +102,15 @@ Which will merge the features from each of the *features.db3\_xx* database into 
 -   **TIP2** : If you run postgres, merging part is not necessary. If you use sqlite, merging is needed.
 -   **WARNING** : Extracting many databases in parallel generates high data transfer rates. This can be taxing on cluster with a shared file system.
 
+##See Also
+
+* [[FeatureReporters]]
+* [[FeaturesTutorials]]
+* [[FeaturesRScripts]]
+* [[TrajectoryReportToDBMover]]
+* [[RosettaScripts database connection options]]
+* [[Database IO]]: information on database input/output in Rosetta
+* [[Rosetta Database Output Tutorial]]
+* [[Database support]]: Advanced details on Rosetta's interface with databases
+* [[Database options]]: Database-related command line options
+* [[I want to do x]]: Guide to choosing a mover
