@@ -1,8 +1,12 @@
 # Membrane Representation - The MEM Residue (RosettaMP)
 
+[[_TOC_]]
+
 ## Description
 
 In RosettaMP, the position and orientation of the mebrane is represented by a special residue, of type MEM, typically found at the end of the pose sequence. It stores the center point of the membrane, the membrane normal vector, and the thickness. The thickness value stored in MEM is half of the "true" membrane thickness, since the membrane is currently regarded as symmetric around z = 0 being at the center of the membrane. 
+
+[[rosettamp_membrane_rep.png]]
 
 The MembraneResidue is automatically printed to the PDB as the MEM residue in a HETATOM record. This allows for easy visualization of the membrane in Pymol. The normal vector is stored as an "atom" normalized to a length of 15. Since the normal is a vector in the coordinate system, but stored as a point in the PDB file, normalization to a length of 15 makes it immediately obvious in which general direction the normal shows if the center is close to the origin: 
 
@@ -20,9 +24,6 @@ The coordinates of the MembraneResidue are automatically updated during a simula
 
 The MembraneResidue is connected to the pose by a jump in the FoldTree, anchored at the first residue of the protein, but written out into the PDB file as the last residue after the protein (HETATOM record of MEM). Depending on where the root of the FoldTree is, either the membrane or the protein is flexible or fixed: (1) If the MembraneResidue is at the root of the FoldTree, it remains fixed while the protein moves flexibly in this coordinate system. (2) If one of the protein residues is at the root of the FoldTree, the MembraneResidue (and therefore the membrane) moves flexibly in the coordinate system of the pose.
 
-## Code and documentation
-
-The membrane residue is implemented as a ResidueType. For more information, look in `core/conformation/Residue.hh`
 
 ## Flags
 
