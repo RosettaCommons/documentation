@@ -1,8 +1,9 @@
 # Protein Embeddings (RosettaMP)
 
+[[_TOC_]]
 
-## About
-This page is mostly for developers to explain what the embedding objects mean and what they are used for. The text is from an earlier version of the manuscript above. 
+[[rosettamp_embedding.png]]
+
 
 ## Description
 
