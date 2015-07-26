@@ -9,12 +9,6 @@ The Membrane Framework in Rosetta interacts with Pymol through the PyMOL Mover. 
 3. run your Rosetta script from the regular terminal
 4. then lean back, watch and enjoy some popcorn.
 
-## Code and documentation
-
-The **VisualizeMembraneMover** is a mover that adds virtual residues representing the membrane planes to the pose that can be visualized individually. It is less light-weight than the Pymol plugin described above because (1) the pose is extended by a large number of additional residues and (2) the membrane is represented by a grid of residues, instead of 4x2 points defining the dimensions of the membrane. It is still useful if you are using a visualization program different from Pymol.
-
-The **VisualizeEmbeddingMover** is a mover that adds virtual residues for each transmembrane span and also the average of those representing the overall embedding of the pose in the membrane. Currently (2/17/15), the virtual residues are not updated after a move, so make sure to only call it at the last step in your protocol. 
-
 ## Command line
 
 `-show_simulation_in_pymol 0` invokes the PymolMover, updating the protein in Pymol every frame. If the protein is a membrane protein, the membrane will be shown automatically. 
@@ -27,5 +21,5 @@ The **VisualizeEmbeddingMover** is a mover that adds virtual residues for each t
 
 ## References
 
-* Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Tilley D, Elazar A, Gray JJ. (2015) An integrated framework advancing membrane protein modeling and design. PLoS Computational Biology - Accepted (*co first authors)
+* Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Tilley D, Elazar A, Gray JJ. (2015) An integrated framework advancing membrane protein modeling and design. PLoS Computational Biology - Accepted
 * Baugh EH, Lyskov S, Weitzner BD, Gray JJ (2011) Real-Time PyMOL Visualization for Rosetta and PyRosetta. PLoS ONE 6(8): e21931.
