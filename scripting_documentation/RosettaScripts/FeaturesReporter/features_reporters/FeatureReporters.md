@@ -93,7 +93,6 @@ Implemented Feature Reporters
 
 * [[Features reporter overview]]: The FeaturesReporter home page
 * [[FeaturesTutorials]]: Tutorials for using FeaturesReporters
-* [[FeaturesRScripts]]: R scripts for post-processing data
 * [[RosettaScripts home page|RosettaScripts]]
 * [[RosettaScripts database connection options]]
 * [[Database IO]]: Input/output to databases using Rosetta
