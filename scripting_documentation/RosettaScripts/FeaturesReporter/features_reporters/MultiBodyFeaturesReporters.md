@@ -1,7 +1,10 @@
 #MultiBodyFeaturesReporters
 
-StructureFeatures
------------------
+[[_TOC_]]
+
+##StructureFeatures
+
+**Overview**
 
 A structure is a group of spatially organized residues. The definition corresponds with a Pose in Rosetta. Unfortunately in Rosetta there is not a well defined way to identify a Pose. For the purposes of the the features database, each structure is assigned a unique struct\_id. To facilitate connecting structures in the database with structures in structures Rosetta, the tag field is unique.
 
@@ -10,6 +13,8 @@ A structure is a group of spatially organized residues. The definition correspon
         1.  *pose.pdb\_info()-\>name()*
         2.  *pose.data().get(JOBDIST\_OUTPUT\_TAG)*
         3.  *JobDistributor::get\_instance()-\>current\_job()-\>input\_tag()*
+
+**Tables**
 
 <!-- -->
 
@@ -20,15 +25,17 @@ A structure is a group of spatially organized residues. The definition correspon
             UNIQUE (protocol_id, tag),
             FOREIGN KEY (protocol_id) REFERENCES protocols (protocol_id) DEFERRABLE INITIALLY DEFERRED);
 
-PoseConformationFeatures
-------------------------
+##PoseConformationFeatures
 
+_Overveiw_
 The PoseConformationFeatures reporter measures the conformation level information in a Pose. Together with the ProteinResidueConformationFeatures, the atomic coordinates can be reconstructed. To facilitate creating poses from conformation structure data stored in the features database, PoseConformationFeatures has a *load\_into\_pose* method.
 
 -   **pose\_conformations** : This table stores information about sequence of residues in the conformation.
 	-   *annotated\_sequence* : The [annotated sequence](Glossary#annotatedsequence) string of residue types that make up the conformation
     -   *total\_residue* : The number of residues in the conformation
     -   *fullatom* : The ResidueTypeSet is *FA\_STANDARD* if true, and *CENTROID* if false.
+
+_Tables_
 
 <!-- -->
 
@@ -91,12 +98,15 @@ The PoseConformationFeatures reporter measures the conformation level informatio
             end_pos INTEGER,
             FOREIGN KEY (struct_id) REFERENCES structures (struct_id) DEFERRABLE INITIALLY DEFERRED);
 
-GeometricSolvationFeatures
---------------------------
+##GeometricSolvationFeatures
+
+**Overview**
 
 -   **geometric\_solvation** : The exact geometric solvation score which is computed by integrating the hbond energy not occupied by other atoms.
     -   *hbond\_site\_id* : A hydrogen bonding donor or acceptor
     -   *geometric\_solvation\_exact* : The non-pairwise decomposable version of the geometric solvation score.
+
+**Tables**
 
 <!-- -->
 
@@ -107,14 +117,15 @@ GeometricSolvationFeatures
             FOREIGN KEY (struct_id, hbond_site_id) REFERENCES hbond_sites(struct_id, site_id) DEFERRABLE INITIALLY DEFERRED,
             PRIMARY KEY(struct_id, hbond_site_id));
 
-RadiusOfGyrationFeatures
-------------------------
+##RadiusOfGyrationFeatures
 
+**Overview**
 Measure the radius of gyration for each structure. The radius of gyration measure of how compact a structure is in O(n). It is the expected displacement of mass from the center of mass. The Wikipedia page is has some [information](http://en.wikipedia.org/wiki/Radius_of_gyration) . Also see, Lobanov MY, Bogatyreva NS, Galzitskaya OV. [Radius of gyration as an indicator of protein structure compactness](http://www.springerlink.com/content/v01q1r143528u261/) . Molecular Biology. 2008;42(4):623-628.
 
 -   **radius\_of\_gyration** :
     -   *radius\_of\_gyration* : Let *C* be the center of mass and *ri* be the position of residue *i'* th of *n* residues, then the radius of gyration is defined to be *Rg = SQRT{SUM\_{ri}(ri-C)\^2/(n-1)}* . Note: the normalizing factor is *n-1* to be consistent with r++. Atoms with variant type "REPLONLY" are ignored.
 
+**Tables**
 <!-- -->
 
         CREATE TABLE IF NOT EXISTS radius_of_gyration (
@@ -123,14 +134,15 @@ Measure the radius of gyration for each structure. The radius of gyration measur
             FOREIGN KEY(struct_id) REFERENCES structures(struct_id) DEFERRABLE INITIALLY DEFERRED,
             PRIMARY KEY(struct_id));
 
-SandwichFeatures
-----------------
-
+##SandwichFeatures
+_Overview_
 Function summary: Extract and analyze beta-sandwiches
 
 Function detail: Extract beta-sandwiches conservatively so that it correctly excludes alpha-helix that is identified as beta-sandwiche by SCOP and excludes beta-barrel that is identified as beta-sandwiches by CATH. To dump into pdb files, use Matt's format\_converter.
 
 Analyze beta-sandwiches such as phi, psi angles in core/edge strand each, assign one beta-sheet between two beta-sheets that constitute one beta-sandwich as additional chain so that InterfaceAnalyzer can be used.
+
+**Tables**
 
 -   **sw\_can\_by\_components**
 
@@ -154,10 +166,12 @@ Analyze beta-sandwiches such as phi, psi angles in core/edge strand each, assign
         FOREIGN KEY (struct_id, residue_end) REFERENCES residues(struct_id, resNum) DEFERRABLE INITIALLY DEFERRED,
         PRIMARY KEY (struct_id, sw_can_by_components_PK_id));
 
-SecondaryStructureSegmentFeatures
----------------------------------
+##SecondaryStructureSegmentFeatures
 
+**Overview**
 Report continuous segments of secondary structure. DSSP is used to define secondary structure, but simplified to be simply H, E, and L (all DSSP codes other than H and E). Due to this simplification of DSSP codes, the dssp column is NOT a foreign key to the dssp\_codes table.
+
+**Tables**
 
         CREATE TABLE IF NOT EXISTS secondary_structure_segments (
             struct_id INTEGER AUTOINCREMENT NOT NULL,
@@ -170,10 +184,14 @@ Report continuous segments of secondary structure. DSSP is used to define second
         FOREIGN KEY (struct_id, residue_end) REFERENCES residues(struct_id, resNum) DEFERRABLE INITIALLY DEFERRED,
         PRIMARY KEY (struct_id, segment_id))
 
-SmotifFeatures
---------------
+##SmotifFeatures
+
+**Overview**
 
 Record a set of geometric parameters defined by two pieces of adjacent secondary structure. More information can be found here: [http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1000750](http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1000750)
+
+
+**Tables**
 
     CREATE TABLE smotifs(
         struct_id INTEGER AUTOINCREMENT NOT NULL,
@@ -191,9 +209,9 @@ Record a set of geometric parameters defined by two pieces of adjacent secondary
         FOREIGN KEY (struct_id, loop_segment_id) REFERENCES secondary_structure_segments(struct_id, segment_id) DEFERRABLE INITIALLY DEFERRED,
         PRIMARY KEY (struct_id, smotif_id))
 
-StrandBundleFeatures
---------------------
+##StrandBundleFeatures
 
+**Overview**
 Function summary: Find all strands -\> Leave all pair of strands -\> Leave all pair of sheets
 
 Function detail:
@@ -202,7 +220,11 @@ It generates smallest unit of beta-sandwiches that are input files of Tim's SEWI
 
 After finding all beta strands in pdb files, leave all pair of beta strands (either parallel or anti-parallel) among them. Then leave all pair of beta sheets (which are constituted with 4 beta strands each). As it finds strands/sheets, it find only those that meet criteria specified in option. 'strand\_pairs' table and 'sandwich' table are created in a same schema respectively.
 
+
+**Tables**
+
 -   **strand\_pairs**
+
 
 <!-- -->
 
@@ -231,3 +253,129 @@ After finding all beta strands in pdb files, leave all pair of beta strands (eit
         FOREIGN KEY (struct_id, sp_id_1) REFERENCES strand_pairs(struct_id, strand_pairs_id) DEFERRABLE INITIALLY DEFERRED,
         FOREIGN KEY (struct_id, sp_id_2) REFERENCES strand_pairs(struct_id, strand_pairs_id) DEFERRABLE INITIALLY DEFERRED,
         PRIMARY KEY (struct_id, sandwich_id));
+
+##InterfaceFeatures
+
+**Author**
+
+Jared Adolf-Bryfogle; jadolfbr@gmail.com; 
+PI: Roland Dunbrack
+
+Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
+
+
+**Overview**
+
+This Feature Reporter writes out three tables corresponding to interfaces of a given pose.  Behind the scenes, it uses an updated version of the [[InterfaceAnalyzerMover]], which is also used by the [[InterfaceAnalyzer application | interface-analyzer]].  Without options, it will detect all interfaces of a given pose and report on all of them, even if no residues are in them. 
+
+```
+			<feature name=InterfaceFeatures scorefxn=(& Scorefxn name) interface=(&string), pack_separated=(&bool, false) pack_together=(&bool, false) dSASA_cutoff=(&real, 100) compute_packstat=(&bool, true) pack_together=true/>
+```
+
+
+**XML Options**
+
+-   scorefxn (& scorefxn string): Specify a scorefunction to use
+-   interface(s) (&string) (default=All Interfaces):  Specify the interface as ChainsSide1_ChainsSide2 as in LH_A or a list of interfaces as LH_A,L_HB, etc.  
+-   pack_separated (&bool) (default=false): Repack the detected interface residues during separation.
+-   pack_together (&bool) (default=true): Repack the detected interface residues when they are together.
+-   dSASA_cutoff (&real) (default=100): Buried Solvent Accessible Surface Area (SASA) cutoff to ignore reporting most values.
+-   compute_packstat (&bool) (default=true): Compute the PackStat (RosettaHoles 1.0) value of the interface?  Typically it takes a tiny bit more time.  Sometimes packstat is buggy.  If you are having errors in packstat, try switching this off.  
+
+**Tables**
+
+_interface_sides_
+
+-   Output data specific to each side in a given interface
+
+```
+CREATE TABLE interface_sides(
+	struct_id INTEGER,
+	interface TEXT,
+	side TEXT,
+	chains_side1 TEXT,
+	chains_side2 TEXT,
+	interface_nres INTEGER,
+	dSASA REAL,
+	dSASA_sc REAL,
+	dhSASA REAL,
+	dhSASA_sc REAL,
+	dhSASA_rel_by_charge REAL,
+	dG REAL,
+	energy_int REAL,
+	energy_sep REAL,
+	avg_per_residue_energy_dG REAL,
+	avg_per_residue_energy_int REAL,
+	avg_per_residue_energy_sep REAL,
+	avg_per_residue_dSASA REAL,
+	avg_per_residue_SASA_int REAL,
+	avg_per_residue_SASA_sep REAL,
+	aromatic_fraction REAL,
+	aromatic_dSASA_fraction REAL,
+	aromatic_dG_fraction REAL,
+	interface_to_surface_fraction REAL,
+	ss_sheet_fraction REAL,
+	ss_helix_fraction REAL,
+	ss_loop_fraction REAL,
+	FOREIGN KEY (struct_id) REFERENCES structures(struct_id) DEFERRABLE INITIALLY DEFERRED,
+	FOREIGN KEY (chains_side1, chains_side2) REFERENCES interfaces(chains_side1, chains_side2) DEFERRABLE INITIALLY DEFERRED,
+	PRIMARY KEY (struct_id, interface, side))
+```
+
+_interfaces_
+
+-   Output Overall Interface Data
+
+```
+CREATE TABLE interfaces(
+	struct_id INTEGER,
+	interface TEXT,
+	chains_side1 TEXT,
+	chains_side2 TEXT,
+	nchains_side1 INTEGER,
+	nchains_side2 INTEGER,
+	dSASA REAL,
+	dSASA_hphobic REAL,
+	dSASA_polar REAL,
+	dG REAL,
+	dG_cross REAL,
+	dG_dev_dSASAx100 REAL,
+	dG_cross_dev_dSASAx100 REAL,
+	delta_unsatHbonds REAL,
+	hbond_E_fraction REAL,
+	sc_value REAL,
+	packstat REAL,
+	nres_int INTEGER,
+	nres_all INTEGER,
+	complex_normalized REAL,
+	FOREIGN KEY (struct_id) REFERENCES structures(struct_id) DEFERRABLE INITIALLY DEFERRED,
+	PRIMARY KEY (struct_id, interface))
+```
+
+_interface_residues_
+
+-   Output data specific to the residues in a given interface of a given pose.
+
+```
+CREATE TABLE interface_residues(
+	struct_id INTEGER,
+	interface TEXT,
+	resNum INTEGER,
+	chains_side1 TEXT,
+	chains_side2 TEXT,
+	side TEXT,
+	dSASA REAL,
+	dSASA_sc REAL,
+	dhSASA REAL,
+	dhSASA_sc REAL,
+	dhSASA_rel_by_charge REAL,
+	SASA_int REAL,
+	SASA_sep REAL,
+	relative_dSASA_fraction REAL,
+	dG REAL,
+	energy_int REAL,
+	energy_sep REAL,
+	FOREIGN KEY (struct_id, resNum) REFERENCES residues(struct_id, resNum) DEFERRABLE INITIALLY DEFERRED,
+	PRIMARY KEY (struct_id, interface, resNum))
+```
+
