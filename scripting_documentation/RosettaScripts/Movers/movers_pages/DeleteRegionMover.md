@@ -8,7 +8,7 @@ Jared Adolf-Bryfogle; jadolfbr@gmail.com
 PI: Roland Dunbrack
 
 ###Pupose
-Deletes a region of the current pose.  Residue number is parsed at apply time (PROTOCOLS section), so it does not nessessarily need to exist in the definition section (MOVERS section).
+Deletes a region of the current pose.  Residue number is parsed at apply time (PROTOCOLS section), so the residue does not nessessarily need to exist in the definition section (MOVERS section).
 
 ```
 <DeleteRegionMover name=(&string) start_pdb_num=(&string (Ex: 24L)) end_pdb_num=(&string (Ex: 42L)) />
