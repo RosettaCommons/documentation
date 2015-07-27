@@ -2,6 +2,265 @@
 
 [[_TOC_]]
 
+##Antibody Features
+
+
+
+
+**Overveiw**
+
+These features reporters analyze components of an antibody and interfaces that are a part of it.
+
+
+###AntibodyFeatures
+
+**Author**
+
+Jared Adolf-Bryfogle; jadolfbr@gmail.com; 
+PI: Roland Dunbrack
+
+Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
+
+Many of the metric functions were first coded by Brian Weitzner (brian.weitzner@gmail.com) and Jeff Gray ([[http://graylab.jhu.edu]]) at JHU as part of RosettaAntibody 3.0. 
+
+**Overview**
+
+The Antibody Features Reporter is a subclass of the [[InterfaceFeatures |MultiBodyFeaturesReporters#InterfaceFeatures]] Reporter.  It outputs all tables as in the InterfaceFeatures for antibody-specific interfaces (combinations of L, H, and A where L is light, H is heavy, and A is antigen).  By default, it will analyze every antibody interface unless specified in the XML tag.  It will also add information on the antigen to the antibody tables. Use _skip_all_antigen_analysis_ to skip this reporting.  Works on camelid antibodies as well.
+
+In order to use this Reporter, the antibody should be renumbered into a particular numbering scheme.  See [[General Antibody Tips | General-Antibody-Options-and-Tips]] for more information on how to renumber your antibody via different antibody servers.  If your antibody has come from RosettaAntibody 3.0, the antibody is already renumbered in the Chothia scheme, which is the default.  The numbering scheme can be specified through the command-line or via XML tag.
+
+```
+			<feature name=AntibodyFeatures scorefxn=(&string) interface=(&string) numbering_scheme=(&string, Chothia_Scheme) cdr_definition=(&string, Aroop) pack_separated=(&string, true) pack_together=(&string, false) />
+```
+
+**XML Options**
+
+-   scorefxn (& scorefxn string): Specify a scorefunction to use
+-   interface(s) (&string) (default=All present antibody interfaces):  Specify the interface as ChainsSide1_ChainsSide2 as in LH_A or a list of interfaces as LH_A,L_HA, etc.  Accepted Interface Strings: L_H, L_A, H_A, and LH_A
+-   numbering_scheme (&string):  Set the antibody numbering scheme.  Must also set the cdr_definition XML option. Both options can also be set through the command line (recommended).  See [[General Antibody Tips | General-Antibody-Options-and-Tips]] for more info.
+-   cdr_definition (&string): Set the cdr definition you want to use.  Must also set the numbering_scheme XML option.  See [[General Antibody Tips | General-Antibody-Options-and-Tips]]
+
+
+**More XML Options**
+-   pack_separated (&bool) (default=false): Repack the detected interface residues during separation.
+-   pack_together (&bool) (default=true): Repack the detected interface residues when they are together.
+-   dSASA_cutoff (&real) (default=100): Buried Solvent Accessible Surface Area (SASA) cutoff to ignore reporting most values.
+-   compute_packstat (&bool) (default=true): Compute the PackStat (RosettaHoles 1.0) value of the interface?  Typically it takes a tiny bit more time.  Sometimes packstat is buggy.  If you are having errors in packstat, try switching this off.  
+-   skip_all_antigen_analysis (&bool) (default=false): By default if antigen is present, we will report some data on it.  Pass this option to true to skip antigen reporting.
+
+**Tables**
+
+_ab_metrics_
+
+-   A set of antibody metrics.  Some repeated from the Interface metrics. Paratope is defined as all CDRs present in the antibody.
+
+```
+CREATE TABLE ab_metrics(
+	struct_id INTEGER,
+	numbering_scheme TEXT,
+	cdr_definition TEXT,
+	cdr_residues INTEGER,
+	antigen_present INTEGER,
+	antigen_chains TEXT,
+	net_charge INTEGER,
+	paratope_charge INTEGER,
+	paratope_SASA REAL,
+	paratope_hSASA REAL,
+	paratope_pSASA REAL,
+	VL_VH_packing_angle REAL,
+	VL_VH_distance REAL,
+	VL_VH_opening_angle REAL,
+	VL_VH_opposite_opening_angle REAL,
+	is_camelid INTEGER,
+	FOREIGN KEY (struct_id) REFERENCES structures(struct_id) DEFERRABLE INITIALLY DEFERRED,
+	PRIMARY KEY (struct_id))
+```
+
+_cdr_metrics_
+
+-   Analysis of the CDRS in the antibody pose.
+
+```
+CREATE TABLE cdr_metrics(
+	struct_id INTEGER,
+	CDR TEXT,
+	length INTEGER,
+	start INTEGER,
+	end INTEGER,
+	ag_ab_contacts_total INTEGER,
+	ag_ab_contacts_nres INTEGER,
+	ag_ab_dSASA REAL,
+	ag_ab_dSASA_sc REAL,
+	ag_ab_dhSASA REAL,
+	ag_ab_dhSASA_sc REAL,
+	ag_ab_dhSASA_rel_by_charge REAL,
+	ag_ab_dG REAL,
+	SASA REAL,
+	charge INTEGER,
+	energy REAL,
+	anchor_CN_distance REAL,
+	aromatic_nres REAL,
+	FOREIGN KEY (struct_id) REFERENCES structures(struct_id) DEFERRABLE INITIALLY DEFERRED,
+	PRIMARY KEY (struct_id, CDR))
+
+```
+
+_ab_h3_kink_metrics_
+
+-   Antibody H3 Kink Metrics
+
+```
+CREATE TABLE ab_h3_kink_metrics(
+	struct_id INTEGER,
+	kink_type TEXT,
+	begin INTEGER,
+	end INTEGER,
+	anion_res INTEGER,
+	cation_res INTEGER,
+	RD_Hbond_dis REAL,
+	bb_Hbond_dis REAL,
+	Trp_Hbond_dis REAL,
+	qdis REAL,
+	qdih REAL,
+	FOREIGN KEY (struct_id) REFERENCES structures(struct_id) DEFERRABLE INITIALLY DEFERRED,
+	PRIMARY KEY (struct_id))
+```
+
+
+###CDRClusterFeatures
+
+**Author**
+
+Jared Adolf-Bryfogle; jadolfbr@gmail.com; 
+PI: Roland Dunbrack
+
+Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
+
+**References**
+
+Adolf-Bryfogle J,  Xu Q,  North B, Lehmann A,  Roland L. Dunbrack Jr, [PyIgClassify: a database of antibody CDR structural classifications](http://nar.oxfordjournals.org/cgi/reprint/gku1106?ijkey=mLgOMi7GHwYPx77&keytype=ref) , Nucleic Acids Research 2014
+
+North B, Lehmann A, Dunbrack R, [A new clustering of antibody CDR loop conformations](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3065967/pdf/nihms-249534.pdf) (2011). JMB 406(2): 228-256.
+
+
+**Overview**
+
+Reports information of the North/Dunbrack CDR Clusters of an antibody. (Uses North/Dunbrack CDR definition)
+
+In order to use this Reporter, the antibody should be renumbered into a particular numbering scheme.  See [[General Antibody Tips | General-Antibody-Options-and-Tips]] for more information on how to renumber your antibody via different antibody servers.  If your antibody has come from RosettaAntibody 3.0, the antibody is already renumbered in the Chothia scheme, which is the default.  The numbering scheme can be specified through the command-line or via XML tag.
+
+```
+			<feature name=CDRClusterFeatures numbering_scheme=AHO_Scheme/>
+```
+
+**XML Options**
+-   numbering_scheme (&string):  Set the antibody numbering scheme.  Must also set the cdr_definition XML option. Both options can also be set through the command line (recommended).  See [[General Antibody Tips | General-Antibody-Options-and-Tips]] for more info.
+-   cdrs (&string) (default=All CDRs Present):  Set the CDRs you wish to analyze.  Legal = [H1, h1, etc.]
+
+**Tables**
+
+_cdr_clusters_
+
+```
+CREATE TABLE cdr_clusters(
+	struct_id INTEGER,
+	resnum_begin INTEGER,
+	resnum_end INTEGER,
+	chain TEXT,
+	CDR TEXT,
+	length INTEGER,
+	fullcluster TEXT,
+	dis REAL,
+	normDis REAL,
+	normDis_deg REAL,
+	sequence TEXT,
+	FOREIGN KEY (struct_id) REFERENCES residues(struct_id) DEFERRABLE INITIALLY DEFERRED,
+	PRIMARY KEY (struct_id, resnum_begin, resnum_end))
+```
+
+##Beta Sandwiches
+
+###SandwichFeatures
+
+**Overview**
+
+Function summary: Extract and analyze beta-sandwiches
+
+Function detail: Extract beta-sandwiches conservatively so that it correctly excludes alpha-helix that is identified as beta-sandwiche by SCOP and excludes beta-barrel that is identified as beta-sandwiches by CATH. To dump into pdb files, use Matt's format\_converter.
+
+Analyze beta-sandwiches such as phi, psi angles in core/edge strand each, assign one beta-sheet between two beta-sheets that constitute one beta-sandwich as additional chain so that InterfaceAnalyzer can be used.
+
+**Tables**
+
+-   **sw\_can\_by\_components**
+
+<!-- -->
+
+    CREATE TABLE sw_can_by_components(
+        struct_id INTEGER AUTOINCREMENT NOT NULL,
+        sw_can_by_components_PK_id INTEGER NOT NULL,
+        tag TEXT NOT NULL,
+        sw_can_by_sh_id INTEGER NOT NULL,
+        sheet_id INTEGER,
+        sheet_antiparallel INTEGER,
+        sw_can_by_components_bs_id INTEGER,
+        sw_can_by_components_bs_edge INTEGER,
+        intra_sheet_con_id INTEGER,
+        inter_sheet_con_id INTEGER,
+        residue_begin INTEGER NOT NULL,
+        residue_end INTEGER NOT NULL,
+        FOREIGN KEY (struct_id) REFERENCES structures(struct_id) DEFERRABLE INITIALLY DEFERRED,
+        FOREIGN KEY (struct_id, residue_begin) REFERENCES residues(struct_id, resNum) DEFERRABLE INITIALLY DEFERRED,
+        FOREIGN KEY (struct_id, residue_end) REFERENCES residues(struct_id, resNum) DEFERRABLE INITIALLY DEFERRED,
+        PRIMARY KEY (struct_id, sw_can_by_components_PK_id));
+
+
+###StrandBundleFeatures
+
+**Overview**
+
+Function summary: Find all strands -\> Leave all pair of strands -\> Leave all pair of sheets
+
+Function detail:
+
+It generates smallest unit of beta-sandwiches that are input files of Tim's SEWING protocol.
+
+After finding all beta strands in pdb files, leave all pair of beta strands (either parallel or anti-parallel) among them. Then leave all pair of beta sheets (which are constituted with 4 beta strands each). As it finds strands/sheets, it find only those that meet criteria specified in option. 'strand\_pairs' table and 'sandwich' table are created in a same schema respectively.
+
+
+**Tables**
+
+-   **strand\_pairs**
+
+
+<!-- -->
+
+    CREATE TABLE strand_pairs(
+        struct_id INTEGER AUTOINCREMENT NOT NULL,
+        strand_pairs_id INTEGER NOT NULL,
+        bool_parallel INTEGER NOT NULL,
+        beta_select_id_i INTEGER NOT NULL,
+        beta_select_id_j INTEGER NOT NULL,
+        FOREIGN KEY (struct_id) REFERENCES structures(struct_id) DEFERRABLE INITIALLY DEFERRED,
+        FOREIGN KEY (struct_id, beta_select_id_i) REFERENCES beta_selected_segments(struct_id, beta_selected_segments_id) DEFERRABLE INITIALLY DEFERRED,
+        FOREIGN KEY (struct_id, beta_select_id_j) REFERENCES beta_selected_segments(struct_id, beta_selected_segments_id) DEFERRABLE INITIALLY DEFERRED,
+        PRIMARY KEY (struct_id, strand_pairs_id));
+
+-   **sandwich**
+
+<!-- -->
+
+    CREATE TABLE sandwich(
+        struct_id INTEGER AUTOINCREMENT NOT NULL,
+        sandwich_id INTEGER NOT NULL,
+        sp_id_1 INTEGER NOT NULL,
+        sp_id_2 INTEGER NOT NULL,
+        shortest_sc_dis REAL NOT NULL,
+        FOREIGN KEY (struct_id) REFERENCES structures(struct_id) DEFERRABLE INITIALLY DEFERRED,
+        FOREIGN KEY (struct_id, sp_id_1) REFERENCES strand_pairs(struct_id, strand_pairs_id) DEFERRABLE INITIALLY DEFERRED,
+        FOREIGN KEY (struct_id, sp_id_2) REFERENCES strand_pairs(struct_id, strand_pairs_id) DEFERRABLE INITIALLY DEFERRED,
+        PRIMARY KEY (struct_id, sandwich_id));
+
 ##GeometricSolvationFeatures
 
 **Overview**
@@ -28,7 +287,9 @@
 Jared Adolf-Bryfogle; jadolfbr@gmail.com; 
 PI: Roland Dunbrack
 
-Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
+
+InterfaceAnalyzer Authors: Steven Lewis, P. Ben Stranges, Jared Adolf-Bryfogle
+The PI is Brian Kuhlman, bkuhlman@email.unc.edu .
 
 
 **Overview**
@@ -242,39 +503,6 @@ Measure the radius of gyration for each structure. The radius of gyration measur
             FOREIGN KEY(struct_id) REFERENCES structures(struct_id) DEFERRABLE INITIALLY DEFERRED,
             PRIMARY KEY(struct_id));
 
-##SandwichFeatures
-
-**Overview**
-
-Function summary: Extract and analyze beta-sandwiches
-
-Function detail: Extract beta-sandwiches conservatively so that it correctly excludes alpha-helix that is identified as beta-sandwiche by SCOP and excludes beta-barrel that is identified as beta-sandwiches by CATH. To dump into pdb files, use Matt's format\_converter.
-
-Analyze beta-sandwiches such as phi, psi angles in core/edge strand each, assign one beta-sheet between two beta-sheets that constitute one beta-sandwich as additional chain so that InterfaceAnalyzer can be used.
-
-**Tables**
-
--   **sw\_can\_by\_components**
-
-<!-- -->
-
-    CREATE TABLE sw_can_by_components(
-        struct_id INTEGER AUTOINCREMENT NOT NULL,
-        sw_can_by_components_PK_id INTEGER NOT NULL,
-        tag TEXT NOT NULL,
-        sw_can_by_sh_id INTEGER NOT NULL,
-        sheet_id INTEGER,
-        sheet_antiparallel INTEGER,
-        sw_can_by_components_bs_id INTEGER,
-        sw_can_by_components_bs_edge INTEGER,
-        intra_sheet_con_id INTEGER,
-        inter_sheet_con_id INTEGER,
-        residue_begin INTEGER NOT NULL,
-        residue_end INTEGER NOT NULL,
-        FOREIGN KEY (struct_id) REFERENCES structures(struct_id) DEFERRABLE INITIALLY DEFERRED,
-        FOREIGN KEY (struct_id, residue_begin) REFERENCES residues(struct_id, resNum) DEFERRABLE INITIALLY DEFERRED,
-        FOREIGN KEY (struct_id, residue_end) REFERENCES residues(struct_id, resNum) DEFERRABLE INITIALLY DEFERRED,
-        PRIMARY KEY (struct_id, sw_can_by_components_PK_id));
 
 ##SecondaryStructureSegmentFeatures
 
@@ -319,51 +547,6 @@ Record a set of geometric parameters defined by two pieces of adjacent secondary
         FOREIGN KEY (struct_id, loop_segment_id) REFERENCES secondary_structure_segments(struct_id, segment_id) DEFERRABLE INITIALLY DEFERRED,
         PRIMARY KEY (struct_id, smotif_id))
 
-##StrandBundleFeatures
-
-**Overview**
-
-Function summary: Find all strands -\> Leave all pair of strands -\> Leave all pair of sheets
-
-Function detail:
-
-It generates smallest unit of beta-sandwiches that are input files of Tim's SEWING protocol.
-
-After finding all beta strands in pdb files, leave all pair of beta strands (either parallel or anti-parallel) among them. Then leave all pair of beta sheets (which are constituted with 4 beta strands each). As it finds strands/sheets, it find only those that meet criteria specified in option. 'strand\_pairs' table and 'sandwich' table are created in a same schema respectively.
-
-
-**Tables**
-
--   **strand\_pairs**
-
-
-<!-- -->
-
-    CREATE TABLE strand_pairs(
-        struct_id INTEGER AUTOINCREMENT NOT NULL,
-        strand_pairs_id INTEGER NOT NULL,
-        bool_parallel INTEGER NOT NULL,
-        beta_select_id_i INTEGER NOT NULL,
-        beta_select_id_j INTEGER NOT NULL,
-        FOREIGN KEY (struct_id) REFERENCES structures(struct_id) DEFERRABLE INITIALLY DEFERRED,
-        FOREIGN KEY (struct_id, beta_select_id_i) REFERENCES beta_selected_segments(struct_id, beta_selected_segments_id) DEFERRABLE INITIALLY DEFERRED,
-        FOREIGN KEY (struct_id, beta_select_id_j) REFERENCES beta_selected_segments(struct_id, beta_selected_segments_id) DEFERRABLE INITIALLY DEFERRED,
-        PRIMARY KEY (struct_id, strand_pairs_id));
-
--   **sandwich**
-
-<!-- -->
-
-    CREATE TABLE sandwich(
-        struct_id INTEGER AUTOINCREMENT NOT NULL,
-        sandwich_id INTEGER NOT NULL,
-        sp_id_1 INTEGER NOT NULL,
-        sp_id_2 INTEGER NOT NULL,
-        shortest_sc_dis REAL NOT NULL,
-        FOREIGN KEY (struct_id) REFERENCES structures(struct_id) DEFERRABLE INITIALLY DEFERRED,
-        FOREIGN KEY (struct_id, sp_id_1) REFERENCES strand_pairs(struct_id, strand_pairs_id) DEFERRABLE INITIALLY DEFERRED,
-        FOREIGN KEY (struct_id, sp_id_2) REFERENCES strand_pairs(struct_id, strand_pairs_id) DEFERRABLE INITIALLY DEFERRED,
-        PRIMARY KEY (struct_id, sandwich_id));
 
 ##StructureFeatures
 
@@ -387,4 +570,3 @@ A structure is a group of spatially organized residues. The definition correspon
             tag TEXT,
             UNIQUE (protocol_id, tag),
             FOREIGN KEY (protocol_id) REFERENCES protocols (protocol_id) DEFERRABLE INITIALLY DEFERRED);
-
