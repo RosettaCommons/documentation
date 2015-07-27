@@ -50,14 +50,14 @@ Internally, apply performs the insertion, idealizes the loop residues (omegas to
 It is intended, but not guaranteed, to produce a graft with good rama, omega, and chainbreak/peptide_bond scores. All-atom minimization of graft or pose after insertion is recommended.
 
 ##XML Script
-     <CCDEndsGraftMover name=(&string) start_pdb_num (&string) end_pdb_num=(&string) nter_overhang=(&size, 0) cter_overhang=(&size, 0) stop_at_closure=(&bool, true), copy_pdbinfo=(&bool, false)/>
+     <CCDEndsGraftMover name=(&string) spm_reference_name=(&string) start_pdb_num (&string) end_pdb_num=(&string) nter_overhang=(&size, 0) cter_overhang=(&size, 0) stop_at_closure=(&bool, true), copy_pdbinfo=(&bool, false)/>
 
 ###Required XML Options 
 
 **Combine with [[SavePoseMover]] for insertions**
 
+-   spm_reference_name (&string): The name of the reference pose we are inserting.  See [[SavePoseMover]] for more info.
 -   start\_pdb\_num: PDB Number to start keep region from (including it). Ex: 24L.  Use start\_res\_num instead for internal numbering 
-
 -   end\_pdb\_num: PDB Number to end keep region at (including it); Ex: 42L. Use end\_res\_num instead for internal numbering
 
 ###Flexibility Options
