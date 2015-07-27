@@ -48,14 +48,14 @@ Algorithm originally from pose_into_pose:
 -   It is intended, but not guaranteed, to produce a graft with good rama, omega, and chainbreak/peptide_bond scores.  All-atom minimization of graft or pose after insertion is recommended.
 
 ##XML Script
-     <CCDEndsGraftMover name=(&string) start_pdb_num (&string) end_pdb_num=(&string) nter_overhang=(&size, 0) cter_overhang=(&size, 0) stop_at_closure=(&bool, true), copy_pdbinfo=(&bool, false)/>
+     <CCDEndsGraftMover name=(&string) spm_reference_name=(&string) start_pdb_num (&string) end_pdb_num=(&string) nter_overhang=(&size, 0) cter_overhang=(&size, 0) stop_at_closure=(&bool, true), copy_pdbinfo=(&bool, false)/>
 
 ###Required XML Options 
 
 **Combine with [[SavePoseMover]] for insertions**
 
+-   spm_reference_name (&string): The name of the reference pose we are inserting.  See [[SavePoseMover]] for more info.
 -   start\_pdb\_num: PDB Number to start keep region from (including it). Ex: 24L.  Use start\_res\_num instead for internal numbering 
-
 -   end\_pdb\_num: PDB Number to end keep region at (including it); Ex: 42L. Use end\_res\_num instead for internal numbering
 
 ###Flexibility Options
@@ -72,6 +72,7 @@ Algorithm originally from pose_into_pose:
 -   Nter_overhang (&size) (default=0): Number of extra residues on the Nter side of your insert to use for superposition for insertion.  Will delete these residues before insertion.
 -   Cter_overhang (&size) (default=0): Number of extra residues on the Nter side of your insert to use for superposition for insertion.  Will delete these residues before insertion.
 -   mintype (&string) (default=dfpmin_armijo_nonmonotone): Sets the mintype for the MinMover
+-   copy_pdbinfo(&bool) (default=false): Copy the PDBInfo (PDB residue numbers and chain Ids) into the new pose.  Make these able to be output in the final pose. 
 -   cen_scorefxn (&string) (default=smoothed version of that used originally for Steven Lewis' AnchoredDesignProtocol): Centroid Scorefunction to use
 -   fa_scorefxn (&string) (default=Rosetta default): All Atom scorefunction to use for final repack
 -   cycles (&size) (default=300): Set the number of cycles to use.
