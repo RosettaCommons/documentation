@@ -4,7 +4,7 @@
 
 [[_TOC_]]
 
-###Author
+##Author
 Jared Adolf-Bryfogle; jadolfbr@gmail.com; 
 PI: Roland Dunbrack
 
