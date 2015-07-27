@@ -39,8 +39,8 @@ Uses a single arm to close the loop by default.
 The default movemap keeps insert Frozen in dihedral angle space, But think of the insert as part of a CCD giant arm. Default flexibility on Nter and Cter is only two residues (--> part of diagram). Will delete any residues between start and end, and any overhang residues from the insert.  
 
 Algorithm originally from pose_into_pose:
--   The insert will be left unchanged in internal-coordinate space except for the phi on the first residue, and the psi/omega on the last residue, and atoms whose bonding partners change as a result of the insertion.
--   Internally, apply performs the insertion, idealizes the loop residues (omegas to 180, peptide bonds idealized) and the newly made polymer connections at the insert point, and then attempts to close the loop(s).
+-   The insert will be left unchanged in internal-coordinate space except for the phi on the first residue, and the psi/omega on the last residue, and atoms whose bonding partners change as a result of the insertion unless insert_flexibility options are set.
+-   Internally, apply performs the insertion, idealizes the connection residues (omegas to 180, peptide bonds idealized) and the newly made polymer connections at the insert point, and then attempts to close the loop(s).
 -   It is intended, but not guaranteed, to produce a graft with good rama, omega, and chainbreak/peptide_bond scores.  All-atom minimization of graft or pose after insertion is recommended.
 
 ##XML Script
@@ -54,7 +54,7 @@ Algorithm originally from pose_into_pose:
 
 -   end\_pdb\_num: PDB Number to end keep region at (including it); Ex: 42L. Use end\_res\_num instead for internal numbering
 
-###Flexibility
+###Flexibility Options
 
 **Connection: scaffold-insert-scaffold**
 
