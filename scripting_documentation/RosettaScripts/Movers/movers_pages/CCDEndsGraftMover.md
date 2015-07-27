@@ -74,6 +74,7 @@ It is intended, but not guaranteed, to produce a graft with good rama, omega, an
 -   Nter_overhang (&size) (default=0): Number of extra residues on the Nter side of your insert to use for superposition for insertion.  Will delete these residues before insertion.
 -   Cter_overhang (&size) (default=0): Number of extra residues on the Nter side of your insert to use for superposition for insertion.  Will delete these residues before insertion.
 -   mintype (&string) (default=dfpmin_armijo_nonmonotone): Sets the mintype for the MinMover
+-   copy_pdbinfo(&bool) (default=false): Copy the PDBInfo (PDB residue numbers and chain Ids) into the new pose.  Make these able to be output in the final pose. 
 -   cen_scorefxn (&string) (default=smoothed version of that used originally for Steven Lewis' AnchoredDesignProtocol): Centroid Scorefunction to use
 -   fa_scorefxn (&string) (default=Rosetta default): All Atom scorefunction to use for final repack
 -   cycles (&size) (default=300): Set the number of cycles to use.
