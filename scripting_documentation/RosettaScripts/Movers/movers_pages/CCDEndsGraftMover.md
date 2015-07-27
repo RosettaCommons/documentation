@@ -7,41 +7,43 @@
 ##Overview
 ###Brief 
 
-Grafting class adapted from Steven Lewis' pose_into_pose algorithm.
+General purpose Grafting class which:
 
-1) Inserts the pose piece into the scaffold pose, deleting any overhang residues or residues in the region the insertion will occur between.
+1) superimposes the insert onto the scaffold using any overhang residues
 
-2) Connects the left side of the piece to the scaffold by inserting ideal geometry 
-     (aka superposition of terminal overhangs is not needed)
+2) Inserts the pose piece into the scaffold pose, deleting any overhang residues or residues in the region the isertion will occur between.
 
 3) Cycles of:
 
-  - a) SmallMover for sampling
+  - a) SmallMover for sampling (Can be disabled))
 
-  - b) CCD to close right (Nter) side of the graft.  The insert is included as dihedral-inflexible residues in the CCD arm. Residues on either side of the scaffold are used by default to close the loop. A Moevemap can be given to include more residues for CCD to use, such as loops connecting secondary structural elements
+  - b) CCDs both terminal ends of the scaffold using flexibility settings or movemap to close the graft.  
 
   - c) MinMover to help close the graft through chain break terms
 
-  - d) Closure check - will stop if closed (This can be overridden)
+  - d) Closure check - will return if closed (Can be disabled)
 
   - e) MonteCarlo Boltzmann criterion
 
-5) Repack flexible residues, insert residues, connecting residues between scaffold and insert, and neighbors
+5) Repacks flexible residues and insert residues
+
+**Differs from AnchoredGraftMover in that the insert is held fixed in space after the superposition instead of using one giant arm to close the insertion.**
+
 
 ###Details 
 
-Uses a single arm to close the loop by default.
+Uses two CCD arms on either side of the scaffold to close graft.  Insert is held fixed in cartesian space after superposition of any overhang residues by default.
 
 ```
- ****Nter_loop_start---->Piece----> | Cter_loop_end****
+****Nter_loop_start-----> | Piece | <----Nter_loop_end****
 ```
 
-The default movemap keeps insert Frozen in dihedral angle space, But think of the insert as part of a CCD giant arm. Default flexibility on Nter and Cter is only two residues (--> part of diagram). Will delete any residues between start and end, and any overhang residues from the insert.  
+Default flexibility on Nter and Cter is only two residues (--> part of diagram).  Will delete any residues between start and end of the scaffold, and any overhang residues from the insert.
 
-Algorithm originally from pose_into_pose:
--   The insert will be left unchanged in internal-coordinate space except for the phi on the first residue, and the psi/omega on the last residue, and atoms whose bonding partners change as a result of the insertion.
--   Internally, apply performs the insertion, idealizes the loop residues (omegas to 180, peptide bonds idealized) and the newly made polymer connections at the insert point, and then attempts to close the loop(s).
--   It is intended, but not guaranteed, to produce a graft with good rama, omega, and chainbreak/peptide_bond scores.  All-atom minimization of graft or pose after insertion is recommended.
+
+Internally, apply performs the insertion, idealizes the loop residues (omegas to 180, peptide bonds idealized) and the newly made polymer connections at the insert point, and then attempts to close the loop(s). Repacks sidechains of insert and overhang residues after insertion is complete. By default, will stop apply once graft is closed.  Closure is measured as all bond lengths and angles of loop being acceptable.
+
+It is intended, but not guaranteed, to produce a graft with good rama, omega, and chainbreak/peptide_bond scores. All-atom minimization of graft or pose after insertion is recommended.
 
 ##XML Script
      <CCDEndsGraftMover name=(&string) start_pdb_num (&string) end_pdb_num=(&string) nter_overhang=(&size, 0) cter_overhang=(&size, 0) stop_at_closure=(&bool, true), copy_pdbinfo=(&bool, false)/>
@@ -54,7 +56,7 @@ Algorithm originally from pose_into_pose:
 
 -   end\_pdb\_num: PDB Number to end keep region at (including it); Ex: 42L. Use end\_res\_num instead for internal numbering
 
-###Flexibility
+###Flexibility Options
 
 **Connection: scaffold-insert-scaffold**
 
@@ -143,5 +145,6 @@ We are then left with a new antibody that has CDRs from a different antibody.  N
 ##See Also
 
 * [[SavePoseMover]]
+* [[AnchoredGraftMover]]
 * [[Insertion and Deletion | Movers-RosettaScripts#general-movers_insertion-and-deletion-grafting]]
 * [[I want to do x]]: Guide for making specific structural pertubations using RosettaScripts
