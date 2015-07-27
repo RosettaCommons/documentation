@@ -4,6 +4,10 @@
 
 [[_TOC_]]
 
+###Author
+Jared Adolf-Bryfogle; jadolfbr@gmail.com; 
+PI: Roland Dunbrack
+
 ##Overview
 ###Brief 
 
