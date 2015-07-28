@@ -16,3 +16,14 @@ The `rosetta/main/source` directory contains seven top level directories of whic
 * [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
 * [[Development Documentation]]: The main development documentation page
+
+<!--- SEO
+code structure
+code structure
+code structure
+code structure
+library structure
+library structure
+library structure
+library structure
+--->
