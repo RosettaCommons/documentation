@@ -7,26 +7,26 @@ The RosettaMP framework supports a set of movers that initialize elemnts of Rose
 
 ## Movers for Initialization
 
- - [[*AddMembraneMover* | RosettaMP-Movers-AddMembrane ]] Initialize the RosettaMP framework by adding a memrbane representation to the pose
- - [[*SymmetrcAddMembraneMover* | RosettaMP-Movers-SymmetricAddMembrane ]] Initialize the RosettaMP framework with a symmetric pose 
- - [[*AddMPLigandMover* | RosettaMP-Movers-AddMPLigand ]] Add a single ligand to a pose already supported by the RosettaMP framework
+ - [[**AddMembraneMover** | RosettaMP-Movers-AddMembrane ]] Initialize the RosettaMP framework by adding a memrbane representation to the pose
+ - [[**SymmetrcAddMembraneMover** | RosettaMP-Movers-SymmetricAddMembrane ]] Initialize the RosettaMP framework with a symmetric pose 
+ - [[**AddMPLigandMover** | RosettaMP-Movers-AddMPLigand ]] Add a single ligand to a pose already supported by the RosettaMP framework
 
 ## Movers for changing the membrane position 
 
- - [[*MembranePositionFromTopology* | RosettaMP-Movers-MembranePositionFromTopology ]] Calculate the membrane position from the transmembrane spans
- - [[*SetMembranePositionMover* | RosettaMP-Movers-SetMembranePosition ]] Set the membrane position to a given center and normal
- - [[*OptimizeMembranePositionMover* | RosettaMP-Movers-OptimizeMembranePosition ]] Optimize the position of the membrane by deterministic search (relies on the scoring function)
- - [[*RandomMembranePositionMover* | RosettaMP-Movers-RandomMembranePosition ]] Sample a random membrane position
+ - [[**MembranePositionFromTopology** | RosettaMP-Movers-MembranePositionFromTopology ]] Calculate the membrane position from the transmembrane spans
+ - [[**SetMembranePositionMover** | RosettaMP-Movers-SetMembranePosition ]] Set the membrane position to a given center and normal
+ - [[**OptimizeMembranePositionMover** | RosettaMP-Movers-OptimizeMembranePosition ]] Optimize the position of the membrane by deterministic search (relies on the scoring function)
+ - [[**RandomMembranePositionMover** | RosettaMP-Movers-RandomMembranePosition ]] Sample a random membrane position
 
 ## Movers for sampling the protein embedding
 
- - [[*TransformIntoMembraneMover* | RosettaMP-Movers-TransformIntoMembrane ]] Transform the protein based on its embedding into the current membrane position
- - [[*TranslationRotation* | RosettaMP-Movers-TranslationRotation ]] Translate & rotate the protein from and old center/normal into a new center/normal
+ - [[**TransformIntoMembraneMover** | RosettaMP-Movers-TransformIntoMembrane ]] Transform the protein based on its embedding into the current membrane position
+ - [[**TranslationRotation** | RosettaMP-Movers-TranslationRotation ]] Translate & rotate the protein from and old center/normal into a new center/normal
 
 ## Movers for Visualization
 
- - [[*VisualizeEmbeddingMover | RosettaMP-Movers-VisualizeEmbedding ]] Add embedding residues to the pose based on data in Embedding for visualization
- - [[*VisualizeMembrane* | RosettaMP-Movers-VisualizeMembrane ]] Add a series of pseudoatoms for visualizing the membrane as planes of pseudoatoms in pymol (very expensive)
+ - [[**VisualizeEmbeddingMover** | RosettaMP-Movers-VisualizeEmbedding ]] Add embedding residues to the pose based on data in Embedding for visualization
+ - [[**VisualizeMembrane** | RosettaMP-Movers-VisualizeMembrane ]] Add a series of pseudoatoms for visualizing the membrane as planes of pseudoatoms in pymol (very expensive)
 
 ## Contact
 
