@@ -217,3 +217,14 @@ New subdirectories in one of the above existing directories can be added much mo
 * [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
 * [[Development Documentation]]: The main development documentation page
+
+<!---- SEO
+code structure
+code structure
+code structure
+code structure
+library structure
+library structure
+library structure
+library structure
+---->
