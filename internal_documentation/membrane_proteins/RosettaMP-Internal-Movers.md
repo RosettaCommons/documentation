@@ -8,7 +8,7 @@
 
  - [[*FlipMover* | RosettaMP-Movers-Flip ]] Reflect the pose about the xy plane of the membrane
  - [[*TiltMover* | RosettaMP-Movers-Tilt ]] Tilts a single span or partner relative to the jump number
-  - [[*SpinAroundPartnerMover* | RosettaMP-Movers-SpinAroundPartner ]] Spin the protein around the second partner in the xy plane
+ - [[*SpinAroundPartnerMover* | RosettaMP-Movers-SpinAroundPartner ]] Spin the protein around the second partner in the xy plane
 
 ## Movers for sampling the protein embedding
 
