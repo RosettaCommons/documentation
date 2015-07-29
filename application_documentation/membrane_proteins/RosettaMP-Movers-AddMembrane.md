@@ -1,20 +1,8 @@
-## Metadata
-
-Questions and comments to:
-
-- Rebecca Alford (rfalford12@gmail.com)
-- Julia Koehler Leman (julia.koehler1982@gmail.com)
-- Corresponding PI: Jeffrey J. Gray (jgray@jhu.edu)
-
-Last Updated: 7/27/15
+# Movers for Initialization: AddMembraneMover
 
 ## Description
 
-The Mover that invokes the MP_Framework and instantiates a membrane Pose is the AddMembraneMover. This mover is required for membrane protein modeling in Rosetta and must be called first. The AddMembraneMover adds the membrane residue to the Pose, sets up a default FoldTree, and initializes the MembraneInfo object. The correct setup of the root in the FoldTree for either a fixed membrane and movable protein or movable membrane and fixed protein is the responsibility of the protocol developer.
-
-## Code and Demo
-
-The Mover lives in `main/source/src/protocols/membrane`.
+The AddMembraneMover initializes RosettaMP by configuring data needed for membrane representation. This mover is required for membrane protein modeling in Rosetta and must be called first. The AddMembraneMover adds the membrane residue to the Pose, sets up a default FoldTree, and initializes the MembraneInfo object. The correct setup of the root in the FoldTree for either a fixed membrane and movable protein or movable membrane and fixed protein is the responsibility of the protocol developer.
 
 ## RosettaScripts interface
 
@@ -30,14 +18,6 @@ The following options are available within the RosettaScript interface:
 `include_lips` - Boolean - To include a lips file for lipophilicity.
 `lipsfile` - String - Provide the lipsfile name.
 
-## Run the application
-
-```
-Rosetta/main/source/bin/mp_find_interface.macosclangrelease \
--database Rosetta/main/database \
--in:file:s 1AFO_tr.pdb \
-```
-
 ## Flags / Options
 
 |**Flag**|**Description**|
@@ -49,6 +29,13 @@ Rosetta/main/source/bin/mp_find_interface.macosclangrelease \
 |`-mp::setup::center <three real numbers defining the center point>` | optional; user can provide desired membrane center coordinate.|
 |`-mp::setup::normal <three real numbers defining the normal vector>` | optional; user can provide desired membrane normal vector.|
 
-## Reference
 
-* Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Elazar A, Tilley DC, Gray JJ (2015) An integrated framework advancing membrane protein modeling and design, PLoS Computational Biology (in press)
+## Contact
+
+- Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
+- Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
+- Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
+
+## References
+
+* Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Tilley D, Elazar A, Gray JJ. (2015) An integrated framework advancing membrane protein modeling and design. PLoS Computational Biology - Accepted (*co first authors)
