@@ -1,20 +1,8 @@
-## Metadata
-
-Questions and comments to:
-
-- Rebecca Alford (rfalford12@gmail.com)
-- Julia Koehler Leman (julia.koehler1982@gmail.com)
-- Corresponding PI: Jeffrey J. Gray (jgray@jhu.edu)
-
-Last Updated: 4/26/15
+# Movers for Initialization: AddMPLigandMover
 
 ## Description
 
-Mover that adds a single ligand to a membrane pose and reorganizes the FoldTree such that the ligand is anchored to a residue closest to the binding pocket. The membrane residue is anchored to the center-of-mass of the protein. 
-
-## Code and Demo
-
-The Mover lives in `main/source/src/protocols/membrane`.
+This mover adds a single ligand to a membrane pose and reorganizes the FoldTree such that the ligand is anchored to a residue closest to the binding pocket. The membrane residue is anchored to the center-of-mass of the protein. 
 
 ## RosettaScripts interface
 
@@ -24,6 +12,12 @@ The following options are available via RosettaScripts:
 
 TODO: add flags for the commandline!
 
-## Reference
+## Contact
 
-* Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Elazar A, Tilley DC, Gray JJ (2015) An integrated framework advancing membrane protein modeling and design, PLoS Computational Biology (in press)
+- Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
+- Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
+- Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
+
+## References
+
+* Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Tilley D, Elazar A, Gray JJ. (2015) An integrated framework advancing membrane protein modeling and design. PLoS Computational Biology - Accepted (*co first authors)
