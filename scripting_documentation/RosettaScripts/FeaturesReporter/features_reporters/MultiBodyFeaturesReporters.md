@@ -186,17 +186,18 @@ CREATE TABLE cdr_clusters(
 
 Function summary: Extract and analyze beta-sandwiches
 
-Function detail: Extract beta-sandwiches conservatively so that it correctly excludes alpha-helix that is identified as beta-sandwich by SCOP and excludes beta-barrel that is identified as beta-sandwiches by CATH. To dump into pdb files, use Matt's format\_converter.
+Extraction: Extract beta-sandwiches conservatively so that it correctly excludes alpha-helix that is identified as beta-sandwich by SCOP and excludes beta-barrel that is identified as beta-sandwiches by CATH. To dump into pdb files, use Matt's format\_converter.
 
-Analyze beta-sandwiches such as phi, psi angles in core/edge strand each, assign one beta-sheet between two beta-sheets that constitute one beta-sandwich as additional chain so that InterfaceAnalyzer can be used.
+Analysis: Phi/psi angles in core/edge strand each. Electrostatic interactions among residues. Assign one beta-sheet between two beta-sheets that constitute one beta-sandwich as additional chain so that InterfaceAnalyzer can be used. 
+
 
 **Tables**
 
--   **sw\_can\_by\_components**
+-   **sandwich**
 
 <!-- -->
 
-    CREATE TABLE sw_can_by_components(
+    CREATE TABLE sandwich(
         struct_id INTEGER AUTOINCREMENT NOT NULL,
         sw_can_by_components_PK_id INTEGER NOT NULL,
         tag TEXT NOT NULL,
