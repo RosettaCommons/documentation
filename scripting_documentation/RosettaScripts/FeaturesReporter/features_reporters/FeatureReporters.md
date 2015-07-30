@@ -80,9 +80,9 @@ Implemented Feature Reporters
 
 * [[TotalScore|EnergyFunctionFeaturesReporters#TotalScoreFeatures]] , [[ScoreType|EnergyFunctionFeaturesReporters#ScoreTypeFeatures]] , [[ScoreFunction|EnergyFunctionFeaturesReporters#ScoreFunctionFeatures]] , [[StructureScores|EnergyFunctionFeaturesReporters#StructureScoresFeatures]] , [[ResidueScores|EnergyFunctionFeaturesReporters#ResidueScoresFeatures]] , [[ResidueTotalScores|EnergyFunctionFeaturesReporters#ResidueTotalScoresFeatures]] , [[HBondParameter|EnergyFunctionFeaturesReporters#HBondParameterFeatures]] , [[ScreeningFeatures|EnergyFunctionFeaturesReporters#ScreeningFeatures]]
 
-##Antibody
+##[[Antibody | MultiBodyFeaturesReporters#antibody-features]]
 * FeatureReporters specifically for the analysis of antibodies
-* [[Antibody | MultibodyFeaturesReporters#AntibodyFeatures]], [[CDR Cluster | MultibodyFeaturesReporters#CDRClusterFeatures]]
+* [[Antibody | MultiBodyFeaturesReporters#antibody-features_antibodyfeatures]], [[CDR Cluster | MultiBodyFeaturesReporters#antibody-features_cdrclusterfeatures]]
 
 ##[[Experimental|ExperimentalFeaturesReporters]]   
 * Experimental data not defined by the atomic coordinates
