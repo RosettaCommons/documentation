@@ -1,12 +1,4 @@
-## Metadata
-
-Questions and comments to:
-
-- Julia Koehler Leman (julia.koehler1982@gmail.com)
-- Rebecca Alford (rfalford12@gmail.com)
-- Corresponding PI: Jeffrey J. Gray (jgray@jhu.edu)
-
-Last Updated: 4/26/15
+# Movers for Sampling the Protein Embedding: Translation Rotation Mover
 
 ## Description
 
@@ -18,16 +10,18 @@ The RotationMover rotates a pose element based on the old normal vector, the new
 
 The TranslationRotationMover rotates / translates a pose element based on the old center and normal, the new (i.e. desired) center and normal, and optional jump number. This is useful for moving a pose element based on the comparison between the membrane center and normal and its computed embedding from the pose element. 
 
-## Code and Demo
-
-The Mover lives in `main/source/src/protocols/membrane`.
-
 ## RosettaScripts interface
 
 `center` - 3 Floats - Desired center of the membrane bilayer.
 `normal` - 3 Floats - Desired normal vector of the membrane bilayer. 
 
-## Reference
-This Mover is used in RosettaMP that was published in:
+## Contact
 
-* Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Elazar A, Tilley DC, Gray JJ (2015) An integrated framework advancing membrane protein modeling and design, PLoS Computational Biology (in press)
+- Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
+- Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
+- Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
+
+## References
+
+* Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Tilley D, Elazar A, Gray JJ. (2015) An integrated framework advancing membrane protein modeling and design. PLoS Computational Biology - Accepted (*co first authors)
+
