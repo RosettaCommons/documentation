@@ -9,6 +9,8 @@
 
 * [[Design|design-applications]]
 
+* [[Membrane-Proteins|membrane-applications]]
+
 * [[Docking|docking-applications]]
 
 * [[Analysis|analysis-applications]]
