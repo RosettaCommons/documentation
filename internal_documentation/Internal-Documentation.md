@@ -5,8 +5,7 @@
 ##Introduction
 
 
-This is the "front page" for the internal portion of the Rosetta documentation wiki.
-
+This is the front page for the internal portion of the Rosetta documentation wiki.
 It provides convenient access to documentation pages which aren't yet ready for public release.
 (If a page will never be in a state to be released to the public, consider putting it on the 
 internal RosettaCommons wiki instead.)
@@ -25,6 +24,8 @@ and
 ```
 
 comment tags will be stripped from the documentation prior to being provided as a public release.
+
+See [[how to write documentation|how-to-write-documentation]] for more details.
 
 ## Overview Documentation
 - [[RosettaAcademy (or "Rosetta for Newbies")|RosettaAcademy]] - An intro guide for new RosettaCommons users and developers.
@@ -60,8 +61,12 @@ comment tags will be stripped from the documentation prior to being provided as 
     - [[ Quick Relax | RosettaMP-Internal-MPQuickRelax ]]
 
 
-### Helical bundles project
-- [[BundleGridSampler]]
+### JD3 -- version 3 of the JobDistributor system ###
+- TODO
+
+### Design-specific scoring terms ###
+- [[Repeat stretch energy (aa_repeat_energy)|Repeat-stretch-energy]] -- A scoring term that penalizes long stretches of repeating sequence (*e.g.* poly-Q sequences).
+- [[Residue composition energy (aa_composition)|AACompositionEnergy]] -- A scoring term that penalizes deviation from a desired residue type composition (e.g. no more than 7% alanines; at least one aromatic; at least 40% hydrophobic).
 
 ### Cyclic Peptides / Geometrically-Constrained Polymers Project
 - [[Workflow]]
@@ -102,7 +107,7 @@ Utilities:
    * Application to Relax CDRs using cluster-based dihedral constraints 
 
 Design:
-- [[RosettaAntibodyDesign]]
+- [[Rosetta Antibody Designer (RAbD) | RosettaAntibodyDesign]]
   * Application for knowledge-based Antibody Design based on CDR clusters and cellular mimicry
 - [[Antibody Design Strategy Analysis]]
   * Methods for analyzing various antibody design strategies

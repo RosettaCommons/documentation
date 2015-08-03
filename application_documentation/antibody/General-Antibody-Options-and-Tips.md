@@ -4,10 +4,10 @@
 
 There are many numbering schemes and CDR definitions for antibodies in the literature.
 
-To begin any current Rosetta Antibody protocol, one must first renumber their input PDB, unless the PDB is created by sequence through the antibody.py script.
+To begin any current Rosetta Antibody protocol, one must first renumber their input PDB, unless the PDB is created by sequence through the antibody.py script (Which currently only outputs Chothia - renumbered antibodies).
 
 - Chothia + Kabat: [AbNum](http://www.bioinf.org.uk/abs/abnum/)
-- AHO (Required for Antibody Design protocols): [PyIgClassify](http://dunbrack2.fccc.edu/PyIgClassify/)
+- AHo (Required for Antibody Design protocols): [PyIgClassify](http://dunbrack2.fccc.edu/PyIgClassify/)
 
 ##Relavent Options
 

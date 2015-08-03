@@ -7,6 +7,8 @@ These tutorials are meant for researchers interested in evaluating structure pre
 
 If there is a specific tutorial you think or would like to see here--please add it to the list at the bottom of requested tutorials!
 
+[[_TOC_]]
+
 Tutorials to Run Existing Feature Analysis
 ------------------------------------------
 
@@ -61,7 +63,6 @@ General Resources for Features Analysis
 
 * [[Features reporter overview]]: The home page for FeaturesReporters
 * [[FeatureReporters]]: List of implemented FeatureReporters
-* [[FeaturesRScripts]]: R scripts for post-processing data
 * [[RosettaScripts home page|RosettaScripts]]
 * [[RosettaScripts database connection options]]
 * [[Database IO]]: Input/output to databases using Rosetta

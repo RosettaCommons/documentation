@@ -106,7 +106,7 @@ Single constraints restrain the value of a single metric
 
     <i>score term: atom_pair_constraint</i>
 
-    * Constraint that a residue interacts with some other chain - roughly, that it is (or is not) in a binding site. The atom and resnum identify which atom is being checked for interactions with the opposing chain. Notice that "Constraint" is irregularly in its tag.
+    * Constraint that a residue interacts with some other chain. SiteConstraints are a set of ambiguous atom-pair constraints that evaluate whether a residue interacts with some other chain or region - roughly, that it is (or is not) in a binding site. More specifically, if we have a SiteConstraint on a particular residue, that SiteConstraint consists of a set of distance constraints on the C-alpha from that residue to the C-alpha of all other residues in a set, typically the set being specific residues on another chain or chains. After each constraint is evaluated, only the constraint giving the lowest score is used as the SiteConstraint energy for that residue. The atom and resnum identify which atom is being checked for interactions with the opposing chain. Notice that "Constraint" is irregularly in its tag.  Regions for the SiteConstraint other than the entire other chain cannot currently be set via constraint file.
 
 -   SiteConstraintResidues: `SiteConstraintResidues Atom1_ResNum Atom1_Name Res2 Res3 Func_Type Func_Def`
 

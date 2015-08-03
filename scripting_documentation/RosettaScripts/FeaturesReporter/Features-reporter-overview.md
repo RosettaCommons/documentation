@@ -8,9 +8,9 @@ If there is a specific tutorial you think or would like to see here, please add 
 
 We also document individual FeatureReporters and R scripts useful for post-processing data.
 
--	[[FeaturesTutorials]]
 -	[[FeatureReporters]]
--	[[FeaturesRScripts]]
+-	[[FeaturesTutorials]]
+-	[[Writing new Features R Scripts | FeaturesRScripts]]
 
 
 ##See Also

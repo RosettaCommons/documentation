@@ -1,5 +1,10 @@
 ##Model Generation
-First we need to generate a set of models. The only currently supported mechanism for model generation is through the use of a [[Features database|FeaturesTutorials]]. The following set ReportToDB tag contains the minimal set of features.
+First we need to generate a set of models. The only currently supported mechanism for model generation is through the use of a [[Features database|FeaturesTutorials]]. 
+
+----------------------
+
+###Feature Database Building
+The following set ReportToDB tag contains the minimal set of features.
 
 ```xml
 <MOVERS>
@@ -22,6 +27,11 @@ An example command line for generation of 'Features database' that will be used 
 -dbms:database_name pdb.db3 
 ```
 
+----------------------
+
+###Actual Model Generation
+After building features database, let's generate real models from this DB.
+
 SewingHasher model generation flags
 ```
 -sewing:mode generate           Set to SewingHasher mode to 'generate' for model generation
@@ -32,7 +42,8 @@ SewingHasher model generation flags
 An example command line for generation of model files:
 ```
 /path/to/rosetta/bin/SewingHasher.linuxgccrelease \
--sewing:mode generate \
+-sewing:mode generate # it will generate three secondary structures (smotif)' models \
+-sewing:mode generate_five_ss_model # it will generate five secondary structures' models \
 -database_name pdb.db3 \
 -sewing:model_file_name pdb.models
 ```
@@ -56,6 +67,7 @@ Unless the target backbone to design is random, ModelTrimmer needs to trim model
 -sewing::max_strand_length      Remove any model that has more number of strand residues than this
 -sewing::min_loop_length        Remove any model that has less number of loop residues than this
 -sewing::max_loop_length        Remove any model that has more number of loop residues than this
+-sewing::leave_H_bonded_models_by_terminal_strands Remove any model that is not H-bonded by their terminal beta-strands
 ```
 
 An example command line for ModelTrimmer:

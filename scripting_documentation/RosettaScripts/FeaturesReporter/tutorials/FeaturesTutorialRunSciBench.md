@@ -9,6 +9,8 @@ The **Features Scientific Benchmark** is used to compare batches of structures c
 2.  For each sample source extract features into a features database
 3.  For each analysis script compare 2 or more sample sources
 
+[[_TOC_]]
+
 Requirements
 ============
 
@@ -74,10 +76,51 @@ The coordinates of the structures for used to extract the feature information ca
     -   *-in:use\_database* : This indicates that the database should be used as input
     -   *-in:select\_structures* : An SQL query to select which structures should be used e.g. "SELECT tag FROM structures WHERE tag= '7rsa';"
 
-Specify Features Reporters
+Selecting Feature Reporters 
 --------------------------
 
-Each FeaturesReporter is responsible for extracting a certain type of features to the features database. Select a set [[FeaturesReporters|FeaturesDatabaseSchema]] and then include them as subtags to the \< [[ReportToDB|Movers-RosettaScripts#ReportToDB]] /\> mover tag in the *rosetta\_scripts* script.
+
+Use the ReportToDB mover with the Rosetta XML scripting to specify which features should be extracted to the features database. (Note: The TrajectoryReportToDB mover can also be used in Rosetta scripts or C++ to report features in trajectory form multiple times to DB for a single output).
+
+Each FeaturesReporter is responsible for extracting a certain type of features to the features database. Select a set [[FeaturesReporters|FeaturesDatabaseSchema]] and then include them as subtags to the ReportToDB mover tag in the *rosetta\_scripts* XML.  See [[this page | Movers-RosettaScripts#ReportToDB]] for more information on the mover beyond what is covered here. 
+
+-   \<ReportToDB\> tag
+    -   **name** : Mover identifier so it can be included in the PROTOCOLS block of the RosettaScripts
+    -   [[Database Connection Options|RosettaScripts-database-connection-options]] : for options of how to connect to the database
+    -   **sample\_source** : Short text description stored in the *sample\_source* table
+    -   **protocol\_id** : (optional) Set the *protocol\_id* in the *protocols* table rather than auto-incrementing it.
+    -   **cache\_size** : The maximum amount of memory to use before writing to the database ( [sqlite3 only](http://www.sqlite.org/pragma.html#pragma_cache_size) ).
+    -   **tast\_operations** : Restrict extracting features to a relevant subset of residues. Since task operations were designed as tasks for side-chain remodeling, residue features are reported when the residue is "packable". If a features reporter involves more than one residue, the convention is that it is only reported if each residue is specified.
+
+-   \<feature\> tag (subtag of \<ReportToDB\>)
+    -   **name** : Specify a FeatureReporter to include in database
+
+<!-- -->
+
+        <ROSETTASCRIPTS>
+            <SCOREFXNS>
+                <s weights=score12_w_corrections/>
+            </SCOREFXNS>
+            <MOVERS>
+                <ReportToDB name=features database_name=scores.db3>
+                    <feature name=ScoreTypeFeatures/>
+                    <feature name=StructureScoresFeatures scfxn=s/>
+                </ReportToDB>
+            </MOVERS>
+            <PROTOCOLS>
+                    <Add mover_name=features/>
+            </PROTOCOLS>
+        </ROSETTASCRIPTS>
+
+Running RosettaScripts 
+--------------------------------------------------
+
+Since ReportToDB is simply a mover, it can be included in any Rosetta Protocol. For example, to extract the features from a set of pdb files listed in *structures.list* , and the above script saved in *parser\_script.xml* , execute the following command:
+
+       rosetta_scripts.linuxgccrelease -output:nooutput -l structures.list -parser:protocol parser_script.xml
+
+This will generate an SQLite3 database file *scores.db3* containing the features defined in each of the specified FeatureReporters for each structure in *structures.list* . See the features integration test (rosetta/main/test/integration/tests/features) for a working example.
+
 
 Sample Source Templates
 =======================
@@ -118,3 +161,15 @@ These are the command line options used to run *features.py*
     -   **--database** : Path to /path/to/rosetta/main/database (it will use the value in \$ROSETTA3\_DB by default)
 
 
+##See Also
+
+* [[Running Features R Scripts | FeaturesTutorialRunFeaturesAnalysis]]
+* [[FeatureReporters]]
+* [[FeaturesTutorials]]
+* [[TrajectoryReportToDBMover]]
+* [[RosettaScripts database connection options]]
+* [[Database IO]]: information on database input/output in Rosetta
+* [[Rosetta Database Output Tutorial]]
+* [[Database support]]: Advanced details on Rosetta's interface with databases
+* [[Database options]]: Database-related command line options
+* [[I want to do x]]: Guide to choosing a mover

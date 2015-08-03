@@ -67,7 +67,16 @@ Certain Rosetta-specific tools, such as the [[tracer]], can also be found in the
 
 ##Core Library <a name="core" />
 
-[[/images/core_structure.png]]
+<<RawHtml(
+<img src="RosettaCores.png" usemap="#RosettaCores" alt="missing Core library hierarchy image">
+<map name="RosettaCores">
+        <area shape=rect coords="98,627,274,726" href=src-index-page#core-library_core-5>
+        <area shape=rect coords="98,479,274,578" href=src-index-page#core-library_core-4>
+        <area shape=rect coords="98,330,274,431" href=src-index-page#core-library_core-3>
+        <area shape=rect coords="98,182,274,281" href=src-index-page#core-library_core-2>
+        <area shape=rect coords="98,99,274,132" href=src-index-page#core-library_core-1>
+</map>
+)>>
 
 The core directory contains classes that manage most of the internal machinery of Rosetta. 
 This includes topics such as chemical representations of models, conformational representations of models, low-level operations on conformations, and energetic evaluation ([[scoring|scoring-explained]]) of models.
@@ -96,7 +105,7 @@ This contains all the `ScoreFunction` and all the common terms that go in it, an
 
 ####Pose
 `Pose`, one of the two most important classes in Rosetta, lives here.
-`Pose` is the marriage of a `Conformation` and an `Energies` object holding its scores.
+[[Pose|RosettaEncyclopedia#pose]] is the marriage of a `Conformation` and an `Energies` object holding its scores.
 
 ###Core.4
 Core.4 is concerned with optimization algorithms - ways to minimize the energy of the pose. 
@@ -208,3 +217,14 @@ New subdirectories in one of the above existing directories can be added much mo
 * [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
 * [[Development Documentation]]: The main development documentation page
+
+<!---- SEO
+code structure
+code structure
+code structure
+code structure
+library structure
+library structure
+library structure
+library structure
+---->
