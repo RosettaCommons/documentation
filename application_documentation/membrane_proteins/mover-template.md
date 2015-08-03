@@ -4,14 +4,6 @@
 
 ## RosettaScripts interface
 
-## Run the application
-
-```
-Rosetta/main/source/bin/mp_find_interface.macosclangrelease \
--database Rosetta/main/database \
--in:file:s 1AFO_tr.pdb \
-```
-
 ## Contact
 
 - Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
