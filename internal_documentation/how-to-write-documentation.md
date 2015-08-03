@@ -28,7 +28,7 @@ is to put that documentation inside the following comment tags:
 
 Creating a New Page
 ===================
-When creating a new page using the wiki interface, please make sure that it is placed in the correct folder (see the directory structure [[below|#organization-and-navigation]] for guidelines). There are three ways to accomplish this:
+When creating a new page using the wiki interface, please make sure that it is placed in the correct folder (see the directory structure [[below|how-to-write-documentation#organization-and-navigation]] for guidelines). There are three ways to accomplish this:
 
 1. Before creating your page, navigate to another page that is in the directory where your page should be placed. Any page similar to yours should be in the correct directory. If, for example, you want to create a new RosettaScripts filter page, you could navigate to the page for any other RosettaScripts filter before creating your page, and it will be automatically placed in the correct directory. The new location for the page will also be indicated in the window where you name the page when you first create it.
 
