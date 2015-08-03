@@ -1,17 +1,10 @@
-## Metadata
-
-Questions and comments to: 
- - Rebecca F. Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
- - Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
- - Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
-
-Last Updated: 3/17/15
-
-## Algorithm Description
-Scoring a membrane protein pose with a defined score function is one of the most basic and much needed functionality. For this, we hijacked the score_jd2 application and made it (at least partly) applicable for membrane proteins. 
+# RosetaMP Applications: Score JD2 Extension
 
 ## Code and Demo
 This application uses Movers from RosettaMP. The score_jd2 application can be found at `public/analysis/score_jd2.cc`. The supplement of the above manuscript also outlines its use. 
+
+## Algorithm Description
+Scoring a membrane protein pose with a defined score function is one of the most basic and much needed functionality. For this, we hijacked the score_jd2 application and made it (at least partly) applicable for membrane proteins. 
 
 ## Run the application
 
@@ -43,8 +36,18 @@ Rosetta/main/source/bin/score_jd2.macosclangrelease \
 Both applications only score the protein and don't optimize the membrane position!
 Note: Make sure your numbering between PDB file and spanfile match!
 
-## Reference
+## Citation
+Rosetta Revision #57715
 
-Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Elazar A, Tilley DC, Gray JJ (2015)
-An integrated framework advancing membrane protein modeling and design,
+Alford RF, Koehler Leman J, Weitzner BD, Duran A, Elazar A, Tilley DC, Gray JJ (2015)
+An integrated framework advancing membrane protein modeling and design
 PLoS Computational Biology (under revision) 
+
+## Contact
+
+Questions and comments to: 
+ - Rebecca F. Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
+ - Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
+ - Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
+
+
