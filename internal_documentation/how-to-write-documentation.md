@@ -28,7 +28,7 @@ is to put that documentation inside the following comment tags:
 
 Creating a New Page
 ===================
-When creating a new page using the wiki interface, please make sure that it is placed in the correct folder (see the directory structure [[below|how-to-write-documentation#organization-and-navigation]] for guidelines). There are three ways to accomplish this:
+When creating a new page using the wiki interface, please make sure that it is placed in the correct folder (see the directory structure [[below|how-to-write-documentation#organization and navigation]] for guidelines). There are three ways to accomplish this:
 
 1. Before creating your page, navigate to another page that is in the directory where your page should be placed. Any page similar to yours should be in the correct directory. If, for example, you want to create a new RosettaScripts filter page, you could navigate to the page for any other RosettaScripts filter before creating your page, and it will be automatically placed in the correct directory. The new location for the page will also be indicated in the window where you name the page when you first create it.
 
@@ -37,6 +37,7 @@ When creating a new page using the wiki interface, please make sure that it is p
 3. If (for whatever reason) you prefer to create new pages by directly navigating to a URL for a page that doesn't exist and then creating it, you can do that as well--the directory structure appears in the URL, so navigating to https://www.rosettacommons.org/docs/wiki/scripting_documentation/RosettaScripts/Movers/movers_pages/MyNewMover would create a page in the correct directory for RosettaScripts movers.
 
 ##Organization and Navigation
+<a href="organization-and-navigation" />
 
 The directory structure of the documentation repository is given below with a brief description of what belongs in each directory/subdirectory.
 
