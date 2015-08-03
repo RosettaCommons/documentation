@@ -1,18 +1,4 @@
-## Metadata
-Questions and comments to: 
-
- - Rebecca F. Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
- - Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
- - Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
-
-Last Updated: 3/25/15
-
-## Citation
-Rosetta Revision #57518
-
-Alford RF, Koehler Leman J, Weitzner BD, Duran A, Elazar A, Tiley D, Gray JJ (2015)
-An integrated framework advancing membrane protein modeling and design
-PLoS Computational Biology (under review)
+# RosettaMP Application: Prediction of ∆∆G of Mutation (MPddG)
 
 ## Code and Demo
 The membrane ddG application is packaged with PyRosetta. The released version cab be found in: 
@@ -20,7 +6,7 @@ The membrane ddG application is packaged with PyRosetta. The released version ca
 
 The developmental version can be found in the Rosetta source code in `source/src/python/bindings/app/membrane/predict_ddG.py`
 
-A demo for this application can be found in `Rosetta/demos/protocol_capture/2015/MPddG`
+A demo for this application can be found in `Rosetta/demos/protocol_capture/mp_ddG`
 
 ## Background
 Measuring free energy changes upon mutation can inform our understanding of membrane protein stability and variation and is a step toward design. In this application, we predict ddGs by measuring the difference in Rosetta energy for the native and mutated conformation. This application uses a modified version of the all atom energy function for membrane proteins, which includes the fa_elec term and pH energy (see below). The Membrane ddG application is part of the RosettaMP Framework. 
@@ -64,6 +50,20 @@ Below is a sample commandline using inputs provided in the 2015 MPddG protocol C
 ```
 ./compute_ddG.py --in_pdb inputs/1qd6_tr.pdb --in_span inputs/1qd6_tr_C.pdb --in_span inputs/1qd6_tr_C.span --res 181 --repack_radius 8.0 --include_pH true --pH_value 4.0 
 ```
+
+## Citation
+Rosetta Revision #57518
+
+Alford RF, Koehler Leman J, Weitzner BD, Duran A, Elazar A, Tiley D, Gray JJ (2015)
+An integrated framework advancing membrane protein modeling and design
+PLoS Computational Biology (under review)
+
+## Contact
+Questions and comments to: 
+
+ - Rebecca F. Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
+ - Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
+ - Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
 
 ## References
 1. Chaudhury S, Lyskov S, Gray JJ (2010) PyRosetta: a script-based interface for implementing molecular modeling algorithms using Rosetta.
