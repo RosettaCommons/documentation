@@ -36,7 +36,9 @@ When creating a new page using the wiki interface, please make sure that it is p
 
 3. If (for whatever reason) you prefer to create new pages by directly navigating to a URL for a page that doesn't exist and then creating it, you can do that as well--the directory structure appears in the URL, so navigating to https://www.rosettacommons.org/docs/wiki/scripting_documentation/RosettaScripts/Movers/movers_pages/MyNewMover would create a page in the correct directory for RosettaScripts movers.
 
-##Organization and Navigation
+Organization and Navigation
+===========================
+
 <a href="organization-and-navigation" />
 
 The directory structure of the documentation repository is given below with a brief description of what belongs in each directory/subdirectory.
