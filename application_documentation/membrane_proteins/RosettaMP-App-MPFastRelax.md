@@ -1,19 +1,9 @@
-[[_TOC_]]
+# RosettaMP Application: High Resolution Refinement (MPFastRelax)
 
-## Metadata
+## Code and Demo
+The membrane protein refinement application, MPrelax is implemented as a Rosetta Script and can be found in `Rosetta/main/source/src/apps/public/membrane/mp_relax.xml` which can be passed as input to the `rosetta_scripts.cc` executable
 
-Authors: 
- - Author: Rebecca F. Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
- - Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
-
-Last Updated: May 2015
-
-## Citation
-Rosetta Revision #57518
-
-Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Tiley DC, Elazar A, Gray JJ (2015)
-An integrated framework advancing membrane protein modeling and design
-PLosCompBio (Under Review) 
+A demo for this application including detailed steps, command lines, and example inputs can be found in `Rosetta/demos/protocol_captures/mp_relax`
 
 ## About
 High-resolution refinement is key for advancing low resolution structures from x-ray
@@ -31,12 +21,6 @@ the MEM residue to the biomolecule.
 
 This protocol is currently designed for single chain refinement with an MEM jump. Further
 consideration needed by the user for multiple chains 
-
-## Code and Demo
-The membrane protein refinement application, MPrelax is implemented as a Rosetta Script and can be found in `apps/public/membrane/mp_relax.xml` which can be passed as input to the `rosetta_scripts` executable
-
-A demo for this application including detailed steps, command lines, and example inputs can be found in `Rosetta/demos/protocol_captures/2015/MPrelax`. 
-
 
 ## Generating Inputs
 Two inputs are required for the membrane relax application: 
@@ -84,6 +68,20 @@ cd mpframework-relax/scripts/
 To run this application, use the following command line: 
 
 `./rosetta_scripts.<exe> -database /path/to/my/rosettadb @flags`
+
+## Citation
+Rosetta Revision #57518
+
+Alford RF, Koehler Leman J, Weitzner BD, Duran A, Elazar A, Tiley D, Gray JJ (2015)
+An integrated framework advancing membrane protein modeling and design
+PLoS ONE (in preparation) 
+
+## Contact
+
+Questions and comments to: 
+ - Rebecca F. Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
+ - Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
+ - Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
 
 ## References
 1. Tyka MD, Keedy DA, Andre I, DiMaio F, Song Y, et al. (2011) Alternate states of proteins revealed by detailed energy landscape mapping. J Mol Biol. 

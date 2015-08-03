@@ -1,16 +1,12 @@
-## Metadata
+# RosettaMP Application: Membrane Protein-Protein Docking Setup (MPDockSetup)
 
-Questions and comments to: 
- - Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
- - Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
+## Code and Demo
+The application can be found at `Rosetta/main/source/src/apps/public/membrane/mp_dock_setup.cc`.
 
-Last Updated: 4/26/15
+A demo for the code can be found as part of the MPDock demo in `Rosetta/demos/protocol_captures/mp_dock`
 
 ## Algorithm Description
 This application reads in two membrane protein PDBs and their corresponding spanfiles. Each structure is then separately transformed into membrane coordinates and concatenated into a single PDB output file and a single spanfile. Renumbered spanfiles for each chain are also given. The membrane is fixed with a center of [0, 0, 0] and a normal of [0, 0, 15].
-
-## Code and Demo
-The application can be found at `apps/pilot/jkleman/mpdocking_setup.cc`. The underlying mover is located in `protocols/docking/membrane/MPDockingSetupMover`. An integration test can be found at `Rosetta/main/tests/integration/tests/mp_docking_setup/`.
 
 ## Run the application
 
@@ -24,8 +20,18 @@ Rosetta/main/source/bin/mp_mutate_relax.macosclangrelease \
                                               # OF THE PDB FILES!
 ```
 
-## Reference
+## Citation
+Rosetta Revision #57518
 
-Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Elazar A, Tilley DC, Gray JJ (2015)
-An integrated framework advancing membrane protein modeling and design,
-PLoS Computational Biology (under revision) 
+Alford RF, Koehler Leman J, Weitzner BD, Duran A, Elazar A, Tiley D, Gray JJ (2015)
+An integrated framework advancing membrane protein modeling and design
+PLoS ONE (in preparation) 
+
+## Contact
+
+Questions and comments to: 
+ - Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
+ - Rebecca F. Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
+ - Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
+
+
