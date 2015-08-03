@@ -34,7 +34,7 @@ When creating a new page using the wiki interface, please make sure that it is p
 
 2. When you name your page (in the small pop-up window that appears when you click the "New" button on the wiki), you can give the path to your page instead of just a name. So, for instance, if you are on the wiki home page and click New, and you want to make a new RosettaScripts mover, you would name the page "scripting_documentation/RosettaScripts/Movers/movers_pages/MyNewMover" instead of just "MyNewMover". 
 
-3. If (for whatever reason) you prefer to create new pages by directly navigating to a URL for a page that doesn't exist and then creating it, you can do that as well--the directory structure appears in the URL, so navigating to "https://www.rosettacommons.org/docs/wiki/scripting_documentation/RosettaScripts/Movers/movers_pages/MyNewMover" would create a page in the correct directory for RosettaScripts movers.
+3. If (for whatever reason) you prefer to create new pages by directly navigating to a URL for a page that doesn't exist and then creating it, you can do that as well--the directory structure appears in the URL, so navigating to https://www.rosettacommons.org/docs/wiki/scripting_documentation/RosettaScripts/Movers/movers_pages/MyNewMover would create a page in the correct directory for RosettaScripts movers.
 
 ##Organization and Navigation
 
