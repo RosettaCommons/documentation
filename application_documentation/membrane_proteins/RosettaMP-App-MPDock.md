@@ -54,9 +54,7 @@ If the interface score doesn't show up in the scorefile and you want to add it, 
 ## Citation
 Rosetta Revision #57518
 
-Alford RF, Koehler Leman J, Weitzner BD, Duran A, Elazar A, Tiley D, Gray JJ (2015)
-An integrated framework advancing membrane protein modeling and design
-PLoS ONE (in preparation) 
+Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press
 
 ## Contact
 

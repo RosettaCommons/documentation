@@ -39,9 +39,7 @@ Note: Make sure your numbering between PDB file and spanfile match!
 ## Citation
 Rosetta Revision #57715
 
-Alford RF, Koehler Leman J, Weitzner BD, Duran A, Elazar A, Tilley DC, Gray JJ (2015)
-An integrated framework advancing membrane protein modeling and design
-PLoS Computational Biology (under revision) 
+Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press
 
 ## Contact
 
