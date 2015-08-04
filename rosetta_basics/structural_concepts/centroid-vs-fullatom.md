@@ -20,6 +20,7 @@ After large-scale sampling in centroid mode, poses are generally converted back 
 * [[Glossary]]
 * [[Scoring explained]]
 * [[Score types]]
+* [[CenRotModel]]
 
 <!--- Gollum search optimization keywords
 centroid

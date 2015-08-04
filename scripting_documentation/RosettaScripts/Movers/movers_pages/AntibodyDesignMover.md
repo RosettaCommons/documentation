@@ -24,7 +24,7 @@ Runs the full Rosetta Antibody Design (RAbD) Protocol.  Requires an AHo numbered
 
 -   design_cdrs (&string) (Default=All CDRs): Set the CDRs you wish to design.  This will both GraftDesign and SeqDesign the CDRs.  This can also be set in the CDR instruction file. Setting it in this option overrides the instruction file.
 
--   instruction_file (&string): Path to the CDR instruction file.  The default settings will probably not apply to your specific antibody design file.  Make sure to read about the syntax of this file in the application documentation and set one up accordingly.  The current defaults can be found in the rosetta database: database/sampling/antibodies/design/default_instructions.txt.
+-   instruction_file (&string): Path to the CDR instruction file.  The default settings will probably not apply to your specific antibody design file.  Make sure to read about the syntax of this file in the application documentation and set one up accordingly.  The current defaults can be found in the rosetta database: database/sampling/antibodies/design/default_instructions.txt.  Each option given in this file will over ride each individual default (if you only want to override one option, that is all you would need to put in your passed in instruction file.).
 
 
 ### Main Protocol Settings
