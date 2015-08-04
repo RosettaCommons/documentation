@@ -21,6 +21,16 @@ Typical mover like packer, minimizer et al. should work properly.
 ===============
 If you want to use it in your code, check pilot/wendao/cenrot_jd2.cc.
 
+# Score function
+===============
+There are couple of different CenRot score functions optimized for different purpose
+- score3_cenrot: for fragment based sampling + repack
+- score4_cenrot_repack: for native backbone repack
+- score4_cenrot_design: for native backbone design
+- score4_cenrot_relax: repack + min in torsion space
+- score4_cenrot_relax_cart: repack + min in cartesian space
+- score4_cenrot_cartmin.wts: minimize in cartesian space (higher vdw)
+
 # TODO
 ===============
 more CenRot specific protocol
