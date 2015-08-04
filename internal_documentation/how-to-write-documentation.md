@@ -150,6 +150,8 @@ Your documentation should include the following sections:
 * **See Also**: A set of links to other tags and pages that are somehow related 
   to your tag.
 
+A template for documenting new RosettaScripts movers can be found [[here|rscript-movers-template]]. Filters and TaskOperations will follow the same basic format.
+
 How to document a new application
 ---------------------------------
 If you are looking for information on how to write an new application, check 
@@ -197,6 +199,8 @@ consider writing some.  Note that (for technical reasons — Gollum gets really
 slow when there are too many pages in the wiki) the demos wiki is actually a 
 whole different website than the documentation wiki.  So you have to use 
 external links to link between the two wikis.
+
+A template page for application documentation can be found [[here|application-docs-template]].
 
 How to document a new demo
 --------------------------
