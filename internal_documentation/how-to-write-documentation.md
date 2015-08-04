@@ -324,4 +324,3 @@ conflicts, so instead it just pushes aggressively to master.  Reserve direct
 git access to the repository for changes which cannot be done through the live 
 wiki interface, like uploading images or batch processing type edits.
 
-[[TEST]]
