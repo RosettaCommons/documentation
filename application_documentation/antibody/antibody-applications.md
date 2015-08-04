@@ -64,12 +64,10 @@ You can use the collection of TaskOperations and Movers to write your own Antibo
 
 * [[General Antibody Options and Tips]]
 * [[Application Documentation]]: Application documentation home page
+* [[Scripting Documentation]]: Scripting interfaces to Rosetta
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
 * [[Rosetta Servers]]: Web-based servers for Rosetta applications
 * [[Commands collection]]: A list of example command lines for running Rosetta executable files
-* [[Getting Started]]: A page for people new to Rosetta
-* [[Scripting Documentation]]: Scripting interfaces to Rosetta
-* [[RosettaScripts]]: The RosettaScripts home page
 * [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 * [[Comparing structures]]: Essay on comparing structures
 * [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
