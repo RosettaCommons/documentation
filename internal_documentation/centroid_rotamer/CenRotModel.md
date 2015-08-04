@@ -1,6 +1,6 @@
 Centroid Rotamer Model adds rotamers in standard Centroid Model for better side-chain representation.
-Author: Yuan Liu (wendao@uw.edu) (if you need more info or find any problem using it, please contact me, thanks!)
-last updated: 8/4/2015
+- Author: Yuan Liu (wendao@uw.edu) (if you need more info or find any problem using it, please contact me, thanks!)
+- last updated: 8/4/2015
 
 # Basic idea
 ===============
