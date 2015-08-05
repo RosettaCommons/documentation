@@ -348,7 +348,7 @@ Alignment, O2' packing, RMSD, mutation, slicing, silent file creation, and minim
 ### [[stepwise]]
 General code that will perform Monte Carlo stepwise assembly on anything.
 
-### [[revert_design_to_native]]
+### [[revert_design_to_native|RosettaScripts#revert_design_to_wt-application]]
 If a design is sufficiently comparable to the native score, we revert 
 
 ### [[rosetta_scripts|RosettaScripts]]
