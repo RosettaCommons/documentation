@@ -51,7 +51,6 @@ See [[how to write documentation|how-to-write-documentation]] for more details.
 - [[ Methods | RosettaMP-Internal-Methods ]]
 
 #### Score Functions
-- [[ Chemical representation of the Lipid Bilayer | RosettaMP-Internal-MPChemicalProfile ]]
 
 #### Applications
 - Docking: 
@@ -60,6 +59,12 @@ See [[how to write documentation|how-to-write-documentation]] for more details.
     - [[ Mutate Relax | RosettaMP-Internal-MPMutateRelax ]]
     - [[ Quick Relax | RosettaMP-Internal-MPQuickRelax ]]
 
+#### Membrane Chemical Profiles Project
+  
+ - [[ Database Organization | RosettaMP-Internal-Chemical-DB ]]
+ - [[ Membrane Representation | RosettaMP-Internal-Chemical-Rep ]]
+ - [[ Movers for Benchmarking | RosettaMP-Internal-Chemical-Movers ]]
+ - [[ Pilot Applications | RosettaMP-Internal-Chemical-Apps ]]
 
 ### JD3 -- version 3 of the JobDistributor system ###
 - TODO
