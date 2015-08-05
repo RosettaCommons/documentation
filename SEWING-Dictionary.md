@@ -5,7 +5,7 @@
 
 * motif: Designability score. Basically it shows that how well hydrophobic parts of secondary structures are well pack with each other. Will Sheffler in Baker lab made this.
 
-* residue: Technically residue_type, a collection of atoms
+* residue: seq_pos, residue_type, chi angles
 
 * secondary structures: H, L, E
 
