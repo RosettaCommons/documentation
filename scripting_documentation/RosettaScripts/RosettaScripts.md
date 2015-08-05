@@ -192,7 +192,7 @@ These values can be changed at will for different runs, for example:
 Multiple instances of the "%%var%%" string will all be substituted, as well as in any [[subroutine|Movers-RosettaScripts#Subroutine]] XML files. Note that while currently script\_vars are implemented as pure macro text substitution, this may change in the future, and any use aside from substituting tag values may not work. Particularly, any use of script variables to change the parsing structure of the XML file itself is explicitly \*not\* supported, and you have a devious mind for even considering it.
 
 
-revert\_design\_to\_wt application
+revert\_design\_to\_native application
 ----------------------------------
 
 This application is not yet strictly speaking part of RosettaScripts but is strongly related to the design purposes of RS. Work in ongoing to supersede this application with a more useful RS implementation. In the meantime here is an explanation.
