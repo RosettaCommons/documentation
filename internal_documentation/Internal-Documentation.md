@@ -64,7 +64,7 @@ See [[how to write documentation|how-to-write-documentation]] for more details.
  - [[ Database Organization | RosettaMP-Internal-Chemical-DB ]]
  - [[ Membrane Representation | RosettaMP-Internal-Chemical-Rep ]]
  - [[ Movers for Benchmarking | RosettaMP-Internal-Chemical-Movers ]]
- - [[ Pilot Applications | RosettaMP-Internal-Chemical-Apps ]]
+ - [[ Pilot Apps | RosettaMP-Internal-Chemical-Apps ]]
 
 ### JD3 -- version 3 of the JobDistributor system ###
 - TODO
