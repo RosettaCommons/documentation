@@ -25,9 +25,10 @@ A ```.comp``` file consists of one or more ```PENALTY_DEFINITION``` blocks, each
 - ```PENALTIES <float1> <float2> <float3> ...``` (The actual penalties table.  Entries must be provided for every integer value from DELTA_START to DELTA_END.  These values represent the energetic penalty for having N residues too few, N+1 residues too few, N+2 residues too few ... M-1 residues too many, M residues too many.  The penalty values at the extreme ends of the range are applied if residue type counts fall outside of the range.)
 - ```FRACTION <float>``` (This indicates that this residue type, or residues with the defined properties, are ideally this fraction of the total.  For example, a value of 0.25 would mean that, ideally, a quarter of residues in the protein were those defined by this ```PENALTY_DEFINITION```.)
 -  ```ABSOLUTE <integer>``` (An alternative to ```FRACTION```, this indicates the absolute value of residues of the given type or properties desired in the structure.  For example, a value of 3 would mean that we want 3 residues of the given type or properties.)
+- ```BEFORE_FUNCTION <string>``` and ```AFTER_FUNCTION <string>``` (This defines the behaviour of the penalty function outside of the user-defined range.  Allowed values are CONSTANT (first or last value repeats), LINEAR (linearly-ramping penalty based on the slope of the first two or last two penalty values), or QUADRATIC (parabolic penalty centred on zero and passing through the first two or last two penalty values).
 - ```END_PENALTY_DEFINITION``` (Ends the block).
 
-The ```PENALTY_DEFINITION```, ```DELTA_START```, ```DELTA_END```, ```PENALTIES```, and ```END_PENALTY_DEFINITION``` lines are always required.  One ```FRACTION``` *or* one ```ABSOLUTE``` line must also be present (but not both).  Either a ```TYPE``` line, *or* a ```PROPERTIES``` / ```NOT_PROPERTIES``` pair of lines must be present (though if the latter, you can have either ```PROPERTIES``` or ```NOT_PROPERTIES``` or both).  Here's an example ```.comp``` file that penalizes deviatoins from having 10% aromatic residues in a protein (note that the pound sign can be used to comment one of these files):
+The ```PENALTY_DEFINITION```, ```DELTA_START```, ```DELTA_END```, ```PENALTIES```, and ```END_PENALTY_DEFINITION``` lines are always required.  The ```BEFORE_FUNCTION``` and ```AFTER_FUNCTION``` lines are optional, and default to QUADRATIC if not specified.  One ```FRACTION``` *or* one ```ABSOLUTE``` line must also be present (but not both).  Either a ```TYPE``` line, *or* a ```PROPERTIES``` / ```NOT_PROPERTIES``` pair of lines must be present (though if the latter, you can have either ```PROPERTIES``` or ```NOT_PROPERTIES``` or both).  Here's an example ```.comp``` file that penalizes deviatoins from having 10% aromatic residues in a protein (note that the pound sign can be used to comment one of these files):
 
 ```
 # This is a .comp file for requiring that a structure be ten percent aromatic.
@@ -41,6 +42,8 @@ DELTA_START -1
 DELTA_END 1
 PENALTIES 100 0 100
 FRACTION 0.1
+BEFORE_FUNCTION CONSTANT
+AFTER_FUNCTION CONSTANT
 END_PENALTY_DEFINITION
 ```
 
