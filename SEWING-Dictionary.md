@@ -11,9 +11,10 @@
 
 * segment: composition (segment_number, secondary_structure, linkage_Boolean_to_other_segment_for_model_build), original definition (A collection of secondary structures), practical definition (As of now just 1 secondary structure equals 1 segment)
 
-* SewingHasher: Three modes are possible
+* SewingHasher: Four modes are possible
 ``` 
 generate: generates a model file from an sqlite database
+generate_five_ss_model: generates a model file that is consisted with 5 secondary structures from an sqlite database
 hash: score all models against each other and create a plain text score file (MPI required)
 convert: convert a plain text score file to a binary score file. This is required by the SEWING movers
 ```
