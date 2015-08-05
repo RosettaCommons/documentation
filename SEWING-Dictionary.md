@@ -5,11 +5,11 @@
 
 * motif: Designability score. Basically it shows that how well hydrophobic parts of secondary structures are well pack with each other. Will Sheffler in Baker lab made this.
 
-* residue: seq_pos, residue_type, chi angles
+* residue: composition (seq_pos, residue_type, chi angles)
 
 * secondary structures: H, L, E
 
-* segment: A collection of secondary structures. As of now just 1 secondary structure equals 1 segment.
+* segment: composition (segment_number, secondary_structure, linkage_Boolean_to_other_segment_for_model_build), original definition (A collection of secondary structures), practical definition (As of now just 1 secondary structure equals 1 segment)
 
 * SewingHasher: Three modes are possible
 ``` 
