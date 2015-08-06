@@ -34,13 +34,13 @@ tools/protein_tools/scripts/remove_loop_coords.py
 
 * See also [[preparing ligands]].
 
-main/source/src/python/apps/public/molfile_to_params.py    
+main/source/scripts/python/public/molfile_to_params.py    
 &#8195; - Make Rosetta *.params files. 
 
-main/source/src/python/apps/public/rename_params.py    
+main/source/scripts/python/public/rename_params.py    
 &#8195; - Rename params files so that none conflict with each other.
 
-main/source/src/python/apps/public/batch_molfile_to_params.py    
+main/source/scripts/python/public/batch_molfile_to_params.py    
 &#8195; - Make Rosetta *.params files for a large number of inputs.
 
 main/source/src/apps/public/ligand_docking/[[assign_charges.py|ligand-dock]]    
@@ -129,7 +129,7 @@ tools/fragment_tools/update_revdat.pl
 
 ### Job Running
 
-main/source/src/python/apps/public/parallel.py    
+main/source/scripts/python/public/parallel.py    
 &#8195; - Utility for running a large number of command lines in parallel.
 
 
@@ -140,7 +140,7 @@ main/source/src/python/apps/public/parallel.py
 
 * See [[silent file]] for more information.
 
-main/source/src/python/apps/public/pymol_silent.py    
+main/source/scripts/python/public/pymol_silent.py    
 &#8195; - A pymol plugin to read silent files.
 
 tools/analysis/extract_pdbs_from_pdbsilent_by_tags.py    
@@ -151,10 +151,10 @@ tools/analysis/extract_pdbs_from_pdbsilent_by_tags.py
 
 * See [[score file]] for more information.
 
-main/source/src/python/apps/public/column.sh    
+main/source/scripts/python/public/column.sh    
 &#8195; - Select only certain columns from a file.
 
-main/source/src/python/apps/public/sd.py    
+main/source/scripts/python/public/sd.py    
 &#8195; - Extract data from silent files.
 
 main/source/tools/scorefile.py    
@@ -166,7 +166,7 @@ main/source/src/apps/public/enzdes/[[DesignSelect.pl|enzyme-design]]
 
 #### PDBs
 
-main/source/src/python/apps/public/pdb2fasta.py    
+main/source/scripts/python/public/pdb2fasta.py    
 &#8195; - Extract a FASTA formatted sequence from a PDB.
 
 tools/protein_tools/scripts/get_fasta_from_pdb.py    
@@ -181,10 +181,10 @@ tools/protein_tools/scripts/SequenceProfile.py
 
 #### Plotting Utilities
 
-main/source/src/python/apps/public/rmsd_score_pymol_plotter/rmsd_score_pymol_plotter.py    
+main/source/scripts/python/public/rmsd_score_pymol_plotter/rmsd_score_pymol_plotter.py    
 &#8195; - Create score vs. rmsd (funnel) plots.
 
-main/source/src/python/apps/public/rmsd_score_pymol_plotter/rmsd_score_pymol_plotter_generator.pl    
+main/source/scripts/python/public/rmsd_score_pymol_plotter/rmsd_score_pymol_plotter_generator.pl    
 &#8195; - Create score vs. rmsd (funnel) plots.
 
 tools/protein_tools/scripts/score_vs_rmsd_full.py    
@@ -213,13 +213,13 @@ tools/protein_tools/scripts/clustering.py
 
 #### Unclassified
 
-main/source/src/python/apps/public/color_pdb.py    
+main/source/scripts/python/public/color_pdb.py    
 &#8195; - 
 
-main/source/src/python/apps/public/color_pdb_byatom.py    
+main/source/scripts/python/public/color_pdb_byatom.py    
 &#8195; - 
 
-main/source/src/python/apps/public/get_pdb.py    
+main/source/scripts/python/public/get_pdb.py    
 &#8195; -  
 
 main/source/src/utility/make_static_database.py    
@@ -1513,7 +1513,7 @@ tools/ann_tools/sort_sdfs.py
 main/source/external/R/BranchAngleOptimizer.R    
 &#8195; - 
 
-main/source/src/python/apps/public/orbitals_pretty.pml    
+main/source/scripts/python/public/orbitals_pretty.pml    
 &#8195; 
 
 main/tests/integration/tests/inv_kin_lig_loop_design/showme.pml    
@@ -1560,7 +1560,7 @@ main/tests/FeatureExtraction/features.py
 
 ## Scripting Utilities
 
-main/source/src/python/apps/public/amino_acids.py    
+main/source/scripts/python/public/amino_acids.py    
 &#8195; - Data about amino acids and their properties.
 
 tools/protein_tools/scripts/amino_acids.py    
@@ -1569,22 +1569,22 @@ tools/protein_tools/scripts/amino_acids.py
 tools/python_pdb_structure/amino_acids.py    
 &#8195; - Data about amino acids and their properties. 
 
-main/source/src/python/apps/public/param_utils.py    
+main/source/scripts/python/public/param_utils.py    
 &#8195; - Functions for manipulating params files.
 
-main/source/src/python/rosetta_py/io/pdb.py    
+main/source/scripts/python/public/rosetta_py/io/pdb.py    
 &#8195; - Utilities for reading PDB files.
 
-main/source/src/python/rosetta_py/io/mdl_molfile.py    
+main/source/scripts/python/public/rosetta_py/io/mdl_molfile.py    
 &#8195; - Utilities for reading sdf/mol/mol2 files.
 
-main/source/src/python/rosetta_py/utility/rankorder.py    
+main/source/scripts/python/public/rosetta_py/utility/rankorder.py    
 &#8195; - Functions for sorting data.
 
-main/source/src/python/rosetta_py/utility/ForkManager.py    
+main/source/scripts/python/public/rosetta_py/utility/ForkManager.py    
 &#8195; - Utilities for handling multiprocessing.
 
-main/source/src/python/rosetta_py/utility/r3.py    
+main/source/scripts/python/public/rosetta_py/utility/r3.py    
 &#8195; - A 3D vector class for python.
 
 tools/protein_tools/rosettautil/bcl/file_formats.py    
