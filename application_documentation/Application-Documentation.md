@@ -180,7 +180,7 @@ While most of these applications focus on prediction, many have options which wi
  - [[Symmetric membrane protein-protein docking|RosettaMP-App-MPSymDock]] - Assemble symmetric complexes in the membrane environment (uses membrane framework)
  - [[Membrane Protein PyMOL Viewer|RosettaMP-App-MPPyMOLViewer]] - Standalone application for visualization of membrane protein simulations in real-time using pymol (uses membrane framework)
  - [[Trans-membrane spans from PDB|RosettaMP-App-MPSpanFromPDB]] - Calculate trans-membrane spans from the PDB structure
- - [[Score App for Membrane Proteins|RosettaMP-App-MPScoring]] - Settings for using score_jdw with the RosettaMP scoring functions. 
+ - [[Score App for Membrane Proteins|RosettaMP-App-MPScoring]] - Settings for using score_jd2 with the RosettaMP scoring functions. 
 
 ##Analysis <a name="Analysis" />
 
