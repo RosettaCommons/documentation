@@ -4,11 +4,11 @@
 
 ## Description
 
-In RosettaMP, the position and orientation of the mebrane is represented by a special residue, of type MEM, typically found at the end of the pose sequence. It stores the center point of the membrane, the membrane normal vector, and the thickness. The thickness value stored in MEM is half of the "true" membrane thickness, since the membrane is currently regarded as symmetric around z = 0 being at the center of the membrane. 
+In RosettaMP, the position and orientation of the membrane is represented by a special residue, of type MEM, typically found at the end of the pose sequence. It stores the center point of the membrane, the membrane normal vector, and the thickness. The thickness value stored in MEM is half of the "true" membrane thickness, since the membrane is currently regarded as symmetric around z = 0 being at the center of the membrane. 
 
 [[rosettamp_membrane_rep.png]]
 
-The MembraneResidue is automatically printed to the PDB as the MEM residue in a HETATOM record. This allows for easy visualization of the membrane in Pymol. The normal vector is stored as an "atom" and is of unit length. Since the normal is a vector in the coordinate system, but stored as a point in the PDB file. For easy visualization, the normal can be scaled to the thickness using the flag `-mp:output:normalize_to_thk`
+The MembraneResidue is automatically printed to the PDB as the MEM residue in a HETATOM record. This allows for easy visualization of the membrane in Pymol. The normal vector is stored as an "atom" and is of unit length. Be aware that the normal is a vector in the coordinate system, but stored as a point in the PDB file. For easy visualization, the normal can be scaled to the thickness using the flag `-mp:output:normalize_to_thk`
 
 ```
 HETATM 1323 THKN MEM C  81       1.000   0.000   0.000  1.00  0.00           X  
