@@ -139,7 +139,7 @@ ARLS uses a variety of other binaries and scripts to do its work. It should usua
 Preparing the small-molecule ligand for docking
 ===============================================
 
-Rosetta defines ligand topology, rotatable bonds, atom types, partial charges, etc in a .params file; the starting coordinates are stored in PDB format. A script called `       molfile_to_params.py      ` has been supplied in `       rosetta/main/source/src/python/apps/      ` to help in producing these files from a typical small molecule format (.mol, .sdf, or .mol2).
+Rosetta defines ligand topology, rotatable bonds, atom types, partial charges, etc in a .params file; the starting coordinates are stored in PDB format. A script called `       molfile_to_params.py      ` has been supplied in `       rosetta/main/source/scripts/python/public/      ` to help in producing these files from a typical small molecule format (.mol, .sdf, or .mol2).
 
 In most cases, one starts from a random 3D conformation or a 2D or 1D chemical formula (e.g. SMILES) and needs to generate a library of plausible, low-energy conformations. I use OpenEye's Omega, like this:
 
@@ -156,7 +156,7 @@ Then I use OpenEye's AM1-BCC implementation to calculate partial charges. (You m
 Special records can be added to the file to specify the atom tree root or split the molecule into multiple residues, but these are not generally used right now. Otherwise, `       molfile_to_params.py      ` is controlled by command line parameters.
 
 ```
-~/rosetta/main/source/src/python/apps/public/molfile_to_params.py -n DAR -k 1t3r.kin -p 1t3r 1t3r_charges.mol2
+~/rosetta/main/source/scripts/python/public/molfile_to_params.py -n DAR -k 1t3r.kin -p 1t3r 1t3r_charges.mol2
 ```
 
 `       -n      ` gives the three-letter code that will be used for the PDB residue name, `       -p      ` controls naming of the output files, and `       -k      ` produces a kinemage illustration of the ligand (optional, but useful for debugging; see [http://kinemage.biochem.duke.edu](http://kinemage.biochem.duke.edu) to download KiNG for viewing).
