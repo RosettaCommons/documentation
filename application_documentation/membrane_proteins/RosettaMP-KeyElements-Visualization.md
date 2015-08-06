@@ -5,7 +5,7 @@
 The Membrane Framework in Rosetta interacts with Pymol through the PyMOL Mover. For more information, please see the general visualization page. When the membrane framework is in use,  two membrane planes are visualized and updated in real-time during a Rosetta simulation. To run it
 
 1. open pymol first
-2. run the PymolPyRosettaServer.py script inside Pymol
+2. run the PymolPyRosettaServer.py (located in your PyRosetta folder) script inside Pymol
 3. run your Rosetta script from the regular terminal
 4. then lean back, watch and enjoy some popcorn.
 
