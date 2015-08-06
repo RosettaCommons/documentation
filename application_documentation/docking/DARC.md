@@ -72,7 +72,7 @@ $ echo zinc_13989607_conformers.mol2 > molfile_list.txt
 ```
 
 ```
-$ Rosetta/main/source/src/python/apps/public/batch_molfile_to_params.py -d Rosetta/main/database --script_path=Rosetta/main/source/src/python/apps/public/molfile_to_params.py molfile_list.txt
+$ Rosetta/main/source/scripts/python/public/batch_molfile_to_params.py -d Rosetta/main/database --script_path=Rosetta/main/source/scripts/python/public/molfile_to_params.py molfile_list.txt
 ```
 
 The output files are
