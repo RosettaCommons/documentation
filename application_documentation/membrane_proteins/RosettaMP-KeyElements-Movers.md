@@ -3,7 +3,7 @@
 [[_TOC_]]
 
 ## Overview
-The RosettaMP framework supports a set of movers that initialize elemnts of RosettaMP and implement sampling movers that account for the membrane environment. Each mover currently in the code and supported by the RosettaScripts interface is detailed in the pages below: 
+The RosettaMP framework supports a set of movers that initialize elements of RosettaMP and implement sampling movers that account for the membrane environment. Each mover currently in the code and supported by the RosettaScripts interface is detailed in the pages below: 
 
 ## Movers for Initialization
 
