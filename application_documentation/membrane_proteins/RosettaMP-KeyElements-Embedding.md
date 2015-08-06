@@ -3,7 +3,7 @@
 [[_TOC_]]
 
 ## What is a protein embedding? 
-While the memrbane residue describes the position and orientation of the membrane bilayer, we need a more fine-grained representation that describes the specific position of pose elements in the membrane. An **embedding** is the position and orientation (center & normal) of that poe element (see image below). This is especially applicable when moving parts of the protein, such as docking parterns, trans-membrane spans, etc. 
+While the membrane residue describes the position and orientation of the membrane bilayer, we need a more fine-grained representation that describes the specific position of pose elements in the membrane. An **embedding** is the position and orientation (center & normal) of that pose element (see image below). This is especially applicable when moving parts of the protein, such as docking partners, trans-membrane spans, etc. 
 
 [[rosettamp_embedding.png]]
 
