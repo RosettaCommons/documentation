@@ -80,7 +80,7 @@ The PDBTM ([http://pdbtm.enzim.hu/](http://pdbtm.enzim.hu/)) is a weekly-updated
 
 The OPM database ([http://opm.phar.umich.edu/](http://opm.phar.umich.edu/)) provides a similar service with the PPM server ([http://opm.phar.umich.edu/server.php](http://opm.phar.umich.edu/server.php)) which might be more accurate for prediction of the optimal membrane thickness for the specific protein. 
 
-In Rosetta, two movers are available that transform the protein into the membrane coordinate frame, both of which do a simple transformation based on protein topology information. **Be aware that NEITHER of these two movers uses the scoring function for optimal high-resolution positioning!!!**
+In Rosetta, two movers are available that transform the protein into the membrane coordinate frame, both of which do a simple transformation based on protein topology information. **Be aware that currently NEITHER of these two movers uses the scoring function for optimal high-resolution positioning, even though this functionality will be added shortly.**
 
 The **MembranePositionFromTopologyMover** uses the protein topology (SpanningTopology from the spanfile) and the structure to calculate an optimal position and orientation (center and normal) of the membrane, as represented by the MembraneResidue. This mover should only be used for a **fixed protein and a flexible membrane** (i.e. a protein residue is at the root of the FoldTree).
 
