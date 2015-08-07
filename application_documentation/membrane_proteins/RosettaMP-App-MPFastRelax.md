@@ -19,39 +19,12 @@ rotamer trials, and minimization are used to refine the protein structure. In ad
 the membrane position is optimized by minimizing the "jump" or connecting relating
 the MEM residue to the biomolecule. 
 
-This protocol is currently designed for single chain refinement with an MEM jump. Further
-consideration needed by the user for multiple chains 
+This protocol is currently designed for single chain refinement with an MEM jump. Be aware that this protocol is currently not extensively tested on multi-chain proteins!
 
-## Generating Inputs
+## Required Inputs
 Two inputs are required for the membrane relax application: 
-  (1) PDB for the protein structure of interest
-  (2) Span file describing the location of trans-membrane spans
-
-Steps for generating these inputs are found below. A set of example inputs can 
-also be found in the demo directory. Here, Metarhodopsin II (PDB ID: 3pxo) is 
-used as an example: 
-
-1. PDB File: Generate a PDB file where the membrane protein structure is transformed 
-   into PDB coordinates (z-axis is membrane normal). This can be done 
-   either by downloading the transformed PDB directly from the PDBTM website 
-   (http://pdbtm.enzim.hu/) or by downloading a PDB file from the PDB and running
-   it through the PPM server (http://opm.phar.umich.edu/server.php).
-
-2. Span File: Generate a spanfile from the PDB structure using
-   the spanfile_from_pdb application described in the MP_spanfile-from-pdb protocol
-   capture in Rosetta/demos/protocol_captures/2014. An example commandline using 
-   3pxo is also provided here: 
-
-```   
-Rosetta/main/source/bin/spanfile_from_pdb.linuxgccrelease -database /path/to/db -in:file:s example_inputs/3pxo_tr.pdb
-```
-   For this example, this command will produce 1 output file: 
-     = 3pxo_tr.span: Spanfile containing predicted trans-membrane spans
-
-```
-cd mpframework-relax/scripts/
-./octopus2span.pl octopus_pred.out > spanfile.txt
-```
+  (1) PDB for the protein structure of interest.
+  (2) Span file describing the location of trans-membrane spans.
 
 ## Options
 
