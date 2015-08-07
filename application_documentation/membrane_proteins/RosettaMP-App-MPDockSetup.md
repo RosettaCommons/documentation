@@ -16,9 +16,10 @@ Example flags:
 Rosetta/main/source/bin/mp_dock_setup.macosclangrelease \
 -database Rosetta/main/database \
 -in:file:s 1AFO_A.pdb 1AFO_B.pdb \
--mp:setup:spanfiles 1AFO_A.span 1AFO_B.span \ # MAKE SURE THAT THE ORDER OF THE SPANFILES CORRESPONDS TO THE ORDER 
-                                              # OF THE PDB FILES!
+-mp:setup:spanfiles 1AFO_A.span 1AFO_B.span \ 
 ```
+
+*Note: Please make sure that the order of the spanfiles given corresponds to the order of the PDB files!!!*
 
 ## Citation
 Rosetta Revision #57518
