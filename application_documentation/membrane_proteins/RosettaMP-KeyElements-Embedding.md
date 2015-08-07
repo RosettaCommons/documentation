@@ -14,15 +14,15 @@ An EmbeddingDef for an individual transmembrane span is calculated from the Cα 
 
 This representation enables the implementation of an efficient sampling strategy through specialized Movers solely from the knowledge of the EmbeddingDef and the membrane residue. Further, the flexibility of maintaining EmbeddingDef objects according to transmembrane spans, chains, partners, or complete proteins allows adaptation according to the need of the protocol, e.g. with individual spans for *ab initio* structure prediction, select chains for docking, or complete proteins for high-resolution refinement or positioning in the membrane environment.
 
-## Contact
-
-- Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
-- Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
-- Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
 
 ## References
 
 Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press
 
 
+## Contact
+
+- Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
+- Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
+- Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
 
