@@ -179,8 +179,9 @@ applications:
 
 Once you have written documentation for your protocol, you have to add it to 
 the documentation wiki.  The [[Application Documentation]] page organizes the 
-application documentation into categories.  Your first step is to read that 
-page and decide which category best fits your application.
+application documentation into categories.  Your first step is to decide which 
+category best fits your application. See [[above|how-to-write-documentation#organization and navigation]] 
+for descriptions of these categories. 
 
 Each category corresponds to a subdirectory of `application_documentation/` in 
 the documentation wiki.  To create a new page in the right directory, navigate 
@@ -199,6 +200,9 @@ consider writing some.  Note that (for technical reasons — Gollum gets really
 slow when there are too many pages in the wiki) the demos wiki is actually a 
 whole different website than the documentation wiki.  So you have to use 
 external links to link between the two wikis.
+
+If your application is run through a python script, that script should also be briefly described 
+in the appropriate section of the [[Tools]] page and linked to the main application page.
 
 A template page for application documentation can be found [[here|application-docs-template]].
 
@@ -323,4 +327,3 @@ The problem is that Gollum don't have a way for online users to resolve merge
 conflicts, so instead it just pushes aggressively to master.  Reserve direct 
 git access to the repository for changes which cannot be done through the live 
 wiki interface, like uploading images or batch processing type edits.
-
