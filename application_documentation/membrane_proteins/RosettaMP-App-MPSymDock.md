@@ -23,7 +23,7 @@ Membrane Symmetric Protein-Protein Docking is a C++ application in the Rosetta 3
 ## Generating input files
 The symmetric membrane protein-protein docking application requires two input files: 
 
-1. Generating a Spanfile as described on the input generation page: 
+1. Generating a Spanfile as described on the input generation page.
 2. Generate a Symmetry definition file: 
 Symmetry definition files describe the symmetry of the system and serve as instructions to Rosetta for building the full starting complex from an asymmetric unit. This file can be generated using the `make_symmdef_file.pl` script in `src/apps/public/symmetry/`. Detailed information for generation of symmetry definition files can be found at https://www.rosettacommons.org/docs/latest/make-symmdef-file.html. In general, this script requires a PDB file, symmetry mode (NCS or PSEUDO only for membranes), specification of the asymmetric unit and symmetry group # if known. 
 
