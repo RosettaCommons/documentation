@@ -6,32 +6,24 @@ The membrane symmetric docking application is implemented as a C++ executable an
 A demo can be found in `Rosetta/demos/protocol_captures/mp_symdock`
 
 ## Background
-Membrane proteins often assemble into symmetric complexes in the membrane environment. While the exact reason for internal symmetry is stil debated, it has been suggested that symmetry enhances proteins stability and avoid traps in the energy landscape during conformational changes needed for function. The symmetric membrane protein-protein docking application combines the symmetry machinery, membrane framework, and symmetric docking applciation to assemble symmetric complexes in the membrane. 
+Membrane proteins often assemble into symmetric complexes in the membrane environment. While the exact reason for internal symmetry is still debated, it has been suggested that symmetry enhances proteins stability and avoid traps in the energy landscape during conformational changes needed for function. The symmetric membrane protein-protein docking application combines the symmetry machinery, membrane framework, and symmetric docking application to assemble symmetric complexes in the membrane. 
 
 ## Algorithm
 The application first constructs a symmetric membrane protein conformation from an asymmetric unit by placing a membrane virtual at the origin of the coordinate frame and arranging subunits around the membrane normal axis (cyclic symmetry). The symmetric docking application is then used to apply symmetric moves, packing operations, and iterations of scoring using the membrane all atom energy function to sample possible conformations. The ensemble of output models describe possible conformations of this complex in the membrane environment. 
 
-This application currently supports modeling of cyclic symmetries. 
+This application currently only supports modeling of cyclic symmetries. 
 
 ## Example Command Lines
 Membrane Symmetric Protein-Protein Docking is a C++ application in the Rosetta 3 software suite. 
 
 ```
-./membrane_symdocking.<exe> -database /path/to/my/rosettadb @flags  
+./mp_symdock.<exe> -database /path/to/my/rosettadb @flags  
 ```
 
 ## Generating input files
 The symmetric membrane protein-protein docking application requires two input files: 
 
-1. Generating a Spanfile: 
-A spanfile describing transmembrane spanning regions can be generated using the OCTOPUS server (http://octopus.cbr.su.se/). This file must be converted to a Rosetta spanfile format using the
-octopus2span.pl script. Use the following command: 
-
-```
-cd mpframework-symdock/scripts/
-./octopus2span.pl octopus_pred.out > spanfile.txt
-```
-
+1. Generating a Spanfile as described on the input generation page: 
 2. Generate a Symmetry definition file: 
 Symmetry definition files describe the symmetry of the system and serve as instructions to Rosetta for building the full starting complex from an asymmetric unit. This file can be generated using the make_symmdef_file.pl script in src/apps/public/symmetry/. Detailed information for generation of symmetry definition files can be found at https://www.rosettacommons.org/docs/latest/make-symmdef-file.html. In general, this script requires a PDB file, symmetry mode (NCS or PSEUDO only for membranes), specification of the asymmetric unit and symmetry group # if known. 
 
