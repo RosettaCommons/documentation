@@ -26,10 +26,13 @@ To run the view membrane protein application from generated Rosetta models, use 
 
 `./mp_viewer.<exe> -database /path/to/my/rosettadb @flags`
 
-## Citation
-Rosetta Revision #57518
 
-Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press
+## References
+1. Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press - Rosetta Revision #57518
+
+2. Baugh EH, Lyskov S, Weitzner BD, Gray JJ (2011) Real-Time PyMOL Visualization for Rosetta and PyRosetta. PLoS ONE 6: e21931.
+
+3. DeLano W (n.d.) The PyMOL Manual: Compiled Graphics Objects (CGOs) and Molscript Ribbons. Available: http://pymol.sourceforge.net/newman/user/toc.html.
 
 ## Contact
 
@@ -37,8 +40,3 @@ Questions and comments to:
  - Rebecca F. Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
  - Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
  - Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
-
-## References
-1. Baugh EH, Lyskov S, Weitzner BD, Gray JJ (2011) Real-Time PyMOL Visualization for Rosetta and PyRosetta. PLoS ONE 6: e21931.
-
-2. DeLano W (n.d.) The PyMOL Manual: Compiled Graphics Objects (CGOs) and Molscript Ribbons. Available: http://pymol.sourceforge.net/newman/user/toc.html.
