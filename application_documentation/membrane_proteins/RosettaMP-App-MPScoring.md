@@ -33,7 +33,7 @@ Rosetta/main/source/bin/score_jd2.macosclangrelease \
 -score:weights mpframework_smooth_fa_2012.wts \
 ```
 
-Both applications only score the protein and don't optimize the membrane position!
+Both applications only score the protein and don't optimize the membrane position with the scorefunction!
 Note: Make sure your numbering between PDB file and spanfile match!
 
 ## Citation
