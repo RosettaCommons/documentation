@@ -23,7 +23,7 @@ The membrane pymol viewer application requires the spanfile as an input.
 ## Example Command Lines
 To run the view membrane protein application from generated Rosetta models, use the following command line: 
 
-`./view_membrane_protein.<exe> -database /path/to/my/rosettadb @flags`
+`./mp_viewer.<exe> -database /path/to/my/rosettadb @flags`
 
 ## Citation
 Rosetta Revision #57518
