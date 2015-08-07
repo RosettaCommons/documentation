@@ -19,7 +19,7 @@ Rosetta/main/source/bin/mp_dock_setup.macosclangrelease \
 -mp:setup:spanfiles 1AFO_A.span 1AFO_B.span \ 
 ```
 
-*Note: Please make sure that the order of the spanfiles given corresponds to the order of the PDB files!!!*
+**Note: Please make sure that the order of the spanfiles given corresponds to the order of the PDB files!!!**
 
 ## Citation
 Rosetta Revision #57518
