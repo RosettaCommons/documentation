@@ -21,10 +21,9 @@ Rosetta/main/source/bin/mp_dock_setup.macosclangrelease \
 
 **Note: Please make sure that the order of the spanfiles given corresponds to the order of the PDB files!!!**
 
-## Citation
-Rosetta Revision #57518
+## References
 
-Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press
+1. Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press - Rosetta Revision #57518
 
 ## Contact
 
