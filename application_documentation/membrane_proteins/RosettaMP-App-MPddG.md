@@ -48,7 +48,7 @@ The following options can be used to adjust settings for ∆∆G predictions
 Below is a sample commandline using inputs provided in the 2015 MPddG protocol Capture. In this command, all residues are repacked within 8.0Å of the mutated position and calculations are performed at pH 4: 
 
 ```
-./compute_ddG.py --in_pdb inputs/1qd6_tr.pdb --in_span inputs/1qd6_tr_C.pdb --in_span inputs/1qd6_tr_C.span --res 181 --repack_radius 8.0 --include_pH true --pH_value 4.0 
+./predict_ddG.py --in_pdb inputs/1qd6_tr.pdb --in_span inputs/1qd6_tr_C.span --res 181 --repack_radius 8.0 --include_pH true --pH_value 4.0 
 ```
 
 ## Citation
