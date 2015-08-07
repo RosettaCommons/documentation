@@ -33,7 +33,7 @@ Generate 10 structures with the prepacking step and pick the one with the lowest
 ## Docking run
 
 ```
-Rosetta/main/source/bin/mpdocking.linuxgccrelease 
+Rosetta/main/source/bin/mp_dock.linuxgccrelease 
 -in:file:s 1AFO_AB_ppk.pdb	                # Pre-packed input structure
 -in:file:native 1AFO_AB.pdb	                # Native structure for RMSD calculations
 -score:weights mpframework_docking_fa_2014.wts	# Score function
@@ -59,8 +59,8 @@ Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An i
 ## Contact
 
 Questions and comments to: 
- - Rebecca F. Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
  - Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
+ - Rebecca F. Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
  - Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
 
 ## References
