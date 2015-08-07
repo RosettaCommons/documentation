@@ -1,4 +1,4 @@
-# RosetaMP Applications: Score JD2 Extension
+# RosettaMP Applications: Score JD2 Extension
 
 ## Code and Demo
 This application uses Movers from RosettaMP. The score_jd2 application can be found at `public/analysis/score_jd2.cc`. The supplement of the manuscript below also outlines its use. 
