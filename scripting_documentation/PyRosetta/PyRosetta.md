@@ -4,15 +4,7 @@ PyRosetta is an interactive Python-based interface to Rosetta, allowing users to
 
 PyRosetta is available as a separate download (independent of C++ Rosetta). See <http://www.pyrosetta.org/> for more details.
 
-More extensive PyRosetta-specific documentation is available:
-* <http://www.pyrosetta.org/documentation> - The main PyRosetta documentation page (thorough, but not too helpful for beginners)
-* <http://www.pyrosetta.org/faq> - Frequently asked questions about PyRosetta
-* <http://www.pyrosetta.org/tutorials> - Tutorials on how to use PyRosetta (**best to dive in here**)
-* <http://www.pyrosetta.org/scripts> - Example scripts using PyRosetta (somewhat useful)
-* <http://www.pyrosetta.org/home/what-is-pyrosetta> - Brief, general overview of PyRosetta
-* <http://www.pyrosetta.org/dow> - Link to download PyRosetta, installation instructions at the bottom of page.
-
-A general overview of the general Rosetta object structure and organization can be found here: http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4083816/
+[[_TOC_]]
 
 ## Quick Start Guide for Linux/OS X
 Note: Python 2.6 or better is required. Works with Python 2.7, but not Python 3.
@@ -43,6 +35,24 @@ For example, importing rosetta (via PyRosetta) in the namespace build on Stamped
 Doing the same with the monolith build would require about 7 seconds. 
 The current recommendation is namespace for machines with memory constraints (e.g. less than 4 GB per thread) or for local development. 
 For production runs on clusters (typically using the NSF filesystem), use monolith. 
+
+<!--- BEGIN_INTERNAL -->
+##Locations for PyRosetta applications
+
+Rosetta developers creating new PyRosetta applications should place any public apps in `main/source/src/python/bindings/app/` so that they will be packaged and distributed with PyRosetta. These public apps should also have accompanying integration tests. Private scripts should be placed in `main/source/scripts/pyrosetta/pilot/<user_name>`. 
+
+<!--- END_INTERNAL -->
+
+##Additional Documentation
+More extensive PyRosetta-specific documentation is available:
+* <http://www.pyrosetta.org/documentation> - The main PyRosetta documentation page (thorough, but not too helpful for beginners)
+* <http://www.pyrosetta.org/faq> - Frequently asked questions about PyRosetta
+* <http://www.pyrosetta.org/tutorials> - Tutorials on how to use PyRosetta (**best to dive in here**)
+* <http://www.pyrosetta.org/scripts> - Example scripts using PyRosetta (somewhat useful)
+* <http://www.pyrosetta.org/home/what-is-pyrosetta> - Brief, general overview of PyRosetta
+* <http://www.pyrosetta.org/dow> - Link to download PyRosetta, installation instructions at the bottom of page.
+
+A general overview of the general Rosetta object structure and organization can be found here: http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4083816/
 
 ## The PyRosetta Toolkit
 
