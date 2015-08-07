@@ -6,14 +6,14 @@ The application can be found at `Rosetta/main/source/src/apps/public/membrane/mp
 A demo for the code can be found as part of the MPDock demo in `Rosetta/demos/protocol_captures/mp_dock`
 
 ## Algorithm Description
-This application reads in two membrane protein PDBs and their corresponding spanfiles. Each structure is then separately transformed into membrane coordinates and concatenated into a single PDB output file and a single spanfile. Renumbered spanfiles for each chain are also given. The membrane is fixed with a center of [0, 0, 0] and a normal of [0, 0, 15].
+This application reads in two membrane protein PDBs and their corresponding spanfiles. Each structure is then separately transformed into membrane coordinates (the scorefunction can be used to optimize each partner) and concatenated into a single PDB output file and a single spanfile. Renumbered spanfiles for each chain are also given. The membrane is fixed with a center of [0, 0, 0] and a normal of [0, 0, 15].
 
 ## Run the application
 
 Example flags: 
 
 ```
-Rosetta/main/source/bin/mp_mutate_relax.macosclangrelease \
+Rosetta/main/source/bin/mp_dock_setup.macosclangrelease \
 -database Rosetta/main/database \
 -in:file:s 1AFO_A.pdb 1AFO_B.pdb \
 -mp:setup:spanfiles 1AFO_A.span 1AFO_B.span \ # MAKE SURE THAT THE ORDER OF THE SPANFILES CORRESPONDS TO THE ORDER 
