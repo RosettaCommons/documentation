@@ -1,16 +1,16 @@
 # RosetaMP Applications: Score JD2 Extension
 
 ## Code and Demo
-This application uses Movers from RosettaMP. The score_jd2 application can be found at `public/analysis/score_jd2.cc`. The supplement of the above manuscript also outlines its use. 
+This application uses Movers from RosettaMP. The score_jd2 application can be found at `public/analysis/score_jd2.cc`. The supplement of the manuscript below also outlines its use. 
 
 ## Algorithm Description
-Scoring a membrane protein pose with a defined score function is one of the most basic and much needed functionality. For this, we hijacked the score_jd2 application and made it (at least partly) applicable for membrane proteins. 
+Scoring a membrane protein with a defined score function is one of the most basic and much needed functionality. For this, we hijacked the score_jd2 application and made it (at least partly) applicable for membrane proteins. 
 
 ## Run the application
 
 There are two modes available for this application: 
 
-**1) Having a fixed membrane and a fixed protein.** This requires the protein structure already be transformed into membrane coordinates (see [https://www.rosettacommons.org/docs/wiki/PDB-file](https://www.rosettacommons.org/docs/wiki/PDB-file) on how to do this) and currently only works if a spanfile is given, which can be generated from the transformed structure (see the MPSpanfileFromPDB application). Example flags: 
+**1) Having a fixed membrane and a fixed protein.** This scores the protein as is and requires that the protein is already transformed into membrane coordinates (see [https://www.rosettacommons.org/docs/wiki/PDB-file](https://www.rosettacommons.org/docs/wiki/PDB-file) on how to do this) and currently only works if a spanfile is given, which can be generated from the transformed structure (see the MPSpanfileFromPDB application). Example flags: 
 
 ```
 Rosetta/main/source/bin/score_jd2.macosclangrelease \
@@ -21,7 +21,7 @@ Rosetta/main/source/bin/score_jd2.macosclangrelease \
 -score:weights mpframework_smooth_fa_2012.wts \
 ```
 
-**2) Having a fixed membrane a movable protein.** This does not require the protein to be transformed into membrane coordinates and works with a regular cleaned PDB file. However, it requires a spanfile as input. Example flags: 
+**2) Having a fixed membrane a movable protein.** This transforms the protein into membrane coordinates first before it is scored. It does not require the protein to be transformed into membrane coordinates and works with a regular cleaned PDB file. However, it requires a spanfile as input. Example flags: 
 
 ```
 Rosetta/main/source/bin/score_jd2.macosclangrelease \
