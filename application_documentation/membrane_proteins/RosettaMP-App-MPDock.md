@@ -51,10 +51,14 @@ Generate at least 1000 models and analyze the data using interface score vs. RMS
 
 If the interface score doesn't show up in the scorefile and you want to add it, you can use the flag ```-score:docking_interface_score 1 ```
 
-## Citation
-Rosetta Revision #57518
 
-Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press
+## References
+* Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press - Rosetta Revision #57518
+
+* Gray, J. J.; Moughon, S.; Wang, C.; Schueler-Furman, O.; Kuhlman, B.; Rohl, C. A.; Baker, D., Protein-protein docking with simultaneous optimization of rigid-body displacement and side-chain conformations. Journal of Molecular Biology 2003, 331, (1), 281-299.
+
+* Chaudhury, S., Berrondo, M., Weitzner, B. D., Muthu, P., Bergman, H., Gray, J. J.; Benchmarking and analysis of protein docking performance in RosettaDock v3.2., PLoS One. 2011;6(8):e22477
+
 
 ## Contact
 
@@ -62,7 +66,3 @@ Questions and comments to:
  - Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
  - Rebecca F. Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
  - Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
-
-## References
-* Gray, J. J.; Moughon, S.; Wang, C.; Schueler-Furman, O.; Kuhlman, B.; Rohl, C. A.; Baker, D., Protein-protein docking with simultaneous optimization of rigid-body displacement and side-chain conformations. Journal of Molecular Biology 2003, 331, (1), 281-299.
-* Chaudhury, S., Berrondo, M., Weitzner, B. D., Muthu, P., Bergman, H., Gray, J. J.; Benchmarking and analysis of protein docking performance in RosettaDock v3.2., PLoS One. 2011;6(8):e22477
