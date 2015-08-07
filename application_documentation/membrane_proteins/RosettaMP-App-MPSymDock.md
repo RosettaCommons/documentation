@@ -47,10 +47,13 @@ be found here: https://www.rosettacommons.org/docs/latest/make-symmdef-file-deno
 |--symmetry:symmetry_definition|Symmetry definition file|Path|
 |-symmetry:initialize_rigid_body_dofs|Initialize rigid body configuration (symmetric)|Boolean|
 
-## Citation
-Rosetta Revision #57518
 
-Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press
+## References
+1. Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press - Rosetta Revision #57518
+
+2. DiMaio F, Leaver-Fay A, Bradley P, Baker D, André I (2011) Modeling Symmetric Macromolecular Structures in Rosetta3. PLoS ONE 6: e20450. 
+
+3. Barth P, Schonbrun J, Baker D (2007) Toward high-resolution prediction and design of transmembrane helical protein structures. Proc Natl Acad Sci 104: 15682–15687. 
 
 ## Contact 
 Questions and comments to: 
@@ -58,10 +61,4 @@ Questions and comments to:
  - Rebecca F. Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
  - Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
  - Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
-
-
-## References
-1. DiMaio F, Leaver-Fay A, Bradley P, Baker D, André I (2011) Modeling Symmetric Macromolecular Structures in Rosetta3. PLoS ONE 6: e20450. 
-
-2. Barth P, Schonbrun J, Baker D (2007) Toward high-resolution prediction and design of transmembrane helical protein structures. Proc Natl Acad Sci 104: 15682–15687. 
 
