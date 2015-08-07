@@ -28,13 +28,14 @@ The RosettaMP framework supports a set of movers that initialize elements of Ros
  - **[[VisualizeEmbeddingMover | RosettaMP-Movers-VisualizeEmbedding ]]** Add embedding residues to the pose to visualize embedding of spans, chains or the entire protein
  - **[[VisualizeMembrane | RosettaMP-Movers-VisualizeMembrane ]]** Add a series of pseudoatoms for visualizing the membrane as planes of pseudoatoms in visualization programs (very expensive)
 
-## Contact
-
-- Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
-- Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
-- Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
 
 ## References
 
 Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press
 
+
+## Contact
+
+- Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
+- Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
+- Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
