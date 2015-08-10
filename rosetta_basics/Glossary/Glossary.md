@@ -11,7 +11,7 @@ See also a [[more in-depth discussion of some topics|RosettaEncyclopedia]].
 
 #### ABEGO
 
-Designation that indicates a residue's position in Ramachandran space (A = right-handed alpha or 3<sub>10</sub> helix; B = right-handed beta strands and extended conformations; G = left-handed helices; E = left-handed beta strands) and *cis* omega angles (O). 
+Designation that indicates a residue's position in Ramachandran space (A = right-handed alpha or 3<sub>10</sub> helix; B = right-handed beta strands and extended conformations; G = left-handed helices; E = left-handed beta strands) and *cis* omega angles (O). See citation [[here|http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2760740/#R5]].
 
 <!-- abego -->
 <!-- abego -->
