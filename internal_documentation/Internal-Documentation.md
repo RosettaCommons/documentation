@@ -33,7 +33,7 @@ See [[how to write documentation|how-to-write-documentation]] for more details.
 - [[A guide to developing in Rosetta]] - Outdated, RosettaCommons centric developer overview.
 - [[Before commit check]] - Things to check before submission.
 - [[App name]] - Template for Rosetta application documentation.
-    - [[Template app documenation page]] - Alternative application documentation template.
+    - [[Template app documentation page]] - Alternative application documentation template.
 - [[ReviewerTemplate]] - A template for reviewers of application documentation.
 
 ## Rosetta Build System 
