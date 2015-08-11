@@ -29,6 +29,8 @@ Deletes a region of the current pose.  Residue number is parsed at apply time (P
 
 ##See Also
 
+* [[StorePoseSnapshotMover]]: Used to retain original residue numbering when adding/deleting residues
 * [[I want to do x]]: Guide to choosing a mover
 * [[KeepRegionMover]]
 * [[InsertPoseIntoPoseMover]]
+* [[ReplaceRegionMover]]
