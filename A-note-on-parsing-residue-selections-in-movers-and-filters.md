@@ -36,3 +36,9 @@ Previously, movers that could parse both Rosetta numbering and PDB numbering did
 * Utility functions for updating reference poses have been added to core/pose/Pose.cc.
 * The StorePoseSnapshot mover is in protocols/simple_moves/StorePoseSnapshot.cc.
 * The MutateResidue mover, which serves as an example of how movers can be modified to use reference poses, is in protocols/simple_moves/MutateResidue.cc.
+
+##See Also
+
+* [[RosettaScripts Developer Guide]]
+* [[StorePoseSnapshotMover]]
+* [[MutateResidueMover]]: A mover that currently supports reference poses
