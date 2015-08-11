@@ -32,6 +32,9 @@ Use the [[SavePoseMover]] to give the pose to this mover.  Works the same way in
 -   copy_pdbinfo (&bool) (default=false): Copy the PDBInfo (PDB residue numbers and chain Ids) into the new pose.  Make these able to be output in the final pose. 
 
 
+##See Also
+
+* [[StorePoseSnapshotMover]]: Used to retain original residue numbering
 * [[SavePoseMover]]
 * [[AnchoredGraftMover]]
 * [[CCDEndsGraftMover]]
