@@ -30,7 +30,7 @@ One EnergyMethod can map to multiple ScoreTypes.  For example, the [[hydrogen bo
 
 * **Short range**: There is some distance cutoff beyond which this energy is considered to be zero (i.e. the energy is not evaluated between two residues unless they are within this distance cutoff).  For example, [[hydrogen bonds energies|hbonds]] are short range.
 
-* **Long range**: There is no distance cutoff; the energy is evaluated for all applicable pairs of residues.  They are typically only evaluated between certain pairs of residues (e.g. [[AtomPairConstraints|constraint-file)
+* **Long range**: There is no distance cutoff; the energy is evaluated for all applicable pairs of residues.  They are typically only evaluated between certain pairs of residues (e.g. [[AtomPairConstraints|constraint-file]]
 
 ##EnergyMethods Hierchy
 
@@ -80,5 +80,6 @@ One EnergyMethod can map to multiple ScoreTypes.  For example, the [[hydrogen bo
 * [[Score functions and score terms|score-types]]
 * [[Additional score terms|score-types-additional]]
 * [[Hydrogen bond energy term|hbonds]]
+* [[AACompositionEnergy]]
 * [[Scorefunctions for noncanonical residues and molecules|NC-scorefunction-info]]
 * [[Adding new score terms|new-energy-method]]
