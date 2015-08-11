@@ -1,6 +1,6 @@
     <PreProline name="prepro" use_statistical_potential="(&bool)" residue_selector="(&residue selector)" />
 
-Helical space (ABEGO type A) is stronly disfavored before a proline, and Rosetta energy may not capture this effect.
+Helical space (ABEGO type A) is strongly disfavored before a proline, and Rosetta energy may not capture this effect.
 
 In the default mode, the filter simply checks the ABEGO of all residues before prolines and counts the residues that have non-B, non-E abego types (lower = better). With the "use_statistical_potential" option, the filter uses a bicubic spline fit to the data attached to guess at the favorability of a preproline residue with the given phi/psi angles -- this favorability is then returned as the filter score (lower = better).
 
@@ -11,5 +11,12 @@ In the default mode, the filter simply checks the ABEGO of all residues before p
 **Example**
 
     <PreProline name="prepro" use_statistical_potential="0" />
+
+##See Also
+
+* [[SecondaryStructureFilter]]
+* [[FoldabilityFilter]]
+* [[BluePrintBDR Mover|BluePrintBDR]]
+* [[ABEGO definition|Glossary#abego]]
 
 
