@@ -52,6 +52,7 @@ Since RosettaScripts allows you to put Movers together in ways that have not bee
 -   Describe if/how the mover modifies the input (or default) FoldTree or Constraints
 -   If the mover can change the length of the pose say so.
 
+Your mover's documentation should be placed in `scripting_documentation/RosettaScripts/Movers/movers_pages` and linked from the main mover page [[here|Movers-RosettaScripts]]. See [[How to write documentation]] for more details.
 
 ### Getting Parameter data
 
@@ -117,6 +118,7 @@ and subject to significant change due to current refactoring
 
 ##See Also
 
+* [[A note on parsing residue selections in movers and filters]]: Notes on making your mover/filter compatible with reference poses
 * [[Development Documentation]]: The development documentation home page
 * [[RosettaScripts]]: Wiki page for RosettaScripts, the Rosetta XML interface
 * [[Rosetta tests]]: Links to pages on running and writing tests in Rosetta
