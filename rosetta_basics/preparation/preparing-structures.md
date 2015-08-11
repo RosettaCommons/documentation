@@ -2,11 +2,6 @@
 
 *This page describes the standard procedure for preparing protein structures for Rosetta. To prepare ligands for use with Rosetta, see the [[preparing ligands]] page. To prepare non-peptide polymers, see the [[preparing PDB files for non-peptide polymers]] page.  For PDB files containing both proteins and RNA, see the [[RNA-protein changes]] page.
 
-Author:
-* Relaxation with all-heavy-atom constraints by Lucas Nivon and Rocco Moretti.
-* Clean PDB section by Jeliazko Jeliazkov.
-* Other answers collated by Steven Lewis and Ramesh Jha.
-
 [[_TOC_]]
 
 # Application Purpose
