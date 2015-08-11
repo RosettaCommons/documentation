@@ -204,7 +204,7 @@ external links to link between the two wikis.
 If your application is run through a python script, that script should also be briefly described 
 in the appropriate section of the [[Tools]] page and linked to the main application page.
 
-A template page for application documentation can be found [[here|application-docs-template]].
+Template pages for application documentation can be found [[here|application-docs-template]], [[here|app-name]], and [[here|template-app-documentation-page]].
 
 How to document a new demo
 --------------------------
