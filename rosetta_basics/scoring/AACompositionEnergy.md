@@ -53,3 +53,9 @@ END_PENALTY_DEFINITION
 - Like any whole-body energy, the **AACompositionEnergy** class implements a ```finalize_total_energy()``` function that takes a pose.  This calculates the score.  Internally, it calls ```calculate_aa_composition_energy()```, which takes a vector of owning pointers to Residues (which can be called directly during packing).
 - On initialization, the term creates an internal AACompositionEnergySetup object that stores the user-defined settings for the desired residue type composition.  This class is defined in ```core/scoring/methods/AACompositionEnergySetup.cc``` and ```core/scoring/methods/AACompositionEnergySetup.hh```.  At a future date, I might try associating setup objects with poses so that at different points in a protocol, a user could score with different settings.
 - The ```.comp``` files are located in ```/database/scoring/score_functions/aa_composition/```.
+
+##See Also
+
+* [[Scoring explained]]
+* [[Score functions and score types |score-types]]
+* [[Adding a new energy method to Rosetta|new-energy-method]]
