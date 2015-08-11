@@ -16,7 +16,7 @@ In the default mode, the filter simply checks the ABEGO of all residues before p
 
 * [[SecondaryStructureFilter]]
 * [[FoldabilityFilter]]
-* [[BluePrintBDR Mover|BluePrintBDR]]
+* [[BluePrintBDRMover]]
 * [[ABEGO definition|Glossary#abego]]
 
 
