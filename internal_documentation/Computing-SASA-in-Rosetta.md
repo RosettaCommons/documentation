@@ -4,11 +4,15 @@
 * Last Edited: 5/16/14
 
 ## Available applications
-**per_res_sc_sasa**
+**per_residue_sc_sasa**
 
 This application takes in a pose (flag `-in:file:s`) and computes absolute and relative sidechain solvent-accessible surface areas. The absolute values are in square Angstrom and the relative values are in percent relative to the sidechain of that amino acid in a GXG tripeptide. The values for the tripeptides are taken from [http://www.proteinsandproteomics.org/content/free/tables_1/table08.pdf]. The output of the application currently goes to standard out, so check your logfile. 
 
 The code for this application is located in `pilot/apps/jkleman/per_residue_sc_sasa` with the underlying functions in `core/scoring/sasa/util`.
+
+**commandline:**
+
+`Rosetta/main/source/bin/per_residue_sc_sasa.macosclangrelease -in:file:s my_favorite_pdb_file.pdb`
 
 ## Available in-code methods
 **core/scoring/sasa/SasaCalc.hh**
