@@ -1,9 +1,16 @@
 ## Metadata
 * Original Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
-* Documentation Written/Edited by Rebecca Alford
+* Documentation Written/Edited by Rebecca Alford, JKLeman (julia.koehler1982@gmail.com)
 * Last Edited: 5/16/14
 
-## Available Methods
+## Available applications
+**per_res_sc_sasa**
+
+This application takes in a pose (flag `-in:file:s`) and computes absolute and relative sidechain solvent-accessible surface areas. The absolute values are in square Angstrom and the relative values are in percent relative to the sidechain of that amino acid in a GXG tripeptide. The values for the tripeptides are taken from [http://www.proteinsandproteomics.org/content/free/tables_1/table08.pdf]. The output of the application currently goes to standard out, so check your logfile. 
+
+The code for this application is located in `pilot/apps/jkleman/per_residue_sc_sasa` with the underlying functions in `core/scoring/sasa/util`.
+
+## Available in-code methods
 **core/scoring/sasa/SasaCalc.hh**
 
 Main class for computing sasa for the whole pose. To compute, use `calculate(pose)` and access methods of the class to retrieve SASA results for total, by atom, by residue, hydrophobic component, etc. Setters are available to control radii and including hydrogens. 
