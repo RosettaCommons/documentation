@@ -18,19 +18,10 @@ The application can be found at apps/pilot/jkleman/helix_from_sequence.cc. It us
 The input file is a single PDB file and a single spanfile, which can be generated with the mp_docking_setup application. Example flags for finding the interface:
 
 ```
-Rosetta/main/source/bin/mp_find_interface.macosclangrelease \
+Rosetta/main/source/bin/helix_from_sequence.macosclangrelease \
 -database Rosetta/main/database \
 -in:file:s 1AFO_tr.pdb \
--in:file:native 1AFO_tr.pdb \            # superimposes the model onto the native, using CA atoms
--mp:setup:spanfiles 1AFO__tr.span \      # required, spanfile
--mp:no_interpolate_Mpair 1 \             # optional, for better scoring
--mp:scoring:hbond 1 \                    # optional, for better scoring
--mp:dock:lowres 1 \                      # use lowres score function for scoring, EITHER this flag or ...
--mp:dock:highres 1 \                     # ... this flag must be given
--mp:dock:allow_flips 0 \                 # optional, allow (1) or disallow (0) flipping partner 2 in the membrane; default: allow flips 
--docking:partners A_B \                  # use chain A as docking partner 1 and chain B as docking partner 2
--score::docking_interface_score 1 \      # optional, add the interface score to the score file
--packing:pack_missing_sidechains false \ # don't pack sidechains until the membrane residue is added, sometimes needed
+-mp:setup:transform_into_membrane 1 \      # optional boolean: transforms helix into membrane
 ```
 
 ## Reference
