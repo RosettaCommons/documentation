@@ -184,7 +184,7 @@ These are movers that should be usable in most cases with most systems
 
 ### Kinematic Closure Movers
 
-**[[Generalized Kinematic Closure (GeneralizedKIC)|GeneralizedKICMover]]** - Loop closure and conformational sampling 
+**[[Generalized Kinematic Closure (GeneralizedKIC)|GeneralizedKICMover]]** - Loop closure and conformational sampling, fully generalized for loops consisting of any arbitrary chain of atoms (canonical backbones, non-canonical backbones, disulfides and other side-chain linkages, artificial cross-linkers, *etc.*).
 
 
 ### Packing/Minimization
