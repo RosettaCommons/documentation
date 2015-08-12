@@ -12,7 +12,7 @@ The code for this application is located in `pilot/apps/jkleman/per_residue_sc_s
 
 **commandline:**
 
-`Rosetta/main/source/bin/per_residue_sc_sasa.macosclangrelease -in:file:s my_favorite_pdb_file.pdb`
+`Rosetta/main/source/bin/per_residue_sc_sasa.macosclangrelease -in:file:s infile.pdb`
 
 ## Available in-code methods
 **core/scoring/sasa/SasaCalc.hh**
