@@ -58,6 +58,8 @@ See [[how to write documentation|how-to-write-documentation]] for more details.
 - Relax: 
     - [[ Mutate Relax | RosettaMP-Internal-MPMutateRelax ]]
     - [[ Quick Relax | RosettaMP-Internal-MPQuickRelax ]]
+- De novo:
+    - [[ Helix from sequence | RosettaMP-Internal-HelixFromSequence ]]
 
 #### Membrane Chemical Profiles Project
   
