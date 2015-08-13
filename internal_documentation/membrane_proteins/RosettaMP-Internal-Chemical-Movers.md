@@ -2,15 +2,21 @@
 <!--- Membrane Chemical Profiles Project --> 
 # RosettaMP Membrane Chemical Profiles Project: Movers
 
-[[ _TOC_ ]]
+### SampleTiltAngleMover
 
-## About
+**About**
+The `SampleTiltAngleMover` was designed to sample and score possible tilt angles of trans-membrane spanning helical peptides. With a good scoring function, this mover should sample tilt angles within a reasonable range of the experimentally determined tilt angle. Currently, the mover uses a combination of rigid body moves and membrane fast relax for sampling. The `mpframework_fa_2007` scoring function is currently the default. 
 
-## Code Organization
+**Rosetta Scripts Interface**
+The SampleTiltAngleMover can be used either with a default setup or custom setup using the interface below: 
+```
+<SampleTiltAngleMover weights="my_sfxn_weights">
+```
 
-## Movers
+**Where to find**
+This mover is grouped with the membrane chemical profiles project benchmarking movers in `protocols/membrane/benchmark`
 
-### SampleTiltAngleMover 
+### 
 
 
 
