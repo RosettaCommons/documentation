@@ -2,7 +2,7 @@
 <!--- Membrane Chemical Profiles Project --> 
 # RosettaMP Membrane Chemical Profiles Project: Movers
 
-[[ __TOC__ ]]
+[[_TOC_]]
 
 ## Benchmark Movers
 
