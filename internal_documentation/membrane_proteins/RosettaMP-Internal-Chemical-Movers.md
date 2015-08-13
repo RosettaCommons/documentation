@@ -24,16 +24,43 @@ The SampleTiltAngleMover can be used either with a default setup or custom setup
 ### MakePeptideMover
 
 **About**
+
 The make peptide mover takes a pose (typically created using `pose_from_sequence` outside the mover) and creates an ideal helix by setting all phi angles to -47˚, all psi angles to -57˚ and all omega angles to -175˚. This mover is intended to predict helix coordinates for designed peptides without a structure. This mover is called in the `build_helical_peptide.cc` app. 
 
 **RosettaScripts Interface**
+
 The MakePeptideMover can currently be setup by default or with custom phi, psi and omega settings. An example RosettaScripts interface with all tags is shown here: 
 
 ```
 <MakePeptideMover name="make_peptide" phi=47, psi-57, omega=175 >
 ```
 
+### RefinePeptideMover
 
+**About**
+
+The RefinePeptideMover aims to sample a broad range of conformations for peptides with unknown structure. The mover performs small and shear moves at high kT to perturb the structure out of an ideal helical conformation (helicity defined as ideal angles phi = 47˚, psi =57˚). This mover has only been tested on small peptides so contact Rebecca before using on other systems. The default scoring function is currently `mpframework_fa_2007`
+
+**RosettaScripts Interface**
+
+The RefinePeptideMover can be setup as default or with a custom score function. An example XML line is shown below: 
+
+```
+<RefinePeptideMover name="refine_peptide" weights="mpframework_fa_2007" >
+```
+
+### HelixInsertionEnergyMover
+
+**About**
+The `HelixInsertionEnergyMover` calculates the ∆∆G of insertion: the Rosetta energy required to transfer a peptide from solution into the bilayer. The peptide is refined in solution state, scored, inserted into the bilayer using OptimizeMembranePositionMover, and scored again. The transfer free energy is calculated as the difference between energy in bilayer and solution. 
+
+**RosettaScripts Interface**
+
+The HelixInsertionEnergyMover can be setup as default or with a custom score function. An example XML line is shown below: 
+
+```
+<RefinePeptideMover name="refine_peptide" weights="mpframework_fa_2007" >
+```
 
 ## Contact
 This project is currently not released and not ready for use by the general community. For questions, please contact: 
