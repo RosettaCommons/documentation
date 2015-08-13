@@ -58,9 +58,21 @@ The `HelixInsertionEnergyMover` calculates the ∆∆G of insertion: the Rosetta
 **RosettaScripts Interface**
 
 The HelixInsertionEnergyMover can be setup as default or with a custom score function. An example XML line is shown below: 
-
 ```
 <HelixInsertionEnergyMover name="helix_insertion" weights="mpframework_fa_2007" >
+```
+
+### AddPeptideMetricsMover
+
+**About**
+
+The `AddPeptideMetricsMover` adds metrics including helicity and tilt angle to the score file for each decoy. These metrics are currently not general to more than one helix!
+
+**RosettaScripts Interface**
+Currently, the AddPeptideMetricsMover can only be setup via RosettaScripts with a default interface
+
+```
+<AddPeptideMetricsMover name="add_peptide">
 ```
 
 ## Contact
