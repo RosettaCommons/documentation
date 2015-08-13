@@ -52,6 +52,7 @@ The RefinePeptideMover can be setup as default or with a custom score function. 
 ### HelixInsertionEnergyMover
 
 **About**
+
 The `HelixInsertionEnergyMover` calculates the ∆∆G of insertion: the Rosetta energy required to transfer a peptide from solution into the bilayer. The peptide is refined in solution state, scored, inserted into the bilayer using OptimizeMembranePositionMover, and scored again. The transfer free energy is calculated as the difference between energy in bilayer and solution. 
 
 **RosettaScripts Interface**
@@ -59,7 +60,7 @@ The `HelixInsertionEnergyMover` calculates the ∆∆G of insertion: the Rosetta
 The HelixInsertionEnergyMover can be setup as default or with a custom score function. An example XML line is shown below: 
 
 ```
-<RefinePeptideMover name="refine_peptide" weights="mpframework_fa_2007" >
+<HelixInsertionEnergyMover name="helix_insertion" weights="mpframework_fa_2007" >
 ```
 
 ## Contact
