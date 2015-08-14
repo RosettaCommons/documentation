@@ -35,7 +35,7 @@ For RosettaCommons developers, we have a version of the Doxygen documentation wh
 
 ##Code organization
 
-| [[/images/rosetta_code_mindmap.png]] A general scheme of Rosetta source code organization | bla bla bla |
+| [[/images/rosetta_code_mindmap.png]] A general scheme of Rosetta source code organization<br /> Large size file (poster size) can be downloaded from http://bioshell.pl/rosetta//Users/dgront/Pictures/rosetta_code_mindmap.jpg|  |
 |------|-----|
 
 - [[Rosetta library structure]] - Overview of how the Rosetta library is structured.
