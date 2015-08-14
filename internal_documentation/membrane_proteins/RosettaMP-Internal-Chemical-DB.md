@@ -2,8 +2,12 @@
 <!--- Membrane Chemical Profiles Project --> 
 # RosettaMP Membrane Chemical Profiles Project: Database Organization
 
-In the Rosetta database, the directory `core/chemical/membrane` will be the home for parameter files describing the membrane bilayer. The documentation below is mostly for my own data management, but will be refined for the future to inform others about how to add different chemical properties. 
+[[_TOC_]]
 
+## About
+In the Rosetta database, the directory `core/chemical/membrane` is be the home for parameter files describing the membrane bilayer. The documentation below is mostly for my own data management, but will be refined for the future to inform others about how to add different chemical properties. 
+
+## Adding a new Lipid Type
 To add a new lipid type to Rosetta's repertoire, five parameter files should be added: 
 1. Divides describing the relative distribution of chemical groups (i.e. headgroups, hydrocarbon chains, etc)
 2. Charge distribution profile along the membrane normal
@@ -19,7 +23,8 @@ The directory currently contains example files for each requirement. An example 
 5. DOPC.info
 
 To inform Rosetta you have added a new lipid type, add the four letter code (and appropriate comments, see file for example) to the LipidType.hh enum in core/chemical/membrane. 
-+
+
+## Requirements
 Important conventions for potentials: 
  = Must be symmetric about the z-axis
  = Must include boundary conditions where applicable
