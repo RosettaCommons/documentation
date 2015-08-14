@@ -34,6 +34,10 @@ For RosettaCommons developers, we have a version of the Doxygen documentation wh
 
 
 ##Code organization
+
+| [[/images/rosetta_code_mindmap.png]] A general scheme of Rosetta source code organization | bla bla bla |
+|------|-----|
+
 - [[Rosetta library structure]] - Overview of how the Rosetta library is structured.
 - [[src index page]] - Overview of the src directory.
 
