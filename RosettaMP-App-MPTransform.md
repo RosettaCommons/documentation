@@ -1,7 +1,7 @@
 # RosettaMP Application: Transform into membrane coordinates (mp_transform)
 
 ## Code and Demo
-The application can be found in `Rosetta/main/source/src/apps/public/membrane/mp_span_from_pdb.cc` 
+The application can be found in `Rosetta/main/source/src/apps/public/membrane/mp_transform.cc` 
 
 An integration test can be found in `Rosetta/main/tests/integration/tests/mp_transform`
 
