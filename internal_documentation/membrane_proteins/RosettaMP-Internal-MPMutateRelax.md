@@ -15,6 +15,12 @@ To be able to run the application from the mutation file, yet have only one proc
 ## Code and Demo
 The application can be found at `apps/pilot/jkleman/mp_mutate_relax.cc`. The underlying mover is located in `protocols/membrane/MPMutateRelaxMover`.
 
+## Options
+
+|**Flag**|**Description**|**Type**|
+|:-------|:--------------|:-------|
+|-mp:mutate_relax:mutant_file mutations_1AFO.mut|mutation file|string|
+
 ## Run the application
 
 Example flags: 
