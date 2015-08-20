@@ -21,6 +21,18 @@ hash: score all models against each other and create a plain text score file (MP
 convert: convert a plain text score file to a binary score file. This is required by the SEWING movers
 ```
 
+* "score": edge information (has nothing to do with common rosetta fa/centroid score)
+``` 
+example of score file
+1300 277 57 1299 277 57 56
+
+explanation of score file
+1300 and 1299 are model_ids (node ids)
+277 is first residue number of sharing (chimeric) segment between two models
+57 is the segment id of that sharing (chimeric) segment between two models
+56 is id of the segment that just precedes the sharing (chimeric) segment between two models
+```
+
 Example of "model", "segment", "residue", "atom"
 ```
 MODEL 80 6 11.9294 130.065 159.192 -27.0884 /Users/tjacobs2/PROJECTS/datasets/top8000/top8000_chains_70//1a2zFH_C.pdb
