@@ -28,8 +28,8 @@ example of score file
 
 explanation of score file
 1300 and 1299 are model_ids (node ids)
-277 is first residue number of sharing (chimeric) segment between two models
-57 is the segment id of that sharing (chimeric) segment between two models
+277 is the first residue number of sharing (chimeric) segment between two models
+57 is id of the sharing (chimeric) segment between two models
 56 is id of the segment that just precedes the sharing (chimeric) segment between two models
 ```
 
