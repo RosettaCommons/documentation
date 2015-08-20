@@ -9,10 +9,12 @@ Once valid disulfides are found, they are combinatorially added. For example, if
 2. [23,50]
 3. [3,16],[23,50]
 
+The mover is now able to place D-cysteine disulfides and mixed D/L disulfides.
+
 NOTE: This is a multiple pose mover. If non-multiple-pose-compatible movers are called AFTER this mover, only the first disulfide configuration will be returned.
 
 ```
-<Disulfidize name=(&string) set1=(&selector) set2=(&selector) match_rt_limit=(&float) max_disulf_score=(&float) min_loop=(&int) />
+<Disulfidize name=(&string) set1=(&selector) set2=(&selector) match_rt_limit=(&float) max_disulf_score=(&float) min_loop=(&int) use_l_cys=(&bool true) use_d_cys=(&bool false) />
 ```
 
 - set1: Name of a residue selector which identifies a pool of residues which can connect to residues in set2 (default: all residues)
@@ -22,6 +24,8 @@ NOTE: This is a multiple pose mover. If non-multiple-pose-compatible movers are 
 - min_loop: Minimum distance between disulfide residues in primary sequence space
 - min_disulfides: Smallest allowable number of disulfides
 - max_disulfides: Largest allowable number of disulfides
+- use_l_cys: Should the mover consider placing L-cysteine?  True by default.
+- use_d_cys: Should the mover consider placing D-cysteine?  False by default.  (Note that at least one of use_l_cys and use_d_cys must be set to "true".)
 
 **EXAMPLE**  The following example looks for 1-3 disulfides. All found disulfide configurations are then designed using FastDesign.
 

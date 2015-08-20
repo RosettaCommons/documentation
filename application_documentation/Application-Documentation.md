@@ -173,14 +173,20 @@ While most of these applications focus on prediction, many have options which wi
 - [[ Visualization | RosettaMP-KeyElements-Visualization ]]
 
 ### Applications
- - [[Membrane Fast Relax|RosettaMP-App-MPFastRelax]] - High-resolution refinement of membrane protein structures with optimization of the membrane position using minimization (uses membrane framework)
- - [[Membrane ddG|RosettaMP-App-MPddG]] - Prediction of free energy changes upon mutation using the membrane framework
- - [[Membrane protein-protein docking|RosettaMP-App-MPDock]] - Protein-protein docking in the membrane (uses membrane framework)
- - [[Setup for Membrane protein-protein docking|RosettaMP-App-MPDockSetup]] - Setup tools required to run MPDock
- - [[Symmetric membrane protein-protein docking|RosettaMP-App-MPSymDock]] - Assemble symmetric complexes in the membrane environment (uses membrane framework)
- - [[Membrane Protein PyMOL Viewer|RosettaMP-App-MPPyMOLViewer]] - Standalone application for visualization of membrane protein simulations in real-time using pymol (uses membrane framework)
- - [[Trans-membrane spans from PDB|RosettaMP-App-MPSpanFromPDB]] - Calculate trans-membrane spans from the PDB structure
- - [[Score App for Membrane Proteins|RosettaMP-App-MPScoring]] - Settings for using score_jd2 with the RosettaMP scoring functions. 
+ - Relax:
+    * [[mp_relax|RosettaMP-App-MPFastRelax]] - High-resolution refinement of membrane protein structures with optimization of the membrane position using minimization (uses membrane framework and FastRelax)
+ - ddG:
+    * [[mp_ddG|RosettaMP-App-MPddG]] - Prediction of free energy changes upon mutation using the membrane framework
+ - Docking:
+    * [[mp_dock|RosettaMP-App-MPDock]] - Protein-protein docking in the membrane (uses membrane framework)
+    * [[mp_dock_setup|RosettaMP-App-MPDockSetup]] - Setup tools required to run MPDock
+    * [[mp_symdock|RosettaMP-App-MPSymDock]] - Assemble symmetric complexes in the membrane environment (uses membrane framework)
+ - Viewer:
+    * [[mp_viewer|RosettaMP-App-MPPyMOLViewer]] - Standalone application for visualization of membrane protein simulations in real-time using pymol (uses membrane framework)
+ - Tools:
+    * [[score_jd2|RosettaMP-App-MPScoring]] - Settings for using score_jd2 with the RosettaMP scoring functions. 
+    * [[mp_span_from_pdb|RosettaMP-App-MPSpanFromPDB]] - Calculate trans-membrane spans from the PDB structure
+    * [[mp_transform|RosettaMP-App-MPTransform]] - Transforming the protein into membrane coordinates.
 
 ##Analysis <a name="Analysis" />
 
