@@ -81,6 +81,7 @@ To accommodate structures with a large number of chains, following the PDB the, 
 ```
 10 _ PIKAA W # Allow only Trp at residue 10 in the unlabeled chain
 40 B EMPTY NC A20 NC B47 NC B48 # Disallow canonical residues (EMPTY), and then allow noncanonical types A20, B47, and B48
+40 B EMPTY NC DA20 NC DB47 NC DB48 # Disallow canonical residues (EMPTY), and then allow the D- stereoisomer of the noncanonical types A20, B47, and B48 (these were originally D20, E47, and E48)
 40A Q ALLAA # Residue 40, insertion code A, on chain Q, use any residue type
 ```
 
