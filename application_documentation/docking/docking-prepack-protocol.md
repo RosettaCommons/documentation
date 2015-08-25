@@ -64,7 +64,7 @@ Basic protocol options
 |**Flag**|**Description**|**Type**|
 |:-------|:--------------|:-------|
 |-docking:partners [P1\_P2] | Prepacking is done by separating chain P1 and chain P2 | String |
-|-docking:partners LH\_A (moves chain A around fixed chains L and H) | Prepacking is done by separating  chain A and LH complex. Note that this will be usefull if you are planning to do docking between chain A and LH complex. | String |
+|-docking:partners LH\_A (moves chain A around fixed chains L and H) | Prepacking is done by separating  chain A and LH complex. Note that this will be useful if you are planning to do docking between chain A and LH complex. | String |
 
 optimization Flags
 ------------------
