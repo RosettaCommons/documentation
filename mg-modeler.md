@@ -100,8 +100,8 @@ Commonly used options:
                                at [leave blank to scan a new Mg(2+)]
 
 Alternative modes
--lores_scan                 do not try hydration or minimization during scan [works 
-                               well with mg_point, mg_point_indirect score terms]
+-lores_scan                 do not try hydration or minimization during scan 
+                               [good for mg_point, mg_point_indirect score terms]
 -fixup                      align the 6 octahedral virtual  'orbitals' for Mg(2+) 
                                 specified by mg_res
 -pack_water_hydrogens       test mode: strip out non-mg waters, align mg frames, 
@@ -133,13 +133,14 @@ Advanced options
                                0.2 Angstroms)
 
 Totally advanced options for a mode that is basically untested
--magnesium:montecarlo:temperature     temperature for Monte Carlo (default 1.0)
+-magnesium:montecarlo:temperature     temperature for Monte Carlo (default 
+                                        1.0)
 -magnesium:montecarlo:cycles          Monte Carlo cycles (default 100000)
 -magnesium:montecarlo:dump            dump PDBs from Mg monte carlo (to make 
                                         movies)
 -magnesium:montecarlo:add_delete_frequency   
-                                      add_delete_frequency for Monte Carlo (default 
-                                        0.1)
+                                      add_delete_frequency for Monte Carlo 
+                                        (default 0.1)
 
 ```
 
