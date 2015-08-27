@@ -8,7 +8,6 @@ long time if there are a lot of patches.
 + for `get_all_residue_types()` or `get_best_match_residue_type_for_atom_names()`, best to use
      as many constraints as possible that are specific to the desired residue type(s).
 + for `get_representative_type()`, best to use as few desired constraints as possible. This function's job is to traverse down the tree until it finds one `ResidueType` with the desired variants, name, etc.
-+ Note for advanced devs: any new `ResidueType`s that look promising are actually instantiated in the ResidueTypeSet. See [[Overview-of-ResidueTypeSet]] for what that means.   
 
 ## To do
 + probably should refactor all the checks/filters into functionalities for
