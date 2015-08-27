@@ -9,10 +9,11 @@ params that are passed through the command line.  Finally, patches are applied t
 ## What you need to know as a developer
 The class is being updated in 2015-2016, as described below. 
 + All prior Rosetta code with tests continues to be supported.
-+ In new code, avoid use of functions like `aa_map_DO_NOT_USE`*. By asking for everything with an AA (or name3) of the query type, they require instantiation of an exponentially large number of residue_types.
++ In new code, avoid use of functions like `aa_map_DO_NOT_USE`. By asking for everything with an AA (or name3) of the query type, these functions (now tagged with *DO_NOT_USE*)  require instantiation of an exponentially large number of residue_types. We are trying to remove all of these in the code, at which point we can delete these functins.
 + Instead, if you need a residue type, you can almost certainly get it with a function like `get_representative_type_with_variant_aa` and `get_all_types_with_variants_aa`, where you supply the AA (e.g., aa_ala) and a list of variants that you want.
 + If you know the exact name of your ResidueType (e.g., "ALA:NtermProteinFull"), just use `name_map`.
- 
++ Adding new ResidueTypes to the ResidueTypeSet in the code (as opposed to in the residue_types.txt in the database) can get tricky. 
+
 ## Recent updates – the ResidueTypeSet project.
 ### Problem with original implementation
 With the original ResidueTypeSet, it was difficult to automatically read in & model interesting PDBs with ligands, modified RNA types, proteins with some atoms virtualized, etc. without having to explicitly specify patches or new residue types. For example, cryoEM-based high-accuracy structures of ribosomes could be read in due to the resolving of nucleotide modifications.
@@ -21,9 +22,11 @@ In principle, much of this chemical diversity could be saved in Rosetta's databa
 
 This [pull request](https://github.com/RosettaCommons/main/pull/591) refactored the ResidueTypeSet system to load up residue_types and patches and only instantiate patched residue types as they are needed ('on the fly').
 
-+ Only full instantiate ResidueTypes when they are explicitly requested; otherwise store them as compact placeholders.
-+ New tools to instantiate residue_types based on aa, name3, and lists of desired properties/variants (which greatly reduce the number of instantations). Verified to give a big performance increase in, e.g., extract_pdbs (silent file extraction).
-+ New tool to recognize PDB residues based on atom names without having a list of all patched residues, based on a customized binary search through Patches. Verified to give a big performance increase in PDB read in.
++ Only full instantiate `ResidueType`s when they are explicitly requested; otherwise store them as compact placeholders.
++ New tools to instantiate residue_types based on aa, name3, and lists of desired properties/variants (which greatly reduce the number of instantations). Verified to give a big performance increase in, e.g., `extract_pdbs` (silent file extraction).
++ New tool `ResidueTypeFinder` to recognize PDB residues based on atom names without having a list of all patched residues, based on a customized binary search through Patches. Verified to give a big performance increase in PDB read in.
+
+Some more information available in [these slides](https://dl.dropboxusercontent.com/u/21569020/Das_preRosettaCon2015_ResidueTypeSet.pdf).
 
  Subsequent pull requests are accomplishing the following tasks:
 + No more -override_rsd_type_limit warning. [Link](https://github.com/RosettaCommons/main/pull/725)
@@ -38,10 +41,12 @@ This [pull request](https://github.com/RosettaCommons/main/pull/591) refactored 
 
 
 
-###
+### To do
 There are still some things to do (*Devs please add to this wishlist, and remove when done.*):
 + Continue to turn on all reasonable residue_types and patches by default.
 + The current implementation is not thread-safe, but its possible to return to a thread-safe version (with -chemical:on_the_fly false).
++ `Orbitals` could be applied as a Patch. See ResidueTypeSet.cc for some comments on how to do this.
++ `Adducts` could be applied as Patches. See ResidueTypeSet.cc for some comments on how to do this.
 + There are currently 'placeholder' residue_types created with some basic info like name, name3, etc.; should be possible to not even create these and save more time.
 + Check memory footprint is actually reduced (run -chemical:one_the_fly true/false to check).
 + _Maybe_ unify the new ResidueTypeFinder class with classic ResidueTypeSelector.
