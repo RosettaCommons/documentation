@@ -51,4 +51,8 @@ There are still some things to do (*Devs please add to this wishlist, and remove
 + Check memory footprint is actually reduced (run `-chemical:on_the_fly false` to compare).
 + _Maybe_ unify the new [[ResidueTypeFinder]] class with classic `ResidueTypeSelector`.
 + Should be possible to further accelerate [[ResidueTypeFinder]] as it goes down a binary tree to apply patches to find residue_types -- this would require caching a map of which patches apply to which residue_types perhaps in ResidueTypeSet; this is currently done implicitly in name_map().
++ Even with above acceleration, `base_residue_types` are all instantiated. May want to be smarter about this.
+       in the future may want to have 100,000 ligands in Rosetta, which could be kept as bare-bones
+       'placeholder' `ResidueType`s with just `name3`. These would be instantiated only when recognized
+       in say a PDB file or requested explicitly by `name3`.
 + Rocco and rhiju reintroduced `ResidueType::variant_types()` and it comes out as a list of `std::string`s, instead of a `VariantType` enum. (Rocco was working before @JWLabonte refactor). will be easy to restore. Should happen after @JWLabonte finishes [pull request #56](https://github.com/RosettaCommons/main/pull/56)
