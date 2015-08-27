@@ -6,6 +6,7 @@ Application purpose
 
 This code models Mg(2+) ions into structures, including waters for hexahydrates. It has several modes, ranging from orienting the 'orbitals' for an existing Mg(2+) that define its hexhydrate shell all the way to docking Mg(2+) (and associated waters) _de novo_ into the structure.
 
+Click on the link below to watch a movie of the water packing as a Mg(2+) shoots through a structure:
 
 [![Mg trajectory through an RNA, with packing of waters](http://img.youtube.com/vi/SRsyG85Jvsc/0.jpg)](http://www.youtube.com/watch?v=SRsyG85Jvsc)
 
@@ -18,7 +19,6 @@ The current implementation of Mg(2+) docking is based on an enumerative grid sea
 Modeling of the hydration shell involves placement of 6 virtual atoms marking the faces of a 2 Å cube with the Mg(2+) at its center. These atoms mark 'orbital' or 'ligand field' positions where the six waters might go. Orientation  of these virtual atoms and then placement/removal of waters near those positions has been accelerated through heuristics that reproduce enumerative search of those degrees of freedom.
 
 Score functions have been developed for both the explicit water and implicit water case. The latter allows for water-mediated contacts of Mg(2+) to acceptor atoms. See section below on Scorefunction.
-
 
 
 Limitations
@@ -69,20 +69,48 @@ Models can be extracted from the silent file into PDB format with the usual extr
 
 Note that during the scan, the two Mg(2+) ions inside the input PDB are stripped out (they can be kept if user supplied `-mg_res`). Their positions are still used to return RMSD values (computed as the deviation of the modeled Mg(2+) position from the closest Mg(2+) in the reference structure).
 
+The movie at the top of the page shows what happens at each grid position during the docking, but the Mg(2+) is scanned along a toy linear trajectory for ease of visualization. (Also, the movie does not show the minimization steps.)
+
 Other modes
 ====================
 Rather than dock ('scan') a Mg(2+)  into the structure, `mg_modeler` allows access to three of the `MgScanner`'s component functionalities, mainly for testing, as well as a (rather untested) pilot mode for carrying out monte carlo sampling of the Mg(2+) and associated waters.
 
 ####Component Mode 1. Orient Mg(2+) ligand-field ('orbital') frames
+Figure out where the virtual atoms should go around the Mg(2+), and output them as V1, V2, ... V6.
+```
+mg_modeler -fixup  -s 2R8S.pdb   -ignore_unrecognized_res -output_virtual
+```
+For this example, can just use `2R8S.pdb` from the PDB. Output is in `2R8S.mg_fixup.pdb`.
 
 ####Component Mode 2. Pack hydrogens in existing waters that ligate Mg(2+)
+Figure out where hydrogen should go in water contacting Mg(2+).
+```
+mg_modeler -pack_water_hydrogens  -s 2R8S.pdb   -ignore_unrecognized_res -output_virtual
+```
+Waters not contacting Mg(2+) are stripped out. Output is in `2R8S.pack_water_hydrogens.pdb`.
+
+Extra flag `-scored_hydrogen_sampling` actually rotates water through all possible orientations (via Hopf fibration of SO(3), removing dihedral-symmetry-related orientations) to find best position by brute-force, and picks best orientation by some scorefunction. The default heuristic actually does just as good a job in terms of finding sensible hydrogens.
 
 ####Component Mode 3. Pack waters around existing Mg(2+)
+Figure out where waters should be around each Mg(2+):
+```
+mg_modeler -hydrate  -s 2R8S.pdb   -ignore_unrecognized_res -output_virtual
+```
+Strips out any waters from the PDB before doing the hydration. Output is in `2R8S.hydrate.pdb`. 
+
+Extra flags '-all_hydration_frames' does brute force search over all octahedral frames for the waters. Again, uses Hopf fibration of SO(3), removing octahedral-symmetry-related orientations, and some Rosetta scorefunction, very slow. Again, the default heuristic searches over a more limited subset of octahedral frames and seems to do just as good a job of figuring out water placement.
 
 ####Alternative Sampling Mode. Sample Mg(2+) & water position by monte carlo.
 
+Was testing a mode where waters might be placed through monte carlo sampling, including add/delete moves for waters. Example command line:
+```
+time mg_modeler -monte_carlo -s mg.pdb -mute core -temperature 0.7 -constant_seed -output_virtual -cycles 10000  
+```
+where `mg.pdb` has a single Mg(2+) at the origin. Left this mode in there for kicks -- movie looks like a 'water fountain':
+
 [![Mg water fountain](http://img.youtube.com/vi/zF0czzuurOI/0.jpg)](http://www.youtube.com/watch?v=zF0czzuurOI)
 
+Probably could expand this mode to sample Mg and waters bumbling around a structure – could eventually be useful for thermal sampling, etc -- but right now a lot of stuff is hardcoded (including, I think, that there is one Mg(2+) at the origin!).
 
 
 Summary of Options
