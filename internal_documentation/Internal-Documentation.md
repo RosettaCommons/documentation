@@ -44,6 +44,10 @@ See [[how to write documentation|how-to-write-documentation]] for more details.
 
 ## Documentation for Specific Projects
 
+### Updating ResidueTypeSet to handle the full chemical repertoire
+- [[ Overview of ResidueTypeSet ]]
+- [[ ResidueTypeFinder ]] is new class to efficiently find ResidueTypes from a ResidueTypeSet for most (all?) queries.
+
 ### Modeling membrane proteins with RosettaMP
 
 #### Movers & Methods in development
