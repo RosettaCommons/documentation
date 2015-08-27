@@ -115,6 +115,70 @@ where `mg.pdb` has a single Mg(2+) at the origin. Left this mode in there for ki
 Probably could expand this mode to sample Mg and waters bumbling around a structure – could eventually be useful for thermal sampling, etc -- but right now a lot of stuff is hardcoded (including, I think, that there is one Mg(2+) at the origin!).
 
 
+Summary of Options
+===================
+Some useful options for `mg_modeler`
+
+```
+Required:
+-s                          Input PDB structure
+
+Commonly used options:
+-out:file:silent            silent file for output
+-ligand_res                 in scan, look at positions near these residues 
+                              (PDB numbering/chains)
+   OR                         (If unspecified, search near all residues as 
+                               potential ligands.)
+-pose_ligand_res            similar to -ligand_res, but use pose number-
+                               ing (1,2,..)
+-mg_res                     supply PDB residue numbers of Mg(2+) to look 
+                               at [leave blank to scan a new Mg(2+)]
+
+Alternative modes
+-lores_scan                 do not try hydration or minimization during scan 
+                               [good for mg_point, mg_point_indirect score terms]
+-fixup                      align the 6 octahedral virtual  'orbitals' for Mg(2+) 
+                                specified by mg_res
+-pack_water_hydrogens       test mode: strip out non-mg waters, align mg frames, 
+                               pack mg waters for specified mg_res
+-hydrate                    test mode: strip out waters and hydrate mg(2+) 
+                               for specified mg_res
+-monte_carlo                test mode: monte carlo sampling of Mg(2+) and 
+                               surrounding waters
+
+Advanced options
+-minimize_during_scoring    minimize mg(2+) during scoring/hydration of each 
+                              position (default: true)
+-xyz_step                   increment in Angstroms for xyz scan (default 0.5)
+-score_cut                  score cut for silent output (default 5.0 for hires; 
+                              -8.0 for lores)
+-integration_test           stop after first mg position found -- for testing
+-tether_to_closest_res      stay near closest ligand res; helps force unique grid 
+                              sampling in different cluster jobs.
+-scored_hydrogen_sampling   in -pack_water_hydrogens  test mode, when packing 
+                              water hydrogens, use a complete scorefunction 
+                              to rank (slow)
+-all_hydration_frames       in -hydration test mode, sample all hydration 
+                               frames (slow)
+-leave_other_waters         in -hydration test mode, do not remove all waters
+-minimize                   in -hydration test mode, minimize Mg(2+) after 
+                               hydration or hydrogen-packing
+-minimize_mg_coord_constraint_distance 
+                            harmonic tether to Mg(2+) during minimize (default: 
+                               0.2 Angstroms)
+
+Totally advanced options for a mode that is basically untested
+-magnesium:montecarlo:temperature     temperature for Monte Carlo (default 
+                                        1.0)
+-magnesium:montecarlo:cycles          Monte Carlo cycles (default 100000)
+-magnesium:montecarlo:dump            dump PDBs from Mg monte carlo (to make 
+                                        movies)
+-magnesium:montecarlo:add_delete_frequency   
+                                      add_delete_frequency for Monte Carlo 
+                                        (default 0.1)
+
+```
+
 Scorefunctions (in development)
 ===============================
 Two sets of scorefunctions are in use.
@@ -196,69 +260,6 @@ More information on these terms is in header of `src/core/scoring/magnesium/MgEn
 // will need to make a decision when dust settles on HOH.
 //
 //
-```
-Summary of Options
-===================
-Some useful options for `mg_modeler`
-
-```
-Required:
--s                          Input PDB structure
-
-Commonly used options:
--out:file:silent            silent file for output
--ligand_res                 in scan, look at positions near these residues 
-                              (PDB numbering/chains)
-   OR                         (If unspecified, search near all residues as 
-                               potential ligands.)
--pose_ligand_res            similar to -ligand_res, but use pose number-
-                               ing (1,2,..)
--mg_res                     supply PDB residue numbers of Mg(2+) to look 
-                               at [leave blank to scan a new Mg(2+)]
-
-Alternative modes
--lores_scan                 do not try hydration or minimization during scan 
-                               [good for mg_point, mg_point_indirect score terms]
--fixup                      align the 6 octahedral virtual  'orbitals' for Mg(2+) 
-                                specified by mg_res
--pack_water_hydrogens       test mode: strip out non-mg waters, align mg frames, 
-                               pack mg waters for specified mg_res
--hydrate                    test mode: strip out waters and hydrate mg(2+) 
-                               for specified mg_res
--monte_carlo                test mode: monte carlo sampling of Mg(2+) and 
-                               surrounding waters
-
-Advanced options
--minimize_during_scoring    minimize mg(2+) during scoring/hydration of each 
-                              position (default: true)
--xyz_step                   increment in Angstroms for xyz scan (default 0.5)
--score_cut                  score cut for silent output (default 5.0 for hires; 
-                              -8.0 for lores)
--integration_test           stop after first mg position found -- for testing
--tether_to_closest_res      stay near closest ligand res; helps force unique grid 
-                              sampling in different cluster jobs.
--scored_hydrogen_sampling   in -pack_water_hydrogens  test mode, when packing 
-                              water hydrogens, use a complete scorefunction 
-                              to rank (slow)
--all_hydration_frames       in -hydration test mode, sample all hydration 
-                               frames (slow)
--leave_other_waters         in -hydration test mode, do not remove all waters
--minimize                   in -hydration test mode, minimize Mg(2+) after 
-                               hydration or hydrogen-packing
--minimize_mg_coord_constraint_distance 
-                            harmonic tether to Mg(2+) during minimize (default: 
-                               0.2 Angstroms)
-
-Totally advanced options for a mode that is basically untested
--magnesium:montecarlo:temperature     temperature for Monte Carlo (default 
-                                        1.0)
--magnesium:montecarlo:cycles          Monte Carlo cycles (default 100000)
--magnesium:montecarlo:dump            dump PDBs from Mg monte carlo (to make 
-                                        movies)
--magnesium:montecarlo:add_delete_frequency   
-                                      add_delete_frequency for Monte Carlo 
-                                        (default 0.1)
-
 ```
 
 
