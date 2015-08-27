@@ -91,7 +91,7 @@ mg_modeler -pack_water_hydrogens  -s 2R8S.pdb   -ignore_unrecognized_res -output
 ```
 Waters not contacting Mg(2+) are stripped out. Output is in `2R8S.pack_water_hydrogens.pdb`.
 
-Extra flag `-scored_hydrogen_sampling` actually rotates water through all possible orientations (via Hopf fibration of SO(3), removing dihedral-symmetry-related orientations) to find best position by brute-force, and picks best orientation by some scorefunction. The default heuristic actually does just as good a job in terms of finding sensible hydrogens.
+Extra flag `-scored_hydrogen_sampling` actually rotates water through all possible orientations (via Hopf fibration of SO(3), removing dihedral-symmetry-related orientations; see `numeric/UniformRotationSampler.hh`) to find best position by brute-force, and picks best orientation by some scorefunction. The default heuristic actually does just as good a job in terms of finding sensible hydrogens.
 
 ####Component Mode 3. Pack waters around existing Mg(2+)
 Figure out where waters should be around each Mg(2+):
@@ -115,6 +115,87 @@ where `mg.pdb` has a single Mg(2+) at the origin. Left this mode in there for ki
 Probably could expand this mode to sample Mg and waters bumbling around a structure – could eventually be useful for thermal sampling, etc -- but right now a lot of stuff is hardcoded (including, I think, that there is one Mg(2+) at the origin!).
 
 
+Scorefunctions (in development)
+===============================
+Two sets of scorefunctions are in use.
+
+### `test_lores.wts` 
+Contains some mg lores terms (originally developed in 2012):
+```
+rna_mg_point          1.0  # contains distance and angle dependent 
+                           #   terms for Mg(2+) interacting with hydrogen-bond acceptors
+                           #   based on fits to Mg-RNA PDB structures.
+
+rna_mg_point_indirect 1.0  # contains longer-range water-mediated 
+                           #   interactions with hydrogen-bond acceptors.
+                           #   only distance-dependence in this case. again, based 
+                           #   on unpublished fits to Mg-RNA PDB structures
+
+fa_rep                1.0  # prevent clashes of mg(2+) with stuff
+geom_sol_fast         0.3  # prevents mg(2+) from occluding polar groups (particularly electropositive groups)
+lk_nonpolar           0.3  # probably doesn't do much
+NO_HB_ENV_DEP
+```
+
+### `test_hires2.wts` 
+Contains mg hires terms (originally developed in 2012):
+```
+fa_rep        0.21 # standard
+fa_atr        0.20 # standard
+geom_sol_fast 0.17 # standard
+
+mg_lig        1.0 # direct interaction of Mg2+ with hydrogen bond acceptors
+mg_sol        0.2 # isotropic solvation penalty for atoms occluding the Mg(2+) -- double counting with explicit water?
+mg_ref        1.0 # cost of instantiating Mg(2+) (can yet modulatable by -mg_conc)
+hoh_ref       3.0 # cost of instantiating explicit water
+
+hbond_sc      1.0 # standard
+
+NO_HB_ENV_DEP         # standard (for RNA at least)
+ENLARGE_H_LJ_WDEPTH   # standard (for RNA at least)
+```
+
+More information derived from `src/core/scoring/magnesium/MgEnergy.cc`:
+```
+//
+// Enforces Mg(2+) to have 6 octahedrally coordinated ligands.
+//
+// Octahedral axes ('orbital frame' or 'ligand field') defined by
+//  perpendicular virtual atoms V1, V2, V3, V4, V5, V6:
+//
+//        V2 V6
+//         |/
+//   V4 -- Mg -- V1
+//        /|
+//      V3 V5
+//
+// Basic interaction potential mg_lig is defined in terms of three geometric parameters:
+//
+//                 Base
+//                 /
+//   Mg -- V   :Acc
+//
+//   1.  Dist(  Mg -- Acc )         [should be near 2.1 Angstroms]
+//   2.  Angle( Acc -- Mg -- V)     [should be near 0.0; cos angle should be near +1.0]
+//   3.  Angle( Mg -- Acc -- Base ) [should be near 120-180 degrees; cos angle should be < -0.5]
+//
+// Also include terms:
+//
+//   mg_sol  [penalty for blocking fluid water]
+//   mg_ref  [cost of instantiating mg(2+); put into ref?]
+//   hoh_ref [cost of instantiating water]
+//
+//              -- rhiju, 2015
+//
+// Note: for cost of instantiating water, could instead use:
+//
+//    h2o_intra, [in WaterAdductIntraEnergyCreator -- check if activated]
+// OR pointwater [when Frank's PWAT is checked in from branch dimaio/waterstuff.]
+//
+// will need to make a decision when dust settles on HOH.
+//
+//
+```
 Summary of Options
 ===================
 Some useful options for `mg_modeler`
