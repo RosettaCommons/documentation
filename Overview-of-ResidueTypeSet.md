@@ -24,7 +24,7 @@ This [pull request](https://github.com/RosettaCommons/main/pull/591) refactored 
 
 + Only full instantiate `ResidueType`s when they are explicitly requested; otherwise store them as compact placeholders.
 + New tools to instantiate residue_types based on aa, name3, and lists of desired properties/variants (which greatly reduce the number of instantations). Verified to give a big performance increase in, e.g., `extract_pdbs` (silent file extraction).
-+ New tool `ResidueTypeFinder` to recognize PDB residues based on atom names without having a list of all patched residues, based on a customized binary search through Patches. Verified to give a big performance increase in PDB read in.
++ New class [[ ResidueTypeFinder ]] to recognize PDB residues based on atom names without having a list of all patched residues, based on a customized binary search through Patches. Verified to give a big performance increase in PDB read in.
 
 Some more information available in [these slides](https://dl.dropboxusercontent.com/u/21569020/Das_preRosettaCon2015_ResidueTypeSet.pdf).
 
@@ -38,7 +38,7 @@ Some more information available in [these slides](https://dl.dropboxusercontent.
 + Basics: We retain the class's `name_` and the standard information that applies to all ResidueTypes: 	`AtomTypeSetCOP atom_types_`, `ElementSetCOP elements_`, `MMAtomTypeSetCOP mm_atom_types_`, `orbitals::OrbitalTypeSetCOP orbital_types_`.
 + We retain a list of all `ResidueType`s in `ResidueTypeCOPs residue_types_`. But... each of these `ResidueType`s starts out as a 'placeholder' object with just `name`, `name3`, and `variants`. The rest of the object (atom names, atom graph, etc.) are instantiated when needed. The way to tell if a `ResidueType` is a placeholder or instantiated is through the `finalized()` function. (It should actually be possible/easy to deprecate this or make it a mutable cache of instantiated ResidueTypes, and we may want do so in the future, as it grows exponentially with number of patches.)
 + We still have `aa_map_`, `interchangeability_group_map_`, `name3_map_`, `aas_defined_`; but we should remove these when we get rid of all calls to *DO_NOT_USE* functions throughout the code!
-+ To support rapid discovery of `ResidueType`s by the [[ResidueTypeFinder]], we now store lists of all the `base_residue_types_` (ResidueTypes without any pathces) and the `patches_`.
++ To support rapid discovery of `ResidueType`s by the [[ ResidueTypeFinder ]], we now store lists of all the `base_residue_types_` (ResidueTypes without any pathces) and the `patches_`.
 + There is a boolean `on_the_fly` for whether or not the new placeholder/instantiation scheme is being used in this ResidueTypeSet. It is `true`  by default, unless you are using DNA adducts which are not yet supported (but could be; see below).
 
 ### To do
