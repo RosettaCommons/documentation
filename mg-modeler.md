@@ -7,6 +7,9 @@ Application purpose
 This code models Mg(2+) ions into structures, including waters for hexahydrates. It has several modes, ranging from orienting the 'orbitals' for an existing Mg(2+) that define its hexhydrate shell all the way to docking Mg(2+) (and associated waters) _de novo_ into the structure.
 
 
+[![Mg trajectory through an RNA, with packing of waters](http://img.youtube.com/vi/SRsyG85Jvsc/0.jpg)](http://www.youtube.com/watch?v=SRsyG85Jvsc)
+
+
 Algorithm
 =========
 
@@ -77,6 +80,8 @@ Rather than dock ('scan') a Mg(2+)  into the structure, `mg_modeler` allows acce
 ####Component Mode 3. Pack waters around existing Mg(2+)
 
 ####Alternative Sampling Mode. Sample Mg(2+) & water position by monte carlo.
+
+[![Mg water fountain](http://img.youtube.com/vi/zF0czzuurOI/0.jpg)](http://www.youtube.com/watch?v=zF0czzuurOI)
 
 
 
