@@ -28,7 +28,9 @@ Limitations
 
 -   Basic calibration of the weights on the score terms has not been carried out (see below for descriptions).
 
--   It seems likely that incorporation of solutions to the nonlinear Poisson-Boltzman equation, which models regions of high electrostatic potential due to long-range effects, would complement the current code, which (in classic Rosetta style).
+-   It seems likely that incorporation of solutions to the nonlinear Poisson-Boltzmann equation, which models regions of high electrostatic potential due to long-range effects, would complement the current code, which (in classic Rosetta style).
+
+-   Haven't yet tested on proteins or RNA/protein interfaces, though the code should not have (too many) hard-coded RNA-specific things.
 
 References
 ==========
