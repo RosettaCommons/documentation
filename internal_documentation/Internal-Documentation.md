@@ -44,7 +44,7 @@ See [[how to write documentation|how-to-write-documentation]] for more details.
 
 ## Documentation for Specific Projects
 
-### Updating ResidueTypeSet to handle the full chemical repertoire
+### Updating ResidueTypeSet to handle the full chemical repertoire of macromolecules
 - [[ Overview of ResidueTypeSet ]]
 - [[ ResidueTypeFinder ]] is new class to efficiently find ResidueTypes from a ResidueTypeSet for most (all?) queries.
 
