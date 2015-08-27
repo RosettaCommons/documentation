@@ -94,7 +94,7 @@ While most of these applications focus on prediction, many have options which wi
 - [[Chemically conjugated docking|ubq-conjugated]] - Determine the structures of ubiquitin conjugated proteins.  
 
 ###Ion docking
-- [[ Mg(2+) modeling | mg_modeler ]] - Basic code for docking Mg(2+) -- with or without explicit waters -- initially tested for RNA.
+- [[ Mg(2+) modeling | mg-modeler ]] - Basic code for docking Mg(2+) -- with or without explicit waters -- initially tested for RNA.
 
 ##Design <a name="Design" />
 
