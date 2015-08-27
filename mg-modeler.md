@@ -4,19 +4,24 @@
 Application purpose
 ===========================================
 
-This code models Mg(2+) ions into structures, including waters for hexahydrates. It has several modes, ranging from orienting the 'orbitals' for an existing Mg(2+) that define its hexhydrate shell all the way to docking Mg(2+) (and associated waters) _de novo_ into the structure.
+This code models Mg2+ ions into structures, including waters for hexahydrates. It has several modes, ranging from orienting the 'orbitals' for an existing Mg(2+) that define its hexhydrate shell all the way to docking Mg(2+) (and associated waters) _de novo_ into the structure.
 
 
 Algorithm
 =========
 
-The current implementation of Mg(2+) docking is based on an enumerative grid search. Modeling of the hydration shell has been accelerated through heuristics for initial placement/removal of waters and orientation of water hydrogens.
+The current implementation of Mg(2+) docking is based on an enumerative grid search. 
+
+Modeling of the hydration shell involves placement of 6 virtual atoms marking the faces of a 2 Å cube with the Mg(2+) at its center. These atoms mark 'orbital' or 'ligand field' positions where the six waters might go. Orientation  of these virtual atoms and then placement/removal of waters near those positions has been accelerated through heuristics that reproduce enumerative search of those degrees of freedom.
+
+Score functions have been developed for both the explicit water and implicit water case. The latter allows for water-mediated contacts of Mg(2+) to acceptor atoms. See section below on Scorefunction.
+
 
 
 Limitations
 ===========
 
--   These methods' predictive power have not been well tested. These classes should be easy to incorporate into structure prediction & design methods, such as the [[fragment assembly|rna-denovo-setup]] or [[stepwise]] frameworks.  The application is being made public to encourage others inside and outside the Rosetta community to contact developers if they have compelling use cases for _de novo_ Mg(2+) modeling, e.g., in experimental structures.
+-   These methods' predictive power have not yet been well tested. These classes should be easy to incorporate into structure prediction & design methods, such as the [[fragment assembly|rna-denovo-setup]] or [[stepwise]] frameworks.  The application is being made public to encourage others inside and outside the Rosetta community to contact developers if they have compelling use cases for _de novo_ Mg(2+) modeling, e.g., in docking Mg(2+) into experimental structures or designing ion binding sites into catalytic sites.
 
 -   Basic calibration of the weights on the score terms has not been carried out (see below for descriptions).
 
@@ -30,7 +35,9 @@ This work is unpublished. Please contact rhiju [at] stanford.edu for information
 Code and Demo
 =============
 
-The main code is available in the `mg_modeler` executable, with source code in `src/apps/public/magnesium/mg_modeler.cc`.
+The main code is available in the `mg_modeler` executable, with source code in `src/apps/public/magnesium/mg_modeler.cc`. 
+
+This application is basically a simple wrapper around the classes `MgScanner` and `MgMonteCarlo`, which should be easy to reuse in new applications for prediction and design.
 
 Test files and example command lines are available in integration tests:
 
@@ -44,39 +51,38 @@ Test files and example command lines are available in integration tests:
 Input Files
 ===========
 
-Required file
--------------
+You need a starting structure to run the modeling, in PDB format. It can contain Mg(2+) already to serve as reference locations or positions from which to perturb. Or it can have no Mg(2+) ions if you are trying to dock Mg(2+) _de novo_.
 
-You need two input files to run structure modeling of complex RNA folds:
-
--   The [[fasta file]]: it is a sequence file for your rna.
--   The [[secondary structure file]]: text file with secondary structure in dot-parentheses notation.
-
-Optional additional files:
---------------------------
--   Any pdb files containing templates for threading.
--   Native pdb file, if all-heavy-atom rmsd's are desired. Must be in Rosetta's [PDB format for RNA](#File-Format).
-
-How to dock Mg(2+)
+How to dock a Mg(2+)
 ====================
+This is the main mode of use of mg_modeler.
+Example command-line (available in the integration test; see path above):
 
 ```
-mg_modeler -s arich_2r8s_RNA.pdb -out:file:silent arich_mg_hydrate.out -score:weights test_hires2.wts -o arich_2r8s_hydrate_mgscan.pdb -pose_ligand_res 8
+mg_modeler -s arich_2r8s_RNA.pdb -out:file:silent arich_mg_hydrate.out -score:weights test_hires2.wts -pose_ligand_res 8
 ```
 
-Alternative modes
+This reads in `arich_2r8s_RNA.pdb` which holds the RNA 'metal ion core' in the A-rich bulge region of the P4-P6 domain of the _Tetrahymena_ group I ribozyme. Mg(2+) positions that are within direct contact distance to any electronegative atom (h-bond acceptor) of residue 8 (specified in `-pose_ligand_res`) are tested. Output locations that pass default score filters go to a silent file of the RNA with the Mg(2+) and any waters (specified in `-out:file:silent`). 
+
+Models can be extracted from the silent file into PDB format with the usual extraction utilities (see extract_lowscore_decoys.py in [[rna-denovo-setup]] or [[extract_pdbs]).
+
+Note that during the scan, the two Mg(2+) ions inside the input PDB are stripped out (they can be kept if user supplied `-mg_res`). Their positions are still used to return RMSD values (computed as the deviation of the modeled Mg(2+) position from the closest Mg(2+) in the reference structure).
+
+Other modes
 ====================
-Mode 1. Orient Mg(2+) ligand-field ('orbital') frames
+Rather than dock ('scan') a Mg(2+)  into the structure, `mg_modeler` allows access to three of the `MgScanner`'s component functionalities, mainly for testing, as well as a (rather untested) pilot mode for carrying out monte carlo sampling of the Mg(2+) and associated waters.
+
+Component Mode 1. Orient Mg(2+) ligand-field ('orbital') frames
 ------------------------------------------------------
 
 
-Mode 2. Pack hydrogens in existing waters that ligate Mg(2+)
+Component Mode 2. Pack hydrogens in existing waters that ligate Mg(2+)
 --------------------------------------------------------
 
-Mode 3. Pack waters around existing Mg(2+)
+Component Mode 3. Pack waters around existing Mg(2+)
 ------------------------------------------
 
-Mode 4. Sample Mg(2+) & water position by monte carlo.
+Alternative Sampling Mode. Sample Mg(2+) & water position by monte carlo.
 -------------------------------------------------------
 
 
