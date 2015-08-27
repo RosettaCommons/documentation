@@ -4,7 +4,7 @@
 Application purpose
 ===========================================
 
-This code models Mg(2+) ions into structures, including waters for hexahydrates. It has several modes, ranging from orienting the 'orbitals' for an existing Mg(2+) that define its hexhydrate shell all the way to docking Mg(2+) (and associated waters) _de novo_ into the structure.
+This code models Mg(2+) ions into structures, including waters for hexahydrates. It has several modes, ranging from orienting the 'orbitals' for an existing Mg(2+) that define its hexahydrate shell all the way to docking Mg(2+) (and associated waters) _de novo_ into the structure.
 
 Click on the link below to watch a movie of the water packing as a Mg(2+) shoots through a structure:
 
@@ -136,9 +136,10 @@ geom_sol_fast         0.3  # prevents mg(2+) from occluding polar groups (partic
 lk_nonpolar           0.3  # probably doesn't do much
 NO_HB_ENV_DEP
 ```
+The derivatives of these terms have not been implemented, but that would be easy to do, based on how they were set up for the hires mg terms (see next).
 
 ### `test_hires2.wts` 
-Contains mg hires terms (originally developed in 2012):
+Contains mg hires terms:
 ```
 fa_rep        0.21 # standard
 fa_atr        0.20 # standard
@@ -155,7 +156,7 @@ NO_HB_ENV_DEP         # standard (for RNA at least)
 ENLARGE_H_LJ_WDEPTH   # standard (for RNA at least)
 ```
 
-More information derived from `src/core/scoring/magnesium/MgEnergy.cc`:
+More information on these terms is in header of `src/core/scoring/magnesium/MgEnergy.cc`:
 ```
 //
 // Enforces Mg(2+) to have 6 octahedrally coordinated ligands.
