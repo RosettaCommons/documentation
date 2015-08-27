@@ -1,5 +1,5 @@
-## What it is.
-This class is responsible for iterating through the sets of residue types, including, but not limited to, amino
+##  `ResidueTypeSet` – what it is
+`core::chemical::ResidueTypeSet` is responsible for iterating through the sets of residue types, including, but not limited to, amino
 acids, nucleic acids, peptoid residues, and monosaccharides.  It first reads through a file that contains the
 location of residue types in the database.  At the beginning of that file are the atom types, mm atom types,
 element sets, and orbital types that will be used.  The sets are all for fa_standard.  If a new type of atom are
@@ -7,7 +7,11 @@ added for residues, this is where they would be added.  Once it assigns the type
 params that are passed through the command line.  Finally, patches are applied to all residues added.
 
 ## What you need to know as a developer
-The class is being updated in 2015-2016, as described below.. All prior code continues to be supported.
+The class is being updated in 2015-2016, as described below. 
++ All prior Rosetta code with tests continues to be supported.
++ In new code, avoid use of functions like `aa_map_DO_NOT_USE`*. By asking for everything with an AA (or name3) of the query type, they require instantiation of an exponentially large number of residue_types.
++ Instead, if you need a residue type, you can almost certainly get it with a function like `get_representative_type_with_variant_aa` and `get_all_types_with_variants_aa`, where you supply the AA (e.g., aa_ala) and a list of variants that you want.
++ If you know the exact name of your ResidueType (e.g., "ALA:NtermProteinFull"), just use `name_map`.
  
 ## Recent updates – the ResidueTypeSet project.
 ### Problem with original implementation
@@ -22,17 +26,24 @@ This [pull request](https://github.com/RosettaCommons/main/pull/591) refactored 
 + New tool to recognize PDB residues based on atom names without having a list of all patched residues, based on a customized binary search through Patches. Verified to give a big performance increase in PDB read in.
 
  Subsequent pull requests are accomplishing the following tasks:
-+ remove rna residue type sets in favor of fa_standard.
-+ removing command-line patch selectors which kept patches off by default; now they can be turned on.
-+ No more -override_rsd_type_limit warning. 
-+ assorted fixups.
++ No more -override_rsd_type_limit warning. [Link](https://github.com/RosettaCommons/main/pull/725)
++ NCAA's are getting turned on as residue types, by default. [Link](https://github.com/RosettaCommons/main/pull/722)
++ Remove RNA residue type sets in favor of fa_standard, which encapsulates the RNA residue types and now does not incur a penalty in load time. [Link](https://github.com/RosettaCommons/main/pull/745)
++ Removing command-line patch selectors which kept patches off by default; now they can be turned on. [Link](https://github.com/RosettaCommons/main/pull/756)
+
+### Some notes on internal implementation of updated ResidueTypeSet
++ We retain the class's `name_` and the standard information that applies to all ResidueTypes: 	`AtomTypeSetCOP atom_types_`, `ElementSetCOP elements_`, `MMAtomTypeSetCOP mm_atom_types_`, `orbitals::OrbitalTypeSetCOP orbital_types_`.
++ We retain a list of all ResidueTypes in `ResidueTypeCOPs residue_types_`
+
+
+
 
 ###
-There are still some important things to do:
-
-
-the current implementation is not thread-safe, but its possible to return to a thread-safe version (with -chemical:on_the_fly false). @aleaverfay I'll need some advice on how to best hard-wire thread safety when needed; there are a couple of ways to do it, which I'll outline in a separate block below.
-Actually unify the new ResidueTypeFinder class with classic ResidueTypeSelector.
-Should be possible to further accelerate ResidueTypeFinder as it goes down a binary tree to apply patches to find residue_types -- this would require caching a map of which patches apply to which residue_types perhaps in ResidueTypeSet; this is currently done implicitly in name_map().
-Rocco and I reintroduced ResidueType::variant_types() and it comes out as a list of std::string, instead of VariantType enum. (Rocco was working before @JWLabonte refactor). will be easy to restore. Should happen after @JWLabonte finishes pull request #56
-There are currently 'placeholder' residue_types created with some basic info like name, name3, etc.; should be possible to not even create these and save more time.
+There are still some things to do (*Devs please add to this wishlist, and remove when done.*):
++ Continue to turn on all reasonable residue_types and patches by default.
++ The current implementation is not thread-safe, but its possible to return to a thread-safe version (with -chemical:on_the_fly false).
++ There are currently 'placeholder' residue_types created with some basic info like name, name3, etc.; should be possible to not even create these and save more time.
++ Check memory footprint is actually reduced (run -chemical:one_the_fly true/false to check).
++ _Maybe_ unify the new ResidueTypeFinder class with classic ResidueTypeSelector.
++ Should be possible to further accelerate ResidueTypeFinder as it goes down a binary tree to apply patches to find residue_types -- this would require caching a map of which patches apply to which residue_types perhaps in ResidueTypeSet; this is currently done implicitly in name_map().
++ Rocco and rhiju reintroduced ResidueType::variant_types() and it comes out as a list of std::string, instead of VariantType enum. (Rocco was working before @JWLabonte refactor). will be easy to restore. Should happen after @JWLabonte finishes [pull request #56](https://github.com/RosettaCommons/main/pull/56)
