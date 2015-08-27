@@ -4,7 +4,8 @@
 Application purpose
 ===========================================
 
-This code allows build-up of three-dimensional de novo models of RNAs of sizes up to ~300 nts, given secondary structure and experimental constraints. It can be carried out reasonably automatically, but human curation of submodels along the build-up path may improve accuracy. A fully automated pipeline is in preparation (a previous iteration of this is described in [[rna assembly]] documentation).
+This code models Mg(2+) ions into structures, including waters for hexahydrates. It has several modes, ranging from orienting the 'orbitals' for an existing Mg(2+) that define its hexhydrate shell all the way to docking Mg(2+) (and associated waters) _de novo_ into the structure.
+
 
 Algorithm
 =========
@@ -15,9 +16,16 @@ The current implementation of Mg(2+) docking is based on an enumerative grid sea
 Limitations
 ===========
 
--   These methods' predictive power have not been well tested. These classes should be easy to incorporate into structure prediction & design methods, such as the [[fragment assembly|rna-denovo-setup]] or [[stepwise]] frameworks. 
+-   These methods' predictive power have not been well tested. These classes should be easy to incorporate into structure prediction & design methods, such as the [[fragment assembly|rna-denovo-setup]] or [[stepwise]] frameworks.  The application is being made public to encourage others inside and outside the Rosetta community to contact developers if they have compelling use cases for _de novo_ Mg(2+) modeling, e.g., in experimental structures.
 
--    It seems likely that incorporation of solutions to the nonlinear Poisson-Boltzman equation, which models regions of high electrostatic potential due to long-range effects, would complement the current code, which (in classic Rosetta style)
+-   Basic calibration of the weights on the score terms has not been carried out (see below for descriptions).
+
+-   It seems likely that incorporation of solutions to the nonlinear Poisson-Boltzman equation, which models regions of high electrostatic potential due to long-range effects, would complement the current code, which (in classic Rosetta style).
+
+References
+==========
+This work is unpublished. Please contact rhiju [at] stanford.edu for information about citing or extending Rosetta Mg(2+) modeling.
+
 
 Code and Demo
 =============
@@ -32,9 +40,6 @@ Test files and example command lines are available in integration tests:
 ```      
 
 
-References
-==========
-This work is unpublished. Please contact rhiju [at] stanford.edu for information about citing or extending Rosetta Mg(2+) modeling.
 
 Input Files
 ===========
@@ -52,117 +57,103 @@ Optional additional files:
 -   Any pdb files containing templates for threading.
 -   Native pdb file, if all-heavy-atom rmsd's are desired. Must be in Rosetta's [PDB format for RNA](#File-Format).
 
-Making models
-===========
-Following are examples for a sequence drawn from RNA puzzle 11, a long hairpin with several submotifs. The fasta file `RNAPZ11.fasta` looked like this:
+How to dock Mg(2+)
+====================
 
 ```
-> RNAPZ11 (7SK RNA 5' hairpin)
-gggaucugucaccccauugaucgccuucgggcugaucuggcuggcuaggcggguccc
+mg_modeler -s arich_2r8s_RNA.pdb -out:file:silent arich_mg_hydrate.out -score:weights test_hires2.wts -o arich_2r8s_hydrate_mgscan.pdb -pose_ligand_res 8
 ```
 
-and the secondary structure file `RNAPZ11.secstruct` for the whole problem looked like this:
+Alternative modes
+====================
+Mode 1. Orient Mg(2+) ligand-field ('orbital') frames
+------------------------------------------------------
+
+
+Mode 2. Pack hydrogens in existing waters that ligate Mg(2+)
+--------------------------------------------------------
+
+Mode 3. Pack waters around existing Mg(2+)
+------------------------------------------
+
+Mode 4. Sample Mg(2+) & water position by monte carlo.
+-------------------------------------------------------
+
+
+
+
+Summary of Options
+===================
+Some useful options for `mg_modeler`
 
 ```
-((((((((((.((((...(((((((....))).)))).))..))...))))))))))
-gggaucugucaccccauugaucgccuucgggcugaucuggcuggcuaggcggguccc
-```
+Required:
+-s                        Input PDB structure
+-out:file:silent          Silent file for output
 
-There are four helices, H1, H2, H3, and H4.
+Commonly used options:
+-ligand_res               in scan, look at positions near these residues (PDB numbering/chains)
+   OR                       (If unspecified, search near all residues as potential ligands.)
+-pose_ligand_res          similar to -ligand_res, but use pose numbering (1,2,..)
+-mg_res                   supply PDB residue numbers of Mg(2+) to look at [leave blank to scan a new Mg(2+)]
 
-Step 1. Make helices
----------------------------
+Alternative modes
+-lores_scan               do not try hydration or minimization during scan [works well
+                             with mg_point and mg_point_indirect score terms]
+-fixup                    align the 6 octahedral virtual  'orbitals' for Mg(2+) specified by mg_res
+          pack_water_hydrogens |                     false |   B| test mode: strip out non-mg 
+                               |                           |    |  waters, align mg frames, 
+                               |                           |    |  pack mg waters for 
+                               |                           |    |  specified mg_res
+                       hydrate |                     false |   B| test mode: strip out waters 
+                               |                           |    |  and hydrate mg(2+) for 
+                               |                           |    |  specified mg_res
+                   monte_carlo |                     false |   B| test mode: monte carlo 
+                               |                           |    |  sampling of Mg(2+) and 
+                               |                           |    |  surrounding waters
 
-Helices act as connectors between motifs. It can be useful to pre-build these and keep them fixed during each motif run, as grafting (Step 4 below) requires superimposition between shared pieces of separately built motifs.
+Advanced options
+       minimize_during_scoring |                           |   B| minimize mg(2+) during 
+                               |                           |    |  scoring/hydration of each 
+                               |                           |    |  position (true)
+                      xyz_step |                       0.5 |   R| increment in Angstroms for 
+                               |                           |    |  xyz scan
+                     score_cut |                         5 |   R| score cut for silent output 
+                               |                           |    |  (5.0 for hires; -8.0 for 
+                               |                           |    |  lores)
+                 score_cut_PDB |                         0 |   R| score cut for PDB output 
+                               |                           |    |  from scanning (deprecated)
+              integration_test |                     false |   B| Stop after first mg position 
+                               |                           |    |  found -- for testing
+         tether_to_closest_res |                     false |   B| stay near closest ligand 
+                               |                           |    |  res; helps force unique 
+                               |                           |    |  grid sampling in different 
+                               |                           |    |  cluster jobs.
 
-A sample command line is the following:
+      scored_hydrogen_sampling |                     false |   B| in -pack_water_hydrogens 
+                               |                           |    |  test mode, when packing 
+                               |                           |    |  water hydrogens, use a 
+                               |                           |    |  complete scorefunction to 
+                               |                           |    |  rank (slow)
+          all_hydration_frames |                     false |   B| in -hydration test mode, 
+                               |                           |    |  Sample all hydration 
+                               |                           |    |  frames (slow)
+            leave_other_waters |                     false |   B| in -hydration test mode, do 
+                               |                           |    |  not remove all waters
+                      minimize |                     false |   B| minimize Mg(2+) after 
+                               |                           |    |  hydration or 
+                               |                           |    |  hydrogen-packing
+minimize_mg_coord_constraint_distance |                0.2 |   R| harmonic tether to Mg(2+) 
+                               |                           |    |  during minimize
+                               |                           |    |
+       magnesium:montecarlo:   |                           |    | 
+                   temperature |                         1 |   R| temperature for Monte Carlo
+                        cycles |                    100000 |   I| Monte Carlo cycles
+                          dump |                     false |   B| dump PDBs from Mg monte carlo
+          add_delete_frequency |                       0.1 |   R| add_delete_frequency for 
+                               |                           |    |  Monte Carlo
 
-```
-rna_helix.py  -o H2.pdb -seq cc gg -resnum 14-15 39-40
-```
 
-This application output the helix with chains A and B, but removing the chains prevents some confusion with later steps, so you can run:
-
-```
-replace_chain_inplace.py  H2.pdb 
-```
-
-To setup the above python scripts, follow the directions for setting up [[RNA tools|rna-tools]].
-Example files and output are in:
-
-`       demos/public/rna_puzzle/step1_helix/      `
-
-Step 2. Use threading to build sub-pieces
----------------------------
-
-In the problem above, there is a piece which is a well-recognized motif, the UUCG apical loop.
-
-Let's model it by threading from an exemplar
-of the motif from the crystallographic database. There is one here:
-
-Download 1f7y.pdb from `http://pdb.org/pdb/explore/explore.do?structureId=1f7y`.
-
-Slice out the motif of interest:
-```
-pdbslice.py  1f7y.pdb  -subset B:31-38 uucg_
-```
-
-Thread it into our actual sequence:
-```
-rna_thread -s uucg_1f7y.pdb  -seq ccuucggg -o uucg_1f7y_thread.pdb
-```
-
-Let's get the numbering to match our actual test case:
-
-```
-renumber_pdb_in_place.py uucg_1f7y_thread.pdb 24-31
-```
-
-Example files and output are in:
-
-`       demos/public/rna_puzzle/step2_thread/      `
-
-Step 3. De novo model loops, junctions, & tertiary contacts of unknown structure by FARFAR
----------------------------
-To build motifs or several motifs together, we will use de novo Rosetta modeling. In this example, we'll model the motifs between H2 and H4, using our starting H2 and H4 helices as fixed boundary conditions.  Note that a more advanced method, [[stepwise modeling|stepwise]] is also available for high resolution modeling (and is actually easier to run the fragment assembly), but remains mostly untested in the context of buildup of large RNA complex folds; for motifs that have any kind of homology to existing junctions/motifs, FARFAR should be better & faster.
-
-Fragment assembly of RNA with full atom refinement (FARFAR) is not yet equipped to map numbers from our full modeling problem into subproblems. We have to create input files to `rna_denovo` for a little sub-problem and map all the residue numberings into the local problem. There is currently a wrapper script that sets up this job:
-
-```
-rna_denovo_setup.py -fasta RNAPZ11.fasta \
-    -secstruct_file RNAPZ11_OPEN.secstruct \
-   -working_res 14-25 30-40 \
-   -s H2.pdb H4.pdb \
-   -fixed_stems \
-   -tag H2H3H4_run1b_openH3_SOLUTION1 \
-   -native example1.pdb 
-```
-
-You don't need to supply a native if you don't have it -- just useful
-to compute RMSDs as a reference.
-
-Then try this:
-
-```
- source README_FARFAR
-```
-
-Example output after a couple of structures is in `example_output/`, and in this case goes to `H2H3H4_run1b_openH3_SOLUTION1.out`.
-
-For convergent results, you may have to do a full cluster run -- some tools are available for
- `condor`, `qsub`, `slurm` queueing systems as part of [[rna tools|rna-tools]].
-
-Extract 10 lowest energy models:
-
-extract_lowenergy_decoys.py H2H3H4_run1b_openH3_SOLUTION1.out 10
-
-Inspect in Pymol. (For an automated workflow, you can also cluster these runs and just carry forward the top 5 clusters.)
-Demo files are available in:
-`       demos/public/rna_puzzle/step3_farfar/      `
-
-Some useful options for `rna_denovo_setup.py`
-
-```
 Required:
 -sequence                sequence supplied directly [string]
   OR
@@ -200,21 +191,6 @@ Advanced options
 -chain_connection        specify that pairings must occur between two sets of residues: SET1 <positions in set 1> SET2 <positions in set 2>
 ```
 
-Step 4. Build-up larger pieces by grafting or by more FARFAR <a name="rna-graft" />
----------------------------
-Once you have several models of sub pieces, they can be combined in two ways.
-
-One option is to run further FARFAR jobs (rerun Step 3), but supplying solutions to sub-pdbs via `-s <pdb1> <pdb2> ...` into larger modeling jobs. This is particularly powerful if a set of jobs can be set up in which each new job builds an additional peripheral element or junction into a well-converged model of a sub-set modeled in a previous job – a stepwise buildup, analogous to what is being explored in [[high-resolution stepwise modeling|stepwise]].
-
-Alternatively, you can quickly graft two PDBs based on superimposition of shared residues, either using the `align` command in Pymol, or with the following Rosetta command lines:
-
-```
-rna_graft -s H2H3H4_run1b_openH3_SOLUTION1.pdb  uucg_1f7y_thread.pdb  H1H2_run2_SOLUTION1.pdb -o full_graft.pdb
-```
-Demo files are available in:
-`       demos/public/rna_puzzle/step4_graft/      `
-
-
 
 ##See Also
 
@@ -224,7 +200,5 @@ Demo files are available in:
 * [[RNA]]: Guide to working with RNA in Rosetta
 * [[Application Documentation]]: Home page for application documentation
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
-* [[Comparing structures]]: Essay on comparing structures
-* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
 * [[Commands collection]]: A list of example command lines for running Rosetta executable files
