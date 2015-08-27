@@ -9,7 +9,7 @@ params that are passed through the command line.  Finally, patches are applied t
 ## What you need to know as a developer
 The class is being updated in 2015-2016, as described below. 
 + All prior Rosetta code with tests continues to be supported.
-+ In new code, avoid use of functions like `aa_map_DO_NOT_USE`. By asking for everything with an AA (or name3) of the query type, these functions (now tagged with *DO_NOT_USE*)  require instantiation of an exponentially large number of residue_types. We are trying to remove all of these in the code, at which point we can delete these functins.
++ In new code, avoid use of functions like `aa_map_DO_NOT_USE`. By asking for everything with an AA (or name3) of the query type, these functions (now tagged with *DO_NOT_USE*)  require instantiation of an exponentially large number of residue_types. We are trying to remove all of these in the code, at which point we can delete these functions.
 + Instead, if you need a residue type, you can almost certainly get it with a function like `get_representative_type_with_variant_aa` and `get_all_types_with_variants_aa`, where you supply the AA (e.g., aa_ala) and a list of variants that you want.
 + If you know the exact name of your ResidueType (e.g., "ALA:NtermProteinFull"), just use `name_map`.
 + Adding new ResidueTypes to the ResidueTypeSet in the code (as opposed to in the residue_types.txt in the database) can get tricky. 
@@ -36,19 +36,19 @@ Some more information available in [these slides](https://dl.dropboxusercontent.
 
 ### Some notes on internal implementation of updated ResidueTypeSet
 + We retain the class's `name_` and the standard information that applies to all ResidueTypes: 	`AtomTypeSetCOP atom_types_`, `ElementSetCOP elements_`, `MMAtomTypeSetCOP mm_atom_types_`, `orbitals::OrbitalTypeSetCOP orbital_types_`.
-+ We retain a list of all ResidueTypes in `ResidueTypeCOPs residue_types_`
-
-
-
++ We retain a list of all ResidueTypes in `ResidueTypeCOPs residue_types_`. But... each of these `ResidueType`s starts out as a 'placeholder' object with just name, name3, and variants. The rest of the object (atom names, atom graph, etc.) are instantiated when needed. The way to tell if a `ResidueType` is a placeholder or instantiated is through the `finalized()` function. (It should actually be possible/easy to deprecate this or make it a mutable cache of instantiated ResidueTypes, and we may want do so in the future, as it grows exponentially with number of patches.)
++ We still have `aa_map_`, `interchangeability_group_map_`, `name3_map_`, `aas_defined_`; but we should remove these when we get rid of all calls to *DO_NOT_USE* functions throughout the code.
++ To support rapid discovery of ResidueTypes by the ResidueTypeFinder, we now store lists of all the `base_residue_types_` (ResidueTypes without any pathces) and the `patches_`.
++ There is a boolean `on_the_fly` for whether or not the new placeholder/instantiation scheme is being used in this ResidueTypeSet. Its on by default, unless you are using DNA adducts which are not yet supported (but could be; see below).
 
 ### To do
 There are still some things to do (*Devs please add to this wishlist, and remove when done.*):
-+ Continue to turn on all reasonable residue_types and patches by default.
-+ The current implementation is not thread-safe, but its possible to return to a thread-safe version (with -chemical:on_the_fly false).
++ Turn on more and more reasonable residue_types and patches by default, including non-standard nucleotides, all posttranslational modifications of amino acids, the full repertoire of small molecules in the PDB.
++ The current implementation is not thread-safe, but its possible to return to a thread-safe version (with -chemical:on_the_fly false). Threads should be fairly easy to support through mutexes -- a lock needs to be set in the function `replace_residue_type_in_set_defying_constness`, and obeyed inside `make_sure_instantiated`.
++ There are currently 'placeholder' residue_types created with some basic info like name, name3, etc.; should be possible to not even create these and save more time and memory.
 + `Orbitals` could be applied as a Patch. See ResidueTypeSet.cc for some comments on how to do this.
 + `Adducts` could be applied as Patches. See ResidueTypeSet.cc for some comments on how to do this.
-+ There are currently 'placeholder' residue_types created with some basic info like name, name3, etc.; should be possible to not even create these and save more time.
 + Check memory footprint is actually reduced (run -chemical:one_the_fly true/false to check).
-+ _Maybe_ unify the new ResidueTypeFinder class with classic ResidueTypeSelector.
-+ Should be possible to further accelerate ResidueTypeFinder as it goes down a binary tree to apply patches to find residue_types -- this would require caching a map of which patches apply to which residue_types perhaps in ResidueTypeSet; this is currently done implicitly in name_map().
++ _Maybe_ unify the new [[ResidueTypeFinder]] class with classic ResidueTypeSelector.
++ Should be possible to further accelerate [[ResidueTypeFinder]] as it goes down a binary tree to apply patches to find residue_types -- this would require caching a map of which patches apply to which residue_types perhaps in ResidueTypeSet; this is currently done implicitly in name_map().
 + Rocco and rhiju reintroduced ResidueType::variant_types() and it comes out as a list of std::string, instead of VariantType enum. (Rocco was working before @JWLabonte refactor). will be easy to restore. Should happen after @JWLabonte finishes [pull request #56](https://github.com/RosettaCommons/main/pull/56)
