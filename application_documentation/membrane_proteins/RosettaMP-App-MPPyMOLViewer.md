@@ -7,6 +7,8 @@ A standalone application can also be found in `Rosetta/main/source/src/apps/publ
 
 A demo can also be found in `Rosetta/demos/protocol_captures/mp_pymol_viewer`
 
+Rosetta Revision #58096
+
 ## Background
 Visualizing the membrane bilayer is important for analysis of membrane models and debugging protocols. In particular, we can answer questions about interactions at different hydrophobic layers, membrane embedding, and orientation. This application enables visualization of output Rosetta models with the Rosetta PyMOL viewer. This tool uses the position of the bilayer described by the membrane framework to derive the position of two parallel planes separated by twice the membrane thickness. These planes are modeled as CGO objects in PyMOL and are drawn on-the-fly during simulations. This tool can also be used in real-time during simulations with any JD2-supported Rosetta application using the same set of flags. 
 
@@ -28,7 +30,7 @@ To run the view membrane protein application from generated Rosetta models, use 
 
 
 ## References
-1. Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press - Rosetta Revision #57518
+1. Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press 
 
 2. Baugh EH, Lyskov S, Weitzner BD, Gray JJ (2011) Real-Time PyMOL Visualization for Rosetta and PyRosetta. PLoS ONE 6: e21931.
 
