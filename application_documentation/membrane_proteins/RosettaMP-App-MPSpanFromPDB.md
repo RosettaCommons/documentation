@@ -5,6 +5,8 @@ The spanfile from PDB application can be found in `Rosetta/main/source/src/apps/
 
 A demo for MPSpanFromPDB can be found in `Rosetta/demos/protocol_captures/mp_span_from_pdb`
 
+Rosetta Revision #58069
+
 ## Background
 A spanfile is required by most RosettaMP applications. If the structure of the protein is known, the spanfile can be computed from the structure if the structure is transformed into membrane coordinates. The application considers residues between -15 <= z <= 15 to be in the membrane when they are in a secondary structure element, as predicted with Rosetta's DsspMover. Spans must also be at least 3 residues long - sometimes Dssp predicts several short helices for a single span. Also, this means that shorter helices like the pore helices in potassium channels are considered a span. Further, the distance along the z-axis between start and end residue of the span have to be at least 5 Angstrom: otherwise the span is considered amphipathic and will be disregarded. Shorter spans that have up to 3 residues loop in between (such as kinks or short loops) will be connected if the span direction is the same (in/out or out/in topology) for BOTH spans. If the directions of the two spans are antiparallel, the spans will not be connected because these are considered different spans. 
 
