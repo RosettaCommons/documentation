@@ -5,6 +5,8 @@ The membrane protein refinement application, MPrelax is implemented as a Rosetta
 
 A demo for this application including detailed steps, command lines, and example inputs can be found in `Rosetta/demos/protocol_captures/mp_relax`
 
+Rosetta Revision #58096
+
 ## About
 High-resolution refinement is key for advancing low resolution structures from x-ray
 crystallography to atomic level detail. For membrane proteins, this method can also
@@ -43,7 +45,7 @@ To run this application, use the following command line:
 `./rosetta_scripts.<exe> -database /path/to/my/rosettadb @flags`
 
 ## References
-1. Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press - Rosetta Revision #57518
+1. Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press
 
 2. Tyka MD, Keedy DA, Andre I, DiMaio F, Song Y, et al. (2011) Alternate states of proteins revealed by detailed energy landscape mapping. J Mol Biol. 
 
