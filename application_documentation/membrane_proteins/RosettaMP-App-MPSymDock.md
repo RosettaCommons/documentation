@@ -5,6 +5,8 @@ The membrane symmetric docking application is implemented as a C++ executable an
 
 A demo can be found in `Rosetta/demos/protocol_captures/mp_symdock`
 
+Rosetta Revision #58096
+
 ## Background
 Membrane proteins often assemble into symmetric complexes in the membrane environment. While the exact reason for internal symmetry is still debated, it has been suggested that symmetry enhances proteins stability and avoid traps in the energy landscape during conformational changes needed for function. The symmetric membrane protein-protein docking application combines the symmetry machinery, membrane framework, and symmetric docking application to assemble symmetric complexes in the membrane. 
 
