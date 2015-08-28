@@ -5,6 +5,8 @@ The application can be found at `Rosetta/main/source/src/apps/public/membrane/mp
 
 A demo for the code can be found as part of the MPDock demo in `Rosetta/demos/protocol_captures/mp_dock`
 
+Rosetta Revision #58096
+
 ## Algorithm Description
 This application reads in two membrane protein PDBs and their corresponding spanfiles. Each structure is then separately transformed into membrane coordinates (the scorefunction can be used to optimize each partner) and concatenated into a single PDB output file and a single spanfile. Renumbered spanfiles for each chain are also given. The membrane is fixed with a center of [0, 0, 0] and a normal of [0, 0, 15].
 
@@ -23,7 +25,7 @@ Rosetta/main/source/bin/mp_dock_setup.macosclangrelease \
 
 ## References
 
-1. Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press - Rosetta Revision #57518
+1. Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press
 
 ## Contact
 
