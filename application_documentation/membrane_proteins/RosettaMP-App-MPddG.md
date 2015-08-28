@@ -8,6 +8,8 @@ The developmental version can be found in the Rosetta source code in `source/src
 
 A demo for this application can be found in `Rosetta/demos/protocol_capture/mp_ddG`
 
+Rosetta Revision #58096
+
 ## Background
 Measuring free energy changes upon mutation can inform our understanding of membrane protein stability and variation and is a step toward design. In this application, we predict ddGs by measuring the difference in Rosetta energy for the native and mutated conformation. This application uses a modified version of the all atom energy function for membrane proteins, which includes the fa_elec term and pH energy (see below). The Membrane ddG application is part of the RosettaMP Framework. 
 
@@ -52,7 +54,7 @@ Below is a sample commandline using inputs provided in the 2015 MPddG protocol C
 ```
 
 ## References
-1. Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press - Rosetta Revision #57518
+1. Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press
 
 2. Chaudhury S, Lyskov S, Gray JJ (2010) PyRosetta: a script-based interface for implementing molecular modeling algorithms using Rosetta.
 
