@@ -5,6 +5,8 @@ The executable for MPDock can be found in `Rosetta/main/source/src/apps/public/m
 
 A demo for this application can be found in `Rosetta/demos/protocol_captures/mp_dock`
 
+Rosetta Revision #58096
+
 ## Algorithm Description
 Structure determination of protein-protein complexes in the membrane bilayer is extraordinarily difficult due to the requirement for the membrane mimetic to maintain stability of the complex and because many complexes exceed the molecular weight limit for NMR spectroscopy. We combined RosettaMP with the RosettaDock algorithm to predict structures of protein-protein complexes in the membrane bilayer. The protocol consists of two steps: (1) a prepacking step to create a starting structure, and (2) protein-protein docking in the membrane bilayer. In the pre-packing step, the two partners are first separated by a large distance (keeping their membrane embedding constant), the side chains are repacked using rotamer trials, and the partners are moved back together. Next, the docking step samples random interface conformations using a score function that is created by combining the standard docking score functions with the membrane score terms (both in the low-resolution and all-atom stages). The membrane bilayer is kept fixed during this simulation. 
 
@@ -53,7 +55,7 @@ If the interface score doesn't show up in the scorefile and you want to add it, 
 
 
 ## References
-* Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press - Rosetta Revision #57518
+* Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press 
 
 * Gray, J. J.; Moughon, S.; Wang, C.; Schueler-Furman, O.; Kuhlman, B.; Rohl, C. A.; Baker, D., Protein-protein docking with simultaneous optimization of rigid-body displacement and side-chain conformations. Journal of Molecular Biology 2003, 331, (1), 281-299.
 
