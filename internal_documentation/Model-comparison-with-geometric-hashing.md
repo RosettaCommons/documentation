@@ -18,7 +18,7 @@ An example command line for comparison of model files:
 -sewing:model_file_name pdb.models \
 -sewing:score_file_name pdb.scores \
 -sewing:num_segments_to_match 1 \
--sewing:min_hash_score 20 \
+-sewing:min_hash_score 20 \ (here 20 atoms (N,CA,C,O) should be superimposed between superimposing terminal secondary structures)
 -sewing:max_clash_score 0
 ```
 
