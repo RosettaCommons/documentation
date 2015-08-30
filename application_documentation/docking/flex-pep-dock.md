@@ -187,7 +187,7 @@ Examples
         -database ${rosetta_db} -s start.pdb -native native.pdb
         -out:file:silent decoys.silent -out:file:silent_struct_type binary
         -lowres_abinitio -pep_refine -ex1 -ex2aro -use_input_sc
-        -frag3 <frag3 file> -frag5 <frag5 file> -frag9 <frag9 file>
+        -frag3 <frag3 file> -flexPepDocking:frag5 <frag5 file> -frag9 <frag9 file>
         -nstruct 50000 -unboundrot unbound_receptor.pdb
         ```
     6.  You may rank the model according to the default score (second column in score file). However, our benchmarks indicate that ranking the models according to a new score, called *rewighted-score* , may be helpful (look for the column labeled "reweighted\_sc" in the score file).
