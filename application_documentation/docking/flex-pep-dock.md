@@ -129,7 +129,7 @@ More information on common Rosetta flags can be found in the [[relevant rosetta 
 |-use_input_sc|Include rotamer conformations from the input structure during side-chain repacking. Unlike the -unboundrot flag, not all rotamers from the input structure are added each time to the rotamer library, only those conformations accepted at the end of each round are kept and the remaining conformations are lost.|
 |-ex1/-ex1aro -ex2/-ex2aro -ex3 -ex4|Adding extra side-chain rotamers (highly   recommended). The -ex1 and -ex2aro flags were used in our own tests, and therefore are recommended as default values.|
 |-database|The Rosetta database|
-|-frag3 / -frag5 / -frag9|3mer / 5mer / 9mer fragments files for ab-initio peptide docking (9mer fragments for peptides longer than 9).|
+|-frag3 / -flexPepDocking:frag5 / -frag9|3mer / 5mer / 9mer fragments files for ab-initio peptide docking (9mer fragments for peptides longer than 9).|
 
 III. Expert flags
 -----------------
