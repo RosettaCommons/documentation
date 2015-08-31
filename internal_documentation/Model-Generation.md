@@ -67,6 +67,7 @@ Unless the target backbone to design is random, ModelTrimmer needs to trim model
 -sewing::max_strand_length      Remove any model that has more number of strand residues than this
 -sewing::min_loop_length        Remove any model that has less number of loop residues than this
 -sewing::max_loop_length        Remove any model that has more number of loop residues than this
+-sewing::leave_models_with_E_terminal_ss Remove any model whose two terminal secondary structures are not beta-strands
 -sewing::leave_H_bonded_models_by_terminal_strands Remove any model that is not H-bonded by their terminal beta-strands
 ```
 
