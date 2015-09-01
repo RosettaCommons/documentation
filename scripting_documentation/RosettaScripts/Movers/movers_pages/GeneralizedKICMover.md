@@ -34,7 +34,7 @@ See the [[GeneralizedKIC documentation|GeneralizedKIC]] for details about [[Gene
 
 ##See Also
 
-* [[KicMover]]: Preferred for protein backbones
+* [[KicMover]]: Limited to protein backbones
 * [[RosettaScriptsLoopModeling]]
 * [[Loops file]]: File format for specifying loops for loop modeling
 * [[Loop modeling algorithms|loopmodel-algorithms]]
