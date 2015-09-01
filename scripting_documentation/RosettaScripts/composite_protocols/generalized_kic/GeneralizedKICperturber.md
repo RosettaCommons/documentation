@@ -56,7 +56,7 @@ Certain perturbers or perturber combinations have convenient shorthands.  For ex
 ```
 <GeneralizedKIC ...>
      ...
-     <CloseBond prioratom=&string" prioratom_res=(&int) atom1="&string" res1=(&int) atom2="&string" res2=(&int) followingatom="&string" followingatom_res=(&int) bondlength=(&Real) bondangle1=(&Real) bondangle2=(&Real) torsion=(&Real) randomze_flanking_torsions=(false, &bool) />
+     <CloseBond prioratom=&string" prioratom_res=(&int) atom1="&string" res1=(&int) atom2="&string" res2=(&int) followingatom="&string" followingatom_res=(&int) bondlength=(&Real) angle1=(&Real) angle2=(&Real) torsion=(&Real) randomze_flanking_torsions=(false, &bool) />
      ...
 </GeneralizedKIC>
 ```
