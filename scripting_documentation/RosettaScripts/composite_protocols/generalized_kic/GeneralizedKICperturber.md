@@ -8,6 +8,7 @@
 ## Use within RosettaScripts
 
 Certain types of perturbers operate on residues, and require a list of one or more residues to be specified with **AddResidue** tags.  Other perturbers operate on degrees of freedom defined by sets of atoms, and require that these degrees of freedom be defined with **AddAtoms** tags, which can contain lists of 1, 2, 3, or 4 atoms, depending on the type of degree of freedom.  In both cases, some perturbers also require that one or more values be specified with **AddValues** tags.  Details for particular perturbers are below.  Note that [[shorthands|GeneralizedKICperturber#Shorthands]] exist for certain perturbers or common perturber combinations (see below).  Examples for residue-based and atom-based perturbers are shown here:
+
 ```
 <GeneralizedKIC ...>
      ...
