@@ -17,7 +17,7 @@ A spanfile is required by most RosettaMP applications. If the structure of the p
 Please make sure your protein is transformed into the membrane coordinate frame before running this application. You can do so with either PDBTM database, TMDET server, OPM database, or PPM server. Then run 
 
 ```
-Rosetta/main/source/bin/spanfile_from_pdb.macosclangrelease \
+Rosetta/main/source/bin/mp_span_from_pdb.macosclangrelease \
 -in:file:s 1AFO_tr.pdb \
 ```
 
