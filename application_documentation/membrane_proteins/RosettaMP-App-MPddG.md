@@ -2,9 +2,9 @@
 
 ## Code and Demo
 The membrane ddG application is packaged with PyRosetta. The released version cab be found in: 
-`PyRosetta/app/membrane/predict_ddG.py.`
+`PyRosetta/app/membrane/compute_ddG.py.`
 
-The developmental version can be found in the Rosetta source code in `source/src/python/bindings/app/membrane/predict_ddG.py`
+The developmental version can be found in the Rosetta source code in `source/src/python/bindings/app/membrane/compute_ddG.py`
 
 A demo for this application can be found in `Rosetta/demos/protocol_capture/mp_ddG`
 
@@ -50,8 +50,16 @@ The following options can be used to adjust settings for ∆∆G predictions
 Below is a sample commandline using inputs provided in the 2015 MPddG protocol Capture. In this command, all residues are repacked within 8.0Å of the mutated position and calculations are performed at pH 4: 
 
 ```
-./predict_ddG.py --in_pdb inputs/1qd6_tr.pdb --in_span inputs/1qd6_tr_C.span --res 181 --repack_radius 8.0 --include_pH true --pH_value 4.0 
+./compute_ddG.py --in_pdb inputs/1qd6_tr.pdb --in_span inputs/1qd6_tr_C.span --res 181 --repack_radius 8.0 --include_pH true --pH_value 4.0 
 ```
+
+The columns in the output file are the following: 
+  1. input PDB file
+  2. residue number in pose numbering (should start from 1 in your PDB file)
+  3. amino acid one-letter code of the mutation
+  4. Rosetta score of the native. A more negative number is more stable.
+  5. Rosetta score of the mutant.
+  6. ddG value as the difference between the native and mutant score. Apparently and when I am looking at those numbers, the ddG is computed as native minus mutant where a negative number mean
 
 ## References
 1. Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press
@@ -71,4 +79,3 @@ Questions and comments to:
  - Rebecca F. Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
  - Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
  - Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
-
