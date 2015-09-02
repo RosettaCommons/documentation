@@ -122,7 +122,7 @@ These are movers that should be usable in most cases with most systems
 
 **[[ClearConstraintsMover]]** - Removes constraints from the pose
 
-**[[ConstraintSetMover]]** - Adds constraints to the pose using a constraints file.
+**[[ConstraintSetMover]]** - Adds constraints to the pose using a constraints file
 
 **[[FavorSymmetricSequence|FavorSymmetricSequenceMover]]** - Adds constraints to prefer symmetric sequences
 
