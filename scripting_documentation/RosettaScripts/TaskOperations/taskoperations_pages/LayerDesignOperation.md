@@ -10,7 +10,7 @@ LayerDesign, like all TaskOperations, obeys commutivity: the effect of applying 
 
 Note that this task is ligand compatible.  However, the user should set the ligand to be repackable but not designable with another TaskOperation.
 
-        <LayerDesign name=(&string layer) layer=(&string core_boundary_surface) pore_radius=(&real 2.0) core=(&real 20.0) surface=(&real 40.0) ignore_pikaa_natro=(&bool 0) repack_non_design=(&bool 1) make_rasmol_script=(&bool 0) make_pymol_script=(&bool 0)   >
+        <LayerDesign name=(&string layer) layer=(&string core_boundary_surface) pore_radius=(&real 2.0) core=(&real 20.0) surface=(&real 40.0) ignore_pikaa_natro=(&bool 0) repack_non_design=(&bool 1) make_rasmol_script=(&bool 0) make_pymol_script=(&bool 0) use_sidechain_neighbors=(&bool 0) use_symmetry=(&bool 0) >
             <ATaskOperation name=task1 >
                 <all copy_layer=(&string layer) append=(&string) exclude=(&string)  specification=(&string "designable")  operation=(&string "design") />
                 <SecStructType aas=(&string) append(&string) exclude=(&string) />            
