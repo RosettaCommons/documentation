@@ -2,7 +2,7 @@
 *Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## LayerDesign
 
-Design residues with selected amino acids depending on the enviroment(accessible surface area). The layer of each residue is assigned to one of the three basic layers(core, boundary or surface) depending on the accessible surface area of mainchain + CB.
+Design residues with selected amino acids depending on the enviroment(accessible surface area). The layer of each residue is assigned to one of the three basic layers(core, boundary or surface) depending on the accessible surface area of mainchain + CB, or depending on the number of neighbours in a cone extending along the CA-CB vector (if the use_sidechain_neighbors option is used).
 
 Additional layers can be defined in the xml file by passing another taskoperation to get the residue selection. Only the residues that are marked as designable in the packer task are taken into consideration, any information about the available amino acids/rotamers selected by the taskoperation are not going to be considered. The amino acids to be used in each of this new layers has to be specified in the xml. Several taskoperations can be combined to the intersection between the different sets of designable residues.
 
@@ -141,6 +141,24 @@ Cterm
           </LayerDesign>
 
         </TASKOPERATIONS>
+
+## LayerDesign with Symmetry
+
+In its original implementation, LayerDesign could only work with symmetry if it were passed a symmetry-compatible TaskOperation (e.g. SelectBySASA, used in the example above).  More recently, the ```use_symmetry``` has been added to permit LayerDesign to be symmetry-aware.  If ```use_symmetry``` is set to true, layers are defined for symmetric poses using the full, symmetric pose.  If ```use_symmetry``` is set to false (the default), then the old behaviour is preserved: the asymmetric unit is extracted and used in isolation to set up layers.  Here is a very simple example in which LayerDesign is used to force valine in the core, alanine in the boundary layer, and serine at the surface for a symmetric pose, explicitly considering neighbours that might be in other asymmetric units in the symmetric pose.
+
+```
+<LayerDesign name=layerdes layer=core_boundary_surface use_sidechain_neighbors=true core=2 surface=1 use_symmetry=true >
+    <core>
+        <all aa="V" />
+    </core>
+    <boundary>
+        <all aa="A" />
+    </boundary>
+    <surface>
+        <all aa="S" />
+    </surface>
+</LayerDesign>
+```
 
 ##See Also
 
