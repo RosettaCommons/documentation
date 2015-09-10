@@ -34,6 +34,9 @@ DiMaio et al. describe a framework for efficiently modeling highly symmetric oli
 
 Scoring
 --------------
+
+**See also [[Scorefunction History#publications timeline]]**
+
 * Rohl CA, Strauss CE, Misura KM, Baker D (2004) [Protein structure prediction using Rosetta.](http://www.ncbi.nlm.nih.gov/pubmed/15063647) (pubmed link)  
 Methods in Enzymology.  
 This paper, often called the **Rohl review**, is a window into Rosetta's early scorefunction, and remains an excellent reference for early forms of the score function terms. It can be a little hard to find online, but paper photocopies float around most Rosetta labs.
@@ -187,6 +190,7 @@ Renfrew et al. demonstrate that peptoid residues (N-alkylated or arylated glycin
 * [[Glossary]]: Brief definitions of Rosetta terms
 * [[RosettaEncyclopedia]]: Detailed descriptions of Rosetta terms
 * [[Rosetta Timeline]]: Rosetta releases and other events
+* [[Scorefunction History]]: A history of the Rosetta scorefunction
 
 <!--- This comment is search engine (grep) optimization)
 canon
