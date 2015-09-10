@@ -8,11 +8,29 @@ Rosetta has never relied exclusively on a single scorefunction (except maybe in 
 Publications timeline
 =====================
 _Note: this is all sketchily from memory, if someone reads this, then reads the papers, edit this to confirm its correctness / remove this hatnote_
-* Rohl review 2003/4 (ab initio SFs)
-* Top7 supplemental (design SFs, functionally score12)
-I think a paper of Colin and Tanja's supplemental had good score12 descriptions
-Matt and Andrew's 2013 opte paper
-Talaris??
+
+**See also the [[Rosetta Canon|Rosetta-canon#scoring]]**
+
+* Rohl CA, Strauss CE, Misura KM, Baker D (2004) [Protein structure prediction using Rosetta.](http://www.ncbi.nlm.nih.gov/pubmed/15063647) (pubmed link)  
+Methods in Enzymology.  
+This paper, often called the **Rohl review**, is a window into Rosetta's early scorefunction, and remains an excellent reference for early forms of the score function terms. It can be a little hard to find online, but paper photocopies float around most Rosetta labs.
+
+* Kuhlman B, Dantas G, Ireton GC, Varani G, Stoddard BL, Baker D (2003)  
+[Design of a novel globular protein fold with atomic-level accuracy.] (http://www.ncbi.nlm.nih.gov/pubmed/14631033) (pubmed link)  
+Science 302:1364-8  
+This paper, often called the **Top7 paper**, is primarily a design paper (see below), but is important for scoring as it introduces sequence-related energy terms (reference energies, p_aa_pp, etc), and is the closest reference for "where **score12** came from".
+The supplemental is most relevant for scoring.
+
+* Leaver-Fay A, O'Meara MJ, Tyka M, Jacak R, Song Y, Kellogg EH, Thompson J, Davis IW, Pache RA, Lyskov S, Gray JJ, Kortemme T, Richardson JS, Havranek JJ, Snoeyink J, Baker D, Kuhlman B (2013)  
+[Scientific benchmarks for guiding macromolecular energy function improvement.] (http://www.ncbi.nlm.nih.gov/pubmed/23422428) (pubmed link)  
+Methods Enzymol 523:109-43  
+Leaver-Fay et al. describe OptE, a methodology for using sequence-recovery and rotamer-recovery benchmarks to improve weights sets for scoring functions.  This was used in the next paper...
+
+* O'Meara MJ, Leaver-Fay A, Tyka M, Stein A, Houlihan K, DiMaio F, Bradley P, Kortemme T, Baker D, Snoeyink J, Kuhlman B (2015)
+[A Combined Covalent-Electrostatic Model of Hydrogen Bonding Improves Structure Prediction with Rosetta.](http://www.ncbi.nlm.nih.gov/pubmed/25866491)
+J Chem Theory Comput. 2015;11(2):609-622. PubMed PMID: 25866491
+
+...to generate [[Talaris2013/4|score-types]], the current state-of-the-art general purpose Rosetta energy function.
 
 Scorefunctions timeline
 =======================
