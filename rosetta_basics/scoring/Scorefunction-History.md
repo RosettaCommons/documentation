@@ -7,8 +7,6 @@ Rosetta has never relied exclusively on a single scorefunction (except maybe in 
 
 Publications timeline
 =====================
-_Note: this is all sketchily from memory, if someone reads this, then reads the papers, edit this to confirm its correctness / remove this hatnote_
-
 **See also the [[Rosetta Canon|Rosetta-canon#scoring]]**
 
 * Rohl CA, Strauss CE, Misura KM, Baker D (2004) [Protein structure prediction using Rosetta.](http://www.ncbi.nlm.nih.gov/pubmed/15063647) (pubmed link)  
@@ -46,14 +44,12 @@ Scorefunctions timeline
 
 ##See Also
 
-* [[Development tutorials home page|devel-tutorials]]
-* [[Development Documentation]]: The development documentation home page
-* [[Score functions and score terms|score-types]]
-* [[Additional score terms|score-types-additional]]
 * [[Scoring explained]]
 * [[Units in Rosetta]]: Gives a description of Rosetta energy units
 * [[Hydrogen bond energy term|hbonds]]
+* [[Score functions and score terms|score-types]]
+* [[Additional score terms|score-types-additional]]
 * [[Scorefunctions for noncanonical residues and molecules|NC-scorefunction-info]]
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
-* [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
-* [[Glossary]]: Defines key Rosetta terms
+* [[Rosetta Canon]]: Landmark Rosetta papers
+* [[Rosetta Timeline]]: Rosetta releases and other events
