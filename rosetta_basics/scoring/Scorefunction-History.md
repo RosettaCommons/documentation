@@ -25,7 +25,7 @@ Methods Enzymol 523:109-43
 Leaver-Fay et al. describe OptE, a methodology for using sequence-recovery and rotamer-recovery benchmarks to improve weights sets for scoring functions.  This was used in the next paper...
 
 * O'Meara MJ, Leaver-Fay A, Tyka M, Stein A, Houlihan K, DiMaio F, Bradley P, Kortemme T, Baker D, Snoeyink J, Kuhlman B (2015)  
-[A Combined Covalent-Electrostatic Model of Hydrogen Bonding Improves Structure Prediction with Rosetta.](http://www.ncbi.nlm.nih.gov/pubmed/25866491)  
+[A Combined Covalent-Electrostatic Model of Hydrogen Bonding Improves Structure Prediction with Rosetta.](http://www.ncbi.nlm.nih.gov/pubmed/25866491) (pubmed link)  
 J Chem Theory Comput. 2015;11(2):609-622. PubMed PMID: 25866491  
 ...to generate [[Talaris2013/4|score-types]], the current state-of-the-art general purpose Rosetta energy function.
 
@@ -33,13 +33,13 @@ Scorefunctions timeline
 =======================
 *Rosetta2 / pre-score12 days -- ????
 
-***Score12** was the gold standard from the beginning of the Rosetta3 era up until the release of Talaris13.  This is substantially similar to the scorefunction discussed in the [[Top7 paper|Glossary#top7-top7-paper]] above.  The 12 has no particular meaning - it was the 12th scorefunction listed in the database.
+* **Score12** was the gold standard from the beginning of the Rosetta3 era up until the release of Talaris13.  This is substantially similar to the scorefunction discussed in the [[Top7 paper|Glossary#top7-top7-paper]] above.  The 12 has no particular meaning - it was the 12th scorefunction listed in the database.
 
-***Score12_correct** was widely discussed at [[RosettaCON|Glossary#RosettaCON]]s for several years running as a collection of terms to improve Score12's performance.  It was never adopted wholesale.
+* **Score12_correct** was widely discussed at [[RosettaCON|Glossary#RosettaCON]]s for several years running as a collection of terms to improve Score12's performance.  It was never adopted wholesale.
 
-***Talaris13** was the result of a meeting (held at a hotel named Talaris) where the community used [[OptE|opt-e-parallel-doc]] and many new scorefunction tests to try to improve on Score12.
+* **Talaris13** was the result of a meeting (held at a hotel named Talaris) where the community used [[OptE|opt-e-parallel-doc]] and many new scorefunction tests to try to improve on Score12.
 
-***Talaris14** is an error-correction of Talaris13 - the weights are (ANDREW FILL THIS IN) (_I think energies were too small/large relative to the Monte Carlo temperatures, so all terms were rescaled to correct temperature.  One energy term was fixed to a new weight as a mistake correction.)_
+* **Talaris14** is an error-correction of Talaris13 - the weights are (ANDREW FILL THIS IN) (_I think energies were too small/large relative to the Monte Carlo temperatures, so all terms were rescaled to correct temperature.  One energy term was fixed to a new weight as a mistake correction.)_
 
 ##See Also
 
