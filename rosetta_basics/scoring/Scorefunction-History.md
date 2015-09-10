@@ -27,7 +27,6 @@ Leaver-Fay et al. describe OptE, a methodology for using sequence-recovery and r
 * O'Meara MJ, Leaver-Fay A, Tyka M, Stein A, Houlihan K, DiMaio F, Bradley P, Kortemme T, Baker D, Snoeyink J, Kuhlman B (2015)
 [A Combined Covalent-Electrostatic Model of Hydrogen Bonding Improves Structure Prediction with Rosetta.](http://www.ncbi.nlm.nih.gov/pubmed/25866491)
 J Chem Theory Comput. 2015;11(2):609-622. PubMed PMID: 25866491
-
 ...to generate [[Talaris2013/4|score-types]], the current state-of-the-art general purpose Rosetta energy function.
 
 Scorefunctions timeline
