@@ -1,11 +1,15 @@
 ##Dictionary
 * atom: A collection of xyz coordinates and element
 
+* InterModelMotifScore: A type of MotifScore, but it is calculated only between non-adjacent models. Without consideration of this 'InterModelMotifScore', the "best" assembled model would be just linear helices etc. With this 'InterModelMotifScore' in mind, the "best" assembled model would be more globular-like.
+
 * linker segments: When there are 5 secondary structures in each model, 3 middle secondary structures are "linker segments". 2 N-terminal/C-terminal secondary structures are not "linker segments".
 
 * model: A node that can be connected by edges. A collection of segments. Generally, 2-5 pieces of segment constitute the model. Currently for continuous SEWING, 3 pieces of secondary structures called smotif (like HLH, or HLE) is a model (5 pieces of secondary structures as a model for continuous SEWING are in active development). Defined as struct whose elements are model_id, pdb_code, structure_id, distance, hoist_angle, packing_angle and meridian_angle. 
 
-* motif: Designability score. Basically it shows that how well hydrophobic parts of secondary structures are well pack with each other. Will Sheffler in Baker lab made this.
+* MotifScore: Designability score. Basically it shows that how well hydrophobic parts of secondary structures are well pack with each other. Will Sheffler in Baker lab made this.
+
+* PartnerMotifScore:  A type of MotifScore, but it will not be calculated in monomer design
 
 * residue: composition (seq_pos, residue_type, chi angles)
 
