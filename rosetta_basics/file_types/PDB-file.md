@@ -9,6 +9,7 @@ The major records read are the ATOM and HETATM records that define atom coordina
 
 Most other records are ignored.
 
+One point of confusion for new users concerns the treatment of PDB residue IDs in Rosetta. Residue IDs are represented in columns 23-27 of a PDB file (the sequence number and insertion code) for the appropriate records _e.g._ ATOM, HETATM, _etc._ When a PDB file is read into Rosetta, this residue numbering is represented internally as a sequential list of integer IDs (no insertion codes) starting with the ID 1. In some cases, this numbering coincides with the PDB numbering but in general it does not. Some of the Rosetta input files use PDB numbering and some use Rosetta numbering so it is important to realize which numbering scheme each input file expects. On a related note, Rosetta may keep or discard certain atoms (_e.g._ those with zero occupancy) or residues (_e.g._ those without the required backbone atoms) depending on the command flags passed which should be borne in mind.
 
 TODO: Insert comments about the specialty usage of other records
 
