@@ -5,7 +5,7 @@ Metadata
 
 Author: Steven Lewis, P. Ben Stranges, Jared Adolf-Bryfogle
 
-Last updated 1/10/15 by Jared Adolf-Bryfogle. The PI is Brian Kuhlman, [bkuhlman@email.unc.edu](#) .
+Last updated 9/10/15 by Jared Adolf-Bryfogle. The PI is Brian Kuhlman, [bkuhlman@email.unc.edu](#) .
 
 Code and Demo
 =============
