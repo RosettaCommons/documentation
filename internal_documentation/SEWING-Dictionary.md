@@ -1,6 +1,8 @@
 ##Dictionary
 * atom: A collection of xyz coordinates and element
 
+* cycle (during assembly of models): “cycle iteration” requires a monte carlo accept (not just a trial). For example, if the cycle # is set to 50,000, the actual number of trials of model assembly would be even much larger than "cycle #".
+
 * InterModelMotifScore: A type of MotifScore, but it is calculated only between non-adjacent models. Without consideration of this 'InterModelMotifScore', the "best" assembled model would be just linear helices etc. With this 'InterModelMotifScore' in mind, the "best" assembled model would be more globular-like.
 
 * linker segments: When there are 5 secondary structures in each model, 3 middle secondary structures are "linker segments". 2 N-terminal/C-terminal secondary structures are not "linker segments".
