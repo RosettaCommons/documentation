@@ -10,7 +10,7 @@ LayerDesign, like all TaskOperations, obeys commutivity: the effect of applying 
 
 Note that this task is ligand compatible.  However, the user should set the ligand to be repackable but not designable with another TaskOperation.
 
-        <LayerDesign name=(&string layer) layer=(&string core_boundary_surface) pore_radius=(&real 2.0) core=(&real 20.0) surface=(&real 40.0) ignore_pikaa_natro=(&bool 0) repack_non_design=(&bool 1) make_rasmol_script=(&bool 0) make_pymol_script=(&bool 0) use_sidechain_neighbors=(&bool 0) use_symmetry=(&bool 0) >
+        <LayerDesign name=(&string layer) layer=(&string core_boundary_surface) pore_radius=(&real 2.0) core=(&real 20.0) surface=(&real 40.0) ignore_pikaa_natro=(&bool 0) repack_non_design=(&bool 1) make_rasmol_script=(&bool 0) make_pymol_script=(&bool 0) use_sidechain_neighbors=(&bool 0) use_symmetry=(&bool 1) >
             <ATaskOperation name=task1 >
                 <all copy_layer=(&string layer) append=(&string) exclude=(&string)  specification=(&string "designable")  operation=(&string "design") />
                 <SecStructType aas=(&string) append(&string) exclude=(&string) />            
@@ -144,7 +144,7 @@ Cterm
 
 ## LayerDesign with Symmetry
 
-In its original implementation, LayerDesign could only work with symmetry if it were passed a symmetry-compatible TaskOperation (e.g. SelectBySASA, used in the example above).  More recently, the ```use_symmetry``` option has been added to permit LayerDesign to be symmetry-aware.  If ```use_symmetry``` is set to true, layers are defined for symmetric poses using the full, symmetric pose.  If ```use_symmetry``` is set to false (the default), then the old behaviour is preserved: the asymmetric unit is extracted and used in isolation to set up layers.  Here is a very simple example in which LayerDesign is used to force valine in the core, alanine in the boundary layer, and serine at the surface for a symmetric pose, explicitly considering neighbours that might be in other asymmetric units in the symmetric pose.
+In its original implementation, LayerDesign could only work with symmetry if it were passed a symmetry-compatible TaskOperation (e.g. SelectBySASA, used in the example above).  More recently, the ```use_symmetry``` option has been added to permit LayerDesign to be symmetry-aware.  If ```use_symmetry``` is set to true (the default), layers are defined for symmetric poses using the full, symmetric pose.  If ```use_symmetry``` is set to false, then the old behaviour is preserved: the asymmetric unit is extracted and used in isolation to set up layers.  Here is a very simple example in which LayerDesign is used to force valine in the core, alanine in the boundary layer, and serine at the surface for a symmetric pose, explicitly considering neighbours that might be in other asymmetric units in the symmetric pose.
 
 ```
 <LayerDesign name=layerdes layer=core_boundary_surface use_sidechain_neighbors=true core=2 surface=1 use_symmetry=true >
