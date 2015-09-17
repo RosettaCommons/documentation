@@ -59,6 +59,9 @@ Long-range backbone-backbone hydrogen bonding energy term
 
 #####rg_local
 
+#####STRAND_STRAND_WEIGHTS
+First value = ss_lowstrand If 1, scores distance between strands; if 0, does not appear to (?)
+Second value = ss_cutoff; cutoff *sequence* distance between strands to be considered nonlocal (local strands get less of a score bonus for pairing)
 ###"Smooth" terms
 Centroid score terms that have been optimized with smoothed data and a larger dataset than the original.
 #####cen_env_smooth
@@ -93,11 +96,18 @@ Dunbrack term for centroid rotamer modeling. Scores internal energy of centroid 
 
 #####cen_std
 #####score0
+Score function used in the first stage of the ClassicAbInitio protocol. It is intended for use with fragment insertion; the only active term is a low vdw (repulsive) weight to penalize clashes, and the fragments themselves are intended to provide the majority of the information.
+
 #####score1
+Score function used in the second stage of the ClassicAbInitio protocol. 
 #####score2
+Score function used in the third stage of the ClassicAbInitio protocol. 
 #####score3
+Score function used in the fourth stage of the ClassicAbInitio protocol. 
 #####score4
+While there is no base score4 score function, it is available as a patch and in smooth and cenrot versions. It introduces hydrogen bonding terms (hbond_lr_bb and hbond_sr_bb) and a rama term (ramachandran probability-based scores for residues based on phi/psi angles).
 #####score5
+Score function used in the third stage of the ClassicAbInitio protocol. Nearly identical to score2, but uses different STRAND_STRAND_WEIGHTS (1 11 for score2, 1 6 for score5)
 #####RS_centroid
 #####abinitio_remodel_cen
 #####remodel_cen
