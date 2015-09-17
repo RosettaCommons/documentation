@@ -198,7 +198,7 @@ Sets all of the standard centroid score term weights to their values in the list
 The best centroid score function for your protocol will (of course) be protocol-dependent.
 * Score3 is commonly used and includes most of the common centroid score terms. 
 * Centroid docking should use the interchain_cen score function or the docking_cen patch. 
-* The score4L patch incorporates ramachandran space and backbone-backbone hydrogen bonding, which will be especially useful for protocols that are not as heavily dependent on fragment insertion.
+* Centroid score functions/patches with a rama term (e.g. RS_centroid or the score4L patch) are especially useful for protocols that are not heavily dependent on fragment insertion (e.g. RS_centroid is used in the CentroidRelaxMover).
 
 
 
