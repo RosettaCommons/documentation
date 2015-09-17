@@ -62,7 +62,7 @@ Long-range backbone-backbone hydrogen bonding energy term
 #####cenpack
 
 #####STRAND_STRAND_WEIGHTS
-First value:  Boolean (0 or 1). If 1, includes a distance score term for strand pairing. 
+First value:  Set to 0 or 1 (all values > 0.5 treated as 1). If 1, includes a distance score term for strand pairing. 
 
 Second value: cutoff *sequence* distance between strands to be considered nonlocal (local strands get less of a score bonus for pairing).
 
