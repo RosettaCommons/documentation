@@ -27,7 +27,7 @@ The rg term favors compact structures and is calculated as the root mean square 
 The cbeta term is another solvation term intended to correct for the excluded volume effect introduced by the simulation and favor compact structures. It is based on the ratio of probabilities of a residue having a given number of neighbors in a compact structure vs. random coil and summed over all residues.
 
 #####vdw
-The vdw term represents **only steric repulsion** and not attractive van der Waals forces (those are modeled in terms rewarding compact structures, such as the rg term; local interactions are implicitly included from [[fragments|fragments-file]]). It is calculated over pairs of atoms only in cases where:
+The vdw term represents **only steric repulsion** and not attractive van der Waals forces (those are modeled in terms rewarding compact structures, such as the rg term; local interactions are implicitly included from [[fragments|fragment-file]]). It is calculated over pairs of atoms only in cases where:
 1. the interatomic distance is less than the sum of the atoms' van der Waals radii, and 
 2. the interatomic distance does not depend on the torsion angles of a single residue.
 
