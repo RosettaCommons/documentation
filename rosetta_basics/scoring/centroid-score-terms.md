@@ -77,10 +77,14 @@ These terms are commonly used in centroid docking protocols.
 ###Cen_rot terms
 These terms are used in conjunction with centroid rotamer modeling (see the [[CenRotModel]] page)
 #####cen_rot_env
+See [[env|centroid-score-terms#env]]
 #####cen_rot_pair
+See [[pair|centroid-score-terms#pair]]
 #####cen_rot_pair_ang
 #####cen_rot_cbeta
+See [[cbeta|centroid-score-terms#cbeta]]
 #####cen_rot_dun
+Dunbrack term for centroid rotamer modeling. See 
 
 ##Centroid score functions
 
