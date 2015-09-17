@@ -75,16 +75,17 @@ These terms are commonly used in centroid docking protocols.
 #####interchain_contact
 
 ###Cen_rot terms
-These terms are used in conjunction with centroid rotamer modeling (see the [[CenRotModel]] page)
+These terms are used in conjunction with centroid rotamer modeling (see the [[CenRotModel]] page). **NOTE**: To use these terms, you must load the centroid rotamer library using the `-corrections:score:cenrot` flag.
 #####cen_rot_env
 See [[env|centroid-score-terms#env]]
 #####cen_rot_pair
 See [[pair|centroid-score-terms#pair]]
 #####cen_rot_pair_ang
+???
 #####cen_rot_cbeta
 See [[cbeta|centroid-score-terms#cbeta]]
 #####cen_rot_dun
-Dunbrack term for centroid rotamer modeling. See 
+Dunbrack term for centroid rotamer modeling. Scores internal energy of centroid rotamers.
 
 ##Centroid score functions
 
