@@ -91,6 +91,7 @@ Lazaridis, T. and M. Karplus, _Effective energy function for proteins in solutio
 
 * [[Scoring explained]]
 * [[Additional score terms|score-types-additional]]
+* [[Centroid score terms]]
 * [[Units in Rosetta]]: Gives a description of Rosetta energy units
 * [[AACompositionEnergy]]
 * [[Hydrogen bond energy term|hbonds]]
