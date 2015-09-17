@@ -169,7 +169,9 @@ Very coarse score function used in SlidingWindowLoopClosure. Includes only env, 
 Used for centroid docking of membrane proteins
 #####mpframework_symdock_cen_2015
 Used for centroid symmetric docking of membrane proteins
-###Modifiers
+
+###Variants
+
 These may be seen as suffixes appended to the name of a score function. Some other suffixes (relax, design, etc.) may also appear; these indicate the protocol for which the score function is intended.
 #####smooth
 These score functions use the optimized "smooth" centroid weights described above.
