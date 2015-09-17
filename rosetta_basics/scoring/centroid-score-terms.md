@@ -94,6 +94,18 @@ See [[cbeta|centroid-score-terms#cbeta]]
 #####cen_rot_dun
 Dunbrack term for centroid rotamer modeling. Scores internal energy of centroid rotamers.
 
+
+###Membrane centroid weights
+These score terms are specialized for use with membrane proteins and appear in membrane-specific score functions.
+#####mp_pair
+See pair term above.
+#####mp_env
+See env term above.
+#####mp_cbeta
+See cbeta term above.
+#####*mp_nonhelix*
+#####*mp_termini*
+#####*mp_tmproj*
 ##Centroid score functions
 
 ###Base score functions
@@ -133,14 +145,19 @@ Score function used in the third stage of the ClassicAbInitio protocol. Nearly i
 #####mpdocking_cen_14-7-23_no-penalties
 #####mpdocking_cen_14-7-25_low-penalties
 #####mpframework_docking_cen_2015
+Used for centroid docking of membrane proteins
 #####mpframework_symdock_cen_2015
+Used for centroid symmetric docking of membrane proteins
 ###Modifiers
-
+These may be seen as suffixes appended to the name of a score function. Some other suffixes (relax, design, etc.) may also appear; these indicate the protocol for which the score function is intended.
 #####smooth
+These score functions use the optimized "smooth" centroid weights described above.
 #####cenrot
+These score functions are intended for use with centroid rotamer modeling (see the cen_rot terms section above).
 #####rob
+These score functions/patches have increased repulsive (vdw) weights.
 #####cartmin/cart
-#####relax
+These score functions/patches are intended for use with cartesian minimization and have the cart_bonded weight set.
 
 ###Patches
 
@@ -149,3 +166,4 @@ Score function used in the third stage of the ClassicAbInitio protocol. Nearly i
 * [[Scoring explained]]
 * [[Score types]]
 * [[Centroid vs fullatom]]
+* [[CenRotModel]]
