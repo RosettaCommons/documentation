@@ -2,8 +2,6 @@
 
 ###NOTE: This is not a complete listing of centroid score terms. Please expand if you have more information!
 
-[[_TOC_]]
-
 ##Score terms
 
 ###Base terms
