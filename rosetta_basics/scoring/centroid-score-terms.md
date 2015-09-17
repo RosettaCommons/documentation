@@ -35,11 +35,10 @@ It is often used with the STRAND_STRAND_WEIGHTS statement (e.g. `STRAND_STRAND_W
 * First value:  Set to 0 or 1 (all values > 0.5 treated as 1). If 1, includes a distance score term for strand pairing. 
 * Second value: cutoff *sequence* distance between strands to be considered nonlocal (local strands get less of a score bonus for pairing). ([[Rohl et al. 2004|Rosetta-canon#scoring]])
 
-###Other common centroid score terms
-
 ##### sheet
 The sheet term favors the arrangement of individual beta strands into sheets. It is derived from the probability that a structure with a given number of beta strands will have the current number of beta sheets and lone beta strands. ([[Rohl et al. 2004|Rosetta-canon#scoring]])
 
+###Other common centroid score terms
 
 #####rsigma
 Scores strand pairs based on the distance between them and the register of the two strands. ([[Shmygelska and Levitt 2008|http://www.pnas.org/content/106/5/1415.full.pdf]])
