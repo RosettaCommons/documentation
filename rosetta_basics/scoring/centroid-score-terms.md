@@ -60,7 +60,7 @@ Long-range backbone-backbone hydrogen bonding energy term
 #####rg_local
 
 ###"Smooth" terms
-
+Centroid score terms that have been optimized with smoothed data and a larger dataset than the original.
 #####cen_env_smooth
 #####cen_pair_smooth
 #####cenpack_smooth
