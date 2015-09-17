@@ -36,6 +36,7 @@
     *  [[Orbitals Scorefunction | NC-scorefunction-info#Partial-Covalent-Interactions-Energy-Function-(Orbitals)]]
     *  [[Additional score types | score-types-additional]]
     *  [[Hydrogen bonding score term|hbonds]]
+    *  [[Centroid score terms]]
 
 - [[Symmetry]]
 
