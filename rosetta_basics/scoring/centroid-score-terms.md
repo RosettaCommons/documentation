@@ -147,8 +147,9 @@ Score function used in the third stage of the ClassicAbInitio protocol. Nearly i
 #####remodel_cen
 #####fldsgn_cen
 #####interchain_cen
+Commonly used in centroid docking; basically cen_std, but only evaluated between two chains and not within a single chain.
 #####loop_fragsample
-
+Very coarse score function used in SlidingWindowLoopClosure. Includes only env, pair, and vdw centroid terms plus the linear_chainbreak and overlap_chainbreak terms.
 ###Special cases
 
 ####RNA
