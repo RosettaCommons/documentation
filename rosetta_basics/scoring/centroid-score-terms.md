@@ -135,7 +135,7 @@ Score function used in the first stage of the ClassicAbInitio protocol. It is in
 #####score1
 Score function used in the second stage of the ClassicAbInitio protocol. Uses the env, pair, vdw, hs_pair, and sheet terms with equal weights and the ss_pair term with a lower weight.
 #####score2
-Score function used in the third stage of the ClassicAbInitio protocol. 
+Score function used in the third stage of the ClassicAbInitio protocol. Relative to score1, it turns on the cbeta and cenpack terms at low weights and upweights the ss_pair term. It also decreases the sequence distance cutoff for STRAND_STRAND_WEIGHTS from 11 to 6.
 #####score3
 Score function used in the fourth stage of the ClassicAbInitio protocol. Upweights the cbeta and cenpack terms and turns on the rg and rsigma terms. Sets the value of ss_lowstrand (from STRAND_STRAND_WEIGHTS) to 0 (no distance score for strand pairs).
 #####score4
@@ -177,6 +177,16 @@ These score functions/patches have increased repulsive (vdw) weights.
 These score functions/patches are intended for use with cartesian minimization and have the cart_bonded weight set.
 
 ###Patches
+
+##Which score function should I use?
+The best centroid score function for your protocol will (of course) be protocol-dependent.
+* Score3 is commonly used and includes most of the common centroid score terms. 
+* Centroid docking typically uses the interchain_cen score function. 
+* The score4L patch incorporates ramachandran space and backbone-backbone hydrogen bonding, which will be especially useful for protocols that are not as heavily dependent on fragment insertion.
+
+
+
+
 
 ##See Also
 
