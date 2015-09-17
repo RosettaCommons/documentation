@@ -59,8 +59,10 @@ Long-range backbone-backbone hydrogen bonding energy term
 
 #####rg_local
 
+#####cenpack
+
 #####STRAND_STRAND_WEIGHTS
-First value = ss_lowstrand If 1, scores distance between strands; if 0, does not appear to (?)
+First value = ss_lowstrand If 1, scores based on distance between strands; if 0, just scores whether or not they are paired 
 Second value = ss_cutoff; cutoff *sequence* distance between strands to be considered nonlocal (local strands get less of a score bonus for pairing)
 ###"Smooth" terms
 Centroid score terms that have been optimized with smoothed data and a larger dataset than the original.
@@ -95,6 +97,7 @@ Dunbrack term for centroid rotamer modeling. Scores internal energy of centroid 
 ###Base score functions
 
 #####cen_std
+Centroid score function that uses only the env, pair, cbeta, and vdw score terms with equal weights. 
 #####score0
 Score function used in the first stage of the ClassicAbInitio protocol. It is intended for use with fragment insertion; the only active term is a low vdw (repulsive) weight to penalize clashes, and the fragments themselves are intended to provide the majority of the information.
 
@@ -103,11 +106,11 @@ Score function used in the second stage of the ClassicAbInitio protocol.
 #####score2
 Score function used in the third stage of the ClassicAbInitio protocol. 
 #####score3
-Score function used in the fourth stage of the ClassicAbInitio protocol. 
+Score function used in the fourth stage of the ClassicAbInitio protocol. Upweights the cbeta and cenpack terms and turns on the rg and rsigma terms. Sets the value of ss_lowstrand (from STRAND_STRAND_WEIGHTS) to 0 (no distance score for strand pairs).
 #####score4
 While there is no base score4 score function, it is available as a patch and in smooth and cenrot versions. It introduces hydrogen bonding terms (hbond_lr_bb and hbond_sr_bb) and a rama term (ramachandran probability-based scores for residues based on phi/psi angles).
 #####score5
-Score function used in the third stage of the ClassicAbInitio protocol. Nearly identical to score2, but uses different STRAND_STRAND_WEIGHTS (1 11 for score2, 1 6 for score5)
+Score function used in the third stage of the ClassicAbInitio protocol. Nearly identical to score2, but uses different STRAND_STRAND_WEIGHTS cutoff (see above)
 #####RS_centroid
 #####abinitio_remodel_cen
 #####remodel_cen
