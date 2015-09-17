@@ -16,7 +16,10 @@ The `env` score term is a context-dependent one-body energy term that describes 
 The `pair` score term is a two-body energy term for residue pair interactions (electrostatics and disulfide bonds). For each pair of residues, it is based on the probability that *both* of these two residues will have their specified types given their sequence separation and the physical distance between them, normalized by the product of the probabilities that *each* residue will have its specified type given the same information.
 
 ##### ss_pair
-The ss_pair term describes hydrogen bonding between beta strands.
+The ss_pair term describes hydrogen bonding between beta strands. 
+It is used with the STRAND_STRAND_WEIGHTS statement (e.g. `STRAND_STRAND_WEIGHTS 1 6`):
+* First value:  Set to 0 or 1 (all values > 0.5 treated as 1). If 1, includes a distance score term for strand pairing. 
+* Second value: cutoff *sequence* distance between strands to be considered nonlocal (local strands get less of a score bonus for pairing).
 
 ##### sheet
 The sheet term favors the arrangement of individual beta strands into sheets. It is derived from the probability that a structure with a given number of beta strands will have the current number of beta sheets and lone beta strands.
@@ -61,10 +64,7 @@ Long-range backbone-backbone hydrogen bonding energy term
 
 #####cenpack
 
-#####STRAND_STRAND_WEIGHTS
-First value:  Set to 0 or 1 (all values > 0.5 treated as 1). If 1, includes a distance score term for strand pairing. 
 
-Second value: cutoff *sequence* distance between strands to be considered nonlocal (local strands get less of a score bonus for pairing).
 
 ###"Smooth" terms
 Centroid score terms that have been optimized with smoothed data and a larger dataset than the original.
@@ -133,7 +133,7 @@ Centroid score function that uses only the env, pair, cbeta, and vdw score terms
 Score function used in the first stage of the ClassicAbInitio protocol. It is intended for use with fragment insertion; the only active term is a low vdw (repulsive) weight to penalize clashes, and the fragments themselves are intended to provide the majority of the information.
 
 #####score1
-Score function used in the second stage of the ClassicAbInitio protocol. 
+Score function used in the second stage of the ClassicAbInitio protocol. Uses the env, pair, vdw, hs_pair, and sheet terms with equal weights and the ss_pair term with a lower weight.
 #####score2
 Score function used in the third stage of the ClassicAbInitio protocol. 
 #####score3
