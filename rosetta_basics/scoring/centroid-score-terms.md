@@ -145,12 +145,13 @@ Score function used in the third stage of the ClassicAbInitio protocol. Nearly i
 #####RS_centroid
 Formerly score6. Introduces a rama term, turns off scoring of rg, rsigma, sheet, and hs_pair, and reweights several terms (increases cenpack and cbeta; decreases pair, ss_pair, and vdw).
 ###Application-specific
+These score functions are intended for use with a particular protocol or type of sampling.
 #####interchain_cen
 Commonly used in centroid docking; basically cen_std, but only evaluated between two chains and not within a single chain.
 #####loop_fragsample
 Very coarse score function used in SlidingWindowLoopClosure. Includes only env, pair, and vdw centroid terms plus the linear_chainbreak and overlap_chainbreak terms.
-#####abinitio_remodel_cen
 #####remodel_cen
+#####abinitio_remodel_cen
 #####fldsgn_cen
 
 ###Special cases
