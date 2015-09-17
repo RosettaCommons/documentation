@@ -62,8 +62,10 @@ Long-range backbone-backbone hydrogen bonding energy term
 #####cenpack
 
 #####STRAND_STRAND_WEIGHTS
-First value = ss_lowstrand If 1, scores based on distance between strands; if 0, just scores whether or not they are paired 
-Second value = ss_cutoff; cutoff *sequence* distance between strands to be considered nonlocal (local strands get less of a score bonus for pairing)
+First value:  Boolean (0 or 1). If 1, includes a distance score term for strand pairing. 
+
+Second value: cutoff *sequence* distance between strands to be considered nonlocal (local strands get less of a score bonus for pairing).
+
 ###"Smooth" terms
 Centroid score terms that have been optimized with smoothed data and a larger dataset than the original.
 #####cen_env_smooth
