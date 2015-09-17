@@ -1,6 +1,6 @@
 #Centroid score terms and score functions in Rosetta
 
-###NOTE: This is not a complete listing of centroid score terms. Please expand if you have more information!
+###Please expand this page if you have more information!
 
 ##Score terms
 
