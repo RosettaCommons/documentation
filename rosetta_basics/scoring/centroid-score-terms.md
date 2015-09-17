@@ -5,64 +5,61 @@
 ##Score terms
 
 ###Base terms
-
-The following information is adapted from [[Rohl et al. 2004|Rosetta-canon#scoring]]:
-
+These centroid score terms appear in the score0-score5 score functions used in the Abinitio protocol.
 
 ##### env
-The `env` score term is a context-dependent one-body energy term that describes the solvation of a particular residue (based on the hydrophobic effect). It is based on the probability of a residue having the specified type given its number of neighboring residues.
+The `env` score term is a context-dependent one-body energy term that describes the solvation of a particular residue (based on the hydrophobic effect). It is based on the probability of a residue having the specified type given its number of neighboring residues. ([[Rohl et al. 2004|Rosetta-canon#scoring]])
 
 ##### pair
-The `pair` score term is a two-body energy term for residue pair interactions (electrostatics and disulfide bonds). For each pair of residues, it is based on the probability that *both* of these two residues will have their specified types given their sequence separation and the physical distance between them, normalized by the product of the probabilities that *each* residue will have its specified type given the same information.
+The `pair` score term is a two-body energy term for residue pair interactions (electrostatics and disulfide bonds). For each pair of residues, it is based on the probability that *both* of these two residues will have their specified types given their sequence separation and the physical distance between them, normalized by the product of the probabilities that *each* residue will have its specified type given the same information. ([[Rohl et al. 2004|Rosetta-canon#scoring]])
+
+##### cbeta
+The cbeta term is another solvation term intended to correct for the excluded volume effect introduced by the simulation and favor compact structures. It is based on the ratio of probabilities of a residue having a given number of neighbors in a compact structure vs. random coil and summed over all residues. ([[Rohl et al. 2004|Rosetta-canon#scoring]])
+
+#####vdw
+The vdw term represents **only steric repulsion** and not attractive van der Waals forces (those are modeled in terms rewarding compact structures, such as the rg term; local interactions are implicitly included from [[fragments|fragment-file]]). It is calculated over pairs of atoms only in cases where:
+1. the interatomic distance is less than the sum of the atoms' van der Waals radii, and 
+2. the interatomic distance does not depend on the torsion angles of a single residue. ([[Rohl et al. 2004|Rosetta-canon#scoring]])
+
+#####rg
+The rg term favors compact structures and is calculated as the root mean square distance between residue centroids. ([[Rohl et al. 2004|Rosetta-canon#scoring]])
+
+#####cenpack
+
+##### hs_pair
+The hs_pair term describes packing between strands and helices. It is based on the probability that two pairs of residues (1 pair in the sheet and 1 pair in the helix) will have their current dihedral angles given the separation (in sequence and physical distance) between the helix and the strand. ([[Rohl et al. 2004|Rosetta-canon#scoring]])
 
 ##### ss_pair
 The ss_pair term describes hydrogen bonding between beta strands. 
 It is often used with the STRAND_STRAND_WEIGHTS statement (e.g. `STRAND_STRAND_WEIGHTS 1 6`):
 * First value:  Set to 0 or 1 (all values > 0.5 treated as 1). If 1, includes a distance score term for strand pairing. 
-* Second value: cutoff *sequence* distance between strands to be considered nonlocal (local strands get less of a score bonus for pairing).
+* Second value: cutoff *sequence* distance between strands to be considered nonlocal (local strands get less of a score bonus for pairing). ([[Rohl et al. 2004|Rosetta-canon#scoring]])
+
+###Other common centroid score terms
 
 ##### sheet
-The sheet term favors the arrangement of individual beta strands into sheets. It is derived from the probability that a structure with a given number of beta strands will have the current number of beta sheets and lone beta strands.
+The sheet term favors the arrangement of individual beta strands into sheets. It is derived from the probability that a structure with a given number of beta strands will have the current number of beta sheets and lone beta strands. ([[Rohl et al. 2004|Rosetta-canon#scoring]])
 
-##### hs_pair
-The hs_pair term describes packing between strands and helices. It is based on the probability that two pairs of residues (1 pair in the sheet and 1 pair in the helix) will have their current dihedral angles given the separation (in sequence and physical distance) between the helix and the strand.
-
-##### rg
-The rg term favors compact structures and is calculated as the root mean square distance between residue centroids.
-
-##### cbeta
-The cbeta term is another solvation term intended to correct for the excluded volume effect introduced by the simulation and favor compact structures. It is based on the ratio of probabilities of a residue having a given number of neighbors in a compact structure vs. random coil and summed over all residues.
-
-#####vdw
-The vdw term represents **only steric repulsion** and not attractive van der Waals forces (those are modeled in terms rewarding compact structures, such as the rg term; local interactions are implicitly included from [[fragments|fragment-file]]). It is calculated over pairs of atoms only in cases where:
-1. the interatomic distance is less than the sum of the atoms' van der Waals radii, and 
-2. the interatomic distance does not depend on the torsion angles of a single residue.
-
-
-
-The following information is adapted from [[Shmygelska and Levitt 2008|http://www.pnas.org/content/106/5/1415.full.pdf]]:
 
 #####rsigma
-Scores strand pairs based on the distance between them and the register of the two strands.
+Scores strand pairs based on the distance between them and the register of the two strands. ([[Shmygelska and Levitt 2008|http://www.pnas.org/content/106/5/1415.full.pdf]])
 
 
 #####co
-Contact order
+Contact order ([[Shmygelska and Levitt 2008|http://www.pnas.org/content/106/5/1415.full.pdf]])
 
 
 #####rama
-As in full-atom scoring, the rama term describes the probability of a residue having a given set of torsion angles given its identity.
+As in full-atom scoring, the rama term describes the probability of a residue having a given set of torsion angles given its identity. ([[Shmygelska and Levitt 2008|http://www.pnas.org/content/106/5/1415.full.pdf]])
 
 
 #####hb_srbb
-Short-range backbone-backbone hydrogen bonding energy term
+Short-range backbone-backbone hydrogen bonding energy term ([[Shmygelska and Levitt 2008|http://www.pnas.org/content/106/5/1415.full.pdf]])
 
 #####hb_lrbb
-Long-range backbone-backbone hydrogen bonding energy term
+Long-range backbone-backbone hydrogen bonding energy term ([[Shmygelska and Levitt 2008|http://www.pnas.org/content/106/5/1415.full.pdf]])
 
 #####rg_local
-
-#####cenpack
 
 
 
