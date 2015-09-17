@@ -6,6 +6,8 @@
 
 ##Score terms
 
+###Base terms
+
 The following information is adapted from [[Rohl et al. 2004|Rosetta-canon#scoring]]:
 
 
@@ -59,15 +61,28 @@ Long-range backbone-backbone hydrogen bonding energy term
 
 #####rg_local
 
+###"Smooth" terms
+
 #####cen_env_smooth
 #####cen_pair_smooth
 #####cenpack_smooth
 #####cbeta_smooth
 
+###"Interchain" terms
+These terms are commonly used in centroid docking protocols.
+
 #####interchain_env
 #####interchain_pair
 #####interchain_vdw
 #####interchain_contact
+
+###Cen_rot terms
+These terms are used in conjunction with centroid rotamer modeling (see the [[CenRotModel]] page)
+#####cen_rot_env
+#####cen_rot_pair
+#####cen_rot_pair_ang
+#####cen_rot_cbeta
+#####cen_rot_dun
 
 ##Centroid score functions
 
