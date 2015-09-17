@@ -143,13 +143,16 @@ While there is no base score4 score function, it is available as a patch and in 
 #####score5
 Score function used in the third stage of the ClassicAbInitio protocol. Nearly identical to score2, but uses different STRAND_STRAND_WEIGHTS cutoff (see above)
 #####RS_centroid
-#####abinitio_remodel_cen
-#####remodel_cen
-#####fldsgn_cen
+Formerly score6. Introduces a rama term, turns off scoring of rg, rsigma, sheet, and hs_pair, and reweights several terms (increases cenpack and cbeta; decreases pair, ss_pair, and vdw).
+###Application-specific
 #####interchain_cen
 Commonly used in centroid docking; basically cen_std, but only evaluated between two chains and not within a single chain.
 #####loop_fragsample
 Very coarse score function used in SlidingWindowLoopClosure. Includes only env, pair, and vdw centroid terms plus the linear_chainbreak and overlap_chainbreak terms.
+#####abinitio_remodel_cen
+#####remodel_cen
+#####fldsgn_cen
+
 ###Special cases
 
 ####RNA
@@ -179,10 +182,20 @@ These score functions/patches are intended for use with cartesian minimization a
 
 ###Patches
 
+#####abinitio_rob
+Doubles the repulsive (vdw) weight of the score function.
+#####docking_cen
+Sets all of the interchain weights to the values that they have in the interchain_cen score function. Does not affect other score terms.
+#####score4L
+Turns on scoring for short-range and long-range backbone hydrogen bonding, a ramachandran term (phi/psi given residue type), and a chainbreak term; sets rg weight to 2. L is for loop.
+#####score0, score1_smooth, score2_smooth, etc.
+Sets all of the standard centroid score term weights to their values in the listed score function. (Interestingly, the vdw weight in the score0 patch is 1.0, while in the main score0 score function, it is 0.1. Is this a bug??)
+
+
 ##Which score function should I use?
 The best centroid score function for your protocol will (of course) be protocol-dependent.
 * Score3 is commonly used and includes most of the common centroid score terms. 
-* Centroid docking typically uses the interchain_cen score function. 
+* Centroid docking should use the interchain_cen score function or the docking_cen patch. 
 * The score4L patch incorporates ramachandran space and backbone-backbone hydrogen bonding, which will be especially useful for protocols that are not as heavily dependent on fragment insertion.
 
 
