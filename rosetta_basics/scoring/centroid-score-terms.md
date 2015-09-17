@@ -95,7 +95,7 @@ See [[cbeta|centroid-score-terms#cbeta]]
 Dunbrack term for centroid rotamer modeling. Scores internal energy of centroid rotamers.
 
 
-###Membrane centroid weights
+###Membrane centroid score terms
 These score terms are specialized for use with membrane proteins and appear in membrane-specific score functions.
 #####mp_pair
 See pair term above.
@@ -106,6 +106,23 @@ See cbeta term above.
 #####*mp_nonhelix*
 #####*mp_termini*
 #####*mp_tmproj*
+
+###RNA centroid score terms
+These score terms are used in coarse-grained modeling of RNA.
+#####rna_rg
+See the rg term above.
+#####rna_vdw
+See the vdw term above.
+#####rna_data_backbone
+#####rna_base_pair
+#####rna_base_axis
+#####rna_base_stagger
+#####rna_base_stack
+#####rna_base_stack_axis
+#####rna_base_backbone
+#####rna_backbone_backbone
+#####rna_repulsive
+
 ##Centroid score functions
 
 ###Base score functions
