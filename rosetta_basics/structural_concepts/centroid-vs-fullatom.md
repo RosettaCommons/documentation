@@ -16,6 +16,7 @@ After large-scale sampling in centroid mode, poses are generally converted back 
 
 ##See Also
 
+* [[Centroid score terms]]
 * [[Rosetta overview]]
 * [[Glossary]]
 * [[Scoring explained]]
