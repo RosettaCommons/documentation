@@ -17,7 +17,7 @@ The `pair` score term is a two-body energy term for residue pair interactions (e
 
 ##### ss_pair
 The ss_pair term describes hydrogen bonding between beta strands. 
-It is used with the STRAND_STRAND_WEIGHTS statement (e.g. `STRAND_STRAND_WEIGHTS 1 6`):
+It is often used with the STRAND_STRAND_WEIGHTS statement (e.g. `STRAND_STRAND_WEIGHTS 1 6`):
 * First value:  Set to 0 or 1 (all values > 0.5 treated as 1). If 1, includes a distance score term for strand pairing. 
 * Second value: cutoff *sequence* distance between strands to be considered nonlocal (local strands get less of a score bonus for pairing).
 
