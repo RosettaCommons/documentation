@@ -94,11 +94,10 @@ Dunbrack term for centroid rotamer modeling. Scores internal energy of centroid 
 ###Membrane centroid score terms
 These score terms are specialized for use with membrane proteins and appear in membrane-specific score functions.  Descriptions from [[Alford et al. 2015|http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004398]]. 
 #####mp_pair
-Knowledge-based pairwise interaction potential between two residues some distance apart at a given depth in the membrane. See E<sub>pair</sub> description in [[Yarovoy et al. 2006|http://onlinelibrary.wiley.com/doi/10.1002/prot.20817/full]] for additional information.
+Knowledge-based pairwise interaction potential between two residues some distance apart at a given depth in the membrane. Originally published in [[Yarovoy et al. 2006|http://onlinelibrary.wiley.com/doi/10.1002/prot.20817/full]] (see E<sub>pair</sub> description).
 #####mp_env
-Knowledge-based potential describing propensity for a single residue to be at a given depth in the membrane and burial by residues. See E<sub>env</sub> description in [[Yarovoy et al. 2006|http://onlinelibrary.wiley.com/doi/10.1002/prot.20817/full]] for additional information.
-#####mp_cbeta
-Knowledge-based residue density potential based on number of neighbor residues and conditional upon number of transmembrane helices.  See E<sub>density</sub> description in [[Yarovoy et al. 2006|http://onlinelibrary.wiley.com/doi/10.1002/prot.20817/full]] for additional information.
+Knowledge-based potential describing propensity for a single residue to be at a given depth in the membrane and burial by residues. Originally published in [[Yarovoy et al. 2006|http://onlinelibrary.wiley.com/doi/10.1002/prot.20817/full]] (see E<sub>env</sub> description).
+Knowledge-based residue density potential based on number of neighbor residues and conditional upon number of transmembrane helices.  Originally published in [[Yarovoy et al. 2006|http://onlinelibrary.wiley.com/doi/10.1002/prot.20817/full]] (see E<sub>density</sub> description). See also ([[Rohl et al. 2004|Rosetta-canon#scoring]]) for more information on calculation of residue density. 
 #####mp_lipo
 Scores agreement between predicted lipophilicity (from [[LIPS server|http://gila.bioe.uic.edu/lab/lips/]]) and the model. See [[Adamian et al. 2005|http://onlinelibrary.wiley.com/doi/10.1002/prot.20456/full]] for additional information on lipophilicity predictions.
 #####mp_nonhelix
