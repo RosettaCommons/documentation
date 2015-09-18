@@ -97,3 +97,4 @@ Lazaridis, T. and M. Karplus, _Effective energy function for proteins in solutio
 * [[Hydrogen bond energy term|hbonds]]
 * [[Scorefunctions for noncanonical residues and molecules|NC-scorefunction-info]]
 * [[Adding new score terms|new-energy-method]]
+* [[Scorefunction history]]: history of the Rosetta scorefunction
