@@ -92,16 +92,21 @@ Dunbrack term for centroid rotamer modeling. Scores internal energy of centroid 
 
 
 ###Membrane centroid score terms
-These score terms are specialized for use with membrane proteins and appear in membrane-specific score functions.
+These score terms are specialized for use with membrane proteins and appear in membrane-specific score functions.  Descriptions from [[Alford et al. 2015|http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004398]]. 
 #####mp_pair
-See pair term above.
+Knowledge-based pairwise interaction potential between two residues some distance apart at a given depth in the membrane.
 #####mp_env
-See env term above.
+Knowledge-based potential describing propensity for a single residue to be at a given depth in the membrane and burial by residues.
 #####mp_cbeta
-See cbeta term above.
-#####*mp_nonhelix*
-#####*mp_termini*
-#####*mp_tmproj*
+Knowledge-based residue density potential based on number of neighbor residues and conditional upon number of transmembrane helices.
+#####mp_lipo
+Scores agreement between predicted lipophilicity (from LIPS server) and the model
+#####mp_nonhelix
+Penalty for non-helical secondary structure in the membrane
+#####mp_termini
+Penalty for residues outside of the hydrophobic layer of the membrane
+#####mp_tmproj
+Penalty for transmembrane helices that project outside of the membrane
 
 ###RNA centroid score terms
 These score terms are used in coarse-grained modeling of RNA.
