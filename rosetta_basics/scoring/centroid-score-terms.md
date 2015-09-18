@@ -165,12 +165,15 @@ Very coarse score function used in SlidingWindowLoopClosure. Includes only env, 
 
 ####Membranes
 
-#####mpdocking_cen_14-7-23_no-penalties
-#####mpdocking_cen_14-7-25_low-penalties
+#####mpframework_cen_2006
+Standard weight set for the low-resolution membrane score function.
 #####mpframework_docking_cen_2015
-Used for centroid docking of membrane proteins
+Used for centroid docking of membrane proteins (MP_Dock protocol)
 #####mpframework_symdock_cen_2015
-Used for centroid symmetric docking of membrane proteins
+Used for centroid symmetric docking of membrane proteins (MP_SymDock protocol)
+#####mpdocking_cen_14-7-23_no-penalties
+Formerly used by the MPDockingMover (replaced by mpframework_docking_cen_2015).
+#####mpdocking_cen_14-7-25_low-penalties
 
 ###Variants
 
