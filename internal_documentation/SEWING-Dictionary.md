@@ -11,7 +11,7 @@
 
 * MotifScore: Designability score. Basically it shows that how well hydrophobic parts of secondary structures are well pack with each other. Will Sheffler in Baker lab made this.
 
-* node: Single secondary structure that can be merged with other node through their edge. For example, a smotif model has 2 nodes (N-term/C-term) and 3 secondary structures.
+* node: Single secondary structure. Not all nodes can be merged with other node through their edge. For example, a smotif model has 3 nodes (secondary structures), but only two of them (N-term/C-term) can be merged with other nodes. 5-ss based model has 5 nodes (secondary structures), but only two of them (N-term/C-term) can be merged with other nodes.
 
 * PartnerMotifScore:  A type of MotifScore, but it will not be calculated in monomer design
 
