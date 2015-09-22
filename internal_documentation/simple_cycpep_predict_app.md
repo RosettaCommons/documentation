@@ -8,7 +8,7 @@ The **simple_cycpep_predict** app is intended to be a fragment-free design valid
 
 ## Typical usage
 
-Let's say we want to generate energy landscape plots for a six-residue peptide with sequence VAL-DPRO-ARG-ILE-DPRO-GLU, and that we have a design for this peptide in the file inputs/native.pdb.  Let's also suppose that we want every solution to have at least one hbond, and to be based on an initial closure with at least two hbonds.  We would first generate a sequence file (let's call it sequence.txt, also in the inputs/ directory) containing the sequence "VAL DPRO ARG ILE DPRO GLU" (no quotations).  We would then run simple_cycpep_predict on a single processor, dumping output to out.log, using the following command-line flags:
+Let's say we want to generate energy landscape plots for a six-residue peptide with sequence VAL-DPRO-ARG-ILE-DPRO-GLU, and that we have a design for this peptide in the file inputs/native.pdb.  Let's also suppose that we want every solution to have at least one hbond, and to be based on an initial closure with at least two hbonds.  We would first generate a sequence file (let's call it sequence.txt, also in the inputs/ directory) containing the sequence "VAL DPRO ARG ILE DPRO GLU" (no quotation marks).  We would then run simple_cycpep_predict on a single processor, dumping output to out.log, using the following command-line flags:
 
 ```
 nohup <path to Rosetta bin directory>/simple_cycpep_predict.default.<os><compiler><mode> -sequence_file inputs/sequence.txt -in:file:native inputs/native.pdb -ex1 -ex2 -out:file:silent output.silent -genkic_closure_attempts 5000 -min_genkic_hbonds 2 -min_final_hbonds 1 -nstruct 1000 >out.log &
