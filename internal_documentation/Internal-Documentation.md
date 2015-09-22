@@ -82,6 +82,7 @@ See [[how to write documentation|how-to-write-documentation]] for more details.
 - [[Residue composition energy (aa_composition)|AACompositionEnergy]] -- A scoring term that penalizes deviation from a desired residue type composition (e.g. no more than 7% alanines; at least one aromatic; at least 40% hydrophobic).
 
 ### Cyclic Peptides / Geometrically-Constrained Polymers Project
+- [[Peptide structure prediction with the simple_cycpep_predict app]]
 - [[Workflow]]
 - [[PeptideStubMover]]
 - [[DeclareBond]]
