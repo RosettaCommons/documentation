@@ -16,6 +16,8 @@
 
    * [[Task Operations|TaskOperations-RosettaScripts]]
 
+   * [[Residue Selectors|ResidueSelectors-RosettaScripts]]
+
    * [[FeaturesReporters|Features-reporter-overview]]
 
    * [[Composite Protocols|Composite-protocols]]
