@@ -3,6 +3,7 @@
 -   [[Movers (RosettaScripts)|Movers-RosettaScripts]]
 -   [[Filters (RosettaScripts)|Filters-RosettaScripts]]
 -   [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]]
+-   [[ResidueSelectors (RosettaScripts)|ResidueSelectors]]
 -   [[Composite protocols with RosettaScripts interfaces|Composite-protocols]]
 -   [[RosettaScripts Formatting Conventions|RosettaScripts-Conventions]]
 -   [[RosettaScripts database connection options|RosettaScripts-database-connection-options]]
