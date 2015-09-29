@@ -16,7 +16,7 @@
 
    * [[Task Operations|TaskOperations-RosettaScripts]]
 
-   * [[Residue Selectors|ResidueSelectors-RosettaScripts]]
+   * [[Residue Selectors|ResidueSelectors]]
 
    * [[FeaturesReporters|Features-reporter-overview]]
 
