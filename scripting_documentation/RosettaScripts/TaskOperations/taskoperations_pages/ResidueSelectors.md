@@ -187,6 +187,20 @@ The example below selects all residues in the pose with secondary structure 'H' 
 
     <SecondaryStructure name="all_non_loop" ss="HE" />
 
+####ResiduePDBInfoHasLabel
+
+    <ResiduePDBInfoHasLabel name=(%string) property=(%string) />
+
+The ResiduePDBInfoHasLabel residue selector selects all residues with the given PDB residue label. Some protocols (e.g. MotifGraft, Disulfidize) use these labels to mark residues, and this selector allows those residues to be selected without the user's knowledge of which residues were marked.
+
+**label** - Required. The PDB residue info label to be selected. (e.g. "DISULFIDIZE")
+
+**Example**
+The example below selects all residues that were converted to disulfides by the Disulfidize mover.
+
+    <ResiduePDBInfoHasLabel name="all_disulf" label="DISULFIDIZE" />
+
+
 ##See Also
 
 * [[RosettaScripts|RosettaScripts]]: Using RosettaScripts
