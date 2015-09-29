@@ -328,6 +328,17 @@ TaskOperations are used by movers to tell the "packer" which residues/rotamers t
 
 See [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]]
 
+
+RESIDUE_SELECTORS
+--------------
+
+[[ResidueSelectors|ResidueSelectors]] are used by movers, filters and task operations to dynamically select residues at run-time. They are used to specify sets of residues based on multiple different properties.
+
+### Available ResidueSelectors
+
+See [[ResidueSelectors (RosettaScripts)|ResidueSelectors]]
+
+
 APPLY\_TO\_POSE
 ---------------
 
