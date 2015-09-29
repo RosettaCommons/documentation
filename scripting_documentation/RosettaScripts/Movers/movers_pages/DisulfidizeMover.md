@@ -14,16 +14,20 @@ The mover is now able to place D-cysteine disulfides and mixed D/L disulfides.
 NOTE: This is a multiple pose mover. If non-multiple-pose-compatible movers are called AFTER this mover, only the first disulfide configuration will be returned.
 
 ```
-<Disulfidize name=(&string) set1=(&selector) set2=(&selector) match_rt_limit=(&float) max_disulf_score=(&float) min_loop=(&int) use_l_cys=(&bool true) use_d_cys=(&bool false) />
+<Disulfidize name=(&string) scorefxn=(&string) set1=(&selector) set2=(&selector) match_rt_limit=(&float) score_or_matchrt=(&bool true) max_disulf_score=(&float) min_loop=(&int) use_l_cys=(&bool true) keep_current_disulfides=(&bool false) include_current_disulfides=(&bool false) use_d_cys=(&bool false) />
 ```
 
+- scorefxn:  Name of the scoring function to use for repacking and minimization when rebuilding disulfides.  If not specified, the default scorefunction is used.  Note that a symmetric scorefunction must be provided for symmetric poses.
 - set1: Name of a residue selector which identifies a pool of residues which can connect to residues in set2 (default: all residues)
 - set2: Name of a residue selector which identifies a pool of residues which can connect to residues in set1 (default: all residues)
 - match_rt_limit: "distance" in 6D-space (rotation/translation) which is allowed from native disulfides (default: 1.0)
+- score_or_matchrt: If true, disulfides are accepted if they pass the match_rt (rigid-body transform) criterion OR the full-atom disulfide score criterion.  If false, disulfides must pass BOTH criteria.  True by default (one criterion or the other must pass).
 - max_disulf_score: Highest allowable per-disulfide dslf_fa13 score (default: -0.25 )
 - min_loop: Minimum distance between disulfide residues in primary sequence space
 - min_disulfides: Smallest allowable number of disulfides
 - max_disulfides: Largest allowable number of disulfides
+- keep_current_disulfides:  If true, current disulfides are preserved.  If false, they are mutated to alanine.  False by default.
+- include_current_disulfides:  If true, current disulfides are included in the possible disulfide combinations to try.  False by default (only new disulfide combinations tried).
 - use_l_cys: Should the mover consider placing L-cysteine?  True by default.
 - use_d_cys: Should the mover consider placing D-cysteine?  False by default.  (Note that at least one of use_l_cys and use_d_cys must be set to "true".)
 
@@ -43,6 +47,8 @@ NOTE: This is a multiple pose mover. If non-multiple-pose-compatible movers are 
 </MultiplePoseMover>
 ```
 
+##Disulfidize with symmetry
+As of 29 September 2015, the Disulfidize mover works with symmetric poses, permitting disulfides to be built across symmetric interfaces.  Note that this is, at the current time, and experimental feature that may have bugs associated with it.
 
 ##See Also
 
