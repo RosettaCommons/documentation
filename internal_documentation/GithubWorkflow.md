@@ -39,9 +39,7 @@ Branching and merging is the preferred development pattern in git, and because t
 * If you can't help but think about git in terms of subversion, you may need a [[reeducation|http://hginit.com/00.html]]
 
 ###Getting started
-* If you are a new developer, visit the [[NewNewDevelopersPage (still on media wiki)|https://wiki.rosettacommons.org/index.php/NewNewDevelopersPage]].
-* (On that page, you will be instructed to sign the developers' agreement.  To get write access to the Rosetta repositories, you will also need your PIs written approval.)
-* Create a github account and email Yuval Sedan (yuval.sedan@mail.huji.ac.il) with your account name to be added to the RosettaCommons Github Organization. This will give you access to the Rosetta code repositories. 
+* New developers, or those that have not had their Github account set up with access to RosettaCommons repositories,  should visit  [[NewNewDevelopersPage (which is on the media wiki)|https://wiki.rosettacommons.org/index.php/NewNewDevelopersPage]]. On that page, there are instructions on how to set up a GitHub account, requesting permission from the Rosetta Manager and signing the developers' agreement.
 * If you are new to the Rosetta community, you will need some of the standard [[Rosetta external dependencies|Build-Documentation]] like a compiler, etc.
 * Even if you are converting from SVN, you will need [[git|https://help.github.com/articles/set-up-git]].
 * You will need to set up SSH keys for use with GitHub. You can find instructions for this [[here|https://help.github.com/articles/generating-ssh-keys]]. Note that id_rsa.pub and id_dsa.pub can be used interchangeably at this point, although the instructions use id_rsa.pub.
