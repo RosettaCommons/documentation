@@ -36,7 +36,7 @@ Example
 
 In the rosetta code, the TaskOperation instances are registered with and then later created by a TaskOperationFactory. The factory calls parse\_tag() on the base class virtual function, with no result by default. However, some TaskOperation classes (e.g. OperateOnCertainResidues and ReadResfile above) do implement parse\_tag, and therefore their behavior can be configured using additional options in the "XML"/Tag definition.
 
-Residue Selections
+Residue Selectors
 ==================
 
 [[ResidueSelectors]] are a flexible system for specifying particular set of residues in a pose. They can be used with the [[OperateOnResidueSubset TaskOperation|OperateOnResidueSubsetOperation]] to control packing behavior, or can be used with other movers and filters. 
