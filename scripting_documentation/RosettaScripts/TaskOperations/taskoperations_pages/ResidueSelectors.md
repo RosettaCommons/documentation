@@ -166,8 +166,11 @@ or
     </Neighborhood>
 
 -   The PrimarySequenceNeighborhoodResidueSelector selects all the residues within a certain number of residues of a given selection in primary sequence. For example, given a selection of residue 5, PrimarySequenceNeighborhood would select residues 4, 5 and 6 by default.  If upper was set to 2, it would select residues 4, 5, 6 and 7. This ResidueSelector is chain-aware, meaning it will not select residues on a different chain than the original selection. In the example above, if residue 5 were on chain 1 and residue 6 were on a chain 2, the PrimarySequenceNeighborhoodResidueSelector would select residues 4 and 5 only.
+
 **lower** - Number of residues to select lower (i.e. N-terminal) to the input selection. Default=1
+
 **upper** - Number of residues to select upper (i.e. C-terminal) to the input selection. Default=1
+
 
 #### SecondaryStructureSelector
 
