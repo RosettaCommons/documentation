@@ -48,7 +48,7 @@ NOTE: This is a multiple pose mover. If non-multiple-pose-compatible movers are 
 ```
 
 ##Disulfidize with symmetry
-As of 29 September 2015, the Disulfidize mover works with symmetric poses, permitting disulfides to be built across symmetric interfaces.  Note that this is, at the current time, and experimental feature that may have bugs associated with it.
+As of 29 September 2015, the Disulfidize mover works with symmetric poses, permitting disulfides to be built across symmetric interfaces.  Note that this is, at the current time, an experimental feature that may have bugs associated with it.
 
 ##See Also
 
