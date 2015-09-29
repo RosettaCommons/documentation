@@ -19,7 +19,7 @@ NOTE: This is a multiple pose mover. If non-multiple-pose-compatible movers are 
 
 - set1: Name of a residue selector which identifies a pool of residues which can connect to residues in set2 (default: all residues)
 - set2: Name of a residue selector which identifies a pool of residues which can connect to residues in set1 (default: all residues)
-- match_rt_limit: "distance" in 6D-space (rotation/translation) which is allowed from native disulfides (default: 2.0)
+- match_rt_limit: "distance" in 6D-space (rotation/translation) which is allowed from native disulfides (default: 1.0)
 - max_disulf_score: Highest allowable per-disulfide dslf_fa13 score (default: -0.25 )
 - min_loop: Minimum distance between disulfide residues in primary sequence space
 - min_disulfides: Smallest allowable number of disulfides
