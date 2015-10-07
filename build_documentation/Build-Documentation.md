@@ -60,6 +60,9 @@ To use an alternate version of the compiler, you can use the option `     cxx_ve
 
 For more build options, such as only compiling only one executable or apbs - Please take a look at the SConstruct File in main/source
 
+If you get an error like `     /usr/bin/ld: cannot find -lz    `, a library file be missing. For example, in this case `     sudo apt-get install lib32z1-dev    ` installs the required library.
+
+
 ###Build Rosetta using the Rosetta Xcode Project (Mac)
 
 The Rosetta Xcode project is compatible with Xcode versions 2.4 and later. You can use it to build, run, debug, browse, and edit the source code. There are four build targets to select from:
