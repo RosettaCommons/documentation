@@ -60,7 +60,7 @@ To use an alternate version of the compiler, you can use the option `     cxx_ve
 
 For more build options, such as only compiling only one executable or apbs - Please take a look at the SConstruct File in main/source
 
-If you get an error like `     /usr/bin/ld: cannot find -lz    `, a library file be missing. For example, in this case `     sudo apt-get install lib32z1-dev    ` installs the required library.
+If you get an error like `     /usr/bin/ld: cannot find -lz    `, a it may be looking for 32 bit libraries on a 64 bit machine. Look up how to get the missing dependency; in this case `     sudo apt-get install lib32z1-dev    ` installs the required library.
 
 
 ###Build Rosetta using the Rosetta Xcode Project (Mac)
