@@ -3,7 +3,7 @@
 Tutorials
 =========
 
-These tutorials are meant for researchers interested in evaluating structure prediction protocols with respect to local structural features or researchers interested in improving an structural biology energy function. Each tutorial goes through an example of a concrete task as a way to orient new users. At the end of each tutorial there references for more detailed information is provided.
+These tutorials are meant for researchers interested in evaluating structure prediction protocols with respect to local structural features or researchers interested in improving an structural biology energy function. Each tutorial goes through an example of a concrete task as a way to orient new users. At the end of each tutorial there are references for more detailed information is provided.
 
 If there is a specific tutorial you think or would like to see here--please add it to the list at the bottom of requested tutorials!
 
@@ -15,7 +15,7 @@ Tutorials to Run Existing Feature Analysis
 -   [[Generating a features database for sample source|FeaturesTutorialRunSciBench]]
     -   The features scientific benchmark is on the RosettaTests cluster. Running it locally is often a good starting point to in depth analysis. This tutorial starts from checking out the source to looking plots.
 
--   [[Run feature analyses to compare sample sources|FeaturesTutorialRunFeaturesAnalysis]]
+-   [[Run features R scripts to compare sample sources|FeaturesTutorialRunFeaturesAnalysis]]
     -   The features analysis scripts are R scripts to extract features, estimate distributions and compare the distributions through plots and statistics
 
 -   [[Look at interesting feature instances in PyMOL|FeaturesTutorialInspectInstances]]
