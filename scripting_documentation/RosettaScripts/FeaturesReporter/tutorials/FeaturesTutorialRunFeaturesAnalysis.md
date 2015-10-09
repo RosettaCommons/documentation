@@ -2,7 +2,7 @@
 
 Comparing sample sources takes one or more databases of features and a set of analysis scripts and generated plots and statistics.
 
-Run compare\_sample\_sources.R
+Compare Sample Sources
 ==============================
 
 The `compare_sample_sources.R` script (located in `rosetta/main/tests/features/`) runs feature analysis scripts on feature databases. It takes as input:
