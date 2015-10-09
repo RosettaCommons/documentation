@@ -11,16 +11,24 @@ The **Features Scientific Benchmark** is used to compare batches of structures c
 
 [[_TOC_]]
 
+Database Support Requirements
+=============================
+
+The features scientific benchmark stores feature data databases. Currently it and works with *SQLite3* and support for *MySQL* and *PostgreSQL* databases is under development.
+
+-   **SQLite** : Rosetta is distributed with support for *SQLite3* databases. Since each database is a *.db3* file in the filesystem, they are easy to manage. However, due to limitations with shared filesystems, when the features scientific benchmark run in parallel with *SQLite3* , it is setup to write separate database files per-node, which then must be merged together as a post-processing step.
+-   **MySQL** , **PostgreSQL** : To use interface with *MySQL* and *PostgreSQL* the appropriate drivers must be compiled into Rosetta. See the [[database input/output|Database-IO]] page for more information.
+
 
 Generate Feature Databases
---------------------------
+==========================
 
 Generating the feature database involves extracting feature information from each structure. Usually this requires specifying the following information
 
 Inputting Structures
 --------------------
 
-The coordinates of the structures for used to extract the feature information can be supplied in any format recognized by the *rosetta\_scripts* application. NOTE: The input format determines the tags in the [[structures|FeaturesDatabaseSchema#StructureFeatures]] table in the resulting features database. This is important because the *structures* table provides a way to connect a *struct\_id* , which is used to identify structures within the features database, with a *tag* , which is used to identify the structure outside of the database. Here are command line flags that are relevant to the different input types:
+The coordinates of the structures for used to extract the feature information can be supplied in any format recognized by the *rosetta\_scripts* application.
 
 -   **pdb** :
     -   *-in:path path/to/structures* : the directory containing the pdbs
@@ -47,18 +55,8 @@ Use the ReportToDB mover with the Rosetta XML scripting to specify which feature
 
 Each FeaturesReporter is responsible for extracting a certain type of features to the features database. Select a set [[FeaturesReporters|FeaturesDatabaseSchema]] and then include them as subtags to the ReportToDB mover tag in the *rosetta\_scripts* XML.  See [[this page | Movers-RosettaScripts#ReportToDB]] for more information on the mover beyond what is covered here. 
 
--   \<ReportToDB\> tag
-    -   **name** : Mover identifier so it can be included in the PROTOCOLS block of the RosettaScripts
-    -   [[Database Connection Options|RosettaScripts-database-connection-options]] : for options of how to connect to the database
-    -   **sample\_source** : Short text description stored in the *sample\_source* table
-    -   **protocol\_id** : (optional) Set the *protocol\_id* in the *protocols* table rather than auto-incrementing it.
-    -   **cache\_size** : The maximum amount of memory to use before writing to the database ( [sqlite3 only](http://www.sqlite.org/pragma.html#pragma_cache_size) ).
-    -   **tast\_operations** : Restrict extracting features to a relevant subset of residues. Since task operations were designed as tasks for side-chain remodeling, residue features are reported when the residue is "packable". If a features reporter involves more than one residue, the convention is that it is only reported if each residue is specified.
 
--   \<feature\> tag (subtag of \<ReportToDB\>)
-    -   **name** : Specify a FeatureReporter to include in database
-
-<!-- -->
+```
 
         <ROSETTASCRIPTS>
             <SCOREFXNS>
@@ -75,6 +73,30 @@ Each FeaturesReporter is responsible for extracting a certain type of features t
             </PROTOCOLS>
         </ROSETTASCRIPTS>
 
+```
+
+-   \<ReportToDB\> tag
+    -   _name_ : Mover identifier so it can be included in the PROTOCOLS block of the RosettaScripts
+
+    -   _database_name_ (&string): Name of the output database.  Can also be specified via cmd-line.
+
+    -   _batch_description_ (&string): (Optional) Batch description.  Can also be specified via cmd-line. 
+
+    -   [[Database Connection Options|RosettaScripts-database-connection-options]] : for options of how to connect to the database
+
+    -   _sample\_source_ (&string) : Short text description stored in the *sample\_source* table
+
+    -   _protocol\_id_ (&int) : (optional) Set the *protocol\_id* in the *protocols* table rather than auto-incrementing it.
+
+    -   _task\_operations_ (&task): Restrict extracting features to a relevant subset of residues. Since task operations were designed as tasks for side-chain remodeling, residue features are reported when the residue is "packable". If a features reporter involves more than one residue, the convention is that it is only reported if each residue is specified; however, this feature is supported by every Reporter.
+
+    -   _database_separate_db_per_mpi_process_ (&bool) (Default=false) : For use with [[MPI-Sqlite3 | FeaturesTutorialRunSciBench#extracting-features-in-parallel_mpi ]] Features Reporter running. 
+
+    -   _cache\_size_ (&int) : The maximum amount of memory to use before writing to the database ( [sqlite3 only](http://www.sqlite.org/pragma.html#pragma_cache_size) ).
+
+-   \<feature\> tag (subtag of \<ReportToDB\>)
+    -   _name_ : Specify a FeatureReporter to include in database
+
 Running RosettaScripts 
 ----------------------
 
@@ -84,6 +106,73 @@ Since ReportToDB is simply a mover, it can be included in any Rosetta Protocol. 
 
 This will generate an SQLite3 database file *scores.db3* containing the features defined in each of the specified FeatureReporters for each structure in *structures.list* . See the features integration test (rosetta/main/test/integration/tests/features) for a working example.
 
+
+
+Extracting Features In Parallel
+===============================
+
+The Features Reporters can be run in parallel either through MPI or through a batch-type run.  
+
+MPI
+---
+
+For MPI-based runs, make sure to [[ compile MPI-mode Rosetta | Build-Documentation#setting-up-rosetta-3_alternative-setup-for-individual-workstations_message-passing-interface-mpi ]]. 
+
+
+### Sqlite3
+
+By default, Rosetta is compiled with Sqlite3 Support.  Sqlite3 does not support parallel process writing to one database, so they are split during the MPI run for each processor and merged at the end through a script.  
+
+In order to use MPI with Features runs for Sqlite3 database output, just add <code> -separate_db_per_mpi_process</code> to the command line or add an option to ReportToDB in your xml script, for example:
+
+```
+<ROSETTASCRIPTS>
+	<MOVERS>
+		<ReportToDB name=features database_name=example.db3 batch_description=example database_separate_db_per_mpi_process=1>
+
+```
+Run Features (for example): <code>mpiexec -np 101 rosetta_scripts.mpi.linuxclangrelease -parser:protocol antibody_features.xml -ignore_unrecognized_res</code>
+
+
+On completion, merge the databases (see [[merging | FeaturesTutorialRunSciBench#extracting-features-in-parallel_merging]] for more)
+
+
+### MySQL and PostGres
+
+These work without any additional MPI flags, but you will need compile and run Rosetta with the appropriate flags and drivers.  See the [[database input/output|Database-IO]] page for more information.
+
+
+Batch
+-----
+
+Batch runs can be done by manually partitioning a sample source into batches, generating features database for each batch and merging them together. See the features_parallel integration test (rosetta/main/test/integration/tests/features_parallel) for a working example.
+
+For example if there are 1000 structures split into 4 batches then the scripts for the run processing the first batch would contain:
+
+       <ReportToDB name=features_reporter db="features.db3_01" sample_source="batch1" protocol_id=1 first_struct_id=1>
+          ...
+       </ReportToDB>
+
+and the script for the run processsing the second batch would contain:
+
+       <ReportToDB name=features_reporter db="features.db3_02" sample_source="batch2" protocol_id=2 first_struct_id=26>
+          ...
+       </ReportToDB>
+
+On completion, merge the databases (see [[merging | FeaturesTutorialRunSciBench#extracting-features-in-parallel_merging]] for more)
+
+Merging
+-------
+
+After the runs are complete, locate the merge.sh script (rosetta/main/test/scientific/cluster/features/sample_sources/merge.sh) and run
+
+       bash /path/to/merge.sh features.db3 features.db3_*
+
+Which will merge the features from each of the *features.db3\_xx* database into *features.db3* .
+
+-   **TIP1** : Merging feature databases should be done for batches of structures that conceptually come from the same sample source. It is best to keep structures coming from different sample sources in separate databases and only during the analysis use the sqlite3 [ATTACH](http://www.sqlite.org/lang_attach.html) statement to bring them together.
+-   **TIP2** : Adding the merge script to your $PATH variable is very helpful.
+-   **WARNING** : Extracting many databases in parallel generates high data transfer rates. This can be taxing on cluster with a shared file system.
 
 Sample Source Templates
 =======================
@@ -123,63 +212,9 @@ These are the command line options used to run *features.py*
     -   **--mode** : The mode used to compile Rosetta (e.g. release, debug), with release being default
     -   **--database** : Path to /path/to/rosetta/main/database (it will use the value in \$ROSETTA3\_DB by default)
 
-Extracting Features In Parallel
-===============================
 
-The Features Reporters can be run in parallel either through MPI or through a batch-type run.  
-
-MPI
----
-
-### Sqlite3
-
-### MySQL
-
-### PostGres
-
-Batch
------
-
-Batch runs can be done by manually partitioning a sample source into batches, generating features database for each batch and merging them together. See the features_parallel integration test (rosetta/main/test/integration/tests/features_parallel) for a working example.
-
-For example if there are 1000 structures split into 4 batches then the scripts for the run processing the first batch would contain:
-
-       <ReportToDB name=features_reporter db="features.db3_01" sample_source="batch1" protocol_id=1 first_struct_id=1>
-          ...
-       </ReportToDB>
-
-and the script for the run processsing the second batch would contain:
-
-       <ReportToDB name=features_reporter db="features.db3_02" sample_source="batch2" protocol_id=2 first_struct_id=26>
-          ...
-       </ReportToDB>
-
-After the runs are complete, merge the databases (see [[merging | FeaturesTutorialRunSciBench#extracting-features-in-parallel_merging]]
-
-Merging
--------
-
-After the runs are complete, locate the merge.sh script (rosetta/main/test/scientific/cluster/features/sample_sources/merge.sh) and run
-
-       bash merge.sh features.db3 features.db3_*
-
-Which will merge the features from each of the *features.db3\_xx* database into *features.db3* .
-
--   **TIP1** : Merging feature databases should be done for batches of structures that conceptually come from the same sample source. It is best to keep structures coming from different sample sources in separate databases and only during the analysis use the sqlite3 [ATTACH](http://www.sqlite.org/lang_attach.html) statement to bring them together.
--   **TIP2** : If you run postgres, merging part is not necessary. If you use sqlite, merging is needed.
--   **WARNING** : Extracting many databases in parallel generates high data transfer rates. This can be taxing on cluster with a shared file system.
-
-Requirements
+General Requirements
 ============
-
-Database Support Requirements
------------------------------
-
-The features scientific benchmark stores feature data databases. Currently it and works with *SQLite3* and support for *MySQL* and *PostgreSQL* databases is under development.
-
--   **SQLite** : Rosetta is distributed with support for *SQLite3* databases. Since each database is a *.db3* file in the filesystem, they are easy to manage. However, due to limitations with shared filesystems, when the features scientific benchmark run in parallel with *SQLite3* , it is setup to write separate database files per-node, which then must be merged together as a post-processing step.
--   **MySQL** , **PostgreSQL** : To use interface with *MySQL* and *PostgreSQL* the appropriate drivers must be compiled into Rosetta. See the [[database input/output|Database-IO]] page for more information.
-
 
 Computational Requirements
 --------------------------
@@ -209,6 +244,7 @@ The features scientific benchmark supports **single-threaded** , **MPI** and **C
 -   **MPI Support** : To enable MPI support provide the necessary headers and libraries and compile Rosetta with scons using the *extras=mpi* flag.  See [[Running Features in Parallel |
 -   **Load Sharing Facility Clusters** : The [Load Sharing Facility](http://en.wikipedia.org/wiki/Platform_LSF) (LSF) is job schedule for MPI parallel applications. For example, the [killdevil](http://help.unc.edu/6214) cluster at UNC uses LSF. When setting up feature extraction jobs, use the *--run-type lsf* with the *features.py* script.
 -   **Condor Clusters** : [Condor](http://research.cs.wisc.edu/condor/) is a job scheduler often used for heterogeneous cluster resources. When setting up feature extraction jobs, use the *--run-type condor* with *features.py* .
+
 
 
 ##See Also
