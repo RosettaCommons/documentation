@@ -1,7 +1,5 @@
 #Writing a new Features Reporter class
 
-FeaturesReporter
-================
 
 Implementing a FeaturesReporter involves the following steps:
 
