@@ -11,46 +11,9 @@ The **Features Scientific Benchmark** is used to compare batches of structures c
 
 [[_TOC_]]
 
-Requirements
-============
-
-Batch Requirements
-------------------
-
-Each batch of structures should be as large and representative as possible. If you are generating structure predictions to compare against experimental data, here are some guidelines:
-
--   Aim to generate similar structural diversity as in your experimental data set, this will allow for more interpretable comparisons.
--   If your prediction protocol is highly constrained (e.g. within some RMSD of a target conformation) be aware that increasing the number of structures will have diminishing returns. Consider withholding some sequences, targets etc. to make a an independent test set or do K-fold cross validation.
--   If you are new to experimental design, consider consulting with a statistician or studying it yourself. For example see the [NSIT handbook on Engineering Statistics](http://www.itl.nist.gov/div898/handbook/index.htm) .
-
-Computational Requirements
---------------------------
-
-The features scientific benchmark can be run locally or on a MPI-based cluster. The computational time and space requirements differ for the different stages of the analysis.
-
--   **Batch Generation** : Prediction protocols to generate batches of structures are usually very computationally intensive, ranging from hundreds to thousands of CPU hours. Das and Baker have a nice [review](http://depts.washington.edu/bakerpg/drupal/system/files/das08A_0.pdf) of the Rosetta prediction protocols. Consult the documentation for specific protocol for more information.
--   **Feature Extraction** : Computational cost and space requirements for extracting features depends upon which *FeaturesReporters* are used. The default features for the *top8000* sample source use \~1Mb per structure.
--   **Feature Analysis** : Each feature analysis script makes a database query and then preforms the analysis. depending on how efficiently the database can be accessed and the complexity of the feature analysis and plot generation, each analysis usually takes between a minute or two to tens of minutes.
-
-Database Support Requirements
------------------------------
-
-The features scientific benchmark stores feature data databases. Currently it and works with *SQLite3* and support for *MySQL* and *PostgreSQL* databases is under development.
-
--   **SQLite** : Rosetta is distributed with support for *SQLite3* databases. Since each database is a *.db3* file in the filesystem, they are easy to manage. However, due to limitations with shared filesystems, when the features scientific benchmark run in parallel with *SQLite3* , it is setup to write separate database files per-node, which then must be merged together as a post-processing step.
--   **MySQL** , **PostgreSQL** : To use interface with *MySQL* and *PostgreSQL* the appropriate drivers must be compiled into Rosetta. See the [[database input/output|Database-IO]] page for more information.
-
-Cluster Environment Requirements
---------------------------------
-
-The features scientific benchmark supports **single-threaded** , **MPI** and **Condor** computational environments. The feature extraction process only uses the *rosetta\_scripts* application and the *jd2* job distributor. So if you are to get those to work on your platform, it should be possible to get the features scientific benchmark to work as well. Specific configuration information for the following job schedulers is provided.
-
--   **MPI Support** : To enable MPI support provide the necessary headers and libraries and compile Rosetta with scons using the *extras=mpi* flag.
--   **Load Sharing Facility Clusters** : The [Load Sharing Facility](http://en.wikipedia.org/wiki/Platform_LSF) (LSF) is job schedule for MPI parallel applications. For example, the [killdevil](http://help.unc.edu/6214) cluster at UNC uses LSF. When setting up feature extraction jobs, use the *--run-type lsf* with the *features.py* script.
--   **Condor Clusters** : [Condor](http://research.cs.wisc.edu/condor/) is a job scheduler often used for heterogeneous cluster resources. When setting up feature extraction jobs, use the *--run-type condor* with *features.py* .
 
 Generate Feature Databases
-==========================
+--------------------------
 
 Generating the feature database involves extracting feature information from each structure. Usually this requires specifying the following information
 
@@ -77,7 +40,7 @@ The coordinates of the structures for used to extract the feature information ca
     -   *-in:select\_structures* : An SQL query to select which structures should be used e.g. "SELECT tag FROM structures WHERE tag= '7rsa';"
 
 Selecting Feature Reporters 
---------------------------
+---------------------------
 
 
 Use the ReportToDB mover with the Rosetta XML scripting to specify which features should be extracted to the features database. (Note: The TrajectoryReportToDB mover can also be used in Rosetta scripts or C++ to report features in trajectory form multiple times to DB for a single output).
@@ -113,7 +76,7 @@ Each FeaturesReporter is responsible for extracting a certain type of features t
         </ROSETTASCRIPTS>
 
 Running RosettaScripts 
---------------------------------------------------
+----------------------
 
 Since ReportToDB is simply a mover, it can be included in any Rosetta Protocol. For example, to extract the features from a set of pdb files listed in *structures.list* , and the above script saved in *parser\_script.xml* , execute the following command:
 
@@ -163,7 +126,21 @@ These are the command line options used to run *features.py*
 Extracting Features In Parallel
 ===============================
 
-Currently the ReportToDB mover is not compatible with MPI runs. There is support however for partitioning a sample source into batches, generating features database for each batch and merging them together. See the features\_parallel integration test (rosetta/main/test/integration/tests/features_parallel) for a working example.
+The Features Reporters can be run in parallel either through MPI or through a batch-type run.  
+
+MPI
+---
+
+### Sqlite3
+
+### MySQL
+
+### PostGres
+
+Batch
+-----
+
+Batch runs can be done by manually partitioning a sample source into batches, generating features database for each batch and merging them together. See the features_parallel integration test (rosetta/main/test/integration/tests/features_parallel) for a working example.
 
 For example if there are 1000 structures split into 4 batches then the scripts for the run processing the first batch would contain:
 
@@ -177,6 +154,11 @@ and the script for the run processsing the second batch would contain:
           ...
        </ReportToDB>
 
+After the runs are complete, merge the databases (see [[merging | FeaturesTutorialRunSciBench#extracting-features-in-parallel_merging]]
+
+Merging
+-------
+
 After the runs are complete, locate the merge.sh script (rosetta/main/test/scientific/cluster/features/sample_sources/merge.sh) and run
 
        bash merge.sh features.db3 features.db3_*
@@ -186,6 +168,48 @@ Which will merge the features from each of the *features.db3\_xx* database into 
 -   **TIP1** : Merging feature databases should be done for batches of structures that conceptually come from the same sample source. It is best to keep structures coming from different sample sources in separate databases and only during the analysis use the sqlite3 [ATTACH](http://www.sqlite.org/lang_attach.html) statement to bring them together.
 -   **TIP2** : If you run postgres, merging part is not necessary. If you use sqlite, merging is needed.
 -   **WARNING** : Extracting many databases in parallel generates high data transfer rates. This can be taxing on cluster with a shared file system.
+
+Requirements
+============
+
+Database Support Requirements
+-----------------------------
+
+The features scientific benchmark stores feature data databases. Currently it and works with *SQLite3* and support for *MySQL* and *PostgreSQL* databases is under development.
+
+-   **SQLite** : Rosetta is distributed with support for *SQLite3* databases. Since each database is a *.db3* file in the filesystem, they are easy to manage. However, due to limitations with shared filesystems, when the features scientific benchmark run in parallel with *SQLite3* , it is setup to write separate database files per-node, which then must be merged together as a post-processing step.
+-   **MySQL** , **PostgreSQL** : To use interface with *MySQL* and *PostgreSQL* the appropriate drivers must be compiled into Rosetta. See the [[database input/output|Database-IO]] page for more information.
+
+
+Computational Requirements
+--------------------------
+
+The features scientific benchmark can be run locally or on a MPI-based cluster. The computational time and space requirements differ for the different stages of the analysis.
+
+-   **Feature Extraction** : Computational cost and space requirements for extracting features depends upon which *FeaturesReporters* are used. The default features for the *top8000* sample source use \~1Mb per structure.
+-   **Feature Analysis** : Each feature analysis script makes a database query and then preforms the analysis. depending on how efficiently the database can be accessed and the complexity of the feature analysis and plot generation, each analysis usually takes between a minute or two to tens of minutes.
+-   **Batch Generation** : Prediction protocols to generate batches of structures are usually very computationally intensive, ranging from hundreds to thousands of CPU hours. Das and Baker have a nice [review](http://depts.washington.edu/bakerpg/drupal/system/files/das08A_0.pdf) of the Rosetta prediction protocols. Consult the documentation for specific protocol for more information.
+
+
+Batch Requirements
+------------------
+
+Each batch of structures should be as large and representative as possible. If you are generating structure predictions to compare against experimental data, here are some guidelines:
+
+-   Aim to generate similar structural diversity as in your experimental data set, this will allow for more interpretable comparisons.
+-   If your prediction protocol is highly constrained (e.g. within some RMSD of a target conformation) be aware that increasing the number of structures will have diminishing returns. Consider withholding some sequences, targets etc. to make a an independent test set or do K-fold cross validation.
+-   If you are new to experimental design, consider consulting with a statistician or studying it yourself. For example see the [NSIT handbook on Engineering Statistics](http://www.itl.nist.gov/div898/handbook/index.htm) .
+
+
+Optional Cluster Environment Requirements
+--------------------------------
+
+The features scientific benchmark supports **single-threaded** , **MPI** and **Condor** computational environments. The feature extraction process only uses the *rosetta\_scripts* application and the *jd2* job distributor. So if you are to get those to work on your platform, it should be possible to get the features scientific benchmark to work as well. Specific configuration information for the following job schedulers is provided.
+
+-   **MPI Support** : To enable MPI support provide the necessary headers and libraries and compile Rosetta with scons using the *extras=mpi* flag.  See [[Running Features in Parallel |
+-   **Load Sharing Facility Clusters** : The [Load Sharing Facility](http://en.wikipedia.org/wiki/Platform_LSF) (LSF) is job schedule for MPI parallel applications. For example, the [killdevil](http://help.unc.edu/6214) cluster at UNC uses LSF. When setting up feature extraction jobs, use the *--run-type lsf* with the *features.py* script.
+-   **Condor Clusters** : [Condor](http://research.cs.wisc.edu/condor/) is a job scheduler often used for heterogeneous cluster resources. When setting up feature extraction jobs, use the *--run-type condor* with *features.py* .
+
 
 ##See Also
 
