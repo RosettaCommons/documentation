@@ -160,6 +160,32 @@ These are the command line options used to run *features.py*
     -   **--mode** : The mode used to compile Rosetta (e.g. release, debug), with release being default
     -   **--database** : Path to /path/to/rosetta/main/database (it will use the value in \$ROSETTA3\_DB by default)
 
+Extracting Features In Parallel
+===============================
+
+Currently the ReportToDB mover is not compatible with MPI runs. There is support however for partitioning a sample source into batches, generating features database for each batch and merging them together. See the features\_parallel integration test (rosetta/main/test/integration/tests/features_parallel) for a working example.
+
+For example if there are 1000 structures split into 4 batches then the scripts for the run processing the first batch would contain:
+
+       <ReportToDB name=features_reporter db="features.db3_01" sample_source="batch1" protocol_id=1 first_struct_id=1>
+          ...
+       </ReportToDB>
+
+and the script for the run processsing the second batch would contain:
+
+       <ReportToDB name=features_reporter db="features.db3_02" sample_source="batch2" protocol_id=2 first_struct_id=26>
+          ...
+       </ReportToDB>
+
+After the runs are complete, locate the merge.sh script (rosetta/main/test/scientific/cluster/features/sample_sources/merge.sh) and run
+
+       bash merge.sh features.db3 features.db3_*
+
+Which will merge the features from each of the *features.db3\_xx* database into *features.db3* .
+
+-   **TIP1** : Merging feature databases should be done for batches of structures that conceptually come from the same sample source. It is best to keep structures coming from different sample sources in separate databases and only during the analysis use the sqlite3 [ATTACH](http://www.sqlite.org/lang_attach.html) statement to bring them together.
+-   **TIP2** : If you run postgres, merging part is not necessary. If you use sqlite, merging is needed.
+-   **WARNING** : Extracting many databases in parallel generates high data transfer rates. This can be taxing on cluster with a shared file system.
 
 ##See Also
 
