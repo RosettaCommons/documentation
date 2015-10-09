@@ -81,7 +81,7 @@ An example command line for ModelTrimmer:
 An example of flags_ModelTrimmer:
 ```
 -s input_files/1_1_1TEN_A_res-renum.pdb #just for jd2
--mute -mute basic.io core.chemical core.conformation core.io core.pack core.scoring protocols.jd2
+-mute basic.io core protocols.jd2
 
 -sewing:model_file_name basic.models
 -new_model_file_name basic_trimmed.models
