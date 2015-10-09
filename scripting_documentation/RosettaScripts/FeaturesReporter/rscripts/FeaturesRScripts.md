@@ -14,7 +14,6 @@ How to [[Set up R|FeaturesSettingUpR]] .
 ##See Also
 
 * [[Features reporter overview]]: The FeaturesReporter home page
-
 * [[FeaturesTutorials]]: Tutorials for using FeaturesReporters
 * [[FeatureReporters]]: List of implemented FeatureReporters
 * [[RosettaScripts home page|RosettaScripts]]
