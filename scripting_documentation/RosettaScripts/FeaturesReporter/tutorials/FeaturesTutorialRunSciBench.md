@@ -241,7 +241,7 @@ Optional Cluster Environment Requirements
 
 The features scientific benchmark supports **single-threaded** , **MPI** and **Condor** computational environments. The feature extraction process only uses the *rosetta\_scripts* application and the *jd2* job distributor. So if you are to get those to work on your platform, it should be possible to get the features scientific benchmark to work as well. Specific configuration information for the following job schedulers is provided.
 
--   **MPI Support** : To enable MPI support provide the necessary headers and libraries and compile Rosetta with scons using the *extras=mpi* flag.  See [[Running Features in Parallel |
+-   **MPI Support** : To enable MPI support provide the necessary headers and libraries and compile Rosetta with scons using the *extras=mpi* flag.  See [[Running Features in Parallel | FeaturesTutorialRunSciBench#extracting-features-in-parallel ]]
 -   **Load Sharing Facility Clusters** : The [Load Sharing Facility](http://en.wikipedia.org/wiki/Platform_LSF) (LSF) is job schedule for MPI parallel applications. For example, the [killdevil](http://help.unc.edu/6214) cluster at UNC uses LSF. When setting up feature extraction jobs, use the *--run-type lsf* with the *features.py* script.
 -   **Condor Clusters** : [Condor](http://research.cs.wisc.edu/condor/) is a job scheduler often used for heterogeneous cluster resources. When setting up feature extraction jobs, use the *--run-type condor* with *features.py* .
 
