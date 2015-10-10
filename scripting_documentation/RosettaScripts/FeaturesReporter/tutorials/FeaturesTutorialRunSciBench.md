@@ -14,9 +14,9 @@ The **Features Scientific Benchmark** is used to compare batches of structures c
 Database Support Requirements
 =============================
 
-The features scientific benchmark stores feature data databases. Currently it and works with *SQLite3* and support for *MySQL* and *PostgreSQL* databases is under development.
+The features scientific benchmark stores feature data databases. 
 
--   **SQLite** : Rosetta is distributed with support for *SQLite3* databases. Since each database is a *.db3* file in the filesystem, they are easy to manage. However, due to limitations with shared filesystems, when the features scientific benchmark run in parallel with *SQLite3* , it is setup to write separate database files per-node, which then must be merged together as a post-processing step.
+-   **SQLite** : Rosetta is distributed with support for *SQLite3* databases. 
 -   **MySQL** , **PostgreSQL** : To use interface with *MySQL* and *PostgreSQL* the appropriate drivers must be compiled into Rosetta. See the [[database input/output|Database-IO]] page for more information.
 
 
