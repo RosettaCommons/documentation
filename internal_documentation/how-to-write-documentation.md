@@ -13,7 +13,7 @@ reading these two articles for inspiration:
 Regarding the Rosetta documentation in particular, know that this wiki is meant 
 to be the one location for all user-facing Rosetta documentation.  Pages are 
 formatted in [[Markdown|http://daringfireball.net/projects/markdown/syntax]], 
-so make sure you're familiar with it's syntax (for most things it's pretty 
+so make sure you're familiar with its syntax (for most things it's pretty 
 intuitive).  You can also preview your pages to make sure they show up how you 
 want.
 
