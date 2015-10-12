@@ -32,6 +32,7 @@
 - [[Scoring|scoring-explained]]
 
 - [[Scorefunctions and Score types | Score Types]] - Description of the default Rosetta Scorefunction and common score types.
+    *  [[Lazaridis solvation energy | solv-energy]]
     *  [[MM Std Scorefunction | NC-scorefunction-info#MM-Standard-Scorefunction]]
     *  [[Orbitals Scorefunction | NC-scorefunction-info#Partial-Covalent-Interactions-Energy-Function-(Orbitals)]]
     *  [[Additional score types | score-types-additional]]
