@@ -1,5 +1,5 @@
 ##Dictionary
-* AssemblyScore: ClashScore + InterModelMotifScore + InterfaceMotif + MotifScore
+* AssemblyScore: ClashScore + InterModelMotifScore + InterfaceMotif (0 for monomer) + MotifScore
 
 * atom: A collection of xyz coordinates and element
 
