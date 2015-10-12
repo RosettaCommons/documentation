@@ -32,7 +32,7 @@
 - [[Scoring|scoring-explained]]
 
 - [[Scorefunctions and Score types | Score Types]] - Description of the default Rosetta Scorefunction and common score types.
-    *  [[Lazaridis solvation energy | Lazaridis-Karplus-Solvation-Energy-fa-solv]]
+    *  [[Lazaridis-Karplus solvation energy | Lazaridis-Karplus-Solvation-Energy-fa-solv]]
     *  [[MM Std Scorefunction | NC-scorefunction-info#MM-Standard-Scorefunction]]
     *  [[Orbitals Scorefunction | NC-scorefunction-info#Partial-Covalent-Interactions-Energy-Function-(Orbitals)]]
     *  [[Additional score types | score-types-additional]]
