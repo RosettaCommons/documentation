@@ -1,6 +1,6 @@
 #Kinematic loop modeling
 
-#NOTE: KIC is deprecated. Use [[next generation KIC]] or [[KIC with fragments]] instead.
+#NOTE: KIC is deprecated. Use [[next generation KIC]] or [[KIC with fragments|KIC_with_fragments]] instead.
 
 Metadata
 ========
