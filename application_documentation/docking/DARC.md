@@ -82,7 +82,7 @@ params/zinc_13989607_conformers/000.params
 To run DARC we need to generate a RAY file for the input protein. To generate this ray-file we need to input the protein in PDB format and specify a target residue at the interface. We can specify more than one residue at the interface. The command to run DARC is as follows:
 
 ```
-$ Rosetta/main/source/bin/make_ray_files.macosclangrelease -database Rosetta/main/database/ -pocket_static_grid -protein 4ERF_0001.pdb -central_relax_pdb_num 61 -darc_shape_only 
+$ Rosetta/main/source/bin/make_ray_files.macosclangrelease -database Rosetta/main/database/ -protein 4ERF_0001.pdb -central_relax_pdb_num 61 -darc_shape_only -round_pocketGrid_center false -pocket_static_grid true
 ```
 
 The output from this command will be a ray-file named “ray_4ERF_0001_61.txt”.
