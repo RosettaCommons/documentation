@@ -291,6 +291,9 @@ In this case the DARC score for the final docked pose is 4.29993. This score can
 
 If we use the flag '-minimize_output_complex' the model will be minimized and we get the file 'mini_4ERF_0001_LG1.pdb' as output.
 
+NOTE: For best results, always use the following flags when calling make_ray_files app:
+-pocket_static_grid true
+-round_pocketGrid_center false
 
 ##See Also
 
