@@ -38,25 +38,26 @@ Notes
 How to run
 ===========================================
 1. Download all pdb files you intend to use as sources to some directory. 
-2. Run the struc_set_fragment_picker from inside that directory and copy the generated fragment files to wherever you need them. This will be changed later.
+2. Prepare a list file that contains path/name.pdb for each source structure (see below)
+3. Run struct_set_fragment_picker
 
 Input
 =====
 The only input file is a list of the pdb names to be used. E.g.:   
 ```
-1e5t
-3tg7
-2guv
+input/struct_files/1e5t.pdb
+input/struct_files/3tg7.pdb
+input/struct_files/2guv.pdb
 ...
 ```
 
-Required options
+Options
 ============================================
 
 | Option | Explanation |
 | --- | --- | --- |
 | -in::file::l <list file>    | list of structures |
-| -frags:n_frags | number of fragments per position (default: 200) |
+| -frags:n_frags | number of fragments per position (optional; default = 200) |
 | -struc_set_fragment_picker::frag_length <int> | Fragment length. Usually 3 or 9. |
 | -struc_set_fragment_picker::sequence_length <int> | Length of target sequence. |
 | -struc_set_fragment_picker::frag_name <string> | Name of the output fragment file. Usually 5 characters.|
