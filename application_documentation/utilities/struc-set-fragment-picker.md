@@ -28,7 +28,12 @@ Purpose
 ===========================================
 
 Generate fragment sets for Rosetta protein structure modeling using a predefined set of protein structures as fragment source.
-*The original intention was to predict coiled-coil structures using exclusively fragments taken from coiled-coil structures.* 
+*The original intention was to predict coiled-coil structures using exclusively fragments taken from coiled-coil structures.*  
+
+Notes
+======
+* It does not use the scoring scheme used by the standard fragment picker
+* **This will not work with JD2**
 
 How to run
 ===========================================
@@ -51,10 +56,24 @@ Required options
 | Option | Explanation |
 | --- | --- | --- |
 | -in::file::l <list file>    | list of structures |
-| -cc_frag_app::frag_length <int> | Fragment length. Usually 3 or 9. |
-| -cc_frag_app::sequence_length <int> | Length of target sequence. |
-| -cc_frag_app::frag_name <string> | Name of the output fragment file. Usually 5 characters.|
+| -struc_set_frag_app::frag_length <int> | Fragment length. Usually 3 or 9. |
+| -struc_set_frag_app::sequence_length <int> | Length of target sequence. |
+| -struc_set_frag_app::frag_name <string> | Name of the output fragment file. Usually 5 characters.|
 
 Output
 ======
 The output is a standard Rosetta fragment file to be used for structure prediction.
+
+New things since last release
+=============================
+
+This is the first public release
+
+## See Also
+
+* [[Utility applications | utilities-applications]]: other utility applications
+* [[Fragment picker | app-fragment-picker]]: Standard fragment picking
+* [[fragment-file]]: fragment files
+* [[Old fragment picker | fragment-picking-old]]: the old fragment picker.
+* [[Application Documentation]]: Application documentation home page
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
