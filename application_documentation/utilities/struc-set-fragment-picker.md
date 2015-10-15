@@ -56,6 +56,7 @@ Required options
 | Option | Explanation |
 | --- | --- | --- |
 | -in::file::l <list file>    | list of structures |
+| -frags:n_frags | number of fragments per position (default: 200) |
 | -struc_set_fragment_picker::frag_length <int> | Fragment length. Usually 3 or 9. |
 | -struc_set_fragment_picker::sequence_length <int> | Length of target sequence. |
 | -struc_set_fragment_picker::frag_name <string> | Name of the output fragment file. Usually 5 characters.|
