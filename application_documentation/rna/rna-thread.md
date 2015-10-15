@@ -23,7 +23,10 @@ of the simpler RNA mutation:
 References
 ==========
 
-This threading code is currently not described in any publication.
+This threading code was first described in:
+
+Cheng, C.Y., Chou, F.-C., and Das, R. (2015) "Modeling complex RNA tertiary folds with Rosetta." Methods in Enzymology 553 : 35 - 64. <a href="/site_data/pub_pdf/2015_Cheng_MethEnzym.pdf" target="_blank">Paper</a> <a href="http://www.sciencedirect.com/science/article/pii/S0076687914000524" target="_blank">
+                                 Link </a>
 
 Application purpose
 ===========================================
@@ -67,6 +70,19 @@ rna_thread.<exe> -in:file:fasta 3bo3_REARRANGE_to_GIR1.fasta -s 3bo3_REARRANGE.p
 
 This demo threads a group I intron crystallographic structure (3bo3\_REARRANGE) into the group-I-like branching ribozyme GIR1, and was used in the fifth RNA puzzle trial.
 
+Quick mutate
+------------
+If you just want to mutate some positions in an RNA and don't want to create a fasta file, you can run a command line like:
+
+```
+rna_thread -s rosetta_inputs/1zih_RNA.pdb  -seq gggcgcgagccu -o 1zih_A7G.pdb
+```
+
+Tips
+----
++ When you create your FASTA file or supply a sequence from command line (with `-seq`), make sure the RNA sequence is in lowercase.  
++ The code currently only handles 'standard' RNA residues in the input PDB file. You may want to run your PDB file through `make_rna_rosetta_ready.py` (described in [[RNA-tools]]) or edit any non-standard residues (like `GTP`) into standard residue names (like `  G`)  by hand.
+
 Options
 =======
 
@@ -80,14 +96,6 @@ Options
                                 same number of residues as template PDB.
 ```
 
-Other
-=====
-
-If you just want to mutate some positions in an RNA and don't want to create a fasta file, you can run a command line like:
-
-```
-rna_thread -s rosetta_inputs/1zih_RNA.pdb  -seq gggcgcgagccu -o 1zih_A7G.pdb
-```
 
 ##See Also
 
