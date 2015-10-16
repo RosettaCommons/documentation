@@ -284,8 +284,8 @@ For development and optimization, these options are also present. These are prov
 * [[Preparing structures]]: Page on preparing structures for use in Rosetta using relax.
 * [[Structure prediction applications]]: A list of other applications to be used for structure prediction
 * [[Design applications]]: A list of other applications that can be used for design.
-* [[FastRelaxMover]]: Using relax (without design) with RosettaScripts
-* [[FastDesignMover]]: Using relax (with design) with RosettaScripts
+* [[FastRelaxMover]]: Using relax with RosettaScripts
+* [[FastDesignMover]]: Using relax (with extra design options) with RosettaScripts
 * [[Application Documentation]]: List of Rosetta applications
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
 * [[Comparing structures]]: Essay on comparing structures
