@@ -198,7 +198,7 @@ The ResiduePDBInfoHasLabel residue selector selects all residues with the given 
 **Example**
 The example below selects all residues that were converted to disulfides by the Disulfidize mover.
 
-    <ResiduePDBInfoHasLabel name="all_disulf" label="DISULFIDIZE" />
+    <ResiduePDBInfoHasLabel name="all_disulf" property="DISULFIDIZE" />
 
 
 ##See Also
