@@ -9,11 +9,11 @@
 
 * linker segments: When there are 5 secondary structures in each model, 3 middle secondary structures are "linker segments". 2 N-terminal/C-terminal secondary structures are not "linker segments".
 
-* model: A substructure that can be connected by their edges through their nodes. For example, a smotif model has 2 nodes (N-term/C-term) and 3 secondary structures. A collection of segments. Generally, 2-5 pieces of segment constitute the model. Currently for continuous SEWING, 3 pieces of secondary structures called smotif (like HLH, or HLE) is a model (5 pieces of secondary structures as a model for continuous SEWING are in active development). Defined as struct whose elements are model_id, pdb_code, structure_id, distance, hoist_angle, packing_angle and meridian_angle. 
+* model (node/substructure): This can be connected by their edges through their nodes. For example, a smotif model has 2 nodes (N-term/C-term) and 3 secondary structures. A collection of segments. Generally, 2-5 pieces of segment constitute the model. Currently for continuous SEWING, 3 pieces of secondary structures called smotif (like HLH, or HLE) is a model (5 pieces of secondary structures as a model for continuous SEWING are in active development). Defined as struct whose elements are model_id, pdb_code, structure_id, distance, hoist_angle, packing_angle and meridian_angle. 
 
 * MotifScore: Designability score. Basically it shows that how well hydrophobic parts of secondary structures are well packed with each other. Will Sheffler in Baker lab made this.
 
-* node: Single secondary structure. Not all nodes can be merged with other node through their edge. For example, a smotif model has 3 nodes (secondary structures), but only two of them (N-term/C-term) can be merged with other nodes. 5-ss based model has 5 nodes (secondary structures), but only two of them (N-term/C-term) can be merged with other nodes.
+* node (model/substructure): Single secondary structure. Not all nodes can be merged with other node through their edge. For example, a smotif model has 3 nodes (secondary structures), but only two of them (N-term/C-term) can be merged with other nodes. 5-ss based model has 5 nodes (secondary structures), but only two of them (N-term/C-term) can be merged with other nodes.
 
 * PartnerMotifScore:  A type of MotifScore, but it will not be calculated in monomer design
 
@@ -25,8 +25,8 @@
 
 * sewing_hasher: Four modes are possible
 ``` 
-generate: generates a model file from an sqlite database
-generate_five_ss_model: generates a model file that is consisted with 5 secondary structures from an sqlite database
+generate: generates a model file from a sqlite database
+generate_five_ss_model: generates a model file that is consisted with 3~5 secondary structures from a sqlite database
 hash: score all models against each other and create a plain text score file (MPI required)
 convert: convert a plain text score file to a binary score file. This is required by the SEWING movers
 ```
