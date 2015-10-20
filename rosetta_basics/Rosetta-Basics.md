@@ -21,16 +21,12 @@
 ####[[Fundamental Rosetta Concepts|Rosetta-overview]]
 
 - [[Brief history of Rosetta|Rosetta-Timeline]]
-
 - [[FAQ]]
-
 - [[Glossary of terms|Glossary]]
     - [[Longer form descriptions|RosettaEncyclopedia]]
-
 - [[Units in Rosetta]]
 
 - [[Scoring|scoring-explained]]
-
 - [[Scorefunctions and Score types | Score Types]] - Description of the default Rosetta Scorefunction and common score types.
     *  [[Lazaridis-Karplus solvation energy | Lazaridis-Karplus-Solvation-Energy-fa-solv]]
     *  [[MM Std Scorefunction | NC-scorefunction-info#MM-Standard-Scorefunction]]
@@ -38,13 +34,9 @@
     *  [[Additional score types | score-types-additional]]
     *  [[Hydrogen bonding score term|hbonds]]
     *  [[Centroid score terms]]
-
 - [[Symmetry]]
-
 - [[Minimization | Minimization Overview]] - Backbone and/or side chain degrees of freedom
-
 - [[Comparing Structures]]
-
 - [[I want to do _x_. How do I do _x_? | I-want-to-do-x ]] 
 
 - Advanced Topics
