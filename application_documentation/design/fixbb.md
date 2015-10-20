@@ -3,7 +3,7 @@
 Metadata
 ========
 
-This document was edited Nov 1st 2008 by Yi Liu and again on May 11th, 2010 by Andrew Leaver-Fay. The `       fixbb      ` application is maintained by Brian Kuhlman's lab. Send questions to (bkuhlman@email.unc.edu)
+This document was edited Oct 2015 by Jared Adolf-Bryfogle. The `       fixbb      ` application is maintained by Brian Kuhlman's lab. Send questions to (bkuhlman@email.unc.edu)
 
 Code and Demo
 =============
@@ -36,7 +36,7 @@ The combinatorial optimization problem fixed-backbone repacking (or design) pres
 
 There are many ways to control the way rotamers are sampled and at which positions design should be attempted. There are several command line flags that apply to all residues. In addition, a "resfile" can specify the way particular residues are to be treated. By default, `       fixbb      ` will attempt to redesign all residues using all amino acids.
 
-Fixed-backbone design works best when paired with a softened Lennard-Jones term [Dantas et al. 2003] which helps overcome the problem of discrete rotamer building (not default). The score function used may be controlled on the command line by specifying a weights file (or both a weights file and a weights-patch file). By default, the fixbb application uses the "score12" score function by default (the combination of "standard.wts" and "score12.wts\_patch").
+Fixed-backbone design works best when paired with a softened Lennard-Jones term [Dantas et al. 2003] which helps overcome the problem of discrete rotamer building (not default). The score function used may be controlled on the command line by specifying a weights file (or both a weights file and a weights-patch file). 
 
 Limitations
 ===========
