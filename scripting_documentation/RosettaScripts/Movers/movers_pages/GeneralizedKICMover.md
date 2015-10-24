@@ -1,8 +1,9 @@
 # Generalized Kinematic Closure (GeneralizedKIC)
 *Back to [[Mover|Movers-RosettaScripts]] page.*
-## Generalized Kinematic Closure (GeneralizedKIC)
 
 Documentation created by Vikram K. Mulligan, Baker laboratory.  For questions, e-mail vmullig@uw.edu.  Last updated 24 October 2015.
+
+## Generalized Kinematic Closure (GeneralizedKIC)
 
 Kinematic closure is a computationally-inexpensive, analytical algorithm for loop closure.  Given a loop with defined start- and endpoints, with N degrees of freedom, it is possible to sample N-6 of these degrees of freedom and to solve for the remaining 6.  GeneralizedKIC is a generalization of the classic KIC algorithm that permits closure and conformational sampling of any covalently-connected chain of atoms.  Chains to be closed can include backbone segments, covalently-linked side-chains (_e.g._ disulfide bonds), ligands, noncanonical residues, _etc._  GeneralizedKIC is invoked in RosettaScripts as follows:
 ```
