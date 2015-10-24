@@ -48,6 +48,10 @@ The algorithm is as follows:
 4.  A final hydrogen bond filter is applied (controlled with the **-cyclic_peptide:min_final_hbonds** flag).
 5.  The structure, if one is found, is written to disk, and the application proceeds to the next attempt until the number of attempts specified with the **-out:nstruct** flag is reached.
 
+# Large-scale sampling with BOINC
+
+The **simple_cycpep_predict** protocol is one of the protocols that can be run from the [[minirosetta]] application, using the ```-protocol simple_cycpep_predict``` flag.  Custom BOINC OpenGL graphics have been written for this application.  See [[minirosetta]]'s documentation for more information.
+
 # Known issues
 
 - Glycine's Ramachandran plot should be completely symmetric, but it is not, since it is based on statistics from the PDB.  (PDB structures disproportionately have glycine in the region of Ramachandran space that only it can access).  A flag will be added in the future to permit a symmetrized version of the glycine Ramachandran map to be used for sampling and scoring.
