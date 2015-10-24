@@ -118,6 +118,11 @@ Turn checkpointing on with default time interval (5 minutes).
 
 Turn checkpointing on with given time interval in seconds.
 
+Simple Cyclic Peptide Prediction ( -protocol simple_cycpep_predict )
+------------------------------------------------
+
+Full documentation for this application is available on the [[Simple Cyclic Peptide Prediction Application|simple_cycpep_predict]] page.
+
 Ligand Dock ( -protocol ligand\_dock )
 --------------------------------------
 
