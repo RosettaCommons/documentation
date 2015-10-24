@@ -3,7 +3,7 @@
 Metadata
 ========
 
-The relevant Mini-Rosetta code is in minirosetta.cc This document was written 22 Jan 2008 by David E. Kim and last updated 22 Jan 2008.
+The relevant Mini-Rosetta code is in minirosetta.cc This document was written 22 Jan 2008 by David E. Kim and last updated 24 October 2015 by Vikram K. Mulligan (vmullig@uw.edu).
 
 General Information
 ===================
