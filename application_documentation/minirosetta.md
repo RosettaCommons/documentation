@@ -121,7 +121,7 @@ Turn checkpointing on with given time interval in seconds.
 Simple Cyclic Peptide Prediction ( -protocol simple_cycpep_predict )
 ------------------------------------------------
 
-Full documentation for this application is available on the [[Simple Cyclic Peptide Prediction Application|simple_cycpep_predict]] page.
+Full documentation for this application is available on the [[Simple Cyclic Peptide Prediction Application|simple_cycpep_predict]] page.  (The simple_cycpep_predict BOINC graphics are particularly nice, though, if I do say so myself.)
 
 Ligand Dock ( -protocol ligand\_dock )
 --------------------------------------
