@@ -8,7 +8,25 @@ Created 24 October 2015 by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu)
 
 The **simple_cycpep_predict** application is intended for rapidly sampling closed conformations of small peptides constrained by backbone cyclization.  These peptides may be composed of any mixture of L- and D-amino acids (and/or glycine).  Optionally, the user may specify that solutions must have a certain number of backbone hydrogen bonds.  Unlike sampling performed with the [[Abinitio-Relax|abinitio-relax]] application, sampling is fragment-_independent_; that is, no database of known structures is required.
 
-# Inputs
+# Sample command-line
+
+A sample command-line invocation of this application would be:
+
+```
+/my_rosetta_path/main/source/bin/simple_cycpep_predict.default.linuxgccrelease -cyclic_peptide:sequence_file inputs/seq.txt -cyclic_peptide:genkic_closure_attempts 1000 -cyclic_peptide:min_genkic_hbonds 2 -mute all -unmute protocols.cyclic_peptide_predict.SimpleCycpepPredictApplication -in:file:native inputs/native.pdb -out:file:silent output.silent
+```
+
+This protocol can also be run from the BOINC [[minirosetta build|minirosetta]], with graphics, as follows:
+
+```
+/my_rosetta_path/main/source/bin/minirosetta.boincstatic.linuxgccrelease -protocol simple_cycpep_predict -cyclic_peptide:sequence_file inputs/seq.txt -cyclic_peptide:genkic_closure_attempts 1000 -cyclic_peptide:min_genkic_hbonds 2 -mute all -in:file:native inputs/native.pdb -out:file:silent output.silent -boinc:graphics true &
+
+/my_rosetta_path/main/source/bin/minirosetta_graphics.boincstatic.linuxgccrelease
+```
+
+(The first command, above, launches the computation, and the second launches the graphics window.  See the [[minirosetta]] documentation for more information.)
+
+# Full inputs
 
 1.  The user must prepare a ASCII (text) file specifying the peptide sequence.  This file must consist of whitespace-separated residue names (e.g. ```PHE LYS ARG DLEU DASP DALA TYR ASN```).  The program will throw an error if not provided with such a file.  _Note that FASTA-formatted files are **not** acceptable, since they do not permit facile specification of non-canonical amino acids._
 
