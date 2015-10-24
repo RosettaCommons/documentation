@@ -51,6 +51,8 @@ This protocol can also be run from the BOINC [[minirosetta build|minirosetta]], 
 
 This application generates PDB or binary silent file output.  If the latter is used (recommended), hydrogen bond counts and RMSD values to native (if a native file was provided) are in the ```SCORE``` lines in the silent file.  Additionally, these values are reported in the output log.
 
+The BOINC compilation also has some groovy graphics.
+
 # Algorithm
 
 The algorithm is as follows:
