@@ -38,7 +38,7 @@ While most of these applications focus on prediction, many have options which wi
     * [[Prepare template for MR]] - Setup script for molecular replacement protocols.  
 - [[Relax]] - "Locally" optimize structures, including assigning sidechain positions.
 - [ RNA ](#RNA) - see below for apps, including FARFAR & ERRASER (crystallographic refinement).  
-
+- [[simple_cycpep_predict]] - Prediction of structures of small (~5-20 residue) backbone-cyclized peptides consisting of any mixture of L- and D-amino acids.
   
 
 ###Loop Modeling
