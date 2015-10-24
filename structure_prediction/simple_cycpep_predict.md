@@ -24,8 +24,8 @@ The **simple_cycpep_predict** application is intended for rapidly sampling close
 **-cyclic_peptide:high_hbond_weight_multiplier \<float\>**  For portions of the protocol that perform relaxation with an upweighted mainchain hydrogen bond score value (see the algorithm description, below), this is the factor by which the mainchain hydrogen bond score term is upweighted.  Defaults to 10.0 (tenfold increase).<br/><br/>
 **-cyclic_peptide:count_sc_hbonds \<bool\>**  Should sidechain-mainchain hydrogen bonds be counted as mainchain hydrogen bonds?  Defaults to false.<br/><br/>
 **-cyclic_peptide:fast_relax_rounds \<int\>**  At steps of the protocol at which relaxation is invoked, this is the number of rounds of the [[FastRelax|FastRelaxMover]] protocol that will be applied.  Defaults to 3.<br/><br/>
-**-in:file:native \<pdb_filename\>**  A PDB file for the native structure.  Optional.  If provided, an RMSD value will be calculated for each generated structure.
-**-out:file:s \<pdb_filename\>** OR **-out:file:silent \<silent_filename\>**  Prefix for PDB files that will be written out, OR name of the binary silent file that will be generated.
+**-in:file:native \<pdb_filename\>**  A PDB file for the native structure.  Optional.  If provided, an RMSD value will be calculated for each generated structure.<br/><br/>
+**-out:file:s \<pdb_filename\>** OR **-out:file:silent \<silent_filename\>**  Prefix for PDB files that will be written out, OR name of the binary silent file that will be generated.<br/><br/>
 
 # Output
 
@@ -35,7 +35,7 @@ This application generates PDB or binary silent file output.  If the latter is u
 
 The algorithm is as follows:
 
-1.  For each sampling attempt, the application generates a linear peptide with the given sequence (randomly circularly permuted if the **-cyclic_peptide:cyclic_permutations** flag is set to true, the default).  The starting conformation is randomized, with each residue's phi/psi pair biased by the Ramachandran plot for that residue type.  All omega angles are set to 180 degrees.  
+1.  For each sampling attempt, the application generates a linear peptide with the given sequence (randomly circularly permuted if the **-cyclic_peptide:cyclic_permutations** flag is set to true, the default).  The starting conformation is randomized, with each residue's phi/psi pair biased by the Ramachandran plot for that residue type.  All omega angles are set to 180 degrees.
 2.  The [[Generalized Kinematic Closure|GeneralizedKICMover]] (GenKIC) protocol is used to find closed (cyclic) conformations of the peptide.  A single residue is chosen at random to be an "anchor" residue (excluding the two end residues).  The rest of the peptide is now a giant loop to be closed with GenKIC.  The first, last, and a randomly-chosen middle residue are selected as "pivot" residues.  GenKIC performs a series of samples (up to a maximum specified with the **-cyclic_peptide:genkic_closure_attempts** flag) in which it:
      2a.  Randomizes all residues in the loop, biased by the Ramachandran map.
      2b.  Analytically solves for phi and psi values for the pivot residues to close the loop.  At this step, anywhere from 0 to 16 solutions might result from the linear algebra performed.
