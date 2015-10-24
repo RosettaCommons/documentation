@@ -68,7 +68,7 @@ The algorithm is as follows:
 
 # Large-scale sampling with BOINC
 
-The **simple_cycpep_predict** protocol is one of the protocols that can be run from the [[minirosetta]] application, using the ```-protocol simple_cycpep_predict``` flag.  Custom BOINC OpenGL graphics have been written for this application.  See [[minirosetta]]'s documentation for more information.
+The **simple_cycpep_predict** protocol is one of the protocols that can be run from the [[minirosetta]] application, using the **-protocol simple_cycpep_predict** flag.  Custom BOINC OpenGL graphics have been written for this application.  See [[minirosetta]]'s documentation for more information.
 
 # Known issues
 
