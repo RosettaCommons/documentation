@@ -11,7 +11,7 @@ The **simple_cycpep_predict** application is intended for rapidly sampling close
 1.  The user must prepare a ASCII (text) file specifying the peptide sequence.  This file must consist of whitespace-separated residue names (e.g. ```PHE LYS ARG DLEU DASP DALA TYR ASN```).  The program will throw an error if not provided with such a file.  _Note that FASTA-formatted files are **not** acceptable, since they do not permit facile specification of non-canonical amino acids._
 
 2.  All other inputs are based on flags.  Relevant flags are:
-```-cyclic_peptide:sequence_file <filename>``` Mandatory input.  The sequence file, described above.
+**-cyclic_peptide:sequence_file <filename>** Mandatory input.  The sequence file, described above.
 ```-out:nstruct <int>``` The number of structures that the application will attempt to generate.  Since closed conformations satisfying hydrogen bonding criteria might not be found for every attempt, the actual number of structures produced will be less than or equal to this number.
 ```-cyclic_peptide:genkic_closure_attempts <int>```  For each structure attempted, how many times should the application try to find a closed conformation?  Default 10,000.  Values from 250 to 50,000 could be reasonable, depending on the peptide.
 ```-cyclic_peptide:genkic_min_solution_count <int>```  For each structure attempted, the application will keep looking for closed solutions until either ```genkic_closure_attempts``` has been reached or this number of solutions has been found.  At this point, it will pick the lowest-energy solution from the set found.  Defaults to 1 (takes a solution as soon as one is found).
