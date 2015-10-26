@@ -27,8 +27,13 @@ http://onlinelibrary.wiley.com/doi/10.1002/prot.24729/abstract;jsessionid=3B2AAE
 Purpose
 ===========================================
 
-Generate fragment sets for Rosetta protein structure modeling using a predefined set of protein structures as fragment source.
+Generate fragment sets for Rosetta protein structure modeling using a predefined set of protein structures as fragment source. The fragments are **randomly** picked from a set of structures, **irrespective of sequence and secondary structure**.
 *The original intention was to predict coiled-coil structures using exclusively fragments taken from coiled-coil structures.*  
+
+Algorithm
+==========
+
+First, all possible fragments from a given set of PDB files are generated. Then, for each position of the target sequence, a set of fragments (default=200) is randomly picked. Secondary structure and sequence are not considered at any point.
 
 Notes
 ======
