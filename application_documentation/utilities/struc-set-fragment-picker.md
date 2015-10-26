@@ -7,7 +7,9 @@ Authors:
 Ingemar André (ingemar.andre@biochemistry.lu.se)  
 Sebastian Rämisch (sebastian.ramisch@biochemistry.lu.se)  
 
-Last edited 10/15/15. Corresponding PI: Ingemar André
+Corresponding PI: Ingemar André  
+
+Last edited 10/26/15.
 
 Code 
 ====
