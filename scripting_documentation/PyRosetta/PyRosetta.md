@@ -36,12 +36,7 @@ Doing the same with the monolith build would require about 7 seconds.
 The current recommendation is namespace for machines with memory constraints (e.g. less than 4 GB per thread) or for local development. 
 For production runs on clusters (typically using the NSF filesystem), use monolith. 
 
-<!--- BEGIN_INTERNAL -->
-##Locations for PyRosetta applications
 
-Rosetta developers creating new PyRosetta applications should place any public apps in `main/source/src/python/bindings/app/` so that they will be packaged and distributed with PyRosetta. These public apps should also have accompanying integration tests. Private scripts should be placed in `main/source/scripts/pyrosetta/pilot/<user_name>`. 
-
-<!--- END_INTERNAL -->
 
 ##Additional Documentation
 More extensive PyRosetta-specific documentation is available:
