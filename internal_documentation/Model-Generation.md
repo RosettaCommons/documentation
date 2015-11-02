@@ -71,6 +71,7 @@ Unless the target backbone to design is random, ModelTrimmer needs to trim model
 -sewing::leave_parallel_way_H_bonded_models_by_terminal_strands_only 
 -sewing::leave_antiparallel_way_H_bonded_models_by_terminal_strands_only 
 -sewing::model_should_have_at_least_one_E Model should have at least one 'E' segment
+-sewing::model_should_have_at_least_one_E_at_terminal_segment Model should have at least one 'E' segment at terminal segment
 ```
 
 An example command line for ModelTrimmer:
