@@ -13,6 +13,9 @@ This documentation page emphasizes the setup of multiple jobs that together perm
 
 The input files, algorithm, etc. for the FARFAR application are described separately [[here|rna denovo]], but a detailed understanding of those file formats is not necessary for modeling. 
 
+Here's a movie of models created through iterative application of this modeling workflow on the lariat-capping GIR1 ribozyme, as part of a blind prediction trials (RNA puzzle 5):
+
+[![RNA puzzle 5 modeling animation on Youtube](http://img.youtube.com/vi/F9hqByhhpuU/0.jpg)](http://www.youtube.com/watch?v=F9hqByhhpuU)
 
 Limitations
 ===========
