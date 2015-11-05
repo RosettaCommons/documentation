@@ -185,6 +185,26 @@ When specifying pairs, if there are not sufficient CUTPOINT\_OPEN's to allow all
 CUTPOINT_CLOSED 6
 ```
 
+##Can I use fragments that take advantage of our rich database of base pairings? 
+<a name="Can-I-use-base-pair-steps?" />
+
+Yes, by using the flags `-bps_moves`, you can ask the application to try to  draw from a database of "base pair steps". There are two kinds of those steps. 
+
+
+First, for stems (specified by the "STEM" lines in params files), adjacent base pairs form base pair steps, involving four nucleotides (i,i+1,j,j+1) where (i,j+1) and (i+1,j) are paired. There is a set of such steps in Rosetta's database, drawn from the ribosome. The RNA's fold tree will be set up with appropriate jump connections and cutpoints so that those base step conformations can be substituted in during fragment assembly.
+
+Second, if you have specified obligate pairs -- but with unknown pairing edges and orientations ('X' in the params file) -- special fragments will be set up for such pairs that involve nucleotides that are adjacent in sequence. For example, if your params file contains lines like:
+
+```
+OBLIGATE PAIR 2 11 X X X
+OBLIGATE PAIR 3  8 X X X
+```
+
+using the flag `-bps_moves` will trigger moves that substitute sequence-matched fragments for the nucleotides at (2,3,8,11). This happens if on at least one strand, the base pair step involves residues that are immediately contiguous (2 and 3 in this example). On the other strand, the base pair step must involve residues that are contiguous are have no more than 3 intervening 'bulge' residues (8 and 11 in this example). Note that these base pair steps will generally include noncanonical pairs. 
+
+Note: For noncanonical pairs, we don't allow specification of edges and orientations at the moment -- the database gets pretty sparse with that level of specification. Also note: If there is a base pair step that includes a pair both inside a Watson/Crick stem and a more general 'obligate pair', the stem pairing may actually come out as non-Watson-Crick, which often happens anyway for base pairs at the edge of stems.
+
+
 ##What do the scores mean?
 
 
