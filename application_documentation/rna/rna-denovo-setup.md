@@ -32,11 +32,15 @@ The RNA puzzles have offered useful testbeds of helix modeling, motif homology m
 
 References
 ==========
-Most of the tools described here are unpublished but are being incorporated into manuscripts in preparation. One recent preprint with some of this information is:
+Examples of blind predictions carried out with this pipeline, including the one in the movie above, are in:
 
-Cheng, C., Chou, F.-C., Kladwang, W., Tian, S., Cordero, P. and Das, R. (2014)
-"MOHCA-seq: RNA 3D models from single multiplexed proximity-mapping experiments." 
-[Paper](http://biorxiv.org/content/early/2014/04/25/004556)
+Miao, Z., et al. (2015) "RNA-Puzzles Round II: Assessment of RNA structure prediction programs applied to three large RNA structures." RNA 21 (6) : 1066 - 1084. [Paper.](https://daslab.stanford.edu/site_data/pub_pdf/2015_Miao_RNA.pdf) [Link.](http://rnajournal.cshlp.org/content/21/6/1066)
+
+Some recent manuscripts that describe this workflow in detail are:
+
+Cheng, C.Y., Chou, F.-C., Kladwang, W., Tian, S., Cordero, P., and Das, R. (2015) "Consistent global structures of complex RNA states through multidimensional chemical mapping." eLife 4 : e07600. [Paper.](https://daslab.stanford.edu/site_data/pub_pdf/2015_Cheng_eLife.pdf) [Link.](http://elifesciences.org/content/4/e07600)
+	
+Cheng, C.Y., Chou, F.-C., and Das, R. (2015) "Modeling complex RNA tertiary folds with Rosetta." Methods in Enzymology 553 : 35 - 64 [Paper.](https://daslab.stanford.edu/site_data/pub_pdf/2015_Cheng_MethEnzym.pdf) [Link.](http://www.sciencedirect.com/science/article/pii/S0076687914000524)
 
 
 Input Files
