@@ -133,6 +133,10 @@ Commonly used:
 
 Less commonly used, but useful
 -cycles                                          Number of Monte Carlo cycles.[default 10000]. [Integer]
+-bps_moves                                       Base pair step moves. For adjacent base pairs within stems or that are
+                                                 obligate pairs, draw sequence-matched fragments that encompass both
+                                                 pairs. Adjacent means that base pairs have contiguous residues on one 
+                                                 strand, and at most 3 intervening residues on the other.   
 -filter_lores_base_pairs                         Filter for models that satisfy structure parameters. [Boolean]
 -output_lores_silent_file                        If high resolution minimizing, output intermediate low resolution models. [Boolean]
 -dump                                            Generate pdb output. [Boolean]
@@ -146,8 +150,9 @@ Less commonly used, but useful
 
 Advanced [used in rna_assembly]
 -in:file:silent                                  List of input files (in 'silent' format) that specify potential template structures or 'chunks'
--chunk_res                                       Positions at which 'chunks' are applied. If there is more than one chunk file, specify indices for
+-input_res                                       Positions at which 'chunks' are applied. If there is more than one chunk file, specify indices for
                                                    the first file and then the second file, etc.
+                                                 (Used to be called -chunk_res.)
 -in:database                                     Path to rosetta databases. Default is based on location of rosetta executables. [PathVector]
 ```
 
