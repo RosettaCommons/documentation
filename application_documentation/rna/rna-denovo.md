@@ -116,7 +116,7 @@ The resulting file is just a text file with the RNA's torsion angles listed for 
 
 Similarly, the database of base pair geometries can be created with `rna_database -jump\_library`, and then specified in the rna\_denovo application with `-jump\_library\_file`.
 
-Last, a database of base pair step geometries (see []) can be created with `rna_database -bps_database`. By default, this creates files for the standard canonical base pair steps. To also parse out noncanonical base pair steps, use  `-general_bps`; and `-use_lores_base_pair_classification` catches all pairs, including ones that are held in place by base-phosphate contacts but no base-base hydrogen bonds (as occurs in the sarcin/ricin loop). 
+Last, a database of base pair step geometries (see [below](#Can-I-use-base-pair-steps?)) can be created with `rna_database -bps_database`. By default, this creates files for the standard canonical base pair steps. To also parse out noncanonical base pair steps, use  `-general_bps`; and `-use_lores_base_pair_classification` catches all pairs, including ones that are held in place by base-phosphate contacts but no base-base hydrogen bonds (as occurs in the sarcin/ricin loop). 
 
 #Options
 
