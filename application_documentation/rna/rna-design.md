@@ -16,8 +16,12 @@ For a 'minimal' demo example of RNA design:
 
 `       demos/public/RNA_Design      ` [in the release version]
 
+There is also a nice server available for this code at [rnaredesign.stanford.edu](http://rnaredesign.stanford.edu)
+
 References
 ==========
+
+ Yesselman, J.D., and Das, R. (2015) "RNA-Redesign: A web server for fixed-backbone 3D design of RNA." Nucleic Acid Research 43 (W1): W498 - W501. [Paper.](https://daslab.stanford.edu/site_data/pub_pdf/2015_Yesselman_NAR.pdf) [Link.](http://nar.oxfordjournals.org/content/43/W1/W498) [Server.](http://rnaredesign.stanford.edu)
 
 Das, R., Karanicolas, J., and Baker, D. (2010), "Atomic accuracy in predicting and designing noncanonical RNA structure". Nature Methods 7:291-294. [for high resolution refinement] [Paper.](http://www.stanford.edu/~rhiju/DasKaranicolasBaker2010ALL.pdf) [Link.](http://www.nature.com/nmeth/journal/v7/n4/abs/nmeth.1433.html)
 
