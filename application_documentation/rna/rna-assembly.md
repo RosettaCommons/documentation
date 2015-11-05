@@ -9,7 +9,7 @@ Nov. 2011 by Rhiju Das (rhiju [at] stanford.edu).
 
 Code and Demo
 =============
-**IMPORTANT NOTE: a more efficient tertiary assembly pipeline is now available, briefly described in the SI of the MOHCA-seq paper [here](http://biorxiv.org/content/early/2014/04/25/004556), and will be documented here soon. Contact Das lab if you need this sooner.**
+**IMPORTANT NOTE: a more efficient tertiary assembly pipeline is now available, briefly described in the SI of the MOHCA-seq paper [here](http://dx.doi.org/10.7554/eLife.07600) and in the MIE chapter [here](https://daslab.stanford.edu/site_data/pub_pdf/2015_Cheng_MethEnzym.pdf). See also [[rna-denovo-setup]].**
 
 
 This code allows the modeling of large RNAs with multiple helices, by assembling models of helices and noncanonical motifs in a sort of hierarchical buildup strategy. The central code is in the *rna\_denovo* and *rna\_helix* applications are in `       src/protocols/rna/RNA_DeNovoProtocol.cc      ` and in `       src/protocols/rna/RNA_HelixAssembler.cc      ` .
