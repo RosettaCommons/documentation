@@ -6,16 +6,16 @@ Application purpose
 
 This code allows build-up of three-dimensional de novo models of RNAs of sizes up to ~300 nts, given secondary structure and experimental constraints. It can be carried out reasonably automatically, but human curation of submodels along the build-up path may improve accuracy. A fully automated pipeline is in preparation (a previous iteration of this is described in [[rna assembly]] documentation).
 
+Here's a movie of models created through iterative application of this modeling workflow on the lariat-capping GIR1 ribozyme, as part of a blind prediction trials (RNA puzzle 5):
+
+[![RNA puzzle 5 modeling animation on Youtube](http://img.youtube.com/vi/F9hqByhhpuU/0.jpg)](http://www.youtube.com/watch?v=F9hqByhhpuU)
+
 Algorithm
 =========
 
 This documentation page emphasizes the setup of multiple jobs that together permit the modeling of complex RNA folds. Each of the 'sub-jobs' is either a helix creation, a RNA comparative modeling job [[rna_thread|rna-thread]], or a run with the FARFAR (fragment assembly of RNA with full-atom refinement) de novo modeling application. If desired, sub-models can be grafted together into bigger pieces. 
 
 The input files, algorithm, etc. for the FARFAR application are described separately [[here|rna denovo]], but a detailed understanding of those file formats is not necessary for modeling. 
-
-Here's a movie of models created through iterative application of this modeling workflow on the lariat-capping GIR1 ribozyme, as part of a blind prediction trials (RNA puzzle 5):
-
-[![RNA puzzle 5 modeling animation on Youtube](http://img.youtube.com/vi/F9hqByhhpuU/0.jpg)](http://www.youtube.com/watch?v=F9hqByhhpuU)
 
 Limitations
 ===========
