@@ -35,7 +35,7 @@ The RNA structure modeling algorithm in Rosetta is based on the assembly of shor
 
 -   This method has been demonstrated to reach atomic accuracy for small motifs (12 residues or less) – the current bottleneck for larger RNAs is the difficulty of complete conformational sampling (as in other applications in Rosetta to, e.g., protein de novo modeling). On-going work attempts to resolve this issue, but requires great computational expense (see Sripakdeevong et al. paper above).
 
--   For larger RNAs, it appears most efficient to just carry out fragment assembly without refinement, specifying secondary structure (as described below). Although atomic accuracy is unlikely, models acccurate at nucleotide or helix resolution can be achieved, especially with constraints from experiments. See also: [[RNA assembly with experimental pair-wise constraints|rna-assembly]] and, more up to date, [[RNA de novo setup|rna-denovo-setup].
+-   For larger RNAs, it appears most efficient to just carry out fragment assembly without refinement, specifying secondary structure (as described below). Although atomic accuracy is unlikely, models acccurate at nucleotide or helix resolution can be achieved, especially with constraints from experiments. See also: [[RNA assembly with experimental pair-wise constraints|rna-assembly]] and, more up to date, [[RNA de novo setup|rna-denovo-setup]].
 
 -   As with most other modes in Rosetta, the final ensemble of models is not guaranteed to be a Boltzmann ensemble.
 
