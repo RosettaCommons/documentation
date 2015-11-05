@@ -1,5 +1,9 @@
 #Rna Denovo: RNA 3D structure modeling
 
+#Application purpose
+To produce <i>de novo</i> models of small RNA motifs through Fragment Assembly of RNA with Full Atom Refinement (FARFAR).
+
+Note that most of the functionality of rna_denovo/FARFAR is now available on a [ROSIE FARFAR server](http://rosie.rosettacommons.org/rna_denovo), if you want to do some easy tests.
 
 #Code and Demo
 
@@ -202,7 +206,8 @@ OBLIGATE PAIR 2 11 X X X
 OBLIGATE PAIR 3  8 X X X
 ```
 
-using the flag `-bps_moves` will trigger moves that substitute sequence-matched fragments for the nucleotides at (2,3,8,11). This happens if on at least one strand, the base pair step involves residues that are immediately contiguous (2 and 3 in this example). On the other strand, the base pair step must involve residues that are contiguous are have no more than 3 intervening 'bulge' residues (8 and 11 in this example). Note that these base pair steps will generally include noncanonical pairs. 
+using the flag `-bps_moves` will trigger moves that substitute sequence-matched fragments for the nucleotides at (2,3,8,11). This happens if on at least one strand, the base pair step involves residues that are immediately contiguous (2 and 3 in this example). On the other strand, the base pair step must involve residues that are contiguous are have no more than 3 intervening 'bulge' residues (8 and 11 in this example). Note that these base pair steps will generally include noncanonical pairs.  There's a demo of this functionality applied to model the sarcin/ricin loop in `demos/public/RNA_Denovo_with_base_pair_steps/`
+
 
 Note: For noncanonical pairs, we don't allow specification of edges and orientations at the moment -- the database gets pretty sparse with that level of specification. Also note: If there is a base pair step that includes a pair both inside a Watson/Crick stem and a more general 'obligate pair', the stem pairing may actually come out as non-Watson-Crick, which often happens anyway for base pairs at the edge of stems.
 
