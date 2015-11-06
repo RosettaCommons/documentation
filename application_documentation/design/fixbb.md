@@ -68,8 +68,8 @@ Options
 Input file specification:
 
 ```
--s <pdb> <pdb2>    A list of one or more pdbs to run <code>fixbb</code> upon.
--l <listfile>      A file that lists one or more pdbs to run <code>fixbb</code> upon.
+-s <pdb> <pdb2>    A list of one or more pdbs to run fixbb upon.
+-l <listfile>      A file that lists one or more pdbs to run fixbb upon.
 -resfile <fname>   The resfile that is to be used for this job
 -nstruct <int>     The number of iterations to perform per input structure; e.g. with 10 input structures
                    and an -nstruct of 10, 100 trajectories will be performed.
