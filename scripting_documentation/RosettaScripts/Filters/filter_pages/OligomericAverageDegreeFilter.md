@@ -18,6 +18,7 @@ A version of the AverageDegree filter (see [[here|AverageDegreeFilter]]) that is
 
 ## See also
 
+* [[AverageDegreeFilter]]
 * [[GetRBDOFValuesFilter]]
 * [[SymUnsatHbondsFilter]]
 * [[ClashCheckFilter]]
