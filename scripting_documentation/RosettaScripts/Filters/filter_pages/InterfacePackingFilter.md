@@ -14,6 +14,7 @@ Calculates Will Sheffler's holes score for atoms at inter-building block interfa
 
 ## See also
 
+* [[InterfaceHolesFilter]]
 * [[ClashCheckFilter]]
 * [[GetRBDOFValuesFilter]]
 * [[MutationsFilter]]
