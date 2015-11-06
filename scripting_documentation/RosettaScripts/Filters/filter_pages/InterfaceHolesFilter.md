@@ -13,6 +13,7 @@ Looks for voids at protein/protein interfaces using Will Sheffler's packstat. Th
 
 ## See Also:
 
+* [[InterfacePackingFilter]]
 * [[Protein-protein docking|docking-protocol]]
 * [[CavityVolumeFilter]]
 * [[ShapeComplementarityFilter]]
