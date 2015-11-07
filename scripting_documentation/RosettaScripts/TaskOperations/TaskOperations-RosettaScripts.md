@@ -81,9 +81,7 @@ Position/Identity Specification
 
 **[[LinkResidues]]** - Constrain groups of residues to mutate together.
 
-<!--- BEGIN_INTERNAL -->
-**[[RestrictIdentities|RestrictIdentitiesOperation]]** - Do not design residues with a particular starting identity.
-<!--- END_INTERNAL --> 
+ 
 
 
 ### Property-based specification
@@ -134,9 +132,7 @@ Position/Identity Specification
 
 **[[RestrictDesignToProteinDNAInterface|RestrictDesignToProteinDNAInterfaceOperation]]** - Limit repacking and design to residues around DNA.
 
-<!--- BEGIN_INTERNAL -->
-**[[BuildingBlockInterface|BuildingBlockInterfaceOperation]]** - Only design residues near the interface of symmetric building blocks.
-<!--- END_INTERNAL --> 
+ 
 
 ### Input-based design
 
@@ -159,9 +155,7 @@ Position/Identity Specification
 
 ### Misc.
 
-<!--- BEGIN_INTERNAL -->
-**[[RetrieveStoredTask|RetrieveStoredTaskOperation]]** - Use a task stored by a [[StoreTaskMover]].
-<!--- END_INTERNAL --> 
+ 
 
 Rotamer Specification
 ---------------------

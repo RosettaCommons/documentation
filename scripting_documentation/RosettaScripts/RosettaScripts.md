@@ -15,13 +15,7 @@ This page documents the RosettaScripts syntax and common methods by which you ca
 
 [[_TOC_]]
 
-<!--- BEGIN_INTERNAL -->
-##Locations for RosettaScripts XML Files
 
-It is **strongly recommended** that all Rosetta developers version control their RosettaScripts. Private scripts should be placed in `main/source/scripts/rosetta_scripts/pilot/<user_name>`. Public scripts should go in `main/source/scripts/rosetta_scripts/public/`. Any public scripts should also have accompanying integration tests. 
-
-
-<!--- END_INTERNAL -->
 "Skeleton" XML format
 ---------------------
 
