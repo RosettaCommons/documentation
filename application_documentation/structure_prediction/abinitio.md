@@ -102,7 +102,8 @@ These flags are implemented in `ConstraintFragmentSampler.cc`
 ### Processing options
 
 For running multiple jobs on a cluster the following options are useful:
-<pre>
+
+```
 -constant_seed 	        Use a constant seed (1111111 unless specified with -jran)
 -jran 1234567 	        Specify seed. Should be unique among jobs (requires -constant_seed)
 -seed_offset 10 	This value will be added to the random number seed. Useful when using 
@@ -113,7 +114,7 @@ For running multiple jobs on a cluster the following options are useful:
                         For example "-seed_offset $(Process)" can be used in the condor submit file.
 -run:dry_run 	        no sampling cycles, just initialize all objects (for testing, default=False)
 -run:test_cycles 	only a single sampling cycle per stage (for testing, default=False)
-</pre>
+```
 
 ## Source Code 
 
@@ -123,7 +124,7 @@ This top-level mover calls the Movers for the fragment assembly protocol (abinit
 
 The fragment assembly protocol is encoded in the Movers FragmentSampler and its derived class ConstraintFragmentSampler which reside in `main/source/src/protocols/abinitio`.
 
-The AbrelaxMover works closely together with the TopologyBroker module that resides in `main/source/src/protocols/topology_broker`. The TopologyBroker module handles the introduction of restraints, and the determines the kinematics of beta-strands through its ConstraintClaimer and TemplateJumpClaimer classes, respectively.
+The AbrelaxMover works closely together with the [[TopologyBroker|BrokeredEnvironment]] module that resides in `main/source/src/protocols/topology_broker`. The TopologyBroker module handles the introduction of restraints, and then determines the kinematics of beta-strands through its ConstraintClaimer and TemplateJumpClaimer classes, respectively.
 
 
 #See Also
