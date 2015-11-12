@@ -99,7 +99,7 @@ These flags are implemented in `ConstraintFragmentSampler.cc`
                                                 Irrelevant if ramping of chainbreaks is active.
 ```
 
-Processing options
+### Processing options
 
 For running multiple jobs on a cluster the following options are useful:
 <pre>
@@ -115,7 +115,7 @@ For running multiple jobs on a cluster the following options are useful:
 -run:test_cycles 	only a single sampling cycle per stage (for testing, default=False)
 </pre>
 
-#### Source Code 
+## Source Code 
 
 The top-level mover that encodes the abrelax protocol is called AbrelaxMover and resides in `main/source/src/protocols/abinitio`.
 
