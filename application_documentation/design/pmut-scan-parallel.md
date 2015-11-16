@@ -53,8 +53,8 @@ At least one input PDB file must be specified on the command line, either with t
 Options
 =======
 
-Database location - REQUIRED
-----------------------------
+Database location 
+-----------------
 
 ```
 -database <path/to/rosetta/main/database>     Specifies the location of the rosetta_database
