@@ -20,6 +20,9 @@ Here is a list of Score Function options
                                            Default='0.0' [Real]
 -score:ramaneighbors                       Uses neighbor-dependent ramachandran maps
                                            Default='false' [Boolean]
+-score:symmetric_gly_tables                Use a symmetric version of the Ramachandran and p_aa_pp tables for glycine
+                                           when sampling or scoring.  Useful for sampling or scoring glycine in the
+                                           context of a mixed D/L amino acid peptide.  Default='false' [Boolean]
 -score:optH_weights                        Name of weights file (without extension .wts) to use 
                                            during optH. [String]
 -score:optH_patch                          Name of weights file (without extension .wts) to use 
