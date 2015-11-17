@@ -15,7 +15,7 @@ The basic idea is that the algorithm does the following:
 
 This scoring term is controlled by ```.comp``` files, which define the desired residue type composition of a protein.  The ```.comp``` file to use can be:
 - Set at the command line with the ```-aa_composition_setup_file <filename>``` flag.
-- Set from RosettaScripts using the ```\<Set\>``` tag to modify the scorefunction.  For example:
+- Set from RosettaScripts using the ```<Set>``` tag to modify the scorefunction.  For example:
 
 ```
 <tala weights="talaris2014.wts" >
