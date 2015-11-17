@@ -2,7 +2,7 @@
 
 [[Return to RosettaScripts|RosettaScripts]]
 
-By Vikram K. Mulligan, Baker laboratory.  Documentation written 4 April 2014, and last updated on 3 September 2015.
+By Vikram K. Mulligan, Baker laboratory.  Documentation written 4 April 2014, and last updated on 16 November 2015.
 
 ## Short summary
 GeneralizedKIC (short for *G*eneralized *Ki*nematic *C*losure) is a generalization of the existing kinematic closure machinery.  The generalized version works with arbitrary backbones, and with loops that go through side-chains, ligands, etc.  It has also been implemented with full RosettaScripts support, making it easy to incorporate into more complicated protocols.  The RosettaScripts interface gives full control over the inner workings of the algorithm, making it quite a powerful and versatile tool.
