@@ -271,13 +271,20 @@ The Set tag is optional and allows you to change certain scorefunction options, 
 One or more option can be specified per Set tag:
 
 -   aa\_composition\_setup\_file=(&string &string &string...) - One or more setup files for the aa_composition score term defining the desired amino acid composition.  (For more about this score term, see [[the aa_composition score term documentation|AACompositionEnergy]]).
--   exclude\_protein\_protein\_hack\_elec=(&bool) - Don't compute hack\_elec energies for protein-protein interactions (equivalent to the -ligand::old\_estat command line option for ligand\_dock/enzyme\_design)
+-   decompose\_bb\_hb\_into\_pair\_energies=(&bool) - Store backbone hydrogen bonds in the energy graph on a per-residue basis (this doubles the number of calculations, so is off by default)
+-   exclude\_protein\_protein\_fa\_elec=(&bool) - If true, disables fa_elec calculations between protein atoms.  (Equivalent to the -ligand::old\_estat command line option for ligand\_dock/enzyme\_design.)
 -   exclude\_DNA\_DNA=(&bool)
--   exclude\_DNA\_DNA\_hbond=(&bool)
+-   fa\_elec\_min\_dist=(&Real), fa\_elec\_max\_dist=(&Real) - Minimum and maximum distances for the fa_elec Coulomb potential.
+-   fa\_elec\_dielectric=(&Real) - Dielectric constant for the fa_elec score term.
+-   fa\_elec\_no\_dis\_dep\_die=(&bool) - If true, disables the distance dependence of the dielectric constant for the fa_elec score term.
+-   pb\_bound\_tag=(&string)
+-   pb\_unbound\_tag=(&string)
+-   scale\_sc\_dens=(&Real) - Rescale electron density weighting for side-chains.
+-   scale\_sc\_dens\_byres=(&string) - Rescale electron density weighting for side-chains on a per-residue basis.  There is syntax for this, but whoever implemented it didn't bother to document it, so it's pretty useless.
+-   smooth\_hb\_env\_dep=(&bool)
+-   softrep\_etable=(&bool) - Use softer repulsion for the Lennard-Jones potential.  (Spongier atoms -- useful for packing early in a design trajectory, for example.)
 -   use\_hb\_env\_dep\_DNA=(&bool)
 -   use\_hb\_env\_dep=(&bool)
--   smooth\_hb\_env\_dep=(&bool)
--   decompose\_bb\_hb\_into\_pair\_energies=(&bool) - Store backbone hydrogen bonds in the energy graph on a per-residue basis (this doubles the number of calculations, so is off by default)
 
 ### Global Scorefunction modifiers
 
