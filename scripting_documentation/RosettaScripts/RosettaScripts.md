@@ -256,7 +256,7 @@ The SCOREFXNS section defines scorefunctions that will be used in Filters and Mo
 </"scorefxn_name">
 ```
 
-where scorefxn\_name will be used in the Movers and Filters sections to use the scorefunction. The name should therefore be unique and not repeat the predefined score names. One or more Reweight tag is optional and allows you to change/add the weight for a given scoretype. The Set tag is optional and allows you to change certain scorefunction options. For example:
+where scorefxn\_name will be used in the Movers and Filters sections to use the scorefunction. The name should therefore be unique and not repeat the predefined score names. One or more Reweight tag is optional and allows you to change/add the weight for a given scoretype.  For example:
 
 ```
 <scorefxn1 weights=fldsgn_cen>
@@ -264,10 +264,13 @@ where scorefxn\_name will be used in the Movers and Filters sections to use the 
 </scorefxn1>
 ```
 
+The Set tag is optional and allows you to change certain scorefunction options, as discussed in the next section.
+
 #### Scorefunction Options
 
 One or more option can be specified per Set tag:
 
+-   aa\_composition\_setup\_file=(&string &string &string...) - One or more setup files for the aa_composition score term defining the desired amino acid composition.  (For more about this score term, see [[the aa_composition score term documentation|AACompositionEnergy]]).
 -   exclude\_protein\_protein\_hack\_elec=(&bool) - Don't compute hack\_elec energies for protein-protein interactions (equivalent to the -ligand::old\_estat command line option for ligand\_dock/enzyme\_design)
 -   exclude\_DNA\_DNA=(&bool)
 -   exclude\_DNA\_DNA\_hbond=(&bool)
