@@ -24,6 +24,8 @@ This scoring term is controlled by ```.comp``` files, which define the desired r
 </tala>
 ```
 
+In both cases, the user can list more than one .comp file, separated by spaces, if he or she so wishes.
+
 A ```.comp``` file consists of one or more ```PENALTY_DEFINITION``` blocks, each with five to six lines.  Lines that can be present include:
 - ```PENALTY_DEFINITION``` Starts the block.
 - ```TYPE <restype>``` Indicates that this block sets the prevalence of a particular residue type.
