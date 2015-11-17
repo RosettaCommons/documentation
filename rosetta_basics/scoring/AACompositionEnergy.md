@@ -1,6 +1,6 @@
 # Residue type composition energy (aa_composition)
 Documentation created by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory.
-Last edited 23 July 2015.
+Last edited 17 November 2015.
 
 ## Purpose and algorithm
 
@@ -13,8 +13,17 @@ The basic idea is that the algorithm does the following:
 
 ## User control
 
-This scoring term is controlled by ```.comp``` files, which define the desired residue type composition of a protein.  The ```.comp``` file to use can be set at the command line with the ```-aa_composition_setup_file <filename>``` flag.  The default is to use a setup file that penalizes deviations from the average amino acid composition of natural proteins.<br/>
-<br/>
+This scoring term is controlled by ```.comp``` files, which define the desired residue type composition of a protein.  The ```.comp``` file to use can be:
+- Set at the command line with the ```-aa_composition_setup_file <filename>``` flag.
+- Set from RosettaScripts using the ```\<Set\>``` tag to modify the scorefunction.  For example:
+
+```
+<tala weights="talaris2014.wts" >
+	<Reweight scoretype=aa_composition weight=1.0 />
+	<Set aa_composition_setup_file="inputs/disfavour_polyala.comp" />
+</tala>
+```
+
 A ```.comp``` file consists of one or more ```PENALTY_DEFINITION``` blocks, each with five to six lines.  Lines that can be present include:
 - ```PENALTY_DEFINITION``` Starts the block.
 - ```TYPE <restype>``` Indicates that this block sets the prevalence of a particular residue type.
