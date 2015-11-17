@@ -18,10 +18,12 @@ This scoring term is controlled by ```.comp``` files, which define the desired r
 - Set from RosettaScripts using the ```<Set>``` tag to modify the scorefunction.  For example:
 
 ```
-<tala weights="talaris2014.wts" >
-	<Reweight scoretype=aa_composition weight=1.0 />
-	<Set aa_composition_setup_file="inputs/disfavour_polyala.comp" />
-</tala>
+<SCOREFXNS>
+	<tala weights="talaris2014.wts" >
+		<Reweight scoretype=aa_composition weight=1.0 />
+		<Set aa_composition_setup_file="inputs/disfavour_polyala.comp" />
+	</tala>
+</SCOREFXNS>
 ```
 
 In both cases, the user can list more than one .comp file, separated by spaces, if he or she so wishes.
