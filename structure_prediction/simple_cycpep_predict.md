@@ -48,6 +48,10 @@ This protocol can also be run from the BOINC [[minirosetta build|minirosetta]], 
 **-in:file:native \<pdb_filename\>**  A PDB file for the native structure.  Optional.  If provided, an RMSD value will be calculated for each generated structure.<br/><br/>
 **-out:file:s \<pdb_filename\>** OR **-out:file:silent \<silent_filename\>**  Prefix for PDB files that will be written out, OR name of the binary silent file that will be generated.<br/><br/>
 
+# Other useful flags
+
+For mixed D/L peptides, the **-score:symmetric_gly_tables** flag can be a beneficial flag to use.  This flag symmetrizes the Ramachandran and p_aa_pp tables used for sampling and scoring glycine, so that it is equally likely to be in the D- or L-regions of Ramachandran space.
+
 # Output
 
 This application generates PDB or binary silent file output.  If the latter is used (recommended), hydrogen bond counts and RMSD values to native (if a native file was provided) are in the ```SCORE``` lines in the silent file.  Additionally, these values are reported in the output log.
