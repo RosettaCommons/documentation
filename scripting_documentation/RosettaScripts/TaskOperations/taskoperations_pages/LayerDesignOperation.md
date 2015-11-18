@@ -118,10 +118,10 @@ Cterm
 
 <!-- -->
 
-     This example no.2 creates core_boundary_surface that designs differently by layers.  In the core layer, the noncanonical amino acids D-valine and D-isoleucine are permitted.  (Note that when this script is run, the path to the params files for these noncanonicals will have to be provided with the -extra_res_fa flag.)
+     This example no.2 creates core_boundary_surface_Nterm_Cterm that designs differently by layers.  In the core layer, the noncanonical amino acids D-valine and D-isoleucine are permitted.  (Note that when this script is run, the path to the params files for these noncanonicals will have to be provided with the -extra_res_fa flag.)
         <TASKOPERATIONS>
 
-          <LayerDesign name=layerdesign make_pymol_script=1 layer=core_boundary_surface>
+          <LayerDesign name=layerdesign make_pymol_script=1 layer=core_boundary_surface_Nterm_Cterm>
 
              <core>
                <all append="AFGILMNPQVWYH" ncaa_append="DVA,DIL"/>
