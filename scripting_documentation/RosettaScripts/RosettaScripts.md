@@ -30,6 +30,8 @@ Copy, paste, fill in, and enjoy
 <ROSETTASCRIPTS>
     <SCOREFXNS>
     </SCOREFXNS>
+    <RESIDUE_SELECTORS>
+    </RESIDUE_SELECTORS>
     <TASKOPERATIONS>
     </TASKOPERATIONS>
     <FILTERS>
