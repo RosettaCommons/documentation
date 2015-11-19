@@ -154,3 +154,11 @@ Input Files:
 
 [[Global Objects-Singletons in Rosetta | internal_documentation/singletons]]
  - Creating singletons that are threadsafe. Andrew
+
+### Energy Function optimization ###
+#### Seattle Group 
+[[Overview]]
+
+[[Updates - beta_july15]]
+
+[[Updates - beta_nov15]]
