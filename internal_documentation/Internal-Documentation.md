@@ -157,7 +157,7 @@ Input Files:
 
 ### Energy Function optimization ###
 #### Seattle Group 
-[[Overview]]
+[[Overview of Seattle Group energy function optimization project]]
 
 [[Updates - beta_july15]]
 
