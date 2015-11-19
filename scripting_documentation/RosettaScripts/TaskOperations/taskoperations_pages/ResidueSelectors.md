@@ -131,6 +131,19 @@ or
 -   Groups 1 and 2 can be given either through the grp1\_selector and grp2\_selector options, (requiring that the indicated selectors had been previously declared and placed in the DataMap) or may be declared anonymously in the given subtags. Anonymously declared selectors are not added to the DataMap.
 -   The cb\_dist\_cut is a fudge factor used in this calculation and is used only in constructing an initial graph; neighbor relationships are only considered between pairs of residues that have edges in this initial graph. cb\_dist\_cut should be greater than vector\_dist\_cut.
 
+#### LayerSelector
+
+```
+     <Layer name=(&string) select_core=(false &bool) select_boundary=(false &bool) select_surface=(false &bool)
+          ball_radius=(2.0 &Real) use_sidechain_neighbors=(true &bool)
+          sc_neighbor_dist_exponent=(1.0 &Real) sc_neighbor_dist_midpoint=(9.0 &Real)
+          sc_neighbor_denominator=(1.0 &Real) sc_neighbor_angle_shift_factor=(0.5 &Real)
+          sc_neighbor_angle_exponent=(2.0 &Real)
+          core_cutoff=(5.2 &Real) surface_cutoff=(2.0 &Real)
+     />
+```
+
+
 #### NeighborhoodResidueSelector
 
     <Neighborhood name=(%string) resnums=(%string) distance=(10.0%float)/>
