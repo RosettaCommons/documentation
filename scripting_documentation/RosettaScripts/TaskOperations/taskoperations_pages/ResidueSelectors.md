@@ -133,6 +133,8 @@ or
 
 #### LayerSelector
 
+The LayerSelector lets a user select residues by burial.  Burial can be assessed by number of sidechain neighbors within a cone along the CA-CB vector (the default method), or by SASA.
+
 ```
      <Layer name=(&string) select_core=(false &bool) select_boundary=(false &bool) select_surface=(false &bool)
           ball_radius=(2.0 &Real) use_sidechain_neighbors=(true &bool)
@@ -143,6 +145,29 @@ or
      />
 ```
 
+Options:
+- select\_core=(false &bool), select\_boundary=(false &bool), select\_surface=(false &bool): Boolean flags that let the user choose which layer(s) should be selected.  Multiple layers are permitted, but at least one must be specified or no residues will be selected.
+- use_sidechain_neighbors=(true &bool): Should the sidechain neighbor algorithm be used to determine which layer a residue lies in (the default) or should the older SASA-based method be used instead?
+
+SASA-specific options:
+- ball_radius=(2.0 &Real): The radius for the rolling ball algorithm used to pick residues by SASA.
+- core_cutoff=(20.0 &Real), surface_cutoff=(40.0 &Real):  The SASA values (as a percentage of total surface area) below which a residue is sorted into the core group, or above which a residue is sorted into the surface group.  Note that setting use_sidechain_neighbors=false alters the default values of core_cutoff and surface_cutoff.
+
+Sidechain neighbor-specific options:
+- core_cutoff=(5.2 &Real), surface_cutoff=(2.0 &Real):  The number of sidechain neighbors (weighted counts -- see below) above which a residue is sorted into the core group, or below which a residue is sorted into the surface group.
+
+Neighbor residues are counted, weighted by a factor that is a distance factor multiplied by an angle factor.  The two factors are calculated as follows:
+
+**distance factor = 1 / (1 + exp( n*(d - m) ) )**, where **d** is the distance of the neighbor from the residue CA, **m** is the midpoint of the distance falloff, and **n** is a falloff exponent factor that determines the sharpness of the distance falloff (with higher values giving sharper falloff near the midpoint distance).
+**angle factor = ( (cos(theta)+a)/(1+a) )^b**, where **theta** is the angle between the CA-CB vector and the CA-neighbor vector, **a** is an offset factor that widens the cone somewhat, and **b** is an exponent that determines the sharpness of the angular falloff (with lower values resulting in a broader cone with a sharper edge falloff).
+
+The parameters above generally need not be changed from their default values.  If the user wishes to change them, though, he or she can do so by altering the following:
+
+- sc_neighbor_dist_exponent=(1.0 &Real): Alters the value of **n**, the distance exponent.
+- sc_neighbor_dist_midpoint=(9.0 &Real): Alters the value of **m**, the distance falloff midpoint.
+- sc_neighbor_angle_shift_factor=(0.5 &Real): Alters the value of **a**, the angular shift factor.
+- sc_neighbor_angle_exponent=(2.0 &Real): Alters the value of **b**, the angular sharpness value.
+- sc_neighbor_denominator=(1.0 &Real): Alters the value by which the overall expression is divided.
 
 #### NeighborhoodResidueSelector
 
