@@ -159,6 +159,7 @@ Sidechain neighbor-specific options:
 Neighbor residues are counted, weighted by a factor that is a distance factor multiplied by an angle factor.  The two factors are calculated as follows:
 
 **distance factor = 1 / (1 + exp( n*(d - m) ) )**, where **d** is the distance of the neighbor from the residue CA, **m** is the midpoint of the distance falloff, and **n** is a falloff exponent factor that determines the sharpness of the distance falloff (with higher values giving sharper falloff near the midpoint distance).
+
 **angle factor = ( (cos(theta)+a)/(1+a) )^b**, where **theta** is the angle between the CA-CB vector and the CA-neighbor vector, **a** is an offset factor that widens the cone somewhat, and **b** is an exponent that determines the sharpness of the angular falloff (with lower values resulting in a broader cone with a sharper edge falloff).
 
 The parameters above generally need not be changed from their default values.  If the user wishes to change them, though, he or she can do so by altering the following:
