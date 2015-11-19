@@ -4,4 +4,6 @@
 
 * LJ parameters (fa_atr/fa_rep)
 
+* Electrostatics dielectric model (fa_elec)
+
 * Miscellaneous
