@@ -20,7 +20,7 @@ The most significant change in beta_july15 is the addition of an anisotropic pol
 
 Following introduction of the lk_ball anisotropic polar solvation model, the LK parameters were refit following our energy function optimization scheme.  Initially, several manual modifications were manually made:
 * LK_VOLUMES were recalculated using the Rosetta VDW radii using the formula from the original paper (different from original paper)
-* Several mistyped atoms in Rosetta were corrected: CYS SG, TYR CZ, TRP CE2, and aromatic CGs
+* Several mistyped atoms in Rosetta were corrected: CYS SG, ARG CZ, TRP CE2, and aromatic CGs
 * LK_LAMBDAs for charged atoms were reduced from 6.0Å to 3.5Å; due to the 6Å truncation of Rosetta, these were oddly behaved
 * Finally, many polar atoms were further divided into subtypes
 
