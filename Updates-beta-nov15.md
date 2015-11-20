@@ -13,7 +13,7 @@ Optimization followed the same scheme as [[beta_july15|Updates-beta-july15]], an
 * New docking and decoy discrimination sets were generated using beta_july15
 * The distance distribution metric was modified to compute RMS error rather than error sum, and to weaken over-represented atom pairs, to address poor polar distance distributions in the July 2015 version
 
-**Electrostatics & Partial charges (fa_elec)**
+**Electrostatics & partial charges (fa_elec)**
 
 In this optimization we considered optimizing individual atomic partial charges.  To reduce the number of parameters as well as maintain the overall charge of the molecules, we used the following scheme:
 * Break each residue in 2 backbone and 1 sidechain group
