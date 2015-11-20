@@ -13,7 +13,7 @@ Many rounds of optimization have been performed, optimizing different subsets of
 
 These flags include (more details of specific improvements can be seen by following the links below):
 * [[beta_july15|Updates-beta-july15]] - optimization of solvation and LJ parameters, introduction of anisotropic polar solvation (LK-ball)
-* [[beta_nov15|Updates-beta-nov15]] - optimization electrostatic parameters, updated torsion parameters, enabling LJ attraction to hydrogens
+* [[beta_nov15|Updates-beta-nov15]] - optimization of electrostatic parameters, updated torsion parameters, enabling LJ attraction for hydrogens
 
 
 ### Using the updated energy function
