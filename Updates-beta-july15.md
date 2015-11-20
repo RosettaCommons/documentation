@@ -24,7 +24,7 @@ Following introduction of the lk_ball anisotropic polar solvation model, the LK 
 * LK_LAMBDAs for charged atoms were reduced from 6.0Å to 3.5Å; due to the 6Å truncation of Rosetta, these were oddly behaved
 * Finally, many polar atoms were further divided into subtypes
 
-Then, using the LK-ball anisotropic solvation model, the DGFREEs of all atom types were refit following our optimization criteria.  As with the original LK paper, agreement to liquid-vapor transfer free energies were used as a strong constraint on optimization.
+Then, using the LK-ball anisotropic solvation model, the DGFREEs of all atom types were refit following our optimization criteria.  As with the original LK paper, agreement to liquid-vapor transfer free energies was used as a strong constraint on optimization.
 
 **LJ parameters (fa_atr/fa_rep)**
 
