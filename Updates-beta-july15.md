@@ -1,4 +1,6 @@
-Note: this parameterization has been superseded by [[beta_nov15|Updates-beta-nov15]].
+**Note:** this parameterization has been superseded by [[beta_nov15|Updates-beta-nov15]].
+
+An overview of this energy function optimization effort is available [[here|Overview-of-Seattle-Group-energy-function-optimization-project]].
 
 ### Using the beta_july15 energy function parameters
 
