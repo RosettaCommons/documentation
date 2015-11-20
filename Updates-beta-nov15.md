@@ -20,7 +20,7 @@ In this optimization we considered optimizing individual atomic partial charges.
 * Maintain the overall charge of that group (-1/0/+1) but fit a group scalefactor that increases the overall range of partial charges within that group
 * Group together all backbone groups (so there is only one NH group parameter and one CO group parameter) and all non-polar, non-aromatic sidechains
 
-More importantly, an issue where the count-pair logic in Rosetta was splitting dipoles has been corrected.  This is fixed by specifying a "representative atom" for each atom that is used for countpair purposes.  This is specified using the flag **-elec_representative_cp** or **-elec_representative_cp_flip** which uses the minimum or maximum length within each group, respectively, when determining what count pair length to apply.  The beta energy function uses the maximum length (**-elec_representative_cp_flip**).
+More importantly, an issue where the count-pair logic in Rosetta was splitting dipoles has been corrected.  This is fixed by specifying a "representative atom" for each atom that is used for countpair purposes.  This is specified using the flag **-elec_representative_cp** or **-elec_representative_cp_flip** which uses the minimum or maximum length within each group, respectively, when determining what count pair multiplier to apply.  The beta energy function uses the maximum length (**-elec_representative_cp_flip**).
 
 **Hatr (fa_atr for hydrogens)**
 
