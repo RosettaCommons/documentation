@@ -22,7 +22,7 @@ For most protocols (those that use _getScoreFunction_ to set the protocol score 
 
 For _RosettaScripts_ protocols, the flag -beta must be provided, and the following scorefunction declaration must be made:
 
-**\<beta weights=beta\\\>**
+**\<beta weights=beta/\>**
 
 Additionally, variants of the scorefunction may be specified through RosetttaScripts or through the flag **-score::weights**:
 
