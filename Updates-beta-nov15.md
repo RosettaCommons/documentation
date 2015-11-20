@@ -38,4 +38,4 @@ Several torsional updates were included before optimization:
 Several minor modifications were made to the energy function as well:
 
 * The fade-width of LK-ball solvation was reduced slightly
-* Reference weights were agin refit
+* Reference weights were again refit
