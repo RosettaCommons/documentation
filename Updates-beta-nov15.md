@@ -1,3 +1,5 @@
+An overview of this energy function optimization effort is available [[here|Overview-of-Seattle-Group-energy-function-optimization-project]].
+
 ### Using the beta_nov15 energy function parameters
 
 For most protocols (those that use _getScoreFunction_ to set the protocol score function), the flag **-beta_nov15** _or_ simply **-beta** (which will always load the latest beta energy function) will load this version of the beta energy function.
