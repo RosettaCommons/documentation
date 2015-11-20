@@ -1,3 +1,5 @@
+## Energy function optimization overview
+
 This energy function optimization aims to reparameterize the Rosetta energy function subject to several different constraints:
 
 * Performance on various structure prediction tasks, including rotamer recovery, protein-protein docking, and decoy discrimination
@@ -13,7 +15,8 @@ These flags include (more details of specific improvements can be seen by follow
 * [[beta_july15|Updates-beta-july15]] - optimization of solvation and LJ parameters, introduction of anisotropic polar solvation (LK-ball)
 * [[beta_nov15|Updates-beta-nov15]] - optimization electrostatic parameters, updated torsion parameters, enabling LJ attraction to hydrogens
 
-**Using the updated energy function**
+
+## Using the updated energy function
 
 For most protocols (those that use _getScoreFunction_ to set the protocol score function), the flag **-beta** will load the latest version of the beta energy function.
 
