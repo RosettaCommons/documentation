@@ -5,11 +5,17 @@
 Rotate pose over a given axis.
 
 ```
-        <RollMover name=(&string) start_res=(&int) stop_res=(&int) min_angle=(&Real) max_angle=(&Real) > 
+        <RollMover name=(&string) start_res=(&int) stop_res=(&int) min_angle=(&Real) max_angle=(&Real)> 
                <axis x=(&Real) y=(&Real) z=(&Real) /> 
                <translate x=(&Real) y=(&Real) z=(&Real) /> 
 
         </RollMover>
+```
+
+Rotate and/or translate pose over random axis/random direction
+
+```
+<RollMover name=(&string) chain=(&int) random_roll=(&Bool) random_roll_angle_mag=(&Real) random_roll_trans_mag=(&Real) /> 
 ```
 
 -   start\_res: first residue id of object to roll
@@ -18,6 +24,8 @@ Rotate pose over a given axis.
 -   max\_angle: maximum angle to roll about axis
 -   axis: vector to rotate about
 -   translate: point to translate axis to
+-   random_roll_angle_mag: the sigma for a gaussian magnitude rotation around a random axis
+-   random_roll_trans_mag: the sigma for a 3D gaussian random translation
 
 
 ##See Also
