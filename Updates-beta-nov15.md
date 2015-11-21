@@ -35,6 +35,19 @@ Several torsional updates were included before optimization:
 * Separate pre-proline and pre-non-proline rama potentials were computed and are now used, replacing **rama** with a new scoreterm **rama_prepro**
 * Weights on all torsional terms were refit as part of the optimization process
 
+**Bondlength, bondangle and planarity restraints (cart_bonded)**
+
+Bondlength and bond angle parameters were updated in several ways.  Initially, several errors in the cart_bonded parameter file were corrected:
+
+* Due to the way they were calculated initially from parameter files, several proline parameters from Rosetta were initially incorrect, particularly the CD-N-CA angle, but any angle/length involving the CD-N bond.  These have all been set to their Engh & Huber values.
+* Due to a typo, PHE CB pseudotorsions were not calculated
+* There were inconsistencies between HIS and HIS_D restraints
+
+Secondly, optimization was carried out with the spring constants used in cart bonded.  All angles, lengths, and torsions were divided into 130 "classes", and a scaling factor was calculated for each class.  These scaling factors were optimized using two criteria:
+
+* Landscape quality following Cartesian relax
+* Gradient magnitude following crystallographic re-refinement
+
 **Miscellaneous**
 
 Several minor modifications were made to the energy function as well:
