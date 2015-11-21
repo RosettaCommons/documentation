@@ -134,6 +134,10 @@ tools/fragment_tools/ss_pred_converter.py
 tools/fragment_tools/update_revdat.pl    
 &#8195; - Update revdat file for benchmarking cutoffs. 
 
+#### Constraint files
+
+tools/protein_tools/scripts/generate_atom_pair_constraint_file.py
+&#8195; - Generate a Rosetta constraint file to restrain atom pair distances based on a PDB file.
 
 ### Job Running
 
