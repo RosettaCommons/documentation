@@ -19,7 +19,8 @@ Properties:
 	- To designate to which chemical classification/family the residue belongs, e.g., PROTEIN, RNA
 	- To designate a global chemical property of the molecule/residue, e.g., POLAR, CHARGED
 	- To designate that a residue has been modified at a particular position, (but NOT what that modification is,) e.g., OG_MODIFIED, C1_MODIFIED
--	Do not combine properties that are distinct: AA and L_STEROCHEMISTRY would be preferred properties; L_AA would not be.
+-	Do not combine properties that are distinct:  CHARGED and PROTEIN are preferred properties; CHARGED_PROTEIN would not be.
+-       DO combine properties if they ARE intrinsically related:  L_AA is preferred over L_STEREOCHEMISTRY and AMINO_ACID, because L-stereochemistry is only defined as a convention in the context of amino acids (as opposed to the R/S nomenclature that can be more universally applied, but which results in cysteine being classified differently from the other amino acids).
 -	Properties should be named as nouns if a family designation or adjectives if a chemical property, e.g., PEPTOID vs. AROMATIC.
 
 Variants:
