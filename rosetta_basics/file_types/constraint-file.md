@@ -167,36 +167,36 @@ Functions are listed as "Func\_Type Func\_Def".
 
 	-   `CIRCULARHARMONIC  x0 sd       `
 
-	[[/images/form_1.png]]
+	    [[/images/form_1.png]]
 
 	-   `PERIODICBOUNDED period lb ub sd rswitch tag  `
-	* Note: Setting `rswitch` to anything other than 0.5 will create a discontinuity in the derivative. `rswitch` and `tag` should not be treated as optional.
+	    * Note: Setting `rswitch` to anything other than 0.5 will create a discontinuity in the derivative. `rswitch` and `tag` should not be treated as optional.
 
-	A BOUNDED constraint after mapping the measured value to the range -period/2 to +period/2. Useful for angle measures centered on zero.
+	     A BOUNDED constraint after mapping the measured value to the range -period/2 to +period/2. Useful for angle measures centered on zero.
 
 	-   `OFFSETPERIODICBOUNDED offset period lb ub sd rswitch tag  `
 
-	A BOUNDED constraint, where the measured value is (x - offset) mapped to the range -period/2 to +period/2. Useful for angle measures. (Note that lb and ub are interpreted after subtraction, so the true range of zero constraint is from lb+offfset to ub+offset.)
+	    A BOUNDED constraint, where the measured value is (x - offset) mapped to the range -period/2 to +period/2. Useful for angle measures. (Note that lb and ub are interpreted after subtraction, so the true range of zero constraint is from lb+offfset to ub+offset.)
 
 	-   `AMBERPERIODIC x0 n_period k`
 	
-	An AMBERPERIODIC function penalizes deviations from angle x0 by values from 0 to 2k, with n_period periods:
+	    An AMBERPERIODIC function penalizes deviations from angle x0 by values from 0 to 2k, with n_period periods:
 		-	f(x) = k * (1 + cos( ( n_period * x ) - x0 ) )
 
 	-   `CHARMMPERIODIC x0 n_period k`
 
-	A CHARMMPERIODIC function penalizes deviations from angle x0 by values from 0 to k, with n_period periods:
+	    A CHARMMPERIODIC function penalizes deviations from angle x0 by values from 0 to k, with n_period periods:
 		-	f(x) = 0.5 * k * (1 - cos( n_period * ( x - x0 ) ) )
 
 	-   `CIRCULARSIGMOIDAL xC m o1 o2`
 
-	A CIRCULARSIGMOIDAL function penalizes deviations x0 from angles o1 and/or o2 by values from 0 to 1, with n_period periods:
+	    A CIRCULARSIGMOIDAL function penalizes deviations x0 from angles o1 and/or o2 by values from 0 to 1, with n_period periods:
 
 		-	f(x) = 1/(1+ M_E ^ (-m*(x0-o1))) - 1/(1+M_E^(-m*(x0-o2)))
 
 	-   `CIRCULARSPLINE weight [36 energy values]`
 
-	A CIRCULARSPLINE function sets up a periodic cubic spline trained on the provided energy values, which represent the centers of thirty-six 10 degree bins
+	    A CIRCULARSPLINE function sets up a periodic cubic spline trained on the provided energy values, which represent the centers of thirty-six 10 degree bins
 
 -   `HARMONIC  x0 sd`
 
@@ -206,8 +206,8 @@ Functions are listed as "Func\_Type Func\_Def".
 
     Zero in the range of `x0 - tol` to `x0 + tol`. Harmonic with width parameter sd outside that range. Basically, a HARMONIC potential _(see above)_ split at x0 with a 2*tol length region of zero inserted.
 
--   ` BOUNDED lb ub sd rswitch tag  `
-    * Note: Setting `rswitch` to anything other than 0.5 will create a discontinuity in the derivative. `rswitch` and `tag` should not be treated as optional.
+-   ` BOUNDED lb ub sd rswitch tag`
+    * Note: Setting `rswitch` to anything other than 0.5 will create a discontinuity in the derivative. (If `tag` is not numeric, then `rswitch` may be omitted and will default to 0.5.) `tag` is NOT optional. 
 
     [[/images/form_2.png]]
 
@@ -239,8 +239,20 @@ Functions are listed as "Func\_Type Func\_Def".
 
     [[/images/form_7.png]]
 
--   `SPLINE  histogram_file_path experimental_value weight bin_size       ` 
-    * Note: This function reads in any histogram and creates a cubic spline over it using the Rosetta SplineGenerator. The full path to the file must be speified. The function assumes that all bin sizes are the same, even though you must specify it for each line in the cst file. If using RosettaEPR knowledge-based potential, replace \<filename\> with EPR\_DISTANCE, and it will read in the EPR distance histogram from the Rosetta database. See example below for using with EPR knowledge-based potential.
+-   `SPLINE description histogram_file_path experimental_value weight bin_size`
+
+    or, if the option `-constraints:epr_distance` is set `SPLINE description experimental_value weight bin_size`
+
+    In the first form, this function reads in a histogram file and creates a cubic spline over it using the Rosetta SplineGenerator. The full path to the file must be specified. The basic form of the histogram file is a *TAB SEPARATED* file of the following format:
+
+        x_axis  -1.750  -1.250  -0.750  -0.250  0.250   0.750   1.250   1.750 
+        y_axis  0.000   -0.500  -1.000  -2.000  -1.500  -0.500  -0.250  0.000
+
+    The values in the `x_axis` line must be in ascending order, and it is assumed that the values are for the center of the histogram bin and that all bin widths are the same as that specified in the constraint file. (In practice, the bin_size setting is only used for the bins on the end.) It's assumed that the values return to the baseline at the edge of the given x_axis range, and that all y_axis values outside the range are zero.
+
+    If the `description` parameter is `EPR_DISTANCE`, then the functional transformation of the measurement *x* is `weight * S(experimental_value - x)`, otherwise the functional transformation is `weight * S(x)`, and `experimental_value` is ignored.
+
+    If the `-constraints:epr_distance` option is given on the command line, then the histogram_file_path should be omitted, and the RosettaEPR knowledge-based potential will be read from a file in the Rosetta database. (See Hirst *et al.* (2011) J. Struct Biol. 173:506 and Alexander *et al.* (2013) PLoS One e72851 for details on this potential.) See example below for using with EPR knowledge-based potential.
 
 -   `FADE  lb ub d wd [ wo ]       `
     * This is meant to basically be a smoothed "square well" bonus of `        wd       ` between the boundaries `        lb       ` and `        ub       ` . An optional offset `        wo       ` (default 0) can be added to the whole function; this is useful if you want to make the function be zero in the 'golden range' and then give a penalty elsewhere (e.g., specify wd of -20 and wo of +20). To make sure the function and its derivative are continuous, the function is connected by cubic splines in the boundary regions in slivers of width d, between `        lb       ` to `        lb+d       ` and between `        ub-d       ` to `        ub       ` :
