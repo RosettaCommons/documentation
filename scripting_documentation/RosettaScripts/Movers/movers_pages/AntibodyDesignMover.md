@@ -10,7 +10,7 @@ Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
 
 Note: Full documentation for the RAbD protocol is not currently complete but will be by September, 2015.  Please email me if you wish to use the RAbD protocol or collaborate. 
 
-
+<!--- BEGIN_INTERNAL -->
 ###Purpose
 
 Runs the full Rosetta Antibody Design (RAbD) Protocol.  Requires an AHo numbered antibody. Note that only the top design will move on in RosettaScripts.  See the [[Rosetta Antibody Design (RAbD) Manual | RosettaAntibodyDesign ]] for more information.  Note that the [[AntibodyDesignProtocol]] has much less control and tweaks available. The default setting is to design all CDRs.  Any antibody design options discussed in the antibody design documentation but not set through the XML (as outlined in this document) can be set through the Command line.
@@ -61,6 +61,7 @@ Runs the full Rosetta Antibody Design (RAbD) Protocol.  Requires an AHo numbered
 -   epitope_residues (&string): Use these residues as the antigen epitope.  Default is to auto-identify them within the set interface distance at protocol start if epitope constraints are enabled. Currently only used for constraints.  PDB Numbering. Optional insertion code. Example: 1A 1B 1B:A. Note that these site constraints are only used during docking unless -enable_full_protocol_atom_pair_cst is set.
 -   paratope_cdrs (&string) (Default=all CDRs): Specifically set the paratope as these CDRs.
 
+<!--- END_INTERNAL -->
 
 ##See Also
 
