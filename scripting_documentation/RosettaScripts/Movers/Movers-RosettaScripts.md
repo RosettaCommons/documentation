@@ -327,7 +327,8 @@ See Also: [[Antibody TaskOperations | TaskOperations-RosettaScripts#antibody-and
 
 ### Modeling ###
 
-**[[AntibodyDesignModeler]]** - Easily call antibody-specific modeling tasks with optional design, such as packing the antibody-antigen interface, relaxing a set of CDR loops, etc. 
+**[[AntibodyCDRGrafter]]** - Graft CDR loops from one structure to another, optionally optimize CDRs.
+
 
 ### Design ###
 
