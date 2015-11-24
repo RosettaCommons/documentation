@@ -118,7 +118,7 @@ These are movers that should be usable in most cases with most systems
 
 **[[AddConstraintsToCurrentConformationMover]]** - Adds constraints based on the current conformation
 
-**[[AddCompositionConstraintsMover]]** - Adds constraints related to the amino acid composition, enforced by the aa_composition score term.
+**[[AddCompositionConstraintMover]]** - Adds constraints related to the amino acid composition, enforced by the aa_composition score term.
 
 **[[AtomCoordinateCstMover]]** - Adds coordinate constraints for Relax
 
