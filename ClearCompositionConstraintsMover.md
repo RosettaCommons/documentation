@@ -14,8 +14,8 @@ Note that this will remove sequence constraints (e.g. amino acid composition con
 ##See Also
 
 * [[AddCompositionConstraintMover]]
+* [[AACompositionEnergy]]
 * [[ConstraintSetMover]]
 * [[Constraints file format|constraint-file]]
 * [[AtomCoordinateCstMover]]
 * [[AddConstraintsToCurrentConformationMover]]
-* [[AddSidechainConstraintsToHotspotsMover]]
