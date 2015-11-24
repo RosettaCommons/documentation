@@ -118,9 +118,13 @@ These are movers that should be usable in most cases with most systems
 
 **[[AddConstraintsToCurrentConformationMover]]** - Adds constraints based on the current conformation
 
+**[[AddCompositionConstraintsMover]]** - Adds constraints related to the amino acid composition, enforced by the aa_composition score term.
+
 **[[AtomCoordinateCstMover]]** - Adds coordinate constraints for Relax
 
-**[[ClearConstraintsMover]]** - Removes constraints from the pose
+**[[ClearConstraintsMover]]** - Removes all constraints (geometric and sequence) from the pose
+
+**[[ClearCompositionConstraintsMover]]** - Removes sequence constraints from the pose selectively.
 
 **[[ConstraintSetMover]]** - Adds constraints to the pose using a constraints file
 
