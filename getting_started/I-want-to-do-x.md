@@ -256,6 +256,7 @@ Tries every possible pair of residues in a pose to try to introduce one or more 
 Design
 -------------
 -	[[FastDesign|FastDesignMover]] 
+-       [[Controlling amino acid composition during design|AACompositionEnergy]]
 -	CoupledMover  
 FastRelax mover that does design during repacking
 -	[[RemodelMover]]  
