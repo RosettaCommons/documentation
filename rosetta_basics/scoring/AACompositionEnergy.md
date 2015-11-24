@@ -1,6 +1,6 @@
 # Residue type composition energy (aa_composition)
 Documentation created by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory.
-Last edited 17 November 2015.
+Last edited 24 November 2015.
 
 ## Purpose and algorithm
 
