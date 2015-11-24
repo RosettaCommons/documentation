@@ -132,7 +132,7 @@ END_PENALTY_DEFINITION
 
 - The scoring term lives in ```core/scoring/aa_composition_energy/AACompositionEnergy.cc``` and ```core/scoring/aa_composition_energy/AACompositionEnergy.hh```.
 - Like any whole-body energy, the **AACompositionEnergy** class implements a ```finalize_total_energy()``` function that takes a pose.  This calculates the score.  Internally, it calls ```calculate_aa_composition_energy()```, which takes a vector of owning pointers to Residues (which can be called directly during packing).
-- On initialization, the term creates an internal AACompositionEnergySetup object that stores the user-defined settings for the desired residue type composition.  This class is defined in ```core/scoring/aa_composition_energy/AACompositionEnergySetup.cc``` and ```core/scoring/aa_composition_energy/AACompositionEnergySetup.hh```.  At a future date, I might try associating setup objects with poses so that at different points in a protocol, a user could score with different settings.
+- On initialization, the term creates an internal AACompositionEnergySetup object that stores the user-defined settings for the desired residue type composition.  This class is defined in ```core/scoring/aa_composition_energy/AACompositionEnergySetup.cc``` and ```core/scoring/aa_composition_energy/AACompositionEnergySetup.hh```.  AACompositionEnergySetup objects can also be stored in AACompositionConstraints associated with a Pose.  At scoring or packing time, the AACompositionEnergy constructs a vector of owning pointers to its internal AACompositionEnergySetup objects and to all those stored in the pose, and uses all of these for scoring.
 - The ```.comp``` files are located in ```/database/scoring/score_functions/aa_composition/```.
 
 ##See Also
