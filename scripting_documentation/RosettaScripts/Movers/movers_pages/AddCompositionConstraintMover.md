@@ -12,6 +12,8 @@ Options include:
 - **filename** The ```.comp``` file used to set up the composition constraint.  Required input.
 - **selector** A previously-defined [[ResidueSelector|ResidueSelectors]] to select a sub-region of the pose whose amino acid composition will be constrained.  If none is provided, the amino acid composition of the whole pose is constrained.
 
+Note that multiple movers of this type can be applied in sequence to add many composition constraints to the pose.  Each can take a different ResidueSelector and a different ```.comp``` file.
+
 ##See Also
 
 * [[ConstraintSetMover]]
