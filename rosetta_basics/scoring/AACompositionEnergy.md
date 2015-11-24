@@ -25,7 +25,7 @@ This scoring term is controlled by ```.comp``` files, which define the desired r
 	</tala>
 </SCOREFXNS>
 ```
-- The user can attach ```.comp``` files to a Pose with the [[AddCompositionConstraintMover]].  These remain attached to the pose, like any other constraint, until all constraints are cleared with the [[ClearConstraintsMover]], or until only sequence composition constraints are cleared with the [[ClearCompositionConstraintsMover]].
+- The user can attach ```.comp``` files to a Pose with the [[AddCompositionConstraintMover]].  These remain attached to the pose, like any other constraint, until all constraints are cleared with the [[ClearConstraintsMover]], or until only sequence composition constraints are cleared with the [[ClearCompositionConstraintsMover]].  Note that the composition constraints added with the AddCompositionConstraintMover can have a [[ResidueSelector]] attached to them as well.  This allows the user to define sub-regions of the pose (e.g. a single helix, the protein core, an inter-subunit binding interface) to which an amino acid composition constraint will be applied.  The ResidueSelector is evaluated prior to scoring or packing (but not evaluated repeatedly during packing).
 
 If the user uses more than one of the methods described above, _all_ of the ```.comp``` files provided will be used in scoring, provided the ```aa_composition``` scoreterm is on with a nonzero weight.
 
@@ -39,12 +39,16 @@ A ```.comp``` file consists of one or more ```PENALTY_DEFINITION``` blocks.  Lin
 - ```DELTA_START <integer>``` This indicates how far from the desired number of residues our penalties table extends.  For example, a value of '-5' means that we will be providing penalty values for up to five residues fewer than the desired number.
 - ```DELTA_END <integer>``` This indicates how far beyond the desired number of residues our penalties table extends.  For example, a value of '7' means that we will be providing penalty values for up to seven residues more than the desired number.
 - ```PENALTIES <float1> <float2> <float3> ...``` The actual penalties table.  Entries must be provided for every integer value from DELTA_START to DELTA_END.  These values represent the energetic penalty for having N residues too few, N+1 residues too few, N+2 residues too few ... M-1 residues too many, M residues too many.  The penalty values at the extreme ends of the range are applied if residue type counts fall outside of the range.
-- ```FRACTION <float>``` This indicates that this residue type, or residues with the defined properties, are ideally this fraction of the total.  For example, a value of 0.25 would mean that, ideally, a quarter of residues in the protein were those defined by this ```PENALTY_DEFINITION```.
--  ```ABSOLUTE <integer>``` An alternative to ```FRACTION```, this indicates the absolute value of residues of the given type or properties desired in the structure.  For example, a value of 3 would mean that we want 3 residues of the given type or properties.
+- ```FRACTION <float>``` This indicates that this residue type, or residues with the defined properties, are ideally this fraction of the total.  For example, a value of 0.25 would mean that, ideally, a quarter of residues in the protein were those defined by this ```PENALTY_DEFINITION```.  If a ResidueSelector was used when applying a composition constraint to a pose, the fraction represents the portion of selected residues (e.g. 50% of core residues, 10% of residues in helix 3, 40% of residues in the binding interface).  Otherwise, it represents the fraction of total residues in the pose.
+-  ```ABSOLUTE <integer>``` An alternative to ```FRACTION```, this indicates the absolute number of residues of the given type or properties desired in the structure.  For example, a value of 3 would mean that we want 3 residues of the given type or properties.
 - ```BEFORE_FUNCTION <string>``` and ```AFTER_FUNCTION <string>``` This defines the behaviour of the penalty function outside of the user-defined range.  Allowed values are CONSTANT (first or last value repeats), LINEAR (linearly-ramping penalty based on the slope of the first two or last two penalty values), or QUADRATIC (parabolic penalty centred on zero and passing through the first two or last two penalty values).
 - ```END_PENALTY_DEFINITION``` Ends the block.
 
-The ```PENALTY_DEFINITION```, ```DELTA_START```, ```DELTA_END```, ```PENALTIES```, and ```END_PENALTY_DEFINITION``` lines are always required.  The ```BEFORE_FUNCTION``` and ```AFTER_FUNCTION``` lines are optional, and default to QUADRATIC if not specified.  One ```FRACTION``` *or* one ```ABSOLUTE``` line must also be present (but not both).  The ```TYPE```, ```NOT_TYPE```, ```PROPERTIES```, ```OR_PROPERTIES```, and ```NOT_PROPERTIES``` lines are all optional.  Here's an example ```.comp``` file that penalizes deviatoins from having 10% aromatic residues in a protein (note that the pound sign can be used to comment one of these files):
+The ```PENALTY_DEFINITION```, ```DELTA_START```, ```DELTA_END```, ```PENALTIES```, and ```END_PENALTY_DEFINITION``` lines are always required.  The ```BEFORE_FUNCTION``` and ```AFTER_FUNCTION``` lines are optional, and default to QUADRATIC if not specified.  One ```FRACTION``` *or* one ```ABSOLUTE``` line must also be present (but not both).  The ```TYPE```, ```NOT_TYPE```, ```PROPERTIES```, ```OR_PROPERTIES```, and ```NOT_PROPERTIES``` lines are all optional.  They can be used in conjunction.  The logic for deciding whether to count a residue or not is as follows:
+
+Count if ( any TYPE matches ) OR ( ( no NOT_TYPE matches ) AND ( ( no NOT_PROPERTIES property is present) AND ( (no PROPERTIES or OR_PROPERTIES are defined) OR ( all PROPERTIES are present) OR ( any OR_PROPERTIES are present ) ) ) ).
+
+Here's an example ```.comp``` file that penalizes deviations from having 10% aromatic residues in a protein (note that the pound sign can be used to comment one of these files):
 
 ```
 # This is a .comp file for requiring that a structure be ten percent aromatic.
@@ -58,6 +62,34 @@ DELTA_START -1
 DELTA_END 1
 PENALTIES 100 0 100
 FRACTION 0.1
+BEFORE_FUNCTION CONSTANT
+AFTER_FUNCTION CONSTANT
+END_PENALTY_DEFINITION
+```
+
+Here's a more complicated .comp file that imposes the requirement that the protein have 40% aliphatic or aromatic residues other than leucine (i.e. ALA, PHE, ILE, MET, PRO, VAL, TRP, or TYR), and 5% leucines:
+
+
+```
+# This is a .comp file for requiring that a structure be ten percent aromatic.
+# File created 21 July 2015 by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory.
+PENALTY_DEFINITION
+OR_PROPERTIES AROMATIC ALIPHATIC
+NOT_TYPE LEU
+DELTA_START -1
+DELTA_END 1
+PENALTIES 100 0 100
+FRACTION 0.4 # Forty percent aromatic or aliphatic, but not leucine
+BEFORE_FUNCTION CONSTANT
+AFTER_FUNCTION CONSTANT
+END_PENALTY_DEFINITION
+
+PENALTY_DEFINITION
+TYPE LEU
+DELTA_START -1
+DELTA_END 1
+PENALTIES 100 0 100
+FRACTION 0.05 # Five percent leucine
 BEFORE_FUNCTION CONSTANT
 AFTER_FUNCTION CONSTANT
 END_PENALTY_DEFINITION
