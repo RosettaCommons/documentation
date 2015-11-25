@@ -88,13 +88,32 @@ Here's an example ```.comp``` file that penalizes deviations from having 10% aro
 # File created 21 July 2015 by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory.
 # This penalty definition block specifies that, for aromatics, there will be a 100-point penalty for
 # having ANY fewer or ANY more than the desired number of aromatic residues.
+
 PENALTY_DEFINITION
+
+# Define residue types to control
 PROPERTIES AROMATIC
 NOT_PROPERTIES POLAR CHARGED
-DELTA_START -1
-DELTA_END 1
-PENALTIES 100 0 100
+
+# Declare desired quantity of these residues
 FRACTION 0.1
+
+# Set the penalty for having too few, at the desired number, and too many of the specified residues
+PENALTIES 100 0 100
+
+# Set how many residues you can be below the desired quantity before a penalty is applied. Since
+# this value is a delta, the desired number of residues is "0", or zero residues away from the target.
+# Therefore, "-1" indicates that the penalty will be applied once there is one fewer than the
+# desired quantity
+DELTA_START -1
+
+# Set how many residues you can be above the desired quantity before a penalty is applied. Since
+# this value is a delta, the desired number of residues is "0", or zero residues away from the target.
+# Therefore, "1" indicates that the penalty will be applied once there is one more than the
+# desired quantity
+DELTA_END 1
+
+#set how the penalties are applied
 BEFORE_FUNCTION CONSTANT
 AFTER_FUNCTION CONSTANT
 END_PENALTY_DEFINITION
@@ -125,6 +144,7 @@ PENALTIES 100 0 100
 FRACTION 0.05 # Five percent leucine
 BEFORE_FUNCTION CONSTANT
 AFTER_FUNCTION CONSTANT
+
 END_PENALTY_DEFINITION
 ```
 
