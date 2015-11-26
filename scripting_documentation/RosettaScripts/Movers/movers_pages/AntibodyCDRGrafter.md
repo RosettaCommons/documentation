@@ -29,7 +29,7 @@ This Mover will take care of all deletion of regions, copying coords, etc so no 
 
 ####Neighbor CDR optimization
 
-Used if optimize_cdrs option is given.  Neighbors of CDRs are defined as follows.  Will add grafted CDRs and neighbor CDRs to be optimized if optimization is enabled.  DE/CDR4 loop only used if the option optimize_cdr4 is given.
+Used if optimize_cdrs option is given.  Neighbors of CDRs are defined as follows.  Will add grafted CDRs and neighbor CDRs to be optimized if optimization is enabled.  DE/CDR4 can be turned off by setting the option optimize_cdr4_if_neighbor to false.
 
 Neighbor CDRs.
 ```
