@@ -22,9 +22,9 @@ Closes loops using the [[CCDEndsGraftMover]] and optionally the [[AnchoredGraftM
 
 By default, uses two residues on N and C terminal of insert CDR and scaffold to close loop and stops after the graft is closed.
 
-Can graft/optimize the DE loop - known here as proto_l4 and proto_h4 / h4 or l4.  If grafting L1, to ishighly recommended to use the DE loop as well.  At least optimize the DE loop.
+Can graft/optimize the DE loop - known here as proto_l4 / l4 and proto_h4.  If grafting L1, it is highly recommended to optimize or even graft the DE loop (optimization of the DE loop is on by default). 
 
-Move will take care of all deletion of regions, copying coords, etc.  
+This Mover will take care of all deletion of regions, copying coords, etc so no pre-prep of either structure is necessary.  
 
 
 ####Neighbor CDR optimization
