@@ -16,7 +16,7 @@ Results in 100 percent loop closure if using both graft graft movers (where pept
 <!--- BEGIN_INTERNAL -->
 ###Algorithm
 
-Closes loops using the [[CCDEndsGraftMover]] and optionally the [[AnchoredGraftMover]]. Optionally optimizes using constrained relaxed on the CDR loops. ( [[CDRDihedralConstraintMover]] , [[FastRelaxMover]] ). 
+Closes loops using the [[CCDEndsGraftMover]] and optionally the [[AnchoredGraftMover]]. Optionally optimizes using dihedral constrained relaxed on the CDR loops (general - not cluster-based for now). ( [[CDRDihedralConstraintMover]] , [[FastRelaxMover]] ). 
 
 ####Defaults
 
