@@ -49,6 +49,10 @@ Input Files
 
 -   Psipred secondary structure prediction psipred\_ss2 file (optional). The Psipred secondary structure prediction file can be used to pick chainbreak points for loop-modeling, and is optional.
 
+-   A template pdb file for threading
+
+-   A sequence alignment file
+
 Options
 =======
 
