@@ -11,7 +11,7 @@ Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
 ###Purpose
 
 Graft CDR loops from one structure to another, optionally optimize CDRs and neighbor CDRs of the grafted one.  
-Results in 100 percent loop closure if using both graft graft movers (where geometry peptide bond geometries of both ends are checked relative to ideal values).
+Results in 100 percent loop closure if using both graft graft movers (where peptide bond geometries of both ends are checked relative to ideal values).
 
 <!--- BEGIN_INTERNAL -->
 ###Algorithm
