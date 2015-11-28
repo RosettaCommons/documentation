@@ -215,13 +215,15 @@ or
 
 #### SecondaryStructureSelector
 
-    <SecondaryStructure name=(%string) ss=(%string) include_terminal_loops=(%bool, false) />
+    <SecondaryStructure name=(%string) ss=(%string) include_terminal_loops=(%bool, false) always_use_dssp=(%bool, false) />
 
-SecondaryStructureSelector selects all residues with given secondary structure. For example, you might use it to select all loop residues in a pose.  SecondaryStructureSelector uses the secondary structure information in the pose to compute residues to select -- if that information is not present, it calls DSSP to determine the secondary structure of the pose.
+SecondaryStructureSelector selects all residues with given secondary structure. For example, you might use it to select all loop residues in a pose.  SecondaryStructureSelector uses the secondary structure information in the pose to compute residues to select -- if that information is not present, or if always_use_dssp is set, it calls DSSP to determine the secondary structure of the pose.
 
 **ss** - The secondary structure types to be selected. This parameter is required. Valid secondary structure characters are 'E', 'H' and 'L'. To select loops, for example, use ss="L", and to select both helices and sheets, use ss="HE"
 
 **include_terminal_loops** - (default: false) If false, one-residue "loop" regions at the termini of chains will be ignored. If true, all residues will be considered for selection.
+
+**always_use_dssp** - (default: false). If true, dssp will be used to determine the pose secondary structure every time the SecondaryStructure residue selector is applied. If false, and a secondary structure is set in the pose, the secondary structure in the pose will be used without re-computing DSSP.
 
 **Example**
 The example below selects all residues in the pose with secondary structure 'H' or 'E'.
