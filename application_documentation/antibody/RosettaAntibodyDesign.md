@@ -125,8 +125,4 @@ The Antibody Design Instruction File handles CDR-level control of the algorithm 
 
 # Tips:
 
-# Known Bugs:
-
-IncludeOnly PDBIds does not work for 3 pdbs.  Any more or less it works fine.  All the other includeonly and exclude CDRSet options have been tested.  Strangest bug I've ever seen.
-
 # Post-analysis:
