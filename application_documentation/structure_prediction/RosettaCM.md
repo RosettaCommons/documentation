@@ -13,7 +13,7 @@ This protocol functions to create a homology model or combined model of several 
 References
 ==========
 
-High-resolution comparative modeling with RosettaCM.  
+_High-resolution comparative modeling with RosettaCM_.  
 Song Y1, DiMaio F, Wang RY, Kim D, Miles C, Brunette T, Thompson J, Baker D.,
 Structure. 2013 Oct 8;21(10):1735-42. doi: 10.1016/j.str.2013.08.005. Epub 2013 Sep 12.
 
