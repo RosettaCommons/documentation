@@ -32,12 +32,13 @@ While most of these applications focus on prediction, many have options which wi
     * [[Metalloprotein ab initio|metalloprotein-abrelax]] - Ab inito modeling of metalloproteins.  
 - [[Backrub]] - Create backbone ensembles using small, local backbone changes.  
 - [[Comparative modeling|minirosetta-comparative-modeling]] - Build structural models of proteins using one or more known structures as templates for modeling.  
+ - [[Original protocol | minirosetta-comarative-modeling]]
+ - [[RosettaCM]]
 - [[Floppy tail]] - Predict structures of long, flexible N-terminal or C-terminal regions.
 - [[Fold-and-dock]] - Predict 3-dimensional structures of symmetric homooligomers.  
 - [[Molecular replacement protocols|mr-protocols]] - Use Rosetta to build models for use in X-ray crystrallography molecular replacement.  
     * [[Prepare template for MR]] - Setup script for molecular replacement protocols.  
 - [[Relax]] - "Locally" optimize structures, including assigning sidechain positions.
-- [[RosettaCM]] - Comparative Modeling with Rosetta
 - [ RNA ](#RNA) - see below for apps, including FARFAR & ERRASER (crystallographic refinement).  
 - [[Simple Cyclic Peptide Prediction|simple_cycpep_predict]] - Prediction of structures of small (~5-20 residue) backbone-cyclized peptides consisting of any mixture of L- and D-amino acids.
   
