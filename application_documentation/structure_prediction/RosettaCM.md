@@ -3,7 +3,7 @@
 Metadata
 ========
 
-Documentation by Sebastian Raemisch (raemisch@scripps.edu) and Jared Adolf-Bryfogle (jadolfbr@gmail.com)
+Documentation by Sebastian Rämisch (raemisch@scripps.edu) and Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 Purpose
 =======
