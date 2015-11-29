@@ -21,11 +21,18 @@ Algorithm
 =========
 The first step of the protocol is to thread the same sequence onto one or multiple templates.  These templates can be homologous proteins or the same proteins from multiple crystal structures.  The second step is to use the [[HybridizeMover]] through RosettaScripts to create a single model from the template(s) using foldtree hybridization, sampling regions from each template, and loop closure through cartesian minimization. 
 
-Step One - Threading
-====================
+## Step One - Threading
+### Input Files
+* Sequence alignment file in Grishin format
+* Template PDB file(s)
+* Target sequence fasta file
 
-Step Two - Hybridize
-====================
+partial_thread.default.linuxgccrelease -database /.../database -in:file:fasta target.fasta -in:file:alignment alignment.aln -in:file:template_pdb  temp_.pdb -ignore_unrecognized_res
+
+
+
+## Step Two - Hybridize
+### Input Files
 
 Options
 =======
