@@ -19,7 +19,7 @@ Structure. 2013 Oct 8;21(10):1735-42. doi:10.1016/j.str.2013.08.005. Epub 2013 S
 
 ## Algorithm
 
-The first step of the protocol is to thread the same sequence onto one or multiple templates.  These templates can be homologous proteins or the same proteins from multiple crystal structures.  The second step is to use the [[HybridizeMover]] through RosettaScripts to create a single model from the template(s) using foldtree hybridization, sampling regions from each template, and loop closure through cartesian minimization. 
+The first step of the protocol is to thread the same sequence onto one or multiple templates.  These templates can be homologous proteins or the same proteins from multiple crystal structures.  The second step is to use the [[HybridizeMover]] through [[RosettaScripts]] to create a single model from the template(s) using foldtree hybridization, sampling regions from each template, and loop closure through cartesian minimization. 
 
 ## Step One - Threading  
 First we need to produce template pdb files for Rosetta by threading the target sequence onto one or several template protein structures.
@@ -124,6 +124,7 @@ See [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 
 ##See Also
 
+* [[RosettaScripts]] documentation
 * [[HybridizeMover]]: The Hybridize Mover used by RosettaCM
 * [[Structure prediction applications]]: A list of other applications to be used for structure prediction
 * [[Application Documentation]]: List of Rosetta applications
