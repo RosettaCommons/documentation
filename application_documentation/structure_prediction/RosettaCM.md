@@ -48,6 +48,23 @@ Example: (hsIGF = target name; 1k3d = template name)
 
 Several alignments should be written to the *same* alignment file.
 
+If your alignment starts at a different position in the template, you can change the numbers at left of the format or add - where they need to be.
+
+    ## 1xxx 1yyy.pdb
+    # hhsearch
+    scores_from_program: 1.0 0.0
+    7 AAAAAAA
+    0 AAAAAAA
+    --
+
+    Alternately, you can add the N term residues unaligned to the ali:
+    ## 1xxx 1yyy.pdb
+    # hhsearch
+    scores_from_program: 1.0 0.0
+    0 AAAAAAAAAAAAAA
+    0 -------AAAAAAA
+
+
 ###Command:
 
     partial_thread.linuxclangrelease -database /.../database -in:file:fasta target.fasta -in:file:alignment alignment.aln -in:file:template_pdb 1k3d.pdb 1y12.pdb -ignore_unrecognized_res
