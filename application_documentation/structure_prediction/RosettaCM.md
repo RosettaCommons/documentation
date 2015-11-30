@@ -8,7 +8,7 @@ Documentation by Sebastian Rämisch (raemisch@scripps.edu) and Jared Adolf-Bryfo
 Purpose
 =======
 
-This protocol functions to create a homology model or combined model of several different PDBs and templates.  It is used for comparative modeling of proteins.  
+This protocol functions to create a homology model given PDB files corresponding to one or more template structures.  It is used for comparative modeling of proteins.  
 
 References
 ==========
@@ -19,71 +19,86 @@ Structure. 2013 Oct 8;21(10):1735-42. doi:10.1016/j.str.2013.08.005. Epub 2013 S
 
 ## Algorithm
 
-The first step of the protocol is to thread the same sequence onto one or multiple templates.  These templates can be homologous proteins or the same proteins from multiple crystal structures.  The second step is to use the [[HybridizeMover]] through [[RosettaScripts]] to create a single model from the template(s) using foldtree hybridization, sampling regions from each template, and loop closure through cartesian minimization. 
+At a high-level, the algorithm consists of a long Monte Carlo trajectory starting from a randomly-chosen template.  The MC trajectory employs the following moves: a) fragment insertion in unaligned regions, b) replacement of a randomly-chosen segment with that from a different template structure, and c) Cartesian-space minimization using a smooth (differentiable) version of the Rosetta [[centroid|centroid-vs-fullatom ]] energy function.  Finally, this is followed by all-atom optimization.
 
-## Step One - Threading  
-First we need to produce template pdb files for Rosetta by threading the target sequence onto one or several template protein structures.
-### Input Files
+## Running the RosettaCM protocol
+
+### Running the setup_CM.py script
+
+The most straightforward way to run the protocol is through the rosetta_tools script, protein_tools/scripts/setup_rosettacm.py. As input, you need the following:
+* Sequence alignment file in one of the supported formats (see below)
+* Template PDB file(s)
+* Target sequence fasta file
+
+It is run with the following:
+
+    Rosetta/tools/protein_tools/scripts/setup_RosettaCM.py [-h] --fasta FASTA
+                          [--alignment ALIGNMENT]
+                          [--alignment_format ALIGNMENT_FORMAT]
+                          [--templates [TEMPLATES [TEMPLATES ...]]]
+                          [--rosetta_bin ROSETTA_BIN] [--build BUILD]
+                          [--platform PLATFORM] [--compiler COMPILER]
+                          [--compiling_mode COMPILING_MODE]
+                          [--setup_script SETUP_SCRIPT] [-j J] [--run]
+                          [--keep_files] [--run_dir RUN_DIR] [--equal_weight]
+                          [--use_dna] [--verbose]
+
+With the following important options:
+
+**--alignment ALIGNMENT --alignment_format ALIGNMENT_FORMAT**
+
+The alignment file must be passed as input, and the format must be specified.  The following formats are valid: _grishin_, _modeller_, _vie_, _hhsearch_, _clustalw_, _fasta_.
+
+**--templates [TEMPLATES [TEMPLATES ...]]]**
+
+A list of PDBs of template structures.  The alignment file "tags" must match the names of the template PDB files.
+
+**--rosetta_bin ROSETTA_BIN**
+
+The path to the Rosetta _bin_ directory.
+
+After setting up a job, cd to the _rosetta_cm_ directory, and run (pointing to installed Rosetta location):
+
+    Rosetta/main/source/bin/rosetta_scripts.linuxgccrelease @flags -database Rosetta/main/database -nstruct 10
+
+### Manually setting up a RosettaCM job
+
+Alternately, it may be desirable to manually set up a RosettaCM job.  If one wishes to use nonstandard features (e.g. electron density data or user-specified constraints), this is recommended.  
+
+Given a fasta file sequence of the protein to be modeled, a multiple sequence alignment, and PDBs of template structures, the first step of the protocol is to thread the same sequence onto one or multiple templates.  These templates can be homologous proteins or the same proteins from multiple crystal structures.  The second step is to use the [[HybridizeMover]] through [[RosettaScripts]] to create a single model from the template(s).
+
+### Step 1: Created a threaded model
+
+First we need to produce template pdb files for Rosetta by threading the target sequence onto one or several template protein structures.  As input, you need the following:
 * Sequence alignment file in Grishin format
 * Template PDB file(s)
 * Target sequence fasta file
 
-*Important*  
-The output files will be named after the corresponding name in the Grishin alignment file. Furthermore, this anem has to be at least 5 characters long. If your name in the alignment file is the same as your input file name, **the input file will be overwritten!**  
-The best is to write "XXXX_templ" in the alignment file. This will produce XXXX_templ.pdb.   
+[[An overview of the Grishin file format|Grishan-format-alignment]]
 
-Example: (hsIGF = target name - does nothing; 1k3d = template name)
-scores_from_program does nothing in partial_thread
+The threaded model is then created with the following command:
 
-    ## hsIGF 1k3d.templ
-    #
-    scores_from_program: 0
-    0 KVTVDTVCKRGFLIQMSGHLECKCEND-VLVNEETCEEKVLKCDE
-    0 AVTVDTICKNGQLVQMSNHFKCMCNEGLVHLSENTCEEKN-CKKE
+    Rosetta/main/source/bin/partial_thread.linuxgccrelease \
+         -database Rosetta/main/database \
+         -in:file:fasta target.fasta \
+         -in:file:alignment alignment.aln \
+         -in:file:template_pdb 1k3d.pdb 1y12.pdb \
+         -ignore_unrecognized_res
 
-    ## hsIGF 1y12.templ
-    #
-    scores_from_program: 0
-    0 DVTVETVCKRGNLIQRSG---CKCENDLVLVNHETCEEKVLKCDL
-    0 AVTVDTICKNGQLVQMSNHFKCMCNEGLVHLSENTCEEKN-CKKE
+This application should only take a few seconds.
 
-Several alignments should be written to the *same* alignment file.
+### Step 2: Run the Hybridize mover
 
-If your alignment starts at a different position in the template, you can change the numbers at left of the format or add - where they need to be.
+This is the step where modeling is performed.
 
-    ## 1xxx 1yyy.pdb
-    # hhsearch
-    scores_from_program: 1.0 0.0
-    7 AAAAAAA
-    0 AAAAAAA
-    --
-
-    Alternately, you can add the N term residues unaligned to the ali:
-    ## 1xxx 1yyy.pdb
-    # hhsearch
-    scores_from_program: 1.0 0.0
-    0 AAAAAAAAAAAAAA
-    0 -------AAAAAAA
-
-
-###Command:
-
-    partial_thread.linuxclangrelease -database /.../database -in:file:fasta target.fasta -in:file:alignment alignment.aln -in:file:template_pdb 1k3d.pdb 1y12.pdb -ignore_unrecognized_res
-
-This application should only take some seconds.
-
-## Step Two - Hybridize
-This is the actual modeling step.
-### Input Files
+As input, you need the following:
 * RosettaScripts xml file
 * target sequence fasta file
 * threaded template pdb files from Step 1
 
-Example xml file:
+A simple XML for performing modelling is listed below (see [[RosettaScripts]] for a guide to the XML syntax in Rosetta).  More advanced options are specified on the [[HybridizeMover]] page.
 
     <ROSETTASCRIPTS>
-    <TASKOPERATIONS>
-    </TASKOPERATIONS>
     <SCOREFXNS>
         <stage1 weights=score3 symmetric=0>
             <Reweight scoretype=atom_pair_constraint weight=0.5/>
@@ -95,52 +110,64 @@ Example xml file:
             <Reweight scoretype=atom_pair_constraint weight=0.5/>
         </fullatom>
     </SCOREFXNS>
-    <FILTERS>
-    </FILTERS>
     <MOVERS>
-        <Hybridize name=hybridize stage1_scorefxn=stage1 stage2_scorefxn=stage2 fa_scorefxn=fullatom batch=1 stage1_increase_cycles=1.0 stage2_increase_cycles=2.0  linmin_only=1>
+        <Hybridize name=hybridize stage1_scorefxn=stage1 stage2_scorefxn=stage2 fa_scorefxn=fullatom batch=1 stage1_increase_cycles=1.0 stage2_increase_cycles=1.0>
             <Template pdb="1k3d_templ.pdb" cst_file="AUTO" weight=1.000 />
             <Template pdb="1y12_templ.pdb" cst_file="AUTO" weight=1.000 />
         </Hybridize>
     <FastRelax name="relax" scorefxn=talaris2013  />
-
     </MOVERS>
-    <APPLY_TO_POSE>
-    </APPLY_TO_POSE>
     <PROTOCOLS>
         <Add mover=hybridize/>
         <Add mover=relax/>
     </PROTOCOLS>
+    <OUTPUT scorefxn=talaris2013 />
+    </ROSETTASCRIPTS>
 
-  <OUTPUT scorefxn=talaris2013 />
-</ROSETTASCRIPTS>
+Save the above XML file as **hybridize.xml**.  Then, RosettaCM is run using the following command:
 
+    Rosetta/main/source/bin/rosetta_scripts.linuxclangrelease \
+         -database Rosetta/main/database \
+         -in:file:fasta target.fasta \
+         -parser:protocol **hybridize.xml** \
+         -default_max_cycles 200 \
+         -dualspace
 
+### Post Processing
 
-###Options
-
-    -database                       # Path to database
-    -parser:protocol                # xml protocol file name
-    -in:file:fasta                  # target sequence
-    -nonideal
-    -dualspace
-    -use_input_sc
-    -ex1
-    -ex2
-
-###Command:
-
-rosetta_scripts.linuxclangrelease @options
-
-Tips
-====
-
-Post Processing
-===============
-Using the cluster application helps to analyze the results.  
 See [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 
-##See Also
+### Other tips
+
+** How can I model with multiple chains? **
+
+In the input fasta file, separate sequences of individual chains with a '/' character.
+
+** How can I model with ligands/nucleic acids? **
+
+Add the tag **use_hetatm=1** to the Hybridize mover line.  Then, manually add the aligned ligand(s), with residue numbers starting **one past the length of the fasta file**.  For nucleic acids, this is all that is needed.
+
+For ligands, the params files must be generated using the [[molfile_to_params|preparing-ligands]] script, with a few non-standard options.  Given a mol2 file of the ligand in question, XXX.mol2, run:
+
+    python Rosetta/main/source/src/python/apps/public/molfile_to_params.py \
+       --keep-names \
+       --clobber \
+       --extra_torsion_output \
+       --centroid XXX.mol2 \
+       -p XXX -n XXX
+
+And the following flags must be additionally provided:
+
+    --extra_res_cen XXX.cen.params
+    --extra_res_fa  XXX.fa.params
+    --extra_improper_file XXX.tors
+
+
+** How can I model with symmetry? **
+
+
+
+## See Also
 
 * [[RosettaScripts]] documentation
 * [[HybridizeMover]]: The Hybridize Mover used by RosettaCM
