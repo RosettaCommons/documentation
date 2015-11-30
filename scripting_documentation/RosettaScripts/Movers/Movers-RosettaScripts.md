@@ -117,7 +117,7 @@ These are movers that should be usable in most cases with most systems
 <!--- BEGIN_INTERNAL -->
 ### Comparative Modeling
 
-**[[HybridizeMover]]** - Use single or multiple templates to generate a combined model.  Part of RosettaCM.
+**[[HybridizeMover]]** - Use single or multiple templates to generate a combined model.  Part of [[RosettaCM]].
 
 **[[SimpleThreadingMover]]** - Thread sequences onto structures.  Nothing fancy here.
 
