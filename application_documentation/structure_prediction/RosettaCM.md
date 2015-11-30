@@ -32,7 +32,8 @@ First we need to produce template pdb files for Rosetta by threading the target 
 The output files will be named after the corresponding name in the Grishin alignment file. Furthermore, this anem has to be at least 5 characters long. If your name in the alignment file is the same as your input file name, **the input file will be overwritten!**  
 The best is to write "XXXX_templ" in the alignment file. This will produce XXXX_templ.pdb.   
 
-Example: (hsIGF = target name (does nothing); 1k3d = template name)
+Example: (hsIGF = target name - does nothing; 1k3d = template name)
+scores_from_program does nothing in partial_thread
 
     ## hsIGF 1k3d.templ
     #
