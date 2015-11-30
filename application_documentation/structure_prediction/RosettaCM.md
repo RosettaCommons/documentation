@@ -1,17 +1,14 @@
 #RosettaCM - Comparative Modeling with Rosetta
 
-Metadata
-========
+## Metadata
 
 Documentation by Sebastian Rämisch (raemisch@scripps.edu) and Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
-Purpose
-=======
+## Purpose
 
 This protocol functions to create a homology model given PDB files corresponding to one or more template structures.  It is used for comparative modeling of proteins.  
 
-References
-==========
+## References
 
 [High-resolution comparative modeling with RosettaCM](http://www.sciencedirect.com/science/article/pii/S0969212613002979).  
 Song Y, DiMaio F, Wang RY, Kim D, Miles C, Brunette T, Thompson J, Baker D.,
@@ -45,15 +42,15 @@ It is run with the following:
 
 With the following important options:
 
-**--alignment ALIGNMENT --alignment_format ALIGNMENT_FORMAT**
+    **--alignment ALIGNMENT --alignment_format ALIGNMENT_FORMAT**
 
 The alignment file must be passed as input, and the format must be specified.  The following formats are valid: _grishin_, _modeller_, _vie_, _hhsearch_, _clustalw_, _fasta_.
 
-**--templates [TEMPLATES [TEMPLATES ...]]]**
+    **--templates [TEMPLATES [TEMPLATES ...]]]**
 
 A list of PDBs of template structures.  The alignment file "tags" must match the names of the template PDB files.
 
-**--rosetta_bin ROSETTA_BIN**
+    **--rosetta_bin ROSETTA_BIN**
 
 The path to the Rosetta _bin_ directory.
 
@@ -139,13 +136,15 @@ See [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 
 ### Other tips
 
-** How can I model with multiple chains? **
+**How can I model with multiple chains?**
 
 In the input fasta file, separate sequences of individual chains with a '/' character.
 
-** How can I model with ligands/nucleic acids? **
+**How can I model with ligands/nucleic acids?**
 
 Add the tag **use_hetatm=1** to the Hybridize mover line.  Then, manually add the aligned ligand(s), with residue numbers starting **one past the length of the fasta file**.  For nucleic acids, this is all that is needed.
+
+**Note:**  Ligands must be added to _all_ templates with a non-zero weight in the XML file!
 
 For ligands, the params files must be generated using the [[molfile_to_params|preparing-ligands]] script, with a few non-standard options.  Given a mol2 file of the ligand in question, XXX.mol2, run:
 
@@ -162,10 +161,33 @@ And the following flags must be additionally provided:
     --extra_res_fa  XXX.fa.params
     --extra_improper_file XXX.tors
 
+**How can I model with symmetry?**
 
-** How can I model with symmetry? **
+    If input templates are symmetric, then CM may be run using the symmetry of the template.  See [[symmetry]] for creating a symmetry definition file.  Then, two simple modifications must be made to the XML file:
 
+Change:
 
+    <stage1 weights=score3 symmetric=0>
+    <stage2 weights=score4_smooth_cart symmetric=0>
+    <fullatom weights=talaris2013_cart symmetric=0>
+
+To: 
+
+    <stage1 weights=score3 symmetric=1>
+    <stage2 weights=score4_smooth_cart symmetric=1>
+    <fullatom weights=talaris2013_cart symmetric=1>
+
+And add the symmdef file for each template, changing:
+
+    <Template pdb="1k3d_templ.pdb" cst_file="AUTO" weight=1.000 />
+    <Template pdb="1y12_templ.pdb" cst_file="AUTO" weight=1.000 />
+
+To:
+
+    <Template pdb="1k3d_templ.pdb" cst_file="AUTO" weight=1.000 symmdef="dimer_1k3d.symm"/>
+    <Template pdb="1y12_templ.pdb" cst_file="AUTO" weight=1.000 symmdef="dimer_1y12.symm"/>
+
+**Note:**  As with ligands, if symmetry is used, _all_ templates with a non-zero weight must have a specified symmetry definition file.
 
 ## See Also
 
