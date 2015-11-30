@@ -43,7 +43,7 @@ The following options control scoring:
 
 * **stage1_scorefxn=score3**: (default _score3_) Scorefunction in (centroid) stage 1
 * **stage2_scorefxn=score4_smooth_cart**: (default _score4_smooth_cart_) Scorefunction in (centroid) stage 2
-* **fa_scorefxn=talaris2013_cart**: (default _stalaris2013_cart_) Scorefunction in fullatom stage
+* **fa_scorefxn=talaris2013_cart**: (default _talaris2013_cart_) Scorefunction in fullatom stage
 * **fa_cst_fn=fullatom.cst** (optional) If specified, use the provided constraints in fullatom rather than the centroid constraints
 * **keep_pose_constraint=0** (default=0) If set to 1, keep constraints on the incoming pose (useful if constraints are generated in a mover prior to hybridize)
 * **disulf_file=dslf** (optional) If specified, force the attached disulfide patterning ([[see the fix_disulf option for the format|full-options-list#run]])
