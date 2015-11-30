@@ -2,7 +2,7 @@
 
 ## Metadata
 
-Documentation by Sebastian Rämisch (raemisch@scripps.edu) and Jared Adolf-Bryfogle (jadolfbr@gmail.com)
+Documentation by Frank DiMaio (dimaio@u.washington.edu) Sebastian Rämisch (raemisch@scripps.edu) and Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 ## Purpose
 
