@@ -22,7 +22,9 @@ At a high-level, the algorithm consists of a long Monte Carlo trajectory startin
 
 ### Running the setup_CM.py script
 
-The most straightforward way to run the protocol is through the rosetta_tools script, protein_tools/scripts/setup_rosettacm.py. However, be warned as you may run into problems using this method. As input, you need the following:
+_Warning: This script is experimental and may be problematic.  Please verify your input and output alignments after running!_
+
+The most straightforward way to run the protocol is through the rosetta_tools script, protein_tools/scripts/setup_rosettacm.py. As input, you need the following:
 * Sequence alignment file in one of the supported formats (see below)
 * Template PDB file(s)
 * Target sequence fasta file
