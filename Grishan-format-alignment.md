@@ -1,4 +1,4 @@
-The Grishin format is a Rosetta-specific multiple sequence alignment format.  It is primarily used with the **partial_thread** application in Rosetta.  Each template/target pair is specified on 6 lines with the following format:
+The Grishin format is a Rosetta-specific multiple sequence alignment format.  It is primarily used with the [[partial_thread|RosettaCM] application in Rosetta.  Each template/target pair is specified on 6 lines with the following format:
 
     ## hsIGF 1k3dA_renum
     #
