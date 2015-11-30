@@ -73,7 +73,7 @@ First, to start from an extended chain, use the following template tag:
 
            <Template pdb="extended" weight=1.0 cst_file="x.cst" />
 
-If all other templates have non-zero
+If all other templates have zero weight, then the protocol will always start from a single extended chain (unless the add_non_init_chunks is also specified, in which case random rigid body transformations will be taken from other templates).
 
 For fine control of protocol behavior, control the relative weights of individual moves:
 * **frag_1mer_insertion_weight=1.0** (default AUTO)
@@ -98,4 +98,4 @@ The **detailed controls** block allows fixing certain substructures.  It may be 
 
     <DetailedControls start_res=273 stop_res=296 sample_template=0 sample_abinitio=0 />
 
-This says that for residues 273-296, do not allow template hybridization moves, and do not allow fragment insertion moves.  If both are set to false for a region, that region will also not minimize in centroid (note that fullatom refinement ignores these flags, however).
+This says that for residues 273-296, do not allow template hybridization moves (sample_template=0), and do not allow fragment insertion moves (sample_abinitio=0).  If both are set to false for a region, that region will also not minimize in centroid (note that fullatom refinement ignores these flags, however).
