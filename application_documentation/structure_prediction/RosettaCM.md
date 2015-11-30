@@ -163,7 +163,7 @@ And the following flags must be additionally provided:
 
 **How can I model with symmetry?**
 
-    If input templates are symmetric, then CM may be run using the symmetry of the template.  See [[symmetry]] for creating a symmetry definition file.  Then, two simple modifications must be made to the XML file:
+If input templates are symmetric, then CM may be run using the symmetry of the template.  See [[symmetry]] for creating a symmetry definition file.  Then, two simple modifications must be made to the XML file:
 
 Change:
 
