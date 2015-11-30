@@ -42,15 +42,15 @@ It is run with the following:
 
 With the following important options:
 
-    **--alignment ALIGNMENT --alignment_format ALIGNMENT_FORMAT**
+    --alignment ALIGNMENT --alignment_format ALIGNMENT_FORMAT
 
 The alignment file must be passed as input, and the format must be specified.  The following formats are valid: _grishin_, _modeller_, _vie_, _hhsearch_, _clustalw_, _fasta_.
 
-    **--templates [TEMPLATES [TEMPLATES ...]]]**
+    --templates [TEMPLATES [TEMPLATES ...]]]
 
 A list of PDBs of template structures.  The alignment file "tags" must match the names of the template PDB files.
 
-    **--rosetta_bin ROSETTA_BIN**
+    --rosetta_bin ROSETTA_BIN
 
 The path to the Rosetta _bin_ directory.
 
