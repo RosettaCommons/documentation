@@ -4,7 +4,7 @@
 
 Performs the fast relax protocol.
 
-    <FastRelax name="&string" scorefxn=(score12 &string) repeats=(8 &int) task_operations=(&string, &string, &string)
+    <FastRelax name="&string" scorefxn=(score12 &string) repeats=(5 &int) task_operations=(&string, &string, &string)
       batch=(false &bool) ramp_down_constraints=(false &bool) 
       cartesian=(false &bool) bondangle=(false &bool) bondlength=(false &bool)
       min_type=(dfpmin_armijo_nonmonotone &string) relaxscript=("" &string) >
@@ -18,7 +18,7 @@ Performs the fast relax protocol.
 Options include:
 
 -   scorefxn (default "score12")
--   repeats (default 8)
+-   repeats (default 5 - Same as cmd-linde FR)
 -   relaxscript (a filename for a relax script, as described in the [[documentation for the Relax application|relax]]; the default relax script is used if not specified)
 -   sc\_cst\_maxdist &integer. Sets up sidechain-sidechain constraints between atoms up to maxdist, at neighboring sidechains. Need to also call ramp\_constraints = false, otherwise these will be turned off in the later rounds of relax.
 -   task\_operations FastRelax will now respect any TaskOps passed to it. However, the default behavior is now to add RestrictToRepacking operation unless <code>disable_design=false</code> is set.
