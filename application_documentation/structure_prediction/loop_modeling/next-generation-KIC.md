@@ -18,7 +18,7 @@ References
 
 Next-generation KIC is described and compared to standard KIC loop modeling in 
 
--   Stein A, Kortemme T. (2012). Increased sampling of near-native protein conformations. *In preparation*
+-   Stein A, Kortemme T. (2013). Improvements to robotics-inspired conformational sampling in rosetta. PLoS One. 2013 May 21;8(5)
 
 Torsion bin definitions used by TabooSampling and TorsionRestrictedSampling are based on
 
