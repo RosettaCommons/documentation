@@ -99,3 +99,10 @@ The **detailed controls** block allows fixing certain substructures.  It may be 
     <DetailedControls start_res=273 stop_res=296 sample_template=0 sample_abinitio=0 />
 
 This says that for residues 273-296, do not allow template hybridization moves (sample_template=0), and do not allow fragment insertion moves (sample_abinitio=0).  If both are set to false for a region, that region will also not minimize in centroid (note that fullatom refinement ignores these flags, however).
+
+##See Also
+
+* [[SimpleThreadingMover]]: Simple threading in RosettaScripts
+* [[FastRelaxMover]]: The relax application
+* [[Preparing structures]]: Page on preparing structures for use in Rosetta using relax.
+* [[I want to do x]]: Guide to chosing a mover
