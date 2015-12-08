@@ -5,7 +5,7 @@ Metadata
 
 Author: Amelie Stein
 
-This document was last updated October 10, 2012 by Amelie Stein. The corresponding PI for this application is Tanja Kortemme (kortemme@cgl.ucsf.edu).
+Documentation and code by Amelie Stein. The corresponding PI for this application is Tanja Kortemme (kortemme@cgl.ucsf.edu). This document was last updated December, 2015 by Jared Adolf-Bryfogle. 
 
 Code and Demo
 =============
@@ -27,6 +27,8 @@ Torsion bin definitions used by TabooSampling and TorsionRestrictedSampling are 
 Neighbor-dependent Ramachandran distributions used for non-pivot sampling are described in
 
 -   Ting D, Wang G, Shapovalov M, Mitra R, Jordan MI, Dunbrack RL Jr. (2010). Neighbor-dependent Ramachandran probability distributions of amino acids developed from a hierarchical Dirichlet process model. *PLoS Comput Biol* . 6(4):e1000763.
+
+Best current flags and protocol captures can be found [here](https://guybrush.ucsf.edu/benchmarks/benchmarks/loop_modeling)
 
 Limitations
 ===========
@@ -66,6 +68,8 @@ The following files are required for kinematic loop modeling:
 
 Options
 =======
+
+Please see [Rosetta Benchmark](https://guybrush.ucsf.edu/benchmarks/benchmarks/loop_modeling) for current best-practices for running NGK.
 
 -   The following options are used to activate NGK and must be present in the command line. One or both of `    -loops:remodel   ` (centroid stage, required for *de novo* loop reconstruction) or `    -loops:refine   ` (full-atom stage) are required:
 
@@ -122,6 +126,7 @@ Rosetta 3.5 is the first release featuring next-generation KIC.
 ##See Also
 
 * [[Loopmodel]]: The main loopmodel application page
+* [Rosetta Benchmarks](https://guybrush.ucsf.edu/benchmarks/benchmarks/loop_modeling): Current benchmarks for NGK
 * [[Structure prediction applications]]: A list of other applications to be used for structure prediction, including loop modeling
 * [[Fragment file]]: Fragment file format (required for abinitio structure prediction)
 * [[Loops file]]: File format for specifying loops for loop modeling
