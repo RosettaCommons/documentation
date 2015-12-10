@@ -38,7 +38,7 @@ fa_atr                                     Lennard-Jones attractive between atom
 fa_rep                                     Lennard-Jones repulsive between atoms in different residues
 fa_sol                                     Lazaridis-Karplus solvation energy
 fa_intra_rep                               Lennard-Jones repulsive between atoms in the same residue
-fa_elec                                    Coulombic electrostatic potential with a distance-dependant dielectric   
+fa_elec                                    Coulombic electrostatic potential with a distance-dependent dielectric   
 pro_close                                  Proline ring closure energy and energy of psi angle of preceding residue
 hbond_sr_bb                                Backbone-backbone hbonds close in primary sequence
 hbond_lr_bb                                Backbone-backbone hbonds distant in primary sequence
