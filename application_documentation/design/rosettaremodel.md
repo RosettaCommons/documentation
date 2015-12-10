@@ -396,6 +396,8 @@ At least one input PDB file must always be given. A single PDB, or a list of PDB
 ```
 -s <pdb1> <pdb2>                                              A list of one or more PDBs to run fixbb upon
 -l <listfile>                                                 A file that lists one or more PDBs to run fixbb upon, one PDB per line
+-run::chain <letter>                                          Chain id of the chain to remodel
+
 ```
 
 Database location - REQUIRED
@@ -419,8 +421,6 @@ Remodel options
 ---------------
 
 ```
--run::chain <letter>                                           chain id of the chain to remodel, if a multichain structure is given (default: -)
-
 -remodel::num_trajectory <int>                                 the number of centroid level sampling trajectories to run (default: 10)
 -remodel::dr_cycles <int>                                      number of design/refine cycles to run (default: 3)
 
