@@ -7,8 +7,8 @@ Generates a helical bundle using the Crick equations (which describe a helix of 
 Helix types are defined with crick_params files, located in the Rosetta database in database/protocol_data/crick_parameters (or provided by the user).  Support for Crick parameter files defining helices in which the repeating unit is more than one residue has recently been added.
 
 ```
-<MakeBundle name=(&string) use_degrees=(false &bool) reset=(true &bool) symmetry=(0 &int) symmetry_copies=(0 &int) set_dihedrals=(true &bool) set_bondlengths=(true &bool) set_bondangles=(true &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) omega1=(0.0 &real) z1=(0.0 &real) delta_omega1=(0.0 &real) delta_t=(0.0 &real) z1_offset=(0.0 &real) z0_offset=(0.0 &real) invert=(false &bool) >
-     <Helix set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) omega1=(0.0 &real) z1=(0.0 &real) delta_omega1=(0.0 &real) delta_t=(0.0 &real) z1_offset=(0.0 &real) z0_offset=(0.0 &real) invert=(false &bool) repeating_unit_offset=(0 &int) />
+<MakeBundle name=(&string) use_degrees=(false &bool) reset=(true &bool) symmetry=(0 &int) symmetry_copies=(0 &int) set_dihedrals=(true &bool) set_bondlengths=(true &bool) set_bondangles=(true &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) omega1=(<value normally read from crick_params file> &real) z1=(<value normally read from crick_params file> &real) delta_omega1=(0.0 &real) delta_t=(0.0 &real) z1_offset=(0.0 &real) z0_offset=(0.0 &real) invert=(false &bool) >
+     <Helix set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) omega1=(<value normally read from crick_params file> &real) z1=(<value normally read from crick_params file> &real) delta_omega1=(0.0 &real) delta_t=(0.0 &real) z1_offset=(0.0 &real) z0_offset=(0.0 &real) invert=(false &bool) repeating_unit_offset=(0 &int) />
 ...
 </MakeBundle>
 ```
@@ -30,9 +30,9 @@ Options in the <b>MakeBundle</b> tag set defaults for the whole bundle.  Individ
 - "daa_beta_strand": A beta-strand formed by D-amino acids, mirroring that formed by L-amino acids.  Phi=135.0, psi=-135.0, and omega=180.0.<br/>
 - "14_helix": A left-handed helix formed by beta-amino acids.  Phi=-139.9, theta=59.5, psi=-138.7, and omega=180.0.<br/>
 
-<b>omega1</b>:  The minor helix turn per residue.  This is usually set with a Crick parameters file, but this option overrides whatever value is read in from the file.<br/>
+<b>omega1</b>:  The minor helix turn per residue.  This is usually set with a Crick parameters file, but this option overrides whatever value is read in from the file.  <b>Not recommended</b>.  Most users should simply read omega1 from a Crick parameters file.<br/>
 <b>delta_omega1</b>:  An offset value for <b>omega1</b>.  This rotates the generated helix about the minor helix axis ("rolling" the helix).<br/>
-<b>z1</b>:  The minor helix rise per residue.  This is usually set with a Crick parameters file, but this option overrides whatever value is read in from the file.<br/>
+<b>z1</b>:  The minor helix rise per residue.  This is usually set with a Crick parameters file, but this option overrides whatever value is read in from the file.  <b>Not recommended</b>.  Most users should simply read omega1 from a Crick parameters file.<br/>
 <b>delta_t</b>:  Shifts the registry of the helix.  (This value is the number of amino acid residues by which the helix should be shifted.)  Mainchain atoms are shifted along a path shaped like a helix of helices.<br/>
 <b>z1_offset</b>:  Shifts the helix along the minor helix axis.  (The distance is measured in Angstroms along the <i>major helix axis</i>).  Mainchain atoms are shifted along a path shaped like a helix.  Inverted helices are shifted in the opposite direction.<br/>
 <b>z0_offset</b>:  Shifts the helix along the major helix axis.  (The distance is measured in Angstroms).  Mainchain atoms are shifted along a path shaped like a straight line.  Inverted helices are shifted in the opposite direction.<br/>
