@@ -98,7 +98,7 @@ See [[how to write documentation|how-to-write-documentation]] for more details.
 - [[FullModelInfo|stepwise-fullmodelinfo]] is an important book-keeping object held by the pose used throughout the stepwise code. 
 - [[Score terms|stepwise-score]] calculate energies for a full model even if only subpieces are instantiated (other_pose, loop_close, free_side_chain).
 
-#### Fragment assembly of RNA (FARNA) renovation, unification with stepwise
+### Fragment assembly of RNA (FARNA) renovation, unification with stepwise
 - [[FARNA|farna-refactor]] is Rosetta's original RNA de novo modeling code (dating back to Rosetta++). It is undergoing some updates in 2015-2016.
 
 ### Pilot Apps + Code Documentation
