@@ -411,3 +411,21 @@ These function types cannot currently be specified in a file. They need to have 
 * [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
 * [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
+
+<!--- Gollum search optimization keywords
+constraint file
+constraint file
+constraint file
+cst file
+cst file
+cst file
+restraint file
+restraint file
+restraint file
+restraint file
+restraint file
+restraint file
+restraint file
+restraint file
+restraint file
+--->
