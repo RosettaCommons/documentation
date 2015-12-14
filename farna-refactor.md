@@ -9,6 +9,7 @@
 * setup ‘long-distance’ BPS (>3 intervening nts)
 
 #### Stepwise-lores  *(low priority since not seeing many wins compared to FARNA)*
-* 'focus' fragments near site of addition/deletion (low priority)
-* setup move to add triples and resample based on database.
+* Make sure base-pair-step setup decides on the number of intervening residues based on PDBinfo or full_model_info (if defined).
+* 'focus' fragments near site of stepwise addition/deletion (low priority)
+* setup move to add triples and resample based on a triplet database.
 * autorecognition of long stretches of sequence identity (e.g., >5 nts) — hold NR2015 as silent files in the database.
