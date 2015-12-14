@@ -347,6 +347,15 @@ The models from the above run are stored in compressed format in files like `swm
 extract_pdbs  -in:file:silent swm_rebuild.out
 ```
 
+Experimental stuff
+=============================
+Lo-res mode
+------------
+[![Stepwise lores animation on Youtube](http://img.youtube.com/vi/Q0qNSTN05is/0.jpg)](http://www.youtube.com/watch?v=Q0qNSTN05is)
+
+In this mode, created by the flags `-lores` seeks to enable tests of stepwise with way more cycles than allowed above. Instead of minimizing, the model is optimized by 100 cycles of  [[fragment assembly|rna-denovo]] after each stepwise add/delete/resample, in a low resolution scorefunction (here, `rna_lores.wts` supplemented with `loop_close` and `ref`). Leads to over-optimization of an inaccurate function in most loop modeling or motif cases, or worse optimization than classic [[FARFAR setup for loops|rna-denovo-setup]].  Contact Rhiju if you're interested in trying on more complex cases, where there might be a 'win'.
+
+
 New things since last release
 =============================
 This is a new executable as of 2014.
