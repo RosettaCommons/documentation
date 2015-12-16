@@ -21,13 +21,12 @@ One semantic note: The terms *FARNA* and *FARFAR* are now preferred throughout t
 + It checks filters at various stages (resetting if the filters fail).
 + It also holds some functions for computing RMSD. Might be better to move those out somewhere.
 
-There is one important/tricky concept in RNA_FragmentMonteCarlo, an object called `atom_level_domain_map`:
-#### AtomLevelDomainMap holds for each atom in the pose an assignment of where that residue came from.
+There is one important/tricky concept in RNA_FragmentMonteCarlo, an object called `atom_level_domain_map`, which is a `protocols::toolbox::AtomLevelDomainMap`. This holds for each atom in the pose an assignment of where that residue came from, and demarcates where fragments/jumps/chunks can be inserted at atom level. 
 The convention is as follows:
-• 0 marks totally free atoms.
-• 1,2,...998 marks atoms that came from fixed input domains (e.g, PDBs), with a different index for each PDB.
-• 999 is special, marking absolutely fixed atoms that did not come from an input domain (e.g., virtual phosphates that don't need to get moved during FARNA)
-• 1000 is special (ROSETTA_LIBRARY_DOMAIN) and marks atoms that are covered by a [BasePairStepLibrary](#BasePairStepLibrary)
++ 0 marks totally free atoms.
++ 1,2,...998 marks atoms that came from fixed input domains (e.g, PDBs), with a different index for each PDB.
++ 999 is special, marking absolutely fixed atoms that did not come from an input domain (e.g., virtual phosphates that don't need to get moved during FARNA)
++ 1000 is special (ROSETTA_LIBRARY_DOMAIN) and marks atoms that are covered by a [BasePairStepLibrary](#BasePairStepLibrary)
 
 ### Sub-namespaces, in order of importance
 #### `protocols::farna::movers` namespace
@@ -60,7 +59,7 @@ Note: should be general to RNA/protein too, but those jumps haven't been impleme
 
 + `BasePairStepLibrary` holds coordinates of base pair steps (see [BasePairStep](#BasePairStep)) read from databases on disk. It actually just registers which files are on disk and then reads in the silent files 'just in time' during the run. Example file: `database/sampling/rna/base_pair_steps/general/bulge_1nt/ag_unu.out.gz` hold coordinates of 4 residues of two base pairs from a base pair step in which one strand has sequence `ag` and the other has sequence `unu` (`n` means any nucleotide).
 
-+ `RNA_ChunkLibrary` is an important object in `RNA_FragmentMonteCarlo` that holds base pair steps and any coordinates from user-input PDBs or silent files. It also is responsible for creating the `AtomLevelDomainMap` (shared by numerous movers [above](#AtomLevelDomainMap)).
++ `RNA_ChunkLibrary` is an important object in `RNA_FragmentMonteCarlo` that holds base pair steps and any coordinates from user-input PDBs or silent files. It also is responsible for creating the `AtomLevelDomainMap` (shared by numerous movers [above](##the-classes-of-protocols-farna_core-protocol-rna_fragmentmontecarlo)).
 
 + `ChunkSet`
 Object that holds coordinates of input PDBs or base pair steps, in compact `MiniPose` format. 
