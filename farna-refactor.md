@@ -130,3 +130,6 @@ These two functions should probably be deprecated by `FullModelInfoSetUpFromComm
 * 'focus' fragments near site of stepwise addition/deletion (low priority)
 * setup move to add triples and resample based on a triplet database.
 * autorecognition of long stretches of sequence identity (e.g., >5 nts) — hold NR2015 as silent files in the database.
+
+#### Benchmarking
+* Some notes on how to benchmark FARNA updates, and additional ideas for improving low-res assembly are in [this Das Lab google doc](https://docs.google.com/spreadsheets/d/1bARG3MlTCGeOvjQXr7lheyODoOH2FD7HxE6KX7_brJ0/edit#gid=5)
