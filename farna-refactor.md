@@ -30,10 +30,15 @@ The convention is as follows:
 
 ### Sub-namespaces, in order of importance
 #### `protocols::farna::movers` namespace
-+ `RNA_FragmentMover` holds a `RNA_Fragments` library and actually makes fragment moves on a `pose`
++ `RNA_FragmentMover` holds a `RNA_Fragments` library and actually makes fragment moves on a `pose`.
+Note: This is where we could put in functionality to, e.g., choose fragments of longer length if they have sequence-matches to the desired pose. This is also where we could put chemical-shift-based weighting of fragment choices. Would need to define weights for each possible fragment, and update random choice to reflect those weights, but that should be easy (there's some code in `stepwise::monte_carlo::mover::StepWiseMoveSelector` that we could share.) 
+
 + `RNA_JumpMover` holds an `RNA_JumpLibrary` and actually makes jump moves on a `pose`
+
 + `RNA_Minimizer` carries out 2'-OH packing and full-atom minimizing in two rounds. The first round prevents 'blow up' of FARNA conformations from clashes by coordinate constraints.
+
 + `RNA_LoopCloser` looks over a `pose` and applies CCD (cyclic coordinate descent) loop closure to any segments with chainbreaks and CUTPOINT_UPPER/CUTPOINT_LOWER variants (as specified by 'cutpoints_closed', or created during setup)
+
 + `RNA_Relaxer` is not really in use. Use at your own risk.
 
 #### `protocols::farna::fragments` namespace
