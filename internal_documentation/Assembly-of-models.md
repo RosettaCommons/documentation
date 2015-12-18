@@ -31,6 +31,39 @@ The AssemblyMover is the abstract base class from which all other AssemblyMovers
 
 ----------------------
 
+###EnumerateAssemblyMover
+
+The EnumerateAssemblyMover is a mover within the SEWING framework. This mover will exhaustively assemble all possible models into assembly
+An example of motif.flags (MonteCarloAssemblyMover requires this as well) is below:
+
+```xml
+-resource_definition_files resources.xml
+-ignore_unrecognized_res
+-overwrite
+-score:weights talaris2014_cart
+-mpi_tracer_to_file mpi_tracer
+-use_input_sc
+-linmem_ig 10
+-parser:protocol parser_script.xml
+
+-sewing:base_native_bonus 1
+-sewing:neighbor_cutoff 16
+-sewing:skip_refinement true
+-sewing:skip_filters true
+
+-sewing:model_file_name /home/kimdn/db/sewing/with_17k/17k.models_three_or_five_ss_trimmed_PA
+-sewing:score_file_name /home/kimdn/db/sewing/with_17k/17k.models_three_or_five_ss_trimmed_PA.score_16_atoms_125_box_0_clash
+-sewing:max_ss_num 3 #smotif ? or 5-ss_models
+-sewing:dump_every_model_for_devel_purpose true
+
+-mute core devel.sewing.Hasher devel.sewing.SewGraph
+-out:level 500
+```
+
+
+
+----------------------
+
 ###MonteCarloAssemblyMover
 
 **Subclass of AssemblyMover**
