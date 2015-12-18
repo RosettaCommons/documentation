@@ -33,8 +33,9 @@ The AssemblyMover is the abstract base class from which all other AssemblyMovers
 
 ###EnumerateAssemblyMover
 
-The EnumerateAssemblyMover is a mover within the SEWING framework. This mover will exhaustively assemble all possible models into assembly
-An example of motif.flags (MonteCarloAssemblyMover requires this as well) is below:
+The EnumerateAssemblyMover is a mover within the SEWING framework. This mover will exhaustively assemble all possible models into assembly.
+
+An example of flags MonteCarloAssemblyMover is below:
 
 ```xml
 -resource_definition_files resources.xml
