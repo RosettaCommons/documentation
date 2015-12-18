@@ -13,7 +13,7 @@ Small-move style backbone-torsion moves that, unlike shear, do not minimize down
 -   angle\_max: by how much to perturb the backbone.
 -   preserve\_detailed\_balance: If set to true, does not test the MC acceptance criterion, and instead always accepts.
 
-This mover can also take an optional MoveMap (see [[FastRelax]] documentation for details) to define the residue subset to which it should be applied.  (Only residues defined to have flexible backbones are used.)  In the absence of the MoveMap, the mover is applied to the whole pose.
+This mover can also take an optional MoveMap (see [[FastRelax|FastRelaxMover]] documentation for details) to define the residue subset to which it should be applied.  (Only residues defined to have flexible backbones are used.)  In the absence of the MoveMap, the mover is applied to the whole pose.
 
 See Rohl CA, et al. (2004) Methods Enzymol. Protein structure prediction using Rosetta, 383:66
 
