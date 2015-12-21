@@ -16,7 +16,7 @@ Shear style backbone-torsion moves that minimize downstream propagation.
 
 This mover can also take an optional MoveMap (see [[FastRelax|FastRelaxMover]] documentation for details) to define the residue subset to which it should be applied.  (Only residues defined to have flexible backbones are used.)  In the absence of the MoveMap, the mover is applied to the whole pose.
 
-See Rohl CA, et al. (2004) Methods Enzymol. Protein structure prediction using Rosetta, 383:66
+See Rohl CA, et al. (2004) [Protein structure prediction using Rosetta.](http://www.sciencedirect.com/science/article/pii/S0076687904830040) Methods Enzymol., 383:66
 
 
 ##See Also
