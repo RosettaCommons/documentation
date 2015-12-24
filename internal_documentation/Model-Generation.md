@@ -32,16 +32,16 @@ An example command line for generation of 'Features database' that will be used 
 ###Actual Model Generation
 After building features database, let's generate real models from this DB.
 
-SewingHasher model generation flags
+sewing_hasher model generation flags
 ```
--sewing:mode generate           Set to SewingHasher mode to 'generate' for model generation
+-sewing:mode generate           Set to sewing_hasher mode to 'generate' for model generation
 -inout:dbms:database_name       The SQL database file to generate models from
 -sewing:model_file_name         The name of the model file to be generated
 ```
 
 An example command line for generation of model files:
 ```
-/path/to/rosetta/bin/SewingHasher.linuxgccrelease \
+/path/to/rosetta/bin/sewing_hasher.linuxgccrelease \
 -sewing:mode generate # it will generate three secondary structures (smotif)' models \
 -sewing:mode generate_five_ss_model # it will generate five secondary structures' models \
 -database_name pdb.db3 \
