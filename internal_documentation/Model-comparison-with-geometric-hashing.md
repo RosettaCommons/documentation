@@ -1,7 +1,7 @@
 ##Model comparison with geometric hashing
 Once a Model file has been generated, the models need to be structurally compared to one another using a geometric hashing algorithm implemented in the SewingHasher.
 
-SewingHasher hashing flags
+sewing_hasher hashing flags
 ```
 -sewing:mode hash               Set the sewing mode to 'hash' for geometric hashing
 -sewing:model_file_name         The name of the file to read models from
@@ -13,7 +13,7 @@ SewingHasher hashing flags
 
 An example command line for comparison of model files:
 ```
-/path/to/rosetta/bin/SewingHasher.linuxgccrelease \
+/path/to/rosetta/bin/sewing_hasher.linuxgccrelease \
 -sewing:mode hash \
 -sewing:model_file_name pdb.models \
 -sewing:score_file_name pdb.scores \
@@ -27,9 +27,9 @@ Due to the computational expense, it is recommended to run the above command usi
 cat pdb.scores.* > pdb.scores
 ```
 
-Then, use the SewingHasher executable to convert this plain-text file to binary:
+Then, use the sewing_hasher executable to convert this plain-text file to binary:
 ```
-/path/to/rosetta/bin/SewingHasher.linuxgccrelease \
+/path/to/rosetta/bin/sewing_hasher.linuxgccrelease \
 -sewing:mode convert \
 -sewing:model_file_name pdb.models \
 -sewing:score_file_name pdb.scores
