@@ -1,5 +1,5 @@
 ##Model comparison with geometric hashing
-Once a Model file has been generated, the models need to be structurally compared to one another using a geometric hashing algorithm implemented in the SewingHasher.
+Once a Model file has been generated, the models need to be structurally compared to one another using a geometric hashing algorithm implemented in the sewing_hasher.
 
 sewing_hasher hashing flags
 ```
