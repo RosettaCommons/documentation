@@ -35,11 +35,12 @@ convert: convert a plain text score file to a binary score file. This is require
 ``` 
 <example of score file>
 1300 277 57 1299 277 57 56
+...
 
 <explanation of score file>
 1300 and 1299 are model_ids (node ids)
 277 is the first residue number of sharing (chimeric) segment between two models
-57 is id of the sharing (chimeric) segment between two models
+57 is id of the sharing (chimeric) segment between two models. This 'segment id' is not necessarily same between two combinable models. This 'segment id' could be different between two combinable models.
 56 is id of the segment that just precedes the sharing (chimeric) segment between two models
 ```
 
