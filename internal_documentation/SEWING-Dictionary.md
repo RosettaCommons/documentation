@@ -34,14 +34,15 @@ convert: convert a plain text score file to a binary score file. This is require
 * "score": edge information (has nothing to do with common rosetta fa/centroid score)
 ``` 
 <example of score file>
-1300 277 57 1299 277 57 56
+4 67 13 3 67 13 32
+4 94 17 3 43 9 29
 ...
 
-<explanation of score file>
-1300 and 1299 are model_ids (node ids)
-277 is the first residue number of sharing (chimeric) segment between two models
-57 is id of the sharing (chimeric) segment between two models. This 'segment id' is not necessarily same between two combinable models. This 'segment id' could be different between two combinable models.
-56 is id of the segment that just precedes the sharing (chimeric) segment between two models
+<explanation of score file, line 1>
+4 and 3 are model_ids (node ids).
+67 is the first residue number of sharing (chimeric) segment between two models (this resnum could be different two combinable models).
+13 is id of the sharing (chimeric) segment between two models. This 'segment id' is not necessarily same between two combinable models (this 'segment id' could be different between two combinable models).
+32 is id of the segment that just precedes the sharing (chimeric) segment between two models.
 ```
 
 Example of "model", "segment", "residue", "atom"
