@@ -42,7 +42,7 @@ convert: convert a plain text score file to a binary score file. This is require
 4 and 3 are model_ids (node ids).
 94 and 43 are the basis residue numbers of sharing (chimeric) segment between two models (of course, this resnum may happen to be same between two combining models).
 17 and 9 are ids of the sharing (chimeric) segment between two models (of course, this 'segment id' may happen to be same between two combining models).
-29 is the number of overlapping atoms (here segments 17 and 9 have 29 overlapping atoms)
+29 is the average_segment_score (= sum/segment_matches.size())
 ```
 
 Example of "model", "segment", "residue", "atom"
