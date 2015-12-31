@@ -42,7 +42,7 @@ convert: convert a plain text score file to a binary score file. This is require
 4 and 3 are model_ids (node ids).
 67 is the first residue number of sharing (chimeric) segment between two models (this resnum could be different two combinable models).
 13 is id of the sharing (chimeric) segment between two models. This 'segment id' is not necessarily same between two combinable models (this 'segment id' could be different between two combinable models).
-32 is id of the segment that just precedes the sharing (chimeric) segment between two models.
+32 is the number of overlapping atoms (here segments 13 and 13 have 32 overlapping atoms)
 ```
 
 Example of "model", "segment", "residue", "atom"
