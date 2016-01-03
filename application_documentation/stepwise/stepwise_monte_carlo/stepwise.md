@@ -26,7 +26,9 @@ Limitations
 
 -  The method is acutely sensitive to the assumed energy function. This is in contrast to other Rosetta protocols that either transit through low-resolution ('centroid') stages or make use of database fragments; both strategies 'regularize' the search but preclude solution of problems in which low-resolution energy functions are not trustworthy or the fragment database is too sparse. 
 
--  The method is intended to obey detailed balance, albeit on a perturbed energy landscape where each conformation's energy is mapped to the energy of the closest local minimum. In problems involving multiple chains that are dock/undocked or chains closed/broken, the current move implementations do not quite obey detailed balance due to incorrect move schedule and omission of a Jacobian ratio, respectively. Both issues are fixable, and will be fixed in future releases.
+- The method computes loop closure (`loop_close`) energies based on a simple Gaussian chain model of uninstantiated loops. While this energy function can handle cycles of loops, it fails on pose collections that have nested loop cycles, and so those are avoided by default in `stepwise`.
+
+-  The method is intended to obey detailed balance, albeit on a perturbed energy landscape where each conformation's energy is mapped to the energy of the closest local minimum. Major deviations from detailed balance are avoided by computing the ratio of forward to reverse proposal probabilities. However, in moves involving addition or resampling of chains with closure, the current move implementations do not quite obey detailed balance due to incorrect handling of the multiplicity of moves upon adding, incorrect move schedule and omission of a Jacobian ratio, respectively. There are ways to fix this, if need be.
 
 Code and Demo
 =============
@@ -63,7 +65,7 @@ Das, R. (2013) "Atomic-accuracy prediction of protein loop structures enabled by
 Modes
 =====
 
--   By default, the code runs Stepwise Monte Carlo. Applications to RNA loops, mini-proteins, mixed RNA/protein, etc. are not different modes, but instead are defined by input sequences (see below). 
+-   By default, the code runs Stepwise Monte Carlo. Applications to RNA loops, mini-proteins, mixed RNA/protein, etc. are not different modes, but instead are defined by input sequences (see below). The code will recognize up to two domains for docking, allowing in principle for ab initio models of RNA-RNA tertiary contacts or RNA-protein interfaces without knowing a priori their rigid body arrangement.
 
 -   It is possible to run single specified moves given a starting structure, specified through `-move`. See 'Tips' below.
 
@@ -231,8 +233,10 @@ Rarely used but listed with --help
 -minimize_single_res_frequency                   Frequency with which to minimize the residue that just got rebuilt, instead  of all (default: 0.0)
 -switch_focus_frequency                          Frequency with which to switch the sub-pose that is being modeled (default: 0.5)
 -just_min_after_mutation_frequency               After a mutation, how often to just minimize (without further sampling the mutated residue) (default: 0.5)
+-submotif_frequency                              Frequency with which to try a special submotif from a currently small database (UA,GG,U-turn) (default: 0.2)
 -allow_internal_hinge_moves                      Allow moves in which internal suites are sampled (hinge-like motions) (default:true)
 -allow_internal_local_moves                      Allow moves in which internal cutpoints are created to allow ERRASER rebuilds (default:**false**)
+-new_move_selector                               When deciding on move acceptance, correct by ratio of forward and reverse move proposal probabilities, helps maintain detailed balance (default: true) 
 -allow_skip_bulge                                Allow moves in which an intervening residue is skipped and the next one is modeled as floating base (default:**false**)
 -allow_variable_bond_geometry                    In 10% of moves, let bond angles & distance change (default:false) (**warning: this may not work anymore**)
 -num_pose_minimize                               number of sampled poses to minimize within each stepwise move (1 for RNA; 5 poses with lowest energy after packing for protein)
@@ -356,10 +360,14 @@ Lo-res mode
 
 In this mode, created by the flags `-lores` seeks to enable tests of stepwise with way more cycles than allowed above. Instead of minimizing, the model is optimized by 100 cycles of  [[fragment assembly|rna-denovo]] after each stepwise add/delete/resample, in a low resolution scorefunction (here, `rna_lores.wts` supplemented with `loop_close` and `ref`). Leads to over-optimization of an inaccurate function in most loop modeling or motif cases, or worse optimization than classic [[FARFAR setup for loops|rna-denovo-setup]].  Contact Rhiju if you're interested in trying on more complex cases, where there might be a 'win'.
 
+Variable-length loop mode
+-------------------------
+This is a generalization of stepwise design where loops (specified as strings of `n` in the FASTA file) are allowed to change their length during the run. Maximum loop lengths are based on FASTA file. Run `stepwise` with `-vary_loop_length_frequency 0.2` to check it out -- contact Rhiju to make this robust, and to optimize predicted delta-G for tertiary folding by comparison to free energies from the Vienna RNA package.
+
 
 New things since last release
 =============================
-This is a new executable as of 2014.
+This is a new executable as of 2014, with continuing updates to end of 2015.
 
 ##See Also
 
