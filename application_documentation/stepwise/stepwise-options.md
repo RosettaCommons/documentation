@@ -2,15 +2,19 @@
 
 # Inheritance Structure
 -----------------------
-`StepWiseBasicOptions`
-
- • `StepWiseMonteCarloOptions`
-
- • `StepWiseBasicModelerOptions`
-
-   - `StepWiseModelerOptions` (also derives from `StepWiseProteinModelerOptions`, `StepWiseRNA_ModelerOptions`)*
-
-*(Yes I know about potential issues with multiple inheritance, but I think they're avoided here, and the alternative solutions requires remembering to copy a huge number of options from class to class.)
+```
+ StepWiseBasicOptions      StepWiseMoveSelectorOptions
+     |           |          |
+     |           v          v
+     |          StepWiseMonteCarloOptions
+     v
+  StepWiseBasicModelerOptions  StepWiseProteinModelerOptions StepWiseRNA_ModelerOptions
+     |                _______________|_______________________________|
+     |               |
+     v               v
+  StepWiseModelerOptions
+```
+<sub>*Yes I know about potential issues with multiple inheritance, but I think they're avoided here, and the alternative solutions requires remembering to copy a huge number of options from class to class.</sub>
 
 ### Note on spawning a `ModelerOptions` from `StepWiseMonteCarloOptions`
 ------------------------------------------------------------------------
