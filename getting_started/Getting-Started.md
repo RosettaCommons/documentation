@@ -108,7 +108,7 @@ Talk to your cluster administrator to see if there is a centrally-provided versi
 
 If your cluster doesn't have Rosetta already installed, or you wish to use a different version than the centrally installed one, don't worry — Rosetta is designed to be compiled and installed by regular users without administrative rights. 
 As long as commonly available compilation tools are available for your use, you should be able to build and run Rosetta in your user directory without cluster administrator involvement. 
-Just treat it like a [[local install into userspace|Getting-Started#installation-on-mac-linux]].
+Just treat it like a [[local install into userspace|Getting-Started#local-installation-and-use-of-rosetta_installation-on-mac-linux]].
 
 
 Use of Rosetta on national-scale supercomputing resources
