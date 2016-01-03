@@ -100,7 +100,7 @@ Here's an animation that reaches the known experimental structure.
 
 Additional useful parameters:
 
- The flag `   -extra_min_res 4 9  ` would ask for the closing base pair of the starting helix to be minimized (but not subject to additions, deletions, or rotamer resampling) during the run. It is not obligatory, but allowing realxation of closing base pairs appears to generally improve convergence in this and other RNA cases.
+ The flag `-motif_mode` is equivalent to `-extra_min_res 4 9 -terminal_res 1 12` would ask for the closing base pair of the starting helix to be minimized (but not subject to additions, deletions, or rotamer resampling) during the run, and prevention of residues from stacking on the exterior boundary pair ('terminal res'). It is not obligatory, but allowing relaxation of closing base pairs appears to generally improve convergence in this and other RNA cases.
 
 For RNA cases, `  -score:rna_torsion_potential RNA11_based_new -chemical::enlarge_H_lj  ` are currently in use to test an updated RNA torsional potential and to help prevent overcompression of RNA helices. These may be turned on by default at the time of publication of the method, after completion of benchmarking.
 
@@ -196,7 +196,7 @@ Commonly used:
 **In following, ChainResidueVector means input like "4 5 6 9 10", "4-6 9-10", or "A:4-6 B:9-10" are all acceptable from command-line.**
 
 Less commonly used, but useful
--extra_min_res                                   specify residues other than those being built that should be minimized [ChainResidueVector*]
+-motif_mode                                      auto-setup of -extra_min_res and -terminal_res as is appropriate for typical RNA motif runs (junctions,loops,etc.)
 -sample_res                                      residues to build (default is to build everything in FASTA that is not in starting PDBs) [ChainResidueVector*]
 -score:weights                                   Weights file in database. [File]
 -make_movie                                      Output each TRIAL and ACCEPTED structure in the monte carlo to a silent file in the movie/ subdirectory. Useful for pymol movie making.
@@ -215,6 +215,7 @@ Advanced
 -preminimize                                     Just prepack and minimize input poses
 -stepwise:rna:erraser                            Use KIC sampling instead of CCD closure (default:false)
 -bulge_res                                       optional: residues to keep uninstantiated
+-extra_min_res                                   specify residues other than those being built that should be minimized [ChainResidueVector*]
 -terminal_res                                    optional: RNA residues that are not allowed to stack during sampling
 
 Rarely used but listed with --help
