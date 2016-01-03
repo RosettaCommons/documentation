@@ -65,7 +65,7 @@ Several [[score terms|stepwise-score]] in `src/core/scoring/` calculate energies
 ### additional notes 
 Several helper functions developed for stepwise modeling have been lifted into various util.cc functions or classes. Of note are:
 
-• `correctly_add_cutpoint_variants` in `core/pose/util.hh`. Not only adds CUTPOINT variants & virtual atoms for sealing chainbreaks but also sets up chemical bond structure for both RNA and protein. And removes other variants that are incompatible with cutpoints.
+• `correctly_add_cutpoint_variants` in `core/pose/util.hh`. Not only adds CUTPOINT variants & virtual atoms for sealing chainbreaks but also sets up chemical bond structure for both RNA and protein. And removes other variants that are incompatible with cutpoints.  
 • `pdbslice` in `core/pose/util.hh` cuts subsets of residues out of poses, with smart resetting of jump atoms & variant handling.
 
 
