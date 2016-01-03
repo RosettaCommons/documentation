@@ -75,7 +75,7 @@ Here the number 2.30 represents log of the effective concentration (relative to 
 
 
 ### `free_side_chain`, `free_suite`, `free_2HOprime`
-Bonuses for virtualizing protein side chains, RNA 5' phosphate, and RNA 2' hydroxyl, respectively. Also stuffing bonuses for virtualizing sugar in `free_suite`. These might all get combined into `ref` for simplicity, after further calibration.
+Bonuses for virtualizing protein side chains, RNA 5' phosphate, and RNA 2' hydroxyl, respectively. Also stuffing bonuses for virtualizing sugar in `free_suite`. These might all get combined into `free_dof` for simplicity, after further calibration.
 
 ---
 Go back to [[StepWise Overview|stepwise-classes-overview]].
