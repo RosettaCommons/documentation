@@ -67,7 +67,7 @@ Modes
 
 -   By default, the code runs Stepwise Monte Carlo. Applications to RNA loops, mini-proteins, mixed RNA/protein, etc. are not different modes, but instead are defined by input sequences (see below). The code will recognize up to two domains for docking, allowing in principle for ab initio models of RNA-RNA tertiary contacts or RNA-protein interfaces without knowing a priori their rigid body arrangement.
 
--   It is possible to run single specified moves given a starting structure, specified through `-move`. See 'Tips' below.
+-   It is possible to run single specified moves given a starting structure, specified through `-move`. See [Tips](#tips) below.
 
 Input Files
 ===========
@@ -219,10 +219,17 @@ Advanced
 -bulge_res                                       optional: residues to keep uninstantiated
 -extra_min_res                                   specify residues other than those being built that should be minimized [ChainResidueVector*]
 -terminal_res                                    optional: RNA residues that are not allowed to stack during sampling
+-block_stack_above_res                           optional: residues on which other residues cannot stack above (uses 
+                                                           repulsion atoms)
+-block_stack_below_res                           optional: residues on which other residues cannot stack below (uses 
+                                                           repulsion atoms)
 
 Rarely used but listed with --help
 -data_file                                       RDAT or legacy-format file with RNA chemical mapping data [File] (currently not in use, but will be soon)
 -stepwise:atr_rep_screen                         In packing, screen for contacts (but no clash) between partitions before packing (**default:true**)
+-virtualize_free_moieties_in_native              Virtualize bulges, terminal phosphates, and 2' hydroxyls detected to be 
+                                                  non-interacting ('free') in native pose. I.e., do 
+                                                  not calculate RMSD over those atoms. (default:true)
 -allow_virtual_side_chains                       In packing, allow virtual side chains (**default:true**)
 -temperature                                     Temperature for Monte Carlo Minimization (default: 1.0)
 -input_res                                       Residues numbers in starting files. [ChainResidueVector*]
