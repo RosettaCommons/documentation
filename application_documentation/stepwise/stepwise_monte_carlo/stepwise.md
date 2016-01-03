@@ -377,12 +377,12 @@ New things since last release
 This is a new executable as of 2014, with continuing updates to end of 2015.
 
 ##See Also
-
 * Applications for deterministic stepwise assembly:
   * [[Stepwise assembly for protein loops|swa-protein-main]]
     * [[Additional documentation|swa-protein-long-loop]]
   * [[RNA loop modeling with Stepwise Assembly|swa-rna-loop]]
 * [[Overview of Stepwise classes|stepwise-classes-overview]]
+* [[Internal Documentation of Stepwise project]](https://www.rosettacommons.org/docs/wiki/internal_documentation/Internal-Documentation#documentation-for-specific-projects_stepwise-assembly-and-monte-carlo-project) (for developers)
 * [[Structure prediction applications]]: Includes links to these and other applications for loop modeling
 * [[RNA applications]]: Applications to be used with RNA or RNA and proteins
 * [[RosettaScripts]]: The RosettaScripts home page
