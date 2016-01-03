@@ -16,7 +16,7 @@ Basic code running stepwise monte carlo is in `src/protocols/stepwise/monte_carl
 
 # What StepWiseMonteCarlo can do.
 ---------------------------------
-A concise description of a move is given as a `SWA_Move`. The types of moves are the following (see `src/protocols/stepwise/monte_carlo/swa_move.hh`:
+A concise description of a move is given as a `StepWiseMove`. The types of moves are the following (see `src/protocols/stepwise/monte_carlo/mover/stepwise_move.hh`:
 
 • `ADD`  -- supply residue(s) to add to pose (in full model numbering). if a single covalent connection can be drawn from existing pose to residue, will be covalent; otherwise added by jump.
  
@@ -28,9 +28,15 @@ A concise description of a move is given as a `SWA_Move`. The types of moves are
 
 • `RESAMPLE_INTERNAL_LOCAL` -- (tested for RNA only so far) sample a specific internal residue, making a transient cutpoint after it, enforcing KIC-based chain closure, and removing the cutpoint variant. (ERRASER style -- kind of like a **backrub** but for RNA.)
 
-For each SWA_Move, the residue is specified, the type of connection ('AttachmentType') to a parent residue (BOND_TO_PREVIOUS, BOND_TO_NEXT,JUMP_TO_PREV_IN_CHAIN, JUMP_TO_NEXT_IN_CHAIN,JUMP_INTERCHAIN), and the parent residue. The last two pieces of information are basically redundant, but allow for consistency checks in Movers.
+• `ADD_SUBMOTIF` -- finds a submotif in Rosetta database (currently holds C-G Watson-Crick pair, U-A noncanonical W/H pair, G-G noncanonical W/H pairs, U-turns) that matches some uninstantiated part of the pose and adds it. Must be a single covalent connection to existing pose. 
 
-`SWA_MoveSelector` (also in `src/protocols/stepwise/monte_carlo/`) finds all `SWA_Move` moves possible for a given pose, and has nice examples for how to define each type of move.
+For each SWA_Move, the residue is specified, the type of connection ('AttachmentType') to a parent residue (`BOND_TO_PREVIOUS`, `BOND_TO_NEXT`,`JUMP_TO_PREV_IN_CHAIN`, `JUMP_TO_NEXT_IN_CHAIN`, `JUMP_DOCK`), and the parent residue. The last two pieces of information are basically redundant, but allow for consistency checks in Movers.
+
+For submotif moves, the move also supplies a `submotif_tag` of the database submotif.
+
+`StepWiseMoveSelector` (also in `src/protocols/stepwise/monte_carlo/mover/`) finds all `StepWiseMove` moves possible for a given pose, and has nice examples for how to define each type of move.
+
+[*Experimental* For design, also testing `ADD_LOOP_RES` and `DELETE_LOOP_RES` moves that don't change pose but instead the assumed loop lengths.]
 
 # How to do a specific move
 ---------------------------
@@ -42,7 +48,7 @@ add_mover.set_stepwise_modeler( new StepWiseModeler( scorefxn ) );
 add_mover.apply( pose, 3 /*add res*/, 2 /*takeoff res*/ );   // imagine the pose has residues 1, 2, 7, 8
 ```
 
-**What other documentation would be useful here?**
+More examples of how to use these classes are in unit tests (`test/protocols/stepwise`)
 
 ---
 Go back to [[StepWise Overview|stepwise-classes-overview]].
