@@ -86,6 +86,10 @@ There are useful helper functions in `stepwise/modeler/util.hh` to `switch_focus
 
 [Originally, there was a scheme in which having each pose held references to immediately neighboring poses to create a 'pose tree', which might have made some loop-closure energies easier to compute, but this was ditched.]
 
+### submotif_info_list
+A submotif is, e.g., a C-G base pair or a three-nucleotide U-turn, defined in the Rosetta database and addable to the pose during stepwise modeling if submotif_moves (move type `ADD_SUBMOTIF`) are enabled. Stepwise modeling requires that every move have a reverse; any move that splits a submotif is not reversible and must be avoided. To keep track of which parts of a pose have submotifs, we store the information here, in a `vector1` of simple `SubMotifInfo` objects, each holding the name of the submotif and the residues (in full model numbering) where it was instantiated. [thanks, Caleb Geniesse.]
+
+
 ---
 Go back to [[StepWise Overview|stepwise-classes-overview]].
 
