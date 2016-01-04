@@ -166,7 +166,9 @@ In this second case, the Nbb and OCbb on position 12 is constraint with the OCbb
 Once the constraint and the blueprint files are tagged correctly, to use them, one simply issue "-enzdes:cstfile [constraint file name]" to use them.
 
 Non-enzdes style constraints may also be used e.g.:
--cst_file atompair_angle_dihedrals.cst
+
+"-cst_file atompair_angle_dihedrals.cst"
+however if these are used in both centroid and fullatom mode and thus will crash if non-backbone atoms are used
 
  CONSTRAINT FILTER
 
