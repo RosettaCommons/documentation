@@ -165,9 +165,14 @@ In this second case, the Nbb and OCbb on position 12 is constraint with the OCbb
 
 Once the constraint and the blueprint files are tagged correctly, to use them, one simply issue "-enzdes:cstfile [constraint file name]" to use them.
 
+Non-enzdes style constraints may also be used e.g.:
+-cst_file atompair_angle_dihedrals.cst
+
  CONSTRAINT FILTER
 
-When running a build with constraint definition, Remodel automatically uses a constraint filter and only generates decoys that satisfies your constraints, within 10 energy units. The stringency can be adjusted by changing the weights on the constraint term, for example, in the cstfile defined above:
+When running a build with constraint definition, Remodel automatically uses a constraint filter and only generates decoys that satisfies your constraints, within 10 energy units. This value can be changed with a flag (e.g. -cstfilter 100)
+
+The stringency of individual constraints can also be adjusted by changing the weights on the constraint term, for example, in the cstfile defined above:
 
        CONSTRAINT:: distanceAB:    2.80   0.30 100.00  0
 
@@ -176,6 +181,7 @@ a constraint weight of 100.00 was defined. Effectively any violation of this dis
        CONSTRAINT:: distanceAB:    2.80   0.30   1.00  0
 
 the change in the constraint weight effectively gives 1/100th the penalty. After each round of building, the log will indicate what the atom\_pair violation is and the user can tweak the weight based on this.
+
 
 DESIGN
 ------
