@@ -298,6 +298,8 @@ See [[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScri
 
 **[[SwitchChainOrder|SwitchChainOrderMover]]** - Reorders (or removes) the chains in a pose 
 
+**[[TryDisulfidPermutations|TryDisulfPermuationsMover]]** - Tries all possible permutations of disulfides for residue types that can form disulfides, and returns the lowest-energy permutation.
+
 **[[MakePolyX|MakePolyXMover]]** - Converts a pose into a polymer of a single amino acid type
 
 **[[MembraneTopology|MembraneTopologyMover]]** - Inserts membrane topology from a membrane span file into a pose
