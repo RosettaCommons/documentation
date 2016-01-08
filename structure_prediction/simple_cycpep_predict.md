@@ -50,7 +50,7 @@ This protocol can also be run from the BOINC [[minirosetta build|minirosetta]], 
 **-cyclic_peptide:rand_checkpoint_file \<string\>**  If the **-checkpoint_job_identifier** flag is used, this flag sets the name of the checkpoint file used for the random number generator.  Defaults to "rng.state.gz" if not specified.  Typically, this need only be specified if multiple checkpointed jobs are sharing the same working directory.<br/><br/>
 **-cyclic_peptide:checkpoint_file \<string\>**  If the **-checkpoint_job_identifier** flag is used, this flag sets the name of the checkpoint file used for keeping track of what jobs have completed and what jobs still have to run.  Defaults to "checkpoint.txt" if not specified.  Typically, this need only be specified if multiple checkpointed jobs are sharing the same working directory.<br/><br/>
 **-in:file:native \<pdb_filename\>**  A PDB file for the native structure.  Optional.  If provided, an RMSD value will be calculated for each generated structure.<br/><br/>
-**-out:file:s \<pdb_filename\>** OR **-out:file:silent \<silent_filename\>**  Prefix for PDB files that will be written out, OR name of the binary silent file that will be generated.<br/><br/>
+**-out:file:o \<pdb_filename\>** OR **-out:file:silent \<silent_filename\>**  Prefix for PDB files that will be written out, OR name of the binary silent file that will be generated.<br/><br/>
 
 # Other useful flags
 
