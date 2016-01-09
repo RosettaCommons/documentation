@@ -3,7 +3,7 @@
 
 Page created 8 January 2016 by Vikram K. Mulligan, Baker laboratory.  Write vmullig@uw.edu for questions.
 ## TryDisulfPermuations
-The TryDisulfPermutations mover will exhaustively try every combination of disulfides between all residues that can form disulfides in a pose (or in a subset of a pose specified by a [[ResidueSelector|ResidueSelectors]]).  A quick repack and side-chain minimization (repacking and minimizing ONLY the disulfide-forming residues) is performed for each permutation, and the permutation with the lowest disulfide energy is returned.  (Note that this could easily be turned into a [[MultiplePoseMover]] if there is interest in this -- contact the author if you require this feature.)
+The TryDisulfPermutations mover will exhaustively try every combination of disulfides between all residues that can form disulfides in a pose (or in a subset of a pose specified by a [[ResidueSelector|ResidueSelectors]]).  A quick repack and side-chain minimization (repacking and minimizing ONLY the disulfide-forming residues) is performed for each permutation, and the permutation with the lowest disulfide energy is returned.  (Note that this could easily be turned into a [[MultiplePoseMover]] if there is interest in this.  Contact the author if you require this feature.)  This mover is intended for use in the context of structure prediction algorithms for poses with two or more disulfide-forming residues.
 
 Note that unlike the [[Disulfidize|DisulfidizeMover]] mover, the TryDisulfPermutations mover does not place any new disulfide-forming residues.  Instead, it only considers permutations of existing disulfide-forming residues.  It works with all disulfide-forming types, and preserves the chirality of D- or L-residues.
 
