@@ -6,7 +6,7 @@ Created 24 October 2015 by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu)
 
 # Description
 
-The **simple_cycpep_predict** application is intended for rapidly sampling closed conformations of small peptides constrained by backbone cyclization.  These peptides may be composed of any mixture of L- and D-amino acids (and/or glycine).  Optionally, the user may specify that solutions must have a certain number of backbone hydrogen bonds.  The user may also require disulfides between disulfide-forming residues, in which case all disulfide permutations are sampled using the [[TryDisulfPermutations|TryDisulfPermutationsMover]] mover.  Unlike sampling performed with the [[Abinitio-Relax|abinitio-relax]] application, sampling is fragment-_independent_; that is, no database of known structures is required.
+The **simple_cycpep_predict** application is intended for rapidly sampling closed conformations of small peptides constrained by backbone cyclization.  These peptides may be composed of any mixture of L- and D-amino acids (and/or glycine).  Optionally, the user may specify that solutions must have a certain number of backbone hydrogen bonds.  The user may also require disulfides between disulfide-forming residues, in which case all disulfide permutations are sampled using the [[TryDisulfPermutations|TryDisulfPermuationsMover]] mover.  Unlike sampling performed with the [[Abinitio-Relax|abinitio-relax]] application, sampling is fragment-_independent_; that is, no database of known structures is required.
 
 # Sample command-line
 
