@@ -20,7 +20,7 @@ Predefined Movers are defined internally in the parser, and the protocol can use
 
 ## Meta Movers
 
-Meta Movers don't do anything to the pose themselves, but cobmine or modify the applicaiton of other movers and filters.
+Meta Movers don't do anything to the pose themselves, but combine or modify the application of other movers and filters.
 
 ### Combining Movers
 
