@@ -1,18 +1,20 @@
 #RosettaRemodel
 
+[[_TOC_]]
 
 Metadata
 ========
 
-This document was last edited on February 7, 2013 by Ron Jacak. The code was written by Possu Huang and Andrew Ban. The corresponding PI is William Schief (schief@scripps.edu).
+
+This document was last edited on January 14th, 2016 by Jared Adolf-Bryfgogle. The code was written by Possu Huang and Andrew Ban. The corresponding PI is William Schief (schief@scripps.edu).
 
 Code and Demos
 ==============
 
 The remodel application is started from the application in `       rosetta/main/source/src/apps/public/remodel.cc      ` . This application uses classes from the protocols library, which can be found in the directory `       rosetta/main/source/src/protocols/forge/remodel      ` .
 
-References
-==========
+# References
+
 
 We recommend the following articles for further studies of RosettaDesign methodology and applications:
 
@@ -43,7 +45,7 @@ Below are some examples of blueprint files and what they will do to the starting
 Basic remodelling tasks
 -----------------------
 
-Fixed backbone design
+### Fixed backbone design
 
 ```
 4 I . PIKAA A
@@ -54,7 +56,7 @@ Fixed backbone design
 
 This blueprint will perform design on positions 4, 5, and 6 and leave position 7 fixed.
 
-Remodel (no length change)
+### Remodel (no length change)
 
 ```
 4 I . PIKAA A
@@ -65,7 +67,7 @@ Remodel (no length change)
 
 This will perform design on position 4, and rebuild residues 5 and 6 using helical fragments.
 
-Extension
+### Extension
 
 ```
 4 I . PIKAA A
@@ -78,7 +80,7 @@ Extension
 
 Inserts two residue between residues 5 and 6, still using helical fragments. The sidechains of this newly built helical segment will be designed automatically. Note: You must allow remodelling of the residues flanking the extension. In this example, residues 5 and 6 need to be remodelled for the protocol to work correctly.
 
-Deletion
+### Deletion
 
 ```
 4 I . PIKAA A
@@ -89,7 +91,7 @@ Deletion
 
 Simply removing a line while giving build assignments to the positions before and after the deletion will shrink the PDB and reconnect (if possible, given the slack in the structure) the rest of the structure. One might need to include more positions in the rebuild assignment to ensure enough elements can move to reconnect the junction.
 
-De novo structure
+### De novo structure
 
 ```
 1 A .
