@@ -445,7 +445,9 @@ Remodel options
 -remodel::cstfilter                                            threshold to put on the atom_pair_constraint score type filter during the centroid build phase refinement (default: 10)
 
 -remodel::domainFusion:insert_segment_from_pdb <segment.pdb>   segment PDB file to be inserted into the input structure
+```
 
+```
 -remodel::checkpoint                                           turns on checkpointing, for use in preemptive scheduling environments. writes out the best pdbs collected after each design step. (default: false)
 -remodel::save_top <int>                                       the number of structures to be processed in accumulators/clusters (default: 5)
 
@@ -466,7 +468,9 @@ Remodel options
 -remodel::lh_filter_string                                     loophash ABEGO filter target fragment type. list sequentially for each loop. (default: none)
 -remodel::lh_cbreak_selection                                  loophash with cbreak dominant weight (default: 10)
 -remodel::lh_closure_filter                                    filter for close rms when bypass_closure is used (default: false)
+```
 
+```
 -remodel::no_design                                            skips all design steps. WARNING: will only output centroid level structures and dump all fragment tries (default: false)
 -remodel::silent                                               dumps all structures by silent-mode WARNING: will work only during no_design protocol (see -no_design) (default: false)
 -remodel::allow_rare_aro_chi                                   allow all aromatic rotamers, not issuing AroChi2 filter (default: false)
