@@ -663,7 +663,7 @@ Troubleshooting
 
 If you get a seg fault right after reading the blueprint, it may be because you have an empty line at the end of the file. The blueprint file should just end at the last definition and have no empty blank lines.
 
-If you see errors complaining about some residue doesn't exist or that the ResfileReader generated problems, it's very likely that you have a chain definition in your PDB file and you are running manual design mode. The easiest solution is to delete the chain id from your starting PDB or checkpointed PDB's. The checkpointed PDB's carry over whatever chain the starting PDB has, so sometimes they also have to be corrected to remedy this problem.
+If you see errors complaining about some residue doesn't exist or that the ResfileReader generated problems, it's very likely that you have a chain definition in your PDB file and you are running manual design mode. The easiest solution is to make sure to set <code> -run:chain </code>. This is a known bug (and is currently being fixed) - You probably need this flag EVEN IF YOU ONLY HAVE ONE CHAIN IN YOUR POSE!!
 
 For denovo design, make sure your stub PDB is at least two residues long.
 
