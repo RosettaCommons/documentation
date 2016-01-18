@@ -87,7 +87,7 @@ The remodel stage is used for fast, broad sampling of backbone conformations, us
 Remodel stage details
 ---------------------
 
-Each step in the remodel Monte Carlo cycle consists of a kinematic closure move applied to the loop, followed by a line minimization of the loop phi/psi torsions, and a test for acceptance by the Metropolis criterion using the Rosetta `       score4L      ` low-resolution scoring function. The number of Monte Carlo steps is determined by the `       outer_cycles      ` \* `       inner_cycles      ` . The number of `       outer_cycles      ` is set by `       -loops:outer_cycles      ` . The number of inner cycles is `       min( 1000, number_of_loop_residues * 20 )      ` , or is set to `       -loops:max_inner_cycles      ` if provided. At the end of each outer cycle, the pose is set to the lowest energy conformation observed so far in the simulation, unless the flag `       -loops:kic_recover_last      ` is set, in which case the last accepted conformation passes on to the next outer cycle. From the first step to the last, the temperature decreases exponentially from `       -loops:remodel_init_temp      ` to `       -loops:remodel_final_temp      ` .
+Each step in the remodel Monte Carlo cycle consists of a kinematic closure move applied to the loop, followed by a line minimization of the loop phi/psi torsions, and a test for acceptance by the Metropolis criterion using the Rosetta `       score4L      ` low-resolution scoring function. The number of Monte Carlo steps is determined by the `       outer_cycles      ` \* `       inner_cycles      ` . The number of `       outer_cycles      ` is set by `       -loops:refine_outer_cycles      ` . The number of inner cycles is `       min( 1000, number_of_loop_residues * 20 )      ` , or is set to `       -loops:max_inner_cycles      ` if provided. At the end of each outer cycle, the pose is set to the lowest energy conformation observed so far in the simulation, unless the flag `       -loops:kic_recover_last      ` is set, in which case the last accepted conformation passes on to the next outer cycle. From the first step to the last, the temperature decreases exponentially from `       -loops:remodel_init_temp      ` to `       -loops:remodel_final_temp      ` .
 
 Refine stage overview
 ---------------------
@@ -198,7 +198,7 @@ Options
     -loops:refine_final_temp        Final temperature for simulated annealing in 'refine_kic'. default = '0.5'. [Float]
     -loops:max_kic_build_attempts   Number of times to attempt initial closure in 'perturb_kic' protocol.
                                     Try increasing to 1000000 if initial closure is failing. default = 10000. [Integer]
-    -loops:outer_cycles             Number of outer cycles for Monte Carlo (described above in Protocol). default = '3'. [Integer]
+    -loops:refine_outer_cycles             Number of outer cycles for Monte Carlo (described above in Protocol). default = '3'. [Integer]
     -loops:max_inner_cycles         Maximum number of inner cycles for Monte Carlo (default described above in Protocol). [Integer]
     -loops:kic_recover_last         Keep the last sampled conformation at the end of each outer cycle instead of the lowest
                                     energy conformation sampled so far. default = 'false'. [Boolean]
