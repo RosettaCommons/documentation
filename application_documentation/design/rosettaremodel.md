@@ -92,14 +92,15 @@ Inserts two residue between residues 5 and 6, still using helical fragments. The
 Simply removing a line while giving build assignments to the positions before and after the deletion will shrink the PDB and reconnect (if possible, given the slack in the structure) the rest of the structure. One might need to include more positions in the rebuild assignment to ensure enough elements can move to reconnect the junction.
 
 ### De novo structure
+#### C-terminal extension
 
 ```
 1 A .
 2 A .
-3 A H
-4 A H
-5 A H
-6 A H
+0 X H
+0 X H
+0 X H
+0 X H
 ```
 
 Build off of a 2 amino acid stub (residue 1 + 2) any secondary structure desired. In the blueprint above, a 4 residue helix is created and its sidechains are automatically designed. Although the second columns has alanines, it will not affect the final design. In the blueprint file, the second column is only used for extensions ("x") or if sequence-biased fragments are desired (using the flag -remodel:use\_blueprint\_sequence). In this case, all positions will be automatically designed because no resfile manual assignments were made for the positions. If a single manual resfile assignment is made, RosettaRemodel switches to manual design mode and all positions which are being rebuilt should be given resfile specifications.
