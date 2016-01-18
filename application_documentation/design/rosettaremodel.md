@@ -385,7 +385,7 @@ Limitations
 
 A major limitiation of the Remodel protocol is that input PDB files must be numbered starting from 1. A PDB numbered starting from 1 can be created using the fixbb application with the flag -renumber\_pdb and a resfile that has NATRO as the default behaviour.
 
-If a starting PDB has multiple chains, Remodel works on the first chain. Leave the chain field empty for this region or use the flag "-chain " followed by chain name (eg. A) to indicate the target chain. The other parts can still carry their chain designator, and they will not be touched by the protocol – they will stay present throughout the simulation. If DNA is present it will be considered for scoring but will not move during the run. Also if you have anything other than protein, clustering on CA atom will not work, so clustering should be turned off by adding "-use\_clusters false" to the command line.
+If a starting PDB has multiple chains, Remodel works on the first chain.  Use the flag "-chain " followed by chain name (eg. A) to indicate the target chain. The other parts can still carry their chain designator, and they will not be touched by the protocol – they will stay present throughout the simulation. Note that at the moment, one should always use -chain field, even if model or target model has only one chain.  If DNA is present it will be considered for scoring but will not move during the run. Also if you have anything other than protein, clustering on CA atom will not work, so clustering should be turned off by adding "-use\_clusters false" to the command line.
 
 Input Files
 ===========
@@ -493,7 +493,7 @@ Remodel options
 -remodel::RemodelLoopMover::cyclic_peptide                     circularize structure joining N and C-term (default: false)
 -remodel::RemodelLoopMover::temperature                        temperature for monte carlo (default: 2.0)
 
--run:show_simulation_in_pymol                                  show the trajectory in PyMOL (what else does this require?) (default: ?)
+-run:show_simulation_in_pymol                                  show the trajectory in PyMOL (every X seconds) (default: 0)
 
 -vall <fragment_database_file>                                 database file of fragments. e.g. vall.dat.2006-05-05"
 ```
@@ -558,7 +558,6 @@ Energy Function
 
 ```
 -packing:soft_rep_design                                      use soft_rep_design energy function weights which linearize vdW repulsive energy
--correct                                                      Use modified Rosetta energy function which has new terms and altered weights - RECOMMENDED
 ```
 
 Other options
@@ -568,7 +567,7 @@ Other options
 -overwrite                                                    Overwrite the output files, if they already exist. Not used by default.
 
 -min_type <string>                                            When combined with the -minimize_sidechains flag, specifies the line-search algorithm to use in the
-                                                              gradient-based minimization . "dfpmin" by default.
+                                                              gradient-based minimization . "dfpmin" by default dfpmin_armijo_nonmonotone recommended.
 ```
 
 Tips
