@@ -6,16 +6,18 @@
 <Geometry name=(&string)
   omega=(165&Real)
   cart_bonded=(20 &Real)
+  cstfile=("none" &string)
+  cst_cutoff=(10000.0 &Real)
   start=(1 &residue number)
-  end=("100000" &residue number)
+  end=(100000 &residue number)
   residue_selector=( "" &string )
   count_bad_residues=( false &bool ) />
 ```
 
 -   omega: cutoff for omega angle of peptide plane, Cis-proline is also considered. Works for multiple chains
 -   cart\_bonded: bond angle and length penalty score
--   cstfile: 
--   cst_cutoff: 
+-   cstfile: if specified, the given constraint file will be used to introduce constraints into the pose. Only atom pair constraints will be used. The constraint scores will be checked to see if they are lower than cst_cutoff.  If the constraint score is > cst_cutoff, the pose will fail.
+-   cst_cutoff: cutoff for use with cstfile option
 -   start: starting residue number to scan
 -   end: ending residue number
 -   residue_selector: If specified, only residues selected by the user-specified residue selector will be scanned. By default, all residues are selected.  If start and/or end are also set, only residues selected by the residue_selector AND within the range [start, end] will be scanned.
