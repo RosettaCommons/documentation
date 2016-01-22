@@ -8,14 +8,18 @@
   cart_bonded=(20 &Real)
   start=(1 &residue number)
   end=("100000" &residue number)
-  residue_selector=( "" &string ) />
+  residue_selector=( "" &string )
+  count_bad_residues=( false &bool ) />
 ```
 
 -   omega: cutoff for omega angle of peptide plane, Cis-proline is also considered. Works for multiple chains
 -   cart\_bonded: bond angle and length penalty score
+-   cstfile: 
+-   cst_cutoff: 
 -   start: starting residue number to scan
 -   end: ending residue number
 -   residue_selector: If specified, only residues selected by the user-specified residue selector will be scanned. By default, all residues are selected.  If start and/or end are also set, only residues selected by the residue_selector AND within the range [start, end] will be scanned.
+-   count_bad_residues: If true, the number of residues failing the filter will be computed and returned as the filter score by report_sm(). If false, the filter score will be either 1.0 (i.e. all residues pass) or 0.0 (i.e. a residue failed the filter).  Default: false
 
 ## See also:
 
