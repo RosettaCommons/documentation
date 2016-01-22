@@ -14,7 +14,7 @@
 
    * [[Filters|Filters-RosettaScripts]]
 
-   * [[Residue Selectors|ResidueSelectors-RosettaScripts]]
+   * [[Residue Selectors|ResidueSelectors]]
 
    * [[Task Operations|TaskOperations-RosettaScripts]]
 
