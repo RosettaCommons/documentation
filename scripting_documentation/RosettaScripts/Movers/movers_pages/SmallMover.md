@@ -6,7 +6,7 @@ Small-move style backbone-torsion moves that, unlike shear, do not minimize down
 
 ```
 <Small name="&string"
-       residue\_selector=("" &string)
+       residue_selector=("" &string)
        scorefxn=("" &string)
        temperature=(0.5 &Real)
        nmoves=(1 &Integer)
