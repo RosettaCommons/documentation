@@ -15,7 +15,7 @@ For real-valued contexts, the value of the filter by default is the modified ddG
 Works with symmetric poses and poses with symmetric "building blocks".
 
 ```
-<RotamerBoltzmannWeight name=(&string) task_operations=(comma-delimited list) radius=(6.0 &Real) jump=(1 &Integer) sym_dof_names=("" &string) unbound=(1 &bool) ddG_threshold=(1.5 &Real) scorefxn=(score12 &string) temperature=(0.8 &Real) energy_reduction_factor=(0.5 &Real) repack=(1&bool) skip_ala_scan=(0 &bool) no_modified_ddG=(0 &bool)>
+<RotamerBoltzmannWeight name=(&string) task_operations=(comma-delimited list) radius=(6.0 &Real) jump=(1 &Integer) sym_dof_names=("" &string) unbound=(1 &bool) ddG_threshold=(1.5 &Real) scorefxn=(score12 &string) temperature=(0.8 &Real) energy_reduction_factor=(0.5 &Real) repack=(1&bool) skip_ala_scan=(0 &bool) skip_report=(0 &bool) no_modified_ddG=(0 &bool)>
    <??? threshold_probability=(&Real)/>
    .
    .
@@ -33,6 +33,7 @@ Works with symmetric poses and poses with symmetric "building blocks".
 -   energy\_reduction\_factor: by what factor of the interaction energy to reduce the ddG.
 -   repack: repack in the bound and unbound states before reporting binding energy values (ddG). If false, don't repack (dG).
 -   skip\_ala\_scan: do not conduct first-pass ala scan. Instead compute only for residues that are allowed to repack in the task factory.
+-   skip\_report: If true, the report() function of the filter will not re-compute the filter score.  This will not affect the filter value reported into the scorefile by report_sm(). If false, the report() function will recompute and report the filter score to stdout.  The filter score will be computed twice in a RosettaScripts run if this option is set to false. (Default=false for historical reasons)
 -   no\_modified\_ddG: Skip the ddG calculation.
 -   ??? any of the three-letter codes for residues (TRP, PHE, etc.)
 
