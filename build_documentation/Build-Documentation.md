@@ -15,7 +15,7 @@ This page describes how to install, compile, and test Rosetta 3 [[formerly calle
 Build environment setup instructions for most situations can be found on the [[Getting Started|Getting-Started#local-installation-and-use-of-rosetta]] page. 
 
 ##Getting required files
-
+* PDB components file is versioned controlled through the git-lfs server. You can talk to your lab gate keeper to download the file. Alternatively, the file can be downloaded from the [wwwpdb](http://www.wwpdb.org/data/ccd). Download the "Chemical Component Dictionary" file, either as gzipped or as a regular file. You will need to unzip before using it with Rosetta. Place the file in database/ligand_type_sets.
 
 ## Publicly accessible clusters with Rosetta pre-installed
 * As part of the XSEDE initiative, the [[TACC/Stampede|TACC]] cluster has Rosetta and PyRosetta centrally installed for authorized users. See the [[TACC]] page for more details.
