@@ -14,6 +14,9 @@ This page describes how to install, compile, and test Rosetta 3 [[formerly calle
 ##Basic Setup
 Build environment setup instructions for most situations can be found on the [[Getting Started|Getting-Started#local-installation-and-use-of-rosetta]] page. 
 
+##Getting required files
+
+
 ## Publicly accessible clusters with Rosetta pre-installed
 * As part of the XSEDE initiative, the [[TACC/Stampede|TACC]] cluster has Rosetta and PyRosetta centrally installed for authorized users. See the [[TACC]] page for more details.
 
