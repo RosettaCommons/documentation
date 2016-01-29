@@ -79,7 +79,7 @@ The only required input file is a [[prepacked pdb file|docking-prepack-protocol]
 
 If you are using a starting structure with more than two polypeptide chains, you should include the -partners flag. If this flag is omitted, docking will dock the first two polypeptide chains in the strucutre.
 
-**Note:** An ensemble of input structures can be given using the follow flags: `-ensemble1 [partner_1_pdb_list]` or/and `-ensemble2 [partner_2_pdb_list]`.
+**Note:** An ensemble of input structures can be given using the follow flags: `-ensemble1 [partner_1_pdb_list]` or/and `-ensemble2 [partner_2_pdb_list]`. This ensemble file should be generated using docking_prepack_protocol. It contains a list of prepacked pdbs followed by the probabilities of swapping them.
 
 Standard Docking options
 ========================
