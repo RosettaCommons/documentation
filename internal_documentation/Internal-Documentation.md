@@ -161,10 +161,10 @@ Input Files:
 ### Energy Function optimization ###
 #### Seattle Group 
 [[Overview of Seattle Group energy function optimization project]]
+[[Updates beta july15]]
+[[Updates beta nov15]]
 
 ### Chemical XRW 2016 ###
 [[Overview of File I/O Code | FileIOOverview ]]
 
-[[Updates beta july15]]
 
-[[Updates beta nov15]]
