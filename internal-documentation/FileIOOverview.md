@@ -9,3 +9,6 @@ Rosetta currently supports Protein Data Bank format (PDB).  Recently, support fo
 Additionally, Rosetta has a proprietary structure file format called "silent" format.  Rosetta's silent files have the advantage of being a compact means of storing multiple structures, with the full information needed to reconstruct a Rosetta pose, at full machine numerical precision.  (Re-importing a structure that was exported to a third-party format, on the other hand, can lead to information loss.)  However, silent files must be converted to a third-party format (<i>e.g.</i> PDB format) to view structures with third-party viewers (<i>e.g.</i>PyMOL).
 
 ## Control of input
+
+```-in:file:s <filename>``` Import a structure from a third-party format (PDB, mmCIF).  By default, this is interpreted as a PDB file.
+```-in:file:
