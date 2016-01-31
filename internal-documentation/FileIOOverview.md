@@ -26,3 +26,5 @@ For file export, the process occurs in reverse: the Pose is converted to a Struc
 <<RawHtml(
 <img src="../images/FileIODiagram_small.png" alt="Overview of the third-party structure file import/export machinery in Rosetta." />
 )>>
+
+Conversion from Pose to other proprietary Rosetta formats (<i>e.g.</i> silent file format) is handled by other modules, and does <i>not</i> go through the StructFileRep object.  The StructFileRep object is only intended for output to third-party formats, in which there might not be 1:1 correspondence between the way in which data are stored in the Pose and the way in which data are stored in the file.
