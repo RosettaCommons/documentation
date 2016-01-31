@@ -23,4 +23,4 @@ For file import, all third-party formats are parsed by separate Rosetta modules 
 
 For file export, the process occurs in reverse: the Pose is converted to a StructFileRep using the <b>core::io::pse_to_sfr::PoseToStructFileRepConverter</b> class.  Functions for writing PDB files from a StructFileRep are found in <b>core/io/pdb/pdb_writer.hh</b>, and functions for writing mmCIF files from a StructFileRep are found in <b>core/io/mmCIFReader.hh</b> (though this may be moved to a writing-specific file).  To add write support for additional file formats, a developer need only add a converter from StructFileRep to the new file format.
 
-![images/FileIODiagram_small.png](images/FileIODiagram_small.png)
+![images/FileIODiagram_small.png](https://www.rosettacommons.org/docs/latest/images/FileIODiagram_small.png)
