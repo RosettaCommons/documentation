@@ -10,5 +10,5 @@ Additionally, Rosetta has a proprietary structure file format called "silent" fo
 
 ## Control of input
 
-```-in:file:s <filename>``` Import a structure from a third-party format (PDB, mmCIF).  By default, this is interpreted as a PDB file.
+```-in:file:s filename```: Import a structure from a third-party format (PDB, mmCIF).  By default, this is interpreted as a PDB file.
 ```-in:file:
