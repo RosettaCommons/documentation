@@ -8,7 +8,15 @@ Rosetta currently supports Protein Data Bank format (PDB).  Recently, support fo
 
 Additionally, Rosetta has a proprietary structure file format called "silent" format.  Rosetta's silent files have the advantage of being a compact means of storing multiple structures, with the full information needed to reconstruct a Rosetta pose, at full machine numerical precision.  (Re-importing a structure that was exported to a third-party format, on the other hand, can lead to information loss.)  However, silent files must be converted to a third-party format (<i>e.g.</i> PDB format) to view structures with third-party viewers (<i>e.g.</i>PyMOL).
 
-## Control of input
+## User control of input
 
-``` -in:file:s <filename> ```: Import a structure from a third-party format (PDB, mmCIF).  Rosetta detects the format from the file.
-``` -in:file:l <list file> ```: Import structures from a list of files contained in an ASCII text file (one file per line).  Rosetta detects the format of each file on import.
+<b>-in:file:s \<filename\></b>: Import a structure from a third-party format (PDB, mmCIF).  Rosetta detects the format from the file.<br/>
+<b>-in:file:l \<list file\></b>: Import structures from a list of files contained in an ASCII text file (one file per line).  Rosetta detects the format of each file on import.<br/>
+
+## User control of output
+
+TODO
+
+## Overview of the code
+
+For file import, all third-party formats are parsed by separate Rosetta modules and converted to a <b>StructFileRep</b> object, which is a data storage class that serves as an intermediary between Rosetta's internal structural representation (the <b>Pose</b>) and the third-party format.  The Pose is then built from the StructFileRep using the core::io::pose_from_sfr::PoseFromSFRBuilder class.  Functions for parsing PDB files to produce a StructFileRep are found in <b>core/io/pdb/pdb_reader.hh</b>, and functions for parsing mmCIF files to produce a StructFileRep are found in <b>core/io/mmcif/mmCIFReader.hh</b>.  Support for additional file formats can be added easily by writing a converter from the file format to the StructFileRep.
