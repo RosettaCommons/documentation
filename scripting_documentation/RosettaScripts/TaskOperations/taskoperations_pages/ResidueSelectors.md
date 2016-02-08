@@ -236,8 +236,11 @@ The example below selects all residues in the pose with secondary structure 'H' 
 The TaskSelector uses user-provided task operations to define a selection. Task operations are run on the pose, and residues are selected based on their status in the resulting PackerTask (designable, packable, or fixed). Note that if none of these options is specified, no residue will be selected. This is useful for legacy protocols which still use task operations to select residues (which were written before ResidueSelectors existed). New protocols should use ResidueSelectors to select residues.
 
 **task_operations** - Required. The task operations used to define the selection.
+
 **fixed** - If true, residues in the PackerTask marked as fixed (i.e. not packable or designable) will included in the selection. Default = False
+
 **packable** - If true, residues in the PackerTask marked as packable will be included in the selection. Default = False
+
 **designable** - If true, residues in the PackerTask marked as designable will be included in the selection. Default = False
 
 ####ResiduePDBInfoHasLabel
