@@ -165,7 +165,7 @@ Input Files:
 [[Updates beta nov15]]
 
 ### Chemical XRW 2016 ###
-[[Overview of File I/O Code | FileIOOverview ]]
-[[Changes made post-XRW | PostChemicalXRWChanges ]]
+- [[Overview of File I/O Code | FileIOOverview ]]
+- [[Changes made post-XRW | PostChemicalXRWChanges ]]
 
 
