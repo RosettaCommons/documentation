@@ -166,6 +166,6 @@ Input Files:
 
 ### Chemical XRW 2016 ###
 - [[Overview of File I/O Code | FileIOOverview ]]
-- [[Changes made post-XRW | PostChemicalXRWChanges ]]
+- [[Changes made post-XRW | internal_documentation/PostChemicalXRWChanges ]]
 
 
