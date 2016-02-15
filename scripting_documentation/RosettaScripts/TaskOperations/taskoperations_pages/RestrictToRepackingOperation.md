@@ -2,7 +2,7 @@
 *Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## RestrictToRepacking
 
-Only allow residues to repack. No design.
+Only allow residues to repack. No design at any position.
 
      <RestrictToRepacking name=(&string) />
 
