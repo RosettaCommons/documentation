@@ -6,6 +6,9 @@ Do not allow repacking at all for a string of residues to repacking. Use comma-d
 
      <PreventResiduesFromRepacking name=(&string) residues=(0 &integer,"," separated)/>
 
+<br/>
+*For a more flexible system , see the [[Index|ResidueSelectors#residueselectors_conformation-independent-residue-selectors_residueindexselector]] [[ResidueSelector|ResidueSelectors]], as well as [[OperateOnResidueSubset|OperateOnResidueSubsetOperation]] and [[PreventRepackingRLT|Residue Level TaskOperations]].*
+
 ##See Also
 
 * [[RosettaScripts|RosettaScripts]]: Using RosettaScripts
