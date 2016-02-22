@@ -43,7 +43,7 @@ Partners must be ordered in the PDB and partners flag as light chain, heavy chai
 
 ### Other Useful Flags
 
-SnugDock expands on DockingProtocol machinery, which means that most flag docking flags still apply (the biggest exception identified so far is the `-no_filters` which doesn't get passed on the SnugDock via DockingHighRes).
+These flags have not all been tested with SnugDock (nor are they comprehensive) so buyer be ware. In general, it is useful to know that SnugDock expands on DockingProtocol machinery, which means that most flag docking flags still apply (the biggest exception identified so far is the `-no_filters` which doesn't get passed on the SnugDock via DockingHighRes).
 
 **Docking Flags**
 
@@ -94,6 +94,3 @@ SnugDock expands on DockingProtocol machinery, which means that most flag dockin
                           pool |                           |   F| find closest matching structure in this pool and report tag and rmsd
                chemical_shifts |                           | (S)| compute chemical shift score with SPARTA+ use tuples: talos_file [cs]_column_name (ATTENTION uses  filesystem)
 
-
-
-Its invocation scheme followes the general principle to have single PDB files specified with the argument "-s filename.pdb". The PDB file is expected to contain both the antibody and the target. If not camlid, the antibody is of the two chains H (heavy) and L (light), as e.g. produced by Rosetta Antibody.py. The target may be of any other chain ID but, at least conceptionally, within the same PDB entry that is read into a single pose of Rosetta. Rosetta by default allows to have multiple PDB files read into the same internal pose representation when those are specified together, i.e. as "-s 'antibody.pdb target.pdb'. This eliminates the need to perform a respective merge manually. The above referenced publication has more insights into appropriate parameter settings.
