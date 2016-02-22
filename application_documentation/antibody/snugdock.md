@@ -26,7 +26,8 @@ with minimal flags being:
 -dock_pert 3 8 
 
 -ex1 
--ex2aro 
+-ex2aro
+-dock_rtmin 
 
 -h3_filter false 
 -loops:refine_outer_cycles 3 
