@@ -33,6 +33,10 @@ Attractive energies were enabled for hydrogen atoms (**-fa_Hatr**), and LJ param
 Several torsional updates were included before optimization:
 * A new computed and smoothed version of the fa_dun and p_aa_pp energies was provided by Maxim Shapovalov and Roland Dunbrack
 * Separate pre-proline and pre-non-proline rama potentials were computed and are now used, replacing **rama** with a new scoreterm **rama_prepro**
+     * Note that **rama_prepro** was not initially compatible with noncanonicals, D-amino acid residues, or cyclic geometry.  As of 23 February 2016, it has been updated by Vikram K. Mulligan to work with all of these.
+     * For fully noncanonical residues, the term returns 0 for the energy and the derivatives, unless the noncanonical specifies a canonical residue in a BACKBONE_AA line in its params file.  (In that case, the canonical residue's **rama_prepro** tables are used).
+     * For D-residues with a canonical L-resiude equivalent, the L-residue **rama_prepro** tables are inverted and used.  The **-symmetric_gly_tables** option will symmetrize the **rama_prepro** tables for glyceine, and this flag is recommended for mixed D/L design.
+     * The **rama_prepro** term no longer makes any assumptions about residue i being connected to residue i+1 or i-1.  It actually checks for connections, and is therefore compatible with cyclic geometry, now.
 * Weights on all torsional terms were refit as part of the optimization process
 
 **Bondlength, bondangle and planarity restraints (cart_bonded)**
