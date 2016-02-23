@@ -57,7 +57,7 @@ This protocol can also be run from the BOINC [[minirosetta build|minirosetta]], 
 
 # Other useful flags
 
-For mixed D/L peptides, the **-score:symmetric_gly_tables** flag can be a beneficial flag to use.  This flag symmetrizes the Ramachandran and p_aa_pp tables used for sampling and scoring glycine, so that it is equally likely to be in the D- or L-regions of Ramachandran space.
+For mixed D/L peptides, the **-score:symmetric_gly_tables** flag can be a beneficial flag to use.  This flag symmetrizes the Ramachandran and p_aa_pp tables used for sampling and scoring glycine, so that it is equally likely to be in the D- or L-regions of Ramachandran space.  As of 23 February 2016, this flag also symmetrizes the gly tables used by the RamaPrePro energy term.
 
 # Output
 
