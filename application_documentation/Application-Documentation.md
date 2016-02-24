@@ -236,6 +236,8 @@ These applications serve mainly to support other Rosetta applications, or to ass
 - [[Create symmetry definition|make-symmdef-file-denovo]] - Create Rosetta symmetry definition files for a point group.  
     * [[Create symmetry definition from structure|make-symmdef-file]] - Create Rosetta symmetry definition files from template PDBs. 
 
+- [[Batch distances]] - Calculate the closest approach for residue-residue pairs.
+ 
 - [[Fragment picker|app-fragment-picker]] - Pick fragments to be used in conjunction with other fragment-aware Rosetta applications.  
     * [[Old fragment picker|fragment-picking-old]] - The older version of the fragment picker.  
 
