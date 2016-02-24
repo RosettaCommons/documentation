@@ -21,6 +21,12 @@ Example output, as printed to standard output is as follows:
 Command Line Options
 ====================
 
+Example commandline:
+
+```
+~/rosetta/main/source/bin/batch_distances.default.linuxgccrelease -s input.pdb -mute all
+```
+
 | option            |  effect  | 
 |-------------------|----------|
 | -s / -l / -in:file:silent |  Standard Rosetta input flags for one or more input structure. |
