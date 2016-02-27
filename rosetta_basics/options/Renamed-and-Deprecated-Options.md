@@ -13,12 +13,15 @@ Note that this is not a comprehensive list of option system changes, but instead
 These options no longer function as one may expect, and should be replaced.
 
 * `-LoopModel:input_pdb` -- Specify input files with `-s` instead
+* `-RBSegmentRelax:cst_wt` -- Use `-constraints:cst_weight` instead
+* `-RBSegmentRelax:cst_width` -- Use `-relax:coord_cst_width` instead
 
 ## Removed Options
 
 These options have been removed because they no longer serve any functional purpose in Rosetta. Attempting to use them will result in an error. In most cases they can be safely removed from your option files with no ill effects.
 
 * `-ddg:use_bound_cst`
+* `-RBSegmentRelax:cst_pdb`
 * `-relax:membrane` -- Standard relax can now implicitly handle membrane proteins.
 * `-run:silent` -- Silentfile output is now specified with other options
 
