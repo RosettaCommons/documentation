@@ -1,10 +1,11 @@
 #Running unit tests
 
+Unit tests are C++ code and [must be compiled before they are run](#compiling-unit-tests). 
 There are three ways to run unit tests:
 
--   Run all unit test suites at once.
--   Run an individual test suite (a set of tests for a class, usually)
--   Run an individual unit test.
+-   [Run all unit test suites at once.](#run-all-unit-test-suites-at-once)
+-   [Run an individual test suite (a set of tests for a class, usually)](#run-a-single-unit-test-or-test-suite)
+-   [Run an individual unit test.](#run-a-single-unit-test-or-test-suite)
 
 Organization of unit test code
 ================================
@@ -14,12 +15,8 @@ The inside of this test directory mirrors the `src` directory, so that code on p
 
 Compiling unit tests
 ====================
-Unit tests are C++ code and must be compiled. 
-Simply add `cat=test` to your `scons` command line to build the unit tests. 
-The underlying Rosetta libraries must exist (you must have built WITHOUT `cat=test` first).
-The binaries are NOT important.
-Tests are intended to be built and run in `debug` mode, because this catches more errors.
-Test compiling is at least an order of magnitude faster than the main codebase (a bad sign that we don't have good unit test coverage).
+To build the unit tests, run `scons` with `cat=test`. You should not specify targets (e.g. `bin`) while doing so. Tests are intended to be built and run in `debug` mode, because this catches more errors. For build to succeeed, the underlying Rosetta libraries *must exist* (you must have built *without* `cat=test` first). However, existence of binaries is not important.
+
 Broadly, compiling should look like:
 
 ```
@@ -27,6 +24,9 @@ cd Rosetta/main/source
 scons.py -j #numproc mode=debug
 scons.py -j #numproc mode=debug cat=test
 ```
+
+Test compiling is at least an order of magnitude faster than the main codebase (this is actually a bad sign meaning that we don't have good unit test coverage).
+
 
 Run all unit test suites at once.
 ================================
