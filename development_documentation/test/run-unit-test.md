@@ -4,7 +4,7 @@ Unit tests are C++ code and [must be compiled before they are run](#compiling-un
 There are three ways to run unit tests:
 
 -   [Run all unit test suites at once.](#run-all-unit-test-suites-at-once)
--   [Run an individual test suite (a set of tests for a class, usually)](#run-a-single-unit-test-or-test-suite)
+-   [Run an individual test suite](#run-a-single-unit-test-or-test-suite) (a set of tests for a class, usually)
 -   [Run an individual unit test.](#run-a-single-unit-test-or-test-suite)
 
 Organization of unit test code
@@ -40,23 +40,18 @@ python test/run.py <optional command line args>
 
 Important optional command line arguments include:
 
--   **-d, --database** Specifies the path to the Rosetta database.
+|  Option                 |  Description                                                        |
+|:------------------------|:--------------------------------------------------------------------|
+| `-d`, `--database=PATH` | path to the Rosetta database.                         |
+| `-j`, `--jobs=N`        | number of jobs (unit tests) to run simultaneously. For example, if the machine has 8 cores, use -j 8 to have maximum performance. |
+| `--mode=MODE`         | 'mode' (eg. debug, release) to pass to scons to identify the platform path. |
+| `--extras=EXTRAS`     | 'extras' settings (e.g. mpi) to pass to scons to identify the platform path. |
+| `-c`, `--compiler=EXEC` | Specifies which 'compiler' setting to pass to scons to identify the platform path. |
+| `--mute=CHANNELS`     | tracer channels to mute. |
+| `--unmute=CHANNELS`   | tracer channels to unmute.
+| `-1`, `--one=TEST`      | run just given unit test or test suite. |
 
--   **-j, --jobs** Specifies the number of jobs (unit tests) to run simultaneously. For example, if the machine has 8 cores, use -j 8 to have maximum performance.
-
--   **--mode** Specifies which 'mode' (eg. debug, release) to pass to scons to identify the platform path.
-
--   **--extras** Specifies which 'extras' settings (e.g. mpi) to pass to scons to identify the platform path.
-
--   **-c, --compiler** Specifies which 'compiler' setting to pass to scons to identify the platform path.
-
--   **--mute** Specifies which tracer channels to mute.
-
--   **--unmute** Specifies which tracer channels to unmute.
-
--   **-1, --one** Specifies to run just one unit test or test suite.
-
-Currently, the run.py script executes the following tests: apps, core, demo, devel, numeric, ObjexxFCL , protocols and utility.
+Currently, the `run.py` script executes the following tests: `apps`, `core`, `demo`, `devel`, `numeric`, `ObjexxFCL`, `protocols` and `utility`.
 
 ###Successful output
 A successful set of tests ends with something like this:
