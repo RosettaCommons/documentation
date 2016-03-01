@@ -307,14 +307,18 @@ Symmetries with mirror operations
 Rosetta offers support for symmetries with mirror operations as well.  Mirror symmetry is specified in  through the use of an "inverse virtual" residue which defines a left-handed local coordinate system. These inverse virtuals may be used to define mirror symmetries as follows:
 
 ```
-symmetry_name C2_big__2
-E = 2VRT0 + 1(VRT0:VRT1)
-anchor_residue 13
+symmetry_name Cs
+E = 2*VRT0 + 1*(VRT0:VRT1)
+anchor_residue 1
 virtual_coordinates_start
-xyz VRT0 1.0,0.0,0.0 0.0,1.0,0.0 0.0,0.0,0.0
-xyzM VRT1 1.0,0.0,0.0 0.0,1.0,0.0 0.0,0.0,0.0
+xyz  VRT0  1.0,0.0,0.0  0.0,1.0,0.0  0.0,0.0,0.0
+xyzM VRT1  1.0,0.0,0.0  0.0,1.0,0.0  0.0,0.0,0.0
 virtual_coordinates_stop
-...
+connect_virtual JUMP0 VRT0 SUBUNIT
+connect_virtual JUMP1 VRT1 SUBUNIT
+connect_virtual JUMP01 VRT0 VRT1
+set_dof JUMP0 x y z angle_x angle_y angle_z
+set_jump_group JUMPGROUP2 JUMP0 JUMP1
 ```
 
 Above, xyzM declares an inverse virtual residue. Connecting this inverse virtual to a subunit makes the connected subunit inverted. The above snippet declares a _Cs_ symmetric system with a mirror plane in XY.
