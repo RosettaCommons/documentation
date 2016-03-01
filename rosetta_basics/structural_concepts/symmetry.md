@@ -3,7 +3,7 @@
 Metadata
 ========
 
-This document was last edited 20090630. The original authors were Ingemar Andre and Frank DiMaio.
+This document was last edited 20160229. The original authors were Ingemar Andre and Frank DiMaio.
 
 [[_TOC_]]
 
@@ -35,6 +35,40 @@ How to generate symmetry definitions <a name="generate" />
 To aid in creating a symmetry definition file from a symmetric (or near-symmetric) PDB, an application – **make\_symmdef\_file.pl** – has been included in src/apps/public/symmetry. Running this application without arguments gives an overview of usage; see [[make_symmdef_file|make-symmdef-file]] for more details.
 
 To aid in creation of symmetry definition files from scratch, typically for denovo prediction, – **make\_symmdef\_file\_denovo.py** – has been included in src/apps/public/symmetry. Running this application without arguments gives an overview of usage; see [[make_symmdef_file_denovo|make-symmdef-file-denovo]] for more details.
+
+How to generate crystal symmetry _without_ making a symmdef file
+------------------------------------
+
+If you wish to model a structure in its crystal lattice, a symmetry definition file is not needed.  Rather, one can use the flag **-symmetry_definition CRYST1**.  If this option is used, there are two other relevant flags:
+
+**-interaction_shell ##** specifies the distance (in Angstrom) away from the input structure to generate symmetric partners.
+
+**-refinable_lattice** enables refinement of lattice parameters
+
+Alternately, the same control is given through RosettaScripts.  To create systems with 3D lattice symmetries:
+
+```
+<MakeLatticeMover name=make_lattice contact_dist=24/>
+```
+Make a lattice from the input PDB and CRYST1 line.  Include all subunits within 'contact_dist'.
+
+There is also a mover aimed at handling 2D lattice symmetries:
+```
+<MakeLayerMover name=make_layer contact_dist=24/>
+```
+Make a 2D lattice from the input PDB and CRYST1 line.  The CRYST1 line must correspond to one of the 17 layer groups.
+
+There are two movers aimed at manipulating these lattice symmetries (both work with 2D & 3D):
+```
+<DockLatticeMover name=crystdock fullatom=1 trans_step=1 rot_step=2 ncycles=100 scorefxn=talaris2013 />
+```
+Docking within a crystal lattice.  If fullatom=1 it does fullatom docking with repacks and min steps; if fullatom=0 you need to provide a centroid energy function (e.g. score4_smooth) and it will also add lattice slide moves.  _trans_step_ and _rot_step_ give the magnitude of perturbation; _ncycles_ is # of steps to run.
+
+```
+<UpdateCrystInfo name=updatecrystinfo/>
+```
+Convert back to an asymm pose with a valid CRYST1 line
+
 
 Symmetry Options
 ----------------
@@ -266,6 +300,27 @@ trans 4,5,2
 ```
 
 encodes a translation operation, the three numbers specifies a translation vector.
+
+Symmetries with mirror operations
+--------------------------
+
+Rosetta offers support for symmetries with mirror operations as well.  Mirror symmetry is specified in  through the use of an "inverse virtual" residue which defines a left-handed local coordinate system. These inverse virtuals may be used to define mirror symmetries as follows:
+
+```
+symmetry_name C2_big__2
+E = 2VRT0 + 1(VRT0:VRT1)
+anchor_residue 13
+virtual_coordinates_start
+xyz VRT0 1.0,0.0,0.0 0.0,1.0,0.0 0.0,0.0,0.0
+xyzM VRT1 1.0,0.0,0.0 0.0,1.0,0.0 0.0,0.0,0.0
+virtual_coordinates_stop
+...
+```
+
+Above, xyzM declares an inverse virtual residue. Connecting this inverse virtual to a subunit makes the connected subunit inverted. The above snippet declares a _Cs_ symmetric system with a mirror plane in XY.
+
+Crystal symmetries with mirror operations are automatically handled with **-symmetry_definition CRYST1** (see above).
+
 
 Slide-into-contact options
 --------------------------
