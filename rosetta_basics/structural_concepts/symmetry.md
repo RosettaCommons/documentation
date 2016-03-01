@@ -19,8 +19,8 @@ Proteins can adopt a range of different symmetries. The most common one is cycli
 
 Rosetta is capable of describing all these types of symmetries. The only restriction is that all repeating units in the system must have a chemically identical environment. The smallest repeating unit with this property is the assymmetric unit of the system. The assymetric unit is typically identical to a subunit.
 
-How to run with symmetry
-========================
+Overview: How to run a protocol with symmetry
+=============================================
 
 Assuming the protocol you are using has been adopted to symmetry (if not see [How to adopt your protocol to use symmetry](#How-to-adopt-your-protocol-to-use-symmetry), this section describes the steps to use symmetry in Rosetta.
 
@@ -37,7 +37,7 @@ To aid in creating a symmetry definition file from a symmetric (or near-symmetri
 To aid in creation of symmetry definition files from scratch, typically for denovo prediction, – **make\_symmdef\_file\_denovo.py** – has been included in src/apps/public/symmetry. Running this application without arguments gives an overview of usage; see [[make_symmdef_file_denovo|make-symmdef-file-denovo]] for more details.
 
 How to generate crystal symmetry _without_ making a symmdef file
-------------------------------------
+----------------------------------------------------------------
 
 If you wish to model a structure in its crystal lattice, a symmetry definition file is not needed.  Rather, one can use the flag **-symmetry_definition CRYST1**.  If this option is used, there are two other relevant flags:
 
@@ -70,12 +70,12 @@ Docking within a crystal lattice.  If fullatom=1 it does fullatom docking with r
 Convert back to an asymm pose with a valid CRYST1 line
 
 
-Symmetry Options
-----------------
+General options for using symmetry in protocols
+-----------------------------------------------
 
 **-symmetry:symmetry\_definition my\_symdef\_file**
 
-Read in my\_symdef\_file symmetry definition file.
+Read in my\_symdef\_file symmetry definition file.  If my\_symdef\_file is the special tag **CRYST1**, use the CRYST1 line of the input PDB file instead to generate lattice symmetry.
 
 **-symmetry:initialize\_rigid\_body\_dofs**
 
