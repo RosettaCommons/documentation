@@ -22,7 +22,6 @@ Number of structures to be processed in accumulator/clusters should be specified
 should probably include the flags generally used for rosetta runs
 
      -no_optH false
-     -correct
      -ex1
      -ex2
 
