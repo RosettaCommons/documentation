@@ -160,9 +160,9 @@ NOTE: It should be remembered that resfile commands are restrictive, rather than
 
 - NATRO ................ preserve the input rotamer ( do not pack at all) (NATive ROtamer)
 
-- EMPTY ................ disallow all canonical amino acids ( for use with non canonicals )
+- EMPTY ................ disallow all canonical amino acids (for use with non canonicals).  This throws away all previously applied task operations, and so will break the commutativity of task operations.  For this reason, its use is discouraged except when necessary, and it will be soon (as of March 2016) be deprecated.
 
-- RESET ................ resets the task to its default state of canonicals ON and non-canonicals OFF ( for use with non canonicals )
+- RESET ................ resets the task to its default state of canonicals ON and non-canonicals OFF (for use with non canonicals)  This throws away all previously applied task operations, and so will break the commutativity of task operations.  For this reason, its use is discouraged except when necessary, and it will be soon (as of March 2016) be deprecated.
 
 - NC \<ResidueTypeName\> . allow the specific possibly non canonical residue type; one residue type per NC command
 
