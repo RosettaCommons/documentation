@@ -656,6 +656,10 @@ How Rosetta sees a protein molecule. Rosetta supports two representation:
 1. **fullatom** - full atom representation, slow but accurate.
 2. **centroid** - a reduced representation. faster, but less precise.
 
+#### resfile
+
+The [[resfile|resfiles]] is a file format used to manually pass complex instructions to the [[packer]] / [[PackerTask]].
+
 #### residue
 
 Each Pose/Conformation is broken down into small units called
