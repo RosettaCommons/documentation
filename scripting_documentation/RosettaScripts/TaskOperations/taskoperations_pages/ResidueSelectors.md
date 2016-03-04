@@ -46,7 +46,7 @@ or
     </And>
 
 -   The AndResidueSelector can take arbitrarily many selectors.
--   The AndResidueSelector takes a logical *AND* of the ResidueSubset vectors returned by the apply functions of each of the ResidueSelectors it contains.
+-   The AndResidueSelector takes a logical *AND* of the ResidueSubset vectors returned by the apply functions of each of the ResidueSelectors it contains.  <b>Practically speaking, this means that it returns the <i>intersection</i> of the selected sets -- the residues that are in set 1 AND in set 2.</b>  (Do not confuse this with the "or" selector, which returns the union of the two sets -- the residues that are in set 1 OR in set 2.)
 -   The "selectors" option should be a comma-separated string of previously-declared selector names. These selectors will be retrieved from the DataMap.
 -   The "selectors" option is not required, nor are the sub-tags required; but at least one of the two must be given. Both can be given, if desired.
 -   Selectors declared in the sub-tags will be appended to the set of selectors for the AndResidueSelector, but will not be added to the DataMap.
@@ -60,7 +60,7 @@ or
     </Or>
 
 -   The OrResidueSelector can take arbitrarily many selectors.
--   The OrResidueSelector takes a logical *OR* of the ResidueSubset vectors returned by the apply functions of each of the ResidueSelectors it contains.
+-   The OrResidueSelector takes a logical *OR* of the ResidueSubset vectors returned by the apply functions of each of the ResidueSelectors it contains.  <b>Practically speaking, this means that it returns the <i>union</i> of the selected sets -- the residues that are in set 1 OR in set 2.</b>  (Do not confuse this with the "and" selector, which returns the intersection of the two sets -- the residues that are in set 1 AND in set 2.)
 -   The "selectors" option should be a comma-separated string of previously-declared selector names. These selectors will be retrieved from the DataMap.
 -   The "selectors" option is not required, nor are the sub-tags required; but at least one of the two must be given. Both can be given, if desired.
 -   Selectors declared in the sub-tags will be appended to the set of selectors for the OrResidueSelector, but will not be added to the DataMap.
