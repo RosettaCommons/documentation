@@ -148,6 +148,9 @@ AFTER_FUNCTION CONSTANT
 END_PENALTY_DEFINITION
 ```
 
+## Use with symmetry
+As of 6 March 2016, the aa_composition score term should be fully compatible with symmetry, including mirror symmetry.  Note that it counts all residues in the pose or selection, not only those in the asymmetric unit.  In poses with mirror symmetry, it is properly aware of inverted types in mirrored subunits.
+
 ## Organization of the code
 
 - The scoring term lives in ```core/scoring/aa_composition_energy/AACompositionEnergy.cc``` and ```core/scoring/aa_composition_energy/AACompositionEnergy.hh```.
