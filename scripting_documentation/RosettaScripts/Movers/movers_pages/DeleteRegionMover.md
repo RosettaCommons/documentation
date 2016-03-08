@@ -8,20 +8,21 @@ Jared Adolf-Bryfogle; jadolfbr@gmail.com
 PI: Roland Dunbrack
 
 ###Pupose
-Deletes a region of the current pose.  Residue number is parsed at apply time (PROTOCOLS section), so the residue does not nessessarily need to exist in the definition section (MOVERS section).
+Deletes a region of the current pose. The region is specified by residue selectors that are applied at apply time, so the residue does not necessarily need to exist in the input structure. If residue numbers are provided, a ResidueIndexResidueSelector is automatically created at parse time.
 
 ```
-<DeleteRegionMover name=(&string) start_pdb_num=(&string (Ex: 24L)) end_pdb_num=(&string (Ex: 42L)) />
+<DeleteRegionMover name=(&string)
+                   residue_selector=(&string, "")
+                   start=(&string, "" (Ex: 24L)) end=(&string, "" (Ex: 42L)) />
 ```
 
 ###Required
-
--   start\_pdb\_num (&string): PDB Number to start deletion from (including it). Ex: 24L.  Use start\_res\_num instead for internal numbering 
-
--   end\_pdb\_num (&string): PDB Number to end deletion at (including it); Ex: 42L. Use end\_res\_num instead for internal numbering
+Start and end, OR a residue selector must be provided.
 
 ###Optional
-
+-   residue_selector (&string): Name of a residue selector defined in the RESIDUE_SELECTORS section which selects the residues to be deleted.
+-   start (&string): Rosetta or PDB residue number to start deletion from (including it). Examples: "24L", "108"
+-   end (&string): Rosetta or PDB residue number to end deletion at (including it). Examples: "42L", "115" 
 -   nter\_overhang (&size): Delete additional N residues on the nter side 
  - new_start = start_num - N
 -   cter\_overhang (&size): Delete additional N residues on the cter side
