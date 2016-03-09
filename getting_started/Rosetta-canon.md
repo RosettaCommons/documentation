@@ -17,6 +17,16 @@ A more complete (but probably not 100% complete) list can be found [here](http:/
 
 Protein Structure Prediction
 -----------------
+* Simons K, Kooperberg C, Huang E, Baker D (1997)  
+[Assembly of Protein Tertiary Structures from Fragments with Similar Local Sequences using Simulated Annealing and Bayesian Scoring Functions.] (http://www.ncbi.nlm.nih.gov/pubmed/9149153) (pubmed link)  
+J. Mol. Biol. 268:209-225  
+Simons et al. describe the method of combining simulated annealing with fragment libraries to generate native-like structures.
+
+* Simons K, Ruczinski I, Kooperberg C, Fox B, Bystroff C, Baker D (1999)  
+[Improved Recognition of Native-Like Protein Structures Using a Combination of Sequence-Dependent and Sequence-Independent Features of Proteins.] (http://www.ncbi.nlm.nih.gov/pubmed/) (pubmed link)  
+Proteins 34:82-95  
+Simons et al. describe the development of an improved score function containing secondary structure packing terms.
+
 * Simons KT, Bonneau R, Ruczinski I, Baker D (1999)  
 [Ab initio protein structure prediction of CASP III targets using ROSETTA.] (http://www.ncbi.nlm.nih.gov/pubmed/10526365) (pubmed link)  
 Proteins Suppl 3:171-6  
@@ -31,6 +41,7 @@ Raveh et al. describe algorithms to predict the bound state of flexible peptides
 [Modeling symmetric macromolecular structures in Rosetta3.] (http://www.ncbi.nlm.nih.gov/pubmed/21731614) (pubmed link)  
 PLoS One 6:e20450  
 DiMaio et al. describe a framework for efficiently modeling highly symmetric oligomers using a single monomer, the inter-monomer interface, and mathematical relationships between subunits.
+
 
 Scoring
 --------------
