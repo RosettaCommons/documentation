@@ -14,7 +14,17 @@ This set of applications and tools is specifically designed to work with antibod
 - [[Camelid antibody docking|antibody-mode-camelid]]: Dock camelid antibodies to their antigens.
 - [[SnugDock | snugdock]]: Paratope structure optimization during antibody-antigen docking
 
+<!---BEGIN_INTERNAL-->
 
+
+###Antibody Utilities
+
+* [[Antibody Design Strategy Analysis]]: A PyRosetta-based tool to analyze and/or compare antibody design strategies.
+
+* [[CDR Cluster Identification]]: An application that matches each CDR of an antibody to North/Dunbrack CDR clusters based on the lowest dihedral distance to each cluster center.
+
+* [[CDR Cluster Constrained Relax]]: An application to relax CDRs using circular harmonic constraints based on identified CDR clusters.
+<!---END_INTERNAL-->
 
 ###Using Rosetta Scripts for Antibody Modeling and Design
 

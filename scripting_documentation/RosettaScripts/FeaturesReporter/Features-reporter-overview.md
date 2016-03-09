@@ -11,7 +11,10 @@ We also document individual FeatureReporters and R scripts useful for post-proce
 -	[[How to run FeatureReporters| FeaturesTutorials]]
 -	[[List of Implemented FeatureReporters | FeatureReporters]]
 
-
+<!--- BEGIN_INTERNAL -->
+-       [[Writing new FeatureReporters | FeaturesExtracting]]
+-	[[Writing new R Scripts for Analysis| FeaturesRScripts]]
+<!--- END_INTERNAL -->
 
 Overview
 ========
