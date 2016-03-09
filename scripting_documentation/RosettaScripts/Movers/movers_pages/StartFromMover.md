@@ -22,7 +22,7 @@ Each tag contains an XYZ coordinate position which will be added to the set of v
 
 *File subtag*
 
-Provide a JSON formatted file containing starting positions. This is useful if you are docking ligands into a large number of protein structures. <!--- BEGIN_INTERNAL --> The application generate\_ligand\_start\_position\_file will generate these JSON files.<!--- END_INTERNAL --> The file is of the format:
+Provide a JSON formatted file containing starting positions. This is useful if you are docking ligands into a large number of protein structures.  The file is of the format:
 
         [
             {

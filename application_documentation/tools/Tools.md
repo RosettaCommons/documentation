@@ -5,14 +5,7 @@ This page is a list of accessory scripts which are helpful in working with Roset
 
 Many of these scripts have further help options. 
 Try running them without any arguments or with the '-h' flag to get further information.
-<!--- BEGIN_INTERNAL -->
 
-**NOTE TO DEVELOPERS:**
-The `tools` repository is intended to be used for general-purpose scripts for development purposes (generating/processing input files, etc.). Python scripts for scientific purposes should be placed in the `main` repository so that they remain in sync with the Rosetta code base. Scientific python scripts for public use should be placed in `main/source/scripts/python/public/` and should have accompanying integration tests. Private scripts should be placed in `main/source/scripts/python/pilot/<user_name>`.  
-
-Scripts in all of these categories should be listed and briefly described on this page. Public scientific scripts intended to be used as standalone applications should also have a separate application documentation page (see the [[How to write documentation]] page for notes on formatting application documentation).
-
-<!--- END_INTERNAL -->
 [[_TOC_]]
 
 ## General Rosetta Tools
