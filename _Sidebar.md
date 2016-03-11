@@ -20,4 +20,6 @@
 
 [[Glossary]]
 
+[[Encyclopedia|RosettaEncyclopedia]]
+
 [[Options List|full-options-list]]
