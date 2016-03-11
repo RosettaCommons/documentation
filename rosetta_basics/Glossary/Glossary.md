@@ -173,6 +173,7 @@ In Rosetta, a chain is a single, covalently connected molecule.
 In the **PDB** format, a chain is all residues which share a chain identification label.
 
 #### chainbreak
+A gap in connectivity (in the AtomTree) between chemically connected / sequentially adjacent residues.  These are used in CCD (Cyclic Coordinate Descent) loop closure.
 
 #### ChemicalManager
 
