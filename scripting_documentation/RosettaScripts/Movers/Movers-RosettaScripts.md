@@ -126,9 +126,7 @@ These are movers that should be usable in most cases with most systems
 
 ### Constraints
 
-
 **[[AddCompositionConstraintMover]]** - Adds constraints related to the amino acid composition, enforced by the aa_composition score term.
-
 
 **[[ClearConstraintsMover]]** - Removes all constraints (geometric and sequence) from the pose
 
