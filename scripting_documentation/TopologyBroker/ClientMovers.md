@@ -88,7 +88,7 @@ Multiple movers can be separated by commas. Thus `apply_to_template="centroid,fu
 # CoMTrackerCM
 
 ```
-<CoMTrackerCM name=(&string) selector=(&string) />
+<CoMTrackerCM name=(&string) mobile_selector=(&string) />
 ```
 
 The CoMTrackerCM creates a virtual residue that tracks a particular set of atoms in space. The only option is "mobile_selector", which indicates the region that is to be tracked. The "name" option is a bit special, as the virtual residue created will bear that name as well. Thus, other ClientMover that need to jump to or from that residue use that name.
