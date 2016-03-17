@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## Disulfidize
 
-Scans a protein and builds disulfides that join residues in one set of residues with those in another set. Non-protein and GLY residues are ignored. Residues to be joined must be min_loop residues apart in primary sequence. Potential disulfides are first identified by CB-CB distance, then by mutating the pair to CYS, forming a disulfide, and performing energy minimization.  If the energy is less than the user-specified cutoff, it is compared with a set of rotations and translations for all known disulfides.  If the "distance" resulting from this rotation and translation is less than the user-specified match_rt_limit, the pairing is considered a valid disulfide bond.
+Scans a protein and builds disulfides that join residues in one set of residues with those in another set. By default, non-protein, GLY, and PRO (or DPRO) residues are ignored. Residues to be joined must be min_loop residues apart in primary sequence. Potential disulfides are first identified by CB-CB distance, then by mutating the pair to CYS, forming a disulfide, and performing energy minimization.  If the energy is less than the user-specified cutoff, it is compared with a set of rotations and translations for all known disulfides.  If the "distance" resulting from this rotation and translation is less than the user-specified match_rt_limit, the pairing is considered a valid disulfide bond.
 
 Once valid disulfides are found, they are combinatorially added. For example, if disulfides are identified between residues 3 and 16 and also between residues 23 and 50, the following configurations will be found:
 1. [3,16]
@@ -11,7 +11,10 @@ Once valid disulfides are found, they are combinatorially added. For example, if
 
 The mover is now able to place D-cysteine disulfides and mixed D/L disulfides.
 
-NOTE: This is a multiple pose mover. If non-multiple-pose-compatible movers are called AFTER this mover, only the first disulfide configuration will be returned.
+NOTES:
+- This is a multiple pose mover. If non-multiple-pose-compatible movers are called AFTER this mover, only the first disulfide configuration will be returned.
+- <b>By default, glycine and D/L-proline positions are ignored by this mover.</b>  This behaviour can be overridden with the ```mutate_gly=true``` or ```mutate_pro=true``` options (see below).
+
 
 ```
 <Disulfidize name=(&string) scorefxn=(&string) set1=(&selector) set2=(&selector) match_rt_limit=(&float 2.0) score_or_matchrt=(&bool false) max_disulf_score=(&float 1.5) min_loop=(&int 8) use_l_cys=(&bool true) keep_current_disulfides=(&bool false) include_current_disulfides=(&bool false) use_d_cys=(&bool false) />
