@@ -187,8 +187,8 @@ An implementation of a similar protocol using this paradigm, along with a detail
 </RESIDUE_SELECTORS>
 
 <MOVERS>
-  <CoMTrackerCM name=com_A selector=ChainA />
-  <CoMTrackerCM name=com_B selector=ChainB />
+  <CoMTrackerCM name=com_A mobile_selector=ChainA />
+  <CoMTrackerCM name=com_B mobile_selector=ChainB />
 
   <UniformRigidBodyCM name=rigid mobile=com_A stationary=com_B />
 
