@@ -17,7 +17,7 @@ NOTES:
 
 
 ```
-<Disulfidize name=(&string) scorefxn=(&string) set1=(&selector) set2=(&selector) match_rt_limit=(&float 2.0) score_or_matchrt=(&bool false) max_disulf_score=(&float 1.5) min_loop=(&int 8) use_l_cys=(&bool true) keep_current_disulfides=(&bool false) include_current_disulfides=(&bool false) use_d_cys=(&bool false) />
+<Disulfidize name=(&string) scorefxn=(&string) set1=(&selector) set2=(&selector) match_rt_limit=(&float 2.0) score_or_matchrt=(&bool false) max_disulf_score=(&float 1.5) min_loop=(&int 8) use_l_cys=(&bool true) keep_current_disulfides=(&bool false) include_current_disulfides=(&bool false) use_d_cys=(&bool false) mutate_gly=(&bool false) mutate_pro=(&bool false) />
 ```
 
 - scorefxn:  Name of the scoring function to use for repacking and minimization when rebuilding disulfides.  If not specified, the default scorefunction is used.  Note that a symmetric scorefunction must be provided for symmetric poses.
@@ -33,6 +33,8 @@ NOTES:
 - include_current_disulfides:  If true, current disulfides are included in the possible disulfide combinations to try.  False by default (only new disulfide combinations tried).
 - use_l_cys: Should the mover consider placing L-cysteine?  True by default.
 - use_d_cys: Should the mover consider placing D-cysteine?  False by default.  (Note that at least one of use_l_cys and use_d_cys must be set to "true".)
+- mutate_gly: Should the mover ignore glycine positions (false) or allow mutations to cysteine at these positions (true)?  Default false (ignore gly positions).
+- mutate_pro: Should the mover ignore D/L-proline positions (false) or allow mutations to cysteine at these positions (true)?  Default false (ignore pro/dpr positions).
 
 **EXAMPLE**  The following example looks for 1-3 disulfides. All found disulfide configurations are then designed using FastDesign.
 
