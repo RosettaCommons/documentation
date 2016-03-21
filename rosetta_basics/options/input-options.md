@@ -90,6 +90,44 @@ Scoring
                             [Boolean]
 ```
 
+##Ensemble Job Inputter
+
+An alternative Job Inputter in the framework of JD2( The current Job Distribution system) that is specifically for working with an ensemble of input structures.  Simple. Two modes.  Seed Ensemble and Grid Ensemble. 
+
+Author - Jared Adolf-Bryfogle (jadolfbr@gmail.com); PI : William Schief
+
+###Seed Ensemble
+
+Randomly choose the starting files using the list of structures given by -s and -l
+
+-jd2:seed_ensemble_weights (RealVector)
+
+ - Will give weights to the input PDBs and trigger seed_ensemble mode and the JobInputter.  We then use the weighted sampler to choose the input pdb for each nstruct.  The weights could be the size of the cluster, the energy, that you like some structure better, etc. Must match number of inputs.
+
+-jd2:seed_ensemble_weight_file (File)
+
+ - A file specifying weights to use for each input structure.  Enables seed_ensemble mode and the JI. Two columns.  basename with extension (or relative path or full path), weight.  Any not given in file will be set to 0 by default.  Can give a line that is [ALL weight] to set all input pdbs to a given weight. Used for example, to upweight a specific structure:
+
+```
+#name weight
+ALL 1
+awesome_model.pdb 3
+
+```
+
+-jd2:seed_ensemble (Bool)
+
+ - Enable seed ensemble mode, but simply randomly choose the input pdb for each nstruct.  For seed ensemble mode, the number of input pdbs can be larger than nstruct.
+
+
+###Grid Ensemble
+Use the input files given in -s and -l and nstruct to cover a grid.
+
+-in:jd2:grid_ensemble (Bool)
+
+ - Will enable the basic component of the JI.  Here, instead of sampling nstruct for every input pdb, we only sample nstruct no matter the number of input PDBs (with nstruct split as evenly as possible over the input PDBs).  
+
+_NOTE: The Ensemble Job Inputter Does not currently work with silent files._
 
 ##See Also
 
