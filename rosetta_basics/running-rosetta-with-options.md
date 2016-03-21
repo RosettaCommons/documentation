@@ -106,7 +106,7 @@ $flag -mpi_tracer_to_file $HOME/rosetta_run_logs/debug/$debug_log
 Option Groups and Layers
 =========================
 
-Options in Rosetta are grouped by their functional and protocol usages. Each group has at least one layer, the parent layer. Most of the groups have one or more sub-layers holding multiple options. It is good to specify the whole set of layers when you use options since there might be two options have the same name but in different groups. You can use single or double colon to separate the layers.
+Options in Rosetta are grouped by their functional and protocol usages. Each group has at least one layer, the parent layer. Most of the groups have one or more sub-layers holding multiple options. You can use single or double colon to separate the layers.  If the option is unique, such as _nstruct_, one does not need to specify the groups and Rosetta will warn you if this is done, but there are indeed multiple options with the same name.
 
 For example:
 
@@ -184,12 +184,11 @@ General tips for running Rosetta
 <br>
 * By default, Rosetta will fail to load a PDB with waters.  This is intentional, as most of the Rosetta applications do not deal with water molecules well and the default scorefunction uses implicit solvation. To have Rosetta read the common WAT type, pass the option <code>-ignore_waters false</code>
 
-* For a general guide on making Rosetta robust against malformed input PDBs, see [[this page|robust]].
 
-####[[Common/Useful Rosetta Options|options-overview]]
+[[Common/Useful Rosetta Options|options-overview]]
 =========================
 
-Rosetta is a highly versitile piece of software, and both its options system and scripting system help give it this versatility. Many Rosetta applications share common options, especially in regard to input and output (as most share a common Job Distributor).  It is a good idea to review some of these options and see how they can be of use to you. 
+Rosetta is a highly versatile piece of software, and both its options system and scripting system help give it this versatility. Many Rosetta applications share common options, especially in regard to input and output (as most share a common Job Distributor, JD2).  It is a good idea to review some of these options and see how they can be of use to you. 
 
 - [[Input options]]
 - [[Output options]]
