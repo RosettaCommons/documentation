@@ -18,6 +18,15 @@
     * [[Topology Broker|BrokeredEnvironment]]
 - [[Analyzing Results]]
 
+####[[Common/Useful Rosetta Options|options-overview]]
+- [[Input options]]
+- [[Output options]]
+- [[Relational Database options | Database-options]]
+- [[Run options]]
+- [[Score options]]
+- [[Packing options]]
+- [[Renamed and Deprecated Options]]
+
 ####[[Fundamental Rosetta Concepts|Rosetta-overview]]
 
 - [[Brief history of Rosetta|Rosetta-Timeline]]
@@ -45,20 +54,6 @@
     * [[AtomTree Overview]]
     * [[Loop modeling styles and algorithms|loopmodel-algorithms]]
 
-####Preparing structures to be used by Rosetta
-* [[Preparing typical PDB files|preparing-structures]]
-* [[Preparing PDB files for non-peptide polymers]]
-* [[Preparing ligands]]
-
-####[[Common/Useful Rosetta Options|options-overview]]
-- [[Input options]]
-- [[Output options]]
-- [[Relational Database options | Database-options]]
-- [[Run options]]
-- [[Score options]]
-- [[Packing options]]
-- [[Renamed and Deprecated Options]]
-
 ####Common File Formats
 - [[Fasta file]] - Input protein sequences
 - [[Silent file]] - Rosetta-specific compact output representation
@@ -74,6 +69,11 @@
 - [[Matcher (Enzdes) Constraint Files|match-cstfile-format]] - A constraint file specialized for protein-ligand interactions
 - [[Chemical shift file]] - NMR chemical shifts
 - [[Bin transition probabilities file]] - Probabilities of transitioning from one mainchain torsion bin to another, used by some sampling schemes
+
+####Preparing structures to be used by Rosetta
+* [[Preparing typical PDB files|preparing-structures]]
+* [[Preparing PDB files for non-peptide polymers]]
+* [[Preparing ligands]]
 
 ####[[Working with Non-Protein Residues and Molecules|non-protein-residues]]
 - General Guidance:
