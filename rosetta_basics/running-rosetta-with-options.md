@@ -186,6 +186,20 @@ General tips for running Rosetta
 
 * For a general guide on making Rosetta robust against malformed input PDBs, see [[this page|robust]].
 
+####[[Common/Useful Rosetta Options|options-overview]]
+=========================
+
+Rosetta is a highly versitile piece of software, and both its options system and scripting system help give it this versatility. Many Rosetta applications share common options, especially in regard to input and output (as most share a common Job Distributor).  It is a good idea to review some of these options and see how they can be of use to you. 
+
+- [[Input options]]
+- [[Output options]]
+- [[Relational Database options | Database-options]]
+- [[Run options]]
+- [[Score options]]
+- [[Packing options]]
+- [[Renamed and Deprecated Options]]
+
+
 ##See Also
 
 * [[Fixing errors]]: Troubleshooting common errors in Rosetta
