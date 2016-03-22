@@ -19,7 +19,7 @@ The current, recommended way to run SnugDock is:
 with minimal flags being:
 ```
 -s my_antibody_antigen_complex.pdb 
--score:weights talaris2014 
+-talaris2014 true
 
 -partners LH_A 
 -spin 
@@ -30,6 +30,13 @@ with minimal flags being:
 -dock_rtmin 
 
 -h3_filter false 
+-loops:remodel perturb_kic
+-loops:refine refine_kic
+-kic_rama2b 
+-loops:ramp_fa_rep 
+-loops:ramp_rama
+-kic_omega_sampling 
+-allow_omega_move true
 -loops:refine_outer_cycles 3 
 -loops:max_inner_cycles 80 
 
@@ -94,4 +101,3 @@ These flags have not all been tested with SnugDock (nor are they comprehensive) 
                            rdc |                           | (S)| [vector] rdc-files and column names for RDC calculation
                           pool |                           |   F| find closest matching structure in this pool and report tag and rmsd
                chemical_shifts |                           | (S)| compute chemical shift score with SPARTA+ use tuples: talos_file [cs]_column_name (ATTENTION uses  filesystem)
-
