@@ -18,29 +18,55 @@ The current, recommended way to run SnugDock is:
 
 with minimal flags being:
 ```
--s my_antibody_antigen_complex.pdb 
--talaris2014 true
+### JOB IO
+-s input.pdb
+-native native_input.pdb # if available
+-out:file:scorefile score_out_snugdock.sc
+-out:path:pdb models_path_out/
+-out:pdb_gz # gzip models for space
+-nstruct 1000 # adequate sampling
 
--partners LH_A 
--spin 
--dock_pert 3 8 
+# low-res constraints (constrain alpha/tau if available)
+-constraints:cst_file kink.cst
+-constraints:cst_weight 1.0
 
--ex1 
--ex2aro
--dock_rtmin 
+# high-res constraints (constrain alpha/tau if available)
+-constraints:cst_fa_file kink.cst
+-constraints:cst_fa_weight 1.0
 
--h3_filter false 
+### Docking
+-partners LH_G
+-spin
+-dock_pert 3 8
+
+### do not filter for h3, constraint takes care of this geom
+-h3_filter false
+
+### loop modeling settings
+#
+# KIC
 -loops:remodel perturb_kic
 -loops:refine refine_kic
--kic_rama2b 
--loops:ramp_fa_rep 
--loops:ramp_rama
--kic_omega_sampling 
--allow_omega_move true
--loops:refine_outer_cycles 3 
--loops:max_inner_cycles 80 
 
--nstruct 1000
+-kic_rama2b
+-loops:ramp_fa_rep
+-loops:ramp_rama
+
+-kic_omega_sampling
+-allow_omega_move true
+
+-loops:refine_outer_cycles 3
+-loops:max_inner_cycles 80
+
+# CCD (for faster, but less accurate modeling)
+#-loops:remodel quick_ccd
+#-loops:refine refine_ccd
+#-loops:outer_cycles 5
+
+#more standard settings, for packages used by antibody_H3
+-ex1
+-ex2aro
+-talaris2014 true
 ```
 
 One key flag **which everyone should include** is the `-h3_filter false` flag. When set to true, this flag repeats CDR H3 modeling up to 20 times if the loop is not in a kinked conformation (see [[Weitzner et al. for more|http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4318709/]]). Do not turn this on as it wastes too many cycles attempting to kink the CDR H3 loop. Instead, apply two flat harmonic constraints, scaled to be 1 REU at 3 standard deviations from the mean of the alpha and tau angles as defined in the above paper.
