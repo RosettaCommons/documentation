@@ -45,8 +45,6 @@ with minimal flags being:
 ### loop modeling settings
 #
 # KIC
--loops:remodel perturb_kic
--loops:refine refine_kic
 
 -kic_rama2b
 -loops:ramp_fa_rep
@@ -58,9 +56,9 @@ with minimal flags being:
 -loops:refine_outer_cycles 3
 -loops:max_inner_cycles 80
 
-# CCD (for faster, but less accurate modeling)
-#-loops:remodel quick_ccd
-#-loops:refine refine_ccd
+# CCD (exit with ptr error)
+#-antibody:centroid_refine refine_ccd
+#-antibody:refine refine_ccd
 #-loops:outer_cycles 5
 
 #more standard settings, for packages used by antibody_H3
