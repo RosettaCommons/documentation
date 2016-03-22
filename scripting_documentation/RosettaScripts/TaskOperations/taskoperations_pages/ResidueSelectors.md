@@ -230,7 +230,7 @@ The example below selects all residues in the pose with secondary structure 'H' 
 
     <SecondaryStructure name="all_non_loop" ss="HE" />
 
-####Task
+####TaskSelector
     <Task name=(%string) fixed=(%bool, False) packable=(%bool, False) designable=(%bool, False) task_operations=(%string) />
 
 The TaskSelector uses user-provided task operations to define a selection. Task operations are run on the pose, and residues are selected based on their status in the resulting PackerTask (designable, packable, or fixed). Note that if none of these options is specified, no residue will be selected. This is useful for legacy protocols which still use task operations to select residues (which were written before ResidueSelectors existed). New protocols should use ResidueSelectors to select residues.
