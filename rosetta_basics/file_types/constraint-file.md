@@ -3,7 +3,7 @@
 Metadata
 ========
 
-This document was edited by Colin Smith on 12/4/2008. Yi Liu created the initial page. Thanks Oliver and Firas for providing information.
+This document was edited by Colin Smith on 12/4/2008. Yi Liu created the initial page. Thanks Oliver and Firas for providing information.  Last edited by Vikram K. Mulligan on 21 March 2016.
 
 [[_TOC_]]
 
@@ -180,7 +180,7 @@ Functions are listed as "Func\_Type Func\_Def".
 
 	-   `AMBERPERIODIC x0 n_period k`
 	
-	    An AMBERPERIODIC function penalizes deviations from angle x0 by values from 0 to 2k, with n_period periods:
+	    An AMBERPERIODIC function is a cosine function of the angle x, with a maximum at x0 and a periodicity of n_period.  The amplitude is k, and the minimum value is 0:
 		-	f(x) = k * (1 + cos( ( n_period * x ) - x0 ) )
 
 	-   `CHARMMPERIODIC x0 n_period k`
