@@ -190,11 +190,33 @@ or
 
 #### NumNeighborsSelector
 
+```
     <NumNeighbors name=(%string) count_water=(false&bool) threshold=(17%integer) distance_cutoff=(10.0&float)/>
+```
 
 -   The NumNeighborsSelector sets to true each position in the ResidueSubset that corresponds to a residue that has at least *threshold* neighbors within *distance\_cutoff,* and sets all other positions to false.
 -   The NumNeighborsSelector uses the coordinate of each residue's neighbor atom as a representative and counts two residues as being neighbors if their neighbor atoms are within *distance\_cutoff* of each other.
 -   It is possible to include water residues in the neighbor count by setting the "count\_water" boolean to true
+
+
+#### PhiSelector
+
+
+```
+     <Phi name=(&string) select_positive_phi=(true &bool) ignore_unconnected_upper=(true &bool) />
+```
+- select_positive_phi: If true (the default), alpha-amino acids with phi values greater than or equal to zero are selected.  If false, alpha-amino acids with phi values less than zero are selected.
+- ignore_unconnected_upper: If true (the default) then C-terminal residues and other residues with nothing connected at the upper connection are not selected.  If false, then these residues can be selected, depending on their phi values.  Note that anything lacking a lower connection is <i>never</i> selected.
+
+
+     The PhiSelector selects alpha-amino acids that are in either the positive phi or negative phi region of Ramachandran space.  Ligands and polymeric residues that are not alpha-amion acids are never selected.  Alpha-amino acids with no lower connection (or nothing connected at the lower connection) are also never selected.  By default, alpha-amino acids with no upper connection are not selected, though this can be disabled.
+
+     The PhiSelector is convenient for:
+
+- Counting and limiting the number of positive-phi positions when sampling loop conformations.
+- Restricting positive-phi positions to be glycine, and negative-phi positions to be L-amino acids, when doing canonical design of conventional proteins.
+- Limiting the number of L-amino acids in the positive-phi region of Ramachandran space, in conjunction with the aa_composition score term.
+- Restricting residues in the positive-phi region to be D-amino acids and residues in the negative-phi region to be L-amino acids when doing mixed D/L design of synthetic peptides.
 
 #### PrimarySequenceNeighborhoodSelector
 
