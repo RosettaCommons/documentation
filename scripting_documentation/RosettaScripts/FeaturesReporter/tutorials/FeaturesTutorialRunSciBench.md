@@ -32,13 +32,14 @@ The coordinates of the structures for used to extract the feature information ca
 
 -   **pdb** :
     -   *-in:path path/to/structures* : the directory containing the pdbs
-    -   *-in:file:l \<tags.list\>* : which pdbs should be processed NOTE: The filenames in the *\<tags.list\>* file will be the *tags* in the *structures* table.
+    -   *-in:file:l \<pdbfile.list\>* : A file containing a list of PDB filenames which hould be processed NOTE: The filenames in the *\<pdbfile.list\>* file will be the *tags* in the *structures* table.
     -   If the structures come from the protein databank, follow the steps to make Rosetta more [[robust to bad input|robust]].
 
 -   **Silent Files** :
     -   *-in:file:silent \<structures.silent\>* : the filename of the silentfile
     -   *-in:file:silent\_struct\_type \<type\>* : the type of the silentfile
     -   *-in:file:tags* : the tags of the structures to be used in the silent file NOTE these will be the *tags* in the *structures* table
+    -   *-in:file:tagfile* : the name of a file containing the list of tags for the structures to be used in the silent file NOTE these will be the *tags* in the *structures* table
 
 -   **Database Input** :
     -   *-inout:database\_mode \<mode\>* : Which database backend to use ( *sqlite3* , *mysql* , or *postgresql* ).
