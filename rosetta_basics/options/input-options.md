@@ -73,6 +73,10 @@ Silent Input File Flags
 ```
 -in:file:silent                           Silent input filename(s). [FileVector]
 -in:file:silent_list                      Silent input filename list(s) - like -l is to -s. [FileVector]
+-in:file:tags                             Instead of using all the structures in the input silent file(s)
+                                          use just the listed structures. [StringVector]
+-in:file:tagfile                          Like -in:file:tags, but instead of listing the tags on the command line,
+                                          read the tags from the specified file. [FileName]
 -in:file:silent_optH                      Call optH when reading a silent file. [Boolean]
 -in:file:silent_structure_type            Type of SilentStruct object to use in silent-file input'.
                                           Default='protein', [String]
