@@ -5,7 +5,7 @@
 ResidueSelectors
 ----------------
 
-ResidueSelectors define a subset of residues from a Pose. Their apply() method takes a Pose and a ResidueSubset (a utility::vector1\< bool \>), and modifies the ResidueSubset. Unlike a PackerTask, a ResidueSubset does not have a commutativity requirement, so the on/off status for residue *i* can be changed as many times as necessary. Once a ResidueSubset has been constructed, a [[Residue Level TaskOperation|Residue Level TaskOperations]] may be applied to the ResidueLevelTasks which have a "true" value in the ResidueSubset. ResidueSelectors should be declared in their own block and named, or declared as subtags of other ResidueSelectors or of TaskOperations that accept ResidueSelectors (such as the OperateOnResidueSubset task operation).
+ResidueSelectors define a subset of residues from a Pose. Their apply() method takes a Pose and returns a ResidueSubset (a utility::vector1\< bool \>). This vector1 will be as large as there are residues in the input Pose, and its ith entry will be "true" if residue i has been selected. Once you have a ResidueSubset, you can use it in a number of ways.  For instance, you can use the OperateOnResidueSubset task operation to combine a ResidueSelector with a [[Residue Level TaskOperation|Residue Level TaskOperations]] to modify the ResidueLevelTasks which have a "true" value in the ResidueSubset. ResidueSelectors should be declared in their own block and named, or declared as subtags of other ResidueSelectors or of TaskOperations that accept ResidueSelectors (such as the OperateOnResidueSubset task operation).
 
 Note that certain other Rosetta modules (e.g. the [[ReadResfile|ReadResfileOperation]] TaskOperation, which is not a Residue Level TaskOperation but can still accept a ResidueSelector as input) may also use ResidueSelectors.  Ultimately, it is hoped that many Rosetta components will be modified to permit this standardized method of selecting residues.
 
@@ -17,6 +17,22 @@ ResidueSelectors can be declared in their own block, outside of the TaskOperatio
        <Chain name=chA chains=A/>
        <Index name=res1to10 resnums=1-10/>
     </RESIDUE_SELECTORS>
+
+Some ResidueSelectors can nest other ResidueSelectors in their definition; e.g.
+
+    <RESIDUE_SELECTORS>
+        <Neighborhood name="chAB_neighbors">
+            <Chain chains="A,B">
+        </Neighborhood>
+    </RESIDUE_SELECTORS>
+
+In which case, the structure of the Neighborhood ResidueSelector will be stated as
+
+    <Neighborhood name=(%string) ... >
+        <(Selector)>
+    </Neighborhood>
+
+With the <(Selector)> subtag designating that any ResidueSelector can be nested inside it.
 
 [[_TOC_]]
 
@@ -35,11 +51,13 @@ or
 -   The NotResidueSelector requires exactly one selector.
 -   The NotResidueSelector flips the boolean status returned by the apply function of the selector it contains.
 -   If the "selector" option is given, then a previously declared ResidueSelector (from the RESIDUE\_SELECTORS block of the XML file) will be retrieved from the DataMap
--   If the "selector" option is not given, then a sub-tag containing an anonymous/unnamed ResidueSelector must be declared. This selector will not end up in the DataMap.  For example, it is possible to nest a Chain selector beneath a Not selector to say "give me everything except chain A":
-
-    <Not>
-        <Chain chains="A"/>
+-   If the "selector" option is not given, then a sub-tag containing an anonymous/unnamed ResidueSelector must be declared. This selector will not end up in the DataMap.  For example, it is possible to nest a Chain selector beneath a Not selector to say "give me everything except chain A:"
+    ```
+    <Not name="all_but_chA">
+       <Chain chains="A"/>
     </Not>
+    ```
+any ResidueSelector can be defined as a subtag of the Not selector.  You cannot, however, pass the subselector by name except by using the "selector" option.
 
 #### AndResidueSelector
 
