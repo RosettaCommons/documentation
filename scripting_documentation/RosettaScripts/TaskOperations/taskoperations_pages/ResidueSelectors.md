@@ -35,7 +35,11 @@ or
 -   The NotResidueSelector requires exactly one selector.
 -   The NotResidueSelector flips the boolean status returned by the apply function of the selector it contains.
 -   If the "selector" option is given, then a previously declared ResidueSelector (from the RESIDUE\_SELECTORS block of the XML file) will be retrieved from the DataMap
--   If the "selector" option is not given, then a sub-tag containing an anonymous/unnamed ResidueSelector must be declared. This selector will not end up in the DataMap
+-   If the "selector" option is not given, then a sub-tag containing an anonymous/unnamed ResidueSelector must be declared. This selector will not end up in the DataMap.  For example, it is possible to nest a Chain selector beneath a Not selector to say "give me everything except chain A":
+
+    <Not>
+        <Chain chains="A"/>
+    </Not>
 
 #### AndResidueSelector
 
