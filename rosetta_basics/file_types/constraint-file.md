@@ -43,46 +43,67 @@ Single constraints
 
 Single constraints restrain the value of a single metric
 
--   AtomPair: `AtomPair Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Func_Type Func_Def` 
+-   AtomPair: 
+```
+AtomPair Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Func_Type Func_Def
+```
 
     <i>score term: atom_pair_constraint</i>
 
     * Constrains a distance between Atom1 and Atom2. AtomPairConstraint is compatible with PDB numbering.
 
--   NamedAtomPair: `NamedAtomPair Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Func_Def       `
+-   NamedAtomPair: 
+```
+NamedAtomPair Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Func_Def
+```
 
 	<i>score term: atom_pair_constraint</i>
 
 	* Constrains a distance between Atom1 and Atom2.
 	* Atoms in NamedAtomPairConstraints are stored as names rather than numbers, as with AtomPairConstraint. Therefore, if atom numbers change while constraints are in the pose, the NamedAngleConstraint will still constraint the correct atoms, while the AngleConstraint may constrain unintended atoms. There is a small tradeoff in computational efficiency versus AngleConstraint. If you know your atom numbers will not change while the constraint is in the pose, AngleConstraint is a better option, but if they might change, NamedAngleConstraint will ensure that the correct atoms are constrained.
 
--   Angle: `Angle Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Func_Type Func_Def       `
+-   Angle: 
+```
+Angle Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Func_Type Func_Def
+```
 
     <i>score term: angle_constraint</i>
 
     * Angle between Atom2-\>Atom1 vector and Atom2-\>Atom3 vector; the angle (passed as a value to the Func) appears to be measured in radians
     * NOTE: AngleConstraint uses atom numbers to internally track the constrained atoms for efficiency. If the atom numbers change while the AngleConstraint is in the pose, the constraint could be applied to the wrong atoms. If you know your atom numbers will not change while the constraint is in the pose, AngleConstraint is the best option, but if they might change (e.g. by design or changing residue type set), NamedAngleConstraint will ensure that the correct atoms are constrained.
 
--   NamedAngle: `NamedAngle Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Func_Type Func_Def`
+-   NamedAngle: 
+```
+NamedAngle Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Func_Type Func_Def
+```
 
     <i>score term: angle_constraint</i>
 
     * Angle between Atom2-\>Atom1 vector and Atom2-\>Atom3 vector; the angle (passed as a value to the Func) appears to be measured in radians
     * Atoms in NamedAngleConstraints are stored as names rather than numbers, as with AngleConstraint. Therefore, if atom numbers change while constraints are in the pose, the NamedAngleConstraint will still constraint the correct atoms, while the AngleConstraint may constrain unintended atoms. There is a small tradeoff in computational efficiency versus AngleConstraint. If you know your atom numbers will not change while the constraint is in the pose, AngleConstraint is a better option, but if they might change, NamedAngleConstraint will ensure that the correct atoms are constrained.
  
--   Dihedral: `Dihedral Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Atom4_Name Atom4_ResNum Func_Type Func_Def`
+-   Dihedral: 
+```
+Dihedral Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Atom4_Name Atom4_ResNum Func_Type Func_Def
+```
 
     <i>score term: dihedral_constraint</i>
 
     * Dihedral angle of Atom1-\>Atom2-\>Atom3-\>Atom4. Dihedral is measured in radians on -pi -\> pi.
 
--   Dihedral: `DihedralPair Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Atom4_Name Atom4_ResNum Atom5_Name Atom5_ResNum Atom6_Name Atom6_ResNum Atom7_Name Atom7_ResNum Atom8_Name Atom8_ResNum Func_Type Func_Def`
+-   DihedralPair: 
+```
+DihedralPair Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Atom4_Name Atom4_ResNum Atom5_Name Atom5_ResNum Atom6_Name Atom6_ResNum Atom7_Name Atom7_ResNum Atom8_Name Atom8_ResNum Func_Type Func_Def
+```
 
 	<i>score term: dihedral_constraint</i>
 
 	* Constrains that the dihedral angles defined by Atom1-\>Atom2-\>Atom3-\>Atom4 and Atom5-\>Atom6-\>Atom7-\>Atom8 be identical.
 
--   CoordinateConstraint: `CoordinateConstraint Atom1_Name Atom1_ResNum[Atom1_ChainID] Atom2_Name Atom2_ResNum[Atom2_ChainID] Atom1_target_X_coordinate Atom1_target_Y_coordinate Atom1_target_Z_coordinate Func_Type Func_Def`
+-   CoordinateConstraint: 
+```
+CoordinateConstraint Atom1_Name Atom1_ResNum[Atom1_ChainID] Atom2_Name Atom2_ResNum[Atom2_ChainID] Atom1_target_X_coordinate Atom1_target_Y_coordinate Atom1_target_Z_coordinate Func_Type Func_Def
+```
 
     <i>score term: coordinate_constraint</i>
 
@@ -90,31 +111,46 @@ Single constraints restrain the value of a single metric
     * Atom_ResNum[Atom_ChainID] indicates a number with an optional letter together as a single token
 
 
--   LocalCoordinateConstraint: `LocalCoordinateConstraint Atom1_Name Atom1_ResNum Atom2_Name Atom3_Name Atom4_Name Atom234_ResNum Atom1_target_X_coordinate Atom1_target_Y_coordinate Atom1_target_Z_coordinate Func_Type Func_Def`
+-   LocalCoordinateConstraint: 
+```
+LocalCoordinateConstraint Atom1_Name Atom1_ResNum Atom2_Name Atom3_Name Atom4_Name Atom234_ResNum Atom1_target_X_coordinate Atom1_target_Y_coordinate Atom1_target_Z_coordinate Func_Type Func_Def
+```
 
     <i>score term: coordinate_constraint</i>
 
     * Constrain Atom1 to the XYZ position listed, relative to the coordinate frame defined by atoms 2/3/4 instead of the origin. LocalCoordinateConstraint is compatible with PDB numbering.
 
--   AmbiguousNMRDistance: `AmbiguousNMRDistance Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Func_Type Func_Def`
+-   AmbiguousNMRDistance: 
+```
+AmbiguousNMRDistance Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Func_Type Func_Def
+```
 
     <i>score term: atom_pair_constraint</i>
 
     * Distance between Atom1 and Atom2. The difference from AtomPairConstraint is that atom names are specially parsed to detect ambiguous hydrogens, which are either experimentally ambiguous or rotationally identical (like methyl hydrogens). The constraint applies to any hydrogens equivalent to the named hydrogen. The logic for determining which hydrogens are which is in src/core/scoring/constraints/AmbiguousNMRDistanceConstraints.cc:parse\_NMR\_name.
 
--   SiteConstraint: `SiteConstraint Atom1_Name Atom1_ResNum Opposing_chain Func_Type Func_Def`
+-   SiteConstraint: 
+```
+SiteConstraint Atom1_Name Atom1_ResNum Opposing_chain Func_Type Func_Def
+```
 
     <i>score term: atom_pair_constraint</i>
 
     * Constraint that a residue interacts with some other chain. SiteConstraints are a set of ambiguous atom-pair constraints that evaluate whether a residue interacts with some other chain or region - roughly, that it is (or is not) in a binding site. More specifically, if we have a SiteConstraint on a particular residue, that SiteConstraint consists of a set of distance constraints on the C-alpha from that residue to the C-alpha of all other residues in a set, typically the set being specific residues on another chain or chains. After each constraint is evaluated, only the constraint giving the lowest score is used as the SiteConstraint energy for that residue. The atom and resnum identify which atom is being checked for interactions with the opposing chain. Notice that "Constraint" is irregularly in its tag.  Regions for the SiteConstraint other than the entire other chain cannot currently be set via constraint file.
 
--   SiteConstraintResidues: `SiteConstraintResidues Atom1_ResNum Atom1_Name Res2 Res3 Func_Type Func_Def`
+-   SiteConstraintResidues: 
+```
+SiteConstraintResidues Atom1_ResNum Atom1_Name Res2 Res3 Func_Type Func_Def
+```
 
 	<i>score term: atom_pair_constraint</i>
 
 	* Constraint that a residue interacts with at least one of two other residues. The atom and resnum identify which atom is being checked for interactions with the CA atoms of the other residues.
 
--   BigBin: `BigBin res_number bin_char sdev`
+-   BigBin: 
+```
+BigBin res_number bin_char sdev
+```
 
     <i>score term: dihedral_constraint</i>
 
@@ -127,7 +163,6 @@ Nested constraints
 Nested constraints take as their parameters one or more other constraints, and allow optimization across multiple constraints. Typically in constraint files these are listed across multiple lines, with the name of the constraint opening the block of sub-constraints, and a line starting with "END" or "End" ending the block. In general, the scoretypes used by the nested constraints depends on which sub-constraints are used (this can normally be mixed).
 
 -   MultiConstraint:
-
      ```
      MultiConstraint                
      Constraint_Type1 Constraint_Def1
