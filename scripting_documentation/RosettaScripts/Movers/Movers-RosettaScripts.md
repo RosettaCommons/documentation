@@ -328,6 +328,8 @@ See [[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScri
 
 **[[SetupNCS|SetupNCSMover]]** - Sets up non crystallographic symmetry between residues and forces residues to maintain conformation and type
 
+**[[StoreResidueSubset|StoreResidueSubsetMover]]** - Creates a residue subset from a residue selector and stores it into the current pose under a given name.
+
 **[[StoreTask|StoreTaskMover]]** - (Developer release only) Creates and stores a packer task in the current pose
 
 **[[StoreCompoundTaskMover]]** - (Developer release only) Constructs compound logical tasks and stores them in the current pose
