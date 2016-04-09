@@ -300,6 +300,35 @@ The example below selects all residues that were converted to disulfides by the 
 
     <ResiduePDBInfoHasLabel name="all_disulf" property="DISULFIDIZE" />
 
+# StoreResidueSubset
+*Back to [[Mover|Movers-RosettaScripts]] page.*
+
+## StoredResidueSubset
+
+Creates a residue subset by retrieving a residur subset that has been cached into the current pose by the StoreResidueSubset mover. The pose length must be the same as when the subset was store.
+
+    <StoredResidueSubset name=(&string) subset_name=(&string) />
+
+-   subset\_name - The name the residue subset will be saved as in the pose's cacheable data. Must be identical to the subset\_name used to retrieve the task using the StoredResidueSubset task operation.
+
+**Example**
+
+    <RESIDUE_SELECTORS>
+      <!-- Creates a subset consisting of whatever is currently chain B -->
+      <Chain name="chainb" chains="B" />
+
+      <!-- Retrieves the residue subset created by the "StoreResidueSubset" mover -->
+      <StoredResidueSubset name="get_original_chain_b" subset_name="original_chain_b" />
+    </RESIDUE_SELECTORS>
+    <MOVERS>
+      <!-- stores a subset consisting of whatever is in chain B when this mover is called -->
+      <StoreResidueSubset name="store_subset" residue_selector="chainb" subset_name="original_chain_b" />
+    </MOVERS>
+
+##See Also
+
+* [[StoreTaskMover]]
+* [[StoreCompoundTaskMover]]
 
 ##See Also
 
