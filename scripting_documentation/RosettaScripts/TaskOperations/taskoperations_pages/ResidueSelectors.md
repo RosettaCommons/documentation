@@ -300,10 +300,8 @@ The example below selects all residues that were converted to disulfides by the 
 
     <ResiduePDBInfoHasLabel name="all_disulf" property="DISULFIDIZE" />
 
-# StoreResidueSubset
-*Back to [[Mover|Movers-RosettaScripts]] page.*
-
-## StoredResidueSubset
+## Other
+### StoredResidueSubset
 
 Creates a residue subset by retrieving a residur subset that has been cached into the current pose by the StoreResidueSubset mover. The pose length must be the same as when the subset was store.
 
