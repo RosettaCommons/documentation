@@ -309,7 +309,7 @@ Creates a residue subset by retrieving a residur subset that has been cached int
 
 -   subset\_name - The name the residue subset will be saved as in the pose's cacheable data. Must be identical to the subset\_name used to retrieve the task using the StoredResidueSubset task operation.
 
-**Example**
+####Example
 
     <RESIDUE_SELECTORS>
       <!-- Creates a subset consisting of whatever is currently chain B -->
@@ -323,7 +323,7 @@ Creates a residue subset by retrieving a residur subset that has been cached int
       <StoreResidueSubset name="store_subset" residue_selector="chainb" subset_name="original_chain_b" />
     </MOVERS>
 
-##See Also
+####See Also
 
 * [[StoreTaskMover]]
 * [[StoreCompoundTaskMover]]
