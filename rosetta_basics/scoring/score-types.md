@@ -3,7 +3,7 @@
 Standard Weights File
 =====================
 
-The default score function in Rosetta for scoring full-atom structures is currently **talaris2014**.  This is a slight modification of the **talaris2013** energy function.  This earlier energy function and its corrections were tested in the papers 
+The default score function in Rosetta for scoring full-atom structures is currently **talaris2014**.  This is a slight modification of the **talaris2013** energy function.  The **talaris2013** and **talaris2014** energy functions and their corrections were tested in the papers 
 
 [Leaver-Fay et al., Methods in Enzymology 2013](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3724755/)
 
