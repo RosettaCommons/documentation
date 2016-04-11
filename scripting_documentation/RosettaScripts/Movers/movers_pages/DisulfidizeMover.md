@@ -29,7 +29,7 @@ NOTES:
 - min_loop: Minimum distance between disulfide residues in primary sequence space.  (Default 8).
 - min_disulfides: Smallest allowable number of disulfides.
 - max_disulfides: Largest allowable number of disulfides.
-- keep_current_disulfides:  If true, all current disulfides are preserved.  If false, existing disulfides containing a CYS residue within either set1 or set2 are mutated to alanine. False by default.
+- keep_current_disulfides:  If true, all current disulfides are preserved.  If false, existing disulfides containing a CYS residue within either set1 or set2 are mutated to alanine. Disulfides with both CYS residues outside of the union of the selected residue sets will not be affected. False by default.
 - include_current_disulfides:  If true, current disulfides are included in the possible disulfide combinations to try.  False by default (only new disulfide combinations tried).
 - use_l_cys: Should the mover consider placing L-cysteine?  True by default.
 - use_d_cys: Should the mover consider placing D-cysteine?  False by default.  (Note that at least one of use_l_cys and use_d_cys must be set to "true".)
