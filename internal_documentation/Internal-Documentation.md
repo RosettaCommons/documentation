@@ -80,6 +80,17 @@ Design:
 - [[ Glycan Clash Check ]]
 - [[ Glycan Info ]]
 
+## Rosetta Method Documentation
+[[Computing SASA in Rosetta]]
+ - Method for computing SASA in Rosetta written by Jared
+
+[[Global Objects-Singletons in Rosetta | internal_documentation/singletons]]
+ - Creating singletons that are threadsafe. Andrew
+
+### JD3 -- version 3 of the JobDistributor system ###
+- TODO
+
+
 ## Documentation for Specific Projects
 
 ### Updating ResidueTypeSet to handle the full chemical repertoire of macromolecules
@@ -112,8 +123,6 @@ Design:
  - [[ Movers for Benchmarking | RosettaMP-Internal-Chemical-Movers ]]
  - [[ Pilot Apps | RosettaMP-Internal-Chemical-Apps ]]
 
-### JD3 -- version 3 of the JobDistributor system ###
-- TODO
 
 ### Design-specific scoring terms ###
 - [[Repeat stretch energy (aa_repeat_energy)|Repeat-stretch-energy]] -- A scoring term that penalizes long stretches of repeating sequence (*e.g.* poly-Q sequences).
@@ -168,7 +177,7 @@ Input Files:
 - [[CDR Instruction File]]
  * CDR Level control of Antibody Design and CDRSets used for Antibody modeling
 
-#### S.E.W.I.N.G. Protocol
+### S.E.W.I.N.G. Protocol
 - [[SEWING]]
  * [[Model Generation]] 
  * [[Model comparison with geometric hashing]] 
@@ -176,12 +185,6 @@ Input Files:
 - [[Sidechain Design aided by Sewing]]
 - [[SEWING Dictionary]]
 
-#### Methods
-[[Computing SASA in Rosetta]]
- - Method for computing SASA in Rosetta written by Jared
-
-[[Global Objects-Singletons in Rosetta | internal_documentation/singletons]]
- - Creating singletons that are threadsafe. Andrew
 
 ### Energy Function optimization ###
 #### Seattle Group 
@@ -192,4 +195,3 @@ Input Files:
 ### Chemical XRW 2016 ###
 - [[Overview of File I/O Code | FileIOOverview ]]
 - [[Changes made post-XRW | PostChemicalXRWChanges ]]
-
