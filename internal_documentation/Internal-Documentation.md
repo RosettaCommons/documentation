@@ -43,7 +43,9 @@ See [[how to write documentation|how-to-write-documentation]] for more details.
 
 ## Pilot Apps
 
-This is documentation for not-yet-released applications and code frameworks.
+This is documentation for not-yet-released applications
+
+### General 
 
 - [[multi-residue-ligand-dock]] - Docking of multiple ligand residues
 
