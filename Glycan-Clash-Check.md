@@ -37,5 +37,5 @@ Relevant Options:
 -ignore_hydrogens
  - Should we calculate only heavy-heavy atom clashes?
 
--bad_clash
-  - When we calculate atom-atom distances using LJ distances, clash is badly if distance < (atomI_LJ + atomJ_LJ)*(1 - bad_clash)
+-soft_clash
+  - When we calculate atom-atom distances using LJ distances, clash if distance < (atomI_LJ + atomJ_LJ)*(1 - soft_clash)
