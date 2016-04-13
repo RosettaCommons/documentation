@@ -80,6 +80,15 @@ Design:
 - [[ Glycan Clash Check ]]
 - [[ Glycan Info ]]
 
+## Pilot RosettaScript Movers/Filters/etc.
+
+### Carbohydrates
+- [[ Simple Glycosylation Mover ]]
+
+## Antibody Design
+- [[Generalized Antibody Design Framework RS]]
+
+
 ## Rosetta Method Documentation
 
 ### [[Computing SASA in Rosetta]]
