@@ -81,10 +81,11 @@ Design:
 - [[ Glycan Info ]]
 
 ## Rosetta Method Documentation
-[[Computing SASA in Rosetta]]
+
+### [[Computing SASA in Rosetta]]
  - Method for computing SASA in Rosetta written by Jared
 
-[[Global Objects-Singletons in Rosetta | internal_documentation/singletons]]
+### [[Global Objects-Singletons in Rosetta | internal_documentation/singletons]]
  - Creating singletons that are threadsafe. Andrew
 
 ### JD3 -- version 3 of the JobDistributor system ###
