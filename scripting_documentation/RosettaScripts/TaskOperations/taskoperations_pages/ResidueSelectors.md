@@ -138,6 +138,17 @@ This example will select all variants of ALA, C-terminal ASN residues, and disul
 
 ### Conformation Dependent Residue Selectors
 
+#### BinSelector
+
+The BinSelector selects residues that fall in a named mainchain torsion bin (e.g. the "A" bin, corresponding to alpha-helical residues by the "ABEGO" nomenclature).  Non-polymeric residues are ignored.  By default, only alpha-amino acids are selected, though this can be disabled.
+
+```
+     <Bin name=(&string) bin=(&string) bin_params_file=("ABEGO" &string) select_only_alpha_aas=(true &bool) />
+```
+- bin: The name of the mainchain torsion bin.
+- bin_params_file: The filename of a bin_params file that defines a set of torsion bins.  Current options include "ABEGO", "ABBA" (a symmetric version of the ABEGO nomenclature useful for mixed D/L design), and "PRO_DPRO" (which defines bins "LPRO" and "DPRO" corresponding to the regions of Ramachandran space accessible to L- and D-proline, respectively).  Predefined bin_params files are in database/protocol_data/generalizedKIC/bin_params/.  A custom-written bin_params file may also be provided with its relative path from the execution directory.
+- select_only_alpha_aas: If true, only alpha-amino acids are selected.  If false, any polymeric type allowed by the bin definitions file is selected.
+
 #### InterGroupInterfaceByVector
 
     <InterfaceByVector name=(%string) cb_dist_cut=(11.0&float) nearby_atom_cut=(5.5%float) vector_angle_cut=(75.0&float) vector_dist_cut=(9.0&float) grp1_selector=(%string) grp2_selector=(%string)/>
