@@ -41,6 +41,42 @@ See [[how to write documentation|how-to-write-documentation]] for more details.
 - [[Scons Overview and Specifics]]
 - [[Cmake Overview and Specifics]]
 
+## Pilot Apps
+
+This is documentation for not-yet-released applications and code frameworks.
+
+- [[multi-residue-ligand-dock]] - Docking of multiple ligand residues
+
+- [[hotspot-hash]] - Documentation for Hotspot hashing
+    * [[hshash-utils]] - Utilities for Hotspot hashing
+
+- [[multistate-design-ga]] - DNA interface multistate design  
+
+- [[RosettaPCS]] - Protein folding using Pseudo-Contact-Shift NMR restraints
+
+### Antibodies
+
+[[General Antibody Options and Tips]]
+
+Utilities:
+- [[CDR Cluster Identification]]
+   * Application to Identify North/Dunbrack CDR Clusters 
+- [[CDR Cluster Constrained Relax]]
+   * Application to Relax CDRs using cluster-based dihedral constraints 
+
+Design:
+- [[Rosetta Antibody Designer (RAbD) | RosettaAntibodyDesign]]
+  * Application for knowledge-based Antibody Design based on CDR clusters and cellular mimicry
+- [[Antibody Design Strategy Analysis]]
+  * Methods for analyzing various antibody design strategies
+- [[Antibody Design Benchmark Analysis]]
+  * Methods for analyzing various antibody design benchmarks
+
+### Carbohydrates
+
+- [[ Glycan Relax ]]
+- [[ Glycan Clash Check ]]
+- [[ Glycan Info ]]
 
 ## Documentation for Specific Projects
 
@@ -101,20 +137,7 @@ See [[how to write documentation|how-to-write-documentation]] for more details.
 ### Fragment assembly of RNA (FARNA) renovation, unification with stepwise
 - [[FARNA|farna-refactor]] is Rosetta's original RNA de novo modeling code (dating back to Rosetta++). It is undergoing some updates in 2015-2016.
 
-### Pilot Apps + Code Documentation
-
-This is documentation for not-yet-released applications and code frameworks.
-
-- [[multi-residue-ligand-dock]] - Docking of multiple ligand residues
-
-- [[hotspot-hash]] - Documentation for Hotspot hashing
-    * [[hshash-utils]] - Utilities for Hotspot hashing
-
-- [[multistate-design-ga]] - DNA interface multistate design  
-
-- [[RosettaPCS]] - Protein folding using Pseudo-Contact-Shift NMR restraints
-
-#### Antibodies
+### Antibodies
 [[General Antibody Options and Tips]]
 
 Utilities:
@@ -167,5 +190,4 @@ Input Files:
 ### Chemical XRW 2016 ###
 - [[Overview of File I/O Code | FileIOOverview ]]
 - [[Changes made post-XRW | PostChemicalXRWChanges ]]
-
 
