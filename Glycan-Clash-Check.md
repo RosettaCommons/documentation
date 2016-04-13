@@ -1,3 +1,13 @@
+About
+=====
+Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
+PI: William Scheif (Schief@scripps.edu)
+
+
+
+Description
+===========
+
 A pilot app specifically for glycan clashes which quantifies clashes between specified glycan branches and other chains and glycan branch - glycan branch clashes.  Does not count clashes for intra glycan branch.  Does not echo input files, adds info to output scorefile to allow for MPI runs.
 
 Clash Definition
