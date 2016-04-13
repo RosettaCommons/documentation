@@ -90,6 +90,16 @@ Design:
 ### JD3 -- version 3 of the JobDistributor system ###
 - TODO
 
+## Energy Function optimization ##
+### Seattle Group 
+[[Overview of Seattle Group energy function optimization project]]
+[[Updates beta july15]]
+[[Updates beta nov15]]
+
+## Chemical XRW 2016 ##
+- [[Overview of File I/O Code | FileIOOverview ]]
+- [[Changes made post-XRW | PostChemicalXRWChanges ]]
+
 
 ## Documentation for Specific Projects
 
@@ -185,13 +195,3 @@ Input Files:
 - [[Sidechain Design aided by Sewing]]
 - [[SEWING Dictionary]]
 
-
-### Energy Function optimization ###
-#### Seattle Group 
-[[Overview of Seattle Group energy function optimization project]]
-[[Updates beta july15]]
-[[Updates beta nov15]]
-
-### Chemical XRW 2016 ###
-- [[Overview of File I/O Code | FileIOOverview ]]
-- [[Changes made post-XRW | PostChemicalXRWChanges ]]
