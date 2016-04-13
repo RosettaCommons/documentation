@@ -88,6 +88,10 @@ Design:
 ### [[Global Objects-Singletons in Rosetta | internal_documentation/singletons]]
  - Creating singletons that are threadsafe. Andrew
 
+### Chemical XRW 2016 ##
+#### - [[Overview of File I/O Code | FileIOOverview ]]
+#### - [[Changes made post-XRW | PostChemicalXRWChanges ]]
+
 ### JD3 -- version 3 of the JobDistributor system ###
 - TODO
 
@@ -97,9 +101,7 @@ Design:
 [[Updates beta july15]]
 [[Updates beta nov15]]
 
-## Chemical XRW 2016 ##
-- [[Overview of File I/O Code | FileIOOverview ]]
-- [[Changes made post-XRW | PostChemicalXRWChanges ]]
+
 
 
 ## Documentation for Specific Projects
@@ -195,4 +197,3 @@ Input Files:
  * [[Assembly of models]] 
 - [[Sidechain Design aided by Sewing]]
 - [[SEWING Dictionary]]
-
