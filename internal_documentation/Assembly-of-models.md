@@ -122,7 +122,7 @@ The SewingAppendMover is a Mover that allows the addition of residues to a PDB t
 The complete set of additional flags respected by the SewingAppendMover
 ```
 -s                              The input PDB to be appended to
--sewing:partner_pdb             The 'partner' of the PDB being used as the starting model (usually a binding partner)
+-sewing:partner_pdb             The 'partner' of the PDB being used as the starting model (usually a binding partner). (It seems optional since Sharon Guffy didn't specify this partner_pdb)
 -sewing:pose_segment_starts     A vector of integers representing the starting residue (in Rosetta residue numbering) of each segment in the Model PDB (passed with the -s/-l flags)
 -sewing:pose_segment_ends       A vector of integers representing the end residue (in Rosetta residue numbering) of each segment in the Model PDB (passed with the -s/-l flags)
 -sewing:keep_model_residues     A vector of integers representing residues (in Rosetta residue numbering) that should not be allowed to change from their starting amino acid identity.
