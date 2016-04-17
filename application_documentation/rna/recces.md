@@ -12,14 +12,15 @@ Code and Demo
 
 The main RECCES application is `main/source/src/apps/public/rna_util/recces_turner.cc`. It is accompanied by a set of python codes in `tools/recces`. A  README file for the python codes is included. The optimized RECCES score function is `main/database/scoring/stepwise/rna/turner.wts`.
 
-For a minimal demonstration of RECCES, see: `demos/public/recces/`
+For a minimal demonstration of RECCES, see: `demos/public/recces/`. 
+[Online documentation for the RECCES demo](https://www.rosettacommons.org/demos/latest/public/recces/README) is also available.
 
 Application purpose
 ===================
 
 This code provides a way to compute the free energy of an RNA molecule using
 comprehensive sampling to account for the conformational entropy. RECCES also
-allows rapid reweighting of the score function by cachine the sub-scores of
+allows rapid reweighting of the score function by caching the sub-scores of
 each sampled conformation.
 
 Algorithm
@@ -38,7 +39,7 @@ protein applications, such work has not yet been performed.
 
 -   The score terms being cached are currently hard-coded in the source codes
 and the Python scripts; therefore adding new score terms requires editing the
-codes, which is not convinient. This can be make more general in the future by
+codes, which is not convenient. This can be make more general in the future by
 including a `current_score_terms` file for both the Rosetta and Python codes.
 
 Modes
