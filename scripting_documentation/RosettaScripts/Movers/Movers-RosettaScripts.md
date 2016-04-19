@@ -114,6 +114,10 @@ These are movers that should be usable in most cases with most systems
 
 **[[Small|SmallMover]]** - Makes small-move-style torsion moves (no propagation minimization)
 
+**[[NormalModeRelax|NormalModeRelaxMover]]** - Brings concerted motion to backbones using Anisotropic Network Model (ANM)
+
+**[[CartesianMD|CartesianMD]]** - Brings concerted motion to backbones using Cartesian-space molecular dynamics
+
 <!--- BEGIN_INTERNAL -->
 ### Comparative Modeling
 
