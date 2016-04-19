@@ -44,6 +44,9 @@ or incorrectly solved structures.  Many older antibody structures have some of t
  default=false
 
 -allow_omega_mismatches_for_north_clusters, Boolean,
-Skip first grouping Cis and Trans for North/Dunbrack clusters in which a Cis/Trans designation currently does not exist. If you get an NA, or a warning when identifying CDRs, change this option to true.  Currently only used for the RosettaAntibodyDesign (RAbD) Framework.,
+Skip first grouping Cis and Trans for North/Dunbrack clusters 
+in which a Cis/Trans designation currently does not exist. 
+If you get an NA, or a warning when identifying CDRs, change this option to true.  
+Currently only used for the RosettaAntibodyDesign (RAbD) Framework.,
  default=false
 ```
