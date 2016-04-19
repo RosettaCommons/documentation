@@ -10,13 +10,13 @@ NormalModeRelax relaxes a structures to the coordinate directions derived from A
        centroid=(true &false)
        scorefxn=("" &string)
        nmodes=(5 &Size)
-       mix\_modes=(false &bool)
+       mix_modes=(false &bool)
        pertscale=(1.0 &Real)
        randomselect=(false &bool)
-       relaxmode=("min" &string)
+       relaxmode=("min" &string, see below for options)
        outsilent=("" &string)
        nsample=(nmodes &Size)
-       cartesian\_minimize=(false &bool) />
+       cartesian_minimize=(false &bool) />
 ```
 
 -   cartesian: Use Cartesian normal model, which is recommended over Torsional normal mode 
@@ -26,8 +26,8 @@ NormalModeRelax relaxes a structures to the coordinate directions derived from A
 -   mix\_modes: Whether use mixture of modes.
 -   pertscale: By how much to perturb the backbone in Angstrom. 
 -   randomselect: Do random selection among sampled structures instead of picking best scoring one.
--   relaxmode: The way of relaxing structure. 
--   cartesian_minimize: Use cartesian minimization for relax or minimization.
+-   relaxmode: The way of relaxing structure. "relax" calls FastRelax, "min" Minimizer.  
+-   cartesian\_minimize: Use cartesian minimization for relax or minimization.
 -   nsample: How many structures to try. This only works when mix_modes = true; otherwise will try 2*nmodes.
 -   outsilent: Specifies name of output silent file to store all the sampled structures. By default the Mover won't output any silent. 
 
