@@ -5,7 +5,7 @@
 NormalModeRelax relaxes a structures to the coordinate directions derived from Anisotropic Network Model (ANM). The way how it works is: a) generate a extrapolated coordinates, b) put coordinate restraints to that coordinates, and c) run minimization or FastRelax. Current implementation tries multiple normal modes and returns the best scoring one. 
 
 ```
-<Small name="&string"
+<NormalModeRelax name="&string"
        cartesian=(true &bool)
        centroid=(true &false)
        scorefxn=("" &string)
