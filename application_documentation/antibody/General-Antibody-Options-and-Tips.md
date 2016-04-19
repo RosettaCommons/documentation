@@ -42,4 +42,8 @@ dependence of backbone geometry in proteins. Structure -.  If found, the model w
 Use FastRelax with bond angle min to fix issues.  These issues usually arise from poorly resolved crystal loops 
 or incorrectly solved structures.  Many older antibody structures have some of these issues.,
  default=false
+
+-allow_omega_mismatches_for_north_clusters, Boolean,
+Skip first grouping Cis and Trans for North/Dunbrack clusters in which a Cis/Trans designation currently does not exist. If you get an NA, or a warning when identifying CDRs, change this option to true.  Currently only used for the RosettaAntibodyDesign (RAbD) Framework.,
+ default=false
 ```
