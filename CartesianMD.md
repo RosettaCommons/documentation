@@ -32,14 +32,12 @@ CartesianMD calls Molecular Dynamics simulation in Rosetta with user-defined ene
 -   schfile: Use user-defined schedule file. This overrides any other flags or options. 
 Syntax: "sch [temperature] [nsteps]" to run simulation, or "repack" to repack side-chains.
 An example schedule file to run simulated annealing:
-sch 300 10000
-
-sch 250 10000
-
-sch 200 10000
-
-sch 150 10000
-
+```
+sch 300 10000 
+sch 250 10000 
+sch 200 10000 
+sch 150 10000 
+```
 
 This mover can also take an optional MoveMap (see [[FastRelax|FastRelaxMover]] documentation for details) to define the residue subset to which it should be applied. In the absence of the MoveMap, the mover is applied to the whole pose.
 
