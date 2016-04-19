@@ -19,16 +19,16 @@ CartesianMD calls Molecular Dynamics simulation in Rosetta with user-defined ene
        schfile=("" &string) />
 ```
 
--   rattle: Use Rattle to constraint hydrogen locations. This automatically sets integration step = 2fs. Otherwise uses integration step = 1fs.
--   scorefxn: Specify scorefunction to run MD simulation with.
+-   rattle: Use Rattle algorithm to constraint hydrogen locations. This automatically sets integration step = 2fs. Otherwise uses integration step = 1fs.
+-   scorefxn: Specify a scorefunction to run MD simulation with.
 -   scorefxn\_obj: Optional, identical to scorefxn unless specified. Specify a scorefunction to use as objective function for selecting a pose from trajectory. This will be used only when selectmode="minobj". 
--   nstep: Number of steps to simulate. With Rattle on (default), each step is 2fs, and hence, nstep=10000 will be 20ps.
--   temp: Reference temperature for constant temperature simulation. Recommended values: 150~200K for Talaris2014 and ~250 for beta_nov15.
+-   nstep: Number of steps to simulate. With Rattle on (default) each step is 2fs, and hence, nstep=10000 will be 20ps.
+-   temp: Reference temperature for constant temperature simulation. Recommended values: 150~200K for talaris2014_cart and ~250 for beta_nov15_cart.
 -   premin: Steps of Cartesian minimization before MD simulation
 -   postmin: Steps of Cartesian minimization after MD simulation
--   report: By how often the mover reports simulation status to log.
--   report\_scorecomp: Whether to report score components.
--   selectmode: How to select single pose from the trajectory. "final" to take final structure, "minobj" to take lowest objective function (by scorefxn\_obj) pose. 
+-   report: By how often the mover reports the simulation status to log.
+-   report\_scorecomp: Whether to report score components to log.
+-   selectmode: How to select single pose from the trajectory. "final" to take the final pose, "minobj" to take the lowest objective function (by scorefxn\_obj) pose. 
 -   schfile: Use user-defined schedule file. This overrides any other flags or options. 
 Syntax: "sch [temperature] [nsteps]" to run simulation, or "repack" to repack side-chains.
 An example schedule file to run simulated annealing:
