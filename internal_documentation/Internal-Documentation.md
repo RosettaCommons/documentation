@@ -40,6 +40,7 @@ See [[how to write documentation|how-to-write-documentation]] for more details.
 
 - [[Scons Overview and Specifics]]
 - [[Cmake Overview and Specifics]]
+- [[Building Rosetta on the Argonne "Mira" Blue Gene supercomputer]]
 
 ## Pilot Apps
 
