@@ -13,7 +13,7 @@ Uses Will Sheffler's packing code to estimate the total volume of intra-protein 
 ```
 <FILTERS>
     <CavityVolume name="cav_vol" />
-<FILTERS>
+</FILTERS>
 <PROTOCOLS>
     <Add filter_name="cav_vol" />
 </PROTOCOLS>
