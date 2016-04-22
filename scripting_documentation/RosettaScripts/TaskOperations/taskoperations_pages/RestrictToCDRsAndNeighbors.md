@@ -9,7 +9,8 @@ PI: Roland Dunbrack
 Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
 
 ### Brief
-Task Operation to restrict packing/design to specific CDRs and neighbors. Will disable packing/design for all other residues.
+Task Operation to restrict packing to specific CDRs and neighbors. Will disable packing AND design for all other residues. See the design options for further control. 
+
 See the [[DisableAntibodyRegionOperation]] and [[DisableCDRsOperation]] to further restrict the TaskFactory.
 
 ### Details 
@@ -18,7 +19,7 @@ By default, restricts to all packing of all CDRs and neighbors.  Analogous to th
 See options for control of which CDRs, including whether to only restrict to design and control of whether we design 
 neighbor antigen and/or neighbor framework residues.
 
-     <RestrictToCDRsAndNeighbors name=restrict cdrs=(&string,&string) disable_packing_and_design=(&bool) numbering_scheme=(&string) cdr_definition=(&string) />
+     <RestrictToCDRsAndNeighbors name=restrict cdrs=(&string,&string) numbering_scheme=(&string) cdr_definition=(&string) />
 
 ###Common Options 
 
