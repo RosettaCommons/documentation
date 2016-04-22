@@ -132,7 +132,7 @@ The complete set of additional flags respected by the SewingAppendMover
 
 An optional flag respected by the SewingAppendMover
 ```
--sewing:partner_pdb             The 'partner' of the PDB being used as the starting model (usually a binding partner). (It seems optional since both Sharon Guffy and Doonam Kim didn't specify this partner_pdb, but still worked fine)
+-sewing:partner_pdb             The 'partner' of the PDB being used as the starting model (usually a binding partner).
 ```
 
 
