@@ -358,7 +358,6 @@ See Also: [[Antibody TaskOperations | TaskOperations-RosettaScripts#antibody-and
 
 **[[AntibodyCDRGrafter]]** - Graft CDR loops from one structure to another, optionally optimize CDRs.
 
-<!--- BEGIN_INTERNAL -->
 
 ### Design ###
 
@@ -366,8 +365,6 @@ See Also: [[Antibody TaskOperations | TaskOperations-RosettaScripts#antibody-and
 
 **[[AntibodyDesignProtocol]]**
 
-
-<!--- END_INTERNAL -->
 
 
 ## Computational 'affinity maturation' movers
