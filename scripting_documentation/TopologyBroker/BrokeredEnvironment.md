@@ -29,7 +29,8 @@ In the following example, a ChainResidueSelector selecting chains named "A" and 
   <MOVERS>
     <UniformRigidBodyCM name="dock" mobile="ChainA" stationary="ChainB" />
     <Environment name="dockenv">
-      <Mover name="dock"/>
+      <!-- This will only apply the mover once, you'd need a GenericMonteCarlo for proper sampling -->
+      <Apply name="dock"/>
     <Environment/>
   </MOVERS>
   <PROTOCOLS>
