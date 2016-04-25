@@ -6,6 +6,8 @@
 Alex Sevy (alex.sevy@gmail.com); 
 PI: Jens Meiler
 
+###Description
+
 Multistate design mover used in the RECON protocol. MSDMover applies linking constraints to a pose based on the sequence of other input poses, then uses a predefined design mover to run design based on these sequence constraints. These constraints are then removed for the next step of the protocol. For more details on the RECON protocol see [Sevy AM, et al, PLoS Comput. Biol, 2015](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004300)
 
 ```
