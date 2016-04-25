@@ -13,10 +13,10 @@ Multistate design mover used at the end of the RECON protocol. In the RECON prot
 
 ```
 
--scorefxn: Score function to use when evaluating best amino acids at each position
--resfiles: A list of resfiles to define designable and repackable residues for all states in multistate design. Multiple resfiles can be used for multiple states - in this case the first resfile in the tag will be applied to the first structure, etc. One single resfile used for all states is also supported.
--task_operations: Specifies behavior of the packer when substituting different amino acids and repacking.
--debug: Output extra messages during the protocol
+-   scorefxn: Score function to use when evaluating best amino acids at each position
+-   resfiles: A list of resfiles to define designable and repackable residues for all states in multistate design. Multiple resfiles can be used for multiple states - in this case the first resfile in the tag will be applied to the first structure, etc. One single resfile used for all states is also supported.
+-   task_operations: Specifies behavior of the packer when substituting different amino acids and repacking.
+-   debug: Output extra messages during the protocol
 
 ##See Also
 
