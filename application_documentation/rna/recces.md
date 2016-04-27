@@ -37,10 +37,11 @@ Limitations
 is possible to extend the framework to other non-canonical RNA motifs and even
 protein applications, such work has not yet been performed.
 
--   The score terms being cached are currently hard-coded in the source codes
-and the Python scripts; therefore adding new score terms requires editing the
-codes, which is not convenient. This can be make more general in the future by
-including a `current_score_terms` file for both the Rosetta and Python codes.
+-   The score terms being cached are currently hard-coded in the source code 
+(recces_turner.cc) and the Python scripts; therefore adding new score terms 
+requires editing the codes, which is not convenient. This can be make more 
+general in the future by including a `current_score_terms` file for both the 
+Rosetta and Python codes.
 
 Modes
 =====
@@ -52,7 +53,8 @@ Input Files
 
 There is no specific input file required RECCES. One may use a different score
 function file for the simulated tempering simulation, other than the standard
-`stepwise/rna/turner.wts`.
+`stepwise/rna/turner.wts` (but if the score terms are different than in those
+turner.wts, then you need to modify the source code).
 
 Tutorial
 ========
