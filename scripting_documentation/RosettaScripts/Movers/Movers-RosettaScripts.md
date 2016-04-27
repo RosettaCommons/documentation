@@ -270,6 +270,7 @@ See [[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScri
 
 **[[TaskAwareSymMinMover]]** - (developer release only) Similar to SymMinMover, but allows minimization of only certain residues
 
+**[[PeriodicBoxMover]]** - Mover that allows to run MC simulation in a periodic box, for instance liquid simulation.  
 
 ### Other Pose Manipulation
 
