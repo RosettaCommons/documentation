@@ -77,7 +77,7 @@ A ```.comp``` file consists of one or more ```PENALTY_DEFINITION``` blocks.  Lin
 - ```BEFORE_FUNCTION <string>``` and ```AFTER_FUNCTION <string>``` This defines the behaviour of the penalty function outside of the user-defined range.  Allowed values are CONSTANT (first or last value repeats), LINEAR (linearly-ramping penalty based on the slope of the first two or last two penalty values), or QUADRATIC (parabolic penalty centred on zero and passing through the first two or last two penalty values).
 - ```END_PENALTY_DEFINITION``` Ends the block.
 
-The ```PENALTY_DEFINITION```, ```DELTA_START```, ```DELTA_END```, ```PENALTIES```, and ```END_PENALTY_DEFINITION``` lines are always required.  The ```BEFORE_FUNCTION``` and ```AFTER_FUNCTION``` lines are optional, and default to QUADRATIC if not specified.  One ```FRACTION``` *or* one ```ABSOLUTE``` line must also be present (but not both).  The ```TYPE```, ```NOT_TYPE```, ```PROPERTIES```, ```OR_PROPERTIES```, and ```NOT_PROPERTIES``` lines are all optional.  They can be used in conjunction.  The logic for deciding whether to count a residue or not is as follows:
+The ```PENALTY_DEFINITION```, ```PENALTIES```, and ```END_PENALTY_DEFINITION``` lines are always required.  The ```BEFORE_FUNCTION``` and ```AFTER_FUNCTION``` lines are optional, and default to QUADRATIC if not specified.  One ```FRACTION``` *or* one ```ABSOLUTE``` line must also be present (but not both).  ```DELTA_START``` and ```DELTA_END```, *or* ```FRACT_DELTA_START``` and ```FRACT_DELTA_END```, lines are required.  The ```TYPE```, ```NOT_TYPE```, ```PROPERTIES```, ```OR_PROPERTIES```, and ```NOT_PROPERTIES``` lines are all optional, and can be used in conjunction with one another.  The logic for deciding whether to count a residue or not is as follows:
 
 Count if ( any TYPE matches ) OR ( ( no NOT_TYPE matches ) AND ( ( no NOT_PROPERTIES property is present) AND ( (no PROPERTIES or OR_PROPERTIES are defined) OR ( all PROPERTIES are present) OR ( any OR_PROPERTIES are present ) ) ) ).
 
@@ -128,9 +128,9 @@ Here's a more complicated .comp file that imposes the requirement that the prote
 PENALTY_DEFINITION
 OR_PROPERTIES AROMATIC ALIPHATIC
 NOT_TYPE LEU
-DELTA_START -1
-DELTA_END 1
-PENALTIES 100 0 100
+FRACT_DELTA_START -0.05
+FRACT_DELTA_END 0.05
+PENALTIES 100 0 100 # The above two lines mean that if we're 5% below or 5% above the desired content, we get a 100-point penalty.
 FRACTION 0.4 # Forty percent aromatic or aliphatic, but not leucine
 BEFORE_FUNCTION CONSTANT
 AFTER_FUNCTION CONSTANT
@@ -138,7 +138,7 @@ END_PENALTY_DEFINITION
 
 PENALTY_DEFINITION
 TYPE LEU
-DELTA_START -1
+DELTA_END -1
 DELTA_END 1
 PENALTIES 100 0 100
 FRACTION 0.05 # Five percent leucine
