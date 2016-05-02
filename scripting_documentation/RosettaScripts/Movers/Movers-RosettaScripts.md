@@ -164,7 +164,7 @@ These are movers that should be usable in most cases with most systems
 
 **[[FileConstraintGenerator]]** - Generates, adds, and removes constraints from a file
 
-**[[TerminiConstraintGenerator]]** - Generates atom pair constraints between N- and C- te
+**[[TerminiConstraintGenerator]]** - Generates atom pair constraints between N- and C- termini
 
 ### Docking/Assembly
 
