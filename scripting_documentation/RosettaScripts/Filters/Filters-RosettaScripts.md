@@ -184,6 +184,8 @@ These filters are used primarily for the reports they generate in the log and/or
 
 **[[RotamerBoltzmannWeight|RotamerBoltzmannWeightFilter]]** - Reports the Boltzmann probability for the occurrence of a rotamer.
 
+**[[RotamerBoltzmannWeight2|RotamerBoltzmannWeight2Filter]]** - Reports the Boltzmann probability for the occurrence of the specific rotamers in a given residue subset. Multiple methods for computing probability and scoring are available.
+
 **[[StemFinder|StemFinderFilter]]** - Compare PDBs to template to identify stems for splicing segments.
 
 **[[AlaScan|AlaScanFilter]]** - Reports ddG of alanine scanning.
