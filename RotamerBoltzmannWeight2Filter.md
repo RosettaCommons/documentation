@@ -8,7 +8,7 @@ Computes the Boltzmann probability of occurrence of each rotamer in the pose wit
 
 4. Simplified options with the aim of greater user transparency.
 
-*Score Computation*
+===Score Computation===
 
 RotamerBoltzmannWeight2 uses a two-step process to compute a score.  First, rotamer probabilities are computed using the method specified by the 'probability_type' option for all selected residues. Next, these probabilities are combined to a single number using the method specified by the 'score_type' option.
 
@@ -20,7 +20,9 @@ Note that this filter does not perform any pose modification prior to computatio
     residue_selector=("TrueSelector" &string)
     scorefxn=(talaris2014 &string)
     probability_type=("ROTAMER_BOLTZMANN" &string)
-    score_type=("MEAN_PROBABILITY" &string) />
+    score_type=("MEAN_PROBABILITY" &string)
+    temperature=(0.8 &real)
+    lambda=(0.5 &real) />
 ```
 
 **Options**
