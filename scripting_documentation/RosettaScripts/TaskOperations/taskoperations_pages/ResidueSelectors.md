@@ -341,7 +341,7 @@ The example below selects all residues that were converted to disulfides by the 
 ## Other
 ### StoredResidueSubset
 
-Creates a residue subset by retrieving a residur subset that has been cached into the current pose by the StoreResidueSubset mover. The pose length must be the same as when the subset was store.
+Creates a residue subset by retrieving a residur subset that has been cached into the current pose by the [[StoreResidueSubsetMover]]. The pose length must be the same as when the subset was store.
 
     <StoredResidueSubset name=(&string) subset_name=(&string) />
 
