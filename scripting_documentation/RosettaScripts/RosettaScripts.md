@@ -201,6 +201,47 @@ These values can be changed at will for different runs, for example:
 
 Multiple instances of the "%%var%%" string will all be substituted, as well as in any [[subroutine|Movers-RosettaScripts#Subroutine]] XML files. Note that while currently script\_vars are implemented as pure macro text substitution, this may change in the future, and any use aside from substituting tag values may not work. Particularly, any use of script variables to change the parsing structure of the XML file itself is explicitly \*not\* supported, and you have a devious mind for even considering it.
 
+### XML File Inclusion
+
+It can be convenient to put commonly-used pieces of XML scripts in their own files, and to direct a script to load some XML code from a preexisting file so that the user does not need to copy and paste pieces of XML code manually.  The XML ```xi:include``` command may be used for this purpose, with the file to be included specified using "href=filename".
+
+```
+<xi:include href=(&filename_string) />
+```
+
+The ```xi:include``` block is naïvely replaced with the contents of the file specified with "href=filename".  The following is an example of the use of ```xi:include```, in which we suppose that the user frequently uses the AlaScan and Ddg filters and wishes to put their setup in a separate file that he/she can include any time he/she writes a new RosettaScripts XML file:
+
+<b>file1.xml</b>:
+```
+<ROSETTASCRIPTS>
+  <SCOREFXNS>
+    <interface weights=interface/>
+  </SCOREFXNS>
+  <FILTERS>
+    <xi:include href="file2.xml" />
+    <Sasa name=sasa confidence=0/>
+  </FILTERS>
+  <MOVERS>
+    <Docking name=dock fullatom=1 local_refine=1 score_high=soft_rep/>
+  </MOVERS>
+  <APPLY_TO_POSE>
+  </APPLY_TO_POSE>
+  <PROTOCOLS>
+    <Add mover_name=dock filter_name=scan/>
+    <Add filter_name=ddg/>
+    <Add filter_name=sasa/>
+  </PROTOCOLS>
+  <OUTPUT scorefxn=interface />
+</ROSETTASCRIPTS>
+```
+
+<b>file2.xml</b>:
+```
+    <AlaScan name=scan partner1=1 partner2=1 scorefxn=interface interface_distance_cutoff=10.0 repeats=5/>
+    <Ddg name=ddg confidence=0/>
+```
+
+Note that file inclusion occurs recursively, so that included files may include other files.  Circular dependencies (<i>e.g.</i> file1.xml includes file2.xml includes file3.xml includes file1.xml) are prohibited.  Variable substitution occurs after file inclusion, which means that ```%%variable%%``` statements may occur in included files; however, this also means that ```xi:include``` blocks cannot contain ```%%variable%%``` statements.
 
 revert\_design\_to\_native application
 ----------------------------------
