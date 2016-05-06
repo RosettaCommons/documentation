@@ -119,7 +119,7 @@ Selects residues in the pose at random. Note that this residue selector is stoch
 
     <RandomResidue name=(&string)
         residue\_selector=(TrueSelector &string)
-        num_residues=(& int) />
+        num\_residues=(1 &int) />
 
 - num\_residues -- The number of residues to be randomly selected
 - residue\_selector -- Defines the subset from which random residues are chosen.
