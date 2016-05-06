@@ -117,7 +117,11 @@ any ResidueSelector can be defined as a subtag of the Not selector.  You cannot,
 
 Selects residues in the pose at random. Note that this residue selector is stochastic. This is, it will return a different set of residues every time it is called. However, the randomly selected residues can be saved using the [[StoreResidueSubset]] mover and retrieved using the [[StoredResidueSubset]] selector.
 
-    <RandomResidue name=(&string) residue\_selector=(TrueSelector &string)num_residues=(& int) />
+````
+    <RandomResidue name=(&string)
+        residue\_selector=(TrueSelector &string)
+        num_residues=(& int) />
+````
 
 - num\_residues -- The number of residues to be randomly selected
 - residue\_selector -- Defines the subset from which random residues are chosen.
