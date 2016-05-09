@@ -34,7 +34,8 @@ This example generates coordinate constraints for all sheet residues, adds them 
 
 ##See Also
 
-* [[RemoveConstraints]]
+* [[AddConstraints]]
+* [[FileConstraintGenerator]]
 * [[ConstraintSetMover]]
 * [[Constraints file format|constraint-file]]
 * [[AtomCoordinateCstMover]]
@@ -42,12 +43,4 @@ This example generates coordinate constraints for all sheet residues, adds them 
 * [[AddConstraintsToCurrentConformationMover]]
 * [[AddSidechainConstraintsToHotspotsMover]]
 * [[TaskAwareCstsMover]]
-
-##See Also
-
-* [[FileConstraintGenerator]]
-* [[Constraints file format|constraint-file]]
-* [[AtomCoordinateCstMover]]
-* [[ClearConstraintsMover]]
-* [[AddConstraintsToCurrentConformationMover]]
 
