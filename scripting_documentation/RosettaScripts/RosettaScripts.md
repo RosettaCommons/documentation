@@ -47,6 +47,8 @@ Copy, paste, fill in, and enjoy
 ```
 Anything outside of the \< \> notation is ignored and can be used to comment the xml file
 
+<b>Handy tip:</b> To get the empty template script above, you can run the rosetta_scripts application with the ```-print_template_script``` flag.  If this flag is passed, the application prints the template script and exits.  This is very useful when one is sitting down to write a new script.
+
 General Description and Purpose
 -------------------------------
 
