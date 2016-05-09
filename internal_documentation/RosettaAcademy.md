@@ -195,7 +195,7 @@ There are plenty of useful links available that are connected with Rosetta, in a
 How to generate code templates of common Rosetta classes/apps/unit tests to save development time.  Seriously, want to write a mover?  Start here! ```Rosetta/main/source/code_templates```
 
 Here is an example of creating a new mover for carbohydrates:
- ```
+```
 ./generate_templates.py --type mover --class_name TestMover --brief "A simple testing Mover" --namespace protocols carbohydrates
 ```
 
