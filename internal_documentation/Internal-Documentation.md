@@ -27,9 +27,9 @@ comment tags will be stripped from the documentation prior to being provided as 
 
 See [[how to write documentation|how-to-write-documentation]] for more details.
 
-## Overview Documentation
+## Development Overview
 - [[RosettaAcademy (or "Rosetta for Newbies")|RosettaAcademy]] - An intro guide for new RosettaCommons users and developers.
-
+- [[Code Template Generation | code_templates ]] - How to use the template generator scripts to generate code templates of common Rosetta classes/apps/unit tests to save development time
 - [[A guide to developing in Rosetta]] - Outdated, RosettaCommons centric developer overview.
 - [[Before commit check]] - Things to check before submission.
 - [[App name]] - Template for Rosetta application documentation.
