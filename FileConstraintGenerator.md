@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## FileConstraintGenerator
 
-Generates, adds, or replaces constraints in the pose using a Rosetta constraint file.
+Generates constraints from a Rosetta constraint file. Constraints generated using this Constraint Generator can be added to the pose using the [[AddConstraints]] mover and removed using the [[RemoveConstraints]] mover.
 
 ```
 <FileConstraintGenerator name=(&string) filename=(&string) />
@@ -18,10 +18,29 @@ filename: the file containing the constraint data. e.g.,:
 The format for Coordinate constraint files is:
 CoordinateConstraint target_res anchor_res x y z function
 
-Constraints generated using this mover can be removed from the pose using the RemoveCsts mover.
+### Example
+
+This example adds and removes constraints from "my_csts.cst" to the pose using the FileConstraintGenerator.
+
+```
+<MOVERS>
+    <AddConstraints name="add_csts" >
+        <FileConstraintGenerator name="gen_my_csts" filename="my_csts.cst" />
+    </AddConstraints>
+    <RemoveConstraints name="rm_csts" constraint_generators="gen_my_csts" />
+</MOVERS>
+<PROTOCOLS>
+    <Add mover="add_csts" />
+    <!-- do things with constraints -->
+    <Add mover="rm_csts" />
+</PROTOCOLS>
+```
+
 
 ##See Also
 
+* [[AddConstraints]]
+* [[RemoveConstraints]]
 * [[Constraints file format|constraint-file]]
 * [[AtomCoordinateCstMover]]
 * [[AddConstraintsToCurrentConformationMover]]
