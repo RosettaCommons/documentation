@@ -1,5 +1,4 @@
 
-
 #Code Templates
 
 #Author
@@ -37,8 +36,10 @@ The file will be created and placed into the same directory as the namespace giv
 Stubs are located in the src, application, and unit_test directories. 
 
 Here is an example of creating a new mover for carbohydrates:
- - ```./generate_templates.py --type mover --class_name GlycanShieldMover --brief "A mover that creates a glycan shield on a protein"
-   --namespace protocols carbohydrates```
+```
+./generate_templates.py --type mover --class_name TestMover --brief "Testing Mover" --namespace protocols carbohydrates
+
+```
    
    
 #More Information
