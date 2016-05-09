@@ -18,9 +18,9 @@ Remember that to have effect, the coordinate_constraint scoreterm must be on in 
     ca_only=(&bool false)
     ambiguous\_hnq=(&bool false)
     native=(&bool false)
-    align\_reference=(&bool false) />
+    align_reference=(&bool false) />
 ```
-    residue\_selector - if given, only apply constraints to the selected residues. If not given, constraints will be applied to all residues in the pose.
+    residue_selector - if given, only apply constraints to the selected residues. If not given, constraints will be applied to all residues in the pose.
     sd - the strength/deviation of the constraints to use (e.g. -relax:coord_cst_stdev)
     bounded - whether to use harmonic (false) or bounded (true) constraints
     bounded_width - the width of the bounded constraint (e.g. -relax::coord_cst_width)
