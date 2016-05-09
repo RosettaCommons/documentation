@@ -24,6 +24,41 @@ If you want to constrain multiple hydrogen bonds simulataneously, you should use
 
 It is also possible to select multiple atoms in each residue. If this occurs, Ambiguous constraints are generated for each (A1, A2) pair in each (r1, r2) pair, where r1 is a residue selected by residue_selector1, r2 is a residue selected by residue_selector2, A1 is a hydrogen-bond-capable atom in r1, and A2 is a hydrogen-bond-capable atom in r2. The resulting score will only include the best-scoring hydrogen bonding atom pair. If you want to constrain multiple hydrogen bonds simulataneously, you should use a seperate HydrogenBondConstraintGenerator for each.
 
+### Parent atom selection
+
+The atoms involved in the angle and dihedral constraints are given below:
+<table>
+<tr>
+<td><b>Residue Name</b></td><td><b>A1</b></td><td><b>P_A1</b></td><td><b>PP_A1</b></td>
+<td><b>Distance (1/2)</b></td><td><b>Angle</b></td><td><b>Dihedrals</b></td>
+</tr></b>
+<tr><td>ARG</td><td>NE</td><td>CZ</td><td>NH1</td><td>1.4</td><td>120.0</td><td>0.0,180.0</td></tr>
+<tr><td>ARG</td><td>NH1</td><td>CZ</td><td>NE</td><td>1.4</td><td>120.0</td><td>0.0,180.0</td></tr>
+<tr><td>ARG</td><td>NH2</td><td>CZ</td><td>NE</td><td>1.4</td><td>120.0</td><td>0.0,180.0</td></tr>
+
+<tr><td>ASP</td><td>OD1</td><td>CG</td><td>OD2</td><td>1.4</td><td>120.0</td><td>0.0,180.0</td></tr>
+<tr><td>ASP</td><td>OD2</td><td>CG</td><td>OD1</td><td>1.4</td><td>120.0</td><td>0.0,180.0</td></tr>
+
+<tr><td>CYS</td><td>SG</td><td>CB</td><td>CA</td><td>2.0</td><td>109.5</td><td>Any</td></tr>
+
+<tr><td>GLU</td><td>OE1</td><td>CD</td><td>OE2</td><td>1.4</td><td>120.0</td><td>0.0,180.0</td></tr>
+<tr><td>GLU</td><td>OE2</td><td>CD</td><td>OE1</td><td>1.4</td><td>120.0</td><td>0.0,180.0</td></tr>
+
+<tr><td>HIS</td><td>ND1</td><td>CE1</td><td>NE2</td><td>1.4</td><td>120.0</td><td>180.0</td></tr>
+<tr><td>HIS</td><td>NE2</td><td>CE1</td><td>ND1</td><td>1.4</td><td>120.0</td><td>180.0</td></tr>
+
+<tr><td>LYS</td><td>NZ</td><td>CE</td><td>CD</td><td>1.4</td><td>109.5</td><td>Any</td></tr>
+
+<tr><td>SER</td><td>OG</td><td>CB</td><td>CA</td><td>1.4</td><td>109.5</td><td>Any</td></tr>
+
+<tr><td>THR</td><td>OG1</td><td>CB</td><td>CA</td><td>1.4</td><td>109.5</td><td>Any</td></tr>
+
+<tr><td>TRP</td><td>NE1</td><td>CD1</td><td>CG</td><td>1.4</td><td>120.0</td><td>180.0</td></tr>
+
+<tr><td>TYR</td><td>OH</td><td>CZ</td><td>CE1</td><td>1.4</td><td>109.5</td><td>Any</td></tr>
+
+</table>
+
 ### Caveats
 
 To have effect, the atom_pair_constraint, angle_constraint, and dihedral_constraint scoreterms must be on in the scorefunction.
