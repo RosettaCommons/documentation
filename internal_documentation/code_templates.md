@@ -1,5 +1,4 @@
-
-#Code Templates
+#Rosetta Code Templates
 
 #Author
 Jared Adolf-Bryfogle (jadolfbr@gmail.com); November 2015
