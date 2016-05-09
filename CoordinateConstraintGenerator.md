@@ -5,7 +5,7 @@
 Generates coordinate constraints to restrain atoms of the pose to specific coordinates. Coordinate constraints can be generated according to the state of the pose at apply time, or optionally, based on a separate native pose.
 
 
-Remember that to have effect, the coordinate_constraint scoreterm must be on in the scorefunction. It is highly recommended that you apply a virtual root to your pose prior to applying these constraints, especially if you're constraining against a native. (See the [[VirtualRoot]] mover.)
+Remember that to have effect, the coordinate_constraint scoreterm must be on in the scorefunction. It is highly recommended that you apply a virtual root to your pose prior to applying these constraints, especially if you're constraining against a native. (See the [VirtualRoot](#VirtualRoot) mover.)
 
 
 ```
