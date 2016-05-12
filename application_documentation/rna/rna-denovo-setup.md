@@ -67,7 +67,7 @@ Making models
 Following are examples for a sequence drawn from RNA puzzle 11, a long hairpin with several submotifs. The fasta file `RNAPZ11.fasta` looked like this:
 
 ```
-> RNAPZ11 (7SK RNA 5' hairpin)
+>RNAPZ11 A:1-57
 gggaucugucaccccauugaucgccuucgggcugaucuggcuggcuaggcggguccc
 ```
 
