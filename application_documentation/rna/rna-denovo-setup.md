@@ -94,7 +94,7 @@ rna_helix.py  -o H2.pdb -seq cc gg -resnum 14-15 39-40
 This application output the helix with chains A and B, but removing the chains prevents some confusion with later steps, so you can run:
 
 ```
-replace_chain_inplace.py  H2.pdb 
+replace_chain_inplace.py  H2.pdb A
 ```
 
 To setup the above python scripts, follow the directions for setting up [[RNA tools|rna-tools]].
@@ -141,7 +141,7 @@ Fragment assembly of RNA with full atom refinement (FARFAR) is not yet equipped 
 ```
 rna_denovo_setup.py -fasta RNAPZ11.fasta \
     -secstruct_file RNAPZ11_OPEN.secstruct \
-   -working_res 14-25 30-40 \
+   -working_res A:14-25 A:30-40 \
    -s H2.pdb H4.pdb \
    -fixed_stems \
    -tag H2H3H4_run1b_openH3_SOLUTION1 \
