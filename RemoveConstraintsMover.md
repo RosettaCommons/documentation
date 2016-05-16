@@ -34,7 +34,8 @@ This example generates coordinate constraints for all sheet residues, adds them 
 
 ##See Also
 
-* [[AddConstraints]]
+* [[AddConstraintsMover]]
+* [[ConstraintScoreFilter]]
 * [[FileConstraintGenerator]]
 * [[ConstraintSetMover]]
 * [[Constraints file format|constraint-file]]
