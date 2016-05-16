@@ -33,6 +33,7 @@ This example adds coordinate constraints to all residues in sheets.
 
 * [[RemoveConstraints]]
 * [[ConstraintSetMover]]
+* [[ConstraintScoreFilter]]
 * [[Constraints file format|constraint-file]]
 * [[AtomCoordinateCstMover]]
 * [[ClearConstraintsMover]]
