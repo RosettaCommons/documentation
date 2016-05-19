@@ -18,6 +18,8 @@ References
 
 P. Douglas Renfrew, Eun Jung Choi, Brian Kuhlman, "Using Noncanonical Amino Acids in Computational Protein-Peptide Interface Design" (2011) PLoS One. It is strongly recomended to read the paper as it provided addition details.
 
+A *very* early version of this code was used to generate a bound dye rotamer library for Gulyani A, Vitriol E, Allen R, Wu J, Gremyachinskiy D, Lewis S, Dewar B, Graves LM, Kay BK, Kuhlman B, Elston T, Hahn KM. A biosensor generated via high-throughput screening quantifies cell edge Src dynamics. Nat Chem Biol. 2011 Jun 12;7(7):437-44. doi: 10.1038/nchembio.585. Erratum in: Nat Chem Biol. 2012 Aug;8(8):737. PubMed PMID: 21666688; PubMed Central PMCID: PMC3135387.
+
 Purpose
 ===========================================
 
