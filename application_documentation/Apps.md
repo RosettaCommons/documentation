@@ -333,7 +333,7 @@ Thread an RNA sequence onto a template.
 ### [[erraser_minimizer|erraser]]
 Add structural constraints to an RNA pose, including specific constraints on phosphate locations and other atoms, followed by minimization.
 
-### [[surface_docking]]
+### [[surface_docking|surface-docking]]
 Dock a protein to a mineral surface.
 
 ### [[swa_protein_main|swa-protein-main]]
