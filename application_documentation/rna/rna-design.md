@@ -134,3 +134,4 @@ chunk001_uucg_RNA.pack.out:                      Scores (with breakdown by score
 * [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
 * [[Commands collection]]: A list of example command lines for running Rosetta executable files
+* [RiboKit](http://ribokit.github.io/): RNA modeling & analysis packages maintained by the Das Lab
