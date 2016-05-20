@@ -392,3 +392,4 @@ This is a new executable as of 2014, with continuing updates to end of 2015.
 * [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
 * [[Commands collection]]: A list of example command lines for running Rosetta executable files
+* [RiboKit](http://ribokit.github.io/): RNA modeling & analysis packages maintained by the Das Lab
