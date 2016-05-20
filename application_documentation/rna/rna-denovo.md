@@ -352,3 +352,4 @@ Written in 2008. Last updates: Nov. 2011 and Aug. 2014 by Rhiju Das (rhiju [at] 
 * [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
 * [[Commands collection]]: A list of example command lines for running Rosetta executable files
+* [RiboKit](http://ribokit.github.io/): RNA modeling & analysis packages maintained by the Das Lab
