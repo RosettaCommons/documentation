@@ -32,11 +32,13 @@ The application is also available in MPI form for sampling large numbers of conf
 mpirun -np 25 /my_rosetta_path/main/source/bin/simple_cycpep_predict.mpi.linuxgccrelease -cyclic_peptide:MPI_processes_by_level 1 24 -cyclic_peptide:MPI_batchsize_by_level 10 -cyclic_peptide:MPI_output_fraction 0.1 -nstruct 2500 -cyclic_peptide:sequence_file inputs/seq.txt -cyclic_peptide:genkic_closure_attempts 1000 -cyclic_peptide:min_genkic_hbonds 2 -mute all -unmute protocols.cyclic_peptide_predict.SimpleCycpepPredictApplication_MPI_summary -in:file:native inputs/native.pdb -out:file:silent output.silent
 ```
 
+See the [[Build Documentation]] for details on the MPI (Message Passing Interface) build, and the MPI section below for more information about the MPI-specific options.
+
 # Full inputs
 
 1.  The user must prepare a ASCII (text) file specifying the peptide sequence.  This file must consist of whitespace-separated residue names (e.g. ```PHE LYS ARG DLEU DASP DALA TYR ASN```).  The program will throw an error if not provided with such a file.  _Note that FASTA-formatted files are **not** acceptable, since they do not permit facile specification of non-canonical amino acids._
 
-2.  All other inputs are based on flags.  Relevant flags are:<br/><br/>
+2.  All other inputs are based on flags.  (See the MPI section, below for additional flags specific to that version.)  Relevant flags for the non-MPI version are:<br/><br/>
 **-cyclic_peptide:sequence_file \<filename\>** Mandatory input.  The sequence file, described above.<br/><br/>
 **-out:nstruct \<int\>** The number of structures that the application will attempt to generate.  Since closed conformations satisfying hydrogen bonding criteria might not be found for every attempt, the actual number of structures produced will be less than or equal to this number.<br/><br/>
 **-cyclic_peptide:genkic_closure_attempts \<int\>**  For each structure attempted, how many times should the application try to find a closed conformation?  Default 10,000.  Values from 250 to 50,000 could be reasonable, depending on the peptide.<br/><br/>
@@ -91,6 +93,36 @@ The algorithm is as follows:
 # Large-scale sampling with BOINC
 
 The **simple_cycpep_predict** protocol is one of the protocols that can be run from the [[minirosetta]] application, using the **-protocol simple_cycpep_predict** flag.  Custom BOINC OpenGL graphics have been written for this application.  It is strongly recommended that the **-cyclic_peptide:checkpoint_job_identifier** option be used to allow jobs to checkpoint themselves if run on BOINC (since BOINC jobs can be interrupted by the user).  See [[minirosetta]]'s documentation for more information.
+
+# Large-scale sampling on HPC clusters with MPI (the Message Passing Interface)
+
+When Rosetta is compiled with the "extras=mpi" flag, the compiled version of the **simple_cycpep_predict** app (bin/simple_cycpep_predict.mpi.[os][compiler][release/debug]) has some additional features, with additional flags controlling those features.  In MPI mode, the app has a custom-written scalable job distribution and collection system, suitable for parallel sampling on systems as small as a laptop or as large as the IBM Blue Gene/Q infrastructure (hundreds of thousands of parallel CPUs).
+
+The job distribution system consists of a single **emperor** process, an arbitrary number of levels of **intermediate master** processes that send information up and down the hierarchy, and a large number of **slave** processes that actually do the sampling work.  Each level in the hierarchy has a number of nodes greater than or equal to its parent level.  The number of nodes in the hierarchy is specified with the **-cyclic_peptide:MPI_processes_by_level** flag, followed by a series of whitespace-separated integers representing the number of processes at each level, starting with the emperor and ending with the slaves.  The sum of these numbers must equal the total number of MPI processes launched.  For example, the following would specify one emperor, 50 intermediate masters (in a single level of intermediate masters), and 4949 slaves, for a total of 5000 processes (the same number launched):
+
+```
+mpirun -np 5000 /my_rosetta_path/main/source/bin/simple_cycpep_predict.mpi.linuxgccrelease -cyclic_peptide:MPI_processes_by_level 1 50 4949 ...(other options)...
+```
+
+In the above, the slaves would be assigned to masters to make the distribution as even as possible.
+
+At the start of a run, slaves send requests for jobs up the hierarchy.  Jobs are distributed to each level of the hierarchy in batches, with user-controlled batch sizes.  If batches are too small, the risk is that nodes spend all of their time requesting jobs and responding to job requests; if they are too large, the risk is that slaves are locked in to completing a large number of jobs even if another slave is free to do those jobs (<i>i.e.</i> poor load-balancing).  The number of jobs per batch at each level of the hierarchy is controlled with the **-cyclic_peptide:MPI_batchsize_by_level** flag, followed by a whitespace-separated list of integers.  One less value should be provided than was provided with the **-cyclic_peptide:MPI_processes_by_level** flag, since slaves do not pass batches of jobs any further down the hierarchy.  Using the example above, we could specify that the emperor would send out 200 jobs at a time to each master, and that each master would send 2 jobs at a time to each slave, with the following:
+
+```
+mpirun -np 5000 /my_rosetta_path/main/source/bin/simple_cycpep_predict.mpi.linuxgccrelease -cyclic_peptide:MPI_processes_by_level 1 50 4949 -cyclic_peptide:MPI_batchsize_by_level 200 2 ...(other options)...
+```
+
+The total number of jobs is controlled with the **-nstruct** flag.
+
+When jobs complete, they are not output automatically, since there might be far more output than could be reasonably written out to disk.  Instead, the slaves send job summaries up the hierarchy.  These are sorted during passage up the hierarchy by a criterion specified by the user using the **-cyclic_peptide:MPI_sort_by \<criterion\>** flag, where \<criterion\> is one of **energy**, **rmsd**, or **hbonds**.  By default, lowest values are first in the list, but this can be changed with **-cyclic_peptide:MPI_choose_highest true**.  The emperor node receives the sorted list, then sends requests down the hierarchy to the originating nodes for only the top N% (based on the sort criterion) of output structures, which are sent up the hierarchy to the emperor for output to disk.  The fraction of structures written to disk is set with the **-cyclic_peptide:MPI_output_fraction** flag, with a value from 0 to 1.  So if we wanted to do 20,000 samples, then write out the 5% of output structures with lowest energy from the run in the example above, we would use:
+
+```
+mpirun -np 5000 /my_rosetta_path/main/source/bin/simple_cycpep_predict.mpi.linuxgccrelease -cyclic_peptide:MPI_processes_by_level 1 50 4949 -cyclic_peptide:MPI_batchsize_by_level 200 2 -nstruct 20000 -cyclic_peptide:MPI_sort_by energy -cyclic_peptide:MPI_output_fraction 0.05 ...(other options)...
+```
+
+The details of sampling are controlled with the same flags used for the non-MPI version (see above).
+
+Note that, in MPI mode, there can be an incredible amount of tracer output.  For convenience, the emperor uses a separate tracer to write a summary of all jobs that have been completed.  To receive only this as output in the standard output stream, use the **-mute all -unmute protocols.cyclic_peptide_predict.SimpleCycpepPredictApplication_MPI_summary** flag.
 
 # Known issues
 
