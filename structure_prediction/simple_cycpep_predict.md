@@ -26,6 +26,12 @@ This protocol can also be run from the BOINC [[minirosetta build|minirosetta]], 
 
 (The first command, above, launches the computation, and the second launches the graphics window.  See the [[minirosetta]] documentation for more information.)
 
+The application is also available in MPI form for sampling large numbers of conformations in parallel on multiple processors (possibly on a massive scale on a high-performance computing cluster like the Blue Gene/Q architecture).  A custom job distribution system has been written to allow efficient distribution of computational work.  Additional command-line options are available in MPI mode to control the multi-level job distribution system.  A sample command-line would be:
+
+```
+mpirun -np 25 /my_rosetta_path/main/source/bin/simple_cycpep_predict.mpi.linuxgccrelease -cyclic_peptide:MPI_processes_by_level 1 24 -cyclic_peptide:MPI_batchsize_by_level 10 -cyclic_peptide:MPI_output_fraction 0.1 -nstruct 2500 -cyclic_peptide:sequence_file inputs/seq.txt -cyclic_peptide:genkic_closure_attempts 1000 -cyclic_peptide:min_genkic_hbonds 2 -mute all -unmute protocols.cyclic_peptide_predict.SimpleCycpepPredictApplication_MPI_summary -in:file:native inputs/native.pdb -out:file:silent output.silent
+```
+
 # Full inputs
 
 1.  The user must prepare a ASCII (text) file specifying the peptide sequence.  This file must consist of whitespace-separated residue names (e.g. ```PHE LYS ARG DLEU DASP DALA TYR ASN```).  The program will throw an error if not provided with such a file.  _Note that FASTA-formatted files are **not** acceptable, since they do not permit facile specification of non-canonical amino acids._
