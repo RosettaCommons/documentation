@@ -160,6 +160,8 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[BuriedUnsatHbonds2|BuriedUnsatHbonds2Filter]]** - Filter on number of unsatisfied h-bonds at interfaces (different algorithm from filter above, currently devel only).
 
+**[[OversaturatedHbondAcceptorFilter]]** - Filter on number of hydrogen bond acceptors that are receiving hydrogen bonds from more than the allowed number of donors.
+
 **[[DisulfideFilter]]** - Filter based on the presence of a disulfide across an interface.
 
 **[[AveragePathLength|AveragePathLengthFilter]]** - Compute shortest graph path length where residues are nodes and covalent bonds are edges.
