@@ -124,6 +124,14 @@ The details of sampling are controlled with the same flags used for the non-MPI 
 
 Note that, in MPI mode, there can be an incredible amount of tracer output.  For convenience, the emperor uses a separate tracer to write a summary of all jobs that have been completed.  To receive only this as output in the standard output stream, use the **-mute all -unmute protocols.cyclic_peptide_predict.SimpleCycpepPredictApplication_MPI_summary** flags.  (This silences all output from non-emperor processes, and most output from the emperor process, except for the summary at the end.)  Since generating output and managing output from large numbers of processes takes clock and MPI communication cycles, muting unnecessary output is advised for better performance.
 
+As a final not, intermediate master processes are optional; the minimum that one needs are an emperor node and a single slave node (though this setup would have no advantages over sampling with the non-MPI version of the app).  On a 4-core laptop, the following would be perfectly legal, for example:
+
+```
+mpirun -np 4 /my_rosetta_path/main/source/bin/simple_cycpep_predict.mpi.linuxgccrelease -cyclic_peptide:MPI_processes_by_level 1 3 -cyclic_peptide:MPI_batchsize_by_level 25 -nstruct 1000 -cyclic_peptide:MPI_sort_by energy -cyclic_peptide:MPI_output_fraction 0.05 ...(other options)...
+```
+
+This would farm out 1000 jobs to 3 slave processes in 25-job batches, with direct communication between the emperor and each slave (i.e. no intermediate masters).  This is inadvisable on very large systems, since the emperor can become inundated with too many communication requests from thousands of slaves, but is sensible on small systems.
+
 # Known issues
 
 - Glycine's Ramachandran plot should be completely symmetric, but it is not, since it is based on statistics from the PDB.  (PDB structures disproportionately have glycine in the region of Ramachandran space that only it can access).  A flag will be added in the future to permit a symmetrized version of the glycine Ramachandran map to be used for sampling and scoring.
