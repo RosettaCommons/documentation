@@ -122,7 +122,7 @@ mpirun -np 5000 /my_rosetta_path/main/source/bin/simple_cycpep_predict.mpi.linux
 
 The details of sampling are controlled with the same flags used for the non-MPI version (see above).
 
-Note that, in MPI mode, there can be an incredible amount of tracer output.  For convenience, the emperor uses a separate tracer to write a summary of all jobs that have been completed.  To receive only this as output in the standard output stream, use the **-mute all -unmute protocols.cyclic_peptide_predict.SimpleCycpepPredictApplication_MPI_summary** flags.
+Note that, in MPI mode, there can be an incredible amount of tracer output.  For convenience, the emperor uses a separate tracer to write a summary of all jobs that have been completed.  To receive only this as output in the standard output stream, use the **-mute all -unmute protocols.cyclic_peptide_predict.SimpleCycpepPredictApplication_MPI_summary** flags.  (This silences all output from non-emperor processes, and most output from the emperor process, except for the summary at the end.)  Since generating output and managing output from large numbers of processes takes clock and MPI communication cycles, muting unnecessary output is advised for better performance.
 
 # Known issues
 
