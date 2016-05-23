@@ -2,7 +2,7 @@
 
 Back to [[Application Documentation]].
 
-Created 24 October 2015 by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu).  Last updated 22 May 2016.
+Created 24 October 2015 by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu).  Last updated 23 May 2016.
 
 [[_TOC_]]
 
@@ -67,6 +67,8 @@ See the [[Build Documentation]] for details on the MPI (Message Passing Interfac
 **-cyclic_peptide:user_set_alpha_dihedrals \<RealVector\>**  Optionally, the user may fix certain mainchain dihedrals at user-specified values.  This flag must be followed by a list of groups of four numbers, in which the first represents a sequence position and the second, third, and fourth are the phi, psi, and omega values, respectively.  Unused if not specified.<br/><br/>
 **-cyclic_peptide:user_set_alpha_dihedral_perturbation \<Real\>**  If the **user_set_alpha_dihedrals** option is used, this is a small gaussian perturbation added to all dihedrals that were set.  Default 0.<br/><br/>
 **-in:file:native \<pdb_filename\>**  A PDB file for the native structure.  Optional.  If provided, an RMSD value will be calculated for each generated structure.<br/><br/>
+**-cyclic_peptide:filter_oversaturated_hbond_acceptors \<bool\>** Should sampled conformations with more than the allowed number of hydrogen bonds to an acceptor be discarded?  Default true.
+**-cyclic_peptide:hbond_acceptor_energy_cutoff \<Real\>** If we are filtering out conformations with oversaturated hydrogen bond acceptors, this is the hydrogen bond energy threshold above which a hydrogen bond is not counted.  Default -0.1.
 **-out:file:o \<pdb_filename\>** OR **-out:file:silent \<silent_filename\>**  Prefix for PDB files that will be written out, OR name of the binary silent file that will be generated.<br/><br/>
 
 # Other useful flags
@@ -87,7 +89,7 @@ The algorithm is as follows:
 2.  The [[Generalized Kinematic Closure|GeneralizedKICMover]] (GenKIC) protocol is used to find closed (cyclic) conformations of the peptide.  A single residue is chosen at random to be an "anchor" residue (excluding the two end residues).  The rest of the peptide is now a giant loop to be closed with GenKIC.  The first, last, and a randomly-chosen middle residue are selected as "pivot" residues.  GenKIC performs a series of samples (up to a maximum specified with the **-cyclic_peptide:genkic_closure_attempts** flag) in which it:
      - 2a.  Randomizes all residues in the loop, biased by the Ramachandran map.
      - 2b.  Analytically solves for phi and psi values for the pivot residues to close the loop.  At this step, anywhere from 0 to 16 solutions might result from the linear algebra performed.
-     - 2c.  Filters each solution based on internal backbone clashes, the Ramachandran score for the pivot residues (controlled with the **-cyclic_peptide:rama_cutoff** flag), and the number of backbone hydrogen bonds (controlled with the **-cyclic_peptide:min_genkic_hbonds** flag).  Solutions passing all filters are relaxed using [[FastRelax|FastRelaxMover]] with an elevated hydrogen bond weight (set using the **-cyclic_peptide:high_hbond_weight_multiplier** flag), then stored.
+     - 2c.  Filters each solution based on internal backbone clashes, the Ramachandran score for the pivot residues (controlled with the **-cyclic_peptide:rama_cutoff** flag), the presence of oversaturated hydrogen bond acceptors (controlled with the **-cyclic_peptide:filter_oversaturated_hbond_acceptors** flag), and the number of backbone hydrogen bonds (controlled with the **-cyclic_peptide:min_genkic_hbonds** flag).  Solutions passing all filters are relaxed using [[FastRelax|FastRelaxMover]] with an elevated hydrogen bond weight (set using the **-cyclic_peptide:high_hbond_weight_multiplier** flag), then stored.
      - 2d.  Repeats 2a through 2c until the maximum number of samples is reached, or until GenKIC has stored the number of solutions (passing filters) specified with the **-cyclic_peptide:genkic_min_solution_count** flag.
      - 2e.  Chooses the lowest-energy solution, based on the scorefunction with the exaggerated hydrogen bonding weight.
 3.  The resulting solution is then relaxed using the conventional scorefunction (hydrogen bond weight reset to normal value).
