@@ -67,8 +67,8 @@ See the [[Build Documentation]] for details on the MPI (Message Passing Interfac
 **-cyclic_peptide:user_set_alpha_dihedrals \<RealVector\>**  Optionally, the user may fix certain mainchain dihedrals at user-specified values.  This flag must be followed by a list of groups of four numbers, in which the first represents a sequence position and the second, third, and fourth are the phi, psi, and omega values, respectively.  Unused if not specified.<br/><br/>
 **-cyclic_peptide:user_set_alpha_dihedral_perturbation \<Real\>**  If the **user_set_alpha_dihedrals** option is used, this is a small gaussian perturbation added to all dihedrals that were set.  Default 0.<br/><br/>
 **-in:file:native \<pdb_filename\>**  A PDB file for the native structure.  Optional.  If provided, an RMSD value will be calculated for each generated structure.<br/><br/>
-**-cyclic_peptide:filter_oversaturated_hbond_acceptors \<bool\>** Should sampled conformations with more than the allowed number of hydrogen bonds to an acceptor be discarded?  Default true.
-**-cyclic_peptide:hbond_acceptor_energy_cutoff \<Real\>** If we are filtering out conformations with oversaturated hydrogen bond acceptors, this is the hydrogen bond energy threshold above which a hydrogen bond is not counted.  Default -0.1.
+**-cyclic_peptide:filter_oversaturated_hbond_acceptors \<bool\>** Should sampled conformations with more than the allowed number of hydrogen bonds to an acceptor be discarded?  Default true.<br/><br/>
+**-cyclic_peptide:hbond_acceptor_energy_cutoff \<Real\>** If we are filtering out conformations with oversaturated hydrogen bond acceptors, this is the hydrogen bond energy threshold above which a hydrogen bond is not counted.  Default -0.1.<br/><br/>
 **-out:file:o \<pdb_filename\>** OR **-out:file:silent \<silent_filename\>**  Prefix for PDB files that will be written out, OR name of the binary silent file that will be generated.<br/><br/>
 
 # Other useful flags
