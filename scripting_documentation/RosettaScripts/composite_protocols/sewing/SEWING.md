@@ -11,8 +11,3 @@ SEWING stands for **S**tructure **E**xtension **WI**th **N**ative-fragment **G**
 1. [[Model Generation|model-generation]] - Extraction of 'models' from native structures
 2. [[Model Comparison|model-comparison-with-geometric-hashing]] - Structurally compare models to one another using a geometric hashing algorithm
 3. [[Assembly|assembly-of-models]] - Stitch models together based on structural superimposition to form novel backbones
-
-##See Also
-* [[MonteCarloAssemblyMover]]
-* [[AppendAssemblyMover]]
-* [[RepeatAssemblyMover]]
