@@ -54,6 +54,37 @@ below:
 \
 ` cmd.start_rosetta_server("187.1.3.37","9001")`
 
+### Rosetta Usage
+
+Here are the options for observing a Rosetta simulation (Through JD2, rosettas job manager). 
+See below for PyRosetta code. 
+
+```
+-show_simulation_in_pymol 'Real'
+```
+
+ - default='5.0', 
+ -  Attach PyMOL observer to pose at the beginning of the simulation. Waits until at least every [argument] seconds before sending pose if something has changed, default 5. A value of 0 indicates to not skip any packets from sending! Don't forget to run the PyMOLPyRosettaServer.py script within PyMOL!
+
+```
+-update_pymol_on_energy_changes_only 'Boolean'
+```
+ - default = 'false', 
+ - 'Only Update the simulation in on energy change.  Useful if pymol observer is segfaulting on length changes.
+
+```
+-update_pymol_on_conformation_changes_only 'Boolean'
+```
+ - default = 'false'
+ - Only update the simulation in pymol on conformation change.
+
+```
+-keep_pymol_simulation_history, 'Boolean'
+```
+ - default = 'false'
+ - Keep history when using show_simulation_in_pymol flag?
+
+
 ### PyRosetta Usage
 
 #### *Sending Structures*
