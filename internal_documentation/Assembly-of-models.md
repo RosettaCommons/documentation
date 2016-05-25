@@ -4,6 +4,8 @@ Generating de novo backbones (or Assemblys) in the SEWING framework is accomplis
 
 Assembly of backbones is implemented within a Mover, and thus can be accessed via the [[RosettaScripts]] interface. There are currently several Movers implemented, each designed to accomplish different design goals. The base AssemblyMover has a handful of core methods which are selectively implemented or overwritten by the various sub-movers.
 
+SEWING is primarily run through [[RosettaScripts]]. Below, we describe the RosettaScripts interface to SEWING. 
+
 ###Flags common to all SEWING movers
 ```
 -s                              The input PDB (ignored, but still required, for many SEWING Movers)
@@ -193,3 +195,9 @@ Note that all IntraSegment Requirement tags *must* be nested inside of an IntraS
 ```xml
 <ResidueRetentionRequirement model_id=1 required_resnums="1 2 3" />
 ```
+
+##See Also
+* [[SEWING]]: The SEWING homepage.
+* [[Model Generation]]: Generating a model file (node file) for use with SEWING applications
+* [[Model comparison with geometric hashing]]: Generating an edge file for use with SEWING applications
+* [[SEWING Dictionary]]: Defines key SEWING terms.
