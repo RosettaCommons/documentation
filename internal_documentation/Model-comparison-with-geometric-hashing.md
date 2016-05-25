@@ -1,5 +1,5 @@
 ##Model comparison with geometric hashing
-Once a Model file has been generated, the models need to be structurally compared to one another using a geometric hashing algorithm implemented in the sewing_hasher.
+Once a Model file has been generated (see [[Model Generation]]), the models need to be structurally compared to one another using a geometric hashing algorithm implemented in the sewing_hasher.
 
 sewing_hasher hashing flags
 ```
@@ -36,3 +36,7 @@ Then, use the sewing_hasher executable to convert this plain-text file to binary
 ```
 
 The final result should be a score file named pdb.scores.bin, this is the score file that will be used during the Assembly of SEWING backbones.
+
+##See Also
+* [[Model Generation]] for an additional use of the sewing_hasher application
+* [[SEWING]]: The SEWING homepage
