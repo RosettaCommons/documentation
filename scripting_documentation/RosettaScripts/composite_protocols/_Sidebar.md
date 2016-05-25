@@ -23,6 +23,8 @@
      * [[GeneralizedKIC]]
      
      * [[MetropolisHastings|MetropolisHastings-Documentation]]
+     
+     * [[SEWING]]
 
    * [[Databases with RosettaScripts|RosettaScripts-database-connection-options]]
 
