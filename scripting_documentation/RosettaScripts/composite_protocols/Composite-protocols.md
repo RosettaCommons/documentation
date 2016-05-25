@@ -8,3 +8,6 @@
     -   [[GeneralizedKIC perturbers|GeneralizedKICperturber]]
     -   [[GeneralizedKIC filters|GeneralizedKICfilter]]
     -   [[GeneralizedKIC selectors|GeneralizedKICselector]]
+-   [[SEWING]]
+    -   [[SEWING Dictionary]]
+    -   [[Assembly of models]]
