@@ -303,6 +303,7 @@ or
     include_terminal_loops=(&bool, false)
     use_dssp=(&bool, false)
     pose_secstruct=(&string, "") />
+```
 
 SecondaryStructureSelector selects all residues with given secondary structure. For example, you might use it to select all loop residues in a pose.  SecondaryStructureSelector uses the secondary structure information in the pose to compute residues to select -- if that information is not present, or if always_use_dssp is set, it calls DSSP to determine the secondary structure of the pose.
 
