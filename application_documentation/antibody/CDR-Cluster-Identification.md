@@ -14,6 +14,7 @@ Adolf-Bryfogle J,  Xu Q,  North B, Lehmann A,  Roland L. Dunbrack Jr, [PyIgClass
 
 North B, Lehmann A, Dunbrack R, [A new clustering of antibody CDR loop conformations](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3065967/pdf/nihms-249534.pdf) (2011). JMB 406(2): 228-256.
 
+RosettaAntibody Framework.
 # Setup
 
 Antibodies need to be numbered in any numbering scheme accepted by Rosetta. These include: 
