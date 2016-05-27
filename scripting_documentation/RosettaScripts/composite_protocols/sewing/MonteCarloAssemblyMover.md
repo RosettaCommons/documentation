@@ -1,7 +1,7 @@
 #MonteCarloAssemblyMover
 
 
-The MonteCarloAssemblyMover is the standard mover for the SEWING framework. This mover will randomly add Models to build up an Assembly that satisfies a given set of requirements. The evaluation of requirements is handled by the [[Requirement Set|Assembly-of-models#RequirementSet]]. The decision to add/reject a model during the creation of an Assembly is based on a Monte-Carlo algorithm that uses a fast Assembly-specific score function for evaluation. Currently, the Assembly score function simply penalizes backbone clashes, and rewards designable contacts using the MotifHash framework.
+The MonteCarloAssemblyMover is the standard mover for the SEWING framework. This mover will randomly add Models to build up an Assembly that satisfies a given set of requirements. The evaluation of requirements is handled by the [[Requirement Set]]. The decision to add/reject a model during the creation of an Assembly is based on a Monte-Carlo algorithm that uses a fast Assembly-specific score function for evaluation. Currently, the Assembly score function simply penalizes backbone clashes, and rewards designable contacts using the MotifHash framework.
 
 ##Command-line Flags
 
@@ -18,7 +18,7 @@ As a subclass of AssemblyMover, MonteCarloAssemblyMover requires the command-lin
 
 ##Subtags
 
-The MonteCarloAssemblyMover (like other SEWING movers) can be given RequirementSet subtags, described in [[Assembly of models]].
+The MonteCarloAssemblyMover (like other SEWING movers) can be given [[RequirementSet]] subtags.
 
 ##Example
 Currently, this mover is only accessible via RosettaScripts. The below script will generate a 7-segment Assembly, in which the first segment must be an alpha-helix between 8 and 21 residues long.
