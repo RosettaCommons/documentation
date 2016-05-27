@@ -21,8 +21,10 @@ The AssemblyMover is the abstract base class from which all other AssemblyMovers
 ----------------------
 ###RosettaScripts-Accessible SEWING Movers:
 
-* [[EnumerateAssemblyMover]]
+* [[MonteCarloAssemblyMover]]
 * [[AppendAssemblyMover]]
+* [[RepeatAssemblyMover]]
+* [[EnumerateAssemblyMover]] (???)
 
 
 ----------------------
