@@ -4,4 +4,6 @@ The EnumerateAssemblyMover is a mover within the [[SEWING]] framework. This move
 
 This mover is not currently available in the released version of Rosetta.
 
-Return to [[Assembly of models]]
+
+##See Also
+* [[Assembly of models]]: General information on using SEWING movers in RosettaScripts
