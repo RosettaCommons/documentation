@@ -24,6 +24,7 @@
   * **Edge files**
   * **Alignment files**
   * **Rot files**
+
 ##Database input/output
 Rosetta supports input/output of databases in SQLite3, MySQL, and PostgreSQL. 
 More information on input/output with these formats can be found [[here|Database-IO]]. 
