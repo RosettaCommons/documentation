@@ -39,8 +39,11 @@ The AssemblyMover is the abstract base class from which all other AssemblyMovers
 
 -sewing:model_file_name Path to SEWING model file
 -sewing:score_file_name Path to SEWING edge file
--sewing:max_ss_num      Number of secondary structure elements and loops that compose
-                        a substructure. For instance, this number would be 3 for a helix-turn-helix motif.
+-sewing:max_ss_num      Number of secondary structure 
+                        elements and loops that compose
+                        a substructure. For instance, this
+                        number would be 3 for a helix-turn-helix
+                        motif.
 ```
 ###Optional flags
 
