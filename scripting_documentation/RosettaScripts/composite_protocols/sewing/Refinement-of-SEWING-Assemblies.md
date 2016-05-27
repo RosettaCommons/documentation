@@ -21,7 +21,9 @@ Currently, SEWING strips out all non-protein components for starting structures 
 When backbones are generated using [[SEWING movers|Assembly of models]], the native rotamers are saved with file name as a NativeRotamersFile (xxxx.rot). Therefore, one can give some bonus to these native residue types (add ResidueType constraints to pose) when designing sidechains (using [[AssemblyConstraintsMover]]). It is common practice to apply relatively weak constraints (e.g. weight 1) to helical and beta strand residues and stronger constraints (e.g. weight 5) to loop residues.
 
 ###Fixing residue identities in custom protocols
+When using [[AppendAssemblyMover]], there are often several residues (such as residues forming key binding interactions) that should be held fixed during refinement. Since residue numbers in each final assembly will be different from the residue numbers in the input pdb and from each other, selecting these residues is not straightforward.
 
+The [[RestrictIdentitiesAtAlignedPositions|RestrictIdentitiesAtAlignedPositionsOperation]] task operation can solve this problem. By using the starting node as the task operation's source_pdb and specifying the residue numbers in the starting node to be fixed, those residues can be fixed as the intended residue type. Since SEWING does not change the position of the starting node, the initial alignment will be correct; however, coordinate constraints must be used during refinement to ensure that the correct residues remain aligned.
 ##Common filters
 
 ##See Also
