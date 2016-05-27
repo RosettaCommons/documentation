@@ -20,7 +20,7 @@
 * **[[Chemical shift files|chemical-shift-file]]**: NMR chemical shift information used with [[CS-Rosetta|CS-Rosetta]].
 * **[[Bin transition probabilities files|Bin-transition-probabilities-file]]**: Probabilities of transitioning from one mainchain torsion bin to another, used by some sampling schemes.
 * [[SEWING]]-specific files:
-  * **Model files**: Specify substructures (nodes) to be used when generating structures
+  * **[[Model files|SEWING model files]]**: Specify substructures (nodes) to be used when generating structures
   * **Edge files**: Specify edges to be used when generating structures
   * **Rot files**: Store information about native residue identities in SEWING assemblies. Used with the AssemblyConstraintsMover.
 <!--- BEGIN_INTERNAL -->
