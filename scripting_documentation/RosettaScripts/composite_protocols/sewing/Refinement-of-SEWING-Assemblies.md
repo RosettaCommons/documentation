@@ -9,6 +9,9 @@ Since SEWING is often used to generate a large number of backbone conformations,
 * Removing duplicates
 * Score-based filtering
 
+###Handling Ligands
+Currently, SEWING strips out all non-protein components for starting structures (i.e. input structures for AppendAssemblyMover). If the starting structure binds a ligand, the ligand must therefore be added back to the assemblies. This is most easily accomplished by copying the ligand coordinates from the starting PDB file into the finished assemblies; since the starting node remains fixed during SEWING, the ligand placement will be correct. Improved handling of ligands is currently a SEWING development goal.
+
 ###Important Considerations
 * Since the SEWING protocol forms chimeras from secondary structure elements with atoms that do not superimpose perfectly, it is critical to use **cartesian minimization** in any SEWING refinement protocol. This requires using a cartesian score function such as talaris2014_cart and specifying cartesian minimization (e.g. by setting cartesian=1 in [[FastDesign|FastDesignMover]]).
 * When designing structures, it is also helpful to use a linear memory interaction graph to improve performance by using the command line option `-linmem_ig 10`.
