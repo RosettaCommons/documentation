@@ -1,12 +1,11 @@
-##Assembly of models
+#Assembly of models
 
 
-##Note: The individual movers on this page should be moved onto their own RosettaScripts pages. This page should list the movers and give the flags common to all movers. SEWING requirements should probably also have their own page.
+###Note: The individual movers on this page should be moved onto their own RosettaScripts pages. This page should list the movers and give the flags common to all movers. SEWING requirements should probably also have their own page.
 Generating de novo backbones (or Assemblys) in the SEWING framework is accomplished by a simple graph traversal. The nodes in this graph, called the SewGraph, are the Models extracted in [[Step 1|model-generation]] of the protocol. The edges are the structural matches found in [[Step 2|model-comparison-with-geometric-hashing]] of SEWING.
-
 Assembly of backbones is implemented within a Mover, and thus can be accessed via the [[RosettaScripts]] interface. There are currently several Movers implemented, each designed to accomplish different design goals. The base AssemblyMover has a handful of core methods which are selectively implemented or overwritten by the various sub-movers.
 
-###Flags common to all SEWING movers
+###Required flags
 ```
 -s                              The input PDB (ignored, but still required,
                                 for many SEWING Movers)
@@ -25,13 +24,13 @@ Assembly of backbones is implemented within a Mover, and thus can be accessed vi
 -sewing:neighbor_cutoff         The cutoff for favoring natives. Any residue
                                 with fewer neighbors in the Assembly will not
                                 be favored (default: 16)
--sewing:skip_refinement         If true, no full-atom refinement will be run on the completed Assembly
-                                (Default = false)
--sewing:skip_filters            If true, all filters will be skipped during Assembly generation
-                                (Default = false)
--sewing:dump_every_model Dump all models regardless of whether they
-                         pass score filters; useful for debugging
-                         (Default false)
+-sewing:skip_refinement         If true, no full-atom refinement will be run on the 
+                                completed Assembly (Default = false)
+-sewing:skip_filters            If true, all filters will be skipped during Assembly 
+                                generation (Default = false)
+-sewing:dump_every_model        Dump all models regardless of whether they
+                                pass score filters; useful for debugging
+                                (Default false)
 ```
 ###Unused/experimental flags
 ```
