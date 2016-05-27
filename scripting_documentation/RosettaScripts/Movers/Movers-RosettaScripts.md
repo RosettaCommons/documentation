@@ -548,6 +548,8 @@ These movers are used as part of the [[SEWING]] protocol and have protocol-speci
 
 * **[[EnumerateAssemblyMover]]** - Builds all possible structures from a given SewGraph.
 
+* **[[AssemblyConstraintsMover]]** - Used to favor native residues during refinement in assemblies produced using [[SEWING]].
+
 ##See Also
 
 * [[Mover]]: An overview of Movers. 
