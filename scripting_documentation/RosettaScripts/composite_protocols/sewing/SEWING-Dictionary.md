@@ -33,7 +33,8 @@ ATOM 2 13.007 48.172 -24.336
 ...
 ```
 
-* **ModelTrimmer**: Application used to filter SEWING models by secondary structure type and segment length.
+* **ModelTrimmer**: Application used to filter SEWING models by secondary structure type and segment length. See the [[ModelTrimmer]] page for details.
+
 * **MotifScore**: Designability score. Basically it shows that how well hydrophobic parts of secondary structures are well packed with each other. Will Sheffler in the Baker lab made this.
 
 * **node**: The term "node" in SEWING can refer to two things:
