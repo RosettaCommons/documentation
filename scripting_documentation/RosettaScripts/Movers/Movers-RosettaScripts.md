@@ -536,7 +536,17 @@ See [[RosettaScriptsPlacement]] for more information.
 
 **[[ContactMap|ContactMapMover]]** - Produces contact maps for structure(s)
 
+##SEWING movers
 
+These movers are used as part of the [[SEWING]] protocol and have protocol-specific input files and command-line options:
+
+* **[[MonteCarloAssemblyMover]]** - Builds an assembly of a user-specified size by MonteCarlo sampling of substructures.
+
+* **[[AppendAssemblyMover]]** - Builds a protein by extending a user-specified starting structure. Often used for interface design (starting with a protein-binding peptide) or to incorporate specific motifs into designs.
+
+* **[[RepeatAssemblyMover]]** - Used to design repeat proteins.
+
+* **[[EnumerateAssemblyMover]]** - Builds all possible structures from a given SewGraph.
 
 ##See Also
 
