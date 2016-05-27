@@ -4,6 +4,9 @@
 ###Note: The individual movers on this page should be moved onto their own RosettaScripts pages. This page should list the movers and give the flags common to all movers. SEWING requirements should probably also have their own page.
 Generating de novo backbones (or Assemblys) in the SEWING framework is accomplished by a simple graph traversal. The nodes in this graph, called the SewGraph, are the Models extracted in [[Step 1|model-generation]] of the protocol. The edges are the structural matches found in [[Step 2|model-comparison-with-geometric-hashing]] of SEWING.
 Assembly of backbones is implemented within a Mover, and thus can be accessed via the [[RosettaScripts]] interface. There are currently several Movers implemented, each designed to accomplish different design goals. The base AssemblyMover has a handful of core methods which are selectively implemented or overwritten by the various sub-movers.
+##Command-line options
+
+The following flags apply to all SEWING movers (see below) except when noted. Mover-specific flags are documented on the individual Mover pages.
 
 ###Required flags
 ```
@@ -13,6 +16,39 @@ Assembly of backbones is implemented within a Mover, and thus can be accessed vi
 -sewing:score_file_name         The name of the SEWING edge file
 
 ```
+
+In the current implementation, the following flags are also required for scoring SEWING Assemblies using the MotifScore and are shown with their recommended values:
+
+```xml
+
+-mh:match:ss1 true    # for "explicit" motifs that get dumped at the end,
+                      match target SS
+-mh:match:ss2 true    # for "explicit" motifs that get dumped at the end,
+                      match binder SS
+-mh:match:aa1 false   # for "explicit" motifs that get dumped at the end, 
+                      match target AA
+-mh:match:aa2 false   # for "explicit" motifs that get dumped at the end, 
+                      match binder AA
+
+-mh:score:use_ss1 true         # applicable only to BB_BB motifs; match
+                               secondary structure on first (target) res
+-mh:score:use_ss2 true         # applicable only to BB_BB motifs; match
+                               secondary structure on second (binder) res
+-mh:score:use_aa1 false        # applicable only to BB_BB motifs; match AA
+                               identity on first (target) res
+-mh:score:use_aa2 false        # applicable only to BB_BB motifs; match AA
+                               identity on second (binder) res"
+
+-mh:path:motifs            Path to .gz file containing motifs used in motifscore
+-mh:path:scores_BB_BB      Path to directory containing database used
+                           for generating MotifScores
+
+-mh:gen_reverse_motifs_on_load false     # I think the inverse motifs are already in the datafiles
+
+-mh::dump::max_rms 0.4
+-mh::dump::max_per_res 20
+```
+
 ###Optional flags
 
 ```
@@ -103,25 +139,7 @@ An example RosettaScripts tag is below:
 
 An example of motif.flags (MonteCarloAssemblyMover requires this as well) is below:
 
-```xml
--mh:match:ss1 true    # for "explicit" motifs that get dumped at the end, match target SS
--mh:match:ss2 true    # for "explicit" motifs that get dumped at the end, match binder SS
--mh:match:aa1 false   # for "explicit" motifs that get dumped at the end, match target AA
--mh:match:aa2 false   # for "explicit" motifs that get dumped at the end, match binder AA
 
--mh:score:use_ss1 true         # applicable only to "BB_BB motifs, match secondary structure on first (target) res"
--mh:score:use_ss2 true         # applicable only to "BB_BB motifs, match secondary structure on second (binder) res"
--mh:score:use_aa1 false        # applicable only to "BB_BB motifs, match AA identity on first (target) res"
--mh:score:use_aa2 false        # applicable only to "BB_BB motifs, match AA identity on second (binder) res"
-
--mh:path:motifs       /home/kimdn/db/motifhash_data/xsmax_bb_ss_AILV_resl0.8_msc0.3/xsmax_bb_ss_AILV_resl0.8_msc0.3.rpm.bin.gz
--mh:path:scores_BB_BB /home/kimdn/db/motifhash_data/xsmax_bb_ss_AILV_resl0.8_msc0.3/xsmax_bb_ss_AILV_resl0.8_msc0.3
-
--mh:gen_reverse_motifs_on_load false     # I think the inverse motifs are already in the datafiles
-
--mh::dump::max_rms 0.4
--mh::dump::max_per_res 20
-```
 
 
 ----------------------
