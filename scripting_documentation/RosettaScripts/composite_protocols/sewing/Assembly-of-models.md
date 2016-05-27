@@ -4,6 +4,29 @@
 ###Note: The individual movers on this page should be moved onto their own RosettaScripts pages. This page should list the movers and give the flags common to all movers. SEWING requirements should probably also have their own page.
 Generating de novo backbones (or Assemblys) in the SEWING framework is accomplished by a simple graph traversal. The nodes in this graph, called the SewGraph, are the Models extracted in [[Step 1|model-generation]] of the protocol. The edges are the structural matches found in [[Step 2|model-comparison-with-geometric-hashing]] of SEWING.
 Assembly of backbones is implemented within a Mover, and thus can be accessed via the [[RosettaScripts]] interface. There are currently several Movers implemented, each designed to accomplish different design goals. The base AssemblyMover has a handful of core methods which are selectively implemented or overwritten by the various sub-movers.
+
+----------------------
+
+##AssemblyMover
+The AssemblyMover is the abstract base class from which all other AssemblyMovers derive (not necessarily directly). In essence, this class has some basic methods implemented that make it easier to build Assemblies from the SewGraph, and to then create Poses from those Assemblies. A few of the relevant functions are outlined below:
+
+
+* **generate_assembly** - A pure virtual function. This is the function that child movers will overwrite to actually create Assemblies
+* **add_starting_model** - Add a random starting model to the Assembly
+* **follow_random_edge_from_node** - Append a new model to the Assembly by following an edge from the given node
+* **get_fullatom_pose** - Generate a full-atom pose from the Assembly
+* **get_centroid_pose** - Generate a centroid pose from the Assembly
+* **refine_assembly** - Refine a pose using information from the Assembly. By default, this will use a FastRelax based design strategy. Residue-type constraints are used to give a bonus to 'native' residues at each position (due to structural superimposition during assembly creation, this can result in favoring multiple residue types at a given position).
+
+----------------------
+###RosettaScripts-Accessible SEWING Movers:
+
+* [[EnumerateAssemblyMover]]
+* [[AppendAssemblyMover]]
+
+
+----------------------
+
 ##Command-line options
 
 The following flags apply to all SEWING movers (see below) except when noted. Mover-specific flags are documented on the individual Mover pages.
@@ -72,42 +95,21 @@ In the current implementation, the following flags are also required for scoring
 ###Unused/experimental flags
 
 ```
+
 -sewing:max_ss_num      Maximum number of secondary structure 
                         elements and loops that compose
                         a substructure. For instance, this
                         number would be 3 for a helix-turn-helix
                         motif. (still under development)
--sewing:num_edges_to_follow     The maximum number of edges from the SewGraph that will
-                                be followed. For instance, following 4 edges in a graph of 
-                                helix-loop-helix motifs will produce a 5-helix bundle.
-                                Currently not in use, and applies only to NodeConstraintAssemblyMover.
+-sewing:num_edges_to_follow     The maximum number of edges from the SewGraph 
+                                that will be followed. For instance, following  
+                                4 edges in a graph of helix-loop-helix motifs 
+                                will produce a 5-helix bundle. Currently not in  
+                                use, and applies only to NodeConstraintAssemblyMover.
 ```
-----------------------
 
-##AssemblyMover
-The AssemblyMover is the abstract base class from which all other AssemblyMovers derive (not necessarily directly). In essence, this class has some basic methods implemented that make it easier to build Assemblies from the SewGraph, and to then create Poses from those Assemblies. A few of the relevant functions are outlined below:
+-------------------
 
-
-* **generate_assembly** - A pure virtual function. This is the function that child movers will overwrite to actually create Assemblies
-* **add_starting_model** - Add a random starting model to the Assembly
-* **follow_random_edge_from_node** - Append a new model to the Assembly by following an edge from the given node
-* **get_fullatom_pose** - Generate a full-atom pose from the Assembly
-* **get_centroid_pose** - Generate a centroid pose from the Assembly
-* **refine_assembly** - Refine a pose using information from the Assembly. By default, this will use a FastRelax based design strategy. Residue-type constraints are used to give a bonus to 'native' residues at each position (due to structural superimposition during assembly creation, this can result in favoring multiple residue types at a given position).
-
-
-
-
-
-
-----------------------
-###RosettaScripts-Accessible SEWING Movers:
-
-* [[EnumerateAssemblyMover]]
-* [[AppendAssemblyMover]]
-
-
-----------------------
 
 ###MonteCarloAssemblyMover
 
