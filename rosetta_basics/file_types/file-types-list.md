@@ -19,11 +19,13 @@
 * **[[Match constraint files|match-cstfile-format]]**: File specifying geometric constraints for the [[match application|match]].
 * **[[Chemical shift files|chemical-shift-file]]**: NMR chemical shift information used with [[CS-Rosetta|CS-Rosetta]].
 * **[[Bin transition probabilities files|Bin-transition-probabilities-file]]**: Probabilities of transitioning from one mainchain torsion bin to another, used by some sampling schemes.
-* SEWING-specific files:
-  * **Model files**
-  * **Edge files**
-  * **Alignment files**
-  * **Rot files**
+* [[SEWING]]-specific files:
+  * **Model files**: Specify substructures (nodes) to be used when generating structures
+  * **Edge files**: Specify edges to be used when generating structures
+<!--BEGIN_INTERNAL-->
+  * **Alignment files**: Store pre-calculated alignments near a given starting node. Optional for use with [[AppendAssemblyMover]]. 
+<!--END_INTERNAL-->
+  * **Rot files**: Store information about native residue identities in SEWING assemblies. Used with the AssemblyConstraintsMover.
 
 ##Database input/output
 Rosetta supports input/output of databases in SQLite3, MySQL, and PostgreSQL. 
