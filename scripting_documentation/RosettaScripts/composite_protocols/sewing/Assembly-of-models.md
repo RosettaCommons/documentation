@@ -108,58 +108,13 @@ In the current implementation, the following flags are also required for scoring
                                 use, and applies only to NodeConstraintAssemblyMover.
 ```
 
--------------------
-
-
-###MonteCarloAssemblyMover
-
-**Subclass of AssemblyMover**
-
-The MonteCarloAssemblyMover is the standard mover for the SEWING framework. This mover will randomly add Models to build up an Assembly that satisfies a given set of requirements. The evaluation of requirements is handled by the [[Requirement Set|SEWING#assembly-of-models_requirementset]], which is outlined in more detail below. The decision to add/reject a model during the creation of an Assembly is based on a Monte-Carlo algorithm that uses a fast Assembly-specific score function for evaluation. Currently, the Assembly score function simply penalizes backbone clashes, and rewards designable contacts using the MotifHash framework.
-
-Currently, this mover is only accessible via RosettaScripts. The below script will generate a 7-segment Assembly, in which the first segment must be an alpha-helix between 8 and 21 residues long.
-**Note that due to the fact that RosettaScripts uses the standard Rosetta Job Distributor, an input PDB is required (using the standard -s/-l flags). This PDB will be ignored.** 
-
-An example RosettaScripts tag is below:
-
-```xml
-<MonteCarloAssemblyMover
-    name=assemble
-    cycles=5000
-    min_segments=7
-    max_segments=7
-    add_probability=0.4
-    delete_probability=0.1
-    switch_probability=0.5
->
-    <IntraSegmentRequirements index=1>
-        <SegmentDsspRequirement dssp="H" />
-        <SegmentLengthRequirement min_length=8 max_length=21 />
-    </IntraSegmentRequirements>
-</MonteCarloAssemblyMover>
-```
-
-
-----------------------
-
-
-###RepeatAssemblyMover
-
-**Subclass of AssemblyMover**
-
-The RepeatAssemblyMover is intended for the design of repeat proteins using the SEWING framework. Due to the graph-traversal based generation of backbones used by SEWING, repeat protein generation is relatively easy; one needs only to find cycles in the graph. This mover is currently under active development, and as such many of the features expected in a SEWING mover may not be implemented (for instance, this mover currently does not respect the RequirementSet)
-
-
-**WARNING: Currently the num_repeating_segments options of this tag is misleading. The below tag will actually generate an assembly with 4 repeating segments (e.g. helix-loop-helix-loop). The final repeat in the created assembly will be missing the last segment (e.g. helix-loop-helix). This should be fixed soon and the documentation will be updated to reflet this change**
-```xml
-<RepeatAssemblyMover name="assemble" num_repeating_segments=2 />
-```
-
 ----------------------
 
 ###RequirementSet
 
 The RequirementSet is used by the various AssemblyMover implementation to restrict constructed Assemblies to have specific features. Requirements can currently take two forms: Global requirements, which are requirements place on the entire assembly; and Intra-Segment requirements, which are requirements placed on individual segments (usually secondary structure elements) that make up the Assembly. Below is a list of currently implemented requirements.
+
+For an example of using a RequirementSet, see the [[MonteCarloAssemblyMover]] page.
 
 ####Global Requirements
 * GlobalLengthRequirement - A requirement that restricts the length of various secondary structure elements in the Assembly. This requirement takes three options: dssp_code, min_length, and max_length. For instance, the following requirement tag would force all alpha-helical segments in the assembly to be between 4 and 10 residues long.
