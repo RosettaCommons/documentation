@@ -10,6 +10,8 @@ The input files required by the sewing_hasher application depend on the mode bei
 ##Output
 The sewing_hasher's output again varies depending on the mode being used. Possible outputs include a SEWING model file, a SEWING edge file (text), a SEWING alignment file, or a binary SEWING edge file.
 ##Command Line Options
+
+###SEWING-specific options
 ```
 -sewing:mode   Mode used to run the application. Options are:
                generate: Used to generate a model file
@@ -18,8 +20,6 @@ The sewing_hasher's output again varies depending on the mode being used. Possib
                convert:  Convert an edge file from text to binary format
                test:     Prints the name of the edge file and exits
 -sewing:model_file_name Name of output model file (for generate mode) or input model file (for all other modes)
--in:file:l     In generate mode, can be used to provide a list of PDBs containing SEWING models
--inout:dbms:database_name  In generate mode, used to provide a Features database containing SEWING models
 -sewing:score_file_name Name of SEWING edge file to output (hash mode) or input (align/convert modes)
 -sewing:min_hash_score  Minimum number of overlapping atoms per segment to generate an edge
 -sewing:max_clash_score Maximum number of clashing atoms (in the same bin but not superimposed) per alignment
@@ -28,18 +28,25 @@ The sewing_hasher's output again varies depending on the mode being used. Possib
                         (ex: 1 3 to score helices in a helix-loop-helix motif)
 -sewing:max_models      Maximum number of models to hash (for testing only)
 -sewing:starting_model  Specify a specific model ID to begin hashing
+-sewing:num_procs       Number of processors to split up hashing with (hash mode only)
 ```
+###Structure Input Options
+These options are required for certain sewing_hasher modes.
 
 ```
--sewing:num_procs       Number of processors to split up hashing with
--sewing:rank            The processor rank for this process
-
+-in:file:l     In generate mode, can be used to provide a list of PDBs containing SEWING models.
+               In align mode, can be used to list starting PDBs for which to generate alignment files
+-inout:dbms:database_name  In generate mode, used to provide a Features database containing SEWING models
+-in:file:s     In align mode, can be used to list a single starting PDB for which to generate an alignment file.
 
 ```
+
+
 
 ##Usage
 
 For instructions on using the sewing_hasher application to prepare input files for SEWING, see the [[Model generation]] and [[Model comparison with geometric hashing]] pages. 
+**Note: Only hash mode currently supports running on multiple processors**
 
 
 ##See Also
