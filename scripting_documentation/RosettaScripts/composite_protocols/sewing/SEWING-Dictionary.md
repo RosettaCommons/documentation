@@ -1,7 +1,7 @@
 #SEWING Dictionary
 * **AssemblyScore**: The score function used when generating and filtering SEWING assemblies. Calculated as ClashScore + 10*InterModelMotifScore + InterfaceMotifScore (0 for monomer) + MotifScore
 
-* **atom**: In the context of SEWING, a collection of xyz coordinates and element
+* **atom**: In a SEWING model file, a collection of xyz coordinates and element
 
 * **ClashScore**
 
