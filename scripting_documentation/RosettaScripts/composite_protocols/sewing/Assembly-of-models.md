@@ -68,7 +68,9 @@ In the current implementation, the following flags are also required for scoring
                                 pass score filters; useful for debugging
                                 (Default false)
 ```
+
 ###Unused/experimental flags
+
 ```
 -sewing:max_ss_num      Maximum number of secondary structure 
                         elements and loops that compose
@@ -82,8 +84,9 @@ In the current implementation, the following flags are also required for scoring
 ```
 ----------------------
 
-###AssemblyMover
+##AssemblyMover
 The AssemblyMover is the abstract base class from which all other AssemblyMovers derive (not necessarily directly). In essence, this class has some basic methods implemented that make it easier to build Assemblies from the SewGraph, and to then create Poses from those Assemblies. A few of the relevant functions are outlined below:
+
 
 * **generate_assembly** - A pure virtual function. This is the function that child movers will overwrite to actually create Assemblies
 * **add_starting_model** - Add a random starting model to the Assembly
@@ -93,8 +96,6 @@ The AssemblyMover is the abstract base class from which all other AssemblyMovers
 * **refine_assembly** - Refine a pose using information from the Assembly. By default, this will use a FastRelax based design strategy. Residue-type constraints are used to give a bonus to 'native' residues at each position (due to structural superimposition during assembly creation, this can result in favoring multiple residue types at a given position).
 
 
-
-```
 
 
 
@@ -136,13 +137,6 @@ An example RosettaScripts tag is below:
 </MonteCarloAssemblyMover>
 ```
 
-
-An example of motif.flags (MonteCarloAssemblyMover requires this as well) is below:
-
-
-
-
-----------------------
 
 ----------------------
 
