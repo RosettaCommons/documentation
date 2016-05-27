@@ -8,17 +8,43 @@ Assembly of backbones is implemented within a Mover, and thus can be accessed vi
 
 ###Flags common to all SEWING movers
 ```
--s                              The input PDB (ignored, but still required, for many SEWING Movers)
--sewing:model_file_name         The name of the file to read models from
--sewing:score_file_name         The name of the file to read scores (edges) from
--sewing:assembly_type generate  The type of Assembly to generate (allows 'continuous' and 'discontinuous')
--sewing:num_edges_to_follow     The number of edges from the SewGraph that will be followed. Each edge adds more to the structure
--sewing:base_native_bonus       The bonus in Rosetta energy units to give 'native' residues during design (default 1)
--sewing:neighbor_cutoff         The cutoff for favoring natives. Any residue with fewer natives in the Assembly will not be favored (default: 16)
--sewing:skip_refinement         If true, no full-atom refinement will be run on the completed Assembly
--sewing:skip_filters            If true, all filters will be skipped during Assembly generation
-```
+-s                              The input PDB (ignored, but still required,
+                                for many SEWING Movers)
+-sewing:model_file_name         The name of the SEWING model file
+-sewing:score_file_name         The name of the SEWING edge file
 
+```
+###Optional flags
+
+```
+-sewing:assembly_type generate  The type of Assembly to generate 
+                                (allows 'continuous' and 'discontinuous')
+                                (Default=continuous)
+-sewing:base_native_bonus       The bonus in Rosetta energy units to give 
+                                'native' residues during design (default 1)
+-sewing:neighbor_cutoff         The cutoff for favoring natives. Any residue
+                                with fewer neighbors in the Assembly will not
+                                be favored (default: 16)
+-sewing:skip_refinement         If true, no full-atom refinement will be run on the completed Assembly
+                                (Default = false)
+-sewing:skip_filters            If true, all filters will be skipped during Assembly generation
+                                (Default = false)
+-sewing:dump_every_model Dump all models regardless of whether they
+                         pass score filters; useful for debugging
+                         (Default false)
+```
+###Unused/experimental flags
+```
+-sewing:max_ss_num      Maximum number of secondary structure 
+                        elements and loops that compose
+                        a substructure. For instance, this
+                        number would be 3 for a helix-turn-helix
+                        motif. (still under development)
+-sewing:num_edges_to_follow     The maximum number of edges from the SewGraph that will
+                                be followed. For instance, following 4 edges in a graph of 
+                                helix-loop-helix motifs will produce a 5-helix bundle.
+                                Currently not in use, and applies only to NodeConstraintAssemblyMover.
+```
 ----------------------
 
 ###AssemblyMover
@@ -31,31 +57,18 @@ The AssemblyMover is the abstract base class from which all other AssemblyMovers
 * **get_centroid_pose** - Generate a centroid pose from the Assembly
 * **refine_assembly** - Refine a pose using information from the Assembly. By default, this will use a FastRelax based design strategy. Residue-type constraints are used to give a bonus to 'native' residues at each position (due to structural superimposition during assembly creation, this can result in favoring multiple residue types at a given position).
 
-##Required Command-line options <a name="required-flags" />
 
-
-```xml
-
-
--sewing:model_file_name Path to SEWING model file
--sewing:score_file_name Path to SEWING edge file
--sewing:max_ss_num      Number of secondary structure 
-                        elements and loops that compose
-                        a substructure. For instance, this
-                        number would be 3 for a helix-turn-helix
-                        motif.
-```
-###Optional flags
 
 ```
--sewing:dump_every_model_for_devel_purpose
+
+
+
 
 ----------------------
 ###RosettaScripts-Accessible SEWING Movers:
 
 * [[EnumerateAssemblyMover]]
 * [[AppendAssemblyMover]]
-
 
 
 ----------------------
