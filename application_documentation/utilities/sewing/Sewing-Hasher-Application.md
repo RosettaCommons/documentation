@@ -15,6 +15,7 @@ The sewing_hasher's output again varies depending on the mode being used. Possib
 ```
 -sewing:mode   Mode used to run the application. Options are:
                generate: Used to generate a model file
+               generate_five_ss_model: Generate a model file with five segments per model (under development)
                hash:     Used to generate an edge file
                pregenerate_alignments: Used to generate an alignment file
                convert:  Convert an edge file from text to binary format
