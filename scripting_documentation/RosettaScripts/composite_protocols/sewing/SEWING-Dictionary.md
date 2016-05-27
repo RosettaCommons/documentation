@@ -7,6 +7,8 @@
 
 * **cycle**: During assembly, a cycle is only counted in the case of a Monte Carlo accept (not just a trial). For example, if the number of cycles is set to 50,000, the actual number of Monte Carlo trials would be even larger.
 
+* **edge file**: See **score file**
+
 * **InterfaceMotifScore**:  A type of MotifScore used (typically by the AppendAssemblyMover) to score how well the designed protein packs against a provided partner PDB.
 
 * **InterModelMotifScore**: A type of MotifScore, but it is calculated only between non-adjacent models. This is intended to promote the formation of more globular proteins. Without considering the InterModelMotifScore, a planar sheet of helices containing only native interactions scores very favorably.
@@ -42,14 +44,7 @@ ATOM 2 13.007 48.172 -24.336
 
 * **residue**: In the model file, indicates the sequence position in the original PDB, the residue type, and the chi angles for a particular residue.
 
-* **secondary structure**: Helix, loop, or beta strand (H, L, E)
-
-* **segment**: A single secondary structure element. Segments are identified by their model ID and segment ID (both integers) and store information about their secondary structure and whether we can build off of them. 
-In the model file, the SEGMENT field lists the segment ID, the DSSP of the segment, and whether to hash the segment.
-
-* **sewing_hasher**: Application used to generate SEWING input files. See the [[SEWING Hasher application]] page for details.
-
-* **score file**: Current name for files containing edge information (has nothing to do with common rosetta fa/centroid scores)
+* **score file** (edge file): Current name for files containing edge information (has nothing to do with common rosetta fa/centroid scores)
 ``` 
 <example of score file>
 4 94 17 3 43 9 29
@@ -63,6 +58,14 @@ In the model file, the SEGMENT field lists the segment ID, the DSSP of the segme
 29 is the average_segment_score (= sum/segment_matches.size())
 ```
 
+* **secondary structure**: Helix, loop, or beta strand (H, L, E)
+
+* **segment**: A single secondary structure element. Segments are identified by their model ID and segment ID (both integers) and store information about their secondary structure and whether we can build off of them. 
+In the model file, the SEGMENT field lists the segment ID, the DSSP of the segment, and whether to hash the segment.
+
+* **sewing_hasher**: Application used to generate SEWING input files. See the [[SEWING Hasher application]] page for details.
+
+* **substructure**: See **model**
 
 ##See Also
 * [[SEWING homepage|SEWING]]
