@@ -1,51 +1,22 @@
-##Dictionary
-* AssemblyScore: ClashScore + InterModelMotifScore + InterfaceMotif (0 for monomer) + MotifScore
+#SEWING Dictionary
+* **AssemblyScore**: The score function used when generating and filtering SEWING assemblies. Calculated as ClashScore + 10*InterModelMotifScore + InterfaceMotifScore (0 for monomer) + MotifScore
 
-* atom: A collection of xyz coordinates and element
+* **atom**: In the context of SEWING, a collection of xyz coordinates and element
 
-* cycle (during assembly of models): “cycle iteration” requires a monte carlo accept (not just a trial). For example, if the cycle # is set to 50,000, the actual number of trials of model assembly would be even much larger than "cycle #".
+* **ClashScore**
 
-* InterModelMotifScore: A type of MotifScore, but it is calculated only between non-adjacent models. Without consideration of this 'InterModelMotifScore', the "best" assembled model would be just linear helices etc. With this 'InterModelMotifScore' in mind, the "best" assembled model would be more globular-like.
+* **cycle**: During assembly, a cycle is only counted in the case of a Monte Carlo accept (not just a trial). For example, if the number of cycles is set to 50,000, the actual number of Monte Carlo trials would be even larger.
 
-* linker segments: When there are 5 secondary structures in each model, 3 middle secondary structures are "linker segments". 2 N-terminal/C-terminal secondary structures are not "linker segments".
+* **InterfaceMotifScore**:  A type of MotifScore used (typically by the AppendAssemblyMover) to score how well the designed protein packs against a provided partner PDB.
 
-* model (node/substructure): This can be connected by their edges through their nodes. For example, a smotif model has 2 nodes (N-term/C-term) and 3 secondary structures. A collection of segments. Generally, 2-5 pieces of segment constitute the model. Currently for continuous SEWING, 3 pieces of secondary structures called smotif (like HLH, or HLE) is a model (5 pieces of secondary structures as a model for continuous SEWING are in active development). Defined as struct whose elements are model_id, pdb_code, structure_id, distance, hoist_angle, packing_angle and meridian_angle. 
+* **InterModelMotifScore**: A type of MotifScore, but it is calculated only between non-adjacent models. This is intended to promote the formation of more globular proteins. Without considering the InterModelMotifScore, a planar sheet of helices containing only native interactions scores very favorably.
 
-* MotifScore: Designability score. Basically it shows that how well hydrophobic parts of secondary structures are well packed with each other. Will Sheffler in Baker lab made this.
+* **linker segments**: Segments that are not scored by the Hasher and are not overlaid with other segments. For example, a helix-loop-helix substructure contains one linker segment (the loop). When there are 5 secondary structure elements in each model, the 3 middle secondary structures are "linker segments".
 
-* node (model/substructure): Single secondary structure. Not all nodes can be merged with other node through their edge. For example, a smotif model has 3 nodes (secondary structures), but only two of them (N-term/C-term) can be merged with other nodes. 5-ss based model has 5 nodes (secondary structures), but only two of them (N-term/C-term) can be merged with other nodes.
+* **model** (node/substructure): This can be connected by their edges through their nodes. For example, a smotif model has 2 nodes (N-term/C-term) and 3 secondary structures. A collection of segments. Generally, 2-5 pieces of segment constitute the model. Currently for continuous SEWING, 3 pieces of secondary structures called smotif (like HLH, or HLE) is a model (5 pieces of secondary structures as a model for continuous SEWING are in active development). Defined as struct whose elements are model_id, pdb_code, structure_id, distance, hoist_angle, packing_angle and meridian_angle. 
 
-* PartnerMotifScore:  A type of MotifScore, but it will not be calculated in monomer design
-
-* residue: composition (seq_pos, residue_type, chi angles)
-
-* secondary structures: H, L, E
-
-* segment: composition (segment_number, secondary_structure, linkage_Boolean_to_other_segment_for_model_build), original definition (A collection of secondary structures), practical definition (As of now just 1 secondary structure equals 1 segment)
-
-* sewing_hasher: Four modes are possible
-``` 
-generate: generates a model file from a sqlite database
-generate_five_ss_model: generates a model file that is consisted with 3~5 secondary structures from a sqlite database
-hash: score all models against each other and create a plain text score file (MPI required)
-convert: convert a plain text score file to a binary score file. This is required by the SEWING movers
-```
-
-* "score": edge information (has nothing to do with common rosetta fa/centroid score)
-``` 
-<example of score file>
-4 94 17 3 43 9 29
-4 67 13 3 67 13 32
-...
-
-<explanation of score file, line 1>
-4 and 3 are model_ids (node ids).
-94 and 43 are the basis residue numbers of sharing (chimeric) segment between two models (of course, this resnum may happen to be same between two combining models).
-17 and 9 are ids of the sharing (chimeric) segment between two models (of course, this 'segment id' may happen to be same between two combining models).
-29 is the average_segment_score (= sum/segment_matches.size())
-```
-
-Example of "model", "segment", "residue", "atom"
+* **model file**: Text file containing the models/substructures that will be used in SEWING assembly.
+Example model file:
 ```
 MODEL 80 6 11.9294 130.065 159.192 -27.0884 /Users/tjacobs2/PROJECTS/datasets/top8000/top8000_chains_70//1a2zFH_C.pdb
 SEGMENT 7 E 1
@@ -59,6 +30,39 @@ ATOM 1 14.138 47.299 -24.189
 ATOM 2 13.007 48.172 -24.336
 ...
 ```
+
+* **ModelTrimmer**: Application used to filter SEWING models by secondary structure type and segment length.
+* **MotifScore**: Designability score. Basically it shows that how well hydrophobic parts of secondary structures are well packed with each other. Will Sheffler in the Baker lab made this.
+
+* **node**: The term "node" in SEWING can refer to two things:
+  - Sometimes, a model/substructure is referred to as a "node". This is technically a misnomer, as a model is actually a cluster of connected nodes.
+  - Actual nodes in the SewGraph are **segments** consisting of a single secondary structure element. Not all nodes can be merged with other node through their edge. For example, a smotif model has 3 nodes (secondary structures), but only two of them (N-term/C-term) can be merged with other nodes. 5-ss based model has 5 nodes (secondary structures), but only two of them (N-term/C-term) can be merged with other nodes.
+
+
+
+* **residue**: In the model file, indicates the sequence position in the original PDB, the residue type, and the chi angles for a particular residue.
+
+* **secondary structure**: Helix, loop, or beta strand (H, L, E)
+
+* **segment**: A single secondary structure element. Segments are identified by their model ID and segment ID (both integers) and store information about their secondary structure and whether we can build off of them. 
+In the model file, the SEGMENT field lists the segment ID, the DSSP of the segment, and whether to hash the segment.
+
+* **sewing_hasher**: Application used to generate SEWING input files. See the [[SEWING Hasher application]] page for details.
+
+* **score file**: Current name for files containing edge information (has nothing to do with common rosetta fa/centroid scores)
+``` 
+<example of score file>
+4 94 17 3 43 9 29
+4 67 13 3 67 13 32
+...
+
+<explanation of score file, line 1>
+4 and 3 are model_ids (node ids).
+94 and 43 are the basis residue numbers of sharing (chimeric) segment between two models (of course, this resnum may happen to be same between two combining models).
+17 and 9 are ids of the sharing (chimeric) segment between two models (of course, this 'segment id' may happen to be same between two combining models).
+29 is the average_segment_score (= sum/segment_matches.size())
+```
+
 
 ##See Also
 * [[SEWING homepage|SEWING]]
