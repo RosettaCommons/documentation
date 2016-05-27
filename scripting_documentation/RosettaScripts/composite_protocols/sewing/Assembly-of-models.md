@@ -112,7 +112,7 @@ In the current implementation, the following flags are also required for scoring
 ----------------------
 ##Subtags
 
-Most SEWING movers (except [[AppendAssemblyMover]]) accept subtags imposing restrictions on the assembly and/or individual segments. These subtags are described on the [[RequirementSet]] page.
+Most SEWING movers (except [[RepeatAssemblyMover]]) accept subtags imposing restrictions on the assembly and/or individual segments. These subtags are described on the [[RequirementSet]] page.
 
 
 ##See Also
