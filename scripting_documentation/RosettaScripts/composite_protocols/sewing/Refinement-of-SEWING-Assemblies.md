@@ -8,6 +8,7 @@ Since SEWING is often used to generate a large number of backbone conformations,
 ###Pre-filtering assemblies
 * Removing duplicates
 * Score-based filtering
+
 ###Important Considerations
 * Since the SEWING protocol forms chimeras from secondary structure elements with atoms that do not superimpose perfectly, it is critical to use **cartesian minimization** in any SEWING refinement protocol. This requires using a cartesian score function such as talaris2014_cart and specifying cartesian minimization (e.g. by setting cartesian=1 in [[FastDesign|FastDesignMover]]).
 * When designing structures, it is also helpful to use a linear memory interaction graph to improve performance by using the command line option `-linmem_ig 10`.
