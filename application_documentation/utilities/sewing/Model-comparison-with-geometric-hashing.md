@@ -1,5 +1,5 @@
 ##Model comparison with geometric hashing
-Once a Model file has been generated (see [[Model Generation]]), the models need to be structurally compared to one another using a geometric hashing algorithm implemented in the sewing_hasher.
+Once a Model file has been generated (see [[Model Generation]]), the models need to be structurally compared to one another using a geometric hashing algorithm implemented in the [[SEWING Hasher application]].
 
 sewing_hasher hashing flags
 ```
@@ -27,7 +27,7 @@ Due to the computational expense, it is recommended to run the above command usi
 cat pdb.scores.* > pdb.scores
 ```
 
-Then, use the sewing_hasher executable to convert this plain-text file to binary:
+Then, use the sewing_hasher executable to convert this plain-text file to binary (see [[SEWING Hasher Application]]):
 ```
 /path/to/rosetta/bin/sewing_hasher.linuxgccrelease \
 -sewing:mode convert \
@@ -40,3 +40,5 @@ The final result should be a score file named pdb.scores.bin, this is the score 
 ##See Also
 * [[Model Generation]] for an additional use of the sewing_hasher application
 * [[SEWING]]: The SEWING homepage
+* [[SEWING Hasher Application]]
+* [[ModelTrimmer]]: Used to prepare SEWING model files for hashing
