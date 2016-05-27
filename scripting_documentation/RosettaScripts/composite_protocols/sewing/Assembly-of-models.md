@@ -31,31 +31,27 @@ The AssemblyMover is the abstract base class from which all other AssemblyMovers
 * **get_centroid_pose** - Generate a centroid pose from the Assembly
 * **refine_assembly** - Refine a pose using information from the Assembly. By default, this will use a FastRelax based design strategy. Residue-type constraints are used to give a bonus to 'native' residues at each position (due to structural superimposition during assembly creation, this can result in favoring multiple residue types at a given position).
 
-----------------------
+##Required Command-line options <a name="required-flags" />
 
-###EnumerateAssemblyMover
-
-The EnumerateAssemblyMover is a mover within the SEWING framework. This mover will exhaustively assemble all possible models into assembly.
-
-An example of flags MonteCarloAssemblyMover is below:
 
 ```xml
--resource_definition_files resources.xml
--ignore_unrecognized_res
--overwrite
--score:weights talaris2014_cart
--mpi_tracer_to_file mpi_tracer
--linmem_ig 10
--parser:protocol parser_script.xml
 
--sewing:model_file_name /home/kimdn/db/sewing/with_17k/17k.models_three_or_five_ss_trimmed_PA
--sewing:score_file_name /home/kimdn/db/sewing/with_17k/17k.models_three_or_five_ss_trimmed_PA.score_16_atoms_125_box_0_clash
--sewing:max_ss_num 3 #smotif ? or 5-ss_models
--sewing:dump_every_model_for_devel_purpose true
 
--mute core devel.sewing.Hasher devel.sewing.SewGraph
--out:level 500
+-sewing:model_file_name Path to SEWING model file
+-sewing:score_file_name Path to SEWING edge file
+-sewing:max_ss_num      Number of secondary structure elements and loops that compose
+                        a substructure. For instance, this number would be 3 for a helix-turn-helix motif.
 ```
+###Optional flags
+
+```
+-sewing:dump_every_model_for_devel_purpose
+
+----------------------
+###RosettaScripts-Accessible SEWING Movers:
+
+* [[EnumerateAssemblyMover]]
+* [[AppendAssemblyMover]]
 
 
 
@@ -114,29 +110,6 @@ An example of motif.flags (MonteCarloAssemblyMover requires this as well) is bel
 
 
 ----------------------
-
-###AppendAssemblyMover
-
-**Subclass of MonteCarloAssemblyMover**
-
-The SewingAppendMover is a Mover that allows the addition of residues to a PDB that is not incorporated into the SewGraph. Therefore, the first step in the SewingAppendMover is the addition of the new Model to the SewGraph, and the identification of any edges (structural matches) to this new node (The PDB Model). 
-
-The complete set of additional flags respected by the SewingAppendMover
-```
--s                              The input PDB to be appended to
--sewing:pose_segment_starts     A vector of integers representing the starting residue (in Rosetta residue numbering) of each segment in the Model PDB (passed with the -s/-l flags)
--sewing:pose_segment_ends       A vector of integers representing the end residue (in Rosetta residue numbering) of each segment in the Model PDB (passed with the -s/-l flags)
--sewing:keep_model_residues     A vector of integers representing residues (in Rosetta residue numbering) that should not be allowed to change from their starting amino acid identity.
--sewing:num_segments_to_match   The exact of model segments to look for structural matches for. Any matches with less than, or more than, this number of segment matches will fail. For continuous SEWING, only a value of 1 is supported
--sewing:min_hash_score          The minimum number over overlapping atoms **per segment** that is considered a structure match (recommended value: >=10)
--sewing:max_clash_score         The tolerance for number of atoms/segment of different atom types that end up in the same quarter-angstrom bin during geometric hashing
-```
-
-An optional flag respected by the SewingAppendMover
-```
--sewing:partner_pdb             The 'partner' of the PDB being used as the starting model (usually a binding partner).
-```
-
 
 ----------------------
 
