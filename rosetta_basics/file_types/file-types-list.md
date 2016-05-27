@@ -22,9 +22,11 @@
 * [[SEWING]]-specific files:
   * **Model files**: Specify substructures (nodes) to be used when generating structures
   * **Edge files**: Specify edges to be used when generating structures
+
 <!--BEGIN_INTERNAL-->
   * **Alignment files**: Store pre-calculated alignments near a given starting node. Optional for use with [[AppendAssemblyMover]]. 
 <!--END_INTERNAL-->
+
   * **Rot files**: Store information about native residue identities in SEWING assemblies. Used with the AssemblyConstraintsMover.
 
 ##Database input/output
