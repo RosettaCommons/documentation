@@ -16,18 +16,38 @@ The sewing_hasher's output again varies depending on the mode being used. Possib
                hash:     Used to generate an edge file
                pregenerate_alignments: Used to generate an alignment file
                convert:  Convert an edge file from text to binary format
+               test:     Prints the name of the edge file and exits
 -sewing:model_file_name Name of output model file (for generate mode) or input model file (for all other modes)
 -in:file:l     In generate mode, can be used to provide a list of PDBs containing SEWING models
--inout:dbms:
--sewing:score_file_name
--sewing:min_hash_score
--sewing:max_clash_score
+-inout:dbms:database_name  In generate mode, used to provide a Features database containing SEWING models
+-sewing:score_file_name Name of SEWING edge file to output (hash mode) or input (align/convert modes)
+-sewing:min_hash_score  Minimum number of overlapping atoms per segment to generate an edge
+-sewing:max_clash_score Maximum number of clashing atoms (in the same bin but not superimposed) per alignment
+-sewing:num_segments_to_match How many segments to overlay to generate alignments (default 1)
+-sewing:match_segments  Which segments of each substructure should be scored by the hasher? 
+                        (ex: 1 3 to score helices in a helix-loop-helix motif)
+-sewing:max_models      Maximum number of models to hash (for testing only)
+-sewing:starting_model  Specify a specific model ID to begin hashing
+```
 
+```
+-sewing:num_procs       Number of processors to split up hashing with
+-sewing:rank            The processor rank for this process
 
 
 ```
 
+##Usage
 
+For instructions on using the sewing_hasher application to prepare input files for SEWING, see the [[Model generation]] and [[Model comparison with geometric hashing]] pages. 
+
+
+##See Also
+
+* [[ModelTrimmer]] Application used to prune models from SEWING model files
+* [[SEWING]] The SEWING home page
+* [[SEWING Dictionary]]
+* [[Utilities Applications]]
 
 
 
