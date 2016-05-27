@@ -29,5 +29,5 @@ The AssemblyConstraintsMover does not accept any subtags.
 
 ##See Also
 * [[SEWING]]: The SEWING home page
-* [[Sidechain Design aided by SEWING]]
+* [[Refinement of SEWING Assemblies]]
 * [[Assembly of models]]
