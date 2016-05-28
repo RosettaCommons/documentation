@@ -21,7 +21,7 @@ The second requirement is that the scorefunction being used needs to have a non-
 File Formats
 ============
 
-Constraints can be specified using two different file formats, line-based and section-based. The line-based format is:
+Constraints can be specified in a line-based constraint file formatted like so:
 
 ```
 Constraint_Type1 Constraint_Def1
