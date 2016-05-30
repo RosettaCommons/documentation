@@ -21,12 +21,14 @@ One semantic note: The terms *FARNA* and *FARFAR* are now preferred throughout t
 + It checks filters at various stages (resetting if the filters fail).
 + It also holds some functions for computing RMSD. Might be better to move those out somewhere.
 
-There is one important/tricky concept in RNA_FragmentMonteCarlo, an object called `atom_level_domain_map`, which is a `protocols::toolbox::AtomLevelDomainMap`. This holds for each atom in the pose an assignment of where that residue came from, and demarcates where fragments/jumps/chunks can be inserted at atom level. 
-The convention is as follows:
-+ 0 marks totally free atoms.
-+ 1,2,...998 marks atoms that came from fixed input domains (e.g, PDBs), with a different index for each PDB.
-+ 999 is special, marking absolutely fixed atoms that did not come from an input domain (e.g., virtual phosphates that don't need to get moved during FARNA)
-+ 1000 is special (ROSETTA_LIBRARY_DOMAIN) and marks atoms that are covered by a [BasePairStepLibrary](#BasePairStepLibrary)
+There is one important/tricky concept in RNA_FragmentMonteCarlo, an object called `atom_level_domain_map`, which is a `protocols::toolbox::AtomLevelDomainMap`. This holds for each atom in the pose an assignment of where that residue came from, and demarcates where fragments/jumps/chunks can be inserted at atom level.  
+
+The convention is as follows:  
++ 0 marks totally free atoms.  
++ 1,2,...998 marks atoms that came from fixed input domains (e.g, PDBs), with a different index for each PDB.  
++ 999 is special, marking absolutely fixed atoms that did not come from an input domain (e.g., virtual phosphates that don't need to get moved during FARNA)  
++ 1000 is special (ROSETTA_LIBRARY_DOMAIN) and marks atoms that are covered by a [BasePairStepLibrary](#BasePairStepLibrary)  
+
 
 ### Sub-namespaces, in order of importance
 #### `protocols::farna::movers` namespace
