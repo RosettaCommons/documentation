@@ -1,4 +1,6 @@
-# Rosetta 3.4
+# Change Log
+
+## Rosetta 3.4
 * Released Sunday, March 25, 2012
 * Point mutant scan application: The purpose of this protocol is to increase the stability of a protein of interest with only single or double point mutants.
 * Non canonical amino acid utilities: This feature includes 2 applications: 1) MakeRotLib - This application creates a noncanonical amino acid rotamer library and 2)UnfoldedStateEnergyCalculator - This application calculates the explicit unfolded state energies.
@@ -12,7 +14,7 @@
 * Beta strand homodimer design: This code was written for a relatively singular application: finding proteins with surface exposed beta-strands, then trying to make and design a homodimer that will form via that beta-strand.
 * DougsDockDesignMinimizeInterface: This protocol was used in the accompanying manuscript to redesign the protein/peptide interface of Calpain and a fragment of its inhibitory peptide calpastatin.
 
-# Rosetta 3.3
+## Rosetta 3.3
 * Released Wednesday, August 31, 2011
 * Includes comprehensive online documentation for users and for developers
 * A library based object-oriented software suite
@@ -21,11 +23,11 @@
 * New Applications - Rosetta Antibody, Interface Analyzer, DDG Monomer, Multistate Design, Sequence Recovery, Fragment Picker, Interface Design, RosettaRNA, Pepspec Application.
 * Includes the revolutionary new computer game Foldit in stand-alone version
 
-# Rosetta 3.2.1
+## Rosetta 3.2.1
 * Released Friday, March 11, 2011
 * New feature in Rosetta - RosettaDNA
 
-# Rosetta 3.2
+## Rosetta 3.2
 * Released Friday, March 11, 2011
 * Includes comprehensive online documentation for users and for developers
 * A library based object-oriented software suite
