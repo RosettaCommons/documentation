@@ -20,7 +20,7 @@ Released Sunday, June 2, 2013
 * Supercharge application (Lawrence MS, Phillips KJ, Liu DR. Supercharging proteins can impart unusual resilience. J Am Chem Soc. 2007 Aug 22;129(33):10110-2.)
 * 3x1 metal-mediated interface design application (Der BS, Machius M, Miley MJ, Mills JL, Szyperski T, Kuhlman B. Metal-mediated affinity and orientation specificity in a computationally designed protein homodimer. J Am Chem Soc. 2012 Jan 11;134(1):375-85.)
 * New demos ERRASER, favor_native_residue, Protocol captures
-* Scoring
+### Scoring
     * -use_bicubic_interpolation smooths issues with binned knowledge-based
     * phi-psi based terms (including Ramachandran, p_aa_pp, and Dunbrack (2002 only)
     * centroid radii bugfixes
