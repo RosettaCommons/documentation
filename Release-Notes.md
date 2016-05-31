@@ -6,7 +6,7 @@ After releasing Rosetta 3.5 in 2013, Rosetta transitioned to a weekly release sy
 
 ### New scorefunctions:
 
-Since Rosetta3.5, the default scorefunction was updated two generations, to Talaris2013 and then to Talaris2014 (https://www.rosettacommons.org/docs/wiki/rosetta_basics/scoring/Scorefunction-History).  
+Since Rosetta 3.5, the default scorefunction was [updated](https://www.rosettacommons.org/docs/wiki/rosetta_basics/scoring/Scorefunction-History) two generations, to Talaris2013 and then to Talaris2014 .  
 We’ve also updated the default minimizer to LBGFS (https://en.wikipedia.org/wiki/Limited-memory_BFGS), which is expected to provide better performance on the average problem.
 
 New applications:
