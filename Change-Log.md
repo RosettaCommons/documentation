@@ -3,7 +3,8 @@
 ## Rosetta 3.4
 * Released Sunday, March 25, 2012
 * Point mutant scan application: The purpose of this protocol is to increase the stability of a protein of interest with only single or double point mutants.
-* Non canonical amino acid utilities: This feature includes 2 applications: 1) MakeRotLib - This application creates a noncanonical amino acid rotamer library and 2)UnfoldedStateEnergyCalculator - This application calculates the explicit unfolded state energies.
+* Non canonical amino acid utilities: This feature includes 2 applications: 
+1) MakeRotLib - This application creates a noncanonical amino acid rotamer library 2)UnfoldedStateEnergyCalculator - This application calculates the explicit unfolded state energies.
 * RNA assembly with experimental pair-wise constraints: This code is intended to take an RNA sequence and secondary structure and then give three-dimensional de novo models of the helices and inter-helical motifs, and then build up the complete model from these parts.
 * RNA 3D structure modeling: Added the applications: rna_cluster, rna_minimize and rna_helix
 * RNA loop modeling with stepwise assembly: This method builds single-stranded RNA loops using a deterministic, enumerative sampling method called Stepwise Assembly.
