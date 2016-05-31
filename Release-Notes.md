@@ -21,12 +21,12 @@ Updates to [DARC](https://www.rosettacommons.org/docs/latest/application_documen
 * [FARNA](https://www.rosettacommons.org/docs/latest/farna-refactor), a refactor of Rosetta’s RNA code 
     *  [Mg_modeler](https://www.rosettacommons.org/docs/latest/application_documentation/rna/mg-modeler), for including magnesium 2+ ions into structures 
 * A new [framework](https://www.rosettacommons.org/docs/latest/application_documentation/membrane_proteins/RosettaMP-GettingStarted-Overview) and suite of applications for modeling and designing membrane proteins 
-* Pocket docking (looks for druggable sites) (https://www.rosettacommons.org/docs/latest/application_documentation/utilities/make-exemplar, https://www.rosettacommons.org/docs/latest/application_documentation/utilities/pocket-relax, https://www.rosettacommons.org/docs/latest/application_documentation/utilities/pocket-suggest-targets )
-SEWING (http://www.ncbi.nlm.nih.gov/pubmed/27151863, https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/composite_protocols/sewing/SEWING )
-Simple_cycpep_predict: fragment-free peptide structure prediction for N-to-C cyclic peptides containing arbitrary mixtures of L- and D-amino acids (and glycine).  https://www.rosettacommons.org/docs/latest/structure_prediction/simple_cycpep_predict
-Surface_docking (Docking to mineral surfaces) (https://www.rosettacommons.org/docs/latest/surface-docking)
-Enzyme specificity re-design (using coupled_moves) (http://www.ncbi.nlm.nih.gov/pubmed/26397464)
-Design with Oligooxypiperizines (OOPs), hydrogen bond surrogates (HBS), and peptoid foldamers (http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0067051, http://pubs.acs.org/doi/abs/10.1021/ja502310r, http://pubs.acs.org/doi/abs/10.1021/ja503776z)
+* Pocket docking (looks for druggable sites) ([https://www.rosettacommons.org/docs/latest/application_documentation/utilities/make-exemplar](https://www.rosettacommons.org/docs/latest/application_documentation/utilities/make-exemplar), [https://www.rosettacommons.org/docs/latest/application_documentation/utilities/pocket-relax](https://www.rosettacommons.org/docs/latest/application_documentation/utilities/pocket-relax), [https://www.rosettacommons.org/docs/latest/application_documentation/utilities/pocket-suggest-targets](https://www.rosettacommons.org/docs/latest/application_documentation/utilities/pocket-suggest-targets) )
+* [SEWING]https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/composite_protocols/sewing/SEWING (http://www.ncbi.nlm.nih.gov/pubmed/27151863)
+* [Simple_cycpep_predict](https://www.rosettacommons.org/docs/latest/structure_prediction/simple_cycpep_predict): fragment-free peptide structure prediction for N-to-C cyclic peptides containing arbitrary mixtures of L- and D-amino acids (and glycine).  
+* [Surface_docking](https://www.rosettacommons.org/docs/latest/surface-docking) (Docking to mineral surfaces) 
+Enzyme specificity re-design (using coupled_moves) [http://www.ncbi.nlm.nih.gov/pubmed/26397464](http://www.ncbi.nlm.nih.gov/pubmed/26397464)
+* Design with Oligooxypiperizines (OOPs), hydrogen bond surrogates (HBS), and peptoid foldamers ([http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0067051](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0067051), [http://pubs.acs.org/doi/abs/10.1021/ja502310r](http://pubs.acs.org/doi/abs/10.1021/ja502310r), [http://pubs.acs.org/doi/abs/10.1021/ja503776z](http://pubs.acs.org/doi/abs/10.1021/ja503776z))
 	
 
 New tools:
