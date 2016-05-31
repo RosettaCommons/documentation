@@ -55,7 +55,7 @@ Input Files
 
 The only required input file is a pdb file containing two proteins with different chain IDs.
 
-**Note:** An ensemble of input structures can be given using the follow flags: `-ensemble1 [partner_1_pdb_list]` or/and `-ensemble2 [partner_2_pdb_list]`. These files contain a list of input conformations (in terms of paths to pdbs) of the ensemble. The paths should be as seen from the directory where you run the program and not the directory where `partner_1_pdb_list' is stored.  `-ensemble1` corresponds to the list of pdbs of the partner which is written at the top of the input pdb and `-ensemble2` to the partner which is at the bottom of the input pdb. Always run this before running the docking protocol for ensembles.
+**Note:** An ensemble of input structures can be given using the follow flags: `-ensemble1 [partner_1_pdb_list]` or/and `-ensemble2 [partner_2_pdb_list]`. These files contain a list of input conformations (in terms of paths to pdbs) of the ensemble. The paths should be as seen from the directory where you run the program and not the directory where `partner_1_pdb_list` is stored.  `-ensemble1` corresponds to the list of pdbs of the partner which is written at the top of the input pdb and `-ensemble2` to the partner which is at the bottom of the input pdb. Always run this before running the docking protocol for ensembles.
 
 Options
 =======
