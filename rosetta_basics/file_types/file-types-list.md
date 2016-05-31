@@ -14,7 +14,7 @@
 * **[[Residue params files|Residue-Params-file]]**: Stores chemical and geometric information for a residue or ligand. Useful when running Rosetta with [[non-protein residues|non-protein-residues]].
 * **[[Loops files|loops-file]]**: Specifies loop definitions used in loop modeling.
 * **[[Symmetry file|Symmetry#Symmetry-definition]]**: Dealing with symmetric proteins.
-* **[[Constraint file]]: Provide information about constraints (restraints) for use in a Rosetta protocol
+* **[[Constraint file]]**: Provide information about constraints (restraints) for use in a Rosetta protocol
 
 ##Protocol-specific input files
 * **[[Match constraint files|match-cstfile-format]]**: File specifying geometric constraints for the [[match application|match]].
