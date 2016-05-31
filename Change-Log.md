@@ -1,5 +1,41 @@
 # Change Log
 
+## Rosetta 3.5
+
+Released Sunday, June 2, 2013
+
+* Major updates to relational database support
+* Many new Movers, Filters, TaskOperations, etc
+* NGK "Next Generation" kinematic loop closure
+* Updates to chemically_conjugated_docking apps UBQ_E2_thioester and neighbors (Saha A, Kleiger G, Lewis S, Kuhlman B, Deshaies RJ. Essential role for ubiquitin-ubiquitin-conjugating enzyme interaction in ubiquitin discharge from Cdc34 to substrate. Molecular Cell. In press.)
+* LOOP_DEFINITIONS tag Loop specification within RosettaScripts
+* OUTPUT tag Rescore-on-output option for RosettaScripts
+* ERRASER package for RNA structure correction with or without experimental electron density (NOTE: collaboration with the PHENIX project; requires PHENIX liscenced and installed separately).
+* ResourceManager allows for different command-line arguments and other centrally-managed resources with different jobs within one instantiation of Rosetta
+* OpenCL support - notice only a very few algorithms feature GPU support; general GPU support is not yet present. previous CUDA support removed
+* Updates to the FloppyTail app
+* pmut_scan app upgraded to have support for Rosetta++ alter_spec mode - it scans for destabilizing rather than stabilizing mutations (particularly at protein-protein interfaces)
+* Linear Memory Interaction Graph now works with symmetric poses
+* Enzyme design at protein-protein interfaces
+* Supercharge application (Lawrence MS, Phillips KJ, Liu DR. Supercharging proteins can impart unusual resilience. J Am Chem Soc. 2007 Aug 22;129(33):10110-2.)
+* 3x1 metal-mediated interface design application (Der BS, Machius M, Miley MJ, Mills JL, Szyperski T, Kuhlman B. Metal-mediated affinity and orientation specificity in a computationally designed protein homodimer. J Am Chem Soc. 2012 Jan 11;134(1):375-85.)
+* New demos ERRASER, favor_native_residue, Protocol captures
+    ### Scoring
+        * -use_bicubic_interpolation smooths issues with binned knowledge-based
+        * phi-psi based terms (including Ramachandran, p_aa_pp, and Dunbrack (2002 only)
+        * centroid radii bugfixes
+        * New RNA scoring potentials, for use with ERRASER and PHENIX
+        * -analytic_etable_evaluation (affects fa_rep, fa_atr, fa_sol, fa_intra_rep) offers a major memory reduction and removes a derivative discontinuity, at the cost of some speed
+        * sasapack and avge scores from Rosetta++
+        * Dunbrack 2010 (Dun10) library added. Dunbrack 2008 (Dun08) library deprecated and removed. Note that Dun10 is only available to academic users as part of the Rosetta download at this time; Dun10 must be separately liscenced for commercial users (LINKY). Feel free to contact us via the forums for assistance in installing the Dun10 library.
+        * lbfgs minimizer - more efficient for minimization with many DOFs, especially Relax
+        * cartesian minimizer - allows minimization of 3D coordinates instead of internal torsions, including minimization of bond lengths and angles
+        * -bbdep_omega - backbone-dependent omega torsion scoring term
+    ### Tools
+        * Python scripts for Rosetta output processing (turning scorefiles into score v. RMSD plots, etc.)
+        * pdb2vall package - generates a VALL fragment_picker template database from a specified PDB+chain
+        * batch_molfile_to_params.py - used for creating large numbers of ligand paramter files (for virtual screening, etc.), script to load silent files directly into PyMOL.
+
 ## Rosetta 3.4
 
 Released Sunday, March 25, 2012
