@@ -1,6 +1,7 @@
 # Change Log
 
 ## Rosetta 3.4
+---
 Released Sunday, March 25, 2012
 ---
 * Point mutant scan application: The purpose of this protocol is to increase the stability of a protein of interest with only single or double point mutants.
