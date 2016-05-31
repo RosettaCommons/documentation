@@ -7,16 +7,16 @@ After releasing Rosetta 3.5 in 2013, Rosetta transitioned to a weekly release sy
 ### New scorefunctions:
 
 Since Rosetta 3.5, the default scorefunction was [updated](https://www.rosettacommons.org/docs/wiki/rosetta_basics/scoring/Scorefunction-History) two generations, to Talaris2013 and then to Talaris2014 .  
-We’ve also updated the default minimizer to LBGFS (https://en.wikipedia.org/wiki/Limited-memory_BFGS), which is expected to provide better performance on the average problem.
+We’ve also updated the default minimizer to [LBGFS](https://en.wikipedia.org/wiki/Limited-memory_BFGS), which is expected to provide better performance on the average problem.
 
-New applications:
-Remodel https://www.rosettacommons.org/docs/latest/application_documentation/design/rosettaremodel
-PeptiDerive https://www.rosettacommons.org/docs/latest/application_documentation/analysis/PeptiDerive
-Antibody suite (includes SnugDock, previously only in legacy Rosetta2) https://www.rosettacommons.org/docs/latest/application_documentation/antibody/antibody-applications
-New tools for Rosetta comparative modeling (RosettaCM) https://www.rosettacommons.org/docs/latest/application_documentation/structure_prediction/RosettaCM
-(More) tools for crystallographic refinement using Rosetta and PHENIX
-Updates to DARC docking https://www.rosettacommons.org/docs/latest/application_documentation/docking/DARC
-Metal interface design:
+### New applications:
+* [Remodel](https://www.rosettacommons.org/docs/latest/application_documentation/design/rosettaremodel)
+* [PeptiDerive](https://www.rosettacommons.org/docs/latest/application_documentation/analysis/PeptiDerive)
+* [Antibody suite](https://www.rosettacommons.org/docs/latest/application_documentation/antibody/antibody-applications) (includes SnugDock, previously only in legacy Rosetta2) 
+* New tools for Rosetta comparative modeling ([RosettaCM](https://www.rosettacommons.org/docs/latest/application_documentation/structure_prediction/RosettaCM)) 
+* (More) tools for crystallographic refinement using Rosetta and PHENIX
+Updates to [DARC](https://www.rosettacommons.org/docs/latest/application_documentation/docking/DARC) docking 
+* Metal interface design:
 Zinc homodimer design (http://www.ncbi.nlm.nih.gov/pubmed/22092237, http://www.ncbi.nlm.nih.gov/pubmed/22510088)
 FARNA, a refactor of Rosetta’s RNA code https://www.rosettacommons.org/docs/latest/farna-refactor
 Mg_modeler, for including magnesium 2+ ions into structures https://www.rosettacommons.org/docs/latest/application_documentation/rna/mg-modeler
