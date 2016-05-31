@@ -19,7 +19,9 @@ Released Sunday, March 25, 2012
 * DougsDockDesignMinimizeInterface: This protocol was used in the accompanying manuscript to redesign the protein/peptide interface of Calpain and a fragment of its inhibitory peptide calpastatin.
 
 ## Rosetta 3.3
-* Released Wednesday, August 31, 2011
+
+Released Wednesday, August 31, 2011
+
 * Includes comprehensive online documentation for users and for developers
 * A library based object-oriented software suite
 * Easy-to-use applications
@@ -28,11 +30,15 @@ Released Sunday, March 25, 2012
 * Includes the revolutionary new computer game Foldit in stand-alone version
 
 ## Rosetta 3.2.1
-* Released Friday, March 11, 2011
+
+Released Friday, March 11, 2011
+
 * New feature in Rosetta - RosettaDNA
 
 ## Rosetta 3.2
-* Released Friday, March 11, 2011
+
+Released Friday, March 11, 2011
+
 * Includes comprehensive online documentation for users and for developers
 * A library based object-oriented software suite
 * Easy-to-use applications
