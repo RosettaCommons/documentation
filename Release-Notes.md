@@ -17,7 +17,7 @@ We’ve also updated the default minimizer to [LBGFS](https://en.wikipedia.org/w
 * (More) tools for crystallographic refinement using Rosetta and PHENIX
 Updates to [DARC](https://www.rosettacommons.org/docs/latest/application_documentation/docking/DARC) docking 
 * Metal interface design:
-Zinc homodimer design (http://www.ncbi.nlm.nih.gov/pubmed/22092237, http://www.ncbi.nlm.nih.gov/pubmed/22510088)
+    * Zinc homodimer design[http://www.ncbi.nlm.nih.gov/pubmed/22092237](http://www.ncbi.nlm.nih.gov/pubmed/22092237), [http://www.ncbi.nlm.nih.gov/pubmed/22510088](http://www.ncbi.nlm.nih.gov/pubmed/22510088)
 FARNA, a refactor of Rosetta’s RNA code https://www.rosettacommons.org/docs/latest/farna-refactor
 Mg_modeler, for including magnesium 2+ ions into structures https://www.rosettacommons.org/docs/latest/application_documentation/rna/mg-modeler
 A new framework and suite of applications for modeling and designing membrane proteins https://www.rosettacommons.org/docs/latest/application_documentation/membrane_proteins/RosettaMP-GettingStarted-Overview
