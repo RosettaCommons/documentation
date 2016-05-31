@@ -20,14 +20,14 @@ Released Sunday, June 2, 2013
 * Supercharge application (Lawrence MS, Phillips KJ, Liu DR. Supercharging proteins can impart unusual resilience. J Am Chem Soc. 2007 Aug 22;129(33):10110-2.)
 * 3x1 metal-mediated interface design application (Der BS, Machius M, Miley MJ, Mills JL, Szyperski T, Kuhlman B. Metal-mediated affinity and orientation specificity in a computationally designed protein homodimer. J Am Chem Soc. 2012 Jan 11;134(1):375-85.)
 * New demos ERRASER, favor_native_residue, Protocol captures
-    ### Scoring
-        * -use_bicubic_interpolation smooths issues with binned knowledge-based
-        * phi-psi based terms (including Ramachandran, p_aa_pp, and Dunbrack (2002 only)
-        * centroid radii bugfixes
-        * New RNA scoring potentials, for use with ERRASER and PHENIX
-        * -analytic_etable_evaluation (affects fa_rep, fa_atr, fa_sol, fa_intra_rep) offers a major memory reduction and removes a derivative discontinuity, at the cost of some speed
-        * sasapack and avge scores from Rosetta++
-        * Dunbrack 2010 (Dun10) library added. Dunbrack 2008 (Dun08) library deprecated and removed. Note that Dun10 is only available to academic users as part of the Rosetta download at this time; Dun10 must be separately liscenced for commercial users (LINKY). Feel free to contact us via the forums for assistance in installing the Dun10 library.
+* Scoring
+    * -use_bicubic_interpolation smooths issues with binned knowledge-based
+    * phi-psi based terms (including Ramachandran, p_aa_pp, and Dunbrack (2002 only)
+    * centroid radii bugfixes
+    * New RNA scoring potentials, for use with ERRASER and PHENIX
+    * -analytic_etable_evaluation (affects fa_rep, fa_atr, fa_sol, fa_intra_rep) offers a major memory reduction and removes a derivative discontinuity, at the cost of some speed
+    * sasapack and avge scores from Rosetta++
+    * Dunbrack 2010 (Dun10) library added. Dunbrack 2008 (Dun08) library deprecated and removed. Note that Dun10 is only available to academic users as part of the Rosetta download at this time; Dun10 must be separately liscenced for commercial users (LINKY). Feel free to contact us via the forums for assistance in installing the Dun10 library.
         * lbfgs minimizer - more efficient for minimization with many DOFs, especially Relax
         * cartesian minimizer - allows minimization of 3D coordinates instead of internal torsions, including minimization of bond lengths and angles
         * -bbdep_omega - backbone-dependent omega torsion scoring term
