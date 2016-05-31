@@ -1,4 +1,4 @@
-# Change Log
+# Release Notes
 
 ## Rosetta 3.5
 
