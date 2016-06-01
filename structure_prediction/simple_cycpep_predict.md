@@ -119,6 +119,8 @@ DEFAULT ALA VAL LEU ILE ASP GLU LYS ARG DALA DVAL DLEU DILE DASP DGLU DLYS DARG
 **-cyclic_peptide:L_beta_comp_file \<String\>** An optional [[aa_composition|AACompositionEnergy]] file for biasing the amino acid composition of residues in the negative-phi beta-strand region of Ramachandran space.  Not used if not specified.<br/><br/>
 **-cyclic_peptide:D_beta_comp_file \<String\>** An optional [[aa_composition|AACompositionEnergy]] file for biasing the amino acid composition of residues in the positive-phi beta-strand region of Ramachandran space.  Not used if not specified.<br/><br/>
 
+Note that the global amino acid composition may also be biased by providing an [[aa_composition|AACompositionEnergy]] file with the **-score:aa_composition_setup_file** flag, as in other protocols.  In the context of the simple_cycpep_predict application, using any aa_composition flag will automatically turn on the aa_composition energy term in the scoring function used.
+
 # Large-scale sampling with BOINC
 
 The **simple_cycpep_predict** protocol is one of the protocols that can be run from the [[minirosetta]] application, using the **-protocol simple_cycpep_predict** flag.  Custom BOINC OpenGL graphics have been written for this application.  It is strongly recommended that the **-cyclic_peptide:checkpoint_job_identifier** option be used to allow jobs to checkpoint themselves if run on BOINC (since BOINC jobs can be interrupted by the user).  See [[minirosetta]]'s documentation for more information.
@@ -141,7 +143,7 @@ At the start of a run, slaves send requests for jobs up the hierarchy.  Jobs are
 mpirun -np 5000 /my_rosetta_path/main/source/bin/simple_cycpep_predict.mpi.linuxgccrelease -cyclic_peptide:MPI_processes_by_level 1 50 4949 -cyclic_peptide:MPI_batchsize_by_level 200 2 ...(other options)...
 ```
 
-The total number of jobs is controlled with the **-nstruct** flag.
+The total number of jobs is controlled with the **-nstruct** flag.  One may also trigger premature termination using the **-cyclic_peptide:MPI_stop_after_time \<Integer\>** flag, and specifying a time in seconds.  If this flag is used, then after the elapsed time, the emperor will send a halt signal down the hierarchy.  Slaves that have been assigned jobs will complete all jobs assigned to them, but no subsequent jobs will be assigned to them.  This is useful for large-scale sampling on systems that have job time limits.
 
 When jobs complete, they are not output automatically, since there might be far more output than could be reasonably written out to disk.  Instead, the slaves send job summaries up the hierarchy.  These are sorted during passage up the hierarchy by a criterion specified by the user using the **-cyclic_peptide:MPI_sort_by \<criterion\>** flag, where \<criterion\> is one of **energy**, **rmsd**, or **hbonds**.  By default, lowest values are first in the list, but this can be changed with **-cyclic_peptide:MPI_choose_highest true**.  The emperor node receives the sorted list, then sends requests down the hierarchy to the originating nodes for only the top N% (based on the sort criterion) of output structures, which are sent up the hierarchy to the emperor for output to disk.  The fraction of structures written to disk is set with the **-cyclic_peptide:MPI_output_fraction** flag, with a value from 0 to 1.  So if we wanted to do 20,000 samples, then write out the 5% of output structures with lowest energy from the run in the example above, we would use:
 
