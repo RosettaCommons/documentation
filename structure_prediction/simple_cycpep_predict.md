@@ -10,7 +10,7 @@ Created 24 October 2015 by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu)
 
 The **simple_cycpep_predict** application is intended for rapidly sampling closed conformations of small peptides constrained by backbone cyclization.  These peptides may be composed of any mixture of L- and D-amino acids (and/or glycine).  Optionally, the user may specify that solutions must have a certain number of backbone hydrogen bonds.  The user may also require disulfides between disulfide-forming residues, in which case all disulfide permutations are sampled using the [[TryDisulfPermutations|TryDisulfPermuationsMover]] mover.  Unlike sampling performed with the [[Abinitio-Relax|abinitio-relax]] application, sampling is fragment-_independent_; that is, no database of known structures is required.
 
-# Sample command-line
+# Sample command-lines
 
 A sample command-line invocation of this application would be:
 
@@ -95,6 +95,29 @@ The algorithm is as follows:
 3.  The resulting solution is then relaxed using the conventional scorefunction (hydrogen bond weight reset to normal value).
 4.  A final hydrogen bond filter is applied (controlled with the **-cyclic_peptide:min_final_hbonds** flag).
 5.  The structure, if one is found, is written to disk, and the application proceeds to the next attempt until the number of attempts specified with the **-out:nstruct** flag is reached.
+
+Optionally, step 2c can be performed with [[FastDesign|FastDesignMover]] instead of FastRelax.  See the section on design, below, for more information about this.
+
+# Design mode
+
+Although originally intended solely for structure prediction, the simple_cycpep_predict application can also design sequences for each sampled conformation using [[FastDesign|FastDesignMover]].  Design-specific flags are as follows:
+
+**-cyclic_peptide:design_peptide \<Bool\>** If true, then the application attempts to design the sequence of each sampled conormation.  If false (the default), only fixed-sequence relaxation is performed.<br/><br/>
+**-cyclic_peptide:allowed_residues_by_position \<String\>** This is the name of a file in which lists of allowed residues (full names) are provided for each numbered position in the peptide.  Each line corresponds to one position, and the first column must be the index of the position (or "DEFAULT" to specify default settings applied to all non-specified positions).  If a position is not specified (and no DEFAULT is given), non-specified positions are assumed to be fixed (<i>i.e.</i>not designable).  If no file is provided but the **-cyclic_peptide:design_peptide** flag is used, then the application will design with all canonical L-amino acids, and their D-equivalents, except for methionine and cysteine.  (Glycine will also be excluded by default).  A sample allowed residue file would be:<br/>
+```
+DEFAULT ALA VAL LEU ILE ASP GLU LYS ARG DALA DVAL DLEU DILE DASP DGLU DLYS DARG
+1 VAL LEU ILE DVAL DLEU DILE #Only hydrophobics at this position.
+2 VAL THR DVAL DTHR #Only beta-branched at this position.
+3 ASP GLU DASP DGLU ARG LYS DARG DLYS #Only charged residues at this position.
+4 ASP GLU DASP DGLU ARG LYS DARG DLYS #Only charged residues at this position.
+5 ASP GLU DASP DGLU #Only negatively-charged residues at this position.
+```
+<br/>**-cyclic_peptide:prohibit_D_at_negative_phi \<Bool\>** If true, only L-amino acids are permitted at positions in the negative-phi region of Ramachandran space.  Default true.<br/><br/>
+**-cyclic_peptide:prohibit_L_at_positive_phi \<Bool\>** If true, only D-amino acids are permitted at positions in the positive-phi region of Ramachandran space.  Default true.<br/><br/>
+**-cyclic_peptide:L_alpha_comp_file \<String\>** An optional [[aa_composition|AACompositionEnergy]] file for biasing the amino acid composition of residues in the negative-phi (right-handed) alpha-helical region of Ramachandran space.  Not used if not specified.<br/><br/>
+**-cyclic_peptide:D_alpha_comp_file \<String\>** An optional [[aa_composition|AACompositionEnergy]] file for biasing the amino acid composition of residues in the positive-phi (left-handed) alpha-helical region of Ramachandran space.  Not used if not specified.<br/><br/>
+**-cyclic_peptide:L_beta_comp_file \<String\>** An optional [[aa_composition|AACompositionEnergy]] file for biasing the amino acid composition of residues in the negative-phi beta-strand region of Ramachandran space.  Not used if not specified.<br/><br/>
+**-cyclic_peptide:D_beta_comp_file \<String\>** An optional [[aa_composition|AACompositionEnergy]] file for biasing the amino acid composition of residues in the positive-phi beta-strand region of Ramachandran space.  Not used if not specified.<br/><br/>
 
 # Large-scale sampling with BOINC
 
