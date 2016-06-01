@@ -18,11 +18,11 @@ Build environment setup instructions for most situations can be found on the [[G
 
 #### PDB Chemical Components Dictionary 
 
-NOTE: This file is not needed for Rosetta to run normally. 
+_NOTE: This file is not needed for Rosetta to run normally._
 
-To use the -in:file:load_PDB_components option to automatically load unrecognized residues from files, you need to obtain a CIF-formatted version of the Chemical Components Dictionary. This file can be downloaded from the [wwwPDB](http://www.wwpdb.org/data/ccd). (Alternatively for RosettaCommons members, you can talk your lab's gatekeeper for the RosettaCommons git-lfs).
+To use the `-in:file:load_PDB_components` option to automatically load unrecognized residues from files, you need to obtain a mmCIF-formatted version of the Chemical Components Dictionary. This file can be downloaded from the [wwwPDB](http://www.wwpdb.org/data/ccd). (Alternatively for RosettaCommons members, you can talk your lab's gatekeeper for the RosettaCommons git-lfs).
 
-To use with Rosetta, download the (non-gzipped) file and place it in the Rosetta database directory. (Rosetta/main/database/). Or alternatively, pass the absolute path to the file to the -in:file:PDB_components_file option.
+To use with Rosetta, download the (plain text, non-gzipped) file and place it in the Rosetta database directory (Rosetta/main/database/). Or alternatively, pass the absolute path to the file to the `-in:file:PDB_components_file` option. The "Protonation Variants Companion Dictionary" and "Chemical Component Model data file" are not required. 
 
 ## Publicly accessible clusters with Rosetta pre-installed
 
