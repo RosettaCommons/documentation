@@ -148,6 +148,25 @@ This example will select all variants of ALA, C-terminal ASN residues, and disul
 
     <ResidueName residue_names="ASN:CtermProteinFull,CYD" residue_name3="ALA" />
 
+#### Carbohydrate Residue Selectors
+
+##### Glycan Residue Selector
+Selects All Glycan residues in a pose, or particular glycan trees.
+
+- Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com) and Jason W. Labonte (jwlabonte@gmail.com)
+- PIs: William Schief and Jeff Gray
+
+``` 
+<Glycan branches="23,48", ref_pose_name="ref_pose"/>
+```
+
+- __branches__ (&string) Used to set specific glycan trees or parts of trees.  If this is not given, it will select ALL glycan residues in the pose.  
+ - These can be the branch points of the glycans or carbohydrate residues from which to select the downstream branch from, like the rest of a tree from a particular position.  That position could be the trunk or individual branches, which keep branching out. Note that the Subset will not include the Root residue, since many times it will be the ASN root.
+
+- __ref_pose_name__ (&string) Particular Ref Pose set. 
+
+
+
 
 ### Conformation Dependent Residue Selectors
 
