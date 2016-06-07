@@ -247,7 +247,7 @@ or
 
 -   The NeighborhoodResidueSelector selects all the residues within a certain distance cutoff of a focused set of residues.
 -   It sets each position in the ResidueSubset that corresponds to a residue within a certain distance of the focused set of residues as well as the residues in the focused set to true, and sets all other positions to false.
--   The set of focused residues can be specified in one of three (mutually exclusive) ways: through a resnums string (see the ResidueIndexSelector [[above|TaskOperations-RosettaScripts#ResidueIndexSelector]] for documentation on how this string should be formatted), a previously-declared ResidueSelector using the "selector" option, or by defining a subtag that declares an anonymous ResidueSelector.
+-   The set of focused residues can be specified in one of three (mutually exclusive) ways: through a resnums string (see the ResidueIndexSelector [[above|TaskOperations-RosettaScripts#ResidueIndexSelector]] for documentation on how this string should be formatted), a previously-declared ResidueSelector using the "selector" option, or by defining a subtag that declares an anonymous ResidueSelector.  Now uses the 10A neighbor graph embedded in the pose after scoring to increase speed of calculation.  Useful for many calls, or when this selector is used as a TaskOperation using the OperateOnResidueSubset operation.  
 
 #### NumNeighborsSelector
 
