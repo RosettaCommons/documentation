@@ -150,14 +150,14 @@ This example will select all variants of ALA, C-terminal ASN residues, and disul
 
 #### Carbohydrate Residue Selectors
 
-##### Glycan Residue Selector
+##### GlycanResidueSelector
 Selects All Glycan residues in a pose, or particular glycan trees.
 
 - Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com) and Jason W. Labonte (jwlabonte@gmail.com)
 - PIs: William Schief and Jeff Gray
 
 ``` 
-<Glycan branches="23,48", ref_pose_name="ref_pose"/>
+    <Glycan name=(&string) branches="23,48", ref_pose_name="ref_pose"/>
 ```
 
 - __branches__ (&string) Used to set specific glycan trees or parts of trees.  If this is not given, it will select ALL glycan residues in the pose.  
@@ -165,8 +165,39 @@ Selects All Glycan residues in a pose, or particular glycan trees.
 
 - __ref_pose_name__ (&string) Particular Ref Pose set. 
 
+#### Antibody Residue Selectors
 
+These Residue selectors use the underlying Antibody Modeling and Design Framework, and require a renumbered antibody structure.  Please see [[General Antibody Options and Tips]] for more.  If your antibody was output by RosettaAntibody, it is already renumbered into the Chothia Scheme, which is the default.
 
+##### CDRResidueSelector 
+Selects CDR residues in an antibody or camelid antibody. 
+
+- Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com) 
+- PIs: Roland Dunbrack and William Schief
+
+```
+    <CDR name=(&string) cdrs=(&string,&string) numbering_scheme=(&string) cdr_definition=(&string) />
+```
+
+-   cdrs (&string,&string) (default=all cdrs):  Select the set of CDRs you wish to restrict to (ex: H1 or h1)
+-   neighbor_dis (&real) (default=6.0): Set the neighbor detection distance.  
+-   numbering_scheme (&string):  Set the antibody numbering scheme.  Must also set the cdr_definition XML option. Both options can also be set through the command line (recommended).  See [[General Antibody Tips | General-Antibody-Options-and-Tips]] for more info.
+-   cdr_definition (&string): Set the cdr definition you want to use.  Must also set the numbering_scheme XML option.  See [[General Antibody Tips | General-Antibody-Options-and-Tips]]
+
+##### AntibodyRegionSelector 
+Selects CDR residues in an antibody or camelid antibody. 
+
+- Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com) 
+- PIs: Roland Dunbrack and William Schief
+
+```
+    <AntibodyRegion name=(&string) region=(&string) numbering_scheme=(&string) cdr_definition=(&string) />
+```
+
+-   cdrs (&string,&string) (default=all cdrs):  Select the set of CDRs you wish to restrict to (ex: H1 or h1)
+-   neighbor_dis (&real) (default=6.0): Set the neighbor detection distance.  
+-   numbering_scheme (&string):  Set the antibody numbering scheme.  Must also set the cdr_definition XML option. Both options can also be set through the command line (recommended).  See [[General Antibody Tips | General-Antibody-Options-and-Tips]] for more info.
+-   cdr_definition (&string): Set the cdr definition you want to use.  Must also set the numbering_scheme XML option.  See [[General Antibody Tips | General-Antibody-Options-and-Tips]]
 
 ### Conformation Dependent Residue Selectors
 
