@@ -111,7 +111,7 @@ Please see [Rosetta Benchmark](https://guybrush.ucsf.edu/benchmarks/benchmarks/l
 Torsion-restricted sampling
 ===========================
 
-For intensive sampling in specific parts of conformational space, e.g. when information about the secondary structure is available, use the options below. The torsion bin string must have the same length as the remodeled loop. Currently this is only implemented for remodeling a single loop at a time. Use `X` for arbitrary torsion bins (i.e., the full Ramachandran distribution).
+For intensive sampling in specific parts of conformational space, e.g. when information about the secondary structure is available, use the options below. The torsion bin string must have the same length as the remodeled loop. Currently this is only implemented for remodeling a single loop at a time. Use `X` (uppercase) for arbitrary torsion bins (i.e., the full Ramachandran distribution).  Valid choices are `ABEGUX`, but the class that implements this doesn't explain what they actually are.  
 
 ```
 -loops:restrict_kic_sampling_to_torsion_string    Only sample phi/psi for non-pivot torsions from the provided torsion bin string. [String]
