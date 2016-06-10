@@ -77,7 +77,7 @@ Additional Resources
 
 *  [[Orbitals Scorefunction | NC-scorefunction-info#Partial-Covalent-Interactions-Energy-Function-(Orbitals)]]
 
-*  [[New beta score function|| Overview-of-Seattle-Group-energy-function-optimization-project]] (under active development)
+   [[Overview of Seattle Group energy function optimization project]] (under active development)
 
 *  [[Additional score types | score-types-additional]]
 
