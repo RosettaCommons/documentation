@@ -28,4 +28,6 @@
 
 [[Glossary]]
 
+[[RosettaEncyclopedia]]
+
 [[Options list|full-options-list]]
