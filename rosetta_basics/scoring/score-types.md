@@ -52,7 +52,7 @@ ref                                        Reference energy for each amino acid.
 METHOD_WEIGHTS                             Not an energy term itself, but the parameters for each amino acid used by the ref energy term. 
 ```
 
-Additional energy terms for score12 < a name="score12" />
+Additional energy terms for score12 <a name="score12" />
 -----------------------------------
 
 Previous versions of Rosetta used the score12 energy function as the default full atom energy function. Many of the energy terms are the same as talaris2013 (though at different weights, and with different parameters), although other terms were also used:
