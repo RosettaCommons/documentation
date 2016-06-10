@@ -41,6 +41,8 @@ Scorefunctions timeline
 
 * **Talaris14** is an error-correction of Talaris13 - the weights are (ANDREW FILL THIS IN) (_I think energies were too small/large relative to the Monte Carlo temperatures, so all terms were rescaled to correct temperature.  One energy term was fixed to a new weight as a mistake correction.)_
 
+* A new beta score function is currently under development and is documented [[here|Overview of Seattle Group energy function optimization project]].
+
 ##See Also
 
 * [[Scoring explained]]
