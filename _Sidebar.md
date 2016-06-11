@@ -23,3 +23,5 @@
 [[Encyclopedia|RosettaEncyclopedia]]
 
 [[Options List|full-options-list]]
+
+[[Release Notes|Release-Notes]]
