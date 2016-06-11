@@ -74,7 +74,7 @@ Enzyme specificity re-design (using coupled_moves) ([http://www.ncbi.nlm.nih.gov
 * Beautification: yes, we finally have a codebase-wide single style format, enforced by an external beautification script
 * Repair of the longstanding “ResidueType explosion” malfeature, reducing memory use dramatically and improving Rosetta boot-up time
 * SASA machinery completely overhauled.  Default SASA radii changed to the Reduce set, which include hydrogens by default.  It was previously using a radii set that was never published. SASA Calc settings can be changed through options system.
-* New documentation wiki (https://www.rosettacommons.org/docs/latest/Home)
+* New [documentation wiki](https://www.rosettacommons.org/docs/latest/Home)
 
 
 ## Rosetta 3.5
