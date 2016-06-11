@@ -29,52 +29,52 @@ Enzyme specificity re-design (using coupled_moves) ([http://www.ncbi.nlm.nih.gov
 * Design with Oligooxypiperizines (OOPs), hydrogen bond surrogates (HBS), and peptoid foldamers ([http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0067051](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0067051), [http://pubs.acs.org/doi/abs/10.1021/ja502310r](http://pubs.acs.org/doi/abs/10.1021/ja502310r), [http://pubs.acs.org/doi/abs/10.1021/ja503776z](http://pubs.acs.org/doi/abs/10.1021/ja503776z))
 	
 
-New tools:
-Batch_distances https://www.rosettacommons.org/docs/latest/Batch-distances
-Residue_energy_breakdown https://www.rosettacommons.org/docs/latest/application_documentation/analysis/residue-energy-breakdown
-Reference poses: store a pose “snapshot” at a particular point in a protocol, and use the residue numbering in that pose to control behavior of modules at a downstream point, even if the residue numbering has changed (due to loop insertion, etc.).  https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/StorePoseSnapshotMover
-Energy function weight optimization (not suggested for end-user use, but if you’re brave…) https://www.rosettacommons.org/docs/wiki/application_documentation/utilities/opt-e-parallel-doc
-A large number of RosettaScripts Movers, Filters, TaskOperations, etc. added.  These include:
-Disulfidize: Add disulfide bonds to a pose, trying all permutations to find best disulfide placement. https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/DisulfidizeMover
-Perturb by torsion bins (InitializeByBins, PerturbByBins movers): Perturb a conformation based on statistical probability of finding residue i in torsion bin B, and residue i+1 in bin B’.  https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/InitializeByBinsMover, https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/PerturbByBinsMover
-GeneralizedKIC mover: general kinematics-based loop closure for arbitrary chains of atoms that can include stretches of canonical or noncanonical backbone, side-chains, ligands, etc.  https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/composite_protocols/generalized_kic/GeneralizedKIC
-Parametric design tools (MakeBundle, PerturbBundle, and BundleGridSampler movers; BundleReporter filter): fragment-free sampling of coiled-coil tertiary structures.  Fully generalized for strands or helices made of canonical or noncanonical building-blocks.  https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/MakeBundleMover, https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/PerturbBundleMover, https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/BundleGridSamplerMover, https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Filters/filter_pages/BundleReporterFilter
-LayerDesign and LayerSelector: design with different sets of residue types depending on burial and/or secondary structure.  https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/TaskOperations/taskoperations_pages/LayerDesignOperation, https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/TaskOperations/taskoperations_pages/ResidueSelectors#residueselectors_conformation-dependent-residue-selectors_layerselector
-FeaturesReporter framework for structural analysis using Rosetta (was in 3.5, but is a more complete system now) (https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/FeaturesReporter/Features-reporter-overview)
+### New tools:
+* [Batch_distances](https://www.rosettacommons.org/docs/latest/Batch-distances)
+* [Residue_energy_breakdown](https://www.rosettacommons.org/docs/latest/application_documentation/analysis/residue-energy-breakdown) 
+* Reference poses: [store a pose “snapshot”](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/StorePoseSnapshotMover) at a particular point in a protocol, and use the residue numbering in that pose to control behavior of modules at a downstream point, even if the residue numbering has changed (due to loop insertion, etc.).
+* [Energy function weight optimization](https://www.rosettacommons.org/docs/wiki/application_documentation/utilities/opt-e-parallel-doc) (not suggested for end-user use, but if you’re brave…) 
+* A large number of RosettaScripts Movers, Filters, TaskOperations, etc. added.  These include:
+    * [Disulfidize](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/DisulfidizeMover): Add disulfide bonds to a pose, trying all permutations to find best disulfide placement.
+    * Perturb by torsion bins ([InitializeByBins](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/InitializeByBinsMover), [PerturbByBins](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/PerturbByBinsMover) movers): Perturb a conformation based on statistical probability of finding residue i in torsion bin B, and residue i+1 in bin B’. 
+    * [GeneralizedKIC](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/composite_protocols/generalized_kic/GeneralizedKIC) mover: general kinematics-based loop closure for arbitrary chains of atoms that can include stretches of canonical or noncanonical backbone, side-chains, ligands, etc. 
+    * Parametric design tools ([MakeBundle](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/MakeBundleMover), [PerturbBundle](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/PerturbBundleMover), and [BundleGridSampler](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/BundleGridSamplerMover) movers; [BundleReporter](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Filters/filter_pages/BundleReporterFilter) filter): fragment-free sampling of coiled-coil tertiary structures.  Fully generalized for strands or helices made of canonical or noncanonical building-blocks.
+    * LayerDesign and LayerSelector: design with different sets of residue types depending on burial and/or secondary structure.  https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/TaskOperations/taskoperations_pages/LayerDesignOperation, https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/TaskOperations/taskoperations_pages/ResidueSelectors#residueselectors_conformation-dependent-residue-selectors_layerselector
+* [FeaturesReporter](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/FeaturesReporter/Features-reporter-overview) framework for structural analysis using Rosetta (was in 3.5, but is a more complete system now)
 
 
-Miscellaneous new features:
-Rosetta’s Boost version updated from 1.46 - > 1.55
-Internal smart pointer model altered to match C++11, along with other changes looking forward to C++11
-Major updates to MR-Rosetta
-Loop Modeling:
-Extension of KIC loop modeling to non-canonical backbones (beta amino acids, etc) with GeneralizedKIC (see above).
-Continued development of next-gen KIC, including compatibility with fragments-based modeling
-Multiple refactorings in the chemistry layers, allowing:
-Poses with carbohydrates
-Better support for ribonucleoprotein
-Support for all ligands in the PDB’s chemical dictionary (note you must install that dictionary separately)
-Support for runtime manipulation of chemistry (adding/removing atoms)
-Support for rotamer libraries with arbitrary numbers of backbone torsion dependencies
-Automatic setup of bonds to metal ions.  https://www.rosettacommons.org/docs/latest/rosetta_basics/non_protein_residues/Metals
-Much better support for D-amino acids.  Mirror-image conformations now score identically with the talaris2013 and talaris2014 scoring functions.  D-residues use rotamer and scoring databases for their L-counterparts.  https://www.rosettacommons.org/docs/latest/rosetta_basics/non_protein_residues/D-Amino-Acids
-Support for mirror-image symmetry operations in symmetric poses, with proper conversion between D- and L-amino acid residue types.  https://www.rosettacommons.org/docs/latest/rosetta_basics/structural_concepts/symmetry#symmetry-definitions_symmetries-with-mirror-operations
-Support for non-pairwise-decomposable score terms during packing
-New non-pairwise-decomposable score term to guide design that penalizes deviations from a desired residue type composition.  https://www.rosettacommons.org/docs/latest/rosetta_basics/scoring/AACompositionEnergy
-New “sequence constraints” to control the residue type composition of a sub-region of a structure (e.g. a protein interface) during design.  https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/AddCompositionConstraintMover
-New neighbor radii for canonical amino acids
-ResidueSelector hierarchy as a selection syntax
-FloppyTail now compatible with symmetry
-Much better support for noncanonical residue linkages, such as N-to-C cylization, sidechain-backbone linkages, etc.
-Full Database support and documentation (SQLITE3, MySQL, etc) https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/sql/Database-IO
+### Miscellaneous new features:
+* Rosetta’s Boost version updated from 1.46 - > 1.55
+* Internal smart pointer model altered to match C++11, along with other changes looking forward to C++11
+* Major updates to MR-Rosetta
+* Loop Modeling:
+    * Extension of KIC loop modeling to non-canonical backbones (beta amino acids, etc) with GeneralizedKIC (see above).
+    * Continued development of next-gen KIC, including compatibility with fragments-based modeling
+* Multiple refactorings in the chemistry layers, allowing:
+    * Poses with carbohydrates
+    * Better support for ribonucleoprotein
+    * Support for all ligands in the PDB’s chemical dictionary (note you must [install that dictionary separately](https://www.rosettacommons.org/docs/latest/build_documentation/Build-Documentation#setting-up-rosetta-3_obtaining-additional-files_pdb-chemical-components-dictionary))
+    * Support for runtime manipulation of chemistry (adding/removing atoms)
+    * Support for rotamer libraries with arbitrary numbers of backbone torsion dependencies
+    * Automatic setup of bonds to [metal ions](https://www.rosettacommons.org/docs/latest/rosetta_basics/non_protein_residues/Metals).  
+* Much better support for [D-amino acids](https://www.rosettacommons.org/docs/latest/rosetta_basics/non_protein_residues/D-Amino-Acids).  Mirror-image conformations now score identically with the talaris2013 and talaris2014 scoring functions.  D-residues use rotamer and scoring databases for their L-counterparts.
+* Support for [mirror-image symmetry operations](https://www.rosettacommons.org/docs/latest/rosetta_basics/structural_concepts/symmetry#symmetry-definitions_symmetries-with-mirror-operations) in symmetric poses, with proper conversion between D- and L-amino acid residue types.
+* Support for [non-pairwise-decomposable score terms](https://www.rosettacommons.org/docs/latest/rosetta_basics/scoring/AACompositionEnergy) during packing
+* New non-pairwise-decomposable score term to guide design that penalizes deviations from a desired residue type composition.  
+    * New “[sequence constraints](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/AddCompositionConstraintMover)” to control the residue type composition of a sub-region of a structure (e.g. a protein interface) during design.
+* New neighbor radii for canonical amino acids
+* ResidueSelector hierarchy as a selection syntax
+* FloppyTail now compatible with symmetry
+* Much better support for noncanonical residue linkages, such as N-to-C cylization, sidechain-backbone linkages, etc.
+* Full [Database support](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/sql/Database-IO) and documentation (SQLITE3, MySQL, etc) 
 
-Performance, usability improvements, bug fixes:
-10% speed improvement in etable evaluation (faster scoring).  Reduced memory use.
-Automatic backtrace reporting upon crash, for better debugging
-Beautification: yes, we finally have a codebase-wide single style format, enforced by an external beautification script
-Repair of the longstanding “ResidueType explosion” malfeature, reducing memory use dramatically and improving Rosetta boot-up time
-SASA machinery completely overhauled.  Default SASA radii changed to the Reduce set, which include hydrogens by default.  It was previously using a radii set that was never published. SASA Calc settings can be changed through options system.
-New documentation wiki (https://www.rosettacommons.org/docs/latest/Home)
+### Performance, usability improvements, bug fixes:
+* 10% speed improvement in etable evaluation (faster scoring).  Reduced memory use.
+* Automatic backtrace reporting upon crash, for better debugging
+* Beautification: yes, we finally have a codebase-wide single style format, enforced by an external beautification script
+* Repair of the longstanding “ResidueType explosion” malfeature, reducing memory use dramatically and improving Rosetta boot-up time
+* SASA machinery completely overhauled.  Default SASA radii changed to the Reduce set, which include hydrogens by default.  It was previously using a radii set that was never published. SASA Calc settings can be changed through options system.
+* New documentation wiki (https://www.rosettacommons.org/docs/latest/Home)
 
 
 ## Rosetta 3.5
