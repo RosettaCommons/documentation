@@ -6,31 +6,31 @@ After releasing Rosetta 3.5 in 2013, Rosetta transitioned to a weekly release sy
 
 ### New scorefunctions:
 
-Since Rosetta 3.5, the default scorefunction was [updated](https://www.rosettacommons.org/docs/wiki/rosetta_basics/scoring/Scorefunction-History) two generations, to Talaris2013 and then to Talaris2014 .  
+Since Rosetta 3.5, the default scorefunction was [updated](rosetta_basics/scoring/Scorefunction-History) two generations, to Talaris2013 and then to Talaris2014 .  
 We’ve also updated the default minimizer to [LBGFS](https://en.wikipedia.org/wiki/Limited-memory_BFGS), which is expected to provide better performance on the average problem.
 
 ### New applications:
-* [Remodel](https://www.rosettacommons.org/docs/latest/application_documentation/design/rosettaremodel)
-* [PeptiDerive](https://www.rosettacommons.org/docs/latest/application_documentation/analysis/PeptiDerive)
-* [Antibody suite](https://www.rosettacommons.org/docs/latest/application_documentation/antibody/antibody-applications) (includes SnugDock, previously only in legacy Rosetta2) 
-* New tools for Rosetta comparative modeling ([RosettaCM](https://www.rosettacommons.org/docs/latest/application_documentation/structure_prediction/RosettaCM)) 
+* [Remodel](application_documentation/design/rosettaremodel)
+* [PeptiDerive](application_documentation/analysis/PeptiDerive)
+* [Antibody suite](application_documentation/antibody/antibody-applications) (includes SnugDock, previously only in legacy Rosetta2) 
+* New tools for Rosetta comparative modeling ([RosettaCM](application_documentation/structure_prediction/RosettaCM)) 
 * (More) tools for crystallographic refinement using Rosetta and PHENIX
-Updates to [DARC](https://www.rosettacommons.org/docs/latest/application_documentation/docking/DARC) docking 
+Updates to [DARC](application_documentation/docking/DARC) docking 
 * Metal interface design:
     * Zinc homodimer design ([http://www.ncbi.nlm.nih.gov/pubmed/22092237](http://www.ncbi.nlm.nih.gov/pubmed/22092237), [http://www.ncbi.nlm.nih.gov/pubmed/22510088](http://www.ncbi.nlm.nih.gov/pubmed/22510088))
-* [FARNA](https://www.rosettacommons.org/docs/latest/farna-refactor), a refactor of Rosetta’s RNA code 
-    *  [Mg_modeler](https://www.rosettacommons.org/docs/latest/application_documentation/rna/mg-modeler), for including magnesium 2+ ions into structures 
-* A new [framework](https://www.rosettacommons.org/docs/latest/application_documentation/membrane_proteins/RosettaMP-GettingStarted-Overview) and suite of applications for modeling and designing membrane proteins 
-* Pocket docking (looks for druggable sites) ([https://www.rosettacommons.org/docs/latest/application_documentation/utilities/make-exemplar](https://www.rosettacommons.org/docs/latest/application_documentation/utilities/make-exemplar), [https://www.rosettacommons.org/docs/latest/application_documentation/utilities/pocket-relax](https://www.rosettacommons.org/docs/latest/application_documentation/utilities/pocket-relax), [https://www.rosettacommons.org/docs/latest/application_documentation/utilities/pocket-suggest-targets](https://www.rosettacommons.org/docs/latest/application_documentation/utilities/pocket-suggest-targets) )
-* [SEWING](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/composite_protocols/sewing/SEWING) (http://www.ncbi.nlm.nih.gov/pubmed/27151863)
-* [Simple_cycpep_predict](https://www.rosettacommons.org/docs/latest/structure_prediction/simple_cycpep_predict): fragment-free peptide structure prediction for N-to-C cyclic peptides containing arbitrary mixtures of L- and D-amino acids (and glycine).  
-* [Surface_docking](https://www.rosettacommons.org/docs/latest/surface-docking) (Docking to mineral surfaces) 
+* [FARNA](farna-refactor), a refactor of Rosetta’s RNA code 
+    *  [Mg_modeler](application_documentation/rna/mg-modeler), for including magnesium 2+ ions into structures 
+* A new [framework](application_documentation/membrane_proteins/RosettaMP-GettingStarted-Overview) and suite of applications for modeling and designing membrane proteins 
+* Pocket docking (looks for druggable sites) ([make-exemplar](application_documentation/utilities/make-exemplar), [pocket-relax](application_documentation/utilities/pocket-relax), [pocket-suggest-targets](application_documentation/utilities/pocket-suggest-targets) )
+* [SEWING](scripting_documentation/RosettaScripts/composite_protocols/sewing/SEWING) (http://www.ncbi.nlm.nih.gov/pubmed/27151863)
+* [Simple_cycpep_predict](structure_prediction/simple_cycpep_predict): fragment-free peptide structure prediction for N-to-C cyclic peptides containing arbitrary mixtures of L- and D-amino acids (and glycine).  
+* [Surface_docking](surface-docking) (Docking to mineral surfaces) 
 Enzyme specificity re-design (using coupled_moves) ([http://www.ncbi.nlm.nih.gov/pubmed/26397464](http://www.ncbi.nlm.nih.gov/pubmed/26397464))
 * Design with Oligooxypiperizines (OOPs), hydrogen bond surrogates (HBS), and peptoid foldamers ([http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0067051](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0067051), [http://pubs.acs.org/doi/abs/10.1021/ja502310r](http://pubs.acs.org/doi/abs/10.1021/ja502310r), [http://pubs.acs.org/doi/abs/10.1021/ja503776z](http://pubs.acs.org/doi/abs/10.1021/ja503776z))
 	
 
 ### New tools:
-* [Batch_distances](https://www.rosettacommons.org/docs/latest/Batch-distances)
+* [Batch_distances](Batch-distances)
 * [Residue_energy_breakdown](https://www.rosettacommons.org/docs/latest/application_documentation/analysis/residue-energy-breakdown) 
 * Reference poses: [store a pose “snapshot”](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/StorePoseSnapshotMover) at a particular point in a protocol, and use the residue numbering in that pose to control behavior of modules at a downstream point, even if the residue numbering has changed (due to loop insertion, etc.).
 * [Energy function weight optimization](https://www.rosettacommons.org/docs/wiki/application_documentation/utilities/opt-e-parallel-doc) (not suggested for end-user use, but if you’re brave…) 
