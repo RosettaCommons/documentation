@@ -53,20 +53,20 @@ Enzyme specificity re-design (using coupled_moves) ([http://www.ncbi.nlm.nih.gov
 * Multiple refactorings in the chemistry layers, allowing:
     * Poses with carbohydrates
     * Better support for ribonucleoprotein
-    * Support for all ligands in the PDB’s chemical dictionary (note you must [install that dictionary separately](https://www.rosettacommons.org/docs/latest/build_documentation/Build-Documentation#setting-up-rosetta-3_obtaining-additional-files_pdb-chemical-components-dictionary))
+    * Support for all ligands in the PDB’s chemical dictionary (note you must [install that dictionary separately](build_documentation/Build-Documentation#setting-up-rosetta-3_obtaining-additional-files_pdb-chemical-components-dictionary))
     * Support for runtime manipulation of chemistry (adding/removing atoms)
     * Support for rotamer libraries with arbitrary numbers of backbone torsion dependencies
-    * Automatic setup of bonds to [metal ions](https://www.rosettacommons.org/docs/latest/rosetta_basics/non_protein_residues/Metals).  
-* Much better support for [D-amino acids](https://www.rosettacommons.org/docs/latest/rosetta_basics/non_protein_residues/D-Amino-Acids).  Mirror-image conformations now score identically with the talaris2013 and talaris2014 scoring functions.  D-residues use rotamer and scoring databases for their L-counterparts.
-* Support for [mirror-image symmetry operations](https://www.rosettacommons.org/docs/latest/rosetta_basics/structural_concepts/symmetry#symmetry-definitions_symmetries-with-mirror-operations) in symmetric poses, with proper conversion between D- and L-amino acid residue types.
-* Support for [non-pairwise-decomposable score terms](https://www.rosettacommons.org/docs/latest/rosetta_basics/scoring/AACompositionEnergy) during packing
+    * Automatic setup of bonds to [metal ions](rosetta_basics/non_protein_residues/Metals).  
+* Much better support for [D-amino acids](rosetta_basics/non_protein_residues/D-Amino-Acids).  Mirror-image conformations now score identically with the talaris2013 and talaris2014 scoring functions.  D-residues use rotamer and scoring databases for their L-counterparts.
+* Support for [mirror-image symmetry operations](rosetta_basics/structural_concepts/symmetry#symmetry-definitions_symmetries-with-mirror-operations) in symmetric poses, with proper conversion between D- and L-amino acid residue types.
+* Support for [non-pairwise-decomposable score terms](rosetta_basics/scoring/AACompositionEnergy) during packing
 * New non-pairwise-decomposable score term to guide design that penalizes deviations from a desired residue type composition.  
-    * New “[sequence constraints](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/AddCompositionConstraintMover)” to control the residue type composition of a sub-region of a structure (e.g. a protein interface) during design.
+    * New “[sequence constraints](scripting_documentation/RosettaScripts/Movers/movers_pages/AddCompositionConstraintMover)” to control the residue type composition of a sub-region of a structure (e.g. a protein interface) during design.
 * New neighbor radii for canonical amino acids
 * ResidueSelector hierarchy as a selection syntax
 * FloppyTail now compatible with symmetry
 * Much better support for noncanonical residue linkages, such as N-to-C cylization, sidechain-backbone linkages, etc.
-* Full [Database support](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/sql/Database-IO) and documentation (SQLITE3, MySQL, etc) 
+* Full [Database support](rosetta_basics/file_types/sql/Database-IO) and documentation (SQLITE3, MySQL, etc) 
 
 ### Performance, usability improvements, bug fixes:
 * 10% speed improvement in etable evaluation (faster scoring).  Reduced memory use.
@@ -74,7 +74,7 @@ Enzyme specificity re-design (using coupled_moves) ([http://www.ncbi.nlm.nih.gov
 * Beautification: yes, we finally have a codebase-wide single style format, enforced by an external beautification script
 * Repair of the longstanding “ResidueType explosion” malfeature, reducing memory use dramatically and improving Rosetta boot-up time
 * SASA machinery completely overhauled.  Default SASA radii changed to the Reduce set, which include hydrogens by default.  It was previously using a radii set that was never published. SASA Calc settings can be changed through options system.
-* New [documentation wiki](https://www.rosettacommons.org/docs/latest/Home)
+* New [documentation wiki](Home)
 
 
 ## Rosetta 3.5
