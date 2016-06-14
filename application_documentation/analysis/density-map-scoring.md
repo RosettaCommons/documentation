@@ -84,12 +84,15 @@ Density-Scoring Options
 **Common options**:
 
 -   -edensity:mapfile
+
 Input map in CCP4/MRC format covering the asymmetric unit.
 
 -   -edensity:mapreso
+
 The resolution of the data.  If not given it will be estimated from the voxel size of the input map.
 
 -   -edensity:cryoem_scatterers
+
 Use cryoEM scattering factors (default: X-ray).
 
 -   -edensity:fastdens\_wt
@@ -109,6 +112,7 @@ Width (\# residues) to use for sliding window scoring.  Must be an odd value; de
 Mask width around each atom/CA [default resolution-dependent]
 
 -   -edensity:realign min
+
 Rigid-body minimize into density after loading the map.
 
 
