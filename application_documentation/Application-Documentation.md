@@ -241,8 +241,6 @@ These applications serve mainly to support other Rosetta applications, or to ass
 - [[Fragment picker|app-fragment-picker]] - Pick fragments to be used in conjunction with other fragment-aware Rosetta applications.  
     * [[Old fragment picker|fragment-picking-old]] - The older version of the fragment picker.  
 
-- [[Loops from density]] - Create Rosetta loop files for regions of a protein with poor local fit to electron density.
-
 - [[Make exemplars|make-exemplar]] - Create an exemplar for surface pockets on a protein that touch a target residue.
 
 - [[OptE|opt-e-parallel-doc]] - Refit reference weights in a scorefunction to optimize given metrics.  
