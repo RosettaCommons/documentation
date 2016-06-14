@@ -13,7 +13,7 @@ All functionality here is included in the LayerDesign task operation, which is m
 
 Below are the valid secondary structure types and the default set of allowed residue types.
 - Helix: ADEFIKLNQRSTVWY
-- Sheet: DEFHIKLNQRSTVWY
+- Strand: DEFHIKLNQRSTVWY
 - Loop: ACDEFGHIKLMNPQRSTVWY
 - HelixStart: ADEFHIKLNPQRSTVWY
 - HelixCapping: DNST
