@@ -247,11 +247,13 @@ These applications serve mainly to support other Rosetta applications, or to ass
 
 - [[Pocket target residue suggestion|pocket-suggest-targets]] - Suggest the best pair of target residues for pocket optimization for the purpose of inhibiting a protein-protein interaction.
 
+- [[Pocket relax|pocket-relax]] - Relax followed by full atom minimization and scoring with no PocketConstraint. Useful when performing pocket optimization.
+
 - [[PyMol server]] - Observe what a running Rosetta program is doing by using PyMol.
 
 - [[Sequence recovery]] - Calculate the mutations and native recovery from Rosetta design runs.
 
-- [[Pocket relax|pocket-relax]] - Relax followed by full atom minimization and scoring with no PocketConstraint. Useful when performing pocket optimization.
+- [[Torsional potential correction|torsional-potential-corrections]] - Remove double counting interactions from the sidechain torsional potential
 
 ###Non-canonical amino acids
  - [[Make rotamer library|make-rot-lib]] - Generate rotamer libraries for non-canonical amino acids.  
