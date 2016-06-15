@@ -3,7 +3,7 @@
 ## SecondaryStructure
 
 ```
-      <SecondaryStructure name=(&string, required) use_abego=(&int, optional) blueprint=(&string) ss=(&string) abego=(&string) />
+      <SecondaryStructure name=(&string, required) use_abego=(&int, optional) blueprint=(&string) ss=(&string) abego=(&string) threshold=(&real, 1.0) />
 ```
 
 Filter structures based on the SecondaryStructure, either from a string (EEEEEHHHH) or from a blueprint.
@@ -13,6 +13,7 @@ Filter structures based on the SecondaryStructure, either from a string (EEEEEHH
 -   ss: secondary structure string, e.g. "HHHHHLLLHHHHH" \<LE\> abego: string of abego values, turn on use\_abego
 -   use\_abego: 0 or 1. (optional, requires abego values to match those specified in the blueprint)
 -   blueprint: filename string format for a blueprint file (e.g. "../input.blueprint"; standard blueprint file)
+-   threshold: Fraction of secondary structure that must match the desired secondary structure in order for the pose to pass the filter. (default=1.0).  1.0 indicates that all residues must match the desired secondary structure.
 
 **Secondary Structure specification** :
 
