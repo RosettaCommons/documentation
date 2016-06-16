@@ -1,4 +1,5 @@
 # MakeBundle
+Page created by Vikram K. Mulligan (vmullig@uw.edu).  Last modified 16 June 2016.
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## MakeBundle
 
