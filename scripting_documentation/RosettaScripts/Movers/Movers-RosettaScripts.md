@@ -300,6 +300,8 @@ See [[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScri
 
 **[[FavorSequenceProfile|FavorSequenceProfileMover]]** - Constrains the residue type using one of several profiles
 
+**[[FlipChirality|FlipChiralityMover]]** - Mirrors a selection in pose
+
 **[[FoldTreeFromLoops|FoldTreeFromLoopsMover]]** - Defines a fold tree based on the end points of a loop
 
 **[[HBNet|HBNetMover]]** - (Developer release only) Methods for designing explicit hydrogen bond networks
