@@ -18,7 +18,7 @@ PT Conway, F DiMaio (2016). Improving hybrid statistical and physical forcefield
 Purpose
 =======
 
-The tool is intended to make corrections to the rosetta sidechain torsional potential [[fa_dun | score-types]], canceling out portions of the distribution accounted for by other terms.  This tool was used to generate corrections for [[talaris2014 | score-types]], described below.
+The tool is intended to make corrections to the Rosetta sidechain torsional potential [[fa_dun | score-types]], canceling out portions of the distribution accounted for by other terms.  This tool was used to generate corrections for [[talaris2014 | score-types]], described below.
 
 Using the corrected talaris2014 terms
 =====================================
@@ -57,7 +57,7 @@ Inputs:
 
 **-l infilelist**
 
-A list of PDB fragments from which to grab fragments.  For the talaris2014 corrections, the Richardson 8000 set was used.
+A list of PDB files from which to grab fragments.  For the talaris2014 corrections, the Richardson 8000 set was used.
 
 **-cluster_radius 0.1**
 
@@ -69,7 +69,7 @@ Outputs:
 
 A silent file containing the individual fragments (to be used as input for subsequent steps).
 
-### 2) scoring these fragments with the corrected scorefunction
+### 2) scoring these fragments with the target scorefunction
 
 ```
 $ROSHOME/source/bin/torsional_potential_corrections.default.linuxgccrelease \
@@ -96,7 +96,7 @@ Outputs:
 
 A text file containing the individual fragment scores (to be used as input for the final step).
 
-**Note:** This step is very time consuming; it is recommended to run this on many processors, by generating many fragment libraries in step one, and parallelizing this step.  The the resulting score files may be concatenated together.
+**Note:** This step is very time consuming; it is recommended to run this on many processors, by generating multiple fragment libraries in step one and running this step in parallel on the libraries.  The resulting score files may then be concatenated together.
 
 
 ### 3) apply the corrections and write a new torsional library
