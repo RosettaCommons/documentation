@@ -98,6 +98,9 @@ While most of these applications focus on prediction, many have options which wi
 ###Ion docking
 - [[ Mg(2+) modeling | mg-modeler ]] - Basic code for docking Mg(2+) -- with or without explicit waters -- initially tested for RNA.
 
+###Protein-Surface Docking
+- [[Surface Docking|surface-docking]] - Dock a protein to a metal or mineral surface.
+ 
 ##Design <a name="Design" />
 
 ### General 
