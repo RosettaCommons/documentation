@@ -19,24 +19,24 @@ Command Line Options
 * Sample command:  score_jd2.linuxgccrelease -database db_path -l PDBLIST.txt
 
 
-Score Application Specific Options
--score_app:linmin                           Run a quick linmin before scoring
--rescore:verbose                            display score breakdown
+Score Application Specific
+-score_app:linmin                  Run a quick linmin before scoring
+-rescore:verbose                   display score breakdown
 
 
 Quick Start Options
--in:file:native                             native PDB if CaRMS is required
--score:weights  weights                     weight set or weights file
--score:patch  patch                         patch set
+-in:file:native                    native PDB if CaRMS is required
+-score:weights  weights            weight set or weights file
+-score:patch  patch                patch set
 
--out:nooutput                               don't print PDB structures (default now)
--out:output                                 force printing of PDB structures
+-out:nooutput                      don't print PDB structures (default now)
+-out:output                        force printing of PDB structures
 
--out:file:score_only                        Only output score file (supress all other filetypes)
--out:file:scorefile name.sc                 Name of scorefile (default score.sc)
--out:file:silent                            write silent-out file
--out:prefix  myprefix                       prefix the output structures with a string
--scorefile_format json                      Write the output score file as a JSON file (useful for reading into python)
+-out:file:score_only               Only output score file (supress all other filetypes)
+-out:file:scorefile name.sc        Name of scorefile (default score.sc)
+-out:file:silent                   write silent-out file
+-out:prefix  myprefix              prefix the output structures with a string
+-scorefile_format json             Write the output score file as a JSON file (useful for reading into python)
 ```
 
 General Options
