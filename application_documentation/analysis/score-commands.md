@@ -3,7 +3,7 @@
 Metadata
 ========
 
-This document was edited 3/14/2014 by Jared Adolf-Bryfogle. This application in Rosetta3 was created and documented by Mike Tyka,et al.
+This document was edited 6/20/2016 by Jared Adolf-Bryfogle. This application in Rosetta3 was created and documented by Mike Tyka,et al.
 
 Purpose and Algorithm
 =====================
@@ -36,7 +36,7 @@ Quick Start Options
 -out:file:scorefile name.sc                 Name of scorefile (default score.sc)
 -out:file:silent                            write silent-out file
 -out:prefix  myprefix                       prefix the output structures with a string
-
+-scorefile_format json                      Write the output score file as a JSON file (useful for reading into python)
 ```
 
 General Options
@@ -62,4 +62,3 @@ Tips
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
 * [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 * [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
-
