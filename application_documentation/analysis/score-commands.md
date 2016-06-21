@@ -40,10 +40,10 @@ Quick Start Options
 ```
 
 General Options
--  [[Input Options | rosetta_basics/input-options]]
--  [[Database options | rosetta_basics/Database-options]]
--  [[Output Options | rosetta_basics/output-options]]
--  [[Score Options | rosetta_basics/score-options]]
+-  [[Input options]]
+-  [[Database options]]
+-  [[Output Options]]
+-  [[Score Options]]
 
 Call optH when reading silent files (useful for HisD/HisE determination)
 
