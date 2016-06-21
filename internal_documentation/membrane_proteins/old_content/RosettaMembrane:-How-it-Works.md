@@ -17,7 +17,7 @@ Conformation is constructed by the membrane protein factory. It is not responsib
 
 Below is roughly what the conformation object looks like: 
 
-[[/internal_documentation/conf_overview.png]]
+![Conformation Overview](/internal_documentation/conf_overview.png)
 
 ## Membrane Residue Types
 To define membrane and chain orientation, the framework uses two new residue types, MEM and EMB, derived from a virtual residue type. Becasue they are virtual, they have no impact on the chemical properties of the structure and cannot be added to a polymer chain by bond (no upper/lower connect points). Instead, these residues are added by jump by the framework and act as local coordinate frames. Below describes the purpose of each residue: 
