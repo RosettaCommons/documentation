@@ -2,7 +2,7 @@
 
 [[_TOC_]]
 
-* See also the [Remodel] documentation.
+* See also the [[Remodel]] documentation.
 
 Metadata
 ========
