@@ -20,7 +20,7 @@ Updates to [DARC](application_documentation/docking/DARC) docking
     * Zinc homodimer design ([http://www.ncbi.nlm.nih.gov/pubmed/22092237](http://www.ncbi.nlm.nih.gov/pubmed/22092237), [http://www.ncbi.nlm.nih.gov/pubmed/22510088](http://www.ncbi.nlm.nih.gov/pubmed/22510088))
 * [FARNA](farna-refactor), a refactor of Rosetta’s RNA code 
     *  [Mg_modeler](application_documentation/rna/mg-modeler), for including magnesium 2+ ions into structures 
-* A new [framework](application_documentation/membrane_proteins/RosettaMP-GettingStarted-Overview) and suite of applications for modeling and designing membrane proteins 
+* A new [framework](application_documentation/membrane_proteins/RosettaMP-GettingStarted-Overview) and suite of applications for modeling and designing membrane proteins (http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004398)
 * Pocket docking (looks for druggable sites) ([make-exemplar](application_documentation/utilities/make-exemplar), [pocket-relax](application_documentation/utilities/pocket-relax), [pocket-suggest-targets](application_documentation/utilities/pocket-suggest-targets) )
 * [SEWING](scripting_documentation/RosettaScripts/composite_protocols/sewing/SEWING) (http://www.ncbi.nlm.nih.gov/pubmed/27151863)
 * [Simple_cycpep_predict](structure_prediction/simple_cycpep_predict): fragment-free peptide structure prediction for N-to-C cyclic peptides containing arbitrary mixtures of L- and D-amino acids (and glycine).  
