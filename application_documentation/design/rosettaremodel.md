@@ -2,6 +2,8 @@
 
 [[_TOC_]]
 
+* See also the [Remodel] documentation.
+
 Metadata
 ========
 
