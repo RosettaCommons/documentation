@@ -16,4 +16,5 @@ This mover will add a small, random translation and rotation to jump 1 in a pose
 ## Inputs
 
 * rot_mag: The magnitude of the random rotation.  (Note: I think that this is in degrees, but please correct me if I'm wrong. -VKM.)  Default 0.1.
+
 *trans_mag: The magnitude of the random translation, in Angstroms.  Default 0.4.
