@@ -14,7 +14,7 @@ Repacks sidechains with user-supplied options, including TaskOperations
 
 ##See Also
 
-* [[Fixbb]]: Application to pack rotamers
+* [[Fixbb]]: Application to pack rotamers and do sequence design (not a mover)
 * [[SymPackRotamersMover]]: Symmetric version of this mover
 * [[PackRotamersMoverPartGreedyMover]]
 * [[RestrictRegionMover]]
