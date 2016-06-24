@@ -98,6 +98,14 @@ Meta Movers don't do anything to the pose themselves, but combine or modify the 
 
 These are movers that should be usable in most cases with most systems
 
+### Simple Sequence Design
+
+**[[FixBB|Mock_FixBBMover]]** - Sequence design on a fixed backbone
+
+**[[FlexibleBBdesign|Mock_FlexBBdesignMover]]** - Sequence design with backbone minimization
+
+**[[FastDesign|FastDesignMover]]** - Sequence design with backbone minimization
+
 ### Backbone Movement
 
 **[[Backrub|BackrubMover]]** - Makes local rotations around two backbone atoms
