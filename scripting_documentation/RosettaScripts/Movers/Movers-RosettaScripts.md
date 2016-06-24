@@ -350,6 +350,8 @@ See [[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScri
 
 **[[RigidBodyTransMover]]** - Translates a chain along an axis
 
+**[[RigidBodyPerturbNoCenter]]** - Make a small, random translational and rotational move to move two parts of a pose relative to one another.
+
 **[[RollMover]]** - Rotates pose a given angle over a given axis
 
 **[[SetupNCS|SetupNCSMover]]** - Sets up non crystallographic symmetry between residues and forces residues to maintain conformation and type
