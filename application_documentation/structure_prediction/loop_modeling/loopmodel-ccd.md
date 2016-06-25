@@ -7,6 +7,8 @@ Author: Sinisa Bjelic and TJ Brunette
 
 This document was last updated August 11, 2010 by TJ Brunette & Sinisa Bjelic. The corresponding PIs for this application are David Baker (dbaker@u.washington.edu) .
 
+An introductory loop modeling tutorial can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/loop_modeling/loop_modeling).
+
 Code and Demo
 =============
 
@@ -193,6 +195,7 @@ No improvements have made since last release.
 
 ##See Also
 
+* [Loop Modeling Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/loop_modeling/loop_modeling)
 * [[Loopmodel]]: The main loopmodel application page
 * [[Structure prediction applications]]: A list of other applications to be used for structure prediction, including loop modeling
 * [[Fragment file]]: Fragment file format (required for abinitio structure prediction)
