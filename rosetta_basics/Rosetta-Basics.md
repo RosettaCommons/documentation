@@ -1,6 +1,6 @@
 #Rosetta Basics
 
-###If you are new to Rosetta, start [[here|Getting-Started]].
+###If you are new to Rosetta, start [[here|Getting-Started]] to understand what you need to run Rosetta. Then check out these [introductory tutorials](https://www.rosettacommons.org/demos/latest/Home#tutorials).
 
 ###If you are trying to find the right protocol to use for your biological application, look [[here|Solving-a-Biological-Problem]].
 
