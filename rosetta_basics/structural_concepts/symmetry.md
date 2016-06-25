@@ -32,7 +32,7 @@ Assuming the protocol you are using has been adopted to symmetry (if not see [Ho
 How to generate symmetry definitions <a name="generate" />
 ------------------------------------
 
-To aid in creating a symmetry definition file from a symmetric (or near-symmetric) PDB, an application – **make\_symmdef\_file.pl** – has been included in src/apps/public/symmetry. Running this application without arguments gives an overview of usage; see [[make_symmdef_file|make-symmdef-file]] for more details.
+To aid in creating a symmetry definition file from a symmetric (or near-symmetric) PDB, an application – **make\_symmdef\_file.pl** – has been included in src/apps/public/symmetry. Running this application without arguments gives an overview of usage; see [[make_symmdef_file|make-symmdef-file]] for more details. Also, a tutorial is present [here](https://www.rosettacommons.org/demos/latest/tutorials/Symmetry/Symmetry).
 
 To aid in creation of symmetry definition files from scratch, typically for denovo prediction, – **make\_symmdef\_file\_denovo.py** – has been included in src/apps/public/symmetry. Running this application without arguments gives an overview of usage; see [[make_symmdef_file_denovo|make-symmdef-file-denovo]] for more details.
 
@@ -389,6 +389,7 @@ SymmetryInfo contains everything you need to know about the symmetry of the conf
 
 ##See Also
 
+* [Symmetry Turtorial](https://www.rosettacommons.org/demos/latest/tutorials/Symmetry/Symmetry)
 * [[Glossary]]: Brief definitions of Rosetta terms
 * [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
