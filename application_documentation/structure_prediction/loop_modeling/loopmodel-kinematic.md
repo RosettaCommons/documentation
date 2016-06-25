@@ -9,6 +9,8 @@ Author: Daniel J. Mandell, Roland A. Pache, Amelie Stein
 
 This document was last updated October 10, 2012 by Amelie Stein. The corresponding PIs for this application are Tanja Kortemme (kortemme@cgl.ucsf.edu) and Evangelos A. Coutsias (coutsias@unm.edu).
 
+An introductory tutorial on loop modeling can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/loop_modeling/loop_modeling).
+
 Code and Demo
 =============
 
@@ -312,6 +314,7 @@ Expert users may wish to call the KIC protocols from directly within their own p
 
 ##See Also
 
+* [Loop Modeling Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/loop_modeling/loop_modeling)
 * [[Loopmodel]]: The main loopmodel application page
 * [[Structure prediction applications]]: A list of other applications to be used for structure prediction, including loop modeling
 * [[Fragment file]]: Fragment file format (required for abinitio structure prediction)
