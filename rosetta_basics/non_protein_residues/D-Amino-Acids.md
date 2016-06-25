@@ -1,8 +1,8 @@
 # Working with D-Amino Acids in Rosetta
-Documentation by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu).  Created 19 March 2014.
+Documentation by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu).  Created 19 March 2014.  Last modified 24 June 2016.
 
 ## Short summary
-Rosetta has full support for the 19 D-amino acids that are mirror images of the 19 canonical L-amino acids, and these are fully functional with the **talaris2013** scoring function.  This page has information on how to activate these residue types, as well as on working with other D-amino acids with noncanonical side chains.
+Rosetta has full support for the 19 D-amino acids that are mirror images of the 19 canonical L-amino acids, and these are fully functional with the **talaris2013**, **talaris2014**, and **beta_nov15** scoring functions.  This page has information on how to activate these residue types, as well as on working with other D-amino acids with noncanonical side chains.
 
 ## What are D-amino acids?
 D-alpha-amino acids are amino acids with inverted chirality at the alpha carbon relative to the conventional L-alpha-amino acids.  Conventionally, the mirror-image versions of the 19 canonical chiral amino acids are called by the same names (D-tyrosine is the mirror image of L-tyrosine, for example).  For the most part, D-amino acids are not incorporated into natural proteins, since the ribosome translates D-residues very inefficiently.  (There are some special cases in which posttranslational enzymatic modification of certain bacterial cell wall proteins produces a few D-residues.)
@@ -22,7 +22,7 @@ In the case of the 19 "canonical" D-amino acids (that is, the D-amino acids that
 In the case of "noncanonical" D-amino acids, some terms currently may not handle these properly.  These include:
 * **pro_close** (Doesn't know how to recognize "proline-like" noncanonical D-amino acids, like D-hydroxyproline.)
 * **cart_bonded** (Doesn't know what the ideal geometry for noncanonicals is, as far as I know.)
-* **rama** (Completely ignores noncanonicals, unless the **BACKBONE_AA** line is included in the params file, and this line currently only allows canonical L-amino acids to be specified.)
+* **rama** and **rama_prepro** (Completely ignores noncanonicals, unless the **BACKBONE_AA** line is included in the params file, and this line currently only allows canonical L-amino acids to be specified.)
 * **p_aa_pp** (Completely ignores noncanonicals, unless the **BACKBONE_AA** line is included in the params file, and this line currently only allows canonical L-amino acids to be specified.)
 * **fa_dun** (This _can_ score D-noncanonicals properly, if provided with a rotamer library that is pre-mirrored for the D-version of the noncanonical)
 
