@@ -243,6 +243,7 @@ These applications serve mainly to support other Rosetta applications, or to ass
  
 - [[Fragment picker|app-fragment-picker]] - Pick fragments to be used in conjunction with other fragment-aware Rosetta applications.  
     * [[Old fragment picker|fragment-picking-old]] - The older version of the fragment picker.  
+    * [[Structure Set Fragment Picker|Struct-Set-Fragment-Picker]] - Pick fragments from a provided set of pdb files
 
 - [[Make exemplars|make-exemplar]] - Create an exemplar for surface pockets on a protein that touch a target residue.
 
