@@ -10,6 +10,8 @@ This document was written 4 Feb 2008 by Ian W. Davis.
 
 Lasted Edited 10/6/14 by Jared Adolf-Bryfogle.
 
+An introductory tutorial on ligand docking can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/ligand_docking/ligand_docking_tutorial).
+
 
 Example runs
 ============
@@ -456,6 +458,7 @@ A confidence index can be calculated as the correlation between energy score and
 
 ##See Also
 
+* [Ligand Docking Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/ligand_docking/ligand_docking_tutorial)
 * [[Docking Applications]]: Home page for docking applications
 * [[Preparing ligands]]: Notes on preparing ligands for use in Rosetta
 * [[Non-protein residues]]: Notes on using non-protein molecules with Rosetta
