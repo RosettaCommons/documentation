@@ -5,7 +5,7 @@ This is a list of some of the more frequently asked questions about Rosetta.
 
 See Also:
 * [[Infrequently Asked Questions]] - less commonly asked questions. 
-* [Introductory Rosetta Tutorial](https://www.rosettacommons.org/demos/latest/Home#tutorials)
+* [Introductory Rosetta Tutorial](https://www.rosettacommons.org/demos/latest/Home#tutorials) - a good place to learn Rosetta
 * [[Glossary]] - short definitions of Rosetta-related terms.
 * [[RosettaEncyclopedia]] - longer form explanations of Rosetta-related concepts. 
 
