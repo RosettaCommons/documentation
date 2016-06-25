@@ -7,6 +7,8 @@ Author: Amelie Stein
 
 Documentation and code by Amelie Stein. The corresponding PI for this application is Tanja Kortemme (kortemme@cgl.ucsf.edu). This document was last updated December, 2015 by Jared Adolf-Bryfogle. 
 
+An introductory tutorial to loop modeling can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/loop_modeling/loop_modeling).
+
 Code and Demo
 =============
 
@@ -125,6 +127,7 @@ Rosetta 3.5 is the first release featuring next-generation KIC.
 
 ##See Also
 
+* [Loop Modeling Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/loop_modeling/loop_modeling)
 * [[Loopmodel]]: The main loopmodel application page
 * [Rosetta Benchmarks](https://guybrush.ucsf.edu/benchmarks/benchmarks/loop_modeling): Current benchmarks for NGK
 * [[Structure prediction applications]]: A list of other applications to be used for structure prediction, including loop modeling
