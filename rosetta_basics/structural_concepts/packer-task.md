@@ -4,6 +4,8 @@ Author: Steven Lewis
 
 This page describes how the PackerTask (actually the PackerTask\_, because the former is an interface class) is intended to be used. Andrew LF built it so that it would be "commutative": the order in which you alter the PackerTask has no effect on its ultimate state (this is like a state function in thermodynamics). As a corollary, you are not allowed to arbitrarily modify the PackerTask; you can alter it generally only through commutative setters. Also, much of the real information in the PackerTask is contained within its ResidueLevelTasks (ResidueLevelTask\_), which allows position-level control of behavior. Most of this documentation applies to either; a call to the\_task.residue\_task(resid) returns the ResidueLevelTask you want.
 
+An introductory tutorial on the Packer can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/Optimizing_Sidechains_The_Packer/Optimizing_Sidechains_The_Packer).
+
 Commutativity
 =============
 
