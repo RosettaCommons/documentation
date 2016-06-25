@@ -6,6 +6,8 @@ This document was written 3 Oct 2007 by Ian W. Davis and last updated 22 Decembe
 
 Information was provided by Jim Havranek.
 
+An introductory tutorial on minimization can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/minimization/minimization).
+
 The relevant code is in core::optimization, especially the core::optimization::Minimizer class. 
 
 Flavors of minimization in Rosetta
