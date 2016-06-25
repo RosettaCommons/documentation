@@ -20,6 +20,8 @@ Code and Demo
 
 The code for running comparative modeling is in `       rosetta/main/source/src/protocols/comparative_modeling      ` and `       rosetta/main/source/src/protocols/loops      ` . See the `       rosetta/tests/integration/tests/threading      ` directory for an example command-line and input files.
 
+An introductory tutorial on comparative modeling can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/rosetta_cm/rosetta_cm_tutorial).
+
 References
 ==========
 
@@ -118,6 +120,7 @@ See the [[AbinitioRelax extract options|abinitio-relax#Options]] and [[AbinitioR
 
 ##See Also
 
+* [Comparative Modeling Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/rosetta_cm/rosetta_cm_tutorial)
 * [[Minirosetta]]: More information on the MiniRosetta app
 * [[Structure prediction applications]]: A list of other applications to be used for structure prediction
   * [[NonlocalAbinitio]]: Application for predicting protein structure given some prior structural information
