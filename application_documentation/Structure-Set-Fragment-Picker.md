@@ -1,4 +1,4 @@
-#Struct-Set-Fragment-Picker
+#Structure-Set-Fragment-Picker
 
 Metadata
 ========
