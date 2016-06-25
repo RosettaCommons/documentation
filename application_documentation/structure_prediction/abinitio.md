@@ -1,5 +1,7 @@
 # Abinitio
 
+An introductory tutorial on _ab initio_ can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/denovo_structure_prediction/Denovo_structure_prediction). A tutorial on protein folding using the broker can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/advanced_denovo_structure_prediction/folding_tutorial)
+
 ## Basic Algorithm, FragmentSampler
 
 The fragment assembly proceeds in 4 stages that differ mainly by the ScoreFunction and the fragment size applied during the trial moves. The third stage is split into two sub-stages stage IIIa and IIIb. The weight-sets to create the ScoreFunctions are stored in the Rosetta database under the names `score0`, `score1`, `score2`, `score5` and `score3`, for stage 1, 2, 3a, 3b and 4, respectively. To manipulate the scoring during assembly stages one has to provide a score patch using the flags `-abinitio:stageX_patch file.wts_patch`, where X = 1, 2, 3a, 3b or 4, respectively and file.wts_patch is a file containing the patch. There is no single flag to patch the ScoreFunctions of all stages at once.
@@ -129,6 +131,8 @@ The AbrelaxMover works closely together with the [[TopologyBroker|BrokeredEnviro
 
 #See Also
 
+* [Ab initio Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/denovo_structure_prediction/Denovo_structure_prediction)
+* [Protein Folding using the Broker Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/advanced_denovo_structure_prediction/folding_tutorial)
 * [[Abinitio relax]]: Main page for this application
 * [[Fasta file]]: Fasta file format
 * [[Fragment file]]: Fragment file format (required for abinitio structure prediction)
