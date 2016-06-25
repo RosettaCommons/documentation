@@ -8,6 +8,7 @@ Why is this process necessary?
 Rosetta uses Params files to store precomputed information about the geometry and chemistry of residues and ligands. A params file is required for each residue encountered in a PDB. A set of params files for commonly seen residues and metals is included with rosetta, and can be found in /path/to/rosetta/main/database/chemical/residue\_type\_sets
 
 * An overview of the Params File type can be found [[here | Residue-Params-file]]
+* An introductory tutorial on preparing ligands can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/prepare_ligand/prepare_ligand_tutorial).
 
 Generating Ligand Conformers
 ============================
@@ -42,6 +43,7 @@ A new directory called "params" will be created in the directory you executed th
 
 ##See Also
 
+* [Tutorial on preparing ligands](https://www.rosettacommons.org/demos/latest/tutorials/prepare_ligand/prepare_ligand_tutorial)
 * [[Making Rosetta robust against malformed PDBs|robust]]
 * [[Non-protein residues]]: Guide to using non-protein molecules with Rosetta
 * [[Residue Params file]]: File to specify chemical and geometric information for ligands and residues.
