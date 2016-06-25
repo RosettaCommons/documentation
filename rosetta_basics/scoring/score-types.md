@@ -1,5 +1,7 @@
 #Energy Terms In Rosetta 
 
+An introductory tutorial on scoring biomolecules using Rosetta can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/scoring/scoring).
+
 Standard Weights File
 =====================
 
@@ -90,6 +92,7 @@ Lazaridis, T. and M. Karplus, _Effective energy function for proteins in solutio
 
 ##See Also
 
+* [Scoring Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/scoring/scoring)
 * [[Scoring explained]]
 * [[Additional score terms|score-types-additional]]
 * [[Centroid score terms]]
