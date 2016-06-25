@@ -74,6 +74,10 @@ Note that the download comes as a [[tar archive|http://en.wikipedia.org/wiki/Tar
 We don't distribute [[executables/binaries|http://en.wikipedia.org/wiki/Executable]] for most purposes, we distribute [[source code|http://en.wikipedia.org/wiki/Source_code]].
 As a consequence, you will need to [[compile|http://en.wikipedia.org/wiki/Compiler]] the code before use.
 
+Introductory Rosetta Tutorials
+------------------------------
+After downloading Rosetta, go through [these detailed tutorials](https://www.rosettacommons.org/demos/latest/Home#tutorials) to get started. Once you are done with the introductory tutorials, you should be able to do most common molecular modeling tasks on Rosetta.
+
 =======
 ###Installation on Mac/Linux
 
@@ -120,6 +124,7 @@ See the [[TACC]] page for more details.
 
 ##See Also
 
+* [Introductory Rosetta Tutorials](https://www.rosettacommons.org/demos/latest/Home#tutorials)
 * [[Resources for learning biophysics and computational modeling]]
 * [[Build Documentation]]: Information on setting up Rosetta
 * [[I want to do x]]: Guides to specific types of structural perturbations using RosettaScripts
