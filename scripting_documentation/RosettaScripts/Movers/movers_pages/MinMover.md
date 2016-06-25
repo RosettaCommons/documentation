@@ -27,6 +27,7 @@ Note that defaults are as for the MinMover class! Check MinMover.cc for the defa
 
 ##See Also
 
+* [Minimization Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/minimization/minimization)
 * [[SymMinMover]]: Symmetric version of this mover
 * [[Minimization overview]]
 * [[I want to do x]]: Guide to choosing a mover
