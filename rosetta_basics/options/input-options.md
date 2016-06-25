@@ -1,5 +1,7 @@
 <!-- --- title: Input Options -->
 
+To understand basic input options, complete [this tutorial](https://www.rosettacommons.org/demos/latest/tutorials/input_and_output/input_and_output#controlling-input).
+
 Here is a list of common used input options. For most of these options, the option groups (in:path etc) do not need to be given. The option groups need to be given only for options that have the same name as other options in other option groups.  Rosetta will warn you if this is the case.
 
 Misc
@@ -135,6 +137,7 @@ _NOTE: The Ensemble Job Inputter Does not currently work with silent files._
 
 ##See Also
 
+* [Controlling Input and Output Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/input_and_output/input_and_output)
 * [[Options overview]]: Description of options in Rosetta
 * [[Output options]]
 * [[Full options list]]
