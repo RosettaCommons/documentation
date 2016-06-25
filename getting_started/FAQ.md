@@ -28,11 +28,16 @@ Most modern processors should be suitable. The one limitation you may run into i
 
 #### How do I compile Rosetta?
 
-Please see the page [[Build Documentation]] for instructions on how to compile and install Rosetta.
+Please see the page [[Build Documentation]] or the [Installation tutorial](https://www.rosettacommons.org/demos/latest/tutorials/install_build/install_build) for instructions on how to compile and install Rosetta.
+
+#### Where can I learn how to use Rosetta?
+
+A good starting point will be the series of [introductory tutorials](https://www.rosettacommons.org/demos/latest/Home#tutorials).
 
 #### What is RosettaCommons?
 
 RosettaCommons is a collection of 40+ groups and institutions from around the world which work together to develop and support Rosetta. See <https://www.rosettacommons.org/about> for more information.
+
 
 #### What is ROSIE? Robetta?
 
