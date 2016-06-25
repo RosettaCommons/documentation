@@ -4,6 +4,8 @@ Metadata
 ========
 This document was written 1 Oct 2007 by Ian W. Davis and last updated 1 Oct 2007.
 
+An introductory tutorial on the FoldTree can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/fold_tree/fold_tree).
+
 The relevant code is in core::kinematics. 
 
 The fold tree
