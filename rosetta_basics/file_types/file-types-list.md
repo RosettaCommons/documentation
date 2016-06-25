@@ -17,6 +17,7 @@
 * **[[Constraint file]]**: Provide information about constraints (restraints) for use in a Rosetta protocol
 
 ##Protocol-specific input files
+* **[["Grishin" alignment format|Grishan-format-alignment]]**: A protein sequence alignment format used by comparative modeling.
 * **[[Match constraint files|match-cstfile-format]]**: File specifying geometric constraints for the [[match application|match]].
 * **[[Chemical shift files|chemical-shift-file]]**: NMR chemical shift information used with [[CS-Rosetta|CS-Rosetta]].
 * **[[Bin transition probabilities files|Bin-transition-probabilities-file]]**: Probabilities of transitioning from one mainchain torsion bin to another, used by some sampling schemes.

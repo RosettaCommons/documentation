@@ -12,7 +12,7 @@ Rosetta Revision #58096
 
 There are two modes available for this application: 
 
-**1) Having a fixed membrane and a fixed protein.** This scores the protein as is and requires that the protein is already transformed into membrane coordinates (see [https://www.rosettacommons.org/docs/wiki/PDB-file](https://www.rosettacommons.org/docs/wiki/PDB-file) on how to do this) and currently only works if a spanfile is given, which can be generated from the transformed structure (see the MPSpanfileFromPDB application). Example flags: 
+**1) Having a fixed membrane and a fixed protein.** This scores the protein as is and requires that the protein is already transformed into membrane coordinates (see [[PDB-file]] on how to do this) and currently only works if a spanfile is given, which can be generated from the transformed structure (see the MPSpanfileFromPDB application). Example flags: 
 
 ```
 Rosetta/main/source/bin/score_jd2.macosclangrelease \
