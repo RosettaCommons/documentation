@@ -5,6 +5,8 @@ Metadata
 
 This document was last updated March 26th, 2015, by Shane Ó Conchúir. The original version of the application was created by Michael Tyka et al., and the first loop closure algorithm (CCD) was implemented by Chu Wang et al. in 2007.  The robotics-inspired kinematic closure (KIC) algorithm for loop closure was added by Daniel J. Mandell et al. in 2009, and the refined next generation KIC algorithm by Amelie Stein and Tanja Kortemme in 2013. The latest algorithmic development in loop modeling is KIC with fragments, added by Roland A. Pache and Tanja Kortemme in 2014. 
 
+An introductory tutorial on loop modeling can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/loop_modeling/loop_modeling).
+
 
 References
 ==========
@@ -79,6 +81,7 @@ The loopmodel executable has a separate MPI implementation from the JD2 implemen
 
 ## See Also
 
+* [Loop Modeling Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/loop_modeling/loop_modeling)
 * [[Structure prediction applications]]: A list of other applications to be used for structure prediction, including loop modeling
 * [[Fragment file]]: Fragment file format (required for abinitio structure prediction)
 * [[Loops file]]: File format for specifying loops for loop modeling
