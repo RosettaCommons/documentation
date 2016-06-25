@@ -7,8 +7,9 @@
 Metadata
 ========
 
-
 This document was last edited on January 14th, 2016 by Jared Adolf-Bryfgogle. The code was written by Possu Huang and Andrew Ban. The corresponding PI is William Schief (schief@scripps.edu).
+
+An introductory loop modeling tutorial can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/loop_modeling/loop_modeling).
 
 Code and Demos
 ==============
@@ -681,6 +682,7 @@ RosettaRemodel is being released for the first time with Rosetta v3.4.
 
 ##See Also
 
+* [Loop Modeling Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/loop_modeling/loop_modeling)
 * [[Additional remodel documentation | Remodel ]]: Clustering, checkpointing, and troubleshooting advice.
 * [[Design applications | design-applications]]: other design applications
 * [[Application Documentation]]: Application documentation home page
