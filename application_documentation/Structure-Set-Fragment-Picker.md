@@ -1,4 +1,4 @@
-#Documentation for the struc_set_fragment_picker
+#Struct-Set-Fragment-Picker
 
 Metadata
 ========
