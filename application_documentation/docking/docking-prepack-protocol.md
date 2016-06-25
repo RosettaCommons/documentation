@@ -10,6 +10,8 @@ Last edited 1/29/16. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
 Code and Demo
 =============
 
+An introductory tutorial on protein-protein docking can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/Protein-Protein-Docking/Protein-Protein-Docking).
+
 -   Application source code: `        rosetta/main/source/src/apps/public/docking/docking_prepack_protocol.cc       `
 -   Main mover source code: `        rosetta/main/source/src/protocols/docking/DockingPrepackProtocol.cc       `
 -   To see demos of some different use cases see integration tests located in `        rosetta/main/tests/integration/tests/docking_prepack*       ` (docking\_prepack\_protocol).
@@ -97,6 +99,7 @@ New things since last release
 
 Supports the modern job distributor (jd2).
 
+* [Protein-protein Docking Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/Protein-Protein-Docking/Protein-Protein-Docking): Getting started with docking
 * [[Docking Protocol]]: Main protocol for protein-protein docking
 * [[Docking Applications]]: Home page for docking applications
 * [[Non-protein residues]]: Notes on using non-protein molecules with Rosetta
