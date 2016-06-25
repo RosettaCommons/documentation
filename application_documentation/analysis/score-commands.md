@@ -10,7 +10,10 @@ Purpose and Algorithm
 
 This application simply rescores PDBs, silent files, and PDBs within relational databases. It also can be used for conversion - aka convert to/from silent files, PDBs, and relational databases.  Use Rosetta's [[general output options|output-options]] for file type conversions.
 
+
 The default behavior is to not echo PDBs, so only the scorefile will be output. This can be controlled via cmd-line options.
+
+An introductory tutorial describing scoring in Rosetta can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/scoring/scoring).
 
 Command Line Options
 ====================
@@ -56,7 +59,7 @@ Tips
  - To get general summaries of the score file, and of specific terms (If output in JSON format): <code>Rosetta/main/source/tools/scorefile.py my_score_file.sc</code>
 
 ##See Also
-
+* [Scoring Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/scoring/scoring)
 * [[Analysis applications | analysis-applications]]: other design applications
 * [[Application Documentation]]: Application documentation home page
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
