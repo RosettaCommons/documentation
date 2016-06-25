@@ -8,6 +8,8 @@ Brian Weitzner (brian.weitzner@jhu.edu), Monica Berrondo (mberron1@jhu.edu), Kri
 
 Last edited 6/08/2015 by Jeliazko Jeliazkov. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
 
+An introductory tutorial of protein-protein docking can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/Protein-Protein-Docking/Protein-Protein-Docking).
+
 [[_TOC_]]
 
 Code and Demo
@@ -224,6 +226,7 @@ New things since last release
 
 ##See Also
 
+* [Protein-protein Docking Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/Protein-Protein-Docking/Protein-Protein-Docking): Getting started with docking
 * [[Docking Applications]]: Home page for docking applications
 * [[Preparing structures]]: Notes on preparing structures for use in Rosetta
 * [[Application Documentation]]: List of Rosetta applications
