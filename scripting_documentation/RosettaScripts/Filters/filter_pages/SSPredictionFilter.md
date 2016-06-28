@@ -2,8 +2,6 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## SSPrediction
 
-(This is a devel Filter and not available in released versions.)
-
 Uses the sequence in the pose to generate secondary structure predictions for each position. Secondary structure predictions are then compared to the desired secondary structure to determine a score. If use\_probability is true, the score returned is a value between 0 and 1, where 0 is complete secondary structure agreement, and 1 is no agreement. The following equation is used to determine the score:
 sum(i=1;N;e^(-p[i]/T)), where N is the number of residues, p[i] is the probability of correct secondary structure at position i, and T is a temperature factor set to 0.6 by default.
 If use\_probability is false, the filter returns the fraction of residues that match the desired secondary structure as a number between 0 and 1.
