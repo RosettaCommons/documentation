@@ -22,7 +22,7 @@ Rosetta is capable of describing all these types of symmetries. The only restric
 Overview: How to run a protocol with symmetry
 =============================================
 
-Assuming the protocol you are using has been adopted to symmetry (if not see [How to adopt your protocol to use symmetry](#How-to-adopt-your-protocol-to-use-symmetry), this section describes the steps to use symmetry in Rosetta.
+Assuming the protocol you are using has been adopted to symmetry (if not see [How to adopt your protocol to use symmetry](#how-to-adopt-your-protocol-to-use-symmetry), this section describes the steps to use symmetry in Rosetta.
 
 1. Generate a symmetry definition file.
 2. If necessary modify symmetry definition file. This typically involves changing the set\_dof lines.
