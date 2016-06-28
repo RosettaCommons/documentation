@@ -5,6 +5,8 @@ This Mover is used to return known sidechain conformations to a [[centroid|Gloss
 
 It's not actually RosettaScripts compatible, because [[SaveAndRetrieveSidechainsMover]] already is.  The two were accidentally developed in parallel years ago.  However, ReturnSidechainMover has the advantage of being at a lower library level of protocols (it's in .3 as part of simple_moves) so it's a more available choice for C++ protocol writing.  
 
+It takes its reference pose - the one to return sidechains from - in its constructor.
+
 [[SwitchResidueTypeSetMover]] is its reverse-companion (for putting centroid where fullatom is).  
 
 ##See Also
