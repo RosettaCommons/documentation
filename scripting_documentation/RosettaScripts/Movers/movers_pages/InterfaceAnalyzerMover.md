@@ -2,6 +2,8 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## InterfaceAnalyzerMover
 
+This [[mover]] is directly served by the [[InterfaceAnalyzer|interface-analyzer]] application, and better documented there.
+
 Calculate binding energies, buried interface surface areas, packing statistics, and other useful interface metrics for the evaluation of protein interfaces.
 
 ```
