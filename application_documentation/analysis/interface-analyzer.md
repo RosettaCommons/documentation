@@ -5,12 +5,14 @@ Metadata
 
 Author: Steven Lewis, P. Ben Stranges, Jared Adolf-Bryfogle
 
-Last updated 9/10/15 by Jared Adolf-Bryfogle. The PI is Brian Kuhlman, [bkuhlman@email.unc.edu](#) .
+Last updated June 29, 2016 by Steven Lewis. The PI is Brian Kuhlman, [bkuhlman@email.unc.edu](#) .
 
 Code and Demo
 =============
 
 InterfaceAnalyzer has a suite of integration test/demos at rosetta/main/tests/integration/tests/InterfaceAnalyzer. The application resides at rosetta/main/source/src/apps/public/analysis/InterfaceAnalyzer.cc, and its mover at rosetta/main/source/src/protocols/anchored\_design/InterfaceAnalyzerMover.\*
+
+The underlying [[Mover]] is documented for use (for example in [[RosettaScripts]] here: [[InterfaceAnalyzerMover]].
 
 References
 ==========
