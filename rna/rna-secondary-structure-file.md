@@ -1,4 +1,5 @@
 # RNA secondary structure file
+# Basics
 + Use dot-parens notation.
 + Can use parentheses (`(`,`)`), square brackets (`[`,`]`), and curly brackets (`{`,`}`).
 + After first line, can put anything you want.
