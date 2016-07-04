@@ -105,7 +105,12 @@ The fasta file has the RNA name on the first line (after \>), and the sequence o
 -vall_torsions                                   Source of RNA fragments. [default: 1jj2.torsions]. [Boolean]
 -jump_library_file                               Source of base-pair rigid body transformations if base pairs are specified.
                                                    [default: 1jj2_RNA_jump_library.dat] [String]
--close_loops                                     Attempt closure across chainbreaks by cyclic coordinate descent after fragment moves [Boolean]
+-obligate_pair                                   Residue pairs that must form a base pair (possibly non canonical)
+-secstruct_general                               Specification of -obligate_pair in dot-parens format
+-obligate_pair_explicit                          Residue pairs that must form a base pair, with  specification of base 
+                                                   edges (W/H/S/X) and orientation (A/P/X for antiparallel/
+                                                   parallel/unknown; C/T/X allowed too for cis/trans)
+
 -cst_file                                        Specify constraints (typically atom pairs) in Rosetta-style constraint file. [String]
 -output_lores_silent_file                        if doing full-atom minimize, also save models after fragment assembly but before refinement (file will be called *.LORES.out) [Boolean]
 -dump                                            output pdbs that occur during the run, even if using silent file output.
@@ -132,6 +137,7 @@ Advanced
 -output_res_num                                  Numbering (and chain) of residues in output PDB or silent file. 
                                                   Better to specify in headers in .fasta file.
 -staged_constraints                              Apply constraints in stages depending on sequence separation
+-close_loops                                     Attempt closure across chainbreaks by cyclic coordinate descent after fragment moves [Boolean] Defaults to true.
 ```
 #Tips
 
