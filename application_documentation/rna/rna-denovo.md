@@ -83,8 +83,11 @@ The fasta file has the RNA name on the first line (after \>), and the sequence o
 ## Commonly used options
 ```
 -in:fasta                                        Fasta-formatted sequence file. [FileVector]
+-sequence                                        Sequence on command line (put in quotes; fasta input is preferred)
+-secstruct_file                                  RNA sec struct to model in dot-parens notation
+-secstruct                                       RNA sec struct on command line (put in quotes;  
+                                                  secstruct_file input is preferred)
 -out:file:silent                                 Name of output file [scores and torsions, compressed format]. default="default.out" [String]
--params_file                                     RNA params file name.[String]. For Example: -params_file chunk002_1lnt_.prm
 -in:native                                       Native PDB filename. [File].
 -out:nstruct                                     Number of models to make. default: 1. [Integer]
 -minimize_rna                                    High resolution optimize RNA after fragment assembly.[Boolean]
@@ -97,7 +100,6 @@ The fasta file has the RNA name on the first line (after \>), and the sequence o
                                                  obligate pairs, draw sequence-matched fragments that encompass both
                                                  pairs. Adjacent means that base pairs have contiguous residues on one 
                                                  strand, and at most 3 intervening residues on the other.   
--filter_lores_base_pairs                         Filter for models that satisfy structure parameters. [Boolean]
 -output_lores_silent_file                        If high resolution minimizing, output intermediate low resolution models. [Boolean]
 -dump                                            Generate pdb output. [Boolean]
 -vall_torsions                                   Source of RNA fragments. [default: 1jj2.torsions]. [Boolean]
@@ -110,16 +112,27 @@ The fasta file has the RNA name on the first line (after \>), and the sequence o
 ```
 ## Advanced options
 ```
-Advanced [used in rna_assembly]
+Advanced 
+-s                                               Input PDBs to be used as fixed 'chunks' in fragment assembly
 -in:file:silent                                  List of input files (in 'silent' format) that specify potential template structures or 'chunks'
 -input_res                                       Positions at which 'chunks' are applied. If there is more than one chunk file, specify indices for
                                                    the first file and then the second file, etc.
                                                  (Used to be called -chunk_res.)
--in:database                                     Path to rosetta databases. Default is based on location of rosetta executables. [PathVector]
+-fixed_stems                                     Seed each stem with a Watson-Crick base pair 
+                                                  instead of having the strands find each other
+-data_file                                       RDAT or legacy-format file with RNA chemical mapping data
 ```
 
-## Deprecated or typically unused options (for completeness)
-
+## Typically unused options (for completeness)
+```
+-filter_lores_base_pairs                         Filter for models that satisfy structure parameters. [Boolean] True by default.
+-params_file                                     RNA params file name.[String]. For Example: -params_file chunk002_1lnt_.prm
+                                                  Deprecated by -working_res option above.
+-in:database                                     Path to rosetta databases. Default is based on location of rosetta executables. [PathVector]
+-output_res_num                                  Numbering (and chain) of residues in output PDB or silent file. 
+                                                  Better to specify in headers in .fasta file.
+-staged_constraints                              Apply constraints in stages depending on sequence separation
+```
 #Tips
 
 
