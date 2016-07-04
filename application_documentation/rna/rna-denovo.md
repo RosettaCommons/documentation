@@ -75,9 +75,8 @@ The code takes about 1 minute to generate two models.
 The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a,c,g, and u. The example fasta file is available in `       main/tests/integration/tests/rna_denovo/      ` .
 
 #Options
-
+## Commonly used options
 ```
-Commonly used:
 -in:fasta                                        Fasta-formatted sequence file. [FileVector]
 -out:file:silent                                 Name of output file [scores and torsions, compressed format]. default="default.out" [String]
 -params_file                                     RNA params file name.[String]. For Example: -params_file chunk002_1lnt_.prm
@@ -85,8 +84,9 @@ Commonly used:
 -out:nstruct                                     Number of models to make. default: 1. [Integer]
 -minimize_rna                                    High resolution optimize RNA after fragment assembly.[Boolean]
 -vary_geometry                                   Vary bond lengths and angles (with harmonic constraints near Rosetta ideal) for backbone and sugar degrees of freedom [Boolean]
-
-Less commonly used, but useful
+```
+## Less commonly used, but useful options
+```
 -cycles                                          Number of Monte Carlo cycles.[default 10000]. [Integer]
 -bps_moves                                       Base pair step moves. For adjacent base pairs within stems or that are
                                                  obligate pairs, draw sequence-matched fragments that encompass both
@@ -102,13 +102,18 @@ Less commonly used, but useful
 -cst_file                                        Specify constraints (typically atom pairs) in Rosetta-style constraint file. [String]
 -output_lores_silent_file                        if doing full-atom minimize, also save models after fragment assembly but before refinement (file will be called *.LORES.out) [Boolean]
 -dump                                            output pdbs that occur during the run, even if using silent file output.
-
+```
+## Advanced options
+```
 Advanced [used in rna_assembly]
 -in:file:silent                                  List of input files (in 'silent' format) that specify potential template structures or 'chunks'
 -input_res                                       Positions at which 'chunks' are applied. If there is more than one chunk file, specify indices for
                                                    the first file and then the second file, etc.
                                                  (Used to be called -chunk_res.)
 -in:database                                     Path to rosetta databases. Default is based on location of rosetta executables. [PathVector]
+```
+## Deprecated or typically unused options (for completeness)
+```
 ```
 
 #Tips
@@ -126,45 +131,61 @@ tools/rna_tools/bin/make_rna_rosetta_ready.py <pdb file>
 ##Can I specify non-Watson-Crick pairs? 
 <a name="Can-I-specify-non-Watson-Crick-pairs?" />
 
-You can also specify base pairs that must be forced, even at the expense of creating temporary chainbreaks, in the params file, with a line like:
+You can also specify base pairs that must be forced, even at the expense of creating temporary chainbreaks, in the params file, with a flag like
 
 ```
-OBLIGATE PAIR 2 11 W W A
+-obligate_pair_explicit 2 11 W W A
 ```
 
-This also allows the specification of non-Watson-Crick base pairs. In the line above, you can change the W's to H (hoogsteen edge) or S (sugar edge); and the A to P (antiparallel to parallel). The base edges are essentially the same as those defined in the classification by Leontis & Westhof. The latter (A/P) are determined by the relative orientation of base normals. [The cis/trans classification of Leontis & Westhof would be an alternate to the A/P, but we found A/P more convenient to compute and to visually assess.] The base pairs are drawn from a library of base pairs extracted from the crystallographic model of the large ribosomal subunit 1JJ2.
+This also allows the specification of non-Watson-Crick base pairs. In the line above, you can change the W's to H (hoogsteen edge) or S (sugar edge); and the A to P (antiparallel to parallel). The base edges are essentially the same as those defined in the classification by Leontis & Westhof. The latter (A/P) are determined by the relative orientation of base normals. [The cis/trans classification of Leontis & Westhof would be an alternate to the A/P, but we found A/P more convenient to compute and to visually assess. You can supply C/T for cis/trans, and it will be converted based on a lookup table.] The base pairs are drawn from a library of base pairs extracted from the crystallographic model of the large ribosomal subunit 1JJ2.
 
-When specifying pairs, if there are not sufficient CUTPOINT\_OPEN's to allow all the pairs to form, the code will attempt to choose a (non-stem) RNA suite to put in a cutpoint, which can be closed during fragment assembly with the -close\_loops option. If you want to pre-specify where this cutpoint will be chosen, add a line like
+When specifying pairs, if there are not sufficient strand breaks to allow all the pairs to form, the code will attempt to choose a (non-stem) RNA suite to put in a cutpoint, which can be closed during fragment assembly with the -close\_loops option. If you want to pre-specify where this cutpoint will be chosen, add a flag like
 
 ```
-CUTPOINT_CLOSED 6
+-cutpoint_closed 6
 ```
+##Use Of Alternative Fragment Sources
+
+
+By default the RNA fragment assembly makes use of bond torsions derived from the large ribosome subunit crystal structure 1jj2, which have been pre-extracted in 1jj2. torsions (available in the database). If you want to use torsions drawn from a separate PDB (or set of PDBs), the following command will do the job.
+
+```
+rna_database.<exe>  -vall_torsions -s my_new_RNA1.pdb my_new_RNA2.pdb -o my_new_set.torsions
+```
+
+The resulting file is just a text file with the RNA's torsion angles listed for each residue. Then, when creating models, use the following flag with the rna\_denovo application:
+
+```
+-vall_torsions my_new_set.torsions
+```
+
+Similarly, the database of base pair geometries can be created with `rna_database -jump_library`, and then specified in the rna\_denovo application with `-jump_library_file`.
+
+Last, a database of base pair step geometries (see [below](#Can-I-use-base-pair-steps?)) can be created with `rna_database -bps_database`. By default, this creates files for the standard canonical base pair steps. To also parse out noncanonical base pair steps, use  `-general_bps`; and `-use_lores_base_pair_classification` catches all pairs, including ones that are held in place by base-phosphate contacts but no base-base hydrogen bonds (as occurs in the sarcin/ricin loop). 
 
 ##Can I use fragments that take advantage of our rich database of base pairings? 
 <a name="Can-I-use-base-pair-steps?" />
 
 Yes, by using the flags `-bps_moves`, you can ask the application to try to  draw from a database of "base pair steps". There are two kinds of those steps. 
 
+First, for stems (specified by secondary structure file), adjacent base pairs form base pair steps, involving four nucleotides (i,i+1,j,j+1) where (i,j+1) and (i+1,j) are paired. There is a set of such steps in Rosetta's database, drawn from the ribosome. The RNA's fold tree will be set up with appropriate jump connections and cutpoints so that those base step conformations can be substituted in during fragment assembly.
 
-First, for stems (specified by the "STEM" lines in params files), adjacent base pairs form base pair steps, involving four nucleotides (i,i+1,j,j+1) where (i,j+1) and (i+1,j) are paired. There is a set of such steps in Rosetta's database, drawn from the ribosome. The RNA's fold tree will be set up with appropriate jump connections and cutpoints so that those base step conformations can be substituted in during fragment assembly.
-
-Second, if you have specified obligate pairs -- but with unknown pairing edges and orientations ('X' in the params file) -- special fragments will be set up for such pairs that involve nucleotides that are adjacent in sequence. For example, if your params file contains lines like:
-
+Second, if you have specified obligate pairs -- but with unknown pairing edges and orientations ('X' in the params file) -- special fragments will be set up for such pairs that involve nucleotides that are adjacent in sequence. For example, if your params file contains a flag like:
 ```
-OBLIGATE PAIR 2 11 X X X
-OBLIGATE PAIR 3  8 X X X
+-secstruct_general .((....)..).
 ```
-
+or 
+```
+-obligate_pair 2 11  3 8 
+```
 using the flag `-bps_moves` will trigger moves that substitute sequence-matched fragments for the nucleotides at (2,3,8,11). This happens if on at least one strand, the base pair step involves residues that are immediately contiguous (2 and 3 in this example). On the other strand, the base pair step must involve residues that are contiguous are have no more than 3 intervening 'bulge' residues (8 and 11 in this example). Note that these base pair steps will generally include noncanonical pairs.  There's a demo of this functionality applied to model the sarcin/ricin loop in `demos/public/RNA_Denovo_with_base_pair_steps/`
-
 
 Note: For noncanonical pairs, we don't allow specification of edges and orientations at the moment -- the database gets pretty sparse with that level of specification. Also note: If there is a base pair step that includes a pair both inside a Watson/Crick stem and a more general 'obligate pair', the stem pairing may actually come out as non-Watson-Crick, which often happens anyway for base pairs at the edge of stems.
 
 
 ##What do the scores mean?
 
-
-The most common question we get is on what the terms in the 'SCORE lines' of silent files mean. Here's a brief rundown, with more explanation in the papers cited above.
+A common question: what do the terms in the 'SCORE lines' of silent files mean? Here's a brief rundown, with more explanation in the Das, 2010 paper cited above.
 
 ```
 ***Energy interpreter for low resolution silent output:
@@ -251,13 +272,7 @@ You can extract models from silent files as described in [Extraction Of Models I
 
 For building models of larger RNAs, check these sections: [[RNA assembly with experimental pair-wise constraints|rna-assembly]] and [[RNA denovo setup|rna-denovo-setup]].
 
-#Expected Outputs
-
-
-You will typically use the protocol to produce a silent file – how do you get the models out?
-
 #Post Processing
-
 
 ##Extraction Of Models Into PDB Format
 <a name="Extraction-Of-Models-Into-PDB-Format" />
@@ -267,8 +282,6 @@ The models from the above run are stored in compressed format in the file test.o
 ```
 rna_extract.<exe>  -in:file:silent test.out -in:file:silent_struct_type  rna -database <path to database>
 ```
-
-Note that the PDBs have residue types marked as rA, rC, rG, and rU.
 
 ##How can I cluster models?
 <a name="How-can-I-cluster-models?" />
@@ -283,11 +296,13 @@ The way this clustering works is it simply goes through the models in order of e
 
 #New things since last release
 
+Written in 2008. 
+
+Last updates: Nov. 2011 and Aug. 2014 by Rhiju Das (rhiju [at] stanford.edu).
 Added applications rna\_minimize, rna\_helix, rna\_cluster. Updated torsional potential to be smooth.
 
 Under-the-hood refactoring is occurring in 2015-2016. [Link to plan](farna-refactor) (for developers only)
 
-Written in 2008. Last updates: Nov. 2011 and Aug. 2014 by Rhiju Das (rhiju [at] stanford.edu).
 
 
 ##See Also
