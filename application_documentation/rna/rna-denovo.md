@@ -117,9 +117,8 @@ Advanced [used in rna_assembly]
                                                  (Used to be called -chunk_res.)
 -in:database                                     Path to rosetta databases. Default is based on location of rosetta executables. [PathVector]
 ```
+
 ## Deprecated or typically unused options (for completeness)
-```
-```
 
 #Tips
 
