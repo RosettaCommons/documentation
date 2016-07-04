@@ -4,4 +4,4 @@ RNA should be read in correctly from PDBs with no additional input or changes th
 
 Applications
 ==========================
-There are many RNA-specific applications within the Rosetta software suite.  Please see [[rna-applications]] for more info.
+There are many RNA-specific applications within the Rosetta software suite.  Please see the [[rna-applications|RNA Applications Summary]] page and [the RNA & RNA-proteins sub-list in applications](https://www.rosettacommons.org/docs/wiki/application_documentation/Application-Documentation#structure-prediction_rna-and-rna-protein) for more info.
