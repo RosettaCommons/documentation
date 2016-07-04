@@ -31,7 +31,7 @@ KGYTLNIKFAAAAAVTIKANLIFANGSTQTAEFKGTFEKATSEAYAYADTLKKD
 NGEYTVDVADKGYTLNIKFA
 ```
 
-Some applications, including [[stepwise|stepwise]] and [[rna-denovo|rna_denovo]], take several chains as input, and allow chain and residues to be specified in tags like `C:10-121` in the FASTA headers.
+Some applications, including [[stepwise|stepwise]] and [[rna_denovo|rna-denovo]], take several chains as input, and allow chain and residues to be specified in tags like `C:10-121` in the FASTA headers.
 
 ##See Also
 
