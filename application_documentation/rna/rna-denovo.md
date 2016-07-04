@@ -55,14 +55,13 @@ FARNA (rna_denovo) can accept sequence & secondary structure from command line, 
 
 ##Optional additional files:
 
--   The [[fasta file]]: it is a sequence file for your rna.
+-   The [[fasta file]]: it is a sequence file for your RNA.
 
+-   The [[secondary structure file]]: holds the secondary structure for the RNA in dot-parens notation, if known.
 
--   A [Parameter files to specify Watson/Crick base pairs and strand boundaries](#parameter-files-to-specify-watson/crick-base-pairs-and-strand-boundaries). This can specify base pairs that are held together during the run, as well as boundaries between independent chains.
 -   Native pdb file, if all-heavy-atom rmsd's are desired. Must be in Rosetta's [PDB format for RNA](#File-Format).
 
 ##How to include these files.
-
 
 A sample command line is the following:
 
@@ -75,54 +74,11 @@ The code takes about 1 minute to generate two models.
 
 The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a,c,g, and u. The example fasta file is available in `       main/tests/integration/tests/rna_denovo/      ` .
 
-<a name=parameter-files-to-specify-watson/crick-base-pairs-and-strand-boundaries />
-##Parameter files to specify Watson/Crick base pairs and strand boundaries
-
-
-RNA motifs are typically ensconced within Watson/Crick double helices, and involve several strands. [The most conserved loop of the signal recognition particle is an example, and is included here as chunk002\_1lnt\_RNA.pdb.] You can specify the bounding Watson/Crick base pairs in a "params file" with lines like the following:
-
-```
-CUTPOINT_OPEN 6    [means that one chain ends at residue 6]
-STEM PAIR 1 12 W W A    [means that residues 1 and 12 should form a base pair with their Watson-Crick edges in
-an antiparallel orientation]
-```
-
-and then run:
-
-```
-rna_denovo.<exe> -fasta chunk002_1lnt_.fasta -native chunk002_1lnt_RNA.pdb -params_file chunk002_1lnt_.prm -nstruct 2
--out::file::silent chunk002_1lnt.out -cycles 1000 -minimize_rna 
-```
-
-This command line also includes the "native" pdb, and will result in heavy-atom rmsd scores being calculated. Note that in early Rosetta versions, native pdb was required to have residues marked rA, rC, rG, and rU, but this is no longer the case after 2014 (see notes on PDB [[Format|loops-file#format]] below). The code again takes about 1 minute to generate two models. Finally, there are some notes on forcing other kinds of pairs below [ [Can I specify non-Watson-Crick pairs?](#Can-I-specify-non-Watson-Crick-pairs?) ].
-
-##Use Of Alternative Fragment Sources
-
-
-By default the RNA fragment assembly makes use of bond torsions derived from the large ribosome subunit crystal structure 1jj2, which have been pre-extracted in 1jj2. torsions (available in the database). If you want to use torsions drawn from a separate PDB (or set of PDBs), the following command will do the job.
-
-```
-rna_database.<exe>  -vall_torsions -s my_new_RNA1.pdb my_new_RNA2.pdb -o my_new_set.torsions
-```
-
-The resulting file is just a text file with the RNA's torsion angles listed for each residue. Then, when creating models, use the following flag with the rna\_denovo application:
-
-```
--vall_torsions my_new_set.torsions
-```
-
-Similarly, the database of base pair geometries can be created with `rna_database -jump_library`, and then specified in the rna\_denovo application with `-jump_library_file`.
-
-Last, a database of base pair step geometries (see [below](#Can-I-use-base-pair-steps?)) can be created with `rna_database -bps_database`. By default, this creates files for the standard canonical base pair steps. To also parse out noncanonical base pair steps, use  `-general_bps`; and `-use_lores_base_pair_classification` catches all pairs, including ones that are held in place by base-phosphate contacts but no base-base hydrogen bonds (as occurs in the sarcin/ricin loop). 
-
 #Options
 
-
 ```
-Required:
--in:fasta                                        Fasta-formatted sequence file. [FileVector]
-
 Commonly used:
+-in:fasta                                        Fasta-formatted sequence file. [FileVector]
 -out:file:silent                                 Name of output file [scores and torsions, compressed format]. default="default.out" [String]
 -params_file                                     RNA params file name.[String]. For Example: -params_file chunk002_1lnt_.prm
 -in:native                                       Native PDB filename. [File].
@@ -336,7 +292,7 @@ Written in 2008. Last updates: Nov. 2011 and Aug. 2014 by Rhiju Das (rhiju [at] 
 
 ##See Also
 
-* [RiboKit](https://ribokit.github.io/): Workflows for experimentally-guided RNA 3D modeling.
+* [RiboKit](https://ribokit.github.io/workflows/3D_modeling/): Workflows for experimentally-guided RNA 3D modeling.
 * [[RNA applications]]: The RNA applications home page
 * [[Structure Prediction Applications]]: List of structure prediction applications
 * [[Application Documentation]]: Home page for application documentation
