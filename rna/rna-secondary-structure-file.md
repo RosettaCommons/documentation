@@ -16,7 +16,6 @@ in `demos/public/RNA_Denovo/chunk002_1lnt_.secstruct`.
 For GIR1 ribozyme (RNA puzzle5):
 ```
 (((((..((((((.(((((((((.......))))))))).((((((((((((((......(((((...((((((((((....))))....)).))))((....)).....[[[[[...))))).((((...)))))))))))))...]]]]].((((....))))....))))).))))))..)))))
-(((((..((((((.(((((((((.......))))))))).((((((((((((((......(((((...((((((((((....))))....)).))))((....)).............))))).((((...))))))))))))).........((((....))))....))))).))))))..)))))
 gguuggguugggaaguaucauggcuaaucaccaugaugcaaucggguugaacacuuaauuggguuaaaacggugggggacgaucccguaacauccguccuaacggcgacagacugcacggcccugccucuuagguguguucaaugaacagucguuccgaaaggaagcauccgguaucccaagacaauc
 ```
 in `tests/integration/tests/rna_puzzle5_P15P3P8_noP4P6_4RB_G208phosphate_ligation/GIR1_secstruct.txt`
