@@ -303,8 +303,6 @@ Added applications rna\_minimize, rna\_helix, rna\_cluster. Updated torsional po
 
 Under-the-hood refactoring is occurring in 2015-2016. [Link to plan](farna-refactor) (for developers only)
 
-
-
 ##See Also
 
 * [RiboKit](https://ribokit.github.io/workflows/3D_modeling/): Workflows for experimentally-guided RNA 3D modeling.
