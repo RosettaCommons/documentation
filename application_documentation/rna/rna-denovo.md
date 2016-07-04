@@ -57,7 +57,7 @@ FARNA (rna_denovo) can accept sequence & secondary structure from command line, 
 
 -   The [[fasta file]]: it is a sequence file for your RNA.
 
--   The [[secondary structure file]]: holds the secondary structure for the RNA in dot-parens notation, if known.
+-   The [[secondary structure file|rna-secondary-structure-file]]: holds the secondary structure for the RNA in dot-parens notation, if known.
 
 -   Native pdb file, if all-heavy-atom rmsd's are desired. Must be in Rosetta's [PDB format for RNA](#File-Format).
 
