@@ -136,10 +136,9 @@ Step 3. De novo model loops, junctions, & tertiary contacts of unknown structure
 ---------------------------
 To build motifs or several motifs together, we will use de novo Rosetta modeling. In this example, we'll model the motifs between H2 and H4, using our starting H2 and H4 helices as fixed boundary conditions.  Note that a more advanced method, [[stepwise modeling|stepwise]] is also available for high resolution modeling (and is actually easier to run the fragment assembly), but remains mostly untested in the context of buildup of large RNA complex folds; for motifs that have any kind of homology to existing junctions/motifs, FARFAR should be better & faster.
 
-Fragment assembly of RNA with full atom refinement (FARFAR) is not yet equipped to map numbers from our full modeling problem into subproblems. We have to create input files to `rna_denovo` for a little sub-problem and map all the residue numberings into the local problem. There is currently a wrapper script that sets up this job:
-
+Fragment assembly of RNA with full atom refinement (FARFAR) has been equipped to map numbers from our full modeling problem into subproblems, as defined by the `-working_res` flag" 
 ```
-rna_denovo_setup.py -fasta RNAPZ11.fasta \
+rna_denovo.<exe> -fasta RNAPZ11.fasta \
     -secstruct_file RNAPZ11_OPEN.secstruct \
    -working_res A:14-25 A:30-40 \
    -s H2.pdb H4.pdb \
@@ -151,13 +150,9 @@ rna_denovo_setup.py -fasta RNAPZ11.fasta \
 You don't need to supply a native if you don't have it -- just useful
 to compute RMSDs as a reference.
 
-Then try this:
+[Historical note: there is also a script `rna_denovo_setup.py` which was used to set up input files for `rna_denovo` before it could handle residue mapping. You may see it called in older Rosetta RNA modeling workflows.]
 
-```
- source README_FARFAR
-```
-
-Example output after a couple of structures is in `example_output/`, and in this case goes to `H2H3H4_run1b_openH3_SOLUTION1.out`.
+Example output after a couple of structures goes to `H2H3H4_run1b_openH3_SOLUTION1.out`.
 
 For convergent results, you may have to do a full cluster run -- some tools are available for
  `condor`, `qsub`, `slurm` queueing systems as part of [[rna tools|rna-tools]].
@@ -166,7 +161,7 @@ Extract 10 lowest energy models:
 
 extract_lowenergy_decoys.py H2H3H4_run1b_openH3_SOLUTION1.out 10
 
-Inspect in Pymol. (For an automated workflow, you can also cluster these runs and just carry forward the top 5 clusters.)
+Inspect in Pymol, using, e.g., the commands available in [RiboVis](https://ribokit.github.io/RiboVis/). (For an automated workflow, you can also cluster these runs and just carry forward the top 5 clusters.)
 Demo files are available in:
 `       demos/public/rna_puzzle/step3_farfar/      `
 
@@ -228,6 +223,7 @@ Demo files are available in:
 
 ##See Also
 
+* [RiboKit](https://ribokit.github.io/workflows/3D_modeling/): Workflows for experimentally-guided RNA 3D modeling.
 * [[RNA Denovo]]: The main rna_denovo application page
 * [[RNA applications]]: The RNA applications home page
 * [[Structure Prediction Applications]]: List of structure prediction applications
