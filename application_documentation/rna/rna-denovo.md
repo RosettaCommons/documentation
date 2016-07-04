@@ -55,7 +55,7 @@ FARNA (rna_denovo) can accept sequence & secondary structure from command line, 
 
 ##Optional additional files:
 
--   The [[fasta file]]: it is a sequence file for your RNA.
+-   The [[fasta file]]: it is a sequence file for your RNA. Its header lines can specify chains and numbering for the output structures, too.
 
 -   The [[secondary structure file|rna-secondary-structure-file]]: holds the secondary structure for the RNA in dot-parens notation, if known.
 
