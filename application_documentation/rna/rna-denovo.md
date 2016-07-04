@@ -93,7 +93,7 @@ The fasta file has the RNA name on the first line (after \>), and the sequence o
 -minimize_rna                                    High resolution optimize RNA after fragment assembly.[Boolean]
 -vary_geometry                                   Vary bond lengths and angles (with harmonic constraints near Rosetta ideal) for backbone and sugar degrees of freedom [Boolean]
 ```
-## Less commonly used, but useful options
+## Useful options
 ```
 -cycles                                          Number of Monte Carlo cycles.[default 10000]. [Integer]
 -bps_moves                                       Base pair step moves. For adjacent base pairs within stems or that are
@@ -125,6 +125,10 @@ Advanced
                                                  (Used to be called -chunk_res.)
 -fixed_stems                                     Seed each stem with a Watson-Crick base pair 
                                                   instead of having the strands find each other
+-cutpoint_closed                                 Positions at which to force transient chainbreaks (may be needed
+                                                  if you get fold-tree errors)
+-cutpoint_open                                   Positions at which strands end (better to specify separate strands
+                                                  in FASTA file, or with spaces between strings in sequence)
 -data_file                                       RDAT or legacy-format file with RNA chemical mapping data
 ```
 
