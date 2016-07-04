@@ -15,20 +15,14 @@ For a 'minimal' demo example of the RNA fragment assembly and full-atom minimiza
 `       demos/public/RNA_Denovo      `
 
 #References
-
-
-Das, R. and Baker, D. (2007), "Automated de novo prediction of native-like RNA tertiary structures", PNAS 104: 14664-14669. [for fragment assembly]. [Paper.](http://www.stanford.edu/~rhiju/Das_Baker_PNAS_2007.pdf) [Link.](http://www.pnas.org/content/104/37/14664.long)
-
-Das, R., Kudaravalli, M., et al. (2007) "Structural inference of native and partially folded RNA by high throughput contact mapping", PNAS, 4144-4149. [for modeling large RNAs with constraints]. [Paper.](http://www.stanford.edu/~rhiju/das_MOHCA08.pdf) [Link.](http://www.pnas.org/content/105/11/4144.long)
+Cheng, C.Y., Chou, F.-C., and Das, R. (2015) "Modeling complex RNA tertiary folds with Rosetta." Methods in Enzymology 553:35-64 [Paper.](https://daslab.stanford.edu/site_data/pub_pdf/2015_Cheng_MethEnzym.pdf) [Link.](http://www.sciencedirect.com/science/article/pii/S0076687914000524)
 
 Das, R., Karanicolas, J., and Baker, D. (2010), "Atomic accuracy in predicting and designing noncanonical RNA structure". Nature Methods 7:291-294. [for high resolution refinement] [Paper.](http://www.stanford.edu/~rhiju/DasKaranicolasBaker2010ALL.pdf) [Link.](http://www.nature.com/nmeth/journal/v7/n4/abs/nmeth.1433.html)
 
-Sripakdeevong, P., Kladwang, W., and Das, R. (2011) "An enumerative stepwise ansatz enables atomic-accuracy RNA loop modeling", PNAS 108:20573-20578. [for loop modeling] [Paper](http://www.stanford.edu/~rhiju/Sripakdeevong_StepwiseAnsatz_2011.pdf) [Link](http://dx.doi.org/10.1073/pnas.1106516108)
 
 #Application purpose
 
-
-This code is intended to give three-dimensional de novo models of single-stranded RNAs or multi-stranded RNA motifs, with the prospect of reaching high (near-atomic-resolution) accuracy.
+This code is intended to give three-dimensional de novo models of single-stranded RNAs or multi-stranded RNA motifs, with the prospect of reaching high (near-atomic-resolution) accuracy. The application slots into workflows for 3D RNA modeling described at the [Ribokit](https://ribokit.github.io/) site.
 
 #Algorithm
 
@@ -37,11 +31,11 @@ The RNA structure modeling algorithm in Rosetta is based on the assembly of shor
 #Limitations
 
 
--   This method has been demonstrated to reach atomic accuracy for small motifs (12 residues or less) – the current bottleneck for larger RNAs is the difficulty of complete conformational sampling (as in other applications in Rosetta to, e.g., protein de novo modeling). On-going work attempts to resolve this issue, but requires great computational expense (see Sripakdeevong et al. paper above).
+-   This method has been demonstrated to reach atomic accuracy for small motifs (12 residues or less) – the current bottleneck for larger RNAs is the difficulty of complete conformational sampling (as in other applications in Rosetta to, e.g., protein de novo modeling). On-going work attempts to resolve this issue, but requires great computational expense (see [[stepwise]]).
 
--   For larger RNAs, it appears most efficient to just carry out fragment assembly without refinement, specifying secondary structure (as described below). Although atomic accuracy is unlikely, models acccurate at nucleotide or helix resolution can be achieved, especially with constraints from experiments. See also: [[RNA assembly with experimental pair-wise constraints|rna-assembly]] and, more up to date, [[RNA de novo setup|rna-denovo-setup]].
+-   For larger RNAs, it appears most efficient to just carry out fragment assembly without refinement, specifying secondary structure (as described below). Although atomic accuracy is unlikely, models accurate at nucleotide or helix resolution can be achieved, especially with constraints from experiments. See also: [[RNA assembly with experimental pair-wise constraints|rna-assembly]] and, more up to date, [[RNA de novo setup|rna-denovo-setup]].
 
--   As with most other modes in Rosetta, the final ensemble of models is not guaranteed to be a Boltzmann ensemble.
+-   As with most other modes in Rosetta, the final ensemble of models is not guaranteed to be a Boltzmann ensemble. There is some progress happening in that direction for RNA with the [[recces]] application.
 
 #Modes
 
@@ -57,12 +51,11 @@ The RNA structure modeling algorithm in Rosetta is based on the assembly of shor
 
 ##Required file
 
-
-You need only one input file to run RNA structure modeling:
-
--   The [[fasta file]]: it is a sequence file for your rna.
+FARNA (rna_denovo) can accept sequence & secondary structure from command line, and does not require any files. However, using file input can help with organizing runs.
 
 ##Optional additional files:
+
+-   The [[fasta file]]: it is a sequence file for your rna.
 
 
 -   A [Parameter files to specify Watson/Crick base pairs and strand boundaries](#parameter-files-to-specify-watson/crick-base-pairs-and-strand-boundaries). This can specify base pairs that are held together during the run, as well as boundaries between independent chains.
@@ -343,6 +336,7 @@ Written in 2008. Last updates: Nov. 2011 and Aug. 2014 by Rhiju Das (rhiju [at] 
 
 ##See Also
 
+* [RiboKit](https://ribokit.github.io/): Workflows for experimentally-guided RNA 3D modeling.
 * [[RNA applications]]: The RNA applications home page
 * [[Structure Prediction Applications]]: List of structure prediction applications
 * [[Application Documentation]]: Home page for application documentation
