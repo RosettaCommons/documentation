@@ -66,13 +66,18 @@ FARNA (rna_denovo) can accept sequence & secondary structure from command line, 
 A sample command line is the following:
 
 ```
-rna_denovo.<exe> -fasta chunk002_1lnt_.fasta -nstruct 2 -out::file::silent test.out -cycles 1000
--minimize_rna 
+rna_denovo.<exe> -sequence "ucaggu aagcag" -secstruct "(....( )....)" -nstruct 2 -out:file:silent test.out -minimize_rna 
+```
+
+or if you want to supply the sequence & secondary structure in files:
+
+```
+rna_denovo.<exe> -fasta chunk002_1lnt_.fasta -secstruct_file chunk002_1lnt_.secstruct -nstruct 2 -out:file:silent test.out -minimize_rna 
 ```
 
 The code takes about 1 minute to generate two models.
 
-The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a,c,g, and u. The example fasta file is available in `       main/tests/integration/tests/rna_denovo/      ` .
+The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a,c,g, and u. Example fasta and secstruct files are available in `       demos/public/rna_denovo      ` .
 
 #Options
 ## Commonly used options
