@@ -140,7 +140,7 @@ There are three classes of output tagged to the end of the PDBs and/or in the sc
 
 -   scorefunction terms
 -   LoopAnalyzerMover output,
--   InterfaceAnaylzerMover output.
+-   InterfaceAnalyzerMover output.
 
 The scorefunction tells you what Rosetta's standard scorefunctions think is best, and is useful for the first sorting of structures. Generally, only structures in the top few percent by total_score should be further analyzed. Even then, the other scorefunction terms (listed at the end of the PDB and in the score file) should be examined to throw out models that have particularly bad scores in any area - a model that is overall pretty good, but has a bad clash (fa_rep) for one particular residue, may be worth throwing out.
 
