@@ -131,7 +131,12 @@ Selects residues in the pose at random. Note that this residue selector is stoch
     <Index resnums=(&string)/>
 
 -   The string given for the "resnums" option should be a comma-separated list of residue identifiers
--   Each residue identifier should be either *an integer* , so that the Pose numbering can be used, *two integers separated by a dash* , designating a range of Pose-numbered residues, or *an integer followed by a single character* , e.g. 12A, referring to the PDB numbering for residue 12 on chain A. (Note, residues that contain insertion codes cannot be properly identified by this scheme).
+-   Each residue identifier should be either:
+    * *an integer* , so that the Pose numbering can be used, 
+    * *two integers separated by a dash* , designating a range of Pose-numbered residues, 
+    * *an integer followed by a single character* , e.g. 12A, referring to the PDB numbering for residue 12 on chain A,  
+    * *an integer followed by a single character, followed by a dash, followed by an integer followed by a single character*, e.g. 12A-47A, referring to residues 12 through 47 on chain A in PDB numbering.
+(Note, residues that contain insertion codes cannot be properly identified by these PDB numbered schemes).
 -   The ResidueIndexSelector sets the positions corresponding to the residues given in the resnums string to true, and all other positions to false.
 
 #### ResidueNameSelector
