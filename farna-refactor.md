@@ -120,10 +120,11 @@ This class was derived to match Rosetta protein modeling (which holds 1D informa
 These two functions should probably be deprecated by `FullModelInfoSetUpFromCommandLine.cc`, developed for the [stepwise](stepwise-classes-overview) code. See [To do](#to-do), next.
 
 ## To do
-#### FARNA
+#### FARNA setup
 * change default FARNA setup to stepwise setup (incl. -in:file:silent stored in FullModelInfo or FullModelParameters?). There is an issue discussion thread [here](https://github.com/RosettaCommons/main/issues/25).  We're part way there after importing the functionality of `rna_denovo_setup.py` into the RNA_DeNovoSetup class, which handles residue mapping to subproblems. Now just need to run `build_full_model` to generate initial poses. *A good time to test this might be when Kalli generalizes FARNA to include RNA-protein lo-res potential. Rebuilding an RNA pair within the MS2 test case is a good example.*
 * native RMSD screen in FARNA (to more stringently test idea that stepwise -lores can offer better sampling than classic FARNA) *Again, Kalli's work on RNP lores modeling offers good test case.*
 * test on more complex cases (e.g., tectoRNA, riboswitches) *Will test when Clarence/Caleb have MOHCA-seq benchmark set up. Note that we need a bunch of integration tests; see issue thread [here](https://github.com/RosettaCommons/main/issues/18)*
+#### FARNA base-pair-step sampling (exploratory)
 * Fix bulge BPS databases, which now require filtering for wrong fold-tree entries.
 * setup ‘long-distance’ BPS (>3 intervening nts)
 
