@@ -108,8 +108,11 @@ Note: not unified with `core::rna::BasePair`, i.e. no storage of Watson-Crick ed
 
 
 #### `protocols::farna::secstruct` namespace
-+ `RNA_SecStructInfo` currently only holds *1D* information on secondary structure
-This class was derived to match Rosetta protein modeling (which holds 1D information on alpha-helix,beta-sheet, or loop), and probably should be absorbed by a more general class that stores actual pairings and can handle input/output of dot-paren notation like `(((....)))` for a hairpin. See [To Do](#to-do) below.
++ `RNA_SecStruct` is meant to be a general class that stores actual pairings and can handle input/output of dot-paren notation like `(((....)))` for a hairpin. Its still a bit crude, in that its primary datum is a string and not a list of pairs, which would be more fundamental. It also cannot input/output arbitrary #'s of pseudoknots, just three layers as dictated by `(`,`)`; `[`,`]`; and `{`,`}`. See also [[rna-secondary-structure-file]].
+
++ `RNA_SecStructLegacyInfo` currently holds *1D* information on secondary structure
+This class was derived to match Rosetta protein modeling (which holds 1D information on alpha-helix,beta-sheet, or loop). 
+
 
 #### `protocols::farna::setup` namespace
 + `RNA_DeNovoParameters` is responsible for reading in `.params` files (see [RNA DeNovo docs](rna-denovo)).
@@ -118,9 +121,7 @@ These two functions should probably be deprecated by `FullModelInfoSetUpFromComm
 
 ## To do
 #### FARNA
-* **Important** Proper RNA_SecStructInfo objects, including noncanonical pairings and setup of base pair steps inside Rosetta
-* change default FARNA setup to stepwise setup (incl. -in:file:silent stored in FullModelInfo or FullModelParameters?). There is an issue discussion thread [here](https://github.com/RosettaCommons/main/issues/25).
-*A good time to do this might be when Kalli generalizes FARNA to include RNA-protein lo-res potential. Rebuilding an RNA pair within the MS2 test case is a good example.*
+* change default FARNA setup to stepwise setup (incl. -in:file:silent stored in FullModelInfo or FullModelParameters?). There is an issue discussion thread [here](https://github.com/RosettaCommons/main/issues/25).  We're part way there after importing the functionality of `rna_denovo_setup.py` into the RNA_DeNovoSetup class, which handles residue mapping to subproblems. Now just need to run `build_full_model` to generate initial poses. *A good time to test this might be when Kalli generalizes FARNA to include RNA-protein lo-res potential. Rebuilding an RNA pair within the MS2 test case is a good example.*
 * native RMSD screen in FARNA (to more stringently test idea that stepwise -lores can offer better sampling than classic FARNA) *Again, Kalli's work on RNP lores modeling offers good test case.*
 * test on more complex cases (e.g., tectoRNA, riboswitches) *Will test when Clarence/Caleb have MOHCA-seq benchmark set up. Note that we need a bunch of integration tests; see issue thread [here](https://github.com/RosettaCommons/main/issues/18)*
 * Fix bulge BPS databases, which now require filtering for wrong fold-tree entries.
