@@ -208,7 +208,7 @@ These filters are used primarily for the reports they generate in the log and/or
 
 **[[SaveResfileToDisk|SaveResfileToDiskFilter]]** - Save resfile to output directory.
 
-**[[SSPrediction|SSPredictionFilter]]** - Generate secondary structure predictions from sequence (devel filter).
+**[[SSPrediction|SSPredictionFilter]]** - Generate secondary structure predictions from sequence.
 
 ## Special Application Filters
 
