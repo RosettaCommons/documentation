@@ -115,9 +115,9 @@ This class was derived to match Rosetta protein modeling (which holds 1D informa
 
 
 #### `protocols::farna::setup` namespace
-+ `RNA_DeNovoParameters` is responsible for reading in `.params` files (see [RNA DeNovo docs](rna-denovo)).
-+ `RNA_DeNovoPoseSetup` holds code for taking `.params` information and creating a fold-tree and cutpoints for a new pose. 
-These two functions should probably be deprecated by `FullModelInfoSetUpFromCommandLine.cc`, developed for the [stepwise](stepwise-classes-overview) code. See [To do](#to-do), next.
++ `RNA_DeNovoSetup` allows FARNA to now bypass the legacy `.params`-file based input and instead directly take from command-line `-sequence`, `-secstruct`, `-obligate_pair`. (see [RNA DeNovo docs](rna-denovo))
++ `RNA_DeNovoPoseInitializer` holds code for taking `.params` information and creating a fold-tree and cutpoints for a new pose. (may become deprecated if we use build_full_model from stepwise to initialize the pose after `RNA_DeNovoSetup`). 
++ `RNA_DeNovoParameters` is responsible for reading in `.params` files (now legacy code).
 
 ## To do
 #### FARNA setup
