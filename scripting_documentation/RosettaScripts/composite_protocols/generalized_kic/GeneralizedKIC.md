@@ -20,7 +20,7 @@ GeneralizedKIC takes as input a pose that contains a covalently-connected chain 
 
 GeneralizedKIC will return a pose in which the loop in question has been put in a new, closed conformation (subject to user-specified sampling methods).  Only the loop residues (and any "tail" residues specified) will be moved by this mover; all other residues will remain in their starting positions.  The FoldTree is disregarded by the GeneralizedKIC mover, and will not be altered by it.  (Note: if a pre-selection mover is defined as described in the [[GeneralizedKIC selector|GeneralizedKICselector]] documentation, this mover can alter geometry outside of the loop to be closed, or could alter the FoldTree.)
 
-If no closed solution could be found, GeneralizedKIC will return the original input pose.  If a ContingentFilter has been supplied, its value will be set to "false" in this case (and "true" otherwise).  By default, GeneralizedKIC will set the mover status to failure if no solution is found, but this can be overridden with "
+If no closed solution could be found, GeneralizedKIC will return the original input pose.  If a ContingentFilter has been supplied, its value will be set to "false" in this case (and "true" otherwise).  By default, GeneralizedKIC will set the mover status to failure if no solution is found, but the user can override this with **dont_fail_if_no_solution_found=true**.
 
 ## General workflow
 In general, one must:
