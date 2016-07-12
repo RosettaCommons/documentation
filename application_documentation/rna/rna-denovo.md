@@ -278,6 +278,14 @@ If you want to minimize under the low resolution RNA potential (used in FARNA), 
 
 But this is not recommended if you are trying to score a model deposited in the PDB or created by other software – see next [How do I just minimize?](#How-do-I-just-minimize?)
 
+##How do I just get RMSDs to a native?
+
+`rna_score` can take your models (in 'silent' format) and figure out all-heavy-atom RMSD while preserving all the energy terms from the run. Try:
+
+```
+rna_score -just_calc_rmsd -in:file:silent <input file > -out:file:silent <output file> -native <native PDB>
+```
+
 ##How do I just minimize? 
 <a name="How-do-I-just-minimize?" />
 
