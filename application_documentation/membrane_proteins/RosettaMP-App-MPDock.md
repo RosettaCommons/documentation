@@ -24,7 +24,7 @@ Be aware that the current protocol is set up to do a local docking run only. Imp
 ```
 Rosetta/main/source/bin/docking_prepack_protocol.linuxgccrelease
 -in:file:s 1AFO_AB.pdb	                        # Starting structure containing both partners
--score:weights mpframework_docking_fa_2014.wts	# Use mpdocking score function
+-score:weights mpframework_docking_fa_2015.wts	# Use mpdocking score function
 -mp:setup:spanfiles 1AFO_AB.span	        # Predicted TM Spans
 -mp:scoring:hbond	                        # Membrane hydrogen bonding weight
 -packing:pack_missing_sidechains 0	        # Wait to pack sidechains until membrane is present
