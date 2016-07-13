@@ -28,6 +28,7 @@ Rosetta/main/source/bin/docking_prepack_protocol.linuxgccrelease
 -mp:setup:spanfiles 1AFO_AB.span	        # Predicted TM Spans
 -mp:scoring:hbond	                        # Membrane hydrogen bonding weight
 -packing:pack_missing_sidechains 0	        # Wait to pack sidechains until membrane is present
+-partners A_B                                   # Specify the two docking partners by chain
 ```
 
 Generate 10 structures with the prepacking step and pick the one with the lowest total Rosetta score.
