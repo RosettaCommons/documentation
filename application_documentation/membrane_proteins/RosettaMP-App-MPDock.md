@@ -38,7 +38,7 @@ Generate 10 structures with the prepacking step and pick the one with the lowest
 Rosetta/main/source/bin/mp_dock.linuxgccrelease 
 -in:file:s 1AFO_AB_ppk.pdb	                # Pre-packed input structure
 -in:file:native 1AFO_AB.pdb	                # Native structure for RMSD calculations
--score:weights mpframework_docking_fa_2014.wts	# Score function
+-score:weights mpframework_docking_fa_2015.wts	# Score function
 -mp:setup:spanfiles 1AFO_AB.span	        # Predicted TM spans
 -mp:scoring:hbond	                        # Membrane hydrogen bonding weight
 -docking:partners A_B	                        # Partners to dock
