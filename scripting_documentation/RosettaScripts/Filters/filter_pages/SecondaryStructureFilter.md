@@ -14,7 +14,8 @@
 
 Filter structures by comparing the secondary structure of the pose to a desired secondary structure. The filter reports a value of N_MATCHING / N_TOTAL, where N_MATCHING is the number of selected protein residues with secondary structure matching the desired secondary structure, and N_TOTAL is the total number of selected protein residues.
 
-**Usage of dssp mover is required** : You must call the dssp mover prior to applying this filter, as in the example below.
+If use_pose_secstruct is true (default), the current secondary structure of the pose must be properly set in the pose. This can be done using [[DsspMover]] as shown in the example below.  If use_pose_secstruct is false, DSSP will be automatically used on the input pose.
+
 -   residue_selector: Residue selector which determines which residues in the pose should be checked.  Note that non-protein residues are always currently skipped. Default: all protein residues.
 -   ss: If specified, the provided secondary structure string, e.g. "HHHHHLLLHHHHH" will be used as the desired secondary structure. Must match the length of the input pose. Default: not specified.
 -   use_pose_secstruct: If true, the secondary structure stored in the pose will be used as the pose secondary structure. This requires that it be set by DsspMover or other means prior to calling the filter.  If false, DSSP is used on the input pose to determine its secondary structure.
