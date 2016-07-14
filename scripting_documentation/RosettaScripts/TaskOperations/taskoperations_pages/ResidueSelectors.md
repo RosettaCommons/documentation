@@ -369,15 +369,20 @@ or
     pose_secstruct=(&string, "") />
 ```
 
-SecondaryStructureSelector selects all residues with given secondary structure. For example, you might use it to select all loop residues in a pose.  SecondaryStructureSelector uses the secondary structure information in the pose to compute residues to select -- if that information is not present, or if always_use_dssp is set, it calls DSSP to determine the secondary structure of the pose.
+SecondaryStructureSelector selects all residues with given secondary structure. For example, you might use it to select all loop residues in a pose.  SecondaryStructureSelector uses the following rules to determine the pose secondary structure:
+1. If pose_secstruct is specified, it is used.
+2. If use_dssp is true, DSSP is used on the input pose to determine its secondary structure.
+3. If use_dssp is false, the secondary structure stored in the pose is used.
 
 **ss** - The secondary structure types to be selected. This parameter is required. Valid secondary structure characters are 'E', 'H' and 'L'. To select loops, for example, use ss="L", and to select both helices and sheets, use ss="HE"
 
 **include_terminal_loops** - (default: false) If false, one-residue "loop" regions at the termini of chains will be ignored. If true, all residues will be considered for selection.
 
-**use_dssp** - (default: false). If true, dssp will be used to determine the pose secondary structure every time the SecondaryStructure residue selector is applied. If false, and a secondary structure is set in the pose, the secondary structure in the pose will be used without re-computing DSSP.
+**use_dssp** - (default: true). If true, dssp will be used to determine the pose secondary structure every time the SecondaryStructure residue selector is applied. If false, and a secondary structure is set in the pose, the secondary structure in the pose will be used without re-computing DSSP. This option has no effect if pose_secstruct is set.
 
 **pose_secstruct** - (default: ""). If set, the given secondary structure string will be used instead of the pose secondary structure or DSSP. The given secondary structure must match the length of the pose.
+
+**overlap** - (default: 0).  If specified, the ranges of residues with matching secondary structure are expanded by this many residues. Each selected range of residues will not be expanded past chain endings.  For example, a pose with secondary structure LHHHHHHHLLLEEEEELLEEEEEL, ss='E', and overlap 0 would select the two strand residue ranges EEEEE and EEEEE.  With overlap 2, the selected residues would also include up to two residues before and after the strands (LLEEEEELLEEEEEL).
 
 **Example**
 The example below selects all residues in the pose with secondary structure 'H' or 'E'.
