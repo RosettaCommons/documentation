@@ -1,8 +1,19 @@
 # Release Notes
 
+<!--- BEGIN_INTERNAL -->
+
+## Rosetta 3.7
+
+(We can begin collecting 3.7 release notes here with a planned release the week after RosettaCON.  This section should remain hidden from the public wiki due to the internal tags.)
+
+<!--- END_INTERNAL -->
+
+
+
+
 ## Rosetta 3.6
 
-After releasing Rosetta 3.5 in 2013, Rosetta transitioned to a weekly release system.  Rosetta 3.6 is weekly release v2016.13-dev58602.  We are marking it as 3.6 to meet the needs of users that require numbered releases instead of weeklies.  This release notes collects changes released in weekly releases since their inception.
+After releasing Rosetta 3.5 in 2013, Rosetta transitioned to a weekly release system.  Rosetta 3.6 is weekly release v2016.13-dev58602.  We are marking it as 3.6 to meet the needs of users that require numbered releases instead of weeklies.  This large set of release notes collects changes released in weekly releases since their inception.
 
 ### New scorefunctions:
 
