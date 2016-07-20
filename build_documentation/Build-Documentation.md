@@ -14,16 +14,6 @@ This page describes how to install, compile, and test Rosetta 3 [[formerly calle
 ##Basic Setup
 Build environment setup instructions for most situations can be found on the [[Getting Started|Getting-Started#local-installation-and-use-of-rosetta]] page. 
 
-## Obtaining additional files
-
-#### PDB Chemical Components Dictionary 
-
-_NOTE: This file is not needed for Rosetta to run normally._
-
-To use the `-in:file:load_PDB_components` option to automatically load unrecognized residues from files, you need to obtain a mmCIF-formatted version of the Chemical Components Dictionary. This file can be downloaded from the [wwwPDB](http://www.wwpdb.org/data/ccd). (Alternatively for RosettaCommons members, you can talk your lab's gatekeeper for the RosettaCommons git-lfs).
-
-To use with Rosetta, download the (plain text, non-gzipped) file and place it in the Rosetta database directory (Rosetta/main/database/). Or alternatively, pass the absolute path to the file to the `-in:file:PDB_components_file` option. The "Protonation Variants Companion Dictionary" and "Chemical Component Model data file" are not required. 
-
 ## Publicly accessible clusters with Rosetta pre-installed
 
 * As part of the XSEDE initiative, the [[TACC/Stampede|TACC]] cluster has Rosetta and PyRosetta centrally installed for authorized users. See the [[TACC]] page for more details.
@@ -180,6 +170,16 @@ The MPI-mode build test simply tries to compile Rosetta with the ```-extras=mpi`
 
 ##Cleaning 
 `cd Rosetta/main/source/ && rm -r build/* && rm .sconsign.dblite` will remove old binaries.
+
+## Obtaining additional files
+
+#### PDB Chemical Components Dictionary 
+
+_NOTE: This file is not needed for Rosetta to run normally._
+
+To use the `-in:file:load_PDB_components` option to automatically load unrecognized residues from files, you need to obtain a mmCIF-formatted version of the Chemical Components Dictionary. This file can be downloaded from the [wwwPDB](http://www.wwpdb.org/data/ccd). (Alternatively for RosettaCommons members, you can talk your lab's gatekeeper for the RosettaCommons git-lfs).
+
+To use with Rosetta, download the (plain text, non-gzipped) file and place it in the Rosetta database directory (Rosetta/main/database/). Or alternatively, pass the absolute path to the file to the `-in:file:PDB_components_file` option. The "Protonation Variants Companion Dictionary" and "Chemical Component Model data file" are not required. 
 
 ## See Also
 
