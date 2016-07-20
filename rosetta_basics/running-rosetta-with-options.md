@@ -41,7 +41,7 @@ If you have the Rosetta code and database directories laid out in the standard f
 
 ### Set DB for a _single_ Rosetta run
 
-If the ROSETTA3_DB environment variable is not set, you must specify the path to this database directory in the command line to run Rosetta simulations. For example: 
+If you are using an older Rosetta build and the ROSETTA3_DB environment variable is not set (or your database has been moved from the typical relative install), you must specify the path to this database directory in the command line to run Rosetta simulations. For example: 
 * <code>rosetta.linuxgccrelease -database path/to/rosetta/main/database other\_flags</code>
 
 As with all Rosetta options, this can also be provided with an options file.
