@@ -10,6 +10,7 @@ Briefly, a residue type is disallowed if its normalized frequence is < 0.5, wher
 
 **residue_selector** - By default, ConsensusLoopDesign works on all residues deemed "loops" by DSSP in the pose. If set, a residue selector is used to select regions of the protein in which to disallow residues. The selector can be used to choose one or two loops in the pose rather than all of them. Note that the residues flanking loop regions are also restricted according to the sequence profiles. By default, this task operation works on all loops in the pose.
 
+**threshold** - If the enrichment value of an amino acid at a particular position is below this number, it will be disallowed. 0.5 is more stringent than 0.0.
 
 **Example**  This example runs fast design with consensus loop sequences for one loop (residues 7-9).
 
