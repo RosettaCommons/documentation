@@ -1,3 +1,6 @@
+GlycanTreeSelector
+=================
+
 Metadata
 ========
 
@@ -38,6 +41,7 @@ _ref_pose_name_ &string
 
 - ### RosettaScript Components
 * [[GlycanRelaxMover]] - Glycosylate poses with glycan trees.  
+* [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees.  
 * [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
 
 - ### Apps
