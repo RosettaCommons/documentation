@@ -36,47 +36,47 @@ Usage
 
 ### Common Settings
 
-_rounds &size_ default=75 
+_rounds_ &size default=75 
 - Number of rounds to use for Glycan Relax. 
          Total rounds is this # times number of glycan residues in movemap
 
-_scorefxn &score_
+_scorefxn_ &score
 - Particular scorefunction to use.  
          Passing -include_sugars to Rosetta, will add sugar-specific terms to the default score funciton.
          If you are passing your own scorefxn, make sure to add these (currently only sugar_bb at a weight of 1.
 - default=always the rosetta_default (Currently Talaris1014)
 
-_ref_pose_name &name_
+_ref_pose_name_ &name
 - Set a specific refpose name to use. Useful if trimming protein as well as building up or down glycans.
 
 
 
 ### Residue Selection
-_residue_selector &selector_name_
+_residue_selector_ &selector_name
 - Use residue selectors to select residues for which we will model.  
  
-_MoveMap & mm_
+_MoveMap_ & mm
 - Use a MoveMap to select residues for which we will model.
 
-_branch &string_
-_branches &string,&string,&string_
+_branch_ &string
+_branches_ &string,&string,&string
 - Specify a particular resnum for which we will model everything 'out' from this for that glycan(s)  
          Still useful, but much functionality has been superseeded by the
          GlycanResidueSelector in combination with the GlycanTreeSelector 
  
-_task_operations & operations_
+_task_operations_ & operations
 - Set a particular set of task operations to use for packing.  Yes, design is actually possible here.
 - default = Glycan OH groups and Neighbor protein residues
 
 
 ### Starting Glycans
 
-_random_start &bool_ default=false
+_random_start_ &bool default=false
 - Randomize the starting glycans set to move before the protocol.  Used to create increased diversity.  
          This is recommended if doing de-novo glycan modeling, 
          or you have just glycosylated using the SimpleGlycosylateMover.
 
-_sugar_bb_start &bool_ default=false
+_sugar_bb_start_ &bool default=false
 - Randomize the starting glycans using sugar bb data before the protocol.  
          Results in generally better structures than random start, but lower quantity of great poses.  
          IE - less crap, but less enrichment of super-great structures.
@@ -84,15 +84,15 @@ _sugar_bb_start &bool_ default=false
 
 ### Fine Control
 
-_kt &real_ default=2.0
+_kt_ &real default=2.0
 - KT for GlycanRelaxMover
   
-_pymol_movie &bool_ default=false
+_pymol_movie_ &bool default=false
 - Make a movie of accepts and trials by outputing frames 
          (as pymol does not currently recieve the needed LINK/CONNECT records when 
          sent through the pymol mover/observer system). 
   
-_final_min &bool_ default=true
+_final_min_ &bool default=true
 - Do a final minimization of glycans after glycan relax protocol?
 
 
@@ -104,7 +104,7 @@ _final_min &bool_ default=true
 - ### Apps
 * [[GlycanRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
 * [[GlycanInfo]] - Get information on all glycan trees within a pose
-* [[GlcyanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
+* [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
 - ### RS Components
 * [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees.  
