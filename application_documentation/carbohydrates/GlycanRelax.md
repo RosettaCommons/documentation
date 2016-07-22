@@ -118,7 +118,8 @@ Typical Use
 Here is an example modeling an already-glycosylated pose.
 
 ```
-glycan_relax.default.macosclangrelease -include_sugars -write_pdb_link_records -s glyco_pose.pdb -nstruct 10000 -glycan_relax_rounds 75 -glycan_relax_random_start
+glycan_relax.default.macosclangrelease -include_sugars -write_pdb_link_records \
+-s glyco_pose.pdb -nstruct 10000 -glycan_relax_rounds 75 -glycan_relax_random_start
 ```
 
 Scripting
@@ -152,17 +153,17 @@ glycan_relax.set_kt(5.0)
 ## See Also
 * [[WorkingWithGlycans]]
 
- - ### Apps
+- ### Apps
 * [[GlycanInfo]] - Get information on all glycan trees within a pose
 * [[GlcyanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
- - ### RosettaScript Components
+- ### RosettaScript Components
 * [[GlycanRelaxMover]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
 * [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees.  
 * [[GlycanTreeSelector]] - Select individual glcyan trees or all of them
 * [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
 
- - ### Other
+- ### Other
 * [[Application Documentation]]: List of Rosetta applications
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
 * [[Comparing structures]]: Essay on comparing structures
