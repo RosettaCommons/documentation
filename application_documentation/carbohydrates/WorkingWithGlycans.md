@@ -5,9 +5,9 @@ Working With Glycans
 MetaData
 ========
 
-The RosettaCarbohydrate Framework was created by Dr. Jason W Labonte (JWLabonte@jhu.edu), in collaboration with Drs. Jared Adolf-Bryfogle (jadolfbr@gmail.com) and Sebastian Raemisch (raemish@scripps.edu).  
+The RosettaCarbohydrate Framework was created by Dr. Jason W Labonte (JWLabonte@jhu.edu), in collaboration with Dr. Jared Adolf-Bryfogle (jadolfbr@gmail.com) and Dr. Sebastian Raemisch (raemish@scripps.edu).  
 
-PIs are: Jeff Gray of JHU (jgray@jhu.edu) and William Schief of Scripps (schief@scripps.edu).
+PIs are: Dr. Jeff Gray of JHU (jgray@jhu.edu) and Dr. William Schief of Scripps (schief@scripps.edu).
 
 
 Currently, it is still in development. Here are tips for use.  More will come.   
@@ -188,18 +188,18 @@ print lactose.chain_sequence()
 ##See Also
 * [[WorkingWithGlycans]]
 
- - ### Apps
+- ### Apps
 * [[GlycanRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
 * [[GlycanInfo]] - Get information on all glycan trees within a pose
 * [[GlcyanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
- - ### RosettaScript Components
+- ### RosettaScript Components
 * [[GlycanRelaxMover]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
 * [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees.  
 * [[GlycanTreeSelector]] - Select individual glcyan trees or all of them
 * [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
 
- - ### Other
+- ### Other
 * [[Application Documentation]]: List of Rosetta applications
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
 * [[Comparing structures]]: Essay on comparing structures
