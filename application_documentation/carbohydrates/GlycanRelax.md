@@ -6,9 +6,9 @@ GlycanRelax
 MetaData
 ========
 
-Application created by Jared Adolf-Bryfogle (jadolfbr@gmail.com) and Jason Labonte (JWLabonte@jhu.edu), in collaboration with Sebastian Raemisch (raemisch@scripps.edu)
+Application created by Dr. Jared Adolf-Bryfogle (jadolfbr@gmail.com) and Dr. Jason Labonte (JWLabonte@jhu.edu), in collaboration with Dr. Sebastian Raemisch (raemisch@scripps.edu)
 
-PIs: William Schief (schief@scripps.edu) and Jeffrey Gray (jgray@jhu.edu)
+PIs: Dr. William Schief (schief@scripps.edu) and Dr. Jeffrey Gray (jgray@jhu.edu)
 
 
 Description
@@ -146,7 +146,7 @@ glycan_relax.set_kt(5.0)
 * [[GlycanInfo]] - Get information on all glycan trees within a pose
 * [[GlcyanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
- - ### RS Components
+ - ### RosettaScript Components
 * [[GlycanRelaxMover]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
 * [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees.  
 * [[GlycanTreeSelector]] - Select individual glcyan trees or all of them

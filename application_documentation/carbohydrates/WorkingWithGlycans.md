@@ -5,7 +5,11 @@ MetaData
 ========
 
 The RosettaCarbohydrate Framework was created by Dr. Jason W Labonte (JWLabonte@jhu.edu), in collaboration with Drs. Jared Adolf-Bryfogle (jadolfbr@gmail.com) and Sebastian Raemisch (raemish@scripps.edu).  
-Currently, it is still in development. Here are tips for use.  More will come.  PIs are: Jeff Gray of JHU (jgray@jhu.edu) and William Schief of Scripps (schief@scripps.edu). 
+
+PIs are: Jeff Gray of JHU (jgray@jhu.edu) and William Schief of Scripps (schief@scripps.edu).
+
+
+Currently, it is still in development. Here are tips for use.  More will come.   
 
 [[_TOC_]]
 
@@ -26,6 +30,16 @@ Structure Output
 In order to write out structures correctly, currently one must pass the flag ```-write_pdb_link_records```.  Without this flag, structures will NOT be able to be read back into Rosetta.  The flag will become default.
 
 Internally, each linear glycan branch is a different chain ID due to the way Rosetta understands polymer connectivity. Currently, by default, Rosetta will output separate chains for each linear glycan.  This should change at some point in the not-to distant future.
+
+Nomenclature
+============
+Most of the time we deal with glycans, we use IUPAC names.  The glycan 'root' as referred to in Rosetta, is the residue that the glycan is attached to protein.  Some components, such as the GlycanResidueSelector, use 'glycan positions' to easily specify residues of glycans.
+These numbers go from 1 -> N, where 1 is the first glycan residue and N is the last residue.  In order to find out the glycan position of the residue you are interested in, use the [[GlycanInfo]] application. 
+
+Further Carbohydrate Information
+================================
+Jason, fill this out!!!
+
 
 Applications
 ============
