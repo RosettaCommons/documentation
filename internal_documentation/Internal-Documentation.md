@@ -77,17 +77,18 @@ Design:
 
 ### Carbohydrates
 
-- [[ Glycan Relax ]]
-- [[ Glycan Clash Check ]]
-- [[ Glycan Info ]]
-
-
+- [[ GlycanRelax ]]
+- [[ GlycanClashCheck ]]
+- [[ GlycanInfo ]]
 
 ## Pilot RosettaScript Movers/Filters/etc.
 
 ### Carbohydrates
-- [[ Simple Glycosylation Mover ]]
-
+- [[ SimpleGlycsylateMover ]]
+- [[ GlycanRelaxMover ]]
+- [[ GlycanTreeSelector]]
+- [[ GlycanResidueSelector]]
+- 
 ### Antibody Design
 - [[Generalized Antibody Design Framework RS]]
 
