@@ -390,6 +390,12 @@ See Also: [[Antibody TaskOperations | TaskOperations-RosettaScripts#antibody-and
 **[[AntibodyDesignProtocol]]**
 
 
+## Carbohydrate-specific Movers
+
+**[[GlycanRelaxMover]]** - Glycosylate poses with glycan trees.
+  
+**[[SimpleGlycosylateMover]]** - Glycosylate poses with glycan trees. 
+
 
 ## Computational 'affinity maturation' movers
 
