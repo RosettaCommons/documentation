@@ -1,8 +1,9 @@
 Metadata
 ========
 
-- Authors: Dr. Jared Adolf-Bryfogle (jadolfbr@gmail.com), Dr. Sebastian Raemisch(raemisch@gmail.com), and Dr. Jason W. Labonte (JWLabonte@jhu.edu)
-- PIs: Jeff Gray and William Schief
+Authors: Dr. Jared Adolf-Bryfogle (jadolfbr@gmail.com), Dr. Sebastian Raemisch(raemisch@gmail.com), and Dr. Jason W. Labonte (JWLabonte@jhu.edu)
+
+PIs: Jeff Gray and William Schief
 
 
 
