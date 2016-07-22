@@ -7,6 +7,7 @@ MetaData
 
 The RosettaCarbohydrate Framework was created by Dr. Jason W Labonte (JWLabonte@jhu.edu), in collaboration with Dr. Jared Adolf-Bryfogle (jadolfbr@gmail.com) and Dr. Sebastian Raemisch (raemish@scripps.edu).  
 
+
 PIs are: Dr. Jeff Gray of JHU (jgray@jhu.edu) and Dr. William Schief of Scripps (schief@scripps.edu).
 
 
@@ -45,14 +46,19 @@ Jason, fill this out!!!
 Applications
 ============
 [[GlycanRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
+
 [[GlycanInfo]] - Get information on all glycan trees within a pose
-[[GlcyanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
+
+[[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
 RosettaScript Components
 ========================
 [[GlycanRelaxMover]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
+
 [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees.  
+
 [[GlycanTreeSelector]] - Select individual glcyan trees or all of them
+
 [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
 
 Glycosylating Structures
@@ -191,7 +197,7 @@ print lactose.chain_sequence()
 - ### Apps
 * [[GlycanRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
 * [[GlycanInfo]] - Get information on all glycan trees within a pose
-* [[GlcyanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
+* [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
 - ### RosettaScript Components
 * [[GlycanRelaxMover]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
