@@ -29,7 +29,6 @@ _roots_ &string,&string&string
 
 _ref_pose_name_ &string
 - The name of a Particular Ref Pose set. 
-```
 
 
 <!--- END_INTERNAL -->
@@ -37,16 +36,16 @@ _ref_pose_name_ &string
 ## See Also
 * [[WorkingWithGlycans]]
 
- - ### RosettaScript Components
+- ### RosettaScript Components
 * [[GlycanRelaxMover]] - Glycosylate poses with glycan trees.  
 * [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
 
- - ### Apps
+- ### Apps
 * [[GlycanRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
 * [[GlycanInfo]] - Get information on all glycan trees within a pose
 * [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
- - ### Other
+- ### Other
 * [[Application Documentation]]: List of Rosetta applications
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
 * [[Comparing structures]]: Essay on comparing structures
