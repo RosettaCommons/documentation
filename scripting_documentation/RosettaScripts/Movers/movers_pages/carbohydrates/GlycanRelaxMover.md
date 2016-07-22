@@ -36,78 +36,64 @@ Usage
 
 ### Common Settings
 
-_rounds &size_
-- default = 75
-- desc = Number of rounds to use for Glycan Relax. 
+_rounds &size_ default=75 
+- Number of rounds to use for Glycan Relax. 
          Total rounds is this # times number of glycan residues in movemap
 
 _scorefxn &score_
-- default = always the rosetta_default (Currently Talaris1014)
-- desc = Particular scorefunction to use.  
+- Particular scorefunction to use.  
          Passing -include_sugars to Rosetta, will add sugar-specific terms to the default score funciton.
          If you are passing your own scorefxn, make sure to add these (currently only sugar_bb at a weight of 1.
+- default=always the rosetta_default (Currently Talaris1014)
 
 _ref_pose_name &name_
-- desc = Set a specific refpose name to use. Useful if trimming protein as well as building up or down glycans.
+- Set a specific refpose name to use. Useful if trimming protein as well as building up or down glycans.
 
 
 
 ### Residue Selection
-
-_task_operations & operations_
-- default = Glycan OH groups and Neighbor protein residues
-- desc = Set a particular set of task operations to use for packing.  Yes, design is actually possible here.
-  
-  
 _residue_selector &selector_name_
-- default  = All Glycan Residues
-- desc = Use residue selectors to select residues for which we will model.  
+- Use residue selectors to select residues for which we will model.  
  
 _MoveMap & mm_
-- default = All Glycan Residues
-- desc = Use a MoveMap to select residues for which we will model.
+- Use a MoveMap to select residues for which we will model.
 
 _branch &string_
-_branches &string,&string&string_
-- default = All Glycan Residues
-- desc = Specify a particular resnum for which we will model everything 'out' from this for that glycan(s)  
+_branches &string,&string,&string_
+- Specify a particular resnum for which we will model everything 'out' from this for that glycan(s)  
          Still useful, but much functionality has been superseeded by the
          GlycanResidueSelector in combination with the GlycanTreeSelector 
  
-
+_task_operations & operations_
+- Set a particular set of task operations to use for packing.  Yes, design is actually possible here.
+- default = Glycan OH groups and Neighbor protein residues
 
 
 ### Starting Glycans
 
-_random_start &bool_
-- default = false
-- desc = Randomize the starting glycans set to move before the protocol.  Used to create increased diversity.  
+_random_start &bool_ default=false
+- Randomize the starting glycans set to move before the protocol.  Used to create increased diversity.  
          This is recommended if doing de-novo glycan modeling, 
          or you have just glycosylated using the SimpleGlycosylateMover.
 
-_sugar_bb_start &bool_
-- default = false
-- desc = Randomize the starting glycans using sugar bb data before the protocol.  
+_sugar_bb_start &bool_ default=false
+- Randomize the starting glycans using sugar bb data before the protocol.  
          Results in generally better structures than random start, but lower quantity of great poses.  
          IE - less crap, but less enrichment of super-great structures.
 
 
 ### Fine Control
 
-
-_kt &real_
-- default = 2.0
-- desc = KT for GlycanRelaxMover
+_kt &real_ default=2.0
+- KT for GlycanRelaxMover
   
-_pymol_movie &bool_
-- default = false
-- desc = Make a movie of accepts and trials by outputing frames 
+_pymol_movie &bool_ default=false
+- Make a movie of accepts and trials by outputing frames 
          (as pymol does not currently recieve the needed LINK/CONNECT records when 
          sent through the pymol mover/observer system). 
   
-_final_min &bool_
-- default = true
-- desc = Do a final minimization of glycans after glycan relax protocol?
+_final_min &bool_ default=true
+- Do a final minimization of glycans after glycan relax protocol?
 
 
 <!--- END_INTERNAL -->
