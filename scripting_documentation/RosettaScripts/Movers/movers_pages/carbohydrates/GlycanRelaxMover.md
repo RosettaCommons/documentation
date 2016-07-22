@@ -56,9 +56,10 @@ _residue_selector_ &selector_name
 - Use residue selectors to select residues for which we will model.  
  
 _MoveMap_ & mm
-- Use a MoveMap to select residues for which we will model.
+- Use a MoveMap to select residues for which we will model. See the [[FastRelaxMover]] documentation for more.
 
 _branch_ &string
+
 _branches_ &string,&string,&string
 - Specify a particular resnum for which we will model everything 'out' from this for that glycan(s)  
          Still useful, but much functionality has been superseeded by the
