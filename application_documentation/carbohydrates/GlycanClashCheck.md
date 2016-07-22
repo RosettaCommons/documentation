@@ -35,16 +35,19 @@ Relevant Options:
 ======
 ```
 -glycan_branches, vector
- - Required. Vector of glycan branches.  Rosetta Residue numbering or PDB like RosettaScripts
+ - Required. Vector of glycan branches.  
+ - Rosetta Residue numbering or PDB like RosettaScripts
 
 -chech_chains, vector
- - Required. A list of [glycan or protein] chains to compute chain-based clashes.  If not given, will only compute glycan-glycan clashes!
+ - Required. A list of [glycan or protein] chains to compute chain-based clashes.  
+ - If not given, will only compute glycan-glycan clashes!
 
 -ignore_hydrogens, boolean
  - Should we calculate only heavy-heavy atom clashes?
 
 -soft_clash, Real
-  - When we calculate atom-atom distances using LJ distances, clash if distance < (atomI_LJ + atomJ_LJ)*(1 - soft_clash)
+  - When we calculate atom-atom distances using LJ distances, 
+  - clash if distance < (atomI_LJ + atomJ_LJ)*(1 - soft_clash)
 ```
 
 <!--- END_INTERNAL -->
