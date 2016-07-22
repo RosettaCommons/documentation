@@ -171,6 +171,7 @@ print lactose.chain_sequence()
 
 
 ##See Also
+* [[WorkingWithGlycans]]
 
  - ### Apps
 * [[GlycanRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.

@@ -23,6 +23,8 @@ It can model glycans from ideal geometry, or refine already-modeling glycans.
 
 See [[Working With Glycans | WorkingWithGlycans ]] for more.
 
+<!--- BEGIN_INTERNAL -->
+
 Algorithm
 =======
 
@@ -109,9 +111,33 @@ Here is an example modeling an already-glycosylated pose.
 glycan_relax.default.macosclangrelease -include_sugars -write_pdb_link_records -s glyco_pose.pdb -nstruct 10000 -glycan_relax_rounds 75 -glycan_relax_random_start
 ```
 
-RosettaScript Tags
-==================
-This application is itself a mover and can be called directly within RosettaScripts. See [[GlycanRelaxMover]] for more.
+Scripting
+=========
+This application is itself a mover and can be called directly within RosettaScripts. See [[GlycanRelaxMover]] for more.  
+
+It is also available in PyRosetta:
+```
+from rosetta import *
+from rosetta.protocols.carbohydrates import GlycanRelaxMover
+rosetta.init('-include_sugars -write_pdb_link_records')
+
+p = Pose("my_glycosylated_pose")
+glycan_relax = GlycanRelaxMover()
+glycan_relax.apply(p)
+
+print p
+```
+This will model all glycans using Rosetta's default scorefunction.  Optionally, a movemap, scorefunction, and taskfactory can be specified.  Most command-line options can be set via the object as well.  Any not set, can be set in rosetta.init() function of PyRosetta:
+```
+glycan_relax.set_movemap(mm)
+glycan_relax.set_scorefunction(scorefxn)
+glycan_relax.set_taskfactory(tf)
+
+glycan_relax.set_rounds(100)
+glycan_relax.set_kt(5.0)
+```
+
+<!--- END_INTERNAL -->
 
 ## See Also
 * [[WorkingWithGlycans]]
