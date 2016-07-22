@@ -37,7 +37,8 @@ Currently uses a random sampler with a set of weights to each mover for sampling
 Full Description:
 ```
 ///@brief Main mover for Glycan Relax, which optimizes glycans in a pose.
-/// Each round optimizes either one residue for BB sampling, linkage, or multiple for minimization.
+/// Each round optimizes either one residue for 
+       BB sampling, linkage, or multiple for minimization.
 /// Currently uses a random sampler with a set of weights to each mover for sampling.
 ///
 /// Weights are currently as follows:
@@ -60,37 +61,46 @@ Options
 ```
 
 -glycan_relax_test, 'Boolean',
+    default = false
     desc = Indicates to go into testing mode for Glycan Relax.  
            Will try all torsions in a given PDB in a linear fashion
-    default = false
+    
 
 -glycan_relax_rounds, 'Integer'
-	desc = Number of rounds to use for Glycan Relax. Total rounds is this # times number of glycan residues in movemap
-	default = 75
+        default = 75
+	desc = Number of rounds to use for Glycan Relax. 
+               Total rounds is this # times number of glycan residues in movemap
+	
 
 -pack_glycans, 'Boolean',
+        default = false
 	desc = Pack Glycan OH groups during Glycan Relax. Currently time consuming
-	default = false
+	
 	
 -final_min_glycans, Boolean
+        default = true
 	desc = 'Do a final minimization of glycans after glycan relax protocol?
-	default = true
+	
 	
 -glycan_relax_movie, Boolean
 	desc = Make a movie of accepts and trials (send to pymol)
 	default = false
 
 -glycan_relax_kt, Real
+        default = 2.0
 	desc = KT for GlycanRelaxMover
-	default = 2.0
+	
 
 -glycan_relax_random_start, Boolean
-	desc = "Randomize the starting glycans set to move before the protocol.  Used to create increased diversity.
-	default = false
+        default = false
+	desc = Randomize the starting glycans set to move before the protocol.  
+                Used to create increased diversity.
+	
 
 -glycan_relax_sugar_bb_start, Boolean
+        default = false
 	desc = "Randomize the starting glycans using sugar bb data before the protocol.
-	default = false
+	
 
 ```
 
