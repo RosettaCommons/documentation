@@ -22,13 +22,14 @@ NOTE: It will not echo any PDB files, and will print the information to the scre
 Options
 =======
 
- - group: carbohydrates:GlycanInfo
+ - group: ```carbohydrates:GlycanInfo```
 
     ```
-    Opt: res_info 
+    Opt: -res_info 
         Type: StringVector 
-        Desc: Only output info for a specific residue or residues (or full glycan roots).  Either rosetta resnum or PDBNumChain as in Rosetta Scripts (133A).
-        Ex: res_info 133A 140B 150C
+        Desc: Only output info for a specific residue or residues (or full glycan roots).  
+              Either rosetta resnum or PDBNumChain as in Rosetta Scripts (133A).
+        Ex: -res_info 133A 140B 150C
     ```
 
 
@@ -47,7 +48,7 @@ Options
 * [[GlycanRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
 * [[GlcyanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
- - ### RS Components
+ - ### RosettaScript Components
 * [[GlycanRelaxMover]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
 * [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees.  
 * [[GlycanTreeSelector]] - Select individual glcyan trees or all of them

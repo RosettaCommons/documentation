@@ -153,50 +153,17 @@ This example will select all variants of ALA, C-terminal ASN residues, and disul
 
     <ResidueName residue_names="ASN:CtermProteinFull,CYD" residue_name3="ALA" />
 
-#### Carbohydrate Residue Selectors
 
-##### GlycanResidueSelector
-Selects All Glycan residues in a pose, or particular glycan trees.
-
-- Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com) and Jason W. Labonte (jwlabonte@gmail.com)
-- PIs: William Schief and Jeff Gray
-
-``` 
-    <Glycan name=(&string) branches="23,48", ref_pose_name="ref_pose"/>
-```
-
-- _branches (&string)_ Used to set specific glycan trees or parts of trees.  If this is not given, it will select ALL glycan residues in the pose.  
- - These can be the branch points of the glycans or carbohydrate residues from which to select the downstream branch from, like the rest of a tree from a particular position.  That position could be the trunk or individual branches, which keep branching out. Note that the Subset will not include the Root residue, since many times it will be the ASN root.
-
-- _ref_pose_name (&string)_ Particular Ref Pose set. 
 
 #### Antibody Residue Selectors
 
 These Residue selectors use the underlying Antibody Modeling and Design Framework, and require a renumbered antibody structure.  Please see [[General Antibody Options and Tips]] for more.  If your antibody was output by RosettaAntibody, it is already renumbered into the Chothia Scheme, which is the default.
 
-##### CDRResidueSelector 
-Selects CDR residues in an antibody or camelid antibody. 
-
-- Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com) 
-- PIs: Roland Dunbrack and William Schief
-
-```
-    <CDR name=(&string) cdrs=(&string,&string) numbering_scheme=(&string) cdr_definition=(&string) />
-```
-
--   _cdrs (&string,&string)_ (default=all cdrs):  Select the set of CDRs you wish to restrict to (ex: H1 or h1) 
--   _numbering_scheme (&string)_:  Set the antibody numbering scheme.  Must also set the cdr_definition XML option. Both options can also be set through the command line (recommended).  See [[General Antibody Tips | General-Antibody-Options-and-Tips]] for more info.
--   _cdr_definition (&string)_: Set the cdr definition you want to use.  Must also set the numbering_scheme XML option. 
--  See Also:
- - [[Antibody Movers | Movers-RosettaScripts#antibody-modeling-and-design-movers]]
- - [[Antibody TaskOperations | TaskOperations-RosettaScripts#antibody-and-cdr-specific-operations]]
- - [[General Antibody Tips | General-Antibody-Options-and-Tips]]
-
 ##### AntibodyRegionSelector 
 Selects CDR residues in an antibody or camelid antibody. 
 
-- Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com) 
-- PIs: Roland Dunbrack and William Schief
+- Author: Dr. Jared Adolf-Bryfogle (jadolfbr@gmail.com) 
+- PIs: Dr. Roland Dunbrack and Dr. William Schief
 
 ```
     <AntibodyRegion name=(&string) region=(&string) numbering_scheme=(&string) cdr_definition=(&string) />
@@ -205,10 +172,44 @@ Selects CDR residues in an antibody or camelid antibody.
 -   _region (&string) (default=cdr_region)_:  Select the region you wish to disable. Accepted strings: cdr_region, framework_region, antigen_region. 
 -   _numbering_scheme (&string)_:  Set the antibody numbering scheme.  Must also set the cdr_definition XML option. Both options can also be set through the command line (recommended).  See [[General Antibody Tips | General-Antibody-Options-and-Tips]] for more info.
 -   _cdr_definition (&string)_: Set the cdr definition you want to use.  Must also set the numbering_scheme XML option.  
+
 -  See Also:
  - [[Antibody Movers | Movers-RosettaScripts#antibody-modeling-and-design-movers]]
  - [[Antibody TaskOperations | TaskOperations-RosettaScripts#antibody-and-cdr-specific-operations]]
  - [[General Antibody Tips | General-Antibody-Options-and-Tips]]
+ 
+##### CDRResidueSelector 
+Selects CDR residues in an antibody or camelid antibody. 
+
+- Author: Dr. Jared Adolf-Bryfogle (jadolfbr@gmail.com) 
+- PIs: Dr. Roland Dunbrack and Dr. William Schief
+
+```
+    <CDR name=(&string) cdrs=(&string,&string) numbering_scheme=(&string) cdr_definition=(&string) />
+```
+
+-   _cdrs (&string,&string)_ (default=all cdrs):  Select the set of CDRs you wish to restrict to (ex: H1 or h1) 
+-   _numbering_scheme (&string)_:  Set the antibody numbering scheme.  Must also set the cdr_definition XML option. Both options can also be set through the command line (recommended).  See [[General Antibody Tips | General-Antibody-Options-and-Tips]] for more info.
+-   _cdr_definition (&string)_: Set the cdr definition you want to use.  Must also set the numbering_scheme XML option. 
+
+-  See Also:
+ - [[Antibody Movers | Movers-RosettaScripts#antibody-modeling-and-design-movers]]
+ - [[Antibody TaskOperations | TaskOperations-RosettaScripts#antibody-and-cdr-specific-operations]]
+ - [[General Antibody Tips | General-Antibody-Options-and-Tips]]
+
+
+
+
+
+
+#### Carbohydrate Residue Selectors
+
+These Residue selectors use the underlying RosettaCarbohydrate Framework.
+
+##### [[GlycanTreeSelector]]
+
+##### [[GlycanResidueSelector]]
+
 
 ### Conformation Dependent Residue Selectors
 
