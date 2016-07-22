@@ -39,7 +39,7 @@ Tips For use
  - from_position (All glycan foliage from this and including this residue.)
  - to_position (All glycan foliage up to and including this residue.)
 
-- Use the glycan_info application to determine the glycan position numbers. Combine with the GlycanTreeSelector to get unions of specific glycans (such as the leaf of all Man5 residues or the stem of the glycan that starts at ASN85.)
+- Use the ```glycan_info``` application to determine the glycan position numbers. Combine with the GlycanTreeSelector to get unions of specific glycans (such as the leaf of all Man5 residues or the stem of the glycan that starts at ASN85.)
 
 Usage
 =====
