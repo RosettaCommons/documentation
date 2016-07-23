@@ -1,7 +1,11 @@
-About
-=====
-App created by Dr. Jared-Adolf-Bryfogle (jadolfbr@gmail.com); Lab of Dr. William Schief (schief@scripps.edu), in collaboration with Dr. Sebastian Raemisch (raemisch@scripps.edu) and Dr. Jason W. Labonte (JWLabonte@JHU.edu); Lab of Dr. Jeff Gray (jgray@jhu.edu) 
+GlycanClashCheck
+================
 
+Metadata
+=====
+App created by Dr. Jared-Adolf-Bryfogle (jadolfbr@gmail.com); , in collaboration with Dr. Sebastian Raemisch (raemisch@scripps.edu) and Dr. Jason W. Labonte (JWLabonte@JHU.edu);
+
+PIs: Lab of Dr. William Schief (schief@scripps.edu) and Dr. Jeff Gray (jgray@jhu.edu)
 The app is currently in development and only accessible to developers.  July 2016
 
 
@@ -31,16 +35,19 @@ Relevant Options:
 ======
 ```
 -glycan_branches, vector
- - Required. Vector of glycan branches.  Rosetta Residue numbering or PDB like RosettaScripts
+ - Required. Vector of glycan branches.  
+ - Rosetta Residue numbering or PDB like RosettaScripts
 
 -chech_chains, vector
- - Required. A list of [glycan or protein] chains to compute chain-based clashes.  If not given, will only compute glycan-glycan clashes!
+ - Required. A list of [glycan or protein] chains to compute chain-based clashes.  
+ - If not given, will only compute glycan-glycan clashes!
 
 -ignore_hydrogens, boolean
  - Should we calculate only heavy-heavy atom clashes?
 
 -soft_clash, Real
-  - When we calculate atom-atom distances using LJ distances, clash if distance < (atomI_LJ + atomJ_LJ)*(1 - soft_clash)
+  - When we calculate atom-atom distances using LJ distances, 
+  - clash if distance < (atomI_LJ + atomJ_LJ)*(1 - soft_clash)
 ```
 
 <!--- END_INTERNAL -->

@@ -37,7 +37,8 @@ Currently uses a random sampler with a set of weights to each mover for sampling
 Full Description:
 ```
 ///@brief Main mover for Glycan Relax, which optimizes glycans in a pose.
-/// Each round optimizes either one residue for BB sampling, linkage, or multiple for minimization.
+/// Each round optimizes either one residue for 
+       BB sampling, linkage, or multiple for minimization.
 /// Currently uses a random sampler with a set of weights to each mover for sampling.
 ///
 /// Weights are currently as follows:
@@ -60,37 +61,46 @@ Options
 ```
 
 -glycan_relax_test, 'Boolean',
+    default = false
     desc = Indicates to go into testing mode for Glycan Relax.  
            Will try all torsions in a given PDB in a linear fashion
-    default = false
+    
 
 -glycan_relax_rounds, 'Integer'
-	desc = Number of rounds to use for Glycan Relax. Total rounds is this # times number of glycan residues in movemap
-	default = 75
+        default = 75
+	desc = Number of rounds to use for Glycan Relax. 
+               Total rounds is this # times number of glycan residues in movemap
+	
 
 -pack_glycans, 'Boolean',
+        default = false
 	desc = Pack Glycan OH groups during Glycan Relax. Currently time consuming
-	default = false
+	
 	
 -final_min_glycans, Boolean
+        default = true
 	desc = 'Do a final minimization of glycans after glycan relax protocol?
-	default = true
+	
 	
 -glycan_relax_movie, Boolean
 	desc = Make a movie of accepts and trials (send to pymol)
 	default = false
 
 -glycan_relax_kt, Real
+        default = 2.0
 	desc = KT for GlycanRelaxMover
-	default = 2.0
+	
 
 -glycan_relax_random_start, Boolean
-	desc = "Randomize the starting glycans set to move before the protocol.  Used to create increased diversity.
-	default = false
+        default = false
+	desc = Randomize the starting glycans set to move before the protocol.  
+                Used to create increased diversity.
+	
 
 -glycan_relax_sugar_bb_start, Boolean
+        default = false
 	desc = "Randomize the starting glycans using sugar bb data before the protocol.
-	default = false
+	
 
 ```
 
@@ -108,7 +118,8 @@ Typical Use
 Here is an example modeling an already-glycosylated pose.
 
 ```
-glycan_relax.default.macosclangrelease -include_sugars -write_pdb_link_records -s glyco_pose.pdb -nstruct 10000 -glycan_relax_rounds 75 -glycan_relax_random_start
+glycan_relax.default.macosclangrelease -include_sugars -write_pdb_link_records \
+-s glyco_pose.pdb -nstruct 10000 -glycan_relax_rounds 75 -glycan_relax_random_start
 ```
 
 Scripting
@@ -142,17 +153,17 @@ glycan_relax.set_kt(5.0)
 ## See Also
 * [[WorkingWithGlycans]]
 
- - ### Apps
+- ### Apps
 * [[GlycanInfo]] - Get information on all glycan trees within a pose
-* [[GlcyanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
+* [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
- - ### RosettaScript Components
+- ### RosettaScript Components
 * [[GlycanRelaxMover]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
 * [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees.  
 * [[GlycanTreeSelector]] - Select individual glcyan trees or all of them
 * [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
 
- - ### Other
+- ### Other
 * [[Application Documentation]]: List of Rosetta applications
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
 * [[Comparing structures]]: Essay on comparing structures
