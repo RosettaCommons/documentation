@@ -30,14 +30,26 @@ Example use of the pose metric calculator. Note, to use the pose metric calculat
 For full control of the SASA calculation (i.e. which atoms/residues get computed) you can use the LeGrandSasa method directly (currently the only method used by rosetta). Pass a subset of atoms and use the calculate method. Currently, the SasaCalc calls LeGrand by passing the whole pose as this "subset of atoms." The default probe radii used is 1.4A but can be changed via the command line. 
 
 ## Using SASA Methods
-The main [legacy] coding pattern to use is instantiation of the global metric calculator (with Sasa_ being a string - what you will call the metric essentially:
+
+### New
+Using the core machinery instead  may be easier in most circumstances.  
+
+```
+core::scoring::sasa::SasaCalcOP sasa_calc = core::scoring::sasa::SasaCalcOP( new core::scoring::sasa::SasaCalc() );
+
+core::Real total_sasa = sasa_calc->calculate(this_pose);
+utility::vector1< core::Real > residue_sasa  = sasa_calc->get_residue_sasa();
+```
+
+### Alternative
+An alternative (but a bit more complicated) coding pattern is to use an instantiation of the global pose metric calculator (with Sasa_ being a string - what you will call the metric essentially) The Pose Metric calculators (as used below), are useful as each time you retrieve, it will update if the pose has changed:
 
 ```
 CalculatorFactory::Instance().register_calculator( Sasa_, new core::pose::metrics::simple_calculators::SasaCalculator2);
 
 ```
 
-Below is an example of how to retrieve the data: 
+Below is an example of how to retrieve the data using the PMC method: 
 
 ```
 //Complex Pose values.
@@ -57,6 +69,8 @@ complexed_pose.metric(Sasa_, "residue_hsasa_sc", mv_complex_res_hsasa_sc);
 complexed_pose.metric(Sasa_, "residue_rel_hsasa", mv_complex_res_rel_hsasa);
 	
 ```
+
+
 
 ## User Options
 |**Flag**|**Description**|**Type**|
