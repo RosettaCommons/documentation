@@ -103,7 +103,7 @@ To load a PDB file with lipid residues, use the `-include_lipids` flag.
  **Note:** Rosetta lipid functionality is actively in development and has not been published; please contact <JWLabonte@jhu.edu> or <rfalford12@gmail.com> for assistance/questions.
 
 ## Connectivity
-Branching connectivity is defined in PDB files by `LINK` records. If the `-read_pdb_link_records` option is enabled, Rosetta will interpret these `LINK` records appropriately to build a branching `FoldTree`.
+Branching connectivity is defined in PDB files by `LINK` records. Rosetta will now interpret these `LINK` records appropriately to build a branching `FoldTree` by default.  Currently, one must add ```-write_pdb_link_records``` for them to be written out to any output PDB.
 
 
 ##See Also
