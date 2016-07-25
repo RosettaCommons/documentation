@@ -30,7 +30,7 @@ Example use of the pose metric calculator. Note, to use the pose metric calculat
 For full control of the SASA calculation (i.e. which atoms/residues get computed) you can use the LeGrandSasa method directly (currently the only method used by rosetta). Pass a subset of atoms and use the calculate method. Currently, the SasaCalc calls LeGrand by passing the whole pose as this "subset of atoms." The default probe radii used is 1.4A but can be changed via the command line. 
 
 ## Using SASA Methods
-The main coding pattern to use is instantiation of the global metric calculator (with Sasa_ being a string - what you will call the metric essentially:
+The main [legacy] coding pattern to use is instantiation of the global metric calculator (with Sasa_ being a string - what you will call the metric essentially:
 
 ```
 CalculatorFactory::Instance().register_calculator( Sasa_, new core::pose::metrics::simple_calculators::SasaCalculator2);
