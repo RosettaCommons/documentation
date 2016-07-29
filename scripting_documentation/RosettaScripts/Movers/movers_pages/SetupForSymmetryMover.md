@@ -2,7 +2,9 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## SetupForSymmetry
 
-Given a symmetry definition file that describes configuration and scoring of a symmetric system, this mover "symmetrizes" an asymmetric pose. For example, given the symmetry definition file 'C2.symm':
+Given a symmetry definition file that describes configuration and scoring of a symmetric system, this mover "symmetrizes" an asymmetric pose.
+
+####Usage
 ```
 <SetupForSymmetry name=(&string)
     preserve_datacache=(&bool, false) />
@@ -12,6 +14,7 @@ Given a symmetry definition file that describes configuration and scoring of a s
 **preserve_datacache** - If true, the datacache from the input asymmetric pose will be copied into the new symmetric pose. If false, the pose datacache will be cleared.  Default is false for historical reasons.
 
 ####Example
+Given the symmetry definition file 'C2.symm':
 ```
 <SetupForSymmetry name="setup_symm" definition="C2.symm" preserve_datacache="0" />
 ```
