@@ -3,7 +3,7 @@
 Metadata
 ========
 
-This document was edited by Colin Smith on 12/4/2008. Yi Liu created the initial page. Thanks Oliver and Firas for providing information.  Last edited by Steven Lewis on 21 May 2016.
+This document was edited by Colin Smith on 12/4/2008. Yi Liu created the initial page. Thanks Oliver and Firas for providing information.  Last edited by Steven Lewis on 01 Aug 2016.
 
 [[_TOC_]]
 
@@ -29,7 +29,7 @@ Constraint_Type2 Constraint_Def2
 ...
 ```
 
-Generally speaking, the Constraint\_Type will contain a type, defining what sort of value to be constrained (distance, angle, dihedral, etc), and a series of atom and/or residue labels defining a specific quality to be constrained. Residue numbers are assumed to be in Rosetta numbering (from 1, no gaps), not PDB numbering. If you want PDB numbering, pass the chain letter immediately after the residue number (no spaces), residue 30 of chain A would be "30A", even if it is the first residue in the PDB (Rosetta numbering "1"). Not all constraint types can take PDB numbering.
+Generally speaking, the Constraint\_Type will contain a type, defining what sort of value to be constrained (distance, angle, dihedral, etc), and a series of atom and/or residue labels defining a specific quality to be constrained. Residue numbers are assumed to be in Rosetta numbering (from 1, no gaps), not PDB numbering. If you want PDB numbering, pass the chain letter immediately after the residue number (no spaces): residue 30 of chain A would be "30A". You cannot pass insertion codes through this mechanism; you'll need the renumbered pose.  Not all constraint types can take PDB numbering.
 
 The Constraint\_Def will define function by which the constraint is constrained, to answer the question: what should the score of the constraint be when the constrained value has a deviation of X units?
 
