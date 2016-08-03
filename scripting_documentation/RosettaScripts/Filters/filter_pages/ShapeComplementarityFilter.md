@@ -19,6 +19,7 @@ Set write\_int\_area to add the SC interface area to the scorefile. Use sym\_dof
 * jump - For non-symmetric poses, which jump over which to calculate the interface.
 * sym_dof_name - For symmetric poses, which dof over which to calculate the interface.
 * residues1 & residues2 - Explicitly set which residues are on each side of the interface (both symmetric and non-symmetric poses.)
+* selector1 & selector2 - Explicitly set which residues are on each side of the interface (using residue_selectors).
 * write_int_area - If true, write interface area to scorefile.
 
 ## See Also:
