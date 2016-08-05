@@ -9,7 +9,7 @@
     blueprint=(&string)
     ss=(&string)
     abego=(&string)
-    use_pose_secstruct(&bool, true)
+    use_dssp(&bool, true)
     threshold=(&real, 1.0) />
 ```
 
