@@ -390,6 +390,11 @@ The example below selects all residues in the pose with secondary structure 'H' 
 
     <SecondaryStructure name="all_non_loop" ss="HE" />
 
+####SymmetricalResidueSelector
+    <SymmetricalResidue name=(%string) selector=(%string) />
+
+The SymmetricalResidueSelector, when given a selector, will return all symmetrical copies (including the original selection) of those residues. While the packer is symmetry aware, not all filters are. This selector is useful when you need to explicitly give residue numbers but you are not sure which symmetry subunit you need.
+
 ####TaskSelector
     <Task name=(%string) fixed=(%bool, False) packable=(%bool, True) designable=(%bool, True) task_operations=(%string) />
 
