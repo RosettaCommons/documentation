@@ -87,9 +87,13 @@ This ConstraintGenerator currently only works with canonical amino acids.
 * **angle1_func** - Function used for angle constraints. By default, "CIRCULARHARMONIC x 0.5" is used, where x is the ideal P_A1-A1-A2 angle.
 * **angle2_func** - Function used for angle2 constraints. By default, "CIRCULARHARMONIC x 0.5" is used, where x is the ideal A1-A2-P_A2 angle.
 * **atom_definitions** - Definitions of atoms to be used in hydrogen bonding. Only required for non-canonical amino acids. The format is: NAME3,ATOM1,ATOM2,ATOM3,DIST,ANGLE[,DIHEDRALS]*. For hydrogen bonding to OD1 of ASP, this line might read:
+```
     "ASP,OD1,CG,OD2,1.4,120.0,0.0,180.0"
+```
 Note the 'ideal' dihedrals of 0.0 and 180.0 which indicates that hydrogen bonds to ASP should be in-plane. For hydrogen bonding to OG of SER, this line might read:
+```
     "SER,OG,CB,CA,1.4,109.5"
+```
     
 ### Example
 
