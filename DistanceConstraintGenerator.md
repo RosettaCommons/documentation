@@ -62,8 +62,8 @@ This example creates constraints to enforce a distance of 8.0 with flat-bottom h
 
 ##See Also
 
-* [[AddConstraints]]
-* [[RemoveConstraints]]
+* [[AddConstraintsMover]]
+* [[RemoveConstraintsMover]]
 * [[Constraints file format|constraint-file]]
 * [[AtomCoordinateCstMover]]
 * [[AddConstraintsToCurrentConformationMover]]
