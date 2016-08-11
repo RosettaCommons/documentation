@@ -13,7 +13,8 @@ Deletes a region of the current pose. The region is specified by residue selecto
 ```
 <DeleteRegionMover name=(&string)
                    residue_selector=(&string, "")
-                   start=(&string, "" (Ex: 24L)) end=(&string, "" (Ex: 42L)) />
+                   start=(&string, "" (Ex: 24L)) end=(&string, "" (Ex: 42L))
+                   rechain=(&bool, false) />
 ```
 
 ###Required
@@ -27,6 +28,7 @@ Start and end, OR a residue selector must be provided.
  - new_start = start_num - N
 -   cter\_overhang (&size): Delete additional N residues on the cter side
  - new_end = end + N
+-   rechain (&bool): If true, terminus variants will be added to residues bordering the deleted region, and chain IDs will be recomputed.  For example, in a 100-residue, single-chain pose, deleting residues 50-51 with rechain=true will result in a two-chain, 98-residue pose, with one chain spanning residues 1-49 and the other spanning residues 50-98.  If rechain=false, the resulting pose will be a single-chain, 98-residue pose with a chainbreak between residues 49 and 50.
 
 ##See Also
 
