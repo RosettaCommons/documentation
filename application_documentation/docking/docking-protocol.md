@@ -185,6 +185,16 @@ Tips
 
 -   If the interface score doesn't show up in the scorefile and you want to add it, you can use the flag ```-score:docking_interface_score 1 ```
 
+-   You can use the docking protocol to calculate interface RMSDs:
+```
+/path/to/docking_protocol.linuxgccrelease -l input_pdbs.list \
+-native native.pdb \
+-docking_local_refine \
+-dock_min \
+-out:file:score_only recalc_rmsd.sc \
+-nstruct 1
+```
+
 Constraints
 ===========
 
