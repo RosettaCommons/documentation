@@ -1,4 +1,4 @@
-This ConstraintGenerator currently only works with canonical amino acids.
+This ConstraintGenerator currently only works residue types containing C, O, N, CA, and CB atoms.
 
 
 ```
