@@ -33,35 +33,30 @@ If unspecified, the SheetConstraintGenerator will attempt to find strand pairing
 * **flat_bottom_constraints**: If true, flat bottom constraints will be used for all constraints.  If false, harmonic constraints to an ideal value will be used for all constraints.
 
 * **constrain_ca_ca_dist**: If true, CA-CA distance of paired strand residues will be constrained.
-* **constrain_bb_angle**: If true, 
 
-    constrain_bb_angle=(&bool, true)
-    constrain_cacb_dihedral=(&bool, true)
-    constrain_bb_dihedral=(&bool, true)
-    dist=(&real, 5.5)
-    dist_tolerance(&real, 1.0)
-    angle_tolerance=(&real, 0.35)
-    cacb_dihedral_tolerance=(&real, 0.9)
-    bb_dihedral_tolerance=(&real, 0.52)
-    weight=(&real, 1.0) />
+* **constrain_bb_angle**: If true, two angle constraints will be generated for each paired residues.  For parallel pairings, these constraints will enforce a 90 degree angle between N-C-C2 and N2-C2-C, where C2 and N2 are the C and N atoms of the second paired residue. In antiparallel pairing, the angles are N-C-N2 and N2-C2-N. This constraint can be used to enforce register shift.
+
+* **constrain_cacb_dihedral**: If true, the CB-CA-CA2-CB2 dihedral will be constrained to an ideal value of 0, where CA and CB are from the first residue in the pair, and CA2 and CB2 refer to CA and CB of the second residue in the pair. This constraint ensures that the CB atoms of paired residues are pointed in roughly the same direction
+
+* **constrain_bb_dihedral**: If true, the O-N-C-C2 dihedral is constrained to an ideal value of 0, where O, N, and C are atom names from the first residue of the pair and C2 is the C atom of the second paired residue. This constraint ensures the carbonyl oxygen is in plane with the paired strand.
+
+* **dist**: Distance to use for CA-CA distance constraints
+
+* **dist_tolerance**: The standard deviation that determines the constraint penalty.  For harmonic constraints, the penalty is (x-x0)/(sd^2), where SD is this value.
+
+* **angle_tolerance**: The standard deviation of the angle constraints
+* **cacb_dihedral_tolerance**: The standard deviation of the cacb constraints
+* **bb_dihedral_tolerance**: The standard deviation of the O-N-C-C2 dihedral constraints
+* **weight**: Scalar weighting factor. This number is multiplied to the constraint penalty
 
 ### Example
 
-This example creates constraints to enforce a hydrogen bond between atom NE2 on residue 6 and atom OE1 on residue 50. The atom pair constraint between these atoms uses a custom function -- a flat-bottom function with width 0.4 and sd 0.5.
+This example creates constraints to enforce a sheet with two antiparallel strands and a register shift of 1.
 
 ```
-<RESIDUE_SELECTORS>
-    <Index name="his6" resnums="6" />
-    <Index name="glu50" resnums="50" />
-</RESIDUE_SELECTORS>
 <MOVERS>
     <AddConstraints name="add_csts" >
-        <HydrogenBondConstraintGenerator name="gen_my_csts"
-            residue_selector1="his6"
-            residue_selector2="glu50"
-            atoms1="NE2"
-            atoms2="OE1" 
-            atom_pair_func="FLAT_HARMONIC 2.8 0.5 0.4" />
+        <SheetConstraintGenerator name="gen_my_csts" spairs="1-2.A.1;2-3.A.0" />
     </AddConstraints>
     <RemoveConstraints name="rm_csts" constraint_generators="gen_my_csts" />
 </MOVERS>
