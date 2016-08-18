@@ -7,6 +7,7 @@
 -   [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]]
 -   [[ResidueSelectors (RosettaScripts)|ResidueSelectors]]
 -   [[Composite protocols with RosettaScripts interfaces|Composite-protocols]]
+-   [[SymmetryAndRosettaScripts]]
 -   [[RosettaScripts Formatting Conventions|RosettaScripts-Conventions]]
 -   [[RosettaScripts database connection options|RosettaScripts-database-connection-options]]
 -   [[Overview of the Features Reporter framework|Features-reporter-overview]]
