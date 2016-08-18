@@ -24,6 +24,8 @@
 
    * [[Composite Protocols|Composite-protocols]]
 
+   * [[Symmetry and RosettaScripts|SymmetryAndRosettaScripts]]
+
    * [[Databases with RosettaScripts|RosettaScripts-database-connection-options]]
 
    * [[Formatting conventions|RosettaScripts-Conventions]]
