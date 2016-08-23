@@ -18,7 +18,8 @@ Use
 
 Example command-line:
 ```
-glycan_clash_check.default.macosclangrelease -s pose_with_glycan.pdb -include_sugars
+glycan_clash_check.default.macosclangrelease -include_sugars \
+-s pose_with_glycan.pdb 
 ```
 
 NOTE: It will not echo any PDB files, and will print the information to the screen.
@@ -31,8 +32,10 @@ Options
     ```
     Opt: -res_info 
         Type: StringVector 
-        Desc: Only output info for a specific residue or residues (or full glycan roots).  
-              Either rosetta resnum or PDBNumChain as in Rosetta Scripts (133A).
+        Desc: Only output info for a specific residue or 
+              residues (or full glycan roots).  
+              Either rosetta resnum or PDBNumChain 
+              as in Rosetta Scripts (133A).
         Ex: -res_info 133A 140B 150C
     ```
 
@@ -50,7 +53,7 @@ Options
 
 - ### Apps
 * [[GlycanRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
-* [[GlcyanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
+* [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
 - ### RosettaScript Components
 * [[GlycanRelaxMover]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.

@@ -78,7 +78,7 @@ HETNAM GLC A 1 ->4)-beta-D-Glcp
 
 ### Specific Cases
 #### Carbohydrates
-To load a PDB file with saccharide residues, use the `-include_sugars` and the `-override_rsd_type_limit` flags. If the glycan contains branches, you will need to allow use the `-read_pdb_link_records` flag. (See below.)
+To load a PDB file with saccharide residues, use the `-include_sugars`.
 
 Currently, loading of saccharide residues requires the use of `HETNAM` records, as described above, but shortly, one will be able to load (some) PDB files directly from the PDB or those generated from GLYCAM software, (which have their own unique 3-letter-codes,) using the `-alternate_3_letter_codes pdb_sugar` or `-alternate_3_letter_codes glycam` flags, as appropriate.
 
@@ -103,7 +103,7 @@ To load a PDB file with lipid residues, use the `-include_lipids` flag.
  **Note:** Rosetta lipid functionality is actively in development and has not been published; please contact <JWLabonte@jhu.edu> or <rfalford12@gmail.com> for assistance/questions.
 
 ## Connectivity
-Branching connectivity is defined in PDB files by `LINK` records. If the `-read_pdb_link_records` option is enabled, Rosetta will interpret these `LINK` records appropriately to build a branching `FoldTree`.
+Branching connectivity is defined in PDB files by `LINK` records. Rosetta will now interpret these `LINK` records appropriately to build a branching `FoldTree` by default.  Currently, one must add ```-write_pdb_link_records``` for them to be written out to any output PDB.
 
 
 ##See Also

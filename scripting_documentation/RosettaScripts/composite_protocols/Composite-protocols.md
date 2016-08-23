@@ -1,5 +1,7 @@
 # Composite protocols in RosettaScripts
 
+This page includes documentation for specialized RosettaScripts-based protocols. Such protocols often require specialized input, include a specific set of movers/filters that are intended to be used together, and/or would not fit into a typical Rosetta workflow.
+
 -   [[MetropolisHastings Documentation|MetropolisHastings-Documentation]]
     -   [[MetropolisHastingsMover]]
     -   [[SimulatedAnnealing (MetropolisHastings)|SimulatedAnnealing-MetropolisHastings]]

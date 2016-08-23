@@ -168,6 +168,8 @@ These are movers that should be usable in most cases with most systems
 
 **[[CoordinateConstraintGenerator]]** - Generates coordinate constraints for residues in a subset
 
+**[[DistanceConstraintGenerator]]** - Generates constraints to enforce a distance between residues in two subsets.
+
 **[[FileConstraintGenerator]]** - Generates, adds, and removes constraints from a file
 
 **[[HydrogenBondConstraintGenerator]]** - Generates constraints to enforce hydrogen bonding between residues
@@ -389,6 +391,12 @@ See Also: [[Antibody TaskOperations | TaskOperations-RosettaScripts#antibody-and
 
 **[[AntibodyDesignProtocol]]**
 
+
+## Carbohydrate-specific Movers
+
+**[[GlycanRelaxMover]]** - Glycosylate poses with glycan trees.
+  
+**[[SimpleGlycosylateMover]]** - Glycosylate poses with glycan trees. 
 
 
 ## Computational 'affinity maturation' movers

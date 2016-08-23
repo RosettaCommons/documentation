@@ -343,6 +343,31 @@ or
 - Limiting the number of L-amino acids in the positive-phi region of Ramachandran space, in conjunction with the aa_composition score term.
 - Restricting residues in the positive-phi region to be D-amino acids and residues in the negative-phi region to be L-amino acids when doing mixed D/L design of synthetic peptides.
 
+#### PairedSheetResidueSelector
+
+    <PairedSheetResidueSelector name=(%string)
+        secstruct=(%string, "")
+        sheet_topology=(%string)
+        use_dssp=(%bool, True) />
+
+The PairedSheetResidueSelector selects all residues involved in strand-strand pairings. The set of paired residues is computed by a combination of the secondary structure and user-specified sheet topology. For example, consider an antiparallel beta sheet with secondary structure "LEEEELLEEEEEELLEEEEEEL".  In this case strand 1 is four residues (2-5), and strands 2 (residues 8-13) and 3 (residues 16-21) each have 6 residues. If the given sheet topology is '1-2.A.-1' (i.e. strand 1-2 are paired in an antiparallel direction with register shift 1), the paired residues in those strands are 2-11, 3-10, 4-9, and 5-8. Thus, residues 2, 3, 4, 5, 8, 9, 10, and 11 will be selected. Although residues 12 and 13 are in strand 2, they are not paired with anything in the given topology and will not be selected. Similarly, a given topology of '1-2.A.-1;2-3.A.0' will select all residues marked 'E' by DSSP (2, 3, 5, 8, 9, 10, and 11 from the '1-2.A.-1' pairing, plus 8, 9, 10, 11, 12, 13, 16, 17, 18, 19, 20, and 21 from the '2-3.A.0' pairing).
+
+#####Options
+**secstruct** - Secondary structure to be used to determine strand residues. If not specified, secondary structure will be chosen based on the value of the 'use_dssp' option
+
+**use_dssp** - If true, and secstruct is not given, the input secondary structure will be computed by DSSP.  If false, the secondary structure saved in the pose will be used. Note this secondary structure saved in the pose may not always reflect the pose contents unless it is explicitly set via DsspMover.
+
+**sheet_topology** - String describing sheet topology, of the format A-B.P.R, where A is the strand number of the first strand in primary space, B is the strand number of the second strand in primary space, P is 'P' for parallel and 'A' for antiparallel, and R is the register shift.
+
+#####Example
+The following example will select all paired residues among strands 1 and 2, using a secondary structure computed by DSSP:
+
+```
+<PairedSheetResidueSelector name="E1-E2_pairs"
+    sheet_topology="1-2.A.-1" use_dssp="1" />
+```
+
+
 #### PrimarySequenceNeighborhoodSelector
 
     <PrimarySequenceNeighborhood name=(%string) selector=(%string) lower=(1%int) upper=(1%int) />
@@ -389,6 +414,11 @@ SecondaryStructureSelector selects all residues with given secondary structure. 
 The example below selects all residues in the pose with secondary structure 'H' or 'E'.
 
     <SecondaryStructure name="all_non_loop" ss="HE" />
+
+####SymmetricalResidueSelector
+    <SymmetricalResidue name=(%string) selector=(%string) />
+
+The SymmetricalResidueSelector, when given a selector, will return all symmetrical copies (including the original selection) of those residues. While the packer is symmetry aware, not all filters are. This selector is useful when you need to explicitly give residue numbers but you are not sure which symmetry subunit you need.
 
 ####TaskSelector
     <Task name=(%string) fixed=(%bool, False) packable=(%bool, True) designable=(%bool, True) task_operations=(%string) />

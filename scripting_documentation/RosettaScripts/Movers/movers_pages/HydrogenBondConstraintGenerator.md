@@ -65,6 +65,7 @@ To have effect, the atom_pair_constraint, angle_constraint, and dihedral_constra
 
 This ConstraintGenerator currently only works with canonical amino acids.
 
+## Definition
 
 ```
 <HydrogenBondConstraintGenerator name=(&string)
@@ -74,7 +75,8 @@ This ConstraintGenerator currently only works with canonical amino acids.
     atoms2=(&string "")
     atom_pair_func=(&string "HARMONIC 2.8 0.5")
     angle1_func=(&string "CIRCULARHARMONIC 2.0 0.5")
-    angle2_func=(&string "CIRCULARHARMONIC 2.0 0.5") />
+    angle2_func=(&string "CIRCULARHARMONIC 2.0 0.5")
+    atom_definitions=(&string "" ) />
 ```
 
 * **residue_selector1** - If given, the residues r1 (see above) will come from the subset of residues selected by residue_selector1. This should probably always be given to avoid huge numbers of constraints being generated.
@@ -84,8 +86,15 @@ This ConstraintGenerator currently only works with canonical amino acids.
 * **atom_pair_func** -- Function to be used for atom pair constraints. By default, "HARMONIC x 0.5" is used, where x is the ideal A1-A2 distance.
 * **angle1_func** - Function used for angle constraints. By default, "CIRCULARHARMONIC x 0.5" is used, where x is the ideal P_A1-A1-A2 angle.
 * **angle2_func** - Function used for angle2 constraints. By default, "CIRCULARHARMONIC x 0.5" is used, where x is the ideal A1-A2-P_A2 angle.
-
-
+* **atom_definitions** - Definitions of atoms to be used in hydrogen bonding. Only required for non-canonical amino acids. The format is: NAME3,ATOM1,ATOM2,ATOM3,DIST,ANGLE[,DIHEDRALS]*. For hydrogen bonding to OD1 of ASP, this line might read:
+```
+    "ASP,OD1,CG,OD2,1.4,120.0,0.0,180.0"
+```
+Note the 'ideal' dihedrals of 0.0 and 180.0 which indicates that hydrogen bonds to ASP should be in-plane. For hydrogen bonding to OG of SER, this line might read:
+```
+    "SER,OG,CB,CA,1.4,109.5"
+```
+    
 ### Example
 
 This example creates constraints to enforce a hydrogen bond between atom NE2 on residue 6 and atom OE1 on residue 50. The atom pair constraint between these atoms uses a custom function -- a flat-bottom function with width 0.4 and sd 0.5.
