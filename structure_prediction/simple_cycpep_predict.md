@@ -2,7 +2,7 @@
 
 Back to [[Application Documentation]].
 
-Created 24 October 2015 by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu).  Last updated 23 May 2016.
+Created 24 October 2015 by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu).  Last updated 24 August 2016.
 
 [[_TOC_]]
 
