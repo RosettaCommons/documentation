@@ -168,7 +168,7 @@ This would farm out 1000 jobs to 3 slave processes in 25-job batches, with direc
 # Known issues
 
 - In MPI mode, only silent file output is permitted.  Users must provide an output file with **-out:file:silent**.
-- Glycine's Ramachandran plot should be completely symmetric, but it is not, since it is based on statistics from the PDB.  (PDB structures disproportionately have glycine in the region of Ramachandran space that only it can access).  A flag will be added in the future to permit a symmetrized version of the glycine Ramachandran map to be used for sampling and scoring.
-- Currently, there is no sampling of omega values, though these can deviate a bit from 180 degrees during final relaxation.
+- Glycine's Ramachandran plot should be completely symmetric, but it is not, since it is based on statistics from the PDB.  (PDB structures disproportionately have glycine in the region of Ramachandran space that only it can access).  A flag has been added (**-score:symmetric_gly_tables**) to permit a symmetrized version of the glycine Ramachandran map to be used for sampling and scoring.
+- Currently, there is no sampling of omega values, though these can deviate a bit from 180 degrees during final relaxation.  (The exception is sampling *cis*-peptide bonds at positions preceding proline if the **-cyclic_peptide:sample_cis_pro_frequency** flag is used to specify a frequency between 0 and 1.)
 - Currently, only alpha-amino acids are supported, though it will be possible to generalize this to arbitrary backbones in the near future.
 - Currently, there is no support for any sort of cyclization other than head-to-tail backbone cyclization, or for any sort of cross-link other than disulfide bonds.  These limitations will be addressed in the future.
