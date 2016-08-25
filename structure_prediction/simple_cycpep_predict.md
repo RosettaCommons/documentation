@@ -2,7 +2,9 @@
 
 Back to [[Application Documentation]].
 
-Created 24 October 2015 by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu).  Last updated 24 August 2016.
+Created 24 October 2015 by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu).  Last updated 24 August 2016.<br/><br/>
+If you use this application, please cite:<br/><br/>
+Bhardwaj, G., V.K, Mulligan, C.D. Bahl, J.M. Gilmore, P.J. Harvey, O. Cheneval, G.W. Buchko, S.V.S.R.K. Pulavarti, Q. Kaas, A. Eletsky, P.-S. Huang, W.A. Johnsen, P. Greisen, G.J. Rocklin, Y. Song, T.W. Linsky, A. Watkins, S.A. Rettie, X. Xu, L.P. Carter, R. Bonneau, J.M. Olson, E. Coutsias, C.E. Correnti, T. Szyperski, D.J. Craik, and D. Baker. 2016.  Accurate de novo design of hyperstable constrained peptides. *Nature.* In press.
 
 [[_TOC_]]
 
@@ -155,7 +157,7 @@ mpirun -np 5000 /my_rosetta_path/main/source/bin/simple_cycpep_predict.mpi.linux
 
 The details of sampling are controlled with the same flags used for the non-MPI version (see above).
 
-Note that, in MPI mode, there can be an incredible amount of tracer output.  For convenience, the emperor uses a separate tracer to write a summary of all jobs that have been completed.  To receive only this as output in the standard output stream, use the **-mute all -unmute protocols.cyclic_peptide_predict.SimpleCycpepPredictApplication_MPI_summary** flags.  (This silences all output from non-emperor processes, and most output from the emperor process, except for the summary at the end.)  Since generating output and managing output from large numbers of processes takes clock and MPI communication cycles, muting unnecessary output is advised for better performance.
+Note that, in MPI mode, there can be an incredible amount of tracer output.  For convenience, the emperor uses a separate tracer to write a summary of all jobs that have been completed.  This summary includes the energy of each sample, the RMSD to native (if a native structure was provided), and a goodness-of-funnel metric (PNear).  (The PNear metric takes two parameters: **lambda** in Angstroms, which controls how close a sample has to be to native to be considered native-like, and **Boltzmann temperature** in Rosetta energy units, which controls how high-energy a non-native sample must be for the funnel not to be considered "bad".  These are set with the **-cyclic_peptide:MPI_pnear_lambda** and **-cyclic_peptide:MPI_pnear_kbt** flags, respectively.  See Bhardwaj, Mulligan, Bahl, *et al.* (2016) *Nature*, in press for more information about the PNear metric.)  To receive only this as output in the standard output stream, use the **-mute all -unmute protocols.cyclic_peptide_predict.SimpleCycpepPredictApplication_MPI_summary** flags.  (This silences all output from non-emperor processes, and most output from the emperor process, except for the summary at the end.)  Since generating output and managing output from large numbers of processes takes clock and MPI communication cycles, muting unnecessary output is advised for better performance.
 
 As a final note, intermediate master processes are optional; the minimum that one needs are an emperor node and a single slave node (though this setup would have no advantages over sampling with the non-MPI version of the app).  On a 4-core laptop, the following would be perfectly legal, for example:
 
