@@ -4,7 +4,9 @@
 
 ## Rosetta 3.7
 
-(We can begin collecting 3.7 release notes here with a planned release the week after RosettaCON.  This section should remain hidden from the public wiki due to the internal tags.)
+(This section should remain hidden from the public wiki due to the internal tags.)
+
+3.7 will be Rosetta 2016.32, http://test.rosettacommons.org/revision?id=108&branch=release, https://github.com/RosettaCommons/main/commit/9005cc64587b4189882337bc87783ab96ead263f.  See also [https://wiki.rosettacommons.org/index.php/3.7_release_notes_workspace]
 
 <!--- END_INTERNAL -->
 
