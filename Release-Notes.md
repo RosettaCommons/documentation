@@ -2,11 +2,19 @@
 
 <!--- BEGIN_INTERNAL -->
 
-## Rosetta 3.7
+## Rosetta 3.7 (internal notes)
 
 (This section should remain hidden from the public wiki due to the internal tags.)
 
 3.7 will be Rosetta 2016.32, http://test.rosettacommons.org/revision?id=108&branch=release, https://github.com/RosettaCommons/main/commit/9005cc64587b4189882337bc87783ab96ead263f.  See also [https://wiki.rosettacommons.org/index.php/3.7_release_notes_workspace]
+
+(this part will go public later)
+## Rosetta 3.7
+
+### New applications
+* No new standalone applications.
+
+
 
 <!--- END_INTERNAL -->
 
