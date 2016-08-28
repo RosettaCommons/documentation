@@ -17,7 +17,6 @@
 ## Rosetta 3.7
 
 ### New applications
-* No new standalone applications.
 
 
 
