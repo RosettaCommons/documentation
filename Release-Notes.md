@@ -8,6 +8,11 @@
 
 3.7 will be Rosetta 2016.32, http://test.rosettacommons.org/revision?id=108&branch=release, https://github.com/RosettaCommons/main/commit/9005cc64587b4189882337bc87783ab96ead263f.  See also [https://wiki.rosettacommons.org/index.php/3.7_release_notes_workspace]
 
+### Rosetta 3.7 NOT included in release notes
+* These are items that will be omitted from the release notes as incomplete features, but should be listed once finished for 3.8 or whenever
+* XML schema
+* JD3
+
 (this part will go public later)
 ## Rosetta 3.7
 
