@@ -3,7 +3,7 @@
 Metadata
 ========
 
-This document was edited by Colin Smith on 12/4/2008. Yi Liu created the initial page. Thanks Oliver and Firas for providing information.  Last edited by Steven Lewis on 01 Aug 2016.
+This document was edited by Colin Smith on 12/4/2008. Yi Liu created the initial page. Thanks Oliver and Firas for providing information.  Last edited by Steven Lewis on 30 Aug 2016.
 
 [[_TOC_]]
 
@@ -247,7 +247,7 @@ Functions are listed as "Func\_Type Func\_Def".
     [[/images/form_2.png]]
 
 -   `GAUSSIANFUNC mean sd tag`
-    * Note: `tag` is NOT optional, as for BoundFunc/BOUNDED. If `tag = NOLOG, it triggers some undocumented behavior involving a logarithm of some sort.
+    * Note: `tag` is NOT optional, as for BoundFunc/BOUNDED. If `tag` = NOLOG, it triggers some undocumented behavior involving a logarithm of some sort.
 
     [[/images/form_3.png]]
 
