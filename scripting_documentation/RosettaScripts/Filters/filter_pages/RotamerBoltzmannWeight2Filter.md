@@ -14,7 +14,20 @@ RotamerBoltzmannWeight2 uses a two-step process to compute a score.  First, rota
 
 Note that this filter does not perform any pose modification prior to computation. If rotamer probabilities in the 'unbound' state (or other modified states) are desired, the [[MoveBeforeFilter]] should be used with RotamerBoltzmannWeight2 as the filter.
 
+###Caveats
 
+Alanine and Glycine have no distinct heavy-atom rotamers. Therefore, the probability score for ALA and GLY will always be 1.0. So, if you are using MAX_PROBABILITY and a residue subset that includes ALA or GLY, the score for the entire residue subset will be 1.0. To avoid this, you can exclude ALA and GLY in your residue selector as below:
+
+````
+<RESIDUE_SELECTORS>
+   <ResidueName name="ala_gly" residue_name3="ALA,GLY" />
+   <Not name="not_ala_gly" selector="ala_gly" />
+   <And name="boltz_subset" selectors="not_ala_gly,your_residue_subset" />
+</RESIDUE_SELECTORS>
+<FILTERS>
+    <RotamerBoltzmann2 name="rot_boltz_skip_ala_gly" residue_selector="boltz_subset" />
+</FILTERS>
+````
 ```
 <RotamerBoltzmannWeight2 name=(&string)
     residue_selector=("TrueSelector" &string)
