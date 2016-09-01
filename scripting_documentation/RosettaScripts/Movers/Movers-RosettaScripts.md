@@ -98,6 +98,14 @@ Meta Movers don't do anything to the pose themselves, but combine or modify the 
 
 These are movers that should be usable in most cases with most systems
 
+### Analysis Movers
+
+**[[ScoreMover]]** - Scores the pose
+
+**[[LoopAnalyzerMover]]** - Computes protein loop-specific metrics
+
+**[[InterfaceAnalyzerMover]]** - Computes protein-protein interface metrics
+
 ### Simple Sequence Design
 
 **[[FixBB|FixBBMockMover]]** - Sequence design on a fixed backbone
