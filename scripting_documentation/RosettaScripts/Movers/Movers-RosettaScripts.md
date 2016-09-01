@@ -66,6 +66,8 @@ Meta Movers don't do anything to the pose themselves, but combine or modify the 
 
 **[[DumpPdb|DumpPdbMover]]** - Save a pose to disk.
 
+**[[FilterReportAsPoseExtraScoresMover]]** - Records Filter values to the scorefile
+
 **[[MetricRecorder|MetricRecorderMover]]** - Record metrics in a text file
 
 **[[PDBTrajectoryRecorder|PDBTrajectoryRecorderMover]]** - Records a multimodel PDB file
