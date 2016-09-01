@@ -37,7 +37,7 @@ These steps are discussed in detail in the next section.
 
 ## Detailed workflow
 
-1. Build or import a structure.  GeneralizedKIC cannot add residues or geometry.  If one wants to build a new loop, for example, one must add the new loop residues before calling GeneralizedKIC.  (In RosettaScripts, the **PeptideStubMover** is useful for building geometry from scratch or for adding residues to existing geometry.)
+1. Build or import a structure.  GeneralizedKIC cannot add residues or geometry.  If one wants to build a new loop, for example, one must add the new loop residues before calling GeneralizedKIC.  (In RosettaScripts, the **[[PeptideStubMover]]** is useful for building geometry from scratch or for adding residues to existing geometry.)
 
 2. Ensure that covalent linkages have been declared.  GeneralizedKIC will move atoms about to ensure ideal geometry, but cannot declare new chemical bonds.  (In RosettaScripts, the **DeclareBond** mover lets Rosetta know that certain residues are covalently attached to one another.)
 
