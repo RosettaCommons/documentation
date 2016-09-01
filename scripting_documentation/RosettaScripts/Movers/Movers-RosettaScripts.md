@@ -326,6 +326,8 @@ See [[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScri
 
 **[[ModifyVariantType|ModifyVariantTypeMover]]** - Adds or removes variant types of a set of residues
 
+**[[PeptideStubMover]]** - Add new residues to a pose
+
 **[[SegmentHybridize|SegmentHybridizeMover]]** - Closes loops using fragment insertion and cartesian minimization
 
 **[[Superimpose|SuperimposeMover]]** - Superimpose the current pose on another stored pose
