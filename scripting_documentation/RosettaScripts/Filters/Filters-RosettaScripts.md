@@ -110,6 +110,8 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[PreProlineFilter|PreProlineFilter]]** - Check for bad torsions in residues before prolines
 
+**[[LoopAnalyzerFilter]]** - Check for bad loop backbone geometries
+
 ### Packing/Connectivity
 
 **[[CavityVolume|CavityVolumeFilter]]** - Always returns true, but calculates intra-protein cavity volume.
