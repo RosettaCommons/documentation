@@ -1,5 +1,5 @@
 # LoopAnalyzerFilter
-*Back to [[Filter|Filter-RosettaScripts]] page.*
+*Back to [[Filter|Filters-RosettaScripts]] page.*
 ## LoopAnalyzerFilter
 
 This Filter calls [[LoopAnalyzerMover]] to compute a bunch of loop-specific metrics.  You can also try [[GeometryFilter]].
