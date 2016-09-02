@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## FilterReportAsPoseExtraScoresMover
 
-For some reason, the value reported by [[Filter]]s to the [[scorefile]] is their value at the end of the run, not their value at the time they perform the filtering operation.  This Mover stores a Filter's report value at the time it is called into the PoseExtraScores for later output to the scorefile.
+For some reason, the value reported by [[Filter|Filters-RosettaScripts]]s to the [[scorefile|Glossary#scorefile]] is their value at the end of the run, not their value at the time they perform the filtering operation.  This Mover stores a Filter's report value at the time it is called into the PoseExtraScores for later output to the scorefile.
 
 ```
 <FilterReportAsPoseExtraScoresMover name="&string" report_as=(&string) filter=(&string)/>
