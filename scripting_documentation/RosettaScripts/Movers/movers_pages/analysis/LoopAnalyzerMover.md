@@ -8,7 +8,6 @@ This Mover computes a bunch of loop-specific metrics.  It was created as an anal
 <LoopAnalyzerMover name="&string" use_tracer=(&bool) loops_file=(&string) >
     <Loop start=(&int) stop=(&int) cut=(&int) skip_rate=(0.0 &real) rebuild=(no &bool)/>
 </LoopAnalyzerMover>
-/>
 ```
 
 - loop: You can pass the loop(s) in as a subtag(s).
