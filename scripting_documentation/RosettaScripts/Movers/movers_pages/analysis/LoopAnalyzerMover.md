@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## LoopAnalyzerMover
 
-This Mover computes a bunch of loop-specific metrics.  It was created as an analysis tool for [[AnchoredDesign]] but is not specific to that protocol.
+This Mover computes a bunch of loop-specific metrics.  It was created as an analysis tool for [[AnchoredDesign|anchored-design]] but is not specific to that protocol.
 
 ```
 <LoopAnalyzerMover name="&string" use_tracer=(&bool) loops_file=(&string) >
