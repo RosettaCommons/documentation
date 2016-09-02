@@ -5,7 +5,7 @@
 This [[Mover]] applies the [[scorefunction|score-types]] to your [[pose|RosettaEncyclopedia#pose]].  Simple, but sometimes that's what you need!
 
 ```
-<InterfaceAnalyzerMover name="&string" scorefxn=(&string) verbose=(&bool)/>
+<ScoreMover name="&string" scorefxn=(&string) verbose=(&bool)/>
 ```
 
 - scorefxn: What scorefunction to calculate.  Calls ScoreFunctionFactory with an empty string by default, which is either a good default or NULL.
