@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## ScoreMover
 
-This [[Mover]] applies the [[scorefunction]] to your [[pose]].  Simple, but sometimes that's what you need!
+This [[Mover]] applies the [[scorefunction|score-types]] to your [[pose|RosettaEncyclopedia#pose]].  Simple, but sometimes that's what you need!
 
 ```
 <InterfaceAnalyzerMover name="&string" scorefxn=(&string) verbose=(&bool)/>
@@ -30,3 +30,8 @@ This mover looks for ```-loops::loopscores```.  It then runs "loops::addScoresFo
 
 ##exclude_res
 This mover looks for ```-evaluation::score_exclude_res``` and then will print the PoseExtraScore "select_score" of what this author assumes is the remaining residues.
+
+
+##See Also
+
+* [[I want to do x]]: Guide to choosing a mover
