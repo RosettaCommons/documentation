@@ -39,9 +39,9 @@ Scorefunctions timeline
 
 * **Score12_correct** was widely discussed at [[RosettaCON|Glossary#RosettaCON]]s for several years running as a collection of terms to improve Score12's performance.  It was never adopted wholesale.
 
-* **Talaris13** was the result of a meeting (held at a hotel named Talaris) where the community used [[OptE|opt-e-parallel-doc]] and many new scorefunction tests to try to improve on Score12.
+* **Talaris13** was the result of a meeting (held at a hotel named Talaris) where the community used [[OptE|opt-e-parallel-doc]] and many new scorefunction tests to try to improve on Score12.  It was denoted 13 both as a successor to score12 and because it was developed in 2013.
 
-* **Talaris14** is an error-correction of Talaris13 - the weights are (ANDREW FILL THIS IN) (_I think energies were too small/large relative to the Monte Carlo temperatures, so all terms were rescaled to correct temperature.  One energy term was fixed to a new weight as a mistake correction.)_
+* **Talaris14** is an error-correction of Talaris13.  One of the hydrogen bonding weights was incorrect.  All the weights were re-scaled to more closely match the Rosetta Energy Unit size of score12 - ultimately the units are arbitrary but better comparison with score12 was desired.  The YHH_planarity term was added to help control the alcohol hydrogen in tyrosine.  This was developed in 2014, but not put into use until 2016.
 
 * A new beta score function is currently under development and is documented [[here|Overview of Seattle Group energy function optimization project]].
 
