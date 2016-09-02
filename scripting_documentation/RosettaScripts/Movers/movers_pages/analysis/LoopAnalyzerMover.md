@@ -67,4 +67,4 @@ In this particular example, position 29 is clearly problematic: the peptide bond
 * [[Loop modeling algorithms|loopmodel-algorithms]]
 * [[Loopmodel application|loopmodel]]
 * [[Loop file format|loops-file]]
-* [[AnchoredDesign]]: The protocol for which this was written
+* [[AnchoredDesign|anchored-design]]: The protocol for which this was written
