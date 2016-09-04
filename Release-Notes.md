@@ -22,10 +22,10 @@
 * [[ERRASER|erraser]] updated: improved support for residues that are not canonical RNA
 * [[GlycanRelax]] (see also [[WorkingWithGlycans]])
 * The RosettaAntibody protocol has been streamlined and is closer to being a single application instead of a constellation of scripts
-** Support for L4/H4 (DE loop)
-** Support for camelid antibodies
-** identify_cdr_clusters tool
-** packing_angle tool
+    * Support for L4/H4 (DE loop)
+    * Support for camelid antibodies
+    * identify_cdr_clusters tool
+    * packing_angle tool
 * [[RosettaScripts]] now supports inclusion of script fragments in other scripts
 * [[simple_cycpep_predict]] - design of cyclic peptides
 * [[FlexPepDock|flex-pep-dock]] - ligand compatibility
