@@ -4,7 +4,7 @@
 
 ## Rosetta 3.7 (internal notes)
 
-(This section should remain hidden from the public wiki due to the internal tags.)
+(This section should remain hidden from the public wiki.)
 
 3.7 will be Rosetta 2016.32, http://test.rosettacommons.org/revision?id=108&branch=release, https://github.com/RosettaCommons/main/commit/9005cc64587b4189882337bc87783ab96ead263f.  See also [https://wiki.rosettacommons.org/index.php/3.7_release_notes_workspace]
 
@@ -12,6 +12,8 @@
 * These are items that will be omitted from the release notes as incomplete features, but should be listed once finished for 3.8 or whenever
 * XML schema
 * JD3
+
+**!! when the notes go public, end_internal moves right here**
 
 (this part will go public later)
 ## Rosetta 3.7
@@ -31,7 +33,6 @@
 * [[torsional-potential-corrections]], for [Conway P, DiMaio F. Improving hybrid statistical and physical forcefields through local structure enumeration. Protein Sci. 2016 May 30.](http://www.ncbi.nlm.nih.gov/pubmed/27239808)
 * [pH_protocol](http://www.ncbi.nlm.nih.gov/pubmed/25501663) (link to paper)
 
-
 ### New features and classes
 * New Tutorials system over at the Demos wiki
 * Many new [[ResidueSelectors]]
@@ -48,9 +49,6 @@
 
 
 <!--- END_INTERNAL -->
-
-
-
 
 ## Rosetta 3.6
 
