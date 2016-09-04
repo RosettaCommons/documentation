@@ -22,10 +22,15 @@
 * The RosettaAntibody protocol has been streamlined and is closer to being a single application instead of a constellation of scripts
 ** Support for L4/H4 (DE loop)
 ** Support for camelid antibodies
+** identify_cdr_clusters tool
+** packing_angle tool
 * [[RosettaScripts]] now supports inclusion of script fragments in other scripts
 * [[simple_cycpep_predict]] - design of cyclic peptides
-* [[FlexPepDock]] - ligand compatibility
+* [[FlexPepDock|flex-pep-dock]] - ligand compatibility
 * [[ddg-monomer]] - ligand compatibility
+* [[torsional-potential-corrections]], for [Conway P, DiMaio F. Improving hybrid statistical and physical forcefields through local structure enumeration. Protein Sci. 2016 May 30.](http://www.ncbi.nlm.nih.gov/pubmed/27239808)
+* [pH_protocol](http://www.ncbi.nlm.nih.gov/pubmed/25501663) (link to paper)
+
 
 ### New features and classes
 * New Tutorials system over at the Demos wiki
