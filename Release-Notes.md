@@ -16,8 +16,30 @@
 (this part will go public later)
 ## Rosetta 3.7
 
-### New applications
+### New and updated applications
+* [[ERRASER|erraser]] updated: improved support for residues that are not canonical RNA
+* [[GlycanRelax]] (see also [[WorkingWithGlycans]])
+* The RosettaAntibody protocol has been streamlined and is closer to being a single application instead of a constellation of scripts
+** Support for L4/H4 (DE loop)
+** Support for camelid antibodies
+* [[RosettaScripts]] now supports inclusion of script fragments in other scripts
+* [[simple_cycpep_predict]] - design of cyclic peptides
+* [[FlexPepDock]] - ligand compatibility
+* [[ddg-monomer]] - ligand compatibility
 
+### New features and classes
+* New Tutorials system over at the Demos wiki
+* Many new [[ResidueSelectors]]
+* PDB reading can handle LINK records in most cases
+* "Spell checking" for options: suggestions for the desired option if the user's options are invalid
+* [[AACompositionEnergy]] takes fractional compositions in addition to counted-out compositions
+* New score term to penalize peptide sequences that form aspartimide
+* New script for setting up the [[pyrosetta]] environment
+
+### Bugfixes
+
+* `loops::restrict_kic_sampling_to_torsion_string` repaired (for [[KIC|next-generation-KIC]] loop modeling)
+* [[BridgeChainsMover]] repaired to match publication
 
 
 <!--- END_INTERNAL -->
