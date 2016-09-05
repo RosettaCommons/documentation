@@ -34,7 +34,9 @@
 * [pH_protocol](http://www.ncbi.nlm.nih.gov/pubmed/25501663) (link to paper)
 
 ### New features and classes
-* New Tutorials system over at the Demos wiki
+* A new introductory tutorial system has been added under the demos/tutorial/ directory. These can also be found online at <https://www.rosettacommons.org/demos/latest/>
+    * The introductory tutorials cover both basic concepts (packing, minimization, fullatom/centroid) as well as demonstrations on how to use some of the most commonly used Rosetta protocols (ab inito, comparative modeling, loop modeling, design, protein-protein docking and protein-ligand docking).
+    * Additional demos are now listed [thematically](https://www.rosettacommons.org/demos/latest/demos-by-category), to assist in locating relevant demos.
 * Many new [[ResidueSelectors]]
 * PDB reading can handle LINK records in most cases
 * "Spell checking" for options: suggestions for the desired option if the user's options are invalid
