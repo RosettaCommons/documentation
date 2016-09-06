@@ -60,7 +60,7 @@ Modes
 -----
 
 -   **Pre-pack mode** ( -flexpep\_prepack flag):
-     The pre-packing mode optimizes the side-chains of each monomer according to the Rosetta score12 energy function. Unless you know what you are doing, we strongly recommend pre-packing the input structures, and applying one of the peptide docking protocols to the resulting pre-packed structures, as this can improve model selection considerably (see below). However, in cases where side-chains have been previously optimized by Rosetta using the same scoring function, this step can be skipped.
+     The pre-packing mode optimizes the side-chains of each monomer according to the [[Rosetta energy function|score-types]]. Unless you know what you are doing, we strongly recommend pre-packing the input structures, and applying one of the peptide docking protocols to the resulting pre-packed structures, as this can improve model selection considerably (see below). However, in cases where side-chains have been previously optimized by Rosetta using the same scoring function, this step can be skipped.
 
 -   **Low-resolution *ab-initio* mode** (-lowres\_abinitio flag):
      This is the main part of the *ab-initio* peptide docking protocol, for simultaneous *ab-initio* folding and docking of the peptide over the protein surface. This mode is typicalled used together with the refinement mode ( -pep\_refine flag) - in this case, the peptide is first folded *de-novo* and then refined.
@@ -105,8 +105,8 @@ I. Common FlexPepDock flags:
 |:-------|:--------------|:-------|:----------|
 | -receptor_chain| chain-id of receptor protein. Multichain receptor is supported (please note: if using this flag for a multichain receptor, the PDB file must contain first the recetor chains in a consecutive manner, only then followed by the peptide chain).| String| first chain in input|
 | -peptide_chain| chain-id of peptide protein|  String| second chain in input|
-|-lowres_abinitio| Low-resolution ab-initio folding and docking model.| String| false|
-|-pep_refine|Refinement mode. (equivalent to obsolete -rbMCM -torsionsMCM flags)| String| false|
+|-lowres_abinitio| Low-resolution ab-initio folding and docking model.| Boolean| false|
+|-pep_refine|Refinement mode. (equivalent to obsolete -rbMCM -torsionsMCM flags)| Boolean| false|
 |-lowres_preoptimize| Perform a preliminary round of centroid mode optimization before Refinement. See more details in [Tips](#Tips).| Boolean| false|
 |-flexpep_prepack|Prepacking mode. Optimize the side-chains of each monomer separately (without any docking).| Boolean|false|
 |-flexpep_score_only| Read in a complex, score it and output interface statistics| Boolean| false|
