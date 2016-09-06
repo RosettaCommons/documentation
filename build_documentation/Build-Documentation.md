@@ -32,15 +32,15 @@ You have multiple options for compiling Rosetta 3 with SCons. You can build eith
 1.  Change directory to `      main/source     ` .
 2.  Type one of the following commands:
 
-    -    complete   
+    -    complete
 
         -   `          ./scons.py -j<number_of_processors_to_use> bin         `
         -   `          ./scons.py -j<number_of_processors_to_use> mode=release bin         `
 
-    - libraries only   
+    - libraries only
 
         -   `          ./scons.py -j<number_of_processors_to_use>         `
-    	-   `          ./scons.py -j<number_of_processors_to_use> mode=release         `
+        -   `          ./scons.py -j<number_of_processors_to_use> mode=release         `
 
 The `     -j8    ` flag would mean, "use at most 8 processes for building," and can be reasonably set as the number of free processors on your machine. Be aware that setting `     -j    ` to a very high value will cause the operating system to have difficulty scheduling jobs.
 

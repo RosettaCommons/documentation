@@ -1,7 +1,7 @@
 Supported Platforms
 ===================
 
-Rosetta should be able to be able to be built on most modern Linux and Mac systems with a C++11-compatible compiler. 
+Rosetta should be able to be able to be built on most modern Linux and Mac systems with a C++11-compatible compiler.
 Development of Rosetta happens by a number of different people on a wide variety of systems,
 therefore, many of the up-to-date configurations have been tested by developers.
 We are aware that user's ability to update compilers on clusters is limited, and therefore
@@ -36,10 +36,10 @@ Developer machine configurations
 The following systems are used by the Rosetta development community,  
 either during the development of Rosetta or for cluster runs.
 
-(As of May 2015)
+(As of Jan 2016)
 
 - MacOS X.9 ("Mavericks") & X.10 ("Yosemite")
-    - clang 6.1 (llvm 3.6) 
+    - clang 6.1 (llvm 3.6)
 
 - CentOS 4.7 to 7.0
     - gcc 4.7 to 4.8
@@ -84,7 +84,7 @@ as C++11 compatible compilers may be using an older C++ standard library.
 To assist in checking for compatibility, we have put together a small Python test script,
 downloadable from <https://raw.githubusercontent.com/RosettaCommons/rosetta_clone_tools/master/rosetta_compiler_test.py>
 
-Note: Even if the default compiler is a version without support, often there will be an updated compiler available on the system. 
+Note: Even if the default compiler is a version without support, often there will be an updated compiler available on the system.
 Talk to your system administrator for more details, and see [the build documentation](Build-Documentation#setting-up-rosetta-3_alternative-setup-for-individual-workstations_scons-mac-linux) 
 for compiling with a non-default compiler.
 In worse-case scenarios, the weekly releases of Rosetta 2015.39 and before may be compatible with older compilers.
