@@ -150,6 +150,8 @@ where you substitute the compiler commands as appropriate.
 
 Many default installations of Mac and Linux do not come with a compiler installer, so you will need to install one separately. (Note that the following only applies if you have administrator rights to your machine. If you do not, talk to your sysadmin regarding the installation of a compiler.)
 
+Rosetta requires a compiler with C++11 support. Most recent compiler versions include C++11 support, but older compilers may not. See [[Cxx11Support]] for more details.
+
 For Macs, install the XCode development packages. Even though you won't be compiling Rosetta through XCode, installing it will also install a compiler. (Clang, for recent versions of MacOS.)
 
 For Linux, you will want to install the compiler package from your package management system. For Ubuntu and similar systems, the package "build-essential" installed with a command like `sudo apt-get install build-essential` will set your system up for compilation.

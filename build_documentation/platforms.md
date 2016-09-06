@@ -2,6 +2,7 @@ Supported Platforms
 ===================
 
 Rosetta should be able to be able to be built on most modern Linux and Mac systems with a C++11-compatible compiler.
+(See [[Cxx11Support]] for more details.)
 Development of Rosetta happens by a number of different people on a wide variety of systems,
 therefore, many of the up-to-date configurations have been tested by developers.
 We are aware that user's ability to update compilers on clusters is limited, and therefore
