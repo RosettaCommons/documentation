@@ -26,7 +26,7 @@
     * Support for camelid antibodies
     * identify_cdr_clusters tool
     * packing_angle tool
-* [[RosettaScripts]] now supports inclusion of script fragments in other scripts
+* [[RosettaScripts]] now supports [[inclusion of script fragments in other scripts|RosettaScripts#options-available-in-the-xml-protocol-file_xml-file-inclusion]]
 * [[simple_cycpep_predict]] - design of cyclic peptides
 * [[FlexPepDock|flex-pep-dock]] - ligand compatibility
 * [[ddg-monomer]] - ligand compatibility
