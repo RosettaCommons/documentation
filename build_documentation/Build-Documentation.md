@@ -24,22 +24,23 @@ The current build system is based on the tool [[SCons|Scons-Overview-and-Specifi
 
 ###SCons (Mac/Linux)
 
-You have multiple options for compiling Rosetta 3 with SCons. You can build either only the core libraries or both the libraries and the executables. Rosetta 3 can be compiled in two modes:
+You have multiple options for compiling Rosetta 3 with SCons. You can build either only the core libraries or both the libraries and the executables. Rosetta 3 can be compiled in two major modes:
 
--   Debug mode — for development — no `      mode     ` option
+-   Debug mode — for development — no `      mode     ` option, or `mode=debug`
 -   Release mode — faster/tested and ready to go &mdashl `      mode=release     `
 
 1.  Change directory to `      main/source     ` .
 2.  Type one of the following commands:
--    complete   
 
--   `          ./scons.py -j<number_of_processors_to_use> bin         `
--   `          ./scons.py -j<number_of_processors_to_use> mode=release bin         `
+    -    complete
 
-libraries only   
+        -   `          ./scons.py -j<number_of_processors_to_use> bin         `
+        -   `          ./scons.py -j<number_of_processors_to_use> mode=release bin         `
 
--   `          ./scons.py -j<number_of_processors_to_use>         `
--   `          ./scons.py -j<number_of_processors_to_use> mode=release         `
+    - libraries only
+
+        -   `          ./scons.py -j<number_of_processors_to_use>         `
+        -   `          ./scons.py -j<number_of_processors_to_use> mode=release         `
 
 The `     -j8    ` flag would mean, "use at most 8 processes for building," and can be reasonably set as the number of free processors on your machine. Be aware that setting `     -j    ` to a very high value will cause the operating system to have difficulty scheduling jobs.
 
@@ -148,6 +149,8 @@ where you substitute the compiler commands as appropriate.
 
 
 Many default installations of Mac and Linux do not come with a compiler installer, so you will need to install one separately. (Note that the following only applies if you have administrator rights to your machine. If you do not, talk to your sysadmin regarding the installation of a compiler.)
+
+Rosetta requires a compiler with C++11 support. Most recent compiler versions include C++11 support, but older compilers may not. See [[Cxx11Support]] for more details.
 
 For Macs, install the XCode development packages. Even though you won't be compiling Rosetta through XCode, installing it will also install a compiler. (Clang, for recent versions of MacOS.)
 
