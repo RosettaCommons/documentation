@@ -10,6 +10,8 @@ Restrict design to not include a residue as an possibility in the task at a posi
 
 This task is useful when you are designing in a region that has Gly and Pro and you do not want to include them at other positions that aren't already Gly or Pro.
 
+**Note:** "native" means the starting residue, not "-in:file:native"
+
 ##See Also
 
 * [[RosettaScripts|RosettaScripts]]: Using RosettaScripts
