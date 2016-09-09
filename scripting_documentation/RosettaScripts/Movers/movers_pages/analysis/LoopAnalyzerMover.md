@@ -67,3 +67,10 @@ In this particular example, position 29 is clearly problematic: the peptide bond
 * [[Loopmodel application|loopmodel]]
 * [[Loop file format|loops-file]]
 * [[AnchoredDesign|anchored-design]]: The protocol for which this was written
+
+<!-- SEO
+
+loop analyzer
+loop analyzer
+loop analyzer
+-->
