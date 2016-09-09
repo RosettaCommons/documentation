@@ -1,3 +1,5 @@
+(This is an archived email originally written by Andy Watkins.)
+
 So, I've made a bunch of modernizations that touch a bunch of files. I'm going to describe the same process I outlined on the PR discussion with specific git commands -- shamelessly plagiarized from an earlier guide for beautification. I will also describe them with words so that this TYPE of strategy seems intuitive, too. The idea is that master's history since you branched from it now has two different types of parts, and for efficiency you want to consider them separately. 
 
 Most of master's history involves commits that are unlikely to touch your files, but likely to involve some amount of semantic change. The big automated transformations -- beautification, modernization -- are very likely to touch basically everyone's files, but conveniently you can reproduce the exact same transformation yourself, on your files, or (in theory) choose to ignore it. So you treat the first part of master's history seriously, you resolve any conflicts with modernization by trusting your reproduction, and then you treat the rest of master's history seriously.
