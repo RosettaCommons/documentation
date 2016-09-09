@@ -1,6 +1,5 @@
-
 Supported Compiler Versions
----------------------------
+===================
 
 ### Testing your compiler
 
@@ -120,4 +119,3 @@ Your compiler may or may not be able to locate the associated standard library. 
 ```
 
 The include_path directory is where files like `cstddef` are located. The library_path and link directories are where files like libc++.so or libstdc++.so are found.
-
