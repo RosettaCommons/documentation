@@ -22,14 +22,14 @@ All releases have been validated to run on these systems.
 (As of Jan 2016)
 
 - CentOS 7.0 and 7.1
-  - clang 4.2.1
   - gcc 4.8.2 and 4.8.3
+  - clang 3.4.2
 
 - Ubuntu 14.04 "Trusty Tahr"
   - gcc 4.8
 
 - MacOS 10.10.5 "Yosemite" (Darwin 14.5)
-  - clang 4.2.1 (LLVM version numbering)
+  - clang 7.0 (Apple version numbering) 
 
 Developer machine configurations
 --------------------------------
