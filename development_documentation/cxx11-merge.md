@@ -1,3 +1,4 @@
+<!--- BEGIN_INTERNAL -->
 (This is an archived email originally written by Andy Watkins.)
 
 So, I've made a bunch of modernizations that touch a bunch of files. I'm going to describe the same process I outlined on the PR discussion with specific git commands -- shamelessly plagiarized from an earlier guide for beautification. I will also describe them with words so that this TYPE of strategy seems intuitive, too. The idea is that master's history since you branched from it now has two different types of parts, and for efficiency you want to consider them separately. 
@@ -22,3 +23,5 @@ cxx11
 c++11
 merge
 -->
+
+<!--- END_INTERNAL -->
