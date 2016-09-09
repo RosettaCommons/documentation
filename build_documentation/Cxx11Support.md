@@ -34,7 +34,7 @@ Acceptable versions:
 
 ### Standard Library Support
 
-C++11 support by a compiler comes in two seperate but related forms. Not only must the compiler itself support C++11,
+C++11 support by a compiler comes in two separate but related forms. Not only must the compiler itself support C++11,
 but the C++ standard library it uses must also support C++11. 
 The version numbers above are strictly for the compiler itself, and may or may not represent support in the standard library they use.
 
@@ -59,9 +59,9 @@ Unfortunately, due to the variation in operating systems, not every distribution
 
 The easiest course of action is simply to use another compiler which is already installed. For example, if your gcc compiler is too old, your clang compiler may be acceptable (but see the section "Standard Library Support" for caveats).
 
-Often, computers will have multiple different versions of the same type of compiler. For example, if the default gcc is too old, there may be a newer version of gcc installed elsewhere on the system. You may be able to find these with the `which -a` command (`which -a g++`), or you can ask your system administrator if another version is availible.
+Often, computers will have multiple different versions of the same type of compiler. For example, if the default gcc is too old, there may be a newer version of gcc installed elsewhere on the system. You may be able to find these with the `which -a` command (`which -a g++`), or you can ask your system administrator if another version is available.
 
-Particularly with cluster systems, newer compiler version are often availible through "modules" or "packages" which can be loaded and unloaded with commandline commands (e.g. `module load gcc_4.8` or `setpkg -a gcc_compiler_4.9.0`). Each cluster system has different mechanisms for loading packages. Consult the documentation for your cluster or talk to your cluster administrator to see which compilers are availible on your system.
+Particularly with cluster systems, newer compiler version are often available through "modules" or "packages" which can be loaded and unloaded with commandline commands (e.g. `module load gcc_4.8` or `setpkg -a gcc_compiler_4.9.0`). Each cluster system has different mechanisms for loading packages. Consult the documentation for your cluster or talk to your cluster administrator to see which compilers are available on your system.
 
 ### Install a different compiler. (Good)
 
@@ -90,7 +90,7 @@ If you cannot (or do not want to) install a newer compiler on a system, there is
 
 Add "extras=static" to the scons commandline to build the static version of Rosetta. 
 
-Specifing the use of a non-default compiler
+Specifying the use of a non-default compiler
 -------------------------------------------
 
 If you're compiling with Scons, you need to adjust your user.settings file.
