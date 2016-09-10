@@ -104,6 +104,8 @@ Alternatives:
 * Install [[virtual machine|http://en.wikipedia.org/wiki/Virtual_machine]] software and run Linux within it. 
 * Dual Boot with [Linux](https://help.ubuntu.com/community/WindowsDualBoot). (usually the best option) 
 
+There have been some reports of success in using the precompiled Linux binaries with Windows 10's Linux subsystem. Such use should be viewed as "highly experimental".
+
 You _may_ be able to compile Rosetta by using cygwin for windows ( [http://www.cygwin.com/](http://www.cygwin.com/) ). Such usage is not tested by Rosetta developers though, and may not work.
 
 ###Message Passing Interface (MPI)
@@ -117,8 +119,9 @@ To build MPI executables, add the flag "extras=mpi" and copy main/source/tools/b
 ```
 
 ##Dependencies/Troubleshooting
+
 <a name="dependencies"/>
-Rosetta requires a compiler (most gcc or clang are fine) and the zlib compression library development package. Instructions for acquiring either are below, sorted by what sorts of error messages they give if you are missing them.
+Rosetta requires a compiler (most recent gcc or clang are fine, but see [[Cxx11Support]] for details) and the zlib compression library development package. Instructions for acquiring either are below, sorted by what sorts of error messages they give if you are missing them.
 
 **"sh: 1: o: not found"**
 
@@ -142,9 +145,6 @@ to something like:
 ```
 where you substitute the compiler commands as appropriate.
 
-
-
-
 --> **Install a compiler**:
 
 
@@ -155,6 +155,10 @@ Rosetta requires a compiler with C++11 support. Most recent compiler versions in
 For Macs, install the XCode development packages. Even though you won't be compiling Rosetta through XCode, installing it will also install a compiler. (Clang, for recent versions of MacOS.)
 
 For Linux, you will want to install the compiler package from your package management system. For Ubuntu and similar systems, the package "build-essential" installed with a command like `sudo apt-get install build-essential` will set your system up for compilation.
+
+**"error: unrecognized command line option "-std=c++11""**
+
+Rosetta requires a compiler with C++11 support. This message is due to insufficient support of C++11 in the compiler you're currently using. See [[Cxx11Support]] for more details about compilers to use, or see the "sh: 1: o: not found" regarding changing your compiler.
 
 **"cannot find -lz"**
 

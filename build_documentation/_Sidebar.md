@@ -4,6 +4,8 @@
 
 * [[Supported platforms|platforms]]
 
+* [[Compiler support (C++11)|Cxx11Support]]
+
 * [[Running Rosetta on TACC|TACC]]
 
 * [[Advanced Scons information|Scons-Overview-and-Specifics]]
