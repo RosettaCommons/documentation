@@ -160,6 +160,11 @@ For Linux, you will want to install the compiler package from your package manag
 
 Rosetta requires a compiler with C++11 support. This message is due to insufficient support of C++11 in the compiler you're currently using. See [[Cxx11Support]] for more details about compilers to use, or see the "sh: 1: o: not found" regarding changing your compiler.
 
+**"no member named 'declval' in namespace 'std'"**
+**"error: unknown type name 'type_info'"**
+
+Rosetta requires a compiler and C++ standard library with C++11 support. These messages indicate that while your compiler might have C++11 support, the standard library it's using may not. See [[Cxx11Support]] for more details about compiler and standard libraries, or see the "sh: 1: o: not found" regarding changing your compiler.
+
 **"cannot find -lz"**
 
 Rosetta requires the zlib compression library to be installed on your computer in order to properly compile. Talk to your system administrator about installing the development version of the zlib library. (The "development" version of the library is needed so that Rosetta can compile against the library.) 
