@@ -2,20 +2,19 @@
 
 <!--- BEGIN_INTERNAL -->
 
-## Rosetta 3.7 (internal notes)
+## _Rosetta 3.7 (internal notes)_
 
-(This section should remain hidden from the public wiki.)
+_(This section in italics should remains hidden from the public wiki.)_
 
-3.7 will be Rosetta 2016.32, http://test.rosettacommons.org/revision?id=108&branch=release, https://github.com/RosettaCommons/main/commit/9005cc64587b4189882337bc87783ab96ead263f.  See also [https://wiki.rosettacommons.org/index.php/3.7_release_notes_workspace]
+_3.7 will be Rosetta 2016.32, http://test.rosettacommons.org/revision?id=108&branch=release, https://github.com/RosettaCommons/main/commit/9005cc64587b4189882337bc87783ab96ead263f.  See also [https://wiki.rosettacommons.org/index.php/3.7_release_notes_workspace]_
 
 ### Rosetta 3.7 NOT included in release notes
-* These are items that will be omitted from the release notes as incomplete features, but should be listed once finished for 3.8 or whenever
-* XML schema
-* JD3
+* _These are items that will be omitted from the release notes as incomplete features, but should be listed once finished for 3.8 or whenever_
+* _XML schema_
+* _JD3_
 
-**!! when the notes go public, end_internal moves right here**
+<!--- END_INTERNAL -->
 
-(this part will go public later)
 ## Rosetta 3.7
 
 ### New and updated applications
@@ -48,9 +47,6 @@
 
 * `loops::restrict_kic_sampling_to_torsion_string` repaired (for [[KIC|next-generation-KIC]] loop modeling)
 * [[BridgeChainsMover]] repaired to match publication
-
-
-<!--- END_INTERNAL -->
 
 ## Rosetta 3.6
 
