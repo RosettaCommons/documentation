@@ -5,11 +5,12 @@ These applications are specifically designed to work with RNA or RNA-protein com
 
 ###RNA Structure Prediction
 
-* [[RNA structure prediction setup script|rna-denovo-setup]]: Predict 3-dimensional structures of RNA from their nucleotide sequence. Read this first.
+* [[3D RNA structure prediction|rna-denovo-setup]]: Predict 3-dimensional structures of RNA from their nucleotide sequence. Read this first.
+* [RiboKit](https://ribokit.github.io/workflows/3D_modeling/) What experiments & analysis to do to obtain 3D RNA models.
 * [[RNA motif prediction|rna-denovo]]: Model RNA motifs with fragment assembly of RNA with full atom refinement (FARFAR).
 * [[RNA stepwise loop enumeration|swa-rna-loop]]: Build RNA loops using *deterministic* stepwise assembly.
 * [[Stepwise monte carlo|stepwise]]: Stochastic version of stepwise assembly used to generate 3D models of proteins, RNA, and protein/RNA loops, motifs, and interfaces. This application is not exclusively for RNA but is compatible. 
-*  [[RNA assembly with experimental constraints|rna-assembly]] - Predict 3-dimensional structures of large RNAs with the help of experimental constraints. Note – largely deprecated by newer pipeline (documentation coming soon).
+*  [[RNA assembly with experimental constraints|rna-assembly]] - Predict 3-dimensional structures of large RNAs with the help of experimental constraints. Note – largely deprecated by newer pipeline (described in this [paper](https://daslab.stanford.edu/site_data/pub_pdf/2015_Cheng_MethEnzym.pdf) and [demo](https://www.rosettacommons.org/demos/latest/public/mohca_seq/README)).
 * [[CS Rosetta RNA]]: Refines and scores an RNA structure using NMR chemical shift data.
 
 ###RNA Design
@@ -29,7 +30,7 @@ These applications are specifically designed to work with RNA or RNA-protein com
 * [[Sample around nucleobase]]: Generates tables of interaction energies between an adenosine nucleobase and a user-specified probe.
 
 ##See Also
-
+* [RiboKit](https://ribokit.github.io) General workflows for RNA modeling & analysis
 * [[Application Documentation]]: Home page for application documentation
 * [[RNA]]: Guide to working with RNA in Rosetta
 * [[Structure Prediction Applications]]: List of structure prediction applications

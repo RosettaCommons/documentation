@@ -1,9 +1,11 @@
 #Energy Terms In Rosetta 
 
+An introductory tutorial on scoring biomolecules using Rosetta can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/scoring/scoring).
+
 Standard Weights File
 =====================
 
-The default score function in Rosetta for scoring full-atom structures is currently **talaris2013**.  The energy function and its corrections were tested in the papers 
+The default score function in Rosetta for scoring full-atom structures is currently **talaris2014**.  This is a slight modification of the **talaris2013** energy function.  The **talaris2013** and **talaris2014** energy functions and their corrections were tested in the papers 
 
 [Leaver-Fay et al., Methods in Enzymology 2013](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3724755/)
 
@@ -11,8 +13,7 @@ The default score function in Rosetta for scoring full-atom structures is curren
 
 A full description of the changes this energy function introduces can be found [here](https://www.rosettacommons.org/node/3508#comment-6946).  
 
-< a name="talaris2013" />
-The **talaris2013** energy function is suitable for scoring canonical L-amino acids, their D-amino acid mirror images, and some rigid ligands (_e.g._ metal ions, phosphate, _etc._).  It can also work with noncanonical alpha-amino acid residues, provided that their params files are set up properly.  Backbone conformation terms will ignore beta-amino acids, flexible ligands, nucleic acids, _etc._
+The **talaris2014** energy function is suitable for scoring canonical L-amino acids, their D-amino acid mirror images, and some rigid ligands (_e.g._ metal ions, phosphate, _etc._).  It can also work with noncanonical alpha-amino acid residues, provided that their params files are set up properly.  Backbone conformation terms will ignore beta-amino acids, flexible ligands, nucleic acids, _etc._
 
 References
 ==========
@@ -38,8 +39,8 @@ fa_atr                                     Lennard-Jones attractive between atom
 fa_rep                                     Lennard-Jones repulsive between atoms in different residues
 fa_sol                                     Lazaridis-Karplus solvation energy
 fa_intra_rep                               Lennard-Jones repulsive between atoms in the same residue
-fa_elec                                    Coulombic electrostatic potential with a distance-dependant dielectric   
-pro_close                                  Proline ring closure energy
+fa_elec                                    Coulombic electrostatic potential with a distance-dependent dielectric   
+pro_close                                  Proline ring closure energy and energy of psi angle of preceding residue
 hbond_sr_bb                                Backbone-backbone hbonds close in primary sequence
 hbond_lr_bb                                Backbone-backbone hbonds distant in primary sequence
 hbond_bb_sc                                Sidechain-backbone hydrogen bond energy
@@ -53,7 +54,7 @@ ref                                        Reference energy for each amino acid.
 METHOD_WEIGHTS                             Not an energy term itself, but the parameters for each amino acid used by the ref energy term. 
 ```
 
-Additional energy terms for score12 < a name="score12" />
+Additional energy terms for score12 <a name="score12" />
 -----------------------------------
 
 Previous versions of Rosetta used the score12 energy function as the default full atom energy function. Many of the energy terms are the same as talaris2013 (though at different weights, and with different parameters), although other terms were also used:
@@ -78,6 +79,8 @@ Additional Resources
 
 *  [[Orbitals Scorefunction | NC-scorefunction-info#Partial-Covalent-Interactions-Energy-Function-(Orbitals)]]
 
+*  [[Overview of Seattle Group energy function optimization project]]: New beta score function (under active development)
+
 *  [[Additional score types | score-types-additional]]
 
 
@@ -89,9 +92,13 @@ Lazaridis, T. and M. Karplus, _Effective energy function for proteins in solutio
 
 ##See Also
 
+* [Scoring Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/scoring/scoring)
 * [[Scoring explained]]
 * [[Additional score terms|score-types-additional]]
+* [[Centroid score terms]]
 * [[Units in Rosetta]]: Gives a description of Rosetta energy units
+* [[AACompositionEnergy]]
 * [[Hydrogen bond energy term|hbonds]]
 * [[Scorefunctions for noncanonical residues and molecules|NC-scorefunction-info]]
 * [[Adding new score terms|new-energy-method]]
+* [[Scorefunction history]]: history of the Rosetta scorefunction

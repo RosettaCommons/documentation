@@ -11,7 +11,7 @@ A few general template doxygen pages have been created to help you document high
 
 -   Template Doxygen Page for New Category of Source Files
 -   Template page for Subdirectories of Libraries
--   [[Template Doxygen Page for Documenting an Application|template-app-documenation-page]]
+-   [[Template Doxygen Page for Documenting an Application|template-app-documentation-page]]
 
 Writing Descriptive Comments in Doxygen
 =======================================

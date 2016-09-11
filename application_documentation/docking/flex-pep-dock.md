@@ -60,7 +60,7 @@ Modes
 -----
 
 -   **Pre-pack mode** ( -flexpep\_prepack flag):
-     The pre-packing mode optimizes the side-chains of each monomer according to the Rosetta score12 energy function. Unless you know what you are doing, we strongly recommend pre-packing the input structures, and applying one of the peptide docking protocols to the resulting pre-packed structures, as this can improve model selection considerably (see below). However, in cases where side-chains have been previously optimized by Rosetta using the same scoring function, this step can be skipped.
+     The pre-packing mode optimizes the side-chains of each monomer according to the [[Rosetta energy function|score-types]]. Unless you know what you are doing, we strongly recommend pre-packing the input structures, and applying one of the peptide docking protocols to the resulting pre-packed structures, as this can improve model selection considerably (see below). However, in cases where side-chains have been previously optimized by Rosetta using the same scoring function, this step can be skipped.
 
 -   **Low-resolution *ab-initio* mode** (-lowres\_abinitio flag):
      This is the main part of the *ab-initio* peptide docking protocol, for simultaneous *ab-initio* folding and docking of the peptide over the protein surface. This mode is typicalled used together with the refinement mode ( -pep\_refine flag) - in this case, the peptide is first folded *de-novo* and then refined.
@@ -105,8 +105,8 @@ I. Common FlexPepDock flags:
 |:-------|:--------------|:-------|:----------|
 | -receptor_chain| chain-id of receptor protein. Multichain receptor is supported (please note: if using this flag for a multichain receptor, the PDB file must contain first the recetor chains in a consecutive manner, only then followed by the peptide chain).| String| first chain in input|
 | -peptide_chain| chain-id of peptide protein|  String| second chain in input|
-|-lowres_abinitio| Low-resolution ab-initio folding and docking model.| String| false|
-|-pep_refine|Refinement mode. (equivalent to obsolete -rbMCM -torsionsMCM flags)| String| false|
+|-lowres_abinitio| Low-resolution ab-initio folding and docking model.| Boolean| false|
+|-pep_refine|Refinement mode. (equivalent to obsolete -rbMCM -torsionsMCM flags)| Boolean| false|
 |-lowres_preoptimize| Perform a preliminary round of centroid mode optimization before Refinement. See more details in [Tips](#Tips).| Boolean| false|
 |-flexpep_prepack|Prepacking mode. Optimize the side-chains of each monomer separately (without any docking).| Boolean|false|
 |-flexpep_score_only| Read in a complex, score it and output interface statistics| Boolean| false|
@@ -129,7 +129,7 @@ More information on common Rosetta flags can be found in the [[relevant rosetta 
 |-use_input_sc|Include rotamer conformations from the input structure during side-chain repacking. Unlike the -unboundrot flag, not all rotamers from the input structure are added each time to the rotamer library, only those conformations accepted at the end of each round are kept and the remaining conformations are lost.|
 |-ex1/-ex1aro -ex2/-ex2aro -ex3 -ex4|Adding extra side-chain rotamers (highly   recommended). The -ex1 and -ex2aro flags were used in our own tests, and therefore are recommended as default values.|
 |-database|The Rosetta database|
-|-frag3 / -frag5 / -frag9|3mer / 5mer / 9mer fragments files for ab-initio peptide docking (9mer fragments for peptides longer than 9).|
+|-frag3 / -flexPepDocking:frag5 / -frag9|3mer / 5mer / 9mer fragments files for ab-initio peptide docking (9mer fragments for peptides longer than 9).|
 
 III. Expert flags
 -----------------
@@ -187,7 +187,7 @@ Examples
         -database ${rosetta_db} -s start.pdb -native native.pdb
         -out:file:silent decoys.silent -out:file:silent_struct_type binary
         -lowres_abinitio -pep_refine -ex1 -ex2aro -use_input_sc
-        -frag3 <frag3 file> -frag5 <frag5 file> -frag9 <frag9 file>
+        -frag3 <frag3 file> -flexPepDocking:frag5 <frag5 file> -frag9 <frag9 file>
         -nstruct 50000 -unboundrot unbound_receptor.pdb
         ```
     6.  You may rank the model according to the default score (second column in score file). However, our benchmarks indicate that ranking the models according to a new score, called *rewighted-score* , may be helpful (look for the column labeled "reweighted\_sc" in the score file).

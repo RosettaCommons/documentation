@@ -47,7 +47,7 @@ Tips
 ====
 To generate parameter file for the ligand one can use the 'molfile_to_params.py' script.
 
-Rosetta/main/source/src/python/apps/public/molfile_to_params.py -p LIGAND LIGAND.mol2
+Rosetta/main/source/scripts/python/public/molfile_to_params.py -p LIGAND LIGAND.mol2
 
 
 ##See Also

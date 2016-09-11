@@ -2,9 +2,11 @@
 
 Metadata
 ========
-This document was written 3 Oct 2007 by Ian W. Davis and last updated 10 Jun 2014 by Rocco Moretti.
+This document was written 3 Oct 2007 by Ian W. Davis and last updated 22 December 2015 by Vikram K. Mulligan.
 
 Information was provided by Jim Havranek.
+
+An introductory tutorial on minimization can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/minimization/minimization).
 
 The relevant code is in core::optimization, especially the core::optimization::Minimizer class. 
 
@@ -13,13 +15,15 @@ Flavors of minimization in Rosetta
 
 All minimization algorithms choose a vector as the descent direction, determine a step along that vector, then choose a new direction and repeat. Different ways of doing those things leads to differing efficiency, in terms of function evaluations and memory.
 
-"linmin" is a **single step** steepest-descent algorithm with an exact line search. That is, the descent direction is the gradient of the energy function (vector of partial first derivatives), and the step is to the true (local) minimum of the function along that line. Repeated invocations of linmin would converge very slowly, which is why no one does it.
+"linmin" is a **single step** steepest-descent algorithm with an exact line search. That is, the descent direction is the gradient of the energy function (vector of partial first derivatives), and the step is to the true (local) minimum of the function along that line.
 
-Conjugate gradient minimization accumulates a small amount of information from prior steps. It performs (somewhat) better than steepest descent. Rosetta++ included an implementation of FRPR (Fletcher-Reeves-Polak-Ribiere), but it hasn't been ported to Rosetta3 because no one used it.
+Repeated invocations of linmin generally converge very slowly as compared to methods that approximate the second-derivative (Hessian) matrix that are described below.  For this reason, iterated invocation of linmin is not recommended for production runs.  However, for benchmarking or testing purposes, "linmin_iterated" invokes linmin repeatedly, re-calculating the gradient vector after each line search.  This is therefore a relatively pure steepest-descent algorithm, and it can serve as a fallback in cases in which Hessian approximations work poorly.  The "linmin_iterated" algorithm need only be called once, and will iterate internally.
 
-Quasi-Newton methods accumulate more information about the second derivatives of the energy function in terms of the inverse Hessian. This information is used to modify the descent direction (after the first step) so that its no longer necessarily straight down the gradient, but the minimization converges (much) faster. In Rosetta, this is the "dfpmin" family of functions. Although named for the DFP (Davidon-Fletcher-Powell) update method, it in fact uses the BFGS (Broyden-Fletcher-Goldfarb-Shanno) update method, which is widely regarded as better. A limited-memory variant (L-BFGS) has also been recently added to Rosetta. (Previously it was not included as the cost of keeping the full N x N Hessian matrix (N = number of DOFs) in memory appeared not to be prohibitive, and Paul Tseng found the limited memory version gave worse solutions. The more recent implementation on modern machines improves performance, especially for Cartesian minimization.)
+Conjugate gradient minimization accumulates a small amount of information from prior steps, modifying the search direction to perform (somewhat) better than a pure steepest-descent algorithm. Rosetta++ included an implementation of FRPR (Fletcher-Reeves-Polak-Ribiere), but it hasn't been ported to Rosetta3 because no one used it.
 
-Unlike linmin, all the dfpmin/lbfgs algorithms are **multi step** algorithms, so they need only be called once to reach the (local) minimum of a function.
+Quasi-Newton methods accumulate more information from many iterations of the gradient of the energy function to approximate the second-derivative (Hessian) matrix (or, more accurately, its inverse). This information is used to modify the descent direction (after the first step) so that its no longer necessarily straight down the gradient, but the minimization converges (much) faster. In Rosetta, this is the "dfpmin" family of functions. Although named for the DFP (Davidon-Fletcher-Powell) update method, it in fact uses the BFGS (Broyden-Fletcher-Goldfarb-Shanno) update method, which is widely regarded as better. A limited-memory variant (L-BFGS) has also been recently added to Rosetta. (Previously it was not included as the cost of keeping the full N x N Hessian matrix (N = number of DOFs) in memory appeared not to be prohibitive, and Paul Tseng found the limited memory version gave worse solutions. The more recent implementation on modern machines improves performance, especially for Cartesian minimization.)
+
+Unlike linmin, all the dfpmin/lbfgs algorithms are **multi step** algorithms, so they need only be called once to reach the (local) minimum of a function (and will iterate internally).
 
 "dfpmin" uses an exact line search, and Jim says it requires \~10 function evaluations per line search.
 
@@ -49,4 +53,4 @@ Rosetta has at least two kinds of "tolerance" for function minimization, "regula
 
 Minimizers use fractional tolerance by default. To invoke the use of the absolute tolerance variants, append "\_atol" to the end of the minimizer type. For example, to use the absolute tolerance version of the "lbfgs_armijo_nonmonotone" minimizer, use the minimizer type "lbfgs_armijo_nonmonotone_atol" instead.
 
-[This discussion applies only to dfpmin, lbfgs and their variants. Other minimizers may have different notions of tolerance.]
+[This discussion applies only to linmin_iterated, dfpmin, lbfgs and their variants. Other minimizers may have different notions of tolerance.]

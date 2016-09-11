@@ -3,7 +3,7 @@
 Metadata
 ========
 
-The relevant Mini-Rosetta code is in minirosetta.cc This document was written 22 Jan 2008 by David E. Kim and last updated 22 Jan 2008.
+The relevant Mini-Rosetta code is in minirosetta.cc This document was written 22 Jan 2008 by David E. Kim and last updated 24 October 2015 by Vikram K. Mulligan (vmullig@uw.edu).
 
 General Information
 ===================
@@ -117,6 +117,11 @@ Turn checkpointing on with default time interval (5 minutes).
 ```
 
 Turn checkpointing on with given time interval in seconds.
+
+Simple Cyclic Peptide Prediction ( -protocol simple_cycpep_predict )
+------------------------------------------------
+
+Full documentation for this application is available on the [[Simple Cyclic Peptide Prediction Application|simple_cycpep_predict]] page.  (The simple_cycpep_predict BOINC graphics are particularly nice, though, if I do say so myself.)
 
 Ligand Dock ( -protocol ligand\_dock )
 --------------------------------------

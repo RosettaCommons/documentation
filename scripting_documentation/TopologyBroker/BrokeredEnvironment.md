@@ -1,5 +1,7 @@
 The Brokered Environment framework, also known as the ToplogyBroker 2.0, is a tool for generating larger, more complex simulation systems out of small interchangeable parts. The intent is to make rapid protocol development in [[RosettaScripts]], [[PyRosetta]], and even the C++ easier by allowing sampling strategies to be carried out simultaneously rather than in sequence by constructing a consensus [[FoldTree|foldtree-overview]] that satisfies all movers. Such Movers inherit from the [[ClientMover|ClientMovers]] (CM) class.
 
+A tutorial on protein folding using the Broker can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/advanced_denovo_structure_prediction/folding_tutorial).
+
 **Author's Note:** If anything here doesn't make sense, doesn't work as advertised, or is otherwise demanding of attention, give me (the original developer) a shout at justinrporter at gmail. I spent quite a long time on this, and would love to see other folks using it, so if I can help, let me know!
 
 [[_TOC_]]
@@ -29,7 +31,8 @@ In the following example, a ChainResidueSelector selecting chains named "A" and 
   <MOVERS>
     <UniformRigidBodyCM name="dock" mobile="ChainA" stationary="ChainB" />
     <Environment name="dockenv">
-      <Mover name="dock"/>
+      <!-- This will only apply the mover once, you'd need a GenericMonteCarlo for proper sampling -->
+      <Apply name="dock"/>
     <Environment/>
   </MOVERS>
   <PROTOCOLS>
@@ -42,7 +45,7 @@ In the following example, a ChainResidueSelector selecting chains named "A" and 
 
 The following example replicates an _[[ab initio|Abinitio Relax]]_ run. The file "beta_sheets.top" contains a predicted beta-strand pairing topology, and the 9-mer and 3-mer fragments are in [[fragment files|fragment file]] called "frag9.dat" and "frag3.dat", respectively. Loops are closed after the [[AbscriptMover|ClientMovers#AbscriptMover]] runs all stages of abinitio by the [[AbscriptLoopCloserCM|ClientMovers#AbscriptLoopCloserCM]], and then FastRelax refines the structure in full atom mode. The assumption is made here that the input pose is in centroid mode.
 
-A fully working example use of this script to fold ubiquitin is available in the Rosetta demos repository at `demos/protocol_capture/2015/broker/ubq/`.
+A fully working example use of this script to fold ubiquitin is available in the Rosetta demos repository at `demos/protocol_capture/broker/ubq/`.
 
 ```
 <MOVERS>
@@ -187,8 +190,8 @@ An implementation of a similar protocol using this paradigm, along with a detail
 </RESIDUE_SELECTORS>
 
 <MOVERS>
-  <CoMTrackerCM name=com_A selector=ChainA />
-  <CoMTrackerCM name=com_B selector=ChainB />
+  <CoMTrackerCM name=com_A mobile_selector=ChainA />
+  <CoMTrackerCM name=com_B mobile_selector=ChainB />
 
   <UniformRigidBodyCM name=rigid mobile=com_A stationary=com_B />
 
@@ -255,6 +258,8 @@ Since the Broker was not really developed with PyRosetta specifically in mind, i
 
 ##See Also
 
+* [Protein Folding using the Broker
+](https://www.rosettacommons.org/demos/latest/tutorials/advanced_denovo_structure_prediction/folding_tutorial)
 * [[Scripting Documentation]]: Scripting interfaces to Rosetta
 * [[RosettaScripts]]: RosettaScripts home page
 * [[PyRosetta]]: PyRosetta wiki page
@@ -267,3 +272,23 @@ Since the Broker was not really developed with PyRosetta specifically in mind, i
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
 * [[Rosetta Servers]]: Web-based servers for Rosetta applications
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+
+<!--
+TopologyBroker Topology Broker
+TopologyBroker Topology Broker
+TopologyBroker Topology Broker
+TopologyBroker Topology Broker
+TopologyBroker Topology Broker
+TopologyBroker Topology Broker
+TopologyBroker Topology Broker
+TopologyBroker Topology Broker
+TopologyBroker Topology Broker
+TopologyBroker Topology Broker
+TopologyBroker Topology Broker
+TopologyBroker Topology Broker
+TopologyBroker Topology Broker
+TopologyBroker Topology Broker
+TopologyBroker Topology Broker
+TopologyBroker Topology Broker
+TopologyBroker Topology Broker
+-->

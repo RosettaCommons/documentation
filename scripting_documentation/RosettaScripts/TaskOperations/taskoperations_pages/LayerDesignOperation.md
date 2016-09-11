@@ -2,7 +2,9 @@
 *Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## LayerDesign
 
-Design residues with selected amino acids depending on the enviroment(accessible surface area). The layer of each residue is assigned to one of the three basic layers(core, boundary or surface) depending on the accessible surface area of mainchain + CB.
+**Note: The LayerDesign TaskOperation will likely be deprecated at some point in the future in favour of the [[LayerSelector|ResidueSelectors#residueselectors_conformation-dependent-residue-selectors_layerselector]] ResidueSelector**.  It is strongly recommended that users start to switch over to the LayerSelector ResidueSelector, which permits greater flexibility in selecting residues.
+
+Design residues with selected amino acids depending on the enviroment(accessible surface area). The layer of each residue is assigned to one of the three basic layers(core, boundary or surface) depending on the accessible surface area of mainchain + CB, or depending on the number of neighbours in a cone extending along the CA-CB vector (if the use_sidechain_neighbors option is used).
 
 Additional layers can be defined in the xml file by passing another taskoperation to get the residue selection. Only the residues that are marked as designable in the packer task are taken into consideration, any information about the available amino acids/rotamers selected by the taskoperation are not going to be considered. The amino acids to be used in each of this new layers has to be specified in the xml. Several taskoperations can be combined to the intersection between the different sets of designable residues.
 
@@ -10,7 +12,7 @@ LayerDesign, like all TaskOperations, obeys commutivity: the effect of applying 
 
 Note that this task is ligand compatible.  However, the user should set the ligand to be repackable but not designable with another TaskOperation.
 
-        <LayerDesign name=(&string layer) layer=(&string core_boundary_surface) pore_radius=(&real 2.0) core=(&real 20.0) surface=(&real 40.0) ignore_pikaa_natro=(&bool 0) repack_non_design=(&bool 1) make_rasmol_script=(&bool 0) make_pymol_script=(&bool 0)   >
+        <LayerDesign name=(&string layer) layer=(&string core_boundary_surface) pore_radius=(&real 2.0) core=(&real 20.0) surface=(&real 40.0) ignore_pikaa_natro=(&bool 0) repack_non_design=(&bool 1) make_rasmol_script=(&bool 0) make_pymol_script=(&bool 0) use_sidechain_neighbors=(&bool 0) use_symmetry=(&bool 1) sc_neighbor_dist_midpoint=(9.0 &Real) sc_neighbor_dist_exponent=(1.0 &Real) sc_neighbor_angle_shift_factor=(0.5 &Real) sc_neighbor_angle_exponent=(2.0 &Real) sc_neighbor_denominator=(1.0 &Real) >
             <ATaskOperation name=task1 >
                 <all copy_layer=(&string layer) append=(&string) exclude=(&string)  specification=(&string "designable")  operation=(&string "design") />
                 <SecStructType aas=(&string) append(&string) exclude=(&string) />            
@@ -29,7 +31,8 @@ Option list
 -   make\_rasmol\_script: if true, write a rasmol script coloring the residues by the three basic layers, core, boundary and surface.
 -   make\_pymol\_script: if true, write a pymol script coloring the residues by the three basic layer and the aditional taskoperation defined layers..
 -   repack\_non\_design: if true, side chains will be repacked, left untouched if otherwise.
--   use\_sidechain\_neighbors: if true, assign a residue's layers based on counting the number CA atoms from other residues within a cone in front of the residue's ca-cb vector.  Because this option is no longer SASA based, the layer assignments will always be identical regardless of the protein sequence; i.e. layers could be assigned based on a polyalanine backbone and it would make no difference.  This option changes the defaults for core and surface to neighbors < 2 (surface) and neighbors > 5.2 (core).  HOWEVER, these defaults will be overwritten if core and surface are manually specified in declaring the taskoperation!  So make sure you do not specify new core and surface settings appropriate for SASA when you are actually counting neighboring residues.  Note: this option has not been tested on nonstandard residue types...
+-   use\_sidechain\_neighbors: if true, assign a residue's layers based on counting the number CA atoms from other residues within a cone in front of the residue's ca-cb vector.  Because this option is no longer SASA based, the layer assignments will always be identical regardless of the protein sequence; i.e. layers could be assigned based on a polyalanine backbone and it would make no difference.  This option changes the defaults for core and surface to neighbors < 2 (surface) and neighbors > 5.2 (core).  HOWEVER, these defaults will be overwritten if core and surface are manually specified in declaring the taskoperation!  So make sure you do not specify new core and surface settings appropriate for SASA when you are actually counting neighboring residues.
+-   sc_neighbor_dist_midpoint, sc_neighbor_dist_exponent, sc_neighbor_angle_shift_factor, sc_neighbor_angle_exponent, sc_neighbor_denominator: These values fine-tune the behavior of the sidechain neighbors residue-counting logic.  Typically, a user need not change these from default values.  For details on these, see the [[LayerSelector|ResidueSelectors#residueselectors_conformation-dependent-residue-selectors_layerselector]] ResidueSelector's documentation.
 
 TaskOperations can be combined together using the CombinedTasks tag, the nested tasks don't need to be named, just declared with type and parameters.
 
@@ -118,10 +121,10 @@ Cterm
 
 <!-- -->
 
-     This example no.2 creates core_boundary_surface that designs differently by layers.  In the core layer, the noncanonical amino acids D-valine and D-isoleucine are permitted.  (Note that when this script is run, the path to the params files for these noncanonicals will have to be provided with the -extra_res_fa flag.)
+     This example no.2 creates core_boundary_surface_Nterm_Cterm that designs differently by layers.  In the core layer, the noncanonical amino acids D-valine and D-isoleucine are permitted.  (Note that when this script is run, the path to the params files for these noncanonicals will have to be provided with the -extra_res_fa flag.)
         <TASKOPERATIONS>
 
-          <LayerDesign name=layerdesign make_pymol_script=1 layer=core_boundary_surface>
+          <LayerDesign name=layerdesign make_pymol_script=1 layer=core_boundary_surface_Nterm_Cterm>
 
              <core>
                <all append="AFGILMNPQVWYH" ncaa_append="DVA,DIL"/>
@@ -141,6 +144,24 @@ Cterm
           </LayerDesign>
 
         </TASKOPERATIONS>
+
+## LayerDesign with Symmetry
+
+In its original implementation, LayerDesign could only work with symmetry if it were passed a symmetry-compatible TaskOperation (e.g. SelectBySASA, used in the example above).  More recently, the ```use_symmetry``` option has been added to permit LayerDesign to be symmetry-aware.  If ```use_symmetry``` is set to true (the default), layers are defined for symmetric poses using the full, symmetric pose.  If ```use_symmetry``` is set to false, then the old behaviour is preserved: the asymmetric unit is extracted and used in isolation to set up layers.  Here is a very simple example in which LayerDesign is used to force valine in the core, alanine in the boundary layer, and serine at the surface for a symmetric pose, explicitly considering neighbours that might be in other asymmetric units in the symmetric pose.
+
+```
+<LayerDesign name=layerdes layer=core_boundary_surface use_sidechain_neighbors=true core=2 surface=1 use_symmetry=true >
+    <core>
+        <all aa="V" />
+    </core>
+    <boundary>
+        <all aa="A" />
+    </boundary>
+    <surface>
+        <all aa="S" />
+    </surface>
+</LayerDesign>
+```
 
 ##See Also
 

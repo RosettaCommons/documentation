@@ -1,33 +1,11 @@
 #Changes Need to Achieve Protein and RNA compatibility in Rosetta
 
-Metadata
-========
+**This section used to have tips for reading protein/RNA poses into Rosetta, but is now deprecated**
++ The standard ResidueTypeSet of Rosetta can handle RNA, DNA, and proteins.
++ RNA is read in from PDB lines with 'A','C','G','U' residue names. DNA is read in from PDB lines with 'DA','DC','DG','DT'
++ There is a very active effort to now unify the scorefunctions for modeling RNA and proteins to enable structure prediction and design of RNP complexes and machines.
 
-Author: Caleb Cassidy (cacassidy@gmail.com)
-
-Last edited 8-16-10.
-
-Application purpose
-===========================================
-
-Currently, Rosetta can easily handle poses that have both protein and DNA. However, poses with RNA and protein will cause Rosetta to crash. By making a few simple database changes, it is possible to get compatability between RNA and protein in Rosetta.
-
-How to achieve compatibility?
-=============================
-
-All the files necessary for RNA/protein compatability already exist in the rosetta database. All that we'll be doing is copying the RNA parameter files and patch files from the rna residue type set to the full atom standard residue type set.
-
-1. Copy the RNA parameter files (RAD.params, RCY.params, etc) from /path/to/rosetta/main/database/chemical/residue\_type\_sets/rna/residue\_types/ to /path/to/rosetta/main/database/chemical/residue\_type\_sets/fa\_standard/residue\_types/nucleic/
-2. Copy the RNA patch files (LowerRNA.txt and UpperRNA.txt) from /path/to/rosetta/main/database/chemical/residue\_type\_sets/rna/patches/ to /path/to/rosetta/main/database/chemical/residue\_type\_sets/fa\_standard/patches/
-3. Open /path/to/rosetta/main/database/chemical/residue\_type\_sets/fa\_standard/residue\_types.txt and add the RNA parameter files' names under the Nucleic Acid Types heading
-4. Open /path/to/rosetta/main/database/chemical/residue\_type\_sets/fa\_standard/patches.txt and add the RNA patch files' names
-
-With these 4 simple changes, we have achieved compatablity between RNA and protein in full atom mode
-
-Useful Tips
-===========
-
-If you plan on using Rosetta to build RNA, be aware that the one letter codes for nucleic acids A, G, and C are shared between RNA and DNA. The RNA parameter files show that the names necessary for the pdb reader to recognize RNA residues are rA, rG, rC, rU respectively so it may be necessary to edit your pdb file. Additionally, the full atom patch 12 score function is initialized with an option to exclude DNA-DNA interactions, which applies to all nucleic acid - nucleic acid interactions, so if RNA-RNA interactions are important to you it will be necessary to set this option to false in the code.
+-- Updated R. Das, 2015.
 
 ##See Also
 

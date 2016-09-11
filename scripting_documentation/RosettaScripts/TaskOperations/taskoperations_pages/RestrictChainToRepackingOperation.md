@@ -6,6 +6,9 @@ Do not allow design in a particular chain
 
       <RestrictChainToRepacking name=(&string) chain=(1 &int)/>
 
+<br/>
+*For a more flexible system, see the [[Chain|ResidueSelectors#residueselectors_conformation-independent-residue-selectors_chainselector]] [[ResidueSelector|ResidueSelectors]], as well as [[OperateOnResidueSubset|OperateOnResidueSubsetOperation]] and [[RestrictToRepackingRLT|Residue Level TaskOperations]].*
+
 ##See Also
 
 * [[RosettaScripts|RosettaScripts]]: Using RosettaScripts

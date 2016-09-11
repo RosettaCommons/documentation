@@ -5,7 +5,9 @@ Metadata
 
 Author: Amelie Stein
 
-This document was last updated October 10, 2012 by Amelie Stein. The corresponding PI for this application is Tanja Kortemme (kortemme@cgl.ucsf.edu).
+Documentation and code by Amelie Stein. The corresponding PI for this application is Tanja Kortemme (kortemme@cgl.ucsf.edu). This document was last updated December, 2015 by Jared Adolf-Bryfogle. 
+
+An introductory tutorial to loop modeling can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/loop_modeling/loop_modeling).
 
 Code and Demo
 =============
@@ -18,7 +20,7 @@ References
 
 Next-generation KIC is described and compared to standard KIC loop modeling in 
 
--   Stein A, Kortemme T. (2012). Increased sampling of near-native protein conformations. *In preparation*
+-   Stein A, Kortemme T. (2013). [Improvements to robotics-inspired conformational sampling in rosetta.](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0063090) PLoS One. 2013 May 21;8(5)
 
 Torsion bin definitions used by TabooSampling and TorsionRestrictedSampling are based on
 
@@ -27,6 +29,8 @@ Torsion bin definitions used by TabooSampling and TorsionRestrictedSampling are 
 Neighbor-dependent Ramachandran distributions used for non-pivot sampling are described in
 
 -   Ting D, Wang G, Shapovalov M, Mitra R, Jordan MI, Dunbrack RL Jr. (2010). Neighbor-dependent Ramachandran probability distributions of amino acids developed from a hierarchical Dirichlet process model. *PLoS Comput Biol* . 6(4):e1000763.
+
+Best current flags and protocol captures can be found [here](https://guybrush.ucsf.edu/benchmarks/benchmarks/loop_modeling)
 
 Limitations
 ===========
@@ -66,6 +70,8 @@ The following files are required for kinematic loop modeling:
 
 Options
 =======
+
+Please see [Rosetta Benchmark](https://guybrush.ucsf.edu/benchmarks/benchmarks/loop_modeling) for current best-practices for running NGK.
 
 -   The following options are used to activate NGK and must be present in the command line. One or both of `    -loops:remodel   ` (centroid stage, required for *de novo* loop reconstruction) or `    -loops:refine   ` (full-atom stage) are required:
 
@@ -107,7 +113,7 @@ Options
 Torsion-restricted sampling
 ===========================
 
-For intensive sampling in specific parts of conformational space, e.g. when information about the secondary structure is available, use the options below. The torsion bin string must have the same length as the remodeled loop. Currently this is only implemented for remodeling a single loop at a time. Use `X` for arbitrary torsion bins (i.e., the full Ramachandran distribution).
+For intensive sampling in specific parts of conformational space, e.g. when information about the secondary structure is available, use the options below. The torsion bin string must have the same length as the remodeled loop. Currently this is only implemented for remodeling a single loop at a time. Use `X` (uppercase) for arbitrary torsion bins (i.e., the full Ramachandran distribution).  Valid choices are `ABEGUX`, but the class that implements this doesn't explain what they actually are.  
 
 ```
 -loops:restrict_kic_sampling_to_torsion_string    Only sample phi/psi for non-pivot torsions from the provided torsion bin string. [String]
@@ -121,7 +127,9 @@ Rosetta 3.5 is the first release featuring next-generation KIC.
 
 ##See Also
 
+* [Loop Modeling Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/loop_modeling/loop_modeling)
 * [[Loopmodel]]: The main loopmodel application page
+* [Rosetta Benchmarks](https://guybrush.ucsf.edu/benchmarks/benchmarks/loop_modeling): Current benchmarks for NGK
 * [[Structure prediction applications]]: A list of other applications to be used for structure prediction, including loop modeling
 * [[Fragment file]]: Fragment file format (required for abinitio structure prediction)
 * [[Loops file]]: File format for specifying loops for loop modeling

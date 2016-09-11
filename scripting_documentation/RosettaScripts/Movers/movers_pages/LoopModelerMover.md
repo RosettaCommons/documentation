@@ -29,7 +29,7 @@ verbose, but in some ways it would also be more flexible.
 
 ```xml
 <LoopModeler name=(&string) config=("" &string) loops_file=(&string) fast=(no &bool) 
-scorefxn_cen=(&string) scorefxn_fa=(&string) task_operation=(&string) auto_refine=(yes &bool)>
+scorefxn_cen=(&string) scorefxn_fa=(&string) task_operations=(&string) auto_refine=(yes &bool)>
 
     <Loop start=(&int) stop=(&int) cut=(&int) skip_rate=(0.0 &real) rebuild=(no &bool)/>
 
@@ -67,9 +67,9 @@ Options:
 
 * scorefxn_fa: The score function to use for the fullatom refinement step.
 
-* task_operation: The task operation to use for sidechain packing in the 
+* task_operations: The task operation(s) to use for sidechain packing in the 
   fullatom refinement step.  By default, all residues within 10A of the loop 
-  will be packed.  If you specify your own task operation, only the residues 
+  will be packed.  If you specify your own task operations, only the residues 
   you specify will be packed or designed, so you are responsible for choosing a 
   reasonable packing shell.
 

@@ -40,6 +40,8 @@
 
 <!---BEGIN_INTERNAL-->
 [[Internal Documentation|internal_documentation/Internal-Documentation]]
+
+[[How to Write Documentation|internal_documentation/how-to-write-documentation]]
 <!---END_INTERNAL-->
 
 [[FAQ]]

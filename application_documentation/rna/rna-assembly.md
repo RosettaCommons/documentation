@@ -9,7 +9,7 @@ Nov. 2011 by Rhiju Das (rhiju [at] stanford.edu).
 
 Code and Demo
 =============
-**IMPORTANT NOTE: a more efficient tertiary assembly pipeline is now available, briefly described in the SI of the MOHCA-seq paper [here](http://biorxiv.org/content/early/2014/04/25/004556), and will be documented here soon. Contact Das lab if you need this sooner.**
+**IMPORTANT NOTE: a more efficient tertiary assembly pipeline is now available, briefly described in the SI of the MOHCA-seq paper [here](http://dx.doi.org/10.7554/eLife.07600) and in the MIE chapter [here](https://daslab.stanford.edu/site_data/pub_pdf/2015_Cheng_MethEnzym.pdf). See also [[rna-denovo-setup]].**
 
 
 This code allows the modeling of large RNAs with multiple helices, by assembling models of helices and noncanonical motifs in a sort of hierarchical buildup strategy. The central code is in the *rna\_denovo* and *rna\_helix* applications are in `       src/protocols/rna/RNA_DeNovoProtocol.cc      ` and in `       src/protocols/rna/RNA_HelixAssembler.cc      ` .
@@ -111,7 +111,7 @@ uccuaauuggga
 Then, for each RNA loop or junction motif that interconnects these helices, 4,000 models will be created with FARFAR. For example, in the adenine riboswitch, two loops (L2 & L3) and the adenine-binding junction are the non-helical motif portions. The command line for building L2 onto the P2 helix is:
 
 ```
-rna_denovo.<exe> -database  <path to database> -native motif2_1y26_RNA.pdb -fasta motif2_add.fasta -params_file motif2_add.params -nstruct 100 -out:file:silent motif2_add.out -cycles 5000 -mute all -close_loops -close_loops_after_each_move -minimize_rna -close_loops -in:file:silent_struct_type rna -in:file:silent  stem2_add.out -chunk_res  1-6 16-21
+rna_denovo.<exe> -database  <path to database> -native motif2_1y26_RNA.pdb -fasta motif2_add.fasta -params_file motif2_add.params -nstruct 100 -out:file:silent motif2_add.out -cycles 5000 -mute all -close_loops -close_loops_after_each_move -minimize_rna -close_loops -in:file:silent_struct_type rna -in:file:silent  stem2_add.out -input_res  1-6 16-21
 ```
 
 Here, the optional “-native” flag, inputting the crystallographic structure for the motif, permits rmsd calculations but is not used in building the model. The file motif2\_add.params defines the P2 stem within this motif-building run:
@@ -124,7 +124,7 @@ OBLIGATE PAIR 1 21 W W A
 Finally, the models of separately built motifs and helices are assembled through the FARNA Monte Carlo procedure. We do not carry out refinement here due to the expense for large RNAs. The most important thing to get an accurate structure are the constraints. Here is the command line:
 
 ```
-rna_denovo.<exe> -database  <path to database> -native 1y26_RNA.pdb -fasta add.fasta -in:file:silent_struct_type binary_rna  -cycles 10000 -nstruct 200 -out:file:silent add_assemble.out -params_file add_assemble.params -cst_file add_mutate_map_threetertiarycontacts_assemble.cst -close_loops  -in:file:silent  stem1_add.out stem2_add.out stem3_add.out motif1_add.out motif2_add.out motif3_add.out -chunk_res   1-9 63-71 13-18 28-33 42-47 55-60 1-18 28-47 55-71 13-33 42-60
+rna_denovo.<exe> -database  <path to database> -native 1y26_RNA.pdb -fasta add.fasta -in:file:silent_struct_type binary_rna  -cycles 10000 -nstruct 200 -out:file:silent add_assemble.out -params_file add_assemble.params -cst_file add_mutate_map_threetertiarycontacts_assemble.cst -close_loops  -in:file:silent  stem1_add.out stem2_add.out stem3_add.out motif1_add.out motif2_add.out motif3_add.out -input_res   1-9 63-71 13-18 28-33 42-47 55-60 1-18 28-47 55-71 13-33 42-60
 ```
 
 In the above command-line, the helix and loop definitions are given by add\_assemble.params:

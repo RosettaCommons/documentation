@@ -3,12 +3,12 @@
 Metadata
 ========
 
-This document was edited Nov 1st 2008 by Yi Liu and again on May 11th, 2010 by Andrew Leaver-Fay. The `       fixbb      ` application is maintained by Brian Kuhlman's lab. Send questions to (bkuhlman@email.unc.edu)
+This document was edited Oct 2015 by Jared Adolf-Bryfogle. The `       fixbb      ` application is maintained by Brian Kuhlman's lab. Send questions to (bkuhlman@email.unc.edu)
 
 Code and Demo
 =============
 
-See `       rosetta/tests/integration/tests/fixbb      ` for an example of fixed backbone design protocol and input files. A production run can be made from the `       command      ` file by adding the flags -ex1 and -ex2 for the fullatom run. The centroid-mode run is already a "production run" in that it cannot be made to take more time than it does already.
+See `       rosetta/main/tests/integration/tests/fixbb      ` for an example of fixed backbone design protocol and input files. A production run can be made from the `       command      ` file by adding the flags -ex1 and -ex2 for the fullatom run. The centroid-mode run is already a "production run" in that it cannot be made to take more time than it does already.
 
 The majority of the classes for the fixbb application live in `       rosetta/main/source/src/core/pack      ` . The main interface class is the `       PackerTask      ` which lives in `       rosetta/main/source/src/core/pack/task      ` . Rotamers are held in instances of class `       RotamerSet      ` which are in turn held in an instance of class `       RotamerSets      ` ; these classes live in `       rosetta/main/source/src/core/pack/rotamer_set      ` . Rotamer-pair energies are held in one of several "interaction graph" classes, which live in namespace `       core::pack::interaction_graph      ` . The annealer classes live in `       rosetta/main/source/src/core/pack/annealer      ` The application itself lives in `       rosetta/main/source/src/apps/public/design/fixbb.cc      ` and invokes the `       PackRotamersMover      ` that lives in `       rosetta/main/source/src/protocols/moves/PackRotamersMover.cc      `
 
@@ -36,7 +36,7 @@ The combinatorial optimization problem fixed-backbone repacking (or design) pres
 
 There are many ways to control the way rotamers are sampled and at which positions design should be attempted. There are several command line flags that apply to all residues. In addition, a "resfile" can specify the way particular residues are to be treated. By default, `       fixbb      ` will attempt to redesign all residues using all amino acids.
 
-Fixed-backbone design works best when paired with a softened Lennard-Jones term [Dantas et al. 2003] which helps overcome the problem of discrete rotamer building (not default). The score function used may be controlled on the command line by specifying a weights file (or both a weights file and a weights-patch file). By default, the fixbb application uses the "score12" score function by default (the combination of "standard.wts" and "score12.wts\_patch").
+Fixed-backbone design works best when paired with a softened Lennard-Jones term [Dantas et al. 2003] which helps overcome the problem of discrete rotamer building (not default). The score function used may be controlled on the command line by specifying a weights file (or both a weights file and a weights-patch file). 
 
 Limitations
 ===========
@@ -68,8 +68,8 @@ Options
 Input file specification:
 
 ```
--s <pdb> <pdb2>    A list of one or more pdbs to run <code>fixbb</code> upon.
--l <listfile>      A file that lists one or more pdbs to run <code>fixbb</code> upon.
+-s <pdb> <pdb2>    A list of one or more pdbs to run fixbb upon.
+-l <listfile>      A file that lists one or more pdbs to run fixbb upon.
 -resfile <fname>   The resfile that is to be used for this job
 -nstruct <int>     The number of iterations to perform per input structure; e.g. with 10 input structures
                    and an -nstruct of 10, 100 trajectories will be performed.

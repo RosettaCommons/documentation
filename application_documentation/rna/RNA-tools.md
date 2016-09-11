@@ -96,11 +96,11 @@ To strip out residues and HETATMs that are not recognizable as RNA from a PDB fi
 
 `make_rna_rosetta_ready.py rawmodel.pdb`
 
-To prepare files for an RNA denovo (fragment assembly of RNA with full atom refinement, FARFAR) job:
+**Legacy** [_Following functionalities are directly available in `rna_denovo` application now_]: To prepare files for an RNA denovo (fragment assembly of RNA with full atom refinement, FARFAR) job:
 
 `rna_denovo_setup.py -fasta mysequence.fasta -secstruct_file mysecstruct.txt`
 
-There are several more useful flags in `rna_denovo_setup.py` which are documented in [[rna_denovo_setup|rna-denovo-setup]].
+See also: [[rna_denovo_setup|rna-denovo-setup]].
 
 
 Cluster setup

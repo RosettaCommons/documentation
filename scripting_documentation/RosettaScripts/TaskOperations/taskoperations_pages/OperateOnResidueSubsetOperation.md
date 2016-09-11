@@ -4,14 +4,14 @@
 
     <OperateOnResidueSubset name=(%string) selector=(%string) >
        <(ResLvlTaskOperation)/>
-    </OperateOnResidueSubset/>
+    </OperateOnResidueSubset>
 
 or
 
     <OperateOnResidueSubset name=(%string)>
        <(Selector)/>
        <(ResLvlTaskOperation)/>
-    </OperateOnResidueSubset/>
+    </OperateOnResidueSubset>
 
 -   OperateOnResidueSubset is a TaskOperation that applies a ResLevelTaskOperation to the residues indicated by a [[ResidueSelector|ResidueSelectors]].
 -   The ResidueSelector may be provided either through the "selector" option (in which case, the string provided to the option should refer to a previously declared ResidueSelector which can be found in the DataMap), or though an anonymously declared ResidueSelector whose definition is given as a sub-tag. Anonymously declared ResidueSelectors are not added to the DataMap.

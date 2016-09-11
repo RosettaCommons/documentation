@@ -31,7 +31,7 @@ Operators of operators are allowed, providing a way to generate any statement.
 * [[CompoundStatementFilter]]
 * [[CombinedValueFilter]]
 * [[CalculatorFilter]]
-* [[IfThenFilterFilter]]
+* [[IfThenFilter]]
 * [[SigmoidFilter]]
 * [[ReplicateFilter]]
 

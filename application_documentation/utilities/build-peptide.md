@@ -30,6 +30,9 @@ Options
 |----|-----------|----|
 |-in:file:fasta|FASTA file with peptide sequence|string|
 |-out:file:o|output PDB file name|string|
+|-helix|(optional) Make a helical, rather than extended, peptide|bool|
+|-phi|(advanced) Specify the phi backbone angle to repeat, default -135.0|real|
+|-psi|(advanced) Specify the psi backbone angle to repeat, default 135.0|real|
 
 Tips
 ====

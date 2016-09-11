@@ -53,6 +53,20 @@ More info in `src/core/scoring/GaussianChainFunc.cc`, including following crazy 
 //////////////////////////////////////////////////////////////////////////
 ```
 
+*Advanced:* The energy function above can handle loops that start and end inside a given pose (a 'normal' loop) as well as loops that connect separate poses in the model into a 'cycle'. However, it fails when seeing cycles that are nested into each other, as can happen in the following:
+
+```
+   D1
+  --------
+  ~    ~  ~
+ A~  B ~   ~ C
+  ~    ~  ~
+  --------
+   D2
+```
+Here D1-A-D2-B-D1 and D1-A-D2-C-D1 could be nested (actually code looks at direction of loops). That means that the penalty for the first cycle (A,B) depends on the influence of C, leading to a complicated integral.  Those kinds of pose collections are avoided in `stepwise` by checking for "complex loop graphs" in StepWiseMoveSelector.cc. If user specifies `-allow_complex_loop_graph`, `loop_close` will be calculated as a simple sum of loop closure penalties over all cycles -- this is generally an underestimate. In principle, should be possible to approximate the integral by finding the optimal loop configuration given the geometry of connection points (requires numerical solution, but to a convex optimization problem) and computing a log-determinant, but that's not in there yet.
+
+
 ### `intermol`
 The entropic penalty (in k<sub>B</sub>T) for each intermolecular connection that is instantiated. Computed as:
 ( 2.30 - log( concentration / 1 M).
@@ -61,7 +75,7 @@ Here the number 2.30 represents log of the effective concentration (relative to 
 
 
 ### `free_side_chain`, `free_suite`, `free_2HOprime`
-Bonuses for virtualizing protein side chains, RNA 5' phosphate, and RNA 2' hydroxyl, respectively. Also stuffing bonuses for virtualizing sugar in `free_suite`. These might all get combined into `ref` for simplicity, after further calibration.
+Bonuses for virtualizing protein side chains, RNA 5' phosphate, and RNA 2' hydroxyl, respectively. Also stuffing bonuses for virtualizing sugar in `free_suite`. These might all get combined into `free_dof` for simplicity, after further calibration.
 
 ---
 Go back to [[StepWise Overview|stepwise-classes-overview]].

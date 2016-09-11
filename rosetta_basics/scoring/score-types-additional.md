@@ -67,7 +67,7 @@ Split out fa_elec for RNA
 -------------------------
 
 ```html
-fa_elec_rna_phos_phos
+fa_elec_rna_phos_phos                      fa_elec between rna phosphates only, needed to prevent unrealistic phos-phos interactions
 fa_elec_rna_phos_sugr
 fa_elec_rna_phos_base
 fa_elec_rna_sugr_sugr

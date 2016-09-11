@@ -1,23 +1,41 @@
+#CDR Cluster Identification
+
 Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
+
 PI: Roland Dunbrack
 
-Last Doc Update: 2/16/14 JAB
+# Overview
 
+This application matches each CDR of an antibody to North/Dunbrack CDR clusters based on the lowest dihedral distance to each 'center' member of the cluster.  Identifications with distances will be echoed in the output PDB file and printed to the screen. 
 
-# Overview:
+# References
 
-This application matches each CDR of an antibody to North/Dunbrack CDR clusters (See North, B., A. Lehmann, et al. (2011). JMB 406(2): 228-256.) based on the lowest dihedral distance to each 'center' member of the cluster.  Identifications with distances will be echoed in the output PDB file and printed to the screen. 
+Adolf-Bryfogle J,  Xu Q,  North B, Lehmann A,  Roland L. Dunbrack Jr, [PyIgClassify: a database of antibody CDR structural classifications](http://nar.oxfordjournals.org/cgi/reprint/gku1106?ijkey=mLgOMi7GHwYPx77&keytype=ref) , Nucleic Acids Research 2014
 
+North B, Lehmann A, Dunbrack R, [A new clustering of antibody CDR loop conformations](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3065967/pdf/nihms-249534.pdf) (2011). JMB 406(2): 228-256.
+
+RosettaAntibody Framework.
 # Setup
-Antibodies need to be numbered in any numbering scheme accepted by Rosetta. These include: Chothia_Scheme, Enhanced_Chothia_Scheme, AHO_Scheme, IMGT_Scheme. Kabat_Scheme is also accepted, but not fully supported due to H1 numbering conventions.  Use Kabat_Scheme with caution.
 
-Antibodies can be renumbered to the AHO_Scheme at http://dunbrack2.fccc.edu/PyIgClassify/
+Antibodies need to be numbered in any numbering scheme accepted by Rosetta. These include: 
 
-# Run
-## App: identify_cdr_clusters
+ * <code> Chothia_Scheme </code>
+ * <code> Enhanced_Chothia_Scheme </code>
+ * <code> AHO_Scheme </code>
+ * <code> IMGT_Scheme </code>
+
+Kabat_Scheme is also accepted, but not fully supported due to H1 numbering conventions.  Use Kabat_Scheme with caution.
+
+Antibodies can be renumbered to the AHO_Scheme through [PyIgClassify](http://dunbrack2.fccc.edu/PyIgClassify/)
+
+# Running the Application
+App: identify_cdr_clusters
 
 ## Options:
-Typical Rosetta options are followed.  Use -no_output to not have pdb files echoed.  Make sure to pass -numbering_scheme with your antibody's numbering scheme if it is not renumbered in Chothia.
+Typical Rosetta input/output options are followed. MPI is supported, pass the <code>-l</code> option to identify a list of PDBs.  Use <code>-no_output</code> to not have pdb files echoed.  Make sure to pass <code>-numbering_scheme</code> with your antibody's numbering scheme if it is not renumbered in Chothia.
+
+## Example Command Line:
+_identify_cdr_clusters.macosclangrelease -numbering_scheme AHO_Scheme -ignore_unrecognized_res -no_output -s 2J88.pdb_
 
 ##See Also
 

@@ -40,6 +40,8 @@ Binary Silent Struct File is very useful to compress multiple pdbs and save comp
     Binary contents
     ```
 
+Silent files can be converted into PDB files using the `extract_pdb` application. Information about the options can be found in the integration test folder /Rosetta/main/tests/integration/tests/extract_pdbs/.
+
 ##See Also
 
 * [[File types list]]: List of file types used in Rosetta

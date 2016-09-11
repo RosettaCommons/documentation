@@ -4,6 +4,8 @@ Author: Steven Lewis (smlewi@gmail.com)
 
 This document was orginally written 6 Apr 2010 by Steven Lewis. This document was last updated 23 Mar 2013 by Steven Lewis.
 
+When this was tested in February 2016 during the rewrite-the-PDB-reader effort, most of these tricks were found to no longer be sufficient.
+
 Purpose
 ===========================================
 

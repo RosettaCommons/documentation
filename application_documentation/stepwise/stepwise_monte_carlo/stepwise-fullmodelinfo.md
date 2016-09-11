@@ -7,7 +7,7 @@ Several powerful functions for dealing with poses with `full_model_info` objects
 
 # How to use
 -------------
-FullModelInfo needs to be set up to do operations like adding & deleting. It contains info on everything in the full modeling problem. Example (**sorry this hasn't been tested**): 
+`FullModelInfo` needs to be set up to do operations like adding & deleting. It contains info on everything in the full modeling problem. Example (**sorry this hasn't been tested**): 
 
 ```
 
@@ -48,16 +48,18 @@ These include:
 
 • full_sequence
 • 'conventional' numbering/chain scheme,
+• non_standard_residue_map (any non-standard names that elaborate on one-letter sequence codes, e.g., 'Z[Mg]')
 • cutpoint_open_in_full_model,  
 • fixed_domain (any residues that are part of input PDBs and should not move),
 etc.  
+• disulfide pairs
 
-See FullModelParameterType for full list of variables.
+See FullModelParameterType for full list of variables, stored in parameter_as_res_list.
 
 -Note that there are is no information here on what subset of
  residues a specific pose contains (thats in res_list).
 
--The variables in here really should be 'permanent' -- parameters that won't
+-The variables in here really should be **'permanent'** -- parameters that won't
   change during a run.
 
 - Note that integer lists are stored in two ways, for convenience:
@@ -66,6 +68,13 @@ See FullModelParameterType for full list of variables.
 
   parameter_values_as_res_lists -- same info as above, different format.
     `{ 0:[1, 2, 5, 6],  1:[3, 4], 2:[7, 8] }`
+
+- *Advanced* The one exception to constant FullModelParameters might
+  be if we design while allowing loop lengths to vary. The most concise
+  coding solution here involves updating FullModelParameters during the run, 
+  based on slicing out different length loops from a 'parent' `FullModelParameters`.
+  This mode remain experimental -- its why we now have `parent_full_model_parameters` and
+  `slice_res_list` as (optional) variables.
 
 ### other_pose_list
 ----------------------------------------------------------
@@ -76,6 +85,10 @@ Suppose you're building a big model, and you have one pose for residues 22-28 an
 There are useful helper functions in `stepwise/modeler/util.hh` to `switch_focus_to_other_pose`.
 
 [Originally, there was a scheme in which having each pose held references to immediately neighboring poses to create a 'pose tree', which might have made some loop-closure energies easier to compute, but this was ditched.]
+
+### submotif_info_list
+A submotif is, e.g., a C-G base pair or a three-nucleotide U-turn, defined in the Rosetta database and addable to the pose during stepwise modeling if submotif_moves (move type `ADD_SUBMOTIF`) are enabled. Stepwise modeling requires that every move have a reverse; any move that splits a submotif is not reversible and must be avoided. To keep track of which parts of a pose have submotifs, we store the information here, in a `vector1` of simple `SubMotifInfo` objects, each holding the name of the submotif and the residues (in full model numbering) where it was instantiated. [thanks, Caleb Geniesse.]
+
 
 ---
 Go back to [[StepWise Overview|stepwise-classes-overview]].

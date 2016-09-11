@@ -14,6 +14,8 @@ This document was last updated on October, 2014 by Jared Adolf-Bryfogle. The PI 
 -   Michael Tyka
 -   Robert Vernon
 
+An introductory tutorial _ab initio_ tutorial can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/denovo_structure_prediction/Denovo_structure_prediction).
+
 Code and Demo
 =============
 
@@ -22,12 +24,12 @@ The ab initio executable is in `       main/source/src/apps/public/AbinitioRelax
 References
 ==========
 
--   Srivatsan Raman, Robert Vernon, James Thompson, Michael Tyka, Ruslan Sadreyev,Jimin Pei, David Kim, Elizabeth Kellogg, Frank DiMaio, Oliver Lange, Lisa Kinch, Will Sheffler, Bong-Hyun Kim, Rhiju Das, Nick V. Grishin, and David Baker. (2009) Structure prediction for CASP8 with all-atom refinement using Rosetta. *Proteins* 77 Suppl 9:89-99.
--   Bradley P, Misura KM, Baker D (2005). Toward high-resolution de novo structure prediction for small proteins. *Science* 309, 1868-71.
--   Bonneau R, Strauss CE, Rohl CA, Chivian D, Bradley P, Malmstrom L, Robertson T, Baker D. (2002) De novo prediction of three-dimensional structures for major protein families. *J Mol Biol* 322(1):65-78.
--   Bonneau R, Tsai J, Ruczinski I, Chivian D, Rohl C, Strauss CE, Baker D. (2001) Rosetta in CASP4: progress in ab initio protein structure prediction. *Proteins* Suppl 5:119-26.
--   Simons KT, Ruczinski I, Kooperberg C, Fox B, Bystroff C, Baker D. (1999) Improved recognition of native-like protein structures using a combination of sequence-dependent and sequence-independent features of proteins. *Proteins* 34(1) 82-95.
--   Simons KT, Kooperberg C, Huang E, Baker, D. (1997) Assembly of protein tertiary structures from fragments with similar local sequences using simulate anealing and Bayesian scoring functions. *J Mol Biol* 268:209-25.
+-   Srivatsan Raman, Robert Vernon, James Thompson, Michael Tyka, Ruslan Sadreyev,Jimin Pei, David Kim, Elizabeth Kellogg, Frank DiMaio, Oliver Lange, Lisa Kinch, Will Sheffler, Bong-Hyun Kim, Rhiju Das, Nick V. Grishin, and David Baker. (2009) [Structure prediction for CASP8 with all-atom refinement using Rosetta.](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3688471/) *Proteins* 77 Suppl 9:89-99.
+-   Bradley P, Misura KM, Baker D (2005). [Toward high-resolution de novo structure prediction for small proteins.](https://www.sciencemag.org/content/309/5742/1868.full) *Science* 309, 1868-71.
+-   Bonneau R, Strauss CE, Rohl CA, Chivian D, Bradley P, Malmstrom L, Robertson T, Baker D. (2002) [De novo prediction of three-dimensional structures for major protein families.](http://www.sciencedirect.com/science/article/pii/S0022283602006988) *J Mol Biol* 322(1):65-78.
+-   Bonneau R, Tsai J, Ruczinski I, Chivian D, Rohl C, Strauss CE, Baker D. (2001) [Rosetta in CASP4: progress in ab initio protein structure prediction.](http://onlinelibrary.wiley.com/doi/10.1002/prot.1170/full) *Proteins* Suppl 5:119-26.
+-   Simons KT, Ruczinski I, Kooperberg C, Fox B, Bystroff C, Baker D. (1999) [Improved recognition of native-like protein structures using a combination of sequence-dependent and sequence-independent features of proteins.](http://onlinelibrary.wiley.com/doi/10.1002/(SICI)1097-0134(19990101)34:1%3C82::AID-PROT7%3E3.0.CO;2-A/full) *Proteins* 34(1) 82-95.
+-   Simons KT, Kooperberg C, Huang E, Baker, D. (1997) [Assembly of protein tertiary structures from fragments with similar local sequences using simulate anealing and Bayesian scoring functions.](http://www.sciencedirect.com/science/article/pii/S0022283697909591) *J Mol Biol* 268:209-25.
 
 Application purpose
 ===========================================
@@ -176,6 +178,8 @@ Lowest scoring models that are in a cluster and that have a topology represented
 
 ##See Also
 
+* [Introductory Ab Initio Protocol Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/denovo_structure_prediction/Denovo_structure_prediction)
+* [Protein Folding using the Broker Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/advanced_denovo_structure_prediction/folding_tutorial)
 * [[Abinitio]]: Further details on this application
 * [[Fasta file]]: Fasta file format
 * [[Fragment file]]: Fragment file format (required for abinitio structure prediction)

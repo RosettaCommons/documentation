@@ -9,6 +9,8 @@ location: doc/apps/pilot/multi\_residue\_ligand\_dock.dox
 
 last updated: 5-25-2009
 
+An introductory tutorial on ligand docking can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/ligand_docking/ligand_docking_tutorial).
+
 Purpose
 =======
 

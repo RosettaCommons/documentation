@@ -8,17 +8,26 @@ Any code dependency on directories not accessible by following the arrows is not
 A strict vertical code dependency has been observed thus far in writing Rosetta code. 
 This figure demonstrates the relationships between the libraries:
 
-[[/images/RosettaLib.png]]
+<<RawHtml(
+<img src="RosettaLibraries.png" usemap="#RosettaLibraries" alt="missing library hierarchy image">
+<map name="RosettaLibraries">
+	<area shape=rect coords="350,425,525,450" href=src-index-page#devel-library>
+	<area shape=rect coords="10,385,295,465" href=src-index-page#protocols-library>
+	<area shape=rect coords="10,285,295,365" href=src-index-page#core-library>
+	<area shape=rect coords="55,220,227,250" href=src-index-page#basic-library>
+	<area shape=rect coords="55,150,226,175" href=src-index-page#numeric-library>
+	<area shape=rect coords="55,80,226,110" href=src-index-page#utility-library>
+	<area shape=rect coords="55,10,225,50" href=src-index-page#objexxfcl-library>
+</map>
+)>>
 
-ObjexxFCL Library
-================
+##ObjexxFCL Library
 
 The `ObjexxFCL` library provides the infrastructure needed to emulate Fortran by code that has been translated from Fortran 77 to C++. 
 It is lightly used in Rosetta at present, having gradually disappeared as Rosetta became more object-oriented - the [[Rosetta to Rosetta++ to Rosetta3|Rosetta timeline]] transition. 
 It remains to support some legacy code.
 
-Utility Library
-==============
+##Utility Library
 
 [[Utility Library|namespace-utility]] 
 
@@ -43,25 +52,31 @@ Classes in this directory sometimes have mathematical class methods, but algorit
 * [[xyzVector]]
 * [[xyzMatrix]]
 
-Numeric Library
-===============
+##Numeric Library
 
 [[Numeric Library|namespace-numeric]]
 
 The numeric directory contains low-level functions that carry out mathematical operations. 
 While some of these might be general mathematics (calculating a fast Fourier transform, for example, or performing principal component analysis on a dataset), others might be Rosetta-specific calculations or might be implemented in a Rosetta-specific manner.
 
-Basic Library <a name="basic" />
-===============================
+##Basic Library <a name="basic" />
 
 The basic directory contains organizational and housekeeping classes specific to the Rosetta project. 
 Functions for accessing the Rosetta database typically reside here, for example, as does code for the Rosetta options system. 
 Certain Rosetta-specific tools, such as the [[tracer]], can also be found in the basic library.
 
-Core Library <a name="core" />
-==============================
+##Core Library <a name="core" />
 
-[[/images/core_structure.png]]
+<<RawHtml(
+<img src="RosettaCores.png" usemap="#RosettaCores" alt="missing Core library hierarchy image">
+<map name="RosettaCores">
+        <area shape=rect coords="98,627,274,726" href=src-index-page#core-library_core-5>
+        <area shape=rect coords="98,479,274,578" href=src-index-page#core-library_core-4>
+        <area shape=rect coords="98,330,274,431" href=src-index-page#core-library_core-3>
+        <area shape=rect coords="98,182,274,281" href=src-index-page#core-library_core-2>
+        <area shape=rect coords="98,99,274,132" href=src-index-page#core-library_core-1>
+</map>
+)>>
 
 The core directory contains classes that manage most of the internal machinery of Rosetta. 
 This includes topics such as chemical representations of models, conformational representations of models, low-level operations on conformations, and energetic evaluation ([[scoring|scoring-explained]]) of models.
@@ -90,7 +105,7 @@ This contains all the `ScoreFunction` and all the common terms that go in it, an
 
 ####Pose
 `Pose`, one of the two most important classes in Rosetta, lives here.
-`Pose` is the marriage of a `Conformation` and an `Energies` object holding its scores.
+[[Pose|RosettaEncyclopedia#pose]] is the marriage of a `Conformation` and an `Energies` object holding its scores.
 
 ###Core.4
 Core.4 is concerned with optimization algorithms - ways to minimize the energy of the pose. 
@@ -136,8 +151,7 @@ For a general overview of Rosetta concepts (including many concepts from core), 
     - [[How to add a new scoring term|new-energy-method]]
     - [[Constraints file formats|constraint-file]]
  
-Protocols Library
-=================
+##Protocols Library
 
 [[/images/protocols_structure.png]]
 
@@ -183,8 +197,7 @@ These levels each have many lettered sublibaries, organized by vague similarity 
 This is not a library, this is just the protocols `init` layer.
 It has a ton of Registrators and Creators for the [[Factory|http://en.wikipedia.org/wiki/Factory_method_pattern]] (wikipedia link)-managed Rosetta classes.
 
-Devel Library
-=============
+##Devel Library
 
 The devel directory is a staging area for protocols in development, which is NOT included in Rosetta releases. 
 Code in this area is not considered mature. 
@@ -192,9 +205,9 @@ Standards of documentation are lax.
 Documenting code after the fact is much more difficult, so it is HIGHLY recommended that a developer provide good documentation even for code that is fluctuating rapidly. 
 It will make your life easier and more productive, and your colleagues will appreciate your thoroughness.
 
-Adding New Subdirectories
-=========================
+##Adding new code or subdirectories
 
+Generally one will not want to add code in `src` directly.  
 New subdirectories in one of the above existing directories can be added much more readily without damaging the overall structure of the library. First determine which level of the library the new concepts fit into. If one is unsure of where new code should be placed, consult experienced Rosetta developers. This can either be in one's lab or (even better) send a message out to the developer mailing list (One might find out that someone else has a complimentary idea with a starting point already available).
 
 ##See Also
@@ -204,3 +217,14 @@ New subdirectories in one of the above existing directories can be added much mo
 * [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
 * [[Development Documentation]]: The main development documentation page
+
+<!---- SEO
+code structure
+code structure
+code structure
+code structure
+library structure
+library structure
+library structure
+library structure
+---->

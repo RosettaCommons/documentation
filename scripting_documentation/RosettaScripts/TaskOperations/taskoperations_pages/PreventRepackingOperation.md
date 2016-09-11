@@ -6,6 +6,9 @@ Do not allow repacking at all for the specified residue. Freezes residues.
 
     <PreventRepacking name=(&string) resnum=(0 &int) />
 
+<br/>
+*For specifying multiple residues, see the more flexible [[Index|ResidueSelectors#residueselectors_conformation-independent-residue-selectors_residueindexselector]] [[ResidueSelector|ResidueSelectors]], as well as [[OperateOnResidueSubset|OperateOnResidueSubsetOperation]] and [[PreventRepackingRLT|Residue Level TaskOperations]].*
+
 ##See Also
 
 * [[RosettaScripts|RosettaScripts]]: Using RosettaScripts

@@ -1,0 +1,26 @@
+## Metadata
+
+Questions and comments to:
+
+- Julia Koehler Leman (julia.koehler1982@gmail.com)
+- Rebecca Alford (rfalford12@gmail.com)
+- Corresponding PI: Jeffrey J. Gray (jgray@jhu.edu)
+
+Last Updated: 4/26/15
+
+## Description
+
+This Mover is used in the global membrane protein docking protocol (the MPFindInterfaceMover). The first partner is fixed in the membrane and this Mover spins the second (movable) partner around the first partner in the membrane. The Mover samples a random position within a 100 A square and then docks the partners together using the DockingSlideIntoContactMover from the general docking protocol. [The DockingSlideIntoContactMover was adjusted such that the stepsize depends on the distance between the partners and not in 1A steps - this is considerably faster than the latter.]
+
+## Code and Demo
+
+The Mover lives in `main/source/src/protocols/membrane`.
+
+## RosettaScripts interface
+
+TODO: Currently not compatible with RosettaScripts. 
+
+## Reference
+This Mover is currently unpublished. RosettaMP and previous protocols were published in:
+
+* Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Elazar A, Tilley DC, Gray JJ (2015) An integrated framework advancing membrane protein modeling and design, PLoS Computational Biology (in press)

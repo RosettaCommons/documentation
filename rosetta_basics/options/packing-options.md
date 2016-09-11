@@ -1,5 +1,7 @@
 #Rotamer Packing Options
 
+An introductory  tutorial on packing can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/Optimizing_Sidechains_The_Packer/Optimizing_Sidechains_The_Packer), and on protein design can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/protein_design/protein_design_tutorial).
+
 Rotamer Packing options can be used in fixed backbone design mode and other protocols.
 For most Rosetta protocols, the flags 
 
@@ -160,6 +162,8 @@ Misc
 
 ##See Also
 
+* [Tutorial on the Packer](https://www.rosettacommons.org/demos/latest/tutorials/Optimizing_Sidechains_The_Packer/Optimizing_Sidechains_The_Packer)
+* [Tutorial on Protein Design](https://www.rosettacommons.org/demos/latest/tutorials/protein_design/protein_design_tutorial)
 * [[Options overview]]: Description of options in Rosetta
 * [[Full options list]]
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.

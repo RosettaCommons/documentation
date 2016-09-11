@@ -10,7 +10,11 @@ Jan. 2013 by Bryan Der (bder [at] email.unc.edu), Kuhlman lab (bkuhlman [at] ema
 Code and Demo
 =============
 
-The code lives in a single file, src/apps/public/supercharge.cc integration test: main/tests/integration/tests/supercharge demo: demos/public/supercharge Production runs are still quick and light, it just requires packrotamers for surface positions, and we recommend running the protocol several times using a variety of target net charges. Experimentally, it's hard to say what the optimal net charge will be, so a spectrum of net charges should be tested at the bench.
+- The code lives in a single file, `src/apps/public/design/supercharge.cc`   
+- Integration test: `ain/tests/integration/tests/supercharge`  
+- Demo: `demos/public/supercharge`  
+
+Production runs are still quick and light, it just requires packrotamers for surface positions, and we recommend running the protocol several times using a variety of target net charges. Experimentally, it's hard to say what the optimal net charge will be, so a spectrum of net charges should be tested at the bench.
 
 References
 ==========

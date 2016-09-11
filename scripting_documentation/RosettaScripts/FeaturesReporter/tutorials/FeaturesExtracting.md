@@ -1,11 +1,9 @@
-#Features Extracting
+#Writing a new Features Reporter class
 
-FeaturesReporter
-================
 
 Implementing a FeaturesReporter involves the following steps:
 
-1.  Implement the FeaturesReporter class interface (see directly below).
+1.  Implement the FeaturesReporter class interface (see directly below). In addition to below, you can also use code_templates to generate the the class .hh and .cc files. 
 2.  Implement the FeaturesReporterCreator class interface (like you would for a mover).
 3.  Register the FeatureReporter with the FeaturesReporterRegistrator (rosetta/main/source/src/protocols/init/init.FeaturesReporterCreators.ihh and rosetta/main/source/src/protocols/init/init.FeaturesReporterRegistrators.ihh)
 4.  Add the FeatureReporter to the FeatureReporterTests (rosetta/main/source/test/protocols/features/FeaturesReporterTests.cxxtest.hh) Unit Test.
@@ -70,69 +68,15 @@ In the report\_features function, sessionOP is an owning pointer to the database
 
 -   A FeatureReporter may optionally be constructed with a ScoreFunction. For example, see the RotamerRecoveryFeatures class (rosetta/main/source/protocols/features/RotamerRecoveryFeatures.hh).
 
-ReportToDB
-==========
+##See Also
 
-Use the ReportToDB mover with the Rosetta XML scripting to specify which features should be extracted to the features database. (Note: The TrajectoryReportToDB mover can also be used in Rosetta scripts or C++ to report features in trajectory form multiple times to DB for a single output).
-
--   \<ReportToDB\> tag
-    -   **name** : Mover identifier so it can be included in the PROTOCOLS block of the RosettaScripts
-    -   [[Database Connection Options|RosettaScripts-database-connection-options]] : for options of how to connect to the database
-    -   **sample\_source** : Short text description stored in the *sample\_source* table
-    -   **protocol\_id** : (optional) Set the *protocol\_id* in the *protocols* table rather than auto-incrementing it.
-    -   **cache\_size** : The maximum amount of memory to use before writing to the database ( [sqlite3 only](http://www.sqlite.org/pragma.html#pragma_cache_size) ).
-    -   **tast\_operations** : Restrict extracting features to a relevant subset of residues. Since task operations were designed as tasks for side-chain remodeling, residue features are reported when the residue is "packable". If a features reporter involves more than one residue, the convention is that it is only reported if each residue is specified.
-
--   \<feature\> tag (subtag of \<ReportToDB\>)
-    -   **name** : Specify a FeatureReporter to include in database
-
-<!-- -->
-
-        <ROSETTASCRIPTS>
-            <SCOREFXNS>
-                <s weights=score12_w_corrections/>
-            </SCOREFXNS>
-            <MOVERS>
-                <ReportToDB name=features database_name=scores.db3>
-                    <feature name=ScoreTypeFeatures/>
-                    <feature name=StructureScoresFeatures scfxn=s/>
-                </ReportToDB>
-            </MOVERS>
-            <PROTOCOLS>
-                    <Add mover_name=features/>
-            </PROTOCOLS>
-        </ROSETTASCRIPTS>
-
-Since ReportToDB is simply a mover, it can be included in any Rosetta Protocol. For example, to extract the features from a set of pdb files listed in *structures.list* , and the above script saved in *parser\_script.xml* , execute the following command:
-
-       rosetta_scripts.linuxgccrelease -output:nooutput -l structures.list -parser:protocol parser_script.xml
-
-This will generate an SQLite3 database file *scores.db3* containing the features defined in each of the specified FeatureReporters for each structure in *structures.list* . See the features integration test (rosetta/main/test/integration/tests/features) for a working example.
-
-Extracting Features In Parallel
-===============================
-
-Currently the ReportToDB mover is not compatible with MPI runs. There is support however for partitioning a sample source into batches, generating features database for each batch and merging them together. See the features\_parallel integration test (rosetta/main/test/integration/tests/features_parallel) for a working example.
-
-For example if there are 1000 structures split into 4 batches then the scripts for the run processing the first batch would contain:
-
-       <ReportToDB name=features_reporter db="features.db3_01" sample_source="batch1" protocol_id=1 first_struct_id=1>
-          ...
-       </ReportToDB>
-
-and the script for the run processsing the second batch would contain:
-
-       <ReportToDB name=features_reporter db="features.db3_02" sample_source="batch2" protocol_id=2 first_struct_id=26>
-          ...
-       </ReportToDB>
-
-After the runs are complete, locate the merge.sh script (rosetta/main/test/scientific/cluster/features/sample_sources/merge.sh) and run
-
-       bash merge.sh features.db3 features.db3_*
-
-Which will merge the features from each of the *features.db3\_xx* database into *features.db3* .
-
--   **TIP1** : Merging feature databases should be done for batches of structures that conceptually come from the same sample source. It is best to keep structures coming from different sample sources in separate databases and only during the analysis use the sqlite3 [ATTACH](http://www.sqlite.org/lang_attach.html) statement to bring them together.
--   **TIP2** : If you run postgres, merging part is not necessary. If you use sqlite, merging is needed.
--   **WARNING** : Extracting many databases in parallel generates high data transfer rates. This can be taxing on cluster with a shared file system.
-
+* [[FeatureReporters]]
+* [[FeaturesTutorials]]
+* [[FeaturesRScripts]]
+* [[TrajectoryReportToDBMover]]
+* [[RosettaScripts database connection options]]
+* [[Database IO]]: information on database input/output in Rosetta
+* [[Rosetta Database Output Tutorial]]
+* [[Database support]]: Advanced details on Rosetta's interface with databases
+* [[Database options]]: Database-related command line options
+* [[I want to do x]]: Guide to choosing a mover

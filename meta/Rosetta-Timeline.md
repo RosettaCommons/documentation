@@ -126,3 +126,23 @@ As Rosetta grew, the Rosetta development world was no longer confined to just Da
 * [[Glossary]]: Brief definitions of Rosetta terms
 * [[Units in Rosetta]]: Explains measurement units used in Rosetta
 * [[Rosetta Canon]]: Landmark Rosetta papers
+* [[Scorefunction history]]: history of the Rosetta scorefunction
+
+<!-- Hidden keywords for Gollum's search tool (which is grep), repeats to bump in listing)
+History
+History
+History
+History
+History
+History
+History
+History
+History
+History
+History
+History
+History
+History
+History
+History
+--->

@@ -3,7 +3,7 @@
 Metadata
 ========
 
-Last updated on 12-12-12, Bryan Der (bder@email.unc.edu), Kuhlman lab (bkuhlman@email.unc.edu).
+Last updated on 19 May 2016 by Steven Lewis.  Author Bryan Der (bder@email.unc.edu), Kuhlman lab (bkuhlman@email.unc.edu).
 
 Code and Demo
 =============
@@ -13,7 +13,13 @@ Code for this application is in src/apps/public/design/zinc\_heterodimer\_design
 References
 ==========
 
-unpublished protocol
+[http://www.ncbi.nlm.nih.gov/pubmed/23504819] 
+Der BS, Jha RK, Lewis SM, Thompson PM, Guntas G, Kuhlman B. Combined
+computational design of a zinc-binding site and a protein-protein interaction:
+one open zinc coordination site was not a robust hotspot for de novo ubiquitin
+binding. Proteins. 2013 Jul;81(7):1245-55. doi: 10.1002/prot.24280. Epub 2013 Apr
+20. Erratum in: Proteins. 2013 Sep;81(9):1678. Jha, Raamesh K [corrected to Jha, 
+Ramesh K]. PubMed PMID: 23504819; PubMed Central PMCID: PMC4084500.
 
 Purpose
 ===========================================

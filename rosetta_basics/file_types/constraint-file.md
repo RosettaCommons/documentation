@@ -3,7 +3,7 @@
 Metadata
 ========
 
-This document was edited by Colin Smith on 12/4/2008. Yi Liu created the initial page. Thanks Oliver and Firas for providing information.
+This document was edited by Colin Smith on 12/4/2008. Yi Liu created the initial page. Thanks Oliver and Firas for providing information.  Last edited by Steven Lewis on 30 Aug 2016.
 
 [[_TOC_]]
 
@@ -21,7 +21,7 @@ The second requirement is that the scorefunction being used needs to have a non-
 File Formats
 ============
 
-Constraints can be specified using two different file formats, line-based and section-based. The line-based format is:
+Constraints can be specified in a line-based constraint file formatted like so:
 
 ```
 Constraint_Type1 Constraint_Def1
@@ -29,7 +29,7 @@ Constraint_Type2 Constraint_Def2
 ...
 ```
 
-Generally speaking, the Constraint\_Type will contain a type, defining what sort of value to be constrained (distance, angle, dihedral, etc), and a series of atom and/or residue labels defining a specific quality to be constrained. Residue numbers are assumed to be in Rosetta numbering (from 1, no gaps), not PDB numbering. If you want PDB numbering, pass the chain letter immediately after the residue number (no spaces), residue 30 of chain A would be "30A", even if it is the first residue in the PDB (Rosetta numbering "1"). Not all constraint types can take PDB numbering.
+Generally speaking, the Constraint\_Type will contain a type, defining what sort of value to be constrained (distance, angle, dihedral, etc), and a series of atom and/or residue labels defining a specific quality to be constrained. Residue numbers are assumed to be in Rosetta numbering (from 1, no gaps), not PDB numbering. If you want PDB numbering, pass the chain letter immediately after the residue number (no spaces): residue 30 of chain A would be "30A". You cannot pass insertion codes through this mechanism; you'll need the renumbered pose.  Not all constraint types can take PDB numbering.
 
 The Constraint\_Def will define function by which the constraint is constrained, to answer the question: what should the score of the constraint be when the constrained value has a deviation of X units?
 
@@ -43,46 +43,67 @@ Single constraints
 
 Single constraints restrain the value of a single metric
 
--   AtomPair: `AtomPair Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Func_Type Func_Def` 
+-   AtomPair: 
+```
+AtomPair Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Func_Type Func_Def
+```
 
     <i>score term: atom_pair_constraint</i>
 
     * Constrains a distance between Atom1 and Atom2. AtomPairConstraint is compatible with PDB numbering.
 
--   NamedAtomPair: `NamedAtomPair Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Func_Def       `
+-   NamedAtomPair: 
+```
+NamedAtomPair Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Func_Def
+```
 
 	<i>score term: atom_pair_constraint</i>
 
 	* Constrains a distance between Atom1 and Atom2.
 	* Atoms in NamedAtomPairConstraints are stored as names rather than numbers, as with AtomPairConstraint. Therefore, if atom numbers change while constraints are in the pose, the NamedAngleConstraint will still constraint the correct atoms, while the AngleConstraint may constrain unintended atoms. There is a small tradeoff in computational efficiency versus AngleConstraint. If you know your atom numbers will not change while the constraint is in the pose, AngleConstraint is a better option, but if they might change, NamedAngleConstraint will ensure that the correct atoms are constrained.
 
--   Angle: `Angle Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Func_Type Func_Def       `
+-   Angle: 
+```
+Angle Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Func_Type Func_Def
+```
 
     <i>score term: angle_constraint</i>
 
     * Angle between Atom2-\>Atom1 vector and Atom2-\>Atom3 vector; the angle (passed as a value to the Func) appears to be measured in radians
     * NOTE: AngleConstraint uses atom numbers to internally track the constrained atoms for efficiency. If the atom numbers change while the AngleConstraint is in the pose, the constraint could be applied to the wrong atoms. If you know your atom numbers will not change while the constraint is in the pose, AngleConstraint is the best option, but if they might change (e.g. by design or changing residue type set), NamedAngleConstraint will ensure that the correct atoms are constrained.
 
--   NamedAngle: `NamedAngle Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Func_Type Func_Def`
+-   NamedAngle: 
+```
+NamedAngle Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Func_Type Func_Def
+```
 
     <i>score term: angle_constraint</i>
 
     * Angle between Atom2-\>Atom1 vector and Atom2-\>Atom3 vector; the angle (passed as a value to the Func) appears to be measured in radians
     * Atoms in NamedAngleConstraints are stored as names rather than numbers, as with AngleConstraint. Therefore, if atom numbers change while constraints are in the pose, the NamedAngleConstraint will still constraint the correct atoms, while the AngleConstraint may constrain unintended atoms. There is a small tradeoff in computational efficiency versus AngleConstraint. If you know your atom numbers will not change while the constraint is in the pose, AngleConstraint is a better option, but if they might change, NamedAngleConstraint will ensure that the correct atoms are constrained.
  
--   Dihedral: `Dihedral Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Atom4_Name Atom4_ResNum Func_Type Func_Def`
+-   Dihedral: 
+```
+Dihedral Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Atom4_Name Atom4_ResNum Func_Type Func_Def
+```
 
     <i>score term: dihedral_constraint</i>
 
     * Dihedral angle of Atom1-\>Atom2-\>Atom3-\>Atom4. Dihedral is measured in radians on -pi -\> pi.
 
--   Dihedral: `DihedralPair Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Atom4_Name Atom4_ResNum Atom5_Name Atom5_ResNum Atom6_Name Atom6_ResNum Atom7_Name Atom7_ResNum Atom8_Name Atom8_ResNum Func_Type Func_Def`
+-   DihedralPair: 
+```
+DihedralPair Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Atom3_Name Atom3_ResNum Atom4_Name Atom4_ResNum Atom5_Name Atom5_ResNum Atom6_Name Atom6_ResNum Atom7_Name Atom7_ResNum Atom8_Name Atom8_ResNum Func_Type Func_Def
+```
 
 	<i>score term: dihedral_constraint</i>
 
 	* Constrains that the dihedral angles defined by Atom1-\>Atom2-\>Atom3-\>Atom4 and Atom5-\>Atom6-\>Atom7-\>Atom8 be identical.
 
--   CoordinateConstraint: `CoordinateConstraint Atom1_Name Atom1_ResNum[Atom1_ChainID] Atom2_Name Atom2_ResNum[Atom2_ChainID] Atom1_target_X_coordinate Atom1_target_Y_coordinate Atom1_target_Z_coordinate Func_Type Func_Def`
+-   CoordinateConstraint: 
+```
+CoordinateConstraint Atom1_Name Atom1_ResNum[Atom1_ChainID] Atom2_Name Atom2_ResNum[Atom2_ChainID] Atom1_target_X_coordinate Atom1_target_Y_coordinate Atom1_target_Z_coordinate Func_Type Func_Def
+```
 
     <i>score term: coordinate_constraint</i>
 
@@ -90,31 +111,46 @@ Single constraints restrain the value of a single metric
     * Atom_ResNum[Atom_ChainID] indicates a number with an optional letter together as a single token
 
 
--   LocalCoordinateConstraint: `LocalCoordinateConstraint Atom1_Name Atom1_ResNum Atom2_Name Atom3_Name Atom4_Name Atom234_ResNum Atom1_target_X_coordinate Atom1_target_Y_coordinate Atom1_target_Z_coordinate Func_Type Func_Def`
+-   LocalCoordinateConstraint: 
+```
+LocalCoordinateConstraint Atom1_Name Atom1_ResNum Atom2_Name Atom3_Name Atom4_Name Atom234_ResNum Atom1_target_X_coordinate Atom1_target_Y_coordinate Atom1_target_Z_coordinate Func_Type Func_Def
+```
 
     <i>score term: coordinate_constraint</i>
 
     * Constrain Atom1 to the XYZ position listed, relative to the coordinate frame defined by atoms 2/3/4 instead of the origin. LocalCoordinateConstraint is compatible with PDB numbering.
 
--   AmbiguousNMRDistance: `AmbiguousNMRDistance Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Func_Type Func_Def`
+-   AmbiguousNMRDistance: 
+```
+AmbiguousNMRDistance Atom1_Name Atom1_ResNum Atom2_Name Atom2_ResNum Func_Type Func_Def
+```
 
     <i>score term: atom_pair_constraint</i>
 
     * Distance between Atom1 and Atom2. The difference from AtomPairConstraint is that atom names are specially parsed to detect ambiguous hydrogens, which are either experimentally ambiguous or rotationally identical (like methyl hydrogens). The constraint applies to any hydrogens equivalent to the named hydrogen. The logic for determining which hydrogens are which is in src/core/scoring/constraints/AmbiguousNMRDistanceConstraints.cc:parse\_NMR\_name.
 
--   SiteConstraint: `SiteConstraint Atom1_Name Atom1_ResNum Opposing_chain Func_Type Func_Def`
+-   SiteConstraint: 
+```
+SiteConstraint Atom1_Name Atom1_ResNum Opposing_chain Func_Type Func_Def
+```
 
     <i>score term: atom_pair_constraint</i>
 
-    * Constraint that a residue interacts with some other chain - roughly, that it is (or is not) in a binding site. The atom and resnum identify which atom is being checked for interactions with the opposing chain. Notice that "Constraint" is irregularly in its tag.
+    * Constraint that a residue interacts with some other chain. SiteConstraints are a set of ambiguous atom-pair constraints that evaluate whether a residue interacts with some other chain or region - roughly, that it is (or is not) in a binding site. More specifically, if we have a SiteConstraint on a particular residue, that SiteConstraint consists of a set of distance constraints on the C-alpha from that residue to the C-alpha of all other residues in a set, typically the set being specific residues on another chain or chains. After each constraint is evaluated, only the constraint giving the lowest score is used as the SiteConstraint energy for that residue. The atom and resnum identify which atom is being checked for interactions with the opposing chain. Notice that "Constraint" is irregularly in its tag.  Regions for the SiteConstraint other than the entire other chain cannot currently be set via constraint file.
 
--   SiteConstraintResidues: `SiteConstraintResidues Atom1_ResNum Atom1_Name Res2 Res3 Func_Type Func_Def`
+-   SiteConstraintResidues: 
+```
+SiteConstraintResidues Atom1_ResNum Atom1_Name Res2 Res3 Func_Type Func_Def
+```
 
 	<i>score term: atom_pair_constraint</i>
 
 	* Constraint that a residue interacts with at least one of two other residues. The atom and resnum identify which atom is being checked for interactions with the CA atoms of the other residues.
 
--   BigBin: `BigBin res_number bin_char sdev`
+-   BigBin: 
+```
+BigBin res_number bin_char sdev
+```
 
     <i>score term: dihedral_constraint</i>
 
@@ -127,7 +163,6 @@ Nested constraints
 Nested constraints take as their parameters one or more other constraints, and allow optimization across multiple constraints. Typically in constraint files these are listed across multiple lines, with the name of the constraint opening the block of sub-constraints, and a line starting with "END" or "End" ending the block. In general, the scoretypes used by the nested constraints depends on which sub-constraints are used (this can normally be mixed).
 
 -   MultiConstraint:
-
      ```
      MultiConstraint                
      Constraint_Type1 Constraint_Def1
@@ -167,36 +202,36 @@ Functions are listed as "Func\_Type Func\_Def".
 
 	-   `CIRCULARHARMONIC  x0 sd       `
 
-	[[/images/form_1.png]]
+	    [[/images/form_1.png]]
 
 	-   `PERIODICBOUNDED period lb ub sd rswitch tag  `
-	* Note: Setting `rswitch` to anything other than 0.5 will create a discontinuity in the derivative. `rswitch` and `tag` should not be treated as optional.
+	    * Note: Setting `rswitch` to anything other than 0.5 will create a discontinuity in the derivative. `rswitch` and `tag` should not be treated as optional.
 
-	A BOUNDED constraint after mapping the measured value to the range -period/2 to +period/2. Useful for angle measures centered on zero.
+	     A BOUNDED constraint after mapping the measured value to the range -period/2 to +period/2. Useful for angle measures centered on zero.
 
 	-   `OFFSETPERIODICBOUNDED offset period lb ub sd rswitch tag  `
 
-	A BOUNDED constraint, where the measured value is (x - offset) mapped to the range -period/2 to +period/2. Useful for angle measures. (Note that lb and ub are interpreted after subtraction, so the true range of zero constraint is from lb+offfset to ub+offset.)
+	    A BOUNDED constraint, where the measured value is (x - offset) mapped to the range -period/2 to +period/2. Useful for angle measures. (Note that lb and ub are interpreted after subtraction, so the true range of zero constraint is from lb+offfset to ub+offset.)
 
 	-   `AMBERPERIODIC x0 n_period k`
 	
-	An AMBERPERIODIC function penalizes deviations from angle x0 by values from 0 to 2k, with n_period periods:
+	    An AMBERPERIODIC function is a cosine function of the angle x, with a maximum at x0 and a periodicity of n_period.  The amplitude is k, and the minimum value is 0:
 		-	f(x) = k * (1 + cos( ( n_period * x ) - x0 ) )
 
 	-   `CHARMMPERIODIC x0 n_period k`
 
-	A CHARMMPERIODIC function penalizes deviations from angle x0 by values from 0 to k, with n_period periods:
+	    A CHARMMPERIODIC function penalizes deviations from angle x0 by values from 0 to k, with n_period periods:
 		-	f(x) = 0.5 * k * (1 - cos( n_period * ( x - x0 ) ) )
 
 	-   `CIRCULARSIGMOIDAL xC m o1 o2`
 
-	A CIRCULARSIGMOIDAL function penalizes deviations x0 from angles o1 and/or o2 by values from 0 to 1, with n_period periods:
+	    A CIRCULARSIGMOIDAL function penalizes deviations x0 from angles o1 and/or o2 by values from 0 to 1, with n_period periods:
 
 		-	f(x) = 1/(1+ M_E ^ (-m*(x0-o1))) - 1/(1+M_E^(-m*(x0-o2)))
 
 	-   `CIRCULARSPLINE weight [36 energy values]`
 
-	A CIRCULARSPLINE function sets up a periodic cubic spline trained on the provided energy values, which represent the centers of thirty-six 10 degree bins
+	    A CIRCULARSPLINE function sets up a periodic cubic spline trained on the provided energy values, which represent the centers of thirty-six 10 degree bins
 
 -   `HARMONIC  x0 sd`
 
@@ -206,13 +241,13 @@ Functions are listed as "Func\_Type Func\_Def".
 
     Zero in the range of `x0 - tol` to `x0 + tol`. Harmonic with width parameter sd outside that range. Basically, a HARMONIC potential _(see above)_ split at x0 with a 2*tol length region of zero inserted.
 
--   ` BOUNDED lb ub sd rswitch tag  `
-    * Note: Setting `rswitch` to anything other than 0.5 will create a discontinuity in the derivative. `rswitch` and `tag` should not be treated as optional.
+-   ` BOUNDED lb ub sd rswitch tag`
+    * Note: Setting `rswitch` to anything other than 0.5 will create a discontinuity in the derivative. (If `tag` is not numeric, then `rswitch` may be omitted and will default to 0.5.) `tag` is NOT optional. 
 
     [[/images/form_2.png]]
 
 -   `GAUSSIANFUNC mean sd tag`
-    * Note: `tag` is NOT optional, as for BoundFunc/BOUNDED. If `tag = NOLOG, it triggers some undocumented behavior involving a logarithm of some sort.
+    * Note: `tag` is NOT optional, as for BoundFunc/BOUNDED. If `tag` = NOLOG, it triggers some undocumented behavior involving a logarithm of some sort.
 
     [[/images/form_3.png]]
 
@@ -239,8 +274,20 @@ Functions are listed as "Func\_Type Func\_Def".
 
     [[/images/form_7.png]]
 
--   `SPLINE  histogram_file_path experimental_value weight bin_size       ` 
-    * Note: This function reads in any histogram and creates a cubic spline over it using the Rosetta SplineGenerator. The full path to the file must be speified. The function assumes that all bin sizes are the same, even though you must specify it for each line in the cst file. If using RosettaEPR knowledge-based potential, replace \<filename\> with EPR\_DISTANCE, and it will read in the EPR distance histogram from the Rosetta database. See example below for using with EPR knowledge-based potential.
+-   `SPLINE description histogram_file_path experimental_value weight bin_size`
+
+    or, if the option `-constraints:epr_distance` is set `SPLINE description experimental_value weight bin_size`
+
+    In the first form, this function reads in a histogram file and creates a cubic spline over it using the Rosetta SplineGenerator. The full path to the file must be specified. The basic form of the histogram file is a *TAB SEPARATED* file of the following format:
+
+        x_axis  -1.750  -1.250  -0.750  -0.250  0.250   0.750   1.250   1.750 
+        y_axis  0.000   -0.500  -1.000  -2.000  -1.500  -0.500  -0.250  0.000
+
+    The values in the `x_axis` line must be in ascending order, and it is assumed that the values are for the center of the histogram bin and that all bin widths are the same as that specified in the constraint file. (In practice, the bin_size setting is only used for the bins on the end.) It's assumed that the values return to the baseline at the edge of the given x_axis range, and that all y_axis values outside the range are zero.
+
+    If the `description` parameter is `EPR_DISTANCE`, then the functional transformation of the measurement *x* is `weight * S(experimental_value - x)`, otherwise the functional transformation is `weight * S(x)`, and `experimental_value` is ignored.
+
+    If the `-constraints:epr_distance` option is given on the command line, then the histogram_file_path should be omitted, and the RosettaEPR knowledge-based potential will be read from a file in the Rosetta database. (See Hirst *et al.* (2011) J. Struct Biol. 173:506 and Alexander *et al.* (2013) PLoS One e72851 for details on this potential.) See example below for using with EPR knowledge-based potential.
 
 -   `FADE  lb ub d wd [ wo ]       `
     * This is meant to basically be a smoothed "square well" bonus of `        wd       ` between the boundaries `        lb       ` and `        ub       ` . An optional offset `        wo       ` (default 0) can be added to the whole function; this is useful if you want to make the function be zero in the 'golden range' and then give a penalty elsewhere (e.g., specify wd of -20 and wo of +20). To make sure the function and its derivative are continuous, the function is connected by cubic splines in the boundary regions in slivers of width d, between `        lb       ` to `        lb+d       ` and between `        ub-d       ` to `        ub       ` :
@@ -305,11 +352,11 @@ Sample Files
 ============
 
 ```
-AtomPair CZ 20 CA 6 GAUSSIANFUNC 5.54 2.0
-AtomPair CZ 20 CA 54 GAUSSIANFUNC 5.27 2.0
-AtomPair CZ 20 CA 50 GAUSSIANFUNC 5.26 2.0
-AtomPair CZ 20 CA 10 GAUSSIANFUNC 4.81 2.0
-AtomPair CZ 20 CA 41 GAUSSIANFUNC 9.90 2.0
+AtomPair CZ 20 CA 6 GAUSSIANFUNC 5.54 2.0 TAG
+AtomPair CZ 20 CA 54 GAUSSIANFUNC 5.27 2.0 TAG
+AtomPair CZ 20 CA 50 GAUSSIANFUNC 5.26 2.0 TAG
+AtomPair CZ 20 CA 10 GAUSSIANFUNC 4.81 2.0 STILL_TAG
+AtomPair CZ 20 CA 41 GAUSSIANFUNC 9.90 2.0 I_AM_ANNOYED_BY_THIS_TAG_FIELD
 ```
 
 ```
@@ -399,3 +446,21 @@ These function types cannot currently be specified in a file. They need to have 
 * [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
 * [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
+
+<!--- Gollum search optimization keywords
+constraint file
+constraint file
+constraint file
+cst file
+cst file
+cst file
+restraint file
+restraint file
+restraint file
+restraint file
+restraint file
+restraint file
+restraint file
+restraint file
+restraint file
+--->

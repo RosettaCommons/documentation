@@ -1,3 +1,4 @@
+#Rosetta people
 <!---BEGIN_INTERNAL-->
 This page is the "Rosetta Glory", by analogy to the Rosetta [[Glossary]]: a list of important folks in the Rosetta community.  This page is intentionally kept clear of pictures and contact info for privacy reasons - you will be able to find these people on the rosetta-devel [[email list|https://wiki.rosettacommons.org/index.php/Mailing_Lists]] if necessary.
 <!---END_INTERNAL-->
@@ -7,7 +8,7 @@ The PIs are not otherwise documented on this page. (If there's no more text on t
 
 <!---BEGIN_INTERNAL-->
 ####Andrew Leaver-Fay
-Andrew is the benevolent dictator of the Rosetta codebase.
+Andrew is the [[benevolent dictator|http://en.wikipedia.org/wiki/Benevolent_dictator_for_life]] of the Rosetta codebase.
 He is our most experienced computer scientist and software engineer, as well as having deep experience with almost all areas of Rosetta.
 He is one of the few members of the community with the skills to optimize code.
 He can answer almost any question, but as a consequence, is very busy.

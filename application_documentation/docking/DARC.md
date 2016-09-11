@@ -1,7 +1,5 @@
 # DARC
 
-##NOTE: Use of this app is no longer recommended for ligand docking. Use [[RosettaScripts]] instead. See [[HighResDockerMover]].
-
 # Metadata
 Author: Ragul Gowthaman (ragul@ku.edu)
 
@@ -72,7 +70,7 @@ $ echo zinc_13989607_conformers.mol2 > molfile_list.txt
 ```
 
 ```
-$ Rosetta/main/source/src/python/apps/public/batch_molfile_to_params.py -d Rosetta/main/database --script_path=Rosetta/main/source/src/python/apps/public/molfile_to_params.py molfile_list.txt
+$ Rosetta/main/source/scripts/python/public/batch_molfile_to_params.py -d Rosetta/main/database --script_path=Rosetta/main/source/scripts/python/public/molfile_to_params.py molfile_list.txt
 ```
 
 The output files are
@@ -84,7 +82,7 @@ params/zinc_13989607_conformers/000.params
 To run DARC we need to generate a RAY file for the input protein. To generate this ray-file we need to input the protein in PDB format and specify a target residue at the interface. We can specify more than one residue at the interface. The command to run DARC is as follows:
 
 ```
-$ Rosetta/main/source/bin/make_ray_files.macosclangrelease -database Rosetta/main/database/ -pocket_static_grid -protein 4ERF_0001.pdb -central_relax_pdb_num 61 -darc_shape_only 
+$ Rosetta/main/source/bin/make_ray_files.macosclangrelease -database Rosetta/main/database/ -protein 4ERF_0001.pdb -central_relax_pdb_num 61 -darc_shape_only -round_pocketGrid_center false -pocket_static_grid true
 ```
 
 The output from this command will be a ray-file named “ray_4ERF_0001_61.txt”.
@@ -293,6 +291,9 @@ In this case the DARC score for the final docked pose is 4.29993. This score can
 
 If we use the flag '-minimize_output_complex' the model will be minimized and we get the file 'mini_4ERF_0001_LG1.pdb' as output.
 
+NOTE: For best results, always use the following flags when calling make_ray_files app:
+-pocket_static_grid true
+-round_pocketGrid_center false
 
 ##See Also
 

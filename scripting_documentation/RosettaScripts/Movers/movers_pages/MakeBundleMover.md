@@ -1,12 +1,15 @@
 # MakeBundle
+Page created by Vikram K. Mulligan (vmullig@uw.edu).  Last modified 16 June 2016.
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## MakeBundle
 
 Generates a helical bundle using the Crick equations (which describe a helix of helices).  This mover is general enough to create arbitrary helices using arbitrary backbones.  Since strands are a special case of a helix (in which the turn per residue is about 180 degrees), the mover can also generate beta-barrels or other strand bundles.  The generated secondary structure elements are disconnected, so subsequent movers (e.g. <b>GeneralizedKIC</b>) must be invoked to connect them with loops.  Parameters are stored with the pose, and are written in REMARK lines on PDB output.
 
+Helix types are defined with crick_params files, located in the Rosetta database in database/protocol_data/crick_parameters (or provided by the user).  Support for Crick parameter files defining helices in which the repeating unit is more than one residue has recently been added.
+
 ```
-<MakeBundle name=(&string) use_degrees=(false &bool) reset=(true &bool) symmetry=(0 &int) symmetry_copies=(0 &int) set_dihedrals=(true &bool) set_bondlengths=(true &bool) set_bondangles=(true &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) omega1=(0.0 &real) z1=(0.0 &real) delta_omega1=(0.0 &real) delta_t=(0.0 &real) z1_offset=(0.0 &real) z0_offset=(0.0 &real) invert=(false &bool) >
-     <Helix set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) omega1=(0.0 &real) z1=(0.0 &real) delta_omega1=(0.0 &real) delta_t=(0.0 &real) z1_offset=(0.0 &real) z0_offset=(0.0 &real) invert=(false &bool) />
+<MakeBundle name=(&string) use_degrees=(false &bool) reset=(true &bool) symmetry=(0 &int) symmetry_copies=(0 &int) set_dihedrals=(true &bool) set_bondlengths=(true &bool) set_bondangles=(true &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) delta_omega1=(0.0 &real) delta_t=(0.0 &real) z1_offset=(0.0 &real) z0_offset=(0.0 &real) invert=(false &bool) >
+     <Helix set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) delta_omega1=(0.0 &real) delta_t=(0.0 &real) z1_offset=(0.0 &real) z0_offset=(0.0 &real) invert=(false &bool) repeating_unit_offset=(0 &int) />
 ...
 </MakeBundle>
 ```
@@ -14,25 +17,28 @@ Generates a helical bundle using the Crick equations (which describe a helix of 
 Options in the <b>MakeBundle</b> tag set defaults for the whole bundle.  Individual helices are added with the <b>Helix</b> sub-tags, each of which may include additional options overriding the defaults.  The parameters that can be adjusted are:
 
 <b>set_bondlengths, set_bondangles, set_dihedrals</b>: Should the mover be able to set each of these DOF types?  By default, all three are set by the mover.  Allowing bond angles and bond lengths to be set creates non-ideal backbones, but which are flexible enough to more perfectly form a helix of helices.  (Slight deviations form perfect major helices are seen with only dihedrals being set.)<br/>
+<b>residue_name</b>: The type of residue from which the helix should be constructed.  In the case of helices with repeating units of more than one residue (e.g. collagen), one must specify a comma-separated list of residue types (e.g. "PRO,PRO,GLY").<br/>
 <b>r0</b>: The major helix radius (the radius of the bundle, in Angstroms).<br/>
 <b>omega0</b>:  The major helix turn per residue, in radians (or degrees, if use_degrees is set to true).  If set too high, no sensible geometry can be generated, and the mover throws an error.  <i>Note: All angular values are in <b>radians</b> unless use_degrees is set to true.</i><br/>
 <b>delta_omega0</b>:  An offset value for <b>omega0</b> that will rotate the generated helix about the bundle axis.<br/>
-<b>crick_params_file</b>:  A filename containing parameters (e.g. minor helix radius, minor helix twist per residue, minor helix rise per residue, <i>etc.</i>) for the minor helix.  Crick parameters files for helices formed by arbitrary noncanonical backbones can be generated using the <b>fit_helixparams</b> app.  The Rosetta database currently contains six sets of minor helix parameters:<br/>
+<b>crick_params_file</b>:  A filename containing parameters (e.g. minor helix radius, minor helix twist per residue, minor helix rise per residue, <i>etc.</i>) for the minor helix.  Crick parameters files for helices formed by arbitrary noncanonical backbones can be generated using the <b>fit_helixparams</b> app.  The Rosetta database currently contains several sets of minor helix parameters:<br/>
 - "alpha_helix": A standard L-amino acid right-handed alpha-helix, with phi=-64.8, psi=-41.0, and omega=180.0.  Note that the turn per residue for this helix is 98.65 degrees, not exactly 100 degrees.<br/>
 - "alpha_helix_100": An L-amino acid right-handed alpha-helix, with phi=-62.648, psi=-41.0, and omega=180.0, yielding a turn per residue of 100 degrees.  This is for backward compatibility with the Python scripts used to generate helical bundles previously.
 - "beta_strand": An L-amino acid beta-strand, with phi=-135.0, psi=135.0, and omega=180.0.<br/>
+- "collagen": <b>EXPERIMENTAL</b>.  This generates a collagen helix.  This is experimental because the repeating unit in this helix is a three-residue repeat rather than a single residue.
 - "neutral_beta_strand": An unnaturally straight beta-strand, with phi=180.0, psi=180.0, and omega=180.0.  Both L- and D-amino acids can access this region of Ramachandran space.<br/>
 - "L_alpha_helix": A left-handed alpha-helix, as can be formed by D-amino acids.  Phi=64.8, psi=41.0, and omega=180.0.<br/>
 - "daa_beta_strand": A beta-strand formed by D-amino acids, mirroring that formed by L-amino acids.  Phi=135.0, psi=-135.0, and omega=180.0.<br/>
 - "14_helix": A left-handed helix formed by beta-amino acids.  Phi=-139.9, theta=59.5, psi=-138.7, and omega=180.0.<br/>
 
-<b>omega1</b>:  The minor helix turn per residue.  This is usually set with a Crick parameters file, but this option overrides whatever value is read in from the file.<br/>
+<b>omega1</b>:  The minor helix turn per residue.  This is usually set with a Crick parameters file, but this option overrides whatever value is read in from the file.  <b>Not recommended</b>.  Most users should simply read omega1 from a Crick parameters file.<br/>
 <b>delta_omega1</b>:  An offset value for <b>omega1</b>.  This rotates the generated helix about the minor helix axis ("rolling" the helix).<br/>
-<b>z1</b>:  The minor helix rise per residue.  This is usually set with a Crick parameters file, but this option overrides whatever value is read in from the file.<br/>
+<b>z1</b>:  The minor helix rise per residue.  This is usually set with a Crick parameters file, but this option overrides whatever value is read in from the file.  <b>Not recommended</b>.  Most users should simply read omega1 from a Crick parameters file.<br/>
 <b>delta_t</b>:  Shifts the registry of the helix.  (This value is the number of amino acid residues by which the helix should be shifted.)  Mainchain atoms are shifted along a path shaped like a helix of helices.<br/>
 <b>z1_offset</b>:  Shifts the helix along the minor helix axis.  (The distance is measured in Angstroms along the <i>major helix axis</i>).  Mainchain atoms are shifted along a path shaped like a helix.  Inverted helices are shifted in the opposite direction.<br/>
 <b>z0_offset</b>:  Shifts the helix along the major helix axis.  (The distance is measured in Angstroms).  Mainchain atoms are shifted along a path shaped like a straight line.  Inverted helices are shifted in the opposite direction.<br/>
 <b>invert</b>:  This reverses the direction of a helix, which makes it easy to generate antiparallel bundles or sheets.<br/>
+<b>repeating_unit_offset</b>:  In the special case of helices in which the repeating unit is more than one residue (e.g. collagen), this allows the user to offset the repeating unit in the helix by a certain number of residues.  A value of 0 means that the first residue in the helix will be the first residue in the repeating unit; a value of 1 means that the first residue in the helix will be the <i>second</i> residue in the repeating unit, <i>etc.</i><br/>
 
 In addition, the following options can only be set for the bundle as a whole:
 
@@ -58,7 +64,9 @@ Note that RosettaScripts requires some sort of input on which to operate, but th
 
 ##See Also
 
-* [[BundleGridSamplerMover]]
+* [[BundleGridSampler mover|BundleGridSamplerMover]]
+* [[PerturbBundle mover|PerturbBundleMover]]
+* [[BundleReporter filter|BundleReporterFilter]]
 * [[Symmetry]]: Using symmetry in Rosetta
 * [[SymmetryAndRosettaScripts]]
 * [[SetupForSymmetryMover]]
@@ -66,6 +74,5 @@ Note that RosettaScripts requires some sort of input on which to operate, but th
 * [[DetectSymmetryMover]]
 * [[SymMinMover]]
 * [[SymPackRotamersMover]]
-* [[MakeBundleMover]]
 * [[ExtractAsymmetricUnitMover]]
 * [[ExtractAsymmetricPoseMover]]

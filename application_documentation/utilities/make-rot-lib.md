@@ -4,8 +4,9 @@ Metadata
 ========
 
 Author: P. Douglas Renfrew (renfrew@nyu.edu)
+Author: Andrew Watkins (amw579@nyu.edu)
 
-The documentation was last updated in December 2011, by P. Douglas Renfrew. The PI for this application is Brian Kuhlman (bkuhlman@email.unc.edu).
+The documentation was last updated in February 2016, by Andy Watkins. The PI for this application is Brian Kuhlman (bkuhlman@email.unc.edu).
 
 Code and Demo
 =============
@@ -16,6 +17,8 @@ References
 ==========
 
 P. Douglas Renfrew, Eun Jung Choi, Brian Kuhlman, "Using Noncanonical Amino Acids in Computational Protein-Peptide Interface Design" (2011) PLoS One. It is strongly recomended to read the paper as it provided addition details.
+
+A *very* early version of this code was used to generate a bound dye rotamer library for Gulyani A, Vitriol E, Allen R, Wu J, Gremyachinskiy D, Lewis S, Dewar B, Graves LM, Kay BK, Kuhlman B, Elston T, Hahn KM. A biosensor generated via high-throughput screening quantifies cell edge Src dynamics. Nat Chem Biol. 2011 Jun 12;7(7):437-44. doi: 10.1038/nchembio.585. Erratum in: Nat Chem Biol. 2012 Aug;8(8):737. PubMed PMID: 21666688; PubMed Central PMCID: PMC3135387.
 
 Purpose
 ===========================================
@@ -37,12 +40,12 @@ Running the MakeRotLib protocol consists of four steps
 Limitations
 ===========
 
-This code is designed to make Dunbrack 2002 style rotamer libraies for noncanonical side chains with an alpha-peptide backbone.
+This code was originally designed to make Dunbrack 2002 style rotamer libraries for noncanonical side chains with an alpha-peptide backbone. It is reasonably well extended to handle peptoid backbones and beta+-peptide backbones; moreover, it has the facility to generate the continuous distribution necessary for a Dunbrack 2010-style approach to a non-rotameric chi (such as chi2 of aspartate).
 
 Input Files
 ===========
 
-Rosetta primarily uses backbone dependent rotamer libraries. Backbone-dependent rotamer libraries list provide side chain conformations sampled from residue positions whose backbone dihedral angles fall in particular bins. In the case of the Drunbrack rotamer libraries used by Rosetta the bins are in 10 degree intervals for for both phi and psi for a total of 1296 (36\*36) phi/psi bins. To replicate this for the NCAAs we need to create a set of side chain rotamers for each member of a set of phi/psi bins.
+Rosetta primarily uses backbone dependent rotamer libraries. Backbone-dependent rotamer libraries list provide side chain conformations sampled from residue positions whose backbone dihedral angles fall in particular bins. In the case of the Drunbrack rotamer libraries used by Rosetta the bins are in 10 degree intervals for for both phi and psi for a total of 1296 (36\*36) phi/psi bins.  (For beta amino acids, for the moment, we employ 30 degree bins, for a total of 1728 (12\*12\*12).) To replicate this for the NCAAs we need to create a set of side chain rotamers for each member of a set of phi/psi bins.
 
 The MakeRotLib protocol takes an option file as input. It requires an options file for each phi/psi bin. The first step in running it is creating these 1296 options files. Continuing from the HowToMakeResidueTypeParamFiles protocol capture we are again using ornithine as an example. Ornithine has 3 sidechain dihedral angles (chi). We want to sample each chi angle from 0 to 360 degrees in 30 degree intervals, and based on the chemistry of the side chain we predict that were will probably be three preferred angles for each chi angle at 60, 180, and 300 degrees for a total of 27 rotamers (3x3x3). We setup our MakeRotLib options file template as shown bellow.
 
@@ -50,9 +53,12 @@ The `       C40_rot_lib_options_XXX_YYY.in      ` file is shown bellow.
 
 ```
 AA_NAME C40
-PHI_RANGE XXX XXX 0
-PSI_RANGE YYY YYY 0
+OMG_RANGE 180 180 1
+PHI_RANGE XXX XXX 1
+PSI_RANGE YYY YYY 1
+EPS_RANGE 180 180 1
 NUM_CHI 3
+NUM_BB 2
 CHI_RANGE 1 0  330  30
 CHI_RANGE 2 0  330  30
 CHI_RANGE 3 0  330  30
@@ -83,6 +89,7 @@ CENTROID  60 3 180 2  60 3
 CENTROID  60 3  60 3 300 1
 CENTROID  60 3  60 3 180 2
 CENTROID  60 3  60 3  60 3
+TEMPERATURE 1
 ```
 
 -   AA\_NAME | three letter code for the amno acid
@@ -91,6 +98,7 @@ CENTROID  60 3  60 3  60 3
 -   NUM\_CHI | number side chain dihedral angles : This should be the same as in the parameter file.
 -   CHI\_RANGE chi number | starting value | ending value | interval : The number of CHI\_RANGE fields needs to equal the values specified for NUM\_CHI.
 -   CENTROID | Rotamer number for chi 1 | starting value { rotamer number for chi 2 | starting value }{etc.} : CENTROIDS specify the starting points for the K-means clustering described in the related publication. A CENTROID field is needs for each potential rotamer. The number of CENTROID fields defines the number of rotamers listed in the resulting rotamer library.
+-   TEMPERATURE | Boltzmann distribution style temperature to translate from the energies generated by the protocol into probabilities.
 
 To generate the 1296 input files we use a provided script that simply replace the XXX and YYY with the phi and psi values. The script is run as shown bellow.
 

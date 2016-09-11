@@ -1,29 +1,31 @@
 # Abinitio
 
-#### Basic Algorithm, FragmentSampler
+An introductory tutorial on _ab initio_ can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/denovo_structure_prediction/Denovo_structure_prediction). A tutorial on protein folding using the broker can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/advanced_denovo_structure_prediction/folding_tutorial)
 
-The fragment assembly proceeds in 4 stages that differ mainly by the ScoreFunction and the fragment size applied during the trial moves. The third stage is split into two sub-stages stage IIIa and IIIb. The weight-sets to create the ScoreFunctions are stored in the rosetta database under the names score0, score1, score2, score5 and score3, for stage 1, 2, 3a, 3b and 4, respectively. To manipulate the scoring during assembly stages one has to provide a score patch using the flags -abinitio:stageX_patch file.wts_patch, where X= 1, 2, 3a, 3b or 4, respectively and file.wts_patch is a file containing the patch. There is no single flag to patch the ScoreFunctions of all stages at once.
+## Basic Algorithm, FragmentSampler
 
-The fragment assembly protocol generally runs a block of fragment trial moves (standard block size is 2000 cycles) and then returns the conformation that during the cycles gave the lowest energy. Stage I and II run 1 cycle block each of 2000 cycles. In stage III 10 cycle-blocks of 2000 cycles are run interleaving in IIIa and IIIb modus. In stage IV 3 blocks of 4000 cycles are run. The number of cycles can be scaled up globally using flag -increase_cycles X such that the new cycle numbers are 2000*X and 4000*X, respectively.
+The fragment assembly proceeds in 4 stages that differ mainly by the ScoreFunction and the fragment size applied during the trial moves. The third stage is split into two sub-stages stage IIIa and IIIb. The weight-sets to create the ScoreFunctions are stored in the Rosetta database under the names `score0`, `score1`, `score2`, `score5` and `score3`, for stage 1, 2, 3a, 3b and 4, respectively. To manipulate the scoring during assembly stages one has to provide a score patch using the flags `-abinitio:stageX_patch file.wts_patch`, where X = 1, 2, 3a, 3b or 4, respectively and file.wts_patch is a file containing the patch. There is no single flag to patch the ScoreFunctions of all stages at once.
+
+The fragment assembly protocol generally runs a block of fragment trial moves (standard block size is 2000 cycles) and then returns the conformation that during the cycles gave the lowest energy. Stage I and II run 1 cycle block each of 2000 cycles. In stage III 10 cycle-blocks of 2000 cycles are run interleaving in IIIa and IIIb modus. In stage IV 3 blocks of 4000 cycles are run. The number of cycles can be scaled up globally using flag `-increase_cycles X` such that the new cycle numbers are 2000\*X and 4000\*X, respectively.
 
 The trial moves will be large fragments in Stages I, II, III and small fragments in stage IV and are handled by the ClassicFragmentMover. In blocks 2 and 3 of stage IV a SmoothFragmentMover is used that prefers fragment moves with little downstream perturbation. The amount of downstream perturbation is quantified using the GunnCost metric.
 
-The flag -abinitio:skip_stages [1,2,3,4] allows to specify a list of stages that are skipped during the fragment assembly process. The standard behavior is to recover the lowest scoring pose after each cycle block. This can be behavior can be changed by explicitly enumerating the stages where a recovery should happen with flag -abinitio:recover_low_instages [1,2,3,4].
+The flag `-abinitio:skip_stages [1,2,3,4]` allows to specify a list of stages that are skipped during the fragment assembly process. The standard behavior is to recover the lowest scoring pose after each cycle block. This can be behavior can be changed by explicitly enumerating the stages where a recovery should happen with flag `-abinitio:recover_low_instages [1,2,3,4]`.
 
-#### Fold Constraints Algorithm, ConstraintFragmentSampler
+## Fold Constraints Algorithm, ConstraintFragmentSampler
 
 Some changes and additions to the basic algorithm are made to improve the performance in the presence of constraints.
 
-Distance restraints and chainbreak penalties (jumping) are switched on according to their sequence separation, i.e., the minimum number of residues one has to traverse in the FoldTree to get from one residue to the other. The first cycling block in StageI is started with a maximum sequence separation of 3 residues. Subsequently, this threshold is increased in steps of two residues until a maximum sequence separation of 15% (-fold_cst::seq_sep_stages) of the total length of the protein is reached. After each increment a StageI cycle block is sampled. This is a reason why the constraint algorithm is slower for large proteins (many increments until 15% is reached... ).
-In subsequent stages, the sequence separation threshold is slowly ramped up to 100% (-fold_cst::seq_sep_stages) but no additional sampling cycles are used.
+Distance restraints and chainbreak penalties (jumping) are switched on according to their sequence separation, i.e., the minimum number of residues one has to traverse in the [[FoldTree|FoldTree overview]] to get from one residue to the other. The first cycling block in Stage I is started with a maximum sequence separation of 3 residues. Subsequently, this threshold is increased in steps of two residues until a maximum sequence separation of 15% (`-fold_cst::seq_sep_stages`) of the total length of the protein is reached. After each increment a StageI cycle block is sampled. This is a reason why the constraint algorithm is slower for large proteins (many increments until 15% is reached... ).
+In subsequent stages, the sequence separation threshold is slowly ramped up to 100% (`-fold_cst::seq_sep_stages`) but no additional sampling cycles are used.
 
-If beta-strand jumping is used the chainbreak penalties are treated similar to distance restraints such that they turned on/off according to the sequence separation threshold, additionally the chainbreak-weights in the ScoreFunction can be ramped up (-jumping:ramp_chainbreaks).
+If beta-strand jumping is used the chainbreak penalties are treated similar to distance restraints such that they turned on/off according to the sequence separation threshold, additionally the chainbreak-weights in the `ScoreFunction` can be ramped up (`-jumping:ramp_chainbreaks`).
 
-####  Flags (Abinitio)
+##  Flags (Abinitio)
 
-An application that uses the abinitio protocol and is, for example, started in the directory rosetta_demos/abinitio/ would read-out the following flags:
+An application that uses the abinitio protocol and is, for example, started in the directory `rosetta_demos/abinitio/` would read-out the following flags:
 
-Input Options
+### Input Options
 ```
 -in:file:native ./input_files/1elw.pdb 	                Native structure (optional)
 -in:file:fasta ./input_files/1elwA.fasta 	        Protein sequence in fasta format (required)
@@ -32,7 +34,7 @@ Input Options
 -database path/to/rosetta/main/database 	        Path to rosetta database (required if not ROSETTA3_DB environment variable is set)
 ```
 
-Output options
+### Output options
 ```
 -nstruct 1 	                        Number of output structures (default=1).
 -out:file:silent 1elwA_silent.out 	Use silent file output, use filename after this flag (default=default.out).
@@ -40,11 +42,11 @@ Output options
 -out:path /my/path 	                Path where PDB output files will be written to (default='.').
 ```
 
-Algorithmic options
+### Algorithmic options
 
-These flags are implemented in FragmentSampler .cc
+These flags are implemented in `FragmentSampler.cc`
 
-There are several optional settings which have been benchmarked and tested thoroughly for optimal performance these options carry the comment "recommended":
+There are several optional settings. Those which have been benchmarked and tested thoroughly for optimal performance carry the comment "recommended":
 ```
 -abinitio::increase_cycles 10 	Increase the number of cycles at each stage in ab initio by this factor (recommended).
 -abinitio:rg_reweight 0.5 	Reweight contribution of radius of gyration to total score by this scale factor (recommended).
@@ -61,9 +63,9 @@ There are several optional settings which have been benchmarked and tested thoro
                                             use this flag to switch this off for individual stages
 ```
 
-Constraint and Jumping options
+### Constraint and Jumping options
 
-These flags are implemented in ConstraintFragmentSampler .cc
+These flags are implemented in `ConstraintFragmentSampler.cc`
 ```
 -constraints:cst_weight 1.0 	                Patches the weight for the ScoreType atom_pair_constraint in
                                                 all scores (score0, score1, score2, score5 and score3) used
@@ -99,9 +101,10 @@ These flags are implemented in ConstraintFragmentSampler .cc
                                                 Irrelevant if ramping of chainbreaks is active.
 ```
 
-Processing options
+### Processing options
 
 For running multiple jobs on a cluster the following options are useful:
+
 ```
 -constant_seed 	        Use a constant seed (1111111 unless specified with -jran)
 -jran 1234567 	        Specify seed. Should be unique among jobs (requires -constant_seed)
@@ -115,19 +118,21 @@ For running multiple jobs on a cluster the following options are useful:
 -run:test_cycles 	only a single sampling cycle per stage (for testing, default=False)
 ```
 
-#### Source Code 
+## Source Code 
 
-The top-level mover that encodes the abrelax protocol is called AbrelaxMover and resides in main/source/src/protocols/abinitio.
+The top-level mover that encodes the abrelax protocol is called AbrelaxMover and resides in `main/source/src/protocols/abinitio`.
 
 This top-level mover calls the Movers for the fragment assembly protocol (abinitio), and relax protocol. If beta-strand jumping is used non-natural chainbreaks have to be closed, and the AbrelaxMover will the protocols for loop-closing and idealize before the relax stage.
 
-The fragment assembly protocol is encoded in the Movers FragmentSampler and its derived class ConstraintFragmentSampler which reside in main/source/src/protocols/abinitio.
+The fragment assembly protocol is encoded in the Movers FragmentSampler and its derived class ConstraintFragmentSampler which reside in `main/source/src/protocols/abinitio`.
 
-The AbrelaxMover works closely together with the TopologyBroker module that resides in main/source/src/protocols/topology_broker. The TopologyBroker module handles the introduction of restraints, and the determines the kinematics of beta-strands through its ConstraintClaimer and TemplateJumpClaimer classes, respectively.
+The AbrelaxMover works closely together with the [[TopologyBroker|BrokeredEnvironment]] module that resides in `main/source/src/protocols/topology_broker`. The TopologyBroker module handles the introduction of restraints, and then determines the kinematics of beta-strands through its ConstraintClaimer and TemplateJumpClaimer classes, respectively.
 
 
 #See Also
 
+* [Ab initio Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/denovo_structure_prediction/Denovo_structure_prediction)
+* [Protein Folding using the Broker Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/advanced_denovo_structure_prediction/folding_tutorial)
 * [[Abinitio relax]]: Main page for this application
 * [[Fasta file]]: Fasta file format
 * [[Fragment file]]: Fragment file format (required for abinitio structure prediction)

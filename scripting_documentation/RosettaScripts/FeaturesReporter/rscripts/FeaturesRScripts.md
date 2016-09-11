@@ -5,15 +5,15 @@ R Scripts
 
 How to [[Set up R|FeaturesSettingUpR]] .
 
-
-##See Also
-
-* [[Features reporter overview]]: The FeaturesReporter home page
 * R tutorials for FeaturesReporters
   * [[FeaturesTutorialRBasics]]
   * [[FeaturesTutorialGGplots2Basics]]
   * [[FeaturesTutorialPlotScript]]
   * [[FeaturesTutorialPlotTuning]]
+
+##See Also
+
+* [[Features reporter overview]]: The FeaturesReporter home page
 * [[FeaturesTutorials]]: Tutorials for using FeaturesReporters
 * [[FeatureReporters]]: List of implemented FeatureReporters
 * [[RosettaScripts home page|RosettaScripts]]

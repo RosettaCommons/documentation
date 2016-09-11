@@ -2,13 +2,7 @@
 
 Rosetta 3 (formerly MiniRosetta) is an object-oriented implementation of Rosetta that has been rewritten in C++ from the ground up by a core team of developers. These guidelines are intended to help new (and to remind old/current) Rosetta developers to learn, maintain, and improve the reliability, clarity, and performance of the code while we continue its development and modernization. 
 
-See also:
-* [[Rosetta database conventions|Database-Conventions]];
-* [[Python coding conventions for Rosetta (Media wiki)|https://wiki.rosettacommons.org/index.php/User:Labonte/Sandbox]];
-* the [[List of things you should check before committing your code|before-commit-check]]
-* [[Rosetta overview]] to know about Rosetta 3;
-* [[Tutorials for developers|devel-tutorials]]; 
-* [[List of Common Warnings and How to Avoid Them|Common-Errors]]
+
 
 ##Conventions
 ###Copyright Header
@@ -21,7 +15,7 @@ The Rosetta Commons copyright header is required for every source code *file* in
 // (c) This file is part of the Rosetta software suite and is made available under license.
 // (c) The Rosetta software is developed by the contributing members of the Rosetta Commons.
 // (c) For more information, see http://www.rosettacommons.org. Questions about this can be
-// (c) addressed to University of Washington UW TechTransfer, email: license@u.washington.edu.
+// (c) addressed to University of Washington UW CoMotion, email: license@uw.edu.
 ```
 
 ###Coding Guidelines
@@ -34,7 +28,7 @@ The Rosetta Commons copyright header is required for every source code *file* in
   * To overcome this problem, Rosetta 3 uses two kinds of smart pointer: [[owning pointers]] (a.k.a. "OP") or [[access pointers]] (a.k.a. "AP"). Owning pointers increment reference counts; access pointers do not. Owning pointer use should be restricted to pointing downward in an permanence hierarchy; access pointers should point upwards or sideways in that heirarchy. Consider two clases &mdash; class `Collection` and class `Object`, where a `Collection` points to many `Object`s and `Object`s point upward to the `Collection` in which they are contained. The `Collection` should hold [[owning pointers]] to `Object`s, and `Object`s should hold an access pointer to their `Collection`.
   * More information on how to using Owning Pointers correctly in Rosetta can be found here: [[How to use pointers correctly]]
 
-* **Avoid [[C-style arrays (media wiki link) |https://wiki.rosettacommons.org/index.php/C-style_array_examples]].** Especially avoid writing to C-style `char` arrays with the `scanf` family of functions. This invariably introduces buffer overflow bugs that can hide unnoticed and are hard to track down. Instead, use <code>std::string` buffers and C++ stream i/o. `scanf` has also been found to be a security weakness (due to "stack smashing").
+* **Avoid [[C-style arrays (media wiki link) |https://wiki.rosettacommons.org/index.php/C-style_array_examples]].** Especially avoid writing to C-style `char` arrays with the `scanf` family of functions. This invariably introduces buffer overflow bugs that can hide unnoticed and are hard to track down. Instead, use `std::string` buffers and C++ stream i/o. `scanf` has also been found to be a security weakness (due to "stack smashing").
 
 * **Use [[include guards (media wiki link) |https://wiki.rosettacommons.org/index.php/Include_guards_example]] in all header files.** The include variables defined should be named `INCLUDED_namespace(*_subnamespace)_filename(_FWD)_HH` for consistency, *e.g.*:
  ```#define INCLUDED_core_scoring_EnergyMap_HH```
@@ -61,7 +55,7 @@ The Rosetta Commons copyright header is required for every source code *file* in
   * a `.fwd.hh` file. (See [[File Inclusion|Coding-Conventions#File-Inclusion]] below for details about what to include in each file.)
 
 #####Member data
-* All persistent data must live as member data of a class.  **No global data.** (See [[Global Data in Rosetta (media wiki link)|GlobalDataInRosetta3]] ).
+* All persistent data must live as member data of a class.  **No global data.** (See [[Global Data in Rosetta]] ).
 
 * All data must be private; **protected data is forbidden.**
   * If derived classes need to have read access to private data, compose accessor functions.
@@ -271,7 +265,7 @@ utility::pointer::down_pointer_cast< Bar >( foo ); // returns a BarOP
 ```
 
 #### Thread Safety
-* (See the discussion on global data [[ here (media wiki)|https://wiki.rosettacommons.org/index.php/GlobalDataInRosetta3]])
+* (See the discussion on global data [[ here |Global-Data-in-Rosetta]])
 * Never use non-const static data in any method.  Constant static data is ok.  If you don’t know what static data is, don’t declare anything to be static.
 * Our multi-threading model is:
   * no more than one thread per pose;
@@ -439,6 +433,7 @@ void fold_protein( std::string const & sequence );
   static basic::Tracer TR("core.io.pdb.file_data");
 ```
 ----
+
 ##Coding Templates
 The following templates can assist in learning the coding conventions. They also will save you a lot of time. Please add your own Rosetta 3 coding-convention-compliant templates to list below, which is organized by IDE and file type.
 
@@ -504,3 +499,12 @@ To deal with the formatting problem we could use a code beautifiers like...
 
 To Speed up code...
 * [[Simple tips to optimize code|http://www.tantalon.com/pete/cppopt/asyougo.htm]](Ex: always pass string by reference)
+
+##See Also
+
+* [[Rosetta database conventions|Database-Conventions]]
+* [[Python coding conventions for Rosetta]]
+* the [[List of things you should check before committing your code|before-commit-check]]
+* [[Rosetta overview]] to know about Rosetta 3
+* [[Tutorials for developers|devel-tutorials]]
+* [[List of Common Warnings and How to Avoid Them|Common-Errors]]

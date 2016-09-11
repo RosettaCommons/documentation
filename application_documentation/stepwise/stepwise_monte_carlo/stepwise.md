@@ -26,7 +26,9 @@ Limitations
 
 -  The method is acutely sensitive to the assumed energy function. This is in contrast to other Rosetta protocols that either transit through low-resolution ('centroid') stages or make use of database fragments; both strategies 'regularize' the search but preclude solution of problems in which low-resolution energy functions are not trustworthy or the fragment database is too sparse. 
 
--  The method is intended to obey detailed balance, albeit on a perturbed energy landscape where each conformation's energy is mapped to the energy of the closest local minimum. In problems involving multiple chains that are dock/undocked or chains closed/broken, the current move implementations do not quite obey detailed balance due to incorrect move schedule and omission of a Jacobian ratio, respectively. Both issues are fixable, and will be fixed in future releases.
+- The method computes loop closure (`loop_close`) energies based on a simple Gaussian chain model of uninstantiated loops. While this energy function can handle cycles of loops, it fails on pose collections that have nested loop cycles, and so those are avoided by default in `stepwise`.
+
+-  The method is intended to obey detailed balance, albeit on a perturbed energy landscape where each conformation's energy is mapped to the energy of the closest local minimum. Major deviations from detailed balance are avoided by computing the ratio of forward to reverse proposal probabilities. However, in moves involving addition or resampling of chains with closure, the current move implementations do not quite obey detailed balance due to incorrect handling of the multiplicity of moves upon adding, incorrect move schedule and omission of a Jacobian ratio, respectively. There are ways to fix this, if need be.
 
 Code and Demo
 =============
@@ -63,9 +65,9 @@ Das, R. (2013) "Atomic-accuracy prediction of protein loop structures enabled by
 Modes
 =====
 
--   By default, the code runs Stepwise Monte Carlo. Applications to RNA loops, mini-proteins, mixed RNA/protein, etc. are not different modes, but instead are defined by input sequences (see below). 
+-   By default, the code runs Stepwise Monte Carlo. Applications to RNA loops, mini-proteins, mixed RNA/protein, etc. are not different modes, but instead are defined by input sequences (see below). The code will recognize up to two domains for docking, allowing in principle for ab initio models of RNA-RNA tertiary contacts or RNA-protein interfaces without knowing a priori their rigid body arrangement.
 
--   It is possible to run single specified moves given a starting structure, specified through `-move`. See 'Tips' below.
+-   It is possible to run single specified moves given a starting structure, specified through `-move`. See [Tips](#tips) below.
 
 Input Files
 ===========
@@ -100,7 +102,7 @@ Here's an animation that reaches the known experimental structure.
 
 Additional useful parameters:
 
- The flag `   -extra_min_res 4 9  ` would ask for the closing base pair of the starting helix to be minimized (but not subject to additions, deletions, or rotamer resampling) during the run. It is not obligatory, but allowing realxation of closing base pairs appears to generally improve convergence in this and other RNA cases.
+ The flag `-motif_mode` is equivalent to `-extra_min_res 4 9 -terminal_res 1 12` would ask for the closing base pair of the starting helix to be minimized (but not subject to additions, deletions, or rotamer resampling) during the run, and prevention of residues from stacking on the exterior boundary pair ('terminal res'). It is not obligatory, but allowing relaxation of closing base pairs appears to generally improve convergence in this and other RNA cases.
 
 For RNA cases, `  -score:rna_torsion_potential RNA11_based_new -chemical::enlarge_H_lj  ` are currently in use to test an updated RNA torsional potential and to help prevent overcompression of RNA helices. These may be turned on by default at the time of publication of the method, after completion of benchmarking.
 
@@ -196,7 +198,7 @@ Commonly used:
 **In following, ChainResidueVector means input like "4 5 6 9 10", "4-6 9-10", or "A:4-6 B:9-10" are all acceptable from command-line.**
 
 Less commonly used, but useful
--extra_min_res                                   specify residues other than those being built that should be minimized [ChainResidueVector*]
+-motif_mode                                      auto-setup of -extra_min_res and -terminal_res as is appropriate for typical RNA motif runs (junctions,loops,etc.)
 -sample_res                                      residues to build (default is to build everything in FASTA that is not in starting PDBs) [ChainResidueVector*]
 -score:weights                                   Weights file in database. [File]
 -make_movie                                      Output each TRIAL and ACCEPTED structure in the monte carlo to a silent file in the movie/ subdirectory. Useful for pymol movie making.
@@ -215,11 +217,19 @@ Advanced
 -preminimize                                     Just prepack and minimize input poses
 -stepwise:rna:erraser                            Use KIC sampling instead of CCD closure (default:false)
 -bulge_res                                       optional: residues to keep uninstantiated
+-extra_min_res                                   specify residues other than those being built that should be minimized [ChainResidueVector*]
 -terminal_res                                    optional: RNA residues that are not allowed to stack during sampling
+-block_stack_above_res                           optional: residues on which other residues cannot stack above (uses 
+                                                           repulsion atoms)
+-block_stack_below_res                           optional: residues on which other residues cannot stack below (uses 
+                                                           repulsion atoms)
 
 Rarely used but listed with --help
 -data_file                                       RDAT or legacy-format file with RNA chemical mapping data [File] (currently not in use, but will be soon)
 -stepwise:atr_rep_screen                         In packing, screen for contacts (but no clash) between partitions before packing (**default:true**)
+-virtualize_free_moieties_in_native              Virtualize bulges, terminal phosphates, and 2' hydroxyls detected to be 
+                                                  non-interacting ('free') in native pose. I.e., do 
+                                                  not calculate RMSD over those atoms. (default:true)
 -allow_virtual_side_chains                       In packing, allow virtual side chains (**default:true**)
 -temperature                                     Temperature for Monte Carlo Minimization (default: 1.0)
 -input_res                                       Residues numbers in starting files. [ChainResidueVector*]
@@ -230,8 +240,10 @@ Rarely used but listed with --help
 -minimize_single_res_frequency                   Frequency with which to minimize the residue that just got rebuilt, instead  of all (default: 0.0)
 -switch_focus_frequency                          Frequency with which to switch the sub-pose that is being modeled (default: 0.5)
 -just_min_after_mutation_frequency               After a mutation, how often to just minimize (without further sampling the mutated residue) (default: 0.5)
+-submotif_frequency                              Frequency with which to try a special submotif from a currently small database (UA,GG,U-turn) (default: 0.2)
 -allow_internal_hinge_moves                      Allow moves in which internal suites are sampled (hinge-like motions) (default:true)
 -allow_internal_local_moves                      Allow moves in which internal cutpoints are created to allow ERRASER rebuilds (default:**false**)
+-new_move_selector                               When deciding on move acceptance, correct by ratio of forward and reverse move proposal probabilities, helps maintain detailed balance (default: true) 
 -allow_skip_bulge                                Allow moves in which an intervening residue is skipped and the next one is modeled as floating base (default:**false**)
 -allow_variable_bond_geometry                    In 10% of moves, let bond angles & distance change (default:false) (**warning: this may not work anymore**)
 -num_pose_minimize                               number of sampled poses to minimize within each stepwise move (1 for RNA; 5 poses with lowest energy after packing for protein)
@@ -347,17 +359,30 @@ The models from the above run are stored in compressed format in files like `swm
 extract_pdbs  -in:file:silent swm_rebuild.out
 ```
 
+Experimental stuff
+=============================
+Lo-res mode
+------------
+[![Stepwise lores animation on Youtube](http://img.youtube.com/vi/Q0qNSTN05is/0.jpg)](http://www.youtube.com/watch?v=Q0qNSTN05is)
+
+In this mode, created by the flags `-lores` seeks to enable tests of stepwise with way more cycles than allowed above. Instead of minimizing, the model is optimized by 100 cycles of  [[fragment assembly|rna-denovo]] after each stepwise add/delete/resample, in a low resolution scorefunction (here, `rna_lores.wts` supplemented with `loop_close` and `ref`). Leads to over-optimization of an inaccurate function in most loop modeling or motif cases, or worse optimization than classic [[FARFAR setup for loops|rna-denovo-setup]].  Contact Rhiju if you're interested in trying on more complex cases, where there might be a 'win'.
+
+Variable-length loop mode
+-------------------------
+This is a generalization of stepwise design where loops (specified as strings of `n` in the FASTA file) are allowed to change their length during the run. Maximum loop lengths are based on FASTA file. Run `stepwise` with `-vary_loop_length_frequency 0.2` to check it out -- contact Rhiju to make this robust, and to optimize predicted delta-G for tertiary folding by comparison to free energies from the Vienna RNA package.
+
+
 New things since last release
 =============================
-This is a new executable as of 2014.
+This is a new executable as of 2014, with continuing updates to end of 2015.
 
 ##See Also
-
 * Applications for deterministic stepwise assembly:
   * [[Stepwise assembly for protein loops|swa-protein-main]]
     * [[Additional documentation|swa-protein-long-loop]]
   * [[RNA loop modeling with Stepwise Assembly|swa-rna-loop]]
 * [[Overview of Stepwise classes|stepwise-classes-overview]]
+* [Developer's internal documentation for Stepwise](https://www.rosettacommons.org/docs/wiki/internal_documentation/Internal-Documentation#documentation-for-specific-projects_stepwise-assembly-and-monte-carlo-project) (for developers)
 * [[Structure prediction applications]]: Includes links to these and other applications for loop modeling
 * [[RNA applications]]: Applications to be used with RNA or RNA and proteins
 * [[RosettaScripts]]: The RosettaScripts home page
@@ -367,3 +392,4 @@ This is a new executable as of 2014.
 * [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
 * [[Commands collection]]: A list of example command lines for running Rosetta executable files
+* [RiboKit](http://ribokit.github.io/): RNA modeling & analysis packages maintained by the Das Lab

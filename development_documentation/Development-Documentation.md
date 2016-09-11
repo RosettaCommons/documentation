@@ -34,6 +34,10 @@ For RosettaCommons developers, we have a version of the Doxygen documentation wh
 
 
 ##Code organization
+
+| [[/images/rosetta_code_mindmap.png]]<br /> A general scheme of Rosetta source code organization<br /> Large size file (poster size) can be downloaded [from here](http://bioshell.pl/~bioshell/rosetta_code_mindmap.jpg)|  
+|-----------|
+
 - [[Rosetta library structure]] - Overview of how the Rosetta library is structured.
 - [[src index page]] - Overview of the src directory.
 
@@ -55,6 +59,7 @@ For RosettaCommons developers, we have a version of the Doxygen documentation wh
 ##Rosetta style guidelines
 
 - [[How to use pointers correctly]] - Working with Rosetta's smart pointer system.
+- [[A note on parsing residue selections in movers and filters]] -- Using the residue selection parsing system to detect Rosetta numbering, PDB numbering, or ReferencePose numbering.
 
 ##Using particular classes
 

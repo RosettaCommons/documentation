@@ -16,7 +16,8 @@ Add constraints to the pose based on the current conformation. It can either app
 -   min\_seq\_sep - for atom pair distance constraints, the minimum sequence separation between pairs of constrained residues.
 -   max\_distance - for atom pair distance constraints, the maximum Cartesian distance between pairs of constrained Calpha atoms. - Note: Because of implementation details, the value of the constraint will be forced to zero at distances greater than 10 Ang, regardless of the max\_distance setting.
 -   cst\_weight - for atom pair distance constraints, the scaling factor
--   task\_operations - apply constraints to residues which are non-packing and non-design ones. Leave it empty if want to apply constraints to all residues
+-   task\_operations - apply constraints to residues which are non-packing and non-design ones. Leave it empty if want to apply constraints to all residues.  Cannot be used with "residue\_selector"
+-  residue\_selector - Residue selector that specifies which residues to which constraints should be applied.  Default is all residues. Cannot be used with "task\_operations"
 -   CA\_only -Apply constraints only on CA atom. Otherwise, apply to all non-hydrogen atoms (in coordinate constraints).
 -   bb\_only - Only apply to backbone heavy atoms (only support in coordinate constraints)
 

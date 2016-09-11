@@ -491,3 +491,12 @@ equivalent seeds.
 * [[Using the job distributor|jd2]]
 * [[RosettaEncyclopedia]]: Detailed descriptions of concepts in Rosetta.
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables
+
+
+<!--
+Resource Manager ResourceManager
+Resource Manager ResourceManager
+Resource Manager ResourceManager
+Resource Manager ResourceManager
+Resource Manager ResourceManager
+Resource Manager ResourceManager-->

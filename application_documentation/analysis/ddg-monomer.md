@@ -34,6 +34,8 @@ Purpose
 
 The purpose of this application is to predict the change in stability (the ddG) of a monomeric protein induced by a point mutation. The application takes as input the crystal structure of the wild-type (which must be first pre-minimized), and generates a structural model of the point-mutant. The ddG is given by the difference in rosetta energy between the wild-type structure and the point mutant structure. More precisely, 50 models each of the wild-type and mutant structures should be generated, and the most accurate ddG is taken as the difference between the mean of the top-3-scoring wild type structures and the top-3-scoring point-mutant structures.
 
+Rosetta follows the convention that negative ddG values indicate increased stability _i.e._ ddG = mutant energy - wildtype energy.
+
 Algorithm
 =========
 

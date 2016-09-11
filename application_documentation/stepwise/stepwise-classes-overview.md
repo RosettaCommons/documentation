@@ -11,9 +11,9 @@ An appeal: If you update the code or find something missing in this documentatio
 
 (2) In `StepWiseMonteCarlo`, several cycles of Monte Carlo minimization are run on the pose, again using a standard Rosetta `MonteCarlo` object. 
 
-(3) Each cycle involves random selection of a `SWA_Move`. [There is also a mode where you can apply a single move for testing or for enumeration.]
+(3) Each cycle involves random selection of a `StepWiseMove`. [There is also a mode where you can apply a single move for testing or for enumeration.]
 
-(4) Application of a `SWA_Move` means adding, deleting, splitting, or merging some residues in the pose; and then asking a `StepWiseModeler` to resample the affected DOFs. The resampled DOFs define a `move_element` which can be the backbone DOFS of a terminal residue, the internal covalent connection between contiguous residues, or a jump (re-docking). Its also possible to not make any covalent adds/deletes to the `pose` and just resampled a specific connection.
+(4) Application of a `StepWiseMove` means adding, deleting, splitting, or merging some residues in the pose; and then asking a `StepWiseModeler` to resample the affected DOFs. The resampled DOFs define a `move_element` which can be the backbone DOFS of a terminal residue, the internal covalent connection between contiguous residues, or a jump (re-docking). Its also possible to not make any covalent adds/deletes to the `pose` and just resampled a specific connection.
 
 (5) The `StepWiseModeler` does some aligning and packing of the pose and then runs a `StepWiseConnectionSampler` using a bunch of variables setup in `StepWiseWorkingParameters`. That's the key step. After that, the `StepWiseModeler` then minimizes one (or sometimes more) resulting poses.
 
@@ -65,7 +65,7 @@ Several [[score terms|stepwise-score]] in `src/core/scoring/` calculate energies
 ### additional notes 
 Several helper functions developed for stepwise modeling have been lifted into various util.cc functions or classes. Of note are:
 
-• `correctly_add_cutpoint_variants` in `core/pose/util.hh`. Not only adds CUTPOINT variants & virtual atoms for sealing chainbreaks but also sets up chemical bond structure for both RNA and protein. And removes other variants that are incompatible with cutpoints.
+• `correctly_add_cutpoint_variants` in `core/pose/util.hh`. Not only adds CUTPOINT variants & virtual atoms for sealing chainbreaks but also sets up chemical bond structure for both RNA and protein. And removes other variants that are incompatible with cutpoints.  
 • `pdbslice` in `core/pose/util.hh` cuts subsets of residues out of poses, with smart resetting of jump atoms & variant handling.
 
 

@@ -8,6 +8,8 @@ Brian Weitzner (brian.weitzner@jhu.edu), Monica Berrondo (mberron1@jhu.edu), Kri
 
 Last edited 6/08/2015 by Jeliazko Jeliazkov. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
 
+An introductory tutorial of protein-protein docking can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/Protein-Protein-Docking/Protein-Protein-Docking).
+
 [[_TOC_]]
 
 Code and Demo
@@ -79,7 +81,7 @@ The only required input file is a [[prepacked pdb file|docking-prepack-protocol]
 
 If you are using a starting structure with more than two polypeptide chains, you should include the -partners flag. If this flag is omitted, docking will dock the first two polypeptide chains in the strucutre.
 
-**Note:** An ensemble of input structures can be given using the follow flags: `-ensemble1 [partner_1_pdb_list]` or/and `-ensemble2 [partner_2_pdb_list]`.
+**Note:** An ensemble of input structures can be given using the follow flags: `-ensemble1 [partner_1_pdb_list]` or/and `-ensemble2 [partner_2_pdb_list]`. This ensemble file should be generated using docking_prepack_protocol. It contains a list of prepacked pdbs followed by the probabilities of swapping them.
 
 Standard Docking options
 ========================
@@ -183,6 +185,16 @@ Tips
 
 -   If the interface score doesn't show up in the scorefile and you want to add it, you can use the flag ```-score:docking_interface_score 1 ```
 
+-   You can use the docking protocol to calculate interface RMSDs:
+```
+/path/to/docking_protocol.linuxgccrelease -l input_pdbs.list \
+-native native.pdb \
+-docking_local_refine \
+-dock_min \
+-out:file:score_only recalc_rmsd.sc \
+-nstruct 1
+```
+
 Constraints
 ===========
 
@@ -224,6 +236,7 @@ New things since last release
 
 ##See Also
 
+* [Protein-protein Docking Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/Protein-Protein-Docking/Protein-Protein-Docking): Getting started with docking
 * [[Docking Applications]]: Home page for docking applications
 * [[Preparing structures]]: Notes on preparing structures for use in Rosetta
 * [[Application Documentation]]: List of Rosetta applications

@@ -17,6 +17,16 @@ A more complete (but probably not 100% complete) list can be found [here](http:/
 
 Protein Structure Prediction
 -----------------
+* Simons K, Kooperberg C, Huang E, Baker D (1997)  
+[Assembly of Protein Tertiary Structures from Fragments with Similar Local Sequences using Simulated Annealing and Bayesian Scoring Functions.] (http://www.ncbi.nlm.nih.gov/pubmed/9149153) (pubmed link)  
+J. Mol. Biol. 268:209-225  
+Simons et al. describe the method of combining simulated annealing with fragment libraries to generate native-like structures.
+
+* Simons K, Ruczinski I, Kooperberg C, Fox B, Bystroff C, Baker D (1999)  
+[Improved Recognition of Native-Like Protein Structures Using a Combination of Sequence-Dependent and Sequence-Independent Features of Proteins.] (http://www.ncbi.nlm.nih.gov/pubmed/) (pubmed link)  
+Proteins 34:82-95  
+Simons et al. describe the development of an improved score function containing secondary structure packing terms.
+
 * Simons KT, Bonneau R, Ruczinski I, Baker D (1999)  
 [Ab initio protein structure prediction of CASP III targets using ROSETTA.] (http://www.ncbi.nlm.nih.gov/pubmed/10526365) (pubmed link)  
 Proteins Suppl 3:171-6  
@@ -32,8 +42,12 @@ Raveh et al. describe algorithms to predict the bound state of flexible peptides
 PLoS One 6:e20450  
 DiMaio et al. describe a framework for efficiently modeling highly symmetric oligomers using a single monomer, the inter-monomer interface, and mathematical relationships between subunits.
 
+
 Scoring
 --------------
+
+**See also [[Scorefunction History#publications timeline]]**
+
 * Rohl CA, Strauss CE, Misura KM, Baker D (2004) [Protein structure prediction using Rosetta.](http://www.ncbi.nlm.nih.gov/pubmed/15063647) (pubmed link)  
 Methods in Enzymology.  
 This paper, often called the **Rohl review**, is a window into Rosetta's early scorefunction, and remains an excellent reference for early forms of the score function terms. It can be a little hard to find online, but paper photocopies float around most Rosetta labs.
@@ -47,7 +61,7 @@ The supplemental is most relevant for scoring.
 * Leaver-Fay A, O'Meara MJ, Tyka M, Jacak R, Song Y, Kellogg EH, Thompson J, Davis IW, Pache RA, Lyskov S, Gray JJ, Kortemme T, Richardson JS, Havranek JJ, Snoeyink J, Baker D, Kuhlman B (2013)  
 [Scientific benchmarks for guiding macromolecular energy function improvement.] (http://www.ncbi.nlm.nih.gov/pubmed/23422428) (pubmed link)  
 Methods Enzymol 523:109-43  
-Leaver-Fay et al. describe OptE, a methodology for using sequence-recovery and rotamer-recovery benchmarks to improve weights sets for scoring functions and describe [[Talaris2013|score-types]], the current state-of-the-art general purpose Rosetta energy function.
+Leaver-Fay et al. describe OptE, a methodology for using sequence-recovery and rotamer-recovery benchmarks to improve weights sets for scoring functions.  This was used in a [separate paper](http://www.ncbi.nlm.nih.gov/pubmed/25866491) to generate [[Talaris2013/4|score-types]], the current state-of-the-art general purpose Rosetta energy function.
 
 Docking
 --------------
@@ -187,3 +201,40 @@ Renfrew et al. demonstrate that peptoid residues (N-alkylated or arylated glycin
 * [[Glossary]]: Brief definitions of Rosetta terms
 * [[RosettaEncyclopedia]]: Detailed descriptions of Rosetta terms
 * [[Rosetta Timeline]]: Rosetta releases and other events
+* [[Scorefunction History]]: A history of the Rosetta scorefunction
+
+<!--- This comment is search engine (grep) optimization)
+canon
+canon
+canon
+canon
+canon
+canon
+canon
+canon
+canon
+canon
+canon
+canon
+papers
+papers
+papers
+papers
+papers
+papers
+papers
+papers
+papers
+papers
+papers
+papers
+papers
+papers
+papers
+papers
+papers
+papers
+papers
+papers
+papers
+--->

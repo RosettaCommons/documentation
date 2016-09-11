@@ -238,7 +238,9 @@ At the end you will get a output pdb file in standard pdb format. The output fil
 New things since last release
 =============================
 
-All the application used here (*erraser\_minimizer* , *swa\_rna\_analytical\_closure* and *swa\_rna\_main*) are new as of Rosetta 3.4. A new electron density scoring method `       elec_dens_atomwise      ` is used in ERRASER. ERRASER also uses an updated rna torsional potential based on RNA09 dataset.
+* All the application used here (*erraser\_minimizer* , *swa\_rna\_analytical\_closure* and *swa\_rna\_main*) are new as of Rosetta 3.4. A new electron density scoring method `       elec_dens_atomwise      ` is used in ERRASER. ERRASER also uses an updated rna torsional potential based on RNA09 dataset. 
+* Recent updates/fixes to the ERRASER code base have been made to address possible bug-related inaccuracies. For best results, all ERRASER users should download/install a weekly build of Rosetta 2015.35 (released Sept. 24, 2015) or later.
+
 
 ##See Also
 
@@ -252,3 +254,4 @@ All the application used here (*erraser\_minimizer* , *swa\_rna\_analytical\_clo
 * [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
 * [[Commands collection]]: A list of example command lines for running Rosetta executable files
+* [RiboKit](http://ribokit.github.io/): RNA modeling & analysis packages maintained by the Das Lab

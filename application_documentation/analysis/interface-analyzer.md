@@ -5,12 +5,14 @@ Metadata
 
 Author: Steven Lewis, P. Ben Stranges, Jared Adolf-Bryfogle
 
-Last updated 11/24/13 by Jared Adolf-Bryfogle. The PI is Brian Kuhlman, [bkuhlman@email.unc.edu](#) .
+Last updated June 29, 2016 by Steven Lewis. The PI is Brian Kuhlman, [bkuhlman@email.unc.edu](#) .
 
 Code and Demo
 =============
 
 InterfaceAnalyzer has a suite of integration test/demos at rosetta/main/tests/integration/tests/InterfaceAnalyzer. The application resides at rosetta/main/source/src/apps/public/analysis/InterfaceAnalyzer.cc, and its mover at rosetta/main/source/src/protocols/anchored\_design/InterfaceAnalyzerMover.\*
+
+The underlying [[Mover]] is documented for use (for example in [[RosettaScripts]] here: [[InterfaceAnalyzerMover]].
 
 References
 ==========
@@ -86,6 +88,14 @@ General Rosetta/JD2 options are accepted: in:file:s, in:file:l, in:file:silent f
 
 -   It is STRONGLY suggested you use -out:file:score_only (scorefile) OR -out:jd2:no_output (bool) to suppress echoing input structures as outputs.
 
+SASA
+====
+
+The SASA radii have changed since 3.5 to be more correct. Previously, they were using a set that was parameterized for a no-longer-in-use score function. That said, the changes are relatively minute. Rosetta now uses the radii from reduce by default (see options attached for original references to this radii set). You can now change both the radii set that is used and whether hydrogens are considered implicitly or explicitly. Also note that currently the only method is the LeGrand sasa method, which does not calculate the exact SASA. Most methods do not calculate the exact SASA for speed.
+
+Ok, now, as for the hSASA. Polar atoms were included in the calculation before and they are not now. This should also be more correct, but it depends on what you think the hSASA should be. There is very little systematic analysis of this number. The default is to exclude the atom from hSASA if the charge on it is greater than .4 which, in terms of protein, only means to exclude carbonyl and carboxyl carbons as these are polar. Again, you can change this via an option. These general options are now in the SASA option namespace. Refer to [[this page | full-options-list#sasa]] for more.
+
+
 Tips
 ====
 
@@ -114,6 +124,7 @@ InterfaceAnalyzer generates a ton of data about your input structure. The follow
 -   side1\_normalized: Average per-residue energy on one side of the interface.
 -   side2\_normalized: Average per-residue energy on the other side of the interface.
 -   complex\_normalized: Average energy of a residue in the entire complex
+-   hbonds\_int: Total cross-interface hydrogen bonds found.   
 -   hbond\_E\_fraction: Amount of interface energy (dG\_separated) accounted for by cross interface H-bonds
 
 The following is output to either tracer or the output pdb (depending on the -tracer\_data\_print option), but (as of this writing) cannot be sent to a scorefile:
@@ -134,16 +145,14 @@ The following are fields that appear in the tracer output if -tracer\_data\_prin
 -   INTERFACE DELTA SASA/SEPARATED INTERFACE ENERGY: Binding energy ("accurate") divided by SASA
 -   DELTA UNSTAT HBONDS: Difference in the number of unsatisfied hydrogen bonds between the bound and unbound state
 -   HBOND ENERGY: Energy due to the hydrogen bonding term
+-   CROSS INTERFACE HBONDS: Total number of cross-interface hydrogen bonds scored by Rosetta.
 
 Post Processing
 ===============
 
-This application is part of your post processing for other executables; there is really no post-processing to do for itself.
+This application is part of your post processing for other executables; there is really no post-processing to do for itself.  
 
-New things since last release
-=============================
-
-This is the first release.
+However, a typical situation for design is to select the top 10 models by interface dG of the top 10 percent of total energy.    
 
 
 ##See Also

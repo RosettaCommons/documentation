@@ -11,7 +11,7 @@ Despite ROSIE's variety it offers only a slice of Rosetta's full functionality, 
 Because this is a free public resource, computer time is limited.
 ROSIE runs can be downloaded and used to build Rosetta jobs that you run on your own local resources.
 
-* [ROBETTA (external link)](http://robetta.bakerlab.org/) (Robot-Rosetta) is a server that provides [[_ab initio_|abinitio-relax]] folding and structure prediction, as well as [[fragment|fragment-file]] selection for local runs of Rosetta.
+* [ROBETTA (external link)](http://robetta.bakerlab.org/) (Robot-Rosetta) is a server that provides *[[ab initio|abinitio-relax]]* folding and structure prediction, as well as [[fragment|fragment-file]] selection for local runs of Rosetta.
 This is the oldest Rosetta server, set up to provide for Rosetta's original functions.
 It also provides [[interface alanine scanning|interface analyzer]] and [[DNA interface residue scanning|Rosetta DNA]].
 

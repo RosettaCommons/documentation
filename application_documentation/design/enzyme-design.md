@@ -14,6 +14,8 @@ The application executable is in rosetta/main/source/src/apps/public/enzdes/enzy
 
 A basic usage example is the enzdes integration test, found in rosetta/main/tests/integration/tests/enzdes/ To do a production run, the flags file from the enzdes integration test should be expanded by the desired rotamer packing options (ex1, ex2, use\_input\_sc, linmem\_ig ), the number n (usually 2-4) of iterative design/minimization cycles the user would like to do (-design\_min\_cycles n ) and of course by the number of structures the user would like to produce (-nstruct). All options pertaining to enzdes are in the options documentation, [[options documentation page|full-options-list]] , section enzdes
 
+A tutorial on protein design can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/protein_design/protein_design_tutorial).
+
 References
 ==========
 
@@ -274,6 +276,7 @@ New feature for evaluating designs: The -final\_repack\_without\_ligand option h
 
 ##See Also
 
+* [Protein Design Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/protein_design/protein_design_tutorial)
 * [[Design applications | design-applications]]: other design applications
 * [[Application Documentation]]: Application documentation home page
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.

@@ -39,9 +39,7 @@ Branching and merging is the preferred development pattern in git, and because t
 * If you can't help but think about git in terms of subversion, you may need a [[reeducation|http://hginit.com/00.html]]
 
 ###Getting started
-* If you are a new developer, visit the [[NewNewDevelopersPage (still on media wiki)|https://wiki.rosettacommons.org/index.php/NewNewDevelopersPage]].
-* (On that page, you will be instructed to sign the developers' agreement.  To get write access to the Rosetta repositories, you will also need your PIs written approval.)
-* Create a github account and email Yuval Sedan (yuval.sedan@mail.huji.ac.il) with your account name to be added to the RosettaCommons Github Organization. This will give you access to the Rosetta code repositories. 
+* New developers, or those that have not had their Github account set up with access to RosettaCommons repositories,  should visit  [[NewNewDevelopersPage (which is on the media wiki)|https://wiki.rosettacommons.org/index.php/NewNewDevelopersPage]]. On that page, there are instructions on how to set up a GitHub account, requesting permission from the Rosetta Manager and signing the developers' agreement.
 * If you are new to the Rosetta community, you will need some of the standard [[Rosetta external dependencies|Build-Documentation]] like a compiler, etc.
 * Even if you are converting from SVN, you will need [[git|https://help.github.com/articles/set-up-git]].
 * You will need to set up SSH keys for use with GitHub. You can find instructions for this [[here|https://help.github.com/articles/generating-ssh-keys]]. Note that id_rsa.pub and id_dsa.pub can be used interchangeably at this point, although the instructions use id_rsa.pub.
@@ -107,7 +105,7 @@ If you want to change the git editor, use `git config --global core.editor "EDIT
 `git push origin <githubusername>/BRANCHNAME`
 If you want to push everything (all the branches in your repository) and you only have one remote configured (this is the case unless you explicitly add another remote), you can just use
 `git push`
-**Note**: there are probably many cases where you do not want to push everything.  If you have not pulled from github, you may not have all the commits in other branches, and so if you try to run "git push," it will be rejected with the (distressing) comment that you should try the --force flag, i.e. "git push --force".  Do not try to push with the --force flag.  For more information on commands you should not use, check out [[this page (still on media wiki)|https://wiki.rosettacommons.org/index.php/GitNoNoCommands]].
+**Note**: there are probably many cases where you do not want to push everything.  If you have not pulled from github, you may not have all the commits in other branches, and so if you try to run "git push," it will be rejected with the (distressing) comment that you should try the --force flag, i.e. "git push --force".  Do not try to push with the --force flag.  For more information on commands you should not use, check out [[this page|GitNoNoCommands]].
 **Note**: If you're using git 1.8 or higher, "git push" will try to push only the branch you have checked out.
 **Note**: After 5/13/2013, if you have updated your gitconfig, then git versions earlier than 1.8 should also push only the branch you have checked out.
 
@@ -247,5 +245,8 @@ There are many commands in git which have identical names, however the functiona
 
 ##See Also
 
+* [[Git Sometimes Commands]]: Other useful Git commands
+* [[GitNoNoCommands]]: Git commands that you should **not** use with RosettaCommons repositories
+* [[Reverting a commit]]: Case study for reverting a bad commit
 * [[Development Documentation]]
 * [[Pull Requests]]

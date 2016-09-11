@@ -1,5 +1,7 @@
 <!-- --- title: Output Options -->
 
+[Here](https://www.rosettacommons.org/demos/latest/tutorials/input_and_output/input_and_output#controlling-output) is a tutorial on basic output control.
+
 Here is a list of common used output options.
 
 General Output Options
@@ -95,18 +97,26 @@ Handy output options for debugging a protocol
 =============================================
 
 ```
--inout:dump_connect_info         Writes explicit CONECT records in the PDB file,
-                                 so that bonds are drawn between all connected
-                                 atoms. Default = "false".  [Boolean]
+-inout:write_all_connect_info    Writes explicit CONECT records in the PDB file,
+                                 for all bonded atoms, so that bonds are drawn for
+                                 anything that's bonded when the structure is viewed
+                                 in a program like PyMOL.  (By default, only CONECT
+                                 records for noncanonical entities are written.)
+                                 Default = "false".  [Boolean]
 -inout:connect_info_cutoff       Sets the threshold for writing CONECT records.
                                  Bonded atoms separated by more than this
                                  distance (in Angstroms) have a CONECT record
-                                 written.  Set to 0.0 to write all bonds.
-                                 Default = 3.0. [Real]
+                                 written.  Set this to 0.0 to write all bonds.
+                                 Default = 0.0. [Real]
+-inout:skip_connect_info         Prevents the writing of CONECT records in the PDB file.
+                                 In the absence of this flag, CONECT records are written
+                                 for anything that isn't a canonical L-alpha amino acid or
+                                 a canonical nucleic acid.  Default = "false".  [Boolean]
 ```
 
 ##See Also
 
+* [Tutorial on Controlling Input and Output](https://www.rosettacommons.org/demos/latest/tutorials/input_and_output/input_and_output#controlling-output)
 * [[Options overview]]: Description of options in Rosetta
 * [[Input options]]
 * [[Full options list]]

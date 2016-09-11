@@ -1,0 +1,19 @@
+# Movers for Initialization: SymmetricAddMembraneMover
+
+## Description
+This mover initializes a membrane representation (membrane residue, spanning topology etc) for a symmetric pose. The pose must already be symmetric (SetupForSymmetry has been run) for this setup to work. The membrane residue is added as the root of the symmetric system. This setup currently only works for C-Symmetric poses. 
+
+## RosettaScripts interface
+
+TODO: Currently not compatible with RosettaScripts. 
+
+## Contact
+
+- Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
+- Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
+- Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
+
+## Reference
+
+Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press
+

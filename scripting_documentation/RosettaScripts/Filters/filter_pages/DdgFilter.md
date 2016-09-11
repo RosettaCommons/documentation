@@ -43,6 +43,9 @@ The script below shows how to enable PB with ddg filter. I have APBS (Adaptive P
         <Add filter_name=.../>  more filtering
     </PROTOCOLS>
 
+## Known issues
+If a disulfide present across the interface in question the filter silently fails and the ddG column is not added to the score file. A work around (that ignores the energy contribution of the disulfide) is to provide the ddG filter a scorefunction with dslf_fa13 reweighed to zero.
+
 ## See also
 
 * [[Docking applications|docking-applications]]

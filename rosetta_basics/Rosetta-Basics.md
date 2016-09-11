@@ -1,6 +1,6 @@
 #Rosetta Basics
 
-###If you are new to Rosetta, start [[here|Getting-Started]].
+###If you are new to Rosetta, start [[here|Getting-Started]] to understand what you need to run Rosetta. Then check out these [introductory tutorials](https://www.rosettacommons.org/demos/latest/Home#tutorials).
 
 ###If you are trying to find the right protocol to use for your biological application, look [[here|Solving-a-Biological-Problem]].
 
@@ -18,44 +18,6 @@
     * [[Topology Broker|BrokeredEnvironment]]
 - [[Analyzing Results]]
 
-####[[Fundamental Rosetta Concepts|Rosetta-overview]]
-
-- [[Brief history of Rosetta|Rosetta-Timeline]]
-
-- [[FAQ]]
-
-- [[Glossary of terms|Glossary]]
-    - [[Longer form descriptions|RosettaEncyclopedia]]
-
-- [[Units in Rosetta]]
-
-- [[Scoring|scoring-explained]]
-
-- [[Scorefunctions and Score types | Score Types]] - Description of the default Rosetta Scorefunction and common score types.
-    *  [[MM Std Scorefunction | NC-scorefunction-info#MM-Standard-Scorefunction]]
-    *  [[Orbitals Scorefunction | NC-scorefunction-info#Partial-Covalent-Interactions-Energy-Function-(Orbitals)]]
-    *  [[Additional score types | score-types-additional]]
-    *  [[Hydrogen bonding score term|hbonds]]
-
-- [[Symmetry]]
-
-- [[Minimization | Minimization Overview]] - Backbone and/or side chain degrees of freedom
-
-- [[Comparing Structures]]
-
-- [[I want to do _x_. How do I do _x_? | I-want-to-do-x ]] 
-
-- Advanced Topics
-    * [Rosetta3 Architecture](http://www.ncbi.nlm.nih.gov/pubmed/21187238)
-    * [[Foldtree Overview]]
-    * [[AtomTree Overview]]
-    * [[Loop modeling styles and algorithms|loopmodel-algorithms]]
-
-####Preparing structures to be used by Rosetta
-* [[Preparing typical PDB files|preparing-structures]]
-* [[Preparing PDB files for non-peptide polymers]]
-* [[Preparing ligands]]
-
 ####[[Common/Useful Rosetta Options|options-overview]]
 - [[Input options]]
 - [[Output options]]
@@ -64,6 +26,33 @@
 - [[Score options]]
 - [[Packing options]]
 - [[Renamed and Deprecated Options]]
+
+####[[Fundamental Rosetta Concepts|Rosetta-overview]]
+
+- [[Brief history of Rosetta|Rosetta-Timeline]]
+- [[FAQ]]
+- [[Glossary of terms|Glossary]]
+    - [[Longer form descriptions|RosettaEncyclopedia]]
+- [[Units in Rosetta]]
+
+- [[Scoring|scoring-explained]]
+- [[Scorefunctions and Score types | Score Types]] - Description of the default Rosetta Scorefunction and common score types.
+    *  [[Lazaridis-Karplus solvation energy | Lazaridis-Karplus-Solvation-Energy-fa-solv]]
+    *  [[MM Std Scorefunction | NC-scorefunction-info#MM-Standard-Scorefunction]]
+    *  [[Orbitals Scorefunction | NC-scorefunction-info#Partial-Covalent-Interactions-Energy-Function-(Orbitals)]]
+    *  [[Additional score types | score-types-additional]]
+    *  [[Hydrogen bonding score term|hbonds]]
+    *  [[Centroid score terms]]
+- [[Symmetry]]
+- [[Minimization | Minimization Overview]] - Backbone and/or side chain degrees of freedom
+- [[Comparing Structures]]
+- [[I want to do _x_. How do I do _x_? | I-want-to-do-x ]] 
+
+- Advanced Topics
+    * [Rosetta3 Architecture](http://www.ncbi.nlm.nih.gov/pubmed/21187238)
+    * [[Foldtree Overview]]
+    * [[AtomTree Overview]]
+    * [[Loop modeling styles and algorithms|loopmodel-algorithms]]
 
 ####Common File Formats
 - [[Fasta file]] - Input protein sequences
@@ -80,6 +69,11 @@
 - [[Matcher (Enzdes) Constraint Files|match-cstfile-format]] - A constraint file specialized for protein-ligand interactions
 - [[Chemical shift file]] - NMR chemical shifts
 - [[Bin transition probabilities file]] - Probabilities of transitioning from one mainchain torsion bin to another, used by some sampling schemes
+
+####Preparing structures to be used by Rosetta
+* [[Preparing typical PDB files|preparing-structures]]
+* [[Preparing PDB files for non-peptide polymers]]
+* [[Preparing ligands]]
 
 ####[[Working with Non-Protein Residues and Molecules|non-protein-residues]]
 - General Guidance:
@@ -116,6 +110,7 @@
 ##See Also
 
 * [[Getting Started]]: A page for people new to Rosetta. New users start here.
+* [Introductory Rosetta Tutorials](https://www.rosettacommons.org/demos/wiki/Home#tutorials)
 * [[FAQ]]: Frequently Asked Questions
 * [[Glossary]]: Brief definitions of Rosetta terms
 * [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.

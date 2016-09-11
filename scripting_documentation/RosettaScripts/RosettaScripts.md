@@ -1,9 +1,13 @@
 #RosettaScripts
 
+-   [Introductory Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/scripting_with_rosettascripts/scripting_with_rosettascripts)
+-   [Advanced Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/advanced_scripting_with_rosettascripts/advanced_scripting_with_rosettascripts)
 -   [[Movers (RosettaScripts)|Movers-RosettaScripts]]
 -   [[Filters (RosettaScripts)|Filters-RosettaScripts]]
 -   [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]]
+-   [[ResidueSelectors (RosettaScripts)|ResidueSelectors]]
 -   [[Composite protocols with RosettaScripts interfaces|Composite-protocols]]
+-   [[SymmetryAndRosettaScripts]]
 -   [[RosettaScripts Formatting Conventions|RosettaScripts-Conventions]]
 -   [[RosettaScripts database connection options|RosettaScripts-database-connection-options]]
 -   [[Overview of the Features Reporter framework|Features-reporter-overview]]
@@ -14,6 +18,13 @@ This page documents the RosettaScripts syntax and common methods by which you ca
 
 [[_TOC_]]
 
+<!--- BEGIN_INTERNAL -->
+##Locations for RosettaScripts XML Files
+
+It is **strongly recommended** that all Rosetta developers version control their RosettaScripts. Private scripts should be placed in `main/source/scripts/rosetta_scripts/pilot/<user_name>`. Public scripts should go in `main/source/scripts/rosetta_scripts/public/`. Any public scripts should also have accompanying integration tests. 
+
+
+<!--- END_INTERNAL -->
 "Skeleton" XML format
 ---------------------
 
@@ -22,6 +33,8 @@ Copy, paste, fill in, and enjoy
 <ROSETTASCRIPTS>
     <SCOREFXNS>
     </SCOREFXNS>
+    <RESIDUE_SELECTORS>
+    </RESIDUE_SELECTORS>
     <TASKOPERATIONS>
     </TASKOPERATIONS>
     <FILTERS>
@@ -36,6 +49,8 @@ Copy, paste, fill in, and enjoy
 </ROSETTASCRIPTS>
 ```
 Anything outside of the \< \> notation is ignored and can be used to comment the xml file
+
+<b>Handy tip:</b> To get the empty template script above, you can run the rosetta_scripts application with the ```-print_template_script``` flag.  If this flag is passed, the application prints the template script and exits.  This is very useful when one is sitting down to write a new script.
 
 General Description and Purpose
 -------------------------------
@@ -53,12 +68,14 @@ The implementation for this behaviour is done by the following components:
 ParsedProtocol maintains a vector of pairs of movers and their associated filters. By using the TrueFilter or the NullMover, filters and movers can be essentially decoupled by any protocol. The setup of having pairs of movers and filters is used simply because in most contexts filters will be conceptually associated with a mover and vice versa.
 -   **DockDesignParser.cc** This function parses an xml file and populates DockDesignMover with pairs of Movers and Filters. All of the movers and filters that are supported should also be defined in this function.
 
+Check out an [introductory tutorial](https://www.rosettacommons.org/demos/latest/tutorials/scripting_with_rosettascripts/scripting_with_rosettascripts) and an [advanced tutorial](https://www.rosettacommons.org/demos/latest/tutorials/advanced_scripting_with_rosettascripts/advanced_scripting_with_rosettascripts) on RosettaScripts.
+
 
 Example XML file
 ----------------
 
 The following simple example will compute ala-scanning values for each residue in the protein interface:
-
+```
 <ROSETTASCRIPTS>
 <SCOREFXNS>
 <interface weights=interface/>
@@ -80,7 +97,7 @@ The following simple example will compute ala-scanning values for each residue i
 </PROTOCOLS>
 <OUTPUT scorefxn=interface />
 </ROSETTASCRIPTS>
-
+```
 Rosetta will carry out the order of operations specified in PROTOCOLS, starting with docking (in this case this is all-atom docking using the soft\_rep weights). It will then apply alanine scanning, repeated 5 times for better convergence, for every residue on both sides of the interface computing the binding energies using the interface weight set (counting mostly attractive energies). The binding energy (ddg) and surface area (sasa) will also be computed. All of the values will be output in a .report file. Notice that since ddg and sasa are assigned confidence=0, they are not used here as filters that can terminate a trajectory per se, but rather for reporting the values for the complex. An important point is that filters never change the sequence or conformation of the structure, so the ddg and sasa values are reported for the input structure following docking, with the alanine-scanning results ignored.
 
 The movers do change the pose, and the output file will be the result of sequentially applying the movers in the protocols section. The standard scores of the output (either in the pdb, silent or score file) will be from the commandline-specified scorefunction, unless the OUTPUT tag is specified, in which case the corresponding score function from the SCOREFXNS block will be used.
@@ -191,8 +208,49 @@ These values can be changed at will for different runs, for example:
 
 Multiple instances of the "%%var%%" string will all be substituted, as well as in any [[subroutine|Movers-RosettaScripts#Subroutine]] XML files. Note that while currently script\_vars are implemented as pure macro text substitution, this may change in the future, and any use aside from substituting tag values may not work. Particularly, any use of script variables to change the parsing structure of the XML file itself is explicitly \*not\* supported, and you have a devious mind for even considering it.
 
+### XML File Inclusion
 
-revert\_design\_to\_wt application
+It can be convenient to put commonly-used pieces of XML scripts in their own files, and to direct a script to load some XML code from a preexisting file so that the user does not need to copy and paste pieces of XML code manually.  The XML ```xi:include``` command may be used for this purpose, with the file to be included specified using "href=filename".
+
+```
+<xi:include href=(&filename_string) />
+```
+
+The ```xi:include``` block is naïvely replaced with the contents of the file specified with "href=filename".  The following is an example of the use of ```xi:include```, in which we suppose that the user frequently uses the AlaScan and Ddg filters and wishes to put their setup in a separate file that he/she can include any time he/she writes a new RosettaScripts XML file:
+
+<b>file1.xml</b>:
+```
+<ROSETTASCRIPTS>
+  <SCOREFXNS>
+    <interface weights=interface/>
+  </SCOREFXNS>
+  <FILTERS>
+    <xi:include href="file2.xml" />
+    <Sasa name=sasa confidence=0/>
+  </FILTERS>
+  <MOVERS>
+    <Docking name=dock fullatom=1 local_refine=1 score_high=soft_rep/>
+  </MOVERS>
+  <APPLY_TO_POSE>
+  </APPLY_TO_POSE>
+  <PROTOCOLS>
+    <Add mover_name=dock filter_name=scan/>
+    <Add filter_name=ddg/>
+    <Add filter_name=sasa/>
+  </PROTOCOLS>
+  <OUTPUT scorefxn=interface />
+</ROSETTASCRIPTS>
+```
+
+<b>file2.xml</b>:
+```
+    <AlaScan name=scan partner1=1 partner2=1 scorefxn=interface interface_distance_cutoff=10.0 repeats=5/>
+    <Ddg name=ddg confidence=0/>
+```
+
+Note that file inclusion occurs recursively, so that included files may include other files.  Circular dependencies (<i>e.g.</i> file1.xml includes file2.xml includes file3.xml includes file1.xml) are prohibited, and will result in an error.  Multiple inclusions of the same file are permitted, however (though this would rarely be advisable).  Variable substitution occurs after file inclusion, which means that ```%%variable%%``` statements may occur in included files; however, this also means that ```xi:include``` blocks cannot contain ```%%variable%%``` statements.
+
+revert\_design\_to\_native application
 ----------------------------------
 
 This application is not yet strictly speaking part of RosettaScripts but is strongly related to the design purposes of RS. Work in ongoing to supersede this application with a more useful RS implementation. In the meantime here is an explanation.
@@ -248,7 +306,7 @@ The SCOREFXNS section defines scorefunctions that will be used in Filters and Mo
 </"scorefxn_name">
 ```
 
-where scorefxn\_name will be used in the Movers and Filters sections to use the scorefunction. The name should therefore be unique and not repeat the predefined score names. One or more Reweight tag is optional and allows you to change/add the weight for a given scoretype. The Set tag is optional and allows you to change certain scorefunction options. For example:
+where scorefxn\_name will be used in the Movers and Filters sections to use the scorefunction. The name should therefore be unique and not repeat the predefined score names. One or more Reweight tag is optional and allows you to change/add the weight for a given scoretype.  For example:
 
 ```
 <scorefxn1 weights=fldsgn_cen>
@@ -256,17 +314,27 @@ where scorefxn\_name will be used in the Movers and Filters sections to use the 
 </scorefxn1>
 ```
 
+The Set tag is optional and allows you to change certain scorefunction options, as discussed in the next section.
+
 #### Scorefunction Options
 
 One or more option can be specified per Set tag:
 
--   exclude\_protein\_protein\_hack\_elec=(&bool) - Don't compute hack\_elec energies for protein-protein interactions (equivalent to the -ligand::old\_estat command line option for ligand\_dock/enzyme\_design)
+-   aa\_composition\_setup\_file=(&string &string &string...) - One or more setup files for the aa_composition score term defining the desired amino acid composition.  (For more about this score term, see [[the aa_composition score term documentation|AACompositionEnergy]]).
+-   decompose\_bb\_hb\_into\_pair\_energies=(&bool) - Store backbone hydrogen bonds in the energy graph on a per-residue basis (this doubles the number of calculations, so is off by default)
+-   exclude\_protein\_protein\_fa\_elec=(&bool) - If true, disables fa_elec calculations between protein atoms.  (Equivalent to the -ligand::old\_estat command line option for ligand\_dock/enzyme\_design.)
 -   exclude\_DNA\_DNA=(&bool)
--   exclude\_DNA\_DNA\_hbond=(&bool)
+-   fa\_elec\_min\_dist=(&Real), fa\_elec\_max\_dist=(&Real) - Minimum and maximum distances for the fa_elec Coulomb potential.
+-   fa\_elec\_dielectric=(&Real) - Dielectric constant for the fa_elec score term.
+-   fa\_elec\_no\_dis\_dep\_die=(&bool) - If true, disables the distance dependence of the dielectric constant for the fa_elec score term.
+-   pb\_bound\_tag=(&string)
+-   pb\_unbound\_tag=(&string)
+-   scale\_sc\_dens=(&Real) - Rescale electron density weighting for side-chains.
+-   scale\_sc\_dens\_byres=(&string) - Rescale electron density weighting for side-chains on a per-residue basis.  There is syntax for this, but whoever implemented it didn't bother to document it, so it's pretty useless.
+-   smooth\_hb\_env\_dep=(&bool)
+-   softrep\_etable=(&bool) - Use softer repulsion for the Lennard-Jones potential.  (Spongier atoms -- useful for packing early in a design trajectory, for example.)
 -   use\_hb\_env\_dep\_DNA=(&bool)
 -   use\_hb\_env\_dep=(&bool)
--   smooth\_hb\_env\_dep=(&bool)
--   decompose\_bb\_hb\_into\_pair\_energies=(&bool) - Store backbone hydrogen bonds in the energy graph on a per-residue basis (this doubles the number of calculations, so is off by default)
 
 ### Global Scorefunction modifiers
 
@@ -319,6 +387,17 @@ TaskOperations are used by movers to tell the "packer" which residues/rotamers t
 ### Available TaskOperations
 
 See [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]]
+
+
+RESIDUE_SELECTORS
+--------------
+
+[[ResidueSelectors|ResidueSelectors]] are used by movers, filters and task operations to dynamically select residues at run-time. They are used to specify sets of residues based on multiple different properties.
+
+### Available ResidueSelectors
+
+See [[ResidueSelectors (RosettaScripts)|ResidueSelectors]]
+
 
 APPLY\_TO\_POSE
 ---------------
@@ -482,6 +561,8 @@ The SCORINGGRIDS block is used to define ligand scoring grids (currently used on
 
 ##See Also
 
+* [Introductory RosettaScripting Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/scripting_with_rosettascripts/scripting_with_rosettascripts)
+* [Advanced RosettaScripting Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/advanced_scripting_with_rosettascripts/advanced_scripting_with_rosettascripts)
 * [[RosettaDiagrams (external link)|http://www.rosettadiagrams.org/]]: Provides a graphical interactive service to produce RosettaScripts XML files, with some ability to run the scripts as well.
 * [[I want to do x]]: Guide for making specific structural perturbations using RosettaScripts
 * [[Scripting Documentation]]: The Scripting Documentation home page

@@ -14,11 +14,20 @@
 * **[[Residue params files|Residue-Params-file]]**: Stores chemical and geometric information for a residue or ligand. Useful when running Rosetta with [[non-protein residues|non-protein-residues]].
 * **[[Loops files|loops-file]]**: Specifies loop definitions used in loop modeling.
 * **[[Symmetry file|Symmetry#Symmetry-definition]]**: Dealing with symmetric proteins.
+* **[[Constraint file]]**: Provide information about constraints (restraints) for use in a Rosetta protocol
 
 ##Protocol-specific input files
+* **[["Grishin" alignment format|Grishan-format-alignment]]**: A protein sequence alignment format used by comparative modeling.
 * **[[Match constraint files|match-cstfile-format]]**: File specifying geometric constraints for the [[match application|match]].
 * **[[Chemical shift files|chemical-shift-file]]**: NMR chemical shift information used with [[CS-Rosetta|CS-Rosetta]].
 * **[[Bin transition probabilities files|Bin-transition-probabilities-file]]**: Probabilities of transitioning from one mainchain torsion bin to another, used by some sampling schemes.
+* [[SEWING]]-specific files:
+  * **[[Model files|SEWING model files]]**: Specify substructures (nodes) to be used when generating structures
+  * **Edge files**: Specify edges to be used when generating structures
+  * **Rot files**: Store information about native residue identities in SEWING assemblies. Used with the AssemblyConstraintsMover.
+<!--- BEGIN_INTERNAL -->
+  * **Alignment files**: Store pre-calculated alignments near a given starting node. Optional for use with [[AppendAssemblyMover]]. 
+<!--- END_INTERNAL -->
 
 
 ##Database input/output

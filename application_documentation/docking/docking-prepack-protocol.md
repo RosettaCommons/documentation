@@ -5,10 +5,12 @@ Metadata
 
 Author: Robin Thottungal (raugust1@jhu.edu), Jeffrey Gray (jgray@jhu.edu)
 
-Last edited 7/18/10. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
+Last edited 1/29/16. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
 
 Code and Demo
 =============
+
+An introductory tutorial on protein-protein docking can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/Protein-Protein-Docking/Protein-Protein-Docking).
 
 -   Application source code: `        rosetta/main/source/src/apps/public/docking/docking_prepack_protocol.cc       `
 -   Main mover source code: `        rosetta/main/source/src/protocols/docking/DockingPrepackProtocol.cc       `
@@ -55,6 +57,8 @@ Input Files
 
 The only required input file is a pdb file containing two proteins with different chain IDs.
 
+**Note:** An ensemble of input structures can be given using the follow flags: `-ensemble1 [partner_1_pdb_list]` or/and `-ensemble2 [partner_2_pdb_list]`. These files contain a list of input conformations (in terms of paths to pdbs) of the ensemble. The paths should be as seen from the directory where you run the program and not the directory where `partner_1_pdb_list` is stored.  `-ensemble1` corresponds to the list of pdbs of the partner which is written at the top of the input pdb and `-ensemble2` to the partner which is at the bottom of the input pdb. Always run this before running the docking protocol for ensembles.
+
 Options
 =======
 
@@ -64,7 +68,7 @@ Basic protocol options
 |**Flag**|**Description**|**Type**|
 |:-------|:--------------|:-------|
 |-docking:partners [P1\_P2] | Prepacking is done by separating chain P1 and chain P2 | String |
-|-docking:partners LH\_A (moves chain A around fixed chains L and H) | Prepacking is done by separating  chain A and LH complex. Note that this will be usefull if you are planning to do docking between chain A and LH complex. | String |
+|-docking:partners LH\_A (moves chain A around fixed chains L and H) | Prepacking is done by separating  chain A and LH complex. Note that this will be useful if you are planning to do docking between chain A and LH complex. | String |
 
 optimization Flags
 ------------------
@@ -95,6 +99,7 @@ New things since last release
 
 Supports the modern job distributor (jd2).
 
+* [Protein-protein Docking Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/Protein-Protein-Docking/Protein-Protein-Docking): Getting started with docking
 * [[Docking Protocol]]: Main protocol for protein-protein docking
 * [[Docking Applications]]: Home page for docking applications
 * [[Non-protein residues]]: Notes on using non-protein molecules with Rosetta

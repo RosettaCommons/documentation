@@ -11,6 +11,7 @@
 - [[RosettaRemodel]]: Redesign backbone and sequence of protein loops and secondary structure elements. 
     * [[Remodel]]: Additional remodel documentation
 -  [[Stepwise design|stepwise]]: Simultaneously optimize sequence and structure for small RNA and protein segments. Part of the stepwise application.
+-  [[SEWING]]: Build new protein structures from large elements (e.g. helix-loop-helix motifs) of native proteins.
 
 ##Library Design
 
@@ -58,7 +59,7 @@
 
 ##DNA
 
-* [[Rosetta DNA]] (RosettaDNA): Design and modle protein interactions to DNA. 
+* [[Rosetta DNA]] (RosettaDNA): Design and model protein interactions to DNA. 
 
 ##See Also
 

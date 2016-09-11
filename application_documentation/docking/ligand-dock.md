@@ -10,6 +10,8 @@ This document was written 4 Feb 2008 by Ian W. Davis.
 
 Lasted Edited 10/6/14 by Jared Adolf-Bryfogle.
 
+An introductory tutorial on ligand docking can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/ligand_docking/ligand_docking_tutorial).
+
 
 Example runs
 ============
@@ -139,7 +141,7 @@ ARLS uses a variety of other binaries and scripts to do its work. It should usua
 Preparing the small-molecule ligand for docking
 ===============================================
 
-Rosetta defines ligand topology, rotatable bonds, atom types, partial charges, etc in a .params file; the starting coordinates are stored in PDB format. A script called `       molfile_to_params.py      ` has been supplied in `       rosetta/main/source/src/python/apps/      ` to help in producing these files from a typical small molecule format (.mol, .sdf, or .mol2).
+Rosetta defines ligand topology, rotatable bonds, atom types, partial charges, etc in a .params file; the starting coordinates are stored in PDB format. A script called `       molfile_to_params.py      ` has been supplied in `       rosetta/main/source/scripts/python/public/      ` to help in producing these files from a typical small molecule format (.mol, .sdf, or .mol2).
 
 In most cases, one starts from a random 3D conformation or a 2D or 1D chemical formula (e.g. SMILES) and needs to generate a library of plausible, low-energy conformations. I use OpenEye's Omega, like this:
 
@@ -156,7 +158,7 @@ Then I use OpenEye's AM1-BCC implementation to calculate partial charges. (You m
 Special records can be added to the file to specify the atom tree root or split the molecule into multiple residues, but these are not generally used right now. Otherwise, `       molfile_to_params.py      ` is controlled by command line parameters.
 
 ```
-~/rosetta/main/source/src/python/apps/public/molfile_to_params.py -n DAR -k 1t3r.kin -p 1t3r 1t3r_charges.mol2
+~/rosetta/main/source/scripts/python/public/molfile_to_params.py -n DAR -k 1t3r.kin -p 1t3r 1t3r_charges.mol2
 ```
 
 `       -n      ` gives the three-letter code that will be used for the PDB residue name, `       -p      ` controls naming of the output files, and `       -k      ` produces a kinemage illustration of the ligand (optional, but useful for debugging; see [http://kinemage.biochem.duke.edu](http://kinemage.biochem.duke.edu) to download KiNG for viewing).
@@ -174,7 +176,7 @@ echo "PDB_ROTAMERS 1t3r_confs.pdb" >> 1t3r.params
 
 When running Rosetta, the 1t3r.params and 1t3r\_confs.pdb files must be in the same directory as each other.
 
-Preparing the protein receptor for docking
+Preparing the protein receptor for docking <a name="ligand_rpkmin" />
 ==========================================
 
 Only sidechains near the initial ligand position are repacked during docking, to save time. This means *all* sidechains should be repacked before docking, so that any pre-existing clashes (according to Rosetta's energy function) can be resolved. Otherwise, a ligand placed near the clashing residues will allow them to repack and thus gain a large energy bonus that does not accurately reflect its binding affinity in that position. A program `       ligand_rpkmin      ` is provided for this purpose; one should use the same `       -ex#      ` flags as will be used during docking.
@@ -416,7 +418,7 @@ I've gotten good results with the following ranking scheme. I first discard any 
 
 If the initial position of the ligand is meaningful (e.g. benchmarking to reproduce a known binding mode), the you can plot interface\_delta for these top-scoring structures against ligand\_auto\_rms\_no\_super and you should get a nice docking funnel. The ligand\_auto\_rms\_with\_super can be used to see how much ligand conformational variation you're getting in the output structures. (The difference is whether or not the ligands are superimposed; the "auto" is short for "automorphism", which means certain kinds of chemical symmetry are accounted for when calculating the RMS.)
 
-Clustering ligand poses
+Clustering ligand poses <a name="selectbestuniqueligandposes" />
 =======================
 
 By clustering ligand poses, and choosing the best model from each low energy cluster, one can curate a small set of possible binding modes for further investigation.
@@ -456,6 +458,7 @@ A confidence index can be calculated as the correlation between energy score and
 
 ##See Also
 
+* [Ligand Docking Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/ligand_docking/ligand_docking_tutorial)
 * [[Docking Applications]]: Home page for docking applications
 * [[Preparing ligands]]: Notes on preparing ligands for use in Rosetta
 * [[Non-protein residues]]: Notes on using non-protein molecules with Rosetta

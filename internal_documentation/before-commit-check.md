@@ -14,7 +14,7 @@ Source code
 -   Do not commit code containing direct output to std::cout/cerr streams in to core/protocols/devel libraries or unit test. Use core::util::Tracer instead.
     -   *Unless* you are planning to terminate program abnormally (i.e utility\_exit(...)) because of the hard error. In that case you can can use cerr output to provide additional information for your error messages.
 
--   Use tabs rather than spaces for indentation and remove trailing whitespace. Also make sure you follow the other [[Coding Conventions(link to media wiki)|https://wiki.rosettacommons.org/index.php/Coding_Convention_and_Examples]] such as removing "using" statements from header files.
+-   Use tabs rather than spaces for indentation and remove trailing whitespace. Also make sure you follow the other [[Coding Conventions]] such as removing "using" statements from header files.
 
 Building
 
@@ -38,11 +38,11 @@ Note that your code should be compared to the results of running the integration
 
 After commit
 
-* Compile an independent version of Rosetta (e.g. on a differnt machine or in a different directory) to ensure that it compiles and runs properly. This is especially important if you have added a file because if you do not remember to add it using git, it may be available only in your copy of Rosetta.
+* Compile an independent version of Rosetta (e.g. on a different machine or in a different directory) to ensure that it compiles and runs properly. This is especially important if you have added a file because if you do not remember to add it using git, it may be available only in your copy of Rosetta.
 
-Additional information about our current coding guideline can be found at Rosetta wiki at (link to media wiki): [[https://wiki.rosettacommons.org/index.php/Coding_Convention_and_Examples]]
+Additional information about our current coding guideline can be found [[here|Coding-Conventions]]
 
-Information on Commenting Guidelines: [[https://www.rosettacommons.org/internal/doc/Rosetta++CommentingGuidelines.html]]
+Information on Commenting Guidelines (TODO: How do you even get access to this page?): [[https://www.rosettacommons.org/internal/doc/Rosetta++CommentingGuidelines.html]]
 
 ##See Also
 

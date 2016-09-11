@@ -9,6 +9,16 @@ Rosetta.
 
 See also a [[more in-depth discussion of some topics|RosettaEncyclopedia]].
 
+#### ABEGO
+
+Designation that indicates a residue's position in Ramachandran space (A = right-handed alpha or 3<sub>10</sub> helix; B = right-handed beta strands and extended conformations; E = left-handed beta strands; G = left-handed helices) and *cis* omega angles (O). See citation [[here|http://www.ncbi.nlm.nih.gov/pubmed/8568871]].
+
+<!-- abego -->
+<!-- abego -->
+<!-- abego -->
+<!-- abego -->
+<!-- abego -->
+
 #### _ab_ _initio_ structure predition
 
 Prediction of molecular structure given only its sequence. Known also as **de novo modeling**.
@@ -65,6 +75,10 @@ Core::kinematics class for defining atomic connectivity.
 
 A class which stores the properies of a particular kind of atom. (e.g. a carboxylate oxygen)
 
+#### B factor
+
+The "temperature factor" from crystallography and seen in PDB files, the larger the value the more "flexible" the atom is
+
 #### backbone
 
 In **biopolymers**, the backbone is those atoms which form the polymeric chain.
@@ -81,6 +95,10 @@ See also **main chain**
 
 The non-**backbone** portion of a nucleotide.
 Analogous to a protein's **side chain**.
+
+#### benchmark study
+
+Tests done to confirm the performance of a new algorithm or method, results are compared to previous results using the same starting data
 
 #### beta sheet
 
@@ -108,6 +126,10 @@ Typical biopolymers are proteins, RNA, DNA and carbohydrates.
 #### blind docking
 
 Docking where the structure of the docked complex is unknown.
+
+#### bootcamp
+
+An intense week-long Rosetta training session for new developers. 
 
 #### bound docking
 
@@ -159,6 +181,7 @@ In Rosetta, a chain is a single, covalently connected molecule.
 In the **PDB** format, a chain is all residues which share a chain identification label.
 
 #### chainbreak
+A gap in connectivity (in the AtomTree) between chemically connected / sequentially adjacent residues.  These are used in CCD (Cyclic Coordinate Descent) loop closure.
 
 #### ChemicalManager
 
@@ -175,16 +198,28 @@ In nucleic acids, one of the
 Specific sidechain **chi angles** of protein residues. They are enumerated from the C-alpha atom outward,
 so chi1 would be the **dihedral** between N-Ca-Cb-Cg.
 
+#### clash
+
+Two (or more) atoms being too close to be energetically favorable (essentially an overlap of vdW radii)
+
 #### cluster
 
 Clustering of structures involves grouping structures with "similar" structures. These groups of similar structures
 are called "clusters". The measure of structure similarity are typically either **RMSD** or **GDT**.  
+
+#### coarse grain
+
+Initial modeling, where all atoms or energy terms may not be represented. 
 
 #### commit
 
 This is a term related to how version control
 is used. A commit is when you upload your changes from your computer to
 the common code source.
+
+#### comparative modeling
+
+Prediction of protein structure based on sequence and the structures of closely related proteins. Also called "Homology Modeling"
 
 #### conformation
 
@@ -196,6 +231,14 @@ A class which contains Residue objects and FoldTree.
 This is the part of the Pose which keeps track of coordinates.
 This is linked by the kinematic layer to describe
 internal-coordinate folding.
+
+#### conformer
+
+One of a set of 3 dimensional orientations a ligand, small molecule or amino acid side chain. Sometimes refered to in Rosetta as a "rotamer".
+
+#### constraint
+
+When used with Rosetta, actually a "restraint": an adjustment to the score function to take into account additional geometric information
 
 #### contact order
 
@@ -281,6 +324,10 @@ Prediction of molecular structure given only its sequence. Known also as **ab in
 
 A **model** produced by a computational protocol.
 
+#### density map
+
+Experimental data showing where the electrons (and thus the atoms) are.
+
 #### design
 
 Optimization of the amino acid sequence of a protein.
@@ -313,6 +360,14 @@ the lower free energy of the complex.
 
 [Explain further: blind docking, bound docking, unbound docking]
 
+#### docking funnel
+
+An energy funnel (score versus RMSD) for docking runs.
+
+#### Dunbrack library
+
+A sidechain rotamer library compiled by the Dunbrack laboratory; the standard rotamer library of Rosetta.
+
 #### Dunbrack loop optimization
 
 #### Dunbrack score
@@ -323,7 +378,19 @@ the lower free energy of the complex.
 
 A class in Pose which stores the energies computed by the ScoreFunction.
 
+#### energy function
+
+Also called a "score function". The prediction of structural energy over which Rosetta operates.
+
+#### energy funnel
+
+An attempt at representing the energy landscape of the protein. A plot which (ideally) shows low rmsd structures having lower energies than high rmsd structures.
+
 #### energy landscape <a name="general-terms_energy-landscape" />
+
+#### ensemble
+
+a group of closely related structures
 
 #### EnergyMethod
 
@@ -331,7 +398,25 @@ The class which implements the scoring of a particular **score term** for the **
 
 #### explicit water
 
-Water modeled as 
+Water modeled as atoms, rather than implicitly.
+
+#### ex1/ex2 
+
+Options that specify the size (extra sampling) of rotamer library being used
+
+#### fasta 
+
+Text based format describing the peptide sequence of a protein, single letter amino acid codes are used
+
+#### filter
+
+A pass/fail check on structure quality during the middle of a run. Filters are applied to avoid
+wasting computational time on **trajectories** which are unlikely to result in successful results.
+Relevant **metrics** are calculated and those structures with poor values are discarded. 
+
+#### fixbb
+
+A Rosetta application which does fixed backbone design.
 
 #### fixed backbone design
 
@@ -340,12 +425,6 @@ Water modeled as
 #### fixed backbone packing
 
 Optimization (**packing**) of the side chain conformations, done without moving the **backbone**.
-
-#### filter
-
-A pass/fail check on structure quality during the middle of a run. Filters are applied to avoid
-wasting computational time on **trajectories** which are unlikely to result in successful results.
-Relevant **metrics** are calculated and those structures with poor values are discarded. 
 
 #### flag file
 
@@ -390,7 +469,7 @@ A Rosetta application used to pick fragments.
 
 #### fullatom
 
-A representation of the protein where all physical atoms (including hydrogens) are present during modeling, in contrast 
+Also "all atom": A representation of the protein where all physical atoms (including hydrogens) are present during modeling, in contrast 
 to reduced representations like **centroid** mode.
 
 #### full-atom energy function
@@ -415,9 +494,21 @@ We use GitHub for hosting.
 #### Gollum
 [Gollum](http://github.com/gollum/gollum#gollum----a-wiki-built-on-top-of-git) (external link) is a Git-based wiki, used to create this wiki you are reading.
 
+#### global minimum
+
+The 3 dimensional conformation of a protein which corresponds to the lowest possible energy state, this is (usually) the conformation found in nature.
+
 #### gradient
 
 #### gradient-based minimization
+
+#### hard rep
+
+Normal Lennard Jones repulsive - used in contrast to **soft_rep**.
+
+#### heavy atom 
+
+All atoms except hydrogens.
 
 #### high resolution validation
 
@@ -462,7 +553,14 @@ bond lengths and angles.
 
 #### implicit solvation model
 
-#### interface
+
+#### interaction graph 
+
+A representation of protein interactions during packing; can affect simulation speed
+
+#### interface 
+
+The region of a structure where two chains interact
 
 #### internal coordinates
 
@@ -473,17 +571,31 @@ Storage of the positions of atom based on bond lengths, angles and dihedrals, ra
 
 #### jump
 
+A portion of the **fold tree** representing a rigid body (non-covalent) movement.
+
 #### KIC (Kinematic closure)
 
 #### kinematics
+
+#### knowledge-based potentials 
+
+Also "statistical potentials": energy function terms based on the probability of occurrence in a data set
 
 #### Lazaridis-Karplus
 
 #### Lennard-Jones
 
+Also "LJ": A function that approximates the non-bonded interactions of neutral atoms, combines Pauli repulsion and the van der waals attractive term (also known as Lennard Jones 6-12 potential)
+
 #### lever arm
 
 #### ligand
+
+A molecule which binds a protein; for Rosetta this is specifically a non-polymeric small molecule
+
+#### local minimum
+
+The lowest energy 3 dimensional state of a protein in a neighborhood of similar conformations, there may be many local minimums of a protein, but only one global minimum.
 
 #### loop
 
@@ -497,16 +609,32 @@ In Rosetta code a loop is anything between two fixed ends that you want to model
 
 #### loop modeling
 
+#### low energy 
+
+A 3 dimensional model of a protein is low energy if it has good packing, satisfied polar or charged residues, appropriately placed small molecules or ligands, etc.
+
+#### low Resolution
+
+An experimentally determined structure of a protein is low resolution if atoms is not distinct, thypically this equates to a crystal structure resolution above 3-4 angstroms.
+
 #### low-resolution structure prediction
 
 #### main chain
 
+Used interchangeably with backbone atoms.
+
 #### metric
+
+#### Metropolis criterion 
+
+Used by Monte Carlo methods, this equation tells whether to accept or reject a random move
 
 #### MiniCON
 This was the winter Rosetta developer's meeting, which moved around the country to be hosted by different RosettaCommons labs. We discussed code issues of wide interest and narrow. The name has changed to Winter RosettaCON.
 
 #### minimization
+
+Optimize the protein structure by making small movements to lower energy conformations
 
 #### minirosetta
 
@@ -516,6 +644,20 @@ Also, the name of a wrapper program which exposes multiple protocols, mainly use
 
 #### MiniRosettaCON
 See MiniCON.
+
+#### mmCIF 
+
+Macromolecular Crystallographic Information File, file format used to describe the 3 dimensional structure of a protein
+
+#### model
+
+A representation of the 3 dimensional structure of a protein
+
+"All models are wrong, but some are useful" - George Box
+
+#### MOL format 
+
+A file type that contains information about the structure of a chemical; same as "SDF format"
 
 #### MolProbity
 
@@ -559,6 +701,10 @@ then alters the Pose and implements the protocol.
 
 #### moiety
 
+#### native structure 
+
+The structure of a protein, ligand, etc that is found in nature, usually refers to the crystal or NMR structure of a protein
+
 #### native water
 
 #### neighbors
@@ -569,9 +715,17 @@ An earlier version of the **fragment picker** application.
 
 #### Normal perturbation
 
+#### nstruct
+
+The number of models that Rosetta will output
+
 #### nuclear Overhauser effect
 
 #### one-body energy
+
+#### options
+
+User specified directions given to Rosetta, either through the command line or through the options file, sometimes called "flags"
 
 #### PackerTask
 
@@ -579,11 +733,35 @@ A class which sets up what is allowed in packing.
 
 #### packing
 
+In Rosetta, optimizing the conformation (and identity) of protein sidechains. The Rosetta Packer uses Metropolis Monte Carlo Simulated Annealing to optimize rotamers.
+
+#### packing density
+
+How close atoms are to each other; closer is better, up to a point
+
 #### Parallel perturbation
+
+#### params file
+
+A file which tells Rosetta how a residue behaves.
+
+#### Parser 
+
+Another name for RosettaScripts
+
+#### patch files
+
+A file which makes a small adjustment to a score function
 
 #### PDB
 
+Can refer to either the Protein Data Bank, a website that contains structural information of proteins, usually determined by x-ray crystallography or NMR. Or PDB can refer to the file type used by the protein data bank to represent the 3 dimensional structure of a protein
+
 #### perturbation
+
+#### phi 
+
+The dihedral angle describing the position of the C-N-Calpha-C atoms
 
 #### pilot apps
 
@@ -601,6 +779,10 @@ in Rosetta operates on a pose through its *apply* function.
 #### protocol
 
 Workflow to do specific calculations in Rosetta; sometimes a protocol uses **movers**. 
+
+#### psi
+
+The dihedral angle describing the position of the N-Calpha-C-N atoms
 
 #### query
 
@@ -624,6 +806,8 @@ to modify the conformation so it is closer to an experimentally determined struc
 
 #### relax
 
+A protocol in Rosetta which optimizes the structure of the protein
+
 #### release
 
 The Releases are when we make Rosetta code available to academic and industrial users. 
@@ -635,12 +819,22 @@ We are currently on a "weekly release" schedule, where a new release is produced
 
 #### repack
 
+Determine the conformation of sidechains which minimizes the energy
+
 #### representation
 
 How Rosetta sees a protein molecule. Rosetta supports two representation:
 
 1. **fullatom** - full atom representation, slow but accurate.
 2. **centroid** - a reduced representation. faster, but less precise.
+
+#### repulsive term 
+
+fa_rep: The part of the Lennard Jones equation which describes the effects of overlapping electron orbitals, the energy will be positive
+
+#### resfile
+
+The [[resfile|resfiles]] is a file format used to manually pass complex instructions to the [[packer]] / [[PackerTask]].
 
 #### residue
 
@@ -677,10 +871,17 @@ A class containing a collection of **ResidueTypes** all of the same type. The st
 
 #### resolution
 
+#### restraints
+
+Adjustments to the energy function; often called "constraints" in Rosetta
+
+#### REU
+
+Rosetta Energy Units - Rosetta's arbitrary energy term, does not correspond with physical energy measurements
+
 #### rigid-body
 
-There is no intramolecular flexibility between the protein
-backbone
+There is no intramolecular flexibility between the protein backbone
 atoms or bonds and angles are frozen for the backbone.
 
 #### rigid-body movement
@@ -693,6 +894,9 @@ This term refers to Rohl et. al., 2004, [Protein structure prediction using Rose
 #### root mean square deviation (RMSD)
 
 [It's not enough to just explain how RMSD is calculated: it's also important to discuss what significance it plays in Rosetta, and what values are to be expected calculating it in various places.] 
+
+####Robetta 
+An online, automated tool for protein structure prediction and analysis.
 
 #### Rosetta
 Best software ever? Or merely the easiest to use? You decide!
@@ -714,6 +918,9 @@ It's a scientific conference just for Rosetta developers and users in industry o
 #### Rosetta Developer's Meeting
 This is a one-day addendum to RosettaCON, usually held at the University of Washington in Seattle the day before RosettaCON. It's used to handle Rosetta code issues of wide interest that are too technical for the RosettaCON audience.
 
+#### RosettaScripts 
+An XML based interface for controlling Rosetta, allows the user greater control of methods, score functions, etc, without requiring the user to change the source code of Rosetta.
+
 #### rotamer
 Rotamers, rotameric isomers, represent the most stable sidechain configurations, which are commonly observed in crystal structures. Using rotamers allows Rosetta to efficiently consider many discrete side chain conformations, where continuous side chain motion would be expensive.
 
@@ -729,6 +936,8 @@ the optimal combination of rotamers (sidechains) is found using a simulated-anne
 
 #### SASA
 
+Solvent accessible surface area – the area of a protein that can be reached by water or another solvent
+
 #### scorefile
 
 A flat-text file produced by Rosetta applications that contain all energy component values. Each row provides values for a single pose (structure). An equivalent file is can be also made from a **silent file** by the following grep command: 
@@ -742,7 +951,6 @@ A flat-text file produced by Rosetta applications that contain all energy compon
 #### scoring filter
 
 #### scoring function
-
 #### ScoreFunction
 
 The class in Rosetta which handles scoring the pose. 
@@ -750,6 +958,9 @@ A particular Rosetta run can use multiple different ScoreFunctions,
 each with their own **weights files** and settings.
 
 #### score term
+
+#### scoring grid 
+A rapid pre-calculation of scoring for ligand docking
 
 #### secondary structure
 
@@ -785,6 +996,9 @@ input in a \*.fasta file format.
 
 #### sequence number
 
+#### SDF format 
+A file format that describes the structure and connectivity of a molecule, used primarily for small molecules, not for proteins; also known as MOL format
+
 #### Shultzy's
 [[Shultzy's|http://www.shultzys.com/]] is a favorite bar and sausage grill of the Rosetta community when in Seattle for RosettaCON.
 It's on the east side of The Ave.
@@ -806,19 +1020,32 @@ The file contains only internal degrees of freedom of a pose (Phi, Psi, omega an
 
 Solvent Accessible Surface Area
 
+#### small molecule 
+For Rosetta, anything that's not a polymeric biomacromolecule
+
+#### soft_rep 
+An energy function where the Lennard Jones potential is adjusted so that clashes aren't scored as badly; contrast "hard_rep"
+
 #### ss2
 
 File format used to store secondary structure information. Originally introduced by PsiPred program (by D. Jones) 
 
 #### structure
 
+#### symmetry definitions 
+symdef files tell Rosetta how to treat a symmetric protein
+
 #### taboo
+
+#### target sequence 
+The sequence of the protein of unknown structure you're trying to model
 
 #### TaskFactory
 
 A class to set up new PackerTasks as needed, by applying a number of TaskOperations.
 
 #### TaskOperation
+A specification in RosettaScripts which tell the Packer how to optimize rotamers
 
 #### tautomers
 
@@ -861,7 +1088,11 @@ of the target protein sequence.
 #### Top7 / Top7 paper
 Top7 is the name of [a protein](http://www.rcsb.org/pdb/explore.do?structureId=1qys) _de novo_ designed with Rosetta. Its paper, [Design of a novel globular protein fold with atomic-level accuracy] (http://www.ncbi.nlm.nih.gov/pubmed/?term=14631033), is also of broad interest for its description of the early energy function.
 
-#### torsion angles
+#### torsion angle
+aka **dihedral**; the degree of freedom of rotating around a bond
+
+#### torsion space 
+Internal coordinates; torsion space minimization optimizes the protein by rotating dihedrals
 
 #### trajectory
 
@@ -881,12 +1112,20 @@ the crystal PDB structures of the 2 proteins are determined separately and then 
 
 Pronounced "V-all". The Vall database is a condensed representation of the entire PDB for the purpose of fragment picking. The **fragment picker** filters the Vall database based on the sequence and secondary structure predictions (and other information) to pull out those backbone conformations which represent the desired fragments.
 
+#### van der Waals 
+Describes the interactions between neutral, non-bonded atoms, in protein prediction often used interchangeably with Lennard-Jones potential
+
 #### weights file
 
 The file which specifies the coefficients to use when linearly combining **score terms** into a **scoring function**.
 
 #### Winter RosettaCON
 This is the winter Rosetta developer's meeting, which moves around the country to be hosted by different RosettaCommons labs. We discuss code issues of wide interest and narrow.
+
+#### XML 
+
+A hierachical data format, a custom version is used by RosettaScripts
+
 
 ##See Also
 

@@ -4,7 +4,9 @@ With the addition of the [[talaris2013 scorefunction | score-types]] as the defa
 
 [[_TOC_]]
 
-## MM Standard Scorefunction <a name="MM-Standard-Scorefunction" />
+## Useful scorefunctions
+
+### MM Standard Scorefunction <a name="MM-Standard-Scorefunction" />
 Creator Names:
 * P. Douglas Renfrew (doug.renfrew@gmail.com)
 * Bonneau Lab
@@ -47,7 +49,9 @@ How to use:
 * Weight set
  <code>mm_std.wts</code>
 
-##Partial Covalent Interactions Energy Function (Orbitals)
+Note that you might also want to provide a custom weights file that turns on the **ring_close** term, if you are working with cyclic noncanonicals (e.g. sugars).  See below for details on **ring_close**.
+
+###Partial Covalent Interactions Energy Function (Orbitals)
 Creator Names:
 * Steven Combs (steven.combs1@gmail.com)
 * Meiler Lab
@@ -78,7 +82,44 @@ How to Use:
 * Weight Set
 
  <code>orbitals.wts </code>(for pre-talaris2013 defaults), <code>orbitals_talaris2013.wts</code>, <code>orbitals_talaris2013_softrep.wts</code> (analogous to soft_rep/soft_rep_design scorefunction but not rigorously tested)
-  
+
+## Useful terms that can be appended to scorefunctions
+
+### General ring closure term (**ring_close**)
+Creator: Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
+
+Although not a full scorefunction itself, the **ring_close** score term is meant to be a generalized version of the **pro_close** term (which holds the proline ring closed during minimization).  Unlike **pro_close**, though, which is proline-specific, **ring_close** is intended to work with any canonical or noncanonical residue with a ring.  Since Rosetta thinks about molecules as a branching tree of atoms (the AtomTree), rings cannot be properly represented during minimization, meaning that there must be a cutpoint in any cyclic chain of atoms.  This could result in rings drifting open during minimization.  The **pro_close** term creates a harmonic potential between proline's delta carbon and a virtual atom ("shadow atom") attached to the mainchain nitrogen.  This holds the proline ring closed.  The **ring_close** score term does the same for any "shadow atom" and its real counterpart, on any residue type.
+
+Shadow atoms are defined in the params file for a ResidueType with **VIRTUAL_SHADOW** lines.  Typically, one wants to have two such lines in order to enforce closure of a ring.  For example, in the cis-ACPC params file, we have:
+
+```
+VIRTUAL_SHADOW VCM CM
+VIRTUAL_SHADOW VCD CD
+```
+
+The above lines indicate that the VCM virtual atom (which is attached to the CD atom that is part of the cis-ACPC ring) is expected to "shadow", or match the position of the mainchain CM atom, and the VCD virtual atom (which is attached to the mainchain CM atom) is expected to "shadow" the CD atom.  In order to enforce this, a scorefunction with the **ring_close** score term turned on must be used.
+
+Note that there are three scoring terms that all enforce closure of proline: **ring_close**, **pro_close**, and **cart_bonded**.  To avoid double-counting, these functions should not be used together.  The **ring_close** term is intended for use in situations in which the minimizer can move only the torsional degrees of freedom, so that it would be unduly expensive to use the **cart_bonded** scoring term.
+
+Note also that **pro_close** has two behaviours: in addition to enforcing ring closure of proline residues, it also imposes torsional constraints on the omega torsion angle of the preceding residue.  If one wishes to continue to use **pro_close** for the latter purpose, but have **ring_close** handle ring closure, you can disable the ring closure part of **pro_close** with the **-score:no_pro_close_ring_closure** flag.  The two score terms, **pro_close** and **ring_close** should <i>only</i> be used together if this flag is set.  If **ring_close** is given the same weighting as **pro_close**, it enforces closure with the same strength.  More commonly, though, **ring_close** is probably going to be used with the MM scoring function.
+
+### Residue type composition control score term (aa_composition)
+Creator: Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
+
+This is a specialized scoring term intended for use during design (appended to a scoring function like talaris2014 or beta_nov15), which penalizes deviations from a desired amino acid composition (or, more generally, residue type composition) to guide the packer to "good" sequences.  For example, a user could specify that he or she wants a sequence that's 50% hydrophobic, contains exactly 1 tryptophan residue, and has no more than 4 alanine residues.  Full documentation is available [[here|AACompositionEnergy]].
+
+### Penalty function for aspartimide-promoting sequences (aspartimide_penalty)
+Creator: Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
+
+This is another specialized scoring term that can be appended to an existing scoring function during design, in the special case of designing peptides for solid-phase synthesis.  It penalizes certain sequences that promote the formation of the undesirable aspartimide side-product(s) during peptide synthesis.  The penalized sequences are:
+
+| First position | Second position |
+|----------------|-----------------|
+| L-aspartate    | glycine, L-threonine, L-serine, L-asparagine, or any D-amino acid residue |
+| D-aspartate    | glycine, D-threonine, D-serine, D-asparagine, or any L-amino acid residue |
+
+When weighted with a scoring weight of 1.0, the term adds a 25-point penalty for each aspartimide-promoting two-residue sequence found.  This term is pairwise-decomposible, and fully packer compatible, so it can serve as a constraint on the optimization problem that the packer solves, ensuring that it produces a low-energy sequence subject to the condition that no aspartimide-promoting subsequence is found within the sequence.  The "-score:aspartimide_penalty_value <float>" flag can be used to set the penalty value added for each aspartimide-promoting sequence (default 25 Rosetta energy units).  Alternatively, the weight on the term can be used to set the penalty.
+
 ##See Also
 
 * [[Scoring explained]]

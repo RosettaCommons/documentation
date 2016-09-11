@@ -6,6 +6,8 @@ The tests live in `{Rosetta}/main/tests/integration`: the main repository, but n
 **Developers are expected to run these tests before merging code to `master`.**
 Non-developers should have no interest in the integration tests, unless they want to examine them as short demos.
 
+[[_TOC_]]
+
 What integration tests do and do not do
 ====================================
 
@@ -161,6 +163,21 @@ Some changes are trivial - like if you get reports of different file paths that 
 Ignore these.
 Another set of unimportant changes are if you get messages about writing database binaries.
 These occur the first time Rosetta is run (like if you got a new copy for separate `ref` generation).
+
+Cosmetic changes versus trajectory changes
+------------------------------------------
+"Cosmetic changes" usually means the output is different in form but not content.
+For example, maybe you changed the name of a Tracer - many lines will differ because of the Tracer tag but not in their information content - this is "cosmetic". 
+These are never concerning.
+
+"Trajectory changes" is when the result is different - for example, the coordinates of the resulting PDB are altered, and the scores reported are different.
+These need to be understood.
+
+.test_did_not_run.log
+---------------------
+Sometimes you get a file `.test_did_not_run.log`. 
+The system is set up so that if this file exists, the test **ALWAYS** fails.
+It means the test did not run because the executable didn't exist, or it crashed and exited improperly. 
 
 Running MPI integration tests
 =============================

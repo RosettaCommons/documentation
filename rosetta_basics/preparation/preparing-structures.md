@@ -1,11 +1,8 @@
 #How to prepare structures for use in Rosetta
 
-*This page describes the standard procedure for preparing protein structures for Rosetta. To prepare ligands for use with Rosetta, see the [[preparing ligands]] page. To prepare non-peptide polymers, see the [[preparing PDB files for non-peptide polymers]] page.  For PDB files containing both proteins and RNA, see the [[RNA-protein changes]] page.
+*This page describes the standard procedure for preparing protein structures for Rosetta. To prepare ligands for use with Rosetta, see the [[preparing ligands]] page and [tutorial](https://www.rosettacommons.org/demos/latest/tutorials/prepare_ligand/prepare_ligand_tutorial). To prepare non-peptide polymers, see the [[preparing PDB files for non-peptide polymers]] page.  For PDB files containing both proteins and RNA, see the [[RNA-protein changes]] page.
 
-Author:
-* Relaxation with all-heavy-atom constraints by Lucas Nivon and Rocco Moretti.
-* Clean PDB section by Jeliazko Jeliazkov.
-* Other answers collated by Steven Lewis and Ramesh Jha.
+You can find the introductory tutorial [here](https://www.rosettacommons.org/demos/latest/tutorials/input_and_output/input_and_output#controlling-input_preparing-a-structure-by-refinement). For details, continue reading.
 
 [[_TOC_]]
 
@@ -287,7 +284,9 @@ In the case of designs, how should designs be selected?
 ## See Also
 
 * [[Making Rosetta robust against malformed PDBs|robust]]
+* [Controlling Input and Output Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/input_and_output/input_and_output#controlling-input_preparing-a-structure-by-refinement)
 * [[Preparing ligands]]: Preparing ligands for use in Rosetta
+* [Preparing non-protein residues Tutorial](https://www.rosettacommons.org/demos/wiki/tutorials/prepare_ligand/prepare_ligand_tutorial)
 * [[Preparing PDB files for non-peptide polymers]]
 * [[Preparing PDB files containing protein and RNA|RNA-protein-changes]]
 * [[Running Rosetta with options]]: Instructions for running Rosetta applications on the command line

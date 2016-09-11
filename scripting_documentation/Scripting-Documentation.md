@@ -3,9 +3,11 @@
 ##RosettaScripts
  
 * [[Overview|RosettaScripts]]
+* [Introductory Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/scripting_with_rosettascripts/scripting_with_rosettascripts)
 * [[Movers|Movers-RosettaScripts]]
 * [[Filters|Filters-RosettaScripts]]
 * [[TaskOperations|TaskOperations-RosettaScripts]]
+* [[ResidueSelectors]]
 * [[Composite protocols|Composite-protocols]]
 * [[FeaturesReporters|Features-reporter-overview]]
 * [[Conventions|RosettaScripts-Conventions]]
@@ -21,9 +23,9 @@
 ##Pyrosetta
 
 * [[Overview|PyRosetta]]
-* [[PyRosetta Toolkit]]
-* [[PyRosetta Toolkit GUI]]
 * [[Full PyRosetta website|http://www.pyrosetta.org]]
+* [[PyRosetta Toolkit GUI]]
+* [[PyRosetta Toolkit GUI API | PyRosetta Toolkit]]
 
 ##See Also
 
@@ -34,3 +36,4 @@
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
 * [[Rosetta Servers]]: Web-based servers for Rosetta applications
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [RosettaScripting Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/scripting_with_rosettascripts/scripting_with_rosettascripts)

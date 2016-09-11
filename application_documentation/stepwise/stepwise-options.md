@@ -2,19 +2,26 @@
 
 # Inheritance Structure
 -----------------------
-`StepWiseBasicOptions`
+```
+ StepWiseBasicOptions      StepWiseMoveSelectorOptions
+     |           |          |
+     |           v          v
+     |          StepWiseMonteCarloOptions
+     v
+  StepWiseBasicModelerOptions  StepWiseProteinModelerOptions StepWiseRNA_ModelerOptions
+     |                _______________|_______________________________|
+     |               |
+     v               v
+  StepWiseModelerOptions
+```
+<sub>*Yes I know about potential issues with multiple inheritance, but I think they're avoided here, and the alternative solutions requires remembering to copy a huge number of options from class to class.</sub>
 
- • `StepWiseMonteCarloOptions`
-
- • `StepWiseBasicModelerOptions`
-
-   - `StepWiseModelerOptions` (also derives from `StepWiseProteinModelerOptions`, `StepWiseRNA_ModelerOptions`)*
-
-*(Yes I know about potential issues with multiple inheritance, but I think they're avoided here, and the alternative solutions requires remembering to copy a huge number of options from class to class.)
-
-### Note on spawning a `ModelerOptions` from `StepWiseMonteCarloOptions`
+### Note on spawning a `StepWiseModelerOptions` from `StepWiseMonteCarloOptions`
 ------------------------------------------------------------------------
-**MUST ADD NOTE ON num_pose_minimize**
+Some default values are different for `StepWiseModelerOptions` when it is created in `StepWiseMonteCarlo` vs. when it is needed for its original enumeration role in stepwise assembly (SWA). To handle this, `StepWiseMonteCarloOptions` can generate the appropriate `StepWiseModelerOptions` through the function `setup_modeler_options()` -- you've got to be a little careful that these are setup correctly.
+
+There are also some options redundant between StepWiseModelerOptions and StepWiseMonteCarloOptions that might be better grouped into a more basic class -- not too hard to do, just have to be careful about it.
+
 
 # Current Smorgasbord of Options
 --------------------------------

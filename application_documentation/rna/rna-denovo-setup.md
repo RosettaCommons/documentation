@@ -6,13 +6,16 @@ Application purpose
 
 This code allows build-up of three-dimensional de novo models of RNAs of sizes up to ~300 nts, given secondary structure and experimental constraints. It can be carried out reasonably automatically, but human curation of submodels along the build-up path may improve accuracy. A fully automated pipeline is in preparation (a previous iteration of this is described in [[rna assembly]] documentation).
 
+Here's a movie of models created through iterative application of this modeling workflow on the lariat-capping GIR1 ribozyme, as part of a blind prediction trials (RNA puzzle 5):
+
+[![RNA puzzle 5 modeling animation on Youtube](http://img.youtube.com/vi/F9hqByhhpuU/0.jpg)](http://www.youtube.com/watch?v=F9hqByhhpuU)
+
 Algorithm
 =========
 
 This documentation page emphasizes the setup of multiple jobs that together permit the modeling of complex RNA folds. Each of the 'sub-jobs' is either a helix creation, a RNA comparative modeling job [[rna_thread|rna-thread]], or a run with the FARFAR (fragment assembly of RNA with full-atom refinement) de novo modeling application. If desired, sub-models can be grafted together into bigger pieces. 
 
 The input files, algorithm, etc. for the FARFAR application are described separately [[here|rna denovo]], but a detailed understanding of those file formats is not necessary for modeling. 
-
 
 Limitations
 ===========
@@ -32,11 +35,15 @@ The RNA puzzles have offered useful testbeds of helix modeling, motif homology m
 
 References
 ==========
-Most of the tools described here are unpublished but are being incorporated into manuscripts in preparation. One recent preprint with some of this information is:
+Examples of blind predictions carried out with this pipeline, including the one in the movie above, are in:
 
-Cheng, C., Chou, F.-C., Kladwang, W., Tian, S., Cordero, P. and Das, R. (2014)
-"MOHCA-seq: RNA 3D models from single multiplexed proximity-mapping experiments." 
-[Paper](http://biorxiv.org/content/early/2014/04/25/004556)
+Miao, Z., et al. (2015) "RNA-Puzzles Round II: Assessment of RNA structure prediction programs applied to three large RNA structures." RNA 21 (6) : 1066 - 1084. [Paper.](https://daslab.stanford.edu/site_data/pub_pdf/2015_Miao_RNA.pdf) [Link.](http://rnajournal.cshlp.org/content/21/6/1066)
+
+Some recent manuscripts that describe this workflow in detail are:
+
+Cheng, C.Y., Chou, F.-C., Kladwang, W., Tian, S., Cordero, P., and Das, R. (2015) "Consistent global structures of complex RNA states through multidimensional chemical mapping." eLife 4 : e07600. [Paper.](https://daslab.stanford.edu/site_data/pub_pdf/2015_Cheng_eLife.pdf) [Link.](http://elifesciences.org/content/4/e07600)
+	
+Cheng, C.Y., Chou, F.-C., and Das, R. (2015) "Modeling complex RNA tertiary folds with Rosetta." Methods in Enzymology 553 : 35 - 64 [Paper.](https://daslab.stanford.edu/site_data/pub_pdf/2015_Cheng_MethEnzym.pdf) [Link.](http://www.sciencedirect.com/science/article/pii/S0076687914000524)
 
 
 Input Files
@@ -60,7 +67,7 @@ Making models
 Following are examples for a sequence drawn from RNA puzzle 11, a long hairpin with several submotifs. The fasta file `RNAPZ11.fasta` looked like this:
 
 ```
-> RNAPZ11 (7SK RNA 5' hairpin)
+>RNAPZ11 A:1-57
 gggaucugucaccccauugaucgccuucgggcugaucuggcuggcuaggcggguccc
 ```
 
@@ -87,7 +94,7 @@ rna_helix.py  -o H2.pdb -seq cc gg -resnum 14-15 39-40
 This application output the helix with chains A and B, but removing the chains prevents some confusion with later steps, so you can run:
 
 ```
-replace_chain_inplace.py  H2.pdb 
+replace_chain_inplace.py  H2.pdb A
 ```
 
 To setup the above python scripts, follow the directions for setting up [[RNA tools|rna-tools]].
@@ -129,12 +136,11 @@ Step 3. De novo model loops, junctions, & tertiary contacts of unknown structure
 ---------------------------
 To build motifs or several motifs together, we will use de novo Rosetta modeling. In this example, we'll model the motifs between H2 and H4, using our starting H2 and H4 helices as fixed boundary conditions.  Note that a more advanced method, [[stepwise modeling|stepwise]] is also available for high resolution modeling (and is actually easier to run the fragment assembly), but remains mostly untested in the context of buildup of large RNA complex folds; for motifs that have any kind of homology to existing junctions/motifs, FARFAR should be better & faster.
 
-Fragment assembly of RNA with full atom refinement (FARFAR) is not yet equipped to map numbers from our full modeling problem into subproblems. We have to create input files to `rna_denovo` for a little sub-problem and map all the residue numberings into the local problem. There is currently a wrapper script that sets up this job:
-
+Fragment assembly of RNA with full atom refinement (FARFAR) has been equipped to map numbers from our full modeling problem into subproblems, as defined by the `-working_res` flag" 
 ```
-rna_denovo_setup.py -fasta RNAPZ11.fasta \
+rna_denovo.<exe> -fasta RNAPZ11.fasta \
     -secstruct_file RNAPZ11_OPEN.secstruct \
-   -working_res 14-25 30-40 \
+   -working_res A:14-25 A:30-40 \
    -s H2.pdb H4.pdb \
    -fixed_stems \
    -tag H2H3H4_run1b_openH3_SOLUTION1 \
@@ -144,13 +150,9 @@ rna_denovo_setup.py -fasta RNAPZ11.fasta \
 You don't need to supply a native if you don't have it -- just useful
 to compute RMSDs as a reference.
 
-Then try this:
+[Historical note: there is also a script `rna_denovo_setup.py` which was used to set up input files for `rna_denovo` before it could handle residue mapping. You may see it called in older Rosetta RNA modeling workflows.]
 
-```
- source README_FARFAR
-```
-
-Example output after a couple of structures is in `example_output/`, and in this case goes to `H2H3H4_run1b_openH3_SOLUTION1.out`.
+Example output after a couple of structures goes to `H2H3H4_run1b_openH3_SOLUTION1.out`.
 
 For convergent results, you may have to do a full cluster run -- some tools are available for
  `condor`, `qsub`, `slurm` queueing systems as part of [[rna tools|rna-tools]].
@@ -159,7 +161,7 @@ Extract 10 lowest energy models:
 
 extract_lowenergy_decoys.py H2H3H4_run1b_openH3_SOLUTION1.out 10
 
-Inspect in Pymol. (For an automated workflow, you can also cluster these runs and just carry forward the top 5 clusters.)
+Inspect in Pymol, using, e.g., the commands available in [RiboVis](https://ribokit.github.io/RiboVis/). (For an automated workflow, you can also cluster these runs and just carry forward the top 5 clusters.)
 Demo files are available in:
 `       demos/public/rna_puzzle/step3_farfar/      `
 
@@ -203,7 +205,7 @@ Advanced options
 -chain_connection        specify that pairings must occur between two sets of residues: SET1 <positions in set 1> SET2 <positions in set 2>
 ```
 
-Step 4. Build-up larger pieces by grafting or by more FARFAR
+Step 4. Build-up larger pieces by grafting or by more FARFAR <a name="rna-graft" />
 ---------------------------
 Once you have several models of sub pieces, they can be combined in two ways.
 
@@ -221,6 +223,7 @@ Demo files are available in:
 
 ##See Also
 
+* [RiboKit](https://ribokit.github.io/workflows/3D_modeling/): Workflows for experimentally-guided RNA 3D modeling.
 * [[RNA Denovo]]: The main rna_denovo application page
 * [[RNA applications]]: The RNA applications home page
 * [[Structure Prediction Applications]]: List of structure prediction applications

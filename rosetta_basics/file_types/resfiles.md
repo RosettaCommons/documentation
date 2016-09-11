@@ -81,6 +81,7 @@ To accommodate structures with a large number of chains, following the PDB the, 
 ```
 10 _ PIKAA W # Allow only Trp at residue 10 in the unlabeled chain
 40 B EMPTY NC A20 NC B47 NC B48 # Disallow canonical residues (EMPTY), and then allow noncanonical types A20, B47, and B48
+40 B EMPTY NC DA20 NC DB47 NC DB48 # Disallow canonical residues (EMPTY), and then allow the D- stereoisomer of the noncanonical types A20, B47, and B48 (these were originally D20, E47, and E48)
 40A Q ALLAA # Residue 40, insertion code A, on chain Q, use any residue type
 ```
 
@@ -159,9 +160,9 @@ NOTE: It should be remembered that resfile commands are restrictive, rather than
 
 - NATRO ................ preserve the input rotamer ( do not pack at all) (NATive ROtamer)
 
-- EMPTY ................ disallow all canonical amino acids ( for use with non canonicals )
+- EMPTY ................ disallow all canonical amino acids (for use with non canonicals).  This throws away all previously applied task operations, and so will break the commutativity of task operations.  For this reason, its use is discouraged except when necessary, and it will be soon (as of March 2016) be deprecated.
 
-- RESET ................ resets the task to its default state of canonicals ON and non-canonicals OFF ( for use with non canonicals )
+- RESET ................ resets the task to its default state of canonicals ON and non-canonicals OFF (for use with non canonicals)  This throws away all previously applied task operations, and so will break the commutativity of task operations.  For this reason, its use is discouraged except when necessary, and it will be soon (as of March 2016) be deprecated.
 
 - NC \<ResidueTypeName\> . allow the specific possibly non canonical residue type; one residue type per NC command
 
@@ -283,3 +284,30 @@ start
 * [[Options overview]]: Overview of main Rosetta options groups
 * [[Full options list]]
 * [[Writing new resfile commands|resfile-reader]]
+
+<!--- search engine optimization
+resfile
+resfile
+resfile
+resfile
+resfile
+resfile
+resfile
+resfile
+resfile
+resfile
+resfile
+resfile
+resfile
+resfile
+resfile
+resfile
+resfile
+resfile
+resfile
+resfile
+resfile
+resfile
+resfile
+resfile
+resfile -->

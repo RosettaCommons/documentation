@@ -18,8 +18,8 @@ It offers a remaining benefit to the Pose DataCache, as a common reference point
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
 * [[Development Documentation]]: The main development documentation page
 
-<--! search optimization
+<!--- search optimization
 ReferenceCount
 ReferenceCount
 ReferenceCount
--->
+--->

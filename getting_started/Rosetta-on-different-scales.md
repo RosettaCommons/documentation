@@ -15,35 +15,43 @@ The [[results analysis|Analyzing-Results]] page also addresses the issue.
 Broadly, the number of models one needs to address a problem is related to the size of the search space, which is related to the number and type of degrees of freedom.
 The major classes of degrees of freedom, in order of complexity, are:
 * sidechain rotamer freedom (small numbers of atoms move)
-* sidechain design freedom (functionally a superset of rotameric freedom: some rotamer just have different atoms)
+* sidechain design freedom (functionally a superset of rotameric freedom: some rotamers just have different atoms)
 * rigid body freedom (docking problems)
 * backbone freedom (moving the backbone atoms relative to one another)
-Backbone freedom is most expensive because it is a very rugged search space (tightly packed atoms must be moved carefully) and, as a consequence of [[internal coordinate folding]], large motions can produce lever arm effects that disturb large parts of models.
+Backbone freedom is most expensive because it is a very rugged search space (tightly packed atoms must be moved carefully) and, as a consequence of [[internal coordinate folding|internal coordinates]], large motions can produce lever arm effects that disturb large parts of models.
 
 The diagram sketches out different experiments available on a logarithmic nstruct scale.
 Assume computer time is positively correlated with nstruct.
 
-TODO: ask Elizabeth to image map this
-![Diagram: log scale in nstruct Rosetta protocols](nstruct_scale.png "log scale in nstruct Rosetta protocols")
+<!--- NOTE the image map is upside-down for whatever reason --->
+<<RawHtml(
+<img src="Rosetta-on-different-scales.png" usemap="#GraffleExport" alt="missing logarithm scale image">
+<map name="GraffleExport">
+	<area shape=rect coords="89,1100,574,1200" href="Rosetta-on-different-scales#106-and-up">
+	<area shape=rect coords="89,930,574,1080" href="Rosetta-on-different-scales#105">
+	<area shape=rect coords="89,760,574,905" href="Rosetta-on-different-scales#104">
+	<area shape=rect coords="89,620,574,750" href="Rosetta-on-different-scales#103">
+	<area shape=rect coords="89,500,574,570" href="Rosetta-on-different-scales#102">
+	<area shape=rect coords="89,310,574,450" href="Rosetta-on-different-scales#101">
+	<area shape=rect coords="89,190,574,270" href="Rosetta-on-different-scales#100">
+</map>
+)>>
 
-10<sup>0</sup>
-------------------
+##10<sup>0</sup>
 At this logarithmic scale, one single model, we can use Rosetta protocols that are deterministic: protocols that are not employing a Monte Carlo search.
 The notable entries here are [[scoring|scoring-explained]] and [[minimization|minimization-overview]].
 Running the minimizer directly on an input structure is relatively rare (it will immediately get trapped in a local minimum) but plausible.
 Scoring a structure is a very common event.
 This scale will generally be fast and can run on a laptop.
 
-10<sup>1</sup>
-------------------
+##10<sup>1</sup>
 At this scale, we can consider protocols that are intended to have a very small search space and those that can be completely sampled.
 10 to 100 models are reasonable for most [[structure preparation|preparing-structures]] efforts, because these efforts are meant to be tightly constrained to the starting model, only fixing serious errors.
 This range is also reasonable for minor [[repacking|fixbb]] experiments.
 Repacking is feasible because it samples *very extensively* inside the protocol, so relatively few nstruct are needed.
 This scale will generally be fast and can run on a laptop.
 
-10<sup>2</sup>
-------------------
+##10<sup>2</sup>
 At this scale, we can consider smaller experiments sampling mostly non-backbone internal degrees of freedom: the sidechains.
 Sampling only the sidechains leads to a relatively small and less frustrated search space, partly because very few atoms move at a time and there are never large concerted (or unconcerted) movements of many atoms.
 The archetypical application here is [[fixed backbone design|fixbb]].
@@ -55,8 +63,7 @@ Importantly, it uses the BoltzmannRotamerMover to select rotamers for each posit
 Because it considers and discards many solutions per eventually produced decoy, relatively few decoys are needed, though the time needed to produce each one is considerably longer than all but the largest fixbb jobs.
 Again, note the trend toward repeated sampling *inside* a trajectory.
 
-10<sup>3</sup>
-------------------
+##10<sup>3</sup>
 At this scale, we begin to consider experiments that introduce non-sidechain degrees of freedom.
 Introducing backbone flexibility is very expensive in terms of search space, so we next introduce rigid-body freedoms instead, allowing for small docking problems.  
 For example, it is very common to perform so-called dock-design algorithms, where one runs repeated cycles of rigid body refinement docking alternated with repacking and design.
@@ -67,15 +74,13 @@ A peptidomimetic molecule might have only one or two stable conformations per re
 This scale is also useful for moderately constrained [[relax]] runs used as part of [[structure preparation|preparing-structures]] or at the tail end of [[ab initio structure prediction|abinitio-relax]].
 In this regime, you will generally want something more powerful than your desktop computer: either a many-core lab workhorse or a small run on a lab-scale cluster.
 
-10<sup>4</sup>
-------------------
+##10<sup>4</sup>
 At this scale, we are able to start seriously sampling larger scale docking problems while repacking and even redesigning.
 This is also reasonable for smallish backbone sampling protocols, like [[loop modeling|loopmodel]] of a single, moderate-length loop.
 This is also the bare-minimum of sampling required for local [[docking|docking-protocol]], where the initial protein configuration is close to the biological configuration.
 These sorts of problems you will need serious hardware to run: either long periods of time (overnight to days) on lab workhorses, small runs on lab-scale clusters (hundreds of CPUs), or tiny runs on large supercomputers.
 
-10<sup>5</sup>
-------------------
+##10<sup>5</sup>
 At this scale, we gain the ability to start sampling backbone flexibility, while still considering sidechain and rigid-body degrees of freedom.
 We are able to sample enough to start thinking about [[backrub]] or [[FastRelax|relax]] ensembles.
 This regime is also considered reasonable sampling for most flexible-backbone interface design protocols.
@@ -83,8 +88,7 @@ Fixed sequence protocols are faster than design protocols in this space.
 Global [[docking|docking-protocol]], where large swathes of rigid-body space must be explored becomes plausible.
 The computing resources needed scale from heavy use of a 500-CPU lab cluster to moderately large runs on large supercomputers (hundreds of processors for many days).
 
-10<sup>6</sup> and up
-------------------
+##10<sup>6</sup> and up
 At this scale, we can attempt to address any problem you can imagine.
 _ab initio_ [[structure prediction|abinitio-relax]] involves starting with no model at all, only a sequence, so its possible backbone conformational search space must be very well sampled.
 This is the ideal scale for [[docking|docking-protocol]].

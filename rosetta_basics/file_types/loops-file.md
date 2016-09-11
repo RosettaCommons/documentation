@@ -19,6 +19,8 @@ column5  "float":    Skip rate. default - never skip
 column6  "boolean":  Extend loop. Default false
 ```
 
+Residue numbers in loop definition files use _Rosetta numbering_, not PDB numbering.
+
 Example
 =======
 

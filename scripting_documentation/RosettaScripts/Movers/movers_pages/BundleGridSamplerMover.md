@@ -18,6 +18,7 @@ Generates a helical bundle, sampling user-specified ranges of parameters and out
     delta_t=(&real) OR ( delta_t_min=(&real) delta_t_max=(&real) delta_t_samples=(&int) )
     z1_offset=(&real) OR (z1_offset_min=(&real) z1_offset_max=(&real) z1_offset_sample=(&int))
     z0_offset=(&real) OR (z0_offset_min=(&real) z0_offset_max=(&real) z0_offset_sample=(&int))
+    repeating_unit_offset=0(&int)
    >
    <Helix set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool) invert=(false &bool)
      residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string) helix_length=(0 &int)
@@ -28,6 +29,7 @@ Generates a helical bundle, sampling user-specified ranges of parameters and out
      delta_t=(&real) OR (delta_t_copies_helix=(&int)) OR ( delta_t_min=(&real) delta_t_max=(&real) delta_t_samples=(&int) )
      z1_offset=(&real) OR (z1_offset_copies_helix=(&int)) OR ( z1_offset_min=(&real) z1_offset_max=(&real) z1_offset_samples=(&int) )
      z0_offset=(&real) OR (z0_offset_copies_helix=(&int)) OR ( z0_offset_min=(&real) z0_offset_max=(&real) z0_offset_samples=(&int) )
+     repeating_unit_offset=0(&int)
    >
    <Helix ...>
    <Helix ...>
@@ -35,7 +37,7 @@ Generates a helical bundle, sampling user-specified ranges of parameters and out
 </BundleGridSampler>
 ```
 
-Default parameter values or parameter ranges are set in the <b>BundleGridSampler</b> tag, and overrides are set in the individual <b>Helix</b> tags.  Refer to the <a href="https://www.rosettacommons.org/docs/latest/general-movers.html#MakeBundle"><b>MakeBundle</b> mover</a> for options that both movers have in common.  Additional options include:
+Default parameter values or parameter ranges are set in the <b>BundleGridSampler</b> tag, and overrides are set in the individual <b>Helix</b> tags.  Refer to the **[[MakeBundle mover|MakeBundleMover]]** for options that both movers have in common.  Additional options include:
 - <b>[parameter]\_min</b>, <b>[parameter]_max</b>: Minimum and maximum parameter values for a range to be sampled.
 - <b>[parameter]\_samples</b>: The number of samples.  Note that the total number of samples is the product of all individual samples, and this can get quite large very fast.
 - <b>[parameter]\_copies\_helix</b>: This option may only be specified in a <b>Helix</b> sub-tag.  It indicates that a particular parameter for that helix is always set to the same value as that parameter from a previously-defined helix.  See below for an example.
@@ -69,12 +71,12 @@ In order to sample a range of parameters, keeping a parameter value for two diff
 </BundleGridSampler>
 ```
 
-
-
 ##See Also
 
-* [[MakeBundleMover]]
-* [[BackboneGridSamplerMover]]
+* [[MakeBundle mover|MakeBundleMover]]
+* [[PerturbBundle mover|PerturbBundleMover]]
+* [[BundleReporter filter|BundleReporterFilter]]
+* [[BackboneGridSampler mover|BackboneGridSamplerMover]]
 * [[Symmetry]]: Using symmetry in Rosetta
 * [[SymmetryAndRosettaScripts]]
 * [[SetupForSymmetryMover]]
@@ -82,7 +84,6 @@ In order to sample a range of parameters, keeping a parameter value for two diff
 * [[DetectSymmetryMover]]
 * [[SymMinMover]]
 * [[SymPackRotamersMover]]
-* [[MakeBundleMover]]
 * [[ExtractAsymmetricUnitMover]]
 * [[ExtractAsymmetricPoseMover]]
 * [[I want to do x]]: Guide to choosing a mover
