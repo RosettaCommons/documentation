@@ -1221,53 +1221,6 @@ tools/SWA_RNA_python/SWA_dagman_python/utility/USER_PATHS.py
 &#8195; - 
 
 
-### ERRASER
-
-* See [[Erraser]] for more information.
-
-tools/ERRASER/erraser.py    
-&#8195; - 
-
-tools/ERRASER/erraser_analysis.py    
-&#8195; - 
-
-tools/ERRASER/erraser_option.py    
-&#8195; - 
-
-tools/ERRASER/erraser_single_res_analysis.py    
-&#8195; - 
-
-tools/ERRASER/erraser_single_res.py    
-&#8195; - 
-
-tools/ERRASER/erraser_util.py    
-&#8195; - 
-
-tools/ERRASER/erraser_wrapper.py    
-&#8195; - 
-
-tools/ERRASER/full_struct_minimize.py    
-&#8195; - 
-
-tools/ERRASER/measure_params.py    
-&#8195; - 
-
-tools/ERRASER/rna_decompose.py    
-&#8195; - 
-
-tools/ERRASER/rna_rosetta_ready_set.py    
-&#8195; - 
-
-tools/ERRASER/rna_rosetta_to_pdb.py    
-&#8195; - 
-
-tools/ERRASER/seq_rebuild.py    
-&#8195; - 
-
-tools/ERRASER/SWA_rebuild.py    
-&#8195; - 
-
-
 ### RECCES
 
 * See [[RECCES]] for more information.
