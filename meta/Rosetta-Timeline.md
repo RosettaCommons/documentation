@@ -119,6 +119,12 @@ As Rosetta grew, the Rosetta development world was no longer confined to just Da
 * 2014-04
     * Rosetta moves to a weekly release schedule. The first weekly release version is *Rosetta 2014.15.56658*
 
+* 2016-06
+    * Rosetta 3.6 released (it is the same as 2016 week 13, dating from April 1 2016).
+
+* 2016-09
+    * Rosetta 3.7 released (it is the same as 2016 week 32, dating from August 9 2016).
+
 ##See Also
 
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
