@@ -29,7 +29,7 @@ Acceptable versions:
 * GCC/g++: Version 4.7 or later
 * Clang/llvm on Linux: Version 3.3 or later (with caveats. See Standard Library support below)
 * Apple clang/llvm on Macs: Version 5.0 or later (The Apple provided clang has a different versioning scheme than "mainline" clang.)
-* Intel/ICC: Version 13 or later (Version 15 or later if you need threading support).
+* Intel/ICC: Version 14 or later (Version 15 or later if you need threading support).
 * Other compilers: consult your compiler documentation for information about C++11 support.
 
 ### Standard Library Support
