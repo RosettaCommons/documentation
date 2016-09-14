@@ -45,11 +45,11 @@ either during the development of Rosetta or for cluster runs.
 - CentOS 4.7 to 7.0
     - gcc 4.7 to 4.8
     - clang 3.3 to 3.4
-    - icc 13 to 14
+    - icc 14 to 16
 
 - Redhat Enterprise Linux 6.4
     - gcc 4.7
-    - icc 13 to 15
+    - icc 14 to 15
 
 - Scientific Linux 
     - clang 3.4
@@ -77,7 +77,7 @@ to update to a more well supported platform/system.
 - Compilers with insufficient C++11 support
     - GCC version 4.6 and before
     - Clang version 3.2 and before
-    - Intel compiler (ICC) version 12 and before
+    - Intel compiler (ICC) version 13 and before
     - (List is not exhaustive)
 
 Note: The compiler version number is insufficient to determine compiler compatibility,
