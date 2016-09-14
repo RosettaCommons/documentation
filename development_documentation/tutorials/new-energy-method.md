@@ -64,6 +64,17 @@ The third step in defining a new energy method is to implement the interface for
 
 Your derived class must implement a constructor (not necessarily a default constructor with no arguments) and a destructor. In the constructor, your class must invoke the base class method add\_score\_type for each of the score types your class defines. If you implement a copy constructor, invoke the base-class copy constructor as well or make sure your copy constructor calls add\_score\_type. The ScoreFunction requires that each energy method own up to the score types it intends to define.
 
+Data based scoring terms
+========================
+Suppose you have a rich set of data that correlates to some structural feature.
+A good example is dimethylsulfate (DMS) reactivity, which responds to structural features of adenosine residues, in particular around the N1 atom.
+One might imagine a log-odds potential that compares the observed values for particular residues to that simulated for your model, or an inverse-Boltzmann style scoring function that compares the values simulated for your model against the typical distribution in the PDB.
+Whatever the case, it'd be a shame if your only option were a discrete grid of observations.
+Historically, Rosetta has had interpolation facilities to handle this issue for rotamer libraries (in particular, bicubic interpolation for recent Dunbrack rotamer libraries).
+Recent efforts have created templated versions of Rosetta's interpolation code: the MathNTensor, PolycubicSpline, and a general InterpolatedPotential container. 
+If you've got some data and a desire for smooth derivatives, consider modeling your work off the RNA_DMS_Potential. 
+
+
 ##See Also
 
 * [[Development tutorials home page|devel-tutorials]]
