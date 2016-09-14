@@ -3,7 +3,7 @@ This is meant to serve as a list of large changesets (and their timestamps) that
 Add stuff at the top so that you can see the most recent stuff first.
 
 ##core::graph to utility::graph
- *[github {huge changeset, don't click}](https://github.com/RosettaCommons/main/commit/7b5bf62fea4002c0f3e30412a459b69c95078bca?w=1)
- *[test server](http://test.rosettacommons.org/revision?id=58908&branch=master)
- *How to fix: ```sed -i "s/core::graph/utility::graph/g"``` as necessary?
+* [github {huge changeset, don't click}](https://github.com/RosettaCommons/main/commit/7b5bf62fea4002c0f3e30412a459b69c95078bca?w=1)
+* [test server](http://test.rosettacommons.org/revision?id=58908&branch=master)
+* How to fix: ```sed -i "s/core::graph/utility::graph/g"``` as necessary?
 
