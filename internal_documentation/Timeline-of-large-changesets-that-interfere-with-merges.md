@@ -7,3 +7,9 @@ Add stuff at the top so that you can see the most recent stuff first.
 * [test server](http://test.rosettacommons.org/revision?id=58908&branch=master)
 * How to fix: ```sed -i "s/core::graph/utility::graph/g"``` as necessary?
 
+##pose.total_residue() to pose.size()
+* [github (huge changeset, don't click)](https://github.com/RosettaCommons/main/commit/dba6351aa665ff0d3eff950a670078170661bf31?w=1)
+* [test server](http://test.rosettacommons.org/revision?id=58904&branch=master)
+* sed, but you don't really have to, the old total_residue wasn't deprecated fully.  I guess the other accessor was?
+
+##Cxx11 modernizations
