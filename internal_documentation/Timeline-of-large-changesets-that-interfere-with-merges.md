@@ -13,3 +13,4 @@ Add stuff at the top so that you can see the most recent stuff first.
 * sed, but you don't really have to, the old total_residue wasn't deprecated fully.  I guess the other accessor was?
 
 ##Cxx11 modernizations
+* [[cxx11-merge]]
