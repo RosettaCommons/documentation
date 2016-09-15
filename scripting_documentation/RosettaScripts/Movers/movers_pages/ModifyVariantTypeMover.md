@@ -21,9 +21,7 @@ The following script adds the C-terminal amidation variant type to an 18-residue
 		<Index name="select_cterm" resnums="18" />
 	</RESIDUE_SELECTORS>	
 	<MOVERS>
-
 		<ModifyVariantType name="vartype" add_type="CTERM_AMIDATION" residue_selector="select_cterm" />
-		
 	</MOVERS>
 	<PROTOCOLS>
 		<Add mover="vartype" />
