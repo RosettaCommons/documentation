@@ -1,5 +1,5 @@
 # ModifyVariantType
-Last updated 13 September 2016 by Vikram K. Mulligan (vmullig@uw.edu).
+Last updated 14 September 2016 by Vikram K. Mulligan (vmullig@uw.edu).<br/>
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## ModifyVariantType
 
