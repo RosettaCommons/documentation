@@ -1,4 +1,5 @@
 # ModifyVariantType
+Last updated 13 September 2016 by Vikram K. Mulligan (vmullig@uw.edu).
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## ModifyVariantType
 
@@ -25,7 +26,7 @@ The following script adds the C-terminal amidation variant type to an 18-residue
 		
 	</MOVERS>
 	<PROTOCOLS>
-		<Add mover=vartype />
+		<Add mover="vartype" />
 	</PROTOCOLS>
 </ROSETTASCRIPTS>
 
