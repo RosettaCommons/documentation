@@ -56,7 +56,7 @@ The options for the "all" tag are the following:
 -   exclude: opposite as append (delete residues from the list allowed for the layer).
 -   ncaa, ncaa_append, ncaa_exclude: these permit non-canonical residues to be specified, as a comma-separated list of three-letter codes.  Note that TaskOperations permitting noncanonical design follow <i>OR</i> commutativity rather than <i>AND</i> commutativity.  That is, if I have three TaskOperations and number 1 OR number 2 OR number 3 permits a particular non-canonical, the non-canonical will be permitted when all three are applied.  With canonical amino acids, the reverse is true: only if number 1 AND number 2 AND number 3 permit a particular residue will that residue be permitted.
 -   specification: What residues from the task operation should be considered as the layer. Options are "designable" (pick designable residues), "repacakble" (pick residues restricted to only repack) or "fixed" (residues marked by the task as not repackable). Default is "designable"
--   operation: What to do with the specified layer. Default is 'design', other options are 'no\_design' (allow repacking) and 'omit' (prevent repacking).
+-   operation: What to do with the specified layer. Default is 'design', other options are 'no\_design' (allow repacking) and 'omit'.  If 'omit' is chosen, layer design will ignore any residues in the layer (i.e. not restrict design).
 
 After an all operation other definitions can be performed, for example:
 
