@@ -77,7 +77,7 @@ See the [[Build Documentation]] for details on the MPI (Message Passing Interfac
 
 # Other useful flags
 
-For mixed D/L peptides, the **-score:symmetric_gly_tables** flag can be a beneficial flag to use.  This flag symmetrizes the Ramachandran and p_aa_pp tables used for sampling and scoring glycine, so that it is equally likely to be in the D- or L-regions of Ramachandran space.  As of 23 February 2016, this flag also symmetrizes the gly tables used by the RamaPrePro energy term.
+For mixed D/L peptides, the **-score:symmetric_gly_tables** flag can be a beneficial flag to use.  This flag symmetrizes the Ramachandran and p_aa_pp tables used for sampling and scoring glycine, so that it is equally likely to be in the D- or L-regions of Ramachandran space.  As of 23 February 2016, this flag also symmetrizes the gly tables used by the RamaPrePro energy term (so that talaris2013, talaris2014, and beta_nov15 scorefunctions are all fully symmetric).
 
 # Output
 
@@ -174,3 +174,5 @@ This would farm out 1000 jobs to 3 slave processes in 25-job batches, with direc
 - Currently, there is no sampling of omega values, though these can deviate a bit from 180 degrees during final relaxation.  (The exception is sampling *cis*-peptide bonds at positions preceding proline if the **-cyclic_peptide:sample_cis_pro_frequency** flag is used to specify a frequency between 0 and 1.)
 - Currently, only alpha-amino acids are supported, though it will be possible to generalize this to arbitrary backbones in the near future.
 - Currently, there is no support for any sort of cyclization other than head-to-tail backbone cyclization, or for any sort of cross-link other than disulfide bonds.  These limitations will be addressed in the future.
+- When predicting structures of mixed D/L peptides, it is important to use a symmetric scorefunction (_i.e._ one in which mirror-image structures score and minimize identically).  The talaris2013, talaris2014, and beta_nov15 scorefunctions are all fully symmetric when used with the **-score:symmetric_gly_tables** flag, and fully symmetric but for glycine when used without the flag.  The Cartesian variants of these score functions (talaris2013_cart, talaris2014_cart, and beta_nov15_cart) are also fully symmetric, but for glycine.
+- Similarly, the scorefunction used must support cyclic geometry.  All of talaris2013, talaris2014, and beta_nov15 (plus their Cartesian variants, talaris2013_cart, talaris2014_cart, and beta_nov15_cart) support cyclic geometry as of 20 September 2016.
