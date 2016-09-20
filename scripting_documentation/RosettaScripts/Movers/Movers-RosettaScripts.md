@@ -338,6 +338,8 @@ See [[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScri
 
 **[[PeptideStubMover]]** - Add new residues to a pose
 
+**[[PeptideCyclizeMover]]** - Closes two ends of a selection in a pose
+
 **[[SegmentHybridize|SegmentHybridizeMover]]** - Closes loops using fragment insertion and cartesian minimization
 
 **[[Superimpose|SuperimposeMover]]** - Superimpose the current pose on another stored pose
