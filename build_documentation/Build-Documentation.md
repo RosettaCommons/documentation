@@ -118,8 +118,8 @@ To build MPI executables, add the flag "extras=mpi" and copy main/source/tools/b
 ./scons.py bin mode=release extras=mpi
 ```
 
-####Compiling with MPI
-You need to install MPI, of course.  What that looks like will vary from system to system.  For ubuntu, you will need probably ```sudo apt-get install openmpi openmpi-dev``` or similar.
+####Installing MPI
+You need to install MPI, of course.  What that looks like will vary from system to system.  For ubuntu, you will need probably ```sudo apt-get install openmpi openmpi-dev``` or similar.  The -dev package is necessary to install *before* trying to compile MPI Rosetta.
 
 ##Dependencies/Troubleshooting
 
