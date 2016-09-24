@@ -108,6 +108,44 @@ There have been some reports of success in using the precompiled Linux binaries 
 
 You _may_ be able to compile Rosetta by using cygwin for windows ( [http://www.cygwin.com/](http://www.cygwin.com/) ). Such usage is not tested by Rosetta developers though, and may not work.
 
+### CMake
+
+Rosetta can also be built with CMake. Currently it is less widely tested and does not support some features such as "extras" flags. However, CMake is faster than SCons, which can be advantageous for rapid compile-debug cycles.
+
+To build with CMake...
+
+1.  Change to the CMake build directory from the base Rosetta 3 directory and create the CMake build files:
+    `        cd cmake       `
+    `        ./make_project.py all       `
+2.  Next, change to a build directory
+    `        cd build_<mode>       `
+3.  and build Rosetta 3
+    `        cmake -G Ninja       `
+    `        ninja       `
+    If you don't have ninja, you can get it via `        git clone                 git://github.com/martine/ninja.git               ` . Or you can use `        make       ` which is slightly slower for recompiling:
+    `        cmake .       `
+    `        make -j8       `
+
+The currently available modes are debug and release, in combination with various extras and compilers. Creating a new type of build can be done by copying an existing `CMakeLists.txt` file from a build directory and modifying compiler settings and flags appropriately. In particular, users wanting to build only the libraries or a subset of the applications should remove these lines in `CMakeLists.txt`:
+
+    INCLUDE( ../build/apps.all.cmake )
+    INCLUDE( ../build/pilot_apps.all.cmake )
+
+These can be replaced with an explicit list of applications, such as:
+
+    INCLUDE( ../build/apps/minirosetta.cmake)
+
+The `     make_project.py    ` and `     cmake    ` commands should be run whenever files are added or removed from the `     rosetta_source/src/*.src.settings    ` files. The `     -j8    ` flag for `     cmake    ` has the same interpretation as the `     -j8    ` flag for `     scons    ` . The command `     cmake .    ` generates a "makefile", which means that alternate programs such as [distcc](https://wiki.rosettacommons.org/index.php/Distcc "Distcc") can be used for building Rosetta 3. (The `     ninja_build.py     ` script in `     rosetta_source     ` automatex the combined cmake/ninja process and responds to build abbreviations like 'r' for 'release'.)
+
+Alternate C++ compilers (such as Clang++ or distcc) can be specified on the command-line by replacing this command,
+
+`      cmake .     `
+
+with this command,
+
+``       cmake . -DCMAKE_CXX_COMPILER=`which clang++`      ``
+
+
 ###Message Passing Interface (MPI)
 
 MPI (the **M**essage **P**assing **I**nterface) is a standard for process-level parallelization. Independent processes can coordinate what they're doing by sending messages to one another, but cannot access the same memory space or directly interfere with one another's execution. Although most of Rosetta has not been parallelized, some apps (such as rosetta\_scripts) are set up for at least job-level parallelism (permitting automatic distribution of jobs over available processes), and some specialized pilot apps (such as vmullig/design\_cycpeptide\_MPI) take advantage of parallel processing in a non-trivial way.
