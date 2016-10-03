@@ -4,7 +4,7 @@ GlycanResidueSelector
 Metadata
 ========
 
-Authors: Dr. Jared Adolf-Bryfogle (jadolfbr@gmail.com), Dr. Sebastian Rämisch(raemisch@gmail.com), and Dr. Jason W. Labonte (JWLabonte@jhu.edu)
+Authors: Dr. Jared Adolf-Bryfogle (jadolfbr@gmail.com), Dr. Sebastian Rämisch(raemisch@scripps.com), and Dr. Jason W. Labonte (JWLabonte@jhu.edu)
 
 PIs: Dr. Jeff Gray and Dr. William Schief
 
