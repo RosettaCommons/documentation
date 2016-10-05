@@ -19,7 +19,6 @@ Changes a loop length without closing it.
 * [[LoopBuilderMover]]
 * [[LoopCreationMover]]
 * [[LoopFinderMover]]
-* [[LoopLengthChangeMover]]
 * [[LoopModelerMover]]
 * [[LoopMoverFromCommandLineMover]]
 * [[LoopProtocolMover]]
