@@ -1,10 +1,18 @@
 # Release Notes
 
 <!--- BEGIN_INTERNAL -->
+## _Rosetta 3.7 (internal notes)_
+
+_(This section in italics should remain hidden from the public wiki.)_
+
+* Possible scorefunction change: remove the erroneous DONOR property from the Npro atom type (really a bugfix)
+
+
+<!--- BEGIN_INTERNAL -->
 
 ## _Rosetta 3.7 (internal notes)_
 
-_(This section in italics should remains hidden from the public wiki.)_
+_(This section in italics should remain hidden from the public wiki.)_
 
 _3.7 will be Rosetta 2016.32, http://test.rosettacommons.org/revision?id=108&branch=release, https://github.com/RosettaCommons/main/commit/9005cc64587b4189882337bc87783ab96ead263f.  See also [https://wiki.rosettacommons.org/index.php/3.7_release_notes_workspace]_
 
