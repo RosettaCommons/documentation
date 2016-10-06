@@ -1,11 +1,13 @@
 # Release Notes
 
 <!--- BEGIN_INTERNAL -->
-## _Rosetta 3.7 (internal notes)_
+## _Rosetta 3.8 (internal notes)_
 
 _(This section in italics should remain hidden from the public wiki.)_
 
-* Possible scorefunction change: remove the erroneous DONOR property from the Npro atom type (really a bugfix)
+* _Possible scorefunction change: remove the erroneous DONOR property from the Npro atom type (really a bugfix)_
+
+<!--- END_INTERNAL -->
 
 
 <!--- BEGIN_INTERNAL -->
