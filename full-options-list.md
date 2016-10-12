@@ -308,8 +308,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Ouput option group<br/></dd>
 <dt><b>-fold_tree_io</b> \<Boolean\></dt>
 <dd>Ignore 'CHECKPOINT' file and the overwrite the PDB file(s)<br/></dd>
-<dt><b>-dump_connect_info</b> \<Boolean\></dt>
-<dd>Output CONECT info between bonded atoms that are beyond a threshhold specified with the -inout:connect_info_cutoff flag (3.0 A by default); useful for coarse-grained representations.<br/>Default: false<br/></dd>
+<dt><b>-write_all_connect_info</b> \<Boolean\></dt>
+<dd>Output CONECT info between ALL bonded atoms; useful for coarse-grained representations or cases in which geometry clashes (leading to aberrant bonds being displayed in PyMol).<br/>Default: false<br/></dd>
 <dt><b>-connect_info_cutoff</b> \<Real\></dt>
 <dd>The atom separation cutoff above which bonded atoms have explicit CONECT records written so that programs like PyMOL know the atomic connectivity.  Default 3.0 Angstroms.<br/>Default: 3.0<br/></dd>
 </dl>
