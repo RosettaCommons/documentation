@@ -13,7 +13,9 @@ This mover operates on a pose generated with the MakeBundle mover.  It perturbs 
      delta_omega1_perturbation=(&real) delta_omega1_perturbation_type=(&string)
      delta_t_perturbation=(&real) delta_t_perturbation_type=(&string)
      z1_offset_perturbation=(&real) z1_offset_perturbation_type=(&string)
-     z0_offset_perturbation=(&real) z0_offset_perturbation_type=(&string) >
+     z0_offset_perturbation=(&real) z0_offset_perturbation_type=(&string)
+     epsilon_perturbation=(&real) epsilon_perturbation_type=(&string)
+     >
           <Helix helix_index=(&int)
                r0_perturbation=(&real) r0_perturbation_type=(&string) r0_copies_helix=(&int)
                omega0_perturbation=(&real) omega0_perturbation_type=(&string) omega0_copies_helix=(&int) pitch_from_helix=(&int)
