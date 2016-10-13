@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## BundleGridSampler
 
-Generates a helical bundle, sampling user-specified ranges of parameters and outputting the lowest-energy bundle encountered (and its accompanying parameter values).  Sampled parameters are evenly distributed in user-specified ranges; if more than one parameter is sampled, the mover samples an n-dimensional grid of sample values.  Optionally, this mover can also output PDB files for all bundle geometries sampled.  Parameters are stored with the pose, and are written in REMARK lines on PDB output.  Note that because a strand is a special case of a helix, this mover can also be used to sample beta-barrel conformations or mixed alpha-beta structures.
+Generates a helical bundle using the Crick equations (describing a coiled-coil) or modified Crick equations (describing a laterally squashed coiled-coil), sampling user-specified ranges of parameters and outputting the lowest-energy bundle encountered (and its accompanying parameter values).  Sampled parameters are evenly distributed in user-specified ranges; if more than one parameter is sampled, the mover samples an n-dimensional grid of sample values.  Optionally, this mover can also output PDB files for all bundle geometries sampled.  Parameters are stored with the pose, and are written in REMARK lines on PDB output.  Note that because a strand is a special case of a helix, this mover can also be used to sample beta-barrel conformations or mixed alpha-beta structures.
 
 ```
 <BundleGridSampler name=(&string) use_degrees=(false &bool) symmetry=(0 &int) symmetry_copies=(0 &int) set_dihedrals=(true &bool)
@@ -16,8 +16,9 @@ Generates a helical bundle, sampling user-specified ranges of parameters and out
     delta_omega0=(&real) OR ( delta_omega0_min=(&real) delta_omega0_max=(&real) delta_omega0_samples=(&int) )
     delta_omega1=(&real) OR ( delta_omega1_min=(&real) delta_omega1_max=(&real) delta_omega1_samples=(&int) )
     delta_t=(&real) OR ( delta_t_min=(&real) delta_t_max=(&real) delta_t_samples=(&int) )
-    z1_offset=(&real) OR (z1_offset_min=(&real) z1_offset_max=(&real) z1_offset_sample=(&int))
-    z0_offset=(&real) OR (z0_offset_min=(&real) z0_offset_max=(&real) z0_offset_sample=(&int))
+    z1_offset=(&real) OR (z1_offset_min=(&real) z1_offset_max=(&real) z1_offset_samples=(&int))
+    z0_offset=(&real) OR (z0_offset_min=(&real) z0_offset_max=(&real) z0_offset_samples=(&int))
+    epsilon=(&real) OR (epsilon_min=(&real) epsilon_max=(&real) epsilon_samples=(&int))
     repeating_unit_offset=0(&int)
    >
    <Helix set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool) invert=(false &bool)
@@ -29,6 +30,7 @@ Generates a helical bundle, sampling user-specified ranges of parameters and out
      delta_t=(&real) OR (delta_t_copies_helix=(&int)) OR ( delta_t_min=(&real) delta_t_max=(&real) delta_t_samples=(&int) )
      z1_offset=(&real) OR (z1_offset_copies_helix=(&int)) OR ( z1_offset_min=(&real) z1_offset_max=(&real) z1_offset_samples=(&int) )
      z0_offset=(&real) OR (z0_offset_copies_helix=(&int)) OR ( z0_offset_min=(&real) z0_offset_max=(&real) z0_offset_samples=(&int) )
+     epsilon=(&real) OR (epsilon_copies_helix=(&int)) OR ( epsilon_min=(&real) epsilon_max=(&real) epsilon_samples=(&int) )
      repeating_unit_offset=0(&int)
    >
    <Helix ...>
