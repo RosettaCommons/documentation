@@ -1,5 +1,5 @@
 # CopyRotamerMover
-*Back to [[Mover|Movers-RosettaScripts]] page.*
+*Back to [[Mover|Movers-RosettaScripts]] page.*<br/>
 Mover and documentation created 17 October 2016 by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu).
 
 ## CopyRotamerMover
