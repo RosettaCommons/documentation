@@ -3,7 +3,7 @@
 Mover and documentation created 17 October 2016 by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu).
 
 ## CopyRotamerMover
-This is a very simple mover that copies the residue identity and/or sidechain conformation from one position (the _template_) to another (the _target_).
+This is a very simple mover that copies the residue identity and/or sidechain conformation from one residue in a pose (the _template_) to another (the _target_).
 
 ```
 <CopyRotamer name=(&string) template_res_index=(&int) target_res_index=(&int) copy_identity=(true &bool) copy_torsions=(true &bool) />
