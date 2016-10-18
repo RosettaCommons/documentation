@@ -312,6 +312,8 @@ See [[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScri
 
 **[[BluePrintBDR|BluePrintBDRMover]]** - Make a centroid structure from a PDB file
 
+**[[CopyRotamer|CopyRotamerMover]]** - Copy a side-chain identity and/or conformation from one residue to another residue.
+
 **[[Disulfidize|DisulfidizeMover]]** - Finds potential disulfide bond positions based on Calpha - Cbeta distance
 
 **[[Dssp|DsspMover]]** - Calculates secondary structure using dssp
