@@ -3,13 +3,29 @@
 Mover and documentation created 17 October 2016 by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu).
 
 ## CopyRotamerMover
+### Description and Example
 This is a very simple mover that copies the residue identity and/or sidechain conformation from one residue in a pose (the _template_) to another (the _target_).
 
 ```
 <CopyRotamer name=(&string) template_res_index=(&int) target_res_index=(&int) copy_identity=(true &bool) copy_torsions=(true &bool) />
 ```
 
-## Options
+For example, the following script copies both the side-chain identity and conformation from position 32 to position 45:
+
+```
+<ROSETTASCRIPTS>
+	<MOVERS>
+		<CopyRotamer name="copy_rot" template_res_index="32" target_res_index="45" />
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover="copy_rot" />
+	</PROTOCOLS>
+</ROSETTASCRIPTS>
+```
+
+Currently, the mover can only copy side-chain torsional degrees of freedom.  Side-chains with non-ideal bond angles and bond lengths do not necessarily have their geometry copied exactly.  If necessary, support can be added for copying bond angle and bond length degrees of freedom.
+
+### Options
 |*Option* | *Required input?* | *Description* |
 |----|---|---|
 | *template_res_index* | YES | The index, in Rosetta pose numbering, of the residue from which the side-chain will be copied. This residue is not altered by this operation. |
