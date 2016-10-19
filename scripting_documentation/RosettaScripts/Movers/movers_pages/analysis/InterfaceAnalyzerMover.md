@@ -17,7 +17,7 @@ Calculate binding energies, buried interface surface areas, packing statistics, 
 -   interface_sc (bool) - interface shape complementarity score.  Probably the same underlying code as the [[ShapeComplementarityFilter]].
 -   use\_jobname: use\_jobname (bool) - if using tracer output, this turns the tracer name into the name of the job. If you run this code on 50 inputs, the tracer name will change to match the input, labeling each line of output with the input to which it applies. Not relevant if not using tracer output.
 -   pack\_separated: repack the exposed interfaces when calculating binding energy? Usually a good idea.
--   resfile: warns the protocol to watch for the existence of a resfile if it is supposed to do any packing steps. (This is normally signealed by the existance of the -resfile flag, but here the underlying InterfaceAnalyzerMover is not intended to use -resfile under normal circumstances, so a separate flag is needed. You can still pass the resfile with -resfile.)
+-   resfile: warns the protocol to watch for the existence of a resfile if it is supposed to do any packing steps. (This is normally signaled by the existence of the -resfile flag, but here the underlying InterfaceAnalyzerMover is not intended to use -resfile under normal circumstances, so a separate flag is needed. You can still pass the resfile with -resfile.)
 -   pack\_input: prepack before separating chains when calculating binding energy? Useful if these are non-Rosetta inputs
 -   ligandchain: Specify a single ligand chain by pdb chain ID. All chains in the protein other than this will be marked as fixed as if they were specified using fixedchains.
 
