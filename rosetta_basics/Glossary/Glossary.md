@@ -73,7 +73,7 @@ Core::kinematics class for defining atomic connectivity.
 
 #### AtomType
 
-A class which stores the properies of a particular kind of atom. (e.g. a carboxylate oxygen)
+A class which stores the properties of a particular kind of atom. (e.g. a carboxylate oxygen). See [[Rosetta AtomTypes]] for more details.
 
 #### B factor
 
