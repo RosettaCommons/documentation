@@ -49,6 +49,7 @@
 - [[I want to do _x_. How do I do _x_? | I-want-to-do-x ]] 
 
 - Advanced Topics
+    * [[Rosetta AtomTypes]]
     * [Rosetta3 Architecture](http://www.ncbi.nlm.nih.gov/pubmed/21187238)
     * [[Foldtree Overview]]
     * [[AtomTree Overview]]
