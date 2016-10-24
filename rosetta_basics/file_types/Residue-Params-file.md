@@ -17,7 +17,7 @@ The following lines are typically found in Ligand params files. This does not re
 
 -   **AA** The amino acid type. Should be "UNK" for ligands
 
--   **ATOM** The PDB atom name, Rosetta AtomType, MM AtomType, and charge. an atom line looks like this:
+-   **ATOM** The PDB atom name, [[Rosetta AtomType|Rosetta AtomTypes]], MM AtomType, and charge. an atom line looks like this:
 
     ```
     ATOM  C17 CH1   X   0.13
