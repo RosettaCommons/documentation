@@ -30,9 +30,9 @@ Under full atom mode, all atoms are present.
 Amino Acids
 -----------
 
-![[images/RosettaAtomTypes_fa_bb.png]]
+[[images/RosettaAtomTypes_fa_bb.png]]
 
-![[images/RosettaAtomTypes_fa_aa.png]]
+[[images/RosettaAtomTypes_fa_aa.png]]
 
 <!--- BEGIN_INTERNAL -->
 *(The original ChemDraw files for these figures are present in the images directory, if you wish to adjust them.)*
@@ -55,7 +55,7 @@ Additionally, the protein sidechains are merged into a single 'CEN' "super atom"
 Amino Acids
 -----------
 
-![[images/RosettaAtomTypes_cen.png]]
+[[images/RosettaAtomTypes_cen.png]]
 
 <!--- BEGIN_INTERNAL -->
 *(The original ChemDraw files for this figure is present in the images directory, if you wish to adjust it.)*
