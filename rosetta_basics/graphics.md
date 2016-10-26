@@ -2,6 +2,7 @@ OpenGL graphics
 =====
 
 ### Compiling with graphics mode
+Graphics or "viewer" is a native graphics viewer in Rosetta that allows you to watch a given pose in real-time. It is often used to troubleshoot protocols in rosetta_scripts. These are the same graphics that are used in Rosetta@home BOINC screensaver.
 
 #### In linux
 Before you can compile, you need copy the libglut.so file into the external lib directory:
