@@ -4,11 +4,11 @@
 
 HBNet is a method to explicitly detect and design hydrogen bond networks within Rosetta.  It functions as a mover within the RosettaScripts framework and will exhaustively search for all networks within the design space that you define with [[TaskOperations|TaskOperations-RosettaScripts]], and that meet the criteria you specify with the options below
 
-[[how buried unsatisfied polar atoms are handled by HBNet|HBNet-BUnsats]].*<br>
-[[how to design hydrogen bond networks into helical bundles|HBNet-HelicalBundle]].*<br>
-[[how HBNet works|HBNet-HowItWorks]].*<br>
-[[how the code works and hooking into it HBNet|HBNet-Code]].*<br>
-[[how HBNet handles symmetric cases|HBNet-Symmetry]].*<br>
+*[[how buried unsatisfied polar atoms are handled by HBNet|HBNet-BUnsats]].*<br>
+*[[how to design hydrogen bond networks into helical bundles|HBNet-HelicalBundle]].*<br>
+*[[how HBNet works|HBNet-HowItWorks]].*<br>
+*[[how the code works and hooking into it HBNet|HBNet-Code]].*<br>
+*[[how HBNet handles symmetric cases|HBNet-Symmetry]].*<br>
 
 In general, HBNet should work with any existing XML by places it in the beginning of your design steps.  Because HBNet returns multiple poses (each with different networks or combinations of networks), everything downstream of HBNet must use the [[MultiplePoseMover]].  Here is a template XML:
 ```
