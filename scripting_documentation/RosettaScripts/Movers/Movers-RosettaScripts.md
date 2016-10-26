@@ -64,6 +64,8 @@ Meta Movers don't do anything to the pose themselves, but combine or modify the 
 
 **[[AddJobPairData|AddJobPairDataMover]]** - Add a key:value pair to the current job for inclusion in output
 
+**[CstInfoMover]]** - Add details about constraint satisfaction to the scorefile
+
 **[[DumpPdb|DumpPdbMover]]** - Save a pose to disk.
 
 **[[FilterReportAsPoseExtraScoresMover]]** - Records Filter values to the scorefile
@@ -136,21 +138,17 @@ These are movers that should be usable in most cases with most systems
 
 **[[CartesianMD|CartesianMD]]** - Brings concerted motion to backbones using Cartesian-space molecular dynamics
 
-<!--- BEGIN_INTERNAL -->
 ### Comparative Modeling
 
 **[[HybridizeMover]]** - Use single or multiple templates to generate a combined model.  Part of [[RosettaCM]].
 
 **[[SimpleThreadingMover]]** - Thread sequences onto structures.  Nothing fancy here.
 
-<!--- END_INTERNAL -->
-
-
 ### Constraints
 
+**[CstInfoMover]]** - Add details about constraint satisfaction to the scorefile
+
 **[[AddCompositionConstraintMover]]** - Adds constraints related to the amino acid composition, enforced by the aa_composition score term.
-
-
 
 **[[AddConstraintsToCurrentConformationMover]]** - Adds constraints based on the current conformation
 
