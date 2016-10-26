@@ -324,7 +324,7 @@ See [[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScri
 
 **[[FoldTreeFromLoops|FoldTreeFromLoopsMover]]** - Defines a fold tree based on the end points of a loop
 
-**[[HBNet|HBNetMover]]** - (Developer release only) Methods for designing explicit hydrogen bond networks
+**[[HBNet|HBNetMover]]** - Methods for designing explicit hydrogen bond networks
 
 **[[LoadPDB|LoadPDBMover]]** - Replaces current PDB with another
 
