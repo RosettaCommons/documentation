@@ -1,7 +1,7 @@
 #How HBNet works
 *Back to [[HBNet|HBNetMover]] page.  Back to [[Mover|Movers-RosettaScripts]] page.  Back to [[RosettaScripts|RosettaScripts]] page.*<br>
 
-
+[http://science.sciencemag.org/content/352/6286/680]
 
 HBNet consists of three steps, described in detail below: first, an exhaustive but efficient search identifies the hydrogen bond networks possible within a given design space (which consists of all allowed sidechain rotamers of all amino acid types being considered for a particular backbone conformation); second, networks are scored and ranked based on the Rosetta energy function, satisfaction (all buried polar atoms participating in hydrogen bonds), and user-defined options; third, the best networks, or combinations of the best networks, are iteratively placed onto the design scaffold and held in relative position with constraints that serve as ‘seeds’ for any subsequent Rosetta method to design around the network and optimize rotamers for the remaining positions in the scaffold. 
 
