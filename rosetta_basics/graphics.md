@@ -24,11 +24,11 @@ Then using scons, specify graphics as extras.
 You just need to include a single flag:
 `rosetta_scripts.graphics.linuxgccrelease -parser:view`
 
-Note: Some movers automatically assign the secondary structure the the pose, for movers that do not you need to first run the Dssp mover.
+Note: Some movers automatically assign the secondary structure to the working pose, for movers that do not you need to first run the Dssp mover.
 
 ### Controling the graphics
 To control the visuals, use keyboard shortcuts:
-C = color (color by chain, or rainbow, atom type etc.)
-B = backbone (ribbon, cartoon, etc.)
-S = sidechain on/off
-H = hydrogen on/off
+* C = color (color by chain, or rainbow, atom type etc.)
+* B = backbone (ribbon, cartoon, etc.)
+* S = sidechain on/off
+* H = hydrogen on/off
