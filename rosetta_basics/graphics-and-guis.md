@@ -3,11 +3,10 @@
 [[_TOC_]]
 
 #Graphics Output
-##OpenGL Graphics mode
-
+##[[OpenGL Graphics mode|graphics]]
 Graphics mode (or the "viewer") in Rosetta allows viewing any given pose in real-time. Keyboard short-cuts are used to change the display settings ((C)olor, (B)ackbone, (S)idechain, (H)hydrogen) and the mouse is used to change the view (zoom/rotate).
 
-##
+![[images/graphics_mode.png]]
 
 ##[[Pymol Mover|PyMOL]]
 ###Background
