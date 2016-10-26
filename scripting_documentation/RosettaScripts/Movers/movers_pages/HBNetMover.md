@@ -4,7 +4,7 @@
 
 *For details on [[how buried unsatisfied polar atoms are handled by HBNet|HBNet-BUnsats]].*<br>
 *For details on [[how to design hydrogen bond networks into helical bundles|HBNet-HelicalBundle]].*<br>
-*For details on [[how HBNet works|HBNet-HowItWorks]].*
+*For details on [[how HBNet works|HBNet-HowItWorks]].*<br>
 *For details on [[how the code works and hooking into it HBNet|HBNet-Code]].*<br>
 
 In general, HBNet should work with any existing XML by places it in the beginning of your design steps.  Because HBNet returns multiple poses (each with different networks or combinations of networks), everything downstream of HBNet must use the [[MultiplePoseMover]].  Here is a template XML:
