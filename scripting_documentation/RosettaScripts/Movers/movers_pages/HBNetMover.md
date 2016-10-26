@@ -8,6 +8,7 @@ HBNet is a method to explicitly detect and design hydrogen bond networks within 
 *For details on [[how to design hydrogen bond networks into helical bundles|HBNet-HelicalBundle]].*<br>
 *For details on [[how HBNet works|HBNet-HowItWorks]].*<br>
 *For details on [[how the code works and hooking into it HBNet|HBNet-Code]].*<br>
+*For details on [[how HBNet handles symmetric cases|HBNet-Symmetry]].*<br>
 
 In general, HBNet should work with any existing XML by places it in the beginning of your design steps.  Because HBNet returns multiple poses (each with different networks or combinations of networks), everything downstream of HBNet must use the [[MultiplePoseMover]].  Here is a template XML:
 ```
