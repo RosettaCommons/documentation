@@ -64,7 +64,7 @@ Meta Movers don't do anything to the pose themselves, but combine or modify the 
 
 **[[AddJobPairData|AddJobPairDataMover]]** - Add a key:value pair to the current job for inclusion in output
 
-**[CstInfoMover]]** - Add details about constraint satisfaction to the scorefile
+**[[CstInfoMover]]** - Add details about constraint satisfaction to the scorefile
 
 **[[DumpPdb|DumpPdbMover]]** - Save a pose to disk.
 
@@ -146,7 +146,7 @@ These are movers that should be usable in most cases with most systems
 
 ### Constraints
 
-**[CstInfoMover]]** - Add details about constraint satisfaction to the scorefile
+**[[CstInfoMover]]** - Add details about constraint satisfaction to the scorefile
 
 **[[AddCompositionConstraintMover]]** - Adds constraints related to the amino acid composition, enforced by the aa_composition score term.
 
