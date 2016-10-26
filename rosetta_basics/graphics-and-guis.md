@@ -5,6 +5,10 @@
 #Graphics Output
 ##OpenGL Graphics mode
 
+Graphics mode (or the "viewer") in Rosetta allows viewing any given pose in real-time. Keyboard short-cuts are used to change the display settings ((C)olor, (B)ackbone, (S)idechain, (H)hydrogen) and the mouse is used to change the view (zoom/rotate).
+
+##
+
 ##[[Pymol Mover|PyMOL]]
 ###Background
 The PyMOL Mover is a way to visualize your decoy (PDB) in PyMOL. One of its most powerful features is that it can color your decoy by score or some component of the total score, as well as observe changes in real-time during a Rosetta protocol. 
