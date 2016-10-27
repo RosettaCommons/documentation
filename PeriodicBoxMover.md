@@ -33,7 +33,7 @@ This mover runs Monte Carlo (MC) simulation in isothermal-isobaric (NPT) conditi
 TBA
 
 ### Liquid simulation related
-- All the example weights, options in xml, command line is provided in Part et al (2016).
+- All the example weights, options in xml, command line is provided in Park et al (2016).
 - Analyzing the result:
  One can calculate liquid properties such as "heat of vaporization", "density", "heat capacity", and so on, by processing the report\_scorefile. For an example analysis script, please contact to Hahnbeom Park (hahnbeom@gmail.com). 
 
