@@ -21,7 +21,7 @@ This mover runs Monte Carlo (MC) simulation in isothermal-isobaric (NPT) conditi
 -  resize\_vol\_every - how often volume movement is called during MC. otherwise will randomly call either rotation or torsion movement. 
 -  temp - temperature in Kelvin
 -  pressure - Pressure in atm.
--  correct\_LJtruncation - whether to add the correction coming from long-range LJ interaction;  
+-  correct\_LJtruncation - whether to add the correction coming from long-range LJ interaction (by integrating over the distance from fa_max_dis to infinity); **should be turned on for liquid simulation.**
 -  report\_scorefile - name of the file to report energy components along the trajectory.
 -  dump\_every  - how often will dump the silent file (if requested)
 -  report\_every  - how often will dump the energy components to score file.
