@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## PeriodicBoxMover
 
-This mover runs Monte Carlo (MC) simulation in isothermal-isobaric (NPT) condition on a periodic boundary box. Can be applied to a broad range of (small molecules) to extract their thermodynamic properties. Currently it has been applied to running liquid-state simulation of small molecules; see Park et al (2016), "Simultaneous optimization of biomolecular energy function on features from small molecules and macromolecules", JCTC. Details will be added more in near future. 
+This mover runs Monte Carlo (MC) simulation in isothermal-isobaric (NPT) condition on a periodic boundary box. Can be applied to a broad range of (small molecules) to extract their thermodynamic properties. Currently it has been applied to running liquid-state simulation of small molecules; see Park et al (2016), "Simultaneous optimization of biomolecular energy function on features from small molecules and macromolecules", _JCTC_. Details will be added more in near future. 
 
     <PeriodicBoxMover name=(&string) scorefxn=(&string)
                       nmol_side=(5 &Size) nsteps_equilibrate=(500000 &Size) nsteps_sim=(1000000 &Size) 
