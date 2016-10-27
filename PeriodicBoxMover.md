@@ -29,10 +29,10 @@ This mover runs Monte Carlo (MC) simulation in isothermal-isobaric (NPT) conditi
 -  initial\_density - initial density of small molecules in g/cm^3. initial guess is 1.0 from water, but in general other small molecules have lower densities.
 -  istart - simulation step to begin with; used for continuing simulation.
 
-# Restarting simulation
+### Restarting simulation
 TBA
 
-# Liquid simulation related
+### Liquid simulation related
 - All the example weights, options in xml, command line is provided in Part et al (2016).
 - Analyzing the result:
  One can calculate liquid properties such as "heat of vaporization", "density", "heat capacity", and so on, by processing the report\_scorefile. For an example analysis script, please contact to Hahnbeom Park (hahnbeom@gmail.com). 
