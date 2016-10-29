@@ -41,9 +41,6 @@ In general, HBNet should work with any existing XML by places it in the beginnin
 - <b>max\_unsats</b> (1 &Size): maximum number of buried unsatisfied polar atoms allowed in each network.  Note that *[[the way I treat buried unsats|HBNet-BUnsats]].* is very different from all of the other Buried Unsatisfied calculators/filters in Rosetta.  I have plans to move this code outside of HBNet and turn it into its own calculator/filter.  Short version is that if there are heavy atom donors or acceptors that are buried and unsatisfied, those networks are thrown out, and I only count unsatisfied Hpols where the heavy atom donor is making at least one hydrogen bond.  This behavior can be overridden to allow heavy atom unsats by setting <b>no_heavy_unsats_allowed=false</b>.
 - <b>scorefxn</b>: The scoring function to use.  If not passed, default is talaris, or if -beta flag is on, default is beta wts.
 
-###Experimental options - use at your own risk!
-- <b>secondary_search</b> (bool &false): if during IG traversal, a search trajectory terminates in rotamer than cannot make any h-bonds, search again from that rotamer using a lower hb_threshold (-0.25).
-
 ####New options for detecting native networks, and keeping and extending existing networks of input pose
 
 - <b>find\_only\_native_networks (bool &false):</b>  HBnet will find only find native networks in your input pose that meet your criteria (specified by options) and return a single pose with csts for those networks.  If this option is true, all options below are overridden and HBNet does not search for new networks
@@ -52,11 +49,14 @@ In general, HBNet should work with any existing XML by places it in the beginnin
 - <b>extend\_existing\_residues (bool &false):</b>  Detects existing networks and tries to extend them, and also will search for new networks at other positions based on your criteria.  Existing networks identified by “HBNet” PDBInfoLabel tags in the input pose, but can also be detected anew by setting find_native_networks=1.  For existing networks, HBNet internally puts only the input rotamer of each network residue into the IG to try to extend; an extended network will replace its native network if it is better (otherwise native networks retained).
 - <b>only\_extend\_existing (bool &false):</b>  Will not look for new networks at other positions; will only try to extend and improve the existing networks.
 
+####Experimental options - use at your own risk!
+- <b>secondary_search</b> (bool &false): if during IG traversal, a search trajectory terminates in rotamer than cannot make any h-bonds, search again from that rotamer using a lower hb_threshold (-0.25).
+
 ## Specific cases
 HBNet is a base classes that can be derived from to override key functions that do the setup, design and processing of the networks differently:
 
 ###HBNetStapleInterface
-This 
+
 
 ```
 <HBNetStapleInterface name=(&string) hb_threshold=(&real -0.85) stringent_satisfaction=(&bool true) />
