@@ -39,7 +39,17 @@ In general, HBNet should work with any existing XML by places it in the beginnin
 - <b>hb\_threshold</b> (-0.5 &Real): 2-body h-bond energy cutoff to define rotamer pairs that h-bond.  I've found that -0.5 without ex1-ex2 is the best starting point.  If using ex1-ex2, try -0.75.  This parameter is the most important and requires some tuning; the tradeoff is that the more stringent (more negative), the faster it runs but you miss a lot of networks; too positive and it will run forever; using ex1-ex2 results in many redundant networks that end up being filtered out anyway.
 - <b>scorefxn</b>: The scoring function to use.  If not passed, default is talaris, or if -beta flag is on, default is beta wts.
 - <b>max\_unsats</b> (1 &Size): maximum number of buried unsatisfied polar atoms allowed in each network.  Note that *[[the way I treat buried unsats|HBNet-BUnsats]].* is very different from all of the other Buried Unsatisfied calculators/filters in Rosetta.  I have plans to move this code outside of HBNet and turn it into its own calculator/filter.  Short version is that if there are heavy atom donors or acceptors that are buried and unsatisfied, those networks are thrown out, and I only count unsatisfied Hpols where the heavy atom donor is making at least one hydrogen bond.  This behavior can be overridden to allow heavy atom unsats by setting <b>no_heavy_unsats_allowed=false</b>.
-- <b>scorefxn</b>: The scoring function to use.  If not passed, default is talaris, or if -beta flag is on, default is beta wts.
+- <b>scorefxn</b>: The scoring function to use.  If not passed, default is talaris, or if -beta flag is on then the default is beta wts.
+- <b>write_network_pdbs</b>: writes out pdb files of only the network (in poly-Ala background where any designable/packable residue is Ala -- rest of pose untouched); this is simply for debugging and visualizing the network as detected by HBNet
+- <b>write_cst_files</b>: writes out Rosetta .cst constraint files for each network.
+- <b>min_network_size</b>: minimum number of residues required for each network.  *Note: in symmetric cases, this refers to the number of residues in the ASU!*
+- <b>max_network_size</b>: maximum number of residues required for each network.
+- <b>start_resnums</b>: comma delimited list of residue positions to start network search from (e.g. "1,2,3,5"); now is better to use <b>start_selector</b> residue selector.
+- <b>start_selector</b>: residue selector that tells HBNet which residues to start from (will only search for networks that include these residues).
+- <b>core_selector</b>: residue selector that defines what HBNet considers "core"; used in buriedness determination for unsats; default is layer selector default using sidechain neighbors(core=5.2).
+- <b>min_core_res</b>: minimum core residues each network must have (as defined by core selector).
+- <b>design_residues (string &"STRKHYWNQDE"</b>: string of one-letter AA codes; which polar residues types do you want to include in the search; the default is all AA's that can potentially make h-bonds, further restricted by the <b>task_operations</b> you pass.
+- <b>task_operations</b>: comma-delimited list of task operations you have previously defined in your XML; HBNet will respect any task operation passed to it, and only search for networks within the design space you define by these taskops; the more that you can restrict your design space to only what you want, the faster HBNet will run.
 
 ####New options for detecting native networks, and keeping and extending existing networks of input pose
 
