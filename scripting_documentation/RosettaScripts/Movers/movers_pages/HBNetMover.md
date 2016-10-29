@@ -35,12 +35,16 @@ In general, HBNet should work with any existing XML by places it in the beginnin
 </ROSETTASCRIPTS>
 ```
 
-##Options universal to all HBNet movers
+###Options universal to all HBNet movers
 - <b>hb\_threshold</b> (-0.5 &Real): 2-body h-bond energy cutoff to define rotamer pairs that h-bond.  I've found that -0.5 without ex1-ex2 is the best starting point.  If using ex1-ex2, try -0.75.  This parameter is the most important and requires some tuning; the tradeoff is that the more stringent (more negative), the faster it runs but you miss a lot of networks; too positive and it will run forever; using ex1-ex2 results in many redundant networks that end up being filtered out anyway.
 - <b>scorefxn</b>: The scoring function to use.  If not passed, default is talaris, or if -beta flag is on, default is beta wts.
-- <b>max\_unsats</b> (1 &Size): maximum number of buried unsatisfied polar atoms allowed
+- <b>max\_unsats</b> (1 &Size): maximum number of buried unsatisfied polar atoms allowed in each network.  Note that *[[the way I treat buried unsats|HBNet-BUnsats]].* is very different from all of the other Buried Unsatisfied calculators/filters in Rosetta.  I have plans to move this code outside of HBNet and turn it into its own calculator/filter.  Short version is that if there are heavy atom donors or acceptors that are buried and unsatisfied, those networks are thrown out, and I only count unsatisfied Hpols where the heavy atom donor is making at least one hydrogen bond.  This behavior can be overridden to allow heavy atom unsats by setting <b>no_heavy_unsats_allowed=false</b>.
+- <b>scorefxn</b>: The scoring function to use.  If not passed, default is talaris, or if -beta flag is on, default is beta wts.
 
-###New options for detecting native networks, and keeping and extending existing networks of input pose
+###Experimental options - use at your own risk!
+- <b>secondary_search</b> (bool &false): if during IG traversal, a search trajectory terminates in rotamer than cannot make any h-bonds, search again from that rotamer using a lower hb_threshold (-0.25).
+
+####New options for detecting native networks, and keeping and extending existing networks of input pose
 
 - <b>find\_only\_native_networks (bool &false):</b>  HBnet will find only find native networks in your input pose that meet your criteria (specified by options) and return a single pose with csts for those networks.  If this option is true, all options below are overridden and HBNet does not search for new networks
 - <b>find\_native\_networks (bool &false):</b>  Will find and report native networks in input pose but will also do design; for keep_existing_networks=true or extend_existing_networks=true, in addition to starting from “HBNet” PDBInfoLabel tags, HBnet will find all native networks in your input pose that meet your criteria (specified by options).
