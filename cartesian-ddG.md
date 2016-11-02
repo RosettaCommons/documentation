@@ -34,11 +34,15 @@ Expected Outputs & post-processing
 Running application will produce a file named [pdbfile_prefix]\_[mutationindex].ddg; for example 1ctf\_G44S.ddg. 
 
 The file contains lines:
+```
 BEFORE_JUMP: RoundX: [WT or MUT\_XXXX]: [totalscore] fa_atr: [fa\_atr] .....
+```
 
 In the paper, the difference in totalscores averaged over 3 rounds for WT and MUT is taken as ddG:
 
+```
 ddG = avrg(MUT totalscore) - avrg(WT totalscore)
+```
 
 ##See Also
 * [[Analysis applications | ddg-monomer]]: 
