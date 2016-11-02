@@ -11,21 +11,23 @@ The algorithm and benchmark result on monomeric ddg dataset (Kellogg et al) was 
 
 Hahnbeom Park, Philip Bradley, Per Greisen Jr., Yuan Liu, Vikram Khipple Mulligan, David E Kim, David Baker, and Frank DiMaio (2016) "Simultaneous optimization of biomolecular energy function on features from small molecules and macromolecules", JCTC. 
 
-How to run
-==========
+Command Line Options
+====================
 First, input pdb should be properly relaxed in cartesian space with restrained backbone and sidechain coordinates. Please refer to [[here|relax]] for more information. 
 
-Command line for ddg calculation:
-$ROSETTA/source/bin/cartesian\_ddg.linuxgccrelease 
--database $ROSETTADB
--s [inputpdb] 
-–ddg:mut\_file [mutfile] 
--ddg:iterations 3 -ddg::cartesian 
--ddg::dump\_pdbs false 
--bbnbr 1 -fa\_max\_dis 9.0
-[any other options for score function containing cart_bonded term, for example, -beta\_cart or -score:weights talaris2014\_cart]
-
--ddg:mut\_file has the same syntax with what being used in ddg-monomer application; see [[here | ddg-monomer]].
+An example of command line is:
+```
+cartesian\_ddg.linuxgccrelease 
+ -database $ROSETTADB
+ -s [inputpdb] 
+ –ddg:mut\_file [mutfile]: same syntax with what being used in ddg-monomer application; see [[here | ddg-monomer]].
+ -ddg:iterations 3: can be flexible; 3 is fast and reasonable
+ -ddg::cartesian 
+ -ddg::dump\_pdbs false 
+ -bbnbr 1
+ -fa\_max\_dis 9.0
+ -[scorefunction option]: any other options for score function containing cart_bonded term, for example, -beta\_cart or -score:weights talaris2014\_cart]
+```
 
 Expected Outputs & post-processing
 ===============
