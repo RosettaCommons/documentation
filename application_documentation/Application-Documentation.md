@@ -223,6 +223,8 @@ While most of these applications focus on prediction, many have options which wi
 
 - [[ddG monomer]] - Predict the change in stability (the ddG) of a monomeric protein induced by a point mutation.
 
+- [[cartesian_ddG]] - A different version of ddg calculation, using Cartesian space sampling
+
 - [[Density map scoring]] - Score structures with electron density information.  
 
 ### Constraints
