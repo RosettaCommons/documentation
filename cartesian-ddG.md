@@ -8,7 +8,7 @@ The documentation was last updated November 2nd, 2016, by Hahnbeom Park and Yuan
 Reference
 ==========
 
-The algorithm is developed by Phil Bradley and Yuan Liu. Details about the method and benchmark result on monomeric ddg dataset (Kellogg et al) was published in:
+The algorithm is developed by Phil Bradley and Yuan Liu. Details about the method and benchmark result on monomeric ddg dataset ([[Kellogg et al | ddg-monomer]]) was published in:
 
 Hahnbeom Park, Philip Bradley, Per Greisen Jr., Yuan Liu, Vikram Khipple Mulligan, David E Kim, David Baker, and Frank DiMaio (2016) "Simultaneous optimization of biomolecular energy function on features from small molecules and macromolecules", JCTC.
 
