@@ -22,6 +22,14 @@ Note: Python 2.6 or better is required. Python 3 now works with the [PyRosetta-4
 ### PyRosetta-4 ###
 3. From the main PyRosetta directory, run `python setup.py install`
 
+4.  __Be aware that running PyRosetta is now different than for PyRosetta-3:  See below__.
+
+ ```
+ from rosetta import *
+ from pyrosetta import *
+ rosetta.init("-list -of -options")
+ ```
+
 ### PyRosetta-3 ###
 3. From within the main PyRosetta directory, run `$ source SetPyRosettaEnvironment.sh` or append it to your .bashrc file and source that.
 4. Test your PyRosetta installation by running the line `import rosetta; rosetta.init()` in Python. Output should be about the PyRosetta version and random seed.
