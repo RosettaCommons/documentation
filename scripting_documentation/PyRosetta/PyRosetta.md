@@ -67,8 +67,8 @@ cd main/source/src/python/PyRosetta
 ./build.py -j8 --create-package path/to/package
 python3 build.py -j8 --create-package path/to/package
 
-cd `build.py --print-build-root`/build
-python setup.py install
+cd `build.py --print-build-root`/setup
+sudo python setup.py install
 ```
 See [the Dev Wiki](https://wiki.rosettacommons.org/index.php/PyRosetta:build) for more.
 
