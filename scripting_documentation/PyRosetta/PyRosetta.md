@@ -56,14 +56,20 @@ __To build PyRosetta__:
 
 ```
 cd main/source/src/python/PyRosetta
-./build.py -j8
-python3 build.py -j8
+./build.py -j8 --create-package
+python3 build.py -j8 --create-package
 ```
 
+cd into the build directory; something like: Rosetta/main/source/build/PyRosetta/macos/clang/pyhton-2.7/release/build
+`python setup.py install`
 See [the Dev Wiki](https://wiki.rosettacommons.org/index.php/PyRosetta:build) for more.
 
 ##Locations for PyRosetta applications
 
+### PyRosetta-4 ###
+Unknown at this time.
+
+### PyRosetta-3 ###
 Rosetta developers creating new PyRosetta applications should place any public apps in `main/source/src/python/bindings/app/` so that they will be packaged and distributed with PyRosetta. These public apps should also have accompanying integration tests. Private scripts should be placed in `main/source/scripts/pyrosetta/pilot/<user_name>`. 
 
 <!--- END_INTERNAL -->
