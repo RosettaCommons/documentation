@@ -83,8 +83,8 @@ Options
 
 ####FloppyTail options
 
--   -flexible\_start\_resnum - integer - this is the start of the flexible tail in PDB numbering. (See below that you have an option for passing a MoveMap file instead).
--   -flexible\_stop\_resnum - integer - this is the end of the flexible region, in PDB numbering. Not using this option means the entire chain after flexible\_start\_resnum. (See below that you have an option for passing a MoveMap file instead).
+-   -flexible\_start\_resnum - integer - this is the start of the flexible tail in PDB numbering. (See below that you have an option for passing a MoveMap file instead).  If you do use this option, you are required to also use -flexible_chain.
+-   -flexible\_stop\_resnum - integer - this is the end of the flexible region, in PDB numbering. Not using this option means the entire chain after flexible\_start\_resnum. (See below that you have an option for passing a MoveMap file instead).  If you do use this option, you are required to also use -flexible_chain.
 -   -flexible\_chain - string - the first character of this string is interpreted as the PDB chain for the flexible region; any other characters are ignored.
 -   -shear\_on - real - In centroid mode, shear moves are completely nonproductive early on when the tail is still largely extended. This value gives the fraction of centroid cycles when shear moves will be allowed (introduced into the moveset of the RandomMover choosing perturbation moves). For example, passing 0.333 means that for the first third of centroid mode, shear moves will be disallowed.
 -   -short\_tail::short\_tail\_fraction - real - Fraction of the tail used in the short tail fraction of refinement mode. 0.1 would mean the last tenth of the tail is flexible. Not compatible with non-terminal flexible regions.
