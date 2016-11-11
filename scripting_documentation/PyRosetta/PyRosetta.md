@@ -36,7 +36,25 @@ Doing the same with the monolith build would require about 7 seconds.
 The current recommendation is namespace for machines with memory constraints (e.g. less than 4 GB per thread) or for local development. 
 For production runs on clusters (typically using the NSF filesystem), use monolith. 
 
+
 <!--- BEGIN_INTERNAL -->
+
+## Building PyRosetta-4 from source
+
+With the switch to C++11 in early September 2016, PyRosetta can now only be build with the PyRosetta-4 build scheme.
+
+__Prerequisites__: You need to have Clang, CMake ( version > 2.8.12.2) and Ninja installed.
+
+__To build PyRosetta__:
+
+```
+cd main/source/src/python/PyRosetta
+./build.py -j8
+python3 build.py -j8
+```
+
+See [the Dev Wiki](https://wiki.rosettacommons.org/index.php/PyRosetta:build) for more.
+
 ##Locations for PyRosetta applications
 
 Rosetta developers creating new PyRosetta applications should place any public apps in `main/source/src/python/bindings/app/` so that they will be packaged and distributed with PyRosetta. These public apps should also have accompanying integration tests. Private scripts should be placed in `main/source/scripts/pyrosetta/pilot/<user_name>`. 
@@ -57,6 +75,8 @@ A general overview of the general Rosetta object structure and organization can 
 ## The PyRosetta Toolkit
 
 The [[PyRosetta Toolkit GUI]] is a graphical frontend to PyRosetta written in Python.  A Tutorial and overview of the code base and how to extend it for your own uses can be found [[here | PyRosetta Toolkit]].
+
+Note that currently, the PyRosetta Toolkit and other published apps only distributed with __PyRosetta-3__
 
 ##See Also
 
