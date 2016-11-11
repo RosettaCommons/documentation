@@ -1,13 +1,14 @@
 # PyRosetta
 
-PyRosetta is an interactive Python-based interface to Rosetta, allowing users to create custom molecular modeling algorithms with Rosetta sampling and scoring functions using Python scripting. PyRosetta was written for Python 2.6.
+PyRosetta is an interactive Python-based interface to Rosetta, allowing users to create custom molecular modeling algorithms with Rosetta sampling and scoring functions using Python scripting. PyRosetta was written for Python 2.6, while the newer PyRosetta-4 also works with Python 3+
 
-PyRosetta is available as a separate download (independent of C++ Rosetta). See <http://www.pyrosetta.org/> for more details.
+PyRosetta is available as a separate download (independent of C++ Rosetta). See <http://www.pyrosetta.org/> for more details.  If you are a developer, it can also be compiled from source.
 
 [[_TOC_]]
 
 ## Quick Start Guide for Linux/OS X
-Note: Python 2.6 or better is required. Works with Python 2.7, but not Python 3.
+Note: Python 2.6 or better is required. Python 3 now works with the [PyRosetta-4](http://www.pyrosetta.org/news/pyrosetta-4released) version of PyRosetta.
+
 
 1. Obtain a [[license|http://c4c.uwc4c.com/express_license_technologies/pyrosetta]] for PyRosetta.
 2. Either download a copy of PyRosetta or checkout the repository.
@@ -17,6 +18,11 @@ Note: Python 2.6 or better is required. Works with Python 2.7, but not Python 3.
         ```
         $ git clone http://login@graylab.jhu.edu/download/PyRosetta/git/release/PyRosetta.namespace.mac.release.git
         ```
+
+### PyRosetta-4 ###
+3. From the main PyRosetta directory, run `python setup.py install`
+
+### PyRosetta-3 ###
 3. From within the main PyRosetta directory, run `$ source SetPyRosettaEnvironment.sh` or append it to your .bashrc file and source that.
 4. Test your PyRosetta installation by running the line `import rosetta; rosetta.init()` in Python. Output should be about the PyRosetta version and random seed.
     - Exiting the PyRosetta directory prior to running Python should help avoid path issues or confirm that your path is properly set.
@@ -28,7 +34,7 @@ Note: Windows is seldom supported in the Rosetta community. Requires Python 2.7.
 2. Download and unzip a copy of PyRosetta from [[here|http://www.pyrosetta.org/dow]].
 3. Test your PyRosetta installation by running the line `import rosetta; rosetta.init()` in Python. Output should be about the PyRosetta version and random seed.
 
-**Namespace vs. monolith:** According to Sergey, in the namespace build each C++ namespace has its own shared library which the kernel needs to load, resolve symbols, and so on. 
+**PyRosetta-3 Namespace vs. monolith:** According to Sergey, in the namespace build each C++ namespace has its own shared library which the kernel needs to load, resolve symbols, and so on. 
 Hence, importing in the namespace build is IO heavy, but memory light.
 The monolith build on the other hand, has all the C++ namespaces defined in a single C++ library.
 For example, importing rosetta (via PyRosetta) in the namespace build on Stampede (NFS with high latency) could take up to 20 minutes.
@@ -36,6 +42,7 @@ Doing the same with the monolith build would require about 7 seconds.
 The current recommendation is namespace for machines with memory constraints (e.g. less than 4 GB per thread) or for local development. 
 For production runs on clusters (typically using the NSF filesystem), use monolith. 
 
+**PyRosetta-4 Namespace vs monolith:** Monolith version is the only PyRosetta-4 version.  This monolith takes up a very small memory footprint as compared to PyRosetta-3 monolith version, as well as numerous other improvements.
 
 <!--- BEGIN_INTERNAL -->
 
