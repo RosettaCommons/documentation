@@ -64,12 +64,12 @@ __To build PyRosetta__:
 
 ```
 cd main/source/src/python/PyRosetta
-./build.py -j8 --create-package
-python3 build.py -j8 --create-package
-```
+./build.py -j8 --create-package path/to/package
+python3 build.py -j8 --create-package path/to/package
 
-cd into the build directory; something like: Rosetta/main/source/build/PyRosetta/macos/clang/pyhton-2.7/release/build
-`python setup.py install`
+cd `build.py --print-build-root`/build
+python setup.py install
+```
 See [the Dev Wiki](https://wiki.rosettacommons.org/index.php/PyRosetta:build) for more.
 
 ##Locations for PyRosetta applications
