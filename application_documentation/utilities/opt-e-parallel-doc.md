@@ -58,7 +58,7 @@ Surprisingly, it turns out that sampling strategies are closely connected with t
 Limitations of the maximum-likelihood weight and reference-energy optimization procedure
 ----------------------------------------------------------------------------------------
 
-Though the maximum-likelihood optimization procedure selects weight sets based solely on sequence recovery, and the reference-energy optimization procedure selects weights based on both sequence recovery and sequence profile recovery, the reference-energy optimization procedure yeilds (dramatically) higher sequence recovery rates.
+Though the maximum-likelihood optimization procedure selects weight sets based solely on sequence recovery, and the reference-energy optimization procedure selects weights based on both sequence recovery and sequence profile recovery, the reference-energy optimization procedure yields (dramatically) higher sequence recovery rates.
 
 Options
 =======
