@@ -40,7 +40,7 @@ Enabling these intra-res energies should (hopefully) improve interoperability wi
 
 A modified potential for sp3 hbond acceptors has been implemented.  Rather than use an explicit torsional potential, it instead uses a "soft-max" potential between both "base atoms" (e.g. for serine, the angular term becomes soft-max(f_ang(CB-OG-Hdon),f_ang(HG-OG-Hdon) ).  This has been **enabled by default for water** since the previous potential was incorrect.  It is enabled for all sp3 acceptors in -beta_nov16.
 
-** Other minor changes**
+**Other minor changes**
 
 * The trie_vs_trie code in fa_elec has been refactored, eliminating mutable vars in the energy method.
 * The default behavior of RRComparerElecDens has been updated following further visual inspection of its results
