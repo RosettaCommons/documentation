@@ -5,13 +5,13 @@ For information on the previous set of updates to this score function, see the b
 
 For most protocols (those that use _getScoreFunction_ to set the protocol score function), the flag **-beta_nov15** _or_ simply **-beta** (which will always load the latest beta energy function) will load this version of the beta energy function.
 
-For _RosettaScripts_ protocols, the flag **-beta_nov15** _or_ **-beta** must be provided, and the following scorefunction declaration must be made:
+For _RosettaScripts_ protocols, the flag **-beta_nov16** _or_ **-beta** must be provided, and the following scorefunction declaration must be made:
 
-**\<beta weights=beta_nov15/\>** _or_ **\<beta weights=beta/\>**
+**\<beta weights=beta_nov16/\>** _or_ **\<beta weights=beta/\>**
 
 ### Optimized parameters 
 
-Optimization followed the same scheme as [[beta_nov15|Updates beta nov15]], with new decoy sets for docking generated using beta_nov15.  Optimized parameters include:
+Optimization followed the same scheme as [[beta_nov15|Updates beta nov16]], with new decoy sets for docking generated using beta_nov16.  Optimized parameters include:
 
 * All LK dgfrees
 * A set of terms controlling partial charges
@@ -46,3 +46,4 @@ A modified potential for sp3 hbond acceptors has been implemented.  Rather than 
 * The default behavior of RRComparerElecDens has been updated following further visual inspection of its results
 * The envdep_new code checked in as part of beta_nov15 has been removed (it was not used in beta_nov15 nor here)
 * Small changes to rama_prepro param-file loading logic
+* Hahnbeom's hxl_tors (from beta nov15 patch) has been incorporated, replacing the hydroxyl torsion potential from cart_bonded.
