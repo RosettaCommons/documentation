@@ -3,7 +3,7 @@ An overview of this energy function optimization effort is available [[here|Over
 For information on the previous set of updates to this score function, see the beta nov15 score function page [[here|Updates beta nov15]].
 
 
-For most protocols (those that use _getScoreFunction_ to set the protocol score function), the flag **-beta_nov15** _or_ simply **-beta** (which will always load the latest beta energy function) will load this version of the beta energy function.
+For most protocols (those that use _getScoreFunction_ to set the protocol score function), the flag **-beta_nov16** _or_ simply **-beta** (which will always load the latest beta energy function) will load this version of the beta energy function.
 
 For _RosettaScripts_ protocols, the flag **-beta_nov16** _or_ **-beta** must be provided, and the following scorefunction declaration must be made:
 
