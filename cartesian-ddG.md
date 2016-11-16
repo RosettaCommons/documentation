@@ -24,7 +24,7 @@ An example of command line is
 cartesian_ddg.linuxgccrelease
  -database $ROSETTADB
  -s [inputpdb]
- –ddg:mut_file [mutfile] # same syntax with what being used in ddg-monomer application; see [[here | ddg-monomer]].
+ –ddg:mut_file [mutfile] # same syntax with what being used in ddg-monomer application.
  -ddg:iterations 3 # can be flexible; 3 is fast and reasonable
  -ddg::cartesian
  -ddg::dump_pdbs false # you can save mutants pdb if you want
@@ -32,6 +32,8 @@ cartesian_ddg.linuxgccrelease
  -fa_max_dis 9.0 # modify fa_atr and fa_sol behavior, really important for protein stability (default: 6)  
  -[scorefunction option]: any other options for score function containing cart_bonded term, for example, -beta_cart or -score:weights talaris2014_cart]
 ```
+
+For ddg:mut_file format, please refer to [[here | ddg-monomer]]. Note that this file contains the mutations you want to introduce at once, which means, specifying more than one mutation in a single file will try to mutate all together at same time. Scanning over separate mutations (e.g. ALA scanning) will therefore require running this app separately using different mut_file as input.
 
 ### Interface mode
 
