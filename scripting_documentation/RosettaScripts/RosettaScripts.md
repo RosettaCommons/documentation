@@ -78,24 +78,24 @@ The following simple example will compute ala-scanning values for each residue i
 ```
 <ROSETTASCRIPTS>
 <SCOREFXNS>
-<interface weights=interface/>
+<ScoreFunction name="interface" weights="interface"/>
 </SCOREFXNS>
 <FILTERS>
-<AlaScan name=scan partner1=1 partner2=1 scorefxn=interface interface_distance_cutoff=10.0 repeats=5/>
-<Ddg name=ddg confidence=0/>
-<Sasa name=sasa confidence=0/>
+<AlaScan name="scan" partner1="1" partner2="1" scorefxn="interface" interface_distance_cutoff="10.0" repeats="5"/>
+<Ddg name="ddg" confidence="0"/>
+<Sasa name="sasa" confidence="0"/>
 </FILTERS>
 <MOVERS>
-<Docking name=dock fullatom=1 local_refine=1 score_high=soft_rep/>
+<Docking name="dock" fullatom="1" local_refine="1" score_high="soft_rep"/>
 </MOVERS>
 <APPLY_TO_POSE>
 </APPLY_TO_POSE>
 <PROTOCOLS>
-<Add mover_name=dock filter_name=scan/>
-<Add filter_name=ddg/>
-<Add filter_name=sasa/>
+<Add mover_name="dock" filter_name="scan"/>
+<Add filter_name="ddg"/>
+<Add filter_name="sasa"/>
 </PROTOCOLS>
-<OUTPUT scorefxn=interface />
+<OUTPUT scorefxn="interface"/>
 </ROSETTASCRIPTS>
 ```
 Rosetta will carry out the order of operations specified in PROTOCOLS, starting with docking (in this case this is all-atom docking using the soft\_rep weights). It will then apply alanine scanning, repeated 5 times for better convergence, for every residue on both sides of the interface computing the binding energies using the interface weight set (counting mostly attractive energies). The binding energy (ddg) and surface area (sasa) will also be computed. All of the values will be output in a .report file. Notice that since ddg and sasa are assigned confidence=0, they are not used here as filters that can terminate a trajectory per se, but rather for reporting the values for the complex. An important point is that filters never change the sequence or conformation of the structure, so the ddg and sasa values are reported for the input structure following docking, with the alanine-scanning results ignored.
