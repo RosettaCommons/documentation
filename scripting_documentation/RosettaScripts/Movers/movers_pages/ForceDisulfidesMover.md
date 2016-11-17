@@ -8,7 +8,7 @@ Set a list of cysteine pairs to form disulfides and repack their surroundings. U
 ```
 <ForceDisulfides name="&string" scorefxn=(score12 &string) disulfides=(&list of residue pairs)/>
 ```
-
+-   scorefnx: Score function used for repacking
 -   disulfides: For instance: 23A:88A,22B:91B. Can also take regular Rosetta numbering as in: 24:88,23:91.
 
 
