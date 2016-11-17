@@ -18,6 +18,7 @@ The Transform mover is designed to replace the Translate, Rotate, and SlideToget
 -   initial\_perturb: Make an initial, unscored translation and rotation. Translation will be selected uniformly in a sphere of the given radius (in Angstroms) around the starting position. Additionally, the ligand will be randomly rotated 360 degrees around each of the x, y, and z axes. Large values are useful for benchmarking to scramble the starting position, and small values are useful for docking rod-like ligands in narrow pockets, where the Monte Carlo nature of the protocol may not allow for end-over end ligand flipping.
 -   initial_angle_perturb: Control the size of the rotational perturbation by intitial\_perturb. The axis will be chosen randomly, and the amount of rotation will be randomly chosen between zero and the given value (in degrees).
 -   rmsd: The maximum RMSD to be sampled away from the starting position. if this option is specified, any move above the specified RMSD will be rejected.
+-   optimize_until_negative: Continue sampling beyond "cycles" if score is positive.
 
 
 ##See Also
