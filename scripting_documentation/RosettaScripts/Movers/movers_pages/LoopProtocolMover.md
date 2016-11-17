@@ -35,7 +35,7 @@ loop_file=(&string) scorefxn=(&string) auto_refine=(yes &bool) fast=(no &bool)>
 
     <Loop start=(&int) stop=(&int) cut=(&int) skip_rate=(0.0 &real) rebuild=(no &bool)/>
 
-    <AcceptanceCheck/>
+    <AcceptanceCheck name=(loop_mover &string)/>
 
     <(Any LoopMover tags)/>...
 
