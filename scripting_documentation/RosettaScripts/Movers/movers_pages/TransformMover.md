@@ -3,7 +3,7 @@
 ## Transform
 
 ```
-<Transform name="&string" chain="&string" box_size="&real" move_distance="&real" angle="&real" cycles="&int" repeats="&int" temperature="&real" initial_perturb="&real" initial_angle_pertub="&real" rmsd="&real"/>
+<Transform name="&string" chain="&string" box_size="&real" move_distance="&real" angle="&real" cycles="&int" repeats="&int" temperature="&real" initial_perturb="&real" initial_angle_pertub="&real" rmsd="&real" optimize_until_score_is_negative="&bool"/>
 ```
 
 The Transform mover is designed to replace the Translate, Rotate, and SlideTogether movers, and typically exhibits faster convergence and better scientific performance than these movers. The Transform mover performs a monte carlo search of the ligand binding site using precomputed scoring grids. Currently, this mover only supports docking of a single ligand, and requires that [[Scoring Grids be specified and computed|RenderGridsToKinemageMover]].
