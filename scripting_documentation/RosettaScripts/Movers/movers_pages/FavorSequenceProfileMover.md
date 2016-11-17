@@ -3,7 +3,7 @@
 ## FavorSequenceProfile
 
 ```
-<FavorSequenceProfile scaling=("prob" &string) weight=(1 &Real)  pssm=(&string) use_native=(0 &bool) use_fasta=(0 &bool) use_starting=(0 &bool) chain=(0, &int) use_current=(0 &bool) pdbname=(&string) matrix=(BLOSUM62 &string) scorefxns=(comma seperated list of &string)/>
+<FavorSequenceProfile scaling=("prob" &string) weight=(1 &Real)  pssm=(&string) use_native=(0 &bool) use_fasta=(0 &bool) use_starting=(0 &bool) chain=(0, &int) use_current=(0 &bool) pdbname=(&string) matrix=(BLOSUM62 &string) scorefxns=(comma seperated list of &string) exclude_resnums=&string />
 ```
 
 Sets residue type constraints on the pose according to the given profile and weight. Set one (and only one) of the following:
@@ -18,6 +18,7 @@ Sets residue type constraints on the pose according to the given profile and wei
 specify if needed:
 
 -   chain - 0 is all chains, otherwise if a sequence is added, align it to the specified chain
+-   exclude_resnums - exclude residues from being constrained
 
 You can set how to scale the given values with the "scaling" settings. The default value of "prob" does a per-residue Boltzmann-weighted probability based on the profile score (the unweighted scores for all 20 amino acid identities at any given position sum to -1.0). A setting of "global" does a global linear fixed-zero rescaling such that all (pre-weighted) values fall in the range of -1.0 to 1.0. A setting of "none" does no adjustment of values.
 
