@@ -188,11 +188,11 @@ If the -parser:script\_vars option is set on the command line, every time a stri
 
 For example, a line in the XML like
 ```
-<AlaScan name=scan partner1=1 partner2=1 scorefxn=interface interface_distance_cutoff=%%cutoff%% repeats=%%repeat%%/>
+<AlaScan name="scan" partner1="1" partner2="1" scorefxn="interface" interface_distance_cutoff="%%cutoff%%" repeats="%%repeat%%"/>
 ```
 can be turned into
 ```
-<AlaScan name=scan partner1=1 partner2=1 scorefxn=interface interface_distance_cutoff=10.0 repeats=5/>
+<AlaScan name="scan" partner1="1" partner2="1" scorefxn="interface" interface_distance_cutoff="10.0" repeats="5"/>
 ```
 with the command line option
 ```
@@ -213,7 +213,7 @@ Multiple instances of the "%%var%%" string will all be substituted, as well as i
 It can be convenient to put commonly-used pieces of XML scripts in their own files, and to direct a script to load some XML code from a preexisting file so that the user does not need to copy and paste pieces of XML code manually.  The XML ```xi:include``` command may be used for this purpose, with the file to be included specified using "href=filename".
 
 ```
-<xi:include href=(&filename_string) />
+<xi:include href="(&filename_string)" />
 ```
 
 The ```xi:include``` block is naïvely replaced with the contents of the file specified with "href=filename".  The following is an example of the use of ```xi:include```, in which we suppose that the user frequently uses the AlaScan and Ddg filters and wishes to put their setup in a separate file that he/she can include any time he/she writes a new RosettaScripts XML file:
@@ -222,30 +222,30 @@ The ```xi:include``` block is naïvely replaced with the contents of the file sp
 ```
 <ROSETTASCRIPTS>
   <SCOREFXNS>
-    <interface weights=interface/>
+    <ScoreFunction name="interface" weights="interface"/>
   </SCOREFXNS>
   <FILTERS>
-    <xi:include href="file2.xml" />
-    <Sasa name=sasa confidence=0/>
+    <xi:include href="file2.xml"/>
+    <Sasa name="sasa" confidence="0"/>
   </FILTERS>
   <MOVERS>
-    <Docking name=dock fullatom=1 local_refine=1 score_high=soft_rep/>
+    <Docking name="dock" fullatom="1" local_refine="1" score_high="soft_rep"/>
   </MOVERS>
   <APPLY_TO_POSE>
   </APPLY_TO_POSE>
   <PROTOCOLS>
-    <Add mover_name=dock filter_name=scan/>
-    <Add filter_name=ddg/>
-    <Add filter_name=sasa/>
+    <Add mover_name="dock" filter_name="scan"/>
+    <Add filter_name="ddg"/>
+    <Add filter_name="sasa"/>
   </PROTOCOLS>
-  <OUTPUT scorefxn=interface />
+  <OUTPUT scorefxn="interface"/>
 </ROSETTASCRIPTS>
 ```
 
 <b>file2.xml</b>:
 ```
-    <AlaScan name=scan partner1=1 partner2=1 scorefxn=interface interface_distance_cutoff=10.0 repeats=5/>
-    <Ddg name=ddg confidence=0/>
+    <AlaScan name="scan" partner1="1" partner2="1" scorefxn="interface" interface_distance_cutoff="10.0" repeats="5"/>
+    <Ddg name="ddg" confidence="0"/>
 ```
 
 Note that file inclusion occurs recursively, so that included files may include other files.  Circular dependencies (<i>e.g.</i> file1.xml includes file2.xml includes file3.xml includes file1.xml) are prohibited, and will result in an error.  Multiple inclusions of the same file are permitted, however (though this would rarely be advisable).  Variable substitution occurs after file inclusion, which means that ```%%variable%%``` statements may occur in included files; however, this also means that ```xi:include``` blocks cannot contain ```%%variable%%``` statements.
@@ -300,18 +300,18 @@ SCOREFUNCTIONS
 The SCOREFXNS section defines scorefunctions that will be used in Filters and Movers. This can be used to define any of the scores defined in the path/to/rosetta/main/database
 
 ```
-<"scorefxn_name" weights=("empty" &string) patch=(&string)>
-<Reweight scoretype=(&string) weight=(&Real)/>
-<Set (option name)=(value)/>
-</"scorefxn_name">
+<ScoreFunction name="scorefxn_name" weights="("empty" &string)" patch="(&string)">
+  <Reweight scoretype="(&string)" weight="(&Real)"/>
+  <Set (option name)="(value)"/>
+</ScoreFunction>
 ```
 
-where scorefxn\_name will be used in the Movers and Filters sections to use the scorefunction. The name should therefore be unique and not repeat the predefined score names. One or more Reweight tag is optional and allows you to change/add the weight for a given scoretype.  For example:
+where the ```name``` attribute will be used in the Movers and Filters sections to use the scorefunction. The name should therefore be unique and not repeat the predefined score names. One or more Reweight tag is optional and allows you to change/add the weight for a given scoretype.  For example:
 
 ```
-<scorefxn1 weights=fldsgn_cen>
-<Reweight scoretype="env" weight=1.0/>
-</scorefxn1>
+<ScoreFunction name="scorefxn1" weights="fldsgn_cen">
+  <Reweight scoretype="env" weight="1.0"/>
+</ScoreFunction>
 ```
 
 The Set tag is optional and allows you to change certain scorefunction options, as discussed in the next section.
@@ -341,7 +341,7 @@ One or more option can be specified per Set tag:
 The apply\_to\_pose section may set up constraints, in which case it becomes necessary to set the weights in all of the scorefunctions that are defined. The default weights for all the scorefunctions are defined globally in the apply\_to\_pose section, but each scorefunction definition may change this weight. For example, to set the HotspotConstraint (backbone\_stub\_constraint) value to 6.0
 
 ```
-<my_spiffy_score weights="soft_rep_design" patch="dock" hs_hash=6.0/>
+<ScoreFunction name="my_spiffy_score" weights="soft_rep_design" patch="dock" hs_hash="6.0"/>
 ```
 
 The following modifiers are recognized:
@@ -349,7 +349,7 @@ The following modifiers are recognized:
 #### HotspotConstraints modifications
 
 ```
-hs_hash=(the value set by apply_to_pose for hotspot_hash &float)
+hs_hash="(the value set by apply_to_pose for hotspot_hash &float)"
 ```
 
 #### Symmetric Scorefunctions
@@ -357,13 +357,13 @@ hs_hash=(the value set by apply_to_pose for hotspot_hash &float)
 To properly score symmetric poses, they must be scored with a symmetric score function. To declare a scorefunction symmetric, simply add the tag:
 
 ```
-symmetric=1
+symmetric="1"
 ```
 
 For example, symmetric score12:
 
 ```
-<score12_symm weights="score12_full" symmetric=1/>
+<ScoreFunction name="score12_symm" weights="score12_full" symmetric="1"/>
 ```
 
 OUTPUT
@@ -373,8 +373,9 @@ The top-level OUTPUT tag allows for setting certain output options
 
 ### scorefxn
 
-\<OUTPUT scorefxn=(name &string) /\>
-
+```
+<OUTPUT scorefxn="(name &string)" \>
+```
 The scorefunction specified by the OUTPUT tag will be used to score the pose prior to output. It is the score function which will be represented in the scores reported in the scorefile and the output PDB of the run.
 
 If not specified, the "commandline" scorefunction (the scorefunction specified by commandline options) is used.
@@ -409,7 +410,7 @@ This is a section that is used to change the input structure. The most likely us
 Sets constraints on the sequence of the pose that can be based on a sequence alignment or an amino-acid transition matrix.
 
 ```
-<profile weight=(0.25 &Real) file_name=(<input file name >.cst &string)/>
+<profile weight="(0.25 &Real)" file_name="(<input file name >.cst &string)"/>
 ```
 
 sets residue\_type type constraints to the pose based on a sequence profile. file\_name defaults to the input file name with the suffix changed to ".cst". So, a file called xxxx\_yyyy.25.jjj.pdb would imply xxxx\_yyyy.cst. To generate sequence-profile constraint files with these defaults use DockScripts/seq\_prof/seq\_prof\_wrapper.sh
@@ -417,12 +418,12 @@ sets residue\_type type constraints to the pose based on a sequence profile. fil
 #### SetupHotspotConstraints (formerly hashing\_constraints)
 
 ```
-<SetupHotspotConstraints stubfile=(stubs.pdb &string) redesign_chain=(2 &integer) cb_force=(0.5 &float) worst_allowed_stub_bonus=(0.0 &float) apply_stub_self_energies=(1 &bool) apply_stub_bump_cutoff=(10.0 &float) pick_best_energy_constraint=(1 &bool) backbone_stub_constraint_weight=(1.0 &Real)>
+<SetupHotspotConstraintsMover stubfile="stubs.pdb" redesign_chain="2" cb_force="0.5" worst_allowed_stub_bonus="0.0" apply_stub_self_energies="1" apply_stub_bump_cutoff="10.0" pick_best_energy_constraint="1" backbone_stub_constraint_weight="1.0">
 <HotspotFiles>
-<Add file_name=(&string) nickname=(&string) stub_num=(&integer)/>
+<HotspotFile file_name="hotspot1.pdb" nickname="hp1" stub_num="1"/>
 ...
 </HotspotFiles>
-</SetupHotspotConstraints>
+</SetupHotspotConstraintsMover>
 ```
 
 -   stubfile: a pdb file containing the hot-spot residues
@@ -440,10 +441,10 @@ MOVERS
 Each mover definition has the following structure
 
 ```
-<"mover_name" name="&string" .../>
+<MOVERNAME mover_name="&string" name="&string" .../>
 ```
 
-where "mover\_name" belongs to a predefined set of possible movers that the parser recognizes and are listed below, name is a unique identifier for this mover definition and then any number of parameters that the mover needs to be defined.
+where mover\_name belongs to a predefined set of possible movers that the parser recognizes and are listed below, name is a unique identifier for this mover definition and then any number of parameters that the mover needs to be defined.
 
 ### Available Movers
 
@@ -455,10 +456,10 @@ FILTERS
 Each filter definition has the following format:
 
 ```
-<"filter_name" name="&string" ... confidence=(1 &Real)/>
+<FILTERNAME filter_name="&string" ... confidence="1"/>
 ```
 
-where "filter\_name" belongs to a predefined set of possible filters that the parser recognizes and are listed below, name is a unique identifier for this mover definition and then any number of parameters that the filter needs to be defined.
+where filter\_name belongs to a predefined set of possible filters that the parser recognizes and are listed below, name is a unique identifier for this mover definition and then any number of parameters that the filter needs to be defined.
 
 If confidence is 1.0, then the filter is evaluated as in predicate logic (T/F). If the value is less than 0.999, then the filter is evaluated as fuzzy, so that it will return True in (1.0 - confidence) fraction of times it is probed. This should be useful for cases in which experimental data are ambiguous or uncertain.
 
@@ -477,8 +478,8 @@ A loop definition is used by movers that preform loop modeling. A loops definiti
 
 Explicitly specify a set of loops:
 
-<Loops name=(&string)>
-<loop start=(&Size) stop=(&Size) cut=(0 &Size) skip_rate(0.0 &Real) extended=(0 &Boolean)/>
+<Loops name="(&string)">
+<loop start="(&Size)" stop="(&Size)" cut="0" skip_rate="0.0" extended="0"/>
 ....
 </Loops>
 
@@ -486,7 +487,7 @@ Explicitly specify a set of loops:
 
 Load a loops specification from a loops file
 
-<LoopsFile name=(&string) filename=(&string)/>
+<LoopsFile name="(&string)" filename="(&string)">
 
 #### LoopsDatabase
 
@@ -508,14 +509,18 @@ Note: if you would like to query the database for loops differently, you can eit
 
 Note: If the database configuration information is not specified, the relevant options in the option system are used.
 
-<LoopsDatabase name=(&string) database_mode=sqlite3 database_name=(&string) database_separate_db_per_mpi_process=(0 &Boolean) database_read_only=(0 &string) database_table=('loops' &string)/>
-<LoopsDatabase name=(&string) database_mode=['mysql', 'postgres'] database_name=(&string) database_host=(-mysql:host &string) database_user(-mysql:user &string) database_password=(-mysql:password &string) database_port=(-mysql:port &string) database_table=('loops' &string)/> 
+```
+<LoopsDatabase name="(&string)" database_mode="sqlite3" database_name="(&string)" database_separate_db_per_mpi_process="0" database_read_only="0" database_table="loops"/>
+<LoopsDatabase name="(&string)" database_mode="['mysql', 'postgres']" database_name="(&string)" database_host="(-mysql:host &string)" database_user="(-mysql:user &string)" database_password="(-mysql:password &string)" database_port="(-mysql:port &string)" database_table="loops"/> 
+```
 
 LIGAND\_AREAS
 -------------
 
 ```
-<[name_of_this_ligand_area] chain="&string" cutoff=(float) add_nbr_radius=[true|false] all_atom_mode=[true|false] minimize_ligand=[float] Calpha_restraints=[float] high_res_angstroms=[float] high_res_degrees=[float] tether_ligand=[float] />
+<LIGAND_AREAS>
+<LigandArea name="[name_of_this_ligand_area]" chain="[string]" cutoff="[float]" add_nbr_radius="[true|false]" all_atom_mode="[true|false]" minimize_ligand="[float]" Calpha_restraints="[float]" high_res_angstroms="[float]" high_res_degrees="[float]" tether_ligand="[float]" />
+<\LIGAND_AREAS
 ```
 
 LIGAND\_AREAS describe parameters specific to each ligand, useful for multiple ligand docking studies. "cutoff" is the distance in angstroms from the ligand an amino-acid's C-beta atom can be and that residue still be part of the interface. "all\_atom\_mode" can be true or false. If all atom mode is true than if the C-beta atom of a protein residue is within "cutoff" of *any* ligand atom, the protein residue becomes part of the interface. If false, the C-beta atom of the protein residue must be within "cutoff" of the the ligand neighbor atom. If "add\_nbr\_radius" is true, the cutoff is increased by the size of the protein residue's neighbor radius. The neighbor radius is an estimate of the range of movement of the residue when repacked, and adding it can compensate for movement of the protein sidechains when repacking.
@@ -528,7 +533,9 @@ INTERFACE\_BUILDERS
 -------------------
 
 ```
-<[name_of_this_interface_builder] ligand_areas=(comma separated list of predefined ligand_areas) extension_window=(int)/>
+<INTERFACE_BUILDERS>
+<InterfaceBuilder name="[name_of_this_interface_builder]" ligand_areas="(comma separated list of predefined ligand_areas)" extension_window="(int)"/>
+<\INTERFACE_BUILDERS>
 ```
 
 An interface builder describes how to choose residues that will be part of a protein-ligand interface. These residues are chosen for repacking, rotamer trials, and backbone minimization during ligand docking. The initial XML parameter is the name of the interface\_builder (for later reference). "ligand\_areas" is a comma separated list of strings matching LIGAND\_AREAS described previously. Finally 'extension\_window' surrounds interface residues with residues labeled as 'near interface'. This is important for backbone minimization, because a residue's backbone can't really move unless it is part of a stretch of residues that are flexible.
@@ -537,7 +544,9 @@ MOVEMAP\_BUILDERS
 -----------------
 
 ```
-<[name_of_this_movemap_builder] sc_interface=(string) bb_interface=(string) minimize_water=[true|false]/>
+<MOVEMAP_BUILDERS>
+<MoveMapBuilder name ="[name_of_this_movemap_builder]" sc_interface="(string)" bb_interface="(string)" minimize_water="[true|false]"/>
+<\MOVEMAP_BUILDERS>
 ```
 
 A movemap builder constructs a movemap. A movemap is a 2xN table of true/false values, where N is the number of residues your protein/ligand complex. The two columns are for backbone and side-chain movements. The MovemapBuilder combines previously constructed backbone and side-chain interfaces (see previous section). Leave out bb\_interface if you do not want to minimize the backbone. The minimize\_water option is a global option. If you are docking water molecules as separate ligands (multi-ligand docking) these should be described through LIGAND\_AREAS and INTERFACE\_BUILDERS.
@@ -546,8 +555,8 @@ SCORINGGRIDS
 ------------
 
 ```
-<SCORINGGRIDS ligand_chain=(string) width=(real)>
-<[name_of_this_scoring_grid] grid_type=(string) weight=(real)/>
+<SCORINGGRIDS ligand_chain="(string)" width="(real)">
+<ScoringGrid name="[name_of_this_scoring_grid]" grid_type="(string)" weight="(real)"/>
 </SCORINGGRIDS>
 ```
 
