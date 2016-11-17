@@ -40,4 +40,5 @@ NOTE: The default behavior of FavorSequenceProfile has changed from previous ver
 * [[FavorNativeResidueMover]]
 * [[ResidueTypeConstraintMover]]
 * [[PSSM2BfactorMover]]
+* [[FavorSymmetricSequenceMover]]
 * [[I want to do x]]: Guide to choosing a mover
