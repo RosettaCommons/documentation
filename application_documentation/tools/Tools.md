@@ -57,6 +57,9 @@ main/source/src/apps/public/ligand_docking/[[assign_charges.py|ligand-dock]]
 tools/protein_tools/scripts/calculate_ligand_rmsd.py
 &#8195; - Pymol based script for calculating small molecule RMSDs
 
+tools/protein_tools/scripts/visualize_ligand.py
+&#8195; - Generate Pymol session for visualizing ligand binding pocket
+
 #### Symmetry
 
 * See [[Symmetry]] for more information.
