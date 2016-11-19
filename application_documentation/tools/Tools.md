@@ -222,6 +222,12 @@ tools/protein_tools/scripts/score_vs_rmsd.py
 tools/protein_tools/scripts/score_scatter_plot.py    
 &#8195; - Create score term vs. score term scatter plots.
 
+tools/protein_tools/scripts/score_vs_rmsCore.R    
+&#8195; - Create a score vs. RMSD scatter plot from a score file. The RMSD is calculated for the protein core region and the scorefile must contain a > rms_core column.
+
+tools/protein_tools/scripts/score_vs_rmsTM.R    
+&#8195; - Create a score vs. RMSD scatter plot from a score file. The RMSD is calculated for the protein transmembrane region and the scorefile must contain a > rms_TM column.
+
 tools/analysis/numeric/MultiDimensionalHistogram.R    
 &#8195; - 
 
