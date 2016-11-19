@@ -222,6 +222,8 @@ tools/analysis/numeric/MultiDimensionalHistogram.R
 tools/analysis/protocols/moves/DOFHistogramRecorder.R    
 &#8195; - 
 
+tools/analysis/constraints/score_vs_atom_pair_constraint.R    
+&#8195; - Make a total score vs. atom_pair_constraint scatter plot.
 
 #### Clustering Utilities
 
