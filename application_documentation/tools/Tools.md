@@ -54,6 +54,8 @@ main/source/scripts/python/public/batch_molfile_to_params.py
 main/source/src/apps/public/ligand_docking/[[assign_charges.py|ligand-dock]]    
 &#8195; - Assign AM1-BCC charges to ligands.
 
+tools/protein_tools/scripts/calculate_ligand_rmsd.py
+&#8195; - Pymol based script for calculating small molecule RMSDs
 
 #### Symmetry
 
