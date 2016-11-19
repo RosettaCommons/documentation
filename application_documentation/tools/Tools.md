@@ -147,6 +147,12 @@ tools/fragment_tools/update_revdat.pl
 tools/protein_tools/scripts/generate_atom_pair_constraint_file.py
 &#8195; - Generate a Rosetta constraint file to restrain atom pair distances based on a PDB file.
 
+tools/analysis/constraints/calc_exp_viol.pl    
+&#8195; - Creates a printout of the actual distance and violation for every atom pair constraint given a PDB file and constraint file.
+
+tools/analysis/constraints/calc_exp_viol_spline.pl    
+&#8195; - Creates a printout of the actual distances and violations for a set of EPR distance constraints given a PDB file and a constraint file. 
+
 ### Job Running
 
 main/source/scripts/python/public/parallel.py    
