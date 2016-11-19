@@ -103,6 +103,9 @@ tools/membrane_tools/write_mp_xml.py
 tools/membrane_tools/mptest_ut.py    
 &#8195; - Run unit test for RosettaMembrane Framework code.
 
+tools/membrane_tools/[[check_spanfile_in_pymol.pl|spanfile|pdbfile]]
+&#8195; - Color PDB model by residue range regions as defined in membrane spanfile.
+
 
 #### Electron Density
 
