@@ -5,8 +5,8 @@ Adds distance constraints to a pose
 
 ```
 <CreateDistanceConstraint name="(string)" >
-    <Add res1="(non_negative_integer)" atom1="(string)" res2="(non_negative_integer)"
-             atom2="(string)" cst_func="(string)" />
+    <Addres1="(non_negative_integer)"atom1="(string)"res2="(non_negative_integer)"
+            atom2="(string)"cst_func="(string)" />
 </CreateDistanceConstraint>
 ```
 

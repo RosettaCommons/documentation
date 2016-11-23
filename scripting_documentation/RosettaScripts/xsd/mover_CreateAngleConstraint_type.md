@@ -5,8 +5,9 @@ Adds angle constraints to a pose
 
 ```
 <CreateAngleConstraint name="(string)" >
-    <Add res_center="(non_negative_integer)" atom_center="(string)" res1="(non_negative_integer)"
-             atom1="(string)" res2="(non_negative_integer)" atom2="(string)" cst_func="(string)" />
+    <Addres_center="(non_negative_integer)"atom_center="(string)"
+            res1="(non_negative_integer)"atom1="(string)"
+            res2="(non_negative_integer)"atom2="(string)"cst_func="(string)" />
 </CreateAngleConstraint>
 ```
 
