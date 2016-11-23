@@ -10,7 +10,7 @@ Replace or add chains to a pose from other PDBs
 ```
 
 -   **random_access**: if true randomly choose one file name from a list and work with that throughout the run.
--   **file_name**: Either a path to the file to read chains from, or a comma-separated list of such if random_access is true.
+-   **file_name**: (REQUIRED) Either a path to the file to read chains from, or a comma-separated list of such if random_access is true.
 -   **new_chain**: There is some interaction between swap_chain_number and new_chain; probably you can use only one.  add as a new chain?
 -   **swap_chain_number**: There is some interaction between swap_chain_number and new_chain; probably you can use only one.  swap chain with specified chain number
 -   **scorefxn**: XRW TO DO

@@ -14,8 +14,8 @@ XRW TO DO
 ```
 
 -   **scorefxn**: XRW TO DO
--   **loop_inserter**: Mover with which to insert the loop
--   **loop_closer**: Mover with which to close the loop
+-   **loop_inserter**: (REQUIRED) Mover with which to insert the loop
+-   **loop_closer**: (REQUIRED) Mover with which to close the loop
 -   **dump_pdbs**: Should the mover dump PDBs?
 -   **refine**: Should the mover do refinement?
 -   **attempts_per_anchor**: How many of

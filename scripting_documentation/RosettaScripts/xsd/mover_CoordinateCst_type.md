@@ -22,16 +22,16 @@ Add coordinate constraints to the pose based on parsed spans or residues.Current
 
 Subtag **span**:   
 
--   **begin**: Begin of seed fragment (residue number)
--   **end**: End of seed fragment (residue number)
+-   **begin**: (REQUIRED) Begin of seed fragment (residue number)
+-   **end**: (REQUIRED) End of seed fragment (residue number)
 
 Subtag **Seeds**:   
 
--   **begin**: Begin of seed fragment (residue number)
--   **end**: End of seed fragment (residue number)
+-   **begin**: (REQUIRED) Begin of seed fragment (residue number)
+-   **end**: (REQUIRED) End of seed fragment (residue number)
 
 Subtag **residue**:   
 
--   **residue**: XRW_TO_DO
+-   **residue**: (REQUIRED) XRW_TO_DO
 
 ---

@@ -28,6 +28,6 @@ XRW TODO
 
 Subtag **residue**:   Tags describing individual residues hotspots of which are to be hashed
 
--   **type**: Residue name for consideration
+-   **type**: (REQUIRED) Residue name for consideration
 
 ---

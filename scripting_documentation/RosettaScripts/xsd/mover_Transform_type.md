@@ -13,14 +13,14 @@ Performs a monte carlo search of the ligand binding site using precomputed scori
         initial_angle_perturb="(0.0 &non_negative_real;)" />
 ```
 
--   **chain**: The ligand chain, specified as the PDB chain ID
+-   **chain**: (REQUIRED) The ligand chain, specified as the PDB chain ID
 -   **sampled_space_file**: XRW TO DO
--   **move_distance**: Maximum translation performed per step in the monte carlo search.
--   **box_size**: Maximum translation that can occur from the ligand starting point.
--   **angle**: Maximum rotation angle performed per step in the monte carlo search.
--   **temperature**: Boltzmann temperature for the monte carlo simulation.
+-   **move_distance**: (REQUIRED) Maximum translation performed per step in the monte carlo search.
+-   **box_size**: (REQUIRED) Maximum translation that can occur from the ligand starting point.
+-   **angle**: (REQUIRED) Maximum rotation angle performed per step in the monte carlo search.
+-   **temperature**: (REQUIRED) Boltzmann temperature for the monte carlo simulation.
 -   **rmsd**: Maximum RMSD to be sampled away from the starting position.
--   **cycles**: Total number of steps to be performed in the monte carlo simulation.
+-   **cycles**: (REQUIRED) Total number of steps to be performed in the monte carlo simulation.
 -   **repeats**: Total number of repeats of the monte carlo simulation to be performed.
 -   **optimize_until_score_is_negative**: Continue sampling beyond "cycles" if score is positive
 -   **initial_perturb**: Make an initial, unscored translation and rotation Translation will be selected uniformly in a sphere of the given radius (Angstrom).Triggers 360 degress rotations are triggered.

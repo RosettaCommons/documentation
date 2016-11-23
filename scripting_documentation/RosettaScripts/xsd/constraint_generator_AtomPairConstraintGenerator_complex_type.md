@@ -16,6 +16,6 @@ Generates atom pair constraints between specified residues
 -   **ca_only**: Only make constraints between alpha carbons
 -   **max_distance**: Do not add constraints if atoms are farther apart than this
 -   **min_seq_sep**: Minimum sequence separation between constrained residues
--   **residue_selector**: Selector specifying residues to be constrained
+-   **residue_selector**: (REQUIRED) Selector specifying residues to be constrained
 
 ---

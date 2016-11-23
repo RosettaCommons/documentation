@@ -10,8 +10,8 @@ Randomly connects a fragment from the library to the growing ligand.
         repack_every_Nth="(&non_negative_integer;)" />
 ```
 
--   **scorefxn**: Score function to be used.
--   **movemap_builder**: Name of a previously defined MoveMaoBuilder.
+-   **scorefxn**: (REQUIRED) Score function to be used.
+-   **movemap_builder**: (REQUIRED) Name of a previously defined MoveMaoBuilder.
 -   **resfile**: Name (path to) the resfile.
 -   **cycles**: Number of cycles to run.
 -   **repack_every_Nth**: Perform side chain repacking every Nth cycle.

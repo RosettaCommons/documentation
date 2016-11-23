@@ -9,8 +9,8 @@ Forms a distance constraint between two specified atoms
         atom_name2="(&string;)" function="(&string;)" />
 ```
 
--   **residue_selector1**: Selector specifying the first residue to constrain
--   **residue_selector2**: Selector specifying the second residue to constrain
+-   **residue_selector1**: (REQUIRED) Selector specifying the first residue to constrain
+-   **residue_selector2**: (REQUIRED) Selector specifying the second residue to constrain
 -   **atom_name1**: Atom in the first residue to constrain (defaults to neighbor atom)
 -   **atom_name2**: Atom in the second residue to constrain (defaults to neighbor atom)
 -   **function**: Function to use for the distance constraint; defaults to a harmonic function

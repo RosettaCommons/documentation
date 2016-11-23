@@ -17,7 +17,7 @@ Builds ideal helices in the specified residue spans
 
 Subtag **Helix**:   
 
--   **start**: First residue in helix to idealize
--   **end**: Last residue in helix to idealize
+-   **start**: (REQUIRED) First residue in helix to idealize
+-   **end**: (REQUIRED) Last residue in helix to idealize
 
 ---

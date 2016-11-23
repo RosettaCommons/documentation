@@ -26,8 +26,8 @@ XRW TO DO
 -   **apply_stub_self_energies**: XRW TO DO
 -   **apply_stub_bump_cutoff**: XRW TO DO
 -   **pick_best_energy_constraint**: XRW TO DO
--   **start**: First loop residue
--   **stop**: Final loop residue
+-   **start**: (REQUIRED) First loop residue
+-   **stop**: (REQUIRED) Final loop residue
 -   **colonyE**: XRW TO DO
 -   **stubfile**: File containing hotspot stubs
 
@@ -38,8 +38,8 @@ Subtag **HotspotFiles**:   Wrapper for tags describing each of several hotspot f
 
 Subtag **HotspotFile**:   
 
--   **file_name**: File name of the hot spot stub file
--   **nickname**: Nickname for the hot spot stub file
+-   **file_name**: (REQUIRED) File name of the hot spot stub file
+-   **nickname**: (REQUIRED) Nickname for the hot spot stub file
 -   **stub_num**: XRW TO DO
 
 ---

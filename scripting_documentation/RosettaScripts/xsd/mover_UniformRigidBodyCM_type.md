@@ -12,7 +12,7 @@ XRW TO DO
 -   **rotation_magnitude**: XRW TO DO
 -   **translation_magnitude**: XRW TO DO
 -   **target_jump**: XRW TO DO
--   **mobile**: XRW TO DO
--   **stationary**: XRW TO DO
+-   **mobile**: (REQUIRED) XRW TO DO
+-   **stationary**: (REQUIRED) XRW TO DO
 
 ---

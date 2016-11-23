@@ -9,8 +9,8 @@ XRW TO DO
         loop_end="(&refpose_enabled_residue_number;)" delta="(&integer;)" />
 ```
 
--   **loop_start**: Starting residue number for loop, formatted in seqpos or PDB or refpose numbering
--   **loop_end**: Ending residue number for loop, formatted in seqpos or PDB or refpose numbering
--   **delta**: Number of residues to extend or contract the loop
+-   **loop_start**: (REQUIRED) Starting residue number for loop, formatted in seqpos or PDB or refpose numbering
+-   **loop_end**: (REQUIRED) Ending residue number for loop, formatted in seqpos or PDB or refpose numbering
+-   **delta**: (REQUIRED) Number of residues to extend or contract the loop
 
 ---

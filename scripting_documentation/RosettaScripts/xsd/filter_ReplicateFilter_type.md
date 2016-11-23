@@ -10,7 +10,7 @@ Repeat a filter multiple times and average.
         confidence="(1.0 &real;)" />
 ```
 
--   **filter_name**: Name of the filter to be applied multiple times.
+-   **filter_name**: (REQUIRED) Name of the filter to be applied multiple times.
 -   **replicates**: Number of replicates.
 -   **upper_cut**: Trim of the highest value bye upper_cut.
 -   **lower_cut**: Trim of the lowest value bye lower_cut.

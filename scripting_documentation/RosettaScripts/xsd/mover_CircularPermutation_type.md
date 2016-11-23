@@ -8,7 +8,7 @@ perform circularpermutation give a pose ( under development )
         ignore_chain="(false &bool;)" split_chain="(&non_negative_integer;)" />
 ```
 
--   **pos**: Set new N-term. pos-1 becomes the new C-term.
+-   **pos**: (REQUIRED) Set new N-term. pos-1 becomes the new C-term.
 -   **ignore_chain**: Exclude this chain from the circular permutation.
 -   **split_chain**: Split chain at this position??? -Ask Nobuyasu Koga ( nobuyasu@uw.edu )
 

@@ -10,7 +10,7 @@ XRW TO DO
 </TopNByProperty>
 ```
 
--   **n**: Selection limit
+-   **n**: (REQUIRED) Selection limit
 -   **order**: Ascending or descending order?
 
 

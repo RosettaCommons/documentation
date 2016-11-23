@@ -7,6 +7,6 @@ Do not allow design to amino acid identities that are not listed (i.e. permit on
 <RestrictAbsentCanonicalAASRLT aas="(&string;)" />
 ```
 
--   **aas**: list of one letter codes of permitted amino acids, with no separator. (e.g. aas=HYFW for only aromatic amino acids.)
+-   **aas**: (REQUIRED) list of one letter codes of permitted amino acids, with no separator. (e.g. aas=HYFW for only aromatic amino acids.)
 
 ---

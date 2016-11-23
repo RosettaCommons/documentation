@@ -8,7 +8,7 @@ XRW TO DO
         prevent_repacking="(false &bool;)" />
 ```
 
--   **identities**: XRW TO DO
+-   **identities**: (REQUIRED) XRW TO DO
 -   **prevent_repacking**: XRW TO DO
 
 ---

@@ -7,6 +7,6 @@ report the total per residue score to a features database
 <ResidueTotalScoresFeatures name="(&string;)" scorefxn="(&string;)" />
 ```
 
--   **scorefxn**: score function name
+-   **scorefxn**: (REQUIRED) score function name
 
 ---

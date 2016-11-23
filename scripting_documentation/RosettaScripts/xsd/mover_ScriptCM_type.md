@@ -32,17 +32,17 @@ XSD_XRW: TO DO
 
 Subtag **CutBiasClaim**:   XRW TO DO
 
--   **label**: XRW TO DO
--   **bias**: XRW TO DO
--   **region_start**: XRW TO DO
--   **region_end**: XRW TO DO
+-   **label**: (REQUIRED) XRW TO DO
+-   **bias**: (REQUIRED) XRW TO DO
+-   **region_start**: (REQUIRED) XRW TO DO
+-   **region_end**: (REQUIRED) XRW TO DO
 
 Subtag **JumpClaim**:   XRW TO DO
 
--   **jump_label**: XRW TO DO
--   **position1**: XRW TO DO
--   **position2**: XRW TO DO
--   **control_strength**: XRW TO DO
+-   **jump_label**: (REQUIRED) XRW TO DO
+-   **position1**: (REQUIRED) XRW TO DO
+-   **position2**: (REQUIRED) XRW TO DO
+-   **control_strength**: (REQUIRED) XRW TO DO
 -   **initialization_strength**: XRW TO DO
 -   **cut**: XRW TO DO
 -   **atom1**: XRW TO DO
@@ -51,24 +51,24 @@ Subtag **JumpClaim**:   XRW TO DO
 
 Subtag **TorsionClaim**:   XRW TO DO
 
--   **control_strength**: XRW TO DO
+-   **control_strength**: (REQUIRED) XRW TO DO
 -   **initialization_strength**: XRW TO DO
 -   **backbone**: XRW TO DO
 -   **sidechain**: XRW TO DO
--   **selector**: Name of previously defined residue selector that defines where to apply this claim
+-   **selector**: (REQUIRED) Name of previously defined residue selector that defines where to apply this claim
 
 Subtag **VirtResClaim**:   XRW TO DO
 
--   **vrt_name**: XRW TO DO
+-   **vrt_name**: (REQUIRED) XRW TO DO
 -   **jump_label**: Defaults to vrt_name with _jump appended
--   **parent**: XRW TO DO
+-   **parent**: (REQUIRED) XRW TO DO
 -   **jump_control_strength**: XRW TO DO
 
 Subtag **XYZClaim**:   XRW TO DO
 
--   **control_strength**: XRW TO DO
+-   **control_strength**: (REQUIRED) XRW TO DO
 -   **initialization_strength**: XRW TO DO
 -   **relative_only**: XRW TO DO
--   **selection**: XRW TO DO
+-   **selection**: (REQUIRED) XRW TO DO
 
 ---

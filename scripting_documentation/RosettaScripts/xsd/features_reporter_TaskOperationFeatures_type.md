@@ -7,6 +7,6 @@ TaskOperation feature reporter
 <TaskOperationFeatures name="(&string;)" task_operation="(&string;)" />
 ```
 
--   **task_operation**: comma separated TaskOperation list
+-   **task_operation**: (REQUIRED) comma separated TaskOperation list
 
 ---

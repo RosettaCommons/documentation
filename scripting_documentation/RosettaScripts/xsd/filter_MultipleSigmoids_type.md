@@ -34,7 +34,7 @@ Subtag **RelativePose**:   Tags describing RelativePose filters to be applied
 -   **pdb_name**: which is the reference pose to read from disk.
 -   **symmetry_definition**: ; default is none
 -   **relax_mover**: which relax mover to apply after threading; by default, it is null
--   **filter**: which filter to apply; default is null
+-   **filter**: (REQUIRED) which filter to apply; default is null
 -   **baseline**: indicates whether or not a baseline should be used
 -   **dump_pose**: filename for where to dump the pdb pose
 -   **alignment**: alignment is expecting X1:Y1,X2:Y2,X3:Y3... where X is the protein on disk (target) and Y is the active structure (starting structure). When no alignment is given it is implied that the poses are trivially aligned 1..nres
@@ -57,7 +57,7 @@ Subtag **Sigmoid**:   Tags describing Sigmoid filters to be applied
 
 Subtag **Operator**:   Tags describing Operators to be applied
 
--   **operation**: operation to perform: sum, product, min, or max
+-   **operation**: (REQUIRED) operation to perform: sum, product, min, or max
 -   **threshold**: filter threshold
 -   **negate**: multiply return value by -1. Useful in optimization
 -   **report_subvalues**: report subvalues?

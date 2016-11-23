@@ -55,7 +55,7 @@ Subtag **StubMinimize**:   Defines Movers used to minimize w/r/t stub placement
 
 Subtag **Add**:   
 
--   **mover_name**: Name of the Mover (defined elsewhere in the XML)
+-   **mover_name**: (REQUIRED) Name of the Mover (defined elsewhere in the XML)
 -   **bb_cst_weight**: determines the strength of the constraints derived from the stubs. This value is a weight on the cb_force, so larger values are stronger constraints.
 
 Subtag **DesignMovers**:   Defines Movers used to do design after stub placement
@@ -64,7 +64,7 @@ Subtag **DesignMovers**:   Defines Movers used to do design after stub placement
 
 Subtag **Add**:   
 
--   **mover_name**: Name of the Mover (defined elsewhere in the XML)
+-   **mover_name**: (REQUIRED) Name of the Mover (defined elsewhere in the XML)
 -   **use_constraints**: obey constraints
 -   **coord_cst_std**: standard deviation (width) on coordinate constraint
 
@@ -74,6 +74,6 @@ Subtag **NotifyMovers**:   Defines Movers (named elsewhere in XML) that must be 
 
 Subtag **Add**:   
 
--   **mover_name**: Name of the Mover (defined elsewhere in the XML)
+-   **mover_name**: (REQUIRED) Name of the Mover (defined elsewhere in the XML)
 
 ---

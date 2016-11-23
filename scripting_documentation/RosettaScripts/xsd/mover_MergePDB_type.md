@@ -17,7 +17,7 @@ Align + combine parts of the pdb
 -   **overlap_length**: XRW TO DO
 -   **overlap_rmsd**: XRW TO DO
 -   **overlap_scan_range**: XRW TO DO
--   **attach_pdb**: XRW TO DO
+-   **attach_pdb**: (REQUIRED) XRW TO DO
 -   **design_range**: XRW TO DO
 -   **packing_range**: XRW TO DO
 -   **do_minimize**: Perform energy minimization

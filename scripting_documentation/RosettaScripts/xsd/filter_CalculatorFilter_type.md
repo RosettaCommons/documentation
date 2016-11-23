@@ -15,7 +15,7 @@ XRW TO DO
 </CalculatorFilter>
 ```
 
--   **equation**: XRW TO DO
+-   **equation**: (REQUIRED) XRW TO DO
 -   **threshold**: XRW TO DO
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 

@@ -20,7 +20,7 @@ Specific to seeded abinitio protocol. Finds loops after seeded abinitio that sho
 
 Subtag **Seeds**:   
 
--   **begin**: First residue of seed fragment.
--   **end**: Last residue of seed fragment.
+-   **begin**: (REQUIRED) First residue of seed fragment.
+-   **end**: (REQUIRED) Last residue of seed fragment.
 
 ---

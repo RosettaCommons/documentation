@@ -13,24 +13,24 @@ Combines multiple individually configurable Translate movers
 </CompoundTranslate>
 ```
 
--   **randomize_order**: Randomize order of perturbations.
--   **allow_overlap**: XRW TO DO
+-   **randomize_order**: (REQUIRED) Randomize order of perturbations.
+-   **allow_overlap**: (REQUIRED) XRW TO DO
 
 
 Subtag **Translate**:   
 
--   **chain**: Chain to be translated.
--   **distribution**: Distribution from which to sample distances. Valid options are uniform or gaussian
--   **angstroms**: Uniform translations of up to X angstroms
--   **cycles**: Number of cycles to run.
+-   **chain**: (REQUIRED) Chain to be translated.
+-   **distribution**: (REQUIRED) Distribution from which to sample distances. Valid options are uniform or gaussian
+-   **angstroms**: (REQUIRED) Uniform translations of up to X angstroms
+-   **cycles**: (REQUIRED) Number of cycles to run.
 -   **force**: Force neighbor atoms to move if clashing, default=false
 
 Subtag **Translates**:   
 
--   **chain**: Chain to be translated.
--   **distribution**: Distribution from which to sample distances. Valid options are uniform or gaussian
--   **angstroms**: Uniform translations of up to X angstroms
--   **cycles**: Number of cycles to run.
+-   **chain**: (REQUIRED) Chain to be translated.
+-   **distribution**: (REQUIRED) Distribution from which to sample distances. Valid options are uniform or gaussian
+-   **angstroms**: (REQUIRED) Uniform translations of up to X angstroms
+-   **cycles**: (REQUIRED) Number of cycles to run.
 -   **force**: Force neighbor atoms to move if clashing, default=false
 
 ---

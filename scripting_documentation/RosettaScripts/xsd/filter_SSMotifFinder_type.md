@@ -12,12 +12,12 @@ XRW TO DO
         confidence="(1.0 &real;)" />
 ```
 
--   **from_res**: Starting residue number; default to 0
--   **to_res**: Ending residue number; default to 0
--   **rmsd**: RMSD to base filter on
--   **filename**: file name to write to
--   **pdb_name**: name of input pdb
--   **template_pose**: filename of input template
+-   **from_res**: (REQUIRED) Starting residue number; default to 0
+-   **to_res**: (REQUIRED) Ending residue number; default to 0
+-   **rmsd**: (REQUIRED) RMSD to base filter on
+-   **filename**: (REQUIRED) file name to write to
+-   **pdb_name**: (REQUIRED) name of input pdb
+-   **template_pose**: (REQUIRED) filename of input template
 -   **template_stem1**: XRW TO DO
 -   **template_stem2**: XRW TO DO
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter

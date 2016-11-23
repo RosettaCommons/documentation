@@ -14,7 +14,7 @@ XRW TO DO
 
 -   **hotspot_score_weight**: Weight for the hotpot scoreterm
 -   **centroidscore_filter**: Threshold for the centroid score filter
--   **hotspotcst_filter**: XRW TO DO
+-   **hotspotcst_filter**: (REQUIRED) XRW TO DO
 
 
 Subtag **HotspotFiles**:   Wrapper tag for individual hotspot files
@@ -23,7 +23,7 @@ Subtag **HotspotFiles**:   Wrapper tag for individual hotspot files
 
 Subtag **HotspotFile**:   Wrapper tag for individual hotspot files
 
--   **file_name**: Filename for this hotspot file
+-   **file_name**: (REQUIRED) Filename for this hotspot file
 -   **cb_force**: Weight on the CB atoms for these hotspot constraints
 
 ---

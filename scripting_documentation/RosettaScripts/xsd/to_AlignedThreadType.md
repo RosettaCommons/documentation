@@ -9,9 +9,9 @@ A task operation that enables threading of aligned residues between a query and 
         start_res="(1 &positive_integer;)" />
 ```
 
--   **alignment_file**: The name of the alignment file in FASTA format. Should be in the usual -'[right-pointing-angle-bracket]name_of_sequence' followed by the amino acid single letter sequence on the next line or lines- for this to work.
--   **query_name**: The name of the query sequence, as written in the alignment file.
--   **template_name**: The name of the template sequence, as written in the alignment file. the same sequence as that of the structure passed with -s.
+-   **alignment_file**: (REQUIRED) The name of the alignment file in FASTA format. Should be in the usual -'[right-pointing-angle-bracket]name_of_sequence' followed by the amino acid single letter sequence on the next line or lines- for this to work.
+-   **query_name**: (REQUIRED) The name of the query sequence, as written in the alignment file.
+-   **template_name**: (REQUIRED) The name of the template sequence, as written in the alignment file. the same sequence as that of the structure passed with -s.
 -   **start_res**: The residue at which to start threading. Useful for threading the non-first chain.
 
 ---

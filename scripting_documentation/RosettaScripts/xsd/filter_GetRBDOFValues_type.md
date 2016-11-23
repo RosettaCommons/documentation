@@ -12,7 +12,7 @@ Calculates either the current translation or rotation across a user specified ju
 ```
 
 -   **jump**: Jump number of movable jump for which to calculate the translation or rotation
--   **sym_dof_name**: Sym_dof_name for movable jump for which to calculate the translation or rotation.
+-   **sym_dof_name**: (REQUIRED) Sym_dof_name for movable jump for which to calculate the translation or rotation.
 -   **verbose**: Output jump and corresponding displacement or angle to tracer.
 -   **axis**: Axis in local coordinate frame about which to calculate the translation or rotation (not currently set up to handle off axis values).
 -   **get_disp**: If set to true (and get_disp is false), then will calculate the displacement across the specified jump.

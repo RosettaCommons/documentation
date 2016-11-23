@@ -9,7 +9,7 @@ Task Operation that oversamples rotamers that score well with a specified target
         debug="(false &bool;)" exclude_radius="(20.0 &real;)" />
 ```
 
--   **target_seqpos**: target residue which interacts well with another residue
+-   **target_seqpos**: (REQUIRED) target residue which interacts well with another residue
 -   **score_cutoff**: Minimum or better interaction score with target seqpos
 -   **ex_level**: rotamer sampling level
 -   **debug**: write extra rotamers sampled to disk

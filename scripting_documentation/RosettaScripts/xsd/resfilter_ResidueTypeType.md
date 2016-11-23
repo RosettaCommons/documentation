@@ -8,9 +8,9 @@ XRW TO DO
         charged="(&bool;)" />
 ```
 
--   **polar**: Select polar residues.
--   **apolar**: Select apolar residues.
--   **aromatic**: Select aromatic residues.
--   **charged**: Select chared residues.
+-   **polar**: (REQUIRED) Select polar residues.
+-   **apolar**: (REQUIRED) Select apolar residues.
+-   **aromatic**: (REQUIRED) Select aromatic residues.
+-   **charged**: (REQUIRED) Select chared residues.
 
 ---

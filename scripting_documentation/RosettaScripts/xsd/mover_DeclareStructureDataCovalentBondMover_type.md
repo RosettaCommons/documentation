@@ -8,7 +8,7 @@ XRW TO DO
         atom2="(&string;)" />
 ```
 
--   **atom1**: XRW TO DO
--   **atom2**: XRW TO DO
+-   **atom1**: (REQUIRED) XRW TO DO
+-   **atom2**: (REQUIRED) XRW TO DO
 
 ---

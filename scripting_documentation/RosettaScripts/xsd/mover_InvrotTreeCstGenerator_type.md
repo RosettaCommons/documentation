@@ -8,7 +8,7 @@ XRW TO DO
         add_ligand_to_pose="(&bool;)" />
 ```
 
--   **cstfile**: XRW TO DO
+-   **cstfile**: (REQUIRED) XRW TO DO
 -   **add_ligand_to_pose**: XRW TO DO
 
 ---

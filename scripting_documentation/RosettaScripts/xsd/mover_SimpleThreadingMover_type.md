@@ -12,8 +12,8 @@ This mover functions to thread the sequence of a region onto the given pose. Not
 
 -   **pack_neighbors**: Option to pack neighbors while threading
 -   **neighbor_dis**: Distance to repack neighbor side chains. Repack shell distance for each threaded residue
--   **start_position**: Position to start thread. PDB numbering (like 30L) or Rosetta pose numbering. PDB numbering parsed at apply time to allow for pose-length changes prior to apply of this mover
--   **thread_sequence**: One letter amino acid sequence we will be grafting. Currently only works for canonical amino acids
+-   **start_position**: (REQUIRED) Position to start thread. PDB numbering (like 30L) or Rosetta pose numbering. PDB numbering parsed at apply time to allow for pose-length changes prior to apply of this mover
+-   **thread_sequence**: (REQUIRED) One letter amino acid sequence we will be grafting. Currently only works for canonical amino acids
 -   **scorefxn**: Optional Scorefunction name passed - setup in score function block
 -   **skip_unknown_mutant**: Skip unknown amino acid in thread_sequence string instead of throwing an exception
 -   **pack_rounds**: Number of packing rounds for threading

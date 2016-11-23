@@ -15,10 +15,10 @@ Specify groups of residues that should be mutated together. For example, if one 
 
 Subtag **LinkGroup**:   A group of residues should keep the same amino acid identity. Use the group=(some string) option to specify a comma-separated list of residue numbers (in rosetta numbering) which residues make up the group. For example, group="1,2" ensures that the first and second residues will keep the same identity. You can make as many groups as you like by specifying multiple LinkGroup subtags.
 
--   **group**: group amino acids that should mutate together
+-   **group**: (REQUIRED) group amino acids that should mutate together
 
 Subtag **linkgroup**:   A group of residues should keep the same amino acid identity. Use the group=(some string) option to specify a comma-separated list of residue numbers (in rosetta numbering) which residues make up the group. For example, group="1,2" ensures that the first and second residues will keep the same identity. You can make as many groups as you like by specifying multiple LinkGroup subtags.
 
--   **group**: group amino acids that should mutate together
+-   **group**: (REQUIRED) group amino acids that should mutate together
 
 ---

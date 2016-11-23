@@ -13,10 +13,10 @@ XRW TO DO
         max_allowed_rms="(&real;)" debugmode="(&bool;)" scorefxn="(&string;)" />
 ```
 
--   **fuse_pose**: XRW TO DO
+-   **fuse_pose**: (REQUIRED) XRW TO DO
 -   **chains**: XRW TO DO
--   **nterm_span**: XRW TO DO
--   **cterm_span**: XRW TO DO
+-   **nterm_span**: (REQUIRED) XRW TO DO
+-   **cterm_span**: (REQUIRED) XRW TO DO
 -   **superpose_window**: XRW TO DO
 -   **relax_window**: XRW TO DO
 -   **max_number_allowed_clashes**: XRW TO DO

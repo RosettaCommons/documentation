@@ -9,6 +9,6 @@ Assign a chi cutoff to specific or all residues.
 ```
 
 -   **resid**: Residue ID of specific residues or =0, all residues.
--   **extrachi_cutoff**: Extra rotamers chi cutoff.
+-   **extrachi_cutoff**: (REQUIRED) Extra rotamers chi cutoff.
 
 ---

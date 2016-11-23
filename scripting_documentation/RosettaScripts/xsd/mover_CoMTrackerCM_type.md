@@ -9,6 +9,6 @@ Claim mover that tracks the center of mass
 ```
 
 -   **stationary_label**: Label for stationary residues
--   **mobile_selector**: Residue selector specifying mobile residues
+-   **mobile_selector**: (REQUIRED) Residue selector specifying mobile residues
 
 ---

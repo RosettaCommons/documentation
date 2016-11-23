@@ -8,7 +8,7 @@ Align one set of residues onto another
         target_selectors="(&string;)" />
 ```
 
--   **template_selectors**: Selectors specifying residues to align onto the target
--   **target_selectors**: Selectors specifying residues where template should be aligned. Must be same size as template
+-   **template_selectors**: (REQUIRED) Selectors specifying residues to align onto the target
+-   **target_selectors**: (REQUIRED) Selectors specifying residues where template should be aligned. Must be same size as template
 
 ---

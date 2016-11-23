@@ -10,10 +10,10 @@ Replaces a region of length span in the target pose with a specified region of l
         reference_name="(&string;)" />
 ```
 
--   **span**: Length of the region to replace
+-   **span**: (REQUIRED) Length of the region to replace
 -   **copy_pdbinfo**: Copy PDBInfo to the new pose?
--   **src_pose_start_**: First residue to copy from the source pose
--   **target_pose_start_**: First residue to replace in the target pose
+-   **src_pose_start_**: (REQUIRED) First residue to copy from the source pose
+-   **target_pose_start_**: (REQUIRED) First residue to replace in the target pose
 -   **reference_name**: XRW_TODO
 
 ---

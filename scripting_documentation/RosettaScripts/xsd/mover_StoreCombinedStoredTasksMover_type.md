@@ -9,10 +9,10 @@ XRW_TODO
         overwrite="(false &bool;)" invert="(false &bool;)" />
 ```
 
--   **task1**: XRW_TODO
--   **task2**: XRW_TODO
--   **operator**: XRW_TODO
--   **task_name**: XRW_TODO
+-   **task1**: (REQUIRED) XRW_TODO
+-   **task2**: (REQUIRED) XRW_TODO
+-   **operator**: (REQUIRED) XRW_TODO
+-   **task_name**: (REQUIRED) XRW_TODO
 -   **overwrite**: XRW TO DO
 -   **invert**: XRW TO DO
 

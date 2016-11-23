@@ -10,7 +10,7 @@ Lookup pose sub-fragments within a target fragment library, filtering pose which
         confidence="(1.0 &real;)" />
 ```
 
--   **lookup_name**: Identification name for the fragment
+-   **lookup_name**: (REQUIRED) Identification name for the fragment
 -   **store_path**: Target store path. Default defined by StructureStoreManager.
 -   **lookup_mode**: Lookup mode used by filter. First - Returns the first fragment matching the lookup criteria.  Faster but not guarenteed to identify the closest potential library fragment. Closest - Returns the closest fragment with the target lookup. Significantly slower.
 -   **chain**: chain number (?)

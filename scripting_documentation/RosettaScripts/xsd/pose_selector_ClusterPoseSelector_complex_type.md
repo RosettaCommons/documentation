@@ -14,7 +14,7 @@ XRW TO DO
 </ClusterPoseSelector>
 ```
 
--   **radius**: Cluster radius
+-   **radius**: (REQUIRED) Cluster radius
 -   **structures_per_cluster**: Number of structures from each cluster to select
 -   **max_cluster_size**: Maximum number of structures in a cluster. Default is no limit.
 -   **max_clusters**: Maximum number of clusters. Default is no limit

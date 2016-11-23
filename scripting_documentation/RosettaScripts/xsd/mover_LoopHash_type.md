@@ -37,7 +37,7 @@ Mover to perform full loop hash. (more explanation?)
 -   **start_res_num**: Residue number in Rosetta numbering (sequentially with the first residue in the pose being 1
 -   **stop_pdb_num**: Residue number in PDB numbering (residue number + chain ID)
 -   **stop_res_num**: Residue number in Rosetta numbering (sequentially with the first residue in the pose being 1
--   **loop_sizes**: Sizes of loops for loophash
+-   **loop_sizes**: (REQUIRED) Sizes of loops for loophash
 -   **db_path**: path to DB -- if not specified then command-line flag is used
 -   **nprefilter**: OSOLETE
 -   **prefilter_scorefxn**: Score function for pre-filtering step.

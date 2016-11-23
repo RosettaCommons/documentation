@@ -27,12 +27,12 @@ Generate coordinate constraints from the input or a template pdb
 
 Subtag **Seeds**:   
 
--   **begin**: First residue of a segment.
--   **end**: Last residue of a segment.
+-   **begin**: (REQUIRED) First residue of a segment.
+-   **end**: (REQUIRED) Last residue of a segment.
 
 Subtag **Clear_cst_segments**:   
 
--   **begin**: First residue of a segment.
--   **end**: Last residue of a segment.
+-   **begin**: (REQUIRED) First residue of a segment.
+-   **end**: (REQUIRED) Last residue of a segment.
 
 ---

@@ -8,7 +8,7 @@ Add composition constraints from the provided file to the selected region
         selector="(&string;)" />
 ```
 
--   **filename**: Name of composition constraint file
+-   **filename**: (REQUIRED) Name of composition constraint file
 -   **selector**: Residue selector named somewhere else in the script
 
 ---

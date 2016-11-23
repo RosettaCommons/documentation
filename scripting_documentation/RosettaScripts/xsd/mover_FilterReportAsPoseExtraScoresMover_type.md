@@ -8,7 +8,7 @@ Reports the report_sm value of the provided Filter at the time this Mover runs (
         report_as="(&string;)" />
 ```
 
--   **filter_name**: Filter (defined in FILTERS section) to report value of
--   **report_as**: string to report value to (cannot use filter name because RosettaScripts is stupid and reports the filter's ENDING value there already)
+-   **filter_name**: (REQUIRED) Filter (defined in FILTERS section) to report value of
+-   **report_as**: (REQUIRED) string to report value to (cannot use filter name because RosettaScripts is stupid and reports the filter's ENDING value there already)
 
 ---

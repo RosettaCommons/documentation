@@ -13,8 +13,8 @@ Filter on number of clashes with a target pose
 ```
 
 -   **align_to_pdbname**: PDB name to which to align
--   **context_pdbname**: PDB name of the potentially-clashing target
--   **clash_score_cutoff**: PDB name of the potentially-clashing target
+-   **context_pdbname**: (REQUIRED) PDB name of the potentially-clashing target
+-   **clash_score_cutoff**: (REQUIRED) PDB name of the potentially-clashing target
 -   **clash_residues**: Compute clash as though the target pose residues are this type (by name3)
 -   **ref_start**: Start residue in the target pose
 -   **ref_end**: End residue in the target pose

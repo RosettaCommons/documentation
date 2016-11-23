@@ -8,7 +8,7 @@ Has a predetermined number of seconds elapsed since the start of the trajectory?
         confidence="(1.0 &real;)" />
 ```
 
--   **seconds**: how many seconds until this triggers failure?
+-   **seconds**: (REQUIRED) how many seconds until this triggers failure?
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

@@ -11,13 +11,13 @@ Repeatedly applies a given mover while ramping the score from a low value to a h
         montecarlo="(none &string;)" />
 ```
 
--   **start_weight**: starting weight for ramp
--   **end_weight**: ending weight for ramp
--   **scoretype**: name of the score term to ramp
--   **ramp_func**: the ramp funct to use
--   **inner_cycles**: number of times to call inner mover in each score ramp increment
--   **outer_cycles**: number of increments to ramp score in
--   **mover**: name of the inner mover to use
+-   **start_weight**: (REQUIRED) starting weight for ramp
+-   **end_weight**: (REQUIRED) ending weight for ramp
+-   **scoretype**: (REQUIRED) name of the score term to ramp
+-   **ramp_func**: (REQUIRED) the ramp funct to use
+-   **inner_cycles**: (REQUIRED) number of times to call inner mover in each score ramp increment
+-   **outer_cycles**: (REQUIRED) number of increments to ramp score in
+-   **mover**: (REQUIRED) name of the inner mover to use
 -   **montecarlo**: the name of the montecarlo object to use
 
 ---

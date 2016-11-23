@@ -38,7 +38,7 @@ Subtag **Prefold**:   Prefold protocol
 
 Subtag **Add**:   
 
--   **mover**: Mover to add to this step step
+-   **mover**: (REQUIRED) Mover to add to this step step
 
 Subtag **Postfold**:   Postfold protocol
 
@@ -46,7 +46,7 @@ Subtag **Postfold**:   Postfold protocol
 
 Subtag **Add**:   
 
--   **mover**: Mover to add to this step step
+-   **mover**: (REQUIRED) Mover to add to this step step
 
 Subtag **Filters**:   Filters to apply to generated backbones
 
@@ -54,7 +54,7 @@ Subtag **Filters**:   Filters to apply to generated backbones
 
 Subtag **Add**:   
 
--   **filter**: Filter to add
+-   **filter**: (REQUIRED) Filter to add
 
 "Perturber Tag": Any of the [[CompoundPerturbers|BuildDeNovoBackboneMover]]
 

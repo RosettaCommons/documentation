@@ -7,6 +7,6 @@ The JumpUpstreamSelector sets the positions corresponding to all of the residues
 <JumpUpstream name="(&string;)" jump="(&integer;)" />
 ```
 
--   **jump**: The integer given for the "jump" argument should refer to a Jump that is present in the Pose.
+-   **jump**: (REQUIRED) The integer given for the "jump" argument should refer to a Jump that is present in the Pose.
 
 ---

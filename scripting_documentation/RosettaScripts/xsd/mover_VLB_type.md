@@ -30,49 +30,49 @@ XRW TO DO
 
 Subtag **Bridge**:   XRW TODO
 
--   **left**: Left residue
--   **right**: Right residue
--   **ss**: XRW TO DO
--   **aa**: XRW TO DO
+-   **left**: (REQUIRED) Left residue
+-   **right**: (REQUIRED) Right residue
+-   **ss**: (REQUIRED) XRW TO DO
+-   **aa**: (REQUIRED) XRW TO DO
 
 Subtag **ConnectRight**:   XRW TODO
 
--   **left**: Left residue
--   **right**: Right residue
--   **pdb**: PDB file name to be read in
+-   **left**: (REQUIRED) Left residue
+-   **right**: (REQUIRED) Right residue
+-   **pdb**: (REQUIRED) PDB file name to be read in
 
 Subtag **GrowLeft**:   XRW TODO
 
--   **pos**: The single residue from which to build
--   **ss**: XRW TO DO
--   **aa**: XRW TO DO
+-   **pos**: (REQUIRED) The single residue from which to build
+-   **ss**: (REQUIRED) XRW TO DO
+-   **aa**: (REQUIRED) XRW TO DO
 
 Subtag **GrowRight**:   XRW TODO
 
--   **pos**: The single residue from which to build
--   **ss**: XRW TO DO
--   **aa**: XRW TO DO
+-   **pos**: (REQUIRED) The single residue from which to build
+-   **ss**: (REQUIRED) XRW TO DO
+-   **aa**: (REQUIRED) XRW TO DO
 
 Subtag **SegmentInsert**:   XRW TODO
 
--   **left**: Left residue
--   **right**: Right residue
--   **ss**: XRW TO DO
+-   **left**: (REQUIRED) Left residue
+-   **right**: (REQUIRED) Right residue
+-   **ss**: (REQUIRED) XRW TO DO
 -   **keep_bb_torsions**: XRW TO DO
--   **pdb**: PDB file name to be read in
--   **side**: XRW TO DO
+-   **pdb**: (REQUIRED) PDB file name to be read in
+-   **side**: (REQUIRED) XRW TO DO
 
 Subtag **SegmentRebuild**:   XRW TODO
 
--   **left**: Left residue
--   **right**: Right residue
--   **ss**: XRW TO DO
--   **aa**: XRW TO DO
+-   **left**: (REQUIRED) Left residue
+-   **right**: (REQUIRED) Right residue
+-   **ss**: (REQUIRED) XRW TO DO
+-   **aa**: (REQUIRED) XRW TO DO
 
 Subtag **SegmentSwap**:   XRW TODO
 
--   **left**: Left residue
--   **right**: Right residue
--   **pdb**: PDB file name to be read in
+-   **left**: (REQUIRED) Left residue
+-   **right**: (REQUIRED) Right residue
+-   **pdb**: (REQUIRED) PDB file name to be read in
 
 ---

@@ -12,8 +12,8 @@ Visualization tool for grids
         stride="(2 &non_negative_integer;)" />
 ```
 
--   **grid_name**: XRW TO DO
--   **file_name**: XRW TO DO
+-   **grid_name**: (REQUIRED) XRW TO DO
+-   **file_name**: (REQUIRED) XRW TO DO
 -   **low_color**: RGB values for color to use for low value
 -   **zero_color**: RGB values for color to use for zero
 -   **high_color**: RGB values for color to use for high value

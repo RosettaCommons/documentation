@@ -12,7 +12,7 @@ XRW TO DO
         ep_cutoff="(0.425 &real;)" confidence="(1.0 &real;)" />
 ```
 
--   **threshold**: XRW TO DO
+-   **threshold**: (REQUIRED) XRW TO DO
 -   **svm_fname**: XRW TO DO
 -   **svm_list_fname**: XRW TO DO
 -   **resnums**: XRW TO DO

@@ -9,7 +9,7 @@ XRW TO DO
 ```
 
 -   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
--   **subset_name**: XRW TO DO
+-   **subset_name**: (REQUIRED) XRW TO DO
 -   **overwrite**: XRW TO DO
 
 ---

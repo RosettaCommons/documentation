@@ -11,7 +11,7 @@ Part of the fuzzy-logic design algorithm.
         confidence="(1.0 &real;)" />
 ```
 
--   **operation**: operation to perform: sum, product, min, or max
+-   **operation**: (REQUIRED) operation to perform: sum, product, min, or max
 -   **threshold**: filter threshold
 -   **negate**: multiply return value by -1. Useful in optimization
 -   **report_subvalues**: report subvalues?

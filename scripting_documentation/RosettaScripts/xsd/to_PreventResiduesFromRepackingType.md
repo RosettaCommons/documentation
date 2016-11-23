@@ -9,6 +9,6 @@ Do not allow repacking at all for a string of residues to repacking. Use comma-d
 ```
 
 -   **reference_pdb_id**: translate residues to reference pose
--   **residues**: Comma delimited list of residues
+-   **residues**: (REQUIRED) Comma delimited list of residues
 
 ---

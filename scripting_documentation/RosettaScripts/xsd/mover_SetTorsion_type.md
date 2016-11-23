@@ -24,10 +24,10 @@ XRW TO DO
 
 Subtag **Torsion**:   XRW TO DO
 
--   **angle**: XRW TO DO
+-   **angle**: (REQUIRED) XRW TO DO
 -   **perturbation_type**: XRW TO DO
 -   **perturbation_magnitude**: XRW TO DO
--   **residue**: XRW TO DO
+-   **residue**: (REQUIRED) XRW TO DO
 -   **torsion_name**: XRW TO DO
 -   **custom_rama_table**: XRW TO DO
 -   **extending**: XRW TO DO
@@ -35,22 +35,22 @@ Subtag **Torsion**:   XRW TO DO
 
 Subtag **Atom1**:   
 
--   **atom**: XRW TO DO
--   **residue**: XRW TO DO
+-   **atom**: (REQUIRED) XRW TO DO
+-   **residue**: (REQUIRED) XRW TO DO
 
 Subtag **Atom2**:   
 
--   **atom**: XRW TO DO
--   **residue**: XRW TO DO
+-   **atom**: (REQUIRED) XRW TO DO
+-   **residue**: (REQUIRED) XRW TO DO
 
 Subtag **Atom3**:   
 
--   **atom**: XRW TO DO
--   **residue**: XRW TO DO
+-   **atom**: (REQUIRED) XRW TO DO
+-   **residue**: (REQUIRED) XRW TO DO
 
 Subtag **Atom4**:   
 
--   **atom**: XRW TO DO
--   **residue**: XRW TO DO
+-   **atom**: (REQUIRED) XRW TO DO
+-   **residue**: (REQUIRED) XRW TO DO
 
 ---

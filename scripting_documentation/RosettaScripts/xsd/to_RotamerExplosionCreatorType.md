@@ -8,7 +8,7 @@ Sample residue chi angles much more finely during packing. Currently hardcoded t
         chi="(&non_negative_integer;)" />
 ```
 
--   **resnum**: Residue number.
--   **chi**: Chi level 0-3?
+-   **resnum**: (REQUIRED) Residue number.
+-   **chi**: (REQUIRED) Chi level 0-3?
 
 ---

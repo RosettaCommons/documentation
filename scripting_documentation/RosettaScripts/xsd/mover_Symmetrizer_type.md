@@ -13,7 +13,7 @@ Functionally an optimization mover; will take a pose with sufficiently small dev
         radial_disp="(0.0 &real;)" angle="(0.0 &real;)" />
 ```
 
--   **symm_file**: Symmetry definition file to create fully symmetric pose from input asymmetric unit.
+-   **symm_file**: (REQUIRED) Symmetry definition file to create fully symmetric pose from input asymmetric unit.
 -   **axis**: Axis around which to symmetrize.
 -   **angle_min**: For use with uniform sampling.
 -   **angle_max**: For use with uniform sampling.

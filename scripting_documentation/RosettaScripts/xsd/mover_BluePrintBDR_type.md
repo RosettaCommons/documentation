@@ -15,7 +15,7 @@ Build a structure in centroid from a blueprint given an input pdb.
         invrot_tree="(&string;)" />
 ```
 
--   **blueprint**: Name of blueprint file.
+-   **blueprint**: (REQUIRED) Name of blueprint file.
 -   **ss_from_blueprint**: Use secondary structure assignment in blueprint file.
 -   **scorefxn**: XRW TO DO
 -   **use_sequence_bias**: pick fragment using sequence information

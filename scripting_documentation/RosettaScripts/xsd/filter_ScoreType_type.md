@@ -9,7 +9,7 @@ Computes the energy of a particular score type for the entire pose and if that e
 ```
 
 -   **score_type**: If no score_type is set, it filters on the entire scorefxn.
--   **threshold**: If that energy is lower than threshold, returns true.
+-   **threshold**: (REQUIRED) If that energy is lower than threshold, returns true.
 -   **scorefxn**: XRW TO DO
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 

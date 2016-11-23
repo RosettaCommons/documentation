@@ -8,7 +8,7 @@ XRW TO DO
         favor_bonus="(0.5 &real;)" />
 ```
 
--   **AA_name3**: XRW TO DO
+-   **AA_name3**: (REQUIRED) XRW TO DO
 -   **favor_bonus**: XRW TO DO
 
 ---

@@ -11,8 +11,8 @@ XRW TO DO
         keep_aas="(ACDEFGHIKLMNPQRSTVWY &string;)" />
 ```
 
--   **source_pdb**: XRW TO DO
--   **resnums**: XRW TO DO
+-   **source_pdb**: (REQUIRED) XRW TO DO
+-   **resnums**: (REQUIRED) XRW TO DO
 -   **chain**: XRW TO DO
 -   **design_only_target_residues**: XRW TO DO
 -   **prevent_repacking**: XRW TO DO

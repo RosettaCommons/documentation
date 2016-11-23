@@ -24,7 +24,7 @@ Sample mainchain torsions for peptides in a grid, saving good conformations
 </BackboneGridSampler>
 ```
 
--   **scorefxn**: Scorefunction to employ
+-   **scorefxn**: (REQUIRED) Scorefunction to employ
 -   **max_samples**: Maximum number of total backbone combinations to be sampled.
 -   **selection_type**: Score criterion for selection: "high" or "low".
 -   **pre_scoring_mover**: A mover to apply after backbone torsions are set but before final scoring and evaluation (like a min mover or something similar).
@@ -46,7 +46,7 @@ Sample mainchain torsions for peptides in a grid, saving good conformations
 
 Subtag **MainchainTorsion**:   Tags describing individual torsions in the helix
 
--   **index**: Mainchain torsion index indicated
+-   **index**: (REQUIRED) Mainchain torsion index indicated
 -   **res_index**: Residue whose mainchain torsion is being specified (if there is more than one residue per repeat)
 -   **value**: A single value in degrees, if this torsion ought to be fixed
 -   **start**: Starting value of a torsion range in degrees

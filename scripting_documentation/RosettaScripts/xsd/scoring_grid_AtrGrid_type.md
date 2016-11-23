@@ -13,6 +13,6 @@ A scoring grid that gives bonuses for being within a certain distance range of a
 -   **ligand**: The value assigned to the grid for ligand atoms; negative values are considered favorable. If provided, then both 'bb' and 'sc' attributes need to be provided also
 -   **inner_radius**: The size of the inner radius used when defining the grid, in Angstroms; if provided, then 'outer_radius' attribute must be provided also; a default value of 2.25A is used if not provided
 -   **outer_radius**: The size of hte outer radius used when defining the grid, in Angstroms; if provided, then the 'inner_radius' attribute must be provided also; a default value of 4.75A
--   **weight**: XRW TO DO
+-   **weight**: (REQUIRED) XRW TO DO
 
 ---

@@ -12,10 +12,10 @@ This task operation is designed to deal with situations in which a pose is chang
 ```
 
 -   **target_sequence**: The desired sequence if there is only one desired sequence (this can happen if the pose is changed during design such that the start and end positions are not constant. In such cases ThreadSequence is not useful). The task operation expects either a database or a target sequence and will fail if neither are provided. If both are provided the database will be ignored.
--   **template_file**: a pdb that serves as a constant template to map the start and end residues onto the pose in case that the length of the pose is altered during design
+-   **template_file**: (REQUIRED) a pdb that serves as a constant template to map the start and end residues onto the pose in case that the length of the pose is altered during design
 -   **database**: The database should be a text file with a list of single letter amino acids (not fasta)
--   **start_res**: the residue to start threading from. This is a residue in the template pdb. It is used to find the closest residue on the source pdb.
--   **end_res**: the residue to end the threading. This is a residue in the template pdb. It is used to find the closest residue on the source pdb. The delta between the end and start residue is used to find the desired sequence length in the database.
+-   **start_res**: (REQUIRED) the residue to start threading from. This is a residue in the template pdb. It is used to find the closest residue on the source pdb.
+-   **end_res**: (REQUIRED) the residue to end the threading. This is a residue in the template pdb. It is used to find the closest residue on the source pdb. The delta between the end and start residue is used to find the desired sequence length in the database.
 -   **allow_design_around**: if set to false, only design the region that is threaded. The rest is set to repack.
 -   **design_residues**: the same as placing 'X' in the target sequence. This trumps the sequence in the database so if a residue has a different identity in the database it is changed to 'X'.
 -   **keep_original_identity**: the same as placing a ' ' or a '_' in the sequence. The pose residue is marked for repacking only. This trumps both the database sequence and the list from design_residues.

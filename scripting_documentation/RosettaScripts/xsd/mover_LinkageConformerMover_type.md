@@ -11,7 +11,7 @@ Mover to sample glycan linkages
         use_conformer_population_stats="(&bool;)" />
 ```
 
--   **upper_resnum**: XRW TO DO
+-   **upper_resnum**: (REQUIRED) XRW TO DO
 -   **x_sds**: Standard deviation for sampling
 -   **use_sugar_bb_if_needed**: Use sugar backbone data if needed?
 -   **idealize_torsions**: Idealize torsion angles before run?

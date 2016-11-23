@@ -7,7 +7,7 @@ XRW TO DO
 <ChainExists name="(&string;)" chain="(&char;)" confidence="(1.0 &real;)" />
 ```
 
--   **chain**: XRW TO DO
+-   **chain**: (REQUIRED) XRW TO DO
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

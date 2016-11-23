@@ -27,7 +27,7 @@ XRW TO DO
 
 Subtag **Seeds**:   
 
--   **begin**: XRW TO DO
--   **end**: XRW TO DO
+-   **begin**: (REQUIRED) XRW TO DO
+-   **end**: (REQUIRED) XRW TO DO
 
 ---

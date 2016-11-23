@@ -8,8 +8,8 @@ The LoopCM builds one of the following four movers: LoopMover_Perturb_KIC, LoopM
         style="(&PERTURB_or_REFINE;)" selector="(&string;)" />
 ```
 
--   **algorithm**: Choose whether to use "KIC" or "CCD" for loop modeling.
--   **style**: Choose either "perturb" or "refine" to trigger large or only small torsion angle changes.
--   **selector**: XRW TO DO
+-   **algorithm**: (REQUIRED) Choose whether to use "KIC" or "CCD" for loop modeling.
+-   **style**: (REQUIRED) Choose either "perturb" or "refine" to trigger large or only small torsion angle changes.
+-   **selector**: (REQUIRED) XRW TO DO
 
 ---

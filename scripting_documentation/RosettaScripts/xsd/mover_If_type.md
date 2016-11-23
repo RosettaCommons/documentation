@@ -8,8 +8,8 @@ Implements a simple IF (filter(pose)) THEN true_mover(pose) ELSE false_mover(pos
         false_mover_name="(null &string;)" />
 ```
 
--   **filter_name**: Filter used for the if else statement
--   **true_mover_name**: Mover to be execuated when filter returns true
+-   **filter_name**: (REQUIRED) Filter used for the if else statement
+-   **true_mover_name**: (REQUIRED) Mover to be execuated when filter returns true
 -   **false_mover_name**: Mover to be execuated when filter returns false
 
 ---

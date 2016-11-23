@@ -9,9 +9,9 @@ Reports the numbers of residues that align with a segment on source pose.
         confidence="(1.0 &real;)" />
 ```
 
--   **source_pose**: PDB file storing the pose to which to align. The two poses should be superimposed prior to running. This filter will not superimpose.
--   **start_res**: Starting residue for alignment. Rosetta numbering only
--   **end_res**: Ending residue for alignment. Rosetta numbering only
+-   **source_pose**: (REQUIRED) PDB file storing the pose to which to align. The two poses should be superimposed prior to running. This filter will not superimpose.
+-   **start_res**: (REQUIRED) Starting residue for alignment. Rosetta numbering only
+-   **end_res**: (REQUIRED) Ending residue for alignment. Rosetta numbering only
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

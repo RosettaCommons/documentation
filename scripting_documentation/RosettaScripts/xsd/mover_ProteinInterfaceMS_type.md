@@ -50,14 +50,14 @@ XRW TO DO
 
 Subtag **Positive**:   Tags describing individual alternative states in the calculation
 
--   **pdb**: File name containing this alternative state
+-   **pdb**: (REQUIRED) File name containing this alternative state
 -   **unbound**: This alternative state is unbound
 -   **unfolded**: This alternative state is unfolded
 -   **task_operations**: XRW TO DO
 
 Subtag **Negative**:   Tags describing individual alternative states in the calculation
 
--   **pdb**: File name containing this alternative state
+-   **pdb**: (REQUIRED) File name containing this alternative state
 -   **unbound**: This alternative state is unbound
 -   **unfolded**: This alternative state is unfolded
 -   **task_operations**: XRW TO DO

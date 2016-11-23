@@ -20,11 +20,11 @@ MotifGraft is a new implementation of the well know motif grafting protocol. The
         allow_repeat_same_graft_output="(false &bool;)" />
 ```
 
--   **context_structure**: The path/name of the context structure pdb
--   **motif_structure**: The path/name of the motif pdb (can contain multiple discontiguos motif separated by the keyword TER)
--   **RMSD_tolerance**: The maximum RMSD tolerance (Angstrom) for the alignment
+-   **context_structure**: (REQUIRED) The path/name of the context structure pdb
+-   **motif_structure**: (REQUIRED) The path/name of the motif pdb (can contain multiple discontiguos motif separated by the keyword TER)
+-   **RMSD_tolerance**: (REQUIRED) The maximum RMSD tolerance (Angstrom) for the alignment
 -   **NC_points_RMSD_tolerance**: The maximum RMSD tolerance (Angstrom) for the alignment
--   **clash_score_cutoff**: The maximum number of atomic clashes that are tolerated. The number of atom clashes are = (motif vs scaffold) + (scaffold vs pose), after the translation and mutation (to the "clash_test_residue") of the scaffold. Recommended: "5"
+-   **clash_score_cutoff**: (REQUIRED) The maximum number of atomic clashes that are tolerated. The number of atom clashes are = (motif vs scaffold) + (scaffold vs pose), after the translation and mutation (to the "clash_test_residue") of the scaffold. Recommended: "5"
 -   **combinatory_fragment_size_delta**: Is a string separated by a colon that defines the maximum number of amino acids in which the Motif size can be variated in the N- and C-terminal regions (e.g. "positive-int:positive-int"). If several fragments are present the values should be specified by the addition of a comma (eg. 0:0, 1:2, 0:3). All the possible combinations in deltas of 1 amino acid will be tested
 -   **max_fragment_replacement_size_delta**: Is a string separated by a semicolon that specifies a range with the minimum and maximum size difference of the fragment that can be replaced in the scaffold. For example: "-1:2", means that the fragment replaced in the scaffold can be in the range of motifSize-1to motifSize+2, practically: if the motif size is 10a.a., in this example the motif can replace a fragment in the scaffold of 9,10 or 11 amino acids. (possible values: negative-int:positive-int). If several fragments are present the values should be specified by the addition of a comma (eg. -1:0, -1:2, 0:3). This option has effect only if the alignment mode is set to full_motif_bb_alignment="0"
 -   **clash_test_residue**: The Motif will be mutated before test for clashes (possible values: "GLY", "ALA", "VAL", "NATIVE"), except if the option "NATIVE" is specified. It is recommended to use "GLY" or "ALA"

@@ -8,7 +8,7 @@ Add ResidueTypeLinkingConstraints to the pose such that a symmetric sequence (CA
         symmetric_units="(&positive_integer;)" />
 ```
 
--   **penalty**: Penalty applied to a pair of asymmetric residues
--   **symmetric_units**: Number of symmetric units in the sequence. It should be a value of 2 or greater
+-   **penalty**: (REQUIRED) Penalty applied to a pair of asymmetric residues
+-   **symmetric_units**: (REQUIRED) Number of symmetric units in the sequence. It should be a value of 2 or greater
 
 ---

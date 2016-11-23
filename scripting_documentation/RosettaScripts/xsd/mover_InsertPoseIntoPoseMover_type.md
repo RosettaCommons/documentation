@@ -9,8 +9,8 @@ Inserts a pose between the specified residues of a second pose
         reference_name="(&string;)" />
 ```
 
--   **start_**: First residue to insert
--   **end_**: Last residue to insert
+-   **start_**: (REQUIRED) First residue to insert
+-   **end_**: (REQUIRED) Last residue to insert
 -   **copy_pdbinfo**: Copy PDB info to new pose?
 -   **reference_name**: XRW_TODO
 

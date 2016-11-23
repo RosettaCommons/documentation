@@ -21,8 +21,8 @@ Used to setup symmetric systems in which the input structures(s) are aligned alo
 
 -   **set_sampler**: For use with the GetRBDOFValues filter. If set to false, then the RBDOF values will not be updated when the reported DOF values are not affected by the SymDofMoverSampler. Defaults to true.
 -   **auto_range**: Boolean to set the manner in which the user defined ranges for radial displacements are interpreted. If set to true, then the negative values for min or max displacement are interpreted as moving the structure closer to the origin and positive values away from the origin.
--   **symm_file**: Symmetry definition file.
--   **sym_dof_names**: Names of the sym_dofs in the symmetry definition file along which one wishes to move or rotate the input. NOTE: For multicomponent systems, the order of the displacements, angles, ranges, and steps must correspond with the the order of the sym_dof_names. Passed as a string with comma-separated list (e.g. sym_dof_names='JTP1,JDP1')
+-   **symm_file**: (REQUIRED) Symmetry definition file.
+-   **sym_dof_names**: (REQUIRED) Names of the sym_dofs in the symmetry definition file along which one wishes to move or rotate the input. NOTE: For multicomponent systems, the order of the displacements, angles, ranges, and steps must correspond with the the order of the sym_dof_names. Passed as a string with comma-separated list (e.g. sym_dof_names='JTP1,JDP1')
 -   **sampling_mode**: Which mode to use to sample around the initial configuration, if desired. 'grid', 'uniform', or 'gaussian'
 -   **flip_input_about_axes**: Rotate subunits 180 degrees about the specified axes prior to applying transtions, rotations, alignment, and symmetry. ie, 'reverse' the component before further manipulation.
 -   **align_input_axes_to_symdof_axes**: If specified, will align the specified axis of each subunit with the corresponding axis of the symdof jump from the symmetry definition file.

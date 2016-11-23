@@ -15,7 +15,7 @@ A version of the AverageDegree filter that is compatible with oligomeric buildin
 -   **threshold**: How many residues need to be on average in the sphere of each of the residues under scrutiny in order for the filter to return true.
 -   **distance_threshold**: Size of sphere around each residue under scrutiny in Angstroms.
 -   **jump**: Which jump separates the building block from others?
--   **sym_dof_names**: Which sym_dofs separate the building blocks from the others (must also set multicomp=1 if it is a multicomponent symmetric system)?
+-   **sym_dof_names**: (REQUIRED) Which sym_dofs separate the building blocks from the others (must also set multicomp=1 if it is a multicomponent symmetric system)?
 -   **write2pdb**: Whether to write the residue-level AverageDegree values to the output .pdb file.
 -   **verbose**: Output jump and corresponding displacement or angle to tracer.
 -   **multicomp**: Set to true if the systems has multiple components.

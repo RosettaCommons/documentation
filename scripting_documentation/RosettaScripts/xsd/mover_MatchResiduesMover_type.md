@@ -14,7 +14,7 @@ XRW TO DO
 </MatchResiduesMover>
 ```
 
--   **reference**: Reference pose for comparison
+-   **reference**: (REQUIRED) Reference pose for comparison
 -   **threshold**: Threshold for accuracy of match
 -   **blueprint**: Blueprint file may provide start and end points
 -   **superimpose**: Superimpose the input pose by its matched position

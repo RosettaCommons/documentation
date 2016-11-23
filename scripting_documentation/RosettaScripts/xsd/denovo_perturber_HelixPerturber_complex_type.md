@@ -7,6 +7,6 @@ Used to perturb helices
 <HelixPerturber architect="(&string;)" />
 ```
 
--   **architect**: Architect to use for this mover
+-   **architect**: (REQUIRED) Architect to use for this mover
 
 ---

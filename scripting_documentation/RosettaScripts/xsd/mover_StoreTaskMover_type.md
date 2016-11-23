@@ -8,7 +8,7 @@ XRW TO DO
         overwrite="(false &bool;)" task_operations="(&string;)" />
 ```
 
--   **task_name**: XRW_TODO
+-   **task_name**: (REQUIRED) XRW_TODO
 -   **overwrite**: XRW TO DO
 -   **task_operations**: XRW TO DO
 

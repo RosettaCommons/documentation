@@ -30,13 +30,13 @@ Extend a structure by adding new reidues to N or C terminual.
 
 Subtag **Steal_seq_span**:   
 
--   **begin**: First residue of a fragment.
--   **end**: Last residue of a fragment.
+-   **begin**: (REQUIRED) First residue of a fragment.
+-   **end**: (REQUIRED) Last residue of a fragment.
 
 Subtag **Seeds**:   
 
--   **begin**: First residue of a fragment.
--   **end**: Last residue of a fragment.
+-   **begin**: (REQUIRED) First residue of a fragment.
+-   **end**: (REQUIRED) Last residue of a fragment.
 -   **anchor**: Use anchor residue for Seed.Specifies residue nr of anchor residue.
 
 ---

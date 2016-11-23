@@ -9,8 +9,8 @@ Takes two other filters: Ddg and Sasa. Computes Ddg/Sasa and returns the value. 
         confidence="(1.0 &real;)" />
 ```
 
--   **sasa_filter**: the name of a previously defined Sasa filter
--   **ddG_filter**: the name of a previously defined Ddg filter
+-   **sasa_filter**: (REQUIRED) the name of a previously defined Sasa filter
+-   **ddG_filter**: (REQUIRED) the name of a previously defined Ddg filter
 -   **threshold**: sets the fail condition for the filter, this filter fails if Ddg/Sasa is not below the threshold.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 

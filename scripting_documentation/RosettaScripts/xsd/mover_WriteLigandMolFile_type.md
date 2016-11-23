@@ -9,8 +9,8 @@ Output a V2000 mol file record containing all atoms of the specified ligand chai
 ```
 
 -   **hash_file_names**: Seems to be unused.
--   **chain**: The PDB chain ID of the ligand to be output.
--   **directory**: The directory all mol records will be output to. Directory will be created if it does not exist.
--   **prefix**: Set a file prefix for the output files.
+-   **chain**: (REQUIRED) The PDB chain ID of the ligand to be output.
+-   **directory**: (REQUIRED) The directory all mol records will be output to. Directory will be created if it does not exist.
+-   **prefix**: (REQUIRED) Set a file prefix for the output files.
 
 ---

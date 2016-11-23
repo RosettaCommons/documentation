@@ -8,8 +8,8 @@ checks filter, runs mover, checks filter.  Resets pose if filter value increases
         delta="(5.0 &real;)" />
 ```
 
--   **filter**: Filter whose value is compared before and after applying the Mover; looked up from DataMap.
--   **mover**: Mover whose move is contingently accepted.
+-   **filter**: (REQUIRED) Filter whose value is compared before and after applying the Mover; looked up from DataMap.
+-   **mover**: (REQUIRED) Mover whose move is contingently accepted.
 -   **delta**: Amount Filter value can increase before rejection (units depend on Filter)
 
 ---

@@ -10,11 +10,11 @@ Performs a course random movement of a small molecule in xyz-space.
         cycles="(&non_negative_integer;)" />
 ```
 
--   **chain**: Chain ID of chain to be translated.
--   **distribution**: The random move can be chosen from a "uniform" or "gaussian" distribution.
+-   **chain**: (REQUIRED) Chain ID of chain to be translated.
+-   **distribution**: (REQUIRED) The random move can be chosen from a "uniform" or "gaussian" distribution.
 -   **force**: XRW TO DO
 -   **tag_along_chains**: XRW TO DO . Comma separated list of chain IDs to be moved together with "chain".
--   **angstroms**: Movement can be anywhere within a sphere of radius specified by "angstroms".
--   **cycles**: Number of attempts to make such a movement without landing on top of another molecule.
+-   **angstroms**: (REQUIRED) Movement can be anywhere within a sphere of radius specified by "angstroms".
+-   **cycles**: (REQUIRED) Number of attempts to make such a movement without landing on top of another molecule.
 
 ---

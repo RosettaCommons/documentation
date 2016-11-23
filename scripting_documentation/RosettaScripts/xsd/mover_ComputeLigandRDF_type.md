@@ -11,11 +11,11 @@ ComputeLigandRDF computes Radial Distribution Functions using pairs of protein-p
 </ComputeLigandRDF>
 ```
 
--   **ligand_chain**: Chain ID of the ligand.
+-   **ligand_chain**: (REQUIRED) Chain ID of the ligand.
 -   **bin_count**: Number of bins to represent the distribution, default=100
 -   **smoothing_factor**: Set smoothing factor. Default=100.
 -   **range**: Max distance to include in RDF (radius). Defaut=10 Angstroms
--   **mode**: interface mode: RDF is computed using all ligand atoms and all protein atoms within 10 Angstroms of the ligandpocket mode; RDF is computed using all protein atoms within 10 Angstroms of the ligand.
+-   **mode**: (REQUIRED) interface mode: RDF is computed using all ligand atoms and all protein atoms within 10 Angstroms of the ligandpocket mode; RDF is computed using all protein atoms within 10 Angstroms of the ligand.
 
 
 "RDF function Tag": Any of the [[RDF Functions|ComputeLigandRDF]]

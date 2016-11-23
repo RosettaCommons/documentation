@@ -19,6 +19,6 @@ XRW TO DO
 -   **resAdjustmentRangeSide2**: XRW TO DO
 -   **resAdjustmentRangeSide1_sheet**: XRW TO DO
 -   **resAdjustmentRangeSide2_sheet**: XRW TO DO
--   **chain_connections**: XRW TO DO
+-   **chain_connections**: (REQUIRED) XRW TO DO
 
 ---

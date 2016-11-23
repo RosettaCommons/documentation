@@ -8,7 +8,7 @@ Reports the Calpha or full-atom RMSD of a pose (optionally within a specified re
         residues="(&resnum_list_with_ranges;)" />
 ```
 
--   **mode**: Calculate CA or all_atom RMSD?
+-   **mode**: (REQUIRED) Calculate CA or all_atom RMSD?
 -   **residues**: List of residue numbers to use
 
 ---

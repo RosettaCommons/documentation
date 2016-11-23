@@ -9,9 +9,9 @@ Perform a course random rotation  throughout all rotational degrees of freedom.
         chain="(&string;)" chains="(&string;)" />
 ```
 
--   **distribution**: Sampling distribution; Either "uniform" or "gaussian"
--   **degrees**: How degrees should be rotated around. Recommended=360
--   **cycles**: Number of cycles. Recommended: 1000
+-   **distribution**: (REQUIRED) Sampling distribution; Either "uniform" or "gaussian"
+-   **degrees**: (REQUIRED) How degrees should be rotated around. Recommended=360
+-   **cycles**: (REQUIRED) Number of cycles. Recommended: 1000
 -   **chain**: Chain to be rotated. Not compatible with "chains" option.
 -   **chains**: Comma-separated list of chain IDs. Not compatible with "chain" option.
 

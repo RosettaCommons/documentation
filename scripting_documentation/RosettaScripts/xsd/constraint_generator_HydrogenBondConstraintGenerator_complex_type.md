@@ -11,8 +11,8 @@ Adds hydrogen bond distance and angle constraints between the specified residues
         angle2_func="(&string;)" bounded="(&bool;)" />
 ```
 
--   **residue_selector1**: Selector specifying the first residue to constrain
--   **residue_selector2**: Selector specifying the second residue to constrain
+-   **residue_selector1**: (REQUIRED) Selector specifying the first residue to constrain
+-   **residue_selector2**: (REQUIRED) Selector specifying the second residue to constrain
 -   **atoms1**: Comma-separated list of atom names to constrain in the first residue
 -   **atoms2**: Comma-separated list of atoms to constrain in the second residue
 -   **atom_definitions**: Semicolon-separated list of atom definitions for hydrogen bonding atoms

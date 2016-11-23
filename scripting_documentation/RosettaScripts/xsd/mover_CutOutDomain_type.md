@@ -12,7 +12,7 @@ This mover takes a template pdb and cuts the active pose accroding to start and 
 
 -   **start_res**: begin residue on the template pdb
 -   **end_res**: end residue on the template pdb
--   **source_pdb**: name of the pdb to be cut
+-   **source_pdb**: (REQUIRED) name of the pdb to be cut
 -   **suffix**: suffix of the outputted structure
 -   **delta_n_ter**: do not delete n N-terminal residues
 -   **delta_c_ter**: do not delete n C-terminal residues

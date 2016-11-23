@@ -23,34 +23,34 @@ XRW TO DO
 
 Subtag **AND**:   
 
--   **filter_name**: XRW TO DO
+-   **filter_name**: (REQUIRED) XRW TO DO
 
 Subtag **OR**:   
 
--   **filter_name**: XRW TO DO
+-   **filter_name**: (REQUIRED) XRW TO DO
 
 Subtag **XOR**:   
 
--   **filter_name**: XRW TO DO
+-   **filter_name**: (REQUIRED) XRW TO DO
 
 Subtag **NOR**:   
 
--   **filter_name**: XRW TO DO
+-   **filter_name**: (REQUIRED) XRW TO DO
 
 Subtag **NAND**:   
 
--   **filter_name**: XRW TO DO
+-   **filter_name**: (REQUIRED) XRW TO DO
 
 Subtag **ORNOT**:   
 
--   **filter_name**: XRW TO DO
+-   **filter_name**: (REQUIRED) XRW TO DO
 
 Subtag **ANDNOT**:   
 
--   **filter_name**: XRW TO DO
+-   **filter_name**: (REQUIRED) XRW TO DO
 
 Subtag **NOT**:   
 
--   **filter_name**: XRW TO DO
+-   **filter_name**: (REQUIRED) XRW TO DO
 
 ---

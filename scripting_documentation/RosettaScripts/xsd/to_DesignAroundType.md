@@ -9,7 +9,7 @@ XRW TO DO
         repack_shell="(8.0 &real;)" />
 ```
 
--   **resnums**: can be a list of pdb numbers, such as 291B,101A.
+-   **resnums**: (REQUIRED) can be a list of pdb numbers, such as 291B,101A.
 -   **design_shell**: what sphere to design around the target residues. Must be at least as large as design_shell.
 -   **allow_design**: allow design in the sphere, else restrict to repacking.
 -   **resnums_allow_design**: allow design in the resnums list, else restrict to repacking.

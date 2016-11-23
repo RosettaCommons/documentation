@@ -9,8 +9,8 @@ This is a very simple mover that copies the residue identity and/or sidechain co
         copy_torsions="(&bool;)" />
 ```
 
--   **template_res_index**: The index, in Rosetta pose numbering, of the residue from which the side-chain will be copied. This residue is not altered by this operation.
--   **target_res_index**: The index, in Rosetta pose numbering, of the residue to which the side-chain will be copied. The identity and/or conformation of this residue's sidechain is altered by this operation.
+-   **template_res_index**: (REQUIRED) The index, in Rosetta pose numbering, of the residue from which the side-chain will be copied. This residue is not altered by this operation.
+-   **target_res_index**: (REQUIRED) The index, in Rosetta pose numbering, of the residue to which the side-chain will be copied. The identity and/or conformation of this residue's sidechain is altered by this operation.
 -   **copy_identity**: Should the identity of the template residue by copied to the target? Default true. If false, only side-chain torsion values will be copied. This can create strange results if the template and target residues have different numbers of side-chain chi angles, or if they have significantly different side-chain structures.
 -   **copy_torsions**: Should the side-chain dihedral values of the template residue be copied to the target? Default true.
 

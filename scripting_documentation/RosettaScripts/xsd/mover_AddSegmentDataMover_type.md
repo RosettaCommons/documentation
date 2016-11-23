@@ -8,8 +8,8 @@ Adds a segment to the StructureData
         abego="(&string;)" secstruct="(&dssp_string;)" />
 ```
 
--   **segment_name**: Name of new segment
--   **abego**: ABEGO of new segment
--   **secstruct**: Secondary structure of new segment. Must be same length as ABEGO string.
+-   **segment_name**: (REQUIRED) Name of new segment
+-   **abego**: (REQUIRED) ABEGO of new segment
+-   **secstruct**: (REQUIRED) Secondary structure of new segment. Must be same length as ABEGO string.
 
 ---

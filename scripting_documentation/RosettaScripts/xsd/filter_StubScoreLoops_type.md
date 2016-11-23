@@ -11,9 +11,9 @@ This filter checks whether in the current configuration the scaffold is 'feeling
 ```
 
 -   **cb_force**: Chain that ought to be designed, numbered sequentially from 1
--   **start**: Starting residue of loop
--   **stop**: Ending residue of loop
--   **stubfile**: Stub file filename
+-   **start**: (REQUIRED) Starting residue of loop
+-   **stop**: (REQUIRED) Ending residue of loop
+-   **stubfile**: (REQUIRED) Stub file filename
 -   **resfile**: Resfile filename
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 

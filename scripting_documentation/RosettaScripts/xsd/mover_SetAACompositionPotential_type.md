@@ -8,8 +8,8 @@ Sets the target amino acid composition of a pose and adds the relevant term to t
         weight="(1.0 &real;)" scorefxn="(&string;)" />
 ```
 
--   **file**: File specifying desired amino acid composition
+-   **file**: (REQUIRED) File specifying desired amino acid composition
 -   **weight**: Weight for amino acid composition potential
--   **scorefxn**: Score function to add this potential to
+-   **scorefxn**: (REQUIRED) Score function to add this potential to
 
 ---

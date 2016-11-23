@@ -16,8 +16,8 @@ Fit Crick parameters for a single helix.
 -   **r1_initial**: Initial value for the r1 Crick parameter
 -   **omega1_initial**: Initial value for the omega1 Crick parameter
 -   **dz1_initial**: Initial value for the dz1 Crick parameter
--   **start_index**: First residue number in the bundle
--   **end_index**: Last residue number in the bundle
+-   **start_index**: (REQUIRED) First residue number in the bundle
+-   **end_index**: (REQUIRED) Last residue number in the bundle
 -   **min_type**: Minimizer type
 -   **min_tolerance**: Minimization tolerance
 -   **reference_atom**: Atom name to use as a reference position

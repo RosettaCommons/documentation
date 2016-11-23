@@ -26,7 +26,7 @@ Gives a bonus to user-specified secondary structures
 -   **hh_pair**: String specifying helix pairings
 -   **ss_pair**: String specifying strand pairings
 -   **hss_triplets**: String specifying helix-strand-strand triplets
--   **scorefxn**: Score function to use when scoring pose
+-   **scorefxn**: (REQUIRED) Score function to use when scoring pose
 -   **add_symmetry**: Add symmetry definition to pose
 -   **natbias_ss**: Native bias for strand-strand pairings
 -   **natbias_hh**: Native bias for helix-helix pairings

@@ -11,10 +11,10 @@ Declares a chemical bond between two atoms
         KIC_res2="(0 &non_negative_integer;)" />
 ```
 
--   **res1**: Residue containing first atom
--   **res2**: Residue containing second atom
--   **atom1**: Name of first atom
--   **atom2**: Name of second atom
+-   **res1**: (REQUIRED) Residue containing first atom
+-   **res2**: (REQUIRED) Residue containing second atom
+-   **atom1**: (REQUIRED) Name of first atom
+-   **atom2**: (REQUIRED) Name of second atom
 -   **add_termini**: Add termini to pose?
 -   **rebuild_fold_tree**: Rebuild the fold tree after declaring this bond?
 -   **run_kic**: Run KIC to close any chainbreak caused by the declared chemical bond?

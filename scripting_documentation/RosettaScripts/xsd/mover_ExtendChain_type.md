@@ -8,7 +8,7 @@ Add a specified motif (with secondary structure and abego) to a chain
         chain="(&non_negative_integer;)" prepend="(&bool;)" />
 ```
 
--   **motif**: Motif to add to chain (e.g. 1LG-1LB-10HA)
+-   **motif**: (REQUIRED) Motif to add to chain (e.g. 1LG-1LB-10HA)
 -   **segment**: Segment to extend. Mutually exclusive with chain, but one is required.
 -   **chain**: Chain to extend. Mutually exclusive with segment, but one is required.
 -   **prepend**: Add motif to the beginning of the chain

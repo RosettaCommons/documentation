@@ -16,14 +16,14 @@ Adds torsion constraints to a pose
 
 Subtag **Add**:   
 
--   **res1**: Residue containing first atom
--   **atom1**: Name of first atom in torsion
--   **res2**: Residue containing second atom
--   **atom2**: Name of second atom in torsion
--   **res3**: Residue containing third atom
--   **atom3**: Name of third atom in torsion
--   **res4**: Residue containing fourth atom
--   **atom4**: Name of fourth atom in torsion
--   **cst_func**: Function to use for this torsion constraint
+-   **res1**: (REQUIRED) Residue containing first atom
+-   **atom1**: (REQUIRED) Name of first atom in torsion
+-   **res2**: (REQUIRED) Residue containing second atom
+-   **atom2**: (REQUIRED) Name of second atom in torsion
+-   **res3**: (REQUIRED) Residue containing third atom
+-   **atom3**: (REQUIRED) Name of third atom in torsion
+-   **res4**: (REQUIRED) Residue containing fourth atom
+-   **atom4**: (REQUIRED) Name of fourth atom in torsion
+-   **cst_func**: (REQUIRED) Function to use for this torsion constraint
 
 ---

@@ -17,7 +17,7 @@ This filter counts the number of residues that form sufficiently energetically f
 -   **backbone**: Count backbone H-bonds
 -   **sidechain**: Count sidechain H-bonds
 -   **pdb_num**: Particular residue of interest
--   **atomname**: Atom name to which to examine H-bonds
+-   **atomname**: (REQUIRED) Atom name to which to examine H-bonds
 -   **res_num**: Residue number in Rosetta numbering (sequentially with the first residue in the pose being 1
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 

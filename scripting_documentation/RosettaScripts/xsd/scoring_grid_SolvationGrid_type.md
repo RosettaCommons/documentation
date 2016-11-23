@@ -7,6 +7,6 @@ A scoring grid based on the EEF1 (aka Lazaridis Karplus) solvation energy for a 
 <SolvationGrid name="(&string;)" weight="(&real;)" />
 ```
 
--   **weight**: XRW TO DO
+-   **weight**: (REQUIRED) XRW TO DO
 
 ---

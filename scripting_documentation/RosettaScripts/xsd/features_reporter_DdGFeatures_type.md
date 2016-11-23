@@ -7,6 +7,6 @@ Record features of the ddgs for a set of mutations, performed with a particular 
 <DdGFeatures name="(&string;)" ddG_scan_mover="(&string;)" />
 ```
 
--   **ddG_scan_mover**: Mover with which to scan mutations
+-   **ddG_scan_mover**: (REQUIRED) Mover with which to scan mutations
 
 ---

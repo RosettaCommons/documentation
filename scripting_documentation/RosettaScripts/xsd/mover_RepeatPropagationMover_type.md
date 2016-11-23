@@ -15,10 +15,10 @@ XRW TO DO
         cTerm_cap_size="(&non_negative_integer;)" />
 ```
 
--   **first_template_res**: XRW TO DO
+-   **first_template_res**: (REQUIRED) XRW TO DO
 -   **last_template_res**: XRW TO DO
 -   **detect_repeat_length_change**: XRW TO DO
--   **numb_repeats**: XRW TO DO
+-   **numb_repeats**: (REQUIRED) XRW TO DO
 -   **repeat_without_replacing_pose**: XRW TO DO
 -   **maintain_cap**: XRW TO DO
 -   **maintain_ligand**: XRW TO DO

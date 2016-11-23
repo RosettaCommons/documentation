@@ -12,7 +12,7 @@ Adds Circular Harmonic Dihedral Constraints to the Phi and Psi dihedral angles t
         general_psi_sd="(&real;)" />
 ```
 
--   **cdr**: CDR to add the constraints to (ex: H1 or h1)
+-   **cdr**: (REQUIRED) CDR to add the constraints to (ex: H1 or h1)
 -   **use_cluster_csts**: Add cluster constraints? If false, will use general dihedral constraints
 -   **use_general_constraints_on_failure**: Add general constraints if cluster-based constraint addition fails?
 -   **force_cluster**: Force addition of cluster constraints of this particular cluster. Must be same CDR length as the current CDR

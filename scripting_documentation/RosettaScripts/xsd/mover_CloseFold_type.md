@@ -15,7 +15,7 @@ XRW TO DO
 
 -   **fa_scorefxn**: XRW TO DO
 -   **cen_scorefxn**: XRW TO DO
--   **fragments**: Name of fragment file for fragment-based loop modeling.
+-   **fragments**: (REQUIRED) Name of fragment file for fragment-based loop modeling.
 -   **add_chainbreakterm**: Penalize chain break in score calculation.
 -   **cutpoint_based**: Use cutpoint during loop moelding.
 -   **use_kic**: Use KIC for loop modeling.
@@ -29,7 +29,7 @@ XRW TO DO
 
 Subtag **Seeds**:   
 
--   **begin**: Beginning of seed fragments (residue number)
--   **end**: End of seed fragment (residue number)
+-   **begin**: (REQUIRED) Beginning of seed fragments (residue number)
+-   **end**: (REQUIRED) End of seed fragment (residue number)
 
 ---

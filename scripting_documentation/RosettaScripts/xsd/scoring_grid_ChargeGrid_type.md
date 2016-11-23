@@ -7,6 +7,6 @@ A scoring grid that computes the electrostatic potential at a set of grid points
 <ChargeGrid name="(&string;)" weight="(&real;)" />
 ```
 
--   **weight**: XRW TO DO
+-   **weight**: (REQUIRED) XRW TO DO
 
 ---

@@ -18,7 +18,7 @@ Close loops using loophash library
 -   **loop_insert**: Instruction string in Between Chains format: e.g. "A6B7CDE" to insert a loop of size 6 between chain A and B and another of 7 between B and C loop_insert, loop_insert_rclrc, and blueprint are mutually exclusive options
 -   **loop_insert_rclrc**: Instruction string in Residue:Chain:Length format: e.g. 25:A:6,50:B:7 for a loop of size 6 residues after 25 (and before 26, implicit) and another of size 7 residues between 50 and 51. loop_insert, loop_insert_rclrc, and blueprint are mutually exclusive options
 -   **blueprint**: loop_insert, loop_insert_rclrc, and blueprint are mutually exclusive options
--   **loophash_db_path**: path to the loophash library
+-   **loophash_db_path**: (REQUIRED) path to the loophash library
 -   **loophash_ex_limit**: loop extension limit
 -   **quick_and_dirty**: remodel quick and dirty?
 -   **symmetry_definition**: The structure is symmetric. Specify symmetry definition. symmetry_definition and repeat_strucutre are mutually exclusive

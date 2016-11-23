@@ -8,8 +8,8 @@ Multistate design mover used in the RECON protocol. MSDMover applies linking con
         constraint_weight="(1.0 &real;)" debug="(false &bool;)" />
 ```
 
--   **design_mover**: A previously defined mover that will design the input states. Note that since resfiles are applied as a TaskOperation within the MSDMover, there's no need to specify ReadResfile behavior for the design_mover - however all other desired TaskOperations (InitializeFromCommandLine, etc) should be specified in the design_mover tag
--   **resfiles**: A comma-separated list of resfiles to define designable and repackable residues for all states in multistate design. Multiple resfiles can be used for multiple states - in this case the first resfile in the tag will be applied to the first structure, etc. One single resfile used for all states is also supported.
+-   **design_mover**: (REQUIRED) A previously defined mover that will design the input states. Note that since resfiles are applied as a TaskOperation within the MSDMover, there's no need to specify ReadResfile behavior for the design_mover - however all other desired TaskOperations (InitializeFromCommandLine, etc) should be specified in the design_mover tag
+-   **resfiles**: (REQUIRED) A comma-separated list of resfiles to define designable and repackable residues for all states in multistate design. Multiple resfiles can be used for multiple states - in this case the first resfile in the tag will be applied to the first structure, etc. One single resfile used for all states is also supported.
 -   **constraint_weight**: The weight of amino acid linking constraints during the RECON protocol. Generally weights will be ramped from 0.5 to 2.0, to allow searching of more sequence space in early rounds.
 -   **debug**: Output extra messages during the protocol
 

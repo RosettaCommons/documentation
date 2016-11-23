@@ -11,13 +11,13 @@ XRW TO DO
 ```
 
 -   **ddg_based**: XRW TO DO
--   **template_pdb**: XRW TO DO
+-   **template_pdb**: (REQUIRED) XRW TO DO
 
 
 Subtag **Seeds**:   
 
--   **begin**: XRW TO DO
--   **end**: XRW TO DO
+-   **begin**: (REQUIRED) XRW TO DO
+-   **end**: (REQUIRED) XRW TO DO
 -   **anchor**: XRW TO DO
 
 Subtag **Jump**:   

@@ -8,7 +8,7 @@ Rosetta's sequential residue numbering can create headaches in protocols in whic
         override_current="(&bool;)" />
 ```
 
--   **reference_pose_name**: The name of the snapshot or reference pose object. Many different snapshots may be stored (by applying different StorePoseSnapshot movers at different points in the protocol), and may subsequently be referred to by different names
+-   **reference_pose_name**: (REQUIRED) The name of the snapshot or reference pose object. Many different snapshots may be stored (by applying different StorePoseSnapshot movers at different points in the protocol), and may subsequently be referred to by different names
 -   **override_current**: If there already exists a reference pose, overwrite it.
 
 ---

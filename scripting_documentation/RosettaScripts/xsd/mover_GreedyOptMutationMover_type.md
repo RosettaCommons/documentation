@@ -51,7 +51,7 @@ Subtag **Filters**:   These are the names of the filters being input into Greedy
 
 Subtag **AND**:   
 
--   **filter_name**: Name of the filter you want to apply. Load multiple filters from branch tags.
+-   **filter_name**: (REQUIRED) Name of the filter you want to apply. Load multiple filters from branch tags.
 -   **sample_type**: If your filter values are such that higher = better, use 'sample_type=high'
 -   **filter_delta**: Add sequence diversity; useful with nstruct greater than 1; randomly try any mutation that scores within N filter points of the best-scoring mutation at each position instead of just the first, e.g. filter_delta=0.5 for attempting any mutation within 0.5 filter points of the best one.
 

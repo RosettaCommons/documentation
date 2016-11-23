@@ -7,6 +7,6 @@ Replace all residues in a chain with a randomly selected conformer from its resp
 <RandomConformers name="(&string;)" chain="(&string;)" />
 ```
 
--   **chain**: Chain ID
+-   **chain**: (REQUIRED) Chain ID
 
 ---

@@ -9,6 +9,6 @@ XRW TO DO
 ```
 
 -   **loop_anchor**: Loop anchor residue
--   **max_rms**: maximum rmsd of flanking regions
+-   **max_rms**: (REQUIRED) maximum rmsd of flanking regions
 
 ---

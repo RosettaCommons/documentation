@@ -12,7 +12,7 @@ XRW TO DO: Use to sample more closely around a specified symmetry DOF.
         filter_name="(true_filter &string;)" scorefxn="(&string;)" />
 ```
 
--   **dof_id**: Symmetry DOF number.
+-   **dof_id**: (REQUIRED) Symmetry DOF number.
 -   **angle_min**: Min angle degrees to sample.
 -   **angle_max**: Max angle degrees to sample.
 -   **angle_step**: Step size to make while sampling angle degrees.
@@ -20,7 +20,7 @@ XRW TO DO: Use to sample more closely around a specified symmetry DOF.
 -   **radial_disp_max**: Max translation in Angstroms.
 -   **radial_disp_step**: Step size to make while sampling translation in angstroms.
 -   **select_max**: XRW TO DO: most positive score to allow?
--   **mover_name**: Manditory mover to use
+-   **mover_name**: (REQUIRED) Manditory mover to use
 -   **filter_name**: Optional filter to use
 -   **scorefxn**: Optional scorefunction to use
 

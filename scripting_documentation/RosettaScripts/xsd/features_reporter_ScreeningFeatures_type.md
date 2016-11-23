@@ -9,11 +9,11 @@ report JSON object with information needed for vHTS postprocessing
 </ScreeningFeatures>
 ```
 
--   **chain**: chain tag
+-   **chain**: (REQUIRED) chain tag
 
 
 Subtag **descriptor**:   
 
--   **type**: descriptor type
+-   **type**: (REQUIRED) descriptor type
 
 ---

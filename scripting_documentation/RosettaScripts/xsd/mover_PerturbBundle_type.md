@@ -67,7 +67,7 @@ Perturb helical bundles by direct manipulation of their bundle parameters
 
 Subtag **Helix**:   
 
--   **helix_index**: Numerical index for this particular helix
+-   **helix_index**: (REQUIRED) Numerical index for this particular helix
 -   **r0_copies_helix**: Numerical index from which this particular helix copies its r0 parameter (0, if it shouldn't copy anything at all, and by default)
 -   **r0_perturbation**: Magnitude of perturbation to r0
 -   **r0_perturbation_type**: Type of perturbation to r0

@@ -27,7 +27,7 @@ Subtag **Fragments**:
 
 Subtag **Stage**:   Tag specifying behavior for a specific stage of the ab initio protocol
 
--   **ids**: Stage of ab intio to which this subtag refers.
+-   **ids**: (REQUIRED) Stage of ab intio to which this subtag refers.
 
 
 Subtag **Mover**:   

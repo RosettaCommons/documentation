@@ -33,8 +33,8 @@ Optimizes a region of protein backbone using a simulated annealing MonteCarlo si
 
 Subtag **Loop**:   Use this element to define a series of loops in subtags, one loop per subtag
 
--   **start**: The residue index (pose numbering) for the first position in the loop.
--   **stop**: The residue index (pose numbering) for the last position in the loop.
+-   **start**: (REQUIRED) The residue index (pose numbering) for the first position in the loop.
+-   **stop**: (REQUIRED) The residue index (pose numbering) for the last position in the loop.
 -   **cut**: The residue index (pose numbering) for the cutpoint residue (i.e. the cut residue will be the lower end of the chain break, and the cut+1 residue will be the upper end of the chain break). If a zero value is given, it will be interpretted as saying that the cutpoint should be chosen using the logic in protocols::loops::Loop::choose_cutpoint
 -   **skip_rate**: The probability that you would like the loop will be skipped (such as by the IndependentLoopMover); a value less than zero means never skip, a value greater than one means always skip - NOT RESPECTED BY ALL PROTOCOLS
 -   **rebuild**: If set to true, then the initial backbone dihedrals for the loop will be overwritten to produce an extended conformation (i.e. phi=-150 degres, psi=150, omego=180) and the bond angles and lengths will be idealized - NOT RESPECTED BY AL PROTOCOLS

@@ -38,8 +38,8 @@ AnchoredGraftMover that uses CCD to close loops
 -   **insert_flex_Cter**: How many residues in the C terminus of the graft should be flexible?
 -   **Nter_overhang**: Desired size of N terminal overhang
 -   **Cter_overhang**: Desired size of C terminal overhang
--   **start_**: XRW_TODO
--   **end_**: XRW_TODO
+-   **start_**: (REQUIRED) XRW_TODO
+-   **end_**: (REQUIRED) XRW_TODO
 -   **cen_scorefxn**: Centroid score function to use
 -   **fa_scorefxn**: Full atom score function to use
 -   **reference_name**: XRW_TODO
@@ -54,21 +54,21 @@ Subtag **MoveMap**:   XRW TO DO
 
 Subtag **Jump**:   jumps are the not-chemistry internal coordinate connections between separate parts of your pose
 
--   **number**: Which jump number (in the FoldTree)
--   **setting**: true for move, false for don't move
+-   **number**: (REQUIRED) Which jump number (in the FoldTree)
+-   **setting**: (REQUIRED) true for move, false for don't move
 
 Subtag **Chain**:   this controls a kinematically contiguous chain (think protein chains)
 
--   **number**: which chain?
--   **chi**: move sidechain chi torsions?
--   **bb**: move backbone torsions?
+-   **number**: (REQUIRED) which chain?
+-   **chi**: (REQUIRED) move sidechain chi torsions?
+-   **bb**: (REQUIRED) move backbone torsions?
 
 Subtag **Span**:   XRW TO DO, probably a user-defined region of the Pose
 
--   **begin**: beginning of span
--   **end**: end of span
--   **chi**: move sidechain chi torsions?
--   **bb**: move backbone torsions?
+-   **begin**: (REQUIRED) beginning of span
+-   **end**: (REQUIRED) end of span
+-   **chi**: (REQUIRED) move sidechain chi torsions?
+-   **bb**: (REQUIRED) move backbone torsions?
 -   **bondangle**: move 3-body angles?
 -   **bondlenth**: move 2-body lengths?
 

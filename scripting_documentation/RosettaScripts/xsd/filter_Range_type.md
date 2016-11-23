@@ -8,9 +8,9 @@ This filter returns true if the return value of the given filter is between lowe
         upper_bound="(&real;)" confidence="(1.0 &real;)" />
 ```
 
--   **filter**: Filter to be examined
--   **lower_bound**: minimal filter score allowed
--   **upper_bound**: maximal filter score allowed
+-   **filter**: (REQUIRED) Filter to be examined
+-   **lower_bound**: (REQUIRED) minimal filter score allowed
+-   **upper_bound**: (REQUIRED) maximal filter score allowed
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

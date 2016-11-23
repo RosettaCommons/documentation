@@ -14,16 +14,16 @@ Uses a probe of the specified type to probe the surface of the pose
         scorefxn="(&string;)" task_operations="(&string;)" />
 ```
 
--   **residue_name**: Residue to use as a surface probe
+-   **residue_name**: (REQUIRED) Residue to use as a surface probe
 -   **search_partition**: Which search partition to use
 -   **total_search_partition**: Number of total search partitions
 -   **mode_specification**: Which mode to use when placing probes?
 -   **search_density**: Density of grid for probe placement
--   **coarse_angle_sampling**: Bin size for coarse angle sampling
--   **coarse_sampling**: Bin size for coarse sampling
--   **refinement_angle_sampling**: Bin size for angle sampling during refinement
--   **refinement_sampling**: Bin size for sampling during refinement
--   **refinement_distance**: Distance to use during refinement stageof search
+-   **coarse_angle_sampling**: (REQUIRED) Bin size for coarse angle sampling
+-   **coarse_sampling**: (REQUIRED) Bin size for coarse sampling
+-   **refinement_angle_sampling**: (REQUIRED) Bin size for angle sampling during refinement
+-   **refinement_sampling**: (REQUIRED) Bin size for sampling during refinement
+-   **refinement_distance**: (REQUIRED) Distance to use during refinement stageof search
 -   **scorefxn**: XRW TO DO
 -   **task_operations**: XRW TO DO
 

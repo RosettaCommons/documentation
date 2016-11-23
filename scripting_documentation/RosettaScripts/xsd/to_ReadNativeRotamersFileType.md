@@ -7,6 +7,6 @@ XRW TO DO: not sure if this is necessary bc going to be deprecated with sewing m
 <ReadNativeRotamersFile name="(&string;)" filename="(&string;)" />
 ```
 
--   **filename**: XRW TO DO
+-   **filename**: (REQUIRED) XRW TO DO
 
 ---

@@ -7,7 +7,7 @@ Replaces current PDB with one from disk. This is probably only useful in checkpo
 <LoadPDB name="(&string;)" filename="(&string;)" append="(false &bool;)" />
 ```
 
--   **filename**: Path to PDB file
+-   **filename**: (REQUIRED) Path to PDB file
 -   **append**: Appends the pose conformation to the current pose by a new jump
 
 ---

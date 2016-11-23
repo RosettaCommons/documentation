@@ -8,7 +8,7 @@ Converts numbering schemes of an antibody, independent of AntibodyInfo. By defau
         from="(&ab_numbering_schemes;)" to="(&ab_numbering_schemes;)" />
 ```
 
--   **from**: Current numbering scheme
--   **to**: Numbering scheme to be converter to
+-   **from**: (REQUIRED) Current numbering scheme
+-   **to**: (REQUIRED) Numbering scheme to be converter to
 
 ---

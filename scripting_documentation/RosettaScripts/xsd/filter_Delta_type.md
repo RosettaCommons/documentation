@@ -15,7 +15,7 @@ Computes the difference in a filter's value compared to the input structure
 -   **range**: how much above/below the baseline to allow?
 -   **lower**: the threshold is upper/lower? Use both if the threshold is an exact value.
 -   **upper**: the threshold is upper/lower? Use both if the threshold is an exact value.
--   **filter**: the name of a predefined filter for evaluation.
+-   **filter**: (REQUIRED) the name of a predefined filter for evaluation.
 -   **relax_mover**: called at parse-time before setting the baseline.
 -   **unbound**: translates the partners by 10000A before evaluating the baseline and the filters. Allows evaluation of the unbound pose.
 -   **relax_unbound**: relax the unbound state w/ relax mover?

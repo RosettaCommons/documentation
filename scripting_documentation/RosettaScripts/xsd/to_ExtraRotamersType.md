@@ -9,7 +9,7 @@ The ability to add various levels of extra rotamers to specific or all residues.
 ```
 
 -   **resid**: Apply to specific residues, or =0, apply to all residues.
--   **chi**: Chi value between 1 and 4.
+-   **chi**: (REQUIRED) Chi value between 1 and 4.
 -   **level**: The level of extra rotamers you want.
 
 ---

@@ -23,6 +23,6 @@ Subtag **StubSets**:   A container for tags that indicate stubfiles to be loaded
 
 Subtag **Add**:   
 
--   **stubfile**: File that has stubs in it
+-   **stubfile**: (REQUIRED) File that has stubs in it
 
 ---

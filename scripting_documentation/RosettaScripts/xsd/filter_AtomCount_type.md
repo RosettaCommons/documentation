@@ -8,8 +8,8 @@ XRW TO DO
         chain="(&char;)" confidence="(1.0 &real;)" />
 ```
 
--   **atom_limit**: XRW TO DO
--   **chain**: XRW TO DO
+-   **atom_limit**: (REQUIRED) XRW TO DO
+-   **chain**: (REQUIRED) XRW TO DO
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

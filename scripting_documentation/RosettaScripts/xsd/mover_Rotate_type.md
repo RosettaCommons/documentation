@@ -9,9 +9,9 @@ Perform a course random rotation  throughout all rotational degrees of freedom
         chain="(&string;)" tag_along_chains="(&string;)" />
 ```
 
--   **distribution**: Sampling distribution; Either "uniform" or "gaussian"
--   **degrees**: How degrees should be rotated around. Recommended=360
--   **cycles**: Number of cycles. Recommended: 1000
+-   **distribution**: (REQUIRED) Sampling distribution; Either "uniform" or "gaussian"
+-   **degrees**: (REQUIRED) How degrees should be rotated around. Recommended=360
+-   **cycles**: (REQUIRED) Number of cycles. Recommended: 1000
 -   **chain**: Chain ID. MUST be a completely connected single chain.
 -   **tag_along_chains**: Comma separated list of chains to be moved together with the rotating chain. E.g. metals or water.
 

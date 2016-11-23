@@ -15,12 +15,12 @@ Adds angle constraints to a pose
 
 Subtag **Add**:   
 
--   **res_center**: Residue at center of angle
--   **atom_center**: Atom at center of angle
--   **res1**: Residue on one side of angle
--   **atom1**: Atom on one side of angle
--   **res2**: Residue on other side of the angle
--   **atom2**: Atom on other side of the angle
--   **cst_func**: Function to use for this constraint
+-   **res_center**: (REQUIRED) Residue at center of angle
+-   **atom_center**: (REQUIRED) Atom at center of angle
+-   **res1**: (REQUIRED) Residue on one side of angle
+-   **atom1**: (REQUIRED) Atom on one side of angle
+-   **res2**: (REQUIRED) Residue on other side of the angle
+-   **atom2**: (REQUIRED) Atom on other side of the angle
+-   **cst_func**: (REQUIRED) Function to use for this constraint
 
 ---

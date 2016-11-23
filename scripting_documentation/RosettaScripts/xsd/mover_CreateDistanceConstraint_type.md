@@ -14,10 +14,10 @@ Adds distance constraints to a pose
 
 Subtag **Add**:   
 
--   **res1**: First residue to constrain
--   **atom1**: First atom to constrain
--   **res2**: Second residue to constrain
--   **atom2**: Second atom to constrain
--   **cst_func**: Function for distance constraint
+-   **res1**: (REQUIRED) First residue to constrain
+-   **atom1**: (REQUIRED) First atom to constrain
+-   **res2**: (REQUIRED) Second residue to constrain
+-   **atom2**: (REQUIRED) Second atom to constrain
+-   **cst_func**: (REQUIRED) Function for distance constraint
 
 ---

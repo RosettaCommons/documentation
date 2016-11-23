@@ -7,6 +7,6 @@ A scoring grid that stores at each grid point the shortest distance to the close
 <VdwGrid name="(&string;)" weight="(&real;)" />
 ```
 
--   **weight**: XRW TO DO
+-   **weight**: (REQUIRED) XRW TO DO
 
 ---

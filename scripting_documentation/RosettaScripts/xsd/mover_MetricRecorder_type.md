@@ -25,8 +25,8 @@ Record numeric metrics to a tab-delimited text file
 
 Subtag **Torsion**:   
 
--   **rsd**: Residue this torsion belongs to
--   **type**: Type of this torsion (e.g. CHI )
--   **torsion**: Which of the specified torsion angles are we modifying? E.g. 1 for chi1
+-   **rsd**: (REQUIRED) Residue this torsion belongs to
+-   **type**: (REQUIRED) Type of this torsion (e.g. CHI )
+-   **torsion**: (REQUIRED) Which of the specified torsion angles are we modifying? E.g. 1 for chi1
 
 ---

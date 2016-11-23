@@ -10,7 +10,7 @@ This mover creates a stored task that links selected residues with RotamerLinks.
         offset_resis="(0 &non_negative_integer;)" task_operations="(&string;)" />
 ```
 
--   **task_name**: The name of the stored task.
+-   **task_name**: (REQUIRED) The name of the stored task.
 -   **overwrite**: Will overwrite the old stored task.
 -   **quasi_symm_comp**: Which component (if multi-component, A or B), is going to be quasi-equivalent.
 -   **num_quasi_repeats**: How many subunits your quasi-equivalent building block consists of. For example, a trimer would be 3.

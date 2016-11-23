@@ -12,8 +12,8 @@ Computes the interaction energy between 2 groups of residues: 1. a set of residu
 
 -   **scorefxn**: XRW TO DO
 -   **score_type**: what scoreing type to use
--   **threshold**: filter threshold
--   **resnums**: Group1 is defined with resnums, a list of residue numbers (1,2,3 for pose numbering or 1A,2A,3A for pdb numbering).
+-   **threshold**: (REQUIRED) filter threshold
+-   **resnums**: (REQUIRED) Group1 is defined with resnums, a list of residue numbers (1,2,3 for pose numbering or 1A,2A,3A for pdb numbering).
 -   **chain**: Group2 is defined with chain, which is the rosetta chain number.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 

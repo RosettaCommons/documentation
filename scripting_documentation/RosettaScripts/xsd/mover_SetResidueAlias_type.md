@@ -8,8 +8,8 @@ Used to specify an alias name in the StructureDefinition for a specified residue
         segment_name="(&string;)" residue="(&non_negative_integer;)" />
 ```
 
--   **alias_name**: Alias name to set for the specified residue
+-   **alias_name**: (REQUIRED) Alias name to set for the specified residue
 -   **segment_name**: Optional argument to specify which segment this residue is in. If specified, residue numbering is local within the segment.
--   **residue**: Number of residue for which to specify an alias
+-   **residue**: (REQUIRED) Number of residue for which to specify an alias
 
 ---

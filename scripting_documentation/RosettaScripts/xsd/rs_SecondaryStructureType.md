@@ -13,6 +13,6 @@ XRW TO DO
 -   **include_terminal_loops**: XRW TO DO
 -   **use_dssp**: XRW TO DO
 -   **pose_secstruct**: XRW TO DO
--   **ss**: XRW TO DO
+-   **ss**: (REQUIRED) XRW TO DO
 
 ---

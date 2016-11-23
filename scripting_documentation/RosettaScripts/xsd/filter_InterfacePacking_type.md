@@ -14,7 +14,7 @@ Calculates Will Sheffler's holes score for atoms at inter-building block interfa
 -   **contact_dist**: Maximum distance between CA or CB atoms of the primary subunit(s) and the other subunits to be included in the subpose used for the holes calculations. (Should this be change to heavy atoms and set to be the same value as distance_cutoff?)
 -   **lower_cutoff**: Minimum passing holes score.
 -   **upper_cutoff**: Maximum passing holes score.
--   **sym_dof_names**: Must be provided. Name(s) of the sym_dof(s) corresponding to the building block(s) for which to calculate the holes score(s).
+-   **sym_dof_names**: (REQUIRED) Must be provided. Name(s) of the sym_dof(s) corresponding to the building block(s) for which to calculate the holes score(s).
 -   **multicomp**: When set to true, means that the system has multiple components. When set to false, the system has a single component.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 

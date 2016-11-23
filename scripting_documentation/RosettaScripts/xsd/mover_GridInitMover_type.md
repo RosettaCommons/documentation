@@ -7,6 +7,6 @@ Initializes grids using the GridManager
 <GridInitMover name="(&string;)" chain="(&char;)" />
 ```
 
--   **chain**: Chain for which to initialize grids
+-   **chain**: (REQUIRED) Chain for which to initialize grids
 
 ---

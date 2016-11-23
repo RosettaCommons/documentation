@@ -27,14 +27,14 @@ Rigid body mover that rolls the pose about the specified axis
 
 Subtag **axis**:   
 
--   **x**: X coordinate for this vector
--   **y**: Y coordinate for this vector
--   **z**: Z coordinate for this vector
+-   **x**: (REQUIRED) X coordinate for this vector
+-   **y**: (REQUIRED) Y coordinate for this vector
+-   **z**: (REQUIRED) Z coordinate for this vector
 
 Subtag **translate**:   
 
--   **x**: X coordinate for this vector
--   **y**: Y coordinate for this vector
--   **z**: Z coordinate for this vector
+-   **x**: (REQUIRED) X coordinate for this vector
+-   **y**: (REQUIRED) Y coordinate for this vector
+-   **z**: (REQUIRED) Z coordinate for this vector
 
 ---

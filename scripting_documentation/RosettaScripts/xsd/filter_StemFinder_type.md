@@ -19,7 +19,7 @@ Compare a set of homologous but structurally heterogeneous PDBs to a template PD
 -   **stems_are_neighbors**: should we eliminate stems that are farther than neighbor_distance from one another?
 -   **neighbor_distance**: minimal atomic distance between any pair of atoms on each of the residues
 -   **neighbor_seperation**: minimal aa separation between candidate stem sites
--   **filenames**: PDB structures that are well aligned to the template
+-   **filenames**: (REQUIRED) PDB structures that are well aligned to the template
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

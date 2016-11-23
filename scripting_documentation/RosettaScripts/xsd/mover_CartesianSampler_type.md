@@ -61,7 +61,7 @@ XRW TODO
 
 Subtag **Fragments**:   Instructions for fragments files.
 
--   **fragfile**: file to read fragments from
+-   **fragfile**: (REQUIRED) file to read fragments from
 -   **nfrags**: read this many fragments from the top of 'fragfile'
 
 ---

@@ -10,10 +10,10 @@ Fragment Claim Mover performs fragment insertion on a specified region of the po
         selector="(&string;)" />
 ```
 
--   **fragments**: Path to fragment file to use in this mover
+-   **fragments**: (REQUIRED) Path to fragment file to use in this mover
 -   **nfrags**: Number of fragments per position.The number of 3mers or 9mers can be specified using the command line.
 -   **frag_type**: Should classic or smooth fragment insertion be performed?
 -   **initialize**: Should the mover insert a fragment at every position after brokering is complete?
--   **selector**: Residue selector which region this claim mover will be applied to
+-   **selector**: (REQUIRED) Residue selector which region this claim mover will be applied to
 
 ---

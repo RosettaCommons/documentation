@@ -10,9 +10,9 @@ Checks wether certain helical parameters are in range
         confidence="(1.0 &real;)" />
 ```
 
--   **numb_repeats**: number of repeats
+-   **numb_repeats**: (REQUIRED) number of repeats
 -   **start_at_repeat**: what is the first repeat to investigate (unsure, ask author?)
--   **param_type**: What kid of parameter to investigate
+-   **param_type**: (REQUIRED) What kid of parameter to investigate
 -   **min**: minimal value of helical paramter
 -   **max**: maximal value of helical parameter
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter

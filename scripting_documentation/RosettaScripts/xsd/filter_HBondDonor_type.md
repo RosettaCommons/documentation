@@ -8,8 +8,8 @@ XRW TO DO
         hbond_donor_limit="(&non_negative_integer;)" confidence="(1.0 &real;)" />
 ```
 
--   **chain**: XRW TO DO
--   **hbond_donor_limit**: XRW TO DO
+-   **chain**: (REQUIRED) XRW TO DO
+-   **hbond_donor_limit**: (REQUIRED) XRW TO DO
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

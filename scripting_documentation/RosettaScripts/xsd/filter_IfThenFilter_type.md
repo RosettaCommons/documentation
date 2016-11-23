@@ -24,7 +24,7 @@ Subtag **IF**:
 -   **valuefilter**: XRW TODO
 -   **value**: Value of the filter used when returned true
 -   **weight**: The value will be multiplied with weight in case of true
--   **testfilter**: If testfilter returns true its value will be multiplied by the weight as final result
+-   **testfilter**: (REQUIRED) If testfilter returns true its value will be multiplied by the weight as final result
 -   **inverttest**: Inverses the filter result
 
 Subtag **ELIF**:   
@@ -32,7 +32,7 @@ Subtag **ELIF**:
 -   **valuefilter**: XRW TODO
 -   **value**: Value of the filter used when returned true
 -   **weight**: The value will be multiplied with weight in case of true
--   **testfilter**: If testfilter returns true its value will be multiplied by the weight as final result
+-   **testfilter**: (REQUIRED) If testfilter returns true its value will be multiplied by the weight as final result
 -   **inverttest**: Inverses the filter result
 
 Subtag **ELSE**:   

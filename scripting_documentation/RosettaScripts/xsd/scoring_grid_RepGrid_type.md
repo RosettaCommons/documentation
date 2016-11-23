@@ -11,6 +11,6 @@ A scoring grid that gives penalties for being too close to an atom; the too clos
 -   **bb**: The repulsive value assigned to the grid for backbone atoms; positive values are considered unfavorable. If provided, then both 'sc' and 'ligand' attributes need to be provided also
 -   **sc**: The repulsive value assigned to the grid for sidechain atoms; positive values are considered unfavorable. If provided, then both 'bb' and 'ligand' attributes need to be provided also
 -   **ligand**: The repulsive value assigned to the grid for ligand atoms; positive values are considered unfavorable. If provided, then both 'bb' and 'sc' attributes need to be provided also
--   **weight**: XRW TO DO
+-   **weight**: (REQUIRED) XRW TO DO
 
 ---

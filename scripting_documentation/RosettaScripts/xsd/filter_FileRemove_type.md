@@ -8,7 +8,7 @@ Remove a file from disk.
         delete_content_only="(false &bool;)" confidence="(1.0 &real;)" />
 ```
 
--   **filenames**: list of file names separated by comma, e.g., 3r2x_0001.pdb,3r2x_0002.pdb
+-   **filenames**: (REQUIRED) list of file names separated by comma, e.g., 3r2x_0001.pdb,3r2x_0002.pdb
 -   **delete_content_only**: if true, only eliminates the contents of the file but leaves a placeholder file of size 0bytes.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 

@@ -17,7 +17,7 @@ XRW TO DO
 -   **begin**: XRW TO DO
 -   **end**: XRW TO DO
 -   **rmsd_cutoff**: XRW TO DO
--   **frag**: XRW TO DO
+-   **frag**: (REQUIRED) XRW TO DO
 -   **verbose**: XRW TO DO
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 

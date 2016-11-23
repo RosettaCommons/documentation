@@ -8,7 +8,7 @@ Do a gradient based minimization of the final docked pose.
         movemap_builder="(&string;)" />
 ```
 
--   **scorefxn**: Used scorefunction. Required.
--   **movemap_builder**: Name of a previously defined MoveMapBuilder. Required.
+-   **scorefxn**: (REQUIRED) Used scorefunction. Required.
+-   **movemap_builder**: (REQUIRED) Name of a previously defined MoveMapBuilder. Required.
 
 ---
