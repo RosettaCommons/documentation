@@ -7,7 +7,7 @@ Align one set of residues onto another
 <AlignResiduesMover name="(string)" template_selectors="(string)" target_selectors="(string)" />
 ```
 
--   template_selectors: Selectors specifying residues to align onto the target
--   target_selectors: Selectors specifying residues where template should be aligned. Must be same size as template
+-   **template_selectors**: Selectors specifying residues to align onto the target
+-   **target_selectors**: Selectors specifying residues where template should be aligned. Must be same size as template
 
 ---

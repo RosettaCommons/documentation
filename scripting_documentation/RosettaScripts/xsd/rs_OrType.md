@@ -9,7 +9,7 @@ Selector that takes the logical or of the provided residue selectors
 </Or>
 ```
 
--   selectors: Residue selectors that have been defined elsewhere in the script
+-   **selectors**: Residue selectors that have been defined elsewhere in the script
 
 
 "Residue Selector Tag": Any of the [[ResidueSelectors]]

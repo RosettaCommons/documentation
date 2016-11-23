@@ -7,6 +7,6 @@ Record the scoring function's hbonding parameters
 <HBondParameterFeatures name="(string)" scorefxn="(string)" />
 ```
 
--   scorefxn: Scorefunction
+-   **scorefxn**: Scorefunction
 
 ---

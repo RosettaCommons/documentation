@@ -7,6 +7,6 @@ Helper mover that looks for loop definitions and sets up the fold tree.
 <FoldTreeFromLoops name="(string)" loops="(string)" />
 ```
 
--   loops: XRW TO DO
+-   **loops**: XRW TO DO
 
 ---

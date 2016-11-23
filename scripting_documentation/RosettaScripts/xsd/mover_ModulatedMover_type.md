@@ -6,22 +6,23 @@ Used in replica docking.  This is a rigid body mover container, for n-replica do
 ```
 <ModulatedMover name="(string)" tempering="(string)" >
     <Mover Tag ... />
-    <Interp key="(string)" dim="(non_negative_integer; 1)" curve="(temp_interpolator_type)" start="(real)" end="(real)" value="(real)" />
+    <Interp key="(string)" dim="(non_negative_integer; 1)" curve="(temp_interpolator_type)"
+             start="(real)" end="(real)" value="(real)" />
 </ModulatedMover>
 ```
 
--   tempering: The previously declared HamiltonianExchange mover that will be used manage temperature and scorefunction exchanging
+-   **tempering**: The previously declared HamiltonianExchange mover that will be used manage temperature and scorefunction exchanging
 
 
 "Mover Tag": Any of the [[RosettaScripts Mover|Movers-RosettaScripts]] tags
 
-For subtag Interp: 
+Subtag Interp:   
 
--   key: key to look up this Interpolator in the mover prototype map
--   dim: exchange happens between neighbouring cells in a 'dim' dimensional grid; in temperature replica-exchange usually D=1.
--   curve: Does this Interpolator use a 'const', 'linear', or 'exponential' curve?
--   start: start temperature to interpolate from. Only used if curve = 'linear' or 'exponential'.
--   end: end temperature to interpolate to; Only used if curve = 'linear' or 'exponential'.
--   value: temperature value, only used if curve='const' (in other words, interpolate from 'value' to 'value'
+-   **key**: key to look up this Interpolator in the mover prototype map
+-   **dim**: exchange happens between neighbouring cells in a 'dim' dimensional grid; in temperature replica-exchange usually D=1.
+-   **curve**: Does this Interpolator use a 'const', 'linear', or 'exponential' curve?
+-   **start**: start temperature to interpolate from. Only used if curve = 'linear' or 'exponential'.
+-   **end**: end temperature to interpolate to; Only used if curve = 'linear' or 'exponential'.
+-   **value**: temperature value, only used if curve='const' (in other words, interpolate from 'value' to 'value'
 
 ---

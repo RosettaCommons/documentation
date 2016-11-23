@@ -9,7 +9,7 @@ The SymmetricalResidueSelector, when given a selector, will return all symmetric
 </SymmetricalResidue>
 ```
 
--   selector: name of the selector
+-   **selector**: name of the selector
 
 
 "Residue Selector Tag": Any of the [[ResidueSelectors]]

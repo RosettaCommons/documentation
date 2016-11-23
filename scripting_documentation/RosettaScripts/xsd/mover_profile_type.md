@@ -7,7 +7,7 @@ XRW_TODO
 <profile name="(string)" file_name="(string)" weight="(real; 0.25)" />
 ```
 
--   file_name: XRW_TODO
--   weight: XRW TO DO
+-   **file_name**: XRW_TODO
+-   **weight**: XRW TO DO
 
 ---

@@ -11,26 +11,26 @@ Move a chain (normally a ligand) to a specified coordinate.By default the centro
 </StartFrom>
 ```
 
--   chain: Chain ID
--   use_nbr: Place neighbor atom (the atom which is superimposed during conformer repacking) at the given location
+-   **chain**: Chain ID
+-   **use_nbr**: Place neighbor atom (the atom which is superimposed during conformer repacking) at the given location
 
 
-For subtag Coordinates: 
+Subtag Coordinates:   
 
--   x: x coordinate of the desired start coordinate.
--   y: y coordinate of the desired start coordinate.
--   z: z coordinate of the desired start coordinate.
--   pdb_tag: Job-tag of a pdb.
+-   **x**: x coordinate of the desired start coordinate.
+-   **y**: y coordinate of the desired start coordinate.
+-   **z**: z coordinate of the desired start coordinate.
+-   **pdb_tag**: Job-tag of a pdb.
 
-For subtag File: 
+Subtag File:   
 
--   struct_identifier: pdb_tag, file_name, or hash
--   filename: Name of SON formatted file containing starting positions
+-   **struct_identifier**: pdb_tag, file_name, or hash
+-   **filename**: Name of SON formatted file containing starting positions
 
-For subtag PDB: 
+Subtag PDB:   
 
--   filename: Name of pdb file
--   atom_name: Use only the positions of atoms matching that atom name.
--   pdb_tag: XRW TO DO
+-   **filename**: Name of pdb file
+-   **atom_name**: Use only the positions of atoms matching that atom name.
+-   **pdb_tag**: XRW TO DO
 
 ---

@@ -7,6 +7,6 @@ XRW TO DO
 <FavorNativeResidue name="(string)" bonus="(real; 1.5)" />
 ```
 
--   bonus: Bonus for the native residue
+-   **bonus**: Bonus for the native residue
 
 ---

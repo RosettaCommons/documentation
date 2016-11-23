@@ -7,7 +7,7 @@ Claim mover that tracks the center of mass
 <CoMTrackerCM name="(string)" stationary_label="(string; [NOT_SET])" mobile_selector="(string)" />
 ```
 
--   stationary_label: Label for stationary residues
--   mobile_selector: Residue selector specifying mobile residues
+-   **stationary_label**: Label for stationary residues
+-   **mobile_selector**: Residue selector specifying mobile residues
 
 ---

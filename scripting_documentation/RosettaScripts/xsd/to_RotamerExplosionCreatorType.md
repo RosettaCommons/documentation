@@ -7,7 +7,7 @@ Sample residue chi angles much more finely during packing. Currently hardcoded t
 <RotamerExplosionCreator name="(string)" resnum="(positive_integer)" chi="(non_negative_integer)" />
 ```
 
--   resnum: Residue number.
--   chi: Chi level 0-3?
+-   **resnum**: Residue number.
+-   **chi**: Chi level 0-3?
 
 ---

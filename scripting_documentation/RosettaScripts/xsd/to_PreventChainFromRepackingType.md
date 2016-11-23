@@ -7,6 +7,6 @@ XRW TO DO
 <PreventChainFromRepacking name="(string)" chain="(positive_integer; 1)" />
 ```
 
--   chain: XRW TO DO
+-   **chain**: XRW TO DO
 
 ---

@@ -7,7 +7,7 @@ Forms a canonical alpha helix between the specified residues
 <MakeCanonicalHelix name="(string)" helix_start="(real)" helix_end="(real)" />
 ```
 
--   helix_start: Residue to start with; by default, residue 1
--   helix_end: Residue to end with - user added
+-   **helix_start**: Residue to start with; by default, residue 1
+-   **helix_end**: Residue to end with - user added
 
 ---

@@ -16,40 +16,40 @@ XRW TO DO
 </CompoundStatement>
 ```
 
--   invert: XRW TO DO
--   confidence: Probability that the pose will be filtered out if it does not pass this Filter
+-   **invert**: XRW TO DO
+-   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 
-For subtag AND: 
+Subtag AND:   
 
--   filter_name: XRW TO DO
+-   **filter_name**: XRW TO DO
 
-For subtag OR: 
+Subtag OR:   
 
--   filter_name: XRW TO DO
+-   **filter_name**: XRW TO DO
 
-For subtag XOR: 
+Subtag XOR:   
 
--   filter_name: XRW TO DO
+-   **filter_name**: XRW TO DO
 
-For subtag NOR: 
+Subtag NOR:   
 
--   filter_name: XRW TO DO
+-   **filter_name**: XRW TO DO
 
-For subtag NAND: 
+Subtag NAND:   
 
--   filter_name: XRW TO DO
+-   **filter_name**: XRW TO DO
 
-For subtag ORNOT: 
+Subtag ORNOT:   
 
--   filter_name: XRW TO DO
+-   **filter_name**: XRW TO DO
 
-For subtag ANDNOT: 
+Subtag ANDNOT:   
 
--   filter_name: XRW TO DO
+-   **filter_name**: XRW TO DO
 
-For subtag NOT: 
+Subtag NOT:   
 
--   filter_name: XRW TO DO
+-   **filter_name**: XRW TO DO
 
 ---

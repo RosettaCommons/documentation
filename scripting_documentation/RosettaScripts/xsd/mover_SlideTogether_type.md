@@ -7,6 +7,6 @@ Move the small molecule and protein into close proximity.
 <SlideTogether name="(string)" chains="(string)" />
 ```
 
--   chains: Comma separated list of chain IDs.
+-   **chains**: Comma separated list of chain IDs.
 
 ---

@@ -7,6 +7,6 @@ XRW TO DO
 <AnalyzeLoopModeling name="(string)" loopLengthRange="(size_cs_pair; 2,5)" />
 ```
 
--   loopLengthRange: XRW TO DO
+-   **loopLengthRange**: XRW TO DO
 
 ---

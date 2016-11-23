@@ -7,6 +7,6 @@ Perform ligand design
 <LigandDesign name="(string)" option_file="(string)" />
 ```
 
--   option_file: Option file name.
+-   **option_file**: Option file name.
 
 ---

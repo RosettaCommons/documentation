@@ -9,8 +9,8 @@ Used to combine other perturbers
 </CompoundPerturber>
 ```
 
--   architect: Architect to use for this mover
--   mode: Which logical operator to apply to these perturbers?
+-   **architect**: Architect to use for this mover
+-   **mode**: Which logical operator to apply to these perturbers?
 
 
 "Perturber Tag": Any of the [[CompoundPerturbers|BuildDeNovoBackboneMover]]

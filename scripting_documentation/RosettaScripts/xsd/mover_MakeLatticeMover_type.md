@@ -7,6 +7,6 @@ If you wish to model a structure in its crystal lattice, a symmetry definition f
 <MakeLatticeMover name="(string)" contact_dist="(real)" />
 ```
 
--   contact_dist: Command line '-interaction_shell ##' OR XML 'contact_dist=##' specifies the distance (in Angstrom) away from the input structure to generate symmetric partners.
+-   **contact_dist**: Command line '-interaction_shell ##' OR XML 'contact_dist=##' specifies the distance (in Angstrom) away from the input structure to generate symmetric partners.
 
 ---

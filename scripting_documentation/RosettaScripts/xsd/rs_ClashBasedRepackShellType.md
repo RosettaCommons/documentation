@@ -7,6 +7,6 @@ The ClashBasedRepackShellSelector identifies all residues that clash with at lea
 <ClashBasedRepackShell name="(string)" bump_overlap_factor="(real; 0.5)" />
 ```
 
--   bump_overlap_factor: returns true when distance_squared is less than (Lennard-Jones^2 * bump_overlap_factor)
+-   **bump_overlap_factor**: returns true when distance_squared is less than (Lennard-Jones^2 * bump_overlap_factor)
 
 ---

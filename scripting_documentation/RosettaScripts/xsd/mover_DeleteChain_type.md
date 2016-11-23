@@ -7,6 +7,6 @@ Delete this chain.
 <DeleteChain name="(string)" chain="(non_negative_integer)" />
 ```
 
--   chain: delete this chain (number) (no option for PDB chains)
+-   **chain**: delete this chain (number) (no option for PDB chains)
 
 ---

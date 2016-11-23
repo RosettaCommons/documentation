@@ -7,6 +7,6 @@ report structure score features to a features database
 <StructureScoresFeatures name="(string)" scorefxn="(string)" />
 ```
 
--   scorefxn: scorefunction name
+-   **scorefxn**: scorefunction name
 
 ---

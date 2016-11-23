@@ -7,6 +7,6 @@ Restrict a single residue to repacking. No design.
 <RestrictResidueToRepacking name="(string)" resnum="(positive_integer)" />
 ```
 
--   resnum: Single residue number.
+-   **resnum**: Single residue number.
 
 ---

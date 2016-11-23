@@ -7,6 +7,6 @@ XRW TO DO
 <Stochastic name="(string)" confidence="(real; 1.0)" />
 ```
 
--   confidence: XRW TO DO
+-   **confidence**: XRW TO DO
 
 ---

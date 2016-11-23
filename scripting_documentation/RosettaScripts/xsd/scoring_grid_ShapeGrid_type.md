@@ -7,6 +7,6 @@ A scoring grid that gives a bonus based on a knowledge-based potential looking a
 <ShapeGrid name="(string)" weight="(real)" />
 ```
 
--   weight: XRW TO DO
+-   **weight**: XRW TO DO
 
 ---

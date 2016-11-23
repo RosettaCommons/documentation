@@ -7,6 +7,6 @@ XSD_XRW: TO DO
 <AddEncounterConstraintMover name="(string)" gap="(real; 10.0)" />
 ```
 
--   gap: XSD_XRW: TO DO
+-   **gap**: XSD_XRW: TO DO
 
 ---

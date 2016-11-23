@@ -7,6 +7,6 @@ Use this mover to call the reset_baseline method in filters Operator and Compoun
 <ResetBaseline name="(string)" filter="(string)" />
 ```
 
--   filter: the name of the Operator or CompoundStatement filter
+-   **filter**: the name of the Operator or CompoundStatement filter
 
 ---

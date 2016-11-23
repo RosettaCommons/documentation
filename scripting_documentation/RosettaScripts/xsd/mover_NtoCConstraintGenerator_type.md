@@ -7,7 +7,7 @@ XRW TO DO
 <NtoCConstraintGenerator name="(string)" weight="(real)" dist="(real)" />
 ```
 
--   weight: XRW TO DO
--   dist: XRW TO DO
+-   **weight**: XRW TO DO
+-   **dist**: XRW TO DO
 
 ---

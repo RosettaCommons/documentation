@@ -7,6 +7,6 @@ Move only toward a lower cutoff for #neighbors w/i 10A that qualify a residue to
 <ExtraChiCutoffRLT extrachi_cutoff="(non_negative_integer; 18)" />
 ```
 
--   extrachi_cutoff: lower extrachi_cutoff to given value; do nothing if not a decrease
+-   **extrachi_cutoff**: lower extrachi_cutoff to given value; do nothing if not a decrease
 
 ---

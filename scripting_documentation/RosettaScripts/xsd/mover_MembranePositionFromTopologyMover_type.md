@@ -7,6 +7,6 @@ Computes and sets the initial position of the membrane
 <MembranePositionFromTopologyMover name="(string)" anchor_at_res1="(bool)" />
 ```
 
--   anchor_at_res1: Should we do a simple reorder anchoring the membrane at residue 1?
+-   **anchor_at_res1**: Should we do a simple reorder anchoring the membrane at residue 1?
 
 ---

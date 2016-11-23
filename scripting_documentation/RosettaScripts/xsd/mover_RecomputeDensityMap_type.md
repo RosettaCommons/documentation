@@ -7,6 +7,6 @@ PHENIX crystallographic refinement interface code. Uses PHENIX to recompute the 
 <RecomputeDensityMap name="(string)" sidechains="(bool; true)" />
 ```
 
--   sidechains: does nothing
+-   **sidechains**: does nothing
 
 ---

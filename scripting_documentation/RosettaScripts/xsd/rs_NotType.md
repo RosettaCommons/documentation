@@ -9,7 +9,7 @@ XRW TO DO
 </Not>
 ```
 
--   selector: XRW TO DO
+-   **selector**: XRW TO DO
 
 
 "Residue Selector Tag": Any of the [[ResidueSelectors]]

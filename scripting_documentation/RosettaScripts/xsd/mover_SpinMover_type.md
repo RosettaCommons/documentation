@@ -7,6 +7,6 @@ Spin one chain relative to another
 <SpinMover name="(string)" jump_num="(non_negative_integer; 1)" />
 ```
 
--   jump_num: Jump across which to spin, numbered sequentially from 1
+-   **jump_num**: Jump across which to spin, numbered sequentially from 1
 
 ---

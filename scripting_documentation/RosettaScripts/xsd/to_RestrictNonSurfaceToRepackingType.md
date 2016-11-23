@@ -7,6 +7,6 @@ XRW TO DO
 <RestrictNonSurfaceToRepacking name="(string)" surface_exposed_nb_count_cutoff="(non_negative_integer)" />
 ```
 
--   surface_exposed_nb_count_cutoff: XRW TO DO
+-   **surface_exposed_nb_count_cutoff**: XRW TO DO
 
 ---

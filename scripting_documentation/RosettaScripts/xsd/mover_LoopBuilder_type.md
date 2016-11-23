@@ -7,7 +7,7 @@ Builds in backbone atoms for loop regions where they are missing. The backbones 
 <LoopBuilder name="(string)" loops_file="(string)" max_attempts="(non_negative_integer)" />
 ```
 
--   loops_file: path to loops file
--   max_attempts: Stop after n cycles irrespective of convergence.
+-   **loops_file**: path to loops file
+-   **max_attempts**: Stop after n cycles irrespective of convergence.
 
 ---

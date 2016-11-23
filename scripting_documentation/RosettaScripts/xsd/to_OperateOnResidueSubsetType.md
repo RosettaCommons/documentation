@@ -10,7 +10,7 @@ OperateOnResidueSubset is a TaskOperation that applies a ResLevelTaskOperation t
 </OperateOnResidueSubset>
 ```
 
--   selector: XSD XRW: TO DO
+-   **selector**: XSD XRW: TO DO
 
 
 "Residue Selector Tag": Any of the [[ResidueSelectors]]

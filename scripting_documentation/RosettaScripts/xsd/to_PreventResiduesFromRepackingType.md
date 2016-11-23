@@ -7,7 +7,7 @@ Do not allow repacking at all for a string of residues to repacking. Use comma-d
 <PreventResiduesFromRepacking name="(string)" reference_pdb_id="(string)" residues="(string)" />
 ```
 
--   reference_pdb_id: translate residues to reference pose
--   residues: Comma delimited list of residues
+-   **reference_pdb_id**: translate residues to reference pose
+-   **residues**: Comma delimited list of residues
 
 ---

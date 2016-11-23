@@ -7,9 +7,9 @@ XRW TO DO
 <ResidueType polar="(bool)" apolar="(bool)" aromatic="(bool)" charged="(bool)" />
 ```
 
--   polar: Select polar residues.
--   apolar: Select apolar residues.
--   aromatic: Select aromatic residues.
--   charged: Select chared residues.
+-   **polar**: Select polar residues.
+-   **apolar**: Select apolar residues.
+-   **aromatic**: Select aromatic residues.
+-   **charged**: Select chared residues.
 
 ---

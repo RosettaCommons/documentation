@@ -7,6 +7,6 @@ Applies constraints from a constraint file to the pose
 <FileConstraintGenerator name="(string)" filename="(string)" />
 ```
 
--   filename: Path to constraint file to use
+-   **filename**: Path to constraint file to use
 
 ---

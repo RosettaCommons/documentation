@@ -7,6 +7,6 @@ Randomly connects a fragment from the library to the growing ligand.
 <GrowLigand name="(string)" chain="(string)" />
 ```
 
--   chain: Chain ID.
+-   **chain**: Chain ID.
 
 ---

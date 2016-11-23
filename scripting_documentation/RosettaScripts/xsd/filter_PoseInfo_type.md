@@ -7,6 +7,6 @@ Primarily intended for debugging purposes. When invoked, it will print basic inf
 <PoseInfo name="(string)" confidence="(real; 1.0)" />
 ```
 
--   confidence: Probability that the pose will be filtered out if it does not pass this Filter
+-   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

@@ -5,64 +5,69 @@ XRW TO DO
 
 ```
 <VLB name="(string)" scorefxn="(string; score4L)" >
-    <Bridge left="(refpose_enabled_residue_number)" right="(refpose_enabled_residue_number)" ss="(string)" aa="(string)" />
-    <ConnectRight left="(refpose_enabled_residue_number)" right="(refpose_enabled_residue_number)" pdb="(string)" />
+    <Bridge left="(refpose_enabled_residue_number)" right="(refpose_enabled_residue_number)"
+             ss="(string)" aa="(string)" />
+    <ConnectRight left="(refpose_enabled_residue_number)" right="(refpose_enabled_residue_number)"
+             pdb="(string)" />
     <GrowLeft pos="(refpose_enabled_residue_number)" ss="(string)" aa="(string)" />
     <GrowRight pos="(refpose_enabled_residue_number)" ss="(string)" aa="(string)" />
-    <SegmentInsert left="(refpose_enabled_residue_number)" right="(refpose_enabled_residue_number)" ss="(string)" keep_bb_torsions="(bool; 0)" pdb="(string)" side="(string)" />
-    <SegmentRebuild left="(refpose_enabled_residue_number)" right="(refpose_enabled_residue_number)" ss="(string)" aa="(string)" />
-    <SegmentSwap left="(refpose_enabled_residue_number)" right="(refpose_enabled_residue_number)" pdb="(string)" />
+    <SegmentInsert left="(refpose_enabled_residue_number)" right="(refpose_enabled_residue_number)"
+             ss="(string)" keep_bb_torsions="(bool; 0)" pdb="(string)" side="(string)" />
+    <SegmentRebuild left="(refpose_enabled_residue_number)" right="(refpose_enabled_residue_number)"
+             ss="(string)" aa="(string)" />
+    <SegmentSwap left="(refpose_enabled_residue_number)" right="(refpose_enabled_residue_number)"
+             pdb="(string)" />
 </VLB>
 ```
 
--   scorefxn: Scorefunction to be used
+-   **scorefxn**: Scorefunction to be used
 
 
-For subtag Bridge: XRW TODO
+Subtag Bridge:   XRW TODO
 
--   left: Left residue
--   right: Right residue
--   ss: XRW TO DO
--   aa: XRW TO DO
+-   **left**: Left residue
+-   **right**: Right residue
+-   **ss**: XRW TO DO
+-   **aa**: XRW TO DO
 
-For subtag ConnectRight: XRW TODO
+Subtag ConnectRight:   XRW TODO
 
--   left: Left residue
--   right: Right residue
--   pdb: PDB file name to be read in
+-   **left**: Left residue
+-   **right**: Right residue
+-   **pdb**: PDB file name to be read in
 
-For subtag GrowLeft: XRW TODO
+Subtag GrowLeft:   XRW TODO
 
--   pos: The single residue from which to build
--   ss: XRW TO DO
--   aa: XRW TO DO
+-   **pos**: The single residue from which to build
+-   **ss**: XRW TO DO
+-   **aa**: XRW TO DO
 
-For subtag GrowRight: XRW TODO
+Subtag GrowRight:   XRW TODO
 
--   pos: The single residue from which to build
--   ss: XRW TO DO
--   aa: XRW TO DO
+-   **pos**: The single residue from which to build
+-   **ss**: XRW TO DO
+-   **aa**: XRW TO DO
 
-For subtag SegmentInsert: XRW TODO
+Subtag SegmentInsert:   XRW TODO
 
--   left: Left residue
--   right: Right residue
--   ss: XRW TO DO
--   keep_bb_torsions: XRW TO DO
--   pdb: PDB file name to be read in
--   side: XRW TO DO
+-   **left**: Left residue
+-   **right**: Right residue
+-   **ss**: XRW TO DO
+-   **keep_bb_torsions**: XRW TO DO
+-   **pdb**: PDB file name to be read in
+-   **side**: XRW TO DO
 
-For subtag SegmentRebuild: XRW TODO
+Subtag SegmentRebuild:   XRW TODO
 
--   left: Left residue
--   right: Right residue
--   ss: XRW TO DO
--   aa: XRW TO DO
+-   **left**: Left residue
+-   **right**: Right residue
+-   **ss**: XRW TO DO
+-   **aa**: XRW TO DO
 
-For subtag SegmentSwap: XRW TODO
+Subtag SegmentSwap:   XRW TODO
 
--   left: Left residue
--   right: Right residue
--   pdb: PDB file name to be read in
+-   **left**: Left residue
+-   **right**: Right residue
+-   **pdb**: PDB file name to be read in
 
 ---

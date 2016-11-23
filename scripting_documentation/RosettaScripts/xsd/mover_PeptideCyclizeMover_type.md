@@ -5,53 +5,58 @@ XRW TO DO
 
 ```
 <PeptideCyclizeMover name="(string)" residue_selector="(string)" >
-    <Bond res1="(non_negative_integer)" atom1="(string)" res2="(non_negative_integer)" atom2="(string)" add_termini="(bool)" rebuild_fold_tree="(bool; false)" />
-    <Distance res1="(non_negative_integer)" atom1="(string)" res2="(non_negative_integer)" atom2="(string)" cst_func="(string)" />
-    <Angle res_center="(non_negative_integer)" atom_center="(string)" res1="(non_negative_integer)" atom1="(string)" res2="(non_negative_integer)" atom2="(string)" cst_func="(string)" />
-    <Torsion res1="(non_negative_integer)" atom1="(string)" res2="(non_negative_integer)" atom2="(string)" res3="(non_negative_integer)" atom3="(string)" res4="(non_negative_integer)" atom4="(string)" cst_func="(string)" />
+    <Bond res1="(non_negative_integer)" atom1="(string)" res2="(non_negative_integer)"
+             atom2="(string)" add_termini="(bool)" rebuild_fold_tree="(bool; false)" />
+    <Distance res1="(non_negative_integer)" atom1="(string)" res2="(non_negative_integer)"
+             atom2="(string)" cst_func="(string)" />
+    <Angle res_center="(non_negative_integer)" atom_center="(string)" res1="(non_negative_integer)"
+             atom1="(string)" res2="(non_negative_integer)" atom2="(string)" cst_func="(string)" />
+    <Torsion res1="(non_negative_integer)" atom1="(string)" res2="(non_negative_integer)"
+             atom2="(string)" res3="(non_negative_integer)" atom3="(string)" res4="(non_negative_integer)"
+             atom4="(string)" cst_func="(string)" />
 </PeptideCyclizeMover>
 ```
 
--   residue_selector: The name of the already defined ResidueSelector that will be used by this object
+-   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
 
 
-For subtag Bond: Tags describing a bond from the macrocycle
+Subtag Bond:   Tags describing a bond from the macrocycle
 
--   res1: Residue one
--   atom1: Atom one
--   res2: Residue two
--   atom2: Atom two
--   add_termini: Add terminal types where necessary
--   rebuild_fold_tree: Rebuild the fold tree around this bond
+-   **res1**: Residue one
+-   **atom1**: Atom one
+-   **res2**: Residue two
+-   **atom2**: Atom two
+-   **add_termini**: Add terminal types where necessary
+-   **rebuild_fold_tree**: Rebuild the fold tree around this bond
 
-For subtag Distance: Tags describing a distance from the macrocycle
+Subtag Distance:   Tags describing a distance from the macrocycle
 
--   res1: Residue one
--   atom1: Atom one
--   res2: Residue two
--   atom2: Atom two
--   cst_func: Function to use as a constraint
+-   **res1**: Residue one
+-   **atom1**: Atom one
+-   **res2**: Residue two
+-   **atom2**: Atom two
+-   **cst_func**: Function to use as a constraint
 
-For subtag Angle: Tags describing a angle from the macrocycle
+Subtag Angle:   Tags describing a angle from the macrocycle
 
--   res_center: Central residue
--   atom_center: Central atom
--   res1: Residue one
--   atom1: Atom one
--   res2: Residue two
--   atom2: Atom two
--   cst_func: Function to use as a constraint
+-   **res_center**: Central residue
+-   **atom_center**: Central atom
+-   **res1**: Residue one
+-   **atom1**: Atom one
+-   **res2**: Residue two
+-   **atom2**: Atom two
+-   **cst_func**: Function to use as a constraint
 
-For subtag Torsion: Tags describing a torsion from the macrocycle
+Subtag Torsion:   Tags describing a torsion from the macrocycle
 
--   res1: Residue one
--   atom1: Atom one
--   res2: Residue two
--   atom2: Atom two
--   res3: Residue three
--   atom3: Atom three
--   res4: Residue four
--   atom4: Atom four
--   cst_func: Function to use as a constraint
+-   **res1**: Residue one
+-   **atom1**: Atom one
+-   **res2**: Residue two
+-   **atom2**: Atom two
+-   **res3**: Residue three
+-   **atom3**: Atom three
+-   **res4**: Residue four
+-   **atom4**: Atom four
+-   **cst_func**: Function to use as a constraint
 
 ---

@@ -7,6 +7,6 @@ Saturates the incomplete connections with H
 <AddHydrogens name="(string)" chain="(string)" />
 ```
 
--   chain: PDB-file chain ID
+-   **chain**: PDB-file chain ID
 
 ---

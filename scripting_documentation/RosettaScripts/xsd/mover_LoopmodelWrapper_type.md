@@ -7,7 +7,7 @@ Run loopmodel.
 <LoopmodelWrapper name="(string)" loops_file="(string)" fast="(bool)" />
 ```
 
--   loops_file: Name of a loop file.
--   fast: Run fewer cycles. E.g. for testing.
+-   **loops_file**: Name of a loop file.
+-   **fast**: Run fewer cycles. E.g. for testing.
 
 ---

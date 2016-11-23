@@ -7,6 +7,6 @@ Add score function parameters to a features database
 <ScoreFunctionFeatures name="(string)" scorefxn="(string)" />
 ```
 
--   scorefxn: Score function name
+-   **scorefxn**: Score function name
 
 ---

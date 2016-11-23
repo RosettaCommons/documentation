@@ -7,6 +7,6 @@ Associated with GenericMonteCarlo. Simply test the MC criterion of the specified
 <MonteCarloTest name="(string)" MC_name="(bool)" />
 ```
 
--   MC_name: name of a previously defined GenericMonteCarloMover
+-   **MC_name**: name of a previously defined GenericMonteCarloMover
 
 ---

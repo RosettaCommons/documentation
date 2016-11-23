@@ -7,6 +7,6 @@ Make a 2D lattice from the input PDB and CRYST1 line. The CRYST1 line must corre
 <MakeLayerMover name="(string)" contact_dist="(real)" />
 ```
 
--   contact_dist: Command line '-interaction_shell ##' OR RosettaScripts 'contact_dist=##' specifies the distance (in Angstrom) away from the input structure to generate symmetric partners.
+-   **contact_dist**: Command line '-interaction_shell ##' OR RosettaScripts 'contact_dist=##' specifies the distance (in Angstrom) away from the input structure to generate symmetric partners.
 
 ---

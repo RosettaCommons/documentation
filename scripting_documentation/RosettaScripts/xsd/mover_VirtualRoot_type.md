@@ -7,7 +7,7 @@ Reroot the pose foldtree on a (new) virtual residue. Useful for minimization in 
 <VirtualRoot name="(string)" remove="(bool)" removable="(bool)" />
 ```
 
--   remove: Removes the virtual root from the pose. Useful for subsequent use to a previous VirtualRoot call
--   removable: Set this to true of you want the virtual root to be removable. See remove option.
+-   **remove**: Removes the virtual root from the pose. Useful for subsequent use to a previous VirtualRoot call
+-   **removable**: Set this to true of you want the virtual root to be removable. See remove option.
 
 ---

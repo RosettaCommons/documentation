@@ -7,6 +7,6 @@ XRW TO DO
 <ResiduePDBInfoHasLabel property="(string)" />
 ```
 
--   property: Select residues based on ther pose::ResidueRecord.label
+-   **property**: Select residues based on ther pose::ResidueRecord.label
 
 ---

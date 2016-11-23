@@ -16,55 +16,55 @@ Design residues with selected amino acids depending on the local secondary struc
 </DsspDesign>
 ```
 
--   blueprint: a blueprint file which specifies the secondary structure at each position
+-   **blueprint**: a blueprint file which specifies the secondary structure at each position
 
 
-For subtag Loop: allowed loop residues. default: ACDEFGHIKLMNPQRSTVWY
+Subtag Loop:   allowed loop residues. default: ACDEFGHIKLMNPQRSTVWY
 
--   aa: define the set of residues allowed for the defined secondary structure type; the string is composed of one letter amino acid codes.
--   append: append the following residues to the set of allowed residues for the defined secondary structure type.
--   exclude: opposite of append.
+-   **aa**: define the set of residues allowed for the defined secondary structure type; the string is composed of one letter amino acid codes.
+-   **append**: append the following residues to the set of allowed residues for the defined secondary structure type.
+-   **exclude**: opposite of append.
 
-For subtag Strand: allowed strand residues. default: DEFHIKLNQRSTVWY
+Subtag Strand:   allowed strand residues. default: DEFHIKLNQRSTVWY
 
--   aa: define the set of residues allowed for the defined secondary structure type; the string is composed of one letter amino acid codes.
--   append: append the following residues to the set of allowed residues for the defined secondary structure type.
--   exclude: opposite of append.
+-   **aa**: define the set of residues allowed for the defined secondary structure type; the string is composed of one letter amino acid codes.
+-   **append**: append the following residues to the set of allowed residues for the defined secondary structure type.
+-   **exclude**: opposite of append.
 
-For subtag Helix: allowed helix residues. default: ADEFIKLNQRSTVWY
+Subtag Helix:   allowed helix residues. default: ADEFIKLNQRSTVWY
 
--   aa: define the set of residues allowed for the defined secondary structure type; the string is composed of one letter amino acid codes.
--   append: append the following residues to the set of allowed residues for the defined secondary structure type.
--   exclude: opposite of append.
+-   **aa**: define the set of residues allowed for the defined secondary structure type; the string is composed of one letter amino acid codes.
+-   **append**: append the following residues to the set of allowed residues for the defined secondary structure type.
+-   **exclude**: opposite of append.
 
-For subtag HelixStart: allowed helix start residues. default: ADEFHIKLNPQRSTVWY
+Subtag HelixStart:   allowed helix start residues. default: ADEFHIKLNPQRSTVWY
 
--   aa: define the set of residues allowed for the defined secondary structure type; the string is composed of one letter amino acid codes.
--   append: append the following residues to the set of allowed residues for the defined secondary structure type.
--   exclude: opposite of append.
+-   **aa**: define the set of residues allowed for the defined secondary structure type; the string is composed of one letter amino acid codes.
+-   **append**: append the following residues to the set of allowed residues for the defined secondary structure type.
+-   **exclude**: opposite of append.
 
-For subtag HelixCapping: allowed helix capping residues. default: DNST
+Subtag HelixCapping:   allowed helix capping residues. default: DNST
 
--   aa: define the set of residues allowed for the defined secondary structure type; the string is composed of one letter amino acid codes.
--   append: append the following residues to the set of allowed residues for the defined secondary structure type.
--   exclude: opposite of append.
+-   **aa**: define the set of residues allowed for the defined secondary structure type; the string is composed of one letter amino acid codes.
+-   **append**: append the following residues to the set of allowed residues for the defined secondary structure type.
+-   **exclude**: opposite of append.
 
-For subtag Nterm: allowed n terminal residues. default: ACDEFGHIKLMNPQRSTVWY
+Subtag Nterm:   allowed n terminal residues. default: ACDEFGHIKLMNPQRSTVWY
 
--   aa: define the set of residues allowed for the defined secondary structure type; the string is composed of one letter amino acid codes.
--   append: append the following residues to the set of allowed residues for the defined secondary structure type.
--   exclude: opposite of append.
+-   **aa**: define the set of residues allowed for the defined secondary structure type; the string is composed of one letter amino acid codes.
+-   **append**: append the following residues to the set of allowed residues for the defined secondary structure type.
+-   **exclude**: opposite of append.
 
-For subtag Cterm: allowed c terminal residues. default: ACDEFGHIKLMNPQRSTVWY
+Subtag Cterm:   allowed c terminal residues. default: ACDEFGHIKLMNPQRSTVWY
 
--   aa: define the set of residues allowed for the defined secondary structure type; the string is composed of one letter amino acid codes.
--   append: append the following residues to the set of allowed residues for the defined secondary structure type.
--   exclude: opposite of append.
+-   **aa**: define the set of residues allowed for the defined secondary structure type; the string is composed of one letter amino acid codes.
+-   **append**: append the following residues to the set of allowed residues for the defined secondary structure type.
+-   **exclude**: opposite of append.
 
-For subtag all: allowed residues for all secstruct tyes: ACDEFGHIKLMNPQRSTVWY
+Subtag all:   allowed residues for all secstruct tyes: ACDEFGHIKLMNPQRSTVWY
 
--   aa: define the set of residues allowed for the defined secondary structure type; the string is composed of one letter amino acid codes.
--   append: append the following residues to the set of allowed residues for the defined secondary structure type.
--   exclude: opposite of append.
+-   **aa**: define the set of residues allowed for the defined secondary structure type; the string is composed of one letter amino acid codes.
+-   **append**: append the following residues to the set of allowed residues for the defined secondary structure type.
+-   **exclude**: opposite of append.
 
 ---

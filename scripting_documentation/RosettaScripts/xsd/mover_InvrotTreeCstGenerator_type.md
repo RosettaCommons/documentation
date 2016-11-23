@@ -7,7 +7,7 @@ XRW TO DO
 <InvrotTreeCstGenerator name="(string)" cstfile="(string)" add_ligand_to_pose="(bool)" />
 ```
 
--   cstfile: XRW TO DO
--   add_ligand_to_pose: XRW TO DO
+-   **cstfile**: XRW TO DO
+-   **add_ligand_to_pose**: XRW TO DO
 
 ---

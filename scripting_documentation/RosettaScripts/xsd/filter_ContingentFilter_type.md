@@ -7,6 +7,6 @@ A special filter that allows movers to set its value (pass/fail). This value can
 <ContingentFilter name="(string)" confidence="(real; 1.0)" />
 ```
 
--   confidence: Probability that the pose will be filtered out if it does not pass this Filter
+-   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

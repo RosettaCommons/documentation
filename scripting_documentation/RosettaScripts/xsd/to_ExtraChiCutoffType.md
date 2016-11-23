@@ -7,7 +7,7 @@ Assign a chi cutoff to specific or all residues.
 <ExtraChiCutoff name="(string)" resid="(non_negative_integer; 0)" extrachi_cutoff="(non_negative_integer)" />
 ```
 
--   resid: Residue ID of specific residues or =0, all residues.
--   extrachi_cutoff: Extra rotamers chi cutoff.
+-   **resid**: Residue ID of specific residues or =0, all residues.
+-   **extrachi_cutoff**: Extra rotamers chi cutoff.
 
 ---

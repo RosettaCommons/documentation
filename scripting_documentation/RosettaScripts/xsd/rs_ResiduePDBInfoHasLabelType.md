@@ -7,6 +7,6 @@ The ResiduePDBInfoHasLabel residue selector selects all residues with the given 
 <ResiduePDBInfoHasLabel name="(string)" property="(string)" />
 ```
 
--   property: Required. The PDB residue info label to be selected. (e.g. "DISULFIDIZE"
+-   **property**: Required. The PDB residue info label to be selected. (e.g. "DISULFIDIZE"
 
 ---

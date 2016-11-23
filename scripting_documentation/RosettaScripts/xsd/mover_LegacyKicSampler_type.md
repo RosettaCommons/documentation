@@ -7,6 +7,6 @@ This sampler was written to compare kinematicMover and the new KicMover and is o
 <LegacyKicSampler name="(string)" loops_file="(string)" />
 ```
 
--   loops_file: path to loops file
+-   **loops_file**: path to loops file
 
 ---

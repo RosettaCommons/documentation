@@ -7,7 +7,7 @@ XRW TO DO
 <EnergyReporter name="(string)" scorefunction="(string)" term="(string)" />
 ```
 
--   scorefunction: Name of score function weights to use
--   term: Score term to evaluate
+-   **scorefunction**: Name of score function weights to use
+-   **term**: Score term to evaluate
 
 ---

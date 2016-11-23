@@ -5,20 +5,21 @@ Adds angle constraints to a pose
 
 ```
 <CreateAngleConstraint name="(string)" >
-    <Add res_center="(non_negative_integer)" atom_center="(string)" res1="(non_negative_integer)" atom1="(string)" res2="(non_negative_integer)" atom2="(string)" cst_func="(string)" />
+    <Add res_center="(non_negative_integer)" atom_center="(string)" res1="(non_negative_integer)"
+             atom1="(string)" res2="(non_negative_integer)" atom2="(string)" cst_func="(string)" />
 </CreateAngleConstraint>
 ```
 
 
 
-For subtag Add: 
+Subtag Add:   
 
--   res_center: Residue at center of angle
--   atom_center: Atom at center of angle
--   res1: Residue on one side of angle
--   atom1: Atom on one side of angle
--   res2: Residue on other side of the angle
--   atom2: Atom on other side of the angle
--   cst_func: Function to use for this constraint
+-   **res_center**: Residue at center of angle
+-   **atom_center**: Atom at center of angle
+-   **res1**: Residue on one side of angle
+-   **atom1**: Atom on one side of angle
+-   **res2**: Residue on other side of the angle
+-   **atom2**: Atom on other side of the angle
+-   **cst_func**: Function to use for this constraint
 
 ---

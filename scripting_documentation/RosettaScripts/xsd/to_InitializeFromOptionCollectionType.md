@@ -7,6 +7,6 @@ XRW TO DO: No documentation online. Initialize from option collection.
 <InitializeFromOptionCollection name="(string)" option_collection="(string; job_options)" />
 ```
 
--   option_collection: Options in datamap.
+-   **option_collection**: Options in datamap.
 
 ---

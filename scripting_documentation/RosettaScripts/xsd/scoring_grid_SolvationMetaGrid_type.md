@@ -7,6 +7,6 @@ A collection of scoring grids based on the EEF1 (aka Lazaridis Karplus) solvatio
 <SolvationMetaGrid name="(string)" weight="(real)" />
 ```
 
--   weight: XRW TO DO
+-   **weight**: XRW TO DO
 
 ---

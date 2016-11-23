@@ -7,6 +7,6 @@ Add the given "behavior" to the positions selected by the accompanying ResFilter
 <AddBehaviorRLT behavior="(string)" />
 ```
 
--   behavior: Behavior string. These are protocol-specific. Consult the protocol documentation for if it responds to behavior strings.
+-   **behavior**: Behavior string. These are protocol-specific. Consult the protocol documentation for if it responds to behavior strings.
 
 ---

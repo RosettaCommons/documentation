@@ -6,11 +6,16 @@ XSD_XRW: TO DO
 ```
 <ScriptCM name="(string)" >
     <Mover Tag ... />
-    <CutBiasClaim label="(string)" bias="(real)" region_start="(non_negative_integer)" region_end="(non_negative_integer)" />
-    <JumpClaim jump_label="(string)" position1="(string)" position2="(string)" control_strength="(envclaim_ctrl_str)" initialization_strength="(envclaim_ctrl_str; DOES_NOT_CONTROL)" cut="(string)" atom1="(string)" atom2="(string)" physical_cut="(bool)" />
-    <TorsionClaim control_strength="(envclaim_ctrl_str)" initialization_strength="(envclaim_ctrl_str; DOES_NOT_CONTROL)" backbone="(bool; false)" sidechain="(bool; false)" selector="(string)" />
+    <CutBiasClaim label="(string)" bias="(real)" region_start="(non_negative_integer)"
+             region_end="(non_negative_integer)" />
+    <JumpClaim jump_label="(string)" position1="(string)" position2="(string)" control_strength="(envclaim_ctrl_str)"
+             initialization_strength="(envclaim_ctrl_str; DOES_NOT_CONTROL)" cut="(string)"
+             atom1="(string)" atom2="(string)" physical_cut="(bool)" />
+    <TorsionClaim control_strength="(envclaim_ctrl_str)" initialization_strength="(envclaim_ctrl_str; DOES_NOT_CONTROL)"
+             backbone="(bool; false)" sidechain="(bool; false)" selector="(string)" />
     <VirtResClaim vrt_name="(string)" jump_label="(string)" parent="(string)" jump_control_strength="(envclaim_ctrl_str; DOES_NOT_CONTROL)" />
-    <XYZClaim control_strength="(envclaim_ctrl_str)" initialization_strength="(envclaim_ctrl_str; DOES_NOT_CONTROL)" relative_only="(bool; false)" selection="(string)" />
+    <XYZClaim control_strength="(envclaim_ctrl_str)" initialization_strength="(envclaim_ctrl_str; DOES_NOT_CONTROL)"
+             relative_only="(bool; false)" selection="(string)" />
 </ScriptCM>
 ```
 
@@ -18,45 +23,45 @@ XSD_XRW: TO DO
 
 "Mover Tag": Any of the [[RosettaScripts Mover|Movers-RosettaScripts]] tags
 
-For subtag CutBiasClaim: XRW TO DO
+Subtag CutBiasClaim:   XRW TO DO
 
--   label: XRW TO DO
--   bias: XRW TO DO
--   region_start: XRW TO DO
--   region_end: XRW TO DO
+-   **label**: XRW TO DO
+-   **bias**: XRW TO DO
+-   **region_start**: XRW TO DO
+-   **region_end**: XRW TO DO
 
-For subtag JumpClaim: XRW TO DO
+Subtag JumpClaim:   XRW TO DO
 
--   jump_label: XRW TO DO
--   position1: XRW TO DO
--   position2: XRW TO DO
--   control_strength: XRW TO DO
--   initialization_strength: XRW TO DO
--   cut: XRW TO DO
--   atom1: XRW TO DO
--   atom2: XRW TO DO
--   physical_cut: XRW TO DO
+-   **jump_label**: XRW TO DO
+-   **position1**: XRW TO DO
+-   **position2**: XRW TO DO
+-   **control_strength**: XRW TO DO
+-   **initialization_strength**: XRW TO DO
+-   **cut**: XRW TO DO
+-   **atom1**: XRW TO DO
+-   **atom2**: XRW TO DO
+-   **physical_cut**: XRW TO DO
 
-For subtag TorsionClaim: XRW TO DO
+Subtag TorsionClaim:   XRW TO DO
 
--   control_strength: XRW TO DO
--   initialization_strength: XRW TO DO
--   backbone: XRW TO DO
--   sidechain: XRW TO DO
--   selector: Name of previously defined residue selector that defines where to apply this claim
+-   **control_strength**: XRW TO DO
+-   **initialization_strength**: XRW TO DO
+-   **backbone**: XRW TO DO
+-   **sidechain**: XRW TO DO
+-   **selector**: Name of previously defined residue selector that defines where to apply this claim
 
-For subtag VirtResClaim: XRW TO DO
+Subtag VirtResClaim:   XRW TO DO
 
--   vrt_name: XRW TO DO
--   jump_label: Defaults to vrt_name with _jump appended
--   parent: XRW TO DO
--   jump_control_strength: XRW TO DO
+-   **vrt_name**: XRW TO DO
+-   **jump_label**: Defaults to vrt_name with _jump appended
+-   **parent**: XRW TO DO
+-   **jump_control_strength**: XRW TO DO
 
-For subtag XYZClaim: XRW TO DO
+Subtag XYZClaim:   XRW TO DO
 
--   control_strength: XRW TO DO
--   initialization_strength: XRW TO DO
--   relative_only: XRW TO DO
--   selection: XRW TO DO
+-   **control_strength**: XRW TO DO
+-   **initialization_strength**: XRW TO DO
+-   **relative_only**: XRW TO DO
+-   **selection**: XRW TO DO
 
 ---

@@ -7,6 +7,6 @@ Report the total score for each structure using whatever score function you like
 <TotalScoreFeatures name="(string)" scorefxn="(string)" />
 ```
 
--   scorefxn: The name of the score function to report.
+-   **scorefxn**: The name of the score function to report.
 
 ---

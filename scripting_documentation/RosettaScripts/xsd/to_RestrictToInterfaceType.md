@@ -7,7 +7,7 @@ XRW TO DO
 <RestrictToInterface name="(string)" jump="(non_negative_integer; 1)" distance="(real; 8)" />
 ```
 
--   jump: XRW TO DO
--   distance: XRW TO DO
+-   **jump**: XRW TO DO
+-   **distance**: XRW TO DO
 
 ---

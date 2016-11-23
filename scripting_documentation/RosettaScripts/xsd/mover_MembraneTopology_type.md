@@ -7,6 +7,6 @@ Inserts membrane topology from a membrane span file into a pose
 <MembraneTopology name="(string)" span_file="(string)" />
 ```
 
--   span_file: path to transmembrane topology prediction file
+-   **span_file**: path to transmembrane topology prediction file
 
 ---

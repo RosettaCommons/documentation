@@ -10,19 +10,19 @@ XRW TO DO
 </SeedFoldTree>
 ```
 
--   ddg_based: XRW TO DO
--   template_pdb: XRW TO DO
+-   **ddg_based**: XRW TO DO
+-   **template_pdb**: XRW TO DO
 
 
-For subtag Seeds: 
+Subtag Seeds:   
 
--   begin: XRW TO DO
--   end: XRW TO DO
--   anchor: XRW TO DO
+-   **begin**: XRW TO DO
+-   **end**: XRW TO DO
+-   **anchor**: XRW TO DO
 
-For subtag Jump: 
+Subtag Jump:   
 
--   from: XRW TO DO
--   to: XRW TO DO
+-   **from**: XRW TO DO
+-   **to**: XRW TO DO
 
 ---

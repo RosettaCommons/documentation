@@ -9,7 +9,7 @@ The AndResidueSelector combines the output of multiple ResidueSelectors using AN
 </And>
 ```
 
--   selectors: Comma separated list of selected residues
+-   **selectors**: Comma separated list of selected residues
 
 
 "Residue Selector Tag": Any of the [[ResidueSelectors]]

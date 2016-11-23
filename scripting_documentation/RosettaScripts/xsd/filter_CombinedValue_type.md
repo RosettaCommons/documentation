@@ -9,14 +9,14 @@ XRW TO DO
 </CombinedValue>
 ```
 
--   threshold: XRW TO DO
--   confidence: Probability that the pose will be filtered out if it does not pass this Filter
+-   **threshold**: XRW TO DO
+-   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 
-For subtag Add: 
+Subtag Add:   
 
--   factor: XRW TO DO
--   temp: XRW TO DO
--   filter_name: XRW TO DO
+-   **factor**: XRW TO DO
+-   **temp**: XRW TO DO
+-   **filter_name**: XRW TO DO
 
 ---

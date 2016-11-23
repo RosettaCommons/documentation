@@ -7,6 +7,6 @@ XRW TO DO
 <ChainIsnt chain="(chain_character)" />
 ```
 
--   chain: Select chain by chain ID.
+-   **chain**: Select chain by chain ID.
 
 ---

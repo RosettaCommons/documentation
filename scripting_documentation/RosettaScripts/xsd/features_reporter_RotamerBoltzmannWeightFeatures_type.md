@@ -7,6 +7,6 @@ Report rotamer boltzmann weights to features Statistics Scientific Benchmark
 <RotamerBoltzmannWeightFeatures name="(string)" scorefxn="(string)" />
 ```
 
--   scorefxn: score function name
+-   **scorefxn**: score function name
 
 ---

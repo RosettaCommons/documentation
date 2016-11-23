@@ -7,7 +7,7 @@ Filter on the motif score developed by Will Scheffler
 <MotifScore name="(string)" threshold="(real; 999)" confidence="(real; 1.0)" />
 ```
 
--   threshold: Threshold above which the filter fails
--   confidence: Probability that the pose will be filtered out if it does not pass this Filter
+-   **threshold**: Threshold above which the filter fails
+-   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

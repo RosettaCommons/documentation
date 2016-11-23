@@ -7,6 +7,6 @@ PyMolMover will send a pose to an instance of the PyMol molecular visualization 
 <PyMolMover name="(string)" keep_history="(bool; 0)" />
 ```
 
--   keep_history: Each call to the mover stores the pose in a new state/frame of an object in PyMol rather than overwriting it. Frames can then be played back like a movie to visualize the flow of a protocol.
+-   **keep_history**: Each call to the mover stores the pose in a new state/frame of an object in PyMol rather than overwriting it. Frames can then be played back like a movie to visualize the flow of a protocol.
 
 ---

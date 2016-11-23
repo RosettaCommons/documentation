@@ -7,6 +7,6 @@ A scoring grid that computes the hydrogen-bonding energy as given by the locatio
 <HbdGrid name="(string)" weight="(real)" />
 ```
 
--   weight: XRW TO DO
+-   **weight**: XRW TO DO
 
 ---

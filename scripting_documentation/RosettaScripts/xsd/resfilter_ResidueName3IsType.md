@@ -7,6 +7,6 @@ XRW TO DO
 <ResidueName3Is name3="(string)" />
 ```
 
--   name3: Select resides by three letter code, e.g ARG,LYS
+-   **name3**: Select resides by three letter code, e.g ARG,LYS
 
 ---

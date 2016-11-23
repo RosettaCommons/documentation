@@ -7,6 +7,6 @@ Selects residues using a previously stored residue subset.
 <StoredResidueSubset name="(string)" subset_name="(string)" />
 ```
 
--   subset_name: Name of a previously stored residue subset
+-   **subset_name**: Name of a previously stored residue subset
 
 ---

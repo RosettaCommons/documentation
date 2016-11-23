@@ -7,7 +7,7 @@ XRW TO DO
 <CompleteConnections name="(string)" chain="(char)" confidence="(real; 1.0)" />
 ```
 
--   chain: XRW TO DO
--   confidence: Probability that the pose will be filtered out if it does not pass this Filter
+-   **chain**: XRW TO DO
+-   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

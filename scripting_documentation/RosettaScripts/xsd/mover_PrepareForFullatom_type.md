@@ -7,7 +7,7 @@ Switch from centroid to full atom representation.
 <PrepareForFullatom name="(string)" loops_file="(string)" force_repack="(bool)" />
 ```
 
--   loops_file: path to loops file
--   force_repack: Enforce side chain repackig
+-   **loops_file**: path to loops file
+-   **force_repack**: Enforce side chain repackig
 
 ---

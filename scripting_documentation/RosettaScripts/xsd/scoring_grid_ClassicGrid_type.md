@@ -7,6 +7,6 @@ A scoring grid that treats all atoms as both attractive within 4.75A (getting a 
 <ClassicGrid name="(string)" weight="(real)" />
 ```
 
--   weight: XRW TO DO
+-   **weight**: XRW TO DO
 
 ---

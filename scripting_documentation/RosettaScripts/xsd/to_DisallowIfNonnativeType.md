@@ -7,7 +7,7 @@ Restrict design to not include a residue as an possibility in the task at a posi
 <DisallowIfNonnative name="(string)" resnum="(non_negative_integer; 0)" disallow_aas="(string)" />
 ```
 
--   resnum: If resnum is left as 0, the restriction will apply throughout the pose.
--   disallow_aas: Disallow_aas takes a string of one letter amino acid codes, no separation needed. For example disallow_aas=GCP would prevent Gly, Cys, and Pro from being designed unless they were the native amino acid at a position.
+-   **resnum**: If resnum is left as 0, the restriction will apply throughout the pose.
+-   **disallow_aas**: Disallow_aas takes a string of one letter amino acid codes, no separation needed. For example disallow_aas=GCP would prevent Gly, Cys, and Pro from being designed unless they were the native amino acid at a position.
 
 ---

@@ -7,7 +7,7 @@ Perform gradient minimization on the loop being sampled. Both the sidechainand b
 <MinimizationRefiner name="(string)" loops_file="(string)" scorefxn="(string)" />
 ```
 
--   loops_file: path to loops file
--   scorefxn: XRW TO DO
+-   **loops_file**: path to loops file
+-   **scorefxn**: XRW TO DO
 
 ---

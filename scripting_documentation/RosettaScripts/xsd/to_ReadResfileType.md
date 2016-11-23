@@ -7,7 +7,7 @@ Read a resfile.
 <ReadResfile name="(string)" filename="(string)" selector="(string)" />
 ```
 
--   filename: If a filename is given, read from that file. Otherwise, read the file specified on the commandline with -packing:resfile.
--   selector: Optionally, a previously-defined ResidueSelector may be specified using the selector=(some string) option. If this is used, then the ResidueSelector is used as a mask, and the ReadResfile TaskOperation is applied only to those residues selected by the ResidueSelector, even if the resfile lists other residues as well.
+-   **filename**: If a filename is given, read from that file. Otherwise, read the file specified on the commandline with -packing:resfile.
+-   **selector**: Optionally, a previously-defined ResidueSelector may be specified using the selector=(some string) option. If this is used, then the ResidueSelector is used as a mask, and the ReadResfile TaskOperation is applied only to those residues selected by the ResidueSelector, even if the resfile lists other residues as well.
 
 ---

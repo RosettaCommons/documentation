@@ -7,6 +7,6 @@ detailed per atom scores of Scoring Grids
 <ResidueGridScoresFeatures name="(string)" chain="(char)" />
 ```
 
--   chain: required chain name tag (single character)
+-   **chain**: required chain name tag (single character)
 
 ---

@@ -9,7 +9,7 @@ XRW TO DO
 </Filter>
 ```
 
--   filter: Name attribute of a filter that was defined earlier in the RosettaScript.
+-   **filter**: Name attribute of a filter that was defined earlier in the RosettaScript.
 
 
 "Filter Tag": Any of the [[RosettaScripts Filters|Filters-RosettaScripts]] tags

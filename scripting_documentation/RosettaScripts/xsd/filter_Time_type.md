@@ -7,6 +7,6 @@ Report how long a sequence of movers/filters takes. Within the protocol, you nee
 <Time name="(string)" confidence="(real; 1.0)" />
 ```
 
--   confidence: Probability that the pose will be filtered out if it does not pass this Filter
+-   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

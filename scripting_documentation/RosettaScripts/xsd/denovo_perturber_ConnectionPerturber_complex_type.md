@@ -7,6 +7,6 @@ Used to perturb connections
 <ConnectionPerturber architect="(string)" />
 ```
 
--   architect: Architect to use for this mover
+-   **architect**: Architect to use for this mover
 
 ---

@@ -7,6 +7,6 @@ XRW TO DO
 <ResidueIndexIs indices="(int_cslist)" />
 ```
 
--   indices: Comma-separated list of residues to be selected.
+-   **indices**: Comma-separated list of residues to be selected.
 
 ---

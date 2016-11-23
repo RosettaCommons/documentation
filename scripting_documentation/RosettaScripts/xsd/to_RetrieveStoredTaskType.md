@@ -7,6 +7,6 @@ XRW TO DO
 <RetrieveStoredTask name="(string)" task_name="(string)" />
 ```
 
--   task_name: XRW TO DO
+-   **task_name**: XRW TO DO
 
 ---

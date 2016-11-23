@@ -7,6 +7,6 @@ XRW TO DO
 <ResidueLacksProperty property="(string)" />
 ```
 
--   property: Select residues based on the give properties (DNA, PROTEIN, POLAR, CHARGED))
+-   **property**: Select residues based on the give properties (DNA, PROTEIN, POLAR, CHARGED))
 
 ---

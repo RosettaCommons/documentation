@@ -7,7 +7,7 @@ XRW TO DO
 <RestrictIdentities name="(string)" identities="(string)" prevent_repacking="(bool; false)" />
 ```
 
--   identities: XRW TO DO
--   prevent_repacking: XRW TO DO
+-   **identities**: XRW TO DO
+-   **prevent_repacking**: XRW TO DO
 
 ---

@@ -7,6 +7,6 @@ Record all per-residue and per-residue-pair scores given a scoring function
 <ResidueScoresFeatures name="(string)" scorefxn="(string)" />
 ```
 
--   scorefxn: Scorefunction to be used
+-   **scorefxn**: Scorefunction to be used
 
 ---

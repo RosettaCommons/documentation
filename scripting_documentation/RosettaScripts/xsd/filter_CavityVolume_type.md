@@ -7,7 +7,7 @@ Uses Will Sheffler's packing code (packstat) to estimate the total volume of int
 <CavityVolume name="(string)" selector="(string)" confidence="(real; 1.0)" />
 ```
 
--   selector: residue selector name
--   confidence: Probability that the pose will be filtered out if it does not pass this Filter
+-   **selector**: residue selector name
+-   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

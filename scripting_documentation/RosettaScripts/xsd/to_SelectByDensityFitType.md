@@ -7,7 +7,7 @@ Restrict design to residues with electron density correlation above threshold va
 <SelectByDensityFit name="(string)" threshold="(real; 0.72)" invert="(bool; false)" />
 ```
 
--   threshold: threshold value, electron density correlation must be above to pass
--   invert: invert_ flips the Boolean when true
+-   **threshold**: threshold value, electron density correlation must be above to pass
+-   **invert**: invert_ flips the Boolean when true
 
 ---

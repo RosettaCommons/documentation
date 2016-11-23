@@ -7,7 +7,7 @@ Has a predetermined number of seconds elapsed since the start of the trajectory?
 <Expiry name="(string)" seconds="(non_negative_integer)" confidence="(real; 1.0)" />
 ```
 
--   seconds: how many seconds until this triggers failure?
--   confidence: Probability that the pose will be filtered out if it does not pass this Filter
+-   **seconds**: how many seconds until this triggers failure?
+-   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

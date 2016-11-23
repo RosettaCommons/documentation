@@ -7,7 +7,7 @@ A scoring grid that computes a score simply based on a static property of the li
 <LigandPropertyScore name="(string)" parameter="(string)" weight="(real)" />
 ```
 
--   parameter: The numeric property that the ResidueType of the incoming Residue holds that the LigandPropertyScore is going to query for
--   weight: XRW TO DO
+-   **parameter**: The numeric property that the ResidueType of the incoming Residue holds that the LigandPropertyScore is going to query for
+-   **weight**: XRW TO DO
 
 ---

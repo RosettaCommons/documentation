@@ -7,6 +7,6 @@ XRW TO DO
 <ResidueVicinityCstCreator name="(string)" lstart="(non_negative_integer)" />
 ```
 
--   lstart: XRW TO DO
+-   **lstart**: XRW TO DO
 
 ---

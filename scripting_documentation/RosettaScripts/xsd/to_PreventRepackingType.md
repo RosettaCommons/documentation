@@ -7,6 +7,6 @@ Do not allow repacking at all for the specified residue. Freezes residues.
 <PreventRepacking name="(string)" resnum="(string; 0)" />
 ```
 
--   resnum: Residues numbers to apply PreventRepacking on.
+-   **resnum**: Residues numbers to apply PreventRepacking on.
 
 ---

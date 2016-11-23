@@ -7,6 +7,6 @@ Perform backbone mimimization of a docked structure.
 <MinimizeBackbone name="(string)" interface="(string)" />
 ```
 
--   interface: Comma separated chains to dock.
+-   **interface**: Comma separated chains to dock.
 
 ---

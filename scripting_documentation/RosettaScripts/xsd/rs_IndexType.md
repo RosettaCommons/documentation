@@ -7,6 +7,6 @@ The ResidueIndexSelector sets the positions corresponding to the residues given 
 <Index name="(string)" resnums="(resnum_list_with_ranges)" />
 ```
 
--   resnums: List of residue numbers to use
+-   **resnums**: List of residue numbers to use
 
 ---

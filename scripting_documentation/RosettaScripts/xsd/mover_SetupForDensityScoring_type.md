@@ -7,6 +7,6 @@ Roots pose in VRT. Option to trigger docking into the density.
 <SetupForDensityScoring name="(string)" realign="(string; no)" />
 ```
 
--   realign: Dock pose into density map.
+-   **realign**: Dock pose into density map.
 
 ---
