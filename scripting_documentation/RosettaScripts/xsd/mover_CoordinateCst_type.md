@@ -20,17 +20,17 @@ Add coordinate constraints to the pose based on parsed spans or residues.Current
 -   **jump**: Use jump atoms for anchor, that is the first one, for jump n
 
 
-Subtag span:   
+Subtag **span**:   
 
 -   **begin**: Begin of seed fragment (residue number)
 -   **end**: End of seed fragment (residue number)
 
-Subtag Seeds:   
+Subtag **Seeds**:   
 
 -   **begin**: Begin of seed fragment (residue number)
 -   **end**: End of seed fragment (residue number)
 
-Subtag residue:   
+Subtag **residue**:   
 
 -   **residue**: XRW_TO_DO
 

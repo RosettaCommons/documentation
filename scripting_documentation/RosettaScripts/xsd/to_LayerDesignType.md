@@ -229,23 +229,11 @@ Note: The LayerDesign TaskOperation will likely be deprecated at some point in t
 -   **make_pymol_script**: if true, write a pymol script coloring the residues by the three basic layer and the aditional taskoperation defined layers..
 
 
-Subtag core:   XRW TO DO
+Subtag **core**:   XRW TO DO
 
 
 
-Subtag all:   XRW TO DO
-
--   **copy_layer**: XRW TO DO
--   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
--   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
--   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
--   **operation**: XRW TO DO
--   **specification**: XRW TO DO
-
-Subtag Helix:   XRW TO DO
+Subtag **all**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -257,7 +245,7 @@ Subtag Helix:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag HelixCapping:   XRW TO DO
+Subtag **Helix**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -269,7 +257,7 @@ Subtag HelixCapping:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag HelixStart:   XRW TO DO
+Subtag **HelixCapping**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -281,7 +269,7 @@ Subtag HelixStart:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag Loop:   XRW TO DO
+Subtag **HelixStart**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -293,7 +281,7 @@ Subtag Loop:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag Strand:   XRW TO DO
+Subtag **Loop**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -305,11 +293,7 @@ Subtag Strand:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag boundary:   XRW TO DO
-
-
-
-Subtag all:   XRW TO DO
+Subtag **Strand**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -321,7 +305,11 @@ Subtag all:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag Helix:   XRW TO DO
+Subtag **boundary**:   XRW TO DO
+
+
+
+Subtag **all**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -333,7 +321,7 @@ Subtag Helix:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag HelixCapping:   XRW TO DO
+Subtag **Helix**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -345,7 +333,7 @@ Subtag HelixCapping:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag HelixStart:   XRW TO DO
+Subtag **HelixCapping**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -357,7 +345,7 @@ Subtag HelixStart:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag Loop:   XRW TO DO
+Subtag **HelixStart**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -369,7 +357,7 @@ Subtag Loop:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag Strand:   XRW TO DO
+Subtag **Loop**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -381,11 +369,7 @@ Subtag Strand:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag surface:   XRW TO DO
-
-
-
-Subtag all:   XRW TO DO
+Subtag **Strand**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -397,7 +381,11 @@ Subtag all:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag Helix:   XRW TO DO
+Subtag **surface**:   XRW TO DO
+
+
+
+Subtag **all**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -409,7 +397,7 @@ Subtag Helix:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag HelixCapping:   XRW TO DO
+Subtag **Helix**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -421,7 +409,7 @@ Subtag HelixCapping:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag HelixStart:   XRW TO DO
+Subtag **HelixCapping**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -433,7 +421,7 @@ Subtag HelixStart:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag Loop:   XRW TO DO
+Subtag **HelixStart**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -445,7 +433,7 @@ Subtag Loop:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag Strand:   XRW TO DO
+Subtag **Loop**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -457,11 +445,7 @@ Subtag Strand:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag Nterm:   XRW TO DO
-
-
-
-Subtag all:   XRW TO DO
+Subtag **Strand**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -473,7 +457,11 @@ Subtag all:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag Helix:   XRW TO DO
+Subtag **Nterm**:   XRW TO DO
+
+
+
+Subtag **all**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -485,7 +473,7 @@ Subtag Helix:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag HelixCapping:   XRW TO DO
+Subtag **Helix**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -497,7 +485,7 @@ Subtag HelixCapping:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag HelixStart:   XRW TO DO
+Subtag **HelixCapping**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -509,7 +497,7 @@ Subtag HelixStart:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag Loop:   XRW TO DO
+Subtag **HelixStart**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -521,7 +509,7 @@ Subtag Loop:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag Strand:   XRW TO DO
+Subtag **Loop**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -533,11 +521,7 @@ Subtag Strand:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag Cterm:   XRW TO DO
-
-
-
-Subtag all:   XRW TO DO
+Subtag **Strand**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -549,7 +533,11 @@ Subtag all:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag Helix:   XRW TO DO
+Subtag **Cterm**:   XRW TO DO
+
+
+
+Subtag **all**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -561,7 +549,7 @@ Subtag Helix:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag HelixCapping:   XRW TO DO
+Subtag **Helix**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -573,7 +561,7 @@ Subtag HelixCapping:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag HelixStart:   XRW TO DO
+Subtag **HelixCapping**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -585,7 +573,7 @@ Subtag HelixStart:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag Loop:   XRW TO DO
+Subtag **HelixStart**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -597,7 +585,7 @@ Subtag Loop:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag Strand:   XRW TO DO
+Subtag **Loop**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -609,11 +597,7 @@ Subtag Strand:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag CombinedTasks:   XRW TO DO
-
-
-
-Subtag all:   XRW TO DO
+Subtag **Strand**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -625,7 +609,11 @@ Subtag all:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag Helix:   XRW TO DO
+Subtag **CombinedTasks**:   XRW TO DO
+
+
+
+Subtag **all**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -637,7 +625,7 @@ Subtag Helix:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag HelixCapping:   XRW TO DO
+Subtag **Helix**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -649,7 +637,7 @@ Subtag HelixCapping:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag HelixStart:   XRW TO DO
+Subtag **HelixCapping**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -661,7 +649,7 @@ Subtag HelixStart:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag Loop:   XRW TO DO
+Subtag **HelixStart**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -673,7 +661,19 @@ Subtag Loop:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag Strand:   XRW TO DO
+Subtag **Loop**:   XRW TO DO
+
+-   **copy_layer**: XRW TO DO
+-   **aa**: XRW TO DO
+-   **ncaa**: XRW TO DO
+-   **append**: XRW TO DO
+-   **ncaa_append**: XRW TO DO
+-   **exclude**: XRW TO DO
+-   **ncaa_exclude**: XRW TO DO
+-   **operation**: XRW TO DO
+-   **specification**: XRW TO DO
+
+Subtag **Strand**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -687,13 +687,13 @@ Subtag Strand:   XRW TO DO
 
 "TaskOperation Tag": Any of the [[RosettaScripts TaskOperation|TaskOperations-RosettaScripts]] tags
 
-Subtag TaskLayer:   XRW TO DO
+Subtag **TaskLayer**:   XRW TO DO
 
 
 
 "TaskOperation Tag": Any of the [[RosettaScripts TaskOperation|TaskOperations-RosettaScripts]] tags
 
-Subtag all:   XRW TO DO
+Subtag **all**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -705,7 +705,7 @@ Subtag all:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag Helix:   XRW TO DO
+Subtag **Helix**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -717,7 +717,7 @@ Subtag Helix:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag HelixCapping:   XRW TO DO
+Subtag **HelixCapping**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -729,7 +729,7 @@ Subtag HelixCapping:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag HelixStart:   XRW TO DO
+Subtag **HelixStart**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -741,7 +741,7 @@ Subtag HelixStart:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag Loop:   XRW TO DO
+Subtag **Loop**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
@@ -753,7 +753,7 @@ Subtag Loop:   XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
-Subtag Strand:   XRW TO DO
+Subtag **Strand**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO

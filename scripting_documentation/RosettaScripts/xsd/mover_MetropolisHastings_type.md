@@ -32,12 +32,12 @@ Performs Metropolis-Hastings Monte Carlo simulations which can be used to estima
 -   **scorefxn**: XRW TO DO
 
 
-Subtag Add:   
+Subtag **Add**:   
 
 -   **mover_name**: Name attribute of previously defined mover to add
 -   **sampling_weight**: XRW TO DO
 
-Subtag AddNew:   Specify a new mover as a subtag and add it to the protocol
+Subtag **AddNew**:   Specify a new mover as a subtag and add it to the protocol
 
 -   **sampling_weight**: XRW TO DO
 

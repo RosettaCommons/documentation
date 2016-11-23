@@ -22,7 +22,7 @@ Record numeric metrics to a tab-delimited text file
 -   **prepend_output_name**: Prepend the current job output name to the file name
 
 
-Subtag Torsion:   
+Subtag **Torsion**:   
 
 -   **rsd**: Residue this torsion belongs to
 -   **type**: Type of this torsion (e.g. CHI )

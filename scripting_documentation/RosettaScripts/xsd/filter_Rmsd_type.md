@@ -35,19 +35,19 @@ Filter based on the C-alpha RMSD to a reference structure.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 
-Subtag rmsd:   
+Subtag **rmsd**:   
 
 -   **resnum**: Residue number for the beginning of the alignment region
 -   **pdb_num**: Residue number for the beginning of the alignment region
 
-Subtag span:   
+Subtag **span**:   
 
 -   **begin_res_num**: Residue number for the beginning of the alignment region
 -   **begin_pdb_num**: Residue number for the beginning of the alignment region
 -   **end_res_num**: Residue number for the end of the alignment region
 -   **end_pdb_num**: Residue number for the end of the alignment region
 
-Subtag span_two:   
+Subtag **span_two**:   
 
 -   **begin_native**: Residue number for the beginning of the alignment region, on the native
 -   **end_native**: Residue number for the end of the alignment region, on the native

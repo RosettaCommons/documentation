@@ -29,35 +29,35 @@ XRW_TODO
 -   **overwrite**: XRW TO DO
 
 
-Subtag AND:   
+Subtag **AND**:   
 
 -   **task_operations**: XRW_TODO
 
-Subtag OR:   
+Subtag **OR**:   
 
 -   **task_operations**: XRW_TODO
 
-Subtag XOR:   
+Subtag **XOR**:   
 
 -   **task_operations**: XRW_TODO
 
-Subtag NOR:   
+Subtag **NOR**:   
 
 -   **task_operations**: XRW_TODO
 
-Subtag NAND:   
+Subtag **NAND**:   
 
 -   **task_operations**: XRW_TODO
 
-Subtag ORNOT:   
+Subtag **ORNOT**:   
 
 -   **task_operations**: XRW_TODO
 
-Subtag ANDNOT:   
+Subtag **ANDNOT**:   
 
 -   **task_operations**: XRW_TODO
 
-Subtag NOT:   
+Subtag **NOT**:   
 
 -   **task_operations**: XRW_TODO
 

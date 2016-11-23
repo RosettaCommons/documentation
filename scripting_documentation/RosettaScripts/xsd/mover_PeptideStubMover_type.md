@@ -24,7 +24,7 @@ Used to append/insert/prepend residues to a pose
 -   **update_pdb_numbering**: Update the PDB chain IDs and numbers for this pose
 
 
-Subtag Append:   
+Subtag **Append**:   
 
 -   **resname**: Name of stub residue
 -   **position**: Position to insert stub residue
@@ -34,7 +34,7 @@ Subtag Append:
 -   **anchor_rsd**: Residue to which the stub residue should bond
 -   **anchor_atom**: Atom to which the stub residue should bond
 
-Subtag Prepend:   
+Subtag **Prepend**:   
 
 -   **resname**: Name of stub residue
 -   **position**: Position to insert stub residue
@@ -44,7 +44,7 @@ Subtag Prepend:
 -   **anchor_rsd**: Residue to which the stub residue should bond
 -   **anchor_atom**: Atom to which the stub residue should bond
 
-Subtag Insert:   
+Subtag **Insert**:   
 
 -   **resname**: Name of stub residue
 -   **position**: Position to insert stub residue

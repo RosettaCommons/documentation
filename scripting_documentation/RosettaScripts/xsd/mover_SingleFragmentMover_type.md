@@ -19,25 +19,25 @@ Performs a single fragment insertion move on the pose. Respects the restrictions
 -   **policy**: Policy object is responsible for choosing from among the possible fragments contained in the fragment file. Currently, two policies are supported-- 'uniform' and 'smooth.' The former chooses uniformly amongst the set of possibilities. The latter chooses the fragment that, if applied, causes minimal distortion to the pose.
 
 
-Subtag MoveMap:   XRW TO DO
+Subtag **MoveMap**:   XRW TO DO
 
 -   **bb**: move backbone torsions?
 -   **chi**: move sidechain chi torsions?
 -   **jump**: move all jumps?
 
 
-Subtag Jump:   jumps are the not-chemistry internal coordinate connections between separate parts of your pose
+Subtag **Jump**:   jumps are the not-chemistry internal coordinate connections between separate parts of your pose
 
 -   **number**: Which jump number (in the FoldTree)
 -   **setting**: true for move, false for don't move
 
-Subtag Chain:   this controls a kinematically contiguous chain (think protein chains)
+Subtag **Chain**:   this controls a kinematically contiguous chain (think protein chains)
 
 -   **number**: which chain?
 -   **chi**: move sidechain chi torsions?
 -   **bb**: move backbone torsions?
 
-Subtag Span:   XRW TO DO, probably a user-defined region of the Pose
+Subtag **Span**:   XRW TO DO, probably a user-defined region of the Pose
 
 -   **begin**: beginning of span
 -   **end**: end of span

@@ -96,14 +96,14 @@ This is the Hybridize mover at the core of comparative modeling (RosettaCM).  Ty
 -   **coord_cst_res**: List of residue numbers to use
 
 
-Subtag Fragments:   Instructions for fragments files.  Should occur exactly once.
+Subtag **Fragments**:   Instructions for fragments files.  Should occur exactly once.
 
 -   **three_mers**: 3mers fragments file
 -   **small**: comma separated vector of small (probably 3mer) fragments files
 -   **nine_mers**: 9mers fragments file
 -   **big**: comma separated vector of small (probably 3mer) fragments files
 
-Subtag Template:   Instructions for templates. Must occur at least once, may occur as many times as you wish.
+Subtag **Template**:   Instructions for templates. Must occur at least once, may occur as many times as you wish.
 
 -   **pdb**: file path to pdb template
 -   **cst_file**: file path to constraints file associated with this template
@@ -112,14 +112,14 @@ Subtag Template:   Instructions for templates. Must occur at least once, may occ
 -   **randomize**: comma-seprated list of chains to randomize - not documented
 -   **auto_align**: frustratingly undocumented
 
-Subtag Pairings:   Used with FoldTreeHybridize and poorly documented
+Subtag **Pairings**:   Used with FoldTreeHybridize and poorly documented
 
 -   **file**: path to pairings file
 -   **sheets**: used with FoldTreeHybridize, undocumented sheets and random_sheets are mutually exclusive.
 -   **random_sheets**: used with FoldTreeHybridize, undocumented sheets and random_sheets are mutually exclusive.
 -   **filter_templates**: remove templates with incorrect pairings
 
-Subtag DetailedControls:   Used to prevent regions from being sampled extensively (meaning, don't remodel regions where the model is already correct)
+Subtag **DetailedControls**:   Used to prevent regions from being sampled extensively (meaning, don't remodel regions where the model is already correct)
 
 -   **start_res**: starting residue for a DetailedControl region
 -   **stop_res**: ending residue for a DetailedControl region; defaults to the rest of the Pose

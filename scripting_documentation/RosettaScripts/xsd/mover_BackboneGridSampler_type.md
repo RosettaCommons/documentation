@@ -43,7 +43,7 @@ Sample mainchain torsions for peptides in a grid, saving good conformations
 -   **cap_ends**: If true, adds acetylated and amidated N- and C- termini.
 
 
-Subtag MainchainTorsion:   Tags describing individual torsions in the helix
+Subtag **MainchainTorsion**:   Tags describing individual torsions in the helix
 
 -   **index**: Mainchain torsion index indicated
 -   **res_index**: Residue whose mainchain torsion is being specified (if there is more than one residue per repeat)

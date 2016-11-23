@@ -25,12 +25,12 @@ Generate coordinate constraints from the input or a template pdb
 -   **to_chain**: Chain which to apply the contraints to.
 
 
-Subtag Seeds:   
+Subtag **Seeds**:   
 
 -   **begin**: First residue of a segment.
 -   **end**: Last residue of a segment.
 
-Subtag Clear_cst_segments:   
+Subtag **Clear_cst_segments**:   
 
 -   **begin**: First residue of a segment.
 -   **end**: Last residue of a segment.

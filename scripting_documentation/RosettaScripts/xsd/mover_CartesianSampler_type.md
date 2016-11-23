@@ -57,7 +57,7 @@ XRW TODO
 -   **fraglens**: XRW TODO; comma separated list of positive integers, unclear if this should be used with the Fragments subelement
 
 
-Subtag Fragments:   Instructions for fragments files.
+Subtag **Fragments**:   Instructions for fragments files.
 
 -   **fragfile**: file to read fragments from
 -   **nfrags**: read this many fragments from the top of 'fragfile'

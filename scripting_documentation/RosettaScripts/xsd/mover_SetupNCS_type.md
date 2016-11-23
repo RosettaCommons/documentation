@@ -21,17 +21,17 @@ Establishes a non crystallographic symmetry (NCS) between residues. The mover se
 -   **distance_pair**: descrip
 
 
-Subtag NCSgroup:   
+Subtag **NCSgroup**:   
 
 -   **source**: Reference residues, express as single residue or interval. Source and target need the same number of residues.
 -   **target**: Target residues, express as single residue or interval. Source and target need the same number of residues.
 
-Subtag NCSend:   
+Subtag **NCSend**:   
 
 -   **source**: Reference residues, express as single residue or interval. Source and target need the same number of residues.
 -   **target**: Target residues, express as single residue or interval. Source and target need the same number of residues.
 
-Subtag NCSdistance:   
+Subtag **NCSdistance**:   
 
 -   **source**: Reference residues, express as single residue or interval. Source and target need the same number of residues.
 -   **target**: Target residues, express as single residue or interval. Source and target need the same number of residues.

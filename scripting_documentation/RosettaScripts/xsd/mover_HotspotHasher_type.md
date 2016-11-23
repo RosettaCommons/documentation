@@ -25,7 +25,7 @@ XRW TODO
 -   **hotspot_filter**: Filter to apply to all hotspots before storage
 
 
-Subtag residue:   Tags describing individual residues hotspots of which are to be hashed
+Subtag **residue**:   Tags describing individual residues hotspots of which are to be hashed
 
 -   **type**: Residue name for consideration
 

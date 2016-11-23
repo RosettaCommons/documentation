@@ -35,7 +35,7 @@ SegmentHybridize takes the principle from the cartesian hybridize protocol to cl
 -   **extra_min**: XSD XRW: TO DO
 
 
-Subtag Span:   
+Subtag **Span**:   
 
 -   **begin**: XSD XRW: TO DO
 -   **end**: XSD XRW: TO DO

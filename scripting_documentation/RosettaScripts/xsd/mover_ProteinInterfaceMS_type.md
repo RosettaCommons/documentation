@@ -46,14 +46,14 @@ XRW TO DO
 -   **compare_to_ground_state**: Do we have a ground state comparison? Should be true, by default, if there are subelements
 
 
-Subtag Positive:   Tags describing individual alternative states in the calculation
+Subtag **Positive**:   Tags describing individual alternative states in the calculation
 
 -   **pdb**: File name containing this alternative state
 -   **unbound**: This alternative state is unbound
 -   **unfolded**: This alternative state is unfolded
 -   **task_operations**: XRW TO DO
 
-Subtag Negative:   Tags describing individual alternative states in the calculation
+Subtag **Negative**:   Tags describing individual alternative states in the calculation
 
 -   **pdb**: File name containing this alternative state
 -   **unbound**: This alternative state is unbound

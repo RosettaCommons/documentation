@@ -27,12 +27,12 @@ Extend a structure by adding new reidues to N or C terminual.
 -   **sequence**: Sequence for growing peptide. Required if template_pdb is not specified.
 
 
-Subtag Steal_seq_span:   
+Subtag **Steal_seq_span**:   
 
 -   **begin**: First residue of a fragment.
 -   **end**: Last residue of a fragment.
 
-Subtag Seeds:   
+Subtag **Seeds**:   
 
 -   **begin**: First residue of a fragment.
 -   **end**: Last residue of a fragment.

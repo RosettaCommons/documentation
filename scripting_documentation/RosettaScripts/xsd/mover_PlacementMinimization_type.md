@@ -19,11 +19,11 @@ A simple rb-minimization in a bb-stub constraint biased forcefield. Note that th
 -   **minimize_rb**: minimize the rigid body degree of freedom
 
 
-Subtag StubSets:   A container for tags that indicate stubfiles to be loaded
+Subtag **StubSets**:   A container for tags that indicate stubfiles to be loaded
 
 
 
-Subtag Add:   
+Subtag **Add**:   
 
 -   **stubfile**: File that has stubs in it
 

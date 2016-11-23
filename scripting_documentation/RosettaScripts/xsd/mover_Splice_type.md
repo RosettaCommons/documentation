@@ -98,13 +98,13 @@ XRW TO DO
 -   **use_sequence_profiles**: XRW TO DO
 
 
-Subtag Segments:   Wrapper for multiple segments tags
+Subtag **Segments**:   Wrapper for multiple segments tags
 
 -   **profile_weight_away_from_interface**: XRW TO DO
 -   **current_segment**: XRW TO DO
 
 
-Subtag segment:   individual segment tag
+Subtag **segment**:   individual segment tag
 
 -   **pdb_profile_match**: XRW TO DO
 -   **profiles**: XRW TO DO

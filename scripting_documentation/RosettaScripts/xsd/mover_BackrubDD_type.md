@@ -26,12 +26,12 @@ XRW TO DO
 -   **scorefxn**: XRW TO DO
 
 
-Subtag residue:   Tags describing individual residues to be sampled
+Subtag **residue**:   Tags describing individual residues to be sampled
 
 -   **pdb_num**: Residue number specified in PDB-or-refpose-or-seqpos notation
 -   **resnum**: Residue number specified in seqpos (Rosetta) notation
 
-Subtag span:   Tags describing residue ranges to be sampled
+Subtag **span**:   Tags describing residue ranges to be sampled
 
 -   **begin**: Beginning of residue range in PDB-or-refpose-or-seqpos notation
 -   **end**: End of residue range in PDB-or-refpose-or-seqpos notation

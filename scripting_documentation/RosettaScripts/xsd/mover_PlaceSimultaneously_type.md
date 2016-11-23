@@ -44,40 +44,40 @@ Places hotspot residues simultaneously on a scaffold, rather than iteratively as
 -   **after_placement_filter**: The name of a filter to be applied immediately after stub placement and StubMinimize movers, but before the DesignMovers run. Useful for quick sanity check on the goodness of the stub.
 
 
-Subtag StubMinimize:   Defines Movers used to minimize w/r/t stub placement
+Subtag **StubMinimize**:   Defines Movers used to minimize w/r/t stub placement
 
 -   **min_repeats_before_placement**: minimization trials before placement
 -   **min_repeats_after_placement**: minimization trials before placement
 -   **cb_force**: the force on CB atoms
 
 
-Subtag Add:   
+Subtag **Add**:   
 
 -   **mover_name**: Name of the Mover (defined elsewhere in the XML)
 -   **bb_cst_weight**: determines the strength of the constraints derived from the stubs. This value is a weight on the cb_force, so larger values are stronger constraints.
 -   **cb_force**: the force on CB atoms
 
-Subtag DesignMovers:   Defines Movers used to do design after stub placement
+Subtag **DesignMovers**:   Defines Movers used to do design after stub placement
 
 
 
-Subtag Add:   
+Subtag **Add**:   
 
 -   **mover_name**: Name of the Mover (defined elsewhere in the XML)
 -   **use_constraints**: obey constraints
 -   **coord_cst_std**: standard deviation (width) on coordinate constraint
 -   **cb_force**: the force on CB atoms
 
-Subtag NotifyMovers:   Defines Movers (named elsewhere in XML) that must be aware of the protected stub locations so they are not lost
+Subtag **NotifyMovers**:   Defines Movers (named elsewhere in XML) that must be aware of the protected stub locations so they are not lost
 
 
 
-Subtag Add:   
+Subtag **Add**:   
 
 -   **mover_name**: Name of the Mover (defined elsewhere in the XML)
 -   **cb_force**: the force on CB atoms
 
-Subtag StubSets:   What are the Stubs we are placing?
+Subtag **StubSets**:   What are the Stubs we are placing?
 
 -   **explosion**: which chis to explode, which probably means 'sample extensively'
 -   **stub_energy_threshold**: after placement and minimization, what energy cutoff to use for each of the hotspots
@@ -85,7 +85,7 @@ Subtag StubSets:   What are the Stubs we are placing?
 -   **cb_force**: the force on CB atoms
 
 
-Subtag Add:   
+Subtag **Add**:   
 
 -   **stubfile**: File that has a stub in it
 -   **filter_name**: Stub placement tied to this Filter

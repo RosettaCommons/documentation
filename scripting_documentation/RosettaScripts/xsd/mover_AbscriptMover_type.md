@@ -18,18 +18,18 @@ A special mover used to replicate the state of ab initio in early 2014
 -   **skip_stages**: Comma-separated list of ab initio stages (1, 2, 3, or 4) that you wish to skip
 
 
-Subtag Fragments:   
+Subtag **Fragments**:   
 
 -   **selector**: Name of previously defined residue selector specifying where fragments should be inserted
 -   **small_frags**: Fragments file containing small fragments (i.e. 3mers)
 -   **large_frags**: Fragments file containing large fragments (i.e. 9mers)
 
-Subtag Stage:   Tag specifying behavior for a specific stage of the ab initio protocol
+Subtag **Stage**:   Tag specifying behavior for a specific stage of the ab initio protocol
 
 -   **ids**: Stage of ab intio to which this subtag refers.
 
 
-Subtag Mover:   
+Subtag **Mover**:   
 
 -   **weight**: How heavily should this mover be weighted relative to other movers in this stage, i.e. how frequently should it be used relative to others?
 

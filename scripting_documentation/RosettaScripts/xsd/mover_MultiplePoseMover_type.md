@@ -18,11 +18,11 @@ XRW TO DO
 -   **cached**: XSD TO DO
 
 
-Subtag SELECT:   XRW TO DO
+Subtag **SELECT**:   XRW TO DO
 
 
 
 "Pose Selectors Tag": Any of the [[Pose Selectors|RosettaScripts-MultiplePoseMover#pose-selectors]]
-Subtag ROSETTASCRIPTS : A full [[RosettaScripts]] protocol, as a subtag
+Subtag **ROSETTASCRIPTS**: A full [[RosettaScripts]] protocol, as a subtag
 
 ---

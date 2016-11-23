@@ -16,7 +16,7 @@ Filter for poses that place a neighbour of the types specified around a target r
 -   **confidence**: Probability that this pose will be filtered out if the filter fails
 
 
-Subtag Neighbors:   XRW TO DO
+Subtag **Neighbors**:   XRW TO DO
 
 -   **type**: XRW TO DO
 

@@ -50,7 +50,7 @@ XRW TO DO
 -   **helix_length**: For a specific helix, length for this helix
 
 
-Subtag Helix:   
+Subtag **Helix**:   
 
 -   **crick_params_file**: File indicator that may contain Crick parameters
 -   **set_bondlengths**: Should bond lengths be sampled?

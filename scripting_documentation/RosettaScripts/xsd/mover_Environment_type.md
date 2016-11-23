@@ -16,11 +16,11 @@ XSD_RW: TO DO
 -   **allow_pure_movers**: XSD_XRW: TO DO
 
 
-Subtag Register:   
+Subtag **Register**:   
 
 -   **mover**: XSD_XRW: TO DO
 
-Subtag Apply:   
+Subtag **Apply**:   
 
 -   **mover**: XSD_XRW: TO DO
 

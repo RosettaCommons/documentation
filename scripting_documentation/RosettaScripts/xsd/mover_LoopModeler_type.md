@@ -26,7 +26,7 @@ Perform a complete loop modeling simulation, including the build, centroid, and 
 -   **task_operations**: XRW TO DO
 
 
-Subtag Loop:   Use this element to define a series of loops in subtags, one loop per subtag
+Subtag **Loop**:   Use this element to define a series of loops in subtags, one loop per subtag
 
 -   **start**: The residue index (pose numbering) for the first position in the loop.
 -   **stop**: The residue index (pose numbering) for the last position in the loop.
@@ -34,15 +34,15 @@ Subtag Loop:   Use this element to define a series of loops in subtags, one loop
 -   **skip_rate**: The probability that you would like the loop will be skipped (such as by the IndependentLoopMover); a value less than zero means never skip, a value greater than one means always skip - NOT RESPECTED BY ALL PROTOCOLS
 -   **rebuild**: If set to true, then the initial backbone dihedrals for the loop will be overwritten to produce an extended conformation (i.e. phi=-150 degres, psi=150, omego=180) and the bond angles and lengths will be idealized - NOT RESPECTED BY AL PROTOCOLS
 
-Subtag Build:   Configure the build step. If "skip" is enabled, none of the loops will be rebuilt.You may also provide this tag with any option or subtag that would be understood by LoopBuilder.
+Subtag **Build**:   Configure the build step. If "skip" is enabled, none of the loops will be rebuilt.You may also provide this tag with any option or subtag that would be understood by LoopBuilder.
 
 -   **skip**: If "skip" is enabled, the corresponding step will be skipped
 
-Subtag Centroid:   Configure the centroid refinement step. If "skip" is enabled, none of the loops will be rebuilt. You may also provide this tag with any option or subtag that would be understood by LoopProtocol.
+Subtag **Centroid**:   Configure the centroid refinement step. If "skip" is enabled, none of the loops will be rebuilt. You may also provide this tag with any option or subtag that would be understood by LoopProtocol.
 
 -   **skip**: If "skip" is enabled, the corresponding step will be skipped
 
-Subtag Fullatom:   Configure the centroid refinement step. If "skip" is enabled, none of the loops will be rebuilt. You may also provide this tag with any option or subtag that would be understood by LoopProtocol.
+Subtag **Fullatom**:   Configure the centroid refinement step. If "skip" is enabled, none of the loops will be rebuilt. You may also provide this tag with any option or subtag that would be understood by LoopProtocol.
 
 -   **skip**: If "skip" is enabled, the corresponding step will be skipped
 

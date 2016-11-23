@@ -12,7 +12,7 @@ report JSON object with information needed for vHTS postprocessing
 -   **chain**: chain tag
 
 
-Subtag descriptor:   
+Subtag **descriptor**:   
 
 -   **type**: descriptor type
 

@@ -12,7 +12,7 @@ Adds distance constraints to a pose
 
 
 
-Subtag Add:   
+Subtag **Add**:   
 
 -   **res1**: First residue to constrain
 -   **atom1**: First atom to constrain

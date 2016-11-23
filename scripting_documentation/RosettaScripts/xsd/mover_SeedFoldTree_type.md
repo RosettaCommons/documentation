@@ -14,13 +14,13 @@ XRW TO DO
 -   **template_pdb**: XRW TO DO
 
 
-Subtag Seeds:   
+Subtag **Seeds**:   
 
 -   **begin**: XRW TO DO
 -   **end**: XRW TO DO
 -   **anchor**: XRW TO DO
 
-Subtag Jump:   
+Subtag **Jump**:   
 
 -   **from**: XRW TO DO
 -   **to**: XRW TO DO

@@ -19,7 +19,7 @@ XRW TO DO
 -   **repack_shell**: XRW TO DO
 
 
-Subtag AlignedSegment:   XRW TO DO
+Subtag **AlignedSegment**:   XRW TO DO
 
 -   **source_pdb**: XRW TO DO
 -   **start_res**: XRW TO DO

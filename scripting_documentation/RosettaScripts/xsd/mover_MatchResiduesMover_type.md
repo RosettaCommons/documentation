@@ -18,7 +18,7 @@ XRW TO DO
 -   **superimpose**: Superimpose the input pose by its matched position
 
 
-Subtag match:   Tags describing individual matches
+Subtag **match**:   Tags describing individual matches
 
 -   **ref_pos**: Reference position
 -   **segment**: Segment also, possibly, specified from blueprint file

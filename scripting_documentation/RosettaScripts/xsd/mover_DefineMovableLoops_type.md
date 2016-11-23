@@ -18,7 +18,7 @@ Specific to seeded abinitio protocol. Finds loops after seeded abinitio that sho
 -   **chain_num**: Comma-separated list of chain IDs. NOTE: chains have to be consecutive
 
 
-Subtag Seeds:   
+Subtag **Seeds**:   
 
 -   **begin**: First residue of seed fragment.
 -   **end**: Last residue of seed fragment.

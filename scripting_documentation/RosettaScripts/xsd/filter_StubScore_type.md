@@ -17,11 +17,11 @@ This filter checks whether in the current configuration the scaffold is 'feeling
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 
-Subtag StubSets:   A container for tags that indicate stubfiles to be loaded
+Subtag **StubSets**:   A container for tags that indicate stubfiles to be loaded
 
 
 
-Subtag Add:   
+Subtag **Add**:   
 
 -   **stubfile**: File that has stubs in it
 

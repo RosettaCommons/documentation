@@ -17,19 +17,19 @@ XRW TO DO
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 
-Subtag VAR:   
+Subtag **VAR**:   
 
 -   **value**: XRW TO DO
 -   **filter**: XRW TO DO
 -   **filter_name**: XRW TO DO
 
-Subtag Var:   
+Subtag **Var**:   
 
 -   **value**: XRW TO DO
 -   **filter**: XRW TO DO
 -   **filter_name**: XRW TO DO
 
-Subtag var:   
+Subtag **var**:   
 
 -   **value**: XRW TO DO
 -   **filter**: XRW TO DO

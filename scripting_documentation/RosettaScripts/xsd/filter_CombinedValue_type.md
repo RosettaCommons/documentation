@@ -13,7 +13,7 @@ XRW TO DO
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 
-Subtag Add:   
+Subtag **Add**:   
 
 -   **factor**: XRW TO DO
 -   **temp**: XRW TO DO

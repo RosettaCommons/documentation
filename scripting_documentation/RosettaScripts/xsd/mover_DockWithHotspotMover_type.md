@@ -17,11 +17,11 @@ XRW TO DO
 -   **hotspotcst_filter**: XRW TO DO
 
 
-Subtag HotspotFiles:   Wrapper tag for individual hotspot files
+Subtag **HotspotFiles**:   Wrapper tag for individual hotspot files
 
 
 
-Subtag HotspotFile:   Wrapper tag for individual hotspot files
+Subtag **HotspotFile**:   Wrapper tag for individual hotspot files
 
 -   **file_name**: Filename for this hotspot file
 -   **cb_force**: Weight on the CB atoms for these hotspot constraints

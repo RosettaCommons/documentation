@@ -21,35 +21,35 @@ XRW TO DO
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 
-Subtag AND:   
+Subtag **AND**:   
 
 -   **filter_name**: XRW TO DO
 
-Subtag OR:   
+Subtag **OR**:   
 
 -   **filter_name**: XRW TO DO
 
-Subtag XOR:   
+Subtag **XOR**:   
 
 -   **filter_name**: XRW TO DO
 
-Subtag NOR:   
+Subtag **NOR**:   
 
 -   **filter_name**: XRW TO DO
 
-Subtag NAND:   
+Subtag **NAND**:   
 
 -   **filter_name**: XRW TO DO
 
-Subtag ORNOT:   
+Subtag **ORNOT**:   
 
 -   **filter_name**: XRW TO DO
 
-Subtag ANDNOT:   
+Subtag **ANDNOT**:   
 
 -   **filter_name**: XRW TO DO
 
-Subtag NOT:   
+Subtag **NOT**:   
 
 -   **filter_name**: XRW TO DO
 

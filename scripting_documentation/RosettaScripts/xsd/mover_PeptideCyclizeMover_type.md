@@ -23,7 +23,7 @@ XRW TO DO
 -   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
 
 
-Subtag Bond:   Tags describing a bond from the macrocycle
+Subtag **Bond**:   Tags describing a bond from the macrocycle
 
 -   **res1**: Residue one
 -   **atom1**: Atom one
@@ -32,7 +32,7 @@ Subtag Bond:   Tags describing a bond from the macrocycle
 -   **add_termini**: Add terminal types where necessary
 -   **rebuild_fold_tree**: Rebuild the fold tree around this bond
 
-Subtag Distance:   Tags describing a distance from the macrocycle
+Subtag **Distance**:   Tags describing a distance from the macrocycle
 
 -   **res1**: Residue one
 -   **atom1**: Atom one
@@ -40,7 +40,7 @@ Subtag Distance:   Tags describing a distance from the macrocycle
 -   **atom2**: Atom two
 -   **cst_func**: Function to use as a constraint
 
-Subtag Angle:   Tags describing a angle from the macrocycle
+Subtag **Angle**:   Tags describing a angle from the macrocycle
 
 -   **res_center**: Central residue
 -   **atom_center**: Central atom
@@ -50,7 +50,7 @@ Subtag Angle:   Tags describing a angle from the macrocycle
 -   **atom2**: Atom two
 -   **cst_func**: Function to use as a constraint
 
-Subtag Torsion:   Tags describing a torsion from the macrocycle
+Subtag **Torsion**:   Tags describing a torsion from the macrocycle
 
 -   **res1**: Residue one
 -   **atom1**: Atom one

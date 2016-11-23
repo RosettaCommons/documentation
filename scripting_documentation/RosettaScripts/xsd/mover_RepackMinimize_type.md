@@ -39,7 +39,7 @@ RepackMinimizeMover performs extensive interface remodeling
 -   **automatic_repacking_definition**: Is the packing setup automatically?
 
 
-Subtag residue:   
+Subtag **residue**:   
 
 -   **pdb_num**: Residue number in reference pose or pdb or seqpos numbering
 -   **resnum**: Residue number in reference pose or pdb or seqpos numbering

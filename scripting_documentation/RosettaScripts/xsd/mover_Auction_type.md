@@ -19,11 +19,11 @@ A PlacementAuctionMover pays increasing prices to put hotspots in place on a cha
 -   **stubscorefxn**: Scoring function to apply to the stubs being placed
 
 
-Subtag StubSets:   A container for tags that indicate stubfiles to be loaded
+Subtag **StubSets**:   A container for tags that indicate stubfiles to be loaded
 
 
 
-Subtag Add:   
+Subtag **Add**:   
 
 -   **stubfile**: File that has stubs in it
 

@@ -52,17 +52,17 @@ This mover will first attempt isolated/independent mutations defined in the inpu
 -   **reference_name**: XRW_TODO
 
 
-Subtag Filters:   These are the names of the filters being input into GreedyOptMutationMover.
+Subtag **Filters**:   These are the names of the filters being input into GreedyOptMutationMover.
 
 
 
-Subtag AND:   
+Subtag **AND**:   
 
 -   **filter_name**: Name of the filter you want to apply. Load multiple filters from branch tags.
 -   **sample_type**: If your filter values are such that higher = better, use 'sample_type=high'
 -   **filter_delta**: Add sequence diversity; useful with nstruct greater than 1; randomly try any mutation that scores within N filter points of the best-scoring mutation at each position instead of just the first, e.g. filter_delta=0.5 for attempting any mutation within 0.5 filter points of the best one.
 
-Subtag Filter:   These are the attributes of a single filter being optimized.
+Subtag **Filter**:   These are the attributes of a single filter being optimized.
 
 -   **filter**: Name of a single filter you wish you process.
 -   **sample_type**: If your filter values are such that higher = better, use 'sample_type=high'

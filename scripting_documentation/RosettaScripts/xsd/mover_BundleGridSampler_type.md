@@ -142,7 +142,7 @@ XRW TO DO
 -   **epsilon_samples**: Samples for epsilon
 
 
-Subtag Helix:   Tags describing individual helices in the bundle
+Subtag **Helix**:   Tags describing individual helices in the bundle
 
 -   **crick_params_file**: File indicator that may contain Crick parameters
 -   **set_bondlengths**: Should bond lengths be sampled?

@@ -64,7 +64,7 @@ Perturb helical bundles by direct manipulation of their bundle parameters
 -   **epsilon_perturbation_type**: Type of perturbation to epsilon
 
 
-Subtag Helix:   
+Subtag **Helix**:   
 
 -   **helix_index**: Numerical index for this particular helix
 -   **r0_copies_helix**: Numerical index from which this particular helix copies its r0 parameter (0, if it shouldn't copy anything at all, and by default)

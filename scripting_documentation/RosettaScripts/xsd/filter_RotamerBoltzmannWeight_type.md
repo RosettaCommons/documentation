@@ -41,7 +41,7 @@ XRW TO DO
 -   **confidence**: Probability that the pose will be filtered out if the filter fails
 
 
-Subtag Threshold:   XRW TO DO
+Subtag **Threshold**:   XRW TO DO
 
 -   **restype**: XRW TO DO
 -   **threshold_probability**: XRW TO DO

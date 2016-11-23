@@ -27,7 +27,7 @@ Apply an architecture of sigmoid and relative pose filters to a set of PDBs
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 
-Subtag RelativePose:   Tags describing RelativePose filters to be applied
+Subtag **RelativePose**:   Tags describing RelativePose filters to be applied
 
 -   **use_native_pdb**: boolean as to whether or not to use the native pdb
 -   **pdb_name**: which is the reference pose to read from disk.
@@ -45,7 +45,7 @@ Subtag RelativePose:   Tags describing RelativePose filters to be applied
 -   **copy_stretch**: rather than threading the residue identities on the pose read from disk, copy the aligned segment from the current pose onto the pose read from disk (residue identities + conformations). No repacking is done, and then goes straight to relax. Obviously the segment should be prealigned for this to make any sense, and should probably only be used on entire chains rather than stretches within chains. Any way, take care in using. No guarantees.
 -   **copy_comments**: a comma-delimited list of pose-comment key values to copy from the reference pose (the current pose computed in the trajectory) to the relative pose (from disk). Useful if conformational change needs to be communicated from the reference pose to the relative pose
 
-Subtag Sigmoid:   Tags describing Sigmoid filters to be applied
+Subtag **Sigmoid**:   Tags describing Sigmoid filters to be applied
 
 -   **steepness**: Steepness of the sigmoid function where $$f(x) = 1 / ( 1 + (steepness)e^{ (x - offset - baseline) } ) )$$
 -   **offset**: Offset of the sigmoid function where $$f(x) = 1 / ( 1 + (steepness)e^{ (x - offset - baseline) } ) )$$
@@ -54,7 +54,7 @@ Subtag Sigmoid:   Tags describing Sigmoid filters to be applied
 -   **filter**: Filter whose value to transform with the sigmoid function.
 -   **baseline_checkpoint**: File name to keep track of the baseline value.
 
-Subtag Operator:   Tags describing Operators to be applied
+Subtag **Operator**:   Tags describing Operators to be applied
 
 -   **operation**: operation to perform: sum, product, min, or max
 -   **threshold**: filter threshold

@@ -28,14 +28,14 @@ XSD_XRW: TO DO
 
 "Mover Tag": Any of the [[RosettaScripts Mover|Movers-RosettaScripts]] tags
 
-Subtag CutBiasClaim:   XRW TO DO
+Subtag **CutBiasClaim**:   XRW TO DO
 
 -   **label**: XRW TO DO
 -   **bias**: XRW TO DO
 -   **region_start**: XRW TO DO
 -   **region_end**: XRW TO DO
 
-Subtag JumpClaim:   XRW TO DO
+Subtag **JumpClaim**:   XRW TO DO
 
 -   **jump_label**: XRW TO DO
 -   **position1**: XRW TO DO
@@ -47,7 +47,7 @@ Subtag JumpClaim:   XRW TO DO
 -   **atom2**: XRW TO DO
 -   **physical_cut**: XRW TO DO
 
-Subtag TorsionClaim:   XRW TO DO
+Subtag **TorsionClaim**:   XRW TO DO
 
 -   **control_strength**: XRW TO DO
 -   **initialization_strength**: XRW TO DO
@@ -55,14 +55,14 @@ Subtag TorsionClaim:   XRW TO DO
 -   **sidechain**: XRW TO DO
 -   **selector**: Name of previously defined residue selector that defines where to apply this claim
 
-Subtag VirtResClaim:   XRW TO DO
+Subtag **VirtResClaim**:   XRW TO DO
 
 -   **vrt_name**: XRW TO DO
 -   **jump_label**: Defaults to vrt_name with _jump appended
 -   **parent**: XRW TO DO
 -   **jump_control_strength**: XRW TO DO
 
-Subtag XYZClaim:   XRW TO DO
+Subtag **XYZClaim**:   XRW TO DO
 
 -   **control_strength**: XRW TO DO
 -   **initialization_strength**: XRW TO DO

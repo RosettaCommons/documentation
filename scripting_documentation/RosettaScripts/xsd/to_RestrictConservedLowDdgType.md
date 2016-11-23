@@ -49,7 +49,7 @@ XRW TO DO
 -   **verbose**: XRW TO DO
 
 
-Subtag ProteinInterfaceDesign:   Restricts to the task that is the basis for protein-interface design.
+Subtag **ProteinInterfaceDesign**:   Restricts to the task that is the basis for protein-interface design.
 
 -   **repack_chain1**: first chain to repack
 -   **repack_chain2**: 2ndchain to repack
@@ -62,7 +62,7 @@ Subtag ProteinInterfaceDesign:   Restricts to the task that is the basis for pro
 -   **modify_before_jump**: change residues before the jump. For instance, if you want set repack on chain2 interfacial residues to true, and the rest of chain2 to false, and yet not change the task for chain1, then use this taskoperation with modify_before_jump=0
 -   **modify_after_jump**: change residues after the jump
 
-Subtag RestrictToAlignedSegments:   XRW TO DO
+Subtag **RestrictToAlignedSegments**:   XRW TO DO
 
 -   **source_pdb**: XRW TO DO
 -   **start_res**: XRW TO DO
@@ -71,7 +71,7 @@ Subtag RestrictToAlignedSegments:   XRW TO DO
 -   **repack_shell**: XRW TO DO
 
 
-Subtag AlignedSegment:   XRW TO DO
+Subtag **AlignedSegment**:   XRW TO DO
 
 -   **source_pdb**: XRW TO DO
 -   **start_res**: XRW TO DO

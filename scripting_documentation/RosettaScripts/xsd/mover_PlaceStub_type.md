@@ -48,30 +48,30 @@ The Hotspot-based sidechain placement. This is the main workhorse of the hot-spo
 -   **allowed_host_res**: List of residue numbers to use
 
 
-Subtag StubMinimize:   Defines Movers used to minimize w/r/t stub placement
+Subtag **StubMinimize**:   Defines Movers used to minimize w/r/t stub placement
 
 
 
-Subtag Add:   
+Subtag **Add**:   
 
 -   **mover_name**: Name of the Mover (defined elsewhere in the XML)
 -   **bb_cst_weight**: determines the strength of the constraints derived from the stubs. This value is a weight on the cb_force, so larger values are stronger constraints.
 
-Subtag DesignMovers:   Defines Movers used to do design after stub placement
+Subtag **DesignMovers**:   Defines Movers used to do design after stub placement
 
 
 
-Subtag Add:   
+Subtag **Add**:   
 
 -   **mover_name**: Name of the Mover (defined elsewhere in the XML)
 -   **use_constraints**: obey constraints
 -   **coord_cst_std**: standard deviation (width) on coordinate constraint
 
-Subtag NotifyMovers:   Defines Movers (named elsewhere in XML) that must be aware of the protected stub locations so they are not lost
+Subtag **NotifyMovers**:   Defines Movers (named elsewhere in XML) that must be aware of the protected stub locations so they are not lost
 
 
 
-Subtag Add:   
+Subtag **Add**:   
 
 -   **mover_name**: Name of the Mover (defined elsewhere in the XML)
 

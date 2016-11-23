@@ -15,7 +15,7 @@ Builds ideal helices in the specified residue spans
 -   **cst_width**: Width for bound function for coordinate constraints
 
 
-Subtag Helix:   
+Subtag **Helix**:   
 
 -   **start**: First residue in helix to idealize
 -   **end**: Last residue in helix to idealize

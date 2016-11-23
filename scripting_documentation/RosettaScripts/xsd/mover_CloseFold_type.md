@@ -27,7 +27,7 @@ XRW TO DO
 -   **chain_num**: Comma-separated list of chain IDs. NOTE: chains have to be consecutive
 
 
-Subtag Seeds:   
+Subtag **Seeds**:   
 
 -   **begin**: Beginning of seed fragments (residue number)
 -   **end**: End of seed fragment (residue number)

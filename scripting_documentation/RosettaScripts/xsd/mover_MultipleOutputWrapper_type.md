@@ -15,7 +15,7 @@ XRW TO DO
 -   **max_attempts**: XRW TO DO
 -   **keep_mover_state**: XRW TO DO
 
-Subtag ROSETTASCRIPTS : A full [[RosettaScripts]] protocol, as a subtag
+Subtag **ROSETTASCRIPTS**: A full [[RosettaScripts]] protocol, as a subtag
 
 "Mover Tag": Any of the [[RosettaScripts Mover|Movers-RosettaScripts]] tags
 

@@ -31,27 +31,27 @@ Mover to generate backbones for de novo design
 -   **dump_pdbs**: Dump output to PDB files?
 
 
-Subtag Prefold:   Prefold protocol
+Subtag **Prefold**:   Prefold protocol
 
 
 
-Subtag Add:   
-
--   **mover**: Mover to add to this step step
-
-Subtag Postfold:   Postfold protocol
-
-
-
-Subtag Add:   
+Subtag **Add**:   
 
 -   **mover**: Mover to add to this step step
 
-Subtag Filters:   Filters to apply to generated backbones
+Subtag **Postfold**:   Postfold protocol
 
 
 
-Subtag Add:   
+Subtag **Add**:   
+
+-   **mover**: Mover to add to this step step
+
+Subtag **Filters**:   Filters to apply to generated backbones
+
+
+
+Subtag **Add**:   
 
 -   **filter**: Filter to add
 
@@ -59,7 +59,7 @@ Subtag Add:
 
 "DenovoArchitect pairings Tags": Any of the [[DenovoArchitects|BuildDeNovoBackboneMover]]
 
-Subtag RemodelLoopMoverPoseFolder:   Folds residues in a pose using RemodelLoopMover
+Subtag **RemodelLoopMoverPoseFolder**:   Folds residues in a pose using RemodelLoopMover
 
 -   **scorefxn**: XRW TO DO
 

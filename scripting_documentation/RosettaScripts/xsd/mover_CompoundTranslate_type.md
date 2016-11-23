@@ -17,7 +17,7 @@ Combines multiple individually configurable Translate movers
 -   **allow_overlap**: XRW TO DO
 
 
-Subtag Translate:   
+Subtag **Translate**:   
 
 -   **chain**: Chain to be translated.
 -   **distribution**: Distribution from which to sample distances. Valid options are uniform or gaussian
@@ -25,7 +25,7 @@ Subtag Translate:
 -   **cycles**: Number of cycles to run.
 -   **force**: Force neighbor atoms to move if clashing, default=false
 
-Subtag Translates:   
+Subtag **Translates**:   
 
 -   **chain**: Chain to be translated.
 -   **distribution**: Distribution from which to sample distances. Valid options are uniform or gaussian

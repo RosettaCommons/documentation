@@ -17,7 +17,7 @@ Used in replica docking.  This is a rigid body mover container, for n-replica do
 
 "Mover Tag": Any of the [[RosettaScripts Mover|Movers-RosettaScripts]] tags
 
-Subtag Interp:   
+Subtag **Interp**:   
 
 -   **key**: key to look up this Interpolator in the mover prototype map
 -   **dim**: exchange happens between neighbouring cells in a 'dim' dimensional grid; in temperature replica-exchange usually D=1.

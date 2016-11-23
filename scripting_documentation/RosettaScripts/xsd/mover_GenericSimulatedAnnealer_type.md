@@ -53,11 +53,11 @@ Performs a simulated annealing simulation (so, a temperature schedule) instead o
 -   **keep_checkpoint_file**: XRW TO DO
 
 
-Subtag Filters:   Multiple filters can be defined for an MC mover. These filters are then applied sequentially in the order listed and only if the pose passes the Metropolis criterion for all filters is it accepted. This allows the extension of MC to a multicriterion framework where more than one criterion is optimized, say the total score and the binding energy. See demos/rosetta_scripts/experimental/computational_affinity_maturation_strategy2 for an example. It's recommended to list the computationally expensive filters last, as later filters will only be calculated if the earlier filters all pass.
+Subtag **Filters**:   Multiple filters can be defined for an MC mover. These filters are then applied sequentially in the order listed and only if the pose passes the Metropolis criterion for all filters is it accepted. This allows the extension of MC to a multicriterion framework where more than one criterion is optimized, say the total score and the binding energy. See demos/rosetta_scripts/experimental/computational_affinity_maturation_strategy2 for an example. It's recommended to list the computationally expensive filters last, as later filters will only be calculated if the earlier filters all pass.
 
 
 
-Subtag AND:   
+Subtag **AND**:   
 
 -   **filter_name**: name of the filter declaration
 -   **temperature**: Filter specific temperature

@@ -31,11 +31,11 @@ XRW TO DO
 -   **stubfile**: File containing hotspot stubs
 
 
-Subtag HotspotFiles:   Wrapper for tags describing each of several hotspot files to read
+Subtag **HotspotFiles**:   Wrapper for tags describing each of several hotspot files to read
 
 
 
-Subtag HotspotFile:   
+Subtag **HotspotFile**:   
 
 -   **file_name**: File name of the hot spot stub file
 -   **nickname**: Nickname for the hot spot stub file

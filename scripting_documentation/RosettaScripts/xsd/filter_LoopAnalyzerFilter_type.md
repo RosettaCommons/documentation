@@ -17,7 +17,7 @@ This Filter calls LoopAnalyzerMover to compute a bunch of loop-specific metrics.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 
-Subtag Loop:   Use this element to define a series of loops in subtags, one loop per subtag
+Subtag **Loop**:   Use this element to define a series of loops in subtags, one loop per subtag
 
 -   **start**: The residue index (pose numbering) for the first position in the loop.
 -   **stop**: The residue index (pose numbering) for the last position in the loop.

@@ -19,7 +19,7 @@ Evaluate to a value contingent on the true/false value of other filters. Each of
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 
-Subtag IF:   
+Subtag **IF**:   
 
 -   **valuefilter**: XRW TODO
 -   **value**: Value of the filter used when returned true
@@ -27,7 +27,7 @@ Subtag IF:
 -   **testfilter**: If testfilter returns true its value will be multiplied by the weight as final result
 -   **inverttest**: Inverses the filter result
 
-Subtag ELIF:   
+Subtag **ELIF**:   
 
 -   **valuefilter**: XRW TODO
 -   **value**: Value of the filter used when returned true
@@ -35,7 +35,7 @@ Subtag ELIF:
 -   **testfilter**: If testfilter returns true its value will be multiplied by the weight as final result
 -   **inverttest**: Inverses the filter result
 
-Subtag ELSE:   
+Subtag **ELSE**:   
 
 -   **valuefilter**: If all all the testfilters failed, the return value is the value of the valuefilter multiplied by its weight
 -   **value**: Value of the valuefilter

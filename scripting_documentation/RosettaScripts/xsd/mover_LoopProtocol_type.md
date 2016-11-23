@@ -31,7 +31,7 @@ Optimizes a region of protein backbone using a simulated annealing MonteCarlo si
 -   **fast**: Test mode, reduces number of cycles.
 
 
-Subtag Loop:   Use this element to define a series of loops in subtags, one loop per subtag
+Subtag **Loop**:   Use this element to define a series of loops in subtags, one loop per subtag
 
 -   **start**: The residue index (pose numbering) for the first position in the loop.
 -   **stop**: The residue index (pose numbering) for the last position in the loop.

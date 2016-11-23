@@ -23,7 +23,7 @@ This is a special mover that allows making a single compound mover and filter ve
 -   **resume_support**: XSD XRW: TO DO
 
 
-Subtag Add:   Elements that add a particular mover-filter pair to a ParsedProtocol
+Subtag **Add**:   Elements that add a particular mover-filter pair to a ParsedProtocol
 
 -   **mover_name**: The mover whose execution is desired
 -   **mover**: The mover whose execution is desired

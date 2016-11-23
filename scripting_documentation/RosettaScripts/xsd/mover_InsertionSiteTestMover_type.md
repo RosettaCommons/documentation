@@ -21,7 +21,7 @@ XRW TO DO
 -   **repeats**: XRW TO DO
 
 
-Subtag span:   
+Subtag **span**:   
 
 -   **begin_pdb_num**: Residue number in PDB numbering (residue number + chain ID)
 -   **begin_res_num**: Residue number in Rosetta numbering (sequentially with the first residue in the pose being 1

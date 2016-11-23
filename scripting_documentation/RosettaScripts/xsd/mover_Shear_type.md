@@ -24,25 +24,25 @@ Shear style backbone-torsion moves that minimize downstream propagation
 -   **residue_selector**: An optional, previously-defined ResidueSelector, specifying the subset of residues to which the mover will be applied. If not provided, the mover is applied to the whole pose. (Alternatively, a MoveMap may be used -- see below)
 
 
-Subtag MoveMap:   XRW TO DO
+Subtag **MoveMap**:   XRW TO DO
 
 -   **bb**: move backbone torsions?
 -   **chi**: move sidechain chi torsions?
 -   **jump**: move all jumps?
 
 
-Subtag Jump:   jumps are the not-chemistry internal coordinate connections between separate parts of your pose
+Subtag **Jump**:   jumps are the not-chemistry internal coordinate connections between separate parts of your pose
 
 -   **number**: Which jump number (in the FoldTree)
 -   **setting**: true for move, false for don't move
 
-Subtag Chain:   this controls a kinematically contiguous chain (think protein chains)
+Subtag **Chain**:   this controls a kinematically contiguous chain (think protein chains)
 
 -   **number**: which chain?
 -   **chi**: move sidechain chi torsions?
 -   **bb**: move backbone torsions?
 
-Subtag Span:   XRW TO DO, probably a user-defined region of the Pose
+Subtag **Span**:   XRW TO DO, probably a user-defined region of the Pose
 
 -   **begin**: beginning of span
 -   **end**: end of span

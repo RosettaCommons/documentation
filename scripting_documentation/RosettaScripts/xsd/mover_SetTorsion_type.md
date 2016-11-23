@@ -22,7 +22,7 @@ XRW TO DO
 -   **foldtree_root**: XRW TO DO
 
 
-Subtag Torsion:   XRW TO DO
+Subtag **Torsion**:   XRW TO DO
 
 -   **angle**: XRW TO DO
 -   **perturbation_type**: XRW TO DO
@@ -33,22 +33,22 @@ Subtag Torsion:   XRW TO DO
 -   **extending**: XRW TO DO
 
 
-Subtag Atom1:   
+Subtag **Atom1**:   
 
 -   **atom**: XRW TO DO
 -   **residue**: XRW TO DO
 
-Subtag Atom2:   
+Subtag **Atom2**:   
 
 -   **atom**: XRW TO DO
 -   **residue**: XRW TO DO
 
-Subtag Atom3:   
+Subtag **Atom3**:   
 
 -   **atom**: XRW TO DO
 -   **residue**: XRW TO DO
 
-Subtag Atom4:   
+Subtag **Atom4**:   
 
 -   **atom**: XRW TO DO
 -   **residue**: XRW TO DO

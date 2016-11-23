@@ -24,32 +24,32 @@ XRW TO DO
 -   **scorefxn**: Scorefunction to be used
 
 
-Subtag Bridge:   XRW TODO
+Subtag **Bridge**:   XRW TODO
 
 -   **left**: Left residue
 -   **right**: Right residue
 -   **ss**: XRW TO DO
 -   **aa**: XRW TO DO
 
-Subtag ConnectRight:   XRW TODO
+Subtag **ConnectRight**:   XRW TODO
 
 -   **left**: Left residue
 -   **right**: Right residue
 -   **pdb**: PDB file name to be read in
 
-Subtag GrowLeft:   XRW TODO
+Subtag **GrowLeft**:   XRW TODO
 
 -   **pos**: The single residue from which to build
 -   **ss**: XRW TO DO
 -   **aa**: XRW TO DO
 
-Subtag GrowRight:   XRW TODO
+Subtag **GrowRight**:   XRW TODO
 
 -   **pos**: The single residue from which to build
 -   **ss**: XRW TO DO
 -   **aa**: XRW TO DO
 
-Subtag SegmentInsert:   XRW TODO
+Subtag **SegmentInsert**:   XRW TODO
 
 -   **left**: Left residue
 -   **right**: Right residue
@@ -58,14 +58,14 @@ Subtag SegmentInsert:   XRW TODO
 -   **pdb**: PDB file name to be read in
 -   **side**: XRW TO DO
 
-Subtag SegmentRebuild:   XRW TODO
+Subtag **SegmentRebuild**:   XRW TODO
 
 -   **left**: Left residue
 -   **right**: Right residue
 -   **ss**: XRW TO DO
 -   **aa**: XRW TO DO
 
-Subtag SegmentSwap:   XRW TODO
+Subtag **SegmentSwap**:   XRW TODO
 
 -   **left**: Left residue
 -   **right**: Right residue
