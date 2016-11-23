@@ -11,8 +11,8 @@ Restricts to the task that is the basis for protein-interface design.
         design_chain2="(non_negative_integer; 1)"
         allow_all_aas="(non_negative_integer; 0)"
         design_all_aas="(non_negative_integer; 0)"
-        jump="(non_negative_integer; 1)"interface_distance_cutoff="(real; 8.0)"
-        modify_before_jump="(bool; true)"modify_after_jump="(bool; true)" />
+        jump="(non_negative_integer; 1)" interface_distance_cutoff="(real; 8.0)"
+        modify_before_jump="(bool; true)" modify_after_jump="(bool; true)" />
 ```
 
 -   **repack_chain1**: first chain to repack

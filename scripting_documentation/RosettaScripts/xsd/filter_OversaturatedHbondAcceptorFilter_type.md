@@ -6,9 +6,9 @@ This filter counts the number of hydrogen bond acceptors that are receiving hydr
 ```
 <OversaturatedHbondAcceptorFilter name="(string)"
         max_allowed_oversaturated="(non_negative_integer)"
-        hbond_energy_cutoff="(real)"consider_mainchain_only="(bool)"
-        acceptor_selector="(string)"donor_selector="(string)"
-        scorefxn="(string)"confidence="(real; 1.0)" />
+        hbond_energy_cutoff="(real)" consider_mainchain_only="(bool)"
+        acceptor_selector="(string)" donor_selector="(string)"
+        scorefxn="(string)" confidence="(real; 1.0)" />
 ```
 
 -   **max_allowed_oversaturated**: How many oversaturated acceptors are allowed before the filter fails? Default 0 (filter fails if any oversaturated acceptors are found).

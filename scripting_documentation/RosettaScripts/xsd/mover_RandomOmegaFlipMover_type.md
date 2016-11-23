@@ -5,11 +5,11 @@ XRW_TODO
 
 ```
 <RandomOmegaFlipMover name="(string)" >
-    <MoveMap name="(string)"bb="(bool)"chi="(bool)"jump="(bool)" >
-        <Jumpnumber="(non_negative_integer)"setting="(bool)" />
-        <Chainnumber="(non_negative_integer)"chi="(bool)"bb="(bool)" />
-        <Spanbegin="(non_negative_integer)"end="(non_negative_integer)"chi="(bool)"
-                bb="(bool)"bondangle="(bool)"bondlenth="(bool)" />
+    <MoveMap name="(string)" bb="(bool)" chi="(bool)" jump="(bool)" >
+        <Jump number="(non_negative_integer)" setting="(bool)" />
+        <Chain number="(non_negative_integer)" chi="(bool)" bb="(bool)" />
+        <Span begin="(non_negative_integer)" end="(non_negative_integer)" chi="(bool)"
+                bb="(bool)" bondangle="(bool)" bondlenth="(bool)" />
     </MoveMap>
 </RandomOmegaFlipMover>
 ```

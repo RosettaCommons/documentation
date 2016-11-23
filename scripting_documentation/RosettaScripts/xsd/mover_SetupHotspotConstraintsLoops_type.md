@@ -5,14 +5,14 @@ XRW TO DO
 
 ```
 <SetupHotspotConstraintsLoops name="(string)"
-        redesign_chain="(non_negative_integer; 2)"resfile="(string; NONE)"
-        cb_force="(real; 0.5)"worst_allowed_stub_bonus="(real; 0)"
-        apply_stub_self_energies="(bool; 0)"apply_stub_bump_cutoff="(real; 10)"
-        pick_best_energy_constraint="(bool; 1)"start="(positive_integer)"
-        stop="(positive_integer)"colonyE="(bool; 0)"
+        redesign_chain="(non_negative_integer; 2)" resfile="(string; NONE)"
+        cb_force="(real; 0.5)" worst_allowed_stub_bonus="(real; 0)"
+        apply_stub_self_energies="(bool; 0)" apply_stub_bump_cutoff="(real; 10)"
+        pick_best_energy_constraint="(bool; 1)" start="(positive_integer)"
+        stop="(positive_integer)" colonyE="(bool; 0)"
         stubfile="(string; stubs.pdb)" >
     <HotspotFiles name="(string)" >
-        <HotspotFilefile_name="(string)"nickname="(string)"
+        <HotspotFile file_name="(string)" nickname="(string)"
                 stub_num="(positive_integer; 100000)" />
     </HotspotFiles>
 </SetupHotspotConstraintsLoops>

@@ -6,7 +6,7 @@ XRW TO DO
 ```
 <ScoreCutoffFilter name="(string)"
         report_residue_pair_energies="(non_negative_integer; 0)"
-        cutoff="(real; 10000.0)"pdb_numbering="(bool; true)"
+        cutoff="(real; 10000.0)" pdb_numbering="(bool; true)"
         confidence="(real; 1.0)" />
 ```
 

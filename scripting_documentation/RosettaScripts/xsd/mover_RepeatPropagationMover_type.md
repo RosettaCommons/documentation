@@ -10,7 +10,7 @@ XRW TO DO
         detect_repeat_length_change="(size_cs_pair; 9999,9999)"
         numb_repeats="(non_negative_integer)"
         repeat_without_replacing_pose="(bool; false)"
-        maintain_cap="(bool; false)"maintain_ligand="(bool; false)"
+        maintain_cap="(bool; false)" maintain_ligand="(bool; false)"
         nTerm_cap_size="(non_negative_integer)"
         cTerm_cap_size="(non_negative_integer)" />
 ```

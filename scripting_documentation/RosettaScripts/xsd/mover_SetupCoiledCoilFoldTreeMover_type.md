@@ -6,7 +6,7 @@ XRW TO DO
 ```
 <SetupCoiledCoilFoldTreeMover name="(string)"
         chains="(SetupCoiledCoilFoldTreeMover_chain_string)"
-        chain2_cutpos="(non_negative_integer)"add_chainbreak_variants="(bool)" />
+        chain2_cutpos="(non_negative_integer)" add_chainbreak_variants="(bool)" />
 ```
 
 -   **chains**: XRW TO DO

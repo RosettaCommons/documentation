@@ -11,12 +11,12 @@ XRW TO DO
         max_helix_length="(non_negative_integer; 9999)"
         max_sheet_length="(non_negative_integer; 9999)"
         max_loop_length="(non_negative_integer; 9999)"
-        filter_helix="(bool; true)"filter_sheet="(bool; true)"
-        filter_loop="(bool; false)"required_restypes="(string; VILMFYW)"
+        filter_helix="(bool; true)" filter_sheet="(bool; true)"
+        filter_loop="(bool; false)" required_restypes="(string; VILMFYW)"
         secstruct_fraction_threshold="(real; 1.0)"
         nres_required_per_secstruct="(non_negative_integer; 1)"
         res_check_task_operations="(string)"
-        ss_select_task_operations="(string)"confidence="(real; 1.0)" />
+        ss_select_task_operations="(string)" confidence="(real; 1.0)" />
 ```
 
 -   **min_helix_length**: XRW TO DO

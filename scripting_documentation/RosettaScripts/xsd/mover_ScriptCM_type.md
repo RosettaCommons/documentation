@@ -6,20 +6,21 @@ XSD_XRW: TO DO
 ```
 <ScriptCM name="(string)" >
     <Mover Tag ... />
-    <CutBiasClaimlabel="(string)"bias="(real)"region_start="(non_negative_integer)"
+    <CutBiasClaim label="(string)" bias="(real)"
+            region_start="(non_negative_integer)"
             region_end="(non_negative_integer)" />
-    <JumpClaimjump_label="(string)"position1="(string)"position2="(string)"
+    <JumpClaim jump_label="(string)" position1="(string)" position2="(string)"
             control_strength="(envclaim_ctrl_str)"
             initialization_strength="(envclaim_ctrl_str; DOES_NOT_CONTROL)"
-            cut="(string)"atom1="(string)"atom2="(string)"physical_cut="(bool)" />
-    <TorsionClaimcontrol_strength="(envclaim_ctrl_str)"
+            cut="(string)" atom1="(string)" atom2="(string)" physical_cut="(bool)" />
+    <TorsionClaim control_strength="(envclaim_ctrl_str)"
             initialization_strength="(envclaim_ctrl_str; DOES_NOT_CONTROL)"
-            backbone="(bool; false)"sidechain="(bool; false)"selector="(string)" />
-    <VirtResClaimvrt_name="(string)"jump_label="(string)"parent="(string)"
+            backbone="(bool; false)" sidechain="(bool; false)" selector="(string)" />
+    <VirtResClaim vrt_name="(string)" jump_label="(string)" parent="(string)"
             jump_control_strength="(envclaim_ctrl_str; DOES_NOT_CONTROL)" />
-    <XYZClaimcontrol_strength="(envclaim_ctrl_str)"
+    <XYZClaim control_strength="(envclaim_ctrl_str)"
             initialization_strength="(envclaim_ctrl_str; DOES_NOT_CONTROL)"
-            relative_only="(bool; false)"selection="(string)" />
+            relative_only="(bool; false)" selection="(string)" />
 </ScriptCM>
 ```
 

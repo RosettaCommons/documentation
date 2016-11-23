@@ -5,7 +5,7 @@ XRW TO DO
 
 ```
 <RestrictResiduesToRepacking name="(string)"
-        reference_pdb_id="(string; XRW TO DO)"residues="(string)" />
+        reference_pdb_id="(string; XRW TO DO)" residues="(string)" />
 ```
 
 -   **reference_pdb_id**: XRW TO DO

@@ -5,12 +5,12 @@ XRW TO DO
 
 ```
 <SetupHotspotConstraints name="(string)"
-        redesign_chain="(non_negative_integer; 2)"resfile="(string; NONE)"
-        cb_force="(real; 0.5)"worst_allowed_stub_bonus="(real; 0)"
-        apply_stub_self_energies="(bool; 0)"apply_stub_bump_cutoff="(real; 10)"
+        redesign_chain="(non_negative_integer; 2)" resfile="(string; NONE)"
+        cb_force="(real; 0.5)" worst_allowed_stub_bonus="(real; 0)"
+        apply_stub_self_energies="(bool; 0)" apply_stub_bump_cutoff="(real; 10)"
         backbone_stub_constraint_weight="(real; 1.0)"
         stubscorefxn="(string; backbone_stub_constraint)"
-        pick_best_energy_constraint="(bool; 1)"colonyE="(bool; 0)"
+        pick_best_energy_constraint="(bool; 1)" colonyE="(bool; 0)"
         stubfile="(string; stubs.pdb)" />
 ```
 

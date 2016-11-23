@@ -6,7 +6,7 @@ XRW TO DO
 ```
 <DisulfideMover name="(string)"
         targets="(refpose_enabled_residue_number_cslist)"
-        scorefxn_repack="(string)"scorefxn_minimize="(string)" />
+        scorefxn_repack="(string)" scorefxn_minimize="(string)" />
 ```
 
 -   **targets**: List of target residue numbers for disulfide creation

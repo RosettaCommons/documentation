@@ -5,7 +5,7 @@ Sets up a star topology fold tree for this pose
 
 ```
 <MakeStarTopology name="(string)"
-        mode="(valid_make_star_topology_modes; default)"restore="(bool; false)"
+        mode="(valid_make_star_topology_modes; default)" restore="(bool; false)"
         tag="(string; nulltag)" />
 ```
 

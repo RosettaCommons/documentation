@@ -6,7 +6,7 @@ XRW TO DO
 ```
 <Ncontacts name="(string)"
         type="(ncontacts_filter_type; sidechain_heavy_apolar_atm)"
-        value="(real; 0.0)"confidence="(real; 1.0)" />
+        value="(real; 0.0)" confidence="(real; 1.0)" />
 ```
 
 -   **type**: XRW TO DO

@@ -6,7 +6,7 @@ Forms helical bundles from helices in a database and outputs bundles to a databa
 ```
 <HelixBundleFeatures name="(string)"
         num_helices_per_bundle="(non_negative_integer)"
-        min_helix_size="(non_negative_integer)"helix_cap_dist_cutoff="(real)"
+        min_helix_size="(non_negative_integer)" helix_cap_dist_cutoff="(real)"
         min_per_residue_fa_attr="(real; 0.2)"
         min_interacting_set_fraction="(real; 0.4)" />
 ```

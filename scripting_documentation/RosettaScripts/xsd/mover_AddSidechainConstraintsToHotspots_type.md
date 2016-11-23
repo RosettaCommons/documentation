@@ -5,7 +5,7 @@ XRW TO DO
 
 ```
 <AddSidechainConstraintsToHotspots name="(string)"
-        chain="(non_negative_integer; 2)"coord_sdev="(real; 1.0)"
+        chain="(non_negative_integer; 2)" coord_sdev="(real; 1.0)"
         resnums="(residue_number_cslist)" />
 ```
 

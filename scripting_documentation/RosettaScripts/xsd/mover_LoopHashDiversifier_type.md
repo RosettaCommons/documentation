@@ -7,17 +7,17 @@ Simple mover that uses loophash to replace randomly chosen fragments in a given 
 <LoopHashDiversifier name="(string)"
         num_iterations="(non_negative_integer; 100)"
         num_try_div="(non_negative_integer; 100)"
-        diversify_loop_only="(bool; false)"min_inter_ss_bbrms="(real; 0)"
-        max_inter_ss_bbrms="(real; 100000)"min_intra_ss_bbrms="(real; 0)"
-        max_intra_ss_bbrms="(real; 100000)"min_rms="(real; 0.0)"
-        max_rms="(real; 100.0)"max_radius="(non_negative_integer; 4)"
-        max_struct="(non_negative_integer; 10)"ideal="(bool; false)"
-        filter_by_phipsi="(bool; false)"start_pdb_num="(residue_number)"
-        start_res_num="(non_negative_integer)"stop_pdb_num="(residue_number)"
+        diversify_loop_only="(bool; false)" min_inter_ss_bbrms="(real; 0)"
+        max_inter_ss_bbrms="(real; 100000)" min_intra_ss_bbrms="(real; 0)"
+        max_intra_ss_bbrms="(real; 100000)" min_rms="(real; 0.0)"
+        max_rms="(real; 100.0)" max_radius="(non_negative_integer; 4)"
+        max_struct="(non_negative_integer; 10)" ideal="(bool; false)"
+        filter_by_phipsi="(bool; false)" start_pdb_num="(residue_number)"
+        start_res_num="(non_negative_integer)" stop_pdb_num="(residue_number)"
         stop_res_num="(non_negative_integer)"
-        window_size="(non_negative_integer; 4)"scorefxn_cen_cst="(string)"
-        scorefxn_rama_cst="(string)"db_path="(string)"
-        centroid_filter="(string; true_filter)"ranking_cenfilter="(string)" />
+        window_size="(non_negative_integer; 4)" scorefxn_cen_cst="(string)"
+        scorefxn_rama_cst="(string)" db_path="(string)"
+        centroid_filter="(string; true_filter)" ranking_cenfilter="(string)" />
 ```
 
 -   **num_iterations**: Number of loophash runs to execute

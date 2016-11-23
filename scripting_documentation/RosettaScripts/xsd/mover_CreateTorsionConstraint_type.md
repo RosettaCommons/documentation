@@ -5,9 +5,10 @@ Adds torsion constraints to a pose
 
 ```
 <CreateTorsionConstraint name="(string)" >
-    <Addres1="(non_negative_integer)"atom1="(string)"res2="(non_negative_integer)"
-            atom2="(string)"res3="(non_negative_integer)"atom3="(string)"
-            res4="(non_negative_integer)"atom4="(string)"cst_func="(string)" />
+    <Add res1="(non_negative_integer)" atom1="(string)"
+            res2="(non_negative_integer)" atom2="(string)"
+            res3="(non_negative_integer)" atom3="(string)"
+            res4="(non_negative_integer)" atom4="(string)" cst_func="(string)" />
 </CreateTorsionConstraint>
 ```
 
