@@ -11,7 +11,7 @@ Bhardwaj, G., V.K. Mulligan, C.D. Bahl, J.M. Gilmore, P.J. Harvey, O. Cheneval, 
 
 # Description
 
-The **simple_cycpep_predict** application is intended for rapidly sampling closed conformations of small peptides constrained by backbone cyclization.  These peptides may be composed of any mixture of L- and D-amino acids (and/or glycine).  Optionally, the user may specify that solutions must have a certain number of backbone hydrogen bonds.  The user may also require disulfides between disulfide-forming residues, in which case all disulfide permutations are sampled using the [[TryDisulfPermutations|TryDisulfPermuationsMover]] mover.  Unlike sampling performed with the [[Abinitio-Relax|abinitio-relax]] application, sampling is fragment-_independent_; that is, no database of known structures is required.
+The **simple_cycpep_predict** application is intended for rapidly sampling closed conformations of small peptides constrained by backbone cyclization.  These peptides may be composed of any mixture of L- and D-amino acids (and/or glycine).  Optionally, the user may specify that solutions must have a certain number of backbone hydrogen bonds.  The user may also require disulfides between disulfide-forming residues, in which case all disulfide permutations are sampled using the [[TryDisulfPermutations|TryDisulfPermuationsMover]] mover.  The user may also specify that certain positions are cross-linked with cross-linking agents, in which case the [[ThreefoldLinkerMover]] is used to place cross-linking agents.  Unlike sampling performed with the [[Abinitio-Relax|abinitio-relax]] application, sampling is fragment-_independent_; that is, no database of known structures is required.
 
 # Sample command-lines
 
@@ -78,7 +78,18 @@ See the [[Build Documentation]] for details on the MPI (Message Passing Interfac
 **-cyclic_peptide:angle_relax_rounds \<int\>** If this option is used, the specified number of FastRelax or FastDesign rounds is carried out with flexible bond angles.  The cart_bonded energy is automatically set to 0.5 for this step, and the pro_close energy to 0.0.  The order of operations is: ordinary FastRelax (if any), flexible bond angle FastRelax (if any), flexible bond angle / bond length FastRelax (if any), full Cartesian FastRelax (if any), and one more round of regular FastRelax (only if any rounds were specified that could result in non-ideal bond angles or bond lengths).  Default behaviour is to have no rounds of flexible bond angle relaxation.<br/><br/>
 **-cyclic_peptide:angle_length_relax_rounds \<int\>** If this option is used, the specified number of FastRelax or FastDesign rounds is carried out with flexible bond angles and flexible bond lengths.  The cart_bonded energy is automatically set to 0.5 for this step, and the pro_close energy to 0.0.  Default behaviour is to have no rounds of flexible bond angle / bond length relaxation.  See note above for order of relaxation rounds.<br/><br/>
 **-cyclic_peptide:cartesian_relax_rounds \<int\>** If this option is used, the specified number of FastRelax or FastDesign rounds is carried out with full Cartesian-space minimization.  The cart_bonded energy is automatically set to 0.5 for this step, and the pro_close energy to 0.0.  Default behaviour is to have no rounds of Cartesian-space relaxation.  See note above for order of relaxation rounds.<br/><br/>
+
 **-out:file:o \<pdb_filename\>** OR **-out:file:silent \<silent_filename\>**  Prefix for PDB files that will be written out, OR name of the binary silent file that will be generated.<br/><br/>
+
+# Additional flags for crosslinked structures
+
+The simple_cycpep_predict application can also attempt to predict structures cross-linked with three-way crosslinkers like 1,3,5-tris(bromomethyl)benzene (TBMB).  Additional input flags are used to specify which L- or D-cysteine residues are linked with TBMB:
+
+**-cyclic_peptide:TBMB_positions \<IntegerVector\>** If provided, then these positions will be linked by a 1,3,5-tris(bromomethyl)benzene crosslinker.  3N positions must be specified, and every group of three will be linked.  Unused if not specified.<br/><br/>
+**-cyclic_peptide:use_TBMB_filters** \<bool\> If true, then filters are applied based on distance between TBMB cysteines and on constraints to discard GenKIC solutions that can't be crosslinked easily.  True by default.<br/><br/>
+**-cyclic_peptide:TBMB_sidechain_distance_filter_multiplier** \<Real\> A multiplier for the distance cutoff for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
+**-cyclic_peptide:TBMB_constraints_energy_filter_multiplier** \<Real\> A multiplier for the constraints energy for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.
+
 
 # Other useful flags
 
