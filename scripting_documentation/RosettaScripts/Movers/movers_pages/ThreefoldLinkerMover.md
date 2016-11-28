@@ -24,6 +24,29 @@ This example places 1,3,5-tris(bromomethyl)benzene, linking cysteine residues 7,
 </ROSETTASCRIPTS>
 ```
 
+## Usage with symmetry
+
+This mover can be used for the case of linkers with c3 symmetry and poses with c3 symmetry.  In this case, the linker residue that gets added to the pose is actually a fragment of the total linker (one third of the geometry); three such residues are added, one to each symmetry repeat, and covalent bonds and suitable constraints are set up between the fragments.  Here is an example in which the ThreefoldLinkerMover is used with a symmetric pose with C3 symmetry (defined in a symmetry definition file `inputs/c3.symm`).  In this case, the ResidueSelector must select _equivalent_ cysteine residues in the three symmetric copies.
+
+```xml
+<ROSETTASCRIPTS>
+        <SCOREFXNS>
+                <tala weights="beta_nov15.wts" symmetric="true" />
+        </SCOREFXNS>
+        <RESIDUE_SELECTORS>
+                <Index name="select_cys" resnums="7,21,35" />
+        </RESIDUE_SELECTORS>
+        <MOVERS>
+                <SetupForSymmetry name="setup_symm" definition="inputs/c3.symm" />
+                <ThreefoldLinkerMover name="threefold" residue_selector="select_cys" linker_name="TBMB" scorefxn="tala" threefold_symmetric="true" />
+        </MOVERS>
+        <PROTOCOLS>
+                <Add mover="setup_symm" />
+                <Add mover="threefold" />
+        </PROTOCOLS>
+</ROSETTASCRIPTS>
+```
+
 ## Full options
 
 ```xml
