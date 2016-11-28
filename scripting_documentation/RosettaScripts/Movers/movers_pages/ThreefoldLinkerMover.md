@@ -41,3 +41,12 @@ This example places 1,3,5-tris(bromomethyl)benzene, linking cysteine residues 7,
 | Option | Required | Type | Description |
 |---|---|---|---|
 | name | YES | string | A unique name for this instance of the ThreefoldLinkerMover. |
+| linker_name | YES | string | The name of the type of linker to use (e.g. TBMB for 1,3,5-tris(bromomethyl)benzene).  Currently, only TBMB is supported, though other linkers will be added in the future. |
+| residue_selector | YES | string | A previously-defined residue selector that has been set up to select exactly three residues. |
+| scorefxn | YES | string | A scorefunction to use for packing, energy-minimization, and filtering.  If constraints are turned off in this score function, they will be turned on automatically at apply time. |
+| add_linker | No | bool | Should the linker geometry be added to the pose?  Default true. |
+| constrain_linker | No | bool | Should constraints for the linker be added to the pose?  Default true. |
+| pack_and_minimize_linker_and_sidechains | No | bool | Should the linker and the connecting sidechains be repacked, and should the jump to the linker, and the linker and connnecting side-chain degrees of torsional freedom, be energy-minimized?  Default true. |
+| sidechain_fastrelax_rounds | No | int | The number of rounds of FastRelax to apply when packing and minimizing side-chains and the liker.  Default 3. |
+| do_final_fastrelax | No | bool | Should the whole pose be subjected to a FastRelax?  Default false. |
+| final_fastrelax_rounds | No | int | The number of rounds of FastRelax to apply when relaxing the whole pose.  Default 3. |
