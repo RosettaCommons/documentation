@@ -1,5 +1,5 @@
 # ThreefoldLinkerMover
-Page created by Vikram K. Mulligan (vmullig@uw.edu) on 27 November 2016.<\br>
+Page created by Vikram K. Mulligan (vmullig@uw.edu) on 27 November 2016.</br>
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## ThreefoldLinkerMover
 This mover places three-way chemical cross-linkers such as 1,3,5-tris(bromomethyl)benzene.  It can set up covalent bonds and constraints, pack and energy-minimize the linker and the side-chains to which it is connected, and relax the entire structure.  Options are provided for filtering based on input geometry, to throw out poses that do not present side-chains in conformations compatible with the linker.
