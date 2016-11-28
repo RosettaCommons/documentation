@@ -2,11 +2,28 @@
 Page created by Vikram K. Mulligan (vmullig@uw.edu) on 27 November 2016.<br/>
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 
-## ThreefoldLinkerMover
-This mover places three-way chemical cross-linkers such as 1,3,5-tris(bromomethyl)benzene.  It can set up covalent bonds and constraints, pack and energy-minimize the linker and the side-chains to which it is connected, and relax the entire structure.  Options are provided for filtering based on input geometry, to throw out poses that do not present side-chains in conformations compatible with the linker.
+[[_TOC_]]
+
+## Description
+This mover places three-way chemical cross-linkers such as 1,3,5-tris(bromomethyl)benzene (TBMB).  It can set up covalent bonds and constraints, pack and energy-minimize the linker and the side-chains to which it is connected, and relax the entire structure.  Options are provided for filtering based on input geometry, to throw out poses that do not present side-chains in conformations compatible with the linker.
+
+## Needed flags
+The ThreefoldLinkerMover requires that Rosetta load a params file for the crosslinker, as well as the sidechain conjugation variant types for the sidechains that will be cross-linked.  These are not loaded by default.  For example, to link three cysteine residues with TBMB, one needs the following commandline flag:
+
+```
+-extra_res_fa sidechain_conjugation/CYX.params crosslinker/1.3.5_trisbromomethylbenzene.params
+```
+
+These load the CYX cysteine variant (used when cysteine is conjugated to things other than disulfide-forming residues) and the TBMB crosslinker.
+
+When using the mover with symmetry, the symmetric variant of the TBMB crosslinker (which is one third of the crosslinker -- <i>vide infra</i>) must be loaded instead:
+
+```
+-extra_res_fa sidechain_conjugation/CYX.params crosslinker/1.3.5_trisbromomethylbenzene_symm.params
+```
 
 ## Typical usage
-This example places 1,3,5-tris(bromomethyl)benzene, linking cysteine residues 7, 21, and 35 with the linker.  It also sets up constraints, and repacks and energy-minimizes the linker and the side-chains to which it is connected.  By default, no global relaxation is performed, however.  In this case, the pose is asymmetric:
+This example places 1,3,5-tris(bromomethyl)benzene (TBMB), linking cysteine residues 7, 21, and 35 with the linker.  It also sets up constraints, and repacks and energy-minimizes the linker and the side-chains to which it is connected.  By default, no global relaxation is performed, however.  In this case, the pose is asymmetric:
 
 ```xml
 <ROSETTASCRIPTS>
@@ -27,7 +44,7 @@ This example places 1,3,5-tris(bromomethyl)benzene, linking cysteine residues 7,
 
 ## Usage with symmetry
 
-This mover can be used for the case of linkers with c3 symmetry and poses with c3 symmetry.  In this case, the linker residue that gets added to the pose is actually a fragment of the total linker (one third of the geometry).  Three such residues are added, one to each symmetry repeat, and covalent bonds and suitable constraints are set up between the fragments.  Here is an example in which the ThreefoldLinkerMover is used with a symmetric pose with C3 symmetry (defined in a symmetry definition file `inputs/c3.symm`).  In this case, the ResidueSelector must select _equivalent_ cysteine residues in the three symmetric copies.
+This mover can be used for the case of linkers with c3 symmetry and poses with c3 symmetry.  In this case, the linker residue that gets added to the pose is actually a fragment of the total linker (one third of the geometry).  Three such residues are added, one to each symmetry repeat, and covalent bonds and suitable constraints are set up between the fragments.  Such usage requires that the user pass the `threefold_symmetric="true"` option.  Here is an example in which the ThreefoldLinkerMover is used with a symmetric pose with C3 symmetry (defined in a symmetry definition file `inputs/c3.symm`).  In this case, the ResidueSelector must select _equivalent_ cysteine residues in the three symmetric copies.
 
 ```xml
 <ROSETTASCRIPTS>
