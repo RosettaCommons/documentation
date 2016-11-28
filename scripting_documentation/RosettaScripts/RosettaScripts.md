@@ -369,7 +369,9 @@ For example, symmetric score12:
 OUTPUT
 ------
 
-The top-level OUTPUT tag allows for setting certain output options
+The top-level OUTPUT tag allows for setting certain output options.
+
+The OUTPUT tag must be the very last tag before the closing </ROSETTASCRIPTS> tag.
 
 ### scorefxn
 
