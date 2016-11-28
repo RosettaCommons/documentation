@@ -25,6 +25,19 @@ This example places 1,3,5-tris(bromomethyl)benzene, linking cysteine residues 7,
 ```
 
 ## Full options
+
+```xml
+<ThreefoldLinkerMover name=(&string) scorefxn=(&string) residue_selector=(&string) linker_name=(&string)
+    add_linker=(true &bool) constrain_linker=(true &bool)
+    pack_and_minimize_linker_and_sidechains=(true &bool) sidechain_fastrelax_rounds=(3 &int)
+    do_final_fastrelax=(false &bool) final_fastrelax_rounds=(3 &int)
+    threefold_symmetric=(false &bool)
+    filter_by_sidechain_distance=(true &bool) sidechain_distance_filter_multiplier=(1.0 &real)
+    filter_by_constraints_energy=(true &bool) constraints_energy_filter_multiplier=(1.0 &real)
+    filter_by_final_energy=(false &bool) final_energy_cutoff=(0.0 &real)
+/>
 ```
-<ThreefoldLinkerMover name=(&string) scorefxn=(&string) residue_selector=(&string) linker_name=(&string) add_linker=(true &bool) constrain_linker=(true &bool) pack_and_minimize_linker_and_sidechains=(true &bool) sidechain_fastrelax_rounds=(3 &int) do_final_fastrelax=(false &bool) final_fastrelax_rounds=(3 &int) threefold_symmetric=(false &bool) filter_by_sidechain_distance=(true &bool) sidechain_distance_filter_multiplier=(1.0 &real) filter_by_constraints_energy=(true &bool) constraints_energy_filter_multiplier=(1.0 &real) filter_by_final_energy=(false &bool) final_energy_cutoff=(0.0 &real) />
-```
+
+| Option | Required | Type | Description |
+|---|---|---|---|
+| name | YES | string | A unique name for this instance of the ThreefoldLinkerMover. |
