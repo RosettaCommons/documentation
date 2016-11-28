@@ -50,3 +50,23 @@ This example places 1,3,5-tris(bromomethyl)benzene, linking cysteine residues 7,
 | sidechain_fastrelax_rounds | No | int | The number of rounds of FastRelax to apply when packing and minimizing side-chains and the liker.  Default 3. |
 | do_final_fastrelax | No | bool | Should the whole pose be subjected to a FastRelax?  Default false. |
 | final_fastrelax_rounds | No | int | The number of rounds of FastRelax to apply when relaxing the whole pose.  Default 3. |
+| threefold_symmetric | No | bool | Is this a threefold-symmetric pose being connected by a threefold-symmetric crosslinker?  Default false. |
+| filter_by_sidechain_distance | No | bool | Prior to adding the linker geometry, should this mover abort with failure status if the selected side-chains are too far apart to connect to the linker?  Default true. |
+| sidechain_distance_filter_multiplier | No | real | This is a multiplier for the sidechain distance cutoff filter.  Higher values make the filter less stringent.  Default 1.0. |
+| filter_by_constraints_energy | No | bool | After adding the linker geometry, adding constraints, and repacking and minimizing the linker and the connecting side-chains, should ths mover abort with failure status if the constraints energy is too high (i.e. the energy-minimized linker geometry is bad)?  Default true. |
+| constraints_energy_filter_multiplier | No | real | This is a multiplier for the constraints energy cutoff filter.  Higher values make the filter less stringent.  Default 1.0. |
+| filter_by_final_energy | No | bool | At the end of this protocol, should this mover exit with error status if the final energy is above a user-defined cutoff?  Default false. |
+| final_energy_cutoff | No | real | If we are exiting with error status if the final energy is too high, this is the energy cutoff.  Default 0.0. |
+
+##See also
+* [[Information on constraints|constraint-file]]
+* [[ResidueSelectors]]
+* [[Symmetry]]: Using symmetry in Rosetta
+* [[SymmetryAndRosettaScripts]]
+* [[SetupForSymmetryMover]]
+* [[SetupNCSMover]]
+* [[DetectSymmetryMover]]
+* [[SymMinMover]]
+* [[SymPackRotamersMover]]
+* [[ExtractAsymmetricUnitMover]]
+* [[ExtractAsymmetricPoseMover]]
