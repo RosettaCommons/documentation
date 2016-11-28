@@ -424,7 +424,9 @@ See Also: [[Antibody TaskOperations | TaskOperations-RosettaScripts#antibody-and
 
 **[[DnaInterfacePacker|DnaInterfacePackerMover]]** - Minimizes sidechains and calculates binding energy 
 
+## Crosslinker-centric movers
 
+**[[ThreefoldLinkerMover]]** - Places, sets up constraints for, and energy-minimizes three-way crosslinkers.  Compatible with symmetric crosslinkers in threefold-symmetric poses.
 
 ## Ligand-centric Movers
 
@@ -449,10 +451,6 @@ These movers replace the executable for ligand docking and provide greater flexi
 **[[InterfaceScoreCalculator|InterfaceScoreCalculatorMover]]** - Calculates interface score by subtracting that of the separated partners from that of the complex
 
 **[[ComputeLigandRDF|ComputeLigandRDFMover]]** - Computes radial distribution functions using protein-protein or protein-ligand atom pairs
-
-### Crosslinker-centric movers
-
-**[[ThreefoldLinkerMover]]** - Places, sets up constraints for, and energy-minimizes three-way crosslinkers.  Compatible with symmetric crosslinkers in threefold-symmetric poses.
 
 ### Enzyme Design
 
