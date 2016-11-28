@@ -371,7 +371,7 @@ OUTPUT
 
 The top-level OUTPUT tag allows for setting certain output options.
 
-The OUTPUT tag must be the very last tag before the closing </ROSETTASCRIPTS> tag.
+The OUTPUT tag must be the very last tag before the closing `</ROSETTASCRIPTS>` tag.
 
 ### scorefxn
 
