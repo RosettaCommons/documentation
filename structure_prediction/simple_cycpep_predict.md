@@ -85,9 +85,9 @@ See the [[Build Documentation]] for details on the MPI (Message Passing Interfac
 The simple_cycpep_predict application can also attempt to predict structures cross-linked with three-way crosslinkers like 1,3,5-tris(bromomethyl)benzene (TBMB).  Additional input flags are used to specify which L- or D-cysteine residues are linked with TBMB:
 
 **-cyclic_peptide:TBMB_positions \<IntegerVector\>** If provided, then these positions will be linked by a 1,3,5-tris(bromomethyl)benzene crosslinker.  3N positions must be specified, and every group of three will be linked.  Unused if not specified.<br/><br/>
-**-cyclic_peptide:use_TBMB_filters** \<bool\> If true, then filters are applied based on distance between TBMB cysteines and on constraints to discard GenKIC solutions that can't be crosslinked easily.  True by default.<br/><br/>
-**-cyclic_peptide:TBMB_sidechain_distance_filter_multiplier** \<Real\> A multiplier for the distance cutoff for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
-**-cyclic_peptide:TBMB_constraints_energy_filter_multiplier** \<Real\> A multiplier for the constraints energy for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.
+**-cyclic_peptide:use_TBMB_filters \<bool\>** If true, then filters are applied based on distance between TBMB cysteines and on constraints to discard GenKIC solutions that can't be crosslinked easily.  True by default.<br/><br/>
+**-cyclic_peptide:TBMB_sidechain_distance_filter_multiplier \<Real\>** A multiplier for the distance cutoff for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
+**-cyclic_peptide:TBMB_constraints_energy_filter_multiplier \<Real\>** A multiplier for the constraints energy for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.
 
 
 # Other useful flags
