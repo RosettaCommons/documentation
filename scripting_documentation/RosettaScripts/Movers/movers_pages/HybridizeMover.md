@@ -61,7 +61,7 @@ The following options handle ligands:
 
 * **add_hetatm=1**: (default 0) If set to 1, use ligands from input template files (see [[RosettaCM]] for more details)
 * **hetatm_cst_weight=1** (default 1) If add_hetatm is enabled, this will set the weight on automatically generated intra-ligand restraints.
-* **hetatm_prot_cst_weight=1** (default 0) If add_hetatm is enabled, this will set the weight on automatically generated ligand-protein restraints.
+* **hetatm_to_protein_cst_weight=1** (default 0) If add_hetatm is enabled, this will set the weight on automatically generated ligand-protein restraints.
 
 ## Hybridize mover: Advanced options
 
@@ -96,7 +96,7 @@ Other fine-grained protocol control options:
 
 The **detailed controls** block allows fixing certain substructures.  It may be specified by adding the following tag withing the <Hybridize ...></Hybridize> block:
 
-    <DetailedControls start_res=273 stop_res=296 sample_template=0 sample_abinitio=0 />
+    <DetailedControls start_res=273 stop_res=296 sample_template=0 sample_abinitio=0 task_operations="&string"/>
 
 This says that for residues 273-296, do not allow template hybridization moves (sample_template=0), and do not allow fragment insertion moves (sample_abinitio=0).  If both are set to false for a region, that region will also not minimize in centroid (note that fullatom refinement ignores these flags, however).
 
