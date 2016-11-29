@@ -60,7 +60,7 @@ The following options control the protocol flow:
 The following options handle ligands:
 
 * **add_hetatm=1**: (default 0) If set to 1, use ligands from input template files (see [[RosettaCM]] for more details)
-* **hetatm_self_cst_weight=1** (default 1) If add_hetatm is enabled, this will set the weight on automatically generated intra-ligand restraints.
+* **hetatm_cst_weight=1** (default 1) If add_hetatm is enabled, this will set the weight on automatically generated intra-ligand restraints.
 * **hetatm_prot_cst_weight=1** (default 0) If add_hetatm is enabled, this will set the weight on automatically generated ligand-protein restraints.
 
 ## Hybridize mover: Advanced options
