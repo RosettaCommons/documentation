@@ -32,8 +32,8 @@ Notice that the protocol proceeds by first selecting an initial template model, 
 ## Fragment file options
 
 Input [[fragment files|fragment-file]] may be given by adding the following tag withing the <Hybridize ...></Hybridize> block:
-
-    <Fragments 3mers="t000_.200.3mers.gz" 9mers="t000_.200.9mers.gz"/>
+/
+    <Fragments three_mers="t000_.200.3mers.gz" nine_/mers="t000_.200.9mers.gz"/>
 
 If not provided, fragments will be built automatically.
 
@@ -44,7 +44,7 @@ The following options control scoring:
 * **stage1_scorefxn=score3**: (default _score3_) Scorefunction in (centroid) stage 1
 * **stage2_scorefxn=score4_smooth_cart**: (default _score4_smooth_cart_) Scorefunction in (centroid) stage 2
 * **fa_scorefxn=talaris2013_cart**: (default _talaris2013_cart_) Scorefunction in fullatom stage
-* **fa_cst_fn=fullatom.cst** (optional) If specified, use the provided constraints in fullatom rather than the centroid constraints
+* **fa_cst_file=fullatom.cst** (optional) If specified, use the provided constraints in fullatom rather than the centroid constraints
 * **keep_pose_constraint=0** (default=0) If set to 1, keep constraints on the incoming pose (useful if constraints are generated in a mover prior to hybridize)
 * **disulf_file=dslf** (optional) If specified, force the attached disulfide patterning ([[see the fix_disulf option for the format|full-options-list#run]])
 
