@@ -7,7 +7,7 @@ Report the total score for each structure using whatever score function you like
 Example:
 
 ```
-<feature name="TotalScoreFeatures" scorefxn="talaris2013"/>
+<"TotalScoreFeatures" scorefxn="talaris2013"/>
 ```
 
 Options:
@@ -29,7 +29,7 @@ ScoreTypeFeatures
 
 The ScoreTypeFeatures store the score types for as for all EnergyMethods.
 
-        <feature name=ScoreTypeFeatures scorefxn=(default_scorefxn &string)/>
+        <ScoreTypeFeatures scorefxn=(default_scorefxn &string)/>
 
 -   **score\_types** : Store information about the EnergyMethod associated with each score type.
     -   *batch\_id* : The score types are reference the *batches* tabe to allow for score types to change change over time.
@@ -50,7 +50,7 @@ ScoreFunctionFeatures
 
 The ScoreFunctionFeatures store the weights and energy method options for the score function.
 
-        <feature name=ScoreFunctionFeatures scorefxn=(default_scorefxn &string)/>
+        <ScoreFunctionFeatures scorefxn=(default_scorefxn &string)/>
 
 -   **score\_function\_weights** : Store the non-zero score term weights.
     -   *score\_function\_name* : The tag name of the score function specified in the \<SCOREFUNCTIONS/\> block
@@ -85,7 +85,7 @@ The ScoreFunctionFeatures store the weights and energy method options for the sc
 StructureScoresFeatures
 -----------------------
 
-        <feature name=StructureScoresFeatures scorefxn=(&scorefxn)/>
+        <StructureScoresFeatures scorefxn=(&scorefxn)/>
 
 The StructureScoresFeatures stores the overall score information for all enabled EnergyMethods.
 
@@ -108,7 +108,7 @@ The StructureScoresFeatures stores the overall score information for all enabled
 ResidueScoresFeatures
 ---------------------
 
-        <feature name=ResidueScoresFeatures scorefxn=(&scorefxn)/>
+        <ResidueScoresFeatures scorefxn=(&scorefxn)/>
 
 The ResidueScoresFeatures stores the score of a structure at the residue level. Terms that evaluate a single residue are stored in *residue\_scores\_1b* . Terms that evaluate pairs of residues are stored in *residue\_scores\_2b* . Terms that depend on the whole structure are stored via the StructureScoresFeatures.
 
@@ -154,7 +154,7 @@ The ResidueScoresFeatures stores the score of a structure at the residue level. 
 ResidueTotalScoresFeatures
 --------------------------
 
-        <feature name=ResidueTotalScoresFeatures scorefxn=(&scorefxn)/>
+        <ResidueTotalScoresFeatures scorefxn=(&scorefxn)/>
 
 The ResidueTotalScoresFeatures stores for each residue the total score for the one body terms for that residue and half the total score for the two body terms involving that residue. Note that terms that depend on the whole structure are stored via the StructureScoresFeatures. In order to include hydrogen bonding in the totals, the score function must specify the *[[decompose_bb_hb_into_pair_energies|RosettaScripts-Documentation#SCOREFUNCTIONS]]* flag.
 
@@ -271,10 +271,10 @@ ScreeningFeatures
 
 ScreeningFeatures is used to consolidate scoring information related to a ligand into a table for later processing. It is most useful when you would otherwise need to join multiple very large tables, and was originally intended for use in a High Throughput Screening Pipeline. This mover must be used in conjunction with the screening\_job\_inputter.
 
-    <feature name=(name &string) chain=(chain &string)>
+    <ScreeningFeatures chain=(chain &string)>
         <descriptor type=(descriptor_name &string)/>
         <descriptor type=(descriptor_name &string)/>
-    </feature>
+    </ScreeningFeatures>
 
 In the XML definition above, chain is a ligand chain and the descriptor type is the string key in a string\_real or string\_string pair added to the job. This mover currently assumes that ligands consist of one residue.
 

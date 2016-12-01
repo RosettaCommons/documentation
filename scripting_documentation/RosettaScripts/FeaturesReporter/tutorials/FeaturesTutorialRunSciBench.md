@@ -65,8 +65,8 @@ Each FeaturesReporter is responsible for extracting a certain type of features t
             </SCOREFXNS>
             <MOVERS>
                 <ReportToDB name=features database_name=scores.db3>
-                    <feature name=ScoreTypeFeatures/>
-                    <feature name=StructureScoresFeatures scfxn=s/>
+                    <ScoreTypeFeatures/>
+                    <StructureScoresFeatures scfxn=s/>
                 </ReportToDB>
             </MOVERS>
             <PROTOCOLS>

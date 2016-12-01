@@ -377,7 +377,7 @@ Secondary structure is a classification scheme for residues that participate in 
 BetaTurnDetectionFeatures
 -------------------------
 
-        <feature name=BetaTurnDetectionFeatures/>
+        <BetaTurnDetectionFeatures/>
 
 This reporter scans all available windows of four residues and determines if a β-turn is present, determines the type of β-turn and then writes the starting residue number and turn type to a database.
 

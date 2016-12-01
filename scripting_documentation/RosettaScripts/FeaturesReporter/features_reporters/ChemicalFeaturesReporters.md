@@ -3,7 +3,7 @@
 AtomTypeFeatures
 ----------------
 
-        <feature name=AtomTypeFeatures/>
+        <AtomTypeFeatures/>
 
 The atom-level chemical information stored in the rosetta AtomTypeSet. This includes base parameters for the Lennard Jones Van der Waals term and Lazaridis Karplus solvation model.
 
@@ -239,7 +239,7 @@ ResidueTypes store information about the chemical nature of the residue. The inf
 UnrecognizedAtomFeatures
 ------------------------
 
-           <feature name=UnrecognizedAtomFeatures neighbor_distance_cutoff=(&Real 12.0)/>
+           <UnrecognizedAtomFeatures neighbor_distance_cutoff=(&Real 12.0)/>
 
 UnrecognizedAtom store information about unrecognized atoms. This information is stored in the PDBInfo and is usually populated when there is a residue in a PDB file that does not match any recognized Residue parameter files that is saved with the *-in:remember\_unrecognized\_res* flag.
 
