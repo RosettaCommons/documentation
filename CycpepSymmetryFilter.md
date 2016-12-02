@@ -10,7 +10,7 @@ Created by Vikram K. Mulligan (vmullig@uw.edu) on 2 December 2016.<br/>
 
 This filter examines a cyclic peptide backbone and determines whether it has cyclic symmetry matching a user-specified symmetry (within some threshhold of error -- the backbone needn't be _perfectly_ symmetric).  It works with c2, c3, c4, _etc._ symmetries, as well as with c2/m, c4/m, c6/m, _etc._ symmetries.  Failure indicates that the peptide does _not_ have the desired symmetry.
 
-## Algorithm
+### Algorithm
 
 The filter first checks that the pose, or the selected residues, are truly a cyclic peptide.  It then loops through the first 1/Nth of the peptide (where N is the number of symmetry repeats specified by the user in the cN symmetry) and compares each residue with the corresponding residues in subsequent repeats, checking each mainchain torsion value to see whether it matches, within a threshhold.  In the case of mirror symmetry, it inverts torsion values in every second symmetry repeat before carrying out the check.  Note that only backbone symmetry is considered; side-chains are disregarded.
 
