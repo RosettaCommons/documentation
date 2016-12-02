@@ -32,9 +32,9 @@ Generates a helical bundle using the Crick equations (describing a coiled-coil) 
      z0_offset=(&real) OR (z0_offset_copies_helix=(&int)) OR ( z0_offset_min=(&real) z0_offset_max=(&real) z0_offset_samples=(&int) )
      epsilon=(&real) OR (epsilon_copies_helix=(&int)) OR ( epsilon_min=(&real) epsilon_max=(&real) epsilon_samples=(&int) )
      repeating_unit_offset=0(&int)
-   >
-   <Helix ...>
-   <Helix ...>
+   />
+   <Helix .../>
+   <Helix .../>
    ...
 </BundleGridSampler>
 ```
