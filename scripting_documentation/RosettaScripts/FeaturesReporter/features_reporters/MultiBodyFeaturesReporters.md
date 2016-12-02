@@ -150,7 +150,7 @@ Reports information of the North/Dunbrack CDR Clusters of an antibody. (Uses Nor
 In order to use this Reporter, the antibody should be renumbered into a particular numbering scheme.  See [[General Antibody Tips | General-Antibody-Options-and-Tips]] for more information on how to renumber your antibody via different antibody servers.  If your antibody has come from RosettaAntibody 3.0, the antibody is already renumbered in the Chothia scheme, which is the default.  The numbering scheme can be specified through the command-line or via XML tag.
 
 ```
-			<CDRClusterFeatures numbering_scheme=AHO_Scheme/>
+			<CDRClusterFeatures numbering_scheme="AHO_Scheme"/>
 ```
 
 **XML Options**

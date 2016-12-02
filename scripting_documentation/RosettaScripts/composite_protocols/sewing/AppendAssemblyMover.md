@@ -54,8 +54,8 @@ The following is an actual RosettaScript used to run AppendAssemblyMover for mul
   <FILTERS>
   </FILTERS>
   <MOVERS>
-    <AppendAssemblyMover name="assemble" min_segments=7 max_segments=9 
-     cycles=10000 />
+    <AppendAssemblyMover name="assemble" min_segments="7" max_segments="9" 
+     cycles="10000" />
   </MOVERS>
   <APPLY_TO_POSE>
   </APPLY_TO_POSE>

@@ -445,7 +445,7 @@ The ChargeChargeFeatures represent interactions between charged groups in molecu
 LoopAnchorFeatures
 ------------------
 
-        <LoopAnchorFeatures min_loop_length=5 max_loop_length=7/>
+        <LoopAnchorFeatures min_loop_length="5" max_loop_length="7"/>
 
 This reporter scans all available windows of a specified number of residues and calculates the translation and rotation to optimally superimpose the landing onto the takeoff of the loop. The translation and rotation data can then be used to compare different "classes" of loop anchors.
 

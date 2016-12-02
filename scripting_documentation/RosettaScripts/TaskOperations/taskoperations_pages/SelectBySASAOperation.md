@@ -10,15 +10,15 @@ Examples:
 
 Only allow repacking at the core positions in the bound state. Useful in combination with other tasks such as RestrictToInterface in order to select just the core of the interface for design.
 
-     <SelectBySASA name=core mode="sc" state="bound" probe_radius=2.2 core_asa=0 surface_asa=30 core=1 boundary=0 surface=0 verbose=1 />
+     <SelectBySASA name="core" mode="sc" state="bound" probe_radius="2.2" core_asa="0" surface_asa="30" core="1" boundary="0" surface="0" verbose="1" />
 
 Only allow repacking at the boundary and surface positions in the bound state.
 
-     <SelectBySASA name=core mode="sc" state="bound" probe_radius=2.2 core_asa=0 surface_asa=30 core=0 boundary=1 surface=1 verbose=1 />
+     <SelectBySASA name="core" mode="sc" state="bound" probe_radius="2.2" core_asa="0" surface_asa="30" core="0" boundary="1" surface="1" verbose="1" />
 
 Prevent the core of the monomers (each chain) from repacking. Useful in combination with other tasks to ensure that one does not design core positions.
 
-     <SelectBySASA name=no_core_mono_repack mode="sc" state="monomer" probe_radius=2.2 core_asa=0 surface_asa=30 core=0 boundary=1 surface=1 verbose=1 />
+     <SelectBySASA name="no_core_mono_repack" mode="sc" state="monomer" probe_radius="2.2" core_asa="0" surface_asa="30" core="0" boundary="1" surface="1" verbose="1" />
 
 Option list
 

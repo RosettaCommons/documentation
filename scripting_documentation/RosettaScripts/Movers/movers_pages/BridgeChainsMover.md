@@ -26,7 +26,7 @@ Given a pose with a jump, this mover uses a fragment insertion monte carlo to co
 
 ```
 <SCOREFXNS>
-    <SFXN weights="fldsgn_cen" />
+    <ScoreFunction name="SFXN" weights="fldsgn_cen" />
 </SCOREFXNS>
 <MOVERS>
     <BridgeChains name="connect" chain1="1" chain2="2" motif="3LX-10HA-3LX" scorefxn="SFXN" overlap="4" />

@@ -18,12 +18,12 @@ The AssemblyConstraintsMover does not accept any subtags.
 ##Example
 ```xml
 <MOVERS>
-   <AssemblyConstraintsMover name=ACM native_rotamers_file="test_0001_from_25.rot" native_bonus=1 />
-   <FastRelax name=fastrelax repeats=1 disable_design=false scorefxn=talaris_cart cartesian=1 task_operations=resfile,keep_curr,layerdesign delete_virtual_residues_after_FastRelax=1/>
+   <AssemblyConstraintsMover name="ACM" native_rotamers_file="test_0001_from_25.rot" native_bonus="1" />
+   <FastRelax name="fastrelax" repeats="1" disable_design="false" scorefxn="talaris_cart" cartesian="1" task_operations="resfile,keep_curr,layerdesign" delete_virtual_residues_after_FastRelax="1"/>
 </MOVERS>
 <PROTOCOLS>
    <Add mover_name="ACM"/>
-   <Add mover=fastrelax/>
+   <Add mover="fastrelax"/>
 </PROTOCOLS>
 ```
 

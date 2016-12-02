@@ -8,7 +8,7 @@ Restrict or prevent repacking of native residues. Accepts a native pose (referen
 
 Example: Only allow design at non-native positions (prevent repacking of all native residues).
 
-     <RestrictNativeResidues name=non_native prevent_repacking=1 verbose=1 pdbname="input/native.pdb" />
+     <RestrictNativeResidues name="non_native" prevent_repacking="1" verbose="1" pdbname="input/native.pdb" />
 
 Option list
 

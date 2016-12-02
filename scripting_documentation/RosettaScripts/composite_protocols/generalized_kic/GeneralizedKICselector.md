@@ -36,33 +36,33 @@ The **selector_scorefunction** and **selector_kbt** tags are optional, and are o
 Energy-based selectors, such as the lowest energy and Boltzmann-weighted random selectors, must score candidate solutions with some scorefunction.  The full-atom talaris2013 scorefunction would generally be a poor choice for this, because no repacking or energy-minimization is carried out before scoring to eliminate side-chain clashes.  For this reason, a scorefunction that either considers only backbone geometry, or one that considers backbone and side-chain geometry but not long-range side-chain interactions, is recommended.  Two examples are given below.
 
 ```
-<bb_hbond_tors weights="empty.wts" symmetric=0>
+<bb_hbond_tors weights="empty.wts" symmetric="0">
 #A backbone-only scorefunction that only includes the backbone hydrogen-bonding, omega, rama,
 #and p_aa_pp terms from the talaris2013 scorefunction.
-	<Reweight scoretype=hbond_sr_bb weight=1.17 />
-	<Reweight scoretype=hbond_lr_bb weight=1.17 />
-	<Reweight scoretype=omega weight=0.5 />
-	<Reweight scoretype=rama weight=0.2 />
-	<Reweight scoretype=p_aa_pp weight=0.32 />
+	<Reweight scoretype="hbond_sr_bb" weight="1.17" />
+	<Reweight scoretype="hbond_lr_bb" weight="1.17" />
+	<Reweight scoretype="omega" weight="0.5" />
+	<Reweight scoretype="rama" weight="0.2" />
+	<Reweight scoretype="p_aa_pp" weight="0.32" />
 </bb_hbond_tors>
 ```
 
 ```
-<bb_hbond_tors_fadun_cst weights="empty.wts" symmetric=0>
+<bb_hbond_tors_fadun_cst weights="empty.wts" symmetric="0">
 #A scorefunction that only includes the backbone hydrogen-bonding, omega, rama,
 #and p_aa_pp terms from the talaris2013 scorefunction, as well as the side-chain
 #fa_dun term and constraint weights.  Note that side-chains are not repacked, so
 #the fa_dun term will be identical for all side-chains EXCEPT those that are part
 #of the loop to be closed (e.g. the side-chains of the cysteines of a disulfide).
-	<Reweight scoretype=hbond_sr_bb weight=1.17 />
-	<Reweight scoretype=hbond_lr_bb weight=1.17 />
-	<Reweight scoretype=omega weight=0.5 />
-	<Reweight scoretype=rama weight=0.2 />
-	<Reweight scoretype=p_aa_pp weight=0.32 />
-	<Reweight scoretype=fa_dun weight=0.56 />
-	<Reweight scoretype=atom_pair_constraint weight=1.0 />
-	<Reweight scoretype=angle_constraint weight=1.0 />
-	<Reweight scoretype=dihedral_constraint weight=1.0 />
+	<Reweight scoretype="hbond_sr_bb" weight="1.17" />
+	<Reweight scoretype="hbond_lr_bb" weight="1.17" />
+	<Reweight scoretype="omega" weight="0.5" />
+	<Reweight scoretype="rama" weight="0.2" />
+	<Reweight scoretype="p_aa_pp" weight="0.32" />
+	<Reweight scoretype="fa_dun" weight="0.56" />
+	<Reweight scoretype="atom_pair_constraint" weight="1.0" />
+	<Reweight scoretype="angle_constraint" weight="1.0" />
+	<Reweight scoretype="dihedral_constraint" weight="1.0" />
 </bb_hbond_tors_fadun_cst>
 ```
 

@@ -12,14 +12,14 @@ PyMolMover will send a pose to an instance of the PyMol molecular visualization 
 The following example would send the pose to PyMol before and after packing and store the structure in 2 states/frames of the same object.
 ```
   <MOVERS>
-    <PyMolMover name=pmm keep_history=1/>
+    <PyMolMover name="pmm" keep_history="1"/>
     <PackRotamersMover name="pack"/>
   </MOVERS>
 
   <PROTOCOLS>
-    <Add mover_name=pmm/>
-    <Add mover_name=pack/>
-    <Add mover_name=pmm/>
+    <Add mover_name="pmm"/>
+    <Add mover_name="pack"/>
+    <Add mover_name="pmm"/>
   </PROTOCOLS>
 ```
 

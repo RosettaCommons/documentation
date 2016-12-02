@@ -15,13 +15,13 @@ Example: This scripts mirrors chain B in a pose using default settings:
 
 ```
 <RESIDUE_SELECTORS>
-  <Chain name=chainB chains=2/>
+  <Chain name="chainB" chains="2"/>
 </RESIDUE_SELECTORS>
 <MOVERS>
-  <FlipChiralityMover name="mirror" residue_selector=chainB/>
+  <FlipChiralityMover name="mirror" residue_selector="chainB"/>
 </MOVERS>
 <PROTOCOLS>
-   <Add mover=mirror/> 
+   <Add mover="mirror"/> 
 </PROTOCOLS>
 ```
 

@@ -3,7 +3,7 @@
 ## InterfaceScoreCalculator
 
 ```
-<InterfaceScoreCalculator name=(string) chains=(comma separated chars) scorefxn=(string) native=(string) compute_grid_scores=(bool)/>
+<InterfaceScoreCalculator name="(string)" chains="(comma" separated chars) scorefxn="(string)" native="(string)" compute_grid_scores="(bool)"/>
 ```
 
 InterfaceScoreCalculator calculates a myriad of ligand specific scores and appends them to the output file. After scoring the complex the ligand is moved 1000 Å away from the protein. The model is then scored again. An interface score is calculated for each score term by subtracting separated energy from complex energy. If compute\_grid\_scores is true, the scores for each grid will be calculated. This may result in the regeneration of the scoring grids, which can be slow. If a native structure is specified, 4 additional score terms are calculated:

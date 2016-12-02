@@ -61,7 +61,7 @@ In this case, the `   metropolis_hastings.xml  ` would need to contain the follo
   ...
   <MOVERS>
     <MetropolisHastings ...>
-      <ParallelTempering temp_levels=8 .../>
+      <ParallelTempering temp_levels="8" .../>
       ...
     </MetropolisHastings>
   </MOVERS>
@@ -155,53 +155,53 @@ RosettaScripts file `   dock_cen.xml  ` with comments to guide you through:
 ```
 <ROSETTASCRIPTS>
     <SCOREFXNS>
-        <score_dock_low weights="interchain_cen" />
+        <ScoreFunction name="score_dock_low" weights="interchain_cen" />
     </SCOREFXNS>
     <FILTERS>
     </FILTERS>
     <MOVERS>
        ''// sampling in low-resolution'' 
-        <SwitchResidueTypeSetMover name=switch2centroid set=centroid/>
+        <SwitchResidueTypeSetMover name="switch2centroid" set="centroid"/>
 
        '' // unbiased mover for translation and rotation, mover step size using constant gaussian mean value, alternatively use dock_cen_inter.xml, which interpolate mover's step size based on temperature level''
-        <ThermodynamicRigidBodyPerturbNoCenter name=rb_mover rot_mag=1 trans_mag=0.5/> 
+        <ThermodynamicRigidBodyPerturbNoCenter name="rb_mover" rot_mag="1" trans_mag="0.5"/> 
 
         ''// setup fold_tree, and store movable_jump into RigidBodyInfo''
-        <DockSetupMover name=setup_jump/> 
+        <DockSetupMover name="setup_jump"/> 
 
       ''  // very loose Atompair constraint between closest-to-mass-center CAs. For example: "AtomPair  CA   337  CA   531 BOUNDED       0.1 s(1)+s(2)+gap 0.5 Encounter" , 337 and 531 are the closest-to-mass-center residues of each docking partners respectively, and s(i) is the furthest distance of a surface CA of docking partner i to its center CA.''
-        <AddEncounterConstraintMover name=encounter_cst gap=8 />  
+        <AddEncounterConstraintMover name="encounter_cst" gap="8" />  
 
         ''// randomly reorient the two docking partners''
-        <DockingInitialPerturbation name=init_pert randomize2=1 randomize1=1 /> 
+        <DockingInitialPerturbation name="init_pert" randomize2="1" randomize1="1" /> 
         // sampling engine
 
         ''// acceptance rate recorder''
-        <TrialCounterObserver name=count file="trial.stats"/> 
+        <TrialCounterObserver name="count" file="trial.stats"/> 
 
         ''// temp_file contains the temperature configuration. exchange between neighbor temperature is attempted every 1000 strides. No specific reason why using HamiltonianExchange mover intead of ParalleTempering, only because I started with it at the very beginning and it works as well if only temperature exchange involved.''
-        <HamiltonianExchange name=h_exchange temp_file="hamiltonians_cen.txt"  temp_stride=1000/> 
+        <HamiltonianExchange name="h_exchange" temp_file="hamiltonians_cen.txt"  temp_stride="1000"/> 
 
         ''// take snapshots every 1000 stride and output the decoy into a trajectory silent file''
-        <SilentTrajectoryRecorder name=traj score_stride=1 stride=1000 cumulate_replicas=1 />
+        <SilentTrajectoryRecorder name="traj" score_stride="1" stride="1000" cumulate_replicas="1" />
 
         ''// Empirically, 5000,000 steps are enough for converge.'' 
-        <MetropolisHastings name=sampler trials=5000000 scorefxn=score_dock_low > 
-            <Add mover_name=h_exchange/>
-            <Add mover_name=traj/>
-            <Add mover_name=count/>
-            <Add mover_name=rb_mover/>
+        <MetropolisHastings name="sampler" trials="5000000" scorefxn="score_dock_low" > 
+            <Add mover_name="h_exchange"/>
+            <Add mover_name="traj"/>
+            <Add mover_name="count"/>
+            <Add mover_name="rb_mover"/>
         </MetropolisHastings>
 
     </MOVERS>
     <APPLY_TO_POSE>
     </APPLY_TO_POSE>
     <PROTOCOLS>
-        <Add mover_name=switch2centroid/>
-        <Add mover_name=setup_jump/>
-        <Add mover_name=encounter_cst/>
-        <Add mover_name=init_pert/>
-        <Add mover_name=sampler/>
+        <Add mover_name="switch2centroid"/>
+        <Add mover_name="setup_jump"/>
+        <Add mover_name="encounter_cst"/>
+        <Add mover_name="init_pert"/>
+        <Add mover_name="sampler"/>
     </PROTOCOLS>
 </ROSETTASCRIPTS>
 ```

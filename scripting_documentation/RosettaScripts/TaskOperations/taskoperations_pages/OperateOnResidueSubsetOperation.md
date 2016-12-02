@@ -2,13 +2,13 @@
 *Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ##OperateOnResidueSubset
 
-    <OperateOnResidueSubset name=(%string) selector=(%string) >
+    <OperateOnResidueSubset name="(%string)" selector="(%string)" >
        <(ResLvlTaskOperation)/>
     </OperateOnResidueSubset>
 
 or
 
-    <OperateOnResidueSubset name=(%string)>
+    <OperateOnResidueSubset name="(%string)">
        <(Selector)/>
        <(ResLvlTaskOperation)/>
     </OperateOnResidueSubset>

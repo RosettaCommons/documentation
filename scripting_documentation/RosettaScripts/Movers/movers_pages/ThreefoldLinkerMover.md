@@ -28,7 +28,7 @@ This example places 1,3,5-tris(bromomethyl)benzene (TBMB), linking cysteine resi
 ```xml
 <ROSETTASCRIPTS>
         <SCOREFXNS>
-                <bnv weights="beta_nov15.wts" />
+                <ScoreFunction name="bnv" weights="beta_nov15.wts" />
         </SCOREFXNS>
         <RESIDUE_SELECTORS>
                 <Index name="select_cys" resnums="7,21,35" />
@@ -49,7 +49,7 @@ This mover can be used for the case of linkers with c3 symmetry and poses with c
 ```xml
 <ROSETTASCRIPTS>
         <SCOREFXNS>
-                <tala weights="beta_nov15.wts" symmetric="true" />
+                <ScoreFunction name="tala" weights="beta_nov15.wts" symmetric="true" />
         </SCOREFXNS>
         <RESIDUE_SELECTORS>
                 <Index name="select_cys" resnums="7,21,35" />

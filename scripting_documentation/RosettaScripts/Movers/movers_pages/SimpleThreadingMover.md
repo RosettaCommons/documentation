@@ -23,7 +23,7 @@ We will parse the PDB numbering on apply time in case there are any pose-length 
 Pass the option to repack neighbors for packing.  
 
 
-     <SimpleThreadingMover name=threader start_position=24L thread_sequence=TGTGT--GTGT pack_neighbors=1 neighbor_dis=6  pack_rounds=5/>
+     <SimpleThreadingMover name="threader" start_position="24L" thread_sequence="TGTGT--GTGT" pack_neighbors="1" neighbor_dis="6"  pack_rounds="5"/>
 
 ## Required Options
 

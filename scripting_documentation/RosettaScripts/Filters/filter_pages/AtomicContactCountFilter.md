@@ -31,22 +31,22 @@ Example:
 To count atomic contacts between aromatic and apolar residues, an OperateOnCertainResidues task operation to select aromatic and apolar residues is passed to the AtomicContactCount filter.
 
        <TASKOPERATIONS>
-         <OperateOnCertainResidues name=aromatic_apolar>
-           <PreventRepackingRLT/>
+         <OperateOnCertainResidues name="aromatic_apolar">
            <NoResFilter>
-             <ResidueType aromatic=1 apolar=1/>
+             <ResidueType aromatic="1" apolar="1"/>
            </NoResFilter>
+           <PreventRepackingRLT/>
          </OperateOnCertainResidues>
        </TASKOPERATIONS>
        ....
        <FILTERS>
-         <AtomicContactCount name=cc_jump partition=jump jump=1 normalize_by_sasa=0 task_operations=aromatic_apolar confidence=0/>
-         <AtomicContactCount name=cc_jump_norm partition=jump jump=1 normalize_by_sasa=1 task_operations=aromatic_apolar confidence=0/>
+         <AtomicContactCount name="cc_jump" partition="jump" jump="1" normalize_by_sasa="0" task_operations="aromatic_apolar" confidence="0"/>
+         <AtomicContactCount name="cc_jump_norm" partition="jump" jump="1" normalize_by_sasa="1" task_operations="aromatic_apolar" confidence="0"/>
        </FILTERS>
        ...
        <PROTOCOLS>
-         <Add filter_name=cc_jump/>
-         <Add filter_name=cc_jump_norm/>
+         <Add filter_name="cc_jump"/>
+         <Add filter_name="cc_jump_norm"/>
        </PROTOCOLS>
 
 ## See Also

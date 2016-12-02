@@ -537,7 +537,7 @@ INTERFACE\_BUILDERS
 ```
 <INTERFACE_BUILDERS>
 <InterfaceBuilder name="[name_of_this_interface_builder]" ligand_areas="(comma separated list of predefined ligand_areas)" extension_window="(int)"/>
-<\INTERFACE_BUILDERS>
+<InterfaceBuilder name="\INTERFACE_BUILDERS">
 ```
 
 An interface builder describes how to choose residues that will be part of a protein-ligand interface. These residues are chosen for repacking, rotamer trials, and backbone minimization during ligand docking. The initial XML parameter is the name of the interface\_builder (for later reference). "ligand\_areas" is a comma separated list of strings matching LIGAND\_AREAS described previously. Finally 'extension\_window' surrounds interface residues with residues labeled as 'near interface'. This is important for backbone minimization, because a residue's backbone can't really move unless it is part of a stretch of residues that are flexible.
@@ -547,8 +547,8 @@ MOVEMAP\_BUILDERS
 
 ```
 <MOVEMAP_BUILDERS>
-<MoveMapBuilder name ="[name_of_this_movemap_builder]" sc_interface="(string)" bb_interface="(string)" minimize_water="[true|false]"/>
-<\MOVEMAP_BUILDERS>
+<MoveMapBuilder name="[name_of_this_movemap_builder]" sc_interface="(string)" bb_interface="(string)" minimize_water="[true|false]"/>
+<MoveMapBuilder name="\MOVEMAP_BUILDERS">
 ```
 
 A movemap builder constructs a movemap. A movemap is a 2xN table of true/false values, where N is the number of residues your protein/ligand complex. The two columns are for backbone and side-chain movements. The MovemapBuilder combines previously constructed backbone and side-chain interfaces (see previous section). Leave out bb\_interface if you do not want to minimize the backbone. The minimize\_water option is a global option. If you are docking water molecules as separate ligands (multi-ligand docking) these should be described through LIGAND\_AREAS and INTERFACE\_BUILDERS.
@@ -558,7 +558,7 @@ SCORINGGRIDS
 
 ```
 <SCORINGGRIDS ligand_chain="(string)" width="(real)">
-<ScoringGrid name="[name_of_this_scoring_grid]" grid_type="(string)" weight="(real)"/>
+<(string) name="[name_of_this_scoring_grid]" grid_name="ScoringGrid" weight="(real)"/>
 </SCORINGGRIDS>
 ```
 

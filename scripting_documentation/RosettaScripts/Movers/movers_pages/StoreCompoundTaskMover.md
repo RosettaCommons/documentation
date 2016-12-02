@@ -13,10 +13,10 @@ This mover uses previously defined task operations applied to the current pose t
 Example:
 
 ```
-<StoreCompoundTaskMover name=store_packable_any task_name=packable_any mode="packable" true_behavior="" false_behavior="prevent_repacking" invert=0 verbose=1 overwrite=0>
-    <OR task_operations=resfile1 />
-    <OR task_operations=resfile2 />
-    <OR task_operations=design_bbi />
+<StoreCompoundTaskMover name="store_packable_any" task_name="packable_any" mode="packable" true_behavior="" false_behavior="prevent_repacking" invert="0" verbose="1" overwrite="0">
+    <OR task_operations="resfile1" />
+    <OR task_operations="resfile2" />
+    <OR task_operations="design_bbi" />
 </StoreCompoundTaskMover>
 ```
 

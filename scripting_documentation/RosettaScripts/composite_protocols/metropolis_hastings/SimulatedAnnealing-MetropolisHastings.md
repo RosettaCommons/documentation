@@ -12,15 +12,15 @@ fast cooling from 3-\>1 during first half of simulation; slow coolins from 1-\>0
 One could have a RosettaScripts syntax to specify temperature targets that would then get turned into a schedule. I'd imagine the following:
 
 ```
-<TemperatureTarget temperature=(Real) progress_frac=(Real) interpolation=(linear or exponential)>
+<TemperatureTarget temperature="(Real)" progress_frac="(Real)" interpolation="(linear" or exponential)>
 ```
 
 The above could be specified in XML like the following:
 
-     <MetropolisHastingsMover temperature=3>
+     <MetropolisHastingsMover temperature="3">
        <SimulatedAnnealing>
-         <TemperatureTarget temp=1 progress_frac=0.5/>
-         <TemperatureTarget temp=0.6 progress_frac=1/>
+         <TemperatureTarget temp="1" progress_frac="0.5"/>
+         <TemperatureTarget temp="0.6" progress_frac="1"/>
        </SimulatedAnnealing>
      </MetropolisHastingsMover>
 

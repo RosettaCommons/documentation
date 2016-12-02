@@ -38,7 +38,7 @@ Currently the feature is only supported by the **ddG** mover and filter.
 
 **[ Usage ]**
 
-    <SetupPoissonBoltzmannPotential name=pb_setup scorefxn=sc12_pb charged_chains=1 epsilon=2.0 sidechain_only=true revamp_near_chain=2 potential_cap=20.0 apbs_debug=2 calcenergy=false/>
+    <SetupPoissonBoltzmannPotential name="pb_setup" scorefxn="sc12_pb" charged_chains="1" epsilon="2.0" sidechain_only="true" revamp_near_chain="2" potential_cap="20.0" apbs_debug="2" calcenergy="false"/>
 
 -   name: Arbitary name used to refer to the mover
 -   charged\_chains: Comma delimited list of charged chainnumbers (\>=1). e.g. charged\_chains=1,2,3 for chains 1, 2 and 3. No extra whitespace is permitted.
@@ -54,30 +54,30 @@ Warning: Pay attention to those movers or filters that prescore when their XML d
 **[ Example ]**
 
     <SCOREFXNS>
-        <sc12_pb weights=score12_full patch=pb_elec/>
+        <ScoreFunction name="sc12_pb" weights="score12_full" patch="pb_elec"/>
     </SCOREFXNS>
     <MOVERS>
-       <SetupPoissonBoltzmannPotential name=pb_setup charged_chains=1 scorefxn=sc12_pb />
-       <SavePoseMover name=save_after_pb_setup reference_name=pose_after_setup/> 
+       <SetupPoissonBoltzmannPotential name="pb_setup" charged_chains="1" scorefxn="sc12_pb" />
+       <SavePoseMover name="save_after_pb_setup" reference_name="pose_after_setup"/> 
     </MOVERS>
     <FILTERS>
-       <Ddg name=ddg scorefxn=sc12_pb confidence=0 repeats=1/>
-       <Delta name=delta_ddg filter=ddg  reference_name=pose_after_setup lower=0 upper=1 range=-0.5/> # defers scoring till the ref pose is saved
+       <Ddg name="ddg" scorefxn="sc12_pb" confidence="0" repeats="1"/>
+       <Delta name="delta_ddg" filter="ddg"  reference_name="pose_after_setup" lower="0" upper="1" range="-0.5"/> # defers scoring till the ref pose is saved
     </FILTERS>
     <PROTOCOLS>
-       <Add mover_name=pb_setup/>  # init PB
-       <Add mover_name=save_after_pb_setup/>  # save the reference pose
+       <Add mover_name="pb_setup"/>  # init PB
+       <Add mover_name="save_after_pb_setup"/>  # save the reference pose
        ...
-       <Add filter_name=delta_ddg/>
+       <Add filter_name="delta_ddg"/>
     </PROTOCOLS>
 
 Protein mutation is monitored for both bounded or unbounded states, and a pose is cached for each state, across all scoring functions by default. If you need to cache different poses depending upon scorefxn, you need to customize the tags associated with cached poses using \<Set\> for scorefxns.
 
     <SCOREFXNS>
-       <sc12_pb weights=score12_full patch=pb_elec>
-          <Set pb_bound_tag=MyBound/>       # cache pose as "MyBound"
-          <Set pb_unbound_tag=MyUnbound/>   # cache pose as "MyUnbound"
-       </sc12_pb>
+       <ScoreFunction name="sc12_pb" weights="score12_full" patch="pb_elec">
+          <Set pb_bound_tag="MyBound"/>       # cache pose as "MyBound"
+          <Set pb_unbound_tag="MyUnbound"/>   # cache pose as "MyUnbound"
+       </ScoreFunction>
     </SCOREFXNS>
 
 The default values are "bound" and "unbound", respectively.

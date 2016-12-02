@@ -71,7 +71,7 @@ The following options may be useful for applying hybridize iteratively:
 
 First, to start from an extended chain, use the following template tag:
 
-           <Template pdb="extended" weight=1.0 cst_file="x.cst" />
+           <Template pdb="extended" weight="1.0" cst_file="x.cst" />
 
 If all other templates have zero weight, then the protocol will always start from a single extended chain (unless the add_non_init_chunks is also specified, in which case random rigid body transformations will be taken from other templates).
 

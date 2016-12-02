@@ -36,7 +36,7 @@ If compute_pose_secstruct_by_dssp is false (default), the current secondary stru
 Example with a blueprint:
 
 ```
-      <SecondaryStructure name=ss_filter1  use_abego=1 blueprint="input.blueprint" />
+      <SecondaryStructure name="ss_filter1"  use_abego="1" blueprint="input.blueprint" />
 ```
 
 Examples with top7 derived structures
@@ -45,14 +45,14 @@ Examples with top7 derived structures
 
 ```
 <FILTERS>
-        <SecondaryStructure name=ss ss=LEEEEEEEELLLLEEEEEEEELLLLHHHHHHHHHHHHHHHLLLEEEEEEELLLHHHHHHHHHHHHHHHHHLLLLhhEEEEELLEEEEEEEL/>
+        <SecondaryStructure name="ss" ss="LEEEEEEEELLLLEEEEEEEELLLLHHHHHHHHHHHHHHHLLLEEEEEEELLLHHHHHHHHHHHHHHHHHLLLLhhEEEEELLEEEEEEEL"/>
 </FILTERS>
 <MOVERS>
-         <Dssp name=dssp/>
+         <Dssp name="dssp"/>
 </MOVERS>
 <PROTOCOLS>
-    <Add mover=dssp/>
-    <Add filter=ss/>
+    <Add mover="dssp"/>
+    <Add filter="ss"/>
 </PROTOCOLS>
 ```
 

@@ -16,8 +16,7 @@ Use this wrapper if the mover you want to use does cannot provided more than one
 or
 
 <MultipleOutputWrapper name=(&string) max_output_poses=(&integer)>
-    <ROSETTASCRIPTS>
-        ...
+<ROSETTASCRIPTS>        ...
     </ROSETTASCRIPTS>
 </MultipleOutputWrapper>
 

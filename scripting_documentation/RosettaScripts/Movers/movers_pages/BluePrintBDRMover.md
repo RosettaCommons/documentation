@@ -5,7 +5,7 @@
 Build a structure in centroid from a blueprint given an input pdb.
 
 ```
-<BluePrintBDR name=bdr blueprint="input.blueprint" use_abego_bias=0 use_sequence_bias=0 scorefxn=scorefxn1/>
+<BluePrintBDR name="bdr" blueprint="input.blueprint" use_abego_bias="0" use_sequence_bias="0" scorefxn="scorefxn1"/>
 ```
 
 Options (default):

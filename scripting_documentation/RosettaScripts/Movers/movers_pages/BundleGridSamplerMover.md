@@ -58,18 +58,18 @@ Default parameter values or parameter ranges are set in the <b>BundleGridSampler
 Note that default parameter ranges are applied separately to each helix.  For example, the following script would perform 16 samples (4 each for r0 of helix 1 and r0 of helix 2):
 
 ```
-<BundleGridSampler name="bgs1" helix_length=20 scorefxn="sfxn1" r0_min=5.0 r0_max=8.0 r0_samples=4 omega0=0.05 delta_omega0=0 delta_omega1=0 delta_t=0>
+<BundleGridSampler name="bgs1" helix_length="20" scorefxn="sfxn1" r0_min="5.0" r0_max="8.0" r0_samples="4" omega0="0.05" delta_omega0="0" delta_omega1="0" delta_t="0">
      <Helix />
-     <Helix delta_omega0=3.14 />
+     <Helix delta_omega0="3.14" />
 </BundleGridSampler>
 ```
 
 In order to sample a range of parameters, keeping a parameter value for two different helices the same, the <b>[parameter]\_copies\_helix</b> option may be used in a <b>Helix</b> tag.  The helix to be copied must be declared before the helix that has the <b>[parameter]\_copies\_helix</b> option.  The following script, for example, carries out 4 samples, with r0 for both helices ranging from 5 to 8 (and always the same for both helices):
 
 ```
-<BundleGridSampler name="bgs1" helix_length=20 scorefxn="sfxn1" r0_min=5.0 r0_max=8.0 r0_samples=4 omega0=0.05 delta_omega0=0 delta_omega1=0 delta_t=0>
+<BundleGridSampler name="bgs1" helix_length="20" scorefxn="sfxn1" r0_min="5.0" r0_max="8.0" r0_samples="4" omega0="0.05" delta_omega0="0" delta_omega1="0" delta_t="0">
      <Helix />
-     <Helix delta_omega0=3.14 r0_copies_helix=1/>
+     <Helix delta_omega0="3.14" r0_copies_helix="1"/>
 </BundleGridSampler>
 ```
 

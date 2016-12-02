@@ -10,7 +10,7 @@ Note that unlike the [[Disulfidize|DisulfidizeMover]] mover, the TryDisulfPermut
 ## Typical usage:
 ```
 <MOVERS>
-     <TryDisulfPermutations name="trydisulf" consider_already_bonded=false />
+     <TryDisulfPermutations name="trydisulf" consider_already_bonded="false" />
 </MOVERS>
 ```
 The above will consider all disulfide permutations in a pose, disregarding disulfide-forming residues already involved in disulfide bonds.
