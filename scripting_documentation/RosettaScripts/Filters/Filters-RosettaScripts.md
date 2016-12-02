@@ -264,6 +264,10 @@ These filters are used primarily for the reports they generate in the log and/or
 
 **[[Foldability|FoldabilityFilter]]** - Rebuilds a given segment of an input pose a specified number of times using fragment-based assembly.
 
+### Cyclic Peptide Design
+
+**[[CycpepSymmetryFilter|CycpepSymmetryFilter]]** - Determines whether a cyclic peptide backbone has a desired cyclic symmetry, and passes if and only if it does.  Works with c2, c3, c4, _etc._ symmetry, as well as with c2/m, c4/m, c6/m, _etc._ symmetry.
+
 ##See Also
 
 * [[RosettaScripts]]: The RosettaScripts home page
