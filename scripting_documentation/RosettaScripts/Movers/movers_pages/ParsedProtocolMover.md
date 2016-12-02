@@ -6,7 +6,7 @@ This is a special mover that allows making a single compound mover and filter ve
 
 ```
 <ParsedProtocol name=( &string) mode=( &string)>
-    <Add mover_name=( null &string) filter_name=( true_filter &string) apply_probabilities=(see below &Real/>
+    <Add mover_name=( null &string) filter_name=( true_filter &string) apply_probabilities=(see below &Real)/>
     ...
 </ParsedProtocol>
 ```
