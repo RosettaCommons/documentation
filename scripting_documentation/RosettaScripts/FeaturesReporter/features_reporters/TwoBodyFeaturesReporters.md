@@ -108,7 +108,7 @@ The HBondFeatures reporter measures the geometry of hydrogen bonds. The most cur
 
 The HBondFeatures feature reporter takes the following options:
 
-        <HBondFeatures scorefxn=(&scorefxn) definition_type=["energy", "AHdist"] definition_threshold=(&real)/>
+        <HBondFeatures scorefxn=(&scorefxn) definition_type=(["energy", "AHdist"]) definition_threshold=(&real)/>
 
 -   *scorefxn* : Use a the parameters in a defined score function to evaluate the hydrogen bonds
 -   *definition\_type* , *definition\_threshold* : How should a hydrogen bond be defined? The default is a hydrogen bond is an interaction where the hbond energy is \< 0, ie `    energy   ` with a `    definition_threshold=0   `
