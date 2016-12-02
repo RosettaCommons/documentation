@@ -229,9 +229,11 @@ While most of these applications focus on prediction, many have options which wi
 
 ### Clustering 
 
-- [[Original Clustering App |Cluster]] - Cluster structures by structural similarity.  Original Rosetta++ app. Fails at large number of decoys
+- [[Calibur Clustering App |calibur_clustering]] - (Preferred application) Cluster structures using a port of [calibur](http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-11-25) into Rosetta .   
 
-- [[Calibur Clustering App |calibur_clustering]] - Cluster structures using a port of [calibur](http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-11-25) into Rosetta (Preferred application).    
+- [[Original Clustering App |Cluster]] - Original Rosetta++ app. Fails at large number of decoys
+
+ 
 
 ### Constraints
 
