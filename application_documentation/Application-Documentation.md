@@ -227,6 +227,12 @@ While most of these applications focus on prediction, many have options which wi
 
 - [[Density map scoring]] - Score structures with electron density information.  
 
+### Clustering 
+
+- [[Original Clustering App |Cluster]] - Cluster structures by structural similarity.  Original Rosetta++ app. Fails at large number of decoys
+
+- [[Calibur Clustering App |calibur_clustering]] - Cluster structures using a port of [calibur](http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-11-25) into Rosetta (Preferred application).    
+
 ### Constraints
 
 - [[Constraint Info]] - Get information about how a structure matches Rosetta constraints.
@@ -257,8 +263,6 @@ These applications serve mainly to support other Rosetta applications, or to ass
 - [[Build peptide]] - Build extended peptides or protein structures from sequences. 
 
 - [[CA to allatom]] - Build fullatom models from C-alpha-only traces.  
-
-- [[Cluster]] - Cluster structures by structural similarity.  
 
 - [[Create symmetry definition|make-symmdef-file-denovo]] - Create Rosetta symmetry definition files for a point group.  
     * [[Create symmetry definition from structure|make-symmdef-file]] - Create Rosetta symmetry definition files from template PDBs. 
