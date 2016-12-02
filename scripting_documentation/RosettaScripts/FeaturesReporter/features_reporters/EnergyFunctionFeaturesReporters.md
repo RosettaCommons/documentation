@@ -7,7 +7,7 @@ Report the total score for each structure using whatever score function you like
 Example:
 
 ```
-<"TotalScoreFeatures" scorefxn="talaris2013"/>
+<TotalScoreFeatures scorefxn="talaris2013"/>
 ```
 
 Options:

@@ -9,8 +9,8 @@ Allows specification of [[Residue Level TaskOperations]] based on residue proper
 Example:
 
     <OperateOnCertainResidues name="PROTEINnopack">
-      <ResidueHasProperty property="PROTEIN"/> //Only one Residue level task per OperateOnCertainResidues block
-      <PreventRepackingRLT/> //Only one ResFilter per OperateOnCertainResidues block
+      <ResidueHasProperty property="PROTEIN"/> //Only one ResFilter per OperateOnCertainResidues block. The ResFilter comes first
+      <PreventRepackingRLT/>  //Only one Residue level task operation per OperateOnCertainResidues block. The RLTO comes second
     </OperateOnCertainResidues>
 
 [[include:Residue-Level-TaskOperations]]
