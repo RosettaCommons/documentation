@@ -50,7 +50,7 @@ Internally, apply performs the insertion, idealizes the loop residues (omegas to
 It is intended, but not guaranteed, to produce a graft with good rama, omega, and chainbreak/peptide_bond scores. All-atom minimization of graft or pose after insertion is recommended.
 
 ##XML Script
-     <CCDEndsGraftMover name=(&string) spm_reference_name=(&string) start_pdb_num (&string) end_pdb_num=(&string) nter_overhang=(&size, 0) cter_overhang=(&size, 0) stop_at_closure=(&bool, true), copy_pdbinfo=(&bool, false)/>
+     <CCDEndsGraftMover name="(&string)" spm_reference_name="(&string)" start_pdb_num (&string) end_pdb_num="(&string)" nter_overhang="(&size, 0)" cter_overhang="(&size, 0)" stop_at_closure="(&bool, true)", copy_pdbinfo="(&bool, false)"/>
 
 ###Required XML Options 
 

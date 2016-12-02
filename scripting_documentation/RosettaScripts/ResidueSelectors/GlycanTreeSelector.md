@@ -21,7 +21,7 @@ Usage
 =====
 
 ``` 
-    <GlycanTreeSelector name=(&string) roots="23,48", ref_pose_name="ref_pose"/>
+    <GlycanTreeSelector name="(&string)" roots="23,48", ref_pose_name="ref_pose"/>
 ```
 
 

@@ -85,7 +85,7 @@ The atom-level chemical information stored in the rosetta AtomTypeSet. This incl
 AtomAtomPairFeatures
 --------------------
 
-        <AtomAtomPairFeatures min_dist=(&real 0) max_dist=(&real 10) nbins=(&integer 15)/>
+        <AtomAtomPairFeatures min_dist="(&real 0)" max_dist="(&real 10)" nbins="(&integer 15)"/>
 
 The distances between pairs of atoms is an indicator of the packing of a structure. Since there are a large number of atom pairs, here, the information is summarized by atom pair distributions for each pair of atom types (Rosetta AtomType -\> element type). See AtomInResidueAtomInResiduePairFeatures for an alternative binning of atom-atom interactions.
 
@@ -1010,7 +1010,7 @@ The ResidueFeatures stores information about each residue in a conformation.
 ResidueScoresFeatures
 ---------------------
 
-        <ResidueScoresFeatures scorefxn=(&scorefxn)/>
+        <ResidueScoresFeatures scorefxn="(&scorefxn)"/>
 
 The ResidueScoresFeatures stores the score of a structure at the residue level. Terms that evaluate a single residue are stored in *residue\_scores\_1b* . Terms that evaluate pairs of residues are stored in *residue\_scores\_2b* . Terms that depend on the whole structure are stored via the StructureScoresFeatures.
 
@@ -1249,7 +1249,7 @@ RotamerRecoveryFeatures
 
 The RotamerRecoverFeatures is a wrapper for the [[rotamer_recovery|RotamerRecoveryScientificBenchmark]] scientific benchmark so it can be included as a feature.
 
-        <RotamerRecovery scfxn=(&string) protocol=(&string) comparer=(&string) mover=(&strong)/>
+        <RotamerRecovery scfxn="(&string)" protocol="(&string)" comparer="(&string)" mover="(&strong)"/>
 
 See the above link for explanations of the parameters.
 
@@ -1337,7 +1337,7 @@ ScoreTypeFeatures
 
 The ScoreTypeFeatures store the score types for as for all EnergyMethods.
 
-        <ScoreTypeFeatures scorefxn=(default_scorefxn &string)/>
+        <ScoreTypeFeatures scorefxn="(default_scorefxn &string)"/>
 
 -   **score\_types** : Store information about the EnergyMethod associated with each score type.
     -   *score\_type\_id* : The *core::scoring::ScoreType* enum values.

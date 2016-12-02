@@ -5,7 +5,7 @@
 Filters structures based on the total number of residues in the structure.
 
 ```
-<ResidueCount name=(&string) max_residue_count=(Inf &Integer) min_residue_count=(0 &Integer) residue_types=("" &string) count_as_percentage=(0 &Bool) />
+<ResidueCount name="(&string)" max_residue_count="(Inf &Integer)" min_residue_count="(0 &Integer)" residue_types="('' &string)" count_as_percentage="(0 &Bool)" />
 ```
 
 -   residue\_types: Comma-separated list of which residue type names. (e.g. "CYS,SER,HIS\_D" ). Only residues with type names matching those in the list will be counted.

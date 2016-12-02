@@ -5,7 +5,7 @@
 Generates constraints from a Rosetta constraint file. Constraints generated using this Constraint Generator can be added to the pose using the [[AddConstraints]] mover and removed using the [[RemoveConstraints]] mover.
 
 ```
-<FileConstraintGenerator name=(&string) filename=(&string) />
+<FileConstraintGenerator name="(&string)" filename="(&string)" />
 ```
 
 filename: the file containing the constraint data. e.g.,:

@@ -5,7 +5,7 @@
 Produces a set of rotamers from a given residue. Use after [AtomTree](#AtomTree) to generate inverse rotamers of a given residue.
 
 ```
-<TryRotamers name=(&string) pdb_num/res_num=(&string) automatic_connection=(1 &bool) jump_num=(1, &Integer) scorefxn=(score12 &string) explosion=(0 &integer) shove=(&comma-separated residue identities)/>
+<TryRotamers name="(&string)" pdb_num/res_num="(&string)" automatic_connection="(1 &bool)" jump_num="(1, &Integer)" scorefxn="(score12 &string)" explosion="(0 &integer)" shove="(&comma-separated residue identities)"/>
 ```
 
 -   explosion: range from 0-4 for how much extra rotamer explosion to include. Extra explosion in this context means EX\_FOUR\_HALF\_STEP\_STDDEVS (+/- 0.5, 1.0, 1.5, 2.0 sd). (By default EX\_ONE\_STDDEV (+/- 1.0 sd) is included for all chi1,2,3,4.)

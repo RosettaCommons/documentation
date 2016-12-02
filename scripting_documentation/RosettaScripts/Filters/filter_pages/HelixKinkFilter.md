@@ -3,7 +3,7 @@
 ## HelixKink
 
 ```
-<HelixKink name=(&string) bend=(20, &Real) resnums=(&string) helix_start=(1 &int)  helix_end=(1 &int)/>
+<HelixKink name="(&string)" bend="(20, &Real)" resnums="(&string)" helix_start="(1 &int)"  helix_end="(1 &int)"/>
 ```
 
 -   bend: cutoff for bend angle

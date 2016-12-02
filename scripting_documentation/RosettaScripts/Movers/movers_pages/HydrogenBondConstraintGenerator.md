@@ -68,15 +68,15 @@ This ConstraintGenerator currently only works with canonical amino acids.
 ## Definition
 
 ```
-<HydrogenBondConstraintGenerator name=(&string)
-    residue_selector1=(&string TrueSelector)
-    residue_selector2=(&string TrueSelector)
-    atoms1=(&string "")
-    atoms2=(&string "")
-    atom_pair_func=(&string "HARMONIC 2.8 0.5")
-    angle1_func=(&string "CIRCULARHARMONIC 2.0 0.5")
-    angle2_func=(&string "CIRCULARHARMONIC 2.0 0.5")
-    atom_definitions=(&string "" ) />
+<HydrogenBondConstraintGenerator name="(&string)"
+    residue_selector1="(&string TrueSelector)"
+    residue_selector2="(&string TrueSelector)"
+    atoms1="(&string '')"
+    atoms2="(&string '')"
+    atom_pair_func="(&string 'HARMONIC 2.8 0.5')"
+    angle1_func="(&string 'CIRCULARHARMONIC 2.0 0.5')"
+    angle2_func="(&string 'CIRCULARHARMONIC 2.0 0.5')"
+    atom_definitions="(&string '' )" />
 ```
 
 * **residue_selector1** - If given, the residues r1 (see above) will come from the subset of residues selected by residue_selector1. This should probably always be given to avoid huge numbers of constraints being generated.

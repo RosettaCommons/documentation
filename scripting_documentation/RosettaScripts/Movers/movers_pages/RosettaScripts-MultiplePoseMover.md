@@ -37,12 +37,12 @@ Pose selection criteria are defined inside the SELECT tag, while a regular Roset
 Both tags are optional but at least one should be present, otherwise this becomes a caching null mover and a warning will be genrated.
 
 ```
-<MultiplePoseMover name=(&string) max_input_poses=(&integer)>
+<MultiplePoseMover name="(&string)" max_input_poses="(&integer)">
     <SELECT>
     ...
     </SELECT>
     <ROSETTASCRIPTS>
-    	<IMPORT movers=(&string) filter=(&string)/>
+    	<IMPORT movers="(&string)" filter="(&string)"/>
     ...
     </ROSETTASCRIPTS>
 </MultiplePoseMover>
@@ -107,7 +107,7 @@ This selector is used to select best n poses by some property, without expicitly
 It uses the defined PosePropertyReporter to rank all collected poses in the set, and then chooses the n best ones.
 
 ```
-<TopNByProperty n=(&integer) order=(&string)>
+<TopNByProperty n="(&integer)" order="(&string)">
   <PosePropertyReporter>
     ...
   </PosePropertyReporter>
@@ -125,7 +125,7 @@ Similar poses are placed in the same cluster.
 Phil Bradley's cluster algorithm is used for the clustering. See the cluster application for more details.
 
 ```
-<ClusterPoseSelector radius=(&Real) structures_per_cluster=(&integer) remove_singletons=(&boolean) initial_cluster_set_size=(&integer) max_cluster_size=(&integer)  max_clusters=(&integer)  max_structures=(&integer)>
+<ClusterPoseSelector radius="(&Real)" structures_per_cluster="(&integer)" remove_singletons="(&boolean)" initial_cluster_set_size="(&integer)" max_cluster_size="(&integer)"  max_clusters="(&integer)"  max_structures="(&integer)">
   <PosePropertyReporter/>
 </ClusterPoseSelector>
 ```
@@ -147,7 +147,7 @@ PosePropertyReporters report a single Real value for a given pose property or si
 This reporter scores the pose and returns either the total pose score or a specific term.
 
 ```
-<EnergyReporter term=(&string)/>
+<EnergyReporter term="(&string)"/>
 ```
 
 - term: score term to report or total_score. Default: total_score.
@@ -158,7 +158,7 @@ This reporter uses any RosettaScripts filter capable of expressing the property 
 The filter must be defined in the FITLERS section and use referenced here by the name given in the definition.
 
 ```
-<FilterReporter filter=(&string)/>
+<FilterReporter filter="(&string)"/>
 ```
 
 - filter: name of filter to use.
@@ -168,7 +168,7 @@ The filter must be defined in the FITLERS section and use referenced here by the
 This reporter is used by the ClusterPoseSelector to compute the similarity of two poses in terms of RMSD.
 
 ```
-<RMSDReporter mode=(&string) residues=(&string)/>
+<RMSDReporter mode="(&string)" residues="(&string)"/>
 ```
 
 - mode: CA or all_atom (required).

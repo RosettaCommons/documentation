@@ -14,7 +14,7 @@ Operator evaluation and at the end of the trajectory returns this best pose. To 
 sum, multiply, find the max or min of a list of filters
 
 ```
-<Operator name=(&string) filters=(comma-separated list of filters&string) threshold=(0&Real) operation=(one of: SUM/NORMALIZED_SUM/PRODUCT/MIN/MAX/SUBTRACT/ABS/BOOLEAN_OR &string) negate=(0&bool) logarithm=(0&bool)/>
+<Operator name="(&string)" filters="(comma-separated list of filters&string)" threshold="(0&Real)" operation="(one of: SUM/NORMALIZED_SUM/PRODUCT/MIN/MAX/SUBTRACT/ABS/BOOLEAN_OR &string)" negate="(0&bool)" logarithm="(0&bool)"/>
 ```
 
 Evaluate the list of filters with the operator, and return whether or not they pass the threshold. NORMALIZED\_SUM returns the sum divided by the number of filters. SUBTRACT accepts only two filters, and returns the first - the second. ABS accepts only one filter and returns the absolute value of that filter's report\_sm. BOOLEAN\_OR(x,y) = x + y - x\*y

@@ -5,7 +5,7 @@
 The "off rotamer" sidechain-only moves. The *SidechainMover* is a *[[ThermodynamicMover|MetropolisHastings-Documentation]]* .
 
 ```
-<Sidechain name=(&string) preserve_detailed_balance=(1 &bool) task_operations=(&string,&string,&string) prob_uniform=(0.0 &real) prob_withinrot=(0.0 &real) prob_random_pert_current=(0.0 &real)/>
+<Sidechain name="(&string)" preserve_detailed_balance="(1 &bool)" task_operations="(&string,&string,&string)" prob_uniform="(0.0 &real)" prob_withinrot="(0.0 &real)" prob_random_pert_current="(0.0 &real)"/>
 ```
 
 -   preserve\_detailed\_balance: balance acceptance criterion with proposal density ratio

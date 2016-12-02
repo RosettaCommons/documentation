@@ -9,7 +9,7 @@ Should work with *most* ligands via Lucas Nivon's recent commit.
 Set write\_int\_area to add the SC interface area to the scorefile. Use sym\_dof\_name instead of jump for multicomponent symmetries.
 
 ```
-<ShapeComplementarity name=(&string) min_sc=(0.5 &Real) min_interface=(0 &Real) verbose=(0 &bool) quick=(0 &bool) jump=(1 &int) sym_dof_name=("" &string) residues1=(comma-separated list) residues2=(comma-separated list) residue_selector1=("" &string) residue_selector2=("" &string) write_int_area=(1 &bool) />
+<ShapeComplementarity name="(&string)" min_sc="(0.5 &Real)" min_interface="(0 &Real)" verbose="(0 &bool)" quick="(0 &bool)" jump="(1 &int)" sym_dof_name="('' &string)" residues1="(comma-separated list)" residues2="(comma-separated list)" residue_selector1="('' &string)" residue_selector2="('' &string)" write_int_area="(1 &bool)" />
 ```
 
 * min_sc - The filter fails if the calculated sc is less than the given value.

@@ -3,10 +3,10 @@
 ## StartFrom
 
 ```
-<StartFrom name=(&string) chain=(&string) use_nbr=(0 &bool) >
-   <Coordinates x=(&float) y=(&float) z=(&float) pdb_tag=("" &string)/>
-   <File filename=(&string) />
-   <PDB filename=(&string) atom_name=("" &string) pdb_tag=("" &string) />
+<StartFrom name="(&string)" chain="(&string)" use_nbr="(0 &bool)" >
+   <Coordinates x="(&float)" y="(&float)" z="(&float)" pdb_tag="('' &string)"/>
+   <File filename="(&string)" />
+   <PDB filename="(&string)" atom_name="('' &string)" pdb_tag="('' &string)" />
 </StartFrom>
 ```
 

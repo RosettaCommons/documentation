@@ -20,7 +20,7 @@ Use the [[SavePoseMover]] to give the pose to this mover.  Works the same way in
 
 **Combine with [[SavePoseMover]]**
 ```
-     <InsertPoseIntoPoseMover name=(&string) start_pdb_num (&string) end_pdb_num=(&string) copy_pdbinfo=(&bool, false) spm_reference_name=/>
+     <InsertPoseIntoPoseMover name="(&string)" start_pdb_num (&string) end_pdb_num="(&string)" copy_pdbinfo="(&bool, false)" spm_reference_name=/>
 ```
 
 ###Required XML Options

@@ -12,7 +12,7 @@ Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
 Adds Circular Harmonic Dihedral Constraints to the Phi and Psi dihedral angles to a particular CDR either using the current computed North/Dunbrack CDR Cluster (requires AHo numbered antibody) or general constraints.  These constraints keep the CDR structure from moving too much during backbone optimization such as FastRelax. Please see the [[constraints | constraint-file#constraint-types]] page for more information on constraints and [[this page | General-Antibody-Options-and-Tips]] for more information on antibody numbering. 
 
 ```
-<CDRDihedralConstraintMover name=dih_mover cdr=(&string (ex: L1)) use_cluster_csts=(&bool) />
+<CDRDihedralConstraintMover name="dih_mover" cdr="(&string (ex: L1))" use_cluster_csts="(&bool)" />
 ```
 
 ###Required

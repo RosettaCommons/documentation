@@ -4,7 +4,7 @@
 
 Includes current rotamers (eg - from input pdb) in the rotamer set. These rotamers will be lost after a packing run, so they are only effective upon initial loading of a pdb!
 
-     <IncludeCurrent name=(&string) />
+     <IncludeCurrent name="(&string)" />
 
 ##See Also
 

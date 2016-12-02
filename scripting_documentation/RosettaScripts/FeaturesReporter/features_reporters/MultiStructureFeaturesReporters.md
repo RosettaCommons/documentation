@@ -76,7 +76,7 @@ RotamerRecoveryFeatures
 
 The RotamerRecoverFeatures is a wrapper for the [[rotamer_recovery|RotamerRecoveryScientificBenchmark]] scientific benchmark so it can be included as a feature.
 
-        <RotamerRecoveryFeatures scorefxn=(&string) protocol=(&string) comparer=(&string) mover=(&string)/>
+        <RotamerRecoveryFeatures scorefxn="(&string)" protocol="(&string)" comparer="(&string)" mover="(&string)"/>
 
 See the above link for explanations of the parameters. Give the features reporter either a protocol (RRProtocol string) or any other mover.  Specifying the pose to compare works the same way as the ProteinRMSDFeatures (-native flag, SavePoseMover, etc.)
 

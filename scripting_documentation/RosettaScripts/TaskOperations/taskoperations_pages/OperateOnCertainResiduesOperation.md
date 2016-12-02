@@ -46,7 +46,7 @@ Restricts repacking to aromatic and apolar residues.
 
 Convenience filter selects residues by type.
 
-     <ResidueType aromatic=(0 &bool) apolar=(0 &bool) polar=(0 &bool) charged=(0 &bool)/>
+     <ResidueType aromatic="(0 &bool)" apolar="(0 &bool)" polar="(0 &bool)" charged="(0 &bool)"/>
 
 ### ResidueHasProperty
 

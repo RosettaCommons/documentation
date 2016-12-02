@@ -8,7 +8,7 @@ This mover is designed to work with the MultiplePoseMover.
 Use this wrapper if the mover you want to use does cannot provided more than one output pose (yet).
 
 ```
-<MultipleOutputWrapper name=(&string) max_output_poses=(&integer)>
+<MultipleOutputWrapper name="(&string)" max_output_poses="(&integer)">
     <MoverName .../>
 </MultipleOutputWrapper>
 ```

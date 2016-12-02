@@ -15,9 +15,9 @@ However, the mover may also be used more generally for structural modelling; sev
 
 The general input format is shown here:
 
-     <Hybridize name="&string" stage1_scorefxn="&sring" stage2_scorefxn="&string" fa_scorefxn="&string" batch=(1 &bool)>
-            <Template pdb="&string" cst_file="AUTO" weight=1.000 />
-            <Template pdb="&string" cst_file="AUTO" weight=1.000 />
+     <Hybridize name="&string" stage1_scorefxn="&sring" stage2_scorefxn="&string" fa_scorefxn="&string" batch="(1 &bool)">
+            <Template pdb="&string" cst_file="AUTO" weight="1.000" />
+            <Template pdb="&string" cst_file="AUTO" weight="1.000" />
             ...
      </Hybridize>
 
@@ -96,7 +96,7 @@ Other fine-grained protocol control options:
 
 The **detailed controls** block allows fixing certain substructures.  It may be specified by adding the following tag withing the <Hybridize ...></Hybridize> block:
 
-    <DetailedControls start_res=273 stop_res=296 sample_template=0 sample_abinitio=0 task_operations="&string"/>
+    <DetailedControls start_res="273" stop_res="296" sample_template="0" sample_abinitio="0" task_operations="&string"/>
 
 This says that for residues 273-296, do not allow template hybridization moves (sample_template=0), and do not allow fragment insertion moves (sample_abinitio=0).  If both are set to false for a region, that region will also not minimize in centroid (note that fullatom refinement ignores these flags, however).
 

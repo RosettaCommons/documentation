@@ -4,7 +4,7 @@
 
 Restrict a single residue to repacking. No design.
 
-     <RestrictResidueToRepacking name=(&string) resnum=(0 &integer)/>
+     <RestrictResidueToRepacking name="(&string)" resnum="(0 &integer)"/>
 
 <br/>
 *For a more flexible system, see the [[Index|ResidueSelectors#residueselectors_conformation-independent-residue-selectors_residueindexselector]] [[ResidueSelector|ResidueSelectors]], as well as [[OperateOnResidueSubset|OperateOnResidueSubsetOperation]] and [[RestrictToRepackingRLT|Residue Level TaskOperations]].*

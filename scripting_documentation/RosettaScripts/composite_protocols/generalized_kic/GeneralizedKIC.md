@@ -45,7 +45,7 @@ These steps are discussed in detail in the next section.
 ```
 <MOVERS>
 ...
-     <GeneralizedKIC name="&string" low_memory_mode=(false &bool) closure_attempts=(100 &int) stop_if_no_solution=(0 &int) stop_when_n_solutions_found=(0 &int) selector="&string" selector_scorefunction="&string" selector_kbt=(1.0 &Real) contingent_filter="&string" dont_fail_if_no_solution_found=(false &bool)>
+     <GeneralizedKIC name="&string" low_memory_mode="(false &bool)" closure_attempts="(100 &int)" stop_if_no_solution="(0 &int)" stop_when_n_solutions_found="(0 &int)" selector="&string" selector_scorefunction="&string" selector_kbt="(1.0 &Real)" contingent_filter="&string" dont_fail_if_no_solution_found="(false &bool)">
           ...
      </GeneralizedKIC>
 ...
@@ -58,15 +58,15 @@ The **low_memory_mode** option can be used to limit the amount of information ab
 <MOVERS>
 ...
      <GeneralizedKIC ...>
-          <AddResidue res_index=(&int) />
-          <AddResidue res_index=(&int) />
-          <AddResidue res_index=(&int) />
+          <AddResidue res_index="(&int)" />
+          <AddResidue res_index="(&int)" />
+          <AddResidue res_index="(&int)" />
           ...
-          <AddTailResidue res_index=(&int) />
-          <AddTailResidue res_index=(&int) />
-          <AddTailResidue res_index=(&int) />
+          <AddTailResidue res_index="(&int)" />
+          <AddTailResidue res_index="(&int)" />
+          <AddTailResidue res_index="(&int)" />
           ...
-          <SetPivots res1=(&int) atom1="&string" res2=(&int) atom2="&string" res3=(&int) atom3="&string" />
+          <SetPivots res1="(&int)" atom1="&string" res2="(&int)" atom2="&string" res3="(&int)" atom3="&string" />
           ...
      </GeneralizedKIC>
 ...

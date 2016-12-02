@@ -17,7 +17,7 @@ Runs the full Rosetta Antibody Design (RAbD) Protocol.  Requires an AHo numbered
 
 
 ```
-<AntibodyDesignProtocol design_cdrs=(&string (ex: L1,L1,L3)) instructions_file=(&real) />
+<AntibodyDesignProtocol design_cdrs="(&string (ex: L1,L1,L3))" instructions_file="(&real)" />
 ```
 
 ###Recommended Settings

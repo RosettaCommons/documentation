@@ -7,7 +7,7 @@ This [[mover]] is directly served by the [[InterfaceAnalyzer|interface-analyzer]
 Calculate binding energies, buried interface surface areas, packing statistics, and other useful interface metrics for the evaluation of protein interfaces.
 
 ```
-<InterfaceAnalyzerMover name="&string" scorefxn=(&string) packstat=(&bool) interface_sc=(&bool) pack_input=(&bool) pack_separated=(0, &bool) jump=(&int) fixedchains=(A,B,&string) tracer=(&bool) use_jobname=(&bool) resfile=(&bool) ligandchain=(&string) />
+<InterfaceAnalyzerMover name="&string" scorefxn="(&string)" packstat="(&bool)" interface_sc="(&bool)" pack_input="(&bool)" pack_separated="(0, &bool)" jump="(&int)" fixedchains="(A,B,&string)" tracer="(&bool)" use_jobname="(&bool)" resfile="(&bool)" ligandchain="(&string)" />
 ```
 
 -   packstat: activates packstat calculation; can be slow so it defaults to off. See the paper on RosettaHoles to find out more about this statistic (Protein Sci. 2009 Jan;18(1):229-39.)

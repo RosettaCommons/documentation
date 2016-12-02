@@ -7,9 +7,9 @@ Allows finding global minima by sampling structures using SimulatedAnnealing. Si
 Temperature scaling occurs automatically. Temparatures for all filters are multiplied by a scaling factor that ranges from 1.0 (at the start) and is reduced as the number of acceptances increases. The multiplier is equal to e\^(-anneal\_step/num\_filters). During each step, the GenericSimulatedAnnealer keeps track of the last several accepted poses (the number of accepted poses it keeps = history option). When improvements in the accepted scores slow, the annealer lowers the temperature to the next step.
 
 ```
-<GenericSimulatedAnnealer name=(&string) mover_name=(&string) filter_name=(&string) trials=(10 &integer) sample_type=(low, &string) temperature=(0, &Real) drift=(1 &bool) recover_low=(1 &bool) boltz_rank=(0 &bool) stopping_condition=(FalseFilter &string) preapply=(1 &bool) adaptive_movers=(0 &bool) adaptation_period=(see below &integer) saved_accept_file_name=("" &string) saved_trial_file_name=("" &string) reset_baselines=(1 &bool) history=(10 &int) eval_period=(0 &int) periodic_mover=("" &string) checkpoint_file=("" &string) keep_checkpoint_file=(0 &bool) >
+<GenericSimulatedAnnealer name="(&string)" mover_name="(&string)" filter_name="(&string)" trials="(10 &integer)" sample_type="(low, &string)" temperature="(0, &Real)" drift="(1 &bool)" recover_low="(1 &bool)" boltz_rank="(0 &bool)" stopping_condition="(FalseFilter &string)" preapply="(1 &bool)" adaptive_movers="(0 &bool)" adaptation_period="(see below &integer)" saved_accept_file_name="('' &string)" saved_trial_file_name="('' &string)" reset_baselines="(1 &bool)" history="(10 &int)" eval_period="(0 &int)" periodic_mover="('' &string)" checkpoint_file="('' &string)" keep_checkpoint_file="(0 &bool)" >
   <Filters>
-     <AND filter_name=(&string) temperature=(&Real) sample_type=(low, &string) rank=(0 &bool)/>
+     <AND filter_name="(&string)" temperature="(&Real)" sample_type="(low, &string)" rank="(0 &bool)"/>
      ...
   </Filters>
 </GenericSimulatedAnnealer>

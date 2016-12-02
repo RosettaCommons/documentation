@@ -19,7 +19,7 @@ By default, restricts to all packing of all CDRs and neighbors.  Analogous to th
 See options for control of which CDRs, including whether to only restrict to design and control of whether we design 
 neighbor antigen and/or neighbor framework residues.
 
-     <RestrictToCDRsAndNeighbors name=restrict cdrs=(&string,&string) numbering_scheme=(&string) cdr_definition=(&string) />
+     <RestrictToCDRsAndNeighbors name="restrict" cdrs="(&string,&string)" numbering_scheme="(&string)" cdr_definition="(&string)" />
 
 ###Common Options 
 

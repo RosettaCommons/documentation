@@ -5,7 +5,7 @@
 Record a trajectory of snapshots as silent-file.
 
 ```
-<SilentTrajectoryRecorder stride=(100 &Size) score_stride=(100 &Size) filename=(traj &string) cumulate_jobs=(0 &bool) cumulate_replicas=(0 &bool)/>
+<SilentTrajectoryRecorder stride="(100 &Size)" score_stride="(100 &Size)" filename="(traj &string)" cumulate_jobs="(0 &bool)" cumulate_replicas="(0 &bool)"/>
 ```
 
 By default, this will actually generate PDB file output. To get silent file output, several additional command line flags are required:

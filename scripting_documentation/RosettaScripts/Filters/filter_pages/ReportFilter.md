@@ -5,7 +5,7 @@
 This filter reports the value of another filter with the current job name. Useful when running long trajectories where one wants to see intermediate values of successful trajectories.
 
 ```
-<Report name=(&string) filter=("" &string) report_string=(""&string) checkpointing_file=(""&string)/>
+<Report name="(&string)" filter="('' &string)" report_string="(''&string)" checkpointing_file="(''&string)"/>
 ```
 
 -   filter: name of a filter on the datamap that report will invoke.

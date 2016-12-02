@@ -5,7 +5,7 @@
 Remove any sequence constraints from the pose.
 
 ```
-<ClearCompositionConstraintsMover name=(&string) />
+<ClearCompositionConstraintsMover name="(&string)" />
 ```
 
 Note that this will remove sequence constraints (e.g. amino acid composition constraints) but **not** geometric constraints (e.g. atom pair constraints, coordinate constraints) from the pose.

@@ -4,7 +4,7 @@
 
 This task operations scans the protein to identify intra-protein voids, and selects residues for design based on their proximity to the voids. Residues are scored by the metric (distance\_to\_cavity\_center)/(volume\_of\_cavity) and the lowest scoring residues are selected for design.
 
-    <DesignByCavityProximity name=(&string) region_shell=(8.0 &real) regions_to_design=(1 &int) repack_non_selected=(0 &bool) />
+    <DesignByCavityProximity name="(&string)" region_shell="(8.0 &real)" regions_to_design="(1 &int)" repack_non_selected="(0 &bool)" />
 
 -   region\_shell: The radius of a sphere that surrounds the residue selected for mutation. All residues within this sphere will be set to design, and all residues outside of it will not be designed.
 -   repack\_non\_selected: If set, residues outside of the design sphere will be repacked, otherwise they will be fixed.

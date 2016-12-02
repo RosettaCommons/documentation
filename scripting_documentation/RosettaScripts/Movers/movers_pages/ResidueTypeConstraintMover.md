@@ -6,7 +6,7 @@ Adds ResidueTypeConstraint to the pose using ResidueTypeConstraint
 (gives preferential bonus point to selected residues)
 
 ```
-<ResidueTypeConstraintMover name="&string" AA_name3="&string" favor_bonus=(0.5 &real)/>
+<ResidueTypeConstraintMover name="&string" AA_name3="&string" favor_bonus="(0.5 &real)"/>
 ```
 
 For example,

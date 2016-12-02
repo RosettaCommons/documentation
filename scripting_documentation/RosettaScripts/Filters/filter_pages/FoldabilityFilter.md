@@ -7,7 +7,7 @@ Rebuilds a given segment of an input pose a specified number of times using frag
 This filter is designed as a means of quantifying Nobu and Rie's "foldability" metric, in which a structure is refolded several times and compared to the desired structure.
 
 ```
-<Foldability name=(&string) scorefxn=(&string) tries=(100 &int) start_res=(1 &int) end_res=(1 &int) motif=("" &string) distance_threshold=(4.0 &real) />
+<Foldability name="(&string)" scorefxn="(&string)" tries="(100 &int)" start_res="(1 &int)" end_res="(1 &int)" motif="('' &string)" distance_threshold="(4.0 &real)" />
 ```
 
 -   start\_res: The N-terminal residue of the piece of backbone to be rebuilt.

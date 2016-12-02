@@ -5,7 +5,7 @@
 Repeatedly applies a sub-mover until the given filter returns a value within the given delta for the given number of cycles
 
 ```
-<IteratedConvergence name=(&string) mover=(&string) filter=(&string) delta=(0.1 &real) cycles=(1 &integer) maxcycles=(1000 &integer) />
+<IteratedConvergence name="(&string)" mover="(&string)" filter="(&string)" delta="(0.1 &real)" cycles="(1 &integer)" maxcycles="(1000 &integer)" />
 ```
 
 -   mover - the mover to repeatedly apply

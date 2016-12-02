@@ -5,8 +5,8 @@
 Same as for RepackMinimize with the addition that a list of target residues to be hbonded can be defined. Within a sphere of 'interface\_cutoff\_distance' of the target residues,the residues will be set to be designed.The residues that are allowed for design are restricted to hbonding residues according to whether donors (STRKWYQN) or acceptors (EDQNSTY) or both are defined. If residues have been designed that do not, after design, form hbonds to the target residues with energies lower than the hbond\_energy, then those are turned to Ala.
 
 ```
-<DesignMinimizeHbonds name=(design_minimize_hbonds &string) hbond_weight=(3.0 &float) scorefxn_design=(score12 &string) scorefxn_minimize=score12) donors="design donors? &bool" acceptors="design acceptors? &bool" bb_hbond=(0 &bool) sc_hbond=(1 &bool) hbond_energy=(-0.5 &float) interface_cutoff_distance=(8.0 &float) repack_partner1=(1 &bool) repack_partner2=(1 &bool) design_partner1=(0 &bool) design_partner2=(1 &bool) repack_non_ala=(1 &bool) min_rigid_body=(1 &bool) task_operations=("" &string)>
-        <residue pdb_num/res_num=(&string) />
+<DesignMinimizeHbonds name="(design_minimize_hbonds &string)" hbond_weight="(3.0 &float)" scorefxn_design="(score12 &string)" scorefxn_minimize="score12)" donors="design donors? &bool" acceptors="design acceptors? &bool" bb_hbond="(0 &bool)" sc_hbond="(1 &bool)" hbond_energy="(-0.5 &float)" interface_cutoff_distance="(8.0 &float)" repack_partner1="(1 &bool)" repack_partner2="(1 &bool)" design_partner1="(0 &bool)" design_partner2="(1 &bool)" repack_non_ala="(1 &bool)" min_rigid_body="(1 &bool)" task_operations="('' &string)">
+        <residue pdb_num/res_num="(&string)" />
 </DesignMinimizeHbonds>
 ```
 

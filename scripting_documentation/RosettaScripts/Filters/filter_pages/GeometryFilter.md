@@ -3,15 +3,15 @@
 ## Geometry Filter
 
 ```
-<Geometry name=(&string)
-  omega=(165&Real)
-  cart_bonded=(20 &Real)
-  cstfile=("none" &string)
-  cst_cutoff=(10000.0 &Real)
-  start=(1 &residue number)
-  end=(100000 &residue number)
-  residue_selector=( "" &string )
-  count_bad_residues=( false &bool ) />
+<Geometry name="(&string)"
+  omega="(165&Real)"
+  cart_bonded="(20 &Real)"
+  cstfile="('none' &string)"
+  cst_cutoff="(10000.0 &Real)"
+  start="(1 &residue number)"
+  end="(100000 &residue number)"
+  residue_selector="( '' &string )"
+  count_bad_residues="( false &bool )" />
 ```
 
 -   omega: cutoff for omega angle of peptide plane, Cis-proline is also considered. Works for multiple chains

@@ -5,7 +5,7 @@
 Does both centroid and full-atom docking
 
 ```
-<Docking name="&string" score_low=(score_docking_low &string) score_high=(score12 &string) fullatom=(0 &bool) local_refine=(0 &bool) jumps=(1 &Integer vector) optimize_fold_tree=(1 &bool) conserve_foldtree=(0 &bool) design=(0 &bool) ignore_default_docking_task=(0 &bool) task_operations=("" comma-separated list)/>
+<Docking name="&string" score_low="(score_docking_low &string)" score_high="(score12 &string)" fullatom="(0 &bool)" local_refine="(0 &bool)" jumps="(1 &Integer vector)" optimize_fold_tree="(1 &bool)" conserve_foldtree="(0 &bool)" design="(0 &bool)" ignore_default_docking_task="(0 &bool)" task_operations="('' comma-separated list)"/>
 ```
 
 -   score\_low is the scorefxn to be used for centroid-level docking

@@ -9,7 +9,7 @@ If no targets are specified on either interface partner, all residues on that pa
 Disulfide bonds created by this mover, if any, are guaranteed to pass a DisulfideFilter.
 
 ```
-<DisulfideMover name="&string" targets=(&string)/>
+<DisulfideMover name="&string" targets="(&string)"/>
 ```
 
 -   targets: A comma-seperated list of residue numbers. These can be either with rosetta numbering (raw integer) or pdb numbering (integer followed by the chain letter, eg '123A'). Targets are required to be located in the interface. Default: All residues in the interface. *Optional*

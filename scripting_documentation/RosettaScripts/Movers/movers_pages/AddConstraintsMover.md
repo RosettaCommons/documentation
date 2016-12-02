@@ -7,7 +7,7 @@ This mover uses one or more constraint generators to generate a set of constrain
 Reminder: constraints added to the pose will not do anything if the appropriate constraint score terms are not turned on. 
 
 ```
-<AddConstraints name=(&string) >
+<AddConstraints name="(&string)" >
    <!-- Constraint generator 1 ... -->
    <!-- Constraint generator 2 ... -->
    <!-- Constraint generator n ... -->

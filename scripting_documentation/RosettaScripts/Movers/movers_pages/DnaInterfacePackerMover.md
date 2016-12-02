@@ -3,7 +3,7 @@
 ## DnaInterfacePacker
 
 ```
-<DnaInterfacePacker name=(&string) scorefxn=(&string) task_operations=(&string,&string,&string) binding=(0, &bool) base_only=(false, &bool) minimize=(0, &bool) probe_specificity=(0, &bool) reversion_scan=(false, &bool)/>
+<DnaInterfacePacker name="(&string)" scorefxn="(&string)" task_operations="(&string,&string,&string)" binding="(0, &bool)" base_only="(false, &bool)" minimize="(0, &bool)" probe_specificity="(0, &bool)" reversion_scan="(false, &bool)"/>
 ```
 
 -   binding: calculate binding energy

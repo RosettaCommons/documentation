@@ -5,18 +5,18 @@
 Places hotspot residues simultaneously on a scaffold, rather than iteratively as in PlaceStub. It is faster therefore allowing more backbone sampling, and should be useful in placing more than 2 hotspots.
 
 ```
-<PlaceSimultaneously name=(&string) chain_to_design=(2 &Integer) repack_non_ala=(1 &bool) optimize_fold_tree=(1 &bool) after_placement_filter=(true_filter &string) auction=(&string) stub_score_filter=(&string) stubscorefxn="backbone_stub_constraint &string" coor_cst_cutoff="100 &Real"/>
+<PlaceSimultaneously name="(&string)" chain_to_design="(2 &Integer)" repack_non_ala="(1 &bool)" optimize_fold_tree="(1 &bool)" after_placement_filter="(true_filter &string)" auction="(&string)" stub_score_filter="(&string)" stubscorefxn="backbone_stub_constraint &string" coor_cst_cutoff="100 &Real"/>
      <DesignMovers>
-        <Add mover_name=(null_mover &string) use_constraints=(1 &bool) coord_cst_std=(0.5 &Real)/>
+        <Add mover_name="(null_mover &string)" use_constraints="(1 &bool)" coord_cst_std="(0.5 &Real)"/>
      </DesignMovers>
-     <StubSets explosion=(0 &integer) stub_energy_threshold=(1.0 &Real)  max_cb_dist=(3.0 &Real) cb_force=(0.5 &Real)>
-        <Add stubfile=(& string) filter_name=(&string)/>
+     <StubSets explosion="(0 &integer)" stub_energy_threshold="(1.0 &Real)"  max_cb_dist="(3.0 &Real)" cb_force="(0.5 &Real)">
+        <Add stubfile="(& string)" filter_name="(&string)"/>
      </StubSets>
-     <StubMinimize min_repeats_before_placement=(0&Integer) min_repeats_after_placement=(1&Integer)>
-       <Add mover_name=(null_mover &string) bb_cst_weight=(10.0 &Real)/>
+     <StubMinimize min_repeats_before_placement="(0&Integer)" min_repeats_after_placement="(1&Integer)">
+       <Add mover_name="(null_mover &string)" bb_cst_weight="(10.0 &Real)"/>
      </StubMinimize>
      <NotifyMovers>
-       <Add mover_name=(&string)/>
+       <Add mover_name="(&string)"/>
      </NotifyMovers>
 </PlaceSimultaneously>
 ```

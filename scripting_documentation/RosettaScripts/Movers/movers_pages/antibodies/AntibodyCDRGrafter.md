@@ -47,7 +47,7 @@ H4 - H1 H2
 
 
 
-     <AntibodyCDRGrafter name=grafter cdrs=(&string,&string) numbering_scheme=(&string) cdr_definition=(&string) donor_structure_from_pdb=(&string) use_secondary_graft_mover(&bool) optimize_cdrs(&bool) optimize_cdr4_if_neighbor(&bool) scorefxn=s/>
+     <AntibodyCDRGrafter name="grafter" cdrs="(&string,&string)" numbering_scheme="(&string)" cdr_definition="(&string)" donor_structure_from_pdb="(&string)" use_secondary_graft_mover(&bool) optimize_cdrs(&bool) optimize_cdr4_if_neighbor(&bool) scorefxn="s"/>
 
 
 ###Common Options 

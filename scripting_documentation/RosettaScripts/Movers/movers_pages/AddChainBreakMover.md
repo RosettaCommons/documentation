@@ -5,7 +5,7 @@
 Adds a chainbreak at the specified position
 
 ```
-<AddChainBreak name=(&string) resnum=(&string) change_foldtree=(1 &bool) find_automatically=(0 &bool) distance_cutoff=(2.5&Real) remove=(0 &bool)/>
+<AddChainBreak name="(&string)" resnum="(&string)" change_foldtree="(1 &bool)" find_automatically="(0 &bool)" distance_cutoff="(2.5&Real)" remove="(0 &bool)"/>
 ```
 
 -   change\_foldtree: add a jump at the cut site.

@@ -5,8 +5,8 @@
 Do backrub-style backbone and sidechain sampling.
 
 ```
-<BackrubDD name=(backrub &string) partner1=(0 &bool) partner2=(1 &bool) interface_distance_cutoff=(8.0 &Real) moves=(1000 &integer) sc_move_probability=(0.25 &float) scorefxn=(score12 &string) small_move_probability=(0.0 &float) bbg_move_probability=(0.25 &float) temperature=(0.6 &float) task_operations=("" &string)>
-        <residue pdb_num/res_num=(&string)/>
+<BackrubDD name="(backrub &string)" partner1="(0 &bool)" partner2="(1 &bool)" interface_distance_cutoff="(8.0 &Real)" moves="(1000 &integer)" sc_move_probability="(0.25 &float)" scorefxn="(score12 &string)" small_move_probability="(0.0 &float)" bbg_move_probability="(0.25 &float)" temperature="(0.6 &float)" task_operations="('' &string)">
+        <residue pdb_num/res_num="(&string)"/>
         <span begin="pdb or rosetta-indexed number, eg 10 or 12B &string" end="pdb or rosetta-indexed number, e.g., 20 or 30B &string"/>
 </BackrubDD>
 ```

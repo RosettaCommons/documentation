@@ -4,7 +4,7 @@
 
 Simply chooses random residues from the pose. This task operation is stochastic to allow for variation in design regions. Each call to this operation results in a new randomly selected set of residues chosen for design.
 
-    <DesignRandomRegion name=(&string) region_shell=(&real) regions_to_design=(&int) repack_non_selected=(&bool) />
+    <DesignRandomRegion name="(&string)" region_shell="(&real)" regions_to_design="(&int)" repack_non_selected="(&bool)" />
 
 -   region\_shell: The radius of a sphere that surrounds the residue selected for mutation. All residues within this sphere will be set to design, and all residues outside of it will not be designed.
 -   repack\_non\_selected: If set, residues outside of the design sphere will be repacked, otherwise they will be fixed.

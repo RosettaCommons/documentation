@@ -5,7 +5,7 @@
 Computes the binding energy for the complex and if it is below the threshold returns true. o/w false. Useful for identifying complexes that have poor binding energy and killing their trajectory.
 
 ```
-<Ddg name=(ddg &string) scorefxn=(score12 &string) threshold=(-15 &float) jump=(1 &Integer) chain_num=(&int,&int...) repeats=(1 &Integer) repack=(true &bool) relax_mover=(&string) repack_bound=(true &bool) relax_bound=(false &bool) filter=(&string) extreme_value_removal=(false &bool)/>
+<Ddg name="(ddg &string)" scorefxn="(score12 &string)" threshold="(-15 &float)" jump="(1 &Integer)" chain_num="(&int,&int...)" repeats="(1 &Integer)" repack="(true &bool)" relax_mover="(&string)" repack_bound="(true &bool)" relax_bound="(false &bool)" filter="(&string)" extreme_value_removal="(false &bool)"/>
 ```
 
 -   jump specifies which chains to separate. Jump=1 would separate the chains interacting across the first chain termination, jump=2, second etc.

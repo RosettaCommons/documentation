@@ -13,9 +13,9 @@ Fully manual invocation of a filter within RosettaScripts is accomplished accord
      ...
      <AddFilter type="&string">
           <AddFilterParameterString value="&string" name="&string" />
-          <AddFilterParameterInteger value=(&int) name="&string" />
-          <AddFilterParameterBoolean value=(&bool) name="&string" />
-          <AddFilterParameterReal value=(&Real) name="&string" />
+          <AddFilterParameterInteger value="(&int)" name="&string" />
+          <AddFilterParameterBoolean value="(&bool)" name="&string" />
+          <AddFilterParameterReal value="(&Real)" name="&string" />
      </AddFilter>
      ...
 </GeneralizedKIC>
@@ -39,7 +39,7 @@ The following shorthands are defined:
 ```
 <GeneralizedKIC ...>
      ...
-     <AddAtomPairDistanceFilter atom1="&string" res1=(&int) atom2="&string" res2=(&int) distance=(&Real) greater_than=(false &bool)/>
+     <AddAtomPairDistanceFilter atom1="&string" res1="(&int)" atom2="&string" res2="(&int)" distance="(&Real)" greater_than="(false &bool)"/>
      ...
 </GeneralizedKIC>
 ```

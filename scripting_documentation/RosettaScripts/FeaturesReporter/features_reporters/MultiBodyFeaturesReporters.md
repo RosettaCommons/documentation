@@ -30,7 +30,7 @@ The Antibody Features Reporter is a subclass of the [[InterfaceFeatures |MultiBo
 In order to use this Reporter, the antibody should be renumbered into a particular numbering scheme.  See [[General Antibody Tips | General-Antibody-Options-and-Tips]] for more information on how to renumber your antibody via different antibody servers.  If your antibody has come from RosettaAntibody 3.0, the antibody is already renumbered in the Chothia scheme, which is the default.  The numbering scheme can be specified through the command-line or via XML tag.
 
 ```
-			<AntibodyFeatures scorefxn=(&string) interface=(&string) numbering_scheme=(&string, Chothia_Scheme) cdr_definition=(&string, Aroop) pack_separated=(&string, true) pack_together=(&string, false) />
+			<AntibodyFeatures scorefxn="(&string)" interface="(&string)" numbering_scheme="(&string, Chothia_Scheme)" cdr_definition="(&string, Aroop)" pack_separated="(&string, true)" pack_together="(&string, false)" />
 ```
 
 **XML Options**
@@ -298,7 +298,7 @@ The PI is Brian Kuhlman, bkuhlman@email.unc.edu .
 This Feature Reporter writes out three tables corresponding to interfaces of a given pose.  Behind the scenes, it uses an updated version of the [[InterfaceAnalyzerMover]], which is also used by the [[InterfaceAnalyzer application | interface-analyzer]].  Without options, it will detect all interfaces of a given pose and report on all of them, even if no residues are in them. 
 
 ```
-			<InterfaceFeatures scorefxn=(& Scorefxn name) interface=(&string), pack_separated=(&bool, false) pack_together=(&bool, false) dSASA_cutoff=(&real, 100) compute_packstat=(&bool, true) pack_together=true/>
+			<InterfaceFeatures scorefxn="(& Scorefxn name)" interface="(&string)", pack_separated="(&bool, false)" pack_together="(&bool, false)" dSASA_cutoff="(&real, 100)" compute_packstat="(&bool, true)" pack_together="true"/>
 ```
 
 

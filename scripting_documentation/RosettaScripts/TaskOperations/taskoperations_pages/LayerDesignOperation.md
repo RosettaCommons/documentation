@@ -12,10 +12,10 @@ LayerDesign, like all TaskOperations, obeys commutivity: the effect of applying 
 
 Note that this task is ligand compatible.  However, the user should set the ligand to be repackable but not designable with another TaskOperation.
 
-        <LayerDesign name=(&string layer) layer=(&string core_boundary_surface) pore_radius=(&real 2.0) core=(&real 20.0) surface=(&real 40.0) ignore_pikaa_natro=(&bool 0) repack_non_design=(&bool 1) make_rasmol_script=(&bool 0) make_pymol_script=(&bool 0) use_sidechain_neighbors=(&bool 0) use_symmetry=(&bool 1) sc_neighbor_dist_midpoint=(9.0 &Real) sc_neighbor_dist_exponent=(1.0 &Real) sc_neighbor_angle_shift_factor=(0.5 &Real) sc_neighbor_angle_exponent=(2.0 &Real) sc_neighbor_denominator=(1.0 &Real) >
-            <ATaskOperation name=task1 >
-                <all copy_layer=(&string layer) append=(&string) exclude=(&string)  specification=(&string "designable")  operation=(&string "design") />
-                <SecStructType aas=(&string) append(&string) exclude=(&string) />            
+        <LayerDesign name="(&string layer)" layer="(&string core_boundary_surface)" pore_radius="(&real 2.0)" core="(&real 20.0)" surface="(&real 40.0)" ignore_pikaa_natro="(&bool 0)" repack_non_design="(&bool 1)" make_rasmol_script="(&bool 0)" make_pymol_script="(&bool 0)" use_sidechain_neighbors="(&bool 0)" use_symmetry="(&bool 1)" sc_neighbor_dist_midpoint="(9.0 &Real)" sc_neighbor_dist_exponent="(1.0 &Real)" sc_neighbor_angle_shift_factor="(0.5 &Real)" sc_neighbor_angle_exponent="(2.0 &Real)" sc_neighbor_denominator="(1.0 &Real)" >
+            <ATaskOperation name="task1" >
+                <all copy_layer="(&string layer)" append="(&string)" exclude="(&string)"  specification="(&string 'designable')"  operation="(&string 'design')" />
+                <SecStructType aas="(&string)" append(&string) exclude="(&string)" />            
             </ATaskOperation >
         </LayerDesign>
 
@@ -45,7 +45,7 @@ _**Currently Deprecated, new syntax for residue assignment coming soon! **_
 After you combined tasks you need to assign residues, you can use the 'all' tag to assign residues for all the different secondary structure elements.
 
         <combined_task>
-            <all copy_layer=(&string) append=(&string) exclude=(&string)  specification=(&string "designable")  operation=(&string "design")/>
+            <all copy_layer="(&string)" append="(&string)" exclude="(&string)"  specification="(&string 'designable')"  operation="(&string 'design')"/>
         </combined_task>
 
 The options for the "all" tag are the following:

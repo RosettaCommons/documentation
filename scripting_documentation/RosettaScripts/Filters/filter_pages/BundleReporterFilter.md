@@ -7,7 +7,7 @@ Documentation added 17 July 2015 by Vikram K. Mulligan (vmullig@uw.edu), Baker l
 The BundleReporter writes all of the helical bundle parameters of a parametrically-generated pose (as might be created with the **[[MakeBundle|MakeBundleMover]]** or **[[BundleGridSampler|BundleGridSamplerMover]]** movers) to the logfile.  This filter is mainly intended as a reporter, though it can filter based on energy (much like the **[[ScoreType filter|ScoreTypeFilter]]**) if one so wishes.  Its default behaviour is to write bundle parameters and return "true" (always passing).
 
 ```
-<BundleReporter name=(&string) scorefxn=(&string) score_type=("total_score" &string) behavior=("ALWAYS_TRUE" &string) threshold=(0.0 &Real) report_sequence=(false &bool) use_three_letter_code=(false &bool) />
+<BundleReporter name="(&string)" scorefxn="(&string)" score_type="('total_score' &string)" behavior="('ALWAYS_TRUE' &string)" threshold="(0.0 &Real)" report_sequence="(false &bool)" use_three_letter_code="(false &bool)" />
 ```
 Options for this filter include:
 

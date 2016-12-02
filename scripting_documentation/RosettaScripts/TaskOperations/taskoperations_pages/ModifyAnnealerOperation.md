@@ -5,7 +5,7 @@
 Allows modification of the temperatures and quench used by the annealer during packing.
 
 ```
-<ModifyAnnealer name=(&string) high_temp=(100.0 &Real) low_temp=(0.3 &Real) disallow_quench=(0 &bool)/>
+<ModifyAnnealer name="(&string)" high_temp="(100.0 &Real)" low_temp="(0.3 &Real)" disallow_quench="(0 &bool)"/>
 ```
 
 -   high\_temp - the starting high temperature for the annealer

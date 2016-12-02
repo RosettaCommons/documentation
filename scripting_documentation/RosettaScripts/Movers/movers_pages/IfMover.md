@@ -5,7 +5,7 @@
 Implements a simple IF (filter(pose)) THEN true\_mover(pose) ELSE false\_mover(pose). *true\_mover* is required, *false\_mover* is not.
 
 ```
-<If name=( &string) filter_name=(&string) true_mover_name=(&string) false_mover_name=(null &string)/>
+<If name="( &string)" filter_name="(&string)" true_mover_name="(&string)" false_mover_name="(null &string)"/>
 ```
 
 ##See Also

@@ -15,7 +15,7 @@ The filter should not count cavities that are exposed to solvent.
 
 
 ```
-<CavityVolume name=(&string) />
+<CavityVolume name="(&string)" />
 ```
 
 **Example**

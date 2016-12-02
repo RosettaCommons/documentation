@@ -40,11 +40,11 @@ With the <(Selector)> subtag designating that any ResidueSelector can be nested 
 
 #### NotResidueSelector
 
-    <Not name=(&string) selector=(&string)>
+    <Not name="(&string)" selector="(&string)">
 
 or
 
-    <Not name=(&string)>
+    <Not name="(&string)">
         <(Selector) .../>
     </Not>
 
@@ -61,7 +61,7 @@ any ResidueSelector can be defined as a subtag of the Not selector.  You cannot,
 
 #### AndResidueSelector
 
-    <And name=(&string) selectors=(&string)>
+    <And name="(&string)" selectors="(&string)">
        <(Selector1)/>
        <(Selector2)/>
         ...
@@ -75,7 +75,7 @@ any ResidueSelector can be defined as a subtag of the Not selector.  You cannot,
 
 #### OrResidueSelector
 
-    <Or name=(&string) selectors=(&string)>
+    <Or name="(&string)" selectors="(&string)">
        <(Selector1)/>
        <(Selector2)/>
         ...
@@ -91,7 +91,7 @@ any ResidueSelector can be defined as a subtag of the Not selector.  You cannot,
 
 #### ChainSelector
 
-    <Chain chains=(&string)/>
+    <Chain chains="(&string)"/>
 
 -   The string given for the "chains" option should be a comma-separated list of chain identifiers
 -   Each chain identifier should be either an integer, so that the Pose chain index will be used, or a single character, so that the PDB chain ID can be used.
@@ -99,7 +99,7 @@ any ResidueSelector can be defined as a subtag of the Not selector.  You cannot,
 
 #### JumpDownstreamSelector
 
-    <JumpDownstream jump=(&int)/>
+    <JumpDownstream jump="(&int)"/>
 
 -   The integer given for the "jump" argument should refer to a Jump that is present in the Pose.
 -   The JumpDownstreamSelector sets the positions corresponding to all of the residues that are downstream of the indicated jump to true, and all the other positions to false.
@@ -107,7 +107,7 @@ any ResidueSelector can be defined as a subtag of the Not selector.  You cannot,
 
 #### JumpUpstreamSelector
 
-    <JumpUpstream jump=(&int)/>
+    <JumpUpstream jump="(&int)"/>
 
 -   The integer given for the "jump" argument should refer to a Jump that is present in the Pose.
 -   The JumpUpstreamSelector sets the positions corresponding to all of the residues that are upstream of the indicated jump to true, and all the other positions to false.
@@ -117,9 +117,9 @@ any ResidueSelector can be defined as a subtag of the Not selector.  You cannot,
 
 Selects residues in the pose at random. Note that this residue selector is stochastic. This is, it will return a different set of residues every time it is called. However, the randomly selected residues can be saved using the [[StoreResidueSubsetMover]] and retrieved using the [[StoredResidueSubset]] selector.
 
-    <RandomResidue name=(&string)
-        selector=(TrueSelector &string)
-        num\_residues=(1 &int) />
+    <RandomResidue name="(&string)"
+        selector="(TrueSelector &string)"
+        num\_residues="(1 &int)" />
 
 - num\_residues -- The number of residues to be randomly selected
 - residue\_selector -- Defines the subset from which random residues are chosen.
@@ -128,7 +128,7 @@ Selects residues in the pose at random. Note that this residue selector is stoch
 
 #### ResidueIndexSelector
 
-    <Index name=(&string) resnums=(&string)/>
+    <Index name="(&string)" resnums="(&string)"/>
 
 -   The string given for the "resnums" option should be a comma-separated list of residue identifiers
 -   Each residue identifier should be either:
@@ -142,7 +142,7 @@ Selects residues in the pose at random. Note that this residue selector is stoch
 #### ResidueNameSelector
 Selects residues by their full Rosetta residue type name. At least one of residue_names and residue_name3 must be specified.
 
-    <ResidueName residue_names=(&string) residue_name3=(&string) />
+    <ResidueName residue_names="(&string)" residue_name3="(&string)" />
 
 residue_names - A comma-separated list of Rosetta residue names (including patches). For example, "CYD" will select all disulfides, and "CYD,SER:NTermProteinFull,ALA" will select all disulfides, alanines, and N-terminal serines -- all other residues will not be selected (i.e. be false in the ResidueSubset object).
 
@@ -166,7 +166,7 @@ Selects CDR residues in an antibody or camelid antibody.
 - PIs: Dr. Roland Dunbrack and Dr. William Schief
 
 ```
-    <AntibodyRegion name=(&string) region=(&string) numbering_scheme=(&string) cdr_definition=(&string) />
+    <AntibodyRegion name="(&string)" region="(&string)" numbering_scheme="(&string)" cdr_definition="(&string)" />
 ```
 
 -   _region (&string) (default=cdr_region)_:  Select the region you wish to disable. Accepted strings: cdr_region, framework_region, antigen_region. 
@@ -185,7 +185,7 @@ Selects CDR residues in an antibody or camelid antibody.
 - PIs: Dr. Roland Dunbrack and Dr. William Schief
 
 ```
-    <CDR name=(&string) cdrs=(&string,&string) numbering_scheme=(&string) cdr_definition=(&string) />
+    <CDR name="(&string)" cdrs="(&string,&string)" numbering_scheme="(&string)" cdr_definition="(&string)" />
 ```
 
 -   _cdrs (&string,&string)_ (default=all cdrs):  Select the set of CDRs you wish to restrict to (ex: H1 or h1) 
@@ -218,7 +218,7 @@ These Residue selectors use the underlying RosettaCarbohydrate Framework.
 The BinSelector selects residues that fall in a named mainchain torsion bin (e.g. the "A" bin, corresponding to alpha-helical residues by the "ABEGO" nomenclature).  Non-polymeric residues are ignored.  By default, only alpha-amino acids are selected, though this can be disabled.
 
 ```
-     <Bin name=(&string) bin=(&string) bin_params_file=("ABEGO" &string) select_only_alpha_aas=(true &bool) />
+     <Bin name="(&string)" bin="(&string)" bin_params_file="('ABEGO' &string)" select_only_alpha_aas="(true &bool)" />
 ```
 - bin: The name of the mainchain torsion bin.
 - bin_params_file: The filename of a bin_params file that defines a set of torsion bins.  Current options include "ABEGO", "ABBA" (a symmetric version of the ABEGO nomenclature useful for mixed D/L design), and "PRO_DPRO" (which defines bins "LPRO" and "DPRO" corresponding to the regions of Ramachandran space accessible to L- and D-proline, respectively).  Predefined bin_params files are in database/protocol_data/generalizedKIC/bin_params/.  A custom-written bin_params file may also be provided with its relative path from the execution directory.
@@ -240,11 +240,11 @@ The BinSelector can be combined with AND, OR, or NOT selectors to select multipl
 
 #### InterGroupInterfaceByVector
 
-    <InterfaceByVector name=(%string) cb_dist_cut=(11.0&float) nearby_atom_cut=(5.5%float) vector_angle_cut=(75.0&float) vector_dist_cut=(9.0&float) grp1_selector=(%string) grp2_selector=(%string)/>
+    <InterfaceByVector name="(%string)" cb_dist_cut="(11.0&float)" nearby_atom_cut="(5.5%float)" vector_angle_cut="(75.0&float)" vector_dist_cut="(9.0&float)" grp1_selector="(%string)" grp2_selector="(%string)"/>
 
 or
 
-    <InterfaceByVector name=(%string) cb_dist_cut=(11.0&float) nearby_atom_cut=(5.5%float) vector_angle_cut=(75.0&float) vector_dist_cut=(9.0&float)>
+    <InterfaceByVector name="(%string)" cb_dist_cut="(11.0&float)" nearby_atom_cut="(5.5%float)" vector_angle_cut="(75.0&float)" vector_dist_cut="(9.0&float)">
        <(Selector1)/>
        <(Selector2/>
     </InterfaceByVector>
@@ -259,12 +259,12 @@ or
 The LayerSelector lets a user select residues by burial.  Burial can be assessed by number of sidechain neighbors within a cone along the CA-CB vector (the default method), or by SASA.
 
 ```
-     <Layer name=(&string) select_core=(false &bool) select_boundary=(false &bool) select_surface=(false &bool)
-          ball_radius=(2.0 &Real) use_sidechain_neighbors=(true &bool)
-          sc_neighbor_dist_exponent=(1.0 &Real) sc_neighbor_dist_midpoint=(9.0 &Real)
-          sc_neighbor_denominator=(1.0 &Real) sc_neighbor_angle_shift_factor=(0.5 &Real)
-          sc_neighbor_angle_exponent=(2.0 &Real)
-          core_cutoff=(5.2 &Real) surface_cutoff=(2.0 &Real)
+     <Layer name="(&string)" select_core="(false &bool)" select_boundary="(false &bool)" select_surface="(false &bool)"
+          ball_radius="(2.0 &Real)" use_sidechain_neighbors="(true &bool)"
+          sc_neighbor_dist_exponent="(1.0 &Real)" sc_neighbor_dist_midpoint="(9.0 &Real)"
+          sc_neighbor_denominator="(1.0 &Real)" sc_neighbor_angle_shift_factor="(0.5 &Real)"
+          sc_neighbor_angle_exponent="(2.0 &Real)"
+          core_cutoff="(5.2 &Real)" surface_cutoff="(2.0 &Real)"
      />
 ```
 
@@ -316,7 +316,7 @@ or
 #### NumNeighborsSelector
 
 ```
-    <NumNeighbors name=(%string) count_water=(false&bool) threshold=(17%integer) distance_cutoff=(10.0&float)/>
+    <NumNeighbors name="(%string)" count_water="(false&bool)" threshold="(17%integer)" distance_cutoff="(10.0&float)"/>
 ```
 
 -   The NumNeighborsSelector sets to true each position in the ResidueSubset that corresponds to a residue that has at least *threshold* neighbors within *distance\_cutoff,* and sets all other positions to false.
@@ -328,7 +328,7 @@ or
 
 
 ```
-     <Phi name=(&string) select_positive_phi=(true &bool) ignore_unconnected_upper=(true &bool) />
+     <Phi name="(&string)" select_positive_phi="(true &bool)" ignore_unconnected_upper="(true &bool)" />
 ```
 - select_positive_phi: If true (the default), alpha-amino acids with phi values greater than or equal to zero are selected.  If false, alpha-amino acids with phi values less than zero are selected.
 - ignore_unconnected_upper: If true (the default) then C-terminal residues and other residues with nothing connected at the upper connection are not selected.  If false, then these residues can be selected, depending on their phi values.  Note that anything lacking a lower connection is <i>never</i> selected.
@@ -388,11 +388,11 @@ or
 #### SecondaryStructureSelector
 
 ```
-<SecondaryStructure name=(&string)
-    ss=(&string)
-    include_terminal_loops=(&bool, false)
-    use_dssp=(&bool, false)
-    pose_secstruct=(&string, "") />
+<SecondaryStructure name="(&string)"
+    ss="(&string)"
+    include_terminal_loops="(&bool, false)"
+    use_dssp="(&bool, false)"
+    pose_secstruct="(&string, '')" />
 ```
 
 SecondaryStructureSelector selects all residues with given secondary structure. For example, you might use it to select all loop residues in a pose.  SecondaryStructureSelector uses the following rules to determine the pose secondary structure:
@@ -451,7 +451,7 @@ The example below selects all residues that were converted to disulfides by the 
 
 Creates a residue subset by retrieving a residur subset that has been cached into the current pose by the [[StoreResidueSubsetMover]]. The pose length must be the same as when the subset was store.
 
-    <StoredResidueSubset name=(&string) subset_name=(&string) />
+    <StoredResidueSubset name="(&string)" subset_name="(&string)" />
 
 -   subset\_name - The name the residue subset will be saved as in the pose's cacheable data. Must be identical to the subset\_name used to retrieve the task using the StoredResidueSubset task operation.
 

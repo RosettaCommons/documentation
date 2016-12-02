@@ -48,7 +48,7 @@ Usage
 =====
 
 ``` 
-    <GlycanResidueSelector name=(&string) from_position=3/>
+    <GlycanResidueSelector name="(&string)" from_position="3"/>
 ```
 
 _position_ &string

@@ -5,7 +5,7 @@
 Switches the residue sets (e.g., allatom-\>centroid, or vice versa).
 
 ```
-<SwitchResidueTypeSetMover name="&string" set=(&string)/>
+<SwitchResidueTypeSetMover name="&string" set="(&string)"/>
 ```
 
 -   set: which set to use (options: centroid, centroid_rot, fa\_standard...)

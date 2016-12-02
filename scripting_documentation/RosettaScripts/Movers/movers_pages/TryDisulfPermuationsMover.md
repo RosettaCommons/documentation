@@ -18,7 +18,7 @@ The above will consider all disulfide permutations in a pose, disregarding disul
 ## Full options:
 
 ```
-<TryDisulfPermutations name=(&string) consider_already_bonded=(true &bool) min_type=(dfpmin &string) min_tolerance=(0.00001 &Real) selector=(&string)>
+<TryDisulfPermutations name="(&string)" consider_already_bonded="(true &bool)" min_type="(dfpmin &string)" min_tolerance="(0.00001 &Real)" selector="(&string)">
 ```
 - consider_already_bonded: If true, all disulfide-forming residues are considered.  If false, those already involved in disulfide bonds are omitted.
 - min_type: The flavour of minimization used.  See [[Minimization overview]] for details.

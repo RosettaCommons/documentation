@@ -2,8 +2,8 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## CalculatorFilter
 
-    <CalculatorFilter name=(&string) equation=(&string) threshold=(&real 0) >
-          <VAR name=(&string) filter=(&string) value=(&Real)/>
+    <CalculatorFilter name="(&string)" equation="(&string)" threshold="(&real 0)" >
+          <Var name="(&string)" filter="(&string)" value="(&Real)"/>
         ... 
     </CalculatorFilter>
 

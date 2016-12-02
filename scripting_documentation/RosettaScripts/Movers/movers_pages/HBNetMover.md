@@ -69,7 +69,7 @@ HBNet is a base classes that can be derived from to override key functions that 
 
 
 ```
-<HBNetStapleInterface name=(&string) hb_threshold=(&real -0.85) stringent_satisfaction=(&bool true) />
+<HBNetStapleInterface name="(&string)" hb_threshold="(&real -0.85)" stringent_satisfaction="(&bool true)" />
 ```
 
 UNDER CONSTRUCTION

@@ -5,9 +5,9 @@
 This is a special mover associated with PlaceSimultaneously, below. It carries out the auctioning of residues on the scaffold to hotspot sets without actually designing the scaffold. If pairing is unsuccessful Auction will report failure.
 
 ```
-<Auction name=( &string) host_chain=(2 &integer) max_cb_dist=(3.0 &Real) cb_force=(0.5 &Real)>
+<Auction name="( &string)" host_chain="(2 &integer)" max_cb_dist="(3.0 &Real)" cb_force="(0.5 &Real)">
    <StubSets>
-     <Add stubfile=(&string)/>
+     <Add stubfile="(&string)"/>
    </StubSets>
 </Auction>
 ```

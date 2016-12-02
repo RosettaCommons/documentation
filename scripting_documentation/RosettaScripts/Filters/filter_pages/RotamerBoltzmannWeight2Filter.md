@@ -30,13 +30,13 @@ Alanine and Glycine have no distinct heavy-atom rotamers. Therefore, the probabi
 ```
 
 ```
-<RotamerBoltzmannWeight2 name=(&string)
-    residue_selector=("TrueSelector" &string)
-    scorefxn=(talaris2014 &string)
-    probability_type=("ROTAMER_BOLTZMANN" &string)
-    score_type=("MEAN_PROBABILITY" &string)
-    temperature=(0.8 &real)
-    lambda=(0.5 &real) />
+<RotamerBoltzmannWeight2 name="(&string)"
+    residue_selector="('TrueSelector' &string)"
+    scorefxn="(talaris2014 &string)"
+    probability_type="('ROTAMER_BOLTZMANN' &string)"
+    score_type="('MEAN_PROBABILITY' &string)"
+    temperature="(0.8 &real)"
+    lambda="(0.5 &real)" />
 ```
 
 **Options**

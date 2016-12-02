@@ -30,7 +30,7 @@ The PairFeatures reporter measures the distances between residues.
 AtomAtomPairFeatures
 --------------------
 
-        <AtomAtomPairFeatures min_dist=(&real 0) max_dist=(&real 10) nbins=(&integer 15)/>
+        <AtomAtomPairFeatures min_dist="(&real 0)" max_dist="(&real 10)" nbins="(&integer 15)"/>
 
 The distances between pairs of atoms is an indicator of the packing of a structure. Since there are a large number of atom pairs, here, the information is summarized by atom pair distributions for each pair of atom types (Rosetta AtomType -\> element type). See AtomInResidueAtomInResiduePairFeatures for an alternative binning of atom-atom interactions.
 
@@ -108,7 +108,7 @@ The HBondFeatures reporter measures the geometry of hydrogen bonds. The most cur
 
 The HBondFeatures feature reporter takes the following options:
 
-        <HBondFeatures scorefxn=(&scorefxn) definition_type=(["energy", "AHdist"]) definition_threshold=(&real)/>
+        <HBondFeatures scorefxn="(&scorefxn)" definition_type="(['energy', 'AHdist'])" definition_threshold="(&real)"/>
 
 -   *scorefxn* : Use a the parameters in a defined score function to evaluate the hydrogen bonds
 -   *definition\_type* , *definition\_threshold* : How should a hydrogen bond be defined? The default is a hydrogen bond is an interaction where the hbond energy is \< 0, ie `    energy   ` with a `    definition_threshold=0   `

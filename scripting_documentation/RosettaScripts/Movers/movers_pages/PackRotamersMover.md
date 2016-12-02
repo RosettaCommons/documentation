@@ -7,7 +7,7 @@ Repacks sidechains with user-supplied options, including TaskOperations
 
  
 ```
-<PackRotamersMover name="&string" scorefxn=(score12 &string) task_operations=(&string,&string,&string)/>
+<PackRotamersMover name="&string" scorefxn="(score12 &string)" task_operations="(&string,&string,&string)"/>
 ```
 
 -   scorefxn: scorefunction to use for repacking (NOTE: the error "Scorefunction not set up for nonideal/Cartesian scoring" can be fixed by adding 'Reweight scoretype="pro_close" weight="0.0"' under the talaris2013_cart scorefxn in the SCOREFXNS section)
@@ -22,7 +22,7 @@ The way to prevent this is to pass a [[RestrictToRepacking|RestrictToRepackingOp
 
 [...]
 
-<PackRotamersMover name="&string" scorefxn=(score12 &string) task_operations="repackonly"/>
+<PackRotamersMover name="&string" scorefxn="(score12 &string)" task_operations="repackonly"/>
 
 ```
 

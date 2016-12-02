@@ -5,7 +5,7 @@
 This mover is useful for reporting the total or per-residue ddgs in cases where you don't want to use the ddG filter for some reason. (also, the ddg filter can't currently do per-residue ddgs). Ddg scores are reported as string-real pairs in the job. The total ddg score has the tag "ddg" and the each per residue ddg has the tag "residue\_ddg\_n" where n is the residue number.
 
 ```
-<ddG name=(&string) jump=(1 &integer) per_residue_ddg=(0 &bool) repack_bound=(0 bool&) repack_unbound=(0 bool&) relax_bound(0 bool&) scorefxn=("score12" &string) chain_num=(&int,&int...) chain_name=(&char,&char) filter=(&string)/>
+<ddG name="(&string)" jump="(1 &integer)" per_residue_ddg="(0 &bool)" repack_bound="(0 bool&)" repack_unbound="(0 bool&)" relax_bound(0 bool&) scorefxn="('score12' &string)" chain_num="(&int,&int...)" chain_name="(&char,&char)" filter="(&string)"/>
 ```
 
 chain\_num and chain\_name allow you to specify a list of chain numbers or chain names to use to calculate the ddg, rather than a single jump. You cannot move chain 1, moving all the other chains is the same thing as moving chain 1, so do that instead. If filter is specified, the computed value of the filter will be used for the reported difference in score, rather than the given scorefunction. Use of the filter with per-residue ddG is not supported.

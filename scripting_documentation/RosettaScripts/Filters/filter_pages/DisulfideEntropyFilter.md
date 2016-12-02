@@ -33,7 +33,7 @@ threshold = (0.1604 \* residues) + (1.7245 \* disulfides) + 5.1477 + `     tight
 where `     tightness    ` is user specified. Larger values for tightness lead to a higher (and thus looser) threshold. With a tightness of zero, 61% of natural proteins pass the filter. With a tightness of 1, 82% of natural proteins pass the filter, and with a tightness of -1, only 19% of natural proteins pass the filter.
 
 ```
-<DisulfideEntropy name="&string" tightness=(0 &Real) lower_bound=(0 &Real)/>
+<DisulfideEntropy name="&string" tightness="(0 &Real)" lower_bound="(0 &Real)"/>
 ```
 
 ## See also:

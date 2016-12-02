@@ -6,8 +6,8 @@ Specify groups of residues that should be mutated together.  For example, if one
 ### Usage:
 
 ```xml
-<LinkResidues name=(&string)>
-      <LinkGroup group=(&string)/>
+<LinkResidues name="(&string)">
+      <LinkGroup group="(&string)"/>
       ...
 </LinkResidues>
 ```
