@@ -46,7 +46,7 @@ After you combined tasks you need to assign residues, you can use the 'all' tag 
 
         <combined_task>
             <all copy_layer=(&string) append=(&string) exclude=(&string)  specification=(&string "designable")  operation=(&string "design")/>
-        </combine_task>
+        </combined_task>
 
 The options for the "all" tag are the following:
 
