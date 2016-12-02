@@ -8,15 +8,15 @@ Hotspot-based sidechain placement. This is the main workhorse of the hot-spot ce
 2.  PlaceScaffold. Move the scaffold so that it's on top of the stub. You'll keep the wonderful hotspot interactions, but suffer from lever effects on the scaffold side. PlaceScaffold can be used as a replacement for docking by deactivating the "triage\_positions" option.
 
 ```
-<PlaceStub name=(&string) place_scaffold=(0 &bool) triage_positions=(1 &bool) chain_to_design=(2 &integer) score_threshold=(0.0 &Real) allowed_host_res=(&string) stubfile=(&string) minimize_rb=(0 &bool) after_placement_filter=(true_filter &string) final_filter=(true_filter &string) max_cb_dist=(4.0 &Real) hurry=(1 &bool) add_constraints=(1 &bool) stub_energy_threshold=(1.0 &Real) leave_coord_csts=(0 &bool) post_placement_sdev=(1.0 &Real)>
+<PlaceStub name="(&string)" place_scaffold="(0 &bool)" triage_positions="(1 &bool)" chain_to_design="(2 &integer)" score_threshold="(0.0 &Real)" allowed_host_res="(&string)" stubfile="(&string)" minimize_rb="(0 &bool)" after_placement_filter="(true_filter &string)" final_filter="(true_filter &string)" max_cb_dist="(4.0 &Real)" hurry="(1 &bool)" add_constraints="(1 &bool)" stub_energy_threshold="(1.0 &Real)" leave_coord_csts="(0 &bool)" post_placement_sdev="(1.0 &Real)">
      <StubMinimize>
-        <Add mover_name=(&string) bb_cst_weight=(10, &Real)/>
+        <Add mover_name="(&string)" bb_cst_weight="(10, &Real)"/>
      </StubMinimize>
      <DesignMovers>
-        <Add mover_name=(&string) use_constraints=(1 &bool) coord_cst_std=(0.5 &Real)/>
+        <Add mover_name="(&string)" use_constraints="(1 &bool)" coord_cst_std="(0.5 &Real)"/>
      </DesignMovers>
      <NotifyMovers>
-        <Add mover_name=(&string)/>
+        <Add mover_name="(&string)"/>
      </NotifyMovers>
 </PlaceStub>
 ```

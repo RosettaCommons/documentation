@@ -9,13 +9,13 @@ The following set ReportToDB tag contains the minimal set of features.
 ```xml
 <MOVERS>
 <ReportToDB name=features database_name=scores.db3>
-    <feature name=ResidueFeatures />
-    <feature name=PoseConformationFeatures />
-    <feature name=ResidueConformationFeatures />
-    <feature name=ProteinResidueConformationFeatures />
-    <feature name=ResidueSecondaryStructureFeatures />
-    <feature name=SecondaryStructureSegmentFeatures />
-    <feature name=SmotifFeatures />
+    <ResidueFeatures />
+    <PoseConformationFeatures />
+    <ResidueConformationFeatures />
+    <ProteinResidueConformationFeatures />
+    <ResidueSecondaryStructureFeatures />
+    <SecondaryStructureSegmentFeatures />
+    <SmotifFeatures />
 </ReportToDB>
 </MOVERS>
 ```

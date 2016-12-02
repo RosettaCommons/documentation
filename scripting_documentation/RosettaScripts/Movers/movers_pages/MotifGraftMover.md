@@ -63,16 +63,16 @@ and for a two fragments graft:
 
 ```
         <OperateOnCertainResidues name="hotspot_onlyrepack">
-            <RestrictToRepackingRLT/>
             <ResiduePDBInfoHasLabel property="HOTSPOT"/>
+            <RestrictToRepackingRLT/>
         </OperateOnCertainResidues>
         <OperateOnCertainResidues name="scaffold_onlyrepack">
-            <RestrictToRepackingRLT/>
             <ResiduePDBInfoHasLabel property="SCAFFOLD"/>
+            <RestrictToRepackingRLT/>
         </OperateOnCertainResidues>
         <OperateOnCertainResidues name="context_norepack">
-            <PreventRepackingRLT/>
             <ResiduePDBInfoHasLabel property="CONTEXT"/>
+            <PreventRepackingRLT/>
         </OperateOnCertainResidues>
 ```
 

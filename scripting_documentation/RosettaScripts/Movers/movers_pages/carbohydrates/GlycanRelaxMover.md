@@ -30,7 +30,7 @@ Usage
 =====
 
 ```
-<GlycanRelaxMover residue_selector= selector/>
+<GlycanRelaxMover residue_selector="selector"/>
 ```
 
 

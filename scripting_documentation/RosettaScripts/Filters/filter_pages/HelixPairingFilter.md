@@ -17,17 +17,17 @@ If no helix pairings are given, this implies that all helix pairings are satisfi
 
 
 ```
-<HelixPairing name=(&string)
-              secstruct=("" &string)
-              use_dssp=(false &bool)
-              blueprint=("" &string)
-              helix_pairings=("" &string)
-              dist=(15.0 &Real)
-              cross=(45.0 &Real)
-              align=(25.0 &Real)
-              bend=(20.0 &Real)
-              output_id=(1 &Integer)
-              output_type=("dist" &string) />
+<HelixPairing name="(&string)"
+              secstruct="('' &string)"
+              use_dssp="(false &bool)"
+              blueprint="('' &string)"
+              helix_pairings="('' &string)"
+              dist="(15.0 &Real)"
+              cross="(45.0 &Real)"
+              align="(25.0 &Real)"
+              bend="(20.0 &Real)"
+              output_id="(1 &Integer)"
+              output_type="('dist' &string)" />
 ```
 -   secstruct: If specified, the given secondary structure will be forcibly assigned to the pose and used to determine the locations of helices. The secondary structure must be the same length as the input pose.
 -   use_dssp: Only works if secstruct is unspecified. If true, DSSP will be used to determine the pose secondary structure.  If false, the secondary structure information stored in the pose will be used.

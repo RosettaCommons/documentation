@@ -5,13 +5,13 @@
 Sets a given torsion to a specified value.  This mover can also be used to randomize a torsion (set it to an entirely random value), to randomize mainchain torsions of alpha-amino acids biased by the Ramachandran map, or to perturb a torsion (add a small random value to its initial value).
 
 ```
-<SetTorsion name="&string" foldtree_root=(&int)>
-     <Torsion residue=(&pdb/rosetta numbering) torsion_name=(&string) angle=(&string) perturbation_type=(&string) perturbation_magnitude=(&real) />
-     <Torsion residue="pick_atoms" torsion_name=(&string) angle=(&string) perturbation_type=(&string) perturbation_magnitude=(&real) >
-          <Atom1 residue=(pdb/rosetta numbering) atom=(&string) />
-          <Atom2 residue=(pdb/rosetta numbering) atom=(&string) />
-          <Atom3 residue=(pdb/rosetta numbering) atom=(&string) />
-          <Atom4 residue=(pdb/rosetta numbering) atom=(&string) />
+<SetTorsion name="&string" foldtree_root="(&int)">
+     <Torsion residue="(&pdb/rosetta numbering)" torsion_name="(&string)" angle="(&string)" perturbation_type="(&string)" perturbation_magnitude="(&real)" />
+     <Torsion residue="pick_atoms" torsion_name="(&string)" angle="(&string)" perturbation_type="(&string)" perturbation_magnitude="(&real)" >
+          <Atom1 residue="(pdb/rosetta numbering)" atom="(&string)" />
+          <Atom2 residue="(pdb/rosetta numbering)" atom="(&string)" />
+          <Atom3 residue="(pdb/rosetta numbering)" atom="(&string)" />
+          <Atom4 residue="(pdb/rosetta numbering)" atom="(&string)" />
      </Torsion>
 </SetTorsion>
 ```

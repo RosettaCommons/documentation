@@ -5,7 +5,7 @@
 Returns the Boltzmann weighted sum of a set of positive and negative filters. The fitness is actually defined as -F with [-1-0] range (-1 most optimal, 0 least).
 
 ```
-<Boltzmann name=(&string) fitness_threshold=(0&real) temperature=(0.6 &real) positive_filters=(&comma delimited list) negative_filters=(&comma delimited list) anchors=(&comma delimited list of floats) triage_threshold=(-9999 &int) norm_neg=(false &bool)/>
+<Boltzmann name="(&string)" fitness_threshold="(0&real)" temperature="(0.6 &real)" positive_filters="(&comma delimited list)" negative_filters="(&comma delimited list)" anchors="(&comma delimited list of floats)" triage_threshold="(-9999 &int)" norm_neg="(false &bool)"/>
 ```
 
 -   fitness\_threshold: below which fitness threshold to allow?

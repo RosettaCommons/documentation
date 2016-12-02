@@ -6,7 +6,7 @@ Import unbound rotamers from a given PDB file. Specify the unbound/native PDB fi
 
 Note: This task operation was developed to favor unbound rotamers (in particular, native rotamers) from an imported PDB file. If this is what you want, make sure that you use the load\_unbound\_rot mover (no parameters, and currently undocumented), which changes the rotamer Dunbrack scoring term (fa\_dun), such that the scores for your imported unbound rotamers are equal to the best scoring rotamers in your currently used library. This will favor the imported unbound rotamers at the time you design/repack sidechains. This task operation should be used with your favorite sidechain designing/packing mover (for example: GreedyOptMutationMover, RepackMinimize, or PackRotamersMover).
 
-    <ImportUnboundRotamers name=(&string)/>
+    <ImportUnboundRotamers name="(&string)"/>
 
 ##See Also
 

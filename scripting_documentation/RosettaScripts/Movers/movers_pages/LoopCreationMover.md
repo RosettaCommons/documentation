@@ -67,7 +67,7 @@ With loop\_sizes=2,3,4,5, in loop inserter, loop\_sizes in ResourceOptions shoul
 ```
 <JD2ResourceManagerJobInputter>
         <ResourceOptions>
-                <LoopHashLibraryOptions tag=lh_lib_options loop_sizes="8,9,10,11"/>
+                <LoopHashLibraryOptions tag="lh_lib_options" loop_sizes="8,9,10,11"/>
         </ResourceOptions>
 ...
 </JD2ResourceManagerJobInputter>

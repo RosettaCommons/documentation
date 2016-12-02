@@ -14,7 +14,7 @@ scratch, modeling big conformational changes, modeling small conformational
 changes, and generating backbone ensembles.
 
 ```xml
-<KicMover name=(&string) loop_file=(&string)/>
+<KicMover name="(&string)" loop_file="(&string)"/>
 ```
 
 Right now KicMover is not really customizable at all, but I'm hoping to change 

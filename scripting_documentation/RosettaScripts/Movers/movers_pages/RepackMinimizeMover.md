@@ -7,8 +7,8 @@ RepackMinimize does the design/repack and minimization steps using different sco
 repack\_partner1 (and 2) defines which of the partners to design. If no particular residues are defined, the interface is repacked/designs. If specific residues are defined, then a shell of residues around those target residues are repacked/designed and minimized. repack\_non\_ala decides whether or not to change positions that are not ala. Useful for designing an ala\_pose so that positions that have been changed in previous steps are not redesigned. min\_rigid\_body minimize rigid body orientation. (as in docking)
 
 ```
-<RepackMinimize name="&string" scorefxn_repack=(score12 &string) scorefxn_minimize=(score12 &string) repack_partner1=(1 &bool) repack_partner2=(1 &bool) design_partner1=(0 &bool) design_partner2=(1 &bool) interface_cutoff_distance=(8.0 &Real) repack_non_ala=(1 &bool) minimize_bb=(1 &bool * see below for more details) minimize_rb=(1 &bool) minimize_sc=(1 &bool) optimize_fold_tree=(1 & bool) task_operations=("" &string)>
-    <residue pdb_num/res_num=(&string) />
+<RepackMinimize name="&string" scorefxn_repack="(score12 &string)" scorefxn_minimize="(score12 &string)" repack_partner1="(1 &bool)" repack_partner2="(1 &bool)" design_partner1="(0 &bool)" design_partner2="(1 &bool)" interface_cutoff_distance="(8.0 &Real)" repack_non_ala="(1 &bool)" minimize_bb="(1 &bool * see below for more details)" minimize_rb="(1 &bool)" minimize_sc="(1 &bool)" optimize_fold_tree="(1 & bool)" task_operations="('' &string)">
+    <residue pdb_num/res_num="(&string)" />
 </RepackMinimize>
 ```
 

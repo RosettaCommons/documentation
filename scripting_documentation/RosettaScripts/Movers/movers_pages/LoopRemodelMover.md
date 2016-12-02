@@ -5,7 +5,7 @@
 Perturbs and/or refines a set of user-defined loops. Useful to sample a variety of loop conformations.
 
 ```
-<LoopRemodel name="&string" auto_loops=(0 &bool) loop_start_(pdb_num/res_num) loop_end_(pdb_num/res_num) hurry=(0 &bool) cycles=(10 &Size) protocol=(ccd &string) perturb_score=(score4L &string) refine_score=(score12 &string) perturb=(0 &bool) refine=(1 &bool) design=(0 &bool)/>
+<LoopRemodel name="&string" auto_loops="(0 &bool)" loop_start_(pdb_num/res_num) loop_end_(pdb_num/res_num) hurry="(0 &bool)" cycles="(10 &Size)" protocol="(ccd &string)" perturb_score="(score4L &string)" refine_score="(score12 &string)" perturb="(0 &bool)" refine="(1 &bool)" design="(0 &bool)"/>
 ```
 
 -   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]

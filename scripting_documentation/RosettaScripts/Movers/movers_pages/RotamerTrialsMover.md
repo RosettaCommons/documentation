@@ -7,7 +7,7 @@ This mover goes through each repackable/redesignable position in the pose, takin
 In addition to the score function, the mover takes a list of task operations to specify which residues to consider. (See [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]] .)
 
 ```
-<RotamerTrialsMover name="&string" scorefxn=(&string) task_operations=(&string,&string,&string) show_packer_task=(0 &bool) />
+<RotamerTrialsMover name="&string" scorefxn="(&string)" task_operations="(&string,&string,&string)" show_packer_task="(0 &bool)" />
 ```
 
 

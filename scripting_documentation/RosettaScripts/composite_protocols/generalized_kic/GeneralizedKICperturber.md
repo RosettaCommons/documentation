@@ -14,24 +14,24 @@ Certain types of perturbers operate on residues, and require a list of one or mo
      ...
      #A residue-based perturber:
      <AddPerturber effect="&string">
-          <AddResidue index=(&int) />
-          <AddResidue index=(&int) />
-          <AddResidue index=(&int) />
+          <AddResidue index="(&int)" />
+          <AddResidue index="(&int)" />
+          <AddResidue index="(&int)" />
           ...
-          <AddValue value=(&Real) />
-          <AddValue value=(&Real) />
-          <AddValue value=(&Real) />
+          <AddValue value="(&Real)" />
+          <AddValue value="(&Real)" />
+          <AddValue value="(&Real)" />
           ...
      </AddPerturber>
      #An atom-based perturber taking four atoms per degree of freedom:
      <AddPerturber effect="&string">
-          <AddAtoms res1=(&int) atom1="&string" res2=(&int) atom2="&string" res3=(&int) atom3="&string" res4=(&int) atom4="&string" />
-          <AddAtoms res1=(&int) atom1="&string" res2=(&int) atom2="&string" res3=(&int) atom3="&string" res4=(&int) atom4="&string" />
-          <AddAtoms res1=(&int) atom1="&string" res2=(&int) atom2="&string" res3=(&int) atom3="&string" res4=(&int) atom4="&string" />
+          <AddAtoms res1="(&int)" atom1="&string" res2="(&int)" atom2="&string" res3="(&int)" atom3="&string" res4="(&int)" atom4="&string" />
+          <AddAtoms res1="(&int)" atom1="&string" res2="(&int)" atom2="&string" res3="(&int)" atom3="&string" res4="(&int)" atom4="&string" />
+          <AddAtoms res1="(&int)" atom1="&string" res2="(&int)" atom2="&string" res3="(&int)" atom3="&string" res4="(&int)" atom4="&string" />
           ...
-          <AddValue value=(&Real) />
-          <AddValue value=(&Real) />
-          <AddValue value=(&Real) />
+          <AddValue value="(&Real)" />
+          <AddValue value="(&Real)" />
+          <AddValue value="(&Real)" />
           ...
      </AddPerturber>
      ...
@@ -57,7 +57,7 @@ Certain perturbers or perturber combinations have convenient shorthands.  For ex
 ```
 <GeneralizedKIC ...>
      ...
-     <CloseBond prioratom=&string" prioratom_res=(&int) atom1="&string" res1=(&int) atom2="&string" res2=(&int) followingatom="&string" followingatom_res=(&int) bondlength=(&Real) angle1=(&Real) angle2=(&Real) torsion=(&Real) randomze_flanking_torsions=(false, &bool) />
+     <CloseBond prioratom=&string" prioratom_res="(&int)" atom1="&string" res1="(&int)" atom2="&string" res2="(&int)" followingatom="&string" followingatom_res="(&int)" bondlength="(&Real)" angle1="(&Real)" angle2="(&Real)" torsion="(&Real)" randomze_flanking_torsions="(false, &bool)" />
      ...
 </GeneralizedKIC>
 ```
@@ -65,10 +65,10 @@ Certain perturbers or perturber combinations have convenient shorthands.  For ex
 ```
 <GeneralizedKIC ...>
      ...
-     <SampleCisPeptideBond cis_prob=(&Real)>
-          <AddResidue index=(&int) />
-          <AddResidue index=(&int) />
-          <AddResidue index=(&int) />
+     <SampleCisPeptideBond cis_prob="(&Real)">
+          <AddResidue index="(&int)" />
+          <AddResidue index="(&int)" />
+          <AddResidue index="(&int)" />
           ...
      </SampleCisPeptideBond>
      ...

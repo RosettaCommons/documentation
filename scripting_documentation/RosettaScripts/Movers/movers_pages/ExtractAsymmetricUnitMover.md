@@ -8,9 +8,9 @@ For historical reasons, the pose returned by this mover will include virtual ato
 
 ####Usage
 ```
-<ExtractAsymmetricUnit name=(&string)
-    keep_virtual=(&bool, true)
-    keep_unknown_aas=(&bool, false) />
+<ExtractAsymmetricUnit name="(&string)"
+    keep_virtual="(&bool, true)"
+    keep_unknown_aas="(&bool, false)" />
 ```
 
 ####Options

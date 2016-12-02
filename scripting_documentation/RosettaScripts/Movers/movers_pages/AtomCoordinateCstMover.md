@@ -5,7 +5,7 @@
 The mover which adds coordinate constraints to the pose for the relax application. Coordinate constraints are added to the pose according to the state of the pose at apply time, or based on a separate native pose.
 
 ```
-<AtomCoordinateCstMover name=(&string) coord_dev=(&Real 0.5) bounded=(&bool false) bound_width=(&Real 0) sidechain=(&bool false) native=(&bool false) task_operations=(&comma-delimited list of taskoperations) />
+<AtomCoordinateCstMover name="(&string)" coord_dev="(&Real 0.5)" bounded="(&bool false)" bound_width="(&Real 0)" sidechain="(&bool false)" native="(&bool false)" task_operations="(&comma-delimited list of taskoperations)" />
 ```
 
 -   coord\_dev - the strength/deviation of the constraints to use (e.g. -relax:coord\_cst\_stdev)

@@ -28,17 +28,17 @@ An example RosettaScripts tag is below:
 
 ```xml
 <MonteCarloAssemblyMover
-    name=assemble
-    cycles=5000
-    min_segments=7
-    max_segments=7
-    add_probability=0.4
-    delete_probability=0.1
-    switch_probability=0.5
+    name="assemble"
+    cycles="5000"
+    min_segments="7"
+    max_segments="7"
+    add_probability="0.4"
+    delete_probability="0.1"
+    switch_probability="0.5"
 >
-    <IntraSegmentRequirements index=1>
+    <IntraSegmentRequirements index="1">
         <SegmentDsspRequirement dssp="H" />
-        <SegmentLengthRequirement min_length=8 max_length=21 />
+        <SegmentLengthRequirement min_length="8" max_length="21" />
     </IntraSegmentRequirements>
 </MonteCarloAssemblyMover>
 ```

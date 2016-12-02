@@ -10,14 +10,14 @@ Remember that to have effect, the atom_pair_constraint scoreterm must be on in t
 
 
 ```
-<AtomPairConstraintGenerator name=(&string)
-    residue_selector=(&string TrueSelector)
-    sd=(&Real 0.5)
-    weight=(&Real 1.0)
-    max_distance=(&Real 12.0)
-    min_seq_sep=(&int 8)
-    ca_only=(&bool true)
-    native=(&bool false) />
+<AtomPairConstraintGenerator name="(&string)"
+    residue_selector="(&string TrueSelector)"
+    sd="(&Real 0.5)"
+    weight="(&Real 1.0)"
+    max_distance="(&Real 12.0)"
+    min_seq_sep="(&int 8)"
+    ca_only="(&bool true)"
+    native="(&bool false)" />
 ```
 
 * **residue_selector** - if given, only apply constraints to the selected residues. If not given, constraints will be applied to all residues in the pose.

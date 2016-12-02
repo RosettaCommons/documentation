@@ -14,7 +14,7 @@ See [[Assembly of models]] for required and optional command-line options.
 **WARNING: Currently the num_repeating_segments options of this tag is misleading. The below tag will actually generate an assembly with 4 repeating segments (e.g. helix-loop-helix-loop). The final repeat in the created assembly will be missing the last segment (e.g. helix-loop-helix). This should be fixed soon and the documentation will be updated to reflect this change**
 
 ```xml
-<RepeatAssemblyMover name="assemble" num_repeating_segments=2 />
+<RepeatAssemblyMover name="assemble" num_repeating_segments="2" />
 ```
 
 ##See Also

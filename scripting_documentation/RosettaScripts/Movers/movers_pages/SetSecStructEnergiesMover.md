@@ -6,16 +6,16 @@ Give a bonus to the secondary structures specified by the user. For example a sh
 
 
 ```
-<SetSecStructEnergies name=(&string)
-    scorefxn=(&string, required)
-    secstruct=(&string, "")
-    use_dssp=(&bool, true)
-    hh_pair=(&string, "")
-    ss_pair=(&string, "")
-    hss_triplets=(&string, "")
-    blueprint=(&string "")
-    ss_from_blueprint=(&string, true)
-    natbias_ss=(&float)
+<SetSecStructEnergies name="(&string)"
+    scorefxn="(&string, required)"
+    secstruct="(&string, '')"
+    use_dssp="(&bool, true)"
+    hh_pair="(&string, '')"
+    ss_pair="(&string, '')"
+    hss_triplets="(&string, '')"
+    blueprint="(&string '')"
+    ss_from_blueprint="(&string, true)"
+    natbias_ss="(&float)"
 /> 
 ```
 

@@ -6,13 +6,13 @@ Updated by Parisa Hosseinzadeh (parisah@uw.edu) 11/30/2016
 Change a single residue or a subset of residues to a different type. For instance, mutate Arg31 to an Asp or mutate all Pro to Ala.
 
 ```
-<MutateResidue name=(&string) target=(&string) new_res=(&string) preserve_atom_coords=(false &bool) mutate_self=(false &bool) />
+<MutateResidue name="(&string)" target="(&string)" new_res="(&string)" preserve_atom_coords="(false &bool)" mutate_self="(false &bool)" />
 ```
 
 or
 
 ```
-<MutateResidue name=(&string) residue_selector=(&string) new_res=(&string) preserve_atom_coords=(false &bool) mutate_self=(false &bool) />
+<MutateResidue name="(&string)" residue_selector="(&string)" new_res="(&string)" preserve_atom_coords="(false &bool)" mutate_self="(false &bool)" />
 ```
 
 -   target: The location to mutate.  This can be a PDB number (<i>e.g.</i> ```31A```), a Rosetta index (<i>e.g.</i> ```177```), or an index in a reference pose or snapshot stored at a point in a protocol before residue numbering changed in some way (<i>e.g.</i> ```refpose(snapshot1,23)```).  See the convention on residue indices in the **[[RosettaScripts Conventions]]** documentation for details.

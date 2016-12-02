@@ -3,7 +3,7 @@
 ## RenderGridsToKinemage
 
 ```
-<RenderGridsToKinemage name=(&string) file_name=(&string) grid_name=(&string) low_color=(&string) high_color = (&string) stride=(&int)/>
+<RenderGridsToKinemage name="(&string)" file_name="(&string)" grid_name="(&string)" low_color="(&string)" high_color="(&string)" stride="(&int)"/>
 ```
 
 RenderGridsToKinemage will output a Kinemage file representing 1 or more scoring grids. If you want to output multiple scoring grids, run the mover multiple times, specifying a different grid name each time. This mover is intended for debugging purposes, and should only be run with a single pose. It is also very slow. Kinemage files can be viewed with King

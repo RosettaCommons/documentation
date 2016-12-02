@@ -5,7 +5,7 @@
 Establishes a non crystallographic symmetry (NCS) between residues. The mover sets dihedral constraints on backbone and side chains to force residues to maintain the same conformation. The amino acid type can be enforced too. This mover does not perform any minimization, so it is usually followed by MinMover or RelaxMover.
 
 ```
-  <SetupNCS name=(&string) bb=(1 &bool) chi=(1 &bool) symmetric_sequence=(0 &bool)/> 
+  <SetupNCS name="(&string)" bb="(1 &bool)" chi="(1 &bool)" symmetric_sequence="(0 &bool)"/> 
        <NCSgroup source="38A-55A" target="2A-19A"/>
        <NCSgroup source="38A-55A" target="20A-37A"/>
        ...

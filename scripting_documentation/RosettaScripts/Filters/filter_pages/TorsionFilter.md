@@ -3,7 +3,7 @@
 ## Torsion
 
 ```
-<Torsion name=(&string) lower=(0&Real) upper=(0&Real) resnum=(0&residue number) torsion=("" &string) task_operations=(&comma-delimited list of taskoperations)/>
+<Torsion name="(&string)" lower="(0&Real)" upper="(0&Real)" resnum="(0&residue number)" torsion="('' &string)" task_operations="(&comma-delimited list of taskoperations)"/>
 ```
 
 -   lower: lower cutoff

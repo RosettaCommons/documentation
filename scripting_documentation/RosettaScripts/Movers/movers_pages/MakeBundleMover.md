@@ -8,8 +8,8 @@ Generates a helical bundle using the Crick equations (which describe a helix of 
 Helix types are defined with crick_params files, located in the Rosetta database in database/protocol_data/crick_parameters (or provided by the user).  Support for Crick parameter files defining helices in which the repeating unit is more than one residue has recently been added.
 
 ```
-<MakeBundle name=(&string) use_degrees=(false &bool) reset=(true &bool) symmetry=(0 &int) symmetry_copies=(0 &int) set_dihedrals=(true &bool) set_bondlengths=(true &bool) set_bondangles=(true &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) delta_omega1=(0.0 &real) delta_t=(0.0 &real) z1_offset=(0.0 &real) z0_offset=(0.0 &real) epsilon=(1.0 &real) invert=(false &bool) >
-     <Helix set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) delta_omega1=(0.0 &real) delta_t=(0.0 &real) z1_offset=(0.0 &real) z0_offset=(0.0 &real) epsilon=(1.0 &real) invert=(false &bool) repeating_unit_offset=(0 &int) />
+<MakeBundle name="(&string)" use_degrees="(false &bool)" reset="(true &bool)" symmetry="(0 &int)" symmetry_copies="(0 &int)" set_dihedrals="(true &bool)" set_bondlengths="(true &bool)" set_bondangles="(true &bool)" residue_name="('ALA' &string)" crick_params_file="('alpha_helix' &string)"  helix_length="(0 &int)" r0="(0.0 &real)" omega0="(0.0 &real)" delta_omega0="(0.0 &real)" delta_omega1="(0.0 &real)" delta_t="(0.0 &real)" z1_offset="(0.0 &real)" z0_offset="(0.0 &real)" epsilon="(1.0 &real)" invert="(false &bool)" >
+     <Helix set_dihedrals="(true &bool)" set_bondlengths="(false &bool)" set_bondangles="(false &bool)" residue_name="('ALA' &string)" crick_params_file="('alpha_helix' &string)"  helix_length="(0 &int)" r0="(0.0 &real)" omega0="(0.0 &real)" delta_omega0="(0.0 &real)" delta_omega1="(0.0 &real)" delta_t="(0.0 &real)" z1_offset="(0.0 &real)" z0_offset="(0.0 &real)" epsilon="(1.0 &real)" invert="(false &bool)" repeating_unit_offset="(0 &int)" />
 ...
 </MakeBundle>
 ```
@@ -50,11 +50,11 @@ In addition, the following options can only be set for the bundle as a whole:
 
 Example:  This script generates an antiparallel beta-barrel with a bundle of alpha-helices on the inside.
 ```
-<MakeBundle name=bundle1 set_bondlengths=true set_bondangles=true residue_name=ALA crick_params_file=beta_strand symmetry=16 r0=29 omega0=0.075 helix_length=20 >
+<MakeBundle name="bundle1" set_bondlengths="true" set_bondangles="true" residue_name="ALA" crick_params_file="beta_strand" symmetry="16" r0="29" omega0="0.075" helix_length="20" >
         #The parameters set above ensure that by default, each "helix" will actually be a strand:
 	<Helix /> #A strand
-	<Helix delta_omega0=0.19634954 invert=1 delta_t=0.25 delta_omega1=1.5707963 /> #An offset, inverted strand.
-	<Helix r0=21 omega0=0.05 crick_params_file=alpha_helix helix_length=40 /> #An alpha-helix.
+	<Helix delta_omega0="0.19634954" invert="1" delta_t="0.25" delta_omega1="1.5707963" /> #An offset, inverted strand.
+	<Helix r0="21" omega0="0.05" crick_params_file="alpha_helix" helix_length="40" /> #An alpha-helix.
 	#The three elements defined above are repeated 16 times about the bundle axis to make the bundle.
 </MakeBundle>
 

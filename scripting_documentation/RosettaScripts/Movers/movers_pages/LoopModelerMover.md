@@ -28,18 +28,18 @@ exact same simulation by composing other movers.  This approach would be more
 verbose, but in some ways it would also be more flexible.
 
 ```xml
-<LoopModeler name=(&string) config=("" &string) loops_file=(&string) fast=(no &bool) 
-scorefxn_cen=(&string) scorefxn_fa=(&string) task_operations=(&string) auto_refine=(yes &bool)>
+<LoopModeler name="(&string)" config="('' &string)" loops_file="(&string)" fast="(no &bool)" 
+scorefxn_cen="(&string)" scorefxn_fa="(&string)" task_operations="(&string)" auto_refine="(yes &bool)">
 
-    <Loop start=(&int) stop=(&int) cut=(&int) skip_rate=(0.0 &real) rebuild=(no &bool)/>
+    <Loop start="(&int)" stop="(&int)" cut="(&int)" skip_rate="(0.0 &real)" rebuild="(no &bool)"/>
 
     <(Any LoopMover tags)/>...
 
-    <Build skip=(no &bool) (any LoopBuilder option or subtag)/>
+    <Build skip="(no &bool)" (any LoopBuilder option or subtag)/>
 
-    <Centroid skip=(no &bool) (any LoopProtocol option or subtag)/>
+    <Centroid skip="(no &bool)" (any LoopProtocol option or subtag)/>
 
-    <Fullatom skip=(no &bool) (any LoopProtocol option or subtag)/>
+    <Fullatom skip="(no &bool)" (any LoopProtocol option or subtag)/>
 
 </LoopModeler>
 ```

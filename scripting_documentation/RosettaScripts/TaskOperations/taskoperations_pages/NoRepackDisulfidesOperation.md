@@ -4,7 +4,7 @@
 
 Do not allow disulfides to repack.
 
-     <NoRepackDisulfides name=(&string) />
+     <NoRepackDisulfides name="(&string)" />
 
 ##See Also
 

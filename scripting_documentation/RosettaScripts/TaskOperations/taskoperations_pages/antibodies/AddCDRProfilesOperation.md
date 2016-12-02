@@ -37,7 +37,7 @@ FALLBACK STRATEGIES:
 
 
 ```
-<AddCDRProfilesOperation cdrs=(&string,&string) numbering_scheme=(&string) include_native_restype=(&bool, true) picking_rounds=(&size, 1)/>
+<AddCDRProfilesOperation cdrs="(&string,&string)" numbering_scheme="(&string)" include_native_restype="(&bool, true)" picking_rounds="(&size, 1)"/>
 ```
 
 

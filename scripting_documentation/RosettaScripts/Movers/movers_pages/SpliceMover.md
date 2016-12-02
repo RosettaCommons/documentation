@@ -12,7 +12,7 @@ This is a fairly complicated mover with several different ways to operate:
 -   4. ccd on or off: Obviously ccd is very time consuming.
 
 ```
-<Splice name="&string" from_res=(&integer) to_res=(&integer) source_pdb=(&string) scorefxn=(score12 &string) ccd=(1 &bool) res_move=(4 &integer) rms_cutoff=(99999&real) task_operations=(&comma-delimited list of taskoperations) torsion_database=(&string) database_entry=(0&int) template_file=(""&string) thread_ala=(1&bool) equal_length=(0&bool)/>
+<Splice name="&string" from_res="(&integer)" to_res="(&integer)" source_pdb="(&string)" scorefxn="(score12 &string)" ccd="(1 &bool)" res_move="(4 &integer)" rms_cutoff="(99999&real)" task_operations="(&comma-delimited list of taskoperations)" torsion_database="(&string)" database_entry="(0&int)" template_file="(''&string)" thread_ala="(1&bool)" equal_length="(0&bool)"/>
 ```
 
 -   from\_res: starting res in target pdb

@@ -4,7 +4,7 @@
 
 Creates a residue subset by applying the user-specified residue selector to the current pose and saves the subset in the pose's cacheable data, allowing the subset to be accessed (unchanged) at a later point in the protocol. Must be used in conjunction with the StoredResidueSubset residue selector.
 
-    <StoreResidueSubset name=(&string) subset_name=(&string) residue_selector=(&string) overwrite=(0 &bool) />
+    <StoreResidueSubset name="(&string)" subset_name="(&string)" residue_selector="(&string)" overwrite="(0 &bool)" />
 
 -   subset\_name - The name the residue subset will be saved as in the pose's cacheable data. Must be identical to the subset\_name used to retrieve the task using the StoredResidueSubset task operation.
 -   residue\_selector - The residue selector used to create the stored residue subset

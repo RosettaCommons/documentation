@@ -4,9 +4,9 @@
 
 Finds loops in the current pose and loads them into the DataMap for use by subsequent movers (eg - LoopRemodel)
 
-    <LoopFinder name="&string" interface=(1 &Size) ch1=(0 &bool) ch2=(1 &bool) min_length=(3 &Integer)
-     max_length=(1000 &Integer) iface_cutoff=(8.0 &Real) resnum/pdb_num=(&string) 
-    CA_CA_distance=(15.0 &Real) mingap=(1 &Size)/>
+    <LoopFinder name="&string" interface="(1 &Size)" ch1="(0 &bool)" ch2="(1 &bool)" min_length="(3 &Integer)"
+     max_length="(1000 &Integer)" iface_cutoff="(8.0 &Real)" resnum/pdb_num="(&string)" 
+    CA_CA_distance="(15.0 &Real)" mingap="(1 &Size)"/>
 
 -   interface: only keep loops at the interface? value = jump number to use (0 = keep all loops)
 -   ch1: keep loops on partner 1

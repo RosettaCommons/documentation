@@ -5,7 +5,7 @@
 Read a [[resfile|resfiles]]. If a filename is given, read from that file. Otherwise, read the file specified on the commandline with -packing:resfile.
 
 ```
-<ReadResfile name=(&string) filename=(&string) selector=(&string) />
+<ReadResfile name="(&string)" filename="(&string)" selector="(&string)" />
 ```
 
 Optionally, a previously-defined [[ResidueSelector|ResidueSelectors]] may be specified using the ```selector=(&string)``` option.  If this is used, then the ResidueSelector is used as a mask, and the ReadResfile TaskOperation is applied _only_ to those residues selected by the ResidueSelector, even if the resfile lists other residues as well.  This can be useful when used in conjunction with conformation-dependent ResidueSelectors -- a user can, for example, select the protein core with the [[LayerSelector|ResidueSelectors#residueselectors_conformation-dependent-residue-selectors_layerselector]] ResidueSelector and then apply a resfile to define different sets of amino acids for different positions in the linear sequence, to be applied only _if_ they lie in the core.  If the ```selector=(&string)``` option is not used, the ReadResfile taskoperation is applied to all residues defined in the resfile.

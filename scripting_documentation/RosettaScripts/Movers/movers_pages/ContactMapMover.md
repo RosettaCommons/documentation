@@ -5,7 +5,7 @@
 Calculate and output contact maps for each calculated structure
 
 ```
-<ContactMap name="&string" region1=( &string) region2=( &string) ligand=( &string)  distance_cutoff=( 10.0 &Real)  prefix=("contact_map_" &string) reset_count=("true" &string) models_per_file=(1 &int) row_format=("false" &string) / >
+<ContactMap name="&string" region1="( &string)" region2="( &string)" ligand="( &string)"  distance_cutoff="( 10.0 &Real)"  prefix="('contact_map_' &string)" reset_count="('true' &string)" models_per_file="(1 &int)" row_format="('false' &string)" />
 ```
 
 -   region1: region definition for region1 of ContactMap in format '\<start\>-\<end\>' or '\<chainID\>' defaults to 1-\<n\_residue()\>

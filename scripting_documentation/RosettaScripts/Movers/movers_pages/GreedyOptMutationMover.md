@@ -34,13 +34,13 @@ Optional:
 -   pareto mode is performed whenever multiple filters are defined with branch tags (see below). pareto mode will first attempt isolated/independent mutations defined in the input task operation and score/filter them all using all defined filters. Then, the Pareto-optimal mutations are identified at each position (see: [http://en.wikipedia.org/wiki/Pareto\_efficiency\#Pareto\_frontier (http://en.wikipedia.org/wiki/Pareto_efficiency#Pareto_frontier) ), discarding the non-optimal mutations. Next, the mover attempts to combine the Pareto-optimal mutations at each position. **this is a multiple pose mover, so use nstruct >1. -nstruct 100 is safe. The number of poses cached in memory is limited by nstruct to prevent memory overload**.
 
 ```
-<GreedyOptMutationMover name=(&string) task_operations=(&string comma-separated taskoperations) filter=(&string) scorefxn=(score12 &string) relax_mover=(&string) sample_type=(low &string) diversify_lvl=(1 &int) dump_pdb=(0 &bool) dump_table=(0 &bool) rtmin=(0 &bool) stopping_condition=("" &string) stop_before_condition=(0 &bool) skip_best_check=(0 &bool) reset_delta_filters=(&string comma-separated deltafilters) design_shell=(-1, real) repack_shell=(8.0, &real)/>
+<GreedyOptMutationMover name="(&string)" task_operations="(&string comma-separated taskoperations)" filter="(&string)" scorefxn="(score12 &string)" relax_mover="(&string)" sample_type="(low &string)" diversify_lvl="(1 &int)" dump_pdb="(0 &bool)" dump_table="(0 &bool)" rtmin="(0 &bool)" stopping_condition="('' &string)" stop_before_condition="(0 &bool)" skip_best_check="(0 &bool)" reset_delta_filters="(&string comma-separated deltafilters)" design_shell="(-1, real)" repack_shell="(8.0, &real)"/>
 
 #Pareto mode example, minimize filter 1 and maximize filter2 
-<GreedyOptMutationMover name=gopt task_operations=task relax_mover=min scorefxn=score12>
+<GreedyOptMutationMover name="gopt" task_operations="task" relax_mover="min" scorefxn="score12">
     <Filters>
-       <AND filter_name=filter1 sample_type=low/>
-       <AND filter_name=filter2 sample_type=high/>
+       <AND filter_name="filter1" sample_type="low"/>
+       <AND filter_name="filter2" sample_type="high"/>
     </Filters>
 </GreedyOptMutationMover>
 ```

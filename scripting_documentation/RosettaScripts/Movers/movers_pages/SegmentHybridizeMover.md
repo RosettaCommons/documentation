@@ -5,8 +5,8 @@
 SegmentHybridize takes the principle from the cartesian hybridize protocol to close loops. it will align fragments to the broken section until the ends are close enough (as defined through rms\_frags) to use the [[cartesian minimizer|Glossary#cartesian-minimization]] for closure. The principle is to allow small breaks to close one big gap, with the idea of closing the small ones through minimization. Can be used for loop closure or grafting (still very experimental).
 
 ```
-<SegmentHybridizer name=hyb frag_big=3 rms_frags=0.5 nfrags=2000 frag_tries=2000 auto_mm=1 all_movable=0 extra_min=1 mc_cycles=1000 use_frags=1 use_seq=1>
-               <Span begin=6B end=15B extend_outside=2 extend_inside=1/>
+<SegmentHybridizer name="hyb" frag_big="3" rms_frags="0.5" nfrags="2000" frag_tries="2000" auto_mm="1" all_movable="0" extra_min="1" mc_cycles="1000" use_frags="1" use_seq="1">
+               <Span begin="6B" end="15B" extend_outside="2" extend_inside="1"/>
 
 </SegmentHybridizer> 
 ```

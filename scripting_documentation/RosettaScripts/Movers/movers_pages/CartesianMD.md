@@ -6,17 +6,17 @@ CartesianMD calls Molecular Dynamics simulation in Rosetta with user-defined ene
 
 ```
 <CartesianMD name="&string"
-       rattle=(true &false)
-       scorefxn=("" &string)
-       scorefxn_obj=("" &string)
-       nstep=(100 &Size)
-       temp=(300.0 &Real)
-       premin=(50 &Size)
-       postmin=(200 &Size)
-       report=(100 &Size)
-       report_scorecomp=(false &bool)
-       selectmode=("final" &string)
-       schfile=("" &string) />
+       rattle="(true &false)"
+       scorefxn="('' &string)"
+       scorefxn_obj="('' &string)"
+       nstep="(100 &Size)"
+       temp="(300.0 &Real)"
+       premin="(50 &Size)"
+       postmin="(200 &Size)"
+       report="(100 &Size)"
+       report_scorecomp="(false &bool)"
+       selectmode="('final' &string)"
+       schfile="('' &string)" />
 ```
 
 -   rattle: Use Rattle algorithm to constraint hydrogen locations. This automatically sets integration step = 2fs. Otherwise uses integration step = 1fs.

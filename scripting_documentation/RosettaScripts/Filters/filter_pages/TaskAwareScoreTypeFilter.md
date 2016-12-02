@@ -9,7 +9,7 @@ Takes task operations to determine the packable residues and then calculates/fil
 In each mode, the score type used to assess the score is set by the user (default is total_score).
 
 ```
-<TaskAwareScoreType name=(&string) task_operations=(&comma-delimited list of taskoperations) scorefxn=(score12 &string) score_type=(total_score &string) threshold=(100000 &Real) mode=(total &string), unbound=(0 &bool), sym_dof_names=(&comma-delimited list of strings), jump=(0 &Size), write2pdb=(0 &bool), bb_bb=(0 &bool) />
+<TaskAwareScoreType name="(&string)" task_operations="(&comma-delimited list of taskoperations)" scorefxn="(score12 &string)" score_type="(total_score &string)" threshold="(100000 &Real)" mode="(total &string)", unbound="(0 &bool)", sym_dof_names="(&comma-delimited list of strings)", jump="(0 &Size)", write2pdb="(0 &bool)", bb_bb="(0 &bool)" />
 ```
 
 -   task\_operations: task operations used to set the repackable residues

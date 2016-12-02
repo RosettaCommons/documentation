@@ -5,7 +5,7 @@
 Generates, adds, or replaces constraints in the pose between the N- and C- terminal residues.
 
 ```
-<NtoCConstraintGenerator name=(&string) dist=(&float 11.0) weight=(&float 1.0) />
+<NtoCConstraintGenerator name="(&string)" dist="(&float 11.0)" weight="(&float 1.0)" />
 ```
 
 dist: Distance to be used for atom pair constraints

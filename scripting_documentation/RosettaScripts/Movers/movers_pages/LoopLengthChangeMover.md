@@ -5,7 +5,7 @@
 Changes a loop length without closing it.
 
 ```
-<LoopLengthChange name=(&string) loop_start=(&resnum) loop_end=(&resnum) delta=(&int)/>
+<LoopLengthChange name="(&string)" loop_start="(&resnum)" loop_end="(&resnum)" delta="(&int)"/>
 ```
 
 -   loop\_start, loop\_end: where the loop starts and ends.

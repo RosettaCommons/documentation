@@ -5,7 +5,7 @@
 Takes a set of task operations from the user in order to more precisely specify a set of residues to analyze via ddG scanning. Individually mutates each of the residues to alanine (or whatever other residue is defined in the task operations) and calculates the change in binding energy (ddG).
 
 ```
-<DdGScan name=(& string) task_operations=(comma-delimited list of task operations) repeats=(1 &Size) scorefxn=(&scorefxn) report_diffs=(1 &bool) write2pdb=(0 &bool) />
+<DdGScan name="(& string)" task_operations="(comma-delimited list of task operations)" repeats="(1 &Size)" scorefxn="(&scorefxn)" report_diffs="(1 &bool)" write2pdb="(0 &bool)" />
 ```
 
 -   task\_operations - The task operations to use to identify which residues to scan. Designable or packable residues are scanned.

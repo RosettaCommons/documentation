@@ -13,9 +13,9 @@ Note that LoopModeler calls LoopBuilder, and that it's more common to use
 LoopModeler than it is to use LoopBuilder directly.
 
 ```xml
-<LoopBuilder name=(&string) max_attempts=(10000 &int) loop_file=(&string)>
+<LoopBuilder name="(&string)" max_attempts="(10000 &int)" loop_file="(&string)">
 
-    <Loop start=(&int) stop=(&int) cut=(&int) skip_rate=(0.0 &real) rebuild=(no &bool)/>
+    <Loop start="(&int)" stop="(&int)" cut="(&int)" skip_rate="(0.0 &real)" rebuild="(no &bool)"/>
 
 </LoopBuilder>
 

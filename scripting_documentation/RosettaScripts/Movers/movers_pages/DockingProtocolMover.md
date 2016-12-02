@@ -5,7 +5,7 @@
 Runs the full (post refactoring) docking protocol with the defaults currently in trunk. This mover is not currently sensitive to symmetry.
 
 ```
-<DockingProtocol name="&string" docking_score_low=(interchain_cen &string) docking_score_high=(docking &string) low_res_protocol_only=(0 &bool) docking_local_refine(0 &bool) dock_min=(0 &bool) ignore_default_docking_task=(0 &bool) task_operations=("" comma-separated list) partners=(&string)>
+<DockingProtocol name="&string" docking_score_low="(interchain_cen &string)" docking_score_high="(docking &string)" low_res_protocol_only="(0 &bool)" docking_local_refine(0 &bool) dock_min="(0 &bool)" ignore_default_docking_task="(0 &bool)" task_operations="('' comma-separated list)" partners="(&string)">
 ```
 
 -   docking\_score\_low: score function used in centroid mode of the docking steps

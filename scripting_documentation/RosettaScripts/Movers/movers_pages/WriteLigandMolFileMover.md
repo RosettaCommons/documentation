@@ -3,7 +3,7 @@
 ## WriteLigandMolFile
 
 ```
-<WriteLigandMolFile name=(&string) chain=(&string) directory=(&string) prefix=(&string)/>
+<WriteLigandMolFile name="(&string)" chain="(&string)" directory="(&string)" prefix="(&string)"/>
 ```
 
 WriteLigandMolFile will output a V2000 mol file record containing all atoms of the specified ligand chain and all data stored in the current Job for each processed pose. The following options are required:

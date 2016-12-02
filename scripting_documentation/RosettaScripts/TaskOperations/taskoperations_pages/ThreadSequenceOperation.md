@@ -4,7 +4,7 @@
 
 Threads a single letter sequence onto the source pdb.
 
-    <ThreadSequence name=(&string) target_sequence=(&string) start_res=(1&int) allow_design_around=(1&bool)/>
+    <ThreadSequence name="(&string)" target_sequence="(&string)" start_res="(1&int)" allow_design_around="(1&bool)"/>
 
 To actually change the sequence of the pose, you have to call something like PackRotamersMover on the pose using this task operation. Notice that with default parameters, this packs the threaded sequence while leaving everything else open for design.
 

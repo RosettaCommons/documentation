@@ -5,7 +5,7 @@
 Sets up an atom tree for use with subsequent movers. Connects pdb\_num on host\_chain to the nearest residue on the neighboring chain. Connection is made through connect\_to on host\_chain pdb\_num residue
 
 ```
-<AtomTree name=(&string) docking_ft=(0 &bool) pdb_num/resnum=(&string) connect_to=(see below for defaults &string) anchor_res=(pdb numbering) connect_from=(see below) host_chain=(2 &integer) simple_ft=(0&bool) two_parts_chain1=(0&bool) fold_tree_file=(&string)/>
+<AtomTree name="(&string)" docking_ft="(0 &bool)" pdb_num/resnum="(&string)" connect_to="(see below for defaults &string)" anchor_res="(pdb numbering)" connect_from="(see below)" host_chain="(2 &integer)" simple_ft="(0&bool)" two_parts_chain1="(0&bool)" fold_tree_file="(&string)"/>
 ```
 
 -   fold_tree_file: if this is set to a file name the mover will read a foldtree from a file and then impose it. Nothing more. Here's an example for a fold-tree definition:

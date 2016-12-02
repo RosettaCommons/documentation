@@ -6,7 +6,7 @@ Last updated 14 September 2016 by Vikram K. Mulligan (vmullig@uw.edu).<br/>
 Add or remove variant types on specified residues.
 
 ```
-<ModifyVariantType name=[name] add_type=[type[,type]...] remove_type=[type[,type...]] residue_selector=(&string)/>
+<ModifyVariantType name="[name]" add_type="[type[,type]...]" remove_type="[type[,type...]]" residue_selector="(&string)"/>
 ```
 
 Adds (if missing) or removes (if currently added) [[variant types|Glossary#variant-types]] to the residues specified in the given task operations. Use a [[ResidueSelector|ResidueSelectors]] to select specific residues.

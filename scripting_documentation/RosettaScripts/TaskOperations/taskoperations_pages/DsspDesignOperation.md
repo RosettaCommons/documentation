@@ -6,8 +6,8 @@ Design residues with selected amino acids depending on the local secondary struc
 
 All functionality here is included in the LayerDesign task operation, which is much more powerful. However, this filter has significantly reduced overhead by avoiding slow SASA calculations.
 
-    <DsspDesign name=(&string) blueprint=(&string)>
-        <SecStructType aa=(&string) append(&string) exclude=(&string)/>
+    <DsspDesign name="(&string)" blueprint="(&string)">
+        <SecStructType aa="(&string)" append(&string) exclude="(&string)"/>
     </DsspDesign>
 - blueprint: a blueprint file which specifies the secondary structure at each position.
 

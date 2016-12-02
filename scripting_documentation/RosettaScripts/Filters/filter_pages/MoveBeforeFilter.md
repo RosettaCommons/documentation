@@ -5,7 +5,7 @@
 Apply a given mover to the pose before calculating the results from another filter
 
 ```
-<MoveBeforeFilter name=(&string) mover=(&string) filter=(&string)/>
+<MoveBeforeFilter name="(&string)" mover="(&string)" filter="(&string)"/>
 ```
 
 Note that, like all filters, MoveBeforeFilter cannot change the input pose - the results of the submover will only be used for the subfilter calculation and then discarded.

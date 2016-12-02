@@ -8,7 +8,7 @@ a default refiner in LoopModeler's centroid and fullatom steps, and often
 accounts for a majority of LoopModeler's runtime.
 
 ```xml
-<MinimizationRefiner name=(&string) scorefxn=(&string) loops_file=(&string)/>
+<MinimizationRefiner name="(&string)" scorefxn="(&string)" loops_file="(&string)"/>
 ```
 
 Options:

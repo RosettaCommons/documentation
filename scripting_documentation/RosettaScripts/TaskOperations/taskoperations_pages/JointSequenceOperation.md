@@ -2,8 +2,8 @@
 *Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## JointSequence
 
-    <JointSequence use_current=(true &bool)  use_native=(false &bool) filename=(&string) native=(&string) use_natro=(false &bool) 
-    use_fasta=(false &bool) chain=( &integer) use_chain=(&integer) />
+    <JointSequence use_current="(true &bool)"  use_native="(false &bool)" filename="(&string)" native="(&string)" use_natro="(false &bool)" 
+    use_fasta="(false &bool)" chain="( &integer)" use_chain="(&integer)" />
 
 Prohibit designing to residue identities that aren't found at that position in any of the listed structures:
 

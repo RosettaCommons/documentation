@@ -5,9 +5,9 @@
 Multistate design of a protein interface. The target state is the bound (input) complex and the two competitor states are the unbound partners and the unbound, unfolded partners. Uses genetic algorithms to select, mutate and recombine among a population of starting designed sequences. See Havranek & Harbury NSMB 10, 45 for details.
 
 ```
-<ProteinInterfaceMS name="&string" generations=(20 &integer) pop_size=(100 &integer) num_packs=(1 &integer) pop_from_ss=(0 &integer) numresults=(1 &integer) fraction_by_recombination=(0.5 &real) mutate_rate=(0.5 &real) boltz_temp=(0.6 &real) anchor_offset=(5.0 &real) checkpoint_prefix=("" &string) gz=(0 &bool) checkpoint_rename=(0 &bool) scorefxn=(score12 &string) unbound=(1 &bool) unfolded=(1&bool) input_is_positive=(1&bool) task_operations=(&comma-delimited list) unbound_for_sequence_profile=(unbound &bool) profile_bump_threshold=(1.0 &Real) compare_to_ground_state=(see below & bool) output_fname_prefix=("" &string)>
-   <Positive pdb=(&string) unbound=(0&bool) unfolded=(0&bool)/>
-   <Negative pdb=(&string) unbound=(0&bool) unfolded=(0&bool)/>
+<ProteinInterfaceMS name="&string" generations="(20 &integer)" pop_size="(100 &integer)" num_packs="(1 &integer)" pop_from_ss="(0 &integer)" numresults="(1 &integer)" fraction_by_recombination="(0.5 &real)" mutate_rate="(0.5 &real)" boltz_temp="(0.6 &real)" anchor_offset="(5.0 &real)" checkpoint_prefix="('' &string)" gz="(0 &bool)" checkpoint_rename="(0 &bool)" scorefxn="(score12 &string)" unbound="(1 &bool)" unfolded="(1&bool)" input_is_positive="(1&bool)" task_operations="(&comma-delimited list)" unbound_for_sequence_profile="(unbound &bool)" profile_bump_threshold="(1.0 &Real)" compare_to_ground_state="(see below & bool)" output_fname_prefix="('' &string)">
+   <Positive pdb="(&string)" unbound="(0&bool)" unfolded="(0&bool)"/>
+   <Negative pdb="(&string)" unbound="(0&bool)" unfolded="(0&bool)"/>
    .
    .
    .

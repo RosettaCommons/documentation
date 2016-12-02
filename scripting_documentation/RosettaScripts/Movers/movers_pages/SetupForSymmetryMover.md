@@ -8,7 +8,7 @@ Given a symmetry definition file that describes configuration and scoring of a s
 
 ####Usage
 ```
-<SetupForSymmetry name=(&string) definition=(&string) preserve_datacache=(&bool, false) />
+<SetupForSymmetry name="(&string)" definition="(&string)" preserve_datacache="(&bool, false)" />
 ```
 
 ####Options

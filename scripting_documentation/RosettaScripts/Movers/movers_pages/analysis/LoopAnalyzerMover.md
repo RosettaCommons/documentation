@@ -5,8 +5,8 @@
 This Mover computes a bunch of loop-specific metrics.  It was created as an analysis tool for [[AnchoredDesign|anchored-design]] but is not specific to that protocol.
 
 ```
-<LoopAnalyzerMover name="&string" use_tracer=(&bool) loops_file=(&string) >
-    <Loop start=(&int) stop=(&int) cut=(&int) skip_rate=(0.0 &real) rebuild=(no &bool)/>
+<LoopAnalyzerMover name="&string" use_tracer="(&bool)" loops_file="(&string)" >
+    <Loop start="(&int)" stop="(&int)" cut="(&int)" skip_rate="(0.0 &real)" rebuild="(no &bool)"/>
 </LoopAnalyzerMover>
 ```
 

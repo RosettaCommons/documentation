@@ -4,7 +4,7 @@
 
 Translate chains.
 
-     <RigidBodyTransMover name=(&string) jump=(1 &int) distance=(1.0 &Real) x=(0.0 &Real) y=(0.0 &Real) z=(0.0 &Real) />
+     <RigidBodyTransMover name="(&string)" jump="(1 &int)" distance="(1.0 &Real)" x="(0.0 &Real)" y="(0.0 &Real)" z="(0.0 &Real)" />
 
 -   jump: The chain downstream of the specified jump will be translated.
 -   distance: The distance to translate along the axis

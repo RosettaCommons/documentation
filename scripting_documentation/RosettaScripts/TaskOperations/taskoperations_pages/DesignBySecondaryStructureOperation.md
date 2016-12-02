@@ -4,7 +4,7 @@
 
 Selects residues for design based on agreement with psipred secondary structure prediction. Residues which disagree with the secondary structure prediction are selected for design. This mover is stochastic in that residues which disagree in secondary structure prediction are selected randomly every time the task operation is called.
 
-    <DesignBySecondaryStructure name=(&string) region_shell=(8.0 &real) regions_to_design=(1 &int) repack_non_selected=(0 &bool) blueprint=("" &string) cmd=(&string) />
+    <DesignBySecondaryStructure name="(&string)" region_shell="(8.0 &real)" regions_to_design="(1 &int)" repack_non_selected="(0 &bool)" blueprint="('' &string)" cmd="(&string)" />
 
 -   region\_shell: The radius of a sphere that surrounds the residue selected for mutation. All residues within this sphere will be set to design, and all residues outside of it will not be designed.
 -   repack\_non\_selected: If set, residues outside of the design sphere will be repacked, otherwise they will be fixed.

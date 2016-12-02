@@ -5,7 +5,7 @@
 A task operation that enables threading of aligned residues between a query and a template. receives a FASTA format sequence alignment (file may hold multiple sequences), and allows the threading only of residues that are aligned between query and structure. positions where either the template structure or the query sequence have a gap '-' are skipped. suitable for when you wish to model a sequence over a structure, and they are of different lengths
 
 ```
-<AlignedThread name=(&string) query_name=(&string) template_name=(&string) alignment_file=(&string) start_res=(&int 1)/>
+<AlignedThread name="(&string)" query_name="(&string)" template_name="(&string)" alignment_file="(&string)" start_res="(&int 1)"/>
 ```
 
 - query_name: the name of the query sequence, as written in the alignment file

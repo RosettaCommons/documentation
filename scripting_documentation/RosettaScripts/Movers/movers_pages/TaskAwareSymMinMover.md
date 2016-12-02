@@ -8,7 +8,7 @@
 
 A task-aware version of the SymMinMover that allows minimization of only certain sets of residues specified by user-defined task operations.
 
-    <TaskAwareSymMinMover name=(&string) scorefxn=(&scorefxn) bb=(0 &bool) chi=(1 &bool) rb=(0 &bool) task_operations=(comma-delimited list of task operations) />
+    <TaskAwareSymMinMover name="(&string)" scorefxn="(&scorefxn)" bb="(0 &bool)" chi="(1 &bool)" rb="(0 &bool)" task_operations="(comma-delimited list of task operations)" />
 
 -   bb - Whether to allow backbone minimization.
 -   chi - Whether to allow side chain minimization.

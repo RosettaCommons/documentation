@@ -4,10 +4,10 @@
 
 Add constraints to the pose based on the current conformation. It can either apply coordinate constraints to protein Calpha and DNA heavy atoms (the default) or atom pair distance constraints between protein Calpha pairs. The functional form for the coordinate constraints can either be harmonic or bounded (flat-bottom), whereas atom pair distance constraints are currently only gaussian in form.
 
-    <AddConstraintsToCurrentConformationMover name=(&string) 
-    use_distance_cst=(&bool 0) coord_dev=($Real 1.0) bound_width=(&Real 0) 
-    min_seq_sep=(&Real 8) max_distance=(&Real 12.0) cst_weight=(&Real 1.0) 
-    task_operations=(&comma-delimited list of taskoperations) CA_only=(&bool 1) bb_only=(&bool 0)
+    <AddConstraintsToCurrentConformationMover name="(&string)" 
+    use_distance_cst="(&bool 0)" coord_dev="($Real 1.0)" bound_width="(&Real 0)" 
+    min_seq_sep="(&Real 8)" max_distance="(&Real 12.0)" cst_weight="(&Real 1.0)" 
+    task_operations="(&comma-delimited list of taskoperations)" CA_only="(&bool 1)" bb_only="(&bool 0)"
      />
 
 -   use\_distance\_cst - if true, use atom-atom pair distance constraints, otherwise use coordinate constraints.

@@ -5,36 +5,36 @@
 Generates a helical bundle using the Crick equations (describing a coiled-coil) or modified Crick equations (describing a laterally squashed coiled-coil), sampling user-specified ranges of parameters and outputting the lowest-energy bundle encountered (and its accompanying parameter values).  Sampled parameters are evenly distributed in user-specified ranges; if more than one parameter is sampled, the mover samples an n-dimensional grid of sample values.  Optionally, this mover can also output PDB files for all bundle geometries sampled.  Parameters are stored with the pose, and are written in REMARK lines on PDB output.  Note that because a strand is a special case of a helix, this mover can also be used to sample beta-barrel conformations or mixed alpha-beta structures.
 
 ```
-<BundleGridSampler name=(&string) use_degrees=(false &bool) symmetry=(0 &int) symmetry_copies=(0 &int) set_dihedrals=(true &bool)
-   set_bondlengths=(true &bool) set_bondangles=(true &bool) residue_name=("ALA" &string)
-   crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) invert=(false &bool)
-   scorefxn=(&string) selection_type=("low"||"high" &string) pre_selection_mover=(&string)
-   pre_selection_filter=(&string) dump_pdbs=(false &bool) pdb_prefix=("bgs_out" &string)
-   max_samples=(10000 &int) reset=(true &bool) nstruct_mode=(false &bool) nstruct_repeats=(1 &int)
-    r0=(&real) OR ( r0_min=(&real) r0_max=(&real) r0_samples=(&int) )
-    omega0=(&real) OR ( omega0_min=(&real) omega0_max=(&real) omega0_samples=(&int) )
-    delta_omega0=(&real) OR ( delta_omega0_min=(&real) delta_omega0_max=(&real) delta_omega0_samples=(&int) )
-    delta_omega1=(&real) OR ( delta_omega1_min=(&real) delta_omega1_max=(&real) delta_omega1_samples=(&int) )
-    delta_t=(&real) OR ( delta_t_min=(&real) delta_t_max=(&real) delta_t_samples=(&int) )
-    z1_offset=(&real) OR (z1_offset_min=(&real) z1_offset_max=(&real) z1_offset_samples=(&int))
-    z0_offset=(&real) OR (z0_offset_min=(&real) z0_offset_max=(&real) z0_offset_samples=(&int))
-    epsilon=(&real) OR (epsilon_min=(&real) epsilon_max=(&real) epsilon_samples=(&int))
-    repeating_unit_offset=0(&int)
+<BundleGridSampler name="(&string)" use_degrees="(false &bool)" symmetry="(0 &int)" symmetry_copies="(0 &int)" set_dihedrals="(true &bool)"
+   set_bondlengths="(true &bool)" set_bondangles="(true &bool)" residue_name="('ALA' &string)"
+   crick_params_file="('alpha_helix' &string)"  helix_length="(0 &int)" invert="(false &bool)"
+   scorefxn="(&string)" selection_type="('low'||'high' &string)" pre_selection_mover="(&string)"
+   pre_selection_filter="(&string)" dump_pdbs="(false &bool)" pdb_prefix="('bgs_out' &string)"
+   max_samples="(10000 &int)" reset="(true &bool)" nstruct_mode="(false &bool)" nstruct_repeats="(1 &int)"
+    r0="(&real)" OR ( r0_min="(&real)" r0_max="(&real)" r0_samples="(&int)" )
+    omega0="(&real)" OR ( omega0_min="(&real)" omega0_max="(&real)" omega0_samples="(&int)" )
+    delta_omega0="(&real)" OR ( delta_omega0_min="(&real)" delta_omega0_max="(&real)" delta_omega0_samples="(&int)" )
+    delta_omega1="(&real)" OR ( delta_omega1_min="(&real)" delta_omega1_max="(&real)" delta_omega1_samples="(&int)" )
+    delta_t="(&real)" OR ( delta_t_min="(&real)" delta_t_max="(&real)" delta_t_samples="(&int)" )
+    z1_offset="(&real)" OR (z1_offset_min="(&real)" z1_offset_max="(&real)" z1_offset_samples="(&int)")
+    z0_offset="(&real)" OR (z0_offset_min="(&real)" z0_offset_max="(&real)" z0_offset_samples="(&int)")
+    epsilon="(&real)" OR (epsilon_min="(&real)" epsilon_max="(&real)" epsilon_samples="(&int)")
+    repeating_unit_offset="0""(&int)"
    >
-   <Helix set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool) invert=(false &bool)
-     residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string) helix_length=(0 &int)
-     r0=(&real) OR (r0_copies_helix=(&int)) OR ( r0_min=(&real) r0_max=(&real) r0_samples=(&int) )
-     omega0=(&real) OR (omega0_copies_helix=(&int)) OR (pitch_from_helix=(&int)) OR ( omega0_min=(&real) omega0_max=(&real) omega0_samples=(&int) )
-     delta_omega0=(&real) OR (delta_omega0_copies_helix=(&int)) OR ( delta_omega0_min=(&real) delta_omega0_max=(&real) delta_omega0_samples=(&int) )
-     delta_omega1=(&real) OR (delta_omega1_copies_helix=(&int)) OR ( delta_omega1_min=(&real) delta_omega1_max=(&real) delta_omega1_samples=(&int) )
-     delta_t=(&real) OR (delta_t_copies_helix=(&int)) OR ( delta_t_min=(&real) delta_t_max=(&real) delta_t_samples=(&int) )
-     z1_offset=(&real) OR (z1_offset_copies_helix=(&int)) OR ( z1_offset_min=(&real) z1_offset_max=(&real) z1_offset_samples=(&int) )
-     z0_offset=(&real) OR (z0_offset_copies_helix=(&int)) OR ( z0_offset_min=(&real) z0_offset_max=(&real) z0_offset_samples=(&int) )
-     epsilon=(&real) OR (epsilon_copies_helix=(&int)) OR ( epsilon_min=(&real) epsilon_max=(&real) epsilon_samples=(&int) )
-     repeating_unit_offset=0(&int)
-   >
-   <Helix ...>
-   <Helix ...>
+   <Helix set_dihedrals="(true &bool)" set_bondlengths="(false &bool)" set_bondangles="(false &bool)" invert="(false &bool)"
+     residue_name="('ALA' &string)" crick_params_file="('alpha_helix' &string)" helix_length="(0 &int)"
+     r0="(&real)" OR (r0_copies_helix="(&int)") OR ( r0_min="(&real)" r0_max="(&real)" r0_samples="(&int)" )
+     omega0="(&real)" OR (omega0_copies_helix="(&int)") OR (pitch_from_helix="(&int)") OR ( omega0_min="(&real)" omega0_max="(&real)" omega0_samples="(&int)" )
+     delta_omega0="(&real)" OR (delta_omega0_copies_helix="(&int)") OR ( delta_omega0_min="(&real)" delta_omega0_max="(&real)" delta_omega0_samples="(&int)" )
+     delta_omega1="(&real)" OR (delta_omega1_copies_helix="(&int)") OR ( delta_omega1_min="(&real)" delta_omega1_max="(&real)" delta_omega1_samples="(&int)" )
+     delta_t="(&real)" OR (delta_t_copies_helix="(&int)") OR ( delta_t_min="(&real)" delta_t_max="(&real)" delta_t_samples="(&int)" )
+     z1_offset="(&real)" OR (z1_offset_copies_helix="(&int)") OR ( z1_offset_min="(&real)" z1_offset_max="(&real)" z1_offset_samples="(&int)" )
+     z0_offset="(&real)" OR (z0_offset_copies_helix="(&int)") OR ( z0_offset_min="(&real)" z0_offset_max="(&real)" z0_offset_samples="(&int)" )
+     epsilon="(&real)" OR (epsilon_copies_helix="(&int)") OR ( epsilon_min="(&real)" epsilon_max="(&real)" epsilon_samples="(&int)" )
+     repeating_unit_offset="0""(&int)"
+   />
+   <Helix .../>
+   <Helix .../>
    ...
 </BundleGridSampler>
 ```
@@ -58,18 +58,18 @@ Default parameter values or parameter ranges are set in the <b>BundleGridSampler
 Note that default parameter ranges are applied separately to each helix.  For example, the following script would perform 16 samples (4 each for r0 of helix 1 and r0 of helix 2):
 
 ```
-<BundleGridSampler name="bgs1" helix_length=20 scorefxn="sfxn1" r0_min=5.0 r0_max=8.0 r0_samples=4 omega0=0.05 delta_omega0=0 delta_omega1=0 delta_t=0>
+<BundleGridSampler name="bgs1" helix_length="20" scorefxn="sfxn1" r0_min="5.0" r0_max="8.0" r0_samples="4" omega0="0.05" delta_omega0="0" delta_omega1="0" delta_t="0">
      <Helix />
-     <Helix delta_omega0=3.14 />
+     <Helix delta_omega0="3.14" />
 </BundleGridSampler>
 ```
 
 In order to sample a range of parameters, keeping a parameter value for two different helices the same, the <b>[parameter]\_copies\_helix</b> option may be used in a <b>Helix</b> tag.  The helix to be copied must be declared before the helix that has the <b>[parameter]\_copies\_helix</b> option.  The following script, for example, carries out 4 samples, with r0 for both helices ranging from 5 to 8 (and always the same for both helices):
 
 ```
-<BundleGridSampler name="bgs1" helix_length=20 scorefxn="sfxn1" r0_min=5.0 r0_max=8.0 r0_samples=4 omega0=0.05 delta_omega0=0 delta_omega1=0 delta_t=0>
+<BundleGridSampler name="bgs1" helix_length="20" scorefxn="sfxn1" r0_min="5.0" r0_max="8.0" r0_samples="4" omega0="0.05" delta_omega0="0" delta_omega1="0" delta_t="0">
      <Helix />
-     <Helix delta_omega0=3.14 r0_copies_helix=1/>
+     <Helix delta_omega0="3.14" r0_copies_helix="1"/>
 </BundleGridSampler>
 ```
 

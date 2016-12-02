@@ -4,7 +4,7 @@
 
 Sets catalytic residues to designable. Prior to being called, this task operation REQUIRES that enzdes constraints be added to the pose. This can be accomplished using the \<AddOrRemoveMatchCsts /\> mover as shown in the example. This could be combined with the \<SetCatalyticResPackBehavior /\> task operation to set the catalytic residues to repack and design the spheres around them.
 
-    <DesignCatalyticResidues name=(&string) region_shell=(&real) regions_to_design=(&int) repack_non_selected=(&bool) />
+    <DesignCatalyticResidues name="(&string)" region_shell="(&real)" regions_to_design="(&int)" repack_non_selected="(&bool)" />
 
 -   region\_shell: The radius of a sphere that surrounds the residue selected for mutation. All residues within this sphere will be set to design, and all residues outside of it will not be designed.
 -   repack\_non\_selected: If set, residues outside of the design sphere will be repacked, otherwise they will be fixed.

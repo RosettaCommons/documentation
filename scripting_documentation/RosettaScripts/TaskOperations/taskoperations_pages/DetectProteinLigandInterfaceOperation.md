@@ -4,9 +4,9 @@
 
 Setup packer task based on the detect design interface settings from enzyme design.
 
-    <DetectProteinLigandInterface name=(&string) cut1=(6.0 &Real) cut2=(8.0 &Real) cut3=(10.0 &Real) cut4=(12.0 &Real) 
-    design=(1 &bool) resfile=("" &string) design_to_cys=(0 &bool) catres_interface=(0 &bool) catres_only_interface=(0 &bool) 
-    arg_sweep_interface =(0 &bool) target_cstids=("" &string)/>
+    <DetectProteinLigandInterface name="(&string)" cut1="(6.0 &Real)" cut2="(8.0 &Real)" cut3="(10.0 &Real)" cut4="(12.0 &Real)" 
+    design="(1 &bool)" resfile="('' &string)" design_to_cys="(0 &bool)" catres_interface="(0 &bool)" catres_only_interface="(0 &bool)" 
+    arg_sweep_interface="(0 &bool)" target_cstids="('' &string)"/>
 
 The task will set to design all residues with a Calpha within cut1 of the ligand (specifically the last ligand), or within cut2 of the ligand, where the Calpha-Cbeta vector points toward the ligand. Those residues within cut3 or within cut4 pointing toward the ligand will be set to repack. All others will be set to be fixed. Setting design to false will turn off design at all positions.
 

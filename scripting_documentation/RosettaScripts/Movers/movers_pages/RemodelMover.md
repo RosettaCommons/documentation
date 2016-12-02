@@ -7,7 +7,7 @@ Remodel and rebuild a protein chain
 IMPORTANT NOTE!!!!: Remodel uses an internal system of trajectories controlled by the option -num\_trajectory [integer, \>= 1]. If num\_trajectory \> 1 each result is scored with score12 and the pose with lowest energy is handed to the next mover or filter. -num\_trajectory 1 is recommended for rosetta\_scripts.
 
 ```
-  <RemodelMover name=(&string) blueprint=(&string)/>      
+  <RemodelMover name="(&string)" blueprint="(&string)"/>      
 ```
 
 -   blueprint: blueprint file name
@@ -16,7 +16,7 @@ IMPORTANT NOTE!!!!: Remodel uses an internal system of trajectories controlled b
 For building multiple disulfides simultaneously using RemodelMover, use the following syntax-
 
 ```
-<RemodelMover name=(&string) build_disulf=True match_rt_limit=(1.0 &Real) quick_and_dirty=(0 &Bool) bypass_fragments=(0 &Bool) min_disulfides=(1 &Real) max_disulfides=(1 &Real) min_loop=(1 &Real) fast_disulf=(0 &Bool) keep_current_disulfides=(0 &Bool) include_current_disulfides=(0 &Bool)/>
+<RemodelMover name="(&string)" build_disulf="True" match_rt_limit="(1.0 &Real)" quick_and_dirty="(0 &Bool)" bypass_fragments="(0 &Bool)" min_disulfides="(1 &Real)" max_disulfides="(1 &Real)" min_loop="(1 &Real)" fast_disulf="(0 &Bool)" keep_current_disulfides="(0 &Bool)" include_current_disulfides="(0 &Bool)"/>
 ```
 
 -   `      build_disulf     ` : indicates that disulfides should be built into the structure

@@ -70,7 +70,7 @@ Usage
 =====
 
 ```
-<SimpleGlycosylateMover glycosylation=man5 positions=10A,15B,200/>
+<SimpleGlycosylateMover glycosylation="man5" positions="10A,15B,200"/>
 ```
 
 

@@ -17,7 +17,7 @@ NOTES:
 
 
 ```
-<Disulfidize name=(&string) scorefxn=(&string) set1=(&selector) set2=(&selector) match_rt_limit=(&float 2.0) score_or_matchrt=(&bool false) max_disulf_score=(&float 1.5) min_loop=(&int 8) use_l_cys=(&bool true) keep_current_disulfides=(&bool false) include_current_disulfides=(&bool false) use_d_cys=(&bool false) mutate_gly=(&bool false) mutate_pro=(&bool false) />
+<Disulfidize name="(&string)" scorefxn="(&string)" set1="(&selector)" set2="(&selector)" match_rt_limit="(&float 2.0)" score_or_matchrt="(&bool false)" max_disulf_score="(&float 1.5)" min_loop="(&int 8)" use_l_cys="(&bool true)" keep_current_disulfides="(&bool false)" include_current_disulfides="(&bool false)" use_d_cys="(&bool false)" mutate_gly="(&bool false)" mutate_pro="(&bool false)" />
 ```
 
 - scorefxn:  Name of the scoring function to use for repacking and minimization when rebuilding disulfides.  If not specified, the default scorefunction is used.  Note that a symmetric scorefunction must be provided for symmetric poses.

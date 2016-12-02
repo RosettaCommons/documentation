@@ -9,16 +9,16 @@ Remember that to have effect, the coordinate_constraint scoreterm must be on in 
 
 
 ```
-<CoordinateConstraintGenerator name=(&string)
-    residue_selector=(&string TrueSelector)
-    sd=(&Real 0.5)
-    bounded=(&bool false)
-    bounded_width=(&Real 0.0)
-    sidechain=(&bool false)
-    ca_only=(&bool false)
-    ambiguous_hnq=(&bool false)
-    native=(&bool false)
-    align_reference=(&bool false) />
+<CoordinateConstraintGenerator name="(&string)"
+    residue_selector="(&string TrueSelector)"
+    sd="(&Real 0.5)"
+    bounded="(&bool false)"
+    bounded_width="(&Real 0.0)"
+    sidechain="(&bool false)"
+    ca_only="(&bool false)"
+    ambiguous_hnq="(&bool false)"
+    native="(&bool false)"
+    align_reference="(&bool false)" />
 ```
 
 * **residue_selector** - if given, only apply constraints to the selected residues. If not given, constraints will be applied to all residues in the pose.
