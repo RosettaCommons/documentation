@@ -2,7 +2,7 @@
 
 Metadata
 ========
-Original application development and lead PI: Yen Kaow Ng (kalngyk@gmail.com) & Shuai Cheng Li
+Original application development and lead PI: Yen Kaow Ng (kalngyk@gmail.com) & Shuai Cheng Li (shuaicli@gmail.com)
 
 Rosetta port: Yen Kaow Ng, with help from Jared Adolf-Bryfogle (jadolfbr@gmail.com) and Andy Watkins (andy.watkins2@gmail.com)
 
