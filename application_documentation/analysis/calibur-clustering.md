@@ -14,7 +14,7 @@ Shuai Cheng and Yen Kaow Ng
 BMC Bioinformatics 2010 11:25
 DOI: 10.1186/1471-2105-11-25
 
-[app](https://sourceforge.net/projects/calibur/)
+[original C++ application](https://sourceforge.net/projects/calibur/)
 
 Use
 ===
