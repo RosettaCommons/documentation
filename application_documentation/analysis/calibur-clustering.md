@@ -1,4 +1,4 @@
-#Cluster application
+#Calibur Clustering Application
 
 Metadata
 ========
@@ -80,6 +80,12 @@ A file specifying the decoys. Each line of the file specifies a path (relative t
 -strategy::thres
 ```
 (Optional) specifies a doubleing point number x. which is used differently according to the threshold strategy specified. x is ignored if the strategy does not use it. x is used as the threshold if no threshold strategy is specified.", default = -1.0);
+
+Limitations
+===========
+ - The app currently only works for protein residues through their C alpha atoms, so ligands and carbohydrates will not work.  They can be in the PDB file and should just be skipped over.
+
+ - PDB file format supported (.pdb), Silent files mmCIF, and gzipped PDBs not supported.  This functionality is hopefully incoming, but for now, you will need to create pdb files from any silent files you have.
 
 
 ## See also
