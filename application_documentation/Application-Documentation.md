@@ -229,7 +229,7 @@ While most of these applications focus on prediction, many have options which wi
 
 ### Clustering 
 
-- [[calibur|calibur_clustering]] - (Preferred application) Cluster structures using a port of [calibur](http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-11-25) into Rosetta .   
+- [[calibur|calibur-clustering]] - (Preferred application) Cluster structures using a port of [calibur](http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-11-25) into Rosetta .   
 
 - [[cluster |Cluster]] - Original Rosetta++ app. Fails at large number of decoys
 
