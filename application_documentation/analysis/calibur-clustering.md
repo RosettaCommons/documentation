@@ -3,6 +3,7 @@
 Metadata
 ========
 Original application development and lead PI: Yen Kaow Ng (kalngyk@gmail.com) & Shuai Cheng Li
+
 Rosetta port: Yen Kaow Ng, with help from Jared Adolf-Bryfogle (jadolfbr@gmail.com) and Andy Watkins (andy.watkins2@gmail.com)
 
 Documentation and Testing: Jared Adolf-Bryfogle
@@ -13,8 +14,6 @@ Reference
 Shuai Cheng and Yen Kaow Ng
 BMC Bioinformatics 2010 11:25
 DOI: 10.1186/1471-2105-11-25
-
-[app](https://sourceforge.net/projects/calibur/)
 
 Use
 ===
@@ -37,16 +36,16 @@ See Reference for a full description of the clustering algorithm.
 
 Options
 =======
-```-input:pdb_list```, "A file specifying the decoys. Each line of the file specifies a path (relative to the working directory) to a decoy's PDB file (-in:file:l also works here)"
+```-input:pdb_list```, A file specifying the decoys. Each line of the file specifies a path (relative to the working directory) to a decoy's PDB file (-in:file:l also works here)
 
 
-```-res:start```, "(Optional) starts from this Residues C-alpha atom (instead of starting from the first C-alpha atom)", default = 1
+```-res:start```, (Optional) starts from this Residues C-alpha atom (instead of starting from the first C-alpha atom), default = 1
 		
-```-res:end, "(Optional) ends at this Residues C-alpha atom (instead of ending at the last C-alpha atom)", default = 0
+```-res:end```, (Optional) ends at this Residues C-alpha atom (instead of ending at the last C-alpha atom), default = 0
 
-```-res::chains, "(Optional) specifies the chains to be used. By default, we scan for all alhpanumerics and empty chain, i.e. 'A', 'C', or ' '
+```-res::chains```, (Optional) specifies the chains to be used. By default, we scan for all alhpanumerics and empty chain, i.e. 'A', 'C', or ' '
 		
-```-strategy::thres_finder```, "(Optional) specifies the threshold finding strategy. You may need to also use the -nofilter flag for some of these to find a cluster (2 and 3) This should be one of 0, 1, 2, 3. (default strategy: 0) "
+```-strategy::thres_finder```, (Optional) specifies the threshold finding strategy. You may need to also use the -nofilter flag for some of these to find a cluster (2 and 3) This should be one of 0, 1, 2, 3. (default strategy: 0) 
 			
 
  -  0: threshold results in only x% of \"edges\" between decoys; default x=100/sqrt(sqrt(#decoys))
@@ -55,11 +54,11 @@ Options
 			
  -  2: threshold = min dist + x * min(the avarage dist of decoys from a decoy; default x=0.666667 (=2/3)
 			
- -  3: find threshold using ROSETTA's method (auto-detect parameters).  May result in no clustering"
+ -  3: find threshold using ROSETTA's method (auto-detect parameters).  May result in no clustering
 		
-```-strategy::nofilter```, "(Optional) disables the filtering of outlier decoys.", default=false
+```-strategy::nofilter```, (Optional) disables the filtering of outlier decoys.", default=false
  
-```-strategy::thres```, "(Optional) specifies a doubleing point number x. which is used differently according to the threshold strategy specified. x is ignored if the strategy does not use it. x is used as the threshold if no threshold strategy is specified.", default = -1.0);
+```-strategy::thres```, (Optional) specifies a doubleing point number x. which is used differently according to the threshold strategy specified. x is ignored if the strategy does not use it. x is used as the threshold if no threshold strategy is specified.", default = -1.0);
 
 
 ## See also
