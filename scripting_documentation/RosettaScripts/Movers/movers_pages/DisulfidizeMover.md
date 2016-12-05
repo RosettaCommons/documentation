@@ -9,7 +9,7 @@ Once valid disulfides are found, they are combinatorially added. For example, if
 2. [23,50]
 3. [3,16],[23,50]
 
-The mover is now able to place D-cysteine disulfides and mixed D/L disulfides.
+The mover is now able to place D-cysteine disulfides, beta-3-cysteine disulfides, and mixed D/L/beta-3 disulfides.
 
 NOTES:
 - This is a multiple pose mover. If non-multiple-pose-compatible movers are called AFTER this mover, only the first disulfide configuration will be returned.
@@ -17,7 +17,7 @@ NOTES:
 
 
 ```
-<Disulfidize name="(&string)" scorefxn="(&string)" set1="(&selector)" set2="(&selector)" match_rt_limit="(&float 2.0)" score_or_matchrt="(&bool false)" max_disulf_score="(&float 1.5)" min_loop="(&int 8)" use_l_cys="(&bool true)" keep_current_disulfides="(&bool false)" include_current_disulfides="(&bool false)" use_d_cys="(&bool false)" mutate_gly="(&bool false)" mutate_pro="(&bool false)" />
+<Disulfidize name="(&string)" scorefxn="(&string)" set1="(&selector)" set2="(&selector)" match_rt_limit="(&float 2.0)" score_or_matchrt="(&bool false)" max_disulf_score="(&float 1.5)" min_loop="(&int 8)" use_l_cys="(&bool true)" keep_current_disulfides="(&bool false)" include_current_disulfides="(&bool false)" use_d_cys="(&bool false)" use_beta_cys=(&bool false)  mutate_gly="(&bool false)" mutate_pro="(&bool false)" />
 ```
 
 - scorefxn:  Name of the scoring function to use for repacking and minimization when rebuilding disulfides.  If not specified, the default scorefunction is used.  Note that a symmetric scorefunction must be provided for symmetric poses.
@@ -31,8 +31,9 @@ NOTES:
 - max_disulfides: Largest allowable number of disulfides.
 - keep_current_disulfides:  If true, all current disulfides are preserved.  If false, existing disulfides containing a CYS residue within either set1 or set2 are mutated to alanine. Disulfides with both CYS residues outside of the union of the selected residue sets will not be affected. False by default.
 - include_current_disulfides:  If true, current disulfides are included in the possible disulfide combinations to try.  False by default (only new disulfide combinations tried).
-- use_l_cys: Should the mover consider placing L-cysteine?  True by default.
-- use_d_cys: Should the mover consider placing D-cysteine?  False by default.  (Note that at least one of use_l_cys and use_d_cys must be set to "true".)
+- use_l_cys: Should the mover consider placing L-cysteine?  True by default.  (Note that at least one of use_l_cys, use_d_cys, and use_beta_cys must be set to "true".)
+- use_d_cys: Should the mover consider placing D-cysteine?  False by default.  (Note that at least one of use_l_cys, use_d_cys, and use_beta_cys must be set to "true".)
+- use_beta_cys: Should the user consider placing beta-3-cysteine at beta-3-amino acid positions?  False by default.  (Note that at least one of use_l_cys, use_d_cys, and use_beta_cys must be set to "true".)  If alpha-cysteine is also allowed, then the mover will consider beta-beta disulfides, alpha-alpha disulfides, and alpha-beta disulfides.
 - mutate_gly: Should the mover ignore glycine positions (false) or allow mutations to cysteine at these positions (true)?  Default false (ignore gly positions).
 - mutate_pro: Should the mover ignore D/L-proline positions (false) or allow mutations to cysteine at these positions (true)?  Default false (ignore pro/dpr positions).
 
