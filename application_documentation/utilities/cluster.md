@@ -53,6 +53,11 @@ clustered Poses are given output names in the form of:
 c.i.j, which denotes the jth member of the ith cluster.
 ```
 
+Limitations
+===========
+The app can only reasonably handle up to around 2000 poses.  After that, it WILL run into memory issues.
+Please see [[calibur-clustering]] for an alternative clustering app that does not run into these problems.
+
 ## See also
 
 * [[Utility applications | utilities-applications]]: other utility applications
