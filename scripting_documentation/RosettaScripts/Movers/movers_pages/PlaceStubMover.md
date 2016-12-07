@@ -44,7 +44,7 @@ The available tracers are:
 -   DEBUG.PlaceStubMover - more io intensive documentation
 
 From-source-generated documentation below:
-[[include:mover_PlaceStub_type]]
+[[include:../xsd/mover_PlaceStub_type]]
 
 
 **Submovers:** Submovers are used to determine what moves are used following stub placement. For example, once a stub has been selected, a StubMinimize mover can try to optimize the current pose towards that stub. A DesignMover can be used to design the pose around that stub. Using DesignMover submovers within PlaceStub (instead of RepackMinimize movers outside PlaceStub) allows one to have a "memory" of which stub has been used. In this way, a DesignMover can fail a filter without causing the trajectory to completely reset. Instead, the outer PlaceStub mover will select another stub, and the trajectory will continue.
