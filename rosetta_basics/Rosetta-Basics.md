@@ -65,7 +65,7 @@
 - [[Loops file]] - Which regions of the protein should be rebuilt
 - [[Residue Params file]] - Residue chemical information
 - [[Symmetry file|Symmetry#Symmetry-definitions]] - Dealing with symmetric proteins.
-
+- [[FoldTree file]] - define structure connectivity, both covalent and non-covalent
 ####Protocol-specific file formats
 - [[Matcher (Enzdes) Constraint Files|match-cstfile-format]] - A constraint file specialized for protein-ligand interactions
 - [[Chemical shift file]] - NMR chemical shifts
