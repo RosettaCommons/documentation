@@ -177,6 +177,144 @@ In many of the RosettaScripts tags that take a residue identifier, there is a jo
 
 Care must be exercised when using PDB numbering with protocols that change the length of the pose. Insertion of residues can invalidate the PDB information associated with the pose, resulting in errors when the pdb numbering is decoded. Additionally, some RosettaScripts objects will convert the pdb number to a pose number based on the input structure numbering, resulting in potential mis-alignment if residues are added/deleted.
 
+### Getting Help
+
+Although this documentation is intended to be the primary users' manual for RosettaScripts, there is also in-application help available.  To get an empty template script, simply run the rosetta_scripts application with no input flags.  For example:
+
+```
+> ./bin/rosetta_scripts.default.linuxgccrelease
+```
+
+This produces the following output:
+
+```
+core.init: Rosetta version unknown:d1b5a2e618d8c3a74c10e2dc39eb986129940f02 2016-12-10 20:16:47 -0800 from git@github.com:RosettaCommons/main.git
+core.init: command: ./bin/rosetta_scripts.default.linuxgccdebug
+core.init: 'RNG device' seed mode, using '/dev/urandom', seed=-1600599261 seed_offset=0 real_seed=-1600599261
+core.init.random: RandomGenerator:init: Normal mode, seed=-1600599261 RG_type=mt19937
+core.init: Resolved executable path: /work/vmullig/rosetta_git_devcopy3/Rosetta/main/source/build/src/debug/linux/3.10/64/x86/gcc/4.8/default/rosetta_scripts.default.linuxgccdebug
+core.init: Looking for database based on location of executable: /work/vmullig/rosetta_git_devcopy3/Rosetta/main/database/
+core.init:
+core.init: USEFUL TIP: Type -help to get the options for this Rosetta executable.
+core.init:
+apps.public.rosetta_scripts.rosetta_scripts: No XML file was specified with the "-parser:protocol <filename>" commandline option.  In order for RosettaScripts to do something, it must be provided with a script.
+apps.public.rosetta_scripts.rosetta_scripts: The following is an empty (template) RosettaScripts XML file:
+
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+	</SCOREFXNS>
+	<RESIDUE_SELECTORS>
+	</RESIDUE_SELECTORS>
+	<TASKOPERATIONS>
+	</TASKOPERATIONS>
+	<FILTERS>
+	</FILTERS>
+	<MOVERS>
+	</MOVERS>
+	<APPLY_TO_POSE>
+	</APPLY_TO_POSE>
+	<PROTOCOLS>
+	</PROTOCOLS>
+	<OUTPUT />
+</ROSETTASCRIPTS>
+
+At any point in a script, you can include text from another file using <xi:include href="filename.xml" />.
+apps.public.rosetta_scripts.rosetta_scripts: Variable substituion is possible from the commandline using the -"parser:script_vars varname=value" flag.  Any string of the pattern "%%varname%%" will be replaced with "value" in the script.
+apps.public.rosetta_scripts.rosetta_scripts:
+apps.public.rosetta_scripts.rosetta_scripts: The rosetta_scripts application will now exit.
+```
+
+You can also get help on the syntax of any mover, filter, task operation, or residue selector using the `-info <name1> <name2> <name3> ...` flag.  For example, the following commandline will provide information on the [[MutateResidue|MutateResidueMover]] mover and the [[HbondsToAtom|HbondsToAtomFilter]] filter:
+
+```
+./bin/rosetta_scripts.default.linuxgccrelease -info MutateResidue HbondsToAtom
+```
+
+The output is as follows:
+
+```
+core.init: Rosetta version unknown:d1b5a2e618d8c3a74c10e2dc39eb986129940f02 2016-12-10 20:16:47 -0800 from git@github.com:RosettaCommons/main.git
+core.init: command: ./bin/rosetta_scripts.default.linuxgccdebug -info MutateResidue
+core.init: 'RNG device' seed mode, using '/dev/urandom', seed=1008088942 seed_offset=0 real_seed=1008088942
+core.init.random: RandomGenerator:init: Normal mode, seed=1008088942 RG_type=mt19937
+core.init: Resolved executable path: /work/vmullig/rosetta_git_devcopy3/Rosetta/main/source/build/src/debug/linux/3.10/64/x86/gcc/4.8/default/rosetta_scripts.default.linuxgccdebug
+core.init: Looking for database based on location of executable: /work/vmullig/rosetta_git_devcopy3/Rosetta/main/database/
+apps.public.rosetta_scripts.rosetta_scripts:
+The rosetta_scripts application was used with the -parser:info flag.
+Writing options for the indicated movers/filters/task operations/residue selectors:
+--------------------------------------------------------------------------------
+INFORMATION ABOUT MOVER "MutateResidue":
+
+DESCRIPTION:
+
+Change a single residue or a given subset of residues to a different type. For instance, mutate Arg31 to an Asp, or mutate all Prolines to Alanine
+
+USAGE:
+
+<MutateResidue target=(string) new_res=(string) mutate_self=(bool,"false") perserve_atom_coords=(bool,"false") update_polymer_bond_dependent=(bool) preserve_atom_coords=(bool) residue_selector=(string) name=(string)>
+</MutateResidue>
+
+OPTIONS:
+
+"MutateResidue" tag:
+
+	target (string):  The location to mutate. This can be a PDB number (e.g. 31A), a Rosetta index (e.g. 177), or an index in a reference pose or snapshot stored at a point in a protocol before residue numbering changed in some way (e.g. refpose(snapshot1,23)). See the convention on residue indices in the RosettaScripts Conventions documentation for details
+
+	new_res (string):  The name of the residue to introduce. This string should correspond to the ResidueType::name() function (eg ASP).
+
+	mutate_self (bool,"false"):  If true, will mutate the selected residue to itself, regardless of what new_res is set to (although new_res is still required). This is useful to "clean" residues when there are Rosetta residue incompatibilities (such as terminal residues) with movers and filters.
+
+	perserve_atom_coords (bool,"false"):  If true, then atoms in the new residue that have names matching atoms in the old residue will be placed at the coordinates of the atoms in the old residue, with other atoms rebuilt based on ideal coordinates. If false, then only the mainchain heavyatoms are placed based on the old atom's mainchain heavyatoms; the sidechain is built from ideal coordinates, and sidechain torsion values are then set to the sidechain torsion values from the old residue. False if unspecified.
+
+	update_polymer_bond_dependent (bool):  Update the coordinates of atoms that depend on polymer bonds
+
+	preserve_atom_coords (bool):  Preserve atomic coords as much as possible
+
+	residue_selector (string):  name of a residue selector that specifies the subset to be mutated
+
+	name (string):  The name given to this instance
+
+--------------------------------------------------------------------------------
+INFORMATION ABOUT FILTER "HbondsToAtom":
+
+DESCRIPTION:
+
+This filter counts the number of residues that form sufficiently energetically favorable H-bonds to a selected atom
+
+USAGE:
+
+<HbondsToAtom partners=(int) energy_cutoff=(real,"-0.5") bb_bb=(bool,"0") backbone=(bool,"0") sidechain=(bool,"1") pdb_num=(refpose_enabled_residue_number) atomname=(string) res_num=(int) name=(string) confidence=(real,"1.0")>
+</HbondsToAtom>
+
+OPTIONS:
+
+"HbondsToAtom" tag:
+
+	partners (int):  H-bonding partner expectation, below which counts as failure
+
+	energy_cutoff (real,"-0.5"):  Energy below which a H-bond counts
+
+	bb_bb (bool,"0"):  Count backbone-backbone H-bonds
+
+	backbone (bool,"0"):  Count backbone H-bonds
+
+	sidechain (bool,"1"):  Count sidechain H-bonds
+
+	pdb_num (refpose_enabled_residue_number):  Particular residue of interest
+
+	atomname (string):  Atom name to which to examine H-bonds
+
+	res_num (int):  Residue number in Rosetta numbering (sequentially with the first residue in the pose being 1
+
+	name (string):  The name given to this instance
+
+	confidence (real,"1.0"):  Probability that the pose will be filtered out if it does not pass this Filter
+
+--------------------------------------------------------------------------------
+
+The rosetta_scripts application will now exit.
+```
+
 Options Available in the XML Protocol File
 ------------------------------------------
 
