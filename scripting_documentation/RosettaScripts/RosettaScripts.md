@@ -224,7 +224,7 @@ apps.public.rosetta_scripts.rosetta_scripts:
 apps.public.rosetta_scripts.rosetta_scripts: The rosetta_scripts application will now exit.
 ```
 
-You can also get help on the syntax of any mover, filter, task operation, or residue selector using the `-info <name1> <name2> <name3> ...` flag.  For example, the following commandline will provide information on the [[MutateResidue|MutateResidueMover]] mover and the [[HbondsToAtom|HbondsToAtomFilter]] filter:
+You can also get help on the syntax of any mover, filter, task operation, or residue selector using the `-parser:info <name1> <name2> <name3> ...` flag.  For example, the following commandline will provide information on the [[MutateResidue|MutateResidueMover]] mover and the [[HbondsToAtom|HbondsToAtomFilter]] filter:
 
 ```
 ./bin/rosetta_scripts.default.linuxgccrelease -info MutateResidue HbondsToAtom
