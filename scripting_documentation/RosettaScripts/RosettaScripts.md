@@ -188,15 +188,7 @@ Although this documentation is intended to be the primary users' manual for Rose
 This produces the following output:
 
 ```
-core.init: Rosetta version unknown:d1b5a2e618d8c3a74c10e2dc39eb986129940f02 2016-12-10 20:16:47 -0800 from git@github.com:RosettaCommons/main.git
-core.init: command: ./bin/rosetta_scripts.default.linuxgccdebug
-core.init: 'RNG device' seed mode, using '/dev/urandom', seed=-1600599261 seed_offset=0 real_seed=-1600599261
-core.init.random: RandomGenerator:init: Normal mode, seed=-1600599261 RG_type=mt19937
-core.init: Resolved executable path: /work/vmullig/rosetta_git_devcopy3/Rosetta/main/source/build/src/debug/linux/3.10/64/x86/gcc/4.8/default/rosetta_scripts.default.linuxgccdebug
-core.init: Looking for database based on location of executable: /work/vmullig/rosetta_git_devcopy3/Rosetta/main/database/
-core.init:
 core.init: USEFUL TIP: Type -help to get the options for this Rosetta executable.
-core.init:
 apps.public.rosetta_scripts.rosetta_scripts: No XML file was specified with the "-parser:protocol <filename>" commandline option.  In order for RosettaScripts to do something, it must be provided with a script.
 apps.public.rosetta_scripts.rosetta_scripts: The following is an empty (template) RosettaScripts XML file:
 
@@ -233,13 +225,6 @@ You can also get help on the syntax of any mover, filter, task operation, or res
 The output is as follows:
 
 ```
-core.init: Rosetta version unknown:d1b5a2e618d8c3a74c10e2dc39eb986129940f02 2016-12-10 20:16:47 -0800 from git@github.com:RosettaCommons/main.git
-core.init: command: ./bin/rosetta_scripts.default.linuxgccdebug -info MutateResidue
-core.init: 'RNG device' seed mode, using '/dev/urandom', seed=1008088942 seed_offset=0 real_seed=1008088942
-core.init.random: RandomGenerator:init: Normal mode, seed=1008088942 RG_type=mt19937
-core.init: Resolved executable path: /work/vmullig/rosetta_git_devcopy3/Rosetta/main/source/build/src/debug/linux/3.10/64/x86/gcc/4.8/default/rosetta_scripts.default.linuxgccdebug
-core.init: Looking for database based on location of executable: /work/vmullig/rosetta_git_devcopy3/Rosetta/main/database/
-apps.public.rosetta_scripts.rosetta_scripts:
 The rosetta_scripts application was used with the -parser:info flag.
 Writing options for the indicated movers/filters/task operations/residue selectors:
 --------------------------------------------------------------------------------
