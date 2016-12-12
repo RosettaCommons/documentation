@@ -16,13 +16,13 @@
 
    * [[Task Operations|TaskOperations-RosettaScripts]]
 
-   * [[FeaturesReporters|Features-reporter-overview]]
+   * [[Features Reporters|Features-reporter-overview]]
 
    * [[Composite Protocols|Composite-protocols]]
      
      * [[GeneralizedKIC]]
      
-     * [[MetropolisHastings|MetropolisHastings-Documentation]]
+     * [[Metropolis Hastings|MetropolisHastings-Documentation]]
      
      * [[SEWING]]
 
