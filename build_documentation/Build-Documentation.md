@@ -201,6 +201,10 @@ For Linux, you will want to install the compiler package from your package manag
 
 Rosetta requires a compiler with C++11 support. This message is due to insufficient support of C++11 in the compiler you're currently using. See [[Cxx11Support]] for more details about compilers to use, or see the "sh: 1: o: not found" regarding changing your compiler.
 
+**"error: '...' names constructor"/"
+
+GCC 4.7, while it supports many of the features of C++11, doesn't support all of them - this message is coming from a feature we use which is not supported by GCC 4.7. See [[Cxx11Support]] for more details about compilers to use, or see the "sh: 1: o: not found" regarding changing your compiler.
+
 **"no member named 'declval' in namespace 'std'"**
 **"error: unknown type name 'type_info'"**
 
