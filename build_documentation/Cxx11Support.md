@@ -26,7 +26,7 @@ mpiCC --version
 
 Acceptable versions:
 
-* GCC/g++: Version 4.7 or later
+* GCC/g++: Version 4.8 or later
 * Clang/llvm on Linux: Version 3.3 or later (with caveats. See Standard Library support below)
 * Apple clang/llvm on Macs: Version 5.0 or later (The Apple provided clang has a different versioning scheme than "mainline" clang.)
 * Intel/ICC: Version 14 or later (Version 15 or later if you need threading support).
@@ -42,7 +42,7 @@ Generally speaking, GCC-based compilers come with their own C++ standard library
 
 There are currently two major standard C++ libraries in use on the systems Rosetta typically runs on. 
 
-* `libstdc++` - made by the GCC developers and comes with GCC. Also used by Clang and ICC compilers on Linux systems, when they are installed with gcc (the default). Rosetta requires the version associated with gcc version 4.7 or later.
+* `libstdc++` - made by the GCC developers and comes with GCC. Also used by Clang and ICC compilers on Linux systems, when they are installed with gcc (the default). Rosetta requires the version associated with gcc version 4.8 or later.
 * `libc++` - made by the Clang developers. The default on Mac systems. (Can also be used with clang on Linux systems, through special compilation.) Rosetta requires the version associated with clang version 3.3 or later.
 
 
