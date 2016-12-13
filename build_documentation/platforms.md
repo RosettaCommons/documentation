@@ -43,23 +43,23 @@ either during the development of Rosetta or for cluster runs.
     - clang 6.1 (llvm 3.6)
 
 - CentOS 4.7 to 7.0
-    - gcc 4.7 to 4.8
+    - gcc 4.8
     - clang 3.3 to 3.4
     - icc 14 to 16
 
 - Redhat Enterprise Linux 6.4
-    - gcc 4.7
+    - gcc 4.8
     - icc 14 to 15
 
 - Scientific Linux 
     - clang 3.4
 
 - Ubuntu 12.04, 14.04, and 15.04
-    - gcc 4.7 to 4.9
+    - gcc 4.8 to 4.9
     - clang 3.3 to 3.6
 
 - Debian
-    - gcc 4.7 to 4.9
+    - gcc 4.8 to 4.9
     - clang 3.5  
 
 Known unsupported configurations
@@ -75,7 +75,7 @@ to update to a more well supported platform/system.
     - Compilation of Rosetta on all versions of Windows is unsupported.
 
 - Compilers with insufficient C++11 support
-    - GCC version 4.6 and before
+    - GCC version 4.7 and before
     - Clang version 3.2 and before
     - Intel compiler (ICC) version 13 and before
     - (List is not exhaustive)
