@@ -3738,7 +3738,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-min_final_hbonds</b> \<Real\></dt>
 <dd>The minimum number of backbone hbonds for a solution to pass after final relaxtion in the simple_cycpep_predict app.  Default 0 (report only).<br/>Default: 0.0<br/></dd>
 <dt><b>-total_energy_cutoff</b> \<Real\></dt>
-<dd>An absolute energy threshhold, above which solutions are discarded.  Unused if not specified.<br/>Default: 0.0<br/></dd>
+<dd>An absolute energy threshold, above which solutions are discarded.  Unused if not specified.<br/>Default: 0.0<br/></dd>
 <dt><b>-hbond_energy_cutoff</b> \<Real\></dt>
 <dd>The mainchain hbond energy threshold for something to be counted as a hydrogen bond in the simple_cycpep_predict app.  Default -0.25.<br/>Default: -0.25<br/></dd>
 <dt><b>-do_not_count_adjacent_res_hbonds</b> \<Boolean\></dt>

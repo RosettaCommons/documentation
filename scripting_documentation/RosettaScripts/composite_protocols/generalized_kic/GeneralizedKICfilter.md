@@ -29,7 +29,7 @@ Fully manual invocation of a filter within RosettaScripts is accomplished accord
 
 3.  Residue mainchain torsion bin (**type="backbone_bin"**)<br/>This filter checks that a given residue's mainchain torsion values lie within a desired mainchain torsion bin.  This filter takes three additional parameters: a residue number (**residue=(&int)**), a [[bin transition probabilities file|Bin-transition-probabilities-file]] (**bin_params_file=(&string "ABBA.bin_params")**), and a bin name (**bin=(&string)**).
 
-4.  Alpha amino acid Ramachandran score (**type="alpha_aa_rama_check"**)<br/>This filter checks that the Ramachandran energy of a given alpha-amino acid residue is below a set threshhold.  This filter takes two additional parameters: a residue number (**residue=(&int)**) and a cutoff energy value (**rama_cutoff_energy=(&Real 0.3)**).  The filter is intended to ensure that each alpha-amino acid in a loop is in a reasonable region of Ramachandran space.
+4.  Alpha amino acid Ramachandran score (**type="alpha_aa_rama_check"**)<br/>This filter checks that the Ramachandran energy of a given alpha-amino acid residue is below a set threshold.  This filter takes two additional parameters: a residue number (**residue=(&int)**) and a cutoff energy value (**rama_cutoff_energy=(&Real 0.3)**).  The filter is intended to ensure that each alpha-amino acid in a loop is in a reasonable region of Ramachandran space.
 
 ## Shorthands
 
