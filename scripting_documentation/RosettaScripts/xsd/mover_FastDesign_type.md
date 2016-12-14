@@ -18,7 +18,7 @@ FastRelax mover used for design that can take constraint generators
         <Jump number="(&non_negative_integer;)" setting="(&bool;)" />
         <Chain number="(&non_negative_integer;)" chi="(&bool;)" bb="(&bool;)" />
         <Span begin="(&non_negative_integer;)" end="(&non_negative_integer;)"
-                chi="(&bool;)" bb="(&bool;)" bondangle="(&bool;)" bondlength="(&bool;)" />
+                chi="(&bool;)" bb="(&bool;)" bondangle="(&bool;)" bondlenth="(&bool;)" />
     </MoveMap>
 </FastDesign>
 ```
@@ -67,6 +67,6 @@ Subtag **Span**:   XRW TO DO, probably a user-defined region of the Pose
 -   **chi**: (REQUIRED) move sidechain chi torsions?
 -   **bb**: (REQUIRED) move backbone torsions?
 -   **bondangle**: move 3-body angles?
--   **bondlength**: move 2-body lengths?
+-   **bondlenth**: move 2-body lengths?
 
 ---
