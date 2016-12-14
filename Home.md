@@ -20,5 +20,4 @@ If you think you're ready to give Rosetta a try, we suggest [[starting here|Gett
 
 
 
-
 <sub>Note to Rosetta developers: make edits at this [link](https://www.rosettacommons.org/docs/wiki/), and they will show up for all users [here](https://www.rosettacommons.org/docs/latest/) at the same time that weekly builds are released.</sub>
