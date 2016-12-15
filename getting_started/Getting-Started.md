@@ -1,14 +1,14 @@
 Getting started
 ===========
 
-This page is written for an audience of scientists new to Rosetta: perhaps a first year graduate student, or young postdoc, who has received/started a project that needs "some computer modeling". 
+This page is written for an audience of scientists new to Rosetta: perhaps a first year graduate student, or young postdoc, who has received/started a project that needs "some computer modeling".
 In other words, an individual coming to Rosetta from a cold start.
 Is Rosetta a good tool for the modeling you need to do? If so, how do you go about getting and using Rosetta?
 If you are already comfortable with the concepts, feel free to skip ahead.
 
-Rosetta is a very large software suite for macromolecular modeling. 
+Rosetta is a very large software suite for macromolecular modeling.
 By software suite, we mean that it is a large collection of computer code (mostly in C++, some in Python, a little in other languages), but it is not a single monolithic program.
-By [[macromolecular modeling|Resources-for-learning-biophysics-and-computational-modeling]], we mean the process of evaluating and ranking the physical plausibility of different structures of biological macromolecules (usually protein, but nucleic acids and ligands are significantly supported and support for implicit lipid membranes is growing). 
+By [[macromolecular modeling|Resources-for-learning-biophysics-and-computational-modeling]], we mean the process of evaluating and ranking the physical plausibility of different structures of biological macromolecules (usually protein, but nucleic acids and ligands are significantly supported and support for implicit lipid membranes is growing).
 Generally, a user will [[choose some specific protocol within Rosetta|Solving-a-Biological-Problem]] and provide that protocol with inputs for A) what structure to work on, and B) what options within the protocol are appropriate for the user's needs.
 
 
@@ -21,7 +21,7 @@ Generally, a user will [[choose some specific protocol within Rosetta|Solving-a-
 	<area shape="rect" coords="122,305,213,376" href="Getting-Started#local-installation-and-use-of-rosetta_windows">
 	<area shape="rect" coords="377,166,532,253" href="Getting-Started#use-of-rosetta-on-national-scale-supercomputing-resources">
 	<area shape="rect" coords="11,166,166,253" href="Getting-Started#public-rosetta-servers">
-	<area shape="rect" coords="194,166,349,253" href="Getting-Started#local-installation-and-use-of-rosetta">	
+	<area shape="rect" coords="194,166,349,253" href="Getting-Started#local-installation-and-use-of-rosetta">
 	<area shape="rect" coords="189,11,354,97" href="Getting-Started#do-i-have-what-i-need">
 </map>
 )>>
@@ -82,7 +82,7 @@ After downloading Rosetta, go through [these detailed tutorials](https://www.ros
 ###Installation on Mac/Linux
 
 Local installation implies that one will be using Rosetta through a [[command line interface (or terminal)|http://en.wikipedia.org/wiki/Command-line_interface]].
-For local users, you are unlikely to want to install Rosetta to the entire system. 
+For local users, you are unlikely to want to install Rosetta to the entire system.
 Rosetta is quite happy to be compiled and installed by regular users without administrative rights — this is how the developers use it.
 You may need administrative rights to install [[dependencies|Build-Documentation#dependencies]].
 
@@ -90,7 +90,7 @@ You may need administrative rights to install [[dependencies|Build-Documentation
 
 * Next, navigate to the `source` directory: `cd main/source`.
 
-* Rosetta uses [[SCons|http://www.scons.org]] as a compile assistant. You will likely need to [[download| http://www.scons.org/download.php]] and install this first. 
+* Rosetta uses [[SCons|http://www.scons.org]] as a compile assistant. You will likely need to [[download| http://www.scons.org/download.php]] and install this first.
 
 * The basic compilation command is `./scons.py -j<number_of_processors_to_use> mode=release bin`.
 Replace <number_of_processors_to_use> with a number one processor fewer than your computer has.
@@ -110,15 +110,15 @@ A subset of Rosetta that is required by
 If you'll be running Rosetta on a scientific computation cluster, there may already be a version of Rosetta installed for general usage.
 Talk to your cluster administrator to see if there is a centrally-provided version available for your use.
 
-If your cluster doesn't have Rosetta already installed, or you wish to use a different version than the centrally installed one, don't worry — Rosetta is designed to be compiled and installed by regular users without administrative rights. 
-As long as commonly available compilation tools are available for your use, you should be able to build and run Rosetta in your user directory without cluster administrator involvement. 
+If your cluster doesn't have Rosetta already installed, or you wish to use a different version than the centrally installed one, don't worry — Rosetta is designed to be compiled and installed by regular users without administrative rights.
+As long as commonly available compilation tools are available for your use, you should be able to build and run Rosetta in your user directory without cluster administrator involvement.
 Just treat it like a [[local install into userspace|Getting-Started#local-installation-and-use-of-rosetta_installation-on-mac-linux]].
 
 
 Use of Rosetta on national-scale supercomputing resources
 ---------------------------------------------------------
 
-As part of the XSEDE initiative, the [[TACC/Stampede|TACC]] cluster has Rosetta and [[PyRosetta|scripting_documentation/PyRosetta/PyRosetta]] centrally installed for authorized users. 
+As part of the XSEDE initiative, the [[TACC/Stampede|TACC]] cluster has Rosetta and [[PyRosetta|scripting_documentation/PyRosetta/PyRosetta]] centrally installed for authorized users.
 See the [[TACC]] page for more details.
 
 
