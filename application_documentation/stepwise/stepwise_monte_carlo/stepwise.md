@@ -19,6 +19,34 @@ Algorithm
 
 This monte carlo minimization method builds up models by moves that involve sampling and minimization of single residues, what we've previously termed a 'stepwise ansatz'. Unlike other modes of Rosetta, moves include the deletion and addition of single residues. Because these moves are concentrated at termini, they are accepted frequently and allow deep optimization of an all-atom energy function.  For some problems, poses can also be split and merged, and separate chains can be docked or undocked. This same stepwise framework and application also reimplements enumerative sampling, following a recursion relation described previously (the 'stepwise assembly' method); in future releases, the older code will be removed.
 
+Options
+=======
+
+Commonly used options
+---------------------
+
+-s                                              Input file(s). For motifs that connect multiple helices like two- or three-way junctions, one may
+                                                consider providing helices as distinct input files; the algorithm will allow them to move relative to
+                                                each other.
+-in:fasta                                       Fasta-formatted sequence file. [FileVector]
+-extra_minimize_res                             List of residues (either Rosetta numbering or resnum-chain (A:1-5) which may be minimized despite 
+                                                being provided as part of the 'starting structure'
+-terminal_res                                   List of residues (either Rosetta numbering or resnum-chain (A:1-5) which are the terminal residues of
+                                                the starting structure(s) provided
+-motif_mode                                     If provided, Rosetta will automatically compute -extra_minimize_res and -terminal_res
+-score:rna_torsion_potential RNA11_based_new    Provided by default; use an updated torsional potential.
+-chemical::enlarge_H_lj                         Use a physically realistic H LJ radius, preventing collapse of RNA helices.
+-out:file:silent                                Name of output file [scores and torsions, compressed format]. default="default.out" [String]
+-in:native                                      Native PDB filename. [File].
+-out:nstruct                                    Number of models to make. default: 1. [Integer]
+
+Useful options
+--------------
+-monte_carlo:submotif_frequency                 Adjust the frequency of 'submotif moves' (taken from a database of native structures). When 
+                                                benchmarking, it can be useful to set this to 0.0 to ensure no part of the target loop is being built
+                                                from a native.
+
+
 Limitations
 ===========
 
