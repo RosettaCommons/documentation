@@ -69,7 +69,7 @@ Despite ROSIE's variety it offers only a slice of Rosetta's full functionality.
 Commercial Rosetta Servers
 --------------------------
 
-* [Cyrus Biotechnology](https://cyrusbio.com) provides the Bench server for commercial users and offers tools for homology modeling (like Robetta), protein design (RosettaDesign), ddG calculation, and other modeling tools like relaxation and minimization.
+* [Cyrus Biotechnology](https://cyrusbio.com) offers Bench, a server for commercial users that has tools for homology modeling (like Robetta), protein design (RosettaDesign), ddG calculation, and other modeling tools like relaxation and minimization.
 
 Local installation and use of Rosetta
 --------------------------------------
