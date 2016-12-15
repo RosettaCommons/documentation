@@ -64,7 +64,17 @@ For more build options, such as only compiling only one executable or apbs - Ple
 
 If you get an error like `     /usr/bin/ld: cannot find -lz    `, SCons may be looking for 32 bit libraries on a 64 bit machine. Look up how to install the missing dependency; in this case `     sudo apt-get install lib32z1-dev    ` installs the required library.
 
+<!--- BEGIN_INTERNAL -->
+#### Pilot Apps
+You can compile only the pilot apps you want by copying (in the <code>src</code> directory,   <code>pilot_apps.src.settings.template</code> to <code>pilot_apps.src.settings.my</code> and then filling out the paths to your apps just like what is in the <code>pilot_apps.src.settings.all</code> file. 
 
+##### Scons
+You will need to pass a 'my' after 'bin' for the build machinery to use this file, for example:
+<code>python scons.py bin my mode=release -j7 cxx=clang</code>
+
+##### CMake
+From what I understand, Cmake should automatically detect your my file and use it. 
+<!--- END_INTERNAL -->
 ###Build Rosetta using the Rosetta Xcode Project (Mac)
 
 The Rosetta Xcode project is compatible with Xcode versions 2.4 and later. You can use it to build, run, debug, browse, and edit the source code. There are four build targets to select from:
