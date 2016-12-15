@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2016-11-25
+Generated: 2016-12-14
 
 _Note that some application specific options may not be present in this list._
 
@@ -857,14 +857,6 @@ _Note that some application specific options may not be present in this list._
 <dd>In score tables, separate out backbone hydrogens bond energies per residue. By default, bb hbonds are included in the total energy, but not per residue energies<br/>Default: false<br/></dd>
 <dt><b>-hbond_disable_bbsc_exclusion_rule</b> \<Boolean\></dt>
 <dd>Disable the rule that protein bb/sc hbonds are excluded if the backbone group is already forming a hydrogen bond to a backbone group; with this flag, no hbonds are excluded<br/>Default: false<br/></dd>
-<dt><b>-hb_env_dep_new</b> \<Boolean\></dt>
-<dd>Use new version of env-dep fading for hbond and fa_elec<br/>Default: false<br/></dd>
-<dt><b>-hb_env_dep_new_low_scale</b> \<Real\></dt>
-<dd>For new version of env-dep fading, the lowend scale (as a fraction of buried strength)<br/>Default: 0.2<br/></dd>
-<dt><b>-hb_env_dep_new_low_nneigh</b> \<Real\></dt>
-<dd>For new version of env-dep fading, the number of 10A neighbors to be considered exposed<br/>Default: 10<br/></dd>
-<dt><b>-hb_env_dep_new_high_nneigh</b> \<Real\></dt>
-<dd>For new version of env-dep fading, the number of 10A neighbors to be considered buried<br/>Default: 20<br/></dd>
 <dt><b>-symE_units</b> \<Integer\></dt>
 <dd>Number of symmetric Units in design for use with symE scoring<br/>Default: -1<br/></dd>
 <dt><b>-symE_bonus</b> \<Real\></dt>
@@ -1157,6 +1149,10 @@ _Note that some application specific options may not be present in this list._
 <dd>use alternative envsmooth table with a floor of 0.0 (envsmooth awards no energy bonus)<br/>Default: false<br/></dd>
 <dt><b>-rama_power</b> \<Real\></dt>
 <dd>If rama > 0.0, raise to the nth power.  This has been useful for Foldit design.  Note that this creates derivative discontinuities, so it should be used with caution!  If not specified, the default rama behaviour (no power function) is preserved.<br/>Default: 1.0<br/></dd>
+<dt><b>-hbond_fade</b> \<Real\></dt>
+<dd>fade_factor for hbond geometry softmax<br/>Default: 2.5<br/></dd>
+<dt><b>-hbond_new_sp3_acc</b> \<Boolean\></dt>
+<dd>fade_factor for hbond geometry softmax<br/>Default: false<br/></dd>
 </dl>
 + <h3>-score:saxs</h3>
 <dl>
@@ -1463,10 +1459,12 @@ _Note that some application specific options may not be present in this list._
 <dd>Make a movie of accepts and trials (send to pymol)<br/>Default: false<br/></dd>
 <dt><b>-glycan_relax_kt</b> \<Real\></dt>
 <dd>KT for GlycanRelaxMover<br/>Default: 2.0<br/></dd>
-<dt><b>-glycan_relax_random_start</b> \<Boolean\></dt>
-<dd>Randomize the starting glycans set to move before the protocol.  Used to create increased diversity.<br/>Default: false<br/></dd>
-<dt><b>-glycan_relax_sugar_bb_start</b> \<Boolean\></dt>
-<dd>Randomize the starting glycans using sugar bb data before the protocol.<br/>Default: false<br/></dd>
+<dt><b>-glycan_relax_refine</b> \<Boolean\></dt>
+<dd>Set the protocol to not start from a random conformation, and instead refine the structure.<br/>Default: false<br/></dd>
+<dt><b>-cartmin</b> \<Boolean\></dt>
+<dd>Use Cartesian-space minimization instead of dihedral<br/>Default: false<br/></dd>
+<dt><b>-tree_based_min_pack</b> \<Boolean\></dt>
+<dd>Use a random-tree based method to minimize and pack instead of minimizing and packing all of them during the randommover selection. This makes the speed of the algorithm mostly-linear with the addition of more glycans, and wastes less time packing and minimizing<br/>Default: true<br/></dd>
 </dl>
 + <h3>-carbohydrates:clash_check</h3>
 <dl>
@@ -1600,6 +1598,10 @@ _Note that some application specific options may not be present in this list._
 <dd>Use the most-recent (curr Nov 15) beta score function<br/>Default: false<br/></dd>
 <dt><b>-beta_cart</b> \<Boolean\></dt>
 <dd>Use the most-recent (curr Nov 15) beta score function for nonideal optimization<br/>Default: false<br/></dd>
+<dt><b>-beta_nov16</b> \<Boolean\></dt>
+<dd>Use the November 2015 beta score function<br/>Default: false<br/></dd>
+<dt><b>-beta_nov16_cart</b> \<Boolean\></dt>
+<dd>Use the November 2015 beta score function for nonideal optimization<br/>Default: false<br/></dd>
 <dt><b>-beta_nov15</b> \<Boolean\></dt>
 <dd>Use the November 2015 beta score function<br/>Default: false<br/></dd>
 <dt><b>-beta_nov15_cart</b> \<Boolean\></dt>
@@ -1643,6 +1645,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Rama potential calculated as input for both rama and rama2b. By default, the potential is square for (ram a+entropy) > 1.0<br/></dd>
 <dt><b>-rama_map</b> \<File\></dt>
 <dd>Ramachandran file used by rama<br/>Default: "scoring/score_functions/rama/Rama_smooth_dyn.dat_ss_6.4"<br/></dd>
+<dt><b>-rama_pp_map</b> \<File\></dt>
+<dd>Ramachandran dir used by rama_prepro<br/>Default: "scoring/score_functions/rama/fd"<br/></dd>
 <dt><b>-rama_map_average_L_flat</b> \<File\></dt>
 <dd>Ramachandran map that's the average of all canonical L amino acids, flattened to give equal probability to the allowed region.  Lazily loaded; for sampling only.<br/>Default: "scoring/score_functions/rama/flat/avg_L_rama.dat"<br/></dd>
 <dt><b>-rama_map_sym_average_L_flat</b> \<File\></dt>
@@ -3738,7 +3742,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-min_final_hbonds</b> \<Real\></dt>
 <dd>The minimum number of backbone hbonds for a solution to pass after final relaxtion in the simple_cycpep_predict app.  Default 0 (report only).<br/>Default: 0.0<br/></dd>
 <dt><b>-total_energy_cutoff</b> \<Real\></dt>
-<dd>An absolute energy threshold, above which solutions are discarded.  Unused if not specified.<br/>Default: 0.0<br/></dd>
+<dd>An absolute energy threshhold, above which solutions are discarded.  Unused if not specified.<br/>Default: 0.0<br/></dd>
 <dt><b>-hbond_energy_cutoff</b> \<Real\></dt>
 <dd>The mainchain hbond energy threshold for something to be counted as a hydrogen bond in the simple_cycpep_predict app.  Default -0.25.<br/>Default: -0.25<br/></dd>
 <dt><b>-do_not_count_adjacent_res_hbonds</b> \<Boolean\></dt>
@@ -3789,6 +3793,14 @@ _Note that some application specific options may not be present in this list._
 <dd>If true, classic Ramachandran tables are used for sampling instead of the RamaPrePro tables.  Default false (i.e. newer RamaPrePro tables are used by default).<br/>Default: false<br/></dd>
 <dt><b>-n_methyl_positions</b> \<IntegerVector\></dt>
 <dd>If provided, then these positions are N-methylated.  Not used if not specified.<br/></dd>
+<dt><b>-TBMB_positions</b> \<IntegerVector\></dt>
+<dd>If provided, then these positions will be linked by a 1,3,5-tris(bromomethyl)benzene crosslinker.  3N positions must be specified, and every group of three will be linked.  Unused if not specified.<br/></dd>
+<dt><b>-use_TBMB_filters</b> \<Boolean\></dt>
+<dd>If true, then filters are applied based on distance between TBMB cysteines and on constraints to discard GenKIC solutions that can't be crosslinked easily.  True by default.<br/>Default: true<br/></dd>
+<dt><b>-TBMB_sidechain_distance_filter_multiplier</b> \<Real\></dt>
+<dd>A multiplier for the distance cutoff for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
+<dt><b>-TBMB_constraints_energy_filter_multiplier</b> \<Real\></dt>
+<dd>A multiplier for the constraints energy for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
 <dt><b>-MPI_processes_by_level</b> \<IntegerVector\></dt>
 <dd>The number of processes at each level of the parallel communications hierarchy, used only by the MPI version.  For example, '1 10 100' would mean that one emperor would talk to 10 masters, which would talk to 100 slaves (implying that each master is assigned 100 slaves).  Similarly, '1 100' would mean that one master would talk directly to 100 slaves.  Required for the MPI version.<br/></dd>
 <dt><b>-MPI_batchsize_by_level</b> \<IntegerVector\></dt>
@@ -4000,10 +4012,22 @@ _Note that some application specific options may not be present in this list._
 <dd>No description<br/>Default: false<br/></dd>
 <dt><b>-lk_ball_ramp_width_A2</b> \<Real\></dt>
 <dd>No description<br/>Default: 5.0<br/></dd>
+<dt><b>-lk_ball_overlap_width_A2</b> \<Real\></dt>
+<dd>No description<br/>Default: 5.0<br/></dd>
 <dt><b>-lk_ball_water_fade</b> \<Real\></dt>
 <dd>No description<br/>Default: 1.0<br/></dd>
 <dt><b>-lk_ball_wtd_prefactors</b> \<RealVector\></dt>
 <dd>6 scale factors that are applied to the lk_ball_wtd per-atom weights; the order is <donor-iso> <donor-ball> <acceptor-iso> <acceptor-ball> <don+acc-iso> <don+acc-ball>; where <don+acc> means atom-types that are both donors and acceptors (SP3 hybridized OH for example)<br/></dd>
+<dt><b>-lk_ball_waters_sp2</b> \<RealVector\></dt>
+<dd>The geometry of sp2 acceptor waters in lk_ball. Format: ( <length_A> <angle_degrees> <torsion_degrees> )+  Default: 2.65 120 0  2.65 120 180.  No limit on #, but all three params must be specified for each<br/></dd>
+<dt><b>-lk_ball_waters_sp3</b> \<RealVector\></dt>
+<dd>The geometry of sp3 acceptor waters in lk_ball. Format: ( <length_A> <angle_degrees> <torsion_degrees> )+  Default: 2.65 109 120  2.65 109 240.  No limit on #, but all three params must be specified for each<br/></dd>
+<dt><b>-lk_ball_waters_ring</b> \<RealVector\></dt>
+<dd>The geometry of ring acceptor waters in lk_ball. Format: ( <length_A> <angle_degrees> <torsion_degrees> )+  Default: 2.65 180 0.  No limit on #, but all three params must be specified for each<br/></dd>
+<dt><b>-lk_ball_waters_donor</b> \<Real\></dt>
+<dd>The geometry of donor waters in lk_ball. Length along N-H vector<br/></dd>
+<dt><b>-lk_ball_bridge_angle_widthscale</b> \<Real\></dt>
+<dd>The width scaling on the angular component of lk_ball_bridge (lower = tighter)<br/>Default: 0.0<br/></dd>
 </dl>
 + <h3>-dna:design</h3>
 <dl>
@@ -6060,6 +6084,8 @@ _Note that some application specific options may not be present in this list._
 <dl>
 <dt><b>-parser</b> \<Boolean\></dt>
 <dd>parser option group<br/></dd>
+<dt><b>-info</b> \<StringVector\></dt>
+<dd>Have the rosetta_scripts application print out the available XML-accessible options for a given mover, filter, task operation, or residue selector, and then exit.<br/></dd>
 <dt><b>-output_schema</b> \<String\></dt>
 <dd>Have the rosetta_scripts application write out its XML Schema to the given file and then exit.<br/></dd>
 <dt><b>-patchdock</b> \<String\></dt>
