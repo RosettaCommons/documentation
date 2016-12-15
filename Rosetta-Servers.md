@@ -1,7 +1,7 @@
 Rosetta servers
-===================
+===============
 
-The [[RosettaCommons (external link)|https://www.rosettacommons.org/about]] (the group of labs that maintain Rosetta) maintains a number of [[servers for free public academic use (external link)|https://www.rosettacommons.org/software/servers]]. [[Cyrus Biotechnology (external link)| https://cyrusbio.com]] maintains secure servers for paid commercial use on cloud resources.
+The [[RosettaCommons (external link)|https://www.rosettacommons.org/about]] (the group of labs that maintain Rosetta) maintains a number of [[servers for free public academic use (external link)|https://www.rosettacommons.org/software/servers]]. Servers for commercial use are also availible from an external provider.
 
 ###Public Servers
 
@@ -29,6 +29,7 @@ It also provides [[interface alanine scanning|interface analyzer]] and [[DNA int
 It searches for [[energy landscape|Glossary#general-terms_energy-landscape]] funnels using Rosetta's docking code.
 
 ###Commercial/Private servers
+
 * [[Cyrus Biotechnology (external link)| https://cyrusbio.com]]'s Bench server is a web app GUI frontend to Rosetta that runs your requested computations on secure cloud servers.  This tool is meant to allow biophysicists to access the power of Rosetta without needing specific training in Rosetta, experience with the command line, or local supercomputing resources.  Bench offers tools for homology modeling (like Robetta), protein design (RosettaDesign), ddG calculation, and other modeling tools like relaxation and minimization.
 
 

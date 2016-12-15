@@ -53,10 +53,12 @@ There are applications than can run on lab-scale powerful computers (12-30 core 
 Most applications assume you have access to tens of thousands of hours of computer time to accumulate enough results to answer your question.
 The later sections of this document describe installing or using Rosetta at those different scales.
 
-Rosetta Servers
------------------
+Public Rosetta Servers
+----------------------
 
-Rosetta maintains several [[public servers|Rosetta-Servers]] for non-commercial use only, and [[Cyrus Biotechnology (external link)| https://cyrusbio.com]] maintains servers appropriate for commercial use.  The servers of broadest interest are touched on here, but see [[here|Rosetta-Servers]] and [[here|https://www.rosettacommons.org/software/servers]] for more complete lists.
+RosettaCommons maintains several [[public servers|Rosetta-Servers]] for **NON-COMMERCIAL USE ONLY**.  The servers of broadest interest are touched on here, but see [[here|Rosetta-Servers]] and [[here|https://www.rosettacommons.org/software/servers]] for more complete lists.
+
+For commercial use, see the section below and the [[Rosetta Servers]] page.
 
 * [ROSIE](http://rosie.rosettacommons.org/) is a server that offers several Rosetta applications through a simple web interface.
 It is perfect for use by those new to Rosetta.
@@ -64,7 +66,10 @@ Despite ROSIE's variety it offers only a slice of Rosetta's full functionality.
 
 * [ROBETTA](http://robetta.bakerlab.org/) (Robot-Rosetta) is a server that provides _ab initio_ folding and structure prediction, as well as fragment selection for local runs of Rosetta.
 
-* [Cyrus Biotechnology Bench](https://cyrusbio.com) is available for commercial users and offers tools for homology modeling (like Robetta), protein design (RosettaDesign), ddG calculation, and other modeling tools like relaxation and minimization.
+Commercial Rosetta Servers
+--------------------------
+
+* [Cyrus Biotechnology](https://cyrusbio.com) provides the Bench server for commercial users and offers tools for homology modeling (like Robetta), protein design (RosettaDesign), ddG calculation, and other modeling tools like relaxation and minimization.
 
 Local installation and use of Rosetta
 --------------------------------------
