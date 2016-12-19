@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2016-12-14
+Generated: 2016-12-19
 
 _Note that some application specific options may not be present in this list._
 
@@ -500,6 +500,10 @@ _Note that some application specific options may not be present in this list._
 <dd>If the pose contains a comment named template, print this as a REMARK in the pdb file<br/>Default: false<br/></dd>
 <dt><b>-per_chain_renumbering</b> \<Boolean\></dt>
 <dd>When used in conjunction with renumber_pdb, restarts residue numbering at each chain.<br/>Default: false<br/></dd>
+<dt><b>-output_secondary_structure</b> \<Boolean\></dt>
+<dd>output HELIX and SHEET records to StructFileRep / PDB<br/>Default: false<br/></dd>
+<dt><b>-do_not_autoassign_SS</b> \<Boolean\></dt>
+<dd>Depends on -out:file:output_secondary_structure.  If outputting SS, if this flag is true, it will NOT generate the secondary structure automatically; it will instead assume the secstruct string in the pose is correct<br/>Default: false<br/></dd>
 <dt><b>-output_torsions</b> \<Boolean\></dt>
 <dd>Output phi, psi, and omega torsions in the PDB output if the pose is ideal.<br/>Default: false<br/></dd>
 <dt><b>-use_occurrence_data</b> \<Boolean\></dt>
@@ -911,6 +915,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Use torsional potential for RNA 2prime OH.<br/>Default: true<br/></dd>
 <dt><b>-include_neighbor_base_stacks</b> \<Boolean\></dt>
 <dd>In RNA score calculation, include stacks between i,i+1<br/>Default: false<br/></dd>
+<dt><b>-FA_low_res_rnp_scoring</b> \<Boolean\></dt>
+<dd>RNA/protein low-res scoring using full atom protein residues<br/>Default: false<br/></dd>
 <dt><b>-find_neighbors_3dgrid</b> \<Boolean\></dt>
 <dd>Use a 3D lookup table for doing neighbor calculations.  For spherical, well-distributed conformations, O(N) neighbor detection instead of general O(NlgN)<br/>Default: false<br/></dd>
 <dt><b>-find_neighbors_stripehash</b> \<Boolean\></dt>
@@ -3401,6 +3407,10 @@ _Note that some application specific options may not be present in this list._
 <dd>Cluster by gdtmm instead of RMS<br/>Default: false<br/></dd>
 <dt><b>-skip_align</b> \<Boolean\></dt>
 <dd>Cluster without aligning the structures<br/>Default: false<br/></dd>
+<dt><b>-max_rms_matrix</b> \<Integer\></dt>
+<dd>Maximum number of structures to use to calculate the full RMSD matrix<br/>Default: 400<br/></dd>
+<dt><b>-rna_P</b> \<Boolean\></dt>
+<dd>Calculate rmsd from backbone phosphate positions only<br/>Default: false<br/></dd>
 <dt><b>-sort_groups_by_energy</b> \<Boolean\></dt>
 <dd>Sort clusters by energy<br/>Default: false<br/></dd>
 <dt><b>-sort_groups_by_size</b> \<Boolean\></dt>
@@ -7058,6 +7068,8 @@ _Note that some application specific options may not be present in this list._
 <dd>farna option group<br/></dd>
 <dt><b>-cycles</b> \<Integer\></dt>
 <dd>Default number of Monte Carlo cycles<br/>Default: 0<br/></dd>
+<dt><b>-rna_protein_docking_freq</b> \<Integer\></dt>
+<dd>RNA/protein docking frequency<br/>Default: 10<br/></dd>
 <dt><b>-rounds</b> \<Integer\></dt>
 <dd>Number of rounds to split cycles into during fragment assembly<br/>Default: 10<br/></dd>
 <dt><b>-temperature</b> \<Real\></dt>
@@ -7182,6 +7194,10 @@ _Note that some application specific options may not be present in this list._
 <dd>Use old de novo setup without residue/chain mapping<br/>Default: false<br/></dd>
 <dt><b>-cst_gap</b> \<Boolean\></dt>
 <dd>Setup up atompair constraints to keep chain ends close if they are known to be part of the same chain in full model pose<br/>Default: false<br/></dd>
+<dt><b>-convert_protein_CEN</b> \<Boolean\></dt>
+<dd>Convert protein residues to centroid mode during low-res fragment assembly<br/>Default: true<br/></dd>
+<dt><b>-rna_protein_docking</b> \<Boolean\></dt>
+<dd>Do RNA/protein docking?<br/>Default: true<br/></dd>
 <dt><b>-output_score_frequency</b> \<Integer\></dt>
 <dd>output running score with this frequency [0 means no running output]<br/>Default: 0<br/></dd>
 <dt><b>-output_score_file</b> \<String\></dt>
@@ -7595,6 +7611,8 @@ _Note that some application specific options may not be present in this list._
 <dd>for submotif moves, only use first jump from jump library -- does not change stepwise -lores (which resamples jump) except in balance of move selection.<br/>Default: false<br/></dd>
 <dt><b>-vary_loop_length_frequency</b> \<Real\></dt>
 <dd>In design, allow loops ('n') to shorten from loop lengths defined in FASTA files.<br/>Default: 0.0<br/></dd>
+<dt><b>-checkpointing_frequency</b> \<Integer\></dt>
+<dd>How often should we output checkpoint files?<br/>Default: 0<br/></dd>
 </dl>
 + <h4>-stepwise:monte_carlo:csa</h4>
 <dl>
