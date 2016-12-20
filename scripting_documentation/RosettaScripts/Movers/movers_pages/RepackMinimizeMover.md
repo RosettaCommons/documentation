@@ -21,7 +21,7 @@ repack\_partner1 (and 2) defines which of the partners to design. If no particul
 -   minimize\_rb: minimize rigid body orientation? (as in docking)
 -   optimize\_fold\_tree: see above
 -   task\_operations: comma-separated list of task operations. This is a safer way of working with user-defined restrictions than automatic\_repacking=false.
--   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
+-   pdb\_num/res\_num: see the main [[RosettaScripts Documentation|RosettaScripts#rosettascripts-conventions_specifying-residues]] for more.
 
 If no repack\_partner1/2 options are set, you can specify repack=0/1 to control both. Similarly with design\_partner1/2 and design=0/1
 
