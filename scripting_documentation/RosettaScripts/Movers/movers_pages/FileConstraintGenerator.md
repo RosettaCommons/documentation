@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## FileConstraintGenerator
 
-Generates constraints from a Rosetta constraint file. Constraints generated using this Constraint Generator can be added to the pose using the [[AddConstraints]] mover and removed using the [[RemoveConstraints]] mover.
+Generates constraints from a Rosetta constraint file. Constraints generated using this Constraint Generator can be added to the pose using the [[AddConstraintsMover]] and removed using the [[RemoveConstraintsMover]].
 
 ```
 <FileConstraintGenerator name="(&string)" filename="(&string)" />
