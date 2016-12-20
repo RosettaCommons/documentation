@@ -28,7 +28,7 @@ There is a [[complete write-up|preparing-structures]] of preparing starting stru
 
 Rosetta has individual modules to handle particular forms of experimental constraint:
 
-* [mr_protocols](application_documentation/mr-protocols) is typically used _alongside_ Phaser; it uses Rosetta's comparative modeling to rebuild gaps and insertions in the template, as well as missing density, from fragments, followed by relaxation with constraints to experimental density.
+* [[mr_protocols|mr-protocols]] is typically used _alongside_ Phaser; it uses Rosetta's comparative modeling to rebuild gaps and insertions in the template, as well as missing density, from fragments, followed by relaxation with constraints to experimental density.
 You can then use Phaser again to re-score against crystallographic data.
 * [[ERRASER]] refines RNA structures from electron density (crystallographic data); it constitutes a workflow of _erraser_minimize_, _swa_rna_analytical_closure_, and _swa_rna_main.
 It requires the use of the refinement program PHENIX.
