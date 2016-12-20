@@ -32,13 +32,13 @@ Rosetta has individual modules to handle particular forms of experimental constr
 You can then use Phaser again to re-score against crystallographic data.
 * [[ERRASER]] refines RNA structures from electron density (crystallographic data); it constitutes a workflow of _erraser_minimize_, _swa_rna_analytical_closure_, and _swa_rna_main.
 It requires the use of the refinement program PHENIX.
-* [loops from density](application_documentation/loops-from-density) is a script to take badly fit electron data and a cutoff suggesting how much of the pose you're willing to rebuild and to generate input "loops" files for loop modeling. 
-* [Chemical shift files](rosetta_basics/chemical-shift-file) provide data to a variety of protocols often collectively referred to as CSROSETTA that incorporate NMR constraints to refine structures
+* [[loops from density|loops-from-density]] is a script to take badly fit electron data and a cutoff suggesting how much of the pose you're willing to rebuild and to generate input "loops" files for loop modeling. 
+* [[Chemical shift files|chemical-shift-file]] provide data to a variety of protocols often collectively referred to as CSROSETTA that incorporate NMR constraints to refine structures
 
 ## Experimental constraints  
 
 Frequently, you will encounter situations where you have knowledge about the experimental system that does not neatly fit into any of the above situations, or which provides very sparse or even conflicting information.
-This is all right: Rosetta's capacity for [working with constraints](rosetta_basics/constraint-file) will help to encode these sorts of weak information.
+This is all right: Rosetta's capacity for [[working with constraints|constraint-file] will help to encode these sorts of weak information.
 In particular:
 * AmbiguousNMRDistance constraints encode distances between two atoms; importantly, rotationally equivalent/experimentally indistinguishable hydrogens are not distinguished.
 * SiteConstraint constraints penalize or reward the proximity of a residue in one chain to another chain.
