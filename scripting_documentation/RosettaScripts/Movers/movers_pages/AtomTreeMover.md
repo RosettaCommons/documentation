@@ -20,7 +20,7 @@ FOLD_TREE EDGE 1 18 -1 EDGE 18 32 1 EDGE 18 21 -1 EDGE 32 22 -1 EDGE 32 50 -1 ED
      These options specify the actual jump atoms. anchor\_res (this is the residue) and connect\_from (the actual atom) are a pair and are used for the first chain, whereas pdb\_num (residue) and connect\_to (atom) are a pair on chain 2 (the one that typically moves)
 -   connect\_to: Only can use if defining pdb\_num! Defaults to using the farthest carbon atom from the mainchain for each residue, e.g., CB, Cdelta for Gln etc.
 -   connect\_from: user can specify which atom the jump should start from. Currently only the pdb naming works. If not specified, the "optimal" atomic connection for anchor residue is chosen (that is to their functional groups).
--   pdb\_num/resnum: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
+-   pdb\_num/resnum: see the main [[RosettaScripts Documentation|RosettaScripts#rosettascripts-conventions_specifying-residues]] for more
 
 
 ##See Also
