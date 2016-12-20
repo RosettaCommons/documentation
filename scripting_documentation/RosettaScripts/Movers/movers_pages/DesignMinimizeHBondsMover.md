@@ -16,7 +16,7 @@ Same as for RepackMinimize with the addition that a list of target residues to b
 -   hbond\_energy: what is the energy threshold below which an hbond is counted as such.
 -   repack\_non\_ala,task\_operations:see RepackMinimize
 -   optimize\_fold\_tree: see DockingProtocol
--   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
+-   pdb\_num/res\_num: see the [[RosettaScripts Documentation|RosettaScripts#rosettascripts-conventions_specifying-residues]] for more.
 
 
 ##See Also
