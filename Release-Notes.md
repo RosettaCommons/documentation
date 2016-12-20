@@ -88,7 +88,7 @@ Enzyme specificity re-design (using coupled_moves) ([http://www.ncbi.nlm.nih.gov
 	
 
 ### New tools:
-* [Batch_distances](Batch-distances)
+* [[Batch-distances]]
 * [Residue_energy_breakdown](application_documentation/analysis/residue-energy-breakdown) 
 * Reference poses: [store a pose “snapshot”](scripting_documentation/RosettaScripts/Movers/movers_pages/StorePoseSnapshotMover) at a particular point in a protocol, and use the residue numbering in that pose to control behavior of modules at a downstream point, even if the residue numbering has changed (due to loop insertion, etc.).
 * [Energy function weight optimization](application_documentation/utilities/opt-e-parallel-doc) (not suggested for end-user use, but if you’re brave…) 
