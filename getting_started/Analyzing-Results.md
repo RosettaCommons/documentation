@@ -32,7 +32,7 @@ Important highlights of this process include:
 This metric generally ought to correspond to the _physical reality_ of the model.
 An overall scoring function is typically a good choice.
 It may differ from the scoring function that you used to guide sampling.
-For example, you may have added [constraints](rosetta_basics/file_types/constraint-file) to your scoring function so that you only sample conformations near a binding site.
+For example, you may have added [[constraints|constraint-file]] to your scoring function so that you only sample conformations near a binding site.
 But when it comes time to score, you are much more interested in whether your models have no clashes, few bad rotamers, and good packing than how well they satisfy your original constraints.
 So you may use a scoring function with few or different constraints to score models here.
 -	After you select some percentage of your models or centroids based on that "physical reality" score, you may have a secondary objective by which you should rank these models.
