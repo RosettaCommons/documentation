@@ -19,7 +19,7 @@ Report structural data to a [[relational database|Database-IO]] using a modular 
 -   **name** *(&string)* : The name assigned to this mover to be referenced in the MOVERS section of the RosettaScript.
 -   **[[database_connection_options|RosettaScripts-database-connection-options]]** : Options to connect to the relational database
 -   **sample\_source** *(&string)* : A description for the *batch* of structures. This ends up in the `      description     ` column of the [[batches|MetaFeaturesReporters#BatchFeatures]] table.
--   **[[task_operations|RosettaScripts-Documentation#TASKOPERATIONS]]** : Restrict extraction of features to a subset of residues in a structure. A residue is *relevant* if it is *packable* . For multi-residue features, all residues must be *packable* for it to be reported.
+-   **[[task_operations|TaskOperations-RosettaScripts]]** : Restrict extraction of features to a subset of residues in a structure. A residue is *relevant* if it is *packable* . For multi-residue features, all residues must be *packable* for it to be reported.
 -   **relevant\_residues\_mode** [ *explicit* `      default     ` , *implicit* ]: Determines which features should be reported given the set of relevant residues. With *explicit* all residues in a feature must be *relevant* to be reported. With *implicit* at least one residues in a feature must be *relevant* to be reported.
 
 **Feature Subtags** : Each features subtag applies a [[features reporter|FeatureReporters]] to the structure.
