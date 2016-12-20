@@ -115,7 +115,7 @@ Success would be extremely unlikely due to the large amount of sampling needed t
 ## Protein–Peptide Docking
 
 Protein–peptide docking is useful for determining the structure of a short, flexible peptide in the context of a receptor.
-Rosetta has [protein–peptide docking](application_documentation/flex_pep_dock) methods that work best starting from an approximate model with a starting position near to the peptide–binding site; within five Angstroms backbone RMSD is ideal.
+Rosetta has [[protein–peptide docking|flex-pep-dock]] methods that work best starting from an approximate model with a starting position near to the peptide–binding site; within five Angstroms backbone RMSD is ideal.
 Thus, it is not generally tractable to concurrently sample peptide conformations and all the possible binding sites on the surface of the protein.
 Rosetta also has the capacity to sample conformations of peptidomimetic molecules, such as oligooxopiperazines, hydrogen bond surrogate helices, stapled peptides, peptoids, beta peptides, and more.
 
