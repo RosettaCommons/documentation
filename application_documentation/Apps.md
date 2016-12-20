@@ -186,7 +186,7 @@ Given a structure and electron density data to which it has a poor fit, generate
 ### [[mr_protocols | mr-protocols]]
 Uses fragments to perform a molecular replacement protocol into electron density data.
 
-### [[CstfileToTheozymePDB]]
+### [[CstfileToTheozymePDB|match-cstfile-format]]
 Given an enzyme constraint file, produces an inverse rotamer tree of the residues in question (which form a geometrically ideal "theoretical enzyme") and dump it as a multimodel PDB.
 As "stealth functionality," can take a PDB using -s that will be aligned to the theozyme created.
 
