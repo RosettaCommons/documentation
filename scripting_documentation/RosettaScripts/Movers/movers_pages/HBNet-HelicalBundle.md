@@ -6,4 +6,4 @@ UNDER CONSTRUCTION
 
 ## See Also
 * [[PerturbBundleMover]]
-* [[BundleGridSampler]]
+* [[BundleGridSamplerMover]]
