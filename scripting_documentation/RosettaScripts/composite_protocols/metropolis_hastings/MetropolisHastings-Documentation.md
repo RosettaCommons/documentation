@@ -1,4 +1,4 @@
-#MetropolisHastings Documentation -->
+#MetropolisHastings Documentation
 
 [[Return to RosettaScripts|RosettaScripts]]
 
