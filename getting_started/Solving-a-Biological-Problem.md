@@ -205,7 +205,7 @@ Then you may begin to approach this question with [[FloppyTail|floppy-tail]].
 
 ## Nucleic Acids modeling
 
-* [ERRASER](application_documentation/erraser) refines RNA structures from electron density (crystallographic data); it constitutes a workflow of _erraser_minimize_, _swa_rna_analytical_closure_, and _swa_rna_main.
+* [[ERRASER]] refines RNA structures from electron density (crystallographic data); it constitutes a workflow of _erraser_minimize_, _swa_rna_analytical_closure_, and _swa_rna_main.
 It requires the use of the refinement program PHENIX.
 
 ## Solving Crystal Structures
@@ -215,7 +215,7 @@ It requires the use of the refinement program PHENIX.
 * [mr_protocols](application_documentation/mr-protocols) is typically used _alongside_ Phaser / PHENIX; it uses Rosetta's comparative modeling to rebuild gaps and insertions in the template, as well as missing density, from fragments, followed by relaxation with constraints to experimental density.
 You can then use Phaser / PHENIX again to re-score against crystallographic data.
 
-* [ERRASER](application_documentation/erraser) refines RNA structures from electron density (crystallographic data); it constitutes a workflow of _erraser_minimize_, _swa_rna_analytical_closure_, and _swa_rna_main.
+* [[ERRASER]] refines RNA structures from electron density (crystallographic data); it constitutes a workflow of _erraser_minimize_, _swa_rna_analytical_closure_, and _swa_rna_main.
 It requires the use of the refinement program PHENIX.
 
 ## Solving NMR structures
