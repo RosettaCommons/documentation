@@ -13,7 +13,7 @@ Produces a set of rotamers from a given residue. Use after [AtomTree](#AtomTree)
     -   2 = explode chi1,2
     -   3 = explode chi1,2,3
     -   4 = explode chi1,2,3,4
--   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
+-   pdb\_num/res\_num: see the main [[RosettaScripts Documentation|RosettaScripts#rosettascripts-conventions_specifying-residues]] for more.
 -   shove: use the shove atom-type (reducing the repulsive potential on backbone atoms) for a comma-separated list of residue identities. e.g., shove=3A,40B.
 -   automatic\_connection: should TryRotamers set up the inverse-rotamer fold tree independently?
 
