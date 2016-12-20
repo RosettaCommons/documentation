@@ -82,7 +82,7 @@ Updates to [DARC](application_documentation/docking/DARC) docking
 * Pocket docking (looks for druggable sites) ([make-exemplar](application_documentation/utilities/make-exemplar), [pocket-relax](application_documentation/utilities/pocket-relax), [pocket-suggest-targets](application_documentation/utilities/pocket-suggest-targets) )
 * [SEWING](scripting_documentation/RosettaScripts/composite_protocols/sewing/SEWING) (http://www.ncbi.nlm.nih.gov/pubmed/27151863)
 * [Simple_cycpep_predict](structure_prediction/simple_cycpep_predict): fragment-free peptide structure prediction for N-to-C cyclic peptides containing arbitrary mixtures of L- and D-amino acids (and glycine).  
-* [Surface_docking](surface-docking) (Docking to mineral surfaces) 
+* [[Surface-docking]] (Docking to mineral surfaces) 
 Enzyme specificity re-design (using coupled_moves) ([http://www.ncbi.nlm.nih.gov/pubmed/26397464](http://www.ncbi.nlm.nih.gov/pubmed/26397464))
 * Design with Oligooxypiperizines (OOPs), hydrogen bond surrogates (HBS), and peptoid foldamers ([http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0067051](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0067051), [http://pubs.acs.org/doi/abs/10.1021/ja502310r](http://pubs.acs.org/doi/abs/10.1021/ja502310r), [http://pubs.acs.org/doi/abs/10.1021/ja503776z](http://pubs.acs.org/doi/abs/10.1021/ja503776z))
 	
