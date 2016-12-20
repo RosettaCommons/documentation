@@ -125,8 +125,8 @@ This example creates constraints to enforce a hydrogen bond between atom NE2 on 
 
 ##See Also
 
-* [[AddConstraints]]
-* [[RemoveConstraints]]
+* [[AddConstraintsMover]]
+* [[RemoveConstraintsMover]]
 * [[Constraints file format|constraint-file]]
 * [[AtomCoordinateCstMover]]
 * [[AddConstraintsToCurrentConformationMover]]
