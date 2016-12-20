@@ -18,7 +18,7 @@ impose\_constraints & constraints\_only can be used intermittently to break the 
 ##See Also
 
 * [[MinMover]]
-* [[FastRelax]]
+* [[FastRelaxMover]]
 * [[Minimization overview]]
 * [[AtomCoordinateCstMover]]
 * [[Constraints file format|constraint-file]]
