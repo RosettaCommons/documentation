@@ -12,7 +12,7 @@ AtomTypesFeatures
 
         <AtomTypesFeatures/>
 
-The atom-level chemical information stored in the rosetta AtomTypeSet. This includes base parameters for the Lennard Jones Van der Waals term and Lazaridis Karplus solvation model.
+The atom-level chemical information stored in the Rosetta AtomTypeSet. This includes base parameters for the Lennard Jones Van der Waals term and Lazaridis Karplus solvation model.
 
 -   **atom\_types** : The atom type in the atom type set along with Lennard Jones and Lazaridis Karplus parameters
     -   *atom\_type\_set\_name* : The name of the atom type set. For atom type tests stored in the database the parameters are in the following directory */path/to/rosetta/main/database/chemical/atom\_type\_sets/\<atom\_type\_set\_name\>*
@@ -590,7 +590,7 @@ PairFeatures measures the distances between residues.
 -   **residue\_pairs** : The information stored here follows 'pair' EnergyMethod. The functional form for the pair EnergyMethod is described in [Simons, K.T., et al, Improved Recognition of Native-Like Protein Structures Using a Combination of Sequence-Dependent and Sequence-Independent Features of Proteins, (Proteins 1999).](http://www.ncbi.nlm.nih.gov/pubmed/10336385,)
     -   *resNum{1/2}* : the rosetta Residue indices of residues involved. Note, each pair is only recorded once and resNum1 \< resNum2.
     -   *res{1/2}\_10A\_neighbors* : Number of neighbors for each residue, used as a proxy for burial. (These columns are going to be moved to the **residue\_burial** table soon.)
-	-   A *residue center* is represented by the actcoord which is defined to be the average geometric center of of the ACT\_COORD\_ATOMS specified in the [residue type](Glossary#residuetype) params file for each residue type.
+	-   A *residue center* is represented by the actcoord which is defined to be the average geometric center of of the ACT\_COORD\_ATOMS specified in the [[residue type|Glossary#residuetype]] params file for each residue type.
     -   *actcoord\_dist* : The cartesian distance between residue centers.
     -   *polymeric\_sequence\_dist* : The sequence distance between the residues. If either residue is not a *polymer* residue or if they are on different chains, this is -1.
 
@@ -678,7 +678,7 @@ PoseConformationFeatures
 PoseConformationFeatures measures the conformation level information in a Pose. Together with the ProteinResidueConformationFeatures, the atomic coordinates can be reconstructed. To facilitate creating poses from conformation structure data stored in the features database, PoseConformationFeatures has a *load\_into\_pose* method.
 
 -   **pose\_conformations** : This table stores information about sequence of residues in the conformation.
-	-   *annotated\_sequence* : The [annotated sequence](Glossary#annotated-sequence) string of residue types that make up the conformation
+	-   *annotated\_sequence* : The [[annotated sequence|Glossary#annotated-sequence]] string of residue types that make up the conformation
     -   *total\_residue* : The number of residues in the conformation
     -   *fullatom* : The ResidueTypeSet is *FA\_STANDARD* if true, and *CENTROID* if false.
 
