@@ -37,7 +37,7 @@ Loop modeling using KIC with fragments has several important applications in str
 -   **Loop reconstruction:** The *de novo* prediction of the conformation of a peptide segment given its sequence, where the initial backbone and side-chain conformations are discarded
 -   **Loop refinement:** Finding low-energy conformations for a given peptide conformation and sequence
 
-Although this documentation refers to modeling loop regions, in practice the KIC with fragments protocol can be applied to any protein segments at least 3 residues in length, given the availability of fragment data (which can be generated for any amino acid sequence of interest, using either the free [Robetta web server](http://robetta.bakerlab.org/) or the [fragment picker application](app-fragment-picker); see [Using Fragment Files in Rosetta](fragment-file) for details).
+Although this documentation refers to modeling loop regions, in practice the KIC with fragments protocol can be applied to any protein segments at least 3 residues in length, given the availability of fragment data (which can be generated for any amino acid sequence of interest, using either the free [Robetta web server](http://robetta.bakerlab.org/) or the [[fragment picker application|app-fragment-picker]]; see [[Using Fragment Files in Rosetta|fragment-file]] for details).
 
 
 Quick Start Example
@@ -102,7 +102,7 @@ The following files are required for KIC with fragments:
 
 -   Starting PDB file, specified by `-in:file:s` or `-s`. The starting structure must have real coordinates for all residues outside the loop definition, plus the first and last residue of each loop region (side-chains can be reconstructed by Rosetta if there is missing electron density, but all backbone atoms must have well-defined coordinates).
 
--   Loop definition file, specificied by `        -loops:loop_file       ` and shared across all loop modeling protocols. For each loop to be modeled, include the following on one line:
+-   Loop definition file, specified by `        -loops:loop_file       ` and shared across all loop modeling protocols. For each loop to be modeled, include the following on one line:
 
     ```
     column1  "LOOP":     The loop file identify tag
@@ -126,7 +126,7 @@ The following files are required for KIC with fragments:
     LOOP 88 95 92 0 1
     ```
 
-    **NOTE:** Residue indices in loop definition files refer to *Rosetta numbering* (numbered continuously from '1', including across multi-chain proteins). It may be useful to renumber starting structures with Rosetta numbering so loop defintions and PDB residue indices agree.
+    **NOTE:** Residue indices in loop definition files refer to *Rosetta numbering* (numbered continuously from '1', including across multi-chain proteins). It may be useful to renumber starting structures with Rosetta numbering so loop definitions and PDB residue indices agree.
 
 -   Fragment libraries, specified by the flags `-loops:frag_sizes`, which defines the number of residues per fragment (commonly used are `9 3 1` to utilize 9mers, 3mers and 1mers during sampling), and `-loops:frag_files`, which defines the path to and name of the respective fragment libraries. Those files can be generated for any amino acid sequence of interest, using either the free [[Robetta web server|http://robetta.bakerlab.org/]] or the [[fragment picker application|app-fragment-picker]]; see [[Using Fragment Files in Rosetta|fragment-file]] for details). When `none` is specified as the name of the 1mers fragment library, 1mer fragments will be automatically generated from the given 3mers fragment data. 
 
@@ -187,7 +187,7 @@ Options
     -loops:outer_cycles             Number of outer cycles for Monte Carlo (described above in Algorithm).
                                     Default = 5. [Integer]
     -loops:max_inner_cycles         Maximum number of inner cycles for Monte Carlo (described above in Algorithm). [Integer]
-    -loops:fast                     Signifcantly reduces the number of inner cycles. For quick testing, 
+    -loops:fast                     Significantly reduces the number of inner cycles. For quick testing, 
                                     not production runs. Default = 'false'. [Boolean]
     -run:test_cycles                Sets the number of outer cycles and inner cycles to 3. For extremely quick testing 
                                     and sanity checks, not for production runs. Default = 'false'. [Boolean]
@@ -230,7 +230,7 @@ fixbb.<my_os>gccrelease -database <Rosetta_database> -s <input_PDB> -in:file:ful
 Post-processing
 ===============
 
-For benchmarking purposes, creating a score *vs* rmsd plot across decoys and looking for near-native 'energy funnels' is a good way to test the performance of the protocols on a system, and can help to determine whether errors are due to scoring or sampling. For blind prediction and refinement, such plots can still be useful to look for convergence or multiple minima in the energy landscape. Decoys may also be pairwise-clustered, using the [cluster application](application_documentation/cluster), to search for well-populated regions of conformational space that may represent alternative low-energy conformations. 
+For benchmarking purposes, creating a score *vs* rmsd plot across decoys and looking for near-native 'energy funnels' is a good way to test the performance of the protocols on a system, and can help to determine whether errors are due to scoring or sampling. For blind prediction and refinement, such plots can still be useful to look for convergence or multiple minima in the energy landscape. Decoys may also be pairwise-clustered, using the [[cluster application|cluster]], to search for well-populated regions of conformational space that may represent alternative low-energy conformations. 
 
 
 Comparison to other loop modeling protocols
