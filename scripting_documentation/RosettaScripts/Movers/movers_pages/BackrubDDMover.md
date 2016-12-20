@@ -17,7 +17,7 @@ bbg\_moves are backbone-Gaussian moves. See The J. Chem. Phys., Vol. 114, pp. 81
 
 Note: As of June 29, 2011, this mover was renamed from "Backrub" to "BackrubDD". Scripts run with versions of Rosetta after that date must be updated accordingly.
 
--   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
+-   pdb\_num/res\_num: see the [[RosettaScripts Documentation|RosettaScripts#rosettascripts-conventions_specifying-residues]] for more.
 -   task\_operations: see [RepackMinimize](#RepackMinimize)
 
 
