@@ -264,7 +264,7 @@ Extremely diverse function: can do design, repacking, complete backbone remodeli
 -	enzyme design
 	-	EnzdesRemodelMover
 	-	[[PredesignPerturbMover]]
--	[[DesignMinimizeHbonds|DesignMinimizeHbonds]]
+-	[[DesignMinimizeHbondsMover]]
 -	[[GreedyOptMutationMover]]
 -	ParetoOptMutationMover
 -	[[MutateResidue|MutateResidueMover]]
