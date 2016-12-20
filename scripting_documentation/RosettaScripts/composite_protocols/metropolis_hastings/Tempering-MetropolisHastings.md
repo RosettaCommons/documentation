@@ -4,7 +4,7 @@
 -   SimulatedTempering: single process switching stochastically between temperature levels
 -   Hamiltonian Exchange: multiple processes -- change of temperature and score-weights possible
 
-SimulatedTempering has the advantage that it does not require inter-process communication and thus can be run on distributed computing systems. However, it requires weights to achieve uniform sampling of all temperature levels. Identifying optimal weights can be challenging [[1]](http://link.aps.org/doi/10.1103/PhysRevE.76.016703) .
+SimulatedTempering has the advantage that it does not require inter-process communication and thus can be run on distributed computing systems. However, it requires weights to achieve uniform sampling of all temperature levels. Identifying optimal weights can be challenging [\[1\]](http://link.aps.org/doi/10.1103/PhysRevE.76.016703) .
 
 Common Options of all Tempering modules
 ---------------------------------------
