@@ -4,7 +4,7 @@
 
 ### MetropolisHastings (Overview)
 
-The Metropolis-Hastings mover is the core of the canonical sampling framework in Rosetta. A call to apply of this mover performs a trajectory of a (canonical) Monte Carlo simulation. This can be used to estimate the thermodynamic distribution of conformational states for a given score function. See [http://en.wikipedia.org/wiki/Metropolis–Hastings\_algorithm](http://en.wikipedia.org/wiki/Metropolis–Hastings_algorithm) for more information.
+The Metropolis-Hastings mover is the core of the canonical sampling framework in Rosetta. A call to apply of this mover performs a trajectory of a (canonical) Monte Carlo simulation. This can be used to estimate the thermodynamic distribution of conformational states for a given score function. See [the Metropolis–Hastings algorithm page on Wikipedia](http://en.wikipedia.org/wiki/Metropolis–Hastings_algorithm) for more information.
 
 #### ThermodynamicMovers
 
@@ -31,7 +31,7 @@ A set of Plug-ins (TemperatureController) allow to access various types of sampl
 
 -   [[SimulatedAnnealing|SimulatedAnnealing-MetropolisHastings]] --- (not implemented) allow ramping of temperature during the trajectory following a preset schedule
 -   [[Tempering|Tempering-MetropolisHastings]]
-    -   [[SimulatedTempering|Tempering-MetropolisHastings#SimulatedTempering]] --- stochastic switching of temperatures in a serial trajectory [[1]](http://arxiv.org/abs/hep-lat/9205018)
+    -   [[SimulatedTempering|Tempering-MetropolisHastings#SimulatedTempering]] --- stochastic switching of temperatures in a serial trajectory [\[1\]](http://arxiv.org/abs/hep-lat/9205018)
     -   [[ParallelTempering|Tempering-MetropolisHastings#ParallelTempering]] --- (aka replica exchange) switching of temperatures between parallel replicas [[2]](http://en.wikipedia.org/wiki/Parallel_tempering)
     -   [[HamiltonianExchange|Tempering-MetropolisHastings#HamiltonianExchange]] --- (soon to be implemented) switching of score-weights and temperature between parallel replicas
 
