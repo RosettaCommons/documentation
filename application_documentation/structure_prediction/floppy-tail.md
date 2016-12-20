@@ -46,7 +46,7 @@ Limitations
 
 This code is NOT intended to do "half-abinitio" where you know half a structure and want to fold the other half. Although it is modeled on abinitio, it is only tested on a truly floppy, disordered tail, and I have no idea if it is able to fold compact structures. It is resolutely not supported for that purpose.
 
-If you want to perform standard ab initio folding of a terminal sequence, you can use the [[Topology Broker]]'s [[RigidChunk| ClientMovers]] environment. This can be used in RosettaScripts or using the minirosetta application. 
+If you want to perform standard ab initio folding of a terminal sequence, you can use the [[Topology Broker|BrokeredEnvironment]]'s [[RigidChunk|ClientMovers]] environment. This can be used in RosettaScripts or using the minirosetta application. 
 
 
 Input Files
