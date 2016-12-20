@@ -39,8 +39,8 @@ This example adds and removes constraints from "my_csts.cst" to the pose using t
 
 ##See Also
 
-* [[AddConstraints]]
-* [[RemoveConstraints]]
+* [[AddConstraintsMover]]
+* [[RemoveConstraintsMover]]
 * [[Constraints file format|constraint-file]]
 * [[AtomCoordinateCstMover]]
 * [[AddConstraintsToCurrentConformationMover]]
