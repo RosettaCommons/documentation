@@ -53,8 +53,8 @@ This example adds and removes distance constraints to sheet residues only, and u
 
 ##See Also
 
-* [[AddConstraints]]
-* [[RemoveConstraints]]
+* [[AddConstraintsMover]]
+* [[RemoveConstraintsMover]]
 * [[Constraints file format|constraint-file]]
 * [[AtomCoordinateCstMover]]
 * [[AddConstraintsToCurrentConformationMover]]
