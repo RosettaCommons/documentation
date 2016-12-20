@@ -17,7 +17,7 @@ The line below will sets up all the necessary constraints to add a peptide bond 
 
 <b>More Advanced Options</b>
 
-`PeptideCyclizeMover` also offers more complicated constraints and bond declaration options. The mover uses similar format to [[DecalreBond]], [[CreateDistanceConstraint]], [[CreateAngleConstraint]], [[CreateTorsionConstraint]] movers. Below is a list of available options. Please note that you can add as many of each option as you need. However, for each option, you will need to define all the required fields. If you do not define any of the options, the default will be cyclization of first and last residue of the pose via a peptide bond and associated constraints.
+`PeptideCyclizeMover` also offers more complicated constraints and bond declaration options. The mover uses similar format to [[DeclareBond]], [[CreateDistanceConstraint]], [[CreateAngleConstraint]], [[CreateTorsionConstraint]] movers. Below is a list of available options. Please note that you can add as many of each option as you need. However, for each option, you will need to define all the required fields. If you do not define any of the options, the default will be cyclization of first and last residue of the pose via a peptide bond and associated constraints.
 
 <i>Bond</i>
 
