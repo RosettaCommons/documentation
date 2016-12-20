@@ -8,7 +8,7 @@ Last Doc Update: 2/6/2015
 [[_TOC_]]
 
 # Overview:
-This app is a generalized framework for the design of antibodies using Rosetta.  It can be used from denovo design to redesigns that improve binding affinity, optimize stability, or manipulate function.  It is a knowledge-based framework, rooted very much on our recent clustering of antibody CDR regions.  It uses the North/Dunbrack CDR definition.  The  [http://dunbrack2.fccc.edu/PyIgClassify/](PyIgClassify) server and databases were created primarily for this application. 
+This app is a generalized framework for the design of antibodies using Rosetta.  It can be used from denovo design to redesigns that improve binding affinity, optimize stability, or manipulate function.  It is a knowledge-based framework, rooted very much on our recent clustering of antibody CDR regions.  It uses the North/Dunbrack CDR definition.  The  [PyIgClassify](http://dunbrack2.fccc.edu/PyIgClassify/) server and databases were created primarily for this application. 
 
 # Setup:
 This app requires the Rosetta Antibody Design Database.  A database of antibodies from the original paper is included in the paper.  A weekly updated database can be downloaded here: http://dunbrack2.fccc.edu/PyIgClassify/.  It should be placed in <code> Rosetta/main/database/sampling/antibodies/ </code>  The database contains renumbered CDR coordinates from the entire PDB and associated clusters, distances, sequence statistics, framework statistics, etc. that will be used throughout the protocol.
