@@ -834,7 +834,7 @@ fa_rep: The part of the Lennard Jones equation which describes the effects of ov
 
 #### resfile
 
-The [[resfile|resfiles]] is a file format used to manually pass complex instructions to the [[packer]] / [[PackerTask]].
+The [[resfile|resfiles]] is a file format used to manually pass complex instructions to the [[packer]] / [[PackerTask|packer-task]].
 
 #### residue
 
