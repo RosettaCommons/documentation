@@ -1,3 +1,5 @@
+#Extending the PyMol Viewer
+
 ## Metadata
 Authors: Rebecca Alford (rfalford12@gmail.com) & Evan Baugh (ehb250@nyu.edu)
 
