@@ -74,7 +74,7 @@ To specify commands for a single residue, use the following form
 <PDBNUM>[<ICODE>] <CHAIN> <COMMANDS>
 ```
 
-If the pose the resfile is has pdb information associated with it (eg it was read in from a pdb file) then \<PDBNUM\>[\<ICODE\>] corresponds to columns 22-26. If the pose does not have pdb information (eg if it was generated de novo or from a silent file), the \<PBDNUM\> is the residue index in the pose and the \<ICODE\> should not be specified. The \<PDBNUM\> can be positive, zero, or negative. The \<ICODE\> is an optional character [A-Z] (case insensitive) that occurs in some pdbs to represent insertion or deletions in the sequence to maintain a consistent numbering scheme or the remainder of the sequence.
+If the pose the resfile is has pdb information associated with it (eg it was read in from a pdb file) then \<PDBNUM\>[\<ICODE\>] corresponds to columns 22-26. If the pose does not have pdb information (eg if it was generated de novo or from a silent file), the \<PBDNUM\> is the residue index in the pose and the \<ICODE\> should not be specified. The \<PDBNUM\> can be positive, zero, or negative. The \<ICODE\> is an optional character [A-Z] \(case insensitive\) that occurs in some pdbs to represent insertion or deletions in the sequence to maintain a consistent numbering scheme or the remainder of the sequence.
 
 To accommodate structures with a large number of chains, following the PDB the, the chain can be any character [A-Za-z] where upper and lower case characters are treated as separate chains. For example
 
