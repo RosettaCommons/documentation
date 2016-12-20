@@ -73,7 +73,7 @@ Docking can emulate several biophysical models of protein–protein interactions
 
 #### Docking According to the Lock and Key Model
 
-The lock and key model assumes that proteins interact in a rigid fashion; two proteins must have shape complemenetarity to interact.
+The lock and key model assumes that proteins interact in a rigid fashion; two proteins must have shape complementarity to interact.
 Assuming the two protein partners are not expected to have backbone motions upon binding, the problem can be approached with rigid-backbone docking.
 
 #### Docking According to the Conformer Selection Model
@@ -175,7 +175,7 @@ For an overview of loop modeling in Rosetta, please see [[this|loopmodel]].
 
 For explicit refinement of crystallography data, see [[here|density-map-scoring]].
 
-[loops from density](application_documentation/loops-from-density) is a script to take badly fit electron data and a cutoff suggesting how much of the pose you're willing to rebuild and to generate input "loops" files for loop modeling. 
+[[loops from density|loops-from-density]] is a script to take badly fit electron data and a cutoff suggesting how much of the pose you're willing to rebuild and to generate input "loops" files for loop modeling. 
 
 For modeling of missing loops on existent protein structures, you can use any of the methods in the section below.
 
@@ -220,7 +220,7 @@ It requires the use of the refinement program PHENIX.
 
 ## Solving NMR structures
 
-* [Chemical shift files](rosetta_basics/chemical-shift-file) provide data to a variety of protocols often collectively referred to as [[CS-ROSETTA]] that incorporate NMR constraints to refine structures
+* [[Chemical shift files|chemical-shift-file]] provide data to a variety of protocols often collectively referred to as [[CS-ROSETTA]] that incorporate NMR constraints to refine structures
 
 ## What If My Question Is Unanswered? 
 
