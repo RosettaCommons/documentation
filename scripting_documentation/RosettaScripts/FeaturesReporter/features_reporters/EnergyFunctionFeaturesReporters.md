@@ -156,7 +156,7 @@ ResidueTotalScoresFeatures
 
         <ResidueTotalScoresFeatures scorefxn="(&scorefxn)"/>
 
-The ResidueTotalScoresFeatures stores for each residue the total score for the one body terms for that residue and half the total score for the two body terms involving that residue. Note that terms that depend on the whole structure are stored via the StructureScoresFeatures. In order to include hydrogen bonding in the totals, the score function must specify the *[[decompose_bb_hb_into_pair_energies|RosettaScripts#SCOREFUNCTIONS]]* flag.
+The ResidueTotalScoresFeatures stores for each residue the total score for the one body terms for that residue and half the total score for the two body terms involving that residue. Note that terms that depend on the whole structure are stored via the StructureScoresFeatures. In order to include hydrogen bonding in the totals, the score function must specify the *[[decompose_bb_hb_into_pair_energies|RosettaScripts#scorefunctions]]* flag.
 
 -   **residue\_total\_scores** : The one body scores for each residue in the structure.
     -   *score\_value* : SUM(1b) + SUM(2b)/2 energies
