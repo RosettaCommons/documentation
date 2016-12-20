@@ -47,7 +47,7 @@ cd mpframework-symdock/scripts/
 ```
 
 2. Generate a Symmetry definition file: 
-Symmetry definition files describe the symmetry of the system and serve as instructions to Rosetta for building the full starting complex from an asymmetric unit. This file can be generated using the make_symmdef_file.pl script in src/apps/public/symmetry/. Detailed information for generation of symmetry definition files can be found at https://www.rosettacommons.org/docs/latest/make-symmdef-file.html. In general, this script requires a PDB file, symmetry mode (NCS or PSEUDO only for membranes), specification of the asymmetric unit and symmetry group # if known. 
+Symmetry definition files describe the symmetry of the system and serve as instructions to Rosetta for building the full starting complex from an asymmetric unit. This file can be generated using the make_symmdef_file.pl script in src/apps/public/symmetry/. Detailed information for generation of symmetry definition files can be found at [[make-symmdef-file]]. In general, this script requires a PDB file, symmetry mode (NCS or PSEUDO only for membranes), specification of the asymmetric unit and symmetry group # if known. 
 
 The symmetry definition file in this example was generated with the following commandline. 
 
@@ -58,7 +58,7 @@ The symmetry definition file in this example was generated with the following co
 Symmetries can also be generated using a denovo protocol. If the user knows the symmetry group (e.g. C3), 
 the user can generate a definition for this symmetry group independent of the structure. This script can 
 be found in src/apps/public/symmetry/make_symmdef_denovo.py. More information for using this script can 
-be found here: https://www.rosettacommons.org/docs/latest/make-symmdef-file-denovo.html
+be found [[here|make-symmdef-file-denovo]]
 
 ## Options
 
