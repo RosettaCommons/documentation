@@ -64,7 +64,7 @@ While most of these applications focus on prediction, many have options which wi
 - ###Apps
 * [[GlycanRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
 * [[GlycanInfo]] - Get information on all glycan trees within a pose
-* [[GlcyanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
+* [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
 - ###RosettaScript Components
 * [[GlycanRelaxMover]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
