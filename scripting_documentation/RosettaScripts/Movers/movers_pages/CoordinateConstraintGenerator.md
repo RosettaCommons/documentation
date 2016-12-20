@@ -56,8 +56,8 @@ This example adds and removes coordinate constraints to sheet residues only, and
 
 ##See Also
 
-* [[AddConstraints]]
-* [[RemoveConstraints]]
+* [[AddConstraintsMover]]
+* [[RemoveConstraintsMover]]
 * [[Constraints file format|constraint-file]]
 * [[AtomCoordinateCstMover]]
 * [[AddConstraintsToCurrentConformationMover]]
