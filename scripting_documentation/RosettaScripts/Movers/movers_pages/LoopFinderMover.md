@@ -17,7 +17,7 @@ Finds loops in the current pose and loads them into the DataMap for use by subse
 -   min\_length: minimum loop length (inclusive)
 -   max\_length: maximum loop length (inclusive)
 -   mingap: minimum gap size between loops (exclusive, so mingap=1 -\> single-residue gaps are disallowed). Setting this to 0 will almost certainly cause problems!
--   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
+-   pdb\_num/res\_num: see the main [[RosettaScripts Documentation|RosettaScripts#rosettascripts-conventions_specifying-residues]] for more.
 
 
 ##See Also
