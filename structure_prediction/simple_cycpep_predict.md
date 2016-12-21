@@ -89,6 +89,14 @@ The simple_cycpep_predict application can also attempt to predict structures cro
 **-cyclic_peptide:TBMB_sidechain_distance_filter_multiplier \<Real\>** A multiplier for the distance cutoff for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
 **-cyclic_peptide:TBMB_constraints_energy_filter_multiplier \<Real\>** A multiplier for the constraints energy for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.
 
+# Additional flags for quasi-symmetric sampling
+
+Sometimes, one wishes to sample peptide conformations with cyclic symmetry (_e.g._ c2 symmetry, c3 symmetry, _etc._).  The **simple_cycpep_predict** application can do quasi-symmetric sampling.  It does this by copying mainchain torsion values for perturbable residues in different symmetry repeats, and by filtering post-closure to ensure that pivot residues are adopting symmetric conformations.  (See the [[Generalized Kinematic Closure|GeneralizedKIC]] documentation for details on perturbable and pivot residues).  Note that this is _quasi_-symmetric rather than truly symmetric because (a) it does not use the Rosetta symmetry machinery, and (b) mainchain torsion values can deviate slightly from symmetry repeat to symmetry repeat, within user-defined limits.  The following flags control quasi-symmetric sampling:
+
+**-cyclic_peptide:require_symmetry_repeats \<int\>** If this option is used, then only backbones that are cN (or cN/m, if mirror symmetry is required) symmetric will be accepted.  For example, if set to 2, then only c2-symmetric backbones will be accepted.  Unused if not specified (_i.e._ no quasi-symmetric sampling is performed without this option).<br/><br/>
+**-cyclic_peptide:require_symmetry_mirroring \<bool\>** If this option is used, then only backbones with mirror symmetry are accepted.  Must be used with the -cyclic_peptide:require_symmetry_repeats flag.<br/><br/>
+**-cyclic_peptide:require_symmetry_angle_threshold \<int\>** The cutoff, in degrees, to use when comparing mainchain torsion values to determine whether symmetry repeats are truly symmetric.  Defaults to 10 degrees.<br/><br/>
+**-cyclic_peptide:require_symmetry_perturbation \<int\>** If provided, this is the magnitude of the perturbation to apply when copying mainchain dihedrals for symmetric sampling.  Allows slightly asymmetric conformations to be sampled.  Default is 0.0 (no perturbation).
 
 # Other useful flags
 
