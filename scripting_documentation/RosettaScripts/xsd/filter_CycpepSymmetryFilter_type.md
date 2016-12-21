@@ -8,13 +8,13 @@ The CycpepSymmetryFilter examines a cyclic peptide for internal backbone symmetr
 ```xml
 <CycpepSymmetryFilter name="(&string;)"
         symmetry_repeats="(&non_negative_integer;)" mirror_symmetry="(&bool;)"
-        angle_threshhold="(&bool;)" residue_selector="(&string;)"
+        angle_threshold="(&real;)" residue_selector="(&string;)"
         confidence="(1.0 &real;)" />
 ```
 
 -   **symmetry_repeats**: The number of repeats in this type of symmetry.  For example, for c3 symmetry, one would provide "3" as input.  Defaults to 2 (for c2 symmetry).
 -   **mirror_symmetry**: Is this a type of cyclic symmetry with mirror operations, such as c2/m, c4/m, or c6/m symmetry?  If true, symmetry_repeats must be a multiple of 2.  Defaults to false (for c2 symmetry -- i.e. not c2/m symmetry).
--   **angle_threshhold**: The cutoff, in degrees, for the difference between two dihedral angles before they are considered "different" angles.  This is used when comparing mainchain torsion values of differet residues.  Defaults to 10.0 degrees.
+-   **angle_threshold**: The cutoff, in degrees, for the difference between two dihedral angles before they are considered "different" angles.  This is used when comparing mainchain torsion values of differet residues.  Defaults to 10.0 degrees.
 -   **residue_selector**: An optional residue selector set to select the cyclic peptide.  If not provided, the whole pose is used.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 

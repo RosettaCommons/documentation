@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2016-12-19
+Generated: 2016-12-21
 
 _Note that some application specific options may not be present in this list._
 
@@ -3752,7 +3752,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-min_final_hbonds</b> \<Real\></dt>
 <dd>The minimum number of backbone hbonds for a solution to pass after final relaxtion in the simple_cycpep_predict app.  Default 0 (report only).<br/>Default: 0.0<br/></dd>
 <dt><b>-total_energy_cutoff</b> \<Real\></dt>
-<dd>An absolute energy threshhold, above which solutions are discarded.  Unused if not specified.<br/>Default: 0.0<br/></dd>
+<dd>An absolute energy threshold, above which solutions are discarded.  Unused if not specified.<br/>Default: 0.0<br/></dd>
 <dt><b>-hbond_energy_cutoff</b> \<Real\></dt>
 <dd>The mainchain hbond energy threshold for something to be counted as a hydrogen bond in the simple_cycpep_predict app.  Default -0.25.<br/>Default: -0.25<br/></dd>
 <dt><b>-do_not_count_adjacent_res_hbonds</b> \<Boolean\></dt>
@@ -3811,6 +3811,16 @@ _Note that some application specific options may not be present in this list._
 <dd>A multiplier for the distance cutoff for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
 <dt><b>-TBMB_constraints_energy_filter_multiplier</b> \<Real\></dt>
 <dd>A multiplier for the constraints energy for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
+<dt><b>-link_all_cys_with_TBMB</b> \<Boolean\></dt>
+<dd>If true, then all cysteine residues in the peptide are linked with 1,3,5-tris(bromomethyl)benzene.  There must be exactly three cysteine residues for this flag to be used, and it cannot be used with the -TBMB_positions flag.  False/unused by default.<br/>Default: false<br/></dd>
+<dt><b>-require_symmetry_repeats</b> \<Integer\></dt>
+<dd>If this option is used, then only backbones that are cN (or cN/m, if mirror symmetry is required) symmetric will be accepted.  For example, if set to 2, then only c2-symmetric backbones will be accepted.  Unused if not specified.<br/>Default: 1<br/></dd>
+<dt><b>-require_symmetry_mirroring</b> \<Boolean\></dt>
+<dd>If this option is used, then only backbones with mirror symmetry are accepted.  Must be used with the -cyclic_peptide:require_symmetry_repeats flag.<br/>Default: false<br/></dd>
+<dt><b>-require_symmetry_angle_threshold</b> \<Real\></dt>
+<dd>The cutoff, in degrees, to use when comparing mainchain torsion values to determine whether symmetry repeats are truely symmetric.  Defaults to 10 degrees.<br/>Default: 10.0<br/></dd>
+<dt><b>-require_symmetry_perturbation</b> \<Real\></dt>
+<dd>If provided, this is the magnitude of the perturbation to apply when copying mainchain dihedrals for symmetric sampling.  Allows slightly asymmetric conformations to be sampled.  Default is 0.0 (no perturbation).<br/>Default: 0.0<br/></dd>
 <dt><b>-MPI_processes_by_level</b> \<IntegerVector\></dt>
 <dd>The number of processes at each level of the parallel communications hierarchy, used only by the MPI version.  For example, '1 10 100' would mean that one emperor would talk to 10 masters, which would talk to 100 slaves (implying that each master is assigned 100 slaves).  Similarly, '1 100' would mean that one master would talk directly to 100 slaves.  Required for the MPI version.<br/></dd>
 <dt><b>-MPI_batchsize_by_level</b> \<IntegerVector\></dt>
@@ -4243,6 +4253,8 @@ _Note that some application specific options may not be present in this list._
 <dd>One or more XYZ locations to choose for the ligand:  -start_from X1 Y1 Z1  -start_from X2 Y2 Z2  ...<br/></dd>
 <dt><b>-option_file</b> \<String\></dt>
 <dd>Name of Ligand Option File for use with multi_ligand_dock application<br/></dd>
+<dt><b>-ligand_ensemble</b> \<Real\></dt>
+<dd>Weight for correlation adjustment in ligand ensemble docking, ignores ligand-ligand interactions if value is not zero<br/>Default: 0<br/></dd>
 </dl>
 + <h4>-docking:ligand:grid</h4>
 <dl>
@@ -7061,6 +7073,8 @@ _Note that some application specific options may not be present in this list._
 <dd>RDAT or legacy-format file with RNA chemical mapping data<br/>Default: ""<br/></dd>
 <dt><b>-cut_at_rna_chainbreak</b> \<Boolean\></dt>
 <dd>If O3' to P distance is > 2.5 Angstroms, assume cutpoint.<br/>Default: false<br/></dd>
+<dt><b>-evaluate_base_pairs</b> \<Boolean\></dt>
+<dd>In final scoring, compute number of Watson-Crick, non-Watson-Crick pairs; compare to native if available.<br/></dd>
 </dl>
 + <h3>-rna:farna</h3>
 <dl>
@@ -7202,6 +7216,14 @@ _Note that some application specific options may not be present in this list._
 <dd>output running score with this frequency [0 means no running output]<br/>Default: 0<br/></dd>
 <dt><b>-output_score_file</b> \<String\></dt>
 <dd>output running score to this file<br/>Default: ""<br/></dd>
+<dt><b>-exclude_fragments</b> \<IntegerVector\></dt>
+<dd>Exclude these fragments from vall<br/>Default: []<br/></dd>
+<dt><b>-fragment_homology_rmsd</b> \<Real\></dt>
+<dd>Distance in RMSD below which a fragment is considered homologous to the native<br/>Default: 1.0<br/></dd>
+<dt><b>-exclude_native_fragments</b> \<Boolean\></dt>
+<dd>Exclude fragments from -in:file:native<br/>Default: false<br/></dd>
+<dt><b>-exclude_fragment_files</b> \<StringVector\></dt>
+<dd>Files from which to exclude fragments<br/>Default: []<br/></dd>
 </dl>
 + <h4>-rna:farna:db</h4>
 <dl>
