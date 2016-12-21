@@ -13,7 +13,7 @@ Add constraints to the pose based on the current conformation. It can either app
 -   use\_distance\_cst - if true, use atom-atom pair distance constraints, otherwise use coordinate constraints.
 -   coord\_dev - Controls how quickly constraints increase with increasing deviation for all three constraint types. A value in Angstroms, with smaller numbers being tighter constraints.
 -   bound\_width - for coordinate constraints, if non-zero (actually, greater than 1e-3) use bounded constraints with the given flat-bottom width. If zero, use harmonic constraints.
--   min\_seq\_sep - for atom pair distance constraints, the minimum sequence separation between pairs of constrained residues.
+-   min\_seq\_sep - for atom pair distance constraints, the minimum sequence separation between pairs of constrained residues.  This does NOT pay attention to chainbreaks.
 -   max\_distance - for atom pair distance constraints, the maximum Cartesian distance between pairs of constrained Calpha atoms. - Note: Because of implementation details, the value of the constraint will be forced to zero at distances greater than 10 Ang, regardless of the max\_distance setting.
 -   cst\_weight - for atom pair distance constraints, the scaling factor
 -   task\_operations - apply constraints to residues which are non-packing and non-design ones. Leave it empty if want to apply constraints to all residues.  Cannot be used with "residue\_selector"
