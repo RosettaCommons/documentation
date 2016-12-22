@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2016-12-21
+Generated: 2016-12-22
 
 _Note that some application specific options may not be present in this list._
 
@@ -7270,45 +7270,6 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-extra_minimize_chi_res</b> \<ResidueChainVector\></dt>
 <dd>Extra side-chain chis to move during minimize step<br/>Default: []<br/></dd>
 </dl>
-+ <h4>-rna:farna:thermal_sampling</h4>
-<dl>
-<dt><b>-thermal_sampling</b> \<Boolean\></dt>
-<dd>thermal_sampling option group<br/></dd>
-<dt><b>-out_prefix</b> \<String\></dt>
-<dd>prefix for the out file<br/>Default: "thermal"<br/></dd>
-<dt><b>-sample_residues</b> \<IntegerVector\></dt>
-<dd>residues to sample<br/>Default: []<br/></dd>
-<dt><b>-free_residues</b> \<IntegerVector\></dt>
-<dd>residues that are 'free,' affects stdev of chi sampler<br/>Default: []<br/></dd>
-<dt><b>-loop_residues</b> \<IntegerVector\></dt>
-<dd>residues that are in loops and merit total BB sampling<br/>Default: []<br/></dd>
-<dt><b>-n_cycle</b> \<Integer\></dt>
-<dd>cycle number for Random sampling<br/>Default: 0<br/></dd>
-<dt><b>-angle_range_bb</b> \<Real\></dt>
-<dd>range bb torsions are allowed to move<br/>Default: 180<br/></dd>
-<dt><b>-angle_range_chi</b> \<Real\></dt>
-<dd>range chi torsions are allowed to move<br/>Default: 180<br/></dd>
-<dt><b>-chi_stdev</b> \<Real\></dt>
-<dd>standard deviation for chi sampler<br/>Default: 20<br/></dd>
-<dt><b>-bb_stdev</b> \<Real\></dt>
-<dd>standard deviation for backbone sampler<br/>Default: 1<br/></dd>
-<dt><b>-standard_bb_stdev</b> \<Real\></dt>
-<dd>standard deviation for standard backbone sampler<br/>Default: 1<br/></dd>
-<dt><b>-dump_pdb</b> \<Boolean\></dt>
-<dd>Dump pdb files<br/>Default: false<br/></dd>
-<dt><b>-dump_silent</b> \<Boolean\></dt>
-<dd>Dump structures to a silent file<br/>Default: false<br/></dd>
-<dt><b>-out_torsions</b> \<Boolean\></dt>
-<dd>Print out torsion angles<br/>Default: false<br/></dd>
-<dt><b>-temps</b> \<RealVector\></dt>
-<dd>Simulated tempering temperatures<br/>Default: []<br/></dd>
-<dt><b>-st_weights</b> \<RealVector\></dt>
-<dd>Simulated tempering weights<br/>Default: []<br/></dd>
-<dt><b>-dump_freq</b> \<Integer\></dt>
-<dd>Frequency to dump pdb or silent files<br/>Default: 500<br/></dd>
-<dt><b>-output_min_pose</b> \<Boolean\></dt>
-<dd>Make last pose the minimum score pose ('recover low')<br/>Default: true<br/></dd>
-</dl>
 + <h2>-rotamerdump</h2>
 <dl>
 <dt><b>-rotamerdump</b> \<Boolean\></dt>
@@ -7894,6 +7855,45 @@ _Note that some application specific options may not be present in this list._
 <dd>optional: residues to be turned into a bulge variant<br/>Default: []<br/></dd>
 <dt><b>-sample_sugar_res</b> \<ResidueChainVector\></dt>
 <dd>optional: residues in fixed input pose whose sugars can still move<br/>Default: []<br/></dd>
+</dl>
++ <h2>-thermal_sampling</h2>
+<dl>
+<dt><b>-thermal_sampling</b> \<Boolean\></dt>
+<dd>thermal_sampling option group<br/></dd>
+<dt><b>-out_prefix</b> \<String\></dt>
+<dd>prefix for the out file<br/>Default: "thermal"<br/></dd>
+<dt><b>-sample_residues</b> \<IntegerVector\></dt>
+<dd>residues to sample<br/>Default: []<br/></dd>
+<dt><b>-free_residues</b> \<IntegerVector\></dt>
+<dd>residues that are 'free,' affects stdev of chi sampler<br/>Default: []<br/></dd>
+<dt><b>-loop_residues</b> \<IntegerVector\></dt>
+<dd>residues that are in loops and merit total BB sampling<br/>Default: []<br/></dd>
+<dt><b>-n_cycle</b> \<Integer\></dt>
+<dd>cycle number for Random sampling<br/>Default: 0<br/></dd>
+<dt><b>-angle_range_bb</b> \<Real\></dt>
+<dd>range bb torsions are allowed to move<br/>Default: 180<br/></dd>
+<dt><b>-angle_range_chi</b> \<Real\></dt>
+<dd>range chi torsions are allowed to move<br/>Default: 180<br/></dd>
+<dt><b>-chi_stdev</b> \<Real\></dt>
+<dd>standard deviation for chi sampler<br/>Default: 20<br/></dd>
+<dt><b>-bb_stdev</b> \<Real\></dt>
+<dd>standard deviation for backbone sampler<br/>Default: 1<br/></dd>
+<dt><b>-standard_bb_stdev</b> \<Real\></dt>
+<dd>standard deviation for standard backbone sampler<br/>Default: 1<br/></dd>
+<dt><b>-dump_pdb</b> \<Boolean\></dt>
+<dd>Dump pdb files<br/>Default: false<br/></dd>
+<dt><b>-dump_silent</b> \<Boolean\></dt>
+<dd>Dump structures to a silent file<br/>Default: false<br/></dd>
+<dt><b>-out_torsions</b> \<Boolean\></dt>
+<dd>Print out torsion angles<br/>Default: false<br/></dd>
+<dt><b>-temps</b> \<RealVector\></dt>
+<dd>Simulated tempering temperatures<br/>Default: []<br/></dd>
+<dt><b>-st_weights</b> \<RealVector\></dt>
+<dd>Simulated tempering weights<br/>Default: []<br/></dd>
+<dt><b>-dump_freq</b> \<Integer\></dt>
+<dd>Frequency to dump pdb or silent files<br/>Default: 500<br/></dd>
+<dt><b>-output_min_pose</b> \<Boolean\></dt>
+<dd>Make last pose the minimum score pose ('recover low')<br/>Default: true<br/></dd>
 </dl>
 + <h2>-strand_assembly</h2>
 <dl>
