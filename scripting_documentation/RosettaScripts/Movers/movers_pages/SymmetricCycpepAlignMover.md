@@ -15,8 +15,23 @@ Note that, if the trimming option is used, all non-protein residues (_e.g._ cros
 
 ## Full options
 
+```xml
+<SymmetricCycpepAlign name=(string) auto_detect_symmetry=(bool,"false")
+    symmetry_repeats=(int,"2") mirror_symmetry=(bool,"false")
+    angle_threshold=(real,"10.0") trim_to_single_repeat=(bool,"false")
+    repeat_to_preserve=(int,"1") invert=(bool,"false")
+/>
 ```
-```
+| Option | Type | Description |
+|---|---|---|
+| name | string | A unique name for this instance of the mover, used to refer to the mover later on in the script. |
+| auto_detect_symmetry | bool | If true, the symmetry of this peptide will be detected automatically.  The mover will exit with failure status (halting the trajectory but not terminating program execution) if the peptide is asymmetric.  False by default.  (Note that if this is set to "true", the "symmetry_repeats" and "mirror_symmetry" options cannot be used.) |
+| symmetry_repeats | int | The number of symmetry repeats.  For example, to specify c6 or c6/m symmetry, set this to "6".  Defaults to "2" (for c2 symmetry). |
+| mirror_symmetry | bool | If true, this indicates that the pose possesses mirror symmetry.  For example, to specify c6/m symmetry, set "symmetry_repeats" to "6" and "mirror_symmetry" to "true".  If set to "false", this would indicate c6 symmetry.  Defaults to "false" (for c2 symmetry with no mirroring). |
+| angle_threshold | real | The cutoff, in degrees, for considering two dihedral values to be equal.  Defaults to 10 degrees.  This is used when confirming that a quasi-symmetric peptide has the indicated symmetry, or for detecting the symmetry of the peptide.|
+| trim_to_single_repeat | bool | If true, all geometry in the peptide (including all crosslinkers) will be deleted, except for the polypeptide part of a single symmetry repeat.  Defaults to "false".  (This is useful for setting up a peptide for the SetupForSymmetry mover). |
+| repeat_to_preserve | int | If "trim_to_single_repeat" is true, then this is the symmetry repeat that will NOT be deleted (i.e. the one that will be preserved).  Defaults to "1". |
+| invert | bool | If true, the peptide normal is aligned to the negative Z-axis; if false, it is aligned to the positive.  Default false. |
 
 ## Example
 
@@ -74,3 +89,8 @@ This script operates on a 20-residue c4-symmetric peptide.  A peptide bond conne
 </ROSETTASCRIPTS>
 
 ```
+
+## See also
+
+- The [[simple_cycpep_predict]] application
+- [[SetupForSymmetry|SetupForSymmetryMover]] mover
