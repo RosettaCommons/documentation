@@ -291,7 +291,9 @@ See [[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScri
 
 **[[ExtractAsymmetricPose|ExtractAsymmetricPoseMover]]** - (similar to ExtractAsymmetricUnit) Turns symmetric pose into non symmetric pose
 
-**[[SymDofMover]]** - Sets up symmetric systems of aligned structures
+**[[SymDofMover]]** - Sets up symmetric systems of aligned structures.
+
+**[[SymmetricCycpepAlign|SymmetricCycpepAlignMover]]** - For the special case of cyclic peptides with internal quasi-symmetry, this aligns the peptide's symmetry axis to the Z-axis and prunes all but one symmetry repeat to create an input suitable for the [[SetupForSymmetry|SetupForSymmetryMover]] mover.
 
 **[[SymPackRotamersMover]]** and SymRotamerTrialsMover - Symmetric versions of PackRotamers and RotamerTrials
 
