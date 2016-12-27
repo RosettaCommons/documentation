@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2016-12-22
+Generated: 2016-12-27
 
 _Note that some application specific options may not be present in this list._
 
@@ -7856,10 +7856,10 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-sample_sugar_res</b> \<ResidueChainVector\></dt>
 <dd>optional: residues in fixed input pose whose sugars can still move<br/>Default: []<br/></dd>
 </dl>
-+ <h2>-thermal_sampling</h2>
++ <h2>-recces</h2>
 <dl>
-<dt><b>-thermal_sampling</b> \<Boolean\></dt>
-<dd>thermal_sampling option group<br/></dd>
+<dt><b>-recces</b> \<Boolean\></dt>
+<dd>recces option group<br/></dd>
 <dt><b>-out_prefix</b> \<String\></dt>
 <dd>prefix for the out file<br/>Default: "thermal"<br/></dd>
 <dt><b>-sample_residues</b> \<IntegerVector\></dt>
