@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2016-12-27
+Generated: 2016-12-30
 
 _Note that some application specific options may not be present in this list._
 
@@ -2285,7 +2285,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-thickness</b> \<Real\></dt>
 <dd>Thickness of membrane to visualize<br/>Default: 15<br/></dd>
 <dt><b>-plane_radius</b> \<Real\></dt>
-<dd>Radius of membrane planes to draw in PyMol - part of the PyMol viewer plugin<br/></dd>
+<dd>Radius of membrane planes to draw in PyMOL - part of the PyMOL viewer plugin<br/></dd>
 </dl>
 + <h3>-mp:scoring</h3>
 <dl>
