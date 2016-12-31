@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2016-12-30
+Generated: 2016-12-31
 
 _Note that some application specific options may not be present in this list._
 
@@ -7218,6 +7218,8 @@ _Note that some application specific options may not be present in this list._
 <dd>output running score to this file<br/>Default: ""<br/></dd>
 <dt><b>-exclude_fragments</b> \<IntegerVector\></dt>
 <dd>Exclude these fragments from vall<br/>Default: []<br/></dd>
+<dt><b>-exclusion_match_type</b> \<String\></dt>
+<dd>How tightly should we match fragments? Either sequence-independent (MATCH_ALL), purine vs. pyrimidine (MATCH_YR), or exact (MATCH_EXACT)<br/>Default: "MATCH_EXACT"<br/></dd>
 <dt><b>-fragment_homology_rmsd</b> \<Real\></dt>
 <dd>Distance in RMSD below which a fragment is considered homologous to the native<br/>Default: 1.0<br/></dd>
 <dt><b>-exclude_native_fragments</b> \<Boolean\></dt>
