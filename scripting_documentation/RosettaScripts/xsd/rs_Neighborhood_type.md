@@ -7,7 +7,8 @@ XRW TO DO
 
 ```xml
 <Neighborhood name="(&string;)" selector="(&string;)" resnums="(&int_cslist;)"
-        distance="(&real;)" include_focus_in_subset="(true &bool;)" >
+        distance="(&real;)" atom_names_for_distance_measure="(&string;)"
+        include_focus_in_subset="(true &bool;)" >
     <Residue Selector Tag ... />
 </Neighborhood>
 ```
@@ -15,6 +16,7 @@ XRW TO DO
 -   **selector**: XRW TO DO
 -   **resnums**: XRW TO DO
 -   **distance**: XRW TO DO
+-   **atom_names_for_distance_measure**: A list of comma separated atom names, for each focus residue, the positions of which will be used for measuring distance to find neighbors.
 -   **include_focus_in_subset**: XRW TO DO
 
 
