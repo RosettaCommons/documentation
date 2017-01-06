@@ -312,9 +312,7 @@ or
 -   The set of focused residues can be specified in one of three (mutually exclusive) ways: through a resnums string (see the ResidueIndexSelector [[above|TaskOperations-RosettaScripts#ResidueIndexSelector]] for documentation on how this string should be formatted), a previously-declared ResidueSelector using the "selector" option, or by defining a subtag that declares an anonymous ResidueSelector.  
 -   Now uses the 10A neighbor graph embedded in the pose after scoring to increase speed of calculation.  Useful for many calls, or when this selector is used as a TaskOperation using the OperateOnResidueSubset operation (Jared Adolf-Bryfogle, June '16).
 -  __include_focus_in_subset__ (&bool) (default = True)  Set this option to false to only include neighbor residues.    
-<!--- BEGIN_INTERNAL -->
--   atom_names_for_distance_measure (&string)  Comma separated list of names of atoms to be used instead of the default neighbor atom per focus residue. This should come in handy to select around a particular ligand atom or a polar atom of a residue. The number of atom names should be equal to the number of focus residues, otherwise an error will be thrown during the apply time.
-<!--- END_INTERNAL -->
+-   atom_names_for_distance_measure (&string)  Comma separated list of names of atoms to be used instead of the default neighbor atom per focus residue. This should come in handy to select around a particular ligand atom or a polar atom of a residue. The number of __atom names should be equal to the number of focus residues__, otherwise an error will be thrown during the apply time.
 
 #### NumNeighborsSelector
 
