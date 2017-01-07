@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2016-12-31
+Generated: 2017-01-07
 
 _Note that some application specific options may not be present in this list._
 
@@ -7860,28 +7860,14 @@ _Note that some application specific options may not be present in this list._
 </dl>
 + <h2>-recces</h2>
 <dl>
-<dt><b>-recces</b> \<Boolean\></dt>
-<dd>recces option group<br/></dd>
-<dt><b>-out_prefix</b> \<String\></dt>
-<dd>prefix for the out file<br/>Default: "thermal"<br/></dd>
-<dt><b>-sample_residues</b> \<IntegerVector\></dt>
-<dd>residues to sample<br/>Default: []<br/></dd>
-<dt><b>-free_residues</b> \<IntegerVector\></dt>
-<dd>residues that are 'free,' affects stdev of chi sampler<br/>Default: []<br/></dd>
-<dt><b>-loop_residues</b> \<IntegerVector\></dt>
-<dd>residues that are in loops and merit total BB sampling<br/>Default: []<br/></dd>
+<dt><b>-seq1</b> \<String\></dt>
+<dd>sequence 1 to model, 5' to 3' <br/>Default: ""<br/></dd>
+<dt><b>-seq2</b> \<String\></dt>
+<dd>sequence 2 to model, 5' to 3' <br/>Default: ""<br/></dd>
 <dt><b>-n_cycle</b> \<Integer\></dt>
-<dd>cycle number for Random sampling<br/>Default: 0<br/></dd>
-<dt><b>-angle_range_bb</b> \<Real\></dt>
-<dd>range bb torsions are allowed to move<br/>Default: 180<br/></dd>
-<dt><b>-angle_range_chi</b> \<Real\></dt>
-<dd>range chi torsions are allowed to move<br/>Default: 180<br/></dd>
-<dt><b>-chi_stdev</b> \<Real\></dt>
-<dd>standard deviation for chi sampler<br/>Default: 20<br/></dd>
-<dt><b>-bb_stdev</b> \<Real\></dt>
-<dd>standard deviation for backbone sampler<br/>Default: 1<br/></dd>
-<dt><b>-standard_bb_stdev</b> \<Real\></dt>
-<dd>standard deviation for standard backbone sampler<br/>Default: 1<br/></dd>
+<dd>Number of cycles for random sampling Markov chain Monte Carlo<br/>Default: 10000<br/></dd>
+<dt><b>-a_form_range</b> \<Real\></dt>
+<dd>Range of sampling near A-form for duplexes in RECCES (turner)<br/>Default: 60.0<br/></dd>
 <dt><b>-dump_pdb</b> \<Boolean\></dt>
 <dd>Dump pdb files<br/>Default: false<br/></dd>
 <dt><b>-dump_silent</b> \<Boolean\></dt>
@@ -7892,10 +7878,68 @@ _Note that some application specific options may not be present in this list._
 <dd>Simulated tempering temperatures<br/>Default: []<br/></dd>
 <dt><b>-st_weights</b> \<RealVector\></dt>
 <dd>Simulated tempering weights<br/>Default: []<br/></dd>
+<dt><b>-save_score_terms</b> \<Boolean\></dt>
+<dd>Save scores and individual score terms of all sampled conformers<br/>Default: false<br/></dd>
+<dt><b>-out_prefix</b> \<String\></dt>
+<dd>prefix for the out file<br/>Default: "recces"<br/></dd>
 <dt><b>-dump_freq</b> \<Integer\></dt>
 <dd>Frequency to dump pdb or silent files<br/>Default: 500<br/></dd>
+<dt><b>-n_intermediate_dump</b> \<Integer\></dt>
+<dd>Number of intermediate conformations to be dumped<br/>Default: 0<br/></dd>
 <dt><b>-output_min_pose</b> \<Boolean\></dt>
 <dd>Make last pose the minimum score pose ('recover low')<br/>Default: true<br/></dd>
+<dt><b>-accept_no_op_moves</b> \<Boolean\></dt>
+<dd>override behavior where no_ops (e.g. for moving jump out of range) are not accepts<br/>Default: false<br/></dd>
+<dt><b>-histogram_min</b> \<Real\></dt>
+<dd>Minimum energy for histogram<br/>Default: -100.05<br/></dd>
+<dt><b>-histogram_max</b> \<Real\></dt>
+<dd>Maximum energy for histogram<br/>Default: +800.05<br/></dd>
+<dt><b>-histogram_spacing</b> \<Real\></dt>
+<dd>Spacing for histogram<br/>Default: 0.1<br/></dd>
+</dl>
++ <h3>-recces:base_pair</h3>
+<dl>
+<dt><b>-base_pair</b> \<Boolean\></dt>
+<dd>base_pair option group<br/></dd>
+<dt><b>-rmsd_cutoff</b> \<Real\></dt>
+<dd>base pair RMSD cutoff for jump sampling<br/>Default: 2.0<br/></dd>
+<dt><b>-translation_mag</b> \<Real\></dt>
+<dd>magnitude of random translation moves<br/>Default: 0.01<br/></dd>
+<dt><b>-rotation_mag</b> \<Real\></dt>
+<dd>magnitude of random rotation moves (in degrees)<br/>Default: 1.0<br/></dd>
+<dt><b>-recces</b> \<Boolean\></dt>
+<dd>turn on RECCES in rb_entropy pilot app<br/>Default: false<br/></dd>
+<dt><b>-block_stack</b> \<Boolean\></dt>
+<dd>put block_stack atoms on test base pair<br/>Default: false<br/></dd>
+<dt><b>-sample_jump</b> \<Boolean\></dt>
+<dd>force base pair jump to be sampled when pose is setup vi -seq1, -seq2 (legacy turner mode)<br/>Default: false<br/></dd>
+</dl>
++ <h3>-recces:thermal_sampling</h3>
+<dl>
+<dt><b>-thermal_sampling</b> \<Boolean\></dt>
+<dd>thermal_sampling option group<br/></dd>
+<dt><b>-sample_residues</b> \<IntegerVector\></dt>
+<dd>residues to sample<br/>Default: []<br/></dd>
+<dt><b>-free_residues</b> \<IntegerVector\></dt>
+<dd>residues that are 'free,' affects stdev of chi sampler<br/>Default: []<br/></dd>
+<dt><b>-loop_residues</b> \<IntegerVector\></dt>
+<dd>residues that are in loops and merit total BB sampling<br/>Default: []<br/></dd>
+<dt><b>-angle_range_bb</b> \<Real\></dt>
+<dd>range bb torsions are allowed to move<br/>Default: 20<br/></dd>
+<dt><b>-angle_range_free_bb</b> \<Real\></dt>
+<dd>range free bb torsions are allowed to move<br/>Default: 180<br/></dd>
+<dt><b>-angle_range_chi</b> \<Real\></dt>
+<dd>range chi torsions are allowed to move<br/>Default: 20<br/></dd>
+<dt><b>-angle_range_free_chi</b> \<Real\></dt>
+<dd>range free chi torsions are allowed to move<br/>Default: 180<br/></dd>
+<dt><b>-chi_stdev</b> \<Real\></dt>
+<dd>standard deviation for chi sampler<br/>Default: 20<br/></dd>
+<dt><b>-bb_stdev</b> \<Real\></dt>
+<dd>standard deviation for backbone sampler<br/>Default: 1<br/></dd>
+<dt><b>-standard_bb_stdev</b> \<Real\></dt>
+<dd>standard deviation for standard backbone sampler<br/>Default: 1<br/></dd>
+<dt><b>-setup_base_pair_constraints</b> \<Boolean\></dt>
+<dd>Identify Watson/Crick pairs in input pose and put in constraints.<br/>Default: false<br/></dd>
 </dl>
 + <h2>-strand_assembly</h2>
 <dl>
