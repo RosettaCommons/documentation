@@ -198,7 +198,7 @@ These filters are used primarily for the reports they generate in the log and/or
 
 **[[AlaScan|AlaScanFilter]]** - Reports ddG of alanine scanning.
 
-**[[DdGScan|DdGScanFilter]]** - Reports ddG of alanine scanning on specific residues.
+**[[DdGScan|DdGScanFilter]]** - Reports ddG of alanine scanning on specific residues. This filter used to be named "TaskAwareAlaScanFilter".
 
 **[[FilterScan|FilterScanFilter]]** - Scan all mutations allowed by task\_operations and test against a filter.
 
