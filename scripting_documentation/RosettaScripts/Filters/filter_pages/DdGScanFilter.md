@@ -1,6 +1,6 @@
 # DdGScan
 *Back to [[Filters|Filters-RosettaScripts]] page.*
-## DdGScan
+## DdGScan (used to be named "TaskAwareAlaScan")
 
 Takes a set of task operations from the user in order to more precisely specify a set of residues to analyze via ddG scanning. Individually mutates each of the residues to alanine (or whatever other residue is defined in the task operations) and calculates the change in binding energy (ddG).
 
