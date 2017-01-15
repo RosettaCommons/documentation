@@ -397,7 +397,7 @@ The options system is very useful for switching on/off parameters in protocols a
 The resource manager is Rosetta's solution to this problem. By defining your resources initially in a resource definition file, Rosetta will load these resources once and provide you access to them whenever needed. 
 
 More info can be found about the Resource manager and how to integrate it into your code can be found here: 
-https://wiki.rosettacommons.org/index.php/Projects:ResourceManager
+https://www.rosettacommons.org/docs/wiki/development_documentation/tutorials/ResourceManager
 
 
 ## Tests: unit tests, integration tests, scientific tests
