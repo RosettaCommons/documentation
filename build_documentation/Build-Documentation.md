@@ -125,16 +125,28 @@ Rosetta can also be built with CMake. Currently it is less widely tested and doe
 To build with CMake...
 
 1.  Change to the CMake build directory from the base Rosetta 3 directory and create the CMake build files:
-    `        cd cmake       `
-    `        ./make_project.py all       `
+
+        cd cmake       
+        ./make_project.py all
+
 2.  Next, change to a build directory
-    `        cd build_<mode>       `
+
+        cd build_<mode>   
+
 3.  and build Rosetta 3
-    `        cmake -G Ninja       `
-    `        ninja       `
-    If you don't have ninja, you can get it via `        git clone                 git://github.com/martine/ninja.git               ` . Or you can use `        make       ` which is slightly slower for recompiling:
-    `        cmake .       `
-    `        make -j8       `
+
+        cmake -G Ninja
+        ninja       
+
+    If you don't have ninja, you can get it via 
+
+        git clone git://github.com/martine/ninja.git
+
+    Or you can use `make` which is slightly slower for recompiling:
+
+        cmake .       
+        make -j`nproc` # replace `nproc` with number of cores to use
+
 
 The currently available modes are debug and release, in combination with various extras and compilers. Creating a new type of build can be done by copying an existing `CMakeLists.txt` file from a build directory and modifying compiler settings and flags appropriately. In particular, users wanting to build only the libraries or a subset of the applications should remove these lines in `CMakeLists.txt`:
 
