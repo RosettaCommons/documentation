@@ -4,7 +4,7 @@
 
 This filter checks whether an atom (defined by residues through res\_num/pdb\_num and atomname) has at least n_partners H-bonds, where each H-bond needs to have at most hb_e_cutoff energy.
 
-This filter assumes that there is a single target heteroatom, and H-bonds to polar hydrogens attached to this atom are counted towards H-bonds involving the target atom.   
+This filter assumes that there is a single target heavy atom, and H-bonds to polar hydrogens attached to this atom are counted towards H-bonds involving the target atom.   
 
 ```
 <SimpleHbondsToAtomFilter name="(hbonds_filter &string)" n_partners="(&integer)" hb_e_cutoff="(-0.5 &float)"
