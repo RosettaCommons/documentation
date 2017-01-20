@@ -2,7 +2,7 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## SimpleHbondsToAtom
 
-This filter checks whether an atom (defined by residues through res\_num/pdb\_num and atomname) has at least n_partners H-bonds, where each H-bond needs to have at most hb_e_cutoff energy. It assumes that there is a single target heavy atom, and H-bonds to polar hydrogens attached to this atom are counted towards H-bonds involving the target atom. This filter is a substitute for HBondsToAtom filter, which doesn't work well with ligads. Before phasing out HBondsToAtom filter its functionalities should be added to this filter.
+This filter checks whether an atom (defined by residues through res\_num/pdb\_num and target_atom_name) has at least n_partners H-bonds, where each H-bond needs to have at most hb_e_cutoff energy. It assumes that there is a single target heavy atom, and H-bonds to polar hydrogens attached to this atom are counted towards H-bonds involving the target atom. This filter is a substitute for HBondsToAtom filter, which doesn't work well with ligands. Before phasing out HBondsToAtom filter its functionalities should be added to this filter.
 
 ```
 <SimpleHbondsToAtomFilter name="(hbonds_filter &string)" n_partners="(&integer)" hb_e_cutoff="(-0.5 &float)"
