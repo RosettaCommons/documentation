@@ -72,10 +72,10 @@ _task_operations_ & operations
 
 ### Starting Glycans
 
-_random_start_ &bool default=false
-- Randomize the starting glycans set to move before the protocol.  Used to create increased diversity.  
-         This is recommended if doing de-novo glycan modeling, 
-         or you have just glycosylated using the SimpleGlycosylateMover.
+By default, all glycan torsions are randomized to avoid conformational bias.
+
+_refine_ &bool default=false
+- If *true*, randomization is omitted, and the starting conformation corresponds o the input conformation.
 
 _sugar_bb_start_ &bool default=false
 - Randomize the starting glycans using sugar bb data before the protocol.  
