@@ -21,7 +21,7 @@ Intended to perform anything one would want to do in a DNA interface that uses a
 -   **pdb_output**: write out unbound pose to verify proper interface separation
 -   **protein_scan**: brief runs a single-residue scan of user-defined amino acid possibilities to estimate affinity and specificity of single mutants w/ respect to relevant DNA
 -   **allowed_types**: allowed residue types for design. default: ACDEFGHIKLMNPQRSTVWY;
--   **scorefxn**: XRW TO DO
--   **task_operations**: XRW TO DO
+-   **scorefxn**: Name of score function to use
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 ---

@@ -17,7 +17,7 @@ Check if atom of interest has exactly n_partners Hbonds
 -   **hb_e_cutoff**: Energy of Hbond cutoff.
 -   **pdb_num**: Residue number in PDB numbering (residue number + chain ID)
 -   **res_num**: Residue number in Rosetta numbering (sequentially with the first residue in the pose being 1
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

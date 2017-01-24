@@ -11,7 +11,7 @@ Use rotamer trials to quickly optimize the sidechains in and around the loop bei
 ```
 
 -   **loops_file**: path to loops file
--   **scorefxn**: XRW TO DO
--   **task_operations**: XRW TO DO
+-   **scorefxn**: Name of score function to use
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 ---

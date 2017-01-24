@@ -23,7 +23,7 @@ Compute a filter's value relative to a different pose's structure.
 -   **baseline**: indicates whether or not a baseline should be used
 -   **dump_pose**: filename for where to dump the pdb pose
 -   **alignment**: alignment is expecting X1:Y1,X2:Y2,X3:Y3... where X is the protein on disk (target) and Y is the active structure (starting structure). When no alignment is given it is implied that the poses are trivially aligned 1..nres
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **packing_shell**: radius of shell around each residue to repack after threading. The more use use the longer the simulation
 -   **rtmin**: do rtmin following repack?
 -   **thread**: Normally you'd want this to be true. This is not the case only if you're estimating baselines for the disk pose before doing an actual run.

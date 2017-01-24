@@ -10,7 +10,7 @@ PHENIX crystallographic refinement interface code.  Reports to file per score-te
         verbose="(false &bool;)" outfile="(&string;)" />
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **verbose**: report per-atom/per-scoreterm gradients
 -   **outfile**: output file for gradients
 

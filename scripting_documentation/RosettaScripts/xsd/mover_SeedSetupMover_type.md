@@ -28,8 +28,8 @@ XRW TO DO
 -   **design_target**: XRW TO DO
 -   **design_foldpose**: XRW TO DO
 -   **allow_all_aas**: XRW TO DO
--   **scorefxn_repack**: XRW TO DO
--   **scorefxn_minimize**: XRW TO DO
+-   **scorefxn_repack**: Name of score function to use
+-   **scorefxn_minimize**: Name of score function to use
 -   **design**: XRW TO DO
 -   **allow_design**: XRW TO DO
 -   **norepack_res**: XRW TO DO

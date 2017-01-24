@@ -131,6 +131,6 @@ Subtag **DetailedControls**:   Used to prevent regions from being sampled extens
 -   **stop_res**: ending residue for a DetailedControl region; defaults to the rest of the Pose
 -   **sample_template**: if false, disallow template hybridization moves
 -   **sample_abinitio**: if false, disallow fragment insertion moves
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 ---

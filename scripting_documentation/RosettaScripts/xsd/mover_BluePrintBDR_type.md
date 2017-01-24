@@ -19,7 +19,7 @@ Build a structure in centroid from a blueprint given an input pdb.
 
 -   **blueprint**: (REQUIRED) Name of blueprint file.
 -   **ss_from_blueprint**: Use secondary structure assignment in blueprint file.
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **use_sequence_bias**: pick fragment using sequence information
 -   **use_abego_bias**: pick fragment using abego torsion information
 -   **constraints_NtoC**: constrain N- and C- terminal

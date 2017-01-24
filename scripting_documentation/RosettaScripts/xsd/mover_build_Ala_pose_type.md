@@ -15,6 +15,6 @@ XRW TO DO
 -   **partner2**: Design/repack the second chain
 -   **interface_cutoff_distance**: Distance from the interface that counts for backrubbing
 -   **AA**: Amino acid, by name, from which to build the pose
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 ---

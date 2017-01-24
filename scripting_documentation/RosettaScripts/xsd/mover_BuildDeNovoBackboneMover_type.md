@@ -64,6 +64,6 @@ Subtag **Add**:
 
 Subtag **RemodelLoopMoverPoseFolder**:   Folds residues in a pose using RemodelLoopMover
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 
 ---

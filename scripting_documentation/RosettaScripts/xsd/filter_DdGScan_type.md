@@ -16,8 +16,8 @@ Takes a set of task operations from the user in order to more precisely specify 
 -   **report_diffs**: Whether to report the changes in binding energy upon mutation (pass true), or the total binding energy for the mutated structure (pass false).
 -   **ddG_mover**: Handle definition of a special ddG mover.
 -   **write2pdb**: Whether to write the residue-specific ddG information to the output .pdb file.
--   **scorefxn**: XRW TO DO
--   **task_operations**: XRW TO DO
+-   **scorefxn**: Name of score function to use
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

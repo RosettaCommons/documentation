@@ -21,7 +21,7 @@ A version of the AverageDegree filter that is compatible with oligomeric buildin
 -   **write2pdb**: Whether to write the residue-level AverageDegree values to the output .pdb file.
 -   **verbose**: Output jump and corresponding displacement or angle to tracer.
 -   **multicomp**: Set to true if the systems has multiple components.
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

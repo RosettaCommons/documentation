@@ -25,6 +25,6 @@ Subtag **Jumps**:
 -   **filter_name**: filter with which to eliminate bad solutions
 -   **mover_name**: mover for additional sampling
 -   **allowed_aas**: amino acids allowed in design
--   **scorefxn_minimize**: XRW TO DO
+-   **scorefxn_minimize**: Name of score function to use
 
 ---

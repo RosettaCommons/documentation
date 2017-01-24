@@ -13,7 +13,7 @@ filter that calculates the energy based upon either the ligand (speficified with
 ```
 
 -   **cstid**: Expects cstid string to be of format [0-9]+[A-Z], where the number is constraint number and trailing letter is temlplate id i.e. either A or B
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **score_type**: type of score to be evaluated; default is total_score
 -   **energy_cutoff**: filters the energy based upon this cutoff value
 -   **whole_pose**: determines whether to evalue the score based upon the whole pose or not

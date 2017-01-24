@@ -11,7 +11,7 @@ This mover goes through each repackable/redesignable position in the pose, takin
 ```
 
 -   **show_packer_task**: XRW TO DO
--   **scorefxn**: XRW TO DO
--   **task_operations**: XRW TO DO
+-   **scorefxn**: Name of score function to use
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 ---

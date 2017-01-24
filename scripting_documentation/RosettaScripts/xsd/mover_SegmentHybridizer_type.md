@@ -22,7 +22,7 @@ SegmentHybridize takes the principle from the cartesian hybridize protocol to cl
 </SegmentHybridizer>
 ```
 
--   **fa_scorefxn**: XRW TO DO
+-   **fa_scorefxn**: Name of score function to use
 -   **frag_big**: what fragment size should be used to close the gaps?
 -   **frag_smal**: XSD XRW: TO DO
 -   **nfrags**: XSD XRW: TO DO

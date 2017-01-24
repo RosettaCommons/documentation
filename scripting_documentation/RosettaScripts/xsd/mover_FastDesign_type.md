@@ -25,10 +25,10 @@ FastRelax mover used for design that can take constraint generators
 </FastDesign>
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **disable_design**: Do not perform design even if a resfile is specified
--   **task_operations**: XRW TO DO
--   **task_factory**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use
+-   **task_factory**: A TaskFactory specification to use
 -   **repeats**: Same as cmd-line FR. Number of fastrelax repeats to perform
 -   **relaxscript**: a filename for a relax script, as described in the documentation for the Relax application; the default relax script is used if not specified
 -   **cst_file**: Add constraints from the constraint file
@@ -44,7 +44,7 @@ FastRelax mover used for design that can take constraint generators
 -   **cgs**: Names of previously specified constraint generators to apply during this run
 
 
-Subtag **MoveMap**:   XRW TO DO
+Subtag **MoveMap**:   MoveMap specification
 
 -   **bb**: move backbone torsions?
 -   **chi**: move sidechain chi torsions?

@@ -30,7 +30,7 @@ XRW TO DO
 -   **dampen**: XRW TO DO
 
 
-Subtag **MoveMap**:   XRW TO DO
+Subtag **MoveMap**:   MoveMap specification
 
 -   **bb**: move backbone torsions?
 -   **chi**: move sidechain chi torsions?

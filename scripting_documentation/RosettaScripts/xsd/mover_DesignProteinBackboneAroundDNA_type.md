@@ -24,7 +24,7 @@ Performs a round flexible backbone sampling/design and loop design around DNA.
 -   **temp_initial**: Initial temp of backrub (MC)
 -   **temp_final**: Final temp of backrub (MC)
 -   **designable_second_shell**: Allow design of residues in the neighborhood of the design shell
--   **scorefxn**: XRW TO DO
--   **task_operations**: XRW TO DO
+-   **scorefxn**: Name of score function to use
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 ---

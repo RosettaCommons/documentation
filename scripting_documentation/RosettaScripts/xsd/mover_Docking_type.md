@@ -23,7 +23,7 @@ XRW TO DO
 -   **design**: XRW TODO
 -   **symmetry**: Account for symmetry and associated information
 -   **ignore_default_docking_task**: Ignore default docking task, instead using whatever is provided
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **jumps**: list of jumps for docking
 -   **optimize_fold_tree**: Obtain an optimal foldtree given the desired docking jumps
 

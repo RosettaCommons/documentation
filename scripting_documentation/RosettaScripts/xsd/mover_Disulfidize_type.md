@@ -18,7 +18,7 @@ Scans a protein and builds disulfides that join residues in one set of residues 
         use_d_cys="(false &bool;)" use_beta_cys="(false &bool;)" />
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **match_rt_limit**: distance in 6D-space (rotation/translation) which is allowed from native disulfides. Lower values increase the stringency of the requirement that disulfides be similar to native disulfides.
 -   **min_disulfides**: Smallest allowable number of disulfides.
 -   **max_disulfides**: Largest allowable number of disulfides.

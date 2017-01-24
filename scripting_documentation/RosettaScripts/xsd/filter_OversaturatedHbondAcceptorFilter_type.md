@@ -18,7 +18,7 @@ This filter counts the number of hydrogen bond acceptors that are receiving hydr
 -   **consider_mainchain_only**: If true (the default), only mainchain-mainchain hydrogen bonds are considered. If false, all hydrogen bonds are considered.
 -   **acceptor_selector**: Selector that defines the hydrogen bond acceptor
 -   **donor_selector**: Selector that defines the hydrogen bond donor
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

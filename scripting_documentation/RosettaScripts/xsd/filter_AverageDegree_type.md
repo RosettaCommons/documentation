@@ -11,7 +11,7 @@ What is the average degree connectivity of a subset of residues? Found to be use
         confidence="(1.0 &real;)" />
 ```
 
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **threshold**: Lower limit below which the filter fails
 -   **distance_threshold**: Count neighbors for residues closer than this distance
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter

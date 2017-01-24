@@ -9,6 +9,6 @@ Record RMSD, the reference ID to which RMSD was computed as well as dummy variab
 <ProteinRMSDFeatures name="(&string;)" reference_name="(&string;)" />
 ```
 
--   **reference_name**: XRW_TODO
+-   **reference_name**: Name of reference pose to use
 
 ---

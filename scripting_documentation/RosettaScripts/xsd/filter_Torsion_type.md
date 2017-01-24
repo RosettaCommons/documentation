@@ -15,7 +15,7 @@ XRW TO DO
 -   **upper**: Upper torsion threshold
 -   **torsion**: (REQUIRED) The torsion of interest
 -   **resnum**: (REQUIRED) The residue number of interest
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

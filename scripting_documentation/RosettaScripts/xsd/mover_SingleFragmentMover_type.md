@@ -21,7 +21,7 @@ Performs a single fragment insertion move on the pose. Respects the restrictions
 -   **policy**: Policy object is responsible for choosing from among the possible fragments contained in the fragment file. Currently, two policies are supported-- 'uniform' and 'smooth.' The former chooses uniformly amongst the set of possibilities. The latter chooses the fragment that, if applied, causes minimal distortion to the pose.
 
 
-Subtag **MoveMap**:   XRW TO DO
+Subtag **MoveMap**:   MoveMap specification
 
 -   **bb**: move backbone torsions?
 -   **chi**: move sidechain chi torsions?

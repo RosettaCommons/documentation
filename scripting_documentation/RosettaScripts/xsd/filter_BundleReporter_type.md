@@ -12,7 +12,7 @@ XRW TO DO
         use_three_letter_code="(0 &bool;)" confidence="(1.0 &real;)" />
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **score_type**: Score type on which to filter
 -   **behavior**: Filter behavior
 -   **threshold**: Threshold above which the filter may fail (do not need or want to specify if filter behavior is ALWAYS_TRUE or ALWAYS_FALSE)

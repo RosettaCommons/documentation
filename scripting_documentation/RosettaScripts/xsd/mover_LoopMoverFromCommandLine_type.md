@@ -18,8 +18,8 @@ XRW TO DO
 -   **intermedrelax**: Use an intermediate relax protocol?
 -   **remodel**: Perform a remodeling protocol?
 -   **relax**: A final round of fullatom relaxation?
--   **refine_score**: XRW TO DO
--   **perturb_score**: XRW TO DO
+-   **refine_score**: Name of score function to use
+-   **perturb_score**: Name of score function to use
 -   **loop_file**: File from which loops definitions might be read
 
 ---

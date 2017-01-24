@@ -14,6 +14,6 @@ A minimization mover that searches a lower-dimensional dihedral space to find re
 -   **alpha_beta_pattern**: A string defining the 'mainchain torsion structure' of the heteropolymer of interest. If you are operating on a motif of three alpha residues followed by a beta residue, for example, your string here is AAAB.
 -   **constrain**: Constrain to input values to prevent excessive movement.
 -   **dihedral_pattern**: A string defining the pattern of dihedral angles desired. For example, if you have an all alpha peptide but you want to require that adjacent peptide units have distinct dihedrals, alternating on down the chain, your string here is AB.
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 
 ---

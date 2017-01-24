@@ -47,7 +47,7 @@ The Hotspot-based sidechain placement. This is the main workhorse of the hot-spo
 -   **leave_coord_csts**: should the coordinate constraints be left on when placement is completed successfully? This is useful if you plan on making moves after placement and you want the hotspot's placement to be respected. Note that designing a residue that has constraints on it is likely to yield crashes. You can use task operations to disallow that residue from designing.  Must be true for post_placement_sdev to be interpreted
 -   **post_placement_sdev**: related to and requires leave_coord_csts. The lower the sdev (towards 0) the more stringent the constraint.
 -   **place_scaffold**: use PlaceScaffold instead of PlaceStub. this will place the scaffold on the stub's position by using an inverse rotamer approach.
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **allowed_host_res**: List of residue numbers to use
 
 

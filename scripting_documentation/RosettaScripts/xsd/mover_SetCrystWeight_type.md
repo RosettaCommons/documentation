@@ -20,7 +20,7 @@ PHENIX crystallographic refinement interface code. Converts weights from one sco
 </SetCrystWeight>
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **scorefxn_ref**: String name of scorefunction defined in SCOREFUNCTION section; used to copy weights from; defaults to scorefunction defined by this element's scorefunction subelement)
 -   **jump**: if 'ALL', 'All', or 'all'; all jumps mobile in MoveMap.  else, interpreted as a comma-separated list of integers labeling jumps
 -   **chi**: chi mobile in MoveMap
@@ -33,7 +33,7 @@ PHENIX crystallographic refinement interface code. Converts weights from one sco
 -   **cartesian**: Use cartesian ??? when automatically determining weights
 
 
-Subtag **MoveMap**:   XRW TO DO
+Subtag **MoveMap**:   MoveMap specification
 
 -   **bb**: move backbone torsions?
 -   **chi**: move sidechain chi torsions?

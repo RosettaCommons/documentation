@@ -20,7 +20,7 @@ Calculate the number of heavy atoms clashing between building blocks.
 -   **cutoff**: Maximum number of allowable clashes.
 -   **verbose**: If set to true, then will output a pymol selection string to the logfile with the clashing positions/atoms.
 -   **write2pdb**: If set to true, then will output a pymol selection string to the output pdb with the clashing positions/atoms.
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

@@ -12,6 +12,6 @@ XRW TO DO
 
 -   **task_name**: (REQUIRED) XRW_TODO
 -   **overwrite**: XRW TO DO
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 ---

@@ -19,8 +19,8 @@ XRW TO DO
 -   **loop_end**: Ending residue of loop, in seqpos (Rosetta) numbering
 -   **minimize_toward_stub**: reclose the loop using minimization to get the stub exactly right
 -   **stubfile**: Input stubfile from which to draw samples
--   **score_high**: XRW TO DO
--   **score_low**: XRW TO DO
+-   **score_high**: Name of score function to use
+-   **score_low**: Name of score function to use
 -   **closing_attempts**: Attempt to close the loop this many times before giving up
 -   **shorten_by**: Shorten loop by this many residues (multiple options may be provided, will be selected randomly)
 -   **lengthen_by**: Lengthen loop by this many residues (multiple options may be provided, will be selected randomly)

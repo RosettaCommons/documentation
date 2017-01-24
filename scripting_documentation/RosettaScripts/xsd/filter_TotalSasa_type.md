@@ -17,7 +17,7 @@ Computes the overall sasa of the pose.
 -   **hydrophobic**: Compute hydrophobic-only SASA.
 -   **polar**: Compute polar_only SASA.
 -   **report_per_residue_sasa**: Add the per-residue SASA to the tracer output.
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

@@ -14,6 +14,6 @@ selects hbond acceptors or donors that are not satisfied
 -   **check_acceptors**: whether you want to count acceptors or donors
 -   **hbond_energy_cutoff**: what is the hbond energy cutoff
 -   **consider_mainchain_only**: should we consider just mainchains?
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 
 ---

@@ -11,7 +11,7 @@ XRW TO DO
         confidence="(1.0 &real;)" />
 ```
 
--   **scorefxn**: commandline
+-   **scorefxn**: Name of score function to use
 -   **threshold**: Threshold below which the interaction score filter fails
 -   **upper_threshold**: Threshold above which the interaction score filter fails
 -   **jump**: Jump across which the interface is defined, numbered sequentially from 1

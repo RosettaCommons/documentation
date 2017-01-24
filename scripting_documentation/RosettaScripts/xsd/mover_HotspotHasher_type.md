@@ -17,7 +17,7 @@ XRW TODO
 </HotspotHasher>
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **nstubs**: Number of hotspot stubs to generate
 -   **target_residue_pdb_num**: Residue number from which to generate hot spot stubs; provide this or target_residue_res_num
 -   **target_residue_res_num**: Residue number from which to generate hot spot stubs; provide this or target_residue_pdb_num

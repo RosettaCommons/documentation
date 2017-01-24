@@ -44,10 +44,10 @@ AnchoredGraftMover that uses CCD to close loops
 -   **end_**: (REQUIRED) XRW_TODO
 -   **cen_scorefxn**: Centroid score function to use
 -   **fa_scorefxn**: Full atom score function to use
--   **reference_name**: XRW_TODO
+-   **reference_name**: Name of reference pose to use
 
 
-Subtag **MoveMap**:   XRW TO DO
+Subtag **MoveMap**:   MoveMap specification
 
 -   **bb**: move backbone torsions?
 -   **chi**: move sidechain chi torsions?

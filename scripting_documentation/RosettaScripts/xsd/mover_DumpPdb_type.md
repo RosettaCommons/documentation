@@ -12,6 +12,6 @@ Dumps a pdb. Recommended ONLY for debugging as you can't change the name of the 
 
 -   **fname**: Filename of dumped PDB.
 -   **tag_time**: If true, adds timestamp to name of pdb file.
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 
 ---

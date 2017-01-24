@@ -20,7 +20,7 @@ This filter counts the number of residues that form sufficiently energetically f
 -   **backbone**: Count backbone H-bonds
 -   **sidechain**: Count sidechain H-bonds
 -   **residue**: Particular residue of interest
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
 -   **from_same_chain**: Count residues from the same chain in H-bonds
 -   **from_other_chains**: Count residues from the other chains in H-bonds

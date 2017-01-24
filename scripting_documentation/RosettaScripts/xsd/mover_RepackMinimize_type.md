@@ -20,9 +20,9 @@ RepackMinimizeMover performs extensive interface remodeling
 </RepackMinimize>
 ```
 
--   **task_operations**: XRW TO DO
--   **scorefxn_repack**: XRW TO DO
--   **scorefxn_minimize**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
+-   **scorefxn_repack**: Name of score function to use
+-   **scorefxn_minimize**: Name of score function to use
 -   **repack**: Repack both partners
 -   **repack_partner1**: Repack partner 1
 -   **repack_partner2**: Repack partner 2

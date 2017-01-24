@@ -21,7 +21,7 @@ XRW TO DO
 </RotamerBoltzmannWeight>
 ```
 
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **radius**: XRW TO DO
 -   **type**: XRW TO DO
 -   **jump**: XRW TO DO
@@ -29,7 +29,7 @@ XRW TO DO
 -   **unbound**: XRW TO DO
 -   **ddG_threshold**: XRW TO DO
 -   **temperature**: XRW TO DO
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **energy_reduction_factor**: XRW TO DO
 -   **compute_entropy_reduction**: XRW TO DO
 -   **repack**: XRW TO DO

@@ -19,7 +19,7 @@ Symmetric oligomer docking.
 -   **fullatom**: Enable full-atom input of PDB or centroid structures.
 -   **local_refine**: Do a local refinement of the docking position (high resolution).
 -   **view**: Decide whether to use the viewer (graphical) or not.
--   **docking_score_low**: XRW TO DO
--   **docking_score_high**: XRW TO DO
+-   **docking_score_low**: Name of score function to use
+-   **docking_score_high**: Name of score function to use
 
 ---

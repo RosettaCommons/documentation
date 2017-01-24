@@ -16,7 +16,7 @@ XRW TO DO
 </InsertionSiteTestMover>
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **test_insert_ss**: XRW TO DO
 -   **allowed_sc_increase**: XRW TO DO
 -   **seqpos**: XRW TO DO

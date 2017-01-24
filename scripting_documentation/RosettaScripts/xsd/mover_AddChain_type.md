@@ -15,6 +15,6 @@ Replace or add chains to a pose from other PDBs
 -   **file_name**: (REQUIRED) Either a path to the file to read chains from, or a comma-separated list of such if random_access is true.
 -   **new_chain**: There is some interaction between swap_chain_number and new_chain; probably you can use only one.  add as a new chain?
 -   **swap_chain_number**: There is some interaction between swap_chain_number and new_chain; probably you can use only one.  swap chain with specified chain number
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 
 ---

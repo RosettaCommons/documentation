@@ -29,7 +29,7 @@ Filter for PeptiDerive, a simple application that derives from a given interface
 -   **report_format**: The format of the report. Either basic (easily parsable format) or markdown (pretty, readable, but verbose format)
 -   **restrict_receptors_to_chains**: Only use chains listed here as receptors. When empty, consider all chains.
 -   **restrict_partners_to_chains**: Only use chains listed here as partners. When empty, consider all chains. For each receptor-partner pair, a peptide is derived from the partner.
--   **scorefxn_deriver**: XRW TO DO
+-   **scorefxn_deriver**: Name of score function to use
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

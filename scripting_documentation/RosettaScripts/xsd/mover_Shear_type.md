@@ -23,11 +23,11 @@ Shear style backbone-torsion moves that minimize downstream propagation
 -   **nmoves**: How many consecutive moves to make
 -   **angle_max**: By how much to perturb the backbone
 -   **preserve_detailed_balance**: If set to true, does not test the MC acceptance criterion, and instead always accepts
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **residue_selector**: An optional, previously-defined ResidueSelector, specifying the subset of residues to which the mover will be applied. If not provided, the mover is applied to the whole pose. (Alternatively, a MoveMap may be used -- see below)
 
 
-Subtag **MoveMap**:   XRW TO DO
+Subtag **MoveMap**:   MoveMap specification
 
 -   **bb**: move backbone torsions?
 -   **chi**: move sidechain chi torsions?

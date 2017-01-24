@@ -62,11 +62,11 @@ XRW TO DO
 -   **source_pdb_to_res**: XRW TO DO
 -   **skip_alignment**: XRW TO DO
 -   **use_seqeunce_profile**: XRW TO DO
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **add_sequence_constraints_only**: XRW TO DO
 -   **template_file**: XRW TO DO
 -   **set_fold_tree_only**: XRW TO DO
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **from_res**: XRW TO DO
 -   **to_res**: XRW TO DO
 -   **design_task_operations**: XRW TO DO

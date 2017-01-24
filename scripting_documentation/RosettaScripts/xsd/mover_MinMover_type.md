@@ -37,10 +37,10 @@ Does minimization over sidechain and/or backbone
 -   **chi_task_operations**: Task operations specifying residues for sidechain minimization
 -   **bondangle_task_operations**: Task operations specifying residues for bond angle minimization
 -   **bondlength_task_operations**: Task operation specifying residues for bond length minimization
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 
 
-Subtag **MoveMap**:   XRW TO DO
+Subtag **MoveMap**:   MoveMap specification
 
 -   **bb**: move backbone torsions?
 -   **chi**: move sidechain chi torsions?

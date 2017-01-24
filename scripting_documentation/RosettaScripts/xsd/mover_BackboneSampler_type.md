@@ -12,6 +12,6 @@ Adapted from the protein interface design backrub mover. Mover that makes a give
 
 -   **moves**: number of backbone moves to make
 -   **kT**: Temperature parameter (kT) for Monte Carlo sampling
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 
 ---

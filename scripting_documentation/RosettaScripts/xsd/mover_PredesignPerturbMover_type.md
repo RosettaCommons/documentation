@@ -14,7 +14,7 @@ PredesignPerturbMover randomly perturbs a ligand in a protein active site. The i
 -   **trans_magnitude**: how large (stdev of a gaussian) a random translation step to take in each of x, y, and z (angstrom)
 -   **rot_magnitude**: how large (stdev of a gaussian) a random rotational step to take in each of the Euler angles (degrees)
 -   **dock_trials**: the number of Monte Carlo steps to attempt
--   **task_operations**: XRW TO DO
--   **task_factory**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use
+-   **task_factory**: A TaskFactory specification to use
 
 ---

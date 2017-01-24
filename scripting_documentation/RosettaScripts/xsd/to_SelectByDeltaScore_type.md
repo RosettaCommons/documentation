@@ -12,7 +12,7 @@ Restrict design to residues passing a user-specified threshold on a given score 
         reference_name="(&string;)" reference_pdb="(&string;)" />
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **score_type**: Loop over the independent residues, assess score_type for each residue.
 -   **threshold**: Restrict residues to repack based on whether they pass this threshold.
 -   **lower**: Higher or lower than threshold.

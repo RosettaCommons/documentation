@@ -46,14 +46,14 @@ This mover will first attempt isolated/independent mutations defined in the inpu
 -   **filter**: Name of a single filter you wish you process.
 -   **sample_type**: If your filter values are such that higher = better, use 'sample_type=high'
 -   **filter_delta**: Add sequence diversity; useful with nstruct greater than 1; randomly try any mutation that scores wit     hin N filter points of the best-scoring mutation at each position instead of just the first, e.g. filter_delta=0.5 for attempting any mutation within 0.5 filter points of the best one.
--   **task_operations**: XRW TO DO
--   **scorefxn**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
+-   **scorefxn**: Name of score function to use
 -   **set_task_for_filters**: Returns a Null pointer if incompatible filter type is passed through the xml. Would be nice if task_factory() was a standard method of the filter class, so that we could make a Virtual task_factory() method in the Filter base class and not have to have this specific to TaskAwareScoreTypeFilter.  If this proves useful, then perhaps we could consider that...
 -   **force_natro_for_stored_tasks**: Get reference pose with rotamer(s) to be forced back.
 -   **use_native**: Use input native protein as reference pose.
 -   **reference_pdb**: Input alternative reference pdb.
 -   **filter_thresholds**: This is a string describing a pattern of comma-separated descriptors. Each filter is related to a pair of either 'upper' or 'lower', then a comma, then a decimal describing the filter threshold the greedyopt can tolerate. An example for one filter that has an upper limit of a change of 0.3 is 'upper,0.3'. I could combined then with a second filter that can tolerate up to 0.05 lower than the original value: 'upper,0.3,lower,0.05'.
--   **reference_name**: XRW_TODO
+-   **reference_name**: Name of reference pose to use
 
 
 Subtag **Filters**:   These are the names of the filters being input into GreedyOptMutationMover.

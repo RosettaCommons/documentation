@@ -17,6 +17,6 @@ A wrapper mover that measures how similar the rotamers are before and after runn
 -   **mover_name**: Mover to apply to pose. Interchangeable with mover.
 -   **comparer**: Name of RRComparer to use when measuring rotamer recovery
 -   **reporter**: Name of RRReporter to use to report rotamer recovery
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 
 ---

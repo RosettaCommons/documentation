@@ -16,7 +16,7 @@ Finds the ineraction energy (IE) for the specified residue over the interface
         use_resE="(false &bool;)" confidence="(1.0 &real;)" />
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **score_type**: XSD XRW: TO DO
 -   **energy_cutoff**: XSD XRW: TO DO
 -   **whole_pose**: XSD XRW: TO DO

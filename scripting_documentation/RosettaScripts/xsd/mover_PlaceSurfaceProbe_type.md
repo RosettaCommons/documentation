@@ -26,7 +26,7 @@ Uses a probe of the specified type to probe the surface of the pose
 -   **refinement_angle_sampling**: (REQUIRED) Bin size for angle sampling during refinement
 -   **refinement_sampling**: (REQUIRED) Bin size for sampling during refinement
 -   **refinement_distance**: (REQUIRED) Distance to use during refinement stageof search
--   **scorefxn**: XRW TO DO
--   **task_operations**: XRW TO DO
+-   **scorefxn**: Name of score function to use
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 ---

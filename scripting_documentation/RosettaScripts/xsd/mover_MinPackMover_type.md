@@ -15,6 +15,6 @@ Packs then minimizes a sidechain before calling MonteCarlo on the change. It can
 -   **cartesian**: use cartesian minimization
 -   **off_rotamer_pack**: instead of using core::pack::min_pack, use core::pack::off_rotamer_pack
 -   **scorefxn**: It is reccomended to change the weights you are using to the score12minpack weights. These are the standard score12 weights with the reference energies refit for sequence recovery profile when using the MinPackMover. Without these weights you will see a lot of Tryptophan residues on the surface of a protein. default is score12
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 ---

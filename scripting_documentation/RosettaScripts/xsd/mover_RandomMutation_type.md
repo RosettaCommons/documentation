@@ -10,8 +10,8 @@ XRW TO DO
         scorefxn="(&string;)" cache_task="(false &bool;)" />
 ```
 
--   **task_operations**: XRW TO DO
--   **scorefxn**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
+-   **scorefxn**: Name of score function to use
 -   **cache_task**: Cache the packer task every time
 
 ---

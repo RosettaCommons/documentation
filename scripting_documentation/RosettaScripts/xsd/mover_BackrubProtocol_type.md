@@ -13,7 +13,7 @@ Performs backrub-style backbone moves
 
 -   **pivot_residues**: Pivot residues to use for backbone moves. Can contain segments (comma separated). Can use PDB numbers ([resnum][chain]) or absolute Rosetta numbers (integer)
 -   **pivot_atoms**: main chain atoms usable as pivots (comma separated)
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **mc_kt**: Temperature to use for Metropolis criterion
 -   **ntrials**: Number of trials to perform
 

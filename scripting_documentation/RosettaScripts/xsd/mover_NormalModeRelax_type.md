@@ -42,7 +42,7 @@ NormalModeRelax relaxes a structures to the coordinate directions derived from A
 -   **bb**: XRW TO DO
 
 
-Subtag **MoveMap**:   XRW TO DO
+Subtag **MoveMap**:   MoveMap specification
 
 -   **bb**: move backbone torsions?
 -   **chi**: move sidechain chi torsions?

@@ -75,7 +75,7 @@ HBNet is a method to explicitly detect and design hydrogen bond networks within 
 -   **start_selector**: residue selector that tells HBNet which residues to start from (will only search for networks that include these resid
 -   **core_selector**: residue selector that defines what HBNet considers "core"; used in buriedness determination for unsats; default is layer selector default using sidechain neighbors(core=5.2).
 -   **boundary_selector**: XRW_TODO
--   **task_operations**: XRW TO DO
--   **scorefxn**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
+-   **scorefxn**: Name of score function to use
 
 ---

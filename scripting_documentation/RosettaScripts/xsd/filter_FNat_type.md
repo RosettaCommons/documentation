@@ -11,10 +11,10 @@ Filter for poor values of Fnat, a docking metric
         confidence="(1.0 &real;)" />
 ```
 
--   **reference_name**: XRW_TODO
+-   **reference_name**: Name of reference pose to use
 -   **threshold**: Threshold for Fnat, a docking metric above which the filter fails
 -   **jump**: Jump across which the computation is carried out, numbered sequentially from 1
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

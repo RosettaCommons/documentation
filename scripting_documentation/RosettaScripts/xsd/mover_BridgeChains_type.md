@@ -25,6 +25,6 @@ Given a pose with a jump, this mover uses a fragment insertion monte carlo to co
 -   **overlap**: Build overlap of nested BuildDeNovoBackboneMover
 -   **dry_run**: Sets folder of BuildDeNovoBackboneMover to RandomTorsionPoseFolder instead of RemodelLoopMoverPoseFolde
 -   **trials**: iterations per phase of nested BuildDeNovoBackboneMover
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 
 ---

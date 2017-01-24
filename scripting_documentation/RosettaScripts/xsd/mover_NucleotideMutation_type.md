@@ -12,8 +12,8 @@ XRW TO DO
         reference_pdb_file="(&string;)" cache_task="(false &bool;)" />
 ```
 
--   **task_operations**: XRW TO DO
--   **scorefxn**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
+-   **scorefxn**: Name of score function to use
 -   **init_sequence**: Initial sequence
 -   **continue_if_silent**: Make another mutation if the first mutation is silent
 -   **reference_name**: Saved reference pose

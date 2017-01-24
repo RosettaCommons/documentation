@@ -17,7 +17,7 @@ Calculates SASA for a set of residues defined by TaskOperations.
 -   **sc_only**: Make backbone atoms virtual to find sidechain-only values?
 -   **probe_radius**: Probe radius for calculating the solvent accessible surface area. Note: the default is larger than the typical used to represent water of 1.4 angstroms, but has been found to work well with the other default parameters for protein redesign purposes.
 -   **jump**: If a jump has been provided by the user, separate the pose by that jump.
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

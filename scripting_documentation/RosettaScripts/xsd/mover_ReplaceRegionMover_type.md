@@ -16,6 +16,6 @@ Replaces a region of length span in the target pose with a specified region of l
 -   **copy_pdbinfo**: Copy PDBInfo to the new pose?
 -   **src_pose_start_**: (REQUIRED) First residue to copy from the source pose
 -   **target_pose_start_**: (REQUIRED) First residue to replace in the target pose
--   **reference_name**: XRW_TODO
+-   **reference_name**: Name of reference pose to use
 
 ---

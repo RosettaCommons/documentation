@@ -80,7 +80,7 @@ XRW TO DO
 </BundleGridSampler>
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **max_samples**: Maximum number of total backbone combinations to be sampled.
 -   **selection_type**: Score criterion for selection: "high" or "low".
 -   **pre_scoring_mover**: A mover to apply after backbone torsions are set but before final scoring and evaluation (like a min mover or something similar).

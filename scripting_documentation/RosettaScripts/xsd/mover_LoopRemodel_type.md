@@ -20,9 +20,9 @@ XRW TO DO
 -   **protocol**: Method for loop closure
 -   **perturb**: Perturb before closure?
 -   **refine**: Use a refinement protocol?
--   **refine_score**: XRW TO DO
--   **perturb_score**: XRW TO DO
--   **task_operations**: XRW TO DO
+-   **refine_score**: Name of score function to use
+-   **perturb_score**: Name of score function to use
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **auto_loops**: Automatically detect/assign loops
 -   **design**: Do design!
 -   **hurry**: Fast mode

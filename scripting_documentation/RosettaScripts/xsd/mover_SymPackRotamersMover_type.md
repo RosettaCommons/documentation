@@ -11,7 +11,7 @@ Repacks sidechains with user-supplied options, including TaskOperations.
 ```
 
 -   **nloop**: Equivalent to "-ndruns".Number of complete packing runs before an output (best score) is produced.
--   **scorefxn**: XRW TO DO
--   **task_operations**: XRW TO DO
+-   **scorefxn**: Name of score function to use
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 ---

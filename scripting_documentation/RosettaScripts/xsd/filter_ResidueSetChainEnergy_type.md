@@ -12,7 +12,7 @@ Computes the interaction energy between 2 groups of residues: 1. a set of residu
         confidence="(1.0 &real;)" />
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **score_type**: what scoreing type to use
 -   **threshold**: (REQUIRED) filter threshold
 -   **resnums**: (REQUIRED) Group1 is defined with resnums, a list of residue numbers (1,2,3 for pose numbering or 1A,2A,3A for pdb numbering).

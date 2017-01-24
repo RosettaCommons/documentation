@@ -23,7 +23,7 @@ This filter is designed as a means of quantifying Nobu and Rie's "foldability" m
 -   **use_sequence**: Use sequence for fragment insertion mover
 -   **output_poses**: dump pdbs
 -   **distance_threshold**: A folding attempt is considered successful if the end of the refolded region is at most distance_threshold from its original location.
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

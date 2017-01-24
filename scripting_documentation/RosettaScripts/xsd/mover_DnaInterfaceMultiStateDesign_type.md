@@ -32,7 +32,7 @@ Performs multistate design on DNA interfaces
 -   **checkpoint_interval**: frequency in number of sequences scored with which the checkpoint files are written
 -   **checkpoint_gz**: compress the checkpoint files with gzip
 -   **checkpoint_rename**: rename checkpoint files after the genetic algorithm completes, so that subsequent runs generate new output
--   **scorefxn**: XRW TO DO
--   **task_operations**: XRW TO DO
+-   **scorefxn**: Name of score function to use
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 ---

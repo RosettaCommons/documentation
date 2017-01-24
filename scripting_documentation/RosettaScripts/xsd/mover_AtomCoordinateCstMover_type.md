@@ -18,6 +18,6 @@ XRW TO DO
 -   **sidechain**: XRW TO DO
 -   **flip_hnq**: XRW TO DO
 -   **native**: XRW TO DO
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 ---

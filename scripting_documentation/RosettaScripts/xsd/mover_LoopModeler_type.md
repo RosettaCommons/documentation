@@ -25,7 +25,7 @@ Perform a complete loop modeling simulation, including the build, centroid, and 
 -   **scorefxn_fa**: Score function for full atom modeling.
 -   **scorefxn_cen**: Score function for modeling in centroid representation.
 -   **fast**: Only test run (fewer cycles)
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 
 Subtag **Loop**:   Use this element to define a series of loops in subtags, one loop per subtag

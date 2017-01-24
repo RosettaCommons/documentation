@@ -21,7 +21,7 @@ Counts sidechain carbon-carbon contacts among the specified residues under the g
 -   **ss_only**: Only consider SS elements (i.e., non-L)
 -   **taskA**: String-separated list of task operations
 -   **taskB**: String-separated list of task operations
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **jump**: Jump across which to define contacts
 -   **sym_dof_name**: Name of the sym dof -- a symmetry-aware jump identifier
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter

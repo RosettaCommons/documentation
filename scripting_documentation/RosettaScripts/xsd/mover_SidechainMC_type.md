@@ -13,7 +13,7 @@ In a Monte Carlo simulation, moves the side chain for a set of residues identifi
         prob_withinrot="(0.0 &real;)" prob_random_pert_current="(0.0 &real;)" />
 ```
 
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **ntrials**: Number of trials.
 -   **preserve_detailed_balance**: Should the simulation preserve detailed balance?
 -   **temperature**: Simulation temperature.

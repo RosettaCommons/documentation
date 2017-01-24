@@ -12,8 +12,8 @@ This mover will modify a given task according to a sequence profile and then cal
         ignore_pose_profile_length_mismatch="(&bool;)" />
 ```
 
--   **task_operations**: XRW TO DO
--   **scorefxn**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
+-   **scorefxn**: Name of score function to use
 -   **invert_task**: Operate on the residues specified as non-packable in the PackerTask
 -   **use_seqprof_constraints**: use sequence profile constraints
 -   **sasa_cutoff**: skip designing residues with SASA lower than this

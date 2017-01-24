@@ -21,6 +21,6 @@ Mover used for protein-protein docking.
 -   **docking_local_refine**: Only perform high-resolution docking
 -   **dock_min**: Use the DockMinMover
 -   **ignore_default_docking_task**: Ignore the default docking task and define your own. Unless this is specified, task operations will be appended to the default docking task.
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 ---

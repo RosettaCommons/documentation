@@ -15,7 +15,7 @@ XRW TO DO
         selected_resis_property="(XRW TO DO &string;)" confidence="(1.0 &real;)" />
 ```
 
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **designable_only**: XRW TO DO
 -   **renumber_pdb**: XRW TO DO
 -   **resfile_suffix**: XRW TO DO

@@ -16,7 +16,7 @@ Tests the energy of a particular residue (e.g. pdb_num=1), or interface (whole_i
         res_num="(&non_negative_integer;)" confidence="(1.0 &real;)" />
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **score_type**: score type
 -   **energy_cutoff**: energy threshold
 -   **whole_interface**: If whole_interface is set to 1, it computes all the energies for the interface residues defined by the jump_number and the interface_distance_cutoff

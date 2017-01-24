@@ -11,6 +11,6 @@ Perform gradient minimization on the loop being sampled. Both the sidechainand b
 ```
 
 -   **loops_file**: path to loops file
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 
 ---

@@ -17,8 +17,8 @@ EnzRepackMinimize, similar in spirit to RepackMinimizeMover, does the design/rep
         scorefxn_minimize="(&string;)" rb_min_jumps="(&nnegative_int_cslist;)" />
 ```
 
--   **task_operations**: XRW TO DO
--   **task_factory**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use
+-   **task_factory**: A TaskFactory specification to use
 -   **cycles**: number of cycles of repack-minimize (default=1 cycle) (Note: In contrast to the enzyme_design application, all cycles use the provided scorefunction.)
 -   **min_in_stages**: first minimize non-backbone dofs, followed by backbone dofs only, and then everything together (default=0)
 -   **design**: optimize sequence of residues spatially around the ligand (detection of neighbors need to be specified in the flagfile or resfile, default=0)
@@ -31,8 +31,8 @@ EnzRepackMinimize, similar in spirit to RepackMinimizeMover, does the design/rep
 -   **minimize_sc**: minimize sidechains (default=1)
 -   **minimize_lig**: minimize ligand internal torsion degrees of freedom (allowed deviation needs to be specified by flag, default =0)
 -   **minimize_prot_jumps**: Minimize all jumps
--   **scorefxn_repack**: XRW TO DO
--   **scorefxn_minimize**: XRW TO DO
+-   **scorefxn_repack**: Name of score function to use
+-   **scorefxn_minimize**: Name of score function to use
 -   **rb_min_jumps**: specify which jumps to minimize. If this is specified it takes precedence over minimize_rb above. Useful if you have more than one ligand in the system and you only want to optimize one of the ligands, e.g., rb_min_jumps=1,2 would minimize only across jumps 1 and 2.
 
 ---

@@ -13,7 +13,7 @@ Moves the side chain for a set of residues identified by a task operation in a m
         change_chi_without_replacing_residue="(0.0 &real;)" />
 ```
 
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **ntrials**: Number of trials.
 -   **preserve_detailed_balance**: Should the simulation preserve detailed balance?
 -   **prob_uniform**: The probability of uniform chi sampling.

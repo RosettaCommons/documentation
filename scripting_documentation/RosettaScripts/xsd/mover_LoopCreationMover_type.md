@@ -15,7 +15,7 @@ XRW TO DO
         lam_score_cutoff="(&bool;)" />
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **loop_inserter**: (REQUIRED) Mover with which to insert the loop
 -   **loop_closer**: (REQUIRED) Mover with which to close the loop
 -   **dump_pdbs**: Should the mover dump PDBs?

@@ -32,7 +32,7 @@ Performs Metropolis-Hastings Monte Carlo simulations which can be used to estima
 -   **wte_grid_max**: Maximum grid value for WTE score function
 -   **wte_grid_size**: Grid size for WTE score function
 -   **wte_output**: Output file for WTE score function
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 
 
 Subtag **Add**:   

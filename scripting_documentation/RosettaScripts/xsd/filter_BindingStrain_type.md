@@ -12,8 +12,8 @@ Computes the energetic strain in a bound monomer. Automatically respects symmetr
         confidence="(1.0 &real;)" />
 ```
 
--   **task_operations**: XRW TO DO
--   **scorefxn**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
+-   **scorefxn**: Name of score function to use
 -   **jump**: Jump across which to compute binding
 -   **threshold**: Strain must be less than this value to pass
 -   **relax_mover**: Relax mover employed to relieve the unbound state

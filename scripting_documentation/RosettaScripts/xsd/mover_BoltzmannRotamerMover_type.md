@@ -10,8 +10,8 @@ Part of CoupledMoves. Replaces a single rotamer based on the Boltzmann probabili
         scorefxn="(&string;)" show_packer_task="(&bool;)" />
 ```
 
--   **task_operations**: XRW TO DO
--   **scorefxn**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
+-   **scorefxn**: Name of score function to use
 -   **show_packer_task**: show the PackerTask to be used at the beginning of apply
 
 ---

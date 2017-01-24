@@ -24,8 +24,8 @@ XRW TO DO
 -   **hxl_dist_cutoff**: Cutoff for distance, in Angstroms, to define a hydrogen bond to a hydroxyl
 -   **sulph_dist_cutoff**: Cutoff for distance, in Angstroms, to define a hydrogen bond to a sulfur
 -   **metal_dist_cutoff**: Cutoff for distance, in Angstroms, to define a hydrogen bond to a metal
--   **scorefxn**: commandline
--   **task_operations**: XRW TO DO
+-   **scorefxn**: Name of score function to use
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

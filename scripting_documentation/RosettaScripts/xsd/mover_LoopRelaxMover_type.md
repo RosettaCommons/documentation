@@ -26,8 +26,8 @@ Allows protocols in LoopMover_KIC to be combined with other loop modeling protoc
 -   **refine**: What type of refinement to perform
 -   **relax**: Perform relax moves
 -   **read_fragments**: Read loop fragments files from command line
--   **scorefxn**: XRW TO DO
--   **score4L**: XRW TO DO
+-   **scorefxn**: Name of score function to use
+-   **score4L**: Name of score function to use
 -   **loops**: XRW TO DO
 
 ---

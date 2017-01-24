@@ -17,6 +17,6 @@ XRW TO DO
 -   **chain_name**: List of final chain names, to be correlated to chain_num
 -   **invert_chains**: List of final chain names, to be correlated to chain_num
 -   **residue_numbers_setter**: List of final chain names, to be correlated to chain_num
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 
 ---

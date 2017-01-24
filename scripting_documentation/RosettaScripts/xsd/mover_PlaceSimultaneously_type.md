@@ -40,7 +40,7 @@ Places hotspot residues simultaneously on a scaffold, rather than iteratively as
 -   **host_chain**: Probably the chain where the stub goes
 -   **optimize_fold_tree**: setup new fold_tree for better numerical behaviour between the residue at the center of target_residues and the nearest residue on the partner
 -   **minimize_rb**: do we want to minimize the rb dof during stub placement? This will allow a previously placed stub to move a a little to accommodate the new stub. It's a good idea to use this with the previously placed stub adding its implied constraints.
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **coor_cst_cutoff**: the threshold coordinate constraint energy between the added hotspot residues and the one in the stub library. Use with stubscorefxn=backbone_stub_linear_constraint. PlaceSimultaneously fails if placed residues deviates beyond this threshold.
 -   **repack_non_ala**: clearly implies something about repacking, although the only comment I could find mentioned reDESIGN instead
 -   **after_placement_filter**: The name of a filter to be applied immediately after stub placement and StubMinimize movers, but before the DesignMovers run. Useful for quick sanity check on the goodness of the stub.

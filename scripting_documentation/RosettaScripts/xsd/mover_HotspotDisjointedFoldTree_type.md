@@ -15,6 +15,6 @@ XRW TO DO
 -   **chain**: Chain with hotspots of interest, identified by sequentially numbering
 -   **radius**: Radius around which to calculate the local interface
 -   **resnums**: List of residue numbers to use
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 
 ---

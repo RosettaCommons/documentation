@@ -12,7 +12,7 @@ XRW TO DO
 
 -   **nonideal**: XRW_TODO
 -   **cartesian**: XRW_TODO
--   **scorefxn**: XRW TO DO
--   **task_operations**: XRW TO DO
+-   **scorefxn**: Name of score function to use
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 ---

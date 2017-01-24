@@ -15,7 +15,7 @@ This mover reports scores and statistics useful for judging the quality of prote
         jump="(&non_negative_integer;)" />
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **pack_separated**: repack chains after separation (better evaluation of unbound state)
 -   **pack_input**: repack the input before calculating bound state values
 -   **resfile**: use a resfile for packing operations note BOOLEAN

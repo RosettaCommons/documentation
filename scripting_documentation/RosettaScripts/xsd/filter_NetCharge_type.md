@@ -14,7 +14,7 @@ This filter sums up all of the positively and negatively charged amino acids in 
 -   **chain**: specify which chain you want to calculate the net charge (In the input PDB file, from top to bottom: 1 means first chain, 2 means the second chain, and so forth). Use the value 0 (default) if you want to consider all residues in the input PDB structure.
 -   **max**: maximum net charge desired
 -   **min**: minimum net charge desired
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

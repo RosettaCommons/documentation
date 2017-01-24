@@ -26,7 +26,7 @@ XRW TO DO
 -   **sc_move_probability**: Probability of making sidechain moves
 -   **small_move_probability**: Probability of making small moves
 -   **bbg_move_probability**: Probability of making big moves
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 
 
 Subtag **residue**:   Tags describing individual residues to be sampled

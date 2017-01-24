@@ -15,8 +15,8 @@ XRW TO DO
 </CloseFold>
 ```
 
--   **fa_scorefxn**: XRW TO DO
--   **cen_scorefxn**: XRW TO DO
+-   **fa_scorefxn**: Name of score function to use
+-   **cen_scorefxn**: Name of score function to use
 -   **fragments**: (REQUIRED) Name of fragment file for fragment-based loop modeling.
 -   **add_chainbreakterm**: Penalize chain break in score calculation.
 -   **cutpoint_based**: Use cutpoint during loop moelding.

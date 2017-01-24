@@ -46,7 +46,7 @@ Reports the specified features to the specified database
 -   **cache_size**: Specify the maximum number 1k pages to keep in memory before writing to disk.
 -   **remove_xray_virt**: Remove virtual residue attached during xray refine process
 -   **relevant_residues_mode**: Determine what features are reported given the relevant residues
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 
 "Features Reporter Tag": Any of the [[FeatureReporters]]

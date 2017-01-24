@@ -87,8 +87,8 @@ Staples interfaces with a hydrogen bond network.
 -   **start_selector**: residue selector that tells HBNet which residues to start from (will only search for networks that include these resid
 -   **core_selector**: residue selector that defines what HBNet considers "core"; used in buriedness determination for unsats; default is layer selector default using sidechain neighbors(core=5.2).
 -   **boundary_selector**: XRW_TODO
--   **task_operations**: XRW TO DO
--   **scorefxn**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
+-   **scorefxn**: Name of score function to use
 -   **combos**: XRW TO DO
 -   **max_staples_per_interface**: Maximum number of hydrogen bond networks stapling the interface
 -   **max_networks_per_pose**: Maximum number of networks to make in a pose

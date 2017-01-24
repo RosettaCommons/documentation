@@ -12,6 +12,6 @@ Uses the WidthFirstSlidingWindowLoopCloser to fix loops using fragment insertion
 
 -   **selector**: Residue selector specifying the region where fragments will be inserted
 -   **fragments**: Path to fragment file containing fragments that will be used to close the loop
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 
 ---

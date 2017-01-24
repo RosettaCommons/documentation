@@ -20,7 +20,7 @@ Optimizes a region of protein backbone using a simulated annealing MonteCarlo si
 ```
 
 -   **loops_file**: path to loops file
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **sfxn_cycles**: Number of iterations to make in the sfxn loop.
 -   **mover_cycles**: The number of iterations to make in the mover loop
 -   **ramp_rama**: If enabled, the Ramachandran weight will start near zero and will finish at whatever it was in the original score function.

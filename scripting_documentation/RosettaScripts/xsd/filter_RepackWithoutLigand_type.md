@@ -13,7 +13,7 @@ determines whether to repack with ligand based upon either rmsd and/or energy
         confidence="(1.0 &real;)" />
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **rms_threshold**: rmsd threshold
 -   **target_res**: List of residue numbers to use
 -   **target_cstids**: alternative to target_res; comma seperated list of residues

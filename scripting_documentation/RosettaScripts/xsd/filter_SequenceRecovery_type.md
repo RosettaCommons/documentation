@@ -13,8 +13,8 @@ XRW TO DO
         write2pdb="(0 &bool;)" confidence="(1.0 &real;)" />
 ```
 
--   **task_operations**: XRW TO DO
--   **scorefxn**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
+-   **scorefxn**: Name of score function to use
 -   **rate_threshold**: Rate of sequence recovery below which the filter fails
 -   **mutation_threshold**: Raw number-of-mutations threshold above which the filter fails
 -   **report_mutations**: Decide pass/fail based on the mutation threshold, not the rate threshold

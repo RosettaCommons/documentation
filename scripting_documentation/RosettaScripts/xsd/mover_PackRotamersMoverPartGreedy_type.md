@@ -14,11 +14,11 @@ Greedily optimizes around a set of target residues, then repacks sidechains with
         choose_best_n="(&non_negative_integer;)" />
 ```
 
--   **task_operations**: XRW TO DO
--   **task_factory**: XRW TO DO
--   **scorefxn_repack**: XRW TO DO
--   **scorefxn_repack_greedy**: XRW TO DO
--   **scorefxn_minimize**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use
+-   **task_factory**: A TaskFactory specification to use
+-   **scorefxn_repack**: Name of score function to use
+-   **scorefxn_repack_greedy**: Name of score function to use
+-   **scorefxn_minimize**: Name of score function to use
 -   **target_residues**: comma-separated list of target residues
 -   **target_cstids**: comma-separated list of target cstids (e.g. 1B,2B,3B etc)
 -   **distance_threshold**: distance between residues to be considered neighbors (of target residue)

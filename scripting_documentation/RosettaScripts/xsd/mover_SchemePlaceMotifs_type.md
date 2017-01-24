@@ -17,7 +17,7 @@ This mover will use only motif pairs found in input motif_sets or in the default
 -   **allowed_aas**: This means that it will use the motifs in the motif files. Do not change this, there is currently no other option.
 -   **halt_on_error**: XRW TO DO: unsure?
 -   **motif_sets**: Path to motif sets file to use.
--   **scorefxn**: XRW TO DO
--   **task_operations**: XRW TO DO
+-   **scorefxn**: Name of score function to use
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 ---

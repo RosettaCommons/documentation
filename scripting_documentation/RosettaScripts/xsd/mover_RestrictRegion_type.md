@@ -17,10 +17,10 @@ XRW TO DO
 -   **resfile**: File name of resfile
 -   **psipred_cmd**: Command for running psipred
 -   **blueprint**: Blueprint file
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **num_regions**: Number of regions to mutate
 -   **permanent_restriction**: XRW TO DO
 -   **max_trp**: Maximum number of tryptophans
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 
 ---

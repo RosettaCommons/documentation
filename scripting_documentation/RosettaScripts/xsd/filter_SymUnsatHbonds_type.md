@@ -21,7 +21,7 @@ Maximum number of buried unsatisfied H-bonds allowed across an interface.
 -   **write2pdb**: If true, write value to pdb file.
 -   **mode**: Default: Takes the current pose, uses the jump number or sym_dof_names and core::pose::symmetry::get_sym_aware_jump_num(pose,jump) to get the correct vector for translation into the unbound state, uses the RigidBodyTransMover to translate the pose into its unbound state, goes through every heavy atom in the asymmetric unit and finds cases where a polar is considered buried in the bound state, but not in the unbound state Can also set to calculate differently. See enumeration.
 -   **use_native**: Use native pdb as reference.
--   **reference_name**: XRW_TODO
+-   **reference_name**: Name of reference pose to use
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

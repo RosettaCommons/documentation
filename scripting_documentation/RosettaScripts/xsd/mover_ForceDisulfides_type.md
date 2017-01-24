@@ -10,7 +10,7 @@ Set a list of cysteine pairs to form disulfides and repack their surroundings. U
         disulfides="(&colon_sep_size_pair_cslist;)" />
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **disulfides**: (REQUIRED) For instance: 23A:88A,22B:91B. Can also take regular Rosetta numbering as in: 24:88,23:91.
 
 ---

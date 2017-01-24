@@ -17,7 +17,7 @@ Filters structures based on the total number of residues in the structure.
 -   **min_residue_count**: Is the total number of residues more than or equal to the minimum allowable residue count?
 -   **count_as_percentage**: If this is true, count residues as percentage (=100*raw_number_of_specified_residue/total_residue) instead of counting raw number of it, also max_residue_count/min_residue_count are assumed to be entered as percentage
 -   **residue_types**: Comma-separated list of which residue type names. (e.g. "CYS,SER,HIS_D" ). Only residues with type names matching those in the list will be counted.
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **residue_selector**: Restrict counting to a set of residues
 -   **packable**: ? This parameter seems to do nothing at all ?
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter

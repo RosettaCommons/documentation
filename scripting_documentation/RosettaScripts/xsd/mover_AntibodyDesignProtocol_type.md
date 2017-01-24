@@ -15,7 +15,7 @@ Main AntibodyDesignProtocol, tieing together individual movers and classes. Main
         run_snugdock="(&bool;)" run_relax="(&bool;)" remove_antigen="(&bool;)" />
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **atom_pair_cst_weight**: Weight for atom pair constraints to use in the global antibody design score function
 -   **dihedral_cst_weight**: Weight for atom pair constraints to use in the global antibody design score function
 -   **global_atom_pair_cst_scoring**: Score atom pair constraints to use in the global antibody design score function?

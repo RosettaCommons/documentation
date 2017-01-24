@@ -17,6 +17,6 @@ This mover creates a stored task that links selected residues with RotamerLinks.
 -   **quasi_symm_comp**: Which component (if multi-component, A or B), is going to be quasi-equivalent.
 -   **num_quasi_repeats**: How many subunits your quasi-equivalent building block consists of. For example, a trimer would be 3.
 -   **offset_resis**: If your building block is non-quasi-equivalent domains, this number denotes the number of residues to skip. Currently needs to be resis 1-x, the skipped portion must be on the N-terminus.
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 ---

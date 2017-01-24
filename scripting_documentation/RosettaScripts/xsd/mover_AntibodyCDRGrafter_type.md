@@ -23,9 +23,9 @@ Graft CDR loops from one structure to another, optionally optimize CDRs and neig
 -   **input_ab_scheme**: Sets the antibody numbering scheme. Must also specify cdr_definition when using this option
 -   **donor_structure_from_pdb**: Path to the structure used for the graft. Either use donor_structure_from_pdb or donor_structure_from_spm. One of these is required.
 -   **donor_structure_from_spm**: Takes donor structure from the SavePoseMover. Either use donor_structure_from_pdb or donor_structure_from_spm (one is required )
--   **reference_name**: XRW_TODO
+-   **reference_name**: Name of reference pose to use
 -   **use_secondary_graft_mover**: Should we use the secondary graft mover if the graft is not closed using the first?
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **nter_overhang**: Number of extra residues on the Nter side of the CDR to use for grafting
 -   **cter_overhang**: Number of extra residues on the Cter side of the CDR to use for grafting
 -   **stop_after_closure**: Should we stop after graft closure?

@@ -23,7 +23,7 @@ XRW TO DO
 -   **cartesian**: Use cartesian minimization (not internal coordinate)
 -   **bondangle**: Minimize bond angle degrees of freedom
 -   **bondlength**: Minimize bond length degrees of freedom
--   **task_operations**: XRW TO DO
--   **scorefxn**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
+-   **scorefxn**: Name of score function to use
 
 ---

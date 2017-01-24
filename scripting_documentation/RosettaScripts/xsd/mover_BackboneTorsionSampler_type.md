@@ -25,7 +25,7 @@ Not documented.  Appears to be some sort of relax analogue.  Related to Backbone
 -   **local**: undocumented
 -   **nested**: undocumented
 -   **scorefxn**: use this scorefunction (from the SCOREFXN section)
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **dump_snapshots**: dump structures during sampling, Note that dump_snapshots must be set to make snapshot_prefix or snapshot_interval active
 -   **snapshot_prefix**: prefix for structures dumped during sampling, Note that dump_snapshots must be set to make snapshot_prefix or snapshot_interval active
 -   **snapshot_interval**: how frequently to dump structures during sampling, Note that dump_snapshots must be set to make snapshot_prefix or snapshot_interval active

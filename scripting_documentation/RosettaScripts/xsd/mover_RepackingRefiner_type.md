@@ -13,7 +13,7 @@ Repack the sidechains in and around the loop being sampled.
 
 -   **loops_file**: path to loops file
 -   **once_every**: Trigger repacking every Nth cycle.
--   **scorefxn**: XRW TO DO
--   **task_operations**: XRW TO DO
+-   **scorefxn**: Name of score function to use
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 ---

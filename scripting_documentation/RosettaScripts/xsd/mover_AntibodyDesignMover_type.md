@@ -30,7 +30,7 @@ Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework. Runs the
 -   **atom_pair_cst_weight**: Weight for atom pair constraints to use in the antibody design minimization score function
 -   **dihedral_cst_weight**: Weight for dihedral constraints to use in the antibody design minimization score function
 -   **global_atom_pair_cst_scoring**: Use atom pair constraints in the antibody design minimization score function?
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **global_dihedral_cst_scoring**: Score dihedral constraints to use in the global antibody design score function?
 -   **design_cdrs**: CDR regions to be designed
 -   **instruction_file**: Path to the CDR instruction file (see application documentation for format)

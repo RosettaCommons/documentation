@@ -10,7 +10,7 @@ A filter to pluck out whether the residues from a set of task operations occur a
         jump_number="(1 &non_negative_integer;)" confidence="(1.0 &real;)" />
 ```
 
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **jump_number**: Jump across which to define the interface
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 

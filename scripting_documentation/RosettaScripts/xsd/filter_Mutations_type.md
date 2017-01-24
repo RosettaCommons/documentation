@@ -13,7 +13,7 @@ Determines mutated residues in current pose as compared to a reference pose
         write2pdb="(0 &bool;)" confidence="(1.0 &real;)" />
 ```
 
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **rate_threshold**: Lower cutoff for the acceptable recovery rate for a passing design. Will fail if actual rate is below this threshold.
 -   **mutation_threshold**: Upper cutoff for the number of mutations for an acceptable design. Only matters if report_mutations is set to true.
 -   **report_mutations**: Defaults to false. If set to true, then will act as a filter for the number of mutations rather than the rate.

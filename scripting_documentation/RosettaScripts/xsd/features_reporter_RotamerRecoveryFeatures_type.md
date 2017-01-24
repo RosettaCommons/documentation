@@ -13,7 +13,7 @@ report rotamer recover features and scores to features Statistics Scientific Ben
         task_operations="(&string;)" predicted_features_reporter="(&string;)" />
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **mover_name**: mover_name and reference_name are mutually exclusive
 -   **mover**: mover and reference_name are mutually exclusive
 -   **reference_name**: mover and reference_name are mutually exclusive
@@ -22,7 +22,7 @@ report rotamer recover features and scores to features Statistics Scientific Ben
 -   **cartesian**: sets RRProtocolRTMin or RRProtocolRelax to cartesian
 -   **comparer**: Rotamer recovery comparer
 -   **recovery_threshold**: recovery threshold of the comparer
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **predicted_features_reporter**: feature reporter that reports to db of type ReportToDB
 
 ---

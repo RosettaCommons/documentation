@@ -40,8 +40,8 @@ XRW TO DO
 -   **checkpoint_gz**: Checkpoint as gzipped files
 -   **checkpoint_rename**: Rename checkpoint files
 -   **output_fname_prefix**: Prefix for output filename
--   **scorefxn**: XRW TO DO
--   **task_operations**: XRW TO DO
+-   **scorefxn**: Name of score function to use
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **rb_jump**: Rigid-body jump that defines the interface, numbered from 1
 -   **unfolded**: Are we providing an unfolded alternative state?
 -   **unbound**: Are we providing an unbound alternative state?
@@ -55,13 +55,13 @@ Subtag **Positive**:   Tags describing individual alternative states in the calc
 -   **pdb**: (REQUIRED) File name containing this alternative state
 -   **unbound**: This alternative state is unbound
 -   **unfolded**: This alternative state is unfolded
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 Subtag **Negative**:   Tags describing individual alternative states in the calculation
 
 -   **pdb**: (REQUIRED) File name containing this alternative state
 -   **unbound**: This alternative state is unbound
 -   **unfolded**: This alternative state is unfolded
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 ---

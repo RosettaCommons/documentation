@@ -18,7 +18,7 @@ XRW TO DO
 -   **pdb_num**: Residue number in PDB numbering (residue number + chain ID)
 -   **res_num**: Residue number in Rosetta numbering (sequentially with the first residue in the pose being 1
 -   **automatic_connection**: Automatically set up a hotspot foldtree
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **jump_num**: Jump across which to evaluate energies, numbered sequentially from one
 -   **solo_res**: Add terminal types (upper and lower) to the hotspot residue
 -   **final_filter**: Add terminal types (upper and lower) to the hotspot residue

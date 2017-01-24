@@ -12,7 +12,7 @@ XRW TO DO
 ```
 
 -   **targets**: List of target residue numbers for disulfide creation
--   **scorefxn_repack**: XRW TO DO
--   **scorefxn_minimize**: XRW TO DO
+-   **scorefxn_repack**: Name of score function to use
+-   **scorefxn_minimize**: Name of score function to use
 
 ---

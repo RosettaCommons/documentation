@@ -12,7 +12,7 @@ Filters based on minimum and maximum number of designable residues allowed; usef
         designable="(0 &bool;)" confidence="(1.0 &real;)" />
 ```
 
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **lower_cutoff**: This option presently has no effect.
 -   **upper_cutoff**: This option presently has no effect.
 -   **packable**: Determine all packable positions

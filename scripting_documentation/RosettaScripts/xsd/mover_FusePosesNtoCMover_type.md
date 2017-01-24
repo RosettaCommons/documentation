@@ -25,6 +25,6 @@ XRW TO DO
 -   **hardsphere_clash_limit**: XRW TO DO
 -   **max_allowed_rms**: XRW TO DO
 -   **debugmode**: XRW TO DO
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 
 ---

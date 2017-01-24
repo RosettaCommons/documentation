@@ -16,7 +16,7 @@ XRW TO DO
 </SwapSegment>
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **copy_sidechains**: XRW TO DO
 -   **swap_segment**: XRW TO DO
 -   **swap_chain**: XRW TO DO

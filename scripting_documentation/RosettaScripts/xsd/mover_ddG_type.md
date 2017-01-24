@@ -14,11 +14,11 @@ This mover is useful for reporting the total or per-residue ddgs in cases where 
         chain_name="(&string;)" />
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **jump**: XSD XRW TO DO
 -   **per_residue_ddg**: XSD XRW TO DO
 -   **repack_unbound**: XSD XRW TO DO
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **repack_bound**: XSD XRW TO DO
 -   **relax_bound**: XSD XRW TO DO
 -   **translate_by**: XSD XRW TO DO

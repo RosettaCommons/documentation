@@ -20,7 +20,7 @@ Based on a given MoveMap, this mover selects movable cyclic residues and flips t
 -   **sample_high_energy_conformers**: XRW TO DO
 
 
-Subtag **MoveMap**:   XRW TO DO
+Subtag **MoveMap**:   MoveMap specification
 
 -   **bb**: move backbone torsions?
 -   **chi**: move sidechain chi torsions?

@@ -15,6 +15,6 @@ Docking within a crystal lattice.
 -   **ncycles**: # of steps to run.
 -   **trans_step**: Magnitude of translational perturbations.
 -   **rot_step**: Magnitude of rotational perturbations.
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 
 ---

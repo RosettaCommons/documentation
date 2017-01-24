@@ -15,7 +15,7 @@ XRW TO DO
 -   **probability_type**: XRW TO DO
 -   **score_type**: XRW TO DO
 -   **residue_selector**: XRW TO DO
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

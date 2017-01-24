@@ -12,7 +12,7 @@ filters energies where ligand is in the interface
         interface_distance_cutoff="(8.0 &real;)" confidence="(1.0 &real;)" />
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **energy_cutoff**: energy threshold for filter
 -   **include_cstE**: boolean as to whether to include the cstE
 -   **jump_number**: If rb_jump_ is unset, determine jump number according to the number of jumps currently in the pose previously, if this filter was used in RosettaScripts, rb_jump_ was initialized to jump number according to the number of jumps in the pose when the XML was parsed. This enables adding a ligand to the pose after the XML is parsed

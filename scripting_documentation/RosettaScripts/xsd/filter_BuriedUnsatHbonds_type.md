@@ -13,8 +13,8 @@ XRW TO DO
 
 -   **jump_number**: The jump over which to evaluate the filter
 -   **cutoff**: The upper threshold for buried unsat H-bonds above which the filter fails
--   **scorefxn**: commandline
--   **task_operations**: XRW TO DO
+-   **scorefxn**: Name of score function to use
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

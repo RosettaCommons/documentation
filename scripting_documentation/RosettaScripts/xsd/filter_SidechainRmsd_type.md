@@ -20,7 +20,7 @@ Calculates the all atom RMSD for a single residue, either with or without the ba
 -   **res1_res_num**: Residue number in Rosetta numbering (sequentially with the first residue in the pose being 1
 -   **res2_pdb_num**: Residue number in PDB numbering (residue number + chain ID)
 -   **res2_res_num**: Residue number in Rosetta numbering (sequentially with the first residue in the pose being 1
--   **reference_name**: XRW_TODO
+-   **reference_name**: Name of reference pose to use
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

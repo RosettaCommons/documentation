@@ -11,7 +11,7 @@ XRW TO DO
 ```
 
 -   **fname**: Secondary structure file to which to dump statistics
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **cmd**: Command to run psipred
 -   **blueprint**: Blueprint file that could be used to override DSSP secondary structure.
 

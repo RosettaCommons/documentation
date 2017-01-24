@@ -11,7 +11,7 @@ XRW TO DO
         jump="(1 &non_negative_integer;)" confidence="(1.0 &real;)" />
 ```
 
--   **reference_name**: XRW_TODO
+-   **reference_name**: Name of reference pose to use
 -   **threshold**: Holes score threshold above which we fail the filter
 -   **jump**: Jump across which to evaluate the holes score, numbered sequentially from 1
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter

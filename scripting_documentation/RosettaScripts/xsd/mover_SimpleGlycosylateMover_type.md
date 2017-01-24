@@ -31,7 +31,7 @@ Mover to add specified glycosylations to a pose in the specified positions
 -   **idealize_glycosylation**: Idealize glycosylations on the pose?
 
 
-Subtag **MoveMap**:   XRW TO DO
+Subtag **MoveMap**:   MoveMap specification
 
 -   **bb**: move backbone torsions?
 -   **chi**: move sidechain chi torsions?

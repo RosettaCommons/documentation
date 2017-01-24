@@ -25,6 +25,6 @@ The ConnectJumps, as the Doxygen calls it, is deprecated. Use BridgeChains inste
 -   **overlap**: Build overlap of nested BuildDeNovoBackboneMover
 -   **dry_run**: Sets folder of BuildDeNovoBackboneMover to RandomTorsionPoseFolder instead of RemodelLoopMoverPoseFolde
 -   **trials**: iterations per phase of nested BuildDeNovoBackboneMover
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 
 ---

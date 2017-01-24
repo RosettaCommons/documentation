@@ -23,7 +23,7 @@ XRW TO DO
 -   **CA_only**: constrain only CA atoms.
 -   **bb_only**: constrain only backbone atoms.
 -   **inter_chain**: Generate distance constraints between residues on different chains if true.  (Does not appear to generate ONLY interchain constraints.)  If false, skips constraints that would go between chains.  Only active with use_distance_cst.
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **residue_selector**: make constraints for these residues; mutually exclisuve with task_operations
 
 ---

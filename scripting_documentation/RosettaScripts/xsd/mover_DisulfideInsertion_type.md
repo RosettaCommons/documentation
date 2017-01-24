@@ -18,14 +18,14 @@ XSD XRW: TO DO
 </DisulfideInsertion>
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **n_cyd**: XSD XRW: TO DO specifiy n_cyd and c_cyd or neither
 -   **c_cyd**: XSD XRW: TO DO specifiy n_cyd and c_cyd or neither
 -   **chain**: XSD XRW: TO DO
 -   **constraint_weight**: XSD XRW: TO DO
 
 
-Subtag **MoveMap**:   XRW TO DO
+Subtag **MoveMap**:   MoveMap specification
 
 -   **bb**: move backbone torsions?
 -   **chi**: move sidechain chi torsions?

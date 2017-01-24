@@ -43,8 +43,8 @@ This mover will first attempt isolated/independent mutations defined in the inpu
 -   **filter**: Name of a single filter you wish you process.
 -   **sample_type**: If your filter values are such that higher = better, use 'sample_type=high'
 -   **filter_delta**: Add sequence diversity; useful with nstruct greater than 1; randomly try any mutation that scores wit     hin N filter points of the best-scoring mutation at each position instead of just the first, e.g. filter_delta=0.5 for attempting any mutation within 0.5 filter points of the best one.
--   **task_operations**: XRW TO DO
--   **scorefxn**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
+-   **scorefxn**: Name of score function to use
 
 
 Subtag **Filters**:   These are the names of the filters being input into GreedyOptMutationMover.

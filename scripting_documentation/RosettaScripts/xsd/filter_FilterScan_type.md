@@ -17,7 +17,7 @@ Scan all mutations allowed by a particular set of TaskOperations and test them a
         delta_filter_thresholds="(&real_cslist;)" confidence="(1.0 &real;)" />
 ```
 
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **triage_filter**: If this filter evaluates to false, don't include the mutation in the resulting resfile
 -   **keep_native**: Keep the native conformation?
 -   **dump_pdb_name**: Name to which to dump PDBs
@@ -25,7 +25,7 @@ Scan all mutations allowed by a particular set of TaskOperations and test them a
 -   **relax_mover**: Mover with which to relax poses
 -   **delta**: XRW TODO
 -   **report_all**: Report all values
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **resfile_name**: The output resfile name; if left unspecified, it will be the input PDB name plus .resfile
 -   **resfile_general_property**: Default resfile command
 -   **rtmin**: Do rtmin on each residue prior to relaxation, which can lead to some energy noise but improves the fit of the mutated residue

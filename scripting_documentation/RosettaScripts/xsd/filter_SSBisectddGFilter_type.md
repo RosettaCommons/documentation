@@ -13,7 +13,7 @@ XRW TO DO
         confidence="(1.0 &real;)" />
 ```
 
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **threshold**: XRW TO DO
 -   **report_avg**: XRW TO DO
 -   **ignore_terminal_ss**: XRW TO DO

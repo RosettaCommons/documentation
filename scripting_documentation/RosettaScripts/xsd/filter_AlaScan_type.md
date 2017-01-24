@@ -19,7 +19,7 @@ Perform alanine scanning over a particular jump-defined interface, with a certai
 -   **repeats**: Number of repeats over which to average
 -   **symmetry**: Assume a symmetric pose
 -   **repack**: Repack in a radius around the mutated residue
--   **scorefxn**: XRW TO DO
+-   **scorefxn**: Name of score function to use
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

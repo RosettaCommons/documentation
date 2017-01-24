@@ -30,10 +30,10 @@ Perform loop refinement using CCD for loop closure.
 -   **temp_initial**: Initial Boltzman temperature. Default = 1.5
 -   **temp_final**: Final Boltzman temperature. Default = 0.5
 -   **loops**: XRW TO DO
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 
-Subtag **MoveMap**:   XRW TO DO
+Subtag **MoveMap**:   MoveMap specification
 
 -   **bb**: move backbone torsions?
 -   **chi**: move sidechain chi torsions?

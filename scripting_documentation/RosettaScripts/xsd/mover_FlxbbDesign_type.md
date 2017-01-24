@@ -25,8 +25,8 @@ XRW TO DO
 </FlxbbDesign>
 ```
 
--   **sfxn_design**: XRW TO DO
--   **sfxn_relax**: XRW TO DO
+-   **sfxn_design**: Name of score function to use
+-   **sfxn_relax**: Name of score function to use
 -   **blueprint**: XRW TO DO
 -   **ncycles**: XRW TO DO
 -   **layer_mode**: XRW TO DO
@@ -41,12 +41,12 @@ XRW TO DO
 -   **constraints_sheet**: XRW TO DO
 -   **constraints_to_backbone**: XRW TO DO
 -   **movemap_from_blueprint**: XRW TO DO
--   **task_operations**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **fast_relax**: XRW TO DO
 -   **limit_aroma_chi2**: XRW TO DO
 
 
-Subtag **MoveMap**:   XRW TO DO
+Subtag **MoveMap**:   MoveMap specification
 
 -   **bb**: move backbone torsions?
 -   **chi**: move sidechain chi torsions?
