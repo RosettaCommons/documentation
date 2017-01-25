@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-01-07
+Generated: 2017-01-25
 
 _Note that some application specific options may not be present in this list._
 
@@ -6168,8 +6168,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Path to the APBS (Adaptive Poisson-Boltzmann Solver) executable<br/></dd>
 <dt><b>-potential_cap</b> \<Real\></dt>
 <dd>Cap for PB potential input<br/>Default: 20.0<br/></dd>
-<dt><b>-epsilon</b> \<Real\></dt>
-<dd>Tolerance in A.  When a charged atom moves byond this tolerance, the PDE is resolved.<br/>Default: 2.0<br/></dd>
+<dt><b>-tolerance</b> \<Real\></dt>
+<dd>Tolerance in A.  When a charged atom moves byond this tolerance, the PDE is resolved.<br/>Default: 1.0<br/></dd>
 <dt><b>-apbs_debug</b> \<Integer\></dt>
 <dd>APBS debug level [0-6]<br/>Default: 2<br/></dd>
 <dt><b>-calcenergy</b> \<Boolean\></dt>
