@@ -15,6 +15,7 @@
 * **[[Loops files|loops-file]]**: Specifies loop definitions used in loop modeling.
 * **[[Symmetry file|Symmetry#Symmetry-definition]]**: Dealing with symmetric proteins.
 * **[[Constraint file]]**: Provide information about constraints (restraints) for use in a Rosetta protocol
+* **[[FoldTree file]]**: Allows external definition of pose connectivity
 
 ##Protocol-specific input files
 * **[["Grishin" alignment format|Grishan-format-alignment]]**: A protein sequence alignment format used by comparative modeling.
