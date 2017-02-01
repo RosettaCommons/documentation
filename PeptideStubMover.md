@@ -23,10 +23,10 @@ Depending on the specific usage, `PeptideStubMover` can take a pose as an input 
 The PeptideStubMover has a general setting as follows:
 
 ```
-<PeptideStubMover name="&string" reset=(false &bool)>
-        <Prepend resname=(&string) anchor_rsd="residuenumber"  repeat=(1 &number)/>
-	<Append resname==(&string) repeat=(&number) jump=(false &bool)  anchor_rsd=”residuenumber” connecting_atom=”atom type” />
-	<Insert resname=(&string) repeat=(1 &number)/>
+<PeptideStubMover name="&string" reset="(false &bool)">
+        <Prepend resname="(&string)" anchor_rsd="residuenumber"  repeat="(1 &number")/>
+	<Append resname="(&string)" repeat=(&number) jump="(false &bool)"  anchor_rsd=”residuenumber” connecting_atom=”atom type” />
+	<Insert resname="(&string)" repeat="(1 &number)"/>
  </PeptideStubMover>
 ```
 
@@ -68,7 +68,7 @@ Connecting_atom—which atom to use for the connection. If not mentioned, the de
 Repeat—by default is set to 1. If more than one is mentioned, keeps adding the same residue to the anchor residue. For example, the command line below will add 2 L-Trp to the N-terminal of the peptide with a common peptide bond.
 
 ```
-<Prepend resname="TRP" repeat=2/>
+<Prepend resname="TRP" repeat="2"/>
 ```
 
 <i>Insert options</i>:
