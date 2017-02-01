@@ -50,7 +50,7 @@ Connecting_atom—which atom to use for the connection. If not mentioned, the de
 Repeat—by default is set to 1. If more than one is mentioned, keeps adding the same residue to the anchor residue. For example, the command line below will add 3 D-Ser to the C-terminal of the peptide with a common peptide bond.
 
 ```
-<Append resname="DSER" repeat=3/>
+<Append resname="DSER" repeat="3"/>
 ```
 
 *  If you’re building a pose from scratch, append is the only mode that will work for the first residue. And by default the first residue of the pose is always added as a jump (nothing to bond it to!).
