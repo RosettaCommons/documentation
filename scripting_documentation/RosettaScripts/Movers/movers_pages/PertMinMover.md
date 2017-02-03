@@ -11,3 +11,11 @@ In short, it explores local conformational space by making a small, random Carte
 In contrast to the Davey & Chica approach, which used a fixed +/- 0.001 Ang perturbation in the PDB file, this mover allows you to vary the size and distribution of the perturbation, either applying a displacement selected uniformly within in a sphere of a given radius (the default), or from a spherically symmetric Gaussian distribution of a given standard deviation (which biases toward smaller displacements while allowing much larger ones).
 
 Which atoms are perturbed can be controlled by the provided ResidueSelector (defaults to all residues in the system), and the sc_only flag. Which degrees of freedom can move during minimization can be controlled by the provided MoveMap specification.
+
+
+##See Also
+
+* [[MinMover]]: Do minimization without perturbation
+* [[Minimization overview]]
+* [Minimization Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/minimization/minimization)
+* [[I want to do x]]: Guide to choosing a mover
