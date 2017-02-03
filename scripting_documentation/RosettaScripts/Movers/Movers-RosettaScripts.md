@@ -256,6 +256,8 @@ These are movers that should be usable in most cases with most systems
 
 **[[PackRotamersMoverPartGreedy|PackRotamersMoverPartGreedyMover]]** - Optimizes around target residues and repacks sidechains
 
+**[[PertMinMover]]** - Apply a random perturbation to atoms and then minimize.
+
 **[[RotamerTrialsMover]]** - Cycles through residues to find the lowest energy rotamer for each
 
 **[[RotamerTrialsMinMover]]** - Cycles through residues to find each lowest energy rotamer in the context of the current pose
