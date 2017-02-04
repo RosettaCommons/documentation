@@ -11,7 +11,7 @@ Calculates the Lawrence and Coleman shape complementarity using a port of the or
         quick="(false &bool;)" jump="(1 &integer;)"
         write_int_area="(false &bool;)" sym_dof_name="(&string;)"
         multicomp="(false &bool;)" residues1="(&string;)" residues2="(&string;)"
-        residue_selector1="(&string;)" residues_selector2="(&string;)"
+        residue_selector1="(&string;)" residue_selector2="(&string;)"
         confidence="(1.0 &real;)" />
 ```
 
@@ -26,7 +26,7 @@ Calculates the Lawrence and Coleman shape complementarity using a port of the or
 -   **residues1**: Explicitly set which residues are on each side of the interface (both symmetric and non-symmetric poses.)
 -   **residues2**: Explicitly set which residues are on each side of the interface (both symmetric and non-symmetric poses.)
 -   **residue_selector1**: Explicitly set which residues are on each side of the interface using residue_selectors.
--   **residues_selector2**: Explicitly set which residues are on each side of the interface using residue_selectors.
+-   **residue_selector2**: Explicitly set which residues are on each side of the interface using residue_selectors.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---
