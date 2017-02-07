@@ -9,8 +9,8 @@ XRW TO DO
 <SecondaryStructure name="(&string;)" ss="(&dssp_string;)"
         abego="(&abego_string;)" blueprint="(&string;)"
         use_abego="(false &bool;)" compute_pose_secstruct_by_dssp="(&bool;)"
-        threshold="(&real;)" residue_selector="(&string;)"
-        confidence="(1.0 &real;)" />
+        threshold="(&real;)" treat_L_as_D="(&bool;)"
+        residue_selector="(&string;)" confidence="(1.0 &real;)" />
 ```
 
 -   **ss**: XRW TO DO
@@ -19,6 +19,7 @@ XRW TO DO
 -   **use_abego**: XRW TO DO
 -   **compute_pose_secstruct_by_dssp**: XRW TO DO
 -   **threshold**: XRW TO DO
+-   **treat_L_as_D**: Let loops be H-bonded in such a way that they may be detected as E or H? ABEGO string still checked.
 -   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
