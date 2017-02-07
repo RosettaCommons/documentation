@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-01-25
+Generated: 2017-02-07
 
 _Note that some application specific options may not be present in this list._
 
@@ -7100,6 +7100,8 @@ _Note that some application specific options may not be present in this list._
 <dd>RNA sec struct to model in dot-parens notation<br/>Default: ""<br/></dd>
 <dt><b>-secstruct_general_file</b> \<String\></dt>
 <dd>RNA sec struct (+non-canonical pairs) to model in dot-parens notation<br/>Default: ""<br/></dd>
+<dt><b>-secstruct_legacy</b> \<String\></dt>
+<dd>RNA sec struct in old 1D notation: H,helix; L,loop; X,unknown; N,bulge<br/>Default: ""<br/></dd>
 <dt><b>-lores_scorefxn</b> \<String\></dt>
 <dd>Low resolution scorefunction weights file<br/>Default: "farna/rna_lores.wts"<br/></dd>
 <dt><b>-params_file</b> \<String\></dt>
@@ -7126,12 +7128,8 @@ _Note that some application specific options may not be present in this list._
 <dd>close loops after de novo protocol and again after minimization<br/>Default: true<br/></dd>
 <dt><b>-close_loops_after_each_move</b> \<Boolean\></dt>
 <dd>close loops during frag insertion and jump mover -- can be expensive<br/>Default: false<br/></dd>
-<dt><b>-output_lores_silent_file</b> \<Boolean\></dt>
-<dd>output lores stuff<br/>Default: false<br/></dd>
 <dt><b>-heat</b> \<Boolean\></dt>
 <dd>Heat (random frag insertions)<br/>Default: false<br/></dd>
-<dt><b>-dump</b> \<Boolean\></dt>
-<dd>Dump pdb<br/>Default: false<br/></dd>
 <dt><b>-staged_constraints</b> \<Boolean\></dt>
 <dd>Apply constraints in stages depending on sequence separation<br/>Default: false<br/></dd>
 <dt><b>-jump_library_file</b> \<String\></dt>
@@ -7152,8 +7150,6 @@ _Note that some application specific options may not be present in this list._
 <dd>Use with allow_bulge, allowable pos for virtualization<br/>Default: []<br/></dd>
 <dt><b>-allow_consecutive_bulges</b> \<Boolean\></dt>
 <dd>allow_consecutive_bulges<br/>Default: false<br/></dd>
-<dt><b>-binary_output</b> \<Boolean\></dt>
-<dd>force output to binary rna silentstruct<br/>Default: false<br/></dd>
 <dt><b>-move_first_rigid_body</b> \<Boolean\></dt>
 <dd>first_rigid_body is usually kept frozen, but might be useful to sample it.<br/>Default: false<br/></dd>
 <dt><b>-root_at_first_rigid_body</b> \<Boolean\></dt>
@@ -7194,6 +7190,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Disallow base pair step moves inside input domains, even extra_min_res<br/>Default: false<br/></dd>
 <dt><b>-allow_fragment_moves_in_bps</b> \<Boolean\></dt>
 <dd>Allow fragment/jump moves in regions claimed by base pair steps<br/>Default: false<br/></dd>
+<dt><b>-frag_size</b> \<Integer\></dt>
+<dd>Force specific fragment size rather than staged from 3 to 2 to 1<br/>Default: 0<br/></dd>
 <dt><b>-VDW_rep_screen_include_sidechains</b> \<Boolean\></dt>
 <dd>Include side chains in the VDW rep screen, use with -VDW_rep_screen_info<br/>Default: true<br/></dd>
 <dt><b>-gradual_constraints</b> \<Boolean\></dt>
@@ -7212,10 +7210,6 @@ _Note that some application specific options may not be present in this list._
 <dd>Convert protein residues to centroid mode during low-res fragment assembly<br/>Default: true<br/></dd>
 <dt><b>-rna_protein_docking</b> \<Boolean\></dt>
 <dd>Do RNA/protein docking?<br/>Default: true<br/></dd>
-<dt><b>-output_score_frequency</b> \<Integer\></dt>
-<dd>output running score with this frequency [0 means no running output]<br/>Default: 0<br/></dd>
-<dt><b>-output_score_file</b> \<String\></dt>
-<dd>output running score to this file<br/>Default: ""<br/></dd>
 <dt><b>-exclude_fragments</b> \<IntegerVector\></dt>
 <dd>Exclude these fragments from vall<br/>Default: []<br/></dd>
 <dt><b>-exclusion_match_type</b> \<String\></dt>
@@ -7226,6 +7220,25 @@ _Note that some application specific options may not be present in this list._
 <dd>Exclude fragments from -in:file:native<br/>Default: false<br/></dd>
 <dt><b>-exclude_fragment_files</b> \<StringVector\></dt>
 <dd>Files from which to exclude fragments<br/>Default: []<br/></dd>
+</dl>
++ <h4>-rna:farna:out</h4>
+<dl>
+<dt><b>-out</b> \<Boolean\></dt>
+<dd>out option group<br/></dd>
+<dt><b>-output_lores_silent_file</b> \<Boolean\></dt>
+<dd>output lores stuff<br/>Default: false<br/></dd>
+<dt><b>-dump</b> \<Boolean\></dt>
+<dd>Dump pdb<br/>Default: false<br/></dd>
+<dt><b>-binary_output</b> \<Boolean\></dt>
+<dd>force output to binary rna silentstruct<br/>Default: false<br/></dd>
+<dt><b>-output_score_file</b> \<String\></dt>
+<dd>output running score to this file<br/>Default: ""<br/></dd>
+<dt><b>-output_score_frequency</b> \<Integer\></dt>
+<dd>output running score with this frequency [0 means no running output]<br/>Default: 0<br/></dd>
+<dt><b>-output_jump_res</b> \<IntegerVector\></dt>
+<dd>output jump information for these two residues<br/></dd>
+<dt><b>-output_jump_o3p_to_o5p</b> \<Boolean\></dt>
+<dd>compute jump from o3' to o5' (instead of base centroid coordinate systems)<br/>Default: false<br/></dd>
 </dl>
 + <h4>-rna:farna:db</h4>
 <dl>
