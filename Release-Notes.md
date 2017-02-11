@@ -6,6 +6,7 @@
 _(This section in italics should remain hidden from the public wiki.)_
 
 * _Possible scorefunction change: remove the erroneous DONOR property from the Npro atom type (really a bugfix)_
+* New feature: XML XSD!  need to publicize its effects and the xml rewriter.
 
 <!--- END_INTERNAL -->
 
