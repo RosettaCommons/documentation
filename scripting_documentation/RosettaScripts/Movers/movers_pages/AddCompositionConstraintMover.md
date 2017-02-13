@@ -21,3 +21,4 @@ Note that multiple movers of this type can be applied in sequence to add many co
 * [[AACompositionEnergy]]
 * [[ClearConstraintsMover]]
 * [[ClearCompositionConstraintsMover]]
+* [[AddHelixSequenceConstraints mover|AddHelixSequenceConstraintsMover]]
