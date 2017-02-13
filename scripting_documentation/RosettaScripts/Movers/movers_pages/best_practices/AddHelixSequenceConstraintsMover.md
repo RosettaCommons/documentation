@@ -82,22 +82,22 @@ The default usage pattern lets the mover "do the thinking" for the user.  For ad
 ```
 ### General options
 
-**residue_selector (string):**  An optional, previously-defined ResidueSelector.  If provided, only helices that contain at least one residue that is selected by the residue selector will have constraints applied.  If not used, constraints are applied to all helices in the pose.
+**residue\_selector (string):**  An optional, previously-defined ResidueSelector.  If provided, only helices that contain at least one residue that is selected by the residue selector will have constraints applied.  If not used, constraints are applied to all helices in the pose.
 
 **reset (bool,"false"):**  If true, all sequence constraints in the pose will be cleared (deleted) before this mover is applied.  If false, the mover will append to existing sequence constraints.  False by default.
 
-**min_helix_length (int,"8"):**  The minimum number of residues that a helix must have for this mover to act on it.  By default, helices smaller than 8 residues are ignored since they have negligible helix macrodipoles.
+**min\_helix\_length (int,"8"):**  The minimum number of residues that a helix must have for this mover to act on it.  By default, helices smaller than 8 residues are ignored since they have negligible helix macrodipoles.
 
 ### Options related to N-terminal charges
 
-**add_n_terminal_constraints (bool,"true"):**  If true, this mover will add sequence constraints requiring a user-specified minimum number of negatively-charged residues at the N-terminus of each helix.  True by default.
+**add\_n\_terminal\_constraints (bool,"true"):**  If true, this mover will add sequence constraints requiring a user-specified minimum number of negatively-charged residues at the N-terminus of each helix.  True by default.
 
-**min_n_terminal_charges (int,"2"):**  The minimum number of negatively-charged residues required at the N-terminus of helices.  Defaults to 2 residues.
+**min\_n\_terminal\_charges (int,"2"):**  The minimum number of negatively-charged residues required at the N-terminus of helices.  Defaults to 2 residues.
 
-**n_terminal_residues (int,"3"):**  The length of the stretch of residues that must contain negative charges at the N-terminus of a helix.  Defaults to 3 residues.
+**n\_terminal\_residues (int,"3"):**  The length of the stretch of residues that must contain negative charges at the N-terminus of a helix.  Defaults to 3 residues.
 
-**n_terminal_constraint_strength (real,"15.0"):**  The strength of the sequence constraint requiring negative charges at the N-termini of helices.  If set to be too weak, Rosetta's packer may sometimes put in too few negative charges.  15.0 by default.
-(For advanced users, this is the energetic penalty applied when there is one fewer than the desired number of negatively-charged residues.  The penalty ramps quadratically for two fewer, three fewer, etc.)
+**n\_terminal\_constraint\_strength (real,"15.0"):**  The strength of the sequence constraint requiring negative charges at the N-termini of helices.  If set to be too weak, Rosetta's packer may sometimes put in too few negative charges.  15.0 by default.
+(For advanced users, this is the energetic penalty applied when there is one fewer than the desired number of negatively-charged residues.  The penalty ramps quadratically for two fewer, three fewer, *etc.*)
 
 ### Options related to C-terminal charges
 
@@ -108,7 +108,7 @@ The default usage pattern lets the mover "do the thinking" for the user.  For ad
 **c_terminal_residues (int,"3"):**  The length of the stretch of residues that must contain positive charges at the C-terminus of a helix.  Defaults to 3 residues.
 
 **c_terminal_constraint_strength (real,"15.0"):**  The strength of the sequence constraint requiring positive charges at the N-termini of helices.  If set to be too weak, Rosetta's packer may sometimes put in too few positive charges.  15.0 by default.
-(For advanced users, this is the energetic penalty applied when there is one fewer than the desired number of positively-charged residues.  The penalty ramps quadratically for two fewer, three fewer, etc.)
+(For advanced users, this is the energetic penalty applied when there is one fewer than the desired number of positively-charged residues.  The penalty ramps quadratically for two fewer, three fewer, *etc.*)
 
 ### Options for penalizing helix-disfavouring residue types
 
@@ -119,7 +119,7 @@ The default usage pattern lets the mover "do the thinking" for the user.  For ad
 **overall_max_count (int,"0"):**  The maximum allowed number of helix-disfavouring residue types.  Default zero (though the penalty for having one is small by default).
 
 **overall_constraints_strength (real,"5.0"):**  The strength of the sequence constraint penalizing helix-disfavouring residue types.  If set to be too weak, Rosetta's packer may sometimes put in too few helix-disfavouring residues.  5.0 by default.
-(For advanced users, this is the energetic penalty applied when there is one more than the maximum allowed number of helix-disfavouring residues.  The penalty ramps quadratically for two more, three more, etc.)
+(For advanced users, this is the energetic penalty applied when there is one more than the maximum allowed number of helix-disfavouring residues.  The penalty ramps quadratically for two more, three more, *etc.*)
 
 ### Options related to helix alanine content
 
