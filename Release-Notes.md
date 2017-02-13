@@ -5,7 +5,7 @@
 
 _(This section in italics should remain hidden from the public wiki.)_
 
-* _N-methylated amino acids likely to end up here
+* _N-methylated amino acids likely to end up here_
 
 ## _Rosetta 3.8 internal notes_
 * http://test.rosettacommons.org/revision?id=132&branch=release
@@ -74,7 +74,7 @@ We have a new scorefunction brewing!  It doesn't have its official name yet, but
 * [[CycpepSymmetryFilter]]
 * [[PeptideCyclizeMover]] bugfixes
 * GlycanRelax
-** [[LinkageConformerMover]]
+ * [[LinkageConformerMover]]
 * RNA
 
 <!--- END_INTERNAL -->
