@@ -101,43 +101,43 @@ The default usage pattern lets the mover "do the thinking" for the user.  For ad
 
 ### Options related to C-terminal charges
 
-**add_c_terminal_constraints (bool,"true"):**  If true, this mover will add sequence constraints requiring a user-specified minimum number of positively-charged residues at the C-terminus of each helix.  True by default.
+**add\_c\_terminal\_constraints (bool,"true"):**  If true, this mover will add sequence constraints requiring a user-specified minimum number of positively-charged residues at the C-terminus of each helix.  True by default.
 
-**min_c_terminal_charges (int,"2"):**  The minimum number of positively-charged residues required at the C-terminus of helices.  Defaults to 2 residues.
+**min\_c\_terminal\_charges (int,"2"):**  The minimum number of positively-charged residues required at the C-terminus of helices.  Defaults to 2 residues.
 
-**c_terminal_residues (int,"3"):**  The length of the stretch of residues that must contain positive charges at the C-terminus of a helix.  Defaults to 3 residues.
+**c\_terminal\_residues (int,"3"):**  The length of the stretch of residues that must contain positive charges at the C-terminus of a helix.  Defaults to 3 residues.
 
-**c_terminal_constraint_strength (real,"15.0"):**  The strength of the sequence constraint requiring positive charges at the N-termini of helices.  If set to be too weak, Rosetta's packer may sometimes put in too few positive charges.  15.0 by default.
+**c\_terminal\_constraint\_strength (real,"15.0"):**  The strength of the sequence constraint requiring positive charges at the N-termini of helices.  If set to be too weak, Rosetta's packer may sometimes put in too few positive charges.  15.0 by default.
 (For advanced users, this is the energetic penalty applied when there is one fewer than the desired number of positively-charged residues.  The penalty ramps quadratically for two fewer, three fewer, *etc.*)
 
 ### Options for penalizing helix-disfavouring residue types
 
-**add_overall_constraints (bool,"true"):**  If true, this mover will add sequence constraints penalizing more than a user-specified maximum number of helix-disfavouring residues in each helix.  True by default.
+**add\_overall\_constraints (bool,"true"):**  If true, this mover will add sequence constraints penalizing more than a user-specified maximum number of helix-disfavouring residues in each helix.  True by default.
 
-**types_to_avoid (string,"ASN ASP SER GLY THR VAL"):**  The list of helix-disfavouring residue types that should be penalized at all helix positions by the "overall" constraints.  This must be a whitespace-separated list of three-letter residue type codes, with no commas.
+**types\_to\_avoid (string,"ASN ASP SER GLY THR VAL"):**  The list of helix-disfavouring residue types that should be penalized at all helix positions by the "overall" constraints.  This must be a whitespace-separated list of three-letter residue type codes, with no commas.
 
-**overall_max_count (int,"0"):**  The maximum allowed number of helix-disfavouring residue types.  Default zero (though the penalty for having one is small by default).
+**overall\_max\_count (int,"0"):**  The maximum allowed number of helix-disfavouring residue types.  Default zero (though the penalty for having one is small by default).
 
-**overall_constraints_strength (real,"5.0"):**  The strength of the sequence constraint penalizing helix-disfavouring residue types.  If set to be too weak, Rosetta's packer may sometimes put in too few helix-disfavouring residues.  5.0 by default.
+**overall\_constraints\_strength (real,"5.0"):**  The strength of the sequence constraint penalizing helix-disfavouring residue types.  If set to be too weak, Rosetta's packer may sometimes put in too few helix-disfavouring residues.  5.0 by default.
 (For advanced users, this is the energetic penalty applied when there is one more than the maximum allowed number of helix-disfavouring residues.  The penalty ramps quadratically for two more, three more, *etc.*)
 
 ### Options related to helix alanine content
 
-**add_alanine_constraints (bool,"true"):**  If true, this mover will add sequence constraints penalizing too many or too few alanine residues in each helix.  The user can set a user-defined desired fractional alanine content.  Note that this constraint is usually set to be weak, so that some deviation from the desired fractional alanine content is tolerated.  True by default.
+**add\_alanine\_constraints (bool,"true"):**  If true, this mover will add sequence constraints penalizing too many or too few alanine residues in each helix.  The user can set a user-defined desired fractional alanine content.  Note that this constraint is usually set to be weak, so that some deviation from the desired fractional alanine content is tolerated.  True by default.
 
-**desired_alanine_fraction (real,"0.1"):**  The desired fractional alanine content in each helix.  Defaults to 0.1 (10 percent alanine).  Note that deviation from this fraction is possible, if the alanine constraints are weak (and they are weak by default).
+**desired\_alanine\_fraction (real,"0.1"):**  The desired fractional alanine content in each helix.  Defaults to 0.1 (10 percent alanine).  Note that deviation from this fraction is possible, if the alanine constraints are weak (and they are weak by default).
 
-**ala_constraint_under_strength (real,"0.2"):**  The alanine constraint penalty that is imposed if the fractional alanine content is 1 percent less than the desired fractional content.  The penalty ramps quadratically as the alanine content falls below desired.  Note that this penalty is weak, by default, to allow some deviation from the desired fractional alanine content on a case-by-case basis.
+**ala\_constraint\_under\_strength (real,"0.2"):**  The alanine constraint penalty that is imposed if the fractional alanine content is 1 percent less than the desired fractional content.  The penalty ramps quadratically as the alanine content falls below desired.  Note that this penalty is weak, by default, to allow some deviation from the desired fractional alanine content on a case-by-case basis.
 
-**ala_constraint_over_strength (real,"0.2"):**  The alanine constraint penalty that is imposed if the fractional alanine content is 1 percent more than the desired fractional content.  The penalty ramps quadratically as the alanine content rises above desired.  Note that this penalty is weak, by default, to allow some deviation from the desired fractional alanine content on a case-by-case basis.
+**ala\_constraint\_over\_strength (real,"0.2"):**  The alanine constraint penalty that is imposed if the fractional alanine content is 1 percent more than the desired fractional content.  The penalty ramps quadratically as the alanine content rises above desired.  Note that this penalty is weak, by default, to allow some deviation from the desired fractional alanine content on a case-by-case basis.
 
 ### Options related to helix minimum hydrophobic content
 
-**add_hydrophobic_constraints (bool,"true"):**  If true, this mover will add sequence constraints penalizing too few hydrophobic residues in each helix.  The user can set a user-defined minimum desired fractional hydrophobic content.  Note that this constraint is usually set to be weak, so that some designs with fewer than the minimum hydrophobic count will be returned.  Note that alanine is NOT considered hydrophobic.  True by default.
+**add\_hydrophobic\_constraints (bool,"true"):**  If true, this mover will add sequence constraints penalizing too few hydrophobic residues in each helix.  The user can set a user-defined minimum desired fractional hydrophobic content.  Note that this constraint is usually set to be weak, so that some designs with fewer than the minimum hydrophobic count will be returned.  Note that alanine is NOT considered hydrophobic.  True by default.
 
-**desired_min_hydrophobic_fraction (real,"0.25"):**  The desired minimum fractional hydrophobic content in each helix.  Defaults to 0.25 (25 percent hydrophobic).  There is no penalty for more hydrophobic residues; only for fewer than desired.  Note that helices slightly below this fraction are possible, if the hydrophobic constraints are weak (and they are weak by default).
+**desired\_min\_hydrophobic\_fraction (real,"0.25"):**  The desired minimum fractional hydrophobic content in each helix.  Defaults to 0.25 (25 percent hydrophobic).  There is no penalty for more hydrophobic residues; only for fewer than desired.  Note that helices slightly below this fraction are possible, if the hydrophobic constraints are weak (and they are weak by default).
 
-**hydrophobic_constraint_strength (real,"0.2"):**  The hydrophobic constraint penalty that is imposed if the fractional hydrophobic content is 1 percent less than the desired fractional content.  The penalty ramps quadratically as the hydrophobic content falls below desired.  Note that this penalty is weak, by default, to allow some deviation from the desired fractional hydrophobic content on a case-by-case basis.
+**hydrophobic\_constraint\_strength (real,"0.2"):**  The hydrophobic constraint penalty that is imposed if the fractional hydrophobic content is 1 percent less than the desired fractional content.  The penalty ramps quadratically as the hydrophobic content falls below desired.  Note that this penalty is weak, by default, to allow some deviation from the desired fractional hydrophobic content on a case-by-case basis.
 
 ## Known limitations
 
