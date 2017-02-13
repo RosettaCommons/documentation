@@ -31,14 +31,14 @@ We have a new scorefunction brewing!  It doesn't have its official name yet, but
 ####Applications
 * [[ddg-monomer]]: improved support for nonprotein residues
 * [[Calibur|calibur-clustering]]
-* Cartesian_ddg (link paper)
-* Constraint info application and mover (Rocco)
-* HBnet (link paper)
-* New script for parsing Rosetta scorefiles (???????)
+* [[cartesian-ddG]]
+* [[Constraint-Info]]
+* [[HBnet|HBNetMover]]
+* New script for parsing Rosetta scorefiles (scripts/python/public/select_columns.py)
 * coupled_moves - multiple ligand compatibility
-* FloppyTail: now can automatically assign a center-of-mass rooted FoldTree
+* [[FloppyTail]]: now can automatically assign a center-of-mass rooted FoldTree
 * Ligand ensemble docking (Darwin)
-*Upgrades to RosettaAntibody (paper - Nick Marze)
+* [[RosettaAntibody]] [(paper)](https://www.ncbi.nlm.nih.gov/pubmed/28125104)
 
 
 ####RosettaScripts tools
