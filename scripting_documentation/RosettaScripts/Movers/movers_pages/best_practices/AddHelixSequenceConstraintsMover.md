@@ -31,7 +31,7 @@ An example script, using the FastDesign mover, is as follows.  Note that sequenc
 <ROSETTASCRIPTS>
 	<SCOREFXNS>
 		<ScoreFunction name="tala_comp" weights="talaris2014.wts" >
-			<Reweight scoretype="aa_composition" weight="1.0" />
+			<Reweight scoretype="aa_composition" weight="1.0" /> <!-- Step 1: turn on aa_composition. -->
 		</ScoreFunction>
 	</SCOREFXNS>
 	<RESIDUE_SELECTORS>
@@ -42,8 +42,8 @@ An example script, using the FastDesign mover, is as follows.  Note that sequenc
 	<FILTERS>
 	</FILTERS>
 	<MOVERS>
-		<AddHelixSequenceConstraints name="addcomps" />
-		<FastDesign name="fastdes" scorefxn="tala_comp" task_operations="resfile" repeats="2" >
+		<AddHelixSequenceConstraints name="addcomps" /> <!-- Step 2: Add the mover, with no options. -->
+		<FastDesign name="fastdes" scorefxn="tala_comp" task_operations="resfile" repeats="2" > <!-- Step 3: Use the modified scorefunction for design. -->
 			<MoveMap name="fastdes_mm" >
 				<Span begin="1" end="999" bb="true" chi="true" />
 			</MoveMap>
@@ -52,9 +52,31 @@ An example script, using the FastDesign mover, is as follows.  Note that sequenc
 	<APPLY_TO_POSE>
 	</APPLY_TO_POSE>
 	<PROTOCOLS>
-		<Add mover="addcomps" />
+		<Add mover="addcomps" /> <!-- Step 2: Add the mover to the PROTOCOLS section. -->
 		<Add mover="fastdes" />
 	</PROTOCOLS>
 	<OUTPUT scorefxn="tala_comp" />
 </ROSETTASCRIPTS>
 ```
+
+## Advanced options
+
+The default usage pattern lets the mover "do the thinking" for the user.  For advanced users, any of the five functions of this mover may be disabled independently, or the behaviour of each may be modified.  The full options list is as follows:
+
+```xml
+<AddHelixSequenceConstraints name=(string)
+     residue_selector=(string) reset=(bool,"false") min_helix_length=(int,"8")
+     add_n_terminal_constraints=(bool,"true") min_n_terminal_charges=(int,"2") n_terminal_residues=(int,"3") n_terminal_constraint_strength=(real,"15.0")
+     add_c_terminal_constraints=(bool,"true") min_c_terminal_charges=(int,"2") c_terminal_residues=(int,"3") c_terminal_constraint_strength=(real,"15.0")
+     add_overall_constraints=(bool,"true") types_to_avoid=(string,"ASN ASP SER GLY THR VAL") overall_max_count=(int,"0") overall_constraints_strength=(real,"5.0")
+     add_alanine_constraints=(bool,"true") desired_alanine_fraction=(real,"0.1") ala_constraint_under_strength=(real,"0.2") ala_constraint_over_strength=(real,"0.2")
+     add_hydrophobic_constraints=(bool,"true") desired_min_hydrophobic_fraction=(real,"0.25") hydrophobic_constraint_strength=(real,"0.2")
+/>
+```
+
+
+## Known limitations
+
+- Since this mover calls DSSP to detect secondary structure, it is currently incompatible with right-handed helices or exotic helix types formed by non-canonical amino acid residues.
+- Secondary structure detection with DSSP occurs at the time that the AddHelixSequenceConstraints mover is applied to the pose, and the resulting sequence constraints remain attached to the pose.  This means that, if the user applies the AddHelixSequenceConstraints mover, then applies a subsequent mover that alters backbone conformation prior to design, the helices that were present when DSSP was called may no longer be present, or of the same length.  That is, the sequence constraints may be out of date.  To solve this, the AddHelixSeqeuenceConstraints mover may be re-applied after clearing constraints with the `reset` option or with the [[ClearCompositionConstraintsMover]].
+- Sequence constraints add a nonlinear score penalty for deviation from a desired amino acid composition, guiding the packer to good sequences during design.  This means that they cannot overcome sequence restrictions imposed using task operations.  For example, if I have a sequence constraint penalizing the absence of negative charges at the N-terminus of a helix, by my task operation list prohibits negative charges at those positions, I will not obtain any results with negative charges at the N-terminus of that helix.
