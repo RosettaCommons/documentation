@@ -9,7 +9,7 @@ For each loop in the pose, a database is queried using the loop's torsion space 
     <ConsensusLoopDesign name="disallow_nonnative_loop_sequences"
                          residue_selector="(&string, '')"
                          include_adjacent_residues="(&bool, false)"
-                         threshold="(&real, 0.0)"
+                         enrichment_threshold="(&real, 0.0)"
                          secstruct="(&string, '')"
                          blueprint="(&string, '')"
                          use_dssp="(&bool, true)" />
