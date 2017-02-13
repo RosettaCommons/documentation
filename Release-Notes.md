@@ -28,49 +28,36 @@ Rosetta turned on Cxx11 features in its C++.  This deprecates the compatibility 
 We have a new scorefunction brewing!  It doesn't have its official name yet, but it is [published](https://www.ncbi.nlm.nih.gov/pubmed/27766851).  You can try it out with -beta_nov15 on command line and `<ScoreFunction name="beta_nov15" weights="beta_nov15">` in RosettaScripts in the meantime.
 
 ###New or updated features
-####Applications
-* [[ddg-monomer]]: improved support for nonprotein residues
-* [[Calibur|calibur-clustering]]
-* [[cartesian-ddG]]
-* [[Constraint-Info]]
-* [[HBnet|HBNetMover]]
-* New script for parsing Rosetta scorefiles (scripts/python/public/select_columns.py)
-* coupled_moves - multiple ligand compatibility
-* [[FloppyTail|floppy-tail]]: now can automatically assign a center-of-mass rooted FoldTree
-* Ligand ensemble docking (Darwin)
-* [[RosettaAntibody|antibody-protocol]] [(paper)](https://www.ncbi.nlm.nih.gov/pubmed/28125104)
-
 ####RosettaScripts tools
-* StrandHelixGeometryFilter
-* HelixBendFilter
-* SecondaryStructureFilter
-* LoopLengthChangeMover
-* AddConstraintsToCurrentConformationMover
-* ConvertRealToVirtualMover and ConvertVirtualToRealMover
-* ReturnResidueSubsetSelector
-* CloseContactResidueSelector identifies residues that have (any) atoms within a certain distance cutoff (usually neighbor detection depends on CB for speed)
-* PartialThreadMover (now faster)
-* UnsatSelector
-* NeighborhoodResidueSelector
-* BridgeChainsMover
-* MutateResidue gains ResidueSelector support
-* MakePolyXMover: gains ResidueSelector support
-* ModifyVariantTypeMover: gains ResidueSelector support
-* SecondaryStructureFilter: gains ResidueSelector support
+* [[StrandHelixGeometryFilter]]
+* [[HelixBendFilter]]
+* [[SecondaryStructureFilter]]
+* [[LoopLengthChangeMover]]
+* [[AddConstraintsToCurrentConformationMover]]
+* [[ConvertRealToVirtualMover]] and [[ConvertVirtualToRealMover]]
+* [[ReturnResidueSubsetSelector]]
+* [[CloseContactResidueSelector]] identifies residues that have (any) atoms within a certain distance cutoff (usually neighbor detection depends on CB for speed)
+* [[PartialThreadMover]] (now faster)
+* [[UnsatSelector]]
+* [[NeighborhoodResidueSelector]]
+* [[BridgeChainsMover]]
+* [[MutateResidue]] gains ResidueSelector support
+* [[MakePolyXMover]] gains ResidueSelector support
+* [[ModifyVariantTypeMover]] gains ResidueSelector support
+* [[SecondaryStructureFilter]] gains ResidueSelector support
 * [[InterfaceAnalyzerMover]] (bugfix)
-* Backrub now available in RosettaScripts
-* FilterReportAsPoseExtraScoresMover
-* LoopAnalyzerMover (updated with RosettaScripts compatibility) and LoopAnalyzerFilter
-* DistanceConstraintGenerator
-* HydrogenBondCstGenerator
-* SSPredictionFilter/PsiPredInterface: compatible with more versions of psipred
-* HelixPairingFilter
-* Disulfidize updated for noncanonical disulfide-forming moieties
+* [[Backrub]] now available in RosettaScripts
+* [[FilterReportAsPoseExtraScoresMover]]
+* [[LoopAnalyzerMover]] (updated with RosettaScripts compatibility) and [[LoopAnalyzerFilter]]
+* [[DistanceConstraintGenerator]]
+* [[HydrogenBondCstGenerator]]
+* [[SSPredictionFilter]]/PsiPredInterface: compatible with more versions of psipred
+* [[HelixPairingFilter]]
+* [[Disulfidize]] updated for noncanonical disulfide-forming moieties
 
 ####Miscellaneous
-* Scorefunction bugfix: remove the erroneous DONOR property from the Npro atom type
 * Transform mover in ligand docking (bugfixes)
-* ThermalSamplingMover
+* [[ThermalSamplingMover]]
 * JD2 MPIWorkPartitionJobDistributor (the better MPI choice for small MPI runs) splits jobs in a way that's more efficient for restarted runs
 * Changes to Dunbrack library binary format caching.  As a consequence, do not install Rosetta 3.8 over an existing installation; you will want this library to be rebuilt on first run.
 * mmCIF input and output
@@ -82,13 +69,12 @@ We have a new scorefunction brewing!  It doesn't have its official name yet, but
 * Updated SQLite version to 3.16.2 from 3.7.4
 * bugfixes for various not-specifically-supported compilers (gcc 5.4; gcc 6.2.0, clang 3.9.0, and ICC 14.0)
 
-
 ####Nonprotein chemistries
 * cyclic and/or symmetric peptides (simple_cycpep_predict)
-* CycpepSymmetryFilter
-* PeptideCyclizeMover bugfixes
+* [[CycpepSymmetryFilter]]
+* [[PeptideCyclizeMover]] bugfixes
 * GlycanRelax
-** LinkageConformerMover
+** [[LinkageConformerMover]]
 * RNA
 
 <!--- END_INTERNAL -->
