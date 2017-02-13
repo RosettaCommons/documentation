@@ -36,10 +36,9 @@ We have a new scorefunction brewing!  It doesn't have its official name yet, but
 * [[HBnet|HBNetMover]]
 * New script for parsing Rosetta scorefiles (scripts/python/public/select_columns.py)
 * coupled_moves - multiple ligand compatibility
-* [[FloppyTail]]: now can automatically assign a center-of-mass rooted FoldTree
+* [[FloppyTail|floppy-tail]]: now can automatically assign a center-of-mass rooted FoldTree
 * Ligand ensemble docking (Darwin)
-* [[RosettaAntibody]] [(paper)](https://www.ncbi.nlm.nih.gov/pubmed/28125104)
-
+* [[RosettaAntibody|antibody-protocol]] [(paper)](https://www.ncbi.nlm.nih.gov/pubmed/28125104)
 
 ####RosettaScripts tools
 * StrandHelixGeometryFilter
@@ -58,7 +57,7 @@ We have a new scorefunction brewing!  It doesn't have its official name yet, but
 * MakePolyXMover: gains ResidueSelector support
 * ModifyVariantTypeMover: gains ResidueSelector support
 * SecondaryStructureFilter: gains ResidueSelector support
-* InterfaceAnalyzerMover (bugfix)
+* [[InterfaceAnalyzerMover]] (bugfix)
 * Backrub now available in RosettaScripts
 * FilterReportAsPoseExtraScoresMover
 * LoopAnalyzerMover (updated with RosettaScripts compatibility) and LoopAnalyzerFilter
