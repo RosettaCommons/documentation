@@ -13,10 +13,15 @@ Note that this mover's defaults have been set so that it can be applied without 
 ## Typical usage with default options
 
 By default, this mover adds five types of sequence constraints to each alpha helix in the pose.  Any of these behaviours may be disabled or modified by invoking advanced options, but no advanced options need be set in most cases.  The five types of sequence constraints are:
+
 1.  A strong sequence constraint requiring at least two negatively-charged residues in the first (N-terminal) three residues of each alpha-helix.
+
 2.  A strong sequence constraint requiring at least two positively-charged residues in the last (C-terminal) three residues of each alpha-helix.
+
 3.  A weak but strongly ramping sequence constraint penalizing helix-disfavoring residue types (by default, Asn, Asp, Ser, Gly, Thr, and Val) throughout each helix.  (A single such residue is sometimes tolerated, but the penalty for having more than one residue in this category increases quadratically with the count of helix-disfavouring residues.)
+
 4.  A weak sequence constraint coaxing the helix to have 10% alanine.  Because this constraint is weak, deviations from this value are tolerated, but this should prevent an excessive abundance of alanine residues.
+
 5.  A weak sequence constraint coaxing the helix to have at least 25% hydrophobic content.  This constraint is also weak, so slightly less hydrophobic helices will be tolerated to some degree.  Note that alanine is not considered to be "hydrophobic" within Rosetta.
 
 This mover can be used, with default settings, in three easy steps:
