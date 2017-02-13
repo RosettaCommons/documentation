@@ -27,7 +27,9 @@ By default, this mover adds five types of sequence constraints to each alpha hel
 This mover can be used, with default settings, in three easy steps:
 
 1.  Set up a scorefunction that has the [[aa_composition|AACompositionEnergy]] score term's weight set to 1.0.  This can be done by modifying the .wts file that is passed in from the commandline, or by using the `<Reweight ... />` tag when setting up a scorefunction in RosettaScripts.
+
 2.  Add the mover, with no options but the instance name, to the `<MOVERS>` section, and apply it prior to design steps in the `<PROTOCOLS>` section.
+
 3.  Add the modified scorefunction to design steps that occur after applying the AddHelixSequenceConstraints mover.
 
 An example script, using the FastDesign mover, is as follows.  Note that sequence constraints are best used with flexible backbone design, so that the backbone can shift slightly to accommodate the desired amino acid sequence composition.  (Helices that are too close together, for example, can move apart slightly during minimization steps to best fit bulky hydrophobic groups added during design steps.)
