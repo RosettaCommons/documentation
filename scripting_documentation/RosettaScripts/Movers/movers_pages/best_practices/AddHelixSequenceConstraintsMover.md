@@ -10,7 +10,7 @@ The AddHelixSequenceConstraints mover sets up sequence constraints for each heli
 
 Note that this mover's defaults have been set so that it can be applied without manually setting anything, and still produce reasonable behaviour.  For advanced users, all settings can be tweaked manually, but this shouldn't be necessary in many cases.
 
-## Typical usage
+## Typical usage with default options
 
 By default, this mover adds five types of sequence constraints to each alpha helix in the pose.  Any of these behaviours may be disabled or modified by invoking advanced options, but no advanced options need be set in most cases.  The five types of sequence constraints are:
 1.  A strong sequence constraint requiring at least two negatively-charged residues in the first (N-terminal) three residues of each alpha-helix.
@@ -59,7 +59,7 @@ An example script, using the FastDesign mover, is as follows.  Note that sequenc
 </ROSETTASCRIPTS>
 ```
 
-## Advanced options
+## Advanced usage with manual overrides of options
 
 The default usage pattern lets the mover "do the thinking" for the user.  For advanced users, any of the five functions of this mover may be disabled independently, or the behaviour of each may be modified.  The full options list is as follows:
 
@@ -73,6 +73,24 @@ The default usage pattern lets the mover "do the thinking" for the user.  For ad
      add_hydrophobic_constraints=(bool,"true") desired_min_hydrophobic_fraction=(real,"0.25") hydrophobic_constraint_strength=(real,"0.2")
 />
 ```
+### General options
+
+**residue_selector (string):**  An optional, previously-defined ResidueSelector.  If provided, only helices that contain at least one residue that is selected by the residue selector will have constraints applied.  If not used, constraints are applied to all helices in the pose.
+
+**reset (bool,"false"):**  If true, all sequence constraints in the pose will be cleared (deleted) before this mover is applied.  If false, the mover will append to existing sequence constraints.  False by default.
+
+**min_helix_length (int,"8"):**  The minimum number of residues that a helix must have for this mover to act on it.  By default, helices smaller than 8 residues are ignored since they have negligible helix macrodipoles.
+
+### Options related to N-terminal charges
+
+**add_n_terminal_constraints (bool,"true"):**  If true, this mover will add sequence constraints requiring a user-specified minimum number of negatively-charged residues at the N-terminus of each helix.  True by default.
+
+**min_n_terminal_charges (int,"2"):**  The minimum number of negatively-charged residues required at the N-terminus of helices.  Defaults to 2 residues.
+
+**n_terminal_residues (int,"3"):**  The length of the stretch of residues that must contain negative charges at the N-terminus of a helix.  Defaults to 3 residues.
+
+**n_terminal_constraint_strength (real,"15.0"):**  The strength of the sequence constraint requiring negative charges at the N-termini of helices.  If set to be too weak, Rosetta's packer may sometimes put in too few negative charges.  15.0 by default.
+(For advanced users, this is the energetic penalty applied when there is one fewer than the desired number of negatively-charged residues.  The penalty ramps quadratically for two fewer, three fewer, etc.)
 
 
 ## Known limitations
