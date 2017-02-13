@@ -70,7 +70,7 @@ We have a new scorefunction brewing!  It doesn't have its official name yet, but
 * bugfixes for various not-specifically-supported compilers (gcc 5.4; gcc 6.2.0, clang 3.9.0, and ICC 14.0)
 
 ####Nonprotein chemistries
-* cyclic and/or symmetric peptides (simple_cycpep_predict)
+* cyclic and/or symmetric peptides ([[simple_cycpep_predict]])
 * [[CycpepSymmetryFilter]]
 * [[PeptideCyclizeMover]] bugfixes
 * GlycanRelax
