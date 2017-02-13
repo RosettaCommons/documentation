@@ -14,6 +14,7 @@ Note that this will remove sequence constraints (e.g. amino acid composition con
 ##See Also
 
 * [[AddCompositionConstraintMover]]
+* [[AddHelixSequenceConstraints mover|AddHelixSequenceConstraintsMover]]
 * [[AACompositionEnergy]]
 * [[ConstraintSetMover]]
 * [[Constraints file format|constraint-file]]
