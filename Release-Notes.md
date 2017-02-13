@@ -7,7 +7,7 @@ _(This section in italics should remain hidden from the public wiki.)_
 
 * _N-methylated amino acids likely to end up here
 
-## Rosetta 3.8 internal notes
+## _Rosetta 3.8 internal notes_
 * http://test.rosettacommons.org/revision?id=132&branch=release
 * https://github.com/RosettaCommons/main/commit/9693310c19cba93616451ab9f59b7fc2611f7fcd?w=1
 
@@ -25,12 +25,12 @@ Although most improvements were in Rosetta3.7, we continue to improve the fracti
 Rosetta turned on Cxx11 features in its C++.  This deprecates the compatibility of a lot of older compilers.
 
 ###beta_nov15
-We have a new scorefunction brewing!  It doesn't have its official name yet, but it is published: ?????????????.  You can try it out with -beta_nov15 on command line and ????????????? in RosettaScripts????????? in the meantime.
+We have a new scorefunction brewing!  It doesn't have its official name yet, but it is [published](https://www.ncbi.nlm.nih.gov/pubmed/27766851).  You can try it out with -beta_nov15 on command line and `<ScoreFunction name="beta_nov15" weights="beta_nov15">` in RosettaScripts in the meantime.
 
 ###New or updated features
 ####Applications
-* ddg_monomer: improved support for nonprotein residues
-* Calibur?
+* [[ddg-monomer]]: improved support for nonprotein residues
+* [[Calibur|calibur-clustering]]
 * Cartesian_ddg (link paper)
 * Constraint info application and mover (Rocco)
 * HBnet (link paper)
