@@ -142,7 +142,7 @@ The default usage pattern lets the mover "do the thinking" for the user.  For ad
 
 ## Known limitations
 
-- Since this mover calls DSSP to detect secondary structure, it is currently incompatible with right-handed helices or exotic helix types formed by non-canonical amino acid residues.
+- Since this mover calls DSSP to detect secondary structure, it is currently incompatible with left-handed helices or exotic helix types formed by non-canonical amino acid residues.
 - Secondary structure detection with DSSP occurs at the time that the AddHelixSequenceConstraints mover is applied to the pose, and the resulting sequence constraints remain attached to the pose.  This means that, if the user applies the AddHelixSequenceConstraints mover, then applies a subsequent mover that alters backbone conformation prior to design, the helices that were present when DSSP was called may no longer be present, or of the same length.  That is, the sequence constraints may be out of date.  To solve this, the AddHelixSeqeuenceConstraints mover may be re-applied after clearing constraints with the `reset` option or with the [[ClearCompositionConstraintsMover]].
 - Sequence constraints add a nonlinear score penalty for deviation from a desired amino acid composition, guiding the packer to good sequences during design.  This means that they cannot overcome sequence restrictions imposed using task operations.  For example, if I have a sequence constraint penalizing the absence of negative charges at the N-terminus of a helix, by my task operation list prohibits negative charges at those positions, I will not obtain any results with negative charges at the N-terminus of that helix.
 
