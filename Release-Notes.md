@@ -1,12 +1,96 @@
 # Release Notes
 
 <!--- BEGIN_INTERNAL -->
-## _Rosetta 3.8 (internal notes)_
+## _Rosetta 3.9 (internal notes)_
 
 _(This section in italics should remain hidden from the public wiki.)_
 
-* _Possible scorefunction change: remove the erroneous DONOR property from the Npro atom type (really a bugfix)_
-* New feature: XML XSD!  need to publicize its effects and the xml rewriter.
+* _N-methylated amino acids likely to end up here
+
+## Rosetta 3.8 internal notes
+* http://test.rosettacommons.org/revision?id=132&branch=release
+* https://github.com/RosettaCommons/main/commit/9693310c19cba93616451ab9f59b7fc2611f7fcd?w=1
+
+## Rosetta 3.8
+###New RosettaScripts XML
+The XML supporting RosettaScripts has been totally refactored.  Rosetta now validates input XML files against an "XML Schema", and can betters determine at the start of a run if all XML options are legal and functional.  The XML reader can now pinpoint errors much more specifically and offers more helpful error messages.  You can also get commandline help for XML-enabled classes with the -info flag; e.g. ```-info PackRotamersMover```.  A consequence of this refactoring is that pre-Rosetta3.8 XML scripts are usually no longer legal XML - we offer a tool to convert old style pseudoXML into the current format at tools/xsd_xrw/rewrite_rosetta_script.py (this is in the tools toplevel folder, not the main code folder).  The vast majority of classes have complete documentation; when you find one that does not, complain to (doc feedbacks email) and let us know!
+
+###JD3
+A new Job Distributor, JD3, is ready for use.  This is mostly invisible to end users, but will allow more complex protocols to be crafted a single commands instead of as multi-step instructions.  Look forward to cool JD3-enabled apps in future releases.
+
+###support for more PDBs
+Although most improvements were in Rosetta3.7, we continue to improve the fraction of unmodified PDBs Rosetta can handle.  (Don't worry - we've always been able to handle canonical protein well - but we are doing an ever-improving job with strange stuff like the GFP fluorophore, chemically concatenated ligands, etc).
+
+###Cxx11 builds
+Rosetta turned on Cxx11 features in its C++.  This deprecates the compatibility of a lot of older compilers.
+
+###beta_nov15
+We have a new scorefunction brewing!  It doesn't have its official name yet, but it is published: ?????????????.  You can try it out with -beta_nov15 on command line and ????????????? in RosettaScripts????????? in the meantime.
+
+###New or updated features
+####Applications
+* ddg_monomer: improved support for nonprotein residues
+* Calibur?
+* Cartesian_ddg (link paper)
+* Constraint info application and mover (Rocco)
+* HBnet (link paper)
+* New script for parsing Rosetta scorefiles (???????)
+* coupled_moves - multiple ligand compatibility
+* FloppyTail: now can automatically assign a center-of-mass rooted FoldTree
+* Ligand ensemble docking (Darwin)
+*Upgrades to RosettaAntibody (paper - Nick Marze)
+
+
+####RosettaScripts tools
+* StrandHelixGeometryFilter
+* HelixBendFilter
+* SecondaryStructureFilter
+* LoopLengthChangeMover
+* AddConstraintsToCurrentConformationMover
+* ConvertRealToVirtualMover and ConvertVirtualToRealMover
+* ReturnResidueSubsetSelector
+* CloseContactResidueSelector identifies residues that have (any) atoms within a certain distance cutoff (usually neighbor detection depends on CB for speed)
+* PartialThreadMover (now faster)
+* UnsatSelector
+* NeighborhoodResidueSelector
+* BridgeChainsMover
+* MutateResidue gains ResidueSelector support
+* MakePolyXMover: gains ResidueSelector support
+* ModifyVariantTypeMover: gains ResidueSelector support
+* SecondaryStructureFilter: gains ResidueSelector support
+* InterfaceAnalyzerMover (bugfix)
+* Backrub now available in RosettaScripts
+* FilterReportAsPoseExtraScoresMover
+* LoopAnalyzerMover (updated with RosettaScripts compatibility) and LoopAnalyzerFilter
+* DistanceConstraintGenerator
+* HydrogenBondCstGenerator
+* SSPredictionFilter/PsiPredInterface: compatible with more versions of psipred
+* HelixPairingFilter
+* Disulfidize updated for noncanonical disulfide-forming moieties
+
+####Miscellaneous
+* Scorefunction bugfix: remove the erroneous DONOR property from the Npro atom type
+* Transform mover in ligand docking (bugfixes)
+* ThermalSamplingMover
+* JD2 MPIWorkPartitionJobDistributor (the better MPI choice for small MPI runs) splits jobs in a way that's more efficient for restarted runs
+* Changes to Dunbrack library binary format caching.  As a consequence, do not install Rosetta 3.8 over an existing installation; you will want this library to be rebuilt on first run.
+* mmCIF input and output
+* Bugfix for constraint files affecting the numbering of PDB-numbered residues from chain A
+* HELIX and SHEET record printing to PDBs (-out::file::output_secondary_structure)
+* Bugfix for resfiles with ligand docking
+* Relax: bugfix to -constrain_relax_to_native_coords
+* Code sanitizers and static analysis tools online (helps us write better, more error-proof code - should be invsible to the end-user)
+* Updated SQLite version to 3.16.2 from 3.7.4
+* bugfixes for various not-specifically-supported compilers (gcc 5.4; gcc 6.2.0, clang 3.9.0, and ICC 14.0)
+
+
+####Nonprotein chemistries
+* cyclic and/or symmetric peptides (simple_cycpep_predict)
+* CycpepSymmetryFilter
+* PeptideCyclizeMover bugfixes
+* GlycanRelax
+** LinkageConformerMover
+* RNA
 
 <!--- END_INTERNAL -->
 
