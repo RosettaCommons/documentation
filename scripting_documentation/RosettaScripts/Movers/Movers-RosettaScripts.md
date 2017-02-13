@@ -101,7 +101,7 @@ Meta Movers don't do anything to the pose themselves, but combine or modify the 
 ## "Best Practices" Movers
 These are movers that allow users to carry out common tasks that one would frequently wish to carry out in particular circumstances (*e.g.* setting a pose up for design, with sequence constraints to impose prior knowledge about typical protein amino acid compositions).
 
-**[[AddHelixCompositionConstraints|AddHelixCompositionConstraintsMover]]** - Adds sequence composition constraints (to be used with the [[aa_composition|AACompositionEnergy]] score term) to encourage subsequent design steps to produce sensible amino acid sequences for each helix in a pose or a selection.
+**[[AddHelixSequenceConstraints|AddHelixSequenceConstraintsMover]]** - Adds sequence composition constraints (to be used with the [[aa_composition|AACompositionEnergy]] score term) to encourage subsequent design steps to produce sensible amino acid sequences for each helix in a pose or a selection.
 
 ## General Movers
 
