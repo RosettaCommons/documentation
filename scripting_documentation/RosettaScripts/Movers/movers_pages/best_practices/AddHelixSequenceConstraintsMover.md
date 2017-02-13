@@ -139,6 +139,6 @@ The default usage pattern lets the mover "do the thinking" for the user.  For ad
 - Sequence constraints add a nonlinear score penalty for deviation from a desired amino acid composition, guiding the packer to good sequences during design.  This means that they cannot overcome sequence restrictions imposed using task operations.  For example, if I have a sequence constraint penalizing the absence of negative charges at the N-terminus of a helix, by my task operation list prohibits negative charges at those positions, I will not obtain any results with negative charges at the N-terminus of that helix.
 
 ## See also
-[[AACompositionEnergy]]
-[[AddCompositionConstraintMover]]
-[[ClearCompositionConstraintsMover]]
+- [[AACompositionEnergy]]
+- [[AddCompositionConstraintMover]]
+- [[ClearCompositionConstraintsMover]]
