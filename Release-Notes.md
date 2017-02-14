@@ -72,7 +72,7 @@ We have a new scorefunction brewing!  It doesn't have its official name yet, but
 * bugfixes for various not-specifically-supported compilers (gcc 5.4; gcc 6.2.0, clang 3.9.0, and ICC 14.0)
 
 ####Nonprotein chemistries
-* The ([[simple_cycpep_predict]]) application has had various bugfixes, and now supports quasi-symmetric sampling for peptides with cN or cN/m symmetries.
+* The [[simple_cycpep_predict]] application has had various bugfixes, and now supports quasi-symmetric sampling for peptides with cN or cN/m symmetries.
 * [[CycpepSymmetryFilter]] Filters based on whether a peptide has a desired cyclic (c2, c3, c4, etc.) or mirror cyclic (c2/m, c4/m, c6/m, etc.) symmetry.
 * [[PeptideCyclizeMover]] bugfixes
 * GlycanRelax
