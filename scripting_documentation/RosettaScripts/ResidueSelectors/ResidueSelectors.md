@@ -497,6 +497,15 @@ Creates a residue subset by retrieving a residur subset that has been cached int
 ###ScoreTermValueBased
 Scores a copy of the pose and selects residues that has a score within the specified limits for a chosen score type. This could be used to select residues positions that score poorly and design or replace such that the score improves. The tags, _score_type_, _lower_threshold_ and _upper_threshold_ are required.
 
+   <ScoreTermValueBased name=(%string) 
+                     score_type=(%string) 
+                     lower_threshold=(%real) 
+                     upper_thershold=(%real) 
+                     score_fxn=(%string, default from command line)
+                     resnums=(%string, ALL)/>
+
+or
+
     <ScoreTermValueBased name=(%string) 
                      score_type=(%string) 
                      lower_threshold=(%real) 
