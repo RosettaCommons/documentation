@@ -25,7 +25,7 @@ Although most improvements were in Rosetta3.7, we continue to improve the fracti
 Rosetta turned on Cxx11 features in its C++.  This deprecates the compatibility of a lot of older compilers.
 
 ###beta_nov15
-We have a new scorefunction brewing!  It doesn't have its official name yet, but it is [published](https://www.ncbi.nlm.nih.gov/pubmed/27766851).  You can try it out with -beta_nov15 on command line and `<ScoreFunction name="beta_nov15" weights="beta_nov15">` in RosettaScripts in the meantime.
+We have a new scorefunction brewing!  It doesn't have its official name yet, but it is [published](https://www.ncbi.nlm.nih.gov/pubmed/27766851).  You can try it out with -beta_nov15 on command line and `<ScoreFunction name="beta_nov15" weights="beta_nov15">` in RosettaScripts in the meantime.  Note that the -beta_nov15 commandline flag is necessary for any use of the new scorefunction, since certain scoring-related objects must be initialized differently (meaning that it is not currently possible to score with talaris2014 _and_ beta_nov15 in the same session of Rosetta.)
 
 ###New or updated features
 ####RosettaScripts tools
