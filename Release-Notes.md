@@ -5,7 +5,8 @@
 
 _(This section in italics should remain hidden from the public wiki.)_
 
-* _N-methylated amino acids likely to end up here_
+* _N-methylated amino acids likely to end up here_ (VKM)
+* "Best practices" movers, such as the AddHelixSequenceConstraints mover, should likely end up here. (VKM)
 
 ## _Rosetta 3.8 internal notes_
 * http://test.rosettacommons.org/revision?id=132&branch=release
