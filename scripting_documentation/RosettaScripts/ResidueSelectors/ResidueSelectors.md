@@ -525,7 +525,7 @@ or
 
 -   score_type - the name of the [[score type|score-types]] to be used for selection. If this is set to _total_, the weighted sum of all score terms will be used for the operation.
 -   lower_threshold - residues scoring above or equal to this value will be selected.
--   upper_threshold - residues scoring below or equal to this value will be selected
+-   upper_threshold - residues scoring below or equal to this value will be selected.
 -   score_fxn - the score function to be used to evaluate the scores. If not specified or undefined, the default score function from the command line will be used.
 -   resnums - comma separated list of pose or PDB numbers that make a subset of residues to restrict selection. The default is _ALL_.
 -   selector - the name of a predefined selector that defines a subset to restrict selection.
