@@ -92,8 +92,8 @@ _3.7 will be Rosetta 2016.32, http://test.rosettacommons.org/revision?id=108&bra
 
 ### Rosetta 3.7 NOT included in release notes
 * _These are items that will be omitted from the release notes as incomplete features, but should be listed once finished for 3.8 or whenever_
-* _XML schema_
-* _JD3_
+* _XML schema_ --> covered in 3.8 release notes
+* _JD3_ --> covered in 3.8 release notes
 
 <!--- END_INTERNAL -->
 
