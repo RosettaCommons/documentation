@@ -17,9 +17,9 @@ XRW TO DO
 -   **use_distance_cst**: use distance constraints instead of CoordinateConstraints. Probable default false.
 -   **max_distance**: do not generate distance constraints beyond this distance.  Only active with use_distance_cst.
 -   **coord_dev**: width (sd) for HarmonicFunc or BoundFunc.
--   **bound_width**: BoundFunc zero basin width BoundFunc; also activates use of BoundFunc over HarmonicFunc
+-   **bound_width**: BoundFunc zero basin width BoundFunc; also activates use of BoundFunc (if non-zero)
 -   **min_seq_sep**: Do not generate distance constraints between residues within this sequence separation.  Only active with use_distance_cst.
--   **cst_weight**: use ScalarWeightedFunc to reweight constraints by this
+-   **cst_weight**: use ScalarWeightedFunc to reweight constraints by this; also activates use of HarmonicFunc (if this and bound_width are both zero)
 -   **CA_only**: constrain only CA atoms.
 -   **bb_only**: constrain only backbone atoms.
 -   **inter_chain**: Generate distance constraints between residues on different chains if true.  (Does not appear to generate ONLY interchain constraints.)  If false, skips constraints that would go between chains.  Only active with use_distance_cst.

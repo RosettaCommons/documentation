@@ -7,6 +7,7 @@ A class that selects the downstream branch from residues in a movemap/selector, 
 
 ```xml
 <GlycanTreeMinMover name="(&string;)" jump="(&string;)"
+        abs_score_convergence_threshold="(&real;)"
         max_iter="(200 &non_negative_integer;)"
         type="(lbfgs_armijo_nonmonotone &minimizer_type;)"
         tolerance="(0.01 &real;)" cartesian="(false &bool;)"
@@ -24,6 +25,7 @@ A class that selects the downstream branch from residues in a movemap/selector, 
 ```
 
 -   **jump**: Comma-separated list of jumps to minimize over (be sure this jump exists!). If set to "ALL", all jumps will be set to minimize. If set to "0", jumps will be set not to minimize
+-   **abs_score_convergence_threshold**: Keep minimizing until difference before minimization is less than this threshold
 -   **max_iter**: maximum number of iterations allowed. This default is also very loose. This and the tolerance setting both affect if you will reach convergence
 -   **type**: Minimizer type. linmin, dfpmin, dfpmin_armijo, dfpmin_armijo_nonmonotone. dfpmin minimzers can also be used with absolute tolerance (add "atol" to the minimizer type).
 -   **tolerance**: Criteria for convergence of minimization. The default is very loose, it's recommended to specify something less than 0.01. max_iter also affects convergence
