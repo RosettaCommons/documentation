@@ -494,6 +494,42 @@ Creates a residue subset by retrieving a residur subset that has been cached int
       <StoreResidueSubset name="store_subset" residue_selector="chainb" subset_name="original_chain_b" />
     </MOVERS>
 
+###ScoreTermValueBased
+Scores a copy of the pose and selects residues that has a score within the specified limits for a chosen score type. This could be used to select residues positions that score poorly and design or replace such that the score improves. The tags, _score_type_, _lower_threshold and _upper_threshold are required.
+
+   <ScoreTermValueBased name=(%string) 
+                     score_type=(%string) 
+                     lower_threshold=(%real) 
+                     upper_thershold=(%real) 
+                     score_fxn=(%string, default from command line)
+                     resnums=(%string, ALL)/>
+
+or
+
+    <ScoreTermValueBased name=(%string) 
+                     score_type=(%string) 
+                     lower_threshold=(%real) 
+                     upper_thershold=(%real)
+                     score_fxn=(%string, default from command line)
+                     selector=(%string) />
+
+or
+
+    <ScoreTermValueBased name=(%string) 
+                     score_type=(%string) 
+                     lower_threshold=(%real) 
+                     upper_thershold=(%real)
+                     score_fxn=(%string, default from command line)>
+       <Selector ... />
+    </ScoreTermValueBased>
+
+-   score_type - the name of the [[score type|score-types]] to be used for selection.
+-   lower_threshold - residues scoring above or equal to this value will be selected.
+-   upper_threshold - residues scoring below or equal to this value will be selected
+-   score_fxn - the score function to be used to evaluate the scores. If not specified or undefined, the default score function from the command line will be used.
+-   resnums - comma separated list of pose or PDB numbers that make a subset of residues to restrict selection.
+-   selector - the name of a predefined selector that defines a subset to restrict selection.
+
 ####See Also
 
 * [[StoreTaskMover]]
