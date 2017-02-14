@@ -28,6 +28,9 @@ Rosetta turned on Cxx11 features in its C++.  This deprecates the compatibility 
 ###beta_nov15
 We have a new scorefunction brewing!  It doesn't have its official name yet, but it is [published](https://www.ncbi.nlm.nih.gov/pubmed/27766851).  You can try it out with -beta_nov15 on command line and `<ScoreFunction name="beta_nov15" weights="beta_nov15">` in RosettaScripts in the meantime.  Note that the -beta_nov15 commandline flag is necessary for any use of the new scorefunction, since certain scoring-related objects must be initialized differently (meaning that it is not currently possible to score with talaris2014 _and_ beta_nov15 in the same session of Rosetta.)
 
+###New Ramachandran potentials
+Rosetta's Ramachandran scoring code has been greatly refactored.  The software now supports Ramachandran potentials for arbitrary amino acids.  These are lazily loaded, so they do not contribute to Rosetta's memory footprint unless they are needed.  The refactored Ramachandran code is now part of the `rama_prepro` score term in the beta_nov15 scorefunction.  The Ramachandran scoring also now allows different Ramachandran potentials for positions preceding proline residues and for positions that do not precede proline residues.
+
 ###New or updated features
 ####RosettaScripts tools
 * [[StrandHelixGeometryFilter]]
