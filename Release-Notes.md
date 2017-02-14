@@ -35,13 +35,13 @@ We have a new scorefunction brewing!  It doesn't have its official name yet, but
 * [[LoopLengthChangeMover]]
 * [[AddConstraintsToCurrentConformationMover]]
 * [[ConvertRealToVirtualMover]] and [[ConvertVirtualToRealMover]]
-* [[ReturnResidueSubsetSelector]]
-* [[CloseContactResidueSelector]] identifies residues that have (any) atoms within a certain distance cutoff (usually neighbor detection depends on CB for speed)
+* [[ReturnResidueSubsetSelector|ResidueSelectors]]
+* [[CloseContactResidueSelector|ResidueSelectors]]] identifies residues that have (any) atoms within a certain distance cutoff (usually neighbor detection depends on CB for speed)
 * [[PartialThreadMover]] (now faster)
-* [[UnsatSelector]]
-* [[NeighborhoodResidueSelector]]
+* [[UnsatSelector|ResidueSelectors]]
+* [[NeighborhoodResidueSelector|ResidueSelectors]]
 * [[BridgeChainsMover]]
-* [[MutateResidue]] gains ResidueSelector support
+* [[MutateResidue|MutateResidueMover]] gains ResidueSelector support
 * [[MakePolyXMover]] gains ResidueSelector support
 * [[ModifyVariantTypeMover]] gains ResidueSelector support
 * [[SecondaryStructureFilter]] gains ResidueSelector support
@@ -50,10 +50,11 @@ We have a new scorefunction brewing!  It doesn't have its official name yet, but
 * [[FilterReportAsPoseExtraScoresMover]]
 * [[LoopAnalyzerMover]] (updated with RosettaScripts compatibility) and [[LoopAnalyzerFilter]]
 * [[DistanceConstraintGenerator]]
-* [[HydrogenBondCstGenerator]]
-* [[SSPredictionFilter]]/PsiPredInterface: compatible with more versions of psipred
+* [[HydrogenBondConstraintGenerator]]
+* [[SSPredictionFilter]]/PsiPredInterface compatible with more versions of psipred
 * [[HelixPairingFilter]]
-* [[Disulfidize]] updated for noncanonical disulfide-forming moieties
+* [[Disulfidize|DisulfidizeMover]] updated for noncanonical disulfide-forming moieties
+* [[GeneralizedKIC]] gains options for symmetric sampling
 
 ####Miscellaneous
 * Transform mover in ligand docking (bugfixes)
