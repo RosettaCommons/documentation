@@ -500,7 +500,7 @@ Scores a copy of the pose and selects residues that score within the specified l
     <ScoreTermValueBased name=(%string) 
                      score_type=(%string) 
                      lower_threshold=(%real) 
-                     upper_thershold=(%real)
+                     upper_threshold=(%real)
                      score_fxn=(%string, default from command line)
                      selector=(%string) />
 
@@ -509,7 +509,7 @@ or
     <ScoreTermValueBased name=(%string) 
                      score_type=(%string) 
                      lower_threshold=(%real) 
-                     upper_thershold=(%real) 
+                     upper_threshold=(%real) 
                      score_fxn=(%string, default from command line)
                      resnums=(%string, ALL)/>
 
@@ -518,7 +518,7 @@ or
     <ScoreTermValueBased name=(%string) 
                      score_type=(%string) 
                      lower_threshold=(%real) 
-                     upper_thershold=(%real)
+                     upper_threshold=(%real)
                      score_fxn=(%string, default from command line)>
        <Selector ... />
     </ScoreTermValueBased>
