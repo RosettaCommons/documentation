@@ -54,15 +54,22 @@ Most applications assume you have access to tens of thousands of hours of comput
 The later sections of this document describe installing or using Rosetta at those different scales.
 
 Public Rosetta Servers
------------------------------
+----------------------
 
-All of [[Rosetta's public servers|Rosetta-Servers]] are licensed for **NON-COMMERCIAL USE ONLY**.  The servers of broadest interest are touched on here, but see [[here|Rosetta-Servers]] and [[here|https://www.rosettacommons.org/software/servers]] for more complete lists.
+RosettaCommons maintains several [[public servers|Rosetta-Servers]] for **NON-COMMERCIAL USE ONLY**.  The servers of broadest interest are touched on here, but see [[here|Rosetta-Servers]] and [[here|https://www.rosettacommons.org/software/servers]] for more complete lists.
+
+For commercial use, see the section below and the [[Rosetta Servers]] page.
 
 * [ROSIE](http://rosie.rosettacommons.org/) is a server that offers several Rosetta applications through a simple web interface.
 It is perfect for use by those new to Rosetta.
 Despite ROSIE's variety it offers only a slice of Rosetta's full functionality.
 
 * [ROBETTA](http://robetta.bakerlab.org/) (Robot-Rosetta) is a server that provides _ab initio_ folding and structure prediction, as well as fragment selection for local runs of Rosetta.
+
+Commercial Rosetta Servers
+--------------------------
+
+* [Cyrus Biotechnology](https://cyrusbio.com) is a company that offers Bench, a server for commercial users that has tools for homology modeling (like Robetta), protein design (RosettaDesign), ddG calculation, and other modeling tools like relaxation and minimization.  <sub><sup>(Cyrus Biotechnology is a commercial Rosetta licensee offering a web-based graphical user interface for Rosetta to its customers.  Licensing fees paid by commercial Rosetta licensees to the University of Washington are used to support the RosettaCommons, investing in the maintenance and further development of Rosetta.)</sup></sub>
 
 Local installation and use of Rosetta
 --------------------------------------
