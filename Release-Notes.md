@@ -9,8 +9,7 @@ _(This section in italics should remain hidden from the public wiki.)_
 * "Best practices" movers, such as the AddHelixSequenceConstraints mover, should likely end up here. (VKM)
 
 ## _Rosetta 3.8 internal notes_
-* http://test.rosettacommons.org/revision?id=132&branch=release
-* https://github.com/RosettaCommons/main/commit/9693310c19cba93616451ab9f59b7fc2611f7fcd?w=1
+* These notes were drafted for http://test.rosettacommons.org/revision?id=132&branch=release; there is a problem in that release and we will be waiting until at least 134.
 
 ## Rosetta 3.8
 ###New RosettaScripts XML
