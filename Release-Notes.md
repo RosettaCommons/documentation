@@ -22,7 +22,7 @@ A new Job Distributor, JD3, is ready for use.  This is mostly invisible to end u
 Although most improvements were in Rosetta3.7, we continue to improve the fraction of unmodified PDBs Rosetta can handle.  (Don't worry - we've always been able to handle canonical protein well - but we are doing an ever-improving job with strange stuff like the GFP fluorophore, chemically concatenated ligands, etc).
 
 ###Cxx11 builds
-Rosetta turned on Cxx11 features in its C++.  This deprecates the compatibility of a lot of older compilers.
+Rosetta turned on Cxx11 features in its C++.  This deprecates the compatibility of a lot of older compilers. See <https://www.rosettacommons.org/docs/latest/build_documentation/Cxx11Support> for more information.
 
 ###beta_nov15
 We have a new scorefunction brewing!  It doesn't have its official name yet, but it is [published](https://www.ncbi.nlm.nih.gov/pubmed/27766851).  You can try it out with -beta_nov15 on command line and `<ScoreFunction name="beta_nov15" weights="beta_nov15">` in RosettaScripts in the meantime.  Note that the -beta_nov15 commandline flag is necessary for any use of the new scorefunction, since certain scoring-related objects must be initialized differently (meaning that it is not currently possible to score with talaris2014 _and_ beta_nov15 in the same session of Rosetta.)
