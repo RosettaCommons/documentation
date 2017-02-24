@@ -405,7 +405,7 @@ The following example selects all residues that are in regions of Ramachandran s
      name="(&string)"
      target_type="(&string, '')"
      score_threshold="(&real, 0.0)"
-     rama_prepro_multiplier=(&real, "0.45")
+     rama_prepro_multiplier="(&real, 0.45)"
 />
 ```
 - **name**: A unique name given to this instance of the selector.
