@@ -385,6 +385,35 @@ or
 
 **upper** - Number of residues to select upper (i.e. C-terminal) to the input selection. Default=1
 
+#### RamaMutationSelector
+
+The RamaMutationSelector selects positions based on their `rama_prepro` score.  Optionally, it can select based on the `rama_prepro` score that a position would have if it were mutated to a user-defined residue type.  This is useful for selecting positions that are in regions of Ramachandran space that would be strongly favoured by a given conformationally-constrained type, such as L- or D-proline, 2-aminoisobutyric acid (AIB), _etc_.
+
+Note that this selector does not select residues at termini or cutpoints, since these do not have defined `rama_prepro` scores.  It also ignores non-polymeric residue types.
+
+##### Example usage
+
+The following example selects all residues that are in regions of Ramachandran space in which proline would have a `rama_prepro` score less than or equal to -0.5 Rosetta energy units.
+
+```
+<RamaMutationSelector name="pro_positions" target_type="PRO" score_threshold="-0.5" />
+```
+
+##### Full options
+```
+<RamaMutationSelector
+     name="(&string)"
+     target_type="(&string, '')"
+     score_threshold="(&real, 0.0)"
+     rama_prepro_multiplier=(&real, "0.45")
+/>
+```
+- **name**: A unique name given to this instance of the selector.
+- **target_type**: The residue type to which we are considering mutations.  If left empty (the default), then the `rama_prepro` score of the existing type at each position is used.  If specified, then the `rama_prepro` score of the specified type, given the conformation at the position, is used.
+- **score_threshold**: The cutoff for selection, based on `rama_prepro` score.  Positions that, when mutated to the specified type, have a `rama_prepro` score lower than this threshold are selected.  Default 0.0 Rosetta energy units.
+- **rama_prepro_multiplier**: The multiplier for the `rama_prepro` term.  The score is multiplied by this value before being compared to the threshold.  This defaults to 0.45 to match the `rama_prepro` weight in the `beta_nov15` score function.
+
+Note that the `rama_prepro` energy is a two-body energy dependent on a residue's conformation, its identity, and the identity of its C-terminal neighbour (with different lookup tables used for residues preceding proline and residues not preceding proline).  Because it is a two-body energy, the score for a particular position is divided over that position and the i+1 position.  This means that the final score table will have values that do not correspond to the values used for evaluating this selector, since each position's `rama_prepro` energy is the sum of its own energy and that of the i-1 position.
 
 #### SecondaryStructureSelector
 
