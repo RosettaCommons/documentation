@@ -395,12 +395,12 @@ Note that this selector does not select residues at termini or cutpoints, since 
 
 The following example selects all residues that are in regions of Ramachandran space in which proline would have a `rama_prepro` score less than or equal to -0.5 Rosetta energy units.
 
-```
+```xml
 <RamaMutationSelector name="pro_positions" target_type="PRO" score_threshold="-0.5" />
 ```
 
 ##### Full options
-```
+```xml
 <RamaMutationSelector
      name="(&string)"
      target_type="(&string, '')"
