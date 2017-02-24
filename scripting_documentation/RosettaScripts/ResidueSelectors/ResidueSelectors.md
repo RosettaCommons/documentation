@@ -409,7 +409,7 @@ The following example selects all residues that are in regions of Ramachandran s
 />
 ```
 - **name**: A unique name given to this instance of the selector.
-- **target_type**: The residue type to which we are considering mutations.  If left empty (the default), then the `rama_prepro` score of the existing type at each position is used.  If specified, then the `rama_prepro` score of the specified type, given the conformation at the position, is used.
+- **target_type**: The residue type to which we are considering mutations.  If left empty (the default), then the `rama_prepro` score of the existing type at each position is used.  If specified, then the `rama_prepro` score of the specified type, given the conformation at the position, is used.  Note that this is a full name, not a three-letter code (_e.g._ "DPRO" for D-proline instead of "DPR").
 - **score_threshold**: The cutoff for selection, based on `rama_prepro` score.  Positions that, when mutated to the specified type, have a `rama_prepro` score lower than this threshold are selected.  Default 0.0 Rosetta energy units.
 - **rama_prepro_multiplier**: The multiplier for the `rama_prepro` term.  The score is multiplied by this value before being compared to the threshold.  This defaults to 0.45 to match the `rama_prepro` weight in the `beta_nov15` score function.
 
