@@ -58,9 +58,11 @@ or
 
 where listfname is a simple text file that has one pdb file name per line. The fixbb application will apply the PackRotamersMover to each of the input structures given.
 
-2) Resfile
+2) Control of repacking and design: the Resfile
 
-A single resfile may be specified on the command line with the -resfile \<fname\> flag. This resfile will be used for all structures that are input. If a resfile cannot be applied to all the structures, then the job should be split up. The resfile format is described here [[Resfile syntax and conventions|resfiles]] Resfile.
+By default, fixbb will attempt a global redesign of the protein, allowing all residues to change to new amino acid identities. If the option `-packing:repack_only` is given, then design will be turned off, and all positions will be allowed to repack, but will not change residue identities.
+
+The most flexible way to control how fixxbb repacks/designs the protein is with a resfile. A single resfile may be specified on the command line with the -resfile \<fname\> flag. This resfile will be used for all structures that are input. If a resfile cannot be applied to all the structures, then the job should be split up. The resfile format is described here [[Resfile syntax and conventions|resfiles]] Resfile.
 
 Options
 =======
@@ -68,11 +70,12 @@ Options
 Input file specification:
 
 ```
--s <pdb> <pdb2>    A list of one or more pdbs to run fixbb upon.
--l <listfile>      A file that lists one or more pdbs to run fixbb upon.
--resfile <fname>   The resfile that is to be used for this job
--nstruct <int>     The number of iterations to perform per input structure; e.g. with 10 input structures
-                   and an -nstruct of 10, 100 trajectories will be performed.
+-s <pdb> <pdb2>       A list of one or more pdbs to run fixbb upon.
+-l <listfile>         A file that lists one or more pdbs to run fixbb upon.
+-resfile <fname>      The resfile that is to be used for this job
+-packing:repack_only  Turn off all design and only repack residues
+-nstruct <int>        The number of iterations to perform per input structure; e.g. with 10 input structures
+                      and an -nstruct of 10, 100 trajectories will be performed.
 ```
 
 Interaction Graph (Default is to precompute all rotamer pair energies)
