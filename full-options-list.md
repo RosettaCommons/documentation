@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-02-07
+Generated: 2017-02-25
 
 _Note that some application specific options may not be present in this list._
 
@@ -372,7 +372,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-out</b> \<Boolean\></dt>
 <dd>Ouput option group<br/></dd>
 <dt><b>-overwrite</b> \<Boolean\></dt>
-<dd>Ignore 'CHECKPOINT' file and the overwrite the PDB file(s)<br/></dd>
+<dd>Ignore 'CHECKPOINT' file and the overwrite PDB and silent file(s)<br/></dd>
 <dt><b>-nstruct</b> \<Integer\></dt>
 <dd>Number of times to process each input PDB<br/>Default: 1<br/></dd>
 <dt><b>-shuffle_nstruct</b> \<Integer\></dt>
@@ -979,8 +979,6 @@ _Note that some application specific options may not be present in this list._
 <dd>Standard deviation for bond_geometry torsion term with -vary_polar_hydrogen_geometry flag, in degrees<br/>Default: 30.0<br/></dd>
 <dt><b>-rna_bulge_bonus_once_per_loop</b> \<Boolean\></dt>
 <dd>For legacy stepwise term rna_bulge in SWM runs, compute bulge bonus on a per-loop basis, rather than a bonus for each virtual residue.<br/>Default: true<br/></dd>
-<dt><b>-allow_complex_loop_graph</b> \<Boolean\></dt>
-<dd>LoopGraph hack - allow sharing of loops between cycles<br/>Default: false<br/></dd>
 <dt><b>-compute_mg_sol_for_hydrogens</b> \<Boolean\></dt>
 <dd>mg_sol includes penalties for hydrogens near Mg(2+)<br/>Default: false<br/></dd>
 <dt><b>-rg_local_span</b> \<IntegerVector\></dt>
@@ -989,8 +987,6 @@ _Note that some application specific options may not be present in this list._
 <dd>Do not call modify pot to add extra repulsive interactions between Obb/Obb atom types at distances beneath 3.6 Angstroms<br/></dd>
 <dt><b>-conc</b> \<Real\></dt>
 <dd>intermolecular concentration to use in intermol term (give in M)<br/>Default: 1.0<br/></dd>
-<dt><b>-loop_fixed_cost</b> \<Real\></dt>
-<dd>For loop_close term, a fixed cost of instantiating an end of a Gaussian chain; calibrated based on RNA bulge/loop data<br/>Default: -0.29<br/></dd>
 <dt><b>-sidechain_buried</b> \<IntegerVector\></dt>
 <dd>count buried residues (rvernon pilot app)<br/>Default: -1<br/></dd>
 <dt><b>-sidechain_exposed</b> \<IntegerVector\></dt>
@@ -1286,6 +1282,19 @@ _Note that some application specific options may not be present in this list._
 <dd>scaling factor for OSi atoms's amplitude of the gaussian<br/>Default: 1.0<br/></dd>
 <dt><b>-Oice_amp_scaling</b> \<Real\></dt>
 <dd>scaling factor for Oice atoms's amplitude of the gaussian<br/>Default: 1.0<br/></dd>
+</dl>
++ <h3>-score:loop_close</h3>
+<dl>
+<dt><b>-loop_close</b> \<Boolean\></dt>
+<dd>loop_close option group<br/></dd>
+<dt><b>-loop_fixed_cost</b> \<Real\></dt>
+<dd>For loop_close term, a fixed cost of instantiating an end of a Gaussian chain; calibrated based on RNA bulge/loop data<br/>Default: -0.29<br/></dd>
+<dt><b>-allow_complex_loop_graph</b> \<Boolean\></dt>
+<dd>LoopGraph hack - allow sharing of loops between cycles<br/>Default: false<br/></dd>
+<dt><b>-use_6D_potential</b> \<Boolean\></dt>
+<dd>for implicit modeling of RNA loops, use 6D potentials instead of simple 1D Gaussian chain model<br/>Default: false<br/></dd>
+<dt><b>-force_6D_potential_file</b> \<String\></dt>
+<dd>use this 6D potential for all loop_close instead of database files (for testing only!)<br/>Default: ""<br/></dd>
 </dl>
 + <h2>-packing</h2>
 <dl>
@@ -7232,13 +7241,27 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-binary_output</b> \<Boolean\></dt>
 <dd>force output to binary rna silentstruct<br/>Default: false<br/></dd>
 <dt><b>-output_score_file</b> \<String\></dt>
-<dd>output running score to this file<br/>Default: ""<br/></dd>
+<dd>output running score to this file [specify 'none' if no score output; .SCORES.txt in default]<br/>Default: ""<br/></dd>
 <dt><b>-output_score_frequency</b> \<Integer\></dt>
 <dd>output running score with this frequency [0 means no running output]<br/>Default: 0<br/></dd>
 <dt><b>-output_jump_res</b> \<IntegerVector\></dt>
 <dd>output jump information for these two residues<br/></dd>
 <dt><b>-output_jump_o3p_to_o5p</b> \<Boolean\></dt>
 <dd>compute jump from o3' to o5' (instead of base centroid coordinate systems)<br/>Default: false<br/></dd>
+<dt><b>-output_rotation_vector</b> \<Boolean\></dt>
+<dd>output rotation information as rotation vector (in degrees), not euler angles<br/>Default: false<br/></dd>
+<dt><b>-target_xyz</b> \<RealVector\></dt>
+<dd>Target coordinates for harmonic penalty, o5' relative to o3' stub<br/>Default: []<br/></dd>
+<dt><b>-save_jump_histogram</b> \<Boolean\></dt>
+<dd>Save jump information into a 6D histogram<br/>Default: false<br/></dd>
+<dt><b>-output_histogram_file</b> \<String\></dt>
+<dd>output histogram to this file [specify 'none' if no score output; .HISTOGRAM.txt is default]<br/>Default: ""<br/></dd>
+<dt><b>-jump_histogram_boxsize</b> \<Real\></dt>
+<dd>Boxsize (max +/-x,y,z), Angstroms<br/>Default: 40.0<br/></dd>
+<dt><b>-jump_histogram_binwidth</b> \<Real\></dt>
+<dd>Bin-width for x,y,z,, Angstroms<br/>Default: 4.0<br/></dd>
+<dt><b>-jump_histogram_binwidth_rotvector</b> \<Real\></dt>
+<dd>Bin-width for rotation vector (degrees)<br/>Default: 36.0<br/></dd>
 </dl>
 + <h4>-rna:farna:db</h4>
 <dl>
@@ -7278,6 +7301,8 @@ _Note that some application specific options may not be present in this list._
 <dd>In rna_minimize, check derivatives numerically<br/>Default: false<br/></dd>
 <dt><b>-minimizer_use_coordinate_constraints</b> \<Boolean\></dt>
 <dd>Use coordinate constraints for first round of minimizer<br/>Default: true<br/></dd>
+<dt><b>-min_type</b> \<String\></dt>
+<dd>Minimizer type<br/>Default: "lbfgs_armijo_nonmonotone"<br/></dd>
 <dt><b>-minimize_bps</b> \<Boolean\></dt>
 <dd>Minimize base pair steps (from Rosetta library)<br/>Default: true<br/></dd>
 <dt><b>-extra_minimize_res</b> \<ResidueChainVector\></dt>
