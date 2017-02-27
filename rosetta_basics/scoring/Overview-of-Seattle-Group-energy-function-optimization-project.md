@@ -16,7 +16,7 @@ These flags include (more details of specific improvements can be seen by follow
 * [[beta_nov15|Updates-beta-nov15]] - optimization of electrostatic parameters, updated torsion parameters, updated bonded parameters, enabling LJ attraction for hydrogens
 * [[beta_nov16|Updates-beta-nov16]] - enabling all intra-residue etable and electrostatics, adding an implicit bridging water potential
 
-For brief explanation of new terms (e.g. rama_prepro and so on), follw this [[link|score-types#references_additional-energy-terms-for-beta-energy-functions]]
+For brief explanation of new terms (e.g. rama_prepro and so on), follow this [[link|score-types#references_additional-energy-terms-for-beta-energy-functions]]
 
 ### Using the updated energy function
 
