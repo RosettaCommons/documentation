@@ -71,6 +71,22 @@ dslf_ca_dih                                Cα dihedral score in current disulfi
 The score12 energy function can be used in current Rosetta versions, but the option <code> -restore_pre_talaris_2013_behavior</code> must be passed.
 
 
+Additional energy terms for beta energy functions <a name="[beta_july15/beta_nov15/beta_nov16]" />
+-----------------------------------
+
+```html
+lk_ball                                Anisotropic contribution to the solvation
+lk_ball_iso                            Same as fa_sol; setting this to negative weight is conceptually replacing some portion of fa_sol with lk_ball
+lk_ball_wtd                            weighted sum of lk_ball & lk_ball_iso (w1*lk_ball + w2*lk_ball_iso); w2 is negative so that lk_ball replaces some portion of fa_sol (=lk_ball_iso)
+lk_ball_bridge                         Bonus to solvation coming from bridging waters, measured by overlap of the "balls" from two interacting polar atoms
+lk_ball_bridge_uncpl                   Same as lk_ball_bridge, but the value is uncoupled with dGfree (i.e. constant bonus, whereas lk_ball_bridge is proportional to dGfree values)            
+fa_intra_atr_xover4                    Intra-residue LJ attraction, counted for the atom-pairs beyond torsion-relationship 
+fa_intra_rep_xover4                    Intra-residue LJ repulsion, counted for the atom-pairs beyond torsion-relationship 
+fa_intra_sol_xover4                    Intra-residue LK solvation, counted for the atom-pairs beyond torsion-relationship                 
+fa_intra_elec                          Intra-residue Coulombic interaction, counted for the atom-pairs beyond torsion-relationship
+rama_prepro                            Backbone torsion preference term that takes into account of whether preceding amono acid is Proline or not
+hxl_tors                               Sidechain hydroxyl group torsion preference for Ser/Thr/Tyr, supersedes yhh_planarity (that covers Tyr only)
+```
 
 Additional Resources
 =====================
