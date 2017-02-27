@@ -31,6 +31,11 @@ Leaver-Fay et al. describe OptE, a methodology for using sequence-recovery and r
 J Chem Theory Comput. 2015;11(2):609-622. PubMed PMID: 25866491  
 ...to generate [[Talaris2013/4|score-types]], the current state-of-the-art general purpose Rosetta energy function.
 
+Park H, Bradley P, Greisen Jr. P, Liu Y, Mulligan VK, Kim DE, Baker D, DiMaio F (2016)
+[Simultaneous Optimization of Biomolecular Energy Functions on Features from Small Molecules and Macromolecules.]
+(https://www.ncbi.nlm.nih.gov/pubmed/27766851) (pubmed link)
+J Chem Theory Comput. 2016;12(12):6201–6212. PubMed PMID 27766851
+
 Scorefunctions timeline
 =======================
 *Rosetta2 / pre-score12 days -- ????
@@ -43,7 +48,7 @@ Scorefunctions timeline
 
 * **Talaris14** is an error-correction of Talaris13.  One of the hydrogen bonding weights was incorrect.  All the weights were re-scaled to more closely match the Rosetta Energy Unit size of score12 - ultimately the units are arbitrary but better comparison with score12 was desired.  The YHH_planarity term was added to help control the alcohol hydrogen in tyrosine.  This was developed in 2014, but not put into use until 2016.
 
-* A new beta score function is currently under development and is documented [[here|Overview of Seattle Group energy function optimization project]].
+* New beta score functions (beta_july15, beta_nov15, beta_nov16) are currently under development and is documented [[here|Overview of Seattle Group energy function optimization project]].
 
 ##See Also
 
