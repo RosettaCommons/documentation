@@ -128,6 +128,9 @@ Use of Rosetta on national-scale supercomputing resources
 As part of the XSEDE initiative, the [[TACC/Stampede|TACC]] cluster has Rosetta and [[PyRosetta|scripting_documentation/PyRosetta/PyRosetta]] centrally installed for authorized users.
 See the [[TACC]] page for more details.
 
+How to update these docs
+-------------------------
+Developers can update these doc pages through our [interactive wiki](https://www.rosettacommons.org/docs/wiki/Home) [note: Github login required].
 
 ##See Also
 
