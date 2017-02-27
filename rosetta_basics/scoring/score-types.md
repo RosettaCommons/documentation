@@ -76,8 +76,8 @@ Additional energy terms for beta energy functions <a name="[beta_july15/beta_nov
 
 ```html
 lk_ball                                Anisotropic contribution to the solvation
-lk_ball_iso                            Same as fa_sol; setting this to negative weight is conceptually replacing some portion of fa_sol with lk_ball
-lk_ball_wtd                            weighted sum of lk_ball & lk_ball_iso (w1*lk_ball + w2*lk_ball_iso); w2 is negative so that lk_ball replaces some portion of fa_sol (=lk_ball_iso)
+lk_ball_iso                            Same as fa_sol; see below 
+lk_ball_wtd                            weighted sum of lk_ball & lk_ball_iso (w1*lk_ball + w2*lk_ball_iso); w2 is negative so that anisotropic contribution(lk_ball) replaces some portion of isotropic contribution (fa_sol=lk_ball_iso)
 lk_ball_bridge                         Bonus to solvation coming from bridging waters, measured by overlap of the "balls" from two interacting polar atoms
 lk_ball_bridge_uncpl                   Same as lk_ball_bridge, but the value is uncoupled with dGfree (i.e. constant bonus, whereas lk_ball_bridge is proportional to dGfree values)            
 fa_intra_atr_xover4                    Intra-residue LJ attraction, counted for the atom-pairs beyond torsion-relationship 
