@@ -31,7 +31,7 @@ Leaver-Fay et al. describe OptE, a methodology for using sequence-recovery and r
 J Chem Theory Comput. 2015;11(2):609-622. PubMed PMID: 25866491  
 ...to generate [[Talaris2013/4|score-types]], the current state-of-the-art general purpose Rosetta energy function.
 
-Park H, Bradley P, Greisen Jr. P, Liu Y, Mulligan VK, Kim DE, Baker D, DiMaio F (2016)
+* Park H, Bradley P, Greisen Jr. P, Liu Y, Mulligan VK, Kim DE, Baker D, DiMaio F (2016)
 [Simultaneous Optimization of Biomolecular Energy Functions on Features from Small Molecules and Macromolecules.]
 (https://www.ncbi.nlm.nih.gov/pubmed/27766851) (pubmed link)
 J Chem Theory Comput. 2016;12(12):6201–6212. PubMed PMID 27766851
