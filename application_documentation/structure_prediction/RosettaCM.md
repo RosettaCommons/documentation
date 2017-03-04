@@ -20,6 +20,15 @@ At a high-level, the algorithm consists of a long Monte Carlo trajectory startin
 
 ## Running the RosettaCM protocol
 
+Step 1 - Created one or several threaded model(s)  
+Step 2 - Run the Hybridize mover
+
+
+### Step 1: Create a threaded model
+
+Alternative 1 - Running the setup_CM.py script  
+Alternative 2 - Manually preparing threaded template model
+
 ### Running the setup_CM.py script
 
 _Warning: This script is experimental and may be problematic.  Please verify your input and output alignments after running!_
@@ -65,8 +74,6 @@ After setting up a job, cd to the _rosetta_cm_ directory, and run (pointing to i
 Alternately, it may be desirable to manually set up a RosettaCM job.  If one wishes to use nonstandard features (e.g. electron density data or user-specified constraints), this is recommended.  
 
 Given a fasta file sequence of the protein to be modeled, a multiple sequence alignment, and PDBs of template structures, the first step of the protocol is to thread the same sequence onto one or multiple templates.  These templates can be homologous proteins or the same proteins from multiple crystal structures.  The second step is to use the [[HybridizeMover]] through [[RosettaScripts]] to create a single model from the template(s).
-
-### Step 1: Created a threaded model
 
 First we need to produce template pdb files for Rosetta by threading the target sequence onto one or several template protein structures.  As input, you need the following:
 * Sequence alignment file in Grishin format
