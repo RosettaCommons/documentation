@@ -86,6 +86,10 @@ The threaded model is then created with the following command:
 
 This application should only take a few seconds.
 
+**NOTE** It might be necessary to run this for every individual pdb file using alignment files with only one alignment.
+It seems like providing multiple pdb files with in:file:template_pdb 1k3d.pdb 1y12.pdb does not always work.
+
+
 ### Step 2: Run the Hybridize mover
 
 This is the step where modeling is performed.
