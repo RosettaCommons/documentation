@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-02-28
+Generated: 2017-03-03
 
 _Note that some application specific options may not be present in this list._
 
@@ -1295,6 +1295,8 @@ _Note that some application specific options may not be present in this list._
 <dd>for implicit modeling of RNA loops, use 6D potentials instead of simple 1D Gaussian chain model<br/>Default: false<br/></dd>
 <dt><b>-force_6D_potential_file</b> \<String\></dt>
 <dd>use this 6D potential for all loop_close instead of database files (for testing only!)<br/>Default: ""<br/></dd>
+<dt><b>-use_cubic_interp</b> \<Boolean\></dt>
+<dd>cubic interpolation for 6D potential, instead of polylinear<br/>Default: true<br/></dd>
 </dl>
 + <h2>-packing</h2>
 <dl>

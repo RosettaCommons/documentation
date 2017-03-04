@@ -7,11 +7,13 @@ Idealize a pose, moving its bond lengths and angles towards ideal values by repe
 
 ```xml
 <RNAIdealizeMover name="(&string;)" iterations="(&positive_integer;)"
-        noise="(&bool;)" final_minimize="(&bool;)" />
+        noise="(&bool;)" final_minimize="(&bool;)"
+        ang_significance_threshold="(&real;)" />
 ```
 
 -   **iterations**: Number of iterations over which to spread idealization
 -   **noise**: Salt initial pose with some Gaussian noise
 -   **final_minimize**: Minimize the whole pose at once at the end
+-   **ang_significance_threshold**: Size of angle deviation to correct (degrees)
 
 ---

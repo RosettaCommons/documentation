@@ -14,7 +14,8 @@ Performs the fast relax protocol
         ramp_down_constraints="(false &bool;)" bondangle="(false &bool;)"
         bondlength="(false &bool;)"
         min_type="(lbfgs_armijo_nonmonotone &minimizer_type;)"
-        delete_virtual_residues_after_FastRelax="(&bool;)" >
+        delete_virtual_residues_after_FastRelax="(&bool;)"
+        movemap_factory="(&string;)" >
     <MoveMap name="(&string;)" bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
         <Jump number="(&non_negative_integer;)" setting="(&bool;)" />
         <Chain number="(&non_negative_integer;)" chi="(&bool;)" bb="(&bool;)" />
@@ -39,6 +40,7 @@ Performs the fast relax protocol
 -   **bondlength**: Minimize bond lengths
 -   **min_type**: Minimizer type to use
 -   **delete_virtual_residues_after_FastRelax**: Should virtual residues be deleted when the protocol completes?
+-   **movemap_factory**: The name of the already-defined MoveMapFactory that will be used to alter the default behavior of the MoveMap. By default, all backbone, chi, and jump DOFs are allowed to change. A MoveMapFactory can be used to change which of those DOFs are actually enabled. Be warned that combining a MoveMapFactory with a MoveMap can result in unexpected behavior. The MoveMap provided as a subelement of this element will be generated, and then the DOF modifications specified in the MoveMapFactory will be applied afterwards. E.g., if the MoveMap says to allow bb flexibility for res 1-10, and then the MoveMapFactory says to disable all bb flexibility, the MoveMapFactory modification will happen second, and this second modification will completely override the MoveMap's initial instructions. Pay attention to the precedence rules of the MoveMap. If high-level instructions (e.g. 'apply to all') are performed after low-level instructions, then the low-level instructions are erased. If low-level instructions (e.g. 'apply to a particular residue') are performed after a high-level instructions, the low-level instructions override the high-level instructions. E.g., if there are 100 residues, then the instruction 'all-all-bb' followed by 'disable-bb-for-residues-10-to-30' followed by the instruction 'allow-bb-for-bb-dihedral-number-3-for-residue-15' will mean that residues 1-9 will be allowed backbone flexibility, and residues 31-100, too, and that only backbone dihedral 3 on residue 15 will have flexibility among the residues from 10 to 30. However, if a final instruction 'disallow-all-bb' is given, then no backbone dihedrals will be free, not even dihedral 3 on residue 15.
 
 
 Subtag **MoveMap**:   MoveMap specification

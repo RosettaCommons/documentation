@@ -8,14 +8,14 @@ XRW TO DO
 ```xml
 <SwitchChainOrder name="(&string;)" chain_order="(&string;)"
         chain_num="(&nnegative_int_cslist;)" chain_name="(&chain_cslist;)"
-        invert_chains="(0 &chain_cslist;)" residue_numbers_setter="(&string;)"
+        invert_chains="(false &bool;)" residue_numbers_setter="(&string;)"
         scorefxn="(&string;)" />
 ```
 
 -   **chain_order**: Order of final chains
 -   **chain_num**: List of final chain positions, to be correlated to chain_name
 -   **chain_name**: List of final chain names, to be correlated to chain_num
--   **invert_chains**: List of final chain names, to be correlated to chain_num
+-   **invert_chains**: If true, apply on the inverse of chain selection (as specified in name or number options)
 -   **residue_numbers_setter**: List of final chain names, to be correlated to chain_num
 -   **scorefxn**: Name of score function to use
 
