@@ -61,16 +61,16 @@ Each FeaturesReporter is responsible for extracting a certain type of features t
 
         <ROSETTASCRIPTS>
             <SCOREFXNS>
-                <s weights=score12_w_corrections/>
+                <ScoreFunction name="s" weights="score12_w_corrections"/>
             </SCOREFXNS>
             <MOVERS>
-                <ReportToDB name=features database_name=scores.db3>
+                <ReportToDB name="features" database_name="scores.db3">
                     <ScoreTypeFeatures/>
-                    <StructureScoresFeatures scfxn=s/>
+                    <StructureScoresFeatures scorefxn="s"/>
                 </ReportToDB>
             </MOVERS>
             <PROTOCOLS>
-                    <Add mover_name=features/>
+                    <Add mover_name="features"/>
             </PROTOCOLS>
         </ROSETTASCRIPTS>
 
