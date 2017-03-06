@@ -7,9 +7,9 @@ _(This section in italics should remain hidden from the public wiki.)_
 
 * _N-methylated amino acids likely to end up here_ (VKM)
 * _"Best practices" movers, such as the AddHelixSequenceConstraints mover, should likely end up here. (VKM)_
+ * That actually made it in 3.8, but SML didn't add it to the notes (unclear if stable)
+<!--- END_INTERNAL -->
 
-## _Rosetta 3.8 internal notes_
-* These notes were drafted for http://test.rosettacommons.org/revision?id=132&branch=release; there is a problem in that release and we will be waiting until at least 134.
 
 ## Rosetta 3.8
 ###New RosettaScripts XML
@@ -79,10 +79,6 @@ Rosetta's Ramachandran scoring code has been greatly refactored.  The software n
 * [[PeptideCyclizeMover]] bugfixes
 * Glycans:
  * Updates to [[GlycanRelax]], and new methods for handling connectivity of branched glycans (GlycanTree)
-* RNA
-
-<!--- END_INTERNAL -->
-
 
 <!--- BEGIN_INTERNAL -->
 
