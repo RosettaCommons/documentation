@@ -35,15 +35,12 @@ Rosetta's Ramachandran scoring code has been greatly refactored.  The software n
 
 ###New or updated features
 ####RosettaScripts tools
-* [[StrandHelixGeometryFilter]]
-* [[HelixBendFilter]]
+* [[ScoreTermValueBasedSelector]]
 * [[SecondaryStructureFilter]]
 * [[LoopLengthChangeMover]]
 * [[AddConstraintsToCurrentConformationMover]]
-* [[ConvertRealToVirtualMover]] and [[ConvertVirtualToRealMover]]
 * [[ReturnResidueSubsetSelector|ResidueSelectors]]
 * [[CloseContactResidueSelector|ResidueSelectors]]] identifies residues that have (any) atoms within a certain distance cutoff (usually neighbor detection depends on CB for speed)
-* [[PartialThreadMover]] (now faster)
 * [[UnsatSelector|ResidueSelectors]]
 * [[NeighborhoodResidueSelector|ResidueSelectors]]
 * [[BridgeChainsMover]]
@@ -64,7 +61,6 @@ Rosetta's Ramachandran scoring code has been greatly refactored.  The software n
 
 ####Miscellaneous
 * Transform mover in ligand docking (bugfixes)
-* [[ThermalSamplingMover]]
 * JD2 MPIWorkPartitionJobDistributor (the better MPI choice for small MPI runs) splits jobs in a way that's more efficient for restarted runs
 * Changes to Dunbrack library binary format caching.  As a consequence, do not install Rosetta 3.8 over an existing installation; you will want this library to be rebuilt on first run.
 * mmCIF input and output
@@ -80,8 +76,8 @@ Rosetta's Ramachandran scoring code has been greatly refactored.  The software n
 * The [[simple_cycpep_predict]] application has had various bugfixes, and now supports quasi-symmetric sampling for peptides with cN or cN/m symmetries.
 * [[CycpepSymmetryFilter]] Filters based on whether a peptide has a desired cyclic (c2, c3, c4, etc.) or mirror cyclic (c2/m, c4/m, c6/m, etc.) symmetry.
 * [[PeptideCyclizeMover]] bugfixes
-* GlycanRelax
- * [[LinkageConformerMover]]
+* Glycans:
+ * Updates to [[GlycanRelax]], and new methods for handling connectivity of branched glycans (GlycanTree)
 * RNA
 
 <!--- END_INTERNAL -->
