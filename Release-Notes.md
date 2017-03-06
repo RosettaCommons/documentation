@@ -6,7 +6,7 @@
 _(This section in italics should remain hidden from the public wiki.)_
 
 * _N-methylated amino acids likely to end up here_ (VKM)
-* "Best practices" movers, such as the AddHelixSequenceConstraints mover, should likely end up here. (VKM)
+* _"Best practices" movers, such as the AddHelixSequenceConstraints mover, should likely end up here. (VKM)_
 
 ## _Rosetta 3.8 internal notes_
 * These notes were drafted for http://test.rosettacommons.org/revision?id=132&branch=release; there is a problem in that release and we will be waiting until at least 134.
@@ -58,6 +58,7 @@ Rosetta's Ramachandran scoring code has been greatly refactored.  The software n
 * [[HelixPairingFilter]]
 * [[Disulfidize|DisulfidizeMover]] updated for noncanonical disulfide-forming moieties
 * [[GeneralizedKIC]] gains options for symmetric sampling
+* The Backrub-ensemble interface ddG protocol has been exposed via RosettaScripts.
 
 ####Miscellaneous
 * Transform mover in ligand docking (bugfixes)
