@@ -35,7 +35,7 @@ Rosetta's Ramachandran scoring code has been greatly refactored.  The software n
 
 ###New or updated features
 ####RosettaScripts tools
-* [[ScoreTermValueBasedSelector]]
+* [[ScoreTermValueBasedSelector|ResidueSelectors#other_scoretermvaluebased]]
 * [[SecondaryStructureFilter]]
 * [[LoopLengthChangeMover]]
 * [[AddConstraintsToCurrentConformationMover]]
