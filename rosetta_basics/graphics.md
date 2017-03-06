@@ -27,11 +27,5 @@ Then using scons, specify graphics as extras:
 `./scons.py bin/rosetta_scripts.graphics.linuxgccrelease mode=release extras=graphics -j 2`
 
 #### In Mac OS X
-The new version of Mac (at least the newer version of the glut library) has depcreated some GL commands. To by pass compilation errors/warnings you need to modify:
-`tools/build/basic.settings`
-to include
-`"Wno-error=deprecated-declarations"`
-in clang -> appends -> warn
-
-Then using scons, specify graphics as extras.
+Specify graphics as extras.
 `./scons.py bin/rosetta_scripts.graphic.macosclangrelease mode=release extras=graphics -j2`
