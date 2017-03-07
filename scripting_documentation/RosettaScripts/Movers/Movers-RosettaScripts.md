@@ -416,10 +416,9 @@ See Also: [[Antibody TaskOperations | TaskOperations-RosettaScripts#antibody-and
 
 
 ## Carbohydrate-specific Movers
-
-**[[GlycanRelaxMover]]** - Glycosylate poses with glycan trees.
-  
-**[[SimpleGlycosylateMover]]** - Glycosylate poses with glycan trees. 
+**[[GlycanTreeRelax]]** - Model Glycans using a tree-based algorithm for denovo structure prediction or refinement.
+**[[GlycanRelaxMover]]** - Simple algorithm to sample glycan torsions using structural data and optimize structures via minimization and packing.
+**[[SimpleGlycosylateMover]]** - Glycosylate poses with glycan trees, such as man5 or man9 or other complex trees. 
 
 
 ## Computational 'affinity maturation' movers
