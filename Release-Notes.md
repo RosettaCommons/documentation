@@ -44,6 +44,8 @@ Rosetta's Ramachandran scoring code has been greatly refactored.  The software n
 * [[LoopLengthChangeMover]]
 * [[AddConstraintsToCurrentConformationMover]]
 * [[ReturnResidueSubsetSelector|ResidueSelectors]]
+* [[ConvertRealToVirtualMover]] Convert residues to _virtual_, which are not scored or output.
+* [[ConvertVirtualToRealMover]] Convert virtual residues back to real ones.
 * [[CloseContactResidueSelector|ResidueSelectors]]] identifies residues that have (any) atoms within a certain distance cutoff (usually neighbor detection depends on CB for speed)
 * [[UnsatSelector|ResidueSelectors]]
 * [[NeighborhoodResidueSelector|ResidueSelectors]] uses the neighbor-graph by default to greatly speed-up calculations
@@ -62,6 +64,9 @@ Rosetta's Ramachandran scoring code has been greatly refactored.  The software n
 * [[HelixPairingFilter]]
 * [[Disulfidize|DisulfidizeMover]] updated for noncanonical disulfide-forming moieties
 * [[GeneralizedKIC]] gains options for symmetric sampling
+* [[GlycanResidueSelector]] Select glycan residues
+* [[GlycanPositionSelector]] Select specific glycan residues in trees
+* [[RandomGlycanFoliageSelector]] Randomly select glycan foliage for modeling
 * The Backrub-ensemble interface ddG protocol has been exposed via RosettaScripts.
 
 ####Miscellaneous
