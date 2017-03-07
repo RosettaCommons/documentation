@@ -34,100 +34,29 @@ See [[Working With Glycans | WorkingWithGlycans ]] for more.
 Details
 =======
 
-```
-/// @brief A mover for glycosylation of biological glycosylations.
-///  Currently glysolylation is done based on string, not from PDB.
-///  Use GlycanRelax to model the resulting glycosylation!.
-///
-/// @details
-///  Single Glycosylation:
-///    If a single glycosylation is passed, it will glycosylate all positions set with this glycan.
-///
-///  Multiple Glycosylations:
-///    If multiple glycosylations are passed, will randomly select from these on apply to sample glycan hetergenecity.
-///
-///  The site should be ASN for N-linked glycosylations OR SER/THR for O-linked glycosylations
-///    If a glycan already exists, will strip off the current glycan by default.
-///
-///  Will randomly select from set positions and glycosylate all positions set.
-///
-///  Glycosylations:
-///    1) If your name ends with .iupac or .gws (GlycoWorkBench), will try to load the file
-///
-///    2) Next, it will check the short names in the Rosetta database for your string.
-///       If the string is in common_names.txt, will load the paired iupac sequence.
-///       See database/chemical/carbohydrates/common_glycans/common_names.txt for accepted short names.
-///     Names include man3, man5, and man9.
-///
-///    3)
-///      If the name is not found, will attempt to build the glycan as an iupac sequence from the string.
-```
+[[include:mover_SimpleGlycosylateMover_type]]
 
-<!--- BEGIN_INTERNAL -->
-
-
-Usage
-=====
-
-```
-<SimpleGlycosylateMover glycosylation="man5" positions="10A,15B,200"/>
-```
-
-
-### Required Settings
-
-```
-glycosylation &string
-glycosylations &string,&string,&string
-  desc = Set the glycosylation(s) (short name or IUPAC or file with IUPAC)
-         See database/chemical/carbohydrates/common_glycans for common names.
-         Names include man3, man5, and man9.
-
-position &string
-positions &string,&string,&string
-  desc = Set the position(s) we will be glycosylating.  PDB (10A) or pose (1-N) numbering just like the rest of RosettaScripts.
-
-MoveMap &mm
-  desc = Alternative way of specifiying which residues we will be glycosylating.
-
-
-```
-
-### Options
-
-```
-ref_pose_name &name
-  desc = Set a specific refpose name to use. Useful if trimming protein as well as building up or down glycans.
-  
-strip_existing &bool
-  default = true
-  desc = Strip the existing glycan off if already in teh position requested.
-         If this is false, we will skip this position instead of stripping it.
- 
-idealize_glycosylation &bool
-  default = false
-  desc = Idealize the carbohydrate backbone torsion angles after glycosylation? 
-         Not that this is NOT garanteed to produce good structures, this is just a starting point.
-         You will still want to use GlycanRelaxMover or something else to model the glycans.
-          
-```
-
-
-
-<!--- END_INTERNAL -->
 
 ## See Also
 - [[WorkingWithGlycans]]
 
-- ### Apps
- - [[GlycanRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
+- ### RosettaCarbohydrate Apps and Components
+ - ### Movers
+ - [[GlycanTreeRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
+ - [[GlycanRelaxMover]] - Used in GlycanTreeRelax for sampling carbohydrate torsions and side-chains from structural data.
+ - [[GlycanTreeMinMover]] - A version of the MinMover that randomly optimizes glycan foliage.
+
+- ### Residue Selectors
+ - [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
+ - [[GlycanTreeSelector]] - Select individual glcyan trees or all of them
+ - [[GlycanLayerSelecotr]] - Select glycan layers
+ - [[GlycanPositionSelector]] - Select specific glycan postions, independant of PDB or Rosetta numbering.
+ - [[RandomGlycanFoliageSelector]] - Randomly select a set of glycan residues 
+
+- ### Applications
  - [[GlycanInfo]] - Get information on all glycan trees within a pose
  - [[GlcyanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
-- ### RS Components
- - [[GlycanRelaxMover]] - Glycosylate poses with glycan trees.  
- - [[GlycanTreeSelector]] - Select individual glcyan trees or all of them
- - [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
 
 - ### Other
  - [[Application Documentation]]: List of Rosetta applications
