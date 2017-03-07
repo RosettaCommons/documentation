@@ -1,85 +1,42 @@
 GlycanResidueSelector
-=====================
+==================
 
-Metadata
+MetaData
 ========
 
-Authors: Dr. Jared Adolf-Bryfogle (jadolfbr@gmail.com), Dr. Sebastian Rämisch(raemisch@scripps.com), and Dr. Jason W. Labonte (JWLabonte@jhu.edu)
+Authors: Dr. Jared Adolf-Bryfogle (jadolfbr@gmail.com), Dr. Jason Labonte (JWLabonte@jhu.edu), and Dr. Sebastian Rämisch (raemisch@scripps.edu)
 
-PIs: Dr. Jeff Gray and Dr. William Schief
+PIs: Dr. William Schief (schief@scripps.edu) and Dr. Jeffrey Gray (jgray@jhu.edu)
 
-
-
-Description
-===========
-
-Selects parts of all glycan trees.  Combine a OrResidueSelector or a NotResidueSelector with the [[GlycanTreeSelector]] to work with specific glycan trees.  Currently in development.
-Use the [[GlycanInfo]] app to get more information on the 'glycan position' of specific residues of interest.
-
-<!--- BEGIN_INTERNAL -->
+This is still an in-development, unnpublished selector.  If you use this in your publication, please email the authors!
 
 
-Details:
-========
-
-A Residue Selector for selecting specific parts of arbitrary glycans.
-
-- Lets assume that the ASN that a particular N-linked Glycan is attached to, starts from Residue 0. The residues off this continue with 1 being the next residue, 2, and so on.  Each branch corresponds to a number.
-
-- The GlycanResidueSelector takes multiple settings giving real residues corresponding to this 'Glycan Position'
-
-- This allows you to choose parts of the glycan, without knowing the actual glycan residue numbers.  For example, maybe you want to select the outer leaflet of all glycans (from_position).
 
 
-Tips For use
-============
-- This Selector works on all glycans of the pose individually.
+[include:mover_GlycanResidueSelector_type]]
 
-- Settings are:
-
- - range
- - positions
- - from_position (All glycan foliage from this and including this residue.)
- - to_position (All glycan foliage up to and including this residue.)
-
-- Use the ```glycan_info``` application to determine the glycan position numbers. Combine with the GlycanTreeSelector to get unions of specific glycans (such as the leaf of all Man5 residues or the stem of the glycan that starts at ASN85.)
-
-Usage
-=====
-
-``` 
-    <GlycanResidueSelector name="(&string)" from_position="3"/>
-```
-
-_position_ &string
-
-_positions_ &string,&string&string
-- Set a specific set of glycan positions to select on. 
-
-_to_position_ &Size
-- Set a glycan position to select up to (including this position)
-  
-_from_position_ &Size
-- Set a glycan position to select from (including this position)
-  
-_range_ &string
-
-_ranges_ &string,&string,&string
-- Set a range or list of ranges for which to select glycan positions. Range is specified with a '-', like: 2-5
-
-<!--- END_INTERNAL -->
 
 ## See Also
 - [[WorkingWithGlycans]]
 
-- ### RosettaScript Components
- - [[GlycanRelaxMover]] - Glycosylate poses with glycan trees.  
- - [[GlycanTreeSelector]] - Select specific residues of each glycan tree of interest.
+- ### RosettaCarbohydrate Apps and Components
+ - ### Movers
+ - [[GlycanTreeRelax]] - The optimal way to model glycan trees.  Uses GlycanRelax internally.
+ - [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees such as man5, man9, or other complex trees.  
+ - [[GlycanRelaxMover]] - Component used in GlycanTreeRelax to do the torsional and side-chain sampling.
+ - [[GlycanTreeMinMover]] - A version of the MinMover that randomly optimizes glycan foliage used in GlycanRelax.
 
-- ### Apps
- - [[GlycanRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
+- ### Residue Selectors
+ - [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
+ - [[GlycanTreeSelector]] - Select individual glcyan trees or all of them
+ - [[GlycanLayerSelecotr]] - Select glycan layers
+ - [[GlycanPositionSelector]] - Select specific glycan postions, independant of PDB or Rosetta numbering.
+ - [[RandomGlycanFoliageSelector]] - Randomly select a set of glycan residues 
+
+- ### Applications
  - [[GlycanInfo]] - Get information on all glycan trees within a pose
- - [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
+ - [[GlcyanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
+
 
 - ### Other
  - [[Application Documentation]]: List of Rosetta applications
