@@ -13,13 +13,17 @@ _(This section in italics should remain hidden from the public wiki.)_
 
 ## Rosetta 3.8
 ###New RosettaScripts XML
-The XML supporting RosettaScripts has been totally refactored.  Rosetta now validates input XML files against an "XML Schema", and can betters determine at the start of a run if all XML options are legal and functional.  The XML reader can now pinpoint errors much more specifically and offers more helpful error messages.  You can also get commandline help for XML-enabled classes with the -info flag; e.g. ```-info PackRotamersMover```.  A consequence of this refactoring is that pre-Rosetta3.8 XML scripts are usually no longer legal XML - we offer a tool to convert old style pseudoXML into the current format at tools/xsd_xrw/rewrite_rosetta_script.py (this is in the tools toplevel folder, not the main code folder).  The vast majority of classes have complete documentation; when you find one that does not, complain to (doc feedbacks email) and let us know!
+The XML supporting RosettaScripts has been totally refactored.  Rosetta now validates input XML files against an "XML Schema", and can better determine at the start of a run if all XML options are legal and functional.  The XML reader can now pinpoint errors much more specifically and offers more helpful error messages. 
+
+You can now also get commandline help for XML-enabled classes with the -info flag; e.g. ```-info PackRotamersMover``` and a blank, formatted template rosetta script by running the `rosetta_script` application without giving the `-parser:protocol` option.  
+
+A consequence of this refactoring is that pre-Rosetta3.8 XML scripts are usually no longer legal XML - we offer a tool to convert the old style, pseudo-XML into the current format at tools/xsd_xrw/rewrite_rosetta_script.py (this is in the tools toplevel folder, not the main code folder).  The vast majority of classes have complete documentation; when you find one that does not, complain to (doc feedbacks email) and let us know!
 
 ###JD3
-A new Job Distributor, JD3, is ready for use.  This is mostly invisible to end users, but will allow more complex protocols to be crafted a single commands instead of as multi-step instructions.  Look forward to cool JD3-enabled apps in future releases.
+A new Job Distributor, JD3, is ready for use.  This is mostly invisible to end users, but will allow more complex protocols to be crafted instead of as multi-step and multi-app instructions.  Look forward to cool JD3-enabled apps in future releases.
 
 ###support for more PDBs
-Although most improvements were in Rosetta3.7, we continue to improve the fraction of unmodified PDBs Rosetta can handle.  (Don't worry - we've always been able to handle canonical protein well - but we are doing an ever-improving job with strange stuff like the GFP fluorophore, chemically concatenated ligands, etc).
+Although most improvements were in Rosetta3.7, we continue to improve the fraction of unmodified PDBs Rosetta can handle.  (Don't worry - we've always been able to handle canonical protein well - but we are doing an ever-improving job with strange stuff like the GFP fluorophore, chemically concatenated ligands, glycans, RNA, etc).
 
 ###Cxx11 builds
 Rosetta turned on Cxx11 features in its C++.  This deprecates the compatibility of a lot of older compilers. See <https://www.rosettacommons.org/docs/latest/build_documentation/Cxx11Support> for more information.
@@ -42,7 +46,7 @@ Rosetta's Ramachandran scoring code has been greatly refactored.  The software n
 * [[ReturnResidueSubsetSelector|ResidueSelectors]]
 * [[CloseContactResidueSelector|ResidueSelectors]]] identifies residues that have (any) atoms within a certain distance cutoff (usually neighbor detection depends on CB for speed)
 * [[UnsatSelector|ResidueSelectors]]
-* [[NeighborhoodResidueSelector|ResidueSelectors]]
+* [[NeighborhoodResidueSelector|ResidueSelectors]] uses the neighbor-graph by default to greatly speed-up calculations
 * [[BridgeChainsMover]]
 * [[MutateResidue|MutateResidueMover]] gains ResidueSelector support
 * [[MakePolyXMover]] gains ResidueSelector support
@@ -67,10 +71,11 @@ Rosetta's Ramachandran scoring code has been greatly refactored.  The software n
 * mmCIF input and output
 * Bugfix for constraint files affecting the numbering of PDB-numbered residues from chain A
 * HELIX and SHEET record printing to PDBs (-out::file::output_secondary_structure)
+* LINK record printing to PDBS (-out::file::write_pdb_link_records)
 * Bugfix for resfiles with ligand docking
 * Relax: bugfix to -constrain_relax_to_native_coords
 * Code sanitizers and static analysis tools online (helps us write better, more error-proof code - should be invsible to the end-user)
-* Updated SQLite version to 3.16.2 from 3.7.4
+* Updated SQLite backend; version to 3.16.2 from 3.7.4
 * bugfixes for various not-specifically-supported compilers (gcc 5.4; gcc 6.2.0, clang 3.9.0, and ICC 14.0)
 
 ####Nonprotein chemistries
@@ -78,7 +83,7 @@ Rosetta's Ramachandran scoring code has been greatly refactored.  The software n
 * [[CycpepSymmetryFilter]] Filters based on whether a peptide has a desired cyclic (c2, c3, c4, etc.) or mirror cyclic (c2/m, c4/m, c6/m, etc.) symmetry.
 * [[PeptideCyclizeMover]] bugfixes
 * Glycans:
- * Updates to [[GlycanRelax]], and new methods for handling connectivity of branched glycans (GlycanTree)
+ * Updates to [[GlycanRelax]], and new methods for handling connectivity of branched glycans (GlycanTreeSet) - use with PyRosetta: `pose.glycan_tree_set()`
 
 <!--- BEGIN_INTERNAL -->
 
@@ -99,12 +104,13 @@ _3.7 will be Rosetta 2016.32, http://test.rosettacommons.org/revision?id=108&bra
 
 ### New and updated applications
 * [[ERRASER|erraser]] updated: improved support for residues that are not canonical RNA
-* [[GlycanRelax]] (see also [[WorkingWithGlycans]])
-* The RosettaAntibody protocol has been streamlined and is closer to being a single application instead of a constellation of scripts
+* [[GlycanRelax]] (see also [[WorkingWithGlycans]]). RosettaCarbohydrates paper [published](https://www.ncbi.nlm.nih.gov/pubmed/27900782]
+* The RosettaAntibody protocol has been streamlined and is closer to being a single application instead of a constellation of scripts.  New [paper outlining the functionality](https://www.ncbi.nlm.nih.gov/pubmed/28125104)
     * Support for L4/H4 (DE loop)
     * Support for camelid antibodies
     * identify_cdr_clusters tool
     * packing_angle tool
+
 * [[RosettaScripts]] now supports [[inclusion of script fragments in other scripts|RosettaScripts#options-available-in-the-xml-protocol-file_xml-file-inclusion]]
 * [[simple_cycpep_predict]] - design of cyclic peptides
 * [[FlexPepDock|flex-pep-dock]] - ligand compatibility
@@ -121,7 +127,7 @@ _3.7 will be Rosetta 2016.32, http://test.rosettacommons.org/revision?id=108&bra
 * "Spell checking" for options: suggestions for the desired option if the user's options are invalid
 * [[AACompositionEnergy]] takes fractional compositions in addition to counted-out compositions
 * New score term to penalize peptide sequences that form aspartimide
-* New script for setting up the [[pyrosetta]] environment
+* New script for setting up the [[pyrosetta]] environment, and the release of [PyRosetta-4](http://www.pyrosetta.org/news/pyrosetta-4released)
 
 ### Bugfixes
 
