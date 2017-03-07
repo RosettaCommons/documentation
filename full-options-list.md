@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-03-03
+Generated: 2017-03-07
 
 _Note that some application specific options may not be present in this list._
 
@@ -7246,10 +7246,12 @@ _Note that some application specific options may not be present in this list._
 <dd>output running score to this file [specify 'none' if no score output; .SCORES.txt in default]<br/>Default: ""<br/></dd>
 <dt><b>-output_score_frequency</b> \<Integer\></dt>
 <dd>output running score with this frequency [0 means no running output]<br/>Default: 0<br/></dd>
-<dt><b>-output_jump_res</b> \<IntegerVector\></dt>
+<dt><b>-output_jump_res</b> \<ResidueChainVector\></dt>
 <dd>output jump information for these two residues<br/></dd>
 <dt><b>-output_jump_o3p_to_o5p</b> \<Boolean\></dt>
 <dd>compute jump from o3' to o5' (instead of base centroid coordinate systems)<br/>Default: false<br/></dd>
+<dt><b>-output_jump_chainbreak</b> \<Boolean\></dt>
+<dd>compute jump from lower chainbreak triad to upper chainbreak triad; perfect overlapwill be (Vector(0.0), identity matrix). <br/>Default: false<br/></dd>
 <dt><b>-output_rotation_vector</b> \<Boolean\></dt>
 <dd>output rotation information as rotation vector (in degrees), not euler angles<br/>Default: false<br/></dd>
 <dt><b>-target_xyz</b> \<RealVector\></dt>
