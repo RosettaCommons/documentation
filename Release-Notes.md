@@ -104,7 +104,7 @@ _3.7 will be Rosetta 2016.32, http://test.rosettacommons.org/revision?id=108&bra
 
 ### New and updated applications
 * [[ERRASER|erraser]] updated: improved support for residues that are not canonical RNA
-* [[GlycanRelax]] (see also [[WorkingWithGlycans]]). RosettaCarbohydrates paper [published](https://www.ncbi.nlm.nih.gov/pubmed/27900782]
+* [[GlycanRelax]] (see also [[WorkingWithGlycans]]). RosettaCarbohydrates paper [published](https://www.ncbi.nlm.nih.gov/pubmed/27900782)
 * The RosettaAntibody protocol has been streamlined and is closer to being a single application instead of a constellation of scripts.  New [paper outlining the functionality](https://www.ncbi.nlm.nih.gov/pubmed/28125104)
     * Support for L4/H4 (DE loop)
     * Support for camelid antibodies
