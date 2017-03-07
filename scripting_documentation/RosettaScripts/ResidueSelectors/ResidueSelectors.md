@@ -206,9 +206,16 @@ Selects CDR residues in an antibody or camelid antibody.
 
 These Residue selectors use the underlying RosettaCarbohydrate Framework.
 
+##### [[GlycanResidueSelector]]
+
 ##### [[GlycanTreeSelector]]
 
-##### [[GlycanResidueSelector]]
+##### [[GlycanLayerSelector]]
+
+##### [[GlycanPositionSelector]]
+
+##### [[RandomGlycanFoliageSelector]]
+
 
 
 ### Conformation Dependent Residue Selectors
