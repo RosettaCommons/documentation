@@ -26,7 +26,8 @@ Details
 - [[WorkingWithGlycans]]
 
 - ### RosettaCarbohydrate Apps and Components
- - #### Movers
+
+- #### Movers
  - [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees such as man5, man9, or other complex trees.  
  - [[GlycanRelaxMover]] - Component used in GlycanTreeRelax to do the torsional and side-chain sampling.
  - [[GlycanTreeMinMover]] - A version of the MinMover that randomly optimizes glycan foliage used in GlycanRelax.
