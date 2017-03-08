@@ -26,24 +26,24 @@ Details
 - [[WorkingWithGlycans]]
 
 - ### RosettaCarbohydrate Apps and Components
- - ### Movers
+ - #### Movers
  - [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees such as man5, man9, or other complex trees.  
  - [[GlycanRelaxMover]] - Component used in GlycanTreeRelax to do the torsional and side-chain sampling.
  - [[GlycanTreeMinMover]] - A version of the MinMover that randomly optimizes glycan foliage used in GlycanRelax.
 
-- ### Residue Selectors
+- #### Residue Selectors
  - [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
  - [[GlycanTreeSelector]] - Select individual glcyan trees or all of them
  - [[GlycanLayerSelector]] - Select glycan layers
  - [[GlycanPositionSelector]] - Select specific glycan postions, independant of PDB or Rosetta numbering.
  - [[RandomGlycanFoliageSelector]] - Randomly select a set of glycan residues 
 
-- ### Applications
+- #### Applications
  - [[GlycanInfo]] - Get information on all glycan trees within a pose
  - [[GlcyanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
 
-- ### Other
+- #### Other
  - [[Application Documentation]]: List of Rosetta applications
  - [[Running Rosetta with options]]: Instructions for running Rosetta executables.
  - [[Comparing structures]]: Essay on comparing structures
