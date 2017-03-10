@@ -11,7 +11,7 @@ Main mover for Glycan Relax, which optimizes glycans in a pose. Each round optim
         pymol_movie="(false &bool;)" refine="(false &bool;)"
         pack_distance="(&real;)" cartmin="(false &bool;)"
         tree_based_min_pack="(true &bool;)" task_operations="(&string;)"
-        scorefxn="(&string;)" >
+        scorefxn="(&string;)" residue_selector="(&string;)" >
     <MoveMap name="(&string;)" bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
         <Jump number="(&non_negative_integer;)" setting="(&bool;)" />
         <Chain number="(&non_negative_integer;)" chi="(&bool;)" bb="(&bool;)" />
@@ -31,6 +31,7 @@ Main mover for Glycan Relax, which optimizes glycans in a pose. Each round optim
 -   **tree_based_min_pack**: Use Tree-based minimization and packing instead of minimizing and packing ALL residues each time we min.  Significantly impacts runtime.  If you are seeing crappy structures for a few sugars, turn this off.  This is default-on to decrease runtime for a large number of glycans.
 -   **task_operations**: A comma separated list of TaskOperations to use.
 -   **scorefxn**: Name of score function to use
+-   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
 
 
 Subtag **MoveMap**:   MoveMap specification

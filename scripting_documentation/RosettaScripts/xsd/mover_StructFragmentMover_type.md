@@ -19,14 +19,14 @@ Create fragments from a supplied pose.
 
 -   **small_frag_size**: Set the size of the small fragments
 -   **large_frag_size**: Set the size of the large fragments
--   **small_frag_file**: Path to input small fragment file
--   **large_frag_file**: Path to input large fragment file
+-   **small_frag_file**: Path to input small fragment file (requires large_frag_file too)
+-   **large_frag_file**: Path to input large fragment file (requires small_frag_file too)
 -   **output_frag_files**: Write fragment files
 -   **steal_small_frags**: Steal small fragments
 -   **steal_large_frags**: Steal large fragments
 -   **frag_weight_file**: Path to input weight file
 -   **sequence_profile**: Path to input sequence profile
--   **vall_file**: (REQUIRED) Path to vall file
+-   **vall_file**: Path to vall file (required when no fragment files are provided)
 -   **n_candidates**: Set the number of candidates
 -   **n_frags**: Set the number of fragments
 -   **prefix**: Prefix of output files

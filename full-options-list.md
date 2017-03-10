@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-03-07
+Generated: 2017-03-10
 
 _Note that some application specific options may not be present in this list._
 
@@ -778,6 +778,15 @@ _Note that some application specific options may not be present in this list._
 <dd>Specifiy weights for seeded ensemble.  Must match number of inputs.  See also: -seed_ensemble_weights_file<br/></dd>
 <dt><b>-seed_ensemble_weights_file</b> \<File\></dt>
 <dd>A file specifying weights to use for each input structure.  Two columns.  basename with extension (or relative path or full path), weight<br/></dd>
+</dl>
++ <h2>-view</h2>
+<dl>
+<dt><b>-view</b> \<Boolean\></dt>
+<dd>view option group<br/></dd>
+<dt><b>-show_virtual_residues</b> \<Boolean\></dt>
+<dd>Show virtual residues?<br/>Default: true<br/></dd>
+<dt><b>-single_glycan_color</b> \<Boolean\></dt>
+<dd>Show glycans as a single color instead of default<br/>Default: true<br/></dd>
 </dl>
 + <h2>-score</h2>
 <dl>
