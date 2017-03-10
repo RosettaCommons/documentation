@@ -373,21 +373,9 @@ The ```xi:include``` block is naïvely replaced with the contents of the file sp
 
 Note that file inclusion occurs recursively, so that included files may include other files.  Circular dependencies (<i>e.g.</i> file1.xml includes file2.xml includes file3.xml includes file1.xml) are prohibited, and will result in an error.  Multiple inclusions of the same file are permitted, however (though this would rarely be advisable).  Variable substitution occurs after file inclusion, which means that ```%%variable%%``` statements may occur in included files; however, this also means that ```xi:include``` blocks cannot contain ```%%variable%%``` statements.
 
-revert\_design\_to\_native application
-----------------------------------
+## Predefined RosettaScripts Objects
 
-This application is not yet strictly speaking part of RosettaScripts but is strongly related to the design purposes of RS. Work in ongoing to supersede this application with a more useful RS implementation. In the meantime here is an explanation.
-
-The application was described in:
-
-Fleishman et al. Science 332: 816. Here is the relevant excerpt:
-
-For each design that passed the abovementioned filters, the contribution of each amino-acid substitution at the interface is assessed by singly reverting residues to their wildtype identities and testing the effects of the reversion on the computed binding energy. If the difference in binding energy between the designed residue and the reverted one is less than 0.5R.e.u. in favor of the design, then the position is reverted to its wildtype identity. A Rosetta application to compute these values is available in the Rosetta release and is called revert\_design\_to\_native. A report of all residue changes was produced and each suggestion was reviewed manually.
-
-Usage: revert\_design\_to\_native -revert\_app:wt \<Native protein PDB\> -revert\_app:design \<Designed PDB\> -ex1 -ex2 -use\_input\_sc -database \<\> \> log
-
-Keep the log. At its end you'll find a summary of all mutations attempted and their significance for binding energy.
-
+For convenience, certain RosettaScripts objects are can be used without making a definition tag for them.
 
 ### Predefined Movers
 
@@ -409,7 +397,9 @@ Always returns false. Can be explicitly specified with the name "false\_filter".
 
 ### Predefined Scorefunctions
 
--   score12: The default all-atom scorefunction used by rosetta ab-initio and design
+-   talaris2014: The default all-atom scorefunction used by Rosetta structure prediction and design
+-   talaris2013: The previous version of talaris2014
+-   score12: The default scorefunction prior to talaris2013 (Requires -restore_pre_talaris_2013_behavior option on the command line.)
 -   score\_docking: high resolution docking scorefxn (standard+docking\_patch)
 -   score\_docking\_low: low resolution docking scorefxn (interchain\_cen)
 -   soft\_rep: soft\_rep\_design weights.
@@ -691,6 +681,21 @@ The SCORINGGRIDS block is used to define ligand scoring grids (currently used on
 -   VdwGrid: A knowledge based potential derived grid approximating shape complementarity
 -   HbdGrid: A knowledge based potential derived grid approximating protein hydrogen bond donor interactions
 -   HbaGrid: A knowledge based potential derived grid approximating protein hydrogen bond acceptor interactions
+
+revert\_design\_to\_native application
+----------------------------------
+
+This application is not yet strictly speaking part of RosettaScripts but is strongly related to the design purposes of RS. Work in ongoing to supersede this application with a more useful RS implementation. In the meantime here is an explanation.
+
+The application was described in:
+
+Fleishman et al. Science 332: 816. Here is the relevant excerpt:
+
+For each design that passed the abovementioned filters, the contribution of each amino-acid substitution at the interface is assessed by singly reverting residues to their wildtype identities and testing the effects of the reversion on the computed binding energy. If the difference in binding energy between the designed residue and the reverted one is less than 0.5R.e.u. in favor of the design, then the position is reverted to its wildtype identity. A Rosetta application to compute these values is available in the Rosetta release and is called revert\_design\_to\_native. A report of all residue changes was produced and each suggestion was reviewed manually.
+
+Usage: revert\_design\_to\_native -revert\_app:wt \<Native protein PDB\> -revert\_app:design \<Designed PDB\> -ex1 -ex2 -use\_input\_sc -database \<\> \> log
+
+Keep the log. At its end you'll find a summary of all mutations attempted and their significance for binding energy.
 
 
 ##See Also
