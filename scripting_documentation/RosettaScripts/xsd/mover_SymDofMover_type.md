@@ -13,9 +13,9 @@ Used to setup symmetric systems in which the input structures(s) are aligned alo
         flip_input_about_axes="(&type_for_axes_or_zero_cslist;)"
         align_input_axes_to_symdof_axes="(&type_for_axes_cslist;)"
         radial_disps="(&string;)" radial_offsets="(&string;)"
-        translation_axes="(&type_for_axes_cslist;)" angles="(&real_cslist;)"
+        translation_axes="(&type_for_axes_cslist;)" angles="(&string;)"
         rotation_axes="(&type_for_axes_cslist;)"
-        radial_disps_range_min="(&real;)" radial_disps_range_max="(&string;)"
+        radial_disps_range_min="(&string;)" radial_disps_range_max="(&string;)"
         angles_range_min="(&string;)" angles_range_max="(&string;)"
         angle_steps="(&string;)" radial_disp_steps="(&string;)"
         angle_deltas="(&string;)" radial_disp_deltas="(&string;)" />

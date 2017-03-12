@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-03-10
+Generated: 2017-03-12
 
 _Note that some application specific options may not be present in this list._
 
@@ -425,8 +425,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Level of Tracer output, any level above will be muted.  Availible levels: 0 - fatal, 100 - error, 200 - warning, 300 - info, 400 - debug, 500 - trace. For additional info please see: src/basic/Tracer.hh and doc page 'Tracer, tool for debug IO'. Default output level is 'info': 300<br/>Default: 300<br/></dd>
 <dt><b>-levels</b> \<StringVector\></dt>
 <dd>Specified hierarchical mute levels for individual channels in following format: -levels all:300 core.pose:500.  Numeric values could be substituted with mute level names like: debug, info, error etc.  Please note that all:<num> is synonymous to -level:<num><br/></dd>
-<dt><b>-std_IO_exit_error_code</b> \<Integer\></dt>
-<dd>Specify error code that will be used to exit if std::IO error detected.  This is useful if you want to detect situations like: Rosetta output was redirected to a file but the disk got full, etc.  Default value is 0 which means that error detection code is turned off.<br/>Default: 0<br/></dd>
+<dt><b>-no_color</b> \<Boolean\></dt>
+<dd>Suppress use of tracer color codes, which can appear as '^[[0m' in log files<br/>Default: false<br/></dd>
 <dt><b>-chname</b> \<Boolean\></dt>
 <dd>Add Tracer chanel names to output<br/>Default: true<br/></dd>
 <dt><b>-chtimestamp</b> \<Boolean\></dt>
@@ -435,6 +435,8 @@ _Note that some application specific options may not be present in this list._
 <dd>If set ComparingTracer will not generate any asserts, and save all Tracer output to a file<br/>Default: false<br/></dd>
 <dt><b>-mpi_tracer_to_file</b> \<String\></dt>
 <dd>MPI ONLY: Redirect all tracer output to this file with '_<mpi_rank>' appened as a suffix<br/>Default: "tracer.out"<br/></dd>
+<dt><b>-std_IO_exit_error_code</b> \<Integer\></dt>
+<dd>Specify error code that will be used to exit if std::IO error detected.  This is useful if you want to detect situations like: Rosetta output was redirected to a file but the disk got full, etc.  Default value is 0 which means that error detection code is turned off.<br/>Default: 0<br/></dd>
 <dt><b>-user_tag</b> \<String\></dt>
 <dd>add this tag to structure tags: e.g., a process id<br/>Default: ""<br/></dd>
 <dt><b>-output_tag</b> \<String\></dt>
