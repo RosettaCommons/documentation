@@ -179,6 +179,8 @@ These are movers that should be usable in most cases with most systems
 
 **[[AtomPairConstraintGenerator]]** - Generates distance constraints among residues in a subset
 
+**[[SegmentedAtomPairConstraintGenerator]]** - Generates differently specified distance constraints among residues in a range and between residues in different ranges.  
+
 **[[CoordinateConstraintGenerator]]** - Generates coordinate constraints for residues in a subset
 
 **[[DistanceConstraintGenerator]]** - Generates constraints to enforce a distance between residues in two subsets.
