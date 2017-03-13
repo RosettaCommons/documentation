@@ -55,7 +55,7 @@ Input Files
 See tests/integration/tests/FloppyTail/ for example usage. Basically all you need is an input structure.
 
 -   The code does not tolerate imperfections in the input PDB. Get rid of your heteroatoms, 0-occupancy regions, multiply-defined atoms, and waters beforehand.
--   The code does not add your extension for you. You need to add starting coordinates (however meaningless) for the flexible tail. I had it pointing straight out into space (as it is in the demo).
+-   The code does not add your extension for you. You need to add starting coordinates (however meaningless) for the flexible tail. I had it pointing straight out into space (as it is in the demo). Alternatively, there are PyRosetta scripts in scripts/pyrosetta/public/floppy_tail_utility/ that can update input conformations (disordered residues present) to be extended or append/prepend tails (adds the disordered residues for you).
 -   See the [[fragment file]] input format for an explanation of how to make fragments.
 -   See the [[constraint file]] input format for an explanation of constraint files.
 
