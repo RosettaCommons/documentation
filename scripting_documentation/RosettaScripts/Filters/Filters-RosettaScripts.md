@@ -152,6 +152,8 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[IRmsd|IRmsdFilter]]** - Filter based on backbone RMSD over residues in the interface.
 
+**[[RmsdFromResidueSelector|RmsdFromResidueSelectorFilter]]** - Similar to the [[Rmsd|RmsdFilter]]. It allows to provide **ResidueSelectors** for both the query and reference poses.
+
 **[[SequenceRecovery|SequenceRecoveryFilter]]** - Calculates the fraction sequence recovery of a pose compared to a reference pose. 
 
 ### Bonding
