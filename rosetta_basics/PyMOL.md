@@ -149,7 +149,7 @@ has a PyMOL\_Mover, all the options above can be set on its mover
 (called pymol) including keep\_history, link.udp\_ip, and
 update\_energy.
 
-` pyobs = PyMOL_Observer() pyobs.add_observer(pose) pyobs.pymol.update_energy=True`
+` pyobs = PyMOL_Observer() pyobs.add_observer(pose) pyobs.pymol().update_energy=True`
 
 ##See Also
 
