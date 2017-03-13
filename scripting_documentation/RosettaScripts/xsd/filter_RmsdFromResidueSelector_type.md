@@ -7,12 +7,13 @@ Filter based on the C-alpha RMSD to a reference structure. ResiduesSelectors can
 
 ```xml
 <RmsdFromResidueSelector name="(&string;)" CA_only="(1 &bool;)"
-        threshold="(5.000000 &real;)" reference_name="(&string;)"
-        reference_selector="(&string;)" query_selector="(&string;)"
-        confidence="(1.0 &real;)" />
+        use_gdt="(0 &bool;)" threshold="(5.000000 &real;)"
+        reference_name="(&string;)" reference_selector="(&string;)"
+        query_selector="(&string;)" confidence="(1.0 &real;)" />
 ```
 
--   **CA_only**: When selected, use only CA RMSD, otherwise backbone RMSD
+-   **CA_only**: When selected, use only CA RMSD
+-   **use_gdt**: When selected, use GDTm algorithm
 -   **threshold**: Threshold in RMSD above which the filter fails
 -   **reference_name**: Name of reference pose to use
 -   **reference_selector**: (REQUIRED) Selector specifying residues to take into account in the reference pose
