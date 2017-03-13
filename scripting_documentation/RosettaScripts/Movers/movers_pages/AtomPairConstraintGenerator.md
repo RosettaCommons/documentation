@@ -33,7 +33,7 @@ This example adds and removes distance constraints to sheet residues only, and u
 </PROTOCOLS>
 ```
 
-# Example 2
+### Example 2
 
 ```
 <RESIDUE_SELECTORS>
