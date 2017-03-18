@@ -1,0 +1,9 @@
+# Recommended TaskOperations for Design
+*Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
+## Recommended TaskOperations for Design
+
+When designing, there are certain recommended TaskOperations that one will typically want to use.  The table below provides advice from experienced designers on which TaskOperations to include by default, and why you would want to make sure that you include them.
+
+| **TaskOperation** | Recommended By (designer name and e-mail) | Best-use options | Reason(s) to Include this TaskOperation, and Caveats |
+|----|----|----|----|
+| [[ExtraRotamersGeneric|ExtraRotamersGenericOperation]] | Vikram K. Mulligan (vmullig@uw.edu) | ex1="true" ex2="true" | The default set of rotamers considered for each designable residue is often not perfectly suited for design.  Often, you'll want rotamers that deviate slightly from those that the packer is considering.  The **ex1** and **ex2** options allow a user to specify that for each rotamer, additional samples of chi1 and chi2 should be added.  For example, default sampling for leucine considers three values for chi1 and three values for chi2 (approximately -60, 60, and 180 degrees for each), for a combinatorial total of 9 rotamers per leucine residue. The **ex1** and **ex2** options add additional samples to each side of the existing samples, possibly allowing additional well-packed configurations to be found. Note though that activating additional rotamers increases the computational cost of a packer run, both in terms of memory and computational time, since many more rotamer combinations must be evaluated, but can possibly produce better-packed configurations. |
