@@ -7,3 +7,8 @@ When designing, there are certain recommended TaskOperations that one will typic
 | TaskOperation | Recommended by (designer name(s) and e-mail address(es)) | Best-use options | Reason(s) to Include this TaskOperation, and Caveats |
 |----|----|----|----|
 | [[ExtraRotamersGeneric|ExtraRotamersGenericOperation]] | Vikram K. Mulligan (vmullig@uw.edu) | **ex1="true"** **ex2="true"** | The default set of rotamers considered for each designable residue is often not perfectly suited for design.  Often, you'll want rotamers that deviate slightly from those that the packer is considering.  The **ex1** and **ex2** options allow a user to specify that for each rotamer, additional samples of chi1 and chi2 should be added.  For example, default sampling for leucine considers three values for chi1 and three values for chi2 (approximately -60, 60, and 180 degrees for each), for a combinatorial total of 9 rotamers per leucine residue. The **ex1** and **ex2** options add additional samples to each side of the existing samples, increasing the number of rotamers in the leucine case to 81, and possibly allowing additional well-packed configurations to be found. Note though that activating additional rotamers increases the computational cost of a packer run, both in terms of memory and computational time, since many more rotamer combinations must be evaluated, so for the largest design tasks, one may wish to omit this TaskOperation, but if considerations of computation time allow it, it should be included. |
+
+
+## See also
+* [[ExtraRotamersGeneric|ExtraRotamersGenericOperation]] Task Operation.
+* Extra rotamers options on the [[resfile syntax and conventions|resfiles]] page.
