@@ -6,6 +6,8 @@ TaskOperations are used by a TaskFactory to configure the behavior and create a 
 
 The PackerTask can be thought of as an ice sculpture.  By default, everything is able to pack AND design.  By using TaskOperations, or your set of chisels, one can limit packing/design to only certain residues.  As with ICE, once these residues are restricted, they generally cannot be turned back on.
 
+There exist certain commonly-used TaskOperations that one usually should include when designing.  For more information on these, please see the page on [[recommended TaskOperations for design|Recommended_Design_TaskOperations]].
+
 <code> For Developers </code> 
 
 This section defines instances of the TaskOperation class hierarchy when used in the context of the Parser/RosettaScripts. They become available in the DataMap.
@@ -229,6 +231,7 @@ See Also
 ========
 
 * [[RosettaScripts]]: The RosettaScripts home page
+* [[Recommended TaskOperations for design|Recommended_Design_TaskOperations]]
 * [[Conventions in RosettaScripts|RosettaScripts-Conventions]]
 * [[RosettaScripts Movers|Movers-RosettaScripts]]
 * [[RosettaScripts Filters|Filters-RosettaScripts]]
