@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-03-12
+Generated: 2017-03-18
 
 _Note that some application specific options may not be present in this list._
 
@@ -3025,6 +3025,8 @@ _Note that some application specific options may not be present in this list._
 <dl>
 <dt><b>-design</b> \<Boolean\></dt>
 <dd>design option group<br/></dd>
+<dt><b>-view</b> \<Boolean\></dt>
+<dd>Enable viewing of the antibody design run. Must have built using extras=graphics and run with antibody_designer.graphics executable<br/>Default: false<br/></dd>
 <dt><b>-base_cdr_instructions</b> \<String\></dt>
 <dd>The Default/Baseline instructions file. Should not need to be changed.<br/>Default: "/sampling/antibodies/design/default_instructions.txt"<br/></dd>
 <dt><b>-cdr_instructions</b> \<String\></dt>
@@ -3035,10 +3037,22 @@ _Note that some application specific options may not be present in this list._
 <dd>Force the use the Antibody Database with data from the North clustering paper.  This is included in Rosetta. If a newer antibody database is not found, we will use this. The full ab db is available at http://dunbrack2.fccc.edu/PyIgClassify/<br/>Default: false<br/></dd>
 <dt><b>-paper_ab_db_path</b> \<String\></dt>
 <dd>Path to the North paper ab_db path.  Only used if -paper_ab_db option is passed<br/>Default: "/sampling/antibodies/antibody_database_rosetta_design_north_paper.db"<br/></dd>
-<dt><b>-design_cdrs</b> \<StringVector\></dt>
-<dd>Design these CDRs in graft and sequence design steps.  Use to override instructions file<br/></dd>
+<dt><b>-seq_design_cdrs</b> \<StringVector\></dt>
+<dd>Enable these CDRs for Sequence-Design.  (Can be set here or in the instructions file. Overrides any set in instructions file if given)<br/></dd>
+<dt><b>-graft_design_cdrs</b> \<StringVector\></dt>
+<dd>Enable these CDRs for Graft-Design.  (Can be set here or in the instructions file. Overrides any set in instructions file if given)<br/></dd>
+<dt><b>-primary_cdrs</b> \<StringVector\></dt>
+<dd>Manually set the CDRs which can be chosen in the outer cycle. Normally, we pick any that are sequence-designing.<br/></dd>
+<dt><b>-mintype</b> \<String\></dt>
+<dd>The default mintype for all CDRs.  Individual CDRs may be set via the instructions file<br/>Default: "min"<br/></dd>
+<dt><b>-disallow_aa</b> \<StringVector\></dt>
+<dd>Disallow certain amino acids while sequence-designing (could still be in the graft-designed sequence, however).  Useful for optimizing without, for example, cysteines and prolines. Applies to all sequence design profiles and residues from any region (cdrs, framework, antigen).  You can control this per-cdr (or only for the CDRs) through the CDR-instruction file. A resfile is also accepted if you wish to limit specific positions directly.<br/></dd>
 <dt><b>-top_designs</b> \<Integer\></dt>
 <dd>Number of top designs to keep (ensemble).  These will be written to a PDB and each move onto the next step in the protocol.<br/>Default: 1<br/></dd>
+<dt><b>-high_mem_mode</b> \<Boolean\></dt>
+<dd>If false, we load the CDRSet (CDRs loaded from the database that could be grafted) on-the-fly for a CDR if it has more than 50 graft-design members.  If true, then we cache the CDRSet before the start of the protocol.  Typically, this will really only to come into play when designing all CDRs.  For de-novo design of 5/6 CDRs, without limiting the CDRSet in the instructions file, you will need 3-4 gb per process for this option.<br/>Default: false<br/></dd>
+<dt><b>-cdr_set_cache_limit</b> \<Integer\></dt>
+<dd>If high_mem_mode is false, this is the limit of CDRSet cacheing we do before we begin load them on-the-fly instead.  If high_mem_mode is true, then we ignore this setting.  If you have extremely low memory per-process, lower this number<br/>Default: 300<br/></dd>
 <dt><b>-design_protocol</b> \<String\></dt>
 <dd>Set the main protocol to use.  Note that deterministic is currently only available for the grafting of one CDR.<br/>Default: "even_cluster_mc"<br/></dd>
 <dt><b>-run_snugdock</b> \<Boolean\></dt>
@@ -3060,15 +3074,11 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-global_dihedral_cst_scoring</b> \<Boolean\></dt>
 <dd>Use the dihedral cst score throughout the protocol, including final scoring of the poses instead of just during minimization step<br/>Default: false<br/></dd>
 <dt><b>-global_atom_pair_cst_scoring</b> \<Boolean\></dt>
-<dd>Use the atom pair cst score throughout the protocol, including final scoring of the poses instead of just during docking. Typically, the scoreterm is set to zero for scorefxns other than docking to decrease bias via loop lengths, relax, etc.  It may indeed help to target a particular epitope quicker during monte carlo design if epitope constraints are in use, as well for filtering final models on score towards a particular epitope if docking.<br/>Default: false<br/></dd>
+<dd>Use the atom pair cst score throughout the protocol, including final scoring of the poses instead of just during docking. Typically, the scoreterm is set to zero for scorefxns other than docking to decrease bias via loop lengths, relax, etc.  It may indeed help to target a particular epitope quicker during monte carlo design if epitope constraints are in use, as well for filtering final models on score towards a particular epitope if docking.<br/>Default: true<br/></dd>
 <dt><b>-do_dock</b> \<Boolean\></dt>
-<dd>Run a short lowres + highres docking step after each graft and before any minimization. Inner/Outer loops for highres are hard coded, while low-res can be changed through regular low_res options.  If sequence design is enabled, will design regions/CDRs set during the high-res dock. Recommended to <br/>Default: false<br/></dd>
-<dt><b>-do_rb_min</b> \<Boolean\></dt>
-<dd>Minimize the ab-ag interface post graft and any docking/cdr min by minimizing the jump<br/>Default: false<br/></dd>
-<dt><b>-dock_min_dock</b> \<Boolean\></dt>
-<dd>Do Dock -> Min -> Dock instead of Dock->Min where you would otherwise want 2 cycles. Must already be passing do_dock<br/>Default: false<br/></dd>
+<dd>Run a short lowres + highres docking step in the inner cycles.  (dock/min).  Recommended 2 inner cycles for better coverage. (dock/min/dock/min). Inner/Outer loops for highres are hard coded, while low-res can be changed through regular low_res options.  If sequence design is enabled, will design regions/CDRs set during the high-res dock. Recommended to <br/>Default: false<br/></dd>
 <dt><b>-outer_cycle_rounds</b> \<Integer\></dt>
-<dd>Rounds for outer loop of the protocol (not for deterministic_graft ).  Each round chooses a CDR and designs. One run of 100 cycles with relax takes about 12 hours.				  If you decrease this number, you will decrease your run time significantly, but your final decoys will be higher energy.  Make sure to increase the total number of output 				  structures (nstruct) if you use lower than this number.  Typically about 500 - 1000 nstruct is more than sufficient.  Full DeNovo design will require significantly more rounds 				  and nstruct.  If you are docking, runs take about 30 percent longer.<br/>Default: 100<br/></dd>
+<dd>Rounds for outer loop of the protocol (not for deterministic_graft ).  Each round chooses a CDR and designs. One run of 100 cycles with relax takes about 12 hours.				  If you decrease this number, you will decrease your run time significantly, but your final decoys will be higher energy.  Make sure to increase the total number of output 				  structures (nstruct) if you use lower than this number.  Typically about 500 - 1000 nstruct is more than sufficient.  Full DeNovo design will require significantly more rounds 				  and nstruct.  If you are docking, runs take about 30 percent longer.<br/>Default: 25<br/></dd>
 <dt><b>-inner_cycle_rounds</b> \<Integer\></dt>
 <dd>Number of times to run the inner minimization protocol after each graft.  Higher (2-3) rounds recommended for pack/min/backrub mintypes or if including dock in the protocol.<br/>Default: 1<br/></dd>
 <dt><b>-dock_cycle_rounds</b> \<Integer\></dt>
@@ -3101,14 +3111,12 @@ _Note that some application specific options may not be present in this list._
 <dd>Value for probabilistic -> conservative sequence design switch.  If number of total sequences used for probabilistic design for a particular cdr cluster being designed is less than this value, conservative design will occur. More data = better predictability.<br/>Default: 10<br/></dd>
 <dt><b>-seq_design_profile_samples</b> \<Integer\></dt>
 <dd>If designing using profiles, this is the number of times the profile is sampled each time packing done.  Increase this number to increase variability of designs - especially if not using relax as the mintype.<br/>Default: 1<br/></dd>
-<dt><b>-use_light_chain_type</b> \<Boolean\></dt>
-<dd>Use the light chain type, lambda or kappa IF given via option -antibody:light_chain.  This limits any aspect of the design protocol to use only data and cdrs for the given antibody type.  It (will) also add lambda vs kappa optimization steps such as L4 optimization.  Extremely useful for denovo design as lambda/kappa mixing can result in lower stability and non-expression of designs.  Failed mixed designs would then require manual framework mutations, framework switching, or other optimizations for succes.  Use PyIgClassify (see docs) to identify your framework as lambda or kappa.  Switch this to false or do not pass the -light_chain option to increase sampling with a greater risk of failed designs.<br/>Default: true<br/></dd>
 <dt><b>-idealize_graft_cdrs</b> \<Boolean\></dt>
-<dd>Idealize the CDR before grafting.  May help or hinder.  Still testing.<br/>Default: false<br/></dd>
+<dd>Idealize the CDR before grafting.  May help or hinder. <br/>Default: false<br/></dd>
 <dt><b>-add_backrub_pivots</b> \<StringVector\></dt>
 <dd>Additional backrub pivot residues if running backrub as the MinType. PDB Numbering. Optional insertion code. Example: 1A 1B 1B:A.  Can also specify ranges: 1A-10:A.  Note no spaces in the range.<br/></dd>
 <dt><b>-inner_kt</b> \<Real\></dt>
-<dd>KT used in the inner min monte carlo after each graft.<br/>Default: 2.0<br/></dd>
+<dd>KT used in the inner min monte carlo after each graft.<br/>Default: 1.0<br/></dd>
 <dt><b>-outer_kt</b> \<Real\></dt>
 <dd>KT used for the outer graft Monte Carlo.  Each graft step will use this value<br/>Default: 1.0<br/></dd>
 <dt><b>-random_start</b> \<Boolean\></dt>
@@ -7126,6 +7134,8 @@ _Note that some application specific options may not be present in this list._
 <dd>RNA sec struct in old 1D notation: H,helix; L,loop; X,unknown; N,bulge<br/>Default: ""<br/></dd>
 <dt><b>-lores_scorefxn</b> \<String\></dt>
 <dd>Low resolution scorefunction weights file<br/>Default: "farna/rna_lores.wts"<br/></dd>
+<dt><b>-set_lores_weights</b> \<StringVector\></dt>
+<dd>Modification to lores scorefxnweights via the command line. Applied in ScoreFunctionFactory::create_score_function inside the function apply_user_defined_reweighting_. Format is a list of paired strings: -set_lores_weights <score_type1> <setting1> <score_type2> <setting2> ...<br/>Default: []<br/></dd>
 <dt><b>-params_file</b> \<String\></dt>
 <dd>Input file for pairings [deprecated!]<br/>Default: "default.prm"<br/></dd>
 <dt><b>-filter_lores_base_pairs</b> \<Boolean\></dt>
@@ -7265,6 +7275,8 @@ _Note that some application specific options may not be present in this list._
 <dd>compute jump from lower chainbreak triad to upper chainbreak triad; perfect overlapwill be (Vector(0.0), identity matrix). <br/>Default: false<br/></dd>
 <dt><b>-output_rotation_vector</b> \<Boolean\></dt>
 <dd>output rotation information as rotation vector (in degrees), not euler angles<br/>Default: false<br/></dd>
+<dt><b>-output_jump_reference_RT</b> \<String\></dt>
+<dd>output jump information relative to this rigid body transformation [if empty provided, code will error out but give reference RT for -native or -align_pdb]<br/>Default: ""<br/></dd>
 <dt><b>-target_xyz</b> \<RealVector\></dt>
 <dd>Target coordinates for harmonic penalty, o5' relative to o3' stub<br/>Default: []<br/></dd>
 <dt><b>-save_jump_histogram</b> \<Boolean\></dt>

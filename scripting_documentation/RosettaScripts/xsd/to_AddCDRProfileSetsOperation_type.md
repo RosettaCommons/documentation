@@ -8,8 +8,7 @@ XRW TO DO
 ```xml
 <AddCDRProfileSetsOperation name="(&string;)" cdrs="(&string;)"
         limit_only_to_length="(false &bool;)"
-        force_north_paper_db="(false &bool;)"
-        use_light_chain_type="(true &bool;)" use_outliers="(false &bool;)"
+        force_north_paper_db="(false &bool;)" use_outliers="(false &bool;)"
         add_to_current="(false &bool;)" include_native_restype="(true &bool;)"
         picking_rounds="(1 &non_negative_integer;)"
         cutoff="(10 &non_negative_integer;)" input_ab_scheme="(&string;)"
@@ -19,7 +18,6 @@ XRW TO DO
 -   **cdrs**: XRW TO DO
 -   **limit_only_to_length**: XRW TO DO
 -   **force_north_paper_db**: XRW TO DO
--   **use_light_chain_type**: XRW TO DO
 -   **use_outliers**: XRW TO DO
 -   **add_to_current**: XRW TO DO
 -   **include_native_restype**: XRW TO DO

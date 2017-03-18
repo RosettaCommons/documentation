@@ -9,21 +9,21 @@ Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework. Runs the
 <AntibodyDesignMover name="(&string;)" min_scorefxn="(&string;)"
         atom_pair_cst_weight="(&real;)" dihedral_cst_weight="(&real;)"
         global_atom_pair_cst_scoring="(&bool;)" scorefxn="(&string;)"
-        global_dihedral_cst_scoring="(&bool;)"
-        design_cdrs="(&ABcdr_definitions;)" instruction_file="(&string;)"
+        global_dihedral_cst_scoring="(&bool;)" seq_design_cdrs="(&string;)"
+        graft_design_cdrs="(&string;)" primary_cdrs="(&string;)"
+        mintype="(&string;)" instruction_file="(&string;)"
         instructions_file="(&string;)" cdr_instructions_file="(&string;)"
-        design_protocol="(GENERALIZED_MONTE_CARLO &ABdesign_protocols;)"
+        design_protocol="(EVEN_CLUSTER_MC &ABdesign_protocols;)"
         interface_dis="(&real;)" neighbor_dis="(&real;)"
         outer_cycles="(&non_negative_integer;)"
         inner_cycles="(&non_negative_integer;)" outer_kt="(&real;)"
         inner_kt="(&real;)" top_designs="(&non_negative_integer;)"
-        do_dock="(&bool;)" do_rb_min="(&bool;)"
-        dock_cycles="(&non_negative_integer;)" dock_min_dock="(&bool;)"
-        benchmark="(&bool;)" use_light_chain_type="(&bool;)"
-        adapt_graft="(&bool;)" enable_adapt_graft_cartesian="(&bool;)"
-        idealize_graft_cdrs="(&bool;)" add_graft_log_to_pdb="(&bool;)"
-        mutate_framework_for_cluster="(&bool;)" use_epitope_csts="(&bool;)"
-        epitope_residues="(&string;)" paratope_cdrs="(&string;)" />
+        do_dock="(&bool;)" dock_cycles="(&non_negative_integer;)"
+        random_start="(&bool;)" adapt_graft="(&bool;)"
+        enable_adapt_graft_cartesian="(&bool;)" idealize_graft_cdrs="(&bool;)"
+        add_graft_log_to_pdb="(&bool;)" mutate_framework_for_cluster="(&bool;)"
+        use_epitope_csts="(&bool;)" epitope_residues="(&string;)"
+        paratope_cdrs="(&string;)" />
 ```
 
 -   **min_scorefxn**: Name of score function to use for minimization
@@ -32,7 +32,14 @@ Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework. Runs the
 -   **global_atom_pair_cst_scoring**: Use atom pair constraints in the antibody design minimization score function?
 -   **scorefxn**: Name of score function to use
 -   **global_dihedral_cst_scoring**: Score dihedral constraints to use in the global antibody design score function?
--   **design_cdrs**: CDR regions to be designed
+-   **seq_design_cdrs**: CDR regions to be Sequence-Designed
+-   **graft_design_cdrs**: CDR regions to be Graft-Designed
+-   **primary_cdrs**: Manually set the CDRs which can be chosen in the outer cycle. 
+These should be on for either Sequence-Design or Graft-Design. 
+Normally, the outer cycles are whatever CDRs we are designing, including CDRs which are sequence-design only.  
+Use this if you are primarily interested in specific CDRs (such as graft-designing H3 and allowing H1 and L3 to sequence design during the inner cycle.)
+-   **mintype**: Set the mintype for all designign CDRs.  Can be set individually in the CDR instructions file. 
+ Understood Options: legal = [min, cartmin, relax, backrub, pack, dualspace_relax, cen_relax, none]
 -   **instruction_file**: Path to the CDR instruction file (see application documentation for format)
 -   **instructions_file**: used if instruction_file attribute is not specified
 -   **cdr_instructions_file**: used if instructions_file attribute is not specified
@@ -45,11 +52,8 @@ Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework. Runs the
 -   **inner_kt**: Temperature to use for inner cycle
 -   **top_designs**: Number of top designs to keep
 -   **do_dock**: Run RosettaDock during the inner cycles? Significantly increases run time
--   **do_rb_min**: Perform rigid body minimization during the inner cycles?
 -   **dock_cycles**: Change the number of time the dock protocol is run
--   **dock_min_dock**: Perform a quick high resolution dock after minimization?
--   **benchmark**: Start with random CDRs from the antibody design database for any undergoing GraftDesign
--   **use_light_chain_type**: Type of light chain to use when selecting CDR set
+-   **random_start**: Start with random CDRs from the antibody design database for any undergoing GraftDesign
 -   **adapt_graft**: Adapt graft closure?
 -   **enable_adapt_graft_cartesian**: Use cartesian minimization in adapt graft
 -   **idealize_graft_cdrs**: Idealize graft before inserting?
