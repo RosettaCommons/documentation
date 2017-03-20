@@ -43,7 +43,7 @@ For each loop in the pose, a database is queried using the loop's torsion space 
 
 ## Caveats
 
-Note that this TaskOperation is intended for canonical design only.  It will not properly disallow noncanonicals (if they have been turned on with other task operations); nor will DSSP work properly with non-canonical secondary structure types (_e.g._ the left-handed helices formed by  D-amino acids).
+Note that this TaskOperation is intended for canonical design only.  It will not properly disallow noncanonicals (if they have been turned on with other task operations); nor will DSSP work properly with noncanonical secondary structure types (_e.g._ the left-handed helices formed by  D-amino acids).
 
 ##See Also
 
