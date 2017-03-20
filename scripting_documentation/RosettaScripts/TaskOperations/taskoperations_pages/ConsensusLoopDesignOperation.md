@@ -29,6 +29,7 @@ For each loop in the pose, a database is queried using the loop's torsion space 
 
 **Example**  This example runs fast design with consensus loop sequences for one loop (residues 7-9).
 
+```xml
     <RESIDUE_SELECTORS>
         <Index name="loop1" resnums="7-9" />
     </RESIDUE_SELECTORS>
@@ -38,7 +39,11 @@ For each loop in the pose, a database is queried using the loop's torsion space 
     <MOVERS>
         <FastDesign name="design" task_operations="disallow_nonnative_loop_sequences" />
     </MOVERS>
+```
 
+## Caveats
+
+Note that this TaskOperation is intended for canonical design only.  It will not properly disallow noncanonicals (if they have been turned on with other task operations); nor will DSSP work properly with non-canonical secondary structure types (_e.g._ the left-handed helices formed by  D-amino acids).
 
 ##See Also
 
