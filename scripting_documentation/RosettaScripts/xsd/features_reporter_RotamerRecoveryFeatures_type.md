@@ -9,7 +9,7 @@ report rotamer recover features and scores to features Statistics Scientific Ben
 <RotamerRecoveryFeatures name="(&string;)" scorefxn="(&string;)"
         mover_name="(&string;)" mover="(&string;)" reference_name="(&string;)"
         protocol="(RRProtocolMinPack &string;)" nonideal="(&bool;)"
-        cartesian="(&bool;)" comparer="(&string;)" recovery_threshold="(&bool;)"
+        cartesian="(&bool;)" comparer="(&string;)" recovery_threshold="(&real;)"
         task_operations="(&string;)" predicted_features_reporter="(&string;)" />
 ```
 
