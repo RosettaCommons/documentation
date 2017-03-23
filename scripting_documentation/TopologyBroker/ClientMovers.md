@@ -126,9 +126,41 @@ The `Stage` subtag is used to add movers to particular substages of *ab initio*,
 
 Stages can be skipped by providing the "skip_stages" option with values "1", "2", "3", or "4" (or multiple stages separated by commas). 
 
-The "Fragments" subtag is a macro used to add the appropriate ClassicFragmentMovers. Because three such movers exist (large fragments, normal insertion of small fragments, smooth insertion of small fragments) it is laborious to define all of these movers individually and add them to the appropriate stages using the usual API. This macro has the options "large" for 9-mer fragment files, "small" for 3-mer fragment files, and allows "selector" to set the ResidueSelector used to define the region of insertion. The 3-mer fragments loop fractions are also used to set cut biases used by the Broker to automatically place cuts (if necessary).
-
 Scoring at each of the four stages is modified by the `-abinitio::stage1_patch`, `-abinitio::stage2_patch`, `-abinitio::stage3_patch`, and `-abinitio::stage4_patch` flags.
+
+
+### Fragments Subtag
+
+The `Fragments` subtag is a macro used to add the appropriate ClassicFragmentMovers. Because three such movers exist (large fragments, normal insertion of small fragments, smooth insertion of small fragments) it is laborious to define all of these movers individually and add them to the appropriate stages using the usual API. This macro has the options `large` for 9-mer fragment files, `small` for 3-mer fragment files, and allows `selector` to set the ResidueSelector used to define the region of insertion. The 3-mer fragments loop fractions are also used to set cut biases used by the Broker to automatically place cuts (if necessary).
+
+In other words, the code
+```xml
+<AbscriptMover name="abinitio" cycles="2" >
+    <Fragments large_frags="frag9.dat" small_frags="frag3.dat" />
+</AbscriptMover>
+```
+
+is roughly equivalent to the following:
+
+```xml
+<FragmentCM name="frag-large" frag_type="classic" fragments="frag9.dat" />
+<FragmentCM name="frag-small" frag_type="classic" fragments="frag3.dat" yield_cut_bias=true />
+<FragmentCM name="frag-smooth" frag_type="smooth" fragments="frag3.dat" />
+
+<AbscriptMover name="abinitio" cycles="2" >
+  <Stage ids="I-IIIb">
+    <Mover name="frag-large" />
+  </Stage>
+  <Stage ids="IVa">
+    <Mover name="frag-small" />
+  </Stage>
+  <Stage ids="IVb" >
+    <Mover name="frag-smooth" />
+  </Stage>
+</AbscriptMover>
+```
+
+The macro is implemented in `AbscriptMover::add_frags`.
 
 # ScriptCM
 
