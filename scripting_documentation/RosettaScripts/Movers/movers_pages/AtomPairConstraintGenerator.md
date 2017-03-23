@@ -17,7 +17,7 @@ This example adds and removes distance constraints to sheet residues only, and u
 
 ```
 <RESIDUE_SELECTORS>
-    <SecondaryStructureSelector name="sheet" ss="E" use_dssp="1" />
+    <SecondaryStructure name="sheet" ss="E" use_dssp="1" />
 </RESIDUE_SELECTORS>
 <MOVERS>
     <AddConstraints name="add_csts" >
@@ -37,8 +37,8 @@ This example adds and removes distance constraints to sheet residues only, and u
 
 ```
 <RESIDUE_SELECTORS>
-    <SecondaryStructureSelector name="sheet" ss="E" use_dssp="1" />
-    <SecondaryStructureSelector name="alpha" ss="H" use_dssp="1" />
+    <SecondaryStructure name="sheet" ss="E" use_dssp="1" />
+    <SecondaryStructure name="alpha" ss="H" use_dssp="1" />
 </RESIDUE_SELECTORS>
 <MOVERS>
     <AddConstraints name="add_csts" >
