@@ -120,9 +120,9 @@ The AbscriptMover is a special mover container that is used to replicate the sta
 </AbscriptMover>
 ```
 
-Here, the cycles tag is equivalent to the "-run:increase_cycles" flag in standard _ab initio_, multiplying the number of _ab initio_ cycles by that factor. This is important to think about because the number of fragment insertions is a fixed number, and will not automatically increase with increasing protein size. Values between 2 and 10 are recommended depending upon the difficulty of the protein and availability of processor time.
+Here, the cycles tag is equivalent to the `-run:increase_cycles` flag in standard _ab initio_, multiplying the number of _ab initio_ cycles by that factor. This is important to think about because the number of fragment insertions is a fixed number, and will not automatically increase with increasing protein size. Values between 2 and 10 are recommended depending upon the difficulty of the protein and availability of processor time.
 
-The "Stage" subtag is used to add movers to particular substages of *ab initio*, which given by the "id" option. Legal values are I, II, IIIa, IIIb, IVa, and IVb, and ranges are possible. Multiple Stage subtags are also possible. Stage III alternates between IIIa and IIIb and stage IV alternates between IVa and IVb. The "Mover" subtag of "Stage" names a mover with the "name" option (previously defined) to add.
+The `Stage` subtag is used to add movers to particular substages of *ab initio*, which given by the "id" option. Legal values are `I`, `II`, `IIIa`, `IIIb`, `IVa`, and `IVb`, and ranges are possible. Multiple Stage subtags are also possible. Stage III alternates between IIIa and IIIb and stage IV alternates between IVa and IVb. The "Mover" subtag of "Stage" names a mover with the "name" option (previously defined) to add.
 
 Stages can be skipped by providing the "skip_stages" option with values "1", "2", "3", or "4" (or multiple stages separated by commas). 
 
