@@ -7,7 +7,7 @@ By default, the broker is configured not to accept movers that are not ClientMov
 # UniformRigidBodyCM
 The UniformRigidBodyCM is a mover that interfaces between the broker and the UniformRigidBodyMover docking mover. The UniformRigidBodyMover expects a jump number but, for convenience, the UniformRigidBodyCM accepts ResidueSelectors or virtual residue names. For example,
 
-```
+```xml
 <UniformRigidBodyCM name="rigid" mobile="com_A" stationary="com_B" />
 ```
 
@@ -17,11 +17,11 @@ creates a UniformRigidBodyMover named 'rigid' that docks 'com_A' to 'com_B'. If 
 # FragmentCM
 The FragmentCM does standard fragment insertion in a targeted region. A FragmentCM instantiation looks like:
 
-```
-<FragmentCM name="chA_large" frag_type="classic" fragments="frags9A" selector="ChainA" />
+```xml
+<FragmentCM name="chA_large" frag_type="classic" fragments="frags9A" selector="ChainA" initialize=true />
 ```
 
-Here, the FragmentCM with the name "chA_large" is instantiated using the fragments in the [[fragment file]] "frags9A" and told to insert those fragments using the "classic" policy (_c.f._ "smooth" insertion policy) in the region given by the ResidueSelector 'ChainA'. The option "initialize" can be used to set if the mover inserts a fragment at every position after broking is completed (useful during *ab initio* to start the structure off) or not. The option "nfrags" can be provided if there are a nonstandard number of fragments per position (default is 25)
+Here, the FragmentCM with the name "chA_large" is instantiated using the fragments in the [[fragment file]] "frags9A" and told to insert those fragments using the "classic" policy (_c.f._ "smooth" insertion policy) in the region given by the ResidueSelector 'ChainA'. The option `initialize` can be used to set if the mover inserts a fragment at every position after broking is completed (useful during *ab initio* to start the structure off) or not. The option `nfrags` can be provided if there are a nonstandard number of fragments per position (default is 25). The option `yield_cut_bias` is used to indicate that this CM should use the loop fraction of the fragments to tell the broker which segments should have cuts in them.
 
 The `fragments` and `selector` options are required. The `frag_type` tag defaults to classic.
 
@@ -31,7 +31,7 @@ The `fragments` and `selector` options are required. The `frag_type` tag default
 
 The FragmentJumpCM inserts beta-strand/beta-strand rigid-body translations into jumps between (predicted) adjacent beta-strands. An instantiation of this ClientMover looks like:
 
-```
+```xml
 <FragmentJumpCM name="jumps" topol_file="beta_sheets.top" /> 
 ```
 
@@ -46,7 +46,7 @@ The valid option sets for this ClientMover are:
 
 The LoopCM builds one of the following four movers: LoopMover_Perturb_KIC, LoopMover_Refine_KIC, LoopMover_Perturb_CCD, LoopMover_Refine_CCD. The algorithm is given by `algorithm` tag ("CCD" or "KIC") the form is given by the "style" tag ("refine" or "perturb"). An example follows.
 
-```
+```xml
 <LoopCM name="kic_refine" style="refine" algorithm="kic" selector="loop1" />
 ```
 
@@ -56,7 +56,7 @@ The `selector` tag references a ResidueSelector, which is used to determine the 
 
 The RigidChunkCM holds a particular region of the pose constant (fixed to the coordinates in a given .pdb file) and prevents those torsional angles from being sampled by other movers. An example use:
 
-```
+```xml
 <RigidChunkCM name="chunk" 
               template="1uufA.pdb" region_selector="template_selector"
               selector="simulation_selector" />
@@ -78,7 +78,7 @@ To further complicate matters, regions do not need to be contiguous. A region ca
 
 Sometimes, it's useful to apply a mover to the template just after it's loaded in. For example, given a full-atom PDB, we'd sometimes like to convert it to a centroid representation for *ab initio*-style simulations (this avoids problems with differing numbers of atoms in the template and simulation). Here, a SwitchResidueTypeSetMover is applied to the template before the template is used to set internal degrees of freedom in the simulation.
 
-```
+```xml
 <SwitchResidueTypeSetMover name="centroid" set="centroid" />
 <RigidChunkCM name="chunk" region_file="core.rigid" template="template.pdb" apply_to_template="centroid" />
 ```
@@ -87,7 +87,7 @@ Multiple movers can be separated by commas. Thus `apply_to_template="centroid,fu
 
 # CoMTrackerCM
 
-```
+```xml
 <CoMTrackerCM name=(&string) mobile_selector=(&string) />
 ```
 
@@ -96,7 +96,7 @@ The CoMTrackerCM creates a virtual residue that tracks a particular set of atoms
 # AbscriptLoopCloserCM
 The AbscriptLoopCloserCM uses the WidthFirstSlidingWindowLoopCloser (used in _ab initio_ to close unphysical chainbreaks) to fix loops. An example instantiation is:
 
-```
+```xml
 <AbscriptLoopCloserCM name="closer" fragments="frag3.dat" />
 ```
 
@@ -108,7 +108,7 @@ It can also be supplied a specific score function to use during closure with the
 
 The AbscriptMover is a special mover container that is used to replicate the state of _ab initio_ in early 2014. An example instantiation is
 
-```
+```xml
 <AbscriptMover name="abinitio" cycles=2 >
  <Fragments large_frags="frag9.dat" small_frags="frag3.dat" />
  <Stage ids="I-IVb" >
@@ -166,7 +166,7 @@ The macro is implemented in `AbscriptMover::add_frags`.
 
 The ScriptCM is the most flexible of the ClientMover. It operates by dynamically instantiating ClientMovers and [[EnvClaim]]s as the user describes in the RosettaScript. The following example creates a mover that minimizes a jump between two residue selections built by ResidueSelectors named "ChainA" and one named "ChainB":
 
-```
+```xml
 <ScriptCM name="SideChainMin" >
   <MinMover />
   <JumpClaim position1="ChainA" position2="ChainB" control_strength="MUST_CONTROL" />
