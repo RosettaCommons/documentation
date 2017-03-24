@@ -1,4 +1,4 @@
-### Overview
+## Overview
 
 This page is to collect benchmark results of various Rosetta protocols by running with beta_nov15 energy function. The main aim is to check improvements or degradation in scientific performance before we switch our default energy function from talaris2014 to beta_nov15. Please make sure the items below are properly described when you contribute here:
 
@@ -11,7 +11,7 @@ This page is to collect benchmark results of various Rosetta protocols by runnin
 
 Please refer to http://www.tablesgenerator.com/markdown_tables to make/edit tables. Also, if anyone has better idea on the format, please give a suggestion to Hahnbeom Park (hahnbeom@uw.edu).
 
-## Structure Prediction
+### Structure Prediction
 
 | Title              | Who    | Description      | Ref. | Metric       | HigherBetter? | Talaris2014 | BetaNov15 | App/Mover      | Rosetta V. |
 |--------------------|--------|------------------|------|--------------|---------------|-------------|-----------|----------------|------------|
@@ -28,13 +28,13 @@ Please refer to http://www.tablesgenerator.com/markdown_tables to make/edit tabl
 | Title              | Who    | Description      | Ref. | Metric       | HigherBetter? | Talaris2014 | BetaNov15 | App/Mover      | Rosetta V. |
 |--------------------|--------|------------------|------|--------------|---------------|-------------|-----------|----------------|------------|
 
-## Etc
+### Etc
 
 | Title              | Who    | Description      | Ref. | Metric       | HigherBetter? | Talaris2014 | BetaNov15 | App/Mover      | Rosetta V. |
 |--------------------|--------|------------------|------|--------------|---------------|-------------|-----------|----------------|------------|
 
 
-## References
+### References
 1. H Park et al, Simultaneous optimization of biomolecular energy function on features from small molecules and macromolecules, JCTC 2016.
 
 ## See Also
