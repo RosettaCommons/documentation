@@ -12,7 +12,7 @@ This page is to collect benchmark results of various Rosetta protocols by runnin
 If anyone has better idea on the format, please give a suggestion to Hahnbeom Park (hahnbeom@uw.edu).
 
 {| 
-class="wikitable"
+| class="wikitable"
 |-
 ! Header 1
 ! Header 2
