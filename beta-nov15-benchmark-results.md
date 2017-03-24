@@ -6,25 +6,25 @@ Please refer to http://www.tablesgenerator.com/markdown_tables to make/edit tabl
 
 ### Structure Prediction
 
-| Title  | Who    | Description| Metric | Higher? | Talaris2014 | BetaNov15 | App/Mover      | Ref. |Rosetta V. |
-|--------|--------|------------|--------|---------|-------------|-----------|----------------|------|-----------|
-| Rotamer, core      | H Park | CADRES     | Success rate | yes           |             |           | RTmin          | |            |
-| Rotamer, interface | H Park | CADRES     | Success rate | yes           |             |           | RTmin          | |            |
-| Decoy, Mike        | H Park | CADRES     | Boltzmann P  | yes           | 0.538       | 0.600     | Relax, dual    |1|           |
-| Decoy, Patrick     | H Park | CADRES     | Boltzmann P  | yes           | 0.606       | 0.699     | Relax, dual    |1|           |
-| PPdock, ZDOCK      | H Park | CADRES     | Boltzmann P  | yes           | 0.712       | 0.779     | Relax, torsion |1|          |
-| HomologyModeling   | H Park | 67 CAMEO targets | GDT-HA       | yes           | 63.9        | 65.1      | Hybridize|1|      |            |
-| LoopModeling   | H Park |  | Boltzmann P | yes |   |   | NGK |1|            |
+| Title  | Who    | Description| Metric | Talaris2014 | BetaNov15 | Sign? |App/Mover| Ref. |Rosetta V. |
+|--------|--------|------------|--------|-------------|-----------|-------|---------|------|-----------|
+| Rotamer, core      | H Park | CADRES     | Success rate |              |           | |RTmin          | |      |
+| Rotamer, interface | H Park | CADRES     | Success rate |              |           | |RTmin          | |      |
+| Decoy, Mike        | H Park | CADRES     | Boltzmann P  |  0.538       | 0.600     | |Relax, dual    |1|      |
+| Decoy, Patrick     | H Park | CADRES     | Boltzmann P  |  0.606       | 0.699     | |Relax, dual    |1|      |
+| PPdock, ZDOCK      | H Park | CADRES     | Boltzmann P  |  0.712       | 0.779     | |Relax, torsion |1|      |
+| HomologyModeling   | H Park | 67 CAMEO targets | GDT-HA |  63.9        | 65.1      | |Hybridize      |1|      |
+| LoopModeling       | H Park |  | Boltzmann P | yes |   |   | NGK |2|            |
 
 ### Design
 
-| Title  | Who    | Description| Metric | Higher? | Talaris2014 | BetaNov15 | App/Mover      | Ref. |Rosetta V. |
-|--------|--------|------------|--------|---------|-------------|-----------|----------------|------|-----------|
+| Title  | Who    | Description| Metric | Talaris2014 | BetaNov15 | Sign? |App/Mover| Ref. |Rosetta V. |
+|--------|--------|------------|--------|-------------|-----------|-------|---------|------|-----------|
 
 ### Etc
 
-| Title  | Who    | Description| Metric | Higher? | Talaris2014 | BetaNov15 | App/Mover      | Ref. |Rosetta V. |
-|--------|--------|------------|--------|---------|-------------|-----------|----------------|------|-----------|
+| Title  | Who    | Description| Metric | Talaris2014 | BetaNov15 | Sign? |App/Mover| Ref. |Rosetta V. |
+|--------|--------|------------|--------|-------------|-----------|-------|---------|------|-----------|
 
 ### References
 1. H Park et al, Simultaneous optimization of biomolecular energy function on features from small molecules and macromolecules, JCTC 2016.
