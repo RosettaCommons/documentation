@@ -11,7 +11,7 @@ This page is to collect benchmark results of various Rosetta protocols by runnin
 
 Please refer to http://www.tablesgenerator.com/markdown_tables to make/edit tables. Also, if anyone has better idea on the format, please give a suggestion to Hahnbeom Park (hahnbeom@uw.edu).
 
-== Structure Prediction ==
+## Structure Prediction
 
 | Title              | Who    | Description      | Ref. | Metric       | HigherBetter? | Talaris2014 | BetaNov15 | App/Mover      | Rosetta V. |
 |--------------------|--------|------------------|------|--------------|---------------|-------------|-----------|----------------|------------|
@@ -21,16 +21,22 @@ Please refer to http://www.tablesgenerator.com/markdown_tables to make/edit tabl
 | Decoy, Patrick     | H Park | CADRES           | 1    | Boltzmann P  | yes           | 0.606       | 0.699     | Relax, dual    |            |
 | PPdock, ZDOCK      | H Park | CADRES           | 1    | Boltzmann P  | yes           | 0.712       | 0.779     | Relax, torsion |            |
 | HomologyModeling   | H Park | 67 CAMEO targets | 1    | GDT-HA       | yes           | 63.9        | 65.1      | Hybridize      |            |
+| Check   | H Park | 67 CAMEO targets | 1    | GDT-HA       | yes           | 63.9        | 65.1      | Hybridize      |            |
 
-== Design ==
+## Design
+
+| Title              | Who    | Description      | Ref. | Metric       | HigherBetter? | Talaris2014 | BetaNov15 | App/Mover      | Rosetta V. |
+|--------------------|--------|------------------|------|--------------|---------------|-------------|-----------|----------------|------------|
+
+## Etc
 
 | Title              | Who    | Description      | Ref. | Metric       | HigherBetter? | Talaris2014 | BetaNov15 | App/Mover      | Rosetta V. |
 |--------------------|--------|------------------|------|--------------|---------------|-------------|-----------|----------------|------------|
 
-== Etc ==
 
-| Title              | Who    | Description      | Ref. | Metric       | HigherBetter? | Talaris2014 | BetaNov15 | App/Mover      | Rosetta V. |
-|--------------------|--------|------------------|------|--------------|---------------|-------------|-----------|----------------|------------|
-##See Also
+## References
+
+
+## See Also
 
 * [[Updates-beta-nov15]]
