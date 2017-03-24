@@ -6,13 +6,13 @@ Please refer to http://www.tablesgenerator.com/markdown_tables to make/edit tabl
 
 ### Structure Prediction
 
-| Title              | Who    | Description      | Ref. | Metric       | HigherBetter? | Talaris2014 | BetaNov15 | App/Mover      | Rosetta V. |
-|--------------------|--------|------------------|------|--------------|---------------|-------------|-----------|----------------|------------|
-| Rotamer, core      | H Park | CADRES           |      | Success rate | yes           |             |           | RTmin          |            |
-| Rotamer, interface | H Park | CADRES           |      | Success rate | yes           |             |           | RTmin          |            |
-| Decoy, Mike        | H Park | CADRES           | 1    | Boltzmann P  | yes           | 0.538       | 0.600     | Relax, dual    |            |
-| Decoy, Patrick     | H Park | CADRES           | 1    | Boltzmann P  | yes           | 0.606       | 0.699     | Relax, dual    |            |
-| PPdock, ZDOCK      | H Park | CADRES           | 1    | Boltzmann P  | yes           | 0.712       | 0.779     | Relax, torsion |            |
+| Title              | Who    | Description| Ref. | Metric       | HigherBetter? | Talaris2014 | BetaNov15 | App/Mover      | Rosetta V. |
+|--------------------|--------|------------|------|--------------|---------------|-------------|-----------|----------------|------------|
+| Rotamer, core      | H Park | CADRES     |      | Success rate | yes           |             |           | RTmin          |            |
+| Rotamer, interface | H Park | CADRES     |      | Success rate | yes           |             |           | RTmin          |            |
+| Decoy, Mike        | H Park | CADRES     | 1    | Boltzmann P  | yes           | 0.538       | 0.600     | Relax, dual    |            |
+| Decoy, Patrick     | H Park | CADRES     | 1    | Boltzmann P  | yes           | 0.606       | 0.699     | Relax, dual    |            |
+| PPdock, ZDOCK      | H Park | CADRES     | 1    | Boltzmann P  | yes           | 0.712       | 0.779     | Relax, torsion |            |
 | HomologyModeling   | H Park | 67 CAMEO targets | 1    | GDT-HA       | yes           | 63.9        | 65.1      | Hybridize      |            |
 | LoopModeling   | H Park |  | 2    | Boltzmann P | yes |   |   | NGK |            |
 
