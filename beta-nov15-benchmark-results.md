@@ -28,7 +28,7 @@ Please refer to http://www.tablesgenerator.com/markdown_tables to make/edit tabl
 | Title              | Who    | Description      | Ref. | Metric       | HigherBetter? | Talaris2014 | BetaNov15 | App/Mover      | Rosetta V. |
 |--------------------|--------|------------------|------|--------------|---------------|-------------|-----------|----------------|------------|
 
-### Etc
+## Etc
 
 | Title              | Who    | Description      | Ref. | Metric       | HigherBetter? | Talaris2014 | BetaNov15 | App/Mover      | Rosetta V. |
 |--------------------|--------|------------------|------|--------------|---------------|-------------|-----------|----------------|------------|
