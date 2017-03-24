@@ -1,13 +1,6 @@
 ## Overview
 
-This page is to collect benchmark results of various Rosetta protocols by running with beta_nov15 energy function. The main aim is to check improvements or degradation in scientific performance before we switch our default energy function from talaris2014 to beta_nov15. Please make sure the items below are properly described when you contribute here:
-
-* Title
-* Who ran it (Person/Lab)
-* Brief explanation/aim of the protocol or reference
-* Metrics for both beta_nov15 & talaris2014
-* Description of the metric(s) you are using (at least whether higher/lower is the better)
-* Rosetta cmdline or mover in RosettaScripts
+This page is where developers can collect benchmark results for various Rosetta protocols with beta_nov15 energy function. The main aim is to check any improvements or degradations in scientific performances before we switch our default energy function from talaris2014 to beta_nov15. Please make sure the items below are properly described when you contribute here.
 
 Please refer to http://www.tablesgenerator.com/markdown_tables to make/edit tables. Also, if anyone has better idea on the format, please give a suggestion to Hahnbeom Park (hahnbeom@uw.edu).
 
