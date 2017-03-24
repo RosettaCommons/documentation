@@ -8,13 +8,13 @@ Please refer to http://www.tablesgenerator.com/markdown_tables to make/edit tabl
 
 | Title  | Who    | Description| Metric | Talaris2014 | BetaNov15 | Sign? |App/Mover| Ref. |Rosetta V. |
 |--------|--------|------------|--------|-------------|-----------|-------|---------|------|-----------|
-| Rotamer, core      | H Park | CADRES     | Success rate |              |           | |RTmin          | |      |
-| Rotamer, interface | H Park | CADRES     | Success rate |              |           | |RTmin          | |      |
-| Decoy, Mike        | H Park | CADRES     | Boltzmann P  |  0.538       | 0.600     | |Relax, dual    |1|      |
-| Decoy, Patrick     | H Park | CADRES     | Boltzmann P  |  0.606       | 0.699     | |Relax, dual    |1|      |
-| PPdock, ZDOCK      | H Park | CADRES     | Boltzmann P  |  0.712       | 0.779     | |Relax, torsion |1|      |
-| HomologyModeling   | H Park | 67 CAMEO targets | GDT-HA |  63.9        | 65.1      | |Hybridize      |1|      |
-| LoopModeling       | H Park |  | Boltzmann P | yes |   |   | NGK |2|            |
+| Rotamer, core      | H Park | CADRES     | Success rate |              |           |+|RTmin          | |      |
+| Rotamer, interface | H Park | CADRES     | Success rate |              |           |+|RTmin          | |      |
+| Decoy, Mike        | H Park | CADRES     | Boltzmann P  |  0.538       | 0.600     |+|Relax, dual    |1|      |
+| Decoy, Patrick     | H Park | CADRES     | Boltzmann P  |  0.606       | 0.699     |+|Relax, dual    |1|      |
+| PPdock, ZDOCK      | H Park | CADRES     | Boltzmann P  |  0.712       | 0.779     |+|Relax, torsion |1|      |
+| HomologyModeling   | H Park | 67 CAMEO targets | GDT-HA |  63.9        | 65.1      |+|Hybridize      |1|      |
+| LoopModeling       | H Park |  | Boltzmann P | |   |+| NGK |2|            |
 
 ### Design
 
