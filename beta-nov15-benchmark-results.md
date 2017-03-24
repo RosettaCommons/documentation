@@ -14,7 +14,7 @@ Please refer to http://www.tablesgenerator.com/markdown_tables to make/edit tabl
 | Decoy, Patrick     | H Park | CADRES           | 1    | Boltzmann P  | yes           | 0.606       | 0.699     | Relax, dual    |            |
 | PPdock, ZDOCK      | H Park | CADRES           | 1    | Boltzmann P  | yes           | 0.712       | 0.779     | Relax, torsion |            |
 | HomologyModeling   | H Park | 67 CAMEO targets | 1    | GDT-HA       | yes           | 63.9        | 65.1      | Hybridize      |            |
-| Check   | H Park | 67 CAMEO targets | 1    | GDT-HA       | yes           | 63.9        | 65.1      | Hybridize      |            |
+| LoopModeling   | H Park |  | 2    | Boltzmann P | yes |   |   | NGK |            |
 
 ### Design
 
@@ -29,6 +29,7 @@ Please refer to http://www.tablesgenerator.com/markdown_tables to make/edit tabl
 
 ### References
 1. H Park et al, Simultaneous optimization of biomolecular energy function on features from small molecules and macromolecules, JCTC 2016.
+2. Stein et al,
 
 ## See Also
 
