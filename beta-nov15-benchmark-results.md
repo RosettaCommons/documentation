@@ -14,112 +14,26 @@ This page is to collect benchmark results of various Rosetta protocols by runnin
 * Description of the metric(s) you are using (at least whether higher/lower is the better)
 * Rosetta cmdline or mover in RosettaScripts
 
-I'm keep failing on making tables here... Also, if anyone has better idea on the format, please give a suggestion to Hahnbeom Park (hahnbeom@uw.edu).
+Please refer to http://www.tablesgenerator.com/markdown_tables to make/edit tables. Also, if anyone has better idea on the format, please give a suggestion to Hahnbeom Park (hahnbeom@uw.edu).
 
 == Structure Prediction ==
+| Title              | Who           | Description      | Reference | NameOfMetric   | HigherBetter? | Talaris2014 | BetaNov15 | App/Mover      | Rosetta Version |
+|--------------------|---------------|------------------|-----------|----------------|---------------|-------------|-----------|----------------|-----------------|
+| Rotamer, core      | Hahnbeom Park | CADRES           |           | Success rate   | yes           |             |           | RTmin          |                 |
+| Rotamer, interface | Hahnbeom Park | CADRES           |           | Success rate   | yes           |             |           | RTmin          |                 |
+| Decoy, Mike        | Hahnbeom Park | CADRES           | Ref. 1    | Boltzmann Prob | yes           | 0.538       | 0.600     | Relax, dual    |                 |
+| Decoy, Patrick     | Hahnbeom Park | CADRES           | Ref .1    | Boltzmann Prob | yes           | 0.606       | 0.699     | Relax, dual    |                 |
+| PPdock, ZDOCK      | Hahnbeom Park | CADRES           | Ref .1    | Boltzmann Prob | yes           | 0.712       | 0.779     | Relax, torsion |                 |
+| HomologyModeling   | Hahnbeom Park | 67 CAMEO targets | Ref .1    | Model1 GDT-HA  | yes           | 63.9        | 65.1      | Hybridize      |                 |
 
-{| border="1" cellspacing="0" cellpadding="5"
-! align="left" width="250px" | Name
-! Title
-! Who
-! Description
-! Reference
-! Name of Metric
-! Higher the Better? 
-! talaris2014
-! beta_nov15
-! App or Mover
-! Rosetta version (opt.)
-|-
-| **Monomeric decoy discrimination 1**
-| Hahnbeom Park
-| https://wiki.rosettacommons.org/index.php/Benchmark_datasheets_-_Decoy_discrimination
-| H Park et al, JCTC 2016
-| Boltzmann-weighted probability
-| Y
-| 0.538
-| 0.600
-| relax, dualmode
-| 
-|-
-| **Monomeric decoy discrimination 2**
-| Hahnbeom Park
-| https://wiki.rosettacommons.org/index.php/Benchmark_datasheets_-_Decoy_discrimination
-| H Park et al, JCTC 2016
-| Boltzmann-weighted probability
-| Y
-| 0.606
-| 0.669
-| relax, dualmode
-| 
-|-
-| **Protein-protein docking**
-| Hahnbeom Park
-| https://wiki.rosettacommons.org/index.php/Benchmark_datasheets_-_Docking
-| H Park et al, JCTC 2016
-| Boltzmann-weighted probability
-| Y
-| 0.712
-| 0.779
-| relax, torsion only
-| 
-|-
-| **Homology modeling**
-| Hahnbeom Park
-| 67 recent CAMEO targets with medium-difficulty 
-| H Park et al, JCTC 2016
-| Model 1 average GDT-HA
-| Y
-| 63.9
-| 65.1
-| Hybridize
-| 
-|-
-|}
 
 == Design ==
-{| border="1" cellspacing="0" cellpadding="5"
-! align="left" width="250px" | Name
-! Title
-! Who
-! Description
-! Reference
-! Name of Metric
-! Higher the Better? 
-! talaris2014
-! beta_nov15
-! App or Mover
-! Rosetta version (opt.)
-|-
-| **Packer design**
-| Hahnbeom Park
-| Sequence design on whole monomeric structure using packer
-| H Park et al, JCTC 2016
-| Sequence recovery
-| Y
-| 38.9
-| 40.6
-| fixbb
-| 
-|-
-|}
+| Title              | Who           | Description      | Reference | NameOfMetric   | HigherBetter? | Talaris2014 | BetaNov15 | App/Mover      | Rosetta Version |
+|--------------------|---------------|------------------|-----------|----------------|---------------|-------------|-----------|----------------|-----------------|
 
-== Etc ==
-{| border="1" cellspacing="0" cellpadding="5"
-! align="left" width="250px" | Name
-! Title
-! Who
-! Description
-! Reference
-! Name of Metric
-! Higher the Better? 
-! talaris2014
-! beta_nov15
-! App or Mover
-! Rosetta version (opt.)
-|-
-|-
-|}
+== Etc. ==
+| Title              | Who           | Description      | Reference | NameOfMetric   | HigherBetter? | Talaris2014 | BetaNov15 | App/Mover      | Rosetta Version |
+|--------------------|---------------|------------------|-----------|----------------|---------------|-------------|-----------|----------------|-----------------|
 
 ##See Also
 
