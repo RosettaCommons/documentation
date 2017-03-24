@@ -4,6 +4,8 @@ An overview of this energy function optimization effort is available [[here|Over
 
 For information on the previous set of updates to this score function, see the beta july15 score function page [[here|Updates beta july15]].
 
+For benchmark results of protocols, see [[here|beta_nov15_benchmark_results]].
+
 ### Using the beta_nov15 energy function parameters
 
 For most protocols (those that use _getScoreFunction_ to set the protocol score function), the flag **-beta_nov15** will load this version of the beta energy function.
