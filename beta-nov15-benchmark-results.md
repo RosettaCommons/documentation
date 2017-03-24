@@ -35,7 +35,7 @@ Please refer to http://www.tablesgenerator.com/markdown_tables to make/edit tabl
 
 
 ## References
-
+1. H Park et al, Simultaneous optimization of biomolecular energy function on features from small molecules and macromolecules, JCTC 2016.
 
 ## See Also
 
