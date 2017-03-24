@@ -6,8 +6,8 @@ Please refer to http://www.tablesgenerator.com/markdown_tables to make/edit tabl
 
 ### Structure Prediction
 
-| Title  | Who    | Description| Ref. | Metric | HigherBetter? | Talaris2014 | BetaNov15 | App/Mover      | Rosetta V. |
-|--------|--------|------------|------|--------|---------------|-------------|-----------|----------------|------------|
+| Title  | Who    | Description| Ref. | Metric | Higher? | Talaris2014 | BetaNov15 | App/Mover      | Rosetta V. |
+|--------|--------|------------|------|--------|---------|-------------|-----------|----------------|------------|
 | Rotamer, core      | H Park | CADRES     |      | Success rate | yes           |             |           | RTmin          |            |
 | Rotamer, interface | H Park | CADRES     |      | Success rate | yes           |             |           | RTmin          |            |
 | Decoy, Mike        | H Park | CADRES     | 1    | Boltzmann P  | yes           | 0.538       | 0.600     | Relax, dual    |            |
