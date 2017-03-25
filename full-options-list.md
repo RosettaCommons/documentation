@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-03-18
+Generated: 2017-03-25
 
 _Note that some application specific options may not be present in this list._
 
@@ -7095,8 +7095,6 @@ _Note that some application specific options may not be present in this list._
 <dd>rna option group<br/></dd>
 <dt><b>-corrected_geo</b> \<Boolean\></dt>
 <dd>Use PHENIX-based RNA sugar close energy and params files<br/>Default: true<br/></dd>
-<dt><b>-rna_prot_erraser</b> \<Boolean\></dt>
-<dd>Allows rna_prot_erraser residue type set, featuring both RNA and protein (for ERRASER purposes).  You must also use -rna:corrected_geo.<br/>Default: false<br/></dd>
 <dt><b>-vary_geometry</b> \<Boolean\></dt>
 <dd>Let bond lengths and angles vary from ideal in minimizer<br/>Default: false<br/></dd>
 <dt><b>-data_file</b> \<String\></dt>
@@ -7106,10 +7104,10 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-evaluate_base_pairs</b> \<Boolean\></dt>
 <dd>In final scoring, compute number of Watson-Crick, non-Watson-Crick pairs; compare to native if available.<br/></dd>
 </dl>
-+ <h3>-rna:farna</h3>
++ <h3>-rna:denovo</h3>
 <dl>
-<dt><b>-farna</b> \<Boolean\></dt>
-<dd>farna option group<br/></dd>
+<dt><b>-denovo</b> \<Boolean\></dt>
+<dd>denovo option group<br/></dd>
 <dt><b>-cycles</b> \<Integer\></dt>
 <dd>Default number of Monte Carlo cycles<br/>Default: 0<br/></dd>
 <dt><b>-rna_protein_docking_freq</b> \<Integer\></dt>
@@ -7253,7 +7251,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-exclude_fragment_files</b> \<StringVector\></dt>
 <dd>Files from which to exclude fragments<br/>Default: []<br/></dd>
 </dl>
-+ <h4>-rna:farna:out</h4>
++ <h4>-rna:denovo:out</h4>
 <dl>
 <dt><b>-out</b> \<Boolean\></dt>
 <dd>out option group<br/></dd>
@@ -7290,7 +7288,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-jump_histogram_binwidth_rotvector</b> \<Real\></dt>
 <dd>Bin-width for rotation vector (degrees)<br/>Default: 36.0<br/></dd>
 </dl>
-+ <h4>-rna:farna:db</h4>
++ <h4>-rna:denovo:db</h4>
 <dl>
 <dt><b>-db</b> \<Boolean\></dt>
 <dd>db option group<br/></dd>
@@ -7299,22 +7297,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-bps_database</b> \<Boolean\></dt>
 <dd>Generate a database of base pair steps extracted from a big RNA file<br/>Default: false<br/></dd>
 </dl>
-+ <h4>-rna:farna:erraser</h4>
-<dl>
-<dt><b>-erraser</b> \<Boolean\></dt>
-<dd>erraser option group<br/></dd>
-<dt><b>-constrain_P</b> \<Boolean\></dt>
-<dd>constrain phosphate<br/>Default: false<br/></dd>
-<dt><b>-fixed_res</b> \<IntegerVector\></dt>
-<dd>optional: residues to be held fixed in minimizer<br/>Default: []<br/></dd>
-<dt><b>-ready_set_only</b> \<Boolean\></dt>
-<dd>load in and output directly for reformatting the pdb<br/>Default: false<br/></dd>
-<dt><b>-skip_minimize</b> \<Boolean\></dt>
-<dd>output the pdb without minimization<br/>Default: false<br/></dd>
-<dt><b>-attempt_pyrimidine_flip</b> \<Boolean\></dt>
-<dd>try to flip pyrimidine by 180 degrees and pick the better energy conformer<br/>Default: false<br/></dd>
-</dl>
-+ <h4>-rna:farna:minimize</h4>
++ <h4>-rna:denovo:minimize</h4>
 <dl>
 <dt><b>-minimize</b> \<Boolean\></dt>
 <dd>minimize option group<br/></dd>
@@ -7336,6 +7319,23 @@ _Note that some application specific options may not be present in this list._
 <dd>Extra residues during minimize step<br/>Default: []<br/></dd>
 <dt><b>-extra_minimize_chi_res</b> \<ResidueChainVector\></dt>
 <dd>Extra side-chain chis to move during minimize step<br/>Default: []<br/></dd>
+</dl>
++ <h3>-rna:erraser</h3>
+<dl>
+<dt><b>-erraser</b> \<Boolean\></dt>
+<dd>erraser option group<br/></dd>
+<dt><b>-rna_prot_erraser</b> \<Boolean\></dt>
+<dd>Allows rna_prot_erraser residue type set, featuring both RNA and protein (for ERRASER purposes).  You must also use -rna:corrected_geo.<br/>Default: false<br/></dd>
+<dt><b>-constrain_P</b> \<Boolean\></dt>
+<dd>constrain phosphate<br/>Default: false<br/></dd>
+<dt><b>-fixed_res</b> \<IntegerVector\></dt>
+<dd>optional: residues to be held fixed in minimizer<br/>Default: []<br/></dd>
+<dt><b>-ready_set_only</b> \<Boolean\></dt>
+<dd>load in and output directly for reformatting the pdb<br/>Default: false<br/></dd>
+<dt><b>-skip_minimize</b> \<Boolean\></dt>
+<dd>output the pdb without minimization<br/>Default: false<br/></dd>
+<dt><b>-attempt_pyrimidine_flip</b> \<Boolean\></dt>
+<dd>try to flip pyrimidine by 180 degrees and pick the better energy conformer<br/>Default: false<br/></dd>
 </dl>
 + <h2>-rotamerdump</h2>
 <dl>
