@@ -323,6 +323,8 @@ See [[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScri
 
 **[[CopyRotamer|CopyRotamerMover]]** - Copy a side-chain identity and/or conformation from one residue to another residue.
 
+**[[DeclareBond]]** - Tell Rosetta that there exists a chemical bond between two residues.
+
 **[[Disulfidize|DisulfidizeMover]]** - Finds potential disulfide bond positions based on Calpha - Cbeta distance
 
 **[[Dssp|DsspMover]]** - Calculates secondary structure using dssp
