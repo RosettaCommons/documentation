@@ -20,6 +20,11 @@ Please refer to http://www.tablesgenerator.com/markdown_tables to make/edit tabl
 
 | Title  | Who    | Description| Metric | Talaris2014 | BetaNov15 | Sign? |App/Mover| Ref. |Rosetta V. |
 |--------|--------|------------|--------|-------------|-----------|-------|---------|------|-----------|
+|FullDesign| H Park | StdScientific | SuccessRate | 38.9 | 40.6   |+| fixbb |3| |
+|ProteinMono| H Park| One-res-at-a-time | SuccessRate | 45.1 | 47.0 |+| pilot app | 1 | |
+|ProteinProtein| H Park| One-res-at-a-time | SuccessRate | 45.1 | 47.0 |+| pilot app | 1 | |
+|ProteinLigand| H Park| One-res-at-a-time | SuccessRate | 45.1 | 47.0 |+| pilot app | 1 | |
+  
 
 ### Etc
 
