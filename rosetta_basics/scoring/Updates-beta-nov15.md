@@ -4,7 +4,7 @@ An overview of this energy function optimization effort is available [[here|Over
 
 For information on the previous set of updates to this score function, see the beta july15 score function page [[here|Updates beta july15]].
 
-For benchmark results of protocols, see [[here|beta_nov15_benchmark_results]].
+For benchmark results of protocols, see [[here|beta-nov15-benchmark-results]].
 
 ### Using the beta_nov15 energy function parameters
 
