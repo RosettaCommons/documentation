@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-03-25
+Generated: 2017-03-28
 
 _Note that some application specific options may not be present in this list._
 
@@ -7662,7 +7662,9 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-vary_loop_length_frequency</b> \<Real\></dt>
 <dd>In design, allow loops ('n') to shorten from loop lengths defined in FASTA files.<br/>Default: 0.0<br/></dd>
 <dt><b>-checkpointing_frequency</b> \<Integer\></dt>
-<dd>How often should we output checkpoint files?<br/>Default: 0<br/></dd>
+<dd>How often should we output checkpoint files?<br/>Default: 100<br/></dd>
+<dt><b>-continue_until_none_missing</b> \<Boolean\></dt>
+<dd>If there are missing residues when we've reached n-cycles, just keep going! Suggested with checkpointing.<br/>Default: false<br/></dd>
 </dl>
 + <h4>-stepwise:monte_carlo:csa</h4>
 <dl>
