@@ -16,7 +16,7 @@ The filter first checks that the pose, or the selected residues, are truly a cyc
 
 ### Example script
 
-The following script imports an eight-residue cyclic peptide, uses the [[DeclareBond|DeclareBondMover]] to set up a terminal peptide bond linking the ends, and filters based on whether the peptide has c2/m symmetry:
+The following script imports an eight-residue cyclic peptide, uses the [[DeclareBond mover|DeclareBond]] to set up a terminal peptide bond linking the ends, and filters based on whether the peptide has c2/m symmetry:
 
 ```xml
 <ROSETTASCRIPTS>
