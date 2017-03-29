@@ -31,9 +31,9 @@ This mover is often used after adding geometry with the [[PeptideStubMover]], an
 
 **add\_termini (bool,"true")**:  If true, terminal types are added to any pose residues that have unconnected ends.  Note that the DeclareBond mover strips terminal types before adding a bond, so it is often best to set this option to true to add them back.  (The mover can also be used as a quick, kludgey way of adding termini to a pose, by declaring an already-existing bond with **add_termini="true"**.)
 
-**rebuild\_fold\_tree (bool,"false")**:  Rebuild the fold tree after declaring this bond?  This is not recommended -- manual FoldTree rebuilding with the [[AtomTree|AtomTreeMover]] is a better idea.
+**rebuild\_fold\_tree (bool,"false")**:  Rebuild the fold tree after declaring this bond?  This is not recommended -- manual FoldTree rebuilding with the [[AtomTree mover|AtomTreeMover]] is a better idea.
 
-**run\_kic (bool,"false")**:  Run KIC to close any chainbreak caused by the declared chemical bond?  This is not recommended.  The [[GeneralizedKIC|GeneralizedKICMover]] offers far more control over kinematic closure.
+**run\_kic (bool,"false")**:  Run KIC to close any chainbreak caused by the declared chemical bond?  This is not recommended.  The [[GeneralizedKIC mover|GeneralizedKICMover]] offers far more control over kinematic closure.
 
 **KIC\_res1 (int,"0")**:  First residue to use in KIC if **run_kic="true"** is set.
 
