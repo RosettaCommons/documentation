@@ -41,7 +41,15 @@ This mover is often used after adding geometry with the [[PeptideStubMover]], an
 
 **name (string)**:  The name given to this instance.
 
-##See Also
+## Typical usage
+
+Typically, one simply declares the first and last atoms.  For example, to declare a peptide bond between residues 16 and 17, one would use the following syntax:
+
+```xml
+<DeclareBond res1="16" res2="17" atom1="C" atom2="N" />
+```
+
+## See Also
 
 * [[I want to do x]]: Guide to choosing a mover
 * [[GeneralizedKIC|GeneralizedKICMover]]
