@@ -33,7 +33,7 @@ Note that, if the trimming option is used, all non-protein residues (_e.g._ cros
 
 ## Example
 
-This script operates on a 20-residue c4-symmetric peptide.  A peptide bond connecting the N and C termini is declared with the [[DeclareBond|DeclareBondMover]] mover, and the peptide is then aligned to the Z-axis and trimmed to a single 5-residue symmetry repeat with this mover.  The [[SetupForSymmetry|SetupForSymmetryMover]] mover is then used to set up Rosetta symmetry, and a new bond between the individual symmetry repeats is declared using the [[PeptideCyclizeMover]], which also creates constraints for the peptide bond.  Finally, the peptide is subjected to symmetric relaxation.
+This script operates on a 20-residue c4-symmetric peptide.  A peptide bond connecting the N and C termini is declared with the [[DeclareBond]] mover, and the peptide is then aligned to the Z-axis and trimmed to a single 5-residue symmetry repeat with this mover.  The [[SetupForSymmetry|SetupForSymmetryMover]] mover is then used to set up Rosetta symmetry, and a new bond between the individual symmetry repeats is declared using the [[PeptideCyclizeMover]], which also creates constraints for the peptide bond.  Finally, the peptide is subjected to symmetric relaxation.
 
 ```xml
 <ROSETTASCRIPTS>
