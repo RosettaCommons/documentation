@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-03-28
+Generated: 2017-04-01
 
 _Note that some application specific options may not be present in this list._
 
@@ -7583,7 +7583,9 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-sampler_silent_file</b> \<String\></dt>
 <dd>In StepWiseConnectionSampler, where to output all poses that pass filters<br/>Default: ""<br/></dd>
 <dt><b>-superimpose_over_all</b> \<Boolean\></dt>
-<dd>In final superimposition, do not keep any domains fixed, superimpose over everything<br/>Default: false<br/></dd>
+<dd>In final superimposition, do not keep any domains fixed, superimpose over everything<br/>Default: true<br/></dd>
+<dt><b>-alignment_anchor_res</b> \<ResidueChainVector\></dt>
+<dd>Single residue that resides in the single input domain that should be superimposed prior to RMSD calculation<br/></dd>
 <dt><b>-move</b> \<StringVector\></dt>
 <dd>For SWM. Format: 'ADD 5 BOND_TO_PREVIOUS 4'<br/>Default: []<br/></dd>
 <dt><b>-min_type</b> \<String\></dt>
@@ -8357,6 +8359,24 @@ _Note that some application specific options may not be present in this list._
 <dd>No description<br/>Default: 10<br/></dd>
 <dt><b>-vall_file</b> \<String\></dt>
 <dd>No description<br/></dd>
+</dl>
++ <h2>-ralford</h2>
+<dl>
+<dt><b>-ralford</b> \<Boolean\></dt>
+<dd>ralford option group<br/></dd>
+</dl>
++ <h3>-ralford:dump_rotamers</h3>
+<dl>
+<dt><b>-dump_rotamers</b> \<Boolean\></dt>
+<dd>dump_rotamers option group<br/></dd>
+<dt><b>-rsd_index</b> \<Integer\></dt>
+<dd>Dump all of the rotamers for the amino acid at a user-specified position<br/>Default: 1<br/></dd>
+<dt><b>-rotamer_info_prefix</b> \<String\></dt>
+<dd>Prefix for output rotamer information file<br/>Default: "output"<br/></dd>
+<dt><b>-write_rotamers_to_pdbs</b> \<Boolean\></dt>
+<dd>Write all of the rotamer poses to pdb files<br/>Default: false<br/></dd>
+<dt><b>-all_positions</b> \<Boolean\></dt>
+<dd>Option to dump all rotamers at all positions - use with caution<br/>Default: false<br/></dd>
 </dl>
 + <h2>-robert</h2>
 <dl>
