@@ -1,5 +1,4 @@
-#shobuns: Buried UNSatisfied polar groups
-for the SHO solvation model
+#shobuns: Buried UNSatisfied polar groups for the SHO solvation model
 Metadata
 ========
 
