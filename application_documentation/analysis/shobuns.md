@@ -21,6 +21,6 @@ A polar atom is defined to be "buried unsatisfied" if it has a SHO energy higher
 Usage
 =====
 
-The application accepts the following combinations of options:
+The application accepts only the following combinations of options:
 
 * Option Combination 1
