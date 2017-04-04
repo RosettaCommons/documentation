@@ -16,4 +16,4 @@ Application purpose
 
 Given a target set of polar groups, identifies those that are buried unsatisfied for the SHO model of polar solvation.
 
-A polar group is defined to be "buried unsatisfied" if has a SHO energy higher than a given cutoff and if it is not hydrogen bonded to any atom of the solute. 
+A polar group is defined to be "buried unsatisfied" if it has a SHO energy higher than a given cutoff and if it is not hydrogen bonded to any atom of the solute. 
