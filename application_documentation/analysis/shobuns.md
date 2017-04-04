@@ -1,4 +1,4 @@
-#shobuns: Buried UNSatisfied polar groups for the SHO solvation model
+#shobuns: Buried UNSatisfied polar atoms for the SHO solvation model
 Metadata
 ========
 
@@ -14,6 +14,6 @@ The application's code lives in `src/apps/public/analysis/shobuns.cc`.
 Application's purpose
 ===================
 
-Given a target set of polar groups, identifies those that are buried unsatisfied for the SHO model of polar solvation.
+Given a target set of polar atoms, identifies those that are buried unsatisfied for the SHO model of polar solvation.
 
-A polar group is defined to be "buried unsatisfied" if it has a SHO energy higher than a given cutoff and if it is not hydrogen bonded to any atom of the solute. 
+A polar atom is defined to be "buried unsatisfied" if it has a SHO energy higher than a given cutoff and if it is not hydrogen bonded to any atom of the solute. 
