@@ -218,7 +218,7 @@ demo should include:
 4. Scripts containing the exact commands needed to run the demo.
 
 Once you have written a demo, follow the instructions on [[this 
-page|https://www.rosettacommons.org/demos/latest/Home.html]] to see how to 
+page|https://www.rosettacommons.org/demos/latest/Home]] to see how to 
 upload it into the Rosetta source repositories and to link it into the online 
 documentation.
 
