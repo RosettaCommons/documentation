@@ -9,9 +9,9 @@ Apr 2017 by Andrea Bazzoli (ndrbzz [at] gmail.com).
 Code
 ====
 
-The code for the application lives in `src/apps/public/analysis/shobuns.cc`.
+The application's code lives in `src/apps/public/analysis/shobuns.cc`.
 
-Application purpose
+Application's purpose
 ===================
 
 Given a target set of polar groups, identifies those that are buried unsatisfied for the SHO model of polar solvation.
