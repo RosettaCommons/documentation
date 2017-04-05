@@ -1,4 +1,4 @@
-#shobuns: Buried UNSatisfied polar atoms for the SHO solvation model
+#shobuns: Buried UNSatisfied polar atoms for the SHO solvation model (WORK IN PROGRESS)
 Metadata
 ========
 
