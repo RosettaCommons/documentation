@@ -33,4 +33,4 @@ The application accepts only the following combinations of options:
 -pose:metrics:shobuns:tgt_amino <AMINO>
 -pose:metrics:shobuns:tgt_atom <ATOM>
 ````
-\<AMINO\> is a one-letter amino acid code. If \<AMINO\> is the string `any`, then the application will evaluate all polar atoms named \<ATOM\> in all residues that have one.
+\<AMINO\> is a one-letter amino acid code. If \<AMINO\> is the string `any `, then the application will evaluate all polar atoms named \<ATOM\> in all residues that have one.
