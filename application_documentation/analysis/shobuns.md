@@ -63,7 +63,7 @@ Output (on screen)
 ==================
 Classification of the selected polar atoms into "buried unsatisfied" and "other" atoms. The output reports one line per atom, each of which has the following format
 ````
-ATOM_ID Esho #HB (W_Ehb W_Esho_Ehb)
+ATOM_ID Esho #hb (wEhb wEsho+wEhb)
 
 ATOM_ID: identifier.
 Esho: SHO energy (kcal/mol).
