@@ -40,7 +40,7 @@ The application accepts only the following combinations of options:
 ````
 -pose_metrics:shobuns:tgtres <TGTFIL>
 ````
-File \<TGTFIL\> specifies one target residue per line by indicating, in that order, the chain ID, residue number, and insertion code in the PDB file. For example, to evaluate residues 50, 52, 53, and 55 from chain A, all having a blank insertion code, one would specify the following \<TGT\> file:
+File \<TGTFIL\> specifies one target residue per line by indicating—in that order—the chain ID, residue number, and insertion code in the PDB file. For example, to evaluate residues 50, 52, 53, and 55 from chain A, all having a blank insertion code, one would specify the following \<TGTFIL\> file:
 ````
 A 50 _
 A 52 _
