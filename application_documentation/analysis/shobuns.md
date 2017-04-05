@@ -58,7 +58,7 @@ Note that a blank insertion code is specified by underscore (_).
 The above option combinations can be supplemented with the following options:
 ````
 pose_metrics:shobuns:sho_cutoff <CUTOFF>
-<CUTOFF> is the maximum SHO-energy value (kcal/mol) for an atom to be classified as solvent exposed (i.e., not buried). Defaults to 4.9 kcal/mol.
+<CUTOFF> is the maximum SHO-energy value (kcal/mol) that an atom can have in order to be classified as solvent exposed (i.e., not buried). Defaults to 4.9.
 ```` 
 
 --- to be continued ---
