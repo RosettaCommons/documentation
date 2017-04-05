@@ -23,7 +23,7 @@ Usage
 
 The application accepts only the following combinations of options:
 
-* Option combination #1: evaluates all polar atoms in the pose
+* Option combination #1: evaluates all polar atoms in the pose  
 ````
 [NO OPTIONS]
 ````
