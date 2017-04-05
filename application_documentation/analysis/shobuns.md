@@ -24,23 +24,23 @@ Usage
 ### Accepted option combinations
 Application-specific options are accepted only in the following combinations:
 
-* **Option combination #1** evaluates all polar atoms in the pose:  
+* **Option combination #1** selects all polar atoms in the pose:  
 ````
 [NO OPTIONS]
 ````
 
-* **Option combination #2** evaluates all polar atoms named \<ATOM\> in all residues of type \<AMINO\>:
+* **Option combination #2** selects all polar atoms named \<ATOM\> in all residues of type \<AMINO\>:
 ````
 -pose_metrics:shobuns:tgt_atom <ATOM>
 <ATOM> is the atom name.
 
 -pose_metrics:shobuns:tgt_amino <AMINO>
-<AMINO> is the residue type's one-letter code. If <AMINO> is the string "any" (without quotes), then the application will evaluate all polar atoms named <ATOM> from all residues that have one.
+<AMINO> is the residue type's one-letter code. If <AMINO> is the string "any" (without quotes), then the application selects all polar atoms named <ATOM> from all residues that have one.
 ````
 
 
 
-* **Option combination #3** evaluates all polar atoms from the residues specified in target file \<TGTFIL\>:
+* **Option combination #3** selects all polar atoms from the residues specified in target file \<TGTFIL\>:
 ````
 -pose_metrics:shobuns:tgtres <TGTFIL>
 ````
