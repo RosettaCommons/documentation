@@ -29,7 +29,7 @@ Application-specific options are accepted only in the following combinations:
 [NO OPTIONS]
 ````
 
-* **Option combination #2** selects all polar atoms named \<ATOM\> in all residues of type \<AMINO\>:
+* **Option combination #2** selects all polar atoms named \<ATOM\> from all residues of type \<AMINO\>:
 ````
 -pose_metrics:shobuns:tgt_atom <ATOM>
 <ATOM> is the atom name.
