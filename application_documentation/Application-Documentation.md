@@ -257,6 +257,9 @@ While most of these applications focus on prediction, many have options which wi
 ### Surface pockets
 - [[Pocket measure|pocket-measure]] - Measure the "deep volume" of a surface pocket.
 
+### Buried unsatisfied polar atoms
+- [[shobuns|shobuns]] - Identifies atoms that are "buried unsatisfied" for the SHO model of polar solvation
+
 ##Utilities <a name="Utilities" />
 
 These applications serve mainly to support other Rosetta applications, or to assist in setting up or analyzing Rosetta runs.
