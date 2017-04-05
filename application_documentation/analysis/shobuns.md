@@ -72,7 +72,9 @@ wEhb: weighted H-bond energy (secondary information).
 wEsho+wEhb: weighted SHO plus H-bond energy (secondary information), not counting the SHO-to-EEF1 scaling (see Ref. 1).
 ````
 
-Output sample:
+
+***
+Output sample
 ````
 BURIED UNSATISFIED ATOMS:
 A55(15)1HH1 Esho:5 #hb:0  (wEhb:0 wEsho+wEhb: 4.6875)
