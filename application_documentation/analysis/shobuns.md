@@ -63,10 +63,11 @@ Output (on screen)
 ==================
 Classification of the selected polar atoms into "buried unsatisfied" and "other" atoms. The output reports one line per atom, each of which has the following format
 ````
-ATOM_ID Esho #HB W_Ehb W_Esho_Ehb
-ATOM_ID is the atom's identifier
-Esho is the atom's SHO energy (kcal/mol)
-#HB is the number of H-bonds formed by the atom
-W_Ehb is the weighted H-bond energy of the atom
-W_Esho_Ehb is weighted H-bond plus SHO energy of the atom, not counting the SHO-to-EEF1 scaling (see ref. 1)
+ATOM_ID Esho #HB (W_Ehb W_Esho_Ehb)
+
+ATOM_ID: identifier
+Esho: SHO energy (kcal/mol)
+#hb: number of H-bonds formed by the atom
+wEhb: weighted H-bond energy (secondary information)
+wEsho+wEhb: weighted SHO plus H-bond energy (secondary information), not counting the SHO-to-EEF1 scaling (see ref. 1)
 ````
