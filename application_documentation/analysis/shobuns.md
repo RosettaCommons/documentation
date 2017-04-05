@@ -67,7 +67,7 @@ ATOM_ID Esho #hb (wEhb wEsho+wEhb)
 
 ATOM_ID: identifier.
 Esho: SHO energy (kcal/mol).
-#hb: number of H-bonds formed by the atom.
+#hb: number of H-bonds formed.
 wEhb: weighted H-bond energy (secondary information).
 wEsho+wEhb: weighted SHO plus H-bond energy (secondary information), not counting the SHO-to-EEF1 scaling (see Ref. 1).
 ````
