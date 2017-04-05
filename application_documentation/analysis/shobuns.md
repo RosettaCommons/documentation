@@ -27,9 +27,10 @@ The application accepts only the following combinations of options:
 ````
 [NO OPTIONS]
 ````
+
 * Option combination #2: evaluates all polar atoms named \<ATOM\> in all residues of type \<AMINO\>
 ````
 -pose:metrics:shobuns:tgt_amino <AMINO>
 -pose:metrics:shobuns:tgt_atom <ATOM>
 ````
-:: is a three-letter amino acid code
+\<AMINO\> is a three-letter amino acid code
