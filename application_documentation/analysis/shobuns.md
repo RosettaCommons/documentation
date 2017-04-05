@@ -38,4 +38,6 @@ The application accepts only the following combinations of options:
 
 * **Option combination #3** evaluates all polar atoms from the residues specified in target file \<TGTFIL\>
 
+--- to be continued ---
+
 
