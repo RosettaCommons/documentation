@@ -258,7 +258,7 @@ While most of these applications focus on prediction, many have options which wi
 - [[Pocket measure|pocket-measure]] - Measure the "deep volume" of a surface pocket.
 
 ### Buried unsatisfied polar atoms
-- [[shobuns|shobuns]] - Identifies atoms that are "buried unsatisfied" for the SHO model of polar solvation
+- [[shobuns|shobuns]] - Identifies polar atoms that are "buried unsatisfied" for the SHO model of polar solvation
 
 ##Utilities <a name="Utilities" />
 
