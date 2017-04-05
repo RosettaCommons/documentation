@@ -35,7 +35,9 @@ Application-specific options are accepted only in the following combinations:
 <ATOM> is the atom name
 
 -pose_metrics:shobuns:tgt_amino <AMINO>
-<AMINO> is the residue type's one-letter code. If <AMINO> is the string _any_, then the application will evaluate all polar atoms named <ATOM> from all residues that have one.
+<AMINO> is the residue type's one-letter code. If <AMINO> is the string __any__,
+then the application will evaluate all polar atoms named <ATOM> from all
+residues that have one.
 ````
 
 
