@@ -36,9 +36,16 @@ The application accepts only the following combinations of options:
 
 \<AMINO\> is a one-letter amino acid code. If \<AMINO\> is the string `any `, then the application will evaluate all polar atoms named \<ATOM\> from all residues that have one.
 
-* **Option combination #3** evaluates all polar atoms from the residues specified in target file \<TGTFIL\>
+* **Option combination #3** evaluates all polar atoms from the residues specified in target file \<TGTFIL\>:
 ````
 -pose_metrics:shobuns:tgtres <TGTFIL>
 ````
-
+File \<TGTFIL\> specifies one target residue per line by indicating, in that order, the chain ID, residue number, and insertion code in the PDB file. For example, to evaluate residues 50, 52, 53, and 55 from chain A, all having a blank insertion code, one would specify the following \<TGT\> file:
+````
+A 50 _
+A 52 _
+A 54 _
+A 55 _
+````
+In each line of file \<TGTFIL\> the first field specifies the chain ID, 
 
