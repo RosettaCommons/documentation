@@ -61,7 +61,7 @@ pose_metrics:shobuns:sho_cutoff <CUTOFF>
 
 Output (on screen)
 ==================
-Classification of the selected polar atoms into "buried unsatisfied" and "other" atoms. The output reports one line per atom, each of which has the following format
+Classification of the selected polar atoms into "buried unsatisfied" and "other" atoms. The output reports one line per atom, each of which has the following format:
 ````
 ATOM_ID Esho #hb (wEhb wEsho+wEhb)
 
