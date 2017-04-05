@@ -23,4 +23,7 @@ Usage
 
 The application accepts only the following combinations of options:
 
-* Option Combination 1
+* Option Combination 1: selects all polar atoms in the pose
+````
+[NO FLAGS]
+````
