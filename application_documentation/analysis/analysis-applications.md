@@ -14,9 +14,9 @@
 * [[Pocket measure]]: This application takes in a PDB file and specified target residue/residue pair and, generates a (localized) PocketGrid, and outputs the total "deep volume" of all target pockets and the largest pocket.
 * [[Theta ligand]]: Given PDB files for a protein and ligand, outputs the fraction of the ligand that is exposed to solvent in the bound complex.
 * [[RosettaHoles]]: Rapid assessment of protein core packing for structure prediction, design, and validation.
-* [[FeaturesReporters|Features-reporter-overview]]
+* [[FeaturesReporters|Features-reporter-overview]].
 * [[RECCES]]: RNA free energy calculation with comprehensive sampling.
-* [[shobuns]]: 
+* [[shobuns]]: Buried unsatisfied polar atoms for the SHO solvation model.
 
 ##See Also
 
