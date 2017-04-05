@@ -43,6 +43,7 @@ Application-specific options are accepted only in the following combinations:
 * **Option combination #3** selects all polar atoms from the residues specified in target file \<TGTFIL\>:
 ````
 -pose_metrics:shobuns:tgtres <TGTFIL>
+<TGTFIL> is a pathname.
 ````
 File \<TGTFIL\> specifies one target residue per line by indicating—in that order—the residue's chain ID, sequence number, and insertion code in the input PDB file. For example, to evaluate residues 50, 52, 54, and 55 from chain A, all having a blank insertion code, one would specify the following \<TGTFIL\> file:
 ````
