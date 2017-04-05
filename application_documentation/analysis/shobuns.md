@@ -32,7 +32,7 @@ Application-specific options are accepted only in the following combinations:
 * **Option combination #2** evaluates all polar atoms named \<ATOM\> in all residues of type \<AMINO\>:
 ````
 -pose_metrics:shobuns:tgt_atom <ATOM>
-<ATOM> is the atom name
+<ATOM> is the atom name.
 
 -pose_metrics:shobuns:tgt_amino <AMINO>
 <AMINO> is the residue type's one-letter code. If <AMINO> is the string "any" (without quotes), then the application will evaluate all polar atoms named <ATOM> from all residues that have one.
