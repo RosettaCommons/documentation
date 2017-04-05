@@ -22,7 +22,7 @@ Usage
 =====
 
 ### Accepted option combinations
-The application accepts only the following combinations of options:
+Application-specific options are accepted only in the following combinations:
 
 * **Option combination #1** evaluates all polar atoms in the pose:  
 ````
