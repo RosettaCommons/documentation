@@ -38,8 +38,6 @@ Application-specific options are accepted only in the following combinations:
 <AMINO> is the residue type's one-letter code. If <AMINO> is the string "any" (without quotes), then the application selects all polar atoms named <ATOM> from all residues that have one.
 ````
 
-
-
 * **Option combination #3** selects all polar atoms from the residues specified in target file \<TGTFIL\>:
 ````
 -pose_metrics:shobuns:tgtres <TGTFIL>
@@ -61,4 +59,6 @@ pose_metrics:shobuns:sho_cutoff <CUTOFF>
 <CUTOFF> is the maximum SHO-energy value (kcal/mol) that an atom can have in order to be classified as solvent exposed (i.e., not buried). Defaults to 4.9.
 ```` 
 
---- to be continued ---
+Output (on screen)
+==================
+Classification of the selected polar atoms into "buried unsatisfied" and "other" atoms.  
