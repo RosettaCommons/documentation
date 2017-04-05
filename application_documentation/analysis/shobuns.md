@@ -32,3 +32,4 @@ The application accepts only the following combinations of options:
 -pose:metrics:shobuns:tgt_amino <AMINO>
 -pose:metrics:shobuns:tgt_atom <ATOM>
 ````
+\<AMINO\> is a three-letter amino acid code
