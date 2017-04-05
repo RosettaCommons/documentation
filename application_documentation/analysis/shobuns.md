@@ -46,5 +46,11 @@ A 50 _
 A 52 _
 A 54 _
 A 55 _
+````
+Note that blank is specified by underscore (_).
+
+All three option combinations can be supplemented with the following option:
+````
+pose_metrics:shobuns:sho_cutoff <CUTOFF>
 ```` 
 
