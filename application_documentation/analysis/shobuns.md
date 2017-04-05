@@ -65,9 +65,9 @@ Classification of the selected polar atoms into "buried unsatisfied" and "other"
 ````
 ATOM_ID Esho #HB (W_Ehb W_Esho_Ehb)
 
-ATOM_ID: identifier
-Esho: SHO energy (kcal/mol)
-#hb: number of H-bonds formed by the atom
-wEhb: weighted H-bond energy (secondary information)
-wEsho+wEhb: weighted SHO plus H-bond energy (secondary information), not counting the SHO-to-EEF1 scaling (see ref. 1)
+ATOM_ID: identifier.
+Esho: SHO energy (kcal/mol).
+#hb: number of H-bonds formed by the atom.
+wEhb: weighted H-bond energy (secondary information).
+wEsho+wEhb: weighted SHO plus H-bond energy (secondary information), not counting the SHO-to-EEF1 scaling (see ref. 1).
 ````
