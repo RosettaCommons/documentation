@@ -74,4 +74,4 @@ wEsho+wEhb: weighted SHO plus H-bond energy (secondary information), not countin
 
 References
 ==========
-Bazzoli A, Karanicolas J. __"Solvent hydrogen-bond occlusion": A new model of polar desolvation for biomolecular energetics__. J Comput Chem. 2017 Mar 20. doi: 10.1002/jcc.24740. 
+[1]. Bazzoli A, Karanicolas J. _"Solvent hydrogen-bond occlusion": A new model of polar desolvation for biomolecular energetics_ . J Comput Chem. 2017 Mar 20. doi: 10.1002/jcc.24740. 
