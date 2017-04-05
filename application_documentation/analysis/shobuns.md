@@ -69,5 +69,9 @@ ATOM_ID: identifier.
 Esho: SHO energy (kcal/mol).
 #hb: number of H-bonds formed by the atom.
 wEhb: weighted H-bond energy (secondary information).
-wEsho+wEhb: weighted SHO plus H-bond energy (secondary information), not counting the SHO-to-EEF1 scaling (see ref. 1).
+wEsho+wEhb: weighted SHO plus H-bond energy (secondary information), not counting the SHO-to-EEF1 scaling (see Ref. 1).
 ````
+
+References
+==========
+Bazzoli A, Karanicolas J. __"Solvent hydrogen-bond occlusion": A new model of polar desolvation for biomolecular energetics__. J Comput Chem. 2017 Mar 20. doi: 10.1002/jcc.24740. 
