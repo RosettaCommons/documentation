@@ -6,10 +6,10 @@ Last updated 6 April 2017 by Vikram K. Mulligan (vmullig@uw.edu).<br/>
 Add or remove variant types on specified residues.
 
 ```
-<ModifyVariantType name="[name]" add_type="[type[,type]...]" remove_type="[type[,type...]]" residue_selector="(&string)" update_polymer_dependent_atoms="(&bool,false)" />
+<ModifyVariantType name="[name]" add_type="[type[,type]...]" remove_type="[type[,type...]]" residue_selector="(&string)" update_polymer_bond_dependent_atoms="(&bool,false)" />
 ```
 
-Adds (if missing) or removes (if currently added) [[variant types|Glossary#variant-types]] to the residues specified in the given task operations. Use a [[ResidueSelector|ResidueSelectors]] to select specific residues.  Optionally, the positions of atoms that are dependent on polymeric connections (_e.g._ the amide proton, the carbonyl oxygen, the N-methyl group in N-methylated amino acids, _etc._) may be updated after modifying the variant type (`update_polymer_dependent_atoms="true"`).
+Adds (if missing) or removes (if currently added) [[variant types|Glossary#variant-types]] to the residues specified in the given task operations. Use a [[ResidueSelector|ResidueSelectors]] to select specific residues.  Optionally, the positions of atoms that are dependent on polymeric connections (_e.g._ the amide proton, the carbonyl oxygen, the N-methyl group in N-methylated amino acids, _etc._) may be updated after modifying the variant type (`update_polymer_bond_dependent_atoms="true"`).
 
 ## Example
 
