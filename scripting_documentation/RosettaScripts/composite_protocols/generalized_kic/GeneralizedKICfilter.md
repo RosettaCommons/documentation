@@ -8,7 +8,7 @@
 ## Use within RosettaScripts
 Fully manual invocation of a filter within RosettaScripts is accomplished according to the following template.  In most cases, however, shorthands exist for specific filters.  These are described in the [[shorthands|GeneralizedKICfilter#Shorthands]] section.
 
-```
+```xml
 <GeneralizedKIC ...>
      ...
      <AddFilter type="&string">
@@ -36,7 +36,7 @@ Fully manual invocation of a filter within RosettaScripts is accomplished accord
 The following shorthands are defined:
 
 1.  **AddAtomPairDistanceFilter**<br/>This adds an **atom_pair_distance** filter and sets all of its parameters in one line:
-```
+```xml
 <GeneralizedKIC ...>
      ...
      <AddAtomPairDistanceFilter atom1="&string" res1="(&int)" atom2="&string" res2="(&int)" distance="(&Real)" greater_than="(false &bool)"/>

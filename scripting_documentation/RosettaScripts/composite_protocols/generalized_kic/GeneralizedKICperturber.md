@@ -9,7 +9,7 @@
 
 Certain types of perturbers operate on residues, and require a list of one or more residues to be specified with **AddResidue** tags.  Other perturbers operate on degrees of freedom defined by sets of atoms, and require that these degrees of freedom be defined with **AddAtoms** tags, which can contain lists of 1, 2, 3, or 4 atoms, depending on the type of degree of freedom.  In both cases, some perturbers also require that one or more values be specified with **AddValues** tags.  Details for particular perturbers are below.  Note that [[shorthands|GeneralizedKICperturber#Shorthands]] exist for certain perturbers or common perturber combinations (see below).  Examples for residue-based and atom-based perturbers are shown here:
 
-```
+```xml
 <GeneralizedKIC ...>
      ...
      #A residue-based perturber:
@@ -56,7 +56,7 @@ Certain types of perturbers operate on residues, and require a list of one or mo
 Certain perturbers or perturber combinations have convenient shorthands.  For example, a common operation is to set a bond length and two flanking bond angles in order to close an open bond.  Currently-defined shorthands include:
 
 1.  **CloseBond**<br/>This combines two **set_bondangle** and one **set_bondlength** perturbers, as well as an optional pair of **randomize_dihedral** perturbers for the flanking dihedral angles.  A **set_torsion** perturber also sets the torsion angle of the connection based on the user-specified **torsion** value; if this is not specified, a **randomize_torsion** perturber is substituted.  The **prioratom**, **prioratom_res**, **followingatom**, and **followingatom_res** options need only be specified if **randomize_flanking_torsions** is set to **true**.
-```
+```xml
 <GeneralizedKIC ...>
      ...
      <CloseBond prioratom=&string" prioratom_res="(&int)" atom1="&string" res1="(&int)" atom2="&string" res2="(&int)" followingatom="&string" followingatom_res="(&int)" bondlength="(&Real)" angle1="(&Real)" angle2="(&Real)" torsion="(&Real)" randomze_flanking_torsions="(false, &bool)" />
@@ -64,7 +64,7 @@ Certain perturbers or perturber combinations have convenient shorthands.  For ex
 </GeneralizedKIC>
 ```
 2.  **SampleCisPeptideBond**<br/>This is a shorthand for the **sample_cis_peptide_bond** perturber.
-```
+```xml
 <GeneralizedKIC ...>
      ...
      <SampleCisPeptideBond cis_prob="(&Real)">
