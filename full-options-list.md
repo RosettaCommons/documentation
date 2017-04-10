@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-04-01
+Generated: 2017-04-10
 
 _Note that some application specific options may not be present in this list._
 
@@ -5449,6 +5449,31 @@ _Note that some application specific options may not be present in this list._
 <dd>residues that are not used for RMSD computation in pool<br/></dd>
 <dt><b>-heat_convergence_check</b> \<Integer\></dt>
 <dd>jump out of current abinitio run if X unsuccesful mc-trials reached<br/>Default: 0<br/></dd>
+</dl>
++ <h2>-mean_field</h2>
+<dl>
+<dt><b>-mean_field</b> \<Boolean\></dt>
+<dd>mean_field option group<br/></dd>
+<dt><b>-bb_list</b> \<FileVector\></dt>
+<dd>Specifies list of pdb files in backbone ensemble<br/></dd>
+<dt><b>-dump_transfac</b> \<File\></dt>
+<dd>filename prefix for dumping the predicted specificity profile in transfac format<br/>Default: ""<br/></dd>
+<dt><b>-spec_profile</b> \<File\></dt>
+<dd>specify filename of specificity profile (PWM) (transfac format).  Used as gold standard to compare to mean-field predicted result.<br/>Default: ""<br/></dd>
+<dt><b>-bb_boltz_probs</b> \<File\></dt>
+<dd>specify filename of backbone Boltzmann probabilities.  Can be used in conjunction with bb_list as Boltz probs of backbones in bb_list.<br/>Default: ""<br/></dd>
+<dt><b>-rot_norm_weight</b> \<Real\></dt>
+<dd>weight rot_norm term<br/>Default: 0.0<br/></dd>
+<dt><b>-bb_average_weight</b> \<Real\></dt>
+<dd>bb_average_weight term<br/>Default: 0.0<br/></dd>
+<dt><b>-rf_peptide</b> \<File\></dt>
+<dd>specify filename of resfile used for identifying peptide residues (or residues designated for sequence tolerance analysis)<br/>Default: ""<br/></dd>
+<dt><b>-include_all_aa</b> \<Boolean\></dt>
+<dd>upweight probabilities of all amino acids by adding 50 to each value<br/>Default: false<br/></dd>
+<dt><b>-ga_pack_detect_interface</b> \<Boolean\></dt>
+<dd>automatically detect protein-peptide interface for calculation of fitness function<br/>Default: false<br/></dd>
+<dt><b>-biased_dist_all_gen</b> \<Boolean\></dt>
+<dd>use biased distribution (as specified in spec_profile) for all generations of GA<br/>Default: false<br/></dd>
 </dl>
 + <h2>-mh</h2>
 <dl>
