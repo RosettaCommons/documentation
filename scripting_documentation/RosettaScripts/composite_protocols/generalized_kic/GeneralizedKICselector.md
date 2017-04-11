@@ -8,7 +8,7 @@
 ## Use within RosettaScripts
 Each [[GeneralizedKIC mover|GeneralizedKIC]] has one and only one GeneralizedKIC selector assigned to it.  In RosettaScripts, this must be specified in the **\<GeneralizedKIC\>** block as follows:
 
-```
+```xml
 <MOVERS>
 ...
      <GeneralizedKIC ... selector="&string" selector_scorefunction="&string" selector_kbt="(1.0 &real)" pre_selection_mover="&string">
@@ -35,7 +35,7 @@ The **selector_scorefunction** and **selector_kbt** tags are optional, and are o
 
 Energy-based selectors, such as the lowest energy and Boltzmann-weighted random selectors, must score candidate solutions with some scorefunction.  The full-atom talaris2013 scorefunction would generally be a poor choice for this, because no repacking or energy-minimization is carried out before scoring to eliminate side-chain clashes.  For this reason, a scorefunction that either considers only backbone geometry, or one that considers backbone and side-chain geometry but not long-range side-chain interactions, is recommended.  Two examples are given below.
 
-```
+```xml
 <bb_hbond_tors weights="empty.wts" symmetric="0">
 #A backbone-only scorefunction that only includes the backbone hydrogen-bonding, omega, rama,
 #and p_aa_pp terms from the talaris2013 scorefunction.
@@ -47,7 +47,7 @@ Energy-based selectors, such as the lowest energy and Boltzmann-weighted random 
 </bb_hbond_tors>
 ```
 
-```
+```xml
 <bb_hbond_tors_fadun_cst weights="empty.wts" symmetric="0">
 #A scorefunction that only includes the backbone hydrogen-bonding, omega, rama,
 #and p_aa_pp terms from the talaris2013 scorefunction, as well as the side-chain
