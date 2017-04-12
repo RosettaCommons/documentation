@@ -2,9 +2,9 @@
 Metadata
 ========
 
-Author: Andrea Bazzoli
+Author: Andrea Bazzoli (ndrbzz [at] gmail.com)
 
-Apr 2017 by Andrea Bazzoli (ndrbzz [at] gmail.com).
+Last updated on April 2017
 
 Code
 ====
