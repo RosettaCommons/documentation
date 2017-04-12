@@ -4,7 +4,7 @@ Metadata
 
 Author: Andrea Bazzoli (ndrbzz [at] gmail.com)
 
-Last updated in April 2017
+Last updated: April 2017
 
 Code
 ====
