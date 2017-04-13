@@ -259,24 +259,7 @@ The BondedResidueSelector can also take a residue selector as a subtag:
           <Index resnums="2,3" />
      </Bonded>
 ```
-
-- bin: The name of the mainchain torsion bin.
-- bin_params_file: The filename of a bin_params file that defines a set of torsion bins.  Current options include "ABEGO", "ABBA" (a symmetric version of the ABEGO nomenclature useful for mixed D/L design), and "PRO_DPRO" (which defines bins "LPRO" and "DPRO" corresponding to the regions of Ramachandran space accessible to L- and D-proline, respectively).  Predefined bin_params files are in database/protocol_data/generalizedKIC/bin_params/.  A custom-written bin_params file may also be provided with its relative path from the execution directory.
-- select_only_alpha_aas: If true, only alpha-amino acids are selected.  If false, any polymeric type allowed by the bin definitions file is selected.
-
-This example selects all residues that are in the region of Ramachandran space accessible to D-proline (which can be useful in the context of a script that attempts to design such positions to D-proline):
-
-```
-     <Bin name="select_d_pro_positions" bin="DPRO" bin_params_file="PRO_DPRO" />
-```
-
-The BinSelector can be combined with AND, OR, or NOT selectors to select multiple regions.  For example, the following would select residues that are in the right- or left-handed helical regions of Ramachandran space:
-
-```
-     <Bin name="right_handed_helices" bin="A" bin_params_file="ABBA" />
-     <Bin name="left_handed_helices" bin="Aprime" bin_params_file="ABBA" />
-     <Or name="right_or_left_handed_helices" selectors="right_handed_helices,left_handed_helices" />
-```
+Only one residue selector may be provided, and it is mutually exclusive with the resnum list.
 
 #### InterGroupInterfaceByVector
 
