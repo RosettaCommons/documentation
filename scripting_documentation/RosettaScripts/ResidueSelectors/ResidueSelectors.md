@@ -270,7 +270,9 @@ Only one residue selector may be provided, and it is mutually exclusive with the
 HBondSelector selects all residues with hydrogen bonds to the residues specified in the input (either by a comma-separated resnum list or by a residue selector). If no input residues are selected, then all residues in the pose forming hydrogen bonds stronger than the specified energy cutoff are selected.
 
 ```
-     <HBond name="(&string)" resnums="(&string)" selector="(&string)" include_bb_bb="(false &bool)" hbond_energy_cutoff="(-0.5 &Real)" scorefxn="(&string)" />
+     <HBond name="(&string)" resnums="(&string)" 
+        selector="(&string)" include_bb_bb="(false &bool)"
+        hbond_energy_cutoff="(-0.5 &Real)" scorefxn="(&string)" />
 ```
 
 * resnums: Comma-separated list of residue numbers specifying which residues' hydrogen bond partners will be selected.
