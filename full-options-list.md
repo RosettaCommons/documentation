@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-04-10
+Generated: 2017-04-14
 
 _Note that some application specific options may not be present in this list._
 
@@ -6020,6 +6020,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Disable environmental dependent weighting of hydrogen bonds involving DNA<br/></dd>
 <dt><b>-optE_no_protein_fa_elec</b> \<Boolean\></dt>
 <dd>Instruct the IterativeOptEDriver to use the soft-repulsion etable<br/>Default: false<br/></dd>
+<dt><b>-include_intra_res_protein</b> \<Boolean\></dt>
+<dd>Instruct the IterativeOptEDriver to turn on intra-residue interactions (needed for BetaNov15 score function)<br/>Default: false<br/></dd>
 <dt><b>-centroid_rot</b> \<Boolean\></dt>
 <dd>Use CENTROID_ROT vdw radii<br/>Default: false<br/></dd>
 <dt><b>-centroid_rot_min</b> \<Boolean\></dt>
@@ -6109,7 +6111,9 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-repeat_swarm_optimization_until_fitness_improves</b> \<Boolean\></dt>
 <dd>After the first time though the particle swarm optimization phase, if the end fitness is not better than the start fitness, recreate the swarm around the start dofs and repeat the swarm optimization.<br/>Default: false<br/></dd>
 <dt><b>-design_with_minpack</b> \<Boolean\></dt>
-<dd>Use the min-packer to design in the sequence recovery stages.<br/>Default: false<br/></dd>
+<dd>Use the min-packer to design during the sequence recovery stages.<br/>Default: false<br/></dd>
+<dt><b>-design_with_offrotpack</b> \<Boolean\></dt>
+<dd>Use the off-rotamer-packer to design during the sequence recovery stages.<br/>Default: false<br/></dd>
 <dt><b>-limit_bad_scores</b> \<Boolean\></dt>
 <dd>Quit after 100,000 inf or NaN errors in optE objective function<br/></dd>
 <dt><b>-no_design_pdb_output</b> \<Boolean\></dt>

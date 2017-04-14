@@ -10,7 +10,8 @@ report rotamer recover features and scores to features Statistics Scientific Ben
         mover_name="(&string;)" mover="(&string;)" reference_name="(&string;)"
         protocol="(RRProtocolMinPack &string;)" nonideal="(&bool;)"
         cartesian="(&bool;)" comparer="(&string;)" recovery_threshold="(&real;)"
-        task_operations="(&string;)" predicted_features_reporter="(&string;)" />
+        task_operations="(&string;)" predicted_features_reporter="(&string;)"
+        chidiff_num_chi_to_compare="(&non_negative_integer;)" />
 ```
 
 -   **scorefxn**: Name of score function to use
@@ -24,5 +25,6 @@ report rotamer recover features and scores to features Statistics Scientific Ben
 -   **recovery_threshold**: recovery threshold of the comparer
 -   **task_operations**: A comma separated list of TaskOperations to use.
 -   **predicted_features_reporter**: feature reporter that reports to db of type ReportToDB
+-   **chidiff_num_chi_to_compare**: For use only with the ChiDiff rotamer-recovery comparer, this controls the maximum number of chi dihedrals will be examined for each residue. In the absence of this attribute, the ChiDiff reporter will examine all chi dihedrals
 
 ---
