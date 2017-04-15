@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-04-14
+Generated: 2017-04-15
 
 _Note that some application specific options may not be present in this list._
 
@@ -4062,6 +4062,8 @@ _Note that some application specific options may not be present in this list._
 <dd>No description<br/>Default: false<br/></dd>
 <dt><b>-lk_ball_ramp_width_A2</b> \<Real\></dt>
 <dd>No description<br/>Default: 5.0<br/></dd>
+<dt><b>-lk_ball_overlap_gap</b> \<Real\></dt>
+<dd>No description<br/>Default: 0.0<br/></dd>
 <dt><b>-lk_ball_overlap_width_A2</b> \<Real\></dt>
 <dd>No description<br/>Default: 5.0<br/></dd>
 <dt><b>-lk_ball_water_fade</b> \<Real\></dt>
