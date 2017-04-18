@@ -371,7 +371,11 @@ The ```xi:include``` block is naïvely replaced with the contents of the file sp
     <Ddg name="ddg" confidence="0"/>
 ```
 
-Note that file inclusion occurs recursively, so that included files may include other files.  Circular dependencies (<i>e.g.</i> file1.xml includes file2.xml includes file3.xml includes file1.xml) are prohibited, and will result in an error.  Multiple inclusions of the same file are permitted, however (though this would rarely be advisable).  Variable substitution occurs after file inclusion, which means that ```%%variable%%``` statements may occur in included files; however, this also means that ```xi:include``` blocks cannot contain ```%%variable%%``` statements.
+Note that file inclusion occurs recursively, so that included files may include other files.  Circular dependencies (<i>e.g.</i> file1.xml includes file2.xml includes file3.xml includes file1.xml) are prohibited, and will result in an error.  Multiple inclusions of the same file are permitted, however (though this would rarely be advisable). There is a limit to the number of files that can be included in this way. The recursion limit is 8 and the value can be changed by using the `-parser:inclusion_recursion_limit` command line option. Variable substitution occurs after file inclusion, which means that ```%%variable%%``` statements may occur in included files; however, this also means that ```xi:include``` blocks cannot contain ```%%variable%%``` statements. In some cases you may wish to prevent the recursive search (e.g. if the file being included is very large), and an optional parameter "prevent_recursion" can be used in the inclusion tag to achieve this as follows:
+
+```
+<xi:include href="(&filename_string)" prevent_recursion="True"/>
+```
 
 ## Predefined RosettaScripts Objects
 
