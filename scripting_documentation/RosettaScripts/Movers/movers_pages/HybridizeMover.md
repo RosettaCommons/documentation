@@ -78,7 +78,9 @@ The following options may be useful for applying hybridize iteratively:
 First, to start from an extended chain, use the following template tag:
 
 ```xml
+<Hybridize ...>
            <Template pdb="extended" weight="1.0" cst_file="x.cst" />
+</Hybridize>
 ```
 
 If all other templates have zero weight, then the protocol will always start from a single extended chain (unless the add_non_init_chunks is also specified, in which case random rigid body transformations will be taken from other templates).
@@ -105,7 +107,9 @@ Other fine-grained protocol control options:
 The **detailed controls** block allows fixing certain substructures.  It may be specified by adding the following tag withing the <Hybridize ...></Hybridize> block:
 
 ```xml
+<Hybridize ...>
     <DetailedControls start_res="273" stop_res="296" sample_template="0" sample_abinitio="0" task_operations="&string"/>
+</Hybridize>
 ```
 
 This says that for residues 273-296, do not allow template hybridization moves (sample_template=0), and do not allow fragment insertion moves (sample_abinitio=0).  If both are set to false for a region, that region will also not minimize in centroid (note that fullatom refinement ignores these flags, however).
