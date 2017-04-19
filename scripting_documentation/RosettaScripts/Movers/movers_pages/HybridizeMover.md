@@ -31,9 +31,11 @@ Notice that the protocol proceeds by first selecting an initial template model, 
 
 ## Fragment file options
 
-Input [[fragment files|fragment-file]] may be given by adding the following tag withing the <Hybridize ...></Hybridize> block:
-/
+Input [[fragment files|fragment-file]] may be given by adding the following tag withing the `<Hybridize ...></Hybridize>` block:
+
+```xml
     <Fragments three_mers="t000_.200.3mers.gz" nine_/mers="t000_.200.9mers.gz"/>
+```
 
 If not provided, fragments will be built automatically.
 
