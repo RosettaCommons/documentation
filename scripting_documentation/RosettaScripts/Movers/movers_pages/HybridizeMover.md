@@ -15,11 +15,13 @@ However, the mover may also be used more generally for structural modelling; sev
 
 The general input format is shown here:
 
+```xml
      <Hybridize name="&string" stage1_scorefxn="&sring" stage2_scorefxn="&string" fa_scorefxn="&string" batch="(1 &bool)">
             <Template pdb="&string" cst_file="AUTO" weight="1.000" />
             <Template pdb="&string" cst_file="AUTO" weight="1.000" />
             ...
      </Hybridize>
+```
 
 ## Per-template options
 * **pdb=1xxx.pdb**: (required) A PDB file corresponding to a template.  Models may be incomplete, with the _numbering_ specifying the index for each residue.  See [[RosettaCM]] for how the partial_thread app may be used to generate these inputs.
@@ -31,10 +33,12 @@ Notice that the protocol proceeds by first selecting an initial template model, 
 
 ## Fragment file options
 
-Input [[fragment files|fragment-file]] may be given by adding the following tag withing the `<Hybridize ...></Hybridize>` block:
+Input [[fragment files|fragment-file]] may be given by adding the following tag withing the `<Hybridize ...>...</Hybridize>` block:
 
 ```xml
+<Hybridize ...>
     <Fragments three_mers="t000_.200.3mers.gz" nine_mers="t000_.200.9mers.gz"/>
+</Hybridize>
 ```
 
 If not provided, fragments will be built automatically.
@@ -73,7 +77,9 @@ The following options may be useful for applying hybridize iteratively:
 
 First, to start from an extended chain, use the following template tag:
 
+```xml
            <Template pdb="extended" weight="1.0" cst_file="x.cst" />
+```
 
 If all other templates have zero weight, then the protocol will always start from a single extended chain (unless the add_non_init_chunks is also specified, in which case random rigid body transformations will be taken from other templates).
 
@@ -98,7 +104,9 @@ Other fine-grained protocol control options:
 
 The **detailed controls** block allows fixing certain substructures.  It may be specified by adding the following tag withing the <Hybridize ...></Hybridize> block:
 
+```xml
     <DetailedControls start_res="273" stop_res="296" sample_template="0" sample_abinitio="0" task_operations="&string"/>
+```
 
 This says that for residues 273-296, do not allow template hybridization moves (sample_template=0), and do not allow fragment insertion moves (sample_abinitio=0).  If both are set to false for a region, that region will also not minimize in centroid (note that fullatom refinement ignores these flags, however).
 
