@@ -1,6 +1,6 @@
 # DeclareBond
 
-Page created 28 March 2017 by Vikram K. Mulligan (vmullig@uw.edu).
+Page created 28 March 2017 by Vikram K. Mulligan (vmullig@uw.edu).  Last modified 20 April 2017.
 
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 
@@ -46,7 +46,7 @@ This mover is often used after adding geometry with the [[PeptideStubMover]], an
 Typically, one simply declares the first and last atoms.  For example, to declare a peptide bond between residues 16 and 17, one would use the following syntax:
 
 ```xml
-<DeclareBond res1="16" res2="17" atom1="C" atom2="N" />
+<DeclareBond name="connect_16_to_17" res1="16" res2="17" atom1="C" atom2="N" />
 ```
 
 ## See Also
