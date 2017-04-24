@@ -55,7 +55,7 @@ Currently, the `run.py` script executes the following tests: `apps`, `core`, `de
 
 ###Successful output
 A successful set of tests ends with something like this:
-```
+
 -------- Unit test summary --------
 Total number of tests: 1749
   number tests passed: 1749
@@ -83,6 +83,7 @@ Done!
 ```
 
 For this run, a user would need to determine what they'd broken in the CartesianBondedEnergy code.
+This can be done by comparing produced results to the expected ones. Results are written to source/build/test/debug/<system related path>/<protocol related path>. There, output files and <output>._tmp_ files are generated and can be compared.
 
 ###Tests broken globally
 If no tests at all run, or all tests fail, there is probably a configuration issue.
