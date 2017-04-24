@@ -88,6 +88,10 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[TerminusDistance|TerminusDistanceFilter]]** - Distance in sequence from either terminus to interface.
 
+### Sequence analysis
+
+**[[LongestContinuousPolarSegment|LongestContinuousPolarSegmentFilter]]** - Filter based on length of longest stretch of polar amino acid residues.
+
 ### Geometry
 
 **[[AngleToVector|AngleToVectorFilter]]** - Filter on angle between two atoms on the first residue of a chain and a given vector.
