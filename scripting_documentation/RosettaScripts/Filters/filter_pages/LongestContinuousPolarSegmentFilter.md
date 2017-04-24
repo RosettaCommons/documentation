@@ -6,7 +6,7 @@ Documentation by Vikram K. Mulligan, Ph.D. (vmullig@uw.edu).  Page created 23 Ap
 
 ##LongestContinuousPolarSegment
 
-This filter counts the number of residues in the longest continuous stretch of polar amino acids in a structure.  Polar amino acids include Arg, Asn, Asp, Gln, Glu, His, Lys, Ser, and Thr (residues with the POLAR property in their params files).  By default, the filter rejects any structure with polar stretches longer than a threshold value (set to 5 residues unless the user overrides this).
+This filter counts the number of residues in the longest continuous stretch of polar amino acids in a structure.  Polar amino acids include Arg, Asn, Asp, Gln, Glu, His, Lys, Ser, and Thr (residues with the POLAR property in their params files).  Gly may also, optionally, be considered polar, despite lacking the POLAR property in its params file.  By default, the filter rejects any structure with polar stretches longer than a threshold value (set to 5 residues unless the user overrides this).
 
 ## Options and Usage
 
