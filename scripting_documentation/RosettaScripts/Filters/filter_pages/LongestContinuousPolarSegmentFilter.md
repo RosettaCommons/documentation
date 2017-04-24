@@ -25,11 +25,11 @@ This filter counts the number of residues in the longest continuous stretch of p
 
 **count\_gly\_as\_polar** -- If true, glycine is considered "polar" for purposes of this filter.  True by default.
 
-**filter\_out\_high -- If true, poses with more than the cutoff number of residues in the longest polar stretch will be rejected.  If false, poses with fewer than the cutoff number of residues in the longest polar stretch will be rejected.  True by default.
+**filter\_out\_high** -- If true, poses with more than the cutoff number of residues in the longest polar stretch will be rejected.  If false, poses with fewer than the cutoff number of residues in the longest polar stretch will be rejected.  True by default.
 
 **cutoff** -- The maximum (or minimum, if "filter_out_high" is set to "false") number of residues in the longest polar stretch that will still allow the pose to pass this filter.  Default 5.
 
-**residue_selector** -- An optional, previously-defined residue selector.  If provided, the filter will only consider stretches of polar residues that have at least one residue in the selection.  Not used if not specified.
+**residue\_selector** -- An optional, previously-defined residue selector.  If provided, the filter will only consider stretches of polar residues that have at least one residue in the selection.  Not used if not specified.
 
 **confidence** -- Probability that the pose will be filtered out if it does not pass this Filter
 
