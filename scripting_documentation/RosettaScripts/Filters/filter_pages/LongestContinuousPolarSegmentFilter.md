@@ -24,3 +24,15 @@ This filter counts the number of residues in the longest continuous stretch of p
 **exclude\_chain\_termini** -- If false, polar stretches that reach the N- or C-terminus of a chain will be counted.  If true (the default), these terminal stretches will be ignored, and only internal polar stretches will be considered.
 
 **count\_gly\_as\_polar** -- If true, glycine is considered "polar" for purposes of this filter.  True by default.
+
+**filter\_out\_high -- If true, poses with more than the cutoff number of residues in the longest polar stretch will be rejected.  If false, poses with fewer than the cutoff number of residues in the longest polar stretch will be rejected.  True by default.
+
+**cutoff** -- The maximum (or minimum, if "filter_out_high" is set to "false") number of residues in the longest polar stretch that will still allow the pose to pass this filter.  Default 5.
+
+**residue_selector** -- An optional, previously-defined residue selector.  If provided, the filter will only consider stretches of polar residues that have at least one residue in the selection.  Not used if not specified.
+
+**confidence** -- Probability that the pose will be filtered out if it does not pass this Filter
+
+## See also
+
+* [[ResidueCount|ResidueCountFilter]] filter.
