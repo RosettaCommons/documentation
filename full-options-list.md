@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-04-15
+Generated: 2017-04-24
 
 _Note that some application specific options may not be present in this list._
 
@@ -708,8 +708,6 @@ _Note that some application specific options may not be present in this list._
 <dd>Only update the simulation in pymol on conformation change.<br/>Default: false<br/></dd>
 <dt><b>-keep_pymol_simulation_history</b> \<Boolean\></dt>
 <dd>Keep history when using show_simulation_in_pymol flag?<br/>Default: false<br/></dd>
-<dt><b>-insert_disulfide_constraint_weight</b> \<Real\></dt>
-<dd>Weight of the constraints on disulfide bonds formed by the DisulfideInsertionMover; EXPERIMENTAL<br/>Default: 0.0<br/></dd>
 </dl>
 + <h2>-jd3</h2>
 <dl>
@@ -4135,6 +4133,25 @@ _Note that some application specific options may not be present in this list._
 <dd>limit for acceptable loss in energy<br/>Default: 1.5<br/></dd>
 <dt><b>-dspec_cutoff</b> \<Real\></dt>
 <dd>limit for acceptable loss in specificity<br/>Default: -0.05<br/></dd>
+</dl>
++ <h2>-DisulfideInsertion</h2>
+<dl>
+<dt><b>-DisulfideInsertion</b> \<Boolean\></dt>
+<dd>DisulfideInsertion option group<br/></dd>
+<dt><b>-peptide_chain</b> \<Integer\></dt>
+<dd>The number of peptide chain for which to perform a DisulfideInsertion check<br/>Default: 1<br/></dd>
+<dt><b>-n_cyd_seqpos</b> \<Integer\></dt>
+<dd>The sequential position of the residue in the n-ter of the putative disulfide; 0 signals the peptide n-ter<br/>Default: 0.0<br/></dd>
+<dt><b>-c_cyd_seqpos</b> \<Integer\></dt>
+<dd>The sequential position of the residue in the c-ter of the putative disulfide; 0 signals the peptide c-ter<br/>Default: 0.0<br/></dd>
+<dt><b>-max_dslf_pot</b> \<Real\></dt>
+<dd>The maximum allowed match score for disulfide rotation and translation<br/>Default: 2.0<br/></dd>
+<dt><b>-max_dslf_energy</b> \<Real\></dt>
+<dd>The maximum allowed change in disulfide energy upon peptide disulfide bridge formation<br/>Default: 1.0<br/></dd>
+<dt><b>-scorefxn</b> \<String\></dt>
+<dd>The scorefunction to be used in disulfideInsertion<br/></dd>
+<dt><b>-constraint_weight</b> \<Real\></dt>
+<dd>Weight of the constraints on disulfide bonds formed by the DisulfideInsertionMover; EXPERIMENTAL<br/>Default: 0.0<br/></dd>
 </dl>
 + <h2>-docking</h2>
 <dl>
