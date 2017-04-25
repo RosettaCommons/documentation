@@ -30,14 +30,14 @@ The **-in:auto_setup_metals** flag has been added to handle import of metallopro
 * Rosetta sets the **atom_pair_constraint** and **angle_constraint** weights in the scorefunction to 1.0, if they have not already been set in the weights file.
 * Rosetta removes hydrogens from atoms that bind metal ions, and adjusts the charge on the residue appropriately (which can be important in special cases in which one residue coordinates multiple metal ions).
 * Rosetta sets up the fold tree such that the metal atom is connected by a jump to the spatially closest metal-binding residue that precedes it in linear sequence.  This means that if the protein's backbone is moved, the metal will remain close to that residue (though not necessarily close to its side-chain, if that were to move).
-
+The [[SetupMetalsMover]] provides the same function as the flag in mover form.
 ## How do I control the default behavior of the **-in:auto_setup_metals** flag?
 
 Three additional flags control the behavior:
 * **-in:metals_detection_LJ_multiplier <value>** controls the threshold for detecting covalent interactions between metal ions and metal-binding residues.  A value of 1.5 means that a time and a half the sum of the van der Waals radii of the metal ion and potential metal-binding atoms is used as the threshold.
 * **-in:metals_distance_constraint_multiplier <value>** controls the strength of the distance constraint, with 1.0 being the default.  Note that if an **atom_pair_constraint** weight is set by a protocol or by a weights file, the strength is automatically scaled appropriately (i.e. doubling the **atom_pair_constraint** weight does _not_ necessitate halving the value set with this flag).  If the value is set to 0, no atom_pair constraints are added.
 * **-in:metals_angle_constraint_multiplier <value>** controls the strength of the angle constraint, with 1.0 being the default.  As before, if an **angle_constraint** weight is set by a protocol or by a weights file, the strength is automatically scaled appropriately.  If the value is set to 0, no angle constraints are added.
-
+The SetupMetalsMover by default uses the values for these multipliers set on the command line. The values can also be specified in the mover tag using RosettaScripts.
 ## How does Rosetta know which residue types can bind metals?
 
 Metal-binding residues have the **METALBINDING** property in their properties list (in the params file).  Additionally, metal-binding atoms are specified with the **METAL_BINDING_ATOMS <atomname1> <atomname2> ...** line (also in the params file).  Meanwhile, metal ions have the **METAL** property in their properties list.  Note: metal ions must have the metal atom as atom 1.
@@ -56,6 +56,8 @@ You can also force the dumping of all CONECT records (not just the bonds to nonc
 
 As of 13 May 2014, it does.  One caveat is that constraint weights must be turned on explicitly in the scorefunction used in order for metal constraints to work.  Additionally, any mover that clears constraints will clear the metal constraints.
 
+**UPDATE** 25 April 2017: The new SetupMetalsMover provides the same functionality as the flag in mover form (constraint weights must still be explicitly set in the score function). Since the residue both adds covalent bonds/variant types and constraints, it cannot currently be called repeatedly; however, it may be modified to optionally add constraints only.
+
 ## I'd like to do other things with metals in my own protocols.
 
 Can you ask that in the form of a question?
@@ -70,3 +72,7 @@ Good question.  Utility functions are located in **src/core/util/metalloproteins
 * This has not yet been tested with Cartesian minimization, the **cart_bonded** score term, or symmetry.  These might create problems.
 * Within RosettaScripts, constraint weights must be turned on explicitly in a user-defined scorefunction.
 * Any protocol or RosettaScripts mover that resets constraints will reset the metal constraints.
+
+##See Also
+
+* [[SetupMetalsMover]]
