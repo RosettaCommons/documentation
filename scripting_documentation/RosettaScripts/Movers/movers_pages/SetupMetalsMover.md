@@ -1,3 +1,5 @@
+#SetupMetalsMover
+
 This mover replicates the function of the -in:auto_setup_metals command line flag in mover form. "Setting up" a metal ion entails adding covalent bonds between the ion and all bound atoms (detected as metal binding atoms within a distance determined by the Lennard Jones radii of the two atoms) and adding distance, angle, and coordinate constraints between the metal ion and the coordinating atoms. In the process, new variant types are also added to the metal ion and all coordinating residues. By default, all metal ions are set up; the user can specify a residue selector (as a subtag or previously defined selector), which restricts setup to only metal ions contained within the selection. 
 ```
 <SetupMetalsMover name="(&string)" metals_detection_LJ_multiplier="(&Real 1.0)" 
