@@ -169,6 +169,8 @@ These are movers that should be usable in most cases with most systems
 
 **[[ResidueTypeConstraintMover]]** - Constrains residue type
 
+**[[SetupMetalsMover]]** - Adds covalent bonds and distance/angle constraints to metal ions
+
 **[[TaskAwareCsts|TaskAwareCstsMover]]** - Adds constraints to residues designated by task_operations
 
 **[[AddConstraints|AddConstraintsMover]]** - Uses a constraint generator to add constraints to the pose
