@@ -56,7 +56,7 @@ You can also force the dumping of all CONECT records (not just the bonds to nonc
 
 As of 13 May 2014, it does.  One caveat is that constraint weights must be turned on explicitly in the scorefunction used in order for metal constraints to work.  Additionally, any mover that clears constraints will clear the metal constraints.
 
-**UPDATE** 25 April 2017: The new SetupMetalsMover provides the same functionality as the flag in mover form (constraint weights must still be explicitly set in the score function). Since the residue both adds covalent bonds/variant types and constraints, it cannot currently be called repeatedly; however, it may be modified to optionally add constraints only.
+**UPDATE** 25 April 2017: The new SetupMetalsMover provides the same functionality as the flag in mover form (constraint weights must still be explicitly set in the score function). The constraints_only option allows users to add constraints back without setting up covalent bonds; this can be useful i.e. after calling a mover that clears constraints.
 
 ## I'd like to do other things with metals in my own protocols.
 
