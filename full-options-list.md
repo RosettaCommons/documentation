@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-04-24
+Generated: 2017-04-28
 
 _Note that some application specific options may not be present in this list._
 
@@ -6200,6 +6200,8 @@ _Note that some application specific options may not be present in this list._
 <dd>After XML Schema validation completes, exit<br/></dd>
 <dt><b>-view</b> \<Boolean\></dt>
 <dd>Use the viewer?<br/></dd>
+<dt><b>-inclusion_recursion_limit</b> \<Integer\></dt>
+<dd>How many recursions to perform when parsing an XML file with inclusions<br/>Default: 8<br/></dd>
 </dl>
 + <h2>-patterson</h2>
 <dl>

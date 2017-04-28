@@ -10,7 +10,8 @@ XRW TO DO
         score_high="(&string;)" fullatom="(0 &bool;)"
         conserve_foldtree="(0 &bool;)" local_refine="(0 &bool;)"
         view="(0 &bool;)" design="(0 &bool;)" symmetry="(0 &bool;)"
-        ignore_default_docking_task="(0 &bool;)" task_operations="(&string;)"
+        ignore_default_docking_task="(0 &bool;)"
+        task_operations="(&task_operation_comma_separated_list;)"
         jumps="(1 &int_cslist;)" optimize_fold_tree="(1 &bool;)" />
 ```
 

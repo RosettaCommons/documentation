@@ -12,7 +12,8 @@ Performs a round flexible backbone sampling/design and loop design around DNA.
         cycles_inner="(&non_negative_integer;)"
         repack_rate="(&non_negative_integer;)" temp_initial="(&real;)"
         temp_final="(&real;)" designable_second_shell="(&bool;)"
-        scorefxn="(&string;)" task_operations="(&string;)" />
+        scorefxn="(&string;)"
+        task_operations="(&task_operation_comma_separated_list;)" />
 ```
 
 -   **type**: Backbone movement type

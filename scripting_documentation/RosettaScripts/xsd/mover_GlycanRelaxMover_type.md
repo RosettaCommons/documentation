@@ -10,7 +10,8 @@ Main mover for Glycan Relax, which optimizes glycans in a pose. Each round optim
         rounds="(&non_negative_integer;)" final_min="(true &bool;)"
         pymol_movie="(false &bool;)" refine="(false &bool;)"
         pack_distance="(&real;)" cartmin="(false &bool;)"
-        tree_based_min_pack="(true &bool;)" task_operations="(&string;)"
+        tree_based_min_pack="(true &bool;)"
+        task_operations="(&task_operation_comma_separated_list;)"
         scorefxn="(&string;)" residue_selector="(&string;)" >
     <MoveMap name="(&string;)" bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
         <Jump number="(&non_negative_integer;)" setting="(&bool;)" />

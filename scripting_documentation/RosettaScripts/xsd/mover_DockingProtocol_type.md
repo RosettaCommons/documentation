@@ -11,7 +11,7 @@ Mover used for protein-protein docking.
         low_res_protocol_only="(false &bool;)"
         docking_local_refine="(false &bool;)" dock_min="(false &bool;)"
         ignore_default_docking_task="(false &bool;)"
-        task_operations="(&string;)" />
+        task_operations="(&task_operation_comma_separated_list;)" />
 ```
 
 -   **docking_score_low**: Low-resolution docking score function

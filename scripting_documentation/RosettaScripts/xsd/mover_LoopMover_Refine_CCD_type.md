@@ -11,7 +11,7 @@ Perform loop refinement using CCD for loop closure.
         outer_cycles="(&non_negative_integer;)"
         max_inner_cycles="(250 &non_negative_integer;)"
         temp_initial="(1.5 &real;)" temp_final="(0.5 &real;)" loops="(&string;)"
-        task_operations="(&string;)" >
+        task_operations="(&task_operation_comma_separated_list;)" >
     <MoveMap name="(&string;)" bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
         <Jump number="(&non_negative_integer;)" setting="(&bool;)" />
         <Chain number="(&non_negative_integer;)" chi="(&bool;)" bb="(&bool;)" />

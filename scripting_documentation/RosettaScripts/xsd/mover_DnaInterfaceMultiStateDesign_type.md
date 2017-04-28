@@ -16,7 +16,7 @@ Performs multistate design on DNA interfaces
         checkpoint_prefix="(&string;)"
         checkpoint_interval="(&non_negative_integer;)" checkpoint_gz="(&bool;)"
         checkpoint_rename="(&bool;)" scorefxn="(&string;)"
-        task_operations="(&string;)" />
+        task_operations="(&task_operation_comma_separated_list;)" />
 ```
 
 -   **generations**: Number of generations for the genetic algorithm to evolve

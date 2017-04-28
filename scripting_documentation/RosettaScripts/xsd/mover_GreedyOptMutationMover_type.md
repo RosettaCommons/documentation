@@ -15,7 +15,8 @@ This mover will first attempt isolated/independent mutations defined in the inpu
         diversify="(true &bool;)" incl_nonopt="(false &bool;)"
         filter="(true_filter &string;)"
         sample_type="(low &choices_for_sample_types;)"
-        filter_delta="(0.0 &real;)" task_operations="(&string;)"
+        filter_delta="(0.0 &real;)"
+        task_operations="(&task_operation_comma_separated_list;)"
         scorefxn="(&string;)" >
     <Filters >
         <AND filter_name="(&string;)" sample_type="(low &choices_for_sample_types;)"

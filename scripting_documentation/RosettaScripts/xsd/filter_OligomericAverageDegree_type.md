@@ -10,7 +10,8 @@ A version of the AverageDegree filter that is compatible with oligomeric buildin
         threshold="(0 &non_negative_integer;)"
         distance_threshold="(10.0 &real;)" jump="(1 &integer;)"
         sym_dof_names="(&string;)" write2pdb="(0 &bool;)" verbose="(0 &bool;)"
-        multicomp="(0 &bool;)" task_operations="(&string;)"
+        multicomp="(0 &bool;)"
+        task_operations="(&task_operation_comma_separated_list;)"
         confidence="(1.0 &real;)" />
 ```
 

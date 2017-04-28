@@ -12,7 +12,7 @@ Allows sampling structures by MonteCarlo with a mover. The score evaluation of p
         adaptation_period="(&non_negative_integer;)" mover_name="(&string;)"
         filter_name="(true_filter &string;)" adaptive="(true &bool;)"
         sample_type="(low &string;)" scorefxn_name="(&string;)"
-        task_operations="(&string;)"
+        task_operations="(&task_operation_comma_separated_list;)"
         stopping_condition="(false_filter &string;)" drift="(true &bool;)"
         preapply="(true &bool;)" recover_low="(true &bool;)"
         bolz_rank="(false &bool;)" saved_accept_file_name="(&string;)"

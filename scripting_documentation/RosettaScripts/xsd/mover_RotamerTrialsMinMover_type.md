@@ -7,7 +7,8 @@ XRW TO DO
 
 ```xml
 <RotamerTrialsMinMover name="(&string;)" nonideal="(&bool;)"
-        cartesian="(&bool;)" scorefxn="(&string;)" task_operations="(&string;)" />
+        cartesian="(&bool;)" scorefxn="(&string;)"
+        task_operations="(&task_operation_comma_separated_list;)" />
 ```
 
 -   **nonideal**: XRW_TODO

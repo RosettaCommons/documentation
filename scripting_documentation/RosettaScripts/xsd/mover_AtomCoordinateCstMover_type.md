@@ -9,7 +9,8 @@ XRW TO DO
 <AtomCoordinateCstMover name="(&string;)" coord_dev="(0.5 &real;)"
         bounded="(false &bool;)" bound_width="(0 &real;)"
         sidechain="(false &bool;)" flip_hnq="(false &bool;)"
-        native="(false &bool;)" task_operations="(&string;)" />
+        native="(false &bool;)"
+        task_operations="(&task_operation_comma_separated_list;)" />
 ```
 
 -   **coord_dev**: XRW TO DO

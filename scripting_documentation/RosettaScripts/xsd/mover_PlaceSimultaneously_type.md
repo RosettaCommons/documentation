@@ -10,7 +10,8 @@ Places hotspot residues simultaneously on a scaffold, rather than iteratively as
         max_cb_dist="(3.0 &real;)" cb_force="(0.5 &real;)"
         stubscorefxn="(backbone_stub_constraint &string;)"
         host_chain="(2 &positive_integer;)" optimize_fold_tree="(false &bool;)"
-        minimize_rb="(true &bool;)" task_operations="(&string;)"
+        minimize_rb="(true &bool;)"
+        task_operations="(&task_operation_comma_separated_list;)"
         coor_cst_cutoff="(100.0 &real;)" repack_non_ala="(true &bool;)"
         after_placement_filter="(true_filter &string;)" >
     <StubMinimize min_repeats_before_placement="(0 &non_negative_integer;)"

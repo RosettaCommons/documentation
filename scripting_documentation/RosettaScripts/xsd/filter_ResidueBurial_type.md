@@ -8,7 +8,8 @@ How many residues are within an interaction distance of target_residue across th
 ```xml
 <ResidueBurial name="(&string;)" pdb_num="(XRW TO DO &string;)"
         distance="(8.0 &real;)" neighbors="(1 &non_negative_integer;)"
-        residue_fraction_buried="(0.001 &real;)" task_operations="(&string;)"
+        residue_fraction_buried="(0.001 &real;)"
+        task_operations="(&task_operation_comma_separated_list;)"
         confidence="(1.0 &real;)" />
 ```
 

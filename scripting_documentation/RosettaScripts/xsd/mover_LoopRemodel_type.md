@@ -8,7 +8,8 @@ XRW TO DO
 ```xml
 <LoopRemodel name="(&string;)" protocol="(ccd &closuremethod;)"
         perturb="(1 &bool;)" refine="(1 &bool;)" refine_score="(&string;)"
-        perturb_score="(&string;)" task_operations="(&string;)"
+        perturb_score="(&string;)"
+        task_operations="(&task_operation_comma_separated_list;)"
         auto_loops="(0 &bool;)" design="(0 &bool;)" hurry="(0 &bool;)"
         cycles="(10 &non_negative_integer;)" loop_file="(loops.loops &string;)"
         loop_start_pdb_num="(&refpose_enabled_residue_number;)"

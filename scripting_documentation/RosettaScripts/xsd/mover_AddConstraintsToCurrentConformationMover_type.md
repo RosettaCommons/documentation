@@ -10,7 +10,8 @@ XRW TO DO
         use_distance_cst="(&bool;)" max_distance="(&real;)" coord_dev="(&real;)"
         bound_width="(&real;)" min_seq_sep="(&non_negative_integer;)"
         cst_weight="(&real;)" CA_only="(&bool;)" bb_only="(&bool;)"
-        inter_chain="(&bool;)" task_operations="(&string;)"
+        inter_chain="(&bool;)"
+        task_operations="(&task_operation_comma_separated_list;)"
         residue_selector="(&string;)" />
 ```
 

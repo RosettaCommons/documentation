@@ -20,7 +20,8 @@ Reports to database every stride steps in a trajectory
         cache_size="(2000 &non_negative_integer;)"
         remove_xray_virt="(false &bool;)"
         relevant_residues_mode="(explicit &report_to_db_relevant_residues_mode;)"
-        task_operations="(&string;)" stride="(&non_negative_integer;)" >
+        task_operations="(&task_operation_comma_separated_list;)"
+        stride="(&non_negative_integer;)" >
     <Features Reporter Tag ... />
 </TrajectoryReportToDB>
 ```

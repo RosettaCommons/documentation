@@ -9,7 +9,8 @@ Run mean-field on pose
 <GenMeanFieldMover name="(&string;)" lambda_memory="(0.5 &real;)"
         tolerance="(0.0001 &real;)" temperature="(0.8 &real;)"
         init_option="(1 &real;)" threshold="(10 &real;)" unbound="(0 &bool;)"
-        scorefxn="(&string;)" task_operations="(&string;)" />
+        scorefxn="(&string;)"
+        task_operations="(&task_operation_comma_separated_list;)" />
 ```
 
 -   **lambda_memory**: Used in updating the original mean-field matrix to decrease oscillation.

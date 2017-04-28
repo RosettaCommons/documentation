@@ -12,9 +12,12 @@ Does minimization over sidechain and/or backbone.
         type="(lbfgs_armijo_nonmonotone &minimizer_type;)"
         tolerance="(0.01 &real;)" cartesian="(false &bool;)"
         bondangle="(0 &bool;)" bondlength="(0 &bool;)" chi="(&bool;)"
-        bb="(&bool;)" omega="(true &bool;)" bb_task_operations="(&string;)"
-        chi_task_operations="(&string;)" bondangle_task_operations="(&string;)"
-        bondlength_task_operations="(&string;)" scorefxn="(&string;)" >
+        bb="(&bool;)" omega="(true &bool;)"
+        bb_task_operations="(&task_operation_comma_separated_list;)"
+        chi_task_operations="(&task_operation_comma_separated_list;)"
+        bondangle_task_operations="(&task_operation_comma_separated_list;)"
+        bondlength_task_operations="(&task_operation_comma_separated_list;)"
+        scorefxn="(&string;)" >
     <MoveMap name="(&string;)" bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
         <Jump number="(&non_negative_integer;)" setting="(&bool;)" />
         <Chain number="(&non_negative_integer;)" chi="(&bool;)" bb="(&bool;)" />

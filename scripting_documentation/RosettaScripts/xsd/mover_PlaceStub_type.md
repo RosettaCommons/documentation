@@ -16,7 +16,7 @@ The Hotspot-based sidechain placement. This is the main workhorse of the hot-spo
         final_filter="(true_filter &string;)" add_constraints="(true &bool;)"
         max_cb_dist="(4.0 &real;)" leave_coord_csts="(false &bool;)"
         post_placement_sdev="(1.0 &real;)" place_scaffold="(false &bool;)"
-        task_operations="(&string;)"
+        task_operations="(&task_operation_comma_separated_list;)"
         allowed_host_res="(&resnum_list_with_ranges;)" >
     <StubMinimize >
         <Add mover_name="(&string;)" bb_cst_weight="(10.0 &real;)" />

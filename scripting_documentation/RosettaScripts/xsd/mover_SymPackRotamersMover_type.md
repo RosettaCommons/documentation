@@ -7,7 +7,8 @@ Repacks sidechains with user-supplied options, including TaskOperations.
 
 ```xml
 <SymPackRotamersMover name="(&string;)" nloop="(1 &non_negative_integer;)"
-        scorefxn="(&string;)" task_operations="(&string;)" />
+        scorefxn="(&string;)"
+        task_operations="(&task_operation_comma_separated_list;)" />
 ```
 
 -   **nloop**: Equivalent to "-ndruns".Number of complete packing runs before an output (best score) is produced.

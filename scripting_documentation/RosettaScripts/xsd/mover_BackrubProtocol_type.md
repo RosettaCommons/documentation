@@ -7,10 +7,11 @@ Performs backrub-style backbone moves
 
 ```xml
 <BackrubProtocol name="(&string;)" pivot_residues="(&string;)"
-        pivot_atoms="(&string;)" task_operations="(&string;)" mc_kt="(&real;)"
-        ntrials="(&real;)" trajectory="(&bool;)" trajectory_gz="(&bool;)"
-        recover_low="(&bool;)" pivot_residue_selector="(&string;)"
-        trajectory_apply_mover="(&string;)"
+        pivot_atoms="(&string;)"
+        task_operations="(&task_operation_comma_separated_list;)"
+        mc_kt="(&real;)" ntrials="(&real;)" trajectory="(&bool;)"
+        trajectory_gz="(&bool;)" recover_low="(&bool;)"
+        pivot_residue_selector="(&string;)" trajectory_apply_mover="(&string;)"
         trajectory_stride="(&positive_integer;)" />
 ```
 

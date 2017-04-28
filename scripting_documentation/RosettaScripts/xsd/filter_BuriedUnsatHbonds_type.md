@@ -8,7 +8,8 @@ XRW TO DO
 ```xml
 <BuriedUnsatHbonds name="(&string;)" jump_number="(1 &non_negative_integer;)"
         cutoff="(20 &non_negative_integer;)" scorefxn="(&string;)"
-        task_operations="(&string;)" confidence="(1.0 &real;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        confidence="(1.0 &real;)" />
 ```
 
 -   **jump_number**: The jump over which to evaluate the filter

@@ -15,14 +15,15 @@ XRW TO DO
         checkpoint_prefix="(&string;)"
         checkpoint_interval="(&non_negative_integer;)" checkpoint_gz="(&bool;)"
         checkpoint_rename="(&bool;)" output_fname_prefix="(&string;)"
-        scorefxn="(&string;)" task_operations="(&string;)"
+        scorefxn="(&string;)"
+        task_operations="(&task_operation_comma_separated_list;)"
         rb_jump="(1 &non_negative_integer;)" unfolded="(1 &bool;)"
         unbound="(1 &bool;)" input_is_positive="(1 &bool;)"
         profile_bump_threshold="(1.0 &real;)" compare_to_ground_state="(&bool;)" >
     <Positive pdb="(&string;)" unbound="(0 &bool;)" unfolded="(0 &bool;)"
-            task_operations="(&string;)" />
+            task_operations="(&task_operation_comma_separated_list;)" />
     <Negative pdb="(&string;)" unbound="(0 &bool;)" unfolded="(0 &bool;)"
-            task_operations="(&string;)" />
+            task_operations="(&task_operation_comma_separated_list;)" />
 </ProteinInterfaceMS>
 ```
 

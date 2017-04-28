@@ -8,7 +8,7 @@ Packs then minimizes a sidechain before calling MonteCarlo on the change. It can
 ```xml
 <MinPackMover name="(&string;)" nonideal="(&bool;)" cartesian="(&bool;)"
         off_rotamer_pack="(&bool;)" scorefxn="(&string;)"
-        task_operations="(&string;)" />
+        task_operations="(&task_operation_comma_separated_list;)" />
 ```
 
 -   **nonideal**: open up the bond-angle- and bond-length DOFs to minimization

@@ -11,8 +11,8 @@ Computes the binding energy for the complex and if it is below the threshold ret
         symmetry="(&string;)" repack_bound="(1 &bool;)" relax_bound="(0 &bool;)"
         translate_by="(100 &real;)" relax_mover="(&string;)" filter="(&string;)"
         chain_num="(&string;)" extreme_value_removal="(false &bool;)"
-        task_operations="(&string;)" scorefxn="(&string;)"
-        confidence="(1.0 &real;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        scorefxn="(&string;)" confidence="(1.0 &real;)" />
 ```
 
 -   **threshold**: Threshold below which the filter computes the binding energy.

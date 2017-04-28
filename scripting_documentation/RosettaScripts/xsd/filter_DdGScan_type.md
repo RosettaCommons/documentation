@@ -8,7 +8,8 @@ Takes a set of task operations from the user in order to more precisely specify 
 ```xml
 <DdGScan name="(&string;)" repeats="(1 &non_negative_integer;)"
         report_diffs="(1 &bool;)" ddG_mover="(&string;)" write2pdb="(0 &bool;)"
-        scorefxn="(&string;)" task_operations="(&string;)"
+        scorefxn="(&string;)"
+        task_operations="(&task_operation_comma_separated_list;)"
         confidence="(1.0 &real;)" />
 ```
 

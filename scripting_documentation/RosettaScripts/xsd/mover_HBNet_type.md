@@ -35,7 +35,8 @@ HBNet is a method to explicitly detect and design hydrogen bond networks within 
         use_only_input_rot_for_start_res="(false &bool;)"
         start_resnums="(&residue_number_cslist;)" start_selector="(&string;)"
         core_selector="(&string;)" boundary_selector="(&string;)"
-        task_operations="(&string;)" scorefxn="(&string;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        scorefxn="(&string;)" />
 ```
 
 -   **hb_threshold**: 2-body h-bond energy cutoff to define rotamer pairs that h-bond. I've found that -0.5 without ex1-ex2 is the best starting point. If using ex1-ex2, try -0.75. This parameter is the most important and requires some tuning; the tradeoff is that the more stringent (more negative), the faster it runs but you miss a lot of networks; too positive and it will run forever; using ex1-ex2 results in many redundant networks that end up being filtered out anyway.

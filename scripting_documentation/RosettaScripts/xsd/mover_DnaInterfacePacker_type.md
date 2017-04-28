@@ -10,7 +10,7 @@ Intended to perform anything one would want to do in a DNA interface that uses a
         minimize="(&bool;)" reversion_scan="(&bool;)"
         probe_specificity="(&non_negative_integer;)" pdb_output="(&bool;)"
         protein_scan="(&bool;)" allowed_types="(&bool;)" scorefxn="(&string;)"
-        task_operations="(&string;)" />
+        task_operations="(&task_operation_comma_separated_list;)" />
 ```
 
 -   **binding**: calculate binding energy

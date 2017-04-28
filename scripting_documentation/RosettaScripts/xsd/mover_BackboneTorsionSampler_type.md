@@ -10,7 +10,8 @@ Not documented.  Appears to be some sort of relax analogue.  Related to Backbone
         stop_res="(&positive_integer;)" native="(&string;)"
         increase_cycles="(&real;)" recover_low="(&bool;)" temp="(&real;)"
         local="(0 &non_negative_integer;)" nested="(2 &non_negative_integer;)"
-        scorefxn="(&string;)" task_operations="(&string;)"
+        scorefxn="(&string;)"
+        task_operations="(&task_operation_comma_separated_list;)"
         dump_snapshots="(&non_negative_integer;)"
         snapshot_prefix="(snapshot &string;)"
         snapshot_interval="(100 &positive_integer;)" />

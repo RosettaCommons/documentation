@@ -20,7 +20,7 @@ Reports the specified features to the specified database
         cache_size="(2000 &non_negative_integer;)"
         remove_xray_virt="(false &bool;)"
         relevant_residues_mode="(explicit &report_to_db_relevant_residues_mode;)"
-        task_operations="(&string;)" >
+        task_operations="(&task_operation_comma_separated_list;)" >
     <Features Reporter Tag ... />
 </ReportToDB>
 ```

@@ -10,7 +10,8 @@ Calculate the number of heavy atoms clashing between building blocks.
         sym_dof_names="(XRW TO DO &string;)"
         nsub_bblock="(1 &non_negative_integer;)"
         cutoff="(0 &non_negative_integer;)" verbose="(0 &bool;)"
-        write2pdb="(0 &bool;)" task_operations="(&string;)"
+        write2pdb="(0 &bool;)"
+        task_operations="(&task_operation_comma_separated_list;)"
         confidence="(1.0 &real;)" />
 ```
 

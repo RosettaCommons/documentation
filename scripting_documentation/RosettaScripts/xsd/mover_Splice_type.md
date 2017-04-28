@@ -19,7 +19,7 @@ XRW TO DO
         skip_alignment="(false &bool;)" use_seqeunce_profile="(&bool;)"
         scorefxn="(&string;)" add_sequence_constraints_only="(false &bool;)"
         template_file="(&string;)" set_fold_tree_only="(false &bool;)"
-        task_operations="(&string;)"
+        task_operations="(&task_operation_comma_separated_list;)"
         from_res="(0 &refpose_enabled_residue_number;)"
         to_res="(0 &refpose_enabled_residue_number;)"
         design_task_operations="(&string;)" residue_numbers_setter="(&string;)"

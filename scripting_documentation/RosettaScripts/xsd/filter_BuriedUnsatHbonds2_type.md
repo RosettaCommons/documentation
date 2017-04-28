@@ -11,7 +11,8 @@ XRW TO DO
         sasa_burial_cutoff="(true &bool;)" AHD_cutoff="(120 &real;)"
         dist_cutoff="(3.0 &real;)" hxl_dist_cutoff="(3.5 &real;)"
         sulph_dist_cutoff="(3.3 &real;)" metal_dist_cutoff="(2.7 &real;)"
-        scorefxn="(&string;)" task_operations="(&string;)"
+        scorefxn="(&string;)"
+        task_operations="(&task_operation_comma_separated_list;)"
         confidence="(1.0 &real;)" />
 ```
 

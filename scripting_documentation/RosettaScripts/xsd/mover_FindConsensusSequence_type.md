@@ -7,7 +7,8 @@ Takes in multiple poses from the MSDJobDistributor and finds theconsensus sequen
 
 ```xml
 <FindConsensusSequence name="(&string;)" scorefxn="(&string;)"
-        task_operations="(&string;)" resfiles="(&string;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        resfiles="(&string;)" />
 ```
 
 -   **scorefxn**: Score function to use when evaluating best amino acids at each position

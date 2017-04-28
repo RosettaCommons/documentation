@@ -9,7 +9,8 @@ Computes the overall sasa of the pose.
 <TotalSasa name="(&string;)" threshold="(800 &real;)"
         upper_threshold="(1000000 &real;)" hydrophobic="(false &bool;)"
         polar="(false &bool;)" report_per_residue_sasa="(false &bool;)"
-        task_operations="(&string;)" confidence="(1.0 &real;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        confidence="(1.0 &real;)" />
 ```
 
 -   **threshold**: If it is **higher** than threshold, it passes.

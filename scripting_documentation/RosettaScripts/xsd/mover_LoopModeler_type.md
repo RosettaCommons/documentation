@@ -9,7 +9,7 @@ Perform a complete loop modeling simulation, including the build, centroid, and 
 <LoopModeler name="(&string;)" loops_file="(&string;)"
         config="(kic &config_options;)" auto_refine="(true &bool;)"
         scorefxn_fa="(&string;)" scorefxn_cen="(&string;)" fast="(false &bool;)"
-        task_operations="(&string;)" >
+        task_operations="(&task_operation_comma_separated_list;)" >
     <Loop start="(&non_negative_integer;)" stop="(&non_negative_integer;)"
             cut="(0 &non_negative_integer;)" skip_rate="(0.0 &real;)"
             rebuild="(false &bool;)" />

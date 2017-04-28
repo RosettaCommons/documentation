@@ -8,7 +8,7 @@ Repack the sidechains in and around the loop being sampled.
 ```xml
 <RepackingRefiner name="(&string;)" loops_file="(&string;)"
         once_every="(&non_negative_integer;)" scorefxn="(&string;)"
-        task_operations="(&string;)" />
+        task_operations="(&task_operation_comma_separated_list;)" />
 ```
 
 -   **loops_file**: path to loops file

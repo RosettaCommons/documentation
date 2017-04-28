@@ -9,7 +9,8 @@ Not documented.  Appears to be some sort of relax analogue.  Related to Backbone
 <BackboneTorsionPerturbation name="(&string;)" start_res="(&positive_integer;)"
         stop_res="(&positive_integer;)" native="(&string;)"
         increase_cycles="(&real;)" recover_low="(&bool;)" temp="(&real;)"
-        scorefxn="(&string;)" task_operations="(&string;)"
+        scorefxn="(&string;)"
+        task_operations="(&task_operation_comma_separated_list;)"
         dump_snapshots="(&non_negative_integer;)"
         snapshot_prefix="(snapshot &string;)"
         snapshot_interval="(100 &positive_integer;)" />

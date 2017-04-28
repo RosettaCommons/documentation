@@ -8,7 +8,7 @@ XRW TO DO
 ```xml
 <build_Ala_pose name="(&string;)" partner1="(0 &bool;)" partner2="(1 &bool;)"
         interface_cutoff_distance="(8.0 &real;)" AA="(ALA &string;)"
-        task_operations="(&string;)" />
+        task_operations="(&task_operation_comma_separated_list;)" />
 ```
 
 -   **partner1**: Design/repack the first chain

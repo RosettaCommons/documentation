@@ -7,7 +7,8 @@ FastRelax mover used for design that can take constraint generators
 
 ```xml
 <FastDesign name="(&string;)" scorefxn="(&string;)"
-        disable_design="(true &bool;)" task_operations="(&string;)"
+        disable_design="(true &bool;)"
+        task_operations="(&task_operation_comma_separated_list;)"
         task_factory="(&string;)" repeats="(5 &integer;)"
         relaxscript="(&string;)" cst_file="(&string;)" batch="(false &bool;)"
         cartesian="(false &bool;)" dualspace="(false &bool;)"
@@ -28,7 +29,7 @@ FastRelax mover used for design that can take constraint generators
 
 -   **scorefxn**: Name of score function to use
 -   **disable_design**: Do not perform design even if a resfile is specified
--   **task_operations**: A comma separated list of TaskOperations to use
+-   **task_operations**: A comma separated list of TaskOperations to use.
 -   **task_factory**: A TaskFactory specification to use
 -   **repeats**: Same as cmd-line FR. Number of fastrelax repeats to perform
 -   **relaxscript**: a filename for a relax script, as described in the documentation for the Relax application; the default relax script is used if not specified

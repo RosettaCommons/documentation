@@ -8,10 +8,10 @@ This mover is useful for reporting the total or per-residue ddgs in cases where 
 ```xml
 <ddG name="(&string;)" scorefxn="(&string;)" jump="(1 &non_negative_integer;)"
         per_residue_ddg="(false &bool;)" repack_unbound="(false &bool;)"
-        task_operations="(&string;)" repack_bound="(true &bool;)"
-        relax_bound="(false &bool;)" translate_by="(1000 &real;)"
-        relax_mover="(&string;)" filter="(&string;)" chain_num="(&string;)"
-        chain_name="(&string;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        repack_bound="(true &bool;)" relax_bound="(false &bool;)"
+        translate_by="(1000 &real;)" relax_mover="(&string;)"
+        filter="(&string;)" chain_num="(&string;)" chain_name="(&string;)" />
 ```
 
 -   **scorefxn**: Name of score function to use

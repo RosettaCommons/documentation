@@ -9,7 +9,8 @@ Calculates SASA for a set of residues defined by TaskOperations.
 <TaskAwareSASA name="(&string;)" threshold="(0 &real;)"
         designable_only="(false &bool;)" sc_only="(false &bool;)"
         probe_radius="(2.2 &real;)" jump="(0 &non_negative_integer;)"
-        task_operations="(&string;)" confidence="(1.0 &real;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        confidence="(1.0 &real;)" />
 ```
 
 -   **threshold**: Returns true if the set of residues defined by the TaskOperations have a combined SASA higher than the threshold, false otherwise. Default threshold is 0 so that all structures will pass if a threshold is not explicitly specified.

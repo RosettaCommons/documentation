@@ -12,7 +12,7 @@ Align + combine parts of the pdb
         overlap_scan_range="(20 &non_negative_integer;)" attach_pdb="(&string;)"
         design_range="(3 &real;)" packing_range="(5 &real;)"
         do_minimize="(true &bool;)" scorefxn="(&string;)"
-        task_operations="(&bool;)" />
+        task_operations="(&task_operation_comma_separated_list;)" />
 ```
 
 -   **attachment_termini**: XRW TO DO
@@ -24,6 +24,6 @@ Align + combine parts of the pdb
 -   **packing_range**: XRW TO DO
 -   **do_minimize**: Perform energy minimization
 -   **scorefxn**: Score function used for packing and design.
--   **task_operations**: Set task operations
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 ---

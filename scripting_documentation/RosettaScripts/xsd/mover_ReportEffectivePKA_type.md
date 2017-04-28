@@ -7,7 +7,7 @@ XRW TO DO
 
 ```xml
 <ReportEffectivePKA name="(&string;)" scorefxn="(&string;)"
-        task_operations="(&string;)" />
+        task_operations="(&task_operation_comma_separated_list;)" />
 ```
 
 -   **scorefxn**: Name of score function to use

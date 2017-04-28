@@ -8,7 +8,8 @@ XRW TO DO
 ```xml
 <Torsion name="(&string;)" lower="(0 &real;)" upper="(0 &real;)"
         torsion="(&string;)" resnum="(&refpose_enabled_residue_number;)"
-        task_operations="(&string;)" confidence="(1.0 &real;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        confidence="(1.0 &real;)" />
 ```
 
 -   **lower**: Lower torsion threshold

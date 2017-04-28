@@ -9,8 +9,9 @@ Filters structures based on the total number of residues in the structure.
 <ResidueCount name="(&string;)" max_residue_count="(&non_negative_integer;)"
         min_residue_count="(&non_negative_integer;)"
         count_as_percentage="(false &bool;)" residue_types="(&string;)"
-        task_operations="(&string;)" residue_selector="(&string;)"
-        packable="(false &bool;)" confidence="(1.0 &real;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        residue_selector="(&string;)" packable="(false &bool;)"
+        confidence="(1.0 &real;)" />
 ```
 
 -   **max_residue_count**: Is the total number of residues less than or equal to the maximum allowable residue count?

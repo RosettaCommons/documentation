@@ -7,7 +7,8 @@ Use rotamer trials to quickly optimize the sidechains in and around the loop bei
 
 ```xml
 <RotamerTrialsRefiner name="(&string;)" loops_file="(&string;)"
-        scorefxn="(&string;)" task_operations="(&string;)" />
+        scorefxn="(&string;)"
+        task_operations="(&task_operation_comma_separated_list;)" />
 ```
 
 -   **loops_file**: path to loops file

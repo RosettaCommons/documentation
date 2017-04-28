@@ -12,8 +12,8 @@ Takes task operations to determine the packable residues and then calculates/fil
         jump="(0 &non_negative_integer;)"
         mode="(average &TaskAwareScoreTypeFilter_mode_choices;)"
         write2pdb="(0 &bool;)" individual_hbonds="(false &bool;)"
-        task_operations="(&string;)" scorefxn="(&string;)"
-        confidence="(1.0 &real;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        scorefxn="(&string;)" confidence="(1.0 &real;)" />
 ```
 
 -   **score_type**: Score term to use for the calculations. Defaults to total_score.

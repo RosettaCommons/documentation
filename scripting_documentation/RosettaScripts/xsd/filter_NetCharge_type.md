@@ -8,7 +8,8 @@ This filter sums up all of the positively and negatively charged amino acids in 
 ```xml
 <NetCharge name="(&string;)" chain="(0 &non_negative_integer;)"
         max="(100 &integer;)" min="(-100 &integer;)"
-        task_operations="(&string;)" confidence="(1.0 &real;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        confidence="(1.0 &real;)" />
 ```
 
 -   **chain**: specify which chain you want to calculate the net charge (In the input PDB file, from top to bottom: 1 means first chain, 2 means the second chain, and so forth). Use the value 0 (default) if you want to consider all residues in the input PDB structure.

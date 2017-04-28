@@ -11,7 +11,8 @@ XRW TO DO
         type="(lbfgs_armijo_nonmonotone &minimizer_type;)"
         tolerance="(0.01 &real;)" cartesian="(false &bool;)"
         bondangle="(0 &bool;)" bondlength="(0 &bool;)"
-        task_operations="(&string;)" scorefxn="(&string;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        scorefxn="(&string;)" />
 ```
 
 -   **chi**: Allow chi degrees of freedom to minimize

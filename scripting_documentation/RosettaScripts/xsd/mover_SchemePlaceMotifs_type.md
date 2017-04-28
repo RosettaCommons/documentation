@@ -9,7 +9,8 @@ This mover will use only motif pairs found in input motif_sets or in the default
 <SchemePlaceMotifs name="(&string;)" dumpfile="(XRW TO DO &string;)"
         mode="(basic &string;)" allowed_aas="(motifs &string;)"
         halt_on_error="(false &bool;)" motif_sets="(XRW TO DO &string;)"
-        scorefxn="(&string;)" task_operations="(&string;)" />
+        scorefxn="(&string;)"
+        task_operations="(&task_operation_comma_separated_list;)" />
 ```
 
 -   **dumpfile**: This is an option to generate a extra pdb that dumps the motifs used for packing, it's meant for troubleshooting.

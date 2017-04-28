@@ -47,7 +47,8 @@ This is the Hybridize mover at the core of comparative modeling (RosettaCM).  Ty
             filter_templates="(false &bool;)" />
     <DetailedControls start_res="(1 &non_negative_integer;)"
             stop_res="(&non_negative_integer;)" sample_template="(true &bool;)"
-            sample_abinitio="(true &bool;)" task_operations="(&string;)" />
+            sample_abinitio="(true &bool;)"
+            task_operations="(&task_operation_comma_separated_list;)" />
 </Hybridize>
 ```
 

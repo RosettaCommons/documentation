@@ -9,7 +9,8 @@ Symmetric oligomer docking.
 <SymDockProtocol name="(&string;)" dock_rtmin="(&bool;)" sc_min="(&bool;)"
         max_repeats="(&bool;)" dock_ppk="(&bool;)" fullatom="(&bool;)"
         local_refine="(&bool;)" view="(&bool;)" docking_score_low="(&string;)"
-        docking_score_high="(&string;)" />
+        docking_score_high="(&string;)"
+        task_operations="(&task_operation_comma_separated_list;)" />
 ```
 
 -   **dock_rtmin**: Does rotamer trials with minimization.
@@ -21,5 +22,6 @@ Symmetric oligomer docking.
 -   **view**: Decide whether to use the viewer (graphical) or not.
 -   **docking_score_low**: Name of score function to use
 -   **docking_score_high**: Name of score function to use
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 ---

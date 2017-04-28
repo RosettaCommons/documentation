@@ -9,7 +9,9 @@ Counts sidechain carbon-carbon contacts among the specified residues under the g
 <AtomicContactCount name="(&string;)" distance="(4.5 &real;)"
         partition="(none &partition_types;)" normalize_by_sasa="(0 &bool;)"
         normalize_by_carbon_count="(0 &bool;)" ss_only="(0 &bool;)"
-        taskA="(&string;)" taskB="(&string;)" task_operations="(&string;)"
+        taskA="(&task_operation_comma_separated_list;)"
+        taskB="(&task_operation_comma_separated_list;)"
+        task_operations="(&task_operation_comma_separated_list;)"
         jump="(1 &non_negative_integer;)" sym_dof_name="(&string;)"
         confidence="(1.0 &real;)" />
 ```
@@ -19,8 +21,8 @@ Counts sidechain carbon-carbon contacts among the specified residues under the g
 -   **normalize_by_sasa**: Normalize contacts by sasa
 -   **normalize_by_carbon_count**: Normalize contacts by number of carbons
 -   **ss_only**: Only consider SS elements (i.e., non-L)
--   **taskA**: String-separated list of task operations
--   **taskB**: String-separated list of task operations
+-   **taskA**: Comma-separated list of task operations to use for selecting residue set A.  This is an alternative to using "task_operations" to select a single group of residues.
+-   **taskB**: Comma-separated list of task operations to use for selecting residue set B.  This is an alternative to using "task_operations" to select a single group of residues.
 -   **task_operations**: A comma separated list of TaskOperations to use.
 -   **jump**: Jump across which to define contacts
 -   **sym_dof_name**: Name of the sym dof -- a symmetry-aware jump identifier

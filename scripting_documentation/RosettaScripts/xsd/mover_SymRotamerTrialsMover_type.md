@@ -7,7 +7,8 @@ This mover goes through each repackable/redesignable position in the pose, takin
 
 ```xml
 <SymRotamerTrialsMover name="(&string;)" show_packer_task="(false &bool;)"
-        scorefxn="(&string;)" task_operations="(&string;)" />
+        scorefxn="(&string;)"
+        task_operations="(&task_operation_comma_separated_list;)" />
 ```
 
 -   **show_packer_task**: XRW TO DO

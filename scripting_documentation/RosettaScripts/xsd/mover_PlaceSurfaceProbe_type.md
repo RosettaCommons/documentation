@@ -13,7 +13,8 @@ Uses a probe of the specified type to probe the surface of the pose
         search_density="(1.0 &real;)" coarse_angle_sampling="(&real;)"
         coarse_sampling="(&real;)" refinement_angle_sampling="(&real;)"
         refinement_sampling="(&real;)" refinement_distance="(&real;)"
-        scorefxn="(&string;)" task_operations="(&string;)" />
+        scorefxn="(&string;)"
+        task_operations="(&task_operation_comma_separated_list;)" />
 ```
 
 -   **residue_name**: (REQUIRED) Residue to use as a surface probe
