@@ -27,9 +27,11 @@ As an example, ResidueSelectors are stored in the DataMap under the category "Re
 
 ###Adding new top-level RosettaScripts blocks
 To add a new top-level subelement of the ROSETTA_SCRIPTS element, there are three major requirements:
+
 1. As with any RosettaScripts element, all elements you wish to contain in this block must have parse_my_tag and provide_xml_schema functions.
 2. The class you wish to contain in this element must have a factory and registrator, and each subclass must have a creator.
 3. You must create a DataLoader class. These are currently found in protocols/jd2/parser. **Note that when RosettaScripts is transitioned to jd3, this may change.** 
+
 Each DataLoader defines the name of its corresponding top-level block (e.g. CONSTRAINT_GENERATORS), parses all of the subtags using the corresponding class's parse_my_tag function, and stores them in the DataMap. **Note:** Make sure that 1) if any other classes store members of your parent class in the data map, they use the same category name and 2) you use the same category name within the DataMap that other classes are expecting. For example, if you stored a residue selector under the "residue_selectors" category, other classes would not be able to access it since they would be expecting to find it in the "ResidueSelector" category.
 
 Movers
