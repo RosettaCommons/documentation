@@ -144,6 +144,8 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[ResidueBurial|ResidueBurialFilter]]** - Number of residues within interaction distance across interface of target residue.
 
+**[[BuriedSurfaceArea|BuriedSurfaceAreaFilter]]** - Computes the buried surface area for a pose or selection, with an option to consider hydrophobic residues only.
+
 **[[ExposedHydrophobics|ExposedHydrophobicsFilter]]** - Computes the SASA for each hydrophobic residue.
 
 ### Comparison
