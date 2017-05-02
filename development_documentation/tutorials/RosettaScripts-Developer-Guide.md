@@ -6,10 +6,31 @@
 
  Using RosettaScripts in its most basic sense involves organizing a workflow of [[Mover|Movers-RosettaScripts]] classes that are defined and parameterized in an XML-like scripting language that is read and processed into an arbitrary minirosetta protocol at runtime. The use of Filter classes is also used to further control protocol flow.
 
+Review of RosettaScript Structure 
+---------------------------------
+A RosettaScript is an XML document which MUST be contained within opening and closing `<ROSETTASCRIPTS>` tags. Within those tags lie several top-level elements:
+- Movers are defined in the MOVERS element and stored in the Movers_map. They are handled directly by the RosettaScriptsParser.
+- Similarly, Filters are defined in the FILTERS element and stored in the Filters_map. They are also handled directly by the RosettaScriptsParser.
+- The PROTOCOLS element is required, order-sensitive, and defines the order in which movers and filters will be applied. It is really just the tag for the ParsedProtocol mover and handles its own parsing.
+- The APPLY_TO_POSE element is deprecated and really shouldn't be used. It allows users to define movers that will be applied to the pose BEFORE other movers/filters are parsed, which could affect residue numbering, add constraints, etc. All of these functions can be handled elsewhere (through reference poses, constraint generators, etc.).
+- The OUTPUT element's only attribute is a score function; it is used to designate which score function should be used to score the final pose at the end of a protocol.
+- All other top-level elements (defining score functions, task operations, residue selectors, etc.) are parsed by DataLoader classes and stored in the DataMap.
+
 DataMap
 -------
 
 The DataMap is an internal structure for holding pointers to objects of arbitrary type. Each Mover's parse\_my\_tag() method has const access to the DataMap, and can recover pointers from it. This can be useful for communication between movers. For example, both the LoopFinder and KinematicLoop movers can get a common LoopsOP during parsing. At apply time the LoopFinder can fill the LoopsOP with loops, and KinematicLoop can subsequently read from it.
+
+###Using the DataMap
+During RosettaScripts parsing, most classes (other than movers and filters) are read in by a DataLoader and placed in the DataMap. This allows other classes (movers/filters, etc.) to access them by referencing them by name in their tags.
+As an example, ResidueSelectors are stored in the DataMap under the category "ResidueSelector". When the RosettaScripts parser encounters the RESIDUE_SELECTORS block of a RosettaScript, the ResidueSelectorLoader instantiates each of the selectors defined in that block and stores them in the DataMap using the function add( "ResidueSelector", <name of selector>, <OP to selector>). When a tag later references that selector i.e. using the option residue_selectors="x,y,z", we can then retrieve the appropriate selectors using the DataMap's function  
+
+###Adding new top-level RosettaScripts blocks
+To add a new top-level subelement of the ROSETTA_SCRIPTS element, there are three major requirements:
+1. As with any RosettaScripts element, all elements you wish to contain in this block must have parse_my_tag and provide_xml_schema functions.
+2. The class you wish to contain in this element must have a factory and registrator, and each subclass must have a creator.
+3. You must create a DataLoader class. These are currently found in protocols/jd2/parser. **Note that when RosettaScripts is transitioned to jd3, this may change.** 
+Each DataLoader defines the name of its corresponding top-level block (e.g. CONSTRAINT_GENERATORS), parses all of the subtags using the corresponding class's parse_my_tag function, and stores them in the DataMap. **Note:** Make sure that 1) if any other classes store members of your parent class in the data map, they use the same category name and 2) you use the same category name within the DataMap that other classes are expecting. For example, if you stored a residue selector under the "residue_selectors" category, other classes would not be able to access it since they would be expecting to find it in the "ResidueSelector" category.
 
 Movers
 ------
