@@ -11,11 +11,10 @@ This filter computes the total buried surface area for a pose or a subset of a p
 ```xml
 <BuriedSurfaceArea name=(string)
      select_only_FAMILYVW=(bool,"false") filter_out_low=(bool,"true")
-     cutoff_buried_surface_area=(real,"500") probe_radius=(real,"2.0")
+     cutoff_buried_surface_area=(real,"500") atom_mode=(string, "all_atoms")
      residue_selector=(string) confidence=(real,"1.0")
 />
 ```
-
 
 **name (string):**  The name given to this instance.
 
@@ -25,9 +24,9 @@ This filter computes the total buried surface area for a pose or a subset of a p
 
 **cutoff_buried_surface_area (real,"500"):**  The buried surface area below which (or above which, if "filter_out_low" is false) a pose is rejected.  Defaults to 500 square Angstroms, an arbitrarily-chosen value.
 
-**probe_radius (real,"2.0"):**  The radius for the probe used in the rolling-ball algorithm for determining solvent-accessible surface area.  The buried surface area is the total minus the solvent accessible.  Defaults to 2.0 Angstroms.
-
 **residue_selector (string):**  An optional, previously-defined residue selector.  If provided, then only the selected residues are used in computing buried surface area.  If not provided, then all residues are used.
+
+**atom_mode (string,"all_atoms"):**  The subset of atoms to use in the calculation.  Defaults to "all_atoms", but allowed values also include "hydrophobic_atoms" and "polar_atoms".
 
 **confidence (real,"1.0"):**  Probability that the pose will be filtered out if it does not pass this filter.
 
