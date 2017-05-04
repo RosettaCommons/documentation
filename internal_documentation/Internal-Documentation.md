@@ -53,7 +53,7 @@ If you change the API for a core class (particularly if you *remove*, *rename*, 
 
 | Date | Author | Description | Reason |
 | ---- | ------ | ----------- | ------ |
-| 31 Aug 2016 | Andy Watkins | [Example]: core::pose::Pose::n_residue() was renamed to core::pose::Pose::size() | An opportunity for maniacal laughter. |
+| 31 Aug 2016 | Andy Watkins | [Example]: core::pose::Pose::n_residue() was renamed to core::pose::Pose::size(). | An opportunity for maniacal laughter. |
 
 ## Pilot Apps
 
