@@ -9,6 +9,12 @@ _(This section in italics should remain hidden from the public wiki.)_
 * _"Best practices" movers, such as the AddHelixSequenceConstraints mover, should likely end up here. (VKM)_
  * That actually made it in 3.8, but SML didn't add it to the notes (unclear if stable)
 
+### Scorefunction changes
+* write up and linky to REF2015 changeover
+
+### API changes
+* if any
+
 <!--- END_INTERNAL -->
 
 ## Rosetta 3.8
