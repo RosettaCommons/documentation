@@ -51,7 +51,9 @@ If you change the API for a core class (particularly if you *remove*, *rename*, 
 3.  If possible, maintain an old function with the old interface, with a tracer warning that this function will be deprecated and that the new function should be used instead.
 4.  Document the change here, for future inclusion in the release notes:
 
-- [Example]: core::pose::Pose::n_residue() was renamed to core::pose::Pose::size() on 31 August 2016 by Andy Watkins.
+| Date | Author | Description | Reason |
+| ---- | ------ | ----------- | ------ |
+| 31 Aug 2016 | Andy Watkins | [Example]: core::pose::Pose::n_residue() was renamed to core::pose::Pose::size() | An opportunity for maniacal laughter. |
 
 ## Pilot Apps
 
