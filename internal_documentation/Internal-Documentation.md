@@ -44,7 +44,12 @@ See [[how to write documentation|how-to-write-documentation]] for more details.
 
 ## Core Class Modifications
 
-If you change the API for a core class (particularly if you *remove*, *rename*, or *alter* an existing function), please make a note of it here to make it easy to communicate this to the development community and the PyRosetta community, and for future documentation in the release notes:
+If you change the API for a core class (particularly if you *remove*, *rename*, or *alter* an existing function), please make a note of it here to make it easy to communicate this to the development community and the PyRosetta community, and for future documentation in the release notes.  Note that this applies to any API change in core.5 or below (numeric, basic, _etc._).  Such changes should be avoided if possible, but if such a change is unavoidable, please do the following:
+
+1.  E-mail the developer list.  Developers need to know, and a conversation needs to happen.  Do not proceed with the change without community approval.
+2.  If the change is approved, make sure that the Gray lab knows.  The PyRosetta tutorials will need to change.
+3.  If possible, maintain an old function with the old interface, with a tracer warning that this function will be deprecated and that the new function should be used instead.
+4.  Document the change here, for future inclusion in the release notes:
 
 - [Example]: core::pose::Pose::n_residue() was renamed to core::pose::Pose::size() on 31 August 2016 by Andy Watkins.
 
