@@ -42,6 +42,12 @@ See [[how to write documentation|how-to-write-documentation]] for more details.
 - [[Cmake Overview and Specifics]]
 - [[Building Rosetta on the Argonne "Mira" Blue Gene supercomputer]]
 
+## Core Class Modifications
+
+If you change the API for a core class (particularly if you *remove*, *rename*, or *alter* an existing function), please make a note of it here to make it easy to communicate this to the development community and the PyRosetta community, and for future documentation in the release notes:
+
+- [Example]: core::pose::Pose::n_residue() was renamed to core::pose::Pose::size() on 31 August 2016 by Andy Watkins.
+
 ## Pilot Apps
 
 This is documentation for not-yet-released applications
