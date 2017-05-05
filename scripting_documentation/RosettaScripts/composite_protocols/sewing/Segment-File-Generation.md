@@ -1,4 +1,4 @@
-#Model Generation
+#Segment File Generation
 First we need to generate a set of models. The only currently supported mechanism for model generation is through the use of a [[Features database|FeaturesTutorials]]. 
 
 ----------------------
