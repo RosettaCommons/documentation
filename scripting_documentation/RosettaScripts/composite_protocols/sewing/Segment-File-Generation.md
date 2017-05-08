@@ -9,7 +9,7 @@ Each line defines a new motif, and will be outputted as its own unique segment f
 
 For example, a motif composed of helix loop helix segments with helices that have a minimum of 5 residues and a maximum of 20 residues, connected by loops which are a maximum of 5 residues, would be defined as: ```H 5 20, L 1 5, H 5 20```
 
-The following DSSP codes are allowed: H (helix), L (loop), E (strand), N (any), U (not helix), Y (not loop), and R (not strand)
+The following DSSP codes are allowed: ```H``` (helix), ```L``` (loop), ```E``` (strand), ```N``` (any), ```U``` (not helix), ```Y``` (not loop), and ```R``` (not strand)
 
 ----------------------
 ###Using the segment_file_generator app
