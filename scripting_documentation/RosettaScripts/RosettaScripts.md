@@ -406,11 +406,10 @@ Always returns false. Can be explicitly specified with the name "false\_filter".
 -   talaris2014: The default all-atom scorefunction used by Rosetta structure prediction and design
 -   talaris2013: The previous version of talaris2014
 -   score12: The default scorefunction prior to talaris2013 (Requires -restore_pre_talaris_2013_behavior option on the command line.)
--   score\_docking: high resolution docking scorefxn (standard+docking\_patch)
+-   score\_docking: high resolution docking scorefxn (pre_talaris_2013_standard+docking\_patch)
 -   score\_docking\_low: low resolution docking scorefxn (interchain\_cen)
 -   soft\_rep: soft\_rep\_design weights.
 -   score4L: low resolution scorefunction used for loop remodeling (chainbreak weight on)
--   score\_empty: all weights = 0.
 -   commandline: the scorefunction specified by the commandline options (Note: not recommended for general use.)
 
 SCOREFUNCTIONS
