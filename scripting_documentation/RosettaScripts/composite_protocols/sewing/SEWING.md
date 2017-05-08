@@ -9,3 +9,6 @@ SEWING stands for **S**tructure **E**xtension **WI**th **N**ative-fragment **G**
 2. [[Model Comparison|model-comparison-with-geometric-hashing]] - Structurally compare models to one another using a geometric hashing algorithm
 3. [[Assembly|assembly-of-models]] - Stitch models together based on structural superimposition to form novel backbones
 4. [[Refinement|Refinement of SEWING assemblies]] - Refine backbones, design side chains, and select structures generated using SEWING
+
+##SmartSEWING workflow
+1. [[Segment File Generation|segment-file-generation]] - Extraction of secondary structure units from native structures
