@@ -16,15 +16,17 @@ The following DSSP codes are allowed: ```H``` (helix), ```L``` (loop), ```E``` (
 
 The segment_file_generator app requires two command line arguments: ```motif_file```(see above) and ```pdb_list_file```. The ```pdb_list_file``` is a text file listing the paths to pdb files, separated by a newline character. Structure files can be queried from the RCSB protein database, or from sources such as the Richardson Lab's [Top 8000 Database](http://kinemage.biochem.duke.edu/databases/top8000.php) or the Dunbrack Lab's [PISCES Server](http://dunbrack.fccc.edu/PISCES.php).
 
-We highly recommend using the ```ignore_unrecognized_res``` flag, unless your input files have been properly sterilized.
-
 Example run:
 ```./segment_file_generator.default.macosclangdebug -database ~/Rosetta/main/database/ -ignore_unrecognized_res -pdb_list_file pdbs.txt -motif_file motifs.txt```
+
+We highly recommend using the ```-ignore_unrecognized_res``` flag, unless your input files have already been properly sterilized.
 
 ----------------------
 ###Combining Segment Files
 
-```example command line```
+While not recommended due to lack of validation, it is possible to generate SEWING structures using multiple motifs. For example, you could use a segment file which contains both HLH and HLELH structures to generate an alpha+beta structure. To do so, simply combine the two segment files together:
+
+```cp smotifs_H_1_100_L_1_100_H_1_100.segments HLH_HLELH_combined_segment_file.segments && cat smotifs_H_1_100_L_1_100_E_1_100_L_1_100_H_1_100.segments >> HLH_HLELH_combined_segment_file.segments```
 
 
 ##See Also
