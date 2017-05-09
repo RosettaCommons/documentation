@@ -22,7 +22,7 @@ This will soon be updated, but for now, refer to the command line options listed
 
 ###Hashed SEWING Options
 These options should be used only if the ```hashed``` option is set to true.
-* ```edge_file_name``` : Path to edge file to use during assembly generation (See [[EdgeFileGeneration|edge-file-generation]] )
+* ```edge_file_name``` : Path to edge file to use during assembly generation ( See [[EdgeFileGeneration|edge-file-generation]] )
 
 ###Hashless SEWING Options
 These options should be used only if the ```hashed``` option is set to false. Hashless SEWING determines structural compatibility on-the-fly during assembly generation and therefore requires no additional input files. We only recommend using this option with helical substructures, where a certain level of structural compatibility between segments can be reasonably assumed.
@@ -31,8 +31,8 @@ These options should be used only if the ```hashed``` option is set to false. Ha
 
 ###Deprecated Options
 While technically still listed as options, these are not guaranteed to be supported and should be set via the [[AssemblyRequirements]] subtag to ensure proper enforcement.
-* ```max_segments``` : The maximum number of segments to include in the final assembly. See SizeInSegmentsRequirement
-* ```max_segment_length``` : The maximum number of residues to include in a segment. See DsspSpecificLengthRequirement, [[SegmentFileGeneration|segment-file-generation]]
+* ```max_segments``` : The maximum number of segments to include in the final assembly. ( See [[SizeInSegmentsRequirement|AssemblyRequirements#sizeinsegmentsrequirement]] )
+* ```max_segment_length``` : The maximum number of residues to include in a segment. ( See [[DsspSpecificLengthRequirement|AssemblyRequirements#dsspspecificlengthrequirement]] , [[SegmentFileGeneration|segment-file-generation]] )
 
 ##Subtags
 
