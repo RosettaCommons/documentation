@@ -7,7 +7,7 @@ For an example of using AssemblyRequirements, see the [[AssemblyMover]] page.
 [[_TOC_]]
 
 ###ClashRequirement
-A requirement that checks the residues of the assembly against one another to make sure there are no clashes. This requirement takes two options: ```maximum_clashes_allowed```, and ```clash_radius```. To disallow all clashes within 5 Angstroms, the tag would look like:
+A requirement that checks the residues of the assembly against one another to make sure there are no clashes. ClashRequirement also checks for clashes between the assembly and its partner pdb when applicable. This requirement takes two options: ```maximum_clashes_allowed```, and ```clash_radius```. To disallow all clashes within 5 Angstroms, the tag would look like:
 
 ```xml
 <ClashRequirement maximum_clashes_allowed="0" clash_radius="5" />
