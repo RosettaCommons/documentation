@@ -23,16 +23,9 @@ There will be an edge file here
 * ```hash_opposite_termini```
 
 ####Example
-EdgeFile.flags:
 
 ```
-and example flags file. neat.
-```
-
-Command line:
-
-```
-./edge_file_generator.default.xxx @EdgeFile.flags
+./edge_file_generator.default.xxx -model_file_name smotifs_H_1_100_L_1_100_H_1_100.segments -edge_file_name smotifs_H_1_100_L_1_100_H_1_100.edges -boxes_per_dimension 3
 ```
 
 
