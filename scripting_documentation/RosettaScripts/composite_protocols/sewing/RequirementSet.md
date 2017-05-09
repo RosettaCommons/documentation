@@ -42,7 +42,7 @@ A requirement that checks ligand atoms against the Assembly to check for clashes
 ```
 
 ###NonTerminalStartingSegmentRequirement
-This requirement ensures that any starting segment will be non-terminal in the final assembly. This requirement is typically used in AppendAssemblyMover runs in which you want segments to be added to both the N- and C- terminal ends of the starting segment. This requirement does not take any options, and uses a basic tag:
+This requirement ensures that any starting segment will be non-terminal in the final assembly. This requirement is typically used in AppendAssemblyMover runs in which you want segments to be added to both the N- and C- terminal ends of the starting segment(s). This requirement does not take any options, and uses a basic tag:
 
 ```xml
 <NonTerminalStartingSegmentRequirement />
