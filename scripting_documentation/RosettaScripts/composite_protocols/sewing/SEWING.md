@@ -11,3 +11,4 @@ SEWING stands for **S**tructure **E**xtension **WI**th **N**ative-fragment **G**
 2. [[Backbone Generation|AssemblyMover]] - Create new backbones by combining structurally similar segments
 3. [[Refinement|Refinement of SEWING assemblies]] - Refine backbones, design side chains, and select structures generated using SEWING
 
+The original SEWING workflow can be found here: [[Old Sewing Documentation]]
