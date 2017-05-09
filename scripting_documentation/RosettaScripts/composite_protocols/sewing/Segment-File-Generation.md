@@ -18,7 +18,7 @@ The segment_file_generator app requires two command line arguments: ```motif_fil
 
 Example run:
 ```
-./segment_file_generator.default.macosclangdebug -database ~/Rosetta/main/database/ -ignore_unrecognized_res -pdb_list_file pdbs.txt -motif_file motifs.txt
+./segment_file_generator.default.xxx -database ~/Rosetta/main/database/ -ignore_unrecognized_res -pdb_list_file pdbs.txt -motif_file motifs.txt
 ```
 
 We highly recommend using the ```-ignore_unrecognized_res``` flag, unless your input files have already been properly sterilized.
