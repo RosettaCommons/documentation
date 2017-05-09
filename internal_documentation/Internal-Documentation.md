@@ -55,6 +55,9 @@ If you change the API for a core class (particularly if you *remove*, *rename*, 
 | ---- | ------ | ----------- | ------ |
 | 31 Aug 2016 | Andy Watkins | [Example]: core::pose::Pose::n_residue() was renamed to core::pose::Pose::size(). | An opportunity for maniacal laughter. |
 
+## PyRosetta API changes
+1. Since r59466 xyzMatrix now have .xy properties bound as 'data' instead of set/get functions. So if your code accessed this methods directly you will need to refactor it as m.xx( m.xy() ) --> m.xx = m.xy
+
 ## Pilot Apps
 
 This is documentation for not-yet-released applications
