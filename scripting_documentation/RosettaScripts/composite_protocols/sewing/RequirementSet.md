@@ -1,31 +1,46 @@
-#RequirementSet
+#AssemblyRequirements
 
-The RequirementSet is used by the various AssemblyMover implementation to restrict constructed Assemblies to have specific features. Requirements can currently take two forms: Global requirements, which are requirements place on the entire assembly; and Intra-Segment requirements, which are requirements placed on individual segments (usually secondary structure elements) that make up the Assembly. Below is a list of currently implemented requirements.
+AssemblyRequirements are used by the various AssemblyMovers to restrict constructed Assemblies to have specific features. Below is a list of currently implemented requirements. AssemblyRequirements are a subtag to AssemblyMovers and are listed inside a AssemblyRequirements tag.
 
 For an example of using a RequirementSet, see the [[MonteCarloAssemblyMover]] page.
 
 [[_TOC_]]
 
-##Global Requirements
-
-#### GlobalLengthRequirement
-A requirement that restricts the length of various secondary structure elements in the Assembly. This requirement takes three options: dssp_code, min_length, and max_length. For instance, the following requirement tag would force all alpha-helical segments in the assembly to be between 4 and 10 residues long.
+#### ClashRequirement
+A requirement that checks the residues of the assembly against one another to make sure there are no clashes. This requirement takes two options: ```maximum_clashes_allowed```, and ```clash_radius```. To disallow all clashes within 5 Angstroms, the tag would look like:
 
 ```xml
-<GlobalLengthRequirement dssp='H' min_length="4" max_length="10" />
+<ClashRequirement maximum_clashes_allowed="0" clash_radius="5" />
 ```
 
-##IntraSegment Requirements
-Note that all IntraSegment Requirement tags *must* be nested inside of an IntraSegmentRequirements tag. This tag takes one option, an 'index' which is used to dictate which segment to apply the requirement to in the final Assembly. For example, the tag below will apply all requirement sub-tags on the first (N-terminal) segment in the generated Assemblies.
+#### DsspSpecificLengthRequirement
+A requirement that restricts the length of various secondary structure elements in the Assembly. This requirement takes three options: ```dssp_code```, ```minimum_length```, and ```maximum_length```. For instance, the following requirement tag would force all alpha-helical segments in the assembly to be between 4 and 10 residues long.
 
 ```xml
-<IntraSegmentRequirements index="1">
-    #Put Requirement tags here!
-    #for example,
-    <SegmentDsspRequirement dssp="H" />
-    <SegmentLengthRequirement min_length="11" />
-</IntraSegmentRequirements>
+<DsspSpecificLengthRequirement dssp_code="H" minimum_length="4" maximum_length="10" />
 ```
+
+#### SizeInSegmentsRequirement
+A requirement that restricts the size of the generated Assembly. This requirement takes two arguments: ```minimum_size``` and ```maximum_size```. To generate an Assembly with at least 5 segments and at most 7, the following tag would be used:
+
+```xml
+<SizeInSegmentsRequirement minimum_size="5" maximum_size="7" />
+```
+
+#### LengthInResiduesRequirement
+A requirement that restricts the length (in residues) of the generated Assembly. This requirement takes two arguments: ```minimum_length``` and ```maximum_length```. To generate an Assembly with a maximum of 1200 residues, the following tag would be used:
+
+```xml
+<LengthInResiduesRequirement minimum_length="0" maximum_length="1200" />
+```
+
+#### LigandClashRequirement
+A requirement that checks ligand atoms against the Assembly to check for clashes. This requirement takes two options: ```maximum_clashes_allowed```, and ```clash_radius```. To disallow all clashes within 4 Angstroms of the ligand, the tag would look like:
+
+```xml
+<LigandClashRequirement maximum_clashes_allowed="0" clash_radius="4" />
+```
+
 
 #### SegmentDsspRequirement 
 Require that the specified segment is a particular secondary structure
