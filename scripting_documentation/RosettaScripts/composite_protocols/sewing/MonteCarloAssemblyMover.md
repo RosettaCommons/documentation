@@ -18,7 +18,7 @@ As a subclass of AssemblyMover, MonteCarloAssemblyMover requires the command-lin
 
 ##Subtags
 
-The MonteCarloAssemblyMover (like other SEWING movers) can be given [[RequirementSet]] subtags.
+The MonteCarloAssemblyMover (like other SEWING movers) can be given [[AssemblyRequirements]] and AssemblyScorer subtags.
 
 ##Example
 Currently, this mover is only accessible via RosettaScripts. The below script will generate a 7-segment Assembly, in which the first segment must be an alpha-helix between 8 and 21 residues long.
