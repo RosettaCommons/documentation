@@ -12,7 +12,7 @@ The AssemblyMover is the base class and standard mover for the SEWING framework.
 
 ##Command-line Flags
 
-**This information is currently outdated, but provides enough information to successfully run SEWING. For information on command-line flags needed in previous versions of SEWING, please see the [[Assembly-of-models]] page** 
+*This information is currently outdated, but provides enough information to successfully run SEWING. For information on command-line flags needed in previous versions of SEWING, please see the [[Assembly-of-models]] page* 
 
 The following flags apply to all SEWING movers (see below) except when noted. Mover-specific flags are documented on the individual Mover pages.
 
