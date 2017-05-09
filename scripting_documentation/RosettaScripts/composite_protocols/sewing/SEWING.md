@@ -7,7 +7,9 @@ SEWING stands for **S**tructure **E**xtension **WI**th **N**ative-fragment **G**
 
 ##SmartSEWING workflow
 1. [[Segment File Generation|segment-file-generation]] - Extraction of secondary structure units from native structures
+
 1b. [[Structural Comparison of Substructures|edge-file-generation]]( Hashed SEWING only ) - Structurally compare substructures to one another using a geometric hashing algorithm
+
 2. [[Backbone Generation|AssemblyMover]] - Create new backbones by combining structurally similar segments
 3. [[Refinement|Refinement of SEWING assemblies]] - Refine backbones, design side chains, and select structures generated using SEWING
 
