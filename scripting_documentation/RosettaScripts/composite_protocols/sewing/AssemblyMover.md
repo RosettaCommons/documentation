@@ -1,7 +1,11 @@
 #AssemblyMover
 
+Generating de novo backbones (or Assemblys) in the SEWING framework is accomplished by combining substructures extracted from native structures in [[Step 1|segment-file-generation]] of the protocol. In Hashed SEWING these substructures are combined based on the structural matches found in [[Step 2|model-comparison-with-geometric-hashing]] of SEWING. In Hashless SEWING, these structural matches are calculated on-the-fly during assembly generation.
+Assembly of backbones is implemented within a Mover, and thus can be accessed via the [[RosettaScripts]] interface. There are currently several Movers implemented, each designed to accomplish different design goals. The AssemblyMover is the base class and standard mover for the SEWING framework. This mover will randomly add substructures to build up an Assembly that satisfies a given set of requirements. The evaluation of requirements is handled by providing [[AssemblyRequirements]]. The decision to add/reject a model during the creation of an Assembly is based on a Monte-Carlo algorithm that uses the provided [[AssemblyScorers]] for evaluation.
 
-The AssemblyMover is the standard mover for the SEWING framework. This mover will randomly add substructures to build up an Assembly that satisfies a given set of requirements. The evaluation of requirements is handled by providing [[AssemblyRequirements]]. The decision to add/reject a model during the creation of an Assembly is based on a Monte-Carlo algorithm that uses the provided [[AssemblyScorers]] for evaluation.
+----------------------
+[[_TOC_]]
+
 
 ##Command-line Flags
 
