@@ -25,7 +25,7 @@ These options should be used only if the ```hashed``` option is set to true.
 * ```edge_file_name``` : Path to edge file to use during assembly generation (See [[EdgeFileGeneration|edge-file-generation]] )
 
 ###Hashless SEWING Options
-These options should be used only if the ```hashed``` option is set to false. Hashless SEWING determines structural compatibility on-the-fly during assembly generation, and therefore requires no additional input files. We only recommend using this option with helical substructures, where a certain level of structural compatibility can be assumed.
+These options should be used only if the ```hashed``` option is set to false. Hashless SEWING determines structural compatibility on-the-fly during assembly generation and therefore requires no additional input files. We only recommend using this option with helical substructures, where a certain level of structural compatibility between segments can be reasonably assumed.
 
 * ```window_width``` : Required number of overlapping residues for two segments to be considered a match
 
