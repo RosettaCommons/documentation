@@ -87,7 +87,8 @@ The AssemblyMover (like other SEWING movers) can be given [[AssemblyRequirements
 
 ##Example
 Currently, this mover is only accessible via RosettaScripts. The below script will generate a 5 to 7-segment long Assembly at constant temperature where all helices are a minimum of 4 helical turns.
-**Note that due to the fact that RosettaScripts uses the standard Rosetta Job Distributor, an input PDB is required (using the standard -s/-l flags). This PDB will be ignored. If you would like to provide an input PDB as a starting structure for your SEWING run, see the [[AppendAssemblyMover]] page **
+
+*Note that due to the fact that RosettaScripts uses the standard Rosetta Job Distributor, an input PDB is required (using the standard -s/-l flags). This PDB will be ignored. If you would like to provide an input PDB as a starting structure for your SEWING run, see the [[AppendAssemblyMover]] page*
 
 An example RosettaScripts tag is below:
 
