@@ -1,5 +1,7 @@
 #Assembly of models
 
+**This is an outdated page. For the current Assembly documentation visit the [[AssemblyMover]] page**
+
 Generating de novo backbones (or Assemblys) in the SEWING framework is accomplished by a simple graph traversal. The nodes in this graph, called the SewGraph, are the Models extracted in [[Step 1|model-generation]] of the protocol. The edges are the structural matches found in [[Step 2|model-comparison-with-geometric-hashing]] of SEWING.
 Assembly of backbones is implemented within a Mover, and thus can be accessed via the [[RosettaScripts]] interface. There are currently several Movers implemented, each designed to accomplish different design goals. The base AssemblyMover has a handful of core methods which are selectively implemented or overwritten by the various sub-movers.
 
