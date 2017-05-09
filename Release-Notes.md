@@ -13,7 +13,7 @@ _(This section in italics should remain hidden from the public wiki.)_
 * write up and linky to REF2015 changeover
 
 ### API changes
-* PyRosetta: xyzMatrix now have .xy properties bound as 'data' instead of set/get functions. So if your code accessed this methods directly you will need to refactor it as 'm.xx( m.xy() )' --> 'm.xx = m.xy'
+* PyRosetta: xyzMatrix now have .xy properties bound as 'data' instead of set/get functions. So if your code accessed this methods directly you will need to refactor it as m.xx(m.xy()) --> m.xx = m.xy
 
 <!--- END_INTERNAL -->
 
