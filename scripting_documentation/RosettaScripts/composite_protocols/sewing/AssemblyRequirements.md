@@ -49,7 +49,7 @@ This requirement ensures that any starting segment will be non-terminal in the f
 ```
 
 ##See Also
-* [[SEWING]]
-* [[Assembly of models]]
-* [[MonteCarloAssemblyMover]]
+* [[SEWING]] The SEWING home page
+* [[AssemblyMover]]
 * [[AppendAssemblyMover]]
+* [[AssemblyScorers]]
