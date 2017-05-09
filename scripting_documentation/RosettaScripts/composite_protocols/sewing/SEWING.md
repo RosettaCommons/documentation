@@ -2,7 +2,7 @@
 The SEWING protocol is a method for the rapid generation of denovo backbones that uses large segments of natural protein structure. For definitions of common terms used in SEWING, visit the [[SEWING Dictionary]].
 
 ##Basic concepts
-SEWING stands for **S**tructure **E**xtension **WI**th **N**ative-fragment **G**raphs. SEWING functions by identifying relatively large sub-structures, called models (2-5 pieces of secondary structure, called segments) from native PDBs, and then assembling these models based on structural similarity.
+SEWING stands for **S**tructure **E**xtension **WI**th **N**ative-fragment **G**raphs. SEWING functions by identifying relatively large sub-structures (typically 2-5 pieces of secondary structure, called segments) from native PDBs, and then assembling these models based on structural similarity.
 
 
 ##SmartSEWING workflow
