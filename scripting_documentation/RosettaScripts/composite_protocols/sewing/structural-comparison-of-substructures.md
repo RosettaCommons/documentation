@@ -11,6 +11,28 @@ There will be an edge file here
 ```
 
 ###Edge File Generator Application
+####Command-Line Options
+#####Required Flags
+* ```model_file_name``` : Path to the segment file, See [[Segment File Generation|segment-file-generation]]
+* ```edge_file_name``` : Path to save generated edge file
+#####Optional Flags
+* ```max_clash_score```
+* ```min_hash_score``` : The minimum number of aligned atoms to determine whether two segments are structurally compatible
+* ```boxes_per_dimension``` : The number of bins to consider in the geometric hash. 3 and 5 are the only acceptable values
+* ```hash_opposite_termini```
+
+####Example
+EdgeFile.flags:
+```
+and example flags file. neat.
+```
+
+Command line:
+```
+./edge_file_generator.default.xxx @EdgeFile.flags
+```
+
+
 
 
 ##Alignment File
