@@ -69,7 +69,7 @@ In the current implementation, the following flags are also required for scoring
 
 ###Hashed SEWING Options
 These options should be used only if the ```hashed``` option is set to true.
-* ```edge_file_name``` : Path to edge file to use during assembly generation ( See [[EdgeFileGeneration|structural-comparison-of-substructures#edge-file-generation]] )
+* ```edge_file_name``` : Path to edge file to use during assembly generation ( See [[EdgeFileGeneration|structural-comparison-of-substructures#edge-file]] )
 
 ###Hashless SEWING Options
 These options should be used only if the ```hashed``` option is set to false. Hashless SEWING determines structural compatibility on-the-fly during assembly generation and therefore requires no additional input files. We only recommend using this option with helical substructures, where a certain level of structural compatibility between segments can be reasonably assumed.
