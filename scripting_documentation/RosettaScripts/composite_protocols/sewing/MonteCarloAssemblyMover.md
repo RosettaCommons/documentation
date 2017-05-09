@@ -5,7 +5,47 @@ The AssemblyMover is the standard mover for the SEWING framework. This mover wil
 
 ##Command-line Flags
 
-This will soon be updated, but for now, refer to the command line options listed in the [[Assembly of models]] page.
+* *This information is currently outdated, but provides enough information to successfully run SEWING. For information on command-line flags needed in previous versions of SEWING, please see the [[Assembly-of-models]] page* * 
+
+The following flags apply to all SEWING movers (see below) except when noted. Mover-specific flags are documented on the individual Mover pages.
+
+###Required flags
+```
+-s                              The input PDB (ignored, but still required,
+                                for many SEWING Movers)
+```
+
+In the current implementation, the following flags are also required for scoring SEWING Assemblies using the MotifScore and are shown with their recommended values ( See [[AssemblyScorers]] ):
+
+```xml
+
+-mh:match:ss1 true    # for "explicit" motifs that get dumped at the end,
+                      match target SS
+-mh:match:ss2 true    # for "explicit" motifs that get dumped at the end,
+                      match binder SS
+-mh:match:aa1 false   # for "explicit" motifs that get dumped at the end, 
+                      match target AA
+-mh:match:aa2 false   # for "explicit" motifs that get dumped at the end, 
+                      match binder AA
+
+-mh:score:use_ss1 true         # applicable only to BB_BB motifs; match
+                               secondary structure on first (target) res
+-mh:score:use_ss2 true         # applicable only to BB_BB motifs; match
+                               secondary structure on second (binder) res
+-mh:score:use_aa1 false        # applicable only to BB_BB motifs; match AA
+                               identity on first (target) res
+-mh:score:use_aa2 false        # applicable only to BB_BB motifs; match AA
+                               identity on second (binder) res"
+
+-mh:path:motifs            Path to .gz file containing motifs used in motifscore
+-mh:path:scores_BB_BB      Path to directory containing database used
+                           for generating MotifScores
+
+-mh:gen_reverse_motifs_on_load false     # I think the inverse motifs are already in the datafiles
+
+-mh::dump::max_rms 0.4
+-mh::dump::max_per_res 20
+```
 
 ##RosettaScripts options
 
