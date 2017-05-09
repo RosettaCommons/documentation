@@ -2,7 +2,7 @@
 
 AssemblyRequirements are used by the various AssemblyMovers to restrict constructed Assemblies to have specific features. Below is a list of currently implemented requirements. AssemblyRequirements are a subtag to AssemblyMovers and are listed inside a AssemblyRequirements tag.
 
-For an example of using a RequirementSet, see the [[MonteCarloAssemblyMover]] page.
+For an example of using AssemblyRequirements, see the [[AssemblyMover]] page.
 
 [[_TOC_]]
 
