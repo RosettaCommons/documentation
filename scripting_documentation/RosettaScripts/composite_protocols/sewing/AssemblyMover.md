@@ -115,8 +115,8 @@ An example RosettaScripts tag is below:
 ```
 
 ##See Also
-* [[AssemblyRequirements]]
 * [[SEWING]] The SEWING home page
+* [[AssemblyRequirements]]
+* [[AssemblyScorers]]
 * [[AppendAssemblyMover]]
-* [[RepeatAssemblyMover]]
-* [[EnumerateAssemblyMover]]
+* [[LigandBindingAssemblyMover]]
