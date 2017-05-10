@@ -1,6 +1,6 @@
 #AssemblyMover
 
-Generating de novo backbones (or Assemblys) in the SEWING framework is accomplished by combining substructures extracted from native structures in [[Step 1|segment-file-generation]] of the protocol. In Hashed SEWING these substructures are combined based on the structural matches found in [[Step 2|edge-file-generation]] of SEWING. In Hashless SEWING, these structural matches are calculated on-the-fly during assembly generation.
+Generating de novo backbones (or Assemblys) in the SEWING framework is accomplished by combining substructures extracted from native structures in [[Step 1|segment-file-generation]] of the protocol. In Hashed SEWING these substructures are combined based on the structural matches found in [[Step 1b|structural-comparison-of-substructures]] of SEWING. In Hashless SEWING, these structural matches are calculated on-the-fly during assembly generation.
 
 Assembly of backbones is implemented within a Mover, and thus can be accessed via the [[RosettaScripts]] interface. There are currently several Movers implemented, each created to accomplish different design goals.
 
