@@ -17,10 +17,10 @@ There will be an edge file here
 * ```edge_file_name``` : Path to save generated edge file
 
 #####Optional Flags
-* ```max_clash_score```
+* ```max_clash_score``` : Maximum number of clashed atoms to allow during alignment
 * ```min_hash_score``` : The minimum number of aligned atoms to determine whether two segments are structurally compatible
 * ```boxes_per_dimension``` : The number of bins to consider in the geometric hash. 3 and 5 are the only acceptable values
-* ```hash_opposite_termini```
+* ```hash_opposite_termini``` : Hashing will occur between segments with opposite termini (N to C or C to N )
 
 ####Example
 
