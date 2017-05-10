@@ -6,6 +6,8 @@ Assembly of backbones is implemented within a Mover, and thus can be accessed vi
 
 The AssemblyMover is the base class and standard mover for the SEWING framework. This mover will randomly add substructures to build up an Assembly that satisfies a given set of requirements. The evaluation of requirements is handled by providing [[AssemblyRequirements]]. The decision to add/reject a substructure during the creation of an Assembly is based on a Monte-Carlo algorithm that uses the provided [[AssemblyScorers]] for evaluation.
 
+If you wish to build a SEWING backbone onto an already existing structure, you'll want to use the [[AppendAssemblyMover]] which allows you to designate an input structure. 
+
 ----------------------
 [[_TOC_]]
 
