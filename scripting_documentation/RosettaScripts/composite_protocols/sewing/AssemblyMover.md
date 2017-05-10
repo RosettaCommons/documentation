@@ -83,7 +83,7 @@ While technically still listed as options, these are not guaranteed to be suppor
 
 ##Subtags
 
-The AssemblyMover (like other SEWING movers) can be given [[AssemblyRequirements]], [[AssemblyScorers]], and [[Ligands]] subtags.
+The AssemblyMover (like other SEWING movers) can be given [[AssemblyRequirements]], [[AssemblyScorers]], and [[Ligands|SEWING-with-Ligands]] subtags.
 
 ##Example
 Currently, this mover is only accessible via RosettaScripts. The below script will generate a 5 to 7-segment long Assembly at constant temperature where all helices are a minimum of 4 helical turns.
