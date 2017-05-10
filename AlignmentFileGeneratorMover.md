@@ -4,7 +4,7 @@ The AlignmentFileGeneratorMover is used to generate Alignment Files for the SEWI
 
 ----------------------
 [[_TOC_]]
-#AlignmentFileGeneratorMover
+
 ##Command-Line Flags
 
 The AlignmentFileGeneratorMover uses the MotifHasher utility designed by Will Scheffler. The command-line flags required for this utility can be found on the [[AssemblyMover|AssemblyMover#command-line-flags] page.
