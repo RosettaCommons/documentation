@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-04-28
+Generated: 2017-05-14
 
 _Note that some application specific options may not be present in this list._
 
@@ -7713,6 +7713,8 @@ _Note that some application specific options may not be present in this list._
 <dd>for submotif moves, only use first jump from jump library -- does not change stepwise -lores (which resamples jump) except in balance of move selection.<br/>Default: false<br/></dd>
 <dt><b>-vary_loop_length_frequency</b> \<Real\></dt>
 <dd>In design, allow loops ('n') to shorten from loop lengths defined in FASTA files.<br/>Default: 0.0<br/></dd>
+<dt><b>-designing_with_noncanonicals</b> \<Boolean\></dt>
+<dd>Are we designing with noncanonicals, meaning 'n' has to read from a set of possible symbols (instead of 4 canonical NAs)?<br/>Default: false<br/></dd>
 <dt><b>-checkpointing_frequency</b> \<Integer\></dt>
 <dd>How often should we output checkpoint files?<br/>Default: 100<br/></dd>
 <dt><b>-continue_until_none_missing</b> \<Boolean\></dt>

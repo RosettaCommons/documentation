@@ -10,20 +10,20 @@ Mover to generate backbones for de novo design
         build_overlap="(&non_negative_integer;)" start_segments="(&string;)"
         stop_segments="(&string;)"
         iterations_per_phase="(&non_negative_integer;)" dump_pdbs="(&bool;)" >
-    <Prefold name="(&string;)" >
-        <Add mover="(&string;)" />
-    </Prefold>
-    <Postfold name="(&string;)" >
-        <Add mover="(&string;)" />
-    </Postfold>
-    <Filters name="(&string;)" >
-        <Add filter="(&string;)" />
-    </Filters>
-    <Perturber Tag ... />
     <DenovoArchitect pairings Tags ... />
     <RemodelLoopMoverPoseFolder scorefxn="(&string;)" />
     <RandomTorsionPoseFolder />
     <NullPoseFolder />
+    <Perturber Tag ... />
+    <PreFoldMovers name="(&string;)" >
+        <Add mover="(&string;)" />
+    </PreFoldMovers>
+    <PostFoldMovers name="(&string;)" >
+        <Add mover="(&string;)" />
+    </PostFoldMovers>
+    <Filters name="(&string;)" >
+        <Add filter="(&string;)" />
+    </Filters>
 </BuildDeNovoBackboneMover>
 ```
 
@@ -34,7 +34,15 @@ Mover to generate backbones for de novo design
 -   **dump_pdbs**: Dump output to PDB files?
 
 
-Subtag **Prefold**:   Prefold protocol
+"DenovoArchitect pairings Tags": Any of the [[DenovoArchitects|BuildDeNovoBackboneMover]]
+
+Subtag **RemodelLoopMoverPoseFolder**:   Folds residues in a pose using RemodelLoopMover
+
+-   **scorefxn**: Name of score function to use
+
+"Perturber Tag": Any of the [[CompoundPerturbers|BuildDeNovoBackboneMover]]
+
+Subtag **PreFoldMovers**:   Prefold protocol
 
 
 
@@ -42,7 +50,7 @@ Subtag **Add**:
 
 -   **mover**: (REQUIRED) Mover to add to this step step
 
-Subtag **Postfold**:   Postfold protocol
+Subtag **PostFoldMovers**:   Postfold protocol
 
 
 
@@ -57,13 +65,5 @@ Subtag **Filters**:   Filters to apply to generated backbones
 Subtag **Add**:   
 
 -   **filter**: (REQUIRED) Filter to add
-
-"Perturber Tag": Any of the [[CompoundPerturbers|BuildDeNovoBackboneMover]]
-
-"DenovoArchitect pairings Tags": Any of the [[DenovoArchitects|BuildDeNovoBackboneMover]]
-
-Subtag **RemodelLoopMoverPoseFolder**:   Folds residues in a pose using RemodelLoopMover
-
--   **scorefxn**: Name of score function to use
 
 ---
