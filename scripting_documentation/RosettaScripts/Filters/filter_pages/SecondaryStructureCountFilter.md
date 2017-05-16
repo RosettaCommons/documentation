@@ -18,14 +18,14 @@ Counts total number of DSSP-defined secondary structure elements of a given type
 ```
 
 - **filter_helix**: If true, filters on helices. This also determines the number returned by the option 'return_total'.
-- **filter_sheet**
-- **filter_loop**
+- **filter_sheet**: ""
+- **filter_loop**: ""
 - **filter_helix_sheet**: If true, filters on the sum of helix + sheet.
 
 - **num_helix**: Number of helices to for the filter to filter on.
-- **num_sheet**
-- **num_loop**
-- **num_helix_sheet**
+- **num_sheet**: ""
+- **num_loop**: ""
+- **num_helix_sheet**: ""
 
 - **min_helix_length**: Min number of AAs for a helix to be considered a helix. Default: 4
 - **max_helix_length**: Max number of AAs for a helix to be considered a helix. Default: 9999
