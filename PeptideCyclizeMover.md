@@ -11,7 +11,7 @@ In its default format, `PeptideCyclizeMover` will close the N and C termini of a
 
 The line below will sets up all the necessary constraints to add a peptide bond between two ends of the selection. It will also declares the bond. 
 
-```
+```xml
 <PeptideCyclizeMover name="&string" residue_selector=(&selector_name)/>
 ```
 
@@ -22,7 +22,8 @@ The line below will sets up all the necessary constraints to add a peptide bond 
 <i>Bond</i>
 
 Define the bond between atom1 of residue1 and atom2 of residue2.
-```
+
+```xml
 Bond res1=(&int) res2=(&int) atom1="&string" atom2="&string" add_termini=(&bool) />
 ```
 
@@ -30,7 +31,7 @@ Bond res1=(&int) res2=(&int) atom1="&string" atom2="&string" add_termini=(&bool)
 
 atom1 of residue1 and atom2 of residue2 should be kept in a distance that is defined by the cst_func. a constraint function is a string that defines the type of constraints, distance, and allowed deviation; "HARMONIC 1.32865 0.01" is an example.
 
-```
+```xml
 <Distance res1=(&int) res2=(&int) atom1="&string" atom2="&string" cst_func="&string" />
 ```
 
@@ -38,7 +39,7 @@ atom1 of residue1 and atom2 of residue2 should be kept in a distance that is def
 
 Defines a constraint function between the three given atoms.
 
-```
+```xml
 <Angle res1=(&int) atom1="&string" res_center=(&int) atom_center="&string" res2=(&int) atom2="&string" cst_func="&string" />
 ```
 
@@ -46,7 +47,7 @@ Defines a constraint function between the three given atoms.
 
 Sets the defined torsion constraints between the given four atoms.
 
-```
+```xml
 <Torsion res1=(&int) res2=(&int) res3=(&int) res4=(&int) atom1="&string" atom2="&string" atom3="&string" atom4="&string" cst_func="&string" />
 ```
 
@@ -54,13 +55,13 @@ Sets the defined torsion constraints between the given four atoms.
 
 The example below does basically what the default mover will do. It cyclizes the pose (residue 1 to 10) with a peptide bond and sets the corresponding constraints:
 
-```
+```xml
 <PeptideCyclizeMover name="close" >
-    <Torsion res1=10 res2=10 res3=1 res4=1 atom1="CA" atom2="C" atom3="N" atom4="CA" cst_func="CIRCULARHARMONIC 3.141592654 0.005" />
-    <Angle res1=10 atom1="CA" res_center=10 atom_center="C" res2=1 atom2="N" cst_func="HARMONIC 2.01000000 0.01" />
-    <Angle res1=10 atom1="C" res_center=1 atom_center="N" res2=1 atom2="CA" cst_func="HARMONIC 2.14675498 0.01" />
-    <Distance res1=10 res2=1 atom1="C" atom2="N" cst_func="HARMONIC 1.32865 0.01" />
-    <Bond res1=10 res2=1 atom1="C" atom2="N" add_termini="true" />
+    <Torsion res1="10" res2="10" res3="1" res4="1" atom1="CA" atom2="C" atom3="N" atom4="CA" cst_func="CIRCULARHARMONIC 3.141592654 0.005" />
+    <Angle res1="10" atom1="CA" res_center="10" atom_center="C" res2="1" atom2="N" cst_func="HARMONIC 2.01000000 0.01" />
+    <Angle res1="10" atom1="C" res_center="1" atom_center="N" res2="1" atom2="CA" cst_func="HARMONIC 2.14675498 0.01" />
+    <Distance res1="10" res2="1" atom1="C" atom2="N" cst_func="HARMONIC 1.32865 0.01" />
+    <Bond res1="10" res2="1" atom1="C" atom2="N" add_termini="true" />
 </PeptideCyclizeMover>
 ```
 
@@ -70,15 +71,15 @@ The `PeptideCyclizeMover` does not minimize the pose, but only declares a bond a
 
 Below is an example xml that cyclizes chain A of a pose and does the relax:
 
-```
+```xml
 <ROSETTASCRIPTS>
     <SCOREFXNS>
-        <score_cst >
-            <Reweight scoretype=coordinate_constraint weight=1 />
-            <Reweight scoretype=atom_pair_constraint weight=1 />
-            <Reweight scoretype=dihedral_constraint weight=1 />
-            <Reweight scoretype=angle_constraint weight=1 />
-        </score_cst>
+        <ScoreFunction name="score_cst" weights="empty" >
+            <Reweight scoretype="coordinate_constraint" weight="1" />
+            <Reweight scoretype="atom_pair_constraint" weight="1" />
+            <Reweight scoretype="dihedral_constraint" weight="1" />
+            <Reweight scoretype="angle_constraint" weight="1" />
+        </ScoreFunction>
     </SCOREFXNS>
     <RESIDUE_SELECTORS>
         <Chain name="chain_a" chains="A"/>
@@ -88,16 +89,14 @@ Below is an example xml that cyclizes chain A of a pose and does the relax:
     <FILTERS>
     </FILTERS>
     <MOVERS>
-        <PeptideCyclizeMover name="close" residue_selector="chain_a">
-        </PeptideCyclizeMover>
-        <FastRelax name="relax" scorefxn="score_cst" ramp_down_constraints=false repeats=1 />
+        <PeptideCyclizeMover name="close" residue_selector="chain_a" />
+        <FastRelax name="relax" scorefxn="score_cst" ramp_down_constraints="false" repeats="1" />
     </MOVERS>
     <APPLY_TO_POSE>
     </APPLY_TO_POSE>
     <PROTOCOLS>
-        <Add mover=close/> 
-        <Add mover=relax/>
-        <Add mover=close/>
+        <Add mover="close"/> 
+        <Add mover="relax"/>
     </PROTOCOLS>
     <OUTPUT />
 </ROSETTASCRIPTS>
