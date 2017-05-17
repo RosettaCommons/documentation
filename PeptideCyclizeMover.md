@@ -74,7 +74,7 @@ Below is an example xml that cyclizes chain A of a pose and does the relax:
 ```xml
 <ROSETTASCRIPTS>
     <SCOREFXNS>
-        <ScoreFunction name="score_cst" weights="empty" >
+        <ScoreFunction name="score_cst" weights="talaris2014" >
             <Reweight scoretype="coordinate_constraint" weight="1" />
             <Reweight scoretype="atom_pair_constraint" weight="1" />
             <Reweight scoretype="dihedral_constraint" weight="1" />
@@ -97,6 +97,43 @@ Below is an example xml that cyclizes chain A of a pose and does the relax:
     <PROTOCOLS>
         <Add mover="close"/> 
         <Add mover="relax"/>
+    </PROTOCOLS>
+    <OUTPUT />
+</ROSETTASCRIPTS>
+```
+
+<b>Distortion of geometry of polymer bond-dependent atoms</b>
+
+Certain atoms, such as the carbonyl oxygen and the amide hydrogen, have positions that are dependent on the geometry of the polymer bond.  During relaxation, these atoms can end up out-of-plane relative to the rest of the bond.  The quick-and-dirty way to correct this is to re-declare the polymer bond between them.  This has no effect on the covalent bonds in the pose (since the bond was already present), but does have the side-effect of updating the positions of atoms dependent on the bond.  While bond re-declaration can be done with the PeptideCyclizeMover, this would also add additional bond constraints (effectively doubling the strength of these constraints).  It is therefore recommended to use the [[DeclareBond|DeclareBondMover]] for this purpose instead.  For example, if chain A were 20 residues long, so that the terminal bond was between residue 20 and residue 1, one could use the following RosettaScripts XML:
+
+```xml
+<ROSETTASCRIPTS>
+    <SCOREFXNS>
+        <ScoreFunction name="score_cst" weights="talaris2014" >
+            <Reweight scoretype="coordinate_constraint" weight="1" />
+            <Reweight scoretype="atom_pair_constraint" weight="1" />
+            <Reweight scoretype="dihedral_constraint" weight="1" />
+            <Reweight scoretype="angle_constraint" weight="1" />
+        </ScoreFunction>
+    </SCOREFXNS>
+    <RESIDUE_SELECTORS>
+        <Chain name="chain_a" chains="A"/>
+    </RESIDUE_SELECTORS>
+    <TASKOPERATIONS>
+    </TASKOPERATIONS>
+    <FILTERS>
+    </FILTERS>
+    <MOVERS>
+        <PeptideCyclizeMover name="close" residue_selector="chain_a" />
+        <FastRelax name="relax" scorefxn="score_cst" ramp_down_constraints="false" repeats="1" />
+        <DeclareBond name="update_O_and_H" atom1="C" res1="20" atom2="N" res2="1" />
+    </MOVERS>
+    <APPLY_TO_POSE>
+    </APPLY_TO_POSE>
+    <PROTOCOLS>
+        <Add mover="close"/> 
+        <Add mover="relax"/>
+        <Add mover="update_O_and_H" />
     </PROTOCOLS>
     <OUTPUT />
 </ROSETTASCRIPTS>
