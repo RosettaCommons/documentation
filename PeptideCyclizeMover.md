@@ -66,7 +66,7 @@ The example below does basically what the default mover will do. It cyclizes the
 
 <b>Important Considerations</b>
 
-The `PeptideCyclizeMover` does not minimize the pose, it only declares a bond and set certain constraints. So you will need to relax your pose and you need to do that with : (a) a score function that has constraint terms on; (b) a relax mover that does not ramp down the constraints during relax; (c) you need to re_close the ends after relax or design otherwise your final pose will not have the bond.
+The `PeptideCyclizeMover` does not minimize the pose, it only declares a bond and set certain constraints. So you will need to relax your pose and you need to do that with a score function that has constraint terms on and with a relax mover that does not ramp down the constraints during relax.  Note that the Rosetta chemical bond only ensures that Van der Waals interactions are not calculated between the terminal atoms, but does not enforce good bond geometry in any way; the constraints are necessary to preserve good bond geometry.  If you relax without the constraints terms turned on, you will end up with distorted bond geometry after relaxation (though Rosetta will still think that the terminal atoms are bonded).
 
 Below is an example xml that cyclizes chain A of a pose and does the relax:
 
