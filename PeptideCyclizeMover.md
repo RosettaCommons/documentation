@@ -1,7 +1,7 @@
 # PeptideCyclizeMover
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## PeptideCyclizeMover
-By Parisa Hosseinzadeh (parisah@uw.edu). Documentation written 20 September 2016.
+By Parisa Hosseinzadeh (parisah@uw.edu). Documentation written 20 September 2016.  Last updated 17 May 2017 by Vikram K. Mulligan (vmullig@uw.edu).
 
 PeptideCyclizeMover is a mover for closing a pose by declaring a bond between the residues of interest and applying the necessary distance, angle, and torsion constraints to keep the pose closed. 
 
