@@ -1,6 +1,6 @@
 #Coding Conventions and Examples
 
-Rosetta 3 (formerly MiniRosetta) is an object-oriented implementation of Rosetta that has been rewritten in C++ from the ground up by a core team of developers. These guidelines are intended to help new (and to remind old/current) Rosetta developers to learn, maintain, and improve the reliability, clarity, and performance of the code while we continue its development and modernization. 
+Rosetta 3 (formerly MiniRosetta) is an object-oriented implementation of Rosetta that has been rewritten in C++ from the ground up by a core team of developers. These guidelines are intended to help new (andeveld to remind old/current) Rosetta developers to learn, maintain, and improve the reliability, clarity, and performance of the code while we continue its development and modernization. 
 
 
 
@@ -152,7 +152,7 @@ Cyclic inclusion complicates the code and build system and slows compiling.  The
 * Low-level: [[numeric|namespace-numeric]] (random number generator, [[xyzVector]])
 * Mid-level: core ([[scoring|namespace-core-scoring]], pose, packer) (this is where most of the things we think of as Rosetta functionality are)
 * High-level: protocols ([[movers|Mover]], monte carlo, fully developed code)
-* Higher-level: devel (high-level stuff under development, which will move to protocols as it matures)
+* Higher-level: devel (high-level stuff under development, which will move to protocols as it matures; the use of this library for Rosetta development has been discontinued in favor of the GitHub Pull Request workflow)
 * Highest-level: apps (all executables, thus not really library) (as an aside, applications not in apps/pilot should not inherit from devel)
 
 ####Naming 
