@@ -14,6 +14,7 @@ Align a chain in the working pose to a chain in a pose on disk (CA superposition
 
 target and source chains must have the same length of residues.
 
+- **align_to_com**: Aligns pose to center of mass instead of 2nd pose/target. The variable target_name still needs to be declared, so just pass target_name="dummy".
 
 ##See Also
 
