@@ -8,11 +8,12 @@ Align a chain in the working pose to a chain in a pose on disk (CA superposition
 ```xml
 <AlignChain name="(&string;)" target_name="(&string;)"
         source_chain="(0 &non_negative_integer;)"
-        target_chain="(0 &non_negative_integer;)" />
+        target_chain="(0 &non_negative_integer;)" align_to_com="(0 &bool;)" />
 ```
 
 -   **target_name**: (REQUIRED) file name of the target pose on disk. The pose will be read just once at the start of the run and saved in memory to save I/O
 -   **source_chain**: the chain number in the working pose. 0 means the entire pose
 -   **target_chain**: the chain number in the target pose. 0 means the entire pose
+-   **align_to_com**: If true, will align pose to COM instead of target
 
 ---

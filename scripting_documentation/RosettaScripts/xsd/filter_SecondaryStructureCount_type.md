@@ -19,7 +19,8 @@ XRW TO DO
         max_loop_length="(9999 &non_negative_integer;)"
         filter_helix="(false &bool;)" filter_sheet="(false &bool;)"
         filter_loop="(false &bool;)" filter_helix_sheet="(true &bool;)"
-        confidence="(1.0 &real;)" />
+        return_total="(0 &bool;)" min_element_resis="(1 &non_negative_integer;)"
+        residue_selector="(&string;)" confidence="(1.0 &real;)" />
 ```
 
 -   **num_helix**: XRW TO DO
@@ -36,6 +37,9 @@ XRW TO DO
 -   **filter_sheet**: XRW TO DO
 -   **filter_loop**: XRW TO DO
 -   **filter_helix_sheet**: XRW TO DO
+-   **return_total**: Returns total count to score file instead of 0.
+-   **min_element_resis**: Minimum number of residues on an element for it to be counted.
+-   **residue_selector**: Explicitly set which SS elements to count using residue_selectors.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

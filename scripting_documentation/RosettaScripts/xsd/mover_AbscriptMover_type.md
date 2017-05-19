@@ -13,7 +13,7 @@ A special mover used to replicate the state of ab initio in early 2014
         <Preparer name="(&string;)" />
     </Stage>
     <Fragments selector="(&string;)" small_frags="(&string;)"
-            large_frags="(&string;)" />
+            large_frags="(&string;)" initialize="(true &bool;)" />
 </AbscriptMover>
 ```
 
@@ -35,5 +35,6 @@ Subtag **Fragments**:
 -   **selector**: Name of previously defined residue selector specifying where fragments should be inserted
 -   **small_frags**: Fragments file containing small fragments (i.e. 3mers)
 -   **large_frags**: Fragments file containing large fragments (i.e. 9mers)
+-   **initialize**: Use small fragments insert a fragment at all positions before starting
 
 ---

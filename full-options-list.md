@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-05-14
+Generated: 2017-05-19
 
 _Note that some application specific options may not be present in this list._
 
@@ -3751,6 +3751,8 @@ _Note that some application specific options may not be present in this list._
 <dl>
 <dt><b>-cyclic_peptide</b> \<Boolean\></dt>
 <dd>cyclic_peptide option group<br/></dd>
+<dt><b>-cyclization_type</b> \<String\></dt>
+<dd>The type of cyclization for the peptide (e.g. N-to-C amide bond, terminal disulfide, etc.<br/>Default: "n_to_c_amide_bond"<br/></dd>
 <dt><b>-rand_checkpoint_file</b> \<String\></dt>
 <dd>The name of the checkpoint file used for the random number generator.  Defaults to rng.state.gz.  Not used if the -cyclic_peptide:checkpoint_job_identifier flag isn't used.<br/>Default: "rng.state.gz"<br/></dd>
 <dt><b>-checkpoint_file</b> \<String\></dt>
