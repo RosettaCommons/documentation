@@ -147,7 +147,8 @@ Your \#includes should not appear in random order, or alphabetical order, or the
 
 #####Library Dependencies 
 Cyclic inclusion complicates the code and build system and slows compiling.  The code is separated into discrete libraries, which compile independently (and more quickly than they would otherwise).  Code in any given library may only #include headers from the same library, or a lower-level library.  
-[[See flow-chart and overview of the different libraries | https://www.rosettacommons.org/docs/wiki/development_documentation/code_structure/src-index-page]] 
+[[flow-chart and overview of the different libraries | https://www.rosettacommons.org/docs/wiki/development_documentation/code_structure/src-index-page]] 
+
 In order from lowest to highest, the libraries are (with examples of familiar code):
 * Lowest-level: external libraries with little or no modification allowed (ObjexxFCL, zlib) (Boost, except being all headers it does not compile independently)
 * Lower-level: utility (vector1, [[owning pointers]], [[options system|namespace-utility-options]], utility_exit())
