@@ -7,7 +7,7 @@ Author: Jianqing Xu (xubest@gmail.com), Daisuke Kuroda (dkuroda1981@gmail.com), 
 
 Corresponding PI Jeffrey Gray (jgray@jhu.edu).
 
-Last edited 9/29/2014 by Jared Adolf-Bryfogle (jadolfbr@gmail.com). 
+Last edited 5/23/2017 by Jeliazko Jeliazkov (jeliazkov@jhu.edu). 
 
 
 References
@@ -15,16 +15,116 @@ References
 
 We recommend the following articles for further studies of RosettaAntibody methodology and applications:
 
--   B. Weitzner, D. Kuroda, N. Marze, J. Xu & J. J. Gray, "Blind prediction performance of RosettaAntibody 3.0: Grafting, relaxation, kinematic loop modeling, and full CDR optimization." Proteins 82(8), 1611-1623 (2014)
+-   B. D. Weitzner\*, J. R. Jeliazkov\*, S. Lyskov\*, N. M. Marze, D. Kuroda, R. Frick, J. Adolf-Bryfogle, N. Biswas, R. L. Dunbrack Jr., and J. J. Gray, "Modeling and docking of antibody structures with Rosetta." Nature Protocols 12, 401&ndash;416 (2017)
 
--   J. Xu, D. Kuroda & J. J. Gray, “RosettaAntibody3: Object-Oriented Designed Protocol and Improved Antibody Homology Modeling.” (2013) in preparation
+-   B. D. Weitzner, D. Kuroda, N. M. Marze, J. Xu & J. J. Gray, "Blind prediction performance of RosettaAntibody 3.0: Grafting, relaxation, kinematic loop modeling, and full CDR optimization." Proteins 82(8), 1611&ndash;1623 (2014)
 
--   A. Sivasubramanian,\* A. Sircar,\* S. Chaudhury & J. J. Gray, "Toward high-resolution homology modeling of antibody Fv regions and application to antibody-antigen docking," Proteins 74(2), 497-514 (2009)
+
+-   A. Sivasubramanian,\* A. Sircar,\* S. Chaudhury & J. J. Gray, "Toward high-resolution homology modeling of antibody Fv regions and application to antibody-antigen docking," Proteins 74(2), 497&ndash;514 (2009)
 
 Overview
 ========
 
-**Please realize this the overview is to speed you up to run the protocol asap with minimum knowledge. For details of each steps, please check**
+**Please realize this the overview is to speed you up to run the protocol asap with minimum knowledge. For details of each steps, please check:**
+
+* [[RosettaAntibody3 application: Antibody Homology Modeling|antibody-cc]]
+* [[RosettaAntibody3 application: Antibody Modeler Protocol (CDR H3 and VL-VH)|antibody-model-CDR-H3]]
+
+Rosetta Antibody can model both antibodies (consisting of the heavy and light chain variable region) and nanobodies (consisting of only the heavy chain variable region). To run the protocol, one needs:
+
+1. The sequence of interest in FASTA format, with a description lines preceding the sequence and indicating either ">heavy" or ">light".
+2. BLAST+ (version 2.2.28 or later).
+3. Rosetta (the latest if possible, officially supported in 3.7).
+4. The antibody database contained in the Rosetta/tools repository (as up-to-date as possible).
+
+In Rosetta, antibody modeling is a two stage process. 
+
+**Executable: antibody**
+
+First, the sequences are divided into structurally conserved regions (FRH, H1, H2, H3, FRL, L1, L2, and L3) and templates are selected from the database based on BLAST+ score. Alternatively, manual templates can be specified via PDB code and the -antibody:{region}_template, for example: `-antibody:l1_template 1rzi`. Note that the templates must be present in the database. After selection, template complementarity determining regions are grafted on the template frameworks and the frameworks are assembled according to a template VH&ndash;VL orientation (predicting this orientation is challenging, so ten template orientations used). A highly recommended, but optional, FastRelax with constraints is used to alleviate any clashes introduced by grafting. 
+
+Sample command line: `antibody.macosclangrelease -fasta antibody_chains.fasta | tee grafting.log`.
+
+Here `antibody_chains.fasta` looks like:
+```
+>heavy
+VKLEESGGGLVQPGGSMKLSCATSGFRFADYWMDWVRQSPEKGLEWVAEIRNKANNHATYYAESVKGRFTISRDDSKRRVYLQMNTLRAEDTGIYYCTLIAYBYPWFAYWGQGTLVTVS
+>light
+DVVMTQTPLSLPVSLGNQASISCRSSQSLVHSNGNTYLHWYLQKPGQSPKLLIYKVSNRFSGVPDRFSGSGSGTDFTLKISRVEAEDLGVYFCSQSTHVPFTFGSGTKLEIKR
+```
+
+The typical runtime, with FastRelax, is ~20 mins per model or ~3 hours for 10 models.
+
+**Executable: antibody_h3**
+
+Next, for each grafted model, the CDR H3 is de novo modeled and the relative VH&ndash;VL orientation is refined via local docking. Flags are split into a simulation set and a loop-modeling set. Both sets of flags are shown below (the loop modeling flags can also be found in tools/antibody/abH3.flags). If loop modeling is slow, it can be expedited by decreasing KIC sampling via the flags `-loops:refine_outer_cycles 2` and `-loops:max_inner_cycles 20`, however these flags have not been benchmarked. If using multiple VH&ndash;VL orientations, we recommend 1000 structures be generated for the top grafted model (typically, model-0.relaxed.pdb) and 200 structures be generated for the other orientations.
+
+Sample command line: `antibody_H3.macosclangrelease @flags`.
+
+flags:
+```
+# input grafted model
+-s grafting/model-0.relaxed.pdb
+
+# recommended number of structs
+-nstruct 1000 
+
+# recommended kink cst, kink present in 90% of Abs
+-antibody:auto_generate_kink_constraint 
+-antibody:all_atom_mode_kink_constraint
+
+# necessary if running multiple procs w/o MPI
+-multiple_processes_writing_to_one_directory 
+
+# specify output file
+-out:file:scorefile H3_modeling_scores.fasc 
+
+# specify output folder
+-out:path:pdb H3_modeling 
+
+@abH3.flags
+```
+
+abH3.flags:
+```
+#how to run antibody mode -- these are the current best-practices
+-antibody::remodel              perturb_kic
+-antibody::snugfit              true
+-antibody::refine               refine_kic
+-antibody::cter_insert          false
+-antibody::flank_residue_min    true
+-antibody::bad_nter             false
+-antibody::h3_filter            false
+-antibody::h3_filter_tolerance  5
+-antibody:constrain_vlvh_qq
+
+#more standard settings, for packages used by antibody_H3
+-ex1
+-ex2
+-extrachi_cutoff 0
+
+#these are standard settings for kic/ngk
+-loops:legacy_kic false
+-loops:kic_min_after_repack true
+-loops:kic_omega_sampling
+-loops:allow_omega_move true    ### remove 'true' and loop::?
+-kic_bump_overlap_factor 0.36
+-loops:ramp_fa_rep
+-loops:ramp_rama
+-loops:refine_outer_cycles 5
+
+#These enable the kink constraints.  Increase the weight if you want tighter kink constraints.
+-antibody:constrain_cter
+-constraints:cst_weight 1.0
+```
+
+The typical runtime varies, based on CDR H3 length (due to KIC). In our benchmark, the runtime was ~1 hour per model. We highly recommend using a cluster to speed up calculations. 
+
+Additionally, models should be validated for a reasonable VH&ndash;VL orientation. This can be done with following command: `python $ROSETTA/main/source/scripts/python/public/plot_VL_VH_orientational_coordinates/plot_LHOC.py`.
+
+Deprecated Python-Based Grafting Approach
+=========================================
+
 
 * [[RosettaAntibody3 application: the Python Pre-Processing Script|antibody-python-script]]
 * [[RosettaAntibody3 application: Antibody CDR Grafting Protocol|antibody-assemble-CDRs]]
@@ -43,9 +143,6 @@ Currently, antibody homology modelling is a 3 step process:
 1.  Template selections by BLAST
 2.  Grafting of CDR templates onto a FR template and Fv refinement
 3.  Intensive H3 modeling and VL/VH refinement
-
-Usage for a Production Run
-==================
 
 **Steps 1 and 2:**
 
@@ -124,14 +221,6 @@ Post Processing
 ===============
 
 You can use a set of decoys simultaneously for antibody-antigen docking simulations, such as SnugDock and EnsembleDock.
-
-New things since last release
-=============================
-
-This is the first public release in Rosetta3
-
--   Supports the modern job distributor (jd2).
--   Support for [[constraints|constraint-file]] .
 
 ##See Also
 
