@@ -27,7 +27,7 @@ The **-in:auto_setup_metals** flag has been added to handle import of metallopro
 * Rosetta automatically sets covalent bonds between metal ions and nearby metal-binding atoms on metal-binding residues.
 * Rosetta automatically creates distance constraints between metal ions and the atoms that bind them.  The distances are based on the geometry in the PDB file.
 * Rosetta automatically creates angle constraints between metal ions, the atoms that bind them, and the parent atoms to those atoms.  The angles are based on the geometry in the PDB file.
-* Rosetta sets the **atom_pair_constraint** and **angle_constraint** weights in the scorefunction to 1.0, if they have not already been set in the weights file.
+* Rosetta sets the **metalbinding_constraint** weight in the scorefunction to 1.0, if they have not already been set in the weights file.
 * Rosetta removes hydrogens from atoms that bind metal ions, and adjusts the charge on the residue appropriately (which can be important in special cases in which one residue coordinates multiple metal ions).
 * Rosetta sets up the fold tree such that the metal atom is connected by a jump to the spatially closest metal-binding residue that precedes it in linear sequence.  This means that if the protein's backbone is moved, the metal will remain close to that residue (though not necessarily close to its side-chain, if that were to move).
 The [[SetupMetalsMover]] provides the same function as the flag in mover form.
