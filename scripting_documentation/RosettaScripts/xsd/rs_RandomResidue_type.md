@@ -7,12 +7,15 @@ Selects residues in the pose at random. Note that this residue selector is stoch
 
 ```xml
 <RandomResidue name="(&string;)" num_residues="(&non_negative_integer;)"
+        select_res_cluster="(&bool;)" distance_cutoff="(&real;)"
         selector="(&string;)" >
     <Residue Selector Tag ... />
 </RandomResidue>
 ```
 
 -   **num_residues**: The number of residues to be randomly selected
+-   **select_res_cluster**: option to only select multiple residues near each other, only applies to case where num_residues greater than 1, multiple random residues are required to be within distance_cutoff angstroms of one another
+-   **distance_cutoff**: only active when select_res_cluster set to true, distance that defines whether two residues are neighbors or not
 -   **selector**: Defines the subset from which random residues are chosen.
 
 

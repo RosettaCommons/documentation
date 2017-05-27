@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-05-19
+Generated: 2017-05-27
 
 _Note that some application specific options may not be present in this list._
 
@@ -795,11 +795,11 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-score</b> \<Boolean\></dt>
 <dd>scorefunction option group<br/></dd>
 <dt><b>-weights</b> \<String\></dt>
-<dd>Name of weights file (without extension .wts)<br/>Default: "talaris2014"<br/></dd>
+<dd>Name of weights file (without extension .wts)<br/>Default: "ref2015"<br/></dd>
 <dt><b>-set_weights</b> \<StringVector\></dt>
 <dd>Modification to weights via the command line. Applied in ScoreFunctionFactory::create_score_function inside the function apply_user_defined_reweighting_. Format is a list of paired strings: -score::set_weights <score_type1> <setting1> <score_type2> <setting2> ...<br/></dd>
 <dt><b>-pack_weights</b> \<String\></dt>
-<dd>Name of packing weights file (without extension .wts)<br/>Default: "talaris2014"<br/></dd>
+<dd>Name of packing weights file (without extension .wts)<br/>Default: "ref2015"<br/></dd>
 <dt><b>-soft_wts</b> \<String\></dt>
 <dd>Name of the 'soft' weights file, for protocols which use it.<br/>Default: "soft_rep"<br/></dd>
 <dt><b>-docking_interface_score</b> \<Boolean\></dt>
@@ -815,7 +815,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-fa_max_dis</b> \<Real\></dt>
 <dd>How far does the FA pair potential go out to ?<br/>Default: 6.0<br/></dd>
 <dt><b>-fa_Hatr</b> \<Boolean\></dt>
-<dd>Turn on Lennard Jones attractive term for hydrogen atoms<br/></dd>
+<dd>Turn on Lennard Jones attractive term for hydrogen atoms<br/>Default: true<br/></dd>
 <dt><b>-no_smooth_etables</b> \<Boolean\></dt>
 <dd>Revert to old style etables<br/></dd>
 <dt><b>-no_lk_polar_desolvation</b> \<Boolean\></dt>
@@ -865,7 +865,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-hbe_for_dH2O_aGEN_SP3SC_ssother</b> \<String\></dt>
 <dd>HBEvalType for HBEvalTuple(hbdon_H2O, hbacc_GENERIC_SP3SC, seq_sep_other)<br/>Default: "hbe_dH2OaHXL"<br/></dd>
 <dt><b>-hbond_params</b> \<String\></dt>
-<dd>Directory name in the database for which hydrogen bond parameters to use.<br/>Default: "sp2_elec_params"<br/></dd>
+<dd>Directory name in the database for which hydrogen bond parameters to use.<br/>Default: "ref2015_params"<br/></dd>
 <dt><b>-hbond_bb_per_residue_energy</b> \<Boolean\></dt>
 <dd>In score tables, separate out backbone hydrogens bond energies per residue. By default, bb hbonds are included in the total energy, but not per residue energies<br/>Default: false<br/></dd>
 <dt><b>-hbond_disable_bbsc_exclusion_rule</b> \<Boolean\></dt>
@@ -882,50 +882,6 @@ _Note that some application specific options may not be present in this list._
 <dd>Upper Bound for neighbor Vector scoring<br/>Default: 11.1<br/></dd>
 <dt><b>-NV_table</b> \<String\></dt>
 <dd>Location of path to potential lookup table<br/>Default: "scoring/score_functions/NV/neighbor_vector_score.histogram"<br/></dd>
-<dt><b>-disable_orientation_dependent_rna_ch_o_bonds</b> \<Boolean\></dt>
-<dd>Do not use orientation-dependent potential for RNA carbon hydrogen bonds<br/>Default: false<br/></dd>
-<dt><b>-rna_torsion_potential</b> \<String\></dt>
-<dd>In RNA torsion calculation, directory containing 1D torsional potentials<br/>Default: "ps_04282011"<br/></dd>
-<dt><b>-rna_suite_potential</b> \<String\></dt>
-<dd>In RNA calculation, directory containing suite potentials<br/>Default: "Richardson"<br/></dd>
-<dt><b>-suiteness_bonus</b> \<String\></dt>
-<dd>In RNA calculation, directory containing suiteness bonus definition<br/>Default: "Richardson"<br/></dd>
-<dt><b>-rna_torsion_skip_chainbreak</b> \<Boolean\></dt>
-<dd>Don't score RNA torsions located at the chain_breaks (aside from the ones that will be closed)<br/>Default: true<br/></dd>
-<dt><b>-rna_chemical_shift_verbose</b> \<Boolean\></dt>
-<dd>print out chemical shifts; useful for debug<br/>Default: false<br/></dd>
-<dt><b>-rna_chemical_shift_larmord</b> \<Boolean\></dt>
-<dd>Use LARMORD to calculate 1H chemical shifts<br/>Default: false<br/></dd>
-<dt><b>-rna_chemical_shift_exp_data</b> \<String\></dt>
-<dd>rna_chemical_shift_exp_data<br/>Default: ""<br/></dd>
-<dt><b>-rna_chemical_shift_larmord_par</b> \<String\></dt>
-<dd>larmord parameters file<br/>Default: "larmord_1.0_nocut_parameters.dat"<br/></dd>
-<dt><b>-rna_chemical_shift_larmord_wt</b> \<String\></dt>
-<dd>larmord expected accuracy file<br/>Default: "larmord_noweights.txt"<br/></dd>
-<dt><b>-rna_chemical_shift_larmord_ref</b> \<String\></dt>
-<dd>larmord reference  chemical shift file<br/>Default: "larmord_1.0_reference_shifts.dat"<br/></dd>
-<dt><b>-rna_chemical_shift_larmord_nei</b> \<String\></dt>
-<dd>larmord neighbor atom shift file<br/>Default: "larmord_1.0_neighbor_atoms.dat"<br/></dd>
-<dt><b>-rna_chemical_shift_larmord_cut</b> \<Real\></dt>
-<dd>larmord distance cutoff<br/>Default: 9999.9<br/></dd>
-<dt><b>-rna_chemical_shift_larmord_beta</b> \<Real\></dt>
-<dd>larmord beta value (the exponent)<br/>Default: -3.0<br/></dd>
-<dt><b>-rna_chemical_shift_H5_prime_mode</b> \<String\></dt>
-<dd>rna_chemical_shift_H5_prime_mode<br/>Default: ""<br/></dd>
-<dt><b>-rna_chemical_shift_include_res</b> \<IntegerVector\></dt>
-<dd>rna_chemical_shift_include_res<br/></dd>
-<dt><b>-DMS_separate_features</b> \<Boolean\></dt>
-<dd>in RNA DMS scoring, calculate N1-bonded, occupancy, and binding-energy-based scores as if they were uncorrelated features and sum scores. <br/>Default: false<br/></dd>
-<dt><b>-DMS_careful_base_pair_classifier</b> \<Boolean\></dt>
-<dd>in RNA lo-res DMS scoring, use detailed base pair classification to assess lores score <br/>Default: false<br/></dd>
-<dt><b>-rna_chem_map_lores_weight</b> \<Real\></dt>
-<dd>In RNA lo-res chemical mapping scoring, final strength of rna_chem_map_lores term when -data_file is specified.<br/>Default: 0.0<br/></dd>
-<dt><b>-use_2prime_OH_potential</b> \<Boolean\></dt>
-<dd>Use torsional potential for RNA 2prime OH.<br/>Default: true<br/></dd>
-<dt><b>-include_neighbor_base_stacks</b> \<Boolean\></dt>
-<dd>In RNA score calculation, include stacks between i,i+1<br/>Default: false<br/></dd>
-<dt><b>-FA_low_res_rnp_scoring</b> \<Boolean\></dt>
-<dd>RNA/protein low-res scoring using full atom protein residues<br/>Default: false<br/></dd>
 <dt><b>-find_neighbors_3dgrid</b> \<Boolean\></dt>
 <dd>Use a 3D lookup table for doing neighbor calculations.  For spherical, well-distributed conformations, O(N) neighbor detection instead of general O(NlgN)<br/>Default: false<br/></dd>
 <dt><b>-find_neighbors_stripehash</b> \<Boolean\></dt>
@@ -970,30 +926,14 @@ _Note that some application specific options may not be present in this list._
 <dd>Standard deviation of the harmonic potential used to hold shadow atoms atop real atoms in order to hold rings closed with the ring_close scoring term.  Analogous to pro_close_planar_constraint option for the pro_close energy term.<br/>Default: 0.1<br/></dd>
 <dt><b>-linear_bonded_potential</b> \<Boolean\></dt>
 <dd>use linear (instead of quadratic) bonded potential<br/>Default: false<br/></dd>
-<dt><b>-free_suite_bonus</b> \<Real\></dt>
-<dd>Amount to reward virtualization of a nucleotide suite<br/>Default: -1.0<br/></dd>
-<dt><b>-free_sugar_bonus</b> \<Real\></dt>
-<dd>Amount to reward virtualization of a sugar/ribose<br/>Default: -1.0<br/></dd>
-<dt><b>-free_2HOprime_bonus</b> \<Real\></dt>
-<dd>Amount to reward virtualization of a 2'-OH<br/>Default: -0.5<br/></dd>
-<dt><b>-syn_G_potential_bonus</b> \<Real\></dt>
-<dd>Amount to reward syn chi conformation of guanosine<br/>Default: 0.0<br/></dd>
-<dt><b>-pack_phosphate_penalty</b> \<Real\></dt>
-<dd>Amount to penalize instantiation of a 5' or 3' phosphate<br/>Default: 0.25<br/></dd>
 <dt><b>-free_side_chain_bonus</b> \<Real\></dt>
 <dd>Amount to reward virtualization of a protein side chain, per free chi<br/>Default: -0.5<br/></dd>
-<dt><b>-bond_angle_sd_polar_hydrogen</b> \<Real\></dt>
-<dd>Standard deviation for bond_geometry angle term with -vary_polar_hydrogen_geometry flag, in degrees<br/>Default: 60.0<br/></dd>
-<dt><b>-bond_torsion_sd_polar_hydrogen</b> \<Real\></dt>
-<dd>Standard deviation for bond_geometry torsion term with -vary_polar_hydrogen_geometry flag, in degrees<br/>Default: 30.0<br/></dd>
-<dt><b>-rna_bulge_bonus_once_per_loop</b> \<Boolean\></dt>
-<dd>For legacy stepwise term rna_bulge in SWM runs, compute bulge bonus on a per-loop basis, rather than a bonus for each virtual residue.<br/>Default: true<br/></dd>
 <dt><b>-compute_mg_sol_for_hydrogens</b> \<Boolean\></dt>
 <dd>mg_sol includes penalties for hydrogens near Mg(2+)<br/>Default: false<br/></dd>
 <dt><b>-rg_local_span</b> \<IntegerVector\></dt>
 <dd>First,last res in rg_local. For example to calc rg_local from 1-20 would be 1,20<br/>Default: 0<br/></dd>
 <dt><b>-unmodifypot</b> \<Boolean\></dt>
-<dd>Do not call modify pot to add extra repulsive interactions between Obb/Obb atom types at distances beneath 3.6 Angstroms<br/></dd>
+<dd>Do not call modify pot to add extra repulsive interactions between Obb/Obb atom types at distances beneath 3.6 Angstroms<br/>Default: true<br/></dd>
 <dt><b>-conc</b> \<Real\></dt>
 <dd>intermolecular concentration to use in intermol term (give in M)<br/>Default: 1.0<br/></dd>
 <dt><b>-sidechain_buried</b> \<IntegerVector\></dt>
@@ -1015,17 +955,17 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-elec_r_option</b> \<Boolean\></dt>
 <dd>changes the dielectric from distance dependent to distance independent<br/>Default: false<br/></dd>
 <dt><b>-elec_sigmoidal_die</b> \<Boolean\></dt>
-<dd>changes the dielectric from distance dependent to sigmoidal<br/>Default: false<br/></dd>
+<dd>changes the dielectric from distance dependent to sigmoidal<br/>Default: true<br/></dd>
 <dt><b>-elec_sigmoidal_die_D</b> \<Real\></dt>
-<dd>D parameter for sigmoidal dielectric<br/>Default: 78.0<br/></dd>
+<dd>D parameter for sigmoidal dielectric<br/>Default: 80.0<br/></dd>
 <dt><b>-elec_sigmoidal_die_D0</b> \<Real\></dt>
-<dd>D0 parameter for sigmoidal dielectric<br/>Default: 2.0<br/></dd>
+<dd>D0 parameter for sigmoidal dielectric<br/>Default: 6.0<br/></dd>
 <dt><b>-elec_sigmoidal_die_S</b> \<Real\></dt>
-<dd>S parameter for sigmoidal dielectric<br/>Default: 0.36<br/></dd>
+<dd>S parameter for sigmoidal dielectric<br/>Default: 0.4<br/></dd>
 <dt><b>-elec_representative_cp</b> \<Boolean\></dt>
-<dd>Use representative atoms for countpair to avoid dipole splits<br/>Default: false<br/></dd>
+<dd>Use representative atoms for countpair to avoid dipole splits<br/>Default: true<br/></dd>
 <dt><b>-elec_representative_cp_flip</b> \<Boolean\></dt>
-<dd>Enable elec_representative_cp, but FLIP the order in the table<br/>Default: false<br/></dd>
+<dd>Enable elec_representative_cp, but FLIP the order in the table<br/>Default: true<br/></dd>
 <dt><b>-eval_intrares_elec_ST_only</b> \<Boolean\></dt>
 <dd>Intrares elec only for free DOF atoms in Ser/Thr<br/>Default: false<br/></dd>
 <dt><b>-smooth_fa_elec</b> \<Boolean\></dt>
@@ -1164,6 +1104,69 @@ _Note that some application specific options may not be present in this list._
 <dd>fade_factor for hbond geometry softmax<br/>Default: 2.5<br/></dd>
 <dt><b>-hbond_new_sp3_acc</b> \<Boolean\></dt>
 <dd>fade_factor for hbond geometry softmax<br/>Default: false<br/></dd>
+<dt><b>-rna_torsion_potential</b> \<String\></dt>
+<dd>In RNA torsion calculation, directory containing 1D torsional potentials<br/>Default: "ps_04282011"<br/></dd>
+</dl>
++ <h3>-score:rna</h3>
+<dl>
+<dt><b>-rna</b> \<Boolean\></dt>
+<dd>rna option group<br/></dd>
+<dt><b>-disable_orientation_dependent_rna_ch_o_bonds</b> \<Boolean\></dt>
+<dd>Do not use orientation-dependent potential for RNA carbon hydrogen bonds<br/>Default: false<br/></dd>
+<dt><b>-rna_suite_potential</b> \<String\></dt>
+<dd>In RNA calculation, directory containing suite potentials<br/>Default: "Richardson"<br/></dd>
+<dt><b>-suiteness_bonus</b> \<String\></dt>
+<dd>In RNA calculation, directory containing suiteness bonus definition<br/>Default: "Richardson"<br/></dd>
+<dt><b>-rna_torsion_skip_chainbreak</b> \<Boolean\></dt>
+<dd>Don't score RNA torsions located at the chain_breaks (aside from the ones that will be closed)<br/>Default: true<br/></dd>
+<dt><b>-rna_chemical_shift_verbose</b> \<Boolean\></dt>
+<dd>print out chemical shifts; useful for debug<br/>Default: false<br/></dd>
+<dt><b>-rna_chemical_shift_larmord</b> \<Boolean\></dt>
+<dd>Use LARMORD to calculate 1H chemical shifts<br/>Default: false<br/></dd>
+<dt><b>-rna_chemical_shift_exp_data</b> \<String\></dt>
+<dd>rna_chemical_shift_exp_data<br/>Default: ""<br/></dd>
+<dt><b>-rna_chemical_shift_larmord_par</b> \<String\></dt>
+<dd>larmord parameters file<br/>Default: "larmord_1.0_nocut_parameters.dat"<br/></dd>
+<dt><b>-rna_chemical_shift_larmord_wt</b> \<String\></dt>
+<dd>larmord expected accuracy file<br/>Default: "larmord_noweights.txt"<br/></dd>
+<dt><b>-rna_chemical_shift_larmord_ref</b> \<String\></dt>
+<dd>larmord reference  chemical shift file<br/>Default: "larmord_1.0_reference_shifts.dat"<br/></dd>
+<dt><b>-rna_chemical_shift_larmord_nei</b> \<String\></dt>
+<dd>larmord neighbor atom shift file<br/>Default: "larmord_1.0_neighbor_atoms.dat"<br/></dd>
+<dt><b>-rna_chemical_shift_larmord_cut</b> \<Real\></dt>
+<dd>larmord distance cutoff<br/>Default: 9999.9<br/></dd>
+<dt><b>-rna_chemical_shift_larmord_beta</b> \<Real\></dt>
+<dd>larmord beta value (the exponent)<br/>Default: -3.0<br/></dd>
+<dt><b>-rna_chemical_shift_H5_prime_mode</b> \<String\></dt>
+<dd>rna_chemical_shift_H5_prime_mode<br/>Default: ""<br/></dd>
+<dt><b>-rna_chemical_shift_include_res</b> \<IntegerVector\></dt>
+<dd>rna_chemical_shift_include_res<br/></dd>
+<dt><b>-DMS_separate_features</b> \<Boolean\></dt>
+<dd>in RNA DMS scoring, calculate N1-bonded, occupancy, and binding-energy-based scores as if they were uncorrelated     features and sum scores. <br/>Default: false<br/></dd>
+<dt><b>-DMS_careful_base_pair_classifier</b> \<Boolean\></dt>
+<dd>in RNA lo-res DMS scoring, use detailed base pair classification to assess lores score <br/>Default: false<br/></dd>
+<dt><b>-rna_chem_map_lores_weight</b> \<Real\></dt>
+<dd>In RNA lo-res chemical mapping scoring, final strength of rna_chem_map_lores term when -data_file is specified.<br/>Default: 0.0<br/></dd>
+<dt><b>-use_2prime_OH_potential</b> \<Boolean\></dt>
+<dd>Use torsional potential for RNA 2prime OH.<br/>Default: true<br/></dd>
+<dt><b>-use_rna_chi_potential</b> \<Boolean\></dt>
+<dd>Use chi potential for RNA glyocosidic torsion.<br/>Default: true<br/></dd>
+<dt><b>-include_neighbor_base_stacks</b> \<Boolean\></dt>
+<dd>In RNA score calculation, include stacks between i,i+1<br/>Default: false<br/></dd>
+<dt><b>-FA_low_res_rnp_scoring</b> \<Boolean\></dt>
+<dd>RNA/protein low-res scoring using full atom protein residues<br/>Default: false<br/></dd>
+<dt><b>-free_suite_bonus</b> \<Real\></dt>
+<dd>Amount to reward virtualization of a nucleotide suite<br/>Default: -1.0<br/></dd>
+<dt><b>-free_sugar_bonus</b> \<Real\></dt>
+<dd>Amount to reward virtualization of a sugar/ribose<br/>Default: -1.0<br/></dd>
+<dt><b>-free_2HOprime_bonus</b> \<Real\></dt>
+<dd>Amount to reward virtualization of a 2'-OH<br/>Default: -0.5<br/></dd>
+<dt><b>-syn_G_potential_bonus</b> \<Real\></dt>
+<dd>Amount to reward syn chi conformation of guanosine<br/>Default: 0.0<br/></dd>
+<dt><b>-rna_bulge_bonus_once_per_loop</b> \<Boolean\></dt>
+<dd>For legacy stepwise term rna_bulge in SWM runs, compute bulge bonus on a per-loop basis, rather than a bonus for each virtual residue.<br/>Default: true<br/></dd>
+<dt><b>-pack_phosphate_penalty</b> \<Real\></dt>
+<dd>Amount to penalize instantiation of a 5' or 3' phosphate<br/>Default: 0.25<br/></dd>
 </dl>
 + <h3>-score:saxs</h3>
 <dl>
@@ -1628,20 +1631,16 @@ _Note that some application specific options may not be present in this list._
 <dd>Use the November 2015 beta score function<br/>Default: false<br/></dd>
 <dt><b>-beta_nov16_cart</b> \<Boolean\></dt>
 <dd>Use the November 2015 beta score function for nonideal optimization<br/>Default: false<br/></dd>
-<dt><b>-beta_nov15</b> \<Boolean\></dt>
-<dd>Use the November 2015 beta score function<br/>Default: false<br/></dd>
-<dt><b>-beta_nov15_cart</b> \<Boolean\></dt>
-<dd>Use the November 2015 beta score function for nonideal optimization<br/>Default: false<br/></dd>
 <dt><b>-beta_july15</b> \<Boolean\></dt>
 <dd>Use the July 2015 beta  score function<br/>Default: false<br/></dd>
 <dt><b>-beta_july15_cart</b> \<Boolean\></dt>
 <dd>Use the July 2015 beta score function for nonideal optimization<br/>Default: false<br/></dd>
 <dt><b>-beta_patch</b> \<Boolean\></dt>
 <dd>Apply the extra patch to most-recent (curr Nov 15) beta_score_function.<br/>Default: false<br/></dd>
-<dt><b>-beta_nov15_patch</b> \<Boolean\></dt>
-<dd>Apply the extra patch to (curr Nov 15) beta_score_function. Adding (conservative) patches to correct some pathologies found in beta_nov15. Could be merged to beta_nov15 in the future when it turns out to work generally better -score:weights beta_nov15_patch -rama_prepro_steep -eval_intrares_elec_ST_only<br/>Default: false<br/></dd>
 <dt><b>-newdna</b> \<Boolean\></dt>
 <dd>Apply some dna-specific mods to chemical/scoring (for testing)<br/>Default: false<br/></dd>
+<dt><b>-restore_talaris_behavior</b> \<Boolean\></dt>
+<dd>Use talaris score function and residue_type_set<br/>Default: false<br/></dd>
 <dt><b>-correct</b> \<Boolean\></dt>
 <dd>turn on default corrections:See src/core/init/score_function_corrections.cc<br/>Default: false<br/></dd>
 <dt><b>-hbond_sp2_correction</b> \<Boolean\></dt>
@@ -1654,7 +1653,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-score</b> \<Boolean\></dt>
 <dd>score option group<br/></dd>
 <dt><b>-bbdep_omega</b> \<Boolean\></dt>
-<dd>Enable phi-psi dependent omega<br/></dd>
+<dd>Enable phi-psi dependent omega<br/>Default: true<br/></dd>
 <dt><b>-bbdep_bond_params</b> \<Boolean\></dt>
 <dd>Enable phi-psi dependent bondlengths and bondangles<br/></dd>
 <dt><b>-bbdep_bond_devs</b> \<Boolean\></dt>
@@ -1744,7 +1743,7 @@ _Note that some application specific options may not be present in this list._
 + <h2>-corrections</h2>
 <dl>
 <dt><b>-shapovalov_lib_fixes_enable</b> \<Boolean\></dt>
-<dd>Apply new code by Maxim Shapovalov from Dunbrack Lab such as for reading/using dun, rama, prop libraries in new format and options for applying different bug fixes. False value will employ old libraries and old code.<br/>Default: false<br/></dd>
+<dd>Apply new code by Maxim Shapovalov from Dunbrack Lab such as for reading/using dun, rama, prop libraries in new format and options for applying different bug fixes. False value will employ old libraries and old code.<br/>Default: true<br/></dd>
 </dl>
 + <h3>-corrections:shapovalov_lib</h3>
 <dl>
@@ -1753,7 +1752,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-shap_dun10_enable</b> \<Boolean\></dt>
 <dd>Enable new Shapovalov's dun10 fix if the umbrella option is on, shapovalov_lib_fixes<br/>Default: true<br/></dd>
 <dt><b>-shap_dun10_smooth_level</b> \<String\></dt>
-<dd>Smoothing level either numeric or word keyword, possible values are 1 or lowest_smooth, 2 or lower_smooth, 3 or low_smooth, 4 or average_smooth, 5 or higher_smooth, 6 or highest_smooth.<br/>Default: "3"<br/></dd>
+<dd>Smoothing level either numeric or word keyword, possible values are 1 or lowest_smooth, 2 or lower_smooth, 3 or low_smooth, 4 or average_smooth, 5 or higher_smooth, 6 or highest_smooth.<br/>Default: "1"<br/></dd>
 <dt><b>-shap_dun10_dir</b> \<String\></dt>
 <dd>Name of the new format dun10 dir<br/>Default: "rotamer/shapovalov/StpDwn_5-5-5"<br/></dd>
 <dt><b>-shap_dun10_use_minus_log_P_ignore_P</b> \<Boolean\></dt>
@@ -1769,7 +1768,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-shap_p_aa_pp_enable</b> \<Boolean\></dt>
 <dd>Enable new Shapovalov's propensity map fix if the umbrella option is on, shapovalov_lib_fixes<br/>Default: true<br/></dd>
 <dt><b>-shap_p_aa_pp_smooth_level</b> \<String\></dt>
-<dd>Smoothing level either numeric or word keyword, possible values are 1 or low_smooth, 2 or high_smooth.<br/>Default: "2"<br/></dd>
+<dd>Smoothing level either numeric or word keyword, possible values are 1 or low_smooth, 2 or high_smooth.<br/>Default: "1"<br/></dd>
 <dt><b>-shap_p_aa_pp</b> \<String\></dt>
 <dd>Name of the new Shapovalov's P_AA_PP potential file (search in the local directory first, then look in the database)<br/>Default: "scoring/score_functions/P_AA_pp/shapovalov/10deg/kappa50/a20.prop"<br/></dd>
 </dl>
@@ -4059,9 +4058,9 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-lk_ball_wtd_tag</b> \<String\></dt>
 <dd>No description<br/></dd>
 <dt><b>-lk_ball_for_bb</b> \<Boolean\></dt>
-<dd>No description<br/>Default: false<br/></dd>
+<dd>No description<br/>Default: true<br/></dd>
 <dt><b>-lk_ball_ramp_width_A2</b> \<Real\></dt>
-<dd>No description<br/>Default: 5.0<br/></dd>
+<dd>No description<br/>Default: 3.9<br/></dd>
 <dt><b>-lk_ball_overlap_gap</b> \<Real\></dt>
 <dd>No description<br/>Default: 0.0<br/></dd>
 <dt><b>-lk_ball_overlap_width_A2</b> \<Real\></dt>
@@ -7644,8 +7643,6 @@ _Note that some application specific options may not be present in this list._
 <dd>Minimizer type<br/>Default: "lbfgs_armijo_nonmonotone"<br/></dd>
 <dt><b>-min_tolerance</b> \<Real\></dt>
 <dd>Minimizer tolerance<br/>Default: 0.000025<br/></dd>
-<dt><b>-vary_polar_hydrogen_geometry</b> \<Boolean\></dt>
-<dd>Optimize hydrogens that form hydrogen bonds<br/>Default: false<br/></dd>
 <dt><b>-output_minimized_pose_list</b> \<Boolean\></dt>
 <dd>Use legacy output that puts out all minimized poses; set to true in legacy SWA<br/>Default: false<br/></dd>
 <dt><b>-virtualize_free_moieties_in_native</b> \<Boolean\></dt>
@@ -7713,6 +7710,8 @@ _Note that some application specific options may not be present in this list._
 <dd>for submotif moves, only add base pairs that have an attachment point and a cutpoint closed, with no intervening bulge<br/>Default: false<br/></dd>
 <dt><b>-use_first_jump_for_submotif</b> \<Boolean\></dt>
 <dd>for submotif moves, only use first jump from jump library -- does not change stepwise -lores (which resamples jump) except in balance of move selection.<br/>Default: false<br/></dd>
+<dt><b>-exclude_submotifs</b> \<StringVector\></dt>
+<dd>submotifs in database/sampling/rna/submotif/submotifs.txt to exclude<br/>Default: []<br/></dd>
 <dt><b>-vary_loop_length_frequency</b> \<Real\></dt>
 <dd>In design, allow loops ('n') to shorten from loop lengths defined in FASTA files.<br/>Default: 0.0<br/></dd>
 <dt><b>-designing_with_noncanonicals</b> \<Boolean\></dt>
@@ -7732,6 +7731,27 @@ _Note that some application specific options may not be present in this list._
 <dd>RMSD cutoff for calling two poses different in conformational space annealing (population monte carlo)<br/>Default: 1.0<br/></dd>
 <dt><b>-csa_output_rounds</b> \<Boolean\></dt>
 <dd>output silent files at intermediate stages (at integral multiples of bank_size)<br/>Default: false<br/></dd>
+</dl>
++ <h3>-stepwise:polar_hydrogens</h3>
+<dl>
+<dt><b>-polar_hydrogens</b> \<Boolean\></dt>
+<dd>polar_hydrogens option group<br/></dd>
+<dt><b>-vary_polar_hydrogen_geometry</b> \<Boolean\></dt>
+<dd>Optimize hydrogens that form hydrogen bonds<br/>Default: false<br/></dd>
+<dt><b>-bond_angle_sd_polar_hydrogen</b> \<Real\></dt>
+<dd>Standard deviation for bond_geometry angle term with -vary_polar_hydrogen_geometry flag, in degrees<br/>Default: 60.0<br/></dd>
+<dt><b>-bond_torsion_sd_polar_hydrogen</b> \<Real\></dt>
+<dd>Standard deviation for bond_geometry torsion term with -vary_polar_hydrogen_geometry flag, in degrees<br/>Default: 30.0<br/></dd>
+<dt><b>-fix_lengths</b> \<Boolean\></dt>
+<dd>with -vary_geometry, disallow bond length change<br/>Default: false<br/></dd>
+<dt><b>-fix_angles</b> \<Boolean\></dt>
+<dd>with -vary_geometry, disallow  bond angle change<br/>Default: false<br/></dd>
+<dt><b>-fix_torsions</b> \<Boolean\></dt>
+<dd>with -vary_geometry, disallow bond torsion change beyond standard movemap<br/>Default: false<br/></dd>
+<dt><b>-disallow_pack_polar_hydrogens</b> \<Boolean\></dt>
+<dd>with -vary_polar_hydrogen_geometry, disallow polar hydrogen packing step before minimizing<br/>Default: false<br/></dd>
+<dt><b>-disallow_vary_geometry_proton_chi</b> \<Boolean\></dt>
+<dd>no packing/minimizing of 2'-OH or other hydrogens controlled by chi torsion<br/>Default: false<br/></dd>
 </dl>
 + <h3>-stepwise:rna</h3>
 <dl>
@@ -7755,6 +7775,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Sampler: finer_sampling_at_chain_closure<br/>Default: false<br/></dd>
 <dt><b>-PBP_clustering_at_chain_closure</b> \<Boolean\></dt>
 <dd>Sampler: PBP_clustering_at_chain_closure<br/>Default: false<br/></dd>
+<dt><b>-sample_all_chi</b> \<Boolean\></dt>
+<dd>Sample all chi angles (use for blind learning of chi potential)<br/>Default: false<br/></dd>
 <dt><b>-sampler_allow_syn_pyrimidine</b> \<Boolean\></dt>
 <dd>sampler_allow_syn_pyrimidine<br/>Default: false<br/></dd>
 <dt><b>-sampler_extra_chi_rotamer</b> \<Boolean\></dt>

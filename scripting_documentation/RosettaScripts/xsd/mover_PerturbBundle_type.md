@@ -8,41 +8,46 @@ Perturb helical bundles by direct manipulation of their bundle parameters
 ```xml
 <PerturbBundle name="(&string;)" use_degrees="(false &bool;)"
         default_perturbation_type="(&pert_type;)" r0_perturbation="(0.0 &real;)"
-        r0_perturbation_type="(&pert_type;)" omega0_perturbation="(0.0 &real;)"
+        r0="(0.0 &real;)" r0_perturbation_type="(&pert_type;)"
+        omega0_perturbation="(0.0 &real;)" omega0="(0.0 &real;)"
         omega0_perturbation_type="(&pert_type;)"
-        delta_omega0_perturbation="(0.0 &real;)"
+        delta_omega0_perturbation="(0.0 &real;)" delta_omega0="(0.0 &real;)"
         delta_omega0_perturbation_type="(&pert_type;)"
-        delta_omega1_perturbation="(0.0 &real;)"
+        delta_omega1_perturbation="(0.0 &real;)" delta_omega1="(0.0 &real;)"
         delta_omega1_perturbation_type="(&pert_type;)"
-        delta_t_perturbation="(0.0 &real;)"
-        delta_t_perturbation_type="(&pert_type;)" z1_perturbation="(0.0 &real;)"
-        z1_perturbation_type="(&pert_type;)" z0_perturbation="(0.0 &real;)"
-        z0_perturbation_type="(&pert_type;)" epsilon_perturbation="(0.0 &real;)"
+        delta_t_perturbation="(0.0 &real;)" delta_t="(0.0 &real;)"
+        delta_t_perturbation_type="(&pert_type;)"
+        z1_offset_perturbation="(0.0 &real;)" z1_offset="(0.0 &real;)"
+        z1_offset_perturbation_type="(&pert_type;)"
+        z0_offset_perturbation="(0.0 &real;)" z0_offset="(0.0 &real;)"
+        z0_offset_perturbation_type="(&pert_type;)"
+        epsilon_perturbation="(0.0 &real;)" epsilon="(0.0 &real;)"
         epsilon_perturbation_type="(&pert_type;)" >
     <Helix helix_index="(&positive_integer;)"
             r0_copies_helix="(0 &non_negative_integer;)"
-            r0_perturbation="(0.0 &real;)" r0_perturbation_type="(&pert_type;)"
+            r0_perturbation="(0.0 &real;)" r0="(0.0 &real;)"
+            r0_perturbation_type="(&pert_type;)"
             pitch_from_helix="(0 &non_negative_integer;)"
             omega0_copies_helix="(0 &non_negative_integer;)"
-            omega0_perturbation="(0.0 &real;)"
+            omega0_perturbation="(0.0 &real;)" omega0="(0.0 &real;)"
             omega0_perturbation_type="(&pert_type;)"
             delta_omega0_copies_helix="(0 &non_negative_integer;)"
-            delta_omega0_perturbation="(0.0 &real;)"
+            delta_omega0_perturbation="(0.0 &real;)" delta_omega0="(0.0 &real;)"
             delta_omega0_perturbation_type="(&pert_type;)"
             delta_omega1_copies_helix="(0 &non_negative_integer;)"
-            delta_omega1_perturbation="(0.0 &real;)"
+            delta_omega1_perturbation="(0.0 &real;)" delta_omega1="(0.0 &real;)"
             delta_omega1_perturbation_type="(&pert_type;)"
             delta_t_copies_helix="(0 &non_negative_integer;)"
-            delta_t_perturbation="(0.0 &real;)"
+            delta_t_perturbation="(0.0 &real;)" delta_t="(0.0 &real;)"
             delta_t_perturbation_type="(&pert_type;)"
             z1_offset_copies_helix="(0 &non_negative_integer;)"
-            z1_offset_perturbation="(0.0 &real;)"
+            z1_offset_perturbation="(0.0 &real;)" z1_offset="(0.0 &real;)"
             z1_offset_perturbation_type="(&pert_type;)"
             z0_offset_copies_helix="(0 &non_negative_integer;)"
-            z0_offset_perturbation="(0.0 &real;)"
+            z0_offset_perturbation="(0.0 &real;)" z0_offset="(0.0 &real;)"
             z0_offset_perturbation_type="(&pert_type;)"
             epsilon_copies_helix="(0 &non_negative_integer;)"
-            epsilon_perturbation="(0.0 &real;)"
+            epsilon_perturbation="(0.0 &real;)" epsilon="(0.0 &real;)"
             epsilon_perturbation_type="(&pert_type;)" />
 </PerturbBundle>
 ```
@@ -50,21 +55,29 @@ Perturb helical bundles by direct manipulation of their bundle parameters
 -   **use_degrees**: Interpret user-supplied angles as degrees rather than radians
 -   **default_perturbation_type**: Default type for perturbations to the bundle parameters, either uniform or gaussian
 -   **r0_perturbation**: Magnitude of perturbation to r0
--   **r0_perturbation_type**: Type of perturbation to r0
+-   **r0**: Absolute value to which r0 should be set.  An alternative to r0_perturbation.
+-   **r0_perturbation_type**: Type of perturbation (uniform or gaussian) to r0.
 -   **omega0_perturbation**: Magnitude of perturbation to omega0
--   **omega0_perturbation_type**: Type of perturbation to omega0
+-   **omega0**: Absolute value to which omega0 should be set.  An alternative to omega0_perturbation.
+-   **omega0_perturbation_type**: Type of perturbation (uniform or gaussian) to omega0.
 -   **delta_omega0_perturbation**: Magnitude of perturbation to delta_omega0
--   **delta_omega0_perturbation_type**: Type of perturbation to delta_omega0
+-   **delta_omega0**: Absolute value to which delta_omega0 should be set.  An alternative to delta_omega0_perturbation.
+-   **delta_omega0_perturbation_type**: Type of perturbation (uniform or gaussian) to delta_omega0.
 -   **delta_omega1_perturbation**: Magnitude of perturbation to delta_omega1
--   **delta_omega1_perturbation_type**: Type of perturbation to delta_omega1
+-   **delta_omega1**: Absolute value to which delta_omega1 should be set.  An alternative to delta_omega1_perturbation.
+-   **delta_omega1_perturbation_type**: Type of perturbation (uniform or gaussian) to delta_omega1.
 -   **delta_t_perturbation**: Magnitude of perturbation to delta_t
--   **delta_t_perturbation_type**: Type of perturbation to delta_t
--   **z1_perturbation**: Magnitude of perturbation to z1
--   **z1_perturbation_type**: Type of perturbation to z1
--   **z0_perturbation**: Magnitude of perturbation to z0
--   **z0_perturbation_type**: Type of perturbation to z0
--   **epsilon_perturbation**: Magnitude of perturbation to epsilon
--   **epsilon_perturbation_type**: Type of perturbation to epsilon
+-   **delta_t**: Absolute value to which delta_t should be set.  An alternative to delta_t_perturbation.
+-   **delta_t_perturbation_type**: Type of perturbation (uniform or gaussian) to delta_t.
+-   **z1_offset_perturbation**: Magnitude of perturbation to z1_offset
+-   **z1_offset**: Absolute value to which z1_offset should be set.  An alternative to z1_offset_perturbation.
+-   **z1_offset_perturbation_type**: Type of perturbation (uniform or gaussian) to z1_offset.
+-   **z0_offset_perturbation**: Magnitude of perturbation to z0_offset
+-   **z0_offset**: Absolute value to which z0_offset should be set.  An alternative to z0_offset_perturbation.
+-   **z0_offset_perturbation_type**: Type of perturbation (uniform or gaussian) to z0_offset.
+-   **epsilon_perturbation**: Magnitude of perturbation to epsilon.
+-   **epsilon**: Absolute value to which epsilon should be set.  An alternative to epsilon_perturbation.
+-   **epsilon_perturbation_type**: Type of perturbation (uniform or gaussian) to epsilon.
 
 
 Subtag **Helix**:   
@@ -72,28 +85,36 @@ Subtag **Helix**:
 -   **helix_index**: (REQUIRED) Numerical index for this particular helix
 -   **r0_copies_helix**: Numerical index from which this particular helix copies its r0 parameter (0, if it shouldn't copy anything at all, and by default)
 -   **r0_perturbation**: Magnitude of perturbation to r0
--   **r0_perturbation_type**: Type of perturbation to r0
+-   **r0**: Absolute value to which r0 should be set.  An alternative to r0_perturbation.
+-   **r0_perturbation_type**: Type of perturbation (uniform or gaussian) to r0.
 -   **pitch_from_helix**: Numerical index from which this particular helix copies its omega0 parameter as a pitch (0, if it shouldn't copy anything at all, and by default)
 -   **omega0_copies_helix**: Numerical index from which this particular helix copies its omega0 parameter (0, if it shouldn't copy anything at all, and by default)
 -   **omega0_perturbation**: Magnitude of perturbation to omega0
--   **omega0_perturbation_type**: Type of perturbation to omega0
+-   **omega0**: Absolute value to which omega0 should be set.  An alternative to omega0_perturbation.
+-   **omega0_perturbation_type**: Type of perturbation (uniform or gaussian) to omega0.
 -   **delta_omega0_copies_helix**: Numerical index from which this particular helix copies its delta_omega0 parameter (0, if it shouldn't copy anything at all, and by default)
 -   **delta_omega0_perturbation**: Magnitude of perturbation to delta_omega0
--   **delta_omega0_perturbation_type**: Type of perturbation to delta_omega0
+-   **delta_omega0**: Absolute value to which delta_omega0 should be set.  An alternative to delta_omega0_perturbation.
+-   **delta_omega0_perturbation_type**: Type of perturbation (uniform or gaussian) to delta_omega0.
 -   **delta_omega1_copies_helix**: Numerical index from which this particular helix copies its delta_omega1 parameter (0, if it shouldn't copy anything at all, and by default)
 -   **delta_omega1_perturbation**: Magnitude of perturbation to delta_omega1
--   **delta_omega1_perturbation_type**: Type of perturbation to delta_omega1
+-   **delta_omega1**: Absolute value to which delta_omega1 should be set.  An alternative to delta_omega1_perturbation.
+-   **delta_omega1_perturbation_type**: Type of perturbation (uniform or gaussian) to delta_omega1.
 -   **delta_t_copies_helix**: Numerical index from which this particular helix copies its delta_t parameter (0, if it shouldn't copy anything at all, and by default)
 -   **delta_t_perturbation**: Magnitude of perturbation to delta_t
--   **delta_t_perturbation_type**: Type of perturbation to delta_t
+-   **delta_t**: Absolute value to which delta_t should be set.  An alternative to delta_t_perturbation.
+-   **delta_t_perturbation_type**: Type of perturbation (uniform or gaussian) to delta_t.
 -   **z1_offset_copies_helix**: Numerical index from which this particular helix copies its z1_offset parameter (0, if it shouldn't copy anything at all, and by default)
 -   **z1_offset_perturbation**: Magnitude of perturbation to delta_t
--   **z1_offset_perturbation_type**: Type of perturbation to z1_offset
+-   **z1_offset**: Absolute value to which z1_offset should be set.  An alternative to z1_offset_perturbation.
+-   **z1_offset_perturbation_type**: Type of perturbation (uniform or gaussian) to z1_offset.
 -   **z0_offset_copies_helix**: Numerical index from which this particular helix copies its z0_offset parameter (0, if it shouldn't copy anything at all, and by default)
 -   **z0_offset_perturbation**: Magnitude of perturbation to delta_t
--   **z0_offset_perturbation_type**: Type of perturbation to z0_offset
+-   **z0_offset**: Absolute value to which z0_offset should be set.  An alternative to z0_offset_perturbation.
+-   **z0_offset_perturbation_type**: Type of perturbation (uniform or gaussian) to z0_offset.
 -   **epsilon_copies_helix**: Numerical index from which this particular helix copies its epsilon parameter (0, if it shouldn't copy anything at all, and by default)
 -   **epsilon_perturbation**: Magnitude of perturbation to delta_t
--   **epsilon_perturbation_type**: Type of perturbation to epsilon
+-   **epsilon**: Absolute value to which epsilon should be set.  An alternative to epsilon_perturbation.
+-   **epsilon_perturbation_type**: Type of perturbation (uniform or gaussian) to epsilon.
 
 ---
