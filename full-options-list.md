@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-05-27
+Generated: 2017-05-30
 
 _Note that some application specific options may not be present in this list._
 
@@ -7731,6 +7731,8 @@ _Note that some application specific options may not be present in this list._
 <dd>RMSD cutoff for calling two poses different in conformational space annealing (population monte carlo)<br/>Default: 1.0<br/></dd>
 <dt><b>-csa_output_rounds</b> \<Boolean\></dt>
 <dd>output silent files at intermediate stages (at integral multiples of bank_size)<br/>Default: false<br/></dd>
+<dt><b>-annealing</b> \<Boolean\></dt>
+<dd>Actually anneal the RMSD from the half the average distance between first-bank models to one-fifth that distance<br/>Default: false<br/></dd>
 </dl>
 + <h3>-stepwise:polar_hydrogens</h3>
 <dl>
