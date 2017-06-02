@@ -18,8 +18,8 @@ XRW TO DO
         set_dihedrals="(true &bool;)" residue_name="(&string;)"
         repeating_unit_offset="(0 &non_negative_integer;)"
         invert="(false &bool;)" helix_length="(0 &non_negative_integer;)"
-        crick_params_file="(&string;)" omega1="(0 &real;)" z1="(0 &real;)"
-        reset="(false &bool;)" nstruct_mode="(false &bool;)"
+        crick_params_file="(&string;)" reset="(true &bool;)"
+        nstruct_mode="(false &bool;)"
         nstruct_repeats="(1 &non_negative_integer;)" r0="(0.0 &real;)"
         r0_min="(0.0 &real;)" r0_max="(0.0 &real;)"
         r0_samples="(0 &non_negative_integer;)" omega0="(0.0 &real;)"
@@ -35,12 +35,9 @@ XRW TO DO
         z1_offset_min="(0.0 &real;)" z1_offset_max="(0.0 &real;)"
         z1_offset_samples="(0 &non_negative_integer;)" z0_offset="(0.0 &real;)"
         z0_offset_min="(0.0 &real;)" z0_offset_max="(0.0 &real;)"
-        z0_offset_samples="(0 &non_negative_integer;)" z1_min="(0.0 &real;)"
-        z1_max="(0.0 &real;)" z1_samples="(0 &non_negative_integer;)"
-        z0="(0.0 &real;)" z0_min="(0.0 &real;)" z0_max="(0.0 &real;)"
-        z0_samples="(0 &non_negative_integer;)" epsilon="(0.0 &real;)"
+        z0_offset_samples="(0 &non_negative_integer;)" epsilon="(0.0 &real;)"
         epsilon_min="(0.0 &real;)" epsilon_max="(0.0 &real;)"
-        epsilon_samples="(0 &non_negative_integer;)" >
+        epsilon_samples="(0 &non_negative_integer;)" z1="(0.0 &real;)" >
     <Helix crick_params_file="(&string;)" set_bondlengths="(true &bool;)"
             set_bondangles="(true &bool;)" set_dihedrals="(true &bool;)"
             omega1="(0 &real;)" delta_omega1="(0 &real;)" z1="(0 &real;)"
@@ -61,12 +58,7 @@ XRW TO DO
             delta_omega1_samples="(0 &non_negative_integer;)" delta_t="(0.0 &real;)"
             delta_t_copies_helix="(0 &non_negative_integer;)"
             delta_t_min="(0.0 &real;)" delta_t_max="(0.0 &real;)"
-            delta_t_samples="(0 &non_negative_integer;)"
-            z1_copies_helix="(0 &non_negative_integer;)" z1_min="(0.0 &real;)"
-            z1_max="(0.0 &real;)" z1_samples="(0 &non_negative_integer;)"
-            z0="(0.0 &real;)" z0_copies_helix="(0 &non_negative_integer;)"
-            z0_min="(0.0 &real;)" z0_max="(0.0 &real;)"
-            z0_samples="(0 &non_negative_integer;)" z1_offset="(0.0 &real;)"
+            delta_t_samples="(0 &non_negative_integer;)" z1_offset="(0.0 &real;)"
             z1_offset_copies_helix="(0 &non_negative_integer;)"
             z1_offset_min="(0.0 &real;)" z1_offset_max="(0.0 &real;)"
             z1_offset_samples="(0 &non_negative_integer;)" z0_offset="(0.0 &real;)"
@@ -81,84 +73,76 @@ XRW TO DO
 ```
 
 -   **scorefxn**: Name of score function to use
--   **max_samples**: Maximum number of total backbone combinations to be sampled.
+-   **max_samples**: Maximum number of gridpoints to be sampled.  This is provided as a user sanity check.  Set max_samples to the number of samples you think you have requested.  The BundleGridSampler will throw an error if the actual nuber of samples is greater than this.  (For example, if I accidentally tell the BundleGridSampler to sample a 10x10x10x10 parameter grid, thinking that I will get 100 samples when I will actually get 10,000, I will quickly discover my error if I have set max_samples to 100.)
 -   **selection_type**: Score criterion for selection: "high" or "low".
 -   **pre_scoring_mover**: A mover to apply after backbone torsions are set but before final scoring and evaluation (like a min mover or something similar).
 -   **pre_scoring_filter**: A filter to apply before scoring, which could help avoid wasteful scoring of bad conformations (like a bump check filter).
 -   **pre_selection_mover**: A mover to apply before final solution selection (like a min mover or something similar).
 -   **pre_selection_filter**: A filter to apply before final solution selection, which could help avoid wasteful scoring of bad conformations (like a bump check filter).
--   **dump_pdbs**: Dump all PDBs, if true; otherwise, there will be no PDB output at all.
--   **pdb_prefix**: A prefix to apply to all output PDBs.
+-   **dump_pdbs**: Write PDBs for all conformations sampled.  If false (the default), then this mover carries out no direct PDB writing..
+-   **pdb_prefix**: A prefix to apply to all output PDBs, if the dump_pdbs option is set to "true".
 -   **use_degrees**: Interpret input values as degrees, not radians.
 -   **symmetry**: Symmetry setting (n-fold; 0 or 1 === no symmetry
 -   **symmetry_copies**: How many symmetry copies will be generated? 'All' if zero, only the first one if 1, but you can ask for any other number
--   **set_bondlengths**: Should bond lengths be sampled?
--   **set_bondangles**: Should bond angles be sampled?
--   **set_dihedrals**: Should dihedrals be sampled?
+-   **set_bondlengths**: Should bond lengths be set (true) or fixed at ideal values (false)?
+-   **set_bondangles**: Should bond angles be set (true) or fixed at ideal values (false)?
+-   **set_dihedrals**: Should dihedrals be set (true) or fixed at ideal values (false)?
 -   **residue_name**: Residue, indicated by name, from which to build the helical bundle.
--   **repeating_unit_offset**: Offset between repeating units
+-   **repeating_unit_offset**: Offset between repeating units.
 -   **invert**: Should this helix be flipped?
--   **helix_length**: Length for this helix
--   **crick_params_file**: File name indicator containing Crick parameters for the helical bundle geometry desired
--   **omega1**: Minor helical turn per residue, by default
--   **z1**: Default value for helix rise per residue
--   **reset**: Sets 'reset mode'.
--   **nstruct_mode**: If true, sample a different set of mainchain torsions for each job; if false, each job consists of the whole mainchain sampling effort.
--   **nstruct_repeats**: Number of repeats to perform for each nstruct.
--   **r0**: A fixed value for r0
--   **r0_min**: Minimum value for r0
--   **r0_max**: Maximum value for r0
--   **r0_samples**: Samples for r0
--   **omega0**: A fixed value for omega0
--   **omega0_min**: Minimum value for omega0
--   **omega0_max**: Maximum value for omega0
--   **omega0_samples**: Samples for omega0
--   **delta_omega0**: A fixed value for delta_omega0
--   **delta_omega0_min**: Minimum value for delta_omega0
--   **delta_omega0_max**: Maximum value for delta_omega0
--   **delta_omega0_samples**: Samples for delta_omega0
--   **delta_omega1**: A fixed value for delta_omega1
--   **delta_omega1_min**: Minimum value for delta_omega1
--   **delta_omega1_max**: Maximum value for delta_omega1
--   **delta_omega1_samples**: Samples for delta_omega1
--   **delta_t**: A fixed value for delta_t
--   **delta_t_min**: Minimum value for delta_t
--   **delta_t_max**: Maximum value for delta_t
--   **delta_t_samples**: Samples for delta_t
--   **z1_offset**: Minimum value for z1_offset
--   **z1_offset_min**: Maximum value for z1_offset
--   **z1_offset_max**: Maximum value for z1_offset
--   **z1_offset_samples**: Samples for z1_offset
--   **z0_offset**: A fixed value for z0_offset
--   **z0_offset_min**: Minimum value for z0_offset
--   **z0_offset_max**: Maximum value for z0_offset
--   **z0_offset_samples**: Samples for z0_offset
--   **z1_min**: Minimum value for z1
--   **z1_max**: Maximum value for z1
--   **z1_samples**: Samples for z1
--   **z0**: A fixed value for z0
--   **z0_min**: Minimum value for z0
--   **z0_max**: Maximum value for z0
--   **z0_samples**: Samples for z0
--   **epsilon**: A fixed value for epsilon
--   **epsilon_min**: Minimum value for epsilon
--   **epsilon_max**: Maximum value for epsilon
--   **epsilon_samples**: Samples for epsilon
+-   **helix_length**: Length, in residues, for this helix.
+-   **crick_params_file**: File name of a file containing Crick parameters for the secondary structure type desired.
+-   **reset**: If reset is set to "true" (the default), then input geometry is discarded and the BundleGridSampler builds a pose from scratch.  If "false", then parametric geometry is appended to the input geometry.
+-   **nstruct_mode**: If "true", sample a different set of mainchain torsions for each RosettaScripts job (with each successive job sampling the next gridpoint in the grid of parameter values to be sampled).  If "false" (the default), then each job consists of the whole mainchain sampling effort.
+-   **nstruct_repeats**: In nstruct_mode, this is the number of times each parameter gridpoint will be sampled.  This defaults to 1 (i.e. each successive RosettaScripts job goes on to the next gridpoint), but can be set higher (i.e. successive RosettaScripts jobs repeat gridpoints).
+-   **r0**: A fixed value for r0, the major helix radius.
+-   **r0_min**: Minimum value for r0.
+-   **r0_max**: Maximum value for r0.
+-   **r0_samples**: Number of samples for r0.
+-   **omega0**: A fixed value for omega0, the twist about the z-axis.
+-   **omega0_min**: Minimum value for omega0.
+-   **omega0_max**: Maximum value for omega0.
+-   **omega0_samples**: Number of samples for omega0.
+-   **delta_omega0**: A fixed value for delta_omega0, the rigid-body rotation of the minor helix about the z-axis.
+-   **delta_omega0_min**: Minimum value for delta_omega0.
+-   **delta_omega0_max**: Maximum value for delta_omega0.
+-   **delta_omega0_samples**: Number of samples for delta_omega0.
+-   **delta_omega1**: A fixed value for delta_omega1, the rotation of the minor helix about its own axis.
+-   **delta_omega1_min**: Minimum value for delta_omega1.
+-   **delta_omega1_max**: Maximum value for delta_omega1.
+-   **delta_omega1_samples**: Number of samples for delta_omega1.
+-   **delta_t**: A fixed value for delta_t, the offset along the polypeptide backbone.
+-   **delta_t_min**: Minimum value for delta_t.
+-   **delta_t_max**: Maximum value for delta_t.
+-   **delta_t_samples**: Number of samples for delta_t.
+-   **z1_offset**: A fixed value for z1_offset, the translation of the minor helix along its own axis.
+-   **z1_offset_min**: Maximum value for z1_offset.
+-   **z1_offset_max**: Maximum value for z1_offset.
+-   **z1_offset_samples**: Number of samples for z1_offset.
+-   **z0_offset**: A fixed value for z0_offset, the translation of the minor helix along the z-axis.
+-   **z0_offset_min**: Minimum value for z0_offset.
+-   **z0_offset_max**: Maximum value for z0_offset.
+-   **z0_offset_samples**: Number of samples for z0_offset.
+-   **epsilon**: A fixed value for epsilon, the lateral squash of the bundle.
+-   **epsilon_min**: Minimum value for epsilon.
+-   **epsilon_max**: Maximum value for epsilon.
+-   **epsilon_samples**: Number of samples for epsilon.
+-   **z1**: A fixed value for z1, the minor helix rise per residue.  Note that this is not normally set by the user!
 
 
 Subtag **Helix**:   Tags describing individual helices in the bundle
 
--   **crick_params_file**: File indicator that may contain Crick parameters
--   **set_bondlengths**: Should bond lengths be sampled?
--   **set_bondangles**: Should bond angles be sampled?
--   **set_dihedrals**: Should dihedrals be sampled?
+-   **crick_params_file**: File name of a file containing Crick parameters for the secondary structure type desired.
+-   **set_bondlengths**: Should bond lengths be set (true) or fixed at ideal values (false)?
+-   **set_bondangles**: Should bond angles be set (true) or fixed at ideal values (false)?
+-   **set_dihedrals**: Should dihedrals be set (true) or fixed at ideal values (false)?
 -   **omega1**: Minor helical turn per residue, for a specific helix
 -   **delta_omega1**: Minor helical twist per residue, for a specific helix
 -   **z1**: Helix rise per residue, for a specific helix
 -   **residue_name**: For a specific helix, residue, indicated by name, from which to build the helical bundle.
 -   **repeating_unit_offset**: For a specific helix, Offset between repeating units
 -   **invert**: For a specific helix, should this helix be flipped?
--   **helix_length**: For a specific helix, length for this helix
+-   **helix_length**: For a specific helix, length, in residues, for this helix
 -   **r0**: Single value for r0.
 -   **r0_copies_helix**: Helix index from which r0 should be copied.
 -   **r0_min**: Minimum value for r0.
@@ -183,15 +167,6 @@ Subtag **Helix**:   Tags describing individual helices in the bundle
 -   **delta_t_min**: Minimum value for delta_t.
 -   **delta_t_max**: Maximum value for delta_t.
 -   **delta_t_samples**: Number of samples for delta_t.
--   **z1_copies_helix**: Helix index from which z1 should be copied.
--   **z1_min**: Minimum value for z1.
--   **z1_max**: Maximum value for z1.
--   **z1_samples**: Number of samples for z1.
--   **z0**: Single value for z1.
--   **z0_copies_helix**: Helix index from which z0 should be copied.
--   **z0_min**: Minimum value for z0.
--   **z0_max**: Maximum value for z0.
--   **z0_samples**: Number of samples for z0.
 -   **z1_offset**: Single value for z1.
 -   **z1_offset_copies_helix**: Helix index from which z1 should be copied.
 -   **z1_offset_min**: Minimum value for z1.
