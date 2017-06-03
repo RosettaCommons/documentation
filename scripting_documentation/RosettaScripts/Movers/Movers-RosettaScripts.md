@@ -440,7 +440,7 @@ See Also: [[Antibody TaskOperations | TaskOperations-RosettaScripts#antibody-and
 
 ## Crosslinker-centric movers
 
-**[[ThreefoldLinkerMover]]** - Places, sets up constraints for, and energy-minimizes three-way crosslinkers.  Compatible with symmetric crosslinkers in threefold-symmetric poses.
+**[[CrosslinkerMover]]** - Places, sets up constraints for, and energy-minimizes small-molecule crosslinkers.  Compatible with symmetric crosslinkers in Nfold-symmetric poses.  (**Note:** This mover was formerly called the _ThreefoldLinkerMover_).
 
 ## Ligand-centric Movers
 
