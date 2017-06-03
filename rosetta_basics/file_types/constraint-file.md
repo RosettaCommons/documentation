@@ -246,8 +246,9 @@ Functions are listed as "Func\_Type Func\_Def".
 
     [[/images/form_2.png]]
 
--   `GAUSSIANFUNC mean sd tag`
+-   `GAUSSIANFUNC mean sd tag WEIGHT weight`
     * Note: `tag` is NOT optional, as for BoundFunc/BOUNDED. If `tag` = NOLOG, it triggers some undocumented behavior involving a logarithm of some sort.
+    * Note: The string "WEIGHT" followed by a value is optional at the end.  If provided, it scales the gaussian function by a constant multiplier.  (For example, WEIGHT 2.5 scales the function by a factor of 2.5).
 
     [[/images/form_3.png]]
 
