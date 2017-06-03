@@ -90,11 +90,10 @@ The simple_cycpep_predict application can also attempt to predict structures cro
 **-cyclic_peptide:link_all_cys_with_TBMB \<bool\>** If true, then all cysteine residues in the peptide are linked with 1,3,5-tris(bromomethyl)benzene.  There must be exactly three cysteine residues for this flag to be used, and it cannot be used with the "-TBMB_positions" flag (_i.e._ it represents a quicker alternative to that flag for the special case of sequences with exactly three cysteine residues).  False/unused by default.<br/><br/>
 **-cyclic_peptide:use_TBMB_filters \<bool\>** If true, then filters are applied based on distance between TBMB cysteines and on constraints to discard GenKIC solutions that can't be crosslinked easily.  True by default.<br/><br/>
 **-cyclic_peptide:TBMB_sidechain_distance_filter_multiplier \<Real\>** A multiplier for the distance cutoff for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
-**-cyclic_peptide:TBMB_constraints_energy_filter_multiplier \<Real\>** A multiplier for the constraints energy for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.
-
-**-cyclic_peptide:TMA_positions \<IntegerVector\>** If provided, then these positions will be linked by a trimesic acid crosslinker.  The positions must have sidechain primary amines, and there must be 3N positions specified.  Each group of three will be linked.  Unused if not specified.
-**-cyclic_peptide:use_TMA_filters \<bool\>** If true, then filters are applied baed on distance between TMA-conjugated sidechains and on constraints to discard GenKIC solutions that can't be crosslinked easily.  True by default.
-**-cyclic_peptide:TMA_sidechain_distance_filter_multiplier \<Real\>** A multiplier for the distance cutoff for sidechains linked by trimesic acid (TMA).  Higher values result in more permissive filtering.  Default 1.0.
+**-cyclic_peptide:TBMB_constraints_energy_filter_multiplier \<Real\>** A multiplier for the constraints energy for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
+**-cyclic_peptide:TMA_positions \<IntegerVector\>** If provided, then these positions will be linked by a trimesic acid crosslinker.  The positions must have sidechain primary amines, and there must be 3N positions specified.  Each group of three will be linked.  Unused if not specified.<br/><br/>
+**-cyclic_peptide:use_TMA_filters \<bool\>** If true, then filters are applied baed on distance between TMA-conjugated sidechains and on constraints to discard GenKIC solutions that can't be crosslinked easily.  True by default.<br/><br/>
+**-cyclic_peptide:TMA_sidechain_distance_filter_multiplier \<Real\>** A multiplier for the distance cutoff for sidechains linked by trimesic acid (TMA).  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
 **-cyclic_peptide:TMA_constraints_energy_filter_multiplier \<Real\>** A multiplier for the constraints energy for sidechains linked by trimesic acid (TMA).  Higher values permit more permissive filtering.  Default 1.0.
 
 # Additional flags for N-methylation
