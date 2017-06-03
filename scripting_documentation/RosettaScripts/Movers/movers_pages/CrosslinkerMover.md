@@ -5,7 +5,7 @@ Page created by Vikram K. Mulligan (vmullig@uw.edu) on 27 November 2016.<br/>
 [[_TOC_]]
 
 ## Description
-This mover places three-way chemical cross-linkers such as 1,3,5-tris(bromomethyl)benzene (TBMB).  It can set up covalent bonds and constraints, pack and energy-minimize the linker and the side-chains to which it is connected, and relax the entire structure.  Options are provided for filtering based on input geometry, to throw out poses that do not present side-chains in conformations compatible with the linker.
+This mover places chemical cross-linkers such as 1,3,5-tris(bromomethyl)benzene (TBMB) or trimesic acid (TMA).  It can set up covalent bonds and constraints, pack and energy-minimize the linker and the side-chains to which it is connected, and relax the entire structure.  Options are provided for filtering based on input geometry, to throw out poses that do not present side-chains in conformations compatible with the linker.
 
 ## Needed flags
 The CrosslinkerMover requires that Rosetta load a params file for the crosslinker, as well as the sidechain conjugation variant types for the sidechains that will be cross-linked.  These are not loaded by default.  For example, to link three cysteine residues with TBMB, one needs the following commandline flag:
@@ -82,7 +82,7 @@ This mover can be used for the case of linkers with c3 symmetry and poses with c
 | Option | Required | Type | Description |
 |---|---|---|---|
 | name | YES | string | A unique name for this instance of the CrosslinkerMover. |
-| linker_name | YES | string | The name of the type of linker to use (e.g. TBMB for 1,3,5-tris(bromomethyl)benzene).  Currently, only TBMB is supported, though other linkers will be added in the future. |
+| linker_name | YES | string | The name of the type of linker to use.  Currently, the allowed options are "TBMB" (for 1,3,5-tris(bromomethyl)benzene) and "TMA" (for trimesic acid). |
 | residue_selector | YES | string | A previously-defined residue selector that has been set up to select exactly three residues. |
 | scorefxn | YES | string | A scorefunction to use for packing, energy-minimization, and filtering.  If constraints are turned off in this score function, they will be turned on automatically at apply time. |
 | add_linker | No | bool | Should the linker geometry be added to the pose?  Default true. |
@@ -98,6 +98,15 @@ This mover can be used for the case of linkers with c3 symmetry and poses with c
 | constraints_energy_filter_multiplier | No | real | This is a multiplier for the constraints energy cutoff filter.  Higher values make the filter less stringent.  Default 1.0. |
 | filter_by_final_energy | No | bool | At the end of this protocol, should this mover exit with error status if the final energy is above a user-defined cutoff?  Default false. |
 | final_energy_cutoff | No | real | If we are exiting with error status if the final energy is too high, this is the energy cutoff.  Default 0.0. |
+
+##Residue types that can be linked
+
+Note that each type of crosslinker can link different types of side-chains:
+
+| Abbreviation | Crosslinker | Types that can be linked |
+| ------------ | ----------- | ------------------------ |
+| TBMB | 1,3,5-tris(bromomethyl)benzene | L-cysteine (CYS), D-cysteine (DCY) |
+| TMA  | trimesic acid                  | L-lysine (LYS), D-lysine (DLY), L-ornithine (ORN), D-ornithine (DOR), L-2,4-diaminobutyric acid (DAB), D-2,4-diaminobutyric acid (DDA), L-2,3-diaminopropanoic acid (DPP), D-2,3-diaminopropanoic acid (DDP) |
 
 ##See also
 * [[Information on constraints|constraint-file]]
