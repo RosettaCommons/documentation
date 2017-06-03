@@ -1,4 +1,4 @@
-# ThreefoldLinkerMover
+# CrosslinkerMover
 Page created by Vikram K. Mulligan (vmullig@uw.edu) on 27 November 2016.<br/>
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 
@@ -8,7 +8,7 @@ Page created by Vikram K. Mulligan (vmullig@uw.edu) on 27 November 2016.<br/>
 This mover places three-way chemical cross-linkers such as 1,3,5-tris(bromomethyl)benzene (TBMB).  It can set up covalent bonds and constraints, pack and energy-minimize the linker and the side-chains to which it is connected, and relax the entire structure.  Options are provided for filtering based on input geometry, to throw out poses that do not present side-chains in conformations compatible with the linker.
 
 ## Needed flags
-The ThreefoldLinkerMover requires that Rosetta load a params file for the crosslinker, as well as the sidechain conjugation variant types for the sidechains that will be cross-linked.  These are not loaded by default.  For example, to link three cysteine residues with TBMB, one needs the following commandline flag:
+The CrosslinkerMover requires that Rosetta load a params file for the crosslinker, as well as the sidechain conjugation variant types for the sidechains that will be cross-linked.  These are not loaded by default.  For example, to link three cysteine residues with TBMB, one needs the following commandline flag:
 
 ```
 -extra_res_fa sidechain_conjugation/CYX.params crosslinker/1.3.5_trisbromomethylbenzene.params
@@ -34,7 +34,7 @@ This example places 1,3,5-tris(bromomethyl)benzene (TBMB), linking cysteine resi
                 <Index name="select_cys" resnums="7,21,35" />
         </RESIDUE_SELECTORS>
         <MOVERS>
-                <ThreefoldLinkerMover name="threefold" residue_selector="select_cys" linker_name="TBMB" scorefxn="bnv" />
+                <CrosslinkerMover name="threefold" residue_selector="select_cys" linker_name="TBMB" scorefxn="bnv" />
         </MOVERS>
         <PROTOCOLS>
                 <Add mover="threefold" />
@@ -44,7 +44,7 @@ This example places 1,3,5-tris(bromomethyl)benzene (TBMB), linking cysteine resi
 
 ## Usage with symmetry
 
-This mover can be used for the case of linkers with c3 symmetry and poses with c3 symmetry.  In this case, the linker residue that gets added to the pose is actually a fragment of the total linker (one third of the geometry).  Three such residues are added, one to each symmetry repeat, and covalent bonds and suitable constraints are set up between the fragments.  Such usage requires that the user pass the `threefold_symmetric="true"` option.  Here is an example in which the ThreefoldLinkerMover is used with a symmetric pose with C3 symmetry (defined in a symmetry definition file `inputs/c3.symm`).  In this case, the ResidueSelector must select _equivalent_ cysteine residues in the three symmetric copies.
+This mover can be used for the case of linkers with c3 symmetry and poses with c3 symmetry.  In this case, the linker residue that gets added to the pose is actually a fragment of the total linker (one third of the geometry).  Three such residues are added, one to each symmetry repeat, and covalent bonds and suitable constraints are set up between the fragments.  Such usage requires that the user pass the `threefold_symmetric="true"` option.  Here is an example in which the CrosslinkerMover is used with a symmetric pose with C3 symmetry (defined in a symmetry definition file `inputs/c3.symm`).  In this case, the ResidueSelector must select _equivalent_ cysteine residues in the three symmetric copies.
 
 ```xml
 <ROSETTASCRIPTS>
@@ -56,7 +56,7 @@ This mover can be used for the case of linkers with c3 symmetry and poses with c
         </RESIDUE_SELECTORS>
         <MOVERS>
                 <SetupForSymmetry name="setup_symm" definition="inputs/c3.symm" />
-                <ThreefoldLinkerMover name="threefold" residue_selector="select_cys" linker_name="TBMB" scorefxn="tala" threefold_symmetric="true" />
+                <CrosslinkerMover name="threefold" residue_selector="select_cys" linker_name="TBMB" scorefxn="tala" threefold_symmetric="true" />
         </MOVERS>
         <PROTOCOLS>
                 <Add mover="setup_symm" />
@@ -68,7 +68,7 @@ This mover can be used for the case of linkers with c3 symmetry and poses with c
 ## Full options
 
 ```xml
-<ThreefoldLinkerMover name="(&string)" scorefxn="(&string)" residue_selector="(&string)" linker_name="(&string)"
+<CrosslinkerMover name="(&string)" scorefxn="(&string)" residue_selector="(&string)" linker_name="(&string)"
     add_linker="(true &bool)" constrain_linker="(true &bool)"
     pack_and_minimize_linker_and_sidechains="(true &bool)" sidechain_fastrelax_rounds="(3 &int)"
     do_final_fastrelax="(false &bool)" final_fastrelax_rounds="(3 &int)"
@@ -81,7 +81,7 @@ This mover can be used for the case of linkers with c3 symmetry and poses with c
 
 | Option | Required | Type | Description |
 |---|---|---|---|
-| name | YES | string | A unique name for this instance of the ThreefoldLinkerMover. |
+| name | YES | string | A unique name for this instance of the CrosslinkerMover. |
 | linker_name | YES | string | The name of the type of linker to use (e.g. TBMB for 1,3,5-tris(bromomethyl)benzene).  Currently, only TBMB is supported, though other linkers will be added in the future. |
 | residue_selector | YES | string | A previously-defined residue selector that has been set up to select exactly three residues. |
 | scorefxn | YES | string | A scorefunction to use for packing, energy-minimization, and filtering.  If constraints are turned off in this score function, they will be turned on automatically at apply time. |
