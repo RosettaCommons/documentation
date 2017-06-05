@@ -23,6 +23,11 @@ Original work published as:
 
 London N., Raveh B., Movshovitz-Attias D., Schueler-Furman O. (2010) "Can self-inhibitory peptides be derived from the interfaces of globular protein-protein interactions?", Proteins. V 78, pp 3140–9.
 
+Paper about ROSIE based server:
+
+Sedan Y., Marcu O., Lyskov S., Schueler-Furman O. (2016) "Peptiderive server: derive peptide inhibitors from protein–protein interactions", NAR V 44(Web Server issue), pp W536–W541.
+
+
 Purpose
 =======
 
