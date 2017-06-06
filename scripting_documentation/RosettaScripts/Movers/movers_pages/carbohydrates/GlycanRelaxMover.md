@@ -31,7 +31,7 @@ See [[GlycanRelax]] (application documentation) for the current algorithm.
 Details
 =======
 
-[[include:mover_GlycanRelax_type]]
+[[include:mover_GlycanRelaxMover_type]]
 
 
 ## See Also
