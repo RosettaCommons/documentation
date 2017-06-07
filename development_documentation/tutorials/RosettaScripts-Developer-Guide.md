@@ -57,7 +57,7 @@ void parse_my_tag (
 static void provide_xml_schema(
         utility::tag::XMLSchemaDefinition & xsd );
   ```
-  This is a static method responsible for declaring what options and subtags the movers understands.  Rosetta uses this information to find typos and errors before starting the protocol (which is much preferable to encountering them after the protocol has been running for hours) and to print informative error messages about them.  You can find documentation on how to implement this method [here](https://wiki.rosettacommons.org/index.php/XMLSchemaFAQ).  As of June 2017, however, this documentation is pretty incomplete, so your best bet is to copy code from a mover that does something similar to what you want and modify it as necessary.
+  This is a static method responsible for declaring what options and subtags the movers understands.  Rosetta uses this information to find typos and errors before starting the protocol (which is much preferable to encountering them after the protocol has been running for hours) and to print informative error messages about them.  You can find documentation on how to implement this method [here](https://wiki.rosettacommons.org/index.php/XMLSchemaFAQ).  As of June 2017, however, that documentation is pretty incomplete, so your best bet is to copy code from a mover that does something similar to what you want and modify it as necessary.
 
 - 
   ```cpp
