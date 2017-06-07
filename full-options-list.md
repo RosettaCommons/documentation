@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-06-03
+Generated: 2017-06-07
 
 _Note that some application specific options may not be present in this list._
 
@@ -32,6 +32,12 @@ _Note that some application specific options may not be present in this list._
 <dd>Sets whether or not lipid residues will beloaded into Rosetta.  The default value is false.<br/>Default: false<br/></dd>
 <dt><b>-include_surfaces</b> \<Boolean\></dt>
 <dd>Sets whether or not mineral surface residues will beloaded into Rosetta.  The default value is false.<br/>Default: false<br/></dd>
+<dt><b>-auto_detect_glycan_connections</b> \<Boolean\></dt>
+<dd>Sets whether to search for non-protein connections using PDB coordinates and generate LINK records.<br/>Default: false<br/></dd>
+<dt><b>-max_bond_length</b> \<Real\></dt>
+<dd>Sets maximum O-C distance for glycan connection search. Default is 1.6 Angstroms.<br/>Default: 1.6<br/></dd>
+<dt><b>-min_bond_length</b> \<Real\></dt>
+<dd>Sets minimum O-C distance for glycan connection search. Default is 1.3 Angstroms.<br/>Default: 1.3<br/></dd>
 <dt><b>-membrane</b> \<Boolean\></dt>
 <dd>Initialize pose as a membrane protein using specified membrane parameters. Default is false<br/>Default: false<br/></dd>
 <dt><b>-remember_unrecognized_res</b> \<Boolean\></dt>
@@ -1494,6 +1500,12 @@ _Note that some application specific options may not be present in this list._
 <dd>Use Cartesian-space minimization instead of dihedral<br/>Default: false<br/></dd>
 <dt><b>-tree_based_min_pack</b> \<Boolean\></dt>
 <dd>Use a random-tree based method to minimize and pack instead of minimizing and packing all of them during the randommover selection. This makes the speed of the algorithm mostly-linear with the addition of more glycans, and wastes less time packing and minimizing<br/>Default: true<br/></dd>
+<dt><b>-population_based_conformer_sampling</b> \<Boolean\></dt>
+<dd>Use the populations of the conformers as probabilities during our linkage conformer sampling.  This makes it harder to overcome energy barriers with more-rare conformers<br/>Default: false<br/></dd>
+<dt><b>-conformer_sampling_sd</b> \<Real\></dt>
+<dd>Number of SDs to sample within during conformer sampling.<br/>Default: 2.0<br/></dd>
+<dt><b>-uniform_sd_sampling</b> \<Boolean\></dt>
+<dd>Set whether if we are sampling uniform within the set number of standard deviations or by uniform within the SD.<br/>Default: true<br/></dd>
 </dl>
 + <h3>-carbohydrates:clash_check</h3>
 <dl>
