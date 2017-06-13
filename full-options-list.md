@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-06-07
+Generated: 2017-06-12
 
 _Note that some application specific options may not be present in this list._
 
@@ -521,7 +521,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-force_nonideal_structure</b> \<Boolean\></dt>
 <dd>Force ResidueConformationFeatures to treat the structure as nonideal.  If you know all your structures are non-ideal this decreases pose output time<br/>Default: true<br/></dd>
 <dt><b>-write_pdb_link_records</b> \<Boolean\></dt>
-<dd>Sets whether or not the LINK records in PDB files are written.  The default value is false.<br/>Default: false<br/></dd>
+<dd>Sets whether or not the LINK records in PDB files are written.  The default value is false.<br/>Default: true<br/></dd>
 <dt><b>-use_pdb_format_HETNAM_records</b> \<Boolean\></dt>
 <dd>Sets whether or not the HETNAM records in PDB files are written in the standard PDB format with a single record per 3-letter code.  The default value is false, which means that the file will use the Rosetta format, which provides a unique HETNAM record for each residue.<br/>Default: false<br/></dd>
 <dt><b>-write_pdb_parametric_info</b> \<Boolean\></dt>
