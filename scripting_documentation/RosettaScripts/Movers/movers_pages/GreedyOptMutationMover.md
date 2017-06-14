@@ -1,6 +1,9 @@
 # GreedyOptMutationMover
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## GreedyOptMutationMover
+### Publication
+Nivón, L. G., Bjelic, S., King, C. and Baker, D. (2014), Automating human intuition for protein design. Proteins, 82: 858–866. doi:10.1002/prot.24463
+[[http://onlinelibrary.wiley.com/doi/10.1002/prot.24463/full]]
 
 This mover will first attempt isolated/independent mutations defined in the input task operation, score/filter them all, rank them by score, then attempt to combine them, starting with the best scoring single mutation, accepting the mutation only if the filter score decreases (see skip\_best\_check for optional exception), and working down the list to the end. Optionally test one of the top N mutations at each positions instead of just the best.
 
