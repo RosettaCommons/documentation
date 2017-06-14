@@ -5,7 +5,7 @@ Working With Glycans
 MetaData
 ========
 
-The RosettaCarbohydrate Framework was created by Dr. Jason W Labonte (JWLabonte@jhu.edu), in collaboration with Dr. Jared Adolf-Bryfogle (jadolfbr@gmail.com) and Dr. Sebastian Raemisch (raemish@scripps.edu).  
+The RosettaCarbohydrate Framework was created by Dr. Jason W Labonte (JWLabonte@jhu.edu), in collaboration with Dr. Jared Adolf-Bryfogle (jadolfbr@gmail.com) and Dr. Sebastian Rämisch (raemisch@scripps.edu).  
 
 
 PIs are: Dr. Jeff Gray of JHU (jgray@jhu.edu) and Dr. William Schief of Scripps (schief@scripps.edu).
@@ -16,22 +16,57 @@ Currently, it is still in development. Here are tips for use.  More will come.
 [[_TOC_]]
 
 
-Structure Input
-===============
-All Rosetta runs with carbohydrate-containing structures should use the flag ```-include_sugars```.  An error will be thrown if this is not present.
+## Structure Input
 
-##  RSCB
+* All Rosetta runs with carbohydrate-containing structures should use an option to make Rosetta carbohydrate-aware. An error will be thrown if this is not present.  
+
+        -include_sugars
+
+
+
+
+###  RSCB - .pdb files
 
 PDBs from the RCSB should be able to be read in by default.  However, in order to load a PDB file, one must have LINK records present. Rosetta will build the glycans out using internal names and create the glycans based on connectivity.   
 
-## GLYCAN
+* Reading in most PDB files will require an option to map the non-specific HETNAM IDs to chemically accurate identifiers:  
+
+        -alternate_3_letter_codes pdb_sugar
+
+* When loading a file from the PDB, the order of HETATM and LINK records is important for reading it into Rosetta. Since pdb files are usually not formatted for Rosetta-compatibility, connections can be determined internally, ignoring the order of records. Instead atom distances are used to determine protein-sugar and sugar-sugar connections.  
+
+        -auto_detect_glycan_connections
+
+    * the maximum and minimum bond lengths for a conection to be found are 1.3 and 1.6 A. Since many structures are chemically incorrect, these parameters can be changed to detect unphysical bonds, too:
+
+             -min_bond_length < Real >
+             -max_bond_length < Real >
+    * if automatic detection fails, all bond calculations and connections can be monitored with ```-out::level 999``` 
+
+### GLYCAN
 In order to load GLYCAN structures, one can pass the option ```-glycam_pdb_format``` in order to load in this type of file.
 
-Structure Output
-================
-In order to write out structures correctly, currently one must pass the flag ```-write_pdb_link_records```.  Without this flag, structures will NOT be able to be read back into Rosetta.  The flag will become default.
+## Structure Output
+
+In order to write out structures correctly, currently one must pass an option, without which, structures will NOT be able to be read back into Rosetta.  The flag will become default:
+
+    -write_pdb_link_records
 
 Internally, each linear glycan branch is a different chain ID due to the way Rosetta understands polymer connectivity. Currently, by default, Rosetta will output separate chains for each linear glycan.  This should change at some point in the not-to distant future.
+
+## Full example
+    score.default.macosclangrelease \\
+    -include_sugars \\
+    -alternate_3_letter_codes pdb_sugar \\
+    -auto_detect_glycan_connections \\
+    -min_bond_length 1.1 \\
+    -max_bond_length 1.7 \\
+
+    -ignore_zero_occupancy false \\
+    -ignore_unrecognized_res \\
+    -write_pdb_link_records \\
+    -out:output \\
+    -s 5t3x.pdb
 
 Nomenclature
 ============
