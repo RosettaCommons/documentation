@@ -34,6 +34,23 @@ This code was written for a relatively singular application. The system in quest
 
 The protocol is more useful for testing hypotheses about possible conformations, and exploring accessible conformation space, than for finding "the one true binding mode". If your tail is truly that flexible it might not have a "one true binding mode."
 
+The Philosophy of FloppyTail – how to use it on hard problems
+=============================================================
+
+(Note that this section may duplicate some of the above, or the demo – it was written to stand alone and included here for posterity)
+
+FloppyTail is aimed at “constrained docking”.  It can be used when you have one or more relatively rigid domains, with flexible linkers connecting them / at their ends.  For some cases, like the original flexible tail, the question is “where might this tail be able to dock onto the rigid protein?”  For some cases, like two domains with a linker between them, it might be “how should these two proteins dock, given that some conformations are impossible because the linker can’t stretch that far?”
+
+Broadly speaking, FloppyTail comes into play for FLEXIBLE linkers.  There are two problems with this.  First, the Rosetta energy function is parameterized on and for well folded crystalline protein.  It will only do so well with flexible linkers, because its view of physics doesn’t allow for unstructured soluble protein.  Second, flexible linkers are flexible in time, but a static structure has no time domain, so looking at the top model by score is not very informative about the state of the linker region.  So, using FloppyTail and interpreting its results requires some careful consideration of the value of the results.  
+
+If your goal is “I have two proteins that are connected and I want to know what it’s going to look like” – that’s an expensive problem and the success rate is marginal.  (It’s equally expensive, with an equally marginal success rate, to just do global docking and then try to solve the loop, which is a valid alternative).
+
+If you have NO experimental data about your problem, you can use FloppyTail to generate hypotheses.  Look at your result ensemble and see what interactions recur frequently in the better models, then think about ways to test experimentally if those interactions are real (via crosslinking or mutagenesis, perhaps).  
+
+Perhaps you have an idea of a conformation that might exist and you want to check computationally before trying the experiment.  In this case, try using constraints to force the conformation you’re interested in to see if the system can accommodate it.  If you get out models that still don’t have the interaction you wanted, or can only achieve it with tortured geometries, that constitutes a negative result from FloppyTail.
+
+If you have experimental data – great!  Constraints are the way to go.  Run the code with constraints, and you’ll get much higher model quality to feed into further hypotheses.  Alternatively, use the constraints to filter unconstrained results, or just use them to judge if the model population is realistic.  This lets you generate an “envelope” of the things the system might be doing consistent with your constraints, which can be used for further cycles of experiment as necessary.  
+
 Algorithm
 =========
 
