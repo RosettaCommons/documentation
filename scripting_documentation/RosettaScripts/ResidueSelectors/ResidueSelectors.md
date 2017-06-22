@@ -34,6 +34,13 @@ In which case, the structure of the Neighborhood ResidueSelector will be stated 
 
 With the <(Selector)> subtag designating that any ResidueSelector can be nested inside it.
 
+#### Apply a ResidueSelector
+
+A mover that can handle ResidueSelectors will take the following option:
+
+    residue_selector=""
+
+
 [[_TOC_]]
 
 ### Logical ResidueSelectors
