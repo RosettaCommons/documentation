@@ -9,7 +9,7 @@ Performs a coarse random movement of a small molecule in xyz-space.
 <Translate name="(&string;)" chain="(&string;)"
         distribution="(&distribution_string;)" force="(&string;)"
         tag_along_chains="(&string;)" angstroms="(&real;)"
-        cycles="(&non_negative_integer;)" />
+        cycles="(&non_negative_integer;)" grid_set="(default &string;)" />
 ```
 
 -   **chain**: (REQUIRED) Chain ID of chain to be translated.
@@ -18,5 +18,6 @@ Performs a coarse random movement of a small molecule in xyz-space.
 -   **tag_along_chains**: XRW TO DO . Comma separated list of chain IDs to be moved together with "chain".
 -   **angstroms**: (REQUIRED) Movement can be anywhere within a sphere of radius specified by "angstroms".
 -   **cycles**: (REQUIRED) Number of attempts to make such a movement without landing on top of another molecule.
+-   **grid_set**: The ScoringGrid set to use for scoring the translation. If no scoring grids (at all) are present in the XML, use a default classic grid.
 
 ---

@@ -8,7 +8,7 @@ InterfaceScoreCalculator calculates a myriad of ligand specific scores and appen
 ```xml
 <InterfaceScoreCalculator name="(&string;)" chains="(&string;)"
         scorefxn="(&string;)" native="(&string;)" normalize="(&string;)"
-        compute_grid_scores="(false &bool;)" />
+        compute_grid_scores="(false &bool;)" grid_set="(default &string;)" />
 ```
 
 -   **chains**: (REQUIRED) Comma separated chains to dock.
@@ -16,5 +16,6 @@ InterfaceScoreCalculator calculates a myriad of ligand specific scores and appen
 -   **native**: This is your native pdb without interface mutations. If a native structure is specified, 4 additional score terms are calculated: ligand_centroid_travel, ligand_radious_of_gyration, ligand_rms_no_super, and ligand_rms_with_super.
 -   **normalize**: The normalization function you wish to use.
 -   **compute_grid_scores**: If compute_grid_scores is true, the scores for each grid will be calculated. This may result in the regeneration of the scoring grids, which can be slow.
+-   **grid_set**: The Grid Set to use when computing grid scores.
 
 ---

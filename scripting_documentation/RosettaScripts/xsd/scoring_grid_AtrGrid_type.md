@@ -11,7 +11,7 @@ A scoring grid that gives bonuses for being within a certain distance range of a
         weight="(&real;)" />
 ```
 
--   **grid_name**: The name used to insert the scoring grid into the GridManager
+-   **grid_name**: The name used to insert the scoring grid into the GridSet
 -   **bb**: The value assigned to the grid for backbone atoms; negative values are considered favorable. If provided, then both 'sc' and 'ligand' attributes need to be provided also
 -   **sc**: The value assigned to the grid for sidechain atoms; negative values are considered favorable. If provided, then both 'bb' and 'ligand' attributes need to be provided also
 -   **ligand**: The value assigned to the grid for ligand atoms; negative values are considered favorable. If provided, then both 'bb' and 'sc' attributes need to be provided also

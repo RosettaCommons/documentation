@@ -9,7 +9,7 @@ A collection of scoring grids based on the EEF1 (aka Lazaridis Karplus) solvatio
 <SolvationMetaGrid name="(&string;)" grid_name="(&string;)" weight="(&real;)" />
 ```
 
--   **grid_name**: The name used to insert the scoring grid into the GridManager
+-   **grid_name**: The name used to insert the scoring grid into the GridSet
 -   **weight**: (REQUIRED) XRW TO DO
 
 ---

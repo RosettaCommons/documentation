@@ -9,7 +9,7 @@ A scoring grid that gives a bonus based on a knowledge-based potential looking a
 <ShapeGrid name="(&string;)" grid_name="(&string;)" weight="(&real;)" />
 ```
 
--   **grid_name**: The name used to insert the scoring grid into the GridManager
+-   **grid_name**: The name used to insert the scoring grid into the GridSet
 -   **weight**: (REQUIRED) XRW TO DO
 
 ---

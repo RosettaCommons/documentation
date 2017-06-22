@@ -10,7 +10,7 @@ A scoring grid that treats all atoms as both attractive within 4.75A (getting a 
         rep="(1.0 &real;)" weight="(&real;)" />
 ```
 
--   **grid_name**: The name used to insert the scoring grid into the GridManager
+-   **grid_name**: The name used to insert the scoring grid into the GridSet
 -   **atr**: Score for attractive term of grid (negative scoring is better)
 -   **rep**: Score for repulsive term of grid (negative scoring is better)
 -   **weight**: (REQUIRED) XRW TO DO

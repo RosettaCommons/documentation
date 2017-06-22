@@ -12,7 +12,8 @@ Performs a monte carlo search of the ligand ensemble binding site using precompu
         cycles="(&non_negative_integer;)" repeats="(1 &non_negative_integer;)"
         optimize_until_score_is_negative="(false &bool;)"
         optimize_until_ideal="(false &bool;)" use_conformers="(true &bool;)"
-        initial_perturb="(0.0 &non_negative_real;)" />
+        initial_perturb="(0.0 &non_negative_real;)"
+        grid_set="(default &string;)" />
 ```
 
 -   **chains**: (REQUIRED) Ligand chains, specified as the PDB chain IDs
@@ -27,5 +28,6 @@ Performs a monte carlo search of the ligand ensemble binding site using precompu
 -   **optimize_until_ideal**: Continue sampling beyond "cycles" if score not close to minimum - all atoms has -1 score
 -   **use_conformers**: Use ligand conformations while sampling
 -   **initial_perturb**: Make an initial, unscored translation and rotation Translation will be selected uniformly in a sphere of the given radius (Angstrom).Automatically triggers 360 degrees randomized rotation
+-   **grid_set**: The Scoring Grid set to use with TransformEnsemble scoring
 
 ---

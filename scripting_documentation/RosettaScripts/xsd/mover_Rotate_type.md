@@ -8,7 +8,8 @@ Perform a course random rotation  throughout all rotational degrees of freedom
 ```xml
 <Rotate name="(&string;)" distribution="(&string;)"
         degrees="(&non_negative_integer;)" cycles="(&non_negative_integer;)"
-        chain="(&string;)" tag_along_chains="(&string;)" />
+        chain="(&string;)" tag_along_chains="(&string;)"
+        grid_set="(default &string;)" />
 ```
 
 -   **distribution**: (REQUIRED) Sampling distribution; Either "uniform" or "gaussian"
@@ -16,5 +17,6 @@ Perform a course random rotation  throughout all rotational degrees of freedom
 -   **cycles**: (REQUIRED) Number of cycles. Recommended: 1000
 -   **chain**: Chain ID. MUST be a completely connected single chain.
 -   **tag_along_chains**: Comma separated list of chains to be moved together with the rotating chain. E.g. metals or water.
+-   **grid_set**: The ScoringGrid set to use for scoring the rotation. If no scoring grids (at all) are present in the XML, use a default classic grid.
 
 ---
