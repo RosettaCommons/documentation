@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-06-12
+Generated: 2017-06-26
 
 _Note that some application specific options may not be present in this list._
 
@@ -715,6 +715,29 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-keep_pymol_simulation_history</b> \<Boolean\></dt>
 <dd>Keep history when using show_simulation_in_pymol flag?<br/>Default: false<br/></dd>
 </dl>
++ <h2>-parser</h2>
+<dl>
+<dt><b>-parser</b> \<Boolean\></dt>
+<dd>parser option group<br/></dd>
+<dt><b>-protocol</b> \<String\></dt>
+<dd>The protocol you will be running. (Input XML File<br/></dd>
+<dt><b>-script_vars</b> \<StringVector\></dt>
+<dd>Variable substitutions for xml parser, in the form of name=value<br/></dd>
+<dt><b>-view</b> \<Boolean\></dt>
+<dd>Use the viewer?<br/></dd>
+<dt><b>-info</b> \<StringVector\></dt>
+<dd>Have the rosetta_scripts application print out the available XML-accessible options for a given mover, filter, task operation, or residue selector, and then exit.<br/></dd>
+<dt><b>-output_schema</b> \<String\></dt>
+<dd>Have the rosetta_scripts application write out its XML Schema to the given file and then exit.<br/></dd>
+<dt><b>-validate_and_exit</b> \<Boolean\></dt>
+<dd>After XML Schema validation completes, exit<br/></dd>
+<dt><b>-patchdock</b> \<String\></dt>
+<dd>Patchdock output file name.<br/></dd>
+<dt><b>-patchdock_random_entry</b> \<IntegerVector\></dt>
+<dd>Pick a random patchdock entry between two entry numbers. inclusive<br/></dd>
+<dt><b>-inclusion_recursion_limit</b> \<Integer\></dt>
+<dd>How many recursions to perform when parsing an XML file with inclusions<br/>Default: 8<br/></dd>
+</dl>
 + <h2>-jd3</h2>
 <dl>
 <dt><b>-jd3</b> \<Boolean\></dt>
@@ -753,7 +776,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-dd_parser</b> \<Boolean\></dt>
 <dd>determine whether to use the dock_design_parser<br/>Default: false<br/></dd>
 <dt><b>-ntrials</b> \<Integer\></dt>
-<dd>number of attempts at creating an output file for each nstruct. e.g., ntrials 3 and nstruct 10 would mean that each of 10 trajectories would attempt to write an output file 3 times and if unsuccessful would fail.<br/></dd>
+<dd>number of attempts at creating an output file for each nstruct. e.g., ntrials 3 and nstruct 10 would mean that each of 10 trajectories would attempt to write an output file 3 times and if unsuccessful would fail.<br/>Default: 1<br/></dd>
 <dt><b>-generic_job_name</b> \<String\></dt>
 <dd>job name when using GenericJobInputter (i.e. abinitio)<br/>Default: "S"<br/></dd>
 <dt><b>-no_output</b> \<Boolean\></dt>
@@ -6200,29 +6223,6 @@ _Note that some application specific options may not be present in this list._
 <dd>void-balls must overlap by this much to be clustered<br/>Default: 0.1<br/></dd>
 <dt><b>-min_cav_ball_radius</b> \<Real\></dt>
 <dd>radius of smallest void-ball to consider<br/>Default: 0.7<br/></dd>
-</dl>
-+ <h2>-parser</h2>
-<dl>
-<dt><b>-parser</b> \<Boolean\></dt>
-<dd>parser option group<br/></dd>
-<dt><b>-info</b> \<StringVector\></dt>
-<dd>Have the rosetta_scripts application print out the available XML-accessible options for a given mover, filter, task operation, or residue selector, and then exit.<br/></dd>
-<dt><b>-output_schema</b> \<String\></dt>
-<dd>Have the rosetta_scripts application write out its XML Schema to the given file and then exit.<br/></dd>
-<dt><b>-patchdock</b> \<String\></dt>
-<dd>Patchdock output file name.<br/></dd>
-<dt><b>-patchdock_random_entry</b> \<IntegerVector\></dt>
-<dd>Pick a random patchdock entry between two entry numbers. inclusive<br/></dd>
-<dt><b>-protocol</b> \<String\></dt>
-<dd>File name for the xml parser protocol<br/></dd>
-<dt><b>-script_vars</b> \<StringVector\></dt>
-<dd>Variable substitutions for xml parser, in the form of name=value<br/></dd>
-<dt><b>-validate_and_exit</b> \<Boolean\></dt>
-<dd>After XML Schema validation completes, exit<br/></dd>
-<dt><b>-view</b> \<Boolean\></dt>
-<dd>Use the viewer?<br/></dd>
-<dt><b>-inclusion_recursion_limit</b> \<Integer\></dt>
-<dd>How many recursions to perform when parsing an XML file with inclusions<br/>Default: 8<br/></dd>
 </dl>
 + <h2>-patterson</h2>
 <dl>
