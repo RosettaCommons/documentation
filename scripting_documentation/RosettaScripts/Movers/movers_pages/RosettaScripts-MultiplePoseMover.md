@@ -147,10 +147,11 @@ PosePropertyReporters report a single Real value for a given pose property or si
 This reporter scores the pose and returns either the total pose score or a specific term.
 
 ```
-<EnergyReporter term="(&string)"/>
+<EnergyReporter scorefunction="(&string)" term="(&string)"/>
 ```
 
-- term: score term to report or total_score. Default: total_score.
+- scorefunction: The scoring function to use (previously-defined).
+- term: The score term to report or total_score. Default: total_score.
 
 ### FilterReporter
 
