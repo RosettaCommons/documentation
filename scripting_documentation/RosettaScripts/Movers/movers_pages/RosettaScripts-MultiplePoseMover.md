@@ -108,9 +108,7 @@ It uses the defined PosePropertyReporter to rank all collected poses in the set,
 
 ```
 <TopNByProperty n="(&integer)" order="(&string)">
-  <PosePropertyReporter>
-    ...
-  </PosePropertyReporter>
+  # A PosePropertyReporter (for example, EnergyReporter) must be defined here.
 </TopNByProperty>
 ```
 
@@ -126,7 +124,7 @@ Phil Bradley's cluster algorithm is used for the clustering. See the cluster app
 
 ```
 <ClusterPoseSelector radius="(&Real)" structures_per_cluster="(&integer)" remove_singletons="(&boolean)" initial_cluster_set_size="(&integer)" max_cluster_size="(&integer)"  max_clusters="(&integer)"  max_structures="(&integer)">
-  <PosePropertyReporter/>
+  # A PosePropertyReporter (for example, EnergyReporter) must be defined here.
 </ClusterPoseSelector>
 ```
 
