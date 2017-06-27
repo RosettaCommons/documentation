@@ -148,7 +148,7 @@ This reporter scores the pose and returns either the total pose score or a speci
 <EnergyReporter scorefunction="(&string)" term="(&string)"/>
 ```
 
-- scorefunction: The scoring function to use (previously-defined).
+- scorefunction: The scoring function to use.  Note that this is the name of a weights file, NOT a scoring function defined previously in the script.  (This will likely change in the future).
 - term: The score term to report or total_score. Default: total_score.
 
 ### FilterReporter
