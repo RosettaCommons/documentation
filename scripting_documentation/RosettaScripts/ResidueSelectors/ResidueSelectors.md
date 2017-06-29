@@ -149,7 +149,9 @@ Selects residues in the pose at random. Note that this residue selector is stoch
 #### ResidueNameSelector
 Selects residues by their full Rosetta residue type name. At least one of residue_names and residue_name3 must be specified.
 
-    <ResidueName residue_names="(&string)" residue_name3="(&string)" />
+    <ResidueName name="(&string)" residue_names="(&string)" residue_name3="(&string)" />
+
+You should provide at least one of these:
 
 residue_names - A comma-separated list of Rosetta residue names (including patches). For example, "CYD" will select all disulfides, and "CYD,SER:NTermProteinFull,ALA" will select all disulfides, alanines, and N-terminal serines -- all other residues will not be selected (i.e. be false in the ResidueSubset object).
 
@@ -158,7 +160,7 @@ residue_name3 - A comma-separated list of 3-letter Rosetta residue names.  These
 **Example**
 This example will select all variants of ALA, C-terminal ASN residues, and disulfides:
 
-    <ResidueName residue_names="ASN:CtermProteinFull,CYD" residue_name3="ALA" />
+    <ResidueName name="change" residue_names="ASN:CtermProteinFull,CYD" residue_name3="ALA" />
 
 
 
