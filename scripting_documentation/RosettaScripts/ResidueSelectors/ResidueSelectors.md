@@ -515,7 +515,7 @@ The example below selects all residues that were converted to disulfides by the 
 The UnsatSelector selects all the backbone amines or carbonyls (*but not both*) that are not satisfied by a hydrogen bond. The general format of the selector is:
 
 ```
-     <Unsat name="(&string)" consider_mainchain_only="(true &bool)" check_acceptors="(true &bool)" hbond_cutoff="(-0.5 &real)" scorefxn="(&string)/>
+     <Unsat name="(&string)" consider_mainchain_only="(true &bool)" check_acceptors="(true &bool)" hbond_energy_cutoff="(-0.5 &real)" scorefxn="(&string)/>
 ```
 - consider_mainchain_only: should we only count the hydrogen bonds from backbone (default) or also include sidechains
 - check_acceptors: Should the selector selects based on unsatisfied carbonyls (default) or amines.
