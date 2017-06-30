@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-06-26
+Generated: 2017-06-30
 
 _Note that some application specific options may not be present in this list._
 
@@ -752,6 +752,8 @@ _Note that some application specific options may not be present in this list._
 <dd>The number of nodes that should perform archival roles only. This flag is only used by the MPIWorkPoolJobDistributor<br/>Default: 0<br/></dd>
 <dt><b>-do_not_archive_on_node0</b> \<Boolean\></dt>
 <dd>Should the master node in the MPIWorkPoolJobDistributor archive any JobResults on it?<br/>Default: false<br/></dd>
+<dt><b>-nthreads</b> \<Integer\></dt>
+<dd>For the multithreaded job distributor, how many threads should be run at the same time<br/></dd>
 </dl>
 + <h2>-jd2</h2>
 <dl>
