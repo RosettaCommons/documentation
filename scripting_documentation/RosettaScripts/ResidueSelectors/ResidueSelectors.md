@@ -519,7 +519,7 @@ The UnsatSelector selects all the backbone amines or carbonyls (*but not both*) 
 ```
 - consider_mainchain_only: should we only count the hydrogen bonds from backbone (default) or also include sidechains
 - check_acceptors: Should the selector selects based on unsatisfied carbonyls (default) or amines.
-- hbond_cutoff: the cutoff you are interested in. the default, -0.5, is a very loose threshold.
+- hbond_energy_cutoff: the cutoff you are interested in. the default, -0.5, is a very loose threshold.
 - scorefxn: name of scorefxn to be used. right now this has to be included.
 
 This example selects all *residues* in the structure that has a carbonyl that is not satisfied by a hydrogen bond from backbone:
