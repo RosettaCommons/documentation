@@ -13,14 +13,14 @@ This is still an in-development, unnpublished selector.  If you use this in your
 
 
 
-[include:mover_GlycanResidueSelector_type]]
+[[include:mover_GlycanResidueSelector_type]]
 
 
 ## See Also
 - [[WorkingWithGlycans]]
 
-- ### RosettaCarbohydrate Apps and Components
- - ### Movers
+## RosettaCarbohydrate Apps and Components
+- ### Movers
  - [[GlycanTreeRelax]] - The optimal way to model glycan trees.  Uses GlycanRelax internally.
  - [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees such as man5, man9, or other complex trees.  
  - [[GlycanRelaxMover]] - Component used in GlycanTreeRelax to do the torsional and side-chain sampling.
