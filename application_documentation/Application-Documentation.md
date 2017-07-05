@@ -267,6 +267,8 @@ These applications serve mainly to support other Rosetta applications, or to ass
 ### General
 - [[Build peptide]] - Build extended peptides or protein structures from sequences. 
 
+- [[Dump a capped residue|dump-capped-residue]] - Output a PDB file containing a residue (specifiable by name), with options that can control polymeric patch state
+
 - [[CA to allatom]] - Build fullatom models from C-alpha-only traces.  
 
 - [[Create symmetry definition|make-symmdef-file-denovo]] - Create Rosetta symmetry definition files for a point group.  
