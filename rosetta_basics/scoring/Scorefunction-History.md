@@ -48,7 +48,7 @@ Scorefunctions timeline
 
 * **Talaris14** is an error-correction of Talaris13.  One of the hydrogen bonding weights was incorrect.  All the weights were re-scaled to more closely match the Rosetta Energy Unit size of score12 - ultimately the units are arbitrary but better comparison with score12 was desired.  The YHH_planarity term was added to help control the alcohol hydrogen in tyrosine.  This was developed in 2014, but not put into use until 2016.
 
-* New beta score functions (beta_july15, beta_nov15, beta_nov16) are currently under development and is documented [[here|Overview of Seattle Group energy function optimization project]].
+* **REF2015** was developed as [[beta_nov15|Overview of Seattle Group energy function optimization project]] and became the default scorefunction in July 2017.  Beta_nov16 is under development behind it.
 
 ##See Also
 
