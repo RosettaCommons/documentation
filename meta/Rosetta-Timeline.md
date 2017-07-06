@@ -125,6 +125,9 @@ As Rosetta grew, the Rosetta development world was no longer confined to just Da
 * 2016-09
     * Rosetta 3.7 released (it is the same as 2016 week 32, dating from August 9 2016).
 
+* 2017-07
+    * Rosetta's default scorefunction switches from Talaris14 to REF2015.  REF2015 is the same as beta_nov15.
+
 ##See Also
 
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
