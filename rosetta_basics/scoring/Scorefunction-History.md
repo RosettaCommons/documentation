@@ -36,6 +36,8 @@ J Chem Theory Comput. 2015;11(2):609-622. PubMed PMID: 25866491
 (https://www.ncbi.nlm.nih.gov/pubmed/27766851) (pubmed link)
 J Chem Theory Comput. 2016;12(12):6201–6212. PubMed PMID 27766851
 
+* Alford RF, Leaver-Fay A, Jeliazko JR, O'Meara MJ, DiMaio FP, Park H, Shapovalov MV, Renfrew PD, Mulligan VM, Kappel K, Labonte JW, Pacella MS, Bonneau R, Bradley P, Dunbrack RL, Das R, Baker D, Kuhlman B, Kortemme T, Gray JJ (2017) [The Rosetta all-atom energy function for macromolecular modeling and design.](http://pubs.acs.org/doi/abs/10.1021/acs.jctc.7b00125)(acs link) J Chem Theory Comput. 2017;13(6):3031-3048
+
 Scorefunctions timeline
 =======================
 *Rosetta2 / pre-score12 days -- ????
