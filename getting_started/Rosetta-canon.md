@@ -63,6 +63,9 @@ The supplemental is most relevant for scoring.
 Methods Enzymol 523:109-43  
 Leaver-Fay et al. describe OptE, a methodology for using sequence-recovery and rotamer-recovery benchmarks to improve weights sets for scoring functions.  This was used in a [separate paper](http://www.ncbi.nlm.nih.gov/pubmed/25866491) to generate [[Talaris2013/4|score-types]], the current state-of-the-art general purpose Rosetta energy function.
 
+* Alford RF, Leaver-Fay A, Jeliazko JR, O'Meara MJ, DiMaio FP, Park H, Shapovalov MV, Renfrew PD, Mulligan VM, Kappel K, Labonte JW, Pacella MS, Bonneau R, Bradley P, Dunbrack RL, Das R, Baker D, Kuhlman B, Kortemme T, Gray JJ (2017) [The Rosetta all-atom energy function for macromolecular modeling and design.](http://pubs.acs.org/doi/abs/10.1021/acs.jctc.7b00125)(acs link) J Chem Theory Comput. 2017;13(6):3031-3048
+
+
 Docking
 --------------
 * Gray JJ, Moughon S, Wang C, Schueler-Furman O, Kuhlman B, Rohl CA, Baker D (2003)  
