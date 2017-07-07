@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-06-30
+Generated: 2017-07-07
 
 _Note that some application specific options may not be present in this list._
 
@@ -993,6 +993,8 @@ _Note that some application specific options may not be present in this list._
 <dd>D0 parameter for sigmoidal dielectric<br/>Default: 6.0<br/></dd>
 <dt><b>-elec_sigmoidal_die_S</b> \<Real\></dt>
 <dd>S parameter for sigmoidal dielectric<br/>Default: 0.4<br/></dd>
+<dt><b>-stack_elec_sigmoidal_die</b> \<Boolean\></dt>
+<dd>override of -elec_sigmoidal_die for stack_elec<br/>Default: false<br/></dd>
 <dt><b>-elec_representative_cp</b> \<Boolean\></dt>
 <dd>Use representative atoms for countpair to avoid dipole splits<br/>Default: true<br/></dd>
 <dt><b>-elec_representative_cp_flip</b> \<Boolean\></dt>
@@ -7323,6 +7325,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Exclude fragments from -in:file:native<br/>Default: false<br/></dd>
 <dt><b>-exclude_fragment_files</b> \<StringVector\></dt>
 <dd>Files from which to exclude fragments<br/>Default: []<br/></dd>
+<dt><b>-dump_stems</b> \<Boolean\></dt>
+<dd>Dump initial stem assignment<br/>Default: false<br/></dd>
 </dl>
 + <h4>-rna:denovo:out</h4>
 <dl>
@@ -7979,6 +7983,8 @@ _Note that some application specific options may not be present in this list._
 <dd>closed cutpoints in full model<br/>Default: []<br/></dd>
 <dt><b>-cyclize</b> \<ResidueChainVector\></dt>
 <dd>cyclize points in full model<br/>Default: []<br/></dd>
+<dt><b>-fiveprime_cap</b> \<ResidueChainVector\></dt>
+<dd>fiveprime capped residues and their corresponding 7MGs<br/>Default: []<br/></dd>
 <dt><b>-other_poses</b> \<StringVector\></dt>
 <dd>list of PDB files containing other poses<br/></dd>
 <dt><b>-jump_res</b> \<ResidueChainVector\></dt>
