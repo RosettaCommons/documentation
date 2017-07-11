@@ -47,7 +47,7 @@ A reasonable amount of MPI nodes to be allocated to yield high cpu usage would b
 For details, please refer to the `Rosetta:MSF` publication (program options in the supplement) and `mpi_msd`, `enzdes` documentation/publications.
 Please take a look at msf_ga_enzdes integration test for a multistate design retroaldolase enzymde design on the 1A53 scallfold as described in the `Rosetta:MSF` publication.
 
-## Using `RosettaScripts` with a GeneticAlgorithm and MPI
+## Using `RosettaScripts` with GeneticAlgorithm and MPI
 The design process can be customized via `RosettaScripts` using the application `msf_ga_scripts`.
 Sequences sampled by GA are encoded to resfiles.
 To use the resfiles in your XML file, please write `%%MSF_RESFILE%%` instead of a resfile path.
@@ -91,6 +91,7 @@ mpirun -np 5 msf_ga_scripts.mpi.linuxgccrelease -parser:protocol design.xml \
 -out:file:o ./energies/energies \
 -out:prefix ./output/
 ```
+Please check `MPI_MSD` documentation on how to use the genetic algorithm, setup states and define `daf` files.
 
 ## Developer's guide
 ### Description of the architecture of MSF using the example `msf_ga_enzdes` 
