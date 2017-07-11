@@ -47,6 +47,51 @@ A reasonable amount of MPI nodes to be allocated to yield high cpu usage would b
 For details, please refer to the `Rosetta:MSF` publication (program options in the supplement) and `mpi_msd`, `enzdes` documentation/publications.
 Please take a look at msf_ga_enzdes integration test for a multistate design retroaldolase enzymde design on the 1A53 scallfold as described in the `Rosetta:MSF` publication.
 
+## Using `RosettaScripts` with a GeneticAlgorithm and MPI
+The design process can be customized via `RosettaScripts` using the application `msf_ga_scripts`.
+Sequences sampled by GA are encoded to resfiles.
+To use the resfiles in your XML file, please write `%%MSF_RESFILE%%` instead of a resfile path.
+
+Example script:
+```xml
+<ROSETTASCRIPTS>
+    <SCOREFXNS>
+    </SCOREFXNS>
+    <RESIDUE_SELECTORS>
+    </RESIDUE_SELECTORS>
+    <TASKOPERATIONS>
+        <InitializeFromCommandline name="ifcl"/>
+        <ReadResfile name="rrf" filename="%%MSF_RESFILE%%"/>
+    </TASKOPERATIONS>
+    <FILTERS>
+    </FILTERS>
+    <MOVERS>
+        <PackRotamersMover name="design" task_operations="rrf,ifcl"/>
+    </MOVERS>
+    <APPLY_TO_POSE>
+    </APPLY_TO_POSE>
+    <PROTOCOLS>
+        <Add mover="design"/>
+    </PROTOCOLS>
+    <OUTPUT/>
+</ROSETTASCRIPTS>
+```
+Example commandline:
+```bash
+mpirun -np 5 msf_ga_scripts.mpi.linuxgccrelease -parser:protocol design.xml \
+-entity_resfile ./resfile \
+-msf::fitness_file ./daf \
+-msf::pop_size 2 \
+-msf::generations 2 \
+-msf::fraction_by_recombination 0.05 \
+-msf::seed_sequences AAAAAAAAAAAAAAAAAAAA \
+-msf::resfile_tmpdir tmp_resfiles/ \
+-msf::checkpoint_write_interval 1 \
+-msf::checkpoint_prefix checkpoints/checkpoint \
+-out:file:o ./energies/energies \
+-out:prefix ./output/
+```
+
 ## Developer's guide
 ### Description of the architecture of MSF using the example `msf_ga_enzdes` 
 Following chapters will highlight main software concepts of the`multistate_framework` protocol.
