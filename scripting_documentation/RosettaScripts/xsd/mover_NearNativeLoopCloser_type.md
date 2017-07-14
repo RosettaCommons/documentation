@@ -12,7 +12,8 @@ XSD_XRW: TO DO
         chainBeforeLoop="(A &string;)" chainAfterLoop="(A &string;)"
         idealExtension="(true &bool;)" max_vdw_change="(8.0 &real;)"
         ideal="(false &bool;)" resBeforeLoop="(&non_negative_integer;)"
-        resAfterLoop="(&non_negative_integer;)" output_all="(false &bool;)" />
+        resAfterLoop="(&non_negative_integer;)" output_all="(false &bool;)"
+        closure_type="(lookback &string;)" />
 ```
 
 -   **loopLengthRange**: XSD_XRW: TO DO
@@ -28,5 +29,6 @@ XSD_XRW: TO DO
 -   **resBeforeLoop**: XSD_XRW: TO DO
 -   **resAfterLoop**: XSD_XRW: TO DO
 -   **output_all**: XSD_XRW: TO DO
+-   **closure_type**: type of closure, either kic or lookback
 
 ---
