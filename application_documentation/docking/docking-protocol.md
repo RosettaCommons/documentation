@@ -6,7 +6,7 @@ Metadata
 Authors:
 Brian Weitzner (brian.weitzner@jhu.edu), Monica Berrondo (mberron1@jhu.edu), Krishna Kilambi (kkpraneeth@jhu.edu), Robin Thottungal (raugust1@jhu.edu), Sidhartha Chaudhury (sidc@jhu.edu), Chu Wang (chuwang@gmail.com), Jeffrey Gray (jgray@jhu.edu)
 
-Last edited 6/08/2015 by Jeliazko Jeliazkov. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
+Last edited 7/17/2017 by Nick Marze. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
 
 An introductory tutorial of protein-protein docking can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/Protein-Protein-Docking/Protein-Protein-Docking).
 
@@ -37,6 +37,7 @@ We recommend the following articles for further studies of RosettaDock methodolo
 -   Wang, C., Bradley, P. and Baker, D. (2007) Protein-protein docking with backbone flexibility. Journal of Molecular Biology, 2007 Oct 19;373(2):503-19. Epub 2007 Aug 2.
 -   S. Chaudhury & J. J. Gray, "Conformer selection and induced fit in flexible backbone protein-protein docking using computational and NMR ensembles," J. Mol. Biol. 381(4), 1068-1087 (2008). [[Online|http://dx.doi.org/10.1016/j.jmb.2008.05.042]]
 -   Chaudhury, S., Berrondo, M., Weitzner, B. D., Muthu, P., Bergman, H., Gray, J. J.; (2011) Benchmarking and analysis of protein docking performance in RosettaDock v3.2. PLoS One, Accepted for Publication
+-   Marze, N. A., Jeliazkov, J. R., Roy Burman, S. S., Boyken, S. E., DiMaio, F., Gray, J. J.; (2016) Modeling oblong proteins and water-mediated interfaces with RosettaDock in CAPRI rounds 28-35. Proteins, 2016 Oct 24;85(3):479-486.
 
 
 Application purpose
@@ -104,6 +105,7 @@ Starting Perturbation Flags
 |-spin|Spin a second docking partner around axes from center of mass of the first partner to the second partner. (Global).|Boolean|
 |-dock\_pert [T] [R]|To create a starting strucutre from the input structure, randomly perturb the input structure using a gaussian for translation and rotation with standard deviations [T] and [R]. Recommended usage is "-dock\_pert 3 8". (Global and Local).|RealVector|
 |-uniform\_trans [R]|Uniform random repositioning of the second partner about the first partner within a sphere of the given radius, [R].|Real|
+|-use\_ellipsoidal\_randomization true|Randomizes docking partners about ellipsoids rather than spheres. Recommended in all cases, but especially when docking partners are elongated or flattened. To be used in concert with -randomize1 and/or -randomize2. (Global)|Boolean|
 
 Packing Flags
 -------------
