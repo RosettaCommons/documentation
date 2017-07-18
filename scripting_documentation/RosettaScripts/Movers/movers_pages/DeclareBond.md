@@ -1,6 +1,6 @@
 # DeclareBond
 
-Page created 28 March 2017 by Vikram K. Mulligan (vmullig@uw.edu).  Last modified 20 April 2017.
+Page created 28 March 2017 by Vikram K. Mulligan (vmullig@uw.edu).  Last modified 18 July 2017.
 
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 
