@@ -10,6 +10,8 @@ This mover tells Rosetta that a chemical bond exists between two atoms in two di
 
 This mover is often used after adding geometry with the [[PeptideStubMover]], and prior to closing loops with the [[GeneralizedKIC mover|GeneralizedKICMover]].
 
+If the mover crashes with a "doesn't have connection" error, this is because you need to create a new inter-residue connection for the residue where your bond is. You can accomplish this by giving the connected residues their own [[params files|Residue-Params-file]] with a CONNECT line for each connection.
+
 ## Full options
 
 ```xml
