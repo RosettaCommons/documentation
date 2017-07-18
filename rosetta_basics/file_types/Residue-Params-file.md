@@ -18,7 +18,7 @@ The following lines are typically found in Ligand params files. This does not re
 
 -   **AA** The amino acid type. Should be "UNK" for ligands, or for most non-canonicals.  (Note that this corresponds to the core::chemical::AA enum, internally.)
 
--   **ATOM** The PDB atom name, [[Rosetta AtomType|Rosetta AtomTypes]], MM AtomType, and charge. an atom line looks like this:
+-   **ATOM** The PDB atom name, [[Rosetta AtomType|Rosetta AtomTypes]], MM AtomType, and charge. An ATOM line looks like this:
 
     ```
     ATOM  C17 CH1   X   0.13
@@ -29,6 +29,22 @@ The following lines are typically found in Ligand params files. This does not re
 -   **BOND** Defines a bond connection between two named atoms.
 
 -   **CHI** Defines a rotatable chi angle. A chi angle number is specified, followed by the names of the four atoms defining the angle.
+
+-   **CONNECT** Gives an atom a connection to an (unspecified) atom in another residue. This is not to be used for the N and C in the backbone; those are given with LOWER_CONNECT and UPPER_CONNECT respectively. A CONNECT line looks like this:
+
+    ```
+    CONNECT SG # replace SG with your atom's name
+    ```
+
+    The location of the connected atom must be specified in the ICOOR region as CONN#, where # is the index of the connection. (Connections are numbered from 1, but the backbone connections both count, so your first connecting atom will probably be called CONN3.) Here is an example with virtual atom "V1" standing in for an atom connecting to sulfur atom "SG":
+
+    ```
+    ICOOR_INTERNAL    SG     0.000000   65.900000    1.808803   CB    CA    N       
+    ICOOR_INTERNAL  CONN3  180.000000   75.000000    1.793000   SG    CB    CA      
+    ICOOR_INTERNAL    V1     0.000000   75.000000    1.793000   SG    CB   CONN3 #Same as CONN3
+    ```
+
+    When determining the pose, Rosetta will do its best to automatically connect up residues with connections that face each other, but you can also do it manually with the [[DeclareBond]] mover. 
 
 -  **PROPERTIES** A series of properties describing this ligand type or residue type.  Allowed properties include (though this list is not exhaustive): PROTEIN POLYMER LIGAND COARSE METAL METALBINDING DNA RNA CARBOHYDRATE SURFACE POLAR CHARGED AROMATIC TERMINUS LOWER_TERMINUS UPPER_TERMINUS SC_ORBITALS.  For an exhaustive list of allowed properties, see the file source/src/core/chemical/residue_properties/general_properties.list in the main Rosetta repository.
 
