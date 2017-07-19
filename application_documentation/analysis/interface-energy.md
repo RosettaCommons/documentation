@@ -76,3 +76,8 @@ TRP60_H(53) --- PRO95_A(221): 0
 In the notation used to specify a residue, after the obvious descriptors, the number in parentheses denotes the residue's index in the pose.
 
 Note that energy types which are not active (like context-dependent long-range energies in the above example) are not included in the output.
+
+References
+==========
+[1] Bazzoli A, Vance DJ, Rudolph MJ, Rong Y, Angalakurthi SK, Toth IV RT, Middaugh CR, Volkin DB, Weis DD, Karanicolas J. _Using homology modeling to interrogate binding affinity in neutralization of ricin toxin by a family of single domain antibodies_. Proteins: Structure, Function, and Bioinformatics, doi:
+10.1002/prot.25353, 2017.
