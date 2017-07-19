@@ -73,6 +73,6 @@ TRP60_H(53) --- PRO95_A(221): 0
 
 ##### TOTAL INTERFACE ENERGY: -1.88342
 ````
-In the notation used to specify a residue, besides the obvious PDB descriptors, the number in parentheses denotes the residue index in the pose.
+In the notation used to specify a residue, after the obvious descriptors, the number in parentheses denotes the residue's index in the pose.
 
-Note that 
+Note that energy types which are not active (like context-dependent long-range energies in the above example) are not included in the output.
