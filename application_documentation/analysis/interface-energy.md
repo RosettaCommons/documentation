@@ -1,4 +1,4 @@
-#interface_energy: interaction energy between two sets of residues 
+#interface_energy: energy at the interface between two sets of residues 
 Metadata
 ========
 
@@ -8,3 +8,8 @@ Last updated: July 2017
 
 Code
 ====
+
+The application's code lives in `src/apps/public/analysis/interface_energy.cc`.
+
+Application's purpose
+===================
