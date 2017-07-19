@@ -35,5 +35,5 @@ The following \<FACE2\> specifies a face consisting of residues 94 and 95 from c
 ````
 A 94 _
 A 95 _
-
 ````
+* Note that a blank insertion code is specified by underscore (_).
