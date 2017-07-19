@@ -23,22 +23,22 @@ Usage
 ````
 interface_energy -s <POSE> -face1 <FACE1> -face2 <FACE2> -score:hbond_bb_per_residue_energy
 ````
-\<FACE1\> and \<FACE2\> are paths to two files specifying face #1 and face #2, respectively. Each file specifies one residue per line by indicating—in that order—the residue's chain ID, sequence number, and insertion code in the input PDB file.
+\<FACE1\> and \<FACE2\> are paths to two files that define face #1 and face #2, respectively. Each file specifies one residue per line by indicating—in that order—the residue's chain ID, sequence number, and insertion code in the input PDB file.
 
 ### Input example
-The following \<FACE1\> specifies a face consisting of residues 58, 59, and 60 from chain H:
+The following \<FACE1\> defines a face consisting of residues 58, 59, and 60 from chain H:
 ````
 H 58 _
 H 59 _
 H 60 _
 ````
 
-The following \<FACE2\> specifies a face consisting of residues 94 and 95 from chain A:
+The following \<FACE2\> defines a face consisting of residues 94 and 95 from chain A:
 ````
 A 94 _
 A 95 _
 ````
-Note that a blank insertion code is specified by underscore (_).
+Note that a blank insertion code is denoted by underscore (_).
 
 Output (on screen)
 ==================
@@ -73,3 +73,6 @@ TRP60_H(53) --- PRO95_A(221): 0
 
 ##### TOTAL INTERFACE ENERGY: -1.88342
 ````
+In the notation used to specify a residue, besides the obvious PDB descriptors, the number in parentheses denotes the residue index in the pose.
+
+Note that 
