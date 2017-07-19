@@ -42,4 +42,35 @@ Note that a blank insertion code is specified by underscore (_).
 
 Output (on screen)
 ==================
-Pairwise energies of all residue pairs (R1, R2) for each of several types of energy (short-ranged, context-dependent long-ranged, context-independent long-ranged).
+* Pairwise energies of all residue pairs (R1, R2) for each of several types of energy (short-ranged, context-dependent long-range, context-independent long-range).
+* Total interface energy, computed as the sum of those pairwise contributions.
+
+For example, a valid output for the above two faces would be the following:
+````
+##### PAIRWISE SHORT-RANGE ENERGIES #####
+ILE58_H(51) --- HIS94_A(220): 0
+ILE58_H(51) --- PRO95_A(221): 0
+ASN59_H(52) --- HIS94_A(220): 0
+ASN59_H(52) --- PRO95_A(221): 0
+TRP60_H(53) --- HIS94_A(220): -0.92086
+TRP60_H(53) --- PRO95_A(221): -0.962562
+
+##### PAIRWISE ENERGIES FOR CI_LR_2B METHOD IN CHARGE OF dslf_ss_dst #####
+ILE58_H(51) --- HIS94_A(220): 0
+ILE58_H(51) --- PRO95_A(221): 0
+ASN59_H(52) --- HIS94_A(220): 0
+ASN59_H(52) --- PRO95_A(221): 0
+TRP60_H(53) --- HIS94_A(220): 0
+TRP60_H(53) --- PRO95_A(221): 0
+
+##### PAIRWISE ENERGIES FOR CI_LR_2B METHOD IN CHARGE OF rama_prepro #####
+ILE58_H(51) --- HIS94_A(220): 0
+ILE58_H(51) --- PRO95_A(221): 0
+ASN59_H(52) --- HIS94_A(220): 0
+ASN59_H(52) --- PRO95_A(221): 0
+TRP60_H(53) --- HIS94_A(220): 0
+TRP60_H(53) --- PRO95_A(221): 0
+
+##### TOTAL INTERFACE ENERGY: -1.88342
+
+````
