@@ -75,7 +75,7 @@ TRP60_H(53) --- PRO95_A(221): 0
 ````
 In the notation used to specify a residue, after the obvious descriptors, the number in parentheses denotes the residue's index in the pose.
 
-Note that energy types which are not active (like context-dependent long-range energies in the above example) are not included in the output.
+Note that energy types which are inactive, and hence contribute no energy (like context-dependent long-range energies in the above example), are not included in the output.
 
 References
 ==========
