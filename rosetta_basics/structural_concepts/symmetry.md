@@ -98,7 +98,7 @@ This section provides a list of protocols that have been ported to use symmetry.
 Implementation of symmetry
 ==========================
 
-The following section describes how symmetry is maintained while perturbing the degrees of freedom in the system and while scoring and minimizing a conformation.
+The following section describes how symmetry is maintained while perturbing the degrees of freedom in the system and while scoring and minimizing a conformation.  Symmetry is implemented as REAL residues with extra VIRTUAL residues to help.  This means that if you include symmetry, they will be output, included in distance measurements, etc. 
 
 Rigid body symmetry
 -------------------
