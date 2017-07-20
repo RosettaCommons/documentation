@@ -45,7 +45,7 @@ Output (on screen)
 * Pairwise energies of all residue pairs (R1, R2) for each of several types of energy (short-ranged, context-dependent long-range, context-independent long-range).
 * Total interface energy, computed as the sum of those pairwise contributions.
 
-For example, the output for the above two faces (given the input pose) is the following:
+For example, the output for the above two faces (given a certain input pose) is the following:
 ````
 ##### PAIRWISE SHORT-RANGE ENERGIES #####
 ILE58_H(51) --- HIS94_A(220): 0
