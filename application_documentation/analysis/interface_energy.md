@@ -81,3 +81,7 @@ References
 ==========
 [1] Bazzoli A, Vance DJ, Rudolph MJ, Rong Y, Angalakurthi SK, Toth IV RT, Middaugh CR, Volkin DB, Weis DD, Karanicolas J, Mantis NJ. _Using homology modeling to interrogate binding affinity in neutralization of ricin toxin by a family of single domain antibodies_. Proteins: Structure, Function, and Bioinformatics, doi:
 10.1002/prot.25353, 2017.
+
+See also
+========
+* [[Interface analyzer]]: Calculates binding energies, buried surface areas, and other metrics for interfaces between two or more chains in a PDB.
