@@ -84,4 +84,4 @@ References
 
 See also
 ========
-* [[Interface analyzer]]: Calculates binding energies, buried surface areas, and other metrics for interfaces between two or more chains in a PDB.
+[[Interface analyzer]]: Calculates binding energies, buried surface areas, and other metrics for interfaces between two or more chains in a PDB.
