@@ -157,8 +157,9 @@ However, a typical situation for design is to select the top 10 models by interf
 
 ##See Also
 
+* [[interface_energy]]: energy at the interface between two sets of residues
 * [[Analysis applications | analysis-applications]]: other design applications
 * [[Application Documentation]]: Application documentation home page
-* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables
 * [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 * [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
