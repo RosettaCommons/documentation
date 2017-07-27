@@ -2,16 +2,12 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## Rmsd
 
+[[include:filter_Rmsd_type]]
+
+
 Calculates the Calpha RMSD over a user-specified set of residues. Superimposition is optional. Selections are additive, so choosing a chain, and individual residue, and span will result in RMSD calculation over all residues selected. If no residues are selected, the filter uses all residues in the pose. 
 
 By default, the RMSD will be calculated to the input pose (pose at parse time). Use -in:file:native \<filename\> or reference_name= to choose an alternate reference pose.
-
-```
-<Rmsd name="(&string)" chains="('' &string)" threshold="(5 &real)" superimpose="(1 &bool)" reference_name="(&string)" by_aln="(0 &bool)" aln_files="('' &string)" template_names="('' &string)" query_names="('' &string)">
-    <residue res/pdb_num="(&string)" />
-    <span begin_(res/pdb_num)="('' &integer)" end_(res/pdb_num)="(''&integer)"/>
-</Rmsd>
-```
 
 -   chains: list of chains (eg - "AC") to use for RMSD calculation
 -   pdb\_num/res\_num: see [[RosettaScripts#rosettascripts-conventions_specifying-residues]]
