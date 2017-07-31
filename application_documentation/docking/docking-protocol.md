@@ -248,3 +248,4 @@ New things since last release
 * [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
 * [[Commands collection]]: A list of example command lines for running Rosetta executable files
+* [[Motif Dock Score]]: Efficient low-resolution protein-protein docking.
