@@ -33,7 +33,7 @@ The command-line can be as simple as:
 
 This makes the H3 loop the primary CDR chosen in the outer cycle, running graft-based design on H3, while simultaneously designing H1 and H2. 
 
-## With Rigid-Body optimization and constraints
+## With Antibody-Antigen Rigid-Body optimization (docking)
 
 Allow Dock-Design, incorporating auto-generated SiteConstraints to keep the antibody around the starting interface residues.  These residues are determined by being within 6A to the CDR residues.  
 
