@@ -118,29 +118,8 @@ The Antibody Design Instruction File handles CDR-level control of the algorithm 
 ## Paratope SiteConstraints
 ## Epitope SiteConstraints
 
-# Outliers and control of data cutoffs
 
-#Options
-## Basic Options: 
-
-- Protocol Steps
-
-- Protocol Rounds
-
-- Paratope + Epitope
-
-- Optimization Step
-
-- Regional Sequence Design
-
-
-
-
-
-
-
-
-# Design Strategies
+#FULL Options
 
 # Tips:
 
