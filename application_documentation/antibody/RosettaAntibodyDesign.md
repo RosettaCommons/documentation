@@ -29,16 +29,18 @@ More detail on the algorithm can be found in the published paper.
 ## Basic
 The command-line can be as simple as:
 
-
-antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda
-
+```
+antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
+-graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda
+```
 
 This makes the H3 loop the primary CDR chosen in the outer cycle, running graft-based design on H3, while simultaneously designing H1 and H2. 
 
 Here, we want to do a denovo-run, starting with random CDRs grafted in instead of whatever we have in antibody to start with (only for the CDRs that are actually undergoing graft-design).  This is useful, as we start the design with very high energy and work our way down.
 
 ```
-antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -random_start
+antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
+-graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -random_start
 ```
 
 ## With Antibody-Antigen Rigid-Body optimization (docking)
@@ -46,32 +48,60 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 -graft_design_
 
 Here, we don't care where the antibody binds to the antigen.  Just that it binds. The RAbD protocol always has at least Paratope SiteConstraints enabled to make sure any docking is contained to the paratope (like most good docking programs).
 
-`antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -do_dock`
+```
+antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
+-graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -do_dock
+```
 
 Allow Dock-Design, incorporating auto-generated SiteConstraints to keep the antibody around the starting interface residues.  These residues are determined by being within 6A to the CDR residues.  
 
-`antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -do_dock -use_epitope_constraints`
+```
+antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
+-graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -do_dock -use_epitope_constraints
+```
+
 Allow Dock-Design, as above, but specify the Epitope Residues and Paratope CDRs to guide design to have these interact.
 
-`antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -do_dock -use_epitope_constraints -paratope_cdrs H3 -epitope 63A 63A:A 64`
+```
+antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
+-graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -do_dock -use_epitope_constraints \
+-paratope_cdrs H3 -epitope 63A 63A:A 64
+```
 
-Here, we want to do a denovo-run, creating an interface at the light-chain, starting with random CDRs grafted in instead of whatever we have in the antibody to start with (for the designing CDRs) .  
+Here, we want to do a denovo-run, creating an interface at the light-chain, starting with random CDRs grafted in instead of whatever we have in the antibody to start with (for the designing CDRs).  
 
-`antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs L1 L2 L3 -graft_design_cdrs L1 L2 L3 -seq_design_cdrs L1 L2 L3 -light_chain lambda -do_dock -use_epitope_constraints -paratope_cdrs L1 L2 L3 -epitope 63A 63A:A 64 -random_start`
+```
+antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs L1 L2 L3 \
+-graft_design_cdrs L1 L2 L3 -seq_design_cdrs L1 L2 L3 -light_chain lambda -do_dock \
+-use_epitope_constraints -paratope_cdrs L1 L2 L3 -epitope 63A 63A:A 64 -random_start
+```
 
 ## Advanced Settings
 
 Here, we will disallow ANY sequence design into Proline residues and Cysteine residues, while giving a resfile to further LIMIT design and packing as specific positions. These can be given as 3 or 1 letter codes and mixed codes such as PRO and C are accepted. Note that the resfile does NOT turn any residues ON, it is simply used to optionally LIMIT design residue types and design and packing positions.
 
-`antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -resfile my_resfile.resfile -dissallow_aa PRO CYS`
+```
+antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
+-graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda \
+-resfile my_resfile.resfile -dissallow_aa PRO CYS
+```
 
 Here, we will change the mintype to relax.  This mintype enables Flexible-Backbone design.  Our default is to use min/pack cycles, but relax typically works better.  However, it also takes considerably more time!
 
-`antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -resfile my_resfile.resfile -dissallow_aa PRO CYS -mintype relax`
+```
+antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
+-graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda \
+-resfile my_resfile.resfile -dissallow_aa PRO CYS -mintype relax
+```
 
 Finally, we want to allow the framework residues AROUND the CDRs we will be designing and any interacting antigen residues to design as well here.  We will disable conservative framework design as we want something funky (this is not typically recommended and is used here to indicate what you CAN do.
 
-`antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -resfile my_resfile.resfile -dissallow_aa PRO CYS -mintype relax -design_antigen -design_framework -conservative_framework_design false`
+```
+antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
+-graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda \
+-resfile my_resfile.resfile -dissallow_aa PRO CYS -mintype relax \
+-design_antigen -design_framework -conservative_framework_design false
+```
 
 ### Expert Settings
 
@@ -79,26 +109,37 @@ Now, we will spice things up even further.  We are feeling daring and we have LO
 
 We will enable H3 Stem design here, which can cause a flipping of the H3 stem type from bulged to non-bulged and vice-versa.  
 
-`antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -design_H3_stem `
+```
+antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
+-graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -design_H3_stem
+```
 
 Cool.  That should make some interesting antibodies for our experiment.  Now, we will change around the KT to get more interesting samplings (from our 1.0 default).
 
-`antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -design_H3_stem -inner_KT 2.0 -outer_KT 2.0`
+```
+antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
+-graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda \
+-design_H3_stem -inner_KT 2.0 -outer_KT 2.0
+```
 
 Finally, we want increased variability for our sequence designs.  So, we will increase number of sampling rounds for our lovely cluster profiles.  
 
 Description of the option (default 1): "If designing using profiles, this is the number of times the profile is sampled each time packing done.  Increase this number to increase variability of designs - especially if not using relax as the mintype."
 
-<code>
-antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -design_H3_stem -inner_KT 2.0 -outer_KT 2.0 -seq_design_profile_samples 5
-</code>
+```
+antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
+-graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda \
+-design_H3_stem -inner_KT 2.0 -outer_KT 2.0 -seq_design_profile_samples 5
+```
 
 ### Instruction File
 More complicated design runs can be created by using the Antibody Design Instruction file.  This file allows complete customization of the design run. See below for a review of the syntax of the file and possible customization.
 
-<code>
-antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -instruction_file my_instruction_file.txt
-</code>
+```
+antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
+-graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda \
+-instruction_file my_instruction_file.txt
+```
 
 # Antibody Design Instruction File:
 The Antibody Design Instruction File handles CDR-level control of the algorithm and design.  It is used to create the CDRSet for sampling whole CDRs from the PDB, as well as fine-tuning the minimization steps and sequence design strategies.  For each option, 'ALL' can be given to control all of the CDRs at once.  Specific capitalization of commands are not needed, and are used for style. Commands are broken down into 4 types, each controlling different aspects of the protocol:
