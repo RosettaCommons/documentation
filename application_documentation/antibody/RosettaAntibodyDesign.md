@@ -29,15 +29,17 @@ More detail on the algorithm can be found in the published paper.
 ## Basic
 The command-line can be as simple as:
 
-<code>
+
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda
-</code>
+
 
 This makes the H3 loop the primary CDR chosen in the outer cycle, running graft-based design on H3, while simultaneously designing H1 and H2. 
 
 Here, we want to do a denovo-run, starting with random CDRs grafted in instead of whatever we have in antibody to start with (only for the CDRs that are actually undergoing graft-design).  This is useful, as we start the design with very high energy and work our way down.
 
-` antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -random_start`
+```
+antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -random_start
+```
 
 ## With Antibody-Antigen Rigid-Body optimization (docking)
 
