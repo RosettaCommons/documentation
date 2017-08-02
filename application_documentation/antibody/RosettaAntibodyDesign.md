@@ -29,7 +29,9 @@ More detail on the algorithm can be found in the published paper.
 ## Basic
 The command-line can be as simple as:
 
-`antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda`
+<code>
+antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda
+</code>
 
 This makes the H3 loop the primary CDR chosen in the outer cycle, running graft-based design on H3, while simultaneously designing H1 and H2. 
 
@@ -85,12 +87,16 @@ Finally, we want increased variability for our sequence designs.  So, we will in
 
 Description of the option (default 1): "If designing using profiles, this is the number of times the profile is sampled each time packing done.  Increase this number to increase variability of designs - especially if not using relax as the mintype."
 
-`antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -design_H3_stem -inner_KT 2.0 -outer_KT 2.0 -seq_design_profile_samples 5`
+<code>
+antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -design_H3_stem -inner_KT 2.0 -outer_KT 2.0 -seq_design_profile_samples 5
+</code>
 
 ### Instruction File
 More complicated design runs can be created by using the Antibody Design Instruction file.  This file allows complete customization of the design run. See below for a review of the syntax of the file and possible customization.
 
-`antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -instruction_file my_instruction_file.txt`
+<code>
+antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -instruction_file my_instruction_file.txt
+</code>
 
 # Antibody Design Instruction File:
 The Antibody Design Instruction File handles CDR-level control of the algorithm and design.  It is used to create the CDRSet for sampling whole CDRs from the PDB, as well as fine-tuning the minimization steps and sequence design strategies.  For each option, 'ALL' can be given to control all of the CDRs at once.  Specific capitalization of commands are not needed, and are used for style. Commands are broken down into 4 types, each controlling different aspects of the protocol:
