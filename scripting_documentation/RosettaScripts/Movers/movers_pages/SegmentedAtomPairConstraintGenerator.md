@@ -1,3 +1,4 @@
+#SegmentedAtomPairConstraintGenerator
 [[include:constraint_generator_SegmentedAtomPairConstraintGenerator_complex_type]]
 
 Provided a **ResidueSelector** with multiple non-contiguous regions, it will create _AtomPairConstraints_ with different parameters for those residues inside a given _ResidueRange_ and those form different _ResidueRange_.
