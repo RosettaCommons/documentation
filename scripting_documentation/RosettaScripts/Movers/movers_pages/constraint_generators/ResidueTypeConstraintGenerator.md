@@ -1,3 +1,4 @@
+#ResidueTypeConstraintGenerator
 The ResidueTypeConstraintGenerator is used in conjunction with [[AddConstraintsMover]]to add residue type constraints to a pose. By default, it constrains all residues to their starting identities. A residue selector can be used to specify which residues should be constrained, and a name3 for the desired residue type can be specified to constrain selected residues to a particular identity.
 
 <ResidueTypeConstraintGenerator name="(&string;)"
