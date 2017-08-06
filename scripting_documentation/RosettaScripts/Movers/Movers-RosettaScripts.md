@@ -10,6 +10,8 @@ Each mover definition has the following structure
 
 where "mover\_name" belongs to a predefined set of possible movers that the parser recognizes and are listed below, name is a unique identifier for this mover definition and then any number of parameters that the mover needs to be defined.
 
+Because of historical reasons or subtle differences in the desired functions. Some of the movers are near-duplicate. [[Read more about|Near Duplicate Classes]] the comparision of these near-duplicate movers.
+
 [[_TOC_]]
 
 ## Predefined Movers
