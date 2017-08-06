@@ -3,7 +3,6 @@
 Rosetta 3 (formerly MiniRosetta) is an object-oriented implementation of Rosetta that has been rewritten in C++ from the ground up by a core team of developers. These guidelines are intended to help new (andeveld to remind old/current) Rosetta developers to learn, maintain, and improve the reliability, clarity, and performance of the code while we continue its development and modernization. 
 
 
-
 ##Conventions
 ###Copyright Header
 The Rosetta Commons copyright header is required for every source code *file* in Rosetta. Do not make modifications. The header you should use for all C++ source files is:
@@ -266,6 +265,10 @@ utility::down_cast< Bar * >( foo ); // returns a pointer to a Bar instance
 ```
 utility::pointer::down_pointer_cast< Bar >( foo ); // returns a BarOP
 ```
+
+#### C++11 Features
+** Use of `auto` is strongly encouraged in `for` loops.
+** Use of `auto` elsewhere is allowed, but it is strongly preferred that the type of the variable can be induced from code _within the same function_.
 
 #### Thread Safety
 * (See the discussion on global data [[ here |Global-Data-in-Rosetta]])
