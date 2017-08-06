@@ -10,6 +10,7 @@ When designing, there are certain recommended TaskOperations that one will typic
 | [[LimitAromaChi2|LimitAromaChi2Operation]], recommended by Chris Bahl (cdbahl@uw.edu) | **include_trp="True"** | Disallow unrealistic chi2 angles in aromatic amino acid side chains.  (Note: this is currently untested for noncanonical design, but is recommended for canonical design.) |
 | [[IncludeCurrent|IncludeCurrentOperation]], recommended by Chris Bahl (cdbahl@uw.edu) |  | Don't throw away the rotamers from the input model.  Typically, this is the behaviour that one wants. |
 | [[ConsensusLoopDesign|ConsensusLoopDesignOperation]], recommended by Chris Bahl (cdbahl@uw.edu) | **include_adjacent_residues="True"** | This restricts amino acid identities in loops based on the ABEGO torsion bins of the loop residues and the common sequence profiles from native proteins for loops with the same ABEGO bins.  (Note: this calls DSSP to identify loops, which will not work with noncanonical secondary structures.  It will also fail to disallow added noncanonical residue types -- _i.e._ this is primarily intended for canonical design only.) |
+| | `-nblist_autoupdate` | |
 
 
 ## See also
