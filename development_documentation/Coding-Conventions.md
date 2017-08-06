@@ -267,8 +267,8 @@ utility::pointer::down_pointer_cast< Bar >( foo ); // returns a BarOP
 ```
 
 #### C++11 Features
-** Use of `auto` is strongly encouraged in `for` loops.
-** Use of `auto` elsewhere is allowed, but it is strongly preferred that the type of the variable can be induced from code _within the same function_.
+* Use of `auto` is strongly encouraged in `for` loops.
+* Use of `auto` elsewhere is allowed, but it is strongly preferred that the type of the variable can be induced from code _within the same function_.
 
 #### Thread Safety
 * (See the discussion on global data [[ here |Global-Data-in-Rosetta]])
