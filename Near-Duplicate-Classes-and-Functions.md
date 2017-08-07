@@ -1,5 +1,9 @@
 Some of the classes/functions in Rosetta are near duplicate because of historical reasons or subtle differences in problems they are designed to solve. This page explains the reason why these near duplicate classes exist and what are the suitable problems that these classes/functions are built for.
 
+## Suspects to investigate
+* Buried unsat filters (Scott Boyken is best leader here)
+* interface detection machineries
+
 ## Movers
 
 ### Loop modeling
