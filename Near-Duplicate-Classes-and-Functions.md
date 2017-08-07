@@ -1,4 +1,4 @@
-Some of the classes in Rosetta are near duplicate because of historical reasons or subtle differences in functions. This page explains the reason why these near duplicate classes exist and what are the suitable problems that these classes are built for.
+Some of the classes/functions in Rosetta are near duplicate because of historical reasons or subtle differences in problems they are designed to solve. This page explains the reason why these near duplicate classes exist and what are the suitable problems that these classes/functions are built for.
 
 ## Movers
 
