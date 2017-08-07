@@ -13,7 +13,7 @@ Some of the classes/functions in Rosetta are near duplicate because of historica
 |[[LoopmodelWrapper | scripting_documentation/RosettaScripts/xsd/mover_LoopmodelWrapper_type
 ]] | Wrapper for the legacy loop modeling code for the [[Loop modeling application | loopmodel]] such that it can be used through the RosettaScripts interface| Use this mover when you want to recapitulate the behavior of the [[Loop modeling application | loopmodel]]. Because code under this mover is to be deprecated, using [[LoopModeler|LoopModelerMover]] is recommanded|
 |[[LoopModeler|LoopModelerMover]] | A refactored version of the legacy loop modeling code. Should be used through the RosettaScripts interface. | For protein loop modeling problems, use this mover. |
-|[[Generalized Kinematic Closure (GeneralizedKIC)|GeneralizedKICMover]] | | |
+|[[Generalized Kinematic Closure (GeneralizedKIC)|GeneralizedKICMover]] | A generalized protocol for modeling loops on any polymers | Use this mover when working with polymers that have different backbones compared to L-proteins|
 
 
 ## Filters
