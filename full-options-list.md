@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-07-19
+Generated: 2017-08-09
 
 _Note that some application specific options may not be present in this list._
 
@@ -903,6 +903,12 @@ _Note that some application specific options may not be present in this list._
 <dd>In score tables, separate out backbone hydrogens bond energies per residue. By default, bb hbonds are included in the total energy, but not per residue energies<br/>Default: false<br/></dd>
 <dt><b>-hbond_disable_bbsc_exclusion_rule</b> \<Boolean\></dt>
 <dd>Disable the rule that protein bb/sc hbonds are excluded if the backbone group is already forming a hydrogen bond to a backbone group; with this flag, no hbonds are excluded<br/>Default: false<br/></dd>
+<dt><b>-use_hb_env_dep</b> \<Boolean\></dt>
+<dd>Use hydrogen bond environment dependency. Smaller in the surface of the protein.<br/>Default: true<br/></dd>
+<dt><b>-water_hybrid_sf</b> \<Boolean\></dt>
+<dd>Use a hybrid scoring function, which includes energy terms hbond_wat and wat_entropy.<br/>Default: false<br/></dd>
+<dt><b>-show_etable_contributions</b> \<Boolean\></dt>
+<dd>Shows atom-atom and res-res contributions to Lennard-Jones and solvation energies when scoring.<br/>Default: false<br/></dd>
 <dt><b>-symE_units</b> \<Integer\></dt>
 <dd>Number of symmetric Units in design for use with symE scoring<br/>Default: -1<br/></dd>
 <dt><b>-symE_bonus</b> \<Real\></dt>
@@ -6708,6 +6714,77 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-cst_seqwidth</b> \<Integer\></dt>
 <dd>sequence width on constraints<br/>Default: 0<br/></dd>
 </dl>
++ <h2>-hydrate</h2>
+<dl>
+<dt><b>-hydrate</b> \<Boolean\></dt>
+<dd>hydrate option group<br/></dd>
+<dt><b>-hyfile</b> \<File\></dt>
+<dd>This file defines which residues to hydrate; add waters de novo around their polar atoms.<br/></dd>
+<dt><b>-hydrate_all</b> \<Boolean\></dt>
+<dd>Add de novo water molecules to the entire structure, not compatible with design.<br/>Default: false<br/></dd>
+<dt><b>-ignore_fa_sol_at_positions</b> \<IntegerVector\></dt>
+<dd>Set all implicit solvation contributions to zero when involving the position numbers in the given IntegerVector.<br/>Default: []<br/></dd>
+<dt><b>-attempt_all_polar</b> \<Boolean\></dt>
+<dd>Attempt to hydrate all polar atoms regardless of them having room or not.<br/>Default: false<br/></dd>
+<dt><b>-partial_hydrate_dew</b> \<Real\></dt>
+<dd>During the first round of packing when using double edge water (dew) molecules, only this fraction of de novo waters will be considered.<br/>Default: 0.75<br/></dd>
+<dt><b>-water_energy_threshold</b> \<Real\></dt>
+<dd>Water molecules with energy above this threshold will be removed after packing.<br/>Default: 5.0<br/></dd>
+<dt><b>-water_rotamers_cap</b> \<Integer\></dt>
+<dd>Limits the maximum number of water rotamers.<br/>Default: 500<br/></dd>
+<dt><b>-water_packing_radius</b> \<Real\></dt>
+<dd>Defines the radius a water molecule is allowed to explore during packing<br/>Default: 1.0<br/></dd>
+<dt><b>-water_angular_resolution</b> \<Real\></dt>
+<dd>Defines the angular resolution for water rotamers. As a corollary, it also defines the number of rotamers for each water molecule ((2*space_res+1)^3 * 2 * 2*ang_res^2).<br/>Default: 3<br/></dd>
+<dt><b>-water_space_resolution</b> \<Real\></dt>
+<dd>Defines the spacial resolution for water rotamers. As a corollary, it also defines the number of rotamers for each water molecule ((2*space_res+1)^3 * 2 * 2*ang_res^2).<br/>Default: 2<br/></dd>
+<dt><b>-hbond_threshold</b> \<Real\></dt>
+<dd>Hydrogen bond threshold. New water rotamers must make hbond of at least this value.<br/>Default: -0.1<br/></dd>
+<dt><b>-hbond_entropy_threshold</b> \<Real\></dt>
+<dd>Threshold for water hbonds to contribute to entropy.<br/>Default: -0.5<br/></dd>
+<dt><b>-water_desolvation</b> \<Real\></dt>
+<dd>Desolvation energy of a water molecule. Energy difference between a molecule in bulk water and near a protein. This value will be scaled by the scoring function weight for wat_desolv<br/>Default: 4.8<br/></dd>
+<dt><b>-pack_nloop</b> \<Integer\></dt>
+<dd>How many times to repack<br/>Default: 25<br/></dd>
+<dt><b>-pre_bump_check</b> \<Boolean\></dt>
+<dd>Do bump check before store them in memory<br/>Default: true<br/></dd>
+<dt><b>-bias_design_search_to_native</b> \<Boolean\></dt>
+<dd>It gives an artificially large negative energy to any native rotamer during packing. It was implemented to test the use of design waters.<br/>Default: false<br/></dd>
+<dt><b>-show_derivatives_check</b> \<Boolean\></dt>
+<dd>Show derivatives check when minimizing in the hydrate protocol.<br/>Default: false<br/></dd>
+<dt><b>-keep_non_buried_waters</b> \<Boolean\></dt>
+<dd>Keep non buried waters in the final structure (not recommended).<br/>Default: false<br/></dd>
+<dt><b>-display_water_hb_network</b> \<Boolean\></dt>
+<dd>Shows the water hydrogen bonds connections.<br/>Default: true<br/></dd>
+<dt><b>-show_pre_post_filter_water_rotamers</b> \<Boolean\></dt>
+<dd>Shows the exigen location of the post and pre filtered water rotamers.<br/>Default: false<br/></dd>
+<dt><b>-show_pre_filtered_water_rotamers_count</b> \<Boolean\></dt>
+<dd>Shows the total number of pre-filtered water rotamers; Helps assessing the memory requirements.<br/>Default: false<br/></dd>
+<dt><b>-show_residues_near_water</b> \<Boolean\></dt>
+<dd>Print out the residues that are near hydratable water after water packing and placement.<br/>Default: false<br/></dd>
+<dt><b>-only_remove_non_buried_waters</b> \<Boolean\></dt>
+<dd>Remove non-buried waters from input, then exit.<br/>Default: false<br/></dd>
+<dt><b>-just_score</b> \<Boolean\></dt>
+<dd>Just score the input structures with the hybrid solvation protocol.<br/>Default: false<br/></dd>
+<dt><b>-show_rotamer_count</b> \<Boolean\></dt>
+<dd>Output the rotamer counts for each water and amino acid, then exit.<br/>Default: false<br/></dd>
+<dt><b>-protein_flexibility</b> \<String\></dt>
+<dd>Defines the protein flexibility during the run<br/>Default: "not"<br/></dd>
+<dt><b>-near_water_threshold</b> \<Real\></dt>
+<dd>Threshold for res to be considered flexible when using the near_water option in -hydrate:protein_flexibility<br/>Default: 4.0<br/></dd>
+<dt><b>-minimize_bb_where_packing</b> \<Boolean\></dt>
+<dd>Allow backbone to move when minimizing.<br/>Default: false<br/></dd>
+<dt><b>-dont_hydrate_hb_engaged_bb_O</b> \<Boolean\></dt>
+<dd>Avoid hydrating hydrogen bond engaged backbone oxygens, even if it is just one hb. The purpose is to avoid disrupting atable structures (helices and sheets).<br/>Default: true<br/></dd>
+<dt><b>-short_residence_time_mode</b> \<Boolean\></dt>
+<dd>A faster mode to capture short residence time water molecules. Not good for energy predictions, and the results are better analyzed as an ensamble rather than a single structure.<br/>Default: false<br/></dd>
+<dt><b>-min_backbone_file</b> \<File\></dt>
+<dd>This file defines whether the backbone is allowed to move for a specific residue.<br/></dd>
+<dt><b>-single_away_rotamer</b> \<Boolean\></dt>
+<dd>Use single away water rotamer. The sampling gets biased towards keeping more water present.<br/>Default: false<br/></dd>
+<dt><b>-force_enforce_all_waters</b> \<Boolean\></dt>
+<dd>Keep water molecules enforced throughout hybrid solvation protocol.<br/>Default: false<br/></dd>
+</dl>
 + <h2>-rdc</h2>
 <dl>
 <dt><b>-rdc</b> \<Boolean\></dt>
@@ -6821,6 +6898,8 @@ _Note that some application specific options may not be present in this list._
 <dd>limit chi2 rotamer of PHE,TYR, and HIS around 90 <br/>Default: false<br/></dd>
 <dt><b>-respect_resfile</b> \<Boolean\></dt>
 <dd>Tell FastRelax to respect the input resfile.  Used mainly for doing design within FastRelax.<br/>Default: false<br/></dd>
+<dt><b>-use_explicit_water</b> \<Boolean\></dt>
+<dd>Consider explicit waters (part of the hybrid solvation protocol) during relax<br/>Default: false<br/></dd>
 <dt><b>-bb_move</b> \<Boolean\></dt>
 <dd>allow backbone to move during relax<br/>Default: true<br/></dd>
 <dt><b>-chi_move</b> \<Boolean\></dt>
@@ -7681,6 +7760,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Use coarse-grained energy function to sample; no minimize.<br/>Default: false<br/></dd>
 <dt><b>-verbose_sampler</b> \<Boolean\></dt>
 <dd>verbose output from StepWiseConnectionSampler sample-and-screen.<br/>Default: false<br/></dd>
+<dt><b>-definitely_virtualize</b> \<IntegerVector\></dt>
+<dd>definitely virtualize these residues (by seqpos)<br/>Default: []<br/></dd>
 </dl>
 + <h3>-stepwise:monte_carlo</h3>
 <dl>
