@@ -350,7 +350,8 @@ The parameters above generally need not be changed from their default values.  I
 
 #### LigandMetalContactSelector <a id="LigandMetalContactSelector" />
 
-LigandMetalContactSelector selects all residues which form contacts with metal atoms, either as single ions or as part of a larger 
+LigandMetalContactSelector selects all residues which form contacts with metal atoms, either as single ions or as part of a larger complex. It optionally takes a residue selector (as a subtag or previously defined selector) or a resnum list to indicate which metal-containing residues' contacts should be selected. Contacts are identified using the same procedure as the [[SetupMetalsMover]] and the -auto_setup_metals flag (see [[Metals]]); a potential metal-binding atom is considered to bind a metal if the distance between it and the metal ion is no greater than the sum of its van der Waals radius and that of the metal multiplied by the provided dist_cutoff_multiplier.
+
 ```
 <LigandMetalContactSelector name="(&string;)" residue_selector="(&string;)"
         dist_cutoff_multiplier="(1 &real;)" />
@@ -369,6 +370,9 @@ or
         resnums="(&resnum_list_with_ranges;)" />
 ```
 
+residue_selector: Name of the residue selector for the ligand
+dist_cutoff_multiplier: Multiplier for the distance from the metal atom for contact detection (default 1.0)
+resnums: List of residue numbers indicating which ligands' contacts should be selected. Cannot be used with a residue selector.
 
 #### NeighborhoodResidueSelector
 
