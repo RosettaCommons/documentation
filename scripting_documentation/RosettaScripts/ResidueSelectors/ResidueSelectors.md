@@ -348,6 +348,28 @@ The parameters above generally need not be changed from their default values.  I
 - sc_neighbor_angle_exponent=(2.0 &Real): Alters the value of **b**, the angular sharpness value.
 - sc_neighbor_denominator=(1.0 &Real): Alters the value by which the overall expression is divided.
 
+#### LigandMetalContactSelector <a id="LigandMetalContactSelector" />
+
+LigandMetalContactSelector selects all residues which form contacts with metal atoms, either as single ions or as part of a larger 
+```
+<LigandMetalContactSelector name="(&string;)" residue_selector="(&string;)"
+        dist_cutoff_multiplier="(1 &real;)" />
+```
+or
+```
+<LigandMetalContactSelector name="(&string;)"
+        dist_cutoff_multiplier="(1 &real;)" >
+    <Residue Selector Tag ... />
+</LigandMetalContactSelector>
+```
+or
+```
+<LigandMetalContactSelector name="(&string;)"
+        dist_cutoff_multiplier="(1 &real;)"
+        resnums="(&resnum_list_with_ranges;)" />
+```
+
+
 #### NeighborhoodResidueSelector
 
     <Neighborhood name=(%string) resnums=(%string) distance=(10.0%float)/>
