@@ -50,21 +50,21 @@ The angles specified in this constraint generator are defined as follows:
  />
 ```
 
-dist_cutoff_multiplier: Multiply van der Waals radii of metal and contact atom by this value during contact detection.
-ligand_atom_name: (REQUIRED) Name of ligand metal atom you want to constrain.
-ligand_selector: Residue selector specifying which metal-containing ligand to constrain
-contact_selector: Residue selector restricting which residues should be considered as potential ligand contacts.
-ligand_resnum: Residue number for ligand to be constrained
-contact_resnums: Residue numbers for residues that could be considered as contacts. If neither this option nor a residue selector is specified, then all residues are considered.
-base_atom_name: Name of atom to use as base of contact atoms for angles/dihedrals. Defaults to residue's base atom for contact atom.
-base_base_atom_name: Name of atom to use as base of base of contact atoms for angles/dihedrals. Defaults to residue's base atom.
-ideal_distance: Ideal distance between constrained metal and contact atom. Defaults to current distance.
-ideal_angle_about_contact: Comma-separated list of possible optimal angles, base-contact-metal. Defaults to current angle.
-ideal_dihedral_about_contact: Comma-separated list of possible optimal dihedrals, base_base-base-contact-metal. Defaults to current dihedral.
-ideal_angle_about_metal: Comma-separated list of possible optimal angles, contact-metal-other_contact. Defaults to current angle.
-ideal_dihedral_about_metal: Comma-separated list of possible optimal dihedrals, base-contact-metal-other_contact. Defaults to current dihedral.
-ideal_dihedral_3: Comma-separated list of possible optimal dihedrals, contact-metal-other_contact-other_base. Defaults to current dihedral.
-score_against_internal_contacts: Should we score angles and dihedrals vs other atoms in the ligand?
+* dist_cutoff_multiplier: Multiply van der Waals radii of metal and contact atom by this value during contact detection.
+* ligand_atom_name: (REQUIRED) Name of ligand metal atom you want to constrain.
+* ligand_selector: Residue selector specifying which metal-containing ligand to constrain
+* contact_selector: Residue selector restricting which residues should be considered as potential ligand contacts.
+* ligand_resnum: Residue number for ligand to be constrained
+* contact_resnums: Residue numbers for residues that could be considered as contacts. If neither this option nor a residue selector is specified, then all residues are considered.
+* base_atom_name: Name of atom to use as base of contact atoms for angles/dihedrals. Defaults to residue's base atom for contact atom.
+* base_base_atom_name: Name of atom to use as base of base of contact atoms for angles/dihedrals. Defaults to residue's base atom.
+* ideal_distance: Ideal distance between constrained metal and contact atom. Defaults to current distance.
+* ideal_angle_about_contact: Comma-separated list of possible optimal angles, base-contact-metal. Defaults to current angle.
+* ideal_dihedral_about_contact: Comma-separated list of possible optimal dihedrals, base_base-base-contact-metal. Defaults to current dihedral.
+* ideal_angle_about_metal: Comma-separated list of possible optimal angles, contact-metal-other_contact. Defaults to current angle.
+* ideal_dihedral_about_metal: Comma-separated list of possible optimal dihedrals, base-contact-metal-other_contact. Defaults to current dihedral.
+* ideal_dihedral_3: Comma-separated list of possible optimal dihedrals, contact-metal-other_contact-other_base. Defaults to current dihedral.
+* score_against_internal_contacts: Should we score angles and dihedrals vs other atoms in the ligand?
 constrain_to_closest: If multiple ideal angle/dihedral values are provided, constrain each measurement to the ideal value which is closest to the value of that measurement at the time when constraints were set up. If set to false, an AmbiguousConstraint to all the provided values will instead be used. Default true.
 
 ##See Also
