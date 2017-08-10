@@ -27,6 +27,10 @@ This paper uses FloppyTail but is not related to development.  Key idea: the pap
 
 This paper uses FloppyTail to generate models consistent with NMR and SAXS data for interpretation of a structure of biological interest.
 
+-  [Santiago-Frangos A, Jeliazkov JR, Gray JJ, Woodson SA. Acidic C-terminal domains autoregulate the RNA chaperone Hfq. eLIFE. 2017 Aug 9;](https://elifesciences.org/articles/27049)
+
+This paper uses an ensemble of FloppyTail-generated models to assess probability/energy of disordered tail to ordered core interactions and predictions are experimentally validated.
+
 Application purpose
 ===========================================
 
