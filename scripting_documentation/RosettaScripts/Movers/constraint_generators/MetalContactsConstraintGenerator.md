@@ -1,5 +1,6 @@
 #MetalContactsConstraintGenerator
 
+###Summary
 Generates distance, angle, and dihedral constraints for the specified metal atom in the selected ligand residue. By default, all values are constrained to the value of the measurement in the pose at the time when the constraint generator is created. Users can also provide alternate base atoms (and bases of those base atoms) to customize how angles/dihedrals are measured.
 
 The user must specify only one metal atom per constraint generator to set up by providing a resnum or residue selector an an atom name. This atom may be either a standalone metal ion or part of a larger complex.
@@ -9,6 +10,8 @@ An atom is considered a metal contact if:
 AND
 2) The distance between the atom and the metal atom is less than or equal to the sum of their van der Waals radii multiplied by the dist_cutoff_multiplier.
 Residues in which contacts are constrained can be constricted by providing either contact_resnums or a contact_residue_selector; non-internal contacts outside that set will not be set up.
+
+###Glossary
 
 Note that multiple ideal values can be provided for all angles/dihedrals. If constrain_to_closest is set to true, each value will be constrained to the provided ideal value closest to the measurement found in the pose at the time the constraints are created.
 
@@ -28,6 +31,9 @@ The angles specified in this constraint generator are defined as follows:
 * Dihedral_about_metal: base-contact-metal-other_contact
 * Dihedral_3: contact-metal-other_contact-other_base
 
+###Usage
+
+```
 <MetalContactsConstraintGenerator name="(&string;)"
         dist_cutoff_multiplier="(1.0 &real;)" ligand_atom_name="(&string;)"
         ligand_selector="(&string;)" contact_selector="(&string;)"
@@ -42,6 +48,8 @@ The angles specified in this constraint generator are defined as follows:
         score_against_internal_contacts="(false &bool;)"
         constrain_to_closest="(true &bool;)"
  />
+```
+
 dist_cutoff_multiplier: Multiply van der Waals radii of metal and contact atom by this value during contact detection.
 ligand_atom_name: (REQUIRED) Name of ligand metal atom you want to constrain.
 ligand_selector: Residue selector specifying which metal-containing ligand to constrain
