@@ -1,13 +1,17 @@
 # Release Notes
 
 <!--- BEGIN_INTERNAL -->
+
+PRE-NOTES for 3.10
+* thread safety
+* GUI
+* RosettaUI
+* MoveMapFactory
+
+<!--- END_INTERNAL -->
+
+<!--- BEGIN_INTERNAL -->
 ## _Rosetta 3.9 (internal notes)_
-
-_(This section in italics should remain hidden from the public wiki.)_
-
-* _N-methylated amino acids likely to end up here_ (VKM)
-* _"Best practices" movers, such as the AddHelixSequenceConstraints mover, should likely end up here. (VKM)_
- * That actually made it in 3.8, but SML didn't add it to the notes (unclear if stable)
 
 ### Scorefunction changes
 * write up REF2015 changeover (http://pubs.acs.org/doi/abs/10.1021/acs.jctc.7b00125)
@@ -15,8 +19,87 @@ _(This section in italics should remain hidden from the public wiki.)_
 ### API changes
 * PyRosetta: xyzMatrix now have .xy properties bound as 'data' instead of set/get functions. So if your code accessed this methods directly you will need to refactor it as m.xx(m.xy()) --> m.xx = m.xy
 
-<!--- END_INTERNAL -->
+##New or updated features
+###Applications
+*[[dock_glycans]]
+*[[Hydrate/SPaDES protocol]] include: solvent-protein interactions in a hybrid implicit-explicit solvation model.
+*[[interface_energy]] - distinct from [[InterfaceAnalyzer]], but undocumented, so we all know which tool you will choose to use!
+*[[RosettaCM]] / [[HybridizeMover]] - improvements to error handling for mismatched template lengths
+* Antibody homology modeling works with only a heavy chain present
+*[[RosettaES]]
+*[[shobuns]] - SHO is solvent hydrated optimization or something like that (a solvation model, in any case); BUNS usually means buried unsatisfied hydrogen bonds
+*[[RosettaAntibodyDesign]] updates
 
+###RosettaScripts tools
+* RosettaScripts available from within PyRosetta - great for when you really, really, really don't want to think about Rosetta's C++ core
+* [[ConstraintGenerator]] can now be specified in their own CONSTRAINT_GENERATORS block in a RosettaScript and can be passed to AddConstraints using the constraint_generators option.
+* Use of recursive script inclusion in RosettaScripts is now enormously faster
+* [[WriteFilterToPose]]
+* [[SwitchChainOrderMover]] bugfix
+* [[buried_apolar_area_filter]] - filters based on buried surface area (VIKRAM what is name?)
+*     Add a filter to compute the longest continuous stretch of polar residues in a pose or selection - VIKRAM what is name?
+* [[ResidueProbDesignOperation]]
+* [[ReturnSidechainMover]] - works better with stuff like phosphorylated residues, and broadly produces more useful warnings/errors
+* Metals:
+** [[MetalContactsConstraintGenerator]] adds distance, angle, and dihedral constraints between (optionally specified) contacts and a user-specified metal atom, either as a single ion or as part of a ligand.
+** [[LigandMetalContactSelector]] identifies and selects residues that form contacts with selected metal-containing residues.
+** [[SetupMetalsMover]]
+* [[DockingSlideIntoContact]] updates
+* [[NeighborhoodResidueSelector]] bugfix
+* [[PerturbBundle]] updates
+* [[RandomResidueSelector]] feature: select random clusters of residues close in 3-D space
+* [[AlignChainMover]] feature: align to center of mass instead of a 2nd pose.
+* [[SecondaryStructureCountFilter]] updates
+* [[SelectResiduesByLayer]] bugfix
+* [[BuriedSurfaceArea]] updates
+* [[BondedResidueSelector]], which takes either an input residue selector or list of residue numbers and selects all residues with chemical bonds to the input set
+* [[HBondSelector]] takes an input residue selector or list of residue numbers. If provided, it selects all residues that form hydrogen bonds with residues in the input set given that those hydrogen bonds meet a specified energy requirement (default -0.5 REU). If no selector is provided, all residues in the pose that form hydrogen bonds are selected. By default, backbone-backbone hydrogen bonds are ignored.
+* [[ShearMover]] bugfix.  Yes, this was one of the very earliest Movers we wrote.  Imagine our shear disbelief at discovering there has been a bug in it for most of a decade.
+* [[TrueResidueSelector]] bugfix
+* [[RmsdFromResidueSelectorFilter]] update
+* [[SecondaryStructureSelector]]
+* [[AtomPairConstraint]]
+* [[SegmentedAtomPairConstraint]]
+* [[ReleaseConstraintFromResidueMover]]
+* [[UnsatSelector]] - symmetry compatibility
+* [[AddHelixSequenceConstraintsMover]]
+
+###Miscellaneous
+* Improved the output formatting for errors - in the vanishingly rare case that an error occurs with Rosetta, you are now more likely to get a useful and interpretable error message.
+* bugfixes to PDB->Pose construction logic arising from missing atoms at termini
+* removed unimplemented fa_plane term.  A zero-weight fa_plane term was a feature of a large number of scorefunctions, which was planely wrong.  This may cause issues using legacy scoring weight sets with Rosetta 3.9: just remove the unused fa_plane term in your weights file.
+* [[AlignmentCleaner]] filters -- useful for removing epistasis from MSAs
+* [[NearNativeLoopCloser]] bugfix
+* bugfixes to Cartesian minimization, the cart_bonded term, and especially those two with symmetric Poses
+* symmetric disulfide scoring bugfix
+* [[PolymerBondedEnergyContainer]] bugfix
+* [[GenKIC]] bugfixes
+* [[remodel]] bugfixes
+* [[Backrub]] bugfix
+* Improvements to silent file reading, enabling the reading of some slightly-corrupted silent files.  (There remains a lurking bug causing them to occasionally be written in a corrupted state).
+* Compile fixes for GCC 7.1 and 4.9.
+* ERRASER bugfix
+* ScoringGrids and InterfaceScoreCalculator (for ligands) bugfixes
+* Explicit unfolded state energy calculator bugfixes
+* ABEGO bin scoreterm
+* Implementation of mean-field algorithm to predict rotamer or amino acid probability. Can be used to determine preorganization of residues or predict specificity profile for protein-protein or protein-peptide interactions.  ALIZA - link?
+
+###Nonprotein chemistries
+* Improvements to glycan handling
+* Improvements to both automatic and user-specified handling of metal ions
+* A few more lipids are available for explicit membrane modeling (this is distinct from the implicit membrane scorefunction)
+* Better writing of LINK records in PDB output
+* Rosetta is more able to figure out missing chemistry data automatically:
+** It can guess at torsion parameters when otherwise missing when scoring the cart_bonded (Cartesian minimization) term
+** It is able to automatically generate centroid (nonpolymeric) residue types when the fullatom type is present - great for split centroid/fullatom protocols where the user has created only the fullatom params file for their ligand.
+* Vikram Mulligan has been absolutely on fire adding nonprotein chemistries for cyclic peptides.  (He's now hard at work on fire-retardant peptides):
+** trimesic acid, a three-way crosslinker
+** cyclization via disulfide (instead of simply including disulfides)
+** N-methyl amino acids, for getting rid of that pesky backbone hydrogen bond donor
+** 2-aminoisobutyric acid (AIB), a non-canonical, achiral alpha-amino acid that strongly favours helices (both left- and right-handed).  AIB is to ALA as bactrian is to dromedary.  (That makes glycine a horse).
+* Glycan Relax - Version 2
+
+<!--- END_INTERNAL -->
 
 ## Rosetta 3.8
 ###New RosettaScripts XML
