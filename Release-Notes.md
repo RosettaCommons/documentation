@@ -41,9 +41,9 @@ PRE-NOTES for 3.10
 * [[ResidueProbDesignOperation]]
 * [[ReturnSidechainMover]] - works better with stuff like phosphorylated residues, and broadly produces more useful warnings/errors
 * Metals:
-** [[MetalContactsConstraintGenerator]] adds distance, angle, and dihedral constraints between (optionally specified) contacts and a user-specified metal atom, either as a single ion or as part of a ligand.
-** [[LigandMetalContactSelector]] identifies and selects residues that form contacts with selected metal-containing residues.
-** [[SetupMetalsMover]]
+    * [[MetalContactsConstraintGenerator]] adds distance, angle, and dihedral constraints between (optionally specified) contacts and a user-specified metal atom, either as a single ion or as part of a ligand.
+    * [[LigandMetalContactSelector]] identifies and selects residues that form contacts with selected metal-containing residues.
+    * [[SetupMetalsMover]]
 * [[DockingSlideIntoContact]] updates
 * [[NeighborhoodResidueSelector]] bugfix
 * [[PerturbBundle]] updates
@@ -90,13 +90,13 @@ PRE-NOTES for 3.10
 * A few more lipids are available for explicit membrane modeling (this is distinct from the implicit membrane scorefunction)
 * Better writing of LINK records in PDB output
 * Rosetta is more able to figure out missing chemistry data automatically:
-** It can guess at torsion parameters when otherwise missing when scoring the cart_bonded (Cartesian minimization) term
-** It is able to automatically generate centroid (nonpolymeric) residue types when the fullatom type is present - great for split centroid/fullatom protocols where the user has created only the fullatom params file for their ligand.
+    * It can guess at torsion parameters when otherwise missing when scoring the cart_bonded (Cartesian minimization) term
+    * It is able to automatically generate centroid (nonpolymeric) residue types when the fullatom type is present - great for split centroid/fullatom protocols where the user has created only the fullatom params file for their ligand.
 * Vikram Mulligan has been absolutely on fire adding nonprotein chemistries for cyclic peptides.  (He's now hard at work on fire-retardant peptides):
-** trimesic acid, a three-way crosslinker
-** cyclization via disulfide (instead of simply including disulfides)
-** N-methyl amino acids, for getting rid of that pesky backbone hydrogen bond donor
-** 2-aminoisobutyric acid (AIB), a non-canonical, achiral alpha-amino acid that strongly favours helices (both left- and right-handed).  AIB is to ALA as bactrian is to dromedary.  (That makes glycine a horse).
+    * trimesic acid, a three-way crosslinker
+    * cyclization via disulfide (instead of simply including disulfides)
+    * N-methyl amino acids, for getting rid of that pesky backbone hydrogen bond donor
+    * 2-aminoisobutyric acid (AIB), a non-canonical, achiral alpha-amino acid that strongly favours helices (both left- and right-handed).  AIB is to ALA as bactrian is to dromedary.  (That makes glycine a horse).
 * Glycan Relax - Version 2
 
 <!--- END_INTERNAL -->
