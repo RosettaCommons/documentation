@@ -23,11 +23,11 @@ PRE-NOTES for 3.10
 ###Applications
 *[[dock_glycans]]
 *[[Hydrate/SPaDES protocol]] include: solvent-protein interactions in a hybrid implicit-explicit solvation model.
-*[[interface_energy]] - distinct from [[InterfaceAnalyzer]], but undocumented, so we all know which tool you will choose to use!
+*[[interface_energy]] - distinct from [[InterfaceAnalyzer]], and also well documented
 *[[RosettaCM]] / [[HybridizeMover]] - improvements to error handling for mismatched template lengths
 * Antibody homology modeling works with only a heavy chain present
 *[[RosettaES]]
-*[[shobuns]] - SHO is solvent hydrated optimization or something like that (a solvation model, in any case); BUNS usually means buried unsatisfied hydrogen bonds
+*[[shobuns]] - Buried UNSatisfied polar atoms for the SHO solvation model
 *[[RosettaAntibodyDesign]] updates
 
 ###RosettaScripts tools
