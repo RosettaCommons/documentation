@@ -21,14 +21,14 @@ PRE-NOTES for 3.10
 
 ##New or updated features
 ###Applications
-*[[dock_glycans]]
-*[[Hydrate/SPaDES protocol]] include: solvent-protein interactions in a hybrid implicit-explicit solvation model.
-*[[interface_energy]] - distinct from [[InterfaceAnalyzer]], and also well documented
-*[[RosettaCM]] / [[HybridizeMover]] - improvements to error handling for mismatched template lengths
+* [[dock_glycans]]
+* [[Hydrate/SPaDES protocol]] include: solvent-protein interactions in a hybrid implicit-explicit solvation model.
+* [[interface_energy]] - distinct from [[InterfaceAnalyzer]], and also well documented
+* [[RosettaCM]] / [[HybridizeMover]] - improvements to error handling for mismatched template lengths
 * Antibody homology modeling works with only a heavy chain present
-*[[RosettaES]]
-*[[shobuns]] - Buried UNSatisfied polar atoms for the SHO solvation model
-*[[RosettaAntibodyDesign]] updates
+* [[RosettaES]]
+* [[shobuns]] - Buried UNSatisfied polar atoms for the SHO solvation model
+* [[RosettaAntibodyDesign]] updates
 
 ###RosettaScripts tools
 * RosettaScripts available from within PyRosetta - great for when you really, really, really don't want to think about Rosetta's C++ core
