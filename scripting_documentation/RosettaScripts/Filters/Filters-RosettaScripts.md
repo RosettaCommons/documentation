@@ -92,6 +92,8 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[LongestContinuousPolarSegment|LongestContinuousPolarSegmentFilter]]** - Filter based on length of longest stretch of polar amino acid residues.
 
+**[[SequenceDistance|SequenceDistanceFilter]]** - Filter based on the number of mutations between pose sequence and sequence stored in comments in pose.
+
 ### Alignment analysis
 
 **[[AlignmentAAFinder|AlignmentAAFinderFilter]]** - Scans through an alignment, tests all possible amino acids at each position, and generates a file of passing amino acids.
