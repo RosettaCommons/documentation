@@ -2,7 +2,7 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## AlignmentGapInserterFilter
 
-Scans through an alignment and inserts gaps where the alignment positions in the alignment are not representative of the chemical environment of the pose sequence.
+Scans through an alignment and inserts gaps where positions in the alignment are not representative of the chemical environment of the pose sequence.
 
 Reads available_AAs_file (generated with AlignmentAAFinderFilter) containing all amino acids that can fit into the pose sequence. Next iterates through all aligned sequences, threads them onto the pose sequence (ignoring insertions, substituting gaps with glycines) ask for each trusted* position: Is the chemical environment the same here as in the pose sequence? To determine if it is the same, the available amino acids are scored in both environments if the maximum scoring difference of any two available amino acids is >max_score_diffs, a gap is inserted for that position, for that aligned sequence.
 
