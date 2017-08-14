@@ -5,7 +5,7 @@
 This filter is typically combined with AlignmentGapInserter. It scans through all positions in the pose sequence, and tests whether amino acids present in homologous sequences (from alignment) would be able to fit into the pose sequence. It only tests amino acids in homologous sequences if we trust that their backbone is the same as in the pose structure. This trust is build on two tests: (1) Are the indels surrounding (+/- 2 (indel_motif_radius)) the target amino acid the same in the aln sequence and the pose sequence? (2) If in a loop: Is the sequence identity high enough (>0.5) of the entire loop, and is the indels the same for the entire loop? 
 
 ```
-<AlignmentAAFinder name="(&string)" scorefxn="(beta_nov16 &string)" exclude_AA_threshold="(10.0 &float)" loop_seqid_threshold="(0.50 &float)" indel_motif_radius="(2 &int)" alignment_file=="(null &string)" available_AAs_file="(null &string)" relax_mover_name="(null &string)"/>
+<AlignmentAAFinder name="(&string)" scorefxn="(beta_nov16 &string)" exclude_AA_threshold="(10.0 &float)" loop_seqid_threshold="(0.50 &float)" indel_motif_radius="(2 &int)" alignment_file="(null &string)" available_AAs_file="(null &string)" relax_mover_name="(null &string)"/>
 ```
 
 -   scorefxn: The scorefxn to be used during repacking
