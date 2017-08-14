@@ -14,20 +14,17 @@ To begin any current Rosetta Antibody protocol, one must first renumber their in
 ```
 (antibody group - can be used like: antibody:numbering_scheme)
 
--numbering_scheme, String,
-The numbering scheme of the PDB file. Options are: Chothia_Scheme, Enhanced_Chothia_Scheme, AHO_Scheme, 
-IMGT_Scheme. Kabat_Scheme is also accepted, but not fully supported due to H1 numbering conventions.  
-Use Kabat_Scheme with caution.,
-  default=Chothia_Scheme
+-input_ab_scheme, String,
+The numbering scheme of the PDB file.
+Options = 'Chothia','Enhanced_Chothia','AHo','AHO','IMGT','Kabat','Chothia_Scheme','Enhanced_Chothia_Scheme', 'AHo_Scheme', 'AHO_Scheme', 'IMGT_Scheme', 'Kabat_Scheme',
 
--cdr_definition, String,
-The CDR definition to use.  Current Options are: Chothia, Aroop, North, Kabat, Martin,
- default=Aroop
+default='Chothia_Scheme'
 
--light_chain, String,
-Type of light chain if known.  Only used for design for now.,
- legal = [unknown, lambda, kappa],
- default=unknown
+-output_ab_scheme, String,
+Output numbering scheme supported by most antibody apps that output pdbs.  Please see documentation.
+Options = 'Chothia','Enhanced_Chothia','AHo','AHO','IMGT','Kabat','Chothia_Scheme','Enhanced_Chothia_Scheme', 'AHo_Scheme', 'AHO_Scheme', 'IMGT_Scheme', 'Kabat_Scheme',
+
+default='Chothia_Scheme'
 
 -check_cdr_chainbreaks, Boolean,
 Check CDRs of input antibody for chainbreaks upon initializing RosettaAntibody and RosettaAntibodyDesign. 
@@ -49,4 +46,10 @@ in which a Cis/Trans designation currently does not exist.
 If you get an NA, or a warning when identifying CDRs, change this option to true.  
 Currently only used for the RosettaAntibodyDesign (RAbD) Framework.,
  default=false
+
+-light_chain, String,
+Type of light chain if known.  Only used for design for now.,
+ legal = [unknown, lambda, kappa],
+ default=unknown
+
 ```
