@@ -92,6 +92,10 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[LongestContinuousPolarSegment|LongestContinuousPolarSegmentFilter]]** - Filter based on length of longest stretch of polar amino acid residues.
 
+### Alignment analysis
+
+**[[AlignmentAAFinder|AlignmentAAFinderFilter]]** - Scans through an alignment, tests all possible amino acids at each position, and generates a file of passing amino acids.
+
 ### Geometry
 
 **[[AngleToVector|AngleToVectorFilter]]** - Filter on angle between two atoms on the first residue of a chain and a given vector.
@@ -290,4 +294,3 @@ These filters are used primarily for the reports they generate in the log and/or
 * [[Getting Started]]: A page for people new to Rosetta
 * [[Glossary]]
 * [[RosettaEncyclopedia]]
-
