@@ -6,4 +6,4 @@ Note: You do not need to add the filters to the PROTOCOLS section of your Rosett
 
 ##See Also
 
-* [[FilterReportAsPoseExtraScoresMover]]: Use this if you only want the results of some specific filters instead of all filters. 
+* [[FilterReportAsPoseExtraScoresMover]]: Use this if you only want the results of one or some specific filters instead of all filters. 
