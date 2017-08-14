@@ -96,7 +96,7 @@ Filters which are useful for combining, modifying or working with other filters 
 
 **[[AlignmentAAFinder|AlignmentAAFinderFilter]]** - Scans through an alignment, tests all possible amino acids at each position, and generates a file of passing amino acids.
 
-**[[AlignmentGapInserter|AlignmentGapInserterFilter]]** - Scans through an alignment and inserts gaps where the alignment positions in the alignment are not representative of the chemical environment of the pose sequence.
+**[[AlignmentGapInserter|AlignmentGapInserterFilter]]** - Scans through an alignment and inserts gaps where positions in the alignment are not representative of the chemical environment of the pose sequence.
 
 ### Geometry
 
