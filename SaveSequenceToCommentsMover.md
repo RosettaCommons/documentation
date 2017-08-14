@@ -11,8 +11,8 @@ This mover stores the current pose sequence in pose comments.
 ## Options and Usage
 
 ```xml
-< SequenceDistanceFilter name=(string)
-     sequence_comment_id=(string,"true")
+<SaveSequenceToComments name=(string)
+     save_seq_name=(string,"true")
 />
 ```
 
