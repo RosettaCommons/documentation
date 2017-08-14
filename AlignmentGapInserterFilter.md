@@ -28,14 +28,22 @@ Reads available_AAs_file (generated with AlignmentAAFinderFilter) containing all
 />
 ```
 
-**scorefxn** -- The scorefxn to be used during repacking
-**nbr_e_threshold** -- The absolute(res-res-energy) used to define what is a neighboring residue
+**scorefxn** -- The scorefxn to be used during repacking.
+
+**nbr_e_threshold** -- The absolute(res-res-energy) used to define what is a neighboring residue.
+
 **indel_motif_radius** -- The indel motif radius.
-**alignment_file** -- The input alignment file
-**available_AAs_file** -- List of available amino acids for each position (this is typically generated with AlignmentAAFinderFilter)
-**cleaned_alignment_file** -- Output alignment
+
+**alignment_file** -- The input alignment file.
+
+**available_AAs_file** -- List of available amino acids for each position (this is typically generated with AlignmentAAFinderFilter).
+
+**cleaned_alignment_file** -- Output alignment.
+
 **loop_seqid_thresholds** -- Comma separated list of sequence ids used to decide trust.
+
 **max_score_diffs** -- The maximum score difference that will not result in a gap-insertion.
+
 **only_clean_seq_num** -- Clean only one of the aligned sequences. This is especially useful for large alignment, where one want to split it up and run embarrassing-parallel across multiple cores.
 
 ## See also
