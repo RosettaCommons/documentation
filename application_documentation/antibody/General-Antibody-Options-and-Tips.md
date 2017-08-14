@@ -16,13 +16,18 @@ To begin any current Rosetta Antibody protocol, one must first renumber their in
 
 -input_ab_scheme, String,
 The numbering scheme of the PDB file.
-Options = 'Chothia','Enhanced_Chothia','AHo','AHO','IMGT','Kabat','Chothia_Scheme','Enhanced_Chothia_Scheme', 'AHo_Scheme', 'AHO_Scheme', 'IMGT_Scheme', 'Kabat_Scheme',
+Options = 'Chothia','Enhanced_Chothia','AHo','AHO',
+'IMGT','Kabat','Chothia_Scheme','Enhanced_Chothia_Scheme', 
+'AHo_Scheme', 'AHO_Scheme', 'IMGT_Scheme', 'Kabat_Scheme',
 
 default='Chothia_Scheme'
 
 -output_ab_scheme, String,
-Output numbering scheme supported by most antibody apps that output pdbs.  Please see documentation.
-Options = 'Chothia','Enhanced_Chothia','AHo','AHO','IMGT','Kabat','Chothia_Scheme','Enhanced_Chothia_Scheme', 'AHo_Scheme', 'AHO_Scheme', 'IMGT_Scheme', 'Kabat_Scheme',
+Output numbering scheme supported by most antibody apps that output pdbs.  
+Please see documentation.
+Options = 'Chothia','Enhanced_Chothia','AHo','AHO',
+'IMGT','Kabat','Chothia_Scheme','Enhanced_Chothia_Scheme', 
+'AHo_Scheme', 'AHO_Scheme', 'IMGT_Scheme', 'Kabat_Scheme',
 
 default='Chothia_Scheme'
 
@@ -33,11 +38,17 @@ broken if its C-N bond is > 2.0 A,
  default=true
 
 -check_cdr_pep_bond_geom, Boolean,
-Check CDRs of input antibody for bad peptide bond geometry.  This checks Ca-C-N and C-N-Ca bond angles for 
--large- deviations from the min max values found in a recent analysis of protein geometry  - Conformation 
-dependence of backbone geometry in proteins. Structure -.  If found, the model will not proceed.  
-Use FastRelax with bond angle min to fix issues.  These issues usually arise from poorly resolved crystal loops 
-or incorrectly solved structures.  Many older antibody structures have some of these issues.,
+Check CDRs of input antibody for bad peptide bond geometry.  
+This checks Ca-C-N and C-N-Ca bond angles for 
+-large- deviations from the min max values found in a recent analysis of protein geometry  
+- Conformation dependence of backbone geometry in proteins. 
+Structure -.  
+
+If found, the model will not proceed.  
+Use FastRelax with bond angle min to fix issues.  
+These issues usually arise from poorly resolved crystal loops 
+or incorrectly solved structures.  
+Many older antibody structures have some of these issues.,
  default=false
 
 -allow_omega_mismatches_for_north_clusters, Boolean,
