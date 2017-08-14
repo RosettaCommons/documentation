@@ -73,6 +73,7 @@ PRE-NOTES for 3.10
 * bugfixes to Cartesian minimization, the cart_bonded term, and especially those two with symmetric Poses
 * symmetric disulfide scoring bugfix
 * [[PolymerBondedEnergyContainer]] bugfix
+* [[LoopModelerMover]] optimize the support for fragment based sampling
 * [[GenKIC]] bugfixes
 * [[remodel]] bugfixes
 * [[Backrub]] bugfix
