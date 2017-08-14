@@ -14,16 +14,16 @@ This filter computes the hamming distance between the current pose sequence and 
 < SequenceDistanceFilter name=(string)
      sequence_comment_id=(string,"true")
      target_seq=(string,"true")
-     threshold=(int, "8000") 
+     threshold=(int,"8000") 
      confidence=(real,"1.0")
 />
 ```
 
 **name** -- A unique string by which a particular instance of the filter will be referred in a RosettaScripts XML file.
 
-**sequence_comment_id** -- The comment id from which the sequence should be loaded from pose. Usually SaveSequenceToComments are used for getting a sequence earlier in the protocol into comments.
+**sequence_comment_id** -- Comment id from which the sequence should be loaded from pose. Usually SaveSequenceToComments are used for getting a sequence earlier in the protocol into comments.
 
-**target_seq** -- Measure the hamming distance between pose and this sequence.
+**target_seq** -- Amino acid sequence to compare pose sequence to.
 
 **threshold** -- The maximum hamming distance.  Default 8000.
 
