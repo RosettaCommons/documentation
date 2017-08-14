@@ -32,15 +32,18 @@ Options = 'Chothia','Enhanced_Chothia','AHo','AHO',
 default='Chothia_Scheme'
 
 -check_cdr_chainbreaks, Boolean,
-Check CDRs of input antibody for chainbreaks upon initializing RosettaAntibody and RosettaAntibodyDesign. 
-Chainbreaks found will result in the model not proceeding. A peptide bond in the loop is considered 
+Check CDRs of input antibody for chainbreaks upon initializing RosettaAntibody 
+and RosettaAntibodyDesign. 
+Chainbreaks found will result in the model not proceeding. 
+A peptide bond in the loop is considered 
 broken if its C-N bond is > 2.0 A,
  default=true
 
 -check_cdr_pep_bond_geom, Boolean,
 Check CDRs of input antibody for bad peptide bond geometry.  
 This checks Ca-C-N and C-N-Ca bond angles for 
--large- deviations from the min max values found in a recent analysis of protein geometry  
+-large- deviations from the min max values found in a recent 
+analysis of protein geometry  
 - Conformation dependence of backbone geometry in proteins. 
 Structure -.  
 
@@ -54,7 +57,8 @@ Many older antibody structures have some of these issues.,
 -allow_omega_mismatches_for_north_clusters, Boolean,
 Skip first grouping Cis and Trans for North/Dunbrack clusters 
 in which a Cis/Trans designation currently does not exist. 
-If you get an NA, or a warning when identifying CDRs, change this option to true.  
+If you get an NA, or a warning when identifying CDRs, 
+change this option to true.  
 Currently only used for the RosettaAntibodyDesign (RAbD) Framework.,
  default=false
 
