@@ -1,4 +1,4 @@
-#LongestContinuousPolarSegment
+#SequenceDistanceFilter
 
 Documentation by Christoffer Norn (ch.norn@gmail.com).  Page created 14 August 2017.
 
