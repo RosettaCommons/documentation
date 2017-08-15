@@ -68,7 +68,8 @@ PRE-NOTES for 3.10
 * Improved the output formatting for errors - in the vanishingly rare case that an error occurs with Rosetta, you are now more likely to get a useful and interpretable error message.
 * bugfixes to PDB->Pose construction logic arising from missing atoms at termini
 * removed unimplemented fa_plane term.  A zero-weight fa_plane term was a feature of a large number of scorefunctions, which was planely wrong.  This may cause issues using legacy scoring weight sets with Rosetta 3.9: just remove the unused fa_plane term in your weights file.
-* [[AlignmentCleaner]] filters -- useful for removing epistasis from MSAs
+* [[AlignmentAAFinderFilter]] filter -- Scans through an alignment, tests all possible amino acids at each position, and generates a file of passing amino acids.
+* [[AlignmentGapInserterFilter]] filter -- Scans through an alignment and inserts gaps where positions in the alignment are not representative of the chemical environment of the pose sequence. Useful for removing epistasis from a MSA.
 * [[NearNativeLoopCloser]] bugfix
 * bugfixes to Cartesian minimization, the cart_bonded term, and especially those two with symmetric Poses
 * symmetric disulfide scoring bugfix
