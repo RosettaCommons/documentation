@@ -47,7 +47,7 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -random_start
 ```
 
-## Dock Design
+### Dock Design
 
 
 In this example, we use integrated RosettaDock (with sequence design during the high-res step) to sample the antibody-antigen orientation, but we don't care where the antibody binds to the antigen.  Just that it binds. IE - No Constraints. The RAbD protocol always has at least Paratope SiteConstraints enabled to make sure any docking is contained to the paratope (like most good docking programs).
@@ -80,7 +80,7 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs L1 L2 L3 \
 -use_epitope_constraints -paratope_cdrs L1 L2 L3 -epitope 63A 63A:A 64 -random_start
 ```
 
-## Instruction File Customization
+### Instruction File Customization
 More complicated design runs can be created by using the Antibody Design Instruction file.  This file allows complete customization of the design run. See below for a review of the syntax of the file and possible customization.
 
 ```
