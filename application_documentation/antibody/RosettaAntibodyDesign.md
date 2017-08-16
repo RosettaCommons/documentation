@@ -80,6 +80,15 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs L1 L2 L3 \
 -use_epitope_constraints -paratope_cdrs L1 L2 L3 -epitope 63A 63A:A 64 -random_start
 ```
 
+## Instruction File Customization
+More complicated design runs can be created by using the Antibody Design Instruction file.  This file allows complete customization of the design run. See below for a review of the syntax of the file and possible customization.
+
+```
+antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
+-graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda \
+-instruction_file my_instruction_file.txt
+```
+
 ## Advanced Settings
 
 Here, we will disallow ANY sequence design into Proline residues and Cysteine residues, while giving a resfile to further LIMIT design and packing as specific positions. These can be given as 3 or 1 letter codes and mixed codes such as PRO and C are accepted. Note that the resfile does NOT turn any residues ON, it is simply used to optionally LIMIT design residue types and design and packing positions.
@@ -134,15 +143,6 @@ Description of the option (default 1): "If designing using profiles, this is the
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda \
 -design_H3_stem -inner_KT 2.0 -outer_KT 2.0 -seq_design_profile_samples 5
-```
-
-### Instruction File
-More complicated design runs can be created by using the Antibody Design Instruction file.  This file allows complete customization of the design run. See below for a review of the syntax of the file and possible customization.
-
-```
-antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
--graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda \
--instruction_file my_instruction_file.txt
 ```
 
 # Antibody Design Instruction File:
