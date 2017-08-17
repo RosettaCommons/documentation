@@ -20,6 +20,8 @@ Broadly, the RAbD protocol consists of alternating outer and inner Monte Carlo c
 
 Backbone dihedral angle (CircularHarmonic) constraints derived from the cluster data are applied to each CDR to limit deleterious structural perturbations. Amino acid changes are typically sampled from profiles derived for each CDR cluster in PyIgClassify. Conservative amino acid substitutions (according to the BLOSUM62 substitution matrix) may be performed when too few sequences are available to produce a profile (e.g., for H3). After each inner cycle is completed, the new sequence and structure are accepted according to the Metropolis Monte Carlo criterion. After N rounds within the inner cycle, the program returns to the outer cycle, at which point the energy of the resulting design is compared to the previous design in the outer cycle. The new design is accepted or rejected according to the Monte Carlo criterion.
 
+If optimizing the antibody-antigen orientation during the design (dock), SiteConstraints are automatically used to keep the CDRs (paratope) facing the antigen surface.  These are termed **ParateopSiteConstraints**.   Optionally, one can enable constraints that keep the paratope of the antibody around a target epitope (antigen binding site).  These are called **ParatopeEpitopeSiteConstraints** as the constraints are between the paratope and the epitope. The epitope is automatically determined as the interface residues around the paratope on input into the program, however, any residue(s) can be set as the epitope to limit unwanted movement and sampling of the antibody.  See the examples and options below. 
+
 More detail on the algorithm can be found in the published paper. 
 
 # Setup and Inputs
