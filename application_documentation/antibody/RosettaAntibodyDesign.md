@@ -164,7 +164,7 @@ The Antibody Design Instruction File handles CDR-level control of the algorithm 
 
 ## Default Settings
 
-## GraftDesign Sampling Algorithms
+# GraftDesign Sampling Algorithms
 These change the way CDRs are sampled from the antibody design database.   They can be specified using the <code>-design_protocol</code> flag.
 
  - **Even Cluster Monte Carlo (DEFAULT)** 
@@ -184,7 +184,7 @@ These change the way CDRs are sampled from the antibody design database.   They 
   - `-design_protocol deterministic_graft`
   - Deterministic Graft is meant to try every CDR combination from the CDRSet (the set of clusters and structures).  The outer loop is done deterministically for each CDR in a set.  It is very useful for trying small numbers of combinations - such as all loop lengths >=12 for H2 or all CDRs of a particular cluster.  Note that there is no outer monte carlo, so the final designs are the best found by the protocol, and each sampling is independent from the others. If you have too many structures in your CDRSet (such as all L1) and you try combos that are beyond a certain limit (AKA - they will never finish), you will error out.  Once a Multi-Threaded Rosetta is working (should be early 2018), trying all possibilities is certainly something that is more plausible.  If you are interested in using something like this, please email the author.
 
-## Structure Optimization Types (mintypes)
+# Structure Optimization Types (mintypes)
 These Mintypes can be independently set for each CDR through the instruction file or generally set using the command line option `-mintype` option.  The default is `min` as this has some optimization and does not take a very long time.  Although we refer to 'design' we mean side-chain packing, with any residues/CDRs set to design as designing, any residues set to design will design during packing as this is how Rosetta designs sequences.  For further information on the algorithm and strategies used for sequence design, please see the instruction file overview and the methods section of the paper. 
 
 Circular Harmonic Dihedral Constraints are added to each CDR according the cluster of the CDR or the starting dihedrals if this is a rare cluster that has no data.  These ensure that minimization and design does not destroy the loop.
@@ -217,7 +217,7 @@ Circular Harmonic Dihedral Constraints are added to each CDR according the clust
  - Flexibility is extremely minimal, but in some cases may be useful. 
  - [(Original Backrub Citation)](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000393)
 
-##RosettaScripts and PyRosetta
+#RosettaScripts and PyRosetta
 
 The Full protocol that is the application is available to RosettaScripts as the [[AntibodyDesignProtocol]].  This just has a few extra options before and after design such as running fast relax and or snug dock. 
 
@@ -225,9 +225,9 @@ The Configurable main Mover is available as the [[AntibodyDesignMover]].
 
 [[Individual components | Movers-RosettaScripts#antibody-modeling-and-design-movers]] of RAbD can be used to create your own custom antibody modeling and design protocols in RosettaScripts (or PyRosetta). 
 
-## Full Options List
+# Full Options List
 
-##See Also
+#See Also
 
 * [[Rosetta Antibody Design (RAbD) Manual | RosettaAntibodyDesign]]
 * [[General Antibody Tips | General-Antibody-Options-and-Tips]]
