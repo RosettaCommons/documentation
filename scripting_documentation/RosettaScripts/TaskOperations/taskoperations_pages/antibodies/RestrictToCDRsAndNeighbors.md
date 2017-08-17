@@ -7,6 +7,7 @@ Jared Adolf-Bryfogle; jadolfbr@gmail.com;
 PI: Roland Dunbrack
 
 Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
+* [[Rosetta Antibody Design (RAbD) Manual | RosettaAntibodyDesign]]
 
 ### Brief
 Task Operation to restrict packing to specific CDRs and neighbors. Will disable packing AND design for all other residues. See the design options for further control. 
