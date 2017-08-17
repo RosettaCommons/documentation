@@ -39,8 +39,8 @@ The following flags apply to all SEWING movers (see below) except when noted. Mo
 ```
 -s                              The input PDB (ignored, but still required,
                                 for many SEWING Movers)
--sewing:model_file_name         The name of the SEWING model file
--sewing:score_file_name         The name of the SEWING edge file
+-legacy_sewing:model_file_name         The name of the SEWING model file
+-legacy_sewing:score_file_name         The name of the SEWING edge file
 
 ```
 
@@ -79,19 +79,19 @@ In the current implementation, the following flags are also required for scoring
 ###Optional flags
 
 ```
--sewing:assembly_type generate  The type of Assembly to generate 
+-legacy_sewing:assembly_type generate  The type of Assembly to generate 
                                 (allows 'continuous' and 'discontinuous')
                                 (Default=continuous)
--sewing:base_native_bonus       The bonus in Rosetta energy units to give 
+-legacy_sewing:base_native_bonus       The bonus in Rosetta energy units to give 
                                 'native' residues during design (default 1)
--sewing:neighbor_cutoff         The cutoff for favoring natives. Any residue
+-legacy_sewing:neighbor_cutoff         The cutoff for favoring natives. Any residue
                                 with fewer neighbors in the Assembly will not
                                 be favored (default: 16)
--sewing:skip_refinement         If true, no full-atom refinement will be run on the 
+-legacy_sewing:skip_refinement         If true, no full-atom refinement will be run on the 
                                 completed Assembly (Default = false)
--sewing:skip_filters            If true, all filters will be skipped during Assembly 
+-legacy_sewing:skip_filters            If true, all filters will be skipped during Assembly 
                                 generation (Default = false)
--sewing:dump_every_model        Dump all models regardless of whether they
+-legacy_sewing:dump_every_model        Dump all models regardless of whether they
                                 pass score filters; useful for debugging
                                 (Default false)
 ```
@@ -100,12 +100,12 @@ In the current implementation, the following flags are also required for scoring
 
 ```
 
--sewing:max_ss_num      Maximum number of secondary structure 
+-legacy_sewing:max_ss_num      Maximum number of secondary structure 
                         elements and loops that compose
                         a substructure. For instance, this
                         number would be 3 for a helix-turn-helix
                         motif. (still under development)
--sewing:num_edges_to_follow     The maximum number of edges from the SewGraph 
+-legacy_sewing:num_edges_to_follow     The maximum number of edges from the SewGraph 
                                 that will be followed. For instance, following  
                                 4 edges in a graph of helix-loop-helix motifs 
                                 will produce a 5-helix bundle. Currently not in  
