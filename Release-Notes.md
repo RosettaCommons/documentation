@@ -21,14 +21,14 @@ PRE-NOTES for 3.10
 
 ##New or updated features
 ###Applications
-* [[dock_glycans]]
+* [[RosettaAntibodyDesign]] Application released!!
+* [[dock_glycans]] bug fixes
 * [[Hydrate/SPaDES protocol]] include: solvent-protein interactions in a hybrid implicit-explicit solvation model.
 * [[interface_energy]] - distinct from [[InterfaceAnalyzer]], and also well documented
 * [[RosettaCM]] / [[HybridizeMover]] - improvements to error handling for mismatched template lengths
 * Antibody homology modeling works with only a heavy chain present
 * [[RosettaES]]
 * [[shobuns]] - Buried UNSatisfied polar atoms for the SHO solvation model
-* [[RosettaAntibodyDesign]] updates
 
 ###RosettaScripts tools
 * RosettaScripts available from within PyRosetta - great for when you really, really, really don't want to think about Rosetta's C++ core
@@ -38,7 +38,7 @@ PRE-NOTES for 3.10
 * [[SwitchChainOrderMover]] bugfix
 * [[buried_apolar_area_filter]] - filters based on buried surface area (VIKRAM what is name?)
 *     Add a filter to compute the longest continuous stretch of polar residues in a pose or selection - VIKRAM what is name?
-* [[ResidueProbDesignOperation]]
+* [[ResidueProbDesignOperation]] (used originally for [[RosettaAntibodyDesign]] ) can now take a text file of residue probabilities per position and is available in RosettaScripts
 * [[ReturnSidechainMover]] - works better with stuff like phosphorylated residues, and broadly produces more useful warnings/errors
 * Metals:
     * [[MetalContactsConstraintGenerator]] adds distance, angle, and dihedral constraints between (optionally specified) contacts and a user-specified metal atom, either as a single ion or as part of a ligand.
@@ -87,10 +87,10 @@ PRE-NOTES for 3.10
 * Implementation of mean-field algorithm to predict rotamer or amino acid probability. Can be used to determine preorganization of residues or predict specificity profile for protein-protein or protein-peptide interactions.  ALIZA - link?
 
 ###Nonprotein chemistries
-* Improvements to glycan handling
+* Improvements to internal glycan handing and IO. (For PDB import use the options `-auto_detect_glycan_connections` and `-alternate_3_letter_codes pdb_sugar`.  For more information, please see [[WorkingWithGlycans]]
 * Improvements to both automatic and user-specified handling of metal ions
 * A few more lipids are available for explicit membrane modeling (this is distinct from the implicit membrane scorefunction)
-* Better writing of LINK records in PDB output
+* Better and automatic writing of LINK records in PDB output
 * Rosetta is more able to figure out missing chemistry data automatically:
     * It can guess at torsion parameters when otherwise missing when scoring the cart_bonded (Cartesian minimization) term
     * It is able to automatically generate centroid (nonpolymeric) residue types when the fullatom type is present - great for split centroid/fullatom protocols where the user has created only the fullatom params file for their ligand.
@@ -99,7 +99,7 @@ PRE-NOTES for 3.10
     * cyclization via disulfide (instead of simply including disulfides)
     * N-methyl amino acids, for getting rid of that pesky backbone hydrogen bond donor
     * 2-aminoisobutyric acid (AIB), a non-canonical, achiral alpha-amino acid that strongly favours helices (both left- and right-handed).  AIB is to ALA as bactrian is to dromedary.  (That makes glycine a horse).
-* Glycan Relax - Version 2
+* Glycan Relax - Version 2 [[GlycanTreeRelax]]
 
 <!--- END_INTERNAL -->
 
