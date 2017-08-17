@@ -8,7 +8,7 @@ Last Doc Update: 7/20/2017
 [[_TOC_]]
 
 # Overview
-**RosettaAntibodyDesign (RAbD)** has been created as a _generalized framework_ for the design of antibodies using Rosetta in which a user can easily tailor the run to their needs.  **The algorithm is meant to sample the diverse sequence, structure, and binding space of an antibody-antigen complex.** It can be used for a multitude of project types, from denovo design to redesigns that improve binding affinity, optimize stability, or manipulate function.  
+**RosettaAntibodyDesign (RAbD)** has been created as a generalized framework for the design of antibodies using Rosetta in which a user can easily tailor the run to their needs.  **The algorithm is meant to sample the diverse sequence, structure, and binding space of an antibody-antigen complex.** It can be used for a multitude of project types, from denovo design to redesigns that improve binding affinity, optimize stability, or manipulate function.  
 
 The framework is based on rigorous bioinformatic analysis and rooted very much on our [recent clustering](https://www.ncbi.nlm.nih.gov/pubmed/21035459) of antibody CDR regions.  It uses the **North/Dunbrack CDR definition** as outlined in the North/Dunbrack clustering paper. 
 
