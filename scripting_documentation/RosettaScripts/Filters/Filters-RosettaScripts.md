@@ -172,6 +172,8 @@ Filters which are useful for combining, modifying or working with other filters 
 
 ### Bonding
 
+**[[ChainBreak|ChainBreakFilter]]** - Filter on number of chain breaks in pose.
+
 **[[HbondsToResidue|HbondsToResidueFilter]]** - Filter on number of h-bonding partners to a residue.
 
 **[[SimpleHbondsToAtom|SimpleHbondsToAtomFilter]]** - Filter on number of h-bonding partners to an atom(s) with significantly simpler logic than HbondsToAtom.
