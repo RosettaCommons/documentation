@@ -7,6 +7,7 @@ Jared Adolf-Bryfogle; jadolfbr@gmail.com;
 PI: Roland Dunbrack
 
 Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
+* [[Rosetta Antibody Design (RAbD) Manual | RosettaAntibodyDesign]]
 
 ### Brief
 Add Cluster-based sets of mutations as a TaskOperation. Essentially samples full sequences of CDRs within a particular CDR cluster randomly each time the packer is called. Does this for each CDR. Uses the MutationSetDesignOperation for the heavy lifting (not currently RS compatible) If a CDR has an unknown cluster or there are no data for that particular CDR, will skip that CDR. CDR definitions used are North/Dunbrack as the clusters are defined using it.
