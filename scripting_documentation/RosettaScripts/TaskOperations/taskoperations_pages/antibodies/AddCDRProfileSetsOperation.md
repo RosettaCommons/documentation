@@ -11,7 +11,6 @@ Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
 ### Brief
 Add Cluster-based sets of mutations as a TaskOperation. Essentially samples full sequences of CDRs within a particular CDR cluster randomly each time the packer is called. Does this for each CDR. Uses the MutationSetDesignOperation for the heavy lifting (not currently RS compatible) If a CDR has an unknown cluster or there are no data for that particular CDR, will skip that CDR. CDR definitions used are North/Dunbrack as the clusters are defined using it.
 
-<!--- BEGIN_INTERNAL -->
 ### Details 
 
 Note that by default, a data cutoff of 10 is set.  If the cluster has less than 10 sequences it will be skipped. Use the set_cutoff function to change this.
@@ -44,7 +43,6 @@ Note that by default, a data cutoff of 10 is set.  If the cluster has less than 
 ### Benchmarking Options
 -   force_north_paper_db (&bool) (default=false): Force the use of the original 2011 North/Dunbrack clustering paper data as the database instead of any up-to-date versions downloaded from PyIgClassify. 
 
-<!--- END_INTERNAL -->
 ##See Also
 
 * [[General Antibody Tips | General-Antibody-Options-and-Tips]]
