@@ -48,11 +48,9 @@ In order to load GLYCAN structures, one can pass the option ```-glycam_pdb_forma
 
 ## Structure Output
 
-In order to write out structures correctly, currently one must pass an option, without which, structures will NOT be able to be read back into Rosetta.  The flag will become default:
+In order to write out structures correctly pdb link records must be output.  This option is now the default.
 
     -write_pdb_link_records
-
-Internally, each linear glycan branch is a different chain ID due to the way Rosetta understands polymer connectivity. Currently, by default, Rosetta will output separate chains for each linear glycan.  This should change at some point in the not-to distant future.
 
 ## Full example
     score.default.macosclangrelease \\
@@ -64,7 +62,6 @@ Internally, each linear glycan branch is a different chain ID due to the way Ros
 
     -ignore_zero_occupancy false \\
     -ignore_unrecognized_res \\
-    -write_pdb_link_records \\
     -out:output \\
     -s 5t3x.pdb
 
@@ -80,8 +77,8 @@ Jason, fill this out!!!
 
 Applications
 ============
-[[GlycanRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
-
+[[GlycanTreeRelax]] - Model glycan trees from the roots out to the foliage.  Works for full denovo modeling or refinement.
+[[GlycanRelax]] - Basic sampling for glycan residues. 
 [[GlycanInfo]] - Get information on all glycan trees within a pose
 
 [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
