@@ -1,5 +1,6 @@
-#RepeatAssemblyMover
-
+#LegacyRepeatAssemblyMover
+##Note: This page is for LegacySEWING.
+**This is an outdated page. For information on the current version of sewing, please visit the [[AssemblyMover]] and [[AppendAssemblyMover]] pages.**
 
 The RepeatAssemblyMover is intended for the design of repeat proteins using the SEWING framework. Due to the graph-traversal based generation of backbones used by SEWING, repeat protein generation is relatively easy; one needs only to find cycles in the graph. This mover is currently under active development, and as such many of the features expected in a SEWING mover may not be implemented (for instance, this mover currently does not respect the RequirementSet)
 
@@ -19,7 +20,7 @@ See [[Assembly of models]] for required and optional command-line options.
 
 ##See Also
 * [[RequirementSet]]
-* [[MonteCarloAssemblyMover]]
-* [[AppendAssemblyMover]]
+* [[LegacyMonteCarloAssemblyMover]]
+* [[LegacyAppendAssemblyMover]]
 * [[Assembly of models]]
 * [[SEWING]]
