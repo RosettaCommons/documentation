@@ -1,6 +1,6 @@
 #Sewing Hasher Application
 ##Note: This page is for LegacySEWING.
-**This is an outdated page. For information on the current version of sewing, please visit the [[Segment File Generation]]**
+**This is an outdated page. For information on the current version of sewing, please visit the [[Segment File Generation]] page. If performing hashed SEWING, visit the [[Edge File Generation]] page. If you don't know what that means, start at the [[SEWING]] home page.**
 ##Purpose
 This application is used to generate model files and edge files to be used in the [[SEWING]] protocol. It is also used to convert SEWING edge files to a more memory-efficient binary format.
 ##References
