@@ -1,5 +1,5 @@
 #Assembly of models
-
+##NOTE: This page is for LegacySEWING.
 **This is an outdated page. For the current Assembly documentation visit the [[AssemblyMover]] page**
 
 Generating de novo backbones (or Assemblys) in the SEWING framework is accomplished by a simple graph traversal. The nodes in this graph, called the SewGraph, are the Models extracted in [[Step 1|model-generation]] of the protocol. The edges are the structural matches found in [[Step 2|model-comparison-with-geometric-hashing]] of SEWING.
