@@ -164,59 +164,56 @@ The Antibody Design Instruction File handles CDR-level control of the algorithm 
 
 ## Default Settings
 
-## Protocols
+## GraftDesign Sampling Algorithms
 These change the way CDRs are sampled from the antibody design database.   They can be specified using the <code>-design_protocol</code> flag.
 
-### Even Cluster Monte Carlo (DEFAULT)
-`-design_protocol even_cluster_mc`
+ - **Even Cluster Monte Carlo (DEFAULT)** 
+ - `-design_protocol even_cluster_mc`
+  - Evenly sample clusters during the GraftDesign stage by first choosing a cluster from all the clusters set to design for the chosen Primary CDR and then choosing a structure within that cluster.
 
- - Evenly sample clusters during the GraftDesign stage by first choosing a cluster from all the clusters set to design for the chosen Primary CDR and then choosing a structure within that cluster.
+ - **Even Length and Cluster Monte Carlo** 
+  - `-design_protocol even_length_cluster_mc`
+  - Evenly sample lengths and clusters during the GraftDesign stage by first choosing a length from the set of lengths for the chosen Primary CDR and the a cluster from the set of clusters, and then finally a structure within that cluster.  Useful to broaden set of lengths sampled during the protocol.
 
-### Even Length and Cluster Monte Carlo
-`-design_protocol even_length_cluster_mc`
-
- - Evenly sample lengths and clusters during the GraftDesign stage by first choosing a length from the set of lengths for the chosen Primary CDR and the a cluster from the set of clusters, and then finally a structure within that cluster.  Useful to broaden set of lengths sampled during the protocol.
-
-### Generalized Monte Carlo
-`-design_protocol gen_mc`
-
+- **Generalized Monte Carlo** 
+ - `-design_protocol gen_mc`
  - Sample CDRs to GraftDesign according to their distribution in the database.  This results in common clusters and lengths being sampled more frequently.  However, these lengths/clusters may not be those regularly seen in nature vs regularly crystalized.  AKA - they are biased towards crystals, however, they have more profile data associated with them.
 
 
-### Deterministic Graft
-`-design_protocol deterministic_graft`
-Deterministic Graft is meant to try every CDR combination from the CDRSet (the set of clusters and structures).  The outer loop is done deterministically for each CDR in a set.  It is very useful for trying small numbers of combinations - such as all loop lengths >=12 for H2 or all CDRs of a particular cluster.  Note that there is no outer monte carlo, so the final designs are the best found by the protocol, and each sampling is independent from the others. If you have too many structures in your CDRSet (such as all L1) and you try combos that are beyond a certain limit (AKA - they will never finish), you will error out.  Once a Multi-Threaded Rosetta is working (should be early 2018), trying all possibilities is certainly something that is more plausible.  If you are interested in using something like this, please email the author.
+ - **Deterministic Graft**
+  - `-design_protocol deterministic_graft`
+  - Deterministic Graft is meant to try every CDR combination from the CDRSet (the set of clusters and structures).  The outer loop is done deterministically for each CDR in a set.  It is very useful for trying small numbers of combinations - such as all loop lengths >=12 for H2 or all CDRs of a particular cluster.  Note that there is no outer monte carlo, so the final designs are the best found by the protocol, and each sampling is independent from the others. If you have too many structures in your CDRSet (such as all L1) and you try combos that are beyond a certain limit (AKA - they will never finish), you will error out.  Once a Multi-Threaded Rosetta is working (should be early 2018), trying all possibilities is certainly something that is more plausible.  If you are interested in using something like this, please email the author.
 
 ## Structure Optimization Types (mintypes)
 These Mintypes can be independently set for each CDR through the instruction file or generally set using the command line option `-mintype` option.  The default is `min` as this has some optimization and does not take a very long time.  Although we refer to 'design' we mean side-chain packing, with any residues/CDRs set to design as designing, any residues set to design will design during packing as this is how Rosetta designs sequences.  For further information on the algorithm and strategies used for sequence design, please see the instruction file overview and the methods section of the paper. 
 
 Circular Harmonic Dihedral Constraints are added to each CDR according the cluster of the CDR or the starting dihedrals if this is a rare cluster that has no data.  These ensure that minimization and design does not destroy the loop.
 
-### Min (DEFAULT)
-`-mintype min`
- -  Cycle of design->min->design->min
- -  Results in good structures, however not as good as relax in recovering native physical characteristics.  Significantly faster.
+ - **Min (DEFAULT)** 
+  - `-mintype min`
+  -  Cycle of design->min->design->min
+  -  Results in good structures, however not as good as relax in recovering native physical characteristics.  Significantly faster.
 
-### Cartesian Min
-`-mintype cartmin`
- - Cycle of design->min->design->min
- - Cartesian Space.
- - Automatically adds cart_bonded term if not present and turns off pro_close
+ - **Cartesian Min** 
+  - `-mintype cartmin`
+  - Cycle of design->min->design->min
+  - Cartesian Space.
+  - Automatically adds cart_bonded term if not present and turns off pro_close
 
-### Relax
-`-mintype relax`
- - Flexible Backbone design using `RelaxedDesign`, which is neighbor-aware design during FastRelax where the packing shell to the designing CDRs is updated at every packing iteration. 
- - Results in lower energies and closer physical characteristics to native, but takes significantly longer.  It is recommended to first run min and then relax mintype on the top resulting models.
- - [(Citation)](https://www.ncbi.nlm.nih.gov/pubmed/21073878)
+ - **Relax** 
+  - `-mintype relax`
+  - Flexible Backbone design using `RelaxedDesign`, which is neighbor-aware design during FastRelax where the packing shell to the designing CDRs is updated at every packing iteration. 
+  - Results in lower energies and closer physical characteristics to native, but takes significantly longer.  It is recommended to first run min and then relax mintype on the top resulting models.
+  - [(Citation)](https://www.ncbi.nlm.nih.gov/pubmed/21073878)
 
-### Dualspace Relax
-`-mintype dualspace_relax`
- - Flexible Backbone design using 'RelaxedDesign' while optimizing both Dihedral and Cartesian space.  [Dualspace Relax Protocol Paper](https://www.ncbi.nlm.nih.gov/pubmed/24265211)
+ - **Dualspace Relax** 
+  - `-mintype dualspace_relax`
+  - Flexible Backbone design using 'RelaxedDesign' while optimizing both Dihedral and Cartesian space.  [Dualspace Relax Protocol Paper](https://www.ncbi.nlm.nih.gov/pubmed/24265211)
 
-### Backrub
-`-mintype backrub`
- - Use backrub to optimize the CDRs.  backrub->design
- - Use the `-add_backrub_pivots 11A 12A 12A:B ` option to add additional sets of back rub pivots, such as to add flexibility to the antigen interface 
+ -  **Backrub** 
+  - `-mintype backrub`
+  - Use backrub to optimize the CDRs.  backrub->design
+  - Use the `-add_backrub_pivots 11A 12A 12A:B ` option to add additional sets of back rub pivots, such as to add flexibility to the antigen interface 
  - Flexibility is extremely minimal, but in some cases may be useful. 
  - [(Original Backrub Citation)](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000393)
 
