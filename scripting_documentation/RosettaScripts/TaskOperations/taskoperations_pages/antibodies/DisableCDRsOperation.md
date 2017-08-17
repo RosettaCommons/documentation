@@ -7,6 +7,7 @@ Jared Adolf-Bryfogle; jadolfbr@gmail.com;
 PI: Roland Dunbrack
 
 Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
+* [[Rosetta Antibody Design (RAbD) Manual | RosettaAntibodyDesign]]
 
 ###Purpose
 Disable Packing and/or design of a set of CDRs.  By default, disables both packing and design of all CDRs.
