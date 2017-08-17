@@ -150,25 +150,19 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 ```
 
 # Antibody Design Instruction File:
-The Antibody Design Instruction File handles CDR-level control of the algorithm and design.  It is used to create the CDRSet for sampling whole CDRs from the PDB, as well as fine-tuning the minimization steps and sequence design strategies.  For each option, 'ALL' can be given to control all of the CDRs at once.  Specific capitalization of commands are not needed, and are used for style. Commands are broken down into 4 types, each controlling different aspects of the protocol:
-
-- GraftDesign
-- SeqDesign
-- CDRSet
-- MinProtocol
+The Antibody Design Instruction File handles CDR-level control of the algorithm and design.  It is used to create the CDRSet for sampling whole CDRs from the PDB, as well as fine-tuning the minimization steps and sequence design strategies.  For each option, 'ALL' can be given to control all of the CDRs at once.  Specific capitalization of commands are not needed, and are used for style. Commands are broken down into 4 types, each controlling different aspects of the protocol including the GraftDesign stage, SeqDesign Stage, the Minimization type, and specific sequence design settings.
 
 ## Syntax
 
-### GraftDesign
+ - GraftDesign
 
-### SeqDesign
+ - SeqDesign
 
-### CDRSet
+ - CDRSet
 
-### MinProtocol
+ - MinProtocol
 
 ## Default Settings
-
 
 ## Protocols
 These change the way CDRs are sampled from the antibody design database.   They can be specified using the <code>-design_protocol</code> flag.
@@ -234,6 +228,7 @@ The Configurable main Mover is available as the [[AntibodyDesignMover]].
 
 [[Individual components | Movers-RosettaScripts#antibody-modeling-and-design-movers]] of RAbD can be used to create your own custom antibody modeling and design protocols in RosettaScripts (or PyRosetta). 
 
+## Full Options List
 
 ##See Also
 
