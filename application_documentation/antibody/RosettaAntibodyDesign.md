@@ -288,10 +288,10 @@ Option | Description
 `-seq_design_cdrs`| _Enable these CDRs for Sequence-Design.  (Can be set here or in the instructions file. Overrides any set in instructions file if given ) Ex -seq_design_cdrs L1 L2 L3 h1_
 `-graft_design_cdrs` | _Enable these CDRs for Graft-Design.  (Can be set here or in the instructions file. Overrides any set in instructions file if given) Ex -graft_design_cdrs L1 L2 L3 h1_		
 `-primary_cdrs` | _Manually set the CDRs which can be chosen in the outer cycle. Normally, we pick any that are sequence-designing._		
-`-mintype`| _The default mintype for all CDRs.  Individual CDRs may be set via the instructions file_ (Legal = "min", "cartmin", "relax", "backrub", "pack", "dualspace_relax", "cen_relax", "none") (Default=min)
+`-mintype`| _The default mintype for all CDRs.  Individual CDRs may be set via the instructions file_ (_Options = min, cartmin, relax, backrub, pack, dualspace_relax, cen_relax, none_) (**Default=min**)
 `-disallow_aa` | _Disallow certain amino acids while sequence-designing (could still be in the graft-designed sequence, however).  Useful for optimizing without, for example, cysteines and prolines. Applies to all sequence design profiles and residues from any region (cdrs, framework, antigen).  You can control this per-cdr (or only for the CDRs) through the CDR-instruction file. A resfile is also accepted if you wish to limit specific positions directly._ (Three or One letter codes)
-`-top_designs`| _Number of top designs to keep (ensemble).  These will be written to a PDB and each move onto the next step in the protocol_. (Default=1)
-`-do_dock` | Run a short lowres + highres docking step in the inner cycles.  (dock/min).  Recommended 2 inner cycles for better coverage. (dock/min/dock/min). Inner/Outer loops for highres are hard coded, while low-res can be changed through regular low_res options.  If sequence design is enabled, will design regions/CDRs set during the high-res dock (Default='false')
+`-top_designs`| _Number of top designs to keep (ensemble).  These will be written to a PDB and each move onto the next step in the protocol_. (**Default=1**)
+`-do_dock` | Run a short lowres + highres docking step in the inner cycles.  (dock/min).  Recommended 2 inner cycles for better coverage. (dock/min/dock/min). Inner/Outer loops for highres are hard coded, while low-res can be changed through regular low_res options.  If sequence design is enabled, will design regions/CDRs set during the high-res dock (**Default=false**)
 
 
 -------------------------------------
@@ -302,7 +302,7 @@ Option | Description
 ------------ | -------------
 `outer_cycle_rounds` | Rounds for outer loop of the protocol (not for deterministic_graft ).  Each round chooses a CDR and designs. One run of 100 cycles with relax takes about 12 hours. If you decrease this number, you will decrease your run time significantly, but your final decoys will be higher energy.  Make sure to increase the total number of output structures (nstruct) if you use lower than this number.  Typically about 500 - 1000 nstruct is more than sufficient.  Full DeNovo design will require significantly more rounds and nstruct.  If you are docking, runs take about 30 percent longer. (**Default=25**)
 `-inner_cycle_rounds` | Number of times to run the inner minimization protocol after each graft.  Higher (2-3) rounds recommended for pack/min/backrub mintypes or if including dock in the protocol. (**Default = 1**)
-`-dock_cycle_rounds` | Number of rounds for any docking.  If you are seeing badly docked structures, increase this value. (Default=1)
+`-dock_cycle_rounds` | Number of rounds for any docking.  If you are seeing badly docked structures, increase this value. (**Default=1**)
 
 ----------------------------
 
@@ -311,7 +311,7 @@ Option | Description
 Option | Description
 ------------ | -------------
 `-interface_dis` | Interface distance cutoff.  Used for repacking of interface, epitope detection, etc. (**Default=8.0**)
-`-`neighbor_dis` | Neighbor distance cutoff.  Used for repacking after graft, minimization, etc. (Default=6.0)
+`-neighbor_dis` | Neighbor distance cutoff.  Used for repacking after graft, minimization, etc. (**Default=6.0**)
 
 
 ---------------------------
@@ -322,9 +322,9 @@ Option | Description
 
 Option | Description
 ------------ | -------------
-`-paratope` | Use these CDRs as the paratope. Default is all of them.  Currently only used for constraints. Note that these site constraints are only used during docking unless -enable_full_protocol_atom_pair_cst is set (Ex -paratope L1 h1(.
+`-paratope` | Use these CDRs as the paratope. Default is all of them.  Currently only used for SiteConstraints. Note that these site constraints are only scored docking unless _-enable_full_protocol_atom_pair_cst_ is set (Ex -paratope L1 h1)
 `-epitope` | Use these residues as the antigen epitope.  Default is to auto-identify them within the set interface distance at protocol start if epitope constraints are enabled. Currently only used for constraints.  PDB Numbering. Optional insertion code. Example: 1A 1B 1B:A. Note that these site constraints are only used during docking unless -enable_full_protocol_atom_pair_cst is set.
-`-use_epitope_constraints` | Enable use of epitope constraints to add SiteConstraints between the epitope and paratope.  Note that paratope constraints are always used.  Note that these site constraints are only used during docking unless -global_atom_pair_cst_scoring is set.(Default = false)
+`-use_epitope_constraints` | Enable use of epitope constraints to add SiteConstraints between the epitope and paratope.  Note that paratope constraints are always used.  Note that these site constraints are only used during docking unless -global_atom_pair_cst_scoring is set.(**Default = false**)
 
 ------------------------------
 
@@ -335,7 +335,7 @@ Option | Description
 ------------ | -------------
 `-design_antigen` | Design antigen residues during sequence design.  Intelligently.  Typically, only the neighbor antigen residues of designing cdrs or interfaces will be co-designed.  Useful for specific applications.(**Default = false**)
 `-design_framework` | Design framework residues during sequence design.  Typically done with only neighbor residues of designing CDRs or during interface minimization. (**Default = false**)
-`-conservative_framework_design` | 'If designing Framework positions, use conservative mutations instead of all of them.'(Default=true)
+`-conservative_framework_design` | 'If designing Framework positions, use conservative mutations instead of all of them.'(**Default=true**)
 
 
 ---------------------------
@@ -356,8 +356,8 @@ Option | Description
 
 Option | Description
 ------------ | -------------
-`-seq_design_stats_cutoff` | Value for probabilistic -> conservative sequence design switch.  If number of total sequences used for probabilistic design for a particular cdr cluster being designed is less than this value, conservative design will occur. More data = better predictability.'Integer' (default='10')
-`-seq_design_profile_samples` | If designing using profiles, this is the number of times the profile is sampled each time packing done.  Increase this number to increase variability of designs - especially if not using relax as the mintype. (Default='1')
+`-seq_design_stats_cutoff` | Value for probabilistic -> conservative sequence design switch.  If number of total sequences used for probabilistic design for a particular cdr cluster being designed is less than this value, conservative design will occur. More data = better predictability. (**Default=10**)
+`-seq_design_profile_samples` | If designing using profiles, this is the number of times the profile is sampled each time packing done.  Increase this number to increase variability of designs - especially if not using relax as the mintype. (**Default=1**)
 
 
 ---------------------------
@@ -370,7 +370,7 @@ Option | Description
 `-dihedral_cst_weight` | Weight to use for CDR CircularHarmonic cluster-based or general constraints that are automatically added to each structure and updated after each graft. Set to zero if you dont want to use these constraints. Note that they are not used for the backrub mintype. Overrides weight/patch settings.(**Default = .3**)
 `-atom_pair_cst_weight` | Weight to use for Epitope/Paratope SiteConstraints.  Paratope Side contraints are always used.  Set to zero to completely abbrogate these constraints. Overrides weight/patch settings.'Real' (**Default = 0.01**)
 `-global_dihedral_cst_scoring` | Use the dihedral cst score throughout the protocol, including final scoring of the poses instead of just during minimization step (**Default = false**)
-`-global_atom_pair_cst_scoring` | Use the atom pair cst score throughout the protocol, including final scoring of the poses instead of just during docking. Typically, the scoreterm is set to zero for scorefxns other than docking to decrease bias via loop lengths, relax, etc.  It may indeed help to target a particular epitope quicker during monte carlo design if epitope constraints are in use, as well for filtering final models on score towards a particular epitope if docking. (Default = 'true')
+`-global_atom_pair_cst_scoring` | Use the atom pair cst score throughout the protocol, including final scoring of the poses instead of just during docking. Typically, the scoreterm is set to zero for scorefxns other than docking to decrease bias via loop lengths, relax, etc.  It may indeed help to target a particular epitope quicker during monte carlo design if epitope constraints are in use, as well for filtering final models on score towards a particular epitope if docking. (**Default = true**)
 
 ------------------------------------
 
@@ -392,7 +392,7 @@ Option | Description
 Option | Description
 ------------ | -------------
 `-use_outliers` | Include outlier data for GraftDesign, profile-based sequence design stats, and cluster-based dihedral constraints.  Outliers are defined as having a dihedral distance of > 40 degrees and an RMSD of >1.5 A to the cluster center.  Use to increase sampling of small or rare clusters. (**Default=false**)
-`-use_H3_graft_outliers', | Include outliers when grafting H3.  H3 does not cluster well, so most structures have high dihedral distance and RMSD to the cluster center.  Due to this, cluster-based dihedral constraints for H3 are not used.  Sequence profiles can be used for clusters, but not usually. (**Default = true**)
+`-use_H3_graft_outliers` | Include outliers when grafting H3.  H3 does not cluster well, so most structures have high dihedral distance and RMSD to the cluster center.  Due to this, cluster-based dihedral constraints for H3 are not used.  Sequence profiles can be used for clusters, but not usually. (**Default = true**)
 `-use_only_H3_kinked` | Remove any non-kinked CDRs from the CDRSet if grafting H3.  For now, the match is based on the ramachandran area of the last two residues of the H3. Kinked in this case is defined as having AB or DB regions at the end.  Will be improved for detection (**Default = false**)
 
 -----------------------------------
@@ -401,10 +401,10 @@ Option | Description
 
 Option | Description
 ------------ | -------------
-`-design_protocol` | Set the main protocol to use.  Note that deterministic is currently only available for the grafting of one CDR. (Options = ['gen_mc', 'even_cluster_mc', 'even_length_cluster_mc', 'deterministic_graft')(**Default=even_cluster_mc**)
+`-design_protocol` | Set the main protocol to use.  Note that deterministic is currently only available for the grafting of one CDR. (_Options = gen_mc, even_cluster_mc, even_length_cluster_mc, deterministic_graft_)(**Default=even_cluster_mc**)
 `-run_snugdock` | Run snugdock on each ensemble after designing. (**Default=false**)
-`-run_relax` | Run Dualspace Relax on each ensemble after designing (after snugdock if run). Also output pre-relaxed structures (**Default = 'false**)
-`-run_interface_analyzer`| Run the Interface Analyzer and add the information to the resulting score function for each top design output. (Default = 'true')
+`-run_relax` | Run Dualspace Relax on each ensemble after designing (after snugdock if run). Also output pre-relaxed structures (**Default = false**)
+`-run_interface_analyzer`| Run the Interface Analyzer and add the information to the resulting score function for each top design output. (**Default = true**)
 
 --------------------------------------
 
@@ -423,7 +423,7 @@ Option | Description
 
 Option | Description
 ------------ | -------------
-`-random_start` | Start graft design (currently) with a new set of CDRs from the CDRSets as to not bias the run with native CDRs. (Default='false'
+`-random_start` | Start graft design (currently) with a new set of CDRs from the CDRSets as to not bias the run with native CDRs. (**Default=false**)
 `-remove_antigen` | Remove the antigen from the pose before doing any design on it (**Default = false**)
 `add_graft_log_to_pdb` | Add the full graft log to the output pose.  Must also pass -pdb_comments option. (**Default = 'true'**)
 
