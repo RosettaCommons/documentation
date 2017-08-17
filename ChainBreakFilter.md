@@ -12,8 +12,9 @@ This filter counts the number of chain break in the pose. A chain break is here 
 
 ```xml
 < ChainBreak name="(&string)" 
-    chain_num="(beta_nov16 &string)" 
-    exclude_AA_threshold="(10.0 &float)" 
+    chain_num="(1 &int)" 
+    tolerance="(0.13 &float)"
+    threshold="(1 &int)" 
 />
 ```
 
@@ -22,4 +23,3 @@ This filter counts the number of chain break in the pose. A chain break is here 
 **tolerance** -- How many angstrom may the bond length deviate from the ideal (1.33 AA)
 
 **threshold** -- How many chain breaks needed for the filter to report failure
-
