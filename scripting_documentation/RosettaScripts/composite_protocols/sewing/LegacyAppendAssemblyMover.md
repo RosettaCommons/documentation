@@ -68,7 +68,7 @@ The following is an actual RosettaScript used to run AppendAssemblyMover for mul
 
 ##See Also
 * [[LegacyMonteCarloAssemblyMover]]
-* [[sewing_hasher]] Application to generate legacy SEWING model and score files
+* [[Sewing Hasher Application] Application to generate legacy SEWING model and score files
 * [[Assembly of models]]
 * [[SEWING]]: The SEWING home page
 * [[SEWING Dictionary]] Clarifies terms for legacy and new SEWING protocols
