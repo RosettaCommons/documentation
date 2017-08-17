@@ -155,11 +155,8 @@ The Antibody Design Instruction File handles CDR-level control of the algorithm 
 ## Syntax
 
  - GraftDesign
-
  - SeqDesign
-
  - CDRSet
-
  - MinProtocol
 
 ## Default Settings
@@ -167,17 +164,17 @@ The Antibody Design Instruction File handles CDR-level control of the algorithm 
 # GraftDesign Sampling Algorithms
 These change the way CDRs are sampled from the antibody design database.   They can be specified using the <code>-design_protocol</code> flag.
 
- - **Even Cluster Monte Carlo (DEFAULT)** 
+- **Even Cluster Monte Carlo (DEFAULT)** 
  - `-design_protocol even_cluster_mc`
-  - Evenly sample clusters during the GraftDesign stage by first choosing a cluster from all the clusters set to design for the chosen Primary CDR and then choosing a structure within that cluster.
+ - Evenly sample clusters during the GraftDesign stage by first choosing a cluster from all the clusters set to design for the chosen Primary CDR and then choosing a structure within that cluster.
 
  - **Even Length and Cluster Monte Carlo** 
   - `-design_protocol even_length_cluster_mc`
   - Evenly sample lengths and clusters during the GraftDesign stage by first choosing a length from the set of lengths for the chosen Primary CDR and the a cluster from the set of clusters, and then finally a structure within that cluster.  Useful to broaden set of lengths sampled during the protocol.
 
-- **Generalized Monte Carlo** 
- - `-design_protocol gen_mc`
- - Sample CDRs to GraftDesign according to their distribution in the database.  This results in common clusters and lengths being sampled more frequently.  However, these lengths/clusters may not be those regularly seen in nature vs regularly crystalized.  AKA - they are biased towards crystals, however, they have more profile data associated with them.
+ - **Generalized Monte Carlo** 
+  - `-design_protocol gen_mc`
+  - Sample CDRs to GraftDesign according to their distribution in the database.  This results in common clusters and lengths being sampled more frequently.  However, these lengths/clusters may not be those regularly seen in nature vs regularly crystalized.  AKA - they are biased towards crystals, however, they have more profile data associated with them.
 
 
  - **Deterministic Graft**
