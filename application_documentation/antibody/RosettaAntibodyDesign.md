@@ -269,50 +269,27 @@ The Configurable main Mover is available as the [[AntibodyDesignMover]].
 
 # Command-line Options
 
-- **General Options**
-`-view`, 
- - _Enable viewing of the antibody design run. Must have built using extras=graphics and run with antibody_designer.graphics executable_
- - _default_ = false
-			
-`-cdr_instructions`, 
- - _Path to CDR Instruction File_
+**General Options**
 
-`-antibody_database`, 
- - _Path to the current Antibody Database, updated weekly.  Download from http://dunbrack2.fccc.edu/PyIgClassify/ _
- - _default_ =/sampling/antibodies/antibody_database_rosetta_design.db
-
-			
-`-paper_ab_db`, 
- - _Force the use the Antibody Database with data from the North clustering paper.  This is included in Rosetta. If a newer antibody database is not found, we will use this. The full ab db is available at [Through PyIgClassify](http://dunbrack2.fccc.edu/PyIgClassify/)_
- - _default_ =false
+Option | Description
+------------ | -------------
+`-view`| _Enable viewing of the antibody design run. Must have built using extras=graphics and run with antibody_designer.graphics executable_ (**Default=False**)	
+`-cdr_instructions` | _Path to CDR Instruction File_
+`-antibody_database` | _Path to the current Antibody Database, updated weekly.  Download from http://dunbrack2.fccc.edu/PyIgClassify/ _ (**Default=/sampling/antibodies/antibody_database_rosetta_design.db**)			
+`-paper_ab_db` | _Force the use the Antibody Database with data from the North clustering paper.  This is included in Rosetta. If a newer antibody database is not found, we will use this. The full ab db is available at [Through PyIgClassify](http://dunbrack2.fccc.edu/PyIgClassify/)_ (**Default = false**)
 
 ---------------------------------------------
 
 **Basic settings for an easy-to-setup run**
-`-seq_design_cdrs'
- - _Enable these CDRs for Sequence-Design.  (Can be set here or in the instructions file. Overrides any set in instructions file if given ) Ex -seq_design_cdrs L1 l2 L3_
- - _legal_ = ['L1', 'L2', 'L3', 'H1', 'H2', 'H3', 'l1', 'l2', 'l3', 'h1', 'h2', 'h3', 'H4', 'L4', 'h1', 'h4']
 
-`-graft_design_cdrs'
- - _Enable these CDRs for Graft-Design.  (Can be set here or in the instructions file. Overrides any set in instructions file if given) Ex -graft_design_cdrs L1 L2 L3_
- - _legal_ = ['L1', 'L2', 'L3', 'H1', 'H2', 'H3', 'l1', 'l2', 'l3', 'h1', 'h2', 'h3']
-			
-`-primary_cdrs`, 
- - _Manually set the CDRs which can be chosen in the outer cycle. Normally, we pick any that are sequence-designing._
- - _legal_ = ['L1', 'L2', 'L3', 'H1', 'H2', 'H3', 'l1', 'l2', 'l3', 'h1', 'h2', 'h3', 'H4', 'L4', 'h1', 'h4']
-			
-'-mintype', 
- - _The default mintype for all CDRs.  Individual CDRs may be set via the instructions file_
- - legal = ["min", "cartmin", "relax", "backrub", "pack", "dualspace_relax", "cen_relax", "none"],
- - default=min
-
-`-disallow_aa
- - _Disallow certain amino acids while sequence-designing (could still be in the graft-designed sequence, however).  Useful for optimizing without, for example, cysteines and prolines. Applies to all sequence design profiles and residues from any region (cdrs, framework, antigen).  You can control this per-cdr (or only for the CDRs) through the CDR-instruction file. A resfile is also accepted if you wish to limit specific positions directly._
- - _legal_ = ["ALA", "CYS", "ASP", "GLU", "PHE", "GLY", "H,IS", "ILE", "LYS", "LEU", "MET", "ASN", "PRO", "GLN", "ARG", "SER", "THR", "VAL", "TRP", "TYR", "A", "C", "D", "E", "F", "G", "H", "I", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "Y"]
-
-`-top_designs`,
- - _Number of top designs to keep (ensemble).  These will be written to a PDB and each move onto the next step in the protocol_.
- - default=1
+Option | Description
+------------ | -------------
+`-seq_design_cdrs`| _Enable these CDRs for Sequence-Design.  (Can be set here or in the instructions file. Overrides any set in instructions file if given ) Ex -seq_design_cdrs L1 L2 L3 h1_
+`-graft_design_cdrs` | _Enable these CDRs for Graft-Design.  (Can be set here or in the instructions file. Overrides any set in instructions file if given) Ex -graft_design_cdrs L1 L2 L3 h1_		
+`-primary_cdrs` | _Manually set the CDRs which can be chosen in the outer cycle. Normally, we pick any that are sequence-designing._		
+'-mintype`| _The default mintype for all CDRs.  Individual CDRs may be set via the instructions file_ (Legal = "min", "cartmin", "relax", "backrub", "pack", "dualspace_relax", "cen_relax", "none") (Default=min)
+`-disallow_aa` | _Disallow certain amino acids while sequence-designing (could still be in the graft-designed sequence, however).  Useful for optimizing without, for example, cysteines and prolines. Applies to all sequence design profiles and residues from any region (cdrs, framework, antigen).  You can control this per-cdr (or only for the CDRs) through the CDR-instruction file. A resfile is also accepted if you wish to limit specific positions directly._ (Three or One letter codes)
+`-top_designs`| _Number of top designs to keep (ensemble).  These will be written to a PDB and each move onto the next step in the protocol_. (Default=1)
 
 
 #See Also
