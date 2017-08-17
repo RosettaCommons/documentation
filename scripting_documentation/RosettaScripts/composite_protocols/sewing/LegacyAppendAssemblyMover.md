@@ -1,31 +1,32 @@
-#AppendAssemblyMover
+#LegacyAppendAssemblyMover
+##Note: This page is for LegacySEWING.
+**This is an outdated page. For information on the current version of sewing, please visit the [[AssemblyMover]] and [[AppendAssemblyMover]] pages.**
 
-
-The AppendAssemblyMover is a Mover that allows the addition of residues to a PDB that is not incorporated into the SewGraph. Therefore, the first step in the AppendAssemblyMover is the addition of the new Model to the SewGraph, and the identification of any edges (structural matches) to this new node (The PDB Model). 
+The LegacyAppendAssemblyMover is a Mover that allows the addition of residues to a PDB that is not incorporated into the SewGraph. Therefore, the first step in the LegacyAppendAssemblyMover is the addition of the new Model to the SewGraph, and the identification of any edges (structural matches) to this new node (The PDB Model). 
 
 ##Command-line options
 
 ###Required command-line options
-The AppendAssemblyMover requires all required flags of the [[AssemblyMover|Assembly-of-models#required-flags]] in addition to the following flags:
+The LegacyAppendAssemblyMover requires all required flags of the [[AssemblyMover|Assembly-of-models#required-flags]] in addition to the following flags:
 
 ```
 -s                              The input PDB to be appended to
--sewing:pose_segment_starts     A vector of integers representing the
+-legacy_sewing:pose_segment_starts     A vector of integers representing the
                                 starting residue (in Rosetta residue numbering)
                                 of each segment in the Model PDB (passed with the -s/-l flags)
--sewing:pose_segment_ends       A vector of integers representing the end residue (in
+-legacy_sewing:pose_segment_ends       A vector of integers representing the end residue (in
                                 Rosetta residue numbering) of each segment in the Model
                                 PDB (passed with the -s/-l flags)
--sewing:keep_model_residues     A vector of integers representing residues (in
+-legacy_sewing:keep_model_residues     A vector of integers representing residues (in
                                 Rosetta residue numbering) that should not be
                                 allowed to change from their starting amino acid identity.
--sewing:num_segments_to_match   The exact of model segments to look for structural
+-legacy_sewing:num_segments_to_match   The exact of model segments to look for structural
                                 matches for. Any matches with less than, or more than,
                                 this number of segment matches will fail. For continuous
                                 SEWING, only a value of 1 is supported
--sewing:min_hash_score          The minimum number over overlapping atoms **per segment**
+-legacy_sewing:min_hash_score          The minimum number over overlapping atoms **per segment**
                                 that is considered a structure match (recommended value: >=10)
--sewing:max_clash_score         The tolerance for number of atoms/segment of different
+-legacy_sewing:max_clash_score         The tolerance for number of atoms/segment of different
                                 atom types that end up in the same quarter-angstrom bin
                                 during geometric hashing
 ```
@@ -33,7 +34,7 @@ The AppendAssemblyMover requires all required flags of the [[AssemblyMover|Assem
 ###Optional Flags
 
 ```
--sewing:partner_pdb             An additional PDB file used when finding clashes
+-legacy_sewing:partner_pdb             An additional PDB file used when finding clashes
                                 and in scoring (InterfaceMotifScore).
                                 Normally a binding partner for the input PDB.
 
@@ -42,7 +43,7 @@ The AppendAssemblyMover requires all required flags of the [[AssemblyMover|Assem
 
 ##RosettaScripts options
 
-As a subclass of the [[MonteCarloAssemblyMover]], the AppendAssemblyMover takes the same RosettaScripts options.
+As a subclass of the [[LegacyMonteCarloAssemblyMover]], the AppendAssemblyMover takes the same RosettaScripts options.
 
 ##Sample
 
