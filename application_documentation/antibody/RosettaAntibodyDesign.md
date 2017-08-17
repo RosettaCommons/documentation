@@ -8,31 +8,43 @@ Last Doc Update: 7/20/2017
 [[_TOC_]]
 
 # Overview
-RAbD has been created as a generalized framework for the design of antibodies using Rosetta in which a user can easily tailor the run to their needs.  It can be used for a multitude of project types, from denovo design to redesigns that improve binding affinity, optimize stability, or manipulate function.  
+RosettaAntibodyDesign (RAbD) has been created as a generalized framework for the design of antibodies using Rosetta in which a user can easily tailor the run to their needs.  The algorithm is meant to sample the diverse sequence, structure, and binding space of an antibody-antigen complex. It can be used for a multitude of project types, from denovo design to redesigns that improve binding affinity, optimize stability, or manipulate function.  
 
 The framework is based on rigorous bioinformatic analysis and rooted very much on our [recent clustering](https://www.ncbi.nlm.nih.gov/pubmed/21035459) of antibody CDR regions .  It uses the North/Dunbrack CDR definition as outlined in the North/Dunbrack clustering paper. 
 
 The supplemental methods section of the published paper has all details of the RosettaAntibodyDesign method.  This manual serves to get you started running RAbD in typical use fashions. 
 
 # Algorithm
-The algorithm is meant to sample the diverse sequence, structure, and binding space of an antibody-antigen complex.  It can be tailored for a variety of design strategies and design projects.  The protocol begins with the three-dimensional structure of an antibody–antigen complex. This structure may be an experimental structure of an existing antibody in complex with its antigen, a predicted structure of an existing antibody docked computationally to its antigen, or even the best scoring result of low-resolution docking a large number of unrelated antibodies to a desired epitope on the structure of a target antigen as a prelude to de novo design. 
-
-The variable domains of the input structure must first be renumbered according to the AHo numbering scheme, which can be accomplished through the PyIgClassify server. On input into the program, Rosetta assigns our CDR clusters using the same methodology as PyIgClassify. The RosettaAntibodyDesign protocol is then driven by a set of command-line options and a set of design instructions provided as an input file that controls which CDR(s) are designed and how. Details and example command lines and instruction files are provided below.
-
+  
 Broadly, the RAbD protocol consists of alternating outer and inner Monte Carlo cycles. Each outer cycle consists of randomly choosing a CDR (L1, L2, etc…) from those CDRs set to design, randomly choosing a cluster and then a structure from that cluster from the database according to the input instructions, and grafting that CDR’s structure, onto the antibody framework in place of the existing CDR (**GraftDesign**). The program then performs N rounds of the inner cycle, consisting of sequence design (**SeqDesign**), energy minimization, and optional docking. Each inner cycle structurally optimizes the backbone and repacks side chains of the CDR chosen in the outer cycle as well as optional neighbors in order to optimize interactions of the CDR with the antigen and other CDRs. 
 
 Backbone dihedral angle (CircularHarmonic) constraints derived from the cluster data are applied to each CDR to limit deleterious structural perturbations. Amino acid changes are typically sampled from profiles derived for each CDR cluster in PyIgClassify. Conservative amino acid substitutions (according to the BLOSUM62 substitution matrix) may be performed when too few sequences are available to produce a profile (e.g., for H3). After each inner cycle is completed, the new sequence and structure are accepted according to the Metropolis Monte Carlo criterion. After N rounds within the inner cycle, the program returns to the outer cycle, at which point the energy of the resulting design is compared to the previous design in the outer cycle. The new design is accepted or rejected according to the Monte Carlo criterion.
 
 More detail on the algorithm can be found in the published paper. 
 
-# Setup
+# Setup and Inputs
+
+**Antibody Design Database**
+
 This app requires the Rosetta Antibody Design Database.  A database of antibodies from the original North Clustering paper is included in Rosetta and is used as the default .  An updated database (which is currently updated monthly) can be downloaded here: http://dunbrack2.fccc.edu/PyIgClassify/.  
 
 It should be placed in <code> Rosetta/main/database/sampling/antibodies/ </code>  It is recommended to use this up-to-date database.
 
-Designs should start with an antibody bound to a target antigen (however optimizing just the antibody without the complex is also possible).  Camelid antibodies are fully supported.  The antibody to start with can be a model of the framework required for a denovo design, or an antibody that is being affinity matured. The program CAN computationally design an antibody to anywhere on the target protein, but it is recommended to place the antibody at the target epitope.  It is beyond the scope of this program to determine potential epitopes for binding, however servers and programs exist to predict these.  Site Constraints can be used to further limit the design.
+------------------------------
+
+**Starting Structure**
+
+The protocol begins with the three-dimensional structure of an antibody–antigen complex. Designs should start with an antibody bound to a target antigen (however optimizing just the antibody without the complex is also possible).  Camelid antibodies are fully supported.  This structure may be an experimental structure of an existing antibody in complex with its antigen, a predicted structure of an existing antibody docked computationally to its antigen, or even the best scoring result of low-resolution docking a large number of unrelated antibodies to a desired epitope on the structure of a target antigen as a prelude to de novo design.
+
+The program CAN computationally design an antibody to anywhere on the target protein, but it is recommended to place the antibody at the target epitope.  It is beyond the scope of this program to determine potential epitopes for binding, however servers and programs exist to predict these. Automatic SiteConstraints can be used to further limit the design to target regions.
+
+-------------------------
+
+**Model Numbering**
 
 Finally, the input PDB file must be renumbered to the AHo Scheme.  This can be done through the [PyIgClassify Server](http://dunbrack2.fccc.edu/pyigclassify/).  The PyIgClassify code can also be downloaded and run separately for local renumbering/analysis. 
+
+On input into the program, Rosetta assigns our CDR clusters using the same methodology as PyIgClassify. The RosettaAntibodyDesign protocol is then driven by a set of command-line options and a set of design instructions provided as an input file that controls which CDR(s) are designed and how. Details and example command lines and instruction files are provided below.
 
 # Command-line Examples
 
