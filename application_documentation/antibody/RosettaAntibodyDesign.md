@@ -149,7 +149,7 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 -design_H3_stem -inner_KT 2.0 -outer_KT 2.0 -seq_design_profile_samples 5
 ```
 
-# Antibody Design Instruction File:
+# Antibody Design Instruction File
 The Antibody Design Instruction File handles CDR-level control of the algorithm and design.  It is used to create the CDRSet for sampling whole CDRs from the PDB, as well as fine-tuning the minimization steps and sequence design strategies.  For each option, 'ALL' can be given to control all of the CDRs at once.  Specific capitalization of commands are not needed, and are used for style. Commands are broken down into 4 types, each controlling different aspects of the protocol including the GraftDesign stage, SeqDesign Stage, the Minimization type, and specific sequence design settings.
 
 ## Syntax
