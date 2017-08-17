@@ -296,9 +296,10 @@ Option | Description
 
 -------------------------------------
 
+**Protocol Rounds**
+
 Option | Description
 ------------ | -------------
-**Protocol Rounds**
 `outer_cycle_rounds` | Rounds for outer loop of the protocol (not for deterministic_graft ).  Each round chooses a CDR and designs. One run of 100 cycles with relax takes about 12 hours. If you decrease this number, you will decrease your run time significantly, but your final decoys will be higher energy.  Make sure to increase the total number of output structures (nstruct) if you use lower than this number.  Typically about 500 - 1000 nstruct is more than sufficient.  Full DeNovo design will require significantly more rounds and nstruct.  If you are docking, runs take about 30 percent longer. (**Default=25**)
 `-inner_cycle_rounds` | Number of times to run the inner minimization protocol after each graft.  Higher (2-3) rounds recommended for pack/min/backrub mintypes or if including dock in the protocol. (**Default = 1**)
 `-dock_cycle_rounds` | Number of rounds for any docking.  If you are seeing badly docked structures, increase this value. (Default=1)
@@ -325,8 +326,11 @@ Option | Description
 `-epitope` | Use these residues as the antigen epitope.  Default is to auto-identify them within the set interface distance at protocol start if epitope constraints are enabled. Currently only used for constraints.  PDB Numbering. Optional insertion code. Example: 1A 1B 1B:A. Note that these site constraints are only used during docking unless -enable_full_protocol_atom_pair_cst is set.
 `-use_epitope_constraints` | Enable use of epitope constraints to add SiteConstraints between the epitope and paratope.  Note that paratope constraints are always used.  Note that these site constraints are only used during docking unless -global_atom_pair_cst_scoring is set.(Default = false)
 
+------------------------------
+
 
 **Regional Sequence Design**
+
 Option | Description
 ------------ | -------------
 `-design_antigen` | Design antigen residues during sequence design.  Intelligently.  Typically, only the neighbor antigen residues of designing cdrs or interfaces will be co-designed.  Useful for specific applications.(**Default = false**)
@@ -336,7 +340,9 @@ Option | Description
 
 ---------------------------
 
+
 **Seq Design Control**
+
 Option | Description
 ------------ | -------------
 `-resfile` | Use a resfile to further limit which residues are packed/designed, and can further limit residue types for design.
@@ -344,15 +350,21 @@ Option | Description
 `-design_proline` | Enable proline design.  Profiles for proline are very good, but designing them is a bit risky.  Enable this if you are feeling daring. (**Default=false**)
 `-sample_zero_probs_at` | Value for probabilstic design.  Probability that a normally zero prob will be chosen as a potential residue each time packer task is called.  Increase to increase variablility of positions. (**Default=0**)
 
+------------------------------
+
 **Profile Stats**
+
 Option | Description
 ------------ | -------------
 `-seq_design_stats_cutoff` | Value for probabilistic -> conservative sequence design switch.  If number of total sequences used for probabilistic design for a particular cdr cluster being designed is less than this value, conservative design will occur. More data = better predictability.'Integer' (default='10')
 `-seq_design_profile_samples` | If designing using profiles, this is the number of times the profile is sampled each time packing done.  Increase this number to increase variability of designs - especially if not using relax as the mintype. (Default='1')
 
+
 ---------------------------
 
+
 **Constraint Control**
+
 Option | Description
 ------------ | -------------
 `-dihedral_cst_weight` | Weight to use for CDR CircularHarmonic cluster-based or general constraints that are automatically added to each structure and updated after each graft. Set to zero if you dont want to use these constraints. Note that they are not used for the backrub mintype. Overrides weight/patch settings.(**Default = .3**)
@@ -364,6 +376,7 @@ Option | Description
 
 
 **Fine Control**
+
 Option | Description
 ------------ | -------------  			
 `-idealize_graft_cdrs` | Idealize the CDR before grafting.  May help or hinder. (**Default = false**)
@@ -375,6 +388,7 @@ Option | Description
 
 
 **Outlier Control**
+
 Option | Description
 ------------ | -------------
 `-use_outliers` | Include outlier data for GraftDesign, profile-based sequence design stats, and cluster-based dihedral constraints.  Outliers are defined as having a dihedral distance of > 40 degrees and an RMSD of >1.5 A to the cluster center.  Use to increase sampling of small or rare clusters. (**Default=false**)
@@ -405,8 +419,7 @@ Option | Description
 ---------------------------------
 
 
-
-**Benchmarking/Etc**
+**Benchmarking**
 
 Option | Description
 ------------ | -------------
