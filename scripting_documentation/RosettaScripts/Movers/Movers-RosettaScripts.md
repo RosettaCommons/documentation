@@ -614,7 +614,7 @@ These movers are part of the new SEWING framework coming soon to master. For the
 
 * **[[LegacyAppendAssemblyMover]]** - Builds a protein by extending a user-specified starting structure. Often used for interface design (starting with a protein-binding peptide) or to incorporate specific motifs into designs.
 
-* **[[RepeatAssemblyMover]]** - Used to design repeat proteins.
+* **[[LegacyRepeatAssemblyMover]]** - Used to design repeat proteins.
 
 * **[[LegacyEnumerateAssemblyMover]]** - Builds all possible structures from a given SewGraph.
 
