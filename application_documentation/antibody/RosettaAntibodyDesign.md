@@ -172,9 +172,9 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 
 **Example 1**
 
-Now, we will spice things up even further.  We are feeling daring and we have LOTS of money for designs (I can dream, right! ;)
+Now, we will spice things up even further.  We are feeling daring today.  A new Rosetta energy function with fully polarizable forcefields has just been published, we have our first quantum computer and Andrew just got done the Quantum JD, and we have LOTS of money for designs (I can dream, right! ;).  We are ready to put Rosetta to the test.
 
-We will enable H3 Stem design here, which can cause a flipping of the H3 stem type from bulged to non-bulged and vice-versa.  
+We will enable H3 Stem design here, which can cause a flipping of the H3 stem type from bulged to non-bulged and vice-versa.  Typically, if you do this, you may want to run loop modeling on the top designs to confirm the H3 structure remains in-tact.
 
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
