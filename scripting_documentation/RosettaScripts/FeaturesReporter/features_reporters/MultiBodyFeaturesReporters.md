@@ -20,6 +20,7 @@ Jared Adolf-Bryfogle; jadolfbr@gmail.com;
 PI: Roland Dunbrack
 
 Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
+* [[Rosetta Antibody Design (RAbD) Manual | RosettaAntibodyDesign]]
 
 Many of the metric functions were first coded by Brian Weitzner (brian.weitzner@gmail.com) and Jeff Gray ([[http://graylab.jhu.edu]]) at JHU as part of RosettaAntibody 3.0. 
 
