@@ -206,7 +206,7 @@ Circular Harmonic Dihedral Constraints are added to each CDR according the clust
   - Results in lower energies and closer physical characteristics to native, but takes significantly longer.  It is recommended to first run min and then relax mintype on the top resulting models.
   - [(Citation)](https://www.ncbi.nlm.nih.gov/pubmed/21073878)
 
- - **Dualspace Relax** 
+- **Dualspace Relax** 
   - `-mintype dualspace_relax`
   - Flexible Backbone design using 'RelaxedDesign' while optimizing both Dihedral and Cartesian space.  [Dualspace Relax Protocol Paper](https://www.ncbi.nlm.nih.gov/pubmed/24265211)
 
