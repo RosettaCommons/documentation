@@ -13,7 +13,6 @@ Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
 Graft CDR loops from one structure to another, optionally optimize CDRs and neighbor CDRs of the grafted one.  
 Results in 100 percent loop closure if using both graft graft movers (where peptide bond geometries of both ends are checked relative to ideal values).
 
-<!--- BEGIN_INTERNAL -->
 ###Algorithm
 
 Closes loops using the [[CCDEndsGraftMover]] and optionally the [[AnchoredGraftMover]]. Optionally optimizes using dihedral constrained relaxed on the CDR loops (general - not cluster-based for now). ( [[CDRDihedralConstraintMover]] , [[FastRelaxMover]] ). 
@@ -74,7 +73,6 @@ H4 - H1 H2
 -   _cter_overhang_ (&size) (default=3): Number of extra residues on the Nter side of the CDR to use for superposition for insertion.  Will delete these residues before insertion. 
 -   __scorefxn__ (&string) (default=Rosetta default): All Atom scorefunction to use for final repack
 
-<!--- END_INTERNAL -->
 
 ##See Also
 
