@@ -13,7 +13,6 @@ Add Cluster-based CDR Profiles as the task operation for the set of CDRs by defa
 Uses the ResidueProbDesignOperation to sample the CDR Cluster profile based on the probability distribution for the CDR clusters.  Multiple rounds of packing are recommended to sample on the distributions.
 CDR definitions used are North/Dunbrack as the clusters are defined using it.  By default ALL CDRs are set for sampling.
 
-<!--- BEGIN_INTERNAL -->
 ### Profile Sampling Details 
 
 Each time a task is generated, it will choose one amino acid from the set for that position and add it to (or replace)  the set of packable residues chosen for that position. Decreases number of rotamers for packing and the space for design.  Instead of using energy for profiles, we use selection of residues through probabilities at each task generation.  If the picking_rounds option is set at > 1, is higher it can result in more than one additional residue in the task from the native and increase variability of potential designs.
@@ -66,7 +65,6 @@ FALLBACK STRATEGIES:
 ### Benchmarking Options
 -   force_north_paper_db (&bool) (default=false): Force the use of the original 2011 North/Dunbrack clustering paper data as the database instead of any up-to-date versions downloaded from PyIgClassify. 
 
-<!--- END_INTERNAL -->
 ##See Also
 
 * [[General Antibody Tips | General-Antibody-Options-and-Tips]]
