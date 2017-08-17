@@ -191,8 +191,8 @@ Circular Harmonic Dihedral Constraints are added to each CDR according the clust
 
  - **Min (DEFAULT)** 
   - `-mintype min`
-  -  Cycle of design->min->design->min
-  -  Results in good structures, however not as good as relax in recovering native physical characteristics.  Significantly faster.
+  - Cycle of design->min->design->min
+  - Results in good structures, however not as good as relax in recovering native physical characteristics.  Significantly faster.
 
  - **Cartesian Min** 
   - `-mintype cartmin`
@@ -210,7 +210,7 @@ Circular Harmonic Dihedral Constraints are added to each CDR according the clust
   - `-mintype dualspace_relax`
   - Flexible Backbone design using 'RelaxedDesign' while optimizing both Dihedral and Cartesian space.  [Dualspace Relax Protocol Paper](https://www.ncbi.nlm.nih.gov/pubmed/24265211)
 
- -  **Backrub** 
+ - **Backrub** 
   - `-mintype backrub`
   - Use backrub to optimize the CDRs.  backrub->design
   - Use the `-add_backrub_pivots 11A 12A 12A:B ` option to add additional sets of back rub pivots, such as to add flexibility to the antigen interface 
