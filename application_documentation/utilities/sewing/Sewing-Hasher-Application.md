@@ -1,4 +1,6 @@
 #Sewing Hasher Application
+##Note: This page is for LegacySEWING.
+**This is an outdated page. For information on the current version of sewing, please visit the [[Segment File Generation]] 
 ##Purpose
 This application is used to generate model files and edge files to be used in the [[SEWING]] protocol. It is also used to convert SEWING edge files to a more memory-efficient binary format.
 ##References
@@ -51,8 +53,9 @@ For instructions on using the sewing_hasher application to prepare input files f
 
 
 ##See Also
-
-* [[ModelTrimmer]] Application used to prune models from SEWING model files
+* [[Model Generation]] More information on LegacySEWING model generation
+* [[Model comparison with geometric hashing]] More information on LegacySEWING score file generation
+* [[ModelTrimmer]] Application used to prune models from SEWING model files (LegacySEWING)
 * [[SEWING]] The SEWING home page
 * [[SEWING Dictionary]]
 * [[Utilities Applications]]
