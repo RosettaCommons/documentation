@@ -1,6 +1,6 @@
 #Model comparison with geometric hashing
 ##Note: This page is for LegacySEWING.
-**This is an outdated page. For information on the current version of sewing, please visit the [[Edge file generation]] and [[Alignment file generation]] pages.
+**This is an outdated page. For information on the current version of sewing, please visit the [[Structural Comparison of Substructures]] page.
 
 Once a Model file has been generated (see [[Model Generation]]), the models need to be structurally compared to one another using a geometric hashing algorithm implemented in the [[SEWING Hasher application]].
 
