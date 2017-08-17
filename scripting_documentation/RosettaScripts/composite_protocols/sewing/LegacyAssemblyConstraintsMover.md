@@ -1,4 +1,7 @@
-#AssemblyConstraintsMover
+#LegacyAssemblyConstraintsMover
+##Note: This page is for LegacySEWING.
+**This is an outdated page. For information on the current version of sewing, please visit the [[AssemblyMover]] and [[AppendAssemblyMover]] pages.**
+
 ##Purpose
 
 The AssemblyConstraintsMover is used in the design of structures generated using SEWING. Although SEWING movers can perform refinement, it is more common to filter the output structures beforehand and refine a subset of them using a custom protocol. This mover uses the .rot file output by SEWING movers to add constraints that favor the native residue type (or types) at each position. 
