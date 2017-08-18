@@ -47,9 +47,7 @@ _Cartesian Minimization_ | **Gradient minimization** based on moving atoms in xy
 Term  | Description
 ------------ | -------------
 _CCD_ | Cyclic coordinate descent. A **loop closure** protocol where backbone dihedrals are progressively adjusted to minimizethe gap in the loop backbone. [Add a reference]
-_Centroid_ |A reduced representation mode, used for simplifying the representation of the system,
-to permit faster sampling and scoring.For proteins, each residue is represented by five **backbone atoms** 
-(N, CA, C, O and the polar hydrogen on N) and one pseudo-atom, the “centroid,” to represent the **side chain**. [Explain further how centroid is calculated.] *Gray et al., J. Mol. Biol. (2003) 331, 281–299*
+_Centroid_ |A reduced representation mode, used for simplifying the representation of the system, to permit faster sampling and scoring.For proteins, each residue is represented by five **backbone atoms** (N, CA, C, O and the polar hydrogen on N) and one pseudo-atom, the “centroid,” to represent the **side chain**. [Explain further how centroid is calculated.] *Gray et al., J. Mol. Biol. (2003) 331, 281–299*
 _Chain_ | In Rosetta, a chain is a single, covalently connected molecule. Internally, it is stored as a number. In the **PDB** format, a chain is all residues which share a chain identification label.
 _Chainbreak_ | A gap in connectivity (in the AtomTree) between chemically connected / sequentially adjacent residues.  These are used in CCD (Cyclic Coordinate Descent) loop closure.
 _ChemicalManager_ | A singleton class in Rosetta which keeps track of things like ResidueTypeSets.
