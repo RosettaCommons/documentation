@@ -14,15 +14,8 @@ Term  | Description
 **ABEGO** | Designation that indicates a residue's position in Ramachandran space (A = right-handed alpha or 3<sub>10</sub> helix; B = right-handed beta strands and extended conformations; E = left-handed beta strands; G = left-handed helices) and *cis* omega angles (O). See citation [[here|http://www.ncbi.nlm.nih.gov/pubmed/8568871]].
 **_Ab_ _Initio_ Structure Prediction** | Prediction of molecular structure given only its sequence. Known also as **de novo modeling**. In Rosetta, _ab_ _initio_ modeling uses statistical information from the **PDB** such as **fragments** and **statistical potentials**.
 **All-Atom Modeling** | See **fullatom**.
-**Alpha Helix** | A common motif in the secondary structure of proteins, the alpha helix
-(α-helix) is a right-handed coiled or spiral conformation, in which
-every backbone N-H group donates a hydrogen bond to the backbone C=O
-group of the amino acid four residues earlier (i+4 - i hydrogen
-bonding). Among types of local structure in proteins, the α-helix is the
-most regular and the most predictable from sequence, as well as the most
-prevalent.
-**Analogue** | Similar proteins without evolutionary relationships. See also **homologue**. Rosetta **homology modeling** doesn't actually need strict evolutionary relationships,
-and can use **analogues** as **templates**.
+**Alpha Helix** | A common motif in the secondary structure of proteins, the alpha helix (α-helix) is a right-handed coiled or spiral conformation, in which every backbone N-H group donates a hydrogen bond to the backbone C=O group of the amino acid four residues earlier (i+4 - i hydrogen bonding). Among types of local structure in proteins, the α-helix is the most regular and the most predictable from sequence, as well as the most prevalent.
+**Analogue** | Similar proteins without evolutionary relationships. See also **homologue**. Rosetta **homology modeling** doesn't actually need strict evolutionary relationships, and can use **analogues** as **templates**.
 **Annotated Aequence** | Rosetta will often record the sequence of a protein as the one letter amino acid codes, expanding when necessary with square brackets to indicate patches like post-translational modifications.
 **Atom** | A class storing the Cartesian position of an atom in a Residue.
 **Atom Tree | The atom tree connects atoms in the **pose**, and is used to convert 
