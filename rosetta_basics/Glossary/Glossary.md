@@ -11,16 +11,16 @@ See also a [[more in-depth discussion of some topics|RosettaEncyclopedia]].
 
 Term  | Description
 ------------ | -------------
-**ABEGO** | Designation that indicates a residue's position in Ramachandran space (A = right-handed alpha or 3<sub>10</sub> helix; B = right-handed beta strands and extended conformations; E = left-handed beta strands; G = left-handed helices) and *cis* omega angles (O). See citation [[here|http://www.ncbi.nlm.nih.gov/pubmed/8568871]].
-**_Ab_ _Initio_ Structure Prediction** | Prediction of molecular structure given only its sequence. Known also as **de novo modeling**. In Rosetta, _ab_ _initio_ modeling uses statistical information from the **PDB** such as **fragments** and **statistical potentials**.
-**All-Atom Modeling** | See **fullatom**.
-**Alpha Helix** | A common motif in the secondary structure of proteins, the alpha helix (α-helix) is a right-handed coiled or spiral conformation, in which every backbone N-H group donates a hydrogen bond to the backbone C=O group of the amino acid four residues earlier (i+4 - i hydrogen bonding). Among types of local structure in proteins, the α-helix is the most regular and the most predictable from sequence, as well as the most prevalent.
-**Analogue** | Similar proteins without evolutionary relationships. See also **homologue**. Rosetta **homology modeling** doesn't actually need strict evolutionary relationships, and can use **analogues** as **templates**.
-**Annotated Aequence** | Rosetta will often record the sequence of a protein as the one letter amino acid codes, expanding when necessary with square brackets to indicate patches like post-translational modifications.
-**Atom** | A class storing the Cartesian position of an atom in a Residue.
-**Atom Tree** | The atom tree connects atoms in the **pose**, and is used to convert **internal coordinates** into **cartesian coordinates**. Normally derived from the **fold tree**.
-**AtomTree** | Core::kinematics class for defining atomic connectivity.
-**AtomType** | A class which stores the properties of a particular kind of atom. (e.g. a carboxylate oxygen). See [[Rosetta AtomTypes]] for more details.
+ABEGO | Designation that indicates a residue's position in Ramachandran space (A = right-handed alpha or 3<sub>10</sub> helix; B = right-handed beta strands and extended conformations; E = left-handed beta strands; G = left-handed helices) and *cis* omega angles (O). See citation [[here|http://www.ncbi.nlm.nih.gov/pubmed/8568871]].
+_Ab_ _Initio_ Structure Prediction | Prediction of molecular structure given only its sequence. Known also as **de novo modeling**. In Rosetta, _ab_ _initio_ modeling uses statistical information from the **PDB** such as **fragments** and **statistical potentials**.
+AllAtom Modeling | See **fullatom**.
+Alpha Helix | A common motif in the secondary structure of proteins, the alpha helix (α-helix) is a right-handed coiled or spiral conformation, in which every backbone N-H group donates a hydrogen bond to the backbone C=O group of the amino acid four residues earlier (i+4 - i hydrogen bonding). Among types of local structure in proteins, the α-helix is the most regular and the most predictable from sequence, as well as the most prevalent.
+Analogue | Similar proteins without evolutionary relationships. See also **homologue**. Rosetta **homology modeling** doesn't actually need strict evolutionary relationships, and can use **analogues** as **templates**.
+Annotated Aequence | Rosetta will often record the sequence of a protein as the one letter amino acid codes, expanding when necessary with square brackets to indicate patches like post-translational modifications.
+Atom | A class storing the Cartesian position of an atom in a Residue.
+Atom Tree | The atom tree connects atoms in the **pose**, and is used to convert **internal coordinates** into **cartesian Coordinates**. Normally derived from the **fold tree**.
+AtomTree | Core::kinematics class for defining atomic connectivity.
+AtomType | A class which stores the properties of a particular kind of atom. (e.g. a carboxylate oxygen). See [[Rosetta AtomTypes]] for more details.
 
 ----------------------------------------
 
@@ -28,7 +28,7 @@ Term  | Description
 ------------ | -------------
 **B factor** |The "temperature factor" from crystallography and seen in PDB files, the larger the value the more "flexible" the atom is
 **Backbone** | In **biopolymers**, the backbone is those atoms which form the polymeric chain. In proteins these are the N, CA, C, and O atoms and their hydrogens. In nucleic acids it is the phophate and sugars. See also **main chain** 
-**backrub** | A change in torsion angles seen routinely in structures in solution.  A change in one dihedral is compensated for by changes in the previous and next dihedrals.  This 'move' was implemented as a backbone-sampling protocol by Tanja Kortemme.
+**Backrub** | A change in torsion angles seen routinely in structures in solution.  A change in one dihedral is compensated for by changes in the previous and next dihedrals.  This 'move' was implemented as a backbone-sampling protocol by Tanja Kortemme.
 **Base** | The non-**backbone** portion of a nucleotide. Analogous to a protein's **side chain**.
 **Benchmark Study** | Tests done to confirm the performance of a new algorithm or method, results are compared to previous results using the same starting data
 **Beta Sheet** | A common motif in the secondary structure of proteins, the beta sheet (β-sheet) is a mostly flat extended structure made up of individual (possibly non-consecutive) extended chains (β-strand) held together by alternating hydrogen bonds.  
@@ -40,11 +40,13 @@ Term  | Description
 **Bound Docking** | The complex structure that is used for reference in docking and rmsd calculations is determined experimentally by X-rays/NMR. 
 **Branches** | A development term used in code version control. See trunk.
 **Cartesian Coordinates** | Coordinates with spatial positions specified by xyz coordinates. Contrast this with **internal coordinates**. The conversion between the two is **kinematics**. 
-** Cartesian minimization** | **Gradient minimization** based on moving atoms in xyz Cartesian space, rather than with **internal coordinates**. This requires an extra term (cart_bonded) to maintain bond lengths and angles to their near-ideal values.
+** Cartesian Minimization** | **Gradient minimization** based on moving atoms in xyz Cartesian space, rather than with **Internal Coordinates**. This requires an extra term (cart_bonded) to maintain bond lengths and angles to their near-ideal values.
 
 -------------------------
 
-#### CCD
+Term  | Description
+------------ | -------------
+**CCD**
 
 Cyclic coordinate descent. A **loop closure** protocol where backbone dihedrals are progressively adjusted to minimize
 the gap in the loop backbone.
