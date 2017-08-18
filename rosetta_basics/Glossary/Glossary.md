@@ -11,195 +11,70 @@ See also a [[more in-depth discussion of some topics|RosettaEncyclopedia]].
 
 Term  | Description
 ------------ | -------------
-ABEGO | Designation that indicates a residue's position in Ramachandran space (A = right-handed alpha or 3<sub>10</sub> helix; B = right-handed beta strands and extended conformations; E = left-handed beta strands; G = left-handed helices) and *cis* omega angles (O). See citation [[here|http://www.ncbi.nlm.nih.gov/pubmed/8568871]].
+_ABEGO_ | Designation that indicates a residue's position in Ramachandran space (A = right-handed alpha or 3<sub>10</sub> helix; B = right-handed beta strands and extended conformations; E = left-handed beta strands; G = left-handed helices) and *cis* omega angles (O). See citation [[here|http://www.ncbi.nlm.nih.gov/pubmed/8568871]].
 _Ab_ _Initio_ Structure Prediction | Prediction of molecular structure given only its sequence. Known also as **de novo modeling**. In Rosetta, _ab_ _initio_ modeling uses statistical information from the **PDB** such as **fragments** and **statistical potentials**.
-AllAtom Modeling | See **fullatom**.
-Alpha Helix | A common motif in the secondary structure of proteins, the alpha helix (α-helix) is a right-handed coiled or spiral conformation, in which every backbone N-H group donates a hydrogen bond to the backbone C=O group of the amino acid four residues earlier (i+4 - i hydrogen bonding). Among types of local structure in proteins, the α-helix is the most regular and the most predictable from sequence, as well as the most prevalent.
+_AllAtom Modeling_ | See **fullatom**.
+_Alpha Helix_ | A common motif in the secondary structure of proteins, the alpha helix (α-helix) is a right-handed coiled or spiral conformation, in which every backbone N-H group donates a hydrogen bond to the backbone C=O group of the amino acid four residues earlier (i+4 - i hydrogen bonding). Among types of local structure in proteins, the α-helix is the most regular and the most predictable from sequence, as well as the most prevalent.
 Analogue | Similar proteins without evolutionary relationships. See also **homologue**. Rosetta **homology modeling** doesn't actually need strict evolutionary relationships, and can use **analogues** as **templates**.
 Annotated Aequence | Rosetta will often record the sequence of a protein as the one letter amino acid codes, expanding when necessary with square brackets to indicate patches like post-translational modifications.
-Atom | A class storing the Cartesian position of an atom in a Residue.
-Atom Tree | The atom tree connects atoms in the **pose**, and is used to convert **internal coordinates** into **cartesian Coordinates**. Normally derived from the **fold tree**.
-AtomTree | Core::kinematics class for defining atomic connectivity.
-AtomType | A class which stores the properties of a particular kind of atom. (e.g. a carboxylate oxygen). See [[Rosetta AtomTypes]] for more details.
+_Atom_ | A class storing the Cartesian position of an atom in a Residue.
+_Atom Tree_ | The atom tree connects atoms in the **pose**, and is used to convert **internal coordinates** into **cartesian Coordinates**. Normally derived from the **fold tree**.
+_AtomTree_ | Core::kinematics class for defining atomic connectivity.
+_AtomType_ | A class which stores the properties of a particular kind of atom. (e.g. a carboxylate oxygen). See [[Rosetta AtomTypes]] for more details.
 
 ----------------------------------------
 
 Term  | Description
 ------------ | -------------
-**B factor** |The "temperature factor" from crystallography and seen in PDB files, the larger the value the more "flexible" the atom is
-**Backbone** | In **biopolymers**, the backbone is those atoms which form the polymeric chain. In proteins these are the N, CA, C, and O atoms and their hydrogens. In nucleic acids it is the phophate and sugars. See also **main chain** 
-**Backrub** | A change in torsion angles seen routinely in structures in solution.  A change in one dihedral is compensated for by changes in the previous and next dihedrals.  This 'move' was implemented as a backbone-sampling protocol by Tanja Kortemme.
-**Base** | The non-**backbone** portion of a nucleotide. Analogous to a protein's **side chain**.
-**Benchmark Study** | Tests done to confirm the performance of a new algorithm or method, results are compared to previous results using the same starting data
-**Beta Sheet** | A common motif in the secondary structure of proteins, the beta sheet (β-sheet) is a mostly flat extended structure made up of individual (possibly non-consecutive) extended chains (β-strand) held together by alternating hydrogen bonds.  
-**Binding-Affinity or Binding-Energy** | How strongly two molecules are associated with one another.
+_B factor_ |The "temperature factor" from crystallography and seen in PDB files, the larger the value the more "flexible" the atom is
+_Backbone_ | In **biopolymers**, the backbone is those atoms which form the polymeric chain. In proteins these are the N, CA, C, and O atoms and their hydrogens. In nucleic acids it is the phophate and sugars. See also **main chain** 
+_Backrub_ | A change in torsion angles seen routinely in structures in solution.  A change in one dihedral is compensated for by changes in the previous and next dihedrals.  This 'move' was implemented as a backbone-sampling protocol by Tanja Kortemme.
+_Base_ | The non-**backbone** portion of a nucleotide. Analogous to a protein's **side chain**.
+_Benchmark Study _| Tests done to confirm the performance of a new algorithm or method, results are compared to previous results using the same starting data
+_Beta Sheet_ | A common motif in the secondary structure of proteins, the beta sheet (β-sheet) is a mostly flat extended structure made up of individual (possibly non-consecutive) extended chains (β-strand) held together by alternating hydrogen bonds.  
+_Binding-Affinity or Binding-Energy_ | How strongly two molecules are associated with one another.
 **Binding Interface** | The point of contact between two molecules. A common definition in Rosetta is any residue with the C-beta atom or any heavy atom within 6 Angstroms of the other binding partner.
-**Biopolymers** | Polymeric molecules important for biological systems. Typical biopolymers are proteins, RNA, DNA and carbohydrates. 
-**Blind Docking | Docking where the structure of the docked complex is unknown.
-**Bootcamp** | An intense week-long Rosetta training session for new developers. 
-**Bound Docking** | The complex structure that is used for reference in docking and rmsd calculations is determined experimentally by X-rays/NMR. 
-**Branches** | A development term used in code version control. See trunk.
-**Cartesian Coordinates** | Coordinates with spatial positions specified by xyz coordinates. Contrast this with **internal coordinates**. The conversion between the two is **kinematics**. 
-** Cartesian Minimization** | **Gradient minimization** based on moving atoms in xyz Cartesian space, rather than with **Internal Coordinates**. This requires an extra term (cart_bonded) to maintain bond lengths and angles to their near-ideal values.
+_Biopolymers_ | Polymeric molecules important for biological systems. Typical biopolymers are proteins, RNA, DNA and carbohydrates. 
+_Blind Docking_ | Docking where the structure of the docked complex is unknown.
+_Bootcamp_ | An intense week-long Rosetta training session for new developers. 
+_Bound Docking_ | The complex structure that is used for reference in docking and rmsd calculations is determined experimentally by X-rays/NMR. 
+_Branches_ | A development term used in code version control. See trunk.
+_Cartesian Coordinates_ | Coordinates with spatial positions specified by xyz coordinates. Contrast this with **internal coordinates**. The conversion between the two is **kinematics**. 
+_Cartesian Minimization_ | **Gradient minimization** based on moving atoms in xyz Cartesian space, rather than with **Internal Coordinates**. This requires an extra term (cart_bonded) to maintain bond lengths and angles to their near-ideal values.
 
 -------------------------
 
 Term  | Description
 ------------ | -------------
-**CCD**
-
-Cyclic coordinate descent. A **loop closure** protocol where backbone dihedrals are progressively adjusted to minimize
-the gap in the loop backbone.
-
-[Add a reference]
-
-#### centroid
-
-A reduced representation mode, used for simplifying the representation of the system,
-to permit faster sampling and scoring.
-
-For proteins, each residue is represented by five **backbone atoms** 
-(N, CA, C, O and the polar hydrogen on N) and one pseudo-atom, 
-the “centroid,” to represent the **side chain**.
-
-[Explain further how centroid is calculated.]
-
-*Gray et al., J. Mol. Biol. (2003) 331, 281–299*
-
-#### centroid rigid-body orientation
-
-#### chain
-
-In Rosetta, a chain is a single, covalently connected molecule.
-
-In the **PDB** format, a chain is all residues which share a chain identification label.
-
-#### chainbreak
-A gap in connectivity (in the AtomTree) between chemically connected / sequentially adjacent residues.  These are used in CCD (Cyclic Coordinate Descent) loop closure.
-
-#### ChemicalManager
-
-A singleton class in Rosetta which keeps track of things like ResidueTypeSets.
-
-#### chi angles
-
-Chi angles are the **dihedral angles** which control the **heavy atom** positions of **side chain** residues.
-
-In nucleic acids, one of the 
-
-#### chi1, chi2, chi3, & chi4
-
-Specific sidechain **chi angles** of protein residues. They are enumerated from the C-alpha atom outward,
-so chi1 would be the **dihedral** between N-Ca-Cb-Cg.
-
-#### clash
-
-Two (or more) atoms being too close to be energetically favorable (essentially an overlap of vdW radii)
-
-#### cluster
-
-Clustering of structures involves grouping structures with "similar" structures. These groups of similar structures
-are called "clusters". The measure of structure similarity are typically either **RMSD** or **GDT**.  
-
-#### coarse grain
-
-Initial modeling, where all atoms or energy terms may not be represented. 
-
-#### commit
-
-This is a term related to how version control
-is used. A commit is when you upload your changes from your computer to
-the common code source.
-
-#### comparative modeling
-
-Prediction of protein structure based on sequence and the structures of closely related proteins. Also called "Homology Modeling"
-
-#### conformation
-
-The three dimensional organization of atoms in a structure.
-
-#### Conformation
-
-A class which contains Residue objects and FoldTree.
-This is the part of the Pose which keeps track of coordinates.
-This is linked by the kinematic layer to describe
-internal-coordinate folding.
-
-#### conformer
-
-One of a set of 3 dimensional orientations a ligand, small molecule or amino acid side chain. Sometimes refered to in Rosetta as a "rotamer".
-
-#### constraint
-
-When used with Rosetta, actually a "restraint": an adjustment to the score function to take into account additional geometric information
-
-#### contact order
-
-Taken from "Contact order and ab initio protein structure prediction," Bonneau et. al, Protein Science (2002), 11:1937-1944: "The relative CO is the average sequence separation of residues that form contacts in the three-dimensional structure divided by the length of the protein." 
-
-#### Critical Assessment of PRediction of Interactions (CAPRI)
-
-Protein-protein interactions and other interactions between
-macromolecules are essential to all aspects of biology and medical
-sciences, and a number of methods have been developed to predict them.
-[CAPRI](http://www.ebi.ac.uk/msd-srv/capri/) is a community wide
-experiment designed to assess those that are based on structure. Since
-CAPRI began in 2001, the experiment has had two to four prediction
-rounds each year, with one or a few targets per round.
-
-#### Critical Assessment of Techniques for Protein Structure Prediction (CASP)
-
-[The Critical Assessment of protein Structure
-Prediction](http://predictioncenter.org/) (CASP) experiments aim at
-establishing the current state of the art in protein structure
-prediction, identifying what progress has been made, and highlighting
-where future effort may be most productively focused. CASP has been held
-every two years starting in 1994. Rosetta has participated in several
-CASP experiments.
-
-#### crystal neighbors
-
-Is crystal structure a so called native structure? Crystal is composed
-of approximately 40\~70% of water molecules, which gives
-crystallographers confidence saying proteins in crystal lattice should
-be able to represent proteins in biological environments, especially
-when proteins in crystal lattice often times are able to undergo
-biological reactions they are capable of in cells. However, there is an
-inevitable artifact in crystal lattice - that is regions where proteins
-adjacent to each other, making so called crystal contacts. Conformations
-in regions where proteins have contacts somehow are altered to some
-extent. Rosetta sometimes is able to sample conformations where the RMSD
-are 3 or 4 A away from "native crystal structure" but have lower
-energies, which are the results from variations of a section of loop.
-And this loop region happens to locate at the spot where crystal contact
-occurs. Therefore, we now are thinking about our definition of "native
-structure", where native structure is supposed to be the conformation of
-the protein exists in cell.
-
-#### crystallography phasing
-
-The critical step of solving a crystal structure is to get the phase
-either via molecular replacement or experimental methods. The
-technically easier way to get the phase is by the method of molecular
-replacement, where crystallographers utilize existing structures with
-high structural similarities to help guide the search of phase. However,
-in some hard cases, where there is no structurally similar structures
-exist, or structures have too low sequence identities (below 15\~20%),
-crystallographers then have to get the phase through experimental
-methods, which are much more tedious and difficult compared to molecular
-replacement method. Rosetta can generate or refine models using
-physically realistic full-atom force field, which sometimes can generate
-more accurate comparative models. For some of those hard cases, Rosetta
-therefore is able to provide better initial search models for molecular
-replace to find the solutions.
-
-ref: Qian et. al. High-resolution structure prediction and the
+_CCD_ | Cyclic coordinate descent. A **loop closure** protocol where backbone dihedrals are progressively adjusted to minimizethe gap in the loop backbone. [Add a reference]
+_Centroid_ |A reduced representation mode, used for simplifying the representation of the system,
+to permit faster sampling and scoring.For proteins, each residue is represented by five **backbone atoms** 
+(N, CA, C, O and the polar hydrogen on N) and one pseudo-atom, the “centroid,” to represent the **side chain**. [Explain further how centroid is calculated.] *Gray et al., J. Mol. Biol. (2003) 331, 281–299*
+_Chain_ | In Rosetta, a chain is a single, covalently connected molecule. Internally, it is stored as a number. In the **PDB** format, a chain is all residues which share a chain identification label.
+_Chainbreak_ | A gap in connectivity (in the AtomTree) between chemically connected / sequentially adjacent residues.  These are used in CCD (Cyclic Coordinate Descent) loop closure.
+_ChemicalManager_ | A singleton class in Rosetta which keeps track of things like ResidueTypeSets.
+_chi angles_ | Chi angles are the **dihedral angles** which control the **heavy atom** positions of **side chain** components of residues. In carbohydrates, these are are rotatable OH groups.
+_chi1, chi2, chi3, & chi4_ | Specific sidechain **chi angles** of protein residues. They are enumerated from the C-alpha atom outward, so chi1 would be the **dihedral** between N-Ca-Cb-Cg.
+_clash_ | Two (or more) atoms being too close to be energetically favorable (essentially an overlap of vdW radii)
+_cluster_ | Clustering of structures involves grouping structures with "similar" structures. These groups of similar structures are called "clusters". The measure of structure similarity are typically either **RMSD** or **GDT**.  
+_coarse grain_ | Initial modeling, where all atoms or energy terms may not be represented. 
+_commit_ | This is a term related to how version control is used. A commit is when you upload your changes from your computer to the common code source.
+_comparative modeling_ | Prediction of protein structure based on sequence and the structures of closely related proteins. Also called "Homology Modeling"
+_conformation_ | The three dimensional organization of atoms in a structure.
+_Conformation_ | A class which contains Residue objects and FoldTree. This is the part of the Pose which keeps track of coordinates. This is linked by the kinematic layer to describe internal-coordinate folding.
+_conformer_ | One of a set of 3 dimensional orientations a ligand, small molecule or amino acid side chain. Sometimes refered to in Rosetta as a "rotamer".
+_constraint_ | When used with Rosetta, actually a "restraint": an adjustment to the score function to take into account additional geometric information
+_contact order_ | Taken from "Contact order and ab initio protein structure prediction," Bonneau et. al, Protein Science (2002), 11:1937-1944: "The relative CO is the average sequence separation of residues that form contacts in the three-dimensional structure divided by the length of the protein." 
+_Critical Assessment of PRediction of Interactions (CAPRI)_ | Protein-protein interactions and other interactions between macromolecules are essential to all aspects of biology and medical sciences, and a number of methods have been developed to predict them. [CAPRI](http://www.ebi.ac.uk/msd-srv/capri/) is a community wide experiment designed to assess those that are based on structure. Since CAPRI began in 2001, the experiment has had two to four prediction rounds each year, with one or a few targets per round.
+_Critical Assessment of Techniques for Protein Structure Prediction (CASP)_ | [The Critical Assessment of protein Structure Prediction](http://predictioncenter.org/) (CASP) experiments aim at establishing the current state of the art in protein structure prediction, identifying what progress has been made, and highlighting where future effort may be most productively focused. CASP has been held every two years starting in 1994. Rosetta has participated in several CASP experiments.
+_crystal neighbors_ | Is crystal structure a so called native structure? Crystal is composed of approximately 40\~70% of water molecules, which gives crystallographers confidence saying proteins in crystal lattice should be able to represent proteins in biological environments, especially when proteins in crystal lattice often times are able to undergo biological reactions they are capable of in cells. However, there is an inevitable artifact in crystal lattice - that is regions where proteins adjacent to each other, making so called crystal contacts. Conformations in regions where proteins have contacts somehow are altered to some extent. Rosetta sometimes is able to sample conformations where the RMSD are 3 or 4 A away from "native crystal structure" but have lower energies, which are the results from variations of a section of loop. And this loop region happens to locate at the spot where crystal contact occurs. Therefore, we now are thinking about our definition of "native structure", where native structure is supposed to be the conformation of the protein exists in cell.
+_crystallographic phasing_ | The critical step of solving a crystal structure is to get the phase either via molecular replacement or experimental methods. The technically easier way to get the phase is by the method of molecular replacement, where crystallographers utilize existing structures with high structural similarities to help guide the search of phase. However, in some hard cases, where there is no structurally similar structures exist, or structures have too low sequence identities (below 15\~20%), crystallographers then have to get the phase through experimental methods, which are much more tedious and difficult compared to molecular replacement method. Rosetta can generate or refine models using physically realistic full-atom force field, which sometimes can generate more accurate comparative models. For some of those hard cases, Rosetta therefore is able to provide better initial search models for molecular
+replace to find the solutions. ref: Qian et. al. High-resolution structure prediction and the
 crystallographic phase problem. Nature 450, 259-264 (2007)
+_CxxTest_ | This is the framework we use for [[unit tests]]. See also [[http://cxxtest.com]].
 
-#### CxxTest
-This is the framework we use for [[unit tests]].
-See also [[http://cxxtest.com]].
+--------------------------
+
 
 #### database
 
