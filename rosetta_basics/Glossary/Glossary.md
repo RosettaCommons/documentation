@@ -12,8 +12,7 @@ See also a [[more in-depth discussion of some topics|RosettaEncyclopedia]].
 Term  | Description
 ------------ | -------------
 **ABEGO** | Designation that indicates a residue's position in Ramachandran space (A = right-handed alpha or 3<sub>10</sub> helix; B = right-handed beta strands and extended conformations; E = left-handed beta strands; G = left-handed helices) and *cis* omega angles (O). See citation [[here|http://www.ncbi.nlm.nih.gov/pubmed/8568871]].
-**_Ab_ _Initio_ Structure Prediction** | Prediction of molecular structure given only its sequence. Known also as **de novo modeling**. In Rosetta, _ab_ _initio_ modeling uses statistical information from the **PDB** such as 
-**fragments** and **statistical potentials**.
+**_Ab_ _Initio_ Structure Prediction** | Prediction of molecular structure given only its sequence. Known also as **de novo modeling**. In Rosetta, _ab_ _initio_ modeling uses statistical information from the **PDB** such as **fragments** and **statistical potentials**.
 **All-Atom Modeling** | See **fullatom**.
 **Alpha Helix** | A common motif in the secondary structure of proteins, the alpha helix
 (α-helix) is a right-handed coiled or spiral conformation, in which
