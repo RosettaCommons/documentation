@@ -56,7 +56,7 @@ While most of these applications focus on prediction, many have options which wi
 ###Carbohydrate Modeling
 * [[WorkingWithGlycans]]
 
-- ###Apps
+#### Apps
 
 Application | Description
 ------------ | -------------
@@ -64,7 +64,7 @@ Application | Description
 [[GlycanInfo]] | Get information on all glycan trees within a pose
 [[GlycanClashCheck]] | Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
-- ###RosettaScript Components
+#### RosettaScript Components
 
 Component | Description
 ------------ | -------------
