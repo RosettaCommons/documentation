@@ -225,7 +225,16 @@ The CDR Instruction file is composed of tab or white-space delimited columns. Th
 
 Other columns can be used to specify lists, etc. 
 
-**Example used for a successful redesign**
+**Instruction Types**
+
+Type | Description
+------------ | -------------
+GraftDesign | Instructions for the Graft-based Design stage
+SeqDesign | Instructions for Sequence Design
+CDRSet | Instructions for which structures end up in the set of structures from which to sample during GraftDesign. option follows the syntax: `CDR CDRSet option`
+MinProtocol | Instructions for Minimization
+
+**Example**
 ```
 #H3 no design; just flexible motion of the loop
 
@@ -247,16 +256,9 @@ ALL CDRSet EXCLUDE PDBIDs 1N8Z 3BEI
 #ALL CDRSet EXCLUDE Clusters L1-11-1 L3-9-cis7-1 H2-10-1
 ```
 
-**Instruction Types**
+-------------------------
 
-Type | Description
------------- | -------------
-GraftDesign | Instructions for the Graft-based Design stage
-SeqDesign | Instructions for Sequence Design
-CDRSet | Instructions for which structures end up in the set of structures from which to sample during GraftDesign. option follows the syntax: `CDR CDRSet option`
-MinProtocol | Instructions for Minimization
-
-** Design Syntax **
+**General Design Syntax**
 
 Instruction  | Description
 ------------ | -------------
@@ -330,7 +332,7 @@ Z  | Strategy Use | Description
 
 Option  | Description
 ------------ |  -------------
-L1 SeqDesign DISALLOWED | Disable specific amino acid sampling for this CDR (One or Three letter codes. Can be mixed) Ex. ARG C S ASN PRO
+`L1 SeqDesign DISALLOWED` | Disable specific amino acid sampling for this CDR (One or Three letter codes. Can be mixed) Ex. ARG C S ASN PRO
 
 -----------------------
 
@@ -340,8 +342,8 @@ Many minimization types are implemented; however, they each require a different 
 
 Option  | Description
 ------------ |  -------------
-L1 MinProtocol MinType Z |  Set the minimization type for this CDR
-L1 MinProtocol MinOther CDRX, CDRY, CDRZ | Set other CDRs to minimize during the optimization/design of this particular CDR. A packing shell around the CDRs to be minimized within a set distance (default 6 Å) is created. Any CDRs or regions (framework/antigen) set to design within this shell will be designed. These regions will use all set sequence design options (profiles, conservative, etc.). This option is useful for creating CDR-CDR interactions for loop and antibody structural stability.  By default, we reasonably minimize other CDRs during the optimization step.  (More CDRs = Lower Speed)
+`L1 MinProtocol MinType Z` |  Set the minimization type for this CDR
+`L1 MinProtocol MinOther CDRX, CDRY, CDRZ` | Set other CDRs to minimize during the optimization/design of this particular CDR. A packing shell around the CDRs to be minimized within a set distance (default 6 Å) is created. Any CDRs or regions (framework/antigen) set to design within this shell will be designed. These regions will use all set sequence design options (profiles, conservative, etc.). This option is useful for creating CDR-CDR interactions for loop and antibody structural stability.  By default, we reasonably minimize other CDRs during the optimization step.  (More CDRs = Lower Speed)
 
 ## Default Settings
 
