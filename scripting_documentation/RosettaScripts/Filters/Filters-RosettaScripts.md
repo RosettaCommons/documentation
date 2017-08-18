@@ -18,9 +18,10 @@ If confidence is 1.0, then the filter is evaluated as in predicate logic (T/F). 
 
 Simple filter which are available without explicitly defining them.
 
-**[[TrueFilter]]** - Always passes.
-
-**[[FalseFilter]]** - Never passes.
+Filter  | Description
+------------ | -------------
+**[[TrueFilter]]** | Always passes.
+**[[FalseFilter]]** | Never passes.
 
 ## Special Filters
 
