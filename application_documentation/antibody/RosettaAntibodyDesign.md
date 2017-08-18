@@ -1,4 +1,4 @@
-#Rosetta Antibody Design (RAbD) Manual
+#RosettaAntibodyDesign (RAbD) Manual
 
 Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 PI: Roland Dunbrack
