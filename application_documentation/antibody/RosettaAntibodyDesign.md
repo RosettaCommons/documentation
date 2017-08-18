@@ -242,7 +242,7 @@ Circular Harmonic Dihedral Constraints are added to each CDR according the clust
 `min`| **Cycle of design->min->design->min**. Results in good structures, however not as good as relax in recovering native physical characteristics.  Significantly faster. (**DEFAULT**)
 `cartmin`| **Cycle of design->min->design->min** Cartesian Space Minimization. Automatically adds cart_bonded term if not present and turns off pro_close
 `relax` | Flexible Backbone design using `RelaxedDesign`, which is neighbor-aware design during FastRelax where the packing shell to the designing CDRs is updated at every packing iteration. Results in lower energies and closer physical characteristics to native, but takes significantly longer.  It is recommended to first run min and then relax mintype on the top resulting models. [(Relax Protocol Paper)](https://www.ncbi.nlm.nih.gov/pubmed/21073878)
-`-mintype dualspace_relax` | Flexible Backbone design using 'RelaxedDesign' while optimizing both Dihedral and Cartesian space [Dualspace Relax Protocol Paper](https://www.ncbi.nlm.nih.gov/pubmed/24265211)
+`dualspace_relax` | Flexible Backbone design using 'RelaxedDesign' while optimizing both Dihedral and Cartesian space [Dualspace Relax Protocol Paper](https://www.ncbi.nlm.nih.gov/pubmed/24265211)
 `backrub` | **Cycle of backrub->design**. Uses backrub to optimize the Backbone of the CDRs set to minimize.   Use the `-add_backrub_pivots 11A 12A 12A:B ` option to add additional sets of back rub pivots, such as to add flexibility to the antigen interface. Flexibility is extremely minimal, but in some cases may be useful. [(Original Backrub Protocol Paper)](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000393)
 
 
