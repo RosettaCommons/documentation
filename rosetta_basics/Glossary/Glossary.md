@@ -9,11 +9,8 @@ Rosetta.
 
 See also a [[more in-depth discussion of some topics|RosettaEncyclopedia]].
 
-[[_TOC_]]
 
-# **A-E**
-
-**A**
+# **A**
 
 Term  | Description
 ------------ | -------------
@@ -30,7 +27,7 @@ _AtomType_ | A class which stores the properties of a particular kind of atom. (
 
 ----------------------------------------
 
-**B**
+# **B**
 
 Term  | Description
 ------------ | -------------
@@ -52,7 +49,7 @@ _Cartesian Minimization_ | **Gradient minimization** based on moving atoms in xy
 
 -------------------------
 
-**C**
+# **C**
 
 Term  | Description
 ------------ | -------------
@@ -72,13 +69,11 @@ _conformation_ | The three dimensional organization of atoms in a structure.
 _Conformation_ | A class which contains Residue objects and FoldTree. This is the part of the Pose which keeps track of coordinates. This is linked by the kinematic layer to describe internal-coordinate folding.
 _conformer_ | One of a set of 3 dimensional orientations a ligand, small molecule or amino acid side chain. Sometimes refered to in Rosetta as a "rotamer".
 _constraint_ | When used with Rosetta, actually a "restraint": an adjustment to the score function to take into account additional geometric information
-_contact order_ | Taken from "Contact order and ab initio protein structure prediction," Bonneau et. al, Protein Science (2002), 11:1937-1944: "The relative CO is the average sequence separation of residues that form contacts in the three-dimensional structure divided by the length of the protein." 
+_contact order_ | Taken from "Contact order and ab initio protein structure prediction," Bonneau et. al, Protein Science (2002), 11:1937-1944: "The relative CO is the average sequence separation of residues that form contacts in the three dimensional structure divided by the length of the protein." 
 _Critical Assessment of PRediction of Interactions (CAPRI)_ | Protein-protein interactions and other interactions between macromolecules are essential to all aspects of biology and medical sciences, and a number of methods have been developed to predict them. [CAPRI](http://www.ebi.ac.uk/msd-srv/capri/) is a community wide experiment designed to assess those that are based on structure. Since CAPRI began in 2001, the experiment has had two to four prediction rounds each year, with one or a few targets per round.
 _Critical Assessment of Techniques for Protein Structure Prediction (CASP)_ | [The Critical Assessment of protein Structure Prediction](http://predictioncenter.org/) (CASP) experiments aim at establishing the current state of the art in protein structure prediction, identifying what progress has been made, and highlighting where future effort may be most productively focused. CASP has been held every two years starting in 1994. Rosetta has participated in several CASP experiments.
 _crystal neighbors_ | Is crystal structure a so called native structure? Crystal is composed of approximately 40\~70% of water molecules, which gives crystallographers confidence saying proteins in crystal lattice should be able to represent proteins in biological environments, especially when proteins in crystal lattice often times are able to undergo biological reactions they are capable of in cells. However, there is an inevitable artifact in crystal lattice - that is regions where proteins adjacent to each other, making so called crystal contacts. Conformations in regions where proteins have contacts somehow are altered to some extent. Rosetta sometimes is able to sample conformations where the RMSD are 3 or 4 A away from "native crystal structure" but have lower energies, which are the results from variations of a section of loop. And this loop region happens to locate at the spot where crystal contact occurs. Therefore, we now are thinking about our definition of "native structure", where native structure is supposed to be the conformation of the protein exists in cell.
-_crystallographic phasing_ | The critical step of solving a crystal structure is to get the phase either via molecular replacement or experimental methods. The technically easier way to get the phase is by the method of molecular replacement, where crystallographers utilize existing structures with high structural similarities to help guide the search of phase. However, in some hard cases, where there is no structurally similar structures exist, or structures have too low sequence identities (below 15\~20%), crystallographers then have to get the phase through experimental methods, which are much more tedious and difficult compared to molecular replacement method. Rosetta can generate or refine models using physically realistic full-atom force field, which sometimes can generate more accurate comparative models. For some of those hard cases, Rosetta therefore is able to provide better initial search models for molecular
-replace to find the solutions. ref: Qian et. al. High-resolution structure prediction and the
-crystallographic phase problem. Nature 450, 259-264 (2007)
+_crystallographic phasing_ | The critical step of solving a crystal structure is to get the phase either via molecular replacement or experimental methods. The technically easier way to get the phase is by the method of molecular replacement, where crystallographers utilize existing structures with high structural similarities to help guide the search of phase. However, in some hard cases, where there is no structurally similar structures exist, or structures have too low sequence identities (below 15\~20%), crystallographers then have to get the phase through experimental methods, which are much more tedious and difficult compared to molecular replacement method. Rosetta can generate or refine models using physically realistic full-atom force field, which sometimes can generate more accurate comparative models. For some of those hard cases, Rosetta therefore is able to provide better initial search models for molecular replace to find the solutions. ref: Qian et. al. High-resolution structure prediction and the crystallographic phase problem. Nature 450, 259-264 (2007)
 _CxxTest_ | This is the framework we use for [[unit tests]]. See also [[http://cxxtest.com]].
 
 --------------------------
@@ -90,7 +85,7 @@ Term  | Description
 _database_ | The Rosetta database directory contains key parameters for Rosetta. Examples of stored information is force field, definition of monomers (see: **residue types**), representation of the model, fundamental constant parameters, etc. 
 _ddG_ | Also known as ΔΔG. The change in binding energy free energy (ΔG) upon a mutation. 
 _de_ _novo_ modeling | Prediction of molecular structure given only its sequence. Known also as **ab initio structure predition**.
-_decoy_ A **model** produced by a computational protocol.
+_decoy_ | A **model** produced by a computational protocol.
 _density map_ | Experimental data showing where the electrons (and thus the atoms) are.
 _design_ | Optimization of the amino acid sequence of a protein.
 _devel_ | devel is one of the libraries
