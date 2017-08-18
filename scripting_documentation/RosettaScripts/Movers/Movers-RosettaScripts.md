@@ -316,7 +316,7 @@ Mover  | Description
 **[[Superimpose|SuperimposeMover]]** | Superimpose the current pose on another stored pose
 **[[SetSecStructEnergies|SetSecStructEnergiesMover]]** | Biases the score toward particular secondary structural elements
 **[[SwitchChainOrder|SwitchChainOrderMover]]** | Reorders (or removes) the chains in a pose 
-**[[TryDisulfPermutations|TryDisulfPermuationsMover]]** - Tries all possible permutations of disulfides for residue types that can form disulfides, and returns the lowest-energy permutation.
+**[[TryDisulfPermutations|TryDisulfPermuationsMover]]** | Tries all possible permutations of disulfides for residue types that can form disulfides, and returns the lowest-energy permutation.
 **[[MakePolyX|MakePolyXMover]]** | Converts a pose into a polymer of a single amino acid type
 **[[MembraneTopology|MembraneTopologyMover]]** | Inserts membrane topology from a membrane span file into a pose
 **[[SaveSequenceToComments|SaveSequenceToCommentsMover]]** | Saves the current pose sequence to pose comments
