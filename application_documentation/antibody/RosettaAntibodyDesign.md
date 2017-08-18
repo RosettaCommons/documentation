@@ -32,6 +32,8 @@ This app requires the Rosetta Antibody Design Database.  A database of antibodie
 
 It should be placed in <code> Rosetta/main/database/sampling/antibodies/ </code>  It is recommended to use this up-to-date database.
 
+See [[General-Antibody-Options-and-Tips]] for more.  Currently, `-input_ab_scheme` is not supported for antibody design and an AHo-renumbered antibody must be used. 
+
 ------------------------------
 
 **Starting Structure**
