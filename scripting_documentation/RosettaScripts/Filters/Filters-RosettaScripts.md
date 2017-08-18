@@ -36,10 +36,10 @@ Filter  | Description
 **[[MoveBeforeFilter]]** | Apply a mover before applying the filter.
 **[[Operator|OperatorFilter]]** | Apply a fuzzy logic operation to a set of filters.
 **[[Sigmoid|SigmoidFilter]]** | Transform a filter's value according to a sigmoid function.
-**[[IfThenFilter]]** - Evaluate to a value contingent on the true/false value of other filters.
-**[[ContingentFilter]]** - A special filter that allows movers to set its value (pass/fail).
-**[[PoseComment|PoseCommentFilter]]** - Test for the existence or the value of a comment in the pose.
-**[[Range|RangeFilter]]** - Returns true if the value of a given filter is in a given range.
+**[[IfThenFilter]]** | Evaluate to a value contingent on the true/false value of other filters.
+**[[ContingentFilter]]** | A special filter that allows movers to set its value (pass/fail).
+**[[PoseComment|PoseCommentFilter]]** | Test for the existence or the value of a comment in the pose.
+**[[Range|RangeFilter]]** | Returns true if the value of a given filter is in a given range.
 
 -----------------------
 
@@ -213,7 +213,9 @@ Filter  | Description
 
 ### Hotspot Design
 
-**[[StubScore|StubScoreFilter]]** - Filter based on if the scaffold is 'feeling' any of the hotspot stub constraints.
+Filter  | Description
+------------ | -------------
+**[[StubScore|StubScoreFilter]]** | Filter based on if the scaffold is 'feeling' any of the hotspot stub constraints.
 
 <!--- BEGIN_INTERNAL -->
 
