@@ -21,87 +21,38 @@ Term  | Description
 **Atom Tree | The atom tree connects atoms in the **pose**, and is used to convert 
 **internal coordinates** into **cartesian coordinates**. Normally 
 derived from the **fold tree**.
-**AtomTree | Core::kinematics class for defining atomic connectivity.
+**AtomTree** | Core::kinematics class for defining atomic connectivity.
 **AtomType** | A class which stores the properties of a particular kind of atom. (e.g. a carboxylate oxygen). See [[Rosetta AtomTypes]] for more details.
 
 ----------------------------------------
 
-#### B factor
-
-The "temperature factor" from crystallography and seen in PDB files, the larger the value the more "flexible" the atom is
-
-#### backbone
-
-In **biopolymers**, the backbone is those atoms which form the polymeric chain.
+Term  | Description
+------------ | -------------
+**B factor** |The "temperature factor" from crystallography and seen in PDB files, the larger the value the more "flexible" the atom is
+**Backbone** | In **biopolymers**, the backbone is those atoms which form the polymeric chain.
 In proteins these are the N, CA, C, and O atoms and their hydrogens. 
-In nucleic acids it is the phophate and sugars.
-
-See also **main chain** 
-
-#### backbone accuracy
-
-#### backrub
-
-#### base
-
-The non-**backbone** portion of a nucleotide.
+In nucleic acids it is the phophate and sugars. See also **main chain** 
+**backrub** | A change in torsion angles seen routinely in structures in solution.  A change in one dihedral is compensated for by changes in the previous and next dihedrals.  This 'move' was implemented as a backbone-sampling protocol by Tanja Kortemme.
+**Base** | The non-**backbone** portion of a nucleotide.
 Analogous to a protein's **side chain**.
-
-#### benchmark study
-
-Tests done to confirm the performance of a new algorithm or method, results are compared to previous results using the same starting data
-
-#### beta sheet
-
-A common motif in the secondary structure of proteins, the beta sheet
+**Benchmark Study** | Tests done to confirm the performance of a new algorithm or method, results are compared to previous results using the same starting data
+**Beta Sheet** | A common motif in the secondary structure of proteins, the beta sheet
 (β-sheet) is a mostly flat extended structure made up of individual
 (possibly non-consecutive) extended chains (β-strand) held together
 by alternating hydrogen bonds.  
-
-#### binding affinity or binding energy
-
-How strongly two molecules are associated with one another.
-
-#### binding interface
-
-The point of contact between two molecules.
-
-A common definition in Rosetta is any residue with the C-beta atom or any heavy atom within
+**Binding-Affinity or Binding-Energy** | How strongly two molecules are associated with one another.
+**Binding Interface** | The point of contact between two molecules. A common definition in Rosetta is any residue with the C-beta atom or any heavy atom within
 6 Angstroms of the other binding partner.
-
-#### biopolymers
-
-Polymeric molecules important for biological systems.
+**Biopolymers** | Polymeric molecules important for biological systems.
 Typical biopolymers are proteins, RNA, DNA and carbohydrates. 
+**Blind Docking | Docking where the structure of the docked complex is unknown.
+**Bootcamp** | An intense week-long Rosetta training session for new developers. 
+**Bound Docking** | The complex structure that is used for reference in docking and rmsd calculations is determined experimentally by X-rays/NMR. 
+**Branches** | A development term used in code version control. See trunk.
+**Cartesian Coordinates** | Coordinates with spatial positions specified by xyz coordinates. Contrast this with **internal coordinates**. The conversion between the two is **kinematics**. 
+** Cartesian minimization** | **Gradient minimization** based on moving atoms in xyz Cartesian space, rather than with **internal coordinates**. This requires an extra term (cart_bonded) to maintain bond lengths and angles to their near-ideal values.
 
-#### blind docking
-
-Docking where the structure of the docked complex is unknown.
-
-#### bootcamp
-
-An intense week-long Rosetta training session for new developers. 
-
-#### bound docking
-
-The complex structure that is used for reference in docking and rmsd calculations is determined experimentally by X-rays/NMR. 
-
-#### branches
-
-See trunk.
-
-#### broker
-
-#### Cartesian coordinates
-
-Coordinates with spatial positions specified by xyz coordinates. Contrast this with **internal coordinates**.
-The conversion between the two is **kinematics**. 
-
-#### Cartesian minimization
-
-**Gradient minimization** based on moving atoms in xyz Cartesian space, rather than with **internal coordinates**.
-
-This requires an extra term (cart_bonded) to maintain bond lengths and angles to their near-ideal values.
+-------------------------
 
 #### CCD
 
