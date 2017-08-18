@@ -219,9 +219,9 @@ For example, in a redesign project, we may only want to design a particular CDR 
 
 The CDR Instruction file is composed of tab or white-space delimited columns. The first column on each line specifies which CDR the option is for. For each option, 'ALL' can be given to control all of the CDRs at once. ALL can also be used in succession to first set all CDRs to something and then one or more CDRs can be set to something else in succeeding lines. Commands are not lower- or upper-case-sensitive. A ‘#’ character at the beginning of a line is a file comment and is skipped.
 
-**First column** - Specifies the _CDR_, 
+**First column** - _CDR_, 
 
-**Second Column** - Specifies the _TYPE_
+**Second Column** -  _TYPE_
 
 Other columns can be used to specify lists, etc. 
 
@@ -242,27 +242,22 @@ H3 FIX
 
 ALL MinProtocol MINTYPE relax
 
-L1 MinProtocol MIN_NEIGHBORS L2 L3
-L3 MinProtocol MIN_NEIGHBORS L1 H3
-
-H2 MinProtocol MIN_NEIGHBORS H3 H1
-H3 MinProtocol MIN_NEIGHBORS L1 H3
-
 ALL CDRSet EXCLUDE PDBIDs 1N8Z 3BEI
 
 #ALL CDRSet EXCLUDE Clusters L1-11-1 L3-9-cis7-1 H2-10-1
 ```
+
 **Instruction Types**
 
-Instruction (Second Column) | Description
+Type | Description
 ------------ | -------------
 GraftDesign | Instructions for the Graft-based Design stage
 SeqDesign | Instructions for Sequence Design
 CDRSet | Instructions for which structures end up in the set of structures from which to sample during GraftDesign. option follows the syntax: `CDR CDRSet option`
-
 MinProtocol | Instructions for Minimization
 
 ** Design Syntax **
+
 Instruction  | Description
 ------------ | -------------
 `L1 Allow` | Allow L1 to Design in both modes
@@ -276,6 +271,7 @@ Instruction  | Description
 --------------------------------
 
 **CDRSet Syntax (General)**
+
 Instruction  | Description
 ------------ | -------------
 `L1 CDRSet Length Max X` | Maximum length of CDR
@@ -348,6 +344,40 @@ L1 MinProtocol MinType Z |  Set the minimization type for this CDR
 L1 MinProtocol MinOther CDRX, CDRY, CDRZ | Set other CDRs to minimize during the optimization/design of this particular CDR. A packing shell around the CDRs to be minimized within a set distance (default 6 Å) is created. Any CDRs or regions (framework/antigen) set to design within this shell will be designed. These regions will use all set sequence design options (profiles, conservative, etc.). This option is useful for creating CDR-CDR interactions for loop and antibody structural stability.  By default, we reasonably minimize other CDRs during the optimization step.  (More CDRs = Lower Speed)
 
 ## Default Settings
+
+These settings are overridden by your set instruction file/command-line options
+
+```
+
+#General
+ALL FIX
+DE FIX
+
+ALL WEIGHTS 1.0
+
+#Minimization - Options: min, relax, ds_relax cartesian, backrub, repack, none
+ALL MinProtocol MINTYPE min
+
+#Neighbors.  These are conservative values used in benchmarking.  Limit these to speed up runs.
+L1 MinProtocol Min_Neighbors L2 L3
+L2 MinProtocol Min_Neighbors L1
+L3 MinProtocol Min_Neighbors L1 H3
+H1 MinProtocol Min_Neighbors H2 H3
+H2 MinProtocol Min_Neighbors H1
+H3 MinProtocol Min_Neighbors L1 L3
+
+#Length
+ALL CDRSet LENGTH MAX 25
+ALL CDRSet LENGTH MIN 1
+
+
+#Profile Design
+ALL SeqDesign STRATEGY PROFILES
+ALL SeqDesign FALLBACK_STRATEGY CONSERVATIVE
+
+##DE Loops can be designed.  They use conservative design by default since we have no profile data!
+DE SeqDesign STRATEGY CONSERVATIVE
+```
 
 # GraftDesign Sampling Algorithms
 These change the way CDRs are sampled from the antibody design database.   They can be specified using the <code>-design_protocol</code> flag.
