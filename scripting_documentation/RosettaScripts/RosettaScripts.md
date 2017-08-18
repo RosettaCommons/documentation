@@ -2,10 +2,16 @@
 
 -   [Introductory Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/scripting_with_rosettascripts/scripting_with_rosettascripts)
 -   [Advanced Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/advanced_scripting_with_rosettascripts/advanced_scripting_with_rosettascripts)
+
+---------------------
+
 -   [[Movers (RosettaScripts)|Movers-RosettaScripts]]
 -   [[Filters (RosettaScripts)|Filters-RosettaScripts]]
 -   [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]]
 -   [[ResidueSelectors (RosettaScripts)|ResidueSelectors]]
+
+-----------------------
+
 -   [[Composite protocols with RosettaScripts interfaces|Composite-protocols]]
 -   [[SymmetryAndRosettaScripts]]
 -   [[RosettaScripts Formatting Conventions|RosettaScripts-Conventions]]
