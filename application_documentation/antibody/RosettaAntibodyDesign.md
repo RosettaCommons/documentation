@@ -210,15 +210,142 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 -design_H3_stem -inner_KT 2.0 -outer_KT 2.0 -seq_design_profile_samples 5
 ```
 
-# Antibody Design Instruction File
-The Antibody Design Instruction File handles CDR-level control of the algorithm and design.  It is used to create the CDRSet for sampling whole CDRs from the PDB, as well as fine-tuning the minimization steps and sequence design strategies.  For each option, 'ALL' can be given to control all of the CDRs at once.  Specific capitalization of commands are not needed, and are used for style. Commands are broken down into 4 types, each controlling different aspects of the protocol including the GraftDesign stage, SeqDesign Stage, the Minimization type, and specific sequence design settings.
+# Antibody Design CDR Instruction File
+The Antibody Design Instruction File handles CDR-level control of the algorithm and design.  It is used to create the CDRSet for sampling whole CDRs from the PDB, as well as fine-tuning the minimization steps and sequence design strategies.  
+
+For example, in a redesign project, we may only want to design a particular CDR and explore the local conformations within its starting CDR cluster, or we may simply want to optimize the sequence of a CDR or set of CDRs using our cluster profiles. These examples can be accomplished using the CDR Instruction File. This file uses a simple syntax where each CDR is controlled individually in the first column, and then a rudimentary language controls each part of the antibody design machinery. The file controls which CDRs are sampled, what the final CDRSet will be, whether sequence design is performed and how, and which minimization type will be used to optimize the structure and sequence for each CDR. Some of these commands can also be controlled via command-line options for simple-to-setup runs.  Any option set via command-line (such as `-graft_design_cdrs` and `-seq_design_cdrs` will override anything set in the instruction file)
 
 ## Syntax
 
- - GraftDesign
- - SeqDesign
- - CDRSet
- - MinProtocol
+The CDR Instruction file is composed of tab or white-space delimited columns. The first column on each line specifies which CDR the option is for. For each option, 'ALL' can be given to control all of the CDRs at once. ALL can also be used in succession to first set all CDRs to something and then one or more CDRs can be set to something else in succeeding lines. Commands are not lower- or upper-case-sensitive. A ‘#’ character at the beginning of a line is a file comment and is skipped.
+
+**First column** - Specifies the _CDR_, 
+
+**Second Column** - Specifies the _TYPE_
+
+Other columns can be used to specify lists, etc. 
+
+**Example used for a successful redesign**
+```
+#H3 no design; just flexible motion of the loop
+
+#SET All to design first
+ALL GraftDesign ALLOW
+ALL SeqDesign ALLOW
+
+#Fix H3 and disallow GraftDesign for H1 and L2
+L2 GraftDesign FIX
+H1 GraftDesign FIX
+
+#Disallow GraftDesign and SeqDesign for H3
+H3 FIX
+
+ALL MinProtocol MINTYPE relax
+
+L1 MinProtocol MIN_NEIGHBORS L2 L3
+L3 MinProtocol MIN_NEIGHBORS L1 H3
+
+H2 MinProtocol MIN_NEIGHBORS H3 H1
+H3 MinProtocol MIN_NEIGHBORS L1 H3
+
+ALL CDRSet EXCLUDE PDBIDs 1N8Z 3BEI
+
+#ALL CDRSet EXCLUDE Clusters L1-11-1 L3-9-cis7-1 H2-10-1
+```
+**Instruction Types**
+
+Instruction (Second Column) | Description
+------------ | -------------
+GraftDesign | Instructions for the Graft-based Design stage
+SeqDesign | Instructions for Sequence Design
+CDRSet | Instructions for which structures end up in the set of structures from which to sample during GraftDesign. option follows the syntax: `CDR CDRSet option`
+
+MinProtocol | Instructions for Minimization
+
+** Design Syntax **
+Instruction  | Description
+------------ | -------------
+`L1 Allow` | Allow L1 to Design in both modes
+`L1 GraftDesign Allow` | Allow L1 to GraftDesign
+`L1 SeqDesign Allow` |Allow L1 to SequenceDesign
+`L1 Fix` | Disable L1 to Design in both modes
+`L1 GraftDesign Fix` | Disable L1 to GraftDesign
+`L1 SeqDesign Fix` | Disable L1 to SequenceDesign
+`L1 Weights Z` |Weight a particular CDR when choosing which CDR to design. By default, all CDRs have an equal weight. 
+
+--------------------------------
+
+**CDRSet Syntax (General)**
+Instruction  | Description
+------------ | -------------
+`L1 CDRSet Length Max X` | Maximum length of CDR
+`L1 CDRSet Length Min Y` | Minimum length of CDR
+`L1 CDRSet Cluster_Cutoffs Z` | Limits the CDRSet to include only CDRs of clusters that have Z or more members. Used in conjunction with Sequence Design cutoffs to sample clusters where profile data is sufficient or simply common clusters of a particular species.
+`L1 CDRSet ONLY_CURRENT_CLUSTER` | Limits the CDRSet to include only CDRs belonging to the identified cluster of the starting CDR. Overrides other options. Used for sequence and structure sampling within CDR clusters. Useful for redesign applications.
+`L1 CDRSet Center_Clusters_Only` | Limits the CDRSet to include only CDRs that are cluster centers. Overrides other options. Used for broadly sampling CDR structure space. Useful to get an idea of what CDRs can fit well or for a first-pass run for de novo design.
+
+**CDRSet Syntax (Include and Excludes)**
+
+This set of options either includes only the items specified or it excludes specific items. The syntax is thus:
+
+`L1 CDRSet INCLUDE_ONLY option list of items`
+
+OR
+
+`L1 CDRSet EXCLUDE option list of items`
+
+The options for this type of CDRSet syntax are listed below
+
+Option  | Description
+------------ | -------------
+`PDBIDs` | Include only or leave out a specific set of PDBIds. This is very useful for benchmarking purposes.
+`Clusters` | Include only or leave out a specific set of Clusters. Useful if the user already knows which clusters are able to interact with antigen, whether this is from previous runs of the program or via homologues. This is also useful for benchmarking. 
+`Germline` | Include only or leave out specific human/mouse germlines. 
+`Species` | Include only or leave out specific species. Very useful limiting possible immune reactions in the final designs.
+
+------------------------
+
+**Sequence Design Instructions**
+
+The Sequence Design Instructions, used with the keyword SeqDesign after the CDR specifier, is used to control the sequence design aspect of the algorithm. In addition to controlling which CDRs undergo sequence design, the Sequence Design options control which strategy to use when doing sequence design (primary strategy), and which strategy to use if the primary strategy cannot be used for that CDR (fallback strategy). 
+
+Currently, the fallback strategy is used if the primary strategy does not meet statistical requirements. For example, using cluster-based profiles for sequence design (which is the default), it is imperative that the particular cluster has at least some number of sequences in the database for the strategy to be successful. By default, this cutoff is set at 10 and uses the command-line option, `‑seq_design_stats_cutoff Z`. This means that if a cluster has less than 10 members and the primary strategy is to use cluster-based profiles, then the fallback strategy will be used. The default fallback strategy for all of the CDRs is the use of a set of conservative mutations with data coming from the BLOSUM62 matrix by default, with the set of mutations allowed consisting of those substitutions with positive or zero scores in the matrix. For example, if we have a D at some position for which we are using this fallback strategy, the set of allowed mutants would be N, Q, E, and S. Further, the set of conservative mutations can be controlled using the command-line option, `‑cons_design_data_source` source, where other BLOSUM matrices can be specified. All BLOSUM matrices can be used for conservative design, where the numbers (40 vs. 62 vs. 80 etc.) indicate the sequence similarity cutoffs used to derive the BLOSUM matrices - with higher numbers being a more conservative set of mutations. 
+
+**General Syntax**
+
+Option  | Description
+------------ |  -------------
+`L1 SeqDesign Strategy Z` | Set Primary Sequence Design Strategy
+`L1 SeqDesign Fallback_Strategy Z` | Set Fallback Sequence Design Strategy
+
+
+**Strategy Types**
+
+Z  | Strategy Use | Description
+------------ | ------------- | -------------
+`Profiles` | Primary | Use cluster-based profiles based on sequence probabilities as described above
+`Profile_Sets` | Primary | Randomly sample a full CDR sequence from the CDR cluster each time packing is done
+`Profiles_Combined` | Primary | Randomly sample a full CDR sequence from the CDR cluster and sample from the cluster-based profiles each time packing is done. Used to increase variability. Helpful in conjunction with center cluster member CDRSet sampling
+`Conservative` | Both | Conservative design operation as described above
+`Basic` | Both | Basic design – no profiles, just enabling all amino acids at those positions
+`Disable` | Fallback | Turn off design for that CDR if primary strategy does not meet cutoffs. 
+
+**Etc**
+
+Option  | Description
+------------ |  -------------
+L1 SeqDesign DISALLOWED | Disable specific amino acid sampling for this CDR (One or Three letter codes. Can be mixed) Ex. ARG C S ASN PRO
+
+-----------------------
+
+**Minimization**
+
+Many minimization types are implemented; however, they each require a different amount of time to run. See the MinType descriptions below for a list of acceptable options and their use.
+
+Option  | Description
+------------ |  -------------
+L1 MinProtocol MinType Z |  Set the minimization type for this CDR
+L1 MinProtocol MinOther CDRX, CDRY, CDRZ | Set other CDRs to minimize during the optimization/design of this particular CDR. A packing shell around the CDRs to be minimized within a set distance (default 6 Å) is created. Any CDRs or regions (framework/antigen) set to design within this shell will be designed. These regions will use all set sequence design options (profiles, conservative, etc.). This option is useful for creating CDR-CDR interactions for loop and antibody structural stability.  By default, we reasonably minimize other CDRs during the optimization step.  (More CDRs = Lower Speed)
 
 ## Default Settings
 
