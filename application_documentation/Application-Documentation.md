@@ -51,6 +51,7 @@ While most of these applications focus on prediction, many have options which wi
     * [[Modeling CDR H3|antibody-model-CDR-H3]] - Determine antibody structures by combining VL-VH docking and H3 loop modeling.
 
 
+------------------------
 
 ###Carbohydrate Modeling
 * [[WorkingWithGlycans]]
@@ -72,6 +73,7 @@ Component | Description
 [[GlycanTreeSelector]] | Select individual glcyan trees or all of them
 [[GlycanResidueSelector]] | Select specific residues of each glycan tree of interest.
 
+---------------------------
 
 ###Loop Modeling
 -  [[Loop modeling overview|loopmodel]]
@@ -81,6 +83,8 @@ Component | Description
 -  [[KIC with fragments|KIC_with_fragments]] - The latest version of loop modeling, combining kinematic closure with sampling of coupled degrees of freedom from fragments.
 -  [[Stepwise assembly of protein loops|swa-protein-main]] - Generate three-dimensional de novo models of protein segments     -  [[Stepwise assembly of long loops|swa-protein-long-loop]] - For loops greater than 4-5 residues. See also  [[Stepwise monte carlo|stepwise]].
 -  [[Stepwise monte carlo|stepwise]] - Generate 3D models of protein, RNA, and protein/RNA loops, motifs, and interfaces. Stochastic version of stepwise assembly. 
+
+-----------------------------
 
 ###RNA and RNA/protein
 -  [[RNA structure prediction|rna-denovo-setup]] - Predict 3-dimensional structures of RNA from their nucleotide sequence. Read this first. 
@@ -97,6 +101,7 @@ Component | Description
 -  [[RNA pharmacophore]] - Extract and cluster the key features present in RNA (rings, hbond donors & acceptors) from the structure of a protein-RNA complex.
 
 
+---------------------------------
 
 ##Docking <a name="Docking" />
 
@@ -128,6 +133,8 @@ Component | Description
 ###Protein-Surface Docking
 - [[Surface Docking|surface-docking]] - Dock a protein to a metal or mineral surface.
  
+------------------------------
+
 ##Design <a name="Design" />
 
 ### General 
@@ -194,6 +201,8 @@ Component | Description
 
 - [[Beta strand homodimer design]] - Find proteins with surface exposed beta-strands, then design a homodimer that will form via that beta-strand.  
 
+--------------------------------
+
 ##Membrane Proteins <a name="Membrane-Proteins" />
 
 ### Getting Started
@@ -223,6 +232,8 @@ Component | Description
     * [[score_jd2|RosettaMP-App-MPScoring]] - Settings for using score_jd2 with the RosettaMP scoring functions. 
     * [[mp_span_from_pdb|RosettaMP-App-MPSpanFromPDB]] - Calculate trans-membrane spans from the PDB structure
     * [[mp_transform|RosettaMP-App-MPTransform]] - Transforming the protein into membrane coordinates.
+
+----------------------------------
 
 ##Analysis <a name="Analysis" />
 
