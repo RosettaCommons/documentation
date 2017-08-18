@@ -11,7 +11,10 @@ See also a [[more in-depth discussion of some topics|RosettaEncyclopedia]].
 
 [[_TOC_]]
 
-# **A**
+# **A-E**
+
+**A**
+
 Term  | Description
 ------------ | -------------
 _ABEGO_ | Designation that indicates a residue's position in Ramachandran space (A = right-handed alpha or 3<sub>10</sub> helix; B = right-handed beta strands and extended conformations; E = left-handed beta strands; G = left-handed helices) and *cis* omega angles (O). See citation [[here|http://www.ncbi.nlm.nih.gov/pubmed/8568871]].
@@ -27,7 +30,7 @@ _AtomType_ | A class which stores the properties of a particular kind of atom. (
 
 ----------------------------------------
 
-#**B**
+**B**
 Term  | Description
 ------------ | -------------
 _B factor_ |The "temperature factor" from crystallography and seen in PDB files, the larger the value the more "flexible" the atom is
@@ -48,7 +51,7 @@ _Cartesian Minimization_ | **Gradient minimization** based on moving atoms in xy
 
 -------------------------
 
-# **C**
+**C**
 Term  | Description
 ------------ | -------------
 _CCD_ | Cyclic coordinate descent. A **loop closure** protocol where backbone dihedrals are progressively adjusted to minimizethe gap in the loop backbone. [Add a reference]
@@ -78,7 +81,7 @@ _CxxTest_ | This is the framework we use for [[unit tests]]. See also [[http://c
 
 --------------------------
 
-# **D**
+**D**
 
 Term  | Description
 ------------ | -------------
@@ -102,7 +105,7 @@ _Dunbrack loop optimization_ | See **CCD**
 _Dunbrack score_ | Statistical energy term of the rotamer (-log(p) where p is the probability of the given rotamer.)
 
 --------------------------------
-# **E**
+**E**
 
 Term  | Description
 ------------ | -------------
