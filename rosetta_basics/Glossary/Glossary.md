@@ -18,7 +18,7 @@ Term  | Description
 **Analogue** | Similar proteins without evolutionary relationships. See also **homologue**. Rosetta **homology modeling** doesn't actually need strict evolutionary relationships, and can use **analogues** as **templates**.
 **Annotated Aequence** | Rosetta will often record the sequence of a protein as the one letter amino acid codes, expanding when necessary with square brackets to indicate patches like post-translational modifications.
 **Atom** | A class storing the Cartesian position of an atom in a Residue.
-**Atom Tree | The atom tree connects atoms in the **pose**, and is used to convert **internal coordinates** into **cartesian coordinates**. Normally derived from the **fold tree**.
+**Atom Tree** | The atom tree connects atoms in the **pose**, and is used to convert **internal coordinates** into **cartesian coordinates**. Normally derived from the **fold tree**.
 **AtomTree** | Core::kinematics class for defining atomic connectivity.
 **AtomType** | A class which stores the properties of a particular kind of atom. (e.g. a carboxylate oxygen). See [[Rosetta AtomTypes]] for more details.
 
