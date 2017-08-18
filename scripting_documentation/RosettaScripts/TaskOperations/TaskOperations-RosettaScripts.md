@@ -143,7 +143,9 @@ TaskOp  | Description
 ### Misc.
 
 <!--- BEGIN_INTERNAL -->
-**[[RetrieveStoredTask|RetrieveStoredTaskOperation]]** - Use a task stored by a [[StoreTaskMover]].
+TaskOp  | Description
+------------ | -------------
+**[[RetrieveStoredTask|RetrieveStoredTaskOperation]]** | Use a task stored by a [[StoreTaskMover]].
 <!--- END_INTERNAL --> 
 
 -----------------------------------
