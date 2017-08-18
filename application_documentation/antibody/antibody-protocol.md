@@ -226,9 +226,7 @@ You can use a set of decoys simultaneously for antibody-antigen docking simulati
 
 * [[General Antibody Options and Tips]]
 * [[Antibody Applications]]: Homepage for antibody applications
-    * [[Antibody Python script]]: Setup script for this application
-    * [[Grafting CDR loops|antibody-assemble-cdrs]]: Graft antibody CDR templates on the framework template to create a rough antibody model.  
-    * [[Modeling CDR H3|antibody-model-CDR-H3]]: Determine antibody structures by combining VL-VH docking and H3 loop modeling.
+    - [[RosettaAntibodyDesign]]: Design antibodies and antibody-antigen complexes
     - [[Camelid antibody docking|antibody-mode-camelid]]: Dock camelid antibodies to their antigens.
     - [[SnugDock | snugdock]]: Paratope structure optimization during antibody-antigen docking
     * [[Antibody Design Strategy Analysis]]: A PyRosetta-based tool to analyze and/or compare antibody design strategies.
