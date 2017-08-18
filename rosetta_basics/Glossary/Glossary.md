@@ -9,6 +9,9 @@ Rosetta.
 
 See also a [[more in-depth discussion of some topics|RosettaEncyclopedia]].
 
+[[_TOC_]]
+
+# **A**
 Term  | Description
 ------------ | -------------
 _ABEGO_ | Designation that indicates a residue's position in Ramachandran space (A = right-handed alpha or 3<sub>10</sub> helix; B = right-handed beta strands and extended conformations; E = left-handed beta strands; G = left-handed helices) and *cis* omega angles (O). See citation [[here|http://www.ncbi.nlm.nih.gov/pubmed/8568871]].
@@ -24,6 +27,7 @@ _AtomType_ | A class which stores the properties of a particular kind of atom. (
 
 ----------------------------------------
 
+#**B**
 Term  | Description
 ------------ | -------------
 _B factor_ |The "temperature factor" from crystallography and seen in PDB files, the larger the value the more "flexible" the atom is
@@ -44,6 +48,7 @@ _Cartesian Minimization_ | **Gradient minimization** based on moving atoms in xy
 
 -------------------------
 
+# **C**
 Term  | Description
 ------------ | -------------
 _CCD_ | Cyclic coordinate descent. A **loop closure** protocol where backbone dihedrals are progressively adjusted to minimizethe gap in the loop backbone. [Add a reference]
@@ -73,176 +78,69 @@ _CxxTest_ | This is the framework we use for [[unit tests]]. See also [[http://c
 
 --------------------------
 
+# **D**
 
-#### database
-
-The Rosetta database directory contains key parameters for Rosetta. 
+Term  | Description
+------------ | -------------
+_database_ | The Rosetta database directory contains key parameters for Rosetta. 
 Examples of stored information is force field, definition of monomers (see: **residue types**), representation of the model, fundamental constant parameters, etc. 
-
-#### ddG
-
-Also known as ΔΔG. The change in binding energy free energy (ΔG) upon a mutation. 
-
-#### _de_ _novo_ modeling
-
-Prediction of molecular structure given only its sequence. Known also as **ab initio structure predition**.
-
-#### decoy
-
-A **model** produced by a computational protocol.
-
-#### density map
-
-Experimental data showing where the electrons (and thus the atoms) are.
-
-#### design
-
-Optimization of the amino acid sequence of a protein.
-
-#### devel
-
-devel is one of the libraries
+_ddG_ | Also known as ΔΔG. The change in binding energy free energy (ΔG) upon a mutation. 
+_de_ _novo_ modeling | Prediction of molecular structure given only its sequence. Known also as **ab initio structure predition**.
+_decoy_ A **model** produced by a computational protocol.
+_density map_ | Experimental data showing where the electrons (and thus the atoms) are.
+_design_ | Optimization of the amino acid sequence of a protein.
+_devel_ | devel is one of the libraries
 within the Rosetta project. It contains code that is documented and
 tested but not necessarily scientifically validated to work
-well: code still under *devel*opment. It is not availible in the released version.
+well: code still under *devel*opment. It is not availible in the released version.  It should be deleted.
+_dihedral angle_ | A four-body angle encoding the respective orientation of two atoms around the axis connecting two other atoms. Also known as a **torsion**.
+_disulfides_ | The covalent attachement of two cysteine residues in close proximity. This depends on the protein being present in an oxidizing environment (like outside of the cell), rather than a reducing environment (like the inside of the cell). This covalent attachment can greatly stabilize the folding of a protein. 
+_docking <a name="docking" />_ | Assembling two separate proteins (or protein-ligand, protein-surface) into their biologically relevant structure and finding the lower free energy of the complex.
+_docking funnel_ | An energy funnel (score versus RMSD) for docking runs.
+_Dunbrack library_ | A sidechain rotamer library compiled by the Dunbrack laboratory; the standard rotamer library of Rosetta.
+_Dunbrack loop optimization_ | See **CCD**
+_Dunbrack score_ | Statistical energy term of the rotamer (-log(p) where p is the probability of the given rotamer.)
 
-#### dihedral angle
+--------------------------------
+# **E**
 
-A four-body angle encoding the respective orientation of two atoms around the axis connecting two other atoms.
-Also known as a **torsion**.
+Term  | Description
+------------ | -------------
+_Energies_ | A class in Pose which stores the energies computed by the ScoreFunction.
+_energy function_ | Also called a "score function". The prediction of structural energy over which Rosetta operates.
+_energy funnel_ | An attempt at representing the energy landscape of the protein. A plot which (ideally) shows low rmsd structures having lower energies than high rmsd structures.
+_energy landscape <a name="general-terms_energy-landscape" />_ [See this page](http://www.eoht.info/page/Energy+landscape)
+_ensemble_ | a group of closely related structures
+_EnergyMethod_ | The class which implements the scoring of a particular **score term** for the **ScoreFunction**.
+_explicit water_ | Water modeled as atoms, rather than implicitly.
+_ex1/ex2_ | Options that specify the size (extra sampling) of rotamer library being used
 
-#### disulfides
+--------------------------------------
 
-The covalent attachement of two cysteine residues in close proximity.
-This depends on the protein being present in an oxidizing environment (like outside of the cell),
-rather than a reducing environment (like the inside of the cell).
+# **F**
 
-This covalent attachment can greatly stabilize the folding of a protein. 
+Term  | Description
+------------ | -------------
+_fasta_ |Text based format describing the peptide sequence of a protein, single letter amino acid codes are used
+_filter_ | A pass/fail check on structure quality during the middle of a run. Filters are applied to avoid wasting computational time on **trajectories** which are unlikely to result in successful results.Relevant **metrics** are calculated and those structures with poor values are discarded. 
+_fixbb_ | A Rosetta application which does fixed backbone design.
+_fixed backbone design_ | **Design** of a protein where the the **backbone** is not moved during the redesign.
+_fixed backbone packing_ | Optimization (**packing**) of the side chain conformations, done without moving the **backbone**.
+_flag(s) file_ | Also **options file**: a file that contains a set of flags (possibly with their respective parameters) to control the program or protocol. You can load it as an option when you start the program, instead of typing all options at the command line.
+_flexible backbone design_ | **Design** of a protein where the the **backbone** is allowd to move during design.
+_flexible backbone packing_ | Optimization (**packing**) of the side chain conformations, where the **backbone** is allowed to move during optimization.
+_FoldTree (fold tree)_ | A directed, acyclic graph (tree) connecting all the residues in the **pose**. The fold tree is the residue-level description of how **internal coordinates** and **cartesian coordinates** interconvert, and how changes propogate between residues. Changing the dihedral of one residue will change the cartesian coordinates of all residues "downstream" in the fold tree due to **lever arm** effects. By changing the fold tree you can limit the propagation of these effects, keeping portions of the protein backbone fixed which would normally move. See also **atom tree** and **kinematics**.
+_force field_ | See **scorefunction**.
+_fragment_ | A section of a protein. Typical Rosetta usage is for 3- and 9-mer **backbone** fragments selected from **PDB** structures. 
+_fragment insertion_ | Placing backbone **dihedrals** from a **fragment** into the structure. Used frequently for **loop modeling** and **ab initio**.  
+_fragment picker_ | A Rosetta application used to pick fragments. 
+_fullatom_ | Also "all atom": A representation of the protein where all physical atoms (including hydrogens) are present during modeling, in contrast to reduced representations like **centroid** mode.
+_full-atom energy function_ | The energy terms and
+interactions are calculated in the atomistic scale (atom-atom pairwise).  As apposed to a reduced representational-mode such as centroid.
 
-#### docking <a name="docking" />
+-----------------
 
-Assembling two separate proteins (or protein-ligand,
-protein-surface) into their biologically relevant structure and finding
-the lower free energy of the complex.
-
-[Explain further: blind docking, bound docking, unbound docking]
-
-#### docking funnel
-
-An energy funnel (score versus RMSD) for docking runs.
-
-#### Dunbrack library
-
-A sidechain rotamer library compiled by the Dunbrack laboratory; the standard rotamer library of Rosetta.
-
-#### Dunbrack loop optimization
-
-#### Dunbrack score
-
-#### electrostatic interactions
-
-#### Energies
-
-A class in Pose which stores the energies computed by the ScoreFunction.
-
-#### energy function
-
-Also called a "score function". The prediction of structural energy over which Rosetta operates.
-
-#### energy funnel
-
-An attempt at representing the energy landscape of the protein. A plot which (ideally) shows low rmsd structures having lower energies than high rmsd structures.
-
-#### energy landscape <a name="general-terms_energy-landscape" />
-
-#### ensemble
-
-a group of closely related structures
-
-#### EnergyMethod
-
-The class which implements the scoring of a particular **score term** for the **ScoreFunction**.
-
-#### explicit water
-
-Water modeled as atoms, rather than implicitly.
-
-#### ex1/ex2 
-
-Options that specify the size (extra sampling) of rotamer library being used
-
-#### fasta 
-
-Text based format describing the peptide sequence of a protein, single letter amino acid codes are used
-
-#### filter
-
-A pass/fail check on structure quality during the middle of a run. Filters are applied to avoid
-wasting computational time on **trajectories** which are unlikely to result in successful results.
-Relevant **metrics** are calculated and those structures with poor values are discarded. 
-
-#### fixbb
-
-A Rosetta application which does fixed backbone design.
-
-#### fixed backbone design
-
-**Design** of a protein where the the **backbone** is not moved during the redesign.
-
-#### fixed backbone packing
-
-Optimization (**packing**) of the side chain conformations, done without moving the **backbone**.
-
-#### flag file
-
-Also **options file**: a file that contains a set of flags (possibly with their respective parameters) to control the program or protocol. You can load it as an option when you start the program, instead of typing all options at the command line.
-
-#### flexible backbone design
-
-**Design** of a protein where the the **backbone** is allowd to move during design.
-
-#### flexible backbone packing
-
-Optimization (**packing**) of the side chain conformations, where the **backbone** is allowed to move during optimization.
-
-#### FoldTree
-#### fold tree
-
-A directed, acyclic graph (tree) connecting all the residues in the **pose**. The fold tree is the 
-residue-level description of how **internal coordinates** and **cartesian coordinates** interconvert,
-and how changes propogate between residues. Changing the dihedral of one residue will change the 
-cartesian coordinates of all residues "downstream" in the fold tree due to **lever arm** effects.
-By changing the fold tree you can limit the propigation of these effects, keeping portions of the
-protein backbone fixed which would normally move. 
-
-See also **atom tree** and **kinematics**.
-
-
-#### force field
-
-See **scorefunction**.
-
-#### fragment
-
-A section of a protein. Typical Rosetta usage is for 3- and 9-mer **backbone** fragments selected from **PDB** structures. 
-
-#### fragment insertion
-
-Placing backbone **dihedrals** from a **fragment** into the structure. Used frequently for **loop modeling** and **ab initio**.  
-
-#### fragment picker
-
-A Rosetta application used to pick fragments. 
-
-#### fullatom
-
-Also "all atom": A representation of the protein where all physical atoms (including hydrogens) are present during modeling, in contrast 
-to reduced representations like **centroid** mode.
-
-#### full-atom energy function
-
-[This definition should be checked by someone else] The energy terms and
-interactions are calculated in the atomistic scale (atom-atom pairwise).
+# **G**
 
 #### GDT
 
