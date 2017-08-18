@@ -31,6 +31,7 @@ _AtomType_ | A class which stores the properties of a particular kind of atom. (
 ----------------------------------------
 
 **B**
+
 Term  | Description
 ------------ | -------------
 _B factor_ |The "temperature factor" from crystallography and seen in PDB files, the larger the value the more "flexible" the atom is
@@ -52,6 +53,7 @@ _Cartesian Minimization_ | **Gradient minimization** based on moving atoms in xy
 -------------------------
 
 **C**
+
 Term  | Description
 ------------ | -------------
 _CCD_ | Cyclic coordinate descent. A **loop closure** protocol where backbone dihedrals are progressively adjusted to minimizethe gap in the loop backbone. [Add a reference]
@@ -85,8 +87,7 @@ _CxxTest_ | This is the framework we use for [[unit tests]]. See also [[http://c
 
 Term  | Description
 ------------ | -------------
-_database_ | The Rosetta database directory contains key parameters for Rosetta. 
-Examples of stored information is force field, definition of monomers (see: **residue types**), representation of the model, fundamental constant parameters, etc. 
+_database_ | The Rosetta database directory contains key parameters for Rosetta. Examples of stored information is force field, definition of monomers (see: **residue types**), representation of the model, fundamental constant parameters, etc. 
 _ddG_ | Also known as ΔΔG. The change in binding energy free energy (ΔG) upon a mutation. 
 _de_ _novo_ modeling | Prediction of molecular structure given only its sequence. Known also as **ab initio structure predition**.
 _decoy_ A **model** produced by a computational protocol.
