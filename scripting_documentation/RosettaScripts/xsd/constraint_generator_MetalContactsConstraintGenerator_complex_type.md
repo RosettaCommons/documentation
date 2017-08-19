@@ -17,7 +17,8 @@ Generates distance, angle, and dihedral constraints for the specified metal atom
         ideal_angle_about_metal="(&real_cslist;)"
         ideal_dihedral_about_metal="(&real_cslist;)"
         ideal_dihedral_3="(&real_cslist;)"
-        score_against_internal_contacts="(false &bool;)" />
+        score_against_internal_contacts="(false &bool;)"
+        constrain_to_closest="(true &bool;)" />
 ```
 
 -   **dist_cutoff_multiplier**: Multiply van der Waals radii of metal and contact atom by this value during contact detection.
@@ -35,5 +36,6 @@ Generates distance, angle, and dihedral constraints for the specified metal atom
 -   **ideal_dihedral_about_metal**: Comma-separated list of possible optimal dihedrals, base-contact-metal-other_contact. Defaults to current dihedral.
 -   **ideal_dihedral_3**: Comma-separated list of possible optimal dihedrals, contact-metal-other_contact-other_base. Defaults to current dihedral.
 -   **score_against_internal_contacts**: Should we score angles and dihedrals vs other atoms in the ligand?
+-   **constrain_to_closest**: When multiple ideal values are provided for an angle/dihedral, constrain to the one that is closest to the current value
 
 ---

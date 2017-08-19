@@ -9,15 +9,14 @@ Protocol for docking flexible peptides onto globular proteins.
 <FlexPepDock name="(&string;)" scorefxn_lowres="(&string;)"
         lowres_abinitio="(&bool;)" lowres_preoptimize="(&bool;)"
         min_only="(&bool;)" random_phi_psi_pert="(&bool;)" extend="(&bool;)"
-        place_peptide="(&bool;)" slidentocontact="(&bool;)"
+        place_peptide="(&bool;)" slideintocontact="(&bool;)"
         recal_foldtree="(&bool;)" pep_refine="(&bool;)"
         peptide_loop_model="(&bool;)" design_peptide="(&bool;)"
         backrub_opt="(&bool;)" boost_fa_atr="(&bool;)" ramp_fa_rep="(&bool;)"
-        ramp_rama="(&bool;)" extra_scoring="(&bool;)" use_cen_score="(&bool;)"
-        min_receptor_bb="(&bool;)" ppk_only="(&bool;)" no_prepack1="(&bool;)"
-        no_prepack2="(&bool;)" score_filter="(&bool;)" hb_filter="(&bool;)"
-        hotspot_filter="(&bool;)" pSer2Asp_centroid="(&bool;)"
-        pSer2Glu_centroid="(&bool;)"
+        ramp_rama="(&bool;)" extra_scoring="(&bool;)" min_receptor_bb="(&bool;)"
+        ppk_only="(&bool;)" no_prepack1="(&bool;)" no_prepack2="(&bool;)"
+        score_filter="(&bool;)" hb_filter="(&bool;)" hotspot_filter="(&bool;)"
+        pSer2Asp_centroid="(&bool;)" pSer2Glu_centroid="(&bool;)"
         random_phi_psi_pert_size="(&non_negative_integer;)"
         sample_pc="(&non_negative_integer;)"
         rep_ramp_cycles="(&non_negative_integer;)"
@@ -27,37 +26,36 @@ Protocol for docking flexible peptides onto globular proteins.
 
 -   **scorefxn_lowres**: Score function to use for low resolution step.
 -   **lowres_abinitio**: Invoke the ab-initio protocol
--   **lowres_preoptimize**: XRW TO DO
+-   **lowres_preoptimize**: Perform a round of centroid mode optimization before high-resolution Refinement
 -   **min_only**: Apply just a minimization step.
--   **random_phi_psi_pert**: XRW TO DO
--   **extend**: XRW TO DO
--   **place_peptide**: XRW TO DO
--   **slidentocontact**: XRW TO DO
--   **recal_foldtree**: XRW TO DO
+-   **random_phi_psi_pert**: Perform a random perturbation of all peptide phi-psi angles
+-   **extend**: Set all peptide dihedrals to extended state
+-   **place_peptide**: Place peptide first principle component along the binding site first principle component
+-   **slideintocontact**: Move partners toward or away from from each other to a contacting orientation
+-   **recal_foldtree**: Should foldtree be recalculated upon peptide moves
 -   **pep_refine**: Invoke the refinement protocol
--   **peptide_loop_model**: XRW TO DO
--   **design_peptide**: XRW TO DO
--   **backrub_opt**: XRW TO DO
--   **boost_fa_atr**: XRW TO DO
+-   **peptide_loop_model**: Take a radnom subset of the peptide and send to loop modeling
+-   **design_peptide**: Within refinement, design protein facing peptide positions
+-   **backrub_opt**: Perform optional backrub move on peptide
+-   **boost_fa_atr**: Gradually ramp down fa_atr from a ramped up value back to default
 -   **ramp_fa_rep**: Gradually ramp up weight on full atom prepulsion term.
 -   **ramp_rama**: Gradually ramp up weight on ramachandran scoring term.
--   **extra_scoring**: scoring only mode
--   **use_cen_score**: XRW TO DO
+-   **extra_scoring**: Scoring only mode
 -   **min_receptor_bb**: Perform the final scoring, w/o constraints for receptor backbone.
 -   **ppk_only**: Just prepacking.
 -   **no_prepack1**: Don't prepack parter 1
--   **no_prepack2**: Don;t prepack partner 2
--   **score_filter**: XRW TO DO
--   **hb_filter**: XRW TO DO
--   **hotspot_filter**: XRW TO DO
--   **pSer2Asp_centroid**: XRW TO DO
--   **pSer2Glu_centroid**: XRW TO DO
+-   **no_prepack2**: Don't prepack partner 2
+-   **score_filter**: Filter for structures under given score_filter value
+-   **hb_filter**: Filter for structures with at least the given numer of hyrogen bonds. As of Aug 2017, this option is still not available
+-   **hotspot_filter**: Filter for structures with at least the given numer of hotspots. As of Aug 2017, this option is still not available
+-   **pSer2Asp_centroid**: Convert all phospho-ser residues to asp in the low-resolution part
+-   **pSer2Glu_centroid**: Convert all phospho-ser residues to glu in the low-resolution part
 -   **random_phi_psi_pert_size**: Randomly perturb phi-psi of peptide to a given range.
--   **sample_pc**: XRW TO DO
--   **rep_ramp_cycles**: XRW TO DO
--   **mcm_cycles**: XRW TO DO
--   **rb_trans_size**: XRW TO DO
--   **rb_rot_size**: XRW TO DO
--   **smove_angle_range**: XRW TO DO
+-   **sample_pc**: Number of principal components to use when sampling different peptide conformations in pocket
+-   **rep_ramp_cycles**: Number of cycles for which gradual ramping of full-atom repulsion is performed
+-   **mcm_cycles**: Number of rigid-body and/or torsions MCM cycles to perform
+-   **rb_trans_size**: Size of random perturbation of peptide's rigid body translation
+-   **rb_rot_size**: Size of random perturbation of peptide's rigid body rotation
+-   **smove_angle_range**: Maximum angle value used for small and shear moves on the peptide
 
 ---

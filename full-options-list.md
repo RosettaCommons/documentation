@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-08-09
+Generated: 2017-08-19
 
 _Note that some application specific options may not be present in this list._
 
@@ -1397,6 +1397,8 @@ _Note that some application specific options may not be present in this list._
 <dd>number of neighbors a residue must have before extra rotamers are used. default: 18<br/>Default: 18<br/></dd>
 <dt><b>-resfile</b> \<FileVector\></dt>
 <dd>resfile filename(s).  Most protocols use only the first and will ignore the rest; it does not track against -s or -l automatically.<br/>Default: ['"resfile"']<br/></dd>
+<dt><b>-sc_branch_rotamers</b> \<Boolean\></dt>
+<dd>construct rotamers for conjugated side chains. Warning: results in deformation of the conjugation bond length and angles, so should be followed by some correction<br/>Default: ['false']<br/></dd>
 <dt><b>-outeriterations_scaling</b> \<Real\></dt>
 <dd>Multiplier for number of outer iterations<br/>Default: 1.0<br/></dd>
 <dt><b>-inneriterations_scaling</b> \<Real\></dt>
@@ -1601,7 +1603,9 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-enlarge_H_lj</b> \<Boolean\></dt>
 <dd>Use larger LJ_WDEPTH for Hs to avoid RNA clashes<br/>Default: false<br/></dd>
 <dt><b>-no_hbonds_to_ether_oxygens</b> \<Boolean\></dt>
-<dd>no H-bonds to nucleic acid ether oxygens O3', O4', O5'<br/>Default: false<br/></dd>
+<dd>no H-bonds to nucleic acid ether oxygens O3', O4', O5' -- deprecated<br/>Default: false<br/></dd>
+<dt><b>-unset_acceptor_ether_oxygens</b> \<Boolean\></dt>
+<dd>nucleic acid ether oxygens O3', O4', O5' are not counted as acceptors<br/>Default: false<br/></dd>
 </dl>
 + <h2>-constraints</h2>
 <dl>
@@ -1767,6 +1771,8 @@ _Note that some application specific options may not be present in this list._
 <dd>If true, then the BAH angle for sp3 (aka hydroxyl) acceptors is measured donor-hydrogen--acceptor-heavyatom--heavyatom-base instead of donor-hydrogen--accptor-heavyatom--hydroxyl-hydrogen<br/>Default: true<br/></dd>
 <dt><b>-hb_fade_energy</b> \<Boolean\></dt>
 <dd>Rather than having a strict cutoff of hbond definition at 0, fade the energy smoothly in the range [-0.1, 0.1]. This is necessary to prevent a discontinuity in the derivative when E=0 that arise because of the additive form of the hbond function.<br/>Default: true<br/></dd>
+<dt><b>-hb_exclude_ether_oxygens</b> \<Boolean\></dt>
+<dd>no H-bonds to nucleic acid ether oxygens O3', O4', O5'<br/>Default: false<br/></dd>
 <dt><b>-hb_cen_soft</b> \<Boolean\></dt>
 <dd>Use softer version of cen_hb term<br/>Default: false<br/></dd>
 <dt><b>-use_bicubic_interpolation</b> \<Boolean\></dt>
@@ -3921,6 +3927,8 @@ _Note that some application specific options may not be present in this list._
 <dd>In MPI mode a goodness-of-funnel metric is automatically calculated at the end (PNear).  This value may be thought of as the probability, from 0 to 1, of the peptide being in the target conformation at any given time.  The parameter lambda controls the bredth of the Gaussian (in RMSD units -- Angstroms) that is used to determine whether a state is native-like or not.  Default 0.5 A.<br/>Default: 0.5<br/></dd>
 <dt><b>-MPI_pnear_kbt</b> \<Real\></dt>
 <dd>In MPI mode a goodness-of-funnel metric is automatically calculated at the end (PNear).  This value may be thought of as the probability, from 0 to 1, of the peptide being in the target conformation at any given time.  The parameter kbt is the Boltzmann temperature that determines the extent to which higher energy states are likely to be sampled.  Default 1.0 Rosetta energy units.<br/>Default: 1.0<br/></dd>
+<dt><b>-threads_per_slave</b> \<Integer\></dt>
+<dd>In the multi-threaded MPI compilation, this is the number of threads to launch per slave process.  Note that emperor and master-layer processes do not launch threads.  A value of 1 (the default) means that only standard hierarchical process-based parallelism will be used.  In non-MPI or non-threaded compilations, this option is unused.<br/>Default: 1<br/></dd>
 </dl>
 + <h2>-dc</h2>
 <dl>

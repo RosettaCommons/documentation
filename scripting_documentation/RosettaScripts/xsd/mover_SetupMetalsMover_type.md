@@ -7,24 +7,25 @@ Mover that adds chemical bonds and distance/angle constraints between metal ions
 
 ```xml
 <SetupMetalsMover name="(&string;)" remove_hydrogens="(true &bool;)"
-        constraints_only="(false &bool;)"
+        constraints_only="(false &bool;)" add_constraints="(true &bool;)"
         metals_detection_LJ_multiplier="(1.0 &real;)"
         metals_distance_constraint_multiplier="(1.0 &real;)"
         metals_angle_constraint_multiplier="(1.0 &real;)"
-        residue_selector="(&string;)" resnums="(&resnum_list_with_ranges;)" >
-    <Residue Selector Tag ... />
-</SetupMetalsMover>
+        metal_residue_selector="(&string;)"
+        contact_residue_selector="(&string;)"
+        metal_resnums="(&resnum_list_with_ranges;)"
+        contact_resnums="(&resnum_list_with_ranges;)" />
 ```
 
 -   **remove_hydrogens**: Should hydrogens on metal binding atoms be removed?
 -   **constraints_only**: Should we ONLY add the constraints to the metal and not set up covalent bonds? Useful for repeated applications of the mover if constraints are deleted.
+-   **add_constraints**: Should we add constraints to the pose? May be used if, for example, the user wants to add their own custom constraints elsewhere.
 -   **metals_detection_LJ_multiplier**: Multiplier for the distance cutoff for contact detection, which is based on the Lennard-Jones radii of the two atoms. This option overrides default value set through the command line.
 -   **metals_distance_constraint_multiplier**: Multiplier for distance constraints between metal and metal-binding atoms. This option overrides default value set through the command line.
 -   **metals_angle_constraint_multiplier**: Multiplier for angle constraints between metal and metal-binding atoms. This option overrides default value set through the command line.
--   **residue_selector**: Selector used to indicate which metal residues should be set up. If no selector or resnum string is provided, all metals will be set up.
--   **resnums**: List of residue numbers to use
-
-
-"Residue Selector Tag": Any of the [[ResidueSelectors]]
+-   **metal_residue_selector**: Selector used to indicate which metal residues should be set up. If no selector or resnum string is provided, all metals will be set up.
+-   **contact_residue_selector**: Selector used to indicate which metal contacts should be set up. If no selector or resnum string is provided, all contacts for the specified metals will be set up.
+-   **metal_resnums**: List of residue numbers to use
+-   **contact_resnums**: List of residue numbers to use
 
 ---
