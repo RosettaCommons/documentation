@@ -9,16 +9,16 @@ XRW TO DO
 <NucleotideMutation name="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
         scorefxn="(&string;)" init_sequence="(&string;)"
-        continue_if_silent="(true &bool;)" reference_name="(&string;)"
-        reference_pdb_file="(&string;)" cache_task="(false &bool;)" />
+        continue_if_silent="(false &bool;)" flexbb="(true &bool;)"
+        bbnbrs="(1 &non_negative_integer;)" cache_task="(false &bool;)" />
 ```
 
 -   **task_operations**: A comma separated list of TaskOperations to use.
 -   **scorefxn**: Name of score function to use
 -   **init_sequence**: Initial sequence
 -   **continue_if_silent**: Make another mutation if the first mutation is silent
--   **reference_name**: Saved reference pose
--   **reference_pdb_file**: Saved reference pdb
+-   **flexbb**: Let backbone atoms be flexible during relax
+-   **bbnbrs**: Let the +/- n (dflt=1) residues from the mutated residue be bb flexible
 -   **cache_task**: Cache the initially calculated packer task
 
 ---

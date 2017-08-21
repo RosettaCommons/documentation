@@ -16,6 +16,7 @@ Allows sampling structures by MonteCarlo with a mover. The score evaluation of p
         stopping_condition="(false_filter &string;)" drift="(true &bool;)"
         preapply="(true &bool;)" recover_low="(true &bool;)"
         bolz_rank="(false &bool;)" saved_accept_file_name="(&string;)"
+        max_accepted_trials="(&non_negative_integer;)"
         saved_trial_number_file="(&string;)" mover_tag="(&string;)"
         reset_baselines="(true &bool;)" progress_file="(&string;)" >
     <Filters >
@@ -42,6 +43,7 @@ Allows sampling structures by MonteCarlo with a mover. The score evaluation of p
 -   **recover_low**: true - at the end of application, the pose is set to the lowest (or highest if sample_type="high") scoring pose; false - the pose after apply completes is the last accepted pose
 -   **bolz_rank**: For use with multiple filters. If no sub-filters are set with rank=1, the first filter is used for ranking. As a special case, if boltz_rank is set to true, the ranking score is a temperature-weighted sum of all filter values. (This value is equivalent to the effective value optimized by the MC protocol.) This boltz_rank score is computed by the equation SUM( multiplier * filter_value / filter_temperature ) over all filter values, where filter_value is the value returned by the filter and multiplier is 1 if the filter sample_type is low and -1 if the filter sample_type is high.
 -   **saved_accept_file_name**: save the most recent accepted structure in a temporary PDB? This allows recovery by checkpointing. Note that different processes would need to work from different directories or somehow control the checkpointing file name, else confusion will reign.
+-   **max_accepted_trials**: The maximum number of accepted trials. If not set max_accepted_trials=trials
 -   **saved_trial_number_file**: Checkpointing file for the current trial number. Allows the mover to recover after failure.
 -   **mover_tag**: this is used by the called movers to set a certain tag. If saved_accept_file_name_ is set, then at exit the tag coming from the chosen mover is written to disk as, {saved_accept_file_name}.mover_tag. To work, mover_tag_ must be exposed to the movers being called.
 -   **reset_baselines**: If the filter is of type Sigmoid/Operator/CompoundStatement, look for all subfilters of type Sigmoid and reset their baseline to the pose's current filter evaluation at trial=1. Useful in cases where you want to set the thresholds relative to the pose's evaluation at the start of the MC trajectory.
