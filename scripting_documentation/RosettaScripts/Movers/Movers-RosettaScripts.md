@@ -530,19 +530,19 @@ These movers are part of the new SEWING framework coming soon to master. For the
 
 Mover  | Description
 ------------ | -------------
-* **[[AssemblyMover]]** | Builds an assembly of a user-specified size by MonteCarlo sampling of substructures.
-* **[[AppendAssemblyMover]]** | Builds a protein by extending a user-specified starting structure. Often used for interface design (starting with a protein-binding peptide) or to incorporate specific motifs into designs. Documentation coming soon.
-* **[[LigandBindingAssemblyMover]]** | Used to add new contacts to a specified ligand using the SEWING framework. Documentation coming soon.
+**[[AssemblyMover]]** | Builds an assembly of a user-specified size by MonteCarlo sampling of substructures.
+**[[AppendAssemblyMover]]** | Builds a protein by extending a user-specified starting structure. Often used for interface design (starting with a protein-binding peptide) or to incorporate specific motifs into designs. Documentation coming soon.
+**[[LigandBindingAssemblyMover]]** | Used to add new contacts to a specified ligand using the SEWING framework. Documentation coming soon.
 
 ###Legacy SEWING movers
 
 Mover  | Description
 ------------ | -------------
-* **[[LegacyMonteCarloAssemblyMover]]** | Builds an assembly of a user-specified size by MonteCarlo sampling of substructures.
-* **[[LegacyAppendAssemblyMover]]** | Builds a protein by extending a user-specified starting structure. Often used for interface design (starting with a protein-binding peptide) or to incorporate specific motifs into designs.
-* **[[LegacyRepeatAssemblyMover]]** | Used to design repeat proteins.
-* **[[LegacyEnumerateAssemblyMover]]** | Builds all possible structures from a given SewGraph.
-* **[[LegacyAssemblyConstraintsMover]]** | Used to favor native residues during refinement in assemblies produced using [[SEWING]].
+**[[LegacyMonteCarloAssemblyMover]]** | Builds an assembly of a user-specified size by MonteCarlo sampling of substructures.
+**[[LegacyAppendAssemblyMover]]** | Builds a protein by extending a user-specified starting structure. Often used for interface design (starting with a protein-binding peptide) or to incorporate specific motifs into designs.
+**[[LegacyRepeatAssemblyMover]]** | Used to design repeat proteins.
+**[[LegacyEnumerateAssemblyMover]]** | Builds all possible structures from a given SewGraph.
+**[[LegacyAssemblyConstraintsMover]]** | Used to favor native residues during refinement in assemblies produced using [[SEWING]].
 
 ##See Also
 
