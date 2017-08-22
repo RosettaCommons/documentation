@@ -68,7 +68,7 @@ See optional.2 above.
 
 Command line using Rosetta public app:
 
-    ~/Rosetta/main/source/bin/iterhybrid_selector.linuxgccrelease \
+    $ROSETTA/main/source/bin/iterhybrid_selector.linuxgccrelease \
     -in:file:silent $1 \
     -in:file:template_pdb $2 \
     -in:file:template_silent $6 -similarity_cut $3 -cm:similarity_limit 0.2 \
