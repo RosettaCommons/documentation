@@ -44,18 +44,16 @@ Step 2. Select representative model
 
 Command line using Rosetta public app:
 
-  $ROSETTA/main/source/bin/iterhybrid_selector.linuxgccrelease \
-  -in:file:silent $1 -in:file:template_pdb $2 -cm:similarity_cut $3 \
-  -out:file:silent picked.out -out:nstruct $4 \
-  -silent_read_through_errors -in:file:silent_struct_type binary -out:file:silent_struct_type binary -mute core basic \
+    $ROSETTA/main/source/bin/iterhybrid_selector.linuxgccrelease \
+    -in:file:silent $1 -in:file:template_pdb $2 -cm:similarity_cut $3 \
+    -out:file:silent picked.out -out:nstruct $4 \
+    -silent_read_through_errors -in:file:silent_struct_type binary -out:file:silent_struct_type binary -mute core basic \
 
-* (optional.1 for rescoring) -score:weights ref2015_cart -cst_fa_file fa.cst -set_weights atom_pair_constraint 1.0
+    (optional.1 for rescoring) -score:weights ref2015_cart -cst_fa_file fa.cst -set_weights atom_pair_constraint 1.0
 
-* (optional.2 for dumping adaptive cst) -constraint:dump_cst_set cen.pair.cst
-
-* (optional.3 for deformation penalty) -cm:refsimilarity_cut $5 
-
-* (optional.4 for quota setup for each input silent, should match number of input silents) -cm:quota_per_silent 0.7 0.3 
+    (optional.2 for dumping adaptive cst) -constraint:dump_cst_set cen.pair.cst
+    (optional.3 for deformation penalty) -cm:refsimilarity_cut $5 
+    (optional.4 for quota setup for each input silent, should match number of input silents) -cm:quota_per_silent 0.7 0.3 
 
 
 * $1: list of silent files containing diverse models
