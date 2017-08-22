@@ -33,7 +33,9 @@ While most of these applications focus on prediction, many have options which wi
 - [[Backrub]] - Create backbone ensembles using small, local backbone changes.  
 - Comparative modeling - Build structural models of proteins using one or more known structures as templates for modeling.  
     * [[Original protocol | minirosetta-comparative-modeling]]
-    * [[RosettaCM]]
+    * [[RosettaCM]]   
+    * [[IterativeHybridize]]
+
 - [[Floppy tail]] - Predict structures of long, flexible N-terminal or C-terminal regions.
 - [[Fold-and-dock]] - Predict 3-dimensional structures of symmetric homooligomers.  
 - [[Molecular replacement protocols|mr-protocols]] - Use Rosetta to build models for use in X-ray crystrallography molecular replacement.  
