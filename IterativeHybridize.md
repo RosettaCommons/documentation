@@ -26,7 +26,7 @@ At a high-level, the algorithm consists of a long Monte Carlo trajectory startin
 ## Running the IterativeHybridize protocol
 
 Step 0. Generate "relatively" diverse models (i.e. share same topology but not too close)
-- This is not part of this documentation since there could be various methods for doing this 
+: not part of this documentation since there could be various methods for doing this 
 
 Step 1. iterate below process N times (typically n~50)
 - Select Parents among structure pool
@@ -42,13 +42,17 @@ Step 2. Select representative model
 
 * Model selection from diverse initial structures (at the beginning of first iteration)
 
-$ROSETTA/main/source/bin/iterhybrid_selector.linuxgccrelease \
+    Rosetta/main/source/bin/partial_thread.linuxgccrelease \
+         -database Rosetta/main/database \
+         -in:file:fasta target.fasta \
+         -in:file:alignment alignment.aln \
+         -in:file:template_pdb 1k3d.pdb 1y12.pdb \
+         -ignore_unrecognized_res
 
--in:file:silent $1 -in:file:template_pdb $2 -cm:similarity_cut $3 \
-
--out:file:silent picked.out -out:nstruct $4 \
-
--silent_read_through_errors -in:file:silent_struct_type binary -out:file:silent_struct_type binary -mute core basic \
+  > $ROSETTA/main/source/bin/iterhybrid_selector.linuxgccrelease \
+  -in:file:silent $1 -in:file:template_pdb $2 -cm:similarity_cut $3 \
+  -out:file:silent picked.out -out:nstruct $4 \
+  -silent_read_through_errors -in:file:silent_struct_type binary -out:file:silent_struct_type binary -mute core basic \
 
 (optional.1 for rescoring) -score:weights ref2015_cart -cst_fa_file fa.cst -set_weights atom_pair_constraint 1.0
 
