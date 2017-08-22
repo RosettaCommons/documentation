@@ -16,7 +16,6 @@ HybridizeMover becomes the basic sampling unit for overall iterative global ener
 
 [Protein structure determination using metagenome sequence data]
 (http://science.sciencemag.org/content/355/6322/294)
-
 Sergey Ovchinnikov, Hahnbeom Park, Neha Varghese, Po-Ssu Huang, Georgios A. Pavlopoulos, David E. Kim, Hetunandan Kamisetty, Nikos C. Kyrpides, David Baker. 
 Science 2017, 355:294-298.
 
