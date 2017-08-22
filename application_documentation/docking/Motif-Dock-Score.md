@@ -114,7 +114,7 @@ Required flags (suggested values in <triangle brackets>):
 -mh:harvest:hash_angle_resl <22.5>
 ```
 
-*N.B.: the -mh:motif_out_file path variable will also become the prefix for the .xh.bin.gz filenames, and should not contain any “/” characters
+>**N.B.: the -mh:motif_out_file path variable will also become the prefix for the .xh.bin.gz filenames, and should not contain any “/” characters**
 
 Suggested flags:
 ```
