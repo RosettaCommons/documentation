@@ -10,7 +10,7 @@ This protocol brings large scale structure refinement starting from a pool of
 * homology model structures or 
 * relatively converged de novo ab initio models.
 
-HybridizeMover is the sampling unit for overall global energy optimization process. Energy is Rosetta all-atom energy by default, but user-defined restraints can be also incorporated, for instance co-evolution restraints and so on.
+HybridizeMover becomes the basic sampling unit for overall iterative global energy optimization process. Energy is Rosetta all-atom energy by default, but user-defined restraints can be also incorporated, for instance co-evolution restraints and so on.
 
 ## References
 
