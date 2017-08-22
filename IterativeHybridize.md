@@ -33,16 +33,13 @@ Step 1. iterate below process N times (typically n~50)
 - Hybridize given parents
 - Select next pool from Parent + Newly generated structure pools
 
-Step 2. Select representative model
-
 ### Step 1: IterativeHybridization
 
 #### IterationMaster.py: Python wrapper script for running iterative process
 (TBA)
 
-#### Model selection from diverse initial structures (at the beginning of first iteration)
-
-Command line using Rosetta public app:
+#### Model selection from diverse initial structures 
+Required to begin the first iteration. Command line using Rosetta public app:
 
     $ROSETTA/main/source/bin/iterhybrid_selector.linuxgccrelease \
     -in:file:silent $1 -in:file:template_pdb $2 -cm:similarity_cut $3 \
@@ -50,11 +47,9 @@ Command line using Rosetta public app:
     -silent_read_through_errors -in:file:silent_struct_type binary -out:file:silent_struct_type binary -mute core basic \
 
     (optional.1 for rescoring) -score:weights ref2015_cart -cst_fa_file fa.cst -set_weights atom_pair_constraint 1.0
-
     (optional.2 for dumping adaptive cst) -constraint:dump_cst_set cen.pair.cst
     (optional.3 for deformation penalty) -cm:refsimilarity_cut $5 
     (optional.4 for quota setup for each input silent, should match number of input silents) -cm:quota_per_silent 0.7 0.3 
-
 
 * $1: list of silent files containing diverse models
 * $2: input "reference" structure (necessary)
@@ -70,33 +65,27 @@ See optional.2 above.
 
 Command line using Rosetta public app:
 
-   ~/Rosetta/main/source/bin/iterhybrid_selector.linuxgccrelease \
-   -in:file:silent $1 \
-   -in:file:template_pdb $2 \
-   -in:file:template_silent $6 -similarity_cut $3 -cm:similarity_limit 0.2 \
-   -out:nstruct $4 -out:file:silent sel.out \
-   -out:prefix iter.$niter \
-   -silent_read_through_errors -in:file:silent_struct_type binary -out:file:silent_struct_type binary -mute core basic
+    ~/Rosetta/main/source/bin/iterhybrid_selector.linuxgccrelease \
+    -in:file:silent $1 \
+    -in:file:template_pdb $2 \
+    -in:file:template_silent $6 -similarity_cut $3 -cm:similarity_limit 0.2 \
+    -out:nstruct $4 -out:file:silent sel.out \
+    -out:prefix iter.$niter \
+    -silent_read_through_errors -in:file:silent_struct_type binary -out:file:silent_struct_type binary -mute core basic
 
-* (optional.1 for rescoring) -score:weights ref2015_cart -cst_fa_file fa.cst -set_weights atom_pair_constraint 1.0
-
-* (optional.2 for dumping adaptive cst) -constraint:dump_cst_set cen.pair.cst
-
-* (optional.3 for deformation penalty) -cm:refsimilarity_cut $5 
-
-* (optional.4 for parent information update) -cm:seeds $7
-
+    (optional.1 for rescoring) -score:weights ref2015_cart -cst_fa_file fa.cst -set_weights atom_pair_constraint 1.0
+    (optional.2 for dumping adaptive cst) -constraint:dump_cst_set cen.pair.cst
+    (optional.3 for deformation penalty) -cm:refsimilarity_cut $5 
+    (optional.4 for parent information update) -cm:seeds $7
 
 * $1 ~ $5: same description with "#### Model selection from diverse initial structures";
-  $1 is parent pool and $6 is newly generated pool
-
-* $6: update what structures in Parent pool have been served as Parents; should have column "poolid" in the silent parent file ($1) in order to invoke this option
-
-
-### Step 2: Select representative model
-
+  $1 is parent pool
+* $6: the newly generate structure pool in silent format
+* $7: update what structures in Parent pool have been served as Parents; should have column "poolid" in the silent parent file ($1) in order to invoke this option
 
 ### Post Processing
+
+Output models after each iteration are always clustered and sorted based on their energy (+restraint, if provided) thus picking the lowest index model(s) in the output silent is most direct way of selecting representative models.
 
 See [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 
