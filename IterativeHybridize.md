@@ -84,6 +84,7 @@ Command line using Rosetta public app:
 * $1 ~ $5: same description with "Model selection from diverse initial structures"; here $1 is parent pool
 * $6: the newly generate structure pool in silent format
 * $7: update what structures in Parent pool have been served as Parents; should have column "poolid" in the silent parent file ($1) in order to invoke this option
+* $niter: iteration index for next round
 
 ### Post Processing
 
