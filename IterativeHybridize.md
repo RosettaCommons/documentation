@@ -24,6 +24,7 @@ Hahnbeom Park, Sergey Ovchinnikov, David E Kim, Frank DiMaio, and David Baker. S
 
 ## Algorithm
 
+** TOBEMODIFIED BELOW IS JUST COPY FROM ROSETTACM **
 At a high-level, the algorithm consists of a long Monte Carlo trajectory starting from a randomly-chosen template.  The MC trajectory employs the following moves: a) fragment insertion in unaligned regions, b) replacement of a randomly-chosen segment with that from a different template structure, and c) Cartesian-space minimization using a smooth (differentiable) version of the Rosetta [[centroid|centroid-vs-fullatom ]] energy function.  Finally, this is followed by all-atom optimization.
 
 ## Running the IterativeHybridize protocol
