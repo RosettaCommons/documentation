@@ -2,7 +2,7 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## Report
 
-This filter reports the value of another filter with the current job name. Useful when running long trajectories where one wants to see intermediate values of successful trajectories.
+This filter reports the value of another filter with the current job name. Useful when running long trajectories where one wants to see intermediate values of successful trajectories.  The value of the filter at the time the filter is run will be stored in the score file alongside the value of the filter for the final pose.
 
 ```
 <Report name="(&string)" filter="('' &string)" report_string="(''&string)" checkpointing_file="(''&string)"/>
