@@ -11,51 +11,18 @@ Mover to add specified glycosylations to a pose in the specified positions
         position="(&refpose_enabled_residue_number;)"
         positions="(&refpose_enabled_residue_number_cslist;)"
         weights="(&delimited_real_list;)" strip_existing="(&bool;)"
-        ref_pose_name="(&string;)" idealize_glycosylation="(&bool;)" >
-    <MoveMap name="(&string;)" bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
-        <Jump number="(&non_negative_integer;)" setting="(&bool;)" />
-        <Chain number="(&non_negative_integer;)" chi="(&bool;)" bb="(&bool;)" />
-        <Span begin="(&non_negative_integer;)" end="(&non_negative_integer;)"
-                chi="(&bool;)" bb="(&bool;)" bondangle="(&bool;)" bondlength="(&bool;)" />
-    </MoveMap>
-</SimpleGlycosylateMover>
+        ref_pose_name="(&string;)" idealize_glycosylation="(&bool;)"
+        residue_selector="(&string;)" />
 ```
 
--   **glycosylation**: String specifying the glycosylation to add to this pose (or a file name containing the glycosylation)
--   **glycosylations**: String or file name specifying multiple possible glycosylations to add to this pose (will be sampled randomly
+-   **glycosylation**: String specifying the glycosylation to add to this pose (IUPAC Glycan String) (or a file name containing the glycosylation with a .iupac name)
+-   **glycosylations**: String or file name specifying multiple possible glycosylations to add to this pose (IUPAC Glycan String) (or a file name containing the glycosylation with a .iupac name) (will be sampled randomly
 -   **position**: Position to add glycosylation
 -   **positions**: Positions to add glycosylations
 -   **weights**: Sampling weights corresponding to the provided set of glycans
 -   **strip_existing**: Strip existing glycosylations from the pose
 -   **ref_pose_name**: Name of saved reference pose
 -   **idealize_glycosylation**: Idealize glycosylations on the pose?
-
-
-Subtag **MoveMap**:   MoveMap specification
-
--   **bb**: move backbone torsions?
--   **chi**: move sidechain chi torsions?
--   **jump**: move all jumps?
-
-
-Subtag **Jump**:   jumps are the not-chemistry internal coordinate connections between separate parts of your pose
-
--   **number**: (REQUIRED) Which jump number (in the FoldTree)
--   **setting**: (REQUIRED) true for move, false for don't move
-
-Subtag **Chain**:   this controls a kinematically contiguous chain (think protein chains)
-
--   **number**: (REQUIRED) which chain?
--   **chi**: (REQUIRED) move sidechain chi torsions?
--   **bb**: (REQUIRED) move backbone torsions?
-
-Subtag **Span**:   XRW TO DO, probably a user-defined region of the Pose
-
--   **begin**: (REQUIRED) beginning of span
--   **end**: (REQUIRED) end of span
--   **chi**: (REQUIRED) move sidechain chi torsions?
--   **bb**: (REQUIRED) move backbone torsions?
--   **bondangle**: move 3-body angles?
--   **bondlength**: move 2-body lengths?
+-   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
 
 ---

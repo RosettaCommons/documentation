@@ -13,15 +13,9 @@ Main mover for Glycan Relax, which optimizes glycans in a pose. Each round optim
         tree_based_min_pack="(true &bool;)"
         population_based_conformer_sampling="(false &bool;)"
         conformer_sampling_sd="(2.0 &real;)" uniform_sd_sampling="(true &bool;)"
+        min_rings="(false &bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        scorefxn="(&string;)" residue_selector="(&string;)" >
-    <MoveMap name="(&string;)" bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
-        <Jump number="(&non_negative_integer;)" setting="(&bool;)" />
-        <Chain number="(&non_negative_integer;)" chi="(&bool;)" bb="(&bool;)" />
-        <Span begin="(&non_negative_integer;)" end="(&non_negative_integer;)"
-                chi="(&bool;)" bb="(&bool;)" bondangle="(&bool;)" bondlength="(&bool;)" />
-    </MoveMap>
-</GlycanRelaxMover>
+        scorefxn="(&string;)" residue_selector="(&string;)" />
 ```
 
 -   **kt**: Temperature for metropolis criterion
@@ -35,36 +29,9 @@ Main mover for Glycan Relax, which optimizes glycans in a pose. Each round optim
 -   **population_based_conformer_sampling**: Use the populations of the conformers as probabilities during our linkage conformer sampling.  This makes it harder to overcome energy barriers with more-rare conformers!
 -   **conformer_sampling_sd**: Number of SDs to sample within during conformer sampling.
 -   **uniform_sd_sampling**: Set whether if we are sampling uniform within the set number of standard deviations or by uniform within the SD.
+-   **min_rings**: Minimize Carbohydrate Rings during minimization.
 -   **task_operations**: A comma separated list of TaskOperations to use.
 -   **scorefxn**: Name of score function to use
 -   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
-
-
-Subtag **MoveMap**:   MoveMap specification
-
--   **bb**: move backbone torsions?
--   **chi**: move sidechain chi torsions?
--   **jump**: move all jumps?
-
-
-Subtag **Jump**:   jumps are the not-chemistry internal coordinate connections between separate parts of your pose
-
--   **number**: (REQUIRED) Which jump number (in the FoldTree)
--   **setting**: (REQUIRED) true for move, false for don't move
-
-Subtag **Chain**:   this controls a kinematically contiguous chain (think protein chains)
-
--   **number**: (REQUIRED) which chain?
--   **chi**: (REQUIRED) move sidechain chi torsions?
--   **bb**: (REQUIRED) move backbone torsions?
-
-Subtag **Span**:   XRW TO DO, probably a user-defined region of the Pose
-
--   **begin**: (REQUIRED) beginning of span
--   **end**: (REQUIRED) end of span
--   **chi**: (REQUIRED) move sidechain chi torsions?
--   **bb**: (REQUIRED) move backbone torsions?
--   **bondangle**: move 3-body angles?
--   **bondlength**: move 2-body lengths?
 
 ---

@@ -10,7 +10,7 @@ Mover to sample glycan linkages
         x_sds="(&real;)" use_sugar_bb_if_needed="(&bool;)"
         idealize_torsions="(&bool;)" prob_sd_sampling="(&bool;)"
         sample_protein_linkage="(&bool;)"
-        use_conformer_population_stats="(&bool;)" />
+        use_conformer_population_stats="(&bool;)" residue_selector="(&string;)" />
 ```
 
 -   **upper_resnum**: (REQUIRED) XRW TO DO
@@ -20,5 +20,6 @@ Mover to sample glycan linkages
 -   **prob_sd_sampling**: Use standard deviation as probability
 -   **sample_protein_linkage**: Also sample linkage between glycan and protein
 -   **use_conformer_population_stats**: Use statistics about conformer populations for sampling
+-   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
 
 ---
