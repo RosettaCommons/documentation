@@ -56,6 +56,7 @@ Currently, the `run.py` script executes the following tests: `apps`, `core`, `de
 ###Successful output
 A successful set of tests ends with something like this:
 
+```
 -------- Unit test summary --------
 Total number of tests: 1749
   number tests passed: 1749
