@@ -1,6 +1,6 @@
 #AppendAssemblyMover
 
-AppendAssemblyMover is a derived [[AssemblyMover|Assembly-of-models]] that builds a SEWING assembly from a predetermined starting structure.
+AppendAssemblyMover is a derived [[AssemblyMover]] that builds a SEWING assembly from a predetermined starting structure.
 
 [[_TOC_]]
 
@@ -88,6 +88,7 @@ The following is an example RosettaScript using AppendAssemblyMover:
 ```
 
 ##See Also
-* [[Assembly of models]]
+* [[AssemblyMover]]
+* [[LigandBindingAssemblyMover]] Used to add new contacts to a specified ligand
 * [[SEWING]]
 * [[LegacyAppendAssemblyMover]] The legacy SEWING version of this mover
