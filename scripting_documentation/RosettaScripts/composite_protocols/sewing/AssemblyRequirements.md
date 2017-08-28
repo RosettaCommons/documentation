@@ -19,6 +19,12 @@ A requirement that restricts the length of various secondary structure elements 
 ```xml
 <DsspSpecificLengthRequirement dssp_code="H" minimum_length="4" maximum_length="10" />
 ```
+###KeepLigandContactsRequirement
+A requirement that ensures that the distance between atoms participating in a ligand contact does not exceed a user-specified value. It is typically used if and only if conformer sampling is enabled. This requirement takes only one attribute, contact_distance_cutoff, which indicates the distance in Angstroms beyond which a contact will be considered broken (default 2.5). The following requirement would fail if a contact atom was more than 3 Angstroms from its corresponding ligand atom:
+
+```xml
+<KeepLigandContactsRequirement contact_distance_cutoff="3.0" />
+```
 
 ###SizeInSegmentsRequirement
 A requirement that restricts the size of the generated Assembly. This requirement takes two arguments: ```minimum_size``` and ```maximum_size```. To generate an Assembly with at least 5 segments and at most 7, the following tag would be used:
