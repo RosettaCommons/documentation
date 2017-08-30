@@ -30,7 +30,7 @@ Rosetta data directly to PyMOL.
 #### *Setting Up PyMOL*
 
 In PyMOL, run the PyMOL-RosettaServer.py script, found at
-`<path to Rosetta>/source/src/python/PyRosetta/src/PyMOL-RosettaServer.py` (the main directory of PyRosetta). This will
+`<path to Rosetta main>/source/src/python/PyRosetta/src/PyMOL-RosettaServer.py` (the main directory of PyRosetta). This will
 start the listener and output information about the connection
 established. No further work should be required to view PyMOL\_Mover
 output from the same computer. 
