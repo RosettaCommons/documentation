@@ -88,6 +88,7 @@ PRE-NOTES for 3.10
 
 ###Nonprotein chemistries
 * Improvements to internal glycan handing and IO. (For PDB import use the options `-auto_detect_glycan_connections` and `-alternate_3_letter_codes pdb_sugar`.  For more information, please see [[WorkingWithGlycans]]
+* The handling of non-polymeric chemical connections has been improved/simplified. This includes better handling of LINK records in PDB input, as well as removal of the BRANCH_LOWER_TERMINUS residue variant type.
 * Improvements to both automatic and user-specified handling of metal ions
 * A few more lipids are available for explicit membrane modeling (this is distinct from the implicit membrane scorefunction)
 * Better and automatic writing of LINK records in PDB output
