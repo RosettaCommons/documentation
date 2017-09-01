@@ -1,9 +1,15 @@
 #RosettaAntibodyDesign (RAbD) Manual
 
+
+
+Last Doc Update: 9/1/2017
+
+# Author
+
 Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 PI: Roland Dunbrack
 
-Last Doc Update: 8/17/2017
+Current Manuscript [On Bio Archive](http://www.biorxiv.org/content/early/2017/08/31/183350)
 
 [[_TOC_]]
 
