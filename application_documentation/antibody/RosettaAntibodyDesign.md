@@ -11,11 +11,11 @@ Last Doc Update: 9/1/2017
 -------------------------
 #MetaData
 
-**Author**Jared Adolf-Bryfogle (jadolfbr@gmail.com)
+Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
-**PI**: Roland Dunbrack
+PI: Roland Dunbrack
 
- Manuscript [Preprint on biorxiv](http://www.biorxiv.org/content/early/2017/08/31/183350)
+Manuscript [Preprint on biorxiv](http://www.biorxiv.org/content/early/2017/08/31/183350)
 
 --------------------------
 
