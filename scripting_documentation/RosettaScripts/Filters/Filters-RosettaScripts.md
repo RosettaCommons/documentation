@@ -114,7 +114,8 @@ Filter  | Description
 **[[CavityVolume|CavityVolumeFilter]]** | Always returns true, but calculates intra-protein cavity volume.
 **[[AverageDegree|AverageDegreeFilter]]** | Count number of residues within a distance of another selection of residues.
 **[[PackStat|PackStatFilter]]** | Compute packing statistics.
-**[[InterfaceHoles|InterfaceHolesFilter]]** | Identify voids and protein-protein interfaces.
+**[[Holes|HolesFilter]]** | Identify voids (holes) in packing
+**[[InterfaceHoles|InterfaceHolesFilter]]** | Identify voids at protein-protein interfaces.
 **[[NeighborType|NeighborTypeFilter]]** | Search for residue type within a radius of a target residue.
 **[[ResInInterface|ResInInterfaceFilter]]** | Filter based on the total number of residues in the interface.
 **[[ShapeComplementarity|ShapeComplementarityFilter]]** | Filter on shape complementarity of interface.
