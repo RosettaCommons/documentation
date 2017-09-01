@@ -84,7 +84,7 @@ PRE-NOTES for 3.10
 * ScoringGrids and InterfaceScoreCalculator (for ligands) bugfixes
 * Explicit unfolded state energy calculator bugfixes
 * ABEGO bin scoreterm
-* Implementation of mean-field algorithm to predict rotamer or amino acid probability. Can be used to determine preorganization of residues or predict specificity profile for protein-protein or [[GenMeanFieldMover|protein-peptide interactions]].  ALIZA - link?
+* Implementation of mean-field algorithm to predict rotamer or amino acid probability. Can be used to [[predict specificity profile|GenMeanFieldMover]] for protein-protein or protein-peptide interactions.
 
 ###Nonprotein chemistries
 * Improvements to internal glycan handing and IO. (For PDB import use the options `-auto_detect_glycan_connections` and `-alternate_3_letter_codes pdb_sugar`.  For more information, please see [[WorkingWithGlycans]]
