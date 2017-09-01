@@ -8,11 +8,14 @@ Last Doc Update: 9/1/2017
 
 [[_TOC_]]
 
+-------------------------
+
 Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 PI: Roland Dunbrack
 
 Current Manuscript [On Bio Archive](http://www.biorxiv.org/content/early/2017/08/31/183350)
 
+--------------------------
 
 # Overview
 **RosettaAntibodyDesign (RAbD)** is a generalized framework for the design of antibodies, in which a user can easily tailor the run to their project needs.  **The algorithm is meant to sample the diverse sequence, structure, and binding space of an antibody-antigen complex.** It can be used for a multitude of project types, from denovo design to redesigns that improve binding affinity, optimize stability, or manipulate function.  
