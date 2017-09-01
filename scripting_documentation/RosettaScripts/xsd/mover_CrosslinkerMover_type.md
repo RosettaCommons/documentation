@@ -7,10 +7,10 @@ Adds a three-way crosslinker linking three user-specified side-chains.
 
 ```xml
 <CrosslinkerMover name="(&string;)" linker_name="(&string;)"
-        add_linker="(&bool;)" constrain_linker="(&bool;)"
+        symmetry="(&string;)" add_linker="(&bool;)" constrain_linker="(&bool;)"
         pack_and_minimize_linker_and_sidechains="(&bool;)"
         sidechain_fastrelax_rounds="(&integer;)" do_final_fastrelax="(&bool;)"
-        final_fastrelax_rounds="(&integer;)" threefold_symmetric="(&bool;)"
+        final_fastrelax_rounds="(&integer;)"
         filter_by_sidechain_distance="(&bool;)"
         sidechain_distance_filter_multiplier="(&real;)"
         filter_by_constraints_energy="(&bool;)"
@@ -20,13 +20,13 @@ Adds a three-way crosslinker linking three user-specified side-chains.
 ```
 
 -   **linker_name**: (REQUIRED) The name of the type of linker to use.  For example, use TBMB for 1,3,5-tris(bromomethyl)benzene. (Allowed options are TBMB|TMA.)
+-   **symmetry**: The symmetry of the input pose.  For example, "C3" for cyclic, threefold symmetry.  The symmetry must be a character followed by an integer.  Allowed characters are 'A' (asymmetric), 'C' (cyclic), 'D' (dihedral), and 'S' (mirror cyclic).
 -   **add_linker**: Should the linker geometry be added to the pose?  Default true.
 -   **constrain_linker**: Should constraints for the linker be added to the pose?  Default true.
 -   **pack_and_minimize_linker_and_sidechains**: Should the linker and the connecting sidechains be repacked, and should the jump to the linker, and the linker and connnecting side-chain degrees of torsional freedom, be energy-minimized?  Default true.
 -   **sidechain_fastrelax_rounds**: The number of rounds of FastRelax to apply when packing and minimizing side-chains and the liker.  Default 3.
 -   **do_final_fastrelax**: Should the whole pose be subjected to a FastRelax?  Default false.
 -   **final_fastrelax_rounds**: The number of rounds of FastRelax to apply when relaxing the whole pose.  Default 3.
--   **threefold_symmetric**: Is this a threefold-symmetric pose being connected by a threefold-symmetric crosslinker?  Default false.
 -   **filter_by_sidechain_distance**: Prior to adding the linker geometry, should this mover abort with failure status if the selected side-chains are too far apart to connect to the linker?  Default true.
 -   **sidechain_distance_filter_multiplier**: This is a multiplier for the sidechain distance cutoff filter.  Higher values make the filter less stringent.  Default 1.0.
 -   **filter_by_constraints_energy**: After adding the linker geometry, adding constraints, and repacking and minimizing the linker and the connecting side-chains, should ths mover abort with failure status if the constraints energy is too high (i.e. the energy-minimized linker geometry is bad)?  Default true.

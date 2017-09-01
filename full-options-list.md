@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-08-27
+Generated: 2017-09-01
 
 _Note that some application specific options may not be present in this list._
 
@@ -3602,6 +3602,16 @@ _Note that some application specific options may not be present in this list._
 <dd>Input file that maps pdbChains to blast e-values<br/></dd>
 <dt><b>-hh_map</b> \<FileVector\></dt>
 <dd>Input file that maps pdbChains to hhsearch probabilities<br/></dd>
+<dt><b>-seeds</b> \<IntegerVector\></dt>
+<dd>list of tags used as seed parents at prv iteration<br/></dd>
+<dt><b>-quota_per_silent</b> \<RealVector\></dt>
+<dd>quota for picking input structures associated with -in:file:silent<br/></dd>
+<dt><b>-similarity_cut</b> \<Real\></dt>
+<dd>Distance cut on the structure population, used for CSA (in S-score)<br/></dd>
+<dt><b>-similarity_limit</b> \<Real\></dt>
+<dd>Distance cut for initial filtering (in S-score)<br/></dd>
+<dt><b>-refsimilarity_cut</b> \<Real\></dt>
+<dd>Lower threshold on model-to-template GDT-HA where it starts to get penalty<br/>Default: 25<br/></dd>
 </dl>
 + <h3>-cm:hybridize</h3>
 <dl>
@@ -4214,6 +4224,10 @@ _Note that some application specific options may not be present in this list._
 <dd>The maximum allowed match score for disulfide rotation and translation<br/>Default: 2.0<br/></dd>
 <dt><b>-max_dslf_energy</b> \<Real\></dt>
 <dd>The maximum allowed change in disulfide energy upon peptide disulfide bridge formation<br/>Default: 1.0<br/></dd>
+<dt><b>-min_dslf_dist_multiplier</b> \<Real\></dt>
+<dd>A multiplier for the minimum allowed distance between residues that might form a disulfide.<br/>Default: 1.0<br/></dd>
+<dt><b>-max_dslf_dist_multiplier</b> \<Real\></dt>
+<dd>A multiplier for the maximum allowed distance between residues that might form a disulfide.<br/>Default: 1.0<br/></dd>
 <dt><b>-scorefxn</b> \<String\></dt>
 <dd>The scorefunction to be used in disulfideInsertion<br/></dd>
 <dt><b>-constraint_weight</b> \<Real\></dt>
