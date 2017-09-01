@@ -24,7 +24,8 @@ Hahnbeom Park, Sergey Ovchinnikov, David E Kim, Frank DiMaio, and David Baker. S
 
 ## Algorithm
 
-** Overview of Genetic algorithm (carried out by master python wrapper script)
+* Overview of Genetic algorithm (carried out by master python wrapper script)
+
 The composite of Rosetta app and python master script here carries out genetic-algorithm-inspired structural refinement. Key concepts in genetic algorithm are a) Parent selection, b) Crossover or mutational (structural) operations for generating new offspring structural pools from those parents, c) Pool control after new structure generations, and d) optionally, logics for preventing from early convergence, that is, maintaining enough structural diversity during the procedure. The app and script contains logics brought from Conformational Space Annealing (CSA) such as annealing distance-threshold for clustering as iteration proceeds, parent selection based on number of times used without discovering new competative structure (nuse), which improves a,c,d) over typical genetic algorithms. Structural operations, b), mostly rely on HybridizeMover, which is optimized for cross-over style structural operations for homology modeling problems.
 
 ## Running the IterativeHybridize protocol
