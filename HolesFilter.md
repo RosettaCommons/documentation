@@ -8,7 +8,7 @@ You can pass a residue selector to only compute the holes score for that given s
 The holes calculation is performed on the Pose as whole (ignoring the ResidueSelector), but when the time comes to report the score, only the atoms in the residue selector are summed.  The Holes score is a sum of individual atoms/residues anyway (technically "PoseBalls"), so by only reporting a specific selection, we should be able to get location-specific data. 
 
 ```
-<Holes name="(&string)" threshold="1.8" residue_selector="(&string)" normalize_per_atom="(&bool)" normalize_per_residue="(&bool)" exclude_bb_atoms="(&bool)"  />
+<Holes name="(&string)" threshold="(&real)" residue_selector="(&string)" normalize_per_atom="(&bool)" normalize_per_residue="(&bool)" exclude_bb_atoms="(&bool)"  />
 ```
 
 **Example**
