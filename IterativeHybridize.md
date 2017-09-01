@@ -10,7 +10,7 @@ This protocol brings large scale structure refinement starting from a pool of
 * homology model structures or 
 * relatively converged de novo ab initio models.
 
-HybridizeMover becomes the basic sampling unit for overall iterative global energy optimization process. Energy is Rosetta all-atom energy by default, but user-defined restraints can be also incorporated, for instance co-evolution restraints and so on.
+In overall iterative global energy optimization process, HybridizeMover becomes the basic sampling unit. Objective function for global optimization is Rosetta all-atom energy by default, but user-defined restraints can be also incorporated, for instance co-evolution restraints and so on.
 
 ## References
 
@@ -24,8 +24,8 @@ Hahnbeom Park, Sergey Ovchinnikov, David E Kim, Frank DiMaio, and David Baker. S
 
 ## Algorithm
 
-** TOBEMODIFIED BELOW IS JUST COPY FROM ROSETTACM **
-At a high-level, the algorithm consists of a long Monte Carlo trajectory starting from a randomly-chosen template.  The MC trajectory employs the following moves: a) fragment insertion in unaligned regions, b) replacement of a randomly-chosen segment with that from a different template structure, and c) Cartesian-space minimization using a smooth (differentiable) version of the Rosetta [[centroid|centroid-vs-fullatom ]] energy function.  Finally, this is followed by all-atom optimization.
+** Overview of Genetic algorithm (carried out by master python wrapper script)
+The composite of Rosetta app and python master script here carries out genetic-algorithm-inspired structural refinement. Key concepts in genetic algorithm are a) Parent selection, b) Crossover or mutational (structural) operations for generating new offspring structural pools from those parents, c) Pool control after new structure generations, and d) optionally, logics for preventing from early convergence, that is, maintaining enough structural diversity during the procedure. The app and script contains logics brought from Conformational Space Annealing (CSA) such as annealing distance-threshold for clustering as iteration proceeds, parent selection based on number of times used without discovering new competative structure (nuse), which improves a,c,d) over typical genetic algorithms. Structural operations, b), mostly rely on HybridizeMover, which is optimized for cross-over style structural operations for homology modeling problems.
 
 ## Running the IterativeHybridize protocol
 
@@ -94,11 +94,6 @@ Output models after each iteration are always clustered and sorted based on thei
 See [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 
 ### Other tips
-
-**How can I model with multiple chains?**
-
-In the input fasta file, separate sequences of individual chains with a '/' character.
-
 
 ## See Also
 
