@@ -23,6 +23,7 @@ The holes calculation is performed on the Pose as whole (ignoring the ResidueSel
   # select everything within 5A around the network residues
   <Neighborhood name="around_hbnet" selector="hbnet_residues" distance="5.0" />
   # select only the buried residues within this set
+  <Layer name="hbnet_core" select_core="true" core_cutoff="3.6" />  # select core using sidechain neighbors (don’t use SASA because of potential voids!)
   <And name="core_around_hbnet" selectors="hbnet_core,around_hbnet"/>
 </RESIDUE_SELECTORS>
 <FILTERS>
