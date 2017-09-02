@@ -16,14 +16,17 @@ The holes calculation is performed on the Pose as whole (ignoring the ResidueSel
 ###Example
 
 ```
-#compute holes are h-bond networks; correlates better than using the total holes score
+#compute holes around h-bond networks; correlates better than using the total holes score
 <RESIDUE_SELECTORS>
+  # get all network residues as output by HBNet
   <ResiduePDBInfoHasLabel name="hbnet_residues" property="HBNet" />
+  # select everything within 5A around the network residues
   <Neighborhood name="around_hbnet" selector="hbnet_residues" distance="5.0" />
+  # select only the buried residues within this set
   <And name="core_around_hbnet" selectors="hbnet_core,around_hbnet"/>
 </RESIDUE_SELECTORS>
 <FILTERS>
-  # holes score only around networks
+  # holes score only around h-bond networks
   <Holes name="network_holes" threshold="1.8" residue_selector="core_around_hbnet" normalize_per_atom="true" exclude_bb_atoms="true" confidence="0"/>
   # holes score of the full pose
   <Holes name="full_holes" threshold="1.8" confidence="0"/>
@@ -33,6 +36,7 @@ The holes calculation is performed on the Pose as whole (ignoring the ResidueSel
   <Add filter="full_holes" />
 </PROTOCOLS>
 ```
+
 ### Options
 -   *threshold (Real):* return false if above this number; more positive means worse (more voids), more negative means better (less voids); default=2.0
 -   *residue_selector (string):* pass your residue selector of choice and holes will only calculate holes score for residues in residue_selector; holes calculation is performed on the Pose as whole (ignoring the ResidueSelector), but when the time comes to report the score, only the atoms in the residue selector are summed.  default=""
