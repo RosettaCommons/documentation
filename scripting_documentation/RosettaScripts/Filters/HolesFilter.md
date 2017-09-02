@@ -11,7 +11,7 @@ The holes calculation is performed on the Pose as whole (ignoring the ResidueSel
 <Holes name="(&string)" threshold=“(&real)" residue_selector="(&string)" normalize_per_atom="(&bool)" normalize_per_residue="(&bool)" exclude_bb_atoms="(&bool)"  />
 ```
 
-**Example**
+###Example
 
 ```
 #compute holes are h-bond networks; correlates better than using the total holes score
@@ -31,7 +31,7 @@ The holes calculation is performed on the Pose as whole (ignoring the ResidueSel
   <Add filter="full_holes" />
 </PROTOCOLS>
 ```
-## Options
+### Options
 -   *threshold (Real):* return false if above this number
 -   *residue_selector (string):* pass your residue selector of choice and holes will only calculate holes score for residues in residue_selector; holes calculation is performed on the Pose as whole (ignoring the ResidueSelector), but when the time comes to report the score, only the atoms in the residue selector are summed.  default=""
 -   *exclude_bb_atoms (bool):* don't include backbone (bb) atoms in residue selection case: default=false
