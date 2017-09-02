@@ -33,6 +33,10 @@ The holes calculation is performed on the Pose as whole (ignoring the ResidueSel
 ```
 ## Options
 -   threshold: return false if above this number
+-   residue_selector: pass your residue selector of choice and holes will only calculate holes score for residues in residue_selector; holes calculation is performed on the Pose as whole (ignoring the ResidueSelector), but when the time comes to report the score, only the atoms in the residue selector are summed.  default=""
+-   exclude_bb_atoms: don't include backbone (bb) atoms in residue selection case: default=false
+-   normalize_per_residue: for residue selector case, normalize per residue; not recommended; default=false
+-   normalize_per_atom: for residue selector case, normalize per atom; default is false but this option defaults to true if residue_selector is passed and if normalize_per_atom and normalize_per_residue are not explicitly defined by the user.
 
 ## See Also:
 
