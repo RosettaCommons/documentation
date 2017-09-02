@@ -31,6 +31,8 @@ The holes calculation is performed on the Pose as whole (ignoring the ResidueSel
   <Add filter="full_holes" />
 </PROTOCOLS>
 ```
+## Options
+-   threshold: return false if above this number
 
 ## See Also:
 
