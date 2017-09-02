@@ -7,6 +7,8 @@ Uses Will Sheffler's packing code (holes) to evaluate voids/holes in packing
 You can pass a residue selector to only compute the holes score for that given selection:
 The holes calculation is performed on the Pose as whole (ignoring the ResidueSelector), but when the time comes to report the score, only the atoms in the residue selector are summed.  The Holes score is a sum of individual atoms/residues anyway (technically "PoseBalls"), so by only reporting a specific selection, we should be able to get location-specific data. 
 
+**How to interpret the holes score output**: A value of 0.0 means on par with native structures observed in the PDB; positive is worse (more voids), negative is better (less voids); this is for the default HolesParams used here, which is dec15; it is not recommended to change this unless you know the inner workings of what this code is doing.
+
 ```
 <Holes name="(&string)" threshold=“(&real)" residue_selector="(&string)" normalize_per_atom="(&bool)" normalize_per_residue="(&bool)" exclude_bb_atoms="(&bool)"  />
 ```
@@ -32,7 +34,7 @@ The holes calculation is performed on the Pose as whole (ignoring the ResidueSel
 </PROTOCOLS>
 ```
 ### Options
--   *threshold (Real):* return false if above this number
+-   *threshold (Real):* return false if above this number; more positive means worse (more voids), more negative means better (less voids); default=2.0
 -   *residue_selector (string):* pass your residue selector of choice and holes will only calculate holes score for residues in residue_selector; holes calculation is performed on the Pose as whole (ignoring the ResidueSelector), but when the time comes to report the score, only the atoms in the residue selector are summed.  default=""
 -   *exclude_bb_atoms (bool):* don't include backbone (bb) atoms in residue selection case: default=false
 -   *normalize_per_residue (bool):* for residue selector case, normalize per residue; not recommended; default=false
