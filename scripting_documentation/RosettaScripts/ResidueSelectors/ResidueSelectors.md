@@ -280,12 +280,12 @@ HBondSelector selects all residues with hydrogen bonds to the residues specified
 
 ```
      <HBond name="(&string)" resnums="(&string)" 
-        selector="(&string)" include_bb_bb="(false &bool)"
+        residue_selector="(&string)" include_bb_bb="(false &bool)"
         hbond_energy_cutoff="(-0.5 &Real)" scorefxn="(&string)" />
 ```
 
 * resnums: Comma-separated list of residue numbers specifying which residues' hydrogen bond partners will be selected.
-* selector: Name of a previously-defined residue selector specifying the input set of residues. The selector may also be specified as a subtag.
+* residue_selector: Name of a previously-defined residue selector specifying the input set of residues. The selector may also be specified as a subtag.
 * include_bb_bb: Should backbone-backbone hydrogen bonds be included? By default, these are ignored.
 * hbond_energy_cutoff: Only hydrogen bonds with energies lower than this cutoff will be considered. Default -0.5 REU.
 * scorefxn: Name of the (previously defined) score function to use for identifying and scoring hydrogen bonds.
