@@ -388,3 +388,11 @@ Given a starting PDB with a lysine and a PDB of ubiquitin (though truly applicab
 
 ### [[optE_parallel|opt-e-parallel-doc]]
 Optimize the weights of a provided energy functions to produce excellent sequence recovery and rotamer recovery.
+
+### [[validate_rosetta_script]]
+Test an XML script written for the rostta_scripts application against Rosetta's internally-generated XML Schema defintion without running the script.
+
+### [[parse_rosetta_script]]
+Test an XML script written for the rostta_scripts application against Rosetta's internally-generated XML Schema defintion and that
+the Movers/Filters/TaskOperations/etc. that are defined within it can be constructed and initialized without running the script. A strictly
+more rigorous test than the validate_rosetta_script application.
