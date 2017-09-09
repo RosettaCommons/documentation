@@ -13,8 +13,8 @@ Given a quasi-symmetric cyclic peptide, this mover aligns the peptide so that th
 ```
 
 -   **auto_detect_symmetry**: If true, the symmetry of this peptide will be detected automatically.  False by default.  (Note that if this is set to "true", the "symmetry_repeats" and "mirror_symmetry" options cannot be used.)
--   **symmetry_repeats**: The number of symmetry repeats.  For example, to specify c6 or c6/m symmetry, set this to "6".  Defaults to "2" (for c2 symmetry).
--   **mirror_symmetry**: If true, this indicates that the pose possesses mirror symmetry.  For example, to specify c6/m symmetry, set "symmetry_repeats" to "6" and "mirror_symmetry" to "true".  If set to "false", this would indicate c6 symmetry.  Defaults to "false" (for c2 symmetry with no mirroring).
+-   **symmetry_repeats**: The number of symmetry repeats.  For example, to specify c6 or s6 symmetry, set this to "6".  Defaults to "2" (for c2 symmetry).
+-   **mirror_symmetry**: If true, this indicates that the pose possesses mirror symmetry.  For example, to specify s6 symmetry, set "symmetry_repeats" to "6" and "mirror_symmetry" to "true".  If set to "false", this would indicate c6 symmetry.  Defaults to "false" (for c2 symmetry with no mirroring).
 -   **angle_threshold**: The cutoff, in degrees, for considering two dihedral values to be equal.  Defaults to 10 degrees.  This is used when confirming that a quasi-symmetric peptide has the indicated symmetry, or for detecting the symmetry of the peptide.
 -   **trim_to_single_repeat**: If true, all geometry in the peptide (including all crosslinkers) will be deleted, except for the polypeptide part of a single symmetry repeat.  Defaults to "false".  (This is useful for setting up a peptide for the SetupForSymmetry mover).
 -   **repeat_to_preserve**: If "trim_to_single_repeat" is true, then this is the symmetry repeat that will NOT be deleted (i.e. the one that will be preserved).  Defaults to "1".
