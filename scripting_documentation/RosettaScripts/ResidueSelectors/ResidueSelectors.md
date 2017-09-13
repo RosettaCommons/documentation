@@ -563,7 +563,7 @@ This example selects all *residues* in the structure that has a backbone amine t
 ## Other
 ### StoredResidueSubset
 
-Creates a residue subset by retrieving a residur subset that has been cached into the current pose by the [[StoreResidueSubsetMover]]. The pose length must be the same as when the subset was store.
+Creates a residue subset by retrieving a residue subset that has been cached into the current pose by the [[StoreResidueSubsetMover]]. The pose length must be the same as when the subset was store.
 
     <StoredResidueSubset name="(&string)" subset_name="(&string)" />
 
