@@ -11,9 +11,9 @@ This filter computes the hamming distance between the current pose sequence and 
 ## Options and Usage
 
 ```xml
-< SequenceDistanceFilter name=(string)
+< SequenceDistance name=(string)
      sequence_comment_id=(string,"true")
-     target_seq=(string,"true")
+     target_sequence=(string,"true")
      threshold=(int,"8000") 
      confidence=(real,"1.0")
 />
@@ -23,7 +23,7 @@ This filter computes the hamming distance between the current pose sequence and 
 
 **sequence_comment_id** -- Comment id from which the sequence should be loaded from pose. Usually SaveSequenceToComments are used for getting a sequence earlier in the protocol into comments.
 
-**target_seq** -- Amino acid sequence to compare pose sequence to.
+**target_sequence** -- Amino acid sequence to compare pose sequence to.
 
 **threshold** -- The maximum hamming distance.  Default 8000.
 
