@@ -133,7 +133,7 @@ Design in Rosetta uses the same packing machinery as sidechain optimization, but
 
 See [[fixing errors]] for more information.
 
-#### How come Rosetta is reporting RMSD to the native structure when there is no native structure?
+#### How is Rosetta reporting RMSD to the native structure when there is no native structure?
 
-Most protocols with use the input structure as a "mock native" structure.
+Most protocols can use the input structure as a "mock native" structure.
 
