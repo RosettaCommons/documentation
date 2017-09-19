@@ -241,7 +241,7 @@ Filter  | Description
 Filter  | Description
 ------------ | -------------
 **[[Foldability|FoldabilityFilter]]** | Rebuilds a given segment of an input pose a specified number of times using fragment-based assembly.
-**[[FragQual|FragQualFilter]]** | Compare a input pose to a set of fragments.
+**[[FragQual|FragQualFilter]]** | Compare an input pose to a set of fragments.
 
 ### Cyclic Peptide Design
 
