@@ -29,7 +29,7 @@ This is still an in-development, unnpublished selector.  If you use this in your
 - ### Residue Selectors
  - [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
  - [[GlycanTreeSelector]] - Select individual glcyan trees or all of them
- - [[GlycanLayerSelecotr]] - Select glycan layers
+ - [[GlycanLayerSelector]] - Select glycan layers
  - [[GlycanPositionSelector]] - Select specific glycan postions, independant of PDB or Rosetta numbering.
  - [[RandomGlycanFoliageSelector]] - Randomly select a set of glycan residues 
 
