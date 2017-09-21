@@ -13,7 +13,7 @@ This is still an in-development, unnpublished selector.  If you use this in your
 
 
 
-[include:mover_GlycanTreeSelector_type]]
+[include:rs_GlycanTreeSelector_type]]
 
 
 ## See Also
