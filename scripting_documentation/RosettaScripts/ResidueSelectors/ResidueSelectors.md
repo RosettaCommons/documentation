@@ -14,8 +14,8 @@ The purpose of separating the residue selection logic from the modifications tha
 ResidueSelectors can be declared in their own block, outside of the TaskOperation block. For example:
 
     <RESIDUE_SELECTORS>
-       <Chain name=chA chains=A/>
-       <Index name=res1to10 resnums=1-10/>
+       <Chain name="chA" chains="A"/>
+       <Index name="res1to10" resnums="1-10"/>
     </RESIDUE_SELECTORS>
 
 Some ResidueSelectors can nest other ResidueSelectors in their definition; e.g.
