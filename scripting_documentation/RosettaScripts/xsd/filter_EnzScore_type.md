@@ -7,7 +7,7 @@ filter that calculates the energy based upon either the ligand (speficified with
 
 ```xml
 <EnzScore name="(&string;)" cstid="(&string;)" scorefxn="(&string;)"
-        score_type="(total_score &string;)" energy_cutoff="(0.0 &real;)"
+        score_type="(total_score &string;)" energy_cutoff="(0 &real;)"
         whole_pose="(0 &bool;)" pdb_num="(&residue_number;)"
         res_num="(&non_negative_integer;)" confidence="(1.0 &real;)" />
 ```

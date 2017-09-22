@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-09-01
+Generated: 2017-09-22
 
 _Note that some application specific options may not be present in this list._
 
@@ -7736,6 +7736,8 @@ _Note that some application specific options may not be present in this list._
 <dd>In just docking moves, screen for contacts (but no clash) between partitions before packing<br/>Default: false<br/></dd>
 <dt><b>-align_pdb</b> \<String\></dt>
 <dd>PDB to align to. Default will be -native, or no alignment<br/>Default: ""<br/></dd>
+<dt><b>-new_align_pdb</b> \<String\></dt>
+<dd>PDB to align to with the new RNA_AlignmentEnergy.<br/>Default: ""<br/></dd>
 <dt><b>-enumerate</b> \<Boolean\></dt>
 <dd>For SWM. Force enumeration (SWA-like) instead of random<br/>Default: false<br/></dd>
 <dt><b>-preminimize</b> \<Boolean\></dt>
