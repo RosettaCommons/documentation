@@ -14,7 +14,7 @@ NormalModeRelax relaxes a structures to the coordinate directions derived from A
         nsample="(&non_negative_integer;)" k_bond="(&real;)" k_short="(&real;)"
         k_long="(&real;)" outsilent="(&string;)" scorefxn="(&string;)"
         chi="(true &bool;)" bb="(true &bool;)" >
-    <MoveMap bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
+    <MoveMap name="(&string;)" bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
         <Jump number="(&non_negative_integer;)" setting="(&bool;)" />
         <Chain number="(&non_negative_integer;)" chi="(&bool;)" bb="(&bool;)" />
         <Span begin="(&non_negative_integer;)" end="(&non_negative_integer;)"

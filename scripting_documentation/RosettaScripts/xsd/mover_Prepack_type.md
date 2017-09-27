@@ -10,7 +10,7 @@ XRW TO DO
         jump_number="(1 &non_negative_integer;)"
         task_operations="(&task_operation_comma_separated_list;)"
         min_bb="(0 &bool;)" >
-    <MoveMap bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
+    <MoveMap name="(&string;)" bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
         <Jump number="(&non_negative_integer;)" setting="(&bool;)" />
         <Chain number="(&non_negative_integer;)" chi="(&bool;)" bb="(&bool;)" />
         <Span begin="(&non_negative_integer;)" end="(&non_negative_integer;)"

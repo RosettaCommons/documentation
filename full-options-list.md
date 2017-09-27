@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-09-22
+Generated: 2017-09-27
 
 _Note that some application specific options may not be present in this list._
 
@@ -1145,6 +1145,8 @@ _Note that some application specific options may not be present in this list._
 <dd>fade_factor for hbond geometry softmax<br/>Default: 2.5<br/></dd>
 <dt><b>-hbond_new_sp3_acc</b> \<Boolean\></dt>
 <dd>fade_factor for hbond geometry softmax<br/>Default: false<br/></dd>
+<dt><b>-alignment_sharpness</b> \<Real\></dt>
+<dd>When computing a harmonic function of RMSD for the alignment score, what should the standard deviation be?<br/>Default: 1.0<br/></dd>
 <dt><b>-rna_torsion_potential</b> \<String\></dt>
 <dd>In RNA torsion calculation, directory containing 1D torsional potentials<br/>Default: "ps_04282011"<br/></dd>
 </dl>

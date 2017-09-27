@@ -38,7 +38,7 @@ HBNet is a method to explicitly detect and design hydrogen bond networks within 
         monte_carlo_branch="(false &bool;)"
         monte_carlo_seed_must_be_buried="(false &bool;)"
         monte_carlo_seed_must_be_fully_buried="(false &bool;)"
-        max_mc_nets="(100 &non_negative_integer;)"
+        max_mc_nets="(0 &non_negative_integer;)"
         total_num_mc_runs="(1000000 &non_negative_integer;)"
         seed_hbond_threshold="(-0.75 &real;)"
         task_operations="(&task_operation_comma_separated_list;)"

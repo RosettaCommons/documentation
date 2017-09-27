@@ -11,7 +11,7 @@ PHENIX crystallographic refinement interface code. Converts weights from one sco
         bb="(&bool;)" bondangle="(&bool;)" bondlength="(&bool;)"
         weight="(&real;)" weight_min="(&real;)" weight_scale="(1.0 &real;)"
         cartesian="(false &bool;)" >
-    <MoveMap bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
+    <MoveMap name="(&string;)" bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
         <Jump number="(&non_negative_integer;)" setting="(&bool;)" />
         <Chain number="(&non_negative_integer;)" chi="(&bool;)" bb="(&bool;)" />
         <Span begin="(&non_negative_integer;)" end="(&non_negative_integer;)"

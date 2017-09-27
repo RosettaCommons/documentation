@@ -8,7 +8,7 @@ Performs a single fragment insertion move on the pose. Respects the restrictions
 ```xml
 <SingleFragmentMover name="(&string;)" fragments="(&string;)"
         policy="(uniform &policy_type;)" >
-    <MoveMap bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
+    <MoveMap name="(&string;)" bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
         <Jump number="(&non_negative_integer;)" setting="(&bool;)" />
         <Chain number="(&non_negative_integer;)" chi="(&bool;)" bb="(&bool;)" />
         <Span begin="(&non_negative_integer;)" end="(&non_negative_integer;)"

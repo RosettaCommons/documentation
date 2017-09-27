@@ -17,7 +17,7 @@ XRW TO DO
         movemap_from_blueprint="(0 &bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
         fast_relax="(1 &bool;)" limit_aroma_chi2="(1 &bool;)" >
-    <MoveMap bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
+    <MoveMap name="(&string;)" bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
         <Jump number="(&non_negative_integer;)" setting="(&bool;)" />
         <Chain number="(&non_negative_integer;)" chi="(&bool;)" bb="(&bool;)" />
         <Span begin="(&non_negative_integer;)" end="(&non_negative_integer;)"

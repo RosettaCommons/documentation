@@ -8,7 +8,7 @@ Based on a given MoveMap, this mover selects movable cyclic residues and flips t
 ```xml
 <RingConformationMover name="(&string;)"
         sample_high_energy_conformers="(&bool;)" >
-    <MoveMap bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
+    <MoveMap name="(&string;)" bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
         <Jump number="(&non_negative_integer;)" setting="(&bool;)" />
         <Chain number="(&non_negative_integer;)" chi="(&bool;)" bb="(&bool;)" />
         <Span begin="(&non_negative_integer;)" end="(&non_negative_integer;)"

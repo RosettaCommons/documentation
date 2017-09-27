@@ -11,7 +11,7 @@ XRW TO DO
         max_iter="(200 &integer;)"
         min_type="(lbfgs_armijo_nonmonotone &string;)" tolerance="(0.01 &real;)"
         dampen="(0.05 &real;)" >
-    <MoveMap bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
+    <MoveMap name="(&string;)" bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
         <Jump number="(&non_negative_integer;)" setting="(&bool;)" />
         <Chain number="(&non_negative_integer;)" chi="(&bool;)" bb="(&bool;)" />
         <Span begin="(&non_negative_integer;)" end="(&non_negative_integer;)"
