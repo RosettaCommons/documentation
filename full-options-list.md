@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-09-27
+Generated: 2017-09-30
 
 _Note that some application specific options may not be present in this list._
 
@@ -2416,6 +2416,15 @@ _Note that some application specific options may not be present in this list._
 <dd>transform option group<br/></dd>
 <dt><b>-optimize_embedding</b> \<Boolean\></dt>
 <dd>Use the scorefunction to optimize the embedding after an initial coarse grained setting<br/></dd>
+</dl>
++ <h3>-mp:assembly</h3>
+<dl>
+<dt><b>-assembly</b> \<Boolean\></dt>
+<dd>assembly option group<br/></dd>
+<dt><b>-TM_pose_number</b> \<Integer\></dt>
+<dd>Number of the PDB file in the -in:file:l list which is located in the membrane. Integer<br/></dd>
+<dt><b>-poses</b> \<StringVector\></dt>
+<dd>Filenames of the PDB files to consider. StringVector.<br/></dd>
 </dl>
 + <h3>-mp:dock</h3>
 <dl>
@@ -6081,6 +6090,13 @@ _Note that some application specific options may not be present in this list._
 <dd>compress checkpoing files with gzip<br/>Default: false<br/></dd>
 <dt><b>-rename</b> \<Boolean\></dt>
 <dd>rename checkpoint files after genetic algorithm completes<br/>Default: false<br/></dd>
+</dl>
++ <h2>-mutate</h2>
+<dl>
+<dt><b>-mutate</b> \<Boolean\></dt>
+<dd>mutate option group<br/></dd>
+<dt><b>-mutation</b> \<String\></dt>
+<dd>Single mutation: Format: One-letter code / residue number / one-letter code. Example: A163F<br/></dd>
 </dl>
 + <h2>-nonlocal</h2>
 <dl>
