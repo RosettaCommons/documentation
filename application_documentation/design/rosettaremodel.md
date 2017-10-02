@@ -379,25 +379,25 @@ Checkpointing can be switched on by issuing the flag: "-checkpoint".
 
 Checkpointing is related to the "-save\_top [number]" option, as checkpointing recovers the same number of structures written out by the -save\_top command. (If your first pass of the protocol didn't generate the number of structures specified in -save\_top, only the ones generated will be recovered). This scheme is only used to make sure that the best structures from a simulation are not lost when a process is terminated. It will also generate a text file to mark the number of trajectories already finished, therefore picking up from where num\_trajectories were left off, so to speak.
 
-Mock Prediction (not yet available)
------------------------------------
+## Mock Prediction (not yet available)
+
 
 Although it does not have all the bells and whistles for running a thorough prediction run when a sequence is known, the Remodel protocol can be used to run a "mock prediction" where the amino acid sequences are given and one just wanted to predict its final structure using sequence biased fragments (still generic/or hand assigned and has no secondary structure prediction from multiple sequence alignment) and relying largely on full-atom refinement to get a structure for a known sequence. In this case, one would switch on "-mock\_prediction" and this swaps out the design scorefunction with the one (score4L) used for general loop prediction tasks. "-remodel:use\_blueprint\_sequence" should also be used, so fragments chosen from vall database will bias towards sequences known. But when doing so, be sure to assign the *SECOND* column of the blueprint file amino acids of your target sequence, and use PIKAA to manually force the final amino acids used in refinement to match the sequence needed a predicted structure.
 
-Limitations
-===========
+# Limitations
+
 
 A major limitiation of the Remodel protocol is that input PDB files must be numbered starting from 1. A PDB numbered starting from 1 can be created using the fixbb application with the flag -renumber\_pdb and a resfile that has NATRO as the default behaviour.
 
 If a starting PDB has multiple chains, Remodel works on the first chain.  Use the flag "-chain " followed by chain name (eg. A) to indicate the target chain. The other parts can still carry their chain designator, and they will not be touched by the protocol – they will stay present throughout the simulation. Note that at the moment, one should always use -chain field, even if model or target model has only one chain.  If DNA is present it will be considered for scoring but will not move during the run. Also if you have anything other than protein, clustering on CA atom will not work, so clustering should be turned off by adding "-use\_clusters false" to the command line.
 
-Input Files
-===========
+# Input Files
 
-Structures - REQUIRED
----------------------
+### Structures - REQUIRED
+
 
 At least one input PDB file must always be given. A single PDB, or a list of PDBs, must be specified on the command line. If doing denovo design, this is the stub PDB. The remodel code is also compatible with PDBs containing DNA.
+> The PDB file must be consecutively numbered, starting from 1
 
 ```
 -s <pdb1> <pdb2>                                              A list of one or more PDBs to run fixbb upon
@@ -406,22 +406,22 @@ At least one input PDB file must always be given. A single PDB, or a list of PDB
 
 ```
 
-Database location - REQUIRED
-----------------------------
+### Database location - REQUIRED
+
 
 ```
 -database <path/to/rosetta/main/database>                  Specifies the location of the rosetta_database
 ```
 
-Blueprint - REQUIRED
---------------------
+### Blueprint - REQUIRED
+
 
 ```
 -remodel:blueprint <blueprint>                                A file that specifies what operations should be performed to the input structure(s)
 ```
 
-Options
-=======
+# Options
+
 
 Remodel options
 ---------------
