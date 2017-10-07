@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-09-30
+Generated: 2017-10-07
 
 _Note that some application specific options may not be present in this list._
 
@@ -35,9 +35,9 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-auto_detect_glycan_connections</b> \<Boolean\></dt>
 <dd>Sets whether to search for non-protein connections using PDB coordinates and generate LINK records.<br/>Default: false<br/></dd>
 <dt><b>-max_bond_length</b> \<Real\></dt>
-<dd>Sets maximum O-C distance for glycan connection search. Default is 1.6 Angstroms.<br/>Default: 1.6<br/></dd>
+<dd>Sets maximum O-C distance for glycan connection search. Default is 1.65 Angstroms.<br/>Default: 1.65<br/></dd>
 <dt><b>-min_bond_length</b> \<Real\></dt>
-<dd>Sets minimum O-C distance for glycan connection search. Default is 1.3 Angstroms.<br/>Default: 1.3<br/></dd>
+<dd>Sets minimum O-C distance for glycan connection search. Default is 1.15 Angstroms.<br/>Default: 1.15<br/></dd>
 <dt><b>-membrane</b> \<Boolean\></dt>
 <dd>Initialize pose as a membrane protein using specified membrane parameters. Default is false<br/>Default: false<br/></dd>
 <dt><b>-remember_unrecognized_res</b> \<Boolean\></dt>
@@ -70,6 +70,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Specify the filename(s) of (a) *.codes files that includes a list of alternative 3-letter codes.  The default directory is database/input_output/3-letter_codes/ but any path can be provided.  Duplicate codes in successive files will overwrite previous ones.<br/></dd>
 <dt><b>-only_chairs</b> \<Boolean\></dt>
 <dd>Triggers loading of only the chair conformations of sugars with 6 member rings.<br/>Default: false<br/></dd>
+<dt><b>-maintain_links</b> \<Boolean\></dt>
+<dd>Maintains link records in the PDB when using auto_detect_glycans<br/>Default: false<br/></dd>
 <dt><b>-fix_disulf</b> \<File\></dt>
 <dd>Specify disulfide connectivity via a file.  Disulfides are specified as two whitespace-separated residue indices per line.  This option replaces the old '-run:fix_disulf' option.<br/></dd>
 <dt><b>-missing_density_to_jump</b> \<Boolean\></dt>
