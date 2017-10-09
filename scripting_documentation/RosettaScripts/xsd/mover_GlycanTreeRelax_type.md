@@ -48,7 +48,8 @@ Typically, we would want at least a window size of 1.
 <GlycanTreeRelax name="(&string;)" layer_size="(&non_negative_integer;)"
         window_size="(&non_negative_integer;)" rounds="(&non_negative_integer;)"
         refine="(false &bool;)" quench_mode="(false &bool;)"
-        final_min_pack_min="(true &bool;)"
+        final_min_pack_min="(true &bool;)" min_rings="(false &bool;)"
+        cartmin="(false &bool;)"
         glycan_relax_rounds="(25 &non_negative_integer;)"
         residue_selector="(&string;)" scorefxn="(&string;)" />
 ```
@@ -73,6 +74,8 @@ Details:
 -   **refine**: Do a refinement instead of a denovo model
 -   **quench_mode**: Do quench mode for each glycan tree?
 -   **final_min_pack_min**: Do a final set of cycles of min/pack
+-   **min_rings**: Minimize Carbohydrate Rings during minimization.
+-   **cartmin**: Use Cartesian Minimization instead of Dihedral Minimization during packing steps.
 -   **glycan_relax_rounds**: Round Number for the internal GlycanRelax.  Default is the default of GlycanRelax.
 -   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
 -   **scorefxn**: Name of score function to use
