@@ -28,6 +28,8 @@ The composite of Rosetta app and python master script here carries out genetic-a
 
 ## Running the IterativeHybridize protocol
 
+### Overview
+
 Step 0. Generate "relatively" diverse models (i.e. share same topology but not too close)
 : not part of this documentation since there could be various methods for doing this 
 
