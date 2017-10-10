@@ -137,8 +137,8 @@ Alternately, structure averaging on full trajectory can be performed:
     cat iter_*/gen.out > gen.total.out
 
     $ROSETTA/main/source/bin/ensemble_analysis.linuxgccrelease -database $ROSETTADB \
-    -refpdb iter_[niter]/model1.pdb -out:prefix avrg \
-    -dcut_dynamic -in:file:silent gen.total.out -silent_read_through_errors > avrg.log
+    -in:file:template_pdb iter_[niter]/model1.pdb -out:prefix avrg \
+    -in:file:silent gen.total.out -silent_read_through_errors > avrg.log
 
 "avrg.relaxed.pdb" generated after this command is structure-averaged + regularized model. 
 
