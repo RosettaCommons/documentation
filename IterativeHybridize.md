@@ -36,9 +36,7 @@ Step 1. iterate below process N times (typically n~50)
 - Hybridize given parents
 - Select next pool from Parent + Newly generated structure pools
 
-### Step 1: IterativeHybridization
-
-#### IterationMaster.py: Python wrapper script for running iterative process
+### Master script for running iterative process
 All the python/bash scripts required can be found at:
 
     $Rosetta/main/source/scripts/python/public/iterative_hybridize/
