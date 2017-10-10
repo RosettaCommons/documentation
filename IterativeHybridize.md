@@ -39,7 +39,39 @@ Step 1. iterate below process N times (typically n~50)
 ### Step 1: IterativeHybridization
 
 #### IterationMaster.py: Python wrapper script for running iterative process
-(TBA)
+All the python/bash scripts required can be found at:
+
+    $Rosetta/main/source/scripts/python/public/
+
+Copy over files at the directory to wherever convinient (say $SCRIPTDIR). 
+Prepare these files and copy it to working directory; note that file names should be 
+
+    * init.pdb : Reference structure (e.g. homology model) in pdb format
+    * input.fa : sequence in fasta format
+    * t000_.3mers, t000_.9mers: Rosetta fragment pick
+      (refer to https://www.rosettacommons.org/docs/wiki/application_documentation/utilities/app-fragment-picker)
+    * cen.cst, fa.cst : Rosetta restraint file used at centroid / full-atom stage
+    * ref.out : Rosetta silent file containing pool of structures for evolutionary algorithm. 
+                Size of pool during evolutionary process follows what is provided here.
+
+Once files are prepared, run command line below with default options:
+
+    python $SCRIPTDIR/IterationMaster.py -iha [model accuracy] -nodefile [nodefile] >& iterhyb.log
+
+    * model accuracy : % in GDT-HA scale; (20/40/60) mean (completely wrong / roughly correct / correct)
+    * nodefile: a text file containing nodes to distribute; using 4 cores at n001 will be like:
+      n001
+      n001
+      n001
+      n001
+
+More options:
+
+    -native [pdb]  # provide native structures to monitor model accuracy during process
+    -debug         # turn on debug mode
+    -niter [int]   # number of iterations, default=50
+    -simple        # run simpler protocol with predefined options; used for Robetta server & refinement w/ co-evolution data
+    -mulfactor_phase0 [int] # scale factor for number of sampling at initial phase; default=2 (twice more at beginning) 
 
 #### Model selection from diverse initial structures 
 Required to begin the first iteration. Command line using Rosetta public app:
