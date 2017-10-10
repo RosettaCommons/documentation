@@ -59,7 +59,7 @@ Required to begin the first iteration. Command line using Rosetta public app:
 * $4: number of structures to select
 * $5, optional: estimated Similarity-To-ReferenceStructure in GDT-HA scale, puts penalty if any structure gets dissimilar to reference structure than this value
 
-### Generating adaptive restraints from pool of structures
+### Generating adaptive restraints from a pool of structures
 
 See optional.2 above. 
 
@@ -130,7 +130,17 @@ Command line using Rosetta public app:
 
 ### Post Processing
 
-Output models after each iteration are always clustered and sorted based on their energy (+restraint, if provided) thus picking the lowest index model(s) in the output silent is most direct way of selecting representative models.
+Output models after each iteration are always clustered and sorted based on their energy (+full-atom restraint if provided) thus picking the lowest index model(s) is most direct way of selecting representative models. These "model[1-5].pdb" can be found at "workdir/iter_[niter]/" if the whole process is normally finished.
+
+Alternately, structure averaging on full trajectory can be performed:
+
+    cat iter_*/gen.out > gen.total.out
+
+    $ROSETTA/main/source/bin/ensemble_analysis.linuxgccrelease -database $ROSETTADB \
+    -refpdb iter_[niter]/model1.pdb -out:prefix avrg \
+    -dcut_dynamic -in:file:silent gen.total.out -silent_read_through_errors > avrg.log
+
+"avrg.relaxed.pdb" generated after this command is structure-averaged + regularized model. 
 
 See [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 
