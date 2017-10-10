@@ -40,7 +40,7 @@ iterate below process N times (typically n~50)
 - Hybridize given parents
 - Select next pool from Parent + Newly generated structure pools
 
-#### Model selection from diverse initial structures 
+### Model selection from diverse initial structures 
 Required to begin the first iteration. Command line using Rosetta public app:
 
     $ROSETTA/main/source/bin/iterhybrid_selector.linuxgccrelease \
@@ -59,11 +59,11 @@ Required to begin the first iteration. Command line using Rosetta public app:
 * $4: number of structures to select
 * $5, optional: estimated Similarity-To-ReferenceStructure in GDT-HA scale, puts penalty if any structure gets dissimilar to reference structure than this value
 
-#### Generating adaptive restraints from pool of structures
+### Generating adaptive restraints from pool of structures
 
 See optional.2 above. 
 
-#### Running iterative process
+### Running iterative process
 All the python/bash scripts required for iterative process can be found at:
 
     $Rosetta/main/source/scripts/python/public/iterative_hybridize/
@@ -75,7 +75,10 @@ Prepare these files and copy it to working directory; note that file names shoul
     * input.fa : sequence in fasta format
     * t000_.3mers, t000_.9mers: Rosetta fragment library files
       (please refer to https://www.rosettacommons.org/docs/wiki/application_documentation/utilities/app-fragment-picker for picking fragments)
+
     * cen.cst, fa.cst : Rosetta restraint file used at centroid / full-atom stage
+                        See above "Generating adaptive restraints from pool of structures".
+
     * ref.out : Rosetta silent file containing pool of structures for evolutionary algorithm. 
                 Size of pool during evolutionary process follows number of structures in this file.
 
