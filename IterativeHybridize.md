@@ -30,10 +30,12 @@ The composite of Rosetta app and python master script here carries out genetic-a
 
 ### Overview
 
-Step 0. Generate "relatively" diverse models (i.e. share same topology but not too close)
+Step 0. Diversification stage
+Generate "relatively" diverse models (i.e. share same topology but not too close)
 : not part of this documentation since there could be various methods for doing this 
 
-Step 1. iterate below process N times (typically n~50)
+Step 1. Evolution stage
+iterate below process N times (typically n~50)
 - Select Parents among structure pool
 - Hybridize given parents
 - Select next pool from Parent + Newly generated structure pools
