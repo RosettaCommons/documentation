@@ -46,7 +46,7 @@ All the python/bash scripts required can be found at:
     $Rosetta/main/source/scripts/python/public/iterative_hybridize/
 
 Copy over files at the directory to wherever convinient (say $SCRIPTDIR). 
-Prepare these files and copy it to working directory; note that file names should be 
+Prepare these files and copy it to working directory; note that file names should EXACTLY MATCH.
 
     * init.pdb : Reference structure (e.g. homology model) in pdb format
     * input.fa : sequence in fasta format
