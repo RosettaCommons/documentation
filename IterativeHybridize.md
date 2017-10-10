@@ -54,7 +54,7 @@ Prepare these files and copy it to working directory; note that file names shoul
       (please refer to https://www.rosettacommons.org/docs/wiki/application_documentation/utilities/app-fragment-picker for picking fragments)
     * cen.cst, fa.cst : Rosetta restraint file used at centroid / full-atom stage
     * ref.out : Rosetta silent file containing pool of structures for evolutionary algorithm. 
-                Size of pool during evolutionary process follows what is provided here.
+                Size of pool during evolutionary process follows number of structures in this file.
 
 Once files are prepared, run command line below with default options:
 
