@@ -50,8 +50,8 @@ Prepare these files and copy it to working directory; note that file names shoul
 
     * init.pdb : Reference structure (e.g. homology model) in pdb format
     * input.fa : sequence in fasta format
-    * t000_.3mers, t000_.9mers: Rosetta fragment pick
-      (refer to https://www.rosettacommons.org/docs/wiki/application_documentation/utilities/app-fragment-picker)
+    * t000_.3mers, t000_.9mers: Rosetta fragment library files
+      (please refer to https://www.rosettacommons.org/docs/wiki/application_documentation/utilities/app-fragment-picker for picking fragments)
     * cen.cst, fa.cst : Rosetta restraint file used at centroid / full-atom stage
     * ref.out : Rosetta silent file containing pool of structures for evolutionary algorithm. 
                 Size of pool during evolutionary process follows what is provided here.
