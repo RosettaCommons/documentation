@@ -41,7 +41,7 @@ Step 1. iterate below process N times (typically n~50)
 #### IterationMaster.py: Python wrapper script for running iterative process
 All the python/bash scripts required can be found at:
 
-    $Rosetta/main/source/scripts/python/public/
+    $Rosetta/main/source/scripts/python/public/iterative_hybridize/
 
 Copy over files at the directory to wherever convinient (say $SCRIPTDIR). 
 Prepare these files and copy it to working directory; note that file names should be 
