@@ -8,7 +8,7 @@ Created by Vikram K. Mulligan (vmullig@uw.edu) on 2 December 2016.<br/>
 
 ### Description
 
-This filter examines a cyclic peptide backbone and determines whether it has cyclic symmetry matching a user-specified symmetry (within some threshold of error -- the backbone needn't be _perfectly_ symmetric).  It works with c2, c3, c4, _etc._ symmetries, as well as with c2/m, c4/m, c6/m, _etc._ symmetries.  Failure indicates that the peptide does _not_ have the desired symmetry.
+This filter examines a cyclic peptide backbone and determines whether it has cyclic symmetry matching a user-specified symmetry (within some threshold of error -- the backbone needn't be _perfectly_ symmetric).  It works with c2, c3, c4, _etc._ symmetries, as well as with c2/m, c4/m, c6/m, _etc._ symmetries.  Failure indicates that the peptide does _not_ have the desired symmetry.  The peptide in question can be built from any combination fo L- and D-alpha , beta, or gamma amino acids, L- and D-oligoureas, or peptoids.
 
 ### Algorithm
 
