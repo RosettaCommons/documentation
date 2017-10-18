@@ -103,6 +103,8 @@ Note that there are three scoring terms that all enforce closure of proline: **r
 
 Note also that **pro_close** has two behaviours: in addition to enforcing ring closure of proline residues, it also imposes torsional constraints on the omega torsion angle of the preceding residue.  If one wishes to continue to use **pro_close** for the latter purpose, but have **ring_close** handle ring closure, you can disable the ring closure part of **pro_close** with the **-score:no_pro_close_ring_closure** flag.  The two score terms, **pro_close** and **ring_close** should <i>only</i> be used together if this flag is set.  If **ring_close** is given the same weighting as **pro_close**, it enforces closure with the same strength.  More commonly, though, **ring_close** is probably going to be used with the MM scoring function.
 
+As a final note, there are situations in which it is not necessary to substitute **ring_close** for **pro_close**.  The **pro_close** term supports L-proline, D-proline, and L- and D-oligourea-proline ("OU3_PRO" and "DOU3_PRO", in Rosetta).
+
 ### Residue type composition control score term (aa_composition)
 Creator: Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
 
