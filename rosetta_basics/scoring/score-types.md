@@ -35,23 +35,23 @@ Energy terms used in talaris2013.wts
 -------------------------------------
 
 ```html
-fa_atr                                     Lennard-Jones attractive between atoms in different residues
-fa_rep                                     Lennard-Jones repulsive between atoms in different residues
-fa_sol                                     Lazaridis-Karplus solvation energy
-fa_intra_rep                               Lennard-Jones repulsive between atoms in the same residue
-fa_elec                                    Coulombic electrostatic potential with a distance-dependent dielectric   
-pro_close                                  Proline ring closure energy and energy of psi angle of preceding residue
-hbond_sr_bb                                Backbone-backbone hbonds close in primary sequence
-hbond_lr_bb                                Backbone-backbone hbonds distant in primary sequence
-hbond_bb_sc                                Sidechain-backbone hydrogen bond energy
-hbond_sc                                   Sidechain-sidechain hydrogen bond energy
-dslf_fa13                                  Disulfide geometry potential
-rama                                       Ramachandran preferences
-omega                                      Omega dihedral in the backbone. A Harmonic constraint on planarity with standard deviation of ~6 deg.
-fa_dun                                     Internal energy of sidechain rotamers as derived from Dunbrack's statistics (2010 Rotamer Library used in Talaris2013)
-p_aa_pp                                    Probability of amino acid at Φ/Ψ
-ref                                        Reference energy for each amino acid. Balances internal energy of amino acid terms.  Plays role in design.
-METHOD_WEIGHTS                             Not an energy term itself, but the parameters for each amino acid used by the ref energy term. 
+fa_atr                                     Lennard-Jones attractive between atoms in different residues.  Supports canonical and noncanonical residue types.
+fa_rep                                     Lennard-Jones repulsive between atoms in different residues.  Supports canonical and noncanonical residue types.
+fa_sol                                     Lazaridis-Karplus solvation energy.  Supports canonical and noncanonical residue types.
+fa_intra_rep                               Lennard-Jones repulsive between atoms in the same residue.  Supports canonical and noncanonical residue types.
+fa_elec                                    Coulombic electrostatic potential with a distance-dependent dielectric.  Supports canonical and noncanonical residue types.
+pro_close                                  Proline ring closure energy and energy of psi angle of preceding residue.  Supports D- or L-proline, plus D- or L-oligourea-proline.
+hbond_sr_bb                                Backbone-backbone hbonds close in primary sequence.  All hydrogen bonding terms support canonical and noncanonical types.
+hbond_lr_bb                                Backbone-backbone hbonds distant in primary sequence.
+hbond_bb_sc                                Sidechain-backbone hydrogen bond energy.
+hbond_sc                                   Sidechain-sidechain hydrogen bond energy.
+dslf_fa13                                  Disulfide geometry potential.  Supports D- and L-cysteine disulfides, plus homocysteine disulfides or disulfides involving beta-3-cysteine.
+rama                                       Ramachandran preferences.  Supports only the 20 canonical alpha-amino acids and their mirror images.
+omega                                      Omega dihedral in the backbone. A Harmonic constraint on planarity with standard deviation of ~6 deg.  Supports alpha-amino acids, beta-amino acids, and oligoureas.  In the case of oligoureas, both amide bonds (called "mu" and "omega" in Rosetta) are constarined to planarity.
+fa_dun                                     Internal energy of sidechain rotamers as derived from Dunbrack's statistics (2010 Rotamer Library used in Talaris2013).  Supports any residue type for which a rotamer library is avalable.
+p_aa_pp                                    Probability of amino acid at Φ/Ψ.  Supports only the 20 canonical alpha-amino acids and their mirror images.
+ref                                        Reference energy for each amino acid. Balances internal energy of amino acid terms.  Plays role in design.  Supports only the 20 canonical alpha-amino acids and their mirror images.
+METHOD_WEIGHTS                             Not an energy term itself, but the parameters for each amino acid used by the ref energy term.  A value is provided for each of the 20 canonical alpha-amino acids.  The same value is applied for the equivalent mirror-image D-amino acid.
 ```
 
 Additional energy terms for score12 <a name="score12" />
@@ -60,12 +60,12 @@ Additional energy terms for score12 <a name="score12" />
 Previous versions of Rosetta used the score12 energy function as the default full atom energy function. Many of the energy terms are the same as talaris2013 (though at different weights, and with different parameters), although other terms were also used:
 
 ```html
-fa_pair                                    Statistics-based pair term, favors salt bridges (replaced by fa_elec in talaris2013)
-fa_plane                                   π-π interaction between aromatic groups, by default = 0
-dslf_ss_dst                                Distance score in current disulfide (replaced by dslf_fa13 in talaris2013)
-dslf_cs_ang                                Csangles score in current disulfide (replaced by dslf_fa13 in talaris2013)
-dslf_ss_dih                                Dihedral score in current disulfide (replaced by dslf_fa13 in talaris2013)
-dslf_ca_dih                                Cα dihedral score in current disulfide (replaced by dslf_fa13 in talaris2013)
+fa_pair                                    Statistics-based pair term, favors salt bridges (replaced by fa_elec in talaris2013).  Supported only the 20 canonical alpha-amino acids.
+fa_plane                                   π-π interaction between aromatic groups, by default = 0.
+dslf_ss_dst                                Distance score in current disulfide (replaced by dslf_fa13 in talaris2013).
+dslf_cs_ang                                Csangles score in current disulfide (replaced by dslf_fa13 in talaris2013).
+dslf_ss_dih                                Dihedral score in current disulfide (replaced by dslf_fa13 in talaris2013).
+dslf_ca_dih                                Cα dihedral score in current disulfide (replaced by dslf_fa13 in talaris2013).
 ```
 
 The score12 energy function can be used in current Rosetta versions, but the option <code> -restore_pre_talaris_2013_behavior</code> must be passed.
@@ -75,17 +75,17 @@ Additional energy terms for beta energy functions <a name="[beta_july15/beta_nov
 -----------------------------------
 
 ```html
-lk_ball                                Anisotropic contribution to the solvation
-lk_ball_iso                            Same as fa_sol; see below 
-lk_ball_wtd                            weighted sum of lk_ball & lk_ball_iso (w1*lk_ball + w2*lk_ball_iso); w2 is negative so that anisotropic contribution(lk_ball) replaces some portion of isotropic contribution (fa_sol=lk_ball_iso)
-lk_ball_bridge                         Bonus to solvation coming from bridging waters, measured by overlap of the "balls" from two interacting polar atoms
-lk_ball_bridge_uncpl                   Same as lk_ball_bridge, but the value is uncoupled with dGfree (i.e. constant bonus, whereas lk_ball_bridge is proportional to dGfree values)            
-fa_intra_atr_xover4                    Intra-residue LJ attraction, counted for the atom-pairs beyond torsion-relationship 
-fa_intra_rep_xover4                    Intra-residue LJ repulsion, counted for the atom-pairs beyond torsion-relationship 
-fa_intra_sol_xover4                    Intra-residue LK solvation, counted for the atom-pairs beyond torsion-relationship                 
-fa_intra_elec                          Intra-residue Coulombic interaction, counted for the atom-pairs beyond torsion-relationship
-rama_prepro                            Backbone torsion preference term that takes into account of whether preceding amono acid is Proline or not
-hxl_tors                               Sidechain hydroxyl group torsion preference for Ser/Thr/Tyr, supersedes yhh_planarity (that covers Tyr only)
+lk_ball                                Anisotropic contribution to the solvation.  Supports arbitrary residue types.
+lk_ball_iso                            Same as fa_sol; see below.  Supports arbitrary residue types.
+lk_ball_wtd                            weighted sum of lk_ball & lk_ball_iso (w1*lk_ball + w2*lk_ball_iso); w2 is negative so that anisotropic contribution(lk_ball) replaces some portion of isotropic contribution (fa_sol=lk_ball_iso).  Supports arbitrary residue types.
+lk_ball_bridge                         Bonus to solvation coming from bridging waters, measured by overlap of the "balls" from two interacting polar atoms.  Supports arbitrary residue types.
+lk_ball_bridge_uncpl                   Same as lk_ball_bridge, but the value is uncoupled with dGfree (i.e. constant bonus, whereas lk_ball_bridge is proportional to dGfree values).  Supports arbitrary residue types.            
+fa_intra_atr_xover4                    Intra-residue LJ attraction, counted for the atom-pairs beyond torsion-relationship.  Supports arbitrary residues types.
+fa_intra_rep_xover4                    Intra-residue LJ repulsion, counted for the atom-pairs beyond torsion-relationship.  Supports arbitrary residues types.
+fa_intra_sol_xover4                    Intra-residue LK solvation, counted for the atom-pairs beyond torsion-relationship.  Supports arbitrary residues types.                 
+fa_intra_elec                          Intra-residue Coulombic interaction, counted for the atom-pairs beyond torsion-relationship.  Supports arbitrary residues types.
+rama_prepro                            Backbone torsion preference term that takes into account of whether preceding amono acid is Proline or not.  Currently supports the 20 canonical alpha-amino acids, their mirror-image D-amino acids, oligoureas, and N-methyl amino acids.  Arbitrary new building-blocks can also be supported provided that an N-dimensional mainchain potential can be generated somehow.
+hxl_tors                               Sidechain hydroxyl group torsion preference for Ser/Thr/Tyr, supersedes yhh_planarity (that covers L- and D-Tyr only).
 ```
 
 Additional Resources
