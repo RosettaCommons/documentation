@@ -23,6 +23,8 @@ Small-move style backbone-torsion moves that, unlike shear, do not minimize down
 
 This mover can also take an optional MoveMap (see [[FastRelax|FastRelaxMover]] documentation for details) to define the residue subset to which it should be applied.  (Only residues defined to have flexible backbones are used.)  In the absence of the MoveMap, the mover is applied to the whole pose.
 
+This mover currently supports alpha-amino acids, carbohydrates, and oligourea residues.  In the case of oligourea residues, only the first three mainchain torsions (called "phi", "theta", and "psi" in Rosetta) are perturbed; the two amide bonds ("mu" and "omega") remain fixed.
+
 See Rohl CA, et al. (2004) Methods Enzymol. Protein structure prediction using Rosetta, 383:66
 
 
