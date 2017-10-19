@@ -29,7 +29,7 @@ verbose, but in some ways it would also be more flexible.
 
 ```xml
 <LoopModeler name="(&string)" config="('' &string)" loops_file="(&string)" fast="(no &bool)" 
-scorefxn_cen="(&string)" scorefxn_fa="(&string)" task_operations="(&string)" auto_refine="(yes &bool)" loophash_perturb_sequence="(false &bool)">
+scorefxn_cen="(&string)" scorefxn_fa="(&string)" task_operations="(&string)" auto_refine="(yes &bool)" loophash_perturb_sequence="(false &bool)" loophash_seqposes_no_mutate="('' &string)">
 
     <Loop start="(&int)" stop="(&int)" cut="(&int)" skip_rate="(0.0 &real)" rebuild="(no &bool)"/>
 
@@ -93,6 +93,9 @@ Options:
 
 * loophash_perturb_sequence: If set to true, the sequence of the fragment from
   loophash will replace the loop sequence.
+
+* loophash_seqposes_no_mutate: Sequence positions that should not be mutated by
+  LoopHashKIC. 
 
 Subtags:
 
