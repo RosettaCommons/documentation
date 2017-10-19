@@ -147,7 +147,7 @@ Use a fragment library to sample loop conformations:
 Use loop hash to sample loop conformations as well as the loop sequence:
 
 ```xml
-<LoopModeler name="modeler" config="loophash_kic" loophash_perturb_sequence="true" />
+<LoopModeler name="modeler" config="loophash_kic" loophash_perturb_sequence="true" loophash_seqposes_no_mutate="17, 32, 69" />
 ```
 
 Run a quick test simulation with a vastly reduced number of iterations:
