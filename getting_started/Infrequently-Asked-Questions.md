@@ -48,3 +48,16 @@ Coordinates for all fragments are precalculated in the vall_cst_coord.dat.* file
 
 All fragments in fragment libraries are identified by the frag source pdb name, chain and residues, allowing relevant coordinates to be extracted from the vall_coord_cst.dat.* data file.
 
+
+#### Which interaction graph should I use?
+
+For speed, the Packer uses an "Interaction Graph" to cache the residue interaction energies. (See [[packing-options]] for command line options to control the packer.) Depending on the protocol you're using, maintaining this interaction graph can account for a considerable amount of time and memory. As such, different interaction graphs (IG) are available.
+
+* The default interaction graph (the Pairwise Decomposable Interaction Graph) is good for general repacking applications.
+* For design, the Linear Memory Interaction Graph (`-linmem_ig`) reduces both the memory and runtime over the default interaction graph
+* The Lazy Interaction Graph (`-lazy_ig`) is in all cases faster than the Linear Memory Interaction Graph, but at the cost of more memory usage.
+* The Double Lazy Interaction Graph (`-double_lazy_ig`) is only useful for multistate design.
+
+#### The Multicool annealer gives lower scores, so it must be better for relax, right?
+
+No. The FastRelax algorithm relies on the stochastic behavior of the packer to get adequate sampling of the conformational space. The Multicool annealer (the `-multi_cool_annealer` option) is too convergent, and does not give enough variability in results for a good relax results.
