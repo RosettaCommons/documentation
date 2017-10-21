@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-10-07
+Generated: 2017-10-21
 
 _Note that some application specific options may not be present in this list._
 
@@ -755,9 +755,15 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-n_archive_nodes</b> \<Integer\></dt>
 <dd>The number of nodes that should perform archival roles only. This flag is only used by the MPIWorkPoolJobDistributor<br/>Default: 0<br/></dd>
 <dt><b>-do_not_archive_on_node0</b> \<Boolean\></dt>
-<dd>Should the master node in the MPIWorkPoolJobDistributor archive any JobResults on it?<br/>Default: false<br/></dd>
+<dd>Should the master node in the MPIWorkPoolJobDistributor archive any JobResults on it? Only relevant for MPI builds when using -n_archive_nodes<br/>Default: false<br/></dd>
+<dt><b>-do_not_output_from_node0</b> \<Boolean\></dt>
+<dd>Should the master node in the MPIWorkPoolJobDistributor perform any ouput? Only relevant for MPI builds when using -n_archive_nodes<br/>Default: false<br/></dd>
 <dt><b>-nthreads</b> \<Integer\></dt>
 <dd>For the multithreaded job distributor, how many threads should be run at the same time<br/></dd>
+<dt><b>-archive_on_disk</b> \<String\></dt>
+<dd>Sometimes job results use a ton of memory. This option tells Rosetta to store job results on disk instead of in memory. The string you pass here should be the name of a (preferably empty) directoy where we can put all of our temporary files. You can delete this directory and everything in it when Rosetta is done running.<br/>Default: "null"<br/></dd>
+<dt><b>-compress_job_results</b> \<Boolean\></dt>
+<dd>Sometimes job results use a ton of memory. This option tells Rosetta to compress all job results so they use less memory.<br/>Default: true<br/></dd>
 </dl>
 + <h2>-jd2</h2>
 <dl>

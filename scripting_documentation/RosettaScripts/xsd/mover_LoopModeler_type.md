@@ -9,6 +9,7 @@ Perform a complete loop modeling simulation, including the build, centroid, and 
 <LoopModeler name="(&string;)" loops_file="(&string;)"
         config="(kic &config_options;)" auto_refine="(true &bool;)"
         scorefxn_fa="(&string;)" scorefxn_cen="(&string;)" fast="(false &bool;)"
+        loophash_perturb_sequence="(false &bool;)"
         task_operations="(&task_operation_comma_separated_list;)" >
     <Loop start="(&non_negative_integer;)" stop="(&non_negative_integer;)"
             cut="(0 &non_negative_integer;)" skip_rate="(0.0 &real;)"
@@ -25,6 +26,7 @@ Perform a complete loop modeling simulation, including the build, centroid, and 
 -   **scorefxn_fa**: Score function for full atom modeling.
 -   **scorefxn_cen**: Score function for modeling in centroid representation.
 -   **fast**: Only test run (fewer cycles)
+-   **loophash_perturb_sequence**: Let LoopHashKIC also perturb the amino acid sequence
 -   **task_operations**: A comma separated list of TaskOperations to use.
 
 
