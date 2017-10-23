@@ -43,7 +43,7 @@ To run this application, a user must supply:
 * A cluster radius.
 * Optionally, other settings controlling the details of clustering (see below).
 
-The output is, by default, a set of PDB files.  If the `-cluster:energy_based_clustering:silent_output` flag is used, the output is two Rosetta binary silent files, the first containing only cluster centres, and the second containing all structures.
+The output is, by default, a set of PDB files with names of format `c.<cluster #>.<struct #>.pdb`.  If the `-cluster:energy_based_clustering:silent_output` flag is used, the output is two Rosetta binary silent files, the first containing only cluster centres, and the second containing all structures.
 
 # All options
 
@@ -52,8 +52,8 @@ The output is, by default, a set of PDB files.  If the `-cluster:energy_based_cl
 | cluster:<br/>energy_based_clustering:<br/>cluster_radius | (real) The radius for clustering, in Angstroms for Cartesian clustering and degrees for dihedral clustering. | 1.0 |
 | cluster:<br/>energy_based_clustering:<br/>cluster_by | (string) What should I use as the basis for clustering?  Options are "bb_cartesian" (xyz coordinates of backbone atoms) and "bb_dihedral" (phi, psi, omega angles). | "bb_cartesian" |
 | cluster:<br/>energy_based_clustering:<br/>use_CB | (boolean) If clustering by backbone Cartesian coordinates, should beta carbons be included?  Note that if this option is used, none of the input structures can contain glycine. | false |
-| cluster:<br/>energy_based_clustering:<br/>residues_to_ignore | (integer vector) List of residues to ignore in alignments for clustering. | <empty vector> |
-| cluster:<br/>energy_based_clustering:<br/>chains_to_ignore | (integer vector) List of chains to ignore in alignments for clustering. | <empty vector> |
+| cluster:<br/>energy_based_clustering:<br/>residues_to_ignore | (integer vector) List of residues to ignore in alignments for clustering. | \<empty vector\> |
+| cluster:<br/>energy_based_clustering:<br/>chains_to_ignore | (integer vector) List of chains to ignore in alignments for clustering. | \<empty vector\> |
 | cluster:<br/>energy_based_clustering:<br/>limit_structures_per_cluster | (integer) Maximum number of structures to output per cluster.  The default value of zero means no limit.  Note that more structures might be _assigned_ to a cluster, but only the first N will be written to disk if this option is used. | 0 |
 | cluster:<br/>energy_based_clustering:<br/>limit_clusters | (integer) Maximum number of clusters to output.  The default value of zero means no limit.  Note that more clusters might be _generated_ but only the first N will be written to disk if this option is used. | 0 |
 | cluster:<br/>energy_based_clustering:<br/>cyclic | (boolean) If true, constraints are added to make a peptide bond between the N- and C-termini.  If false (default), the termini are free. | false |
@@ -63,16 +63,22 @@ The output is, by default, a set of PDB files.  If the `-cluster:energy_based_cl
 | cluster:<br/>energy_based_clustering:<br/>cluster_cyclic_permutations | (boolean) If true, all cyclic permutations are tried when comparing two structures for clustering.  Requires -cyclic. | false |
 | cluster:<br/>energy_based_clustering:<br/>cyclic_permutation_offset | (integer) 1 by default, meaning that every cyclic permutation is clustered if -cluster_cyclic_permutations is true.  Values X > 1 mean that cyclic permutations shifted by X residues will be clustered. | 1 |
 | cluster:<br/>energy_based_clustering:<br/>mutate_to_ala | (boolean) If true, the input structures will be converted to a chain of alanines (L- or D-) before scoring. | false |
-| cluster:<br/>energy_based_clustering:<br/>disulfide_positions | (integer vector) A space-separated list of positions that are disulfide-bonded.  For example, -disulfide_positions 3 8 6 23 would mean that residues 3 and 8 are disulfide-bonded, as are residues 6 and 23.  Defaults to an empty list of the option is not specified, in which case disulfides are auto-detected. | <empty vector> |
+| cluster:<br/>energy_based_clustering:<br/>disulfide_positions | (integer vector) A space-separated list of positions that are disulfide-bonded.  For example, -disulfide_positions 3 8 6 23 would mean that residues 3 and 8 are disulfide-bonded, as are residues 6 and 23.  Defaults to an empty list of the option is not specified, in which case disulfides are auto-detected. | \<empty vector\> |
 | cluster:<br/>energy_based_clustering:<br/>homooligomer_swap | (boolean) If the structures contain multiple chains with identical sequence, setting this to true will test all permutations of chains when clustering. | false |
 | cluster:<br/>energy_based_clustering:<br/>silent_output | (boolean) Write output to a silent file instead of to separate PDBs.  This will create two files: one that only contains the first member of each cluster, and one that contains everything. | false |
-| cluster:<br/>energy_based_clustering:<br/>cst_file | (string vector) An optional, user-specified list of one or more constraints files.  Used for relaxation and scoring.  Unused if not specified. | <empty vector> |
-| cluster:<br/>energy_based_clustering:<br/>extra_rms_atoms | (string vector) A list of additional atoms to use in the RMSD calculation, each in the format residue:atomname separated by whitespace.  For example, -extra_rms_atoms 7:SG 12:CG 12:CD 12:CE 12:NZ 14:OG.  Unused if not specified. | <empty vector> |
+| cluster:<br/>energy_based_clustering:<br/>cst_file | (string vector) An optional, user-specified list of one or more constraints files.  Used for relaxation and scoring.  Unused if not specified. | \<empty vector\> |
+| cluster:<br/>energy_based_clustering:<br/>extra_rms_atoms | (string vector) A list of additional atoms to use in the RMSD calculation, each in the format residue:atomname separated by whitespace.  For example, -extra_rms_atoms 7:SG 12:CG 12:CD 12:CE 12:NZ 14:OG.  Unused if not specified. | \<empty vector\> |
 | cluster:<br/>energy_based_clustering:<br/>rebuild_all_in_dihedral_mode | (boolean) If true, full poses are rebuilt for output when clustering in dihedral mode.  If false, only backbones are written out.  True by default. | true |
 | cluster:<br/>energy_based_clustering:<br/>prerelax | (boolean) Should imported structures be subjected to a round of fast relaxation? | false |
 | cluster:<br/>energy_based_clustering:<br/>relax_rounds | (integer) The number of fastrelax rounds to apply if the -prerelax option is used. | 1 |
+| in:<br/>file:<br/>s | (string vector) List of PDB files to import. | \<empty vector\> |
+| in:<br/>file:<br/>l | (string vector) List of text files containing lists of PDB files to import. | \<empty vector\> |
+| in:<br/>file:<br/>silent | (string vector) List of Rosetta silent files to import. | \<empty vector\> |
+| out:<br/>prefix | (string) A string to prepend to all output PDB file names, or to all tags contained in an output Rosetta silent file. | \<empty string\> |
 
 # Example
+
+The following command line will 
 
 # Notes on development history
 
