@@ -56,6 +56,13 @@ The output is, by default, a set of PDB files.  If the `-cluster:energy_based_cl
 | cluster:<br/>energy_based_clustering:<br/>chains_to_ignore | (integer vector) List of chains to ignore in alignments for clustering. | <empty vector> |
 | cluster:<br/>energy_based_clustering:<br/>limit_structures_per_cluster | (integer) Maximum number of structures to output per cluster.  The default value of zero means no limit.  Note that more structures might be _assigned_ to a cluster, but only the first N will be written to disk if this option is used. | 0 |
 | cluster:<br/>energy_based_clustering:<br/>limit_clusters | (integer) Maximum number of clusters to output.  The default value of zero means no limit.  Note that more clusters might be _generated_ but only the first N will be written to disk if this option is used. | 0 |
+| cluster:<br/>energy_based_clustering:<br/>cyclic | (boolean) If true, constraints are added to make a peptide bond between the N- and C-termini.  If false (default), the termini are free. | false |
+| cluster:<br/>energy_based_clustering:<br/>cyclic_symmetry | (integer) If provided, structures that do not have the desired symmetry are filtered out.  Set to 2 for C2 or S2 symmetry, 3 for C3 symmetry, 4 for C4 or S4 symmetry, etc.  Unused (0) if not specified.  Can only be used with the -cyclic flag. | 0 |
+| cluster:<br/>energy_based_clustering:<br/>cyclic_symmetry_mirroring | (boolean) If true, then SN symmetry is used instead of CN.  Unused if not specified.  Can only be used with the -cyclic and -cyclic_symmetry flags. | false |
+| cluster:<br/>energy_based_clustering:<br/>cyclic_symmetry_threshold | (real) The angle threshold, in degrees, for determining whether a cyclic peptide is symmetric.  Can only be used with the -cyclic and -cyclic_symmetry flags. | 10.0 |
+| cluster:<br/>energy_based_clustering:<br/>cluster_cyclic_permutations | (boolean) If true, all cyclic permutations are tried when comparing two structures for clustering.  Requires -cyclic. | false |
+| cluster:<br/>energy_based_clustering:<br/>cyclic_permutation_offset | (integer) 1 by default, meaning that every cyclic permutation is clustered if -cluster_cyclic_permutations is true.  Values X > 1 mean that cyclic permutations shifted by X residues will be clustered. | 1 |
+| cluster:<br/>energy_based_clustering:<br/>mutate_to_ala | (boolean) If true, the input structures will be converted to a chain of alanines (L- or D-) before scoring. | false |
 | cluster:<br/>energy_based_clustering:<br/>prerelax | (boolean) Should imported structures be subjected to a round of fast relaxation? | false |
 | cluster:<br/>energy_based_clustering:<br/>relax_rounds | (integer) The number of fastrelax rounds to apply if the -prerelax option is used. | 1 |
 
