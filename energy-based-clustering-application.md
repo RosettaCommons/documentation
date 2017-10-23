@@ -78,7 +78,29 @@ The output is, by default, a set of PDB files with names of format `c.<cluster #
 
 # Example
 
-The following command line will 
+Given the following inputs:
+
+* A Rosetta binary silent file containing a number of cyclic peptide backbones in `inputs/backbones.silent`.
+* A Rosetta flags file in `inputs/rosetta.flags`.
+
+The following command line will cluster the backbones:
+
+```
+<path_to_Rosetta>/main/source/bin/energy_based_clustering.default.linuxgccrelease @inputs/rosetta.flags
+```
+
+The contents of `inputs/rosetta.flags` is as follows:
+
+```
+-in:file:silent inputs/backbones.silent
+-in:file:fullatom
+-cluster:energy_based_clustering:cluster_radius 1.0
+-cluster:energy_based_clustering:limit_structures_per_cluster 10
+-cluster:energy_based_clustering:cluster_by bb_cartesian
+-cluster:energy_based_clustering:use_CB false
+-cluster:energy_based_clustering:cyclic true
+-cluster:energy_based_clustering:cluster_cyclic_permutations true
+```
 
 # Notes on development history
 
