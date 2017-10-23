@@ -49,15 +49,15 @@ The output is, by default, a set of PDB files.  If the `-cluster:energy_based_cl
 
 | Flag | Description | Default |
 | ---- | ----------- | ------- |
-| cluster:energy_based_clustering:cluster_radius | (real) The radius for clustering, in Angstroms for Cartesian clustering and degrees for dihedral clustering. | 1.0 |
-| cluster:energy_based_clustering:cluster_by | (string) What should I use as the basis for clustering?  Options are "bb_cartesian" (xyz coordinates of backbone atoms) and "bb_dihedral" (phi, psi, omega angles). | "bb_cartesian" |
-| cluster:energy_based_clustering:use_CB | (boolean) If clustering by backbone Cartesian coordinates, should beta carbons be included?  Note that if this option is used, none of the input structures can contain glycine. | false |
-| cluster:energy_based_clustering:residues_to_ignore | (integer vector) List of residues to ignore in alignments for clustering. | <empty vector> |
-| cluster:energy_based_clustering:chains_to_ignore | (integer vector) List of chains to ignore in alignments for clustering. | <empty vector> |
-| cluster:energy_based_clustering:limit_structures_per_cluster | (integer) Maximum number of structures to output per cluster.  The default value of zero means no limit.  Note that more structures might be _assigned_ to a cluster, but only the first N will be written to disk if this option is used. | 0 |
-| cluster:energy_based_clustering:limit_clusters | (integer) Maximum number of clusters to output.  The default value of zero means no limit.  Note that more clusters might be _generated_ but only the first N will be written to disk if this option is used. | 0 |
-| cluster:energy_based_clustering:prerelax | (boolean) Should imported structures be subjected to a round of fast relaxation? | false |
-| cluster:energy_based_clustering:relax_rounds | (integer) The number of fastrelax rounds to apply if the -prerelax option is used. | 1 |
+| cluster:<br/>energy_based_clustering:<br/>cluster_radius | (real) The radius for clustering, in Angstroms for Cartesian clustering and degrees for dihedral clustering. | 1.0 |
+| cluster:<br/>energy_based_clustering:<br/>cluster_by | (string) What should I use as the basis for clustering?  Options are "bb_cartesian" (xyz coordinates of backbone atoms) and "bb_dihedral" (phi, psi, omega angles). | "bb_cartesian" |
+| cluster:<br/>energy_based_clustering:<br/>use_CB | (boolean) If clustering by backbone Cartesian coordinates, should beta carbons be included?  Note that if this option is used, none of the input structures can contain glycine. | false |
+| cluster:<br/>energy_based_clustering:<br/>residues_to_ignore | (integer vector) List of residues to ignore in alignments for clustering. | <empty vector> |
+| cluster:<br/>energy_based_clustering:<br/>chains_to_ignore | (integer vector) List of chains to ignore in alignments for clustering. | <empty vector> |
+| cluster:<br/>energy_based_clustering:<br/>limit_structures_per_cluster | (integer) Maximum number of structures to output per cluster.  The default value of zero means no limit.  Note that more structures might be _assigned_ to a cluster, but only the first N will be written to disk if this option is used. | 0 |
+| cluster:<br/>energy_based_clustering:<br/>limit_clusters | (integer) Maximum number of clusters to output.  The default value of zero means no limit.  Note that more clusters might be _generated_ but only the first N will be written to disk if this option is used. | 0 |
+| cluster:<br/>energy_based_clustering:<br/>prerelax | (boolean) Should imported structures be subjected to a round of fast relaxation? | false |
+| cluster:<br/>energy_based_clustering:<br/>relax_rounds | (integer) The number of fastrelax rounds to apply if the -prerelax option is used. | 1 |
 
 # Example
 
