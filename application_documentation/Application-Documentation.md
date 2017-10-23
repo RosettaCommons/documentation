@@ -256,7 +256,7 @@ Component | Description
 
 - [[cluster |Cluster]] - Original Rosetta++ app. Fails (_i.e_ silently produces meaningless results) at large number of decoys.
 
-- [[energy_based_clustering]] - A fast energy-based clustering approach optimized for large numbers of structures.
+- [[energy_based_clustering|energy_based_clustering_application]] - A fast energy-based clustering approach optimized for large numbers of structures.
 
  
 
