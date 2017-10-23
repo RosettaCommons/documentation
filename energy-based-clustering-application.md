@@ -47,9 +47,19 @@ The output is, by default, a set of PDB files.  If the `-cluster:energy_based_cl
 
 # All options
 
-
+| Flag | Description | Default |
+| ---- | ----------- | ------- |
+| cluster:energy_based_clustering:prerelax | (boolean) Should imported structures be subjected to a round of fast relaxation? | false |
+| cluster:energy_based_clustering:relax_rounds | (integer) The number of fastrelax rounds to apply if the -prerelax option is used. | 1 |
+| cluster:energy_based_clustering:cluster_by | (string) What should I use as the basis for clustering?  Options are "bb_cartesian" (xyz coordinates of backbone atoms) and "bb_dihedral" (phi, psi, omega angles). | "bb_cartesian" |
+| cluster:energy_based_clustering:use_CB | (boolean) If clustering by backbone Cartesian coordinates, should beta carbons be included?  Note that if this option is used, none of the input structures can contain glycine. | false |
+| cluster:energy_based_clustering:cluster_radius | (real) The radius for clustering, in Angstroms for Cartesian clustering and degrees for dihedral clustering. | 1.0 |
 
 # Example
+
+# Notes on development history
+
+This application began life as `vmullig/bettercluster.cc`, a pilot application created on 6 May 2013.  Many features have been added since then, including cyclic permutations, support for internal peptide symmetry, and support for non-canonicals.  A few features have also been removed, such as principal component analysis (PCA) on each cluster.  On 23 October 2017, a heavily cleaned-up version was added to the Rosetta public applications repository for general use.
 
 # References
 
