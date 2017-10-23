@@ -60,6 +60,7 @@ Please see [[calibur-clustering]] for an alternative clustering app that does no
 
 ## See also
 
+* [[The energy_based_clustering application | energy_based_clustering_application]].
 * [[Utility applications | utilities-applications]]: other utility applications
 * [[Application Documentation]]: Application documentation home page
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
