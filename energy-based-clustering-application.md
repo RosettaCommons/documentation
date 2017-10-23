@@ -33,7 +33,7 @@ The `energy_based_clustering` application imports a list of structures from any 
 3.  Select all structures with RMSD values below a user-specified cutoff, group these into the current cluster, and remove them from the unclustered list.
 4.  Repeat steps 1, 2, and 3 for the next cluster, until there are no structures remaining in the unclustered list.
 
-Although simple, this approach has the advantages of (a) biasing the clusters towards the lowest-energy structures (which is desirable for many applications), (b) scaling roughly linearly with the total number of structures, and (c) being fully deterministic (i.e. repeated runs on the same dataset will always produce the same output).
+Although simple, this approach has the advantages of (a) biasing the clusters towards the lowest-energy structures (which is desirable for many applications), (b) scaling roughly linearly with the total number of structures, and (c) being fully deterministic (_i.e._ repeated runs on the same dataset will always produce the same output).
 
 # Inputs and outputs
 
@@ -53,4 +53,9 @@ The output is, by default, a set of PDB files.  If the `-cluster:energy_based_cl
 
 # References
 
+Hosseinzadeh P, Bhardwaj G, Mulligan VK, Shortridge MD, Craven TW, Pardo-Avila F, Rettie S, Kim DE, Silva D-A, Ibrahim YM, Webb IK, Cort JR, Adkins JN, Varani G, and Baker D.  2017.  Comprehensive computational design of ordered peptide macrocycles.  Manuscript in revision.
+
 # See also
+
+* [[Calibur clustering application|calibur-clustering]]
+* [[Legacy cluster application|cluster]]
