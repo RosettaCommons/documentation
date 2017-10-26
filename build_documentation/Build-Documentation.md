@@ -167,6 +167,7 @@ with this command,
 
 ``       cmake . -DCMAKE_CXX_COMPILER=`which clang++`      ``
 
+If you want to build Rosetta with an IDE such as CLion, just import Rosetta and choose one of the build directories under source/cmake/build/<build_directory> (e.g. build_debug) as your root.
 
 ###Message Passing Interface (MPI)
 
