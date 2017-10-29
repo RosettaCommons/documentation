@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-10-21
+Generated: 2017-10-29
 
 _Note that some application specific options may not be present in this list._
 
@@ -3562,6 +3562,55 @@ _Note that some application specific options may not be present in this list._
 <dd>autotune rmsd for clustering between 0.1A up to 2.0A, for SWA clusterer<br/>Default: false<br/></dd>
 <dt><b>-write_centers</b> \<Boolean\></dt>
 <dd>Write out a silent file with the cluster centers<br/>Default: false<br/></dd>
+</dl>
++ <h3>-cluster:energy_based_clustering</h3>
+<dl>
+<dt><b>-energy_based_clustering</b> \<Boolean\></dt>
+<dd>energy_based_clustering option group<br/></dd>
+<dt><b>-prerelax</b> \<Boolean\></dt>
+<dd>Should imported structures be subjected to a round of fast relaxation?  Default false.<br/>Default: false<br/></dd>
+<dt><b>-relax_rounds</b> \<Integer\></dt>
+<dd>The number of fastrelax rounds to apply if the -cluster:energy_based_clustering:prerelax option is used.  Default 1.<br/>Default: 1<br/></dd>
+<dt><b>-cluster_by</b> \<String\></dt>
+<dd>What should I use as the basis for clustering?  Options are bb_cartesian (xyz coordinates of backbone atoms) and bb_dihedral (phi, psi, omega angles).  Default is bb_cartesian.<br/>Default: "bb_cartesian"<br/></dd>
+<dt><b>-use_CB</b> \<Boolean\></dt>
+<dd>If clustering by backbone Cartesian coordinates, should beta carbons be included?  Default false.  Note that if this option is used, none of the input structures can contain glycine.<br/>Default: false<br/></dd>
+<dt><b>-cluster_radius</b> \<Real\></dt>
+<dd>The radius for clustering, in Angstroms for Cartesian clustering and degrees for dihedral clustering.  Default 1.0.<br/>Default: 1.0<br/></dd>
+<dt><b>-residues_to_ignore</b> \<IntegerVector\></dt>
+<dd>List of residues to ignore in alignments for clustering.  Default empty list.<br/></dd>
+<dt><b>-chains_to_ignore</b> \<IntegerVector\></dt>
+<dd>List of chains to ignore in alignments for clustering.  Default empty list.<br/></dd>
+<dt><b>-limit_structures_per_cluster</b> \<Integer\></dt>
+<dd>Maximum number of structures to output per cluster.  Default no limit (0).<br/>Default: 0<br/></dd>
+<dt><b>-limit_clusters</b> \<Integer\></dt>
+<dd>Maximum number of clusters to output.  Default no limit (0).<br/>Default: 0<br/></dd>
+<dt><b>-cyclic</b> \<Boolean\></dt>
+<dd>If true, constraints are added to make a peptide bond between the N- and C-termini.  If false (default), the termini are free.  Default false.<br/>Default: false<br/></dd>
+<dt><b>-cyclic_symmetry</b> \<Integer\></dt>
+<dd>If provided, structures that do not have the desired symmetry are filtered out.  Set to 2 for C2 or S2 symmetry, 3 for C3 symmetry, 4 for C4 or S4 symmetry, etc.  Unused (0) if not specified.  Can only be used with the -cluster:energy_based_clustering:cyclic flag.<br/>Default: 0<br/></dd>
+<dt><b>-cyclic_symmetry_mirroring</b> \<Boolean\></dt>
+<dd>If true, then SN symmetry is used instead of CN.  Unused if not specified.  Can only be used with the -cluster:energy_based_clustering:cyclic and -cluster:energy_based_clustering:cyclic_symmetry flags.<br/>Default: false<br/></dd>
+<dt><b>-cyclic_symmetry_threshold</b> \<Real\></dt>
+<dd>The angle threshold, in degrees, for determining whether a cyclic peptide is symmetric.  Can only be used with the -cluster:energy_based_clustering:cyclic and -cluster:energy_based_clustering:cyclic_symmetry flags.  Defaults to 10.0 degrees.<br/>Default: 10.0<br/></dd>
+<dt><b>-cluster_cyclic_permutations</b> \<Boolean\></dt>
+<dd>If true, all cyclic permutations are tried when comparing two structures for clustering.  Requires -cluster:energy_based_clustering:cyclic true.  Default false.<br/>Default: false<br/></dd>
+<dt><b>-cyclic_permutation_offset</b> \<Integer\></dt>
+<dd>1 by default, meaning that every cyclic permutation is clustered if -cluster:energy_based_clustering:cluster_cyclic_permutations is true.  Values X > 1 mean that cyclic permutations shifted by X residues will be clustered.<br/>Default: 1<br/></dd>
+<dt><b>-mutate_to_ala</b> \<Boolean\></dt>
+<dd>If true, the input structures will be converted to a chain of alanines (L- or D-) before scoring.  Default false.<br/>Default: false<br/></dd>
+<dt><b>-disulfide_positions</b> \<IntegerVector\></dt>
+<dd>A space-separated list of positions that are disulfide-bonded.  For example, -cluster:energy_based_clustering:disulfide_positions 3 8 6 23 would mean that residues 3 and 8 are disulfide-bonded, as are residues 6 and 23.  Defaults to an empty list of the option is not specified, in which case disulfides are auto-detected.<br/></dd>
+<dt><b>-homooligomer_swap</b> \<Boolean\></dt>
+<dd>If the structures contain multiple chains with identical sequence, setting this to true will test all permutations of chains when clustering.  Default false.<br/>Default: false<br/></dd>
+<dt><b>-silent_output</b> \<Boolean\></dt>
+<dd>Write output to a silent file instead of to separate PDBs.  This will create two files: one that only contains the first member of each cluster, and one that contains everything.  Default false.<br/>Default: false<br/></dd>
+<dt><b>-cst_file</b> \<FileVector\></dt>
+<dd>An optional, user-specified list of one or more constraints files.  Default unused.<br/></dd>
+<dt><b>-extra_rms_atoms</b> \<StringVector\></dt>
+<dd>A list of additional atoms to use in the RMSD calculation, each in the format residue:atomname separated by whitespace.  For example, -extra_rms_atoms 7:SG 12:CG 12:CD 12:CE 12:NZ 14:OG.  Default empty list.<br/></dd>
+<dt><b>-rebuild_all_in_dihedral_mode</b> \<Boolean\></dt>
+<dd>If true, full poses are rebuilt for output when clustering in dihedral mode.  If false, only backbones are written out.  True by default.<br/>Default: true<br/></dd>
 </dl>
 + <h2>-cm</h2>
 <dl>
@@ -8898,4 +8947,6 @@ _Note that some application specific options may not be present in this list._
 <dd>testing option group<br/></dd>
 <dt><b>-HCF</b> \<Boolean\></dt>
 <dd>Cause Rosetta to exit immediately with an error.<br/>Default: false<br/></dd>
+<dt><b>-INTEGRATION_TEST</b> \<Boolean\></dt>
+<dd>Meta flag for best-practices flags in integration tests. Don't use on actual runs.<br/>Default: false<br/></dd>
 </dl>

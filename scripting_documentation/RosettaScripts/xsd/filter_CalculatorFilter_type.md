@@ -9,35 +9,38 @@ XRW TO DO
 <CalculatorFilter name="(&string;)" equation="(&string;)"
         threshold="(0.0 &real;)" confidence="(1.0 &real;)" >
     <VAR name="(&string;)" value="(&real;)" filter="(&string;)"
-            filter_name="(&string;)" />
+            filter_name="(&string;)" reported="(&string;)" />
     <Var name="(&string;)" value="(&real;)" filter="(&string;)"
-            filter_name="(&string;)" />
+            filter_name="(&string;)" reported="(&string;)" />
     <var name="(&string;)" value="(&real;)" filter="(&string;)"
-            filter_name="(&string;)" />
+            filter_name="(&string;)" reported="(&string;)" />
 </CalculatorFilter>
 ```
 
--   **equation**: (REQUIRED) XRW TO DO
--   **threshold**: XRW TO DO
+-   **equation**: (REQUIRED) Equation to evaluate filter value.
+-   **threshold**: Filter passes if equation value less than threshold, fails otherwise.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 
 Subtag **VAR**:   
 
--   **value**: XRW TO DO
--   **filter**: XRW TO DO
--   **filter_name**: XRW TO DO
+-   **value**: Specifiy a constant value.
+-   **filter**: Evaluate given filter at calculator evaluation time.
+-   **filter_name**: Evaluate given filter at calculator evaluation time.
+-   **reported**: Retrieve reported value. See 'report_at_end=false' documentation in ParsedProtocol.
 
 Subtag **Var**:   
 
--   **value**: XRW TO DO
--   **filter**: XRW TO DO
--   **filter_name**: XRW TO DO
+-   **value**: Specifiy a constant value.
+-   **filter**: Evaluate given filter at calculator evaluation time.
+-   **filter_name**: Evaluate given filter at calculator evaluation time.
+-   **reported**: Retrieve reported value. See 'report_at_end=false' documentation in ParsedProtocol.
 
 Subtag **var**:   
 
--   **value**: XRW TO DO
--   **filter**: XRW TO DO
--   **filter_name**: XRW TO DO
+-   **value**: Specifiy a constant value.
+-   **filter**: Evaluate given filter at calculator evaluation time.
+-   **filter_name**: Evaluate given filter at calculator evaluation time.
+-   **reported**: Retrieve reported value. See 'report_at_end=false' documentation in ParsedProtocol.
 
 ---
