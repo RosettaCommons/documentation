@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-10-29
+Generated: 2017-10-31
 
 _Note that some application specific options may not be present in this list._
 
@@ -611,7 +611,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-max_retry_job</b> \<Integer\></dt>
 <dd>If a job fails with FAIL_RETRY retry this many times at most<br/>Default: 10<br/></dd>
 <dt><b>-version</b> \<Boolean\></dt>
-<dd>write out SVN version info, if it was available at compile time<br/>Default: true<br/></dd>
+<dd>write out detailed version info, if it was available at compile time<br/>Default: false<br/></dd>
 <dt><b>-nodelay</b> \<Boolean\></dt>
 <dd>Do not delay launch of minirosetta<br/></dd>
 <dt><b>-delay</b> \<Integer\></dt>
