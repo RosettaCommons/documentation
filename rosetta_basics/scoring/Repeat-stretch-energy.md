@@ -1,6 +1,6 @@
 # Repeat stretch energy (aa_repeat_energy)
 Documentation by Vikram K. Mulligan (vmullig@uw.edu), Baker Laboratory.
-Last modified 21 July 2015.
+Last modified 4 November 2017.
 
 ## Description of score term
 The repeat stretch score term (**aa_repeat**) is a wholebody energy that assigns a penalty to a pose based on its sequence.  Specifically, it penalizes long stretches in which the same residue type repeats over and over (e.g. poly-Q sequences).  This is currently only useful for filtering a design after a packing run, but the ultimate goal is to get it working with a modified form of the packer that permits packing with non-pairwise-decomposable scoring terms that can be computed quickly.
