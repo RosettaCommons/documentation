@@ -19,7 +19,7 @@ The `hbnet` score term is a different approach to the same problem solved by Sco
 ### Advantages of the `hbnet` score over the HBNet protocol
 
 * **Simultaneous optimization.**  By simultaneously optimizing the conventional Rosetta energy and `hbnet` score, one can design for favourable hydrophobic packing _and_ favourable polar networks in a single step.  In contrast, the HBNet protocol places polar networks first, after which one uses conventional packing to try to place hydrophobic residues around the networks.  Where the most favourable networks might not subsequently be amenable to good packing, simultaneous optimization can sometimes find a better compromise.
-* **Simpler setup and compatibility with all design workflows.**  To use the `hbnet` score, simply turn it on (change its weight to a nonzero value) in the scorefunction being used for design.  Complex design protocols, such as [[FastDesign]], can place hydrogen bond networks simply by having this score term on.
+* **Simpler setup and compatibility with all design workflows.**  To use the `hbnet` score, simply turn it on (change its weight to a nonzero value) in the scorefunction being used for design.  Complex design protocols, such as [[FastDesign|FastDesignMover]], can place hydrogen bond networks simply by having this score term on.
 * **Tunable relative importances of networks vs. packing.**  By adjusting the weight given to the `hbnet` score term, the user can direct the packer to focus more or less on producing extensive hydrogen bond networks, or on optimizing the other things (Van der Waals interactions, hydrophobic interactions, _etc._) that the Rosetta scorefunction reflects.
 * **Compatibility with other design-centric score terms.**  The `hbnet` score term can be used in conjunction with other score terms to guide the design process, such as the [[`aspartimide_penalty`|NC-scorefunction-info]] score term (penalizing aspartimide-forming amino acid sequences that can hinder chemical synthesis of peptides), the [[`aa_repeat`|Repeat-stretch-energy]] score term (penalizing repeat sequences that can impede NMR structure determination), or the [[`aa_composition`|AACompositionEnergy]] score term (penalizing deviations from a desired amino acid composition).  This means that one can, for example, solve a problem like this: "I want a well-packed core that's 75% hydrophobic, 25% polar, and contains exactly 2 charged residues and 1 tryptophan, with no repeat sequences or aspartimide-forming sequences, in which the polar residues form good hydrogen bond networks."
 * **Speed.**  Using the `hbnet` score term adds no additional steps to the design process.  The term itself slows the packer down by about 10-20%, which is a relatively small impact.
@@ -45,7 +45,7 @@ To use the `hbnet` score term in design, simply follow the following steps:
 </SCOREFXNS>
 ```
 
-2.  Design with any mover or protocol that invokes the packer, using the scorefunction defined above.  Ensure that the task operations passed to the packer allow polar residues at the relevant design positions (or it will not be possible to put in hydrogen bond networks).  [[FastDesign]] is particularly advantageous since the rounds of minimization with the softened force field can pull hydrogen bond donors and acceptors into better hydrogen bond-forming positions.
+2.  Design with any mover or protocol that invokes the packer, using the scorefunction defined above.  Ensure that the task operations passed to the packer allow polar residues at the relevant design positions (or it will not be possible to put in hydrogen bond networks).  [[FastDesign|FastDesignMover]] is particularly advantageous since the rounds of minimization with the softened force field can pull hydrogen bond donors and acceptors into better hydrogen bond-forming positions.
 
 3.  (Recommended).  Perform a final round of minimization or relaxation with the `hbnet` score term turned _off_.  This ensures that the score term is not forcing unrealistic rotamers that would not be held in place given the hydrogen bonding.
 
@@ -66,3 +66,4 @@ The `hbnet` score term is fully compatible with symmetry with no special setup r
 * [[AddCompositionConstraintMover]]
 * [[ClearCompositionConstraintsMover]]
 * [[AddHelixSequenceConstraints mover|AddHelixSequenceConstraintsMover]]
+* [[HBNet mover|HBNetMover]]
