@@ -1,5 +1,7 @@
 #HBNet
 *Back to [[Mover|Movers-RosettaScripts]] page.*
+_Note:  This documentation is for the HBNet mover.  For information on the `hbnet` design-centric score term, an alternative method for creating hydrogen bond networks, see [[this page|HBNetEnergy]]._
+
 ##HBNet
 
 HBNet is a method to explicitly detect and design hydrogen bond networks within Rosetta.  It functions as a mover within the RosettaScripts framework and will exhaustively search for all networks within the design space that you define with [[TaskOperations|TaskOperations-RosettaScripts]], and that meet the criteria you specify with the options below

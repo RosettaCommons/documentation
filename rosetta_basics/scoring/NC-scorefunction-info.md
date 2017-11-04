@@ -1,6 +1,6 @@
 #Scorefunctions that work well with protein and non-protein residues and molecules
 
-With the addition of the [[talaris2013 scorefunction | score-types]] as the default Rosetta scorefunction, most non-protein residues and molecules can be scored, however other scorefunctions exist that work well with protein and non-protein residues and molecules.
+With the addition of the [[talaris2013 scorefunction | score-types]], most non-protein residues and molecules can be scored, however other scorefunctions exist that work well with protein and non-protein residues and molecules.  In July 2017, the default scorefunction was updated to the newer [[ref2015 scorefunction|Overview of Seattle Group energy function optimization project]] which has been calibrated against small-molecule liquid simulations in addition to protein crystal structures, improving performance for noncanonical scoring further.
 
 [[_TOC_]]
 
@@ -121,6 +121,16 @@ This is another specialized scoring term that can be appended to an existing sco
 | D-aspartate    | glycine, D-threonine, D-serine, D-asparagine, or any L-amino acid residue |
 
 When weighted with a scoring weight of 1.0, the term adds a 25-point penalty for each aspartimide-promoting two-residue sequence found.  This term is pairwise-decomposible, and fully packer compatible, so it can serve as a constraint on the optimization problem that the packer solves, ensuring that it produces a low-energy sequence subject to the condition that no aspartimide-promoting subsequence is found within the sequence.  The "-score:aspartimide_penalty_value <float>" flag can be used to set the penalty value added for each aspartimide-promoting sequence (default 25 Rosetta energy units).  Alternatively, the weight on the term can be used to set the penalty.
+
+### Bonus function for hydrogen bond networks (hbnet)
+Creator:  Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
+
+This is another specialized scoring term that can be appended to improve designs.  This score term adds a bonus (_i.e._ a negative value) for networks of hydrogen-bonded residues, with the size of the bonus scaling quadratically with the size (_i.e._ number of residues in) the network.  Although detecting networks is a fundamentally non-pairwise-decomposible problem, this score term is compatible with the packer, and can guide any design protocol that invokes the packer towards solutions with hydrogen bond networks.  Full documentation is available [[here|HBNetEnergy]].
+
+### Penalty function for repeat sequences (aa_repeat)
+Creator:  Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
+
+The [[`aa_repeat`|Repeat-stretch-energy]] score term can be turned on during design to penalize repeats of more than two of the same residue type.  This is particularly useful when designing proteins or peptides whose structures are to be solved by NMR spectroscopy, since repeat sequences make assignments very difficult.  The score term is fundamentally non-pairwise-decomposible, but is packer-compatible, so it guides the design process to solutions lacking repeat sequeces.  Full documentation is available [[here|Repeat-stretch-energy]].
 
 ##See Also
 
