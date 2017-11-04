@@ -255,11 +255,18 @@ The MPI-mode build test simply tries to compile Rosetta with the ```-extras=mpi`
 
 #### PDB Chemical Components Dictionary 
 
-_NOTE: This file is not needed for Rosetta to run normally._
+To help automatically load unrecognized residues from files, the `-in:file:load_PDB_components` option triggers a lookup of an mmCIF-formatted version of the Chemical Components Dictionary. Starting in late 2017, a version of this file is being distributed with Rosetta, split into chunks that stay under the GitHub 50 Mb file size limit. 
 
-To use the `-in:file:load_PDB_components` option to automatically load unrecognized residues from files, you need to obtain a mmCIF-formatted version of the Chemical Components Dictionary. This file can be downloaded from the [wwwPDB](http://www.wwpdb.org/data/ccd). (Alternatively for RosettaCommons members, you can talk your lab's gatekeeper for the RosettaCommons git-lfs).
+If you are working with an earlier version of Rosetta without files in `database/chemical/components/*cif.gz`, or if you wish to get the latest weekly release from the PDB, the file can be downloaded from the [wwwPDB](http://www.wwpdb.org/data/ccd). (Alternatively for RosettaCommons members, you can talk your lab's gatekeeper for the RosettaCommons git-lfs).
 
-To use with Rosetta, download the (plain text, non-gzipped) file and place it in the Rosetta database directory (Rosetta/main/database/). Or alternatively, pass the absolute path to the file to the `-in:file:PDB_components_file` option. The "Protonation Variants Companion Dictionary" and "Chemical Component Model data file" are not required. 
+To use with Rosetta, download the components file and place it in the Rosetta database directory (Rosetta/main/database/):
+
+```
+ftp -o $ROSETTA_DATABASE/chemical/components.cif.gz ftp://ftp.wwpdb.org/pub/pdb/data/monomers/components.cif.gz
+```
+
+Pass the file `components.cif` or the absolute path to the file to the `-in:file:PDB_components_file` option. The "Protonation Variants Companion Dictionary" and "Chemical Component Model data file" are not required. 
+
 
 ## See Also
 
