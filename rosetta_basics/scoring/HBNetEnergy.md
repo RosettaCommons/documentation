@@ -20,7 +20,7 @@ The `hbnet` score term is a different approach to the same problem solved by Sco
 * **Simultaneous optimization.**  By simultaneously optimizing the conventional Rosetta energy and `hbnet` score, one can design for favourable hydrophobic packing _and_ favourable polar networks in a single step.  In contrast, the HBNet protocol places polar networks first, after which one uses conventional packing to try to place hydrophobic residues around the networks.  Where the most favourable networks might not subsequently be amenable to good packing, simultaneous optimization can sometimes find a better compromise.
 * **Simpler setup and compatibility with all design workflows.**  To use the `hbnet` score, simply turn it on (change its weight to a nonzero value) in the scorefunction being used for design.  Complex design protocols, such as [[FastDesign]], can place hydrogen bond networks simply by having this score term on.
 * **Tunable relative importances of networks vs. packing.**  By adjusting the weight given to the `hbnet` score term, the user can direct the packer to focus more or less on producing extensive hydrogen bond networks, or on optimizing the other things (Van der Waals interactions, hydrophobic interactions, _etc._) that the Rosetta scorefunction reflects.
-* **Compatibility with other design-centric score terms.**  The `hbnet` score term can be used in conjunction with other score terms to guide the design process, such as the [[`aspartimide_penalty`|AspartimidePenaltyEnergy]] score term (penalizing aspartimide-forming amino acid sequences that can hinder chemical synthesis of peptides), the [[`aa_repeat`|AARepeatEnergy]] score term (penalizing repeat sequences that can impede NMR structure determination), or the [[`aa_composition`|AACompositionEnergy]] score term (penalizing deviations from a desired amino acid composition).  This means that one can, for example, solve a problem like this: "I want a well-packed core that's 75% hydrophobic, 25% polar, and contains exactly 2 charged residues and 1 tryptophan, with no repeat sequences or aspartimide-forming sequences, in which the polar residues form good hydrogen bond networks."
+* **Compatibility with other design-centric score terms.**  The `hbnet` score term can be used in conjunction with other score terms to guide the design process, such as the [[`aspartimide_penalty`|NC-scorefunction-info]] score term (penalizing aspartimide-forming amino acid sequences that can hinder chemical synthesis of peptides), the [[`aa_repeat`|Repeat-stretch-energy]] score term (penalizing repeat sequences that can impede NMR structure determination), or the [[`aa_composition`|AACompositionEnergy]] score term (penalizing deviations from a desired amino acid composition).  This means that one can, for example, solve a problem like this: "I want a well-packed core that's 75% hydrophobic, 25% polar, and contains exactly 2 charged residues and 1 tryptophan, with no repeat sequences or aspartimide-forming sequences, in which the polar residues form good hydrogen bond networks."
 * **Speed.**  Using the `hbnet` score term adds no additional steps to the design process.  The term itself slows the packer down by about 10-20%, which is a relatively small impact.
 
 ### Disadvantages of the `hbnet` score as compared to the HBNet protocol
@@ -28,14 +28,15 @@ The `hbnet` score term is a different approach to the same problem solved by Sco
 * **Stochasticity.**  Because the packer is stochastic (optimizing eneries by performing simulated annealing trajectories and returning the lowest-energy state encountered), there is no guarantee that the hydrogen bond network produced using the `hbnet` energy is the best possible.  The HBNet protocol, in contrast, does produce a ranked list of the very best hydrogen bond networks given the rotamers considered.
 * **Imperfect definition of a hydrogen bond.**  In its current implementation, the `hbnet` score term uses a simplified hydrogen bond detection algorithm for speed, based only on donor-acceptor distances (with no angular consideration).  This yields occasional false positives, in which a donor-acceptor pair is in close proximity but oriented incorrectly to form a hydrogen bond, yet it is counted as a hydrogen bonded pair.  Plans are in place to address this in the future.
 * **No consideration of buried unsatisfied donors or acceptors.**  In its present implementation, the `hbnet` score can yield hydrogen bond networks with buried unsatisfied hydrogen bond donors or acceptors, without penalty.  There are plans to implement another, similar score term to penalize buried unsatisfied donors and acceptors during design.
+* **Single solution.** Unlike the HBNet protocol, which returns a ranked list of solutions, the use of the `hbnet` score term during design results in just one solution.  This can be an advantage or disadvantage, depending on the time that one wants to spend selectively optimizing hydrogen bond networks versus letting the software handle the global design problem.
 
 ## Usage
 
 To use the `hbnet` score term in design, simply follow the following steps:
 
-1.  Turn on (reweight to a nonzero value) the `hbnet` score term in the scorefunction used for design.  This can be done with a weights file, or in RosettaScripts as follows:
+1.  Turn on (reweight to a nonzero value) the `hbnet` score term in the scorefunction used for design.  A value between 1.0 and 10.0 is recommended.  Higher values will promote more extensive networks at the expense of other score terms.  Activation of the `hbnet` score term can be done with a weights file, or in RosettaScripts as follows:
 
-```
+```xml
 <SCOREFXNS>
 	<ScoreFunction name="r15" weights="ref2015.wts" >
 		<Reweight scoretype="hbnet" weight="1.0" />
@@ -52,7 +53,8 @@ The `hbnet` score term is fully compatible with symmetry with no special setup r
 
 ## Organization of the code
 
-TODO
+* The score term is defined in namespace `core::scoring::hbnet_energy`, and is located in `source/src/core/scoring/hbnet_energy/HBNetEnergy.cc/hh`.
+* A unit tests for the asymmetric and symmetric cases are located in `source/test/core/scoring/hbnet_energy/HBNetEnergyTests.cxxtest.hh`.
 
 ##See Also
 
