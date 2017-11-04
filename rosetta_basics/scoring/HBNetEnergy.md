@@ -1,5 +1,6 @@
 # Hydrogen bond network score (hbnet score term)
 Documentation created by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory, on 3 Nov 2017.
+_Note:  This documentation is for the `hbnet` design-centric score term.  For information on the HBNet mover, an alternative method for creating hydrogen bond networks, see [[this page|HBNet]]._
 
 [[_TOC_]]
 
