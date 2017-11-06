@@ -1,6 +1,6 @@
 # Symmetry And RosettaScripts
 
-The following set of movers are aimed at creating and manipulating symmetric poses within RosettaScripts. For the complete symmetry documentation, see the "Symmetry User's Guide" in Rosetta's Doxygen documentation.
+The following set of movers are aimed at creating and manipulating symmetric poses within RosettaScripts. For the complete symmetry documentation, see the [[Symmetry User's Guide|symmetry]].
 
 Notice that symmetric poses must be scored with symmetric score functions. See the 'symmetric' tag in the RosettaScripts score function documentation.
 
