@@ -36,8 +36,6 @@ Mover  | Description
 **[[IfMover]]** | Run different movers based on a filter value.
 **[[RandomMover]]** | Randomly choose a mover from a weighted list.
 
-----------------------------------
-
 ### Looping/Monte Carlo Movers
 
 Mover  | Description
@@ -51,8 +49,6 @@ Mover  | Description
 **[[MonteCarloUtil|MonteCarloUtilMover]]** | (developer release only) Recovers the lowest energy pose of a given Monte Carlo object
 **[[MetropolisHastings|MetropolisHastingsMover]]** | Performs Metropolis-Hastings Monte Carlo simulations
 **[[RampMover]]** | Repeatedly apply a mover while changing a score term.
-
-----------------------------------
 
 ### Reporting/Saving
 
@@ -74,7 +70,6 @@ Mover  | Description
 **[[TrajectoryReportToDB|TrajectoryReportToDBMover]]** | Reports multiple structures to an output forming a trajectory
 **[[WriteLigandMolFile|WriteLigandMolFileMover]]** | Create a V2000 mol file for each pose
 
----------------------------------
 
 ### Setup Movers
 
@@ -82,7 +77,6 @@ Mover  | Description
 ------------ | -------------
 **[[SetupPoissonBoltzmannPotential|SetupPoissonBoltzmannPotentialMover]]** | Runtime environment initialization for the PB solver (ddG mover)
 
------------------------------
 
 ## "Best Practices" Movers
 These are movers that allow users to carry out common tasks that one would frequently wish to carry out in particular circumstances (*e.g.* setting a pose up for design, with sequence constraints to impose prior knowledge about typical protein amino acid compositions).
@@ -91,7 +85,6 @@ Mover  | Description
 ------------ | -------------
 **[[AddHelixSequenceConstraints|AddHelixSequenceConstraintsMover]]** | Adds sequence composition constraints (to be used with the [[aa_composition|AACompositionEnergy]] score term) to encourage subsequent design steps to produce sensible amino acid sequences for each helix in a pose or a selection.
 
-------------------------------
 
 ## General Movers
 
@@ -105,7 +98,6 @@ Mover  | Description
 **[[LoopAnalyzerMover]]** | Computes protein loop-specific metrics
 **[[InterfaceAnalyzerMover]]** | Computes protein-protein interface metrics
 
---------------------------
 
 ### Simple Sequence Design
 
@@ -129,7 +121,6 @@ Mover  | Description
 **[[NormalModeRelax|NormalModeRelaxMover]]** | Brings concerted motion to backbones using Anisotropic Network Model (ANM)
 **[[CartesianMD|CartesianMD]]** | Brings concerted motion to backbones using Cartesian-space molecular dynamics
 
------------------------------
 
 ### Comparative Modeling
 
@@ -138,7 +129,6 @@ Mover  | Description
 **[[HybridizeMover]]** | Use single or multiple templates to generate a combined model.  Part of [[RosettaCM]].
 **[[SimpleThreadingMover]]** | Thread sequences onto structures.  Nothing fancy here.
 
--------------------------
 
 ### Constraints
 
@@ -171,7 +161,6 @@ Mover  | Description
 **[[SheetConstraintGenerator]]** | Generates constraints for proper hydrogen bonding in beta-sheets
 **[[TerminiConstraintGenerator]]** | Generates atom pair constraints between N- and C- termini
 
---------------------------
 
 ### Docking/Assembly
 
@@ -181,7 +170,6 @@ Mover  | Description
 **[[DockingProtocol|DockingProtocolMover]]** | Performs full docking protocol with current defaults
 **[[FlexPepDock|FlexPepDockMover]]** | Performs ab initio or refinement peptide docking
 
------------------------------
 
 ### Fragment Insertion
 
@@ -189,7 +177,6 @@ Mover  | Description
 ------------ | -------------
 **[[SingleFragmentMover]]** | Performs a single fragment insertion
 
-------------------------------
 
 ### Idealize/Relax
 
@@ -198,8 +185,6 @@ Mover  | Description
 **[[Idealize|IdealizeMover]]** | Forces ideal bond lengths and angles
 **[[FastRelax|FastRelaxMover]]** | Performs FastRelax all-atom refinement
 **[[FastDesign|FastDesignMover]]** | Performs FastRelax all-atom refinement, but adds design-related features
-
--------------------------------
 
 ### Insertion and Deletion; Grafting
 
@@ -228,7 +213,6 @@ Mover  | Description
 **[[KeepRegionMover]]** | Keep a region of the current pose, delete the rest.
 **[[SwitchChainOrder|SwitchChainOrderMover]]** | Reorders (or removes) the chains in a pose 
 
------------------------------------
 
 ### Kinematic Closure Movers
 
@@ -236,7 +220,6 @@ Mover  | Description
 ------------ | -------------
 **[[Generalized Kinematic Closure (GeneralizedKIC)|GeneralizedKICMover]]** | Loop closure and conformational sampling, fully generalized for loops consisting of any arbitrary chain of atoms (canonical backbones, non-canonical backbones, disulfides and other side-chain linkages, artificial cross-linkers, *etc.*).
 
------------------------------
 
 ### Packing/Minimization
 
@@ -255,7 +238,6 @@ Mover  | Description
 **[[SidechainMC|SidechainMCMover]]** | "off rotamer" sidechain-only Monte Carlo sampling
 **[[TaskAwareMinMover]]** | Minimizes sidechains and/or backbone with positions specified by TaskOperations
 
----------------------------------
 
 ### Parametric Backbone Generation
 
@@ -265,8 +247,6 @@ Mover  | Description
 **[[BundleGridSampler|BundleGridSamplerMover]]** | Creates a helix of helices or beta barrel by sampling user-defined parameter ranges and choosing the set of parameter values yielding the lowest-energy structure.
 **[[PerturbBundle|PerturbBundleMover]]** | Takes a parametrically-generated helical bundle pose and alters the helical parameters slightly to perturb the bundle geometry.  Good for making moves as part of a Monte Carlo search of parameter space.
 
-
-----------------------------------
 
 ### Symmetry
 
@@ -287,7 +267,6 @@ Mover  | Description
 **[[TaskAwareSymMinMover]]** | (developer release only) Similar to SymMinMover, but allows minimization of only certain residues
 **[[PeriodicBoxMover]]** | Mover that allows to run MC simulation in a periodic box, for instance liquid simulation.  
 
--------------------------------
 
 ### Other Pose Manipulation
 
@@ -334,7 +313,6 @@ Mover  | Description
 **[[StoreCompoundTaskMover]]** | (Developer release only) Constructs compound logical tasks and stores them in the current pose
 **[[VirtualRoot|VirtualRootMover]]** | Create virtual residue and reroot pose foldtree on the new residue
 
---------------------------------------------
 
 ## Antibody Modeling and Design Movers
 
@@ -362,7 +340,6 @@ Mover  | Description
 **[[AntibodyDesignMover]]** | Main mover for the design of Antibodies within the RosettaAntibodyDesign framework
 **[[AntibodyDesignProtocol]]** | Runs the AntibodyDesignMover, with a few extra options for further protocols to be run.  Less configurable than the AntibodyDesignMover.
 
---------------------------------
 
 ## Carbohydrate-specific Movers
 
@@ -372,7 +349,6 @@ Mover  | Description
 **[[GlycanRelaxMover]]** | Simple algorithm to sample glycan torsions using structural data and optimize structures via minimization and packing.
 **[[SimpleGlycosylateMover]]** | Glycosylate poses with glycan trees, such as man5 or man9 or other complex trees. 
 
-----------------------------------
 
 ## Computational 'affinity maturation' movers
 
@@ -381,7 +357,6 @@ Mover  | Description
 **[[GreedyOptMutationMover]]** | Introduces mutations, scores them, combines them and accepts the combinations based on score
 **[[RandomMutation|RandomMutationMover]]** | Introduce a random mutation in a re-designable position
 
-----------------------------------
 
 ## DNA Interface Design Movers
 
@@ -389,15 +364,12 @@ Mover  | Description
 ------------ | -------------
 **[[DnaInterfacePacker|DnaInterfacePackerMover]]** | Minimizes sidechains and calculates binding energy 
 
-----------------------------------
-
 ## Crosslinker-centric movers
 
 Mover  | Description
 ------------ | -------------
 **[[CrosslinkerMover]]** | Places, sets up constraints for, and energy-minimizes small-molecule crosslinkers.  Compatible with symmetric crosslinkers in Nfold-symmetric poses.  (**Note:** This mover was formerly called the _ThreefoldLinkerMover_).
 
----------------------------------
 
 ## Ligand-centric Movers
 
@@ -417,7 +389,6 @@ Mover  | Description
 **[[InterfaceScoreCalculator|InterfaceScoreCalculatorMover]]** | Calculates interface score by subtracting that of the separated partners from that of the complex
 **[[ComputeLigandRDF|ComputeLigandRDFMover]]** | Computes radial distribution functions using protein-protein or protein-ligand atom pairs
 
---------------------------------------------
 
 ### Enzyme Design
 
@@ -427,7 +398,6 @@ Mover  | Description
 **[[AddOrRemoveMatchCsts|AddOrRemoveMatchCstsMover]]** | Adds or removes pairwise geometric constraints for a pose
 **[[PredesignPerturbMover]]** | Perturbs a ligand in an active site, randomly rotates/translates, and accepts based on Boltzmann criteria
 
------------------------------------
 
 ### Ligand design
 
@@ -436,7 +406,6 @@ Mover  | Description
 **[[GrowLigand|GrowLigandMover]]** | Connects a random fragment to a growing ligand
 **[[AddHydrogens|AddHydrogensMover]]** | Saturates incomplete connections
 
-------------------------------------
 
 ## Loop Modeling Movers
 
@@ -454,7 +423,6 @@ Mover  | Description
 **[[PrepareForCentroid|PrepareForCentroidMover]]** | Converts a pose to centroid mode
 **[[PrepareForFullatom|PrepareForFullatomMover]]** | Converts a pose to fullatom mode
 
--------------------------------------
 
 ## Protein Interface Modeling, Design, and Analysis Movers
 
@@ -489,7 +457,6 @@ Mover  | Description
 **[[MSDMover|MSDMover]]** | Runs protein multistate design using the RECON protocol
 **[[FindConsensusSequence|FindConsensusSequence]]** | Finds a consensus sequence from candidates generated by RECON protocol. To be used with MSDMover.
 
---------------------------------
 
 ### Placement and Placement-associated Movers & Filters
 
@@ -508,18 +475,16 @@ Mover  | Description
 **[[ddG|ddGMover]]** | Calculates overall or per-residue ddG
 **[[ContactMap|ContactMapMover]]** | Produces contact maps for structure(s)
 
-------------------------------------
 
 ##Protocol-Building Movers / Other
 
 These movers help with building protocols or can be used in very specific circumstances. 
 
-Mover  | Description
+Mover  | Description##SEWING movers
 ------------ | -------------
 **[[ConvertRealToVirtualMover]]** | Convert residues to virtual residues, which are not scored and not output in a PDB.
 **[[ConvertVirtualToRealMover]]** | Convert virtual residues back to real residues.
 
----------------------------
 
 ##SEWING movers
 
@@ -543,6 +508,7 @@ Mover  | Description
 **[[LegacyRepeatAssemblyMover]]** | Used to design repeat proteins.
 **[[LegacyEnumerateAssemblyMover]]** | Builds all possible structures from a given SewGraph.
 **[[LegacyAssemblyConstraintsMover]]** | Used to favor native residues during refinement in assemblies produced using [[SEWING]].
+
 
 ##See Also
 
