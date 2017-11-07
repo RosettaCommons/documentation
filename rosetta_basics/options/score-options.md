@@ -29,6 +29,9 @@ Here is a list of Score Function options
                                            during optH. [String]
 -score:optH_patch                          Name of weights file (without extension .wts) to use 
                                            during optH. [String]
+-score:hbond_bb_per_residue_energy         In score tables, separate backbone hydrogens bond energies per residue. 
+                                           (By default, bb hbonds are included in the total energy, but not per residue                    
+                                           energies. Note that this may lead to a slowdown in packing)
 ```
 
 ##See Also
