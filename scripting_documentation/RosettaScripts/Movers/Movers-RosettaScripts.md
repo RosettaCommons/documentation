@@ -250,8 +250,9 @@ Mover  | Description
 
 ### Symmetry
 
-
 See [[SymmetryAndRosettaScripts]] for details on using Symmetry with RosettaScripts.
+
+See [Symmetric Docking movers](#Symmetric Docking movers) for protocols involving symmetry.
 
 Mover  | Description
 ------------ | -------------
@@ -509,6 +510,14 @@ Mover  | Description
 **[[LegacyEnumerateAssemblyMover]]** | Builds all possible structures from a given SewGraph.
 **[[LegacyAssemblyConstraintsMover]]** | Used to favor native residues during refinement in assemblies produced using [[SEWING]].
 
+##Symmetric Docking movers
+
+Mover  | Description
+------------ | -------------
+**[[SymDockProtocol]]** | Symmetric oligomer docking -- like protein-protein docking, but between symmetric partners.
+**[[SymFoldandDockMoveRbJumpMover]]** | Reset the anchor residues for the subunit transforms
+**[[SymFoldandDockRbTrialMover]]** | Randomly perturb the subunit rigid body transform
+**[[SymFoldandDockSlideTrialMover]]** | Slide symmetric subunits together
 
 ##See Also
 
