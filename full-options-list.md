@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-10-31
+Generated: 2017-11-10
 
 _Note that some application specific options may not be present in this list._
 
@@ -7629,10 +7629,10 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-hash_2D_vs_3D</b> \<Real\></dt>
 <dd>grid spacing top 2D hash<br/>Default: 1.3<br/></dd>
 </dl>
-+ <h2>-sewing</h2>
++ <h2>-legacy_sewing</h2>
 <dl>
-<dt><b>-sewing</b> \<Boolean\></dt>
-<dd>sewing option group<br/></dd>
+<dt><b>-legacy_sewing</b> \<Boolean\></dt>
+<dd>legacy_sewing option group<br/></dd>
 <dt><b>-model_file_name</b> \<File\></dt>
 <dd>Filename for model file (creation or reading)<br/></dd>
 <dt><b>-score_file_name</b> \<File\></dt>
