@@ -29,14 +29,13 @@ HBNet is a method to explicitly detect and design hydrogen bond networks within 
         min_unique_networks="(1 &non_negative_integer;)"
         min_core_res="(0 &non_negative_integer;)"
         min_boundary_res="(0 &non_negative_integer;)"
-        max_unsat="(5 &non_negative_integer;)" min_connectivity="(0.5 &real;)"
-        start_from_csts="(false &bool;)" verbose="(false &bool;)"
+        max_unsat_Hpol="(5 &non_negative_integer;)"
+        min_percent_hbond_capacity="(0.5 &real;)" verbose="(false &bool;)"
         design_residues="(STRKHYWNQDE &string;)"
         use_only_input_rot_for_start_res="(false &bool;)"
         start_resnums="(&residue_number_cslist;)" start_selector="(&string;)"
         core_selector="(&string;)" boundary_selector="(&string;)"
-        monte_carlo_branch="(false &bool;)"
-        only_get_satisfied_nodes="(false &bool;)"
+        monte_carlo="(false &bool;)" monte_carlo_branch="(false &bool;)"
         monte_carlo_seed_must_be_buried="(false &bool;)"
         monte_carlo_seed_must_be_fully_buried="(false &bool;)"
         max_mc_nets="(0 &non_negative_integer;)"
@@ -69,16 +68,15 @@ HBNet is a method to explicitly detect and design hydrogen bond networks within 
 -   **tyr_hydroxyls_must_donate**: new feature, not fully tested, use at your own risk!; require that TYR must donate to be considered satisfied
 -   **hydroxyls_must_donate**: new feature, not fully tested, use at your own risk!; require that hydroxyls must donate their H to be considered satisfied
 -   **use_pdb_numbering**: in tracer output, use pdb numbering and chains when printing out network info (instead of Rosetta sequential numbering)
--   **no_heavy_unsats_allowed**: see max_unsat for details
+-   **no_heavy_unsats_allowed**: see max_unsat_Hpol for details
 -   **show_task**: will show packer task by printing to TR, aka what's designable and packable and fixed based on your taskops
 -   **min_network_size**: minimum number of residues required for each network. Note: in symmetric cases, this refers to the number of residues in the ASU!
 -   **max_network_size**: maximum number of residues required for each network
 -   **min_unique_networks**: minimum number of networks with unique aa composition / rotamers
 -   **min_core_res**: minimum core residues each network must have (as defined by core selector)
 -   **min_boundary_res**: minimum boundary residues a network must contain
--   **max_unsat**: maximum number of buried unsatisfied polar atoms allowed in each network. Note that the way I treat buried unsats. is very different from all of the other Buried Unsatisfied calculators/filters in Rosetta. I have plans to move this code outside of HBNet and turn it into its own calculator/filter. Short version is that if there are heavy atom donors or acceptors that are buried and unsatisfied, those networks are thrown out, and I only count unsatisfied Hpols where the heavy atom donor is making at least one hydrogen bond. This behavior can be overridden to allow heavy atom unsats by setting no_heavy_unsats_allowed=false.
--   **min_connectivity**: minimum connectivity a network must have, defined as num_hbonds / num_polar_atoms_in_network (h_pol and acceptors)
--   **start_from_csts**: new feature, not fully tested, use at your own risk!; will detect csts in input pose and start network search from those cst residues
+-   **max_unsat_Hpol**: maximum number of buried unsatisfied polar Hpol atoms allowed in each network. Note that if there are heavy atom donors or acceptors that are buried and unsatisfied, those networks are thrown out; only unsatisfied Hpols where the heavy atom donor is making at least one hydrogen bond. This behavior can be overridden to allow heavy atom unsats by setting no_heavy_unsats_allowed=false.
+-   **min_percent_hbond_capacity**: minimum percent_hbond_capacity a network must have, where 1.0 means the maximum number of h-bonds are made, considering all polar atoms in the rotamers that comprise the network; unlike satisfaction, this metric is independent of burial;  in rare cases, percent_hbond_capacity can be greater than 1, for example a hydroxyl could participate in 3 h-bonds even though we define max capacity as 2.
 -   **verbose**: print out all HBNet tracer statements; only useful for debugging
 -   **design_residues**: string of one-letter AA codes; which polar residues types do you want to include in the search; the default is all AA's that can potentially make h-bonds, further restricted by the task_operations you pass.
 -   **use_only_input_rot_for_start_res**: keep the input rotamer for starting residues fixed; only sample proton chis during network search
@@ -86,8 +84,8 @@ HBNet is a method to explicitly detect and design hydrogen bond networks within 
 -   **start_selector**: residue selector that tells HBNet which residues to start from (will only search for networks that include these resid
 -   **core_selector**: residue selector that defines what HBNet considers "core"; used in buriedness determination for unsats; default is layer selector default using sidechain neighbors(core=5.2).
 -   **boundary_selector**: residue selector to define what HBNet considers boundary during comparisons/scoring of networks
--   **monte_carlo_branch**: Step right up and try your luck with this stochastic HBNet protocol
--   **only_get_satisfied_nodes**: during monte carlo network search, only grow networks with nodes that satisfy a current unsat
+-   **monte_carlo**: Step right up and try your luck with this stochastic HBNet protocol
+-   **monte_carlo_branch**: Outadated equivalent to monte_carlo
 -   **monte_carlo_seed_must_be_buried**: (If monte_carlo_branch) only branch from hbonds where at least one residue is buried. Effectively, this results in only finding networks that have at least one buried residue.
 -   **monte_carlo_seed_must_be_fully_buried**: (If monte_carlo_branch) only branch from hbonds where both residues are buried. This results in only finding networks that have at least one buried hbond but this does not prevent having additional exposed hbonds.
 -   **max_mc_nets**: (if monte_carlo_branch) This is experimental and so far it does not look super useful. Maximum number of networks that the monte carlo protocol will store. Loose rule of thumb is to make this 10x the max number of nets you want to end up with. 100 (default) is on the conservative end of the spectrum for this value. The reason you do not want this to be too large is that each of these networks goes through a relatively expensive quality check. A value of zero results in no limit.

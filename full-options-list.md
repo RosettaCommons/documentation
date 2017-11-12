@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-11-10
+Generated: 2017-11-12
 
 _Note that some application specific options may not be present in this list._
 
@@ -162,9 +162,11 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-extra_res_mmCIF</b> \<FileVector\></dt>
 <dd>.mmCIF file(s) for component dictionary for residue types (e.g. ligands)<br/>Default: []<br/></dd>
 <dt><b>-load_PDB_components</b> \<Boolean\></dt>
-<dd>Use the PDB ligand definitions to load all standard residue descriptions.<br/></dd>
-<dt><b>-PDB_components_file</b> \<String\></dt>
-<dd>The CIF file from which to load the PDB component definitions. (An example can be found at http://www.wwpdb.org/data/ccd<br/>Default: "chemical/components.cif"<br/></dd>
+<dd>Use the PDB ligand definitions to load all standard residue descriptions.<br/>Default: true<br/></dd>
+<dt><b>-PDB_components_file</b> \<StringVector\></dt>
+<dd>The CIF file from which to load the PDB component definitions. (An example can be found at http://www.wwpdb.org/data/ccd<br/>Default: ['"chemical/pdb_components/components.Nov01_2017.A_to_C.cif"', '"chemical/pdb_components/components.Nov01_2017.D_to_Z.cif"']<br/></dd>
+<dt><b>-check_all_PDB_components</b> \<Boolean\></dt>
+<dd>Check all PDB components even if they have a name3 that overlaps with a Rosetta type.<br/>Default: false<br/></dd>
 <dt><b>-extra_res_database</b> \<String\></dt>
 <dd>the name of a database containing fullatom residue types (e.g. ligands)<br/></dd>
 <dt><b>-extra_res_pq_schema</b> \<String\></dt>
