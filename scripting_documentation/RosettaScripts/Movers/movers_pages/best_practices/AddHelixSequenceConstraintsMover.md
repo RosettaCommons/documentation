@@ -1,6 +1,8 @@
 # AddHelixSequenceConstraints Mover
 Page created on 12 February 2017 by Vikram K. Mulligan (vmullig@uw.edu), Baker Laboratory.
 
+*Note:  This mover is currently unpublished.  If you find it useful for a design project, please include the author (Vikram K. Mulligan) in the resulting publication.*
+
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 
 [[_TOC_]]
