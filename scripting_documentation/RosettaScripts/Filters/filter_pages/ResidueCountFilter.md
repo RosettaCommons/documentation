@@ -1,4 +1,7 @@
 # ResidueCount
+
+Documentation last updated on 17 November 2017 by Vikram K. Mulligan (vmullig@uw.edu).
+
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## ResidueCount
 
