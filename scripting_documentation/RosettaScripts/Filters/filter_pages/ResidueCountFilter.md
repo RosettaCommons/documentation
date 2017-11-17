@@ -22,7 +22,7 @@ Filters structures based on the total number of residues in the structure.
 
 This is useful when protocols can make very large structures, e.g. with symmetric or modular assembly protocols that may be too big to handle with available computational resources.
 
-Note that this filter uses _OR_ logic for selection: that is, any residue matching any of the listed types or any of the listed properties will be counted.  A residue matching more than one type or property will only be counted once.  (For example, if "THR" is provided as a type and "POLAR,ALPHA_AA" is provided as a property, each threonine will be counted once, despite matching the type and both of the properties.  Anything matching at least one of these -- beta-3-lysine, for example, since it is polar despite not being an alpha amino acid -- will also be selected.)
+Note that this filter uses _OR_ logic for selection: that is, any residue matching any of the listed types or any of the listed properties will be counted.  A residue matching more than one type or property will only be counted once.  (For example, if "THR" is provided as a type and "POLAR,ALPHA_AA" is provided as a property, each threonine will be counted once, despite matching the type and both of the properties.  Anything matching at least one of these -- beta-3-lysine, for example, since it is polar despite not being an alpha amino acid -- will also be counted.)
 
 ## See Also
 
