@@ -227,10 +227,5 @@ Input Files:
 - [[Sidechain Design aided by Sewing]]
 - [[SEWING Dictionary]]
 
-## Temporary scratch space
-
-Delete this after I show it to Jared
-
-Mover  | Description
------------- | -------------
-**[[AddHelixSequenceConstraintsToPoseRespectingSecondaryStructurePredictions|AddHelixSequenceConstraintsMover]]** | Adds sequence composition constraints (to be used with the [[aa_composition|AACompositionEnergy]] score term) to encourage subsequent design steps to produce sensible amino acid sequences for each helix in a pose or a selection.
+# Rosetta (not on) GPU
+[[Rosetta_GPU_conversation_transcription]]
