@@ -228,4 +228,4 @@ Input Files:
 - [[SEWING Dictionary]]
 
 # Rosetta (not on) GPU
-[[Rosetta_GPU_conversation_transcription]]
+[[internal_documentation/Rosetta-GPU-conversation-transcription]]
