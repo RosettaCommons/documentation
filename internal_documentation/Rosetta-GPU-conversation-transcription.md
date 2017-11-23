@@ -85,3 +85,31 @@ Perhaps a spirited young graduate student with enough patience -- more than I ha
 The thing that perplexes me is that I have worked with many such graduate students / research scientists and every single one of them has given up without having gotten a single term working on the GPU.
 
 (And I might grumble a bit that I have invested a lot of time in trying to train these graduate students on how Rosetta works, and that time investment paid no dividends)
+
+_____
+
+Luki's additions:
+
+
+
+* GPUs are best at small, simple kernels. A kernel basically replaces a
+code block with couple nested loops, and executes those in parallel.
+This works best if there are 10K+ data points (outer loop iterations)
+and the whole kernel takes like 50-500 ms to execute -- not 1 ms and not
+10 seconds. For too short run times, the data transfer overhead will
+kill any performance gains (mostly due to latency). Long running kernels
+generally imply more code, and that's hard to troubleshoot and optimize.
+
+* Use the off-the-shelf GPU acceleration libraries (FFT, BLAS, RAND,
+SOLVER...) where appropriate. The vendor did the hard work of optimizing
+the routines, and they know their hardware and its limitations better
+than you.
+
+* If you're tying to do more complicated stuff on the GPU yourself,
+you're probably doing it wrong. My opinion. The code becomes hard to
+maintain and optimize.
+
+* As such, I personally do not think we need support for virtual
+functions and all the fancy C++ stuff on the GPU. It's too complicated.
+You really need simple code that works on simple arrays, and not linked
+lists, etc.
