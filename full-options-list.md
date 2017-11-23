@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-11-12
+Generated: 2017-11-23
 
 _Note that some application specific options may not be present in this list._
 
@@ -7865,6 +7865,8 @@ _Note that some application specific options may not be present in this list._
 <dd>verbose output from StepWiseConnectionSampler sample-and-screen.<br/>Default: false<br/></dd>
 <dt><b>-definitely_virtualize</b> \<IntegerVector\></dt>
 <dd>definitely virtualize these residues (by seqpos)<br/>Default: []<br/></dd>
+<dt><b>-force_moving_res_for_erraser</b> \<Boolean\></dt>
+<dd>For ERRASER resample moves, ENSURE that the appropriate residue is moving<br/>Default: false<br/></dd>
 </dl>
 + <h3>-stepwise:monte_carlo</h3>
 <dl>
@@ -8163,6 +8165,8 @@ _Note that some application specific options may not be present in this list._
 <dl>
 <dt><b>-full_model</b> \<Boolean\></dt>
 <dd>full_model option group<br/></dd>
+<dt><b>-global_seq_file</b> \<String\></dt>
+<dd>File with global sequence and modeled sequence.<br/>Default: ""<br/></dd>
 <dt><b>-cutpoint_open</b> \<ResidueChainVector\></dt>
 <dd>open cutpoints in full model<br/>Default: []<br/></dd>
 <dt><b>-cutpoint_closed</b> \<ResidueChainVector\></dt>
