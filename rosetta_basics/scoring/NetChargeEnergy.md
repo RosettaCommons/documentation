@@ -11,6 +11,8 @@ Calculating a score based on net charge is easy and fast (one need only sum the 
 
 ## User control
 
+### Commandline flags or RosettaScripts control
+
 To use this term, it must be turned on by reweighting `netcharge` to a non-zero value, either in the weights file used to set up the scorefunction, or in the scorefunction definition in RosettaScripts, in PyRosetta, or in C++ code.
 
 This scoring term is controlled by ```.charge``` files, which define the desired charge in a pose or a sub-region of a pose defined by residue selectors.  If no ```.charge``` files are provided, then the `netcharge` score term always returns a score of zero.  The ```.charge``` file(s) to use can be provided to Rosetta in three ways:
@@ -62,6 +64,17 @@ This scoring term is controlled by ```.charge``` files, which define the desired
 
 If the user uses more than one of the methods described above, _all_ of the ```.charge``` files provided will be used in scoring, provided the `netcharge` scoreterm is on with a nonzero weight.  This can be useful to apply complicated charge requirements, such as, "The net charge of the whole protein must be +1, but the net charge of the first helix must be -3 and the net charge of the binding pocket must be +3".
 
+### Definition file (".charge")
+
+A `.charge` file defines a single desired net charge, which can either be enforced globally or regionally within a pose.  It also defines the penalty function to apply if the actual net charge deviates from the desired net charge.  This penalty function is very important: it is what guides the packer towards solutions that have the desired net charge.  Ideally, we want the penalty function to gradually ramp down to a minimum at the desired net charge.
+
+A `.charge` file _must_ contain a ```DESIRED_CHARGE``` line, a ```PENALTIES_CHARGE_RANGE``` line, and a ```PENALTIES``` line.  Optionally, it may also contain ```BEFORE_FUNCTION``` and ```AFTER_FUNCTION``` lines.  Each of these is defined below:
+
+|  Line  |  Description |  Example |
+| ------ | ------- | -------- |
+| ```DESIRED_CHARGE <signed int>``` | The desired net charge for the whole pose or region, expressed as a signed integer.  This line is mandatory. | ```DESIRED_CHARGE -7 #I want a charge of negative seven in this pose or region.``` |
+| ```PENALTIES_CHARGE_RANGE <signed int> <signed int>``` | The range of possible observed net charges over which penaltes are defined.  This line is mandatory. | ```PENALTIES_CHARGE_RANGE -9 -5 #The PENALTIES line will list penalties for observed net charges ranging from -9 to -5.``` |
+| ```PENALTIES <real> <real> <real> ...``` | The values that the `netcharge` score term should return given observed net charges corresponding to each value in the range defined in the ```PENALTIES_CHARGE_RANGE``` line.  One value must be provided for each charge in the range.  This line is mandatory. | ```PENALTIES 100 10 0 5 10 #In this example, much harsher penalties are imposed below the desired net charge than above it.``` |
 
 #######################CONTINUE HERE###################################
 
