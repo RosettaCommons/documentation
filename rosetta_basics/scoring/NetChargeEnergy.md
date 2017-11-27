@@ -133,7 +133,7 @@ The ```netcharge``` score term should be fully compatible with symmetry, includi
 ## Organization of the code
 
 - The scoring term lives in ```core/scoring/netcharge_energy/NetChargeEnergy.cc``` and ```core/scoring/netcharge_energy/NetChargeEnergy.hh```.
-- Like any whole-body energy, the **NetChargeEnergy** class implements a ```finalize_total_energy()``` function that takes a pose.  This calculates the score.  Internally, it calls ```calculate_aa_composition_energy()```, which takes a vector of owning pointers to Residues (which can be called directly during packing).
+- Like any whole-body energy, the **NetChargeEnergy** class implements a ```finalize_total_energy()``` function that takes a pose.  This calculates the score.  Internally, it calls ```calculate_energy()```, which takes a vector of owning pointers to Residues (which can be called directly during packing).
 - On initialization, the term creates an internal NetChargeEnergySetup object that stores the user-defined settings for the desired residue type composition.  This class is defined in ```core/scoring/netcharge_energy/NetChargeEnergySetup.cc``` and ```core/scoring/netcharge_energy/NetChargeEnergySetup.hh```.  NetChargeEnergySetup objects can also be stored in NetChargeConstraints associated with a Pose.  At scoring or packing time, the NetChargeEnergy constructs a vector of owning pointers to its internal NetChargeEnergySetup objects and to all those stored in the pose, and uses all of these for scoring.
 - The ```.charge``` files are located in ```/database/scoring/score_functions/netcharge/```.
 
