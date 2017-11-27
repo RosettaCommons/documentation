@@ -3,6 +3,8 @@ Documentation created by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory o
 
 <i>Note:  This page documents the `netcharge` score term.  For information about the NetCharge Filter, see [[this page|NetChargeFilter]].</i>
 
+[[_TOC_]]
+
 ## Purpose and algorithm
 
 This scoring term is intended for use during design, to penalize deviations from a desired net charge in a pose or region.  For example, a user could specify that protein was to have an overall net charge of +1, but that a binding interface was to have a net charge of -2.  Because this is a score rather than a design algorithm, it can be used in conjunction with any existing design algorithm that uses the packer (including the [[FastDesign]] and [[PackRotamers]] movers, or the [[fixbb]] application).  Moreover, it can be used in conjunction with other score terms that guide design, such as [[aa_composition|AACompositionEnergy]].
