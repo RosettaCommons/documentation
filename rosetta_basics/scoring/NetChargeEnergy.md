@@ -75,112 +75,73 @@ A `.charge` file _must_ contain a ```DESIRED_CHARGE``` line, a ```PENALTIES_CHAR
 | ```DESIRED_CHARGE <signed int>``` | The desired net charge for the whole pose or region, expressed as a signed integer.  This line is mandatory. | ```DESIRED_CHARGE -7 #I want a charge of negative seven in this pose or region.``` |
 | ```PENALTIES_CHARGE_RANGE <signed int> <signed int>``` | The range of possible observed net charges over which penaltes are defined.  This line is mandatory. | ```PENALTIES_CHARGE_RANGE -9 -5 #The PENALTIES line will list penalties for observed net charges ranging from -9 to -5.``` |
 | ```PENALTIES <real> <real> <real> ...``` | The values that the `netcharge` score term should return given observed net charges corresponding to each value in the range defined in the ```PENALTIES_CHARGE_RANGE``` line.  One value must be provided for each charge in the range.  This line is mandatory. | ```PENALTIES 100 10 0 5 10 #In this example, much harsher penalties are imposed below the desired net charge than above it.``` |
+| ```BEFORE_FUNCTION <string>``` | Outside the range of penalties defined in the ```PENALTIES_CHARGE_RANGE``` line, this is the behaviour of the penalty function at more negative values.  Options are ```CONSTANT``` (value at low end of range repeats for any observed charge below the range), ```LINEAR``` (first two values are linearly extrapolated for values below the range), or ```QUADRATIC``` (first two values are fitted to a parabola and quadratically extrapolated below the range).  This line is optional; if not specified, it defaults to ```QUADRATIC```. | ```BEFORE_FUNCTION QUADRATIC #Ramp quadratically for observed net charges below the range defined.``` |
+| ```AFTER_FUNCTION <string>``` | Outside the range of penalties defined in the ```PENALTIES_CHARGE_RANGE``` line, this is the behaviour of the penalty function at more positive values.  Options are ```CONSTANT``` (value at high end of range repeats for any observed charge above the range), ```LINEAR``` (last two values are linearly extrapolated for values above the range), or ```QUADRATIC``` (last two values are fitted to a parabola and quadratically extrapolated above the range).  This line is optional; if not specified, it defaults to ```QUADRATIC```. | ```AFTER_FUNCTION LINEAR #Ramp linearly for observed net charges below the range defined.``` |
 
-#######################CONTINUE HERE###################################
+Note that the ```.charge``` file does _not_ specify whether the desired net charge is a global or local net charge.  That is determined by the manner in which the ```.charge``` file is applied: if it is applied using the [[AddNetChargeConstraintMover]], and a residue selector is provided, it will define the expected charge in a region of a pose; otherwise, it will be applied to the whole pose.
 
-A ```.charge``` file consists of one or more ```PENALTY_DEFINITION``` blocks.  Lines that can be present in a ```PENALTY_DEFINITION``` block include:
-- ```PENALTY_DEFINITION``` Starts the block.
-- ```TYPE <restype1> <restype2> <restype3> ...``` Indicates that a residue should be counted if its three-letter code matches ANY of the names provided.
-- ```NOT_TYPE <restype1> <restype2> <restype3> ...``` Indicates that a residue should NOT be counted if its three-letter code matches ANY of the names provided.  The residue is not counted even if it matches properties listed in ```PROPERTIES``` or ```OR_PROPERTIES``` lines.
-- ```PROPERTIES <property1> <property2> <property3> ...``` Indicates that a residue should be counted if it has ALL of the properties listed.
-- ```OR_PROPERTIES <property1> <property2> <property3> ...``` Indicates that a residue should be counted if it has ANY of the properties listed.
-- ```NOT_PROPERTIES <property1> <property2> <property3> ...``` Indicates that a residue should NOT be counted if it has ANY of the properties listed.
-- ```DELTA_START <integer>``` This indicates how far from the desired number of residues our penalties table extends.  For example, a value of '-5' means that we will be providing penalty values for up to five residues fewer than the desired number.
-- ```DELTA_END <integer>``` This indicates how far beyond the desired number of residues our penalties table extends.  For example, a value of '7' means that we will be providing penalty values for up to seven residues more than the desired number.
-- ```FRACT_DELTA_START <float>``` <b>New 28-Apr-2016</b> This is an alternative to ```DELTA_START``` that indicates how far below the desired fractional composition our penalties table extends.  For example, a value of '-0.05' means that we will be providing penalty values for up to 5% fewer than the desired number.  (So if we specified a desired fractional composition of 0.07 (7%) for alanine, then ```FRACT_DELTA_START -0.05``` indicates that the penalties table provides penalties down to a 2% alanine.)  <i>Either</i> ```DELTA_START``` <i>or</i> ```FRACT_DELTA_START``` must be used.
-- ```FRACT_DELTA_END <float>``` <b>New 28-Apr-2016</b> This is an alternative to ```DELTA_END``` that indicates how far above the desired fractional composition our penalties table extends.  For example, a value of '0.08' means that we will be providing penalty values for up to 8% more than the desired number.  (So if we specified a desired fractional composition of 0.03 (3%) for valine, then ```FRACT_DELTA_END 0.08``` indicates that the penalties table provides penalties up to a 11% valine.)  <i>Either</i> ```DELTA_END``` <i>or</i> ```FRACT_DELTA_END``` must be used.
-- ```PENALTIES <float1> <float2> <float3> ...``` The actual penalties table.  If ```DELTA_START``` and ```DELTA_END``` were used, then entries must be provided for every integer value from DELTA_START to DELTA_END.  These values represent the energetic penalty for having N residues too few, N+1 residues too few, N+2 residues too few ... M-1 residues too many, M residues too many.  If ```FRACT_DELTA_START``` and ```FRACT_DELTA_END``` are used, then any number of penalty values may be specified; they will be linearly interpolated within the range [FRACT_DELTA_START, FRACT_DELTA_END].  In either case, the end functions are applied if residue type counts fall outside of the range.
-- ```FRACTION <float>``` This indicates that this residue type, or residues with the defined properties, are ideally this fraction of the total.  For example, a value of 0.25 would mean that, ideally, a quarter of residues in the protein were those defined by this ```PENALTY_DEFINITION```.  If a ResidueSelector was used when applying a composition constraint to a pose, the fraction represents the portion of selected residues (e.g. 50% of core residues, 10% of residues in helix 3, 40% of residues in the binding interface).  Otherwise, it represents the fraction of total residues in the pose.
--  ```ABSOLUTE <integer>``` An alternative to ```FRACTION```, this indicates the absolute number of residues of the given type or properties desired in the structure.  For example, a value of 3 would mean that we want 3 residues of the given type or properties.
-- ```BEFORE_FUNCTION <string>``` and ```AFTER_FUNCTION <string>``` This defines the behaviour of the penalty function outside of the user-defined range.  Allowed values are CONSTANT (first or last value repeats), LINEAR (linearly-ramping penalty based on the slope of the first two or last two penalty values), or QUADRATIC (parabolic penalty centred on zero and passing through the first two or last two penalty values).
-- ```END_PENALTY_DEFINITION``` Ends the block.
+#### Example ```.charge``` file requiring 0 net charge
 
-The ```PENALTY_DEFINITION```, ```PENALTIES```, and ```END_PENALTY_DEFINITION``` lines are always required.  The ```BEFORE_FUNCTION``` and ```AFTER_FUNCTION``` lines are optional, and default to QUADRATIC if not specified.  One ```FRACTION``` *or* one ```ABSOLUTE``` line must also be present (but not both).  ```DELTA_START``` and ```DELTA_END```, *or* ```FRACT_DELTA_START``` and ```FRACT_DELTA_END```, lines are required.  The ```TYPE```, ```NOT_TYPE```, ```PROPERTIES```, ```OR_PROPERTIES```, and ```NOT_PROPERTIES``` lines are all optional, and can be used in conjunction with one another.  The logic for deciding whether to count a residue or not is as follows:
-
-Count if ( any TYPE matches ) OR ( ( no NOT_TYPE matches ) AND ( ( no NOT_PROPERTIES property is present) AND ( (no PROPERTIES or OR_PROPERTIES are defined) OR ( all PROPERTIES are present) OR ( any OR_PROPERTIES are present ) ) ) ).
-
-Here's an example ```.charge``` file that penalizes deviations from having 10% aromatic residues in a protein (note that the pound sign can be used to comment one of these files):
+The following example shows a ```.charge``` file requiring that the net charge in a pose or region be exactly 0.
 
 ```
-# This is a .charge file for requiring that a structure be ten percent aromatic.
-# File created 21 July 2015 by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory.
-# This penalty definition block specifies that, for aromatics, there will be a 100-point penalty for
-# having ANY fewer or ANY more than the desired number of aromatic residues.
-
-PENALTY_DEFINITION
-
-# Define residue types to control
-PROPERTIES AROMATIC
-NOT_PROPERTIES POLAR CHARGED
-
-# Declare desired quantity of these residues
-FRACTION 0.1
-
-# Set the penalty for having too few, at the desired number, and too many of the specified residues
-PENALTIES 100 0 100
-
-# Set how many residues you can be below the desired quantity before a penalty is applied. Since
-# this value is a delta, the desired number of residues is "0", or zero residues away from the target.
-# Therefore, "-1" indicates that the penalty will be applied once there is one fewer than the
-# desired quantity
-DELTA_START -1
-
-# Set how many residues you can be above the desired quantity before a penalty is applied. Since
-# this value is a delta, the desired number of residues is "0", or zero residues away from the target.
-# Therefore, "1" indicates that the penalty will be applied once there is one more than the
-# desired quantity
-DELTA_END 1
-
-#set how the penalties are applied
-BEFORE_FUNCTION CONSTANT
-AFTER_FUNCTION CONSTANT
-END_PENALTY_DEFINITION
+DESIRED_CHARGE 0 #Desired net charge is zero.
+PENALTIES_CHARGE_RANGE -1 1 #Penalties are listed in the observed net charge range of -1 to +1.
+PENALTIES 10 0 10 #The penalties are 10 for an observed charge of -1, 0 for an observed charge of 0, and 10 for an observed charge of +1.
+BEFORE_FUNCTION QUADRATIC #Ramp quadratically for observed net charges of -2 or less.
+AFTER_FUNCTION QUADRATIC #Ramp quadratically for observed net charges of +2 or greater.
 ```
 
-Here's a more complicated .charge file that imposes the requirement that the protein have 40% aliphatic or aromatic residues other than leucine (i.e. ALA, PHE, ILE, MET, PRO, VAL, TRP, or TYR), and 5% leucines:
+#### Example ```.charge``` file requiring net charge in the range of -1 to +3
 
+The following example shows a ```.charge``` file requiring that the net charge in a pose or region be in the range of -1 to +3.  Within this range, the penalty returned is zero; outside of this range, it rapidly becomes positive.
 
 ```
-# This is a .charge file for requiring that a structure be ten percent aromatic.
-# File created 21 July 2015 by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory.
-PENALTY_DEFINITION
-OR_PROPERTIES AROMATIC ALIPHATIC
-NOT_TYPE LEU
-FRACT_DELTA_START -0.05
-FRACT_DELTA_END 0.05
-PENALTIES 100 0 100 # The above two lines mean that if we're 5% below or 5% above the desired content, we get a 100-point penalty.
-FRACTION 0.4 # Forty percent aromatic or aliphatic, but not leucine
-BEFORE_FUNCTION CONSTANT
-AFTER_FUNCTION CONSTANT
-END_PENALTY_DEFINITION
+DESIRED_CHARGE 0 #Desired net charge is zero.
+PENALTIES_CHARGE_RANGE -2 4 #Penalties are listed in the observed net charge range of -2 to +4.
+PENALTIES 10 0 0 0 0 0 10 #The penalties are 10 for an observed charge of -2, 0 for an observed charge of -1 to +3, and 10 for an observed charge of +4.
+BEFORE_FUNCTION QUADRATIC #Ramp quadratically for observed net charges of -3 or less.
+AFTER_FUNCTION QUADRATIC #Ramp quadratically for observed net charges of +5 or greater.
+```
 
-PENALTY_DEFINITION
-TYPE LEU
-DELTA_START -1
-DELTA_END 1
-PENALTIES 100 0 100
-FRACTION 0.05 # Five percent leucine
-BEFORE_FUNCTION CONSTANT
-AFTER_FUNCTION CONSTANT
+#### Example ```.charge``` file requiring net charge of at most -3
 
-END_PENALTY_DEFINITION
+The ```CONSTANT``` out-of-bounds behaviour is useful in cases in which we want to specify a maximum but no minimum or a minimum but no maximum.  In this case, we specify that we want a net charge of, at most, -3.
+
+```
+DESIRED_CHARGE -3 #Desired net charge is -3.
+PENALTIES_CHARGE_RANGE -4 -2 #Penalties are listed in the observed net charge range of -4 to -2.
+PENALTIES 0 0 10 #The penalties are 0 for an observed charge of -4, 0 for an observed charge of -3, and 10 for an observed charge of -2.
+BEFORE_FUNCTION CONSTANT #Return 0 for observed net charges of -5 or less.
+AFTER_FUNCTION QUADRATIC #Ramp quadratically for observed net charges of -1 or greater.
+```
+#### Example ```.charge``` file requiring net absolute charge greater than 2
+
+The ```.charge``` file format is sufficietly versatile to allow us to penalize net charges near zero, but allow net charges that are either very positive or very negative.  Here's an example:
+
+```
+DESIRED_CHARGE 0 #Desired net charge is zero.
+PENALTIES_CHARGE_RANGE -2 2 #Penalties are listed in the observed net charge range of -2 to +2.
+PENALTIES 0 25 50 25 0 #The penalties are 0 for an observed charge of -2 or +2, 25 for an observed charge of -1 or +1, and 50 for an observed charge of 0.
+BEFORE_FUNCTION CONSTANT #Return 0 for observed net charges of -3 or less.
+AFTER_FUNCTION CONSTANT #Return 0 for observed net charges of +3 or greater.
 ```
 
 ## Use with symmetry
-As of 6 March 2016, the aa_composition score term should be fully compatible with symmetry, including mirror symmetry.  Note that it counts all residues in the pose or selection, not only those in the asymmetric unit.  In poses with mirror symmetry, it is properly aware of inverted types in mirrored subunits.
+The ```netcharge``` score term should be fully compatible with symmetry, including mirror symmetry.  Note that it counts all residues in the pose or selection, not only those in the asymmetric unit.
 
 ## Organization of the code
 
-- The scoring term lives in ```core/scoring/aa_composition_energy/AACompositionEnergy.cc``` and ```core/scoring/aa_composition_energy/AACompositionEnergy.hh```.
-- Like any whole-body energy, the **AACompositionEnergy** class implements a ```finalize_total_energy()``` function that takes a pose.  This calculates the score.  Internally, it calls ```calculate_aa_composition_energy()```, which takes a vector of owning pointers to Residues (which can be called directly during packing).
-- On initialization, the term creates an internal AACompositionEnergySetup object that stores the user-defined settings for the desired residue type composition.  This class is defined in ```core/scoring/aa_composition_energy/AACompositionEnergySetup.cc``` and ```core/scoring/aa_composition_energy/AACompositionEnergySetup.hh```.  AACompositionEnergySetup objects can also be stored in AACompositionConstraints associated with a Pose.  At scoring or packing time, the AACompositionEnergy constructs a vector of owning pointers to its internal AACompositionEnergySetup objects and to all those stored in the pose, and uses all of these for scoring.
-- The ```.charge``` files are located in ```/database/scoring/score_functions/aa_composition/```.
+- The scoring term lives in ```core/scoring/netcharge_energy/NetChargeEnergy.cc``` and ```core/scoring/netcharge_energy/NetChargeEnergy.hh```.
+- Like any whole-body energy, the **NetChargeEnergy** class implements a ```finalize_total_energy()``` function that takes a pose.  This calculates the score.  Internally, it calls ```calculate_aa_composition_energy()```, which takes a vector of owning pointers to Residues (which can be called directly during packing).
+- On initialization, the term creates an internal NetChargeEnergySetup object that stores the user-defined settings for the desired residue type composition.  This class is defined in ```core/scoring/netcharge_energy/NetChargeEnergySetup.cc``` and ```core/scoring/netcharge_energy/NetChargeEnergySetup.hh```.  NetChargeEnergySetup objects can also be stored in NetChargeConstraints associated with a Pose.  At scoring or packing time, the NetChargeEnergy constructs a vector of owning pointers to its internal NetChargeEnergySetup objects and to all those stored in the pose, and uses all of these for scoring.
+- The ```.charge``` files are located in ```/database/scoring/score_functions/netcharge/```.
 
 ##See Also
 
 * [[Scoring explained]]
 * [[Score functions and score types |score-types]]
 * [[Adding a new energy method to Rosetta|new-energy-method]]
-* [[AddCompositionConstraintMover]]
+* [[AddNetChargeConstraintMover]]
 * [[ClearCompositionConstraintsMover]]
-* [[AddHelixSequenceConstraints mover|AddHelixSequenceConstraintsMover]]
+* [[AACompositionEnergy]]
