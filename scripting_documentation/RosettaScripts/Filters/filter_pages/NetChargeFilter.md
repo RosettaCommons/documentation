@@ -26,3 +26,4 @@ To design for a desired net charge rather than filtering after the fact, you can
 * [[SasaFilter]]
 * [[ResidueBurialFilter]]
 * [[ExposedHydrophobicsFilter]]
+* [[NetChargeEnergy]]

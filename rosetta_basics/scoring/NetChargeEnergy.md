@@ -1,48 +1,50 @@
 # Net charge energy (netcharge) 
 Documentation created by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory on 26 Novmber 2017.
 
+<i>Note:  This page documents the `netcharge` score term.  For information about the NetCharge Filter, see [[this page|NetChargeFilter]].</i>
+
 ## Purpose and algorithm
 
 This scoring term is intended for use during design, to penalize deviations from a desired net charge in a pose or region.  For example, a user could specify that protein was to have an overall net charge of +1, but that a binding interface was to have a net charge of -2.  Because this is a score rather than a design algorithm, it can be used in conjunction with any existing design algorithm that uses the packer (including the [[FastDesign]] and [[PackRotamers]] movers, or the [[fixbb]] application).  Moreover, it can be used in conjunction with other score terms that guide design, such as [[aa_composition|AACompositionEnergy]].
 
 Calculating a score based on net charge is easy and fast (one need only sum the charges of all amino acids in the protein, take the difference from the desired charge, and look up a suitable penalty for that difference from a lookup table), but the calculation is inherently not pairwise-decomposable.  This scoring term is intended to work with Alex Ford's changes to the packer that permit fast-to-calculate but non-pairwise-decomposable scoring terms to be used during packing or design.
 
-#######################TODO CONTINUE HERE################################3
-
 ## User control
 
-This scoring term is controlled by ```.charge``` files, which define the desired residue type composition of a protein.  The ```.charge``` file(s) to use can be provided to Rosetta in three ways:
-- The user can provide one or more ```.charge``` files as input at the command line with the ```-aa_composition_setup_file <filename1> <filename2> <filename3> ...``` flag.
-- The user can provide one or more ```.charge``` files when setting up a particular scorefunction in RosettaScripts, using the ```<Set>``` tag to modify the scorefunction.  For example:
+To use this term, it must be turned on by reweighting `netcharge` to a non-zero value, either in the weights file used to set up the scorefunction, or in the scorefunction definition in RosettaScripts, in PyRosetta, or in C++ code.
+
+This scoring term is controlled by ```.charge``` files, which define the desired charge in a pose or a sub-region of a pose defined by residue selectors.  If no ```.charge``` files are provided, then the `netcharge` score term always returns a score of zero.  The ```.charge``` file(s) to use can be provided to Rosetta in three ways:
+- The user can provide one or more ```.charge``` files as input at the command line with the ```-netcharge_setup_file <filename1> <filename2> <filename3> ...``` flag.  The charge specifications will be applied globally, to the whole pose, whenever it is scored with the `netcharge` score term.
+- The user can provide one or more ```.charge``` files when setting up a particular scorefunction in RosettaScripts (or in PyRosetta or C++ code), using the ```<Set>``` tag to modify the scorefunction.  The charge specification will be applied globally, to the whole pose, whenever this particular scorefunction is used.  For example:
 
 ```xml
 <SCOREFXNS>
-	<ScoreFunction name="tala" weights="talaris2014.wts" >
-		<Reweight scoretype="aa_composition" weight="1.0" />
-		<Set aa_composition_setup_file="inputs/disfavour_polyala.charge" />
+	<ScoreFunction name="r15" weights="ref2015.wts" >
+		<Reweight scoretype="netcharge" weight="1.0" />
+		<Set netcharge_setup_file="inputs/positive_three.charge" />
 	</ScoreFunction>
 </SCOREFXNS>
 ```
-- The user can attach ```.charge``` files to a Pose with the [[AddCompositionConstraintMover]].  These remain attached to the pose, like any other constraint, until all constraints are cleared with the [[ClearConstraintsMover]], or until only sequence composition constraints are cleared with the [[ClearCompositionConstraintsMover]].  Note that the composition constraints added with the AddCompositionConstraintMover can have a [[ResidueSelector|ResidueSelectors]] attached to them as well.  This allows the user to define sub-regions of the pose (e.g. a single helix, the protein core, an inter-subunit binding interface) to which an amino acid composition constraint will be applied.  The ResidueSelector is evaluated prior to scoring or packing (but not evaluated repeatedly during packing).  Here is an example RosettaScript in which a LayerSelector is used to select the core of the protein, and the AddCompositionConstraintMover is used to impose a sequence composition requirement on core residues only:
+- The user can attach ```.charge``` files to a Pose with the [[AddNetChargeConstraintMover]].  These remain attached to the pose, like any other constraint, until all constraints are cleared with the [[ClearConstraintsMover]], or until only sequence composition constraints are cleared with the [[ClearCompositionConstraintsMover]].  Note that the net charge constraints added with the AddNetChargeConstraintMover can have a [[ResidueSelector|ResidueSelectors]] attached to them as well.  This allows the user to define sub-regions of the pose (_e.g._ a single helix, the protein surface, an inter-subunit binding interface) to which a net charge constraint will be applied.  The ResidueSelector is evaluated prior to scoring or packing (but not evaluated repeatedly during packing).  Here is an example RosettaScript in which a LayerSelector is used to select the surface of the protein, and the AddNetChargeConstraintMover is used to impose the requirement that surface residues only have a net charge of +2:
 
 ```xml
 <ROSETTASCRIPTS>
 	<SCOREFXNS>
-		<ScoreFunction name="tala" weights="talaris2014.wts" >
-			<Reweight scoretype="aa_composition" weight="1.0" />
+		<ScoreFunction name="r15" weights="ref2015.wts" >
+			<Reweight scoretype="netcharge" weight="1.0" />
 		</ScoreFunction>
 	</SCOREFXNS>
 	<RESIDUE_SELECTORS>
-		<Layer name="corelayer" select_core="true" core_cutoff="0.5" surface_cutoff="0.25" />
+		<Layer name="surflayer" select_core="false" select_boundary="false" select_surface="true" core_cutoff="0.5" surface_cutoff="0.25" />
 	</RESIDUE_SELECTORS>
 	<TASKOPERATIONS>
 	</TASKOPERATIONS>
 	<FILTERS>
 	</FILTERS>
 	<MOVERS>
-		<AddCompositionConstraintMover name="addcomp1" filename="desired_core_composition.charge" selector="corelayer" />
+		<AddNetChargeConstraintMover name="netcharge_cst" filename="plustwo.charge" selector="surflayer" />
 		
-		<FastDesign name=fdes1 scorefxn="tala" repeats="3" >
+		<FastDesign name=fdes1 scorefxn="r15" repeats="3" >
 			<MoveMap name="fdes1_mm">
 				<Span begin="1" end="30" chi="1" bb="0" />
 			</MoveMap>
@@ -58,7 +60,10 @@ This scoring term is controlled by ```.charge``` files, which define the desired
 
 ```
 
-If the user uses more than one of the methods described above, _all_ of the ```.charge``` files provided will be used in scoring, provided the ```aa_composition``` scoreterm is on with a nonzero weight.
+If the user uses more than one of the methods described above, _all_ of the ```.charge``` files provided will be used in scoring, provided the `netcharge` scoreterm is on with a nonzero weight.  This can be useful to apply complicated charge requirements, such as, "The net charge of the whole protein must be +1, but the net charge of the first helix must be -3 and the net charge of the binding pocket must be +3".
+
+
+#######################CONTINUE HERE###################################
 
 A ```.charge``` file consists of one or more ```PENALTY_DEFINITION``` blocks.  Lines that can be present in a ```PENALTY_DEFINITION``` block include:
 - ```PENALTY_DEFINITION``` Starts the block.
