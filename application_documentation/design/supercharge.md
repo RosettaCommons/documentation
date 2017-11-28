@@ -275,7 +275,7 @@ If you've made improvements, note them here.
 Alternative approaches
 ======================
 
-The net charge of a protein surface can also be controlled during the design process using the [[netcharge|NetChargeEnergy]] score term, which penalizes deviations from a desired net charge and guides the sequence design algorithms towards solutinos with the desired net charge.  Net charge constraints can be applied with the [[AddNetChargeConstraintMover]] to impose a desired net charge in a selected sub-region such as the surface of a protein.
+The net charge of a protein surface can also be controlled during the design process using the [[netcharge|NetChargeEnergy]] score term, which penalizes deviations from a desired net charge and guides the sequence design algorithms towards solutinos with the desired net charge.  Net charge constraints can be applied with the [[AddNetChargeConstraintMover]] to impose a desired net charge in a selected sub-region such as the surface of a protein.  This is a newer approach that has the advantage of efficiency: rather than producing many designs and only writing out those with the desired charge (the approach taken by the supercharge application), the ```netcharge``` score term guides all designs toward the desired net charge.
 
 ##See Also
 
