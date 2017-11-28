@@ -135,8 +135,9 @@ Mover  | Description
 Mover  | Description
 ------------ | -------------
 **[[CstInfoMover]]** | Add details about constraint satisfaction to the scorefile
-**[[AddCompositionConstraintMover]]** | Adds constraints related to the amino acid composition, enforced by the aa_composition score term.
+**[[AddCompositionConstraintMover]]** | Adds sequence constraints related to the amino acid composition, enforced by the [[aa_composition score term|AACompositionEnergy]].
 **[[AddConstraintsToCurrentConformationMover]]** | Adds constraints based on the current conformation
+**[[AddNetChargeConstraintMover]]** | Adds sequence constraints to penalize deviation from a desired net charge, enforced by the [[netcharge score term|NetChargeEnergy]].
 **[[AtomCoordinateCstMover]]** | Adds coordinate constraints for Relax
 **[[ClearConstraintsMover]]** | Removes all constraints (geometric and sequence) from the pose
 **[[ClearCompositionConstraintsMover]]** | Removes sequence constraints from the pose selectively.

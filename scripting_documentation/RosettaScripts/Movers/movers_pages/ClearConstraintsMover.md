@@ -6,7 +6,7 @@ Remove any constraints from the pose.
 
     <ClearConstraintsMover name="(&string)" />
 
-Note that this will remove both geometric (e.g. atom pair constraints, coordinate constraints) and sequence constraints (e.g. amino acid composition constraints) from the pose.
+Note that this will remove both geometric (_e.g._ atom pair constraints, coordinate constraints) and sequence constraints (_e.g._ amino acid composition constraints, net charge constraints) from the pose.  To remove only the latter, use the [[ClearCompositionConstraintsMover]].
 
 
 ##See Also
@@ -17,3 +17,6 @@ Note that this will remove both geometric (e.g. atom pair constraints, coordinat
 * [[AddConstraintsToCurrentConformationMover]]
 * [[AddSidechainConstraintsToHotspotsMover]]
 * [[TaskAwareCstsMover]]
+* [[ClearCompositionConstraintsMover]]
+* [[AddCompositionConstraintMover]]
+* [[AddNetChargeConstraintMover]]

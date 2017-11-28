@@ -1,5 +1,6 @@
 Author:  Sam DeLuca
-Edited 6 April 2017 by Vikram K. Mulligan (vmullig@uw.edu)
+
+Edited 27 November 2017 by Vikram K. Mulligan (vmullig@uw.edu)
 
 An overview of params files
 ===========================
@@ -53,6 +54,8 @@ The following lines are typically found in Ligand params files. This does not re
 -   **NBR\_ATOM** The PDB name of the "neighbor atom". In the case of ligands, this defaults to the atom that is closest to the geometric center of the ligand
 
 -   **NBR\_RADIUS** The radius of gyration of the ligand, used to define the overall size of the ligand.
+
+-  **NET\_FORMAL\_CHARGE** The overall charge on this residue type or ligand type.  This must be an integer, though it can be positive or negative.  If not supplied, the net formal charge is assumed to be 0.  (Note: this is used by the [[netcharge score term|NetChargeEnergy]] to determine the net charge of a pose or region.)
 
 -   **ICOOR\_INTERNAL** The [[internal coordinates]] of an atom. The format goes backwards and looks like this:
 
