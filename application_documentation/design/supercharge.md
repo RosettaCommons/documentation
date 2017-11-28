@@ -272,6 +272,11 @@ New things since last release
 
 If you've made improvements, note them here.
 
+Alternative approaches
+======================
+
+The net charge of a protein surface can also be controlled during the design process using the [[netcharge|NetChargeEnergy]] score term, which penalizes deviations from a desired net charge and guides the sequence design algorithms towards solutinos with the desired net charge.  Net charge constraints can be applied with the [[AddNetChargeConstraintMover]] to impose a desired net charge in a selected sub-region such as the surface of a protein.
+
 ##See Also
 
 * [[Design applications | design-applications]]: other design applications
@@ -280,4 +285,5 @@ If you've made improvements, note them here.
 * [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 * [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
 * [[Preparing structures]]: How to prepare structures for use in Rosetta
-
+* [[NetChargeEnergy]]: Guide a traditional design run towards a desired net charge.
+* [[AddNetChargeConstraintMover]]: Specify a desired net charge in a sub-region of a pose.
