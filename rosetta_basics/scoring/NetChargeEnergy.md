@@ -174,6 +174,9 @@ A desired net charge for a region in a pose (e.g. the binder in a binder-target 
 ## Use with symmetry
 The ```netcharge``` score term should be fully compatible with symmetry, including mirror symmetry.  Note that it counts all residues in the pose or selection, not only those in the asymmetric unit.
 
+## Use with other design-centric score terms
+The ```netcharge``` score term should be fully compatible with the [[aa_composition score term|AACompositionEnergy]], the [[hbnet score term|HBNetEnergy]], or any other design-centric score term.  The power of these terms is enhanced when used together.  For example, with a combination of ```netcharge``` and ```aa_composition```, a user could effectively say, "Design both sides of this interface, and give me designs with a 50/50 mix of polar and hydrophobic amino acids on each side of the interface, a maximum of 4 charged residues on each side of the interface, and a net charge of +2 on one side and -2 on the other."  By adding the ```hbnet``` term as well, one could ensure that the designs returned had hydrogen bond networks wherever possible _in addition_.
+
 ## Organization of the code
 
 - The scoring term lives in ```core/scoring/netcharge_energy/NetChargeEnergy.cc``` and ```core/scoring/netcharge_energy/NetChargeEnergy.hh```.
