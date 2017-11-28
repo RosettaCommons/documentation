@@ -19,6 +19,8 @@ Note that multiple movers of this type can be applied in sequence to add many co
 * [[ConstraintSetMover]]
 * [[Constraints file format|constraint-file]]
 * [[AACompositionEnergy]]
+* [[NetChargeEnergy]]
+* [[AddNetChargeConstraintMover]]
 * [[ClearConstraintsMover]]
 * [[ClearCompositionConstraintsMover]]
 * [[AddHelixSequenceConstraints mover|AddHelixSequenceConstraintsMover]]
