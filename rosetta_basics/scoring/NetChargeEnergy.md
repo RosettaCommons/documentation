@@ -1,5 +1,5 @@
 # Net charge energy (netcharge) 
-Documentation created by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory on 26 Novmber 2017.
+Documentation created by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory on 26 November 2017.
 
 <i>Note:  This page documents the ```netcharge``` score term.  For information about the NetCharge Filter, see [[this page|NetChargeFilter]].</i>
 
