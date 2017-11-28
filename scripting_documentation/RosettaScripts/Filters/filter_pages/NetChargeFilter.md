@@ -1,7 +1,7 @@
 # NetCharge
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 
-<i>Note:  This page is about the NetCharge </i>filter</i>.  For information about the `netcharge` score term, see [[this page|NetChargeEnergy]].</i>
+<i>Note:  This page is about the NetCharge </i>filter<i>.  For information about the `netcharge` score term, see [[this page|NetChargeEnergy]].</i>
 
 ## NetCharge
 
