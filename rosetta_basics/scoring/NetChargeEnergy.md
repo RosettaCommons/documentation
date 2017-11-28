@@ -57,7 +57,7 @@ This scoring term is controlled by ```.charge``` files, which define the desired
 	<APPLY_TO_POSE>
 	</APPLY_TO_POSE>
 	<PROTOCOLS>
-		<Add mover="addcomp1" />
+		<Add mover="netcharge_cst" />
 		<Add mover="fdes1" />
 	</PROTOCOLS>
 </ROSETTASCRIPTS>
@@ -127,6 +127,46 @@ PENALTIES_CHARGE_RANGE -2 2 #Penalties are listed in the observed net charge ran
 PENALTIES 0 25 50 25 0 #The penalties are 0 for an observed charge of -2 or +2, 25 for an observed charge of -1 or +1, and 50 for an observed charge of 0.
 BEFORE_FUNCTION CONSTANT #Return 0 for observed net charges of -3 or less.
 AFTER_FUNCTION CONSTANT #Return 0 for observed net charges of +3 or greater.
+```
+
+## Regional control with net charge constraints
+
+A desired net charge for a region in a pose (e.g. the binder in a binder-target complex, a single helix of a larger protein, a binding interface) can be set using net charge constraints.  Like geometric constraints, these are attached to a pose, and are read by the ```netcharge``` score term when the pose is scored or packed.  Net charge constraints can be added with the [[AddNetChargeConstraintMover]].  An example, in which a binding interface is selected with a residue selector and constrained to have a net negative charge, is shown below:
+
+```xml
+<ROSETTASCRIPTS>
+        <SCOREFXNS>
+                <ScoreFunction name="r15" weights="ref2015.wts" >
+                        <Reweight scoretype="netcharge" weight="1.0" />
+                </ScoreFunction>
+        </SCOREFXNS>
+        <RESIDUE_SELECTORS>
+		# The interface is selected by selecting residues in chain A that are within 15 Angstroms of residue 53 in chain B:
+		<Index name="select_b53" resnums="53B" />
+		<Chain name="select_chainA" chains="A" />
+		<Neighborhood name="select_near_b53" selector="select_b53" distance="15.0" />
+		<And name="select_interface" selectors="select_chainA,select_near_b53" />
+		<Not name="select_not_interface" selector="select_interface" />
+        </RESIDUE_SELECTORS>
+        <TASKOPERATIONS>
+		# We set up task operations to prevent design away from the interface:
+		<OperateOnResidueSubset name="only_repack_not_interface" selector="select_not_interface" >
+			<RestrictToRepackingRLT />
+		</OperateOnResidueSubset>
+        </TASKOPERATIONS>
+        <FILTERS>
+        </FILTERS>
+        <MOVERS>
+                <AddNetChargeConstraintMover name="netcharge_cst" filename="must_be_negative.charge" selector="select_interface" />
+                <FastDesign name=fdes1 scorefxn="r15" repeats="3" task_operations="only_repack_not_interface" />
+        </MOVERS>
+        <APPLY_TO_POSE>
+        </APPLY_TO_POSE>
+        <PROTOCOLS>
+                <Add mover="netcharge_cst" />
+                <Add mover="fdes1" />
+        </PROTOCOLS>
+</ROSETTASCRIPTS>
 ```
 
 ## Use with symmetry
