@@ -173,6 +173,11 @@ New Features In Rosetta3.2
 
 Rosetta3.2 includes the Lazy Interaction Graph which had not yet been ported from Rosetta++ in version 3.1.
 
+New Features in Rosetta 3.8
+===========================
+
+Rosetta 3.8 includes various design-centric score terms, such as [[aa_composition|AACompositionEnergy]] (which penalizes devations froma desired amino acid composition), [[netcharge|NetChargeEnergy]] (which penalizes deviations from a desired net charge), and [[hbnet|HBNetEnergy]] (which provides an energetic bonus for hydrogen bond networks).  These can be used with the fixbb application to guide the design process, to promote desired features.  See the documentation for each of these score terms for more details.
+
 ##See Also
 
 * Fixbb can be run with the [[ hpatch score term| fixbb-with-hpatch ]] to prevent the development of surface hydrophobic patches
@@ -184,3 +189,6 @@ Rosetta3.2 includes the Lazy Interaction Graph which had not yet been ported fro
 * [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 * [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
 * [[Preparing structures]]: How to prepare structures for use in Rosetta
+* [[AACompositionEnergy]]: Guides the Rosetta packer to solutions with a desired amino acid composition.
+* [[NetChargeEnergy]]: Guides the Rosetta packer to solutions with a desired net charge.
+* [[HBNetEnergy]]:  Guides the Rosetta packer to solutions with hydrogen bond networks.
