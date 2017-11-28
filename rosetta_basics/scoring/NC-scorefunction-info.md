@@ -108,7 +108,12 @@ As a final note, there are situations in which it is not necessary to substitute
 ### Residue type composition control score term (aa_composition)
 Creator: Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
 
-This is a specialized scoring term intended for use during design (appended to a scoring function like talaris2014 or beta_nov15), which penalizes deviations from a desired amino acid composition (or, more generally, residue type composition) to guide the packer to "good" sequences.  For example, a user could specify that he or she wants a sequence that's 50% hydrophobic, contains exactly 1 tryptophan residue, and has no more than 4 alanine residues.  Full documentation is available [[here|AACompositionEnergy]].
+This is a specialized scoring term intended for use during design (appended to a scoring function like talaris2014 or ref2015), which penalizes deviations from a desired amino acid composition (or, more generally, residue type composition) to guide the packer to "good" sequences.  For example, a user could specify that he or she wants a sequence that's 50% hydrophobic, contains exactly 1 tryptophan residue, and has no more than 4 alanine residues.  Full documentation is available [[here|AACompositionEnergy]].
+
+### Net charge control score term (netcharge)
+Creator Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
+
+This score term penalizes deviations from a desired net charge during design.  Like aa_composition, it can be appended to a scoring function like talaris2014 or ref2015.  The term can operate on the whole pose or on selected sub-regions, where the selection is controlled with a residue selector.  This allows a user to specify, for example, that a pose should have a net neutral charge, but a binding pocket with a net negative charge (-1 or less) and a protein-protein interaction region with a net charge of exactly +2.  Full documentation is available [[here|NetChargeEnergy]].
 
 ### Penalty function for aspartimide-promoting sequences (aspartimide_penalty)
 Creator: Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
