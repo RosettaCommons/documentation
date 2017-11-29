@@ -1,5 +1,6 @@
 # ResidueLipophilicityFilter
 *Back to [[Filters|Filters-RosettaScripts]] page.*
+documentation written by Jonathan Weinstein jonathan.weinstein@weizmann.ac.il, Nov 2017
 
 ## ResidueLipophilicityFilter
 
