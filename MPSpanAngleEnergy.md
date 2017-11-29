@@ -1,4 +1,5 @@
 # MPSpanAngleEnergy
+documentation written by Jonathan Weinstein jonathan.weinstein@weizmann.ac.il, Nov 2017
 
 ## MPSpanAngleEnergy
 An energy term that penalizes the pose for TM spans whose angle with the membrane normal is very different from the distribution of angles in natural membrane proteins.
