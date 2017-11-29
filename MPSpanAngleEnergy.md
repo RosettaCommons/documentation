@@ -7,4 +7,4 @@ this energy term is used by the membrane energy function ref2015_memb and the ce
 
 ## See also
 * [[MPHelicalityEnergy]]
-* [[MPResidueLipophilicity]]
+* [[MPResidueLipophilicityEnergy]]
