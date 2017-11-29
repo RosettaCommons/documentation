@@ -186,6 +186,8 @@ Mover  | Description
 **[[Idealize|IdealizeMover]]** | Forces ideal bond lengths and angles
 **[[FastRelax|FastRelaxMover]]** | Performs FastRelax all-atom refinement
 **[[FastDesign|FastDesignMover]]** | Performs FastRelax all-atom refinement, but adds design-related features
+**[[RepeatProteinRelax]]** | Performs FastRelax all-atom refinement on repeat proteins
+
 
 ### Insertion and Deletion; Grafting
 
