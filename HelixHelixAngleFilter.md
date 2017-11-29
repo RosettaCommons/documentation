@@ -10,7 +10,9 @@ this filter calculates one of 3 things:
 2. the distance between the vectors at the nearest point along the vectors
 3. the closest distance between the helices (in actual atomic distance)
 
-`<HelixHelixAngleFilter name="(& string)" start_helix_1="(0 Size)" start_helix_2="(0 Size)" end_helix_1="(0 Size)" end_helix_2="(0 Size)" angle_min="(40.0 Real)" angle_max="(100.0 Real)" dist_min="(0.0 Real)" dist_max="(5.0 Real)" angle_or_dist="(angle string)" dist_by_atom="(true bool)"/>`
+```
+<HelixHelixAngleFilter name="(& string)" start_helix_1="(0 Size)" start_helix_2="(0 Size)" end_helix_1="(0 Size)" end_helix_2="(0 Size)" angle_min="(40.0 Real)" angle_max="(100.0 Real)" dist_min="(0.0 Real)" dist_max="(5.0 Real)" angle_or_dist="(angle string)" dist_by_atom="(true bool)"/>
+```
 
 - start_helix_1 - optional - the starting residue of helix 1 in rosetta numbering
 - end_helix_1 - optional - the ending residue of helix 1 in rosetta numbering
