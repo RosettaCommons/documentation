@@ -32,4 +32,4 @@ this filter can also print either to stdout or to a file some calculations done 
 - score - score from spline
 
 ## See also
-* [[ResidueLipophilicityEnergy]]
+* [[MPResidueLipophilicityEnergy]]
