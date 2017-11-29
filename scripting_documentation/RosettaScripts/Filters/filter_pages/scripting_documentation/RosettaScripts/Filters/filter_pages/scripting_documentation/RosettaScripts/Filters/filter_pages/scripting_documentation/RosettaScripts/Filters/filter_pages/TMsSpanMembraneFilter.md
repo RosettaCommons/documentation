@@ -23,4 +23,4 @@ to be considered as spanning the membrane, the span has to pass these tests:
 
 ## See also
 
-* [[ResidueLipophilicity]]
+* [[ResidueLipophilicityFilter]]
