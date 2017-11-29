@@ -12,4 +12,4 @@ requires AddMembrane to be run.
 
 ## See also
 
-* [[ResidueLipophilicity]]
+* [[MembraneSpanTermZConstraint]]
