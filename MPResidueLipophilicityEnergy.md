@@ -25,3 +25,5 @@ the term detects if the pose is centroid or not by itself.
 
 ## See also
 * [[MPHelicalityEnergy]]
+* [[MPSpanAngleEnergy]]
+* [[ResidueLipophilicityFilter]]
