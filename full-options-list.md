@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-11-23
+Generated: 2017-11-29
 
 _Note that some application specific options may not be present in this list._
 
@@ -1121,6 +1121,8 @@ _Note that some application specific options may not be present in this list._
 <dd>only counts motifs inside monomer<br/>Default: true<br/></dd>
 <dt><b>-motif_residues</b> \<IntegerVector\></dt>
 <dd>which residue numbers to calculate motifs<br/></dd>
+<dt><b>-netcharge_setup_file</b> \<StringVector\></dt>
+<dd>The filename of one or more setup files for the netcharge scoring term.  (Multiple such files can be listed, separated by a space.)  The default location for these files (which have a .charge extension) is /database/scoring/score_functions/netcharge/.<br/></dd>
 <dt><b>-nmer_ref_energies</b> \<String\></dt>
 <dd>nmer ref energies database filename<br/></dd>
 <dt><b>-nmer_ref_energies_list</b> \<String\></dt>
@@ -3613,6 +3615,13 @@ _Note that some application specific options may not be present in this list._
 <dd>A list of additional atoms to use in the RMSD calculation, each in the format residue:atomname separated by whitespace.  For example, -extra_rms_atoms 7:SG 12:CG 12:CD 12:CE 12:NZ 14:OG.  Default empty list.<br/></dd>
 <dt><b>-rebuild_all_in_dihedral_mode</b> \<Boolean\></dt>
 <dd>If true, full poses are rebuilt for output when clustering in dihedral mode.  If false, only backbones are written out.  True by default.<br/>Default: true<br/></dd>
+</dl>
++ <h2>-partial_thread</h2>
+<dl>
+<dt><b>-partial_thread</b> \<Boolean\></dt>
+<dd>partial_thread option group<br/></dd>
+<dt><b>-skip_repack</b> \<Boolean\></dt>
+<dd>Do not repack sidechain missing density and idealize/optimize h-bonds<br/>Default: false<br/></dd>
 </dl>
 + <h2>-cm</h2>
 <dl>
@@ -7367,8 +7376,8 @@ _Note that some application specific options may not be present in this list._
 <dd>denovo option group<br/></dd>
 <dt><b>-cycles</b> \<Integer\></dt>
 <dd>Default number of Monte Carlo cycles<br/>Default: 0<br/></dd>
-<dt><b>-rna_protein_docking_freq</b> \<Integer\></dt>
-<dd>RNA/protein docking frequency<br/>Default: 10<br/></dd>
+<dt><b>-rna_protein_docking_freq</b> \<Real\></dt>
+<dd>RNA/protein docking frequency (between 0 (no docking) and 1 (all docking))<br/>Default: 0.4<br/></dd>
 <dt><b>-rounds</b> \<Integer\></dt>
 <dd>Number of rounds to split cycles into during fragment assembly<br/>Default: 10<br/></dd>
 <dt><b>-temperature</b> \<Real\></dt>
@@ -7441,6 +7450,16 @@ _Note that some application specific options may not be present in this list._
 <dd>first_rigid_body is usually kept frozen, but might be useful to sample it.<br/>Default: false<br/></dd>
 <dt><b>-root_at_first_rigid_body</b> \<Boolean\></dt>
 <dd>places coordinate system away from the usual last virtual residue and puts it on the first rigid body. useful if this rigidbody needs to be fixed, but other bodies need to move as if this one is moving. Use with -move_first_rigid_body. <br/>Default: false<br/></dd>
+<dt><b>-dock_each_chunk</b> \<Boolean\></dt>
+<dd>Dock each chunk, set fold tree up so that there are jumps from root virtual residue to all chunks, very useful for optimizing positions in density, use with -new_fold_tree_initializer<br/>Default: true<br/></dd>
+<dt><b>-dock_each_chunk_per_chain</b> \<Boolean\></dt>
+<dd>Dock each chunk, including multiple chunks from the same chain, set fold tree up so that there are jumps from root virtual residue to all chunks, very useful for optimizing positions in density, use with -dock_each_chunk and -new_fold_tree_initializer, may also want to use with -initial_structures<br/>Default: false<br/></dd>
+<dt><b>-center_jumps_in_single_stranded</b> \<Boolean\></dt>
+<dd>For RNA chains that don't have any base pairs, set up jumps in the center rather than at the first residue in the chain, use with -new_fold_tree_initializer and -dock_each_chunk<br/>Default: false<br/></dd>
+<dt><b>-initial_structures</b> \<FileVector\></dt>
+<dd>Initial structure for fragment assembly, useful for initializing rigid body orientations for docking especially with density<br/>Default: ""<br/></dd>
+<dt><b>-helical_substructs</b> \<FileVector\></dt>
+<dd>Files provided with -s or -in:file:silent that represent helices, use with dock_each_chunk_per_chain and -new_fold_tree_initializer, includes moves that rotate and translate these helices along their helical axis<br/>Default: ""<br/></dd>
 <dt><b>-suppress_bp_constraint</b> \<Real\></dt>
 <dd>Factor by which to lower base pair constraint weight. <br/>Default: 1.0<br/></dd>
 <dt><b>-output_filters</b> \<Boolean\></dt>
@@ -7469,8 +7488,20 @@ _Note that some application specific options may not be present in this list._
 <dd>Residue pairs to remove from obligate pair list<br/>Default: []<br/></dd>
 <dt><b>-refine_silent_file</b> \<String\></dt>
 <dd>Name of the silent file to be refined.<br/>Default: ""<br/></dd>
+<dt><b>-refine_silent_tags</b> \<StringVector\></dt>
+<dd>Tags of structures from the silent file to be refined.<br/></dd>
+<dt><b>-refine_silent_number_of_poses</b> \<Integer\></dt>
+<dd>Number of low scoring poses to refine from the refine_silent_file<br/>Default: 0<br/></dd>
+<dt><b>-get_fold_tree_from_silent_file</b> \<String\></dt>
+<dd>Use the fold tree specified in a silent file<br/>Default: ""<br/></dd>
+<dt><b>-fold_tree_from_silent_file_tag</b> \<StringVector\></dt>
+<dd>Tag of the structure in the get_fold_tree_from_silent_file to use<br/></dd>
+<dt><b>-refine_native_get_good_FT</b> \<Boolean\></dt>
+<dd>Get a reasonable fold tree when refining native - especially important if some stuff shold stay fixed<br/>Default: false<br/></dd>
 <dt><b>-refine_native</b> \<Boolean\></dt>
 <dd>Refine starting from the native pose<br/>Default: false<br/></dd>
+<dt><b>-override_refine_pose_rounds</b> \<Boolean\></dt>
+<dd>Override rounds/other run parameters that get set if refining pose<br/>Default: false<br/></dd>
 <dt><b>-bps_moves</b> \<Boolean\></dt>
 <dd>Base pair step moves<br/>Default: false<br/></dd>
 <dt><b>-disallow_bps_at_extra_min_res</b> \<Boolean\></dt>
@@ -7483,6 +7514,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Include side chains in the VDW rep screen, use with -VDW_rep_screen_info<br/>Default: true<br/></dd>
 <dt><b>-gradual_constraints</b> \<Boolean\></dt>
 <dd>Gradually turn on the atom_pair_constraints and coordinate_constraints?<br/>Default: true<br/></dd>
+<dt><b>-ramp_rnp_vdw</b> \<Boolean\></dt>
+<dd>Gradually turn on rnp_vdw?<br/>Default: false<br/></dd>
 <dt><b>-grid_vdw_weight</b> \<Real\></dt>
 <dd>Weight for the grid vdw score term<br/>Default: 1.0<br/></dd>
 <dt><b>-tag</b> \<String\></dt>
@@ -7496,7 +7529,31 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-convert_protein_CEN</b> \<Boolean\></dt>
 <dd>Convert protein residues to centroid mode during low-res fragment assembly<br/>Default: true<br/></dd>
 <dt><b>-rna_protein_docking</b> \<Boolean\></dt>
-<dd>Do RNA/protein docking?<br/>Default: true<br/></dd>
+<dd>Do RNA/protein docking?<br/>Default: false<br/></dd>
+<dt><b>-small_docking_moves</b> \<Boolean\></dt>
+<dd>Use small translation and rotation perturbation magnitudes<br/>Default: false<br/></dd>
+<dt><b>-docking_move_size</b> \<Real\></dt>
+<dd>Size of docking moves, between 0.0 and 1.0, 1.0 is normal docking move sizes, 0.0 is smallest docking moves<br/>Default: 1.0<br/></dd>
+<dt><b>-rna_protein_docking_legacy</b> \<Boolean\></dt>
+<dd>Do RNA/protein docking, legacy style?<br/>Default: false<br/></dd>
+<dt><b>-rnp_high_res_relax</b> \<Boolean\></dt>
+<dd>Do additional high res relaxation/refinement stage for RNPs<br/>Default: true<br/></dd>
+<dt><b>-rnp_high_res_cycles</b> \<Integer\></dt>
+<dd>Number of RNP high res refinement cycles to do<br/>Default: 10<br/></dd>
+<dt><b>-rnp_pack_first</b> \<Boolean\></dt>
+<dd>Pack protein sidechains first in RNP high res mover<br/>Default: false<br/></dd>
+<dt><b>-rnp_min_first</b> \<Boolean\></dt>
+<dd>Minimize the structure before RNP high res mover is applied<br/>Default: false<br/></dd>
+<dt><b>-rnp_ramp_rep</b> \<Boolean\></dt>
+<dd>Ramp fa_rep in RNP high res mover<br/>Default: false<br/></dd>
+<dt><b>-new_fold_tree_initializer</b> \<Boolean\></dt>
+<dd>Use the new fold tree initializer framework<br/>Default: false<br/></dd>
+<dt><b>-randomize_init_rnp</b> \<Boolean\></dt>
+<dd>Randomize the initial rigid body position and orientation of the RNA relative to proteins<br/>Default: true<br/></dd>
+<dt><b>-dock_into_density</b> \<Boolean\></dt>
+<dd>Do rigid body transforms to dock the pose into the density?<br/>Default: false<br/></dd>
+<dt><b>-dock_into_density_legacy</b> \<Boolean\></dt>
+<dd>Do rigid body transforms to dock the pose into the density legacy style?<br/>Default: false<br/></dd>
 <dt><b>-exclude_fragments</b> \<IntegerVector\></dt>
 <dd>Exclude these fragments from vall<br/>Default: []<br/></dd>
 <dt><b>-exclusion_match_type</b> \<String\></dt>
@@ -7574,6 +7631,16 @@ _Note that some application specific options may not be present in this list._
 <dd>Minimizer type<br/>Default: "lbfgs_armijo_nonmonotone"<br/></dd>
 <dt><b>-minimize_bps</b> \<Boolean\></dt>
 <dd>Minimize base pair steps (from Rosetta library)<br/>Default: true<br/></dd>
+<dt><b>-minimize_all_protein</b> \<Boolean\></dt>
+<dd>Minimize protein residues?<br/>Default: false<br/></dd>
+<dt><b>-minimize_protein_sc</b> \<Boolean\></dt>
+<dd>Minimize protein sidechains?<br/>Default: false<br/></dd>
+<dt><b>-protein_packing</b> \<Boolean\></dt>
+<dd>Pack protein residues?<br/>Default: false<br/></dd>
+<dt><b>-protein_pack_all</b> \<Boolean\></dt>
+<dd>Pack all protein residues?<br/>Default: false<br/></dd>
+<dt><b>-protein_packing_distance</b> \<Real\></dt>
+<dd>Pack protein residues within this distance of RNA<br/>Default: 10.0<br/></dd>
 <dt><b>-extra_minimize_res</b> \<ResidueChainVector\></dt>
 <dd>Extra residues during minimize step<br/>Default: []<br/></dd>
 <dt><b>-extra_minimize_chi_res</b> \<ResidueChainVector\></dt>
