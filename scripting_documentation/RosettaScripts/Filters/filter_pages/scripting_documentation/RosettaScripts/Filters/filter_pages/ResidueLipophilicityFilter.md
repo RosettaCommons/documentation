@@ -1,5 +1,7 @@
-# ResidueLipophilicity
-## ResidueLipophilicity
+# ResidueLipophilicityFilter
+## *Back to [[Filters|Filters-RosettaScripts]] page.*
+
+## ResidueLipophilicityFilter
 
 based on the MPResidueLipophilicity energy term, this filter calculates the mp_res_lipo score of the pose. this should be equivalent to the value reported by mp_res_lipo in the score file. 
 this filter can also print either to stdout or to a file some calculations done by mp_res_solv, mostly for debugging and further understanding the result
