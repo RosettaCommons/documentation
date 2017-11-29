@@ -1,5 +1,7 @@
 # TMsSpanMembraneFilter
 *Back to [[Filters|Filters-RosettaScripts]] page.*
+documentation written by Jonathan Weinstein jonathan.weinstein@weizmann.ac.il, Nov 2017
+
 ## TMsSpanMembraneFilter
 
 iterates over all spans requried by the AddMembrane mover (what the user required to be spanning the membrane),
