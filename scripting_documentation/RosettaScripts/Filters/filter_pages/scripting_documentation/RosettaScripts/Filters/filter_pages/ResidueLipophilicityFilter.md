@@ -1,5 +1,5 @@
 # ResidueLipophilicityFilter
-## *Back to [[Filters|Filters-RosettaScripts]] page.*
+*Back to [[Filters|Filters-RosettaScripts]] page.*
 
 ## ResidueLipophilicityFilter
 
@@ -28,3 +28,6 @@ this filter can also print either to stdout or to a file some calculations done 
 - cen_score - centroid level score
 - scorex - score times centorid multiplication
 - score - score from spline
+
+## See also
+* [[ResidueLipophilicityFilter]]
