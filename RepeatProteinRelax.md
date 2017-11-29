@@ -19,5 +19,6 @@ Options include:
 -  modify_symmetry_and_exit (only sets up symmetry)
 
 NOTE: Be sure to use with these flags:
--symmetry_definition stoopid
--old_sym_min true
+
+-  -symmetry_definition stoopid
+-  -old_sym_min true
