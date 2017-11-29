@@ -307,6 +307,7 @@ Mover  | Description
 **[[SetTemperatureFactor|SetTemperatureFactorMover]]** | Sets the temperature factor column in a PDB file
 **[[PSSM2Bfactor|PSSM2BfactorMover]]** | Sets the temperature factor column in a PDB file based on PSSM score
 **[[RemodelMover]]** (including building disulfides) | Loop building and refinement using Remodel
+**[[RepeatPropagationMover]]** | Propagates a repeat protein 
 **[[ReplaceRegionMover]]** | Replace a region of a pose with another of the same length.
 **[[RigidBodyTransMover]]** | Translates a chain along an axis
 **[[RigidBodyPerturbNoCenter]]** | Make a small, random translational and rotational move to move two parts of a pose relative to one another.
