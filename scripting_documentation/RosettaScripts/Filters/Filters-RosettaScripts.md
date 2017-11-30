@@ -100,7 +100,6 @@ Filter  | Description
 **[[HelixPairing|HelixPairingFilter]]** | Filter structures based on the geometry of helix pairings.
 **[[SecondaryStructure|SecondaryStructureFilter]]** | Filter structures based on secondary structure.
 **[[SecondaryStructureCount|SecondaryStructureCountFilter]]** | Count number of a single secondary structure element. 
-**[[SSElementCountFilter|SSElementCountFilter]]** | Counts number of a single secondary structure element. 
 **[[SecondaryStructureHasResidue|SecondaryStructureHasResidueFilter]]** | Count fraction of secondary structure element positions containing specific residue.
 **[[HelixKink|HelixKinkFilter]]** | Vaguely, filter based on helix topology.
 **[[Geometry|GeometryFilter]]** | Bond geometry and omega angle constraints
