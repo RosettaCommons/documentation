@@ -63,6 +63,7 @@ Mover  | Description
 **[[PyMolMover]]** | Send a pose to PyMol
 **[[RenderGridsToKinemage|RenderGridsToKinemageMover]]** | (for debugging) Creates a Kinemage file containing scoring grid(s)
 **[[ReportToDB|ReportToDBMover]]** | Report structural data to a relational database.
+**[[ReportXYZ|ReportXYZ]]** | Report X Y Z of specific residue to score line
 **[[ResetBaseline|ResetBaselineMover]]** | Reset the baseline (not needed for MC)
 **[[SavePoseMover]]** | Save or retrieve a pose for use in another mover/filter.
 **[[SilentTrajectoryRecorder|SilentTrajectoryRecorderMover]]** | Records a trajectory in a silent file
