@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-11-30
+Generated: 2017-12-02
 
 _Note that some application specific options may not be present in this list._
 
@@ -2306,6 +2306,8 @@ _Note that some application specific options may not be present in this list._
 <dd>mp option group<br/></dd>
 <dt><b>-thickness</b> \<Real\></dt>
 <dd>Thickness of the membrane used by the high resolution scoring function. Overwrites default thickness of 30A.<br/></dd>
+<dt><b>-membrane_core</b> \<Real\></dt>
+<dd>set membrane core thickness for Lazaridis-Karplus. default is 10A, i.e (-10, 10)<br/></dd>
 <dt><b>-steepness</b> \<Real\></dt>
 <dd>Control transition region between polar and nonpoar phases for the membrane model used by the high resolution energy function. Default = 10 gives a 6A transition region.<br/></dd>
 <dt><b>-center_start</b> \<RealVector\></dt>
