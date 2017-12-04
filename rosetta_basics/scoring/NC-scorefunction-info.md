@@ -103,9 +103,9 @@ Note that there are three scoring terms that all enforce closure of proline: **r
 
 Note also that **pro_close** has two behaviours: in addition to enforcing ring closure of proline residues, it also imposes torsional constraints on the omega torsion angle of the preceding residue.  If one wishes to continue to use **pro_close** for the latter purpose, but have **ring_close** handle ring closure, you can disable the ring closure part of **pro_close** with the **-score:no_pro_close_ring_closure** flag.  The two score terms, **pro_close** and **ring_close** should <i>only</i> be used together if this flag is set.  If **ring_close** is given the same weighting as **pro_close**, it enforces closure with the same strength.  More commonly, though, **ring_close** is probably going to be used with the MM scoring function.
 
-As a final note, there are situations in which it is not necessary to substitute **ring_close** for **pro_close**.  The **pro_close** term supports L-proline, D-proline, and L- and D-oligourea-proline ("OU3_PRO" and "DOU3_PRO", in Rosetta).
+As a final note, there are situations in which it is not necessary to substitute **ring_close** for **pro_close**.  The **pro_close** term supports L-proline, D-proline, and L- and D-oligourea-proline ("OU3\_PRO" and "DOU3\_PRO", in Rosetta).
 
-### Residue type composition control score term (aa_composition)
+### Residue type composition control score term (aa\_composition)
 Creator: Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
 
 This is a specialized scoring term intended for use during design (appended to a scoring function like talaris2014 or ref2015), which penalizes deviations from a desired amino acid composition (or, more generally, residue type composition) to guide the packer to "good" sequences.  For example, a user could specify that he or she wants a sequence that's 50% hydrophobic, contains exactly 1 tryptophan residue, and has no more than 4 alanine residues.  Full documentation is available [[here|AACompositionEnergy]].
@@ -113,7 +113,12 @@ This is a specialized scoring term intended for use during design (appended to a
 ### Net charge control score term (netcharge)
 Creator Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
 
-This score term penalizes deviations from a desired net charge during design.  Like aa_composition, it can be appended to a scoring function like talaris2014 or ref2015.  The term can operate on the whole pose or on selected sub-regions, where the selection is controlled with a residue selector.  This allows a user to specify, for example, that a pose should have a net neutral charge, but a binding pocket with a net negative charge (-1 or less) and a protein-protein interaction region with a net charge of exactly +2.  Full documentation is available [[here|NetChargeEnergy]].
+This score term penalizes deviations from a desired net charge during design.  Like aa\_composition, it can be appended to a scoring function like talaris2014 or ref2015.  The term can operate on the whole pose or on selected sub-regions, where the selection is controlled with a residue selector.  This allows a user to specify, for example, that a pose should have a net neutral charge, but a binding pocket with a net negative charge (-1 or less) and a protein-protein interaction region with a net charge of exactly +2.  Full documentation is available [[here|NetChargeEnergy]].
+
+### Voids penaty score term (voids_penalty)
+Creator Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
+
+This score term penalizes packer solutions that have buried cavities or voids.  This is another design-centric score term that is not pairwise decomposible, but is fast to compute and fast to update during the simulated annealing search performed by the packer.  This means that it can guide the packer to packed solutions with few buried voids.  Full documenatation is available [[here|VoidsPenaltyEnergy]].
 
 ### Penalty function for aspartimide-promoting sequences (aspartimide_penalty)
 Creator: Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
