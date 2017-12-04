@@ -150,3 +150,4 @@ The [[`aa_repeat`|Repeat-stretch-energy]] score term can be turned on during des
 * [[Hydrogen bond energy term|hbonds]]
 * [[Guides for non-protein inputs|non-protein-residues]]
 * [[Scoring options|score-options]]
+* [[Design-centric guidance functions|design-guidance-functions]]
