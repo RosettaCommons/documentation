@@ -135,7 +135,7 @@ Selects residues in the pose at random. Note that this residue selector is stoch
 
 #### ResidueIndexSelector
 
-    <Index name="(&string)" resnums="(&string)" error_on_out_of_bounds_index="(&bool true)" />
+    <Index name="(&string)" resnums="(&string)" error_on_out_of_bounds_index="(true &bool)" />
 
 -   The string given for the "resnums" option should be a comma-separated list of residue identifiers
 -   Each residue identifier should be either:
