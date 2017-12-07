@@ -18,7 +18,7 @@ Currently, it is still in development. Here are tips for use.  More will come.
 
 ## Structure Input
 
-* All Rosetta runs with carbohydrate-containing structures should use an option to make Rosetta carbohydrate-aware. An error will be thrown if this is not present.  
+* All Rosetta runs with carbohydrate-containing structures should use an option to make Rosetta carbohydrate-aware. An error will be thrown if this is not present. This option is also needed if you plan on glycosylating structures. 
 
         -include_sugars
 
@@ -37,7 +37,7 @@ PDBs from the RCSB should be able to be read in by default.  However, in order t
 
         -auto_detect_glycan_connections
 
-    * the maximum and minimum bond lengths for a conection to be found are 1.3 and 1.6 A. Since many structures are chemically incorrect, these parameters can be changed to detect unphysical bonds, too:
+    * the maximum and minimum bond lengths for a conection to be found are at a default of 1.15 and 1.65 A. Since many structures are chemically incorrect, these parameters can be changed to detect unphysical bonds, too:
 
              -min_bond_length < Real >
              -max_bond_length < Real >
@@ -92,6 +92,29 @@ RosettaScript Components
 [[GlycanTreeSelector]] - Select individual glcyan trees or all of them
 
 [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
+
+Scanning Glycan Sequons
+=======================
+Although an app is planned, one can use the `CreateGlycanSequonMover` in order to design the needed residues around a potential glycosylation site.  This effectively creates the Asn-X-Ser/Thr sequence motif.  Options are available to design the X, design around, or alternatively use other sequence motifs.   Please use rosetta_scripts.xxxrelease -info CreateGlycanSequonMover for more information and options.  A base script is shown below that uses the `-parser:script_vars` option to scan a protein for optimal glycosylation sites at the residues given and then glycosylate and model the carbohydrate.  It is recommended to create at least 100-1000 models of the carbohydrate at each position.
+
+```
+<ROSETTASCRIPTS>
+	<RESIDUE_SELECTORS>
+		<Index name="select" resnums="%%glycan_position%%" />
+	</RESIDUE_SELECTORS>
+	<MOVERS>
+		<CreateGlycanSequonMover name="create_motif" residue_selector="select" basic_enhanced_n_sequon="false" design_x_positions="false" pack_neighbors="1"/>
+		<SimpleGlycosylateMover name="glycosylate" residue_selector="select" glycosylation="%%glycosylation%%" strip_existing="1" />
+		<GlycanRelaxMover name="basic_relax" />
+		<GlycanTreeRelax name="tree_relax" quench_mode="false" rounds="1" layer_size="2" window_size="1"/>
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover_name="create_motif" />
+		<Add mover_name="glycosylate" />
+		<Add mover_name="tree_relax" />
+	</PROTOCOLS>
+</ROSETTASCRIPTS>
+``` 
 
 Glycosylating Structures
 =======================
@@ -157,7 +180,7 @@ print p.chain_sequence()
 
 Building Glycans
 ================
-Glycans can be built by themselves using PyRosetta.  There is currently no way to do this in RosettaScripts:
+Glycans can be built by themselves (IE NOT attached to a protein) using PyRosetta.  There is currently no way to do this in RosettaScripts:
 Glycans are creating using their IUPAC names. 
 
 To properly build an oligosaccharide, Rosetta must know the following details about each sugar residue being created in the following order:
