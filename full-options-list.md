@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-12-02
+Generated: 2017-12-06
 
 _Note that some application specific options may not be present in this list._
 
@@ -8242,6 +8242,8 @@ _Note that some application specific options may not be present in this list._
 <dd>closed cutpoints in full model<br/>Default: []<br/></dd>
 <dt><b>-cyclize</b> \<ResidueChainVector\></dt>
 <dd>cyclize points in full model<br/>Default: []<br/></dd>
+<dt><b>-twoprime</b> \<ResidueChainVector\></dt>
+<dd>twoprime branch points in full model<br/>Default: []<br/></dd>
 <dt><b>-fiveprime_cap</b> \<ResidueChainVector\></dt>
 <dd>fiveprime capped residues and their corresponding 7MGs<br/>Default: []<br/></dd>
 <dt><b>-other_poses</b> \<StringVector\></dt>
