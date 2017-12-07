@@ -178,7 +178,7 @@ print p.residue(3)
 print p.chain_sequence()
 ```
 
-Building Glycans
+Building Pure Glycans
 ================
 Glycans can be built by themselves (IE NOT attached to a protein) using PyRosetta.  There is currently no way to do this in RosettaScripts:
 Glycans are creating using their IUPAC names. 
