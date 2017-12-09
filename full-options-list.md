@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-12-06
+Generated: 2017-12-09
 
 _Note that some application specific options may not be present in this list._
 
@@ -38,6 +38,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Sets maximum O-C distance for glycan connection search. Default is 1.65 Angstroms.<br/>Default: 1.65<br/></dd>
 <dt><b>-min_bond_length</b> \<Real\></dt>
 <dd>Sets minimum O-C distance for glycan connection search. Default is 1.15 Angstroms.<br/>Default: 1.15<br/></dd>
+<dt><b>-glycan_virtual_offset</b> \<Real\></dt>
+<dd>Apply a very small offset to the glycan virtual positions to avoid collinearity in the angle minimization.<br/>Default: 0<br/></dd>
 <dt><b>-membrane</b> \<Boolean\></dt>
 <dd>Initialize pose as a membrane protein using specified membrane parameters. Default is false<br/>Default: false<br/></dd>
 <dt><b>-remember_unrecognized_res</b> \<Boolean\></dt>
@@ -68,8 +70,6 @@ _Note that some application specific options may not be present in this list._
 <dd>File that describes name3-property correspondence to fix up atom assignments<br/>Default: utility::vector1<std::string>(1,"code_properties.codes")<br/></dd>
 <dt><b>-alternate_3_letter_codes</b> \<StringVector\></dt>
 <dd>Specify the filename(s) of (a) *.codes files that includes a list of alternative 3-letter codes.  The default directory is database/input_output/3-letter_codes/ but any path can be provided.  Duplicate codes in successive files will overwrite previous ones.<br/></dd>
-<dt><b>-only_chairs</b> \<Boolean\></dt>
-<dd>Triggers loading of only the chair conformations of sugars with 6 member rings.<br/>Default: false<br/></dd>
 <dt><b>-maintain_links</b> \<Boolean\></dt>
 <dd>Maintains link records in the PDB when using auto_detect_glycans<br/>Default: false<br/></dd>
 <dt><b>-fix_disulf</b> \<File\></dt>
@@ -345,6 +345,8 @@ _Note that some application specific options may not be present in this list._
 <dd>By default, CONECT information is written for all noncanonicals and HETATMs, except waters.  If this flag is set to true, it will be written for ALL residues, subject to the distance cutoff (-inout:connect_info_cufoff) and overridden by -inout:skip_connect_info.<br/>Default: false<br/></dd>
 <dt><b>-connect_info_cutoff</b> \<Real\></dt>
 <dd>The atom separation cutoff above which bonded atoms have explicit CONECT records written so that programs like PyMOL know the atomic connectivity.  Default 0.0 Angstroms (write all records).<br/>Default: 0.0<br/></dd>
+<dt><b>-output_alternate_atomids</b> \<Boolean\></dt>
+<dd>Use the alternate atom IDS as stored in the params files when available<br/>Default: false<br/></dd>
 </dl>
 + <h3>-inout:dbms</h3>
 <dl>
@@ -1153,6 +1155,8 @@ _Note that some application specific options may not be present in this list._
 <dd>use alternative envsmooth table with a floor of 0.0 (envsmooth awards no energy bonus)<br/>Default: false<br/></dd>
 <dt><b>-rama_power</b> \<Real\></dt>
 <dd>If rama > 0.0, raise to the nth power.  This has been useful for Foldit design.  Note that this creates derivative discontinuities, so it should be used with caution!  If not specified, the default rama behaviour (no power function) is preserved.<br/>Default: 1.0<br/></dd>
+<dt><b>-ideal_sugars</b> \<Boolean\></dt>
+<dd>Triggers loading of only the ideal chair conformations of sugars with 6 member rings.<br/>Default: false<br/></dd>
 <dt><b>-hbond_fade</b> \<Real\></dt>
 <dd>fade_factor for hbond geometry softmax<br/>Default: 2.5<br/></dd>
 <dt><b>-hbond_new_sp3_acc</b> \<Boolean\></dt>
