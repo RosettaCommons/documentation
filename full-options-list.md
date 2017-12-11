@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-12-09
+Generated: 2017-12-11
 
 _Note that some application specific options may not be present in this list._
 
@@ -7406,6 +7406,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Low resolution scorefunction weights file<br/>Default: "farna/rna_lores.wts"<br/></dd>
 <dt><b>-set_lores_weights</b> \<StringVector\></dt>
 <dd>Modification to lores scorefxnweights via the command line. Applied in ScoreFunctionFactory::create_score_function inside the function apply_user_defined_reweighting_. Format is a list of paired strings: -set_lores_weights <score_type1> <setting1> <score_type2> <setting2> ...<br/>Default: []<br/></dd>
+<dt><b>-symm_hack_arity</b> \<Integer\></dt>
+<dd>For hacky symmetry that forces matching fragment insertions, what's the n-repeats?<br/>Default: 1<br/></dd>
 <dt><b>-params_file</b> \<String\></dt>
 <dd>Input file for pairings [deprecated!]<br/>Default: "default.prm"<br/></dd>
 <dt><b>-filter_lores_base_pairs</b> \<Boolean\></dt>
