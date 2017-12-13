@@ -7,6 +7,9 @@ Here is a list of Score Function options
                                            Default="talaris2013". [String]
 -score:patch                               Name of patch file (without extension)
                                            Default="". [String]
+-score:set_weights                         Modification to weights via the command line. 
+                                           List of paired strings: -score::set_weights <score_type1> <setting1>         
+                                           <score_type2> <setting2> ...
 -score:empty                               Make an empty score - i.e. NO scoring. [Boolean]
 -score:fa_max_dis                          How far does the FA pair potential go out to.
                                            Default = '6.0'. [Real]
