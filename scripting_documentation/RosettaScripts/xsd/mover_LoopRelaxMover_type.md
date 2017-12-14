@@ -28,6 +28,6 @@ Allows protocols in LoopMover_KIC to be combined with other loop modeling protoc
 -   **read_fragments**: Read loop fragments files from command line
 -   **scorefxn**: Name of score function to use
 -   **score4L**: Name of score function to use
--   **loops**: XRW TO DO
+-   **loops**: The format for loops is: Start:End:Cut,Start:End:Cut...
 
 ---

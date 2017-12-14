@@ -9,6 +9,6 @@ Remove constraints defined by the specified constraint generators from the pose
 <RemoveConstraints name="(&string;)" constraint_generators="(&string;)" />
 ```
 
--   **constraint_generators**: (REQUIRED) XRW TO DO
+-   **constraint_generators**: (REQUIRED) List of constraint generator names, separated by a comma
 
 ---

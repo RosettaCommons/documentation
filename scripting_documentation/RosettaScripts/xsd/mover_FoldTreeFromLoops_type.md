@@ -9,6 +9,6 @@ Helper mover that looks for loop definitions and sets up the fold tree.
 <FoldTreeFromLoops name="(&string;)" loops="(&string;)" />
 ```
 
--   **loops**: XRW TO DO
+-   **loops**: The format for loops is: Start:End:Cut,Start:End:Cut...
 
 ---
