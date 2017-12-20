@@ -4,6 +4,8 @@ _Note:  This documentation is for the HBNet mover.  For information on the `hbne
 
 ##HBNet
 
+###UPDATE 12/2017: Jack Maguire's new Monte Carlo sampling approach (MC-HBNet) is now in master and it is highly recommended (likely become the default soon); it is much faster, enables consistent runtimes and memory, and consistently yields a larger number of high-quality networks in a much shorter runtime.  To use it, simply add ```monte_carlo_branch="true"``` to the HBNet mover.  To control the number of MC trials, set ```total_num_mc_runs="100000"```; making this value smaller will result in shorter runtimes, making it bigger will result in longer runtimes (and often more solutions).  Everything else is the same as original HBNet.
+
 HBNet is a method to explicitly detect and design hydrogen bond networks within Rosetta.  It functions as a mover within the RosettaScripts framework and will exhaustively search for all networks within the design space that you define with [[TaskOperations|TaskOperations-RosettaScripts]], and that meet the criteria you specify with the options below
 
 *[[how buried unsatisfied polar atoms are handled by HBNet|HBNet-BUnsats]].*<br>
@@ -12,7 +14,15 @@ HBNet is a method to explicitly detect and design hydrogen bond networks within 
 *[[how the code works and hooking into it HBNet|HBNet-Code]].*<br>
 *[[how HBNet handles symmetric cases|HBNet-Symmetry]].*<br>
 
-In general, HBNet should work with any existing XML by places it in the beginning of your design steps.  Because HBNet returns multiple poses (each with different networks or combinations of networks), everything downstream of HBNet must use the [[MultiplePoseMover]].  Here is a template XML:
+In general, HBNet should work with any existing XML by places it in the beginning of your design steps.  Because HBNet returns multiple poses (each with different networks or combinations of networks), everything downstream of HBNet must use the [[MultiplePoseMover]].  
+
+### Quickstart: what you absolutely must have in your XML to effectively use HBNet:
+
+1. Call either the HBNet or HBNetStapleInterface mover in your PROTOCOLS block before your main design steps
+2. Call a MultiplePoseMover (MPM) immediately after HBNet; then inside the MPM, paste your normal design XML -- this will design your pose as you normally would, but with the networks already there and fixed in place.
+3. For all of your design movers in MPM, be sure to pass the following task operation to ensure networks aren't designed away: HBNet automatically applies csts to ensure the h-bonds stay in place, but if you change the AA type with taskops, the csts can no longer be properly applied.
+
+###Template XML:
 ```
 <ROSETTASCRIPTS>
    <SCOREFXNS>
@@ -24,10 +34,17 @@ In general, HBNet should work with any existing XML by places it in the beginnin
    <FILTERS>
    </FILTERS>
    <MOVERS>
-      <HBNet name=hbnet_mover scorefxn=[YOUR_SCORE_FUNCTION] hb_threshold=-0.5 min_network_size=3 max_unsat=1 write_network_pdbs=1 task_operations=[YOUR_TASK_OPS,HERE] />
+      <HBNet name=hbnet_mover scorefxn=[YOUR_SCORE_FUNCTION] hb_threshold=-0.5 min_network_size=3 max_unsat=1 write_network_pdbs=1 task_operations=[YOUR_TASK_OPS_HERE] />
       <MultiplePoseMover name=MPM_design max_input_poses=100>
          <ROSETTASCRIPTS>
-                PASTE YOUR ENTIRE CURRENT XML HERE
+                PASTE YOUR ENTIRE CURRENT DESIGN XML HERE
+                # only use _cst scorefxn during design to make sure the constraints automatically turned on by HBNet are respected
+                # residue selector and taskop to ensure network residues aren't designed away
+                # residue selector will automatically detect all HBNet residues
+                <ResiduePDBInfoHasLabel name="hbnet_residues" property="HBNet" />
+                <OperateOnResidueSubset name="hbnet_task" selector="hbnet_residues">
+                    <RestrictToRepackingRLT/> # can also use PreventRepackingRLT here, but I find that repack only works best, because it allows some wiggle room, and the csts applied automatically by h-bond keep the h-bonds in place
+                </OperateOnResidueSubset>
          </ROSETTASCRIPTS>
        </MultiplePoseMover>
 <PROTOCOLS>
@@ -35,6 +52,27 @@ In general, HBNet should work with any existing XML by places it in the beginnin
   <Add mover_name=MPM_design/>
 </PROTOCOLS>
 </ROSETTASCRIPTS>
+```
+
+##Specific cases and usage examples: 
+HBNet is a base classes that can be derived from to override key functions that do the setup, design and processing of the networks differently:
+
+###HBNetStapleInterface: for designing protein-protein interfaces:
+
+```
+<HBNetStapleInterface name="(&string)" hb_threshold="(&real -0.5)" stringent_satisfaction="(&bool true)" />
+```
+
+** There used to be HBNetLigand and HBNetCore, but both of these design cases are better accomplished now by using the regular HBNet mover with the right options **
+
+### Designing networks into the core of a monomer:
+```
+<HBNet name=hbnet_mover scorefxn=[YOUR_SCORE_FUNCTION] hb_threshold=-0.5 min_network_size=3 max_unsat=1 write_network_pdbs=1 task_operations=[YOUR_TASK_OPS_HERE] />
+```
+
+### Designing networks around a polar small molecule ligand
+```
+<HBNet name=hbnet_mover scorefxn=[YOUR_SCORE_FUNCTION] hb_threshold=-0.5 min_network_size=3 max_unsat=1 write_network_pdbs=1 task_operations=[YOUR_TASK_OPS_HERE] />
 ```
 
 ###Options universal to all HBNet movers
@@ -64,23 +102,12 @@ In general, HBNet should work with any existing XML by places it in the beginnin
 ####Experimental options - use at your own risk!
 - <b>secondary_search</b> (bool &false): if during IG traversal, a search trajectory terminates in rotamer than cannot make any h-bonds, search again from that rotamer using a lower hb_threshold (-0.25).
 
-## Specific cases
-HBNet is a base classes that can be derived from to override key functions that do the setup, design and processing of the networks differently:
-
-###HBNetStapleInterface
-
-
-```
-<HBNetStapleInterface name="(&string)" hb_threshold="(&real -0.85)" stringent_satisfaction="(&bool true)" />
-```
-
-UNDER CONSTRUCTION
-
-###HBNetLigand
-
-###HBNetCore
-
-UNDER CONSTRUCTION
+###General guidelines and advice :
+1. If your problem involves interface design, use HBNetStapleInterface, which automatically detects interfaces, starts the search at interface residues, and requires that each network spans an interface (defined as at least 2 different chains must contribute a sidechain to each network); it will still search your entire design space (as defined by your task operations), so the networks have the potential to branch out from the interface as far as you'll let them.  Because we ultimately want satisfied networks, it's important that your taskops allow some additional residues around the interface to be packable/designable, so that second shell h-bonds can fully satisfy the network.  This will be hard if you only set interface residues to be designable.
+2. If you have a monomer (e.g. you're trying to internally satisfy a loop), use regular HBNet mover, but be sure to 1) specify start_selector option (residue selector that HBNet will use to initiate the search, ensuring that each network contains at least one starting residue), and 2) specify task operations to focus your design space.  If you don't do these two things, and your pose is >100aa, HBNet may run for weeks...or years...
+3. In general, Use the same taskops that you'd normally use for your design case, but just ensure that polar residues are allowed (e.g. in LayerDesign, add the polar aa's you want to consider to the core layer)
+4. In general, more restrictive is better -- the more you can guide HBNet with task operations and setting the correct options, the faster it will run, and the more likely it is to give you what you want.
+5. Some rules of thumb: start with hb_threshold = "-0.5" and no ex1ex2 in your taskop.  If you must use extra rotamers, start with hb_threshold = "-0.7"; if you are not getting the output that you want, and the runtime is reasonably fast, then make these criteria looser: make hb_threshold more positive (never go past -0.25), include extra rotamers, and make your taskops broader.  If your run is too slow, make these same things more stringent.  It's normal that you have to do some scouting to find the right settings for your design case -- but also keep in mind that many docks or scaffolds simply won't be able to accommodate perfect network -- it's a numbers game: the more you can sample, the more likely you'll find good network.
 
 ##See Also
 
