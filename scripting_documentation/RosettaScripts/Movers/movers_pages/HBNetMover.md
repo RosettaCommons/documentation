@@ -11,7 +11,6 @@ Jack Maguire's new Monte Carlo sampling approach (MC-HBNet) is now in master and
 *[[how buried unsatisfied polar atoms are handled by HBNet|HBNet-BUnsats]].*<br>
 *[[how to design hydrogen bond networks into helical bundles|HBNet-HelicalBundle]].*<br>
 *[[how HBNet works|HBNet-HowItWorks]].*<br>
-*[[how the code works and hooking into it HBNet|HBNet-Code]].*<br>
 *[[how HBNet handles symmetric cases|HBNet-Symmetry]].*<br>
 
 In general, HBNet should work with any existing XML by places it in the beginning of your design steps.  Because HBNet returns multiple poses (each with different networks or combinations of networks), everything downstream of HBNet must use the [[MultiplePoseMover]].  
