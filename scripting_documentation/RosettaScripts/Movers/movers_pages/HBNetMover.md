@@ -16,13 +16,13 @@ Jack Maguire's new Monte Carlo sampling approach (MC-HBNet) is now in master and
 
 In general, HBNet should work with any existing XML by places it in the beginning of your design steps.  Because HBNet returns multiple poses (each with different networks or combinations of networks), everything downstream of HBNet must use the [[MultiplePoseMover]].  
 
-### Quickstart: what you absolutely must have in your XML to effectively use HBNet:
+####Quickstart: what you absolutely must have in your XML to effectively use HBNet:
 
-1. Call either the HBNet or HBNetStapleInterface mover in your PROTOCOLS block before your main design steps
-2. Call a MultiplePoseMover (MPM) immediately after HBNet; then inside the MPM, paste your normal design XML -- this will design your pose as you normally would, but with the networks already there and fixed in place.
-3. For all of your design movers in MPM, be sure to pass the following task operation to ensure networks aren't designed away: HBNet automatically applies csts to ensure the h-bonds stay in place, but if you change the AA type with taskops, the csts can no longer be properly applied.
+1. Call either the ```HBNet``` or ```HBNetStapleInterface``` mover in your PROTOCOLS block before your main design steps
+2. Call ```MultiplePoseMover``` (MPM) immediately after HBNet; then inside the MPM, paste your normal design XML; this will design your pose as you normally would, but with the networks already there and fixed in place.
+3. For all of your design movers in MPM, be sure to pass the following task operation (see Template XML below) to ensure networks aren't designed away: HBNet automatically applies csts to ensure the h-bonds stay in place, but if you change the AA type with taskops, the csts can no longer be properly applied.  On this same note, be sure to **only use \_cst scorefxns for design steps post-HBNet**
 
-###Template XML:
+####Template XML:
 ```
 <ROSETTASCRIPTS>
    <SCOREFXNS>
@@ -34,7 +34,7 @@ In general, HBNet should work with any existing XML by places it in the beginnin
    <FILTERS>
    </FILTERS>
    <MOVERS>
-      <HBNet name=hbnet_mover scorefxn=[YOUR_SCORE_FUNCTION] hb_threshold=-0.5 min_network_size=3 max_unsat=1 write_network_pdbs=1 task_operations=[YOUR_TASK_OPS_HERE] />
+      <HBNet name=hbnet_mover scorefxn=[YOUR_SCORE_FUNCTION] hb_threshold=-0.5 min_network_size=3 max_unsat_Hpol=1 write_network_pdbs=1 task_operations=[YOUR_TASK_OPS_HERE] />
       <MultiplePoseMover name=MPM_design max_input_poses=100>
          <ROSETTASCRIPTS>
                 PASTE YOUR ENTIRE CURRENT DESIGN XML HERE
@@ -54,31 +54,32 @@ In general, HBNet should work with any existing XML by places it in the beginnin
 </ROSETTASCRIPTS>
 ```
 
-##Specific cases and usage examples: 
+###Specific cases and usage examples: 
 HBNet is a base classes that can be derived from to override key functions that do the setup, design and processing of the networks differently:
 
-###HBNetStapleInterface: for designing protein-protein interfaces:
-
+####HBNetStapleInterface: for designing protein-protein interfaces:
+Expects a pose with >= 2 chains and will by default start the network search at all interface residues, attempting to find h-bond networks that span across the interface.
 ```
 <HBNetStapleInterface name="(&string)" hb_threshold="(&real -0.5)" stringent_satisfaction="(&bool true)" />
 ```
 
 ** There used to be HBNetLigand and HBNetCore, but both of these design cases are better accomplished now by using the regular HBNet mover with the right options **
 
-### Designing networks into the core of a monomer:
+#### Designing networks into the core of a monomer:
+The default is that it will start searching at all positions in the monomeric Pose, which is often note ideal: if possible specify ```start_selector``` to start at positions you want to potentially be part of the networks, and define your design space carefully with ```task_operations```.
 ```
-<HBNet name=hbnet_mover scorefxn=[YOUR_SCORE_FUNCTION] hb_threshold=-0.5 min_network_size=3 max_unsat=1 write_network_pdbs=1 task_operations=[YOUR_TASK_OPS_HERE] />
+<HBNet scorefxn="beta" monte_carlo_branch="true" total_num_mc_runs="100000" core_selector="core" name="hbnet" hb_threshold="-0.5" min_core_res="2" minimize="false" min_network_size="5" max_unsat_Hpol="2" start_selector="[YOUR_SELECTOR]" task_operations="[YOUR TASKOPS" />
 ```
 
-### Designing networks around a polar small molecule ligand
+#### Designing networks around a polar small molecule ligand
 ```
-<HBNet name=hbnet_mover scorefxn=[YOUR_SCORE_FUNCTION] hb_threshold=-0.5 min_network_size=3 max_unsat=1 write_network_pdbs=1 task_operations=[YOUR_TASK_OPS_HERE] />
+<HBNet name="hbnet_ligand" scorefxn="standardfxn" hb_threshold="-0.5" start_selector="ligand" design_residues="STNQYW" write_cst_files="False" write_network_pdbs="False" store_subnetworks="False" minimize="False" min_network_size="3" max_unsat_Hpol="0" task_operations="no_design_or_pack,limitAroChi" keep_start_selector_rotamers_fixed="True"/>
 ```
 
 ###Options universal to all HBNet movers
 - <b>hb\_threshold</b> (-0.5 &Real): 2-body h-bond energy cutoff to define rotamer pairs that h-bond.  I've found that -0.5 without ex1-ex2 is the best starting point.  If using ex1-ex2, try -0.75.  This parameter is the most important and requires some tuning; the tradeoff is that the more stringent (more negative), the faster it runs but you miss a lot of networks; too positive and it will run forever; using ex1-ex2 results in many redundant networks that end up being filtered out anyway.
 - <b>scorefxn</b>: The scoring function to use.  If not passed, default is talaris, or if -beta flag is on, default is beta wts.
-- <b>max\_unsats</b> (1 &Size): maximum number of buried unsatisfied polar atoms allowed in each network.  Note that *[[the way I treat buried unsats|HBNet-BUnsats]].* is very different from all of the other Buried Unsatisfied calculators/filters in Rosetta.  I have plans to move this code outside of HBNet and turn it into its own calculator/filter.  Short version is that if there are heavy atom donors or acceptors that are buried and unsatisfied, those networks are thrown out, and I only count unsatisfied Hpols where the heavy atom donor is making at least one hydrogen bond.  This behavior can be overridden to allow heavy atom unsats by setting <b>no_heavy_unsats_allowed=false</b>.
+- <b>max\_unsat\_Hpol</b> (1 &Size): maximum number of buried unsatisfied polar atoms allowed in each network.  Note that *[[the way I treat buried unsats|HBNet-BUnsats]].* is very different from all of the other Buried Unsatisfied calculators/filters in Rosetta.  I have plans to move this code outside of HBNet and turn it into its own calculator/filter.  Short version is that if there are heavy atom donors or acceptors that are buried and unsatisfied, those networks are thrown out, and I only count unsatisfied Hpols where the heavy atom donor is making at least one hydrogen bond.  This behavior can be overridden to allow heavy atom unsats by setting <b>no_heavy_unsats_allowed=false</b>.
 - <b>scorefxn</b>: The scoring function to use.  If not passed, default is talaris, or if -beta flag is on then the default is beta wts.
 - <b>write_network_pdbs</b>: writes out pdb files of only the network (in poly-Ala background where any designable/packable residue is Ala -- rest of pose untouched); this is simply for debugging and visualizing the network as detected by HBNet
 - <b>write_cst_files</b>: writes out Rosetta .cst constraint files for each network.
