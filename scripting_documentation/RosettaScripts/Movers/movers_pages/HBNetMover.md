@@ -3,10 +3,10 @@
 _Note:  This documentation is for the HBNet mover.  For information on the `hbnet` design-centric score term, an alternative method for creating hydrogen bond networks, see [[this page|HBNetEnergy]]._
 
 ##HBNet
-
-###UPDATE 12/2017: Jack Maguire's new Monte Carlo sampling approach (MC-HBNet) is now in master and it is highly recommended (likely become the default soon); it is much faster, enables consistent runtimes and memory, and consistently yields a larger number of high-quality networks in a much shorter runtime.  To use it, simply add ```monte_carlo_branch="true"``` to the HBNet mover.  To control the number of MC trials, set ```total_num_mc_runs="100000"```; making this value smaller will result in shorter runtimes, making it bigger will result in longer runtimes (and often more solutions).  Everything else is the same as original HBNet.
-
 HBNet is a method to explicitly detect and design hydrogen bond networks within Rosetta.  It functions as a mover within the RosettaScripts framework and will exhaustively search for all networks within the design space that you define with [[TaskOperations|TaskOperations-RosettaScripts]], and that meet the criteria you specify with the options below
+
+###UPDATE 12/2017:
+Jack Maguire's new Monte Carlo sampling approach (MC-HBNet) is now in master and it is highly recommended (likely become the default soon); it is much faster, enables consistent runtimes and memory, and consistently yields a larger number of high-quality networks in a much shorter runtime.  To use it, simply add ```monte_carlo_branch="true"``` to the HBNet mover.  To control the number of MC trials, set ```total_num_mc_runs="100000"```; making this value smaller will result in shorter runtimes, making it bigger will result in longer runtimes (and often more solutions).  Everything else is the same as original HBNet.
 
 *[[how buried unsatisfied polar atoms are handled by HBNet|HBNet-BUnsats]].*<br>
 *[[how to design hydrogen bond networks into helical bundles|HBNet-HelicalBundle]].*<br>
