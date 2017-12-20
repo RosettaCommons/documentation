@@ -58,17 +58,18 @@ HBNet is a base classes that can be derived from to override key functions that 
 
 ####HBNetStapleInterface: for designing protein-protein interfaces:
 Expects a pose with >= 2 chains and will by default start the network search at all interface residues, attempting to find h-bond networks that span across the interface.
+
 ```
 # symmetric
 <HBNetStapleInterface scorefxn="hard_symm" name="hbnet_interf" hb_threshold="-0.5"design_residues="NSTQHYW" write_network_pdbs="true" min_networks_per_pose="1" max_networks_per_pose="4" use_aa_dependent_weights="true" min_core_res="2" min_network_size="3" max_unsat_Hpol="3" onebody_hb_threshold="-0.3" task_operations="arochi,init_layers,current" />
 
 # asymmetric
 <HBNetStapleInterface scorefxn="hard" name="hbnet_interf" hb_threshold="-0.5"design_residues="NSTQHYW" write_network_pdbs="true" min_intermolecular_hbonds="3" min_networks_per_pose="1" max_networks_per_pose="4" use_aa_dependent_weights="true" min_core_res="2" min_network_size="3" max_unsat_Hpol="3" task_operations="arochi,init_layers,current" />
-
 ``` 
+
 * Useful options:
-For helical bundles, ```min_helices_contacted_by_network="4"``` would require that 4 different helices each contribute at least 1 rotamer to each h-bond network for it to pass
-```max_networks_per_pose="4"``` will try outputting up to 4 compatible networks at once when returning output poses.
+* For helical bundles, ```min_helices_contacted_by_network="4"``` would require that 4 different helices each contribute at least 1 rotamer to each h-bond network for it to pass
+* Combining multiple networks in same output PDB: ```min_networks_per_pose="24"``` with ```max_networks_per_pose="4"``` will try outputting combinations of between 2 to 4 compatible networks at once when returning output poses.
 
 * There used to be HBNetLigand and HBNetCore, but both of these design cases are better accomplished now by using the regular HBNet mover with the right options
 
