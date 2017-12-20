@@ -71,7 +71,7 @@ Expects a pose with >= 2 chains and will by default start the network search at 
 * For helical bundles, ```min_helices_contacted_by_network="4"``` would require that 4 different helices each contribute at least 1 rotamer to each h-bond network for it to pass
 * Combining multiple networks in same output PDB: ```min_networks_per_pose="24"``` with ```max_networks_per_pose="4"``` will try outputting combinations of between 2 to 4 compatible networks at once when returning output poses.
 
-####There used to be HBNetLigand and HBNetCore movers, but both of these design cases are better accomplished now by using the regular HBNet mover with the right options (see below):
+**There used to be HBNetLigand and HBNetCore movers, but both of these design cases are better accomplished now by using the regular HBNet mover with the right options (see below):**
 
 #### Designing networks into the core of a monomer:
 The default is that it will start searching at all positions in the monomeric Pose, which is often note ideal: if possible specify ```start_selector``` to start at positions you want to potentially be part of the networks, and define your design space carefully with ```task_operations```.
