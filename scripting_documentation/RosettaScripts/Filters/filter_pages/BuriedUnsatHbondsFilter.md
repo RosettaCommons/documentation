@@ -16,11 +16,13 @@ All info about all unsat types is reported to log, and can be printed to pdb fil
 # old filter, recapitulates results of this filter before Dec 16 2017
 <BuriedUnsatHbonds use_legacy_options="true" name="(&string)" scorefxn="(&string)" jump_number="(1 &Size)" cutoff="(20 &Size)" task_operations="(&string)"/>
 
-# report the number of backbone (bb) heavy-atom buns, using residue selector
-<BuriedUnsatHbonds name="new_buns_bb_heavy" residue_selector="(&string)" report_bb_heavy_atom_unsats="true" scorefxn="(&string)" residue_surface_cutoff="20.0" ignore_surface_res="true" print_out_info_to_pdb="true" confidence="0"/>
+# report number of backbone (bb) heavy-atom buns, using residue selector:
+#  many native and de novo backbones have at least a couple of legit buried unsats in the backbone; most occur in loops or other flexible regions, but setting this to 0 will throw out potentially good designs; best to set cutoff to a few, or use confidence="0"
+<BuriedUnsatHbonds name="new_buns_bb_heavy" residue_selector="(&string)" report_bb_heavy_atom_unsats="true" scorefxn="(&string)" cutoff="4" residue_surface_cutoff="20.0" ignore_surface_res="true" print_out_info_to_pdb="true" />
 
 # report the number of sidechain (sc) heavy-atom buns, using a residue selector
-<BuriedUnsatHbonds name="new_buns_sc_heavy" residue_selector="(&string)" report_sc_heavy_atom_unsats="true" scorefxn="(&string)" residue_surface_cutoff="20.0" ignore_surface_res="true" print_out_info_to_pdb="true" confidence="0"/>
+#  if doing design, and residue selector is design space, you want this to be 0
+<BuriedUnsatHbonds name="new_buns_sc_heavy" residue_selector="(&string)" report_sc_heavy_atom_unsats="true" scorefxn="(&string)" cutoff="0" residue_surface_cutoff="20.0" ignore_surface_res="true" print_out_info_to_pdb="true" />
 
 ```
 
@@ -49,7 +51,7 @@ The filter is now Symmetry aware.  The default for Symmetric case is that symmet
 -   report_bb_heavy_atom_unsats: report back bone heavy atom unsats.
 -   report_nonheavy_unsats: report non heavy atom unsats (Hpol).
 -   use_hbnet_behavior: no heavy unstas allowed (will return 9999); if no heavy unstas, will count Hpol unsats; FALSE by default; if set to true, will NOT use reporter behavior.
--   sym_dof_names: For multicomponent symmetry: what jump(s) used for ddG-like separation. (From Dr. Bale: For multicomponent systems, one can simply pass the names of the sym_dofs that control the master jumps. For one component systems, jump can still be used.)  IF YOU DEFIN THIS OPTION, Will use ddG-style separation for the calulation.
+-   sym_dof_names: For multicomponent symmetry: what jump(s) used for ddG-like separation. (From Dr. Bale: For multicomponent systems, one can simply pass the names of the sym_dofs that control the master jumps. For one component systems, jump can still be used.)  IF YOU DEFINE THIS OPTION, it will use ddG-style separation for the calculation.
 -   residue_selector: residue selector that tells the filter to restrict the Unsat search to only those residues.
 -   task_operations: define residues to look at by task operations (legacy behavior of old filter); now recommended to use residue_selector instead.
 
