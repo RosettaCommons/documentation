@@ -76,16 +76,18 @@ The default is that it will start searching at all positions in the monomeric Po
 ```
 
 ###FAQ
-**Why do my output poses all have clashes?**  HBNet will return networks iteratively by placing them onto your input Pose; because each network doesn't constitute the entire design space (packable/design residues) it is common and expected to see clashes between network residues and untouched input residues if you output directly after HBNet; **the assumption is that any residues that are packable/designable during HBNet will also be packable/designable during downstream design**, which will be performed after HBNet. 
- If this is not desired, you have 2 options:
+**Why do my output poses all have clashes?**  HBNet will return networks iteratively by placing them onto your input Pose; because each network doesn't constitute the entire design space (packable/design residues) it is common and expected to see clashes between network residues and untouched input residues if you output directly after HBNet; **the assumption is that any residues that are packable/designable during HBNet will also be packable/designable during downstream design**, which will be performed after HBNet. If this is not desired, you have 2 options:
+
 1. Make all packable/designable positions (except PRO/GLY/Disulfide) poly-ALA and place the network onto that Pose for output: ```output_poly_ala_background="true"```
 2. You can output these poly-ALA background poses in addition to standard output with  ```write_network_pdbs="true"```; useful for debugging and inspection (or to check if your network changed during downstream design).
 
 **Why is HBNet so slow?** The best way to handle this is to now use MC-HBNet by passing ```monte_carlo_branch="true"```, but in all cases, especially original HBNet, the runtime will scale with the size of your design space, and how many networks are found (which is kind of a catch-22, because you likely want to find a lot of networks).  There are several ways to make HBNet much faster (and often get better results too):
+
 1. Make ```hb_threshold``` more stringent (more negative).  With MC-HBNet you can safely set it to -0.5; with original HBNet, use -0.5 unless using ex1ex2, in which case start at -0.75
 2. Be more specific with your ```task_operations```; the more you can restrict your design space, and especially high-entropy sidechains (Lys/Arg), the better.
 3. Use ```start_selector``` to only start searching at a small number of positions of interest.
 4. Make use of the options to only allow the properties you desire, e.g. ```min_network_size="5"```
+
 
 
 ###Options universal to all HBNet movers
