@@ -75,6 +75,16 @@ The default is that it will start searching at all positions in the monomeric Po
 <HBNet name="hbnet_ligand" scorefxn="standardfxn" hb_threshold="-0.5" start_selector="ligand" design_residues="STNQYW" write_cst_files="False" write_network_pdbs="False" store_subnetworks="False" minimize="False" min_network_size="3" max_unsat_Hpol="0" task_operations="no_design_or_pack,limitAroChi" keep_start_selector_rotamers_fixed="True"/>
 ```
 
+###FAQ
+* **Why do my output poses all have clashes?**
+output_poly_ala_background="true"
+* **Why is HBNet so slow?** The best way to handle this is to now use MC-HBNet by passing ```monte_carlo_branch="true"```, but in all cases, especially original HBNet, the runtime will scale with the size of your design space, and how many networks are found (which is kind of a catch-22, because you likely want to find a lot of networks).  There are several ways to make HBNet much faster (and often get better results too):
+1. Make ```hb_threshold``` more stringent (more negative).  With MC-HBNet you can safely set it to -0.5; with original HBNet, use -0.5 unless using ex1ex2, in which case start at -0.75
+2. Be more specific with your ```task_operations```; the more you can restrict your design space, and especially high-entropy sidechains (Lys/Arg), the better.
+3. Use ```start_selector``` to only start searching at a small number of positions of interest.
+4. Make use of the options to only allow the properties you desire, e.g. ```min_network_size="5"```
+
+
 ###Options universal to all HBNet movers
 - <b>hb\_threshold</b> (-0.5 &Real): 2-body h-bond energy cutoff to define rotamer pairs that h-bond.  I've found that -0.5 without ex1-ex2 is the best starting point.  If using ex1-ex2, try -0.75.  This parameter is the most important and requires some tuning; the tradeoff is that the more stringent (more negative), the faster it runs but you miss a lot of networks; too positive and it will run forever; using ex1-ex2 results in many redundant networks that end up being filtered out anyway.
 - <b>scorefxn</b>: The scoring function to use.  If not passed, default is talaris, or if -beta flag is on, default is beta wts.
