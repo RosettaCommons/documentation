@@ -4,7 +4,7 @@
 
 This [[mover]] is directly served by the [[InterfaceAnalyzer|interface-analyzer]] application, and better documented there.
 
-Calculate binding energies, buried interface surface areas, packing statistics, and other useful interface metrics for the evaluation of protein interfaces.
+Calculate binding energies, buried interface surface areas, packing statistics, and other useful interface metrics for the evaluation of protein interfaces.  It will not work on protein-small molecule interfaces.
 
 ```
 <InterfaceAnalyzerMover name="&string" scorefxn="(&string)" packstat="(&bool)" interface_sc="(&bool)" pack_input="(&bool)" pack_separated="(0, &bool)" jump="(&int)" fixedchains="(A,B,&string)" tracer="(&bool)" use_jobname="(&bool)" resfile="(&bool)" ligandchain="(&string)" />

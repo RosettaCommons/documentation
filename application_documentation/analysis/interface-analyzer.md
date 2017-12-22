@@ -24,7 +24,7 @@ Stranges, P.B. and B. Kuhlman, A comparison of successful and failed protein int
 Purpose
 ===========================================
 
-This application combines a set of tools to, you guessed it, analyze interfaces. It calculates binding energies, buried interface surface areas, and other useful interface metrics. The bulk of the code is a Mover intended to be used at the tail end of interface modeling protocols; it considers that situation to be its primary client. This application is a front-end directly onto that Mover; it is considered a secondary purpose.
+This application combines a set of tools to analyze protein-protein interfaces. It calculates binding energies, buried interface surface areas, and other useful interface metrics. The bulk of the code is a Mover intended to be used at the tail end of interface modeling protocols; it considers that situation to be its primary client. This application is a front-end directly onto that Mover; it is considered a secondary purpose. This application will not work on protein-ligand interfaces.
 
 Algorithm
 =========

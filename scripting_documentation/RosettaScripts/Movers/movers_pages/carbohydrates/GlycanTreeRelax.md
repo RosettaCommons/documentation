@@ -14,7 +14,7 @@ NOTE: This is and in-development, unpublished application.  If you use this in a
 
 Description
 ===========
-This mover is created to do denovo modeling and refinement of glycans.  It does this through iteratively sampling and building out the glycan trees from their roots. 
+This mover is created to do denovo modeling and refinement of glycans.  It does this through iteratively sampling and building out the glycan trees from their roots. By default (without a passed residue selector), it selects ALL glycan residues in the pose.  Please see the [[GlycanResidueSelector]] for selecting particular glycan trees and the [[GlycanLayerSelector]] for particular glycan layers.
 
 Details
 =======

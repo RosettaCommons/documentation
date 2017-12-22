@@ -66,7 +66,7 @@ If you get an error like `     /usr/bin/ld: cannot find -lz    `, SCons may be l
 
 <!--- BEGIN_INTERNAL -->
 #### Pilot Apps
-You can compile only the pilot apps you want by copying (in the <code>src</code> directory,   <code>pilot_apps.src.settings.template</code> to <code>pilot_apps.src.settings.my</code> and then filling out the paths to your apps just like what is in the <code>pilot_apps.src.settings.all</code> file. 
+You can compile only the pilot apps you want by copying (in the <code>src</code> directory,   <code>pilot_apps.src.settings.template</code> to <code>pilot_apps.src.settings.my</code> and then filling out the paths to your apps just like what is in the <code>pilot_apps.src.settings.all</code> file. You might need to create a <code>src/devel.src.settings.my</code> file (can copy from <code>devel.src.settings.template</code>).
 
 ##### Scons
 You will need to pass a 'my' after 'bin' for the build machinery to use this file, for example:

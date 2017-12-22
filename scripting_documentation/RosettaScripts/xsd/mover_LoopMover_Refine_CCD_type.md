@@ -29,7 +29,7 @@ Perform loop refinement using CCD for loop closure.
 -   **max_inner_cycles**: Finish inner cycles latest after n cycles. Default = 250
 -   **temp_initial**: Initial Boltzman temperature. Default = 1.5
 -   **temp_final**: Final Boltzman temperature. Default = 0.5
--   **loops**: XRW TO DO
+-   **loops**: The format for loops is: Start:End:Cut,Start:End:Cut...
 -   **task_operations**: A comma separated list of TaskOperations to use.
 
 
