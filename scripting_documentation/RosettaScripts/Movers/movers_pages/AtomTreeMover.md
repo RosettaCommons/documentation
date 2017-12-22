@@ -10,7 +10,11 @@ Sets up an atom tree for use with subsequent movers. Connects pdb\_num on host\_
 
 -   fold_tree_file: if this is set to a file name the mover will read a foldtree from a file and then impose it. Nothing more. Here's an example for a fold-tree definition:
 
-FOLD_TREE EDGE 1 18 -1 EDGE 18 32 1 EDGE 18 21 -1 EDGE 32 22 -1 EDGE 32 50 -1 EDGE 50 79 -1 EDGE 50 163 2 EDGE 163 98 -1 EDGE 98 82 3 EDGE 98 96 -1 EDGE 82 95 -1 EDGE 82 80 -1 EDGE 163 208 -1
+    ```
+    FOLD_TREE EDGE 1 18 -1 EDGE 18 32 1 EDGE 18 21 -1 EDGE 32 22 -1 EDGE 32 50 -1 EDGE 50 79 -1 EDGE 50 163 2 EDGE 163 98 -1 EDGE 98 82 3 EDGE 98 96 -1 EDGE 82 95 -1 EDGE 82 80 -1 EDGE 163 208 -1
+    ```
+
+    Note that foldtree files cannot contain comments or anything other than the `FOLD_TREE` and `EDGE` directives shown above.
 
 * ab_fold_tree: boolean (dflt 0). If set to true then sets up a fold tree for scFv, the cysteine disulfides are the nodes. If there is a ligand (chain 2) then also creates a jump edge between the ligand center of mass and the cysteine that is the closest to the center of mass of the scFv (chain 1). 
 -   docking\_ft: set up a docking foldtree? if this is set all other options are ignored.
