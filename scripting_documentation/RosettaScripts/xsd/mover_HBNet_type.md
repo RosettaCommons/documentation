@@ -40,7 +40,7 @@ HBNet is a method to explicitly detect and design hydrogen bond networks within 
         monte_carlo_seed_must_be_buried="(false &bool;)"
         monte_carlo_seed_must_be_fully_buried="(false &bool;)"
         max_mc_nets="(0 &non_negative_integer;)"
-        total_num_mc_runs="(100000 &non_negative_integer;)"
+        total_num_mc_runs="(10000 &non_negative_integer;)"
         seed_hbond_threshold="(0 &real;)"
         task_operations="(&task_operation_comma_separated_list;)"
         scorefxn="(&string;)" />
@@ -90,7 +90,7 @@ HBNet is a method to explicitly detect and design hydrogen bond networks within 
 -   **monte_carlo_branch**: Outadated equivalent to monte_carlo
 -   **monte_carlo_seed_must_be_buried**: (If monte_carlo_branch) only branch from hbonds where at least one residue is buried. Effectively, this results in only finding networks that have at least one buried residue.
 -   **monte_carlo_seed_must_be_fully_buried**: (If monte_carlo_branch) only branch from hbonds where both residues are buried. This results in only finding networks that have at least one buried hbond but this does not prevent having additional exposed hbonds.
--   **max_mc_nets**: (if monte_carlo_branch) This is experimental and so far it does not look super useful. Maximum number of networks that the monte carlo protocol will store. Loose rule of thumb is to make this 10x the max number of nets you want to end up with. 100 (default) is on the conservative end of the spectrum for this value. The reason you do not want this to be too large is that each of these networks goes through a relatively expensive quality check. A value of zero results in no limit.
+-   **max_mc_nets**: (if monte_carlo_branch) This is experimental and so far it does not look super useful. Maximum number of networks that the monte carlo protocol will store. Loose rule of thumb is to make this 10x the max number of nets you want to end up with. The reason you do not want this to be too large is that each of these networks goes through a relatively expensive quality check. A value of zero (which is default) represents having no limit.
 -   **total_num_mc_runs**: (if monte_carlo_branch) number of monte carlo runs to be divided over all the seed hbonds. A single monte carlo run appears to take roughly 1 ms (very loose estimate).
 -   **seed_hbond_threshold**: (if monte_carlo_branch) Maybe you only want to branch from strong hbonds. If this value is -1.2, for example, then only hbonds with a strength of -1.2 or lower will be branched from.
 -   **task_operations**: A comma separated list of TaskOperations to use.

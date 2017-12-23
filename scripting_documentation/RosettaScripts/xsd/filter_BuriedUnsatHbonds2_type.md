@@ -8,7 +8,7 @@ XRW TO DO
 ```xml
 <BuriedUnsatHbonds2 name="(&string;)" jump_number="(1 &non_negative_integer;)"
         cutoff="(20 &non_negative_integer;)" generous_hbonds="(true &bool;)"
-        sasa_burial_cutoff="(true &bool;)" AHD_cutoff="(120 &real;)"
+        sasa_burial_cutoff="(0.01 &real;)" AHD_cutoff="(120 &real;)"
         dist_cutoff="(3.0 &real;)" hxl_dist_cutoff="(3.5 &real;)"
         sulph_dist_cutoff="(3.3 &real;)" metal_dist_cutoff="(2.7 &real;)"
         scorefxn="(&string;)"
@@ -19,7 +19,7 @@ XRW TO DO
 -   **jump_number**: Jump, numbered sequentially from 1, that defines the interface
 -   **cutoff**: Upper threshold beyond which the filter fails
 -   **generous_hbonds**: Use a generous definition of H-bonds
--   **sasa_burial_cutoff**: Use a SASA threshold to define residue burial
+-   **sasa_burial_cutoff**: SASA threshold to define residue burial
 -   **AHD_cutoff**: Cutoff for AHD angle, in degrees, to define a hydrogen bond
 -   **dist_cutoff**: Cutoff for distance, in Angstroms, to define a hydrogen bond
 -   **hxl_dist_cutoff**: Cutoff for distance, in Angstroms, to define a hydrogen bond to a hydroxyl
