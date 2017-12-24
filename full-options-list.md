@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-12-11
+Generated: 2017-12-23
 
 _Note that some application specific options may not be present in this list._
 
@@ -7442,6 +7442,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Torsions file containing information on fragments from RNA models<br/>Default: "rna.torsions"<br/></dd>
 <dt><b>-use_1jj2_torsions</b> \<Boolean\></dt>
 <dd>Use original (ribosome) fragments, 1JJ2<br/>Default: false<br/></dd>
+<dt><b>-fuzz_fragments</b> \<Real\></dt>
+<dd>When picking fragments, fuzz fragments with multiple samples with Gaussians of this standard deviation<br/>Default: 0<br/></dd>
 <dt><b>-rna_lores_chainbreak_weight</b> \<Real\></dt>
 <dd>chainbreak weight for lo res sampling<br/>Default: 0.0<br/></dd>
 <dt><b>-rna_lores_linear_chainbreak_weight</b> \<Real\></dt>
