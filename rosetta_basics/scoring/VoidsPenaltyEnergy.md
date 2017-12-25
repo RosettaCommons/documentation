@@ -87,7 +87,17 @@ Note that because unreachable voxels and voxels filled by residues that are not 
 
 ### Advanced options
 
-TODO
+Certain options allow the user to tweak the definition of a buried voxel, to adjust the resolution of the voxel grid used for design, or otherwise to configure the ```voids_penalty``` score term.  Note, however, that the default settings have been chosen to work in most situations, so it should rarely be necessary to deviate from these.  Nevertheless, the configurable paramters are listed below, and can either be set globally at the command line, or for a particular scoring function through the RosettaScripts interface (or through EnergyMethodOptions in PyRosetta):
+
+| Option | Type  | Description |
+| ------ | ----- | ----------- |
+| voids_penalty_energy_voxel_size                     | Real    | The size, in Angstroms, of the voxels used in the voxel grid for the ```voids_penalty``` energy.  Defaults to 0.5 A (a cube with a side of 0.5 Angstroms). |
+| voids_penalty_energy_voxel_grid_padding             | Real    | This is the enlargement (on all sides) of the bounding box for the pose when setting up the voxel grid.  Defaults to 1.0 A padding on all sides. |
+| voids_penalty_energy_containing_cones_cutoff        | Integer | The minimum number of cones projecting from side-chains in which a voxel must lie in order for that voxel to be considerd to be buried.  Defaults to 6 cones. |
+| voids_penalty_energy_cone_dotproduct_cutoff         | Real    | The cutoff value for the dot product of a cone vector and a cone base-test point vector below which we declare the test point not to be within the cone.  Effectively, this is the cone width.  Lower values make broader cones.  Default 0.1.  Can range from 1.0 (infinitely thin cone) to -1.0 (full spherical volume), with 0.0 represeting all points on one side of the plane perpendicular to the cone vector. |
+| voids_penalty_energy_cone_distance_cutoff           | Real    | The cutoff value for the distance from the cone base at which we are considered no longer to be within the cone.  Defaults to 8.0 Angstroms. |
+| voids_penalty_energy_disabled_except_during_packing | Boolean | If true, then the ```voids_penalty``` term is only evaluated during packing (and not scoring or minimizing).  If false, then it is evaluated during packing and scoring (but not minimizing).  True by default.  Can be overridden for a particular ScoreFunction on a per-instance basis. |
+
 
 ## Use with symmetry
 
