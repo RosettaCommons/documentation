@@ -42,9 +42,50 @@ There are two important points to note about this scoring algorithm:
 
 ### Behaviour during minimizing
 
-The ```voids_penalty``` score term does not currently define derivatives.  As such, it is currently hard-coded to be disabled completely during minimization trajectories, under all circumstances.
+The ```voids_penalty``` score term does not currently define derivatives.  As such, it is currently hard-coded to be disabled completely during minimization trajectories, under all circumstances.  This means that it is not evaluated unnecessarily during line minimization, though it is also conceivably possible for the minimizer to introduce voids that were not present during packing.
 
 ## User control
+
+### Basic control
+
+In the simplest case, the ```voids_penalty``` score term is invoked simply by turning it on (_i.e._ weighting ```voids_penalty``` to a nonzero weight) in the scorefunction used by any Rosetta design module that invokes the Rosetta packer.  (Such modules include the [[fixbb application|fixbb]], the [[PackRotamersMover]], the [[FastDesign mover|FastDesignMover]], _etc._)  The reweighting can be done with a weights file passed in at the commandline, or in the ```<SCOREFXNS>``` section of a RosettaScripts XML script.  For example, the simple addition of the commented line in the script below penalizes voids:
+
+```xml
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+		<ScoreFunction name="r15_voids" weights="ref2015.wts" >
+			<Reweight scoretype="voids_penalty" weight="0.25" /> # This is the only line that must be added to convert this design script to one that penalizes voids during design.
+		</ScoreFunction>
+	</SCOREFXNS>
+	<RESIDUE_SELECTORS>
+		<Layer name="select_surf" select_core="false" select_boundary="false" select_surface="true" />
+	</RESIDUE_SELECTORS>
+	<TASKOPERATIONS>
+		<OperateOnResidueSubset name="no_repack_surf" selector="select_surf" >
+			<PreventRepackingRLT />
+		</OperateOnResidueSubset>
+		<ReadResfile name="allowed_for_design" filename="inputs/design.resfile" />
+	</TASKOPERATIONS>
+	<MOVERS>
+		<FastDesign name="design" scorefxn="r15_voids" repeats="1" task_operations="no_repack_surf,allowed_for_design" />
+	</MOVERS>
+	<APPLY_TO_POSE>
+	</APPLY_TO_POSE>
+	<PROTOCOLS>
+		<Add mover="design" />
+	</PROTOCOLS>
+	<OUTPUT scorefxn="r15_voids" />
+</ROSETTASCRIPTS>
+
+```
+
+The weight provided governs the extent to which voids are penalized.  If set too low, the behaviour becomes indistinguishable from design without the term.  If set too high, voids are penalized so strongly that high-energy rotamers, clashes, or other features that result in high energetic scores might be accepted to satisfy the requirement that there be no voids.  The recommended approach is to use a value between 0.05 and 1.0, tuned by trial-and-error to produce results with good energies and relatively few voids.
+
+### Designing sub-regions of poses
+
+Note that because unreachable voxels and voxels filled by residues that are not designable are pruned automatically, the simple setup described above is all that is required even when task operations are used to restrict design to sub-regions of a pose.
+
+### Advanced options
 
 TODO
 
