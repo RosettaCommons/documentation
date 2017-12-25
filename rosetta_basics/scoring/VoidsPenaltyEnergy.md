@@ -98,6 +98,44 @@ Certain options allow the user to tweak the definition of a buried voxel, to adj
 | voids_penalty_energy_cone_distance_cutoff           | Real    | The cutoff value for the distance from the cone base at which we are considered no longer to be within the cone.  Defaults to 8.0 Angstroms. |
 | voids_penalty_energy_disabled_except_during_packing | Boolean | If true, then the ```voids_penalty``` term is only evaluated during packing (and not scoring or minimizing).  If false, then it is evaluated during packing and scoring (but not minimizing).  True by default.  Can be overridden for a particular ScoreFunction on a per-instance basis. |
 
+The example RosettaScripts XML below shows how these options might be set for a particular scorefunction (rather than globally), within RosettaScripts.
+
+```xml
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+		<ScoreFunction name="r15_voids" weights="ref2015.wts" >
+			<Reweight scoretype="voids_penalty" weight="0.25" />
+			# The following settings are set ONLY for the r15_voids scorefunction, and will not affect other scorefunctions.
+			<Set voids_penalty_energy_containing_cones_cutoff="5" />
+			<Set voids_penalty_energy_cone_dotproduct_cutoff="0.05" />
+			<Set voids_penalty_energy_cone_distance_cutoff="9.0" />
+			<Set voids_penalty_energy_voxel_size="0.25" />
+			<Set voids_penalty_energy_voxel_grid_padding="0.5" />
+			<Set voids_penalty_energy_disabled_except_during_packing="false" />
+		</ScoreFunction>
+	</SCOREFXNS>
+	<RESIDUE_SELECTORS>
+		<Layer name="select_surf" select_core="false" select_boundary="false" select_surface="true" />
+	</RESIDUE_SELECTORS>
+	<TASKOPERATIONS>
+		<OperateOnResidueSubset name="no_repack_surf" selector="select_surf" >
+			<PreventRepackingRLT />
+		</OperateOnResidueSubset>
+		<ReadResfile name="allowed_for_design" filename="inputs/design.resfile" />
+	</TASKOPERATIONS>
+	<MOVERS>
+		<FastDesign name="design" scorefxn="r15_voids" repeats="1" task_operations="no_repack_surf,allowed_for_design" />
+	</MOVERS>
+	<APPLY_TO_POSE>
+	</APPLY_TO_POSE>
+	<PROTOCOLS>
+		<Add mover="design" />
+	</PROTOCOLS>
+	<OUTPUT scorefxn="r15_voids" />
+</ROSETTASCRIPTS>
+
+```
+
 
 ## Use with symmetry
 
