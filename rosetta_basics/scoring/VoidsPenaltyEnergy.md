@@ -136,14 +136,16 @@ The example RosettaScripts XML below shows how these options might be set for a 
 
 ```
 
-
 ## Use with symmetry
 
-TODO
+The ```voids_penalty``` scoring function is fully compatible with symmetry.  Unfortunately, symmetry does not significantly accelerate the precalculation, since symmetric copies of rotamers must each have their volumes quantified due to small asymmetries introduced by the discretization of the space in a voxel grid.  It does slightly accelerate the calculation carried out for each simulated annealing move, though, since 
+the sum of the volumes of symmetric rotamers can be pre-calculated.
 
 ## Organization of the code
 
-TODO
+The ```voids_penalty``` scorefunction is located in ```core.4```, and in the ```core::pack::voids_penalty_energy``` namespace.  The relevant classes (located in this namespace) are ```VoidsPenaltyEnergy```, which is an energy method that inherits from ```core::scoring::methods::WholeStructureEnergy``` and ```core::scoring::annealing::ResidueArrayAnnealableEnergy```, and ```VoidsPenaltyVoxelGrid```, a helper class used to place a voxel grid on a pose, prune non-buried voxels, compute buried volume, and calculate volumes of buried rotamers.  Each instance of the ```VoidsPenaltyEnergy``` class transiently creates a ```VoidsPenaltyVoxelGrid``` instance during packer initialization, or during scoring (the latter if and only if the ```-voids_penalty_energy_disabled_except_during_packing false``` option is used).
+
+Note that implementation of the ```VoidsPenaltyEnergy``` class required that the ```ResidueArrayAnnealableEnergy``` base class, defined in ```core.3```, be aware of the existence of the ```core::pack::rotamer_set::RotamerSets``` class, defined in ```core.4``` (though full header inclusion was _not_ necessary).  For this reason, a forward declaration of the ```RotamerSets``` class was added to the ```src/core/scoring/annealing``` directory -- a minor but necessary violation of Rosetta namespace and library level conventions which does _not_ significantly impact compliation time or complexity.
 
 ##See Also
 
