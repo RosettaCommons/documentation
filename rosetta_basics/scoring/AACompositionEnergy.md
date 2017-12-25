@@ -168,3 +168,4 @@ As of 6 March 2016, the aa_composition score term should be fully compatible wit
 * [[AddCompositionConstraintMover]]
 * [[ClearCompositionConstraintsMover]]
 * [[AddHelixSequenceConstraints mover|AddHelixSequenceConstraintsMover]]
+* [[VoidsPenaltyEnergy]]

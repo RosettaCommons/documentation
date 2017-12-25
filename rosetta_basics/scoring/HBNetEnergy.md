@@ -69,3 +69,4 @@ The `hbnet` score term is fully compatible with symmetry with no special setup r
 * [[ClearCompositionConstraintsMover]]
 * [[AddHelixSequenceConstraints mover|AddHelixSequenceConstraintsMover]]
 * [[HBNet mover|HBNetMover]]
+* [[VoidsPenaltyEnergy]]

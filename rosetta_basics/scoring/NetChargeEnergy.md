@@ -192,3 +192,4 @@ The ```netcharge``` score term should be fully compatible with the [[aa_composit
 * [[AddNetChargeConstraintMover]]
 * [[ClearCompositionConstraintsMover]]
 * [[AACompositionEnergy]]
+* [[VoidsPenaltyEnergy]]
