@@ -203,7 +203,8 @@ Mover  | Description
 **[[AddChain|AddChainMover]]** | Adds a PDB file to an existing pose
 **[[AnchoredGraftMover]]** | Grafts a region of one pose into another using the same method used for [[ The Anchored Design Protocol | anchored-design]].  Also used in the RabD Antibody Design Protocol. 
 **[[CCDEndsGraftMover]]** | Grafts a region of one pose into another using superposition of insert ends and CCD arms to close the graft.  Used in the RabD Antibody Design Protocol. 
-**[[InsertPoseIntoPoseMover]]** | Inserts one pose into another.  Does not do any structure optimization.  
+**[[InsertPoseIntoPoseMover]]** | Inserts one pose into another.  Does not do any structure optimization.
+**[[MergePDB|MergePDBMover]]** | Merges two poses along a common secondary structure element
 **[[MotifGraft|MotifGraftMover]]** | Grafts a motif into pose(s)
 **[[Splice|SpliceMover]]** | (developer release only) Various methods of splicing segments into the current pose
 
