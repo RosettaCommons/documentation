@@ -111,6 +111,7 @@ Lazaridis, T. and M. Karplus, _Effective energy function for proteins in solutio
 * [Scoring Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/scoring/scoring)
 * [[Scoring explained]]
 * [[Additional score terms|score-types-additional]]
+* [[Design-centric guidance terms|design-guidance-terms]]
 * [[Centroid score terms]]
 * [[Units in Rosetta]]: Gives a description of Rosetta energy units
 * [[AACompositionEnergy]]
