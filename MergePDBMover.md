@@ -10,7 +10,7 @@ TJ Brunette; tjbrunette@gmail.com;
 
 Combines two poses along a common secondary structure element and redesigns the sequence as appropriate
 ```xml
-<MergePDB name="(&string)" task_operations="(&string)" scorefxn="(&string)" loop_file="(&string)"/>
+<MergePDB name="(&string)" task_operations="(&string)" scorefxn="(&string)" attachment_termini="(&string)" overlap_length="(&int) />
 ```
 
 Options:
