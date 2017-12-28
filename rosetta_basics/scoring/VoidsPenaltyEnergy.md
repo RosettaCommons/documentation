@@ -1,6 +1,8 @@
 # Voids penalty score term (voids\_penalty)
 Documentation created by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory, on 21 December 2017.
 
+[[_TOC_]]
+
 ## Purpose and algorithm
 
 The ```voids_penalty``` scoring term is intended for use during design, to penalize buried voids or cavities and to guide the packer to design solutions in which all buried volume is filled with side-chains.  The identification of buried voids is inherently not pairwise-decomposable.  This scoring term is intended to work with Alex Ford's changes to the packer that permit fast-to-calculate but non-pairwise-decomposable scoring terms to be used during packing or design.
@@ -26,6 +28,10 @@ At the end of the pre-computation, we have (a) a value for the total buried volu
 During the packer trajectory, the ```voids_penalty``` score term imposes a quadratically ramping penalty for the difference between the total buried volume that we are trying to fill (```V```) and the sum of the buried volumes of the rotamers currently being considered (```sum_over_i( v(i,s_i)``` ), where ```s``` is a vector of indices of currently-considered rotamers.  The effect is to guide the packer to solutions in which the sum of the buried volumes of the current rotamers matches the total volume to fill -- _i.e._ solutions with no buried voids or cavities.  Since ```V``` and ```v(i,s_i)``` are both precomputed, ```( V-sum_over_i( v(i,s_i) ) )^2``` is extremely fast to compute on the fly for each step in the packer trajectory.
 
 Note that there likely exist packer solutions in which the total volume of rotamers matches the total volume to be filled, but which nevertheless result in voids (due to some residues overlapping).  These are selected against by other score terms, such as ```fa_rep```.  The only solutions that result in low ```fa_rep``` scores _and_ low ```voids_penalty``` scores have few cavities.  (The score term may guide the packer to solutions that would have been discarded due to slightly positive ```fa_rep``` scores, however.  This is a feature, not a bug: it means that solutions can be selected with small clashes that can be resolved with minimization to give good, voids-free packing.)
+
+#### Overall speed during packing
+
+On a benchmark using thirty-six 100-residue poses with full design of core and boundary residues using [[FastDesign|FastDesignMover]], the ```voids_penalty``` score term resulted in a 23% slowdown using a 0.5 Angstrom voxel grid (the default).  This increases to a 60% slowdown when the term is enabled during regular scoring (see next section).
 
 ### Behaviour during scoring
 
