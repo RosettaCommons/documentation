@@ -15,7 +15,7 @@ Combines two poses along a common secondary structure element and redesigns the 
 
 Options:
 
-* [[task_operations|TaskOperations-RosettaScripts]]: The residues to pack and/or design.  By default, any residue 
+* task_operations: The residues to pack and/or design.  By default, any residue 
   within packing_range will be repacked and any residue within design_range designed.  I
 
 * scorefxn: The score function used for design and packing.  Required if not being used as 
