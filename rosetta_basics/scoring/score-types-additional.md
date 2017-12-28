@@ -563,6 +563,7 @@ Menv_smooth
 
 * [[Scoring explained]]
 * [[Score functions and score terms|score-types]]
+* [[Design-centric guidance terms|design-guidance-terms]]
 * [[Hydrogen bond energy term|hbonds]]
 * [[Scorefunctions for noncanonical residues and molecules|NC-scorefunction-info]]
 * [[Adding new score terms|new-energy-method]]

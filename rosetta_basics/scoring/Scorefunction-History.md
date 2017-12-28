@@ -60,6 +60,7 @@ Scorefunctions timeline
 * [[Hydrogen bond energy term|hbonds]]
 * [[Score functions and score terms|score-types]]
 * [[Additional score terms|score-types-additional]]
+* [[Design-centric guidance terms|design-guidance-terms]]
 * [[Scorefunctions for noncanonical residues and molecules|NC-scorefunction-info]]
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
 * [[Rosetta Canon]]: Landmark Rosetta papers
