@@ -7,13 +7,13 @@ Documentation created by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory, 
 
 The ```voids_penalty``` scoring term is intended for use during design, to penalize buried voids or cavities and to guide the packer to design solutions in which all buried volume is filled with side-chains.  The identification of buried voids is inherently not pairwise-decomposable.  This scoring term is intended to work with Alex Ford's changes to the packer that permit fast-to-calculate but non-pairwise-decomposable scoring terms to be used during packing or design.
 
-Ordinarily, the identification of buried voids is also inherently slow, meaning that it's difficult to make this something that could be penalized in a way that would allow repeated rapid evaluation for the million or so steps in a packer trajectory.  Fortunately, much of the computational expense can be diverted to a pre-computation, and that is the approach taken here.  The score term actually behaves in differet ways for packing, scoring, and minimizing, as outlined below:
+Ordinarily, the identification of buried voids is also inherently slow, meaning that it's difficult to make this something that could be penalized in a way that would allow repeated rapid evaluation for the million or so steps in a packer trajectory.  Fortunately, much of the computational expense can be diverted to a precomputation, and that is the approach taken here.  The score term actually behaves in different ways for packing, scoring, and minimizing, as outlined below:
 
 ### Behaviour during packing
 
-#### Pre-computation
+#### Precomputation
 
-The pre-computation steps are computationally costly, requiring up to a few CPU-seconds and scaling linearly with the volume (in voxels) of the pose and the number of rotamers.  The approach is as follows:
+The precomputation steps are computationally costly, requiring up to a few CPU-seconds and scaling linearly with the volume (in voxels) of the pose and the number of rotamers.  The approach is as follows:
 
 1.  A voxel grid is overlaid upon the pose.  The default voxel size is 0.5 Angstroms, though this is user-configurable.
 2.  Voxels are classified as "buried" or "not buried" based on the method of sidechain neighbour cones.  Briefly, this involves projecting a cone along each Calpha-Cbeta vector, counting the number of overlapping cones that contain a given voxel, and counting that voxel as buried if the number is greater than or equal to a user-defined threshold (default 6 cones).  The total buried volume, which is the volume that we are trying to fill with side-chains, is computed and stored.
@@ -21,7 +21,7 @@ The pre-computation steps are computationally costly, requiring up to a few CPU-
 4.  All candidate rotamers are examined.  For each rotamer, the number of buried voxels that the rotamer overlaps is counted and used to determine a volume for that rotamer.  These volumes are stored.
 5.  Any voxel touched by no rotamer is removed from the buried set, and the total buried volume is updated to reflect this pruning.  This ensures that unreachable volume doesn't distort the calculation.
 
-At the end of the pre-computation, we have (a) a value for the total buried volume (which we will call ```V```) and (b) a number for the buried volume of each rotamer, which we will call ```v(i,j)``` for the volume of the jth rotamer at position i.  The voxel grid is discarded at this point to liberate memory, and the packer trajectory then commences.
+At the end of the precomputation, we have (a) a value for the total buried volume (which we will call ```V```) and (b) a number for the buried volume of each rotamer, which we will call ```v(i,j)``` for the volume of the jth rotamer at position i.  The voxel grid is discarded at this point to liberate memory, and the packer trajectory then commences.
 
 #### Computation during packer trajectory
 
@@ -38,7 +38,7 @@ On a benchmark using thirty-six 100-residue poses with full design of core and b
 The default behaviour of the ```voids_penalty``` score term is to do nothing during regular scoring -- _i.e._ this score term returns 0 by default during scoring, and serves only to guide the packer to good solutions with no voids.  However, the user may optionally enable ```voids_penalty``` during regular scoring either with the ```-score:voids_penalty_energy_disabled_except_during_packing false``` flag.  In this case, whenever the pose is scored, the following steps will occur:
 
 1.  A voxel grid (default 0.5 Angstroms voxel size) is overlaid upon the pose.
-2.  Voxels are classifed as "buried" or "not buried" based on the method of sidechain neihgbour cones, as described above.  The volume of the buried voxels, ```V```, is computed and stored.
+2.  Voxels are classified as "buried" or "not buried" based on the method of sidechain neighbour cones, as described above.  The volume of the buried voxels, ```V```, is computed and stored.
 3.  For each residue, the number of buried voxels overlapping the residue are counted to compute the buried volume of the residue.  The sum of the buried volumes of all residues, ```v```, is computed and stored.
 4.  A quadratic penalty function ```( V - v )^2``` is computed and returned.
 
@@ -93,14 +93,14 @@ Note that because unreachable voxels and voxels filled by residues that are not 
 
 ### Advanced options
 
-Certain options allow the user to tweak the definition of a buried voxel, to adjust the resolution of the voxel grid used for design, or otherwise to configure the ```voids_penalty``` score term.  Note, however, that the default settings have been chosen to work in most situations, so it should rarely be necessary to deviate from these.  Nevertheless, the configurable paramters are listed below, and can either be set globally at the command line, or for a particular scoring function through the RosettaScripts interface (or through EnergyMethodOptions in PyRosetta):
+Certain options allow the user to tweak the definition of a buried voxel, to adjust the resolution of the voxel grid used for design, or otherwise to configure the ```voids_penalty``` score term.  Note, however, that the default settings have been chosen to work in most situations, so it should rarely be necessary to deviate from these.  Nevertheless, the configurable parameters are listed below, and can either be set globally at the command line, or for a particular scoring function through the RosettaScripts interface (or through EnergyMethodOptions in PyRosetta):
 
 | Option | Type  | Description |
 | ------ | ----- | ----------- |
 | voids_penalty_energy_voxel_size                     | Real    | The size, in Angstroms, of the voxels used in the voxel grid for the ```voids_penalty``` energy.  Defaults to 0.5 A (a cube with a side of 0.5 Angstroms). |
 | voids_penalty_energy_voxel_grid_padding             | Real    | This is the enlargement (on all sides) of the bounding box for the pose when setting up the voxel grid.  Defaults to 1.0 A padding on all sides. |
-| voids_penalty_energy_containing_cones_cutoff        | Integer | The minimum number of cones projecting from side-chains in which a voxel must lie in order for that voxel to be considerd to be buried.  Defaults to 6 cones. |
-| voids_penalty_energy_cone_dotproduct_cutoff         | Real    | The cutoff value for the dot product of a cone vector and a cone base-test point vector below which we declare the test point not to be within the cone.  Effectively, this is the cone width.  Lower values make broader cones.  Default 0.1.  Can range from 1.0 (infinitely thin cone) to -1.0 (full spherical volume), with 0.0 represeting all points on one side of the plane perpendicular to the cone vector. |
+| voids_penalty_energy_containing_cones_cutoff        | Integer | The minimum number of cones projecting from side-chains in which a voxel must lie in order for that voxel to be considered to be buried.  Defaults to 6 cones. |
+| voids_penalty_energy_cone_dotproduct_cutoff         | Real    | The cutoff value for the dot product of a cone vector and a cone base-test point vector below which we declare the test point not to be within the cone.  Effectively, this is the cone width.  Lower values make broader cones.  Default 0.1.  Can range from 1.0 (infinitely thin cone) to -1.0 (full spherical volume), with 0.0 representing all points on one side of the plane perpendicular to the cone vector. |
 | voids_penalty_energy_cone_distance_cutoff           | Real    | The cutoff value for the distance from the cone base at which we are considered no longer to be within the cone.  Defaults to 8.0 Angstroms. |
 | voids_penalty_energy_disabled_except_during_packing | Boolean | If true, then the ```voids_penalty``` term is only evaluated during packing (and not scoring or minimizing).  If false, then it is evaluated during packing and scoring (but not minimizing).  True by default.  Can be overridden for a particular ScoreFunction on a per-instance basis. |
 
@@ -145,7 +145,7 @@ The example RosettaScripts XML below shows how these options might be set for a 
 ## Use with symmetry
 
 The ```voids_penalty``` scoring function is fully compatible with symmetry.  Unfortunately, symmetry does not significantly accelerate the precalculation, since symmetric copies of rotamers must each have their volumes quantified due to small asymmetries introduced by the discretization of the space in a voxel grid.  It does slightly accelerate the calculation carried out for each simulated annealing move, though, since 
-the sum of the volumes of symmetric rotamers can be pre-calculated.
+the sum of the volumes of symmetric rotamers can be precalculated.
 
 ## Organization of the code
 
