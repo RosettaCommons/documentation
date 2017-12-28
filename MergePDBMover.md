@@ -24,4 +24,4 @@ Options:
 Caveats:
 
 * The pose must start symmetric to use the symm_file option
-* if no_design_label is defined you must use the init_overlap_sequence="input_pose"(default) for desired behavior
+* if no_design_label is defined you must use the (default)init_overlap_sequence="input_pose"(default)
