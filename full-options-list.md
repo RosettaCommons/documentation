@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2017-12-23
+Generated: 2017-12-28
 
 _Note that some application specific options may not be present in this list._
 
@@ -1165,6 +1165,18 @@ _Note that some application specific options may not be present in this list._
 <dd>When computing a harmonic function of RMSD for the alignment score, what should the standard deviation be?<br/>Default: 1.0<br/></dd>
 <dt><b>-rna_torsion_potential</b> \<String\></dt>
 <dd>In RNA torsion calculation, directory containing 1D torsional potentials<br/>Default: "ps_04282011"<br/></dd>
+<dt><b>-voids_penalty_energy_containing_cones_cutoff</b> \<Integer\></dt>
+<dd>A parameter for the voids_penalty score term.  The minimum number of cones projecting from side-chains in which a voxel must lie in order for that voxel to be considerd to be buried.  Defaults to 6 cones.<br/>Default: 6<br/></dd>
+<dt><b>-voids_penalty_energy_cone_dotproduct_cutoff</b> \<Real\></dt>
+<dd>A parameter for the voids_penalty score term.  The cutoff value for the dot product of a cone vector and a cone base-test point vector below which we declare the test point not to be within the cone.  Effectively, this is the cone width.  Lower values make broader cones.  Default 0.1.  Can range from 1.0 (infinitely thin cone) to -1.0 (full spherical volume), with 0.0 represeting all points on one side of the plane perpendicular to the cone vector.<br/>Default: 0.1<br/></dd>
+<dt><b>-voids_penalty_energy_cone_distance_cutoff</b> \<Real\></dt>
+<dd>A parameter for the voids_penalty score term.  The cutoff value for the distance from the cone base at which we are considered no longer to be within the cone.  Defaults to 8.0 Angstroms.<br/>Default: 8.0<br/></dd>
+<dt><b>-voids_penalty_energy_disabled_except_during_packing</b> \<Boolean\></dt>
+<dd>If true, then the voids_penalty term is only evaluated during packing (and not scoring or minimizing).  If false, then it is evaluated during packing and scoring (but not minimizing).  True by default.  Can be overridden for a particular ScoreFunction on a per-instance basis.<br/>Default: true<br/></dd>
+<dt><b>-voids_penalty_energy_voxel_size</b> \<Real\></dt>
+<dd>The size, in Angstroms, of the voxels used in the voxel grid for the voids_penalty energy.  Defaults to 0.5 A (a cube with a side of 0.5 Angstroms).<br/>Default: 0.5<br/></dd>
+<dt><b>-voids_penalty_energy_voxel_grid_padding</b> \<Real\></dt>
+<dd>A parameter for the voids_penalty energy.  This is the enlargement (on all sides) of the bounding box for the pose when setting up the voxel grid.  Defaults to 1.0 A padding on all sides.<br/>Default: 1.0<br/></dd>
 </dl>
 + <h3>-score:rna</h3>
 <dl>
