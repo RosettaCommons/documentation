@@ -34,7 +34,13 @@ Options:
 
 * overlap_scan_range_cmdLine_pose: how many residues on the -in:file pdb that are checked for overlap
 
-* overlap_scan_range_xml_pose: 
+* overlap_scan_range_xml_pose: how many residue on the attach_pdb are checked for overlap
+
+* symm_file: if using symmetry(input pose symmetric) must rebuild symmetry after overlap. Give a path to the symmetry definition
+
+* no_design_label: Use the add_residue_label to define parts you don't want designed
+
+* init_overlap_sequence:[input_pose|xml_pose|both]: which pose do you want initialize the overlap rotamers
 
 Caveats:
 
