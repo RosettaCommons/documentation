@@ -115,10 +115,10 @@ Creator Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
 
 This score term penalizes deviations from a desired net charge during design.  Like aa\_composition, it can be appended to a scoring function like talaris2014 or ref2015.  The term can operate on the whole pose or on selected sub-regions, where the selection is controlled with a residue selector.  This allows a user to specify, for example, that a pose should have a net neutral charge, but a binding pocket with a net negative charge (-1 or less) and a protein-protein interaction region with a net charge of exactly +2.  Full documentation is available [[here|NetChargeEnergy]].
 
-### Voids penaty score term (voids\_penalty)
+### Voids penalty score term (voids\_penalty)
 Creator Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
 
-This score term penalizes packer solutions that have buried cavities or voids.  This is another design-centric score term that is not pairwise decomposible, but is fast to compute and fast to update during the simulated annealing search performed by the packer.  This means that it can guide the packer to packed solutions with few buried voids.  Full documenatation is available [[here|VoidsPenaltyEnergy]].
+This score term penalizes packer solutions that have buried cavities or voids.  This is another design-centric score term that is not pairwise decomposable, but is fast to compute and fast to update during the simulated annealing search performed by the packer.  This means that it can guide the packer to packed solutions with few buried voids.  Full documentation is available [[here|VoidsPenaltyEnergy]].
 
 ### Penalty function for aspartimide-promoting sequences (aspartimide\_penalty)
 Creator: Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
@@ -130,7 +130,7 @@ This is another specialized scoring term that can be appended to an existing sco
 | L-aspartate    | glycine, L-threonine, L-serine, L-asparagine, or any D-amino acid residue |
 | D-aspartate    | glycine, D-threonine, D-serine, D-asparagine, or any L-amino acid residue |
 
-When weighted with a scoring weight of 1.0, the term adds a 25-point penalty for each aspartimide-promoting two-residue sequence found.  This term is pairwise-decomposible, and fully packer compatible, so it can serve as a constraint on the optimization problem that the packer solves, ensuring that it produces a low-energy sequence subject to the condition that no aspartimide-promoting subsequence is found within the sequence.  The "-score:aspartimide\_penalty\_value <float>" flag can be used to set the penalty value added for each aspartimide-promoting sequence (default 25 Rosetta energy units).  Alternatively, the weight on the term can be used to set the penalty.
+When weighted with a scoring weight of 1.0, the term adds a 25-point penalty for each aspartimide-promoting two-residue sequence found.  This term is pairwise-decomposable, and fully packer compatible, so it can serve as a constraint on the optimization problem that the packer solves, ensuring that it produces a low-energy sequence subject to the condition that no aspartimide-promoting subsequence is found within the sequence.  The "-score:aspartimide\_penalty\_value <float>" flag can be used to set the penalty value added for each aspartimide-promoting sequence (default 25 Rosetta energy units).  Alternatively, the weight on the term can be used to set the penalty.
 
 ### Bonus function for hydrogen bond networks (hbnet)
 Creator:  Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
