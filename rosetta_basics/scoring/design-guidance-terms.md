@@ -40,6 +40,8 @@ Currently, the following guidance terms are available in Rosetta:
 | -------------------- | ------------------- | ----------- | ---------------------- | ---------------- |
 | aa_composition       | [[AACompositionEnergy]] | A guidance term that penalizes deviation from a user-defined desired amino acid composition in a pose or sub-region selected by a residue selector.  This allows a user to apply prior information about the amino acid composition likely to promote folding (_e.g._ discouraging too many alanine residues in a core), needed for expression (_e.g._ discourage too many methionine residues to avoid alternative AUG start sites), or needed for function (_e.g._ promote 50/50 polar/hydrophobic composition in a binding interface).  Desired composition can be set by residue type and/or by properties. | No. (Term is packer-compatible, though). | No.  (Term is disregarded by minimizer.) |
 | aa_repeat | AARepeatEnergy | A term that discourages repeat sequences.  Useful for designing when structural characterization is to be carried out by NMR spectroscopy, since repeat sequences are difficult to assign. | No.  (Term is packer-compatible, though). | No.  (Term is disregarded by minimizer.) |
+| hbnet | [[HBNetEnergy]] | A term that promotes hydrogen bond networks during design through a nonlinear bonus based on the size (_i.e._ number of residues in) each network.  A complementary approach to Scott Boyken's [[HBNetMover]]. | No.  (Term is packer-compatible, though). | No.  (Spacial derivatives are possible, but not yet defined.  Term is currently ignored by minimizer.) |
+
 ****CONTINUE HERE*****
 
 ##See Also
