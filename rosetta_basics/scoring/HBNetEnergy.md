@@ -63,6 +63,7 @@ The `hbnet` score term is fully compatible with symmetry with no special setup r
 * [[Score functions and score types |score-types]]
 * [[Adding a new energy method to Rosetta|new-energy-method]]
 * [[AACompositionEnergy]]
+* [[AARepeatEnergy|Repeat-stretch-energy]]
 * [[NetChargeEnergy]]
 * [[AddCompositionConstraintMover]]
 * [[AddNetChargeConstraintMover]]

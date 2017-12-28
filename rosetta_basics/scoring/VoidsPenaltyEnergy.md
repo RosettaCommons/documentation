@@ -153,6 +153,6 @@ Note that implementation of the ```VoidsPenaltyEnergy``` class required that the
 * [[Score functions and score types |score-types]]
 * [[Adding a new energy method to Rosetta|new-energy-method]]
 * [[AACompositionEnergy]]
-* [[AARepeatEnergy]]
+* [[AARepeatEnergy|Repeat-stretch-energy]]
 * [[HBNetEnergy]]
 * [[NetChargeEnergy]]

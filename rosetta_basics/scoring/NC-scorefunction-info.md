@@ -16,10 +16,10 @@ Description:
 * Currently being used to score peptoids, and oligo-oxypiperizines (OOPs), and hydogen-bond surrogets (HBSs)
 * Removes knowledge-based terms that are evaluated based on residue type identity
 
-* *  *fa_dun*, *rama*, *pair*, *ref*
+* *  *fa\_dun*, *rama*, *pair*, *ref*
 * Adds a MM torsion and MM Lennard-Jones terms that are evaluated **intra**-residue
 
-* *  *mm_intra_lj_rep*, *mm_intra_lj_atr*, *mm_twist*
+* *  *mm\_intra\_lj\_rep*, *mm\_intra\_lj\_atr*, *mm\_twist*
 * Adds an explicit unfolded state energy term based on pdb fragments
 
 * *  *unfolded*
@@ -49,7 +49,7 @@ How to use:
 * Weight set
  <code>mm_std.wts</code>
 
-Note that you might also want to provide a custom weights file that turns on the **ring_close** term, if you are working with cyclic noncanonicals (e.g. sugars).  See below for details on **ring_close**.
+Note that you might also want to provide a custom weights file that turns on the **ring\_close** term, if you are working with cyclic noncanonicals (e.g. sugars).  See below for details on **ring\_close**.
 
 ###Partial Covalent Interactions Energy Function (Orbitals)
 Creator Names:
@@ -69,7 +69,7 @@ Preliminary Results:
 Caveats: 
 * Slightly slower than talaris2013
 * Just changed the names of all the scoreterms so that they match those in the soon to be published paper
-* Adjustment of individual terms (cation_pi, pi_pi, hbond, salt_bridge) is now easier by directly manipulating the respective term (pci_cation_pi, pci_pi_pi, pci_hbond, pci_salt_bridge)
+* Adjustment of individual terms (cation\_pi, pi\_pi, hbond, salt\_bridge) is now easier by directly manipulating the respective term (pci\_cation\_pi, pci\_pi\_pi, pci\_hbond, pci\_salt\_bridge)
 * Still uses the hbond backbone-backbone scfxn to score backbone-backbone interactions
 
 How to Use:
@@ -85,25 +85,25 @@ How to Use:
 
 ## Useful terms that can be appended to scorefunctions
 
-### General ring closure term (**ring_close**)
+### General ring closure term (**ring\_close**)
 Creator: Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
 
-Although not a full scorefunction itself, the **ring_close** score term is meant to be a generalized version of the **pro_close** term (which holds the proline ring closed during minimization).  Unlike **pro_close**, though, which is proline-specific, **ring_close** is intended to work with any canonical or noncanonical residue with a ring.  Since Rosetta thinks about molecules as a branching tree of atoms (the AtomTree), rings cannot be properly represented during minimization, meaning that there must be a cutpoint in any cyclic chain of atoms.  This could result in rings drifting open during minimization.  The **pro_close** term creates a harmonic potential between proline's delta carbon and a virtual atom ("shadow atom") attached to the mainchain nitrogen.  This holds the proline ring closed.  The **ring_close** score term does the same for any "shadow atom" and its real counterpart, on any residue type.
+Although not a full scorefunction itself, the **ring\_close** score term is meant to be a generalized version of the **pro\_close** term (which holds the proline ring closed during minimization).  Unlike **pro\_close**, though, which is proline-specific, **ring\_close** is intended to work with any canonical or noncanonical residue with a ring.  Since Rosetta thinks about molecules as a branching tree of atoms (the AtomTree), rings cannot be properly represented during minimization, meaning that there must be a cutpoint in any cyclic chain of atoms.  This could result in rings drifting open during minimization.  The **pro\_close** term creates a harmonic potential between proline's delta carbon and a virtual atom ("shadow atom") attached to the mainchain nitrogen.  This holds the proline ring closed.  The **ring\_close** score term does the same for any "shadow atom" and its real counterpart, on any residue type.
 
-Shadow atoms are defined in the params file for a ResidueType with **VIRTUAL_SHADOW** lines.  Typically, one wants to have two such lines in order to enforce closure of a ring.  For example, in the cis-ACPC params file, we have:
+Shadow atoms are defined in the params file for a ResidueType with **VIRTUAL\_SHADOW** lines.  Typically, one wants to have two such lines in order to enforce closure of a ring.  For example, in the cis-ACPC params file, we have:
 
 ```
 VIRTUAL_SHADOW VCM CM
 VIRTUAL_SHADOW VCD CD
 ```
 
-The above lines indicate that the VCM virtual atom (which is attached to the CD atom that is part of the cis-ACPC ring) is expected to "shadow", or match the position of the mainchain CM atom, and the VCD virtual atom (which is attached to the mainchain CM atom) is expected to "shadow" the CD atom.  In order to enforce this, a scorefunction with the **ring_close** score term turned on must be used.
+The above lines indicate that the VCM virtual atom (which is attached to the CD atom that is part of the cis-ACPC ring) is expected to "shadow", or match the position of the mainchain CM atom, and the VCD virtual atom (which is attached to the mainchain CM atom) is expected to "shadow" the CD atom.  In order to enforce this, a scorefunction with the **ring\_close** score term turned on must be used.
 
-Note that there are three scoring terms that all enforce closure of proline: **ring_close**, **pro_close**, and **cart_bonded**.  To avoid double-counting, these functions should not be used together.  The **ring_close** term is intended for use in situations in which the minimizer can move only the torsional degrees of freedom, so that it would be unduly expensive to use the **cart_bonded** scoring term.
+Note that there are three scoring terms that all enforce closure of proline: **ring\_close**, **pro\_close**, and **cart\_bonded**.  To avoid double-counting, these functions should not be used together.  The **ring\_close** term is intended for use in situations in which the minimizer can move only the torsional degrees of freedom, so that it would be unduly expensive to use the **cart\_bonded** scoring term.
 
-Note also that **pro_close** has two behaviours: in addition to enforcing ring closure of proline residues, it also imposes torsional constraints on the omega torsion angle of the preceding residue.  If one wishes to continue to use **pro_close** for the latter purpose, but have **ring_close** handle ring closure, you can disable the ring closure part of **pro_close** with the **-score:no_pro_close_ring_closure** flag.  The two score terms, **pro_close** and **ring_close** should <i>only</i> be used together if this flag is set.  If **ring_close** is given the same weighting as **pro_close**, it enforces closure with the same strength.  More commonly, though, **ring_close** is probably going to be used with the MM scoring function.
+Note also that **pro\_close** has two behaviours: in addition to enforcing ring closure of proline residues, it also imposes torsional constraints on the omega torsion angle of the preceding residue.  If one wishes to continue to use **pro\_close** for the latter purpose, but have **ring\_close** handle ring closure, you can disable the ring closure part of **pro\_close** with the **-score:no\_pro\_close\_ring\_closure** flag.  The two score terms, **pro\_close** and **ring\_close** should <i>only</i> be used together if this flag is set.  If **ring\_close** is given the same weighting as **pro\_close**, it enforces closure with the same strength.  More commonly, though, **ring\_close** is probably going to be used with the MM scoring function.
 
-As a final note, there are situations in which it is not necessary to substitute **ring_close** for **pro_close**.  The **pro_close** term supports L-proline, D-proline, and L- and D-oligourea-proline ("OU3\_PRO" and "DOU3\_PRO", in Rosetta).
+As a final note, there are situations in which it is not necessary to substitute **ring\_close** for **pro\_close**.  The **pro\_close** term supports L-proline, D-proline, and L- and D-oligourea-proline ("OU3\_PRO" and "DOU3\_PRO", in Rosetta).
 
 ### Residue type composition control score term (aa\_composition)
 Creator: Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
@@ -115,12 +115,12 @@ Creator Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
 
 This score term penalizes deviations from a desired net charge during design.  Like aa\_composition, it can be appended to a scoring function like talaris2014 or ref2015.  The term can operate on the whole pose or on selected sub-regions, where the selection is controlled with a residue selector.  This allows a user to specify, for example, that a pose should have a net neutral charge, but a binding pocket with a net negative charge (-1 or less) and a protein-protein interaction region with a net charge of exactly +2.  Full documentation is available [[here|NetChargeEnergy]].
 
-### Voids penaty score term (voids_penalty)
+### Voids penaty score term (voids\_penalty)
 Creator Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
 
 This score term penalizes packer solutions that have buried cavities or voids.  This is another design-centric score term that is not pairwise decomposible, but is fast to compute and fast to update during the simulated annealing search performed by the packer.  This means that it can guide the packer to packed solutions with few buried voids.  Full documenatation is available [[here|VoidsPenaltyEnergy]].
 
-### Penalty function for aspartimide-promoting sequences (aspartimide_penalty)
+### Penalty function for aspartimide-promoting sequences (aspartimide\_penalty)
 Creator: Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
 
 This is another specialized scoring term that can be appended to an existing scoring function during design, in the special case of designing peptides for solid-phase synthesis.  It penalizes certain sequences that promote the formation of the undesirable aspartimide side-product(s) during peptide synthesis.  The penalized sequences are:
@@ -130,14 +130,14 @@ This is another specialized scoring term that can be appended to an existing sco
 | L-aspartate    | glycine, L-threonine, L-serine, L-asparagine, or any D-amino acid residue |
 | D-aspartate    | glycine, D-threonine, D-serine, D-asparagine, or any L-amino acid residue |
 
-When weighted with a scoring weight of 1.0, the term adds a 25-point penalty for each aspartimide-promoting two-residue sequence found.  This term is pairwise-decomposible, and fully packer compatible, so it can serve as a constraint on the optimization problem that the packer solves, ensuring that it produces a low-energy sequence subject to the condition that no aspartimide-promoting subsequence is found within the sequence.  The "-score:aspartimide_penalty_value <float>" flag can be used to set the penalty value added for each aspartimide-promoting sequence (default 25 Rosetta energy units).  Alternatively, the weight on the term can be used to set the penalty.
+When weighted with a scoring weight of 1.0, the term adds a 25-point penalty for each aspartimide-promoting two-residue sequence found.  This term is pairwise-decomposible, and fully packer compatible, so it can serve as a constraint on the optimization problem that the packer solves, ensuring that it produces a low-energy sequence subject to the condition that no aspartimide-promoting subsequence is found within the sequence.  The "-score:aspartimide\_penalty\_value <float>" flag can be used to set the penalty value added for each aspartimide-promoting sequence (default 25 Rosetta energy units).  Alternatively, the weight on the term can be used to set the penalty.
 
 ### Bonus function for hydrogen bond networks (hbnet)
 Creator:  Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
 
 This is another specialized scoring term that can be appended to improve designs.  This score term adds a bonus (_i.e._ a negative value) for networks of hydrogen-bonded residues, with the size of the bonus scaling quadratically with the size (_i.e._ number of residues in) the network.  Although detecting networks is a fundamentally non-pairwise-decomposible problem, this score term is compatible with the packer, and can guide any design protocol that invokes the packer towards solutions with hydrogen bond networks.  Full documentation is available [[here|HBNetEnergy]].
 
-### Penalty function for repeat sequences (aa_repeat)
+### Penalty function for repeat sequences (aa\_repeat)
 Creator:  Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory
 
 The [[`aa_repeat`|Repeat-stretch-energy]] score term can be turned on during design to penalize repeats of more than two of the same residue type.  This is particularly useful when designing proteins or peptides whose structures are to be solved by NMR spectroscopy, since repeat sequences make assignments very difficult.  The score term is fundamentally non-pairwise-decomposible, but is packer-compatible, so it guides the design process to solutions lacking repeat sequeces.  Full documentation is available [[here|Repeat-stretch-energy]].
@@ -147,7 +147,10 @@ The [[`aa_repeat`|Repeat-stretch-energy]] score term can be turned on during des
 * [[Scoring explained]]
 * [[Score terms and score functions|score-types]]
 * [[Additional score terms|score-types-additional]]
-* [[Hydrogen bond energy term|hbonds]]
+* [[Hydrogen bond energy term|HBNetEnergy]]
+* [[AARepeatEnergy|Repeat-stretch-energy]]
+* [[AACompositionEnergy]]
+* [[VoidsPenaltyEnergy]]
 * [[Guides for non-protein inputs|non-protein-residues]]
 * [[Scoring options|score-options]]
 * [[Design-centric guidance terms|design-guidance-terms]]
