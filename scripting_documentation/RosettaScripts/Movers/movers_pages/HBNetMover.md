@@ -6,20 +6,20 @@ _Note:  This documentation is for the HBNet mover.  For information on the `hbne
 HBNet is a method to explicitly detect and design hydrogen bond networks within Rosetta.  It functions as a mover within the RosettaScripts framework and will exhaustively search for all networks within the design space that you define with [[TaskOperations|TaskOperations-RosettaScripts]], and that meet the criteria you specify with the options below
 
 ###UPDATE 12/2017:
-Jack Maguire's new Monte Carlo sampling approach (MC HBNet) is now in master and it is highly recommended (likely become the default soon); to use it, simply add ```monte_carlo="true"``` to the existing HBNet or HBNetStapleInterface movers.  The new MC search procedure is much faster, enables consistent runtimes and memory usage, and consistently yields a larger number of high-quality networks in a much shorter runtime.  To control the number of MC trials, set ```total_num_mc_runs="100000"```; making this value smaller will result in shorter runtimes, making it bigger will result in longer runtimes (and often more solutions).  Other MC HBNet options are listed below. Setup, network evaluation/ranking, and output are the same as the original HBNet and HBNetStapleInterface.
+Jack Maguire's new Monte Carlo sampling approach (MC HBNet) is now in master and it is highly recommended (likely become the default soon); to use it, simply add ```monte_carlo="true"``` to the existing HBNet or HBNetStapleInterface movers.  The new MC search procedure is much faster, enables consistent runtimes and memory usage, and consistently yields a larger number of high-quality networks in a much shorter runtime.  To control the number of MC trials, set ```total_num_mc_runs="100000"```; making this value smaller will result in shorter runtimes, making it bigger will result in longer runtimes (and often more solutions).  Other MC HBNet options are listed below. Setup, network evaluation/ranking, and output are still handled the same as in HBNet.
 
 *[[how buried unsatisfied polar atoms are handled by HBNet|HBNet-BUnsats]].*<br>
 *[[how to design hydrogen bond networks into helical bundles|HBNet-HelicalBundle]].*<br>
 *[[how HBNet works|HBNet-HowItWorks]].*<br>
 *[[how HBNet handles symmetric cases|HBNet-Symmetry]].*<br>
 
-In general, HBNet should work with any existing XML by places it in the beginning of your design steps.  Because HBNet returns multiple poses (each with different networks or combinations of networks), everything downstream of HBNet must use the [[MultiplePoseMover]].  
+In general, HBNet should work with any existing XML by placing it in the beginning of your design steps.  Because HBNet returns multiple poses (each with different networks or combinations of networks), everything downstream of HBNet must use the [[MultiplePoseMover]].  
 
 ####Quickstart: what you absolutely must have in your XML to effectively use HBNet:
 
 1. Call either the ```HBNet``` or ```HBNetStapleInterface``` mover in your PROTOCOLS block before your main design steps
 2. Call ```MultiplePoseMover``` (MPM) immediately after HBNet; then inside the MPM, paste your normal design XML; this will design your pose as you normally would, but with the networks already there and fixed in place.
-3. For all of your design movers in MPM, be sure to pass the following task operation (see Template XML below) to ensure networks aren't designed away: HBNet automatically applies csts to ensure the h-bonds stay in place, but if you change the AA type with taskops, the csts can no longer be properly applied.  On this same note, be sure to **only use \_cst scorefxns for design steps post-HBNet**
+3. For all of your design movers in MPM, be sure to pass the following task operation (see Template XML below) to ensure networks aren't designed away: HBNet automatically applies csts to ensure the h-bonds stay in place, but if you change the AA type with taskops, the csts can no longer be properly applied.  On this same note, be sure to **only use ```_cst``` scorefxns for design steps post-HBNet; for example ```beta_cst``` rather than beta.**
 
 ####Template XML:
 ```
