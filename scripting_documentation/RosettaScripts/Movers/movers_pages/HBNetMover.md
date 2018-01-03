@@ -6,7 +6,7 @@ _Note:  This documentation is for the HBNet mover.  For information on the `hbne
 HBNet is a method to explicitly detect and design hydrogen bond networks within Rosetta.  It functions as a mover within the RosettaScripts framework and will exhaustively search for all networks within the design space that you define with [[TaskOperations|TaskOperations-RosettaScripts]], and that meet the criteria you specify with the options below
 
 ###UPDATE 12/2017:
-Jack Maguire's new Monte Carlo sampling approach (MC HBNet) is now in master and it is highly recommended (likely become the default soon); it is much faster, enables consistent runtimes and memory usage, and consistently yields a larger number of high-quality networks in a much shorter runtime.  To use it, simply add ```monte_carlo="true"``` to the HBNet mover.  To control the number of MC trials, set ```total_num_mc_runs="100000"```; making this value smaller will result in shorter runtimes, making it bigger will result in longer runtimes (and often more solutions).  Other MC HBNet options are listed below. Everything else is the same as original HBNet, including network requirements and evaluation.
+Jack Maguire's new Monte Carlo sampling approach (MC HBNet) is now in master and it is highly recommended (likely become the default soon); to use it, simply add ```monte_carlo="true"``` to the existing HBNet or HBNetStapleInterface movers.  The new MC search procedure is much faster, enables consistent runtimes and memory usage, and consistently yields a larger number of high-quality networks in a much shorter runtime.  To control the number of MC trials, set ```total_num_mc_runs="100000"```; making this value smaller will result in shorter runtimes, making it bigger will result in longer runtimes (and often more solutions).  Other MC HBNet options are listed below. Setup, network evaluation/ranking, and output are the same as the original HBNet and HBNetStapleInterface.
 
 *[[how buried unsatisfied polar atoms are handled by HBNet|HBNet-BUnsats]].*<br>
 *[[how to design hydrogen bond networks into helical bundles|HBNet-HelicalBundle]].*<br>
@@ -69,7 +69,7 @@ Expects a pose with >= 2 chains and will by default start the network search at 
 
 **Useful options:**
 * For helical bundles, ```min_helices_contacted_by_network="4"``` would require that 4 different helices each contribute at least 1 rotamer to each h-bond network for it to pass
-* Combining multiple networks in same output PDB: ```min_networks_per_pose="24"``` with ```max_networks_per_pose="4"``` will try outputting combinations of between 2 to 4 compatible networks at once when returning output poses.
+* Combining multiple networks in same output PDB: ```min_networks_per_pose="2"``` with ```max_networks_per_pose="4"``` will try outputting combinations of between 2 to 4 compatible networks at once when returning output poses.
 
 **There used to be HBNetLigand and HBNetCore movers, but both of these design cases are better accomplished now by using the regular HBNet mover with the right options (see below):**
 
