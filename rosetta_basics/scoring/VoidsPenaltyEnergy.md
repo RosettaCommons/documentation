@@ -1,6 +1,8 @@
 # Voids penalty score term (voids\_penalty)
 Documentation created by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory, on 21 December 2017.
 
+**Note:** The ```voids_penalty``` score term is currently unpublished.  If you use it for something interesting, please include Vikram K. Mulligan in your author list.
+
 [[_TOC_]]
 
 ## Purpose and algorithm
