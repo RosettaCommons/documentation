@@ -10,7 +10,7 @@ TJ Brunette; tjbrunette@gmail.com;
 
 Combines two poses along a common secondary structure element and redesigns the sequence as appropriate
 ```xml
-<MergePDB name="(&string)" task_operations="(&string)" scorefxn="(&string)" attachment_termini="[n_term|c_term]" attach_pdb="(&string) overlap_length="(&int) overlap_rmsd="(&int)" design_range="*(&int)" packing_range="(&int) overlap_scan_range_cmdLine_pose="(&int)" overlap_scan_range_cmdLine_xml_pose="(&int)" symm_file="(&string) no_design_label="(&string) init_overlap_sequence="[input_pose|xml_pose|both]"/>
+<MergePDB name="(&string)" task_operations="(&string)" scorefxn="(&string)" attachment_termini="[n_term|c_term]" attach_pdb="(&string) overlap_length="(&int) overlap_rmsd="(&int)" design_range="*(&int)" packing_range="(&int) overlap_scan_range_cmdLine_pose="(&int)" overlap_scan_range_cmdLine_xml_pose="(&int)" symm_file="(&string) no_design_label="(&string) init_overlap_sequence="[input_pose|xml_pose|both]" duplicate_rmsd_pose_threshold="(&real)"/>
 ```
 
 Options:
@@ -41,6 +41,8 @@ Options:
 * no_design_label: Use the add_residue_label to define parts you don't want designed
 
 * init_overlap_sequence:[input_pose|xml_pose|both]: which pose do you want initialize the overlap rotamers
+
+* duplicate_rmsd_pose_threshold: rmsd for eliminating duplicate poses. For speed does not work >1.0
 
 Caveats:
 
