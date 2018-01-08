@@ -7,6 +7,8 @@
 For a more common and public way of creating loops, use Remodel.  Here is a link to the tutorial:
 https://www.rosettacommons.org/demos/latest/tutorials/loop_modeling/loop_modeling#modeling-missing-loops
 
+There is also a `LoopBuilderMover`, documentation of which can be found here: [[LoopBuilderMover]]
+
 **!!!!WARNING!!!!!** This code is under very active development and is subject to change
 
 Build loops to connect elements of protein structure. Protocol is broken into two independent steps - addition of loop residues to the pose, followed by closing the loop. These tasks are performed by LoopInserter and LoopCloser respectively (both are mover subclasses).
