@@ -54,6 +54,10 @@ Here are some useful links that will help you understand terminology that is use
 ## Documentation
 There is a decent documentation available: https://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/index.html. For newer documentation, please visit https://www.rosettacommons.org/manual_guide and click on the newest release.
 
+## Tutorials
+Excellent in-depth tutorials covering many aspects of Rosetta can be found here:
+https://www.rosettacommons.org/demos/latest/Home#tutorials
+
 ## FAQ/Forum
 The main RosettaCommons page is https://www.rosettacommons.org/. There is a Forum available on this page where you can post questions or look for answers for your specific problem (https://www.rosettacommons.org/forum).
 
