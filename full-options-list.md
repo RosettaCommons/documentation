@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-01-07
+Generated: 2018-01-11
 
 _Note that some application specific options may not be present in this list._
 
@@ -393,6 +393,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Prefix for output structure names, like old -series code<br/>Default: ""<br/></dd>
 <dt><b>-suffix</b> \<String\></dt>
 <dd>Suffix for output structure names<br/>Default: ""<br/></dd>
+<dt><b>-mover_controlled_output_name</b> \<Boolean\></dt>
+<dd>allows the mover to control the output name<br/>Default: false<br/></dd>
 <dt><b>-no_nstruct_label</b> \<Boolean\></dt>
 <dd>Do not tag the first output structure with _0001<br/>Default: false<br/></dd>
 <dt><b>-pdb_gz</b> \<Boolean\></dt>
@@ -7255,32 +7257,48 @@ _Note that some application specific options may not be present in this list._
 <dl>
 <dt><b>-staged_sampling</b> \<Boolean\></dt>
 <dd>sampling first with 9mers then 3mers. Staged energies. For rebuilding entire structure not loop closure<br/>Default: false<br/></dd>
-<dt><b>-residues_to_sample</b> \<File\></dt>
-<dd>residues to allow sampling (format:1,3,5)<br/>Default: ""<br/></dd>
+<dt><b>-loop_9mer_score_file</b> \<String\></dt>
+<dd>stage1_score<br/></dd>
+<dt><b>-loop_3mer_score_file</b> \<String\></dt>
+<dd>stage2_score<br/></dd>
+<dt><b>-all_9mer_score_file</b> \<String\></dt>
+<dd>stage3_score<br/></dd>
+<dt><b>-all_3mer_score_file</b> \<String\></dt>
+<dd>stage4_score<br/></dd>
+<dt><b>-loop_9mer_cycles</b> \<Integer\></dt>
+<dd>stage1_cycles<br/></dd>
+<dt><b>-loop_3mer_cycles</b> \<Integer\></dt>
+<dd>stage2_cycles<br/></dd>
+<dt><b>-all_9mer_cycles</b> \<Integer\></dt>
+<dd>stage3_cycles<br/></dd>
+<dt><b>-all_3mer_cycles</b> \<Integer\></dt>
+<dd>stage4_cycles<br/></dd>
+<dt><b>-fa_mode</b> \<Boolean\></dt>
+<dd>does the fragment assembly stage in fa<br/>Default: false<br/></dd>
+<dt><b>-fa_relax_moves</b> \<Boolean\></dt>
+<dd>Adds a stage of fa relax<br/>Default: false<br/></dd>
+<dt><b>-loop_btw_parametric_components</b> \<Boolean\></dt>
+<dd>Sets up a mode where a loop can be inserted into a parametric repeat<br/>Default: false<br/></dd>
+<dt><b>-pre_centroid</b> \<Boolean\></dt>
+<dd>initialize fa mode with 200 cycles of centroid<br/>Default: false<br/></dd>
+<dt><b>-sample_over_loops</b> \<Boolean\></dt>
+<dd>sample residues defined as loops in the blueprint<br/>Default: false<br/></dd>
+<dt><b>-small_moves</b> \<Boolean\></dt>
+<dd>add a stage of small moves<br/>Default: false<br/></dd>
 <dt><b>-starting_sequence</b> \<String\></dt>
 <dd>AA sequence to start<br/>Default: ""<br/></dd>
 <dt><b>-starting_pdb</b> \<File\></dt>
 <dd>pdb to start<br/>Default: ""<br/></dd>
 <dt><b>-starting_non_canonical</b> \<String\></dt>
 <dd>position,non canonical to be added<br/>Default: ""<br/></dd>
-<dt><b>-require_frags_match_blueprint</b> \<Boolean\></dt>
-<dd>makes sure the frags match the definition in the blueprint<br/>Default: true<br/></dd>
 <dt><b>-start_w_ideal_helices</b> \<Boolean\></dt>
 <dd>begins with all helices set to -63.8 phi and -41.1 for psi.<br/>Default: false<br/></dd>
-<dt><b>-sample_over_loops</b> \<Boolean\></dt>
-<dd>sample residues defined as loops in the blueprint<br/>Default: false<br/></dd>
-<dt><b>-small_moves</b> \<Boolean\></dt>
-<dd>add a stage of small moves<br/>Default: false<br/></dd>
-<dt><b>-fa_mode</b> \<Boolean\></dt>
-<dd>does the fragment assembly stage in fa<br/>Default: false<br/></dd>
-<dt><b>-fa_relax_moves</b> \<Boolean\></dt>
-<dd>Adds a stage of fa relax<br/>Default: false<br/></dd>
 <dt><b>-sym_move</b> \<Boolean\></dt>
 <dd>Adds a symmetry move to the abinitio stage<br/>Default: false<br/></dd>
-<dt><b>-loop_btw_parametric_components</b> \<Boolean\></dt>
-<dd>Sets up a mode where a loop can be inserted into a parametric repeat<br/>Default: false<br/></dd>
-<dt><b>-pre_centroid</b> \<Boolean\></dt>
-<dd>initialize fa mode with 200 cycles of centroid<br/>Default: false<br/></dd>
+<dt><b>-residues_to_sample</b> \<File\></dt>
+<dd>residues to allow sampling (format:1,3,5)<br/>Default: ""<br/></dd>
+<dt><b>-require_frags_match_blueprint</b> \<Boolean\></dt>
+<dd>makes sure the frags match the definition in the blueprint<br/>Default: true<br/></dd>
 </dl>
 + <h3>-remodel:domainFusion</h3>
 <dl>
@@ -8270,6 +8288,8 @@ _Note that some application specific options may not be present in this list._
 <dd>list of PDB files containing other poses<br/></dd>
 <dt><b>-jump_res</b> \<ResidueChainVector\></dt>
 <dd>optional: residues for defining jumps -- please supply in pairs<br/>Default: []<br/></dd>
+<dt><b>-disulfide_res</b> \<ResidueChainVector\></dt>
+<dd>optional: residues for defining disulfides -- please supply in pairs<br/>Default: []<br/></dd>
 <dt><b>-extra_min_res</b> \<ResidueChainVector\></dt>
 <dd>specify residues other than those being built that should be minimized<br/>Default: []<br/></dd>
 <dt><b>-extra_min_jump_res</b> \<ResidueChainVector\></dt>

@@ -32,6 +32,6 @@ Main mover for Glycan Relax, which optimizes glycans in a pose. Each round optim
 -   **min_rings**: Minimize Carbohydrate Rings during minimization.
 -   **task_operations**: A comma separated list of TaskOperations to use.
 -   **scorefxn**: Name of score function to use
--   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
+-   **residue_selector**: Residue Selector containing only glycan residues.  This is not needed, as this class will automatically select ALL glycan residues in the pose to model.  See the GlycanResidueSelector and the GlycanLayerSelector for control glycan selection.  Note that the ASN is not technically a glycan.  Since dihedral angles are defined for a sugar from the upper to lower residue, the dihedral angles between the first glycan and the ASN are defined by the first glycan.
 
 ---
