@@ -135,7 +135,7 @@ Selects residues in the pose at random. Note that this residue selector is stoch
 
 #### ResidueIndexSelector
 
-    <Index name="(&string)" resnums="(&string)" error_on_out_of_bounds_index="(true &bool)" />
+    <Index name="(&string)" resnums="(&string)" error_on_out_of_bounds_index="(true &bool)" reverse="(false &bool)" />
 
 -   The string given for the "resnums" option should be a comma-separated list of residue identifiers
 -   Each residue identifier should be either:
@@ -146,6 +146,7 @@ Selects residues in the pose at random. Note that this residue selector is stoch
 (Note, residues that contain insertion codes cannot be properly identified by these PDB numbered schemes).
 -   The ResidueIndexSelector sets the positions corresponding to the residues given in the resnums string to true, and all other positions to false.
 -   If "error_on_out_of_bounds_index" is true (the default), this selector throws an error if a user attempts to select a residue index that doesn't exist in the pose (_e.g._ residue 56 of a 55-residue pose).  This behaviour can be disabled by setting "error_on_out_of_bounds_index" to false, which allows the selector to ignore indices that are out of range silently.
+-   If reverse is true(default false) the residue 1 index is for the last protein residue(soon to be checked in)
 
 #### ResidueNameSelector
 Selects residues by their full Rosetta residue type name. At least one of residue_names and residue_name3 must be specified.
