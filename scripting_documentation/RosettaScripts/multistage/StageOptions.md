@@ -48,7 +48,7 @@ The combination of `num_runs_per_input_struct=40`, `total_num_results_to_keep=10
 This options allows a stage to stop submitting jobs once a certain number of results have come in.
 For example, say you are docking two proteins and you have some idea about how you want these proteins to interact.
 You can run your docking mover as normal (with or without constraints) and follow up the docking mover with one or more filters.
-The job will not return a result unless it passes all of these filters (including the one in [[Sort|###Sort]]).
+The job will not return a result unless it passes all of these filters (including the one in `<Sort/>`).
 Now you can set `num_runs_per_input_struct` to a very large number and `result_cutoff` to 1000 and Rosetta will essentially keep sampling until it finds 1000 results that pass all of your filters.
 
 
