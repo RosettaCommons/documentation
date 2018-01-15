@@ -1,5 +1,7 @@
 #MRS: XML Script
 
+[[Multistage Rosetta Scripts|MultistageRosettaScripts]]
+
 [[_TOC_]]
 
 ##Summary

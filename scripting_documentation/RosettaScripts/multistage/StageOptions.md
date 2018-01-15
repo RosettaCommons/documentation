@@ -1,5 +1,7 @@
 #MultistageRosettaScripts Stage Options
 
+[[Multistage Rosetta Scripts|MultistageRosettaScripts]]
+
 [[_TOC_]]
 
 ##Skeleton

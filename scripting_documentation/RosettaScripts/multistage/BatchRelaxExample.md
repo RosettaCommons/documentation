@@ -1,5 +1,7 @@
 #MRS: Batch Relax Example
 
+[[Multistage Rosetta Scripts|MultistageRosettaScripts]]
+
 This script was used to Relax 30,000 [[abinitio|abinitio]] results (only 5 shown here for the sake of saving space).
 All 30,000 structues went through one repeat of [[FastRelax|FastRelaxMover]].
 The 7,500 (25%) best results survived and went through the second repeat.
