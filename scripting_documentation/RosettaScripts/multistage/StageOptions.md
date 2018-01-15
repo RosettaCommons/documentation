@@ -70,6 +70,16 @@ If `num_runs_per_input_struct=1000` and `job_bundle_size=10`, then the job distr
 
 This does not require compensation in the other options. `max_num_results_per_instance` is still applied to each individual job, not to each bundle.
 
+###merge_results_after_this_stage
+
+By default all of the results of a stage are thrown into the same pool, sorted, and the top few are chosen to survive.
+This option allows you to create a separate pool for each `<Job/>` tag until a certain point.
+
+Suppose you have 2 `<Job/>` tags and 3 stages: (1) Dock, (2) Design, (3) Minimize.
+Perhaps you want a 50/50 split of results until the final stage.
+If you set `merge_results_after_this_stage="true"/>` in the second stage tag, then you will have a 50/50 split of jobs until after the Design step.
+All of the results of the Design step will go into the same pool and the jobs for stage 3 will not necessarily be a 50/50 split.
+
 ###Add
 
 `<Add/>` means the exact same thing here as it does in [[traditional|RosettaScripts]] rosetta scripts.
