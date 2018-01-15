@@ -57,31 +57,31 @@ There is a `<Job> <PDBList/> </Job>` option, but it has not been tested yet with
 
     <Job>
         <Input>
-            <PDB filename="../Abinit_jd3/S_00000001.pdb"/>
+            <PDB filename="../S1.pdb"/>
         </Input>
     </Job>
 
     <Job>
         <Input>
-            <PDB filename="../Abinit_jd3/S_00000002.pdb"/>
+            <PDB filename="../S2.pdb"/>
         </Input>
     </Job>
 
     <Job>
         <Input>
-            <PDB filename="../Abinit_jd3/S_00000003.pdb"/>
+            <PDB filename="../S3.pdb"/>
         </Input>
     </Job>
 
     <Job>
         <Input>
-            <PDB filename="../Abinit_jd3/S_00000004.pdb"/>
+            <PDB filename="../S4.pdb"/>
         </Input>
     </Job>
 
     <Job>
         <Input>
-            <PDB filename="../Abinit_jd3/S_00000005.pdb"/>
+            <PDB filename="../S5.pdb"/>
         </Input>
     </Job>
 </JobDefinitionFile>

@@ -56,7 +56,7 @@ There are two main things to note here:
             <ReadResfile name="rrf" filename="resfile1"/>
         </RESIDUE_SELECTORS>
         <Input>
-            <PDB filename="../Abinit_jd3/S1.pdb"/>
+            <PDB filename="../S1.pdb"/>
         </Input>
     </Job>
 
@@ -65,7 +65,7 @@ There are two main things to note here:
             <ReadResfile name="rrf" filename="resfile1"/>
         </RESIDUE_SELECTORS>
         <Input>
-            <PDB filename="../Abinit_jd3/S2.pdb"/>
+            <PDB filename="../S2.pdb"/>
         </Input>
     </Job>
 
@@ -77,7 +77,7 @@ There are two main things to note here:
             <FastRelax disable_design="false" name="relax" repeats="1" scorefxn="common_sfxn" task_operations="ifc,ic,rrf"/>
         </MOVERS>
         <Input>
-            <PDB filename="../Abinit_jd3/S3.pdb"/>
+            <PDB filename="../S3.pdb"/>
         </Input>
     </Job>
 
