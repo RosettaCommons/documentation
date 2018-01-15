@@ -45,7 +45,7 @@ For example, you might have 3 `<Job>` tags and in one of them you have:
   </SCOREFXNS>
 ```
 
-and in '<Common>' you have
+and in `<Common>` you have
 
 ```
   <SCOREFXNS>
@@ -66,8 +66,35 @@ The `<PROTOCOLS>` section is the only one that behaves much differently than in 
 Now, movers and filters are divided up into [[stages|StageOptions]].
 Between each stage, you have the opportunity to filter out trajectories based on their global ranking.
 
+```
+<PROTOCOLS>
+    <Stage num_runs_per_input_struct="10000" total_num_results_to_keep="5000">
+        <Add mover="m1"/>
+        <Add filter="f1"/>
+        <Sort filter="f2"/>
+    </Stage>
+
+    <Stage num_runs_per_input_struct="2" total_num_results_to_keep="5000">
+        <Add mover="m2" filter="f2"/>
+        <Sort filter="f1"/>
+    </Stage>
+
+    <Stage num_runs_per_input_struct="1" total_num_results_to_keep="5000">
+        <Add mover="m3"/>
+        <Sort filter="f2"/>
+    </Stage>
+
+    <Stage num_runs_per_input_struct="1" total_num_results_to_keep="5000">
+        <Add mover="m4"/>
+        <Sort filter="f2"/>
+    </Stage>
+</PROTOCOLS>
+```
+
 See [[here|StageOptions]] for a more detailed look into the options for `<Stage>`.
 
+###Input/Ouput
+These tags are defined by [[JD3|JD3]].
 
 ##Conversion
 
