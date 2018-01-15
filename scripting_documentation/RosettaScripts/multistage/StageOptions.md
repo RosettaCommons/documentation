@@ -82,6 +82,11 @@ All of the results of the Design step will go into the same pool and the jobs fo
 
 [[/images/merge_results_after_this_stage.png]]
 
+`merge_results_after_this_stage` can only be set to true once.
+If it is never present for any stage, then results will always be placed into the same pool.
+The values for `total_num_results_to_keep` and `result_cutoff` is divided evenly into each pool.
+For example, if `result_cutoff="100"` and you have 4 `<Job/>` tags, then the stage will not stop early unles each of the 4 pools has at least 25 results, and Rosetta will keep `total_num_results_to_keep`/2 results from each pool.
+
 ###Add
 
 `<Add/>` means the exact same thing here as it does in [[traditional|RosettaScripts]] rosetta scripts.
