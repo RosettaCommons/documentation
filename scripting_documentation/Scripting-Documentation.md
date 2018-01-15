@@ -14,6 +14,7 @@
 ---------------------------------
 
 * [[Composite protocols|Composite-protocols]]
+* [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 * [[FeaturesReporters|Features-reporter-overview]]
 * [[Conventions|RosettaScripts-Conventions]]
 * [[Database connections|RosettaScripts-database-connection-options]]
