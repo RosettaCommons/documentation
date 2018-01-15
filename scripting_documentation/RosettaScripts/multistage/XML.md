@@ -35,10 +35,9 @@ MRS scripts use this foundation to make something like this:
 
 ###DataMap Info
 This consists of everything from a normal rosetta script except for `<PROTOCOLS>`.
-Score functions, residue selectors, movemap factories, task selectors, movers, filters, etc. (let's refer to these as DataMap Info) can all go in either `<Common>` or `<Job>`.
-Even though `<Common>` must be listed before `<Job>` in the script, the Rosetta will give the DataMap info in `<Job>` more priority.
-
-For example, you might have 3 `<Job>` tags and in one of them you have:
+Score functions, residue selectors, movemap factories, task selectors, movers, filters, etc. can all go in either `<Common>` or `<Job>`.
+Even though `<Common>` must be listed before `<Job>` in the script, Rosetta will give the DataMap Info in `<Job>` higher priority in the case of a name conflict.
+For example, you might have 3 `<Job>` tags and in one of them you put:
 ```
   <SCOREFXNS>
     <ScoreFunciton name="sfxn" weights="ref2015_cart.wts"/>
@@ -95,6 +94,8 @@ See [[here|StageOptions]] for a more detailed look into the options for `<Stage>
 
 ###Input/Ouput
 These tags are defined by [[JD3|JD3]].
+`<Output>` is optional, but you need to include `<Input>` to tell Rosetta how to load in your structure.
+See the next section for a few examples on what a `<Input>` tag might look like.
 
 ##Conversion
 
