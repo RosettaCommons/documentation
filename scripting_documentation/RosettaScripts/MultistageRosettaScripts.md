@@ -4,7 +4,9 @@
 
 
 ##XML Format
+
 ###Conversion
+
 This part might be overwhelming, so let's start by mentioning that there is a way to convert a traditional rosetta script to a multistage rosetta script.
 
 ###(Incomplete) Skeleton:
