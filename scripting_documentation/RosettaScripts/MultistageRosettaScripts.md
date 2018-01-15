@@ -1,7 +1,13 @@
 #MultistageRosettaScripts
 
-#XML Format
-(Incomplete) Skeleton:
+##Overview
+
+
+##XML Format
+###Conversion
+This part might be overwhelming, so let's start by mentioning that there is a way to convert a traditional rosetta script to a multistage rosetta script.
+
+###(Incomplete) Skeleton:
 ```
 <JobDefinitionFile>
     <ROSETTASCRIPTS>
@@ -16,9 +22,27 @@
         <MOVERS>
         </MOVERS>
         <PROTOCOLS>
+            <Stage>
+                <Add/>
+                <Sort/>
+            </Stage>
         </PROTOCOLS>
     </ROSETTASCRIPTS>
     <Job>
+        <SCOREFXNS>
+        </SCOREFXNS>
+        <RESIDUE_SELECTORS>
+        </RESIDUE_SELECTORS>
+        <TASKOPERATIONS>
+        </TASKOPERATIONS>
+        <FILTERS>
+        </FILTERS>
+        <MOVERS>
+        </MOVERS>
+        <Input>
+        </Input>
+        <Output>
+        </Output>
     </Job>
 </JobDefinitionFile>
 ```
