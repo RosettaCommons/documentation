@@ -1,4 +1,4 @@
-#RosettaScripts
+#MultistageRosettaScripts
 
 -   [Introductory Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/scripting_with_rosettascripts/scripting_with_rosettascripts)
 -   [Advanced Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/advanced_scripting_with_rosettascripts/advanced_scripting_with_rosettascripts)
@@ -13,7 +13,6 @@
 -----------------------
 
 -   [[Composite protocols with RosettaScripts interfaces|Composite-protocols]]
--   [[Mulstistage Rosetta Scripts|MultistageRosettaScripts]]
 -   [[SymmetryAndRosettaScripts]]
 -   [[RosettaScripts Formatting Conventions|RosettaScripts-Conventions]]
 -   [[RosettaScripts database connection options|RosettaScripts-database-connection-options]]
