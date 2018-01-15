@@ -251,7 +251,8 @@ The converter is not currently smart enough to figure out if the input files are
 
 ##(Incomplete) Skeleton
 
-If you really want to write a script from scratch, here is a skeleton.
+If you really want to write a script from scratch instead of using the converter, here is a skeleton.
+This is missing most of the less common DataMap Info sections.
 
 ```
 <JobDefinitionFile>
@@ -300,7 +301,3 @@ If you really want to write a script from scratch, here is a skeleton.
 * [[Scripting Documentation]]: The Scripting Documentation home page
 * [[Getting Started]]: A page for people new to Rosetta
 * [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
-
-<!-- SEO
-scriptvars
--->

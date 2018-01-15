@@ -16,7 +16,3 @@ TODO write a lot more.
 * [[Scripting Documentation]]: The Scripting Documentation home page
 * [[Getting Started]]: A page for people new to Rosetta
 * [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
-
-<!-- SEO
-scriptvars
--->
