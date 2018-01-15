@@ -51,6 +51,14 @@ You can run your docking mover as normal (with or without constraints) and follo
 The job will not return a result unless it passes all of these filters (including the one in `<Sort/>`).
 Now you can set `num_runs_per_input_struct` to a very large number and `result_cutoff` to 1000 and Rosetta will essentially keep sampling until it finds 1000 results that pass all of your filters.
 
+###max_num_results_per_instance
+
+Some movers can return multiple results ([[HBNet|HBNet]], for example).
+This is challenging for use to handle in a well-organized manner.
+The current format only allows for the final mover in a stage to return multiple results.
+This number defines a cap for a single mover.
+If this value is set to 10, for example, a single instance of HBNet would only be able to return up to 10 results.
+So if you have `num_runs_per_input_struct=1000` and `max_num_results_per_instance=2`, you can get a maximum of 2000 results.
 
 ###Add
 
