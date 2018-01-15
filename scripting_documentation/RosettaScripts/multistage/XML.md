@@ -29,6 +29,12 @@ The JD3 format consists of a `<Common/>` tag followed by one or more `<Job/>` ta
 
 ```
 
+MRS scripts use this foundation to make something like this:
+
+[[/images/multistage_rosetta_scripts/MRS_xml_overview.png]]
+
+
+
 ##Conversion
 
 This format may be unwelcoming, but there is a way to convert an existing rosetta script into a multistage rosetta script without too much effor.
@@ -182,7 +188,7 @@ The converter is not currently smart enough to figure out if the input files are
 </JobDefinitionFile>
 ```
 
-##(Incomplete) Skeleton:
+##(Incomplete) Skeleton
 
 If you really want to write a script from scratch, here is a skeleton.
 
