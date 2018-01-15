@@ -4,8 +4,8 @@ This script was contrived for the purposes of showing how to overload [[DataMap 
 The values for `num_runs_per_input_struct` and `total_num_results_to_keep` are more-or-less meaningless and are not the point of this script.
 
 There are two main things to note here:
-* 1
-* 2
+1. Each input structure has a different resfile. This is not a problem because they all use the same name "rrf".
+2. The 3rd job actually uses a completely different FastRelax protocol. Design is enabled and the ExtraRotamersGeneric task operation "ex1ex2" is removed.
 
 ```
 <JobDefinitionFile>
