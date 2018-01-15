@@ -7,7 +7,8 @@ TODO write a lot more.
 
 [[Stage Options|StageOptions]]
 
-##Features and Tricks
+##Examples
+[[Batch Relax|BatchRelaxExample]]
 
 ##See Also
 
