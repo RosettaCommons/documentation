@@ -33,6 +33,40 @@ MRS scripts use this foundation to make something like this:
 
 [[/images/multistage_rosetta_scripts/MRS_xml_overview.png]]
 
+###DataMap Info
+This consists of everything from a normal rosetta script except for `<PROTOCOLS>`.
+Score functions, residue selectors, movemap factories, task selectors, movers, filters, etc. (let's refer to these as DataMap Info) can all go in either `<Common>` or `<Job>`.
+Even though `<Common>` must be listed before `<Job>` in the script, the Rosetta will give the DataMap info in `<Job>` more priority.
+
+For example, you might have 3 `<Job>` tags and in one of them you have:
+```
+  <SCOREFXNS>
+    <ScoreFunciton name="sfxn" weights="ref2015_cart.wts"/>
+  </SCOREFXNS>
+```
+
+and in '<Common>' you have
+
+```
+  <SCOREFXNS>
+    <ScoreFunciton name="sfxn" weights="ref2015.wts"/>
+  </SCOREFXNS>
+
+  <MOVERS>
+    <FastRelax name="fr" score_function="sfxn"/>
+  </MOVERS>  
+```
+
+In this case, FastRelax will use `ref2015_cart.wts` for one job and `ref2015.wts` for the other two.
+All kinds of DataMap Info can be overloaded this way, including Movers and Filters.
+See [[here|MultistageRosettaScripts#Features and Tricks]] for examples of how to use this feature.
+
+###Protocols
+The `<PROTOCOLS>` section is the only one that behaves much differently than in traditional rosetta scripts.
+Now, movers and filters are divided up into [[stages|StageOptions]].
+Between each stage, you have the opportunity to filter out trajectories based on their global ranking.
+
+See [[here|StageOptions]] for a more detailed look into the options for `<Stage>`.
 
 
 ##Conversion
