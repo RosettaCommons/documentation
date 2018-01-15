@@ -1,16 +1,41 @@
 #MultistageRosettaScripts
 
-##Overview
-
 [[_TOC_]]
+
+##Overview
 
 ##XML Format
 
-This part might be overwhelming, so let's start by mentioning that there is a way to convert a traditional rosetta script to a multistage rosetta script.
-Because of this, you will rarely have to write a multistage script from scratch.
+Every MRS script is a Frankenstein's Monster of the [[JD3|JD3]] XML format and [[tradition|RosettaScripts]] rosetta scripts XML format.
+The JD3 format consists of a `<Common/>` tag followed by one or more `<Job/>` tags, all within a `<JobDefinitionFile/>` tag as shown here:
+
+```
+<JobDefinitionFile>
+    <Common>
+    </Common>
+
+    <Job>
+        <Input>
+        </Input>
+        <Output>
+        </Output>
+    </Job>
+
+    <Job>
+        <Input>
+        </Input>
+        <Output>
+        </Output>
+    </Job>
+</JobDefinitionFile>
+
+```
+
+[[Stages|StageOptions]]
 
 ###Conversion
 
+This format may be unwelcoming, but there is a way to convert an existing rosetta script into a multistage rosetta script without too much effor.
 Say we have the following rosetta script saved as `test.xml`:
 ```
 <ROSETTASCRIPTS>
