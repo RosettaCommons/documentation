@@ -55,12 +55,12 @@ Now you can set `num_runs_per_input_struct` to a very large number and `result_c
 ###Add
 
 `<Add/>` means the exact same thing here as it does in [[traditional|RosettaScripts]] rosetta scripts.
-It takes up to 1 mover (can use either `mover_name=` or `mover=`) and up to 1 filter (`filter_name=` or `filter=`).
+It takes up to 1 mover (can use either `mover_name` or `mover`) and up to 1 filter (`filter_name` or `filter`).
 If both a mover and filter are given, then mover is applied before the filter is.
 
 ###Sort
 
-`<Sort/>` is similar to `<Add/>` but only takes a filter (`filter_name=` or `filter=`).
+`<Sort/>` is similar to `<Add/>` but only takes a filter (`filter_name` or `filter`).
 The metric measured by this filter is used to sort the results of this stage and determines which are kept and which are discarded.
 More negative numbers are assumed to be better for this metric, but this can be changed by setting `negative_score_is_good="false"`.
 
