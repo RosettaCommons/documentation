@@ -13,7 +13,7 @@
 -----------------------
 
 -   [[Composite protocols with RosettaScripts interfaces|Composite-protocols]]
--   [[Mulstistage Rosetta Scripts|MultistageRosettaScripts-RosettaScripts]]
+-   [[Mulstistage Rosetta Scripts|MultistageRosettaScripts-multistage-RosettaScripts]]
 -   [[SymmetryAndRosettaScripts]]
 -   [[RosettaScripts Formatting Conventions|RosettaScripts-Conventions]]
 -   [[RosettaScripts database connection options|RosettaScripts-database-connection-options]]
