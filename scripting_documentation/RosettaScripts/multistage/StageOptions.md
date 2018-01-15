@@ -80,7 +80,7 @@ Perhaps you want a 50/50 split of results until the final stage.
 If you set `merge_results_after_this_stage="true"/>` in the second stage tag, then you will have a 50/50 split of jobs until after the Design step.
 All of the results of the Design step will go into the same pool and the jobs for stage 3 will not necessarily be a 50/50 split.
 
-[[/images/merge_results_after_this_stage.png]]
+[[images/merge_results_after_this_stage.png]]
 
 ###Add
 
