@@ -25,7 +25,7 @@ There is a `<Job> <PDBList/> </Job>` option, but it has not been tested yet with
         </TASKOPERATIONS>
 
         <FILTERS>
-            <ScoreType name="beta16_filter2" score_type="total_score" scorefxn="common_sfxn" threshold="999999"/>
+            <ScoreType name="beta16_filter" score_type="total_score" scorefxn="common_sfxn" threshold="999999"/>
         </FILTERS>
 
         <MOVERS>
@@ -36,20 +36,19 @@ There is a `<Job> <PDBList/> </Job>` option, but it has not been tested yet with
 
         <PROTOCOLS>
             <Stage num_runs_per_input_struct="1" total_num_results_to_keep="7500">
-            <Add mover_name="to_fa"/>
-                <Add mover_name="VR_ROOT"/>
+                <Add mover_name="to_fa"/>
                 <Add mover_name="relax_1"/>
-                <Sort filter_name="beta16_filter2"/>
+                <Sort filter_name="beta16_filter"/>
             </Stage>
 
             <Stage num_runs_per_input_struct="1" total_num_results_to_keep="1875">
                 <Add mover_name="relax_1"/>
-                <Sort filter_name="beta16_filter2"/>
+                <Sort filter_name="beta16_filter"/>
             </Stage>
 
             <Stage num_runs_per_input_struct="1" total_num_results_to_keep="1875">
                 <Add mover_name="relax_2"/>
-                <Sort filter_name="beta16_filter2"/>
+                <Sort filter_name="beta16_filter"/>
             </Stage>
 
         </PROTOCOLS>
