@@ -53,7 +53,7 @@ Now you can set `num_runs_per_input_struct` to a very large number and `result_c
 
 ###max_num_results_per_instance
 
-Some movers can return multiple results ([[HBNet|HBNet]], for example).
+Some movers can return multiple results ([[HBNet|HBNetMover]], for example).
 This is challenging for use to handle in a well-organized manner.
 The current format only allows for the final mover in a stage to return multiple results.
 This number defines a cap for a single mover.
@@ -82,10 +82,10 @@ All of the results of the Design step will go into the same pool and the jobs fo
 
 [[/images/merge_results_after_this_stage.png]]
 
-`merge_results_after_this_stage` can only be set to true once.
+`merge_results_after_this_stage` can only be set to true for one stage.
 If it is never present for any stage, then results will always be placed into the same pool.
-The values for `total_num_results_to_keep` and `result_cutoff` is divided evenly into each pool.
-For example, if `result_cutoff="100"` and you have 4 `<Job/>` tags, then the stage will not stop early unles each of the 4 pools has at least 25 results, and Rosetta will keep `total_num_results_to_keep`/2 results from each pool.
+The values for `total_num_results_to_keep` and `result_cutoff` are divided evenly into each pool.
+For example, if `result_cutoff="100"` and you have 4 `<Job/>` tags, then the stage will not stop early unles each of the 4 pools has at least 25 results and Rosetta will keep `total_num_results_to_keep`/4 results from each pool.
 
 ###Add
 
