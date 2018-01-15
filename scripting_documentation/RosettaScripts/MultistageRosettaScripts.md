@@ -44,7 +44,9 @@ Say we have the following rosetta script saved as `test.xml`:
 
 Running
 
-```multistage_rosetta_scripts.default.linuxgccrelease -convert -parser:protocol test.xml -job_definition_file msrs.xml```
+```
+multistage_rosetta_scripts.default.linuxgccrelease -convert -parser:protocol test.xml -job_definition_file msrs.xml
+```
 
 (make sure `-convert` is the first argument) will create the following in `msrs.xml`:
 
