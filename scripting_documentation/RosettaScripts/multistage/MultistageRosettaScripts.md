@@ -2,7 +2,7 @@
 
 ##Overview
 
-[[XML Format|#XML Format]]
+[[_TOC_]]
 
 ##XML Format
 
