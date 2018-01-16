@@ -8,9 +8,9 @@ This tutorial assumes the reader has some knowledge of [[JD3|JD3]] in general.
 
 For the sake of example, we will write a (very contrived) 3-step job queen that takes a protein-protein interface and:
 
-1. Designs a negativly-charged residue on chain 1's side of the interface
+1. Designs a negatively-charged residue on chain 1's side of the interface
 
-2. Designs a posativly-charged residue on chain 2's side of the interface
+2. Designs a posatively-charged residue on chain 2's side of the interface
 
 3. Relax the interface
 

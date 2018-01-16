@@ -9,9 +9,9 @@ Author: Jack Maguire
 I tried to contrive a queen that would require a non-linear [[job dag|JD3]].
 There are several ways to create a dag that would fit our needs, let's go with something like this:
 
-DAG Node 1: Designs a negativly-charged residue on chain 1's side of the interface
+DAG Node 1: Designs a negatively-charged residue on chain 1's side of the interface
 
-DAG Node 2: Designs a posativly-charged residue on chain 2's side of the interface
+DAG Node 2: Designs a posatively-charged residue on chain 2's side of the interface
 
 DAG Node 3: Relax the interface
 
@@ -21,7 +21,7 @@ DAG Node 3: Relax the interface
 2--/
 ```
 
-This is admittedly a silly way to do things because the negativly-charged residues found in node 1 are not present when sampling posativly-charged residues in node 2.
+This is admittedly a silly way to do things because the negatively-charged residues found in node 1 are not present when sampling posatively-charged residues in node 2.
 In practice, you might do something like this instead:
 
 ```
@@ -30,7 +30,75 @@ In practice, you might do something like this instead:
 
 But can we just play along with the first DAG?
 My creativity is not what it used to be.
+
+To create the job DAG, we need to override `initial_job_dag()`, as shown below
+
 ##Code
+
+###TutorialQueen.hh
+
+```
+#include <protocols/tutorial/TutorialQueen.fwd.hh>
+#include <protocols/jd3/standard/StandardJobQueen.hh>
+
+namespace protocols {
+namespace tutorial {
+
+class TutorialQueen: public jd3::standard::StandardJobQueen {
+
+public:
+
+	//constructor
+	TutorialQueen();
+
+	//destructor
+	~TutorialQueen() override;
+
+        jd3::JobDigraphOP
+        initial_job_dag()
+        override;
+};
+
+} //tutorial
+} //protocols
+```
+
+###TutorialQueen.cc
+
+```
+#include <protocols/tutorial/TutorialQueen.hh>
+
+static basic::Tracer TR( "protocols.tutorial.TutorialQueen" );
+
+using namespace protocols::jd3;
+
+namespace protocols {
+namespace tutorial {
+
+//Constructor
+TutorialQueen::TutorialQueen() :
+    StandardJobQueen()
+{}
+
+//Destructor
+TutorialQueen::~TutorialQueen()
+{}
+
+JobDigraphOP
+MRSJobQueen::initial_job_dag() {
+        //you need to call this for the standard job queen to initialize
+        determine_preliminary_job_list();
+
+        JobDigraphOP dag = utility::pointer::make_shared< JobDigraph >( 3 );
+        dag->add_edge( 1, 3 );
+        dag->add_edge( 2, 3 );
+        return dag;
+}
+
+} //tutorial
+} //protocols
+```
+
 
 ##See Also
 

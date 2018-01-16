@@ -107,7 +107,6 @@ public:
 // (c) addressed to University of Washington CoMotion, email: license@uw.edu.
 
 /// @file protocols/tutorial/TutorialQueen.cc
-/// @brief Queen for JD3 multistep protocol
 /// @author Jack Maguire, jack@med.unc.edu
 
 #include <protocols/tutorial/TutorialQueen.hh>
