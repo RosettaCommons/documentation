@@ -17,7 +17,9 @@ For the sake of example, we will write a (very contrived) 3-step job queen that 
 
 ##Contents
 
-[[Step 1: Creating the Job DAG | creating_the_job_dag]]
+[[Step 1: Skeletons for creating the file|skeletons]]
+
+[[Step 2: Creating the Job DAG|creating_the_job_dag]]
 
 ##Bonus Contents
 [[Appendix A: Let the user define their own score function|TODO]]
