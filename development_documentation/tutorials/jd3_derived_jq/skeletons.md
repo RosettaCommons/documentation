@@ -21,8 +21,6 @@ Below I have pasted some skeletons that you can copy and paste.
 // (c) addressed to University of Washington CoMotion, email: license@uw.edu.
 
 /// @file protocols/tutorial/TutorialQueen.fwd.hh
-/// @brief
-/// @detailed
 /// @author Jack Maguire, jack@med.unc.edu
 
 
@@ -37,6 +35,49 @@ namespace tutorial {
 class TutorialQueen;
 typedef utility::pointer::shared_ptr< TutorialQueen > TutorialQueenOP;
 typedef utility::pointer::shared_ptr< TutorialQueen const > TutorialQueenCOP;
+
+} //tutorial
+} //protocols
+
+#endif
+```
+
+`TutorialQueen.hh`
+
+```
+// -*- mode:c++;tab-width:2;indent-tabs-mode:t;show-trailing-whitespace:t;rm-trailing-spaces:t -*-
+// vi: set ts=2 noet:
+//
+// (c) Copyright Rosetta Commons Member Institutions.
+// (c) This file is part of the Rosetta software suite and is made available under license.
+// (c) The Rosetta software is developed by the contributing members of the Rosetta Commons.
+// (c) For more information, see http://www.rosettacommons.org. Questions about this can be
+// (c) addressed to University of Washington CoMotion, email: license@uw.edu.
+
+/// @file protocols/tutorial/TutorialQueen.hh
+/// @author Jack Maguire, jack@med.unc.edu
+
+
+#ifndef INCLUDED_protocols_tutorial_TutorialQueen_HH
+#define INCLUDED_protocols_tutorial_TutorialQueen_HH
+
+#include <protocols/tutorial/TutorialQueen.fwd.hh>
+#include <protocols/jd3/standard/StandardJobQueen.hh>
+
+namespace protocols {
+namespace tutorial {
+
+class TutorialQueen: public jd3::standard::StandardJobQueen {
+
+public:
+
+	//constructor
+	TutorialQueen();
+
+	//destructor
+	~TutorialQueen() override;
+
+};
 
 } //tutorial
 } //protocols
