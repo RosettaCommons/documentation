@@ -35,11 +35,14 @@ To create the job DAG, we need to override `initial_job_dag()`, as shown below
 
 ##Code
 
+I left off some of the info at the tops and bottoms of the pages.
+
 ###TutorialQueen.hh
 
 ```
 #include <protocols/tutorial/TutorialQueen.fwd.hh>
 #include <protocols/jd3/standard/StandardJobQueen.hh>
+#include <protocols/jd3/JobDigraph.fwd.hh>
 
 namespace protocols {
 namespace tutorial {
@@ -67,6 +70,10 @@ public:
 
 ```
 #include <protocols/tutorial/TutorialQueen.hh>
+#include <protocols/jd3/JobDigraph.hh>
+#include <protocols/jd3/JobDigraph.hh>
+
+#include <utility/pointer/memory.hh>
 
 static basic::Tracer TR( "protocols.tutorial.TutorialQueen" );
 
