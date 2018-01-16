@@ -8,7 +8,7 @@ The first step of writing a file is to create it!
 Let's put our job queen in `src/protocols/tutorial`.
 Below I have pasted some skeletons that you can copy and paste.
 
-`TutorialQueen.fwd.hh`:
+###TutorialQueen.fwd.hh
 
 ```
 // -*- mode:c++;tab-width:2;indent-tabs-mode:t;show-trailing-whitespace:t;rm-trailing-spaces:t -*-
@@ -42,7 +42,7 @@ typedef utility::pointer::shared_ptr< TutorialQueen const > TutorialQueenCOP;
 #endif
 ```
 
-`TutorialQueen.hh`
+###TutorialQueen.hh
 
 ```
 // -*- mode:c++;tab-width:2;indent-tabs-mode:t;show-trailing-whitespace:t;rm-trailing-spaces:t -*-
@@ -85,7 +85,7 @@ public:
 #endif
 ```
 
-`TutorialQueen.cc`
+###TutorialQueen.cc
 
 ```
 // -*- mode:c++;tab-width:2;indent-tabs-mode:t;show-trailing-whitespace:t;rm-trailing-spaces:t -*-
