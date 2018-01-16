@@ -22,6 +22,16 @@ DAG Node 3: Relax the interface
 |
 3
 ```
+
+This is admittedly a silly way to do things because the negativly-charged residues found in node 1 are not present when sampling posativly-charged residues in node 2.
+In practice, you might do something like this instead:
+
+```
+1 -> 2 -> 3
+```
+
+But can we just play along with the first DAG?
+My creativity is not what it used to be.
 ##Code
 
 ##See Also
