@@ -8,6 +8,15 @@ The first step of writing a file is to create it!
 Let's put our job queen in `src/protocols/tutorial`.
 Below I have pasted some skeletons that you can copy and paste.
 
+Let's also add the following to one of the protocols.*.src.settings files.
+
+```
+        "protocols/tutorial" : [
+                "TutorialQueen",
+        ],
+```
+
+
 ###TutorialQueen.fwd.hh
 
 ```
@@ -123,13 +132,6 @@ TutorialQueen::~TutorialQueen()
 } //protocols
 ```
 
-Let's also add the following to one of the protocols.*.src.settings files.
-
-```
-        "protocols/tutorial" : [
-                "TutorialQueen",
-        ],
-```
 ##See Also
 
 * [[Development tutorials home page|devel-tutorials]]
