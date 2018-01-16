@@ -16,11 +16,9 @@ DAG Node 2: Designs a posativly-charged residue on chain 2's side of the interfa
 DAG Node 3: Relax the interface
 
 ```
-1  2
-| /
-|/
-|
-3
+1--\
+    --> 3
+2--/
 ```
 
 This is admittedly a silly way to do things because the negativly-charged residues found in node 1 are not present when sampling posativly-charged residues in node 2.
