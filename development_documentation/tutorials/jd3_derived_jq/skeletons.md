@@ -85,6 +85,51 @@ public:
 #endif
 ```
 
+`TutorialQueen.cc`
+
+```
+// -*- mode:c++;tab-width:2;indent-tabs-mode:t;show-trailing-whitespace:t;rm-trailing-spaces:t -*-
+// vi: set ts=2 noet:
+//
+// (c) Copyright Rosetta Commons Member Institutions.
+// (c) This file is part of the Rosetta software suite and is made available under license.
+// (c) The Rosetta software is developed by the contributing members of the Rosetta Commons.
+// (c) For more information, see http://www.rosettacommons.org. Questions about this can be
+// (c) addressed to University of Washington CoMotion, email: license@uw.edu.
+
+/// @file protocols/tutorial/TutorialQueen.cc
+/// @brief Queen for JD3 multistep protocol
+/// @author Jack Maguire, jack@med.unc.edu
+
+#include <protocols/tutorial/TutorialQueen.hh>
+
+static basic::Tracer TR( "protocols.tutorial.TutorialQueen" );
+
+using namespace protocols::jd3;
+
+namespace protocols {
+namespace tutorial {
+
+//Constructor
+TutorialQueen::TutorialQueen() :
+    StandardJobQueen()
+{}
+
+//Destructor
+TutorialQueen::~TutorialQueen()
+{}
+
+} //tutorial
+} //protocols
+```
+
+Let's also add the following to one of the protocols.*.src.settings files.
+
+```
+        "protocols/tutorial" : [
+                "TutorialQueen",
+        ],
+```
 ##See Also
 
 * [[Development tutorials home page|devel-tutorials]]
