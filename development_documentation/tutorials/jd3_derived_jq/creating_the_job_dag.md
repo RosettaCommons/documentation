@@ -16,8 +16,8 @@ DAG Node 2: Designs a posativly-charged residue on chain 2's side of the interfa
 DAG Node 3: Relax the interface
 
 ```
-1--\
-    --> 3
+1------> 3
+    /
 2--/
 ```
 
