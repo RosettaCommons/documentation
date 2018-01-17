@@ -515,9 +515,10 @@ Options:
 *  "1,H,E"=end of first helix
 *  "1,H,M"=middle of first helix
 
-** Example ** 
+** Example **
+ ```xml
  <SymmetricalResidue name="(&string)" selection="1,H,M" to_selection="1,H,L"/>
-
+```
 
 #### SecondaryStructureSelector
 
