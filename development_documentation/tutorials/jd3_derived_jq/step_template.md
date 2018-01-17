@@ -4,9 +4,9 @@ Author: Jack Maguire
 
 [[Back to Walkthrough|jd3_derived_jq_home]]
 
-[[Back to Step A|TODO]]
+[[Step A|TODO]]
 
-[[Forward to Step B|TODO]]
+[[Step B|TODO]]
 
 
 ##See Also

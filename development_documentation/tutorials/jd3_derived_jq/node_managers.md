@@ -1,12 +1,12 @@
-#Step 2: Creating the Job DAG
+#Step 3: Node Managers
 
 Author: Jack Maguire
 
 [[Back to Walkthrough|jd3_derived_jq_home]]
 
-[[Back to Step A|TODO]]
+[[Step 2: Creating the Job DAG|creating_the_job_dag]]
 
-[[Forward to Step B|TODO]]
+[[Step 4: TODO|TODO]]
 
 
 ##See Also
