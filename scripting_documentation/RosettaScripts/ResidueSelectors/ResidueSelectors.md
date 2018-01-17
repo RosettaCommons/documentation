@@ -504,14 +504,14 @@ Run options:
  selection alone: selects that selection
  selection+to_selection: selects both selections and the residues between the selections
 Options:
-n_term=residue 1
-c_term=length of protein
-"1,H"= first helix
-"2,L"= second loop(note doesn't count <2 residue terminal loops unless reassign_short_terminal_loop="false"
-"-2,E"=second sheet from end of the protein
-"1,H,S"=start of first helix
-"1,H,E"=end of first helix
-"1,H,M"=middle of first helix
+*  n_term=residue 1
+*  c_term=length of protein
+*  "1,H"= first helix
+*  "2,L"= second loop(note doesn't count <2 residue terminal loops unless reassign_short_terminal_loop="false"
+*  "-2,E"=second sheet from end of the protein
+*  "1,H,S"=start of first helix
+*  "1,H,E"=end of first helix
+*  "1,H,M"=middle of first helix
 
 ** Example ** 
  <SymmetricalResidue name="(&string)" selection="1,H,M" to_selection="1,H,L"/>
