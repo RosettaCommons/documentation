@@ -26,6 +26,12 @@ We will also utilize the [[Job Genealogist|TODO]] to help us keep track of the i
 
 ###Additions to Header File
 
+New `#include`'s for the .hh file:
+```c++
+#include <protocols/jd3/LarvalJob.fwd.hh> 
+#include <protocols/jd3/JobGenealogist.fwd.hh> 
+```
+
 We need to add a new public method:
 ```c++
 jd3::JobOP
@@ -43,17 +49,37 @@ jd3::LarvalJobOP get_next_larval_job_for_node_1_or_2( core::Size node );
 jd3::LarvalJobOP get_next_larval_job_for_node_3();
 ```
 
-New `#include`'s for the .hh file:
+And a private member:
 ```c++
-#include <protocols/jd3/LarvalJob.fwd.hh> 
-#include <protocols/jd3/JobGenealogist.fwd.hh> 
+jd3::JobGenealogistOP job_genealogist_;
 ```
 
-And the .cc file:
+###Smaller Additions to the .cc file:
+
+New includes:
 ```c++
 #include <protocols/jd3/LarvalJob.hh>
 #include <protocols/jd3/JobGenealogist.hh>
 #include <protocols/jd3/standard/StandardInnerLarvalJob.hh>
+```
+
+We also need to initialize the Job Genealogist in `initial_job_dag()`
+```c++
+JobDigraphOP
+TutorialQueen::initial_job_dag() {
+        //you need to call this for the standard job queen to initialize
+        determine_preliminary_job_list();
+        init_node_managers();
+
+        //NEW LINE://///////////////
+        job_genealogist_ = utility::pointer::make_shared< JobGenealogist >( 3, num_input_structs_ );
+        ////////////////////////////
+
+        JobDigraphOP dag = utility::pointer::make_shared< JobDigraph >( 3 );
+        dag->add_edge( 1, 3 );
+        dag->add_edge( 2, 3 );
+        return dag;
+}
 ```
 
 ###determine_job_list()
