@@ -516,7 +516,7 @@ Options:
 *  "1,H,M"=middle of first helix
 
 ** Example **
- ```xml
+```xml
  <SymmetricalResidue name="(&string)" selection="1,H,M" to_selection="1,H,L" chain="A"/>
 ```
 
