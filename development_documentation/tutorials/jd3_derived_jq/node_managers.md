@@ -186,7 +186,7 @@ private:
 ```
 
 ###TutorialQueen.cc
-```
+```c++
 // -*- mode:c++;tab-width:2;indent-tabs-mode:t;show-trailing-whitespace:t;rm-trailing-spaces:t -*-
 // vi: set ts=2 noet:
 //
