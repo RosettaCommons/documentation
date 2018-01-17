@@ -25,6 +25,29 @@ See `init_node_managers()` and `count_num_jobs_for_node1()` and its partners bel
 
 ##Code Additions
 
+###Additions to Header File
+First off, we need to include the NodeManager forward header:
+```
+#include <protocols/jd3/dag_node_managers/NodeManager.fwd.hh>
+```
+
+We also have two new methods we need to declare:
+```
+protected:
+        void init_node_managers();
+
+        void count_num_jobs_for_nodes_1_and_2 (
+                core::Size & num_jobs_for_node_1,
+                core::Size & num_jobs_for_node_2
+        );
+```
+
+And one new data member:
+```
+private:
+        utility::vector1< jd3::dag_node_managers::NodeManagerOP > node_managers_;
+```
+
 ###init_node_managers()
 
 

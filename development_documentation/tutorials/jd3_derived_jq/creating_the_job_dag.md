@@ -35,7 +35,8 @@ it is the first method called by the job distributor after construction and hand
 
 The standard job queen is initialized when you call `determine_preliminary_job_list()` (which I recommend to be the very first line of `initial_job_dag()`).
 `determine_preliminary_job_list()` will call the virtual function `parse_job_definition_tags()`.
-We will address in [[Step X|TODO]], but for now we can just use it to count the number of `<Job>` tags in the job definition file.
+We will address this method in more detail in [[Step X|TODO]],
+but for now we can just use it to count the number of `<Job>` tags in the job definition file.
 
 ##Code
 
