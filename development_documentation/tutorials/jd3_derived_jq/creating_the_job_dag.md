@@ -30,8 +30,8 @@ DAG Node 3: Merge results from 1 and 2 and relax with higher sampling resolution
 ##initial_job_dag()
 
 To create the job DAG, we need to override `initial_job_dag()`, as shown below.
-This function is a wolf in sheep's clothing because it looks like a simple getter.
-It is the first method called by the job distributor after construction and handles almost all of the initialization for the job queen.
+This function is a wolf in sheep's clothing because it looks like a simple getter, yet
+it is the first method called by the job distributor after construction and handles almost all of the initialization for the job queen.
 
 The standard job queen is initialized when you call `determine_preliminary_job_list()` (which I recommend to be the very first line of `initial_job_dag()`).
 `determine_preliminary_job_list()` will call the virtual function `parse_job_definition_tags()`.
