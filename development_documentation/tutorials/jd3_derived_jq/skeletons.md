@@ -4,7 +4,7 @@ Author: Jack Maguire
 
 [[Back to Walkthrough|jd3_derived_jq_home]]
 
-[[Step 2|creating_the_job_dag]]
+[[Step 2: Creating the Job DAG|creating_the_job_dag]]
 
 [[_TOC_]]
 
@@ -189,17 +189,10 @@ typedef utility::pointer::shared_ptr< TutorialJob const > TutorialJobCOP;
 #ifndef INCLUDED_protocols_tutorial_TutorialJob_HH
 #define INCLUDED_protocols_tutorial_TutorialJob_HH
 
-#include <utility/pointer/ReferenceCount.hh>
 #include <protocols/tutorial/TutorialJob.fwd.hh>
-#include <protocols/tutorial/TagManager.hh>
 
 #include <protocols/jd3/CompletedJobOutput.hh>
 #include <protocols/jd3/Job.hh>
-#include <protocols/jd3/JobResult.fwd.hh>
-#include <protocols/jd3/JobSummary.fwd.hh>
-#include <protocols/jd3/LarvalJob.fwd.hh>
-
-#include <core/pose/Pose.fwd.hh>
 
 namespace protocols {
 namespace tutorial {
@@ -216,18 +209,6 @@ public:
 
         jd3::CompletedJobOutput run() override;
 
-public:
-
-        inline void set_pose( core::pose::PoseOP pose ) {
-                pose_ = pose;
-        }
-
-        inline core::pose::PoseCOP pose() const {
-                return pose_;
-        }
-
-private:
-        core::pose::PoseOP pose_;
 };
 
 } //tutorial
@@ -255,14 +236,6 @@ private:
 #include <protocols/tutorial/TutorialJob.hh>
 
 #include <basic/Tracer.hh>
-
-#include <core/scoring/ScoreFunction.hh>
-#include <core/pose/Pose.hh>
-
-#include <protocols/jd3/standard/MoverAndPoseJob.hh>
-
-#include <utility/tag/Tag.hh>
-#include <utility/pointer/memory.hh>
 
 static basic::Tracer TR( "protocols.tutorial.TutorialJob" );
 
