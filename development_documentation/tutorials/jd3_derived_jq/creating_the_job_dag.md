@@ -108,7 +108,7 @@ TutorialQueen::~TutorialQueen()
 {}
 
 JobDigraphOP
-MRSJobQueen::initial_job_dag() {
+TutorialQueen::initial_job_dag() {
         //you need to call this for the standard job queen to initialize
         determine_preliminary_job_list();
 
@@ -120,7 +120,7 @@ MRSJobQueen::initial_job_dag() {
 }
 
 void
-MRSJobQueen::parse_job_definition_tags(
+TutorialQueen::parse_job_definition_tags(
         utility::tag::TagCOP common_block_tags,
         utility::vector1< standard::PreliminaryLarvalJob > const & prelim_larval_jobs
 ){

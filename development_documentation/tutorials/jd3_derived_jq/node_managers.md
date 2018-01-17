@@ -48,7 +48,7 @@ private:
 ###init_node_managers() definition
 ```c++
 void
-MRSJobQueen::init_node_managers(){
+TutorialQueen::init_node_managers(){
         using namespace jd3::dag_node_managers;
 
         core::Size num_jobs_for_node1( 0 ), num_jobs_for_node2( 0 );
@@ -86,7 +86,7 @@ MRSJobQueen::init_node_managers(){
 ###count_num_jobs_for_nodes_1_and_2() definition
 ```c++
 void
-MRSJobQueen::count_num_jobs_for_nodes_1_and_2(
+TutorialQueen::count_num_jobs_for_nodes_1_and_2(
         core::Size & num_jobs_for_node_1,
         core::Size & num_jobs_for_node_2
 ) {
@@ -112,6 +112,7 @@ We also need a few more `#include`'s in the .cc file:
 ```c++
 #include <protocols/jd3/dag_node_managers/NodeManager.hh>
 #include <protocols/jd3/dag_node_managers/SimpleNodeManager.hh>
+#include <core/pose/Pose.hh>
 ```
 
 ##Up-to-date Code
@@ -226,7 +227,7 @@ TutorialQueen::~TutorialQueen()
 {}
 
 JobDigraphOP
-MRSJobQueen::initial_job_dag() {
+TutorialQueen::initial_job_dag() {
         //you need to call this for the standard job queen to initialize
         determine_preliminary_job_list();
         init_node_managers();
@@ -238,7 +239,7 @@ MRSJobQueen::initial_job_dag() {
 }
 
 void
-MRSJobQueen::parse_job_definition_tags(
+TutorialQueen::parse_job_definition_tags(
         utility::tag::TagCOP common_block_tags,
         utility::vector1< standard::PreliminaryLarvalJob > const & prelim_larval_jobs
 ){
@@ -246,7 +247,7 @@ MRSJobQueen::parse_job_definition_tags(
 }
 
 void
-MRSJobQueen::init_node_managers(){
+TutorialQueen::init_node_managers(){
         using namespace jd3::dag_node_managers;
 
         core::Size num_jobs_for_node1( 0 ), num_jobs_for_node2( 0 );
@@ -281,7 +282,7 @@ MRSJobQueen::init_node_managers(){
 }
 
 void
-MRSJobQueen::count_num_jobs_for_nodes_1_and_2(
+TutorialQueen::count_num_jobs_for_nodes_1_and_2(
         core::Size & num_jobs_for_node_1,
         core::Size & num_jobs_for_node_2
 ) {
