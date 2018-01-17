@@ -4,7 +4,7 @@ Author: Jack Maguire
 
 [[Back to Walkthrough|jd3_derived_jq_home]]
 
-[[Step 3: Node Managers|node_managers]] (optional)
+[[Step 3: Node Managers|node_managers]]
 
 [[Step 5: TODO|TODO]]
 
@@ -12,7 +12,7 @@ Author: Jack Maguire
 
 ##Plan
 
-Okay now stps are starting to get a little longer and messier.
+Okay now steps are starting to get a little longer and messier.
 We are now making decisions that are unique to the protocol in mind,
 so there will be code that we are adding that will look very different when you write your own job queen.
 
@@ -27,27 +27,121 @@ We will also utilize the [[Job Genealogist|TODO]] to help us keep track of the i
 ###Additions to Header File
 
 We need to add a new public method:
-```
-        jd3::JobOP
-        complete_larval_job_maturation(
-                jd3::LarvalJobCOP larval_job,
-                utility::options::OptionCollectionCOP job_options,
-                utility::vector1< jd3::JobResultCOP > const & input_job_results
-        ) override ;
+```c++
+jd3::JobOP
+complete_larval_job_maturation(
+        jd3::LarvalJobCOP larval_job,
+        utility::options::OptionCollectionCOP job_options,
+        utility::vector1< jd3::JobResultCOP > const & input_job_results
+) override ;
 ```
 
 And a few protected methods:
+```c++
+jd3::LarvalJobOP get_next_larval_job_for_node_1_or_2( core::Size node );
+
+jd3::LarvalJobOP get_next_larval_job_for_node_3();
 ```
 
+New `#include`'s for the .hh file:
+```c++
+#include <protocols/jd3/LarvalJob.fwd.hh> 
+#include <protocols/jd3/JobGenealogist.fwd.hh> 
+```
+
+And the .cc file:
+```c++
+#include <protocols/jd3/LarvalJob.hh>
+#include <protocols/jd3/JobGenealogist.hh>
+#include <protocols/jd3/standard/StandardInnerLarvalJob.hh>
 ```
 
 ###determine_job_list()
+```c++
+TODO
+```
+
 
 ##Up-To-Date Code
 
 ###TutorialQueen.hh
 ```c++
+// -*- mode:c++;tab-width:2;indent-tabs-mode:t;show-trailing-whitespace:t;rm-trailing-spaces:t -*-
+// vi: set ts=2 noet:
+//
+// (c) Copyright Rosetta Commons Member Institutions.
+// (c) This file is part of the Rosetta software suite and is made available under license.
+// (c) The Rosetta software is developed by the contributing members of the Rosetta Commons.
+// (c) For more information, see http://www.rosettacommons.org. Questions about this can be
+// (c) addressed to University of Washington CoMotion, email: license@uw.edu.
 
+/// @file protocols/tutorial/TutorialQueen.hh
+/// @author Jack Maguire, jack@med.unc.edu
+
+
+#ifndef INCLUDED_protocols_tutorial_TutorialQueen_HH
+#define INCLUDED_protocols_tutorial_TutorialQueen_HH
+
+#include <protocols/tutorial/TutorialQueen.fwd.hh>
+#include <protocols/jd3/standard/StandardJobQueen.hh>
+#include <protocols/jd3/JobDigraph.fwd.hh>
+#include <protocols/jd3/dag_node_managers/NodeManager.fwd.hh>
+#include <protocols/jd3/LarvalJob.fwd.hh>
+#include <protocols/jd3/JobGenealogist.fwd.hh>
+
+#include <utility/tag/Tag.fwd.hh>
+
+namespace protocols {
+namespace tutorial {
+
+class TutorialQueen: public jd3::standard::StandardJobQueen {
+
+public:
+
+        //constructor
+        TutorialQueen();
+
+        //destructor
+        ~TutorialQueen() override;
+
+        jd3::JobDigraphOP
+        initial_job_dag()
+        override;
+
+        void
+        parse_job_definition_tags(
+                utility::tag::TagCOP common_block_tags,
+                utility::vector1< jd3::standard::PreliminaryLarvalJob > const &
+        ) override;
+
+        std::list< jd3::LarvalJobOP > determine_job_list(
+                Size job_dag_node_index,
+                Size max_njobs
+        ) override;
+
+protected:
+        void init_node_managers();
+
+        void count_num_jobs_for_nodes_1_and_2 (
+                core::Size & num_jobs_for_node_1,
+                core::Size & num_jobs_for_node_2
+        );
+
+        jd3::LarvalJobOP get_next_larval_job_for_node_1_or_2( core::Size node );
+
+        jd3::LarvalJobOP get_next_larval_job_for_node_3();
+
+private:
+        core::Size num_input_structs_;
+
+        utility::vector1< jd3::dag_node_managers::NodeManagerOP > node_managers_;
+        jd3::JobGenealogistOP job_genealogist_;
+};
+
+} //tutorial
+} //protocols
+
+#endif        
 ```
 
 
