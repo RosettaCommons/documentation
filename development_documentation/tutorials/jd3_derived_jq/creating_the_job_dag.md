@@ -4,9 +4,9 @@ Author: Jack Maguire
 
 [[Back to Walkthrough|jd3_derived_jq_home]]
 
-[[Step 1|skeletons]]
+[[Step 1: Code Skeletons|skeletons]]
 
-[[Step 3|TODO]]
+[[Step 3: TODO|TODO]]
 
 [[_TOC_]]
 
@@ -43,13 +43,12 @@ To create the job DAG, we need to override `initial_job_dag()`, as shown below.
 This function is a wolf in sheep's clothing because it looks like a simple getter.
 It is the first method called by the job distributor after construction and handles almost all of the initialization for the job queen.
 
-Luckily, you only have to worry about inintializing the parts of the job queen that you write.
-The standard job queen takes care of itself if you call `determine_preliminary_job_list()` (which I recommend to be the very first line of `initial_job_dag()`).
+The standard job queen is initialized when you call `determine_preliminary_job_list()` (which I recommend to be the very first line of `initial_job_dag()`).
 `determine_preliminary_job_list()` will call the virtual function `parse_job_definition_tags()` that we will address in [[Step X|TODO]].
 
 ##Code
 
-Just FYI: I left off some of the info at the tops and bottoms of the pages.
+I left off some of the info at the tops and bottoms of the pages.
 
 ###TutorialQueen.hh
 
