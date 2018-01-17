@@ -31,6 +31,26 @@ core::scoring::ScoreFunctionCOP sfxn_;
 moves::MoverOP mover_;
 ```
 
+### New inclusions in the .hh file
+```c++
+#include <core/pose/Pose.fwd.hh>
+#include <core/scoring/ScoreFunction.fwd.hh>
+#include <protocols/moves/Mover.fwd.hh>
+```
+
+### New inclusions in the .cc file
+```c++
+#include <core/pose/Pose.hh>
+#include <core/scoring/ScoreFunction.hh>
+#include <protocols/moves/Mover.hh>
+
+#include <protocols/jd3/JobResult.hh>
+#include <protocols/jd3/JobSummary.hh>
+#include <protocols/jd3/standard/MoverAndPoseJob.hh>
+
+#include <utility/pointer/memory.hh>
+```
+
 ###run()
 
 This method is sort of like Mover::apply().
