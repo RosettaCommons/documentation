@@ -12,7 +12,13 @@ Author: Jack Maguire
 
 ##Plan
 
-##Code
+##Code Additions
+
+##Up-To-Date Code
+
+###TutorialQueen.hh
+
+###TutorialQueen.cc
 
 
 ##See Also

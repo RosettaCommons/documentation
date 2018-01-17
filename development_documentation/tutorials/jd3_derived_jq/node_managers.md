@@ -96,7 +96,7 @@ TutorialQueen::count_num_jobs_for_nodes_1_and_2(
         //vector has 1 element for each <Job> tag
         utility::vector1< standard::PreliminaryLarvalJob > const & all_preliminary_larval_jobs = preliminary_larval_jobs();
 
-        for( standard::PreliminaryLarvalJob & pl_job : all_preliminary_larval_jobs ){
+        for( standard::PreliminaryLarvalJob const & pl_job : all_preliminary_larval_jobs ){
                 core::pose::PoseOP pose = pose_for_inner_job( pl_job->inner_job );
                 num_jobs_for_node_1 += pose->chain_sequence( 1 ).length();
                 num_jobs_for_node_2 += pose->chain_sequence( 2 ).length();
@@ -292,7 +292,7 @@ TutorialQueen::count_num_jobs_for_nodes_1_and_2(
         //vector has 1 element for each <Job> tag
         utility::vector1< standard::PreliminaryLarvalJob > const & all_preliminary_larval_jobs = preliminary_larval_jobs();
 
-        for( standard::PreliminaryLarvalJob & pl_job : all_preliminary_larval_jobs ){
+        for( standard::PreliminaryLarvalJob const & pl_job : all_preliminary_larval_jobs ){
                 core::pose::PoseOP pose = pose_for_inner_job( pl_job.inner_job );
                 num_jobs_for_node_1 += pose->chain_sequence( 1 ).length();
                 num_jobs_for_node_2 += pose->chain_sequence( 2 ).length();

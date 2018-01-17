@@ -17,9 +17,16 @@ This is done through the method `determine_job_list()`, which expects you to pop
 
 We are going to create helper methods that each focus on larval job creation for one node, as shown below.
 
-##Code
+##Code Additions
 
 ###determine_job_list()
+
+##Up-To-Date Code
+
+###TutorialQueen.hh
+
+###TutorialQueen.cc
+
 
 ##See Also
 
