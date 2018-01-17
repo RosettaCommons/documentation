@@ -44,7 +44,7 @@ I left off some of the info at the tops and bottoms of the pages.
 
 ###TutorialQueen.hh
 
-```
+```c++
 #include <protocols/tutorial/TutorialQueen.fwd.hh>
 #include <protocols/jd3/standard/StandardJobQueen.hh>
 #include <protocols/jd3/JobDigraph.fwd.hh>
@@ -84,7 +84,7 @@ private:
 
 ###TutorialQueen.cc
 
-```
+```c++
 #include <protocols/tutorial/TutorialQueen.hh>
 #include <protocols/jd3/JobDigraph.hh>
 #include <protocols/jd3/JobDigraph.hh>

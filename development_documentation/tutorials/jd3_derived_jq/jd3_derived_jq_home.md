@@ -22,10 +22,14 @@ All feedback is welcome! Please send thoughts/questions to jack@med.unc.edu
 
 [[Step 2: Creating the Job DAG|creating_the_job_dag]]
 
-[[Step 3: Node Managers|node_managers]]
+[[Step 3: Node Managers|node_managers]] (optional)
+
+[[Step 4: Creating Larval Jobs|larval_jobs]]
 
 ##Bonus Contents
 [[Appendix A: Let the user define their own score function|TODO]]
+
+[[Appendix B: The Job Genealogist]]
 
 ##See Also
 

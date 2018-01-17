@@ -25,7 +25,7 @@ Let's also add the following to one of the protocols.*.src.settings files.
 
 ##TutorialQueen.fwd.hh
 
-```
+```c++
 // -*- mode:c++;tab-width:2;indent-tabs-mode:t;show-trailing-whitespace:t;rm-trailing-spaces:t -*-
 // vi: set ts=2 noet:
 //
@@ -59,7 +59,7 @@ typedef utility::pointer::shared_ptr< TutorialQueen const > TutorialQueenCOP;
 
 ##TutorialQueen.hh
 
-```
+```c++
 // -*- mode:c++;tab-width:2;indent-tabs-mode:t;show-trailing-whitespace:t;rm-trailing-spaces:t -*-
 // vi: set ts=2 noet:
 //
@@ -102,7 +102,7 @@ public:
 
 ##TutorialQueen.cc
 
-```
+```c++
 // -*- mode:c++;tab-width:2;indent-tabs-mode:t;show-trailing-whitespace:t;rm-trailing-spaces:t -*-
 // vi: set ts=2 noet:
 //

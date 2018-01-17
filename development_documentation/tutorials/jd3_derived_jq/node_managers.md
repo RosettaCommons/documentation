@@ -8,7 +8,7 @@ Author: Jack Maguire
 
 [[Step 2: Creating the Job DAG|creating_the_job_dag]]
 
-[[Step 4: TODO|TODO]]
+[[Step 4: Creating Larval Jobs|larval_jobs]]
 
 [[_TOC_]]
 
@@ -84,7 +84,7 @@ MRSJobQueen::init_node_managers(){
 ```
 
 ###count_num_jobs_for_nodes_1_and_2() definition
-```cpp
+```c++
 void
 MRSJobQueen::count_num_jobs_for_nodes_1_and_2(
         core::Size & num_jobs_for_node_1,
