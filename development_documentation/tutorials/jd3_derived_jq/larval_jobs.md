@@ -1,12 +1,12 @@
-#Step 5: Creating Larval Jobs
+#Step 4: Creating Larval Jobs
 
 Author: Jack Maguire
 
 [[Back to Walkthrough|jd3_derived_jq_home]]
 
-[[Step 4: The Job Genealogist|job_genealogist]]
+[[Step 3: Node Managers|node_managers]] (optional)
 
-[[Step 6: TODO|TODO]]
+[[Step 5: TODO|TODO]]
 
 [[_TOC_]]
 
