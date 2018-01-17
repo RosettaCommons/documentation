@@ -24,12 +24,12 @@ Let's arbitrarily say we want to keep the best half of the results from node 1 a
 
 ###Additions to Header File
 First off, we need to include the NodeManager forward header:
-```
+```c++
 #include <protocols/jd3/dag_node_managers/NodeManager.fwd.hh>
 ```
 
 We also have two new methods we need to declare:
-```
+```c++
 protected:
         void init_node_managers();
 
@@ -40,13 +40,13 @@ protected:
 ```
 
 And one new data member:
-```
+```c++
 private:
         utility::vector1< jd3::dag_node_managers::NodeManagerOP > node_managers_;
 ```
 
 ###init_node_managers() definition
-```
+```c++
 void
 MRSJobQueen::init_node_managers(){
         using namespace jd3::dag_node_managers;
@@ -84,7 +84,7 @@ MRSJobQueen::init_node_managers(){
 ```
 
 ###count_num_jobs_for_nodes_1_and_2() deinition
-```
+```c++
 void
 MRSJobQueen::count_num_jobs_for_nodes_1_and_2(
         core::Size & num_jobs_for_node_1,
@@ -109,7 +109,7 @@ Let's add our call to `init_node_managers()` in	`initial_job_dag()`.
 Take care to add this call AFTER `determine_preliminary_job_list()` has already been called.
 
 We also need a few more `#include`'s in the .cc file:
-```
+```c++
 #include <protocols/jd3/dag_node_managers/NodeManager.hh>
 #include <protocols/jd3/dag_node_managers/SimpleNodeManager.hh>
 ```
@@ -117,7 +117,7 @@ We also need a few more `#include`'s in the .cc file:
 ##Up-to-date Code
 
 ###TutorialQueen.hh
-```
+```c++
 // -*- mode:c++;tab-width:2;indent-tabs-mode:t;show-trailing-whitespace:t;rm-trailing-spaces:t -*-
 // vi: set ts=2 noet:
 //
