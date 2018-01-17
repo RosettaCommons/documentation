@@ -517,8 +517,9 @@ Options:
 
 ** Example **
  ```xml
- <SymmetricalResidue name="(&string)" selection="1,H,M" to_selection="1,H,L"/>
+ <SymmetricalResidue name="(&string)" selection="1,H,M" to_selection="1,H,L" chain="A"/>
 ```
+
 
 #### SecondaryStructureSelector
 
