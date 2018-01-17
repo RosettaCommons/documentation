@@ -85,6 +85,62 @@ TutorialQueen::determine_job_list (
 }
 ```
 
+###get_next_larval_job_for_node_3()
+This case is a little shorter than the other one, so let's look at it first.
+```c++
+jd3::LarvalJobOP
+TutorialQueen::get_next_larval_job_for_node_3(){
+
+        using namespace protocols::jd3;
+
+        if( node_managers_[ 3 ]->done_submitting() ) {
+                return 0;
+        }
+
+        core::Size const local_job_id = node_managers_[ 3 ]->get_next_local_jobid();
+        core::Size const global_job_id = node_managers_[ 3 ]->job_offset() + local_job_id;
+
+        core::Size const num_results_for_node1 = node_managers_[ 1 ]->results_to_keep().size();
+        core::Size const node_of_parent = ( local_job_id > num_results_for_node1 ? 2 : 1 );
+
+        jd3::JobResultID parent_result;
+        if( node_of_parent == 1 ){
+                parent_result = node_managers_[ 1 ]->get_nth_job_result_id( local_job_id );
+        } else {
+                core::Size const num_results_for_node2 = node_managers_[ 2 ]->results_to_keep().size();
+                core::Size const result_index = local_job_id - num_results_for_node1;
+                if( result_index > num_results_for_node2 ){
+                        return 0;
+                }
+
+                parent_result = node_managers_[ 2 ]->get_nth_job_result_id( result_index );
+        }
+
+        core::Size const local_id_of_parent =
+                parent_result.first - node_managers_[ node_of_parent ]->job_offset();
+
+        job_genealogist_->register_new_job(
+                3,
+                local_job_id,
+                global_job_id,
+                node_of_parent,
+                local_id_of_parent,
+                parent_result.second
+        );
+
+        core::Size const pose_input_source_id = job_genealogist_->input_source_for_job( 3, local_job_id );
+
+        jd3::standard::StandardInnerLarvalJobOP inner_ljob =
+                create_and_init_inner_larval_job( 1, pose_input_source_id );
+
+        LarvalJobOP ljob = utility::pointer::make_shared< LarvalJob >(
+                inner_ljob,        1, global_job_id );
+
+        return ljob;
+}
+```
+
+
 ###get_next_larval_job_for_node_1_or_2()
 
 DAG Nodes 1 and 2 are very similar.
@@ -454,12 +510,15 @@ TutorialQueen::get_next_larval_job_for_node_3(){
                 parent_result = node_managers_[ 2 ]->get_nth_job_result_id( result_index );
         }
 
+        core::Size const local_id_of_parent =
+                parent_result.first - node_managers_[ node_of_parent ]->job_offset();
+
         job_genealogist_->register_new_job(
                 3,
                 local_job_id,
                 global_job_id,
                 node_of_parent,
-                parent_result.first - node_managers_[ node_of_parent ]->job_offset(),
+                local_id_of_parent,
                 parent_result.second
         );
 
