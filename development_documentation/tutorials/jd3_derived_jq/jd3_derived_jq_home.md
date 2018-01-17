@@ -6,14 +6,15 @@ Author: Jack Maguire
 The goal of this tutorial is to help developers get experience with writing their own JD3 protocol.
 This tutorial assumes the reader has some knowledge of [[JD3|JD3]] in general.
 
-For the sake of example, we will write a (very contrived) 3-step job queen that takes a protein-protein interface and:
+The (very contrived) design case that we will be working with is as follows:
+We want to stabilize a protein-protein interface but only allow one of the two sides to design (change sequence).
+We do not care which side is designed, but it can only be one.
+Again, this is very contrived.
 
-1. Designs a negatively-charged residue on chain 1's side of the interface
+In general, the code generated in this example is NOT written with effeciency, performance, or even our own coding conventions in mind.
+The main goal is clarity and simplicity/readability.
 
-2. Designs a posatively-charged residue on chain 2's side of the interface
-
-3. Relax the interface
-
+All feedback is welcome! Please send thoughts/questions to jack@med.unc.edu
 
 ##Contents
 

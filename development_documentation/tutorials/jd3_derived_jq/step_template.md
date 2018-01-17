@@ -8,6 +8,12 @@ Author: Jack Maguire
 
 [[Step B|TODO]]
 
+[[_TOC_]]
+
+##Plan
+
+##Code
+
 
 ##See Also
 

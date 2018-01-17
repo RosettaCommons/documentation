@@ -15,27 +15,17 @@ Author: Jack Maguire
 I tried to contrive a queen that would require a non-linear [[job dag|JD3]].
 There are several ways to create a dag that would fit our needs, let's go with something like this:
 
-DAG Node 1: Designs a negatively-charged residue on chain 1's side of the interface
+DAG Node 1: Relax, allowing only chain1 to design
 
-DAG Node 2: Designs a posatively-charged residue on chain 2's side of the interface
+DAG Node 2: Relax, allowing only chain2 to design
 
-DAG Node 3: Relax the interface
+DAG Node 3: Merge results from 1 and 2 and relax with higher sampling resolution (more extra chi sampling)
 
 ```
 1------> 3
     /
 2--/
 ```
-
-This is admittedly a silly way to do things because the negatively-charged residues found in node 1 are not present when sampling posatively-charged residues in node 2.
-In practice, you might do something like this instead:
-
-```
-1 -> 2 -> 3
-```
-
-But can we just play along with the first DAG?
-My creativity is not what it used to be.
 
 ##initial_job_dag()
 
@@ -44,7 +34,8 @@ This function is a wolf in sheep's clothing because it looks like a simple gette
 It is the first method called by the job distributor after construction and handles almost all of the initialization for the job queen.
 
 The standard job queen is initialized when you call `determine_preliminary_job_list()` (which I recommend to be the very first line of `initial_job_dag()`).
-`determine_preliminary_job_list()` will call the virtual function `parse_job_definition_tags()`, which we will address in [[Step X|TODO]].
+`determine_preliminary_job_list()` will call the virtual function `parse_job_definition_tags()`.
+We will address in [[Step X|TODO]], but for now we can just use it to count the number of `<Job>` tags in the job definition file.
 
 ##Code
 
@@ -56,6 +47,8 @@ I left off some of the info at the tops and bottoms of the pages.
 #include <protocols/tutorial/TutorialQueen.fwd.hh>
 #include <protocols/jd3/standard/StandardJobQueen.hh>
 #include <protocols/jd3/JobDigraph.fwd.hh>
+
+#include <utility/tag/Tag.fwd.hh>
 
 namespace protocols {
 namespace tutorial {
@@ -73,6 +66,15 @@ public:
         jd3::JobDigraphOP
         initial_job_dag()
         override;
+
+	void
+        parse_job_definition_tags(
+                utility::tag::TagCOP common_block_tags,
+                utility::vector1< jd3::standard::PreliminaryLarvalJob > const &
+        ) override;
+
+private:
+        core::Size num_input_structs_;
 };
 
 } //tutorial
@@ -114,6 +116,14 @@ MRSJobQueen::initial_job_dag() {
         dag->add_edge( 1, 3 ); //results of node 1 will be fed directly to node 3
         dag->add_edge( 2, 3 ); //results of node 2 will be fed directly to node 3
         return dag;
+}
+
+void
+MRSJobQueen::parse_job_definition_tags(
+        utility::tag::TagCOP common_block_tags,
+        utility::vector1< standard::PreliminaryLarvalJob > const & prelim_larval_jobs
+){
+        num_input_structs_ = prelim_larval_jobs.size();
 }
 
 } //tutorial
