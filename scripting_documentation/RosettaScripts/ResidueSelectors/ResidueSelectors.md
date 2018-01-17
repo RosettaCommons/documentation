@@ -499,7 +499,9 @@ The following example selects all residues that are in regions of Ramachandran s
 Note that the `rama_prepro` energy is a two-body energy dependent on a residue's conformation, its identity, and the identity of its C-terminal neighbour (with different lookup tables used for residues preceding proline and residues not preceding proline).  Because it is a two-body energy, the score for a particular position is divided over that position and the i+1 position.  This means that the final score table will have values that do not correspond to the values used for evaluating this selector, since each position's `rama_prepro` energy is the sum of its own energy and that of the i-1 position.
 
 #### SSElementSelector
- <SymmetricalResidue name="(&string)" selection="(&string)" to_selection="(&string)" reassign_short_terminal_loop="(&bool-Default true)" />
+```xml
+ <SymmetricalResidue name="(&string)" selection="(&string)" to_selection="(&string)" reassign_short_terminal_loop="( (true &bool)" chain="(&string)" />
+```
 Run options:
  selection alone: selects that selection
  selection+to_selection: selects both selections and the residues between the selections
