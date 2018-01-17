@@ -6,7 +6,7 @@ Author: Jack Maguire
 
 [[Step 3: Node Managers|node_managers]]
 
-[[Step 5: Maturing Larval Jobs|maturing_larval_jobs]]
+[[Step 5: Writing a Job Class|tutorial_job]]
 
 [[_TOC_]]
 
@@ -115,6 +115,7 @@ TutorialQueen::determine_job_list (
 
 ###get_next_larval_job_for_node_3()
 This case is a little shorter than the other one, so let's look at it first.
+The complicated part about this method is that we need to 
 ```c++
 jd3::LarvalJobOP
 TutorialQueen::get_next_larval_job_for_node_3(){

@@ -1,16 +1,19 @@
-#Step 2: Creating the Job DAG
+#Step 5: Writing a Job Class
 
 Author: Jack Maguire
 
 [[Back to Walkthrough|jd3_derived_jq_home]]
 
-[[Step A|TODO]]
+[[Step 4: Creating Larval Jobs|larval_jobs]]
 
 [[Step B|TODO]]
 
 [[_TOC_]]
 
 ##Plan
+
+Now we are going to create the classes that the larval jobs will be matured into.
+Let's call this class `TutorialJob` ([[see here for skeleton|skeletons]]).
 
 ##Code Additions
 

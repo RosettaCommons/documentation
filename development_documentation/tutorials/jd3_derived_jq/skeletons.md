@@ -19,6 +19,7 @@ Let's also add the following to one of the protocols.*.src.settings files.
 ```
         "protocols/tutorial" : [
                 "TutorialQueen",
+                "TutorialJob",
         ],
 ```
 
@@ -133,6 +134,153 @@ TutorialQueen::TutorialQueen() :
 //Destructor
 TutorialQueen::~TutorialQueen()
 {}
+
+} //tutorial
+} //protocols
+```
+
+##TutorialJob.fwd.hh
+```c++
+// -*- mode:c++;tab-width:2;indent-tabs-mode:t;show-trailing-whitespace:t;rm-trailing-spaces:t -*-
+// vi: set ts=2 noet:
+//
+// (c) Copyright Rosetta Commons Member Institutions.
+// (c) This file is part of the Rosetta software suite and is made available under license.
+// (c) The Rosetta software is developed by the contributing members of the Rosetta Commons.
+// (c) For more information, see http://www.rosettacommons.org. Questions about this can be
+// (c) addressed to University of Washington CoMotion, email: license@uw.edu.
+
+/// @file protocols/tutorial/TutorialJob.fwd.hh
+/// @author Jack Maguire, jack@med.unc.edu
+
+#ifndef INCLUDED_protocols_tutorial_TutorialJob_FWD_HH
+#define INCLUDED_protocols_tutorial_TutorialJob_FWD_HH
+
+#include <utility/pointer/owning_ptr.hh>
+
+namespace protocols {
+namespace tutorial {
+
+class TutorialJob;
+typedef utility::pointer::shared_ptr< TutorialJob > TutorialJobOP;
+typedef utility::pointer::shared_ptr< TutorialJob const > TutorialJobCOP;
+
+} //tutorial
+} //protocols
+
+#endif
+```
+
+##TutorialJob.hh
+```c++
+// -*- mode:c++;tab-width:2;indent-tabs-mode:t;show-trailing-whitespace:t;rm-trailing-spaces:t -*-
+// vi: set ts=2 noet:
+//
+// (c) Copyright Rosetta Commons Member Institutions.
+// (c) This file is part of the Rosetta software suite and is made available under license.
+// (c) The Rosetta software is developed by the contributing members of the Rosetta Commons.
+// (c) For more information, see http://www.rosettacommons.org. Questions about this can be
+// (c) addressed to University of Washington CoMotion, email: license@uw.edu.
+
+/// @file protocols/tutorial/TutorialJob.hh
+/// @author Jack Maguire, jack@med.unc.edu
+
+
+#ifndef INCLUDED_protocols_tutorial_TutorialJob_HH
+#define INCLUDED_protocols_tutorial_TutorialJob_HH
+
+#include <utility/pointer/ReferenceCount.hh>
+#include <protocols/tutorial/TutorialJob.fwd.hh>
+#include <protocols/tutorial/TagManager.hh>
+
+#include <protocols/jd3/CompletedJobOutput.hh>
+#include <protocols/jd3/Job.hh>
+#include <protocols/jd3/JobResult.fwd.hh>
+#include <protocols/jd3/JobSummary.fwd.hh>
+#include <protocols/jd3/LarvalJob.fwd.hh>
+
+#include <core/pose/Pose.fwd.hh>
+
+namespace protocols {
+namespace tutorial {
+
+class TutorialJob : public jd3::Job {
+
+public:
+
+        //constructor
+        TutorialJob();
+
+        //destructor
+        ~TutorialJob();
+
+        jd3::CompletedJobOutput run() override;
+
+public:
+
+        inline void set_pose( core::pose::PoseOP pose ) {
+                pose_ = pose;
+        }
+
+        inline core::pose::PoseCOP pose() const {
+                return pose_;
+        }
+
+private:
+        core::pose::PoseOP pose_;
+};
+
+} //tutorial
+} //protocols
+
+#endif        
+```
+
+##TutorialJob.cc
+```c++
+// -*- mode:c++;tab-width:2;indent-tabs-mode:t;show-trailing-whitespace:t;rm-trailing-spaces:t -*-
+// vi: set ts=2 noet:
+//
+// (c) Copyright Rosetta Commons Member Institutions.
+// (c) This file is part of the Rosetta software suite and is made available under license.
+// (c) The Rosetta software is developed by the contributing members of the Rosetta Commons.
+// (c) For more information, see http://www.rosettacommons.org. Questions about this can be
+// (c) addressed to University of Washington CoMotion, email: license@uw.edu.
+
+/// @file protocols/tutorial/TutorialJob.cc
+/// @brief
+/// @detailed
+/// @author Jack Maguire, jack@med.unc.edu
+
+#include <protocols/tutorial/TutorialJob.hh>
+
+#include <basic/Tracer.hh>
+
+#include <core/scoring/ScoreFunction.hh>
+#include <core/pose/Pose.hh>
+
+#include <protocols/jd3/standard/MoverAndPoseJob.hh>
+
+#include <utility/tag/Tag.hh>
+#include <utility/pointer/memory.hh>
+
+static basic::Tracer TR( "protocols.tutorial.TutorialJob" );
+
+namespace protocols {
+namespace tutorial {
+
+//Constructor
+TutorialJob::TutorialJob()
+{}
+
+//Destructor
+TutorialJob::~TutorialJob()
+{}
+
+jd3::CompletedJobOutput TutorialJob::run() {
+        jd3::CompletedJobOutput output;
+        return output;
+}
 
 } //tutorial
 } //protocols

@@ -27,7 +27,7 @@ All feedback is welcome! Please send thoughts/questions to jack@med.unc.edu
 
 [[Step 5: Writing a Job Class|tutorial_job]]
 
-[[Step 5: Maturing Larval Jobs|maturing_larval_jobs]]
+[[Step 6: Maturing Larval Jobs|maturing_larval_jobs]]
 
 ##Bonus Contents
 [[Appendix A: Let the user define their own score function|TODO]]
