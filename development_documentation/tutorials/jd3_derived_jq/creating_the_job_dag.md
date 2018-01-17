@@ -111,8 +111,8 @@ MRSJobQueen::initial_job_dag() {
 
 	//the lone argument ( 3 ) is the number of nodes in the dag
         JobDigraphOP dag = utility::pointer::make_shared< JobDigraph >( 3 );
-        dag->add_edge( 1, 3 );
-        dag->add_edge( 2, 3 );
+        dag->add_edge( 1, 3 ); //results of node 1 will be fed directly to node 3
+        dag->add_edge( 2, 3 ); //results of node 2 will be fed directly to node 3
         return dag;
 }
 
