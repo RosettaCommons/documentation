@@ -6,7 +6,7 @@ Author: Jack Maguire
 
 [[Step 1: Code Skeletons|skeletons]]
 
-[[Step 3: TODO|TODO]]
+[[Step 3: Node Managers|node_managers]]
 
 [[_TOC_]]
 
@@ -44,7 +44,7 @@ This function is a wolf in sheep's clothing because it looks like a simple gette
 It is the first method called by the job distributor after construction and handles almost all of the initialization for the job queen.
 
 The standard job queen is initialized when you call `determine_preliminary_job_list()` (which I recommend to be the very first line of `initial_job_dag()`).
-`determine_preliminary_job_list()` will call the virtual function `parse_job_definition_tags()` that we will address in [[Step X|TODO]].
+`determine_preliminary_job_list()` will call the virtual function `parse_job_definition_tags()`, which we will address in [[Step X|TODO]].
 
 ##Code
 
