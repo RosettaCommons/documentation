@@ -117,6 +117,7 @@ We also need a few more `#include`'s in the .cc file:
 ##Up-to-date Code
 
 ###TutorialQueen.hh
+```
 // -*- mode:c++;tab-width:2;indent-tabs-mode:t;show-trailing-whitespace:t;rm-trailing-spaces:t -*-
 // vi: set ts=2 noet:
 //
@@ -182,8 +183,10 @@ private:
 } //protocols
 
 #endif        
+```
 
 ###TutorialQueen.cc
+```
 // -*- mode:c++;tab-width:2;indent-tabs-mode:t;show-trailing-whitespace:t;rm-trailing-spaces:t -*-
 // vi: set ts=2 noet:
 //
@@ -297,6 +300,7 @@ MRSJobQueen::count_num_jobs_for_nodes_1_and_2(
 
 } //tutorial
 } //protocols        
+```
 
 ##See Also
 
