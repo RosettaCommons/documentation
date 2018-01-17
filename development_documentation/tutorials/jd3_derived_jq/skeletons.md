@@ -4,6 +4,8 @@ Author: Jack Maguire
 
 [[Back to Walkthrough|jd3_derived_jq_home]]
 
+[[Forward to Step 2|creating_the_job_dag]]
+
 The first step of writing a file is to create it!
 Let's put our job queen in `src/protocols/tutorial`.
 Below I have pasted some skeletons that you can copy and paste.

@@ -4,6 +4,10 @@ Author: Jack Maguire
 
 [[Back to Walkthrough|jd3_derived_jq_home]]
 
+[[Back to Step 1|skeletons]]
+
+[[Forward to Step 3|TODO]]
+
 [[_TOC_]]
 
 ##Plan
