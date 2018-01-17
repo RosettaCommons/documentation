@@ -15,9 +15,9 @@ Author: Jack Maguire
 I tried to contrive a queen that would require a non-linear [[job dag|JD3]].
 There are several ways to create a dag that would fit our needs, let's go with something like this:
 
-DAG Node 1: Relax, allowing only chain1 to design
+DAG Node 1: Relax, allowing only chain1 positions to design (one at a time)
 
-DAG Node 2: Relax, allowing only chain2 to design
+DAG Node 2: Relax, allowing only chain2 positions to design (one at a time)
 
 DAG Node 3: Merge results from 1 and 2 and relax with higher sampling resolution (more extra chi sampling)
 
@@ -26,6 +26,11 @@ DAG Node 3: Merge results from 1 and 2 and relax with higher sampling resolution
     /
 2--/
 ```
+
+So each residue position on chain1 gets its own job in Node 1 and each position in chain 2 gets its own job in Node 2.
+In reality, you would almost certainly just make this a 2-node dag `1->2` where the first node handles both chains.
+I was hoping this tutorial would have a branched DAG and I was not creative enough to come up with a design case that was simple enough to use for a tutorial.
+Let's just go with this.
 
 ##initial_job_dag()
 

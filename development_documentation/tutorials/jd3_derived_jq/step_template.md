@@ -14,6 +14,8 @@ Author: Jack Maguire
 
 ##Code Additions
 
+###Additions to Header File
+
 ##Up-To-Date Code
 
 ###TutorialQueen.hh

@@ -1,4 +1,4 @@
-#Step 4: Creating Larval Jobs
+#Step 5: Creating Larval Jobs
 
 Author: Jack Maguire
 
@@ -18,6 +18,23 @@ This is done through the method `determine_job_list()`, which expects you to pop
 We are going to create helper methods that each focus on larval job creation for one node, as shown below.
 
 ##Code Additions
+
+###Additions to Header File
+
+We need to add a new public method:
+```
+        jd3::JobOP
+        complete_larval_job_maturation(
+                jd3::LarvalJobCOP larval_job,
+                utility::options::OptionCollectionCOP job_options,
+                utility::vector1< jd3::JobResultCOP > const & input_job_results
+        ) override ;
+```
+
+And a few protected methods:
+```
+
+```
 
 ###determine_job_list()
 
