@@ -4,7 +4,11 @@ Author: Jack Maguire
 
 [[Back to Walkthrough|jd3_derived_jq_home]]
 
-[[Forward to Step 2|creating_the_job_dag]]
+[[Step 2|creating_the_job_dag]]
+
+[[_TOC_]]
+
+##Plan
 
 The first step of writing a file is to create it!
 Let's put our job queen in `src/protocols/tutorial`.
@@ -19,7 +23,7 @@ Let's also add the following to one of the protocols.*.src.settings files.
 ```
 
 
-###TutorialQueen.fwd.hh
+##TutorialQueen.fwd.hh
 
 ```
 // -*- mode:c++;tab-width:2;indent-tabs-mode:t;show-trailing-whitespace:t;rm-trailing-spaces:t -*-
@@ -53,7 +57,7 @@ typedef utility::pointer::shared_ptr< TutorialQueen const > TutorialQueenCOP;
 #endif
 ```
 
-###TutorialQueen.hh
+##TutorialQueen.hh
 
 ```
 // -*- mode:c++;tab-width:2;indent-tabs-mode:t;show-trailing-whitespace:t;rm-trailing-spaces:t -*-
@@ -96,7 +100,7 @@ public:
 #endif
 ```
 
-###TutorialQueen.cc
+##TutorialQueen.cc
 
 ```
 // -*- mode:c++;tab-width:2;indent-tabs-mode:t;show-trailing-whitespace:t;rm-trailing-spaces:t -*-
