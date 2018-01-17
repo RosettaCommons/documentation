@@ -12,8 +12,14 @@ Author: Jack Maguire
 
 ##Plan
 
+After the job distributor calls `initial_job_dag()`, it is going to start asking for jobs to submit.
+This is done through the method `determine_job_list()`, which expects you to populate a list of [[larval jobs|JD3]].
+
+We are going to create helper methods that each focus on larval job creation for one node, as shown below.
+
 ##Code
 
+###determine_job_list()
 
 ##See Also
 

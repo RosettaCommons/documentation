@@ -116,6 +116,7 @@ public:
 /// @author Jack Maguire, jack@med.unc.edu
 
 #include <protocols/tutorial/TutorialQueen.hh>
+#include <basic/Tracer.hh>
 
 static basic::Tracer TR( "protocols.tutorial.TutorialQueen" );
 

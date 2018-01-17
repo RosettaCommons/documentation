@@ -87,9 +87,9 @@ private:
 ```c++
 #include <protocols/tutorial/TutorialQueen.hh>
 #include <protocols/jd3/JobDigraph.hh>
-#include <protocols/jd3/JobDigraph.hh>
 
 #include <utility/pointer/memory.hh>
+#include <basic/Tracer.hh>
 
 static basic::Tracer TR( "protocols.tutorial.TutorialQueen" );
 

@@ -206,6 +206,8 @@ private:
 #include <protocols/jd3/dag_node_managers/SimpleNodeManager.hh>
 
 #include <utility/pointer/memory.hh>
+#include <core/pose/Pose.hh>
+#include <basic/Tracer.hh>
 
 static basic::Tracer TR( "protocols.tutorial.TutorialQueen" );
 
@@ -290,7 +292,7 @@ MRSJobQueen::count_num_jobs_for_nodes_1_and_2(
         utility::vector1< standard::PreliminaryLarvalJob > const & all_preliminary_larval_jobs = preliminary_larval_jobs();
 
         for( standard::PreliminaryLarvalJob & pl_job : all_preliminary_larval_jobs ){
-                core::pose::PoseOP pose = pose_for_inner_job( pl_job->inner_job );
+                core::pose::PoseOP pose = pose_for_inner_job( pl_job.inner_job );
                 num_jobs_for_node_1 += pose->chain_sequence( 1 ).length();
                 num_jobs_for_node_2 += pose->chain_sequence( 2 ).length();
         }
