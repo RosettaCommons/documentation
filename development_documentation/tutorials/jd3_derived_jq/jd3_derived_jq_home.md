@@ -23,12 +23,12 @@ All feedback is welcome! Please send thoughts/questions to jack@med.unc.edu
 
 [[Step 3: Node Managers|node_managers]] (optional)
 
-[[Step 4: Creating Larval Jobs|larval_jobs]]
+[[Step 4: The Job Genealogist|job_genealogist]]
+
+[[Step 5: Creating Larval Jobs|larval_jobs]]
 
 ##Bonus Contents
 [[Appendix A: Let the user define their own score function|TODO]]
-
-[[Appendix B: The Job Genealogist]]
 
 ##See Also
 
