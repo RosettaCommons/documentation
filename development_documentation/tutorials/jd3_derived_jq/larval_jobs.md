@@ -6,7 +6,7 @@ Author: Jack Maguire
 
 [[Step 3: Node Managers|node_managers]]
 
-[[Step 5: TODO|TODO]]
+[[Step 5: Maturing Larval Jobs|maturing_larval_jobs]]
 
 [[_TOC_]]
 
@@ -18,6 +18,8 @@ so there will be code that we are adding that will look very different when you 
 
 After the job distributor calls `initial_job_dag()`, it is going to start asking for jobs to submit.
 This is done through the method `determine_job_list()`, which expects you to populate a list of [[larval jobs|JD3]].
+In general, larval jobs need to hold all of the information required for the [[worker job queen|TODO]] to be able to construct a job.
+You may find that you need to create your own class that derives from `LarvalJob` because there is certain information you need to include that the base class does not provide a method for.
 
 We are going to create helper methods that each focus on larval job creation for one node, as shown below.
 We will also utilize the [[Job Genealogist|TODO]] to help us keep track of the input sources for jobs.
@@ -54,7 +56,7 @@ And a private member:
 jd3::JobGenealogistOP job_genealogist_;
 ```
 
-###Smaller Additions to the .cc file:
+###Small Additions to the .cc file:
 
 New includes:
 ```c++
