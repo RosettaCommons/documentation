@@ -109,6 +109,7 @@ MRSJobQueen::initial_job_dag() {
         //you need to call this for the standard job queen to initialize
         determine_preliminary_job_list();
 
+	//the lone argument ( 3 ) is the number of nodes in the dag
         JobDigraphOP dag = utility::pointer::make_shared< JobDigraph >( 3 );
         dag->add_edge( 1, 3 );
         dag->add_edge( 2, 3 );
