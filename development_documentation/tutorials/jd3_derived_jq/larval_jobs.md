@@ -57,10 +57,94 @@ And the .cc file:
 ```
 
 ###determine_job_list()
+In order to keep things clean, let's offload the work to these two other methods.
 ```c++
-TODO
+std::list< jd3::LarvalJobOP >
+TutorialQueen::determine_job_list (
+        core::Size job_dag_node_index,
+        core::Size max_njobs
+) {
+        std::list< jd3::LarvalJobOP > job_list;
+
+        for( core::Size ii = 1; ii <= max_njobs; ++ii ){
+                jd3::LarvalJobOP next_job;
+                if( job_dag_node_index == 3 ){
+                        next_job = get_next_larval_job_for_node_3();
+                } else {
+                        next_job = get_next_larval_job_for_node_1_or_2( job_dag_node_index );
+                }
+
+                if( next_job == 0 ) {
+                        return job_list;
+                } else {
+                        job_list.push_back( next_job );
+                }
+        }
+
+        return job_list;
+}
 ```
 
+###get_next_larval_job_for_node_1_or_2()
+
+DAG Nodes 1 and 2 are very similar.
+So similar, that you would probably implement them as just one node in practice.
+Due to their similarities, we can combine a lot of this logic together and make them share this method.
+
+```c++
+jd3::LarvalJobOP
+TutorialQueen::get_next_larval_job_for_node_1_or_2( core::Size node ) {
+        //This is written very ineffeciently, but it will do for the scope of the tutorial
+        runtime_assert( node == 1 || node == 2 );
+
+        if( node_managers_[ node ]->done_submitting() ) {
+                return 0;
+        }
+
+        //each job has 2 indices:
+        //a local one, which tracks its index within its dag node
+        //a global one, which is unique accross the entire program
+        core::Size const local_job_id = node_managers_[ node ]->get_next_local_jobid();
+        core::Size const global_job_id = node_managers_[ node ]->job_offset() + local_job_id;
+        core::Size counter = local_job_id;
+
+        utility::vector1< standard::PreliminaryLarvalJob > const & all_preliminary_larval_jobs = preliminary_larval_jobs();
+        core::Size pose_input_source_id = 0;
+
+        //This part is not directly JD3-related, it's just a matter of finding the pose that we need for this specific job
+        for( standard::PreliminaryLarvalJob const & pl_job : all_preliminary_larval_jobs ){
+                core::pose::PoseOP pose = pose_for_inner_job( pl_job.inner_job );
+                ++pose_input_source_id;
+
+                core::Size const nres_in_chain = pose->chain_sequence( node ).length();
+                if( nres_in_chain > counter ){
+                        counter -= nres_in_chain;
+                } else {
+                        break;
+                }
+        }
+        debug_assert( pose_input_source_id <= all_preliminary_larval_jobs.size() );
+
+        //These can be recycled between larval jobs
+        //So in reality, you will probably choose to store this somewhere and use it again the next time this method is called
+        //(you will have to change the arguments accordingly)
+        //jd3::InnerLarvalJobOP inner_ljob =
+        jd3::standard::StandardInnerLarvalJobOP inner_ljob =
+                create_and_init_inner_larval_job( 1, pose_input_source_id );
+
+        LarvalJobOP ljob = utility::pointer::make_shared< LarvalJob >(
+                inner_ljob, 1, global_job_id );
+
+        job_genealogist_->register_new_job (
+                node,
+                local_job_id,
+                global_job_id,
+                pose_input_source_id
+        );
+
+        return ljob;
+}
+```
 
 ##Up-To-Date Code
 
