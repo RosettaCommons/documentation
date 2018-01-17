@@ -83,8 +83,8 @@ MRSJobQueen::init_node_managers(){
 }
 ```
 
-###count_num_jobs_for_nodes_1_and_2() deinition
-```c++
+###count_num_jobs_for_nodes_1_and_2() definition
+```cpp
 void
 MRSJobQueen::count_num_jobs_for_nodes_1_and_2(
         core::Size & num_jobs_for_node_1,
