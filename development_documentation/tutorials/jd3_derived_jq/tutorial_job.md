@@ -24,9 +24,41 @@ we will apply the mover to the pose and score the pose with the scorefunction.
 
 ###Additions to Header File
 
-We need these private data members:
+We need these private data members. We should also create getters and setters for them (see below in the up-to-date code).
 ```c++
+core::pose::PoseOP pose_;
+core::scoring::ScoreFunctionCOP sfxn_;
+moves::MoverOP mover_;
+```
 
+###run()
+
+This method is sort of like Mover::apply().
+Every Job class needs it, and it is the only method this is called by the job distributor.
+
+In our case, we want our job to apply the mover to the pose and score the result.
+The score will be reported as a `jd3::standard::EnergyJobSummary` and the pose will be reported as a `jd3::standard::PoseJobResult`.
+
+You can make your own derived classes of `JobSummary` and `JobResult`.
+If you do, make sure that you make them [[serializable|TODO]].
+
+```c++
+jd3::CompletedJobOutput TutorialJob::run() {
+        runtime_assert( pose_ );
+        runtime_assert( sfxn_ );
+        runtime_assert( mover_ );
+
+        jd3::CompletedJobOutput output;
+        mover_->apply( *pose_ );
+        core::Real const score = sfxn_->score( *pose_ );
+
+        jd3::JobSummaryOP summary( utility::pointer::make_shared< jd3::standard::EnergyJobSummary >( score ) );
+        jd3::JobResultOP result( utility::pointer::make_shared< jd3::standard::PoseJobResult >( pose_ ) );
+        output.job_results.push_back( std::make_pair( summary, result ) );
+
+        output.status = jd3::jd3_job_status_success;
+        return output;
+}
 ```
 
 ##Up-To-Date Code
@@ -174,7 +206,7 @@ jd3::CompletedJobOutput TutorialJob::run() {
 }
 
 } //tutorial
-} //protocols        
+} //protocols
 ```
 
 ##See Also
