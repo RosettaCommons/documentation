@@ -174,17 +174,17 @@ Libraries as well as development files (headers) of the following software is re
 2) Get latest source from SVN
 Let's say we will download the Pymol source code to /tmp. This will download the latest source to /tmp/pymol:
 
-```> cd /tmp
+> cd /tmp
 > svn co svn://svn.code.sf.net/p/pymol/code/trunk/pymol
-> cd pymol```
+> cd pymol
 
 3) Compiling and installing Pymol
 
 This will install PyMOL as normal user into ${HOME}/pymol-svn:
 
-```> prefix=${HOME}/pymol-svn
+> prefix=${HOME}/pymol-svn
 > modules=$prefix/modules
-> python2.7 setup.py build install   --home=$prefix  --install-lib=$modules  --install-scripts=$prefix```
+> python2.7 setup.py build install   --home=$prefix  --install-lib=$modules  --install-scripts=$prefix
 
 Now launch PyMOL like this:
 
@@ -192,7 +192,7 @@ Now launch PyMOL like this:
 
 To add this new PyMOL to your path:
 
-```sudo ln -s /opt/pymol-svn/pymol /usr/bin/pymol```
+> sudo ln -s /opt/pymol-svn/pymol /usr/bin/pymol
 
 4) Connecting to Rosetta
 
