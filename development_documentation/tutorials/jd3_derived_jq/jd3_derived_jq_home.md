@@ -46,9 +46,11 @@ Beside each link is a list of the virtual function overrides that we introduce i
 ##Bonus Content
 [[Appendix A: Let the user define their own score function in &lt;Common>|TODO]]
 
-[[Appendix B: Let the user define individual score functions in <Job>|TODO]]
+[[Appendix B: Let the user define individual score functions in &lt;Job>|TODO]]
 
 [[Appendix C: Changing the Job DAG|TODO]]
+
+- [ ] test
 
 ##See Also
 
