@@ -20,6 +20,8 @@ Author: Jack Maguire
 
 - `completed_job_summary()` x 2
 
+- `job_results_that_should_be_discarded()`
+
 ##See Also
 
 * [[Development tutorials home page|devel-tutorials]]
