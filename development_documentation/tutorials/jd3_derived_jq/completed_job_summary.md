@@ -12,6 +12,14 @@ Author: Jack Maguire
 
 ##Plan
 
+We have already been told how many job results to expect from each job in [[Step 7|note_job_completed]].
+Now we need to handle `completed_job_summary()`, the interface for the job distributor to tell the job queen on node 0 some metric about the results.
+This metric is conveyed in the form of a `JobSummary`.
+We used an `EnergyJobSummary` in [[Step 5|tutorial_job]],
+which means we will be given a floating point number that reperesents the score of the pose in the corresponding `JobResult`.
+We are not given the `JobResult`s here.
+They will currently be sitting idle on the archive nodes until they are either discarded or output.
+
 ##Code Additions
 
 ###Additions to Header File
