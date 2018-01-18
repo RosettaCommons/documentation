@@ -12,6 +12,8 @@ Author: Jack Maguire
 
 - `parse_job_definition_tags()`
 
+- `determine_job_list()`
+
 - `complete_larval_job_maturation()`
 
 ##See Also

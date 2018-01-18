@@ -37,12 +37,11 @@ New `#include`'s for the .hh file:
 
 We need to add a new public method:
 ```c++
-jd3::JobOP
-complete_larval_job_maturation(
-        jd3::LarvalJobCOP larval_job,
-        utility::options::OptionCollectionCOP job_options,
-        utility::vector1< jd3::JobResultCOP > const & input_job_results
-) override ;
+std::list< jd3::LarvalJobOP >
+determine_job_list (
+        core::Size job_dag_node_index,
+        core::Size max_njobs
+)
 ```
 
 And a few protected methods:

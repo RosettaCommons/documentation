@@ -29,11 +29,12 @@ Beside each link is a list of the virtual function overrides that we introduce i
 ###Spawning Jobs
 
 [[Step 4: Creating Larval Jobs|larval_jobs]]
-`complete_larval_job_maturation()`
+`determine_job_list()`
 
 [[Step 5: Writing a Job Class|tutorial_job]]
 
 [[Step 6: Maturing Larval Jobs|maturing_larval_jobs]]
+`complete_larval_job_maturation()`
 
 ###Processing Results
 
