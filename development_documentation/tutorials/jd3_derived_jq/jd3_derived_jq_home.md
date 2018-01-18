@@ -6,13 +6,10 @@ Author: Jack Maguire
 The goal of this tutorial is to help developers get experience with writing their own JD3 protocol.
 This tutorial assumes the reader has some knowledge of [[JD3|JD3]] in general.
 
-The (very contrived) design case that we will be working with is as follows:
-We want to stabilize a protein-protein interface but only allow one position to design (change amino acid identity).
-We do not care which side of the interface this mutation is.
+I did not take the time to contrive a very realistic design case
 
 In general, the code generated in this example is NOT written with effeciency, performance, or even our own coding conventions in mind.
 The main goal is clarity and simplicity/readability.
-
 All feedback is welcome! Please send thoughts/questions to jack@med.unc.edu
 
 ##Contents
@@ -29,8 +26,12 @@ All feedback is welcome! Please send thoughts/questions to jack@med.unc.edu
 
 [[Step 6: Maturing Larval Jobs|maturing_larval_jobs]]
 
-##Bonus Contents
-[[Appendix A: Let the user define their own score function|TODO]]
+##Bonus Content
+[[Appendix A: Let the user define their own score function in <Common>|TODO]]
+
+[[Appendix B: Let the user define individual score functions in <Job>|TODO]]
+
+[[Appendix C: Changing the Job DAG|TODO]]
 
 ##See Also
 
