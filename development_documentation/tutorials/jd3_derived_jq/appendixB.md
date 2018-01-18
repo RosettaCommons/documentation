@@ -12,6 +12,44 @@ Author: Jack Maguire
 
 ##Plan
 
+In [[Appendix A|appendixA]], we added a way for the user to define a
+score function using the &lt;Common> block of the job definition file.
+You may want to allow options to be unique for each job.
+To do this, you can have the user supply information in the individual &lt;Job> blocks.
+
+Let's keep the code we added in [[Appendix A|appendixA]] and allow the user to optionally
+supply a different scorefunction for a given job as shown below.
+Now, jobs 1 and 2 use ref2015 and job 3 uses ref2015_cart.
+
+```xml
+<JobDefinitionFile>
+  <Common>
+    <MyScoreFunction weights_file_name="ref2015.wts"/>
+  </Common>
+
+  <Job>
+    <Input>
+      ...
+    </Input>
+  </Job>
+
+  <Job>
+    <Input>
+      ...
+    </Input>
+  </Job>
+
+  <Job>
+    <Input>
+      ...
+    </Input>
+
+    <MyUniqueScoreFunction weights_file_name="ref2015_cart.wts"/>
+  </Job>
+</JobDefinitionFile>
+```
+
+
 ##Code Additions
 
 ###Additions to Header File
