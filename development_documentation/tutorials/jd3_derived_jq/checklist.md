@@ -16,6 +16,8 @@ Author: Jack Maguire
 
 - `complete_larval_job_maturation()`
 
+- `note_job_completed()`
+
 ##See Also
 
 * [[Development tutorials home page|devel-tutorials]]
