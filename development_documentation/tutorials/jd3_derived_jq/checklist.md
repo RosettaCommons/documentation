@@ -18,6 +18,8 @@ Author: Jack Maguire
 
 - `note_job_completed()` x 2
 
+- `completed_job_summary()` x 2
+
 ##See Also
 
 * [[Development tutorials home page|devel-tutorials]]

@@ -42,6 +42,7 @@ Beside each link is a list of the virtual function overrides that we introduce i
 `note_job_completed()`
 
 [[Step 8: Completed Job Summary|completed_job_summary]]
+`completed_job_summary()`
 
 [[Step 9: Discarding Job Results|discarding_job_results]]
 
