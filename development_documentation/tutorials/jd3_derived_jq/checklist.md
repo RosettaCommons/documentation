@@ -6,6 +6,8 @@ Author: Jack Maguire
 
 [[Step 1: Skeletons for creating the file|skeletons]]
 
+#Checklist:
+
 - `initial_job_dag()`
 
 - `parse_job_definition_tags()`
