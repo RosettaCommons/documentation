@@ -44,7 +44,7 @@ Beside each link is a list of the virtual function overrides that we introduce i
 [[Step 10: Outputting Results|outputting_results]]
 
 ##Bonus Content
-[[Appendix A: Let the user define their own score function in <Common>|TODO]]
+[[Appendix A: Let the user define their own score function in \<Common\>|TODO]]
 
 [[Appendix B: Let the user define individual score functions in <Job>|TODO]]
 
