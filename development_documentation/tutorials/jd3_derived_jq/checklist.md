@@ -6,6 +6,13 @@ Author: Jack Maguire
 
 [[Step 1: Skeletons for creating the file|skeletons]]
 
+The Standard Job Queen has many virtual functions and
+it is not always obvious to the developer which functions
+need to be overriden by the derived job queen.
+The goal of this page (and this tutorial in general) is to
+help developers figure out whether or not the Standard Job Queen
+expects the derived job queen to override a given virtual function.
+
 #Checklist:
 
 - `initial_job_dag()`
@@ -23,6 +30,16 @@ Author: Jack Maguire
 - `job_results_that_should_be_discarded()`
 
 - `jobs_that_should_be_output()`
+
+#Optional:
+
+- `parse_job_definition_tags()`
+
+- `append_common_tag_subelements()`
+
+- `append_job_tag_subelements()`
+
+- `assign_output_index()`
 
 ##See Also
 
