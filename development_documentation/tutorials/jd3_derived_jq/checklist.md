@@ -16,7 +16,7 @@ Author: Jack Maguire
 
 - `complete_larval_job_maturation()`
 
-- `note_job_completed()`
+- `note_job_completed()` x2
 
 ##See Also
 
