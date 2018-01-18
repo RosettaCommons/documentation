@@ -2,7 +2,7 @@
 
 Author: Jack Maguire
 
-[[Checklist Of StandardJobQueen Virtual Functions That You Generally Want To Override|checklist]]
+[[Checklist of StandardJobQueen virtual functions that you generally want to override|checklist]]
 
 ##Overview
 The goal of this tutorial is to help developers get experience with writing their own JD3 protocol.
@@ -48,11 +48,12 @@ Beside each link is a list of the virtual function overrides that we introduce i
 `job_results_that_should_be_discarded()`
 
 [[Step 10: Outputting Results|outputting_results]]
+`jobs_that_should_be_output()`
 
 ##Bonus Content
-[[Appendix A: Let the user define their own score function in &lt;Common>|TODO]]
+[[Appendix A: Let the user define their own score function in &lt;Common>|appendixA]]
 
-[[Appendix B: Let the user define individual score functions in &lt;Job>|TODO]]
+[[Appendix B: Let the user define individual score functions in &lt;Job>|appendixB]]
 
 [[Appendix C: Changing the Job DAG|TODO]]
 

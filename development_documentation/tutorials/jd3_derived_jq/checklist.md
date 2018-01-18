@@ -22,6 +22,8 @@ Author: Jack Maguire
 
 - `job_results_that_should_be_discarded()`
 
+- `jobs_that_should_be_output()`
+
 ##See Also
 
 * [[Development tutorials home page|devel-tutorials]]
