@@ -1,12 +1,12 @@
-#Step 2: Creating the Job DAG
+#Appendix B: Let the user define individual score functions in &lt;Job>
 
 Author: Jack Maguire
 
 [[Back to Walkthrough|jd3_derived_jq_home]]
 
-[[Step A|TODO]]
+[[Appendix A: Let the user define their own score function in &lt;Common>|appendixA]]
 
-[[Step B|TODO]]
+[[Appendix C: Changing the Job DAG|TODO]]
 
 [[_TOC_]]
 
