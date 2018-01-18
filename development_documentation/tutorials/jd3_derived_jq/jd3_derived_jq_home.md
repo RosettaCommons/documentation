@@ -12,7 +12,7 @@ All feedback is welcome! Please send thoughts/questions to jack@med.unc.edu
 
 ##Contents
 
-Below each link lists the virtual function overrides that we introduce in that section.
+Beside each link is a list of the virtual function overrides that we introduce in that section.
 
 ###Setup
 
