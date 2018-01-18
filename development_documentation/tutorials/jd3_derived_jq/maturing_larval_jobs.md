@@ -6,7 +6,7 @@ Author: Jack Maguire
 
 [[Step 5: Writing a Job Class|tutorial_job]]
 
-[[Step B|TODO]]
+[[Step 7: Note Job Completed|note_job_completed]]
 
 [[_TOC_]]
 
