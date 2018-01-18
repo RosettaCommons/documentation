@@ -1,4 +1,4 @@
-#Step 0: Checklist Of StandardJobQueen Virtual Functions That You Generally Want To Override
+#Checklist Of StandardJobQueen Virtual Functions That You Generally Want To Override
 
 Author: Jack Maguire
 
