@@ -15,6 +15,7 @@ Author: Jack Maguire
 Okay now steps are starting to get a little longer and messier.
 We are now making decisions that are unique to the protocol in mind,
 so there will be code that we are adding that will look very different when you write your own job queen.
+In practice, you may choose to work on Steps 4, 5, and 6 simultaneously as they are closely related.
 
 After the job distributor calls `initial_job_dag()`, it is going to start asking for jobs to submit.
 This is done through the method `determine_job_list()`, which expects you to populate a list of [[larval jobs|JD3]].
