@@ -33,6 +33,38 @@ I probably should have thought further ahead when writing the early steps of thi
 
 ###Additions to Header File
 
+We need to add this declaration to the `public` section of the .hh file
+```c++
+std::list< jd3::JobResultID >
+job_results_that_should_be_discarded() override;
+```
+
+###job_results_that_should_be_discarded()
+For each node, we want to get a list of results that can be discarded.
+We need to make sure to tell the `JobGenealogist` which ones are being deleted.
+```c++
+std::list< jd3::JobResultID >
+TutorialQueen::job_results_that_should_be_discarded(){
+        std::list< jd3::JobResultID > list_of_all_job_results_to_be_discarded;
+
+        for ( core::Size dag_node = 1; dag_node <= 3; ++dag_node ) {
+                std::list< jd3::JobResultID > job_results_to_be_discarded_for_node;
+                node_managers_[ dag_node ]->append_job_results_that_should_be_discarded( job_results_to_be_discarded_for_node );
+
+                for ( jd3::JobResultID const & discarded_result : job_results_to_be_discarded_for_node ) {
+                        core::Size const local_job_id = discarded_result.first - node_managers_[ dag_node ]->job_offset();
+                        job_genealogist_->discard_job_result( dag_node, local_job_id, discarded_result.second );
+                }
+
+                list_of_all_job_results_to_be_discarded.splice(
+                        list_of_all_job_results_to_be_discarded.end(),
+                        job_results_to_be_discarded_for_node );
+        }
+
+        return list_of_all_job_results_to_be_discarded;
+}        
+```
+
 ##Up-To-Date Code
 
 ###TutorialQueen.hh
