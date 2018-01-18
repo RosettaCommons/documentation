@@ -14,6 +14,8 @@ All feedback is welcome! Please send thoughts/questions to jack@med.unc.edu
 
 Beside each link is a list of the virtual function overrides that we introduce in that section.
 
+[[Step 0: Checklist Of StandardJobQueen Virtual Functions That You Generally Want To Override|checklist]]
+
 ###Setup
 
 [[Step 1: Skeletons for creating the file|skeletons]]
@@ -49,8 +51,6 @@ Beside each link is a list of the virtual function overrides that we introduce i
 [[Appendix B: Let the user define individual score functions in &lt;Job>|TODO]]
 
 [[Appendix C: Changing the Job DAG|TODO]]
-
-- [ ] test
 
 ##See Also
 
