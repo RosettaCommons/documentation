@@ -19,9 +19,7 @@ Below each link lists the virtual function overrides that we introduce in that s
 [[Step 1: Skeletons for creating the file|skeletons]]
 
 [[Step 2: Creating the Job DAG|creating_the_job_dag]]
-
 `initial_job_dag()`
-
 `parse_job_definition_tags()`
 
 [[Step 3: Node Managers|node_managers]] (optional)
