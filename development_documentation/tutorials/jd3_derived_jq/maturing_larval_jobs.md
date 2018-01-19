@@ -23,7 +23,8 @@ To get the jobs, the job distributor will call `mature_larval_job()`.
 This is a virtual function so we can override it if we want;
 however, the StandardJobQueen does a lot of the work for us in its override of `mature_larval_job()`.
 Instead, we want to override `complete_larval_job_maturation()`.
-This method is called at the end of `StandardJobQueen::mature_larval_job()` and allows our derived queen to mak the finishing touches to the job.
+This method is called at the end of `StandardJobQueen::mature_larval_job()`
+and allows our derived queen to make the finishing touches to the job.
 
 Also, this will be the first time the job queen will be called on the worker nodes!
 This means we need to do all of the initialization we did on the head node in [[Step 2|creating_the_job_dag]].
