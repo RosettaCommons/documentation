@@ -498,6 +498,29 @@ The following example selects all residues that are in regions of Ramachandran s
 
 Note that the `rama_prepro` energy is a two-body energy dependent on a residue's conformation, its identity, and the identity of its C-terminal neighbour (with different lookup tables used for residues preceding proline and residues not preceding proline).  Because it is a two-body energy, the score for a particular position is divided over that position and the i+1 position.  This means that the final score table will have values that do not correspond to the values used for evaluating this selector, since each position's `rama_prepro` energy is the sum of its own energy and that of the i-1 position.
 
+#### SSElementSelector
+```xml
+ <SymmetricalResidue name="(&string)" selection="(&string)" to_selection="(&string)" reassign_short_terminal_loop="( (true &bool)" chain="(&string)" />
+```
+Run options:
+ selection alone: selects that selection
+ selection+to_selection: selects both selections and the residues between the selections
+Options:
+*  n_term=residue 1
+*  c_term=length of protein
+*  "1,H"= first helix
+*  "2,L"= second loop(note doesn't count <2 residue terminal loops unless reassign_short_terminal_loop="false"
+*  "-2,E"=second sheet from end of the protein
+*  "1,H,S"=start of first helix
+*  "1,H,E"=end of first helix
+*  "1,H,M"=middle of first helix
+
+** Example **
+```xml
+ <SymmetricalResidue name="(&string)" selection="1,H,M" to_selection="1,H,L" chain="A"/>
+```
+
+
 #### SecondaryStructureSelector
 
 [[include:rs_SecondaryStructure_type]]
