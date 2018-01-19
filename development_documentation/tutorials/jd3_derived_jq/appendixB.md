@@ -6,8 +6,6 @@ Author: Jack Maguire
 
 [[Appendix A: Let the user define their own score function in &lt;Common>|appendixA]]
 
-[[Appendix C: Changing the Job DAG|TODO]]
-
 [[_TOC_]]
 
 ##Plan

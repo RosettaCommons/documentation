@@ -52,10 +52,10 @@ Beside each link is a list of the virtual function overrides that we introduce i
 
 ##Bonus Content
 [[Appendix A: Let the user define their own score function in &lt;Common>|appendixA]]
+`append_common_tag_subelements()`
 
 [[Appendix B: Let the user define individual score functions in &lt;Job>|appendixB]]
-
-[[Appendix C: Changing the Job DAG|TODO]]
+`append_job_tag_subelements()`
 
 ##See Also
 
