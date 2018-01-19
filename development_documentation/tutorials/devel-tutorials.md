@@ -8,7 +8,8 @@ The following is a list of guides for using specific Rosetta features or perform
 * [[Developing for RosettaScripts|RosettaScripts-Developer-Guide]]
 
 ##Using existing frameworks in your code
-* [[Using the job distributor|jd2]]
+* [[Writing your own JD3 Job Queen|jd3_derived_jq_home]]
+* [[Using the JD2 job distributor|jd2]]
 * [[Owning/access pointer usage guide|How-to-use-pointers-correctly]]
 * [[Using the ResourceManager|ResourceManager]]
 
