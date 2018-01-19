@@ -1,0 +1,72 @@
+#Walkthrough: Writing a Derived Job Queen for JD3
+
+Author: Jack Maguire
+
+[[Checklist of StandardJobQueen virtual functions that you generally want to override|checklist]]
+
+##Overview
+The goal of this tutorial is to help developers get experience with writing their own JD3 protocol.
+This tutorial assumes the reader has some knowledge of [[JD3|JD3]] in general.
+
+For the sake of having an example to work on,
+let's pretend that we want to have a protocol where mover A and
+mover B are both run on the input structure and the results are merged and run through mover C.
+[[See step 2 if it is not clear what I mean|creating_the_job_dag]]
+
+In general, the code generated in this example is NOT written with effeciency, performance, or even our own coding conventions in mind.
+The main goal is clarity and simplicity/readability.
+All feedback is welcome! Please send thoughts/questions to jack@med.unc.edu
+
+##Contents
+
+Beside each link is a list of the virtual function overrides that we introduce in that section.
+
+###Setup
+
+[[Step 1: Skeletons for creating the file|skeletons]]
+
+[[Step 2: Creating the Job DAG|creating_the_job_dag]]
+`initial_job_dag()`
+`parse_job_definition_tags()`
+
+[[Step 3: Node Managers|node_managers]]
+
+###Spawning Jobs
+
+[[Step 4: Creating Larval Jobs|larval_jobs]]
+`determine_job_list()`
+
+[[Step 5: Writing a Job Class|tutorial_job]]
+
+[[Step 6: Maturing Larval Jobs|maturing_larval_jobs]]
+`complete_larval_job_maturation()`
+
+###Processing Results
+
+[[Step 7: Note Job Completed|note_job_completed]]
+`note_job_completed()`
+
+[[Step 8: Completed Job Summary|completed_job_summary]]
+`completed_job_summary()`
+
+[[Step 9: Discarding Job Results|discarding_job_results]]
+`job_results_that_should_be_discarded()`
+
+[[Step 10: Outputting Results|outputting_results]]
+`jobs_that_should_be_output()`
+
+##Bonus Content
+[[Appendix A: Let the user define their own score function in &lt;Common>|appendixA]]
+`append_common_tag_subelements()`
+
+[[Appendix B: Let the user define individual score functions in &lt;Job>|appendixB]]
+`append_job_tag_subelements()`
+
+##See Also
+
+* [[Development tutorials home page|devel-tutorials]]
+* [[Development Documentation]]: The development documentation home page
+* [[Rosetta tests]]: Links to pages on running and writing tests in Rosetta
+* [[Rosetta overview]]: Overview of major concepts in Rosetta
+* [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
+* [[Glossary]]: Defines key Rosetta terms
