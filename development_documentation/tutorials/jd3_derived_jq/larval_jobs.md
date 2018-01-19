@@ -10,6 +10,14 @@ Author: Jack Maguire
 
 [[_TOC_]]
 
+##Reading
+
+[[JobQueen::determine_job_list|https://wiki.rosettacommons.org/index.php/JD3FAQ#JobQueen::determine_job_list]]
+
+[[LarvalJob_vs_InnerLarvalJob]|https://wiki.rosettacommons.org/index.php/JD3FAQ#LarvalJob_vs_InnerLarvalJob]]
+
+[[Job Genealogist|TODO]]
+
 ##Plan
 
 Okay now steps are starting to get a little longer and messier.
@@ -18,8 +26,8 @@ so there will be code that we are adding that will look very different when you 
 In practice, you may choose to work on Steps 4, 5, and 6 simultaneously as they are closely related.
 
 After the job distributor calls `initial_job_dag()`, it is going to start asking for jobs to submit.
-This is done through the method `determine_job_list()`, which expects you to populate a list of [[larval jobs|JD3]].
-In general, larval jobs need to hold all of the information required for the [[worker job queen|TODO]] to be able to construct a job.
+This is done through the method `determine_job_list()`, which expects you to populate a list of [[larval jobs|https://wiki.rosettacommons.org/index.php/JD3FAQ#JobQueen::determine_job_list]].
+In general, larval jobs need to hold all of the information required for the [[worker job queen|https://wiki.rosettacommons.org/index.php/JD3FAQ#LarvalJob_vs_InnerLarvalJob]] to be able to construct a job.
 You may find that you need to create your own class that derives from `LarvalJob` because there is certain information you need to include that the base class does not provide a method for.
 
 We are going to create helper methods that each focus on larval job creation for one node, as shown below.

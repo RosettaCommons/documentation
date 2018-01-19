@@ -10,13 +10,15 @@ Author: Jack Maguire
 
 [[_TOC_]]
 
-##Description of the Job Digraph
+##Reading
 
-[[here|https://wiki.rosettacommons.org/index.php/JD3FAQ#The_Role_of_the_JobDigraph]]
+[[The_Role_of_the_JobDigraph|https://wiki.rosettacommons.org/index.php/JD3FAQ#The_Role_of_the_JobDigraph]]
+
+[[More on the Digraph|https://wiki.rosettacommons.org/index.php/JD3FAQ#Communication_between_the_JobDistributor_and_the_JobQueen_via_the_JobDigraph]]
 
 ##Plan
 
-I tried to contrive a queen that would require a non-linear [[job dag|JD3]].
+I tried to contrive a queen that would require a non-linear [[job dag|https://wiki.rosettacommons.org/index.php/JD3FAQ#The_Role_of_the_JobDigraph]].
 There are several ways to create a dag that would fit our needs, let's go with something like this:
 
 DAG Node 1: Run mover A. Number of jobs is proportional to the number of residues in chain 1 (just to make it interesting).
@@ -44,7 +46,7 @@ it is the first method called by the job distributor after construction and hand
 
 The standard job queen is initialized when you call `determine_preliminary_job_list()` (which I recommend to be the very first line of `initial_job_dag()`).
 `determine_preliminary_job_list()` will call the virtual function `parse_job_definition_tags()`.
-We will address this method in more detail in [[Step X|TODO]],
+We will address this method in more detail in [[Appendix A|appendixA]],
 but for now we can just use it to count the number of `<Job>` tags in the job definition file.
 
 ##Code
