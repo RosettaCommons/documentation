@@ -10,11 +10,6 @@ Author: Jack Maguire
 
 [[_TOC_]]
 
-##Description of the Job Digraph
-
-[[here|https://wiki.rosettacommons.org/index.php/JD3FAQ#The_Role_of_the_JobDigraph]]
-
-
 ##Plan
 
 Now we are going to create the classes that the larval jobs will be matured into.

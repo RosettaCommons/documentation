@@ -10,6 +10,10 @@ Author: Jack Maguire
 
 [[_TOC_]]
 
+##Description of the Job Digraph
+
+[[here|https://wiki.rosettacommons.org/index.php/JD3FAQ#The_Role_of_the_JobDigraph]]
+
 ##Plan
 
 I tried to contrive a queen that would require a non-linear [[job dag|JD3]].
