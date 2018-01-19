@@ -8,7 +8,12 @@ Author: Jack Maguire
 
 ##Overview
 The goal of this tutorial is to help developers get experience with writing their own JD3 protocol.
-This tutorial assumes the reader has some knowledge of [[JD3|JD3]] in general.
+You can use [[this page|https://wiki.rosettacommons.org/index.php/JD3FAQ#XML_Job_definition_files]]
+for reference to JD3 concepts throughout the walkthrough.
+I will link to specific sections of that page when they become relevant,
+so there is no need to read the whole thing now.
+That said, reading [[this section|https://wiki.rosettacommons.org/index.php/JD3FAQ#Bare-bones_description_of_how_to_create_a_JD3_application]]
+would be a good place to start.
 
 For the sake of having an example to work on,
 let's pretend that we want to have a protocol where mover A and
