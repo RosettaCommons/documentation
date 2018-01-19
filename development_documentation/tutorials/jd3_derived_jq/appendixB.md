@@ -64,7 +64,8 @@ We need to declare the following override in the `protected` section:
         ) const override ;        
 ```
 
-We should replace our `ScoreFunctionOP` with a vector of these:
+We should replace our `ScoreFunctionOP` with a vector of these.
+We will have a `ScoreFunctionOP` for each job tag.
 
 ```c++
 //core::scoring::ScoreFunctionOP sfxn_;
@@ -73,62 +74,22 @@ utility::vector1< core::scoring::ScoreFunctionOP > sfxns_;
 
 ###Changes to complete_larval_job_maturation()
 
+There are not many changes here.
+We just change `sfxn_` to a call to the vector of score functions.
+
 ```c++
-JobOP
-TutorialQueen::complete_larval_job_maturation(
-        LarvalJobCOP job,
-        utility::options::OptionCollectionCOP,
-        utility::vector1< JobResultCOP > const & input_job_results
-) {
-        if ( num_input_structs_ == 0 ) {
-                initial_job_dag();
-        }
-
-        standard::StandardInnerLarvalJobCOP standard_inner_larval_job
-                = utility::pointer::static_pointer_cast< const standard::StandardInnerLarvalJob >( job->inner_job() );
-
-        core::Size const global_job_id = job->job_index();
-
+...
         moves::MoverOP mover = 0;
         core::Size const input_struct_For_this_job = standard_inner_larval_job->prelim_job_node();
         core::scoring::ScoreFunctionOP sfxn = sfxns_[ input_struct_For_this_job ];
         core::pose::PoseOP pose = 0;
-
-        if( global_job_id <= node_managers_[ 1 ]->num_jobs() ){
-                //This job belongs to node 1
-                //local_job_id = global_job_id;
-                mover = utility::pointer::make_shared< relax::FastRelax >();
-                pose = pose_for_inner_job( standard_inner_larval_job );
-        } else if( global_job_id <= node_managers_[ 1 ]->num_jobs() + node_managers_[ 2 ]->num_jobs() ) {
-                //alternatively you could have used:
-                //else if( global_job_id <= node_managers_[ 3 ]->job_offset() )
-
-                //This job belongs to node 2
-                //local_job_id = global_job_id - node_managers_[ 2 ]->job_offset();
-                mover = utility::pointer::make_shared< minimization_packing::MinPackMover >();
-                pose = pose_for_inner_job( standard_inner_larval_job );
-        } else {
-                //This job belongs to node 3
-                //local_job_id = global_job_id - node_managers_[ 3 ]->job_offset();
-                mover = utility::pointer::make_shared< minimization_packing::MinMover >();
-
-                //We created this larval job and pose result so we know that there should be exactly 1 result and that result is a standard::PoseJobResult
-                runtime_assert( input_job_results.size() == 1 );
-                standard::PoseJobResult const & result1 = static_cast< standard::PoseJobResult const & >( * input_job_results[ 1 ] );
-                pose = result1.pose()->clone();
-                runtime_assert( pose );
-        }
-
-        TutorialJobOP tjob = utility::pointer::make_shared< TutorialJob >();
-        tjob->set_pose( pose );
-        tjob->set_sfxn( sfxn );
-        tjob->set_mover( mover );
-
-        return tjob;
-}        
+...
 ```
 
 ###Changes to parse_job_definition_tags()
+
+After we finish parsing the common tag,
+we replace elements in the vector of scorefunctions if a job declares its own score function
 
 ```c++
 void
@@ -163,6 +124,9 @@ TutorialQueen::parse_job_definition_tags(
 ```
 
 ###append_job_tag_subelements()
+
+This should look awfully similar to `append_common_tag_subelements()`.
+The major difference is that this element is optional instead of required.
 
 ```c++
 void
