@@ -10,6 +10,10 @@ Author: Jack Maguire
 
 [[_TOC_]]
 
+##Reading
+
+[[Job::run()|https://wiki.rosettacommons.org/index.php/JD3FAQ#Job::run.28.29]]
+
 ##Plan
 
 Now we are going to create the classes that the larval jobs will be matured into.
@@ -60,7 +64,8 @@ In our case, we want our job to apply the mover to the pose and score the result
 The score will be reported as a `jd3::standard::EnergyJobSummary` and the pose will be reported as a `jd3::standard::PoseJobResult`.
 
 You can make your own derived classes of `JobSummary` and `JobResult`.
-If you do, make sure that you make them [[serializable|TODO]].
+If you do, make sure that you make them
+[[serializable|https://wiki.rosettacommons.org/index.php/SerializationFAQ]].
 
 ```c++
 jd3::CompletedJobOutput TutorialJob::run() {

@@ -10,6 +10,10 @@ Author: Jack Maguire
 
 [[_TOC_]]
 
+##Reading
+
+[[completed_job_summary()|https://wiki.rosettacommons.org/index.php/JD3FAQ#JobQueen::completed_job_summary]]
+
 ##Plan
 
 We have already been told how many job results to expect from each job in [[Step 7|note_job_completed]].

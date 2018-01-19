@@ -12,6 +12,10 @@ Author: Jack Maguire
 
 [[_TOC_]]
 
+##Reading
+
+[[Node Manager|TODO]]
+
 ##Plan
 
 There are classes in `protocols/jd3/dag_node_managers` that help us keep track of jobs that have been submitted and sort results.

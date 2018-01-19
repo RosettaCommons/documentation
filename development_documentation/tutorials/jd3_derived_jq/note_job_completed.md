@@ -10,6 +10,10 @@ Author: Jack Maguire
 
 [[_TOC_]]
 
+##Reading
+
+[[note_job_completed()|https://wiki.rosettacommons.org/index.php/JD3FAQ#JobQueen::note_job_completed]]
+
 ##Plan
 
 Once a job is done running, the job distributor will call two methods:

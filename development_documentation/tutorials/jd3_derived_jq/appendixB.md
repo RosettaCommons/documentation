@@ -8,6 +8,17 @@ Author: Jack Maguire
 
 [[_TOC_]]
 
+##Reading
+
+Duplicate of [[Appendix A's|appendixA]] readings:
+
+[[XML Job definition files|https://wiki.rosettacommons.org/index.php/JD3FAQ#XML_Job_definition_files]]
+
+[[The job definition file structure|https://wiki.rosettacommons.org/index.php/JD3FAQ#StandardJobQueen:_The_job_definition_file.27s_structure]]
+
+[[Defining an XML Schema for a job definition file|https://wiki.rosettacommons.org/index.php/JD3FAQ#StandardJobQueen:_Defining_an_XML_Schema_for_a_job_definition_file]]
+
+
 ##Plan
 
 In [[Appendix A|appendixA]], we added a way for the user to define a
