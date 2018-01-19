@@ -15,11 +15,11 @@ Author: Jack Maguire
 I tried to contrive a queen that would require a non-linear [[job dag|JD3]].
 There are several ways to create a dag that would fit our needs, let's go with something like this:
 
-DAG Node 1: Relax, allowing only chain1 positions to design (one at a time)
+DAG Node 1: Run mover A. Number of jobs is proportional to the number of residues in chain 1 (just to make it interesting).
 
-DAG Node 2: Relax, allowing only chain2 positions to design (one at a time)
+DAG Node 2: Run mover B. Number of jobs is proportional to the number of residues in chain 2.
 
-DAG Node 3: Merge results from 1 and 2 and relax with higher sampling resolution (more extra chi sampling)
+DAG Node 3: Merge results from 1 and 2 and run mover C.
 
 ```
 1------> 3

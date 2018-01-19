@@ -8,6 +8,11 @@ Author: Jack Maguire
 The goal of this tutorial is to help developers get experience with writing their own JD3 protocol.
 This tutorial assumes the reader has some knowledge of [[JD3|JD3]] in general.
 
+For the sake of having an example to work on,
+let's pretend that we want to have a protocol where mover A and
+mover B are both run on the input structure and the results are merged and run through mover C.
+[[See step 2 if it is not clear what I mean|creating_the_job_dag]]
+
 In general, the code generated in this example is NOT written with effeciency, performance, or even our own coding conventions in mind.
 The main goal is clarity and simplicity/readability.
 All feedback is welcome! Please send thoughts/questions to jack@med.unc.edu
