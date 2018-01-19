@@ -24,7 +24,7 @@ Beside each link is a list of the virtual function overrides that we introduce i
 `initial_job_dag()`
 `parse_job_definition_tags()`
 
-[[Step 3: Node Managers|node_managers]] (optional)
+[[Step 3: Node Managers|node_managers]]
 
 ###Spawning Jobs
 

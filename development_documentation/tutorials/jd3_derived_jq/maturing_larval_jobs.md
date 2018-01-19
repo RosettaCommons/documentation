@@ -17,7 +17,7 @@ so now we can write the method that matures larval jobs into TutorialJobs.
 
 To get the jobs, the job distributor will call `mature_larval_job()`.
 This is a virtual function so we can override it if we want;
-however, the `StandardJobQueen` does a lot of the work for us in its override of `mature_larval_job()`.
+however, the StandardJobQueen does a lot of the work for us in its override of `mature_larval_job()`.
 Instead, we want to override `complete_larval_job_maturation()`.
 This method is called at the end of `StandardJobQueen::mature_larval_job()` and allows our derived queen to mak the finishing touches to the job.
 
