@@ -1,7 +1,6 @@
 #Walkthrough: Writing a Derived Job Queen for JD3
 
-Author: Jack Maguire
-
+Author: Jack Maguire,
 Created January 2018
 
 [[Checklist of StandardJobQueen virtual functions that you generally want to override|checklist]]
