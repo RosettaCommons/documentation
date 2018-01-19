@@ -4,7 +4,7 @@ Author: Jack Maguire
 
 [[Checklist of StandardJobQueen virtual functions that you generally want to override|checklist]]
 
-[[~~F~~AQ|jd3_derived_jq_FAQ]]
+[[FAQ|jd3_derived_jq_FAQ]]
 
 ##Overview
 The goal of this tutorial is to help developers get experience with writing their own JD3 protocol.
