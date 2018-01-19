@@ -184,7 +184,7 @@ This will install PyMOL as normal user into ${HOME}/pymol-svn:
 ```
 prefix=${HOME}/pymol-svn
 modules=$prefix/modules
-python2.7 setup.py build install   --home=$prefix  --install-lib=$modules  --install-scripts=$prefix
+python2.7 setup.py build install --home=$prefix --install-lib=$modules --install-scripts=$prefix
 ```
 Now launch PyMOL like this:
 ```
