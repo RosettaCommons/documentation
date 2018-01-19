@@ -12,9 +12,9 @@ Author: Jack Maguire
 
 [[_TOC_]]
 
-##Description of the Node Manager
+##Reading
 
-[[See Here|TODO]]
+[[Node Manager|TODO]]
 
 ##Plan
 

@@ -14,7 +14,7 @@ Author: Jack Maguire
 
 [[JobQueen::determine_job_list|https://wiki.rosettacommons.org/index.php/JD3FAQ#JobQueen::determine_job_list]]
 
-[[LarvalJob_vs_InnerLarvalJob]|https://wiki.rosettacommons.org/index.php/JD3FAQ#LarvalJob_vs_InnerLarvalJob]]
+[[LarvalJob_vs_InnerLarvalJob|https://wiki.rosettacommons.org/index.php/JD3FAQ#LarvalJob_vs_InnerLarvalJob]]
 
 [[Job Genealogist|TODO]]
 
