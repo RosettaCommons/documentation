@@ -10,6 +10,10 @@ Author: Jack Maguire
 
 [[_TOC_]]
 
+##Reading
+
+[[mature_larval_job()|https://wiki.rosettacommons.org/index.php/JD3FAQ#JobQueen::mature_larval_job]]
+
 ##Plan
 
 We have already [[created larval jobs|larval_jobs]] and [[created our TutorialJob class|tutorial_job]],

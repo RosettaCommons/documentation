@@ -10,6 +10,10 @@ Author: Jack Maguire
 
 [[_TOC_]]
 
+##Reading
+
+[[jobs_that_should_be_output()|https://wiki.rosettacommons.org/index.php/JD3FAQ#JobQueen::jobs_that_should_be_output]]
+
 ##Plan
 
 Everything is already in place for the job to run!

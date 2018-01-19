@@ -10,6 +10,10 @@ Author: Jack Maguire
 
 [[_TOC_]]
 
+##Reading
+
+[[jobs_that_should_be_discarded()|https://wiki.rosettacommons.org/index.php/JD3FAQ#JobQueen::jobs_that_should_be_discarded]]
+
 ##Plan
 
 Job results are not always cheap to store.
