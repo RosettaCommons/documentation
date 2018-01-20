@@ -1,6 +1,7 @@
 #Walkthrough: Writing a Derived Job Queen for JD3
 
-Author: Jack Maguire
+Author: Jack Maguire,
+Created January 2018
 
 [[_TOC_]]
 

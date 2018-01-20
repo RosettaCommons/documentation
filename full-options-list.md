@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-01-11
+Generated: 2018-01-20
 
 _Note that some application specific options may not be present in this list._
 
@@ -1167,6 +1167,12 @@ _Note that some application specific options may not be present in this list._
 <dd>When computing a harmonic function of RMSD for the alignment score, what should the standard deviation be?<br/>Default: 1.0<br/></dd>
 <dt><b>-rna_torsion_potential</b> \<String\></dt>
 <dd>In RNA torsion calculation, directory containing 1D torsional potentials<br/>Default: "ps_04282011"<br/></dd>
+<dt><b>-mc_optimize_dG</b> \<Boolean\></dt>
+<dd>Optimize the dG during MonteCarlo.  It is not possible to do this within overall scoring, 			but where possible, do this during MC calls.  This option does not globally-use the MonteCarloInterface object, but is protocol-specific. 			This is due to needing to know the interface it will be used on. 			dG is measured by the InterfaceAnalyzerMover. 			Supported Code is currently RosettaAntibodyDesign and RosettaDock<br/>Default: false<br/></dd>
+<dt><b>-mc_interface_weight</b> \<Real\></dt>
+<dd>Weight of interface score if using MonteCarloInterface with a particular protocol.<br/>Default: 1.0<br/></dd>
+<dt><b>-mc_total_weight</b> \<Real\></dt>
+<dd>Weight of total score if using MonteCarloInterface with a particular protocol<br/>Default: 0.0<br/></dd>
 <dt><b>-voids_penalty_energy_containing_cones_cutoff</b> \<Integer\></dt>
 <dd>A parameter for the voids_penalty score term.  The minimum number of cones projecting from side-chains in which a voxel must lie in order for that voxel to be considerd to be buried.  Defaults to 6 cones.<br/>Default: 6<br/></dd>
 <dt><b>-voids_penalty_energy_cone_dotproduct_cutoff</b> \<Real\></dt>
@@ -3137,7 +3143,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-graft_design_cdrs</b> \<StringVector\></dt>
 <dd>Enable these CDRs for Graft-Design.  (Can be set here or in the instructions file. Overrides any set in instructions file if given)<br/></dd>
 <dt><b>-primary_cdrs</b> \<StringVector\></dt>
-<dd>Manually set the CDRs which can be chosen in the outer cycle. Normally, we pick any that are sequence-designing.<br/></dd>
+<dd>Manually set the CDRs which can be chosen in the outer cycle. Normally, we pick any that are sequence or graft -designing.<br/></dd>
 <dt><b>-mintype</b> \<String\></dt>
 <dd>The default mintype for all CDRs.  Individual CDRs may be set via the instructions file<br/>Default: "min"<br/></dd>
 <dt><b>-disallow_aa</b> \<StringVector\></dt>
@@ -8041,6 +8047,8 @@ _Note that some application specific options may not be present in this list._
 <dd>How often should we output checkpoint files?<br/>Default: 100<br/></dd>
 <dt><b>-continue_until_none_missing</b> \<Boolean\></dt>
 <dd>If there are missing residues when we've reached n-cycles, just keep going! Suggested with checkpointing.<br/>Default: false<br/></dd>
+<dt><b>-full_model_constraints</b> \<FileVector\></dt>
+<dd>One or more files containing constraints to be applied in a 'full-model' setting, i.e., only in the Modeler and only once residues exist.<br/>Default: []<br/></dd>
 </dl>
 + <h4>-stepwise:monte_carlo:csa</h4>
 <dl>

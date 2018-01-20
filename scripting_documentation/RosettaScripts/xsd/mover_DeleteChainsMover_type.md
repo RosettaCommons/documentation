@@ -10,7 +10,7 @@ remove chains from a pose
         detect_pseudobonds="(&bool;)" />
 ```
 
--   **chains**: (REQUIRED) delete these chains.  The format appears to be unseparated chain letters, like 'AHLR'
+-   **chains**: (REQUIRED) delete these chains.  The format is unseparated chain letters, like 'AHLR'
 -   **detect_bonds**: detect and delete broken bonds afterwards
 -   **detect_pseudobonds**: detect and delete broken pseudobonds afterwards
 
