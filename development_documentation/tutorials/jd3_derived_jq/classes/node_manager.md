@@ -49,6 +49,24 @@ This is handled by the "result_threshold" arguments in the constructor.
 
 #Derived classes
 
+Two derived classes have been created to make the interface simpler:
+
+##SimpleNodeManager
+
+This class only creates 1 parition,
+so the 2-dimensional vector is basically a 1-dimensional vector.
+The interface to this class is designed such that you never need to specify
+a partition argument.
+
+##EvenlyPartitionedNodeManager
+
+This class allows for multiple partitions,
+but it requires that the paritions have symmetric requirements.
+The number of results to keep is divided enevly among the paritions.
+Same is true for the result threshold.
+This allows for a modestly more user-friendly constructor,
+but none of the other methods are changed.
+
 ##See Also
 
 * [[Development tutorials home page|devel-tutorials]]
