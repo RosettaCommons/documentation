@@ -8,7 +8,6 @@ TODO
 
 ##See Also
 
-* [[Using a Node Manager in Practice|node_managers]]
 * [[Development tutorials home page|devel-tutorials]]
 * [[Development Documentation]]: The development documentation home page
 * [[Rosetta tests]]: Links to pages on running and writing tests in Rosetta
