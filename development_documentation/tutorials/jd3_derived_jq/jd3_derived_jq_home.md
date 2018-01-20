@@ -24,6 +24,20 @@ In general, the code generated in this example is NOT written with effeciency, p
 The main goal is clarity and simplicity/readability.
 All feedback is welcome! Please send thoughts/questions to jack@med.unc.edu
 
+##Changes in the code since this tutorial was written
+
+###JobGenealogist no longer takes local_job_id
+
+While I was writing this tutorial, I was frustrated by how the JobGenealogist
+would sometimes take the global_job_id and other times the local_job_id.
+It is very easy to pass the wrong element and not notice.
+So I changed the JobGenealogist such that it only ever interacts with the global_job_id.
+I tried to go through the tutorial and find all the things that needed to be updated,
+but it is very possible I missed a few.
+Please keep this change in mind if you see code that does not quite make sense.
+
+-Jack
+
 ##Contents
 
 Beside each link is a list of the virtual function overrides that we introduce in that section.
