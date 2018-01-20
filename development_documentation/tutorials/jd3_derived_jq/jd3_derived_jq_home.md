@@ -89,6 +89,10 @@ Beside each link is a list of the virtual function overrides that we introduce i
 [[Appendix B: Let the user define individual score functions in &lt;Job>|appendixB]]
 `append_job_tag_subelements()`
 
+##Helpful Classes
+
+[[Node Manager|node_manager]]
+
 ##See Also
 
 * [[Development tutorials home page|devel-tutorials]]
