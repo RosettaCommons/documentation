@@ -14,12 +14,12 @@ Author: Jack Maguire
 
 ##Reading
 
-[[Node Manager|TODO]]
+[[Node Manager|node_manager]]
 
 ##Plan
 
 There are classes in `protocols/jd3/dag_node_managers` that help us keep track of jobs that have been submitted and sort results.
-There are a few different flavors of the [[NodeManager|TODO]], but let's just use the most vanilla: the `SimpleNodeManager`.
+There are a few different flavors of the [[NodeManager|node_manager]], but let's just use the most vanilla: the `SimpleNodeManager`.
 
 We have the opportunity to make decisions at this point about how many results we want to keep from DAG nodes 1 and 2.
 Let's arbitrarily say we want to keep the best half of the results from node 1 and best third of the results from node 2.
