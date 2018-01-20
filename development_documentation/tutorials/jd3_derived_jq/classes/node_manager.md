@@ -6,7 +6,8 @@ Author: Jack Maguire
 
 [[_TOC_]]
 
-The node manager is a class that is designed to help derived job queens with their boring bookkeeping.
+The node manager is a class that is designed to help derived job queens with their boring book-keeping.
+This classes is designed such that you have one of these per every node in your job digraph.
 Under the hood, the node manager is has the following elements:
 
 ##Results to keep
@@ -16,8 +17,31 @@ Each row of the array is called a partition.
 The user (job queen developer) specifies how many job results they want for each parition.
 
 When reporting a result, the user declares which partition the result should go in.
+Once the result is sorted into its correct partition, the last (worst) element of
+that parition will be removed if there are more elements than the user specified.
 
+The user can access these results either using `results_to_keep()`,
+which creates a 1-dimensional representation of the 2D vector,
+or `get_nth_job_result_id()`, which returns the ResultID for the nth element.
+`get_nth_job_result_id()` is prefered over `results_to_keep()`
+because the former allows the node manager to keep accepting new results
+while the latter freezes the result vector to prevent iterator invalidation.
 
+##Results to discard
+
+When a job result is removed from the 2-dimensional vector of results to keep,
+it is added to a `std::list` of job results to discard.
+The derived queen can access this list using `append_job_results_that_should_be_discarded()`.
+
+##Counters for various job submission states
+
+The node manager keeps track of:
+
+- A
+
+- B
+
+- C
 
 ##See Also
 
