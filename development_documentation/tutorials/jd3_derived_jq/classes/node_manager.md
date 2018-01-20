@@ -37,11 +37,14 @@ The derived queen can access this list using `append_job_results_that_should_be_
 
 The node manager keeps track of:
 
-- A
+- The number of jobs that have been submitted for this node.
 
-- B
+- The next local job id to be submitted
 
-- C
+- The number of results received.*
+
+
+*xyz
 
 ##See Also
 
