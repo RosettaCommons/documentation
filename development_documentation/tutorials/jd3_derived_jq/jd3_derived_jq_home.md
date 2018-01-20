@@ -93,6 +93,8 @@ Beside each link is a list of the virtual function overrides that we introduce i
 
 [[Node Manager|node_manager]]
 
+[[Job Genealogist|job_genealogist]]
+
 ##See Also
 
 * [[Development tutorials home page|devel-tutorials]]
