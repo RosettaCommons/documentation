@@ -67,26 +67,22 @@ void TutorialQueen::note_job_completed(
         core::Size nresults
 ) {
         core::Size const global_job_id = job->job_index();
-
         core::Size dag_node = 0;
-        core::Size local_job_id = global_job_id;
 
         if( global_job_id <= node_managers_[ 1 ]->num_jobs() ) {
                 dag_node = 1;
         } else if ( global_job_id > node_managers_[ 3 ]->job_offset() ) {
                 dag_node = 3;
-                local_job_id = global_job_id - node_managers_[ 3 ]->job_offset();
         } else {
                 dag_node = 2;
-                local_job_id = global_job_id - node_managers_[ 2 ]->job_offset();
         }
 
         if ( status != jd3_job_status_success ) {
                 node_managers_[ dag_node ]->note_job_completed( global_job_id, 0 );
-                job_genealogist_->note_job_completed( dag_node, local_job_id, 0 );
+                job_genealogist_->note_job_completed( dag_node, global_job_id, 0 );
         } else {
                 node_managers_[ dag_node ]->note_job_completed( global_job_id, nresults );
-                job_genealogist_->note_job_completed( dag_node, local_job_id, nresults );
+                job_genealogist_->note_job_completed( dag_node, global_job_id, nresults );
 
                 ///////////////NEW CODE:
                 if ( dag_node == 3 ) {
@@ -117,7 +113,7 @@ TutorialQueen::job_results_that_should_be_discarded(){
 
                 for ( jd3::JobResultID const & discarded_result : job_results_to_be_discarded_for_node ) {
                         core::Size const local_job_id = discarded_result.first - node_managers_[ dag_node ]->job_offset();
-                        job_genealogist_->discard_job_result( dag_node, local_job_id, discarded_result.second );
+                        job_genealogist_->discard_job_result( dag_node, discarded_result );
 
                         ////////////NEW CODE:
                         if( dag_node == 3 ){

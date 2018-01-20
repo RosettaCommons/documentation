@@ -544,7 +544,6 @@ TutorialQueen::get_next_larval_job_for_node_1_or_2( core::Size node ) {
 
         job_genealogist_->register_new_job (
                 node,
-                local_job_id,
                 global_job_id,
                 pose_input_source_id
         );
@@ -580,25 +579,20 @@ TutorialQueen::get_next_larval_job_for_node_3(){
                 parent_result = node_managers_[ 2 ]->get_nth_job_result_id( result_index );
         }
 
-        core::Size const local_id_of_parent =
-                parent_result.first - node_managers_[ node_of_parent ]->job_offset();
-
         job_genealogist_->register_new_job(
                 3,
-                local_job_id,
                 global_job_id,
                 node_of_parent,
-                local_id_of_parent,
-                parent_result.second
+                parent_result
         );
 
-        core::Size const pose_input_source_id = job_genealogist_->input_source_for_job( 3, local_job_id );
+        core::Size const pose_input_source_id = job_genealogist_->input_source_for_job( 3, global_job_id );
 
         jd3::standard::StandardInnerLarvalJobOP inner_ljob =
                 create_and_init_inner_larval_job( 1, pose_input_source_id );
 
         LarvalJobOP ljob = utility::pointer::make_shared< LarvalJob >(
-                inner_ljob,        1, global_job_id );
+                inner_ljob, 1, global_job_id );
 
         return ljob;
 }
@@ -664,24 +658,21 @@ void TutorialQueen::note_job_completed(
         core::Size const global_job_id = job->job_index();
 
         core::Size dag_node = 0;
-        core::Size local_job_id = global_job_id;
 
         if( global_job_id <= node_managers_[ 1 ]->num_jobs() ) {
                 dag_node = 1;
         } else if ( global_job_id > node_managers_[ 3 ]->job_offset() ) {
                 dag_node = 3;
-                local_job_id = global_job_id - node_managers_[ 3 ]->job_offset();
         } else {
                 dag_node = 2;
-                local_job_id = global_job_id - node_managers_[ 2 ]->job_offset();
         }
 
         if ( status != jd3_job_status_success ) {
                 node_managers_[ dag_node ]->note_job_completed( global_job_id, 0 );
-                job_genealogist_->note_job_completed( dag_node, local_job_id, 0 );
+                job_genealogist_->note_job_completed( dag_node, global_job_id, 0 );
         } else {
                 node_managers_[ dag_node ]->note_job_completed( global_job_id, nresults );
-                job_genealogist_->note_job_completed( dag_node, local_job_id, nresults );
+                job_genealogist_->note_job_completed( dag_node, global_job_id, nresults );
 
                 if ( dag_node == 3 ) {
                         standard::StandardInnerLarvalJobCOP inner_job =
@@ -733,7 +724,7 @@ TutorialQueen::job_results_that_should_be_discarded(){
 
                 for ( jd3::JobResultID const & discarded_result : job_results_to_be_discarded_for_node ) {
                         core::Size const local_job_id = discarded_result.first - node_managers_[ dag_node ]->job_offset();
-                        job_genealogist_->discard_job_result( dag_node, local_job_id, discarded_result.second );
+                        job_genealogist_->discard_job_result( dag_node, discarded_result );
 
                         if( dag_node == 3 ){
                                 pose_output_specification_for_job_result_id_.erase( discarded_result);
