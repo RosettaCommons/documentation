@@ -1,7 +1,5 @@
 #Step 3: Node Managers
 
-THESE CLASSES ARE NOT YET IN MASTER, CURRENTLY IN: JackMaguire/MultistageRosettaScripts
-
 Author: Jack Maguire
 
 [[Back to Walkthrough|jd3_derived_jq_home]]
