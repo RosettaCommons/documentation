@@ -414,7 +414,6 @@ TutorialQueen::get_next_larval_job_for_node_1_or_2( core::Size node ) {
 
         job_genealogist_->register_new_job (
                 node,
-                local_job_id,
                 global_job_id,
                 pose_input_source_id
         );
@@ -450,19 +449,14 @@ TutorialQueen::get_next_larval_job_for_node_3(){
                 parent_result = node_managers_[ 2 ]->get_nth_job_result_id( result_index );
         }
 
-        core::Size const local_id_of_parent =
-                parent_result.first - node_managers_[ node_of_parent ]->job_offset();
-
         job_genealogist_->register_new_job(
                 3,
-                local_job_id,
                 global_job_id,
                 node_of_parent,
-                local_id_of_parent,
-                parent_result.second
+                parent_result
         );
 
-        core::Size const pose_input_source_id = job_genealogist_->input_source_for_job( 3, local_job_id );
+        core::Size const pose_input_source_id = job_genealogist_->input_source_for_job( 3, global_job_id );
 
         jd3::standard::StandardInnerLarvalJobOP inner_ljob =
                 create_and_init_inner_larval_job( 1, pose_input_source_id );
@@ -531,26 +525,22 @@ void TutorialQueen::note_job_completed(
         core::Size nresults
 ) {
         core::Size const global_job_id = job->job_index();
-
         core::Size dag_node = 0;
-        core::Size local_job_id = global_job_id;
 
         if( global_job_id <= node_managers_[ 1 ]->num_jobs() ) {
                 dag_node = 1;
         } else if ( global_job_id > node_managers_[ 3 ]->job_offset() ) {
                 dag_node = 3;
-                local_job_id = global_job_id - node_managers_[ 3 ]->job_offset();
         } else {
                 dag_node = 2;
-                local_job_id = global_job_id - node_managers_[ 2 ]->job_offset();
         }
 
         if ( status != jd3_job_status_success ) {
                 node_managers_[ dag_node ]->note_job_completed( global_job_id, 0 );
-                job_genealogist_->note_job_completed( dag_node, local_job_id, 0 );
+                job_genealogist_->note_job_completed( dag_node, global_job_id, 0 );
         } else {
                 node_managers_[ dag_node ]->note_job_completed( global_job_id, nresults );
-                job_genealogist_->note_job_completed( dag_node, local_job_id, nresults );
+                job_genealogist_->note_job_completed( dag_node, global_job_id, nresults );
         }
 
 }

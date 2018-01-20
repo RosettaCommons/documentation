@@ -700,7 +700,6 @@ TutorialQueen::job_results_that_should_be_discarded(){
                 node_managers_[ dag_node ]->append_job_results_that_should_be_discarded( job_results_to_be_discarded_for_node );
 
                 for ( jd3::JobResultID const & discarded_result : job_results_to_be_discarded_for_node ) {
-                        core::Size const local_job_id = discarded_result.first - node_managers_[ dag_node ]->job_offset();
                         job_genealogist_->discard_job_result( dag_node, discarded_result );
 
                         if( dag_node == 3 ){
