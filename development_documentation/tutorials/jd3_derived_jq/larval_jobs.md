@@ -16,7 +16,7 @@ Author: Jack Maguire
 
 [[LarvalJob_vs_InnerLarvalJob|https://wiki.rosettacommons.org/index.php/JD3FAQ#LarvalJob_vs_InnerLarvalJob]]
 
-[[Job Genealogist|TODO]]
+[[Job Genealogist|job_genealogist]]
 
 ##Plan
 
@@ -31,7 +31,7 @@ In general, larval jobs need to hold all of the information required for the [[w
 You may find that you need to create your own class that derives from `LarvalJob` because there is certain information you need to include that the base class does not provide a method for.
 
 We are going to create helper methods that each focus on larval job creation for one node, as shown below.
-We will also utilize the [[Job Genealogist|TODO]] to help us keep track of the input sources for jobs.
+We will also utilize the [[Job Genealogist|job_genealogist]] to help us keep track of the input sources for jobs.
 
 ##Code Additions
 

@@ -2,8 +2,6 @@
 
 Author: Jack Maguire
 
-[[Back to Walkthrough|jd3_derived_jq_home]]
-
 [[_TOC_]]
 
 The node manager is a class that is designed to help derived job queens with their boring book-keeping.
