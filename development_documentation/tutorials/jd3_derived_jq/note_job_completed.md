@@ -422,9 +422,6 @@ TutorialQueen::get_next_larval_job_for_node_3(){
                 parent_result = node_managers_[ 2 ]->get_nth_job_result_id( result_index );
         }
 
-        core::Size const local_id_of_parent =
-                parent_result.first - node_managers_[ node_of_parent ]->job_offset();
-
         job_genealogist_->register_new_job(
                 3,
                 global_job_id,
