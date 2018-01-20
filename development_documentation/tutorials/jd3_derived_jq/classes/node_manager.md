@@ -69,7 +69,7 @@ but none of the other methods are changed.
 
 ##See Also
 
-* [[Using a Node Manager in Practive|node_managers]]
+* [[Using a Node Manager in Practice|node_managers]]
 * [[Development tutorials home page|devel-tutorials]]
 * [[Development Documentation]]: The development documentation home page
 * [[Rosetta tests]]: Links to pages on running and writing tests in Rosetta
