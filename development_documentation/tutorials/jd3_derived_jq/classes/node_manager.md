@@ -44,7 +44,10 @@ The node manager keeps track of:
 - The number of results received.*
 
 
-*xyz
+*There is also built-in functionality to stop submitting jobs for a DAG node early once enough results come in.
+This is handled by the "result_threshold" arguments in the constructor.
+
+#Derived classes
 
 ##See Also
 
