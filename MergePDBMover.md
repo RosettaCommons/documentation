@@ -4,7 +4,7 @@
 
 
 ##Author
-TJ Brunette; tjbrunette@gmail.com; 
+TJ Brunette; tjbrunette@gmail.com
 
 ##Overview 
 
@@ -16,7 +16,7 @@ Combines two poses along a common secondary structure element and redesigns the 
 
 Options:
 
-* **task_operations:** By default, any residue within packing_range will be repacked and any residue within design_range designed.  I
+* **task_operations:** By default, any residue within packing_range will be repacked and any residue within design_range designed.
 
 * **scorefxn:** The score function used for design and packing.  Required if not being used as 
   a subtag within some other LoopMover.
@@ -50,4 +50,8 @@ Options:
 Caveats:
 
 * The pose must start symmetric to use the symm_file option.
+* PDBInfoLabels are added to the output pose:
+* * overlap - residues that are superimposed from input_pose and xml_pose
+* * other_overlap - residues that were detected around the design_range that were designed
+* * other_overlap_sym - residues that were detected by symmetry that were designed
 * if no_design_label is defined you must use the (default)init_overlap_sequence="input_pose"(default)
