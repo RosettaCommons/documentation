@@ -47,14 +47,17 @@ Options:
 
 * **chain:** Which chain to operate on. Defaults to 'A'.
 
-Notes:
+**Notes:**
 
 * PDBInfoLabels are added to the output pose:
+
 **overlap** - residues that are superimposed from input_pose and xml_pose
+
 **other_overlap** - residues that were detected around the design_range that were designed
+
 **other_overlap_sym** - residues that were detected by symmetry that were designed
 
-Caveats:
+**Caveats:**
 
 * The pose must start symmetric to use the symm_file option.
 * if no_design_label is defined you must use the (default)init_overlap_sequence="input_pose"(default)
