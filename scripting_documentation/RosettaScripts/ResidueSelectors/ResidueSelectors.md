@@ -503,8 +503,8 @@ Note that the `rama_prepro` energy is a two-body energy dependent on a residue's
  <SSElement name="(&string)" selection="(&string)" to_selection="(&string)" reassign_short_terminal_loop="( (true &bool)" chain="(&string)" />
 ```
 **Run options:**
- selection alone: selects that selection
- selection+to_selection: selects both selections and the residues between the selections
+* **selection alone:** selects that selection
+* **selection + to_selection:** selects both selections and the residues between the selections
 
 **Notation for selection and to_selection:**
 *  **n_term=** residue 1
@@ -516,7 +516,7 @@ Note that the `rama_prepro` energy is a two-body energy dependent on a residue's
 *  **"1,H,E"=** end of first helix
 *  **"1,H,M"=** middle of first helix
 
-** Example **
+**Example:**
 ```xml
  <SSElement name="(&string)" selection="1,H,M" to_selection="1,H,L" chain="A"/>
 ```
