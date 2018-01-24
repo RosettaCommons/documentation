@@ -6,8 +6,12 @@
 
 ##Summary
 
-Every MRS script is a Frankenstein's Monster of the [[JD3 XML format|https://wiki.rosettacommons.org/index.php/JD3FAQ#XML_Job_definition_files]] and [[traditional rosetta scripts XML format|RosettaScripts#example-xml-file]].
-The JD3 format consists of a `<Common/>` tag and one or more `<Job/>` tags (the order of Common and Job depend on the specific application), all within a `<JobDefinitionFile/>` tag as shown here:
+Every MRS script is a Frankenstein's Monster of the
+[[JD3 XML format|https://wiki.rosettacommons.org/index.php/JD3FAQ#XML_Job_definition_files]] and
+[[traditional rosetta scripts XML format|RosettaScripts#example-xml-file]].
+The JD3 format consists of a `<Common/>` tag and one or more `<Job/>` tags
+(the order of Common and Job depend on the specific application),
+all within a `<JobDefinitionFile/>` tag as shown here:
 
 ```
 <JobDefinitionFile>
@@ -37,8 +41,10 @@ MRS scripts use this foundation to make something like this:
 
 ###DataMap Info
 This consists of everything from a normal rosetta script except for `<PROTOCOLS>`.
-Score functions, residue selectors, movemap factories, task selectors, movers, filters, etc. can all go in either `<Common>` or `<Job>`.
-Rosetta will give the DataMap Info in `<Job>` higher priority in the case of a name conflict, but only for trajectories that are spawned from that `<Job>` tag.
+Score functions, residue selectors, movemap factories, task selectors,
+movers, filters, etc. can all go in either `<Common>` or `<Job>`.
+Rosetta will give the DataMap Info in `<Job>` higher priority in the case of a name conflict,
+but only for trajectories that are spawned from that `<Job>` tag.
 For example, you might have 3 `<Job>` tags and in one of them you put:
 ```
   <SCOREFXNS>
@@ -95,7 +101,7 @@ Between each stage, you have the opportunity to filter out trajectories based on
 See [[here|StageOptions]] for a more detailed look into the options for `<Stage>`.
 
 ###Input/Ouput
-These tags are defined by [[JD3|JD3]].
+These tags are defined by [[JD3|https://wiki.rosettacommons.org/index.php/JD3FAQ]].
 `<Output>` is optional, but you need to include `<Input>` to tell Rosetta how to load in your structure.
 See the next section for a few examples on what a `<Input>` tag might look like.
 
@@ -197,8 +203,11 @@ multistage_rosetta_scripts.default.linuxgccrelease -convert -parser:protocol tes
 ```
 
 creates the following.
-Now `num_runs_per_input_struct` is replaced by the command line value for `-nstruct` and a `<Job/>` tag is created for every structure denoted with the `-s` and `-l` flags.
-The converter is not currently smart enough to figure out if the input files are PDB files, so it places a TODO comment for you to replace the input format if necessary (see [[JD3 Options|JD3]]).
+Now `num_runs_per_input_struct` is replaced by the command line value for `-nstruct`
+and a `<Job/>` tag is created for every structure denoted with the `-s` and `-l` flags.
+The converter is not currently smart enough to figure out if the input files are PDB files,
+so it places a TODO comment for you to replace the input format if necessary
+(see [[JD3 Options|https://wiki.rosettacommons.org/index.php/JD3FAQ]]).
 
 ```
 <JobDefinitionFile>
