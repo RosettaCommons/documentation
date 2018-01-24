@@ -13,6 +13,36 @@ There are two main things to note here:
 
 ```
 <JobDefinitionFile>
+    <Job>
+        <RESIDUE_SELECTORS>
+            <ReadResfile name="rrf" filename="resfile1"/>
+        </RESIDUE_SELECTORS>
+        <Input>
+            <PDB filename="../S1.pdb"/>
+        </Input>
+    </Job>
+
+    <Job>
+        <RESIDUE_SELECTORS>
+            <ReadResfile name="rrf" filename="resfile1"/>
+        </RESIDUE_SELECTORS>
+        <Input>
+            <PDB filename="../S2.pdb"/>
+        </Input>
+    </Job>
+
+    <Job>
+        <RESIDUE_SELECTORS>
+            <ReadResfile name="rrf" filename="resfile1"/>
+        </RESIDUE_SELECTORS>
+        <MOVERS>
+            <FastRelax disable_design="false" name="relax" repeats="1" scorefxn="common_sfxn" task_operations="ifc,ic,rrf"/>
+        </MOVERS>
+        <Input>
+            <PDB filename="../S3.pdb"/>
+        </Input>
+    </Job>
+
     <Common>
 
         <SCOREFXNS>
@@ -52,36 +82,6 @@ There are two main things to note here:
         </PROTOCOLS>
 
     </Common>
-
-    <Job>
-        <RESIDUE_SELECTORS>
-            <ReadResfile name="rrf" filename="resfile1"/>
-        </RESIDUE_SELECTORS>
-        <Input>
-            <PDB filename="../S1.pdb"/>
-        </Input>
-    </Job>
-
-    <Job>
-        <RESIDUE_SELECTORS>
-            <ReadResfile name="rrf" filename="resfile1"/>
-        </RESIDUE_SELECTORS>
-        <Input>
-            <PDB filename="../S2.pdb"/>
-        </Input>
-    </Job>
-
-    <Job>
-        <RESIDUE_SELECTORS>
-            <ReadResfile name="rrf" filename="resfile1"/>
-        </RESIDUE_SELECTORS>
-        <MOVERS>
-            <FastRelax disable_design="false" name="relax" repeats="1" scorefxn="common_sfxn" task_operations="ifc,ic,rrf"/>
-        </MOVERS>
-        <Input>
-            <PDB filename="../S3.pdb"/>
-        </Input>
-    </Job>
 
 </JobDefinitionFile>
 ```
