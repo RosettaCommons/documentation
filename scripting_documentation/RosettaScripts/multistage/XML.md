@@ -6,7 +6,7 @@
 
 ##Summary
 
-Every MRS script is a Frankenstein's Monster of the [[JD3|https://wiki.rosettacommons.org/index.php/JD3FAQ#XML_Job_definition_files]] XML format and [[traditional|RosettaScripts#example-xml-file]] rosetta scripts XML format.
+Every MRS script is a Frankenstein's Monster of the [[JD3 XML format|https://wiki.rosettacommons.org/index.php/JD3FAQ#XML_Job_definition_files]] and [[traditional|RosettaScripts#example-xml-file]] rosetta scripts XML format.
 The JD3 format consists of a `<Common/>` tag and one or more `<Job/>` tags (the order of Common and Job depend on the specific application), all within a `<JobDefinitionFile/>` tag as shown here:
 
 ```
