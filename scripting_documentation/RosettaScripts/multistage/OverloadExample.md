@@ -8,6 +8,7 @@ The values for `num_runs_per_input_struct` and `total_num_results_to_keep` are m
 There are two main things to note here:
 
 1. Each input structure has a different resfile. This is not a problem because they all use the same name "rrf".
+When the `FastRelax` tag gets parsed, it will use whatever "rrf" task operation is relevant to the job being run.
 
 2. The 3rd job actually uses a completely different FastRelax protocol. Design is enabled and the ExtraRotamersGeneric task operation "ex1ex2" is removed.
 
