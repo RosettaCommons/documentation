@@ -7,26 +7,26 @@
 ##Summary
 
 Every MRS script is a Frankenstein's Monster of the [[JD3|JD3]] XML format and [[traditional|RosettaScripts]] rosetta scripts XML format.
-The JD3 format consists of a `<Common/>` tag followed by one or more `<Job/>` tags, all within a `<JobDefinitionFile/>` tag as shown here:
+The JD3 format consists of a `<Common/>` tag and one or more `<Job/>` tags (the order of Common and Job depend on the specific application), all within a `<JobDefinitionFile/>` tag as shown here:
 
 ```
 <JobDefinitionFile>
+    <Job>
+        <Input>
+        </Input>
+        <Output>
+        </Output>
+    </Job>
+
+    <Job>
+        <Input>
+        </Input>
+        <Output>
+        </Output>
+    </Job>
+
     <Common>
     </Common>
-
-    <Job>
-        <Input>
-        </Input>
-        <Output>
-        </Output>
-    </Job>
-
-    <Job>
-        <Input>
-        </Input>
-        <Output>
-        </Output>
-    </Job>
 </JobDefinitionFile>
 
 ```
@@ -38,7 +38,7 @@ MRS scripts use this foundation to make something like this:
 ###DataMap Info
 This consists of everything from a normal rosetta script except for `<PROTOCOLS>`.
 Score functions, residue selectors, movemap factories, task selectors, movers, filters, etc. can all go in either `<Common>` or `<Job>`.
-Even though `<Common>` must be listed before `<Job>` in the script, Rosetta will give the DataMap Info in `<Job>` higher priority in the case of a name conflict.
+<>Even though `<Common>` must be listed before `<Job>` in the script, Rosetta will give the DataMap Info in `<Job>` higher priority in the case of a name conflict.
 For example, you might have 3 `<Job>` tags and in one of them you put:
 ```
   <SCOREFXNS>
@@ -144,6 +144,13 @@ multistage_rosetta_scripts.default.linuxgccrelease -convert -parser:protocol tes
 
 ```
 <JobDefinitionFile>
+
+    <Job>
+        <Input>
+            <PDB filename="TODO"/>
+        </Input>
+    </Job>
+
     <Common>
 
         <SCOREFXNS>
@@ -178,12 +185,6 @@ multistage_rosetta_scripts.default.linuxgccrelease -convert -parser:protocol tes
 
     </Common>
 
-    <Job>
-        <Input>
-            <PDB filename="TODO"/>
-        </Input>
-    </Job>
-
 </JobDefinitionFile>
 ```
 
@@ -201,6 +202,20 @@ The converter is not currently smart enough to figure out if the input files are
 
 ```
 <JobDefinitionFile>
+    <Job>
+        <Input>
+            TODO: The script converter is not smart enough to know if this file is actually a pdb file. Please correct this tag if necessary!
+            <PDB filename="3U3B_A.pdb"/>
+        </Input>
+    </Job>
+
+    <Job>
+        <Input>
+            TODO: The script converter is not smart enough to know if this file is actually a pdb file. Please correct this tag if necessary!
+            <PDB filename="3U3B_B.pdb"/>
+        </Input>
+    </Job>
+
     <Common>
 
         <SCOREFXNS>
@@ -235,20 +250,6 @@ The converter is not currently smart enough to figure out if the input files are
 
     </Common>
 
-    <Job>
-        <Input>
-            TODO: The script converter is not smart enough to know if this file is actually a pdb file. Please correct this tag if necessary!
-            <PDB filename="3U3B_A.pdb"/>
-        </Input>
-    </Job>
-
-    <Job>
-        <Input>
-            TODO: The script converter is not smart enough to know if this file is actually a pdb file. Please correct this tag if necessary!
-            <PDB filename="3U3B_B.pdb"/>
-        </Input>
-    </Job>
-
 </JobDefinitionFile>
 ```
 
@@ -259,6 +260,23 @@ This is missing most of the less common DataMap Info sections.
 
 ```
 <JobDefinitionFile>
+    <Job>
+        <SCOREFXNS>
+        </SCOREFXNS>
+        <RESIDUE_SELECTORS>
+        </RESIDUE_SELECTORS>
+        <TASKOPERATIONS>
+        </TASKOPERATIONS>
+        <FILTERS>
+        </FILTERS>
+        <MOVERS>
+        </MOVERS>
+        <Input>
+        </Input>
+        <Output>
+        </Output>
+    </Job>
+
     <Common>
         <SCOREFXNS>
         </SCOREFXNS>
@@ -277,22 +295,6 @@ This is missing most of the less common DataMap Info sections.
             </Stage>
         </PROTOCOLS>
     </Common>
-    <Job>
-        <SCOREFXNS>
-        </SCOREFXNS>
-        <RESIDUE_SELECTORS>
-        </RESIDUE_SELECTORS>
-        <TASKOPERATIONS>
-        </TASKOPERATIONS>
-        <FILTERS>
-        </FILTERS>
-        <MOVERS>
-        </MOVERS>
-        <Input>
-        </Input>
-        <Output>
-        </Output>
-    </Job>
 </JobDefinitionFile>
 ```
 
