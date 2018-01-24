@@ -20,7 +20,7 @@ You will also need to install the github-markdown extensions (typically `gem ins
 
 From the documentation directory, launch the gollum server with the following command
 
-    gollum --h1-title --config config.rb --port 7364
+    gollum --h1-title --config rosetta_gollum_config.rb --port 7364
 
 Then point your web browser at the following URL: <http://localhost:7364>  
 
