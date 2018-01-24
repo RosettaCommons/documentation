@@ -38,7 +38,7 @@ MRS scripts use this foundation to make something like this:
 ###DataMap Info
 This consists of everything from a normal rosetta script except for `<PROTOCOLS>`.
 Score functions, residue selectors, movemap factories, task selectors, movers, filters, etc. can all go in either `<Common>` or `<Job>`.
-<>Even though `<Common>` must be listed before `<Job>` in the script, Rosetta will give the DataMap Info in `<Job>` higher priority in the case of a name conflict.
+Rosetta will give the DataMap Info in `<Job>` higher priority in the case of a name conflict, but only for trajectories that are spawned from that `<Job>` tag.
 For example, you might have 3 `<Job>` tags and in one of them you put:
 ```
   <SCOREFXNS>
