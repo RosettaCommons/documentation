@@ -8,6 +8,12 @@ This Mover optimizes the membrane position and orientation around the protein (p
 
 TODO: Currently not compatible with RosettaScripts. 
 
+## Flags / Options
+
+|**Flag**|**Description**|
+|:-------|:--------------|
+|`-mp::setup::spanfiles <spanfile>` | Add spanfiles when registering options from the Command Line |
+
 ## Contact
 
 - Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
