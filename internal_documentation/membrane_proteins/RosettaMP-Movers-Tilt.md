@@ -6,7 +6,7 @@ Questions and comments to:
 - Rebecca Alford (rfalford12@gmail.com)
 - Corresponding PI: Jeffrey J. Gray (jgray@jhu.edu)
 
-Last Updated: 4/26/15
+Last Updated: 1/25/18
 
 ## Description
 
@@ -19,6 +19,12 @@ The Mover lives in `main/source/src/protocols/membrane`.
 ## RosettaScripts interface
 
 TODO: Currently not compatible with RosettaScripts. 
+
+## Flags / Options
+
+|**Flag**|**Description**|
+|:-------|:--------------|
+|`-mp::setup::spanfiles <spanfile>` | Add spanfiles when registering options from Command Line. |
 
 ## Reference
 This Mover is currently unpublished. RosettaMP and previous protocols were published in:
