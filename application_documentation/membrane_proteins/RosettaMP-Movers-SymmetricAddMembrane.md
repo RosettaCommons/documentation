@@ -5,7 +5,13 @@ This mover initializes a membrane representation (membrane residue, spanning top
 
 ## RosettaScripts interface
 
-TODO: Currently not compatible with RosettaScripts. 
+All [[AddMembraneMover | RosettaMP-Movers-AddMembrane]] options are available for this mover in the RosettaScripts interface.
+
+## Flags / Options
+
+|**Flag**|**Description**|
+|:-------|:--------------|
+|`-mp::setup::spanfiles <spanfile>` | Read in the first spanfile only when initializing from Command Line. |
 
 ## Contact
 
