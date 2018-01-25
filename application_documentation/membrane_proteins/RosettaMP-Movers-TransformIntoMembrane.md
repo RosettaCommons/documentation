@@ -14,7 +14,8 @@ The following options are available via RosettaScripts:
 
 |**Flag**|**Description**|
 |:-------|:--------------|
-|`-mp::setup::center <XYZ-Vector of Real Numbers>` | optional; user can provide desired membrane center coordinate. |
+|`-mp::setup::center <XYZ-Vector of Real Numbers>` | Optional; user can provide desired membrane center coordinate. |
+|`-mp::setup::normal <XYZ-Vector of Real Numbers>` | Optional; user can provide desired membrane normal vector. |
 
 ## Run the application
 
