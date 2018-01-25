@@ -20,6 +20,7 @@ The TranslationRotationMover rotates / translates a pose element based on the ol
 |**Flag**|**Description**|
 |:-------|:--------------|
 |`-mp::setup::center <XYZ-Vector of Real Numbers>` | Optional; user can provide desired membrane center coordinate. For TranslationMover, read in center coordinates as translation vector if initializing from Command Line. |
+|`-mp::setup::normal <XYZ-Vector of Real Numbers>` | Optional; user can provide desired membrane normal vector for RotationMover and TranslationRotationMover. |
 
 ## Contact
 
