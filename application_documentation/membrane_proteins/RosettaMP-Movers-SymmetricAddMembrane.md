@@ -13,6 +13,7 @@ All [[AddMembraneMover | RosettaMP-Movers-AddMembrane]] options are available fo
 |:-------|:--------------|
 |`-mp::setup::spanfiles <spanfile>` | Read in the first spanfile only when initializing from Command Line. |
 |`-mp::setup::lipsfile <lipsfile>` | Read in user-provided lipsfile if initializing from Command Line. Defaults to "mypdb.lips4" |
+|`-mp::setup::membrane_rsd <residue number for MEM residue>` | Read in user-provided membrane residue position. |
 
 ## Contact
 
