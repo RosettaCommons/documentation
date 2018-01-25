@@ -12,6 +12,7 @@ All [[AddMembraneMover | RosettaMP-Movers-AddMembrane]] options are available fo
 |**Flag**|**Description**|
 |:-------|:--------------|
 |`-mp::setup::spanfiles <spanfile>` | Read in the first spanfile only when initializing from Command Line. |
+|`-mp::setup::lipsfile <lipsfile>` | Read in user-provided lipsfile if initializing from Command Line. Defaults to "mypdb.lips4" |
 
 ## Contact
 
