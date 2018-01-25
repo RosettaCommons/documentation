@@ -10,6 +10,12 @@ The following options are available via RosettaScripts:
 `center` - 3 Floats - Desired center of the membrane bilayer.
 `normal` - 3 Floats - Desired normal of the membrane bilayer.
 
+## Flags / Options
+
+|**Flag**|**Description**|
+|:-------|:--------------|
+|`-mp::setup::center <XYZ-Vector of Real Numbers>` | optional; user can provide desired membrane center coordinate. |
+
 ## Run the application
 
 ```
