@@ -51,7 +51,8 @@ path to that directory as the argument to this option.
 Accessing information on the disk is much slower than accessing elements in memory.
 This slowdown is negligible in this case because these elements are accessed very infrequently.
 Additionally, this allows you to have more of your CPUs
-running your protocol instead of being archive nodes.
+running your protocol instead of being archive nodes
+(you can greatly reduce your value for `n_archive_nodes` when archiving on disk).
 
 ##See Also
 
