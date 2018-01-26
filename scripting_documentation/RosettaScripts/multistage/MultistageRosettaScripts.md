@@ -2,8 +2,6 @@
 
 Multistage Rosetta Scripts (MRS) allows the user to explore large sample spaces using adaptive sampling.
 
-[[_TOC_]]
-
 ###[[XML Format|XML]]
 
 ###[[Stage Options|StageOptions]]
