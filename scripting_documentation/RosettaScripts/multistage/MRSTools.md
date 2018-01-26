@@ -6,7 +6,13 @@
 
 ##Script Converter
 
-[[See here|XML#conversion]]
+You can convert a traditional rosetta script to a multistage rosetta script XML format using the following command.
+The converted script will be printed to the console if the `-job_definition_file` option is not provided.
+[[See here|XML#conversion]] for more information and an example.
+
+```
+multistage_rosetta_scripts.default.linuxgccrelease -convert -parser:protocol existing_script.xml -job_definition_file new_script.xml
+```
 
 ##Estimate Memory
 
