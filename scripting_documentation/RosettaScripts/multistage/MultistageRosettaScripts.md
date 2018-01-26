@@ -1,6 +1,14 @@
 #MultistageRosettaScripts
 
-Multistage Rosetta Scripts (MRS) allows the user to explore large sample spaces using adaptive sampling.
+Multistage Rosetta Scripts (MRS) allows the user to explore
+large sample spaces using adaptive sampling.
+Traditional Rosetta Scripts does not have a built-in interface
+that allows the user to filter trajectories based on their global ranking.
+Traditional Rosetta Script filters rely on predetermined filtration cutoffs.
+It is often difficult to predict the correct cutoff to use without first
+running the script, so these filter cutoffs tend to be conservative in practice.
+
+Multistage rosett
 
 ###[[XML Format|XML]]
 
