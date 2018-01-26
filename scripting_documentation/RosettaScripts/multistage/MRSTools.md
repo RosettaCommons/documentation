@@ -14,6 +14,16 @@ If you use the [[archive on disk|RunningMRS#archive_on_disk]] option,
 you can use this feature to convert archive files to pdb files
 if you want to take a look at a few results while the job is still running.
 
+
+Say you are storing your results in a directory called `archives`
+and for whatever reason you feel like looking at `result_400_1`
+(the result naming convention might change by the time you read this).
+You can run the following command and the file `archives/result_400_1.pdb` will be created
+
+```
+multistage_rosetta_scripts.default.linuxgccrelease -mrs:unarchive archives/result_400_1
+```
+
 ##XML Template
 
 Prints an XML template skeleton to console or to a file if the `-job_definition_file` flag is provided.
