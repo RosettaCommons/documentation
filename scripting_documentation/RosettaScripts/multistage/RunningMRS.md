@@ -54,6 +54,23 @@ Additionally, this allows you to have more of your CPUs
 running your protocol instead of being archive nodes
 (you can greatly reduce your value for `n_archive_nodes` when archiving on disk).
 
+##Examples
+
+###Archiving on disk
+
+```
+mkdir archives
+mpirun -n 200 multistage_rosetta_scripts.mpiserialization.linuxgccrelease -job_definition_file job_def.xml -n_archive_nodes 1 -archive_on_disk archives @other_flags
+rm -rf archives
+```
+
+###Archiving in memory
+
+```
+mpirun -n 200 multistage_rosetta_scripts.mpiserialization.linuxgccrelease -job_definition_file job_def.xml -n_archive_nodes 10 @other_flags
+```
+
+
 ##See Also
 
 * [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
