@@ -44,7 +44,7 @@ multistage_rosetta_scripts.default.linuxgccrelease -mrs:unarchive archives/resul
 
 ##XML Template
 
-Prints an XML template skeleton to console or to a file if the `-job_definition_file` flag is provided.
+`-mrs:xml_template` prints an XML template skeleton to console or to a file if the `-job_definition_file` flag is provided.
 
 ```
 $> multistage_rosetta_scripts.default.linuxgccrelease -mrs:xml_template
