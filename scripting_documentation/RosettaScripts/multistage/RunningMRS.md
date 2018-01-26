@@ -14,6 +14,14 @@ In order to run with mpi, you must also compile with serialization:
 
 The executable will look something like `multistage_rosetta_scripts.mpiserialization.linuxgccrelease`
 
+##Relevant Commandline Flags
+
+###job_definition_file
+
+###n_archive_nodes
+
+###archive_on_disk
+
 ##See Also
 
 * [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
