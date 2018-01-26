@@ -5,7 +5,7 @@ Multistage Rosetta Scripts (MRS) allows the user to explore large sample spaces 
 [[_TOC_]]
 
 ###[[XML Format|XML]]
-<>Describes what a multistage rosetta script looks like and how it is structured.
+<Describes what a multistage rosetta script looks like and how it is structured.>
 
 ###[[Stage Options|StageOptions]]
 
