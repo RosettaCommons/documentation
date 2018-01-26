@@ -35,6 +35,7 @@ If so, you can request additional archive nodes using this flag.
 It is hard to know ahead of time how much memory you will need.
 MRS has an [[archive memory estimation utility|TODO]],
 but that is still experimental and usually underestimates the memory requirements.
+The next option was introduced because of this difficulty:
 
 ###archive_on_disk
 
