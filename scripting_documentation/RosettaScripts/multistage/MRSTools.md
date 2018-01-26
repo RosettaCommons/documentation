@@ -1,26 +1,38 @@
-#MultistageRosettaScripts
+#MRS: Tools and Utilities
 
-(Under Construction)
-
-Multistage Rosetta Scripts (MRS) allows the user to explore large sample spaces using adaptive sampling.
+[[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
 [[_TOC_]]
 
-###[[XML Format|XML]]
+##Script Converter
 
-###[[Stage Options|StageOptions]]
+##Estimate Memory
 
-###[[How to Compile and Run MRS|RunningMRS]]
+##Unarchive
 
-###[[Tools and Utilities|MRSTools]]
+##XML Template
 
-##Examples
-[[Batch Relax|BatchRelaxExample]]
+##Info
 
-[[DataMap Overloading|OverloadExample]]
+As with traditional rosetta scripts, you can pass the `-info` flag
+followed by a mover, filter, or residue selector name and Rosetta will
+print the XML schema for that element to console.
+
+For example, running:
+
+```
+multistage_rosetta_scripts.default.linuxgccrelease -info FastRelax
+```
+
+gives
+
+```
+TODO
+```
 
 ##See Also
 
+* [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 * [Introductory RosettaScripting Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/scripting_with_rosettascripts/scripting_with_rosettascripts)
 * [Advanced RosettaScripting Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/advanced_scripting_with_rosettascripts/advanced_scripting_with_rosettascripts)
 * [[Scripting Documentation]]: The Scripting Documentation home page
