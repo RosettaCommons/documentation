@@ -1,4 +1,4 @@
-#MRS: XML Script
+#MRS: Running Multistage Rosetta Scripts
 
 [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
@@ -11,6 +11,8 @@ In order to run with mpi, you must also compile with serialization:
 ```
 ./scons.py -j<number of cores> mode=release extras=mpi,serialization bin
 ```
+
+The executable will look something like `multistage_rosetta_scripts.mpiserialization.linuxgccrelease`
 
 ##See Also
 
