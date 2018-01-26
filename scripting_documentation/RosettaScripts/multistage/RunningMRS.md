@@ -18,6 +18,11 @@ The executable will look something like `multistage_rosetta_scripts.mpiserializa
 
 ###job_definition_file
 
+`-in:file:job_definition_file <filename>`
+
+This similar to `-parser:protocol` in traditional RosettaScripts.
+This is how you pass your script to Rosetta.
+
 ###n_archive_nodes
 
 ###archive_on_disk
