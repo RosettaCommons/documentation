@@ -12,6 +12,43 @@
 
 ##XML Template
 
+Prints an XML template skeleton to console or to a file if the `-job_definition_file` flag is provided.
+
+```
+$> multistage_rosetta_scripts.default.linuxgccrelease -mrs:xml_template
+
+<JobDefinitionFile>
+
+    <Job>
+        <Input>
+            <PDB filename="TODO"/>
+        </Input>
+    </Job>
+    <Common>
+
+        <SCOREFXNS/>
+
+        <RESIDUE_SELECTORS/>
+
+        <TASKOPERATIONS/>
+
+        <FILTERS/>
+
+        <MOVERS/>
+
+        <PROTOCOLS>
+            <Stage num_runs_per_input_struct="TODO" total_num_results_to_keep="TODO">
+
+                <Sort filter="TODO"/>
+
+            </Stage>
+        </PROTOCOLS>
+
+    </Common>
+
+</JobDefinitionFile>
+```
+
 ##Info
 
 As with traditional rosetta scripts, you can pass the `-info` flag
