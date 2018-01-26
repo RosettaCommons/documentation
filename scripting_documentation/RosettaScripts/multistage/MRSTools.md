@@ -81,7 +81,7 @@ $> multistage_rosetta_scripts.default.linuxgccrelease -mrs:xml_template
 </JobDefinitionFile>
 ```
 
-##Info
+##Mover/Filter/Residue Selector/Task Operation Info
 
 As with traditional rosetta scripts, you can pass the `-info` flag
 followed by a mover, filter, task operation, or residue selector name and Rosetta will
