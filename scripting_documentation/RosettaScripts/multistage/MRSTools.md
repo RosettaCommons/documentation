@@ -10,6 +10,10 @@
 
 ##Unarchive
 
+If you use the [[archive on disk|RunningMRS#archive_on_disk]] option,
+you can use this feature to convert archive files to pdb files
+if you want to take a look at a few results while the job is still running.
+
 ##XML Template
 
 Prints an XML template skeleton to console or to a file if the `-job_definition_file` flag is provided.
