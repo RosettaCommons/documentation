@@ -1,5 +1,7 @@
 #MultistageRosettaScripts
 
+###Description
+
 Multistage Rosetta Scripts (MRS) allows the user to explore
 large sample spaces using adaptive sampling.
 Traditional Rosetta Scripts does not have a built-in interface
