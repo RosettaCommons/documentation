@@ -6,7 +6,19 @@
 
 ##Script Converter
 
+[[See here|XML#Conversion]]
+
 ##Estimate Memory
+
+(WARNING: This is experimental and currently tends to underestimate by a factor of roughly 2x)
+
+It can be difficult to know how many archive nodes you need to ask for ahead of time.
+In order to help, you can run the following command and it will predict the total
+amount of RAM needed to be devoted to archive nodes. 
+You can divide this total by the amount of RAM per CPU
+in your system to calculate the number of archive nodes you should ask for.
+
+Alternatively, you can ruin with the [[archive on disk|RunningMRS]] option.
 
 ##Unarchive
 
