@@ -1,22 +1,20 @@
-#MultistageRosettaScripts
+#MRS: XML Script
 
-(Under Construction)
+[[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
-Multistage Rosetta Scripts (MRS) allows the user to explore large sample spaces using adaptive sampling.
+[[_TOC_]]
 
-[[XML Format|XML]]
+##Compiling MRS
 
-[[Stage Options|StageOptions]]
+In order to run with mpi, you must also compile with serialization:
 
-[[Running MRS|RunningMRS]]
-
-##Examples
-[[Batch Relax|BatchRelaxExample]]
-
-[[DataMap Overloading|OverloadExample]]
+```
+./scons.py -j<number of cores> mode=release extras=mpi,serialization bin
+```
 
 ##See Also
 
+* [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 * [Introductory RosettaScripting Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/scripting_with_rosettascripts/scripting_with_rosettascripts)
 * [Advanced RosettaScripting Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/advanced_scripting_with_rosettascripts/advanced_scripting_with_rosettascripts)
 * [[Scripting Documentation]]: The Scripting Documentation home page
