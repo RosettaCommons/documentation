@@ -4,7 +4,7 @@
 
 Traditional Rosetta Scripts does not have a built-in interface
 that allows the user to filter trajectories based on their global ranking.
-Traditional Rosetta Script filters rely on predetermined filtration cutoffs.
+Traditional Rosetta Scripts relies on predetermined filtration cutoffs.
 It is often difficult to predict the correct cutoff to use without first
 running the script, so these filter cutoffs tend to be conservative in practice.
 
