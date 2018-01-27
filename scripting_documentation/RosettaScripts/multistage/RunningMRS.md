@@ -33,7 +33,7 @@ You may find that you have too many job results to fit in this node's memory.
 If so, you can request additional archive nodes using this flag.
 
 It is hard to know ahead of time how much memory you will need.
-MRS has an [[archive memory estimation utility|TODO]],
+MRS has an [[archive memory estimation utility|MRSTools#estimate-memory]],
 but that is still experimental and usually underestimates the memory requirements.
 The next option was introduced because of this difficulty:
 

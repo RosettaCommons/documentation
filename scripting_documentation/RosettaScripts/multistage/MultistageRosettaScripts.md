@@ -1,10 +1,17 @@
 #MultistageRosettaScripts
 
-(Under Construction)
+###Description
 
-Multistage Rosetta Scripts (MRS) allows the user to explore large sample spaces using adaptive sampling.
+Traditional Rosetta Scripts does not have a built-in interface
+that allows the user to filter trajectories based on their global ranking.
+Traditional Rosetta Scripts relies on predetermined filtration cutoffs.
+It is often difficult to predict the correct cutoff to use without first
+running the script, so these filter cutoffs tend to be conservative in practice.
 
-[[_TOC_]]
+Multistage Rosetta Scripts (MRS) allows you to filter after each "stage"
+based on a trajectory's global rank using the metric of your choice.
+For example, you may choose to drop the 80% lowest-scoring structures
+after the first mover and then filter out 50% of the remaining structures after the 5th mover.
 
 ###[[XML Format|XML]]
 
@@ -12,7 +19,7 @@ Multistage Rosetta Scripts (MRS) allows the user to explore large sample spaces 
 
 ###[[How to Compile and Run MRS|RunningMRS]]
 
-###[[Tools and Utilities|TODO]]
+###[[Tools and Utilities|MRSTools]]
 
 ##Examples
 [[Batch Relax|BatchRelaxExample]]
