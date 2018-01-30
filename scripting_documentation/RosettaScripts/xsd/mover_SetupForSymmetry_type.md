@@ -7,11 +7,11 @@ Given a symmetry definition file that describes configuration and scoring of a s
 
 ```xml
 <SetupForSymmetry name="(&string;)" definition="(&string;)"
-        preserve_datacache="(0 &bool;)" resource_description="(&string;)" />
+        preserve_datacache="(0 &bool;)" symmetry_resource="(&string;)" />
 ```
 
 -   **definition**: The path and filename for a symmetry definition file. This is optional because you can also specify -symmetry:symmetry_definition {pathto/filename_symmetry_definition_file} on the command line.
 -   **preserve_datacache**: If true, the datacache from the input asymmetric pose will be copied into the new symmetric pose. If false, the pose datacache will be cleared. Default is false for historical reasons.
--   **resource_description**: ResourceManager resource description for symmetry definition file. THIS OPTION IS DEPRECATED!
+-   **symmetry_resource**: The name for symmetry definition object created by the ResourceManager; this Resource must be declared in the RESOURCES block at the top of the protocol XML file
 
 ---
