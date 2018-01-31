@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-01-27
+Generated: 2018-01-30
 
 _Note that some application specific options may not be present in this list._
 
@@ -1753,6 +1753,10 @@ _Note that some application specific options may not be present in this list._
 <dd>Enable phi-psi dependent bondlengths and bondangles<br/></dd>
 <dt><b>-bbdep_bond_devs</b> \<Boolean\></dt>
 <dd>Enable phi-psi dependent deviations for bondlengths and bondangles<br/></dd>
+<dt><b>-fa_dun_canonicals_use_voronoi</b> \<Boolean\></dt>
+<dd>If true, then canonical amino acids use Voronoi-style detection of neareset rotamer wells during fa_dun scoring instead of hard-coded rotamer well definitions.  False by default (i.e. hard-coded definitions are used by defaults).<br/>Default: false<br/></dd>
+<dt><b>-fa_dun_noncanonicals_use_voronoi</b> \<Boolean\></dt>
+<dd>If true, then noncanonical amino acids and other polymer building blocks use Voronoi-style detection of neareset rotamer wells during fa_dun scoring instead of hard-coded rotamer well definitions.  True by default (i.e. Voronoi-style detection is used by default).  Setting this to false creates problems with many noncanonicals that have rotamer wells that aren't simple gauche+/gauche-/anti wells.<br/>Default: true<br/></dd>
 <dt><b>-no_his_his_pairE</b> \<Boolean\></dt>
 <dd>Set pair term for His-His to zero<br/></dd>
 <dt><b>-no_his_DE_pairE</b> \<Boolean\></dt>
