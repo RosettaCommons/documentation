@@ -35,8 +35,15 @@ Rosetta/main/source/bin/score_jd2.macosclangrelease \
 -score:weights mpframework_smooth_fa_2012.wts \
 ```
 
-Both applications only score the protein and don't optimize the membrane position with the scorefunction!
+Both applications only score the protein and don't optimize the membrane position with the scorefunction! Use the flags in the next section to change settings. 
 Note: Make sure your numbering between PDB file and spanfile match!
+
+## Flags / Options
+
+|**Flag**|**Description**|
+|:-------|:--------------|
+|`-mp::setup::transform_into_membrane <bool>` | Required to score membrane proteins. Add this option to transform the protein pose into the membrane.|
+|`-mp::transform::optimize_embedding <bool>` | Use the scorefunction to optimize the embedding after an initial coarse grained setting.|
 
 ## Citation
 Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press

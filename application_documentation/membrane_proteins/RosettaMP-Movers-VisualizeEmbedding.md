@@ -8,6 +8,15 @@ This Mover can be used to visualize the embedding centers and normals in the PDB
 
 This Mover is currently not RosettaScripts compatible. 
 
+## Flags / Options
+
+|**Flag**|**Description**|
+|:-------|:--------------|
+|`-mp::visualize::embedding <bool>` | Add this option to visualize embedding centers and normals. Required for VisualizeEmbeddingMover to work.|
+|`-mp::visualize::spacing <Real>` | Set spacing of virtual membrane residues representing the membrane planes. Default = 5. Initialize from Command Line if using non-default value.|
+|`-mp::visualize::width <Real>` | Width of membrane planes for n by n plane. Default = 100. Initialize from Command Line if using non-default value.|
+|`-mp::visualize::thickness <Real>` | Thickness of membrane to visualize. Default = 12.5|
+
 ## Contact
 
 - Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))

@@ -28,6 +28,9 @@ The following options are available within the RosettaScript interface:
 |`-mp::setup::membrane_rsd <residue number for MEM residue>` | optional; read in user-provided membrane residue position. Default to the MEM residue from previously generated framework PDB. |
 |`-mp::setup::center <three real numbers defining the center point>` | optional; user can provide desired membrane center coordinate.|
 |`-mp::setup::normal <three real numbers defining the normal vector>` | optional; user can provide desired membrane normal vector.|
+|`-mp::thickness <Real>` | One-half thickness of the membrane used by the high resolution scoring function. Overwrites default thickness of 15A (membrane is 30A thick).|
+|`-mp::membrane_core <Real>` | Set membrane core thickness for Lazaridis-Karplus. Default is 15A, ie (-15, 15).|
+|`-mp::steepness <Real>` | Control transition region between polar and nonpoar phases for the membrane model used by the high resolution energy function. Default = 10 gives a 6A transition region.|
 
 ## Contact
 
