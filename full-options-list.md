@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-01-20
+Generated: 2018-01-30
 
 _Note that some application specific options may not be present in this list._
 
@@ -143,6 +143,8 @@ _Note that some application specific options may not be present in this list._
 <dd>File that provides 2nd set of ambigious chemical shift options in Talos format<br/></dd>
 <dt><b>-native_exclude_res</b> \<IntegerVector\></dt>
 <dd>Residue numbers to be excluded from RMS calculation<br/></dd>
+<dt><b>-no_detect_pseudobonds</b> \<Boolean\></dt>
+<dd>By default, Rosetta automatically detects pseudobonds on file import.  If this is set to true, this auto-detection is disabled.  False by default.<br/>Default: false<br/></dd>
 <dt><b>-tags</b> \<StringVector\></dt>
 <dd>Tag(s) of structures to be used from silent-file<br/></dd>
 <dt><b>-user_tags</b> \<StringVector\></dt>
@@ -770,6 +772,10 @@ _Note that some application specific options may not be present in this list._
 <dd>Sometimes job results use a ton of memory. This option tells Rosetta to store job results on disk instead of in memory. The string you pass here should be the name of a (preferably empty) directoy where we can put all of our temporary files. You can delete this directory and everything in it when Rosetta is done running.<br/>Default: "null"<br/></dd>
 <dt><b>-compress_job_results</b> \<Boolean\></dt>
 <dd>Sometimes job results use a ton of memory. This option tells Rosetta to compress all job results so they use less memory.<br/>Default: true<br/></dd>
+<dt><b>-resource_definition_files</b> \<FileVector\></dt>
+<dd>Specify all the resources to available for the jobs running.<br/></dd>
+<dt><b>-resource_definition_schema</b> \<File\></dt>
+<dd>If provided on the command line, the job distributor will write the XML Schema for the applciation's resource definition file out to disk and then exit<br/></dd>
 </dl>
 + <h2>-jd2</h2>
 <dl>
@@ -807,8 +813,6 @@ _Note that some application specific options may not be present in this list._
 <dd>when N structures (buffer_silent_output) are collected dump to file with probability X<br/>Default: 1.0<br/></dd>
 <dt><b>-delete_old_poses</b> \<Boolean\></dt>
 <dd>Delete poses after they have been processed.  For jobs that process a large number of structures, the memory consumed by old poses is wasteful.<br/>Default: false<br/></dd>
-<dt><b>-resource_definition_files</b> \<FileVector\></dt>
-<dd>Specify all the jobs and all of their resources to the new JD2ResourceManager system<br/></dd>
 <dt><b>-checkpoint_file</b> \<File\></dt>
 <dd>write/read nstruct-based checkpoint files to the desired filename.<br/></dd>
 <dt><b>-failed_job_exception</b> \<Boolean\></dt>
@@ -1749,6 +1753,10 @@ _Note that some application specific options may not be present in this list._
 <dd>Enable phi-psi dependent bondlengths and bondangles<br/></dd>
 <dt><b>-bbdep_bond_devs</b> \<Boolean\></dt>
 <dd>Enable phi-psi dependent deviations for bondlengths and bondangles<br/></dd>
+<dt><b>-fa_dun_canonicals_use_voronoi</b> \<Boolean\></dt>
+<dd>If true, then canonical amino acids use Voronoi-style detection of neareset rotamer wells during fa_dun scoring instead of hard-coded rotamer well definitions.  False by default (i.e. hard-coded definitions are used by defaults).<br/>Default: false<br/></dd>
+<dt><b>-fa_dun_noncanonicals_use_voronoi</b> \<Boolean\></dt>
+<dd>If true, then noncanonical amino acids and other polymer building blocks use Voronoi-style detection of neareset rotamer wells during fa_dun scoring instead of hard-coded rotamer well definitions.  True by default (i.e. Voronoi-style detection is used by default).  Setting this to false creates problems with many noncanonicals that have rotamer wells that aren't simple gauche+/gauche-/anti wells.<br/>Default: true<br/></dd>
 <dt><b>-no_his_his_pairE</b> \<Boolean\></dt>
 <dd>Set pair term for His-His to zero<br/></dd>
 <dt><b>-no_his_DE_pairE</b> \<Boolean\></dt>

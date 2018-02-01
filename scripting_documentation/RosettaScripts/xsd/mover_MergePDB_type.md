@@ -12,31 +12,34 @@ Align + combine parts of the pdb
         overlap_rmsd="(0.3 &real;)"
         overlap_scan_range_cmdLine_pose="(20 &non_negative_integer;)"
         overlap_scan_range_xml_pose="(20 &non_negative_integer;)"
-        attach_pdb="(&string;)" design_range="(3 &real;)"
-        packing_range="(5 &real;)" detect_disulf_before_pack="(true &bool;)"
+        attach_pdb="(&string;)" design_range="(9 &real;)"
+        packing_range="(8 &real;)" detect_disulf_before_pack="(true &bool;)"
         do_minimize="(true &bool;)" no_design_label="(&string;)"
         duplicate_rmsd_pose_threshold="(1.0 &real;)"
         init_overlap_sequence="(input_pose &init_overlap_sequence_type;)"
-        scorefxn="(&string;)"
+        scorefxn="(&string;)" output_only_first="(false &bool;)"
+        output_overlap_positions="(false &bool;)"
         task_operations="(&task_operation_comma_separated_list;)" />
 ```
 
 -   **symm_file**: Symmetry definition file if pose symmetric. hack for now
 -   **attachment_termini**: termini to  attach to, can be c_term or n_term
 -   **chain**: chain
--   **overlap_length**: XRW TO DO
+-   **overlap_length**: length of overlap between the two structures
 -   **overlap_rmsd**: How similiar the structures must be
 -   **overlap_scan_range_cmdLine_pose**: how far in from the term to scan on the cmdLine input pose
 -   **overlap_scan_range_xml_pose**: how far in from the term to scan on the xml input pose
 -   **attach_pdb**: (REQUIRED) the pdb to be attached, this is the pdb that moves
--   **design_range**: dist from attachment allowed to design
--   **packing_range**: dist from attachment allowed to pack
+-   **design_range**: distance from attachment and distance between new interacting residues allowed to design
+-   **packing_range**: distance from designable_residues allowed to pack
 -   **detect_disulf_before_pack**: detects disulfides before repacking, be sure to elimate them first with -detect_disulf false flag
 -   **do_minimize**: Perform energy minimization
 -   **no_design_label**: residues to not design or pack
 -   **duplicate_rmsd_pose_threshold**: if poses are the same length they are eliminated if the rmsd check
 -   **init_overlap_sequence**: where to take the overlap sequence from input_pose, xml_pose, or both which takes from closest element on a different SS.
 -   **scorefxn**: Score function used for packing and design.
+-   **output_only_first**: only does minimization on the first overlap and outputs
+-   **output_overlap_positions**: outputs overlap positions
 -   **task_operations**: A comma separated list of TaskOperations to use.
 
 ---

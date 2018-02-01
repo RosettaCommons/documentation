@@ -30,7 +30,7 @@ However, the third job tag has two Movers named "relax" (one in the Job block an
 
     <Job>
         <RESIDUE_SELECTORS>
-            <ReadResfile name="rrf" filename="resfile1"/>
+            <ReadResfile name="rrf" filename="resfile2"/>
         </RESIDUE_SELECTORS>
         <Input>
             <PDB filename="../S2.pdb"/>
@@ -39,7 +39,7 @@ However, the third job tag has two Movers named "relax" (one in the Job block an
 
     <Job>
         <RESIDUE_SELECTORS>
-            <ReadResfile name="rrf" filename="resfile1"/>
+            <ReadResfile name="rrf" filename="resfile3"/>
         </RESIDUE_SELECTORS>
         <MOVERS>
             <FastDesign disable_design="false" name="relax" repeats="1" scorefxn="common_sfxn" task_operations="ifc,ic,rrf"/>

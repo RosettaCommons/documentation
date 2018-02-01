@@ -155,24 +155,35 @@ In the input fasta file, separate sequences of individual chains with a '/' char
 
 **How can I model with ligands/nucleic acids?**
 
-Add the tag **use_hetatm=1** to the Hybridize mover line.  Then, manually add the aligned ligand(s), with residue numbers starting **one past the length of the fasta file**.  For nucleic acids, this is all that is needed.
+Briefly:
+
+1. Add the tag **use_hetatm=1** to the Hybridize mover line.
+2. Make sure your run-command and flag-file don't include the `-ignore_unrecognized_res` flag
+3. Add flags to your run-command or flag-file to read in centroid and fullatom `.params` files and a `.tors` files for your ligand
+
+By adding the tag **use_hetatm=1** to the Hybridize mover line, any ligands/nucleic acids you want to model will be automatically taken from all templates with non-zero weights in the XML file.
 
 **Note:**  Ligands must be added to _all_ templates with a non-zero weight in the XML file!
 
-For ligands, the params files must be generated using the [[molfile_to_params|preparing-ligands]] script, with a few non-standard options.  Given a mol2 file of the ligand in question, XXX.mol2, run:
+For ligands, the `.params` and `.tors` files must be generated using the [[molfile_to_params|preparing-ligands]] script, with a few non-standard options.
 
-    python Rosetta/main/source/src/python/apps/public/molfile_to_params.py \
+Keep in mind that the `molfile_to_params.py` script works with `.mol`, `.sdf`, and `.mol2` file formats, the command syntax is the same for all of them. You can find `.sdf` files for some of the more common ligands (ex ATP: http://www.rcsb.org/ligand/ATP ) through the rcsb.org advanced search interface. This  [tutorial](https://www.rosettacommons.org/demos/latest/tutorials/prepare_ligand/prepare_ligand_tutorial) has more information.
+
+Given a `.mol2` file of the ligand in question, `XXX.mol2`, run:
+
+    python Rosetta/main/source/scripts/python/public/molfile_to_params.py \
+       XXX.mol2 \
        --keep-names \
        --clobber \
        --extra_torsion_output \
-       --centroid XXX.mol2 \
+       --centroid  \
        -p XXX -n XXX
 
 And the following flags must be additionally provided:
 
-    --extra_res_cen XXX.cen.params
-    --extra_res_fa  XXX.fa.params
-    --extra_improper_file XXX.tors
+    -extra_res_cen XXX.cen.params
+    -extra_res_fa  XXX.fa.params
+    -extra_improper_file XXX.tors
 
 **How can I model with symmetry?**
 
