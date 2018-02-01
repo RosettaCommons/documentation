@@ -25,7 +25,7 @@ Rosetta/main/source/bin/mp_transform.macosclangrelease \
 
 |**Flag**|**Description**|
 |:-------|:--------------|
-|`-mp::transform::optimize_embedding <bool>` | Use the scorefunction to optimize the embedding after an initial coarse grained setting. |
+|`-mp::transform::optimize_embedding <bool>` | Use the scorefunction to optimize the embedding after an initial coarse grained setting.|
 
 ## Citation
 Rosetta Revision #57715

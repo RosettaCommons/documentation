@@ -25,7 +25,7 @@ Rosetta/main/source/bin/mp_span_from_pdb.macosclangrelease \
 
 |**Flag**|**Description**|
 |:-------|:--------------|
-|`-mp::thickness <Real>` | One-half thickness of the membrane used to create spanfiles. Overwrites default thickness of 15A (membrane is 30A thick) |
+|`-mp::thickness <Real>` | One-half thickness of the membrane used to create spanfiles. Overwrites default thickness of 15A (membrane is 30A thick)|
 
 ## Citation
 Rosetta Revision #57715

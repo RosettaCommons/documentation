@@ -29,7 +29,7 @@ Rosetta/main/source/bin/helix_from_sequence.macosclangrelease \
 |**Flag**|**Description**|
 |:-------|:--------------|
 |`-mp::transform::optimize_embedding <bool>` | Use the scorefunction to optimize the embedding after an initial coarse grained setting. |
-|`-mp::setup::transform_into_membrane <bool>` | Add this option to transform helix into fixed membrane. |
+|`-mp::setup::transform_into_membrane <bool>` | Add this option to transform helix into fixed membrane.|
 
 
 ## Reference
