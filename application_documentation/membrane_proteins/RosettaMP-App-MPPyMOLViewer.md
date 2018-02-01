@@ -19,6 +19,7 @@ The membrane pymol viewer application requires the spanfile as an input.
 |**Flag**|**Description**|**Type**|
 |:-------|:--------------|:-------|
 |-mp:setup:spanfiles|Spanfile describing spanning topology of starting structure|String|
+|-mp:setup:position_from_topo|Initialize and determine membrane position from the transmembrane spans of the protein|Boolean|
 |-show_simulation_in_pymol 0|Use the PyMOL viewer to visualize membrane planes for structures|Boolean|
 |-keep_pymol_simulation_history 1|optional for making movies in Pymol: keep the frame history in Pymol|Boolean|
 |-packing:prepack_missing_sidechains false|Wait to repack sidechains during pdb initialization until the membrane pose is fully initialized with the membrane framework|Boolean|
