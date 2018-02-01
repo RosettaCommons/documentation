@@ -25,7 +25,7 @@ mover B are both run on the input structure and the results are merged and run t
 
 In general, the code generated in this example is NOT written with effeciency, performance, or even our own coding conventions in mind.
 The main goal is clarity and simplicity/readability.
-All feedback is welcome! Please send thoughts/questions to jack@med.unc.edu
+All feedback is welcome! Please send thoughts/questions to jackmaguire1444@gmail.com
 
 ##Changes in the code since this tutorial was written
 
