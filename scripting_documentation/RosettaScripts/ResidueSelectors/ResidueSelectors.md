@@ -500,17 +500,20 @@ Note that the `rama_prepro` energy is a two-body energy dependent on a residue's
 
 #### SSElementSelector
 ```xml
- <SSElement name="(&string)" selection="(&string)" to_selection="(&string)" reassign_short_terminal_loop="( (true &bool)" chain="(&string)" />
+ <SSElement name="(&string)" selection="(&string)" to_selection="(&string)" reassign_short_terminal_loop="( (2 &int)" chain="(&string)" />
 ```
 **Run options:**
 * **selection alone:** selects that selection
 * **selection + to_selection:** selects both selections and the residues between the selections
 
+* **reassign_short_terminal_loop:** how many residues on each termini to ignore if they are loops
+* **chain:** which chain to operate on
+
 **Notation for selection and to_selection:**
 *  **n_term=** residue 1
-*  **c_term=** length of protein
+*  **c_term=** length of protein (or chain)
 *  **"1,H"=** first helix
-*  **"2,L"=** second loop(note doesn't count <2 residue terminal loops unless reassign_short_terminal_loop="false"
+*  **"2,L"=** second loop
 *  **"-2,E"=** second sheet from end of the protein
 *  **"1,H,S"=** start of first helix
 *  **"1,H,E"=** end of first helix
