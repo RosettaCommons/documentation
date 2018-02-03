@@ -140,7 +140,7 @@ Filter  | Description
 **[[Rmsd|RmsdFilter]]** | Filter based on the C-alpha RMSD to a reference structure. 
 **[[SidechainRmsd|SidechainRmsdFilter]]** | Compute RMSD for a single sidechain.
 **[[IRmsd|IRmsdFilter]]** | Filter based on backbone RMSD over residues in the interface.
-**[[RmsdFromResidueSelector|RmsdFromResidueSelectorFilter]]** | Similar to the [[Rmsd|RmsdFilter]]. It allows to provide **ResidueSelectors** for both the query and reference poses.
+**[[RmsdFromResidueSelectorFilter|RmsdFromResidueSelectorFilter]]** | Similar to the [[Rmsd|RmsdFilter]]. It allows to provide **ResidueSelectors** for both the query and reference poses.
 **[[SequenceRecovery|SequenceRecoveryFilter]]** | Calculates the fraction sequence recovery of a pose compared to a reference pose. 
 
 ### Bonding
