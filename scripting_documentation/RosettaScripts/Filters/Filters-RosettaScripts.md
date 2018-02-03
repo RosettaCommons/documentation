@@ -65,6 +65,7 @@ Filter  | Description
 **[[EnergyPerResidue|EnergyPerResidueFilter]]** | Filter on energy of specific selection (residue(s), interface, protein).
 **[[Residue Interaction Energy|ResidueIEFilter]]** | Filter on energy of specific residue in the context of an interface or pose.
 **[[ResidueSetChainEnergy|ResidueSetChainEnergyFilter]]** | Filter on energy of residue set (either in chain or selection).
+**[[ScorePoseSegmentFromResidueSelectorFilter|ScorePoseSegmentFromResidueSelectorFilter]]** | Obtain the score of a requested section of a Pose through a ResidueSelector.
 
 ### Distance
 
