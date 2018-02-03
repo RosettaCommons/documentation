@@ -184,6 +184,7 @@ Filter  | Description
 **[[PoseInfo|PoseInfoFilter]]** | Report basic information about the pose to the tracer.
 **[[SaveResfileToDisk|SaveResfileToDiskFilter]]** | Save resfile to output directory.
 **[[SSPrediction|SSPredictionFilter]]** | Generate secondary structure predictions from sequence.
+**[[ChainCountFilter|ChainCountFilter]]** | Count the number of chains in a Pose.
 
 ----------------------------------------
 
