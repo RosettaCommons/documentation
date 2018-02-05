@@ -35,6 +35,7 @@ Mover  | Description
 **[[ContingentAcceptMover]]** | Fail if a submover doesn't improve a filter value.
 **[[IfMover]]** | Run different movers based on a filter value.
 **[[RandomMover]]** | Randomly choose a mover from a weighted list.
+**[[SwitchMover]]** | Allows to select between a group of declared movers.
 
 ### Looping/Monte Carlo Movers
 
