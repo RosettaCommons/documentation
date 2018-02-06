@@ -57,7 +57,7 @@ Use the ReportToDB mover with the Rosetta XML scripting to specify which feature
 Each FeaturesReporter is responsible for extracting a certain type of features to the features database. Select a set [[FeaturesReporters|FeaturesDatabaseSchema]] and then include them as subtags to the ReportToDB mover tag in the *rosetta\_scripts* XML.  See [[this page | Movers-RosettaScripts#ReportToDB]] for more information on the mover beyond what is covered here. 
 
 
-```
+```xml
 
         <ROSETTASCRIPTS>
             <SCOREFXNS>
@@ -126,7 +126,7 @@ By default, Rosetta is compiled with Sqlite3 Support.  Sqlite3 does not support 
 
 In order to use MPI with Features runs for Sqlite3 database output, just add <code> -separate_db_per_mpi_process</code> to the command line or add an option to ReportToDB in your xml script, for example:
 
-```
+```xml
 <ROSETTASCRIPTS>
 	<MOVERS>
 		<ReportToDB name=features database_name=example.db3 batch_description=example database_separate_db_per_mpi_process=1>
@@ -150,15 +150,19 @@ Batch runs can be done by manually partitioning a sample source into batches, ge
 
 For example if there are 1000 structures split into 4 batches then the scripts for the run processing the first batch would contain:
 
+```xml
        <ReportToDB name=features_reporter db="features.db3_01" sample_source="batch1" protocol_id=1 first_struct_id=1>
           ...
        </ReportToDB>
+```
 
 and the script for the run processsing the second batch would contain:
 
+```xml
        <ReportToDB name=features_reporter db="features.db3_02" sample_source="batch2" protocol_id=2 first_struct_id=26>
           ...
        </ReportToDB>
+```
 
 On completion, merge the databases (see [[merging | FeaturesTutorialRunSciBench#extracting-features-in-parallel_merging]] for more)
 
