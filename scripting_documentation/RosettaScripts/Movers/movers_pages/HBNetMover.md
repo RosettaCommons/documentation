@@ -22,7 +22,7 @@ In general, HBNet should work with any existing XML by placing it in the beginni
 3. For all of your design movers in MPM, be sure to pass the following task operation (see Template XML below) to ensure networks aren't designed away: HBNet automatically applies csts to ensure the h-bonds stay in place, but if you change the AA type with taskops, the csts can no longer be properly applied.  On this same note, be sure to **only use ```_cst``` scorefxns for design steps post-HBNet; for example ```beta_cst``` rather than beta.**
 
 ####Template XML:
-```
+```xml
 <ROSETTASCRIPTS>
    <SCOREFXNS>
         PASTE YOUR SCFXN HERE AND THEN PASS IT TO HBNET
@@ -33,7 +33,7 @@ In general, HBNet should work with any existing XML by placing it in the beginni
    <FILTERS>
    </FILTERS>
    <MOVERS>
-      <HBNet name="hbnet_mover" scorefxn=[YOUR_SCORE_FUNCTION] hb_threshold="-0.5" min_network_size="3" max_unsat_Hpol="1" write_network_pdbs="1" task_operations=[YOUR_TASK_OPS_HERE] />
+      <HBNet name="hbnet_mover" scorefxn=[YOUR_SCORE_FUNCTION] hb_threshold="-0.5" min_network_size="3" max_unsat_Hpol="1" write_network_pdbs="1" monte_carlo="false" task_operations=[YOUR_TASK_OPS_HERE] />
       <MultiplePoseMover name="MPM_design" max_input_poses="100">
          <ROSETTASCRIPTS>
                 PASTE YOUR ENTIRE CURRENT DESIGN XML HERE
@@ -118,14 +118,18 @@ If your goal is to design a network that satisfies a polar small molecule, use `
 - <b>monte\_carlo</b> (bool,"false"):
   Step right up and try your luck with this stochastic HBNet protocol!
   This protocol boasts faster runtimes (especially for large systems) and more consistent memory usage.
-  (equivalent to `monte_carlo_branch`).
+  Equivalent to `monte_carlo_branch`.
 - <b>total\_num\_mc\_runs</b> (uint,"10000"):
   number of monte carlo runs to be divided over all the seed hbonds.
 - <b>monte\_carlo\_seed\_must\_be\_buried</b> (bool,"false"):
   only branch from hbonds where at least one residue is buried.
   Effectively, this results in only finding networks that have at least one buried residue.
-- <b>monte\_carlo\_seed\_must\_be\_fully\_buried</b> (bool,"false"): only branch from hbonds where both residues are buried. This results in only finding networks that have at least one buried hbond but this does not prevent having additional exposed hbonds.
-- <b>seed\_hbond\_threshold</b> (real,"0"): Maybe you only want to branch from strong hbonds. If this value is -1.2, for example, then only hbonds with a strength of -1.2 or lower will be branched from.
+- <b>monte\_carlo\_seed\_must\_be\_fully\_buried</b> (bool,"false"):
+  only branch from hbonds where both residues are buried.
+  This results in only finding networks that have at least one buried hbond but this does not prevent having additional exposed hbonds.
+- <b>seed\_hbond\_threshold</b> (real,"0"):
+  Maybe you only want to branch from strong hbonds.
+  If this value is -1.2, for example, then only hbonds with a strength of -1.2 or lower will be branched from.
 
 ####New options for detecting native networks, and keeping and extending existing networks of input pose
 
