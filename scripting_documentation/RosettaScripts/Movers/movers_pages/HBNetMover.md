@@ -6,7 +6,7 @@ _Note:  This documentation is for the HBNet mover.  For information on the `hbne
 HBNet is a method to explicitly detect and design hydrogen bond networks within Rosetta.  It functions as a mover within the RosettaScripts framework and will exhaustively search for all networks within the design space that you define with [[TaskOperations|TaskOperations-RosettaScripts]], and that meet the criteria you specify with the options below
 
 ###UPDATE 12/2017:
-Jack Maguire's new Monte Carlo sampling approach (MC HBNet) is now in master and it is highly recommended (likely become the default soon); to use it, simply add ```monte_carlo="true"``` to the existing HBNet or HBNetStapleInterface movers.  The new MC search procedure is much faster, enables consistent runtimes and memory usage, and consistently yields a larger number of high-quality networks in a much shorter runtime.  To control the number of MC trials, set ```total_num_mc_runs="100000"```; making this value smaller will result in shorter runtimes, making it bigger will result in longer runtimes (and often more solutions).  Other MC HBNet options are listed below. Setup, network evaluation/ranking, and output are still handled the same as in HBNet.
+The new Monte Carlo sampling approach (MC HBNet) is now in master and it is highly recommended (likely become the default soon); to use it, simply add ```monte_carlo="true"``` to the existing HBNet or HBNetStapleInterface movers.  The new MC search procedure is much faster, enables consistent runtimes and memory usage, and consistently yields a larger number of high-quality networks in a much shorter runtime.  To control the number of MC trials, set ```total_num_mc_runs="10000"```; making this value smaller will result in shorter runtimes, making it bigger will result in longer runtimes (and often more solutions).  Other MC HBNet options are listed below. Setup, network evaluation/ranking, and output are still handled the same as in HBNet.
 
 *[[how buried unsatisfied polar atoms are handled by HBNet|HBNet-BUnsats]].*<br>
 *[[how to design hydrogen bond networks into helical bundles|HBNet-HelicalBundle]].*<br>
@@ -33,8 +33,8 @@ In general, HBNet should work with any existing XML by placing it in the beginni
    <FILTERS>
    </FILTERS>
    <MOVERS>
-      <HBNet name=hbnet_mover scorefxn=[YOUR_SCORE_FUNCTION] hb_threshold=-0.5 min_network_size=3 max_unsat_Hpol=1 write_network_pdbs=1 task_operations=[YOUR_TASK_OPS_HERE] />
-      <MultiplePoseMover name=MPM_design max_input_poses=100>
+      <HBNet name="hbnet_mover" scorefxn=[YOUR_SCORE_FUNCTION] hb_threshold="-0.5" min_network_size="3" max_unsat_Hpol="1" write_network_pdbs="1" task_operations=[YOUR_TASK_OPS_HERE] />
+      <MultiplePoseMover name="MPM_design" max_input_poses="100">
          <ROSETTASCRIPTS>
                 PASTE YOUR ENTIRE CURRENT DESIGN XML HERE
                 # only use _cst scorefxn during design to make sure the constraints automatically turned on by HBNet are respected
@@ -47,8 +47,8 @@ In general, HBNet should work with any existing XML by placing it in the beginni
          </ROSETTASCRIPTS>
        </MultiplePoseMover>
 <PROTOCOLS>
-  <Add mover_name=hbnet_mover/>
-  <Add mover_name=MPM_design/>
+  <Add mover_name="hbnet_mover"/>
+  <Add mover_name="MPM_design"/>
 </PROTOCOLS>
 </ROSETTASCRIPTS>
 ```
@@ -92,7 +92,7 @@ If your goal is to design a network that satisfies a polar small molecule, use `
 1. Make all packable/designable positions (except PRO/GLY/Disulfide) poly-ALA and place the network onto that Pose for output: ```output_poly_ala_background="true"```
 2. You can output these poly-ALA background poses in addition to standard output with  ```write_network_pdbs="true"```; useful for debugging and inspection (or to check if your network changed during downstream design).
 
-**Why is HBNet so slow?** The best way to handle this is to now use MC-HBNet by passing ```monte_carlo_branch="true"```, but in all cases, especially original HBNet, the runtime will scale with the size of your design space, and how many networks are found (which is kind of a catch-22, because you likely want to find a lot of networks).  There are several ways to make HBNet much faster (and often get better results too):
+**Why is HBNet so slow?** The best way to handle this is to now use MC HBNet by passing ```monte_carlo="true"```, but in all cases, especially original HBNet, the runtime will scale with the size of your design space and how many networks are found (which is kind of a catch-22, because you likely want to find a lot of networks).  There are several ways to make HBNet much faster (and often get better results too):
 
 1. Make ```hb_threshold``` more stringent (more negative).  With MC-HBNet you can safely set it to -0.5; with original HBNet, use -0.5 unless using ex1ex2, in which case start at -0.75
 2. Be more specific with your ```task_operations```; the more you can restrict your design space, and especially high-entropy sidechains (Lys/Arg), the better.
