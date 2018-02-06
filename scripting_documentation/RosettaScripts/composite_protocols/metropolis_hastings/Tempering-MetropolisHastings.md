@@ -56,7 +56,7 @@ An example command line for invoking a single 8 temperature-level replica exchan
 
 In this case, the `   metropolis_hastings.xml  ` would need to contain the following:
 
-```
+```xml
 <ROSETTASCRIPTS>
   ...
   <MOVERS>
@@ -152,7 +152,7 @@ commandline:
 
 RosettaScripts file `   dock_cen.xml  ` with comments to guide you through:
 
-```
+```xml
 <ROSETTASCRIPTS>
     <SCOREFXNS>
         <ScoreFunction name="score_dock_low" weights="interchain_cen" />
