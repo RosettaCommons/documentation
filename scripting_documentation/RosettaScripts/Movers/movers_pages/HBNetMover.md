@@ -59,7 +59,7 @@ HBNet is a base classes that can be derived from to override key functions that 
 ####HBNetStapleInterface: for designing protein-protein interfaces:
 Expects a pose with >= 2 chains and will by default start the network search at all interface residues, attempting to find h-bond networks that span across the interface.
 
-```
+```xml
 # symmetric
 <HBNetStapleInterface scorefxn="hard_symm" name="hbnet_interf" hb_threshold="-0.5"design_residues="NSTQHYW" write_network_pdbs="true" min_networks_per_pose="1" max_networks_per_pose="4" use_aa_dependent_weights="true" min_core_res="2" min_network_size="3" max_unsat_Hpol="3" onebody_hb_threshold="-0.3" task_operations="arochi,init_layers,current" />
 
@@ -75,14 +75,14 @@ Expects a pose with >= 2 chains and will by default start the network search at 
 
 #### Designing networks into the core of a monomer:
 The default is that it will start searching at all positions in the monomeric Pose, which is often note ideal: if possible specify ```start_selector``` to start at positions you want to potentially be part of the networks, and define your design space carefully with ```task_operations```.
-```
+```xml
 <HBNet scorefxn="beta" monte_carlo_branch="true" total_num_mc_runs="100000" core_selector="core" name="hbnet" hb_threshold="-0.5" min_core_res="2" minimize="false" min_network_size="5" max_unsat_Hpol="2" start_selector="[YOUR_SELECTOR]" task_operations="[YOUR TASKOPS" />
 ```
 
 #### Designing networks around a polar small molecule ligand
 If your goal is to design a network that satisfies a polar small molecule, use ```start_selector``` to start at the ligand (and any first shell contacts you might want to keep).  One challenge that arose in these design cases is that HBNet only searches for networks among packable/designable positions, but often users want to keep the ligand and some first-shell contacts fixed (NATRO or PreventRepacking).  To solve this issue, we added the option ```keep_start_selector_rotamers_fixed```, which if true, takes the ```start_selector``` positions, fixes their identity and rotamer, and turns on proton Chi sampling; this making them packable (gets them into the IG), as well as allows for more h-bonding possibilities by sampling multiple Hpol positions.  (option added together with Benjamin Basanta)
 
-```
+```xml
 <HBNet name="hbnet_ligand" scorefxn="standardfxn" hb_threshold="-0.5" start_selector="ligand" design_residues="STNQYW" write_cst_files="False" write_network_pdbs="False" store_subnetworks="False" minimize="False" min_network_size="3" max_unsat_Hpol="0" task_operations="no_design_or_pack,limitAroChi" keep_start_selector_rotamers_fixed="True"/>
 ```
 
