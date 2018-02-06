@@ -11,7 +11,7 @@ Created January 2018
 
 ##Overview
 The goal of this tutorial is to help developers get experience with writing their own JD3 protocol.
-You can use [[this page|https://wiki.rosettacommons.org/index.php/JD3FAQ#XML_Job_definition_files]]
+You can use [[this page|https://wiki.rosettacommons.org/index.php/JD3FAQ]]
 for reference to JD3 concepts throughout the walkthrough.
 I will link to specific sections of that page when they become relevant,
 so there is no need to read the whole thing now.
