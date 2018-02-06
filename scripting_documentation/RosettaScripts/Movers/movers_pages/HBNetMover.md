@@ -99,8 +99,6 @@ If your goal is to design a network that satisfies a polar small molecule, use `
 3. Use ```start_selector``` to only start searching at a small number of positions of interest.
 4. Make use of the options to only allow the properties you desire, e.g. ```min_network_size="5"```
 
-
-
 ###Options universal to all HBNet movers
 - <b>hb\_threshold</b> (-0.5 &Real): 2-body h-bond energy cutoff to define rotamer pairs that h-bond.  I've found that -0.5 without ex1-ex2 is the best starting point.  If using ex1-ex2, try -0.75.  This parameter is the most important and requires some tuning; the tradeoff is that the more stringent (more negative), the faster it runs but you miss a lot of networks; too positive and it will run forever; using ex1-ex2 results in many redundant networks that end up being filtered out anyway.
 - <b>scorefxn</b>: The scoring function to use.  If not passed, default is whatever current Rosetta default scorefxn is.
@@ -115,6 +113,11 @@ If your goal is to design a network that satisfies a polar small molecule, use `
 - <b>min_core_res</b>: minimum core residues each network must have (as defined by core selector).
 - <b>design_residues (string &"STRKHYWNQDE"</b>: string of one-letter AA codes; which polar residues types do you want to include in the search; the default is all AA's that can potentially make h-bonds, further restricted by the <b>task_operations</b> you pass.
 - <b>task_operations</b>: comma-delimited list of task operations you have previously defined in your XML; HBNet will respect any task operation passed to it, and only search for networks within the design space you define by these taskops; the more that you can restrict your design space to only what you want, the faster HBNet will run.
+
+###Options for MC HBNet (same movers)
+- <b>T</b>
+- <b>monte\_carlo</b>
+- <b>monte\_carlo\_seed\_must\_be\_fully\_buried</b> (bool,"false"): only branch from hbonds where both residues are buried. This results in only finding networks that have at least one buried hbond but this does not prevent having additional exposed hbonds.
 
 ####New options for detecting native networks, and keeping and extending existing networks of input pose
 
