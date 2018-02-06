@@ -4,7 +4,7 @@
 
 An ad hoc filter to compute the angle (in degrees, 0-180) between two atoms on the first residue of a chain and a predetermined vector. The purpose of this filter is to test whether a small molecule is bound in a protein pocket in the 'correct' orientation.
 
-```
+```xml
 <AngleToVector name="(&string)" atm1="(&string)" atm2="(&string)" chain="(2&size)" refx="(&real)" refy="(&real)" refz="(&real)" min_angle="(0.0&real)" max_angle="(90.0&real)"/>
 ```
 -  atm1, atm2: the names of the atoms from which to compute the directionality vector, for instance, "CA", "NE".
