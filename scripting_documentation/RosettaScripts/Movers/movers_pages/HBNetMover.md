@@ -115,8 +115,9 @@ If your goal is to design a network that satisfies a polar small molecule, use `
 - <b>task_operations</b>: comma-delimited list of task operations you have previously defined in your XML; HBNet will respect any task operation passed to it, and only search for networks within the design space you define by these taskops; the more that you can restrict your design space to only what you want, the faster HBNet will run.
 
 ###Options for MC HBNet
-- <b>monte\_carlo</b> (bool,"false"): Step right up and try your luck with this stochastic HBNet protocol! (equivalent to `monte_carlo_branch`). This protocol boasts faster runtimes (especially for large systems) and more consistent memory usage.
-- <b>total\_num\_mc\_runs</b> (int,"10000"): number of monte carlo runs to be divided over all the seed hbonds.
+- <b>monte\_carlo</b> (bool,"false"):
+  Step right up and try your luck with this stochastic HBNet protocol! (equivalent to `monte_carlo_branch`). This protocol boasts faster runtimes (especially for large systems) and more consistent memory usage.
+- <b>total\_num\_mc\_runs</b> (uint,"10000"): number of monte carlo runs to be divided over all the seed hbonds.
 - <b>monte\_carlo\_seed\_must\_be\_buried</b> (bool,"false"): only branch from hbonds where at least one residue is buried. Effectively, this results in only finding networks that have at least one buried residue.
 - <b>monte\_carlo\_seed\_must\_be\_fully\_buried</b> (bool,"false"): only branch from hbonds where both residues are buried. This results in only finding networks that have at least one buried hbond but this does not prevent having additional exposed hbonds.
 - <b>seed\_hbond\_threshold</b> (real,"0"): Maybe you only want to branch from strong hbonds. If this value is -1.2, for example, then only hbonds with a strength of -1.2 or lower will be branched from.
