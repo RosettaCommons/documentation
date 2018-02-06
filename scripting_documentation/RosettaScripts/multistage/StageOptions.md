@@ -6,7 +6,7 @@
 
 ##Skeleton
 
-```
+```xml
 <Stage
     num_runs_per_input_struct=“(uint)”
     total_num_results_to_keep=“(uint)”
