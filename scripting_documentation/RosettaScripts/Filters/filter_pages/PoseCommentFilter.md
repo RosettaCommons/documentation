@@ -4,7 +4,7 @@
 
 Test for the existence or the value of a comment in the pose. This is useful for controlling execution flow: if the pose comments have been modified you do one thing or another.
 
-```
+```xml
 <PoseComment name="(&string)" comment_name="(&string, '' )" comment_value="(&string, '')" comment_exists="(&bool, false )"/>
 ```
 - comment_name: the key value of the comment
