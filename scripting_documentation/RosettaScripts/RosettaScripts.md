@@ -36,7 +36,7 @@ It is **strongly recommended** that all Rosetta developers version control their
 ---------------------
 
 Copy, paste, fill in, and enjoy
-```
+```xml
 <ROSETTASCRIPTS>
     <SCOREFXNS>
     </SCOREFXNS>
@@ -82,7 +82,7 @@ Example XML file
 ----------------
 
 The following simple example will compute ala-scanning values for each residue in the protein interface:
-```
+```xml
 <ROSETTASCRIPTS>
 <SCOREFXNS>
 <ScoreFunction name="interface" weights="interface"/>
@@ -317,11 +317,11 @@ Occasionally it is desirable to run a series of different runs with slightly dif
 If the -parser:script\_vars option is set on the command line, every time a string like "%%variable\_name%%", is encountered in the XML file, it is replaced with the corresponding value from the command line.
 
 For example, a line in the XML like
-```
+```xml
 <AlaScan name="scan" partner1="1" partner2="1" scorefxn="interface" interface_distance_cutoff="%%cutoff%%" repeats="%%repeat%%"/>
 ```
 can be turned into
-```
+```xml
 <AlaScan name="scan" partner1="1" partner2="1" scorefxn="interface" interface_distance_cutoff="10.0" repeats="5"/>
 ```
 with the command line option
@@ -342,14 +342,14 @@ Multiple instances of the "%%var%%" string will all be substituted, as well as i
 
 It can be convenient to put commonly-used pieces of XML scripts in their own files, and to direct a script to load some XML code from a preexisting file so that the user does not need to copy and paste pieces of XML code manually.  The XML ```xi:include``` command may be used for this purpose, with the file to be included specified using "href=filename".
 
-```
+```xml
 <xi:include href="(&filename_string)" />
 ```
 
 The ```xi:include``` block is naïvely replaced with the contents of the file specified with "href=filename".  The following is an example of the use of ```xi:include```, in which we suppose that the user frequently uses the AlaScan and Ddg filters and wishes to put their setup in a separate file that he/she can include any time he/she writes a new RosettaScripts XML file:
 
 <b>file1.xml</b>:
-```
+```xml
 <ROSETTASCRIPTS>
   <SCOREFXNS>
     <ScoreFunction name="interface" weights="interface"/>
@@ -373,14 +373,14 @@ The ```xi:include``` block is naïvely replaced with the contents of the file sp
 ```
 
 <b>file2.xml</b>:
-```
+```xml
     <AlaScan name="scan" partner1="1" partner2="1" scorefxn="interface" interface_distance_cutoff="10.0" repeats="5"/>
     <Ddg name="ddg" confidence="0"/>
 ```
 
 Note that file inclusion occurs recursively, so that included files may include other files.  Circular dependencies (<i>e.g.</i> file1.xml includes file2.xml includes file3.xml includes file1.xml) are prohibited, and will result in an error.  Multiple inclusions of the same file are permitted, however (though this would rarely be advisable). There is a limit to the number of files that can be included in this way. The recursion limit is 8 and the value can be changed by using the `-parser:inclusion_recursion_limit` command line option. In some cases you may wish to prevent the recursive search (e.g. if the file being included is very large), and an optional parameter "prevent_recursion" can be used in the inclusion tag to achieve this as follows:
 
-```
+```xml
 <xi:include href="(&filename_string)" prevent_recursion="True"/>
 ```
 
@@ -424,7 +424,7 @@ SCOREFUNCTIONS
 
 The SCOREFXNS section defines scorefunctions that will be used in Filters and Movers. This can be used to define any of the scores defined in the path/to/rosetta/main/database
 
-```
+```xml
 <ScoreFunction name="scorefxn_name" weights="("empty" &string)" patch="(&string)">
   <Reweight scoretype="(&string)" weight="(&Real)"/>
   <Set (option name)="(value)"/>
@@ -433,7 +433,7 @@ The SCOREFXNS section defines scorefunctions that will be used in Filters and Mo
 
 where the ```name``` attribute will be used in the Movers and Filters sections to use the scorefunction. The name should therefore be unique and not repeat the predefined score names. One or more Reweight tag is optional and allows you to change/add the weight for a given scoretype.  For example:
 
-```
+```xml
 <ScoreFunction name="scorefxn1" weights="fldsgn_cen">
   <Reweight scoretype="env" weight="1.0"/>
 </ScoreFunction>
@@ -465,7 +465,7 @@ One or more option can be specified per Set tag:
 
 The apply\_to\_pose section may set up constraints, in which case it becomes necessary to set the weights in all of the scorefunctions that are defined. The default weights for all the scorefunctions are defined globally in the apply\_to\_pose section, but each scorefunction definition may change this weight. For example, to set the HotspotConstraint (backbone\_stub\_constraint) value to 6.0
 
-```
+```xml
 <ScoreFunction name="my_spiffy_score" weights="soft_rep_design" patch="dock" hs_hash="6.0"/>
 ```
 
@@ -487,7 +487,7 @@ symmetric="1"
 
 For example, symmetric score12:
 
-```
+```xml
 <ScoreFunction name="score12_symm" weights="score12_full" symmetric="1"/>
 ```
 
@@ -500,7 +500,7 @@ The OUTPUT tag must be the very last tag before the closing `</ROSETTASCRIPTS>` 
 
 ### scorefxn
 
-```
+```xml
 <OUTPUT scorefxn="(name &string)" \>
 ```
 The scorefunction specified by the OUTPUT tag will be used to score the pose prior to output. It is the score function which will be represented in the scores reported in the scorefile and the output PDB of the run.
@@ -536,7 +536,7 @@ This is a section that is used to change the input structure. The most likely us
 
 Sets constraints on the sequence of the pose that can be based on a sequence alignment or an amino-acid transition matrix.
 
-```
+```xml
 <profile weight="(0.25 &Real)" file_name="(<input file name >.cst &string)"/>
 ```
 
@@ -544,7 +544,7 @@ sets residue\_type type constraints to the pose based on a sequence profile. fil
 
 #### SetupHotspotConstraints (formerly hashing\_constraints)
 
-```
+```xml
 <SetupHotspotConstraintsMover stubfile="stubs.pdb" redesign_chain="2" cb_force="0.5" worst_allowed_stub_bonus="0.0" apply_stub_self_energies="1" apply_stub_bump_cutoff="10.0" pick_best_energy_constraint="1" backbone_stub_constraint_weight="1.0">
 <HotspotFiles>
 <HotspotFile file_name="hotspot1.pdb" nickname="hp1" stub_num="1"/>
@@ -567,7 +567,7 @@ MOVERS
 
 Each mover definition has the following structure
 
-```
+```xml
 <MOVERNAME mover_name="&string" name="&string" .../>
 ```
 
@@ -582,7 +582,7 @@ FILTERS
 
 Each filter definition has the following format:
 
-```
+```xml
 <FILTERNAME filter_name="&string" ... confidence="1"/>
 ```
 
@@ -636,7 +636,7 @@ Note: if you would like to query the database for loops differently, you can eit
 
 Note: If the database configuration information is not specified, the relevant options in the option system are used.
 
-```
+```xml
 <LoopsDatabase name="(&string)" database_mode="sqlite3" database_name="(&string)" database_separate_db_per_mpi_process="0" database_read_only="0" database_table="loops"/>
 <LoopsDatabase name="(&string)" database_mode="['mysql', 'postgres']" database_name="(&string)" database_host="(-mysql:host &string)" database_user="(-mysql:user &string)" database_password="(-mysql:password &string)" database_port="(-mysql:port &string)" database_table="loops"/> 
 ```
@@ -644,7 +644,7 @@ Note: If the database configuration information is not specified, the relevant o
 LIGAND\_AREAS
 -------------
 
-```
+```xml
 <LIGAND_AREAS>
 <LigandArea name="[name_of_this_ligand_area]" chain="[string]" cutoff="[float]" add_nbr_radius="[true|false]" all_atom_mode="[true|false]" minimize_ligand="[float]" Calpha_restraints="[float]" high_res_angstroms="[float]" high_res_degrees="[float]" tether_ligand="[float]" />
 <\LIGAND_AREAS
@@ -659,7 +659,7 @@ During high resolution docking, small amounts of ligand translation and rotation
 INTERFACE\_BUILDERS
 -------------------
 
-```
+```xml
 <INTERFACE_BUILDERS>
 <InterfaceBuilder name="[name_of_this_interface_builder]" ligand_areas="(comma separated list of predefined ligand_areas)" extension_window="(int)"/>
 <InterfaceBuilder name="\INTERFACE_BUILDERS">
@@ -670,7 +670,7 @@ An interface builder describes how to choose residues that will be part of a pro
 MOVEMAP\_BUILDERS
 -----------------
 
-```
+```xml
 <MOVEMAP_BUILDERS>
 <MoveMapBuilder name="[name_of_this_movemap_builder]" sc_interface="(string)" bb_interface="(string)" minimize_water="[true|false]"/>
 <MoveMapBuilder name="\MOVEMAP_BUILDERS">
@@ -681,7 +681,7 @@ A movemap builder constructs a movemap. A movemap is a 2xN table of true/false v
 SCORINGGRIDS
 ------------
 
-```
+```xml
 <SCORINGGRIDS ligand_chain="(string)" width="(real)">
 <(string) name="[name_of_this_scoring_grid]" grid_name="ScoringGrid" weight="(real)"/>
 </SCORINGGRIDS>
