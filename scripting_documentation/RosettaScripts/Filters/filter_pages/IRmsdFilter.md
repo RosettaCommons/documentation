@@ -4,7 +4,7 @@
 
 Calculates an interface rmsd. Rmsd is calculated over all backbone atoms for those residues found in the interface of the reference structure. Interface residues are those residues which are within 8 Angstroms of any residue on the other side of the interface.
 
-```
+```xml
 <IRmsd name="(&string)" jump="(&int 1)" threshold="(&Real 5)" reference_pose="(&string)" scorefxn="(&string talaris2013)" />
 ```
 

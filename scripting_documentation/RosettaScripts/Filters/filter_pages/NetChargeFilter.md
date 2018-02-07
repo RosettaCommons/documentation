@@ -7,7 +7,7 @@
 
 This filter sums up all of the positively and negatively charged amino acids in your structure and reports a simplistic sequence-based net charge.
 
-```
+```xml
 <NetCharge name="(&string)" min="(-100 &Integer)" max="(100 &Integer)" chain="(0 &Integer)" task_operations="('' &string)" />
 ```
 
