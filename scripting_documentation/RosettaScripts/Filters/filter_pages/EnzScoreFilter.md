@@ -4,7 +4,7 @@
 
 Calculates scores of a pose e.g. a ligand-protein interface taking into account (or not) enzdes style cst\_energy. Residues can be accessed by res\_num/pdb\_num or their constraint id. One and only one of res/pdb\_num, cstid, and whole\_pose tags can be specified. energy should be less than cutoff to pass.
 
-```
+```xml
 <EnzScore name="(&string)"  scorefxn="(&string, score12)" whole_pose="(&bool,0)" score_type="(&string)" res_num/pdb_num="(see convention)" cstid="(&string)" energy_cutoff="(0.0 &float)"/>
 ```
 

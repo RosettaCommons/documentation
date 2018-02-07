@@ -4,7 +4,7 @@
 
 Does a file exist on disk? Useful to see whether we're recovering from a checkpoint
 
-```
+```xml
 <FileExist name="(&string)" filename="(&string)" ignore_zero_bytes="(0 &bool)"/>
 ```
 

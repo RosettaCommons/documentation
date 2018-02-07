@@ -4,7 +4,7 @@
 
 Remove a file from disk. Useful to clean up at the end of a trajectory, if we saved any intermediate files. But you need to know in advance the names of all files you want to delete. It doesn't support wildcards.
 
-```
+```xml
 <FileRemove name="(&string)" filenames="(comma delimited list, &string)" delete_contents_only="(0 &bool)"/>
 ```
 

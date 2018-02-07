@@ -4,7 +4,7 @@
 
 Calculates either the current translation or rotation across a user specified jump (referenced by jump\_id or sym\_dof\_name).
 
-```
+```xml
 <GetRBDOFValues name="(&string)"  jump="(1 &int)" sym_dof_name="('' &string)" verbose="(0 &bool)" axis="('x' &char)" get_disp="(0 &bool)" get_angle="(0 &bool)" init_disp="(0 &Real)" init_angle="(0 &Real)" get_init_value(0 &bool)/>
 ```
 
