@@ -55,7 +55,7 @@ _ab_metrics_
 
 -   A set of antibody metrics.  Some repeated from the Interface metrics. Paratope is defined as all CDRs present in the antibody.
 
-```
+```sql
 CREATE TABLE ab_metrics(
 	struct_id INTEGER,
 	numbering_scheme TEXT,
@@ -81,7 +81,7 @@ _cdr_metrics_
 
 -   Analysis of the CDRS in the antibody pose.
 
-```
+```sql
 CREATE TABLE cdr_metrics(
 	struct_id INTEGER,
 	CDR TEXT,
@@ -110,7 +110,7 @@ _ab_h3_kink_metrics_
 
 -   Antibody H3 Kink Metrics
 
-```
+```sql
 CREATE TABLE ab_h3_kink_metrics(
 	struct_id INTEGER,
 	kink_type TEXT,
@@ -163,7 +163,7 @@ In order to use this Reporter, the antibody should be renumbered into a particul
 
 _cdr_clusters_
 
-```
+```sql
 CREATE TABLE cdr_clusters(
 	struct_id INTEGER,
 	resnum_begin INTEGER,
@@ -319,7 +319,7 @@ _interface_sides_
 
 -   Output data specific to each side in a given interface
 
-```
+```sql
 CREATE TABLE interface_sides(
 	struct_id INTEGER,
 	interface TEXT,
@@ -357,7 +357,7 @@ _interfaces_
 
 -   Output Overall Interface Data
 
-```
+```sql
 CREATE TABLE interfaces(
 	struct_id INTEGER,
 	interface TEXT,
@@ -387,7 +387,7 @@ _interface_residues_
 
 -   Output data specific to the residues in a given interface of a given pose.
 
-```
+```sql
 CREATE TABLE interface_residues(
 	struct_id INTEGER,
 	interface TEXT,
