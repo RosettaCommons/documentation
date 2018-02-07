@@ -4,8 +4,8 @@
 
 Each mover definition has the following structure
 
-```
-<"mover_name" name="&string" .../>
+```xml
+<mover_name name="&string"/>
 ```
 
 where "mover\_name" belongs to a predefined set of possible movers that the parser recognizes and are listed below, name is a unique identifier for this mover definition and then any number of parameters that the mover needs to be defined.
