@@ -4,7 +4,7 @@
 
 Each filter definition has the following format:
 
-```
+```xml
 <"filter_name" name="&string" ... confidence="(1 &Real)"/>
 ```
 

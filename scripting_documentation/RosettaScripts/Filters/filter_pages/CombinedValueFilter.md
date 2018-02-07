@@ -4,7 +4,7 @@
 
 This is a special filter that calculates a weighted sum based on previously defined filters.
 
-```
+```xml
 <CombinedValue name="(&string)" threshold="(0.0 &Real)">
     <Add filter_name="(&string)" factor="(1.0 &Real)" temp="(&Real)"/>
     <Add

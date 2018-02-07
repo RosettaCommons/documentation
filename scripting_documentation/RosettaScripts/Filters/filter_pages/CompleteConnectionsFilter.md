@@ -2,7 +2,7 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## CompleteConnections
 
-```
+```xml
 <CompleteConnections name="&string" chain="&string"/>
 ```
 

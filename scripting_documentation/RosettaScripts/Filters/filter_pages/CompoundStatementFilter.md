@@ -4,10 +4,10 @@
 
 This is a special filter that uses previously defined filters to construct a compound logical statement with NOT, AND, OR, XOR, NAND, NOR, ANDNOT, and ORNOT operations. By making compound statements of compound statements, esssentially all logical statements can be defined.
 
-```
+```xml
 <CompoundStatement name="(&string)" invert="(false &bool)">
     <(&OPERATION) filter_name="(true_filter &string)"/>
-    <....
+    ....
 </CompoundStatement>
 ```
 
