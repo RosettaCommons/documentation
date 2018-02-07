@@ -2,7 +2,7 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## IfThenFilter
 
-```
+```xml
 <IfThenFilter name="(&string)" threshold="(&Real 0)" lower_threshold="(&bool False)">
     <IF testfilter="(&string)" inverttest="(&bool False)" valuefilter="(&string)" value="(&Real)" weight="(&Real 1)"/>
     <IF testfilter="(&string)" inverttest="(&bool False)" valuefilter="(&string)" value="(&Real)" weight="(&Real 1)"/>

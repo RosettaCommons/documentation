@@ -16,7 +16,7 @@ The secondary structure determined above is then used to find helices in the pos
 If no helix pairings are given, this implies that all helix pairings are satisfied, and the filter returns true.  If, however, helix pairings are given with helix numbers that do not exist in the pose, the filter returns false because something is likely to be wrong with the pose secondary structure.
 
 
-```
+```xml
 <HelixPairing name="(&string)"
               secstruct="('' &string)"
               use_dssp="(false &bool)"
