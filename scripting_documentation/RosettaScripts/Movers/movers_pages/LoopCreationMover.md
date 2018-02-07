@@ -69,7 +69,7 @@ LoopClosers are responsible for closing the recently build loops. These are just
 
 With loop\_sizes=2,3,4,5, in loop inserter, loop\_sizes in ResourceOptions should be 8,9,10,11 (since LOOP CREATION MOVER uses 3 (default) residue forward and 3 residues backward additionally to calculate geometric compatibility).
 
-```
+```xml
 <JD2ResourceManagerJobInputter>
         <ResourceOptions>
                 <LoopHashLibraryOptions tag="lh_lib_options" loop_sizes="8,9,10,11"/>

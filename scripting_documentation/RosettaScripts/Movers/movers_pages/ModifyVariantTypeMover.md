@@ -5,7 +5,7 @@ Last updated 6 April 2017 by Vikram K. Mulligan (vmullig@uw.edu).<br/>
 
 Add or remove variant types on specified residues.
 
-```
+```xml
 <ModifyVariantType name="[name]" add_type="[type[,type]...]" remove_type="[type[,type...]]" residue_selector="(&string)" update_polymer_bond_dependent_atoms="(&bool,false)" />
 ```
 

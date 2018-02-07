@@ -4,7 +4,7 @@
 
 Record a trajectory of snapshots as silent-file.
 
-```
+```xml
 <SilentTrajectoryRecorder stride="(100 &Size)" score_stride="(100 &Size)" filename="(traj &string)" cumulate_jobs="(0 &bool)" cumulate_replicas="(0 &bool)"/>
 ```
 

@@ -6,7 +6,7 @@
 
 This mover takes as input the name of a montecarlo object specified by the user, and calls the reset or recover\_low function on it.
 
-```
+```xml
 <MonteCarloUtil name="(&string)" mode="(&string)" montecarlo="(&string)"/>
 ```
 

@@ -354,19 +354,19 @@ The parameters above generally need not be changed from their default values.  I
 
 LigandMetalContactSelector selects all residues which form contacts with metal atoms, either as single ions or as part of a larger complex. It optionally takes a residue selector (as a subtag or previously defined selector) or a resnum list to indicate which metal-containing residues' contacts should be selected. Contacts are identified using the same procedure as the [[SetupMetalsMover]] and the -auto_setup_metals flag (see [[Metals]]); a potential metal-binding atom is considered to bind a metal if the distance between it and the metal ion is no greater than the sum of its van der Waals radius and that of the metal multiplied by the provided dist_cutoff_multiplier.
 
-```
+```xml
 <LigandMetalContactSelector name="(&string;)" residue_selector="(&string;)"
         dist_cutoff_multiplier="(1 &real;)" />
 ```
 or
-```
+```xml
 <LigandMetalContactSelector name="(&string;)"
         dist_cutoff_multiplier="(1 &real;)" >
     <Residue Selector Tag ... />
 </LigandMetalContactSelector>
 ```
 or
-```
+```xml
 <LigandMetalContactSelector name="(&string;)"
         dist_cutoff_multiplier="(1 &real;)"
         resnums="(&resnum_list_with_ranges;)" />
@@ -446,7 +446,7 @@ The PairedSheetResidueSelector selects all residues involved in strand-strand pa
 #####Example
 The following example will select all paired residues among strands 1 and 2, using a secondary structure computed by DSSP:
 
-```
+```xml
 <PairedSheetResidueSelector name="E1-E2_pairs"
     sheet_topology="1-2.A.-1" use_dssp="1" />
 ```

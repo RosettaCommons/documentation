@@ -7,7 +7,7 @@ Page last updated 19 August 2016.
 Given a symmetry definition file that describes configuration and scoring of a symmetric system, this mover "symmetrizes" an asymmetric pose.
 
 ####Usage
-```
+```xml
 <SetupForSymmetry name="(&string)" definition="(&string)" preserve_datacache="(&bool, false)" />
 ```
 
@@ -17,7 +17,7 @@ Given a symmetry definition file that describes configuration and scoring of a s
 
 ####Example
 Given the symmetry definition file 'C2.symm':
-```
+```xml
 <SetupForSymmetry name="setup_symm" definition="C2.symm" preserve_datacache="0" />
 ```
 

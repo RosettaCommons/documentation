@@ -6,13 +6,13 @@ Updated by Vikram K. Mulligan (vmullig@uw.edu) 6 April 2017.
 
 Change a single residue or a subset of residues to a different type. For instance, mutate Arg31 to an Asp or mutate all Pro to Ala.
 
-```
+```xml
 <MutateResidue name="(&string)" target="(&string)" new_res="(&string)" preserve_atom_coords="(false &bool)" mutate_self="(false &bool)" update_polymer_bond_dependent="(false &bool)" />
 ```
 
 or
 
-```
+```xml
 <MutateResidue name="(&string)" residue_selector="(&string)" new_res="(&string)" preserve_atom_coords="(false &bool)" mutate_self="(false &bool)" />
 ```
 

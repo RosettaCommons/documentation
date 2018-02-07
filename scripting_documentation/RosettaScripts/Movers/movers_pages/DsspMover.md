@@ -4,7 +4,7 @@
 
 Calculate secondary structures based on dssp algorithm, and load the information onto Pose.
 
-```
+```xml
 <Dssp name="(&string)" reduced_IG_as_L="(0 &int)"/>
 ```
 

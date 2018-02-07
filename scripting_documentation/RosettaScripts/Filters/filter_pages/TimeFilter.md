@@ -4,7 +4,7 @@
 
 Simple filter for reporting the time a sequence of movers/filters takes.
 
-```
+```xml
 <Time name="(&string)"/>
 ```
 

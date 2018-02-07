@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## AddHydrogens
 
-```
+```xml
 <AddHydrogens name="&string" chain="&string"/>
 ```
 

@@ -4,7 +4,7 @@
 
 Given a pose with a jump, this mover uses a fragment insertion monte carlo to connect the specified termini. The new fragment will connect the C-terminal residue of jump1 to the N-terminal residue of jump2, and will have secondary structure and ramachandran space given by "motif." This mover uses the VarLengthBuild code. The input pose must have at least two chains (jumps) to connect, or it will fail. 
 
-```
+```xml
 <BridgeChains name="(&string)" motif="('' &string)" chain1="(1 &int)" chain2="(2 &int)" overlap="(3 &int)" scorefxn="(&string)" />
 ```
 
@@ -24,7 +24,7 @@ Given a pose with a jump, this mover uses a fragment insertion monte carlo to co
 **Example**
  The following example connects the first jump in the protein with a 3-residue loop, a 10 residue helix and a 3-residue loop, and rebuilds residues that are +/- 4 positions from the inserted segment.
 
-```
+```xml
 <SCOREFXNS>
     <ScoreFunction name="SFXN" weights="fldsgn_cen" />
 </SCOREFXNS>

@@ -7,7 +7,7 @@ Add an arbitrary piece of data to the current Job, which will be output in the s
 
 The data appended to the Job consists of a key and a value. The key is a string, and the value can be either a real or string. The mover is used like this:
 
-```
+```xml
 <AddJobPairData name="(&string)" value_type="(&string)" key="(&string)" value="(&string, 'real' or 'string')" value_from_ligand_chain="(%string)"/>
 ```
 

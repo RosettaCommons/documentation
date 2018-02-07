@@ -36,7 +36,7 @@ FALLBACK STRATEGIES:
 *   _seq_design_profile_sets_combined_ (use profile sets and profile probability)
 
 
-```
+```xml
 <AddCDRProfilesOperation cdrs="(&string,&string)" numbering_scheme="(&string)" include_native_restype="(&bool, true)" picking_rounds="(&size, 1)"/>
 ```
 

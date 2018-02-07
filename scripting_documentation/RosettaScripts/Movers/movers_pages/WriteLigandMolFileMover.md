@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## WriteLigandMolFile
 
-```
+```xml
 <WriteLigandMolFile name="(&string)" chain="(&string)" directory="(&string)" prefix="(&string)"/>
 ```
 

@@ -10,7 +10,7 @@ PI: Roland Dunbrack
 ###Pupose
 Deletes a region of the current pose. The region is specified by residue selectors that are applied at apply time, so the residue does not necessarily need to exist in the input structure. If residue numbers are provided, a ResidueIndexResidueSelector is automatically created at parse time.
 
-```
+```xml
 <DeleteRegionMover name="(&string)"
                    residue_selector="(&string, '')"
                    start="(&string, '' (Ex: 24L))" end="(&string, '' (Ex: 42L))"

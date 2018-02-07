@@ -4,7 +4,7 @@
 
 Calculate and output contact maps for each calculated structure
 
-```
+```xml
 <ContactMap name="&string" region1="( &string)" region2="( &string)" ligand="( &string)"  distance_cutoff="( 10.0 &Real)"  prefix="('contact_map_' &string)" reset_count="('true' &string)" models_per_file="(1 &int)" row_format="('false' &string)" />
 ```
 

@@ -4,7 +4,7 @@
 
 Creates a disjointed foldtree where each selected residue has cuts N- and C-terminally to it.
 
-```
+```xml
 <HotspotDisjointedFoldTree name="(&string)" ddG_threshold="(1.0 &Real)" resnums="('' comma-delimited list of residues &string)" scorefxn="(score12 &string)" chain="(2 &Integer)" radius="(8.0 &Real)"/>
 ```
 

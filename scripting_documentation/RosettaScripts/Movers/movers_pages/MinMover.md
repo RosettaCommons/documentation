@@ -4,7 +4,7 @@
 
 Does minimization over sidechain and/or backbone
 
-```
+```xml
 <MinMover name="&string" scorefxn="(score12 &string)" chi="(&bool)" bb="(&bool)" jump="(ALL &string)" cartesian="(false &bool)" type="(dfpmin_armijo_nonmonotone &string)" tolerance="(0.01 &Real)" max_iter="(200 &int)" >
   <MoveMap>
     ...

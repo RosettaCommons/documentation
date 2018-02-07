@@ -4,7 +4,7 @@
 
 Repeatedly applies a given mover while ramping the score from a low value to a high value.
 
-```
+```xml
 <RampingMover name="(&string)" start_weight="(&real)" end_weight="(&real)" outer_cycles="(&real)" inner_cycles="(&real)" score_type="(&string)" ramp_func="(&string)" montecarlo="(&string)" mover="(&string)"/>
 ```
 

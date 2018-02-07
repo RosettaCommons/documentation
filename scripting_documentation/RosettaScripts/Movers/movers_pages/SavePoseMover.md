@@ -4,7 +4,7 @@
 
 This mover allows one to save a pose at any time point through out a trajectory or from disk, and recall it any time point again to replace a current pose. Can also just be used with filter, eg. delta filters.
 
-```
+```xml
 <SavePoseMover name="native" restore_pose="(1, &bool)" reference_name="(&string)" pdb_file="(&string)" />
 ```
 

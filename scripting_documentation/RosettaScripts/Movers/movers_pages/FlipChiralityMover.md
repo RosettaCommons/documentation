@@ -5,7 +5,7 @@ Page created by Parisa Hosseinzadeh (parisah@uw.edu).  Last modified 16 June 201
 
 Mirrors a pose (or selected parts of a pose). The residues are mirrored using with respect to a plane that can be defined by the user. For example L-amino acids will be changed to their D-counterparts, meaning that phi and psi angles will be mirrored and the name will change.
 
-```
+```xml
 <FlipChirality name="(&string)" residue_selector="(&selector_name)" normalx="(0.0 &real)" normaly="(0.0 &real)" normalz="(0.0 &real)" centerx="(0.0 &real)" centery="(0.0 &real)" centerz="(0.0 &real)"/>
 ```
 
@@ -13,7 +13,7 @@ If user provides normal vector values (<b>normalx, normaly, normalz</b>) and cen
 
 Example: This scripts mirrors chain B in a pose using default settings:
 
-```
+```xml
 <RESIDUE_SELECTORS>
   <Chain name="chainB" chains="2"/>
 </RESIDUE_SELECTORS>

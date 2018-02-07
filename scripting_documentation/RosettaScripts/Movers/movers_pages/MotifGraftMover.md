@@ -49,13 +49,13 @@ However the mover contains many options that can be useful under different scena
 
 Finally, an example XML Rosettascripts code using all the options for a single fragment graft:
 
-```
+```xml
 <MotifGraft name="motif_grafting" context_structure="./context.pdb" motif_structure="./motif.pdb" RMSD_tolerance="1.0"   NC_points_RMSD_tolerance="1.0" clash_test_residue="GLY" clash_score_cutoff="5" combinatory_fragment_size_delta="0:0" max_fragment_replacement_size_delta="0:0"  hotspots="1:2:4" full_motif_bb_alignment="1"  optimum_alignment_per_fragment="0" graft_only_hotspots_by_replacement="0" only_allow_if_NC_points_match_aa_identity="0" revert_graft_to_native_sequence="0" allow_repeat_same_graft_output="0"/>
 ```
 
 and for a two fragments graft:
 
-```
+```xml
 <MotifGraft name="motif_grafting" context_structure="./context.pdb" motif_structure="./motif.pdb" RMSD_tolerance="1.0"   NC_points_RMSD_tolerance="1.0" clash_test_residue="GLY" clash_score_cutoff="0.0" combinatory_fragment_size_delta="0:0,0:0" max_fragment_replacement_size_delta="0:0,0:0"  hotspots="1:2:4,1:3" full_motif_bb_alignment="1"  optimum_alignment_per_fragment="0" graft_only_hotspots_by_replacement="0" only_allow_if_NC_points_match_aa_identity="0" revert_graft_to_native_sequence="0" allow_repeat_same_graft_output="0"/>
 ```
 

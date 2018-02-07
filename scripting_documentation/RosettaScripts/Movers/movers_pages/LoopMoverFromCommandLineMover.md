@@ -4,7 +4,7 @@
 
 Perturbs and/or refines a set of loops from a loop file. Also takes in fragment libraries from command line (-loops:frag\_sizes , -loops:frag\_files). Has kinematic, ccd and automatic protocols.
 
-```
+```xml
 <LoopMoverFromCommandLine name="&string" loop_file="('loop.loops' &string)" protocol="(ccd &string)" perturb_score="(score4L &string)" refine_score="(score12 &string)" perturb="(0 &bool)" refine="(1 &bool)"/>
 ```
 
@@ -17,7 +17,7 @@ Perturbs and/or refines a set of loops from a loop file. Also takes in fragment 
 
 For protocol="automatic" (Based on [[Loop Modeling Application|loopmodel]] and [[LoopRemodel|LoopRemodelMover]]):
 
-```
+```xml
 <LoopMoverFromCommandLine name="&string" loop_file="('loop.loops' &string)" protocol="automatic" perturb_score="(score4L &string)" refine_score="(score12 &string)" perturb="(0 &bool)" refine="(no &string)" remodel="(quick_ccd &string)" relax="(no, &string)" intermedrelax="(no &string)"/>
 ```
 

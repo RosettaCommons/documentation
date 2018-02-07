@@ -8,7 +8,7 @@ If no targets are specified on either interface partner, all residues on that pa
 
 Disulfide bonds created by this mover, if any, are guaranteed to pass a DisulfideFilter.
 
-```
+```xml
 <DisulfideMover name="&string" targets="(&string)"/>
 ```
 

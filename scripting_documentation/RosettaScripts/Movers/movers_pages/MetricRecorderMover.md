@@ -6,7 +6,7 @@ Record numeric metrics to a tab-delimited text file. Only record metrics every n
 
 Currently only torsion angles can be recorded, specified using the TorsionID. The residue can be indicated using absolute Rosetta number (integer) or with the PDB number and chain (integer followed by character).
 
-```
+```xml
 <MetricRecorder stride="(100 &Size)" filename="(metrics.txt &string)" cumulate_jobs="(0 &bool)" cumulate_replicas="(0 &bool)" prepend_output_name="(0 &bool)" >
   <Torsion rsd="(&string)" type="(&string)" torsion="(&Size)" name="('' &string)"/>
   ...

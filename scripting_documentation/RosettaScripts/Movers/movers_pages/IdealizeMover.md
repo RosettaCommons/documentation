@@ -4,7 +4,7 @@
 
 Some protocols (LoopHashing) require the pose to have ideal bond lengths and angles. Idealize forces these values and then [[minimizes|Minimization-overview]] the pose in a stripped-down energy function (rama, disulf, and proline closure) and in the presence of coordinate constraints. Typically causes movements of 0.1A from original pose, but the scores deteriorate. It is therefore recommended to follow idealization with some refinement.
 
-```
+```xml
 <Idealize name="(&string)" atom_pair_constraint_weight="(0.0&Real)" coordinate_constraint_weight="(0.01&Real)" fast="(0 &bool)" report_CA_rmsd="(1 &bool)" ignore_residues_in_csts="(&comma delimited residue list)" impose_constraints="(1&bool)" constraints_only="(0&bool)"/>
 ```
 

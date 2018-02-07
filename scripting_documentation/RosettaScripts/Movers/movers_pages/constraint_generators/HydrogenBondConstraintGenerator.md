@@ -67,7 +67,7 @@ This ConstraintGenerator currently only works with canonical amino acids.
 
 ## Definition
 
-```
+```xml
 <HydrogenBondConstraintGenerator name="(&string)"
     residue_selector1="(&string TrueSelector)"
     residue_selector2="(&string TrueSelector)"
@@ -99,7 +99,7 @@ Note the 'ideal' dihedrals of 0.0 and 180.0 which indicates that hydrogen bonds 
 
 This example creates constraints to enforce a hydrogen bond between atom NE2 on residue 6 and atom OE1 on residue 50. The atom pair constraint between these atoms uses a custom function -- a flat-bottom function with width 0.4 and sd 0.5.
 
-```
+```xml
 <RESIDUE_SELECTORS>
     <Index name="his6" resnums="6" />
     <Index name="glu50" resnums="50" />

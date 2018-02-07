@@ -4,7 +4,7 @@
 
 Switches the residue sets (e.g., allatom-\>centroid, or vice versa).
 
-```
+```xml
 <SwitchResidueTypeSetMover name="&string" set="(&string)"/>
 ```
 

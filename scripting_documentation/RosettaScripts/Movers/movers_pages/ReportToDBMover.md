@@ -4,7 +4,7 @@
 
 Report structural data to a [[relational database|Database-IO]] using a modular schema. Each [[FeaturesReporter|FeatureReporters]] is responsible for a set of tables that conceptually represents a type of geometric, chemical, or meta property of a structure. All features reportered though a single instance of the ReportToDB Mover will be grouped into a **batch** of structures.
 
-```
+```xml
 <ReportToDB name="&string" {database_connection_options}  cache_size="(&integer)" batch_description="&string" protocol_id="(&integer)" task_operations="(&task_operations)" relevant_residues_mode="[explicit,implicit]">
    <&string {feature_specific_options}/>
    <&string {feature_specific_options}/>

@@ -6,7 +6,7 @@ The "off rotamer" sidechain-only Monte Carlo sampler. For a rather large setup c
 
 The underlying mover is still under development/benchmarking, so it may or may not work with backbone flexibility or amino acid identity changes.
 
-```
+```xml
 <SidechainMC name="(&string)" ntrials="(10000 &int)" scorefxn="(score12 &string)" temperature="(1.0 &real)" inherit_scorefxn_temperature="(0 &bool)" preserve_detailed_balance="(1 &bool)" task_operations="(&string,&string,&string)" prob_uniform="(0.0 &real)" prob_withinrot="(0.0 &real)" prob_random_pert_current="(0.0 &real)"/>
 ```
 

@@ -4,7 +4,7 @@
 
 Associated with GenericMonteCarlo and MonteCarloTest. Recover a pose from a GenericMonteCarloMover.
 
-```
+```xml
 <MonteCarloRecover name="(&string)" MC_name="(&string)" recover_low="(1 &bool)"/>
 ```
 

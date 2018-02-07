@@ -424,7 +424,7 @@ SCOREFUNCTIONS
 
 The SCOREFXNS section defines scorefunctions that will be used in Filters and Movers. This can be used to define any of the scores defined in the path/to/rosetta/main/database
 
-```
+```xml
 <ScoreFunction name="scorefxn_name" weights="("empty" &string)" patch="(&string)">
   <Reweight scoretype="(&string)" weight="(&Real)"/>
   <Set (option name)="(value)"/>

@@ -4,7 +4,7 @@
 
 Shear style backbone-torsion moves that minimize downstream propagation.
 
-```
+```xml
 <Shear name="&string"
        residue_selector="('', &string)"
        scorefxn="('', &string)"

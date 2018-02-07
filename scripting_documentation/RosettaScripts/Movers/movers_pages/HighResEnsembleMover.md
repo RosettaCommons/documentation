@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## HighResEnsemble
 
-```
+```xml
 <HighResEnsemble name="&string" chains="&string" cycles="(&int)" repack_every_Nth="(&int)" scorefxn="&string" movemap_builder="&&string" final_score="&string" final_move="&string" rosetta="&bool" />
 ```
 

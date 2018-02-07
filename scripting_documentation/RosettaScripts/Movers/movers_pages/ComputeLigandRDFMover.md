@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## ComputeLigandRDF
 
-```
+```xml
 <ComputeLigandRDF name="(string)" ligand_chain="(string)" mode="(string)">
     <(string)/>
 </ComputeLigandRDF>

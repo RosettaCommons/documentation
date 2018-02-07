@@ -4,7 +4,7 @@
 
 Allows looping over a mover using either iterations or a filter as a stopping condition (the first turns true). By using ParsedProtocol mover (formerly named the DockDesign mover) above with loop can be useful, e.g., if making certain moves is expensive and then we want to exhaust other, shorter moves.
 
-```
+```xml
 <LoopOver name=(&string) mover_name=(&string) filter_name=( false_filter &string) iterations=(10 &Integer) drift=(true &bool) ms_whenfail=("MS_SUCCESS" &string) />
 ```
 

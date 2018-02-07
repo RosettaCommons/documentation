@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## FinalMinimizer
 
-```
+```xml
 <FinalMinimizer name="&string" scorefxn="&string" movemap_builder="&string"/>
 ```
 

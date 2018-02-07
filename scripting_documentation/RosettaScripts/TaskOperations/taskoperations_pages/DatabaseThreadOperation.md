@@ -4,7 +4,7 @@
 
 This task operation is designed to deal with situations in which a pose is changed in a way that adds or removes residues. This creates a problem for normal threading that requires a constant start and stop positions. This task operation can use a database of sequences or a single target sequence. It also need a template pdb to find on the pose a user defined start and end residues. A sequence length and threading start position are calculated and then a correct length sequence is randomly chosen from the database and threaded onto the pose.
 
-```
+```xml
 <DatabaseThread name="(&string)" database="('' &string)" target_sequence="('' &string)" template_file="(&string)" start_res="(&int)" end_res="(&int)" allow_design_around="(1 &bool)" design_residues="(comma-delimited list)" keep_original_identity="(comma-delimited list)"/>
 ```
 
