@@ -11,7 +11,7 @@ Transform a filter's value according to a sigmoid: $$f(x) = 1 / ( 1 + (steepness
 
 The midpoint for the filter is at offset and steepness determines how steeply it climbs at the midpoint.
 
-```
+```xml
 <Sigmoid name="(&string)" filter="(&string)" threshold="(0 &Real)" steepness="(1.0 &Real)" offset="(0.0 &Real)" negate="(0 &bool)" baseline_checkpoint="(''&string)"/>
 ```
 
