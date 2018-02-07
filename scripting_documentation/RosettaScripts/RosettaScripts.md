@@ -424,7 +424,7 @@ SCOREFUNCTIONS
 
 The SCOREFXNS section defines scorefunctions that will be used in Filters and Movers. This can be used to define any of the scores defined in the path/to/rosetta/main/database
 
-```xml
+```
 <ScoreFunction name="scorefxn_name" weights="("empty" &string)" patch="(&string)">
   <Reweight scoretype="(&string)" weight="(&Real)"/>
   <Set (option name)="(value)"/>
@@ -501,7 +501,7 @@ The OUTPUT tag must be the very last tag before the closing `</ROSETTASCRIPTS>` 
 ### scorefxn
 
 ```xml
-<OUTPUT scorefxn="(name &string)" \>
+<OUTPUT scorefxn="(name &string)"/>
 ```
 The scorefunction specified by the OUTPUT tag will be used to score the pose prior to output. It is the score function which will be represented in the scores reported in the scorefile and the output PDB of the run.
 
@@ -568,7 +568,7 @@ MOVERS
 Each mover definition has the following structure
 
 ```xml
-<MOVERNAME mover_name="&string" name="&string" .../>
+<MOVERNAME mover_name="&string" name="&string" />
 ```
 
 where mover\_name belongs to a predefined set of possible movers that the parser recognizes and are listed below, name is a unique identifier for this mover definition and then any number of parameters that the mover needs to be defined.
@@ -583,7 +583,7 @@ FILTERS
 Each filter definition has the following format:
 
 ```xml
-<FILTERNAME filter_name="&string" ... confidence="1"/>
+<FILTERNAME filter_name="&string" confidence="1"/>
 ```
 
 where filter\_name belongs to a predefined set of possible filters that the parser recognizes and are listed below, name is a unique identifier for this mover definition and then any number of parameters that the filter needs to be defined.
@@ -647,7 +647,7 @@ LIGAND\_AREAS
 ```xml
 <LIGAND_AREAS>
 <LigandArea name="[name_of_this_ligand_area]" chain="[string]" cutoff="[float]" add_nbr_radius="[true|false]" all_atom_mode="[true|false]" minimize_ligand="[float]" Calpha_restraints="[float]" high_res_angstroms="[float]" high_res_degrees="[float]" tether_ligand="[float]" />
-<\LIGAND_AREAS
+<\LIGAND_AREAS>
 ```
 
 LIGAND\_AREAS describe parameters specific to each ligand, useful for multiple ligand docking studies. "cutoff" is the distance in angstroms from the ligand an amino-acid's C-beta atom can be and that residue still be part of the interface. "all\_atom\_mode" can be true or false. If all atom mode is true than if the C-beta atom of a protein residue is within "cutoff" of *any* ligand atom, the protein residue becomes part of the interface. If false, the C-beta atom of the protein residue must be within "cutoff" of the the ligand neighbor atom. If "add\_nbr\_radius" is true, the cutoff is increased by the size of the protein residue's neighbor radius. The neighbor radius is an estimate of the range of movement of the residue when repacked, and adding it can compensate for movement of the protein sidechains when repacking.
