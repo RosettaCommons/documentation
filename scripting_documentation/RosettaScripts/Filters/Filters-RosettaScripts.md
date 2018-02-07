@@ -5,7 +5,7 @@
 Each filter definition has the following format:
 
 ```xml
-<"filter_name" name="&string" ... confidence="(1 &Real)"/>
+<filter_name name="&string" ... confidence="(1 &Real)"/>
 ```
 
 where "filter\_name" belongs to a predefined set of possible filters that the parser recognizes and are listed below, name is a unique identifier for this mover definition and then any number of parameters that the filter needs to be defined.
