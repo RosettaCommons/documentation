@@ -11,12 +11,12 @@ The Nub Initio mover generates a low definition (centroid level) ab initio foldi
         rmsd_threshold="(5.000000 &real;)" rmsd_include_motif="(0 &bool;)"
         rmsd_include_unconstrained="(1 &bool;)"
         binder_weight="(0.000000 &real;)" angle_weight="(0.000000 &real;)"
-        dihedral_weight="(0.000000 &real;)" repack_disulfides="(1 &bool;)"
-        disulfides_bb="(0 &bool;)" disulfides_side="(0 &integer;)"
-        fragments_id="(&string;)" dump_centroid="(0 &bool;)"
-        drop_unfolded_pose="(0 &bool;)" design="(0 &bool;)"
-        residue_type="(&string;)" fullatom_scorefxn="(&string;)"
-        template_motif_selector="(&string;)" >
+        dihedral_weight="(0.000000 &real;)" correction_weights="(1 &bool;)"
+        repack_disulfides="(1 &bool;)" disulfides_bb="(0 &bool;)"
+        disulfides_side="(0 &integer;)" fragments_id="(&string;)"
+        dump_centroid="(0 &bool;)" drop_unfolded_pose="(0 &bool;)"
+        design="(0 &bool;)" residue_type="(&string;)"
+        fullatom_scorefxn="(&string;)" template_motif_selector="(&string;)" >
     <Nub pose_file="(&string;)" reference_name="(&string;)"
             residue_selector="(&string;)" binder_selector="(&string;)" >
         <Segment order="(&integer;)" n_term_flex="(0 &integer;)"
@@ -34,6 +34,7 @@ The Nub Initio mover generates a low definition (centroid level) ab initio foldi
 -   **binder_weight**: Weight for interchain scores to add to the AbInitio MonteCarlo's evaluator default score (0 - no weight).
 -   **angle_weight**: Weight for angle constraints to add to the AbInitio MonteCarlo's evaluator default score (0 - no weight).
 -   **dihedral_weight**: Weight for dihedral constraints to add to the AbInitio MonteCarlo's evaluator default score (0 - no weight).
+-   **correction_weights**: When true (default), it will autodetect the presence of helix/sheet in the template and add scoring terms appropiately.
 -   **repack_disulfides**: Force disulfide awarenes to guide ab initio.
 -   **disulfides_bb**: Allow backbone movements to try to fix disulfides.
 -   **disulfides_side**: Defines number of sequence neighbors around CYS residues allowed to pack/minimize in order to achieve the disulfide bridge.
