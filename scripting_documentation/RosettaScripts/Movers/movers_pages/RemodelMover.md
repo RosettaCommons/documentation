@@ -6,7 +6,7 @@ Remodel and rebuild a protein chain
 
 IMPORTANT NOTE!!!!: Remodel uses an internal system of trajectories controlled by the option -num\_trajectory [integer, \>= 1]. If num\_trajectory \> 1 each result is scored with score12 and the pose with lowest energy is handed to the next mover or filter. -num\_trajectory 1 is recommended for rosetta\_scripts.
 
-```
+```xml
   <RemodelMover name="(&string)" blueprint="(&string)"/>      
 ```
 

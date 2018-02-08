@@ -4,7 +4,7 @@
 
 Rotate pose over a given axis.
 
-```
+```xml
         <RollMover name="(&string)" start_res="(&int)" stop_res="(&int)" min_angle="(&Real)" max_angle="(&Real)"> 
                <axis x="(&Real)" y="(&Real)" z="(&Real)" /> 
                <translate x="(&Real)" y="(&Real)" z="(&Real)" /> 

@@ -12,26 +12,26 @@ Note that certain other Rosetta modules (e.g. the [[ReadResfile|ReadResfileOpera
 The purpose of separating the residue selection logic from the modifications that TaskOperations perform on a PackerTask is to make available the complicated logic of selecting residues that often lives in TaskOperations. If you have a complicated TaskOperation, consider splitting it into a ResidueSelector and operations on the residues it selects.
 
 ResidueSelectors can be declared in their own block, outside of the TaskOperation block. For example:
-
+```xml
     <RESIDUE_SELECTORS>
        <Chain name="chA" chains="A"/>
        <Index name="res1to10" resnums="1-10"/>
     </RESIDUE_SELECTORS>
-
+```
 Some ResidueSelectors can nest other ResidueSelectors in their definition; e.g.
-
+```xml
     <RESIDUE_SELECTORS>
         <Neighborhood name="chAB_neighbors">
             <Chain chains="A,B">
         </Neighborhood>
     </RESIDUE_SELECTORS>
-
+```
 In which case, the structure of the Neighborhood ResidueSelector will be stated as
-
-    <Neighborhood name=(%string) ... >
+```xml
+    <Neighborhood name=(%string) >
         <(Selector)>
     </Neighborhood>
-
+```
 With the <(Selector)> subtag designating that any ResidueSelector can be nested inside it.
 
 #### Apply a ResidueSelector
@@ -59,7 +59,7 @@ or
 -   The NotResidueSelector flips the boolean status returned by the apply function of the selector it contains.
 -   If the "selector" option is given, then a previously declared ResidueSelector (from the RESIDUE\_SELECTORS block of the XML file) will be retrieved from the DataMap
 -   If the "selector" option is not given, then a sub-tag containing an anonymous/unnamed ResidueSelector must be declared. This selector will not end up in the DataMap.  For example, it is possible to nest a Chain selector beneath a Not selector to say "give me everything except chain A:"
-    ```
+    ```xml
     <Not name="all_but_chA">
        <Chain chains="A"/>
     </Not>
@@ -176,7 +176,7 @@ Selects CDR residues in an antibody or camelid antibody.
 - Author: Dr. Jared Adolf-Bryfogle (jadolfbr@gmail.com) 
 - PIs: Dr. Roland Dunbrack and Dr. William Schief
 
-```
+```xml
     <AntibodyRegion name="(&string)" region="(&string)" numbering_scheme="(&string)" cdr_definition="(&string)" />
 ```
 
@@ -195,7 +195,7 @@ Selects CDR residues in an antibody or camelid antibody.
 - Author: Dr. Jared Adolf-Bryfogle (jadolfbr@gmail.com) 
 - PIs: Dr. Roland Dunbrack and Dr. William Schief
 
-```
+```xml
     <CDR name="(&string)" cdrs="(&string,&string)" numbering_scheme="(&string)" cdr_definition="(&string)" />
 ```
 
@@ -235,7 +235,7 @@ These Residue selectors use the underlying RosettaCarbohydrate Framework.
 
 The BinSelector selects residues that fall in a named mainchain torsion bin (e.g. the "A" bin, corresponding to alpha-helical residues by the "ABEGO" nomenclature).  Non-polymeric residues are ignored.  By default, only alpha-amino acids are selected, though this can be disabled.
 
-```
+```xml
      <Bin name="(&string)" bin="(&string)" bin_params_file="('ABEGO' &string)" select_only_alpha_aas="(true &bool)" />
 ```
 - bin: The name of the mainchain torsion bin.
@@ -244,13 +244,13 @@ The BinSelector selects residues that fall in a named mainchain torsion bin (e.g
 
 This example selects all residues that are in the region of Ramachandran space accessible to D-proline (which can be useful in the context of a script that attempts to design such positions to D-proline):
 
-```
+```xml
      <Bin name="select_d_pro_positions" bin="DPRO" bin_params_file="PRO_DPRO" />
 ```
 
 The BinSelector can be combined with AND, OR, or NOT selectors to select multiple regions.  For example, the following would select residues that are in the right- or left-handed helical regions of Ramachandran space:
 
-```
+```xml
      <Bin name="right_handed_helices" bin="A" bin_params_file="ABBA" />
      <Bin name="left_handed_helices" bin="Aprime" bin_params_file="ABBA" />
      <Or name="right_or_left_handed_helices" selectors="right_handed_helices,left_handed_helices" />
@@ -261,7 +261,7 @@ The BinSelector can be combined with AND, OR, or NOT selectors to select multipl
 
 The BondedResidueSelector takes (required) a residue selector or a comma-separated list of residue numbers and selects all residues with chemical bonds to the input residues. This will include both primary sequence neighbors and any other covalently bound residues, including but not limited to bound metal ions (if set up using -auto_setup_metals), carbohydrates, disulfide partners, etc.
 
-```
+```xml
      <Bonded name="(&string)" resnums="(&string)" selector="(&string)"/>
 ```
 
@@ -269,7 +269,7 @@ The BondedResidueSelector takes (required) a residue selector or a comma-separat
 * selector: Name of a previously-defined residue selector specifying the input set.
 
 The BondedResidueSelector can also take a residue selector as a subtag:
-```
+```xml
      <Bonded name="(&string)" >
           <Index resnums="2,3" />
      </Bonded>
@@ -280,7 +280,7 @@ Only one residue selector may be provided, and it is mutually exclusive with the
 
 HBondSelector selects all residues with hydrogen bonds to the residues specified in the input (either by a comma-separated resnum list or by a residue selector). If no input residues are selected, then all residues in the pose forming hydrogen bonds stronger than the specified energy cutoff are selected.
 
-```
+```xml
      <HBond name="(&string)" resnums="(&string)" 
         residue_selector="(&string)" include_bb_bb="(false &bool)"
         hbond_energy_cutoff="(-0.5 &Real)" scorefxn="(&string)" />
@@ -315,7 +315,7 @@ or
 
 The LayerSelector lets a user select residues by burial.  Burial can be assessed by number of sidechain neighbors within a cone along the CA-CB vector (the default method), or by SASA.
 
-```
+```xml
      <Layer name="(&string)" select_core="(false &bool)" select_boundary="(false &bool)" select_surface="(false &bool)"
           ball_radius="(2.0 &Real)" use_sidechain_neighbors="(true &bool)"
           sc_neighbor_dist_exponent="(1.0 &Real)" sc_neighbor_dist_midpoint="(9.0 &Real)"
@@ -399,7 +399,7 @@ or
 
 #### NumNeighborsSelector
 
-```
+```xml
     <NumNeighbors name="(%string)" count_water="(false&bool)" threshold="(17%integer)" distance_cutoff="(10.0&float)"/>
 ```
 
@@ -411,7 +411,7 @@ or
 #### PhiSelector
 
 
-```
+```xml
      <Phi name="(&string)" select_positive_phi="(true &bool)" ignore_unconnected_upper="(true &bool)" />
 ```
 - select_positive_phi: If true (the default), alpha-amino acids with phi values greater than or equal to zero are selected.  If false, alpha-amino acids with phi values less than zero are selected.
@@ -569,7 +569,7 @@ The example below selects all residues that were converted to disulfides by the 
 
 The UnsatSelector selects all the backbone amines or carbonyls (*but not both*) that are not satisfied by a hydrogen bond. The general format of the selector is:
 
-```
+```xml
      <Unsat name="(&string)" consider_mainchain_only="(true &bool)" check_acceptors="(true &bool)" hbond_energy_cutoff="(-0.5 &real)" scorefxn="(&string)/>
 ```
 - consider_mainchain_only: should we only count the hydrogen bonds from backbone (default) or also include sidechains
@@ -579,13 +579,13 @@ The UnsatSelector selects all the backbone amines or carbonyls (*but not both*) 
 
 This example selects all *residues* in the structure that has a carbonyl that is not satisfied by a hydrogen bond from backbone:
 
-```
+```xml
      <Unsat name="select_unsat_carbonyl" scorefxn="score"/>
 ```
 
 This example selects all *residues* in the structure that has a backbone amine that is not satisfied by a hydrogen bond from backbone or side chain:
 
-```
+```xml
      <Unsat name="select_unsat_carbonyl" scorefxn="score" check_acceptors="false" consider_mainchain_only="false"/>
 ```
 
