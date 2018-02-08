@@ -6,7 +6,7 @@ Questions and comments to:
 - Rebecca Alford (rfalford12@gmail.com)
 - Corresponding PI: Jeffrey J. Gray (jgray@jhu.edu)
 
-Last Updated: 2/5/18
+Last Updated: 2/8/18
 
 ## Description
 
@@ -28,6 +28,6 @@ TODO: Currently not compatible with RosettaScripts.
 
 ## Reference
 
-Currently unpublished. RosettaMP is described in 
+RosettaMP is described in 
 
 * Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Elazar A, Tilley DC, Gray JJ (2015) An integrated framework advancing membrane protein modeling and design, PLoS Computational Biology (in press)

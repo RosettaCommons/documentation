@@ -6,7 +6,7 @@ Questions and comments to:
 - Rebecca Alford (rfalford12@gmail.com)
 - Corresponding PI: Jeffrey J. Gray (jgray@jhu.edu)
 
-Last Updated: 1/25/18
+Last Updated: 2/8/18
 
 ## Description
 
@@ -27,6 +27,6 @@ TODO: Currently not compatible with RosettaScripts.
 |`-mp::setup::spanfiles <spanfile>` | Add spanfile when registering options from Command Line. |
 
 ## Reference
-This Mover is currently unpublished. RosettaMP and previous protocols were published in:
+RosettaMP and previous protocols were published in:
 
 * Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Elazar A, Tilley DC, Gray JJ (2015) An integrated framework advancing membrane protein modeling and design, PLoS Computational Biology (in press)

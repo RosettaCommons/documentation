@@ -6,11 +6,11 @@ Questions and comments to:
 - Rebecca Alford (rfalford12@gmail.com)
 - Corresponding PI: Jeffrey J. Gray (jgray@jhu.edu)
 
-Last Updated: 1/25/18
+Last Updated: 2/8/18
 
 ## Description
 
-This Mover is used in the global membrane protein docking protocol (the MPFindInterfaceMover). The first partner is fixed in the membrane and this Mover spins the second (movable) partner around the first partner in the membrane. The Mover samples a random position within a 100 A square and then docks the partners together using the DockingSlideIntoContactMover from the general docking protocol. [The DockingSlideIntoContactMover was adjusted such that the stepsize depends on the distance between the partners and not in 1A steps - this is considerably faster than the latter.]
+This Mover flips a pose or part of the pose in the membrane and is tested only for a fixed membrane and a movable protein. Possible arguments are the jump number along which jump to flip the downstream partner, the flip axis, and the rotation angle. For the default constructor these values are the membrane jump, 180 degree angle, and the x-axis as rotation axis. There is also the option to set a random flip angle in the membrane or set the range of the maximum angle deviation from the membrane normal. 
 
 ## Code and Demo
 
@@ -27,6 +27,7 @@ TODO: Currently not compatible with RosettaScripts.
 |`-mp::setup::spanfiles <spanfile>` | Add spanfile when registering options from Command Line. |
 
 ## Reference
-This Mover is currently unpublished. RosettaMP and previous protocols were published in:
+
+RosettaMP is described in 
 
 * Alford RF, Koehler Leman J, Weitzner BD, Duran AM, Elazar A, Tilley DC, Gray JJ (2015) An integrated framework advancing membrane protein modeling and design, PLoS Computational Biology (in press)
