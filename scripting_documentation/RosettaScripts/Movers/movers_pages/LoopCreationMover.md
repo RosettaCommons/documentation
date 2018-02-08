@@ -19,7 +19,7 @@ LoopInserters are responsible for building loops between residues loop\_anchor a
 
 -   LoophashLoopInserter
 
-    ```
+    ```xml
     <LoophashLoopInserter name=(&string) loop_anchor=(&integer) loop_sizes=(&integer) modify_flanking_regions=(1/0) />
     ```
 
@@ -33,7 +33,7 @@ LoopInserters are responsible for building loops between residues loop\_anchor a
 
 -   FragmentLoopInserter: Attempt to find single fragments that have ends with low-rmsd to the flanking residues of the loop to build.
 
-    ```
+    ```xml
     <FragmentLoopInserter name=(&string) loop_anchor=(&int)/>
     ```
 
@@ -43,7 +43,7 @@ LoopClosers are responsible for closing the recently build loops. These are just
 
 -   CCDLoopCloser - Use CCD to close recently built loop
 
-    ```
+    ```xml
     <CCDLoopCloser name=(&string) />
     ```
 
@@ -54,7 +54,7 @@ LoopClosers are responsible for closing the recently build loops. These are just
 
 -   LoopCreationMover
 
-    ```
+    ```xml
     <LoopCreationMover name=(&string) loop_closer=(&LoopCloser name) loop_inserter=(&LoopInserter name) />
     ```
 

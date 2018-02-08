@@ -19,7 +19,7 @@ Use the [[SavePoseMover]] to give the pose to this mover.  Works the same way in
 ##XML Script
 
 **Combine with [[SavePoseMover]]**
-```
+```xml
      <InsertPoseIntoPoseMover name="(&string)" start_pdb_num (&string) end_pdb_num="(&string)" copy_pdbinfo="(&bool, false)" spm_reference_name=/>
 ```
 

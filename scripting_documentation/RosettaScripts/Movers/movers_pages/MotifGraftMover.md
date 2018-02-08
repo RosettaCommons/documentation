@@ -25,7 +25,7 @@ When full backbone alignment is used, the size of the fragment to be replaced ha
 
 An example of a minimal XML code for this mover is the next:
 
-```
+```xml
         <MotifGraft name="motif_grafting" context_structure="./contextStructure.pdb" motif_structure="./motif_2NM1B.pdb"  RMSD_tolerance="1.0" NC_points_RMSD_tolerance="1.0" clash_score_cutoff="5" full_motif_bb_alignment="1" revert_graft_to_native_sequence="1" allow_repeat_same_graft_output="0" />
 ```
 
@@ -61,7 +61,7 @@ and for a two fragments graft:
 
  Task operations after MotifGraft : For your convinience, the mover will generate some PDBinfo labels inside the pose. The available labels are: "HOTSPOT", "CONTEXT", "SCAFFOLD", "MOTIF" and "CONNECTION", which luckily correspond exactly to the elements that each of the labels describe. You can easily use this information in residue level task operations in order to prevent or restrict modifications for particular elements. Example:
 
-```
+```xml
         <OperateOnCertainResidues name="hotspot_onlyrepack">
             <ResiduePDBInfoHasLabel property="HOTSPOT"/>
             <RestrictToRepackingRLT/>
