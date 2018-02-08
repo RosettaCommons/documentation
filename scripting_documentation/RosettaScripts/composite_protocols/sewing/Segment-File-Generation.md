@@ -17,7 +17,7 @@ The following DSSP codes are allowed: ```H``` (helix), ```L``` (loop), ```E``` (
 The segment_file_generator app requires two command line arguments: ```motif_file```(see above) and ```pdb_list_file```. The ```pdb_list_file``` is a text file listing the paths to pdb files, separated by a newline character. Structure files can be queried from the RCSB protein database, or from sources such as the Richardson Lab's [Top 8000 Database](http://kinemage.biochem.duke.edu/databases/top8000.php) or the Dunbrack Lab's [PISCES Server](http://dunbrack.fccc.edu/PISCES.php).
 
 Example run:
-```
+```sh
 ./segment_file_generator.default.xxx -database ~/Rosetta/main/database/ -ignore_unrecognized_res -pdb_list_file pdbs.txt -motif_file motifs.txt
 ```
 
