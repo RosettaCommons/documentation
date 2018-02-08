@@ -8,7 +8,7 @@
 
 In order to run with mpi, you must also compile with serialization:
 
-```
+```sh
 ./scons.py -j<number of cores> mode=release extras=mpi,serialization bin
 ```
 
@@ -58,7 +58,7 @@ running your protocol instead of being archive nodes
 
 ###Archiving on disk
 
-```
+```sh
 mkdir archives
 mpirun -n 200 multistage_rosetta_scripts.mpiserialization.linuxgccrelease -job_definition_file job_def.xml -n_archive_nodes 1 -archive_on_disk archives @other_flags
 rm -rf archives
@@ -66,7 +66,7 @@ rm -rf archives
 
 ###Archiving in memory
 
-```
+```sh
 mpirun -n 200 multistage_rosetta_scripts.mpiserialization.linuxgccrelease -job_definition_file job_def.xml -n_archive_nodes 10 @other_flags
 ```
 

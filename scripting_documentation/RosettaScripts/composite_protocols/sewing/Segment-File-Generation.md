@@ -28,7 +28,7 @@ We highly recommend using the ```-ignore_unrecognized_res``` flag, unless your i
 
 While not recommended due to lack of validation, it is possible to generate SEWING structures using multiple motifs. For example, you could use a segment file which contains both HLH and HLELH structures to generate an alpha+beta structure. To do so, simply combine the two segment files together:
 
-```
+```sh
 cp smotifs_H_1_100_L_1_100_H_1_100.segments HLH_HLELH_combined_segment_file.segments && cat smotifs_H_1_100_L_1_100_E_1_100_L_1_100_H_1_100.segments >> HLH_HLELH_combined_segment_file.segments
 ```
 
