@@ -264,6 +264,8 @@ so it places a TODO comment for you to replace the input format if necessary
 </JobDefinitionFile>
 ```
 
+[[There is also a method to convert a multistage rosetta script back to a traditional rosetta script here|MRSTools#tools-and-utilities_script-converter_reverse-converter]]
+
 ##(Incomplete) Skeleton
 
 If you really want to write a script from scratch instead of using the converter, here is a skeleton.
