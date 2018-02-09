@@ -12,7 +12,6 @@
     total_num_results_to_keep=“(uint)”
     result_cutoff=“(uint)”
     max_num_results_per_instance=“(uint)”
-    job_bundle_size=“(uint)”
     merge_results_after_this_stage=“(bool)”
 >
 
@@ -55,16 +54,6 @@ The current format only allows for the final mover in a stage to return multiple
 This number defines a cap for a single mover.
 If this value is set to 10, for example, a single instance of HBNet would only be able to return up to 10 results.
 So if you have `num_runs_per_input_struct=1000` and `max_num_results_per_instance=2`, you can get a maximum of 2000 results.
-
-##job_bundle_size
-
-This option is rarely useful.
-
-There may be a situation where a single stage is incredibly fast, so fast that the job distribution overhead is no longer negligible (perhaps the whole stage is just a single filter).
-This option allows you to group jobs of the same stage together so that they more-or-less share overhead.
-If `num_runs_per_input_struct=1000` and `job_bundle_size=10`, then the job distributor sends out 100 jobs that each repeat the work 10 times.
-
-This does not require compensation in the other options. `max_num_results_per_instance` is still applied to each individual job, not to each bundle.
 
 ##merge_results_after_this_stage
 
