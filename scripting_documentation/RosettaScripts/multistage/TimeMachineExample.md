@@ -4,6 +4,8 @@
 
 Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
+[[_TOC_]]
+
 One of the consequences of
 [[archiving job results on disk|RunningMRS#running-multistage-rosetta-scripts_relevant-commandline-flags_archive_on_disk]]
 is that the results still exist when the program completes.
