@@ -16,7 +16,7 @@ The converted script will be printed to the console if the `-job_definition_file
 multistage_rosetta_scripts.default.linuxgccrelease -convert -parser:protocol existing_script.xml -job_definition_file new_script.xml
 ```
 
-###Reverse Converter
+####Reverse Converter
 
 You can also convert a multistage rosetta script to a traditional rosetta script by using
 `-revert` or `-reverse_convert` (both do the same thing).
