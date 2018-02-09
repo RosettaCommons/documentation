@@ -234,6 +234,10 @@ Component | Description
     * [[mp_span_from_pdb|RosettaMP-App-MPSpanFromPDB]] - Calculate trans-membrane spans from the PDB structure
     * [[mp_transform|RosettaMP-App-MPTransform]] - Transforming the protein into membrane coordinates.
 
+##Utilities
+
+- [[mp_utilities | RosettaMP-Utilities]] - Various utilities with membrane options.
+
 ----------------------------------
 
 ##Analysis <a name="Analysis" />

@@ -20,11 +20,11 @@ The Mover lives in `main/source/src/protocols/docking/membrane/`.
 
 The following options are available within the RosettaScript interface:
 
-`cen_sfxn_weights` - Type - Set weight for the low resolution scorefunction.
-`fa_sfxn_weights` - Type - Set weight for the high resolution scorefunction.
+`cen_sfxn_weights` - string - Set weight for the low resolution scorefunction.
+`fa_sfxn_weights` - string - Set weight for the high resolution scorefunction.
 `center` - RealVector - Membrane center x, y, z.
 `normal` - RealVector  - membrane normal x, y, z.
-`jump_num` - Type - Description.
+`jump_num` - Size - Description.
 
 ## Flags / Options
 
