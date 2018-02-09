@@ -1,12 +1,12 @@
 #MultistageRosettaScripts
 
-#MRS: Running Multistage Rosetta Scripts
+#M.R.S.: Running Multistage Rosetta Scripts
 
 [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
 [[_TOC_]]
 
-##Compiling MRS
+##Compiling M.R.S.
 
 In order to run with mpi, you must also compile with serialization:
 
@@ -35,7 +35,7 @@ You may find that you have too many job results to fit in this node's memory.
 If so, you can request additional archive nodes using this flag.
 
 It is hard to know ahead of time how much memory you will need.
-MRS has an [[archive memory estimation utility|MRSTools#estimate-memory]],
+M.R.S. has an [[archive memory estimation utility|MRSTools#estimate-memory]],
 but that is still experimental and usually underestimates the memory requirements.
 The next option was introduced because of this difficulty:
 

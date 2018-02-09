@@ -1,6 +1,6 @@
 #MultistageRosettaScripts
 
-#MRS: Batch Relax Example
+#M.R.S.: Batch Relax Example
 
 [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 

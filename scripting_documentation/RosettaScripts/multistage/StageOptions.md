@@ -27,7 +27,7 @@
 
 ##num_runs_per_input_struct
 
-This is MRS's equivalent to the `-nstruct` command line option.
+This is M.R.S.'s equivalent to the `-nstruct` command line option.
 For the first stage, the number provided here declares the number of times the stage will run for each `<Job/>` tag.
 For example, if `num_runs_per_input_struct=40` and there are 5 `<Job/>` tags, then the stage will end up running a total of 200 times.
 
