@@ -48,13 +48,16 @@ and will kill the program if you underestimate.
 Because of this unfriendly behavior,
 we added the option to store job results on the disk.
 You just need to create an empty directory and pass the
-path to that directory as the argument to this option.
+path to that directory as the argument to this option as shown in the example below.
 
 Accessing information on the disk is much slower than accessing elements in memory.
 This slowdown is negligible in this case because these elements are accessed very infrequently.
-Additionally, this allows you to have more of your CPUs
+Additionally, this allows you to have more CPUs
 running your protocol instead of being archive nodes
 (you can greatly reduce your value for `n_archive_nodes` when archiving on disk).
+
+For whatever it is worth, I always use the `archive_on_disk` option when running multistage rosetta scripts.
+-Jack Maguire
 
 ##Examples
 
