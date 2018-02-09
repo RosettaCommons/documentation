@@ -1,6 +1,6 @@
 #MultistageRosettaScripts
 
-#MRS: XML Script
+#XML Script
 
 Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
