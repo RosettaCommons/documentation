@@ -218,7 +218,7 @@ Remodel with constraints
 
 Remodel uses the constraint setup in the enzyme design ("EnzDes") protocol, because it separates the definition of residue positions and the constraints to be applied to them. This setup allows blueprint to double as a constraint position definition file and allow all extensions and deletions to be handled elegantly. Note that the build constraint defined here will only be used in the centroid stage.
 
-To setup build constraints, two things must be done. First, a constraint definition text file has to be created, following the [[enzdes constraints format|match-cstfile-format]] . Note that backbone atoms need extra manual declaration of "is\_backbone" otherwise they won't get applied in the build stage. Also, the atom\_type fields expect Rosetta atom types.
+To setup build constraints, two things must be done. First, a constraint definition text file has to be created, following the [[enzdes constraints format|match-cstfile-format]] . Note that backbone atoms need extra manual declaration of "is\_backbone" otherwise they won't get applied in the build stage. Also, the [[atom_type|Rosetta-AtomTypes]] fields expect Rosetta atom types.
 
 ```
   CST::BEGIN
@@ -236,7 +236,7 @@ To setup build constraints, two things must be done. First, a constraint definit
 
 This block describes a constraint setup between a backbone Nitrogen and backbone Oxygen atom to fall within a hydrogen bonding distance (2.8 Ãƒ). The residue3 tag lists all the amino acid types so when the constraint is applied, it simply ignores the amino acid identity. A single letter code can be used instead if "residue1" is used.
 
-Notes on cst file specification- the "atom\_type" designation requires only one name, and the connectivity will be automatically looked up in the residue params file. But if "atom\_name" is used, one would have to explicitly specify three atoms so the torsions and angles can be set correctly. For example:
+Notes on cst file specification- the [[atom_type|Rosetta-AtomTypes]] designation requires only one name, and the connectivity will be automatically looked up in the residue params file. But if "atom\_name" is used, one would have to explicitly specify three atoms so the torsions and angles can be set correctly. For example:
 
 ```
 ATOM_MAP: 1
