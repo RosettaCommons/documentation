@@ -10,7 +10,7 @@ One of the consequences of
 [[archiving job results on disk|RunningMRS#running-multistage-rosetta-scripts_relevant-commandline-flags_archive_on_disk]]
 is that the results still exist when the program completes.
 Sure, this usually just means that you have to do the extra chore of
-going out of your way to delete these binaries when you are done running,
+deleting these binaries when you are done running,
 but there are benefits too:
 
 ###Anecdote
@@ -18,7 +18,7 @@ but there are benefits too:
 Suppose your final results have some trait that you did not expect
 and you would like to figure out how this trait was introduced.
 For example, I* recently ran a protocol with 1 stage of DockingProtocol
-followed by 5 stages of FastRelax similar to [[this example|BatchRelaxExample]].
+followed by 5 stages of FastRelax (similar to [[this example|BatchRelaxExample]]).
 The final structures were completely unfolded
 and I wanted to figure out where things went wrong.
 I loaded up the 5 intermediates states from their archives (as shown below)
