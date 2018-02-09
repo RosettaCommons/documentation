@@ -46,6 +46,10 @@ Let's play with a 3-stage protocol that does Docking, PackRotamersMover, and Min
 
     <Common>
 
+        <TASKOPERATIONS>
+            <RestrictToRepacking name="rtr"/>
+        </TASKOPERATIONS>
+
         <SCOREFXNS>
             <ScoreFunction name="sfxn" weights="ref2015_cart.wts"/>
             <ScoreFunction name="sfxn_lowres" weights="interchain_cen.wts"/>
@@ -56,13 +60,13 @@ Let's play with a 3-stage protocol that does Docking, PackRotamersMover, and Min
         </FILTERS>
 
         <MOVERS>
-		<DockingProtocol docking_score_low="sfxn_lowres" partners="A_B" low_res_protocol_only="true" name="dock" />
-		<SwitchResidueTypeSetMover name="to_fa" set="fa_standard" />
-		<SaveAndRetrieveSidechains allsc="1" multi_use="0" name="save_retrieve" two_step="1" />
+            <DockingProtocol docking_score_low="sfxn_lowres" partners="A_B" low_res_protocol_only="true" name="dock" />
+            <SwitchResidueTypeSetMover name="to_fa" set="fa_standard" />
+            <SaveAndRetrieveSidechains allsc="1" multi_use="0" name="save_retrieve" two_step="1" />
 
-		<PackRotamersMover scorefxn="sfxn" name="pack_rot" />
+            <PackRotamersMover scorefxn="sfxn" name="pack_rot" task_operations="rtr"/>
 
-		<MinMover scorefxn="sfxn" name="min_mover" chi="1" bb="0"/>
+            <MinMover scorefxn="sfxn" name="min_mover" chi="1" bb="0"/>
         </MOVERS>
 
         <PROTOCOLS>
@@ -87,11 +91,16 @@ Let's play with a 3-stage protocol that does Docking, PackRotamersMover, and Min
         </PROTOCOLS>
 
     </Common>
-
 </JobDefinitionFile>
 ```
 
 If you are following along, I am using the 3U3B
 file directly from RCSB ([[link|https://files.rcsb.org/view/3U3B.pdb]]).
+My execution command looked like this:
+
+```sh
+mkdir archives
+multistage_rosetta_scripts.default.linuxgccrelease -job_definition_file job_def.xml -archive_on_disk archives
+```
 
 *Jack Maguire, 2018
