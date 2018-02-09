@@ -1,6 +1,6 @@
 #MultistageRosettaScripts
 
-#M.R.S. Stage Options
+#Stage Options
 
 Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
