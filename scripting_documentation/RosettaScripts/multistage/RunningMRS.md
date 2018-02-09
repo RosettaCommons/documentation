@@ -1,8 +1,8 @@
 #MultistageRosettaScripts
 
-#M.R.S.: Running Multistage Rosetta Scripts
+#Running Multistage Rosetta Scripts
 
-[[Multistage Rosetta Scripts|MultistageRosettaScripts]]
+Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
 [[_TOC_]]
 
