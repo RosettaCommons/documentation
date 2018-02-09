@@ -6,7 +6,7 @@ Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
 [[_TOC_]]
 
-##Compiling M.R.S.
+##Compiling M.R.S. With MPI
 
 In order to run with mpi, you must also compile with serialization:
 
