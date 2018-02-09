@@ -21,7 +21,7 @@ For example, I* recently ran a protocol with 1 stage of DockingProtocol
 followed by 5 stages of FastRelax (similar to the [[batch relax example|BatchRelaxExample]]).
 The final structures were completely unfolded
 and I wanted to figure out where things went wrong.
-I loaded up the 5 intermediates states from their archives (as shown below)
+I loaded up the 5 intermediate states from their archives
 and was able to look at each structure.
 The protein was folded after the docking stage
 but was unfolded after the first FastRelax stage.
@@ -32,53 +32,56 @@ The use of this time machine feature allowed me to quickly figure out that
 I was not using the [[SaveAndRetrieveSidechainsMover|SaveAndRetrieveSidechainsMover]]
 correctly by showing me snapshots of a trajectory at the end of each stage.
 
-###Example
+###Toy Example
+
+Let's play with a 3-stage protocol that does Docking, PackRotamersMover, and MinMover:
 
 ```xml
 <JobDefinitionFile>
     <Job>
         <Input>
-            <PDB filename="../S1.pdb"/>
+            <PDB filename="3U3B.pdb"/>
         </Input>
     </Job>
 
     <Common>
 
         <SCOREFXNS>
-            <ScoreFunction name="common_sfxn" weights="beta_nov16_cart.wts"/>
+            <ScoreFunction name="sfxn" weights="ref2015_cart.wts"/>
+            <ScoreFunction name="sfxn_lowres" weights="interchain_cen.wts"/>
         </SCOREFXNS>
 
-        <TASKOPERATIONS>
-            <InitializeFromCommandline name="ifc"/>
-            <IncludeCurrent name="ic"/>
-            <ExtraRotamersGeneric ex1="true" ex2="true" name="ex1ex2"/>
-        </TASKOPERATIONS>
-
         <FILTERS>
-            <ScoreType name="beta16_filter" score_type="total_score" scorefxn="common_sfxn" threshold="999999"/>
+            <ScoreType name="sfxn_filter" score_type="total_score" scorefxn="sfxn" threshold="999999" />
         </FILTERS>
 
         <MOVERS>
-            <FastRelax disable_design="true" name="relax_1" repeats="1" scorefxn="common_sfxn" task_operations="ifc,ic,ex1ex2"/>
-            <FastRelax disable_design="true" name="relax_2" repeats="2" scorefxn="common_sfxn" task_operations="ifc,ic,ex1ex2"/>
-            <SwitchResidueTypeSetMover name="to_fa" set="fa_standard"/>
+		<DockingProtocol docking_score_low="sfxn_lowres" partners="A_B" low_res_protocol_only="true" name="dock" />
+		<SwitchResidueTypeSetMover name="to_fa" set="fa_standard" />
+		<SaveAndRetrieveSidechains allsc="1" multi_use="0" name="save_retrieve" two_step="1" />
+
+		<PackRotamersMover scorefxn="sfxn" name="pack_rot" />
+
+		<MinMover scorefxn="sfxn" name="min_mover" chi="1" bb="0"/>
         </MOVERS>
 
         <PROTOCOLS>
-            <Stage num_runs_per_input_struct="1" total_num_results_to_keep="7500">
+            <Stage num_runs_per_input_struct="100" total_num_results_to_keep="5">
+                <Add mover_name="save_retrieve"/>
+                <Add mover_name="dock"/>
                 <Add mover_name="to_fa"/>
-                <Add mover_name="relax_1"/>
-                <Sort filter_name="beta16_filter"/>
+                <Add mover_name="save_retrieve"/>
+                <Sort filter_name="sfxn_filter"/>
             </Stage>
 
-            <Stage num_runs_per_input_struct="1" total_num_results_to_keep="1875">
-                <Add mover_name="relax_1"/>
-                <Sort filter_name="beta16_filter"/>
+            <Stage num_runs_per_input_struct="2" total_num_results_to_keep="5">
+                <Add mover_name="pack_rot"/>
+                <Sort filter_name="sfxn_filter"/>
             </Stage>
 
-            <Stage num_runs_per_input_struct="1" total_num_results_to_keep="1875">
-                <Add mover_name="relax_2"/>
-                <Sort filter_name="beta16_filter"/>
+            <Stage num_runs_per_input_struct="1" total_num_results_to_keep="3">
+                <Add mover_name="min_mover"/>
+                <Sort filter_name="sfxn_filter"/>
             </Stage>
 
         </PROTOCOLS>
@@ -87,5 +90,8 @@ correctly by showing me snapshots of a trajectory at the end of each stage.
 
 </JobDefinitionFile>
 ```
+
+If you are following along, I am using the 3U3B
+file directly from RCSB ([[link|https://files.rcsb.org/view/3U3B.pdb]]).
 
 *Jack Maguire, 2018
