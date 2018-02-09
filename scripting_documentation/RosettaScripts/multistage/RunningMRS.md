@@ -27,7 +27,7 @@ This is how you pass your script to Rosetta.
 
 ###n_archive_nodes
 
-`-jd3:n_archive_nodes <int>` (default is 0)
+`-jd3:n_archive_nodes <int>` (default is 0, meaning the archives are stored on the master node)
 
 Not all of the CPUs you use will actually be running your script.
 One will be the "master" and control job distribution and result storing.

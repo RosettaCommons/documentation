@@ -9,13 +9,28 @@ One of the consequences of
 is that the results still exist when the program completes.
 Sure, this usually just means that you have to do the extra chore of
 going out of your way to delete these binaries when you are done running,
-but there are benefits to.
+but there are benefits too:
+
+###Anecdote
 
 Suppose your final results have some trait that you did not expect
 and you would like to figure out how this trait was introduced.
 For example, I* recently ran a protocol with 1 stage of DockingProtocol
 followed by 5 stages of FastRelax similar to [[this example|BatchRelaxExample]].
-The final structures were completely unfolded and 
+The final structures were completely unfolded
+and I wanted to figure out where things went wrong.
+I loaded up the 5 intermediates states from their archives (as shown below)
+and was able to look at each structure.
+The protein was folded after the docking stage
+but was unfolded after the first FastRelax stage.
+Further inspection showed that the product of the DockingProtocol
+had MANY side chain clashes that were not present in the input structure.
+
+The use of this time machine feature allowed me to quickly figure out that
+I was not using the [[SaveAndRetrieveSidechainsMover|SaveAndRetrieveSidechainsMover]]
+correctly by showing me snapshots of a trajectory at the end of each stage.
+
+###Example
 
 ```xml
 <JobDefinitionFile>
@@ -71,4 +86,4 @@ The final structures were completely unfolded and
 </JobDefinitionFile>
 ```
 
-*Jack Maguire
+*Jack Maguire, 2018
