@@ -1,6 +1,6 @@
 #MultistageRosettaScripts
 
-#XML Script
+#XML Scripting Format
 
 Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
@@ -272,20 +272,8 @@ This is missing most of the less common DataMap Info sections.
 ```xml
 <JobDefinitionFile>
     <Job>
-        <SCOREFXNS>
-        </SCOREFXNS>
-        <RESIDUE_SELECTORS>
-        </RESIDUE_SELECTORS>
-        <TASKOPERATIONS>
-        </TASKOPERATIONS>
-        <FILTERS>
-        </FILTERS>
-        <MOVERS>
-        </MOVERS>
         <Input>
         </Input>
-        <Output>
-        </Output>
     </Job>
 
     <Common>
@@ -300,6 +288,10 @@ This is missing most of the less common DataMap Info sections.
         <MOVERS>
         </MOVERS>
         <PROTOCOLS>
+            <Stage>
+                <Add/>
+                <Sort/>
+            </Stage>
             <Stage>
                 <Add/>
                 <Sort/>
