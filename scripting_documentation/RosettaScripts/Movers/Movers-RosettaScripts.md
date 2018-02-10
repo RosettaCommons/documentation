@@ -170,6 +170,7 @@ Mover  | Description
 Mover  | Description
 ------------ | -------------
 **[[BridgeChains|BridgeChainsMover]]** | Connects chains using fragment insertion Monte Carlo
+**[[DockingInitialPerturbation|DockingInitialPerturbationMover]]** | Carries out the initial perturbation phase of the RosettaDock algorithm
 **[[DockingProtocol|DockingProtocolMover]]** | Performs full docking protocol with current defaults
 **[[FlexPepDock|FlexPepDockMover]]** | Performs ab initio or refinement peptide docking
 
