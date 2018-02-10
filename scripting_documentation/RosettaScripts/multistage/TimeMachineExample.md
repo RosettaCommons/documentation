@@ -100,7 +100,59 @@ My execution command looked like this:
 
 ```sh
 mkdir archives
-multistage_rosetta_scripts.default.linuxgccrelease -job_definition_file job_def.xml -archive_on_disk archives
+mpirun -n 12 multistage_rosetta_scripts.mpiserialization.linuxgccrelease -job_definition_file job_def.xml -archive_on_disk archives -n_archive_nodes 1 -mpi_tracer_to_file mpi
+```
+
+####Choosing which files to look at
+
+```sh
+$ ls
+3U3B_0111_0001.pdb  3U3B_0112_0001.pdb  3U3B_0114_0001.pdb  3U3B.pdb  archives  command.sh  job_def.xml  mpi_0  mpi_1  mpi_10  mpi_11  mpi_2  mpi_3  mpi_4  mpi_5  mpi_6  mpi_7  mpi_8  mpi_9  score.sc.1  score.sc.2
+```
+
+So we have 3 output files as expected.
+Let's pretend we have looked at all 3 and 3U3B_0112_0001.pdb has some special trait,
+so we want to look at the snapshots of the trajectory that created that file.
+To do so, look at the end of the output of the head node as follows:
+
+```sh
+$ tail mpi_0 
+protocols.multistage_rosetta_scripts.MRSJobQueen: (0) Job Genealogy:
+protocols.multistage_rosetta_scripts.MRSJobQueen: (0) ((((JR_113_1)JR_107_1,(JR_114_1)JR_108_1)JR_54_1,((JR_111_1)JR_101_1,(JR_112_1)JR_102_1)JR_77_1,(JR_105_1)JR_97_1)input_source_1)all
+protocols.jd3.job_distributors.MPIWorkPoolJobDistributor: (0) Sending output to archive 1
+protocols.jd3.job_distributors.MPIWorkPoolJobDistributor: (0) Pushing back output into queue for archive 1
+protocols.jd3.job_distributors.MPIWorkPoolJobDistributor: (0) Sending output spec for 112 1 with output_id 112 1 to node 2
+protocols.jd3.job_distributors.MPIWorkPoolJobDistributor: (0) Remote 1 has completed an output
+protocols.jd3.job_distributors.MPIWorkPoolJobDistributor: (0) Sending remote 1 an output archived on another node, if available.
+protocols.jd3.job_distributors.MPIWorkPoolJobDistributor: (0) ... output work was NOT available
+protocols.jd3.job_distributors.MPIWorkPoolJobDistributor: (0) Exiting go_master
+```
+
+or
+
+```sh
+$ grep ')all' mpi_0
+protocols.multistage_rosetta_scripts.MRSJobQueen: (0) ((((JR_113_1)JR_107_1,(JR_114_1)JR_108_1)JR_54_1,((JR_111_1)JR_101_1,(JR_112_1)JR_102_1)JR_77_1,(JR_105_1)JR_97_1)input_source_1)all
+```
+
+This gives us the lineage of the archives in
+[[newick tree format|https://en.wikipedia.org/wiki/Newick_format]].
+We want to find the leaf JR_112_1 (numbers match pdb filename 3U3B_0112_0001.pdb)
+and note the upstream branches.
+It is a little hard to do this straight from the text,
+so you may want to use a phylogenic tree viewer of some kind.
+The tree looks like this:
+
+```
+input_source_1 - | JR_54_1 - | JR_107_1 - | JR_113_1
+	         | 	     | 		  
+	         |	     | JR_108_1 - | JR_114_1
+	         |	     
+		 | JR_77_1 - | JR_101_1 - | JR_111_1
+		 | 	     |
+		 |	     | JR_102_1 - | JR_112_1
+		 |
+		 | JR_97_1 - | JR_105_1
 ```
 
 *Jack Maguire, 2018
