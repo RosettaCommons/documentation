@@ -5,7 +5,7 @@
 Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
 - Written by Jack Maguire, send questions to jackmaguire1444@gmail.com
-- Last updated Feb 2, 2018
+- All information here is valid as of Feb 2, 2018
 
 [[_TOC_]]
 
