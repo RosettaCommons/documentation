@@ -20,7 +20,7 @@ but there are benefits too:
 
 Suppose your final results have some trait that you did not expect
 and you would like to figure out how this trait was introduced.
-For example, I* recently ran a protocol with 1 stage of DockingProtocol
+For example, I recently ran a protocol with 1 stage of DockingProtocol
 followed by 5 stages of FastRelax (similar to the [[batch relax example|BatchRelaxExample]]).
 The final structures were completely unfolded
 and I wanted to figure out where things went wrong.
