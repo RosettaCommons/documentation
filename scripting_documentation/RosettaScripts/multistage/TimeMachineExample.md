@@ -1,6 +1,6 @@
 #MultistageRosettaScripts
 
-#Time Machine Example
+#Time Machine
 
 Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
