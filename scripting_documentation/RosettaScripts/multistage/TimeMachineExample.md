@@ -111,7 +111,7 @@ $ ls
 3U3B_0111_0001.pdb  3U3B_0112_0001.pdb  3U3B_0114_0001.pdb  3U3B.pdb  archives  job_def.xml  mpi_0  mpi_1  mpi_10  mpi_11  mpi_2  mpi_3  mpi_4  mpi_5  mpi_6  mpi_7  mpi_8  mpi_9  score.sc.1  score.sc.2
 ```
 
-####Getting Intermediate States
+####Finding Intermediate States
 
 We have 3 output files as expected.
 Let's pretend we have looked at all 3 and 3U3B_0112_0001.pdb has some special trait we are interested in.
@@ -164,6 +164,25 @@ You can see from this tree that JR_102_1 and JR_77_1 are the two immediate ances
 Now let's look for archives that have matching numbers (both the first and second number should match;
 the second number is not always 1) and unarchive them using the following command:
 
+####Explanation of how to read the Newick Tree labels
+Unfortunately, the filenames of the archives and output files
+are not available to the class that creates the Newick Tree.
+This is an avoidable handicap, but I wanted to wait until JD3
+was more solidified before implementing the name-matching process.
+This is why 3U3B_0112_0001.pdb had to be labeled JR_112_1
+and 3U3B.pdb had to be labeled input_source_1.
+
+The first and second numbers of the
+output file (112 and 1 for 3U3B_0112_0001.pdb) and
+archive file (102 and 1 for archive.102.1) will always match
+the numbers for the job result listed in the newick tree
+(JR_112_1 and JR_102_1 respectively).
+
+The input sources are numbered based on the order in which
+they appear in the job_definition_file.
+You may have two `<Job/>` tags each defining PDBLists of length 10,
+giving you 20 input sources.
+
 ####Tree Parsing Tool
 
 This Newick tree format can be somewhat unreadable for human eyes,
@@ -180,7 +199,6 @@ JR_112_1
 JR_102_1
 JR_77_1
 input_source_1
-all
 ```
 
 Use `extract_path_from_newick_tree_python3.py` if you have already upgraded to Python 3:
@@ -190,7 +208,6 @@ JR_112_1
 JR_102_1
 JR_77_1
 input_source_1
-all
 ```
 
 ####Final Output
@@ -213,23 +230,6 @@ Now we have the following .pdb files:
 | archive.102.1.pdb  | intermediate state after PackRotamersMover (stage 2) |
 | 3U3B_0112_0001.pdb | final state after MinMover (stage 3)                 |
 
-
-####Explanation of how to read the Newick Tree labels
-Unfortunately, the filenames of the archives and output files
-are not available to the class that creates the Newick Tree.
-This is why 3U3B_0112_0001.pdb had to be labeled JR_112_1
-and 3U3B.pdb had to be labeled input_source_1.
-
-The first and second numbers of the
-output file (112 and 1 for 3U3B_0112_0001.pdb) and
-archive file (102 and 1 for archive.102.1) will always match
-the numbers for the job result listed in the newick tree
-(JR_112_1 and JR_102_1 respectively).
-
-The input sources are numbered based on the order in which
-they appear in the job_definition_file.
-You may have two `<Job/>` tags each defining PDBLists of length 10,
-giving you 20 input sources.
 
 ####Fine Print
 You may be noticing that the tree has extra elements that were not output.
