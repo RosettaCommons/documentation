@@ -144,7 +144,8 @@ This gives us the lineage of the archives in
 We want to find the leaf JR_112_1 (numbers match pdb filename 3U3B_0112_0001.pdb)
 and note the upstream branches.
 It is a little hard to do this straight from the text,
-so you may want to use a phylogenic tree viewer of some kind.
+so you may want to use a phylogenic tree viewer of some kind
+(or the tool described in the next section).
 The tree looks like this:
 
 ```
@@ -218,4 +219,3 @@ You may be noticing that the tree has extra elements that were not output.
 The reason for this is not obvious to me.
 My guess is that the final "bad" element is not deleted until after the tree is printed.
 I do not think that this bug will result in an absent element that should be present.
-If you find this second kind of behavior, please tell me at jackmaguire1444@gmail.com.
