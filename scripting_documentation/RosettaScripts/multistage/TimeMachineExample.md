@@ -173,9 +173,9 @@ I added a few helper scripts in tools/rosetta_scripts (you may need to pull from
 If you provide the script with the target you want to trace and a copy-paste of the tree,
 it will print out the lineage of that job from end to beginning.
 
-`extract_path_from_pewick_tree.py`:
+`extract_path_from_newick_tree.py`:
 ```sh
-$ python extract_path_from_pewick_tree.py JR_112_1 '((((JR_113_1)JR_107_1,(JR_114_1)JR_108_1)JR_54_1,((JR_111_1)JR_101_1,(JR_112_1)JR_102_1)JR_77_1,(JR_105_1)JR_97_1)input_source_1)all'
+$ python extract_path_from_newick_tree.py JR_112_1 '((((JR_113_1)JR_107_1,(JR_114_1)JR_108_1)JR_54_1,((JR_111_1)JR_101_1,(JR_112_1)JR_102_1)JR_77_1,(JR_105_1)JR_97_1)input_source_1)all'
 JR_112_1
 JR_102_1
 JR_77_1
@@ -183,9 +183,9 @@ input_source_1
 all
 ```
 
-Use `extract_path_from_pewick_tree_python3.py` if you have already upgraded to Python 3:
+Use `extract_path_from_newick_tree_python3.py` if you have already upgraded to Python 3:
 ```sh
-$ python3 extract_path_from_pewick_tree_python3.py JR_112_1 '((((JR_113_1)JR_107_1,(JR_114_1)JR_108_1)JR_54_1,((JR_111_1)JR_101_1,(JR_112_1)JR_102_1)JR_77_1,(JR_105_1)JR_97_1)input_source_1)all'
+$ python3 extract_path_from_newick_tree_python3.py JR_112_1 '((((JR_113_1)JR_107_1,(JR_114_1)JR_108_1)JR_54_1,((JR_111_1)JR_101_1,(JR_112_1)JR_102_1)JR_77_1,(JR_105_1)JR_97_1)input_source_1)all'
 JR_112_1
 JR_102_1
 JR_77_1
@@ -213,6 +213,23 @@ Now we have the following .pdb files:
 | archive.102.1.pdb  | intermediate state after PackRotamersMover (stage 2) |
 | 3U3B_0112_0001.pdb | final state after MinMover (stage 3)                 |
 
+
+####Explanation of how to read the Newick Tree labels
+Unfortunately, the filenames of the archives and output files
+are not available to the class that creates the Newick Tree.
+This is why 3U3B_0112_0001.pdb had to be labeled JR_112_1
+and 3U3B.pdb had to be labeled input_source_1.
+
+The first and second numbers of the
+output file (112 and 1 for 3U3B_0112_0001.pdb) and
+archive file (102 and 1 for archive.102.1) will always match
+the numbers for the job result listed in the newick tree
+(JR_112_1 and JR_102_1 respectively).
+
+The input sources are numbered based on the order in which
+they appear in the job_definition_file.
+You may have two `<Job/>` tags each defining PDBLists of length 10,
+giving you 20 input sources.
 
 ####Fine Print
 You may be noticing that the tree has extra elements that were not output.
