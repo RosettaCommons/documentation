@@ -80,10 +80,10 @@ The default is that it will start searching at all positions in the monomeric Po
 ```
 
 #### Designing networks around a polar small molecule ligand
-If your goal is to design a network that satisfies a polar small molecule, use ```start_selector``` to start at the ligand (and any first shell contacts you might want to keep).  One challenge that arose in these design cases is that HBNet only searches for networks among packable/designable positions, but often users want to keep the ligand and some first-shell contacts fixed (NATRO or PreventRepacking).  To solve this issue, we added the option ```keep_start_selector_rotamers_fixed```, which if true, takes the ```start_selector``` positions, fixes their identity and rotamer, and turns on proton Chi sampling; this making them packable (gets them into the IG), as well as allows for more h-bonding possibilities by sampling multiple Hpol positions.  (option added together with Benjamin Basanta)
+If your goal is to design a network that satisfies a polar small molecule, use ```start_selector``` to start at the ligand (and any first shell contacts you might want to keep).  One challenge that arose in these design cases is that HBNet only searches for networks among packable/designable positions, but often users want to keep the ligand and some first-shell contacts fixed (NATRO or PreventRepacking).  To solve this issue, we added the option ```use_only_input_rot_for_start_res```, which if true, takes the ```start_selector``` positions, fixes their identity and rotamer, and turns on proton Chi sampling; this making them packable (gets them into the IG), as well as allows for more h-bonding possibilities by sampling multiple Hpol positions.  (option added together with Benjamin Basanta)
 
 ```xml
-<HBNet name="hbnet_ligand" scorefxn="standardfxn" hb_threshold="-0.5" start_selector="ligand" design_residues="STNQYW" write_cst_files="False" write_network_pdbs="False" store_subnetworks="False" minimize="False" min_network_size="3" max_unsat_Hpol="0" task_operations="no_design_or_pack,limitAroChi" keep_start_selector_rotamers_fixed="True"/>
+<HBNet name="hbnet_ligand" scorefxn="standardfxn" hb_threshold="-0.5" start_selector="ligand" design_residues="STNQYW" write_cst_files="False" write_network_pdbs="False" store_subnetworks="False" minimize="False" min_network_size="3" max_unsat_Hpol="0" task_operations="no_design_or_pack,limitAroChi" use_only_input_rot_for_start_res="True"/>
 ```
 
 ###FAQ
