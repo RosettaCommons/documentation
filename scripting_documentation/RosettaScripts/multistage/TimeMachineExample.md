@@ -2,6 +2,9 @@
 
 #Time Machine Example
 
+- Jack Maguire
+- Last updated Feb 2, 2018
+
 Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
 [[_TOC_]]
@@ -155,4 +158,5 @@ input_source_1 - | JR_54_1 - | JR_107_1 - | JR_113_1
 		 | JR_97_1 - | JR_105_1
 ```
 
-*Jack Maguire, 2018
+You can see from this tree that JR_102_1 and JR_77_1 are the two immediate ancestors to JR_112_1,
+so we need to
