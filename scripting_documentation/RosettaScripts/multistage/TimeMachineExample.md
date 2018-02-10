@@ -20,7 +20,7 @@ but there are benefits too:
 
 Suppose your final results have some trait that you did not expect
 and you would like to track down how this trait was introduced.
-For example, I recently ran a protocol with 1 stage of DockingProtocol
+For example, I once ran a protocol with 1 stage of DockingProtocol
 followed by 5 stages of FastRelax (similar to the [[batch relax example|BatchRelaxExample]]).
 The final structures were completely unfolded
 and I wanted to figure out where things went wrong.
@@ -111,11 +111,12 @@ $ ls
 3U3B_0111_0001.pdb  3U3B_0112_0001.pdb  3U3B_0114_0001.pdb  3U3B.pdb  archives  job_def.xml  mpi_0  mpi_1  mpi_10  mpi_11  mpi_2  mpi_3  mpi_4  mpi_5  mpi_6  mpi_7  mpi_8  mpi_9  score.sc.1  score.sc.2
 ```
 
-####Getting Intermediate State
+####Getting Intermediate States
 
-So we have 3 output files as expected.
-Let's pretend we have looked at all 3 and 3U3B_0112_0001.pdb has some special trait,
-so we want to look at the snapshots of the trajectory that created that file.
+We have 3 output files as expected.
+Let's pretend we have looked at all 3 and 3U3B_0112_0001.pdb has some special trait we are interested in.
+We want to look at the snapshots of the trajectory that created that file,
+but first we need to figure out which archives we need to look at.
 To do so, look at the end of the output of the head node as follows:
 
 ```sh
