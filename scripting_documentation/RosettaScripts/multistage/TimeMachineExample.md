@@ -117,7 +117,7 @@ We have 3 output files as expected.
 Let's pretend we have looked at all 3 and 3U3B_0112_0001.pdb has some special trait we are interested in.
 We want to look at the snapshots of the trajectory that created that file,
 but first we need to figure out which archives we need to look at.
-To do so, look at the end of the output of the head node as follows:
+To do so, look at the end of the output for the head node as follows:
 
 ```sh
 $ tail mpi_0 
@@ -180,3 +180,11 @@ Now we have the following .pdb files:
 | archive.77.1.pdb   | intermediate state after DockingProtocol (stage 1)   |
 | archive.102.1.pdb  | intermediate state after PackRotamersMover (stage 2) |
 | 3U3B_0112_0001.pdb | final state after MinMover (stage 3)                 |
+
+
+####Fine Print
+You may be noticing that the tree has extra elements that were not output.
+The reason for this is not obvious to me.
+My guess is that the final "bad" element is not deleted until after the tree is printed.
+I do not think that this bug will result in an absent element that should be present.
+If you find this second kind of behavior, please tell me at jackmaguire1444@gmail.com.
