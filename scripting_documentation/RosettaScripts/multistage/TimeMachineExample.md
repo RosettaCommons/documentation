@@ -2,7 +2,7 @@
 
 #Time Machine Example
 
-- Jack Maguire
+- Written by Jack Maguire, send questions to jackmaguire1444@gmail.com
 - Last updated Feb 2, 2018
 
 Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
@@ -101,17 +101,18 @@ If you are following along, I am using the 3U3B
 file directly from RCSB ([[link|https://files.rcsb.org/view/3U3B.pdb]]).
 My execution command looked like this:
 
-```sh
-mkdir archives
-mpirun -n 12 multistage_rosetta_scripts.mpiserialization.linuxgccrelease -job_definition_file job_def.xml -archive_on_disk archives -n_archive_nodes 1 -mpi_tracer_to_file mpi
-```
-
-####Choosing which files to look at
+####Executing Rosetta
 
 ```sh
 $ ls
-3U3B_0111_0001.pdb  3U3B_0112_0001.pdb  3U3B_0114_0001.pdb  3U3B.pdb  archives  command.sh  job_def.xml  mpi_0  mpi_1  mpi_10  mpi_11  mpi_2  mpi_3  mpi_4  mpi_5  mpi_6  mpi_7  mpi_8  mpi_9  score.sc.1  score.sc.2
+3U3B.pdb  job_def.xml
+$ mkdir archives
+$ mpirun -n 12 multistage_rosetta_scripts.mpiserialization.linuxgccrelease -job_definition_file job_def.xml -archive_on_disk archives -n_archive_nodes 1 -mpi_tracer_to_file mpi
+$ ls
+3U3B_0111_0001.pdb  3U3B_0112_0001.pdb  3U3B_0114_0001.pdb  3U3B.pdb  archives  job_def.xml  mpi_0  mpi_1  mpi_10  mpi_11  mpi_2  mpi_3  mpi_4  mpi_5  mpi_6  mpi_7  mpi_8  mpi_9  score.sc.1  score.sc.2
 ```
+
+####Getting Intermediate State
 
 So we have 3 output files as expected.
 Let's pretend we have looked at all 3 and 3U3B_0112_0001.pdb has some special trait,
@@ -158,5 +159,22 @@ input_source_1 - | JR_54_1 - | JR_107_1 - | JR_113_1
 		 | JR_97_1 - | JR_105_1
 ```
 
-You can see from this tree that JR_102_1 and JR_77_1 are the two immediate ancestors to JR_112_1,
-so we need to
+You can see from this tree that JR_102_1 and JR_77_1 are the two immediate ancestors to JR_112_1.
+Now let's look for archives that have matching numbers (both the first and second number should match;
+the second number is not always 1) and unarchive them using the following command:
+
+```sh
+$ ls archives/
+archive.101.1  archive.102.1  archive.108.1  archive.54.1  archive.77.1
+$ multistage_rosetta_scripts.mpiserialization.linuxgccrelease -unarchive archives/archive.77.1 archives/archive.102.1
+...
+$ ls archives/
+archive.101.1  archive.102.1  archive.102.1.pdb  archive.108.1  archive.54.1  archive.77.1  archive.77.1.pdb
+```
+
+Now we have the following files:
+
+- ./3U3B.pdb : input file
+- archvies/archive.77.1.pdb : intermediate state after DockingProtocol (stage 1)
+- archives/archive.102.1.pdb : intermediate state after PackRotamersMover (stage 2)
+- ./3U3B_0112_0001.pdb : final state, after MinMover (stage 3)
