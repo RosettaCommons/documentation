@@ -172,15 +172,10 @@ $ ls archives/
 archive.101.1  archive.102.1  archive.102.1.pdb  archive.108.1  archive.54.1  archive.77.1  archive.77.1.pdb
 ```
 
-Now we have the following files:
+Now we have the following .pdb files:
 
-- ./3U3B.pdb : input file
-- archvies/archive.77.1.pdb : intermediate state after DockingProtocol (stage 1)
-- archives/archive.102.1.pdb : intermediate state after PackRotamersMover (stage 2)
-- ./3U3B_0112_0001.pdb : final state, after MinMover (stage 3)
-
-|     filename       | state                                                |
-|--------------------|------------------------------------------------------|
+| Filename           | State                                                |
+| ------------------ | ---------------------------------------------------- |
 | 3U3B.pdb           | input file                                           |
 | archive.77.1.pdb   | intermediate state after DockingProtocol (stage 1)   |
 | archive.102.1.pdb  | intermediate state after PackRotamersMover (stage 2) |
