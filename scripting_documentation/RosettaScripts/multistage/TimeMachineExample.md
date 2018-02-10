@@ -163,6 +163,37 @@ You can see from this tree that JR_102_1 and JR_77_1 are the two immediate ances
 Now let's look for archives that have matching numbers (both the first and second number should match;
 the second number is not always 1) and unarchive them using the following command:
 
+####Tree Parsing Tool
+
+This Newick tree format can be somewhat unreadable for human eyes,
+especially for a production-run sized tree.
+I added a few helper scripts in tools/rosetta_scripts (you may need to pull from master).
+
+If you provide the script with the target you want to trace and a copy-paste of the tree,
+it will print out the lineage of that job from end to beginning.
+
+`extract_path_from_pewick_tree.py`:
+```sh
+$ python extract_path_from_pewick_tree.py JR_112_1 '((((JR_113_1)JR_107_1,(JR_114_1)JR_108_1)JR_54_1,((JR_111_1)JR_101_1,(JR_112_1)JR_102_1)JR_77_1,(JR_105_1)JR_97_1)input_source_1)all'
+JR_112_1
+JR_102_1
+JR_77_1
+input_source_1
+all
+```
+
+Use `extract_path_from_pewick_tree_python3.py` if you have already upgraded to Python 3:
+```sh
+$ python3 extract_path_from_pewick_tree_python3.py JR_112_1 '((((JR_113_1)JR_107_1,(JR_114_1)JR_108_1)JR_54_1,((JR_111_1)JR_101_1,(JR_112_1)JR_102_1)JR_77_1,(JR_105_1)JR_97_1)input_source_1)all'
+JR_112_1
+JR_102_1
+JR_77_1
+input_source_1
+all
+```
+
+####Final Output
+
 ```sh
 $ ls archives/
 archive.101.1  archive.102.1  archive.108.1  archive.54.1  archive.77.1
