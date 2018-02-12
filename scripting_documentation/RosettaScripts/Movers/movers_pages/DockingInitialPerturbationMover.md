@@ -1,6 +1,6 @@
 # DockingInitialPerturbation
 *Back to [[Mover|Movers-RosettaScripts]] page.*
-## DockingInitialPerturbation
+## Docking Initial Perturbation
 
 This mover carries out the initial perturbation phase of the RosettaDock algorithm.
 This contains the functions that create initial positions for docking.
@@ -19,8 +19,8 @@ Most of these options are also described [[here|https://www.rosettacommons.org/m
 | randomize2                    | Randomize the second docking partner |
 | use_ellipsoidal_randomization | Use the EllipsoidalRandomizationMover instead of the RigidBodyRandomizeMover |
 | dock_pert                     | Read in translational and rotational perturbations and apply to pose (default is false) |
-| trans                         | Translational perturbation to apply before docking |
-| rot                           | Rotational perturbation to apply before docking |
+| trans                         | Translational perturbation to apply before docking (requires dock_pert="true") |
+| rot                           | Rotational perturbation to apply before docking (requires dock_pert="true") |
 | uniform_trans                 | Use the UniformSphereTransMover |
 | spin                          | Spin partner about its axis |
 | center_at_interface           | Center the spin at the interface |
