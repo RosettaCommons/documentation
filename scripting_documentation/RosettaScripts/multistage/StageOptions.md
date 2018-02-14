@@ -54,7 +54,7 @@ a non-initial stage is that it might result in many near-duplicate results.
 In order to maintain diversity, you can use this setting to limit the number of
 results deriving from the same structure (result from previous stage) that are kept.
 
-A value of 0 (which is default) means that there is not limit.
+A value of 0 means that there is not limit (which is default).
 
 ##result_cutoff
 
