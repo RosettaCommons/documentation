@@ -5,7 +5,7 @@ Metadata
 
 Author: Rhiju Das
 
-Added to documentation: June 2013
+Added to documentation: Feb 2018
 
 Code and Demo
 =============
@@ -17,14 +17,6 @@ Application purpose
 
 This code is intended to score RNA-containing silent files in a way that provides extra functionality in ways that RNA workflows may expect.
 
-Algorithm
-=========
-
-Limitations
-===========
-
--   Within Rosetta, this code does not preserve the fold-tree
-
 Input Files
 ===========
 
@@ -32,7 +24,6 @@ Required files
 -------------
 
 -   A silent file (and tags) or PDB file(s) containing RNA (or, properly, anything) to score
-
 
 Tips
 ----
@@ -57,6 +48,10 @@ Options
 -just_calc_rmsd                Do nothing but calculate RMSD
 -color_by_score                Set the temperature of each atom in the `PDBInfo` to the score
                                so that you can color by score in PyMOL
+-stepwise:superimpose_over_all    Will superimpose over every residue if true. If false, will try
+                               to figure out a reasonable fixed domain to use instead.
+-stepwise:alignment_anchor_res    Help out the superimposition by giving a residue from the fixed
+                               domain over which superposition should take place
 ```
 
 
