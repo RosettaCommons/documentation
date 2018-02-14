@@ -4,6 +4,9 @@
 
 Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
+- Written by Jack Maguire, send questions to jackmaguire1444@gmail.com
+- All information here is valid as of Feb 13, 2018
+
 This script was contrived for the purposes of showing how to overload [[DataMap Info|XML#DataMap Info]].
 
 There are two main things to note here:
