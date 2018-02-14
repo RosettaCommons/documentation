@@ -5,7 +5,7 @@
 Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
 This script was used to Relax 30,000 [[abinitio|abinitio]] results
-(only 5 `<Job/>` tags shown here for the sake of saving space).
+(only 5 `<Job>` tags shown here for the sake of saving space).
 All 30,000 structues went through one repeat of [[FastRelax|FastRelaxMover]].
 The 7,500 (25%) best results survived and went through the second repeat.
 After that, the 1,875 (25%) best results went through the final 2 repeats.
