@@ -13,7 +13,8 @@ Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
     num_runs_per_input_struct=“(uint)”
     total_num_results_to_keep=“(uint)”
     result_cutoff=“(uint)”
-    max_num_results_per_instance=“(uint)”
+    max_num_results_to_keep_per_instance=“(uint)”
+    max_num_results_to_keep_per_input_struct=“(uint)”
     merge_results_after_this_stage=“(bool)”
 >
 
@@ -28,17 +29,32 @@ Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 ##num_runs_per_input_struct
 
 This is M.R.S.'s equivalent to the `-nstruct` command line option.
-For the first stage, the number provided here declares the number of times the stage will run for each `<Job/>` tag.
-For example, if `num_runs_per_input_struct=40` and there are 5 `<Job/>` tags, then the stage will end up running a total of 200 times.
+For the first stage, the number provided here declares the number
+of times the stage will run for each `<Job/>` tag.
+For example, if `num_runs_per_input_struct=40` and there are 5 `<Job/>` tags,
+then the stage will end up running a total of 200 times.
 
-For each additional stage, the number provided here declares the number of times the stage will run for each result from the previous stage.
-If `num_runs_per_input_struct=5` and `total_num_results_to_keep=10` for the previous stage, then the stage will end up running a total of 50 times.
+For each additional stage, the number provided here declares the number of
+times the stage will run for each result from the previous stage.
+If `num_runs_per_input_struct=5` and `total_num_results_to_keep=10` for the previous stage,
+then the stage will end up running a total of 50 times.
 
 ##total_num_results_to_keep
 
-This number defines the maximum number of job results from the current stage that will survive and go on to the next stage (or to be output, if this is the final stage).
+This number defines the maximum number of job results from the current stage that will survive
+and go on to the next stage (or to be output, if this is the final stage).
 Unlike `num_runs_per_input_struct`, this option is not affected by the number of `<Job/>` tags.
-The combination of `num_runs_per_input_struct=40`, `total_num_results_to_keep=10`, and 5 `<Job/>` tags results in 200 jobs - of which only 10 results will survive until the next round.
+The combination of `num_runs_per_input_struct=40`, `total_num_results_to_keep=10`, and
+5 `<Job/>` tags results in 200 jobs - of which only 10 results will survive until the next round.
+
+##max_num_results_to_keep_per_input_struct
+
+A common hesitation to making num_runs_per_input_struct greater than 1 for
+a non-initial stage is that it might result in many near-duplicate results.
+In order to maintain diversity, you can use this setting to limit the number of
+results deriving from the same structure (result from previous stage) that are kept.
+
+A value of 0 (which is default) means that there is not limit.
 
 ##result_cutoff
 
@@ -48,14 +64,14 @@ You can run your docking mover as normal (with or without constraints) and follo
 The job will not return a result unless it passes all of these filters (including the one in `<Sort/>`).
 Now you can set `num_runs_per_input_struct` to a very large number and `result_cutoff` to 1000 and Rosetta will essentially keep sampling until it finds 1000 results that pass all of your filters.
 
-##max_num_results_per_instance
+##max_num_results_to_keep_per_instance
 
 Some movers can return multiple results ([[HBNet|HBNetMover]], for example).
 This is challenging for use to handle in a well-organized manner.
 The current format only allows for the final mover in a stage to return multiple results.
 This number defines a cap for a single mover.
 If this value is set to 10, for example, a single instance of HBNet would only be able to return up to 10 results.
-So if you have `num_runs_per_input_struct=1000` and `max_num_results_per_instance=2`, you can get a maximum of 2000 results.
+So if you have `num_runs_per_input_struct=1000` and `max_num_results_to_keep_per_instance=2`, you can get a maximum of 2000 results.
 
 ##merge_results_after_this_stage
 
