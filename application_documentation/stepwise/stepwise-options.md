@@ -106,33 +106,33 @@ The following is just a subset of the options that are technically *available* t
     * `-stepwise:protein:expand_loop_takeoff` -- Also sample an additional pair of residues on each side of the loop.
     * `-stepwise:protein:allow_virtual_side_chains` -- On proteins, SWM allows the virtualization of side chains, since these artificial loop problems often lead to highly penalized exposed residues. Bad per-residue scores makes it hard to get residues added with reasonable reference energies. Letting side chains be virtual when they're not making any contacts helps this a lot (default true). 
 
-  * `stepwise:full_model:` options (generally have to do with designation of specific residues from the "full modeling problem" to have special behaviors; specify all residues for these cases as chain:resnum)
-    * `-stepwise:full_model:global_seq_file` -- A fasta-formatted file with the 'global sequence.' Essentially, the full target modeling problem may nonetheless be a subset extracted from a larger RNA structure like a whole ribosome, for speed. But if you want to calculate the secondary structure partition function you want to use the whole, monomeric RNA. This lets you do that.
-    * `-stepwise:full_model:cutpoint_open` -- Residues that, even once the model will be finished, will be *open* cutpoints. For example, all chain endings have this trait by defailt.
-    * `-stepwise:full_model:cutpoint_closed` -- Residues that, even once the model will be finished, will be *closed* cutpoints. Places where numbering jumps because a loop has been closed with a shorter length than before might have this property.
-    * `-stepwise:full_model:cyclize` -- Pairs of residues: the first is a 3' terminus of one chain, and the second is the 5' terminus of that same chain. They are given closed cutpoint variants and scored by the chainbreak scoring terms.
-    * `-stepwise:full_model:twoprime` -- Pairs of residues: the first is any residue with a free 2' OH, and the second is the 5' terminus of some chain. They are given closed cutpoint variants (well, essentially) and scored by a scoring term analagous to chainbreak. 
-    * `-stepwise:full_model:fiveprime_cap` -- Residues that need to have a 5' cap applied with a corresponding 7-methyl guanosine.
-    * `-stepwise:full_model:jump_res` -- Explicit residue specification of good places for jumps (rigid body offsets)
-    * `-stepwise:full_model:disulfide_res` -- Explicit residue specification of where disulfides might need to form during the course of simulation (useful for protein and peptide modeling problems).
-    * `-stepwise:full_model:extra_min_res` -- Residues (other than those that are being built) that should be reminimized every cycle.
-    * `-stepwise:full_model:extra_min_jump_res` -- Jumps (specified by their residue termini) that should be reminimized every cycle.
-    * `-stepwise:full_model:root_res` -- Specify a preferred root for your modeling problem (testing only).
-    * `-stepwise:full_model:sample_res` -- Specify residues that must be sampled. Useful when you are providing a starting structure with residues you would nonetheless like to see deleted and resampled.
-    * `-stepwise:full_model:calc_rms_res` -- The residues over which RMSD should be calculated. Not in wide use outside of SWA; which usually overrides this with its own impression of what's reasonable (depending on the situation, it's "all moving residues" or based on `-superimpose_over_all`)
-    * `-stepwise:full_model:working_res` -- All residues that are going to be built. By default, this is all input PDBs plus all sample_res (which would include everything listed in the fasta file, too).
-    * `-stepwise:full_model:motif_mode` -- Ensures for fixed residue problems that the closing base pair of every helix is `-extra_minimize_res` and that stacking is disabled for any terminal residues. Defaults to false, but passing this flag is a good starting point for a 'trial run'; you may then want to refine your own personalized selection of `-extra_minimize_res`, `-terminal_res`, and `-block_stack_*_res`.
-    * `-stepwise:full_model:allow_jump_in_numbering` -- Doesn't assume a cutpoint in cases where residue numbers are nonconsecutive; particularly useful for design scenarios (default false).
-    * `-stepwise:full_model:rna:` options
-    * `-stepwise:full_model:rna:terminal_res` -- Residues that cannot stack during sampling, in either direction
-    * `-stepwise:full_model:rna:block_stack_above_res` -- Residues to which special 'repulsive-only' atoms are added to prevent stacking 'above' the base. The 3'-most residue of a helix that does not make a coaxial stack could have this variant.
-    * `-stepwise:full_model:rna:block_stack_below_res` -- Residues to which special 'repulsive-only' atoms are added to prevent stacking 'below' the base. The 5'-most residue of a helix that does not make a coaxial stack could have this variant.
-    * `-stepwise:full_model:rna:force_syn_chi_res_list` -- Residues whose chi1 (the glycosidic torsion) must be 'syn'. Anti samples are just omitted by the sampler.
-    * `-stepwise:full_model:rna:force_anti_chi_res_list` -- Residues whose chi1 (the glycosidic torsion) must be 'anti'. Syn samples are just omitted by the sampler.
-    * `-stepwise:full_model:rna:force_north_sugar_list` -- Residues whose sugar pucker is forced to be 'north'.
-    * `-stepwise:full_model:rna:force_south_sugar_list` -- Residues whose sugar pucker is forced to be 'south'.
-    * `-stepwise:full_model:rna:bulge_res` -- Residues that should be made into a 'bulge variant' rather than built explicitly.
-    * `-stepwise:full_model:rna:sample_sugar_res` -- Residues that, despite having been provided as a fixed chunk of RNA, have sugars that should be resampled.
+  * `full_model:` options (generally have to do with designation of specific residues from the "full modeling problem" to have special behaviors; specify all residues for these cases as chain:resnum)
+    * `-full_model:global_seq_file` -- A fasta-formatted file with the 'global sequence.' Essentially, the full target modeling problem may nonetheless be a subset extracted from a larger RNA structure like a whole ribosome, for speed. But if you want to calculate the secondary structure partition function you want to use the whole, monomeric RNA. This lets you do that.
+    * `-full_model:cutpoint_open` -- Residues that, even once the model will be finished, will be *open* cutpoints. For example, all chain endings have this trait by defailt.
+    * `-full_model:cutpoint_closed` -- Residues that, even once the model will be finished, will be *closed* cutpoints. Places where numbering jumps because a loop has been closed with a shorter length than before might have this property.
+    * `-full_model:cyclize` -- Pairs of residues: the first is a 3' terminus of one chain, and the second is the 5' terminus of that same chain. They are given closed cutpoint variants and scored by the chainbreak scoring terms.
+    * `-full_model:twoprime` -- Pairs of residues: the first is any residue with a free 2' OH, and the second is the 5' terminus of some chain. They are given closed cutpoint variants (well, essentially) and scored by a scoring term analagous to chainbreak. 
+    * `-full_model:fiveprime_cap` -- Residues that need to have a 5' cap applied with a corresponding 7-methyl guanosine.
+    * `-full_model:jump_res` -- Explicit residue specification of good places for jumps (rigid body offsets)
+    * `-full_model:disulfide_res` -- Explicit residue specification of where disulfides might need to form during the course of simulation (useful for protein and peptide modeling problems).
+    * `-full_model:extra_min_res` -- Residues (other than those that are being built) that should be reminimized every cycle.
+    * `-full_model:extra_min_jump_res` -- Jumps (specified by their residue termini) that should be reminimized every cycle.
+    * `-full_model:root_res` -- Specify a preferred root for your modeling problem (testing only).
+    * `-full_model:sample_res` -- Specify residues that must be sampled. Useful when you are providing a starting structure with residues you would nonetheless like to see deleted and resampled.
+    * `-full_model:calc_rms_res` -- The residues over which RMSD should be calculated. Not in wide use outside of SWA; which usually overrides this with its own impression of what's reasonable (depending on the situation, it's "all moving residues" or based on `-superimpose_over_all`)
+    * `-full_model:working_res` -- All residues that are going to be built. By default, this is all input PDBs plus all sample_res (which would include everything listed in the fasta file, too).
+    * `-full_model:motif_mode` -- Ensures for fixed residue problems that the closing base pair of every helix is `-extra_minimize_res` and that stacking is disabled for any terminal residues. Defaults to false, but passing this flag is a good starting point for a 'trial run'; you may then want to refine your own personalized selection of `-extra_minimize_res`, `-terminal_res`, and `-block_stack_*_res`.
+    * `-full_model:allow_jump_in_numbering` -- Doesn't assume a cutpoint in cases where residue numbers are nonconsecutive; particularly useful for design scenarios (default false).
+    * `-full_model:rna:` options
+    * `-full_model:rna:terminal_res` -- Residues that cannot stack during sampling, in either direction
+    * `-full_model:rna:block_stack_above_res` -- Residues to which special 'repulsive-only' atoms are added to prevent stacking 'above' the base. The 3'-most residue of a helix that does not make a coaxial stack could have this variant.
+    * `-full_model:rna:block_stack_below_res` -- Residues to which special 'repulsive-only' atoms are added to prevent stacking 'below' the base. The 5'-most residue of a helix that does not make a coaxial stack could have this variant.
+    * `-full_model:rna:force_syn_chi_res_list` -- Residues whose chi1 (the glycosidic torsion) must be 'syn'. Anti samples are just omitted by the sampler.
+    * `-full_model:rna:force_anti_chi_res_list` -- Residues whose chi1 (the glycosidic torsion) must be 'anti'. Syn samples are just omitted by the sampler.
+    * `-full_model:rna:force_north_sugar_list` -- Residues whose sugar pucker is forced to be 'north'.
+    * `-full_model:rna:force_south_sugar_list` -- Residues whose sugar pucker is forced to be 'south'.
+    * `-full_model:rna:bulge_res` -- Residues that should be made into a 'bulge variant' rather than built explicitly.
+    * `-full_model:rna:sample_sugar_res` -- Residues that, despite having been provided as a fixed chunk of RNA, have sugars that should be resampled.
 
 ---
 Go back to [[StepWise Overview|stepwise-classes-overview]].
