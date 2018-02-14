@@ -82,10 +82,10 @@ The following is just a subset of the options that are technically *available* t
     * `-stepwise:monte_carlo:checkpointing_frequency` -- Controls how often to output `.checkpoint` files. The default (every 100 cycles) is probably fine.
     * `-stepwise:monte_carlo:full_model_constraints` -- Constraints that only make sense in the context of the full model pose. These constraints are read in by the `StepWiseModeler` every cycle and applied if and only if the residue 'already exists'.
     * `-stepwise:monte_carlo:csa:` options (these control the special Conformational Space Annealing job distributor and don't do anything unless it is active)
-	  * `-stepwise:monte_carlo:csa:csa_bank_size` -- Providing this flag activates the CSA job distributor, and instructs it to keep a 'bank' of this many models (default 0).
-	  * `-stepwise:monte_carlo:csa:csa_rmsd` -- RMSD cutoff below which two `Pose`s are considered 'the same' (thereby keeping only the lower energy example in the bank) (default 1.0).
-	  * `-stepwise:monte_carlo:csa:csa_output_rounds` -- Output silent files at intermediate stages (all the integral multiples of the `-csa_bank_size`) (default false). 
-	  * `-stepwise:monte_carlo:csa:annealing` -- Actually do RMSD annealing, per the original concept of CSA, rather than obeying the fixed `csa_rmsd`. The original papers suggested using 10 rounds to move from half the average distance between the models that filled the first bank to one-fifth of that distance (default false).
+      * `-stepwise:monte_carlo:csa:csa_bank_size` -- Providing this flag activates the CSA job distributor, and instructs it to keep a 'bank' of this many models (default 0).
+      * `-stepwise:monte_carlo:csa:csa_rmsd` -- RMSD cutoff below which two `Pose`s are considered 'the same' (thereby keeping only the lower energy example in the bank) (default 1.0).
+      * `-stepwise:monte_carlo:csa:csa_output_rounds` -- Output silent files at intermediate stages (all the integral multiples of the `-csa_bank_size`) (default false). 
+      * `-stepwise:monte_carlo:csa:annealing` -- Actually do RMSD annealing, per the original concept of CSA, rather than obeying the fixed `csa_rmsd`. The original papers suggested using 10 rounds to move from half the average distance between the models that filled the first bank to one-fifth of that distance (default false).
             
   * `stepwise:polar_hydrogens:` options
     * `stepwise:polar_hydrogens:vary_polar_hydrogen_geometry` -- Optimize the bond geometry of any hydrogens forming hydrogen bonds (default false).
