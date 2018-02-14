@@ -60,9 +60,12 @@ A value of 0 means that there is not limit (which is default).
 
 This options allows a stage to stop submitting jobs once a certain number of results have come in.
 For example, say you are docking two proteins and you have some idea about how you want these proteins to interact.
-You can run your docking mover as normal (with or without constraints) and follow up the docking mover with one or more filters.
-The job will not return a result unless it passes all of these filters (including the one in `<Sort/>`).
-Now you can set `num_runs_per_input_struct` to a very large number and `result_cutoff` to 1000 and Rosetta will essentially keep sampling until it finds 1000 results that pass all of your filters.
+You can run your docking mover as normal (with or without constraints)
+and follow up the docking mover with one or more filters.
+The job will not return a result unless it passes all of these filters
+(including the one in `<Sort/>`).
+Now you can set `num_runs_per_input_struct` to a very large number and `result_cutoff` to 1000
+and Rosetta will essentially keep sampling until it finds 1000 results that pass all of your filters.
 
 ##max_num_results_to_keep_per_instance
 
@@ -70,25 +73,32 @@ Some movers can return multiple results ([[HBNet|HBNetMover]], for example).
 This is challenging for use to handle in a well-organized manner.
 The current format only allows for the final mover in a stage to return multiple results.
 This number defines a cap for a single mover.
-If this value is set to 10, for example, a single instance of HBNet would only be able to return up to 10 results.
-So if you have `num_runs_per_input_struct=1000` and `max_num_results_to_keep_per_instance=2`, you can get a maximum of 2000 results.
+If this value is set to 10, for example,
+a single instance of HBNet would only be able to return up to 10 results.
+So if you have `num_runs_per_input_struct=1000` and `max_num_results_to_keep_per_instance=2`,
+you can get a maximum of 2000 results.
 
 ##merge_results_after_this_stage
 
-By default all of the results of a stage are thrown into the same pool, sorted, and the top few are chosen to survive.
+By default all of the results of a stage are thrown into the same pool,
+sorted, and the top few are chosen to survive.
 This option allows you to create a separate pool for each `<Job/>` tag until a certain point.
 
 Suppose you have 2 `<Job/>` tags and 3 stages: (1) Dock, (2) Design, (3) Minimize.
 Perhaps you want a 50/50 split of results until the final stage.
-If you set `merge_results_after_this_stage="true"/>` in the second stage tag, then you will have a 50/50 split of jobs until after the Design step.
-All of the results of the Design step will go into the same pool and the jobs for stage 3 will not necessarily be a 50/50 split.
+If you set `merge_results_after_this_stage="true"/>` in the second stage tag,
+then you will have a 50/50 split of jobs until after the Design step.
+All of the results of the Design step will go into the same pool
+and the jobs for stage 3 will not necessarily be a 50/50 split.
 
 [[/images/multistage_rosetta_scripts/merge_results_after_this_stage.png]]
 
 `merge_results_after_this_stage` can only be set to true for one stage.
 If it is never present for any stage, then results will always be placed into the same pool.
 The values for `total_num_results_to_keep` and `result_cutoff` are divided evenly into each pool.
-For example, if `result_cutoff="100"` and you have 4 `<Job/>` tags, then the stage will not stop early unles each of the 4 pools has at least 25 results and Rosetta will keep `total_num_results_to_keep`/4 results from each pool.
+For example, if `result_cutoff="100"` and you have 4 `<Job/>` tags
+then the stage will not stop early unless each of the 4 pools has at least 25 results
+and Rosetta will keep total_num_results_to_keep/4 results from each pool.
 
 ##Add
 
@@ -99,8 +109,10 @@ If both a mover and filter are given, then mover is applied before the filter is
 ##Sort
 
 `<Sort/>` is similar to `<Add/>` but only takes a filter (`filter_name` or `filter`).
-The metric measured by this filter is used to sort the results of this stage and determines which are kept and which are discarded.
-More negative numbers are assumed to be better for this metric, but this can be changed by setting `negative_score_is_good="false"`.
+The metric measured by this filter is used to sort the results
+of this stage and determines which are kept and which are discarded.
+More negative numbers are assumed to be better for this metric,
+but this can be changed by setting `negative_score_is_good="false"`.
 
 ##See Also
 
