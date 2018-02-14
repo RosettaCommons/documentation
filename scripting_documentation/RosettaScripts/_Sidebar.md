@@ -22,6 +22,8 @@
 
    * [[FeaturesReporters|Features-reporter-overview]]
 
+   * [[Multistage|MultistageRosettaScripts]]
+
    * [[Composite Protocols|Composite-protocols]]
 
    * [[Symmetry and RosettaScripts|SymmetryAndRosettaScripts]]
