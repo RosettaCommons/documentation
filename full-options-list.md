@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-01-30
+Generated: 2018-02-15
 
 _Note that some application specific options may not be present in this list._
 
@@ -1757,6 +1757,8 @@ _Note that some application specific options may not be present in this list._
 <dd>If true, then canonical amino acids use Voronoi-style detection of neareset rotamer wells during fa_dun scoring instead of hard-coded rotamer well definitions.  False by default (i.e. hard-coded definitions are used by defaults).<br/>Default: false<br/></dd>
 <dt><b>-fa_dun_noncanonicals_use_voronoi</b> \<Boolean\></dt>
 <dd>If true, then noncanonical amino acids and other polymer building blocks use Voronoi-style detection of neareset rotamer wells during fa_dun scoring instead of hard-coded rotamer well definitions.  True by default (i.e. Voronoi-style detection is used by default).  Setting this to false creates problems with many noncanonicals that have rotamer wells that aren't simple gauche+/gauche-/anti wells.<br/>Default: true<br/></dd>
+<dt><b>-fa_dun_correct_rotamer_well_order</b> \<Boolean\></dt>
+<dd>If true, the rotamer well order for rotamer files is corrected automatically to the Rosetta convention of lowest to highest in the range [0,360).  False by default.<br/>Default: false<br/></dd>
 <dt><b>-no_his_his_pairE</b> \<Boolean\></dt>
 <dd>Set pair term for His-His to zero<br/></dd>
 <dt><b>-no_his_DE_pairE</b> \<Boolean\></dt>
