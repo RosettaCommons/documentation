@@ -28,7 +28,16 @@ Using the fitted data, we can predict:
 
 [[/images/multistage_rosetta_scripts/ClusterMemoryUsage.png]]
 
+Using the fitted data, we can predict:
 
+| Number of elements | KB    | MB    | GB    |
+| ------------------ | ----- | ----- | ----- |
+| 10 	    	     | 74757 | 75    | 0.075 |
+| 100		     | 74973 | 75    | 0.075 |
+| 1000		     | 78824 | 78.8  | 0.079 |
+| 10,000	     |       | 286.6 | 0.29  |
+| 100,000	     |	     | 19294 | 19.3  |
+| 1,000,000	     |	     | 	     | 1902  |
 
 ##See Also
 
