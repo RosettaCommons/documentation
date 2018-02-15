@@ -15,7 +15,7 @@ UNDER CONSTRUCTION
 Using the fitted data, we can predict:
 
 | Number of elements | Seconds    | Minutes | Hours  | Days  | Years |
-| ------------------ | ---------- | ------- | ------ | ----- | ----- |
+|:------------------:|:----------:|:-------:|:------:|:-----:|:-----:|
 | 10                 | 0.00005    |         |        |       |       |
 | 100                | 0.005      |         |        |       |       |
 | 1000               | 0.5        |         |        |       |       |
@@ -31,7 +31,7 @@ Using the fitted data, we can predict:
 Using the fitted data, we can predict:
 
 | Number of elements | KB    | MB    | GB    |
-| ------------------ | ----- | ----- | ----- |
+|:------------------:|:-----:|:-----:|:-----:|
 | 10 	    	     | 74757 | 75    | 0.075 |
 | 100		     | 74973 | 75    | 0.075 |
 | 1000		     | 78824 | 78.8  | 0.079 |
