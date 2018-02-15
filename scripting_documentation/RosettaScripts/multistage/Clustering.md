@@ -4,9 +4,17 @@
 
 Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
+- Written by Jack Maguire, send questions to jackmaguire1444@gmail.com
+- All information here is valid as of Feb 15, 2018
+
 [[_TOC_]]
 
-UNDER CONSTRUCTION
+I benchmarked clustering cases of various sizes on the Wiggins computer in the Kuhlman lab.
+For each case, I measured how long it took and the peak memory usage (both shown below).
+The number of clusters was always equal to the number of elements divided by ten.
+
+As you can see, the memory requirements become unreasonable before the runtime requirements do.
+
 
 ##Runtime
 
@@ -36,5 +44,9 @@ Using the fitted data, we can predict:
 | 100		     | 74973 | 75    | 0.075 |
 | 1000		     | 78824 | 78.8  | 0.079 |
 | 10,000	     |       | 286.6 | 0.29  |
+| 20,000	     |	     | 878.5 | 0.88  |
+| 30,000	     |	     | 1850  | 1.85  |
+| 40,000	     |	     | 3202  | 3.20  |
+| 50,000	     |	     | 4934  | 4.93  |
 | 100,000	     |	     | 19294 | 19.3  |
 | 1,000,000	     |	     | 	     | 1902  |
