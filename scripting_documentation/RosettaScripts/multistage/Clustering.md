@@ -14,7 +14,9 @@ For each case, I measured how long it took and the peak memory usage (both shown
 The number of clusters was always equal to the number of elements divided by ten.
 
 As you can see, the memory requirements become unreasonable before the runtime requirements do.
-
+This is due to the N-by-N matrix being calculated;
+hopefully there is an on-the-fly implementation of this protocol by the time you read this.
+As of now, it looks like you would not want to cluster with much more than 10,000 elements.
 
 ##Runtime
 
@@ -48,5 +50,5 @@ Using the fitted data, we can predict:
 | 30,000	     |	     | 1850  | 1.85  |
 | 40,000	     |	     | 3202  | 3.20  |
 | 50,000	     |	     | 4934  | 4.93  |
-| 100,000	     |	     | 19294 | 19.3  |
+| 100,000	     |	     |       | 19.3  |
 | 1,000,000	     |	     | 	     | 1902  |
