@@ -1,6 +1,8 @@
-#MRS: XML Script
+#MultistageRosettaScripts
 
-[[Multistage Rosetta Scripts|MultistageRosettaScripts]]
+#XML Scripting Format
+
+Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
 [[_TOC_]]
 
@@ -262,6 +264,8 @@ so it places a TODO comment for you to replace the input format if necessary
 </JobDefinitionFile>
 ```
 
+[[There is also a method to convert a multistage rosetta script back to a traditional rosetta script here|MRSTools#tools-and-utilities_script-converter_reverse-converter]]
+
 ##(Incomplete) Skeleton
 
 If you really want to write a script from scratch instead of using the converter, here is a skeleton.
@@ -270,20 +274,8 @@ This is missing most of the less common DataMap Info sections.
 ```xml
 <JobDefinitionFile>
     <Job>
-        <SCOREFXNS>
-        </SCOREFXNS>
-        <RESIDUE_SELECTORS>
-        </RESIDUE_SELECTORS>
-        <TASKOPERATIONS>
-        </TASKOPERATIONS>
-        <FILTERS>
-        </FILTERS>
-        <MOVERS>
-        </MOVERS>
         <Input>
         </Input>
-        <Output>
-        </Output>
     </Job>
 
     <Common>
@@ -298,6 +290,10 @@ This is missing most of the less common DataMap Info sections.
         <MOVERS>
         </MOVERS>
         <PROTOCOLS>
+            <Stage>
+                <Add/>
+                <Sort/>
+            </Stage>
             <Stage>
                 <Add/>
                 <Sort/>
