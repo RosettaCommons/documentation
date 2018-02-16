@@ -323,7 +323,11 @@ The `stepwise` application is not guaranteed to finish construction of the entir
 
 We would like to fill in these models with 'unfolded' residues, and we do so using the application `build_full_model`. This application runs in two principal modes, each of which eexcutes the same top-level plan -- to place all the residues from the intended full modeling problem and compute a realistic RMSD, as well as base-pairing statistics to evaluate how much of the native structure's key features were recovered.
 
-The application always takes a silent file through `-in:file:silent` and outputs one via `-out:file:silent`. In one mode, run with `-virtualize_built true -caleb_legacy true`, we install virtual residues one at a time with `stepwise` moves. This is very fast, perhaps seconds per structure. The second (`-fragmnet_assembly_mode true`)  
+The application always takes a silent file through `-in:file:silent` and outputs one via `-out:file:silent`. In one mode, run with `-virtualize_built true -caleb_legacy true`, we install virtual residues one at a time with `stepwise` moves. This is very fast, perhaps seconds per structure. The second (`-fragment_assembly_mode true`) installs all residues at once, as 'repulsive-only' variants (that experience only van der Waals repulsion and chain-closure penalties) and then uses the [[fragment assembly code|rna-denovo]] to optimize its conformation. This method takes considerably more time and isn't deterministic but does have the advantage of producing conformations of self-avoiding chains. (In theory, the virtual residues installed by the first mode could self-intersect.) A standard command line used in the Watkins, 2018 paper is:
+
+```
+build_full_model.linuxclangrelease –in:file:silent swm_rebuild.out –in:file:fasta t_loop_modified_fixed.fasta –out:file:silent swm_rebuild_full_model.out –in:file:native t_loop_modified_fixed_NATIVE_1ehz.pdb –stepwise:monte_carlo:from_scratch_frequency 0.0 –out:overwrite true –score:weights stepwise/rna/rna_res_level_energy4.wts –virtualize_built false –fragment_assembly_mode true –rna:evaluate_base_pairs true –superimpose_over_all true –allow_complex_loop_graph true
+```
 
 Extraction Of Models Into PDB Format
 ------------------------------------
