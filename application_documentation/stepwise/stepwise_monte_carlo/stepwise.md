@@ -22,6 +22,8 @@ This monte carlo minimization method builds up models by moves that involve samp
 Options
 =======
 
+A full accounting of options you may want to use is [[also available|stepwise-options]]. 
+
 Commonly used options
 ---------------------
 
@@ -39,12 +41,16 @@ Commonly used options
 -out:file:silent                                Name of output file [scores and torsions, compressed format]. default="default.out" [String]
 -in:native                                      Native PDB filename. [File].
 -out:nstruct                                    Number of models to make. default: 1. [Integer]
+-score:weights                                  Scoring function (weights file) to use. The official 'best practice' at the moment is to use 
+                                                -score:weights stepwise/rna/rna_res_level_energy4.wts -restore_talaris_behavior; currently in development
+                                                is stepwise/rna/rna_res_level_energy7beta.wts, which does not require -restore_talaris_behavior.
 
 Useful options
 --------------
 -monte_carlo:submotif_frequency                 Adjust the frequency of 'submotif moves' (taken from a database of native structures). When 
                                                 benchmarking, it can be useful to set this to 0.0 to ensure no part of the target loop is being built
                                                 from a native.
+-cycles                                         Number of Monte Carlo cycles.[default 50]. [Integer]
 
 
 Limitations
@@ -82,13 +88,13 @@ Additional useful command-lines are available as integration tests in directorie
 
 References
 ==========
-Stepwise monte carlo is unpublished at the time of writing &ndash; this documentation is intended to allow developers to test and expand the protocol while the Das lab is completing final benchmarks for RNA motifs. However, the method is an expansion of stepwise assembly, which has been described in previous references:
+Stepwise Monte Carlo is unpublished at the time of writing &ndash; this documentation is intended to allow developers to test and expand the protocol while the Das lab is completing final benchmarks for RNA motifs. However, the method is an expansion of stepwise assembly, which has been described in previous references:
 
 Sripakdeevong, P., Kladwang, W., and Das, R. (2011) "An enumerative stepwise ansatz enables atomic-accuracy RNA loop modeling", PNAS 108:20573-20578. [for loop modeling] [Paper](http://www.stanford.edu/~rhiju/Sripakdeevong_StepwiseAnsatz_2011.pdf) [Link](http://dx.doi.org/10.1073/pnas.1106516108)
 
 Das, R. (2013) "Atomic-accuracy prediction of protein loop structures enabled by an RNA-inspired ansatz", PLoS ONE 8(10): e74830. doi:10.1371/journal.pone.0074830 [Link](http://dx.doi.org/10.1371/journal.pone.0074830).
 
-
+A paper describing Stepwise Monte Carlo's application to a blind prediction of the Zika xrRNA (RNA-Puzzle 18) and several tetraloop-tetraloop receptor interactions, as well as its performance in an extensive 82-motif benchmark, is available at [biorxiv](https://www.biorxiv.org/content/early/2018/02/06/223305).
 
 Modes
 =====
@@ -107,7 +113,7 @@ You typically will be using two input files:
 
 -   The [[fasta file]] is a sequence file for all the chains in your full modeling problem. 
 For ease of use, you can specify sequence numbering and chain IDs.
--   The [[pdb file]] or set of files provide any input starting structures for the problem. 
+-   A [[pdb file]] (or set of files) to provide any input starting structures for the problem. 
 Residues in PDB files should have chain and residue numbers that represent their actual values in the full modeling problem.
 
 Optional additional files:
@@ -132,7 +138,7 @@ Additional useful parameters:
 
  The flag `-motif_mode` is equivalent to `-extra_min_res 4 9 -terminal_res 1 12` would ask for the closing base pair of the starting helix to be minimized (but not subject to additions, deletions, or rotamer resampling) during the run, and prevention of residues from stacking on the exterior boundary pair ('terminal res'). It is not obligatory, but allowing relaxation of closing base pairs appears to generally improve convergence in this and other RNA cases.
 
-For RNA cases, `  -score:rna_torsion_potential RNA11_based_new -chemical::enlarge_H_lj  ` are currently in use to test an updated RNA torsional potential and to help prevent overcompression of RNA helices. These may be turned on by default at the time of publication of the method, after completion of benchmarking.
+For RNA cases, `  -score:rna_torsion_potential RNA11_based_new -chemical::enlarge_H_lj  ` are currently in use to test an updated RNA torsional potential and to help prevent overcompression of RNA helices. These are now turned on by default at the time of publication of the method, after completion of benchmarking.
 
 Design
 ---------------------------
@@ -210,79 +216,6 @@ Most of the simulation may be spent flickering bits of secondary structure &ndas
 Input files & demo are in:
 `       rosetta/demos/public/stepwise_monte_carlo_mini_protein    `
 
-Options
-=======
-```
-Required:
--in:fasta                                        Fasta-formatted sequence file. [FileVector]
-
-Commonly used:
--s                                               Any starting PDBs onto which motifs will be built [FileVector]
--cycles                                          Number of Monte Carlo cycles.[default 50]. [Integer]
--out:nstruct                                     Number of models to make. default: 1. [Integer]
--out:file:silent                                 Name of output file [scores and torsions, compressed format]. default="default.out" [String]
--native                                          Native PDB filename. [File].
-
-**In following, ChainResidueVector means input like "4 5 6 9 10", "4-6 9-10", or "A:4-6 B:9-10" are all acceptable from command-line.**
-
-Less commonly used, but useful
--motif_mode                                      auto-setup of -extra_min_res and -terminal_res as is appropriate for typical RNA motif runs (junctions,loops,etc.)
--sample_res                                      residues to build (default is to build everything in FASTA that is not in starting PDBs) [ChainResidueVector*]
--score:weights                                   Weights file in database. [File]
--make_movie                                      Output each TRIAL and ACCEPTED structure in the monte carlo to a silent file in the movie/ subdirectory. Useful for pymol movie making.
-
-Advanced 
--num_random_samples                              Number of samples that need to pass filters before before minimizing best (default:20)
--align_pdb                                       PDB to align to. Default will be -native, or any fixed residues in starting pose
--move                                            For running single move. Format: 'ADD 5 BOND_TO_PREVIOUS 4'
--enumerate                                       Use with -move. Force enumeration (SWA-like) instead of stochastic [Boolean] [default: false]
--jump_res                                        optional: residues for defining jumps -- please supply in pairs [ChainResidueVector*]
--root_res                                        optional: desired root res (used in SWM move testing) [ChainResidueVector*]
--virtual_sugar_res                               optional: starting virtual sugars (used in SWM move testing) [ChainResidueVector*]  
--cutpoint_closed                                 closed cutpoints in full model [ChainResidueVector*]
--cutpoint_open                                   open cutpoints in full model (redundant with FASTA readin) [ChainResidueVector*]
--in:file:silent                                  List of input files (in 'silent' format) that specify starting structure
--preminimize                                     Just prepack and minimize input poses
--stepwise:rna:erraser                            Use KIC sampling instead of CCD closure (default:false)
--bulge_res                                       optional: residues to keep uninstantiated
--extra_min_res                                   specify residues other than those being built that should be minimized [ChainResidueVector*]
--terminal_res                                    optional: RNA residues that are not allowed to stack during sampling
--block_stack_above_res                           optional: residues on which other residues cannot stack above (uses 
-                                                           repulsion atoms)
--block_stack_below_res                           optional: residues on which other residues cannot stack below (uses 
-                                                           repulsion atoms)
-
-Rarely used but listed with --help
--data_file                                       RDAT or legacy-format file with RNA chemical mapping data [File] (currently not in use, but will be soon)
--stepwise:atr_rep_screen                         In packing, screen for contacts (but no clash) between partitions before packing (**default:true**)
--virtualize_free_moieties_in_native              Virtualize bulges, terminal phosphates, and 2' hydroxyls detected to be 
-                                                  non-interacting ('free') in native pose. I.e., do 
-                                                  not calculate RMSD over those atoms. (default:true)
--allow_virtual_side_chains                       In packing, allow virtual side chains (**default:true**)
--temperature                                     Temperature for Monte Carlo Minimization (default: 1.0)
--input_res                                       Residues numbers in starting files. [ChainResidueVector*]
--overwrite                                       Overwrite any prior silent files. (default:false)
--full_model:other_poses                          list of PDB files containing other poses (this may be deprecated by -s)
--skip_deletions                                  no delete moves -- just for testing (default:false)
--add_delete_frequency                            Frequency of add/delete vs. resampling (default: 0.5)
--minimize_single_res_frequency                   Frequency with which to minimize the residue that just got rebuilt, instead  of all (default: 0.0)
--switch_focus_frequency                          Frequency with which to switch the sub-pose that is being modeled (default: 0.5)
--just_min_after_mutation_frequency               After a mutation, how often to just minimize (without further sampling the mutated residue) (default: 0.5)
--submotif_frequency                              Frequency with which to try a special submotif from a currently small database (UA,GG,U-turn) (default: 0.2)
--allow_internal_hinge_moves                      Allow moves in which internal suites are sampled (hinge-like motions) (default:true)
--allow_internal_local_moves                      Allow moves in which internal cutpoints are created to allow ERRASER rebuilds (default:**false**)
--new_move_selector                               When deciding on move acceptance, correct by ratio of forward and reverse move proposal probabilities, helps maintain detailed balance (default: true) 
--allow_skip_bulge                                Allow moves in which an intervening residue is skipped and the next one is modeled as floating base (default:**false**)
--allow_variable_bond_geometry                    In 10% of moves, let bond angles & distance change (default:false) (**warning: this may not work anymore**)
--num_pose_minimize                               number of sampled poses to minimize within each stepwise move (1 for RNA; 5 poses with lowest energy after packing for protein)
--full_model:rna:force_syn_chi_res_list           optional: sample only syn chi for these res in sampler [ChainResidueVector*]
--force_centroid_interaction                      Require base stack or pair even for single residue loop closed (which could also be bulges!)
--rebuild_bulge_mode                              rebuild_bulge_mode (just for SWA backwards compatibility)
--corrected_geo                                   Use PHENIX-based RNA sugar close energy and bond geometry parameter files (default:true)
--csa_bank_size                                   Do conformational space annealing with this number of models in the bank [Integer] [default: 0]
--csa_rmsd                                        RMSD cutoff for calling two poses different in conformational space annealing [Real] [default: 1.0]
--csa_output_rounds                               output silent files at intermediate stages (at integral multiples of bank size) [Boolean] [default: false]
-```
 
 Tips
 ====
@@ -304,7 +237,7 @@ Conformational space annealing (CSA) is a new population-based optimization for 
 The following parameters define the amount of computation performed by stepwise with CSA:
 ```
 Rosetta options:
--cycles                               number of monte carlo cycles per update (default: 200)
+-cycles                               number of monte carlo cycles per update (default: 50)
 -nstruct                              number of updates per structure in bank (default: 20)
 -csa_bank_size                        number of structures stored in the bank (default: 0)
 
@@ -323,7 +256,7 @@ stepwise @flags -cycles <cycles> -nstruct <nstruct> -csa_bank_size <csa_bank_siz
 
 To setup the jobs on a cluster, run the following command:
 ```
-rosetta_submit.py README_SWM SWM <njobs> <nhours>
+rosetta\_submit.py README\_SWM SWM <njobs> <nhours>
 ```
 NOTE: The `csa_bank_size` should match `njobs`, the number of cores running in parallel.
 
@@ -349,26 +282,26 @@ free_2HOprime                                    Bonus for freeing a 2'-OH hydro
 intermol                                         Cost of bringing two chains together at 1 M (-conc flag can change this)
 other_pose                                       Score of sister poses (if building off separate PDBs, prior to merge)
 linear_chainbreak                                Closure term to keep chainbreaks together upon loop closure
-atom_pair_constraint                             any pairwise distance constraints (not implemented yet)
-coordinate_constraint                            any constraints to put atoms at specific coordinates (not implemented yet)
+atom\_pair\_constraint                             any pairwise distance constraints (not implemented yet)
+coordinate\_constraint                            any constraints to put atoms at specific coordinates (not implemented yet)
 
 [RNA stuff]
-fa_elec_rna_phos_phos                            Distance-dep. dielectric Coulomb repulsion term between phosphates
-rna_torsion                                      RNA torsional potential.
-rna_sugar_close                                  Distance/angle constraints to keep riboses as closed rings.
-fa_stack                                         Extra van der Waals attraction for nucleobases, projected along base normal 
-stack_elec                                       Electrostatics for nucleobase atoms, projected along base normal. 
+fa\_elec\_rna\_phos\_phos                            Distance-dep. dielectric Coulomb repulsion term between phosphates
+rna\_torsion                                      RNA torsional potential.
+rna\_sugar\_close                                  Distance/angle constraints to keep riboses as closed rings.
+fa\_stack                                         Extra van der Waals attraction for nucleobases, projected along base normal 
+stack\_elec                                       Electrostatics for nucleobase atoms, projected along base normal. 
 
 [protein stuff]
-pro_close                                        Distance/angle constraints to keep prolines as closed rings.
-fa_pair                                          Lo-res propensity for protein side-chains to be near each other
-hbond_*                                          Other h-bond terms, probably will all get unified
-dslf_*                                           Disulfide geometry terms, unified in later score functions 
+pro\_close                                        Distance/angle constraints to keep prolines as closed rings.
+fa\_pair                                          Lo-res propensity for protein side-chains to be near each other
+hbond\_\*                                          Other h-bond terms, probably will all get unified
+dslf\_\*                                           Disulfide geometry terms, unified in later score functions 
 rama                                             Score for phi/psi backbone combination 
 omega                                            Tether of protein backbone omega to 0° or 180°  
-fa_dun                                           Protein side chain energy
-p_aa_pp                                          -log P( aa | phi, psi ), enters into current bayesian formalism for score
-free_side_chain                                  bonus (of 0.5 * nchi) for virtualizing a protein side chain
+fa\_dun                                           Protein side chain energy
+p\_aa\_pp                                          -log P( aa | phi, psi ), enters into current bayesian formalism for score
+free\_side\_chain                                  bonus (of 0.5 * nchi) for virtualizing a protein side chain
 
 [Following are provided if the user gives a native structure for reference]
 missing                                          number of residues not yet built in the structure
@@ -378,6 +311,20 @@ rms                                              all-heavy-atom RMSD to the nati
 Post Processing
 ===============
 
+Finishing the 'full model'
+--------------------------
+
+The `stepwise` application is not guaranteed to finish construction of the entire full modeling problem in the number of cycles provided. We would like to obtain models that have all residues fully represented, as doing so satisfies two requirements:
+  
+  1. Pragmatically speaking, clustering methods often require the models being clustered to have the same length
+  2. The `stepwise` application computes two measures of RMSD to native, neither of which is likely exactly what you want or expect. 
+    - `rms` is computed only over built residues, so a simulation that builds precisely one of ten residues will probably have a very good `rms` despite being very far from the full modeling problem desired. 
+	- `rms_fill` is computed by imagining that the remaining residues in the problem are all in A-form backbone conformations extending from each exposed connection. This is quick to compute at the end of a modeling problem and helps to penalize largely-unbuilt models.
+
+We would like to fill in these models with 'unfolded' residues, and we do so using the application `build_full_model`. This application runs in two principal modes, each of which eexcutes the same top-level plan -- to place all the residues from the intended full modeling problem and compute a realistic RMSD, as well as base-pairing statistics to evaluate how much of the native structure's key features were recovered.
+
+The application always takes a silent file through `-in:file:silent` and outputs one via `-out:file:silent`. In one mode, run with `-virtualize_built true -caleb_legacy true`, we install virtual residues one at a time with `stepwise` moves. This is very fast, perhaps seconds per structure. The second (`-fragmnet_assembly_mode true`)  
+
 Extraction Of Models Into PDB Format
 ------------------------------------
 
@@ -386,6 +333,7 @@ The models from the above run are stored in compressed format in files like `swm
 ```
 extract_pdbs  -in:file:silent swm_rebuild.out
 ```
+
 
 Experimental stuff
 =============================
@@ -402,7 +350,7 @@ This is a generalization of stepwise design where loops (specified as strings of
 
 New things since last release
 =============================
-This is a new executable as of 2014, with continuing updates to end of 2015.
+This is a new executable as of 2014, with continuing updates to end of 2018.
 
 ##See Also
 * Applications for deterministic stepwise assembly:
