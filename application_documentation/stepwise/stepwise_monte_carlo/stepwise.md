@@ -329,6 +329,8 @@ The application always takes a silent file through `-in:file:silent` and outputs
 build_full_model.linuxclangrelease –in:file:silent swm_rebuild.out –in:file:fasta t_loop_modified_fixed.fasta –out:file:silent swm_rebuild_full_model.out –in:file:native t_loop_modified_fixed_NATIVE_1ehz.pdb –stepwise:monte_carlo:from_scratch_frequency 0.0 –out:overwrite true –score:weights stepwise/rna/rna_res_level_energy4.wts –virtualize_built false –fragment_assembly_mode true –rna:evaluate_base_pairs true –superimpose_over_all true –allow_complex_loop_graph true
 ```
 
+Subsequently, we can take resulting models and run them through a [[clusterer|rna-cluster]] to analyze how well the run converged on low-RMSD solutions.
+
 Extraction Of Models Into PDB Format
 ------------------------------------
 
