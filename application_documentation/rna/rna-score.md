@@ -1,4 +1,4 @@
-#Documentation for RNA threading and mutation: *rna\_score*
+#Documentation for `rna_score`
 
 Metadata
 ========
@@ -10,7 +10,7 @@ Added to documentation: Feb 2018
 Code and Demo
 =============
 
-The central code for the *rna\_score* application is in `       apps/public/rna/util/rna_score.cc      `
+The central code for the `rna_score` application is in `       apps/public/rna/util/rna_score.cc      `
 
 Application purpose
 ===========================================
@@ -30,6 +30,8 @@ Tips
 + This program can be made aware of what PDBs may once have contributed to the full modeling problem that resulted in the silent file to be scored; use the option `-original_input` to pass some PDBs
 + RNA chemical mapping data options are also respected (by passing `-rna:data_file`)
 + Will convert protein part to centroid if requested
+* Can be used to recompute RMSDs for entire poses or subsets of the pose
+* Can be used with superimposition over all residues, or over a particular fixed domain (especially useful if you are rescoring a silent file from a run that had used a superimposition-standard you are now regretting)
 
 Options
 =======
