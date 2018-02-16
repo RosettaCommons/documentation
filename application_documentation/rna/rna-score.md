@@ -3,7 +3,7 @@
 Metadata
 ========
 
-Author: Rhiju Das
+Author: Andrew Watkins
 
 Added to documentation: Feb 2018
 
