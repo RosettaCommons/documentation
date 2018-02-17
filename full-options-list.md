@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-02-15
+Generated: 2018-02-17
 
 _Note that some application specific options may not be present in this list._
 
@@ -32,6 +32,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Sets whether or not lipid residues will beloaded into Rosetta.  The default value is false.<br/>Default: false<br/></dd>
 <dt><b>-include_surfaces</b> \<Boolean\></dt>
 <dd>Sets whether or not mineral surface residues will beloaded into Rosetta.  The default value is false.<br/>Default: false<br/></dd>
+<dt><b>-read_only_ATOM_entries</b> \<Boolean\></dt>
+<dd>Sets whether to ignore everything except ATOM entries.<br/>Default: false<br/></dd>
 <dt><b>-auto_detect_glycan_connections</b> \<Boolean\></dt>
 <dd>Sets whether to search for non-protein connections using PDB coordinates and generate LINK records.<br/>Default: false<br/></dd>
 <dt><b>-max_bond_length</b> \<Real\></dt>
