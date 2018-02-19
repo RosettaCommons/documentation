@@ -51,6 +51,9 @@ Everything below this point is pure speculation.
 ```
 
 ##Changing the protocol when loading
+
+TODO write about this
+
 ```diff
 <PROTOCOLS>
 -	<Stage total_num_results_to_keep="1000">
