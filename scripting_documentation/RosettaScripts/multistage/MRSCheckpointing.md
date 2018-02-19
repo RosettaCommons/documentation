@@ -6,7 +6,9 @@ Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
 [[_TOC_]]
 
-#Not Yet Implemented! Everything below this point is pure speculation.
+#Not Yet Implemented!
+
+Everything below this point is pure speculation.
 
 ```xml
 <PROTOCOLS>
