@@ -36,6 +36,11 @@ Everything below this point is pure speculation.
 		<Sort filter="any_filter"/>
 	</Stage>
 
+	<Stage total_num_results_to_keep="30">
+		<Add mover="any_mover"/>
+		<Sort filter="any_filter"/>
+	</Stage>
+
 	<Checkpoint filename="cp2" old_filename_to_delete="cp1"/>
 
 	<Stage total_num_results_to_keep="10">
