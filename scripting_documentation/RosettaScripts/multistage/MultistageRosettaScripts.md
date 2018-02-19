@@ -23,6 +23,12 @@ after the first mover and then filter out 50% of the remaining structures after 
 
 ###[[Tools and Utilities|MRSTools]]
 
+##Additional Features
+
+[[Clustering|MRSClustering]]
+
+[[Checkpointing|MRSCheckpointing]]
+
 ##Examples
 [[Batch Relax|BatchRelaxExample]]
 
