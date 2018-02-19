@@ -15,7 +15,13 @@ You will want to create a new class in
 that derives from ClusterMetric in
 `protocols/multistage_rosetta_scripts/cluster/ClusterMetric.hh`.
 
-##Step 2: Implement Virtual Funcitons
+You should end up with the following files:
+- `protocols/multistage_rosetta_scripts/cluster/x.fwd.hh`
+- `protocols/multistage_rosetta_scripts/cluster/x.hh`
+- `protocols/multistage_rosetta_scripts/cluster/x.cc`
+- `protocols/multistage_rosetta_scripts/cluster/xCreator.hh`
+
+##Step 2: Implement Virtual Functions
 
 ClusterMetric requires the following overrides
 (in addition to the destructor, of course):
