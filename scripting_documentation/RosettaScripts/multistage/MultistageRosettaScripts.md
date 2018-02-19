@@ -25,7 +25,7 @@ after the first mover and then filter out 50% of the remaining structures after 
 
 ##Additional Features
 
-[[Clustering|MRSClustering]]
+[[Clustering Between Stages|MRSClustering]]
 
 [[Checkpointing|MRSCheckpointing]]
 
