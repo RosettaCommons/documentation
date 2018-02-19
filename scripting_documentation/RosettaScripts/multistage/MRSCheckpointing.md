@@ -1,6 +1,6 @@
 #MultistageRosettaScripts
 
-#Stage Options
+#Checkpointing
 
 Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
