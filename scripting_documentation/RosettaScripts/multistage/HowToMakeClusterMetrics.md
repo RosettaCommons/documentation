@@ -11,9 +11,9 @@ Back To [[MRS Clustering|MRSClustering]]
 ##Step 1: Create a new class
 
 You will want to create a new class in
-`src/protocols/multistage_rosetta_scripts/cluster/metrics`
+`protocols/multistage_rosetta_scripts/cluster/metrics`
 that derives from `ClusterMetric` in
-`src/protocols/multistage_rosetta_scripts/cluster/ClusterMetric.hh`.
+`protocols/multistage_rosetta_scripts/cluster/ClusterMetric.hh`.
 
 ##See Also
 
