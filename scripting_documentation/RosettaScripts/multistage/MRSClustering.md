@@ -12,19 +12,21 @@ you can cluster the results based on a metric of your choice.
 ##XML
 
 ```xml
-<Stage total_num_results_to_keep="1000">
-	<Add mover="my_fast_design_mover"/>
-	<Sort filter="my_sfxn_filter"/>
-</Stage>
+<PROTOCOLS>
+	<Stage total_num_results_to_keep="1000">
+		<Add mover="my_fast_design_mover"/>
+		<Sort filter="my_sfxn_filter"/>
+	</Stage>
 
-<Cluster total_num_results_to_keep="100">
-	 <Sequence>
-</Cluster>
+	<Cluster total_num_results_to_keep="100">
+		 <Sequence>
+	</Cluster>
 
-<Stage total_num_results_to_keep="50">
-	<Add mover="any_mover"/>
-	<Sort filter="any_filter"/>
-</Stage>
+	<Stage total_num_results_to_keep="50">
+		<Add mover="any_mover"/>
+		<Sort filter="any_filter"/>
+	</Stage>
+<PROTOCOLS>
 ```
 
 ##Metrics
