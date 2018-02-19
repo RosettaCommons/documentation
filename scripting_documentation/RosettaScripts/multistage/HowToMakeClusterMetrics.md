@@ -77,7 +77,7 @@ std::string keyname() const override;
 void provide_xml_schema( utility::tag::XMLSchemaDefinition & xsd ) const override;
 ```
 
-##Step 4: Make sure the MetricCreatorFactory registers your new class
+##Step 4: Register class with ClusterMetricFactory
 
 Add the appropriate lines to `src/protocols/init/init.ClusterMetricCreators.ihh`
 and `src/protocols/init/init.ClusterMetricRegistrators.ihh`.
