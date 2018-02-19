@@ -84,6 +84,7 @@ Filter  | Description
 Filter  | Description
 ------------ | -------------
 **[[LongestContinuousPolarSegment|LongestContinuousPolarSegmentFilter]]** | Filter based on length of longest stretch of polar amino acid residues.
+**[[LongestContinuousApolarSegment|LongestContinuousApolarSegmentFilter]]** | Filter based on length of longest stretch of apolar amino acid residues.
 **[[SequenceDistance|SequenceDistanceFilter]]** | Filter based on the number of mutations between pose sequence and sequence stored in comments in pose.
 
 ### Alignment analysis
