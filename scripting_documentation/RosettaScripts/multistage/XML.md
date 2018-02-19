@@ -88,12 +88,12 @@ Between each stage, you have the opportunity to filter out trajectories based on
         <Sort filter="f1"/>
     </Stage>
 
-    <Stage num_runs_per_input_struct="1" total_num_results_to_keep="5000">
+    <Stage num_runs_per_input_struct="1" total_num_results_to_keep="2000">
         <Add mover="m3"/>
         <Sort filter="f2"/>
     </Stage>
 
-    <Stage num_runs_per_input_struct="1" total_num_results_to_keep="5000">
+    <Stage num_runs_per_input_struct="1" total_num_results_to_keep="1000">
         <Add mover="m4"/>
         <Sort filter="f2"/>
     </Stage>
