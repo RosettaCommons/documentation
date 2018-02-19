@@ -16,6 +16,7 @@ that derives from ClusterMetric in
 `protocols/multistage_rosetta_scripts/cluster/ClusterMetric.hh`.
 
 You should end up with the following files:
+
 - `protocols/multistage_rosetta_scripts/cluster/x.fwd.hh`
 - `protocols/multistage_rosetta_scripts/cluster/x.hh`
 - `protocols/multistage_rosetta_scripts/cluster/x.cc`
