@@ -6,6 +6,18 @@ Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
 [[_TOC_]]
 
+One of the great things about traditional rosetta scripts
+is that there is very little penalty for crashing.
+If the program crashes 80% of the way through, you still get 80% of the results
+and you can just re-submit the job to get the final 20%.
+
+Multistage Rosetta Scripts is not like that!
+If the program dies for any reason before
+the structures are output, you get NOTHING!
+
+To counter this, we plan on implementing a checkpointing system that
+allows progress to be saved and loaded in the event of job failure.
+
 #Not Yet Implemented!
 
 Everything below this point is pure speculation.
