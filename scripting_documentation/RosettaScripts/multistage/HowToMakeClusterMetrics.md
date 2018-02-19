@@ -14,7 +14,6 @@ You will want to create a new class in
 `protocols/multistage_rosetta_scripts/cluster/metrics`
 that derives from ClusterMetric in
 `protocols/multistage_rosetta_scripts/cluster/ClusterMetric.hh`.
-
 You should end up with the following files:
 
 - `protocols/multistage_rosetta_scripts/cluster/x.fwd.hh`
@@ -22,7 +21,7 @@ You should end up with the following files:
 - `protocols/multistage_rosetta_scripts/cluster/x.cc`
 - `protocols/multistage_rosetta_scripts/cluster/xCreator.hh`
 
-##Step 2: Implement Virtual Functions
+##Step 2: Implement virtual functions for cluster metric
 
 ClusterMetric requires the following overrides
 (in addition to the destructor, of course):
@@ -58,6 +57,21 @@ parse_my_tag (
 	     utility::tag::TagCOP tag,
 	     basic::datacache::DataMap & datacache
 ) override;
+```
+
+##Step 3: Implement virtual functions for cluster metric creator
+
+Feel free to check out the cluster metric classes that have already been created to see how these methods behave.
+
+```c++
+// Return a new metric.
+ClusterMetricOP create_metric() const override;
+
+// Return the tag name associated with this factory.
+std::string keyname() const override;
+
+// Describe the schema for the Cluster Metric that this Creator is responsible for
+void provide_xml_schema( utility::tag::XMLSchemaDefinition & xsd ) const override;
 ```
 
 ##See Also
