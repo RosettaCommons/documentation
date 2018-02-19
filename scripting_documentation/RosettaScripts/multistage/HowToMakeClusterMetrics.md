@@ -1,6 +1,6 @@
 #MultistageRosettaScripts
 
-#How To Create A New Cluster Metric
+#How To Create A Cluster Metric
 
 Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
