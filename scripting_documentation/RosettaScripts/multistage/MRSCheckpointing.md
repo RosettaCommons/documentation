@@ -50,6 +50,40 @@ Everything below this point is pure speculation.
 <PROTOCOLS>
 ```
 
+##Changing the protocol when loading
+```diff
+<PROTOCOLS>
+-	<Stage total_num_results_to_keep="1000">
++		<Add mover="my_fast_design_mover"/>
++		<Sort filter="my_sfxn_filter"/>
+	</Stage>
+
+-	<Cluster total_num_results_to_keep="60">
++		 <Sequence/>
+-	</Cluster>
+
+-	<Checkpoint filename="cp1"/>
+
+-	<Stage total_num_results_to_keep="50">
++		<Add mover="any_mover"/>
++		<Sort filter="any_filter"/>
+	</Stage>
+
+-	<Stage total_num_results_to_keep="30">
++		<Add mover="any_mover"/>
++		<Sort filter="any_filter"/>
+	</Stage>
+
+-	<Checkpoint filename="cp2" old_filename_to_delete="cp1"/>
+
+-	<Stage total_num_results_to_keep="10">
++		<Add mover="any_mover"/>
++		<Sort filter="any_filter"/>
+-	</Stage>
+
+<PROTOCOLS>
+
+
 ##See Also
 
 * [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
