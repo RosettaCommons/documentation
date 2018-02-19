@@ -8,7 +8,7 @@ The mover will print out verbose the residues it labeled. Also includes a Pymol 
 
 Notes:
 * Certain Movers such as symmetrizing via [[SymDofMover|SymDofMover]] will wipe all labels from your pose. If you need to use PDBInfoLabel, make sure you label them after you symmetrize.
-* If your pose is symmetric, it will only label the asymmetric unit (asu).
+* If your pose is symmetric, it will only label the asymmetric unit (asu). If you want to label all symmetrical copies, you can use [[SymmetricalResidueSelector|ResidueSelectors]] to symmetrize your selection.
 
 ```xml
 <AddResidueLabel name="&string" residue_selector="&string" label="&string" />
