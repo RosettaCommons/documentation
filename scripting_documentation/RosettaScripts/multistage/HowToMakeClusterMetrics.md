@@ -21,6 +21,9 @@ You should end up with the following files:
 - `protocols/multistage_rosetta_scripts/cluster/x.cc`
 - `protocols/multistage_rosetta_scripts/cluster/xCreator.hh`
 
+Your classes should also be added to `src/protocols_e.6.src.settings`
+so they get compiled.
+
 ##Step 2: Implement virtual functions for cluster metric
 
 ClusterMetric requires the following overrides
@@ -73,6 +76,12 @@ std::string keyname() const override;
 // Describe the schema for the Cluster Metric that this Creator is responsible for
 void provide_xml_schema( utility::tag::XMLSchemaDefinition & xsd ) const override;
 ```
+
+##Step 4: Make sure the MetricCreatorFactory registers your new class
+
+Add the appropriate lines to `src/protocols/init/init.ClusterMetricCreators.ihh`
+and `src/protocols/init/init.ClusterMetricRegistrators.ihh`.
+If you do not know what to do, just match the pattern of the existing lines there.
 
 ##See Also
 
