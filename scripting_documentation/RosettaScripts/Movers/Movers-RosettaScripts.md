@@ -71,6 +71,7 @@ Mover  | Description
 **[[StorePoseSnapshot|StorePoseSnapshotMover]]** | Store a snapshot of the current residue numbering in the pose as a named reference pose, so that subsequent movers can use the current state's residue numbering even if residue numbering has changed.
 **[[TrajectoryReportToDB|TrajectoryReportToDBMover]]** | Reports multiple structures to an output forming a trajectory
 **[[WriteLigandMolFile|WriteLigandMolFileMover]]** | Create a V2000 mol file for each pose
+**[[AddResidueLabel|AddResidueLabelMover]]** | Add PDBInfoLabel to your current pose based on a selection.
 
 
 ### Setup Movers
