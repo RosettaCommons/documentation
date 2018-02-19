@@ -7,7 +7,7 @@ Adds PDBInfoLabel to your pose based on a residue_selector selection.
 The mover will print out verbose the residues it labeled. Also includes a Pymol compatible string selection; it can be used to troubleshoot which residues your residue_selector is selecting.
 
 Notes:
-* Certain Movers such as symmetrizing via [[SymDofMover|SymDofMover]] will wipe all labels from your pose.
+* Certain Movers such as symmetrizing via [[SymDofMover|SymDofMover]] will wipe all labels from your pose. If you need to use PDBInfoLabel, make sure you label them after you symmetrize.
 * If your pose is symmetric, it will only label the asymmetric unit (asu).
 
 ```xml
