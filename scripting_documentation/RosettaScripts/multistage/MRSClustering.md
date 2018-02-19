@@ -9,7 +9,7 @@ Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 In order to maintain diversity between trajectories,
 you can cluster the results based on a metric of your choice.
 
-##XML
+##XML Format
 
 ```xml
 <PROTOCOLS>
@@ -34,8 +34,9 @@ you can cluster the results based on a metric of your choice.
 The clustering protocol will not have all of the poses loaded into memory
 while clustering. Instead, snapshots of certain features of the pose are saved
 and used to define how similar two poses are.
+These features are called Cluster Metrics and are chosen by the user.
 
-[[How to make my own cluster metric|TODO]]
+[[How to make my own cluster metric|HowToMakeClusterMetrics]]
 
 ###Sequence
 
