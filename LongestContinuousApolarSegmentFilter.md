@@ -6,7 +6,9 @@ Documentation by Yang Hsia (yhsia@uw.edu).  Page created 19 Feb 2018.
 
 ##LongestContinuousApolarSegment
 
-This filter counts the number of residues in the longest continuous stretch of apolar amino acids in a structure.  Apolar amino acids are defined as residues that are NOT POLAR (ACFGILMPVWY; see [[Resfile definition|resfiles]]. By default, the filter rejects any structure with apolar stretches longer than a threshold value (set to 5 residues unless the user overrides this).
+This filter counts the number of residues in the longest continuous stretch of apolar amino acids in a structure.  Apolar amino acids are defined as residues that are NOT POLAR (ACFGILMPVWY; see [[Resfile definition|resfiles]]). By default, the filter rejects any structure with apolar stretches longer than a threshold value (set to 5 residues unless the user overrides this).
+
+Note: This filter is a sub-class of the LongestContinuousPolarSegmentFilter.
 
 ## Options and Usage
 
