@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-02-17
+Generated: 2018-02-20
 
 _Note that some application specific options may not be present in this list._
 
@@ -1876,6 +1876,71 @@ _Note that some application specific options may not be present in this list._
 <dd>Smoothing level either numeric or word keyword, possible values are 1 or low_smooth, 2 or high_smooth.<br/>Default: "1"<br/></dd>
 <dt><b>-shap_p_aa_pp</b> \<String\></dt>
 <dd>Name of the new Shapovalov's P_AA_PP potential file (search in the local directory first, then look in the database)<br/>Default: "scoring/score_functions/P_AA_pp/shapovalov/10deg/kappa50/a20.prop"<br/></dd>
+</dl>
++ <h3>-corrections:water</h3>
+<dl>
+<dt><b>-water</b> \<Boolean\></dt>
+<dd>water option group<br/></dd>
+<dt><b>-exclude_exposed</b> \<Boolean\></dt>
+<dd>exclude point water rotamers with <= 16 CBs within 10 A<br/>Default: true<br/></dd>
+<dt><b>-water_bump_check</b> \<Boolean\></dt>
+<dd>exclude water rotamers that dont pass energy bump check<br/>Default: false<br/></dd>
+<dt><b>-lkb_overlap_distance</b> \<Real\></dt>
+<dd>intersection distance when solvating with lkball sites<br/>Default: 1.25<br/></dd>
+<dt><b>-lkb_cluster_radius</b> \<Real\></dt>
+<dd>radius for clustering overlapping lkball sites<br/>Default: 0.35<br/></dd>
+<dt><b>-wat_rot_params</b> \<String\></dt>
+<dd>for statistical-based placement of potential water positions<br/>Default: "sampling/waterrots/water.rots"<br/></dd>
+<dt><b>-record_dwell</b> \<Boolean\></dt>
+<dd>record dwell time for all PWAT rotamers in FixbbPwatSimAnnealer<br/>Default: true<br/></dd>
+<dt><b>-print_dwell</b> \<Boolean\></dt>
+<dd>create file with final raw PWAT dwell times from FixbbPwatSimAnnealer<br/>Default: false<br/></dd>
+<dt><b>-dwell_name</b> \<String\></dt>
+<dd>file name for PWAT rotamer occupancies<br/>Default: "dwell.log"<br/></dd>
+<dt><b>-pack_temp</b> \<Real\></dt>
+<dd>fixed annealing temperature<br/>Default: 0.3<br/></dd>
+<dt><b>-spike_anneal</b> \<Boolean\></dt>
+<dd>anneal with temp spikes after each outeriteration<br/>Default: true<br/></dd>
+<dt><b>-spike_steps_scale</b> \<Real\></dt>
+<dd>scale for n_totalrot 100 K temp spikes samples during annealing<br/>Default: 1.0<br/></dd>
+<dt><b>-spike_cycles</b> \<Integer\></dt>
+<dd>number of rounds of temperature spiking for PWAT sampling<br/>Default: 50<br/></dd>
+<dt><b>-innerit</b> \<Integer\></dt>
+<dd>number of fixed temp annealing steps<br/>Default: 250000<br/></dd>
+<dt><b>-dwell_cutoff</b> \<Real\></dt>
+<dd>dwell time cutoff value for PWAT rotamers kept after normalizing by number of MC steps<br/>Default: 0.1200<br/></dd>
+<dt><b>-cluster_radius</b> \<Real\></dt>
+<dd>radius from dwell-weighted centroid for growing PWAT rotamer clusters<br/>Default: 1.0<br/></dd>
+<dt><b>-cluster_cutoff</b> \<Real\></dt>
+<dd>remove cluster if cumulative dwell time is not met<br/>Default: 0.4000<br/></dd>
+<dt><b>-cluster_prefix</b> \<String\></dt>
+<dd>prefix for rotset cutoff and centroid outputs<br/>Default: ""<br/></dd>
+<dt><b>-watlim_scale</b> \<Real\></dt>
+<dd>scale factor for waters kept if using limit_water: scale factor * # molten residues<br/>Default: 1.0<br/></dd>
+<dt><b>-print_clusters</b> \<Boolean\></dt>
+<dd>option to turn on PWAT clustering<br/>Default: false<br/></dd>
+<dt><b>-pointwater_params</b> \<String\></dt>
+<dd>PWAT: directory name for pointwater potential databases<br/>Default: "norm_trunc6"<br/></dd>
+<dt><b>-ordered_pt_wat_penalty</b> \<Real\></dt>
+<dd>PWAT: Penalty for adding an ordered point water.  Implemented through pointwater scoreterm.<br/>Default: 2.15037006642983<br/></dd>
+<dt><b>-pointwat_wat_bonus</b> \<Real\></dt>
+<dd>PWAT: water-water bonus for nearby PWAT residues<br/>Default: 0.810638995223315<br/></dd>
+<dt><b>-pointwat_wat_bonus_width</b> \<Real\></dt>
+<dd>PWAT: factor determining width of water-water bonus exponential function<br/>Default: 29.3807301999186<br/></dd>
+<dt><b>-ordered_wat_penalty</b> \<Real\></dt>
+<dd>HOH: Penalty for adding an ordered water; implemented through ref scoreterm<br/>Default: 1.7<br/></dd>
+<dt><b>-hbdon_H2O</b> \<Real\></dt>
+<dd>hydrogen bond donor strength for HOH residues<br/>Default: 1.15<br/></dd>
+<dt><b>-hbacc_H2O</b> \<Real\></dt>
+<dd>hydrogen bond acceptor strength for HOH residues<br/>Default: 1.15<br/></dd>
+<dt><b>-wat_rot_sampling</b> \<Real\></dt>
+<dd>Stepsize (in degrees) of rotatable waters<br/>Default: 30.0<br/></dd>
+<dt><b>-wat_axis_sampling</b> \<Boolean\></dt>
+<dd>align O-H1 vector with nearby backbone O and sample about O-O axes<br/>Default: true<br/></dd>
+<dt><b>-axis_rot_sampling</b> \<Real\></dt>
+<dd>Stepsize (in degrees) of rotatable waters when wat_axis_sampling is used<br/>Default: 15.0<br/></dd>
+<dt><b>-include_vrt</b> \<Boolean\></dt>
+<dd>allow for water virtualization<br/>Default: true<br/></dd>
 </dl>
 + <h2>-evaluation</h2>
 <dl>
