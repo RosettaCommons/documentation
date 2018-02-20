@@ -15,6 +15,8 @@ based on a trajectory's global rank using the metric of your choice.
 For example, you may choose to drop the 80% lowest-scoring structures
 after the first mover and then filter out 50% of the remaining structures after the 5th mover.
 
+###[[Desciption|Description]]
+
 ###[[XML Format|XML]]
 
 ###[[Stage Options|StageOptions]]
