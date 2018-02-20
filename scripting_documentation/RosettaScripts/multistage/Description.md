@@ -6,7 +6,7 @@ Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
 [[_TOC_]]
 
-![Alt Text](/images/multistage_rosetta_scripts/merge_results_after_this_stage.png)
+![Alt Text](/images/multistage_rosetta_scripts/MRSMovieFast.gif)
 
 
 ##See Also
