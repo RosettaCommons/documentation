@@ -2,6 +2,8 @@
 
 #Multistage Rosetta Scripts
 
+[[_TOC_]]
+
 ###Description
 
 Traditional Rosetta Scripts does not have a built-in interface
