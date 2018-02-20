@@ -11,8 +11,6 @@ but their behaviors are not necessarily clear based on the names alone.
 In order to help the names make more sense, this page explains
 the vocabulary I had in my head while writing these options.
 
-![Alt Text](/images/multistage_rosetta_scripts/MRSMovieFast.gif)
-
 ##Trajectory
 
 A trajectory is the sequence of movers and filters that a single pose experiences.
