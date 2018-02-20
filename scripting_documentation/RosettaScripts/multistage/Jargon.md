@@ -9,13 +9,16 @@ Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 ![Alt Text](/images/multistage_rosetta_scripts/MRSMovieFast.gif)
 
 ##Trajectory
-...
-
-##Result
-...
+[[/images/multistage_rosetta_scripts/MRS_jargon_trajectory.png]]
 
 ##Input Struct
-...
+[[/images/multistage_rosetta_scripts/MRS_jargon_input_struct.png]]
+
+##Result
+[[/images/multistage_rosetta_scripts/MRS_jargon_result.png]]
+
+##Instance
+[[/images/multistage_rosetta_scripts/MRS_jargon_instance.png]]
 
 ##See Also
 
