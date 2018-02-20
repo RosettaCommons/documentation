@@ -11,11 +11,14 @@ that allows the user to filter trajectories based on their global ranking.
 Traditional Rosetta Scripts relies on predetermined filtration cutoffs.
 It is often difficult to predict the correct cutoff to use without first
 running the script, so these filter cutoffs tend to be conservative in practice.
-
 Multistage Rosetta Scripts (M.R.S.) allows you to filter after each "stage"
 based on a trajectory's global rank using the metric of your choice.
-For example, you may choose to drop the 80% lowest-scoring structures
-after the first mover and then filter out 50% of the remaining structures after the 5th mover.
+
+Instead of running each rosetta script trajectory in isolation,
+M.R.S. breaks the trajectory up into stages as shown below.
+Rosetta runs each stage for all of the trajectories and
+filters out some trajectories based on their global rank
+before moving on to the next stage.
 
 ![Alt Text](/images/multistage_rosetta_scripts/MRSMovieFast.gif)
 
