@@ -8,7 +8,14 @@ Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
 ![Alt Text](/images/multistage_rosetta_scripts/MRSMovieFast.gif)
 
-TODO
+##Trajectory
+...
+
+##Result
+...
+
+##Input Struct
+...
 
 ##See Also
 

@@ -35,7 +35,7 @@ amount of RAM needed to be devoted to archive nodes.
 You can divide this total by the amount of RAM per CPU
 in your system to calculate the number of archive nodes you should ask for.
 
-Alternatively, you can ruin with the [[archive on disk|RunningMRS]] option.
+Alternatively, you can run with the [[archive on disk|RunningMRS]] option.
 
 ##Unarchive
 

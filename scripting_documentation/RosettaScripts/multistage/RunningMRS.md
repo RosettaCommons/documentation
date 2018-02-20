@@ -56,9 +56,6 @@ Additionally, this allows you to have more CPUs
 running your protocol instead of being archive nodes
 (you can greatly reduce your value for `n_archive_nodes` when archiving on disk).
 
-For whatever it is worth, I always use the `archive_on_disk` option when running multistage rosetta scripts.
--Jack Maguire
-
 ##Examples
 
 ###Archiving on disk
