@@ -5,7 +5,11 @@ An introductory tutorial on scoring biomolecules using Rosetta can be found [her
 Standard Weights File
 =====================
 
-The default score function in Rosetta for scoring full-atom structures is currently **talaris2014**.  This is a slight modification of the **talaris2013** energy function.  The **talaris2013** and **talaris2014** energy functions and their corrections were tested in the papers 
+**REF2015** was developed as beta_nov15 and became the default scorefunction in July 2017. The main changes include  optimization of electrostatic parameters, updated torsion parameters, updated bonded parameters, enabling LJ attraction for hydrogens. For more information see [beta_nov15_updates](https://www.rosettacommons.org/docs/latest/rosetta_basics/scoring/Updates-beta-nov15) and the following paper:
+
+[Alford RF et al., J Chem Theory Comput. 2017](https://pubs.acs.org/doi/abs/10.1021/acs.jctc.7b00125)
+
+The previous score function, **talaris2014**, is a slight modification of the **talaris2013** energy function. The **talaris2013** and **talaris2014** energy functions and their corrections were tested in the papers 
 
 [Leaver-Fay et al., Methods in Enzymology 2013](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3724755/)
 
