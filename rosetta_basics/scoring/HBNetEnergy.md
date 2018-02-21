@@ -49,6 +49,24 @@ To use the `hbnet` score term in design, simply follow the following steps:
 
 3.  (Recommended).  Perform a final round of minimization or relaxation with the `hbnet` score term turned _off_.  This ensures that the score term is not forcing unrealistic rotamers that would not be held in place given the hydrogen bonding.
 
+## Advanced options
+
+### Alternative ramping schemes for the bonus function
+The `hbnet` score term, by default, imposes a quadratically-ramping bonus for larger and larger hydrogen bond networks.  It has been suggested that a "diminishing returns" bonus function (_e.g._ a logarithmic or square root function) would produce better results, avoiding cases in which the packer makes hydrogen bond networks as large as possible at the expense of poor `fa_dun` scores or poor packing.  Alternative ramping can be specified as of 20 February 2018 in one of two ways:
+
+1.  Globally, at the command line, the flag `-score:hbnet_bonus_function_ramping <string>` allows the user to specify alternative ramping schemes.  The string can be any one of `quadratic`, `linear`, `squareroot`, or `logarithmic`.
+
+2.  For a given scorefunction, from RosettaScripts XML:
+```xml
+<SCOREFXNS>
+	<ScoreFunction name="r15" weights="ref2015.wts" >
+		<Reweight scoretype="hbnet" weight="1.0" />
+		<Set hbnet_bonus_function_ramping="<string>" />
+	</ScoreFunction>
+</SCOREFXNS>
+```
+Again, in the above, the string can be any one of `quadratic`, `linear`, `squareroot`, or `logarithmic`.  (In PyRosetta or Rosetta C++ code, the `hbnet_bonus_function_ramping` option in an `EnergyMethodOptions` object can be set, and the `EnergyMethodOptions` object can be passed to the `ScoreFunction` object.)
+
 ## Use with symmetry
 The `hbnet` score term is fully compatible with symmetry with no special setup required.
 
