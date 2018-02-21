@@ -2,7 +2,9 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## AddCompositionConstraintMover
 
-This mover adds an amino acid composition constraint to a pose.  This is a sequence constraint enforced by the [[aa_composition score term|AACompositionEnergy]].  The composition constraint is set up using a ```.comp``` file, described in the [[documentation for the aa_composition score term|AACompositionEnergy]] or an inline composition constraint defined via `Comp` subtags. With a "Comp" subtag constraint lines *may* be terminated by a `;` to support single-line definitions. Optionally, this mover may also attach a [[ResidueSelector|ResidueSelectors]] to the composition constraint, which serves to select the subset of residues for which the sequence will be constrained.  For example, one could select just the core of a protein and require that it be no more than 10% aromatic and no more than 5% polar.
+This mover adds an amino acid composition constraint to a pose.  This is a sequence constraint enforced by the [[aa_composition score term|AACompositionEnergy]].  The composition constraint is set up using a ```.comp``` file, described in the [[documentation for the aa_composition score term|AACompositionEnergy]] or an inline composition constraint defined via `Comp` subtags. With a `Comp` subtag, constraint lines *may* be terminated by a `;` to support single-line definitions.
+
+Optionally, this mover may also attach a [[ResidueSelector|ResidueSelectors]] to the composition constraint, which serves to select the subset of residues for which the sequence will be constrained.  For example, one could select just the core of a protein and require that it be no more than 10% aromatic and no more than 5% polar.
 
 ```xml
 <AddCompositionConstraintMover name="(&string)" filename="(&string)" selector="(&string)">
