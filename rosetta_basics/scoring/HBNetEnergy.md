@@ -67,6 +67,27 @@ The `hbnet` score term, by default, imposes a quadratically-ramping bonus for la
 ```
 Again, in the above, the string can be any one of `quadratic`, `linear`, `squareroot`, or `logarithmic`.  (In PyRosetta or Rosetta C++ code, the `hbnet_bonus_function_ramping` option in an `EnergyMethodOptions` object can be set, and the `EnergyMethodOptions` object can be passed to the `ScoreFunction` object.)
 
+If no ramping scheme is set, the default is `quadratic`.
+
+### Setting maximum network size that receives a bonus
+
+Another approach is to provide a bonus up to a certain size of network, beyond which the `hbnet` score term provides no further bonus.  The maximum network size can be set in one of two ways:
+
+1.  Globally, at the command line, the flag `-score:hbnet_max_network_size' <int>` allows the user to specify the maximum network size that receives a bonus, beyond which the bonus function will be completely flat.  A value of 0 (the default) indicates no limit.
+
+2.  For a given scorefunction, from RosettaScripts XML:
+```xml
+<SCOREFXNS>
+	<ScoreFunction name="r15" weights="ref2015.wts" >
+		<Reweight scoretype="hbnet" weight="1.0" />
+		<Set hbnet_max_network_size="<int>" />
+	</ScoreFunction>
+</SCOREFXNS>
+```
+Again, a value of 0 indicates no limit.
+
+If no maximum network size is set, the default is `0` (_i.e._ unlimited).
+
 ## Use with symmetry
 The `hbnet` score term is fully compatible with symmetry with no special setup required.
 
