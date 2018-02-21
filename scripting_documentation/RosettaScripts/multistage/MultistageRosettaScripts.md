@@ -20,7 +20,7 @@ Rosetta runs each stage for all of the trajectories and
 filters out some trajectories based on their global rank
 before moving on to the next stage.
 
-![MRS Movie](/images/multistage_rosetta_scripts/MRSMovieFast.gif)
+![MRS Movie](https://www.rosettacommons.org/docs/wiki/images/multistage_rosetta_scripts/MRSMovieFast.gif)
 
 ###[[Jargon|Jargon]]
 
