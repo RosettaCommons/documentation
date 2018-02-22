@@ -41,6 +41,8 @@ before moving on to the next stage.
 ##Examples
 [[Batch Relax|BatchRelaxExample]]
 
+[[PDBList Example|PDBListExample]]: How to submit structures using a pdblist instead of have a bunch of seperate `<Job>` tags.
+
 [[DataMap Overloading|OverloadExample]]
 
 [[Time Machine|TimeMachineExample]]
