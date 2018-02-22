@@ -8,7 +8,7 @@ Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 - All information here is valid as of Feb 21, 2018
 
 I mentioned in the [[Batch Relax exmaple|BatchRelaxExample]] that I generated
-a job definition file with 30,000 `<Job/>` tags.
+a job definition file with 30,000 `<Job>` tags.
 This was a byproduct of the script converter, which is not smart enough to
 differentiate between poses provided using `-l` and `-s` so it just loads
 all of the files individually.
