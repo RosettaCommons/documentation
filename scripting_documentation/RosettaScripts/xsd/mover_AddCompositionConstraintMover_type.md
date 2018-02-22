@@ -7,10 +7,17 @@ Add composition constraints from the provided file to the selected region
 
 ```xml
 <AddCompositionConstraintMover name="(&string;)" filename="(&string;)"
-        selector="(&string;)" />
+        selector="(&string;)" >
+    <Comp entry="(&string;)" />
+</AddCompositionConstraintMover>
 ```
 
--   **filename**: (REQUIRED) Name of composition constraint file
+-   **filename**: Name of composition constraint file
 -   **selector**: Residue selector named somewhere else in the script
+
+
+Subtag **Comp**:   
+
+-   **entry**: (REQUIRED) Composition constraint entries, optionally ';' separated.
 
 ---

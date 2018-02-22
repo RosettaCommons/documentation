@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-02-20
+Generated: 2018-02-22
 
 _Note that some application specific options may not be present in this list._
 
@@ -1051,6 +1051,10 @@ _Note that some application specific options may not be present in this list._
 <dd>rule for trying cpfxn on group<br/>Default: true<br/></dd>
 <dt><b>-grpelec_cpfxn_weight</b> \<RealVector\></dt>
 <dd>cpfxn weight on group(1-4/1-5/>1-5)<br/>Default: ['0.0', '0.2', '1.0']<br/></dd>
+<dt><b>-hbnet_bonus_function_ramping</b> \<String\></dt>
+<dd>The hbnet score term's bonus function can scale in different ways as the size of a network grows.  The default is quadratic growth, though linear, logarithmic, and square root growth are all allowed.<br/>Default: "quadratic"<br/></dd>
+<dt><b>-hbnet_max_network_size</b> \<Integer\></dt>
+<dd>This is the maximum hydrogen bond network size, beyond which the hbnet score term will not give any more bonus.  Defaults to 0, which means no limit.<br/>Default: 0<br/></dd>
 <dt><b>-elec_context_minstrength</b> \<Real\></dt>
 <dd>strength at min burial <br/>Default: 0.2<br/></dd>
 <dt><b>-elec_context_minburial</b> \<Real\></dt>
