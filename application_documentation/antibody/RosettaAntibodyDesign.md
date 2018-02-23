@@ -98,7 +98,7 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 
 ----------------
 
-#### Optimizing Interface dG (opt-dG)**
+#### Optimizing Interface Energy (opt-dG)
 
 **Example 1**
 
