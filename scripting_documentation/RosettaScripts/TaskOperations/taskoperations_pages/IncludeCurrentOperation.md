@@ -2,7 +2,11 @@
 *Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## IncludeCurrent
 
-Includes current rotamers (eg - from input pdb) in the rotamer set. These rotamers will be lost after a packing run, so they are only effective upon initial loading of a pdb!
+Includes current rotamers in the rotamer set.
+
+**Notes:**
+* The first packing run will include the rotamers from the input PDB. These input PDB rotamers will be lost after the first packing run, so they are only effective upon initial loading of a pdb.
+* Successive runs will include the current rotamer of the pose at initialization (as the name implies).
 
      <IncludeCurrent name="(&string)" />
 
