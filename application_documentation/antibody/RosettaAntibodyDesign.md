@@ -112,7 +112,7 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 ----------------
 
 
-**Example 2 - Optimizing dG and E**
+**Example 2 - Optimizing Interface Energy and Total Score (opt-dG and opt-E)**
 
 Here, we want to set the protocol to optimize the interface energy during Monte Carlo, but we want to add some total energy to the weight.  Because the overall numbers of total energy will dominate the overall numbers, we only add a small weight for total energy.  This has not been fully benchmarked, but if your models have very bad total energy when using opt-dG - consider using it.  
 
