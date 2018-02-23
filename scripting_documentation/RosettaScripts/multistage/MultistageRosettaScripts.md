@@ -8,9 +8,9 @@
 
 Traditional Rosetta Scripts does not have a built-in interface
 that allows the user to filter trajectories based on their global ranking.
-Traditional Rosetta Scripts relies on predetermined filtration cutoffs.
-It is often difficult to predict the correct cutoff to use without first
-running the script, so these filter cutoffs tend to be conservative in practice.
+It instead relies on predetermined filtration cutoffs.
+Predicting the correct cutoff to use without first running the script can be difficult,
+so these filter cutoffs tend to be conservative in practice.
 Multistage Rosetta Scripts (M.R.S.) allows you to filter after each "stage"
 based on a trajectory's global rank using the metric of your choice.
 
