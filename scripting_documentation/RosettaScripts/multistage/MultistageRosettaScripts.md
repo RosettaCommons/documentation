@@ -16,9 +16,9 @@ based on a trajectory's global rank using the metric of your choice.
 
 Instead of running each rosetta script trajectory in isolation,
 M.R.S. breaks the trajectory up into stages as shown below.
-Rosetta runs each stage for all of the trajectories and
-filters out some trajectories based on their global rank
-before moving on to the next stage.
+Each stage is run to completion for all trajectories before the next stage is started.
+This gives Rosetta the ability to sort the results by a user-defined score
+and filter based on global position.
 
 ![MRS Movie](https://www.rosettacommons.org/docs/wiki/images/multistage_rosetta_scripts/MRSMovieFast.gif)
 
