@@ -39,12 +39,12 @@ before moving on to the next stage.
 [[Checkpointing|MRSCheckpointing]]
 
 ##Examples
-[[Batch Relax|BatchRelaxExample]]:
-Save time by splitting FastRelax up into several stages.
-
 [[PDBList Example|PDBListExample]]:
 How to submit structures using a pdblist instead of
 having a bunch of seperate `<Job>` tags.
+
+[[Batch Relax|BatchRelaxExample]]:
+Save time by splitting FastRelax up into several stages.
 
 [[DataMap Overloading|OverloadExample]]:
 How to declare a default object in `<Common>` and
