@@ -32,7 +32,7 @@ This is M.R.S.'s equivalent to the `-nstruct` command line option.
 For the first stage, the number provided here declares the number
 of times the stage will run for each structure defined by the `<Job>` tag(s).
 For example, if `num_runs_per_input_struct=40` and
-there are 5 input structs (poses defined by the `<Job/>` tags),
+there are 5 input structs (poses defined by the `<Job>` tags),
 then the stage will end up running a total of 200 times.
 
 For each additional stage, the number provided here declares the number of
@@ -45,9 +45,9 @@ then the current stage will end up running a total of 50 times.
 
 This number defines the maximum number of job results from the current stage that will survive
 and go on to the next stage (or to be output, if this is the final stage).
-Unlike `num_runs_per_input_struct`, this option is not affected by the number of `<Job/>` tags.
+Unlike `num_runs_per_input_struct`, this option is not affected by the number of input structs.
 The combination of `num_runs_per_input_struct=40`, `total_num_results_to_keep=10`, and
-5 `<Job/>` tags results in 200 jobs - of which only 10 results will survive until the next round.
+5 input structs results in 200 jobs - of which only 10 results will survive until the next round.
 
 ##max_num_results_to_keep_per_input_struct
 
@@ -65,16 +65,16 @@ For example, say you are docking two proteins and you have some idea about how y
 You can run your docking mover as normal (with or without constraints)
 and follow up the docking mover with one or more filters.
 The job will not return a result unless it passes all of these filters
-(including the one in `<Sort/>`).
+(including the one in `<Sort>`).
 Now you can set `num_runs_per_input_struct` to a very large number and `result_cutoff` to 1000
 and Rosetta will essentially keep sampling until it finds 1000 results that pass all of your filters.
 
 ##max_num_results_to_keep_per_instance
 
 Some movers can return multiple results ([[HBNet|HBNetMover]], for example).
-This is challenging for use to handle in a well-organized manner.
-The current format only allows for the final mover in a stage to return multiple results.
-This number defines a cap for a single mover.
+This is challenging to handle in a well-organized manner.
+The current format only allows for only the final mover in a stage to return multiple results.
+This option defines a cap for a instance of that mover.
 If this value is set to 10, for example,
 a single instance of HBNet would only be able to return up to 10 results.
 So if you have `num_runs_per_input_struct=1000` and `max_num_results_to_keep_per_instance=2`,
@@ -84,9 +84,10 @@ you can get a maximum of 2000 results.
 
 By default all of the results of a stage are thrown into the same pool,
 sorted, and the top few are chosen to survive.
-This option allows you to create a separate pool for each `<Job/>` tag until a certain point.
+This option allows you to create a separate pool for each `<Job>` tag input struct until a certain point.
 
-Suppose you have 2 `<Job/>` tags and 3 stages: (1) Dock, (2) Design, (3) Minimize.
+Suppose you have 2 `<Job>` tag input structs and
+3 stages: (1) Dock, (2) Design, (3) Minimize.
 Perhaps you want a 50/50 split of results until the final stage.
 If you set `merge_results_after_this_stage="true"/>` in the second stage tag,
 then you will have a 50/50 split of jobs until after the Design step.
@@ -96,21 +97,27 @@ and the jobs for stage 3 will not necessarily be a 50/50 split.
 [[/images/multistage_rosetta_scripts/merge_results_after_this_stage.png]]
 
 `merge_results_after_this_stage` can only be set to true for one stage.
-If it is never present for any stage, then results will always be placed into the same pool.
-The values for `total_num_results_to_keep` and `result_cutoff` are divided evenly into each pool.
-For example, if `result_cutoff="100"` and you have 4 `<Job/>` tags
+If it is never present for any stage,
+then results will always be placed into the same pool.
+The values for `total_num_results_to_keep` and
+`result_cutoff` are divided evenly into each pool.
+For example, if `result_cutoff="100"` and you have 4 `<Job>` tag input structs
 then the stage will not stop early unless each of the 4 pools has at least 25 results
 and Rosetta will keep total_num_results_to_keep/4 results from each pool.
 
 ##Add
 
-`<Add/>` means the exact same thing here as it does in [[traditional|RosettaScripts]] rosetta scripts.
-It takes up to 1 mover (can use either `mover_name` or `mover`) and up to 1 filter (`filter_name` or `filter`).
-If both a mover and filter are given, then mover is applied before the filter is.
+`<Add>` means the exact same thing here as it does in
+[[traditional rosetta scripts|RosettaScripts]].
+It takes up to 1 mover (can use either `mover_name` or `mover`)
+and up to 1 filter (`filter_name` or `filter`).
+If both a mover and filter are given,
+then mover is applied before the filter is.
 
 ##Sort
 
-`<Sort/>` is similar to `<Add/>` but only takes a filter (`filter_name` or `filter`).
+`<Sort>` is similar to `<Add>` but
+only takes a filter (`filter_name` or `filter`).
 The metric measured by this filter is used to sort the results
 of this stage and determines which are kept and which are discarded.
 More negative numbers are assumed to be better for this metric,
