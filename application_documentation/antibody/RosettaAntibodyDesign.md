@@ -96,16 +96,21 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -random_start
 ```
 
+----------------
+
 **Example 3 - Optimizing Interface dG (opt-dG)**
 
-Here, we want to set the protocol to optimize the interface energy during Monte Carlo instead of total energy.  The interface energy is calculated by the [InterfaceAnalyzerMover] through a specialized MonteCarlo called **MonteCarloInterface**.   This is useful to improve binding energy and will result in better interface energies.  Resulting models should still be pruned for high total energy.  This was benchmarked in the paper - so please see it for more information.
+Here, we want to set the protocol to optimize the interface energy during Monte Carlo instead of total energy.  The interface energy is calculated by the [[InterfaceAnalyzerMover]] through a specialized MonteCarlo called **MonteCarloInterface**.   This is useful to improve binding energy and will result in better interface energies.  Resulting models should still be pruned for high total energy.  This was benchmarked in the paper - so please see it for more information.
 
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -mc_optimize_dG
 ```
 
-**Example 4 - Optimizing Interface dG (opt-dG) and Total Energy **
+----------------
+
+
+**Example 4 - Optimizing Interface dG (opt-dG) and Total Energy**
 
 Here, we want to set the protocol to optimize the interface energy during Monte Carlo, but we want to add some total energy to the weight.  Because the overall numbers of total energy will dominate the overall numbers, we only add a small weight for total energy.  This has not been fully benchmarked, but if your models have very bad total energy when using opt-dG - consider using it.  
 
@@ -114,6 +119,8 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -mc_optimize_dG -mc_total_weight .001 -mc_interface_weight .999
 
 ```
+
+----------------
 
 
 ### Docked Design
