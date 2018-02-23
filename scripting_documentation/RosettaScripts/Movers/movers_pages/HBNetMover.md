@@ -113,6 +113,10 @@ If your goal is to design a network that satisfies a polar small molecule, use `
 - <b>min_core_res</b>: minimum core residues each network must have (as defined by core selector).
 - <b>design_residues (string &"STRKHYWNQDE"</b>: string of one-letter AA codes; which polar residues types do you want to include in the search; the default is all AA's that can potentially make h-bonds, further restricted by the <b>task_operations</b> you pass.
 - <b>task_operations</b>: comma-delimited list of task operations you have previously defined in your XML; HBNet will respect any task operation passed to it, and only search for networks within the design space you define by these taskops; the more that you can restrict your design space to only what you want, the faster HBNet will run.
+- <b>store_network_scores_in_pose</b>: Boolean. If true, adds "HBNet_NumUnsatHpol",
+"HBNet_Saturation", and "HBNet_Score" to pose as an extra score. These scores will be
+printed in the score.sc file and can be accessed using the
+[[ReadPoseExtraScoreFilter|ReadPoseExtraScoreFilter]].
 
 ###Options for MC HBNet
 - <b>monte\_carlo</b> (bool,"false"):
