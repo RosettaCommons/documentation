@@ -30,14 +30,16 @@ Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
 This is M.R.S.'s equivalent to the `-nstruct` command line option.
 For the first stage, the number provided here declares the number
-of times the stage will run for each `<Job/>` tag.
-For example, if `num_runs_per_input_struct=40` and there are 5 `<Job/>` tags,
+of times the stage will run for each structure defined by the `<Job>` tag(s).
+For example, if `num_runs_per_input_struct=40` and
+there are 5 input structs (poses defined by the `<Job/>` tags),
 then the stage will end up running a total of 200 times.
 
 For each additional stage, the number provided here declares the number of
 times the stage will run for each result from the previous stage.
-If `num_runs_per_input_struct=5` and `total_num_results_to_keep=10` for the previous stage,
-then the stage will end up running a total of 50 times.
+If `num_runs_per_input_struct=5` for the current stage and
+`total_num_results_to_keep=10` for the previous stage,
+then the current stage will end up running a total of 50 times.
 
 ##total_num_results_to_keep
 
