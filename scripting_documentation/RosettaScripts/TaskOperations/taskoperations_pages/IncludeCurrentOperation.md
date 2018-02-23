@@ -8,7 +8,9 @@ Includes current rotamers in the rotamer set.
 * The first packing call will include the rotamers from the input PDB. These input PDB rotamers will be lost after the first packing run, so they are only effective upon initial loading of a pdb.
 * Successive packer calls will include the current rotamer of the pose at initialization (as the name implies).
 
-     <IncludeCurrent name="(&string)" />
+```xml
+<IncludeCurrent name="(&string)" />
+```
 
 ##See Also
 
