@@ -16,7 +16,7 @@ Print the Pose's labels
 -   **use_dssp**: Use DSSP if the Pose has no Secondary Structure Assigned (is all loop).
 -   **write**: Write the LABELS as a REMARK in the output structure or silent file (overwrites previous REMARKS with the title LABELS).
 -   **task_operations**: A comma separated list of TaskOperations to use.
--   **task_factory**: A TaskFactory specification to use
+-   **task_factory**: A TaskFactory specification to use.
 -   **movemap_factory**: MoveMapFactory to print aligned to the residues
 
 ---
