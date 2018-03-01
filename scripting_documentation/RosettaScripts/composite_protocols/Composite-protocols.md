@@ -11,5 +11,5 @@ This page includes documentation for specialized RosettaScripts-based protocols.
     -   [[GeneralizedKIC filters|GeneralizedKICfilter]]
     -   [[GeneralizedKIC selectors|GeneralizedKICselector]]
 -   [[SEWING]]
-    -   [[SEWING Dictionary]]
-    -   [[Assembly of models]]
+-   [[Legacy SEWING|Assembly of models]]
+    -   [[Legacy SEWING Dictionary]]
