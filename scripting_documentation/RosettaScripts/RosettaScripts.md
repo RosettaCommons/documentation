@@ -519,40 +519,6 @@ RESIDUE_SELECTORS
 See [[ResidueSelectors (RosettaScripts)|ResidueSelectors]]
 
 
-APPLY\_TO\_POSE (Deprecated)
----------------
-
-This is a section that is used to change the input structure. The most likely use for this is to define constraints to a structure that has been read from disk.
-
-#### Sequence-profile Constraints
-
-Sets constraints on the sequence of the pose that can be based on a sequence alignment or an amino-acid transition matrix.
-
-```xml
-<profile weight="(0.25 &Real)" file_name="(<input file name >.cst &string)"/>
-```
-
-sets residue\_type type constraints to the pose based on a sequence profile. file\_name defaults to the input file name with the suffix changed to ".cst". So, a file called xxxx\_yyyy.25.jjj.pdb would imply xxxx\_yyyy.cst. To generate sequence-profile constraint files with these defaults use DockScripts/seq\_prof/seq\_prof\_wrapper.sh
-
-#### SetupHotspotConstraints (formerly hashing\_constraints)
-
-```xml
-<SetupHotspotConstraintsMover stubfile="stubs.pdb" redesign_chain="2" cb_force="0.5" worst_allowed_stub_bonus="0.0" apply_stub_self_energies="1" apply_stub_bump_cutoff="10.0" pick_best_energy_constraint="1" backbone_stub_constraint_weight="1.0">
-<HotspotFiles>
-<HotspotFile file_name="hotspot1.pdb" nickname="hp1" stub_num="1"/>
-...
-</HotspotFiles>
-</SetupHotspotConstraintsMover>
-```
-
--   stubfile: a pdb file containing the hot-spot residues
--   redesign\_chain: which is the host\_chain for design. Anything other than chain 2 has not been tested.
--   cb\_force: the Hooke's law spring constant to use in setting up the harmonic restraints on the Cb atoms.
--   worst\_allowed\_stub\_bonus: triage stubs that have energies higher than this cutoff.
--   apply\_stub\_self\_energies: evaluate the stub's energy in the context of the pose.
--   pick\_best\_energy\_constraint: when more than one restraint is applied to a particular residue, only sum the one that makes the highest contribution.
--   backbone\_stub\_constraint\_weight: the weight on the score-term in evaluating the constraint. Notice that this weight can be overridden in the individual scorefxns.
--   HotspotFiles: You can specify a set of hotspot files to be read individually. Each one is associated with a nickname for use in the placement movers/filters. You can set to keep in memory only a subset of the read stubs using stub\_num. If stubfile in the main branch is not specified, only the stubs in the leaves will be used.
 
 MOVERS
 ------
@@ -633,11 +599,11 @@ Note: If the database configuration information is not specified, the relevant o
 <LoopsDatabase name="(&string)" database_mode="['mysql', 'postgres']" database_name="(&string)" database_host="(-mysql:host &string)" database_user="(-mysql:user &string)" database_password="(-mysql:password &string)" database_port="(-mysql:port &string)" database_table="loops"/> 
 ```
 
-###Ligands
+##Ligands
 
 These RosettaScript sections are specifically for working with and scoring ligands in specialized protocols.
 
-####LIGAND\_AREAS
+###LIGAND\_AREAS
 
 
 ```xml
@@ -652,7 +618,7 @@ Ligand minimization can be turned on by specifying a minimize\_ligand value grea
 
 During high resolution docking, small amounts of ligand translation and rotation are coupled with cycles of rotamer trials or repacking. These values can be controlled by the 'high\_res\_angstrom' and 'high\_res\_degrees' values respectively. A tether\_ligand value (in angstroms) will constrain the ligand so that multiple cycles of small translations don't add up to a large translation.
 
-####INTERFACE\_BUILDERS
+###INTERFACE\_BUILDERS
 
 ```xml
 <INTERFACE_BUILDERS>
@@ -662,7 +628,7 @@ During high resolution docking, small amounts of ligand translation and rotation
 
 An interface builder describes how to choose residues that will be part of a protein-ligand interface. These residues are chosen for repacking, rotamer trials, and backbone minimization during ligand docking. The initial XML parameter is the name of the interface\_builder (for later reference). "ligand\_areas" is a comma separated list of strings matching LIGAND\_AREAS described previously. Finally 'extension\_window' surrounds interface residues with residues labeled as 'near interface'. This is important for backbone minimization, because a residue's backbone can't really move unless it is part of a stretch of residues that are flexible.
 
-####MOVEMAP\_BUILDERS
+###MOVEMAP\_BUILDERS
 
 
 ```xml
@@ -673,7 +639,7 @@ An interface builder describes how to choose residues that will be part of a pro
 
 A movemap builder constructs a movemap. A movemap is a 2xN table of true/false values, where N is the number of residues your protein/ligand complex. The two columns are for backbone and side-chain movements. The MovemapBuilder combines previously constructed backbone and side-chain interfaces (see previous section). Leave out bb\_interface if you do not want to minimize the backbone. The minimize\_water option is a global option. If you are docking water molecules as separate ligands (multi-ligand docking) these should be described through LIGAND\_AREAS and INTERFACE\_BUILDERS.
 
-####SCORINGGRIDS
+###SCORINGGRIDS
 
 ```xml
 <SCORINGGRIDS ligand_chain="(string)" width="(real)">
@@ -687,6 +653,42 @@ The SCORINGGRIDS block is used to define ligand scoring grids (currently used on
 -   VdwGrid: A knowledge based potential derived grid approximating shape complementarity
 -   HbdGrid: A knowledge based potential derived grid approximating protein hydrogen bond donor interactions
 -   HbaGrid: A knowledge based potential derived grid approximating protein hydrogen bond acceptor interactions
+
+APPLY\_TO\_POSE (Deprecated)
+---------------
+
+This is a section that is used to change the input structure. The most likely use for this is to define constraints to a structure that has been read from disk.
+
+#### Sequence-profile Constraints
+
+Sets constraints on the sequence of the pose that can be based on a sequence alignment or an amino-acid transition matrix.
+
+```xml
+<profile weight="(0.25 &Real)" file_name="(<input file name >.cst &string)"/>
+```
+
+sets residue\_type type constraints to the pose based on a sequence profile. file\_name defaults to the input file name with the suffix changed to ".cst". So, a file called xxxx\_yyyy.25.jjj.pdb would imply xxxx\_yyyy.cst. To generate sequence-profile constraint files with these defaults use DockScripts/seq\_prof/seq\_prof\_wrapper.sh
+
+#### SetupHotspotConstraints (formerly hashing\_constraints)
+
+```xml
+<SetupHotspotConstraintsMover stubfile="stubs.pdb" redesign_chain="2" cb_force="0.5" worst_allowed_stub_bonus="0.0" apply_stub_self_energies="1" apply_stub_bump_cutoff="10.0" pick_best_energy_constraint="1" backbone_stub_constraint_weight="1.0">
+<HotspotFiles>
+<HotspotFile file_name="hotspot1.pdb" nickname="hp1" stub_num="1"/>
+...
+</HotspotFiles>
+</SetupHotspotConstraintsMover>
+```
+
+-   stubfile: a pdb file containing the hot-spot residues
+-   redesign\_chain: which is the host\_chain for design. Anything other than chain 2 has not been tested.
+-   cb\_force: the Hooke's law spring constant to use in setting up the harmonic restraints on the Cb atoms.
+-   worst\_allowed\_stub\_bonus: triage stubs that have energies higher than this cutoff.
+-   apply\_stub\_self\_energies: evaluate the stub's energy in the context of the pose.
+-   pick\_best\_energy\_constraint: when more than one restraint is applied to a particular residue, only sum the one that makes the highest contribution.
+-   backbone\_stub\_constraint\_weight: the weight on the score-term in evaluating the constraint. Notice that this weight can be overridden in the individual scorefxns.
+-   HotspotFiles: You can specify a set of hotspot files to be read individually. Each one is associated with a nickname for use in the placement movers/filters. You can set to keep in memory only a subset of the read stubs using stub\_num. If stubfile in the main branch is not specified, only the stubs in the leaves will be used.
+
 
 revert\_design\_to\_native application
 ----------------------------------
