@@ -21,7 +21,8 @@ Each atom's IdealContacts tag defines the atom name for which it should be appli
 
 The final attribute of the IdealContacts tag, the geometry score threshold, indicates the tolerance that LigandBindingAssemblyMover should apply when scoring the geometry of newly added ligand contacts. This score is calculated as follows:
 
-```geometry_score = (delta_distance)^2 + 10*(mod(angle, ideal_angle))^2 + 5*(mod(dihedral_1, ideal_dihedral_1))^2 + 5*(mod(dihedral_2, ideal_dihedral_2))^2
+```
+geometry_score = (delta_distance)^2 + 10*(mod(angle, ideal_angle))^2 + 5*(mod(dihedral_1, ideal_dihedral_1))^2 + 5*(mod(dihedral_2, ideal_dihedral_2))^2
 ```
 
 Note that all angles are converted to radians for this calculation.
