@@ -30,8 +30,6 @@
 
 * [[Overview|PyRosetta]]
 * [[Full PyRosetta website|http://www.pyrosetta.org]]
-* [[PyRosetta Toolkit GUI]]
-* [[PyRosetta Toolkit GUI API | PyRosetta Toolkit]]
 
 ##See Also
 
