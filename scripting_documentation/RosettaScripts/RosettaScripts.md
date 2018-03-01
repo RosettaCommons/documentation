@@ -411,8 +411,9 @@ Always returns false. Can be explicitly specified with the name "false\_filter".
 -   score4L: low resolution scorefunction used for loop remodeling (chainbreak weight on)
 -   commandline: the scorefunction specified by the commandline options (Note: not recommended for general use.)
 
-SCOREFUNCTIONS
---------------
+#RosettaScript Sections
+
+##SCOREFUNCTIONS
 
 The SCOREFXNS section defines scorefunctions that will be used in Filters and Movers. This can be used to define any of the scores defined in the path/to/rosetta/main/database
 
@@ -433,7 +434,7 @@ where the ```name``` attribute will be used in the Movers and Filters sections t
 
 The Set tag is optional and allows you to change certain scorefunction options, as discussed in the next section.
 
-#### Scorefunction Options
+### Scorefunction Options
 
 One or more option can be specified per Set tag:
 
@@ -469,7 +470,7 @@ The following modifiers are recognized:
 hs_hash="(the value set by apply_to_pose for hotspot_hash &float)"
 ```
 
-#### Symmetric Scorefunctions
+### Symmetric Scorefunctions
 
 To properly score symmetric poses, they must be scored with a symmetric score function. To declare a scorefunction symmetric, simply add the tag:
 
@@ -484,8 +485,7 @@ For example, symmetric score12:
 ```
 
 
-TASKOPERATIONS
---------------
+## TASKOPERATIONS
 
 TaskOperations are used by movers to tell the "packer" which residues/rotamers to use in reorganizing/mutating sidechains. When used by certain Movers, the TaskOperations control what happens during packing, usually by restriction "masks". TaskOperations can also be used by movers to specify sets of residues to act upon in non-packer contexts.
 
@@ -494,8 +494,7 @@ TaskOperations are used by movers to tell the "packer" which residues/rotamers t
 See [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]]
 
 
-RESIDUE_SELECTORS
---------------
+## RESIDUE_SELECTORS
 
 [[ResidueSelectors|ResidueSelectors]] are used by movers, filters and task operations to dynamically select residues at run-time. They are used to specify sets of residues based on multiple different properties.
 
@@ -503,6 +502,67 @@ RESIDUE_SELECTORS
 
 See [[ResidueSelectors (RosettaScripts)|ResidueSelectors]]
 
+## MOVE_MAP_FACTORIES
+
+This section dictates how to construct a move map for use in many protocols, such as MinMover and FastRelax.  The benefit to a MoveMapFactory is the ability to use ResidueSelectors to construct a move map on-the-fly. 
+
+### Syntax
+
+Example use in `FastRelax`:
+
+```
+<RosettaScripts>
+
+	<RESIDUE_SELECTORS>
+		<Glycan name="glycans"/>
+	</RESIDUE_SELECTORS>
+	<MOVE_MAP_FACTORIES>
+		<MoveMapFactory name="fr_mm_factory" enable="0">
+			<Backbone residue_selector="glycans" />
+			<Chi residue_selector="glycans" />
+		</MoveMapFactory>
+	</MOVE_MAP_FACTORIES>
+	<MOVERS>
+		<FastRelax name="fast_relax"  movemap_factory="fr_mm_factory"/>
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover_name=fast_relax>
+	</PROTOCOLS>
+
+</RosettaScripts>
+
+```
+
+
+Here, we use the MoveMapFactory to only run fast relax on all of the glycans in a pose.  
+By default, the movemap is constructed with all kinematics turned on (bb, chi, jump).  The option `enable="0"` makes everything off in the movemap first. `bb="0"`, `chi="0"`, `jump`=0 can optionally turn off specific components first when constructing the factory.  
+
+### Subsections
+
+Subsections are used to turn on specific kinematic sections of the pose.  They optionally take a `residue_selector`
+
+```
+	<MOVE_MAP_FACTORIES>
+		<MoveMapFactory name="fr_mm_factory" enable="0">
+			<Backbone />
+			<Chi residue_selector="my_selecotor" />
+			<Jumps />
+		</MoveMapFactory>
+	</MOVE_MAP_FACTORIES>
+
+```
+
+* Backbone
+ These are the backbone residues of the pose. (Phi/Psi for protein).  For noncanonicals, these may be different torsions than you would think, so be careful with this. 
+
+* Chi
+ These are the side chain torsions of the pose.
+
+* Jumps
+ In dihedral space, these are the relative orientations between sets of residues.  Jumps are determined by the `foldtree` and are typically between chains.  
+
+* Nu
+* Branches
 
 
 MOVERS
