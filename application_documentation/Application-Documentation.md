@@ -143,18 +143,22 @@ Component | Description
 - [[Fixed backbone design|fixbb]] - Optimize sidechain-rotamer placement and identity on fixed backbones.  
    * [[Fixed backbone design with hpatch|fixbb-with-hpatch]] - Fixed backbone design with a penalty for hydrophobic surface patches.  
 
-- [[Sequence tolerance]] - Optimize proteins for library applications (e.g. phage or yeast display).  
-
 - [[Multistate design|mpi-msd]] - Optimize proteins for multiple desired and undesired contexts.
+
+-------------------------------------------
 
 - [[Anchored design]] - Design interfaces using an "anchor" of known interactions.  
     * [[Anchored pdb creator]] - Prepare starting files for AnchoredDesign.  
     * [[Anchor finder]] - Find interactions which can serve as "anchors" for AnchoredDesign. 
 
 - [[RosettaAntibodyDesign]] - Design Antibodies and Antibody-Antigen complexes
- 
+
+- [[revert-design-to-wt]] - Get energetic contribution of designed residues to predicted binding energy
+
 - [[RosettaRemodel]] - Redesign backbone and sequence of protein loops and secondary structure elements. 
     * [[Remodel]] - Additional remodel documentation
+
+- [[Sequence tolerance]] - Optimize proteins for library applications (e.g. phage or yeast display).  
 
 -  [[Stepwise design|stepwise]] - Simultaneously optimize sequence and structure for small RNA and protein segments. Part of the stepwise application.
 
