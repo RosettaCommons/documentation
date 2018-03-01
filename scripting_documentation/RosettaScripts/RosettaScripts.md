@@ -553,16 +553,17 @@ Subsections are used to turn on specific kinematic sections of the pose.  They o
 ```
 
 * Backbone
- These are the backbone residues of the pose. (Phi/Psi for protein).  For noncanonicals, these may be different torsions than you would think, so be careful with this. 
+ These are the backbone residues of the pose. (Phi/Psi for protein).  For noncanonicals, these may be different torsions than you would think, so be careful with this.  For the MoveMapFactory, Glycan BB and CHI torsions are special cased to be  treated as IUPAC defined 
 
 * Chi
- These are the side chain torsions of the pose.
+ These are the sidechain torsions of the pose.  For Glycans, these are the OH groups. 
 
 * Jumps
  In dihedral space, these are the relative orientations between sets of residues.  Jumps are determined by the `foldtree` and are typically between chains.  
 
 * Nu
 * Branches
+ These are
 
 
 MOVERS
