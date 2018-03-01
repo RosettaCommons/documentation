@@ -153,7 +153,7 @@ Component | Description
 
 - [[RosettaAntibodyDesign]] - Design Antibodies and Antibody-Antigen complexes
 
-- [[revert-design-to-wt]] - Get energetic contribution of designed residues to predicted binding energy
+- [[revert-design-to-native]] - Get energetic contribution of designed residues to predicted binding energy
 
 - [[RosettaRemodel]] - Redesign backbone and sequence of protein loops and secondary structure elements. 
     * [[Remodel]] - Additional remodel documentation
