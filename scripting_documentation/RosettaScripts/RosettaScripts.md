@@ -563,7 +563,7 @@ Subsections are used to turn on specific kinematic sections of the pose.  They o
 
 * Nu
 * Branches
- These are
+ These are specific torsions coming off the mainchain.  Typically, you do not need to worry about this unless you are using a complicated non-cannonical or modification.  Glycan branch torsions are treated as IUPAC BB torsions within the MoveMapFactory machinery.
 
 
 MOVERS
