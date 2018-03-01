@@ -13,7 +13,7 @@ This page includes documentation for specialized RosettaScripts-based protocols.
 -   [[SEWING]]
     -   [[Segment File Generation]]
     -   [[Structural comparison of substructures]]
-    -   [[Available movers||AssemblyMover]]
+    -   [[Available movers|AssemblyMover]]
     -   [[Refinement of SEWING assemblies]]
 -   [[Legacy SEWING|Assembly of models]]
     -   [[Legacy SEWING Dictionary]]
