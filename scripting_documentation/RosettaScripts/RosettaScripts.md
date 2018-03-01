@@ -483,21 +483,6 @@ For example, symmetric score12:
 <ScoreFunction name="score12_symm" weights="score12_full" symmetric="1"/>
 ```
 
-OUTPUT
-------
-
-The top-level OUTPUT tag allows for setting certain output options.
-
-The OUTPUT tag must be the very last tag before the closing `</ROSETTASCRIPTS>` tag.
-
-### scorefxn
-
-```xml
-<OUTPUT scorefxn="(name &string)"/>
-```
-The scorefunction specified by the OUTPUT tag will be used to score the pose prior to output. It is the score function which will be represented in the scores reported in the scorefile and the output PDB of the run.
-
-If not specified, the "commandline" scorefunction (the scorefunction specified by commandline options) is used.
 
 TASKOPERATIONS
 --------------
@@ -653,6 +638,23 @@ The SCORINGGRIDS block is used to define ligand scoring grids (currently used on
 -   VdwGrid: A knowledge based potential derived grid approximating shape complementarity
 -   HbdGrid: A knowledge based potential derived grid approximating protein hydrogen bond donor interactions
 -   HbaGrid: A knowledge based potential derived grid approximating protein hydrogen bond acceptor interactions
+
+OUTPUT
+------
+
+The top-level OUTPUT tag allows for setting certain output options.
+
+The OUTPUT tag must be the very last tag before the closing `</ROSETTASCRIPTS>` tag.
+
+### scorefxn
+
+```xml
+<OUTPUT scorefxn="(name &string)"/>
+```
+The scorefunction specified by the OUTPUT tag will be used to score the pose prior to output. It is the score function which will be represented in the scores reported in the scorefile and the output PDB of the run.
+
+If not specified, the "commandline" scorefunction (the scorefunction specified by commandline options) is used.
+
 
 APPLY\_TO\_POSE (Deprecated)
 ---------------
