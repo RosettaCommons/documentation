@@ -48,8 +48,6 @@ Copy, paste, fill in, and enjoy
     </FILTERS>
     <MOVERS>
     </MOVERS>
-    <APPLY_TO_POSE>
-    </APPLY_TO_POSE>
     <PROTOCOLS>
     </PROTOCOLS>
     <OUTPUT />
@@ -95,8 +93,6 @@ The following simple example will compute ala-scanning values for each residue i
 <MOVERS>
 <Docking name="dock" fullatom="1" local_refine="1" score_high="soft_rep"/>
 </MOVERS>
-<APPLY_TO_POSE>
-</APPLY_TO_POSE>
 <PROTOCOLS>
 <Add mover_name="dock" filter_name="scan"/>
 <Add filter_name="ddg"/>
@@ -210,8 +206,6 @@ apps.public.rosetta_scripts.rosetta_scripts: The following is an empty (template
 	</FILTERS>
 	<MOVERS>
 	</MOVERS>
-	<APPLY_TO_POSE>
-	</APPLY_TO_POSE>
 	<PROTOCOLS>
 	</PROTOCOLS>
 	<OUTPUT />
@@ -361,8 +355,6 @@ The ```xi:include``` block is naïvely replaced with the contents of the file sp
   <MOVERS>
     <Docking name="dock" fullatom="1" local_refine="1" score_high="soft_rep"/>
   </MOVERS>
-  <APPLY_TO_POSE>
-  </APPLY_TO_POSE>
   <PROTOCOLS>
     <Add mover_name="dock" filter_name="scan"/>
     <Add filter_name="ddg"/>
@@ -527,7 +519,7 @@ RESIDUE_SELECTORS
 See [[ResidueSelectors (RosettaScripts)|ResidueSelectors]]
 
 
-APPLY\_TO\_POSE
+APPLY\_TO\_POSE (Deprecated)
 ---------------
 
 This is a section that is used to change the input structure. The most likely use for this is to define constraints to a structure that has been read from disk.
@@ -641,8 +633,12 @@ Note: If the database configuration information is not specified, the relevant o
 <LoopsDatabase name="(&string)" database_mode="['mysql', 'postgres']" database_name="(&string)" database_host="(-mysql:host &string)" database_user="(-mysql:user &string)" database_password="(-mysql:password &string)" database_port="(-mysql:port &string)" database_table="loops"/> 
 ```
 
-LIGAND\_AREAS
--------------
+###Ligands
+
+These RosettaScript sections are specifically for working with and scoring ligands in specialized protocols.
+
+####LIGAND\_AREAS
+
 
 ```xml
 <LIGAND_AREAS>
@@ -656,8 +652,7 @@ Ligand minimization can be turned on by specifying a minimize\_ligand value grea
 
 During high resolution docking, small amounts of ligand translation and rotation are coupled with cycles of rotamer trials or repacking. These values can be controlled by the 'high\_res\_angstrom' and 'high\_res\_degrees' values respectively. A tether\_ligand value (in angstroms) will constrain the ligand so that multiple cycles of small translations don't add up to a large translation.
 
-INTERFACE\_BUILDERS
--------------------
+####INTERFACE\_BUILDERS
 
 ```xml
 <INTERFACE_BUILDERS>
@@ -667,8 +662,8 @@ INTERFACE\_BUILDERS
 
 An interface builder describes how to choose residues that will be part of a protein-ligand interface. These residues are chosen for repacking, rotamer trials, and backbone minimization during ligand docking. The initial XML parameter is the name of the interface\_builder (for later reference). "ligand\_areas" is a comma separated list of strings matching LIGAND\_AREAS described previously. Finally 'extension\_window' surrounds interface residues with residues labeled as 'near interface'. This is important for backbone minimization, because a residue's backbone can't really move unless it is part of a stretch of residues that are flexible.
 
-MOVEMAP\_BUILDERS
------------------
+####MOVEMAP\_BUILDERS
+
 
 ```xml
 <MOVEMAP_BUILDERS>
@@ -678,8 +673,7 @@ MOVEMAP\_BUILDERS
 
 A movemap builder constructs a movemap. A movemap is a 2xN table of true/false values, where N is the number of residues your protein/ligand complex. The two columns are for backbone and side-chain movements. The MovemapBuilder combines previously constructed backbone and side-chain interfaces (see previous section). Leave out bb\_interface if you do not want to minimize the backbone. The minimize\_water option is a global option. If you are docking water molecules as separate ligands (multi-ligand docking) these should be described through LIGAND\_AREAS and INTERFACE\_BUILDERS.
 
-SCORINGGRIDS
-------------
+####SCORINGGRIDS
 
 ```xml
 <SCORINGGRIDS ligand_chain="(string)" width="(real)">
