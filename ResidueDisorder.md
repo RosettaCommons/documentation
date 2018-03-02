@@ -2,8 +2,11 @@
 Metadata
 ========
 Method developed by Stephanie Kim (kim.6088@osu.edu).
+
 Code and documentation by Justin Seffernick (seffernick.9@osu.edu).
+
 The PI was Steffen Lindert (lindert.1@osu.edu).
+
 Last updated March 2018 by Justin Seffernick. 
 
 Code
