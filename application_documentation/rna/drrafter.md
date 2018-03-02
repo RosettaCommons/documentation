@@ -3,7 +3,7 @@
 Metadata
 ========
 
-Author: Kalli Kappel (kappel at stanford dot edu)
+Author: Kalli Kappel (kappel at stanford dot edu)  
 Last updated: March 2018
 
 DRRAFTER is used to build RNA coordinates into cryoEM maps of ribonucleoprotein complexes.
