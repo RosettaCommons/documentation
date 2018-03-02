@@ -50,7 +50,7 @@ Currently, Rosetta ResidueDisorder can only predict order for monomers. Input st
 Expected Outputs
 ================
 
-ResidueDisorder will output (on screen) the calculated per-residue scores for each pose, the average per-residue scores (over all 100 poses). For the initial prediction, ResidueDisorder will output the order score and prediction (order or disorder) for each residue. If terminal optimization is necessary (less that 60% disordered), ResidueDisorder will output the terminal optimization order scores, predictions, and final cutoffs. Finally, ResidueDisorder outputs the final predictions in tabular format to an output file (name is ResidueDisorder_default.out by default, but output file name can be specified using the `-out:file:o` flag). The tabulated final results contain the prediction, order score, and raw average residue score.
+ResidueDisorder will output (on screen) the calculated per-residue scores for each pose and the average per-residue scores (over all 100 poses). For the initial prediction, ResidueDisorder will output the order score and prediction (order or disorder) for each residue. If terminal optimization is necessary (less that 60% disordered), ResidueDisorder will output the terminal optimization order scores, predictions, and final cutoffs. Finally, ResidueDisorder outputs the final predictions in tabular format to an output file (name is ResidueDisorder_default.out by default, but output file name can be specified using the `-out:file:o` flag). The tabulated final results contain the prediction, order score, and raw average residue score.
 
 New things since last release
 =============================
