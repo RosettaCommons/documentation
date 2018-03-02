@@ -289,6 +289,9 @@ Component | Description
 ### Buried unsatisfied polar atoms
 - [[shobuns|shobuns]] - Identifies polar atoms that are buried unsatisfied for the SHO model of polar solvation
 
+### Residue disorder prediction
+- [[ResidueDisorder|ResidueDisorder]] - Predict order/disorder of each residue in a protein.
+
 ##Utilities <a name="Utilities" />
 
 These applications serve mainly to support other Rosetta applications, or to assist in setting up or analyzing Rosetta runs.
