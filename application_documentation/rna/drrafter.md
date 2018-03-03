@@ -32,5 +32,17 @@ The general DRRAFTER workflow is described below:
 
 ###Running DRRAFTER
 All DRRAFTER runs are set up with DRRAFTER.py. An example command line is provided below:
-`DRRAFTER.py -fasta fasta.txt -secstruct secstruct.txt -start_struct protein_and_RNA_helix_fit_into_density.pdb -map_file my_map.mrc -map_reso 7.0 -residues_to_model E:1-23 -include_as_rigid_body_structures protein_fit_into_density.pdb RNA_helix.pdb -absolute_coordinates_rigid_body_structure protein_fit_into_density.pdb -job_name my_run -dock_into_density`
+```
+DRRAFTER.py -fasta fasta.txt -secstruct secstruct.txt -start_struct protein_and_RNA_helix_fit_into_density.pdb -map_file my_map.mrc -map_reso 7.0 -residues_to_model E:1-23 -include_as_rigid_body_structures protein_fit_into_density.pdb RNA_helix.pdb -absolute_coordinates_rigid_body_structure protein_fit_into_density.pdb -job_name my_run -dock_into_density
+```
+This will create a file called DRRAFTER_command, which contains the Rosetta command line to run DRRAFTER. This can be run by typing:
+```
+source ./DRRAFTER_command
+```
 
+For the best results, at least 2000-3000 models should be generated. Some tools for setting up jobs on a cluster are available as part of [RNA tools](https://www.rosettacommons.org/docs/latest/application_documentation/rna/RNA-tools).  
+   
+The ten best scoring models can be extracted into PDB format from the compressed output file with the following command:
+```
+extract_lowscore_decoys.py my_run.out 10
+```
