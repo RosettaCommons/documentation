@@ -60,7 +60,7 @@ This will print information about the error estimation to the screen. The mean p
 
 Required for DRRAFTER run setup. This is a FASTA format file for your system. It must include all protein and RNA residues. Protein residues are specified by uppercase one-letter codes. RNA residues are specified with lowercase one-letter codes (‘a’, ‘u’, ‘g’, and ‘c’).  
   
-*Example:*
+*Example:*  
 ```
 >DRRAFTER_demo_1wsu  A:136-258 E:1-23
 SETQKKLLKDLEDKYRVSRWQPPSFKEVAGSFNLDPSELEELLHYLVREGVLVKINDEFYWHRQALGEAREVIKNLASTGPFGLAEARDALGSSRKYVLPLLEYLDQVKFTRRVGDKRVVVGN
@@ -71,9 +71,24 @@ ggcguugccggucuggcaacgcc
 
 Required for DRRAFTER run setup. A file containing the secondary structure of the complex in dot-bracket notation. Secondary structure for the protein should be specified by dots. The secondary structure should be the same length as the sequence found in the fasta file. For RNA residues, this secondary structure will be enforced during the DRRAFTER run.
   
-*Example:*
+*Example:*  
 ```
 ...........................................................................................................................(((((((((.....)))))))))
 ```
+####`-rosetta_directory`
+The path to the Rosetta executables. This is not necessary if the location of the Rosetta executables is in your PATH.
+  
+*Example:*  
+/home/src/Rosetta/main/source/bin/  
 
+####`-start_struct`
+This is a single PDB file containing all of the protein and RNA structures that have been fit into the density map (steps 1-2 in the DRRAFTER workflow, above). For the best results, this should contain all of the protein structures that you want to model. This structure provides the starting coordinates for the DRRAFTER run.
 
+####`-residues_to_model`
+The RNA residues that should be modeled in the DRRAFTER run. This should include any RNA helices that you fit into the density and want to be allowed to move during the run.  
+
+*Example:*  
+A:1-10  
+This would mean that residues 1-10 in chain A will be built.
+
+####`-map_file`
