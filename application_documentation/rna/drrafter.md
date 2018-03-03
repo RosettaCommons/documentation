@@ -92,3 +92,61 @@ A:1-10
 This would mean that residues 1-10 in chain A will be built.
 
 ####`-map_file`
+Required for DRRAFTER run setup. The density map file in mrc or ccp4 format.
+
+####`-map_reso`
+Required for DRRAFTER run setup. The resolution of the map.  
+
+####`-include_as_rigid_body_structures`
+This option takes a list of PDB files that should be treated as rigid bodies during the DRRAFTER run. Each of the RNA helices that were fit into the density and are in the region being built should be provided as separate files. Protein structures that should be allowed to dock during the run should also be provided here, again as separate files. Each of these structures should also be present within the `-start_struct` file.  
+
+####`-absolute_coordinates_rigid_body_structure`
+This optional argument takes a single PDB file as an argument. This should be one of the structures that is provided to the `-include_as_rigid_body_structures` option. It will set the absolute coordinate frame for the system. If `-dock_into_density` is not specified, this structure will not move from its starting position. This structure must be fit into the density map! If no structures are provided as `-include_as_rigid_body_structures`, then this option can be omitted.
+
+####`-constrain_rigid_bodies_only`
+For coordinate constraints, only constrain residues in the `-include_as_rigid_body_structures`. By default, coordinate restraints penalizing deviations of more than 10 Å will be placed on all residues in the `-start_struct`. This distance tolerance can be controlled with `-cst_dist`. The constraints can be turned off with `-no_csts`.
+
+####`-no_csts`
+Turns off coordinate constraints for the run.
+
+####`-cst_dist`
+The distance tolerance for coordinate constraints. Deviations greater than this distance will be penalized. Default: 10 Å.
+
+####`-ref_pdb_for_coord_csts`
+An optional reference structure for the coordinate constraints. If this is not provided, the coordinate constraints will be based on the `-start_struct`.
+
+####`-dock_into_density`
+This flag turns on docking moves for all of the `-include_as_rigid_body_structures`, including the absolute_coordinates_rigid_body_structure. This option should not be turned on if `-absolute_coordinates_rigid_body_structure` is not specified.
+
+####`-no_dock_each_rigid_body_separately`
+This option changes the way that the kinematics is set up for the run. Without this option, each of the structures provided as -include_as_rigid_body_structures (possibly with the exception of the `-absolute_coordinates_rigid_body_structure` if `-dock_into_density` is not specified) will be allowed to move as a rigid body during the run. With this option, the structures passed to `-include_as_rigid_body_structures` within the same chain will not be subjected to docking moves. If this option is not specified, all `-include_as_rigid_body_structures` (including all RNA helices) need to be present in `-start_struct`.
+
+####`-no_initial_structures`
+Do not start the run from the structure provided in `-start_struct`.
+
+####`-cycles`
+The number of Monte Carlo cycles that will be run. If a value is not specified, the number of cycles will be determined based on the number of RNA residues that are being modeled.
+
+####`-docking_move_size`
+A number between 0.0 and 1.0 controlling the magnitude of the docking moves during the DRRAFTER run. 0.0 corresponds to the least aggressive docking moves and 1.0 corresponds to the most aggressive docking moves.
+
+####`-include_residues_around`
+Residues (e.g. A:1-5 B:2) that should be included in the DRRAFTER run, these do not need to be residues in the `-residues_to_model`. Other residues within the `-dist_cutoff` of these residues will also be included.
+
+####`-dist_cutoff`
+Default: 20 Å. Residues in the starting structure within this distance cutoff of the residues in `-include_as_rigid_body_structures` or the residues listed for `-include_residues_around` will be included in the DRRAFTER run.
+
+####`-extra_flags`
+Extra flags for rna_denovo to be applied during the DRRAFTER run.
+
+####`-job_name`
+The name for your job. This determines the names of the output files.
+
+####`-demo_setting`
+Turns on settings to make the demo run quickly. This option should NOT be used for actual runs.
+
+####`-estimate_error`
+Runs an error estimation calculation. If this option is specified, `-final_structures` should also be provided.
+
+####`-final_structures`
+This should be a list of (ideally ten) final DRRAFTER models in PDB format for error estimation. Typically, this should be the best ten scoring DRRAFTER models.
