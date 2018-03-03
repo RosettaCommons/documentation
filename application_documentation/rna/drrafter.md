@@ -150,3 +150,14 @@ Runs an error estimation calculation. If this option is specified, `-final_struc
 
 ####`-final_structures`
 This should be a list of (ideally ten) final DRRAFTER models in PDB format for error estimation. Typically, this should be the best ten scoring DRRAFTER models.
+
+##Troubleshooting
+
+**Problem:** RNA coordinates are being built into density that I think belongs to a protein (but I don’t have a structure of that protein!).  
+**Solution:** Segment your density map – remove density for regions that you do not want to build RNA coordinates into. This can be done in Chimera.
+  
+**Problem:** RNA coordinates are being built into density that I know belongs to a protein (I even fit a protein structure into the density map!).   
+**Solution:** To minimize computational expense, protein residues that are not near the region where missing RNA coordinates are being built are removed. If RNA coordinates end up being built into the density for these removed protein residues, there are several possible solutions:
+* Change the -dist_cutoff value. By default it is 20 Å, meaning that residues more than 20 Å away from RNA residues being modeled (that are supplied in -start_struct) or the residues listed in -include_residues_around will be removed. This does not apply to residues in -include_as_rigid_body_structures.
+* Include the full protein structure in -include_as_rigid_body_structures. This will ensure that no residues will be removed from the protein. 
+* Try specifying more residues for -include_residues_around. Residues within the -dist_cutoff of the specified residues will be kept during the DRRAFTER run. 
