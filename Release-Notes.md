@@ -78,9 +78,12 @@
 * [[AddHelixSequenceConstraintsMover]]
 * [[ReadPoseExtraScoreFilter]]
 * [[BuriedUnsatHbondsFilter]] updates
-* [[ResfileCommandOperation]]
-* [[SequenceMotifTaskOperation]]
-* [[CreateSequenceMotifMover]]
+* More resfile command: We have 3 new resfile commands: CHARGED, AROMATIC, and PROPERTY.
+The third is a general command that takes any ResidueProperty. Currently, it only works for Cannonicals, but perhaps that could be generalized int the future for NCs.
+
+* [[ResfileCommandOperation | to_ResfileCommandOperation_type]] - Applies the equivalent of a resfile line (without the resnums) to residues specified in a residue selector.
+* [[SequenceMotifTaskOperation | to_SequenceMotifTaskOperation_type]] -A TaskOp that takes a regex-like pattern and turns it into a set of design residues. 
+* [[CreateSequenceMotifMover | mover_CreateSequenceMotifMover_type]] - Simple mover to Create a sequence motif in a region of protein using the SequenceMotifTaskOperation. Uses psueo-regular expressions to define the motif.
 
 
 ###Miscellaneous
