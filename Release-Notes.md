@@ -52,7 +52,7 @@
 * [[SwitchChainOrderMover]] bugfix
 * [[buried_apolar_area_filter]] - filters based on buried surface area (VIKRAM what is name?)
 *     Add a filter to compute the longest continuous stretch of polar residues in a pose or selection - VIKRAM what is name?
-* [[ResidueProbDesignOperation]] (used originally for [[RosettaAntibodyDesign]] ) can now take a text file of residue probabilities per position and is available in RosettaScripts
+* [[ResidueProbDesignOperation | to_ResidueProbDesignOperation_type]] (used originally for [[RosettaAntibodyDesign]] ) can now take a text file of residue probabilities per position and is available in RosettaScripts
 * [[ReturnSidechainMover]] - works better with stuff like phosphorylated residues, and broadly produces more useful warnings/errors
 * Metals:
     * [[MetalContactsConstraintGenerator]] adds distance, angle, and dihedral constraints between (optionally specified) contacts and a user-specified metal atom, either as a single ion or as part of a ligand.
