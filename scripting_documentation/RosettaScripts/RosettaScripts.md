@@ -48,8 +48,6 @@ Copy, paste, fill in, and enjoy
     </FILTERS>
     <MOVERS>
     </MOVERS>
-    <APPLY_TO_POSE>
-    </APPLY_TO_POSE>
     <PROTOCOLS>
     </PROTOCOLS>
     <OUTPUT />
@@ -95,8 +93,6 @@ The following simple example will compute ala-scanning values for each residue i
 <MOVERS>
 <Docking name="dock" fullatom="1" local_refine="1" score_high="soft_rep"/>
 </MOVERS>
-<APPLY_TO_POSE>
-</APPLY_TO_POSE>
 <PROTOCOLS>
 <Add mover_name="dock" filter_name="scan"/>
 <Add filter_name="ddg"/>
@@ -210,8 +206,6 @@ apps.public.rosetta_scripts.rosetta_scripts: The following is an empty (template
 	</FILTERS>
 	<MOVERS>
 	</MOVERS>
-	<APPLY_TO_POSE>
-	</APPLY_TO_POSE>
 	<PROTOCOLS>
 	</PROTOCOLS>
 	<OUTPUT />
@@ -361,8 +355,6 @@ The ```xi:include``` block is naïvely replaced with the contents of the file sp
   <MOVERS>
     <Docking name="dock" fullatom="1" local_refine="1" score_high="soft_rep"/>
   </MOVERS>
-  <APPLY_TO_POSE>
-  </APPLY_TO_POSE>
   <PROTOCOLS>
     <Add mover_name="dock" filter_name="scan"/>
     <Add filter_name="ddg"/>
@@ -419,8 +411,9 @@ Always returns false. Can be explicitly specified with the name "false\_filter".
 -   score4L: low resolution scorefunction used for loop remodeling (chainbreak weight on)
 -   commandline: the scorefunction specified by the commandline options (Note: not recommended for general use.)
 
-SCOREFUNCTIONS
---------------
+#RosettaScript Sections
+
+##SCOREFUNCTIONS
 
 The SCOREFXNS section defines scorefunctions that will be used in Filters and Movers. This can be used to define any of the scores defined in the path/to/rosetta/main/database
 
@@ -441,7 +434,7 @@ where the ```name``` attribute will be used in the Movers and Filters sections t
 
 The Set tag is optional and allows you to change certain scorefunction options, as discussed in the next section.
 
-#### Scorefunction Options
+### Scorefunction Options
 
 One or more option can be specified per Set tag:
 
@@ -477,7 +470,7 @@ The following modifiers are recognized:
 hs_hash="(the value set by apply_to_pose for hotspot_hash &float)"
 ```
 
-#### Symmetric Scorefunctions
+### Symmetric Scorefunctions
 
 To properly score symmetric poses, they must be scored with a symmetric score function. To declare a scorefunction symmetric, simply add the tag:
 
@@ -491,24 +484,8 @@ For example, symmetric score12:
 <ScoreFunction name="score12_symm" weights="score12_full" symmetric="1"/>
 ```
 
-OUTPUT
-------
 
-The top-level OUTPUT tag allows for setting certain output options.
-
-The OUTPUT tag must be the very last tag before the closing `</ROSETTASCRIPTS>` tag.
-
-### scorefxn
-
-```xml
-<OUTPUT scorefxn="(name &string)"/>
-```
-The scorefunction specified by the OUTPUT tag will be used to score the pose prior to output. It is the score function which will be represented in the scores reported in the scorefile and the output PDB of the run.
-
-If not specified, the "commandline" scorefunction (the scorefunction specified by commandline options) is used.
-
-TASKOPERATIONS
---------------
+## TASKOPERATIONS
 
 TaskOperations are used by movers to tell the "packer" which residues/rotamers to use in reorganizing/mutating sidechains. When used by certain Movers, the TaskOperations control what happens during packing, usually by restriction "masks". TaskOperations can also be used by movers to specify sets of residues to act upon in non-packer contexts.
 
@@ -517,8 +494,7 @@ TaskOperations are used by movers to tell the "packer" which residues/rotamers t
 See [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]]
 
 
-RESIDUE_SELECTORS
---------------
+## RESIDUE_SELECTORS
 
 [[ResidueSelectors|ResidueSelectors]] are used by movers, filters and task operations to dynamically select residues at run-time. They are used to specify sets of residues based on multiple different properties.
 
@@ -526,41 +502,69 @@ RESIDUE_SELECTORS
 
 See [[ResidueSelectors (RosettaScripts)|ResidueSelectors]]
 
+## MOVE_MAP_FACTORIES
 
-APPLY\_TO\_POSE
----------------
+This section dictates how to construct a move map for use in many protocols, such as MinMover and FastRelax.  The benefit to a MoveMapFactory is the ability to use ResidueSelectors to construct a move map on-the-fly. 
 
-This is a section that is used to change the input structure. The most likely use for this is to define constraints to a structure that has been read from disk.
+### Syntax
 
-#### Sequence-profile Constraints
+Example use in `FastRelax`:
 
-Sets constraints on the sequence of the pose that can be based on a sequence alignment or an amino-acid transition matrix.
+```
+<RosettaScripts>
 
-```xml
-<profile weight="(0.25 &Real)" file_name="(<input file name >.cst &string)"/>
+	<RESIDUE_SELECTORS>
+		<Glycan name="glycans"/>
+	</RESIDUE_SELECTORS>
+	<MOVE_MAP_FACTORIES>
+		<MoveMapFactory name="fr_mm_factory" enable="0">
+			<Backbone residue_selector="glycans" />
+			<Chi residue_selector="glycans" />
+		</MoveMapFactory>
+	</MOVE_MAP_FACTORIES>
+	<MOVERS>
+		<FastRelax name="fast_relax"  movemap_factory="fr_mm_factory"/>
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover_name=fast_relax>
+	</PROTOCOLS>
+
+</RosettaScripts>
+
 ```
 
-sets residue\_type type constraints to the pose based on a sequence profile. file\_name defaults to the input file name with the suffix changed to ".cst". So, a file called xxxx\_yyyy.25.jjj.pdb would imply xxxx\_yyyy.cst. To generate sequence-profile constraint files with these defaults use DockScripts/seq\_prof/seq\_prof\_wrapper.sh
 
-#### SetupHotspotConstraints (formerly hashing\_constraints)
+Here, we use the MoveMapFactory to only run fast relax on all of the glycans in a pose.  
+By default, the movemap is constructed with all kinematics turned on (bb, chi, jump).  The option `enable="0"` makes everything off in the movemap first. `bb="0"`, `chi="0"`, `jump`=0 can optionally turn off specific components first when constructing the factory.  
 
-```xml
-<SetupHotspotConstraintsMover stubfile="stubs.pdb" redesign_chain="2" cb_force="0.5" worst_allowed_stub_bonus="0.0" apply_stub_self_energies="1" apply_stub_bump_cutoff="10.0" pick_best_energy_constraint="1" backbone_stub_constraint_weight="1.0">
-<HotspotFiles>
-<HotspotFile file_name="hotspot1.pdb" nickname="hp1" stub_num="1"/>
-...
-</HotspotFiles>
-</SetupHotspotConstraintsMover>
+### Subsections
+
+Subsections are used to turn on specific kinematic sections of the pose.  They optionally take a `residue_selector`
+
+```
+	<MOVE_MAP_FACTORIES>
+		<MoveMapFactory name="fr_mm_factory" enable="0">
+			<Backbone />
+			<Chi residue_selector="my_selecotor" />
+			<Jumps />
+		</MoveMapFactory>
+	</MOVE_MAP_FACTORIES>
+
 ```
 
--   stubfile: a pdb file containing the hot-spot residues
--   redesign\_chain: which is the host\_chain for design. Anything other than chain 2 has not been tested.
--   cb\_force: the Hooke's law spring constant to use in setting up the harmonic restraints on the Cb atoms.
--   worst\_allowed\_stub\_bonus: triage stubs that have energies higher than this cutoff.
--   apply\_stub\_self\_energies: evaluate the stub's energy in the context of the pose.
--   pick\_best\_energy\_constraint: when more than one restraint is applied to a particular residue, only sum the one that makes the highest contribution.
--   backbone\_stub\_constraint\_weight: the weight on the score-term in evaluating the constraint. Notice that this weight can be overridden in the individual scorefxns.
--   HotspotFiles: You can specify a set of hotspot files to be read individually. Each one is associated with a nickname for use in the placement movers/filters. You can set to keep in memory only a subset of the read stubs using stub\_num. If stubfile in the main branch is not specified, only the stubs in the leaves will be used.
+* Backbone
+ These are the backbone residues of the pose. (Phi/Psi for protein).  For noncanonicals, these may be different torsions than you would think, so be careful with this.  For the MoveMapFactory, Glycan BB and CHI torsions are special cased to be  treated as IUPAC defined 
+
+* Chi
+ These are the sidechain torsions of the pose.  For Glycans, these are the OH groups. 
+
+* Jumps
+ In dihedral space, these are the relative orientations between sets of residues.  Jumps are determined by the `foldtree` and are typically between chains.  
+
+* Nu
+* Branches
+ These are specific torsions coming off the mainchain.  Typically, you do not need to worry about this unless you are using a complicated non-cannonical or modification.  Glycan branch torsions are treated as IUPAC BB torsions within the MoveMapFactory machinery.
+
 
 MOVERS
 ------
@@ -641,8 +645,12 @@ Note: If the database configuration information is not specified, the relevant o
 <LoopsDatabase name="(&string)" database_mode="['mysql', 'postgres']" database_name="(&string)" database_host="(-mysql:host &string)" database_user="(-mysql:user &string)" database_password="(-mysql:password &string)" database_port="(-mysql:port &string)" database_table="loops"/> 
 ```
 
-LIGAND\_AREAS
--------------
+##Ligands
+
+These RosettaScript sections are specifically for working with and scoring ligands in specialized protocols.
+
+###LIGAND\_AREAS
+
 
 ```xml
 <LIGAND_AREAS>
@@ -656,8 +664,7 @@ Ligand minimization can be turned on by specifying a minimize\_ligand value grea
 
 During high resolution docking, small amounts of ligand translation and rotation are coupled with cycles of rotamer trials or repacking. These values can be controlled by the 'high\_res\_angstrom' and 'high\_res\_degrees' values respectively. A tether\_ligand value (in angstroms) will constrain the ligand so that multiple cycles of small translations don't add up to a large translation.
 
-INTERFACE\_BUILDERS
--------------------
+###INTERFACE\_BUILDERS
 
 ```xml
 <INTERFACE_BUILDERS>
@@ -667,8 +674,8 @@ INTERFACE\_BUILDERS
 
 An interface builder describes how to choose residues that will be part of a protein-ligand interface. These residues are chosen for repacking, rotamer trials, and backbone minimization during ligand docking. The initial XML parameter is the name of the interface\_builder (for later reference). "ligand\_areas" is a comma separated list of strings matching LIGAND\_AREAS described previously. Finally 'extension\_window' surrounds interface residues with residues labeled as 'near interface'. This is important for backbone minimization, because a residue's backbone can't really move unless it is part of a stretch of residues that are flexible.
 
-MOVEMAP\_BUILDERS
------------------
+###MOVEMAP\_BUILDERS
+
 
 ```xml
 <MOVEMAP_BUILDERS>
@@ -678,8 +685,7 @@ MOVEMAP\_BUILDERS
 
 A movemap builder constructs a movemap. A movemap is a 2xN table of true/false values, where N is the number of residues your protein/ligand complex. The two columns are for backbone and side-chain movements. The MovemapBuilder combines previously constructed backbone and side-chain interfaces (see previous section). Leave out bb\_interface if you do not want to minimize the backbone. The minimize\_water option is a global option. If you are docking water molecules as separate ligands (multi-ligand docking) these should be described through LIGAND\_AREAS and INTERFACE\_BUILDERS.
 
-SCORINGGRIDS
-------------
+###SCORINGGRIDS
 
 ```xml
 <SCORINGGRIDS ligand_chain="(string)" width="(real)">
@@ -694,20 +700,59 @@ The SCORINGGRIDS block is used to define ligand scoring grids (currently used on
 -   HbdGrid: A knowledge based potential derived grid approximating protein hydrogen bond donor interactions
 -   HbaGrid: A knowledge based potential derived grid approximating protein hydrogen bond acceptor interactions
 
-revert\_design\_to\_native application
-----------------------------------
+OUTPUT
+------
 
-This application is not yet strictly speaking part of RosettaScripts but is strongly related to the design purposes of RS. Work in ongoing to supersede this application with a more useful RS implementation. In the meantime here is an explanation.
+The top-level OUTPUT tag allows for setting certain output options.
 
-The application was described in:
+The OUTPUT tag must be the very last tag before the closing `</ROSETTASCRIPTS>` tag.
 
-Fleishman et al. Science 332: 816. Here is the relevant excerpt:
+### scorefxn
 
-For each design that passed the abovementioned filters, the contribution of each amino-acid substitution at the interface is assessed by singly reverting residues to their wildtype identities and testing the effects of the reversion on the computed binding energy. If the difference in binding energy between the designed residue and the reverted one is less than 0.5R.e.u. in favor of the design, then the position is reverted to its wildtype identity. A Rosetta application to compute these values is available in the Rosetta release and is called revert\_design\_to\_native. A report of all residue changes was produced and each suggestion was reviewed manually.
+```xml
+<OUTPUT scorefxn="(name &string)"/>
+```
+The scorefunction specified by the OUTPUT tag will be used to score the pose prior to output. It is the score function which will be represented in the scores reported in the scorefile and the output PDB of the run.
 
-Usage: revert\_design\_to\_native -revert\_app:wt \<Native protein PDB\> -revert\_app:design \<Designed PDB\> -ex1 -ex2 -use\_input\_sc -database \<\> \> log
+If not specified, the "commandline" scorefunction (the scorefunction specified by commandline options) is used.
 
-Keep the log. At its end you'll find a summary of all mutations attempted and their significance for binding energy.
+
+APPLY\_TO\_POSE (Deprecated)
+---------------
+
+This is a section that is used to change the input structure. The most likely use for this is to define constraints to a structure that has been read from disk.
+
+#### Sequence-profile Constraints
+
+Sets constraints on the sequence of the pose that can be based on a sequence alignment or an amino-acid transition matrix.
+
+```xml
+<profile weight="(0.25 &Real)" file_name="(<input file name >.cst &string)"/>
+```
+
+sets residue\_type type constraints to the pose based on a sequence profile. file\_name defaults to the input file name with the suffix changed to ".cst". So, a file called xxxx\_yyyy.25.jjj.pdb would imply xxxx\_yyyy.cst. To generate sequence-profile constraint files with these defaults use DockScripts/seq\_prof/seq\_prof\_wrapper.sh
+
+#### SetupHotspotConstraints (formerly hashing\_constraints)
+
+```xml
+<SetupHotspotConstraintsMover stubfile="stubs.pdb" redesign_chain="2" cb_force="0.5" worst_allowed_stub_bonus="0.0" apply_stub_self_energies="1" apply_stub_bump_cutoff="10.0" pick_best_energy_constraint="1" backbone_stub_constraint_weight="1.0">
+<HotspotFiles>
+<HotspotFile file_name="hotspot1.pdb" nickname="hp1" stub_num="1"/>
+...
+</HotspotFiles>
+</SetupHotspotConstraintsMover>
+```
+
+-   stubfile: a pdb file containing the hot-spot residues
+-   redesign\_chain: which is the host\_chain for design. Anything other than chain 2 has not been tested.
+-   cb\_force: the Hooke's law spring constant to use in setting up the harmonic restraints on the Cb atoms.
+-   worst\_allowed\_stub\_bonus: triage stubs that have energies higher than this cutoff.
+-   apply\_stub\_self\_energies: evaluate the stub's energy in the context of the pose.
+-   pick\_best\_energy\_constraint: when more than one restraint is applied to a particular residue, only sum the one that makes the highest contribution.
+-   backbone\_stub\_constraint\_weight: the weight on the score-term in evaluating the constraint. Notice that this weight can be overridden in the individual scorefxns.
+-   HotspotFiles: You can specify a set of hotspot files to be read individually. Each one is associated with a nickname for use in the placement movers/filters. You can set to keep in memory only a subset of the read stubs using stub\_num. If stubfile in the main branch is not specified, only the stubs in the leaves will be used.
+
+
 
 
 ##See Also

@@ -17,7 +17,7 @@ Backrub for off-rotamer sidechains
 
 -   **pivot_residues**: residues for which contiguous stretches can contain segments (comma separated) can use PDB numbers ([resnum][chain]) or absolute Rosetta numbers (integer)
 -   **task_operations**: A comma separated list of TaskOperations to use.
--   **task_factory**: A TaskFactory specification to use
+-   **task_factory**: A TaskFactory specification to use.
 -   **prob_uniform**: probability of a uniform move - all sidechain chis are uniformly randomized between -180 degrees and 180 degrees
 -   **prob_withinrot**: within rotamer - sidechain chis are picked from the Dunbrack distribution for the current rotamer
 -   **prob_random_pert_current**: random perturbation of current position - the current sidechain chis are perturbed +/- 10 degrees from their current positions, biased by the resulting Dunbrack energy. Note that if your score function contains a Dunbrack energy term, this will result in double counting issues.

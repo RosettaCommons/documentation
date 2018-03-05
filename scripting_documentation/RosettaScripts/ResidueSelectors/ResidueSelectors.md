@@ -396,6 +396,7 @@ or
 -   Now uses the 10A neighbor graph embedded in the pose after scoring to increase speed of calculation.  Useful for many calls, or when this selector is used as a TaskOperation using the OperateOnResidueSubset operation (Jared Adolf-Bryfogle, June '16).
 -  __include_focus_in_subset__ (&bool) (default = True)  Set this option to false to only include neighbor residues.    
 -   atom_names_for_distance_measure (&string)  Comma separated list of names of atoms to be used instead of the default neighbor atom per focus residue. This should come in handy to select around a particular ligand atom or a polar atom of a residue. __The number of atom names should be equal to the number of focus residues__, otherwise an error will be thrown during the apply time.
+-   NeighborhoodResidueSelector does __NOT__ select across symmetrical chains by default. You can use SymmetricalResidueSelector to symmetrize the selection you pass into NeighborhoodResidueSelector to get the expected behavior.
 
 #### NumNeighborsSelector
 

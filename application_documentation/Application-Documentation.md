@@ -97,6 +97,7 @@ Component | Description
 -  [[Stepwise monte carlo|stepwise]] - Generate 3D models of protein, RNA, and protein/RNA loops, motifs, and interfaces. Stochastic version of stepwise assembly. 
 -  [[RNA assembly with experimental constraints|rna-assembly]] - Predict 3-dimensional structures of large RNAs with the help of experimental constraints. Note – largely deprecated by newer pipeline (documentation coming soon).
 -  [[ERRASER]] - Refine an RNA structure given electron density constraints.  
+-  [[DRRAFTER]] - Build RNA coordinates into cryoEM maps of RNA-protein assemblies.
 -  [[Sample around nucleobase]] - Visualizing energy functions by scanning probe molecules around a nucleobase.
 -  [[RECCES]] - RNA free energy calculation with comprehensive sampling.
 -  [[RNA pharmacophore]] - Extract and cluster the key features present in RNA (rings, hbond donors & acceptors) from the structure of a protein-RNA complex.
@@ -143,18 +144,22 @@ Component | Description
 - [[Fixed backbone design|fixbb]] - Optimize sidechain-rotamer placement and identity on fixed backbones.  
    * [[Fixed backbone design with hpatch|fixbb-with-hpatch]] - Fixed backbone design with a penalty for hydrophobic surface patches.  
 
-- [[Sequence tolerance]] - Optimize proteins for library applications (e.g. phage or yeast display).  
-
 - [[Multistate design|mpi-msd]] - Optimize proteins for multiple desired and undesired contexts.
+
+-------------------------------------------
 
 - [[Anchored design]] - Design interfaces using an "anchor" of known interactions.  
     * [[Anchored pdb creator]] - Prepare starting files for AnchoredDesign.  
     * [[Anchor finder]] - Find interactions which can serve as "anchors" for AnchoredDesign. 
 
 - [[RosettaAntibodyDesign]] - Design Antibodies and Antibody-Antigen complexes
- 
+
+- [[revert-design-to-native]] - Get energetic contribution of designed residues to predicted binding energy
+
 - [[RosettaRemodel]] - Redesign backbone and sequence of protein loops and secondary structure elements. 
     * [[Remodel]] - Additional remodel documentation
+
+- [[Sequence tolerance]] - Optimize proteins for library applications (e.g. phage or yeast display).  
 
 -  [[Stepwise design|stepwise]] - Simultaneously optimize sequence and structure for small RNA and protein segments. Part of the stepwise application.
 
@@ -284,6 +289,9 @@ Component | Description
 
 ### Buried unsatisfied polar atoms
 - [[shobuns|shobuns]] - Identifies polar atoms that are buried unsatisfied for the SHO model of polar solvation
+
+### Residue disorder prediction
+- [[ResidueDisorder|ResidueDisorder]] - Predict order/disorder of each residue in a protein.
 
 ##Utilities <a name="Utilities" />
 
