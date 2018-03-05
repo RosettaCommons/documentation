@@ -26,7 +26,8 @@
   * A revived [[ResourceManager]]
   * RosettaScripts compatibility
   * [[MultistageRosettaScripts]]  
-* [[RosettaAntibodyDesign]] Application released
+* [[RosettaAntibodyDesign]] Application released - preparing for published paper.  Pre-print available here: [https://www.biorxiv.org/content/early/2018/02/23/183350]
+
 * [[dock_glycans]] bug fixes
 * Protocols for explicit water:
   * [[Hydrate/SPaDES protocol]] include: solvent-protein interactions in a hybrid implicit-explicit solvation model.
@@ -78,7 +79,7 @@
 * [[AddHelixSequenceConstraintsMover]]
 * [[ReadPoseExtraScoreFilter]]
 * [[BuriedUnsatHbondsFilter]] updates
-* More resfile command: We have 3 new resfile commands: CHARGED, AROMATIC, and PROPERTY.
+* __More resfile commands__: We have 3 new resfile commands: CHARGED, AROMATIC, and PROPERTY.
 The third is a general command that takes any ResidueProperty. Currently, it only works for Cannonicals, but perhaps that could be generalized int the future for NCs.
 
 * [[ResfileCommandOperation | to_ResfileCommandOperation_type]] - Applies the equivalent of a resfile line (without the resnums) to residues specified in a residue selector.
