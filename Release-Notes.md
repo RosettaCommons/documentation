@@ -1,37 +1,50 @@
 # Release Notes
 
 <!--- BEGIN_INTERNAL -->
-
-PRE-NOTES for 3.10
-* thread safety
-* GUI
-* RosettaUI
-* MoveMapFactory
-
-<!--- END_INTERNAL -->
-
-<!--- BEGIN_INTERNAL -->
 ## _Rosetta 3.9 (internal notes)_
 
 ### Scorefunction changes
-* write up REF2015 changeover (http://pubs.acs.org/doi/abs/10.1021/acs.jctc.7b00125)
+* We changed our default scorefunction to REF2015.  Read about it here (WIKI LINK) and here: (http://pubs.acs.org/doi/abs/10.1021/acs.jctc.7b00125)
 
 ### API changes
 * PyRosetta: xyzMatrix now have .xy properties bound as 'data' instead of set/get functions. So if your code accessed this methods directly you will need to refactor it as m.xx(m.xy()) --> m.xx = m.xy
 
+### User friendliness
+* Improved the output formatting for errors - in the vanishingly rare case that an error occurs with Rosetta, you are now more likely to get a useful and interpretable error message.
+* Made the python infrastructure that comes with the C++ code (not PyRosetta, but Rosetta's Python) more Python 2 vs 3 tolerant
+* Reduced memory use in the most memory-intensive step of the build process.  You can now build Rosetta on slightly slimmer machines.  You probably should not try running Rosetta on those machines anyway.
+* Exception handling rearranged so that Python users will see the string message in C++-thrown exceptions
+* Long-desired, long-delayed tweaks to the 'released' code end users see.  The build system is tweaked to:
+ * default to the faster release mode
+ * aggressively search for compilers/paths
+ * Ignore warnings coming from compilers we've not tested on
+
 ##New or updated features
 ###Applications
-* [[RosettaAntibodyDesign]] Application released!!
+* [[JD3]] has gained:
+  * Multithreading (?????????????)
+  * A revived [[ResourceManager]]
+  * RosettaScripts compatibility
+  * [[MultistageRosettaScripts]]  
+* [[RosettaAntibodyDesign]] Application released
 * [[dock_glycans]] bug fixes
-* [[Hydrate/SPaDES protocol]] include: solvent-protein interactions in a hybrid implicit-explicit solvation model.
+* Protocols for explicit water:
+  * [[Hydrate/SPaDES protocol]] include: solvent-protein interactions in a hybrid implicit-explicit solvation model.
+  * RyanP what is that name of yours?
 * [[interface_energy]] - distinct from [[InterfaceAnalyzer]], and also well documented
 * [[RosettaCM]] / [[HybridizeMover]] - improvements to error handling for mismatched template lengths
 * Antibody homology modeling works with only a heavy chain present
 * [[RosettaES]]
 * [[shobuns]] - Buried UNSatisfied polar atoms for the SHO solvation model
+* Multithreading has come to [[simple_cycpep_predict]]
+* [[FoldFromLoops2]]
+* [[HBNet]]
+* [[energy_based_clustering]]
 
 ###RosettaScripts tools
 * RosettaScripts available from within PyRosetta - great for when you really, really, really don't want to think about Rosetta's C++ core
+* [[MoveMapFactory]] created to allow protocols to create MoveMaps at better (later) points in the trajectory, when the relevant data are at hand
+* [[LayerDesign]] via ResidueSelectors now compatible with Boolean logic for easier use
 * [[ConstraintGenerator]] can now be specified in their own CONSTRAINT_GENERATORS block in a RosettaScript and can be passed to AddConstraints using the constraint_generators option.
 * Use of recursive script inclusion in RosettaScripts is now enormously faster
 * [[WriteFiltersToPose]]
@@ -63,9 +76,14 @@ PRE-NOTES for 3.10
 * [[ReleaseConstraintFromResidueMover]]
 * [[UnsatSelector]] - symmetry compatibility
 * [[AddHelixSequenceConstraintsMover]]
+* [[ReadPoseExtraScoreFilter]]
+* [[BuriedUnsatHbondsFilter]] updates
+* [[ResfileCommandOperation]]
+* [[SequenceMotifTaskOperation]]
+* [[CreateSequenceMotifMover]]
+
 
 ###Miscellaneous
-* Improved the output formatting for errors - in the vanishingly rare case that an error occurs with Rosetta, you are now more likely to get a useful and interpretable error message.
 * bugfixes to PDB->Pose construction logic arising from missing atoms at termini
 * removed unimplemented fa_plane term.  A zero-weight fa_plane term was a feature of a large number of scorefunctions, which was planely wrong.  This may cause issues using legacy scoring weight sets with Rosetta 3.9: just remove the unused fa_plane term in your weights file.
 * [[AlignmentAAFinderFilter]] filter -- Scans through an alignment, tests all possible amino acids at each position, and generates a file of passing amino acids.
@@ -85,8 +103,15 @@ PRE-NOTES for 3.10
 * Explicit unfolded state energy calculator bugfixes
 * ABEGO bin scoreterm
 * Implementation of mean-field algorithm to predict rotamer or amino acid probability. Can be used to [[predict specificity profile|GenMeanFieldMover]] for protein-protein or protein-peptide interactions.
+* [[MonteCarloInterface]] allows users to set protein-protein interface ddG as the energy criterion in MonteCarlo.  This partially addresses the often-requested feature to favor binding energy, not total energy, in design operations.
+* [[VoidsPenalty]] - nature abhors a vacuum, but Rosetta tends to ignore them.  VoidsPenalty detects underpacked regions in protein cores and favors rotamers to fill those gaps.
+* [[NetCharge]] - a superclass of the older "supercharge" idea, this score term lets you target a desired net charge for your design.
+* Old [[SEWING]] deprecated but still functional ahead of its replacement
+* [[LoopAnalyzerMover]] bugfixes
+
 
 ###Nonprotein chemistries
+* Major bugfixes for rotamer scoring for noncanonical sidechains
 * Improvements to internal glycan handing and IO. (For PDB import use the options `-auto_detect_glycan_connections` and `-alternate_3_letter_codes pdb_sugar`.  For more information, please see [[WorkingWithGlycans]]
 * The handling of non-polymeric chemical connections has been improved/simplified. This includes better handling of LINK records in PDB input, as well as removal of the BRANCH_LOWER_TERMINUS residue variant type.
 * Improvements to both automatic and user-specified handling of metal ions
@@ -98,6 +123,7 @@ PRE-NOTES for 3.10
 * Vikram Mulligan has been absolutely on fire adding nonprotein chemistries for cyclic peptides.  (He's now hard at work on fire-retardant peptides):
     * trimesic acid, a three-way crosslinker
     * cyclization via disulfide (instead of simply including disulfides)
+    * Oligoureas
     * N-methyl amino acids, for getting rid of that pesky backbone hydrogen bond donor
     * 2-aminoisobutyric acid (AIB), a non-canonical, achiral alpha-amino acid that strongly favours helices (both left- and right-handed).  AIB is to ALA as bactrian is to dromedary.  (That makes glycine a horse).
 * Glycan Relax - Version 2 [[GlycanTreeRelax]]
