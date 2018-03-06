@@ -1,3 +1,5 @@
+# FoldFromLoops
+
 The **FoldFromLoops (FFL)** protocol is a variant of the _grafting protocol_.  
 The protocol is aimed towards the insertion of structural motifs with a high RMSD distance to the insertion region in the target scaffold.
 
