@@ -24,7 +24,7 @@
 * [[JD3]] has gained:
   * Multithreading (?????????????)
   * A revived [[ResourceManager]]
-  * RosettaScripts compatibility
+  * RosettaScripts compatibility (will receive public release in next version)
   * [[MultistageRosettaScripts]]  
 * [[RosettaAntibodyDesign]] Application released - preparing for published paper.  Pre-print available here: [https://www.biorxiv.org/content/early/2018/02/23/183350]
 
