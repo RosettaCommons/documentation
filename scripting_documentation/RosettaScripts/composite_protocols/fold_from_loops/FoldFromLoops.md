@@ -63,8 +63,8 @@ The **FFL** protocol adds several remarks to the silent file output in order to 
 
 # Pipelines
 
-* [[Running FFL in RosettaScripts]]
-* [[Reloading FFL runs to further design/analyse]]
+* [[Running FFL in RosettaScripts|RunningFFL]]
+* [[Reloading FFL runs to further design/analyse|ReloadingFFL]]
 
 # Documentation history:
 * Written by Jaume Bonet. **March 2018**.
