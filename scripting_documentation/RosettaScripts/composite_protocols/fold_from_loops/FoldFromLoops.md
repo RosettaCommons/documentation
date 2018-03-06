@@ -58,4 +58,13 @@ The **FFL** protocol adds several remarks to the silent file output in order to 
 
 # Main Components
 
-* **[[]]:**
+* **[[NubInitioMover]]:** _[nub](https://en.oxforddictionaries.com/definition/nub) inito_ refers to the _ab initio_ process around a central point of a protein; in this case, the **motif**. This process is the key differentiating element of the **FFL** protocol, and this mover is its main component. The Mover is assigned with the tasks of (a) obtaining the **motif** from the structure source, (b) unfolding the **template** and attach it to the **motif**'s edges, (c) fold the new structure and (d) evaluate the viability of the obtained folded protein to move forward through the process.
+* **[[NubInitioLoopClosureMover]]:** When working with multi-segment **motif**s, this mover is able to ensure a final closed structure without affecting residues from the **motif** in any unexpected way. Ideally, this should be the last mover to call before the evaluation part of the _script_. Closing the cutpoints in the structure before any backbone movement will most likely result in changes between the correlative positions of the different segments of the **motif**. The mover is "smart" enough to evaluate if it is needed. Thus, it is highly recommended to always add it and let it decide whether or not it has to try to close any chain break.
+
+# Pipelines
+
+* [[Running FFL in RosettaScripts]]
+* [[Reloading FFL runs to further design/analyse]]
+
+# Documentation history:
+* Written by Jaume Bonet. **March 2018**.
