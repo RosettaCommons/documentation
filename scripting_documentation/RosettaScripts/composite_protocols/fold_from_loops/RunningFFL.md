@@ -12,6 +12,8 @@ And we know:
 * We will define our **motif** as `30B-45B` from `motif.pdb`.
 * We will consider chain `A` from `motif.pdb` as a binder to our motif.
 
+Finally, you'll need a `vall` database in order to be able to create the fragments.
+
 # Making the script
 ## ResidueSelectors
 To properly run **FFL**, one needs to add the ResidueSelectors to pick each of the working labels and guide the non-fixed parts of the process. The following ones are the ones needed to generate the **FLL**-standard behaviour, and one can more or less consider that they should always be added:
@@ -83,7 +85,7 @@ There are 3 main TaskOperations needed for **FFL**; the one that defines _static
 First of all, we will need to load/make the structural-based fragments:
 ```xml
 <StructFragmentMover name="FragmentPicker" prefix="auto"
-  vall_file="path/t/vall/database/vall.jul19.2011.gz" output_frag_files="1"
+  vall_file="path/to/vall/database/vall.jul19.2011.gz" output_frag_files="1"
   small_frag_file="auto.200.3mers" large_frag_file="auto.200.9mers"
 />
 ```
