@@ -107,22 +107,150 @@ Now we can call [[NubInitio]]:
 ```
 One could also first load the PDB file into a pose and then pass it as a `reference_pose`; something like:
 ```xml
+<SavePoseMover name="readMotif" reference_name="motif_pose" pdb_file="motif.pdb" />
 <NubInitioMover name="FFL" fragments_id="auto" template_motif_selector="insert" >
-  <Nub reference_pose="motif_pose" residue_selector="motif" binder_selector="binder" />
+  <Nub reference_name="motif_pose" residue_selector="motif" binder_selector="binder" />
 </NubInitioMover>
 ```
-
 There are some alternatives to the most basic call of [[NubInitio]].  
 For example, let's say that one wants two residues on each side of the **motif** to be able to move, hopping for a better fit into the **template**, and one also considers that residues `2,4,6,8,13` (inside the motif count) are not in actual contact with the binder and, thus, they can be designed. One can target specific parameters of each segment in the **motif**:
 ```xml
 <NubInitioMover name="FFL" fragments_id="auto" template_motif_selector="insert" >
-  <Nub pose_file="motif.pdb" residue_selector="motif" binder_selector="binder">
+  <Nub pose_file="motif.pdb" residue_selector="motif" binder_selector="binder" >
     <Segment order="1" n_term_flex="2" c_term_flex="2" editable="2,4,6,8,13" />
   </Nub>
 </NubInitioMover>
 ```
 
+Once the folding is done, we can guide the design process with the previously defined MoveMap and TaskOperations:
+```xml
+<FastDesign name="DesignRelax" scorefxn="fullatom" clear_designable_residues="true"
+  task_operations="FFLMOTIF_TASKOP,FFLFLEX_TASKOP,FFLTEMPLATE_TASKOP"
+  repeats="3" delete_virtual_residues_after_FastRelax="true"
+  movemap_factory="FFLSTANDARD_MOVEMAP" >
+</FastDesign>
+```
 
+And last, we make sure that the structure is properly closed (this is unnecessary with only one inserted segment, but in those cases it will simply not do anything).
+```xml
+<NubInitioLoopClosureMover name="loopC" fragments_id="auto"
+  break_side_ramp="true" design="true" fullatom_scorefxn="fullatom" />
+```
 
 ## All together
-...
+In summary, let's put all together with some extra boilerplate, and a regular **FFL** script without any special evaluation/filter or added design conditions will look like:
+
+```xml
+<ROSETTASCRIPTS>
+
+  <SCOREFXNS>
+    # A weight is added to small-range hbonds to favor helix, and beta pairing
+    # and to take residue propensity into account. This way, we can favor
+    # helix-forming residues in our designs.
+    <ScoreFunction name="fullatom" weights="ref2015">
+      <Reweight scoretype="atom_pair_constraint" weight="1.6" />
+    </ScoreFunction>
+  </SCOREFXNS>
+
+  <RESIDUE_SELECTORS>
+    <ResiduePDBInfoHasLabel name="MOTIF"     property="MOTIF" />
+    <Not                    name="!MOTIF"    selector="MOTIF" />
+    <ResiduePDBInfoHasLabel name="TEMPLATE"  property="TEMPLATE" />
+    <Not                    name="!TEMPLATE" selector="TEMPLATE" />
+    <ResiduePDBInfoHasLabel name="CONTEXT"   property="CONTEXT" />
+    <Not                    name="!CONTEXT"  selector="CONTEXT" />
+    <ResiduePDBInfoHasLabel name="FLEXIBLE"  property="FLEXIBLE" />
+    <Not                    name="!FLEXIBLE" selector="FLEXIBLE" />
+    <ResiduePDBInfoHasLabel name="HOTSPOT"   property="HOTSPOT" />
+    <Not                    name="!HOTSPOT"  selector="HOTSPOT" />
+    <ResiduePDBInfoHasLabel name="COLDSPOT"  property="COLDSPOT" />
+    <Not                    name="!COLDSPOT" selector="COLDSPOT" />
+  
+    # can design
+    <Or name="COLDSPOT_OR_TEMPLATE"              selectors="COLDSPOT,TEMPLATE" />
+    # bb movement
+    <Or name="FLEXIBLE_OR_TEMPLATE"              selectors="FLEXIBLE,TEMPLATE" />
+    # chi movement
+    <Or name="COLDSPOT_OR_FLEXIBLE_OR_TEMPLATE"  selectors="COLDSPOT,FLEXIBLE,TEMPLATE" />
+    # prevent repacking and design
+    <Or name="HOTSPOT_OR_CONTEXT"                selectors="HOTSPOT,CONTEXT" /> 
+    <And name="HOTSPOT_OR_CONTEXT_AND_!FLEXIBLE" selectors="HOTSPOT_OR_CONTEXT,!FLEXIBLE" />
+    # no design
+    <And name="FLEXIBLE_AND_!COLDSPOT"           selectors="FLEXIBLE,!COLDSPOT" />
+
+    <Chain name="template" chains="A" />
+    <Index name="insert" resnums="50A-65A" />
+    <Index name="motif" resnums="30B-45B" />
+    <Chain name="binder" chains="A" />
+    <Chain name="design" chains="B" />
+  </RESIDUE_SELECTORS>
+  <TASKOPERATIONS>
+    <OperateOnResidueSubset name="FFLMOTIF_TASKOP" selector="HOTSPOT_OR_CONTEXT_AND_!FLEXIBLE" >
+      <PreventRepackingRLT/>
+    </OperateOnResidueSubset>
+    <OperateOnResidueSubset name="FFLFLEX_TASKOP" selector="FLEXIBLE_AND_!COLDSPOT" >
+      <RestrictToRepackingRLT/>
+    </OperateOnResidueSubset>
+    <OperateOnResidueSubset name="FFLTEMPLATE_TASKOP" selector="COLDSPOT_OR_TEMPLATE" >
+      <DisallowIfNonnativeRLT disallow_aas="C" />
+    </OperateOnResidueSubset>
+  </TASKOPERATIONS>
+  <MOVE_MAP_FACTORIES>
+    <MoveMapFactory name="FFLSTANDARD_MOVEMAP" bb="false" chi="false" nu="false" branches="false" jumps="false" >
+      <Backbone enable="true" residue_selector="FLEXIBLE_OR_TEMPLATE" />
+      <Chi      enable="true" residue_selector="COLDSPOT_OR_FLEXIBLE_OR_TEMPLATE" />
+    </MoveMapFactory>
+  </MOVE_MAP_FACTORIES>
+  <MOVERS>
+    # ** SavePoseMover used like this does not need to be called during PROTOCOL to work.
+    <SavePoseMover name="readMotif" reference_name="motif_pose" pdb_file="motif.pdb" />
+
+    ## PREPROCESSING: MAKING FRAGMENTS
+    <StructFragmentMover name="makeFrags" prefix="T12"
+      small_frag_file="%%pdb%%.%%frags%%.200.3mers" large_frag_file="%%pdb%%.%%frags%%.200.9mers"
+    />
+
+    ## PREPROCESSING: CONSTRAINTS
+    <StructFragmentMover name="FragmentPicker" prefix="auto"
+      vall_file="path/t/vall/database/vall.jul19.2011.gz" output_frag_files="1"
+      small_frag_file="auto.200.3mers" large_frag_file="auto.200.9mers"
+    />
+
+    # MAIN: NUBINITIO FOLDING
+    <NubInitioMover name="FFL" fragments_id="auto" template_motif_selector="insert" >
+      <Nub reference_name="motif_pose" residue_selector="motif" binder_selector="binder" />
+    </NubInitioMover>
+
+    # POSTPROCESSING: CONSTRAINTS
+    <AddConstraints name="designCST" >
+      <AtomPairConstraintGenerator name="atompairCST2" sd="1" ca_only="true"
+        use_harmonic="true" unweighted="true" min_seq_sep="6" max_distance="40" residue_selector="design"
+      />
+    </AddConstraints>
+    <ClearConstraintsMover name="clearCST" />
+
+    # POSTPROCESSING: DESING
+    <FastDesign name="DesignRelax" scorefxn="fullatom" clear_designable_residues="true"
+      task_operations="FFLMOTIF_TASKOP,FFLFLEX_TASKOP,FFLTEMPLATE_TASKOP"
+      repeats="3" delete_virtual_residues_after_FastRelax="true"
+      movemap_factory="FFLSTANDARD_MOVEMAP" >
+    </FastDesign>
+
+    # POSTPROCESSING: LOOP CLOSURE
+    <NubInitioLoopClosureMover name="loopC" fragments_id="auto"
+      break_side_ramp="true" design="true" fullatom_scorefxn="fullatom" />
+  </MOVERS>
+  <PROTOCOLS>
+    # PREPROCESSING
+    <Add mover="makeFrags"   />
+    <Add mover="foldingCST"  />
+    # MAIN
+    <Add mover="FFL"        />
+    <Add mover="clearCST"   />
+    # POSTPROCESSING
+    <Add mover="designCST"   />
+    <Add mover="DesignRelax" />
+    <Add mover="loopC"       />
+  </PROTOCOLS>
+</ROSETTASCRIPTS>
+```
