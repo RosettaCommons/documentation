@@ -26,6 +26,8 @@
      
      * [[SEWING]]
 
+     * [[FoldFromLoops]]
+
    * [[Databases with RosettaScripts|RosettaScripts-database-connection-options]]
 
    * [[Formatting conventions|RosettaScripts-Conventions]]
