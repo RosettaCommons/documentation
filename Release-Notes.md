@@ -32,15 +32,15 @@
 * Protocols for explicit water:
   * [[Hydrate/SPaDES protocol]] include: solvent-protein interactions in a hybrid implicit-explicit solvation model.
   * RyanP what is that name of yours?
-* [[interface_energy]] - distinct from [[InterfaceAnalyzer]], and also well documented
+* [[interface_energy]] - distinct from [[InterfaceAnalyzer|interface-analyzer]], and also well documented
 * [[RosettaCM]] / [[HybridizeMover]] - improvements to error handling for mismatched template lengths
 * Antibody homology modeling works with only a heavy chain present
-* [[RosettaES]]
+* [[RosettaES|mover_FragmentExtension_type]]
 * [[shobuns]] - Buried UNSatisfied polar atoms for the SHO solvation model
 * Multithreading has come to [[simple_cycpep_predict]]
 * [[FoldFromLoops2]]
-* [[HBNet]]
-* [[energy_based_clustering]]
+* [[HBNet|HBNetMover]]
+* [[energy_based_clustering|energy_based_clustering_application]]
 
 ###RosettaScripts tools
 * RosettaScripts available from within PyRosetta - great for when you really, really, really don't want to think about Rosetta's C++ core
