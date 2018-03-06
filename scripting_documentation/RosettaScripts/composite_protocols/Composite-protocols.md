@@ -18,5 +18,5 @@ This page includes documentation for specialized RosettaScripts-based protocols.
 -   [[Legacy SEWING|Assembly of models]]
     -   [[Legacy SEWING Dictionary]]
 -   [[FoldFromLoops]]
-    -   [[Running FFL]]
+    -   [[Running FFL|RunningFFL]]
     -   [[Reloading FFL]]
