@@ -12,7 +12,7 @@ And we know:
 * We will define our **motif** as `30B-45B` from `motif.pdb`.
 * We will consider chain `A` from `motif.pdb` as a binder to our motif.
 
-Finally, you'll need a `vall` database in order to be able to create the fragments.
+Finally, we'll need a `vall` database in order to be able to create the fragments.
 
 # Making the script
 ## ResidueSelectors
