@@ -42,8 +42,9 @@ To properly run **FFL**, one needs to add the ResidueSelectors to pick each of t
   # no design
   <And name="FLEXIBLE_AND_!COLDSPOT"           selectors="FLEXIBLE,!COLDSPOT" />
 ```
-And we also need to add the specific selectors for our exercise. Be aware that the `design` _ChainResidueSelector_  is setup to `B`. This is due to the fact that designs pull their chainID from the chainID of the **motif**. This way, there can be no repetition of the identifier when the 
+And we also need to add the specific selectors for our exercise. Be aware that the `design` _ChainResidueSelector_  is setup to `B`. This is due to the fact that designs pull their chainID from the chainID of the **motif**. This way, there can be no repetition of the identifier if the binder is added.
 ```xml
+  <Chain name="template" chains="A" />
   <Index name="insert" resnums="50A-65A" />
   <Index name="motif" resnums="30B-45B" />
   <Chain name="binder" chains="A" />
@@ -78,9 +79,50 @@ There are 3 main TaskOperations needed for **FFL**; the one that defines _static
 </MOVE_MAP_FACTORIES>
 ```
 
-## Filters
-...
 ## Movers
-...
+First of all, we will need to load/make the structural-based fragments:
+```xml
+<StructFragmentMover name="FragmentPicker" prefix="auto"
+  vall_file="path/t/vall/database/vall.jul19.2011.gz" output_frag_files="1"
+  small_frag_file="auto.200.3mers" large_frag_file="auto.200.9mers"
+/>
+```
+This will create the fragments unless the fragment files exist, in which case they will just be loaded.
+Take notice of the `prefix` attribute. This sets up the identifier of these fragments, as other fragments for other processes might also be added. 
+
+Before folding our protein it is recommended to generate `atom_pair_constraints` to guide it. This can be very easily done:
+```xml
+<AddConstraints name="foldingCST" >
+  <AtomPairConstraintGenerator name="atompairCST1" sd="1.5" ca_only="true"
+    use_harmonic="true" unweighted="true" min_seq_sep="6" max_distance="40" residue_selector="template"
+  />
+</AddConstraints>
+```
+ 
+Now we can call [[NubInitio]]:
+```xml
+<NubInitioMover name="FFL" fragments_id="auto" template_motif_selector="insert" >
+  <Nub pose_file="motif.pdb" residue_selector="motif" binder_selector="binder" />
+</NubInitioMover>
+```
+One could also first load the PDB file into a pose and then pass it as a `reference_pose`; something like:
+```xml
+<NubInitioMover name="FFL" fragments_id="auto" template_motif_selector="insert" >
+  <Nub reference_pose="motif_pose" residue_selector="motif" binder_selector="binder" />
+</NubInitioMover>
+```
+
+There are some alternatives to the most basic call of [[NubInitio]].  
+For example, let's say that one wants two residues on each side of the **motif** to be able to move, hopping for a better fit into the **template**, and one also considers that residues `2,4,6,8,13` (inside the motif count) are not in actual contact with the binder and, thus, they can be designed. One can target specific parameters of each segment in the **motif**:
+```xml
+<NubInitioMover name="FFL" fragments_id="auto" template_motif_selector="insert" >
+  <Nub pose_file="motif.pdb" residue_selector="motif" binder_selector="binder">
+    <Segment order="1" n_term_flex="2" c_term_flex="2" editable="2,4,6,8,13" />
+  </Nub>
+</NubInitioMover>
+```
+
+
+
 ## All together
 ...
