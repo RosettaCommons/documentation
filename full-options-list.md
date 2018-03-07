@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-02-22
+Generated: 2018-03-07
 
 _Note that some application specific options may not be present in this list._
 
@@ -10,6 +10,10 @@ _Note that some application specific options may not be present in this list._
 <dl>
 <dt><b>-in</b> \<Boolean\></dt>
 <dd>in option group<br/></dd>
+<dt><b>-fconfig</b> \<FileVector\></dt>
+<dd>A list of flag configurations to look for.  These can be in either your working directory or $HOME/.rosetta/flags directory.  Ex: -fconfig common design<br/>Default: ['"common"']<br/></dd>
+<dt><b>-no_fconfig</b> \<Boolean\></dt>
+<dd>Do not load the [common] config file if present. <br/>Default: false<br/></dd>
 <dt><b>-Ntermini</b> \<String\></dt>
 <dd>Put full N termini on pose<br/>Default: "ALL"<br/></dd>
 <dt><b>-Ctermini</b> \<String\></dt>
@@ -1743,7 +1747,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-restore_talaris_behavior</b> \<Boolean\></dt>
 <dd>Use talaris score function and residue_type_set<br/>Default: false<br/></dd>
 <dt><b>-correct</b> \<Boolean\></dt>
-<dd>turn on default corrections:See src/core/init/score_function_corrections.cc<br/>Default: false<br/></dd>
+<dd>turn on default corrections:See src/core/init/score_function_corrections.cc.  Note that this is a flag for the older score12 scorefunction, which should NOT be used with talaris2013, talaris2014, ref2015, or the beta scorefunctions.<br/>Default: false<br/></dd>
 <dt><b>-hbond_sp2_correction</b> \<Boolean\></dt>
 <dd>turn on the hbond Sp2 correction with a single flag use with sp2_correction.wts. Note, these weight sets are chosen automatically by default. -score::hb_sp2_chipen -hb_sp2_BAH180_rise 0.75 -hb_sp2_outer_width 0.357 -hb_fade_energy -hbond_measure_sp3acc_BAH_from_hvy -lj_hbond_hdis 1.75 -lj_hbond_OH_donor_dis 2.6 -hbond_params sp2_elec_params -expand_st_chi2sampling -smooth_fa_elec -elec_min_dis 1.6 -elec_r_option false -chemical::set_atom_properties fa_standard:ONH2:LK_DGFREE:-5.85 fa_standard:NH2O:LK_DGFREE:-7.8 fa_standard:Narg:LK_DGFREE:-10.0 fa_standard:OH:LK_DGFREE:-6.70<br/></dd>
 <dt><b>-facts_default</b> \<Boolean\></dt>
