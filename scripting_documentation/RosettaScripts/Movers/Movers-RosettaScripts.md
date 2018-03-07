@@ -282,6 +282,7 @@ Mover  | Description
 Mover  | Description
 ------------ | -------------
 **[[AlignChain|AlignChainMover]]** | Align the Calpha atoms of chains in two different poses
+**[[AlignByResidueSelectorMover]]** | Align the Calpha atoms of the selected residues in two different poses
 **[[AddChainBreak|AddChainBreakMover]]** | Add a break at a specific position
 **[[BluePrintBDR|BluePrintBDRMover]]** | Make a centroid structure from a PDB file
 **[[CopyRotamer|CopyRotamerMover]]** | Copy a side-chain identity and/or conformation from one residue to another residue.
