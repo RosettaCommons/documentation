@@ -73,6 +73,7 @@ Mover  | Description
 **[[WriteLigandMolFile|WriteLigandMolFileMover]]** | Create a V2000 mol file for each pose
 **[[AddResidueLabel|AddResidueLabelMover]]** | Add PDBInfoLabel to your current pose based on a selection.
 **[[LabelPoseFromResidueSelectorMover]]** | Add and remove PDBInfoLabel to the Pose according to a given selection.
+**[[DisplayPoseLabelsMover]]** | Print on screen the labels assigned to each residue and save them to the silent file as REMARKS.
 
 
 ### Setup Movers
