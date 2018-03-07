@@ -72,6 +72,7 @@ Mover  | Description
 **[[TrajectoryReportToDB|TrajectoryReportToDBMover]]** | Reports multiple structures to an output forming a trajectory
 **[[WriteLigandMolFile|WriteLigandMolFileMover]]** | Create a V2000 mol file for each pose
 **[[AddResidueLabel|AddResidueLabelMover]]** | Add PDBInfoLabel to your current pose based on a selection.
+**[[LabelPoseFromResidueSelectorMover]]** | Add and remove PDBInfoLabel to the Pose according to a given selection.
 
 
 ### Setup Movers
