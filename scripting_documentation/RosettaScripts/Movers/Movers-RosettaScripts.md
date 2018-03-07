@@ -145,6 +145,7 @@ Mover  | Description
 **[[AddNetChargeConstraintMover]]** | Adds sequence constraints to penalize deviation from a desired net charge, enforced by the [[netcharge score term|NetChargeEnergy]].
 **[[AtomCoordinateCstMover]]** | Adds coordinate constraints for Relax
 **[[ClearConstraintsMover]]** | Removes all constraints (geometric and sequence) from the pose
+**[[ReleaseConstraintFromResidueMover]]** | The same as [[ClearConstraintsMover]] but only for selected residues
 **[[ClearCompositionConstraintsMover]]** | Removes sequence constraints from the pose selectively.
 **[[ConstraintSetMover]]** | Adds constraints to the pose using a constraints file
 **[[FavorSymmetricSequence|FavorSymmetricSequenceMover]]** | Adds constraints to prefer symmetric sequences
