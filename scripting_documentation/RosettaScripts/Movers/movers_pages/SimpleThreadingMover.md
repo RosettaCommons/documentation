@@ -18,7 +18,7 @@ Default is 5 rounds of packing.
 
 ### Overview
 
-In order to run this protocol, you just need to specify the place to start in rosetta or PDB numbering and the sequence.  
+In order to run this protocol, you just need to specify the place to start - in rosetta or PDB numbering - and the sequence.  
 We will parse the PDB numbering on apply time in case there are any pose-length changes until then. 
 Pass the option to repack neighbors for packing.  
 
