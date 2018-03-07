@@ -7,7 +7,7 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 This mover functions to thread the sequence of a region onto the given pose.  Nothing fancy here.  Useful when combined with -parser:string_vars option to replace strings within the RosettaScript.
 
-For more a more fancy comparative modeling protocol, please see the lovely [[RosettaCM]].
+For a more fancy comparative modeling protocol, please see the lovely [[RosettaCM]].
 
 
 ### Details
