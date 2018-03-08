@@ -16,6 +16,7 @@ A collection of example command lines can be found [[here|commands-collection]].
 - [Design](Application Documentation#Design)
 - [Membrane Proteins](Application Documentation#Membrane-Proteins)
 - [Analysis](Application Documentation#Analysis)
+- [UI](Application Documentation#UI)
 - [Utilities](Application Documentation#Utilities)
 - [Other](Application Documentation#Other)
 
@@ -292,6 +293,10 @@ Component | Description
 
 ### Residue disorder prediction
 - [[ResidueDisorder|ResidueDisorder]] - Predict order/disorder of each residue in a protein.
+
+##UI <a name="UI" />
+
+[[Workbench|/internal_documents/ui/workbench]] - UI front end to submit Rosetta jobs from desktop client
 
 ##Utilities <a name="Utilities" />
 
