@@ -30,7 +30,7 @@ Rosetta version could filed in TaskSubmit dialog could take following values:
 
 Directory Structure of Task during HPC run
 ------------------------------------------
-When submitted Task started all input files will be places into `input/` directory. So for example, if you provided `my-pdb.pdb` file in you input file set then it could be references in your flag file as `input/my-pdb.pdb`. Output of previously completed jobs will be placed into `<job-name>/` dir. So when you submit multi-stage Task with stages named as `1`, `2`, `3` you cold access results of previously completed jobs as `1/result-of-job-1-file.extension`
+When submitted Task started all input files will be places into `input/` directory. So for example, if you provided `my-pdb.pdb` file in you input file set then it could be references in your flag file as `input/my-pdb.pdb`. Output of previously completed jobs will be placed into `<job-name>/` dir. So when you submit multi-stage Task with stages named as `1`, `2`, `3` you cold access results of previously completed jobs as `1/result-of-job-1-file.extension`, `2/result-of-job-2-file.extension`, `3/result-of-job-3-file.extension`.
 
 
 Tips
