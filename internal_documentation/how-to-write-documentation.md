@@ -19,7 +19,7 @@ want.
 
 There are two ways to write documentation that will only be visible to 
 developers and not to users who download weekly releases of Rosetta.  The first 
-is to put that documentation in the `internal_documents/` folder and the second 
+is to put that documentation in the `internal_documentation/` folder and the second 
 is to put that documentation inside the following comment tags:
 
     <!--- BEGIN_INTERNAL -->
@@ -327,4 +327,3 @@ The problem is that Gollum don't have a way for online users to resolve merge
 conflicts, so instead it just pushes aggressively to master.  Reserve direct 
 git access to the repository for changes which cannot be done through the live 
 wiki interface, like uploading images or batch processing type edits.
-
