@@ -296,7 +296,7 @@ Component | Description
 
 ##UI <a name="UI" />
 
-[[Workbench|/internal_documents/ui/workbench]] - UI front end to submit Rosetta jobs from desktop client
+[[Workbench|/internal_documentation/ui/workbench]] - UI front end to submit Rosetta jobs from desktop client
 
 ##Utilities <a name="Utilities" />
 
