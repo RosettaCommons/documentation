@@ -82,6 +82,34 @@ If this file were called “flags”, then it would be used like this (notice th
 
 Note that other options can still be set before or after the flags file is specified, and MULTIPLE flag files can be used - for example <code> @ flags1 @ flags2 @ flags3 </code>.  This will essentially combine flags1 through three - each time overiding any options set in the previous flags.  For setting multiple flag files through a _batch_ run, see the <code> -run:batches </code> option described in the run options.
 
+Common Options and Default User Configuration
+=============================================
+As of March 2018, Rosetta can now be run with a user configuration file. 
+This file is basically an options file that is loaded at the start of each Rosetta run. 
+To start with, go to your home directory and create a directory that will be home to any Rosetta configurations. 
+`mkdir .rosetta && mkdir .rosetta/flags`
+
+Rosetta will now look in that directory each time it is run. If a file named `common` is found in `$HOME/.rosetta/flags` or if it/they are in the current working directory, we use that instead. You can set any number of flag configurations with the `-fconfig` option. By default (you do not need to pass this), we have:
+```
+   -fconfig common
+```
+
+ This `-fconfig` option is also useful if you have a set of flags for different purposes - like design, glycans, and antibodies, so you could do something like:
+
+```
+  -fconfig common antibody 
+```
+
+ That would load both the common and antibody configurations (which again, are flag files in `.rosetta/flags`
+
+
+ If you have a common flag file which you wish to ignore for a particular run, you skip loading through an option
+```
+  -no_config  
+```
+
+Finally, the options that are loaded from these files are output to the Rosetta log on startup.  
+
 Running Rosetta via MPI <a name="mpi" />
 ========================
 In order to run Rosetta on a computational cluster or locally on many cores, most Rosetta protocols support parallel execution via MPI. If the Rosetta MPI executables were compiled, then in the executable directory there will be an extra set of executables specifically for MPI, for example <code>fixbb.mpi.linuxgccrelease </code>.  If these have not yet been compiled, please refer to the [[Setting Up Rosetta 3| Build-Documentation#MPI]] page for more information. To run these executables, simply run them via mpiexec (or mpirun for older mpi implementations): 
