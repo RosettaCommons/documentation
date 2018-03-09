@@ -35,8 +35,8 @@ When submitted Task started all input files will be places into `input/` directo
 
 Tips
 ====
-- to view PDB file in specified PDB viewer right-click on file then select `open` from pop-up menu or double click on file
-- to open ScoreFile plot for `*.score` files: right click on file then select `open` from pop-up menu or double click on file. In ScoreView you can select which score term to use on X/Y axes, hover over points to view individual scores and double click on point to open particular decoy in your PDB viewer.
+- to view PDB file in specified PDB viewer right-click on file then select `open` from pop-up menu or double click on a file
+- to open ScoreFile plot for `*.score` files: right click on file then select `open` from pop-up menu or double click on a file. In ScoreView you can select which score term to use on X/Y axes, hover over points to view individual scores and double click on point to open particular decoy in your PDB viewer.
 - to save particular file(s) to disk: select file(s) then right-click on selection and choose `save-as`
 - to export all Task files into directory use `export all files` button on TaskView page
 - to change run order of Jobs use mouse to click on job-tab and drag it into desired position
