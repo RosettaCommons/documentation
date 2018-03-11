@@ -31,7 +31,7 @@ The SetupMetalsMover has too effects on scoring.  First, by creating bonds betwe
 * **constraints_only**: Only add constraints and do not set up covalent bonds/variant types. Useful for restoring constraints added by metal setup after they have been deleted.
 
 ###Example
-The following script applies metal-binding constraints to the input pose, then relaxes it using the [[FastRelax]] mover:
+The following script applies metal-binding constraints to the input pose, then relaxes it using the [[FastRelax|FastRelaxMover]] mover:
 
 ```xml
 <ROSETTASCRIPTS>
