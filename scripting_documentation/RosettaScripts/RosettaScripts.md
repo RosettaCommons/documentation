@@ -535,7 +535,7 @@ Example use in `FastRelax`:
 
 
 Here, we use the MoveMapFactory to only run fast relax on all of the glycans in a pose.  
-By default, the movemap is constructed with all kinematics turned on (bb, chi, jump).  The option `enable="0"` makes everything off in the movemap first. `bb="0"`, `chi="0"`, `jump`=0 can optionally turn off specific components first when constructing the factory.  
+By default, the movemap is constructed with all kinematics turned on (bb, chi, jump).  The option `enable="0"` makes everything off in the movemap first. `bb="0"`, `chi="0"`, `jump="0"` can optionally turn off specific components first when constructing the factory.  
 
 ### Subsections
 
@@ -552,17 +552,22 @@ Subsections are used to turn on specific kinematic sections of the pose.  They o
 
 ```
 
-* Backbone
+* `<Backbone/>`
+
  These are the backbone residues of the pose. (Phi/Psi for protein).  For noncanonicals, these may be different torsions than you would think, so be careful with this.  For the MoveMapFactory, Glycan BB and CHI torsions are special cased to be  treated as IUPAC defined 
 
-* Chi
+* `<Chi/>`
+
  These are the sidechain torsions of the pose.  For Glycans, these are the OH groups. 
 
-* Jumps
+* `<Jumps/>`
+
  In dihedral space, these are the relative orientations between sets of residues.  Jumps are determined by the `foldtree` and are typically between chains.  
 
-* Nu
-* Branches
+* `<Nu/>`
+
+* `<Branches/>`
+
  These are specific torsions coming off the mainchain.  Typically, you do not need to worry about this unless you are using a complicated non-cannonical or modification.  Glycan branch torsions are treated as IUPAC BB torsions within the MoveMapFactory machinery.
 
 
