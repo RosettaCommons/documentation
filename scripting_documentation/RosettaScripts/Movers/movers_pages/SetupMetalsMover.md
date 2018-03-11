@@ -12,7 +12,7 @@ This mover replicates the function of the `-in:auto_setup_metals` command line f
 ### Note regarding scoring
 The SetupMetalsMover has too effects on scoring.  First, by creating bonds between a metal and metal-coordinating residues, the mover tells the scorefunction not to calculate repulsive and long-range interactions between the metal and the atoms that coordinate it.  Without this, Rosetta scores a structure containing a metal as though there is a clash between the metal and the atoms coordinating it.  Second, by adding constraints between the metal and the coordinating atoms, Rosetta will penalize deviations from the input metal-coordination geometry during scoring, and will "pull" the geometry towards the input coordination geometry during relaxation (minimization).  Without this, the metal centre is likely to become distorted during minimization or other structural manipulation.  Note that the second effect requires that the `metalbinding_constraint` score term is active in the scorefunction used to score or energy-minimize.  If necessary, this can be achieved by adding it to the weights file, or by using the `Reweight` command in RosettaScripts (see the `ScoreFunctions` section of [[this page|RosettaScripts]] for details).
 
-### Example and options
+### Setup and options
 ```xml
 <SetupMetalsMover name="(&string)" metals_detection_LJ_multiplier="(&Real 1.0)" 
   metals_distance_constraint_multiplier="(&Real 1.0)" metals_angle_constraint_multiplier="(&Real 1.0)"
@@ -29,6 +29,28 @@ The SetupMetalsMover has too effects on scoring.  First, by creating bonds betwe
 * **resnums**: Comma-separated list of residue numbers (can include ranges e.g. 1-10) specifying where to search for metal ions to set up. Mutually exclusive with residue selectors.
 * **residue_selector**: Name of previously defined residue selector specifying which metal ions to set up. Mutually exclusive with resnums and residue selector subtags.
 * **constraints_only**: Only add constraints and do not set up covalent bonds/variant types. Useful for restoring constraints added by metal setup after they have been deleted.
+
+###Example
+The following script applies metal-binding constraints to the input pose, then relaxes it using the [[FastRelax]] mover:
+
+```xml
+<ROSETTASCRIPTS>
+        <SCOREFXNS>
+                <ScoreFunction name="r15_cst" weights="ref2015_cst.wts" >
+                        <Reweight scoretype="metalbinding_constraint" weight="1.0" />
+                </ScoreFunction>
+        </SCOREFXNS>
+        <MOVERS>
+                <SetupMetalsMover name="setup_metals" metals_detection_LJ_multiplier="1.0" />
+                <FastRelax name="frlx1" scorefxn="r15_cst" />
+        </MOVERS>
+        <PROTOCOLS>
+                <Add mover="setup_metals" />
+                <Add mover="frlx1" />
+        </PROTOCOLS>
+</ROSETTASCRIPTS>
+
+```
 
 ###See Also
 * [[Metals]]
