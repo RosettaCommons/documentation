@@ -60,7 +60,8 @@ The following lines are typically found in Ligand params files. This does not re
 -   **ICOOR\_INTERNAL** The [[internal coordinates]] of an atom. The format goes backwards and looks like this:
 
     ```
-    ICOOR_INTERNAL    A4  179.932453   59.543328    1.238233   A3   A2   A1
+    #                 Child  Phi Angle    Theta        Distance   Parent  Angle  Torsion
+    ICOOR_INTERNAL    A4     179.932453   59.543328    1.238233   A3      A2     A1
     ```
 
     And the fields are the following: 
