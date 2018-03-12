@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-03-07
+Generated: 2018-03-12
 
 _Note that some application specific options may not be present in this list._
 
@@ -3122,6 +3122,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Choose specified template for light chain framework<br/>Default: ""<br/></dd>
 <dt><b>-frh_template</b> \<String\></dt>
 <dd>Choose specified template for heavy chain framework<br/>Default: ""<br/></dd>
+<dt><b>-run_snugdock</b> \<Boolean\></dt>
+<dd>Run Snugdock after Antibody_H3/RAbD?<br/>Default: false<br/></dd>
 <dt><b>-h3_no_stem_graft</b> \<Boolean\></dt>
 <dd>Graft CDR H3 from template, use stem to superimpose, but do not copy the stem<br/>Default: false<br/></dd>
 <dt><b>-packonly_after_graft</b> \<Boolean\></dt>
@@ -3241,8 +3243,6 @@ _Note that some application specific options may not be present in this list._
 <dd>If high_mem_mode is false, this is the limit of CDRSet cacheing we do before we begin load them on-the-fly instead.  If high_mem_mode is true, then we ignore this setting.  If you have extremely low memory per-process, lower this number<br/>Default: 300<br/></dd>
 <dt><b>-design_protocol</b> \<String\></dt>
 <dd>Set the main protocol to use.  Note that deterministic is currently only available for the grafting of one CDR.<br/>Default: "even_cluster_mc"<br/></dd>
-<dt><b>-run_snugdock</b> \<Boolean\></dt>
-<dd>Run snugdock on each ensemble after designing.<br/>Default: false<br/></dd>
 <dt><b>-run_relax</b> \<Boolean\></dt>
 <dd>Run Dualspace Relax on each ensemble after designing (after snugdock if run). Also output pre-relaxed structures<br/>Default: false<br/></dd>
 <dt><b>-run_interface_analyzer</b> \<Boolean\></dt>
