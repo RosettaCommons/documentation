@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## RepackMinimize
 
-RepackMinimize does the design/repack and minimization steps using different score functions as defined by the protocol. For most purposes, the combination of PackRotamersMover with MinMover provide more flexibility and transparency than RepackMinimize, and are advised.
+RepackMinimize does the design/repack and minimization steps using different score functions as defined by the protocol. For most purposes, the combination of [[PackRotamersMover|PackRotamersMover]] with [[MinMover|MinMover]] provide more flexibility and transparency than RepackMinimize, and are advised.
 
 repack\_partner1 (and 2) defines which of the partners to design. If no particular residues are defined, the interface is repacked/designs. If specific residues are defined, then a shell of residues around those target residues are repacked/designed and minimized. repack\_non\_ala decides whether or not to change positions that are not ala. Useful for designing an ala\_pose so that positions that have been changed in previous steps are not redesigned. min\_rigid\_body minimize rigid body orientation. (as in docking)
 
