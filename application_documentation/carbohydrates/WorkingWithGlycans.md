@@ -216,21 +216,21 @@ print lactose.chain_sequence()
 
 
 
-##See Also
+## See Also
 
-- ### Apps
+### Apps
 * [[GlycanRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
 * [[GlycanInfo]] - Get information on all glycan trees within a pose
 * [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
-- ### RosettaScript Components
+### RosettaScript Components
 * [[GlycanRelaxMover]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
 * [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees.  
 * [[GlycanTreeSelector]] - Select individual glcyan trees or all of them
 * [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
 * [[LinkageConformerMover|mover_LinkageConformerMover_type]]
 
-- ### Other
+### Other
 * [[Application Documentation]]: List of Rosetta applications
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
 * [[Comparing structures]]: Essay on comparing structures
