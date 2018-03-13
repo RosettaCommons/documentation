@@ -217,7 +217,6 @@ print lactose.chain_sequence()
 
 
 ##See Also
-* [[WorkingWithGlycans]]
 
 - ### Apps
 * [[GlycanRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
@@ -229,7 +228,7 @@ print lactose.chain_sequence()
 * [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees.  
 * [[GlycanTreeSelector]] - Select individual glcyan trees or all of them
 * [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
-* [[LinkageConformerMover|mover_LinkageConformerMover_type]]]
+* [[LinkageConformerMover|mover_LinkageConformerMover_type]]
 
 - ### Other
 * [[Application Documentation]]: List of Rosetta applications
