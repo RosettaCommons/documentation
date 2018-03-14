@@ -1,5 +1,10 @@
 #RosettaScripts
 
+**RosettaScripts: A Scripting Language Interface to the Rosetta Macromolecular Modeling Suite** 
+Fleishman SJ, Leaver-Fay A, Corn JE, Strauch EM, Khare SD, et al. (2011) RosettaScripts: A Scripting Language Interface to the Rosetta Macromolecular Modeling Suite. PLOS ONE 6(6): e20161. [[https://doi.org/10.1371/journal.pone.0020161]]
+
+===
+
 -   [Introductory Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/scripting_with_rosettascripts/scripting_with_rosettascripts)
 -   [Advanced Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/advanced_scripting_with_rosettascripts/advanced_scripting_with_rosettascripts)
 
