@@ -105,7 +105,7 @@ Rosetta will now look in that directory each time it is run. If a file named `co
 
  If you have a common flag file which you wish to ignore for a particular run, you skip loading through an option
 ```
-  -no_config  
+  -no_fconfig  
 ```
 
 Finally, the options that are loaded from these files are output to the Rosetta log on startup.  
