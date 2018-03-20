@@ -1,21 +1,23 @@
 <!-- --- title: Pyrosetta Toolkit GUI -->Documentation for the PyRosetta Toolkit GUI
 
  **Author:**   
-Jared Adolf-Bryfogle
+Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 ![[images/pyrosetta_toolkit_main.png]]
 
 Metadata
 -------
 
-Last edited 10/1/14. Code by Jared Adolf-Bryfogle \< [jadolfbr@gmail.com](mailto:jadolfbr@gmail.com) \>. 
+Last edited 10/1/18. Code by Jared Adolf-Bryfogle \< [jadolfbr@gmail.com](mailto:jadolfbr@gmail.com) \>. 
 
 The PI for this application is Roland Dunbrack \< [Roland.Dunbrack@fccc.edu](mailto:Roland.Dunbrack@fccc.edu) \>
 
 Code and Demo
 -------------
 
-The application is available in both PyRosetta in <code>app/pyrosetta_toolkit</code> and in Rosetta Source at <code>main/source/src/python/bindings/app/pyrosetta_toolkit</code>
+The PyRosetta Toolkit has not been ported to PyRosetta-4 unfortunately and is only distributed and comparable with PyRosetta-3. 
+
+The application is available in PyRosetta-3 in <code>app/pyrosetta_toolkit</code> 
 
 PyRosetta Setup:
 
@@ -245,4 +247,3 @@ Changes since last release
 This will be the first release
 
 ##See Also
-
