@@ -16,7 +16,7 @@ The SetupMetalsMover has two effects on scoring.  First, by creating bonds betwe
 ```xml
 <SetupMetalsMover name="(&string)" metals_detection_LJ_multiplier="(&Real 1.0)" 
   metals_distance_constraint_multiplier="(&Real 1.0)" metals_angle_constraint_multiplier="(&Real 1.0)"
-  remove_hydrogens="(&bool true)" resnums="(&nonnegative_int_cslist)" residue_selector="(&string)" constraints_only="(&bool false)" >
+  remove_hydrogens="(&bool true)" resnums="(&nonnegative_int_cslist)" metal_residue_selector="(&string)" constraints_only="(&bool false)" >
          <Optional residue selector subtag />
 </SetupMetalsMover>
 ```
@@ -27,8 +27,10 @@ The SetupMetalsMover has two effects on scoring.  First, by creating bonds betwe
 * **metals_angle_constraint_multiplier**: Multiplier for the weight of the angle constraints about metal coordinating atoms (metal-ligand-ligand_base). Increasing this weight will make the binding site more rigid; it can be set to zero to turn off angle constraints. If this is not set in the mover tag, it uses the value set through the command line (default 1.0).
 * **remove_hydrogens**: Should extraneous hydrogens be removed from metal binding atoms? Default true.
 * **resnums**: Comma-separated list of residue numbers (can include ranges e.g. 1-10) specifying where to search for metal ions to set up. Mutually exclusive with residue selectors.
-* **residue_selector**: Name of previously defined residue selector specifying which metal ions to set up. Mutually exclusive with resnums and residue selector subtags.
+* **metal_residue_selector**: Name of previously defined residue selector specifying which metal ions to set up. Mutually exclusive with resnums and residue selector subtags.
 * **constraints_only**: Only add constraints and do not set up covalent bonds/variant types. Useful for restoring constraints added by metal setup after they have been deleted.
+
+[[include:mover_SetupMetalsMover_type]]
 
 ###Example
 The following script applies metal-binding constraints to the input pose, then relaxes it using the [[FastRelax|FastRelaxMover]] mover:
