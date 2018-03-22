@@ -1,7 +1,6 @@
 # Release Notes
 
-<!--- BEGIN_INTERNAL -->
-## _Rosetta 3.9 (internal notes)_
+## Rosetta 3.9
 
 ### Scorefunction changes
 * We changed our default scorefunction to [[REF2015|Overview-of-Seattle-Group-energy-function-optimization-project]]. (http://pubs.acs.org/doi/abs/10.1021/acs.jctc.7b00125)
@@ -134,8 +133,6 @@ The third is a general command that takes any ResidueProperty. Currently, it onl
     * N-methyl amino acids, for getting rid of that pesky backbone hydrogen bond donor
     * 2-aminoisobutyric acid (AIB), a non-canonical, achiral alpha-amino acid that strongly favours helices (both left- and right-handed).  AIB is to ALA as bactrian is to dromedary.  (That makes glycine a horse).
 * Glycan Relax - Version 2 [[GlycanTreeRelax]]
-
-<!--- END_INTERNAL -->
 
 ## Rosetta 3.8
 ###New RosettaScripts XML
