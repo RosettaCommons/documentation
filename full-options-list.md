@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-03-12
+Generated: 2018-03-21
 
 _Note that some application specific options may not be present in this list._
 
@@ -7558,9 +7558,9 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-staged_constraints</b> \<Boolean\></dt>
 <dd>Apply constraints in stages depending on sequence separation<br/>Default: false<br/></dd>
 <dt><b>-jump_library_file</b> \<String\></dt>
-<dd>Input file for jumps<br/>Default: "sampling/rna/1jj2_RNA_jump_library.dat"<br/></dd>
+<dd>Input file for jumps<br/>Default: "1jj2_RNA_jump_library.dat"<br/></dd>
 <dt><b>-vall_torsions</b> \<String\></dt>
-<dd>Torsions file containing information on fragments from RNA models<br/>Default: "rna.torsions"<br/></dd>
+<dd>Torsions file containing information on fragments from RNA models<br/>Default: "RICHARDSON_RNA09.torsions"<br/></dd>
 <dt><b>-use_1jj2_torsions</b> \<Boolean\></dt>
 <dd>Use original (ribosome) fragments, 1JJ2<br/>Default: false<br/></dd>
 <dt><b>-fuzz_fragments</b> \<Real\></dt>
