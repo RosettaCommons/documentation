@@ -4,7 +4,7 @@
 ## _Rosetta 3.9 (internal notes)_
 
 ### Scorefunction changes
-* We changed our default scorefunction to REF2015.  Read about it here (WIKI LINK) and here: (http://pubs.acs.org/doi/abs/10.1021/acs.jctc.7b00125)
+* We changed our default scorefunction to [[REF2015|Overview-of-Seattle-Group-energy-function-optimization-project]]. (http://pubs.acs.org/doi/abs/10.1021/acs.jctc.7b00125)
 
 ### API changes
 * PyRosetta: xyzMatrix now have .xy properties bound as 'data' instead of set/get functions. So if your code accessed this methods directly you will need to refactor it as m.xx(m.xy()) --> m.xx = m.xy
@@ -22,7 +22,6 @@
 ##New or updated features
 ###Applications
 * [[JD3]] has gained:
-  * Multithreading (?????????????)
   * A revived [[ResourceManager]]
   * RosettaScripts compatibility (will receive public release in next version)
   * [[MultistageRosettaScripts]]  
@@ -51,8 +50,8 @@
 * [[DihedralConstraintGenerator | constraint_generator_DihedralConstraintGenerator_complex_type]] -  A cst generator that creates Dihedral constraints for specified residues using a residue selector. Uses CircularHarmonic constraints, since CircularGaussian func does not exist. By default, works on Protein and carbohydrate BackBone dihedrals (but this can be changed), in addition, CUSTOM ARBITRARY DIHEDRALS can also be set.
 * [[WriteFiltersToPose]]
 * [[SwitchChainOrderMover]] bugfix
-* [[buried_apolar_area_filter]] - filters based on buried surface area (VIKRAM what is name?)
-*     Add a filter to compute the longest continuous stretch of polar residues in a pose or selection - VIKRAM what is name?
+* [[buried_apolar_area_filter]] - filters based on buried surface area
+* a filter to compute the longest continuous stretch of polar residues in a pose or selection
 * [[ResidueProbDesignOperation | to_ResidueProbDesignOperation_type]] (used originally for [[RosettaAntibodyDesign]] ) can now take a text file of residue probabilities per position and is available in RosettaScripts
 * [[ReturnSidechainMover]] - works better with stuff like phosphorylated residues, and broadly produces more useful warnings/errors
 * Metals:
