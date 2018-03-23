@@ -10,7 +10,7 @@ For _RosettaScripts_ protocols, the flag **-gen_potential** _or_ **-beta** must 
 
 ### New atom typing
 
-An alternate atom typing scheme has been introduced.  An alternate param file generation app, _scripts/python/public/generic_potential/mol2genparams.py_ has been added to handle parameter generation with the new atom typing. NOTE: this new typing is completely separate from protein atom typing.
+An alternate atom typing scheme has been introduced.  An alternate param file generation app, _scripts/python/public/generic_potential/mol2genparams.py_ has been added to handle parameter generation with the new atom typing. NOTE: this new typing is completely separate from protein atom typing. Fore more information how thse atom types are defined and how this works, see [[here|GenericAtomtypes]].
 * A generic torsional potential, _gen_bonded_ has been added using these new types. This potential is _undefined (returning 0) for non-ligand residues_. 
 * LK and LJ parameters have been fit for these new atom types using a combination of small molecule crystal data and ligand-bound protein structures.
 
