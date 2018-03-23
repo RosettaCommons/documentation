@@ -1,6 +1,6 @@
 ## Overview
 
-The GALigandDock mover is meant to be used in combination with the [[generic-potential||Updates-beta-genpot]]. It uses a genetic algorithm to sample/evolve a population of ligand conformers, and takes advantage of pre-computation of scoreterms on a grid to speed up docking.
+The GALigandDock mover is meant to be used in combination with the [[generic-potential|Updates-beta-genpot]]. It uses a genetic algorithm to sample/evolve a population of ligand conformers, and takes advantage of pre-computation of scoreterms on a grid to speed up docking.
 
 ### Mover
 
