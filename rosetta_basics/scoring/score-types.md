@@ -7,6 +7,7 @@ Standard Weights File
 
 **REF2015** was developed as beta_nov15 and became the default scorefunction in July 2017. The main changes include  optimization of electrostatic parameters, updated torsion parameters, updated bonded parameters, enabling LJ attraction for hydrogens. For more information see [beta_nov15_updates](https://www.rosettacommons.org/docs/latest/rosetta_basics/scoring/Updates-beta-nov15) and the following paper:
 
+[Park H et al., J Chem Theory Comput. 2016](https://pubs.acs.org/doi/abs/10.1021/acs.jctc.6b00819)
 [Alford RF et al., J Chem Theory Comput. 2017](https://pubs.acs.org/doi/abs/10.1021/acs.jctc.7b00125)
 
 The previous score function, **talaris2014**, is a slight modification of the **talaris2013** energy function. The **talaris2013** and **talaris2014** energy functions and their corrections were tested in the papers 
