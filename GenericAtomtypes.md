@@ -28,27 +28,27 @@ detailed logic at source/scripts/python/public/generic_potential/AtomTypeClassif
 
 ```html
 **Carbon**
-CS  : sp3 aliphatic, 0-H
-CS1 : sp3 aliphatic, 1-H
-CS2 : sp3 aliphatic, 2-H
-CS3 : sp3 aliphatic, 3-H
-CD  : sp2 aliphatic, 0-H
-CD1 : sp2 aliphatic, 1-H
-CD2 : sp2 aliphatic, 2-H
-CT  : sp aliphatic (no distinction for #H attached)
-CR  : aromatic, 0-H
-CSp : sp3 aliphatic, 0-H
-CDp : sp3 aliphatic, 0-H
-CRp : sp3 aliphatic, 0-H
-CTp : sp, attached to polar atom(s)
-CRb : Aromatic carbon, as an axis of biaryl dihedrals
+CS  : sp3 aliphatic, 0-H [Maps to CH0] 
+CS1 : sp3 aliphatic, 1-H [Maps to CH1]
+CS2 : sp3 aliphatic, 2-H [Maps to CH2]
+CS3 : sp3 aliphatic, 3-H [Maps to CH3]
+CD  : sp2 aliphatic, 0-H [No match]
+CD1 : sp2 aliphatic, 1-H [No match]
+CD2 : sp2 aliphatic, 2-H [No match]
+CT  : sp aliphatic (no #H condition) [No match]
+CR  : aromatic, 0or1-H [Maps to aroC]
+CSp : sp3 aliphatic, (no #H condition) [Maps to CAbb?] 
+CDp : sp2 aliphatic, (no #H condition) [Maps to CObb?] 
+CRp : aromatic, (no #H condition) [Maps to CR?] 
+CTp : sp, attached to polar atom(s) [No match] 
+CRb : Aromatic carbon, as an axis of biaryl dihedrals [No match] 
 
 **Nitrogen**
-Nam : N at AMonium/AMine, primary, >= 1-H
-Nam2: N at AMonium/AMine, secondary~tertiary, >= 1-H (w/o H goes to NG3)
-Nad : N at AmiDe, primary~secondary, >= 1-H
-Nad3: N at AmiDe, 0-H == tertiary OR w/ lonepair #Azo also goes here
-Nin : N at INdole, 1-H
+Nam : N at AMonium/AMine, primary, >= 1-H [Maps to Nlys] 
+Nam2: N at AMonium/AMine, secondary~tertiary, >= 1-H (w/o H goes to NG3) [No match] 
+Nad : N at AmiDe, primary~secondary, >= 1-H [Maps to Nbb or NH2O] 
+Nad3: N at AmiDe, 0-H == tertiary OR w/ lonepair #Azo also goes here [Maps to Npro] 
+Nin : N at INdole, 1-H [Maps to Npro] 
 Nim : N at IMine, w/ lone pair and 0-H
 Ngu1: N at GUanidium, 1-H
 Ngu2: N at GUanidium, 2-H
