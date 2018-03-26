@@ -35,19 +35,19 @@ CS3 : sp3 aliphatic, 3-H
 CD  : sp2 aliphatic, 0-H
 CD1 : sp2 aliphatic, 1-H
 CD2 : sp2 aliphatic, 2-H
-CT  : sp1 aliphatic (no distinction for #H attached)
+CT  : sp aliphatic (no distinction for #H attached)
 CR  : aromatic, 0-H
 CSp : sp3 aliphatic, 0-H
 CDp : sp3 aliphatic, 0-H
 CRp : sp3 aliphatic, 0-H
-CTp : sp1, attached to polar atom(s)
+CTp : sp, attached to polar atom(s)
 CRb : Aromatic carbon, as an axis of biaryl dihedrals
 
 **Nitrogen**
 Nam : N at AMonium/AMine, primary, >= 1-H
 Nam2: N at AMonium/AMine, secondary~tertiary, >= 1-H (w/o H goes to NG3)
 Nad : N at AmiDe, primary~secondary, >= 1-H
-Nad3: N at AmiDe, 0-H == tertiary OR w/ lonepair
+Nad3: N at AmiDe, 0-H == tertiary OR w/ lonepair #Azo also goes here
 Nin : N at INdole, 1-H
 Nim : N at IMine, w/ lone pair and 0-H
 Ngu1: N at GUanidium, 1-H
@@ -56,7 +56,7 @@ NG3 : Generic sp3 N; 0-H SHOULD BE non-acceptor/donor
 NG2 : Generic sp2 N; 0-H
 NG21: Generic sp2 N; 1-H
 NG22: Generic sp2 N; 2-H
-NG1 : Generic sp1 N; 0-H
+NG1 : Generic sp N; 0-H
 NGb : Aromatic N, as an axis of biaryl dihedrals
 
 **Oxygen**
