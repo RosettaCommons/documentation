@@ -112,6 +112,7 @@ TBA
 * mol2genparams.py
 located at source/scripts/python/public/generic_potential/
 
+python mol2genparams.py [-s mol2file or -l list-of-mol2files]
 
 ### Limitations
 - Currently does not support elements other than H,C,N,O,S,P,and halogens; **will fail to generate params file when the molecule includes Si,Be,B,or any metals or ions**
