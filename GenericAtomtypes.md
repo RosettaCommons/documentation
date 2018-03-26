@@ -48,54 +48,54 @@ Nam : N at AMonium/AMine, primary, >= 1-H [Maps to Nlys]
 Nam2: N at AMonium/AMine, secondary~tertiary, >= 1-H (w/o H goes to NG3) [No match] 
 Nad : N at AmiDe, primary~secondary, >= 1-H [Maps to Nbb or NH2O] 
 Nad3: N at AmiDe, 0-H == tertiary OR w/ lonepair #Azo also goes here [Maps to Npro] 
-Nin : N at INdole, 1-H [Maps to Npro] 
-Nim : N at IMine, w/ lone pair and 0-H
-Ngu1: N at GUanidium, 1-H
-Ngu2: N at GUanidium, 2-H
-NG3 : Generic sp3 N; 0-H SHOULD BE non-acceptor/donor
-NG2 : Generic sp2 N; 0-H
-NG21: Generic sp2 N; 1-H
-NG22: Generic sp2 N; 2-H
-NG1 : Generic sp N; 0-H
-NGb : Aromatic N, as an axis of biaryl dihedrals
+Nin : N at INdole, 1-H [Maps to Ntrp] 
+Nim : N at IMine, w/ lone pair and 0-H [Maps to Nhis]
+Ngu1: N at GUanidium, 1-H [Maps to Ntrp?]
+Ngu2: N at GUanidium, 2-H [Maps to Narg]
+NG3 : Generic sp3 N; 0-H SHOULD BE non-acceptor/donor [No match]
+NG2 : Generic sp2 N; 0-H [No match]
+NG21: Generic sp2 N; 1-H [No match]
+NG22: Generic sp2 N; 2-H [No match]
+NG1 : Generic sp N; 0-H [No match]
+NGb : Aromatic N, as an axis of biaryl dihedrals [No match]
 
 **Oxygen**
-Ohx : O at HydroXyl (== 1-H)
-Oet : O at ETher (== 0-H)
-Oal : O at ALdehyde and ketone (== 0-H)
-Oad : O at AmiDe
-Ofu : O at FUran
-Ont : O at NiTro
-OG2 : Generic sp2 O; 0-H
-OG3 : Generic sp3 O; 0-H
-OG31: Generic sp3 O; 1-H #exceptional cases with 1H attached and not a hydroxyl
+Ohx : O at HydroXyl (== 1-H) [Maps to OH]
+Oet : O at ETher (== 0-H) [Maps to Oet2,3]
+Oal : O at ALdehyde and ketone (== 0-H)[No match]
+Oad : O at AmiDe [Maps to OCbb, ONH2]
+Ofu : O at FUran [Maps to Oaro?]
+Ont : O at NiTro [No match]
+OG2 : Generic sp2 O; 0-H [No match]
+OG3 : Generic sp3 O; 0-H [No match]
+OG31: Generic sp3 O; 1-H #excpt. cases with 1H attached and not a hydroxyl [No match]
 
 **Hydrogen**
-HC  : H attached to aliphatic C
-HR  : H attached to aromatic C
-HO  : H attached to O
-HN  : H attached to N
-HS  : H attached to S
+HC  : H attached to aliphatic C [Maps to Hapo]
+HR  : H attached to aromatic C [Maps to Haro]
+HO  : H attached to O [Maps to Hpol]
+HN  : H attached to N [Maps to Hpol]
+HS  : H attached to S [Maps to HS]
 HG  : H attached to other elements
 
 **Sulfur/Phosphorus**
-Sth : S at THiol (== 1-H)
-Ssl : S at SuLfide (== 0-H)
-SG2 : Generic sp2 S (for example, thione)
-SG3 : Generic sp3 S 
-SG5 : Generic sp5 S (for example, Sulfonate)
-PG3 : Generic sp3 P
-PG5 : Generic sp5 P (for example, Phosphate)
+Sth : S at THiol (== 1-H) [Maps to SH1]
+Ssl : S at SuLfide (== 0-H) [Maps to S]
+SG2 : Generic sp2 S (for example, thione) [No match]
+SG3 : Generic sp3 S [No match]
+SG5 : Generic sp5 S (for example, Sulfonate) [No match]
+PG3 : Generic sp3 P [Maps to Pbb or Phos?]
+PG5 : Generic sp5 P (for example, Phosphate) [Maps to Pha?]
 
 **Halogens**
 F   : Aliphatic Fluorine
 Cl  : Aliphatic Chlorine
 Br  : Aliphatic Bromine
 I   : Aliphatic Iodine
-FR  : Aromatic Fluorine
-ClR : Aromatic Chlorine
-Br  : Aromatic Bromine
-IR  : Aromatic Iodine
+FR  : Aromatic Fluorine [No match]
+ClR : Aromatic Chlorine [No match]
+Br  : Aromatic Bromine [No match]
+IR  : Aromatic Iodine [No match]
 
 ```
 
