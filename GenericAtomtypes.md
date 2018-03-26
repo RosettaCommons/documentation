@@ -118,4 +118,5 @@ python mol2genparams.py [-s mol2file or -l list-of-mol2files]
 - Currently does not support elements other than H,C,N,O,S,P,and halogens; **will fail to generate params file when the molecule includes Si,Be,B,or any metals or ions**
 - FoldTree setup part is sometimes unstable; can be optimized in future
 - Biaryl-axis atom types (CRb and NGb) override any existing types whenever (potential) biaryl dihedral connected to the atom is detected. This can sometimes hurt correct torsion type assignments for other torsions
+- Requires a mol2 file (and only mol2 file!) to generate params file. Will be generalized to support more file formats if necessary
 
