@@ -60,10 +60,11 @@ NG1 : Generic sp N; 0-H [No match]
 NGb : Aromatic N, as an axis of biaryl dihedrals [No match]
 
 **Oxygen**
-Ohx : O at HydroXyl (== 1-H) [Maps to OH]
+Ohx : O at HydroXyl (== 1-H) (also -O-H at acids) [Maps to OH]
 Oet : O at ETher (== 0-H) [Maps to Oet2,3]
-Oal : O at ALdehyde and ketone (== 0-H)[No match]
+Oal : O at ALdehyde (== 0-H) (also at ketone, acetyl, ester, =O at acids) [No match]
 Oad : O at AmiDe [Maps to OCbb, ONH2]
+Oat : O at carboxylATe (currently =O at phosphates/sulfonates goes to Oal)
 Ofu : O at FUran [Maps to Oaro?]
 Ont : O at NiTro [No match]
 OG2 : Generic sp2 O; 0-H [No match]
