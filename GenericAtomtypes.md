@@ -20,6 +20,7 @@ Rules are listed by priority; for instance, lookup for functional group always p
 Below is the list of atom types defined by the rule above, as of March 2018. Note that the logic here is still to be optimized, and can be updated/added/deleted/merged/splitted in the future.
 
 Up-to-date list can be found at source/scripts/python/public/generic_potential/Types.py,
+
 detailed logic at source/scripts/python/public/generic_potential/AtomTypeClassifier.py.
 
 -------------------------------------
@@ -97,6 +98,6 @@ IR  : Aromatic Iodine
 
 ```
 
-### How to generate a params file with generic atom types
+### How to generate a params file
 * mol2genparams.py
 located at source/scripts/python/public/generic_potential/
