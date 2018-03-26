@@ -4,6 +4,7 @@
 
 Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
+[[include:mover_SimpleThreadingMover_type]]
 
 This mover functions to thread the sequence of a region onto the given pose.  Nothing fancy here.  Useful when combined with -parser:string_vars option to replace strings within the RosettaScript.
 
