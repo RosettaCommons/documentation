@@ -37,12 +37,12 @@ The following lines are typically found in Ligand params files. This does not re
     CONNECT SG # replace SG with your atom's name
     ```
 
-    The location of the connected atom must be specified in the ICOOR region as CONN#, where # is the index of the connection. (Connections are numbered from 1, but the backbone connections both count, so your first connecting atom will probably be called CONN3.) Here is an example with virtual atom "V1" standing in for an atom connecting to sulfur atom "SG":
+    The location of the connected atom must be specified in the ICOOR region as CONN#, where # is the index of the connection. (Connections are numbered from 1, but the backbone connections both count, so your first connecting atom will probably be called CONN3.) The atom must then be specified again as a virtual atom, with coordinates identical to your CONN#'s. Here is an example with virtual atom "V1" standing in for an atom connecting to sulfur atom "SG":
 
     ```
     ICOOR_INTERNAL    SG     0.000000   65.900000    1.808803   CB    CA    N       
     ICOOR_INTERNAL  CONN3  180.000000   75.000000    1.793000   SG    CB    CA      
-    ICOOR_INTERNAL    V1     0.000000   75.000000    1.793000   SG    CB   CONN3 #Same as CONN3
+    ICOOR_INTERNAL    V1     0.000000   75.000000    1.793000   SG    CB   CONN3 # Same as CONN3
     ```
 
     When determining the pose, Rosetta will do its best to automatically connect up residues with connections that face each other, but you can also do it manually with the [[DeclareBond]] mover. 
