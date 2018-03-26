@@ -4,7 +4,7 @@
 * Missing atom types in fa_standard! Keep appending "new" ones to protein-based atom types may not generalize atom type set...
 
 * Why do we need own atom type set instead of borrowing existing ones (from generic MM force fields and so on)?
-- The optimal set for Rosetta modeling and scoring can be quite different from those from other tools; for instance, those generally lack considerations for implicit-hydrogen solvation terms (#4 below). Also once we establish our own set we have control over, we can continuously optimize it for our own purpose at any time.
+: The optimal set for Rosetta modeling and scoring can be quite different from those from other tools; for instance, those generally lack considerations for implicit-hydrogen solvation terms (#4 below). Also once we establish our own set we have control over, we can continuously optimize it for our own purpose at any time.
 
 ### Basic rules for assigning generic atom types
 Rules are listed by priority; for instance, lookup for functional group always precedes hybridization state. 
