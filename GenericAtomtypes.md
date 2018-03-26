@@ -10,7 +10,7 @@
 ### Basic rules for assigning generic atom types
 Rules are listed by priority; for instance, lookup for functional group always precedes hybridization state. 
 
-1. Element type (currently supports H,C,N,O,S,P, and halogens only)
+1. Element type (currently supports **H,C,N,O,S,P, and halogens only**)
 2. Given element type, whether it belongs to a common functional group (alcohol, amide, and so on)
 3. If not, assign as general type based on hybridization state
 3-1. for Carbons, further subtype based one whether attached to any polar atoms (N,O)
