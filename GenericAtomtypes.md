@@ -10,7 +10,7 @@
 ### Basic rules for assigning generic atom types
 Rules are listed by priority; for instance, lookup for functional group always precedes hybridization state. 
 
-1. Element type (currently supports **H,C,N,O,S,P, and halogens only**)
+1. Element type (currently supports H,C,N,O,S,P, and halogens only)
 2. Given element type, whether it belongs to a common functional group (alcohol, amide, and so on)
 3. If not, assign as general type based on hybridization state
 3-1. for Carbons, further subtype based one whether attached to any polar atoms (N,O)
@@ -99,6 +99,22 @@ IR  : Aromatic Iodine
 
 ```
 
+### Grouping for torsion param assignments
+-------------------------------------
+
+```html
+
+TBA
+
+```
+
 ### How to generate a params file
 * mol2genparams.py
 located at source/scripts/python/public/generic_potential/
+
+
+### Limitations
+- Currently does not support elements other than H,C,N,O,S,P,and halogens; will fail for **Si,Be,B,and all metals or ions**
+- FoldTree setup part is sometimes unstable; can be optimized in future
+- Biaryl-axis atom type (CRb and NGb) overrides existing type whenever (potential) biaryl dihedral connected to the atom is detected. This can sometimes hurt correct torsion type assignments for other torsions
+
