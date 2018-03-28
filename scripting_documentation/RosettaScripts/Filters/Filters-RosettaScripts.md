@@ -5,10 +5,10 @@
 Each filter definition has the following format:
 
 ```xml
-<filter_name name="&string" confidence="(1 &Real)"/>
+<SomeFilterName name="&string" confidence="(1 &Real)" other_option=""/>
 ```
 
-where "filter\_name" belongs to a predefined set of possible filters that the parser recognizes and are listed below, name is a unique identifier for this mover definition and then any number of parameters that the filter needs to be defined.
+where "SomeFilterName" belongs to a predefined set of possible filters that the parser recognizes and are listed below, name is a unique identifier for this mover definition and then any number of parameters that the filter needs to be defined.
 
 If confidence is 1.0, then the filter is evaluated as in predicate logic (T/F). If the value is less than 0.999, then the filter is evaluated as fuzzy, so that it will return True in (1.0 - confidence) fraction of times it is probed. This should be useful for cases in which experimental data are ambiguous or uncertain.
 
