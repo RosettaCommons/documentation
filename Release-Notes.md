@@ -45,11 +45,11 @@ tolerant
 
 ###RosettaScripts tools
 * RosettaScripts available from within PyRosetta - great for when you really, really, really don't want to think about Rosetta's C++ core
-* [[MoveMapFactory]] created to allow protocols to create MoveMaps at better (later) points in the trajectory, when the relevant data are at hand.  New documentation added to main RosettaScripts page for how to use this great tool.
+* [[RosettaScripts#rosettascript-sections_move_map_factories]] created to allow protocols to create MoveMaps at better (later) points in the trajectory, when the relevant data are at hand.  New documentation added to main RosettaScripts page for how to use this great tool.
 * [[LayerDesign]] via ResidueSelectors now compatible with Boolean logic for easier use
-* [[ConstraintGenerator]] can now be specified in their own CONSTRAINT_GENERATORS block in a RosettaScript and can be passed to AddConstraints using the constraint_generators option.
-* Use of recursive script inclusion in RosettaScripts is now enormously faster
+*  ConstraintGenerators can now be specified in their own CONSTRAINT_GENERATORS block in a RosettaScript and can be passed to [[AddConstraintsMover]]using the constraint_generators option.  Constraint Generators are used to create constraints on the fly, without the need for constraint files. 
 * [[DihedralConstraintGenerator | constraint_generator_DihedralConstraintGenerator_complex_type]] -  A cst generator that creates Dihedral constraints for specified residues using a residue selector. Uses CircularHarmonic constraints, since CircularGaussian func does not exist. By default, works on Protein and carbohydrate BackBone dihedrals (but this can be changed), in addition, CUSTOM ARBITRARY DIHEDRALS can also be set.
+* Use of recursive script inclusion in RosettaScripts is now enormously faster
 * [[WriteFiltersToPose]]
 * [[SwitchChainOrderMover]] bugfix
 * [[buried_apolar_area_filter]] - filters based on buried surface area
