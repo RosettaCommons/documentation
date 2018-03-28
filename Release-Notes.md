@@ -19,7 +19,9 @@
  * Ignore warnings coming from compilers we've not tested on
 * Made the python infrastructure that comes with the C++ code (not PyRosetta, but Rosetta's Python) more Python 2 vs 3 
 tolerant
+
 ##New or updated features
+
 ###Applications
 * [[JD3]] has gained:
   * A revived [[ResourceManager]]
