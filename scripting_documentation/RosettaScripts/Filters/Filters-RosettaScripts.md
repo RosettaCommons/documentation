@@ -5,7 +5,9 @@
 Each filter definition has the following format:
 
 ```xml
-<SomeFilterName name="&string" confidence="(1 &Real)" other_option=""/>
+<FILTERS>
+	<SomeFilterName name="&string" confidence="(1 &Real)" other_option=""/>
+</FILTERS>
 ```
 
 where "SomeFilterName" belongs to a predefined set of possible filters that the parser recognizes and are listed below, name is a unique identifier for this mover definition and then any number of parameters that the filter needs to be defined.
