@@ -2,7 +2,7 @@
 
 [[Return to RosettaScripts|RosettaScripts]]
 
-Each filter definition has the following format:
+Each filter definition has the following format in the `FILTERS` block:
 
 ```xml
 <FILTERS>
