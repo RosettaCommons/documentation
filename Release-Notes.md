@@ -11,6 +11,7 @@
 ### User friendliness
 * Improved the output formatting for errors - in the vanishingly rare case that an error occurs with Rosetta, you are now more likely to get a useful and interpretable error message.
 * Made the python infrastructure that comes with the C++ code (not PyRosetta, but Rosetta's Python) more Python 2 vs 3 tolerant
+* Added **Common Flag Configurations** to make it easier to run Rosetta often and for a variety of use-cases. [[running-rosetta-with-options#common-options-and-default-user-configuration]]
 * Reduced memory use in the most memory-intensive step of the build process.  You can now build Rosetta on slightly slimmer machines.  You probably should not try running Rosetta on those machines anyway.
 * Exception handling rearranged so that Python users will see the string message in C++-thrown exceptions
 * Long-desired, long-delayed tweaks to the 'released' code end users see.  The build system is tweaked to:
