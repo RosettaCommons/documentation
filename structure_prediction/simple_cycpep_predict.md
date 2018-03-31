@@ -110,7 +110,9 @@ Sometimes, one wishes to sample peptide conformations with cyclic symmetry (_e.g
 In addition to an amide bond connecting the N- and C-termini, it is possible to synthesize peptides in which an amine-containing side-chain forms an amide bond with the C-terminus, a carboxyl-containing side-chain forms an amide bond with the -terminus, or two side-chains form an amide bond.  These one- or two-tailed lariat structures can also be predicted with `simple_cycpep_predict`.  The relevant flags are as follows:
 
 **-cyclic_peptide:cyclization_type \<string\>**  This flag, mentioned earlier, can be set to "nterm_isopeptide_lariat" for a sidechain-to-N-terminus isopeptide lariat, "cterm_isopeptide_lariat" for a sidechain-to-Cterminus isopeptide lariat, or "sidechain_isopeptide" for a two-tailed macrocycle linked by a sidechain-sidechain isopeptide bond.
+
 **-cyclic_peptide:lariat_sidechain_index \<int\>** If a lariat cyclization type is specified (_e.g._ "nterm_isopeptide_lariat", "cterm_isopeptide_lariat"), then this is the residue that provides the side-chain that connects to the N- or C-terminus of the peptide.  If not specified, the residue of appropriate type closest to the other end is used.
+
 **-cyclic_peptide:sidechain_isopeptide_indices \<int\> \<int\>** If the "sidechain_isopeptide" cyclization type is specified, then these are the indices of the residues that are linked by a sidechain-sidechain isopeptide bond to make the loop.  If this option is not used, then the residues furthest apart of appropriate types are used.  Note that exactly two indices must be given.
 
 Note that the "-cyclic_peptide:require_symmetry_repeats" and "-cyclic_peptide:cyclic_permutations" flags are incompatible with isopeptide lariats.
