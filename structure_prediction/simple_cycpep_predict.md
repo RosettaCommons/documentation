@@ -115,7 +115,7 @@ In addition to an amide bond connecting the N- and C-termini, it is possible to 
 
 **-cyclic_peptide:sidechain_isopeptide_indices \<int\> \<int\>** If the "sidechain_isopeptide" cyclization type is specified, then these are the indices of the residues that are linked by a sidechain-sidechain isopeptide bond to make the loop.  If this option is not used, then the residues furthest apart of appropriate types are used.  Note that exactly two indices must be given.
 
-Note that the "-cyclic_peptide:require_symmetry_repeats" and "-cyclic_peptide:cyclic_permutations" flags are incompatible with isopeptide lariats.
+Note that the **-cyclic_peptide:require_symmetry_repeats** and **-cyclic_peptide:cyclic_permutations** flags are incompatible with isopeptide lariats.
 
 # Other useful flags
 
