@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-03-21
+Generated: 2018-04-01
 
 _Note that some application specific options may not be present in this list._
 
@@ -732,6 +732,17 @@ _Note that some application specific options may not be present in this list._
 <dd>Only update the simulation in pymol on conformation change.<br/>Default: false<br/></dd>
 <dt><b>-keep_pymol_simulation_history</b> \<Boolean\></dt>
 <dd>Keep history when using show_simulation_in_pymol flag?<br/>Default: false<br/></dd>
+</dl>
++ <h3>-run:PyMOLMover</h3>
+<dl>
+<dt><b>-PyMOLMover</b> \<Boolean\></dt>
+<dd>PyMOLMover option group<br/></dd>
+<dt><b>-address</b> \<String\></dt>
+<dd>TCP port address to use when initializing PyMOLMover<br/>Default: ""<br/></dd>
+<dt><b>-port</b> \<Integer\></dt>
+<dd>TCP port to use when initializing PyMOLMover<br/>Default: 0<br/></dd>
+<dt><b>-max_packet_size</b> \<Integer\></dt>
+<dd>Max size of packet to send to PyMOL. Default value is dependable from address: for 127.0.0.1 it will be set to 7678 and any other addresses to 1500.<br/>Default: 0<br/></dd>
 </dl>
 + <h2>-parser</h2>
 <dl>
@@ -4006,7 +4017,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-cyclic_peptide</b> \<Boolean\></dt>
 <dd>cyclic_peptide option group<br/></dd>
 <dt><b>-cyclization_type</b> \<String\></dt>
-<dd>The type of cyclization for the peptide (e.g. N-to-C amide bond, terminal disulfide, etc.<br/>Default: "n_to_c_amide_bond"<br/></dd>
+<dd>The type of cyclization for the peptide (e.g. N-to-C amide bond, terminal disulfide, isopeptide N-terminal lariat, etc.<br/>Default: "n_to_c_amide_bond"<br/></dd>
 <dt><b>-rand_checkpoint_file</b> \<String\></dt>
 <dd>The name of the checkpoint file used for the random number generator.  Defaults to rng.state.gz.  Not used if the -cyclic_peptide:checkpoint_job_identifier flag isn't used.<br/>Default: "rng.state.gz"<br/></dd>
 <dt><b>-checkpoint_file</b> \<String\></dt>
@@ -4085,8 +4096,10 @@ _Note that some application specific options may not be present in this list._
 <dd>The number of rounds of Cartesian FastRelax to perform after each standard FastRelax step in the simple_cycpep_predict protocol.  Default 0 (unused).<br/>Default: 0<br/></dd>
 <dt><b>-use_classic_rama_for_sampling</b> \<Boolean\></dt>
 <dd>If true, classic Ramachandran tables are used for sampling instead of the RamaPrePro tables.  Default false (i.e. newer RamaPrePro tables are used by default).<br/>Default: false<br/></dd>
-<dt><b>-n_methyl_positions</b> \<IntegerVector\></dt>
-<dd>If provided, then these positions are N-methylated.  Not used if not specified.<br/></dd>
+<dt><b>-lariat_sidechain_index</b> \<Integer\></dt>
+<dd>If a lariat cyclization type is specified (e.g. nterm_isopeptide_lariat, cterm_isopeptide_lariat), then this is the residue that provides the side-chain that connects to the N- or C-terminus of the peptide.  If not specified, the residue of appropriate type closest to the other end is used.<br/>Default: 0<br/></dd>
+<dt><b>-sidechain_isopeptide_indices</b> \<IntegerVector\></dt>
+<dd>If the sidechain_isopeptide cyclization type is specified, these are the indices of the residues that are linked by a sidechain-sidechain isopeptide bond to make the loop.  If not specified, the residues furthest apart of appropriate types are used.  Note that exactly two indices must be given.<br/></dd>
 <dt><b>-TBMB_positions</b> \<IntegerVector\></dt>
 <dd>If provided, then these positions will be linked by a 1,3,5-tris(bromomethyl)benzene crosslinker.  3N positions must be specified, and every group of three will be linked.  Unused if not specified.<br/></dd>
 <dt><b>-use_TBMB_filters</b> \<Boolean\></dt>
@@ -4616,6 +4629,15 @@ _Note that some application specific options may not be present in this list._
 <dd>Residues not to be redesigned under any circumstances<br/></dd>
 <dt><b>-da_eval_pose_map</b> \<File\></dt>
 <dd>input file that maps pose coordinates to structurally related positions of native pose<br/></dd>
+</dl>
++ <h2>-dump_trajectory</h2>
+<dl>
+<dt><b>-dump_trajectory</b> \<Boolean\></dt>
+<dd>dump_trajectory option group<br/></dd>
+<dt><b>-prefix</b> \<String\></dt>
+<dd>Prefix to use when dumping trajectories with dump_trajectory ScoreType.<br/>Default: "traj"<br/></dd>
+<dt><b>-gz</b> \<Boolean\></dt>
+<dd>Dump trajectories in .pdb.gz format.<br/>Default: false<br/></dd>
 </dl>
 + <h2>-edensity</h2>
 <dl>
