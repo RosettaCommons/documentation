@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-04-01
+Generated: 2018-04-04
 
 _Note that some application specific options may not be present in this list._
 
@@ -303,6 +303,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Experimental NMR Dipolar Coupling File<br/></dd>
 <dt><b>-burial</b> \<FileVector\></dt>
 <dd>WESA-formatted burial prediction<br/></dd>
+<dt><b>-hrf_ms_labeling</b> \<File\></dt>
+<dd>Experimental Mass Spec HRF labeling data<br/></dd>
 <dt><b>-vall</b> \<FileVector\></dt>
 <dd>Fragment database file, e.g vall.dat.2006-05-05<br/>Default: "/sampling/filtered.vall.dat.2006-05-05"<br/></dd>
 <dt><b>-rescore</b> \<Boolean\></dt>
@@ -1152,6 +1154,18 @@ _Note that some application specific options may not be present in this list._
 <dd>which residue numbers to calculate motifs<br/></dd>
 <dt><b>-netcharge_setup_file</b> \<StringVector\></dt>
 <dd>The filename of one or more setup files for the netcharge scoring term.  (Multiple such files can be listed, separated by a space.)  The default location for these files (which have a .charge extension) is /database/scoring/score_functions/netcharge/.<br/></dd>
+<dt><b>-ms_dist_midpoint</b> \<Real\></dt>
+<dd>distance midpoint for distance factor for HRF_MSLabeling score term<br/>Default: 9.0<br/></dd>
+<dt><b>-ms_dist_exponent</b> \<Real\></dt>
+<dd>distance exponent for distance factor for HRF_MSLabeling score term<br/>Default: 0.1<br/></dd>
+<dt><b>-ms_fit_slope</b> \<Real\></dt>
+<dd>slope for burial measure calc from lnPF for HRF_MSlabeling score term<br/>Default: 3.827<br/></dd>
+<dt><b>-ms_fit_intercept</b> \<Real\></dt>
+<dd>intercept for burial measure calc from lnPF for HRF_MSlabeling score term<br/>Default: 36.202<br/></dd>
+<dt><b>-ms_fade_outer</b> \<Real\></dt>
+<dd>outer limit for FadeFunc in HRF_MSLabeling score term<br/>Default: 10.0<br/></dd>
+<dt><b>-ms_fade_dist</b> \<Real\></dt>
+<dd>fade distance for FadeFunc in HRF_MSLabeling score term<br/>Default: 5.0<br/></dd>
 <dt><b>-nmer_ref_energies</b> \<String\></dt>
 <dd>nmer ref energies database filename<br/></dd>
 <dt><b>-nmer_ref_energies_list</b> \<String\></dt>
