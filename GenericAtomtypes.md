@@ -13,10 +13,15 @@ Another advantage is, once we establish our own set we have control over, we can
 Rules are listed by priority; for instance, lookup for corresponding functional group always precede hybridization state. 
 
 1. Element type (currently supports H,C,N,O,S,P, and halogens only)
+
 2. Given element type, whether it belongs to a common functional group (alcohol, amide, and so on; details below)
+
 3. If not, assign as general type based on hybridization state
+
 3-1. for Carbons, further subtype based one whether attached to any polar atoms (N,O)
+
 3-2. for Halogens, further subtype based on whether attached to aromatic system
+
 4. Finally split types by number of hydrogens attached; this is Rosetta-specific thing since the solvation model treats hydrogens implicitly
 
 ### List and definitions of generic atom types
