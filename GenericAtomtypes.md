@@ -1,9 +1,9 @@
 ### Motivation
-1. A set of atom types that covers most of the chemistry we are interested
+* A set of atom types that covers most of the chemistry we are interested
 
 The standard atom type set (namely "fa_standard") has been originally derived from proteins only, then has been extended whenever there was a strong need for certain atom type chemistry of which was completely missing. Instead of this adaptive approach, we thought it is worth systematically building up a new set that should cover most of the chemistry required in broad range of biomolecular modeling studies.
 
-2. To address features speicific for Rosetta energy
+* To address features speicific for Rosetta energy
 
 Also, instead of copying over existing generic molecular mechanics force field parameters, we sought for our own definitions of atom types which we thought should be optimal for Rosetta modeling and scoring. There are several unique features that Rosetta energy function has compared to other force fields/energy functions, which should be carefully considered when defining atom types; for instance, implicit treatment of solvation effects by hydrogens (#4 below), orientation dependence in solvation and H-bond terms, explicit definitions of H-bond donor/acceptors, distinction between intra vs inter residue energy, and so on. 
 
