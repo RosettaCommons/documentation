@@ -18,9 +18,9 @@ Rules are listed by priority; for instance, lookup for corresponding functional 
 
 3. If not, assign as general type based on hybridization state
 
-3-1. for Carbons, further subtype based one whether attached to any polar atoms (N,O)
+- for Carbons, further subtype based one whether attached to any polar atoms (N,O)
 
-3-2. for Halogens, further subtype based on whether attached to aromatic system
+- for Halogens, further subtype based on whether attached to aromatic system
 
 4. Finally split types by number of hydrogens attached; this is Rosetta-specific thing since the solvation model treats hydrogens implicitly
 
