@@ -1,14 +1,16 @@
-## UNDER CONSTRUCTION!
-
 ### Motivation
-* Missing atom types in fa_standard! Keep appending "new" ones to protein-based atom types may not generalize atom type set...
+1. A set of atom types that covers most of the chemistry we are interested
 
-* Why do we need own atom type set instead of borrowing existing ones (from generic MM force fields and so on)?
+The standard atom type set (namely "fa_standard") has been originally derived from proteins only, then has been extended whenever there was a strong need for certain atom type chemistry of which was completely missing. Instead of this adaptive approach, we thought it is worth systematically building up a new set that should cover most of the chemistry required in broad range of biomolecular modeling studies.
 
-: The optimal set for Rosetta modeling and scoring can be quite different from those from other tools; for instance, those generally lack considerations for implicit-hydrogen solvation terms (#4 below). Also once we establish our own set we have control over, we can continuously optimize it for our own purpose at any time.
+2. To address features speicific for Rosetta energy
+
+Also, instead of copying over existing generic molecular mechanics force field parameters, we sought for our own definitions of atom types which we thought should be optimal for Rosetta modeling and scoring. There are several unique features that Rosetta energy function has compared to other force fields/energy functions, which should be carefully considered when defining atom types; for instance, implicit treatment of solvation effects by hydrogens (#4 below), orientation dependence in solvation and H-bond terms, explicit definitions of H-bond donor/acceptors, distinction between intra vs inter residue energy, and so on. 
+
+Another advantage is, once we establish our own set we have control over, we can continuously optimize it for our own purpose at any time.
 
 ### Basic rules for assigning generic atom types
-Rules are listed by priority; for instance, lookup for functional group always precedes hybridization state. 
+Rules are listed by priority; for instance, lookup for corresponding functional group always precede hybridization state. 
 
 1. Element type (currently supports H,C,N,O,S,P, and halogens only)
 2. Given element type, whether it belongs to a common functional group (alcohol, amide, and so on)
