@@ -21,7 +21,8 @@ Rules are listed by priority; for instance, lookup for corresponding functional 
 - for Carbons, further subtype based one whether attached to any polar atoms (N,O)
 
 - for Halogens, further subtype based on whether attached to aromatic system
-4. Finally split types by number of hydrogens attached; this is Rosetta-specific thing since the solvation model treats hydrogens implicitly
+
+{4}. Finally split types by number of hydrogens attached; this is Rosetta-specific thing since the solvation model treats hydrogens implicitly
 
 ### List and definitions of generic atom types
 Below is the list of atom types defined by the rule above, as of March 2018. Note that the logic here is still to be optimized, and can be updated/added/deleted/merged/splitted in the future.
