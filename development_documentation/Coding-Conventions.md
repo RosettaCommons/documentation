@@ -69,6 +69,8 @@ The Rosetta Commons copyright header is required for every source code *file* in
 
 * **Any base class with virtual functions must have a virtual destructor.**
 
+* **Any derived class that overrides a virtual function from a base class must use the C++11 `override` identifier to allow the compiler to catch unintended differences between the base class function signature and the derived class function signature.  (Less important: the community stylistic convention is to omit the `virtual` identifier in the derived class function override when the `override` identifier is used.  The most important thing is to use the `override` keyword, though.)** (_New as of 6 April 2018_.  For more on what `override` does and why it's useful, see <a href="https://blog.smartbear.com/development/use-c11-inheritance-control-keywords-to-prevent-inconsistencies-in-class-hierarchies/">this blog post</a>.)
+
 * **Pass objects into methods by reference and not by value** &mdash; except when the intent is to make a copy of the object. If the object does not change, pass it as a const reference. Passing objects by value also requires additional, unwanted `#includes` in header files (See [[File Inclusion|Coding-Conventions#file-inclusion]] below).
 
 * **Pass primitive data types by value and not by reference when they are strictly input parameters.** Pass by non-const reference if the methods are intended to change the values held in the input parameters. (*E.g.*, `void max( int first, int second, int & answer );`). Passing primitives by reference is slower than passing by value.
