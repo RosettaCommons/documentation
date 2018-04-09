@@ -7,10 +7,10 @@
 
 ---------------------------------
 * [[Movers|Movers-RosettaScripts]]
-* [[Filters|Filters-RosettaScripts]]
-* [[TaskOperations|TaskOperations-RosettaScripts]]
 * [[ResidueSelectors]]
-
+* [[TaskOperations|TaskOperations-RosettaScripts]]
+* [[SimpleMetrics]]
+* [[Filters|Filters-RosettaScripts]]
 ---------------------------------
 
 * [[Composite protocols|Composite-protocols]]
