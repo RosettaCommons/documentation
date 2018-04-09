@@ -6,7 +6,7 @@
 
 Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
-[[include:features_SimpleMetricFeatures_type]]
+[[include:features_reporter_SimpleMetricFeatures_type]]
 
 ##See Also
 
