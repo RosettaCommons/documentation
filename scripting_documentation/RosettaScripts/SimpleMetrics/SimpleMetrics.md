@@ -1,9 +1,9 @@
 # SimpleMetrics
-*Back to [[Return To RosettaScripts|RosettaScripts]] page.*
+*Back to main [[RosettaScripts|RosettaScripts]] page.*
 ## SimpleMetrics
 
 
-SimpleMetrics are a new way to do analysis in Rosetta, and will eventually replace the Filter system and most filters.  They are declared in the new `<SIMPLE_METRIC>` block of RosettaScripts and are available in weekly releases after April 10th, 2018.  All data calculated by a SimpleMetric can be output to a score file with the metric name and any set prefix and/or suffix. These sets of SimpleMetrics can be also be run at different points in a protocol See [[RunSimpleMetrics]] for more on the syntax of how to Run SimpleMetrics in your protocol.  Filters were never meant to do analysis in the way they are being used currently.  The SimpleMetric framework aims to correct this. The SimpleMetrics on this page are broken into what kind of data they calculate.  
+SimpleMetrics are a new way to do analysis in Rosetta, and will eventually replace the Filter system and most filters.  They are declared in the new `<SIMPLE_METRICS>` block of RosettaScripts and are available in weekly releases after April 10th, 2018.  All data calculated by a SimpleMetric can be output to a score file with the metric name and any set prefix and/or suffix. These sets of SimpleMetrics can be also be run at different points in a protocol See [[RunSimpleMetrics]] for more on the syntax of how to Run SimpleMetrics in your protocol.  Filters were never meant to do analysis in the way they are being used currently.  The SimpleMetric framework aims to correct this. The SimpleMetrics on this page are broken into what kind of data they calculate.  
 
 All SimpleMetrics can also be used as Filters, using the [[SimpleMetricFilter]].
 
@@ -61,8 +61,8 @@ SimpleMetric  | Description | ResidueSelector Compatability?
 **[[DihedralDistanceMetric]]** | Calculates the normalized dihedral angle distance in degrees from directional statistics on a set of dihedrals/residues of two poses or two regions of a pose.  | Yes
 **[[RMSDMetric]]** | Calculates the RMSD between two poses or on a subset of residues.  Many options for RMSD including bb, heavy, all, etc. | Yes 
 **[[SasaMetric]]** | Calculates the Solvent Accessible Surface Area (sasa). | Yes
-**[[TotalEnergyMetric]] | Calculates the Total Energy of a pose using a Scorefunction OR the delta total energy between two poses. | Yes
-** [[TimingMetric]] | Calculates the time passed in minutes or hours from from construction to apply (ie from when declared in the RS block to when it is run).  Useful for obtaining timing information of protocols. | No
+**[[TotalEnergyMetric]]** | Calculates the Total Energy of a pose using a Scorefunction OR the delta total energy between two poses. | Yes
+**[[TimingMetric]]** | Calculates the time passed in minutes or hours from from construction to apply (ie from when declared in the RS block to when it is run).  Useful for obtaining timing information of protocols. | No
 
 
 ##IntegerMetrics
