@@ -1,5 +1,5 @@
 # SimpleMetrics
-*Back to [[Return To RosettaScripts|RosettaScripts]] page.*
+*Back to main [[RosettaScripts|RosettaScripts]] page.*
 ## SimpleMetrics
 
 
