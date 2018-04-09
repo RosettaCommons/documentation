@@ -10,6 +10,7 @@ Run an arbitrary [[Simple Metric | SimpleMetrics]] and filter based on the value
 ##General
 
 Set the `comparison_type` to instruct the filter how to actually filter based on the data. The comparison is done as follows:
+
 ```
 metric_value comparison_type cutoff/match value
 ```
@@ -26,7 +27,7 @@ comparison_type  | Description
 `gt` | Greater Than,
 `lt_or_eq` | Less Than or Equal to
 `gt_or_eq` | Greater Than or Equal
-```
+
 
 ##Numeric Metrics
 
