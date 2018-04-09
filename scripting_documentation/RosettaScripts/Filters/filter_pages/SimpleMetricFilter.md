@@ -12,6 +12,7 @@ Run an arbitrary [[Simple Metric | SimpleMetrics]] and filter based on the value
 Set the `comparison_type` to instruct the filter how to actually filter based on the data. The comparison is done as follows:
 ```
 metric_value comparison_type cutoff/match value
+```
 
 For example, if `comparison_type` is set to eq: if metric value is equal to the cutoff/match value we return true.
 
