@@ -16,8 +16,6 @@
 
    * [[Task Operations|TaskOperations-RosettaScripts]]
 
-   * [[Simple Metrics | Simple Metrics]]
-
    * [[Filters|Filters-RosettaScripts]]
 
    * [[FeaturesReporters|Features-reporter-overview]]
