@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-02-22
+Generated: 2018-04-04
 
 _Note that some application specific options may not be present in this list._
 
@@ -10,6 +10,10 @@ _Note that some application specific options may not be present in this list._
 <dl>
 <dt><b>-in</b> \<Boolean\></dt>
 <dd>in option group<br/></dd>
+<dt><b>-fconfig</b> \<FileVector\></dt>
+<dd>A list of flag configurations to look for.  These can be in either your working directory or $HOME/.rosetta/flags directory.  Ex: -fconfig common design<br/>Default: ['"common"']<br/></dd>
+<dt><b>-no_fconfig</b> \<Boolean\></dt>
+<dd>Do not load the [common] config file if present. <br/>Default: false<br/></dd>
 <dt><b>-Ntermini</b> \<String\></dt>
 <dd>Put full N termini on pose<br/>Default: "ALL"<br/></dd>
 <dt><b>-Ctermini</b> \<String\></dt>
@@ -299,6 +303,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Experimental NMR Dipolar Coupling File<br/></dd>
 <dt><b>-burial</b> \<FileVector\></dt>
 <dd>WESA-formatted burial prediction<br/></dd>
+<dt><b>-hrf_ms_labeling</b> \<File\></dt>
+<dd>Experimental Mass Spec HRF labeling data<br/></dd>
 <dt><b>-vall</b> \<FileVector\></dt>
 <dd>Fragment database file, e.g vall.dat.2006-05-05<br/>Default: "/sampling/filtered.vall.dat.2006-05-05"<br/></dd>
 <dt><b>-rescore</b> \<Boolean\></dt>
@@ -729,6 +735,17 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-keep_pymol_simulation_history</b> \<Boolean\></dt>
 <dd>Keep history when using show_simulation_in_pymol flag?<br/>Default: false<br/></dd>
 </dl>
++ <h3>-run:PyMOLMover</h3>
+<dl>
+<dt><b>-PyMOLMover</b> \<Boolean\></dt>
+<dd>PyMOLMover option group<br/></dd>
+<dt><b>-address</b> \<String\></dt>
+<dd>TCP port address to use when initializing PyMOLMover<br/>Default: ""<br/></dd>
+<dt><b>-port</b> \<Integer\></dt>
+<dd>TCP port to use when initializing PyMOLMover<br/>Default: 0<br/></dd>
+<dt><b>-max_packet_size</b> \<Integer\></dt>
+<dd>Max size of packet to send to PyMOL. Default value is dependable from address: for 127.0.0.1 it will be set to 7678 and any other addresses to 1500.<br/>Default: 0<br/></dd>
+</dl>
 + <h2>-parser</h2>
 <dl>
 <dt><b>-parser</b> \<Boolean\></dt>
@@ -1137,6 +1154,18 @@ _Note that some application specific options may not be present in this list._
 <dd>which residue numbers to calculate motifs<br/></dd>
 <dt><b>-netcharge_setup_file</b> \<StringVector\></dt>
 <dd>The filename of one or more setup files for the netcharge scoring term.  (Multiple such files can be listed, separated by a space.)  The default location for these files (which have a .charge extension) is /database/scoring/score_functions/netcharge/.<br/></dd>
+<dt><b>-ms_dist_midpoint</b> \<Real\></dt>
+<dd>distance midpoint for distance factor for HRF_MSLabeling score term<br/>Default: 9.0<br/></dd>
+<dt><b>-ms_dist_exponent</b> \<Real\></dt>
+<dd>distance exponent for distance factor for HRF_MSLabeling score term<br/>Default: 0.1<br/></dd>
+<dt><b>-ms_fit_slope</b> \<Real\></dt>
+<dd>slope for burial measure calc from lnPF for HRF_MSlabeling score term<br/>Default: 3.827<br/></dd>
+<dt><b>-ms_fit_intercept</b> \<Real\></dt>
+<dd>intercept for burial measure calc from lnPF for HRF_MSlabeling score term<br/>Default: 36.202<br/></dd>
+<dt><b>-ms_fade_outer</b> \<Real\></dt>
+<dd>outer limit for FadeFunc in HRF_MSLabeling score term<br/>Default: 10.0<br/></dd>
+<dt><b>-ms_fade_dist</b> \<Real\></dt>
+<dd>fade distance for FadeFunc in HRF_MSLabeling score term<br/>Default: 5.0<br/></dd>
 <dt><b>-nmer_ref_energies</b> \<String\></dt>
 <dd>nmer ref energies database filename<br/></dd>
 <dt><b>-nmer_ref_energies_list</b> \<String\></dt>
@@ -1743,7 +1772,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-restore_talaris_behavior</b> \<Boolean\></dt>
 <dd>Use talaris score function and residue_type_set<br/>Default: false<br/></dd>
 <dt><b>-correct</b> \<Boolean\></dt>
-<dd>turn on default corrections:See src/core/init/score_function_corrections.cc<br/>Default: false<br/></dd>
+<dd>turn on default corrections:See src/core/init/score_function_corrections.cc.  Note that this is a flag for the older score12 scorefunction, which should NOT be used with talaris2013, talaris2014, ref2015, or the beta scorefunctions.<br/>Default: false<br/></dd>
 <dt><b>-hbond_sp2_correction</b> \<Boolean\></dt>
 <dd>turn on the hbond Sp2 correction with a single flag use with sp2_correction.wts. Note, these weight sets are chosen automatically by default. -score::hb_sp2_chipen -hb_sp2_BAH180_rise 0.75 -hb_sp2_outer_width 0.357 -hb_fade_energy -hbond_measure_sp3acc_BAH_from_hvy -lj_hbond_hdis 1.75 -lj_hbond_OH_donor_dis 2.6 -hbond_params sp2_elec_params -expand_st_chi2sampling -smooth_fa_elec -elec_min_dis 1.6 -elec_r_option false -chemical::set_atom_properties fa_standard:ONH2:LK_DGFREE:-5.85 fa_standard:NH2O:LK_DGFREE:-7.8 fa_standard:Narg:LK_DGFREE:-10.0 fa_standard:OH:LK_DGFREE:-6.70<br/></dd>
 <dt><b>-facts_default</b> \<Boolean\></dt>
@@ -3118,6 +3147,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Choose specified template for light chain framework<br/>Default: ""<br/></dd>
 <dt><b>-frh_template</b> \<String\></dt>
 <dd>Choose specified template for heavy chain framework<br/>Default: ""<br/></dd>
+<dt><b>-run_snugdock</b> \<Boolean\></dt>
+<dd>Run Snugdock after Antibody_H3/RAbD?<br/>Default: false<br/></dd>
 <dt><b>-h3_no_stem_graft</b> \<Boolean\></dt>
 <dd>Graft CDR H3 from template, use stem to superimpose, but do not copy the stem<br/>Default: false<br/></dd>
 <dt><b>-packonly_after_graft</b> \<Boolean\></dt>
@@ -3237,8 +3268,6 @@ _Note that some application specific options may not be present in this list._
 <dd>If high_mem_mode is false, this is the limit of CDRSet cacheing we do before we begin load them on-the-fly instead.  If high_mem_mode is true, then we ignore this setting.  If you have extremely low memory per-process, lower this number<br/>Default: 300<br/></dd>
 <dt><b>-design_protocol</b> \<String\></dt>
 <dd>Set the main protocol to use.  Note that deterministic is currently only available for the grafting of one CDR.<br/>Default: "even_cluster_mc"<br/></dd>
-<dt><b>-run_snugdock</b> \<Boolean\></dt>
-<dd>Run snugdock on each ensemble after designing.<br/>Default: false<br/></dd>
 <dt><b>-run_relax</b> \<Boolean\></dt>
 <dd>Run Dualspace Relax on each ensemble after designing (after snugdock if run). Also output pre-relaxed structures<br/>Default: false<br/></dd>
 <dt><b>-run_interface_analyzer</b> \<Boolean\></dt>
@@ -4002,7 +4031,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-cyclic_peptide</b> \<Boolean\></dt>
 <dd>cyclic_peptide option group<br/></dd>
 <dt><b>-cyclization_type</b> \<String\></dt>
-<dd>The type of cyclization for the peptide (e.g. N-to-C amide bond, terminal disulfide, etc.<br/>Default: "n_to_c_amide_bond"<br/></dd>
+<dd>The type of cyclization for the peptide (e.g. N-to-C amide bond, terminal disulfide, isopeptide N-terminal lariat, etc.<br/>Default: "n_to_c_amide_bond"<br/></dd>
 <dt><b>-rand_checkpoint_file</b> \<String\></dt>
 <dd>The name of the checkpoint file used for the random number generator.  Defaults to rng.state.gz.  Not used if the -cyclic_peptide:checkpoint_job_identifier flag isn't used.<br/>Default: "rng.state.gz"<br/></dd>
 <dt><b>-checkpoint_file</b> \<String\></dt>
@@ -4081,8 +4110,10 @@ _Note that some application specific options may not be present in this list._
 <dd>The number of rounds of Cartesian FastRelax to perform after each standard FastRelax step in the simple_cycpep_predict protocol.  Default 0 (unused).<br/>Default: 0<br/></dd>
 <dt><b>-use_classic_rama_for_sampling</b> \<Boolean\></dt>
 <dd>If true, classic Ramachandran tables are used for sampling instead of the RamaPrePro tables.  Default false (i.e. newer RamaPrePro tables are used by default).<br/>Default: false<br/></dd>
-<dt><b>-n_methyl_positions</b> \<IntegerVector\></dt>
-<dd>If provided, then these positions are N-methylated.  Not used if not specified.<br/></dd>
+<dt><b>-lariat_sidechain_index</b> \<Integer\></dt>
+<dd>If a lariat cyclization type is specified (e.g. nterm_isopeptide_lariat, cterm_isopeptide_lariat), then this is the residue that provides the side-chain that connects to the N- or C-terminus of the peptide.  If not specified, the residue of appropriate type closest to the other end is used.<br/>Default: 0<br/></dd>
+<dt><b>-sidechain_isopeptide_indices</b> \<IntegerVector\></dt>
+<dd>If the sidechain_isopeptide cyclization type is specified, these are the indices of the residues that are linked by a sidechain-sidechain isopeptide bond to make the loop.  If not specified, the residues furthest apart of appropriate types are used.  Note that exactly two indices must be given.<br/></dd>
 <dt><b>-TBMB_positions</b> \<IntegerVector\></dt>
 <dd>If provided, then these positions will be linked by a 1,3,5-tris(bromomethyl)benzene crosslinker.  3N positions must be specified, and every group of three will be linked.  Unused if not specified.<br/></dd>
 <dt><b>-use_TBMB_filters</b> \<Boolean\></dt>
@@ -4612,6 +4643,15 @@ _Note that some application specific options may not be present in this list._
 <dd>Residues not to be redesigned under any circumstances<br/></dd>
 <dt><b>-da_eval_pose_map</b> \<File\></dt>
 <dd>input file that maps pose coordinates to structurally related positions of native pose<br/></dd>
+</dl>
++ <h2>-dump_trajectory</h2>
+<dl>
+<dt><b>-dump_trajectory</b> \<Boolean\></dt>
+<dd>dump_trajectory option group<br/></dd>
+<dt><b>-prefix</b> \<String\></dt>
+<dd>Prefix to use when dumping trajectories with dump_trajectory ScoreType.<br/>Default: "traj"<br/></dd>
+<dt><b>-gz</b> \<Boolean\></dt>
+<dd>Dump trajectories in .pdb.gz format.<br/>Default: false<br/></dd>
 </dl>
 + <h2>-edensity</h2>
 <dl>
@@ -7554,9 +7594,9 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-staged_constraints</b> \<Boolean\></dt>
 <dd>Apply constraints in stages depending on sequence separation<br/>Default: false<br/></dd>
 <dt><b>-jump_library_file</b> \<String\></dt>
-<dd>Input file for jumps<br/>Default: "sampling/rna/1jj2_RNA_jump_library.dat"<br/></dd>
+<dd>Input file for jumps<br/>Default: "1jj2_RNA_jump_library.dat"<br/></dd>
 <dt><b>-vall_torsions</b> \<String\></dt>
-<dd>Torsions file containing information on fragments from RNA models<br/>Default: "rna.torsions"<br/></dd>
+<dd>Torsions file containing information on fragments from RNA models<br/>Default: "RICHARDSON_RNA09.torsions"<br/></dd>
 <dt><b>-use_1jj2_torsions</b> \<Boolean\></dt>
 <dd>Use original (ribosome) fragments, 1JJ2<br/>Default: false<br/></dd>
 <dt><b>-fuzz_fragments</b> \<Real\></dt>

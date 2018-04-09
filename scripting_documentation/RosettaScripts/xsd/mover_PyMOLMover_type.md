@@ -7,11 +7,13 @@ PyMOLMover will send a pose to an instance of the PyMOL molecular visualization 
 
 ```xml
 <PyMOLMover name="(&string;)" keep_history="(0 &bool;)"
-        address="(127.0.0.1 &string;)" port="(65000 &positive_integer;)" />
+        address="(127.0.0.1 &string;)" port="(65000 &port_range;)"
+        max_packet_size="(7678 &max_packet_size_range;)" />
 ```
 
 -   **keep_history**: Each call to the mover stores the pose in a new state/frame of an object in PyMOL rather than overwriting it. Frames can then be played back like a movie to visualize the flow of a protocol.
 -   **address**: IP address of machine running PyMOL with PyMOL-RosettaServer.py script running.
 -   **port**: Port number to which UDP/IP connection should be made
+-   **max_packet_size**: Max size of packets to send over UDP/IP connection. Default value is dependable from address: for 127.0.0.1 it will be set to 7678 and any other addresses to 1500.
 
 ---

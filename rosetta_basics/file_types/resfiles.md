@@ -2,7 +2,7 @@
 
 Author: Matthew O'Meara and Steven Lewis
 
-This page describes the resfile format, syntax, and conventions. The resfile contains information which is input into the [[PackerTask|Packer-Task]] and controls the Packer. Internal details for the commands can be found at the [[How to write new resfile commands|resfile-reader]] residue-level options how-to.
+This page describes the resfile format, syntax, and conventions. The resfile contains information which is input into the [[PackerTask|Packer-Task]] and controls the Packer. It is read by the TaskOperation [[ReadResfile|ReadResfileOperation]]. Internal details for the commands can be found at the [[How to write new resfile commands|resfile-reader]] residue-level options how-to.
 
 [[_TOC_]]
 

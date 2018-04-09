@@ -26,7 +26,7 @@ However, there exist many conceivable guidance terms that are _not_ pairwise-dec
 
 Typically, guidance terms can be turned on by reweighting them to non-zero weights.  This can be accomplished either by providing a custom weights file (```.wts``` extension) or by reweighting terms at scorefunction declaration in [[RosettaScripts|RosettaScripts#scorefunctions]] or PyRosetta.  Certain guidance terms, such as ```aa_composition``` and ```netcharge``` have additional options that can be set at scorefunction declaration or by appending data to a Pose using special movers, and these are described in the documentation for these guidance terms.
 
-## Typical usage
+## Typical usage and best practices
 
 Guidance terms are best used during design steps in a protocol, especially with protocols like [[FastDesign|FastDesignMover]] which include alternating rounds of packing and minimization.   A given guidance term might coax the packer into accepting rotamers that it would otherwise have rejected due to small steric clashes that can be relieved during minimization.  However, the relative weight given to each guidance term determines the extent to which it influences the design process.  If the weight is too low, a guidance term might have very little effect.  If it is too high, on the other hand, it might promote the desired feature at the expense of reasonable geometry, resulting in worse designs.  There is typically an intermediate range over which a guidance term improves design.  Optimizing the weights given to different guidance terms is a trial-and-error process that depends on the particular design problem.
 
