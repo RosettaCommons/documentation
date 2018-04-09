@@ -12,6 +12,8 @@ Each filter definition has the following format in the `FILTERS` block:
 
 where "SomeFilterName" belongs to a predefined set of possible filters that the parser recognizes and are listed below, name is a unique identifier for this mover definition and then any number of parameters that the filter needs to be defined.
 
+Filters can be run on arbitrary [[SimpleMetrics]], which will eventually replace some aspects of the Filter system.  See the special [[SimpleMetricFilter]] for using arbitrary metrics for filtering.
+
 If confidence is 1.0, then the filter is evaluated as in predicate logic (T/F). If the value is less than 0.999, then the filter is evaluated as fuzzy, so that it will return True in (1.0 - confidence) fraction of times it is probed. This should be useful for cases in which experimental data are ambiguous or uncertain.
 
 [[_TOC_]]
@@ -47,6 +49,11 @@ Filter  | Description
 -----------------------
 
 ## General Filters
+
+Filter  | Description
+------------ | -------------
+**[[SimpleMetricFilter]]** | Filter based on any arbitrary [[SimpleMetric | SimpleMetrics]]
+
 
 ### Basic Filters
 

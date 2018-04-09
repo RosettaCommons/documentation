@@ -24,6 +24,10 @@ Predefined Movers are defined internally in the parser, and the protocol can use
 
 Meta Movers don't do anything to the pose themselves, but combine or modify the application of other movers and filters.
 
+Mover  | Description
+------------ | -------------
+RunSimpleMetrics | Run an arbitrary set of [[SimpleMetrics]] and add their returned data to the pose and output scorefile.  Can set prefix/suffix and run multiple sets of metrics in a single RosettaScript run.  All SimpleMetrics can also be used for filtering and for features reporters. 
+ 
 ### Combining Movers
 
 Mover  | Description
