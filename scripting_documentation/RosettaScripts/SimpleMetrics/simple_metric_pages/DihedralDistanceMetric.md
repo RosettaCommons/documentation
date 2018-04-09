@@ -8,7 +8,8 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 ##See Also
 
-* [[RunSimpleMetrics]]: Run a set of SimpleMetrics
+* [[RunSimpleMetrics]]: Run a set of SimpleMetrics and output data to the scorefile
+* [[RMSDMetric]]: Calcualte the RMSD of two poses or a subset of pose residues.
 * [[SimpleMetricFilter]]: Filter on an arbitrary SimpleMetric
 * [[SimpleMetricFeatures]]: Run [[Features | Features-reporter-overview]] on a set of SimpleMetrics
 * [[SimpleMetrics]]: Available SimpleMetrics

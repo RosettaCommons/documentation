@@ -8,7 +8,8 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 ##See Also
 
-* [[RunSimpleMetrics]]: Run a set of SimpleMetrics
+* [[RunSimpleMetrics]]: Run a set of SimpleMetrics and output data to the scorefile
+* [[SelectedResiduesMetric]]: Output selected residues in PDB or Rosetta numbering
 * [[SimpleMetricFilter]]: Filter on an arbitrary SimpleMetric
 * [[SimpleMetricFeatures]]: Run [[Features | Features-reporter-overview]] on a set of SimpleMetrics
 * [[SimpleMetrics]]: Available SimpleMetrics

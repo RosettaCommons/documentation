@@ -8,7 +8,8 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 ##See Also
 
-* [[RunSimpleMetrics]]: Run a set of SimpleMetrics
+* [[RunSimpleMetrics]]: Run a set of SimpleMetrics and output data to the scorefile
+* [[CompositeEnergyMetric]]: Calcualte individual scoreterms of a scorefuntion
 * [[SimpleMetricFilter]]: Filter on an arbitrary SimpleMetric
 * [[SimpleMetricFeatures]]: Run [[Features | Features-reporter-overview]] on a set of SimpleMetrics
 * [[SimpleMetrics]]: Available SimpleMetrics
