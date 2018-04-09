@@ -102,7 +102,7 @@ These metrics calculate a set of named strings. All metric values in the composi
 
 ##See Also
 
-* [[RunSimpleMetrics]]: Run a set of SimpleMetrics
+* [[RunSimpleMetrics]]: Run a set of SimpleMetrics and output data to the scorefile
 * [[SimpleMetricFilter]]: Filter on an arbitrary SimpleMetric
 * [[SimpleMetricFeatures]]: Run [[Features | Features-reporter-overview]] on a set of SimpleMetrics
 * [[Mover|Movers-RosettaScripts]]: Available Movers

@@ -5,7 +5,7 @@
 
 Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
-Run a set of [[SimpleMetrics]] and add the data to the pose for output into the scorefile/scoretable.  Set prefix/suffix to output the set with a particular tag. 
+Run a set of [[SimpleMetrics]] and add the data to the pose for output into the scorefile/scoretable.  Set prefix/suffix to output the set with a particular tag. It is recommended to use JSON scorefile output for easy analysis in python, especially with pandas `-scorefile_format json`
 
 [[include:mover_RunSimpleMetrics_type]]
 

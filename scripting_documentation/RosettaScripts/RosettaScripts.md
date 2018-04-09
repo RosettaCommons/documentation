@@ -11,9 +11,11 @@ Fleishman SJ, Leaver-Fay A, Corn JE, Strauch EM, Khare SD, et al. (2011) Rosetta
 ---------------------
 
 -   [[Movers (RosettaScripts)|Movers-RosettaScripts]]
--   [[Filters (RosettaScripts)|Filters-RosettaScripts]]
--   [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]]
 -   [[ResidueSelectors (RosettaScripts)|ResidueSelectors]]
+-   [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]]
+-   [[SimpleMetrics]]
+-   [[Filters (RosettaScripts)|Filters-RosettaScripts]]
+
 
 -----------------------
 
@@ -84,29 +86,44 @@ Check out an [introductory tutorial](https://www.rosettacommons.org/demos/latest
 Example XML file
 ----------------
 
-The following simple example will compute ala-scanning values for each residue in the protein interface:
+The following modern example uses :`in:file:native`, and minimizes a CDR loop of a protein, calculating various metrics before and after minimization.
+The metrics will all be output to the scorefile with the given prefix/suffix and the names of each metric.
+
 ```xml
 <ROSETTASCRIPTS>
-<SCOREFXNS>
-<ScoreFunction name="interface" weights="interface"/>
-</SCOREFXNS>
-<FILTERS>
-<AlaScan name="scan" partner1="1" partner2="1" scorefxn="interface" interface_distance_cutoff="10.0" repeats="5"/>
-<Ddg name="ddg" confidence="0"/>
-<Sasa name="sasa" confidence="0"/>
-</FILTERS>
-<MOVERS>
-<Docking name="dock" fullatom="1" local_refine="1" score_high="soft_rep"/>
-</MOVERS>
-<PROTOCOLS>
-<Add mover_name="dock" filter_name="scan"/>
-<Add filter_name="ddg"/>
-<Add filter_name="sasa"/>
-</PROTOCOLS>
-<OUTPUT scorefxn="interface"/>
+	<SCOREFXNS>
+	</SCOREFXNS>
+	<RESIDUE_SELECTORS>
+		<CDR name="L1" cdrs="L1"/>
+	</RESIDUE_SELECTORS>
+	<MOVE_MAP_FACTORIES>
+		<MoveMapFactory name="movemap_L1" bb="0" chi="0">
+			<Backbone residue_selector="L1" />
+			<Chi residue_selector="L1" />
+		</MoveMapFactory>
+	</MOVE_MAP_FACTORIES>
+	<SIMPLE_METRICS>
+		<TimingProfileMetric name="timing" />
+		<RMSDMetric name="rmsd" rmsd_type="rmsd_protein_bb_heavy" residue_selector="L1" use_native="1"/>
+		<SelectedResiduesMetric name="rosetta_sele" residue_selector="L1" rosetta_numbering="1"/>
+		<SelectedResiduesPyMOLMetric name="pymol_selection" residue_selector="L1" />
+		<SequenceMetric name="sequence" residue_selector="L1" />
+		<SecondaryStructureMetric name="ss" residue_selector="L1" />
+	</SIMPLE_METRICS>
+	<MOVERS>
+		<MinMover name="min_mover" movemap_factory="movemap_L1" tolerance=".1" /> 
+		<RunSimpleMetrics name="run_metrics1" metrics="pymol_selection,sequence,ss,total_energy,rosetta_sele" prefix="m1_" />
+		<RunSimpleMetrics name="run_metrics2" metrics="rmsd,timing,ss" prefix="m2_" />
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover_name="run_metrics1"/>
+		<Add mover_name="min_mover" />
+		<Add mover_name="run_metrics2" />
+	</PROTOCOLS>
 </ROSETTASCRIPTS>
 ```
-Rosetta will carry out the order of operations specified in PROTOCOLS, starting with docking (in this case this is all-atom docking using the soft\_rep weights). It will then apply alanine scanning, repeated 5 times for better convergence, for every residue on both sides of the interface computing the binding energies using the interface weight set (counting mostly attractive energies). The binding energy (ddg) and surface area (sasa) will also be computed. All of the values will be output in a .report file. Notice that since ddg and sasa are assigned confidence=0, they are not used here as filters that can terminate a trajectory per se, but rather for reporting the values for the complex. An important point is that filters never change the sequence or conformation of the structure, so the ddg and sasa values are reported for the input structure following docking, with the alanine-scanning results ignored.
+
+Rosetta will carry out the order of operations specified in PROTOCOLS.  An important point is that SimpleMetrics and Filters never change the sequence or conformation of the structure.
 
 The movers do change the pose, and the output file will be the result of sequentially applying the movers in the protocols section. The standard scores of the output (either in the pdb, silent or score file) will be from the commandline-specified scorefunction, unless the OUTPUT tag is specified, in which case the corresponding score function from the SCOREFXNS block will be used.
 
@@ -117,14 +134,15 @@ Example commandline
 
 The following command line would run the above protocol, given that the protocol file name is ala\_scan.xml
 
-Rosetta/main/source/bin/rosetta_scripts.linuxgccrelease -s < INPUT PDB FILE NAME > -use_input_sc -nstruct 20 -jd2:ntrials 2 -database Rosetta/main/database/ 
--ex1 -ex2 -parser:protocol ala_scan.xml -parser:view
-
-The ntrials flag specifies how many trajectories to start per nstruct. In this case, each of 20 trajectories would make two attempts at outputting a structure. If no ntrials is specified, a default value of 1 is assumed.
+```
+Rosetta/main/source/bin/rosetta_scripts.linuxgccrelease -s < INPUT PDB FILE NAME > -use_input_sc -nstruct 20 -ex1 -ex2 -parser:protocol ala_scan.xml -parser:view
+```
 
 The parser:view flag may be used with rosetta executables that have been compiled using the extras=graphics switch in the following way (from the Rosetta root directory):
 
+```
 scons mode=release -j3 bin extras=graphics
+```
 
 When running with -parser:view a graphical viewer will open that shows many of the steps in a trajectory. This is extremely useful for making sure that sampling is following the intended trajecotry.
 
@@ -207,6 +225,8 @@ apps.public.rosetta_scripts.rosetta_scripts: The following is an empty (template
 	</RESIDUE_SELECTORS>
 	<TASKOPERATIONS>
 	</TASKOPERATIONS>
+	<SIMPLE_METRICS>
+	</SIMPLE_METRICS>
 	<FILTERS>
 	</FILTERS>
 	<MOVERS>
@@ -574,6 +594,45 @@ Subsections are used to turn on specific kinematic sections of the pose.  They o
 * `<Branches/>`
 
  These are specific torsions coming off the mainchain.  Typically, you do not need to worry about this unless you are using a complicated non-cannonical or modification.  Glycan branch torsions are treated as IUPAC BB torsions within the MoveMapFactory machinery.
+
+##SIMPLE_METRICS
+
+This section defines the [[SimpleMetrics]] that will be used for the protocol.  SimpleMetrics can be used to run analysis and output the data in the resulting scorefile using the [[RunSimpleMetrics]] mover, filter data using the [[SimpleMetricFilter]], or calculate and dump data into relational databases using the [[SimpleMetricFeatures]] reporter.  
+
+Simple Metrics are available in Rosetta version after April 10th, 2018, and are a long-term solution for calculating data and running arbitrary filters (Core filter calculations will slowly be replaced with SimpleMetrics as they are much more versitile.)  
+
+Here is a simple example, running a few metrics for analysis with the `-in:file:native` flag set. 
+```xml
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+	</SCOREFXNS>
+	<RESIDUE_SELECTORS>
+		<CDR name="L1" cdrs="L1"/>
+	</RESIDUE_SELECTORS>
+	<MOVE_MAP_FACTORIES>
+		<MoveMapFactory name="movemap_L1" bb="0" chi="0">
+			<Backbone residue_selector="L1" />
+			<Chi residue_selector="L1" />
+		</MoveMapFactory>
+	</MOVE_MAP_FACTORIES>
+	<SIMPLE_METRICS>
+		<RMSDMetric name="rmsd" rmsd_type="rmsd_protein_bb_heavy" residue_selector="L1" use_native="1"/>
+		<SasaMetric name="sasa" residue_selector="L1"/>
+		<SecondaryStructureMetric name="ss" residue_selector="L1" />
+		<TotalEnergyMetric name="total_energy" residue_selector="L1" use_native="0"/>
+		<CompositeEnergyMetric name="composite_energy" residue_selector="L1" use_native="0"/>
+	</SIMPLE_METRICS>
+	<MOVERS>
+		<MinMover name="min_mover" movemap_factory="movemap_L1" tolerance=".1" /> 
+		<RunSimpleMetrics name="run_metrics1" metrics="sasa,ss, total_energy="m1_" />
+		<RunSimpleMetrics name="run_metrics2" metrics="sasa,ss,rmsd,composite_energy" prefix="m2_" />
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover_name="run_metrics1"/>
+		<Add mover_name="min_mover" />
+		<Add mover_name="run_metrics2" />
+	</PROTOCOLS>
+</ROSETTASCRIPTS>
 
 
 MOVERS
