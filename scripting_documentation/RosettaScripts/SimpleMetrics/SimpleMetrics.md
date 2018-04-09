@@ -3,7 +3,7 @@
 ## SimpleMetrics
 
 
-SimpleMetrics are a new way to do analysis in Rosetta, and will eventually replace the Filter system and most filters.  They are declared in the new `<SIMPLE_METRIC>` block of RosettaScripts and are available in weekly releases after April 10th, 2018.  All data calculated by a SimpleMetric can be output to a score file with the metric name and any set prefix and/or suffix. These sets of SimpleMetrics can be also be run at different points in a protocol See [[RunSimpleMetrics]] for more on the syntax of how to Run SimpleMetrics in your protocol.  Filters were never meant to do analysis in the way they are being used currently.  The SimpleMetric framework aims to correct this. The SimpleMetrics on this page are broken into what kind of data they calculate.  
+SimpleMetrics are a new way to do analysis in Rosetta, and will eventually replace the Filter system and most filters.  They are declared in the new `<SIMPLE_METRICS>` block of RosettaScripts and are available in weekly releases after April 10th, 2018.  All data calculated by a SimpleMetric can be output to a score file with the metric name and any set prefix and/or suffix. These sets of SimpleMetrics can be also be run at different points in a protocol See [[RunSimpleMetrics]] for more on the syntax of how to Run SimpleMetrics in your protocol.  Filters were never meant to do analysis in the way they are being used currently.  The SimpleMetric framework aims to correct this. The SimpleMetrics on this page are broken into what kind of data they calculate.  
 
 All SimpleMetrics can also be used as Filters, using the [[SimpleMetricFilter]].
 
