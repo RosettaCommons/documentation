@@ -19,8 +19,10 @@ HybridizeMover works as basic sampling unit during overall iterative global ener
 Sergey Ovchinnikov, Hahnbeom Park, Neha Varghese, Po-Ssu Huang, Georgios A. Pavlopoulos, David E. Kim, Hetunandan Kamisetty, Nikos C. Kyrpides, David Baker. 
 Science 2017, 355:294-298.
 
-Protein homology model refinement by large scale energy optimization. 
-Hahnbeom Park, Sergey Ovchinnikov, David E Kim, Frank DiMaio, and David Baker. Submitted.
+[Protein homology model refinement by large scale energy optimization]
+(http://www.pnas.org/content/115/12/3054).
+Hahnbeom Park, Sergey Ovchinnikov, David E Kim, Frank DiMaio, and David Baker. 
+Proc Natl Acad Sci USA 2018. 
 
 ## Algorithm
 
