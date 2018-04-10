@@ -138,9 +138,10 @@ Alternately, structure averaging on full trajectory can be performed:
 
     $ROSETTA/main/source/bin/avrg_silent.linuxgccrelease -database $ROSETTADB \
     -in:file:template_pdb iter_[niter]/model1.pdb -out:prefix avrg \
+    -cm:similarity_cut 0.5 \
     -in:file:silent gen.total.out -silent_read_through_errors > avrg.log
 
-"avrg.relaxed.pdb" generated after this command is structure-averaged + regularized model. 
+"avrg.relaxed.pdb" generated after this command is structure-averaged + regularized model. -cm:similarity_cut takes the same structural distance metric described for iterhybrid_selector app; smaller the close structures are, and roughly 0.2 is family-level similarity, 0.6 is fold-level similarity.
 
 See [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 
