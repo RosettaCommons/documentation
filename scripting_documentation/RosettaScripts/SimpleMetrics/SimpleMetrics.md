@@ -7,7 +7,7 @@ SimpleMetrics are a new way to do analysis in Rosetta, and will eventually repla
 
 All SimpleMetrics can also be used as Filters, using the [[SimpleMetricFilter]].
 
-Finally, all SimpleMetrics can also be used to within the [[FeaturesReporter | Features-reporter-overview]] framework, to allow robust analysis into relational databases.  Please see [[SimpleMetricFeatures]] for more. 
+Finally, all SimpleMetrics can also be used within the [[FeaturesReporter | Features-reporter-overview]] framework, to allow robust analysis into relational databases.  Please see [[SimpleMetricFeatures]] for more. 
 
 Example with comparison to native through `-in:file:native`:
 
