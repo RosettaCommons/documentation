@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-04-04
+Generated: 2018-04-11
 
 _Note that some application specific options may not be present in this list._
 
@@ -1465,7 +1465,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-preserve_c_beta</b> \<Boolean\></dt>
 <dd>Preserve c-beta positions during rotamer construction<br/></dd>
 <dt><b>-flip_HNQ</b> \<Boolean\></dt>
-<dd>Consider flipping HIS, ASN, and GLN during hydrogen placement optimization<br/></dd>
+<dd>Consider flipping HIS, ASN, and GLN during hydrogen placement optimization (must turn off -no_optimizeH)<br/></dd>
 <dt><b>-fix_his_tautomer</b> \<IntegerVector\></dt>
 <dd>seqpos numbers of his residus whose tautomer should be fixed during repacking<br/>Default: []<br/></dd>
 <dt><b>-print_pymol_selection</b> \<Boolean\></dt>
