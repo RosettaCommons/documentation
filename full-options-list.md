@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-04-11
+Generated: 2018-04-13
 
 _Note that some application specific options may not be present in this list._
 
@@ -7821,7 +7821,7 @@ _Note that some application specific options may not be present in this list._
 <dd>Allows rna_prot_erraser residue type set, featuring both RNA and protein (for ERRASER purposes).  You must also use -rna:corrected_geo.<br/>Default: false<br/></dd>
 <dt><b>-constrain_P</b> \<Boolean\></dt>
 <dd>constrain phosphate<br/>Default: false<br/></dd>
-<dt><b>-fixed_res</b> \<IntegerVector\></dt>
+<dt><b>-fixed_res</b> \<ResidueChainVector\></dt>
 <dd>optional: residues to be held fixed in minimizer<br/>Default: []<br/></dd>
 <dt><b>-ready_set_only</b> \<Boolean\></dt>
 <dd>load in and output directly for reformatting the pdb<br/>Default: false<br/></dd>
