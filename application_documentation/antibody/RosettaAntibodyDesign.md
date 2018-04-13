@@ -178,7 +178,7 @@ More complicated design runs can be created by using the Antibody Design Instruc
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda \
--instruction_file my_instruction_file.txt
+-cdr_instruction my_instruction_file.txt
 ```
 
 ## Advanced Settings
