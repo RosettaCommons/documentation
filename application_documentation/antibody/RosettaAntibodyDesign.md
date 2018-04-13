@@ -15,11 +15,11 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com); PI: Roland Dunbrack
 
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_Rosetta Antibody Design (RAbD): A General Framework for Computational Antibody Design (Under Review)_
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jared Adolf-Bryfogle, Oleks Kalyuzhniy, Michael Kubitz, Brian D. Weitzner, Xiaozhen Hu, Yumiko Adachi, William R. Schief, Roland L. Dunbrack Jr.
 
-[ Preprint available on Biorxiv](http://www.biorxiv.org/content/early/2017/08/31/183350)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_Rosetta Antibody Design (RAbD): A General Framework for Computational Antibody Design (In Print, Accepted to PLOS Computational Biology)_
+
+[ Preprint available on Biorxiv](https://www.biorxiv.org/content/early/2018/04/12/183350)
 
 
 
