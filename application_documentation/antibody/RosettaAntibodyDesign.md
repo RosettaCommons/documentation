@@ -347,7 +347,7 @@ Option  | Description
 `PDBIDs` | Include only or leave out a specific set of PDBIds. This is very useful for benchmarking purposes.
 `Clusters` | Include only or leave out a specific set of Clusters. Useful if the user already knows which clusters are able to interact with antigen, whether this is from previous runs of the program or via homologues. This is also useful for benchmarking. 
 `Germline` | Include only or leave out specific human/mouse germlines. 
-`Species` | Include only or leave out specific species. Very useful limiting possible immune reactions in the final designs.
+`Species` | Include only or leave out specific species. Very useful limiting possible immune reactions in the final designs. 2 Letter designation as used by IMGT.  Hu and Mo for Human and Mouse.
 
 ------------------------
 
