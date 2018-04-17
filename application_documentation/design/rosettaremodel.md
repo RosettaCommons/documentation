@@ -178,7 +178,7 @@ Build a disulfide between residue 5 and 88, if possible. If not possible, Remode
 Domain insertion
 ----------------
 
-Remodel can also be used to do domain insertion. A PDB file containing the residues to be inserted must be specified with the option -remodel:domainFusion:insert\_segment\_from\_pdb. The PDB file containing the segment to be inserted does not need to be renumbered.
+Remodel can also be used to do domain insertion. A PDB file containing the residues to be inserted must be specified with the option ```-remodel:domainFusion:insert_segment_from_pdb```. The PDB file containing the segment to be inserted does not need to be renumbered.
 
 Note: Is necessary to allow the residues flanking the insert to be remodelled or otherwise errors will occur. The identities of these positions can be fixed to their native types (as in the example below) but their backbones must be allowed to be remodelled to accomodate the inserted segment. Depending on the length of the insert, more than one residue on each side of the inserted segment may need to be remodelled for loop closure to succeed. In other words, if only one residue on each side of the insert is allowed to remodel, Remodel may not be able to "fold" the inserted segment in such a way that the chain can be connected. The protocol will continue to try indefinitely until a "loop closed" solution is found, or until the process is killed manually.
 
