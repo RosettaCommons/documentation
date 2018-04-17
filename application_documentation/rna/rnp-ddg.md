@@ -1,0 +1,1 @@
+#Calculate relative binding affinities for RNA-protein complexes
