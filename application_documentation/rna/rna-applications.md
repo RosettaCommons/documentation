@@ -21,6 +21,7 @@ These applications are specifically designed to work with RNA or RNA-protein com
 ###RNA Analysis
 
 * [[RECCES]]: RNA free energy calculation with comprehensive sampling.
+* [[rnp ddg]]: Calculate relative binding affinities for RNA-protein complexes with the Rosetta-Vienna ΔΔG method.
 
 ###RNA Utilities
 
