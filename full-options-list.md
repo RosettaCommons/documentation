@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-04-15
+Generated: 2018-04-16
 
 _Note that some application specific options may not be present in this list._
 
@@ -784,7 +784,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-do_not_archive_on_node0</b> \<Boolean\></dt>
 <dd>Should the master node in the MPIWorkPoolJobDistributor archive any JobResults on it? Only relevant for MPI builds when using -n_archive_nodes<br/>Default: false<br/></dd>
 <dt><b>-mpi_fraction_outputters</b> \<Real\></dt>
-<dd>Fraction of the MPI nodes that node0 is allowed to use to output job results; non-archive nodes that output will also perform regular work in addition to their output work. This flag should range from 0 to 1. Note that node0 never outputs, so even if this is set to 0, one node will be deputized as an output node.<br/>Default: 0.001<br/></dd>
+<dd>Fraction of the MPI nodes that node0 is allowed to use to output job results; non-archive nodes that output will also perform regular work in addition to their output work. This flag should range from 0 to 1. Note that node0 never outputs, so even if this is set to 0, one node will be deputized as an output node.<br/>Default: 0.01<br/></dd>
 <dt><b>-nthreads</b> \<Integer\></dt>
 <dd>For the multithreaded job distributor, how many threads should be run at the same time<br/></dd>
 <dt><b>-archive_on_disk</b> \<String\></dt>
