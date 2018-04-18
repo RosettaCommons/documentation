@@ -22,13 +22,13 @@ All code is located in `src/apps/public/rnp_ddg/`. A demo of the Rosetta-Vienna 
 ## Running the code
 
 #### Step 1: Set up Rosetta and Vienna code
-1. Make sure that you have python (v2.7) installed.
-2. Install Rosetta RNA tools. See instructions and documentation here.
-3. Install the ViennaRNA package. See instructions here.
+&nbsp;&nbsp;&nbsp;&nbsp;**1.1**&nbsp;&nbsp;&nbsp;&nbsp;Make sure that you have python (v2.7) installed.  
+&nbsp;&nbsp;&nbsp;&nbsp;**1.2**&nbsp;&nbsp;&nbsp;&nbsp;Install Rosetta RNA tools. See instructions and documentation here.  
+&nbsp;&nbsp;&nbsp;&nbsp;**1.3**&nbsp;&nbsp;&nbsp;&nbsp;Install the ViennaRNA package. See instructions here.  
 
 #### Step 2: Relax the starting structure
 
-1. Set up the relaxation run with relax_starting_structure.py. For example, type: 
+&nbsp;&nbsp;&nbsp;&nbsp;**2.1**&nbsp;&nbsp;&nbsp;&nbsp;Set up the relaxation run with relax_starting_structure.py. For example, type: 
 
 ```
 python PATH_TO_ROSETTA/main/source/src/apps/public/rnp_ddg/relax_starting_structure.py --start_struct start_structure.pdb --nstructs 100 --rosetta_prefix PATH_TO_ROSETTA/main/source/bin/
@@ -41,7 +41,7 @@ Inputs and options for `relax_starting_structure.py` are listed below:  <br><br>
 **`--sfxn`**: The score function to use for relaxation. **This must be the same score function that will be used to calculate relative binding affinities in Step 3!** *Recommended*: rnp_ddg.wts.  
 **`--nstructs`**: Number of times to perform the relaxation. *Recommended*: 100.  
 
-2. Run the relaxation. For example, type:
+&nbsp;&nbsp;&nbsp;&nbsp;**2.2**&nbsp;&nbsp;&nbsp;&nbsp;Run the relaxation. For example, type:
 
 ```
 source ALL_RELAX_COMMANDS
@@ -49,7 +49,7 @@ source ALL_RELAX_COMMANDS
 
 Alternatively, each of the relaxation commands found in `RELAX_COMMAND_*` can be run separately. This is useful if you’re running on a cluster. 
 
-3. Get the lowest scoring relaxed structures. For example, type:  
+&nbsp;&nbsp;&nbsp;&nbsp;**2.3**&nbsp;&nbsp;&nbsp;&nbsp;Get the lowest scoring relaxed structures. For example, type:  
 
 ```
 python PATH_TO_ROSETTA/main/source/src/apps/public/rnp_ddg/get_lowest_scoring_relaxed_models.py --relax_dir relax_start_structure/
@@ -59,7 +59,7 @@ This will print out the 20 lowest scoring relaxed structures. For best results, 
 
 #### Step 3: Calculate relative binding affinities
 
-1. Set up the ΔΔG calculations with general_RNP_setup_script.py. This step creates all the necessary directories and files for the ΔΔG calculation runs. For example type:
+&nbsp;&nbsp;&nbsp;&nbsp;**3.1**&nbsp;&nbsp;&nbsp;&nbsp;Set up the ΔΔG calculations with general_RNP_setup_script.py. This step creates all the necessary directories and files for the ΔΔG calculation runs. For example type:
 
 ```
 python PATH_TO_ROSETTA/main/source/src/apps/public/rnp_ddg/general_RNP_setup_script.py --low_res --tag demo_run --start_struct relax_start_structure//1/min_again_start_structure_wildtype_bound.pdb --seq_file mutant_list.txt --rosetta_prefix PATH_TO_ROSETTA/main/source/bin/
