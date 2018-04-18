@@ -86,9 +86,9 @@ Inputs and options for `general_RNP_setup_script.py` are listed below:
 
 This setup command will create a directory named e.g. `ddG_demo_run_low-res`. In this directory, there is a numbered subdirectory corresponding to each of the mutant sequences that were specified in the `mutant_list.txt` file. `0/` corresponds to the wildtype, `1/` corresponds to the first sequence listed in `mutant_list.txt`, `2/` corresponds to the second sequence listed in `mutant_list.txt`, etc. 
 
-`ddG_demo_run_low/general_setup_settings.txt` lists the options that will be used for the run.   `ddG_demo_run_low/ALL_COMMANDS` contains the actual command lines to run all of the ddG calculations.  `ddG_demo_run_low/COMMAND_0`, `ddG_demo_run_low/COMMAND_1`, and `ddG_demo_run_low/COMMAND_2` contain the commands to run the ddG calculations for the wildtype, first, and second mutations, respectively. All of these commands are contained within `ddG_demo_run_low/ALL_COMMANDS`; these individual files are just useful if you're running a lot of mutants on a cluster -- each command can be run simultaneously on a different core.   
+`ddG_demo_run_low/general_setup_settings.txt` lists the options that will be used for the run.   `ddG_demo_run_low/ALL_COMMANDS` contains the actual command lines to run all of the ΔΔG calculations.  `ddG_demo_run_low/COMMAND_0`, `ddG_demo_run_low/COMMAND_1`, and `ddG_demo_run_low/COMMAND_2` contain the commands to run the ΔΔG calculations for the wildtype, first, and second mutations, respectively. All of these commands are contained within `ddG_demo_run_low/ALL_COMMANDS`; these individual files are just useful if you're running a lot of mutants on a cluster -- each command can be run simultaneously on a different core.   
 
-&nbsp;&nbsp;&nbsp;&nbsp;**3.2**&nbsp;&nbsp;&nbsp;&nbsp; Run the ddG calculations. For example, type:
+&nbsp;&nbsp;&nbsp;&nbsp;**3.2**&nbsp;&nbsp;&nbsp;&nbsp; Run the ΔΔG calculations. For example, type:
 
 ```
 source ddG_demo_run_low-res/ALL_COMMANDS
@@ -96,13 +96,13 @@ source ddG_demo_run_low-res/ALL_COMMANDS
 
 Alternatively, each of the commands found in `ddG_demo_run_low-res/COMMAND_*` can be run separately. This is useful if you’re running on a cluster.  
 
-&nbsp;&nbsp;&nbsp;&nbsp;**3.3**&nbsp;&nbsp;&nbsp;&nbsp; Get the ddG results with `get_final_ddG_scores.py`. For example, type: 
+&nbsp;&nbsp;&nbsp;&nbsp;**3.3**&nbsp;&nbsp;&nbsp;&nbsp; Get the ΔΔG results with `get_final_ddG_scores.py`. For example, type: 
 
 ```
 python PATH_TO_ROSETTA/main/source/src/apps/public/rnp_ddg/get_final_ddG_scores.py --run_dir ddG_demo_run_low-res/ --seq_file mutant_list.txt
 ```
 
-**`--run_dir`** should specify the directory that the ddG calculations were run in (the one that was created by `general_RNP_setup_script.py`). **`--seq_file`** should list the same `seq_file` that was provided to `general_RNP_setup_script.py`.   
+**`--run_dir`** should specify the directory that the ΔΔG calculations were run in (the one that was created by `general_RNP_setup_script.py`). **`--seq_file`** should list the same `seq_file` that was provided to `general_RNP_setup_script.py`.   
 
 This will print a message like the following to the screen:  
 
@@ -122,7 +122,7 @@ ddG dG complex_score protein_score rna_score
 ####################################
 ```
 
-As noted in this message, the ddG results are also listed in the `ddG_score.txt` files in each of the run directories. The first column in a `ddG_score.txt` specifies the calculated ddG value in kcal/mol.
+As noted in this message, the ΔΔG results are also listed in the `ddG_score.txt` files in each of the run directories. The first column in a `ddG_score.txt` specifies the calculated ΔΔG value in kcal/mol.
 
 Normally, *Step 3* should be repeated 20 times for the top 20 structures from Step 2, and then the final results should be averaged.  
 
