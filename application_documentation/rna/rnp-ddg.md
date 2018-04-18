@@ -34,8 +34,26 @@ All code is located in `src/apps/public/rnp_ddg/`. A demo of the Rosetta-Vienna 
 python PATH_TO_ROSETTA/main/source/src/apps/public/rnp_ddg/relax_starting_structure.py --start_struct start_structure.pdb --nstructs 100 --rosetta_prefix PATH_TO_ROSETTA/main/source/bin/
 ```
   
-Inputs and options for relax_starting_structure.py are listed below:  
+Inputs and options for `relax_starting_structure.py` are listed below:  <br><br>
+
 **`--start_struct`**: The starting PDB structure of your RNA-protein complex.  
-`--rosetta_prefix`: The full path to your Rosetta executables (this is optional if the executables are in your PATH).  
-`--sfxn`: The score function to use for relaxation. **This must be the same score function that will be used to calculate relative binding affinities in Step 3!** *Recommended*: rnp_ddg.wts.  
-`--nstructs`: Number of times to perform the relaxation. *Recommended*: 100.  
+**`--rosetta_prefix`**: The full path to your Rosetta executables (this is optional if the executables are in your PATH).  
+**`--sfxn`**: The score function to use for relaxation. **This must be the same score function that will be used to calculate relative binding affinities in Step 3!** *Recommended*: rnp_ddg.wts.  
+**`--nstructs`**: Number of times to perform the relaxation. *Recommended*: 100.  
+
+2. Run the relaxation. For example, type:
+
+```
+source ALL_RELAX_COMMANDS
+```
+
+Alternatively, each of the relaxation commands found in `RELAX_COMMAND_*` can be run separately. This is useful if you’re running on a cluster. 
+
+3. Get the lowest scoring relaxed structures. For example, type:  
+
+```
+python PATH_TO_ROSETTA/main/source/src/apps/public/rnp_ddg/get_lowest_scoring_relaxed_models.py --relax_dir relax_start_structure/
+```
+
+This will print out the 20 lowest scoring relaxed structures. For best results, the calculations described in **Step 3** should be performed on each one of these structures, and the final ddG results should be averaged over all 20.
+
