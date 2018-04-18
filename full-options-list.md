@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-04-16
+Generated: 2018-04-18
 
 _Note that some application specific options may not be present in this list._
 
@@ -904,6 +904,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Include computation of intra-residue terms for proteins.<br/>Default: false<br/></dd>
 <dt><b>-fa_stack_base_base_only</b> \<Boolean\></dt>
 <dd>Only calculate fa_stack for RNA base/base.<br/>Default: true<br/></dd>
+<dt><b>-fa_stack_include_rna_protein</b> \<Boolean\></dt>
+<dd>Calculate fa_stack for RNA/protein<br/>Default: true<br/></dd>
 <dt><b>-fa_stack_sol_prefactor</b> \<Real\></dt>
 <dd>Strength of sol penalty in fa_stack_sol.<br/>Default: 0.1<br/></dd>
 <dt><b>-fa_stack_sol_stack_cutoff</b> \<Real\></dt>
@@ -4212,6 +4214,8 @@ _Note that some application specific options may not be present in this list._
 <dd>No description<br/>Default: 0.5<br/></dd>
 <dt><b>-sc_min_only</b> \<Boolean\></dt>
 <dd>No description<br/>Default: true<br/></dd>
+<dt><b>-rna_all_prot_sc_min_only</b> \<Boolean\></dt>
+<dd>No description<br/>Default: false<br/></dd>
 <dt><b>-min_cst_weights</b> \<String\></dt>
 <dd>No description<br/>Default: "talaris2013"<br/></dd>
 <dt><b>-opt_radius</b> \<Real\></dt>
@@ -4244,6 +4248,8 @@ _Note that some application specific options may not be present in this list._
 <dd>specify whether or not to dump repacked wild-type and mutant pdbs<br/>Default: true<br/></dd>
 <dt><b>-weight_file</b> \<String\></dt>
 <dd>specifies the weight-files to be used in calculations<br/>Default: "ddg.wts"<br/></dd>
+<dt><b>-cst_dist_cutoff</b> \<Real\></dt>
+<dd>the cutoff distance for generating harmonic csts between residues<br/>Default: 9.0<br/></dd>
 </dl>
 + <h2>-DenovoProteinDesign</h2>
 <dl>
@@ -8097,6 +8103,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Use coarse-grained energy function to sample; no minimize.<br/>Default: false<br/></dd>
 <dt><b>-verbose_sampler</b> \<Boolean\></dt>
 <dd>verbose output from StepWiseConnectionSampler sample-and-screen.<br/>Default: false<br/></dd>
+<dt><b>-pack_protein_side_chains</b> \<Boolean\></dt>
+<dd>allow neighboring protein side chains to be packed.<br/>Default: true<br/></dd>
 <dt><b>-definitely_virtualize</b> \<IntegerVector\></dt>
 <dd>definitely virtualize these residues (by seqpos)<br/>Default: []<br/></dd>
 <dt><b>-force_moving_res_for_erraser</b> \<Boolean\></dt>
