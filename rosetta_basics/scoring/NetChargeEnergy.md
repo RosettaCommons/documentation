@@ -189,6 +189,7 @@ The ```netcharge``` score term should be fully compatible with the [[aa_composit
 * [[Scoring explained]]
 * [[Score functions and score types |score-types]]
 * [[Adding a new energy method to Rosetta|new-energy-method]]
+* [[Design-centric guidance terms|design-guidance-terms]]
 * [[AddNetChargeConstraintMover]]
 * [[ClearCompositionConstraintsMover]]
 * [[AACompositionEnergy]]
