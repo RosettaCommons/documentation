@@ -160,4 +160,7 @@ This should be a list of (ideally ten) final DRRAFTER models in PDB format for e
 **Solution:** To minimize computational expense, protein residues that are not near the region where missing RNA coordinates are being built are removed. If RNA coordinates end up being built into the density for these removed protein residues, there are several possible solutions:
 * Change the -dist_cutoff value. By default it is 20 Å, meaning that residues more than 20 Å away from RNA residues being modeled (that are supplied in -start_struct) or the residues listed in -include_residues_around will be removed. This does not apply to residues in -include_as_rigid_body_structures.
 * Include the full protein structure in -include_as_rigid_body_structures. This will ensure that no residues will be removed from the protein. 
-* Try specifying more residues for -include_residues_around. Residues within the -dist_cutoff of the specified residues will be kept during the DRRAFTER run. 
+* Try specifying more residues for -include_residues_around. Residues within the -dist_cutoff of the specified residues will be kept during the DRRAFTER run.  
+  
+**Problem:** I'm getting an error when running `DRRAFTER.py` that my sequence and secondary structure aren't the same length.  
+**Solution:** `DRRAFTER.py` is reading all `(`,`)`,`[`,`]`,`{`, and `}` characters from your secondary structure file (unlike `rna_denovo` which only reads the first line of the file). Check your secondary structure file to make sure that it ONLY contains the exact secondary structure for your complex. Also remember that you need to specify "secondary structure" for the protein residues (just use dots).  
