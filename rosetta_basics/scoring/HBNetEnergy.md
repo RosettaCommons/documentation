@@ -107,8 +107,8 @@ The `hbnet` score term is fully compatible with symmetry with no special setup r
 
 ## Organization of the code
 
-* The score term is defined in namespace `core::scoring::hbnet_energy`, and is located in `source/src/core/scoring/hbnet_energy/HBNetEnergy.cc/hh`.
-* Unit tests for the asymmetric and symmetric cases are located in `source/test/core/scoring/hbnet_energy/HBNetEnergyTests.cxxtest.hh`.
+* The score term is defined in namespace `core::pack::guidance_scoreterms::hbnet_energy`, and is located in `source/src/core/pack/guidance_scoreterms/hbnet_energy/HBNetEnergy.cc/hh`.
+* Unit tests for the asymmetric and symmetric cases are located in `source/test/core/pack/guidance_scoreterms/hbnet_energy/HBNetEnergyTests.cxxtest.hh`.
 
 ##See Also
 
