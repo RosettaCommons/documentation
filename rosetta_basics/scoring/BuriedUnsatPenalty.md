@@ -16,6 +16,20 @@ The `buried_unsatisfied_penalty` scoreterm uses a graph representation of hydrog
 
 At each step during a packer trajectory, a sub-graph is generated from the precomputed graph, with one node per pose position.  The sub-graph consists only of those nodes corresponding to the current rotamers being considered, and those edges connecting those nodes.  It is then a simple matter to iterate over all hydrogen bond donors and acceptors in the nodes of the sub-graph and count, based on the connected edges to that node, the number of hydrogen bonds in which that group is participating.  Once these tallies are computed, the number of groups for which the tally is zero can be determined with a second pass through the donor and acceptor groups.  Although there is some computational cost to this, it is small enough that design trajectories are still quite fast.
 
+### Definition of a hydrogen-bonding group
+
+For the purposes of this scoreterm, hydrogen-bonding groups consist a single polar heavyatom, and possibly one or more polar hydrogen atoms that are bonded to the heavyatom.  The heavyatom must either be able to accept hydrogen bonds, or must possess one or more protons that it can donate to hydrogen bonds.
+
+### Precise rules for group satisfaction
+
+In order to be satisfied:
+- A group that can donate hydrogen bonds, but which cannot accept hydrogen bonds, must donate at least one hydrogen bond (regardless the number of protons in the group).  That is, an NH2 group donating a single hydrogen bond is _not_ considered unsatisfied.
+- A group that can accept hydrogen bonds, but which cannot donate hydrogen bonds, must accept at least one hydrogen bond.  That is, a carbonyl oxygen that accepts a single hydrogen bond is _not_ considered unsatisfied.
+- A group that can both donate and accept hydrogen bonds must _either_ donate a hydrogen bond _or_ accept a hydrogen bond.  Thus, a hydroxyl group must be involved in at least one hydrogen bonding interaction in order to be considered satisfied.
+
+### A note about oversaturated acceptors (or donors)
+
+The pairwise-decomposability of Rosetta's default hydrogen bond terms leads to another pathology as well: oversaturated hydrogen bond acceptors (and, occasionally, donors).  For example, one sometimes sees three protons hydrogen bonding to the same oxygen atom in Rosetta designs, and the software naïvely scores this very well.  When counting unsatisfied hydrogen bond donors and acceptors, it is trivial to simultaneously count oversaturated donors and acceptors, and to penalize these simultaneously, with next to no additional computational cost.  By default, this term penalizes both unsatisfied and oversaturated donors and acceptors.
 
 ## Usage
 
