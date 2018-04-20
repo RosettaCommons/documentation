@@ -13,7 +13,7 @@ to be considered as spanning the membrane, the span has to pass these tests:
 3. the span orientation is as required in AddMembrane
 4. no residues that are not in the required spans (plus the flank on either side) are NOT in the membrane
 
-```
+```xml
 <TMsSpanMembrane name="(& string)" required_distance="(10 &real)" min_distance="(20 &real)" flank="(1 &int|)"/>
 ```
 

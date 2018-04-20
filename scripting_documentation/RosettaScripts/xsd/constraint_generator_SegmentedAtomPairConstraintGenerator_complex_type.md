@@ -8,12 +8,12 @@ Generates different atom pair constraints between residues in the same contiguou
 ```xml
 <SegmentedAtomPairConstraintGenerator name="(&string;)" native="(false &bool;)"
         residue_selector="(&string;)" >
-    <Inner sd="(&real;)" weight="(&real;)" ca_only="(&bool;)"
-            use_harmonic="(false &bool;)" unweighted="(false &bool;)"
-            min_seq_sep="(&non_negative_integer;)" />
-    <Outer sd="(&real;)" weight="(&real;)" ca_only="(&bool;)"
-            use_harmonic="(false &bool;)" unweighted="(false &bool;)"
-            max_distance="(&real;)" />
+    <Inner sd="(0.500000 &real;)" weight="(1.000000 &real;)" ca_only="(1 &bool;)"
+            use_harmonic="(0 &bool;)" unweighted="(0 &bool;)"
+            min_seq_sep="(8 &non_negative_integer;)" />
+    <Outer sd="(0.500000 &real;)" weight="(1.000000 &real;)" ca_only="(1 &bool;)"
+            use_harmonic="(0 &bool;)" unweighted="(0 &bool;)"
+            max_distance="(12.000000 &real;)" />
 </SegmentedAtomPairConstraintGenerator>
 ```
 

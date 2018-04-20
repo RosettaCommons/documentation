@@ -5,7 +5,13 @@ An introductory tutorial on scoring biomolecules using Rosetta can be found [her
 Standard Weights File
 =====================
 
-The default score function in Rosetta for scoring full-atom structures is currently **talaris2014**.  This is a slight modification of the **talaris2013** energy function.  The **talaris2013** and **talaris2014** energy functions and their corrections were tested in the papers 
+**REF2015** was developed as beta_nov15 and became the default scorefunction in July 2017. The main changes include  optimization of electrostatic parameters, updated torsion parameters, updated bonded parameters, enabling LJ attraction for hydrogens. For more information see [beta_nov15_updates](https://www.rosettacommons.org/docs/latest/rosetta_basics/scoring/Updates-beta-nov15) and the following paper:
+
+[Park H et al., J Chem Theory Comput. 2016](https://pubs.acs.org/doi/abs/10.1021/acs.jctc.6b00819)
+
+[Alford RF et al., J Chem Theory Comput. 2017](https://pubs.acs.org/doi/abs/10.1021/acs.jctc.7b00125)
+
+The previous score function, **talaris2014**, is a slight modification of the **talaris2013** energy function. The **talaris2013** and **talaris2014** energy functions and their corrections were tested in the papers 
 
 [Leaver-Fay et al., Methods in Enzymology 2013](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3724755/)
 
@@ -54,6 +60,23 @@ ref                                        Reference energy for each amino acid.
 METHOD_WEIGHTS                             Not an energy term itself, but the parameters for each amino acid used by the ref energy term.  A value is provided for each of the 20 canonical alpha-amino acids.  The same value is applied for the equivalent mirror-image D-amino acid.
 ```
 
+Additional energy terms for beta energy functions <a name="[beta_july15/beta_nov15/beta_nov16]" />
+---------------------------------------
+
+```html
+lk_ball                                Anisotropic contribution to the solvation.  Supports arbitrary residue types.
+lk_ball_iso                            Same as fa_sol; see below.  Supports arbitrary residue types.
+lk_ball_wtd                            weighted sum of lk_ball & lk_ball_iso (w1*lk_ball + w2*lk_ball_iso); w2 is negative so that anisotropic contribution(lk_ball) replaces some portion of isotropic contribution (fa_sol=lk_ball_iso).  Supports arbitrary residue types.
+lk_ball_bridge                         Bonus to solvation coming from bridging waters, measured by overlap of the "balls" from two interacting polar atoms.  Supports arbitrary residue types.
+lk_ball_bridge_uncpl                   Same as lk_ball_bridge, but the value is uncoupled with dGfree (i.e. constant bonus, whereas lk_ball_bridge is proportional to dGfree values).  Supports arbitrary residue types.            
+fa_intra_atr_xover4                    Intra-residue LJ attraction, counted for the atom-pairs beyond torsion-relationship.  Supports arbitrary residues types.
+fa_intra_rep_xover4                    Intra-residue LJ repulsion, counted for the atom-pairs beyond torsion-relationship.  Supports arbitrary residues types.
+fa_intra_sol_xover4                    Intra-residue LK solvation, counted for the atom-pairs beyond torsion-relationship.  Supports arbitrary residues types.                 
+fa_intra_elec                          Intra-residue Coulombic interaction, counted for the atom-pairs beyond torsion-relationship.  Supports arbitrary residues types.
+rama_prepro                            Backbone torsion preference term that takes into account of whether preceding amono acid is Proline or not.  Currently supports the 20 canonical alpha-amino acids, their mirror-image D-amino acids, oligoureas, and N-methyl amino acids.  Arbitrary new building-blocks can also be supported provided that an N-dimensional mainchain potential can be generated somehow.
+hxl_tors                               Sidechain hydroxyl group torsion preference for Ser/Thr/Tyr, supersedes yhh_planarity (that covers L- and D-Tyr only).
+```
+
 Additional energy terms for score12 <a name="score12" />
 -----------------------------------
 
@@ -70,23 +93,6 @@ dslf_ca_dih                                Cα dihedral score in current disulfi
 
 The score12 energy function can be used in current Rosetta versions, but the option <code> -restore_pre_talaris_2013_behavior</code> must be passed.
 
-
-Additional energy terms for beta energy functions <a name="[beta_july15/beta_nov15/beta_nov16]" />
------------------------------------
-
-```html
-lk_ball                                Anisotropic contribution to the solvation.  Supports arbitrary residue types.
-lk_ball_iso                            Same as fa_sol; see below.  Supports arbitrary residue types.
-lk_ball_wtd                            weighted sum of lk_ball & lk_ball_iso (w1*lk_ball + w2*lk_ball_iso); w2 is negative so that anisotropic contribution(lk_ball) replaces some portion of isotropic contribution (fa_sol=lk_ball_iso).  Supports arbitrary residue types.
-lk_ball_bridge                         Bonus to solvation coming from bridging waters, measured by overlap of the "balls" from two interacting polar atoms.  Supports arbitrary residue types.
-lk_ball_bridge_uncpl                   Same as lk_ball_bridge, but the value is uncoupled with dGfree (i.e. constant bonus, whereas lk_ball_bridge is proportional to dGfree values).  Supports arbitrary residue types.            
-fa_intra_atr_xover4                    Intra-residue LJ attraction, counted for the atom-pairs beyond torsion-relationship.  Supports arbitrary residues types.
-fa_intra_rep_xover4                    Intra-residue LJ repulsion, counted for the atom-pairs beyond torsion-relationship.  Supports arbitrary residues types.
-fa_intra_sol_xover4                    Intra-residue LK solvation, counted for the atom-pairs beyond torsion-relationship.  Supports arbitrary residues types.                 
-fa_intra_elec                          Intra-residue Coulombic interaction, counted for the atom-pairs beyond torsion-relationship.  Supports arbitrary residues types.
-rama_prepro                            Backbone torsion preference term that takes into account of whether preceding amono acid is Proline or not.  Currently supports the 20 canonical alpha-amino acids, their mirror-image D-amino acids, oligoureas, and N-methyl amino acids.  Arbitrary new building-blocks can also be supported provided that an N-dimensional mainchain potential can be generated somehow.
-hxl_tors                               Sidechain hydroxyl group torsion preference for Ser/Thr/Tyr, supersedes yhh_planarity (that covers L- and D-Tyr only).
-```
 
 Additional Resources
 =====================

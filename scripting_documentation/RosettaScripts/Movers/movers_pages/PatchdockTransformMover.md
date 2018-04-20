@@ -4,7 +4,7 @@
 
 Uses the Patchdock output files to modify the configuration of the pose.
 
-```
+```xml
 <PatchdockTransform name="&string" fname="(&string)" from_entry="(&integer)" to_entry="(&integer)" random_entry="(&bool)"/>
 ```
 

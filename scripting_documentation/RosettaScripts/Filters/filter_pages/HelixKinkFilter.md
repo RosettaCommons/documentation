@@ -2,7 +2,7 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## HelixKink
 
-```
+```xml
 <HelixKink name="(&string)" bend="(20, &Real)" resnums="(&string)" helix_start="(1 &int)"  helix_end="(1 &int)"/>
 ```
 

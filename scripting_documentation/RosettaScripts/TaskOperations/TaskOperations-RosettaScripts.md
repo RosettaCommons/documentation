@@ -8,8 +8,6 @@ The PackerTask can be thought of as an ice sculpture.  By default, everything is
 
 There exist certain commonly-used TaskOperations that one usually should include when designing.  For more information on these, please see the page on [[recommended TaskOperations for design|Recommended_Design_TaskOperations]].
 
-<code> For Developers </code> 
-
 This section defines instances of the TaskOperation class hierarchy when used in the context of the Parser/RosettaScripts. They become available in the DataMap.
 
 

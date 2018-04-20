@@ -2,7 +2,7 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## SecondaryStructure
 
-```
+```xml
 <SecondaryStructure name="(&string, required)"
     residue_selector="(&string, TrueSelector)"
     use_abego="(&int, optional)"
@@ -35,7 +35,7 @@ If compute_pose_secstruct_by_dssp is false (default), the current secondary stru
 
 Example with a blueprint:
 
-```
+```xml
       <SecondaryStructure name="ss_filter1"  use_abego="1" blueprint="input.blueprint" />
 ```
 
@@ -43,7 +43,7 @@ Examples with top7 derived structures
 
 (Input)
 
-```
+```xml
 <FILTERS>
         <SecondaryStructure name="ss" ss="LEEEEEEEELLLLEEEEEEEELLLLHHHHHHHHHHHHHHHLLLEEEEEEELLLHHHHHHHHHHHHHHHHHLLLLhhEEEEELLEEEEEEEL"/>
 </FILTERS>

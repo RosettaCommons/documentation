@@ -4,7 +4,7 @@
 
 Adds a chainbreak at the specified position
 
-```
+```xml
 <AddChainBreak name="(&string)" resnum="(&string)" change_foldtree="(1 &bool)" find_automatically="(0 &bool)" distance_cutoff="(2.5&Real)" remove="(0 &bool)"/>
 ```
 

@@ -4,7 +4,7 @@
 
 This Filter calls [[LoopAnalyzerMover]] to compute a bunch of loop-specific metrics.  You can also try [[GeometryFilter]].
 
-```
+```xml
 <LoopAnalyzerFilter name="&string" use_tracer="(&bool)" loops_file="(&string)" >
     <Loop start="(&int)" stop="(&int)" cut="(&int)" skip_rate="(0.0 &real)" rebuild="(no &bool)"/>
 </LoopAnalyzerFilter>

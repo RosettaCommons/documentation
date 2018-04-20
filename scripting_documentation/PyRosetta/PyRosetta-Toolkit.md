@@ -11,6 +11,11 @@ Intentions
 
 Interactive Modelling, multiprocessing protocols, file export, Rosetta setup, exploration, useful Rosetta functions and analysis. Please feel free to add whatever you feel is useful to users and developers alike. For more information, please refer to the doxygen documentation and paper from the RosettaCon2012 Collection.
 
+Current Code
+------------
+
+The PyRosetta Toolkit has not been ported to PyRosetta-4 unfortunately and is only distributed and comparable with PyRosetta-3. 
+
 Use / Tutorial
 --------------
 

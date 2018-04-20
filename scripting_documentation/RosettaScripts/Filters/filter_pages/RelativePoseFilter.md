@@ -4,7 +4,7 @@
 
 Compute a filter's value relative to a different pose's structure. This is useful for cases in which you want to know the effects of a mutation on different poses. An alignment of the pose being read from disk is made to the currently active pose (through the user defined alignment), and applies any sequence changes to the pose read from disk, while repacking a shell around each mutation. It can then apply a relax mover, report a filter's evaluation and dump a scored pose to disk. Works with symmetric poses as well.
 
-```
+```xml
 <RelativePose name="(&string)" pdb_name="(&string)" filter="(&string)" relax_mover="(null &string)" dump_pose="('' &string)" alignment="(&string; see below)" scorefxn="(score12 &string)" packing_shell="(8.0 &Real)" thread="(1 &bool)" baseline="(1 &bool)" unbound="(0 &bool)" copy_stretch="(1&bool)" rtmin="(0 &bool)" symmetry_definition="('' &string)" copy_comments="('' &comma-delimited list)">
 ```
 

@@ -2,7 +2,7 @@
 
 
 
-Last Doc Update: 9/1/2017
+Last Doc Update: 4/13/2018
 
 
 
@@ -15,11 +15,11 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com); PI: Roland Dunbrack
 
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_Rosetta Antibody Design (RAbD): A General Framework for Computational Antibody Design (Under Review)_
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jared Adolf-Bryfogle, Oleks Kalyuzhniy, Michael Kubitz, Brian D. Weitzner, Xiaozhen Hu, Yumiko Adachi, William R. Schief, Roland L. Dunbrack Jr.
 
-[ Preprint available on Biorxiv](http://www.biorxiv.org/content/early/2017/08/31/183350)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_Rosetta Antibody Design (RAbD): A General Framework for Computational Antibody Design (In Print, Accepted to PLOS Computational Biology)_
+
+[ Preprint available on Biorxiv](https://www.biorxiv.org/content/early/2018/04/12/183350)
 
 
 
@@ -96,6 +96,36 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -random_start
 ```
 
+----------------
+
+#### Optimizing Interface Energy (opt-dG)
+
+**Example 1**
+
+Here, we want to set the protocol to optimize the interface energy during Monte Carlo instead of total energy.  The interface energy is calculated by the [[InterfaceAnalyzerMover]] through a specialized MonteCarlo called **MonteCarloInterface**.   This is useful to improve binding energy and will result in better interface energies.  Resulting models should still be pruned for high total energy.  This was benchmarked in the paper - so please see it for more information.
+
+```
+antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
+-graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -mc_optimize_dG
+```
+
+----------------
+
+
+**Example 2 - Optimizing Interface Energy and Total Score (opt-dG and opt-E)**
+
+Here, we want to set the protocol to optimize the interface energy during Monte Carlo, but we want to add some total energy to the weight.  Because the overall numbers of total energy will dominate the overall numbers, we only add a small weight for total energy.  This has not been fully benchmarked, but if your models have very bad total energy when using opt-dG - consider using it.  
+
+```
+antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
+-graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -mc_optimize_dG \
+-mc_total_weight .001 -mc_interface_weight .999
+
+```
+
+----------------
+
+
 ### Docked Design
 
 **Example 1**
@@ -148,7 +178,7 @@ More complicated design runs can be created by using the Antibody Design Instruc
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda \
--instruction_file my_instruction_file.txt
+-cdr_instructions my_instruction_file.txt
 ```
 
 ## Advanced Settings
@@ -317,7 +347,7 @@ Option  | Description
 `PDBIDs` | Include only or leave out a specific set of PDBIds. This is very useful for benchmarking purposes.
 `Clusters` | Include only or leave out a specific set of Clusters. Useful if the user already knows which clusters are able to interact with antigen, whether this is from previous runs of the program or via homologues. This is also useful for benchmarking. 
 `Germline` | Include only or leave out specific human/mouse germlines. 
-`Species` | Include only or leave out specific species. Very useful limiting possible immune reactions in the final designs.
+`Species` | Include only or leave out specific species. Very useful limiting possible immune reactions in the final designs. 2 Letter designation as used by IMGT.  Hu and Mo for Human and Mouse.
 
 ------------------------
 
@@ -460,11 +490,21 @@ Option | Description
 
 -------------------------------------
 
+**Energy Optimization settings (opt-dG)**
+
+Option | Description
+------------ | -------------
+`-mc_optimize_dG` | Optimize the dG during MonteCarlo.  It is not possible to do this within overall scoring, but where possible, do this during MC calls.  This option does not globally-use the MonteCarloInterface object, but is protocol-specific. This is due to needing to know the interface it will be used on. dG is measured by the InterfaceAnalyzerMover. (**Default=false**)
+`-mc_interface_weight` | Weight of interface score if using MonteCarloInterface with a particular protocol. (**Default=1.0**)
+`-mc_total_weight` | Weight of total score if using MonteCarloInterface with a particular protocol. (**Default=0.0**)
+
+
+-------------------------------------
 **Protocol Rounds**
 
 Option | Description
 ------------ | -------------
-`outer_cycle_rounds` | Rounds for outer loop of the protocol (not for deterministic_graft ).  Each round chooses a CDR and designs. One run of 100 cycles with relax takes about 12 hours. If you decrease this number, you will decrease your run time significantly, but your final decoys will be higher energy.  Make sure to increase the total number of output structures (nstruct) if you use lower than this number.  Typically about 500 - 1000 nstruct is more than sufficient.  Full DeNovo design will require significantly more rounds and nstruct.  If you are docking, runs take about 30 percent longer. (**Default=25**)
+`-outer_cycle_rounds` | Rounds for outer loop of the protocol (not for deterministic_graft ).  Each round chooses a CDR and designs. One run of 100 cycles with relax takes about 12 hours. If you decrease this number, you will decrease your run time significantly, but your final decoys will be higher energy.  Make sure to increase the total number of output structures (nstruct) if you use lower than this number.  Typically about 500 - 1000 nstruct is more than sufficient.  Full DeNovo design will require significantly more rounds and nstruct.  If you are docking, runs take about 30 percent longer. (**Default=25**)
 `-inner_cycle_rounds` | Number of times to run the inner minimization protocol after each graft.  Higher (2-3) rounds recommended for pack/min/backrub mintypes or if including dock in the protocol. (**Default = 1**)
 `-dock_cycle_rounds` | Number of rounds for any docking.  If you are seeing badly docked structures, increase this value. (**Default=1**)
 

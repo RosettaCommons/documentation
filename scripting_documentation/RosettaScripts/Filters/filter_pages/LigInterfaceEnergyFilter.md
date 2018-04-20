@@ -4,7 +4,7 @@
 
 Calculates interface energy across a ligand-protein interface taking into account (or not) enzdes style cst\_energy.
 
-```
+```xml
 <LigInterfaceEnergy name="(&string)"  scorefxn="(&string)" include_cstE="(0 &bool)" jump_number="(last_jump &integer)" energy_cutoff="(0.0 &float)"/>
 ```
 

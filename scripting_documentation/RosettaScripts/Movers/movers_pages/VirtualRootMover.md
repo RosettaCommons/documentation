@@ -4,7 +4,7 @@
 
 Reroot the pose foldtree on a (new) virtual residue. Useful for minimization in the context of absolute frames (coordinate constraints, electron density information, etc.)
 
-```
+```xml
 <VirtualRoot name="(&string)" removable="(&bool false)" remove="(&bool false)" />
 ```
 

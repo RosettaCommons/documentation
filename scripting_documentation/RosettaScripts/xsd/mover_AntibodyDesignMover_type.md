@@ -13,6 +13,8 @@ Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework. Runs the
         graft_design_cdrs="(&string;)" primary_cdrs="(&string;)"
         mintype="(&string;)" instruction_file="(&string;)"
         instructions_file="(&string;)" cdr_instructions_file="(&string;)"
+        mc_optimize_dG="(false &bool;)" mc_interface_weight="(1.0 &real;)"
+        mc_total_weight="(0.0 &real;)"
         design_protocol="(EVEN_CLUSTER_MC &ABdesign_protocols;)"
         interface_dis="(&real;)" neighbor_dis="(&real;)"
         outer_cycles="(&non_negative_integer;)"
@@ -38,11 +40,17 @@ Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework. Runs the
 These should be on for either Sequence-Design or Graft-Design. 
 Normally, the outer cycles are whatever CDRs we are designing, including CDRs which are sequence-design only.  
 Use this if you are primarily interested in specific CDRs (such as graft-designing H3 and allowing H1 and L3 to sequence design during the inner cycle.)
--   **mintype**: Set the mintype for all designign CDRs.  Can be set individually in the CDR instructions file. 
+-   **mintype**: Set the mintype for all designign CDRs.  Default min. Can be set individually in the CDR instructions file.  relax is much more intensive, but takes significantly longer 
  Understood Options: legal = [min, cartmin, relax, backrub, pack, dualspace_relax, cen_relax, none]
 -   **instruction_file**: Path to the CDR instruction file (see application documentation for format)
--   **instructions_file**: used if instruction_file attribute is not specified
--   **cdr_instructions_file**: used if instructions_file attribute is not specified
+-   **instructions_file**: used if instruction_file attribute is not specified. Deprecated option.
+-   **cdr_instructions_file**: used if instructions_file attribute is not specified. Deprecated option.
+-   **mc_optimize_dG**: Optimize the dG during MonteCarlo.  dG is calculated by InterfaceAnalyzer. 
+It is not possible to do this within overall scoring, but where possible, do this during MC calls.
+ This option results in better dGs.  See the options mc_interface_weight and mc_total_weight to control the components of each to the score. 
+ Default is interface weight at 1.0, total weight at 0.
+-   **mc_interface_weight**: Weight of interface score (dG) if using mc_optimize_dG
+-   **mc_total_weight**: Weight of the classic total score if using mc_optimize_dG
 -   **design_protocol**: Sets the design protocol (see app documentation for more information)
 -   **interface_dis**: Set the interface detection distance
 -   **neighbor_dis**: Set the neighbor detection distance

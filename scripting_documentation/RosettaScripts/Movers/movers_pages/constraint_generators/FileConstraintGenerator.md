@@ -4,7 +4,7 @@
 
 Generates constraints from a Rosetta constraint file. Constraints generated using this Constraint Generator can be added to the pose using the [[AddConstraintsMover]] and removed using the [[RemoveConstraintsMover]].
 
-```
+```xml
 <FileConstraintGenerator name="(&string)" filename="(&string)" />
 ```
 
@@ -22,7 +22,7 @@ CoordinateConstraint target_res anchor_res x y z function
 
 This example adds and removes constraints from "my_csts.cst" to the pose using the FileConstraintGenerator.
 
-```
+```xml
 <MOVERS>
     <AddConstraints name="add_csts" >
         <FileConstraintGenerator name="gen_my_csts" filename="my_csts.cst" />

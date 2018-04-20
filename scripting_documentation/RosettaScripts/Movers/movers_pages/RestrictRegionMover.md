@@ -4,7 +4,7 @@
 
 Makes a mutation to a pose, and creates a resfile task which repacks (no design) the mutated residue, and designs the region around the mutation. Residues far from the mutated residue are fixed. The residue to be mutated can be selected by several different metrics (see below). Useful for altering small regions of the pose during optimization without making large sequence changes.
 
-```
+```xml
 <RestrictRegion name="(&string)" type="(&string)" resfile="('' &string)" psipred_cmd="(&string)" blueprint="(&string)" task_operations="(task,task,task)" num_regions="(&int)" scorefxn="()" />
 ```
 
@@ -23,7 +23,7 @@ Makes a mutation to a pose, and creates a resfile task which repacks (no design)
 
 **Example**
 
-```
+```xml
 <SCOREFXNS>
     <ScoreFunction name="SFXN" weights="talaris2013.wts" />
 </SCOREFXNS>

@@ -18,7 +18,7 @@ Note that this filter does not perform any pose modification prior to computatio
 
 Alanine and Glycine have no distinct heavy-atom rotamers. Therefore, the probability score for ALA and GLY will always be 1.0. So, if you are using MAX_PROBABILITY and a residue subset that includes ALA or GLY, the score for the entire residue subset will be 1.0. To avoid this, you can exclude ALA and GLY in your residue selector as below:
 
-```
+```xml
 <RESIDUE_SELECTORS>
    <ResidueName name="ala_gly" residue_name3="ALA,GLY" />
    <Not name="not_ala_gly" selector="ala_gly" />
@@ -29,7 +29,7 @@ Alanine and Glycine have no distinct heavy-atom rotamers. Therefore, the probabi
 </FILTERS>
 ```
 
-```
+```xml
 <RotamerBoltzmannWeight2 name="(&string)"
     residue_selector="('TrueSelector' &string)"
     scorefxn="(talaris2014 &string)"

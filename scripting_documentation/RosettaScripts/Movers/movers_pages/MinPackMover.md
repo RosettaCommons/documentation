@@ -4,7 +4,7 @@
 
 Packs then minimizes a sidechain before calling MonteCarlo on the change. It can be modified with user supplied ScoreFunction or TaskOperation. It does not do backbone, ridged body minimization.
 
-```
+```xml
 <MinPackMover name="&string" scorefxn="('score12' &string)" task_operations="(&string,&string,&string)" nonideal="(0 &bool)" cartesian="(0 &bool)" off_rotamer_pack="(0 &bool)"/>
 ```
 

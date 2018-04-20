@@ -29,7 +29,7 @@ The Ligands subtag is a new feature of AppendAssemblyMover which allows users to
 If ligands are included in an assembly, it is highly recommended that users include the LigandClashRequirement as the ClashRequirement does not detect clashes with ligands. Users may also want to include the LigandScorer in their AssemblyScorers section; this scorer evaluates hydrophobic packing between the assembly and the ligand.
 
 The syntax for defining a ligand is as follows:
-```
+```xml
 <Ligands>
   <Ligand ligand_resnum="(&core::Size;)" ligand_selector="(&string;)" auto_detect_contacts="(true &bool;) pdb_conformers="(&string;) alignment_atoms="(&string;)>
     <Contact contact_resnum="(&core::Size;)" contact_atom_name="(&string;)" ligand_atom_name="(&string;)" />
@@ -56,7 +56,7 @@ If conformer sampling is enabled, it is highly recommended that the user include
 ##Example
 The following is an example RosettaScript using AppendAssemblyMover:
 
-```
+```xml
 <ROSETTASCRIPTS>
   <SCOREFXNS>
   </SCOREFXNS>

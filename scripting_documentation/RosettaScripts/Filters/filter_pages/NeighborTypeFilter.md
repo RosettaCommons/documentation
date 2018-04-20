@@ -4,7 +4,7 @@
 
 Filter for poses that place a neighbour of the types specified around a target residue in the partner protein.
 
-```
+```xml
 <NeighborType name="(neighbor_filter &string)" res_num/pdb_num="(&string)" distance="(8.0 &Real)">
         <Neighbor type="(&3-letter aa code)"/>
 </NeighborType>

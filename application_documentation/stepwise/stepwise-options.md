@@ -14,7 +14,7 @@
      v               v
   StepWiseModelerOptions
 ```
-<sub>*Yes I know about potential issues with multiple inheritance, but I think they're avoided here, and the alternative solutions requires remembering to copy a huge number of options from class to class.</sub>
+<sub>\*Yes I know about potential issues with multiple inheritance, but I think they're avoided here, and the alternative solutions requires remembering to copy a huge number of options from class to class.</sub>
 
 ### Note on spawning a `StepWiseModelerOptions` from `StepWiseMonteCarloOptions`
 ------------------------------------------------------------------------
@@ -25,183 +25,114 @@ There are also some options redundant between StepWiseModelerOptions and StepWis
 
 # Current Smorgasbord of Options
 --------------------------------
-This is sloppy, but following is snapshot of command_line options for options_rosetta.py 
-**must reformat**
-**must annotate**
-```
-	# step-wise assembly options
-	Option_Group( 'stepwise',
-		Option( 's1', 'StringVector',desc="input file(s)"),
-		Option( 's2', 'StringVector',desc="input file(s)"),
-		Option( 'silent1', 'StringVector',desc="input file"),
-		Option( 'silent2', 'StringVector',desc="input file"),
-		Option( 'tags1', 'StringVector',desc="input tag(s)"),
-		Option( 'tags2', 'StringVector',desc="input tag(s)"),
-		Option( 'slice_res1', 'IntegerVector',desc='Residues to slice out of starting file',default=[]),
-		Option( 'slice_res2', 'IntegerVector',desc='Residues to slice out of starting file',default=[]),
-		Option( 'input_res1', 'IntegerVector',desc='Residues already present in starting file',default=[]),
-		Option( 'input_res2', 'IntegerVector',desc='Residues already present in starting file2',default=[]),
-		Option( 'backbone_only1', 'Boolean', desc="just copy protein backbone DOFS, useful for homology modeling"),
-		Option( 'backbone_only2', 'Boolean', desc="just copy protein backbone DOFS, useful for homology modeling"),
-		Option( 'fixed_res', 'IntegerVector', desc='Do not move these residues during minimization.', default=[] ),
-		Option( 'test_encapsulation', 'Boolean', desc="Test ability StepWiseRNA Modeler to figure out what it needs from just the pose - no JobParameters", default="false" ),
-		Option( 'choose_random', 'Boolean', desc="ask swa residue sampler for a random solution", default="false" ),
-		Option( 'num_random_samples', 'Integer', desc="In choose_random/monte-carlo mode, number of samples from swa residue sampler before minimizing best", default="20" ),
-		Option( 'num_pose_minimize','Integer', desc='optional: set_num_pose_minimize by Minimizer', default='0' ),
-		Option( 'atr_rep_screen', 'Boolean', desc='In packing, screen for contacts (but no clash) between partitions before packing',default='true' ),
-		Option( 'align_pdb', 'String', desc='PDB to align to. Default will be -native, or no alignment', default='' ),
-		Option( 'enumerate', 'Boolean', desc="For SWM. Force enumeration (SWA-like) instead of random", default="false" ),
-		Option( 'preminimize', 'Boolean', desc="For SWM. Just prepack and minimize", default="false" ),
-		Option( 'dump', 'Boolean', desc="Dump intermediate silent & PDB files",default="false" ),
-		Option( 'VERBOSE', 'Boolean', desc= "VERBOSE", default='false' ),
-		Option( 'use_green_packer', 'Boolean', desc= "use packer instead of rotamer trials for side-chain packing and O2' optimization", default='false' ),
-		Option( 'rmsd_screen', 'Real', desc="keep sampled residues within this rmsd from the native pose",default="0.0" ),
-		Option( 'skip_minimize', 'Boolean', desc="Skip minimize, e.g. in prepack step",default="false" ),
-		Option( 'sampler_silent_file', 'String', desc='In StepWiseConnectionSampler, where to output all poses that pass filters', default='' ),
-    Option( 'superimpose_over_all', 'Boolean', desc='In final superimposition, do not keep any domains fixed, superimpose over everything',default="false" ),
-		Option( 'move', 'StringVector', desc="For SWM. Format: 'ADD 5 BOND_TO_PREVIOUS 4'", default=[] ),
-		Option( 'min_type', 'String', desc="Minimizer type",default="dfpmin_armijo_nonmonotone" ),
-		Option( 'min_tolerance', 'Real', desc="Minimizer tolerance",default="0.000025" ),
-    Option( 'vary_polar_hydrogen_geometry', 'Boolean', desc='Optimize hydrogens that form hydrogen bonds', default='false' ),
-		Option_Group( 'monte_carlo',
-			Option( 'verbose_scores', 'Boolean', desc= "Show all score components", default='false' ),
-			Option( 'skip_deletions', 'Boolean', desc= "no delete moves -- just for testing", default='false' ),
-#			Option( 'erraser', 'Boolean', desc= "Use KIC sampling", default='true' ),
-			Option( 'allow_internal_hinge_moves', 'Boolean', desc= "Allow moves in which internal suites are sampled (hinge-like motions)", default='true' ),
-			Option( 'allow_internal_local_moves', 'Boolean', desc= "Allow moves in which internal cutpoints are created to allow ERRASER rebuilds", default='false' ),
-			Option( 'allow_skip_bulge', 'Boolean', desc= "Allow moves in which an intervening residue is skipped and the next one is modeled as floating base", default='false' ),
-			Option( 'from_scratch_frequency', 'Real', desc= "Allow modeling of 'free' dinucleotides that are not part of input poses", default='0.1' ),
-			Option( 'allow_split_off', 'Boolean', desc= "Allow chunks that do not contain fixed domains to split off after nucleating on fixed domains.", default='true' ),
-			Option( 'cycles', 'Integer', desc= "Number of Monte Carlo cycles", default='50' ),
-			Option( 'temperature', 'Real', desc= "Monte Carlo temperature", default='1.0' ),
-			Option( 'add_delete_frequency', 'Real', desc= "Frequency of add/delete vs. resampling", default='0.5' ),
-			Option( 'intermolecular_frequency', 'Real', desc= "Frequency of intermolecular (docking) vs. intramolecular folding moves", default='0.2' ),
-			Option( 'minimize_single_res_frequency', 'Real', desc= "Frequency with which to minimize the residue that just got rebuilt, instead of all", default='0.0' ),
-			Option( 'allow_variable_bond_geometry', 'Boolean', desc= "In 10% of moves, let bond angles & distance change", default='true' ),
-			Option( 'switch_focus_frequency', 'Real', desc= "Frequency with which to switch the sub-pose that is being modeled", default='0.5' ),
-			Option( 'just_min_after_mutation_frequency', 'Real', desc= "After a mutation, how often to just minimize (without further sampling the mutated residue)", default='0.5' ),
-			Option( 'local_redock_only', 'Boolean', desc='In ResampleMover, docking partners can change anywhere across connected chains. Force the new partners to be close to the old ones.', default='true' ),
-			Option( 'make_movie', 'Boolean', desc= "create silent files in movie/ with all steps and accepted steps", default='false' ),
-		  Option( 'recover_low', 'Boolean', desc="Output lowest energy model in monte carlo, not the last frame", default='true' ),
-		  Option( 'save_times', 'Boolean', desc="Save modeling time for each model", default='false' ),
-		), # -stepwise:monte_carlo
-		Option_Group( 'rna',
-			Option( 'sampler_num_pose_kept', 'Integer', desc="set_num_pose_kept by ResidueSampler )", default='108' ),
-			Option( 'native_edensity_score_cutoff', 'Real', desc= "native_edensity_score_cutoff", default='-1.0' ), #Fang's electron density code,
-			Option( 'o2prime_legacy_mode', 'Boolean', desc="complete virtualization of O2' hydrogen during sampling, and then complete restoration and packing", default='false' ),
-#			Option( 'allow_virtual_o2prime', 'Boolean', desc= "allow O2' to be virtualized during packing.", default='false' ),
-			Option( 'sampler_perform_phosphate_pack', 'Boolean', desc= "perform terminal phosphate packing inside StepWiseRNA_ResidueSampler", default='true' ),
-			Option( 'distinguish_pucker', 'Boolean', desc= "distinguish pucker when cluster:both in sampler and clusterer", default='true' ),
-			Option( 'finer_sampling_at_chain_closure', 'Boolean', desc= "Samplerer: finer_sampling_at_chain_closure", default='false' ), #Jun 9, 201,
-			Option( 'PBP_clustering_at_chain_closure', 'Boolean', desc= "Samplerer: PBP_clustering_at_chain_closure", default='false' ),
-			Option( 'sampler_allow_syn_pyrimidine', 'Boolean', desc="sampler_allow_syn_pyrimidine", default='false' ), #Nov 15, 2010
-			Option( 'sampler_extra_chi_rotamer', 'Boolean', desc="Samplerer: extra_syn_chi_rotamer", default='false' ),
-			Option( 'sampler_extra_beta_rotamer', 'Boolean', desc="Samplerer: extra_beta_rotamer", default='false' ),
-			Option( 'sampler_extra_epsilon_rotamer', 'Boolean', desc="Samplerer: extra_epsilon_rotamer", default='true' ), #Change this to true on April 9, 2011
-			Option( 'force_centroid_interaction', 'Boolean', desc="Require base stack or pair even for single residue loop closed (which could also be bulges!)", default='false' ), #for SWM
-			Option( 'virtual_sugar_legacy_mode', 'Boolean', desc="In virtual sugar sampling, use legacy protocol to match Parin's original workflow", default='false' ),
-			Option( 'erraser', 'Boolean', desc="Use KIC sampling", default='false' ),
-			Option( 'centroid_screen', 'Boolean', desc="centroid_screen", default='true' ),
-			Option( 'VDW_atr_rep_screen', 'Boolean', desc="classic VDW_atr_rep_screen", default='true' ),
-			Option( 'minimize_and_score_native_pose', 'Boolean', desc="minimize_and_score_native_pose ", default='false' ), #Sept 15, 2010
-			Option( 'rm_virt_phosphate', 'Boolean', desc="Remove virtual phosphate patches during minimization", default='false' ),
-			Option( 'VDW_rep_screen_info', 'StringVector', desc="VDW_rep_screen_info to create VDW_rep_screen_bin ( useful when building loop from large poses )", default=[] ), #Jun 9, 2010
-			Option( 'VDW_rep_alignment_RMSD_CUTOFF', 'Real', desc="use with VDW_rep_screen_info", default='0.001' ), #Nov 12, 2010
-			Option( 'VDW_rep_delete_matching_res', 'StringVector', desc="delete residues in VDW_rep_pose that exist in the working_pose", default=[] ), #Feb 20, 2011
-			Option( 'VDW_rep_screen_physical_pose_clash_dist_cutoff', 'Real', desc="The distance cutoff for VDW_rep_screen_with_physical_pose", default='1.2' ), #March 23, 2011
-			Option( 'integration_test', 'Boolean', desc=" integration_test ", default='false' ), #March 16, 2012
-			Option( 'allow_bulge_at_chainbreak', 'Boolean', desc="Allow sampler to replace chainbreak res with virtual_rna_variant if it looks have bad fa_atr score.", default='true' ),
-			Option( 'parin_favorite_output', 'Boolean', desc=" parin_favorite_output ", default='true' ), #Change to true on Oct 10, 2010
-			Option( 'reinitialize_CCD_torsions', 'Boolean', desc="Samplerer: reinitialize_CCD_torsions: Reinitialize_CCD_torsion to zero before every CCD chain closure", default='false' ),
-			Option( 'sample_both_sugar_base_rotamer', 'Boolean', desc="Samplerer: Super hacky for SQUARE_RNA", default='false' ),
-			Option( 'sampler_include_torsion_value_in_tag', 'Boolean', desc="Samplerer:include_torsion_value_in_tag", default='true' ),
-			Option( 'sampler_assert_no_virt_sugar_sampling', 'Boolean', desc="sampler_assert_no_virt_sugar_sampling", default='false' ), #July 28, 2011
-			Option( 'sampler_try_sugar_instantiation', 'Boolean', desc="for floating base sampling, try to instantiate sugar if it looks promising", default='false' ), #July 28, 2011
-			Option( 'do_not_sample_multiple_virtual_sugar', 'Boolean', desc=" Samplerer: do_not_sample_multiple_virtual_sugar ", default='false' ),
-			Option( 'sample_ONLY_multiple_virtual_sugar', 'Boolean', desc=" Samplerer: sample_ONLY_multiple_virtual_sugar ", default='false' ),
-			Option( 'allow_base_pair_only_centroid_screen', 'Boolean', desc="allow_base_pair_only_centroid_screen", default='false' ), #This only effect floating base sampling + dinucleotide.. deprecate option
-			Option( 'minimizer_rename_tag', 'Boolean', desc="Reorder and rename the tag by the energy_score", default='true' ), #March 15, 2012
-			Option( 'minimize_res', 'IntegerVector', desc='alternative to fixed_res', default=[] ),
-			Option( 'alignment_res', 'StringVector', desc="align_res_list", default=[] ),
-			Option( 'native_alignment_res', 'IntegerVector', desc="optional: native_alignment_res ", default=[] ),
-			Option( 'rmsd_res', 'IntegerVector', desc="residues that will be use to calculate rmsd ( for clustering as well as RMSD to native_pdb if specified )", default=[] ),
-			Option( 'missing_res', 'IntegerVector', desc='Residues missing in starting pose_1, alternative to input_res',default=[] ),
-			Option( 'missing_res2', 'IntegerVector', desc='Residues missing in starting pose_2, alternative to input_res2',default=[] ),
-			Option( 'job_queue_ID', 'Integer', desc="swa_rna_sample()/combine_long_loop mode: Specify the tag pair in filter_output_filename to be read in and imported ( start from 0! )", default='0' ),
-			Option( 'minimize_and_score_sugar', 'Boolean', desc="minimize and sugar torsion + angle? and include the rna_sugar_close_score_term ", default='true' ),
-			Option( 'global_sample_res_list', 'IntegerVector', desc="A list of all the nucleotide to be build/sample over the entire dag.",default=[] ),
-			Option( 'filter_output_filename', 'File', desc="CombineLongLoopFilterer: filter_output_filename", default="filter_struct.txt" ),
-			Option( 'combine_long_loop_mode', 'Boolean', desc=" Sampler: combine_long_loop_mode ", default="false" ),
-			Option( 'combine_helical_silent_file', 'Boolean', desc="CombineLongLoopFilterer: combine_helical_silent_file", default="false" ),
-			Option( 'output_extra_RMSDs', 'Boolean', desc="output_extra_RMSDs", default="false" ),
-			Option( 'protonated_H1_adenosine_list', 'IntegerVector', desc="optional: protonate_H1_adenosine_list", default=[] ),
-			Option( 'native_virtual_res', 'IntegerVector', desc=" optional: native_virtual_res ", default=[] ),
-			Option( 'simple_append_map', 'Boolean', desc="simple_append_map", default="false" ),
-			Option( 'allow_fixed_res_at_moving_res', 'Boolean', desc="mainly just to get Hermann Duplex modeling to work", default="false" ),
-			Option( 'force_user_defined_jumps', 'Boolean', desc="Trust and use user defined jumps", default="false" ),
-			Option( 'jump_point_pairs', 'StringVector', desc="optional: extra jump_points specified by the user for setting up the fold_tree ", default=[] ),
-			Option( 'add_virt_root', 'Boolean', desc="add_virt_root", default="false" ),
-			Option( 'floating_base', 'Boolean', desc=" floating_base ", default="false" ),
-			Option( 'floating_base_anchor_res', 'Integer', desc="If we want floating base to be connected via a jump to an anchor res (with no intervening virtual residues), specify the anchor.", default="0" ),
-			Option( 'allow_chain_boundary_jump_partner_right_at_fixed_BP', 'Boolean', desc="mainly just to get Hermann nano - square RNA modeling to work", default="false" ),
-			Option( 'bulge_res', 'IntegerVector', desc="optional: residues to be turned into a bulge variant", default=[] ),
-			Option( 'rebuild_bulge_mode', 'Boolean', desc="rebuild_bulge_mode", default="false" ),
-			Option( 'virtual_sugar_keep_base_fixed', 'Boolean', desc="When instantiating virtual sugar, keep base fixed -- do not spend a lot of time to minimize!", default="true" ),
-			Option( 'virtual_sugar_do_minimize', 'Boolean', desc="When instantiating virtual sugar, minimize (as in original SWA code) -- takes extra time!", default="true" ),
-			Option( 'sampler_max_centroid_distance', 'Real', desc="max centroid distance of moving base to reference in floating base sampler", default='0.0' ), #Nov 12, 2010
-			Option( 'filter_user_alignment_res', 'Boolean', desc=" filter_user_alignment_res ", default="true" ),
-			Option( 'tether_jump', 'Boolean', desc="In rigid body moves, keep moving residue close to (jump-connected) reference residue  (8.0 A) and force centroid interaction between them", default="true" ),
-			Option( 'turn_off_rna_chem_map_during_optimize', 'Boolean', desc="When using rna_chem_map, only score with this after minimizing (takes too long to compute during optimizing).", default="true" ),
-		), # -stepwise:rna
-		Option_Group( 'protein',
-			Option( 'global_optimize', 'Boolean', desc="In clustering, packing, minimizing, use all residues.",default="false" ),
-			Option( 'disable_sampling_of_loop_takeoff', 'Boolean', desc="For KIC protein loop closure, disallow sampling of psi at N-terminus and phi at C-terminus takeoff residues",default="false" ),
-			Option( 'sample_beta', 'Boolean', desc="sample beta strand pairing -- later need to specify parallel/antiparallel",default="false" ),
-			Option( 'ghost_loops', 'Boolean', desc="Virtualize loops in centroid screening",default="false" ),
-			Option( 'centroid_screen', 'Boolean', desc="Centroid Screen",default="false" ),
-			Option( 'centroid_score_diff_cut', 'Real', desc="If doing -centroid_screen, only keep poses whose energies are within this energy of reference..",default="20.0" ),
-			Option( 'centroid_weights', 'String', desc="weights for centroid filter",default="score3.wts" ),
-			Option( 'score_diff_cut', 'Real', desc="score difference cut for clustering",default="10.0" ),
-			Option( 'filter_native_big_bins', 'Boolean', desc="Figure out various terms for score12",default="false" ),
-			Option( 'cluster_by_all_atom_rmsd', 'Boolean', desc="cluster by all atom rmsd",default="false" ),
-			Option( 'centroid_output', 'Boolean', desc="output centroid structure during screening",default="false" ),
-			Option( 'n_sample', 'Integer', desc="number of samples per torsion angle",default="18" ),
-			Option( 'nstruct_centroid', 'Integer', desc="Number of decoys to output from centroid screening",default="0" ),
-			Option( 'ccd_close', 'Boolean', desc="Close loops with CCD",default="false" ),
-			Option( 'bridge_res', 'IntegerVector', desc="instead of enumerative sampling of backbone torsions, combine silent files that contains pieces of loops", default=[] ),
-			Option( 'cart_min', 'Boolean', desc="Use cartesian minimizer",default="false" ),
-			Option( 'move_jumps_between_chains', 'Boolean', desc="Move all jumps",default="false" ),
-			Option( 'use_packer_instead_of_rotamer_trials', 'Boolean', desc="Use packer instead of rotamer trials in residue sampling",default="false" ),
-			Option( 'expand_loop_takeoff', 'Boolean', desc="expand -sample_res loop to include connection to previous/next residues",default="false" ),
-			Option( 'skip_coord_constraints', 'Boolean', desc='Skip first stage of minimize with coordinate constraints',default='false' ),
-			Option( 'allow_virtual_side_chains', 'Boolean', desc='In packing, allow virtual side chains',default='true' ),
-			Option( 'protein_prepack', 'Boolean', desc='In packing, prepack separate partitions',default='true' ),
-		), # -stepwise:protein
-	), # -stepwise
+The following is just a subset of the options that are technically *available* to your use; this list has been curated based on what has been well-validated. Some options that mostly played a role with legacy code or extra debugging output have also been omitted.
 
-	################################
-	# full_model_info --> may replace stepwise stuff above.
-	Option_Group( 'full_model',
-		Option( 'cutpoint_open',   'ResidueChainVector',desc='open cutpoints in full model',default=[]),
-		Option( 'cutpoint_closed', 'ResidueChainVector',desc='closed cutpoints in full model',default=[]),
-		Option( 'other_poses', 'StringVector',desc='list of PDB files containing other poses'),
-		Option( 'extra_min_res', 'ResidueChainVector', desc= "specify residues other than those being built that should be minimized", default=[] ),
-		Option( 'jump_res', 'ResidueChainVector', desc= "optional: residues for defining jumps -- please supply in pairs", default=[] ),
-		Option( 'root_res', 'ResidueChainVector', desc= "optional: desired root res (used in SWM move testing)", default=[] ),
-		Option( 'virtual_sugar_res', 'ResidueChainVector', desc= "optional: starting virtual sugars (used in SWM move testing)", default=[] ),
-		Option( 'virtual_res', 'ResidueChainVector', desc="optional: residues for defining virtual residues", default=[] ),
-		Option( 'sample_res', 'ResidueChainVector', desc="residues to build (for SWA, the first element is the actual sample res while the other are the bulge residues)", default=[] ),
-		Option( 'calc_rms_res', 'ResidueChainVector', desc="residues over which to calculate rms for SWA. Not in wide use anymore.", default=[] ),
-		Option( 'working_res', 'ResidueChainVector', desc="residues that are being built [by default will be set from sample_res and any input pdbs]", default=[] ),
-		Option_Group( 'rna',
-			Option( 'terminal_res', 'ResidueChainVector', desc="optional: residues that are not allowed to stack during sampling", default=[] ),
-			Option( 'force_syn_chi_res_list', 'ResidueChainVector', desc="optional: sample only syn chi for the res in sampler.", default=[] ),
-			Option( 'force_north_sugar_list', 'ResidueChainVector', desc="optional: sample only north sugar for the res in sampler.", default=[] ),
-			Option( 'force_south_sugar_list', 'ResidueChainVector', desc="optional: sample only south sugar for the res in sampler.", default=[] ),
-		), # -full_model:rna
-	), # -full_model
+  * `-stepwise:` options
+    * `-stepwise:fixed_res` -- A selection of residues, provided as integers, that must not be allowed to move during minimization
+    * `-stepwise:num_random_samples` -- How many random samples should be taken forward to minimization from the StepwiseSampleAndScreen process? Default is 20.
+    * `-stepwise:max_tries_multiplier_for_ccd` -- By what factor should stepwise multiply the above option value for moves requiring CCD loop closure (i.e., proteins)? Default is 10.
+    * `-stepwise:atr_rep_screen` -- Do we want to screen generated conformations to ensure that distinct partitions (for example, starting residues vs. those being built) have some minimal amount of good attractive interactions but no clashes? Default true.
+    * `-stepwise:atr_rep_screen_for_docking` -- The same as atr_rep_screen, but only applies to docking moves
+    * `-stepwise:align_pdb` -- A structure that typically contains a subset of the native structure, to which to constrain the modeling problem (using coordinate constraints on each atom, leaving un-penalized any distance up to `-rmsd_screen`) 
+    * `-stepwise:new_align_pdb` -- Similar to the above, but the penalty is based on the all-atom RMSD to the `-new_align_pdb` structure, resulting in a penalty that grows much more gently and naturally. Use with `-set_weights alignment 1.0` to turn on the scoring term that enforces this constraint.
+    * `-stepwise:enumerate` -- Force enumeration on every move instead of the selection of `-stepwise:num_random_samples` random samples (default false).
+    * `-stepwise:preminimize` -- Only performn the premininimization stage (intended as a quick check; default false)
+    * `-stepwise:skip_preminimize` -- Totally skip preminimization (default false) but otherwise proceed through the simulation as normal
+    * `-stepwise:minimize_waters` -- In the stepwise mode that explicitly models and hydrates any magnesium ions present, pre-minimizes the waters (default false)
+    * `-stepwise:test_all_moves` -- Quickly test all possible moves coming from the starting pose, recursing through additions (default false)
+    * `-stepwise:use_green_packer` -- By default stepwise uses 'rotamer trials' to pack sidechains or O2' hydrogens; with this flag true, it will use a packer
+    * `-stepwise:rmsd_screen` -- In the presence of `-align_pdb`, `-new_align_pdb`, or `-native`, this option controls the tightness (in Angstroms) of either all-atom coordinate constraints or a direct evaluation of a penalty function on the RMSD.
+    * `-stepwise:skip_minimize` -- Skips initialminimization, but still prepacks (default false)
+    * `-stepwise:superimpose_over_all` -- Superimposes over all residues (all input plus all built residues); default true
+    * `-stepwise:alignment_anchor_res` -- If you pass `-superimpose_over_all false`, you should supply this option: a residue (as chain:resnum) that defines an input domain over which superposition should happen.
+    * `-stepwise:move` -- A single move to execute in Stepwise Monte Carlo. Format is like 'ADD A:5 BOND_TO_PREVIOUS A:4'
+    * `-stepwise:output_minimized_pose_list` -- Output all minimized poses after each move. Default to true in stepwise assembly legacy code, but false for SWM.
+    * `-stepwise:virtualize_free_moieties_in_native` -- Virtualize any groups in the native pose that aren't making any detectable contacts. This omits them from RMSD calculations.
+    * `-stepwise:lores` -- Instead of minimizing after every move, do fragment insertion moves with the coarse-grained energy function. Also adds a bunch of base pairs as submotifs to the SubMotifLibrary. Default false.
+    * `-stepwise:definitely_virtualize` -- Specified by integer seqpos, particular residues from the native that should be virtualized *even if* they are making contacts. (This helps sometimes to compare slightly dissimilar stepwise runs.)
 
-```
+  * `stepwise:monte_carlo:` options
+    * `-stepwise:monte_carlo:cycles` -- Number of Monte Carlo cycles to conduct (default 50). 'Production' runs should probably use 200-2000 depending on problem difficulty. Very large problems may require 5-10000.
+    * `-stepwise:monte_carlo:temperature` -- Temperature of Monte Carlo simulation (default 1.0).
+    * `-stepwise:monte_carlo:skip_deletions` -- For testing, skip any delete moves (default false)
+    * `-stepwise:monte_carlo:allow_internal_hinge_moves` -- Allow moves where internal residues are sampled freely, causing a hinge like motion in an entire chain (default true).
+    * `-stepwise:monte_carlo:allow_internal_local_moves` -- Allow internal moves where residues are sampled then closed with KIC (default true).
+    * `-stepwise:monte_carlo:allow_skip_bulge` -- Allow moves that skip possibly 'bulged residues' instead modeling the subsequent residue as being connected by a jump (default false).
+    * `-stepwise:monte_carlo:skip_bulge_frequency` -- The rate at which 'skip bulge' moves are proposed, as a fraction of 'normal' add moves (default 0.0)
+    * `-stepwise:monte_carlo:from_scratch_frequency` -- Allows modeling of 'free' dinucleotides, thereby creating a new 'other_pose' (default 0.1).
+    * `-stepwise:monte_carlo:allow_split_off` -- Allow the separation of chunks of instantiated RNA into a new 'other_pose' (default true).
+    * `-stepwise:monte_carlo:add_proposal_density_factor` -- Increase/decrease the proposal_density_ratio for add moves by this factor (default 1.0).
+    * `-stepwise:monte_carlo:add_delete_frequency` -- Controls the relative frequency of add/delete moves versus resample moves (default 0.5).
+    * `-stepwise:monte_carlo:docking_frequency` -- The frequency of moves to dock different domains versus sample folding (intramolecular) degrees of freedom (default 0.2)
+    * `-stepwise:monte_carlo:submotif_frequency` -- The frequency to add a 'submotif', which is essentially a pre-made ideal segment of RNA whose addition can be detected from sequence alone, e.g., a UA_handle (default 0.2).
+    * `-stepwise:monte_carlo:allow_submotif_split` -- Allow submotifs to be split (so, for example, one residue can be deleted with the other remaining). This breaks detailed balance (default false).
+    * `-stepwise:monte_carlo:force_submotif_without_intervening_bulge` -- Only add submotifs if both ends can be chain-connected immediately (one attachment; one closed cutpoint); do not permit a bulge to follow one residue (default false).
+    * `-stepwise:monte_carlo:use_first_jump_for_submotif` -- Stepwise `-lores` reads in a bunch of jumps for the `SubMotifLibrary`; this flag ensures that only the first conformation for every base pair can be selected. Helps get more submotif moves for base pairs that are slightly less common (default false).
+    * `-stepwise:monte_carlo:exclude_submotifs` -- Exclude specific submotifs from the list in `database/sampling/rna/submotif/submotifs.txt`; useful if you want to do a retrospective modeling challenge where you want to use submotifs, but nothing taken from the PDB you're modeling
+    * `-stepwise:monte_carlo:minimize_single_res_frequency` -- Frequency to minimize only the added residue rather than all minimization-active residues (default 0.0).
+    * `-stepwise:monte_carlo:allow_variable_bond_geometry` -- Allow bond angles and distances to change in 10% of moves (default true, but only available through legacy minimizer).
+    * `-stepwise:monte_carlo:switch_focus_frequency` -- Frequency at which we change which input chunk of RNA is being actively modeled (default 0.5)
+    * `-stepwise:monte_carlo:just_min_after_mutation_frequency` -- For mutation moves, how frequently should dof sampling be skipped (default 0.5)
+    * `-stepwise:monte_carlo:local_redock_only` -- The ResampleMover can change which residues, between two docked chains, are assigned as the jump partners. This flag (default true) ensures that the new residues have to be within 8.0A of the old ones.
+    * `-stepwise:monte_carlo:make_movie` -- Output the trial and accepted state for every cycle of Monte Carlo into 'movie' output files (default false).
+    * `-stepwise:monte_carlo:recover_low` -- Output the lowest energy model sampled, rather than the last frame (default true).
+    * `-stepwise:monte_carlo:use_precomputed_library` -- Makes FROM_SCRATCH moves sample dinucleotide conformations from a library on disk rather than explicitly (default true).
+    * `-stepwise:monte_carlo:vary_loop_length_frequency` -- So, if you have a stretch of M 'n's in your fasta file (that is, you're doing design on M residues), in theory maybe you are okay with *up to* M residues for that loop. `-vary_loop_length_frequency allows these loops to shorten (default 0.0).
+    * `-stepwise:monte_carlo:designing_with_noncanonicals` -- If 'n' can mean more than just four nucleotides, we need to work through a very different code-path, so this possibility has to be specified (there is a hardcoded possible universe of noncanonicals to work with). This needs work; ideally, we would just use resfile language here.
+    * `-stepwise:monte_carlo:checkpointing_frequency` -- Controls how often to output `.checkpoint` files. The default (every 100 cycles) is probably fine.
+    * `-stepwise:monte_carlo:full_model_constraints` -- Constraints that only make sense in the context of the full model pose. These constraints are read in by the `StepWiseModeler` every cycle and applied if and only if the residue 'already exists'.
+    * `-stepwise:monte_carlo:csa:` options (these control the special Conformational Space Annealing job distributor and don't do anything unless it is active)
+      * `-stepwise:monte_carlo:csa:csa_bank_size` -- Providing this flag activates the CSA job distributor, and instructs it to keep a 'bank' of this many models (default 0).
+      * `-stepwise:monte_carlo:csa:csa_rmsd` -- RMSD cutoff below which two `Pose`s are considered 'the same' (thereby keeping only the lower energy example in the bank) (default 1.0).
+      * `-stepwise:monte_carlo:csa:csa_output_rounds` -- Output silent files at intermediate stages (all the integral multiples of the `-csa_bank_size`) (default false). 
+      * `-stepwise:monte_carlo:csa:annealing` -- Actually do RMSD annealing, per the original concept of CSA, rather than obeying the fixed `csa_rmsd`. The original papers suggested using 10 rounds to move from half the average distance between the models that filled the first bank to one-fifth of that distance (default false).
+            
+  * `stepwise:polar_hydrogens:` options
+    * `stepwise:polar_hydrogens:vary_polar_hydrogen_geometry` -- Optimize the bond geometry of any hydrogens forming hydrogen bonds (default false).
+    * `stepwise:polar_hydrogens:bond_angle_sd_polar_hydrogen` -- If the above is true, what should be the constraint minimum for the hydrogen bond angle? (default 60.0).
+    * `stepwise:polar_hydrogens:bond_torsion_sd_polar_hydrogen` -- If the above is true, what should be the constraint minimum for the hydrogen bond torsion? (default 30.0).
+    * `stepwise:polar_hydrogens:fix_lengths` -- Don't let bond lengths move at all (default false).
+    * `stepwise:polar_hydrogens:fix_angles` -- Don't let bond angles move at all (default false).
+    * `stepwise:polar_hydrogens:fix_torsions` -- Don't let bond torsions move at all (default false).
+    * `stepwise:polar_hydrogens:disallow_pack_polar_hydrogens` -- Don't initially pack polar hydrogens before minimizing (default false).
+    * `stepwise:polar_hydrogens:disallow_vary_geometry_proton_chi` -- Omit the 2'-OH from the above considerations (default false), i.e., just do base polar hydrogens.
+
+  * `stepwise:protein:` options
+    * `-stepwise:protein:global_optimize` -- Always cluster/pack/minimize over all residues (default false).
+    * `-stepwise:protein:disable_sampling_of_loop_takeoff` -- Do'nt sample psi of the N-terminal residue or phi of the C-terminal residue relative to a loop of moving residues.
+    * `-stepwise:protein:n_sample` -- Number of samples on every backbone torsion angle (default 18). Because RESAMPLE moves can affect multiple residues, setting this much higher than 36 becomes explosively slow.
+    * `-stepwise:protein:cart_min` -- Use the cartesian minimizer (it's recommended to have `-set_weights cart_bonded 1.0 ring_close 0.0 pro_close 0.0` on your command line for your scoring function if you do this)
+    * `-stepwise:protein:use_packer_instead_of_rotamer_trials` -- Much as `-use_green_packer` for RNA, this flag ensures that sidechains are packed using a proper packer algorithm rather than rotamer trials (default false)
+    * `-stepwise:protein:expand_loop_takeoff` -- Also sample an additional pair of residues on each side of the loop.
+    * `-stepwise:protein:allow_virtual_side_chains` -- On proteins, SWM allows the virtualization of side chains, since these artificial loop problems often lead to highly penalized exposed residues. Bad per-residue scores makes it hard to get residues added with reasonable reference energies. Letting side chains be virtual when they're not making any contacts helps this a lot (default true). 
+
+  * `full_model:` options (generally have to do with designation of specific residues from the "full modeling problem" to have special behaviors; specify all residues for these cases as chain:resnum)
+    * `-full_model:global_seq_file` -- A fasta-formatted file with the 'global sequence.' Essentially, the full target modeling problem may nonetheless be a subset extracted from a larger RNA structure like a whole ribosome, for speed. But if you want to calculate the secondary structure partition function you want to use the whole, monomeric RNA. This lets you do that.
+    * `-full_model:cutpoint_open` -- Residues that, even once the model will be finished, will be *open* cutpoints. For example, all chain endings have this trait by defailt.
+    * `-full_model:cutpoint_closed` -- Residues that, even once the model will be finished, will be *closed* cutpoints. Places where numbering jumps because a loop has been closed with a shorter length than before might have this property.
+    * `-full_model:cyclize` -- Pairs of residues: the first is a 3' terminus of one chain, and the second is the 5' terminus of that same chain. They are given closed cutpoint variants and scored by the chainbreak scoring terms.
+    * `-full_model:twoprime` -- Pairs of residues: the first is any residue with a free 2' OH, and the second is the 5' terminus of some chain. They are given closed cutpoint variants (well, essentially) and scored by a scoring term analagous to chainbreak. 
+    * `-full_model:fiveprime_cap` -- Residues that need to have a 5' cap applied with a corresponding 7-methyl guanosine.
+    * `-full_model:jump_res` -- Explicit residue specification of good places for jumps (rigid body offsets)
+    * `-full_model:disulfide_res` -- Explicit residue specification of where disulfides might need to form during the course of simulation (useful for protein and peptide modeling problems).
+    * `-full_model:extra_min_res` -- Residues (other than those that are being built) that should be reminimized every cycle.
+    * `-full_model:extra_min_jump_res` -- Jumps (specified by their residue termini) that should be reminimized every cycle.
+    * `-full_model:root_res` -- Specify a preferred root for your modeling problem (testing only).
+    * `-full_model:sample_res` -- Specify residues that must be sampled. Useful when you are providing a starting structure with residues you would nonetheless like to see deleted and resampled.
+    * `-full_model:calc_rms_res` -- The residues over which RMSD should be calculated. Not in wide use outside of SWA; which usually overrides this with its own impression of what's reasonable (depending on the situation, it's "all moving residues" or based on `-superimpose_over_all`)
+    * `-full_model:working_res` -- All residues that are going to be built. By default, this is all input PDBs plus all sample_res (which would include everything listed in the fasta file, too).
+    * `-full_model:motif_mode` -- Ensures for fixed residue problems that the closing base pair of every helix is `-extra_minimize_res` and that stacking is disabled for any terminal residues. Defaults to false, but passing this flag is a good starting point for a 'trial run'; you may then want to refine your own personalized selection of `-extra_minimize_res`, `-terminal_res`, and `-block_stack_*_res`.
+    * `-full_model:allow_jump_in_numbering` -- Doesn't assume a cutpoint in cases where residue numbers are nonconsecutive; particularly useful for design scenarios (default false).
+    * `-full_model:rna:` options
+    * `-full_model:rna:terminal_res` -- Residues that cannot stack during sampling, in either direction
+    * `-full_model:rna:block_stack_above_res` -- Residues to which special 'repulsive-only' atoms are added to prevent stacking 'above' the base. The 3'-most residue of a helix that does not make a coaxial stack could have this variant.
+    * `-full_model:rna:block_stack_below_res` -- Residues to which special 'repulsive-only' atoms are added to prevent stacking 'below' the base. The 5'-most residue of a helix that does not make a coaxial stack could have this variant.
+    * `-full_model:rna:force_syn_chi_res_list` -- Residues whose chi1 (the glycosidic torsion) must be 'syn'. Anti samples are just omitted by the sampler.
+    * `-full_model:rna:force_anti_chi_res_list` -- Residues whose chi1 (the glycosidic torsion) must be 'anti'. Syn samples are just omitted by the sampler.
+    * `-full_model:rna:force_north_sugar_list` -- Residues whose sugar pucker is forced to be 'north'.
+    * `-full_model:rna:force_south_sugar_list` -- Residues whose sugar pucker is forced to be 'south'.
+    * `-full_model:rna:bulge_res` -- Residues that should be made into a 'bulge variant' rather than built explicitly.
+    * `-full_model:rna:sample_sugar_res` -- Residues that, despite having been provided as a fixed chunk of RNA, have sugars that should be resampled.
 
 ---
 Go back to [[StepWise Overview|stepwise-classes-overview]].

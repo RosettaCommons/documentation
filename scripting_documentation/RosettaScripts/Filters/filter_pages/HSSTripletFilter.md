@@ -3,7 +3,7 @@
 ## HSSTriplet
 
 Evaluate the given helix-strand-strand triplets. Calculates distance between strand pair and helix, and the angle between the plane of the sheet and the helix. Returns true if the distance is between min_dist and max_dist, and if the angle is between min_angle and max_angle. Also can report a value based on output_id and output_type.
-```
+```xml
 <HSSTriplet name="(&string)" hsstriplets="('' &string)" blueprint="('' &string)" min_dist="(7.5 &Real)" max_dist="(13.0 &Real)" min_angle="(-12.5 &Real)" max_angle="(90.0 &Real)" output_id="(1 &bool)" output_type="('dist' &string)" />
 ```
 

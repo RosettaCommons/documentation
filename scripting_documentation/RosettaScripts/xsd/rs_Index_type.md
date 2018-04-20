@@ -7,10 +7,11 @@ The ResidueIndexSelector sets the positions corresponding to the residues given 
 
 ```xml
 <Index name="(&string;)" resnums="(&resnum_list_with_ranges;)"
-        error_on_out_of_bounds_index="(true &bool;)" />
+        error_on_out_of_bounds_index="(true &bool;)" reverse="(false &bool;)" />
 ```
 
 -   **resnums**: List of residue numbers to use
 -   **error_on_out_of_bounds_index**: If true (the default), this selector throws an error if an index is selected that is not in the pose (e.g. residue 56 of a 55-residue structure).  If false, indices that don't exist in the pose are silently ignored.
+-   **reverse**: If true(default false), this selector reverses the index. So 1-50  selects the last 50 residues of a protein
 
 ---

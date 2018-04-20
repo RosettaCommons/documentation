@@ -11,6 +11,8 @@ Performs a monte carlo search of the ligand binding site using precomputed scori
         temperature="(&real;)" rmsd="(&real;)" cycles="(&non_negative_integer;)"
         repeats="(1 &non_negative_integer;)"
         optimize_until_score_is_negative="(false &bool;)"
+        use_constraints="(false &bool;)" cst_fa_file="(&string;)"
+        cst_fa_weight="(1.0 &non_negative_real;)"
         initial_perturb="(0.0 &non_negative_real;)"
         initial_angle_perturb="(0.0 &non_negative_real;)"
         grid_set="(default &string;)" />
@@ -26,6 +28,9 @@ Performs a monte carlo search of the ligand binding site using precomputed scori
 -   **cycles**: (REQUIRED) Total number of steps to be performed in the monte carlo simulation.
 -   **repeats**: Total number of repeats of the monte carlo simulation to be performed.
 -   **optimize_until_score_is_negative**: Continue sampling beyond "cycles" if score is positive
+-   **use_constraints**: Adjust scores based on constraint file input
+-   **cst_fa_file**: Full atom constraint file to read constraints from
+-   **cst_fa_weight**: Weight for full atom constraints. Default of 1.0
 -   **initial_perturb**: Make an initial, unscored translation and rotation Translation will be selected uniformly in a sphere of the given radius (Angstrom).Triggers 360 degress rotations are triggered.
 -   **initial_angle_perturb**: Control the size of the rotational perturbation by intitial_perturb. (Degrees)
 -   **grid_set**: The Scoring Grid set to use with Transform scoring

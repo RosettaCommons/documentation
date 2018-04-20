@@ -19,8 +19,10 @@ HybridizeMover works as basic sampling unit during overall iterative global ener
 Sergey Ovchinnikov, Hahnbeom Park, Neha Varghese, Po-Ssu Huang, Georgios A. Pavlopoulos, David E. Kim, Hetunandan Kamisetty, Nikos C. Kyrpides, David Baker. 
 Science 2017, 355:294-298.
 
-Protein homology model refinement by large scale energy optimization. 
-Hahnbeom Park, Sergey Ovchinnikov, David E Kim, Frank DiMaio, and David Baker. Submitted.
+[Protein homology model refinement by large scale energy optimization]
+(http://www.pnas.org/content/115/12/3054).
+Hahnbeom Park, Sergey Ovchinnikov, David E Kim, Frank DiMaio, and David Baker. 
+Proc Natl Acad Sci USA 2018. 
 
 ## Algorithm
 
@@ -138,9 +140,10 @@ Alternately, structure averaging on full trajectory can be performed:
 
     $ROSETTA/main/source/bin/avrg_silent.linuxgccrelease -database $ROSETTADB \
     -in:file:template_pdb iter_[niter]/model1.pdb -out:prefix avrg \
+    -cm:similarity_cut 0.5 \
     -in:file:silent gen.total.out -silent_read_through_errors > avrg.log
 
-"avrg.relaxed.pdb" generated after this command is structure-averaged + regularized model. 
+"avrg.relaxed.pdb" generated after this command is structure-averaged + regularized model. -cm:similarity_cut takes the same structural distance metric described for iterhybrid_selector app; smaller the close structures are, and roughly 0.2 is family-level similarity, 0.6 is fold-level similarity.
 
 See [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 

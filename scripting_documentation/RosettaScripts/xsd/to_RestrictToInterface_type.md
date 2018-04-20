@@ -7,10 +7,11 @@ XRW TO DO
 
 ```xml
 <RestrictToInterface name="(&string;)" jump="(1 &non_negative_integer;)"
-        distance="(8 &real;)" />
+        distance="(8 &real;)" include_all_water="(false &bool;)" />
 ```
 
 -   **jump**: XRW TO DO
 -   **distance**: XRW TO DO
+-   **include_all_water**: add all water to interface
 
 ---

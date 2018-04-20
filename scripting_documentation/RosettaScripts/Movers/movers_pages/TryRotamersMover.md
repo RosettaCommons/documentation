@@ -4,7 +4,7 @@
 
 Produces a set of rotamers from a given residue. Use after [AtomTree](#AtomTree) to generate inverse rotamers of a given residue.
 
-```
+```xml
 <TryRotamers name="(&string)" pdb_num/res_num="(&string)" automatic_connection="(1 &bool)" jump_num="(1, &Integer)" scorefxn="(score12 &string)" explosion="(0 &integer)" shove="(&comma-separated residue identities)"/>
 ```
 

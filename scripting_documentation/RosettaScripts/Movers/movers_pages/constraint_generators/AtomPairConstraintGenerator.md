@@ -15,7 +15,7 @@ Remember that to have effect, the atom_pair_constraint scoreterm must be on in t
 
 This example adds and removes distance constraints to sheet residues only, and uses the pose specified by -in:file:native to obtain the coordinates.
 
-```
+```xml
 <RESIDUE_SELECTORS>
     <SecondaryStructure name="sheet" ss="E" use_dssp="1" />
 </RESIDUE_SELECTORS>
@@ -35,7 +35,7 @@ This example adds and removes distance constraints to sheet residues only, and u
 
 ### Example 2
 
-```
+```xml
 <RESIDUE_SELECTORS>
     <SecondaryStructure name="sheet" ss="E" use_dssp="1" />
     <SecondaryStructure name="alpha" ss="H" use_dssp="1" />

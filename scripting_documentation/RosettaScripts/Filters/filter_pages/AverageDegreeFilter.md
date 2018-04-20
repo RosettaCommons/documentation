@@ -4,7 +4,7 @@
 
 What is the average degree connectivity of a subset of residues? Found to be useful for discriminating non-interacting designs from natural complexes. Apparently, many non-interacting designs use surfaces that are poorly embedded in the designed monomer, a feature that can be easily captured by this simple metric. See Fleishman et al. J. Mol. Biol. 414:289
 
-```
+```xml
 <AverageDegree name="(&string)" threshold="(0&Real)" distance_threshold="(&10.0)" task_operations="(comma-delimited list)"/>
 ```
 

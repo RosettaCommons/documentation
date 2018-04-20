@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## HighResDocker
 
-```
+```xml
 <HighResDocker name="&string" repack_every_Nth="(&int)" scorefxn="string" movemap_builder="&string" />
 ```
 

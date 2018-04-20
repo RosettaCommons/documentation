@@ -7,7 +7,7 @@ Primarily intended for debugging purposes. When invoked, it will print basic inf
 
 This filter \*always\* returns true, therefore it's not recommended to use it with the standard "confidence" option, as that may result in the filter not being applied when you want it to be (and consequently not getting the tracer output).
 
-```
+```xml
 <PoseInfo name="(&string)"/>
 ```
 

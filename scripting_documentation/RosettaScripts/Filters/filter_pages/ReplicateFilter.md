@@ -2,7 +2,7 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## ReplicateFilter
 
-```
+```xml
 <ReplicateFilter name="(&string)" filter_name="(&string)" replicates="(&integer 1)" upper_cut="(&real 0)" lower_cut="(&real 0)" median="(&bool 0)" threshold="(&real 0)" />
 ```
 

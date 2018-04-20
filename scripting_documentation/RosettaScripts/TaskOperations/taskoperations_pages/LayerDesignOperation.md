@@ -149,7 +149,7 @@ Cterm
 
 In its original implementation, LayerDesign could only work with symmetry if it were passed a symmetry-compatible TaskOperation (e.g. SelectBySASA, used in the example above).  More recently, the ```use_symmetry``` option has been added to permit LayerDesign to be symmetry-aware.  If ```use_symmetry``` is set to true (the default), layers are defined for symmetric poses using the full, symmetric pose.  If ```use_symmetry``` is set to false, then the old behaviour is preserved: the asymmetric unit is extracted and used in isolation to set up layers.  Here is a very simple example in which LayerDesign is used to force valine in the core, alanine in the boundary layer, and serine at the surface for a symmetric pose, explicitly considering neighbours that might be in other asymmetric units in the symmetric pose.
 
-```
+```xml
 <LayerDesign name=layerdes layer=core_boundary_surface use_sidechain_neighbors=true core=2 surface=1 use_symmetry=true >
     <core>
         <all aa="V" />

@@ -12,9 +12,13 @@
 
    * [[Movers|Movers-RosettaScripts]]
 
-   * [[Filters|Filters-RosettaScripts]]
+   * [[Residue Selectors|ResidueSelectors]]
 
    * [[Task Operations|TaskOperations-RosettaScripts]]
+   
+   * [[Simple Metrics | SimpleMetrics]]
+
+   * [[Filters|Filters-RosettaScripts]]
 
    * [[FeaturesReporters|Features-reporter-overview]]
      

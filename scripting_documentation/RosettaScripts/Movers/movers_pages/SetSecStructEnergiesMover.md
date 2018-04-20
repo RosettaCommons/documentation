@@ -5,7 +5,7 @@
 Give a bonus to the secondary structures specified by the user. For example a sheet topology of "1-4.A.99" would specify an antiparallel relationship between strand 1 and strand 4; when this is present a bonus (negative) score is applied to the pose.
 
 
-```
+```xml
 <SetSecStructEnergies name="(&string)"
     scorefxn="(&string, required)"
     secstruct="(&string, '')"

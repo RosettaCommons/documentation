@@ -4,7 +4,7 @@
 
 Calling another RosettaScript from within a RosettaScript
 
-```
+```xml
 <Subroutine name="(&string)" xml_fname="(&string)"/>
 ```
 

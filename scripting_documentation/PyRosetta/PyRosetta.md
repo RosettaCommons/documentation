@@ -97,12 +97,12 @@ A general overview of the general Rosetta object structure and organization can 
 
 The [[PyRosetta Toolkit GUI]] is a graphical frontend to PyRosetta written in Python.  A Tutorial and overview of the code base and how to extend it for your own uses can be found [[here | PyRosetta Toolkit]].
 
-Note that currently, the PyRosetta Toolkit and other published apps only distributed with __PyRosetta-3__
+Note that currently, the PyRosetta Toolkit and other published apps are only distributed with __PyRosetta-3__
 
 ##See Also
 
-* [[PyRosetta Toolkit]]: Tutorials for using/modifying the PyRosetta Toolkit GUI
 * [[PyRosetta Toolkit GUI]]: Information on the PyRosetta Toolkit user interface
+* [[PyRosetta Toolkit Tutorial | PyRosetta Toolkit]]: Tutorials for using/modifying the PyRosetta Toolkit GUI
 * [[PyMOL]]: More information on PyMOL
 * [[Extending the PyMol Viewer]]: How to add new functionality to Rosetta's PyMOL Mover
 * [[PyRosetta website (external)|http://www.pyrosetta.org]]

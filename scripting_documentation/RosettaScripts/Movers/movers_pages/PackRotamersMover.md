@@ -6,7 +6,7 @@ Repacks sidechains with user-supplied options, including TaskOperations
 
 
  
-```
+```xml
 <PackRotamersMover name="&string" scorefxn="(score12 &string)" task_operations="(&string,&string,&string)"/>
 ```
 
@@ -15,7 +15,7 @@ Repacks sidechains with user-supplied options, including TaskOperations
 
 **NOTE:** By default, packing includes sampling *all possible sidechains*, i.e. **it performs sequence design!**
 The way to prevent this is to pass a [[RestrictToRepacking|RestrictToRepackingOperation]] task operation:
-```
+```xml
 <TASKOPERATIONS>
    <RestrictToRepacking name="repackonly" />
 </TASKOPERATIONS>

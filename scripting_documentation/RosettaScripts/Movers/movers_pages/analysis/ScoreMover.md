@@ -4,7 +4,7 @@
 
 This [[Mover]] applies the [[scorefunction|score-types]] to your [[pose|RosettaEncyclopedia#pose]].  Simple, but sometimes that's what you need!
 
-```
+```xml
 <ScoreMover name="&string" scorefxn="(&string)" verbose="(&bool)"/>
 ```
 

@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## LoopBuilder
 
-LoopBuilder builds in backbone atoms for loop regions where they are missing. 
+LoopBuilder builds in backbone atoms for loop regions where they are missing.  However, these need to somehow be in the original PDB - this mover DOES NOT create the atoms and residues themselves! 
 The backbones created by LoopBuilder will have ideal bond lengths, ideal bond 
 angles, and torsions picked from a Ramachandran distribution.  They should also 
 not clash too badly with the surrounding protein.  Other than that, these 

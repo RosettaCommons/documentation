@@ -14,13 +14,13 @@ using the average value of many decoys (nstruct) is recommended.
 The filter should not count cavities that are exposed to solvent.
 
 
-```
+```xml
 <CavityVolume name="(&string)" />
 ```
 
 **Example**
 
-```
+```xml
 <FILTERS>
     <CavityVolume name="cav_vol" />
 </FILTERS>

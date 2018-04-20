@@ -4,7 +4,7 @@
 
 Greedily optimizes around a set of target residues, then repacks sidechains with user-supplied options, including TaskOperations. Given a task and a set of target residues, this mover will first greedily choose the neighbors of these residues, and then perform the usual simulated annealing on the rest (while maintaining the identity of the greedily chosen sidechains). The greedy choices are made one by one, i.e. first convert every neighbor of a given target sidechain to Ala, choose the lowest energy neighbor rotamer and minimize, then look at the rest of the neighbors and choose the best for interacting with the two chosen so far, and so on, until you're out of neighbor positions. If more than one target residues are specified, a random permutation of this list is used in each run of the mover.
 
-```
+```xml
 <PackRotamersMoverPartGreedy name="&string" scorefxn_repack="(score12 &string)" scorefxn_repack_greedy="(score12 &string)" scorefxn_minimize="(score12 &string)" distance_threshold="(8.0 &Real)" task_operations="(&string,&string,&string)" target_residues="(&string,&string)" target_cstids="(&string,&string)" choose_best_n="(0 &int)"/>
 ```
 

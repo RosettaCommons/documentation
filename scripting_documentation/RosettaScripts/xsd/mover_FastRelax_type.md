@@ -29,7 +29,7 @@ Performs the fast relax protocol
 -   **scorefxn**: Name of score function to use
 -   **disable_design**: Do not perform design even if a resfile is specified
 -   **task_operations**: A comma separated list of TaskOperations to use.
--   **task_factory**: A TaskFactory specification to use
+-   **task_factory**: A TaskFactory specification to use.
 -   **repeats**: Same as cmd-line FR. Number of fastrelax repeats to perform
 -   **relaxscript**: a filename for a relax script, as described in the documentation for the Relax application; the default relax script is used if not specified
 -   **cst_file**: Add constraints from the constraint file

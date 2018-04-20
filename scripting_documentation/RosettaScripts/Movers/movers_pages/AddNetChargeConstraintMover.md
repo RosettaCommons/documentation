@@ -6,7 +6,7 @@ This mover adds a net charge constraint to a pose.  This is a sequence constrain
 
 Multiple net charge constraints can be added to the pose using multiple `AddNetChargeConstarintMover` instances.  Each instance can take a different ResidueSelector and/or ```.charge``` file.
 
-```
+```xml
 <AddNetChargeConstraintMover name="(&string)" filename="(&string)" selector="(&string)" />
 ```
 

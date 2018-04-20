@@ -10,7 +10,7 @@ PI: Jens Meiler
 
 Multistate design mover used at the end of the RECON protocol. In the RECON protocol multiple states are designed independently with a sequence constraint to encourage convergence on a single solution. At the end FindConsensusSequence is used to choose a single sequence that is optimal for all states. It does this by, at each position, swapping out all possible amino acids that are present on at least one state, measuring the fitness of each candidate amino acid and choosing the best. For more details on the RECON protocol see [Sevy AM, et al, PLoS Comput. Biol, 2015](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004300)
 
-```
+```xml
 <FindConsensusSequence name="(&string)" scorefxn="(talaris2014 &string)" 
 resfiles="(&strings\_comma\_separated)" task_operations="(&string)" debug="(false &bool)" />
 

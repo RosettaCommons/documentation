@@ -4,7 +4,7 @@
 
 Looks for voids at protein/protein interfaces using Will Sheffler's packstat. The number reported is the difference in the holes score between bound/unbound conformations. Be sure to set the -holes:dalphaball option!
 
-```
+```xml
 <InterfaceHoles name="(&string)" jump="(1 &integer)" threshold="(200 &integer)"/>
 ```
 

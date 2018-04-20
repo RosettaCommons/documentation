@@ -6,7 +6,7 @@ Counts total number of DSSP-defined secondary structure elements of a given type
 
 **WARNING**: This filter's report_sm (found in scorefile) is always a dummy "0" value regardless of secondary structure count. The total SS counts for each SS type are listed in the tracer output. See option 'return_total'.
 
-```
+```xml
 <SecondaryStructureCount name="(&string)"
     filter_helix_sheet="(1 &bool)" filter_helix="(0 &bool)" filter_sheet="(0 &bool)" filter_loop="(0 &bool)"
     num_helix_sheet="(0 &int)" num_helix="(0 &int)" num_sheet="(0 &int)" num_loop="(0 &int)"

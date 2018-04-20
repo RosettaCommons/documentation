@@ -16,7 +16,7 @@ Greedily optimizes around a set of target residues, then repacks sidechains with
 ```
 
 -   **task_operations**: A comma separated list of TaskOperations to use.
--   **task_factory**: A TaskFactory specification to use
+-   **task_factory**: A TaskFactory specification to use.
 -   **scorefxn_repack**: Name of score function to use
 -   **scorefxn_repack_greedy**: Name of score function to use
 -   **scorefxn_minimize**: Name of score function to use

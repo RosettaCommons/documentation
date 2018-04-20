@@ -4,7 +4,7 @@
 
 Set the temperature (b-)factor column in the PDB based on filter's per-residue PSSM score. Sets by default PSSM scores less than -1 to 50, and larger than 5 to 0 in the B-factor column. Between -1 and 5 there is a linear gradient.
 
-```
+```xml
 <PSSM2Bfactor name="&string" Value_for_blue="(&Real)" Value_for_red="(&Real)"/>
 ```
 

@@ -4,8 +4,8 @@
 
 Each mover definition has the following structure
 
-```
-<"mover_name" name="&string" .../>
+```xml
+<mover_name name="&string"/>
 ```
 
 where "mover\_name" belongs to a predefined set of possible movers that the parser recognizes and are listed below, name is a unique identifier for this mover definition and then any number of parameters that the mover needs to be defined.
@@ -24,6 +24,10 @@ Predefined Movers are defined internally in the parser, and the protocol can use
 
 Meta Movers don't do anything to the pose themselves, but combine or modify the application of other movers and filters.
 
+Mover  | Description
+------------ | -------------
+[[RunSimpleMetrics]] | Run an arbitrary set of [[SimpleMetrics]] and add their returned data to the pose and output scorefile.  Can set prefix/suffix and run multiple sets of metrics in a single RosettaScript run.  All SimpleMetrics can also be used for filtering and for features reporters. 
+ 
 ### Combining Movers
 
 Mover  | Description
@@ -35,6 +39,7 @@ Mover  | Description
 **[[ContingentAcceptMover]]** | Fail if a submover doesn't improve a filter value.
 **[[IfMover]]** | Run different movers based on a filter value.
 **[[RandomMover]]** | Randomly choose a mover from a weighted list.
+**[[SwitchMover]]** | Allows to select between a group of declared movers.
 
 ### Looping/Monte Carlo Movers
 
@@ -70,6 +75,9 @@ Mover  | Description
 **[[StorePoseSnapshot|StorePoseSnapshotMover]]** | Store a snapshot of the current residue numbering in the pose as a named reference pose, so that subsequent movers can use the current state's residue numbering even if residue numbering has changed.
 **[[TrajectoryReportToDB|TrajectoryReportToDBMover]]** | Reports multiple structures to an output forming a trajectory
 **[[WriteLigandMolFile|WriteLigandMolFileMover]]** | Create a V2000 mol file for each pose
+**[[AddResidueLabel|AddResidueLabelMover]]** | Add PDBInfoLabel to your current pose based on a selection.
+**[[LabelPoseFromResidueSelectorMover]]** | Add and remove PDBInfoLabel to the Pose according to a given selection.
+**[[DisplayPoseLabelsMover]]** | Print on screen the labels assigned to each residue and save them to the silent file as REMARKS.
 
 
 ### Setup Movers
@@ -141,6 +149,7 @@ Mover  | Description
 **[[AddNetChargeConstraintMover]]** | Adds sequence constraints to penalize deviation from a desired net charge, enforced by the [[netcharge score term|NetChargeEnergy]].
 **[[AtomCoordinateCstMover]]** | Adds coordinate constraints for Relax
 **[[ClearConstraintsMover]]** | Removes all constraints (geometric and sequence) from the pose
+**[[ReleaseConstraintFromResidueMover]]** | The same as [[ClearConstraintsMover]] but only for selected residues
 **[[ClearCompositionConstraintsMover]]** | Removes sequence constraints from the pose selectively.
 **[[ConstraintSetMover]]** | Adds constraints to the pose using a constraints file
 **[[FavorSymmetricSequence|FavorSymmetricSequenceMover]]** | Adds constraints to prefer symmetric sequences
@@ -169,6 +178,7 @@ Mover  | Description
 Mover  | Description
 ------------ | -------------
 **[[BridgeChains|BridgeChainsMover]]** | Connects chains using fragment insertion Monte Carlo
+**[[DockingInitialPerturbation|DockingInitialPerturbationMover]]** | Carries out the initial perturbation phase of the RosettaDock algorithm
 **[[DockingProtocol|DockingProtocolMover]]** | Performs full docking protocol with current defaults
 **[[FlexPepDock|FlexPepDockMover]]** | Performs ab initio or refinement peptide docking
 
@@ -279,6 +289,7 @@ Mover  | Description
 Mover  | Description
 ------------ | -------------
 **[[AlignChain|AlignChainMover]]** | Align the Calpha atoms of chains in two different poses
+**[[AlignByResidueSelectorMover]]** | Align the Calpha atoms of the selected residues in two different poses
 **[[AddChainBreak|AddChainBreakMover]]** | Add a break at a specific position
 **[[BluePrintBDR|BluePrintBDRMover]]** | Make a centroid structure from a PDB file
 **[[CopyRotamer|CopyRotamerMover]]** | Copy a side-chain identity and/or conformation from one residue to another residue.

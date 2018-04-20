@@ -4,7 +4,7 @@
 
 Computes the binding energy for the complex and if it is below the threshold returns true. o/w false. Useful for identifying complexes that have poor binding energy and killing their trajectory.
 
-```
+```xml
 <Ddg name="(ddg &string)" scorefxn="(score12 &string)" threshold="(-15 &float)" jump="(1 &Integer)" chain_num="(&int,&int...)" repeats="(1 &Integer)" repack="(true &bool)" relax_mover="(&string)" repack_bound="(true &bool)" relax_bound="(false &bool)" filter="(&string)" extreme_value_removal="(false &bool)"/>
 ```
 
@@ -25,6 +25,7 @@ Example:
 
 The script below shows how to enable PB with ddg filter. I have APBS (Adaptive Poisson-Boltzmann Solver) installed in /home/honda/apbs-1.4/ and "apbs" executable is in the bin/ subdiretory. Chain 1 is charged in this case. You can list more than one chain by comma-delimit (without extra whitespace. e.g. "1,2,3"). I use full scorefxn as the basis and add the PB term.
 
+```xml
     <SCOREFXNS>
         <ScoreFunction name="sc12_w_pb" weights="score12_full" patch="pb_elec"/>  patch PB term
     </SCOREFXNS>
@@ -42,6 +43,7 @@ The script below shows how to enable PB with ddg filter. I have APBS (Adaptive P
         <Add filter_name="ddg"/> use PB-enabled ddg 
         <Add filter_name="..."/>  more filtering
     </PROTOCOLS>
+```
 
 ## Known issues
 If a disulfide present across the interface in question the filter silently fails and the ddG column is not added to the score file. A work around (that ignores the energy contribution of the disulfide) is to provide the ddG filter a scorefunction with dslf_fa13 reweighed to zero.

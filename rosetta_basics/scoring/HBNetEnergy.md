@@ -1,5 +1,6 @@
 # Hydrogen bond network score (hbnet score term)
-Documentation created by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory, on 3 Nov 2017.
+Documentation created by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory, on 3 Nov 2017.  Last updated on 20 Feb 2018.
+
 _Note:  This documentation is for the `hbnet` design-centric score term.  For information on the HBNet mover, an alternative method for creating hydrogen bond networks, see [[this page|HBNetMover]]._
 
 [[_TOC_]]
@@ -59,6 +60,45 @@ It is recommended that the `buried_unsatisfied_penalty` scoreterm also be turned
 2.  Design with any mover or protocol that invokes the packer, using the scorefunction defined above.  Ensure that the task operations passed to the packer allow polar residues at the relevant design positions (or it will not be possible to put in hydrogen bond networks).  [[FastDesign|FastDesignMover]] is particularly advantageous since the rounds of minimization with the softened force field can pull hydrogen bond donors and acceptors into better hydrogen bond-forming positions.
 
 3.  (Recommended).  Perform a final round of minimization or relaxation with the `hbnet` score term turned _off_.  This ensures that the score term is not forcing unrealistic rotamers that would not be held in place given the hydrogen bonding.
+
+## Advanced options
+
+### Alternative ramping schemes for the bonus function
+The `hbnet` score term, by default, imposes a quadratically-ramping bonus for larger and larger hydrogen bond networks.  It has been suggested that a "diminishing returns" bonus function (_e.g._ a logarithmic or square root function) would produce better results, avoiding cases in which the packer makes hydrogen bond networks as large as possible at the expense of poor `fa_dun` scores or poor packing.  Alternative ramping can be specified as of 20 February 2018 in one of two ways:
+
+1.  Globally, at the command line, the flag `-score:hbnet_bonus_function_ramping <string>` allows the user to specify alternative ramping schemes.  The string can be any one of `quadratic`, `linear`, `squareroot`, or `logarithmic`.
+
+2.  For a given scorefunction, from RosettaScripts XML:
+```xml
+<SCOREFXNS>
+	<ScoreFunction name="r15" weights="ref2015.wts" >
+		<Reweight scoretype="hbnet" weight="1.0" />
+		<Set hbnet_bonus_function_ramping="<string>" />
+	</ScoreFunction>
+</SCOREFXNS>
+```
+Again, in the above, the string can be any one of `quadratic`, `linear`, `squareroot`, or `logarithmic`.  (In PyRosetta or Rosetta C++ code, the `hbnet_bonus_function_ramping` option in an `EnergyMethodOptions` object can be set, and the `EnergyMethodOptions` object can be passed to the `ScoreFunction` object.)
+
+If no ramping scheme is set, the default is `quadratic`.
+
+### Setting maximum network size that receives a bonus
+
+Another approach is to provide a bonus up to a certain size of network, beyond which the `hbnet` score term provides no further bonus.  The maximum network size can be set in one of two ways:
+
+1.  Globally, at the command line, the flag `-score:hbnet_max_network_size' <int>` allows the user to specify the maximum network size that receives a bonus, beyond which the bonus function will be completely flat.  A value of 0 (the default) indicates no limit.
+
+2.  For a given scorefunction, from RosettaScripts XML:
+```xml
+<SCOREFXNS>
+	<ScoreFunction name="r15" weights="ref2015.wts" >
+		<Reweight scoretype="hbnet" weight="1.0" />
+		<Set hbnet_max_network_size="<int>" />
+	</ScoreFunction>
+</SCOREFXNS>
+```
+Again, a value of 0 indicates no limit.
+
+If no maximum network size is set, the default is `0` (_i.e._ unlimited).
 
 ## Use with symmetry
 The `hbnet` score term is fully compatible with symmetry with no special setup required.

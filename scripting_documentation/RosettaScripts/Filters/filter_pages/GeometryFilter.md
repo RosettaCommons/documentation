@@ -2,7 +2,7 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## Geometry Filter
 
-```
+```xml
 <Geometry name="(&string)"
   omega="(165&Real)"
   cart_bonded="(20 &Real)"
