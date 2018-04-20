@@ -167,6 +167,7 @@ As of 6 March 2016, the aa_composition score term should be fully compatible wit
 * [[Scoring explained]]
 * [[Score functions and score types |score-types]]
 * [[Adding a new energy method to Rosetta|new-energy-method]]
+* [[Design-centric guidance terms|design-guidance-terms]]
 * [[AddCompositionConstraintMover]]
 * [[ClearCompositionConstraintsMover]]
 * [[AddHelixSequenceConstraints mover|AddHelixSequenceConstraintsMover]]
