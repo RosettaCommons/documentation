@@ -193,5 +193,6 @@ The ```netcharge``` score term should be fully compatible with the [[aa_composit
 * [[ClearCompositionConstraintsMover]]
 * [[AACompositionEnergy]]
 * [[AARepeatEnergy|Repeat-stretch-energy]]
+* [[BuriedUnsatPenalty]]
 * [[HBNetEnergy]]
 * [[VoidsPenaltyEnergy]]

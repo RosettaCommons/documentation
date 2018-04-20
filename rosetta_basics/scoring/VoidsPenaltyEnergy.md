@@ -160,5 +160,6 @@ Note that implementation of the ```VoidsPenaltyEnergy``` class required that the
 * [[Adding a new energy method to Rosetta|new-energy-method]]
 * [[AACompositionEnergy]]
 * [[AARepeatEnergy|Repeat-stretch-energy]]
+* [[BuriedUnsatPenalty]]
 * [[HBNetEnergy]]
 * [[NetChargeEnergy]]
