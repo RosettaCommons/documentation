@@ -115,6 +115,7 @@ The `hbnet` score term is fully compatible with symmetry with no special setup r
 * [[Scoring explained]]
 * [[Score functions and score types |score-types]]
 * [[Adding a new energy method to Rosetta|new-energy-method]]
+* [[Design-centric guidance terms|design-guidance-terms]]
 * [[AACompositionEnergy]]
 * [[AARepeatEnergy|Repeat-stretch-energy]]
 * [[A score term to penalize buried unsatisfied hydrogen bond donors and acceptors|BuriedUnsatPenalty]]
