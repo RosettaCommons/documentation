@@ -1,6 +1,8 @@
 # Buried Unsatisfied Penalty (buried_unsatisfied_penalty) 
 Documentation created by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory, on 19 April 2018.
 
+**This code is currently unpublished.  If you use it, please include Vikram K. Mulligan as a coauthor.**
+
 <i>Note:  This documentation is for the `buried_unsatisfied_penalty` design-centric score term, which guides design to eliminate buried unsatisfied hydrogen bond donors and acceptors.  For information on the BuriedUnsatHbonds filter, which is useful for </i>post-hoc<i> filtering of designs with buried unsatisfied hydrogen bond donors or acceptors, please see [[this page|BuriedUnsatHbondsFilter]].</i>
 
 [[_TOC_]]
