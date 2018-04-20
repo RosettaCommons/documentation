@@ -67,6 +67,7 @@ The `buried_unsatisfied_penalty` score term is currently incompatible with symme
 * [[Scoring explained]]
 * [[Score functions and score types |score-types]]
 * [[Adding a new energy method to Rosetta|new-energy-method]]
+* [[Design-centric guidance terms|design-guidance-terms]]
 * [[AACompositionEnergy]]
 * [[AARepeatEnergy|Repeat-stretch-energy]]
 * [[NetChargeEnergy]]
