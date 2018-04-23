@@ -65,7 +65,7 @@ The `buried_unsatisfied_penalty` scoreterm is currently fully compatible with sy
 
 ## Advanced options
 
-The following options can be set, either globally at the commandline or on an instance-by-instance basis using `<Set ... />` statements within the scorefunction definition in RosettaScripts, in order to tweak the behaviour of this scoreterm.  (For example, `<Set buried_unsatisfied_penalty_burial_threshold="2.5" />` within a scorefunction definition in RosettaScripts would slightly relax the criterion for considering a polar group to be buried for _that particular instance_ of the scoreterm.  The same could be achieved globally by passing the commandline flag `-buried_unsatisfied_penalty_burial_threshold 2.5`.)
+The following options can be set, either globally at the commandline or on an instance-by-instance basis using `<Set ... />` statements within the scorefunction definition in RosettaScripts, in order to tweak the behaviour of this scoreterm.  (For example, `<Set buried_unsatisfied_penalty_burial_threshold="2.5" />` within a scorefunction definition in RosettaScripts would slightly relax the criterion for considering a polar group to be buried for _that particular instance_ of the scoreterm.  The same could be achieved globally, for _all instances_ of the scoreterm, by passing the commandline flag `-buried_unsatisfied_penalty_burial_threshold 2.5`.)
 
 | Option name | Type | Description | Default |
 | --- | --- | --- | --- |
