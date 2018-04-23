@@ -430,16 +430,15 @@ Note: All unit tests run **every time** modifications are made to the master cod
 
 ### Integration tests
 Integration tests check how your piece of code "integrates" into the rest of Rosetta. While running an integration test, the output of the code BEFORE the change is compared to the output of the code AFTER the change. Since Rosetta developers cannot understand all 3 million lines of code, integration tests only serve to test whether there is an expected change in output or not. They do NOT test whether the functions do what they are supposed to do (this is what unit tests are for) NOR do they tell you whether the output of a protocol is scientifically valid (this is what scientific tests are for).
-* https://www.rosettacommons.org/docs/wiki/development_documentation/test/integration-tests
-* https://www.rosettacommons.org/docs/wiki/development_documentation/test/Writing-MPI-Integration-Tests
+* https://wiki.rosettacommons.org/index.php/Integration_tests
 
 Note: All integration tests run **every time** modifications are made to the master code base
 
 ### Scientific tests
 Scientific tests (or benchmarks) are required to test whether the output of a protocol is scientifically sound. If you are refining a protocol, you want to make sure that the results you are getting aren't any worse than from the previous implementation of the protocol. Likewise, when you are implementing a new protocol, you want to see how good or bad your results are and how they compare to other methods.
-* https://wiki.rosettacommons.org/index.php/Scientific_Benchmarks
+* https://www.rosettacommons.org/docs/wiki/development_documentation/test/Scientific-Benchmarks
 
 Note: Scientific tests are run every two weeks
 
 ## Merging code to master
-Once you have branched Rosetta, developed your feature and **fully tested** it, you are ready to contribute it to master - the main Rosetta code base. To do so, you have probably already reviewed the Rosetta Git conventions [Rosetta GitHub Practices](https://wiki.rosettacommons.org/index.php/GithubWorkflow) (if not, do so now!). However, this page links to the **required** detailed process for committing code to Rosetta master: [Rosetta Wiki Page: Committing Code](https://wiki.rosettacommons.org/index.php/Committing_code)
+Once you have branched Rosetta, developed your feature and **fully tested** it, you are ready to contribute it to master - the main Rosetta code base. To do so, you have probably already reviewed the Rosetta Git conventions [Rosetta GitHub Practices]( https://www.rosettacommons.org/docs/wiki/internal_documentation/GithubWorkflow) (if not, do so now!). However, this page links to the **required** detailed process for committing code to Rosetta master: [Rosetta Wiki Page: Committing Code](https://wiki.rosettacommons.org/index.php/Committing_code)
