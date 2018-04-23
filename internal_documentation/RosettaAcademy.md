@@ -26,7 +26,7 @@ Download it at http://fold.it/portal/
 A similar tool to FoldIt is available for RNA. It was developed by Rhiju Das' lab at Stanford (http://www.stanford.edu/~rhiju/). You can play and learn about it here: http://eterna.cmu.edu/web/
 
 ## Introduction to Linux
-To know about how to navigate a terminal in Linux, you need to learn some basic commands. There are plenty of resources available on the web: 
+To know about how to navigate a terminal in Linux, you need to learn some basic commands. Learning some basic tricks with BASH coding often proves useful in expediting your workflow. There are plenty of resources available on the web: 
 * http://www.my-guides.net/en/guides/linux/basic-linux-commands
 * http://www.debianhelp.co.uk/commands.htm
 
