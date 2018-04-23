@@ -6,9 +6,9 @@ This page is geared towards new members of the Rosetta community as a "fast" way
 
 #1. Introduction to protein structure and visualization
 ## Visualization
-Most people in the community are using PyMol (download from http://www.pymol.org/). Tutorials on how to use it can be found at:
+Most people in the community are using PyMol (download from http://www.pymol.org/). Documentation on how to use it can be found at:
 * http://pymol.sourceforge.net/newman/userman.pdf 
-* http://www.bio.ph.ic.ac.uk/~scurry/pdfs/PyMOL_tutorial.pdf.
+* https://pymolwiki.org/index.php/Practical_Pymol_for_Beginners
 
 Some people are using Chimera (http://www.cgl.ucsf.edu/chimera/), which seems to have some additional functionality for density maps if you are working with X-ray electron density maps or Cryo-EM maps. Tutorials can be found at http://www.cgl.ucsf.edu/chimera/docs/UsersGuide/frametut.html.
 
