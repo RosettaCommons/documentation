@@ -80,7 +80,7 @@ Most likely, you will be developing or at least running new code. In this case y
 * creating a github account
 
 After you have done that, follow the instructions on how to download and compile Rosetta here: 
-https://www.rosettacommons.org/docs/wiki/internal_documentation/GithubWorkflow 
+https://wiki.rosettacommons.org/index.php/GithubWorkflow
 You might want to look at the test-server (http://rosettatests.graylab.jhu.edu/revs) to figure out the latest revision for which all tests are running and get this revision. If you get the latest revision, it might be that not all tests are running so you might be downloading a 'broken' version. If you don't really understand much about git and github yet, don't worry, you will be going into much more detail later once you are actively developing in Rosetta (see below).
 
 ## Meilerlab tutorials (put together by Jens Meiler's lab, Vanderbilt University)
@@ -118,7 +118,7 @@ If you know Python and you are planning on creating your own protocols, PyRosett
 
 ## RosettaScripts and RosettaDiagrams (developed by Sarel Fleishman's lab, Weizmann Institute, Israel)
 RosettaScripts is an XML-scriptable interface that allows users to mix and match protocols and carry out customizable tasks for various protocols. Detailed instructions on how to set them up are available at 
-https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/RosettaScripts
+https://wiki.rosettacommons.org/index.php/RosettaScripts
 
 An extension of RosettaScripts is available with RosettaDiagrams that should make it even easier to use and write your own protocols. It is basically a drag-and-click web interface where the user/developer can put together protocols from different movers, filters, and task operations. Information can be found at:
 * http://www.rosettadiagrams.org/
@@ -129,7 +129,7 @@ Both RosettaScripts and RosettaDiagrams require a certain knowledge about Rosett
 
 ## CS-Rosetta (developed by Oliver Lange's lab, TU Munich, Germany)
 CS-Rosetta is a version of Rosetta that uses NMR chemical shift restraints for ab initio folding or structure prediction. The toolbox of CS-Rosetta also includes automatic assignment of NOE resonances.
-* https://spin.niddk.nih.gov/bax/software/CSROSETTA/
+* http://www.csrosetta.org/
 
 ## Version control
 If you are planning to develop in Rosetta and want to put together your own protocols and write code, now is the time to learn more about version control and all that comes with it. Version control is basically a history of the code base (similar to when you hit the 'save' button in a document) which is needed when over 100 developers are working on the code from all over the world at the same time. It makes it much easier to resolve coding conflicts (when multiple people are working on the same code) and much more difficult to "break" Rosetta - even though it is not completely impossible. ;o)
@@ -149,7 +149,7 @@ Talk to your mentor which program he thinks is best so he can also give you advi
 
 ## Coding conventions
 Now that you know about version control, have set up your IDE and are knowledgeable about C++, you should read through the coding conventions and comply with them - no excuse!!! This will make it much easier in the long run for other people (and yourself) to read, understand and use your code in the way it is intended for. This also applies for Python code:
-* https://www.rosettacommons.org/docs/wiki/development_documentation/Coding-Conventions
+* https://wiki.rosettacommons.org/index.php/Coding_Convention_and_Examples
 
 ## How to find stuff in Rosetta
 When you download Rosetta, it will automatically set up three independent github directories in Rosetta: 
@@ -178,7 +178,7 @@ There are plenty of useful links available that are connected with Rosetta, in a
 
 * Robetta server - online server for several applications: http://robetta.bakerlab.org/
 	
-* RosettaBackrub server - Kortemme lab, UCSF: https://kortemmelab.ucsf.edu/backrub/cgi-bin/rosettaweb.py?query=index
+* RosettaBackrub server - Kortemme lab, UCSF: https://kortemmeweb.ucsf.edu/backrub/
 	
 * RosettaDesign server - Kuhlman lab, University of Chapel Hill, NC: http://rosettadesign.med.unc.edu/
 	
@@ -189,10 +189,6 @@ There are plenty of useful links available that are connected with Rosetta, in a
 * source code on github - requires a github account: https://github.com/organizations/RosettaCommons
 	
 * bugtracker - to keep track of bugs in the code using Mantis Bugtracker (hosted at Vanderbilt): http://bugs.rosettacommons.org/
-	
-* buildbot - server that automatically compiles and runs all tests for each revision: http://buildbot.graylab.jhu.edu/console
-	
-* test-server: http://rosettatests.graylab.jhu.edu/revs
 
 
 # 7. More Rosetta for developers
