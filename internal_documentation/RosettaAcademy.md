@@ -4,7 +4,7 @@ This page is geared towards new members of the Rosetta community as a "fast" way
 
 ![gollum](http://s2.quickmeme.com/img/86/86a343e34ab8ca051ce5a455eeba643a94b5f5dda96e558453d19f90cea15d99.jpg)
 
-#1. Introduction to protein structure and visualization
+# 1. Introduction to protein structure and visualization
 ## Visualization
 Most people in the community are using PyMol (download from http://www.pymol.org/). Documentation on how to use it can be found at:
 * http://pymol.sourceforge.net/newman/userman.pdf 
