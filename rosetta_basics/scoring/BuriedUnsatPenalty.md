@@ -53,7 +53,7 @@ To use the `buried_unsatisfied_penalty` score term in design, simply follow the 
 3.  (Recommended).  Perform a final round of minimization or relaxation with the `buried_unsatisfied_penalty` score term turned _off_.  This ensures that the score term is not forcing unrealistic rotamers that would not be held in place given the hydrogen bonding.
 
 ## Use with symmetry
-The `buried_unsatisfied_penalty` score term is currently fully compatible with symmetry, with no special user configuration necessary.  Symmetric poses score and pack faster than asymmetric poses with the same number of residues, since the symmetry simplifies the size of the data structures that must be stored.  (The scoreterm sets up a hydrogen bonding graph only for the asymmetric units.  Hydrogen bonds between symmetry copies of the same residue are considered to be "intra-residue" hydrogen bonds, and are stored as such within nodes; hydrogen bonds between different residues in different symmetry copies are stored in the same edges.) 
+The `buried_unsatisfied_penalty` score term is currently fully compatible with symmetry, with no special user configuration necessary.  Symmetric poses score and pack faster than asymmetric poses with the same number of residues, since the symmetry simplifies the size of the data structures that must be stored.  (The scoreterm sets up a hydrogen bonding graph only for the asymmetric unit.  Hydrogen bonds between symmetry copies of the same residue are considered to be "intra-residue" hydrogen bonds, and are stored as such within nodes; hydrogen bonds between different residues in different symmetry copies are stored in the same edges.  Unsatisfied counts are multiplied by the number of symmetry copies.)
 
 ## Organization of the code
 
