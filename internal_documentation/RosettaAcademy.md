@@ -430,7 +430,8 @@ Note: All unit tests run **every time** modifications are made to the master cod
 
 ### Integration tests
 Integration tests check how your piece of code "integrates" into the rest of Rosetta. While running an integration test, the output of the code BEFORE the change is compared to the output of the code AFTER the change. Since Rosetta developers cannot understand all 3 million lines of code, integration tests only serve to test whether there is an expected change in output or not. They do NOT test whether the functions do what they are supposed to do (this is what unit tests are for) NOR do they tell you whether the output of a protocol is scientifically valid (this is what scientific tests are for).
-* https://wiki.rosettacommons.org/index.php/Integration_tests
+* https://www.rosettacommons.org/docs/wiki/development_documentation/test/integration-tests
+* https://www.rosettacommons.org/docs/wiki/development_documentation/test/Writing-MPI-Integration-Tests
 
 Note: All integration tests run **every time** modifications are made to the master code base
 
