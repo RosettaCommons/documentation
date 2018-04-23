@@ -3,7 +3,7 @@ Documentation created by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory, 
 
 **This code is currently unpublished.  If you use it, please include Vikram K. Mulligan as a coauthor.**
 
-<i>Note:  This documentation is for the `buried_unsatisfied_penalty` design-centric score term, which guides design to eliminate buried unsatisfied hydrogen bond donors and acceptors.  For information on the BuriedUnsatHbonds filter, which is useful for </i>post-hoc<i> filtering of designs with buried unsatisfied hydrogen bond donors or acceptors, please see [[this page|BuriedUnsatHbondsFilter]].</i>
+<i>Note:  This documentation is for the `buried_unsatisfied_penalty` design-centric scoreterm, which guides design to eliminate buried unsatisfied hydrogen bond donors and acceptors.  For information on the BuriedUnsatHbonds filter, which is useful for </i>post-hoc<i> filtering of designs with buried unsatisfied hydrogen bond donors or acceptors, please see [[this page|BuriedUnsatHbondsFilter]].</i>
 
 [[_TOC_]]
 
@@ -36,9 +36,9 @@ The pairwise-decomposability of Rosetta's default hydrogen bond terms leads to a
 
 ## Usage
 
-To use the `buried_unsatisfied_penalty` score term in design, simply follow the following steps:
+To use the `buried_unsatisfied_penalty` scoreterm in design, simply follow the following steps:
 
-**1)**  Turn on (reweight to a nonzero value) the `buried_unsatisfied_penalty` score term in the scorefunction used for design.  A value between 0.1 and 1.0 is recommended.  Higher values will more aggressively penalize buried unsaturated polar groups at the expense of other score terms.  Activation of the `buried_unsatisfied_penalty` score term can be done with a weights file, or in RosettaScripts as follows:
+**1)**  Turn on (reweight to a nonzero value) the `buried_unsatisfied_penalty` scoreterm in the scorefunction used for design.  A value between 0.1 and 1.0 is recommended.  Higher values will more aggressively penalize buried unsaturated polar groups at the expense of other scoreterms.  Activation of the `buried_unsatisfied_penalty` scoreterm can be done with a weights file, or in RosettaScripts as follows:
 
 ```xml
 <SCOREFXNS>
@@ -50,17 +50,20 @@ To use the `buried_unsatisfied_penalty` score term in design, simply follow the 
 
 **2)**  Design with any mover or protocol that invokes the packer, using the scorefunction defined above.  Ensure that the task operations passed to the packer allow polar-containing residues at the relevant design positions (or there will be no buried hydrogen bond donors or acceptors, satisfied or otherwise).  [[FastDesign|FastDesignMover]] is particularly advantageous since the rounds of minimization with the softened force field can pull hydrogen bond donors and acceptors into better hydrogen bond-forming positions.
 
-**3)**  (_Recommended_).  Perform a final round of minimization or relaxation with the `buried_unsatisfied_penalty` score term turned _off_.  This ensures that the score term is not forcing unrealistic rotamers that would not be held in place given the hydrogen bonding.
+**3)**  (_Recommended_).  Perform a final round of minimization or relaxation with the `buried_unsatisfied_penalty` scoreterm turned _off_.  This ensures that the scoreterm is not forcing unrealistic rotamers that would not be held in place given the hydrogen bonding.
 
-**4)**  (_Recommended_).  Filter based either on the `buried_unsatisfied_penalty` score, or using the [[BuriedUnsatHbonds filter|BuriedUnsatHbondsFilter]].  Although this score term guides the packer to satisfy buried networks, it is possible that the particular backbone geometry or design settings will be incompatible with full satisfaction.  For example, if the user were to design the core of a protein with aspartate as the only allowed amino acid type, it would be virtually guaranteed that there would exist no solution that would satisfy all side-chain hydrogen bond acceptors.
+**4)**  (_Recommended_).  Filter based either on the `buried_unsatisfied_penalty` score, or using the [[BuriedUnsatHbonds filter|BuriedUnsatHbondsFilter]].  Although this scoreterm guides the packer to satisfy buried networks, it is possible that the particular backbone geometry or design settings will be incompatible with full satisfaction.  For example, if the user were to design the core of a protein with aspartate as the only allowed amino acid type, it would be virtually guaranteed that there would exist no solution that would satisfy all side-chain hydrogen bond acceptors.
+
+## Use with ligands
+The `buried_unsatisfied_penalty` scoreterm is fully compatible with arbitrary polar ligands.  If a ligand (or polymeric residue) is set not to design, the term can be very useful to coax the packer into designing polar connections to the ligand (or non-designable position) to satisfy its hydrogen bond donors and acceptors.  No special setup is required.
 
 ## Use with symmetry
-The `buried_unsatisfied_penalty` score term is currently fully compatible with symmetry, with no special user configuration necessary.  Symmetric poses score and pack faster than asymmetric poses with the same number of residues, since the symmetry simplifies the size of the data structures that must be stored.  (The scoreterm sets up a hydrogen bonding graph only for the asymmetric unit.  Hydrogen bonds between symmetry copies of the same residue are considered to be "intra-residue" hydrogen bonds, and are stored as such within nodes; hydrogen bonds between different residues in different symmetry copies are stored in the same edges.  Unsatisfied counts are multiplied by the number of symmetry copies.)
+The `buried_unsatisfied_penalty` scoreterm is currently fully compatible with symmetry, with no special user configuration necessary.  Symmetric poses score and pack faster than asymmetric poses with the same number of residues, since the symmetry simplifies the size of the data structures that must be stored.  (The scoreterm sets up a hydrogen bonding graph only for the asymmetric unit.  Hydrogen bonds between symmetry copies of the same residue are considered to be "intra-residue" hydrogen bonds, and are stored as such within nodes; hydrogen bonds between different residues in different symmetry copies are stored in the same edges.  Unsatisfied counts are multiplied by the number of symmetry copies.)
 
 ## Organization of the code
 
-* The score term is defined in namespace `core::pack::guidance_scoreterms:buried_unsat_penalty`, and is located in `source/src/core/pack/guidance_scoreterms/buried_unsat_penalty/BuriedUnsatPenalty.cc/hh`.
-* The score term uses a graph class that is defined in namespace `core::pack::guidance_scoreterms:buried_unsat_penalty::graph` and located in `source/src/core/pack/guidance_scoreterms/buried_unsat_penalty/graph/BuriedUnsatPenaltyGraph.cc/hh`.
+* The scoreterm is defined in namespace `core::pack::guidance_scoreterms:buried_unsat_penalty`, and is located in `source/src/core/pack/guidance_scoreterms/buried_unsat_penalty/BuriedUnsatPenalty.cc/hh`.
+* The scoreterm uses a graph class that is defined in namespace `core::pack::guidance_scoreterms:buried_unsat_penalty::graph` and located in `source/src/core/pack/guidance_scoreterms/buried_unsat_penalty/graph/BuriedUnsatPenaltyGraph.cc/hh`.
 * Unit tests are located in `source/test/core/pack/guidance_scoreterms/buried_unsat_penalty/BuriedUnsatPenaltyTests.cxxtest.hh` and `source/test/core/pack/guidance_scoreterms/buried_unsat_penalty/graph/BuriedUnsatPenaltyGraphTests.cxxtest.hh`.
 * Symmetric unit tests are located in `source/test/core/pack/guidance_scoreterms/buried_unsat_penalty/BuriedUnsatPenaltySymmetricTests.cxxtest.hh` and `source/test/core/pack/guidance_scoreterms/buried_unsat_penalty/graph/BuriedUnsatPenaltyGraphSymmetricTests.cxxtest.hh`.
 
