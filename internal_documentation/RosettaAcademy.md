@@ -47,7 +47,6 @@ Some really useful papers about Rosetta:
 # 3. Documentation
 ## Glossary: Rosetta and technical
 Here are some useful links that will help you understand terminology that is used in Rosetta. Some concepts are also explained in the PyRosetta tutorials. 
-* https://wiki.rosettacommons.org/index.php/Glossary
 * [[Rosetta-overview]]
 * [[Glossary]]
 
