@@ -38,7 +38,7 @@ The pairwise-decomposability of Rosetta's default hydrogen bond terms leads to a
 
 To use the `buried_unsatisfied_penalty` score term in design, simply follow the following steps:
 
-1.  Turn on (reweight to a nonzero value) the `buried_unsatisfied_penalty` score term in the scorefunction used for design.  A value between 0.1 and 1.0 is recommended.  Higher values will more aggressively penalize buried unsaturated polar groups at the expense of other score terms.  Activation of the `buried_unsatisfied_penalty` score term can be done with a weights file, or in RosettaScripts as follows:
+**1)**  Turn on (reweight to a nonzero value) the `buried_unsatisfied_penalty` score term in the scorefunction used for design.  A value between 0.1 and 1.0 is recommended.  Higher values will more aggressively penalize buried unsaturated polar groups at the expense of other score terms.  Activation of the `buried_unsatisfied_penalty` score term can be done with a weights file, or in RosettaScripts as follows:
 
 ```xml
 <SCOREFXNS>
@@ -48,11 +48,11 @@ To use the `buried_unsatisfied_penalty` score term in design, simply follow the 
 </SCOREFXNS>
 ```
 
-2.  Design with any mover or protocol that invokes the packer, using the scorefunction defined above.  Ensure that the task operations passed to the packer allow polar-containing residues at the relevant design positions (or there will be no buried hydrogen bond donors or acceptors, satisfied or otherwise).  [[FastDesign|FastDesignMover]] is particularly advantageous since the rounds of minimization with the softened force field can pull hydrogen bond donors and acceptors into better hydrogen bond-forming positions.
+**2)**  Design with any mover or protocol that invokes the packer, using the scorefunction defined above.  Ensure that the task operations passed to the packer allow polar-containing residues at the relevant design positions (or there will be no buried hydrogen bond donors or acceptors, satisfied or otherwise).  [[FastDesign|FastDesignMover]] is particularly advantageous since the rounds of minimization with the softened force field can pull hydrogen bond donors and acceptors into better hydrogen bond-forming positions.
 
-3.  (Recommended).  Perform a final round of minimization or relaxation with the `buried_unsatisfied_penalty` score term turned _off_.  This ensures that the score term is not forcing unrealistic rotamers that would not be held in place given the hydrogen bonding.
+**3)**  (_Recommended_).  Perform a final round of minimization or relaxation with the `buried_unsatisfied_penalty` score term turned _off_.  This ensures that the score term is not forcing unrealistic rotamers that would not be held in place given the hydrogen bonding.
 
-4.  (Recommended).  Filter based either on the `buried_unsatisfied_penalty` score, or using the [[BuriedUnsatHbonds filter|BuriedUnsatHbondsFilter]].  Although this score term guides the packer to satisfy buried networks, it is possible that the particular backbone geometry or design settings will be incompatible with full satisfaction.  For example, if the user were to design the core of a protein with aspartate as the only allowed amino acid type, it would be virtually guaranteed that there would exist no solution that would satisfy all side-chain hydrogen bond acceptors.
+**4)**  (_Recommended_).  Filter based either on the `buried_unsatisfied_penalty` score, or using the [[BuriedUnsatHbonds filter|BuriedUnsatHbondsFilter]].  Although this score term guides the packer to satisfy buried networks, it is possible that the particular backbone geometry or design settings will be incompatible with full satisfaction.  For example, if the user were to design the core of a protein with aspartate as the only allowed amino acid type, it would be virtually guaranteed that there would exist no solution that would satisfy all side-chain hydrogen bond acceptors.
 
 ## Use with symmetry
 The `buried_unsatisfied_penalty` score term is currently fully compatible with symmetry, with no special user configuration necessary.  Symmetric poses score and pack faster than asymmetric poses with the same number of residues, since the symmetry simplifies the size of the data structures that must be stored.  (The scoreterm sets up a hydrogen bonding graph only for the asymmetric unit.  Hydrogen bonds between symmetry copies of the same residue are considered to be "intra-residue" hydrogen bonds, and are stored as such within nodes; hydrogen bonds between different residues in different symmetry copies are stored in the same edges.  Unsatisfied counts are multiplied by the number of symmetry copies.)
