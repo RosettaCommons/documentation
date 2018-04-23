@@ -57,6 +57,9 @@ To use the `buried_unsatisfied_penalty` scoreterm in design, simply follow the f
 ## Use with ligands
 The `buried_unsatisfied_penalty` scoreterm is fully compatible with arbitrary polar ligands.  If a ligand (or polymeric residue) is set not to design, the term can be very useful to coax the packer into designing polar connections to the ligand (or non-designable position) to satisfy its hydrogen bond donors and acceptors.  No special setup is required.
 
+## Use with non-canonical building blocks
+The `buried_unsatisfied_penalty` scoreterm is fully compatible with arbitrary polymeric building-blocks, with no special setup necessary.  The code is carefully written to avoid hardcoding anything that assumes (or provides special information for) the 20 canonical amino acid building-blocks.
+
 ## Use with symmetry
 The `buried_unsatisfied_penalty` scoreterm is currently fully compatible with symmetry, with no special user configuration necessary.  Symmetric poses score and pack faster than asymmetric poses with the same number of residues, since the symmetry simplifies the size of the data structures that must be stored.  (The scoreterm sets up a hydrogen bonding graph only for the asymmetric unit.  Hydrogen bonds between symmetry copies of the same residue are considered to be "intra-residue" hydrogen bonds, and are stored as such within nodes; hydrogen bonds between different residues in different symmetry copies are stored in the same edges.  Unsatisfied counts are multiplied by the number of symmetry copies.)
 
