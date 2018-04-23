@@ -49,7 +49,7 @@ Some really useful papers about Rosetta:
 Here are some useful links that will help you understand terminology that is used in Rosetta. Some concepts are also explained in the PyRosetta tutorials. 
 * https://wiki.rosettacommons.org/index.php/Glossary
 * [[Rosetta-overview]]
-* http://biocomp.chem.uw.edu.pl/wikilab/index.php/Rosetta_dictionary
+* [[Glossary]]
 
 ## Documentation
 There is a decent documentation available: https://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/index.html. For newer documentation, please visit https://www.rosettacommons.org/manual_guide and click on the newest release.
