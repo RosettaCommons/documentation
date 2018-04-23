@@ -35,6 +35,12 @@ XRW TO DO
             exclude_protein_protein_fa_elec="(&bool;)" exclude_DNA_DNA="(&bool;)"
             pb_bound_tag="(&string;)" pb_unbound_tag="(&string;)"
             scale_sc_dens="(&real;)" scale_sc_dens_byres="(&string;)"
+            buried_unsatisfied_penalty_cone_angle_exponent="(&real;)"
+            buried_unsatisfied_penalty_cone_angle_shift_factor="(&real;)"
+            buried_unsatisfied_penalty_cone_dist_exponent="(&real;)"
+            buried_unsatisfied_penalty_cone_dist_midpoint="(&real;)"
+            buried_unsatisfied_penalty_burial_threshold="(&real;)"
+            buried_unsatisfied_penalty_hbond_energy_threshold="(&real;)"
             voids_penalty_energy_containing_cones_cutoff="(&non_negative_integer;)"
             voids_penalty_energy_voxel_size="(&real;)"
             voids_penalty_energy_voxel_grid_padding="(&real;)"
@@ -99,6 +105,12 @@ Subtag **Set**:
 -   **pb_unbound_tag**: XRW TO DO
 -   **scale_sc_dens**: XRW TO DO
 -   **scale_sc_dens_byres**: XRW TO DO
+-   **buried_unsatisfied_penalty_cone_angle_exponent**: The angle exponent for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
+-   **buried_unsatisfied_penalty_cone_angle_shift_factor**: The angle shift factor for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
+-   **buried_unsatisfied_penalty_cone_dist_exponent**: The distance exponent for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
+-   **buried_unsatisfied_penalty_cone_dist_midpoint**: The distance midpoint for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
+-   **buried_unsatisfied_penalty_burial_threshold**: The number of cones in which a point must lie to be considered buried by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
+-   **buried_unsatisfied_penalty_hbond_energy_threshold**: The energy threshold above which a hydrogen bond is not counted, used by the BuriedUnsatPenalty energy.
 -   **voids_penalty_energy_containing_cones_cutoff**: The minimum number of sidechain cones in which a voxel must lie in order for that voxel to be considered to be buried.  Defaults to 6 cones.
 -   **voids_penalty_energy_voxel_size**: The voxel size (in Angstroms) used in the voids_penalty score term's calculation.  Default 0.5 Angstroms.
 -   **voids_penalty_energy_voxel_grid_padding**: The voxel grid padding (in Angstroms) used in the voids_penalty score term's calculation.  The bounding box for the pose is enlarged on every side by this amount.  Default 1.0 Angstroms.

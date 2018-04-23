@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-04-18
+Generated: 2018-04-23
 
 _Note that some application specific options may not be present in this list._
 
@@ -1024,6 +1024,18 @@ _Note that some application specific options may not be present in this list._
 <dd>The filename of a penalty file for the aa_repeat_energy term.  The penalty file should be a series of numbers on a single line, representing the penalty for having a repeat of 1, 2, 3, etc. of the same residue.  Penalty files are stored in database/scoring/score_functions/aa_repeat_energy/ and should have the suffix .rpt_pen.  The default is default_repeat_penalty_table.rpt_pen.<br/>Default: "default_repeat_penalty_table.rpt_pen"<br/></dd>
 <dt><b>-aspartimide_penalty_value</b> \<Real\></dt>
 <dd>The penalty for each aspartimide-forming two-residue sequence found, when the aspartimide_penalty score term weight is set to 1.0.  Default is 25.0.<br/>Default: 25.0<br/></dd>
+<dt><b>-buried_unsatisfied_penalty_cone_angle_exponent</b> \<Real\></dt>
+<dd>The angle exponent for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.<br/>Default: 2.0<br/></dd>
+<dt><b>-buried_unsatisfied_penalty_cone_angle_shift_factor</b> \<Real\></dt>
+<dd>The angle shift factor for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.<br/>Default: 0.25<br/></dd>
+<dt><b>-buried_unsatisfied_penalty_cone_dist_exponent</b> \<Real\></dt>
+<dd>The distance exponent for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.<br/>Default: 1.0<br/></dd>
+<dt><b>-buried_unsatisfied_penalty_cone_dist_midpoint</b> \<Real\></dt>
+<dd>The distance midpoint for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.<br/>Default: 9.0<br/></dd>
+<dt><b>-buried_unsatisfied_penalty_burial_threshold</b> \<Real\></dt>
+<dd>The number of cones in which a point must lie to be considered buried by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.<br/>Default: 5.0<br/></dd>
+<dt><b>-buried_unsatisfied_penalty_hbond_energy_threshold</b> \<Real\></dt>
+<dd>The energy threshold above which a hydrogen bond is not counted, used by the BuriedUnsatPenalty energy.<br/>Default: -0.25<br/></dd>
 <dt><b>-elec_min_dis</b> \<Real\></dt>
 <dd>changes the minimum distance cut-off for hack-elec energy<br/>Default: 1.6<br/></dd>
 <dt><b>-elec_max_dis</b> \<Real\></dt>
