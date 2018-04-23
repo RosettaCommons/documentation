@@ -1,5 +1,5 @@
 # Buried Unsatisfied Penalty (buried_unsatisfied_penalty) 
-Documentation created by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory, on 19 April 2018.
+Documentation created by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory, on 19 April 2018.  Last updated on 22 April 2018.
 
 **This code is currently unpublished.  If you use it, please include Vikram K. Mulligan as a coauthor.**
 
