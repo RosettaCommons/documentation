@@ -207,7 +207,9 @@ Here is an example of creating a new mover for carbohydrates:
 
 ## Licensing
 To get Rosetta, you signed the developers agreement (http://rosettadesign.med.unc.edu/agreement/agreements.html) which also contained some information about licensing third party software. Please also check out the wiki page here (https://wiki.rosettacommons.org/index.php/Licensing). A good rule of thumb is NOT to use anything under GPL or LGPL license.
+
 Rosetta can be licensed here:   https://els.comotion.uw.edu/express_license_technologies/rosetta
+
 PyRosetta can be licensed here: https://els.comotion.uw.edu/express_license_technologies/pyrosetta
 
 ## Bootcamp (put together by Andrew Leaver-Fay and other members of the Commons)
