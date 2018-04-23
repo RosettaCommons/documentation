@@ -51,7 +51,7 @@ Here are some useful links that will help you understand terminology that is use
 * [[Glossary]]
 
 ## Documentation
-There is a decent documentation available: https://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/index.html. For newer documentation, please visit https://www.rosettacommons.org/manual_guide and click on the newest release.
+There is considerable documentation available within this wiki. Additional documentation is available here:  https://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/index.html. 
 
 ## Tutorials
 Excellent in-depth tutorials covering many aspects of Rosetta can be found here:
