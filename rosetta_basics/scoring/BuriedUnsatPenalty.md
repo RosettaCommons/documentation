@@ -76,6 +76,10 @@ The following options can be set, either globally at the commandline or on an in
 | buried_unsatisfied_penalty_burial_threshold | Real | The number of cones in which a point must lie to be considered buried by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy. (Since cones have fuzzy boundaries, this is a float rather than an integer.) | 5.0 |
 | buried_unsatisfied_penalty_hbond_energy_threshold | Real | The energy threshold above which a hydrogen bond is not counted, used by the BuriedUnsatPenalty energy. | -0.25 |
 
+## A companion SimpleMetric
+
+The [[PolarGroupBurialPyMolStringMetric]] [[SimpleMetric|SimpleMetrics]] exists to provide a covenient way to export, or to embed in a pose or PDB file, a list of PyMol commands to colour the polar groups in a pose based on burial.  This is useful when setting the definition of burial or when debugging a protocol.  See the documentation for the [[PolarGroupBurialPyMolStringMetric]] for more details.
+
 ## Organization of the code
 
 * The scoreterm is defined in namespace `core::pack::guidance_scoreterms:buried_unsat_penalty`, and is located in `source/src/core/pack/guidance_scoreterms/buried_unsat_penalty/BuriedUnsatPenalty.cc/hh`.
@@ -98,3 +102,5 @@ The following options can be set, either globally at the commandline or on an in
 * [[ClearCompositionConstraintsMover]]
 * [[AddHelixSequenceConstraints mover|AddHelixSequenceConstraintsMover]]
 * [[VoidsPenaltyEnergy]]
+* [[PolarGroupBurialPyMolStringMetric]
+* [[SimpleMetrics]]
