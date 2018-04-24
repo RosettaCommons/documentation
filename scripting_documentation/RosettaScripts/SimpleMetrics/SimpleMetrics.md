@@ -76,6 +76,7 @@ These metrics calculate a string, such as sequence and seecondary structure.
 
 SimpleMetric  | Description | ResidueSelector Compatability?
 ------------ | ------------- | -------------
+**[[PolarGroupBurialPyMolStringMetric]]** | Returns PyMol commands to colour polar groups in a pose based on burial, in a manner compatible with the [[buried_unsatisfied_penalty|BuriedUnsatPenalty]] scoreterm. | No (not applicable)
 **[[SecondaryStructureMetric]]** | Returns the DSSP secondary structure of the pose or set of selected residues. | Yes
 **[[SelectedResiduesMetric]]** | Returns the a comma-separated list of selected residues in PDB or Rosetta numbering. | Yes - _Required_
 **[[SelectedResiduesPyMOLMetric]]** | Returns a PyMOL selection of a set of selected residues. | Yes - _Required_
