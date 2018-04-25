@@ -8,6 +8,7 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 ##See Also
 
+* [[SelectionCountMetric]]: Return the _number_ of selected residues.
 * [[RunSimpleMetrics]]: Run a set of SimpleMetrics and output data to the scorefile
 * [[SelectedResiduesPyMOLMetric]]: Output selection as a PyMOL sele
 * [[SimpleMetricFilter]]: Filter on an arbitrary SimpleMetric
