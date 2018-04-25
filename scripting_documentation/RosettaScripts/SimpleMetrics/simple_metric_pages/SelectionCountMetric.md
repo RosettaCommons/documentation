@@ -24,6 +24,8 @@ The SelectionCountMetric [[SimpleMetric|SimpleMetrics]] counts the number of res
 
 ##See Also
 
+* [[SelectedResiduesMetric]]: Return a string containing the selected residue indices.
+* [[SelectedResiduesPyMolMetric]]: Return a string containing a PyMol selection for the selected residue indices.
 * [[RunSimpleMetrics]]: Run a set of SimpleMetrics and output data to the scorefile
 * [[SimpleMetricFilter]]: Filter on an arbitrary SimpleMetric
 * [[SimpleMetricFeatures]]: Run [[Features | Features-reporter-overview]] on a set of SimpleMetrics
