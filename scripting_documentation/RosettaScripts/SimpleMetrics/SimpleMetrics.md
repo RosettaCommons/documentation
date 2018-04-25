@@ -61,7 +61,7 @@ SimpleMetric  | Description | ResidueSelector Compatability?
 **[[DihedralDistanceMetric]]** | Calculates the normalized dihedral angle distance in degrees from directional statistics on a set of dihedrals/residues of two poses or two regions of a pose.  | Yes
 **[[RMSDMetric]]** | Calculates the RMSD between two poses or on a subset of residues.  Many options for RMSD including bb, heavy, all, etc. | Yes 
 **[[SasaMetric]]** | Calculates the Solvent Accessible Surface Area (sasa). | Yes
-**[[SelectionCountMetric]]** | Count the number of residues in a selection (or whole pose). | Yes
+**[[SelectedResidueCountMetric]]** | Count the number of residues in a selection (or whole pose). | Yes
 **[[TotalEnergyMetric]]** | Calculates the Total Energy of a pose using a Scorefunction OR the delta total energy between two poses. | Yes
 **[[TimingMetric]]** | Calculates the time passed in minutes or hours from from construction to apply (ie from when declared in the RS block to when it is run).  Useful for obtaining timing information of protocols. | No
 

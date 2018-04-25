@@ -8,7 +8,7 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 ##See Also
 
-* [[SelectionCountMetric]]: Return the _number_ of selected residues.
+* [[SelectedResidueCountMetric]]: Return the _number_ of selected residues.
 * [[RunSimpleMetrics]]: Run a set of SimpleMetrics and output data to the scorefile
 * [[SelectedResiduesMetric]]: Output selected residues in PDB or Rosetta numbering
 * [[SimpleMetricFilter]]: Filter on an arbitrary SimpleMetric

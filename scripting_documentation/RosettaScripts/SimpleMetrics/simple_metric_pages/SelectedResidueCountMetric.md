@@ -1,8 +1,8 @@
-#SelectionCountMetric
+#SelectedResidueCountMetric
 
 *Back to [[SimpleMetrics]] page.*
 
-## SelectionCountMetric
+## SelectedResidueCountMetric
 
 Author: Vikram K. Mulligan (vmullig@uw.edu)
 
@@ -12,12 +12,12 @@ Documentation created 24 April 2018.
 
 ## Purpose and Description
 
-The SelectionCountMetric [[SimpleMetric|SimpleMetrics]] counts the number of residues in a pose (in the absence of a [[residue selector|ResidueSelectors]] or in a selection (if a [[residue_selector|ResidueSelectors]] is provided).
+The SelectedResidueCountMetric [[SimpleMetric|SimpleMetrics]] counts the number of residues in a pose (in the absence of a [[residue selector|ResidueSelectors]] or in a selection (if a [[residue_selector|ResidueSelectors]] is provided).
 
 ## Usage
 
 ```xml
-<SelectionCountMetric name="(&string)" residue_selector="(&string)" />
+<SelectedResidueCountMetric name="(&string)" residue_selector="(&string)" />
 ```
 
 * **residue_selector:** The name of a previously-defined [[residue selector|ResidueSelectors]].  If provided, the number of selected residues is counted.  If not provided, all residues in the pose are counted.
