@@ -54,7 +54,7 @@ Example with comparison to native through `-in:file:native`:
 
 ##RealMetrics
 
-These metrics calculate a single real number (ie NOT an integer). 
+These metrics calculate a single real number (or integer). 
 
 SimpleMetric  | Description | ResidueSelector Compatability?
 ------------ | ------------- | -------------
