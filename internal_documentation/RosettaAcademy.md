@@ -12,6 +12,9 @@ Most people in the community are using PyMol (download from http://www.pymol.org
 
 Some people are using Chimera (http://www.cgl.ucsf.edu/chimera/), which seems to have some additional functionality for density maps if you are working with X-ray electron density maps or Cryo-EM maps. Tutorials can be found at http://www.cgl.ucsf.edu/chimera/docs/UsersGuide/frametut.html.
 
+There is also the Discovery Studio Visualizer for Scientific Linux and Windows systems:
+* http://accelrys.com/products/collaborative-science/biovia-discovery-studio/visualization-download.php 
+
 ## Basic biochemistry
 To work in Rosetta, you need to know some basic biochemistry about amino acids and protein structure. You can learn this by picking up a biochemistry book (such as Voet & Voet: Biochemistry) or look at:
 * http://www.rpi.edu/dept/bcbp/molbiochem/MBWeb/mb1/part2/protein.htm
