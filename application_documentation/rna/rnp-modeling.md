@@ -30,6 +30,15 @@ rna_denovo –f fasta.txt –secstruct_file secstruct.txt –s protein_structure
 ```
 
 ##Options for modeling RNA-protein complexes
+**`-ramp_rnp_vdw`**: Gradually turn on rnp_vdw scoring during the run.  
+**`-convert_protein_CEN`**: Convert protein residues to centroid mode during low-res fragment assembly.  
+**`-rna_protein_docking`**: Do RNA-protein docking. This will be turned on by default if both RNA and protein residues are specified in the fasta file, and the rigid body orientation is not predetermined by one of the input structures.  
+-docking_move_size: A number between 0.0 and 1.0 that controls the magnitude of the rigid-body docking moves. 0.0 corresponds to the smallest docking moves and 1.0 to the biggest. Default is 1.0.  
+-rnp_high_res_relax: Do additional all-atom refinement for RNA-protein complexes (sidechain packing, small docking moves, single residue fragment insertions). Default: true.  
+-rnp_high_res_cycles: The number of all-atom refinement cycles to perform (above).   
+-rnp_pack_first: Pack protein sidechains first in all-atom refinement (above). Recommended: true.  
+-rnp_min_first: Minimize the RNA-protein structure (in the full-atom energy function) before doing any further high-resolution refinement (above). Recommended: true.  
+-FA_low_res_rnp_scoring: RNA-protein low-resolution scoring using full atom protein residues.  
 
 
 ##See Also
