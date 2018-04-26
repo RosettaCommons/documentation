@@ -20,7 +20,7 @@ Code is available through `rna_denovo`.
 ##Optional inputs
 1. Additional PDB files specifying parts of the RNA structure, e.g. ideal A-form RNA helices. **Note**: if you want to enforce a specific rigid body orientation between your protein and an RNA structure, they must both be specified in the same PDB file!
 2. A constraint file, which can be used to incorporate experimental data (such as specific contacts, distance restraints, etc.) into the modeling.
-3. A density map: see the DRRAFTER pipeline for more information about building models into density maps.
+3. A density map: see the [[DRRAFTER]] pipeline for more information about building models into density maps.
 
 ##Running the code
 Models are built with the Rosetta fold-and-dock method for RNA-protein complexes, which combines FARNA RNA folding with RNA-protein docking. An example command line is below:
