@@ -9,7 +9,7 @@ Last updated: April 2018
 Model 3D structures of RNA-protein complexes using a fold-and-dock method.
 
 ##Code and demo
-Code is available through `rna_denovo`. 
+Code is available through `rna_denovo`. A demo is available in `demos/public/rnp_structure_prediction`.
 
 
 ##Required inputs
