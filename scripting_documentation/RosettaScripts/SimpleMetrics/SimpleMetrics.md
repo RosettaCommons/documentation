@@ -66,10 +66,6 @@ SimpleMetric  | Description | ResidueSelector Compatability?
 **[[TimingMetric]]** | Calculates the time passed in minutes or hours from from construction to apply (ie from when declared in the RS block to when it is run).  Useful for obtaining timing information of protocols. | No
 
 
-##IntegerMetrics
-
-These metrics calculate a single integer. 
-
 
 ##StringMetrics
 
@@ -91,11 +87,6 @@ These metrics calculate a set of named real numbers. All metric values in the co
 SimpleMetric  | Description | ResidueSelector Compatability?
 ------------ | ------------- | -------------
 **[[CompositeEnergyMetric]]** | Calculates each individual scoreterm of a scorefunction or the DELTA of each scoreterm between two poses.  Each named value is the scoreterm | Yes
-
-
-##CompositeIntegerMetrics
-
-These metrics calcuate a set of integers. All metric values in the composite are output and available for filtering. 
 
 
 ##CompositeStringMetrics
