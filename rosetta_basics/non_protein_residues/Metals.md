@@ -31,6 +31,7 @@ The **-in:auto_setup_metals** flag has been added to handle import of metallopro
 * Rosetta removes hydrogens from atoms that bind metal ions, and adjusts the charge on the residue appropriately (which can be important in special cases in which one residue coordinates multiple metal ions).
 * Rosetta sets up the fold tree such that the metal atom is connected by a jump to the spatially closest metal-binding residue that precedes it in linear sequence.  This means that if the protein's backbone is moved, the metal will remain close to that residue (though not necessarily close to its side-chain, if that were to move).
 The [[SetupMetalsMover]] provides the same function as the flag in mover form.
+
 ## How do I control the default behavior of the **-in:auto_setup_metals** flag?
 
 Three additional flags control the behavior:
@@ -57,6 +58,14 @@ You can also force the dumping of all CONECT records (not just the bonds to nonc
 As of 13 May 2014, it does.  One caveat is that constraint weights must be turned on explicitly in the scorefunction used in order for metal constraints to work.  Additionally, any mover that clears constraints will clear the metal constraints.
 
 **UPDATE** 25 April 2017: The new SetupMetalsMover provides the same functionality as the flag in mover form (constraint weights must still be explicitly set in the score function). The constraints_only option allows users to add constraints back without setting up covalent bonds; this can be useful i.e. after calling a mover that clears constraints.
+
+## Is this compatible with centroid mode?
+
+**Short answer:** Yes, probably (as of April 2018) **Long Answer:** If your metalbinding geometry is through backbone atoms, there shouldn't be much of a concern, assuming you remember to enable the metalbinding_constraint term in your centroid scorefunctions. (It will not be automatically enabled for you.) If the coordination is through sidechain atoms, there are a few caveats. As protein sidechain atoms are not normally present during centroid mode, there's a difficulty in translating the covalent bonds and the constraints into standard centroid mode residues. 
+
+Rosetta gets around this by creating a special united-atom residue type, where all the sidechain atoms are explicitly represented. There's two potential issues with this approach. The first is that, because it doesn't have the CEN atom, this special residue won't be scored in centroid mode like a standard protein residue. The other is due to sampling limitations. Because most centroid mode protocols don't consider sidechain sampling, the sidechain conformation of metalbinding residues will effectively be locked in their starting position. This might not be an issue if you're not sampling in the immediate neighborhood of the residue (e.g. if you're doing loop remodeling in another part of the protein), but if you're doing backbone remodeling in the vicinity of the metalbinding residue, you may be unfairly rejecting acceptable conformations due to the immobility of the residue sidechain.
+
+Note this is only if you read in the pose as full atom, apply the metalbinding setup, and then later convert to centroid (e.g. during a loop remodeling segment of the protocol). If you directly read the structure in as a centroid mode pose (e.g. with the -in:file:centroid flag), Rosetta will never have the sidechain atoms to appropriately set up the bonds to the metal and constraints in the first place.
 
 ## I'd like to do other things with metals in my own protocols.
 
