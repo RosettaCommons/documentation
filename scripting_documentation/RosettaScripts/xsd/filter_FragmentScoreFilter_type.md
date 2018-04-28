@@ -17,6 +17,7 @@ Filter based on any score that can be calculated in fragment_picker.
         vall_path="(/scratch/benchmark/W.hojo-1/rosetta.Hojo-1/master/main/database//sampling/vall.jul19.2011.gz &string;)"
         frags_scoring_config="(&string;)" n_frags="(200 &non_negative_integer;)"
         n_candidates="(1000 &non_negative_integer;)"
+        print_to_pdb="(false &xs:boolean;)"
         task_operations="(&task_operation_comma_separated_list;)"
         confidence="(1.0 &real;)" />
 ```
@@ -41,6 +42,7 @@ Filter based on any score that can be calculated in fragment_picker.
 -   **frags_scoring_config**: Path to scoring config file (required).
 -   **n_frags**: Number of fragments to be picked (default 200)
 -   **n_candidates**: Number of candidates per position (default 1000)
+-   **print_to_pdb**: Prints scores for all residues analyzed to the pdb.
 -   **task_operations**: A comma separated list of TaskOperations to use.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
