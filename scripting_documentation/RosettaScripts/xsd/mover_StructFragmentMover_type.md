@@ -14,7 +14,8 @@ Create fragments from a supplied pose.
         steal_large_frags="(0 &bool;)" frag_weight_file="(&string;)"
         sequence_profile="(&string;)" vall_file="(&string;)"
         n_candidates="(1000 &non_negative_integer;)"
-        n_frags="(200 &non_negative_integer;)" prefix="(&string;)" />
+        n_frags="(200 &non_negative_integer;)" prefix="(structFrag &string;)"
+        secstruct="(&string;)" use_dssp="(true &bool;)" />
 ```
 
 -   **small_frag_size**: Set the size of the small fragments
@@ -29,6 +30,8 @@ Create fragments from a supplied pose.
 -   **vall_file**: Path to vall file (required when no fragment files are provided)
 -   **n_candidates**: Set the number of candidates
 -   **n_frags**: Set the number of fragments
--   **prefix**: (REQUIRED) Prefix of output files and the fragments stored in the DataMap.
+-   **prefix**: Prefix of output files and the fragments stored in the DataMap.
+-   **secstruct**: Secondary structure
+-   **use_dssp**: Use DSSP to determine secondary structure?
 
 ---
