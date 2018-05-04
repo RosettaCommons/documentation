@@ -63,7 +63,7 @@ SimpleMetric  | Description | ResidueSelector Compatability?
 **[[SasaMetric]]** | Calculates the Solvent Accessible Surface Area (sasa). | Yes
 **[[SelectedResidueCountMetric]]** | Count the number of residues in a selection (or whole pose). | Yes
 **[[TotalEnergyMetric]]** | Calculates the Total Energy of a pose using a Scorefunction OR the delta total energy between two poses. | Yes
-**[[TimingMetric]]** | Calculates the time passed in minutes or hours from from construction to apply (ie from when declared in the RS block to when it is run).  Useful for obtaining timing information of protocols. | No
+**[[TimingProfileMetric | TimingMetric]]** | Calculates the time passed in minutes or hours from from construction to apply (ie from when declared in the RS block to when it is run).  Useful for obtaining timing information of protocols. | No
 
 
 
