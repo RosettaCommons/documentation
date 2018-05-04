@@ -40,4 +40,4 @@ Outputs use the RosettaScripts multi-output framework, and thus recognize any Ro
 
 **Possible tricky issues**:
 * The code initially idealizes and minimizes the sidechain geometry of all flexible sidechains.  This can lead to two possible issues with structures that deviate significantly from ideality: 1) "initial_pool" structures that are not idealized will be slightly perturbed initially when added to the pool.  2) for input structures that are very non-ideal, this initial "correction" may lead to high energies for the input sidechain.
-* Pocket radius is defined as the input ligand radius plus the **padding** parameter.  Caution should be paid when using very small or very large ligands, particularly with the **"auto"** sidechain option.
+* Pocket radius is defined as the input ligand radius plus the **padding** parameter.  Caution should be paid when using very small or very large ligands, particularly with the **"auto"** sidechain option.  For large ligands, the **"aniso"** option may be preferred.
