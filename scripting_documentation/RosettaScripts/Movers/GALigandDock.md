@@ -21,8 +21,8 @@ The tag `<GALigandDock>` defines several options associated with the mover, most
 * **final_exact_minimize** - optionally perform a final off-grid optimization.  **none**: no optimization is performed. **sc**: sidechain optimization only is performed.  **bbsc**: cart-min of flexible residues is performed.  **bbscN**: cart-min of flexible residues *plus N residues up and downstream*
 * **init_oversample** - oversample the initial population by this factor (recommended 10)
 * **rotprob**, **rotEcut**, when generating rotamers to sample, use this cumulative probability and backround energy to trim set.  **0.9** and **100**, respectively, recommended
-* **sidechains** - sidechain optimization strategy. **none**: only dock ligands.  **auto**: auto-select all pocket sidechains.  **\<residue specifier\>** (e.g. "22A,25A"): explicit sidechain flexibility specification
-* **initial_pool** - manually specify a set of structures in the first generation.
+* **sidechains** - sidechain optimization strategy. **none**: only dock ligands.  **auto**: auto-select all pocket sidechains.  **aniso**: autoselection logic accounting for the shape (not just center of mass) of ligand in input conformation **\<residue specifier\>** (e.g. "22A,25A"): explicit sidechain flexibility specification
+* **initial_pool** - manually specify a set of structures in the first generation.  A comma separated list of PDBs _or_ silent files.
 
 A series of `<Stage>` tags defines the protocol.  These tags, when applied in order, define the flow of the genetic algorithm.  There are a few options in each stage:
 * **repeats**, **npool** - the number of GA generations, and pool size for each generation.
