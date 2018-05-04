@@ -4,7 +4,7 @@
 
 Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
-[[include:simple_metric_RMSDMetric_type]]
+[[include:simple_metric_RMSDMetric_complex_type]]
 
 ##See Also
 
