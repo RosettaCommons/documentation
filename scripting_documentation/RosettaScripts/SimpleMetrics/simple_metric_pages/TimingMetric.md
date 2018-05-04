@@ -1,10 +1,10 @@
-# TimingMetric
+# TimingProfileMetric
 *Back to [[SimpleMetrics]] page.*
-## TimingMetric
+## TimingProfileMetric
 
 Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
-[[include:simple_metric_TimingMetric_complex_type]]
+[[include:simple_metric_TimingProfileMetric_complex_type]]
 
 ##See Also
 
