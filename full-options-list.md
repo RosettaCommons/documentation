@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-04-23
+Generated: 2018-05-06
 
 _Note that some application specific options may not be present in this list._
 
@@ -888,6 +888,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Turn on Lennard Jones attractive term for hydrogen atoms<br/>Default: true<br/></dd>
 <dt><b>-no_smooth_etables</b> \<Boolean\></dt>
 <dd>Revert to old style etables<br/></dd>
+<dt><b>-count_pair_hybrid</b> \<Boolean\></dt>
+<dd>Use standard count-pair for non-ligands and cp3 w/ full-weight 1-4 for ligands<br/>Default: false<br/></dd>
 <dt><b>-no_lk_polar_desolvation</b> \<Boolean\></dt>
 <dd>Disable the polar-desolvation component of the LK solvation model; effectively set dGfree for polar atoms to 0<br/></dd>
 <dt><b>-lk_polar_without_proline_N</b> \<Boolean\></dt>
@@ -994,6 +996,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Default spring constants for bonded parameters [length,angle,torsion,proton-torsion,improper-torsion]<br/></dd>
 <dt><b>-bonded_params_dir</b> \<String\></dt>
 <dd>Spring constants for bonded parameters [length,angle,torsion,proton-torsion,improper-torsion]<br/>Default: "scoring/score_functions/bondlength_bondangle"<br/></dd>
+<dt><b>-gen_bonded_params_file</b> \<String\></dt>
+<dd>Parameters for [length,angle,torsion,improper-torsion]<br/>Default: "scoring/score_functions/generic_potential/generic_bonded.round6p.txt"<br/></dd>
 <dt><b>-extra_improper_file</b> \<String\></dt>
 <dd>Add extra parameters for improper torsions<br/></dd>
 <dt><b>-pro_close_planar_constraint</b> \<Real\></dt>
@@ -1768,9 +1772,9 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-corrections</b> \<Boolean\></dt>
 <dd>corrections option group<br/></dd>
 <dt><b>-beta</b> \<Boolean\></dt>
-<dd>Use the most-recent (curr Nov 15) beta score function<br/>Default: false<br/></dd>
+<dd>Use the most-recent (curr Apr 2018) beta score function<br/>Default: false<br/></dd>
 <dt><b>-beta_cart</b> \<Boolean\></dt>
-<dd>Use the most-recent (curr Nov 15) beta score function for nonideal optimization<br/>Default: false<br/></dd>
+<dd>Use the most-recent (curr Apr 2018) beta score function for nonideal optimization<br/>Default: false<br/></dd>
 <dt><b>-beta_nov16</b> \<Boolean\></dt>
 <dd>Use the November 2015 beta score function<br/>Default: false<br/></dd>
 <dt><b>-beta_nov16_cart</b> \<Boolean\></dt>
@@ -1779,8 +1783,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Use the July 2015 beta  score function<br/>Default: false<br/></dd>
 <dt><b>-beta_july15_cart</b> \<Boolean\></dt>
 <dd>Use the July 2015 beta score function for nonideal optimization<br/>Default: false<br/></dd>
-<dt><b>-beta_patch</b> \<Boolean\></dt>
-<dd>Apply the extra patch to most-recent (curr Nov 15) beta_score_function.<br/>Default: false<br/></dd>
+<dt><b>-gen_potential</b> \<Boolean\></dt>
+<dd>Use the April 2018 genralized potential<br/>Default: false<br/></dd>
 <dt><b>-newdna</b> \<Boolean\></dt>
 <dd>Apply some dna-specific mods to chemical/scoring (for testing)<br/>Default: false<br/></dd>
 <dt><b>-restore_talaris_behavior</b> \<Boolean\></dt>
@@ -1891,6 +1895,17 @@ _Note that some application specific options may not be present in this list._
 <dd>Use PARSE charge set.<br/></dd>
 <dt><b>-expand_st_chi2sampling</b> \<Boolean\></dt>
 <dd>Ugly temporary hack.  Expand the chi2 sampling for serine and threonine in the fa_standard residue type set so that samples are taken every 20 degrees (instead of every 60 degrees.  This will soon be changed in the SER and THR params files themselves.  This flag can be used with any residue type set (including the pre-s fa_standard version, and with the fa_standard_05.2009_icoor version) but is unncessary for the talaris2013 version (currently named fa_standard) as the expanded SER and THR sampling is already encoded in .params files for these two residues<br/>Default: false<br/></dd>
+<dt><b>-alternate_fullatom_ats</b> \<String\></dt>
+<dd>Specify an alternate directory for the fullatom atom type set<br/></dd>
+</dl>
++ <h3>-corrections:genpotential</h3>
+<dl>
+<dt><b>-genpotential</b> \<Boolean\></dt>
+<dd>genpotential option group<br/></dd>
+<dt><b>-set_torsion_params</b> \<StringVector\></dt>
+<dd>Modify generic_bonded_potential torsion parameters (the ones in generic_bonded.round6p.txt) from the command line. Happens at time of AtomTypeSet creation inside ChemicalManager.cc. Format is: -corrections:genpotential:set_torsion_params <atom-set1>:<atom_name1>:<atom_name2>:<atom_name3>:<atom_name4><param1>:<setting1>:<param2>:<setting2> ... For example: '-corrections:genpotential:set_torsion_params fa_standard:C*:CS:CS:C*:k1:0.0:k2:0.0:k3:0.077 fa_standard:CD:CS:CS:CD:k1:0.435:k2:0.039:k3:0.070' <br/></dd>
+<dt><b>-set_special_torsion_params</b> \<StringVector\></dt>
+<dd>Modify generic_bonded_potential special torsion parameters (the ones in generic_bonded.round6p.txt) from the command line. Happens at time of scorefunction creation inside ChemicalManager.cc. Format is: -corrections:genpotential:set_special_torsion_params <atom-set1>:<atom_name1>:<atom_name2>:<atom_name3>:<atom_name4><param1>:<setting1>:<param2>:<setting2> ... For example: '-corrections:genpotential:set_special_torsion_params fa_standard:X:CRb:CRb:X:k1:0.000:k2:-0.226:k3:0.000:k4:0.093:k8:0.000 ' <br/></dd>
 </dl>
 + <h2>-corrections</h2>
 <dl>
