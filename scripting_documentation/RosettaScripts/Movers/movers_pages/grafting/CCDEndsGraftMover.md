@@ -57,8 +57,8 @@ It is intended, but not guaranteed, to produce a graft with good rama, omega, an
 **Combine with [[SavePoseMover]] for insertions**
 
 -   spm_reference_name (&string): The name of the reference pose we are inserting.  See [[SavePoseMover]] for more info.
--   start\_pdb\_num: PDB Number to start keep region from (including it). Ex: 24L.  Use start\_res\_num instead for internal numbering 
--   end\_pdb\_num: PDB Number to end keep region at (including it); Ex: 42L. Use end\_res\_num instead for internal numbering
+-   start_: PDB Number to start keep region from (including it). Ex: 24L or internal Rosetta numbering
+-   end_: PDB Number to end keep region at (including it); Ex: 42L or internal Rosetta numbering
 
 ###Flexibility Options
 
