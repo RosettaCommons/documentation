@@ -120,12 +120,12 @@ We are then left with a new antibody that has CDRs from a different antibody.  N
 			<Add mover="save_current" />
 			<Add mover="restore_ab" />
 		</ParsedProtocol>
-		<KeepRegionMover name="k_L1" start_pdb_num="24L" end_pdb_num="42L" nter_overhang="2" cter_overhang="2"/>
-		<KeepRegionMover name="k_L2" start_pdb_num="57L" end_pdb_num="72L" nter_overhang="2" cter_overhang="2"/>
-		<KeepRegionMover name="k_L3" start_pdb_num="107L" end_pdb_num="138L" nter_overhang="2" cter_overhang="2"/>
-		<CCDEndsGraftMover name="graft_L1" start_pdb_num="23L" end_pdb_num="43L" spm_reference_name="CDR" copy_pdbinfo="1"/>
-		<CCDEndsGraftMover name="graft_L2" start_pdb_num="56L" end_pdb_num="73L" spm_reference_name="CDR" copy_pdbinfo="1"/>
-		<CCDEndsGraftMover name="graft_L3" start_pdb_num="106L" end_pdb_num="139L" spm_reference_name="CDR" copy_pdbinfo="1"/>
+		<KeepRegionMover name="k_L1" start_="24L" end_="42L" nter_overhang="2" cter_overhang="2"/>
+		<KeepRegionMover name="k_L2" start_="57L" end_="72L" nter_overhang="2" cter_overhang="2"/>
+		<KeepRegionMover name="k_L3" start_="107L" end_="138L" nter_overhang="2" cter_overhang="2"/>
+		<CCDEndsGraftMover name="graft_L1" start_="23L" end_="43L" spm_reference_name="CDR" copy_pdbinfo="1"/>
+		<CCDEndsGraftMover name="graft_L2" start_="56L" end_="73L" spm_reference_name="CDR" copy_pdbinfo="1"/>
+		<CCDEndsGraftMover name="graft_L3" start_="106L" end_="139L" spm_reference_name="CDR" copy_pdbinfo="1"/>
 	</MOVERS>
 	<PROTOCOLS>
 		<Add mover_name="save_current" />
