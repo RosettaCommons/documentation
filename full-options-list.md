@@ -7955,7 +7955,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-do_not_remove_connection_inconsistencies</b> \<Boolean\></dt>
 <dd>if true, do not remove_connection_inconsistencies<br/></dd>
 <dt><b>-score_between_opposite_terminal_segments</b> \<Boolean\></dt>
-<dd>if true, score_between_opposite_terminal_segments like 1-5 or 5-1<br/>Default: true<br/></dd>
+<dd>if true, score_between_opposite_terminal_segments like 1-5 or 5-1<br/></dd>
 <dt><b>-num_models_to_dump</b> \<Integer\></dt>
 <dd>Used for ModelDumper. How many random models should be dumped?<br/></dd>
 <dt><b>-models_to_dump</b> \<IntegerVector\></dt>
@@ -8012,43 +8012,14 @@ _Note that some application specific options may not be present in this list._
 <dd>A PDB that is not part of the Assembly, but will be used for clash checking<br/></dd>
 <dt><b>-keep_model_residues</b> \<IntegerVector\></dt>
 <dd>A list of residues from the input pose that will not be designed (but are repacked)<br/></dd>
-<dt><b>-output_alignments_to_file</b> \<Boolean\></dt>
-<dd>Write alignments of input pose and edge file to an alignment file?<br/>Default: true<br/></dd>
 <dt><b>-min_lh_fragments</b> \<Integer\></dt>
 <dd>Minimium number of LoopHash fragments necessary for each designed loop<br/>Default: 10<br/></dd>
 <dt><b>-skip_loop_generation</b> \<Boolean\></dt>
 <dd>Should you skip generation of loops<br/>Default: false<br/></dd>
-<dt><b>-calcium_motif_score_weight</b> \<Real\></dt>
-<dd>Sets weight of motif score variant that promotes packing on both sides of an input model<br/>Default: 0.0<br/></dd>
 <dt><b>-max_ss_num</b> \<Integer\></dt>
 <dd>max_ss_num so either 3 (smotif) or 5 (5-ss_models)<br/>Default: 5<br/></dd>
 <dt><b>-dump_every_model</b> \<Boolean\></dt>
 <dd>dump_every_model<br/>Default: false<br/></dd>
-</dl>
-+ <h2>-sewing</h2>
-<dl>
-<dt><b>-sewing</b> \<Boolean\></dt>
-<dd>sewing option group<br/></dd>
-<dt><b>-edge_file_name</b> \<String\></dt>
-<dd>Name of SEWING edge file (new format)<br/></dd>
-<dt><b>-model_file_name</b> \<File\></dt>
-<dd>Filename for segment file (creation or reading) for new SEWING<br/></dd>
-<dt><b>-match_segments</b> \<IntegerVector\></dt>
-<dd>Segment scored by the hasher<br/></dd>
-<dt><b>-pose_segment_starts</b> \<IntegerVector\></dt>
-<dd>Segment begin indices<br/></dd>
-<dt><b>-pose_segment_ends</b> \<IntegerVector\></dt>
-<dd>Segment end indices<br/></dd>
-<dt><b>-recursive_depth</b> \<Integer\></dt>
-<dd>How many layers of edges from the current node to generate? E.g. a recursive depth of 2 would generate edges from the starting model and to all models with edges to that model.<br/>Default: 2<br/></dd>
-<dt><b>-min_hash_score</b> \<Integer\></dt>
-<dd>Minimum number of overlapping atoms per segment<br/>Default: 10<br/></dd>
-<dt><b>-max_clash_score</b> \<Integer\></dt>
-<dd>Maximum number of atoms found in the same bin, but not from superimposed fragments<br/>Default: 0<br/></dd>
-<dt><b>-box_length</b> \<Integer\></dt>
-<dd>Neighborhood lookup box size, 3 for 27 boxes, 4 for 64 boxes etc<br/>Default: 3<br/></dd>
-<dt><b>-score_between_opposite_terminal_segments</b> \<Boolean\></dt>
-<dd>if true, score_between_opposite_terminal_segments like 1-5 or 5-1<br/>Default: true<br/></dd>
 </dl>
 + <h2>-SSrbrelax</h2>
 <dl>
