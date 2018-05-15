@@ -11,6 +11,7 @@ XRW TO DO
         ignore_surface_res="(false &bool;)"
         ignore_bb_heavy_unsats="(false &bool;)"
         use_sc_neighbors="(false &bool;)" use_ddG_style="(false &bool;)"
+        ddG_style_dont_recalc_surface="(false &bool;)"
         only_interface="(false &bool;)" print_out_info_to_pdb="(false &bool;)"
         jump_number="(1 &non_negative_integer;)"
         cutoff="(20 &non_negative_integer;)" probe_radius="(1.4 &real;)"
@@ -33,6 +34,7 @@ XRW TO DO
 -   **ignore_bb_heavy_unsats**: ignore bb heayy atom unsats when using hbnet-style behavior
 -   **use_sc_neighbors**: use sc_neighbors insteady of SASA for burial calculations
 -   **use_ddG_style**: perform ddG style calcation: the Unsats are calculated by subtracting all unsats in bound state from unbound state; this is how the original BuriedUnsatHBondsFilter works
+-   **ddG_style_dont_recalc_surface**: don't recalculate surface residues in the unbound pose when using ddG_style
 -   **only_interface**: restrict unsat search only to interface residues; if true and more than one chain it's ignored
 -   **print_out_info_to_pdb**: print all info to pdb file into addition to tracer
 -   **jump_number**: The jump over which to evaluate the filter; only applies to use_ddG_style

@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-05-09
+Generated: 2018-05-14
 
 _Note that some application specific options may not be present in this list._
 
@@ -4503,6 +4503,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Do a local refinement of the docking position (high resolution)<br/>Default: false<br/></dd>
 <dt><b>-low_res_protocol_only</b> \<Boolean\></dt>
 <dd>Run only low resolution docking, skip high resolution docking<br/>Default: false<br/></dd>
+<dt><b>-docking_low_res_score</b> \<String\></dt>
+<dd>Define low resolution docking score function.<br/>Default: "interchain_cen"<br/></dd>
 <dt><b>-randomize1</b> \<Boolean\></dt>
 <dd>Randomize the first docking partner.<br/>Default: false<br/></dd>
 <dt><b>-randomize2</b> \<Boolean\></dt>
@@ -4589,6 +4591,8 @@ _Note that some application specific options may not be present in this list._
 <dd>The magnitude of the translational perturbation during lowres in docking.<br/>Default: 0.7<br/></dd>
 <dt><b>-docklowres_rot_magnitude</b> \<Real\></dt>
 <dd>The magnitude of the rotational perturbation during lowres in docking.<br/>Default: 5.0<br/></dd>
+<dt><b>-enable_pymol_viewer</b> \<Boolean\></dt>
+<dd>See conformer switch moves in PyMOL. Color changes when switch is accepted.<br/>Default: false<br/></dd>
 </dl>
 + <h3>-docking:ligand</h3>
 <dl>
@@ -9221,6 +9225,15 @@ _Note that some application specific options may not be present in this list._
 <dd>examine only homodimer configs<br/>Default: false<br/></dd>
 <dt><b>-fa_dun_thresh</b> \<Real\></dt>
 <dd><br/>Default: 6.0<br/></dd>
+</dl>
++ <h2>-PDB_diagnostic</h2>
+<dl>
+<dt><b>-PDB_diagnostic</b> \<Boolean\></dt>
+<dd>PDB_diagnostic option group<br/></dd>
+<dt><b>-reading_only</b> \<Boolean\></dt>
+<dd>if true, become a no-op (only structure reading is tested). Useful for not-mega-clusters where packing a virus/ribosome will crush memory.<br/>Default: false<br/></dd>
+<dt><b>-skip_pack_and_min</b> \<Boolean\></dt>
+<dd>Skip the packing and minimization steps (leaving in the scoring and ResidueType analyses). Good for speed, or for shallower tests.<br/>Default: false<br/></dd>
 </dl>
 + <h2>-testing</h2>
 <dl>
