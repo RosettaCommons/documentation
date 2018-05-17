@@ -2,7 +2,7 @@
 
 Back to [[Application Documentation]].
 
-Created 24 October 2015 by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu).  Last updated 18 August 2017.<br/><br/>
+Created 24 October 2015 by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu).  Last updated 17 May 2018.<br/><br/>
 <b><i>If you use this application, please cite:</i><br/>
 Bhardwaj, G., V.K. Mulligan, C.D. Bahl, J.M. Gilmore, P.J. Harvey, O. Cheneval, G.W. Buchko, S.V.S.R.K. Pulavarti, Q. Kaas, A. Eletsky, P.-S. Huang, W.A. Johnsen, P. Greisen, G.J. Rocklin, Y. Song, T.W. Linsky, A. Watkins, S.A. Rettie, X. Xu, L.P. Carter, R. Bonneau, J.M. Olson, E. Coutsias, C.E. Correnti, T. Szyperski, D.J. Craik, and D. Baker. 2016.  <u>Accurate de novo design of hyperstable constrained peptides.</u> *Nature.* 538(7625):329-35.</b><br/>
 (<a href="http://www.ncbi.nlm.nih.gov/pubmed/27626386">Link</a> to article).
@@ -84,17 +84,26 @@ See the [[Build Documentation]] for details on the MPI (Message Passing Interfac
 
 # Additional flags for crosslinked structures
 
-The simple_cycpep_predict application can also attempt to predict structures cross-linked with three-way crosslinkers like 1,3,5-tris(bromomethyl)benzene (TBMB) or trimesic acid (TMA).  Internally, this calls the [[CrosslinkerMover]], which is also accessible to RosettaScripts and PyRosetta.  Additional input flags are used to specify which L- or D-cysteine residues are linked with TBMB:
+The simple\_cycpep\_predict application can also attempt to predict structures cross-linked with three-way crosslinkers like 1,3,5-tris(bromomethyl)benzene (TBMB) or trimesic acid (TMA).  Internally, this calls the [[CrosslinkerMover]], which is also accessible to RosettaScripts and PyRosetta.  Additional input flags are used to specify which L- or D-cysteine residues are linked with TBMB:
 
-**-cyclic_peptide:TBMB_positions \<IntegerVector\>** If provided, then these positions will be linked by a 1,3,5-tris(bromomethyl)benzene crosslinker.  3N positions must be specified, and every group of three will be linked.  Unused if not specified.<br/><br/>
-**-cyclic_peptide:link_all_cys_with_TBMB \<bool\>** If true, then all cysteine residues in the peptide are linked with 1,3,5-tris(bromomethyl)benzene.  There must be exactly three cysteine residues for this flag to be used, and it cannot be used with the "-TBMB_positions" flag (_i.e._ it represents a quicker alternative to that flag for the special case of sequences with exactly three cysteine residues).  False/unused by default.<br/><br/>
-**-cyclic_peptide:use_TBMB_filters \<bool\>** If true, then filters are applied based on distance between TBMB cysteines and on constraints to discard GenKIC solutions that can't be crosslinked easily.  True by default.<br/><br/>
-**-cyclic_peptide:TBMB_sidechain_distance_filter_multiplier \<Real\>** A multiplier for the distance cutoff for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
-**-cyclic_peptide:TBMB_constraints_energy_filter_multiplier \<Real\>** A multiplier for the constraints energy for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
-**-cyclic_peptide:TMA_positions \<IntegerVector\>** If provided, then these positions will be linked by a trimesic acid crosslinker.  The positions must have sidechain primary amines, and there must be 3N positions specified.  Each group of three will be linked.  Unused if not specified.<br/><br/>
-**-cyclic_peptide:use_TMA_filters \<bool\>** If true, then filters are applied baed on distance between TMA-conjugated sidechains and on constraints to discard GenKIC solutions that can't be crosslinked easily.  True by default.<br/><br/>
-**-cyclic_peptide:TMA_sidechain_distance_filter_multiplier \<Real\>** A multiplier for the distance cutoff for sidechains linked by trimesic acid (TMA).  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
-**-cyclic_peptide:TMA_constraints_energy_filter_multiplier \<Real\>** A multiplier for the constraints energy for sidechains linked by trimesic acid (TMA).  Higher values permit more permissive filtering.  Default 1.0.
+**-cyclic\_peptide:TBMB\_positions \<IntegerVector\>** If provided, then these positions will be linked by a 1,3,5-tris(bromomethyl)benzene crosslinker.  3N positions must be specified, and every group of three will be linked.  Unused if not specified.<br/><br/>
+**-cyclic\_peptide:link\_all\_cys\_with\_TBMB \<bool\>** If true, then all cysteine residues in the peptide are linked with 1,3,5-tris(bromomethyl)benzene.  There must be exactly three cysteine residues for this flag to be used, and it cannot be used with the "-TBMB\_positions" flag (_i.e._ it represents a quicker alternative to that flag for the special case of sequences with exactly three cysteine residues).  False/unused by default.<br/><br/>
+**-cyclic\_peptide:use\_TBMB\_filters \<bool\>** If true, then filters are applied based on distance between TBMB cysteines and on constraints to discard GenKIC solutions that can't be crosslinked easily.  True by default.<br/><br/>
+**-cyclic\_peptide:TBMB\_sidechain\_distance\_filter\_multiplier \<Real\>** A multiplier for the distance cutoff for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
+**-cyclic\_peptide:TBMB\_constraints\_energy\_filter\_multiplier \<Real\>** A multiplier for the constraints energy for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
+**-cyclic\_peptide:TMA\_positions \<IntegerVector\>** If provided, then these positions will be linked by a trimesic acid crosslinker.  The positions must have sidechain primary amines, and there must be 3N positions specified.  Each group of three will be linked.  Unused if not specified.<br/><br/>
+**-cyclic\_peptide:use\_TMA\_filters \<bool\>** If true, then filters are applied baed on distance between TMA-conjugated sidechains and on constraints to discard GenKIC solutions that can't be crosslinked easily.  True by default.<br/><br/>
+**-cyclic\_peptide:TMA\_sidechain\_distance\_filter\_multiplier \<Real\>** A multiplier for the distance cutoff for sidechains linked by trimesic acid (TMA).  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
+**-cyclic\_peptide:TMA\_constraints\_energy\_filter\_multiplier \<Real\>** A multiplier for the constraints energy for sidechains linked by trimesic acid (TMA).  Higher values permit more permissive filtering.  Default 1.0.
+
+# Additional flags for metal-bound structures
+
+The simple\_cycpep\_predict application can attempt to model metal-mediated crosslinks, discarding samples that do not present side-chains in a manner compatible with tetrahedral metal coordination.  Sidechains of D- or L-histidine, aspartate, or glutamate residues can coordinate metals.  The following flags are relevant:
+
+**-cyclic\_peptide:tetrahedral\_metal\_positions \<StringVector\>**  If provided, then these positions will coordinate a metal, which will be represented by a virtual atom during sampling and in final output.  (Use the "-output\_virtual" flag to visualize the virtual atom in the PDB output.)  The positions must have sidechains that can coordinate a metal (_e.g._ histidine, aspartate, glutamate).  The positions should be specified in the form res1,res2,res3,res4,metal.  For example, if positions 4, 6, 9, and 13 were to coordinate a zinc, the string would be 4,6,9,13,Zn.  Multiple sets of metal-coordinating side-chains can be specified, separated by a space.  Unused if not specified.<br/><br/>
+**-cyclic\_peptide:use\_tetrahedral\_metal\_filters \<bool\>**  If true, then filters are applied based on distance between metal-conjugated sidechains and on constraints to discard GenKIC solutions that can't be crosslinked with a metal easily.  True by default.<br/><br/>
+**-cyclic\_peptide:tetrahedral\_metal\_sidechain\_distance\_filter\_multiplier \<Real\>** A multiplier for the distance cutoff for side-chains linked by a tetrahedrally-coordinated metal.  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
+**-cyclic\_peptide:tetrahedral\_metal\_constraints\_energy\_filter\_multiplier \<Real\>** A multiplier for the constraints energy for side-chains linked by a tetrahedrally-coordinated metal.  Higher values result in more permissive filtering.  Default 1.0.
 
 # Additional flags for quasi-symmetric sampling
 
