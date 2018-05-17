@@ -97,7 +97,7 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 
 **Example 1**
 
-Here, we want to set the protocol to optimize the interface energy during Monte Carlo instead of total energy.  The interface energy is calculated by the [[InterfaceAnalyzerMover]] through a specialized MonteCarlo called **MonteCarloInterface**.   This is useful to improve binding energy and will result in better interface energies.  Resulting models should still be pruned for high total energy.  This was benchmarked in the paper - so please see it for more information.
+Here, we want to set the protocol to optimize the interface energy during Monte Carlo instead of total energy.  The interface energy is calculated by the [[InterfaceAnalyzerMover]] through a specialized MonteCarlo called **MonteCarloInterface**.   **This is useful to improve binding energy and will result in better interface energies**.  Resulting models should still be pruned for high total energy.  This was benchmarked in the paper, and has been used for real-life designs after - so please see it for more information.
 
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
