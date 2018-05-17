@@ -128,7 +128,7 @@ When placing tetrahedrally-coordinated metals, compatible symmetries are C2, D2,
 | constraints\_energy\_filter\_multiplier | No | real | This is a multiplier for the constraints energy cutoff filter.  Higher values make the filter less stringent.  Default 1.0. |
 | filter\_by\_final\_energy | No | bool | At the end of this protocol, should this mover exit with error status if the final energy is above a user-defined cutoff?  Default false. |
 | final\_energy\_cutoff | No | real | If we are exiting with error status if the final energy is too high, this is the energy cutoff.  Default 0.0. |
-| metal\_type | No | string | The type of metal.  This determines the distance between the metal liganding atom and the virtual atom representing the metal.  Defaults to "Zn" (for zinc). |
+| metal\_type | No | string | The type of metal.  This determines the distance between the metal liganding atom and the virtual atom representing the metal.  Defaults to "Zn" (for zinc).  Only used when placing metal crosslinks. |
 
 ##Residue types that can be linked
 
