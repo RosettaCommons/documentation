@@ -8,7 +8,7 @@ Notice that symmetric poses must be scored with symmetric score functions. See t
 
 The following RosettaScript runs a protocol similar to Rosetta's symmetric fast relax using the symmetric pack rotamers and symmetric min mover (note that the fastrelax mover respects symmetric poses, this example is merely done to illustrate the symmetric movers).
 
-```
+```xml
 <ROSETTASCRIPTS>
     <TASKOPERATIONS>
         <InitializeFromCommandline name="init"/>

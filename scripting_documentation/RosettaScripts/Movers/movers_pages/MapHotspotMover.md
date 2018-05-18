@@ -7,7 +7,7 @@ Map out the residues that might serve as a hotspot region on a target. This requ
 [[include:../../xsd/mover_MapHotspot_type]]
 
 
-```
+```xml
 <MapHotspot name="&string" clash_check="(0 &bool)" file_name_prefix="(map_hs &string)">
    <Jumps>
      <Jump jump="(&integer)" explosion="(0 &integer)" filter_name="(true_filter & string)" allowed_aas="('ADEFIKLMNQRSTVWY' &string)" scorefxn_minimize="(score12 &string)" mover_name="(null &string)"/>

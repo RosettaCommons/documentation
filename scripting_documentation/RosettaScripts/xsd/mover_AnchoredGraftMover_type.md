@@ -18,7 +18,7 @@ Class to graft a piece onto a pose
         Cter_overhang="(&non_negative_integer;)"
         start_="(&refpose_enabled_residue_number;)"
         end_="(&refpose_enabled_residue_number;)" cen_scorefxn="(&string;)"
-        fa_scorefxn="(&string;)" reference_name="(&string;)" >
+        fa_scorefxn="(&string;)" spm_reference_name="(&string;)" >
     <MoveMap name="(&string;)" bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
         <Jump number="(&non_negative_integer;)" setting="(&bool;)" />
         <Chain number="(&non_negative_integer;)" chi="(&bool;)" bb="(&bool;)" />
@@ -45,7 +45,7 @@ Class to graft a piece onto a pose
 -   **end_**: (REQUIRED) XRW_TODO
 -   **cen_scorefxn**: Centroid score function to use
 -   **fa_scorefxn**: Full atom score function to use
--   **reference_name**: Name of reference pose to use
+-   **spm_reference_name**: Name of reference pose to use
 
 
 Subtag **MoveMap**:   MoveMap specification

@@ -4,7 +4,7 @@
 
 Computes packing statistics.
 
-```
+```xml
 <PackStat name="(&string)" threshold="(0.58 &Real)" chain="(0 &integer)" repeats="(1 &integer)"/>
 ```
 

@@ -2,7 +2,7 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## Torsion
 
-```
+```xml
 <Torsion name="(&string)" lower="(0&Real)" upper="(0&Real)" resnum="(0&residue number)" torsion="('' &string)" task_operations="(&comma-delimited list of taskoperations)"/>
 ```
 

@@ -5,7 +5,7 @@
 Set a list of cysteine pairs to form disulfides and repack their surroundings. Useful for cases where the disulfides aren't recognized by Rosetta. The disulfide fixing uses Rosetta's standard, Conformation.fix\_disulfides( .. ), which only sets the residue type to disulfide. The repacking step is necessary to realize the disulfide bond geometry. Repacking takes place in 6A shells around each affected cystein.
 
 
-```
+```xml
 <ForceDisulfides name="&string" scorefxn="(score12 &string)" disulfides="(&list of residue pairs)"/>
 ```
 -   scorefnx: Score function used for repacking

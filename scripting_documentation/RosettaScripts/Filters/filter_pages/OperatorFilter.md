@@ -13,7 +13,7 @@ Operator evaluation and at the end of the trajectory returns this best pose. To 
 
 sum, multiply, find the max or min of a list of filters
 
-```
+```xml
 <Operator name="(&string)" filters="(comma-separated list of filters&string)" threshold="(0&Real)" operation="(one of: SUM/NORMALIZED_SUM/PRODUCT/MIN/MAX/SUBTRACT/ABS/BOOLEAN_OR &string)" negate="(0&bool)" logarithm="(0&bool)"/>
 ```
 

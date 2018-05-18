@@ -11,7 +11,7 @@ Created January 2018
 
 ##Overview
 The goal of this tutorial is to help developers get experience with writing their own JD3 protocol.
-You can use [[this page|https://wiki.rosettacommons.org/index.php/JD3FAQ#XML_Job_definition_files]]
+You can use [[this page|https://wiki.rosettacommons.org/index.php/JD3FAQ]]
 for reference to JD3 concepts throughout the walkthrough.
 I will link to specific sections of that page when they become relevant,
 so there is no need to read the whole thing now.
@@ -25,7 +25,7 @@ mover B are both run on the input structure and the results are merged and run t
 
 In general, the code generated in this example is NOT written with effeciency, performance, or even our own coding conventions in mind.
 The main goal is clarity and simplicity/readability.
-All feedback is welcome! Please send thoughts/questions to jack@med.unc.edu
+All feedback is welcome! Please send thoughts/questions to jackmaguire1444@gmail.com
 
 ##Changes in the code since this tutorial was written
 

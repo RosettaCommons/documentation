@@ -36,7 +36,7 @@ The MultiplePoseMover understands two child tags.
 Pose selection criteria are defined inside the SELECT tag, while a regular RosettaScript protocol lives inside the ROSETTASCRIPTS tag.
 Both tags are optional but at least one should be present, otherwise this becomes a caching null mover and a warning will be genrated.
 
-```
+```xml
 <MultiplePoseMover name="(&string)" max_input_poses="(&integer)">
     <SELECT>
     ...
@@ -77,7 +77,7 @@ The declaration to be imported must be somewhere higher in the script hierarchy 
 
 Example:
 
-```
+```xml
 <IMPORT movers="repack" filters="filter1,filter2"/>
 ```
 
@@ -89,7 +89,7 @@ These selectors are used to build compound logical statements.
 One or more sub-selectors are defined in child tags and will be evaluated in order listed.
 A pose is selected if all (AndSelector) or any (OrSelector) defined selectors choose it.
 
-```
+```xml
 <AndSelector>
   <SomeOtherSelector>
     ...
@@ -106,7 +106,7 @@ A pose is selected if all (AndSelector) or any (OrSelector) defined selectors ch
 This selector is used to select best n poses by some property, without expicitly specifying any threshold cutoff values.
 It uses the defined PosePropertyReporter to rank all collected poses in the set, and then chooses the n best ones.
 
-```
+```xml
 <TopNByProperty n="(&integer)" order="(&string)">
   # A PosePropertyReporter (for example, EnergyReporter) must be defined here.
 </TopNByProperty>
@@ -122,7 +122,7 @@ It uses the defined pose property reporter to evaluate the similarity of two pos
 Similar poses are placed in the same cluster.
 Phil Bradley's cluster algorithm is used for the clustering. See the cluster application for more details.
 
-```
+```xml
 <ClusterPoseSelector radius="(&Real)" structures_per_cluster="(&integer)" remove_singletons="(&boolean)" initial_cluster_set_size="(&integer)" max_cluster_size="(&integer)"  max_clusters="(&integer)"  max_structures="(&integer)">
   # A PosePropertyReporter (for example, EnergyReporter) must be defined here.
 </ClusterPoseSelector>
@@ -144,7 +144,7 @@ PosePropertyReporters report a single Real value for a given pose property or si
 
 This reporter scores the pose and returns either the total pose score or a specific term.
 
-```
+```xml
 <EnergyReporter scorefunction="(&string)" term="(&string)"/>
 ```
 
@@ -156,7 +156,7 @@ This reporter scores the pose and returns either the total pose score or a speci
 This reporter uses any RosettaScripts filter capable of expressing the property it measures as a real number.
 The filter must be defined in the FITLERS section and use referenced here by the name given in the definition.
 
-```
+```xml
 <FilterReporter filter="(&string)"/>
 ```
 
@@ -166,7 +166,7 @@ The filter must be defined in the FITLERS section and use referenced here by the
 
 This reporter is used by the ClusterPoseSelector to compute the similarity of two poses in terms of RMSD.
 
-```
+```xml
 <RMSDReporter mode="(&string)" residues="(&string)"/>
 ```
 

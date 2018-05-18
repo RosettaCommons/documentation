@@ -4,7 +4,7 @@
 
 Read a [[resfile|resfiles]]. If a filename is given, read from that file. Otherwise, read the file specified on the commandline with -packing:resfile.
 
-```
+```xml
 <ReadResfile name="(&string)" filename="(&string)" selector="(&string)" />
 ```
 

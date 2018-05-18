@@ -19,7 +19,7 @@ EnzRepackMinimize, similar in spirit to RepackMinimizeMover, does the design/rep
 ```
 
 -   **task_operations**: A comma separated list of TaskOperations to use.
--   **task_factory**: A TaskFactory specification to use
+-   **task_factory**: A TaskFactory specification to use.
 -   **cycles**: number of cycles of repack-minimize (default=1 cycle) (Note: In contrast to the enzyme_design application, all cycles use the provided scorefunction.)
 -   **min_in_stages**: first minimize non-backbone dofs, followed by backbone dofs only, and then everything together (default=0)
 -   **design**: optimize sequence of residues spatially around the ligand (detection of neighbors need to be specified in the flagfile or resfile, default=0)

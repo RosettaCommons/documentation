@@ -4,7 +4,7 @@
 
 Record a trajectory to a multimodel PDB file. Only record models every n times using stride. Append ".gz" to filename to use compression.
 
-```
+```xml
 <PDBTrajectoryRecorder stride="(100 &Size)" filename="(traj.pdb &string)" cumulate_jobs="(0 &bool)" cumulate_replicas="(0 &bool)"/>
 ```
 

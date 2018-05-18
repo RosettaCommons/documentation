@@ -7,7 +7,7 @@ documentation written by Jonathan Weinstein jonathan.weinstein@weizmann.ac.il, N
 similar to [[ResidueLipophilicityFilter]], this filter is tightly based on [[MPResidueLipophilicityEnergy]].
 this filter checks the membrane insertion energy of every residue in the membrane, multiplied by it's relative SASA. this is basically the residue lipophilicity part of the total membrane insertion of the folded protein.
 
-```
+```xml
 <MembAccesResidueLipophilicityFilter name="(& string) threshold="(0.0 Real) verbose="(false bool)" ignore_burial="(false bool)/>
 ```
 

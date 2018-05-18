@@ -3,7 +3,7 @@
 
 This mover uses previously defined task operations applied to the current pose to construct a new compound logical task with NOT, AND, OR, XOR, NAND, NOR, ANDNOT, and ORNOT operations. It then creates a packer task by applying the task operations to the current pose and saves the packer task in the pose's cacheable data, allowing the task to be accessed, unchanged, at a later point in the RosettaScripts protocol. Must be used in conjunction with the RetrieveStoredTask task operation. By making compound tasks of compound tasks, esssentially all logical tasks can be defined. Note: this mover has not yet been thoroughly tested. The source code is currently located in: src/protocols/toolbox/task_operations
 
-```
+```xml
 <StoreCompoundTaskMover name="(&string)" task_name="(&std::string)" mode="('packable' &std::string)" true_behavior="(&string)" false_behavior="('prevent_repacking' &string)" invert="(false &bool)" verbose="(false &bool)" overwrite="(false &bool)">
 <OPERATION task_operations="(comma-delimited list of operations &string)"/> 
 <.... 
@@ -12,7 +12,7 @@ This mover uses previously defined task operations applied to the current pose t
 
 Example:
 
-```
+```xml
 <StoreCompoundTaskMover name="store_packable_any" task_name="packable_any" mode="packable" true_behavior="" false_behavior="prevent_repacking" invert="0" verbose="1" overwrite="0">
     <OR task_operations="resfile1" />
     <OR task_operations="resfile2" />

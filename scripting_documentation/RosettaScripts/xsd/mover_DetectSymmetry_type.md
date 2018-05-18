@@ -7,11 +7,14 @@ This mover takes a non-symmetric pose composed of symmetric chains and transform
 
 ```xml
 <DetectSymmetry name="(&string;)" subunit_tolerance="(0.01 &real;)"
-        plane_tolerance="(1e-3 &real;)" ignore_single_jump="(false &bool;)" />
+        plane_tolerance="(1e-3 &real;)" ignore_single_jump="(false &bool;)"
+        keep_pdb_info_labels="(false &bool;)" keep_pdb_remarks="(false &bool;)" />
 ```
 
 -   **subunit_tolerance**: Maximum tolerated CA-rmsd between the chains.
 -   **plane_tolerance**: Maximum accepted displacement(angstroms) of the center of mass of the whole pose from the xy-plane.
 -   **ignore_single_jump**: whether to ignore a single jump when caculating the symmetry
+-   **keep_pdb_info_labels**: keep PDB-InfoLabel tags in new symmetric Pose object
+-   **keep_pdb_remarks**: keep PDB file remarks in new symmetric Pose object
 
 ---

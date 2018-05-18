@@ -9,7 +9,7 @@ This mover functions to thread the sequence of a region onto the given pose. Not
 <SimpleThreadingMover name="(&string;)" pack_neighbors="(false &bool;)"
         neighbor_dis="(6.0 &real;)" start_position="(&string;)"
         thread_sequence="(&string;)" scorefxn="(&string;)"
-        skip_unknown_mutant="(&bool;)" pack_rounds="(5 &non_negative_integer;)" />
+        skip_unknown_mutant="(&bool;)" pack_rounds="(5 &positive_integer;)" />
 ```
 
 -   **pack_neighbors**: Option to pack neighbors while threading
@@ -18,6 +18,6 @@ This mover functions to thread the sequence of a region onto the given pose. Not
 -   **thread_sequence**: (REQUIRED) One letter amino acid sequence we will be grafting. Currently only works for canonical amino acids
 -   **scorefxn**: Optional Scorefunction name passed - setup in score function block
 -   **skip_unknown_mutant**: Skip unknown amino acid in thread_sequence string instead of throwing an exception
--   **pack_rounds**: Number of packing rounds for threading
+-   **pack_rounds**: Number of packing rounds for threading.  Must be at least 1 so that substitutions are applied.
 
 ---

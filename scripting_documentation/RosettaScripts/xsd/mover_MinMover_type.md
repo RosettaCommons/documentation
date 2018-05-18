@@ -17,7 +17,7 @@ Does minimization over sidechain and/or backbone
         chi_task_operations="(&task_operation_comma_separated_list;)"
         bondangle_task_operations="(&task_operation_comma_separated_list;)"
         bondlength_task_operations="(&task_operation_comma_separated_list;)"
-        scorefxn="(&string;)" >
+        movemap_factory="(&string;)" scorefxn="(&string;)" >
     <MoveMap name="(&string;)" bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
         <Jump number="(&non_negative_integer;)" setting="(&bool;)" />
         <Chain number="(&non_negative_integer;)" chi="(&bool;)" bb="(&bool;)" />
@@ -35,13 +35,14 @@ Does minimization over sidechain and/or backbone
 -   **cartesian**: Perform cartesian minimization?
 -   **bondangle**: Minimize bond angles?
 -   **bondlength**: Minimize bond lengths?
--   **chi**: (REQUIRED) Minimize chi angles?
--   **bb**: (REQUIRED) Minimize backbone torsion angles?
+-   **chi**: Minimize chi angles?
+-   **bb**: Minimize backbone torsion angles?
 -   **omega**: Minimize omega torsions?
 -   **bb_task_operations**: Task operations specifying residues for backbone minimization
 -   **chi_task_operations**: Task operations specifying residues for sidechain minimization
 -   **bondangle_task_operations**: Task operations specifying residues for bond angle minimization
 -   **bondlength_task_operations**: Task operation specifying residues for bond length minimization
+-   **movemap_factory**: The name of the already-defined MoveMapFactory that will be used to alter the default behavior of the MoveMap. By default, all backbone, chi, and jump DOFs are allowed to change. A MoveMapFactory can be used to change which of those DOFs are actually enabled. Be warned that combining a MoveMapFactory with a MoveMap can result in unexpected behavior.
 -   **scorefxn**: Name of score function to use
 
 

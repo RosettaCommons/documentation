@@ -6,7 +6,7 @@ Allows finding global minima by sampling structures using SimulatedAnnealing. Si
 
 Temperature scaling occurs automatically. Temparatures for all filters are multiplied by a scaling factor that ranges from 1.0 (at the start) and is reduced as the number of acceptances increases. The multiplier is equal to e\^(-anneal\_step/num\_filters). During each step, the GenericSimulatedAnnealer keeps track of the last several accepted poses (the number of accepted poses it keeps = history option). When improvements in the accepted scores slow, the annealer lowers the temperature to the next step.
 
-```
+```xml
 <GenericSimulatedAnnealer name="(&string)" mover_name="(&string)" filter_name="(&string)" trials="(10 &integer)" sample_type="(low, &string)" temperature="(0, &Real)" drift="(1 &bool)" recover_low="(1 &bool)" boltz_rank="(0 &bool)" stopping_condition="(FalseFilter &string)" preapply="(1 &bool)" adaptive_movers="(0 &bool)" adaptation_period="(see below &integer)" saved_accept_file_name="('' &string)" saved_trial_file_name="('' &string)" reset_baselines="(1 &bool)" history="(10 &int)" eval_period="(0 &int)" periodic_mover="('' &string)" checkpoint_file="('' &string)" keep_checkpoint_file="(0 &bool)" >
   <Filters>
      <AND filter_name="(&string)" temperature="(&Real)" sample_type="(low, &string)" rank="(0 &bool)"/>
@@ -24,7 +24,7 @@ Temperature scaling occurs automatically. Temparatures for all filters are multi
 **Example**
  The following example uses the GenericSimulatedAnnealer to repeatedly redesign a protein to optimize agreement of secondary structure prediction with actual secondary structure without significant loss of score. It also relaxes the structure every 50 iterations. Although this example redesigns the entire protein at each iterations, this type of optimization should be restricted to small areas of the pose at a time for best results (see RestrictRegion mover).
 
-```
+```xml
 <FILTERS>
     <SSPrediction name="ss_pred" use_svm="0" cmd="/path/to/runpsipred_single" />
     <ScoreType name="total_score" scorefxn="SFXN" score_type="total_score" threshold="0" confidence="0" />

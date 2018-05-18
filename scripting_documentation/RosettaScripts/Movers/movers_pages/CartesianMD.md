@@ -4,7 +4,7 @@
 
 CartesianMD calls Molecular Dynamics simulation in Rosetta with user-defined energy function. Runs NVT simulation (constant volume and temperature) with Berendsen thermostat. Integrator uses Velocity Verlet algorithm. Strongly recommended to use the Mover with Rosetta version since February 2016; there was certain issues with the Mover in previous versions.
 
-```
+```xml
 <CartesianMD name="&string"
        rattle="(true &false)"
        scorefxn="('' &string)"

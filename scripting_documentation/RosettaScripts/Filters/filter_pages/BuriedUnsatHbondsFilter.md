@@ -52,7 +52,7 @@ The filter is now Symmetry aware.  The default for Symmetric case is that symmet
 -   report_nonheavy_unsats: report non heavy atom unsats (Hpol).
 -   use_hbnet_behavior: no heavy unstas allowed (will return 9999); if no heavy unstas, will count Hpol unsats; FALSE by default; if set to true, will NOT use reporter behavior.
 -   sym_dof_names: For multicomponent symmetry: what jump(s) used for ddG-like separation. (From Dr. Bale: For multicomponent systems, one can simply pass the names of the sym_dofs that control the master jumps. For one component systems, jump can still be used.)  IF YOU DEFINE THIS OPTION, it will use ddG-style separation for the calculation.
--   residue_selector: residue selector that tells the filter to restrict the Unsat search to only those residues.
+-   [[residue_selector|ResidueSelectors]]: residue selector that tells the filter to restrict the Unsat search to only those residues.
 -   task_operations: define residues to look at by task operations (legacy behavior of old filter); now recommended to use residue_selector instead.
 
 # See Also:
@@ -61,3 +61,4 @@ The filter is now Symmetry aware.  The default for Symmetric case is that symmet
 * [[HbondsToAtomFilter]]
 * [[SymUnsatHbondsFilter]]
 * [[BuriedUnsatHbonds2Filter]]
+* [[ResidueSelectors]]

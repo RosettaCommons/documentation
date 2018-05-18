@@ -176,7 +176,7 @@ TutorialQueen::parse_job_definition_tags(
 // (c) addressed to University of Washington CoMotion, email: license@uw.edu.
 
 /// @file protocols/tutorial/TutorialQueen.hh
-/// @author Jack Maguire, jack@med.unc.edu
+/// @author Jack Maguire, jackmaguire1444@gmail.com
 
 
 #ifndef INCLUDED_protocols_tutorial_TutorialQueen_HH
@@ -317,7 +317,7 @@ private:
 // (c) addressed to University of Washington CoMotion, email: license@uw.edu.
 
 /// @file protocols/tutorial/TutorialQueen.cc
-/// @author Jack Maguire, jack@med.unc.edu
+/// @author Jack Maguire, jackmaguire1444@gmail.com
 
 #include <protocols/tutorial/TutorialQueen.hh>
 #include <protocols/tutorial/TutorialJob.hh>

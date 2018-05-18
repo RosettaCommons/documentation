@@ -15,9 +15,18 @@ Perform a complete loop modeling simulation, including the build, centroid, and 
     <Loop start="(&non_negative_integer;)" stop="(&non_negative_integer;)"
             cut="(0 &non_negative_integer;)" skip_rate="(0.0 &real;)"
             rebuild="(false &bool;)" />
-    <Build skip="(&bool;)" />
-    <Centroid skip="(&bool;)" />
-    <Fullatom skip="(&bool;)" />
+    <Build sfxn_cycles="(&non_negative_integer;)"
+            mover_cycles="(&non_negative_integer;)" ramp_rama="(&bool;)"
+            ramp_rep="(&bool;)" ramp_down_cst="(&bool;)" ramp_temp="(&bool;)"
+            initial_temp="(&real;)" final_temp="(&real;)" skip="(&bool;)" />
+    <Centroid sfxn_cycles="(&non_negative_integer;)"
+            mover_cycles="(&non_negative_integer;)" ramp_rama="(&bool;)"
+            ramp_rep="(&bool;)" ramp_down_cst="(&bool;)" ramp_temp="(&bool;)"
+            initial_temp="(&real;)" final_temp="(&real;)" skip="(&bool;)" />
+    <Fullatom sfxn_cycles="(&non_negative_integer;)"
+            mover_cycles="(&non_negative_integer;)" ramp_rama="(&bool;)"
+            ramp_rep="(&bool;)" ramp_down_cst="(&bool;)" ramp_temp="(&bool;)"
+            initial_temp="(&real;)" final_temp="(&real;)" skip="(&bool;)" />
 </LoopModeler>
 ```
 
@@ -42,14 +51,38 @@ Subtag **Loop**:   Use this element to define a series of loops in subtags, one 
 
 Subtag **Build**:   Configure the build step. If "skip" is enabled, none of the loops will be rebuilt.You may also provide this tag with any option or subtag that would be understood by LoopBuilder.
 
+-   **sfxn_cycles**: Number of iterations to make in the sfxn loop.
+-   **mover_cycles**: The number of iterations to make in the mover loop
+-   **ramp_rama**: If enabled, the Ramachandran weight will start near zero and will finish at whatever it was in the original score function.
+-   **ramp_rep**: If enabled, the repulsive weight will start near zero andwill finish at whatever it was in the original score function
+-   **ramp_down_cst**: If enabled, the constraint weight will start at whatever value in the scorefunction and end at 0.
+-   **ramp_temp**: Ramp the temperature during the temp loop.
+-   **initial_temp**: Initial temperature. Ignored if temperature ramping is disabled.
+-   **final_temp**: Final temperature. Ignored if temperature ramping is disabled.
 -   **skip**: If "skip" is enabled, the corresponding step will be skipped
 
 Subtag **Centroid**:   Configure the centroid refinement step. If "skip" is enabled, none of the loops will be rebuilt. You may also provide this tag with any option or subtag that would be understood by LoopProtocol.
 
+-   **sfxn_cycles**: Number of iterations to make in the sfxn loop.
+-   **mover_cycles**: The number of iterations to make in the mover loop
+-   **ramp_rama**: If enabled, the Ramachandran weight will start near zero and will finish at whatever it was in the original score function.
+-   **ramp_rep**: If enabled, the repulsive weight will start near zero andwill finish at whatever it was in the original score function
+-   **ramp_down_cst**: If enabled, the constraint weight will start at whatever value in the scorefunction and end at 0.
+-   **ramp_temp**: Ramp the temperature during the temp loop.
+-   **initial_temp**: Initial temperature. Ignored if temperature ramping is disabled.
+-   **final_temp**: Final temperature. Ignored if temperature ramping is disabled.
 -   **skip**: If "skip" is enabled, the corresponding step will be skipped
 
 Subtag **Fullatom**:   Configure the centroid refinement step. If "skip" is enabled, none of the loops will be rebuilt. You may also provide this tag with any option or subtag that would be understood by LoopProtocol.
 
+-   **sfxn_cycles**: Number of iterations to make in the sfxn loop.
+-   **mover_cycles**: The number of iterations to make in the mover loop
+-   **ramp_rama**: If enabled, the Ramachandran weight will start near zero and will finish at whatever it was in the original score function.
+-   **ramp_rep**: If enabled, the repulsive weight will start near zero andwill finish at whatever it was in the original score function
+-   **ramp_down_cst**: If enabled, the constraint weight will start at whatever value in the scorefunction and end at 0.
+-   **ramp_temp**: Ramp the temperature during the temp loop.
+-   **initial_temp**: Initial temperature. Ignored if temperature ramping is disabled.
+-   **final_temp**: Final temperature. Ignored if temperature ramping is disabled.
 -   **skip**: If "skip" is enabled, the corresponding step will be skipped
 
 ---

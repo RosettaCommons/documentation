@@ -4,7 +4,7 @@
 
 This mover takes a non-symmetric pose composed of symmetric chains and transforms it into a symmetric system. It only works with cyclic symmetries from C2 to C99.
 
-```
+```xml
 <DetectSymmetry name="detect" subunit_tolerance"(&real 0.01)" plane_tolerance="(&real 0.001)"/>
 ```
 

@@ -4,7 +4,7 @@
 
 Reports the numbers of residues that align with a segment on source pose.
 
-```
+```xml
 <RelativeSegment name="(&string)" source_pose="(&string)" start_res="(&string)" stop_res="(&string)"/>
 ```
 

@@ -14,7 +14,7 @@ For real-valued contexts, the value of the filter by default is the modified ddG
 
 Works with symmetric poses and poses with symmetric "building blocks".
 
-```
+```xml
 <RotamerBoltzmannWeight name="(&string)" task_operations="(comma-delimited list)" radius="(6.0 &Real)" jump="(1 &Integer)" sym_dof_names="('' &string)" unbound="(1 &bool)" ddG_threshold="(1.5 &Real)" scorefxn="(score12 &string)" temperature="(0.8 &Real)" energy_reduction_factor="(0.5 &Real)" repack="(1&bool)" skip_ala_scan="(0 &bool)" skip_report="(0 &bool)" no_modified_ddG="(0 &bool)">
    <Threshold restype="???" threshold_probability="(&Real)"/>
    .

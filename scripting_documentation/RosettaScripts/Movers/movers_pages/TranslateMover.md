@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## Translate
 
-```
+```xml
 <Translate name="&string" chain="&string" distribution="[Uniform|Gaussian]" angstroms="(&float)" cycles="(&int)"/>
 ```
 

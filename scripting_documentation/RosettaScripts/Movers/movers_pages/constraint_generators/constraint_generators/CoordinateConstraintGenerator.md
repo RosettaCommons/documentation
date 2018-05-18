@@ -8,7 +8,7 @@ Generates coordinate constraints to restrain atoms of the pose to specific coord
 Remember that to have effect, the coordinate_constraint scoreterm must be on in the scorefunction. It is highly recommended that you apply a virtual root to your pose prior to applying these constraints, especially if you're constraining against a native. (See the [[VirtualRootMover]] mover.)
 
 
-```
+```xml
 <CoordinateConstraintGenerator name="(&string)"
     residue_selector="(&string TrueSelector)"
     sd="(&Real 0.5)"
@@ -35,7 +35,7 @@ Remember that to have effect, the coordinate_constraint scoreterm must be on in 
 
 This example adds and removes coordinate constraints to sheet residues only, and uses the pose specified by -in:file:native to obtain the coordinates.
 
-```
+```xml
 <RESIDUE_SELECTORS>
     <SecondaryStructureSelector name="sheet" ss="E" use_dssp="1" />
 </RESIDUE_SELECTORS>

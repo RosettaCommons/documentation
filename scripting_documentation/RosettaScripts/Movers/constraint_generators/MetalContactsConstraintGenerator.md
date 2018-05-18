@@ -33,7 +33,7 @@ The angles specified in this constraint generator are defined as follows:
 
 ###Usage
 
-```
+```xml
 <MetalContactsConstraintGenerator name="(&string;)"
         dist_cutoff_multiplier="(1.0 &real;)" ligand_atom_name="(&string;)"
         ligand_selector="(&string;)" contact_selector="(&string;)"

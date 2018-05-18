@@ -2,7 +2,7 @@
 
 Back to [[Application Documentation]].
 
-Created 24 October 2015 by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu).  Last updated 18 August 2017.<br/><br/>
+Created 24 October 2015 by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu).  Last updated 17 May 2018.<br/><br/>
 <b><i>If you use this application, please cite:</i><br/>
 Bhardwaj, G., V.K. Mulligan, C.D. Bahl, J.M. Gilmore, P.J. Harvey, O. Cheneval, G.W. Buchko, S.V.S.R.K. Pulavarti, Q. Kaas, A. Eletsky, P.-S. Huang, W.A. Johnsen, P. Greisen, G.J. Rocklin, Y. Song, T.W. Linsky, A. Watkins, S.A. Rettie, X. Xu, L.P. Carter, R. Bonneau, J.M. Olson, E. Coutsias, C.E. Correnti, T. Szyperski, D.J. Craik, and D. Baker. 2016.  <u>Accurate de novo design of hyperstable constrained peptides.</u> *Nature.* 538(7625):329-35.</b><br/>
 (<a href="http://www.ncbi.nlm.nih.gov/pubmed/27626386">Link</a> to article).
@@ -47,7 +47,7 @@ See the [[Build Documentation]] for details on the MPI (Message Passing Interfac
 
 3.  All other inputs are based on flags.  (See the MPI section, below for additional flags specific to that version.)  Relevant flags for the non-MPI version are:<br/><br/>
 **-cyclic_peptide:sequence_file \<filename\>** Mandatory input.  The sequence file, described above.<br/><br/>
-**-cyclic_peptide:cyclization_type \<string\>** Optional input.  The type of cyclization.  Current options are "n_to_c_amide_bond" (the default, which sets up a terminal amide bond) and "terminal_disulfide" (which cyclizes a linear peptide through a side-chain disulfide.)  If the "terminal_disulfide" option is used, the cyclization is performed through a disulfide linking the two disulfide-forming residues closest to the N- and C-termini (though these need not be _at_ the termini).  The "terminal_disulfide" option may be used with the **-cyclic_peptide:require_disulfides** option, in which case disulfide combinations between internal (_i.e._ non-terminal) disulfide-forming residues will be considered.  The "terminal_disulfide" option is _not_ compatible with cyclic permutations, nor with quasi-symmetric sampling.<br/><br/>
+**-cyclic_peptide:cyclization_type \<string\>** Optional input.  The type of cyclization.  Current options are "n_to_c_amide_bond" (the default, which sets up a terminal amide bond), "terminal_disulfide" (which cyclizes a linear peptide through a side-chain disulfide), "nterm_isopeptide_lariat", "cterm_isopeptide_lariat", and "sidechain_isopeptide".  If the "terminal_disulfide" option is used, the cyclization is performed through a disulfide linking the two disulfide-forming residues closest to the N- and C-termini (though these need not be _at_ the termini).  The "terminal_disulfide" option may be used with the **-cyclic_peptide:require_disulfides** option, in which case disulfide combinations between internal (_i.e._ non-terminal) disulfide-forming residues will be considered.  The "terminal_disulfide" option is _not_ compatible with cyclic permutations, nor with quasi-symmetric sampling.<br/><br/>  For more information on isopeptide lariats, see the relevant section below.
 **-out:nstruct \<int\>** The number of structures that the application will attempt to generate.  Since closed conformations satisfying hydrogen bonding criteria might not be found for every attempt, the actual number of structures produced will be less than or equal to this number.<br/><br/>
 **-cyclic_peptide:genkic_closure_attempts \<int\>**  For each structure attempted, how many times should the application try to find a closed conformation?  Default 10,000.  Values from 250 to 50,000 could be reasonable, depending on the peptide.<br/><br/>
 **-cyclic_peptide:genkic_min_solution_count \<int\>**  For each structure attempted, the application will keep looking for closed solutions until either **genkic_closure_attempts** has been reached or this number of solutions has been found.  At this point, it will pick the lowest-energy solution from the set found.  Defaults to 1 (takes a solution as soon as one is found).<br/><br/>
@@ -84,23 +84,26 @@ See the [[Build Documentation]] for details on the MPI (Message Passing Interfac
 
 # Additional flags for crosslinked structures
 
-The simple_cycpep_predict application can also attempt to predict structures cross-linked with three-way crosslinkers like 1,3,5-tris(bromomethyl)benzene (TBMB) or trimesic acid (TMA).  Internally, this calls the [[CrosslinkerMover]], which is also accessible to RosettaScripts and PyRosetta.  Additional input flags are used to specify which L- or D-cysteine residues are linked with TBMB:
+The simple\_cycpep\_predict application can also attempt to predict structures cross-linked with three-way crosslinkers like 1,3,5-tris(bromomethyl)benzene (TBMB) or trimesic acid (TMA).  Internally, this calls the [[CrosslinkerMover]], which is also accessible to RosettaScripts and PyRosetta.  Additional input flags are used to specify which L- or D-cysteine residues are linked with TBMB:
 
-**-cyclic_peptide:TBMB_positions \<IntegerVector\>** If provided, then these positions will be linked by a 1,3,5-tris(bromomethyl)benzene crosslinker.  3N positions must be specified, and every group of three will be linked.  Unused if not specified.<br/><br/>
-**-cyclic_peptide:link_all_cys_with_TBMB \<bool\>** If true, then all cysteine residues in the peptide are linked with 1,3,5-tris(bromomethyl)benzene.  There must be exactly three cysteine residues for this flag to be used, and it cannot be used with the "-TBMB_positions" flag (_i.e._ it represents a quicker alternative to that flag for the special case of sequences with exactly three cysteine residues).  False/unused by default.<br/><br/>
-**-cyclic_peptide:use_TBMB_filters \<bool\>** If true, then filters are applied based on distance between TBMB cysteines and on constraints to discard GenKIC solutions that can't be crosslinked easily.  True by default.<br/><br/>
-**-cyclic_peptide:TBMB_sidechain_distance_filter_multiplier \<Real\>** A multiplier for the distance cutoff for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
-**-cyclic_peptide:TBMB_constraints_energy_filter_multiplier \<Real\>** A multiplier for the constraints energy for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
-**-cyclic_peptide:TMA_positions \<IntegerVector\>** If provided, then these positions will be linked by a trimesic acid crosslinker.  The positions must have sidechain primary amines, and there must be 3N positions specified.  Each group of three will be linked.  Unused if not specified.<br/><br/>
-**-cyclic_peptide:use_TMA_filters \<bool\>** If true, then filters are applied baed on distance between TMA-conjugated sidechains and on constraints to discard GenKIC solutions that can't be crosslinked easily.  True by default.<br/><br/>
-**-cyclic_peptide:TMA_sidechain_distance_filter_multiplier \<Real\>** A multiplier for the distance cutoff for sidechains linked by trimesic acid (TMA).  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
-**-cyclic_peptide:TMA_constraints_energy_filter_multiplier \<Real\>** A multiplier for the constraints energy for sidechains linked by trimesic acid (TMA).  Higher values permit more permissive filtering.  Default 1.0.
+**-cyclic\_peptide:TBMB\_positions \<IntegerVector\>** If provided, then these positions will be linked by a 1,3,5-tris(bromomethyl)benzene crosslinker.  3N positions must be specified, and every group of three will be linked.  Unused if not specified.<br/><br/>
+**-cyclic\_peptide:link\_all\_cys\_with\_TBMB \<bool\>** If true, then all cysteine residues in the peptide are linked with 1,3,5-tris(bromomethyl)benzene.  There must be exactly three cysteine residues for this flag to be used, and it cannot be used with the "-TBMB\_positions" flag (_i.e._ it represents a quicker alternative to that flag for the special case of sequences with exactly three cysteine residues).  False/unused by default.<br/><br/>
+**-cyclic\_peptide:use\_TBMB\_filters \<bool\>** If true, then filters are applied based on distance between TBMB cysteines and on constraints to discard GenKIC solutions that can't be crosslinked easily.  True by default.<br/><br/>
+**-cyclic\_peptide:TBMB\_sidechain\_distance\_filter\_multiplier \<Real\>** A multiplier for the distance cutoff for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
+**-cyclic\_peptide:TBMB\_constraints\_energy\_filter\_multiplier \<Real\>** A multiplier for the constraints energy for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
+**-cyclic\_peptide:TMA\_positions \<IntegerVector\>** If provided, then these positions will be linked by a trimesic acid crosslinker.  The positions must have sidechain primary amines, and there must be 3N positions specified.  Each group of three will be linked.  Unused if not specified.<br/><br/>
+**-cyclic\_peptide:use\_TMA\_filters \<bool\>** If true, then filters are applied baed on distance between TMA-conjugated sidechains and on constraints to discard GenKIC solutions that can't be crosslinked easily.  True by default.<br/><br/>
+**-cyclic\_peptide:TMA\_sidechain\_distance\_filter\_multiplier \<Real\>** A multiplier for the distance cutoff for sidechains linked by trimesic acid (TMA).  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
+**-cyclic\_peptide:TMA\_constraints\_energy\_filter\_multiplier \<Real\>** A multiplier for the constraints energy for sidechains linked by trimesic acid (TMA).  Higher values permit more permissive filtering.  Default 1.0.
 
-# Additional flags for N-methylation
+# Additional flags for metal-bound structures
 
-The simple_cycpep_predict application can model N-methylation, and correctly predict N-methylated peptide structures.  N-methyl positions use custom Ramachandran maps, generated by QM or MM simulations, as well as custom side-chain rotamer libraries (which must be downloaded separately).  Flags related to N-methylation include:
+The simple\_cycpep\_predict application can attempt to model metal-mediated crosslinks, discarding samples that do not present side-chains in a manner compatible with tetrahedral metal coordination.  Sidechains of D- or L-histidine, aspartate, or glutamate residues can coordinate metals.  Since metals effectively cross-link several residues, internally the [[CrosslinkerMover]] is called.  The following flags are relevant:
 
-**-cyclic_peptide:n_methyl_positions \<int\> \<int\> \<int\> ...**  This option allows the user to specify which positions are N-methylated.  Not used if not specified.<br/><br/>
+**-cyclic\_peptide:tetrahedral\_metal\_positions \<StringVector\>**  If provided, then these positions will coordinate a metal, which will be represented by a virtual atom during sampling and in final output.  (Use the "-output\_virtual" flag to visualize the virtual atom in the PDB output.)  The positions must have sidechains that can coordinate a metal (_e.g._ histidine, aspartate, glutamate).  The positions should be specified in the form res1,res2,res3,res4,metal.  For example, if positions 4, 6, 9, and 13 were to coordinate a zinc, the string would be 4,6,9,13,Zn.  Multiple sets of metal-coordinating side-chains can be specified, separated by a space.  Unused if not specified.<br/><br/>
+**-cyclic\_peptide:use\_tetrahedral\_metal\_filters \<bool\>**  If true, then filters are applied based on distance between metal-conjugated sidechains and on constraints to discard GenKIC solutions that can't be crosslinked with a metal easily.  True by default.<br/><br/>
+**-cyclic\_peptide:tetrahedral\_metal\_sidechain\_distance\_filter\_multiplier \<Real\>** A multiplier for the distance cutoff for side-chains linked by a tetrahedrally-coordinated metal.  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
+**-cyclic\_peptide:tetrahedral\_metal\_constraints\_energy\_filter\_multiplier \<Real\>** A multiplier for the constraints energy for side-chains linked by a tetrahedrally-coordinated metal.  Higher values result in more permissive filtering.  Default 1.0.
 
 # Additional flags for quasi-symmetric sampling
 
@@ -110,6 +113,18 @@ Sometimes, one wishes to sample peptide conformations with cyclic symmetry (_e.g
 **-cyclic_peptide:require_symmetry_mirroring \<bool\>** If this option is used, then only backbones with mirror symmetry are accepted.  Must be used with the -cyclic_peptide:require_symmetry_repeats flag.<br/><br/>
 **-cyclic_peptide:require_symmetry_angle_threshold \<int\>** The cutoff, in degrees, to use when comparing mainchain torsion values to determine whether symmetry repeats are truly symmetric.  Defaults to 10 degrees.<br/><br/>
 **-cyclic_peptide:require_symmetry_perturbation \<int\>** If provided, this is the magnitude of the perturbation to apply when copying mainchain dihedrals for symmetric sampling.  Allows slightly asymmetric conformations to be sampled.  Default is 0.0 (no perturbation).
+
+# Additional flags for predicting structures of isopeptide-bonded lariat peptides
+
+In addition to an amide bond connecting the N- and C-termini, it is possible to synthesize peptides in which an amine-containing side-chain forms an amide bond with the C-terminus, a carboxyl-containing side-chain forms an amide bond with the -terminus, or two side-chains form an amide bond.  These one- or two-tailed lariat structures can also be predicted with `simple_cycpep_predict`.  The relevant flags are as follows:
+
+**-cyclic_peptide:cyclization_type \<string\>**  This flag, mentioned earlier, can be set to "nterm_isopeptide_lariat" for a sidechain-to-N-terminus isopeptide lariat, "cterm_isopeptide_lariat" for a sidechain-to-Cterminus isopeptide lariat, or "sidechain_isopeptide" for a two-tailed macrocycle linked by a sidechain-sidechain isopeptide bond.
+
+**-cyclic_peptide:lariat_sidechain_index \<int\>** If a lariat cyclization type is specified (_e.g._ "nterm_isopeptide_lariat", "cterm_isopeptide_lariat"), then this is the residue that provides the side-chain that connects to the N- or C-terminus of the peptide.  If not specified, the residue of appropriate type closest to the other end is used.
+
+**-cyclic_peptide:sidechain_isopeptide_indices \<int\> \<int\>** If the "sidechain_isopeptide" cyclization type is specified, then these are the indices of the residues that are linked by a sidechain-sidechain isopeptide bond to make the loop.  If this option is not used, then the residues furthest apart of appropriate types are used.  Note that exactly two indices must be given.
+
+Note that the **-cyclic_peptide:require_symmetry_repeats** and **-cyclic_peptide:cyclic_permutations** flags are incompatible with isopeptide lariats.  Also note that the `simple_cycpep_predict` application does _not_ use the GLX, ASX, or LYX residue types.  Sequence files and native PDB files must specify GLU, ASP, and LYS, respectively.
 
 # Other useful flags
 

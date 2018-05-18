@@ -4,7 +4,7 @@
 
 How many residues are within an interaction distance of target\_residue across the interface. When used with neighbors=1 this degenerates to just checking whether or not a residue is at the interface.
 
-```
+```xml
 <ResidueBurial name="(&string)" res_num/pdb_num="(&string)" distance="(8.0 &Real)" neighbors="(1 &Integer)" task_operations="(&comma-delimited list of taskoperations)" residue_fraction_buried="(0.0001 &Real)"/>
 ```
 

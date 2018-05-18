@@ -4,7 +4,7 @@
 
 Changes a loop length without closing it.
 
-```
+```xml
 <LoopLengthChange name="(&string)" loop_start="(&resnum)" loop_end="(&resnum)" delta="(&int)"/>
 ```
 

@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## SlideTogether
 
-```
+```xml
 <SlideTogether name="&string" chain="&string"/>
 ```
 

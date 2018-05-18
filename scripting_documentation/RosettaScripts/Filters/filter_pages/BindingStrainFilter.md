@@ -4,7 +4,7 @@
 
 Computes the energetic strain in a bound monomer. Automatically respects symmetry
 
-```
+```xml
 <BindingStrain name="(&string)" threshold="(3.0 &Real)" task_operations="(comma-delimited list of operations &string)" scorefxn="(score12 &string)" relax_mover="(null &string)" jump="(1 &Int)"/>
 ```
 

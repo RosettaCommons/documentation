@@ -19,7 +19,7 @@ LoopInserters are responsible for building loops between residues loop\_anchor a
 
 -   LoophashLoopInserter
 
-    ```
+    ```xml
     <LoophashLoopInserter name=(&string) loop_anchor=(&integer) loop_sizes=(&integer) modify_flanking_regions=(1/0) />
     ```
 
@@ -33,7 +33,7 @@ LoopInserters are responsible for building loops between residues loop\_anchor a
 
 -   FragmentLoopInserter: Attempt to find single fragments that have ends with low-rmsd to the flanking residues of the loop to build.
 
-    ```
+    ```xml
     <FragmentLoopInserter name=(&string) loop_anchor=(&int)/>
     ```
 
@@ -43,7 +43,7 @@ LoopClosers are responsible for closing the recently build loops. These are just
 
 -   CCDLoopCloser - Use CCD to close recently built loop
 
-    ```
+    ```xml
     <CCDLoopCloser name=(&string) />
     ```
 
@@ -54,7 +54,7 @@ LoopClosers are responsible for closing the recently build loops. These are just
 
 -   LoopCreationMover
 
-    ```
+    ```xml
     <LoopCreationMover name=(&string) loop_closer=(&LoopCloser name) loop_inserter=(&LoopInserter name) />
     ```
 
@@ -69,7 +69,7 @@ LoopClosers are responsible for closing the recently build loops. These are just
 
 With loop\_sizes=2,3,4,5, in loop inserter, loop\_sizes in ResourceOptions should be 8,9,10,11 (since LOOP CREATION MOVER uses 3 (default) residue forward and 3 residues backward additionally to calculate geometric compatibility).
 
-```
+```xml
 <JD2ResourceManagerJobInputter>
         <ResourceOptions>
                 <LoopHashLibraryOptions tag="lh_lib_options" loop_sizes="8,9,10,11"/>

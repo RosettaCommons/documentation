@@ -9,7 +9,7 @@ The holes calculation is performed on the Pose as whole (ignoring the ResidueSel
 
 **How to interpret the holes score output**: A value of 0.0 means on par with native structures observed in the PDB; positive is worse (more voids), negative is better (less voids); this is for the default HolesParams used here, which is dec15; it is not recommended to change this unless you know the inner workings of what this code is doing.
 
-```
+```xml
 <Holes name="(&string)" threshold=“(&real)" residue_selector="(&string)" normalize_per_atom="(&bool)" normalize_per_residue="(&bool)" exclude_bb_atoms="(&bool)"  />
 ```
 

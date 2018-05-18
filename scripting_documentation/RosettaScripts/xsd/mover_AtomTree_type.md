@@ -13,7 +13,8 @@ XRW TO DO
         resnum="(&refpose_enabled_residue_number;)"
         pdb_num="(&refpose_enabled_residue_number;)" connect_to="(&string;)"
         anchor_res="(&string;)" connect_from="(&string;)"
-        two_parts_chain1="(false &bool;)" />
+        two_parts_chain1="(false &bool;)" update_residue_variants="(0 &bool;)"
+        from_remark="(&string;)" />
 ```
 
 -   **start_tree_at_chain**: Chain from which the atom tree ought to begin
@@ -29,5 +30,7 @@ XRW TO DO
 -   **anchor_res**: Anchor residue for the foldtree
 -   **connect_from**: Corresponding atom on the anchor residue
 -   **two_parts_chain1**: Is the aim actually to cut chain 1 in two parts?
+-   **update_residue_variants**: Add CUTPOINT variant types according to the FoldTree
+-   **from_remark**: If a KEY is provided, the FoldTree is loaded from a REMARK with that KEY.
 
 ---

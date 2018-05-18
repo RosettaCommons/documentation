@@ -10,6 +10,7 @@ report rotamer recover features and scores to features Statistics Scientific Ben
         mover_name="(&string;)" mover="(&string;)" reference_name="(&string;)"
         protocol="(RRProtocolMinPack &string;)" nonideal="(&bool;)"
         cartesian="(&bool;)" comparer="(&string;)" recovery_threshold="(&real;)"
+        absolute_threshold="(&real;)"
         task_operations="(&task_operation_comma_separated_list;)"
         predicted_features_reporter="(&string;)" reference_pdb="(&string;)"
         reference_pose="(&string;)"
@@ -25,6 +26,7 @@ report rotamer recover features and scores to features Statistics Scientific Ben
 -   **cartesian**: sets RRProtocolRTMin or RRProtocolRelax to cartesian
 -   **comparer**: Rotamer recovery comparer
 -   **recovery_threshold**: recovery threshold of the comparer
+-   **absolute_threshold**: absolute electron density correlation that must be met by native to be considered in recovery statistics
 -   **task_operations**: A comma separated list of TaskOperations to use.
 -   **predicted_features_reporter**: feature reporter that reports to db of type ReportToDB
 -   **reference_pdb**: For use with the RRProtocolReferenceStructure. The PDB formatted file that should be compared against. Mutually exclusive with the 'reference_pose' attribute, but at least one of the two must be provided.

@@ -3,7 +3,7 @@ Documentation created by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory o
 
 <i>Note:  This page documents the ```netcharge``` score term.  For information about the NetCharge Filter, see [[this page|NetChargeFilter]].</i>
 
-<i>Also note:  The ```netcharge``` score term is currently unpublished.  If you use this in your project, please include Vikram K. Mulligan as an author.</i>
+<b><i>Also note:  The ```netcharge``` score term is currently unpublished.  If you use this in your project, please include Vikram K. Mulligan as an author.</i></b>
 
 [[_TOC_]]
 
@@ -189,9 +189,11 @@ The ```netcharge``` score term should be fully compatible with the [[aa_composit
 * [[Scoring explained]]
 * [[Score functions and score types |score-types]]
 * [[Adding a new energy method to Rosetta|new-energy-method]]
+* [[Design-centric guidance terms|design-guidance-terms]]
 * [[AddNetChargeConstraintMover]]
 * [[ClearCompositionConstraintsMover]]
 * [[AACompositionEnergy]]
 * [[AARepeatEnergy|Repeat-stretch-energy]]
+* [[BuriedUnsatPenalty]]
 * [[HBNetEnergy]]
 * [[VoidsPenaltyEnergy]]

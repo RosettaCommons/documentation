@@ -1,6 +1,8 @@
-#MRS: XML Script
+#MultistageRosettaScripts
 
-[[Multistage Rosetta Scripts|MultistageRosettaScripts]]
+#XML Scripting Format
+
+Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 
 [[_TOC_]]
 
@@ -13,7 +15,7 @@ The JD3 format consists of a `<Common/>` tag and one or more `<Job/>` tags
 (the order of Common and Job depend on the specific application),
 all within a `<JobDefinitionFile/>` tag as shown here:
 
-```
+```xml
 <JobDefinitionFile>
     <Job>
         <Input>
@@ -46,7 +48,7 @@ movers, filters, etc. can all go in either `<Common>` or `<Job>`.
 Rosetta will give the DataMap Info in `<Job>` higher priority in the case of a name conflict,
 but only for trajectories that are spawned from that `<Job>` tag.
 For example, you might have 3 `<Job>` tags and in one of them you put:
-```
+```xml
   <SCOREFXNS>
     <ScoreFunciton name="sfxn" weights="ref2015_cart.wts"/>
   </SCOREFXNS>
@@ -54,7 +56,7 @@ For example, you might have 3 `<Job>` tags and in one of them you put:
 
 and in `<Common>` you have
 
-```
+```xml
   <SCOREFXNS>
     <ScoreFunciton name="sfxn" weights="ref2015.wts"/>
   </SCOREFXNS>
@@ -73,7 +75,7 @@ The `<PROTOCOLS>` section is the only one that behaves much differently than in 
 Now, movers and filters are divided up into [[stages|StageOptions]].
 Between each stage, you have the opportunity to filter out trajectories based on their global ranking.
 
-```
+```xml
 <PROTOCOLS>
     <Stage num_runs_per_input_struct="10000" total_num_results_to_keep="5000">
         <Add mover="m1"/>
@@ -86,12 +88,12 @@ Between each stage, you have the opportunity to filter out trajectories based on
         <Sort filter="f1"/>
     </Stage>
 
-    <Stage num_runs_per_input_struct="1" total_num_results_to_keep="5000">
+    <Stage num_runs_per_input_struct="1" total_num_results_to_keep="2000">
         <Add mover="m3"/>
         <Sort filter="f2"/>
     </Stage>
 
-    <Stage num_runs_per_input_struct="1" total_num_results_to_keep="5000">
+    <Stage num_runs_per_input_struct="1" total_num_results_to_keep="1000">
         <Add mover="m4"/>
         <Sort filter="f2"/>
     </Stage>
@@ -109,7 +111,7 @@ See the next section for a few examples on what a `<Input>` tag might look like.
 
 This format may be unwelcoming, but there is a way to convert an existing rosetta script into a multistage rosetta script without too much effor.
 Say we have the following rosetta script saved as `test.xml`:
-```
+```xml
 <ROSETTASCRIPTS>
 
   <SCOREFXNS>
@@ -148,7 +150,7 @@ multistage_rosetta_scripts.default.linuxgccrelease -convert -parser:protocol tes
 
 (make sure `-convert` is the first argument) will create the following in `msrs.xml`:
 
-```
+```xml
 <JobDefinitionFile>
 
     <Job>
@@ -198,7 +200,7 @@ Notice that the converter placed TODO's wherever the user still needs to make a 
 You can replace these TODO's using a text editor, but some of them can be filled in automatically if you give the converter enough information.
 For example, running
 
-```
+```xml
 multistage_rosetta_scripts.default.linuxgccrelease -convert -parser:protocol test.xml -nstruct 50 -s 3U3B_A.pdb 3U3B_B.pdb -job_definition_file msrs.xml
 ```
 
@@ -209,7 +211,7 @@ The converter is not currently smart enough to figure out if the input files are
 so it places a TODO comment for you to replace the input format if necessary
 (see [[JD3 Options|https://wiki.rosettacommons.org/index.php/JD3FAQ]]).
 
-```
+```xml
 <JobDefinitionFile>
     <Job>
         <Input>
@@ -262,28 +264,18 @@ so it places a TODO comment for you to replace the input format if necessary
 </JobDefinitionFile>
 ```
 
+[[There is also a method to convert a multistage rosetta script back to a traditional rosetta script here|MRSTools#tools-and-utilities_script-converter_reverse-converter]]
+
 ##(Incomplete) Skeleton
 
 If you really want to write a script from scratch instead of using the converter, here is a skeleton.
 This is missing most of the less common DataMap Info sections.
 
-```
+```xml
 <JobDefinitionFile>
     <Job>
-        <SCOREFXNS>
-        </SCOREFXNS>
-        <RESIDUE_SELECTORS>
-        </RESIDUE_SELECTORS>
-        <TASKOPERATIONS>
-        </TASKOPERATIONS>
-        <FILTERS>
-        </FILTERS>
-        <MOVERS>
-        </MOVERS>
         <Input>
         </Input>
-        <Output>
-        </Output>
     </Job>
 
     <Common>
@@ -298,6 +290,10 @@ This is missing most of the less common DataMap Info sections.
         <MOVERS>
         </MOVERS>
         <PROTOCOLS>
+            <Stage>
+                <Add/>
+                <Sort/>
+            </Stage>
             <Stage>
                 <Add/>
                 <Sort/>

@@ -4,7 +4,7 @@
 
 Adds or replaces constraints in the pose using the constraints' read-from-file functionality.
 
-```
+```xml
 <ConstraintSetMover name="(&string)" add_constraints="(false &bool)" cst_file="(&string)"/>
 ```
 

@@ -12,7 +12,7 @@ XRW TO DO
         dist_tolerance="(1.0 &real;)" angle_tolerance="(0.35 &real;)"
         cacb_dihedral_tolerance="(0.9 &real;)"
         bb_dihedral_tolerance="(0.52 &real;)" weight="(1.0 &real;)"
-        use_dssp="(true &bool;)" />
+        use_dssp="(false &bool;)" />
 ```
 
 -   **blueprint**: Path to blueprint file specifying strand pairing

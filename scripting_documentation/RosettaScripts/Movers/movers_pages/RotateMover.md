@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## Rotate
 
-```
+```xml
 <Rotate name="&string" chain="&string" distribution="[Uniform|Gaussian]" degrees="(&int)" cycles="(&int)"/>
 ```
 

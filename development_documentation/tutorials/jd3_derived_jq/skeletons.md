@@ -37,7 +37,7 @@ Let's also add the following to one of the protocols.*.src.settings files.
 // (c) addressed to University of Washington CoMotion, email: license@uw.edu.
 
 /// @file protocols/tutorial/TutorialQueen.fwd.hh
-/// @author Jack Maguire, jack@med.unc.edu
+/// @author Jack Maguire, jackmaguire1444@gmail.com
 
 
 #ifndef INCLUDED_protocols_tutorial_TutorialQueen_FWD_HH
@@ -71,7 +71,7 @@ typedef utility::pointer::shared_ptr< TutorialQueen const > TutorialQueenCOP;
 // (c) addressed to University of Washington CoMotion, email: license@uw.edu.
 
 /// @file protocols/tutorial/TutorialQueen.hh
-/// @author Jack Maguire, jack@med.unc.edu
+/// @author Jack Maguire, jackmaguire1444@gmail.com
 
 
 #ifndef INCLUDED_protocols_tutorial_TutorialQueen_HH
@@ -114,7 +114,7 @@ public:
 // (c) addressed to University of Washington CoMotion, email: license@uw.edu.
 
 /// @file protocols/tutorial/TutorialQueen.cc
-/// @author Jack Maguire, jack@med.unc.edu
+/// @author Jack Maguire, jackmaguire1444@gmail.com
 
 #include <protocols/tutorial/TutorialQueen.hh>
 #include <basic/Tracer.hh>
@@ -151,7 +151,7 @@ TutorialQueen::~TutorialQueen()
 // (c) addressed to University of Washington CoMotion, email: license@uw.edu.
 
 /// @file protocols/tutorial/TutorialJob.fwd.hh
-/// @author Jack Maguire, jack@med.unc.edu
+/// @author Jack Maguire, jackmaguire1444@gmail.com
 
 #ifndef INCLUDED_protocols_tutorial_TutorialJob_FWD_HH
 #define INCLUDED_protocols_tutorial_TutorialJob_FWD_HH
@@ -183,7 +183,7 @@ typedef utility::pointer::shared_ptr< TutorialJob const > TutorialJobCOP;
 // (c) addressed to University of Washington CoMotion, email: license@uw.edu.
 
 /// @file protocols/tutorial/TutorialJob.hh
-/// @author Jack Maguire, jack@med.unc.edu
+/// @author Jack Maguire, jackmaguire1444@gmail.com
 
 
 #ifndef INCLUDED_protocols_tutorial_TutorialJob_HH
@@ -231,7 +231,7 @@ public:
 /// @file protocols/tutorial/TutorialJob.cc
 /// @brief
 /// @detailed
-/// @author Jack Maguire, jack@med.unc.edu
+/// @author Jack Maguire, jackmaguire1444@gmail.com
 
 #include <protocols/tutorial/TutorialJob.hh>
 

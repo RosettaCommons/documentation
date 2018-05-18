@@ -1,6 +1,11 @@
-#MRS: DataMap Overload Example
+#MultistageRosettaScripts
 
-[[Multistage Rosetta Scripts|MultistageRosettaScripts]]
+#DataMap Overload Example
+
+Back To [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
+
+- Written by Jack Maguire, send questions to jackmaguire1444@gmail.com
+- All information here is valid as of Feb 13, 2018
 
 This script was contrived for the purposes of showing how to overload [[DataMap Info|XML#DataMap Info]].
 
@@ -17,7 +22,7 @@ Whenever an element has the same name as a previously declared element, the new 
 For the first job tag, there is only one Mover named "relax".
 However, the third job tag has two Movers named "relax" (one in the Job block and one in the Common block).
 
-```
+```xml
 <JobDefinitionFile>
     <Job>
         <RESIDUE_SELECTORS>

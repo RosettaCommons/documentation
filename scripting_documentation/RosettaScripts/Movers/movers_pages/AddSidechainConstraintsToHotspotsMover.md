@@ -4,7 +4,7 @@
 
 Adds harmonic constraints to sidechain atoms of target residues (to be used in conjunction with HotspotDisjointedFoldTree). Save the log files as those would be necessary for the next stage in affinity maturation.
 
-```
+```xml
 <AddSidechainConstraintsToHotspots name="(&string)" chain="(2 &Integer)" coord_sdev="(1.0 &Real)" resnums="(comma-delimited list of residue numbers)"/>
 ```
 

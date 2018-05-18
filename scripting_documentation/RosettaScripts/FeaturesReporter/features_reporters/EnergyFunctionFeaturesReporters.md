@@ -6,7 +6,7 @@ Report the total score for each structure using whatever score function you like
 
 Example:
 
-```
+```xml
 <TotalScoreFeatures scorefxn="talaris2013"/>
 ```
 

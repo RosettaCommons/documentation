@@ -1,44 +1,60 @@
 # Release Notes
 
-<!--- BEGIN_INTERNAL -->
-
-PRE-NOTES for 3.10
-* thread safety
-* GUI
-* RosettaUI
-* MoveMapFactory
-
-<!--- END_INTERNAL -->
-
-<!--- BEGIN_INTERNAL -->
-## _Rosetta 3.9 (internal notes)_
+## Rosetta 3.9
 
 ### Scorefunction changes
-* write up REF2015 changeover (http://pubs.acs.org/doi/abs/10.1021/acs.jctc.7b00125)
+* We changed our default scorefunction to [[REF2015|Overview-of-Seattle-Group-energy-function-optimization-project]]. (http://pubs.acs.org/doi/abs/10.1021/acs.jctc.7b00125)
 
 ### API changes
 * PyRosetta: xyzMatrix now have .xy properties bound as 'data' instead of set/get functions. So if your code accessed this methods directly you will need to refactor it as m.xx(m.xy()) --> m.xx = m.xy
 
+### User friendliness
+* Improved the output formatting for errors - in the vanishingly rare case that an error occurs with Rosetta, you are now more likely to get a useful and interpretable error message.
+* Added **Common Flag Configurations** to make it easier to run Rosetta often and for a variety of use-cases. [[running-rosetta-with-options#common-options-and-default-user-configuration]]
+* Reduced memory use in the most memory-intensive step of the build process.  You can now build Rosetta on slightly slimmer machines.  You probably should not try running Rosetta on those machines anyway.
+* Exception handling rearranged so that Python users will see the string message in C++-thrown exceptions
+* Long-desired, long-delayed tweaks to the 'released' code end users see.  The build system is tweaked to:
+ * default to the faster release mode 
+ * aggressively search for compilers/paths (no need to use .default. any longer)
+ * Ignore warnings coming from compilers we've not tested on
+* Made the python infrastructure that comes with the C++ code (not PyRosetta, but Rosetta's Python) more Python 2 vs 3 
+tolerant
+
 ##New or updated features
+
 ###Applications
-* [[RosettaAntibodyDesign]] Application released!!
+* [[JD3]] has gained:
+  * A revived [[ResourceManager]]
+  * RosettaScripts compatibility (will receive public release in next version)
+  * [[MultistageRosettaScripts]]  
+* [[RosettaAntibodyDesign]] Application released - preparing for published paper.  Pre-print available here: [https://www.biorxiv.org/content/early/2018/02/23/183350]
+
 * [[dock_glycans]] bug fixes
-* [[Hydrate/SPaDES protocol]] include: solvent-protein interactions in a hybrid implicit-explicit solvation model.
-* [[interface_energy]] - distinct from [[InterfaceAnalyzer]], and also well documented
+* Protocols for explicit water:
+  * [[Hydrate/SPaDES protocol]] include: solvent-protein interactions in a hybrid implicit-explicit solvation model.
+  * RyanP what is that name of yours?
+* [[interface_energy]] - distinct from [[InterfaceAnalyzer|interface-analyzer]], and also well documented
 * [[RosettaCM]] / [[HybridizeMover]] - improvements to error handling for mismatched template lengths
 * Antibody homology modeling works with only a heavy chain present
-* [[RosettaES]]
+* [[RosettaES|mover_FragmentExtension_type]]
 * [[shobuns]] - Buried UNSatisfied polar atoms for the SHO solvation model
+* Multithreading has come to [[simple_cycpep_predict]]
+* [[FoldFromLoops2|FoldFromLoops]]
+* [[HBNet|HBNetMover]]
+* [[energy_based_clustering|energy_based_clustering_application]]
 
 ###RosettaScripts tools
 * RosettaScripts available from within PyRosetta - great for when you really, really, really don't want to think about Rosetta's C++ core
-* [[ConstraintGenerator]] can now be specified in their own CONSTRAINT_GENERATORS block in a RosettaScript and can be passed to AddConstraints using the constraint_generators option.
+* [[RosettaScripts#rosettascript-sections_move_map_factories]] created to allow protocols to create MoveMaps at better (later) points in the trajectory, when the relevant data are at hand.  New documentation added to main RosettaScripts page for how to use this great tool.
+* [[LayerDesign]] via ResidueSelectors now compatible with Boolean logic for easier use
+*  ConstraintGenerators can now be specified in their own CONSTRAINT_GENERATORS block in a RosettaScript and can be passed to [[AddConstraintsMover]]using the constraint_generators option.  Constraint Generators are used to create constraints on the fly, without the need for constraint files. 
+* [[DihedralConstraintGenerator | constraint_generator_DihedralConstraintGenerator_complex_type]] -  A cst generator that creates Dihedral constraints for specified residues using a residue selector. Uses CircularHarmonic constraints, since CircularGaussian func does not exist. By default, works on Protein and carbohydrate BackBone dihedrals (but this can be changed), in addition, CUSTOM ARBITRARY DIHEDRALS can also be set.
 * Use of recursive script inclusion in RosettaScripts is now enormously faster
 * [[WriteFiltersToPose]]
 * [[SwitchChainOrderMover]] bugfix
-* [[buried_apolar_area_filter]] - filters based on buried surface area (VIKRAM what is name?)
-*     Add a filter to compute the longest continuous stretch of polar residues in a pose or selection - VIKRAM what is name?
-* [[ResidueProbDesignOperation]] (used originally for [[RosettaAntibodyDesign]] ) can now take a text file of residue probabilities per position and is available in RosettaScripts
+* [[buried_apolar_area_filter]] - filters based on buried surface area
+* a filter to compute the longest continuous stretch of polar residues in a pose or selection
+* [[ResidueProbDesignOperation | to_ResidueProbDesignOperation_type]] (used originally for [[RosettaAntibodyDesign]] ) can now take a text file of residue probabilities per position and is available in RosettaScripts
 * [[ReturnSidechainMover]] - works better with stuff like phosphorylated residues, and broadly produces more useful warnings/errors
 * Metals:
     * [[MetalContactsConstraintGenerator]] adds distance, angle, and dihedral constraints between (optionally specified) contacts and a user-specified metal atom, either as a single ion or as part of a ligand.
@@ -55,6 +71,14 @@ PRE-NOTES for 3.10
 * [[BondedResidueSelector]], which takes either an input residue selector or list of residue numbers and selects all residues with chemical bonds to the input set
 * [[HBondSelector]] takes an input residue selector or list of residue numbers. If provided, it selects all residues that form hydrogen bonds with residues in the input set given that those hydrogen bonds meet a specified energy requirement (default -0.5 REU). If no selector is provided, all residues in the pose that form hydrogen bonds are selected. By default, backbone-backbone hydrogen bonds are ignored.
 * [[ShearMover]] bugfix.  Yes, this was one of the very earliest Movers we wrote.  Imagine our shear disbelief at discovering there has been a bug in it for most of a decade.
+
+* __More resfile commands__: We have 3 new resfile commands: CHARGED, AROMATIC, and PROPERTY.
+The third is a general command that takes any ResidueProperty. Currently, it only works for Cannonicals, but perhaps that could be generalized int the future for NCs.
+
+* [[ResfileCommandOperation | to_ResfileCommandOperation_type]] - Applies the equivalent of a resfile line (without the resnums) to residues specified in a residue selector.
+* [[SequenceMotifTaskOperation | to_SequenceMotifTaskOperation_type]] -A TaskOp that takes a regex-like pattern and turns it into a set of design residues. 
+* [[CreateSequenceMotifMover | mover_CreateSequenceMotifMover_type]] - Simple mover to Create a sequence motif in a region of protein using the SequenceMotifTaskOperation. Uses psueo-regular expressions to define the motif.
+
 * [[TrueResidueSelector]] bugfix
 * [[RmsdFromResidueSelectorFilter]] update
 * [[SecondaryStructureSelector]]
@@ -63,9 +87,12 @@ PRE-NOTES for 3.10
 * [[ReleaseConstraintFromResidueMover]]
 * [[UnsatSelector]] - symmetry compatibility
 * [[AddHelixSequenceConstraintsMover]]
+* [[ReadPoseExtraScoreFilter]]
+* [[BuriedUnsatHbondsFilter]] updates
+
+
 
 ###Miscellaneous
-* Improved the output formatting for errors - in the vanishingly rare case that an error occurs with Rosetta, you are now more likely to get a useful and interpretable error message.
 * bugfixes to PDB->Pose construction logic arising from missing atoms at termini
 * removed unimplemented fa_plane term.  A zero-weight fa_plane term was a feature of a large number of scorefunctions, which was planely wrong.  This may cause issues using legacy scoring weight sets with Rosetta 3.9: just remove the unused fa_plane term in your weights file.
 * [[AlignmentAAFinderFilter]] filter -- Scans through an alignment, tests all possible amino acids at each position, and generates a file of passing amino acids.
@@ -85,8 +112,15 @@ PRE-NOTES for 3.10
 * Explicit unfolded state energy calculator bugfixes
 * ABEGO bin scoreterm
 * Implementation of mean-field algorithm to predict rotamer or amino acid probability. Can be used to [[predict specificity profile|GenMeanFieldMover]] for protein-protein or protein-peptide interactions.
+* [[MonteCarloInterface]] allows users to set protein-protein interface ddG as the energy criterion in MonteCarlo.  This partially addresses the often-requested feature to favor binding energy, not total energy, in design operations.
+* [[VoidsPenalty]] - nature abhors a vacuum, but Rosetta tends to ignore them.  VoidsPenalty detects underpacked regions in protein cores and favors rotamers to fill those gaps.
+* [[NetCharge]] - a superclass of the older "supercharge" idea, this score term lets you target a desired net charge for your design.
+* Old [[SEWING]] deprecated but still functional ahead of its replacement
+* [[LoopAnalyzerMover]] bugfixes
+
 
 ###Nonprotein chemistries
+* Major bugfixes for rotamer scoring for noncanonical sidechains
 * Improvements to internal glycan handing and IO. (For PDB import use the options `-auto_detect_glycan_connections` and `-alternate_3_letter_codes pdb_sugar`.  For more information, please see [[WorkingWithGlycans]]
 * The handling of non-polymeric chemical connections has been improved/simplified. This includes better handling of LINK records in PDB input, as well as removal of the BRANCH_LOWER_TERMINUS residue variant type.
 * Improvements to both automatic and user-specified handling of metal ions
@@ -98,11 +132,10 @@ PRE-NOTES for 3.10
 * Vikram Mulligan has been absolutely on fire adding nonprotein chemistries for cyclic peptides.  (He's now hard at work on fire-retardant peptides):
     * trimesic acid, a three-way crosslinker
     * cyclization via disulfide (instead of simply including disulfides)
+    * Oligoureas
     * N-methyl amino acids, for getting rid of that pesky backbone hydrogen bond donor
     * 2-aminoisobutyric acid (AIB), a non-canonical, achiral alpha-amino acid that strongly favours helices (both left- and right-handed).  AIB is to ALA as bactrian is to dromedary.  (That makes glycine a horse).
 * Glycan Relax - Version 2 [[GlycanTreeRelax]]
-
-<!--- END_INTERNAL -->
 
 ## Rosetta 3.8
 ###New RosettaScripts XML

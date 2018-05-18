@@ -16,7 +16,7 @@ NOTES:
 - <b>By default, glycine and D/L-proline positions are ignored by this mover.</b>  This behaviour can be overridden with the ```mutate_gly=true``` or ```mutate_pro=true``` options (see below).
 
 
-```
+```xml
 <Disulfidize name="(&string)" scorefxn="(&string)" set1="(&selector)" set2="(&selector)" match_rt_limit="(&float 2.0)" score_or_matchrt="(&bool false)" max_disulf_score="(&float 1.5)" min_loop="(&int 8)" use_l_cys="(&bool true)" keep_current_disulfides="(&bool false)" include_current_disulfides="(&bool false)" use_d_cys="(&bool false)" use_beta_cys=(&bool false)  mutate_gly="(&bool false)" mutate_pro="(&bool false)" />
 ```
 
@@ -39,7 +39,7 @@ NOTES:
 
 **EXAMPLE**  The following example looks for 1-3 disulfides. All found disulfide configurations are then designed using FastDesign.
 
-```
+```xml
 <Disulfidize name="disulf" min_disulfides="1" max_disulfides="3" max_disulf_score="0.3" min_loop="6" />
 <MultiplePoseMover name="multi_fastdes" >
 	<ROSETTASCRIPTS>

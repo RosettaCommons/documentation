@@ -5,7 +5,7 @@ Provided a **ResidueSelector** with multiple non-contiguous regions, it will cre
 
 # Example
 
-```
+```xml
 <RESIDUE_SELECTORS>
     <SecondaryStructureSelector name="sheet" ss="H" use_dssp="1" />
 </RESIDUE_SELECTORS>

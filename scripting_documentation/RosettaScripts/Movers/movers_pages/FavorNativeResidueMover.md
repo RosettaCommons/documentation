@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## FavorNativeResidue
 
-```
+```xml
 <FavorNativeResidue bonus="(1.5 &bool)"/>
 ```
 

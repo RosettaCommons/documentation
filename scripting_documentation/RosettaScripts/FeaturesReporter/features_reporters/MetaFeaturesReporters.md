@@ -97,7 +97,7 @@ Report how much time it took for each structure to be processed.  The database i
 
 Example:
 
-```
+```xml
 <RuntimeFeatures/>
 ```
 

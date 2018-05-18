@@ -20,7 +20,7 @@ Will only add the constraint if not already present.  Uses a Linear Harmonic at 
 
 Constraint that a residue interacts with some other chain or region. SiteConstraints are a set of ambiguous atom-pair constraints that evaluate whether a residue interacts with some other chain or region - roughly, that it is (or is not) in a binding site. More specifically, if we have a SiteConstraint on a particular residue, that SiteConstraint consists of a set of distance constraints on the C-alpha from that residue to the C-alpha of all other residues in a set, typically the set being specific residues on another chain or chains. After each constraint is evaluated, only the constraint giving the lowest score is used as the SiteConstraint energy for that residue.
 
-```
+```xml
 <ParatopeEpitopeSiteConstraintMover paratope_cdrs="(&string (ex: L1,L1,L3))" interface_dis="(&real)" />
 ```
 

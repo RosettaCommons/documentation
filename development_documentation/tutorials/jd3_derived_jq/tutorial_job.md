@@ -100,7 +100,7 @@ jd3::CompletedJobOutput TutorialJob::run() {
 // (c) addressed to University of Washington CoMotion, email: license@uw.edu.
 
 /// @file protocols/tutorial/TutorialJob.hh
-/// @author Jack Maguire, jack@med.unc.edu
+/// @author Jack Maguire, jackmaguire1444@gmail.com
 
 
 #ifndef INCLUDED_protocols_tutorial_TutorialJob_HH
@@ -184,7 +184,7 @@ private:
 /// @file protocols/tutorial/TutorialJob.cc
 /// @brief
 /// @detailed
-/// @author Jack Maguire, jack@med.unc.edu
+/// @author Jack Maguire, jackmaguire1444@gmail.com
 
 #include <protocols/tutorial/TutorialJob.hh>
 

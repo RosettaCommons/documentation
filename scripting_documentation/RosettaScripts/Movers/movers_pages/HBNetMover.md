@@ -6,7 +6,7 @@ _Note:  This documentation is for the HBNet mover.  For information on the `hbne
 HBNet is a method to explicitly detect and design hydrogen bond networks within Rosetta.  It functions as a mover within the RosettaScripts framework and will exhaustively search for all networks within the design space that you define with [[TaskOperations|TaskOperations-RosettaScripts]], and that meet the criteria you specify with the options below
 
 ###UPDATE 12/2017:
-Jack Maguire's new Monte Carlo sampling approach (MC HBNet) is now in master and it is highly recommended (likely become the default soon); to use it, simply add ```monte_carlo="true"``` to the existing HBNet or HBNetStapleInterface movers.  The new MC search procedure is much faster, enables consistent runtimes and memory usage, and consistently yields a larger number of high-quality networks in a much shorter runtime.  To control the number of MC trials, set ```total_num_mc_runs="100000"```; making this value smaller will result in shorter runtimes, making it bigger will result in longer runtimes (and often more solutions).  Other MC HBNet options are listed below. Setup, network evaluation/ranking, and output are still handled the same as in HBNet.
+The new Monte Carlo sampling approach (MC HBNet) is now in master and it is highly recommended (likely become the default soon); to use it, simply add ```monte_carlo="true"``` to the existing HBNet or HBNetStapleInterface movers.  The new MC search procedure is much faster, enables consistent runtimes and memory usage, and consistently yields a larger number of high-quality networks in a much shorter runtime.  To control the number of MC trials, set ```total_num_mc_runs="10000"```; making this value smaller will result in shorter runtimes, making it bigger will result in longer runtimes (and often more solutions).  Other MC HBNet options are listed below. Setup, network evaluation/ranking, and output are still handled the same as in HBNet.
 
 *[[how buried unsatisfied polar atoms are handled by HBNet|HBNet-BUnsats]].*<br>
 *[[how to design hydrogen bond networks into helical bundles|HBNet-HelicalBundle]].*<br>
@@ -22,7 +22,7 @@ In general, HBNet should work with any existing XML by placing it in the beginni
 3. For all of your design movers in MPM, be sure to pass the following task operation (see Template XML below) to ensure networks aren't designed away: HBNet automatically applies csts to ensure the h-bonds stay in place, but if you change the AA type with taskops, the csts can no longer be properly applied.  On this same note, be sure to **only use ```_cst``` scorefxns for design steps post-HBNet; for example ```beta_cst``` rather than beta.**
 
 ####Template XML:
-```
+```xml
 <ROSETTASCRIPTS>
    <SCOREFXNS>
         PASTE YOUR SCFXN HERE AND THEN PASS IT TO HBNET
@@ -33,8 +33,8 @@ In general, HBNet should work with any existing XML by placing it in the beginni
    <FILTERS>
    </FILTERS>
    <MOVERS>
-      <HBNet name=hbnet_mover scorefxn=[YOUR_SCORE_FUNCTION] hb_threshold=-0.5 min_network_size=3 max_unsat_Hpol=1 write_network_pdbs=1 task_operations=[YOUR_TASK_OPS_HERE] />
-      <MultiplePoseMover name=MPM_design max_input_poses=100>
+      <HBNet name="hbnet_mover" scorefxn=[YOUR_SCORE_FUNCTION] hb_threshold="-0.5" min_network_size="3" max_unsat_Hpol="1" write_network_pdbs="1" monte_carlo="false" task_operations=[YOUR_TASK_OPS_HERE] />
+      <MultiplePoseMover name="MPM_design" max_input_poses="100">
          <ROSETTASCRIPTS>
                 PASTE YOUR ENTIRE CURRENT DESIGN XML HERE
                 # only use _cst scorefxn during design to make sure the constraints automatically turned on by HBNet are respected
@@ -47,8 +47,8 @@ In general, HBNet should work with any existing XML by placing it in the beginni
          </ROSETTASCRIPTS>
        </MultiplePoseMover>
 <PROTOCOLS>
-  <Add mover_name=hbnet_mover/>
-  <Add mover_name=MPM_design/>
+  <Add mover_name="hbnet_mover"/>
+  <Add mover_name="MPM_design"/>
 </PROTOCOLS>
 </ROSETTASCRIPTS>
 ```
@@ -59,7 +59,7 @@ HBNet is a base classes that can be derived from to override key functions that 
 ####HBNetStapleInterface: for designing protein-protein interfaces:
 Expects a pose with >= 2 chains and will by default start the network search at all interface residues, attempting to find h-bond networks that span across the interface.
 
-```
+```xml
 # symmetric
 <HBNetStapleInterface scorefxn="hard_symm" name="hbnet_interf" hb_threshold="-0.5"design_residues="NSTQHYW" write_network_pdbs="true" min_networks_per_pose="1" max_networks_per_pose="4" use_aa_dependent_weights="true" min_core_res="2" min_network_size="3" max_unsat_Hpol="3" onebody_hb_threshold="-0.3" task_operations="arochi,init_layers,current" />
 
@@ -75,15 +75,16 @@ Expects a pose with >= 2 chains and will by default start the network search at 
 
 #### Designing networks into the core of a monomer:
 The default is that it will start searching at all positions in the monomeric Pose, which is often note ideal: if possible specify ```start_selector``` to start at positions you want to potentially be part of the networks, and define your design space carefully with ```task_operations```.
-```
+```xml
 <HBNet scorefxn="beta" monte_carlo_branch="true" total_num_mc_runs="100000" core_selector="core" name="hbnet" hb_threshold="-0.5" min_core_res="2" minimize="false" min_network_size="5" max_unsat_Hpol="2" start_selector="[YOUR_SELECTOR]" task_operations="[YOUR TASKOPS" />
 ```
 
 #### Designing networks around a polar small molecule ligand
-If your goal is to design a network that satisfies a polar small molecule, use ```start_selector``` to start at the ligand (and any first shell contacts you might want to keep).  One challenge that arose in these design cases is that HBNet only searches for networks among packable/designable positions, but often users want to keep the ligand and some first-shell contacts fixed (NATRO or PreventRepacking).  To solve this issue, we added the option ```keep_start_selector_rotamers_fixed```, which if true, takes the ```start_selector``` positions, fixes their identity and rotamer, and turns on proton Chi sampling; this making them packable (gets them into the IG), as well as allows for more h-bonding possibilities by sampling multiple Hpol positions.  (option added together with Benjamin Basanta)
+If your goal is to design a network that satisfies a polar small molecule, use ```start_selector``` to start at the ligand (and any first shell contacts you might want to keep).  One challenge that arose in these design cases is that HBNet only searches for networks among packable/designable positions, but often users want to keep the ligand and some first-shell contacts fixed (NATRO or PreventRepacking).  To solve this issue, we added the option ```use_only_input_rot_for_start_res```, which if true, takes the ```start_selector``` positions, fixes their identity and rotamer, and turns on proton Chi sampling; this making them packable (gets them into the IG), as well as allows for more h-bonding possibilities by sampling multiple Hpol positions.  (option added together with Benjamin Basanta)
+**NOTE:** ```use_only_input_rot_for_start_res``` only works if set to true and if the start selector is set to **not** be packable.
 
-```
-<HBNet name="hbnet_ligand" scorefxn="standardfxn" hb_threshold="-0.5" start_selector="ligand" design_residues="STNQYW" write_cst_files="False" write_network_pdbs="False" store_subnetworks="False" minimize="False" min_network_size="3" max_unsat_Hpol="0" task_operations="no_design_or_pack,limitAroChi" keep_start_selector_rotamers_fixed="True"/>
+```xml
+<HBNet name="hbnet_ligand" scorefxn="standardfxn" hb_threshold="-0.5" start_selector="ligand" design_residues="STNQYW" write_cst_files="False" write_network_pdbs="False" store_subnetworks="False" minimize="False" min_network_size="3" max_unsat_Hpol="0" task_operations="no_design_or_pack,limitAroChi" use_only_input_rot_for_start_res="True"/>
 ```
 
 ###FAQ
@@ -92,14 +93,12 @@ If your goal is to design a network that satisfies a polar small molecule, use `
 1. Make all packable/designable positions (except PRO/GLY/Disulfide) poly-ALA and place the network onto that Pose for output: ```output_poly_ala_background="true"```
 2. You can output these poly-ALA background poses in addition to standard output with  ```write_network_pdbs="true"```; useful for debugging and inspection (or to check if your network changed during downstream design).
 
-**Why is HBNet so slow?** The best way to handle this is to now use MC-HBNet by passing ```monte_carlo_branch="true"```, but in all cases, especially original HBNet, the runtime will scale with the size of your design space, and how many networks are found (which is kind of a catch-22, because you likely want to find a lot of networks).  There are several ways to make HBNet much faster (and often get better results too):
+**Why is HBNet so slow?** The best way to handle this is to now use MC HBNet by passing ```monte_carlo="true"```, but in all cases, especially original HBNet, the runtime will scale with the size of your design space and how many networks are found (which is kind of a catch-22, because you likely want to find a lot of networks).  There are several ways to make HBNet much faster (and often get better results too):
 
 1. Make ```hb_threshold``` more stringent (more negative).  With MC-HBNet you can safely set it to -0.5; with original HBNet, use -0.5 unless using ex1ex2, in which case start at -0.75
 2. Be more specific with your ```task_operations```; the more you can restrict your design space, and especially high-entropy sidechains (Lys/Arg), the better.
 3. Use ```start_selector``` to only start searching at a small number of positions of interest.
 4. Make use of the options to only allow the properties you desire, e.g. ```min_network_size="5"```
-
-
 
 ###Options universal to all HBNet movers
 - <b>hb\_threshold</b> (-0.5 &Real): 2-body h-bond energy cutoff to define rotamer pairs that h-bond.  I've found that -0.5 without ex1-ex2 is the best starting point.  If using ex1-ex2, try -0.75.  This parameter is the most important and requires some tuning; the tradeoff is that the more stringent (more negative), the faster it runs but you miss a lot of networks; too positive and it will run forever; using ex1-ex2 results in many redundant networks that end up being filtered out anyway.
@@ -115,6 +114,27 @@ If your goal is to design a network that satisfies a polar small molecule, use `
 - <b>min_core_res</b>: minimum core residues each network must have (as defined by core selector).
 - <b>design_residues (string &"STRKHYWNQDE"</b>: string of one-letter AA codes; which polar residues types do you want to include in the search; the default is all AA's that can potentially make h-bonds, further restricted by the <b>task_operations</b> you pass.
 - <b>task_operations</b>: comma-delimited list of task operations you have previously defined in your XML; HBNet will respect any task operation passed to it, and only search for networks within the design space you define by these taskops; the more that you can restrict your design space to only what you want, the faster HBNet will run.
+- <b>store_network_scores_in_pose</b>: Boolean. If true, adds "HBNet_NumUnsatHpol",
+"HBNet_Saturation", and "HBNet_Score" to pose as an extra score. These scores will be
+printed in the score.sc file and can be accessed using the
+[[ReadPoseExtraScoreFilter|ReadPoseExtraScoreFilter]].
+
+###Options for MC HBNet
+- <b>monte\_carlo</b> (bool,"false"):
+  Step right up and try your luck with this stochastic HBNet protocol!
+  This protocol boasts faster runtimes (especially for large systems) and more consistent memory usage.
+  Equivalent to `monte_carlo_branch`.
+- <b>total\_num\_mc\_runs</b> (uint,"10000"):
+  number of monte carlo runs to be divided over all the seed hbonds.
+- <b>monte\_carlo\_seed\_must\_be\_buried</b> (bool,"false"):
+  only branch from hbonds where at least one residue is buried.
+  Effectively, this results in only finding networks that have at least one buried residue.
+- <b>monte\_carlo\_seed\_must\_be\_fully\_buried</b> (bool,"false"):
+  only branch from hbonds where both residues are buried.
+  This results in only finding networks that have at least one buried hbond but this does not prevent having additional exposed hbonds.
+- <b>seed\_hbond\_threshold</b> (real,"0"):
+  Maybe you only want to branch from strong hbonds.
+  If this value is -1.2, for example, then only hbonds with a strength of -1.2 or lower will be branched from.
 
 ####New options for detecting native networks, and keeping and extending existing networks of input pose
 

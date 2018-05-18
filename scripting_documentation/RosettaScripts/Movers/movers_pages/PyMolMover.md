@@ -4,13 +4,13 @@
 
 PyMolMover will send a pose to an instance of the PyMol molecular visualization software running on the local host. Each call of the mover overwrites the object in PyMol. It is not a full featured as the version built in to PyRosetta but is extremely useful for visualizing the flow of a protocol or generating a frames for a movie of a protocol.
 
-```
+```xml
 <PyMolMover name="&string" keep_history="(0 &bool)" />
 ```
 - keep\_history: each call to the mover stores the pose in a new state/frame of an object in PyMol rather than overwriting it. Frames can then be played back like a movie to visualize the flow of a protocol.
 
 The following example would send the pose to PyMol before and after packing and store the structure in 2 states/frames of the same object.
-```
+```xml
   <MOVERS>
     <PyMolMover name="pmm" keep_history="1"/>
     <PackRotamersMover name="pack"/>
@@ -26,7 +26,7 @@ The following example would send the pose to PyMol before and after packing and 
 **Prerequisites**
 
 To allow PyMol to listen for new poses, you need to run the following script from within PyMol, where *$PATH_TO_ROSETTA* is replaced by the path to you Rosetta installation.
-```
+```sh
 run $PATH_TO_ROSETTA/Rosetta/main/source/src/python/bindings/PyMOLPyRosettaServer.py
 ```
 

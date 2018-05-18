@@ -6,7 +6,7 @@
 
 This [[Mover]] reports a probability distribution of amino acids for a given set of positions, depending on your TaskOperations and input files.  The values are reported to the log file and dumped as a set of transfacs.
 
-```
+```xml
 <GenMeanFieldMover name="&string" threshold="(10.0 &float)" lambda_memory="(0.5 &float)" tolerance="(0.0001 &float)" temperature="(0.8 &float)" task_operations="(&string,&string,&string)" />
 ```
 

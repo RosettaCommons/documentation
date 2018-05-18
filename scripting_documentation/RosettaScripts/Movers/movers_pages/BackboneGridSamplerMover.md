@@ -5,7 +5,7 @@
 Generates a chain of identical residues and samples sets of mainchain torsion values, setting all residues to have the same set of mainchain torsion values.  This is useful for identifying secondary structures (particularly internally hydrogen-bonded, helical secondary structures) of novel heteropolymers.  Note that this mover discards any input geometry.
 <br/><b>Update (15 May 2015):</b>  The BackboneGridSampler can now sample repeating backbone conformations in which the repeat unit consists of more than one residue.  This can be useful for sampling conformations of mixtures of different building block types -- <i>e.g.</i>D-L-L-D-L-L chains, or alpha-beta-alpha-beta, or whatnot.
 
-```
+```xml
 <BackboneGridSampler name="(&string)" residues_per_repeat="(1 &int)" (residue_name="('ALA' &string)" OR residue_name_1="('ALA' &string)" residue_name_2="('ALA', &string)", etc.) scorefxn="(&string)" max_samples="(10000 &int)" selection_type="('low' &string)" pre_scoring_mover="(&string)" pre_scoring_filter="(&string)" dump_pdbs="(false &bool)" pdb_prefix="('bgs_out' &string)" nstruct_mode="(false &bool)" nstruct_repeats="(1 &int)" (residue_count="(12 &int)" OR repeat_count="(12 &int)") cap_ends="(false &bool)">
      <MainchainTorsion res_index="(1 &int)" index="(&int)" (value="(&Real)" | start="(&Real)" end="(&Real)" samples="(&int)" />
      <MainchainTorsion ... />

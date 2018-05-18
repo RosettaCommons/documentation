@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## StartFrom
 
-```
+```xml
 <StartFrom name="(&string)" chain="(&string)" use_nbr="(0 &bool)" >
    <Coordinates x="(&float)" y="(&float)" z="(&float)" pdb_tag="('' &string)"/>
    <File filename="(&string)" />

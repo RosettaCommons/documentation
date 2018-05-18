@@ -4,7 +4,7 @@
 
 Remodels loops using kinematic loop closure, including insertion and deletion of residues. Handles hotspot constraint application through these sequence changes.
 
-```
+```xml
 <PlaceOnLoop name="( &string)" host_chain="(2 &integer)" loop_begin="(&integer)" loop_end="(&integer)" minimize_toward_stub="(1&bool)" stubfile="(&string)" score_high="(score12 &string)" score_low="(score4L&string)" closing_attempts="(100&integer)" shorten_by="(&comma-delimited list of integers)" lengthen_by="(&comma-delimited list of integers)"/>
 ```
 

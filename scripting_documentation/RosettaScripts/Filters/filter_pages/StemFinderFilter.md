@@ -3,7 +3,7 @@
 ## StemFinder
 
 Compare a set of homologous but structurally heterogeneous PDBs to a template PDB and find structurally highly conserved sites that can serve as stems for splicing segments.
-```
+```xml
 <StemFinder name="(&string)" from_res="(1&int)" to_res="(pose.total_residue()&int)" rmsd="(0.7&float)" stems_on_sse="(false&bool)" stems_are_neighbors="(true&bool)" neighbor_distance="(4.0&float)" neighbor_separation="(10&int)" filenames="(&comma-separated list of pdb file names)"/>
 ```
 - from_res, to_res: template positions (in rosetta numbering) in which to search for stems. (positions out of range will be ignored).

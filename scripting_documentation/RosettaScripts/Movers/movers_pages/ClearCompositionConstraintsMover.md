@@ -4,7 +4,7 @@
 
 Remove any sequence constraints (_e.g._ composition constraints that are scored with the [[aa_composition score term|AACompositionEnergy]], or net charge constraints that are scored with the [[netcharge score term|NetChargeEnergy]]) from the pose.
 
-```
+```xml
 <ClearCompositionConstraintsMover name="(&string)" />
 ```
 

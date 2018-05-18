@@ -7,7 +7,7 @@ Generates a helical bundle using the Crick equations (which describe a helix of 
 
 Helix types are defined with crick_params files, located in the Rosetta database in database/protocol_data/crick_parameters (or provided by the user).  Support for Crick parameter files defining helices in which the repeating unit is more than one residue has recently been added.
 
-```
+```xml
 <MakeBundle name="(&string)" use_degrees="(false &bool)" reset="(true &bool)" symmetry="(0 &int)" symmetry_copies="(0 &int)" set_dihedrals="(true &bool)" set_bondlengths="(true &bool)" set_bondangles="(true &bool)" residue_name="('ALA' &string)" crick_params_file="('alpha_helix' &string)"  helix_length="(0 &int)" r0="(0.0 &real)" omega0="(0.0 &real)" delta_omega0="(0.0 &real)" delta_omega1="(0.0 &real)" delta_t="(0.0 &real)" z1_offset="(0.0 &real)" z0_offset="(0.0 &real)" epsilon="(1.0 &real)" invert="(false &bool)" >
      <Helix set_dihedrals="(true &bool)" set_bondlengths="(false &bool)" set_bondangles="(false &bool)" residue_name="('ALA' &string)" crick_params_file="('alpha_helix' &string)"  helix_length="(0 &int)" r0="(0.0 &real)" omega0="(0.0 &real)" delta_omega0="(0.0 &real)" delta_omega1="(0.0 &real)" delta_t="(0.0 &real)" z1_offset="(0.0 &real)" z0_offset="(0.0 &real)" epsilon="(1.0 &real)" invert="(false &bool)" repeating_unit_offset="(0 &int)" />
 ...
@@ -49,7 +49,7 @@ In addition, the following options can only be set for the bundle as a whole:
 <b>symmetry_copies</b>:  Defines how many radially symmetric copies of the defined helices will be placed.  A value of 0 results in copies matching the symmetry (for example, given six-fold symmetry, one would get six copies of the defined helices about the z-axis.)  Nonzero values result in only a subset of the symmetric copies being placed, permitting the generation of partial bundles.<br/>
 
 Example:  This script generates an antiparallel beta-barrel with a bundle of alpha-helices on the inside.
-```
+```xml
 <MakeBundle name="bundle1" set_bondlengths="true" set_bondangles="true" residue_name="ALA" crick_params_file="beta_strand" symmetry="16" r0="29" omega0="0.075" helix_length="20" >
         #The parameters set above ensure that by default, each "helix" will actually be a strand:
 	<Helix /> #A strand

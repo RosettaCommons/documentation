@@ -6,7 +6,7 @@ Require a disulfide bond between the interfaces to be possible. 'Possible' is ta
 
 Residues from `     targets    ` are considered when searching for a disulfide bond. As for [[DisulfideMover|Movers-RosettaScripts#DisulfideMover]] , if no residues are specified from one interface partner all residues on that partner will be considered.
 
-```
+```xml
 <DisulfideFilter name="&string" targets="(&string)"/>
 ```
 

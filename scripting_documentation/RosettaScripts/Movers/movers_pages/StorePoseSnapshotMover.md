@@ -7,7 +7,7 @@ Rosetta's sequential residue numbering can create headaches in protocols in whic
 
 The syntax for the mover is very simple:
 
-```
+```xml
 <StorePoseSnapshot name="(&string)" reference_pose_name="(&string)" />
 ```
 
@@ -15,7 +15,7 @@ The syntax for the mover is very simple:
 
 Here's an example of how the mover might be used with other movers that take advantage of reference poses.  In this script, we import a pose, store a snapshot, delete residues 5 through 8, then mutate a residue that would have been at position 10 in the original structure (but which will now be at position 6, since 4 residues were deleted).  We then delete residues 3 to 5, and mutate the residue <i>before</i> the residue that used to be at position 10 (but which is now at position 3, so the residue preceding it is position 2). 
 
-```
+```xml
 <ROSETTASCRIPTS>
 	<SCOREFXNS>
 	</SCOREFXNS>

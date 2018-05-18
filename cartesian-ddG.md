@@ -15,7 +15,31 @@ Hahnbeom Park, Philip Bradley, Per Greisen Jr., Yuan Liu, Vikram Khipple Mulliga
 
 Command Line Options
 ====================
-First, input pdb should be properly relaxed in cartesian space with restrained backbone and sidechain coordinates. Please refer to [[here|relax]] for more information.
+First, input pdb should be properly relaxed in cartesian space with restrained backbone and sidechain coordinates. Please refer to [[here|relax]] for more information; also see an example command line:
+
+```
+This is the command line we used for preminimization:
+
+$ROSETTABIN/relax -s $pdb -use_input_sc \
+-constrain_relax_to_start_coords -ignore_unrecognized_res \
+-nstruct 20 \
+-relax:coord_constrain_sidechains  \
+-relax:cartesian-score:weights ref2015_cart \
+-relax:min_type lbfgs_armijo_nonmonotone \
+-relax:script cart2.script
+
+with file "cart2.script":
+
+switch:cartesian
+repeat 2
+ramp_repack_min 0.02  0.01     1.0  50
+ramp_repack_min 0.250 0.01     0.5  50
+ramp_repack_min 0.550 0.01     0.0 100
+ramp_repack_min 1     0.00001  0.0 200
+accept_to_best
+endrepeat
+
+```
 
 ### Protein stability mode
 
@@ -24,7 +48,7 @@ An example of command line is
 cartesian_ddg.linuxgccrelease
  -database $ROSETTADB
  -s [inputpdb]
- –ddg:mut_file [mutfile] # same syntax with what being used in ddg-monomer application.
+ -ddg:mut_file [mutfile] # same syntax with what being used in ddg-monomer application.
  -ddg:iterations 3 # can be flexible; 3 is fast and reasonable
  -ddg::cartesian
  -ddg::dump_pdbs false # you can save mutants pdb if you want

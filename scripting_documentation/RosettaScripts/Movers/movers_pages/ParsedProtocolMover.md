@@ -4,7 +4,7 @@
 
 This is a special mover that allows making a single compound mover and filter vector (just like protocols). The optional option mode changes the order of operations within the protocol, as defined by the option. If undefined, mode defaults to the historical functionality, which is operation of the Mover/Filter pairs in the defined order.
 
-```
+```xml
 <ParsedProtocol name="( &string)" mode="( &string)">
     <Add mover_name="( null &string)" filter_name="( true_filter &string)" apply_probabilities="(see below &Real)"/>
     ...

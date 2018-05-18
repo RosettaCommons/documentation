@@ -4,7 +4,7 @@
 
 Align a chain in the working pose to a chain in a pose on disk (CA superposition).  All chains in the moving pose are rotated into the new coordinate frame, but the rotation is calculated on the specified chain.  Specifying the 0th chain results in a whole-Pose alignment.
 
-```
+```xml
 <AlignChain name="(&string)" source_chain="(0&Int)" target_chain="(0&Int)" target_name="(&string)" align_to_com="(0 &bool)" />
 ```
 

@@ -12,9 +12,13 @@
 
    * [[Movers|Movers-RosettaScripts]]
 
-   * [[Filters|Filters-RosettaScripts]]
+   * [[Residue Selectors | ResidueSelectors]]
 
    * [[Task Operations|TaskOperations-RosettaScripts]]
+
+   * [[Simple Metrics | SimpleMetrics]]
+
+   * [[Filters|Filters-RosettaScripts]]
 
    * [[Features Reporters|Features-reporter-overview]]
 
@@ -25,6 +29,8 @@
      * [[Metropolis Hastings|MetropolisHastings-Documentation]]
      
      * [[SEWING]]
+
+     * [[FoldFromLoops]]
 
    * [[Databases with RosettaScripts|RosettaScripts-database-connection-options]]
 

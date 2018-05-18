@@ -5,13 +5,13 @@
 Adds ResidueTypeConstraint to the pose using ResidueTypeConstraint
 (gives preferential bonus point to selected residues)
 
-```
+```xml
 <ResidueTypeConstraintMover name="&string" AA_name3="&string" favor_bonus="(0.5 &real)"/>
 ```
 
 For example,
 
-```
+```xml
 <ROSETTASCRIPTS>
         <TASKOPERATIONS>
              <ReadResfile name="resfile" filename="c.0.0_resfile_for_ideal_distance_between_sheets.txt"/>

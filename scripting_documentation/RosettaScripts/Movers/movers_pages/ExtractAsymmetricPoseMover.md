@@ -5,7 +5,7 @@
 Similar to ExtractAsymmetricUnit: given a symmetric pose, make a nonsymmetric pose that contains the entire system (all monomers). Can be used to run symmetric and asymmetric moves in the same trajectory.
 
 ####Usage
-```
+```xml
 <ExtractAsymmetricPose name="extract_asp" clear_sym_def="(&bool, false)"/>
 ```
 

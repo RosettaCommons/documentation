@@ -18,7 +18,8 @@ Align + combine parts of the pdb
         duplicate_rmsd_pose_threshold="(1.0 &real;)"
         init_overlap_sequence="(input_pose &init_overlap_sequence_type;)"
         scorefxn="(&string;)" output_only_first="(false &bool;)"
-        output_overlap_positions="(false &bool;)"
+        output_overlap_positions="(false &bool;)" do_design="(true &bool;)"
+        clash_threshold="(10 &real;)"
         task_operations="(&task_operation_comma_separated_list;)" />
 ```
 
@@ -40,6 +41,8 @@ Align + combine parts of the pdb
 -   **scorefxn**: Score function used for packing and design.
 -   **output_only_first**: only does minimization on the first overlap and outputs
 -   **output_overlap_positions**: outputs overlap positions
+-   **do_design**: Perform design on sequence
+-   **clash_threshold**: score0 clash threshold
 -   **task_operations**: A comma separated list of TaskOperations to use.
 
 ---

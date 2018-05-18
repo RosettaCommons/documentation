@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## FavorSequenceProfile
 
-```
+```xml
 <FavorSequenceProfile scaling="('prob' &string)" weight="(1 &Real)"  pssm="(&string)" use_native="(0 &bool)" use_fasta="(0 &bool)" use_starting="(0 &bool)" chain="(0, &int)" use_current="(0 &bool)" pdbname="(&string)" matrix="(BLOSUM62 &string)" scorefxns="(comma seperated list of &string)" exclude_resnums="&string" />
 ```
 

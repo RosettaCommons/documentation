@@ -10,7 +10,7 @@ PI: Roland Dunbrack
 ###Purpose
 Keeps a region of the current pose, deletes all the rest.  Residue number is parsed at apply time (PROTOCOLS section), so it does not nessessarily need to exist in the definition section (MOVERS section) (AKA for Protein Grafting).
 
-```
+```xml
 <KeepRegionMover name="(&string)" start_pdb_num="(&string (Ex: 24L))" end_pdb_num="(&string (Ex: 42L))">
 ```
 

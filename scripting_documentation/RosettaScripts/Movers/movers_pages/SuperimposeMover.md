@@ -4,7 +4,7 @@
 
 Superimpose current pose on a pose from disk. Useful for returning to a common coordinate system after, e.g., torsion moves.
 
-```
+```xml
 <Superimpose name="(&string)" ref_start="(1 &Integer)" ref_end="(0 &Integer)" target_start="(1 &Integer)" target_end="(0 &Integer)" ref_pose="(see below &string)" CA_only="(1 &integer)"/> 
 ```
 -   CA\_only, Superimpose CA only or BB atoms (N,C,CA,O).  Defaults True.

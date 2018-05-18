@@ -9,7 +9,8 @@ XRW TO DO
 <RestrictToInterfaceVector name="(&string;)" chain1_num="(&int_cslist;)"
         chain2_num="(&int_cslist;)" jump="(&int_cslist;)"
         CB_dist_cutoff="(10.0 &real;)" nearby_atom_cutoff="(5.5 &real;)"
-        vector_angle_cutoff="(75.0 &real;)" vector_dist_cutoff="(9.0 &real;)" />
+        vector_angle_cutoff="(75.0 &real;)" vector_dist_cutoff="(9.0 &real;)"
+        include_all_water="(false &bool;)" />
 ```
 
 -   **chain1_num**: XRW TO DO
@@ -19,5 +20,6 @@ XRW TO DO
 -   **nearby_atom_cutoff**: XRW TO DO
 -   **vector_angle_cutoff**: XRW TO DO
 -   **vector_dist_cutoff**: XRW TO DO
+-   **include_all_water**: add all waters to interface
 
 ---

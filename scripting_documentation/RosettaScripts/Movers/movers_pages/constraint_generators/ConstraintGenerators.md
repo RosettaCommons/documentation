@@ -12,7 +12,7 @@ See the [[RosettaScripts Mover page|Movers-RosettaScripts#general-movers_constra
 
 This example adds and removes distance constraints to sheet residues only, and uses the pose specified by `-in:file:native` to obtain the coordinates.
 
-```
+```xml
 <RESIDUE_SELECTORS>
     <SecondaryStructureSelector name="sheet" ss="E" use_dssp="1" />
 </RESIDUE_SELECTORS>
