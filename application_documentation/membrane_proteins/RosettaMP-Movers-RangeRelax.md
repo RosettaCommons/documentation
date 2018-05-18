@@ -18,7 +18,13 @@ The Mover lives in `main/source/src/protocols/relax/membrane/`.
 
 ## RosettaScripts interface
 
-TODO: Currently not compatible with RosettaScripts. 
+The following options are available within the RosettaScript interface:
+
+`native` - String - Provide the native PDB file.
+`sfxn` - String - Provide the score function weights file name.
+`center_resnumber` - Integer - Provide the center residue number.
+`set_tm_helical` - bool - Set helical secondary structure in TM region.
+`optmem` - bool - Set option to optimize membrane.
 
 ## Flags / Options
 

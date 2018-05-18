@@ -18,7 +18,14 @@ The Mover lives in `main/source/src/protocols/docking/membrane/`.
 
 ## RosettaScripts interface
 
-TODO: Currently not compatible with RosettaScripts. 
+The following options are available within the RosettaScript interface:
+
+`optimize1` - bool - should the position of partner 1 be optimized in the membrane?
+`optimize2` - bool - should the position of partner 2 be optimized in the membrane?
+`pose1` - String - Provide the first pose.
+`pose2` - String - Provide the second pose.
+`span1` - String - Provide the first spanfile.
+`span2` - String - Provide the second spanfile.
 
 ## Flags / Options
 

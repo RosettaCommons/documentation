@@ -20,7 +20,14 @@ Algorithm: First, it sets the B-Factor to zero for all atoms. Then it computes c
 
 ## RosettaScripts interface
 
-TODO: Currently not compatible with RosettaScripts. 
+The following options are available within the RosettaScript interface:
+
+`angle_cutoff` - Real - Provide the angle cutoff.
+`slice_width` - Real - Provide the slice width.
+`shell_radius` - Real - Provide the shell radius.
+`dist_cutoff` - Real - Provide the distance cutoff.
+`tm_alpha` - bool - Provide the tm_alpha.
+
 
 ## Flags / Options
 

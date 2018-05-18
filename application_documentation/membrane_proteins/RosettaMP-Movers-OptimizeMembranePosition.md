@@ -6,7 +6,13 @@ This Mover optimizes the membrane position and orientation around the protein (p
 
 ## RosettaScripts interface
 
-TODO: Currently not compatible with RosettaScripts. 
+The following options are available within the RosettaScript interface:
+
+`sfxn` - String - Provide the score function weights file.
+`score_best` - Real - Provide the best score.
+`starting_z` - Real - Provide the starting z value for center search.
+`stepsize_z` - Real - Provide the stepsize z value for center search.
+`stepsize_angle` - Real - Provide stepsize angle for normal search.
 
 ## Flags / Options
 

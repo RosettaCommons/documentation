@@ -18,7 +18,11 @@ The Mover lives in `main/source/src/protocols/membrane`.
 
 ## RosettaScripts interface
 
-TODO: Currently not compatible with RosettaScripts. 
+The following options are available within the RosettaScript interface:
+
+`jump_num` - Integer - Provide the jump number.
+`angle` - Real - Provide the rotation angle in degrees.
+`random_angle` - bool - Random tilt angle between -20 and 20 degrees.
 
 ## Flags / Options
 

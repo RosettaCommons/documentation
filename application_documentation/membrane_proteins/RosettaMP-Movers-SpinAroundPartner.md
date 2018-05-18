@@ -18,7 +18,13 @@ The Mover lives in `main/source/src/protocols/membrane`.
 
 ## RosettaScripts interface
 
-TODO: Currently not compatible with RosettaScripts. 
+The following options are available within the RosettaScript interface:
+
+`jump_num` - Integer - Provide the jump number.
+`rand_range` - bool - Set random range.
+`range` - Integer - Provide the sampling range.
+`x` - Real - Set x position.
+`y` - Real - Set y position.
 
 ## Flags / Options
 

@@ -18,7 +18,15 @@ The Mover lives in `main/source/src/protocols/membrane`.
 
 ## RosettaScripts interface
 
-TODO: Currently not compatible with RosettaScripts. 
+The following options are available within the RosettaScript interface:
+
+`jump_num` - Integer - Provide the jump number.
+`axisx` - Integer - Provide the rotation axis x value.
+`axisy` - Integer - Provide the rotation axis y value.
+`axisz` - Integer - Provide the rotation axis z value.
+`angle` - Real - Provide the rotation angle in degrees.
+`random_angle` - bool - Random flip angle between 135 and 225 degrees in the membrane.
+`max_angle_dev` - Real - Provide the max angle deviation from 180 degrees.
 
 ## Flags / Options
 
