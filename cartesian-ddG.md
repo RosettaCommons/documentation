@@ -48,7 +48,7 @@ An example of command line is
 cartesian_ddg.linuxgccrelease
  -database $ROSETTADB
  -s [inputpdb]
- –ddg:mut_file [mutfile] # same syntax with what being used in ddg-monomer application.
+ -ddg:mut_file [mutfile] # same syntax with what being used in ddg-monomer application.
  -ddg:iterations 3 # can be flexible; 3 is fast and reasonable
  -ddg::cartesian
  -ddg::dump_pdbs false # you can save mutants pdb if you want
