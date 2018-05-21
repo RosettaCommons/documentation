@@ -18,7 +18,7 @@ metrics.cc lives in `main/source/src/protocols/docking/metrics.cc`
 
 **Description**
 
-This file contains utility functions for RosettaMP. Will eventually be incorporated into another file. 
+This file contains utility functions for RosettaMP.
 
 This util.cc lives in `main/source/src/core/conformation/membrane/util.cc`
 

@@ -2,7 +2,7 @@
 
 Questions and comments to:
 
-- Julia Koehler Leman (julia.koehler1982@gmail.com)
+- Julia Koehler Leman (julia.koehler1982@gmail.com) 
 - Rebecca Alford (rfalford12@gmail.com)
 - Corresponding PI: Jeffrey J. Gray (jgray@jhu.edu)
 

@@ -37,14 +37,14 @@ The RosettaMP framework supports a set of movers that initialize elements of Ros
 - **[[VisualizeEmbeddingMover | RosettaMP-Movers-VisualizeEmbedding ]]** Add embedding residues to the pose to visualize embedding of spans, chains or the entire protein
 - **[[VisualizeMembrane | RosettaMP-Movers-VisualizeMembrane ]]** Add a series of pseudoatoms for visualizing the membrane as planes of pseudoatoms in visualization programs (very expensive)
 
-##Unsure
+## Other Movers
 
 - **[[MPLipidAccessibilityMover | RosettaMP-Movers-MPLipidAccessibility]]** Computes which residues are lipid accessible and puts that information into the B-factors.
 - **[[RangeRelaxMover | RosettaMP-Movers-RangeRelax]]** Relaxes a membrane protein by relaxing iteratively in ranges.
 
 ## References
 
-Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press
+Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol; 11(9).
 
 
 ## Contact
