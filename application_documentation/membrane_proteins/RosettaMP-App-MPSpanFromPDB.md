@@ -21,10 +21,18 @@ Rosetta/main/source/bin/mp_span_from_pdb.macosclangrelease \
 -in:file:s 1AFO_tr.pdb \
 ```
 
+## Flags / Options
+
+|**Flag**|**Description**|
+|:-------|:--------------|
+|`-mp::thickness <Real>` | One-half thickness of the membrane used to create spanfiles. Overwrites default thickness of 15A (membrane is 30A thick)|
+
 ## Citation
 Rosetta Revision #57715
 
-Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press
+Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol; 11(9).
+
+Koehler Leman J, Mueller BK, Gray JJ (2017). Expanding the toolkit for membrane protein modeling in Rosetta. Bioinformatics; 33(5).
 
 ## Contact
 
