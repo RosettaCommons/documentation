@@ -8,7 +8,7 @@ Last updated on 31 August 2017.<br/>
 ## Description
 This mover places chemical cross-linkers such as 1,3,5-tris(bromomethyl)benzene (TBMB) or trimesic acid (TMA).  It can set up covalent bonds and constraints, pack and energy-minimize the linker and the side-chains to which it is connected, and relax the entire structure.  Options are provided for filtering based on input geometry, to throw out poses that do not present side-chains in conformations compatible with the linker.
 
-Metals are also effectively cross-links that connect several side-chains, as far as Rosetta is concerned, so as of 16 May 2018, this mover can also place metals.  When placing metals, metal-coordinating residues (currently L- or D-histidine, glutamate, or aspartate) are patched to add a virtual atom on the metal-coordinating side-chain atom representing the metal, atom pair constraints are added to tether the virtual atoms to one another and to ensure that all of the virtual atoms overlap (representing a single metal ion), and angle constraints are added for each trio of (liganding atom 1)--(metal virtual atom)--(liganding atom 2) to enforce tetrahedral geometry.  Future development will add support for geometries other than tetrahedral coordination.
+Metals are also effectively cross-links that connect several side-chains, as far as Rosetta is concerned, so as of 16 May 2018, this mover can also place metals.  When placing metals, metal-coordinating residues (currently L- or D-histidine, glutamate, or aspartate) are patched to add a virtual atom on the metal-coordinating side-chain atom representing the metal, atom pair constraints are added to tether the virtual atoms to one another and to ensure that all of the virtual atoms overlap (representing a single metal ion), and angle constraints are added for each trio of (liganding atom 1)--(metal virtual atom)--(liganding atom 2) to enforce tetrahedral or octahedral geometry.  Future development will add support for geometries other than tetrahedral or octahedral coordination.
 
 ## Needed flags
 The CrosslinkerMover requires that Rosetta load a params file for the crosslinker, as well as the sidechain conjugation variant types for the sidechains that will be cross-linked.  These are not loaded by default.  For example, to link three cysteine residues with TBMB, one needs the following commandline flag:
@@ -71,6 +71,27 @@ In this example, we assume that positions 7, 12, 16, and 23 in the input structu
 </ROSETTASCRIPTS>
 ```
 
+### Placing an octahedrally-coordinated metal
+
+In this example, we assume that positions 7, 12, 16, 23, 26, and 30 in the input structure are residue types that can coordinate a metal (currently, L- or D-histidine, aspartate, or glutamate).  The `metal_type` option determines the liganding atom-metal bond lengths.  Currently, for octahedral coordination, the only supported type is Fe2 (for iron(II)), though this will be expanded in the future.
+
+```xml
+<ROSETTASCRIPTS>
+        <SCOREFXNS>
+                <ScoreFunction name="r15" weights="ref2015.wts" />
+        </SCOREFXNS>
+        <RESIDUE_SELECTORS>
+                <Index name="select_metal_coordinating" resnums="7,12,16,23,26,30" />
+        </RESIDUE_SELECTORS>
+        <MOVERS>
+                <CrosslinkerMover name="metal_xlink" residue_selector="select_metal_coordinating" linker_name="octahedral_metal" metal_type="Fe2" scorefxn="r15" />
+        </MOVERS>
+        <PROTOCOLS>
+                <Add mover="metal_xlink" />
+        </PROTOCOLS>
+</ROSETTASCRIPTS>
+```
+
 ## Usage with symmetry
 
 This mover can be used for the case of linkers with symmetry that matches the symmetry of the pose.  In this case, the linker residue that gets added to the pose is actually a fragment of the total linker (for example, one third of the geometry in the case of C3 symmetry).  N such residues are added, one to each symmetry repeat, and covalent bonds and suitable constraints are set up between the fragments.  Such usage requires that the user pass the `symmetry=<string>` option, where the string is an uppercase character representing the symmetry type (C=cyclic, S=mirror cyclic, D=dihedral) followed by an integer indicating the number of repeats (_e.g._ "C3" for cyclic, threefold symmetry).  Here is an example in which the CrosslinkerMover is used with a symmetric pose with C3 symmetry (defined in a symmetry definition file `inputs/c3.symm`).  In this case, the ResidueSelector must select _equivalent_ cysteine residues in the three symmetric copies.
@@ -94,7 +115,7 @@ This mover can be used for the case of linkers with symmetry that matches the sy
 </ROSETTASCRIPTS>
 ```
 
-When placing tetrahedrally-coordinated metals, compatible symmetries are C2, D2, and S4.
+When placing tetrahedrally-coordinated metals, compatible symmetries are C2, D2, and S4.  When placing octahedrally-coordinated metals, compatible symmetries are C3, C2, D3, S2, and S6.
 
 ## Full options
 
@@ -112,7 +133,7 @@ When placing tetrahedrally-coordinated metals, compatible symmetries are C2, D2,
 | Option | Required | Type | Description |
 |---|---|---|---|
 | name | YES | string | A unique name for this instance of the CrosslinkerMover. |
-| linker\_name | YES | string | The name of the type of linker to use.  Currently, the allowed options are "tetrahedral\_metal", "TBMB" (for 1,3,5-tris(bromomethyl)benzene), and "TMA" (for trimesic acid). |
+| linker\_name | YES | string | The name of the type of linker to use.  Currently, the allowed options are "tetrahedral\_metal", "octahedral_metal", "TBMB" (for 1,3,5-tris(bromomethyl)benzene), and "TMA" (for trimesic acid). |
 | residue\_selector | YES | string | A previously-defined residue selector that has been set up to select exactly three residues. |
 | scorefxn | YES | string | A scorefunction to use for packing, energy-minimization, and filtering.  If constraints are turned off in this score function, they will be turned on automatically at apply time. |
 | add\_linker | No | bool | Should the linker geometry be added to the pose?  Default true. |
@@ -136,6 +157,7 @@ Note that each type of crosslinker can link different types of side-chains:
 
 | Abbreviation | Crosslinker | Types that can be linked |
 | ------------ | ----------- | ------------------------ |
+| octahedral\_metal | virtual atoms representing a metal (note: no new residue is placed) | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) |
 | tetrahedral\_metal | virtual atoms representing a metal (note: no new residue is placed) | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) |
 | TBMB | 1,3,5-tris(bromomethyl)benzene | L-cysteine (CYS), D-cysteine (DCY) |
 | TMA  | trimesic acid                  | L-lysine (LYS), D-lysine (DLY), L-ornithine (ORN), D-ornithine (DOR), L-2,4-diaminobutyric acid (DAB), D-2,4-diaminobutyric acid (DDA), L-2,3-diaminopropanoic acid (DPP), D-2,3-diaminopropanoic acid (DDP) |
