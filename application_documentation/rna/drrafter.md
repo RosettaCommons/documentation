@@ -16,6 +16,11 @@ DRRAFTER.py, the python script for setting up DRRAFTER runs is located in `ROSET
 
 A demo of DRRAFTER is available in `ROSETTA_HOME/demos/public/drrafter/`. Instructions for the demo are available [here](https://www.rosettacommons.org/demos/latest/public/drrafter/README).
 
+## Installing DRRAFTER
+1. Download Rosetta [here](https://www.rosettacommons.org/software/license-and-download). You will need to get a license before downloading Rosetta (free for academic users). DRRAFTER is available in the Rosetta weekly releases starting with 2018.12. **DRRAFTER is NOT available in Rosetta 3.9.** 
+2. Install Rosetta following the instructions available [here](https://www.rosettacommons.org/docs/latest/build_documentation/Build-Documentation).  
+3. All of the necessary files for this demo are available in `ROSETTA_HOME/demos/public/drrafter/`, where `ROSETTA_HOME` is the path to your Rosetta installation.
+
 ##The DRRAFTER workflow
 The general DRRAFTER workflow is described below:
 
