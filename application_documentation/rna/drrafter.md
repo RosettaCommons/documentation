@@ -3,13 +3,14 @@
 ##Metadata
 
 Author: Kalli Kappel (kappel at stanford dot edu)  
-Last updated: March 2018
+Last updated: May 2018
 
 ##Application purpose
 
 DRRAFTER is used to build RNA coordinates into cryoEM maps of ribonucleoprotein complexes.
 
 ##Code and demo
+DRRAFTER code is available in the Rosetta weekly releases starting with 2018.12. DRRAFTER is **not** available in Rosetta 3.9.  
 DRRAFTER.py, the python script for setting up DRRAFTER runs is located in `src/apps/public/DRRAFTER/`. This sets up a command line for the rna_denovo application. DRRAFTER.py can also be used to estimate the accuracy of DRRAFTER models. This mode relies on the drrafter_error_estimation application, which is also located in `src/apps/public/DRRAFTER/`.
 A demo of DRRAFTER is available in `demos/public/drrafter/`.
 
