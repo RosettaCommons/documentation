@@ -18,8 +18,10 @@ A demo of DRRAFTER is available in `ROSETTA_HOME/demos/public/drrafter/`. Instru
 
 ## Installing DRRAFTER
 1. Download Rosetta [here](https://www.rosettacommons.org/software/license-and-download). You will need to get a license before downloading Rosetta (free for academic users). DRRAFTER is available in the Rosetta weekly releases starting with 2018.12. **DRRAFTER is NOT available in Rosetta 3.9.** 
-2. Install Rosetta following the instructions available [here](https://www.rosettacommons.org/docs/latest/build_documentation/Build-Documentation).  
-3. All of the necessary files for this demo are available in `ROSETTA_HOME/demos/public/drrafter/`, where `ROSETTA_HOME` is the path to your Rosetta installation.
+2. Install Rosetta following the instructions available [here](https://www.rosettacommons.org/docs/latest/build_documentation/Build-Documentation). 
+3. Make sure that you have python (v2.7) installed.
+4. Install Rosetta RNA tools. See instructions and documentation [here] (https://www.rosettacommons.org/docs/latest/application_documentation/rna/RNA-tools).
+5. Add the path to the DRRAFTER script to your $PATH (alternatively, you can type the full path to the DRRAFTER.py script each time that you use it). An example for bash: `PATH=$PATH:YOUR_ROSETTA_PATH/main/source/src/apps/public/DRRAFTER/` 
 
 ##The DRRAFTER workflow
 The general DRRAFTER workflow is described below:
@@ -33,12 +35,6 @@ The general DRRAFTER workflow is described below:
 **Step 4**: Use DRRAFTER to build the missing RNA coordinates. The sections below describe how to perform this step.  
 
 ##How to use DRRAFTER to build missing RNA coordinates
-###Setup
-1. Make sure that you have python (v2.7) installed.
-2. Install Rosetta RNA tools. See instructions and documentation [here] (https://www.rosettacommons.org/docs/latest/application_documentation/rna/RNA-tools).
-3. Add the path to the DRRAFTER script to your $PATH (alternatively, you can type the full path to the DRRAFTER.py script each time that you use it). An example for bash: `PATH=$PATH:YOUR_ROSETTA_PATH/main/source/src/apps/public/DRRAFTER/`
-
-###Running DRRAFTER
 All DRRAFTER runs are set up with DRRAFTER.py. An example command line is provided below:
 ```
 DRRAFTER.py -fasta fasta.txt -secstruct secstruct.txt -start_struct protein_and_RNA_helix_fit_into_density.pdb -map_file my_map.mrc -map_reso 7.0 -residues_to_model E:1-23 -include_as_rigid_body_structures protein_fit_into_density.pdb RNA_helix.pdb -absolute_coordinates_rigid_body_structure protein_fit_into_density.pdb -job_name my_run -dock_into_density
