@@ -82,7 +82,7 @@ See the [[Build Documentation]] for details on the MPI (Message Passing Interfac
 **-cyclic_peptide:cartesian_relax_rounds \<int\>** If this option is used, the specified number of FastRelax or FastDesign rounds is carried out with full Cartesian-space minimization.  The cart_bonded energy is automatically set to 0.5 for this step, and the pro_close energy to 0.0.  Default behaviour is to have no rounds of Cartesian-space relaxation.  See note above for order of relaxation rounds.<br/><br/>
 **-out:file:o \<pdb_filename\>** OR **-out:file:silent \<silent_filename\>**  Prefix for PDB files that will be written out, OR name of the binary silent file that will be generated.<br/><br/>
 
-# Additional flags for crosslinked structures
+## Additional flags for crosslinked structures
 
 The simple\_cycpep\_predict application can also attempt to predict structures cross-linked with three-way crosslinkers like 1,3,5-tris(bromomethyl)benzene (TBMB) or trimesic acid (TMA).  Internally, this calls the [[CrosslinkerMover]], which is also accessible to RosettaScripts and PyRosetta.  Additional input flags are used to specify which L- or D-cysteine residues are linked with TBMB:
 
@@ -96,25 +96,25 @@ The simple\_cycpep\_predict application can also attempt to predict structures c
 **-cyclic\_peptide:TMA\_sidechain\_distance\_filter\_multiplier \<Real\>** A multiplier for the distance cutoff for sidechains linked by trimesic acid (TMA).  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
 **-cyclic\_peptide:TMA\_constraints\_energy\_filter\_multiplier \<Real\>** A multiplier for the constraints energy for sidechains linked by trimesic acid (TMA).  Higher values permit more permissive filtering.  Default 1.0.
 
-# Additional flags for metal-bound structures
+## Additional flags for metal-bound structures
 
 The simple\_cycpep\_predict application can attempt to model metal-mediated crosslinks, discarding samples that do not present side-chains in a manner compatible with tetrahedral metal coordination.  Sidechains of D- or L-histidine, aspartate, or glutamate residues can coordinate metals.  Since metals effectively cross-link several residues, internally the [[CrosslinkerMover]] is called.  Currently, octahedral and tetrahedral coordination are supported.
 
-## Flags for structures that coordinate metals octahedrally
+### Flags for structures that coordinate metals octahedrally
 
 **-cyclic\_peptide:octahedral\_metal\_positions \<StringVector\>**  If provided, then these positions will coordinate a metal, which will be represented by a virtual atom during sampling and in final output.  (Use the "-output\_virtual" flag to visualize the virtual atom in the PDB output.)  The positions must have sidechains that can coordinate a metal (_e.g._ histidine, aspartate, glutamate).  The positions should be specified in the form res1,res2,res3,res4,res5,res6,metal.  For example, if positions 4, 6, 9, 13, 16, and 18 were to coordinate an iron in the Fe(II) oxidation state, the string would be 4,6,9,13,16,19,Fe2.  Multiple sets of metal-coordinating side-chains can be specified, separated by a space.  Unused if not specified.<br/><br/>
 **-cyclic\_peptide:use\_octahedral\_metal\_filters \<bool\>**  If true, then filters are applied based on distance between metal-conjugated sidechains and on constraints to discard GenKIC solutions that can't be crosslinked with a metal easily.  True by default.<br/><br/>
 **-cyclic\_peptide:octahedral\_metal\_sidechain\_distance\_filter\_multiplier \<Real\>** A multiplier for the distance cutoff for side-chains linked by a octahedrally-coordinated metal.  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
 **-cyclic\_peptide:octahedral\_metal\_constraints\_energy\_filter\_multiplier \<Real\>** A multiplier for the constraints energy for side-chains linked by a octahedrally-coordinated metal.  Higher values result in more permissive filtering.  Default 1.0.
 
-## Flags for structures that coordinate metals tetrahedrally
+### Flags for structures that coordinate metals tetrahedrally
 
 **-cyclic\_peptide:tetrahedral\_metal\_positions \<StringVector\>**  If provided, then these positions will coordinate a metal, which will be represented by a virtual atom during sampling and in final output.  (Use the "-output\_virtual" flag to visualize the virtual atom in the PDB output.)  The positions must have sidechains that can coordinate a metal (_e.g._ histidine, aspartate, glutamate).  The positions should be specified in the form res1,res2,res3,res4,metal.  For example, if positions 4, 6, 9, and 13 were to coordinate a zinc, the string would be 4,6,9,13,Zn.  Multiple sets of metal-coordinating side-chains can be specified, separated by a space.  Unused if not specified.<br/><br/>
 **-cyclic\_peptide:use\_tetrahedral\_metal\_filters \<bool\>**  If true, then filters are applied based on distance between metal-conjugated sidechains and on constraints to discard GenKIC solutions that can't be crosslinked with a metal easily.  True by default.<br/><br/>
 **-cyclic\_peptide:tetrahedral\_metal\_sidechain\_distance\_filter\_multiplier \<Real\>** A multiplier for the distance cutoff for side-chains linked by a tetrahedrally-coordinated metal.  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
 **-cyclic\_peptide:tetrahedral\_metal\_constraints\_energy\_filter\_multiplier \<Real\>** A multiplier for the constraints energy for side-chains linked by a tetrahedrally-coordinated metal.  Higher values result in more permissive filtering.  Default 1.0.
 
-# Additional flags for quasi-symmetric sampling
+## Additional flags for quasi-symmetric sampling
 
 Sometimes, one wishes to sample peptide conformations with cyclic symmetry (_e.g._ c2 symmetry, c3 symmetry, _etc._).  The **simple_cycpep_predict** application can do quasi-symmetric sampling.  It does this by copying mainchain torsion values for perturbable residues in different symmetry repeats, and by filtering post-closure to ensure that pivot residues are adopting symmetric conformations.  (See the [[Generalized Kinematic Closure|GeneralizedKIC]] documentation for details on perturbable and pivot residues).  Note that this is _quasi_-symmetric rather than truly symmetric because (a) it does not use the Rosetta symmetry machinery, and (b) mainchain torsion values can deviate slightly from symmetry repeat to symmetry repeat, within user-defined limits.  The following flags control quasi-symmetric sampling:
 
@@ -123,7 +123,7 @@ Sometimes, one wishes to sample peptide conformations with cyclic symmetry (_e.g
 **-cyclic_peptide:require_symmetry_angle_threshold \<int\>** The cutoff, in degrees, to use when comparing mainchain torsion values to determine whether symmetry repeats are truly symmetric.  Defaults to 10 degrees.<br/><br/>
 **-cyclic_peptide:require_symmetry_perturbation \<int\>** If provided, this is the magnitude of the perturbation to apply when copying mainchain dihedrals for symmetric sampling.  Allows slightly asymmetric conformations to be sampled.  Default is 0.0 (no perturbation).
 
-# Additional flags for predicting structures of isopeptide-bonded lariat peptides
+## Additional flags for predicting structures of isopeptide-bonded lariat peptides
 
 In addition to an amide bond connecting the N- and C-termini, it is possible to synthesize peptides in which an amine-containing side-chain forms an amide bond with the C-terminus, a carboxyl-containing side-chain forms an amide bond with the -terminus, or two side-chains form an amide bond.  These one- or two-tailed lariat structures can also be predicted with `simple_cycpep_predict`.  The relevant flags are as follows:
 
