@@ -135,7 +135,7 @@ In addition to an amide bond connecting the N- and C-termini, it is possible to 
 
 Note that the **-cyclic_peptide:require_symmetry_repeats** and **-cyclic_peptide:cyclic_permutations** flags are incompatible with isopeptide lariats.  Also note that the `simple_cycpep_predict` application does _not_ use the GLX, ASX, or LYX residue types.  Sequence files and native PDB files must specify GLU, ASP, and LYS, respectively.
 
-# Other useful flags
+## Other useful flags
 
 For mixed D/L peptides, the **-score:symmetric_gly_tables** flag can be a beneficial flag to use.  This flag symmetrizes the Ramachandran and p_aa_pp tables used for sampling and scoring glycine, so that it is equally likely to be in the D- or L-regions of Ramachandran space.  As of 23 February 2016, this flag also symmetrizes the gly tables used by the RamaPrePro energy term (so that talaris2013, talaris2014, and beta_nov15 scorefunctions are all fully symmetric).
 
