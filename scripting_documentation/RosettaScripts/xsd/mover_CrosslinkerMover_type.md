@@ -20,7 +20,7 @@ Adds a crosslinker linking two or more user-specified side-chains.
         residue_selector="(&string;)" scorefxn="(&string;)" />
 ```
 
--   **linker_name**: (REQUIRED) The name of the type of linker to use.  For example, use TBMB for 1,3,5-tris(bromomethyl)benzene. (Allowed options are TBMB|TMA|tetrahedral_metal.)
+-   **linker_name**: (REQUIRED) The name of the type of linker to use.  For example, use TBMB for 1,3,5-tris(bromomethyl)benzene. (Allowed options are TBMB|TMA|tetrahedral_metal|octahedral_metal.)
 -   **symmetry**: The symmetry of the input pose.  For example, "C3" for cyclic, threefold symmetry.  The symmetry must be a character followed by an integer.  Allowed characters are 'A' (asymmetric), 'C' (cyclic), 'D' (dihedral), and 'S' (mirror cyclic).
 -   **metal_type**: For crosslinks mediated by metals, which metal is mediating the crosslink?  Defaults to "Zn".  (Should be written as an element name -- e.g. "Cu", "Ca", "Fe", etc.)
 -   **add_linker**: Should the linker geometry be added to the pose?  Default true.

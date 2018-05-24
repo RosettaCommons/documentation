@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-05-16
+Generated: 2018-05-24
 
 _Note that some application specific options may not be present in this list._
 
@@ -4162,13 +4162,21 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-TMA_constraints_energy_filter_multiplier</b> \<Real\></dt>
 <dd>A multiplier for the constraints energy for side-chains linked by trimseic acid (TMA).  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
 <dt><b>-tetrahedral_metal_positions</b> \<StringVector\></dt>
-<dd>If provided, then these positions will coordinate a metal, tetrahedrally.  The positions must have sidechains that can coordinate a metal (e.g. histidine, cysteine, aspartate, glutamate).  The positions should be specified in the form res1,res2,res3,res4,metal.  For example, if positions 4, 6, 9, and 13 were to coordinate a zinc, the string would be 4,6,9,13,Zn.  Multiple sets of metal-coordinating side-chains can be specified, separated by a space.  The metal will be represented by virtual atoms, and will not be modelled explicitly.  Unused if not specified.<br/></dd>
+<dd>If provided, then these positions will coordinate a metal, tetrahedrally.  The positions must have sidechains that can coordinate a metal (e.g. histidine, aspartate, glutamate).  The positions should be specified in the form res1,res2,res3,res4,metal.  For example, if positions 4, 6, 9, and 13 were to coordinate a zinc, the string would be 4,6,9,13,Zn.  Multiple sets of metal-coordinating side-chains can be specified, separated by a space.  The metal will be represented by virtual atoms, and will not be modelled explicitly.  Unused if not specified.<br/></dd>
 <dt><b>-use_tetrahedral_metal_filters</b> \<Boolean\></dt>
 <dd>If true, then filters are applied based on distance between metal-conjugated sidechains and on constraints to discard GenKIC solutions that can't be crosslinked with a metal easily.  True by default.<br/>Default: true<br/></dd>
 <dt><b>-tetrahedral_metal_sidechain_distance_filter_multiplier</b> \<Real\></dt>
 <dd>A multiplier for the distance cutoff for side-chains linked by a tetrahedrally-coordinated metal.  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
 <dt><b>-tetrahedral_metal_constraints_energy_filter_multiplier</b> \<Real\></dt>
 <dd>A multiplier for the constraints energy for side-chains linked by a tetrahedrally-coordinated metal.  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
+<dt><b>-octahedral_metal_positions</b> \<StringVector\></dt>
+<dd>If provided, then these positions will coordinate a metal, octahedrally.  The positions must have sidechains that can coordinate a metal (e.g. histidine, aspartate, glutamate).  The positions should be specified in the form res1,res2,res3,res4,res5,res6,metal.  For example, if positions 4, 6, 9, 13, 16, and 18 were to coordinate an iron(II), the string would be 4,6,9,13,Fe2.  Multiple sets of metal-coordinating side-chains can be specified, separated by a space.  The metal will be represented by virtual atoms, and will not be modelled explicitly.  Unused if not specified.<br/></dd>
+<dt><b>-use_octahedral_metal_filters</b> \<Boolean\></dt>
+<dd>If true, then filters are applied based on distance between metal-conjugated sidechains and on constraints to discard GenKIC solutions that can't be crosslinked with a metal easily.  True by default.<br/>Default: true<br/></dd>
+<dt><b>-octahedral_metal_sidechain_distance_filter_multiplier</b> \<Real\></dt>
+<dd>A multiplier for the distance cutoff for side-chains linked by a octahedrally-coordinated metal.  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
+<dt><b>-octahedral_metal_constraints_energy_filter_multiplier</b> \<Real\></dt>
+<dd>A multiplier for the constraints energy for side-chains linked by a octahedrally-coordinated metal.  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
 <dt><b>-require_symmetry_repeats</b> \<Integer\></dt>
 <dd>If this option is used, then only backbones that are cN (or cN/m, if mirror symmetry is required) symmetric will be accepted.  For example, if set to 2, then only c2-symmetric backbones will be accepted.  Unused if not specified.<br/>Default: 1<br/></dd>
 <dt><b>-require_symmetry_mirroring</b> \<Boolean\></dt>
