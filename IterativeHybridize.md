@@ -48,6 +48,7 @@ Required to begin the first iteration. Command line using Rosetta public app:
     $ROSETTA/main/source/bin/iterhybrid_selector.linuxgccrelease \
     -in:file:silent $1 -in:file:template_pdb $2 -cm:similarity_cut $3 \
     -out:file:silent picked.out -out:nstruct $4 \
+    -out:prefix iter0 \
     -silent_read_through_errors -in:file:silent_struct_type binary -out:file:silent_struct_type binary -mute core basic \
 
     (optional.1 for rescoring) -score:weights ref2015_cart -cst_fa_file fa.cst -set_weights atom_pair_constraint 1.0
@@ -60,6 +61,7 @@ Required to begin the first iteration. Command line using Rosetta public app:
 * $3: minimum mutual distance for selected structures, range from 0(identical) to 1(completely different), where formula is 1 - Sscore; Sscore is metric inverse to RMSD and has very similar scale to TM-score
 * $4: number of structures to select
 * $5, optional: estimated Similarity-To-ReferenceStructure in GDT-HA scale, puts penalty if any structure gets dissimilar to reference structure than this value
+* IMPORTANT: "-out:prefix iter0" is necessary to reformat input silent readable by IterationMaster.py. Please check if you included this option correctly if you get failure message "ERROR: pdbs not extracted correctly!".
 
 ### Generating adaptive restraints from a pool of structures
 
