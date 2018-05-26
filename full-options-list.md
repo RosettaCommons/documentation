@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-05-25
+Generated: 2018-05-26
 
 _Note that some application specific options may not be present in this list._
 
@@ -3848,6 +3848,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Input file that maps pdbChains to hhsearch probabilities<br/></dd>
 <dt><b>-seeds</b> \<IntegerVector\></dt>
 <dd>list of tags used as seed parents at prv iteration<br/></dd>
+<dt><b>-nremain_reset</b> \<Integer\></dt>
+<dd>threshold for number of unused structures to invoke reset<br/>Default: 3<br/></dd>
 <dt><b>-quota_per_silent</b> \<RealVector\></dt>
 <dd>quota for picking input structures associated with -in:file:silent<br/></dd>
 <dt><b>-similarity_cut</b> \<Real\></dt>
