@@ -21,7 +21,19 @@ A demo of DRRAFTER is available in `ROSETTA_HOME/demos/public/drrafter/`. Instru
 2. Install Rosetta following the instructions available [here](https://www.rosettacommons.org/docs/latest/build_documentation/Build-Documentation). 
 3. Make sure that you have python (v2.7) installed.
 4. Install Rosetta RNA tools. See instructions and documentation [here] (https://www.rosettacommons.org/docs/latest/application_documentation/rna/RNA-tools).
-5. Add the path to the DRRAFTER script to your $PATH (alternatively, you can type the full path to the DRRAFTER.py script each time that you use it). An example for bash: `PATH=$PATH:YOUR_ROSETTA_PATH/main/source/src/apps/public/DRRAFTER/` 
+5. Check that the ROSETTA environmental variable is set (you should have set this up during RNA tools installation). Type `echo $ROSETTA`. This should return the path to your Rosetta directory. If it does not return anything, go back to step 4 and make sure that you follow the steps for RNA tools setup.  
+6. Set up the executables for DRRAFTER. Type:
+```
+ln -s $(ls $ROSETTA/main/source/bin/rna_denovo* | head -1 ) $ROSETTA/main/source/bin/rna_denovo
+```
+Then type: 
+```
+ln -s $(ls $ROSETTA/main/source/bin/drrafter_error_estimation* | head -1 ) $ROSETTA/main/source/bin/drrafter_error_estimation
+``` 
+7. Add the path to the DRRAFTER script to your $PATH (alternatively, you can type the full path to the DRRAFTER.py script each time that you use it). It is found in `main/source/src/apps/public/DRRAFTER/` in your Rosetta directory. An example for bash:
+```
+export PATH=$PATH:$ROSETTA/main/source/src/apps/public/DRRAFTER/
+```
 
 ##The DRRAFTER workflow
 The general DRRAFTER workflow is described below:
