@@ -68,13 +68,15 @@ The ten best scoring models can be extracted into PDB format from the compressed
 ```
 extract_lowscore_decoys.py my_run.out 10
 ```
-These models should be carefully inspected. See the troubleshooting section below for possible solutions to problems.  
+**These models should be visually inspected.** See the troubleshooting section below for possible solutions to problems.  
   
 The accuracy of these models can then be estimated with the following command:
 ```
 DRRAFTER.py -final_structures my_run.out.1.pdb my_run.out.2.pdb my_run.out.3.pdb my_run.out.4.pdb my_run.out.5.pdb my_run.out.6.pdb my_run.out.7.pdb my_run.out.8.pdb my_run.out.9.pdb my_run.out.10.pdb -estimate_error
 ```
-This will print information about the error estimation to the screen. The mean pairwise RMSD describes the “convergence” of the run, i.e. how similar the final structures are to each other. The estimated RMSD (root mean square deviation) values to the “true” coordinates are based on this convergence value. The estimated minimum RMSD predicts the best accuracy of the final structures. The estimated mean RMSD predicts the average RMSD accuracy of the final structures. The median structure is determined to be the final structure with the lowest average pairwise RMSD to the other final structures. The accuracy estimate of this model is also printed to the screen. All numbers have units of Å.
+This will print information about the error estimation to the screen. The mean pairwise RMSD describes the “convergence” of the run, i.e. how similar the final structures are to each other. The estimated RMSD (root mean square deviation) values to the “true” coordinates are based on this convergence value. The estimated minimum RMSD predicts the best accuracy of the final structures. The estimated mean RMSD predicts the average RMSD accuracy of the final structures. The median structure is determined to be the final structure with the lowest average pairwise RMSD to the other final structures. The accuracy estimate of this model is also printed to the screen. All numbers have units of Å.  
+
+**Also, open these structures in PyMOL or Chimera, to visually assess the modeling convergence.**
 
 ##DRRAFTER inputs and options
 
