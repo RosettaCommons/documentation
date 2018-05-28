@@ -44,7 +44,9 @@ The general DRRAFTER workflow is described below:
 
 **Step 3**: Identify regions where RNA coordinates are missing.  
 
-**Step 4**: Use DRRAFTER to build the missing RNA coordinates. The sections below describe how to perform this step.  
+**Step 4**: Use DRRAFTER to build the missing RNA coordinates and assess the accuracy of the models. The sections below describe how to perform this step.  
+
+**Step 5**: Visually inspect at least the top 10 scoring DRRAFTER models. Be on the lookout for models that do not fit well in the density, RNA models that are built into protein density, or "distorted" models. This step is essential!   
 
 ##How to use DRRAFTER to build missing RNA coordinates
 All DRRAFTER runs are set up with DRRAFTER.py. An example command line is provided below:
