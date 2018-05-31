@@ -725,7 +725,7 @@ These RosettaScript sections are specifically for working with and scoring ligan
 ```xml
 <LIGAND_AREAS>
 <LigandArea name="[name_of_this_ligand_area]" chain="[string]" cutoff="[float]" add_nbr_radius="[true|false]" all_atom_mode="[true|false]" minimize_ligand="[float]" Calpha_restraints="[float]" high_res_angstroms="[float]" high_res_degrees="[float]" tether_ligand="[float]" />
-<\LIGAND_AREAS>
+</LIGAND_AREAS>
 ```
 
 LIGAND\_AREAS describe parameters specific to each ligand, useful for multiple ligand docking studies. "cutoff" is the distance in angstroms from the ligand an amino-acid's C-beta atom can be and that residue still be part of the interface. "all\_atom\_mode" can be true or false. If all atom mode is true than if the C-beta atom of a protein residue is within "cutoff" of *any* ligand atom, the protein residue becomes part of the interface. If false, the C-beta atom of the protein residue must be within "cutoff" of the the ligand neighbor atom. If "add\_nbr\_radius" is true, the cutoff is increased by the size of the protein residue's neighbor radius. The neighbor radius is an estimate of the range of movement of the residue when repacked, and adding it can compensate for movement of the protein sidechains when repacking.
@@ -739,7 +739,7 @@ During high resolution docking, small amounts of ligand translation and rotation
 ```xml
 <INTERFACE_BUILDERS>
 <InterfaceBuilder name="[name_of_this_interface_builder]" ligand_areas="(comma separated list of predefined ligand_areas)" extension_window="(int)"/>
-<InterfaceBuilder name="\INTERFACE_BUILDERS">
+</INTERFACE_BUILDERS>
 ```
 
 An interface builder describes how to choose residues that will be part of a protein-ligand interface. These residues are chosen for repacking, rotamer trials, and backbone minimization during ligand docking. The initial XML parameter is the name of the interface\_builder (for later reference). "ligand\_areas" is a comma separated list of strings matching LIGAND\_AREAS described previously. Finally 'extension\_window' surrounds interface residues with residues labeled as 'near interface'. This is important for backbone minimization, because a residue's backbone can't really move unless it is part of a stretch of residues that are flexible.
@@ -750,7 +750,7 @@ An interface builder describes how to choose residues that will be part of a pro
 ```xml
 <MOVEMAP_BUILDERS>
 <MoveMapBuilder name="[name_of_this_movemap_builder]" sc_interface="(string)" bb_interface="(string)" minimize_water="[true|false]"/>
-<MoveMapBuilder name="\MOVEMAP_BUILDERS">
+</MOVEMAP_BUILDERS>
 ```
 
 A movemap builder constructs a movemap. A movemap is a 2xN table of true/false values, where N is the number of residues your protein/ligand complex. The two columns are for backbone and side-chain movements. The MovemapBuilder combines previously constructed backbone and side-chain interfaces (see previous section). Leave out bb\_interface if you do not want to minimize the backbone. The minimize\_water option is a global option. If you are docking water molecules as separate ligands (multi-ligand docking) these should be described through LIGAND\_AREAS and INTERFACE\_BUILDERS.
@@ -758,8 +758,8 @@ A movemap builder constructs a movemap. A movemap is a 2xN table of true/false v
 ###SCORINGGRIDS
 
 ```xml
-<SCORINGGRIDS ligand_chain="(string)" width="(real)">
-<(string) name="[name_of_this_scoring_grid]" grid_name="ScoringGrid" weight="(real)"/>
+<SCORINGGRIDS ligand_chain="(string)" width="(real)" name="(string, optional)" resolution="(real, optional) normalize_mode="(string, optional)">
+<[scoring grid type name] name="[name_of_this_scoring_grid]" grid_name="ScoringGrid" weight="(real)"/>
 </SCORINGGRIDS>
 ```
 
@@ -769,6 +769,8 @@ The SCORINGGRIDS block is used to define ligand scoring grids (currently used on
 -   VdwGrid: A knowledge based potential derived grid approximating shape complementarity
 -   HbdGrid: A knowledge based potential derived grid approximating protein hydrogen bond donor interactions
 -   HbaGrid: A knowledge based potential derived grid approximating protein hydrogen bond acceptor interactions
+
+The top-level "name" parameter is used to specify the GridSet name, which can be used with the Transform mover to select which set of grids are being used. (If no name is given, the grid set will be loaded under the name "default".) 
 
 OUTPUT
 ------
