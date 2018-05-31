@@ -758,7 +758,7 @@ A movemap builder constructs a movemap. A movemap is a 2xN table of true/false v
 ###SCORINGGRIDS
 
 ```xml
-<SCORINGGRIDS ligand_chain="(string)" width="(real)" name="(string, optional)" resolution="(real, optional) normalize_mode="(string, optional)">
+<SCORINGGRIDS ligand_chain="(string)" width="(real)" name="(string, optional)" resolution="(real, optional)" normalize_mode="(string, optional)" >
 <[scoring grid type name] name="[name_of_this_scoring_grid]" grid_name="ScoringGrid" weight="(real)"/>
 </SCORINGGRIDS>
 ```
