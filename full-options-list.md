@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-05-28
+Generated: 2018-05-31
 
 _Note that some application specific options may not be present in this list._
 
@@ -4045,6 +4045,8 @@ _Note that some application specific options may not be present in this list._
 <dd>The name of the checkpoint file.  Defaults to checkpoint.txt.  Not used if the -cyclic_peptide:checkpoint_job_identifier flag isn't used.<br/>Default: "checkpoint.txt"<br/></dd>
 <dt><b>-checkpoint_job_identifier</b> \<String\></dt>
 <dd>A unique job name for checkpointing.  If none is provided, jobs are not checkpointed.<br/>Default: ""<br/></dd>
+<dt><b>-exclude_residues_from_rms</b> \<IntegerVector\></dt>
+<dd>A list of residues that should be excluded from the RMSD calculation.  Not used if not provided.<br/></dd>
 <dt><b>-default_rama_sampling_table</b> \<String\></dt>
 <dd>A custom rama table used for sampling, applied by default to all residues unless the --cyclic_peptide:rama_sampling_table_by_res flag overrides this.  Default unused (in which case the default rama tables for each residue type are used).<br/>Default: ""<br/></dd>
 <dt><b>-rama_sampling_table_by_res</b> \<StringVector\></dt>
