@@ -70,6 +70,7 @@ In this example, we assume that positions 12, 16, and 23 in the input structure 
                 <Add mover="metal_xlink" />
         </PROTOCOLS>
 </ROSETTASCRIPTS>
+```
 
 ### Placing a tetrahedrally-coordinated metal
 
