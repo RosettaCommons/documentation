@@ -1,6 +1,6 @@
 # CrosslinkerMover
 Page created by Vikram K. Mulligan (vmullig@uw.edu) on 27 November 2016.<br/>
-Last updated on 23 May 2018.<br/>
+Last updated on 1 June 2018.<br/>
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 
 [[_TOC_]]
@@ -8,7 +8,7 @@ Last updated on 23 May 2018.<br/>
 ## Description
 This mover places chemical cross-linkers such as 1,3,5-tris(bromomethyl)benzene (TBMB) or trimesic acid (TMA).  It can set up covalent bonds and constraints, pack and energy-minimize the linker and the side-chains to which it is connected, and relax the entire structure.  Options are provided for filtering based on input geometry, to throw out poses that do not present side-chains in conformations compatible with the linker.
 
-Metals are also effectively cross-links that connect several side-chains, as far as Rosetta is concerned, so as of 16 May 2018, this mover can also place metals.  When placing metals, metal-coordinating residues (currently L- or D-histidine, glutamate, or aspartate) are patched to add a virtual atom on the metal-coordinating side-chain atom representing the metal, atom pair constraints are added to tether the virtual atoms to one another and to ensure that all of the virtual atoms overlap (representing a single metal ion), and angle constraints are added for each trio of (liganding atom 1)--(metal virtual atom)--(liganding atom 2) to enforce tetrahedral or octahedral geometry.  Future development will add support for geometries other than tetrahedral or octahedral coordination.
+Metals are also effectively cross-links that connect several side-chains, as far as Rosetta is concerned, so as of 16 May 2018, this mover can also place metals.  When placing metals, metal-coordinating residues (currently L- or D-histidine, glutamate, or aspartate) are patched to add a virtual atom on the metal-coordinating side-chain atom representing the metal, atom pair constraints are added to tether the virtual atoms to one another and to ensure that all of the virtual atoms overlap (representing a single metal ion), and angle constraints are added for each trio of (liganding atom 1)--(metal virtual atom)--(liganding atom 2) to enforce tetrahedral, octahedral, trigonal pyramidal, or trigonal planar geometry.  Future development will add support for other metal coordination geometries.
 
 ## Needed flags
 The CrosslinkerMover requires that Rosetta load a params file for the crosslinker, as well as the sidechain conjugation variant types for the sidechains that will be cross-linked.  These are not loaded by default.  For example, to link three cysteine residues with TBMB, one needs the following commandline flag:
@@ -50,9 +50,30 @@ This example places 1,3,5-tris(bromomethyl)benzene (TBMB), linking cysteine resi
 </ROSETTASCRIPTS>
 ```
 
+### Placing a metal with trigonal planar or trigonal pyramidal coordination geometry
+
+In this example, we assume that positions 12, 16, and 23 in the input structure are residue types that can coordinate a metal (currently, L- or D-histidine, aspartate, or glutamate).  The `metal_type` option determines the liganding atom-metal bond lengths, and defaults to "Zn" (zinc).  In the case of trigonal planar coordination, bond angles are constrained to 120 degrees, and an improper torsional constraint additionally pulls the metal into the plane of the liganding three atoms.  In the case of trigonal pyramidal coordination, bond angles are constrained to 109.47 degrees, and no improper torsional constraint is applied.
+
+```xml
+<ROSETTASCRIPTS>
+        <SCOREFXNS>
+                <ScoreFunction name="r15" weights="ref2015.wts" />
+        </SCOREFXNS>
+        <RESIDUE_SELECTORS>
+                <Index name="select_metal_coordinating" resnums="12,16,23" />
+        </RESIDUE_SELECTORS>
+        <MOVERS>
+                <!-- Note: in the definition below, "trigonal_planar_metal" may be replaced with "trigonal_pyramidal_metal". -->
+                <CrosslinkerMover name="metal_xlink" residue_selector="select_metal_coordinating" linker_name="trigonal_planar_metal" metal_type="Zn" scorefxn="r15" />
+        </MOVERS>
+        <PROTOCOLS>
+                <Add mover="metal_xlink" />
+        </PROTOCOLS>
+</ROSETTASCRIPTS>
+
 ### Placing a tetrahedrally-coordinated metal
 
-In this example, we assume that positions 7, 12, 16, and 23 in the input structure are residue types that can coordinate a metal (currently, L- or D-histidine, aspartate, or glutamate).  The `metal_type` option determines the liganding atom-metal bond lengths, and defaults to "Zn" (zinc).
+In this example, we assume that positions 7, 12, 16, and 23 in the input structure are residue types that can coordinate a metal (currently, L- or D-histidine, aspartate, or glutamate).  The `metal_type` option determines the liganding atom-metal bond lengths, and defaults to "Zn" (zinc).  The `CrosslinkerMover` adds 109.47 degree bond angle constraints.
 
 ```xml
 <ROSETTASCRIPTS>
@@ -73,7 +94,7 @@ In this example, we assume that positions 7, 12, 16, and 23 in the input structu
 
 ### Placing an octahedrally-coordinated metal
 
-In this example, we assume that positions 7, 12, 16, 23, 26, and 30 in the input structure are residue types that can coordinate a metal (currently, L- or D-histidine, aspartate, or glutamate).  The `metal_type` option determines the liganding atom-metal bond lengths.  Currently, for octahedral coordination, the only supported type is Fe2 (for iron(II)), though this will be expanded in the future.
+In this example, we assume that positions 7, 12, 16, 23, 26, and 30 in the input structure are residue types that can coordinate a metal (currently, L- or D-histidine, aspartate, or glutamate).  The `metal_type` option determines the liganding atom-metal bond lengths.  Currently, for octahedral coordination, the only supported type is Fe2 (for iron(II)), though this will be expanded in the future.  The `CrosslinkerMover` adds 90 or 180 degree bond angle constraints.
 
 ```xml
 <ROSETTASCRIPTS>
