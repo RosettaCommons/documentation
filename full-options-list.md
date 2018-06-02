@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-06-01
+Generated: 2018-06-02
 
 _Note that some application specific options may not be present in this list._
 
@@ -14,6 +14,10 @@ _Note that some application specific options may not be present in this list._
 <dd>A list of flag configurations to look for.  These can be in either your working directory or $HOME/.rosetta/flags directory.  Ex: -fconfig common design<br/>Default: ['"common"']<br/></dd>
 <dt><b>-no_fconfig</b> \<Boolean\></dt>
 <dd>Do not load the [common] config file if present. <br/>Default: false<br/></dd>
+<dt><b>-skip_classic_cart_setup</b> \<Boolean\></dt>
+<dd>No description<br/>Default: false<br/></dd>
+<dt><b>-skip_new_cart_setup</b> \<Boolean\></dt>
+<dd>No description<br/>Default: false<br/></dd>
 <dt><b>-Ntermini</b> \<String\></dt>
 <dd>Put full N termini on pose<br/>Default: "ALL"<br/></dd>
 <dt><b>-Ctermini</b> \<String\></dt>
@@ -4141,6 +4145,22 @@ _Note that some application specific options may not be present in this list._
 <dd>A multiplier for the distance cutoff for side-chains linked by trimseic acid (TMA).  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
 <dt><b>-TMA_constraints_energy_filter_multiplier</b> \<Real\></dt>
 <dd>A multiplier for the constraints energy for side-chains linked by trimseic acid (TMA).  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
+<dt><b>-trigonal_pyramidal_metal_positions</b> \<StringVector\></dt>
+<dd>If provided, then these positions will coordinate a metal with trigonal pyramidal coordination.  The positions must have sidechains that can coordinate a metal (e.g. histidine, aspartate, glutamate).  The positions should be specified in the form res1,res2,res3,metal.  For example, if positions 6, 9, and 13 were to coordinate a zinc, the string would be 6,9,13,Zn.  Multiple sets of metal-coordinating side-chains can be specified, separated by a space.  The metal will be represented by virtual atoms, and will not be modelled explicitly.  Unused if not specified.<br/></dd>
+<dt><b>-use_trigonal_pyramidal_metal_filters</b> \<Boolean\></dt>
+<dd>If true, then filters are applied based on distance between metal-conjugated sidechains and on constraints to discard GenKIC solutions that can't be crosslinked with a metal easily.  True by default.<br/>Default: true<br/></dd>
+<dt><b>-trigonal_pyramidal_metal_sidechain_distance_filter_multiplier</b> \<Real\></dt>
+<dd>A multiplier for the distance cutoff for side-chains linked by a metal coordinated with trigonal pyramidal coordination.  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
+<dt><b>-trigonal_pyramidal_metal_constraints_energy_filter_multiplier</b> \<Real\></dt>
+<dd>A multiplier for the constraints energy for side-chains linked by a metal coordinated with trigonal pyramidal coordination.  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
+<dt><b>-trigonal_planar_metal_positions</b> \<StringVector\></dt>
+<dd>If provided, then these positions will coordinate a metal with trigonal planar coordination.  The positions must have sidechains that can coordinate a metal (e.g. histidine, aspartate, glutamate).  The positions should be specified in the form res1,res2,res3,metal.  For example, if positions 6, 9, and 13 were to coordinate a zinc, the string would be 6,9,13,Zn.  Multiple sets of metal-coordinating side-chains can be specified, separated by a space.  The metal will be represented by virtual atoms, and will not be modelled explicitly.  Unused if not specified.<br/></dd>
+<dt><b>-use_trigonal_planar_metal_filters</b> \<Boolean\></dt>
+<dd>If true, then filters are applied based on distance between metal-conjugated sidechains and on constraints to discard GenKIC solutions that can't be crosslinked with a metal easily.  True by default.<br/>Default: true<br/></dd>
+<dt><b>-trigonal_planar_metal_sidechain_distance_filter_multiplier</b> \<Real\></dt>
+<dd>A multiplier for the distance cutoff for side-chains linked by a metal coordinated with trigonal planar coordination.  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
+<dt><b>-trigonal_planar_metal_constraints_energy_filter_multiplier</b> \<Real\></dt>
+<dd>A multiplier for the constraints energy for side-chains linked by a metal coordinated with trigonal planar coordination.  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
 <dt><b>-tetrahedral_metal_positions</b> \<StringVector\></dt>
 <dd>If provided, then these positions will coordinate a metal, tetrahedrally.  The positions must have sidechains that can coordinate a metal (e.g. histidine, aspartate, glutamate).  The positions should be specified in the form res1,res2,res3,res4,metal.  For example, if positions 4, 6, 9, and 13 were to coordinate a zinc, the string would be 4,6,9,13,Zn.  Multiple sets of metal-coordinating side-chains can be specified, separated by a space.  The metal will be represented by virtual atoms, and will not be modelled explicitly.  Unused if not specified.<br/></dd>
 <dt><b>-use_tetrahedral_metal_filters</b> \<Boolean\></dt>

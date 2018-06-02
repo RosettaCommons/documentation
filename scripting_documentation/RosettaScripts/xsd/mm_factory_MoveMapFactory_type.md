@@ -7,7 +7,7 @@ A MoveMapFactory can be used to restrict conformational flexibility to a specifi
 
 ```xml
 <MoveMapFactory name="(&string;)" bb="(&bool;)" chi="(&bool;)" nu="(&bool;)"
-        branches="(&bool;)" jumps="(&bool;)" >
+        branches="(&bool;)" jumps="(&bool;)" cartesian="(false &bool;)" >
     <Backbone enable="(true &bool;)" residue_selector="(&string;)"
             bb_tor_index="(&non_negative_integer;)" />
     <Chi enable="(true &bool;)" residue_selector="(&string;)" />
@@ -22,6 +22,7 @@ A MoveMapFactory can be used to restrict conformational flexibility to a specifi
 -   **nu**: Enable or disable movement for all nu torsions.
 -   **branches**: Enable or disable movement for all branch torsions.
 -   **jumps**: Enable or disable movement for all jump DOFs.
+-   **cartesian**: Set the MMF for specific cartesian overrides.  Currently is only used for glycans in order to maintain IUPAC nomenclature during moves
 
 
 Subtag **Backbone**:   
