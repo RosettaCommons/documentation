@@ -23,8 +23,8 @@ All code is located in `src/apps/public/rnp_ddg/`. A demo of the Rosetta-Vienna 
 
 #### Step 1: Set up Rosetta and Vienna code
 &nbsp;&nbsp;&nbsp;&nbsp;**1.1**&nbsp;&nbsp;&nbsp;&nbsp;Make sure that you have python (v2.7) installed.  
-&nbsp;&nbsp;&nbsp;&nbsp;**1.2**&nbsp;&nbsp;&nbsp;&nbsp;Install Rosetta RNA tools. See instructions and documentation here.  
-&nbsp;&nbsp;&nbsp;&nbsp;**1.3**&nbsp;&nbsp;&nbsp;&nbsp;Install the ViennaRNA package. See instructions here.  
+&nbsp;&nbsp;&nbsp;&nbsp;**1.2**&nbsp;&nbsp;&nbsp;&nbsp;Install Rosetta RNA tools. See instructions and documentation [here](https://www.rosettacommons.org/docs/latest/application_documentation/rna/RNA-tools).  
+&nbsp;&nbsp;&nbsp;&nbsp;**1.3**&nbsp;&nbsp;&nbsp;&nbsp;Install the ViennaRNA package. See instructions [here](https://www.tbi.univie.ac.at/RNA/).  
 
 #### Step 2: Relax the starting structure
 
