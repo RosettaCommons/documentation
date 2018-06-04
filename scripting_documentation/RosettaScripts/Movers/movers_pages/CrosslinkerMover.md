@@ -8,7 +8,7 @@ Last updated on 1 June 2018.<br/>
 ## Description
 This mover places chemical cross-linkers such as 1,3,5-tris(bromomethyl)benzene (TBMB) or trimesic acid (TMA).  It can set up covalent bonds and constraints, pack and energy-minimize the linker and the side-chains to which it is connected, and relax the entire structure.  Options are provided for filtering based on input geometry, to throw out poses that do not present side-chains in conformations compatible with the linker.
 
-Metals are also effectively cross-links that connect several side-chains, as far as Rosetta is concerned, so as of 16 May 2018, this mover can also place metals.  When placing metals, metal-coordinating residues (currently L- or D-histidine, glutamate, or aspartate) are patched to add a virtual atom on the metal-coordinating side-chain atom representing the metal, atom pair constraints are added to tether the virtual atoms to one another and to ensure that all of the virtual atoms overlap (representing a single metal ion), and angle constraints are added for each trio of (liganding atom 1)--(metal virtual atom)--(liganding atom 2) to enforce tetrahedral, octahedral, trigonal pyramidal, or trigonal planar geometry.  Future development will add support for other metal coordination geometries.
+Metals are also effectively cross-links that connect several side-chains, as far as Rosetta is concerned, so as of 16 May 2018, this mover can also place metals.  When placing metals, metal-coordinating residues (currently L- or D-histidine, glutamate, or aspartate) are patched to add a virtual atom on the metal-coordinating side-chain atom representing the metal, atom pair constraints are added to tether the virtual atoms to one another and to ensure that all of the virtual atoms overlap (representing a single metal ion), and angle constraints are added for each trio of (liganding atom 1)--(metal virtual atom)--(liganding atom 2) to enforce tetrahedral, octahedral, square pyramidal, square planar, trigonal pyramidal, or trigonal planar geometry.  Future development will add support for other metal coordination geometries.
 
 ## Needed flags
 The CrosslinkerMover requires that Rosetta load a params file for the crosslinker, as well as the sidechain conjugation variant types for the sidechains that will be cross-linked.  These are not loaded by default.  For example, to link three cysteine residues with TBMB, one needs the following commandline flag:
@@ -42,10 +42,10 @@ This example places 1,3,5-tris(bromomethyl)benzene (TBMB), linking cysteine resi
                 <Index name="select_cys" resnums="7,21,35" />
         </RESIDUE_SELECTORS>
         <MOVERS>
-                <CrosslinkerMover name="threefold" residue_selector="select_cys" linker_name="TBMB" scorefxn="r15" />
+                <CrosslinkerMover name="place_tbmb" residue_selector="select_cys" linker_name="TBMB" scorefxn="r15" />
         </MOVERS>
         <PROTOCOLS>
-                <Add mover="threefold" />
+                <Add mover="place_tbmb" />
         </PROTOCOLS>
 </ROSETTASCRIPTS>
 ```
@@ -65,6 +65,35 @@ In this example, we assume that positions 12, 16, and 23 in the input structure 
         <MOVERS>
                 <!-- Note: in the definition below, "trigonal_planar_metal" may be replaced with "trigonal_pyramidal_metal". -->
                 <CrosslinkerMover name="metal_xlink" residue_selector="select_metal_coordinating" linker_name="trigonal_planar_metal" metal_type="Zn" scorefxn="r15" />
+        </MOVERS>
+        <PROTOCOLS>
+                <Add mover="metal_xlink" />
+        </PROTOCOLS>
+</ROSETTASCRIPTS>
+```
+
+### Placing a metal with square planar or square pyramidal coordination geometry
+
+In this example, we assume that positions 3, 12, 16, and 23 in the input structure are residue types that can coordinate a metal (currently, L- or D-histidine, aspartate, or glutamate).  The `metal_type` option determines the liganding atom-metal bond lengths, and defaults to "Ni2" (nickel in the 2+ oxidation state) in the case of square planar or square pyramidal geometries.  In the case of square planar coordination, bond angles are constrained to 90 or 180 degrees, and an improper torsional constraint additionally pulls the metal into the plane of the liganding four atoms.  In the case of square pyramidal coordination, bond angles are constrained to 90 or 180 degrees, an ambiguous improper torsional constraint is applied keeping the metal in the plane of any four of the liganding atoms.
+
+```xml
+<ROSETTASCRIPTS>
+        <SCOREFXNS>
+                <ScoreFunction name="r15" weights="ref2015.wts" />
+        </SCOREFXNS>
+        <RESIDUE_SELECTORS>
+		<!--
+			A fifth position must be selected by the residue selector below in the case of square pyramidal
+			metal coordination.
+		-->
+                <Index name="select_metal_coordinating" resnums="3,12,16,23" />
+        </RESIDUE_SELECTORS>
+        <MOVERS>
+                <!--
+			Note: in the definition below, "square_planar_metal" may be replaced with "square_pyramidal_metal".  In this case, a fifth residue
+			must be selected by the select_metal_coordinating residue selector.
+		 -->
+                <CrosslinkerMover name="metal_xlink" residue_selector="select_metal_coordinating" linker_name="square_planar_metal" metal_type="Ni2" scorefxn="r15" />
         </MOVERS>
         <PROTOCOLS>
                 <Add mover="metal_xlink" />
@@ -155,8 +184,8 @@ When placing tetrahedrally-coordinated metals, compatible symmetries are C2, D2,
 | Option | Required | Type | Description |
 |---|---|---|---|
 | name | YES | string | A unique name for this instance of the CrosslinkerMover. |
-| linker\_name | YES | string | The name of the type of linker to use.  Currently, the allowed options are "tetrahedral\_metal", "octahedral_metal", "TBMB" (for 1,3,5-tris(bromomethyl)benzene), and "TMA" (for trimesic acid). |
-| residue\_selector | YES | string | A previously-defined residue selector that has been set up to select exactly three residues. |
+| linker\_name | YES | string | The name of the type of linker to use.  Currently, the allowed options are "tetrahedral\_metal", "octahedral\_metal", "trigonal\_planar\_metal", "square\_planar\_metal", "trigonal\_pyramidal\_metal", "square\_pyramidal\_metal", "TBMB" (for 1,3,5-tris(bromomethyl)benzene), and "TMA" (for trimesic acid). |
+| residue\_selector | YES | string | A previously-defined residue selector that has been set up to select the correct number of residues for the crosslinker type. |
 | scorefxn | YES | string | A scorefunction to use for packing, energy-minimization, and filtering.  If constraints are turned off in this score function, they will be turned on automatically at apply time. |
 | add\_linker | No | bool | Should the linker geometry be added to the pose?  Default true. |
 | constrain\_linker | No | bool | Should constraints for the linker be added to the pose?  Default true. |
