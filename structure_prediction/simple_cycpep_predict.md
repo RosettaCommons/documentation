@@ -99,7 +99,7 @@ The simple\_cycpep\_predict application can also attempt to predict structures c
 
 ## Additional flags for metal-bound structures
 
-The simple\_cycpep\_predict application can attempt to model metal-mediated crosslinks, discarding samples that do not present side-chains in a manner compatible with one of several metal coordination geometries.  Sidechains of D- or L-histidine, aspartate, or glutamate residues can coordinate metals.  Since metals effectively cross-link several residues, internally the [[CrosslinkerMover]] is called.  Currently, octahedral, tetrahedral, trigonal planar, and trigonal pyramidal coordination are supported.
+The simple\_cycpep\_predict application can attempt to model metal-mediated crosslinks, discarding samples that do not present side-chains in a manner compatible with one of several metal coordination geometries.  Sidechains of D- or L-histidine, aspartate, or glutamate residues can coordinate metals.  Since metals effectively cross-link several residues, internally the [[CrosslinkerMover]] is called.  Currently, octahedral, tetrahedral, square planar, square pyramidal, trigonal planar, and trigonal pyramidal coordination are supported.
 
 ### Flags for structures that coordinate metals octahedrally
 
@@ -114,6 +114,20 @@ The simple\_cycpep\_predict application can attempt to model metal-mediated cros
 **-cyclic\_peptide:use\_tetrahedral\_metal\_filters \<bool\>**  If true, then filters are applied based on distance between metal-conjugated sidechains and on constraints to discard GenKIC solutions that can't be crosslinked with a metal easily.  True by default.<br/><br/>
 **-cyclic\_peptide:tetrahedral\_metal\_sidechain\_distance\_filter\_multiplier \<Real\>** A multiplier for the distance cutoff for side-chains linked by a tetrahedrally-coordinated metal.  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
 **-cyclic\_peptide:tetrahedral\_metal\_constraints\_energy\_filter\_multiplier \<Real\>** A multiplier for the constraints energy for side-chains linked by a tetrahedrally-coordinated metal.  Higher values result in more permissive filtering.  Default 1.0.
+
+### Flags for structures that coordinate metals with square pyramidal geometry
+
+**-cyclic\_peptide:square\_pyramidal\_metal\_positions \<StringVector\>**  If provided, then these positions will coordinate a metal, which will be represented by a virtual atom during sampling and in final output.  (Use the "-output\_virtual" flag to visualize the virtual atom in the PDB output.)  The positions must have sidechains that can coordinate a metal (_e.g._ histidine, aspartate, glutamate).  The positions should be specified in the form res1,res2,res3,res4,res5,metal.  For example, if positions 6, 9, 13, 21, and 31 were to coordinate a nickel in the +2 oxidation state, the string would be 6,9,13,21,31,Ni2.  Multiple sets of metal-coordinating side-chains can be specified, separated by a space.  Unused if not specified.<br/><br/>
+**-cyclic\_peptide:use\_square\_pyramidal\_metal\_filters \<bool\>**  If true, then filters are applied based on distance between metal-conjugated sidechains and on constraints to discard GenKIC solutions that can't be crosslinked with a metal easily.  True by default.<br/><br/>
+**-cyclic\_peptide:square\_pyramidal\_metal\_sidechain\_distance\_filter\_multiplier \<Real\>** A multiplier for the distance cutoff for side-chains linked by a metal with square pyramidal coordination geometry.  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
+**-cyclic\_peptide:square\_pyramidal\_metal\_constraints\_energy\_filter\_multiplier \<Real\>** A multiplier for the constraints energy for side-chains linked by a metal with square pyramidal coordination geometry.  Higher values result in more permissive filtering.  Default 1.0.
+
+### Flags for structures that coordinate metals with square planar geometry
+
+**-cyclic\_peptide:square\_planar\_metal\_positions \<StringVector\>**  If provided, then these positions will coordinate a metal, which will be represented by a virtual atom during sampling and in final output.  (Use the "-output\_virtual" flag to visualize the virtual atom in the PDB output.)  The positions must have sidechains that can coordinate a metal (_e.g._ histidine, aspartate, glutamate).  The positions should be specified in the form res1,res2,res3,res4,metal.  For example, if positions 6, 9, 13, and 18 were to coordinate a nickel in the +2 oxidation state, the string would be 6,9,13,18,Ni2.  Multiple sets of metal-coordinating side-chains can be specified, separated by a space.  Unused if not specified.<br/><br/>
+**-cyclic\_peptide:use\_square\_planar\_metal\_filters \<bool\>**  If true, then filters are applied based on distance between metal-conjugated sidechains and on constraints to discard GenKIC solutions that can't be crosslinked with a metal easily.  True by default.<br/><br/>
+**-cyclic\_peptide:square\_planar\_metal\_sidechain\_distance\_filter\_multiplier \<Real\>** A multiplier for the distance cutoff for side-chains linked by a metal with square planar coordination geometry.  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
+**-cyclic\_peptide:square\_planar\_metal\_constraints\_energy\_filter\_multiplier \<Real\>** A multiplier for the constraints energy for side-chains linked by a metal with square planar coordination geometry.  Higher values result in more permissive filtering.  Default 1.0.
 
 ### Flags for structures that coordinate metals with trigonal pyramidal geometry
 
