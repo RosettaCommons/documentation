@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-06-04
+Generated: 2018-06-05
 
 _Note that some application specific options may not be present in this list._
 
@@ -4145,6 +4145,22 @@ _Note that some application specific options may not be present in this list._
 <dd>A multiplier for the distance cutoff for side-chains linked by trimseic acid (TMA).  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
 <dt><b>-TMA_constraints_energy_filter_multiplier</b> \<Real\></dt>
 <dd>A multiplier for the constraints energy for side-chains linked by trimseic acid (TMA).  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
+<dt><b>-square_pyramidal_metal_positions</b> \<StringVector\></dt>
+<dd>If provided, then these positions will coordinate a metal with square pyramidal coordination.  The positions must have sidechains that can coordinate a metal (e.g. histidine, aspartate, glutamate).  The positions should be specified in the form res1,res2,res3,res4,res5,metal.  For example, if positions 4, 6, 9, 13, and 16 were to coordinate a nickel, the string would be 4,6,9,13,16,Ni2.  Multiple sets of metal-coordinating side-chains can be specified, separated by a space.  The metal will be represented by virtual atoms, and will not be modelled explicitly.  Unused if not specified.<br/></dd>
+<dt><b>-use_square_pyramidal_metal_filters</b> \<Boolean\></dt>
+<dd>If true, then filters are applied based on distance between metal-conjugated sidechains and on constraints to discard GenKIC solutions that can't be crosslinked with a metal easily.  True by default.<br/>Default: true<br/></dd>
+<dt><b>-square_pyramidal_metal_sidechain_distance_filter_multiplier</b> \<Real\></dt>
+<dd>A multiplier for the distance cutoff for side-chains linked by a metal coordinated with square pyramidal coordination.  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
+<dt><b>-square_pyramidal_metal_constraints_energy_filter_multiplier</b> \<Real\></dt>
+<dd>A multiplier for the constraints energy for side-chains linked by a metal coordinated with square pyramidal coordination.  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
+<dt><b>-square_planar_metal_positions</b> \<StringVector\></dt>
+<dd>If provided, then these positions will coordinate a metal with square planar coordination.  The positions must have sidechains that can coordinate a metal (e.g. histidine, aspartate, glutamate).  The positions should be specified in the form res1,res2,res3,res4,metal.  For example, if positions 6, 9, 13, and 17 were to coordinate a nickel, the string would be 6,9,13,17,Ni2.  Multiple sets of metal-coordinating side-chains can be specified, separated by a space.  The metal will be represented by virtual atoms, and will not be modelled explicitly.  Unused if not specified.<br/></dd>
+<dt><b>-use_square_planar_metal_filters</b> \<Boolean\></dt>
+<dd>If true, then filters are applied based on distance between metal-conjugated sidechains and on constraints to discard GenKIC solutions that can't be crosslinked with a metal easily.  True by default.<br/>Default: true<br/></dd>
+<dt><b>-square_planar_metal_sidechain_distance_filter_multiplier</b> \<Real\></dt>
+<dd>A multiplier for the distance cutoff for side-chains linked by a metal coordinated with square planar coordination.  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
+<dt><b>-square_planar_metal_constraints_energy_filter_multiplier</b> \<Real\></dt>
+<dd>A multiplier for the constraints energy for side-chains linked by a metal coordinated with square planar coordination.  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
 <dt><b>-trigonal_pyramidal_metal_positions</b> \<StringVector\></dt>
 <dd>If provided, then these positions will coordinate a metal with trigonal pyramidal coordination.  The positions must have sidechains that can coordinate a metal (e.g. histidine, aspartate, glutamate).  The positions should be specified in the form res1,res2,res3,metal.  For example, if positions 6, 9, and 13 were to coordinate a zinc, the string would be 6,9,13,Zn.  Multiple sets of metal-coordinating side-chains can be specified, separated by a space.  The metal will be represented by virtual atoms, and will not be modelled explicitly.  Unused if not specified.<br/></dd>
 <dt><b>-use_trigonal_pyramidal_metal_filters</b> \<Boolean\></dt>
