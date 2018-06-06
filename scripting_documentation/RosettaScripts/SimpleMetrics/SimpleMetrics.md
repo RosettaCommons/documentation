@@ -27,20 +27,13 @@ Example with comparison to native through `-in:file:native`:
 	<SIMPLE_METRICS>
 		<TimingProfileMetric name="timing" />
 		<RMSDMetric name="rmsd" rmsd_type="rmsd_protein_bb_heavy" residue_selector="L1" use_native="1"/>
-		<SasaMetric name="sasa" residue_selector="L1"/>
-		<DihedralDistanceMetric name="dihedral" residue_selector="L1" use_native="1"/>
-		<SelectedResiduesMetric name="selection" residue_selector="L1"/>
-		<SelectedResiduesMetric name="rosetta_sele" residue_selector="L1" rosetta_numbering="1"/>
 		<SelectedResiduesPyMOLMetric name="pymol_selection" residue_selector="L1" />
-		<SequenceMetric name="sequence" residue_selector="L1" />
-		<SecondaryStructureMetric name="ss" residue_selector="L1" />
 		<TotalEnergyMetric name="total_energy" residue_selector="L1" />
-		<CompositeEnergyMetric name="composite_energy" residue_selector="L1" use_native="1"/>
 	</SIMPLE_METRICS>
 	<MOVERS>
 		<MinMover name="min_mover" movemap_factory="movemap_L1" tolerance=".1" /> 
-		<RunSimpleMetrics name="run_metrics1" metrics="sasa,pymol_selection,sequence,ss,total_energy,rosetta_sele" prefix="m1_" />
-		<RunSimpleMetrics name="run_metrics2" metrics="sasa,selection,pymol_selection,sequence,ss,total_energy,rmsd,dihedral,composite_energy" prefix="m2_" />
+		<RunSimpleMetrics name="run_metrics1" metrics="pymol_selection,total_energy" prefix="m1_" />
+		<RunSimpleMetrics name="run_metrics2" metrics="timing,pymol_selection,total_energy,rmsd" prefix="m2_" />
 	</MOVERS>
 	<PROTOCOLS>
 		<Add mover_name="run_metrics1"/>
