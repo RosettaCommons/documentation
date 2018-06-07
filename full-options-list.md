@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-06-05
+Generated: 2018-06-06
 
 _Note that some application specific options may not be present in this list._
 
