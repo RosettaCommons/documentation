@@ -2,8 +2,10 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## GreedyOptMutationMover
 ### Publication
+
 King C, Garza EN, Mazor R, Linehan JL, Pastan I, Pepper M, Baker D. Removing T-cell epitopes with computational protein design. Proceedings of the National Academy of Sciences. 2014 Jun 10;111(23):8577-82.
 [[http://www.pnas.org/content/111/23/8577.long]]
+
 Nivón, L. G., Bjelic, S., King, C. and Baker, D. (2014), Automating human intuition for protein design. Proteins, 82: 858–866. doi:10.1002/prot.24463
 [[http://onlinelibrary.wiley.com/doi/10.1002/prot.24463/full]]
 
