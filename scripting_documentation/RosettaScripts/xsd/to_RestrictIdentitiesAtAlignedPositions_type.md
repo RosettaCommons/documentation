@@ -8,16 +8,19 @@ XRW TO DO
 ```xml
 <RestrictIdentitiesAtAlignedPositions name="(&string;)" source_pdb="(&string;)"
         resnums="(&int_cslist;)" chain="(1 &non_negative_integer;)"
-        design_only_target_residues="(false &bool;)"
-        prevent_repacking="(false &bool;)"
-        keep_aas="(ACDEFGHIKLMNPQRSTVWY &string;)" />
+        design_only_target_residues="(false &xs:boolean;)"
+        prevent_repacking="(false &xs:boolean;)"
+        keep_aas="(ACDEFGHIKLMNPQRSTVWY &string;)"
+        design_shell="(0.01 &string;)" repack_shell="(6.0 &real;)" />
 ```
 
--   **source_pdb**: (REQUIRED) XRW TO DO
--   **resnums**: (REQUIRED) XRW TO DO
--   **chain**: XRW TO DO
--   **design_only_target_residues**: XRW TO DO
--   **prevent_repacking**: XRW TO DO
--   **keep_aas**: XRW TO DO
+-   **source_pdb**: (REQUIRED) Template pdb to use
+-   **resnums**: (REQUIRED) residue numbers to restrcit
+-   **chain**: chain attribute
+-   **design_only_target_residues**: should we design only target residues?
+-   **prevent_repacking**: Don't repack these positions
+-   **keep_aas**: Which AA's to keep
+-   **design_shell**: Design_shell
+-   **repack_shell**: Repack_chell
 
 ---
