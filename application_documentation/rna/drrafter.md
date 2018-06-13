@@ -82,7 +82,7 @@ This will print information about the error estimation to the screen. The mean p
 
 ####`-fasta`
 
-Required for DRRAFTER run setup. This is a FASTA format file for your system. It must include all protein and RNA residues. Protein residues are specified by uppercase one-letter codes. RNA residues are specified with lowercase one-letter codes (‘a’, ‘u’, ‘g’, and ‘c’).  
+Required for DRRAFTER run setup. This is a FASTA format file for your system. It must include all protein and RNA residues. Protein residues are specified by uppercase one-letter codes. RNA residues are specified with lowercase one-letter codes (‘a’, ‘u’, ‘g’, and ‘c’). **Proteins must be listed before RNA!**  
   
 *Example:*  
 ```
