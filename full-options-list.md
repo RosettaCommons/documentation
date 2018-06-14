@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-06-13
+Generated: 2018-06-14
 
 _Note that some application specific options may not be present in this list._
 
@@ -514,6 +514,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Enable full-atom output of PDB or centroid structures<br/>Default: false<br/></dd>
 <dt><b>-suppress_zero_occ_pdb_output</b> \<Boolean\></dt>
 <dd>Suppress output of atoms with zero (or negative) occupancy<br/>Default: false<br/></dd>
+<dt><b>-output_ligands_as_separate_chains</b> \<Boolean\></dt>
+<dd>Set whether or not ligands are output with unique chainIDs, even if they share a chainID with one of the peptide chains in the input structure.  The default value is false.<br/>Default: false<br/></dd>
 <dt><b>-output_virtual</b> \<Boolean\></dt>
 <dd>Output virtual atoms in output of PDB<br/>Default: false<br/></dd>
 <dt><b>-output_virtual_zero_occ</b> \<Boolean\></dt>
