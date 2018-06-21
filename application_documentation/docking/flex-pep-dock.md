@@ -191,7 +191,7 @@ Examples
         -nstruct 50000 -unboundrot unbound_receptor.pdb
         ```
     6.  You may rank the model according to the default score (second column in score file). However, our benchmarks indicate that ranking the models according to a new score, called *rewighted-score* , may be helpful (look for the column labeled "reweighted\_sc" in the score file).
-    7.  We also found that clustering of the top-500 models using the Rosetta clustering application and choosing the clusters with lowest-energy representatives is helpful, and that good solutions are often found within the top 1-10 clusters. Clustering can be done (in UNIX) using the script `           rosetta/demos/protocol_capture/flex_pep_dock_abinitio/scripts/clustering/cluster.sh          ` , assuming the models are stored in a silent file, as follows.
+    7.  We also found that clustering of the top-500 models using the Rosetta clustering application and choosing the clusters with lowest-energy representatives is helpful, and that good solutions are often found within the top 1-10 clusters. Clustering can be done (in UNIX) using the script `           demos/protocol_capture/flex_pep_dock_abinitio/scripts/clustering/cluster.sh          `, assuming the models are stored in a silent file, as follows.
         ```
         cluster.sh pdb-id 500 2 <scorefile> <reference-pdb> <models-silent-file> <score-type-column>
         ```
