@@ -24,10 +24,13 @@ The following options are available within the RosettaScript interface:
 |:-------|:--------------|
 |`-mp::setup::spanfiles <spanfile>` | AddMembraneMover only uses the first spanfile. Not a requirement if a structure is given that is transformed into membrane coordinates: use spans_from_structure flag in this case.|
 |`-mp::setup::spans_from_structure <bool>` | If no spanfile is given, the user has the option of creating a SpanningTopology object from the given structure. Structure must be transformed into membrane coordinates. Spanfile is written with this option: out.span |
-|`-mp::setup::lipsfile <lipsfile>` | optional; functionality currently not tested within RosettaMP.|
-|`-mp::setup::membrane_rsd <residue number for MEM residue>` | optional; reads in the MEM residue from previously generated framework PDB. If not given, Rosetta still searches for it and uses it if found.|
+|`-mp::setup::lipsfile <lipsfile>` | Read in user-provided lipsfile if initializing from Command Line. Defaults to "mypdb.lips4" |
+|`-mp::setup::membrane_rsd <residue number for MEM residue>` | optional; read in user-provided membrane residue position. Default to the MEM residue from previously generated framework PDB. |
 |`-mp::setup::center <three real numbers defining the center point>` | optional; user can provide desired membrane center coordinate.|
 |`-mp::setup::normal <three real numbers defining the normal vector>` | optional; user can provide desired membrane normal vector.|
+|`-mp::thickness <Real>` | One-half thickness of the membrane used by the high resolution scoring function. Overwrites default thickness of 15A (membrane is 30A thick).|
+|`-mp::membrane_core <Real>` | Set membrane core thickness for Lazaridis-Karplus. Default is 15A, ie (-15, 15).|
+|`-mp::steepness <Real>` | Control transition region between polar and nonpoar phases for the membrane model used by the high resolution energy function. Default = 10 gives a 6A transition region.|
 
 ## Contact
 

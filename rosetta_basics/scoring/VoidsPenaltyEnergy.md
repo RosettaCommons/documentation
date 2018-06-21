@@ -151,7 +151,7 @@ the sum of the volumes of symmetric rotamers can be precalculated.
 
 ## Organization of the code
 
-The ```voids_penalty``` scorefunction is located in ```core.4```, and in the ```core::pack::voids_penalty_energy``` namespace.  The relevant classes (located in this namespace) are ```VoidsPenaltyEnergy```, which is an energy method that inherits from ```core::scoring::methods::WholeStructureEnergy``` and ```core::scoring::annealing::ResidueArrayAnnealableEnergy```, and ```VoidsPenaltyVoxelGrid```, a helper class used to place a voxel grid on a pose, prune non-buried voxels, compute buried volume, and calculate volumes of buried rotamers.  Each instance of the ```VoidsPenaltyEnergy``` class transiently creates a ```VoidsPenaltyVoxelGrid``` instance during packer initialization, or during scoring (the latter if and only if the ```-voids_penalty_energy_disabled_except_during_packing false``` option is used).
+The ```voids_penalty``` scorefunction is located in ```core.4```, and in the ```core::pack::guidance_scoreterms::voids_penalty_energy``` namespace.  The relevant classes (located in this namespace) are ```VoidsPenaltyEnergy```, which is an energy method that inherits from ```core::scoring::methods::WholeStructureEnergy``` and ```core::scoring::annealing::ResidueArrayAnnealableEnergy```, and ```VoidsPenaltyVoxelGrid```, a helper class used to place a voxel grid on a pose, prune non-buried voxels, compute buried volume, and calculate volumes of buried rotamers.  Each instance of the ```VoidsPenaltyEnergy``` class transiently creates a ```VoidsPenaltyVoxelGrid``` instance during packer initialization, or during scoring (the latter if and only if the ```-voids_penalty_energy_disabled_except_during_packing false``` option is used).
 
 Note that implementation of the ```VoidsPenaltyEnergy``` class required that the ```ResidueArrayAnnealableEnergy``` base class, defined in ```core.3```, be aware of the existence of the ```core::pack::rotamer_set::RotamerSets``` class, defined in ```core.4``` (though full header inclusion was _not_ necessary).  For this reason, a forward declaration of the ```RotamerSets``` class was added to the ```src/core/scoring/annealing``` directory -- a minor but necessary violation of Rosetta namespace and library level conventions which does _not_ significantly impact compliation time or complexity.
 
@@ -160,7 +160,9 @@ Note that implementation of the ```VoidsPenaltyEnergy``` class required that the
 * [[Scoring explained]]
 * [[Score functions and score types |score-types]]
 * [[Adding a new energy method to Rosetta|new-energy-method]]
+* [[Design-centric guidance terms|design-guidance-terms]]
 * [[AACompositionEnergy]]
 * [[AARepeatEnergy|Repeat-stretch-energy]]
+* [[BuriedUnsatPenalty]]
 * [[HBNetEnergy]]
 * [[NetChargeEnergy]]

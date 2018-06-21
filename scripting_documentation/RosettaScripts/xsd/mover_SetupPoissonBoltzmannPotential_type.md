@@ -13,10 +13,10 @@ Initialize the runtime environment for Poisson-Boltzmann solver. It allows keepi
         repack_bound="(true &bool;)" relax_bound="(false &bool;)"
         translate_by="(1000 &real;)" relax_mover="(&string;)"
         filter="(&string;)" chain_num="(&string;)" chain_name="(&string;)"
-        apbs_path="(&string;)" charged_chains="(&string;)"
-        revamp_near_chain="(&string;)" potential_cap="(&real;)"
-        sidechain_only="(&bool;)" epsilon="(&real;)" calcenergy="(&bool;)"
-        apbs_debug="(2 &integer;)" />
+        solvate="(false &bool;)" apbs_path="(&string;)"
+        charged_chains="(&string;)" revamp_near_chain="(&string;)"
+        potential_cap="(&real;)" sidechain_only="(&bool;)" epsilon="(&real;)"
+        calcenergy="(&bool;)" apbs_debug="(2 &integer;)" />
 ```
 
 -   **scorefxn**: Name of score function to use
@@ -31,6 +31,7 @@ Initialize the runtime environment for Poisson-Boltzmann solver. It allows keepi
 -   **filter**: XSD XRW TO DO
 -   **chain_num**: XSD XRW TO DO
 -   **chain_name**: XSD XRW TO DO
+-   **solvate**: Solvate both bound and unbound pose (using WaterBox mover)
 -   **apbs_path**: XRW TO DO
 -   **charged_chains**: Comma delimited list of charged chainnumbers ( greater than or equal to 1). e.g. charged_chains=1,2,3 for chains 1, 2 and 3. No extra whitespace is permitted
 -   **revamp_near_chain**: Comma delimited list of chain numbers. Scale down PB interactions if near the given chain(s). Default to none

@@ -16,7 +16,7 @@ XRW TO DO
         delete_hairpin_c="(13 &non_negative_integer;)" tail_segment="(&n_or_c;)"
         protein_family="(&string;)"
         source_pdb_to_res="(&refpose_enabled_residue_number;)"
-        skip_alignment="(false &bool;)" use_seqeunce_profile="(&bool;)"
+        skip_alignment="(false &bool;)" use_sequence_profile="(&bool;)"
         scorefxn="(&string;)" add_sequence_constraints_only="(false &bool;)"
         template_file="(&string;)" set_fold_tree_only="(false &bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
@@ -32,14 +32,15 @@ XRW TO DO
         delta_lengths="(&int_cslist;)" design="(false &bool;)"
         thread_original_sequence="(false &bool;)" rtmin="(true &bool;)"
         allow_all_aa="(false &bool;)" dbase_iterate="(false &bool;)"
-        locked_residue="(&string;)" checkpointing_file="(&string;)"
-        loop_dbase_file_name="(&string;)" splice_filter="(&string;)"
-        mover_tag="(&string;)" loop_pdb_source="(&string;)"
+        locked_residue="(&string;)" allowed_cuts="(&string;)"
+        checkpointing_file="(&string;)" loop_dbase_file_name="(&string;)"
+        splice_filter="(&string;)" mover_tag="(&string;)"
+        loop_pdb_source="(&string;)"
         restrict_to_repacking_chain2="(true &bool;)"
         use_sequence_profiles="(true &bool;)" >
     <Segments name="(&string;)" profile_weight_away_from_interface="(1.0 &real;)"
             current_segment="(&string;)" >
-        <segment name="(&string;)" pdb_profile_match="(&string;)" profiles="(&string;)" />
+        <Segment name="(&string;)" pdb_profile_match="(&string;)" profiles="(&string;)" />
     </Segments>
     <DB name="(&string;)" />
 </Splice>
@@ -61,7 +62,7 @@ XRW TO DO
 -   **protein_family**: XRW TO DO
 -   **source_pdb_to_res**: XRW TO DO
 -   **skip_alignment**: XRW TO DO
--   **use_seqeunce_profile**: XRW TO DO
+-   **use_sequence_profile**: XRW TO DO
 -   **scorefxn**: Name of score function to use
 -   **add_sequence_constraints_only**: XRW TO DO
 -   **template_file**: XRW TO DO
@@ -91,6 +92,7 @@ XRW TO DO
 -   **allow_all_aa**: XRW TO DO
 -   **dbase_iterate**: XRW TO DO
 -   **locked_residue**: XRW TO DO
+-   **allowed_cuts**: How many cut allowed in protein after Splice mover
 -   **checkpointing_file**: XRW TO DO
 -   **loop_dbase_file_name**: XRW TO DO
 -   **splice_filter**: XRW TO DO
@@ -106,7 +108,7 @@ Subtag **Segments**:   Wrapper for multiple segments tags
 -   **current_segment**: XRW TO DO
 
 
-Subtag **segment**:   individual segment tag
+Subtag **Segment**:   individual segment tag
 
 -   **pdb_profile_match**: XRW TO DO
 -   **profiles**: XRW TO DO

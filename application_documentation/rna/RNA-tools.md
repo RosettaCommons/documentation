@@ -17,7 +17,7 @@ This documentation describes how to set up code in:
 
 Setup
 ======
-Include the following lines in your `.bashrc` (may be `.bash_profile` on some systems):
+**Note: these setup instructions are for bash. If you're using a different shell, you will need to modify the commands accordingly (the $ROSETTA/tools/rna_tools/INSTALL file will also need to be modified).**  Include the following lines in your `.bashrc` (may be `.bash_profile` on some systems):
 
 ```
 export ROSETTA='/home/yourhomedirectory/src/rosetta/'

@@ -81,6 +81,7 @@ The default is that it will start searching at all positions in the monomeric Po
 
 #### Designing networks around a polar small molecule ligand
 If your goal is to design a network that satisfies a polar small molecule, use ```start_selector``` to start at the ligand (and any first shell contacts you might want to keep).  One challenge that arose in these design cases is that HBNet only searches for networks among packable/designable positions, but often users want to keep the ligand and some first-shell contacts fixed (NATRO or PreventRepacking).  To solve this issue, we added the option ```use_only_input_rot_for_start_res```, which if true, takes the ```start_selector``` positions, fixes their identity and rotamer, and turns on proton Chi sampling; this making them packable (gets them into the IG), as well as allows for more h-bonding possibilities by sampling multiple Hpol positions.  (option added together with Benjamin Basanta)
+**NOTE:** ```use_only_input_rot_for_start_res``` only works if set to true and if the start selector is set to **not** be packable.
 
 ```xml
 <HBNet name="hbnet_ligand" scorefxn="standardfxn" hb_threshold="-0.5" start_selector="ligand" design_residues="STNQYW" write_cst_files="False" write_network_pdbs="False" store_subnetworks="False" minimize="False" min_network_size="3" max_unsat_Hpol="0" task_operations="no_design_or_pack,limitAroChi" use_only_input_rot_for_start_res="True"/>
@@ -113,6 +114,10 @@ If your goal is to design a network that satisfies a polar small molecule, use `
 - <b>min_core_res</b>: minimum core residues each network must have (as defined by core selector).
 - <b>design_residues (string &"STRKHYWNQDE"</b>: string of one-letter AA codes; which polar residues types do you want to include in the search; the default is all AA's that can potentially make h-bonds, further restricted by the <b>task_operations</b> you pass.
 - <b>task_operations</b>: comma-delimited list of task operations you have previously defined in your XML; HBNet will respect any task operation passed to it, and only search for networks within the design space you define by these taskops; the more that you can restrict your design space to only what you want, the faster HBNet will run.
+- <b>store_network_scores_in_pose</b>: Boolean. If true, adds "HBNet_NumUnsatHpol",
+"HBNet_Saturation", and "HBNet_Score" to pose as an extra score. These scores will be
+printed in the score.sc file and can be accessed using the
+[[ReadPoseExtraScoreFilter|ReadPoseExtraScoreFilter]].
 
 ###Options for MC HBNet
 - <b>monte\_carlo</b> (bool,"false"):

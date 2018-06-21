@@ -32,5 +32,7 @@ The lines starting with a pound sign (**#**) are ignored.  The relevant line is 
 ## See also
 * [[AACompositionEnergy]]
 * [[NetChargeEnergy]]
+* [[BuriedUnsatPenalty]]
 * [[HBNetEnergy]]
+* [[VoidsPenaltyEnergy]]
 * [[Design-centric guidance terms|design-guidance-terms]]

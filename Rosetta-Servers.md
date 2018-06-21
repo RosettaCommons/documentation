@@ -21,7 +21,9 @@ It also provides [[interface alanine scanning|interface analyzer]] and [[DNA int
 
 * The [Backrub Server](https://kortemmelab.ucsf.edu/backrub/cgi-bin/rosettaweb.py?query=index) provides [[backrub]] ensembles, as well as [[alanine scanning|pmut-scan-parallel]].
 
-* The [FlexPepDock server](http://flexpepdock.furmanlab.cs.huji.ac.il/) provides [[flex-pep-dock]].
+* The [FlexPepDock server](http://flexpepdock.furmanlab.cs.huji.ac.il/) provides access to Rosetta's refinement and ab-initio peptide docking within a receptor pocket [[flex-pep-dock]].
+
+* The [PIPER-FlexPepDock server ](http://piperfpd.furmanlab.cs.huji.ac.il/) provides access to Rosetta's global docking of a peptide onto a receptor (where the binding pocket is unknown).
 
 * [RosettaDiagrams](http://www.rosettadiagrams.org/) provides a graphical interactive service to produce [[RosettaScripts]] XML files, with some ability to run the scripts as well.
 

@@ -1,6 +1,8 @@
 # Hydrogen bond network score (hbnet score term)
 Documentation created by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory, on 3 Nov 2017.  Last updated on 20 Feb 2018.
 
+**The `hbnet` scoreterm is currently unpublished.  If you use this, please include Vikram K. Mulligan as a coauthor.**
+
 _Note:  This documentation is for the `hbnet` design-centric score term.  For information on the HBNet mover, an alternative method for creating hydrogen bond networks, see [[this page|HBNetMover]]._
 
 [[_TOC_]]
@@ -22,7 +24,7 @@ The `hbnet` score term is a different approach to the same problem solved by Sco
 * **Simultaneous optimization.**  By simultaneously optimizing the conventional Rosetta energy and `hbnet` score, one can design for favourable hydrophobic packing _and_ favourable polar networks in a single step.  In contrast, the HBNet protocol places polar networks first, after which one uses conventional packing to try to place hydrophobic residues around the networks.  Where the most favourable networks might not subsequently be amenable to good packing, simultaneous optimization can sometimes find a better compromise.
 * **Simpler setup and compatibility with all design workflows.**  To use the `hbnet` score, simply turn it on (change its weight to a nonzero value) in the scorefunction being used for design.  Complex design protocols, such as [[FastDesign|FastDesignMover]], can place hydrogen bond networks simply by having this score term on.
 * **Tunable relative importances of networks vs. packing.**  By adjusting the weight given to the `hbnet` score term, the user can direct the packer to focus more or less on producing extensive hydrogen bond networks, or on optimizing the other things (Van der Waals interactions, hydrophobic interactions, _etc._) that the Rosetta scorefunction reflects.
-* **Compatibility with other design-centric score terms.**  The `hbnet` score term can be used in conjunction with other score terms to guide the design process, such as the [[`aspartimide_penalty`|NC-scorefunction-info]] score term (penalizing aspartimide-forming amino acid sequences that can hinder chemical synthesis of peptides), the [[`aa_repeat`|Repeat-stretch-energy]] score term (penalizing repeat sequences that can impede NMR structure determination), the [[`netcharge`|NetChargeEnergy]] score term (penalizing deviation from a desired net charge), or the [[`aa_composition`|AACompositionEnergy]] score term (penalizing deviations from a desired amino acid composition).  This means that one can, for example, solve a problem like this: "I want a well-packed core that's 75% hydrophobic, 25% polar, and contains no more than 3 charged residues and exactly 1 tryptophan, with a net neutral charge, with no repeat sequences or aspartimide-forming sequences, in which the polar residues form good hydrogen bond networks."
+* **Compatibility with other design-centric score terms.**  The `hbnet` score term can be used in conjunction with other score terms to guide the design process, such as the [[`aspartimide_penalty`|NC-scorefunction-info]] score term (penalizing aspartimide-forming amino acid sequences that can hinder chemical synthesis of peptides), the [[`aa_repeat`|Repeat-stretch-energy]] score term (penalizing repeat sequences that can impede NMR structure determination), the [[`netcharge`|NetChargeEnergy]] score term (penalizing deviation from a desired net charge), or the [[`aa_composition`|AACompositionEnergy]] score term (penalizing deviations from a desired amino acid composition).  **It is particularly recommended that the `hbnet` scoreterm be used with the `buried_unsatisfied_penalty` scoreterm, to avoid hydrogen bond networks that have unsatisfied buried polar groups.**  This compatibility with many other guidance terms means that one can, for example, solve a problem like this: "I want a well-packed core that's 75% hydrophobic, 25% polar, and contains no more than 3 charged residues and exactly 1 tryptophan, with a net neutral charge, with no repeat sequences or aspartimide-forming sequences, in which the polar residues form good hydrogen bond networks."
 * **Speed.**  Using the `hbnet` score term adds no additional steps to the design process.  The term itself slows the packer down by about 10-20%, which is a relatively small impact.
 
 ### Disadvantages of the `hbnet` score as compared to the HBNet protocol
@@ -43,6 +45,17 @@ To use the `hbnet` score term in design, simply follow the following steps:
 	<ScoreFunction name="r15" weights="ref2015.wts" >
 		<Reweight scoretype="hbnet" weight="1.0" />
 	</ScoreFunction>
+</SCOREFXNS>
+```
+
+It is recommended that the `buried_unsatisfied_penalty` scoreterm also be turned on when the `hbnet` scoreterm is used, with a weight ranging from 0.1 to 1.0.  This will penalize hydrogen bond networks that have unsatisfied hydrogen bond donors or acceptors in the core.  This can be done as follows:
+
+```xml
+<SCOREFXNS>
+        <ScoreFunction name="r15" weights="ref2015.wts" >
+                <Reweight scoretype="hbnet" weight="1.0" />
+                <Reweight scoretype="buried_unsatisfied_penalty" weight="1.0" />
+        </ScoreFunction>
 </SCOREFXNS>
 ```
 
@@ -94,16 +107,18 @@ The `hbnet` score term is fully compatible with symmetry with no special setup r
 
 ## Organization of the code
 
-* The score term is defined in namespace `core::scoring::hbnet_energy`, and is located in `source/src/core/scoring/hbnet_energy/HBNetEnergy.cc/hh`.
-* A unit tests for the asymmetric and symmetric cases are located in `source/test/core/scoring/hbnet_energy/HBNetEnergyTests.cxxtest.hh`.
+* The score term is defined in namespace `core::pack::guidance_scoreterms::hbnet_energy`, and is located in `source/src/core/pack/guidance_scoreterms/hbnet_energy/HBNetEnergy.cc/hh`.
+* Unit tests for the asymmetric and symmetric cases are located in `source/test/core/pack/guidance_scoreterms/hbnet_energy/HBNetEnergyTests.cxxtest.hh`.
 
 ##See Also
 
 * [[Scoring explained]]
 * [[Score functions and score types |score-types]]
 * [[Adding a new energy method to Rosetta|new-energy-method]]
+* [[Design-centric guidance terms|design-guidance-terms]]
 * [[AACompositionEnergy]]
 * [[AARepeatEnergy|Repeat-stretch-energy]]
+* [[A score term to penalize buried unsatisfied hydrogen bond donors and acceptors|BuriedUnsatPenalty]]
 * [[NetChargeEnergy]]
 * [[AddCompositionConstraintMover]]
 * [[AddNetChargeConstraintMover]]

@@ -19,8 +19,10 @@ HybridizeMover works as basic sampling unit during overall iterative global ener
 Sergey Ovchinnikov, Hahnbeom Park, Neha Varghese, Po-Ssu Huang, Georgios A. Pavlopoulos, David E. Kim, Hetunandan Kamisetty, Nikos C. Kyrpides, David Baker. 
 Science 2017, 355:294-298.
 
-Protein homology model refinement by large scale energy optimization. 
-Hahnbeom Park, Sergey Ovchinnikov, David E Kim, Frank DiMaio, and David Baker. Submitted.
+[Protein homology model refinement by large scale energy optimization]
+(http://www.pnas.org/content/115/12/3054).
+Hahnbeom Park, Sergey Ovchinnikov, David E Kim, Frank DiMaio, and David Baker. 
+Proc Natl Acad Sci USA 2018. 
 
 ## Algorithm
 
@@ -46,6 +48,7 @@ Required to begin the first iteration. Command line using Rosetta public app:
     $ROSETTA/main/source/bin/iterhybrid_selector.linuxgccrelease \
     -in:file:silent $1 -in:file:template_pdb $2 -cm:similarity_cut $3 \
     -out:file:silent picked.out -out:nstruct $4 \
+    -out:prefix iter0 \
     -silent_read_through_errors -in:file:silent_struct_type binary -out:file:silent_struct_type binary -mute core basic \
 
     (optional.1 for rescoring) -score:weights ref2015_cart -cst_fa_file fa.cst -set_weights atom_pair_constraint 1.0
@@ -58,6 +61,7 @@ Required to begin the first iteration. Command line using Rosetta public app:
 * $3: minimum mutual distance for selected structures, range from 0(identical) to 1(completely different), where formula is 1 - Sscore; Sscore is metric inverse to RMSD and has very similar scale to TM-score
 * $4: number of structures to select
 * $5, optional: estimated Similarity-To-ReferenceStructure in GDT-HA scale, puts penalty if any structure gets dissimilar to reference structure than this value
+* IMPORTANT: "-out:prefix iter0" is necessary to reformat input silent readable by IterationMaster.py. Please check if you included this option correctly if you get failure message "ERROR: pdbs not extracted correctly!".
 
 ### Generating adaptive restraints from a pool of structures
 
@@ -138,9 +142,10 @@ Alternately, structure averaging on full trajectory can be performed:
 
     $ROSETTA/main/source/bin/avrg_silent.linuxgccrelease -database $ROSETTADB \
     -in:file:template_pdb iter_[niter]/model1.pdb -out:prefix avrg \
+    -cm:similarity_cut 0.5 \
     -in:file:silent gen.total.out -silent_read_through_errors > avrg.log
 
-"avrg.relaxed.pdb" generated after this command is structure-averaged + regularized model. 
+"avrg.relaxed.pdb" generated after this command is structure-averaged + regularized model. -cm:similarity_cut takes the same structural distance metric described for iterhybrid_selector app; smaller the close structures are, and roughly 0.2 is family-level similarity, 0.6 is fold-level similarity.
 
 See [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 

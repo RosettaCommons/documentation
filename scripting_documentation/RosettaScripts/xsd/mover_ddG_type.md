@@ -11,7 +11,8 @@ This mover is useful for reporting the total or per-residue ddgs in cases where 
         task_operations="(&task_operation_comma_separated_list;)"
         repack_bound="(true &bool;)" relax_bound="(false &bool;)"
         translate_by="(1000 &real;)" relax_mover="(&string;)"
-        filter="(&string;)" chain_num="(&string;)" chain_name="(&string;)" />
+        filter="(&string;)" chain_num="(&string;)" chain_name="(&string;)"
+        solvate="(false &bool;)" />
 ```
 
 -   **scorefxn**: Name of score function to use
@@ -26,5 +27,6 @@ This mover is useful for reporting the total or per-residue ddgs in cases where 
 -   **filter**: XSD XRW TO DO
 -   **chain_num**: XSD XRW TO DO
 -   **chain_name**: XSD XRW TO DO
+-   **solvate**: Solvate both bound and unbound pose (using WaterBox mover)
 
 ---

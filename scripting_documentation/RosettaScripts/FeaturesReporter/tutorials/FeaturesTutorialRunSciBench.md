@@ -54,7 +54,7 @@ Selecting Feature Reporters
 
 Use the ReportToDB mover with the Rosetta XML scripting to specify which features should be extracted to the features database. (Note: The TrajectoryReportToDB mover can also be used in Rosetta scripts or C++ to report features in trajectory form multiple times to DB for a single output).
 
-Each FeaturesReporter is responsible for extracting a certain type of features to the features database. Select a set [[FeaturesReporters|FeaturesDatabaseSchema]] and then include them as subtags to the ReportToDB mover tag in the *rosetta\_scripts* XML.  See [[this page | Movers-RosettaScripts#ReportToDB]] for more information on the mover beyond what is covered here. 
+Each FeaturesReporter is responsible for extracting a certain type of features to the features database. Select a set [[FeaturesReporters|FeaturesDatabaseSchema]] and then include them as subtags to the ReportToDB mover tag in the *rosetta\_scripts* XML.  See [[this page | Movers-RosettaScripts#ReportToDB]] for more information on the mover beyond what is covered here. The [[SimpleMetricFeatures]] allows the use of ANY [[Simple Metric |SimpleMetrics]] to be output in a features database.
 
 
 ```xml

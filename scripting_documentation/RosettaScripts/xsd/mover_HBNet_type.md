@@ -10,6 +10,7 @@ HBNet is a method to explicitly detect and design hydrogen bond networks within 
         onebody_hb_threshold="(-0.4 &real;)"
         charge_charge_rep_cutoff="(1.0 &real;)" clash_threshold="(1.0 &real;)"
         upper_score_limit="(15.0 &real;)" find_native_networks="(false &bool;)"
+        store_network_scores_in_pose="(false &bool;)"
         output_poly_ala_background="(false &bool;)"
         find_only_native_networks="(false &bool;)"
         keep_existing_networks="(false &bool;)"
@@ -52,6 +53,7 @@ HBNet is a method to explicitly detect and design hydrogen bond networks within 
 -   **clash_threshold**: fa_rep energy above which two rotamers are considered clashing; used in all HBNet clash checks
 -   **upper_score_limit**: upper score limit for network against background pose to weed out anything terrible
 -   **find_native_networks**: Will find and report native networks in input pose but will also do design; for keep_existing_networks=true or extend_existing_networks=true, in addition to starting from "HBNet" PDBInfoLabel tags, HBnet will find all native networks in your input pose that meet your criteria (specified by options).
+-   **store_network_scores_in_pose**: Will store internal evaluation metrics in the pose so they will be included in score.sc filesand accessible via ReadPoseExtraScoreFilter.
 -   **output_poly_ala_background**: for returned poses, rather than place network onto input pose, place into poly-ALA background;  where all positions that are designable or packable (according to user-defined task operations) are poly-alanine
 -   **find_only_native_networks**: HBnet will find only find native networks in your input pose that meet your criteria (specified by options) and return a single pose with csts for those networks. If this option is true, all options below are overridden and HBNet does not search for new networks
 -   **keep_existing_networks**: In addition to design, Keeps existing networks from the input pose for each pose returned by HBNet, and turn on csts for all; existing networks are identified by default by "HBNet" PDBInfoLabel tags in the input pose, but can also be detected anew by setting find_native_networks=1. If keep_existing_networks=true and extend_existing_networks=false, then HBNet internally turns off design at input network positions (prevent_repacking); new networks are searched for and designed at the other positions based on your task_ops. If keep_existing_networks=true and extend_existing_networks=true, then HBNet internally puts only the input rotamer of each network residue into the IG to try to extend; an extended network will replace its native network if it is better (otherwise native networks retained).

@@ -7,9 +7,10 @@
 
 ---------------------------------
 * [[Movers|Movers-RosettaScripts]]
-* [[Filters|Filters-RosettaScripts]]
-* [[TaskOperations|TaskOperations-RosettaScripts]]
 * [[ResidueSelectors]]
+* [[TaskOperations|TaskOperations-RosettaScripts]]
+* [[SimpleMetrics]]
+* [[Filters|Filters-RosettaScripts]]
 
 ---------------------------------
 
@@ -30,8 +31,6 @@
 
 * [[Overview|PyRosetta]]
 * [[Full PyRosetta website|http://www.pyrosetta.org]]
-* [[PyRosetta Toolkit GUI]]
-* [[PyRosetta Toolkit GUI API | PyRosetta Toolkit]]
 
 ##See Also
 

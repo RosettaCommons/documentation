@@ -1,4 +1,4 @@
-#SEWING Dictionary
+#Legacy SEWING Dictionary
 * **AssemblyScore**: The score function used when generating and filtering SEWING assemblies. Calculated as ClashScore + 10*InterModelMotifScore + InterfaceMotifScore (0 for monomer) + MotifScore
 
 * **ClashScore**

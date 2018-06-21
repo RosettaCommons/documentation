@@ -38,6 +38,8 @@ Common PDB Input File Flags
 -in:file:centroid_input         Enable centroid inputs of PDBs.  default = 'false' [Boolean]
 -in:auto_setup_metals           Enable automatic setup of covalent bonds to metal ions and appropriate
                                 constraints on PDB import.
+-in:read_only_ATOM_entries      Read only the ATOM entries from the PDB.  Skip all others.  
+                                Works for PDB and mmCIF, not silent files. 
 ```
 
 Small Molecule Options

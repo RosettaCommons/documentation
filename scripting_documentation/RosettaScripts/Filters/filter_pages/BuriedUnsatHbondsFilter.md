@@ -2,7 +2,7 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## BuriedUnsatHbonds
 
-Maximum number of buried unsatisfied polar atoms allowed. This filter was significantly updated Dec 18, 2017: users can choose different reporting behaviors, and the default is to return the number of buried heavy-atom donors/acceptors that do not participate in any h-bonds.  The old behavior was to count all unsats as equal, and to use a ddG-style calculation (subtract \#unsat unbound from \#unsat bound); these options are still available but no longer the default.  The filter now by default uses a more generous definition of h-bonds (previously, many legit h-bonds were excluded because of sfxn exceptions); users can now choose between legacy SASA and VSASA for burial (Andrew's VSASA varsoldist is default); poses with more than 3 chains are now supported; the Filter is now Symmetry compatible, and users can pass sym_dof_names as in Jacob Bale's SymUnsatHbonds filter.  The old filter behavior can be restored by setting use_legacy_options="true", but this is only recommended for benchmarking purposes
+Maximum number of buried unsatisfied polar atoms allowed. This filter was significantly updated Dec 18, 2017: users can choose different reporting behaviors, and the default is to return the number of buried heavy-atom donors/acceptors that do not participate in any h-bonds.  The old behavior was to count all unsats as equal, and to use a ddG-style calculation (subtract \#unsat unbound from \#unsat bound); these options are still available but no longer the default.  The filter now by default uses a more generous definition of h-bonds (previously, many legit h-bonds were excluded because of sfxn exceptions); users can now choose between legacy SASA and VSASA for burial (Andrew's VSASA varsoldist is default); poses with more than 3 chains are now supported; the Filter is now Symmetry compatible, and users can pass sym_dof_names as in Jacob Bale's [[SymUnsatHbondsFilter]] .  The old filter behavior can be restored by setting use_legacy_options="true", but this is only recommended for benchmarking purposes
 
 ### Restoring the old filter's behavior: 
 If `use_legacy_options="true"` then the filter works exactly like before and expects the same options, behaving as follows:
@@ -27,7 +27,7 @@ All info about all unsat types is reported to log, and can be printed to pdb fil
 ```
 
 ### Symmetry
-The filter is now Symmetry aware.  The default for Symmetric case is that symmetry is auto-detected and will only count totals for the ASU.  If `use_ddG_style="true"` it's expected that users define `sym_dof_names`, and if `sym_dof_names="true"`, ddG-style is used by default; this behaves the same way as Jacob Bale's SymUnsatHbonds filter for multicomponent symmetry; if `use_ddG_style="true"` and `sym_dof_names` not defined, then will search at symmetric interface residue (`only_interface="true"`).  Search space can also be defined by residue_selector.
+The filter is now Symmetry aware.  The default for Symmetric case is that symmetry is auto-detected and will only count totals for the ASU.  If `use_ddG_style="true"` it's expected that users define `sym_dof_names`, and if `sym_dof_names="true"`, ddG-style is used by default; this behaves the same way as Jacob Bale's [[SymUnsatHbondsFilter]] for multicomponent symmetry; if `use_ddG_style="true"` and `sym_dof_names` not defined, then will search at symmetric interface residue (`only_interface="true"`).  Search space can also be defined by residue_selector.
 
 ### All options
 -   use_legacy_options: revert to legacy options (equivalent to old, original BuriedUnsat Filter; WARNING! If this is true, will overwrite all other options; default is false.
@@ -52,7 +52,7 @@ The filter is now Symmetry aware.  The default for Symmetric case is that symmet
 -   report_nonheavy_unsats: report non heavy atom unsats (Hpol).
 -   use_hbnet_behavior: no heavy unstas allowed (will return 9999); if no heavy unstas, will count Hpol unsats; FALSE by default; if set to true, will NOT use reporter behavior.
 -   sym_dof_names: For multicomponent symmetry: what jump(s) used for ddG-like separation. (From Dr. Bale: For multicomponent systems, one can simply pass the names of the sym_dofs that control the master jumps. For one component systems, jump can still be used.)  IF YOU DEFINE THIS OPTION, it will use ddG-style separation for the calculation.
--   residue_selector: residue selector that tells the filter to restrict the Unsat search to only those residues.
+-   [[residue_selector|ResidueSelectors]]: residue selector that tells the filter to restrict the Unsat search to only those residues.
 -   task_operations: define residues to look at by task operations (legacy behavior of old filter); now recommended to use residue_selector instead.
 
 # See Also:
@@ -61,3 +61,4 @@ The filter is now Symmetry aware.  The default for Symmetric case is that symmet
 * [[HbondsToAtomFilter]]
 * [[SymUnsatHbondsFilter]]
 * [[BuriedUnsatHbonds2Filter]]
+* [[ResidueSelectors]]

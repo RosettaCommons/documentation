@@ -10,6 +10,7 @@ We also document individual FeatureReporters and R scripts useful for post-proce
 
 -	[[How to run FeatureReporters| FeaturesTutorials]]
 -	[[List of Implemented FeatureReporters | FeatureReporters]]
+- [[SimpleMetricFeatures]]: Run an arbitrary set of SimpleMetrics as Features.
 
 <!--- BEGIN_INTERNAL -->
 -       [[Writing new FeatureReporters | FeaturesExtracting]]

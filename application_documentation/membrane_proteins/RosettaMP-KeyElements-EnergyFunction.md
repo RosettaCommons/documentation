@@ -66,6 +66,11 @@ Score Name: fa_mpsolv. Score a pair of residues given their depth in the membran
 #### Membrane environment
 Score Name: fa_mpenv. Score a single residue given its depth in the membrane bilayer 
 
+### Score Options
+|**Option Name**|**Description**|**Type**|
+|---|---|---|
+|mp:scoring:hbond|Hydrogen bonding energy correction for membrane proteins. Default = false.|boolean|
+
 
 ## References
 

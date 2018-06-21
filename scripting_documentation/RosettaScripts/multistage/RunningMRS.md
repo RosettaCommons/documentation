@@ -65,6 +65,9 @@ mkdir archives
 mpirun -n 200 multistage_rosetta_scripts.mpiserialization.linuxgccrelease -job_definition_file job_def.xml -n_archive_nodes 1 -archive_on_disk archives @other_flags
 rm -rf archives
 ```
+You may not want to delete the archives immediately.
+They can be useful for the [[time machine feature|TimeMachineExample]]
+and for loading from checkpoints (whenever that feature is implemented).
 
 ###Archiving in memory
 

@@ -50,15 +50,15 @@ Internally, apply performs the insertion, idealizes the loop residues (omegas to
 It is intended, but not guaranteed, to produce a graft with good rama, omega, and chainbreak/peptide_bond scores. All-atom minimization of graft or pose after insertion is recommended.
 
 ##XML Script
-     <CCDEndsGraftMover name="(&string)" spm_reference_name="(&string)" start_pdb_num (&string) end_pdb_num="(&string)" nter_overhang="(&size, 0)" cter_overhang="(&size, 0)" stop_at_closure="(&bool, true)", copy_pdbinfo="(&bool, false)"/>
+     <CCDEndsGraftMover name="(&string)" spm_reference_name="(&string)" start_ (&string) end_="(&string)" nter_overhang="(&size, 0)" cter_overhang="(&size, 0)" stop_at_closure="(&bool, true)", copy_pdbinfo="(&bool, false)"/>
 
 ###Required XML Options 
 
 **Combine with [[SavePoseMover]] for insertions**
 
 -   spm_reference_name (&string): The name of the reference pose we are inserting.  See [[SavePoseMover]] for more info.
--   start\_pdb\_num: PDB Number to start keep region from (including it). Ex: 24L.  Use start\_res\_num instead for internal numbering 
--   end\_pdb\_num: PDB Number to end keep region at (including it); Ex: 42L. Use end\_res\_num instead for internal numbering
+-   start_: PDB Number to start keep region from (including it). Ex: 24L or internal Rosetta numbering
+-   end_: PDB Number to end keep region at (including it); Ex: 42L or internal Rosetta numbering
 
 ###Flexibility Options
 
@@ -120,12 +120,12 @@ We are then left with a new antibody that has CDRs from a different antibody.  N
 			<Add mover="save_current" />
 			<Add mover="restore_ab" />
 		</ParsedProtocol>
-		<KeepRegionMover name="k_L1" start_pdb_num="24L" end_pdb_num="42L" nter_overhang="2" cter_overhang="2"/>
-		<KeepRegionMover name="k_L2" start_pdb_num="57L" end_pdb_num="72L" nter_overhang="2" cter_overhang="2"/>
-		<KeepRegionMover name="k_L3" start_pdb_num="107L" end_pdb_num="138L" nter_overhang="2" cter_overhang="2"/>
-		<CCDEndsGraftMover name="graft_L1" start_pdb_num="23L" end_pdb_num="43L" spm_reference_name="CDR" copy_pdbinfo="1"/>
-		<CCDEndsGraftMover name="graft_L2" start_pdb_num="56L" end_pdb_num="73L" spm_reference_name="CDR" copy_pdbinfo="1"/>
-		<CCDEndsGraftMover name="graft_L3" start_pdb_num="106L" end_pdb_num="139L" spm_reference_name="CDR" copy_pdbinfo="1"/>
+		<KeepRegionMover name="k_L1" start_="24L" end_="42L" nter_overhang="2" cter_overhang="2"/>
+		<KeepRegionMover name="k_L2" start_="57L" end_="72L" nter_overhang="2" cter_overhang="2"/>
+		<KeepRegionMover name="k_L3" start_="107L" end_="138L" nter_overhang="2" cter_overhang="2"/>
+		<CCDEndsGraftMover name="graft_L1" start_="23L" end_="43L" spm_reference_name="CDR" copy_pdbinfo="1"/>
+		<CCDEndsGraftMover name="graft_L2" start_="56L" end_="73L" spm_reference_name="CDR" copy_pdbinfo="1"/>
+		<CCDEndsGraftMover name="graft_L3" start_="106L" end_="139L" spm_reference_name="CDR" copy_pdbinfo="1"/>
 	</MOVERS>
 	<PROTOCOLS>
 		<Add mover_name="save_current" />

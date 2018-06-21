@@ -8,17 +8,17 @@
 
 Traditional Rosetta Scripts does not have a built-in interface
 that allows the user to filter trajectories based on their global ranking.
-Traditional Rosetta Scripts relies on predetermined filtration cutoffs.
-It is often difficult to predict the correct cutoff to use without first
-running the script, so these filter cutoffs tend to be conservative in practice.
+It instead relies on predetermined filtration cutoffs.
+Predicting the correct cutoff to use without first running the script can be difficult,
+so these filter cutoffs tend to be conservative in practice.
 Multistage Rosetta Scripts (M.R.S.) allows you to filter after each "stage"
 based on a trajectory's global rank using the metric of your choice.
 
 Instead of running each rosetta script trajectory in isolation,
 M.R.S. breaks the trajectory up into stages as shown below.
-Rosetta runs each stage for all of the trajectories and
-filters out some trajectories based on their global rank
-before moving on to the next stage.
+Each stage is run to completion for all trajectories before the next stage is started.
+This gives Rosetta the ability to sort the results by a user-defined score
+and filter based on global position.
 
 ![MRS Movie](https://www.rosettacommons.org/docs/wiki/images/multistage_rosetta_scripts/MRSMovieFast.gif)
 
@@ -39,12 +39,12 @@ before moving on to the next stage.
 [[Checkpointing|MRSCheckpointing]]
 
 ##Examples
-[[Batch Relax|BatchRelaxExample]]:
-Save time by splitting FastRelax up into several stages.
-
 [[PDBList Example|PDBListExample]]:
 How to submit structures using a pdblist instead of
 having a bunch of seperate `<Job>` tags.
+
+[[Batch Relax|BatchRelaxExample]]:
+Save time by splitting FastRelax up into several stages.
 
 [[DataMap Overloading|OverloadExample]]:
 How to declare a default object in `<Common>` and

@@ -24,6 +24,14 @@ Rosetta/main/source/bin/helix_from_sequence.macosclangrelease \
 -mp:setup:transform_into_membrane 1 \      # optional boolean: transforms helix into membrane
 ```
 
+## Flags / Options
+
+|**Flag**|**Description**|
+|:-------|:--------------|
+|`-mp::transform::optimize_embedding <bool>` | Use the scorefunction to optimize the embedding after an initial coarse grained setting. |
+|`-mp::setup::transform_into_membrane <bool>` | Add this option to transform helix into fixed membrane.|
+
+
 ## Reference
 This protocol is currently not published yet. The framework and previous protocol was published in:
 

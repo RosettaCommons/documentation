@@ -10,7 +10,8 @@ This is a special mover that allows making a single compound mover and filter ve
         filter_name="(true_filter &string;)" filter="(true_filter &string;)"
         apply_probability="(&real;)" resume_support="(false &bool;)" >
     <Add mover_name="(&string;)" mover="(&string;)" filter_name="(&string;)"
-            filter="(&string;)" report_at_end="(true &bool;)" />
+            filter="(&string;)" apply_probability="(&real;)"
+            report_at_end="(true &bool;)" />
     <Filter Tag ... />
     <Mover Tag ... />
 </ParsedProtocol>
@@ -29,6 +30,7 @@ Subtag **Add**:   Elements that add a particular mover-filter pair to a ParsedPr
 -   **mover**: The mover whose execution is desired
 -   **filter_name**: The filter whose execution is desired
 -   **filter**: The filter whose execution is desired
+-   **apply_probability**: by default equal probability for all tags
 -   **report_at_end**: Report filter value via filter re-evaluation on final pose after conclusion of protocol. Otherwise report filter value as evaluated mid-protocol.
 
 "Filter Tag": Any of the [[RosettaScripts Filters|Filters-RosettaScripts]] tags
