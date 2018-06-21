@@ -12,7 +12,7 @@ Code and Demo
 
 -   Application source code: `        source/src/apps/public/flexpep_docking/FlexPepDocking.cc       `
 -   Main mover source code: `        source/src/protocols/flexpep_docking/FlexPepDockingProtocol.cc       `
--   For a demonstration of a basic run of the refinement protocol and of a run with an alternative anchor with low-resolution optimization, see integration folder ( `        tests/integration/tests/flexpepdock/       ` ) and demo folder ( `        rosetta/rosetta_demos/FlexPepDock_Refinement       ` ).
+-   For a demonstration of a basic run of the refinement protocol and of a run with an alternative anchor with low-resolution optimization, see integration folder ( `        tests/integration/tests/flexpepdock/       ` ).
 -   For a demonstration of a basic run of the ab-initio protocol see the protocol capture folder `        demos/protocol_capture/FlexPepDock_AbInitio       ` . The README file contains all the information that is needed in order to make a new run on a query peptide-protein interaction.
 
 References
