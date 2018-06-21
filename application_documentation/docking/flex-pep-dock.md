@@ -170,7 +170,7 @@ Examples
     3.  Open the output score file of both runs (score.sc by default), sort it by model score (second column), and choose the top-scoring models as candidate models.
 
 -   **Running the FlexPepDock *ab-initio* protocol:**
-     Running the *ab-initio* protocol is a bit more complicated, since fragment files for the peptide need to be generated in advance, and their residue indices need to be offsetted to account for the receptor residues (as fragment files assume continuous indexing of residues between chains). Fortunately, the protocol capture folder `        protocol_capture/FlexPepDock_AbInitio/README       ` contains all information on how to automate this process. For manual runs, the following is needed:
+     Running the *ab-initio* protocol is a bit more complicated, since fragment files for the peptide need to be generated in advance, and their residue indices need to be offsetted to account for the receptor residues (as fragment files assume continuous indexing of residues between chains). Fortunately, the protocol capture folder `        rosetta/demos/protocol_capture/flex_pep_dock_abinitio/README       ` contains all information on how to automate this process. For manual runs, the following is needed:
     1.  Create your initial complex structure (see [Input files](#Input-Files) section for more information).
     2.  Pre-pack your initial complex as in FlexPepDock Refinement
     3.  Prepare 3-mer, 5-mer and 9-mer fragment files for the peptide using the fragment picker, as in any other Rosetta application (fragment libraries are not required for the receptor).
