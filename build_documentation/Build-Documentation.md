@@ -74,8 +74,13 @@ You will need to pass a 'my' after 'bin' for the build machinery to use this fil
 
 ##### CMake
 From what I understand, Cmake should automatically detect your my file and use it. 
+
 <!--- END_INTERNAL -->
+
 ###Build Rosetta using the Rosetta Xcode Project (Mac)
+
+> If you update Xcode, make sure to re-install the commandline-tools:  
+> ```xcode-select --install```
 
 The Rosetta Xcode project is compatible with Xcode versions 2.4 and later. You can use it to build, run, debug, browse, and edit the source code. There are four build targets to select from:
 
