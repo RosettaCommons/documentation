@@ -26,7 +26,7 @@ Example
       <OperateOnResidueSubset name=NoPackHelix>
           <SecondaryStructure ss="H" />
           <PreventRepackingRLT/>
-      </OperateOnResidueSubset/>
+      </OperateOnResidueSubset>
     </TASKOPERATIONS>
     ...
     <MOVERS>
