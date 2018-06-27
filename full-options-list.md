@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-06-20
+Generated: 2018-06-27
 
 _Note that some application specific options may not be present in this list._
 
@@ -1253,6 +1253,8 @@ _Note that some application specific options may not be present in this list._
 <dl>
 <dt><b>-rna</b> \<Boolean\></dt>
 <dd>rna option group<br/></dd>
+<dt><b>-rna_base_pair_xy_filename</b> \<String\></dt>
+<dd>File name where the RNA pase pair XY potential is defined<br/>Default: "scoring/rna/rna_base_pair_xy.dat"<br/></dd>
 <dt><b>-disable_orientation_dependent_rna_ch_o_bonds</b> \<Boolean\></dt>
 <dd>Do not use orientation-dependent potential for RNA carbon hydrogen bonds<br/>Default: false<br/></dd>
 <dt><b>-rna_suite_potential</b> \<String\></dt>
