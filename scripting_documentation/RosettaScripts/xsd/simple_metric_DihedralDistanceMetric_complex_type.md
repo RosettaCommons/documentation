@@ -11,11 +11,14 @@ Calculate DihedralDistance metric.
    North B, Lehmann A, Dunbrack RL. A new clustering of antibody CDR loop conformations. J Mol Biol 2011;406:228-256.
 
 ```xml
-<DihedralDistanceMetric name="(&string;)" include_omega="(false &bool;)"
-        use_native="(false &bool;)" reference_name="(&string;)"
-        residue_selector="(&string;)" residue_selector_ref="(&string;)" />
+<DihedralDistanceMetric name="(&string;)" custom_type="(&string;)"
+        include_omega="(false &bool;)" use_native="(false &bool;)"
+        reference_name="(&string;)" residue_selector="(&string;)"
+        residue_selector_ref="(&string;)" />
 ```
 
+-   **custom_type**: Additional setting to prefix/suffix so that many different configured SMs can be called in one RunSimpleMetric run
+  Output data name will be prefix+custom_type+type+suffix
 -   **include_omega**: Do we include protein omega in calculations?  Default false.
 -   **use_native**: Use the native if present on the cmd-line.
 -   **reference_name**: Name of reference pose to use

@@ -10,12 +10,14 @@ This is the RMSD between the input and the set comparison pose.
   Make sure that reference pose and set pose are the same length .   We match all corresponding atoms for each residue to match.   By default we do not fail and are robust - only matching what we can for each residue.
 
 ```xml
-<RMSDMetric name="(&string;)" reference_name="(&string;)"
-        residue_selector="(&string;)" residue_selector_ref="(&string;)"
-        robust="(true &bool;)" use_native="(false &bool;)"
-        rmsd_type="(&rmsd_types;)" />
+<RMSDMetric name="(&string;)" custom_type="(&string;)"
+        reference_name="(&string;)" residue_selector="(&string;)"
+        residue_selector_ref="(&string;)" robust="(true &bool;)"
+        use_native="(false &bool;)" rmsd_type="(&rmsd_types;)" />
 ```
 
+-   **custom_type**: Additional setting to prefix/suffix so that many different configured SMs can be called in one RunSimpleMetric run
+  Output data name will be prefix+custom_type+type+suffix
 -   **reference_name**: Name of reference pose to use
 -   **residue_selector**: Calculate the RMSD for these residues for both reference and main pose.
 -   **residue_selector_ref**: Selector for the reference pose (input native or passed reference pose. ).  Residues selected must be same number of residues selected for the main selector.
