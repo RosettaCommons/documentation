@@ -15,7 +15,7 @@ Run a SimpleMetric (Real) as a filter.  Set the cutoff and comparison_type to co
 ```
 
 -   **epsilon**: Epsilon for numerical comparisons
--   **metric**: The metric to run in this filter.  Currently must be a RealMetric. IE it calculates one float value.
+-   **metric**: The metric to run in this filter.
 -   **comparison_type**: The comparison type.  IE not equal, equal, etc.  IF value [comparison_type] cutoff_ or match_ we return TRUE.  Example (RMSDMetric) cutoff=4.0, comparison_type=lt.  We return true if the RMSD is less than 4.0. Required. Choieces are: 
 [eq, gt, gt_or_eq, lt, lt_or_eq, ne]
 -   **composite_action**: If you have a composite metric this can be `any`, `all` or a specific composite value type.
