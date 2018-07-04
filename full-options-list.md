@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-06-27
+Generated: 2018-07-04
 
 _Note that some application specific options may not be present in this list._
 
@@ -3963,6 +3963,18 @@ _Note that some application specific options may not be present in this list._
 <dd>weight for residue - ligand interactions<br/>Default: 1.0<br/></dd>
 <dt><b>-output_prefix</b> \<String\></dt>
 <dd>prefix for output files<br/>Default: ""<br/></dd>
+<dt><b>-walking_perturber_magnitude</b> \<Real\></dt>
+<dd>Degree parameter for coupled moves kic walking perturber.<br/>Default: 2.0<br/></dd>
+<dt><b>-kic_loop_size</b> \<Real\></dt>
+<dd>Can be constant or random. CONSTANT - If you set loop_size to a positive whole number, the loop moved by coupled_moves::backbone_mover will be 1+2*loop_size. In other words, the loop is defined by first selecting resnum, then defining loopstart=resnum-loop_size and loopend=resnum+loop_size. RANDOM - If you set loop_size to 0, in each trial, loop_size will be random_range( 3, 7 ). [ NOTE: This option is for coupled_moves::backbone_mover=kic only. Backrub segment length is hardcoded in ShortBackrubMover as 3-residue (or 4-residue if it hits a Proline) ].<br/>Default: 4<br/></dd>
+<dt><b>-kic_perturber</b> \<String\></dt>
+<dd>Which perturber to use during kinematic closure (KIC). Current options are walking (default) or fragment. Walking perturber adjusts torsions by degrees, the magnitude of which can be set by -walking_perturber_magnitude. If you specify walking you MAY also specify -walking_perturber_magnitude. If you specify fragment you MUST also specify -loops::frag_files and -loops::frag_sizes.<br/>Default: "walking"<br/></dd>
+<dt><b>-backbone_mover</b> \<String\></dt>
+<dd>Which backbone mover to use. Current options are backrub (default) or kic. Backrub does not require additional flags, and uses ShortBackrubMover which is hardcoded for 3-residue segments (or 4-residue if it hits a Proline). Kic optionally takes extra flag -kic_perturber.<br/>Default: "backrub"<br/></dd>
+<dt><b>-repack_neighborhood</b> \<Boolean\></dt>
+<dd>After the backbone move and rotamer move, repack sidechains within 5A of the design residue. Default false for legacy behavior.<br/>Default: false<br/></dd>
+<dt><b>-legacy_task</b> \<Boolean\></dt>
+<dd>Default true for legacy behavior (Ollikainen 2015). True = use Clash Based Shell Selector to define repack residues around design residues from resfile, and perform Coupled Moves on these repack/design residues. False = Perform Coupled Moves on design/repack residues as defined in resfile. <br/>Default: true<br/></dd>
 </dl>
 + <h2>-cp</h2>
 <dl>

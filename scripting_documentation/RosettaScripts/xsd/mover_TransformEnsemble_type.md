@@ -11,7 +11,8 @@ Performs a monte carlo search of the ligand ensemble binding site using precompu
         box_size="(&real;)" angle="(&real;)" temperature="(&real;)"
         cycles="(&non_negative_integer;)" repeats="(1 &non_negative_integer;)"
         optimize_until_score_is_negative="(false &bool;)"
-        optimize_until_ideal="(false &bool;)" use_conformers="(true &bool;)"
+        use_main_model="(false &bool;)" use_conformers="(true &bool;)"
+        ensemble_proteins="(&string;)"
         initial_perturb="(0.0 &non_negative_real;)"
         grid_set="(default &string;)" />
 ```
@@ -25,8 +26,9 @@ Performs a monte carlo search of the ligand ensemble binding site using precompu
 -   **cycles**: (REQUIRED) Total number of steps to be performed in the monte carlo simulation.
 -   **repeats**: Total number of repeats of the monte carlo simulation to be performed.
 -   **optimize_until_score_is_negative**: Continue sampling beyond "cycles" if score is positive
--   **optimize_until_ideal**: Continue sampling beyond "cycles" if score not close to minimum - all atoms has -1 score
+-   **use_main_model**: Use the primary input protein model regardless of scores
 -   **use_conformers**: Use ligand conformations while sampling
+-   **ensemble_proteins**: File to read protein ensemble options from
 -   **initial_perturb**: Make an initial, unscored translation and rotation Translation will be selected uniformly in a sphere of the given radius (Angstrom).Automatically triggers 360 degrees randomized rotation
 -   **grid_set**: The Scoring Grid set to use with TransformEnsemble scoring
 
