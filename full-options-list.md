@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-07-04
+Generated: 2018-07-05
 
 _Note that some application specific options may not be present in this list._
 
@@ -79,7 +79,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-name3_property_codes</b> \<StringVector\></dt>
 <dd>File that describes name3-property correspondence to fix up atom assignments<br/>Default: utility::vector1<std::string>(1,"code_properties.codes")<br/></dd>
 <dt><b>-alternate_3_letter_codes</b> \<StringVector\></dt>
-<dd>Specify the filename(s) of (a) *.codes files that includes a list of alternative 3-letter codes.  The default directory is database/input_output/3-letter_codes/ but any path can be provided.  Duplicate codes in successive files will overwrite previous ones.<br/></dd>
+<dd>Specify the filename(s) of (a) *.codes files that includes a list of alternative 3-letter codes.  The default directory is database/input_output/3-letter_codes/ but any path can be provided.  Duplicate codes in successive files will overwrite previous ones.<br/>Default: utility::vector1<std::string>(1,"default.codes")<br/></dd>
 <dt><b>-maintain_links</b> \<Boolean\></dt>
 <dd>Maintains link records in the PDB when using auto_detect_glycans<br/>Default: false<br/></dd>
 <dt><b>-fix_disulf</b> \<File\></dt>
