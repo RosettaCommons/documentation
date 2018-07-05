@@ -43,8 +43,8 @@ PDBs from the RCSB should be able to be read in by default.  However, in order t
              -max_bond_length < Real >
     * if automatic detection fails, all bond calculations and connections can be monitored with ```-out::level 999``` 
 
-### GLYCAN
-In order to load GLYCAN structures, one can pass the option ```-glycam_pdb_format``` in order to load in this type of file.
+### GLYCAM
+In order to load GLYCAM structures, one can pass the option ```-glycam_pdb_format``` in order to load in this type of file.
 
 ## Structure Output
 
