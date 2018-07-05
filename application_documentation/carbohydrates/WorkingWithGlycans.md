@@ -77,7 +77,11 @@ Jason, fill this out!!!
 
 Sampling
 ========
-To be filled in
+ - [[SmallMover]] - Make small changes to all of the torsion angles in a random glycosidic bond.
+ - [[ShearMover]] - Make a shearing motion, by making opposite small changes to a pair of near-parallel glycosidic torsions.
+ - [[RingConformationMover]] - Make a change to a cyclic residue's ring conformation. (Note that this is not normally an energetically favorable thing to do!)
+ - [[LinkageConformerMover]] - Make a change to all of the glycosidic torsion angles by using angles from a statistically favorable conformation.
+ - [[RingPlaneFlipMover]] - Make a 180-degree shearing move to a residue with opposite, equatorial linkages, effectively flipping over the plane of its ring.
 
 
 Applications
