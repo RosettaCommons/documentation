@@ -3,7 +3,8 @@
 ## Transform
 
 ```xml
-<Transform name="&string" chain="&string" box_size="&real" move_distance="&real" angle="&real" cycles="&int" repeats="&int" temperature="&real" initial_perturb="&real" initial_angle_pertub="&real" rmsd="&real" optimize_until_score_is_negative="&bool"/>
+<Transform name="&string" chain="&string" box_size="&real" move_distance="&real" angle="&real" cycles="&int" repeats="&int" temperature="&real" initial_perturb="&real" initial_angle_pertub="&real" rmsd="&real" optimize_until_score_is_negative="&bool" use_constraints="&bool" cst_fa_file="&string" cst_fa_weight="%real"
+ensemble_proteins="&string" use_main_model="&bool" />
 ```
 
 The Transform mover is designed to replace the Translate, Rotate, and SlideTogether movers, and typically exhibits faster convergence and better scientific performance than these movers. The Transform mover performs a monte carlo search of the ligand binding site using precomputed scoring grids. Currently, this mover only supports docking of a single ligand, and requires that [[Scoring Grids be specified and computed|RenderGridsToKinemageMover]].
@@ -19,6 +20,11 @@ The Transform mover is designed to replace the Translate, Rotate, and SlideToget
 -   initial_angle_perturb: Control the size of the rotational perturbation by intitial\_perturb. The axis will be chosen randomly, and the amount of rotation will be randomly chosen between zero and the given value (in degrees).
 -   rmsd: The maximum RMSD to be sampled away from the starting position. if this option is specified, any move above the specified RMSD will be rejected.
 -   optimize_until_negative: Continue sampling beyond "cycles" if score is positive.
+-   use_constraints: Incorporate constraint scoring into grid scoring. Requires a constraint file and weight
+-   cst_fa_file: File to read constraints from. Not kept beyond Transform mover
+-   cst_fa_weight: Weight for full atom constraints (Default = 1.0) Not kept beyond Transform mover
+-   ensemble_proteins: File listing additional PDB files to generate scoring grids with 
+-   use_main_model: Proceed to next mover using the model provided via in:file:s regardless of which is best scoring
 
 
 ##See Also
