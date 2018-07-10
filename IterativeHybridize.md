@@ -58,8 +58,8 @@ Required to begin the first iteration. Command line using Rosetta public app:
 
 * $1: list of silent files containing diverse models
 * $2: input "reference" structure (necessary; this is usually a template-based model and required to restrict search around it
-* $3: default 0.2, minimum mutual distance for selected structures, range from 0(identical) to 1(completely different), where formula is 1 - Sscore; Sscore is metric inverse to RMSD and has very similar scale to TM-score
-* $4: size of structural pool; recommendation is 30 or 50
+* $3: 0.2 is recommended; minimum mutual distance for selected structures ranging from 0(identical) to 1(completely different), where formula is 1 - Sscore; Sscore is metric inverse to RMSD and has very similar scale to TM-score
+* $4: 30 to 50 is recommended; size of structural pool
 * $5, optional: estimated Similarity-To-ReferenceStructure in GDT-HA scale, puts penalty if any structure gets dissimilar to reference structure than this value, default is 25.0
 
 * IMPORTANT: **"-out:prefix iter0"** is necessary to reformat input silent readable by IterationMaster.py. Please check if you included this option correctly if you get failure message "ERROR: pdbs not extracted correctly!".
