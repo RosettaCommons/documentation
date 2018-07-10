@@ -47,7 +47,7 @@ Required to begin the first iteration. Command line using Rosetta public app:
 
     $ROSETTA/main/source/bin/iterhybrid_selector.linuxgccrelease \
     -in:file:silent $1 -in:file:template_pdb $2 -cm:similarity_cut $3 \
-    -out:file:silent picked.out -out:nstruct $4 \
+    -out:file:silent ref.out -out:nstruct $4 \
     -out:prefix iter0 \
     -silent_read_through_errors -in:file:silent_struct_type binary -out:file:silent_struct_type binary -mute core basic \
 
