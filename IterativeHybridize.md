@@ -57,11 +57,13 @@ Required to begin the first iteration. Command line using Rosetta public app:
     (optional.4 for quota setup for each input silent, should match number of input silents) -cm:quota_per_silent 0.7 0.3 
 
 * $1: list of silent files containing diverse models
-* $2: input "reference" structure (necessary)
-* $3: minimum mutual distance for selected structures, range from 0(identical) to 1(completely different), where formula is 1 - Sscore; Sscore is metric inverse to RMSD and has very similar scale to TM-score
-* $4: number of structures to select
-* $5, optional: estimated Similarity-To-ReferenceStructure in GDT-HA scale, puts penalty if any structure gets dissimilar to reference structure than this value
-* IMPORTANT: "-out:prefix iter0" is necessary to reformat input silent readable by IterationMaster.py. Please check if you included this option correctly if you get failure message "ERROR: pdbs not extracted correctly!".
+* $2: input "reference" structure (necessary; this is usually a template-based model and required to restrict search around it
+* $3: default 0.2, minimum mutual distance for selected structures, range from 0(identical) to 1(completely different), where formula is 1 - Sscore; Sscore is metric inverse to RMSD and has very similar scale to TM-score
+* $4: size of structural pool; recommendation is 30 or 50
+* $5, optional: estimated Similarity-To-ReferenceStructure in GDT-HA scale, puts penalty if any structure gets dissimilar to reference structure than this value, default is 25.0
+
+* IMPORTANT: **"-out:prefix iter0"** is necessary to reformat input silent readable by IterationMaster.py. Please check if you included this option correctly if you get failure message "ERROR: pdbs not extracted correctly!".
+* NOTE: By adding "-constraint:dump_cst_set cen.pair.cst" the app generates a default restraints set for following iterative process, derived from converged regions in the structural pool, which is recommended for users not having own customized restraints file.
 
 ### Generating adaptive restraints from a pool of structures
 
