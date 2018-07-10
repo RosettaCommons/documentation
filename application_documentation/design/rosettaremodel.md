@@ -477,7 +477,7 @@ Remodel options
 ```
 
 ```
--remodel::no_design                                            skips all design steps. WARNING: will only output centroid level structures and dump all fragment tries (default: false)
+-remodel::design::no_design                                            skips all design steps. WARNING: will only output centroid level structures and dump all fragment tries (default: false)
 -remodel::silent                                               dumps all structures by silent-mode WARNING: will work only during no_design protocol (see -no_design) (default: false)
 -remodel::allow_rare_aro_chi                                   allow all aromatic rotamers, not issuing AroChi2 filter (default: false)
 -remodel::skip_partial                                         skip design stage that operate only on burial positions (default: false)
