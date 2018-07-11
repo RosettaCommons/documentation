@@ -9,7 +9,7 @@ Run a SimpleMetric (Real) as a filter.  Set the cutoff and comparison_type to co
 <SimpleMetricFilter name="(&string;)" epsilon="(.0001 &real;)"
         metric="(&string;)" comparison_type="(&comparison_types;)"
         composite_action="(&string;)" cutoff="(&real;)" match="(&string;)"
-        confidence="(1.0 &real;)" >
+        use_sum_for_per_residue_real="(&string;)" confidence="(1.0 &real;)" >
     <Simple Metric Tag ... />
 </SimpleMetricFilter>
 ```
@@ -18,9 +18,10 @@ Run a SimpleMetric (Real) as a filter.  Set the cutoff and comparison_type to co
 -   **metric**: The metric to run in this filter.
 -   **comparison_type**: The comparison type.  IE not equal, equal, etc.  IF value [comparison_type] cutoff_ or match_ we return TRUE.  Example (RMSDMetric) cutoff=4.0, comparison_type=lt.  We return true if the RMSD is less than 4.0. Required. Choieces are: 
 [eq, gt, gt_or_eq, lt, lt_or_eq, ne]
--   **composite_action**: If you have a composite metric this can be `any`, `all` or a specific composite value type.
+-   **composite_action**: If you have a composite metric or PerResidueMetric this can be `any`, `all` or a specific composite value type (Rosetta ResNum for per-residue metric.
 -   **cutoff**: Number to use to determine if filter passes or not for any RealMetric or CompositeRealMetric.  Set the comparison_type to indicate the behavior of this filter.
 -   **match**: String to match on to determine if filter passes or not for any StringMetric or CompositeStringMetric.  Set the comparison type to indicate the behavior of this filter.
+-   **use_sum_for_per_residue_real**: If you are using a PerResidueRealMetric, set this to use the SUM of the values to act as a RealMetric instead of acting as a composite metric.  Default False.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 

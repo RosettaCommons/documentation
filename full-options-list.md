@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-07-05
+Generated: 2018-07-11
 
 _Note that some application specific options may not be present in this list._
 
@@ -7897,6 +7897,12 @@ _Note that some application specific options may not be present in this list._
 <dd>Extra residues during minimize step<br/>Default: []<br/></dd>
 <dt><b>-extra_minimize_chi_res</b> \<ResidueChainVector\></dt>
 <dd>Extra side-chain chis to move during minimize step<br/>Default: []<br/></dd>
+<dt><b>-minimize_use_nblist</b> \<Boolean\></dt>
+<dd>Use neighbor list during minimization)<br/>Default: true<br/></dd>
+<dt><b>-minimize_nblist_auto_update</b> \<Boolean\></dt>
+<dd>Auto-update neighbor list during minimization)<br/>Default: true<br/></dd>
+<dt><b>-minimize_max_iter</b> \<Integer\></dt>
+<dd>Maximum number of iterations in minimizer<br/>Default: 2000<br/></dd>
 </dl>
 + <h3>-rna:erraser</h3>
 <dl>
