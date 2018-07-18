@@ -17,17 +17,22 @@ This documentation describes how to set up code in:
 
 Setup
 ======
-**Note: these setup instructions are for bash. If you're using a different shell, you will need to modify the commands accordingly (the $ROSETTA/tools/rna_tools/INSTALL file will also need to be modified).**  Include the following lines in your `.bashrc` (may be `.bash_profile` on some systems):
+*Note: these setup instructions are for bash. If you're using a different shell, you will need to modify the commands accordingly.*  
+
+**Step 1:** Add the following lines to your `.bashrc` (may be `.bash_profile` on some systems), replacing `YOUR_PATH_TO_ROSETTA` with your actual path to Rosetta (for example: `/home/src/rosetta/`):
 
 ```
-export ROSETTA='/home/yourhomedirectory/src/rosetta/'
-export PATH=$ROSETTA/tools/rna_tools/bin/:$PATH
-source $ROSETTA/tools/rna_tools/INSTALL
+export ROSETTA='YOUR_PATH_TO_ROSETTA'
+export RNA_TOOLS=$ROSETTA/tools/rna_tools/
+export PATH=$RNA_TOOLS/bin/:$PATH
+export PYTHONPATH=$PYTHONPATH:$RNA_TOOLS/bin/
 ```
 
-Instead of `/home/yourhomedirectory/`, use your actual path to Rosetta.
+**Step 2:** Type `source ~/.bashrc` (or if you edited `.bash_profile`, then instead type `source ~/.bash_profile`) to activate these paths & tools.  
 
-Then open a new terminal or type `source ~/.bashrc` to activate these paths & tools.
+**Step 3:** Type `python $RNA_TOOLS/sym_link.py`.  
+
+**Step 4:** Verify the setup by typing `rna_helix.py -h`. This should give the usage instructions for `rna_helix.py`.   
 
 Some useful tools
 ==================
