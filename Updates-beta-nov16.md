@@ -40,6 +40,17 @@ Enabling these intra-res energies should (hopefully) improve interoperability wi
 
 A modified potential for sp3 hbond acceptors has been implemented.  Rather than use an explicit torsional potential, it instead uses a "soft-max" potential between both "base atoms" (e.g. for serine, the angular term becomes soft-max(f_ang(CB-OG-Hdon),f_ang(HG-OG-Hdon) ).  This has been **enabled by default for water** since the previous potential was incorrect.  It is enabled for all sp3 acceptors in -beta_nov16.
 
+**Reference weight fitting**
+
+A new scheme for reference-weight fitting was used, where -- following fitting of all other terms -- we optimized the weighted sum of the following:
+* One-at-a-time sequence profile recovery (similar to beta_nov15)
+* One-at-a-time native-versus-design amino-acid distribution distance
+* All-at-once sequence recovery
+* All-at-once native-versus-design amino-acid distribution distance
+* Prediction of protherm DDGs (following [[https://www.ncbi.nlm.nih.gov/pubmed/21287615]])
+* Prediction of protease resistance of designs (from [[https://www.ncbi.nlm.nih.gov/pubmed/28706065]])
+For the latter two metrics, rank correlation between experiment and simulation was used as the target function.  Weights on each set were chosen so that no individual test worsened significantly (>1% recovery or >0.01 correlation) during fitting.
+
 **Other minor changes**
 
 * The trie_vs_trie code in fa_elec has been refactored, eliminating mutable vars in the energy method.
@@ -47,3 +58,5 @@ A modified potential for sp3 hbond acceptors has been implemented.  Rather than 
 * The envdep_new code checked in as part of beta_nov15 has been removed (it was not used in beta_nov15 nor here)
 * Small changes to rama_prepro param-file loading logic
 * Hahnbeom's hxl_tors (from beta nov15 patch) has been incorporated, replacing the hydroxyl torsion potential from cart_bonded.
+
+
