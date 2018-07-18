@@ -49,6 +49,7 @@ A new scheme for reference-weight fitting was used, where -- following fitting o
 * All-at-once native-versus-design amino-acid distribution distance
 * Prediction of protherm DDGs (following [[https://www.ncbi.nlm.nih.gov/pubmed/21287615]])
 * Prediction of protease resistance of designs (from [[https://www.ncbi.nlm.nih.gov/pubmed/28706065]])
+
 For the latter two metrics, rank correlation between experiment and simulation was used as the target function.  Weights on each set were chosen so that no individual test worsened significantly (>1% recovery or >0.01 correlation) during fitting.
 
 **Other minor changes**
