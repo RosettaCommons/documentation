@@ -1,7 +1,5 @@
 # SimpleMetrics
 *Back to main [[RosettaScripts|RosettaScripts]] page.*
-## SimpleMetrics
-
 
 SimpleMetrics are a new way to do analysis in Rosetta, and will eventually replace the Filter system and most filters.  They are declared in the new `<SIMPLE_METRICS>` block of RosettaScripts and are available in weekly releases after April 10th, 2018.  All data calculated by a SimpleMetric can be output to a score file with the metric name and any set prefix and/or suffix. These sets of SimpleMetrics can be also be run at different points in a protocol, such as before and after a particular mover or set of movers. See [[RunSimpleMetrics]] for more on the syntax of how to run them in in your protocol.  Filters were never meant to do analysis in the way they are being used currently.  The SimpleMetric framework aims to correct this. The SimpleMetrics on this page are broken into what kind of data they calculate.  
 
@@ -72,6 +70,21 @@ SimpleMetric  | Description | ResidueSelector Compatability?
 **[[SelectedResiduesPyMOLMetric]]** | Returns a PyMOL selection of a set of selected residues. | Yes - _Required_
 **[[SequenceMetric]]** | Returns the one or three-letter sequence of the pose or set of selected residues.  | Yes
 
+##PerResidueRealMetrics
+These metrics calculate a single real number (or integer) for every Residue selected by a residue selector.
+Default is to calculate on ALL residues.  Also outputs the SUM of the residues. 
+All accept ResidueSelectors.  Output can be in Rosetta or PDB Numbering.  
+
+SimpleMetric  | Description 
+------------ | -------------
+**[[PerResidueDensityFitMetric]]** | Calculate the Fit of a  model to the loaded density either by Correlation or a Zscore.
+**[[PerResidueEnergyMetric]]** | Calculate any energy term for each residue.  Total energy is default.  If a native or repose is given, can calculate the energy delta for each residue.
+**[[PerResidueRMSDMetric]]** | Calculate the RMSD for each residue between the input and either the native or a reference pose.
+**[[PerResidueSasaMetric]]** | Calculate the Solvent Accessible Surface Area (SASA) of each residue.
+
+
+##PerResidueStringMetrics
+These metrics output a single string for each residue of a residue selector. 
 
 ##CompositeRealMetrics
 
@@ -86,24 +99,7 @@ SimpleMetric  | Description | ResidueSelector Compatability?
 
 These metrics calculate a set of named strings. All metric values in the composite are output and available for filtering. 
 
-##PerResidueRealMetrics
-These metrics calculate a single real number (or integer) for every Residue selected by a residue selector.
-Default is to calculate on ALL residues.  Also outputs the SUM of the residues. 
-All accept ResidueSelectors.  Output can be in Rosetta or PDB Numbering.  
 
-SimpleMetric  | Description 
------------- | -------------
-**[[PerResidueDensityFitMetric]]** | Calculate the Fit of a  model to the loaded density either by Correlation or a Zscore.
-**[[PerResidueEnergyMetric]]** | Calculate any energy term for each residue.  Total energy is default.  If a native or repose is given, can calculate the energy delta for each residue.
-**[[PerResidueRMSDMetric]]** | Calculate the RMSD for each residue between the input and either the native or a reference pose.
-**[[PerResidueSasaMetric]]** | Calculate the Solvent Accessible Surface Area (SASA) of each residue.
-
-
-##PerResidueStringMetric
-These metrics output a single string for each residue of a residue selector. 
-
-SimpleMetric  | Description 
------------- | ------------- 
 
 
 ##See Also
