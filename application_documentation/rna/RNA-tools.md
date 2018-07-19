@@ -97,7 +97,7 @@ RNA modeling utilities
 ```
 rna_helix.py -seq aacg cguu -o myhelix.pdb [ -resnum A:5-8 A:20-23 -extension static.linuxgccrelease ]
 ```
-The `extension` is the extension of your `rna_helix` executable. To find this type `ls $ROSETTA/main/source/bin/rna_helix*` (requires that the `ROSETTA` environmental variable is set, see [Setup](#setup)). This will print something like this to your screen:
+The `extension` is the extension of your `rna_helix` executable. To find this, type `ls $ROSETTA/main/source/bin/rna_helix*` (requires that the `ROSETTA` environmental variable is set, see [Setup](#setup)). This will print something like this to your screen:
 ```
 /YOUR_PATH_TO_ROSETTA/main/source/bin/rna_helix.static.linuxgccrelease
 ```
