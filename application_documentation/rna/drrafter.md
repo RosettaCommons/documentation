@@ -3,7 +3,7 @@
 ##Metadata
 
 Author: Kalli Kappel (kappel at stanford dot edu)  
-Last updated: May 2018
+Last updated: July 2018
 
 ##Application purpose
 
