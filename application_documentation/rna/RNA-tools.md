@@ -32,7 +32,7 @@ export PYTHONPATH=$PYTHONPATH:$RNA_TOOLS/bin/
 
 **Step 3:** Type `python $RNA_TOOLS/sym_link.py`.  
 
-**Step 4:** Verify the setup by typing `rna_helix.py -h`. This should give the usage instructions for `rna_helix.py`.   
+**Step 4:** Verify the setup by typing `rna_helix.py -h`. This should print out usage instructions for `rna_helix.py`.   
 
 Some useful tools
 ==================
