@@ -44,7 +44,11 @@ The general DRRAFTER workflow is described below:
 
 **Step 1**: Fit known protein structures into the density map. Typically, this involves collecting previously solved crystal structures of protein subcomponents and then fitting these into the density in e.g. Chimera.  
 
-**Step 2**: Fit ideal RNA helices into the density map. RNA helices can be generated in Rosetta with the rna_helix.py script (see RNA tools documentation: [RNA tools](https://www.rosettacommons.org/docs/latest/application_documentation/rna/RNA-tools)).   
+**Step 2**: Fit ideal RNA helices into the density map. RNA helices can be generated in Rosetta with the `rna_helix.py` script (see RNA tools documentation: [RNA tools](https://www.rosettacommons.org/docs/latest/application_documentation/rna/RNA-tools)). Example command (after setting up RNA tools): 
+```
+rna_helix.py -seq ggcg cgcc -o RNA_helix.pdb -resnum E:1-4 E:20-23 -extension static.linuxgccrelease
+```
+(*Note* that you may need to change the extension, see [RNA tools documentation](https://www.rosettacommons.org/docs/latest/application_documentation/rna/RNA-tools#some-useful-tools_rna-modeling-utilities) for details.)    
 
 **Step 3**: Identify regions where RNA coordinates are missing.  
 
