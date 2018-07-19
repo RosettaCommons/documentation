@@ -93,16 +93,17 @@ To concatenate several outfiles, renaming model tags to be unique:
 RNA modeling utilities
 ----------------------
 
-To generate a near-ideal A-form RNA helix that has good Rosetta energy (requires that `rna_helix` Rosetta executable is compiled): 
-
+* **To generate a near-ideal A-form RNA helix** that has good Rosetta energy (requires that `rna_helix` Rosetta executable is compiled):
 ```
-rna_helix.py -seq aacg cguu -o myhelix.pdb [ -resnum A:5-8 A:20-23 -extension static.macosclangrelease ]
+rna_helix.py -seq aacg cguu -o myhelix.pdb [ -resnum A:5-8 A:20-23 -extension static.linuxgccrelease ]
 ```
+The `extension` is the extension of your `rna_helix` executable. To find this type `ls $ROSETTA/main/source/bin/rna_helix*` (requires that the `ROSETTA` environmental variable is set, see [Setup](#setup)). This will print something like this to your screen:
+```
+/YOUR_PATH_TO_ROSETTA/main/source/bin/rna_helix.static.linuxgccrelease
+```
+The extension is everything that comes after `rna_helix.`, so here the extension would be `static.linuxgccrelease`. If the executable is simply named `/YOUR_PATH_TO_ROSETTA/main/source/bin/rna_helix`, then you do not need to provide the extension flag to `rna_helix.py`.
 
-The `extension` is the extension of your `rna_helix` executable. To find this type `ls $ROSETTA/main/source/bin/rna_helix*` (requires that the `ROSETTA` environmental variable is set, see [Setup](#setup)).
-
-To strip out residues and HETATMs that are not recognizable as RNA from a PDB file:
-
+* **To strip out residues** and HETATMs that are not recognizable as RNA from a PDB file:
 `make_rna_rosetta_ready.py rawmodel.pdb`
 
 **Legacy** [_Following functionalities are directly available in `rna_denovo` application now_]: To prepare files for an RNA denovo (fragment assembly of RNA with full atom refinement, FARFAR) job:
