@@ -101,7 +101,7 @@ ggcguugccggucuggcaacgcc
 
 ####`-secstruct` 
 
-Required for DRRAFTER run setup. A file containing the secondary structure of the complex in dot-bracket notation. Secondary structure for the protein should be specified by dots. The secondary structure should be the same length as the sequence found in the fasta file. For RNA residues, this secondary structure will be enforced during the DRRAFTER run. RNA secondary structures can be predicted computationally with packages such as [ViennaRNA](https://www.tbi.univie.ac.at/RNA/).
+Required for DRRAFTER run setup. A file containing the secondary structure of the complex in dot-bracket notation. Secondary structure for the protein should be specified by dots. The secondary structure should be the same length as the sequence found in the fasta file. For RNA residues, this secondary structure will be enforced during the DRRAFTER run. RNA secondary structures can be predicted computationally with packages such as [ViennaRNA](https://www.tbi.univie.ac.at/RNA/). If the secondary structure is not known, it may be necessary to test several different secondary structures in separate DRRAFTER jobs (or ideally the secondary structure would be determined through biochemical experiments).
   
 *Example:*  
 ```
