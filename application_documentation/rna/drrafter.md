@@ -165,7 +165,7 @@ Residues (e.g. A:1-5 B:2) that should be included in the DRRAFTER run, these do 
 Default: 20 Å. Residues in the starting structure within this distance cutoff of the residues in `-include_as_rigid_body_structures` or the residues listed for `-include_residues_around` will be included in the DRRAFTER run.
 
 ####`-extra_flags`
-Extra flags for rna_denovo to be applied during the DRRAFTER run. This flag can be used to set the number of structures that are built per DRRAFTER job (default=500 for regular jobs, default=10 when the `-demo_setting` flag is supplied). As an example, the following option sets the number of structures built per DRRAFTER job to 2000: `-extra_flags 'nstruct 2000'`.
+Extra flags for rna_denovo to be applied during the DRRAFTER run. This flag can be used in conjunction with `'nstruct'` to set the number of structures that are built per DRRAFTER job (default=500 for regular jobs, default=10 when the `-demo_setting` flag is supplied). As an example, the following option sets the number of structures built per DRRAFTER job to 2000: `-extra_flags 'nstruct 2000'`.
 
 ####`-job_name`
 The name for your job. This determines the names of the output files.
