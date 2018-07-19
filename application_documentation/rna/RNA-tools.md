@@ -95,7 +95,9 @@ RNA modeling utilities
 
 To generate a near-ideal A-form RNA helix that has good Rosetta energy (requires that `rna_helix` Rosetta executable is compiled): 
 
-`rna_helix.py -seq aacg cguu -o myhelix.pdb [ -resnum A:5-8 A:20-23 -extension static.macosclangrelease ]`
+```
+rna_helix.py -seq aacg cguu -o myhelix.pdb [ -resnum A:5-8 A:20-23 -extension static.macosclangrelease ]
+```
 
 The `extension` is the extension of your `rna_helix` executable. To find this type `ls $ROSETTA/main/source/bin/` (requires that the `ROSETTA` environmental variable is set, see [Setup](#setup)).
 
