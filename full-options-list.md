@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-07-11
+Generated: 2018-07-19
 
 _Note that some application specific options may not be present in this list._
 
@@ -3246,6 +3246,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Orientational coordinate distance cutoff for templates. Introduces diversity when using multi-template grafting (0.5 is default).<br/>Default: 0.5<br/></dd>
 <dt><b>-n_multi_templates</b> \<Integer\></dt>
 <dd>Number of multiple templates to use during grafting. Default is 10.<br/>Default: 10<br/></dd>
+<dt><b>-json_cdr</b> \<String\></dt>
+<dd>define cdr begin/end points with input json<br/></dd>
 </dl>
 + <h3>-antibody:design</h3>
 <dl>
