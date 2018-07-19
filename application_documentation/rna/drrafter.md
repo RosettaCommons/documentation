@@ -1,5 +1,7 @@
 #DRRAFTER: De novo RNP modeling in Real-space through Assembly of Fragments Together with Experimental density in Rosetta
 
+This documentation has been verified to be compatible with Rosetta weekly releases: 2018.12, 2018.17, 2018.19, 2018.21, and 2018.26.
+
 ##Metadata
 
 Author: Kalli Kappel (kappel at stanford dot edu)  
