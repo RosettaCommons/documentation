@@ -30,7 +30,7 @@
      
      * [[SEWING]]
 
-     * [[FoldFromLoops]]
+     * [[Funtional Folding and Design | FunFolDes]]
 
    * [[Databases with RosettaScripts|RosettaScripts-database-connection-options]]
 
