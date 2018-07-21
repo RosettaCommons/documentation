@@ -1,5 +1,5 @@
-# Running FFL
-This entry list the main requirements to execute a simple **FFL** run.
+# Running FunFolDes
+This entry list the main requirements to execute a simple **FunFolDes** run.
 
 # Problem setup
 Let's assume that we have:
@@ -16,7 +16,7 @@ Finally, we'll need a `vall` database in order to be able to create the fragment
 
 # Making the script
 ## ResidueSelectors
-To properly run **FFL**, one needs to add the ResidueSelectors to pick each of the working labels and guide the non-fixed parts of the process. The following ones are the ones needed to generate the **FLL**-standard behaviour, and one can more or less consider that they should always be added:
+To properly run **FunFolDes**, one needs to add the ResidueSelectors to pick each of the working labels and guide the non-fixed parts of the process. The following ones are the ones needed to generate the **FLL**-standard behaviour, and one can more or less consider that they should always be added:
 ```xml
 <RESIDUE_SELECTORS>
   <ResiduePDBInfoHasLabel name="MOTIF"     property="MOTIF" />
@@ -55,7 +55,7 @@ And we also need to add the specific selectors for our exercise. Be aware that t
 ```
 
 ## TaskOperations
-There are 3 main TaskOperations needed for **FFL**; the one that defines _static-non designable_ residues (`FFLMOTIF_TASKOP`); the one that defines _packable-non-designable_ residues (`FFLFLEX_TASKOP`) and the one that defines _bbflex-designable_ residues (`FFLTEMPLATE_TASKOP`)
+There are 3 main TaskOperations needed for **FunFolDes**; the one that defines _static-non designable_ residues (`FFLMOTIF_TASKOP`); the one that defines _packable-non-designable_ residues (`FFLFLEX_TASKOP`) and the one that defines _bbflex-designable_ residues (`FFLTEMPLATE_TASKOP`)
 ```xml
 <TASKOPERATIONS>
   <OperateOnResidueSubset name="FFLMOTIF_TASKOP" selector="HOTSPOT_OR_CONTEXT_AND_!FLEXIBLE" >
@@ -103,21 +103,21 @@ Before folding our protein it is recommended to generate `atom_pair_constraints`
  
 Now we can call [[NubInitio]]:
 ```xml
-<NubInitioMover name="FFL" fragments_id="auto" template_motif_selector="insert" >
+<NubInitioMover name="FunFolDes" fragments_id="auto" template_motif_selector="insert" >
   <Nub pose_file="motif.pdb" residue_selector="motif" binder_selector="binder" />
 </NubInitioMover>
 ```
 One could also first load the PDB file into a pose and then pass it as a `reference_pose`; something like:
 ```xml
 <SavePoseMover name="readMotif" reference_name="motif_pose" pdb_file="motif.pdb" />
-<NubInitioMover name="FFL" fragments_id="auto" template_motif_selector="insert" >
+<NubInitioMover name="FunFolDes" fragments_id="auto" template_motif_selector="insert" >
   <Nub reference_name="motif_pose" residue_selector="motif" binder_selector="binder" />
 </NubInitioMover>
 ```
 There are some alternatives to the most basic call of [[NubInitio]].  
 For example, let's say that one wants two residues on each side of the **motif** to be able to move, hopping for a better fit into the **template**, and one also considers that residues `2,4,6,8,13` (inside the motif count) are not in actual contact with the binder and, thus, they can be designed. One can target specific parameters of each segment in the **motif**:
 ```xml
-<NubInitioMover name="FFL" fragments_id="auto" template_motif_selector="insert" >
+<NubInitioMover name="FunFolDes" fragments_id="auto" template_motif_selector="insert" >
   <Nub pose_file="motif.pdb" residue_selector="motif" binder_selector="binder" >
     <Segment order="1" n_term_flex="2" c_term_flex="2" editable="2,4,6,8,13" />
   </Nub>
@@ -140,7 +140,7 @@ And last, we make sure that the structure is properly closed (this is unnecessar
 ```
 
 ## All together
-In summary, let's put all together with some extra boilerplate, and a regular **FFL** script without any special evaluation/filter or added design conditions will look like:
+In summary, let's put all together with some extra boilerplate, and a regular **FunFolDes** script without any special evaluation/filter or added design conditions will look like:
 
 ```xml
 <ROSETTASCRIPTS>
@@ -219,7 +219,7 @@ In summary, let's put all together with some extra boilerplate, and a regular **
     />
 
     # MAIN: NUBINITIO FOLDING
-    <NubInitioMover name="FFL" fragments_id="auto" template_motif_selector="insert" >
+    <NubInitioMover name="FunFolDes" fragments_id="auto" template_motif_selector="insert" >
       <Nub reference_name="motif_pose" residue_selector="motif" binder_selector="binder" />
     </NubInitioMover>
 
@@ -247,7 +247,7 @@ In summary, let's put all together with some extra boilerplate, and a regular **
     <Add mover="makeFrags"   />
     <Add mover="foldingCST"  />
     # MAIN
-    <Add mover="FFL"        />
+    <Add mover="FunFolDes"  />
     <Add mover="clearCST"   />
     # POSTPROCESSING
     <Add mover="designCST"   />
