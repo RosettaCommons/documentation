@@ -39,7 +39,7 @@ tolerant
 * [[RosettaES|mover_FragmentExtension_type]]
 * [[shobuns]] - Buried UNSatisfied polar atoms for the SHO solvation model
 * Multithreading has come to [[simple_cycpep_predict]]
-* [[FoldFromLoops2|FoldFromLoops]]
+* [[Functional Folding and Design|FunFolDes]]
 * [[HBNet|HBNetMover]]
 * [[energy_based_clustering|energy_based_clustering_application]]
 
