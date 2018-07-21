@@ -1,7 +1,7 @@
-# Reloading FFL
+# Reloading FunFolDes
 
 # The Problem
-Let's assume that one has run **FFL** and obtained _25 candidate decoys_ that deserve further attention. To proper proceed with the optimisation of those designs one can either choose to treat them as normal decoys and move forward or one might want to _keep the conditions and restrictions_ of **FFL**. This would mean fixing the residue type of the `HOTSPOTS` as well as the correlative position between the different segments of a **motif**.  
+Let's assume that one has run **FunFolDes** and obtained _25 candidate decoys_ that deserve further attention. To proper proceed with the optimisation of those designs one can either choose to treat them as normal decoys and move forward or one might want to _keep the conditions and restrictions_ of **FunFolDes**. This would mean fixing the residue type of the `HOTSPOTS` as well as the correlative position between the different segments of a **motif**.  
 In order to do that, there are two main content that we need to reload into the follow up _rosettascript_:
 
 1.  **LABELS:** In order to keep the same level of control as before, we need to reload the residue labels as they were before.
@@ -20,4 +20,4 @@ To reload the **WORKING_FOLDTREE**, one will use the [[AtomTreeMover]] such as:
 <AtomTree name="retree" update_residue_variants="1" from_remark="WORKING_FOLDTREE" />
 ```
 
-Just adding these two movers at the beginning of your `PROTOCOLS` should be enough to reload all the necessary data to keep the required conditions of a classic **FFL** run.
+Just adding these two movers at the beginning of your `PROTOCOLS` should be enough to reload all the necessary data to keep the required conditions of a classic **FunFolDes** run.
