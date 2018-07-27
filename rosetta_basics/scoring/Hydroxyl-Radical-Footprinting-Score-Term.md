@@ -1,5 +1,3 @@
-[[_TOC_]]
-
 ### HRF MS Labeling Score Term
 Creator Names:
 * Melanie Aprahamian (aprahamian.4@osu.edu)
