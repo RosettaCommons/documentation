@@ -18,13 +18,11 @@ There is a demo at `Rosetta/demos/public/ResidueDisorder`.
 
 Note that to run ResidueDisorder, _ab initio_ structure prediction must first be performed (more details in demo).
 
-References
-==========
+#References
 
 In the process of being published.
 
-Purpose
-=======
+# Purpose
 
 Rosetta ResidueDisorder is a method to predict disordered regions of proteins. While proteins are often represented as well-folded, rigid structures, many proteins contain regions that are unlikely to form stable structures. The ResidueDisorder app (to be used after running _ab initio_ structure prediction) can be used to predict order/disorder at a residue-resolved level.
 
