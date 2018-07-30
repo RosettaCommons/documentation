@@ -9,11 +9,22 @@ Covalent labeling (sometimes referred to as “protein footprinting”) involves
 
 On its own, covalent labeling MS experiments do not provide enough information to determine a proteins tertiary structure, but using the information in conjunction with Rosetta, the quality of generated models improves.
 
-Experimental results are typically represented in the form of protection factors (PF). We define the protection factor as the ratio of the relative intrinsic reactivity for residue i divided by the experimentally determined labeling rate constant k. This provides a quantitative measure that correlates to a residue's relative solvent exposure (which can easily be determined within Rosetta)
+Experimental results are typically represented in the form of protection factors (PF). We define the protection factor as the ratio of the relative intrinsic reactivity for residue i divided by the experimentally determined labeling rate constant k. The natural logarithm of the PFs provide a quantitative measure that correlates to a residue's relative solvent exposure (which can easily be determined within Rosetta).
 
 Publication: [Aprahamian et. al., Anal. Chem. 2018](https://pubs.acs.org/doi/abs/10.1021/acs.analchem.8b01624)
 
 ## Hydroxyl Radical Footprinting (HRF)
-We have developed a centroid based score term that utilizes the experimental output of HRF MS experiments.
+We have developed a centroid based score term, `hrf_ms_labeling`, that utilizes the experimental output of HRF MS experiments.
 
+The energy method lives in `Rosetta/main/source/src/core/scoring/methods/HRF_MSLabelingEnergy.cc`.
+
+### Usage
+To use `hrf_ms_labeling` for pose scoring, an input file containing the experimentally derived protection factors and their corresponding residue numbers is required. The general format for this input file is:
+
+`#RESIDUE NUMBER, lnPF
+7	4.0943445622
+11	4.0989003788
+14	4.3705979389
+18	2.2462321564
+...`
  
