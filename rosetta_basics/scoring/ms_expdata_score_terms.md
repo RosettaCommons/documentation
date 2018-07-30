@@ -21,10 +21,12 @@ The energy method lives in `Rosetta/main/source/src/core/scoring/methods/HRF_MSL
 ### Usage
 To use `hrf_ms_labeling` for pose scoring, an input file containing the experimentally derived protection factors and their corresponding residue numbers is required. The general format for this input file is:
 
-`#RESIDUE NUMBER, lnPF
+```
+#RESIDUE NUMBER, lnPF
 7	4.0943445622
 11	4.0989003788
 14	4.3705979389
 18	2.2462321564
-...`
+...
+```
  
