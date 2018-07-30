@@ -23,6 +23,9 @@ We have developed a centroid based score term, `hrf_ms_labeling`, that utilizes 
 
 The energy method lives in `Rosetta/main/source/src/core/scoring/methods/HRF_MSLabelingEnergy.cc`.
 
+### Per Residue Solvent Exposure
+In order to calculate a residue's relative solvent exposure in a given model, we identified that a centroid based neighbor count gave the most correlation to the experimental input data. This neighbor count calculation uses a logistic function with a midpoint of `9.0` and a steepness of `0.1`. To determine the neighbor count, a simple pilot application was written to read in a pdb and output a per residue neighbor count: `/bin/burial_measure_centroid.cc`.
+
 ### Usage
 To use `hrf_ms_labeling` for centroid mode scoring, an input text file containing the experimentally derived protection factors and their corresponding residue numbers is required. The general format for this input file is:
 
