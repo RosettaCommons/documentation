@@ -19,7 +19,7 @@ We have developed a centroid based score term, `hrf_ms_labeling`, that utilizes 
 The energy method lives in `Rosetta/main/source/src/core/scoring/methods/HRF_MSLabelingEnergy.cc`.
 
 ### Usage
-To use `hrf_ms_labeling` for pose scoring, an input file containing the experimentally derived protection factors and their corresponding residue numbers is required. The general format for this input file is:
+To use `hrf_ms_labeling` for centroid mode pose scoring, an input file containing the experimentally derived protection factors and their corresponding residue numbers is required. The general format for this input file is:
 
 ```
 #RESIDUE NUMBER, lnPF
@@ -29,4 +29,5 @@ To use `hrf_ms_labeling` for pose scoring, an input file containing the experime
 18	2.2462321564
 ...
 ```
- 
+
+The associated weights file, `hrf_ms_labeling.wts`, gives this score a weight of `6.0`. This was optimized based solely on rescoring pre-generated _ab initio_ models. More work needs to be done to optimize for use within 
