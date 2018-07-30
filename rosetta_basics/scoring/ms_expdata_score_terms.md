@@ -4,6 +4,8 @@ Creator Names:
 * Melanie Aprahamian (aprahamian.4@osu.edu)
 * PI: Steffen Lindert (lindert.1@osu.edu)
 
+Date created: July 27, 2018
+
 ## Covalent Labeling Mass Spectrometry
 Covalent labeling (sometimes referred to as “protein footprinting”) involves exposing a protein in solution to a small labeling reagent that will covalently bond to select amino acid sidechains that are exposed to solvent, whereas sidechains buried within the core of the protein or occluded by interacting protein subunits will not get labeled. This provides information about the relative location of certain amino acids with respect to the solvent (either on the surface and solvent exposed or buried within the protein or protein complex structure). A variety of different labeling reagents exist and some are highly specific as to which amino acid(s) can react with the reagent and others have a much broader range of potential target residues.
 
@@ -13,13 +15,16 @@ Experimental results are typically represented in the form of protection factors
 
 Publication: [Aprahamian et. al., Anal. Chem. 2018](https://pubs.acs.org/doi/abs/10.1021/acs.analchem.8b01624)
 
+## Per Residue Solvent Exposure
+In order to calculate a residue's relative solvent exposure in a given model, we identified that a centroid based neighbor count gave the most correlation to the experimental input data.
+
 ## Hydroxyl Radical Footprinting (HRF)
 We have developed a centroid based score term, `hrf_ms_labeling`, that utilizes the experimental output of HRF MS experiments.
 
 The energy method lives in `Rosetta/main/source/src/core/scoring/methods/HRF_MSLabelingEnergy.cc`.
 
 ### Usage
-To use `hrf_ms_labeling` for centroid mode pose scoring, an input text file containing the experimentally derived protection factors and their corresponding residue numbers is required. The general format for this input file is:
+To use `hrf_ms_labeling` for centroid mode scoring, an input text file containing the experimentally derived protection factors and their corresponding residue numbers is required. The general format for this input file is:
 
 ```
 #RESIDUE NUMBER, lnPF
@@ -33,4 +38,12 @@ To use `hrf_ms_labeling` for centroid mode pose scoring, an input text file cont
 The associated weights file, `hrf_ms_labeling.wts`, gives this score a weight of `6.0`. This was optimized based solely on rescoring pre-generated _ab initio_ models. More work needs to be done to optimize for use with [Abinitio Relax](https://www.rosettacommons.org/docs/wiki/application_documentation/structure_prediction/abinitio-relax).
 
 Command line usage for rescoring models:
-`~/Rosetta/main/source/bin/score.linuxgccrelease -database ~/Rosetta/main/database -in:file:s S_000001.pdb -score:weights hrf_ms_labeling.wts -in:file:hrf_ms_labeling labeling_input_file.txt -centroid_input`
+```
+.../bin/score.linuxgccrelease \
+   -database /path/to/rosetta/main/database \
+   -in:file:s S_000001.pdb \
+   -score:weights hrf_ms_labeling.wts 
+   -in:file:hrf_ms_labeling labeling_input_file.txt 
+   -centroid_input
+```
+
