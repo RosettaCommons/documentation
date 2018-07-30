@@ -13,4 +13,7 @@ Experimental results are typically represented in the form of protection factors
 
 Publication: [Aprahamian et. al., Anal. Chem. 2018](https://pubs.acs.org/doi/abs/10.1021/acs.analchem.8b01624)
 
+## Hydroxyl Radical Footprinting (HRF)
+We have developed a centroid based score term that utilizes the experimental output of HRF MS experiments.
+
  
