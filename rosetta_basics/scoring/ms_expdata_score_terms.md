@@ -16,7 +16,7 @@ Experimental results are typically represented in the form of protection factors
 Publication: [Aprahamian et. al., Anal. Chem. 2018](https://pubs.acs.org/doi/abs/10.1021/acs.analchem.8b01624)
 
 ## Per Residue Solvent Exposure
-In order to calculate a residue's relative solvent exposure in a given model, we identified that a centroid based neighbor count gave the most correlation to the experimental input data.
+UNDER CONSTRUCTION
 
 ## Hydroxyl Radical Footprinting (HRF)
 We have developed a centroid based score term, `hrf_ms_labeling`, that utilizes the experimental output of HRF MS experiments.
