@@ -28,7 +28,7 @@ The "cone" method was adapted from the [LayerSelector](https://www.rosettacommon
 
 **distance_factor = 1/(1+exp(distance_steepness * (d - distance_cutoff)) ** where **d** is the calculated distance between the target residue's CEN and the neighbor residue's CEN, **distance_steepness** defines the steepness of the curve, and **distance_midpoint** defines the midpoint of the curve.
 
-**angle_factor = 1/(1+exp(angle_steepness * (theta - angle_cutoff)) ** where **theta** is the calculated angle between the vectors (target CA - target CEN) and (target CA - neighbor CEN), **angle_steepness** defines the steepness of the curve, and **angle_midpoint** defines the midpoint of the curve. By default, if the angle is greater than pi/2, the **angle_factor** is set to 0.
+**angle_factor = 1/(1+exp(angle_steepness * (theta - angle_cutoff))** where **theta** is the calculated angle between the vectors (target CA - target CEN) and (target CA - neighbor CEN), **angle_steepness** defines the steepness of the curve, and **angle_midpoint** defines the midpoint of the curve. By default, if the angle is greater than pi/2, the **angle_factor** is set to 0.
 
 ### Full Atom (FA)
 Calculating the neighbor count in FA mode is identical to that of centroid, but instead of using the centroid representation, the full atom representation is used. The same "sphere" and "cone" methods defined above are used, but can be broken down into smaller sub methods:
