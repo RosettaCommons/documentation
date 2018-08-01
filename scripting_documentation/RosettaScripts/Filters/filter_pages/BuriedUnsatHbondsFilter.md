@@ -37,11 +37,13 @@ The filter is now Symmetry aware.  The default for Symmetric case is that symmet
 -   ignore_bb_heavy_unsats: ignore bb heayy atom unsats when using hbnet-style behavior; default false.
 -   use_sc_neighbors: use sc_neighbors instead of SASA for burial calculations; default false.
 -   use_ddG_style: perform ddG style calcation: the Unsats are calculated by subtracting all unsats in bound state from unbound state; this is how the original BuriedUnsatHBondsFilter works; default false.
+-   ddG_style_dont_recalc_surface: This fixes a bug(?) when use_ddG_style and ignore_surface_res are used together. In the apo structure, the surface_res are recalculated which can lead to spurious buried unsats when new residues become surface and are no longer counted.
 -   jump_number: The jump over which to evaluate the filter; only applies to use_ddG_style.
 -   only_interface: restrict unsat search only to interface residues; if true and more than one chain it's ignored; default false. 
 -   cutoff: The upper threshold for counted buried unsat H-bonds, above which the filter fails; default 20.
 -   print_out_info_to_pdb: print all info to pdb file into addition to tracer. 
 -   probe_radius: probe radius to use for SASA buriedness calculations; default is grabbed from sasa_calculator_probe_radius in options code, which defaults to 1.4.
+-   dalphaball_sasa: Use DAlphaBall to calculate SASA. Must include the -holes:dalphaball flag.
 -   burial_cutoff: used to determine burial; deafault legacy SASA atomic_burial_cutoff is 0.3; default VSASA cutoff is 0.1; if use_sc_neighbors=true, default becomes 4.4 or can be user-specified to sc_neighbor cutoff that is desired.
 -   residue_surface_cutoff: cutoff to determine which residues are surface if ignore_surface_res=true; default is 45.0 for SASA, 20.0 for VSASA and 2.0 if use_sc_neighbors=true.
 -   use_reporter_behavior: report as filter score the type of unsat turned on; this is now TRUE by default.
