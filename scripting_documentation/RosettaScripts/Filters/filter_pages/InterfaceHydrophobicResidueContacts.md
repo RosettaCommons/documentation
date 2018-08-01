@@ -8,7 +8,7 @@ Documentation last updated on 1 August 2018 by Brian Coventry (bcov@uw.edu).
 Filters structures based on the number of hydrophobic residues on the target that have at least a certain hydrophobic ddG.
 
 ```xml
-<InterfaceHydrophobicResidueContacts name="(&string)" target_selector="(&string)" binder_selector="(&string)" scorefxn="(&string)" threshold="(5 &int)" score_cut="(-0.5 &Real)" apolar_res"(ALA,CYS,CYD,PHE,ILE,LEU,MET,PRO,THR,VAL,TRP,TYR &string)" />
+<InterfaceHydrophobicResidueContacts name="(&string)" target_selector="(&string)" binder_selector="(&string)" scorefxn="(&string)" threshold="(5 &int)" score_cut="(-0.5 &Real)" apolar_res="(ALA,CYS,CYD,PHE,ILE,LEU,MET,PRO,THR,VAL,TRP,TYR &string)" />
 ```
 
 -   target\_selector: Required. Which residues should be counted as hydrophobic target residues?
