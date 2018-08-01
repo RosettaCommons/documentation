@@ -2,6 +2,10 @@
 *Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## DesignBySecondaryStructure
 
+DesignBySecondaryStructureOperation is a developmental task operation, and is not available in the public release of Rosetta.
+
+<!--- BEGIN_INTERNAL -->
+
 Selects residues for design based on agreement with psipred secondary structure prediction. Residues which disagree with the secondary structure prediction are selected for design. This mover is stochastic in that residues which disagree in secondary structure prediction are selected randomly every time the task operation is called.
 
     <DesignBySecondaryStructure name="(&string)" region_shell="(8.0 &real)" regions_to_design="(1 &int)" repack_non_selected="(0 &bool)" blueprint="('' &string)" cmd="(&string)" />
@@ -23,6 +27,8 @@ Selects residues for design based on agreement with psipred secondary structure 
     <PROTOCOLS>
         <Add mover_name="design" />
     </PROTOCOLS>
+
+<!--- END_INTERNAL -->
 
 ##See Also
 
