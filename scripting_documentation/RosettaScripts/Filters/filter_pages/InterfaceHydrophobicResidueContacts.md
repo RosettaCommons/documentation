@@ -8,22 +8,15 @@ Documentation last updated on 1 August 2018 by Brian Coventry (bcov@uw.edu).
 Filters structures based on the number of hydrophobic residues on the target that have at least a certain hydrophobic ddG.
 
 ```xml
-<ResidueCount name="(&string)" target_selector="" binder_selector="" scorefxn="" threshold="" score_cut="" apolar_res />
+<ResidueCount name="(&string)" target_selector="(&string)" binder_selector="(&string)" scorefxn="(&string)" threshold="(5 &int)" score_cut="(-0.5 &Real)" apolar_res"(ALA,CYS,CYD,PHE,ILE,LEU,MET,PRO,THR,VAL,TRP,TYR &string)" />
 ```
 
--   residue\_types: Comma-separated list of which residue type names. (e.g. "CYS,SER,HIS\_D" ). Only residues with type names matching those in the list will be counted.
--   include\_property:  Comma-separated list of properties (e.g. "HYDROPHOBIC,ALIPHATIC").  Residues with any of these properties will be counted.
--   max\_residue\_count: Is the total number of residues less than or equal to the maximum allowable residue count?
--   min\_residue\_count: Is the total number of residues more than or equal to the minimum allowable residue count?
--   count\_as\_percentage: If this is true, count residues as percentage (=100\*raw_number_of_specified_residue/total_residue) instead of counting raw number of it, also  max_residue_count/min_residue_count are assumed to be entered as percentage
--   residue_selector: Name of a residue selector which defines a subset of residues over which to perform calculation. Default is all residues.
--   task_operations: defines subset of residues over which to perform calculation, default only check designable residues
--   packable: T/F, also count repackable residues in task_operations
+-   target\_selector: Required. Which residues should be counted as hydrophobic target residues?
+-   binder\_selector: Required. Which residues are part of the binder so that the interface can be defined?
+-   scorefxn: Required. Which scorefunction do you want to use? Only fa_rep, fa_sol, and fa_atr will be kept.
+-   threshold: How many hydrophobic residues should have at least the score cutoff?
+-   score\_cut: What score cut should be used to determine whether a hydrophobic residue is contacted? (A note here. This is the energy from the pose.energies() object; therefore the actual ddG of the residue may be twice as big as what is typed here because pose.energies() only contains half of the interaction energy.)
+-   apolar\_res: What residues should count as hydrophobic residues (comma separated name3 list)?
 
-This is useful when protocols can make very large structures, e.g. with symmetric or modular assembly protocols that may be too big to handle with available computational resources.
+This mover looks for designs that make the most use of the target, with the hypothesis being that binders that use more of the hydrophobic residues on the target are better binders. Be careful with your target selector though! If you select extraneous hydrophobic residues, designs with the highest InterfaceHydrophobicResidueContacts will all contact those residues!
 
-Note that this filter uses _OR_ logic for selection: that is, any residue matching any of the listed types or any of the listed properties will be counted.  A residue matching more than one type or property will only be counted once.  (For example, if "THR" is provided as a type and "POLAR,ALPHA_AA" is provided as a property, each threonine will be counted once, despite matching the type and both of the properties.  Anything matching at least one of these -- beta-3-lysine, for example, since it is polar despite not being an alpha amino acid -- will also be counted.)
-
-## See Also
-
-* [[LoadPDBMover]]
