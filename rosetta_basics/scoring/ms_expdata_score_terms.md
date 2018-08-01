@@ -16,14 +16,29 @@ Experimental results are typically represented in the form of protection factors
 Publication: [Aprahamian et. al., Anal. Chem. 2018](https://pubs.acs.org/doi/abs/10.1021/acs.analchem.8b01624)
 
 ## Per Residue Solvent Exposure
-UNDER CONSTRUCTION
+One way to quantify solvent exposure on a per residue basis is to look at its relative neighbor count. The pilot application `per_residue_solvent_exposure.cc` utilizes several different methods to calculate and output the neighbor counts on a per residue basis. The app contains two main ways to calculate the neighbor counts: centroid or fullatom (FA). Within each, there are multiple different methods to calculate the neighbor count. 
+
+### Centroid
+Calculating the neighbor count in centroid mode will represent each sidechain as a single point, a centroid ([Centroid](https://www.rosettacommons.org/docs/wiki/rosetta_basics/Glossary/Glossary#c). The neighbor count can then be calculated using either the "sphere" or "cone" method.
+
+The "sphere" method counts the number of residues around the target residue and weights the count with a logistic function defined as
+**neighbor count = 1/(1+exp(distance_steepness * (d - distance_cutoff)) **
+where **d** is the calculated distance between the target residue's CEN and the neighbor residue's CEN, **distance_steepness** defines the steepness of the curve, and **distance_midpoint** defines the midpoint of the curve.
+
+The "cone" method was adapted from the [LayerSelector](https://www.rosettacommons.org/docs/wiki/scripting_documentation/RosettaScripts/ResidueSelectors/ResidueSelectors#residueselectors_conformation-dependent-residue-selectors_layerselector) ResidueSelector. It calculates the neighbor count by weighting not just by the distance from the target residue but also the angle made between the target and the neighbor. 
+
+
+### Usage
+To use the application, the following command line options need to be specified:
+'''
+
 
 ## Hydroxyl Radical Footprinting (HRF)
 We have developed a centroid based score term, `hrf_ms_labeling`, that utilizes the experimental output of HRF MS experiments.
 
 The energy method lives in `Rosetta/main/source/src/core/scoring/methods/HRF_MSLabelingEnergy.cc`.
 
-### Per Residue Solvent Exposure
+### Per Residue Solvent Exposure for HRF
 In order to calculate a residue's relative solvent exposure in a given model, we identified that a centroid based neighbor count gave the most correlation to the experimental input data. This neighbor count calculation uses a logistic function with a midpoint of `9.0` and a steepness of `0.1`. To determine the neighbor count, a simple pilot application was written to read in a pdb and output a per residue neighbor count: `/bin/burial_measure_centroid.cc`.
 
 ### Usage
