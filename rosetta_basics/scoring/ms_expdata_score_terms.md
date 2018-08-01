@@ -19,7 +19,7 @@ Publication: [Aprahamian et. al., Anal. Chem. 2018](https://pubs.acs.org/doi/abs
 One way to quantify solvent exposure on a per residue basis is to look at its relative neighbor count. The pilot application `per_residue_solvent_exposure.cc` utilizes several different methods to calculate and output the neighbor counts on a per residue basis. The app contains two main ways to calculate the neighbor counts: centroid or fullatom (FA). Within each, there are multiple different methods to calculate the neighbor count. 
 
 ### Centroid
-Calculating the neighbor count in centroid mode will represent each sidechain as a single point, a centroid ([Centroid](https://www.rosettacommons.org/docs/wiki/rosetta_basics/Glossary/Glossary#c). The neighbor count can then be calculated using either the "sphere" or "cone" method.
+Calculating the neighbor count in centroid mode will represent each sidechain as a single point, a centroid ([Centroid](https://www.rosettacommons.org/docs/wiki/rosetta_basics/Glossary/Glossary#c)). The neighbor count can then be calculated using either the "sphere" or "cone" method.
 
 The "sphere" method counts the number of residues around the target residue and weights the count with a logistic function defined as **neighbor count = 1/(1+exp(distance_steepness * (d - distance_cutoff)) **
 where **d** is the calculated distance between the target residue's CEN and the neighbor residue's CEN, **distance_steepness** defines the steepness of the curve, and **distance_midpoint** defines the midpoint of the curve.
@@ -45,7 +45,7 @@ The various methods can be specified through command line options when running t
 
 ### Usage
 To use the application, the following command line options need to be specified:
-'''
+```
 -centroid_version         use flag if centroid mode is desired (FA is default)
 -neighbor_closest_atom    use flag if FA calculation requires the nearest neighbor (default behavior is to use CB)
 -atom_neighbor_count      use flag if you want to calculate the number of neighboring atoms (FA mode only)
@@ -56,7 +56,7 @@ To use the application, the following command line options need to be specified:
 -cone_angle               cutoff angle for the cone method (default = pi/2)
 -angle_midpoint           midpoint of angle calculation (default = pi/4)
 -angle_steepness          steepness of angle calculation curve (default = 2pi)
-'''
+```
 
 Expected output will be written to TR and list the residue numbers and their respective neighbor counts.
 
