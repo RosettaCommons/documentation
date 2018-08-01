@@ -21,8 +21,8 @@ One way to quantify solvent exposure on a per residue basis is to look at its re
 ### Centroid
 Calculating the neighbor count in centroid mode will represent each sidechain as a single point, a centroid ([Centroid](https://www.rosettacommons.org/docs/wiki/rosetta_basics/Glossary/Glossary#c)). The neighbor count can then be calculated using either the "sphere" or "cone" method.
 
-The "sphere" method counts the number of residues around the target residue and weights the count with a logistic function defined as **neighbor count = 1/(1+exp(distance_steepness * (d - distance_cutoff)) **
-where **d** is the calculated distance between the target residue's CEN and the neighbor residue's CEN, **distance_steepness** defines the steepness of the curve, and **distance_midpoint** defines the midpoint of the curve.
+The "sphere" method counts the number of residues around the target residue and weights the count with a logistic function defined as **neighbor count = 1/(1+exp(distance_steepness * (d - distance_cutoff))
+where **d is the calculated distance between the target residue's CEN and the neighbor residue's CEN, **distance_steepness** defines the steepness of the curve, and **distance_midpoint** defines the midpoint of the curve.
 
 The "cone" method was adapted from the [LayerSelector](https://www.rosettacommons.org/docs/wiki/scripting_documentation/RosettaScripts/ResidueSelectors/ResidueSelectors#residueselectors_conformation-dependent-residue-selectors_layerselector) ResidueSelector. It calculates the neighbor count by weighting not just by the distance from the target residue but also the angle made between the target and the neighbor. The overall neighbor count is determined by taking the product of the distance and angle which are defined as follows:
 
