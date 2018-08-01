@@ -13,7 +13,7 @@ Filters structures based on the number of hydrophobic residues on the target tha
 
 -   target\_selector: Required. Which residues should be counted as hydrophobic target residues?
 -   binder\_selector: Required. Which residues are part of the binder so that the interface can be defined?
--   scorefxn: Required. Which scorefunction do you want to use? Only fa_rep, fa_sol, and fa_atr will be kept.
+-   scorefxn: Required. Which scorefunction do you want to use? Only fa_rep, fa_sol, and fa_atr will be kept. (Soft score functions like ref2016_soft often work better)
 -   threshold: How many hydrophobic residues should have at least the score cutoff?
 -   score\_cut: What score cut should be used to determine whether a hydrophobic residue is contacted? (A note here. This is the energy from the pose.energies() object; therefore the actual ddG of the residue may be twice as big as what is typed here because pose.energies() only contains half of the interaction energy.)
 -   apolar\_res: What residues should count as hydrophobic residues (comma separated name3 list)?
