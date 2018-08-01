@@ -93,7 +93,7 @@ TaskOp  | Description
 **[[DesignCatalyticResidues|DesignCatalyticResiduesOperation]]** | Only design residues surrounding the residues in [[enzdes constraints|match-cstfile-format]]. 
 **[[DesignByResidueCentrality|DesignByResidueCentralityOperation]]** | Design only residues which have a high inter-connectedness to other residues.
 **[[DesignByCavityProximity|DesignByCavityProximityOperation]]** | Only design residues around voids.
-**[[DesignBySecondaryStructure|DesignBySecondaryStructureOperation]]** | Do not design residues which match their secondary structure predictions.
+<!--- BEGIN_INTERNAL -->**[[DesignBySecondaryStructure|DesignBySecondaryStructureOperation]]** | Do not design residues which match their secondary structure predictions.<!--- END_INTERNAL -->
 **[[DesignRandomRegion|DesignRandomRegionOperation]]** | Design only a random section of the pose. 
 **[[HighestEnergyRegion|HighestEnergyRegionOperation]]** | Design only residues which have a bad energy.
 **[[LayerDesign|LayerDesignOperation]]** | Specify design identity based on secondary structure and burial.
