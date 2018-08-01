@@ -208,6 +208,7 @@ Filter  | Description
 ------------ | -------------
 **[[Ddg|DdgFilter]]** | Filter based on the binding energy.
 **[[InterfaceBindingEnergyDensityFilter]]** | Filter based on ddG dived by SASA (using the respective filters).
+**[[InterfaceHydrophobicResidueContacts]]** | Filter based on the number of hydrophobic residues on the target that have at least a certain hydrophobic ddG.
 
 ### Ligand docking and enzyme design
 
