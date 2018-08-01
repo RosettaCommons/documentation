@@ -14,8 +14,9 @@ XRW TO DO
         ddG_style_dont_recalc_surface="(false &bool;)"
         only_interface="(false &bool;)" print_out_info_to_pdb="(false &bool;)"
         jump_number="(1 &non_negative_integer;)"
-        cutoff="(20 &non_negative_integer;)" probe_radius="(1.4 &real;)"
-        burial_cutoff="(0.3 &real;)" residue_surface_cutoff="(45.0 &real;)"
+        dalphaball_sasa="(false &bool;)" cutoff="(20 &non_negative_integer;)"
+        probe_radius="(1.4 &real;)" burial_cutoff="(0.3 &real;)"
+        residue_surface_cutoff="(45.0 &real;)"
         use_reporter_behavior="(true &bool;)"
         use_hbnet_behavior="(false &bool;)" report_all_unsats="(false &bool;)"
         report_all_heavy_atom_unsats="(false &bool;)"
@@ -38,6 +39,7 @@ XRW TO DO
 -   **only_interface**: restrict unsat search only to interface residues; if true and more than one chain it's ignored
 -   **print_out_info_to_pdb**: print all info to pdb file into addition to tracer
 -   **jump_number**: The jump over which to evaluate the filter; only applies to use_ddG_style
+-   **dalphaball_sasa**: Use DAlphaBall to calculate SASA.
 -   **cutoff**: The upper threshold for counted buried unsat H-bonds, above which the filter fails
 -   **probe_radius**: probe radius to use for SASA buriedness calculations; default is grabbed from sasa_calculator_probe_radius in options code, which defaults to 1.4
 -   **burial_cutoff**: used to determine burial; deafault legacy SASA atomic_burial_cutoff is 0.3; default VSASA cutoff is 0.1; if use_sc_neighbors=true, default becomes 4.4 or can be user-specified to sc_neighbor cutoff that is desired
