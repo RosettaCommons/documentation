@@ -67,8 +67,6 @@ TaskOP  | Description
 **[[RestrictResiduesToRepacking|RestrictResiduesToRepackingOperation]]** | Do not design a specified set of residues.
 **[[RestrictChainToRepacking|RestrictChainToRepackingOperation]]** | Do not design a particular chain.
 
----------------------------------
-
 ### General Design Specification
 
 TaskOp  | Description
@@ -80,9 +78,10 @@ TaskOp  | Description
 **[[LinkResidues]]** | Constrain groups of residues to mutate together.
 
 <!--- BEGIN_INTERNAL -->
-**[[RestrictIdentities|RestrictIdentitiesOperation]]** - Do not design residues with a particular starting identity.
+TaskOp  | Description
+------------ | -------------
+**[[RestrictIdentities|RestrictIdentitiesOperation]]** | Do not design residues with a particular starting identity.
 <!--- END_INTERNAL --> 
-
 
 ### Property-based specification
 
@@ -93,7 +92,6 @@ TaskOp  | Description
 **[[DesignCatalyticResidues|DesignCatalyticResiduesOperation]]** | Only design residues surrounding the residues in [[enzdes constraints|match-cstfile-format]]. 
 **[[DesignByResidueCentrality|DesignByResidueCentralityOperation]]** | Design only residues which have a high inter-connectedness to other residues.
 **[[DesignByCavityProximity|DesignByCavityProximityOperation]]** | Only design residues around voids.
-<!--- BEGIN_INTERNAL -->**[[DesignBySecondaryStructure|DesignBySecondaryStructureOperation]]** | Do not design residues which match their secondary structure predictions.<!--- END_INTERNAL -->
 **[[DesignRandomRegion|DesignRandomRegionOperation]]** | Design only a random section of the pose. 
 **[[HighestEnergyRegion|HighestEnergyRegionOperation]]** | Design only residues which have a bad energy.
 **[[LayerDesign|LayerDesignOperation]]** | Specify design identity based on secondary structure and burial.
@@ -104,8 +102,11 @@ TaskOp  | Description
 **[[SetCatalyticResPackBehavior|SetCatalyticResPackBehaviorOperation]]** | Turn of packing or design for residues in [[enzdes constraints|match-cstfile-format]]. 
 **[[RestrictToTermini|RestrictToTerminiOperation]]** | Only repack termini.
 
-
------------------------------
+<!--- BEGIN_INTERNAL -->
+TaskOp  | Description
+------------ | -------------
+**[[DesignBySecondaryStructure|DesignBySecondaryStructureOperation]]** | Do not design residues which match their secondary structure predictions.
+<!--- END_INTERNAL -->
 
 ### Interface/Neighborhood Specifications
 
@@ -119,10 +120,10 @@ TaskOp  | Description
 **[[RestrictDesignToProteinDNAInterface|RestrictDesignToProteinDNAInterfaceOperation]]** | Limit repacking and design to residues around DNA.
 
 <!--- BEGIN_INTERNAL -->
-**[[BuildingBlockInterface|BuildingBlockInterfaceOperation]]** - Only design residues near the interface of symmetric building blocks.
+TaskOp  | Description
+------------ | -------------
+**[[BuildingBlockInterface|BuildingBlockInterfaceOperation]]** | Only design residues near the interface of symmetric building blocks.
 <!--- END_INTERNAL --> 
-
--------------------------
 
 ### Input-based design
 
@@ -146,8 +147,6 @@ TaskOp  | Description
 **[[RetrieveStoredTask|RetrieveStoredTaskOperation]]** | Use a task stored by a [[StoreTaskMover]].
 <!--- END_INTERNAL --> 
 
------------------------------------
-
 Rotamer Specification
 ---------------------
 
@@ -164,8 +163,6 @@ TaskOp  | Description
 **[[SampleRotamersFromPDB|SampleRotamersFromPDBOperation]]** | Limit rotamers to ones similar to those in a PDB file.
 
 
-----------------------------------
-
 Packer Behavior Modification
 ----------------------------
 
@@ -173,8 +170,6 @@ TaskOp  | Description
 ------------ | -------------
 **[[ModifyAnnealer|ModifyAnnealerOperation]]** | Change the behavior of the packer.
 **[[ProteinLigandInterfaceUpweighter|ProteinLigandInterfaceUpweighterOperation]]** | Increase the contribution of protein/ligand interactions during design.
-
----------------------------
 
 Development/Testing
 -------------------
@@ -187,8 +182,6 @@ TaskOp  | Description
 **[[AppendRotamerSet|AppendRotamerSetOperation]]** | (Under development)
 **[[PreserveCBeta|PreserveCBetaOperation]]** | (Under development)
 **[[RestrictYSDesign|RestrictYSDesignOperation]]** | Restrict amino acid choices during design to Tyr and Ser.
-
------------------------------------------
 
 Antibody and CDR Specific Operations
 ============================
