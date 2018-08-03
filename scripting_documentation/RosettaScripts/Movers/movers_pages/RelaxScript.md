@@ -5,11 +5,23 @@
 *Back to [[FastDesign|FastDesignMover]] page.*
 
 
-| Script Name | Description |
-| ----------- | ----------- |
-| default     | todo |
-| no_cst_ramping | todo |
-| rosettacon2018 | todo |
+## Available Scripts
+
+| Script Name | Description | Good For | Neutral/Bad For |
+| ----------- | ----------- | -------  | --------------- |
+| default     | todo | Everything, in general |  |
+| no_cst_ramping | todo | | |
+| rosettacon2018 | Slightly stronger repulsive term than default  | Monomer core redesign/repacking and interface design/repacking | Relaxing Abinitio decoys |
+
+## Examples
+
+```xml
+<FastRelax name="example1" relaxscript="default"/>
+
+<FastDesign name="example2" relaxscript="default" dualspace="1"/>
+
+<FastDesign name="example3" relaxscript="rosettacon2018"/>
+```
 
 ##See Also
 * [[FastRelaxMover]]
