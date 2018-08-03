@@ -4,8 +4,6 @@
 
 *Back to [[FastDesign|FastDesignMover]] page.*
 
-All scripts exist in `main/database/sampling/relax_scripts`
-
 ## Available Scripts
 
 | Script Name | Description | Recommended For |
@@ -13,6 +11,8 @@ All scripts exist in `main/database/sampling/relax_scripts`
 | default     | | Everything, in general |
 | no_cst_ramping | TODO | |
 | rosettacon2018 | Slightly stronger repulsive term than default. | Monomer core redesign/repacking and interface design/repacking. |
+
+All scripts exist in `main/database/sampling/relax_scripts`
 
 ## Examples
 
