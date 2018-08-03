@@ -25,7 +25,7 @@ Makes a mutation to a pose, and creates a resfile task which repacks (no design)
 
 ```xml
 <SCOREFXNS>
-    <ScoreFunction name="SFXN" weights="talaris2013.wts" />
+    <ScoreFunction name="SFXN" weights="ref2015.wts" />
 </SCOREFXNS>
 <TASKOPERATIONS>
     <ReadResfile name="restrict_resfile" filename="restrict.resfile" />

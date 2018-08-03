@@ -17,7 +17,7 @@ For example,
              <ReadResfile name="resfile" filename="c.0.0_resfile_for_ideal_distance_between_sheets.txt"/>
         </TASKOPERATIONS>
         <SCOREFXNS>
-                <ScoreFunction name="cart_score" weights="talaris2013_cart">
+                <ScoreFunction name="cart_score" weights="ref2015_cart">
                   <Reweight scoretype="res_type_constraint" weight="1"/>
                 </ScoreFunction>
         </SCOREFXNS>
