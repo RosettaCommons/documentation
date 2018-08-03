@@ -4,10 +4,9 @@
 
 *Back to [[FastDesign|FastDesignMover]] page.*
 
+All scripts exist in `main/database/sampling/relax_scripts`
 
 ## Available Scripts
-
-These scripts exist in `main/database/sampling/relax_scripts`:
 
 | Script Name | Description | Recommended For |
 | ----------- | ----------- | --------------- |
