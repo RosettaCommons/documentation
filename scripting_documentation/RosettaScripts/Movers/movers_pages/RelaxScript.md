@@ -7,6 +7,8 @@
 
 ## Available Scripts
 
+These scripts exist in `main/database/sampling/relax_scripts`:
+
 | Script Name | Description | Recommended For |
 | ----------- | ----------- | --------------- |
 | default     | | Everything, in general |
