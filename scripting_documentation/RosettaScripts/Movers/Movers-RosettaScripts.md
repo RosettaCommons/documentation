@@ -114,7 +114,7 @@ Mover  | Description
 ------------ | -------------
 **[[FixBB|FixBBMockMover]]** | Sequence design on a fixed backbone
 **[[FlexibleBBdesign|FlexibleBBdesignMockMover]]** | Sequence design with backbone minimization
-**[[FastDesign|FastDesignMover]]** | Sequence design with backbone minimization
+**[[FastDesign|FastDesignMover]]** | Performs FastRelax all-atom refinement, but adds design-related features
 
 ### Backbone Movement
 
