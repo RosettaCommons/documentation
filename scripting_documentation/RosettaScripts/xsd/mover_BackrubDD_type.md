@@ -11,9 +11,10 @@ XRW TO DO
         moves="(1000 &non_negative_integer;)"
         sc_move_probability="(0.25 &real;)"
         small_move_probability="(0.0 &real;)"
-        bbg_move_probability="(0.25 &real;)" scorefxn="(&string;)" >
-    <residue pdb_num="(&refpose_enabled_residue_number;)"
-            resnum="(&non_negative_integer;)" />
+        bbg_move_probability="(0.25 &real;)" temperature="(0.6 &real;)"
+        scorefxn="(&string;)"
+        task_operations="(&task_operation_comma_separated_list;)" >
+    <residue pdb_num="(&residue_number;)" res_num="(&non_negative_integer;)" />
     <span begin="(&refpose_enabled_residue_number;)"
             end="(&refpose_enabled_residue_number;)" />
 </BackrubDD>
@@ -26,13 +27,15 @@ XRW TO DO
 -   **sc_move_probability**: Probability of making sidechain moves
 -   **small_move_probability**: Probability of making small moves
 -   **bbg_move_probability**: Probability of making big moves
+-   **temperature**: Controls the monte-carlo accept temperature
 -   **scorefxn**: Name of score function to use
+-   **task_operations**: A comma separated list of TaskOperations to use.
 
 
 Subtag **residue**:   Tags describing individual residues to be sampled
 
--   **pdb_num**: Residue number specified in PDB-or-refpose-or-seqpos notation
--   **resnum**: Residue number specified in seqpos (Rosetta) notation
+-   **pdb_num**: Residue number in PDB numbering (residue number + chain ID)
+-   **res_num**: Residue number in Rosetta numbering (sequentially with the first residue in the pose being 1
 
 Subtag **span**:   Tags describing residue ranges to be sampled
 
