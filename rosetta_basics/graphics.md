@@ -10,22 +10,33 @@ To control the visuals, use keyboard shortcuts:
 * B = backbone (ribbon, cartoon, etc.)
 * S = sidechain on/off
 * H = hydrogen on/off
+* right-click = rotate
+* alt + right-click = pan
+* shift + right-click = zoom
+* ctrl + right-click = change density contour (for xray or cryo-em density)
 
 ## Running RosettaScripts with Graphics!
 You just need to include a single flag:
-`rosetta_scripts.graphics.linuxgccrelease -parser:view`
+```rosetta_scripts.graphics.linuxgccrelease -parser:view```
 
 Note: Some movers automatically assign the secondary structure to the working pose, for movers that do not you need to first run the Dssp mover.
+
+## Support for density:
+```
+-edensity:render_density
+-edensity:mapfile input.map
+```
+Note: map must be defined at the command line, even if LoadDensityMap mover is used
 
 ## Compiling with graphics mode
 
 #### In linux
 Before you can compile, you need copy the libglut.so file into the external lib directory:
-` ~/rosetta/main/source/external/lib/libglut.so `
+``` ~/rosetta/main/source/external/lib/libglut.so ```
 
 Then using scons, specify graphics as extras:
-`./scons.py bin/rosetta_scripts.graphics.linuxgccrelease mode=release extras=graphics -j 2`
+```./scons.py mode=release extras=graphics -j2 rosetta_scripts```
 
 #### In Mac OS X
 Specify graphics as extras.
-`./scons.py bin/rosetta_scripts.graphic.macosclangrelease mode=release extras=graphics -j2`
+```./scons.py mode=release extras=graphics -j2 rosetta_scripts```
