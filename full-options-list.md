@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-08-06
+Generated: 2018-08-07
 
 _Note that some application specific options may not be present in this list._
 
@@ -1894,6 +1894,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Use height-normalized guassian distributions to model p(chi|phi,psi) instead of height-unnormalized gaussians<br/>Default: false<br/></dd>
 <dt><b>-dun_entropy_correction</b> \<Boolean\></dt>
 <dd>Add Shannon entropy correction to rotamer energy: E = -logP + S<br/>Default: false<br/></dd>
+<dt><b>-no_autogen_cart_improper</b> \<Boolean\></dt>
+<dd>Ignore the auto parameter generation of improper torsions (undefined torsions) in CartesianBondedEnergy, generate_impropers_map_res.<br/></dd>
 </dl>
 + <h3>-corrections:chemical</h3>
 <dl>
@@ -1913,9 +1915,9 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-genpotential</b> \<Boolean\></dt>
 <dd>genpotential option group<br/></dd>
 <dt><b>-set_torsion_params</b> \<StringVector\></dt>
-<dd>Modify generic_bonded_potential torsion parameters (the ones in generic_bonded.round6p.txt) from the command line. Happens at time of AtomTypeSet creation inside ChemicalManager.cc. Format is: -corrections:genpotential:set_torsion_params <atom-set1>:<atom_name1>:<atom_name2>:<atom_name3>:<atom_name4><param1>:<setting1>:<param2>:<setting2> ... For example: '-corrections:genpotential:set_torsion_params fa_standard:C*:CS:CS:C*:k1:0.0:k2:0.0:k3:0.077 fa_standard:CD:CS:CS:CD:k1:0.435:k2:0.039:k3:0.070' <br/></dd>
+<dd>Modify generic_bonded_potential torsion parameters (the ones in generic_bonded.round6p.txt) from the command line. Format is: -corrections:genpotential:set_torsion_params <atom-set1>:<atom_name1>:<atom_name2>:<atom_name3>:<atom_name4><param1>:<setting1>:<param2>:<setting2> ... For example: '-corrections:genpotential:set_torsion_params fa_standard:C*:CS:CS:C*:k1:0.0:k2:0.0:k3:0.077 fa_standard:CD:CS:CS:CD:k1:0.435:k2:0.039:k3:0.070' <br/></dd>
 <dt><b>-set_special_torsion_params</b> \<StringVector\></dt>
-<dd>Modify generic_bonded_potential special torsion parameters (the ones in generic_bonded.round6p.txt) from the command line. Happens at time of scorefunction creation inside ChemicalManager.cc. Format is: -corrections:genpotential:set_special_torsion_params <atom-set1>:<atom_name1>:<atom_name2>:<atom_name3>:<atom_name4><param1>:<setting1>:<param2>:<setting2> ... For example: '-corrections:genpotential:set_special_torsion_params fa_standard:X:CRb:CRb:X:k1:0.000:k2:-0.226:k3:0.000:k4:0.093:k8:0.000 ' <br/></dd>
+<dd>Modify generic_bonded_potential special torsion parameters (the ones in generic_bonded.round6p.txt) from the command line. Format is: -corrections:genpotential:set_special_torsion_params <atom-set1>:<atom_name1>:<atom_name2>:<atom_name3>:<atom_name4><param1>:<setting1>:<param2>:<setting2> ... For example: '-corrections:genpotential:set_special_torsion_params fa_standard:X:CRb:CRb:X:k1:0.000:k2:-0.226:k3:0.000:k4:0.093:k8:0.000 ' <br/></dd>
 </dl>
 + <h2>-corrections</h2>
 <dl>
