@@ -256,6 +256,8 @@ Component | Description
 
 - [[ddG monomer]] - Predict the change in stability (the ddG) of a monomeric protein induced by a point mutation.
 
+- [[flex ddG]] - Predict change in interaction energy at a protein-protein interface post-mutation. Benchmarked to work for single point mutations or sets of multiple mutations. Slower than some other protocols since more sampling is included, but is particularly useful for multiple mutations or small-to-large mutations in interfaces.
+
 - [[cartesian-ddg]] - A different version of ddg calculation, using Cartesian space sampling
 
 - [[Density map scoring]] - Score structures with electron density information.  
