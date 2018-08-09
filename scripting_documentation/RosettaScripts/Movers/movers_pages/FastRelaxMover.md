@@ -29,6 +29,10 @@ You may either enter a local file (using and absolute path or local path from th
 
 The MoveMap (for FastRelax) is initially set to minimize all degrees of freedom. The movemap lines are read in the order in which they are written in the xml file, and can be used to turn on or off dofs. The movemap is parsed only at apply time, so that the foldtree and the kinematic structure of the pose at the time of activation will be respected.
 
+### Relax Scripts
+
+For a list of relax scripts in the database, [[click here|RelaxScript]].
+
 ### Relevant command-line options
 
 See the [[relax application|Relax]] page for more information on these options.
