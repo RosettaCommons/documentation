@@ -18,5 +18,5 @@ For a list of relax scripts in the database, [[click here|RelaxScript]].
 ##See Also
 * [[FastRelaxMover]]
 * [[Relax]]: The relax application
-* [[RelaxScripts]]
+* [[Relax Scripts|RelaxScript]]
 * [[I want to do x]]: Guide to chosing a mover
