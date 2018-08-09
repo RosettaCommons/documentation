@@ -10,7 +10,7 @@
 | ----------- | ----------- | --------------- |
 | default     | | Everything, in general |
 | no_cst_ramping | TODO | |
-| rosettacon2018 | Slightly stronger repulsive term than default. | Monomer core redesign/repacking and interface design/repacking. |
+| rosettacon2018 | Slightly stronger repulsive term than default. Send questions to jack@med.unc.edu | Monomer core redesign/repacking and interface design/repacking. |
 
 All scripts exist in `main/database/sampling/relax_scripts`
 
