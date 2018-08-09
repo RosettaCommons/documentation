@@ -43,7 +43,7 @@ See the [[relax application|Relax]] page for more information on these options.
 
 ### Caveats
 
-- Although the [[relax application|Relax]] can read a movemap from the `-in:file:movemap` option, the RosettaScripts mover ignores ignores it.  Instead you must use the `<MoveMap>` syntax described above.
+- Although the [[relax application|Relax]] can read a movemap from the `-in:file:movemap` option, the RosettaScripts mover ignores it.  Instead you must use the `<MoveMap>` syntax described above.
 
 ##See Also
 * [[FastDesignMover]]
