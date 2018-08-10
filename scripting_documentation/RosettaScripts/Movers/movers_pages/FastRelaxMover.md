@@ -2,6 +2,8 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## FastRelax
 
+**Temporary Note:** The increased repulsive feature presented at Rosettacon2018 can be [[found here|RelaxScript]].
+
 Performs the fast relax protocol.
 ```xml
     <FastRelax name="&string" scorefxn="(&string)" repeats="(5 &int)" task_operations="(&string, &string, &string)"
@@ -15,6 +17,7 @@ Performs the fast relax protocol.
        </MoveMap>
     </FastRelax>
 ```
+
 ### Options
 
 -   scorefxn (tag for score function if you need something different than the Rosetta default.)
