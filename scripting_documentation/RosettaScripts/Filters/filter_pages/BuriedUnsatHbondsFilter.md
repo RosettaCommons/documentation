@@ -45,7 +45,12 @@ The filter is now Symmetry aware.  The default for Symmetric case is that symmet
 -   probe_radius: probe radius to use for SASA buriedness calculations; default is grabbed from sasa_calculator_probe_radius in options code, which defaults to 1.4.
 -   dalphaball_sasa: Use DAlphaBall to calculate SASA. Must include the -holes:dalphaball flag.
 -   burial_cutoff: used to determine burial; deafault legacy SASA atomic_burial_cutoff is 0.3; default VSASA cutoff is 0.1; if use_sc_neighbors=true, default becomes 4.4 or can be user-specified to sc_neighbor cutoff that is desired.
+-   probe_radius_apo: If set greater than 0, use a different probe_radius for the apo phase of use_ddG_style.
+-   burial_cutoff_apo: If set greater than 0, use a different burial_cutoff for the apo phase of use_ddG_style.
 -   residue_surface_cutoff: cutoff to determine which residues are surface if ignore_surface_res=true; default is 45.0 for SASA, 20.0 for VSASA and 2.0 if use_sc_neighbors=true.
+-   atomic_depth_selection: Include only atoms past a certain depth. Depth is from edge of SASA surface to center of atom. Pose converted to poly-LEU before SASA surface calculation. -1 to disable.
+-   atomic_depth_probe_radius: Probe radius for atomic_depth_selection. Set this high to exclude pores. Set this low to allow the SASA surface to enter pores.
+-   atomic_depth_deeper_than: If true, only atoms deeper than atomic_depth_selection are included. If false, only atoms less deep than atomic_depth_selection are included.
 -   use_reporter_behavior: report as filter score the type of unsat turned on; this is now TRUE by default.
 -   report_all_heavy_atom_unsats: report all heavy atom unsats; IF ALL REORTER OPTIONS ARE FALSE, THIS BECOMES TRUE AND DEFAULT REPORTS ALL HEAVY UNSATS.
 -   report_all_unsats: report total of all unsats (legacy behavior of the old filter).
