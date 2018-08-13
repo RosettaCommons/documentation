@@ -1,6 +1,6 @@
 #Coupled Moves documentation is coming soon! Check back Friday, Aug 17, 2018.
 
-Last Doc Update: N/A... this is just a draft
+#Last Doc Update: N/A... this is just a draft
 
 
 
