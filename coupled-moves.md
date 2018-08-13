@@ -20,7 +20,8 @@ Noah Ollikainen, René M. de Jong, Tanja Kortemme
 --------------------------
 
 # Overview
-**Coupled Moves** is a flexible backbone design method meant to be used for designing small-molecule binding sites, protein-protein interfaces, and protein-peptide binding sites. It handles ligands and waters.
+
+**Coupled Moves** is a flexible backbone design method meant to be used for designing small-molecule binding sites, protein-protein interfaces, and protein-peptide binding sites. It handles ligands and waters. It was originally developed for designing enzyme active sites, and continues to be used by DSM for this purpose. CoupledMoves is also a primary flexible backbone design method employed by Cyrus.
 
 # Algorithm
 
@@ -37,17 +38,58 @@ Resulting in a limitation where a backbone move might create a sidechain clash t
 
 # Setup and Inputs
 
-** Input files **
-* Input PDB, the only strictly required input file
-* Constraints file
-* Resfile
-* Params file, one for each ligand
-* Flags file (if using RosettaScripts)
+### Input files
+* Input PDB -- the only strictly required input file
+* Resfile -- CoupledMoves is a design method
+* Params file, one for each ligand (optional)
+* Constraints file (optional)
 
+-------------------------
 
-**Preparing input pdb**
+### Preparing input pdb
 
 * If your protein is not a simple monomer, put each protein in a separate chain. For example, if you have a homodimer, put each monomer in its own chain.
+* Pre-relax? Maybe.
+
+### Ligand preparation
+
+* If you are using a ligand:
+* **NOTE: The ligand chains must be the last chains in the PDB, or CoupledMoves can't find them!!!**
+* Place each ligand in its own chain (we recommend naming it chain X for the first ligand). 
+
+* Preparation:
+  1. Remove relevant HETATM lines from the ligand's source PDB and paste into a new PDB.
+  2. Add hydrogens using Babel, open resulting file in Avogadro, and save as a .mol2 file.
+       `babel -h IPTG.pdb IPTG_withH.sdf`
+  3. To get the .params files from the .mol2 files for each ligand, run the molfile_to_params.py script
+      `python ~/Rosetta/main/source/scripts/python/public/molfile_to_params.py -n name input_file.mol2 `
+  4. Rename chain and add back into hydrogenated PDB with protein structure.
+  5. Make sure the ligand is in the right place by aligning with original/non-hydrogenated PDB.
+
+
+### Explicit waters
+
+* Place water molecules in a separate chain, chain W. Use TP3/WAT residue types and crystallographic positions of oxygens. 
+* Add the hydrogens by scoring: `~/Rosetta/main/source/bin/score.linuxgccrelease -database ~/Rosetta/main/database/ -s pdb_file -ignore_unrecognized_res -out:output`
+
+-------------------------
+
+### Resfile preparation
+
+It helps to have a target set of residues, binding pocket, or interface that you want to allow to move to achieve an adequate amount of sampling. For example, you can write your resfile to only allow first shell residues to be designed in a ligand binding pocket. To do so, set the first line of the resfile as NATRO to preserve the input rotamer and not allow any repacking for every residue in the input structure. After the START command, set first shell residues, motif residues, or individual secondary structure elements on each chain to ALLAA to allow coupled moves to design those residue positions to be any of the 20 standard amino acids. More specific design options are available too and are detailed in the resfile documentation: https://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/d1/d97/resfiles.html
+
+Save the file as resfile_name.res, and feed it to coupled moves with the -resfile flag.
+For example: -resfile resfile_name
+
+Example resfile:
+
+NATRO
+START
+8 - 10 A ALLAA
+87 - 90 A ALLAA
+216 A ALLAA
+277 - 279 B ALLAA
+356 - 359 B ALLAA
 
 
 -------------------------
