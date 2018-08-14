@@ -6,7 +6,7 @@ This mover uses one or more constraint generators to generate a set of constrain
 
 Reminder: constraints added to the pose will not do anything if the appropriate constraint score terms are not turned on. 
 
-ConstraintGenerators can be given in the AddConstraints mover, or in a separate `<CONSTRAINT_GENERATORS>` XML block.
+ConstraintGenerators can be given in the AddConstraints mover, or in a separate `<CONSTRAINT_GENERATORS>` XML block using the `constraint_generators` option.
 
 ```xml
 <AddConstraints name="(&string)" >
@@ -25,7 +25,7 @@ This example adds coordinate constraints to all residues in sheets.
     <SecondaryStructureSelector name="sheet" ss="E" use_dssp="1" />
 </RESIDUE_SELECTORS>
 <CONSTRAINT_GENERATORS>
-    <CoordinateConstraintGenerator name="coord_cst_gen" residue_selector="sheet" />
+    <CoordinateConstraintGenerator name="coord_cst_gen" constraint_generators="sheet" />
 </CONSTRAINT_GENERATORS>
 <MOVERS>
     <AddConstraints name="add_coord_csts" >
