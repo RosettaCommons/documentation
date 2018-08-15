@@ -140,17 +140,24 @@ CoupledMoves can move the backbone with:
 
 Simple -- the backbone mover is controlled with the `-coupled_moves::backbone_mover` flag. If you leave this flag out, Coupled Moves defaults to Short Backrub Mover. E.g. Basic command-line Example #1.
 
-**Coupled Moves with KIC**
-**Controlling loop size**
+Backrub segment length is hardcoded in ShortBackrubMover as 3-residue (or 4-residue if it hits a Proline).
 
-This is a bit tricky so read carefully. The parameter set by `-coupled_moves::kic_loop_size` is used to calculate the loop size.  
+### Coupled Moves with KIC**
+
+**Controlling loop size with `-coupled_moves::kic_loop_size`**
+
+This is a bit confusing -- The parameter set by `-coupled_moves::kic_loop_size` (hereafter *n*) is used to calculate the final *loop size* in residues. You may set a constant or random loop size. 
+
+* CONSTANT - If you set *n* to a positive whole number, *loop_size* = 1+2\**n*. In terms of residues, the loop is defined by first selecting resnum (the designable residue), then defining loopstart=resnum-*n* and loopend=resnum+*n*. 
+
+* RANDOM - If you set *n* to 0, in each trial, *n* will be a random integer from range( 3, 7 ).
+
+NOTE: `-coupled_moves::kic_loop_size` only applies when using `-coupled_moves::backbone_mover=kic` only. Backrub segment length is hardcoded in ShortBackrubMover as 3-residue (or 4-residue if it hits a Proline).
 
 ```
--coupled_moves::kic_loop_size <n>
+-coupled_moves::kic_loop_size <*n*>
+# default *n*=4
 ```
-* n=0 --> randomized loop size 
-* n=2 --> 
-
 
 **Example 4**
 **Coupled Moves with Fragment KIC**
