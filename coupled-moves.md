@@ -230,6 +230,7 @@ number_ligands |  |  |  |
 
 **Command-line options you probably don't want to touch, and why**
 Option | Type | Default | Description | Expert usage recommendations
+------------ | ------------- | ------------- | ------------- | -------------
 mc_kt | Real | 0.6 | value of kT for Monte Carlo when accepting/rejecting coupled side-chain and backbone moves |
 boltzmann_kt | Real | 0.6 | value of kT for Boltzmann weighted moves during side-chain design step |
 mm_bend_weight | Real | 1.0 | weight of mm_bend bond angle energy term |
@@ -249,6 +250,7 @@ output_fasta | String | sequences.fasta | name of FASTA output file |
  |  |  |  |
  |  |  |  |
 
+-------------------------------------
 
 
 
