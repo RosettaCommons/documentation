@@ -197,6 +197,14 @@ Note that *n* must be at least 3 for 3mers in fragment KIC. Shorter loops will n
 
 Default behavior is n=4.
 
+#### 1.4 Ligands
+
+ligand_mode | Boolean | false | if true, model protein ligand interaction |
+
+----------------
+
+# Analysis
+
 ----------------
 
 # Command-line Options
@@ -204,31 +212,23 @@ Default behavior is n=4.
 **Command-line options you might want to change, and why**
 
 Option | Type | Default | Description | Expert usage recommendations
------------- | -------------
+------------ | ------------- | ------------- | ------------- | -------------
 ntrials | Integer | 1000 | number of Monte Carlo trials to run | Extensive benchmarking shows that more trials is not better. **Check results, try less than 1000**. 
 number_ligands | Integer | 1 | number of ligands in the pose | CoupledMoves needs this value to find the ligand.
-number_ligands |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
+ligand_mode | Boolean | false | if true, model protein-ligand interaction | If set to 'true' and no ligand present, results in error. If set to 'false' and ligand present, protein-ligand interactions will not be considered.
+initial_repack | Boolean | true | start simulation with repack and design step | Initial repack may result in lower diversity
+min_pack | Boolean | false | use min_pack for initial repack and design step |
+ligand_weight | Real | 1.0 | weight for protein-ligand interactions | Recommend somewhere around 1.0 or 2.0 depending on dataset.
+output_prefix | String | default | prefix for output files | 
+walking_perturber_magnitude | Real | 2.0 | Degree parameter for coupled moves kic walking perturber | Use to control magnitude of Walking KIC backbone moves
+kic_loop_size | Real | 4 | Can be constant or random. CONSTANT - If you set loop_size to a positive whole number, the loop moved by coupled_moves::backbone_mover will be 1+2*loop_size. In other words, the loop is defined by first selecting resnum, then defining loopstart=resnum-loop_size and loopend=resnum+loop_size. RANDOM - If you set loop_size to 0, in each trial, loop_size will be random_range( 3, 7 ). [ NOTE: This option is for coupled_moves::backbone_mover=kic only. Backrub segment length is hardcoded in ShortBackrubMover as 3-residue (or 4-residue if it hits a Proline)
+kic_perturber | String | walking | Which perturber to use during kinematic closure (KIC). Current options are walking (default) or fragment. Walking perturber adjusts torsions by degrees, the magnitude of which can be set by -walking_perturber_magnitude. If you specify walking you MAY also specify -walking_perturber_magnitude. If you specify fragment you MUST also specify -loops::frag_files and -loops::frag_sizes. legal = [ 'walking', 'fragment' ]
+backbone_mover | String | backrub | Which backbone mover to use. Current options are backrub (default) or kic. Backrub does not require additional flags, and uses ShortBackrubMover which is hardcoded for 3-residue segments (or 4-residue if it hits a Proline). Kic optionally takes extra flag -kic_perturber.' legal = [ 'backrub', 'kic' ]
 
-
+-------------------------------------
 
 **Command-line options you probably don't want to touch, and why**
+
 Option | Type | Default | Description | Expert usage recommendations
 ------------ | ------------- | ------------- | ------------- | -------------
 mc_kt | Real | 0.6 | value of kT for Monte Carlo when accepting/rejecting coupled side-chain and backbone moves |
@@ -239,17 +239,16 @@ trajectory_gz | Boolean | false | gzip the trajectory |
 trajectory_stride | Integer | 100 | write out a trajectory frame every N trials |
 trajectory_file | String | 'traj.pdb' | name of trajectory file |
 output_fasta | String | sequences.fasta | name of FASTA output file |
- |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
- |  |  |  |
-
+output_stats | String | sequences.stats | name of stats output file |
+save_sequences | Boolean | true | save all unique sequences  |  Sequences for analysis
+save_structures | Boolean | false | save structures for all unique sequences | 
+ligand_prob | Real | 0.1 | probability of making a ligand move | 
+fix_backbone | Boolean | false | do not make any backbone moves | 
+uniform_backrub | Boolean | false | select backrub rotation angle from uniform distribution | 
+bias_sampling | Boolean | true | if true, bias rotamer selection based on energy
+bump_check | Boolean | true | if true, use bump check in generating rotamers | 
+repack_neighborhood | Boolean | false | After the backbone move and rotamer move, repack sidechains within 5A of the design residue. Default false for legacy behavior. | Does not seem to make an impact on benchmark results, but adds significant time.
+legacy_task | Boolean | true | Default true for legacy behavior (Ollikainen 2015). True = use Clash Based Shell Selector to define repack residues around design residues from resfile, and perform Coupled Moves on these repack/design residues. False = Perform Coupled Moves on design/repack residues as defined in resfile.
 -------------------------------------
 
 
