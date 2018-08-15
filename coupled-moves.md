@@ -7,7 +7,7 @@ Last Doc Update: Aug 17, 2018
 [[_TOC_]]
 
 -------------------------
-#MetaData
+# [1] MetaData
 
 Authors: 
 Amanda Loshbaugh (aloshbau@gmail.com); Anum Azam Glasgow (anumazam@gmail.com); Noah Ollikainen (nollikai@gmail.com), PI: Tanja Kortemme
@@ -19,11 +19,11 @@ Noah Ollikainen, René M. de Jong, Tanja Kortemme
 
 --------------------------
 
-# Overview
+# [2] Overview
 
 **Coupled Moves** is a flexible backbone design method meant to be used for designing small-molecule binding sites, protein-protein interfaces, and protein-peptide binding sites. It handles ligands and waters. It was originally developed for designing enzyme active sites. CoupledMoves is one of the primary flexible backbone design methods employed by Cyrus.
 
-# Algorithm
+# [3] Algorithm
 
 To understand the coupled algorithm, let's first look at a non-coupled flexible backbone Rosetta design protocol. Two examples are (1) FastDesign (relax respecting a resfile) and (2) generating a Backrub Ensemble then performing Fixed Backbone Design on members of the ensemble. 
 
@@ -141,7 +141,7 @@ Default behavior is backrub.
 
 * Which mover is suggested?
 
-### [2.1.1 ] Coupled Moves with ShortBackrubMover
+### [ 2.1.1 ] Coupled Moves with ShortBackrubMover
 
 Coupled Moves defaults to ShortBackrubMover, e.g. Example #1.  If you want to explicitly specify this default, use
 
@@ -171,7 +171,7 @@ Fragment perturber substitutes fragments with identical sequences, resulting in 
 
 Fragment file generation is explained [here](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/fragment-file).
 
-#### [2.1.2.2 ] Walking KIC
+#### [ 2.1.2.2 ] Walking KIC
 
 Walking perturber "walks" along torsion angle space. Angles are modified by values from a distribution around a user-specified magnitude.
 
@@ -201,32 +201,58 @@ Default behavior is n=4.
 
 Coupled Moves was originally developed to design enzyme active sites, and has been extensively benchmarked on small-molecule binding site datasets. It is good for general design, but is especially highly recommended for designing small molecule binding sites.
 
-### [ 2.3.1 ]
+### [ 2.3.1 ] Ligand command-line options
 
-See [Section 1.1.2]() for basic ligand command-line.
+See [Section 1.1.2](https://www.rosettacommons.org/docs/wiki/coupled-moves#1-basic-usage_1-1-basic-command-line_1-1-2-command-line-protein-with-one-ligand) for basic ligand command-line.
 
-ligand_mode | Boolean | false | if true, model protein ligand interaction |
+Option | Type | Default | Description | Expert usage recommendations
+------------ | ------------- | ------------- | ------------- | -------------
+number_ligands | Integer | 1 | number of ligands in the pose |
+ligand_mode | Boolean | false | if true, model protein-ligand interaction | If set to 'true' and no ligand present, results in error. If set to 'false' and ligand present, protein-ligand interactions will not be considered.
+ligand_weight | Real | 1.0 | weight for protein-ligand interactions | Recommend somewhere around 1.0 or 2.0 depending on dataset.
 
-### Ligand preparation
+-------------------------------------
 
-* If you are using a ligand:
+### [ 2.3.2 ] Ligand Preparation
+
 * **NOTE: The ligand chains must be the last chains in the PDB, or CoupledMoves can't find them!!!**
 * Place each ligand in its own chain (we recommend naming it chain X for the first ligand). 
 
 * Preparation:
   1. Remove relevant HETATM lines from the ligand's source PDB and paste into a new PDB.
-  2. Add hydrogens using Babel, open resulting file in Avogadro, and save as a .mol2 file.
+  2. Add hydrogens using Babel
        `babel -h IPTG.pdb IPTG_withH.sdf`
-  3. To get the .params files from the .mol2 files for each ligand, run the molfile_to_params.py script
+  3. Ppen resulting file in Avogadro/PyMOL, and save as a .mol2 file.
+  4. To get the .params files from the .mol2 files for each ligand, run the molfile_to_params.py script
       `python ~/Rosetta/main/source/scripts/python/public/molfile_to_params.py -n name input_file.mol2 `
-  4. Rename chain and add back into hydrogenated PDB with protein structure.
-  5. Make sure the ligand is in the right place by aligning with original/non-hydrogenated PDB.
+  5. Rename chain and add back into hydrogenated PDB with protein structure.
+  6. Make sure the ligand is in the right place by aligning with original/non-hydrogenated PDB.
 
+### [ 2.3.3 ] Explicit Waters
 
-### Explicit waters
-
+**Preparing explicit waters**
 * Place water molecules in a separate chain, chain W. Use TP3/WAT residue types and crystallographic positions of oxygens. 
 * Add the hydrogens by scoring: `~/Rosetta/main/source/bin/score.linuxgccrelease -database ~/Rosetta/main/database/ -s pdb_file -ignore_unrecognized_res -out:output`
+* Waters do not need a params file because WAT/TP3 are already in the Rosetta database.
+
+### [ 2.3.4 ] Command-line examples: Advanced ligand usage
+
+
+```
+coupled_moves.default.linuxgccrelease
+-s my.pdb # protein and ligand(s). 
+   # NOTE: Ligand(s) must be last residues listed in pdb.
+-resfile my.resfile
+-ex1 -ex2 -extrachi_cutoff 0
+-coupled_moves::ligand_mode true
+-coupled_moves::number_ligands
+-extra_res_fa my_ligand.params # params file for ligand on chain X in my.pdb
+-extra_res_fa my_ligand.params # params file for ligand on chain Y in my.pdb
+-coupled_moves::ligand_weight 2.0 # increased weight for ligand-protein interactions
+```
+
+
+
 
 ----------------
 
