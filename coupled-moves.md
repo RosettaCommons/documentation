@@ -131,28 +131,38 @@ CoupledMoves can move the backbone with:
     2a. **Fragment KIC** <br>
           Kinematic closure with fragment perturber. Fragment perturber substitutes fragments with identical sequences, resulting in new torsion angles unrelated to the starting structure.<br>
      2b. **Walking KIC** <br>
-           Kinematic closure with walking perturber. "Walks" along torsion angles. Angles are modified by values from a distribution around a user-specified magnitude.
+           Kinematic closure with walking perturber, so named because it "walks" along torsion angles. Angles are modified by values from a distribution around a user-specified magnitude.
 
 * Which mover is suggested?
 
-** Coupled Moves with Short Backrub Mover **
+**Example 3**
+**Coupled Moves with Short Backrub Mover**
 
-Simple -- the backbone mover is controlled with the `-coupled_moves::backbone_mover` flag. If you leave this flag out, Coupled Moves defaults to Short Backrub Mover.
+Simple -- the backbone mover is controlled with the `-coupled_moves::backbone_mover` flag. If you leave this flag out, Coupled Moves defaults to Short Backrub Mover. E.g. Basic command-line Example #1.
 
-** Coupled Moves with KIC **
-** Controlling loop size **
-```-coupled_moves::kic_loop_size <n>
-n=0 --> 
+**Coupled Moves with KIC**
+**Controlling loop size**
+
+This is a bit tricky so read carefully. The parameter set by `-coupled_moves::kic_loop_size` is used to calculate the loop size.  
+
 ```
+-coupled_moves::kic_loop_size <n>
+```
+* n=0 --> randomized loop size 
+* n=2 --> 
 
 
-** Coupled Moves with Fragment KIC **
+**Example 4**
+**Coupled Moves with Fragment KIC**
 ```
 -coupled_moves::backbone_mover kic
 -coupled_moves::kic_perturber fragment
 -coupled_moves::kic_loop_size 0
 -loops:frag_sizes 9 3
 -loops:frag_files my_pdb.200.3mers.gz, my_pdb.200.3mers.gz
+```
+
+Fragment file generation is explained [here](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/fragment-file).
 
 **Example 2**
 
