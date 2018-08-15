@@ -156,30 +156,30 @@ if you are not familiar with KIC, please refer to the [documentation](https://ww
   1. Fragment KIC
   2. Walking KIC
 
-##### 1.2.1 Coupled Moves with Fragment KIC
+##### 1.2.1 Fragment KIC
 
 Fragment perturber substitutes fragments with identical sequences, resulting in updated torsion angles unrelated to the starting torsions. Requires the following inputs:
 
     ```
     -coupled_moves::backbone_mover kic
+    -coupled_moves::kic_perturber fragment
     -loops:frag_sizes 9 3
     -loops:frag_files my_pdb.200.3mers.gz, my_pdb.200.3mers.gz
     ```
 
 Fragment file generation is explained [here](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/fragment-file).
 
-##### 1.2.1 Coupled Moves with Walking KIC
+##### 1.2.1 Walking KIC
 
-Walking perturber is so named because it "walks" along torsion angle spaces. Angles are modified by values from a distribution around a user-specified magnitude.
+Walking perturber "walks" along torsion angle space. Angles are modified by values from a distribution around a user-specified magnitude.
 
+    ```
+    -coupled_moves::backbone_mover kic
+    -coupled_moves::kic_perturber walking # default='walking'
+    -coupled_moves::walking_perturber_magnitude 2.0 # units of degrees; default=2.0
+    ```
 
-
-
-
-
-
-
-**Controlling loop size with `-coupled_moves::kic_loop_size`**
+#### 1.3 Controlling KIC loop size with `-coupled_moves::kic_loop_size`**
 
 This is a bit confusing -- The parameter set by `-coupled_moves::kic_loop_size` (hereafter *n*) is used to calculate the final *loop size* in residues. You may set a constant or random loop size. `-coupled_moves::kic_loop_size` only applies when using `-coupled_moves::backbone_mover=kic` only.
 
