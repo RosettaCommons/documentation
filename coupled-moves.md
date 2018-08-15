@@ -36,22 +36,25 @@ Non-coupled protocols have the following framework:
 
 Resulting in a limitation where a backbone move might create a sidechain clash that is rejected in the first Monte Carlo step, even though it could have been rescued by the subsequent sidechain move.
 
-*Coupled Moves Algorithm*
+**Coupled Moves Algorithm**
+
 1. Backbone move
 2. Sidechain move
 3. Monte Carlo accept/reject
+4. Return to step 1
 
 # [4] Setup and Inputs
 
 ## [4.1] Input files
 * Input PDB -- the only strictly required input file
 * Resfile -- CoupledMoves is a design method
-* Params file, one for each ligand (optional) (see [Advanced Ligand Options]())
+* Params file, one for each ligand (optional) (see [Advanced Ligand Usage](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage))
 * Constraints file (optional) ([documentation](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/constraint-file))
 
 ## [4.2] Input pdb preparation
 
 * If your protein is not a simple monomer, put each protein in a separate chain. For example, if you have a homodimer, put each monomer in its own chain.
+* See [Advanced Ligand Usage](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage) for how to prepare a pdb containing ligands.
 * Pre-relax? Maybe.
 
 ## [4.3] Resfile preparation
@@ -80,7 +83,7 @@ START
 
 ## [5.1] Basic command-line
 
-Coupled Moves has a large number of options, and running the basics as in Examples 1 and 2 will set many defaults which are explained in later sections.
+Coupled Moves has a large number of options, and running these basic  examples relies on many defaults, which are explained in the advanced sections.
 
 ### [5.1.1] Command-line: Protein only
 
@@ -132,14 +135,11 @@ CoupledMoves can move the backbone with:
     -coupled_moves::backbone_mover kic
     ```
 
-Default behavior is backrub.
-
 * Which mover is suggested?
 
 ### [6.1.1] Coupled Moves with ShortBackrubMover
 
 Coupled Moves defaults to ShortBackrubMover, e.g. Example #1.  If you want to explicitly specify this default, use
-
     ```
     -coupled_moves::backbone_mover backrub
     ```
