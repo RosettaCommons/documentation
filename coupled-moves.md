@@ -141,23 +141,24 @@ Default behavior is backrub.
 
 #### 1.1 Coupled Moves with ShortBackrubMover
 
-Coupled Moves defaults to ShortBackrubMover, e.g. Example #1. If you want to explicitly specify backrub, use
+Coupled Moves defaults to ShortBackrubMover, e.g. Example #1.  If you want to explicitly specify backrub, use
 
     ```
-    -coupled_moves::backbone_mover backrub```
+    -coupled_moves::backbone_mover backrub
+    ```
 
 Backrub segment length is hardcoded in ShortBackrubMover as 3-residue (or 4-residue if it hits a Proline).
 
 #### 1.2 Coupled Moves with KIC
 
-if you are not familiar with KIC, please refer to the ([documentation](https://www.rosettacommons.org/demos/latest/tutorials/GeneralizedKIC/generalized_kinematic_closure_1)). During the perturbation step, various methods can be used to perturb torsion angles. CoupledMoves currently (August 2018) has two perturbers available:
+if you are not familiar with KIC, please refer to the [documentation](https://www.rosettacommons.org/demos/latest/tutorials/GeneralizedKIC/generalized_kinematic_closure_1). During KIC's perturbation step, various algorithms can be used to perturb torsion angles. CoupledMoves currently (August 2018) supports two perturbers:
 
   1. Fragment KIC
   2. Walking KIC
 
-##### 1.2.1 Coupled Moves with fragment KIC
+##### 1.2.1 Coupled Moves with Fragment KIC
 
-  1. **Fragment KIC** - Kinematic closure with fragment perturber. Fragment perturber substitutes fragments with identical sequences, resulting in new torsion angles unrelated to the starting structure.<br>
+Fragment perturber substitutes fragments with identical sequences, resulting in updated torsion angles unrelated to the starting torsions. Requires the following inputs:
 
     ```
     -coupled_moves::backbone_mover kic
@@ -165,7 +166,11 @@ if you are not familiar with KIC, please refer to the ([documentation](https://w
     -loops:frag_files my_pdb.200.3mers.gz, my_pdb.200.3mers.gz
     ```
 
-  2. **Walking KIC** - Kinematic closure with walking perturber, so named because it "walks" along torsion angles. Angles are modified by values from a distribution around a user-specified magnitude.
+Fragment file generation is explained [here](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/fragment-file).
+
+##### 1.2.1 Coupled Moves with Walking KIC
+
+Walking perturber is so named because it "walks" along torsion angle spaces. Angles are modified by values from a distribution around a user-specified magnitude.
 
 
 
@@ -196,7 +201,7 @@ This is a bit confusing -- The parameter set by `-coupled_moves::kic_loop_size` 
 
 ```
 
-Fragment file generation is explained [here](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/fragment-file).
+
 
 **Example 2**
 
