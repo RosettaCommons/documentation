@@ -141,11 +141,10 @@ Default behavior is backrub.
 
 #### 1.1 Coupled Moves with ShortBackrubMover
 
-Coupled Moves defaults to ShortBackrubMover, e.g. Basic command-line Example #1. If you want to explicitly specify backrub, use
+Coupled Moves defaults to ShortBackrubMover, e.g. Example #1. If you want to explicitly specify backrub, use
 
     ```
-    -coupled_moves::backbone_mover backrub
-    ```
+    -coupled_moves::backbone_mover backrub```
 
 Backrub segment length is hardcoded in ShortBackrubMover as 3-residue (or 4-residue if it hits a Proline).
 
