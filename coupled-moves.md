@@ -41,31 +41,24 @@ Resulting in a limitation where a backbone move might create a sidechain clash t
 2. Sidechain move
 3. Monte Carlo accept/reject
 
-# Setup and Inputs
+# [4] Setup and Inputs
 
-### Input files
+## [4.1] Input files
 * Input PDB -- the only strictly required input file
 * Resfile -- CoupledMoves is a design method
-* Params file, one for each ligand (optional)
-* Constraints file (optional)
+* Params file, one for each ligand (optional) (see [Advanced Ligand Options]())
+* Constraints file (optional) ([documentation](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/constraint-file))
 
--------------------------
-
-### Preparing input pdb
+## [4.2] Input pdb preparation
 
 * If your protein is not a simple monomer, put each protein in a separate chain. For example, if you have a homodimer, put each monomer in its own chain.
 * Pre-relax? Maybe.
 
+## [4.3] Resfile preparation
 
+This section assumes familiarity with the resfile [documentation](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/resfiles) and [manual](https://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/d1/d97/resfiles.html). 
 
--------------------------
-
-### Resfile preparation
-
-To achieve adequate sampling in a limited number of trials, define a target set of designable residues, binding pocket, or interface. For example, a resfile that only allows design of a ligand binding pocket's first shell residues. Set the first line of the resfile as NATRO to default all residues to the input rotamer. After the START line, set first shell residues, motif residues, or individual secondary structure elements on each chain to ALLAA to allow coupled moves to design those residue positions to be any of the 20 standard amino acids. More specific design options are available too and are detailed in the resfile documentation: https://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/d1/d97/resfiles.html
-
-Save the file as resfile_name.res, and feed it to coupled moves with the -resfile flag.
-For example: -resfile resfile_name
+To achieve adequate sampling in a limited number of trials, set all residues to NATRO except a defined target set of designable residues, e.g. a ligand binding pocket's first shell residues, motif residues, or individual secondary structure elements. Consider setting second-shell residues to NATAA to allow rotamer sampling.
 
 Example resfile:
 
@@ -77,19 +70,19 @@ START
 216 A ALLAA
 277 - 279 B ALLAA
 356 - 359 B ALLAA
+9 A NATAA
+11 A NATAA
 ```
 
 -------------------------
 
-# Command-line Examples
+# [5] Basic Usage
 
-# [ 1 ] Basic Usage
-
-## [ 1.1 ] Basic command-line
+## [5.1] Basic command-line
 
 Coupled Moves has a large number of options, and running the basics as in Examples 1 and 2 will set many defaults which are explained in later sections.
 
-### [ 1.1.1 ] Command-line: Protein only
+### [5.1.1] Command-line: Protein only
 
 ```
 coupled_moves.default.linuxgccrelease
@@ -98,7 +91,7 @@ coupled_moves.default.linuxgccrelease
 -ex1 -ex2 -extrachi_cutoff 0
 ```
 
-### [ 1.1.2 ] Command-line: Protein with one ligand
+### [5.1.2] Command-line: Protein with one ligand
 
 ```
 coupled_moves.default.linuxgccrelease
@@ -114,25 +107,27 @@ coupled_moves.default.linuxgccrelease
 
 ----------------
 
-## [ 1.2 ] Basic XML
+## [5.2] Basic XML
 
-### [ 1.2.1 ] XML: Protein only
+### [5.2.1] XML: Protein only
 
-### [ 1.2.2 ] XML: Protein with one ligand
+### [5.2.2] XML: Protein with one ligand
 
 ----------------
 
-# [ 2 ] Advanced Usage
+# [6] Advanced Backbone Usage
 
-## [ 2.1 ] Changing the backbone mover
+This section assumed familiarity with documentation for [backrub](https://www.rosettacommons.org/docs/latest/application_documentation/structure_prediction/backrub) and [kinematic closure](https://www.rosettacommons.org/demos/latest/tutorials/GeneralizedKIC/generalized_kinematic_closure_1).
+
+## [6.1] Changing the backbone mover
 
 CoupledMoves can move the backbone with:
-* Backrub ([documentation](https://www.rosettacommons.org/docs/latest/application_documentation/structure_prediction/backrub))
+* Backrub
     ```
     -coupled_moves::backbone_mover backrub
     ```
 
-* Kinematic closure (KIC) ([documentation](https://www.rosettacommons.org/demos/latest/tutorials/GeneralizedKIC/generalized_kinematic_closure_1)) <br>
+* Kinematic closure (KIC)
     ```
     -coupled_moves::backbone_mover kic
     ```
@@ -141,7 +136,7 @@ Default behavior is backrub.
 
 * Which mover is suggested?
 
-### [ 2.1.1 ] Coupled Moves with ShortBackrubMover
+### [6.1.1] Coupled Moves with ShortBackrubMover
 
 Coupled Moves defaults to ShortBackrubMover, e.g. Example #1.  If you want to explicitly specify this default, use
 
@@ -151,14 +146,14 @@ Coupled Moves defaults to ShortBackrubMover, e.g. Example #1.  If you want to ex
 
 Backrub segment length is hardcoded in ShortBackrubMover as 3-residue (or 4-residue if it hits a Proline).
 
-### [ 2.1.2 ] Coupled Moves with KIC
+### [6.1.2] Coupled Moves with KIC
 
 if you are not familiar with KIC, please refer to the [documentation](https://www.rosettacommons.org/demos/latest/tutorials/GeneralizedKIC/generalized_kinematic_closure_1). During KIC's perturbation step, various algorithms can be used to perturb torsion angles. CoupledMoves currently (August 2018) supports two perturbers:
 
   1. Fragment KIC
   2. Walking KIC
 
-#### [ 2.1.2.1 ] Fragment KIC
+#### [6.1.2.1] Fragment KIC
 
 Fragment perturber substitutes fragments with identical sequences, resulting in updated torsion angles unrelated to the starting torsions. Requires the following inputs:
 
@@ -171,7 +166,7 @@ Fragment perturber substitutes fragments with identical sequences, resulting in 
 
 Fragment file generation is explained [here](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/fragment-file).
 
-#### [ 2.1.2.2 ] Walking KIC
+#### [6.1.2.2] Walking KIC
 
 Walking perturber "walks" along torsion angle space. Angles are modified by values from a distribution around a user-specified magnitude.
 
@@ -181,7 +176,7 @@ Walking perturber "walks" along torsion angle space. Angles are modified by valu
     -coupled_moves::walking_perturber_magnitude 2.0 # units of degrees; default=2.0
     ```
 
-## [ 2.2 ] Controlling KIC loop size
+## [6.2] Controlling KIC loop size
 
 This setting is a bit tricky -- The parameter set by `-coupled_moves::kic_loop_size` (hereafter *n*) is used to calculate the final *loop size* in residues. You may set a constant or random loop size. `-coupled_moves::kic_loop_size` only applies when using `-coupled_moves::backbone_mover=kic`.
 
@@ -197,11 +192,13 @@ Note that *n* must be at least 3 for 3mers in fragment KIC. Shorter loops will n
 
 Default behavior is n=4.
 
-## [ 2.3 ] Advanced Ligand Usage
+----------------
+
+# [7] Advanced Ligand Usage
 
 Coupled Moves was originally developed to design enzyme active sites, and has been extensively benchmarked on small-molecule binding site datasets. It is good for general design, but is especially highly recommended for designing small molecule binding sites.
 
-### [ 2.3.1 ] Ligand command-line options
+### [7.1] Ligand command-line options
 
 See [Section 1.1.2](https://www.rosettacommons.org/docs/wiki/coupled-moves#1-basic-usage_1-1-basic-command-line_1-1-2-command-line-protein-with-one-ligand) for basic ligand command-line.
 
@@ -213,7 +210,7 @@ ligand_weight | Real | 1.0 | weight for protein-ligand interactions | Recommend 
 
 -------------------------------------
 
-### [ 2.3.2 ] Ligand Preparation
+### [7.2] Ligand Preparation
 
 * **NOTE: The ligand chains must be the last chains in the PDB, or CoupledMoves can't find them!!!**
 * Place each ligand in its own chain (we recommend naming it chain X for the first ligand). 
@@ -228,15 +225,14 @@ ligand_weight | Real | 1.0 | weight for protein-ligand interactions | Recommend 
   5. Rename chain and add back into hydrogenated PDB with protein structure.
   6. Make sure the ligand is in the right place by aligning with original/non-hydrogenated PDB.
 
-### [ 2.3.3 ] Explicit Waters
+### [7.3] Explicit Waters
 
 **Preparing explicit waters**
 * Place water molecules in a separate chain, chain W. Use TP3/WAT residue types and crystallographic positions of oxygens. 
 * Add the hydrogens by scoring: `~/Rosetta/main/source/bin/score.linuxgccrelease -database ~/Rosetta/main/database/ -s pdb_file -ignore_unrecognized_res -out:output`
 * Waters do not need a params file because WAT/TP3 are already in the Rosetta database.
 
-### [ 2.3.4 ] Command-line examples: Advanced ligand usage
-
+### [7.4] Command-line examples: Advanced ligand usage
 
 ```
 coupled_moves.default.linuxgccrelease
@@ -251,12 +247,9 @@ coupled_moves.default.linuxgccrelease
 -coupled_moves::ligand_weight 2.0 # increased weight for ligand-protein interactions
 ```
 
-
-
-
 ----------------
 
-# Analysis
+# [8] Analysis
 
 ----------------
 
