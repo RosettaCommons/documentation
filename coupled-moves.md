@@ -148,15 +148,13 @@ Backrub segment length is hardcoded in ShortBackrubMover as 3-residue (or 4-resi
 
 ### [6.1.2] Coupled Moves with KIC
 
-if you are not familiar with KIC, please refer to the [documentation](https://www.rosettacommons.org/demos/latest/tutorials/GeneralizedKIC/generalized_kinematic_closure_1). During KIC's perturbation step, various algorithms can be used to perturb torsion angles. CoupledMoves currently (August 2018) supports two perturbers:
-
-  1. Fragment KIC
-  2. Walking KIC
+If you are not familiar with KIC, please refer to the [documentation](https://www.rosettacommons.org/demos/latest/tutorials/GeneralizedKIC/generalized_kinematic_closure_1). During KIC's perturbation step, various algorithms can be used to perturb torsion angles. CoupledMoves currently (August 2018) supports two perturbers, Fragment and Walking.
 
 #### [6.1.2.1] Fragment KIC
 
-Fragment perturber substitutes fragments with identical sequences, resulting in updated torsion angles unrelated to the starting torsions. Requires the following inputs:
+Fragment perturber substitutes fragments with identical sequences, resulting in updated torsion angles unrelated to the starting torsions. Fragment file generation is explained [here](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/fragment-file).
 
+**Example command-line**
     ```
     -coupled_moves::backbone_mover kic
     -coupled_moves::kic_perturber fragment
@@ -164,12 +162,11 @@ Fragment perturber substitutes fragments with identical sequences, resulting in 
     -loops:frag_files my_pdb.200.3mers.gz, my_pdb.200.3mers.gz
     ```
 
-Fragment file generation is explained [here](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/fragment-file).
-
 #### [6.1.2.2] Walking KIC
 
 Walking perturber "walks" along torsion angle space. Angles are modified by values from a distribution around a user-specified magnitude.
 
+**Example command-line**
     ```
     -coupled_moves::backbone_mover kic
     -coupled_moves::kic_perturber walking # default='walking'
@@ -178,19 +175,19 @@ Walking perturber "walks" along torsion angle space. Angles are modified by valu
 
 ## [6.2] Controlling KIC loop size
 
-This setting is a bit tricky -- The parameter set by `-coupled_moves::kic_loop_size` (hereafter *n*) is used to calculate the final *loop size* in residues. You may set a constant or random loop size. `-coupled_moves::kic_loop_size` only applies when using `-coupled_moves::backbone_mover=kic`.
+This setting is a bit complicated. First, `-coupled_moves::kic_loop_size` only applies when using `-coupled_moves::backbone_mover=kic`. Second, the parameter set by `-coupled_moves::kic_loop_size` (hereafter *n*) is used to calculate the final *loop size* in residues. 
+
+You may set a constant or random loop size:
 
 * **Constant loop size** - If you set *n* to a positive whole number, *loop_size* = 1+2\**n*. In terms of residues, the loop is defined by first selecting resnum (the designable residue), then defining loopstart=resnum-*n* and loopend=resnum+*n*. 
 
 * **Random loop size** - If you set *n*=0, in each trial, *n* will be a random integer in range( 3, 7 ).
 
 ```
--coupled_moves::kic_loop_size <n>
+-coupled_moves::kic_loop_size <n> # default n=4
 ```
 
-Note that *n* must be at least 3 for 3mers in fragment KIC. Shorter loops will not allow fragment substitution.
-
-Default behavior is n=4.
+* NOTE: *n* must be at least 3 for 3mers in fragment KIC. Shorter loops will not allow fragment substitution.
 
 ----------------
 
@@ -200,7 +197,7 @@ Coupled Moves was originally developed to design enzyme active sites, and has be
 
 ### [7.1] Ligand command-line options
 
-See [Section 1.1.2](https://www.rosettacommons.org/docs/wiki/coupled-moves#1-basic-usage_1-1-basic-command-line_1-1-2-command-line-protein-with-one-ligand) for basic ligand command-line.
+(See [Section 1.1.2](https://www.rosettacommons.org/docs/wiki/coupled-moves#1-basic-usage_1-1-basic-command-line_1-1-2-command-line-protein-with-one-ligand) for basic ligand command-line.)
 
 Option | Type | Default | Description | Expert usage recommendations
 ------------ | ------------- | ------------- | ------------- | -------------
@@ -212,27 +209,29 @@ ligand_weight | Real | 1.0 | weight for protein-ligand interactions | Recommend 
 
 ### [7.2] Ligand Preparation
 
-* **NOTE: The ligand chains must be the last chains in the PDB, or CoupledMoves can't find them!!!**
+* **NOTE: The ligand chains must be the last chains in the PDB, or CoupledMoves can't find them.**
 * Place each ligand in its own chain (we recommend naming it chain X for the first ligand). 
 
 * Preparation:
-  1. Remove relevant HETATM lines from the ligand's source PDB and paste into a new PDB.
+  1. Cut/paste relevant ligand HETATM lines from source PDB into new PDB.
   2. Add hydrogens using Babel
        `babel -h IPTG.pdb IPTG_withH.sdf`
   3. Ppen resulting file in Avogadro/PyMOL, and save as a .mol2 file.
   4. To get the .params files from the .mol2 files for each ligand, run the molfile_to_params.py script
-      `python ~/Rosetta/main/source/scripts/python/public/molfile_to_params.py -n name input_file.mol2 `
-  5. Rename chain and add back into hydrogenated PDB with protein structure.
-  6. Make sure the ligand is in the right place by aligning with original/non-hydrogenated PDB.
+      ```
+      python ~/Rosetta/main/source/scripts/python/public/molfile_to_params.py -n name input_file.mol2
+      ```
+     OR
+     if using -gen_bonded score term:
+     ```
+     python ~/Rosetta/main/source/scripts/python/public/mol2genparams.py -n name input_file.mol2
+     ```
+  5. The params script should generate a pdb file. Open this, rename the chain, and put it back in the original PDB file with the protein.
+  6. Make sure ligand placement is correct by aligning with original in PyMOL.
 
-### [7.3] Explicit Waters
 
-**Preparing explicit waters**
-* Place water molecules in a separate chain, chain W. Use TP3/WAT residue types and crystallographic positions of oxygens. 
-* Add the hydrogens by scoring: `~/Rosetta/main/source/bin/score.linuxgccrelease -database ~/Rosetta/main/database/ -s pdb_file -ignore_unrecognized_res -out:output`
-* Waters do not need a params file because WAT/TP3 are already in the Rosetta database.
 
-### [7.4] Command-line examples: Advanced ligand usage
+### [7.3] Command-line examples: Advanced ligand usage
 
 ```
 coupled_moves.default.linuxgccrelease
@@ -246,6 +245,13 @@ coupled_moves.default.linuxgccrelease
 -extra_res_fa my_ligand.params # params file for ligand on chain Y in my.pdb
 -coupled_moves::ligand_weight 2.0 # increased weight for ligand-protein interactions
 ```
+
+### [7.4] Explicit Waters
+
+**Preparing explicit waters**
+* Place water molecules in a separate chain, chain W. Use TP3/WAT residue types and crystallographic positions of oxygens. 
+* Add the hydrogens by scoring: `~/Rosetta/main/source/bin/score.linuxgccrelease -database ~/Rosetta/main/database/ -s pdb_file -ignore_unrecognized_res -out:output`
+* Waters do not need a params file because WAT/TP3 are already in the Rosetta database.
 
 ----------------
 
