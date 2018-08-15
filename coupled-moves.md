@@ -123,40 +123,69 @@ Coupled Moves has a large number of options. The above command allows all option
 
 ## Advanced Usage
 
-### Changing the backbone mover
+### 1. Changing the backbone mover
 
 CoupledMoves can move the backbone with:
-  1. short backrub mover (3-residue lengths)
-  2. kinematic closure ([documentation](https://www.rosettacommons.org/demos/latest/tutorials/GeneralizedKIC/generalized_kinematic_closure_1)) <br>
-    2a. **Fragment KIC** <br>
-          Kinematic closure with fragment perturber. Fragment perturber substitutes fragments with identical sequences, resulting in new torsion angles unrelated to the starting structure.<br>
-     2b. **Walking KIC** <br>
-           Kinematic closure with walking perturber, so named because it "walks" along torsion angles. Angles are modified by values from a distribution around a user-specified magnitude.
+  1. Backrub ([documentation](https://www.rosettacommons.org/docs/latest/application_documentation/structure_prediction/backrub))
+    ```
+    -coupled_moves::backbone_mover backrub
+    ```
 
+  2. Kinematic closure (KIC) ([documentation](https://www.rosettacommons.org/demos/latest/tutorials/GeneralizedKIC/generalized_kinematic_closure_1)) <br>
+    ```
+    -coupled_moves::backbone_mover kic
+    ```
+
+Default behavior is backrub.
 * Which mover is suggested?
 
-**Example 3**
-**Coupled Moves with Short Backrub Mover**
+#### 1.1 Coupled Moves with ShortBackrubMover
 
-Simple -- the backbone mover is controlled with the `-coupled_moves::backbone_mover` flag. If you leave this flag out, Coupled Moves defaults to Short Backrub Mover. E.g. Basic command-line Example #1.
+Coupled Moves defaults to ShortBackrubMover, e.g. Basic command-line Example #1. If you want to explicitly specify backrub, use
+
+    ```
+    -coupled_moves::backbone_mover backrub
+    ```
 
 Backrub segment length is hardcoded in ShortBackrubMover as 3-residue (or 4-residue if it hits a Proline).
 
-### Coupled Moves with KIC**
+#### 1.2 Coupled Moves with KIC
+
+if you are not familiar with KIC, please refer to the ([documentation](https://www.rosettacommons.org/demos/latest/tutorials/GeneralizedKIC/generalized_kinematic_closure_1)). During the perturbation step, various methods can be used to perturb torsion angles. CoupledMoves currently (August 2018) has two perturbers available:
+
+  1. Fragment KIC
+  2. Walking KIC
+
+##### 1.2.1 Coupled Moves with fragment KIC
+
+  1. **Fragment KIC** - Kinematic closure with fragment perturber. Fragment perturber substitutes fragments with identical sequences, resulting in new torsion angles unrelated to the starting structure.<br>
+
+    ```
+    -coupled_moves::backbone_mover kic
+    -loops:frag_sizes 9 3
+    -loops:frag_files my_pdb.200.3mers.gz, my_pdb.200.3mers.gz
+    ```
+
+  2. **Walking KIC** - Kinematic closure with walking perturber, so named because it "walks" along torsion angles. Angles are modified by values from a distribution around a user-specified magnitude.
+
+
+
+
+
+
+
 
 **Controlling loop size with `-coupled_moves::kic_loop_size`**
 
-This is a bit confusing -- The parameter set by `-coupled_moves::kic_loop_size` (hereafter *n*) is used to calculate the final *loop size* in residues. You may set a constant or random loop size. 
+This is a bit confusing -- The parameter set by `-coupled_moves::kic_loop_size` (hereafter *n*) is used to calculate the final *loop size* in residues. You may set a constant or random loop size. `-coupled_moves::kic_loop_size` only applies when using `-coupled_moves::backbone_mover=kic` only.
 
 * CONSTANT - If you set *n* to a positive whole number, *loop_size* = 1+2\**n*. In terms of residues, the loop is defined by first selecting resnum (the designable residue), then defining loopstart=resnum-*n* and loopend=resnum+*n*. 
 
 * RANDOM - If you set *n* to 0, in each trial, *n* will be a random integer from range( 3, 7 ).
 
-NOTE: `-coupled_moves::kic_loop_size` only applies when using `-coupled_moves::backbone_mover=kic` only. Backrub segment length is hardcoded in ShortBackrubMover as 3-residue (or 4-residue if it hits a Proline).
-
 ```
--coupled_moves::kic_loop_size <*n*>
-# default *n*=4
+-coupled_moves::kic_loop_size <n>
+# default n=4
 ```
 
 **Example 4**
@@ -165,8 +194,7 @@ NOTE: `-coupled_moves::kic_loop_size` only applies when using `-coupled_moves::b
 -coupled_moves::backbone_mover kic
 -coupled_moves::kic_perturber fragment
 -coupled_moves::kic_loop_size 0
--loops:frag_sizes 9 3
--loops:frag_files my_pdb.200.3mers.gz, my_pdb.200.3mers.gz
+
 ```
 
 Fragment file generation is explained [here](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/fragment-file).
