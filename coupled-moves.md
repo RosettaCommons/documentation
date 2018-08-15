@@ -83,13 +83,15 @@ For example: -resfile resfile_name
 
 Example resfile:
 
-`NATRO
+```
+NATRO
 START
 8 - 10 A ALLAA
 87 - 90 A ALLAA
 216 A ALLAA
 277 - 279 B ALLAA
-356 - 359 B ALLAA`
+356 - 359 B ALLAA
+```
 
 -------------------------
 
@@ -141,7 +143,7 @@ Default behavior is backrub.
 
 #### 1.1 Coupled Moves with ShortBackrubMover
 
-Coupled Moves defaults to ShortBackrubMover, e.g. Example #1.  If you want to explicitly specify backrub, use
+Coupled Moves defaults to ShortBackrubMover, e.g. Example #1.  If you want to explicitly specify this default, use
 
     ```
     -coupled_moves::backbone_mover backrub
@@ -179,18 +181,78 @@ Walking perturber "walks" along torsion angle space. Angles are modified by valu
     -coupled_moves::walking_perturber_magnitude 2.0 # units of degrees; default=2.0
     ```
 
-#### 1.3 Controlling KIC loop size with `-coupled_moves::kic_loop_size`**
+#### 1.3 Controlling KIC loop size
 
-This is a bit confusing -- The parameter set by `-coupled_moves::kic_loop_size` (hereafter *n*) is used to calculate the final *loop size* in residues. You may set a constant or random loop size. `-coupled_moves::kic_loop_size` only applies when using `-coupled_moves::backbone_mover=kic` only.
+This is a bit tricky -- The parameter set by `-coupled_moves::kic_loop_size` (hereafter *n*) is used to calculate the final *loop size* in residues. You may set a constant or random loop size. `-coupled_moves::kic_loop_size` only applies when using `-coupled_moves::backbone_mover=kic`.
 
-* CONSTANT - If you set *n* to a positive whole number, *loop_size* = 1+2\**n*. In terms of residues, the loop is defined by first selecting resnum (the designable residue), then defining loopstart=resnum-*n* and loopend=resnum+*n*. 
+* **Constant loop size** - If you set *n* to a positive whole number, *loop_size* = 1+2\**n*. In terms of residues, the loop is defined by first selecting resnum (the designable residue), then defining loopstart=resnum-*n* and loopend=resnum+*n*. 
 
-* RANDOM - If you set *n* to 0, in each trial, *n* will be a random integer from range( 3, 7 ).
+* **Random loop size** - If you set *n*=0, in each trial, *n* will be a random integer in range( 3, 7 ).
 
 ```
 -coupled_moves::kic_loop_size <n>
-# default n=4
 ```
+
+Note that *n* must be at least 3 for 3mers in fragment KIC. Shorter loops will not allow fragment substitution.
+
+Default behavior is n=4.
+
+----------------
+
+# Command-line Options
+
+**Command-line options you might want to change, and why**
+
+Option | Type | Default | Description | Expert usage recommendations
+------------ | -------------
+ntrials | Integer | 1000 | number of Monte Carlo trials to run | Extensive benchmarking shows that more trials is not better. **Check results, try less than 1000**. 
+number_ligands | Integer | 1 | number of ligands in the pose | CoupledMoves needs this value to find the ligand.
+number_ligands |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+
+
+
+**Command-line options you probably don't want to touch, and why**
+Option | Type | Default | Description | Expert usage recommendations
+mc_kt | Real | 0.6 | value of kT for Monte Carlo when accepting/rejecting coupled side-chain and backbone moves |
+boltzmann_kt | Real | 0.6 | value of kT for Boltzmann weighted moves during side-chain design step |
+mm_bend_weight | Real | 1.0 | weight of mm_bend bond angle energy term |
+trajectory | Boolean | false | record a trajectory | Prints pdbs during design trajectory. Useful for viewing trajectory but takes a lot of space, use wisely.
+trajectory_gz | Boolean | false | gzip the trajectory |
+trajectory_stride | Integer | 100 | write out a trajectory frame every N trials |
+trajectory_file | String | 'traj.pdb' | name of trajectory file |
+output_fasta | String | sequences.fasta | name of FASTA output file |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+ |  |  |  |
+
+
+
+
+
 
 **Example 4**
 **Coupled Moves with Fragment KIC**
