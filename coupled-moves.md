@@ -21,7 +21,7 @@ Noah Ollikainen, René M. de Jong, Tanja Kortemme
 
 # Overview
 
-**Coupled Moves** is a flexible backbone design method meant to be used for designing small-molecule binding sites, protein-protein interfaces, and protein-peptide binding sites. It handles ligands and waters. It was originally developed for designing enzyme active sites, and continues to be used by DSM for this purpose. CoupledMoves is also a primary flexible backbone design method employed by Cyrus.
+**Coupled Moves** is a flexible backbone design method meant to be used for designing small-molecule binding sites, protein-protein interfaces, and protein-peptide binding sites. It handles ligands and waters. It was originally developed for designing enzyme active sites. CoupledMoves is one of the primary flexible backbone design methods employed by Cyrus.
 
 # Algorithm
 
@@ -76,50 +76,64 @@ Resulting in a limitation where a backbone move might create a sidechain clash t
 
 ### Resfile preparation
 
-It helps to have a target set of residues, binding pocket, or interface that you want to allow to move to achieve an adequate amount of sampling. For example, you can write your resfile to only allow first shell residues to be designed in a ligand binding pocket. To do so, set the first line of the resfile as NATRO to preserve the input rotamer and not allow any repacking for every residue in the input structure. After the START command, set first shell residues, motif residues, or individual secondary structure elements on each chain to ALLAA to allow coupled moves to design those residue positions to be any of the 20 standard amino acids. More specific design options are available too and are detailed in the resfile documentation: https://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/d1/d97/resfiles.html
+To achieve adequate sampling in a limited number of trials, define a target set of designable residues, binding pocket, or interface. For example, a resfile that only allows design of a ligand binding pocket's first shell residues. Set the first line of the resfile as NATRO to default all residues to the input rotamer. After the START line, set first shell residues, motif residues, or individual secondary structure elements on each chain to ALLAA to allow coupled moves to design those residue positions to be any of the 20 standard amino acids. More specific design options are available too and are detailed in the resfile documentation: https://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/d1/d97/resfiles.html
 
 Save the file as resfile_name.res, and feed it to coupled moves with the -resfile flag.
 For example: -resfile resfile_name
 
 Example resfile:
 
-NATRO
+`NATRO
 START
 8 - 10 A ALLAA
 87 - 90 A ALLAA
 216 A ALLAA
 277 - 279 B ALLAA
-356 - 359 B ALLAA
-
+356 - 359 B ALLAA`
 
 -------------------------
 
-**Model Numbering**
-
-Finally, the input PDB file must be renumbered to the AHo Scheme.  This can be done through the [PyIgClassify Server](http://dunbrack2.fccc.edu/pyigclassify/).  The PyIgClassify code can also be downloaded and run separately for local renumbering/analysis. 
-
-On input into the program, Rosetta assigns our CDR clusters using the same methodology as PyIgClassify. The RosettaAntibodyDesign protocol is then driven by a set of command-line options and a set of design instructions provided as an input file that controls which CDR(s) are designed and how. Details and example command lines and instruction files are provided below.
-
 # Command-line Examples
 
-## Basic Settings
+## Basic Usage
 
-### General Design
+### Basic command-line
 
 **Example 1**
 
-The command-line can be as simple as:
-
 ```
-antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
--graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda
+coupled_moves.default.linuxgccrelease \
+-s my.pdb # protein and ligand(s). NOTE: Ligand(s) must be last residues listed in pdb. \
+-ex1 -ex2 -extrachi_cutoff 0 \
+-extra_res_fa my_ligand.params # params file for ligand in my.pdb \
+-resfile my.resfile \
 ```
 
-This makes the H3 loop the primary CDR chosen in the outer cycle, running graft-based design on H3, while simultaneously sequence designing H1 and H2. 
+Coupled Moves has a large number of options. The above command allows all options to default values. Notably, `-coupled_moves::backbone_mover` defaults to `backrub`.
 
 ----------------
 
+### Basic XML
+
 **Example 2**
+
+----------------
+
+## Advanced Usage
+
+### Changing the backbone mover
+
+CoupledMoves can move the backbone with:
+  1. short backrub mover (3-residue lengths)
+  2. kinematic closure ([(documentation)](https://www.rosettacommons.org/demos/latest/tutorials/GeneralizedKIC/generalized_kinematic_closure_1)) <br>
+    2a. **Fragment KIC** <br>
+          Kinematic closure with fragment perturber. Fragment perturber substitutes fragments with identical sequences, resulting in new torsion angles unrelated to the starting structure.<br>
+     2b. **Walking KIC** <br>
+           Kinematic closure with walking perturber. "Walks" along torsion angles. Angles are modified by values from a distribution around a user-specified magnitude.
+
+**Example 2**
+
+-ignore_unrecognized_res # If pdb contains ligands not defined by params that should be ignored \
 
 Here, we want to do a denovo-run, starting with random CDRs grafted in instead of whatever we have in antibody to start with (only for the CDRs that are actually undergoing graft-design).  This is useful, as we start the design with very high energy and work our way down.
 
