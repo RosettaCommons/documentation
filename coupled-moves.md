@@ -111,6 +111,8 @@ coupled_moves.default.linuxgccrelease \
 
 Coupled Moves has a large number of options. The above command allows all options to default values. Notably, `-coupled_moves::backbone_mover` defaults to `backrub`.
 
+* Should I default users to FKIC?
+
 ----------------
 
 ### Basic XML
@@ -125,11 +127,32 @@ Coupled Moves has a large number of options. The above command allows all option
 
 CoupledMoves can move the backbone with:
   1. short backrub mover (3-residue lengths)
-  2. kinematic closure ([(documentation)](https://www.rosettacommons.org/demos/latest/tutorials/GeneralizedKIC/generalized_kinematic_closure_1)) <br>
+  2. kinematic closure ([documentation](https://www.rosettacommons.org/demos/latest/tutorials/GeneralizedKIC/generalized_kinematic_closure_1)) <br>
     2a. **Fragment KIC** <br>
           Kinematic closure with fragment perturber. Fragment perturber substitutes fragments with identical sequences, resulting in new torsion angles unrelated to the starting structure.<br>
      2b. **Walking KIC** <br>
            Kinematic closure with walking perturber. "Walks" along torsion angles. Angles are modified by values from a distribution around a user-specified magnitude.
+
+* Which mover is suggested?
+
+** Coupled Moves with Short Backrub Mover **
+
+Simple -- the backbone mover is controlled with the `-coupled_moves::backbone_mover` flag. If you leave this flag out, Coupled Moves defaults to Short Backrub Mover.
+
+** Coupled Moves with KIC **
+** Controlling loop size **
+```-coupled_moves::kic_loop_size <n>
+n=0 --> 
+```
+
+
+** Coupled Moves with Fragment KIC **
+```
+-coupled_moves::backbone_mover kic
+-coupled_moves::kic_perturber fragment
+-coupled_moves::kic_loop_size 0
+-loops:frag_sizes 9 3
+-loops:frag_files my_pdb.200.3mers.gz, my_pdb.200.3mers.gz
 
 **Example 2**
 
