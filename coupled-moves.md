@@ -101,17 +101,27 @@ START
 
 ### Basic command-line
 
-**Example 1**
+Coupled Moves has a large number of options, and running the basics as in Examples 1 and 2 will set many defaults which are explained in later sections.
+
+**Example 1 - Protein only**
 
 ```
-coupled_moves.default.linuxgccrelease \
--s my.pdb # protein and ligand(s). NOTE: Ligand(s) must be last residues listed in pdb. \
--ex1 -ex2 -extrachi_cutoff 0 \
--extra_res_fa my_ligand.params # params file for ligand in my.pdb \
--resfile my.resfile \
+coupled_moves.default.linuxgccrelease
+-s my.pdb # protein and ligand(s). NOTE: Ligand(s) must be last residues listed in pdb.
+-resfile my.resfile
+-ex1 -ex2 -extrachi_cutoff 0
 ```
 
-Coupled Moves has a large number of options. The above command allows all options to default values. Notably, `-coupled_moves::backbone_mover` defaults to `backrub`.
+**Example 1 - Protein with one ligand**
+
+```
+coupled_moves.default.linuxgccrelease
+-s my.pdb # protein and ligand(s). NOTE: Ligand(s) must be last residues listed in pdb.
+-resfile my.resfile
+-ex1 -ex2 -extrachi_cutoff 0
+-extra_res_fa my_ligand.params # params file for ligand contained in my.pdb
+-coupled_moves::ligand_mode true
+```
 
 * Should I default users to FKIC?
 
