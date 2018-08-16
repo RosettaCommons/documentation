@@ -119,7 +119,7 @@ The following lines enable ligand mode:
 
 # [6] Advanced Backbone Usage
 
-This section assumed familiarity with documentation for [backrub](https://www.rosettacommons.org/docs/latest/application_documentation/structure_prediction/backrub) and [kinematic closure](https://www.rosettacommons.org/demos/latest/tutorials/GeneralizedKIC/generalized_kinematic_closure_1).
+This section assumed familiarity with [backrub](https://www.rosettacommons.org/docs/latest/application_documentation/structure_prediction/backrub) and [kinematic closure](https://www.rosettacommons.org/demos/latest/tutorials/GeneralizedKIC/generalized_kinematic_closure_1).
 
 ## [6.1] Changing the backbone mover
 
@@ -170,7 +170,8 @@ Walking perturber "walks" along torsion angle space. Angles are modified by valu
 
 ## [6.2] Controlling KIC loop size
 
-This setting is a bit complicated. 
+This setting is a bit complicated. The default should be fine for the vast majority of applications.
+
 * `-coupled_moves::kic_loop_size` only applies when using `-coupled_moves::backbone_mover=kic`.
 * The parameter set by `-coupled_moves::kic_loop_size` (hereafter *n*) is used to calculate the final *loop size* in residues.
 * "Loop" here doesn't refer to secondary structure, just to a segment of residues.
