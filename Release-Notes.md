@@ -48,7 +48,7 @@
 * `-output_ligands_as_separate_chains`, causes Rosetta to reassign chain ID of a ligand when it shares with a peptide chain.
 * [[SnugDock]] no longer requires an L_HA chain pattern
 * Enzdes use of PDB headers now more user friendly
-* Cartesian mode minimization and [[cart_bonded]] is compatible with per-atom control (JARED: clarify - this is really per-atom immobility?), cyclic geometry, D-amino acids, and symmetric glycine behavior.
+* Cartesian mode minimization and [[cart_bonded]] is compatible with per-atom control (mainly used for IUPAC-nomenclature compatability of glycan Movemaps). Fixes for cyclic geometry, D-amino acids, and symmetric glycine behavior.
 * [[BuriedUnsatisfiedHbondFilter]] gains ddG_style_dont_recalc_surface
 * [[PyMOLMover]] hookup is python3 compatible
 * [[WriteSSEMover]]
