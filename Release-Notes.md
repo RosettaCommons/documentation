@@ -8,7 +8,7 @@
 * Buried unsatisfied penalty scoreterm guides the packer to solutions with no buried unsatisfied hydrogen bond donors or acceptors.  LINKY LINKY
 
 ### New features
-* [[SimpleMetric]]s are coming online to replace the use of no-action Movers and Filters that were used to calculate values
+* [[SimpleMetrics]] are coming online to replace the use of no-action Movers and Filters that were used to calculate values
 * Huge stability improvements to the PDB and mmCIF readers
 * Database directory of [[RelaxScripts]].  The RosettaCON2018 RelaxScript is under consideration as the next default script - it improves design quality and runs faster to boot.
 * Protein ensembles in small molecule docking
