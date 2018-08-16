@@ -1,5 +1,76 @@
 # Release Notes
 
+<!--- BEGIN_INTERNAL -->
+## _Rosetta 3.10 (draft notes)_
+
+### New applications
+* [[GALigandDock]] and [[gen_bonded]] - newest results of the SEATTLE ENERGY FUNCTION LINK THING
+* Buried unsatisfied penalty scoreterm guides the packer to solutions with no buried unsatisfied hydrogen bond donors or acceptors.  LINKY LINKY
+
+### New features
+* [[SimpleMetric]]s are coming online to replace the use of no-action Movers and Filters that were used to calculate values
+* Huge stability improvements to the PDB and mmCIF readers
+* Database directory of [[RelaxScripts]].  The RosettaCON2018 RelaxScript is under consideration as the next default script - it improves design quality and runs faster to boot.
+* Protein ensembles in small molecule docking
+* [[Splice]] updates
+* [[InterfaceAnalyzerMover]] compatible with ligands and generally more stable
+* [[DensityFitResidueSelector]]
+* [[InterfaceHydrophobicResidueContactsFilter]]
+* Lariat modes for cyclic peptides
+* [[RosettaDock]] gains adaptive conformer selection and motif dock score
+* [[SEWING]] refactor and new needles (ok, ok, new sub-applications).  I don't think it's multithreaded yet.
+* [[FindGlycanSeqonsMover]]
+* Tricks to dump minimization trajectories
+* common flag/config/option file support JARED LINKY LINKY
+
+### Nonprotein chemistries
+#### Glycans
+* Method to output the IUPAC sequence for an individual glycan
+* [[RingPlaneFlipMover]]
+* Glycosylation of lipids and nucleotide diphosphates
+* [[ShearMover]] works with glycans now
+* [[Stepwise]] works better with sugars
+
+#### RNA
+* Parametrically generated RNA helices bugfixes
+* RNA-protein ddG calculations.
+* [[DRRAFTER]]
+
+#### Metals
+* [[CrosslinkerMover]] can now place octahedral, tetrahedral, square pyramidal, square planar, trigonal planar, and trigonal pyramidal metals.
+* Improvements for auto_setup_metals - particularly it works with centroid mode
+
+### Updates
+* UBQ_Gp_LYX-Cterm compatible with a ResidueSelector from which to sample to choose LYX positions
+* RosettaAntibody can take user-defined CDRs via a JSON input, useful for when the automated regex detection fails
+* [[CoupledMoves]] and [[ClashBasedRepackShell]]
+* [[UnsatSel]]
+* `-output_ligands_as_separate_chains`, causes Rosetta to reassign chain ID of a ligand when it shares with a peptide chain.
+* [[SnugDock]] no longer requires an L_HA chain pattern
+* Enzdes use of PDB headers now more user friendly
+* Cartesian mode minimization and [[cart_bonded]] is compatible with per-atom control (JARED: clarify - this is really per-atom immobility?), cyclic geometry, D-amino acids, and symmetric glycine behavior.
+* [[BuriedUnsatisfiedHbondFilter]] gains ddG_style_dont_recalc_surface
+* [[PyMOLMover]] hookup is python3 compatible
+* [[WriteSSEMover]]
+* [[SimpleThreadingMover]] works with symmetry
+
+### Bugfixes
+* [[BindingSiteConstraint]]
+* 3D lattice docking and [[MakeLatticeMover]]
+* BackrubDD XML parsing
+* [[BuriedUnsatFilter]] or maybe [[BuriedUnsatisfiedHbondFilter]]
+* [[EllipsoidalRandomizationMover]] and [[SnugDock]]
+* [[GlycanRelax]] compatibility with [[Symmetry]]
+* [[CoupledMoves]] had several edge-case segfaults removed
+* [[PeptideStubMover]]
+* [[SequenceMetric]]
+* [[SimpleCycPepPredict]]
+* [[RotamerSetFactory]]
+* [[StrandCurvatureByLevels]]
+* [[EnzScoreFilter]]
+
+<!--- END_INTERNAL -->
+
 ## Rosetta 3.9
 
 ### Scorefunction changes
