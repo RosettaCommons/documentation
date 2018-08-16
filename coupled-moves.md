@@ -33,17 +33,17 @@ Non-coupled protocols have the following framework:
 
 Resulting in a limitation where a backbone move might create a sidechain clash that is rejected in the first Monte Carlo step, even though it could have been rescued by the subsequent sidechain move. The coupled algorithm allows this to occur, enabling sampling of previously inaccessible sequence and backbone torsional space.
 
-**Coupled Moves Algorithm
+**Coupled Moves Algorithm**
 
-1. Backbone move
-2. Sidechain move
-3. Monte Carlo accept/reject
-4. Return to step 1**
+**1. Backbone move**
+**2. Sidechain move**
+**3. Monte Carlo accept/reject**
+**4. Return to step 1**
 
 # [4] Setup and Inputs
 
 ## [4.1] Input files
-* Input PDB -- the only strictly required input file
+* Input PDB
 * Resfile -- CoupledMoves is a design method
 * Params file, one for each ligand (optional) (see [Advanced Ligand Usage](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage))
 * Constraints file (optional) ([documentation](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/constraint-file))
@@ -264,6 +264,8 @@ coupled_moves.default.linuxgccrelease
 # [8] Analysis
 
 During its design trajectory, Coupled Moves samples a variety of sequences. Each unique sequence will be saved and printed to a fasta file, my_pdb.fasta. When your jobs are complete, combine the fasta files for all nstruct. Because analysis is based on unique sequences sampled rather than final pdb, nstruct can be quite low (20-60). 
+
+**NOTE:** Only designed positions will be included in the fasta file. Your resfile ALLAA positions define the designed positions printed in the fasta file. Do not lose your resfile.
 
 For each position of interest, base your design decision on the frequency distribution of amino acids observed on your combined fasta files.
 
