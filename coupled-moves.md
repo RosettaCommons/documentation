@@ -295,7 +295,7 @@ output_prefix | String | default | prefix for output files |
 
 **Backbone options**
 
-Option | Type | Default | Recommendation
+Option | Type | Default | Description
 ------------ | ------------- | ------------- | ------------- | -------------
 backbone_mover | String | backrub | See [6-3-backbone-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#6-advanced-backbone-usage_6-3-backbone-command-line-options)
 kic_perturber | String | walking | See [6-3-backbone-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#6-advanced-backbone-usage_6-3-backbone-command-line-options)
@@ -306,7 +306,7 @@ uniform_backrub | Boolean | false | select backrub rotation angle from uniform d
 
 **Ligand options**
 
-Option | Type | Default | Recommendation
+Option | Type | Default | Description
 ------------ | ------------- | ------------- | ------------- | -------------
 number_ligands | Integer | 1 | See [7-1-ligand-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage_7-1-ligand-command-line-options)
 ligand_mode | Boolean | false | See [7-1-ligand-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage_7-1-ligand-command-line-options)
@@ -317,14 +317,14 @@ ligand_prob | Real | 0.1 | probability of making a ligand move | Recommend defau
 
 **Algorithm options**
 
-Option | Type | Default | Description | Expert usage recommendations
------------- | ------------- | ------------- | ------------- | -------------
-mc_kt | Real | 0.6 | value of kT for Monte Carlo when accepting/rejecting coupled side-chain and backbone moves |
-boltzmann_kt | Real | 0.6 | value of kT for Boltzmann weighted moves during side-chain design step |
-mm_bend_weight | Real | 1.0 | weight of mm_bend bond angle energy term |
+Option | Type | Default | Description
+------------ | ------------- | ------------- | -------------
+mc_kt | Real | 0.6 | value of kT for Monte Carlo when accepting/rejecting coupled side-chain and backbone moves
+boltzmann_kt | Real | 0.6 | value of kT for Boltzmann weighted moves during side-chain design step
+mm_bend_weight | Real | 1.0 | weight of mm_bend bond angle energy term
 bias_sampling | Boolean | true | if true, bias rotamer selection based on energy
-bump_check | Boolean | true | if true, use bump check in generating rotamers | 
-repack_neighborhood | Boolean | false | After the backbone move and rotamer move, repack sidechains within 5A of the design residue. Default false for legacy behavior. | Does not seem to make an impact on benchmark results, but adds significant time.
+bump_check | Boolean | true | if true, use bump check in generating rotamers 
+repack_neighborhood | Boolean | false | After the backbone move and rotamer move, repack sidechains within 5A of the design residue. Default false for legacy behavior. Does not seem to make an impact on benchmark results, but adds significant time.
 legacy_task | Boolean | true | Default true for legacy behavior (Ollikainen 2015). True = use Clash Based Shell Selector to define repack residues around design residues from resfile, and perform Coupled Moves on these repack/design residues. False = Perform Coupled Moves on design/repack residues as defined in resfile.
 
 **Output files options**
@@ -335,7 +335,7 @@ trajectory | Boolean | false | record a trajectory | Prints pdbs during design t
 trajectory_gz | Boolean | false | gzip the trajectory |
 trajectory_stride | Integer | 100 | write out a trajectory frame every N trials |
 trajectory_file | String | 'traj.pdb' | name of trajectory file |
-output_fasta | String | sequences.fasta | name of FASTA output file |
+output_fasta | String | sequences.fasta | name of FASTA output file | Sequences for analysis
 output_stats | String | sequences.stats | name of stats output file |
 save_sequences | Boolean | true | save all unique sequences  |  Sequences for analysis
 save_structures | Boolean | false | save structures for all unique sequences | 
