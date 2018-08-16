@@ -189,6 +189,17 @@ You may set a constant or random loop size:
 
 * NOTE: *n* must be at least 3 for 3mers in fragment KIC. Shorter loops will not allow fragment substitution.
 
+## [6.3] Backbone command-line options
+
+Option | Type | Default | Description | Expert usage recommendations
+------------ | ------------- | ------------- | ------------- | -------------
+backbone_mover | String | backrub | Which backbone mover to use. Current options are backrub (default) or kic. Backrub does not require additional flags, and uses ShortBackrubMover which is hardcoded for 3-residue segments (or 4-residue if it hits a Proline). Kic optionally takes extra flag -kic_perturber.' legal = [ 'backrub', 'kic' ]
+kic_perturber | String | walking | Which perturber to use during kinematic closure (KIC). Current options are walking (default) or fragment. Walking perturber adjusts torsions by degrees, the magnitude of which can be set by -walking_perturber_magnitude. If you specify walking you MAY also specify -walking_perturber_magnitude. If you specify fragment you MUST also specify -loops::frag_files and -loops::frag_sizes. legal = [ 'walking', 'fragment' ]
+walking_perturber_magnitude | Real | 2.0 | Degree parameter for coupled moves kic walking perturber | Use to control magnitude of Walking KIC backbone moves
+kic_loop_size | Real | 4 | Can be constant or random. CONSTANT - If you set loop_size to a positive whole number, the loop moved by coupled_moves::backbone_mover will be 1+2*loop_size. In other words, the loop is defined by first selecting resnum, then defining loopstart=resnum-loop_size and loopend=resnum+loop_size. RANDOM - If you set loop_size to 0, in each trial, loop_size will be random_range( 3, 7 ). [ NOTE: This option is for coupled_moves::backbone_mover=kic only. Backrub segment length is hardcoded in ShortBackrubMover as 3-residue (or 4-residue if it hits a Proline)
+
+-------------------------------------
+
 ----------------
 
 # [7] Advanced Ligand Usage
@@ -259,7 +270,7 @@ coupled_moves.default.linuxgccrelease
 
 ----------------
 
-# Command-line Options
+# [9] Command-line Options
 
 **Command-line options you might want to change, and why**
 
