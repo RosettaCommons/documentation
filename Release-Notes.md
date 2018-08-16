@@ -21,7 +21,7 @@
 * [[SEWING]] refactor and new needles (ok, ok, new sub-applications).  I don't think it's multithreaded yet.
 * [[FindGlycanSeqonsMover]]
 * Tricks to dump minimization trajectories
-* common flag/config/option file support JARED LINKY LINKY
+* common flag/config/option file support [Custom Configurations](https://www.rosettacommons.org/docs/latest/rosetta_basics/running-rosetta-with-options#common-options-and-default-user-configuration)
 
 ### Nonprotein chemistries
 #### Glycans
