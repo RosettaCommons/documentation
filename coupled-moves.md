@@ -12,10 +12,7 @@ Last Doc Update: Aug 17, 2018
 Authors: 
 Amanda Loshbaugh (aloshbau@gmail.com); Anum Azam Glasgow (anumazam@gmail.com); Noah Ollikainen (nollikai@gmail.com), PI: Tanja Kortemme
 
-
-[Coupling Protein Side-Chain and Backbone Flexibility Improves the Re-design of Protein-Ligand Specificity, PLOS Computational Biology, 9/23/2015](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004335)
-
-Noah Ollikainen, René M. de Jong, Tanja Kortemme 
+Noah Ollikainen, René M. de Jong, Tanja Kortemme. [Coupling Protein Side-Chain and Backbone Flexibility Improves the Re-design of Protein-Ligand Specificity, PLOS Computational Biology, 9/23/2015](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004335)
 
 --------------------------
 
@@ -34,14 +31,14 @@ Non-coupled protocols have the following framework:
 3. Sidechain move
 4. Monte Carlo accept/reject
 
-Resulting in a limitation where a backbone move might create a sidechain clash that is rejected in the first Monte Carlo step, even though it could have been rescued by the subsequent sidechain move.
+Resulting in a limitation where a backbone move might create a sidechain clash that is rejected in the first Monte Carlo step, even though it could have been rescued by the subsequent sidechain move. The coupled algorithm allows this to occur, enabling sampling of previously inaccessible sequence and backbone torsional space.
 
-**Coupled Moves Algorithm**
+**Coupled Moves Algorithm
 
 1. Backbone move
 2. Sidechain move
 3. Monte Carlo accept/reject
-4. Return to step 1
+4. Return to step 1**
 
 # [4] Setup and Inputs
 
@@ -84,7 +81,7 @@ START
 
 ## [5.1] Basic command-line
 
-Coupled Moves has a large number of options, and running these basic  examples relies on many defaults, which are explained in the advanced sections.
+Coupled Moves has some powerful options, which are explained in the advanced sections. These basic examples rely on many defaults.
 
 ### [5.1.1] Command-line: Protein only
 
@@ -141,7 +138,7 @@ CoupledMoves can move the backbone with:
 
 ### [6.1.1] Coupled Moves with ShortBackrubMover
 
-Coupled Moves defaults to ShortBackrubMover. You can explicitly specify this default with
+CoupledMoves defaults to ShortBackrubMover. You can explicitly specify this default:
     ```
     -coupled_moves::backbone_mover backrub
     ```
@@ -155,8 +152,6 @@ If you are not familiar with KIC, please refer to the [documentation](https://ww
 #### [6.1.2.1] Fragment KIC
 
 Fragment perturber substitutes fragments with identical sequences, resulting in updated torsion angles unrelated to the starting torsions. Fragment file generation is explained [here](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/fragment-file).
-
-**Example command-line**
     ```
     -coupled_moves::backbone_mover kic
     -coupled_moves::kic_perturber fragment
@@ -167,8 +162,6 @@ Fragment perturber substitutes fragments with identical sequences, resulting in 
 #### [6.1.2.2] Walking KIC
 
 Walking perturber "walks" along torsion angle space. Angles are modified by values from a distribution around a user-specified magnitude.
-
-**Example command-line**
     ```
     -coupled_moves::backbone_mover kic
     -coupled_moves::kic_perturber walking # default='walking'
@@ -189,13 +182,11 @@ You may set a constant or random loop size:
 
 * **Random loop size** - If you set *n*=0, in each trial, *n* will be a random integer in range( 3, 7 ).
 
-## Example command-line
-
 ```
 -coupled_moves::kic_loop_size <n> # default n=4
 ```
 
-## [6.3] Backbone command-line options
+## [6.3] Backbone mover command-line options
 
 Option | Type | Default | Description
 ------------ | ------------- | ------------- | -------------
@@ -205,8 +196,6 @@ walking_perturber_magnitude | Real | 2.0 | Degree parameter for coupled moves ki
 kic_loop_size | Real | 4 | Can be constant or random. CONSTANT - If you set loop_size to a positive whole number, the loop moved by coupled_moves::backbone_mover will be 1+2*loop_size. In other words, the loop is defined by first selecting resnum, then defining loopstart=resnum-loop_size and loopend=resnum+loop_size. RANDOM - If you set loop_size to 0, in each trial, loop_size will be random_range( 3, 7 ). [ NOTE: This option is for coupled_moves::backbone_mover=kic only. Backrub segment length is hardcoded in ShortBackrubMover as 3-residue (or 4-residue if it hits a Proline)
 
 -------------------------------------
-
-----------------
 
 # [7] Advanced Ligand Usage
 
@@ -227,7 +216,7 @@ ligand_weight | Real | 1.0 | weight for protein-ligand interactions | Recommend 
 ### [7.2] Ligand Preparation
 
 * **NOTE: The ligand chains must be the last chains in the PDB, or CoupledMoves can't find them.**
-* Place each ligand in its own chain (we recommend naming it chain X for the first ligand). 
+* Place each ligand in its own chain at the end of the pdb (we recommend starting with chain X for the first ligand). 
 
 * Preparation:
   1. Cut/paste relevant ligand HETATM lines from source PDB into new PDB.
@@ -248,7 +237,7 @@ ligand_weight | Real | 1.0 | weight for protein-ligand interactions | Recommend 
 
 
 
-### [7.3] Command-line examples: Advanced ligand usage
+### [7.3] Command-line example: Advanced ligand usage
 
 ```
 coupled_moves.default.linuxgccrelease
@@ -257,10 +246,10 @@ coupled_moves.default.linuxgccrelease
 -resfile my.resfile
 -ex1 -ex2 -extrachi_cutoff 0
 -coupled_moves::ligand_mode true
--coupled_moves::number_ligands
+-coupled_moves::number_ligands 2
 -extra_res_fa my_ligand.params # params file for ligand on chain X in my.pdb
 -extra_res_fa my_ligand.params # params file for ligand on chain Y in my.pdb
--coupled_moves::ligand_weight 2.0 # increased weight for ligand-protein interactions
+-coupled_moves::ligand_weight 2.0 # upweight ligand-protein interactions
 ```
 
 ### [7.4] Explicit Waters
@@ -301,8 +290,8 @@ backbone_mover | String | backrub | See [6-3-backbone-command-line-options](http
 kic_perturber | String | walking | See [6-3-backbone-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#6-advanced-backbone-usage_6-3-backbone-command-line-options)
 kic_loop_size | Real | 4 | See [6-3-backbone-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#6-advanced-backbone-usage_6-3-backbone-command-line-options)
 walking_perturber_magnitude | Real | 2.0 | See [6-3-backbone-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#6-advanced-backbone-usage_6-3-backbone-command-line-options)
-fix_backbone | Boolean | false | do not make any backbone moves | For debugging
-uniform_backrub | Boolean | false | select backrub rotation angle from uniform distribution | Recommend default
+fix_backbone | Boolean | false | Set to 'true' to prevent backbone moves. For debugging
+uniform_backrub | Boolean | false | select backrub rotation angle from uniform distribution. Recommend default
 
 **Ligand options**
 
@@ -311,7 +300,7 @@ Option | Type | Default | Description
 number_ligands | Integer | 1 | See [7-1-ligand-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage_7-1-ligand-command-line-options)
 ligand_mode | Boolean | false | See [7-1-ligand-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage_7-1-ligand-command-line-options)
 ligand_weight | Real | 1.0 | See [7-1-ligand-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage_7-1-ligand-command-line-options)
-ligand_prob | Real | 0.1 | probability of making a ligand move | Recommend default
+ligand_prob | Real | 0.1 | probability of making a ligand move. Recommend default
 
 ## [9.1] Command-line options you probably don't want to touch
 
