@@ -277,16 +277,23 @@ coupled_moves.default.linuxgccrelease
 Option | Type | Default | Description | Expert usage recommendations
 ------------ | ------------- | ------------- | ------------- | -------------
 ntrials | Integer | 1000 | number of Monte Carlo trials to run | Extensive benchmarking shows that more trials is not better. **Check results, try less than 1000**. 
-number_ligands | Integer | 1 | number of ligands in the pose | CoupledMoves needs this value to find the ligand.
-ligand_mode | Boolean | false | if true, model protein-ligand interaction | If set to 'true' and no ligand present, results in error. If set to 'false' and ligand present, protein-ligand interactions will not be considered.
+
 initial_repack | Boolean | true | start simulation with repack and design step | Initial repack may result in lower diversity
 min_pack | Boolean | false | use min_pack for initial repack and design step |
-ligand_weight | Real | 1.0 | weight for protein-ligand interactions | Recommend somewhere around 1.0 or 2.0 depending on dataset.
+
 output_prefix | String | default | prefix for output files | 
-walking_perturber_magnitude | Real | 2.0 | Degree parameter for coupled moves kic walking perturber | Use to control magnitude of Walking KIC backbone moves
-kic_loop_size | Real | 4 | Can be constant or random. CONSTANT - If you set loop_size to a positive whole number, the loop moved by coupled_moves::backbone_mover will be 1+2*loop_size. In other words, the loop is defined by first selecting resnum, then defining loopstart=resnum-loop_size and loopend=resnum+loop_size. RANDOM - If you set loop_size to 0, in each trial, loop_size will be random_range( 3, 7 ). [ NOTE: This option is for coupled_moves::backbone_mover=kic only. Backrub segment length is hardcoded in ShortBackrubMover as 3-residue (or 4-residue if it hits a Proline)
-kic_perturber | String | walking | Which perturber to use during kinematic closure (KIC). Current options are walking (default) or fragment. Walking perturber adjusts torsions by degrees, the magnitude of which can be set by -walking_perturber_magnitude. If you specify walking you MAY also specify -walking_perturber_magnitude. If you specify fragment you MUST also specify -loops::frag_files and -loops::frag_sizes. legal = [ 'walking', 'fragment' ]
-backbone_mover | String | backrub | Which backbone mover to use. Current options are backrub (default) or kic. Backrub does not require additional flags, and uses ShortBackrubMover which is hardcoded for 3-residue segments (or 4-residue if it hits a Proline). Kic optionally takes extra flag -kic_perturber.' legal = [ 'backrub', 'kic' ]
+
+number_ligands | Integer | 1 | number of ligands in the pose | See [7-1-ligand-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage_7-1-ligand-command-line-options)
+ligand_mode | Boolean | false | See [7-1-ligand-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage_7-1-ligand-command-line-options)
+ligand_weight | Real | 1.0 | See [7-1-ligand-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage_7-1-ligand-command-line-options)
+
+backbone_mover | String | backrub | See [6-3-backbone-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#6-advanced-backbone-usage_6-3-backbone-command-line-options)
+kic_perturber | String | walking | See [6-3-backbone-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#6-advanced-backbone-usage_6-3-backbone-command-line-options)
+kic_loop_size | Real | 4 | See [6-3-backbone-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#6-advanced-backbone-usage_6-3-backbone-command-line-options)
+walking_perturber_magnitude | Real | 2.0 | See [6-3-backbone-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#6-advanced-backbone-usage_6-3-backbone-command-line-options)
+
+
+
 
 -------------------------------------
 
