@@ -415,14 +415,20 @@ LinkResidues specifies groups of residues that should be mutated together. For e
 
 ## [10.1] Command-line Options you might want to change
 
-**General options**
+**Output files options**
+
+Option | Type | Default | Description
+------------ | ------------- | ------------- | -------------
+output_prefix | String | default | prefix for output files | 
+save_structures | Boolean | false | save structures for all unique sequences
+
+**General algorithm options**
 
 Option | Type | Default | Description | Recommendation
 ------------ | ------------- | ------------- | ------------- | -------------
 ntrials | Integer | 1000 | number of Monte Carlo trials to run | Extensive benchmarking shows that more trials is not better. **Check results, try less than 1000**. 
 initial_repack | Boolean | true | start simulation with repack and design step | Initial repack may result in lower diversity
 min_pack | Boolean | false | use min_pack for initial repack and design step |
-output_prefix | String | default | prefix for output files | 
 
 **Backbone options**
 
@@ -443,12 +449,6 @@ number_ligands | Integer | 1 | See [7-1-ligand-command-line-options](https://www
 ligand_mode | Boolean | false | See [7-1-ligand-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage_7-1-ligand-command-line-options)
 ligand_weight | Real | 1.0 | See [7-1-ligand-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage_7-1-ligand-command-line-options)
 ligand_prob | Real | 0.1 | probability of making a ligand move. Recommend default
-
-**Output files options**
-
-Option | Type | Default | Description
------------- | ------------- | ------------- | -------------
-save_structures | Boolean | false | save structures for all unique sequences
 
 -------------------------------------
 
@@ -479,13 +479,11 @@ output_stats | String | sequences.stats | name of stats output file |
 save_sequences | Boolean | true | save all unique sequences  |  Sequences for analysis
 save_structures | Boolean | false | save structures for all unique sequences | 
 
--------------------------------------
-
 ---------------------------------
 
 # [11] Benchmarking
 
-to be added
+To be added - contact Amanda for immediate questions
 
 ---------------------------------
 
