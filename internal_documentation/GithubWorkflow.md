@@ -247,7 +247,7 @@ There are many commands in git which have identical names, however the functiona
 (This section is entirely about stuff you do on the github website.  None of this works without internet).
 
 ###What is GitHub?
-[https://en.wikipedia.org/wiki/GitHub|GitHub (wikipedia link)] is a website that:
+[[GitHub (wikipedia link)|https://en.wikipedia.org/wiki/GitHub]] is a website that:
 1. remotely and securely hosts our git-enabled code base
 2. enables communications about said codebase
 
@@ -291,7 +291,7 @@ Once you have gotten a green slate from the test server, and you've reviewed you
 ** highly inefficient code
 ** code with no tests
 
-####What to do as a reviewer:
+####What to do as a reviewer
 * Make sure the code does not break anything - look at the tests.  Also make sure the new code HAS tests to prove it works.  Checking that the test exists and looks right is much easier than reading functions line by line and mentally compiling them.
 * Do demand changes for problems in the code (see the list above)
 * Do suggest improvements for readability, stability, and documentation
