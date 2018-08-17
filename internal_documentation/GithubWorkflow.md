@@ -9,8 +9,12 @@ We use a common github repository, [[RosettaCommons|http://github.com/rosettacom
 Within this repo we utilize the [[github flow|https://guides.github.com/introduction/flow/index.html]] branching model for collaborative development, and expect all developers to contribute to the project via topic branches and pull requests. 
 New developers should join the [[RosettaCommons|https://github.com/rosettacommons]] organization and seek out help via the [[rosetta-devel|https://groups.google.com/forum/#!forum/rosetta-devel]] mailing list for general questions, or pull-request discussions for questions related to coding issues.
 
+To be clear on terms: GIT is a distributed version control system that you install on your computer to manage the Rosetta code you are developing/compiling/using locally.  GITHUB is a website that offers a friendly interface to add communication features around the git codebase (so we can strive together to improve it) and tools to pull together the code, the test server, etc. 
 
-##Workflow for using git and github
+
+##Workflow for using git
+
+(This section is almost entirely things you do on your computer, most of which will work offline (except for the occasional git command that talks to the server)).
 
 ###What is git?
 
@@ -126,10 +130,6 @@ When your pull request is "ready to merge" request automated testing by adding t
 * Close your pull request by merging to master. After you've received a "+1" from another developer and a clean build and test report from the testing server merge your pull request via Github's pull request interface. 
 Explain any expected test changes or unexpected changes via the pull request comment interface and make sure the pull request description if up to date before closing.
 
-###A note about github forks
-
-GitHub supports several different workflows for handling parallel development.  A popular approach in the open source community is to use the "fork and pull" model, where projects are forked and then merged using GitHub's pull requests.  To keep the Rosetta codebase from fragmenting, we ask that you DO NOT FORK the RosettaCommons repositories, but instead use the recommended branch-based workflow within the `RosettaCommons/main` repository.
-
 ###Common commands
 
 * You can get a short help message on a command with "git <command> -h" and longer help with "git help <command>"
@@ -241,6 +241,14 @@ gitk is the "default" git visualization tools and is installed by default along 
 ###SVN / git equivalences
 
 There are many commands in git which have identical names, however the functionality of these commands are frequently different. [[Git SVN Crash Course|http://git.or.cz/course/svn.html]] is a useful comparison of git and svn commands, offering rough equivalents in git to common svn operations.  Due to the fundamentally different nature of git and svn, the caveats and limitations associated with these equivalents are completely different.  For example, when copying a file in svn, using 'svn cp' instead of 'cp' is required, while the use of 'git cp' is optional. The [[Pro Git|http://git-scm.com/book]] ebook is a useful reference for those interested in the details of the basic git commands.
+
+## Workflow for using GitHub
+
+(This section is entirely about stuff you do on the github website.  None of this works without internet).
+
+###A note about github forks
+
+GitHub supports several different workflows for handling parallel development.  A popular approach in the open source community is to use the "fork and pull" model, where projects are forked and then merged using GitHub's pull requests.  To keep the Rosetta codebase from fragmenting, we ask that you DO NOT FORK the RosettaCommons repositories, but instead use the recommended branch-based workflow within the `RosettaCommons/main` repository.
 
 
 ##See Also
