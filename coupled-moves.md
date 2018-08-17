@@ -1,6 +1,4 @@
-#Coupled Moves documentation is coming soon! Check back Friday, Aug 17, 2018.
-
-#This is just a draft! Don't read it. Check back Friday, Aug 17, 2018.
+#CoupledMoves
 
 Last Doc Update: Aug 17, 2018
 
@@ -407,9 +405,9 @@ LinkResidues specifies groups of residues that should be mutated together. For e
 
 During its design trajectory, Coupled Moves samples a variety of sequences. Each unique sequence will be saved and printed to a fasta file, my_pdb.fasta. When your jobs are complete, combine the fasta files for all nstruct. Because analysis is based on unique sequences sampled rather than final pdb, nstruct can be quite low (20-60). 
 
-**NOTE:** Only designed positions will be included in the fasta file. Your resfile ALLAA positions define the designed positions printed in the fasta file. Do not lose your resfile.
+Only designed positions will be included in the fasta file. Your resfile ALLAA positions define the designed positions printed in the fasta file. Do not lose your resfile.
 
-For each position of interest, base your design decision on the frequency distribution of amino acids observed on your combined fasta files.
+**For each position of interest, base your design decision on the frequency distribution of amino acids observed on your combined fasta files.** This differs from other Rosetta methods which typically consider the final structure of the design trajectory.
 
 ----------------
 
@@ -445,6 +443,14 @@ number_ligands | Integer | 1 | See [7-1-ligand-command-line-options](https://www
 ligand_mode | Boolean | false | See [7-1-ligand-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage_7-1-ligand-command-line-options)
 ligand_weight | Real | 1.0 | See [7-1-ligand-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage_7-1-ligand-command-line-options)
 ligand_prob | Real | 0.1 | probability of making a ligand move. Recommend default
+
+**Output files options**
+
+Option | Type | Default | Description
+------------ | ------------- | ------------- | -------------
+save_structures | Boolean | false | save structures for all unique sequences
+
+-------------------------------------
 
 ## [10.2] Command-line options you probably don't want to touch
 
