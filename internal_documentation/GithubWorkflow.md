@@ -276,6 +276,29 @@ PR review means you are asking the community to take a good look at your code.  
 3. Run the beautifier first!  Technically this is already in "run the tests first", but it's worth reiterating.  The beautifier introduces large numbers of whitespace-only changes to your code.  Reviewers usually leave their comments tied to specific lines of code.  GitHub assumes any change to a line of code that occurs post-review will invalidate (or fix) a reviewer comment - so if you get review first then beautify, GitHub will hide all your reviewers' comments.
 
 ####PR Review - how to get a review
+Once you have gotten a green slate from the test server, and you've reviewed your own code for issues, you are ready for an external review.
+* Apply the `ready_for_review` label in GitHub.
+* If you know a few folks who are interested in your code, either because it's code they've worked on or because it's a shared scientific interest, you can request their review in the controls over on the right of your PR.
+* If you don't know who would be a good reviewer - post on rosetta-devel or slack asking for a review, and someone will come along to pick it up.
+* If you are having real trouble getting a reviewer - open a discussion on rosetta-devel or slack.  The problem might be that the PR is too large and nobody wants to spend 3 days reviewing it; in that case setting up a teleconference call with a reviewer or two will speed things up enormously (you can review code 10x faster with the author walking you through it).
+
+####What to expect from your review
+* Probably you will get rejected at first.  That's fine, basically all code has at least one thing wrong with it, you'll be able to fix it and get approval.
+* Expect the community to gently point out:
+** Bugs in your code
+** Poorly commented code
+** not-up-to-standard code, like missing `const &`s
+** highly inefficient code
+** code with no tests
+
+####What to do as a reviewer:
+* Make sure the code does not break anything - look at the tests.  Also make sure the new code HAS tests to prove it works.  Checking that the test exists and looks right is much easier than reading functions line by line and mentally compiling them.
+* Do demand changes for problems in the code (see the list above)
+* Do suggest improvements for readability, stability, and documentation
+* Do demur on being a reviewer if you have a conflict of interest or if you feel the urge to engage in personal attacks
+* Do feel free to not review a request that is not in an area of interest or expertise for you as a reviewer
+* Do not add feature requests to PRs - "this PR should also handle my case X" - those should usually be pushed to future PRs.  (This is a fuzzy grey line).
+* Do not mix arguments about scientific merit with arguments about the code itself - PR review is not the appropriate venue.
 
 ###A note about github forks
 
