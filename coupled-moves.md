@@ -113,66 +113,66 @@ The following lines enable ligand mode:
 
 ```
 <ROSETTASCRIPTS>
-        <SCOREFXNS>
-		<ScoreFunction name="ref15" />
-	</SCOREFXNS>
-	<RESIDUE_SELECTORS>
-	        <Chain name="chainC" chains="C"/>
-        	<Chain name="chainD" chains="D"/>
-		<Neighborhood name="CD_neighbors" distance="10.0">
-			<Chain chains="C,D"/>
-		</Neighborhood>
-		<Or name="all_selectors" selectors="chainC,chainD,CD_neighbors"/>
-	</RESIDUE_SELECTORS>
-	<TASKOPERATIONS>
-		<ReadResfile name="resfile" filename="/netapp/home/anum/lacI/ONPF_fewer/firstshell_xc.res"/>
-		<RestrictToRepacking name="restrict_to_repack"/>
-	</TASKOPERATIONS>
-	<MOVERS>
-		<ConstraintSetMover name="cst" add_constraints="true" cst_file="/netapp/home/anum/lacI/ONPF_fewer/constraints.cst"/>
-		<CoupledMovesProtocol name="coupled_moves" task_operations="resfile"/>
-		<WriteFiltersToPose name="writer" prefix="BuriedUnsats_"/>
-	</MOVERS>
-	<FILTERS>
-		<BuriedUnsatHbonds
-            		name="buriedunsats_bb"
-			report_bb_heavy_atom_unsats="true"
-			residue_selector="all_selectors"
-			scorefxn="ref15"
-			cutoff="4"
-			residue_surface_cutoff="20.0"
-			ignore_surface_res="true"
-		       	print_out_info_to_pdb="true"/>
-		<BuriedUnsatHbonds 
-			name="buriedunsats_sc"
-			report_sc_heavy_atom_unsats="true"
-			residue_selector="all_selectors"
-			scorefxn="ref15"
-			cutoff="0"
-			residue_surface_cutoff="20.0"
-			ignore_surface_res="true"
-			print_out_info_to_pdb="true"/>
-		<LigInterfaceEnergy
-			name="liginterface" scorefxn="ref15"/>
-		<MoveBeforeFilter
-			name="movebefore_bb"
-			mover_name="coupled_moves"
-			filter_name="buriedunsats_bb"/>
-		<MoveBeforeFilter
-			name="movebefore_sc"
-			mover_name="coupled_moves"
-			filter_name="buriedunsats_sc"/>
-		<MoveBeforeFilter
-			name="movebefore_liginterface"
-			mover_name="coupled_moves"
-			filter_name="liginterface"/>
+    <SCOREFXNS>
+        <ScoreFunction name="ref15" />
+    </SCOREFXNS>
+    <RESIDUE_SELECTORS>
+        <Chain name="chainC" chains="C"/>
+        <Chain name="chainD" chains="D"/>
+        <Neighborhood name="CD_neighbors" distance="10.0">
+            <Chain chains="C,D"/>
+        </Neighborhood>
+        <Or name="all_selectors" selectors="chainC,chainD,CD_neighbors"/>
+    </RESIDUE_SELECTORS>
+    <TASKOPERATIONS>
+        <ReadResfile name="resfile" filename="firstshell_xc.res"/>
+        <RestrictToRepacking name="restrict_to_repack"/>
+    </TASKOPERATIONS>
+    <MOVERS>
+        <ConstraintSetMover name="cst" add_constraints="true" cst_file="constraints.cst"/>
+        <CoupledMovesProtocol name="coupled_moves" task_operations="resfile"/>
+        <WriteFiltersToPose name="writer" prefix="BuriedUnsats_"/>
+    </MOVERS>
+    <FILTERS>
+        <BuriedUnsatHbonds
+            name="buriedunsats_bb"
+            report_bb_heavy_atom_unsats="true"
+            residue_selector="all_selectors"
+            scorefxn="ref15"
+            cutoff="4"
+            residue_surface_cutoff="20.0"
+            ignore_surface_res="true"
+            print_out_info_to_pdb="true"/>
+        <BuriedUnsatHbonds 
+            name="buriedunsats_sc"
+            report_sc_heavy_atom_unsats="true"
+            residue_selector="all_selectors"
+            scorefxn="ref15"
+            cutoff="0"
+            residue_surface_cutoff="20.0"
+            ignore_surface_res="true"
+            print_out_info_to_pdb="true"/>
+        <LigInterfaceEnergy
+            name="liginterface" scorefxn="ref15"/>
+        <MoveBeforeFilter
+            name="movebefore_bb"
+            mover_name="coupled_moves"
+            filter_name="buriedunsats_bb"/>
+        <MoveBeforeFilter
+            name="movebefore_sc"
+            mover_name="coupled_moves"
+            filter_name="buriedunsats_sc"/>
+        <MoveBeforeFilter
+            name="movebefore_liginterface"
+            mover_name="coupled_moves"
+            filter_name="liginterface"/>
 
-	</FILTERS>
-	<PROTOCOLS>
-		<Add mover_name="cst"/>
-		<Add mover_name="writer"/>
-		<Add mover_name="coupled_moves"/>
-        </PROTOCOLS>
+    </FILTERS>
+    <PROTOCOLS>
+        <Add mover_name="cst"/>
+        <Add mover_name="writer"/>
+        <Add mover_name="coupled_moves"/>
+    </PROTOCOLS>
 </ROSETTASCRIPTS>
 ```
 
@@ -333,91 +333,71 @@ LinkResidues specifies groups of residues that should be mutated together. For e
 
 ```
 <ROSETTASCRIPTS>
-        <SCOREFXNS>
-		<ScoreFunction name="ref15" />
-	</SCOREFXNS>
-	<RESIDUE_SELECTORS>
-	        <Chain name="chainC" chains="C"/>
-        	<Chain name="chainD" chains="D"/>
-		<Neighborhood name="CD_neighbors" distance="10.0">
-			<Chain chains="C,D"/>
-		</Neighborhood>
-		<Or name="all_selectors" selectors="chainC,chainD,CD_neighbors"/>
-	</RESIDUE_SELECTORS>
-	<TASKOPERATIONS>
-		<ReadResfile name="resfile" filename="/netapp/home/anum/lacI/ONPF_fewer/firstshell_xc.res"/>
-		<LinkResidues name="linkres">
-			<LinkGroup group="17,286"/>
-			<LinkGroup group="18,287"/>
-			<LinkGroup group="19,288"/>
-			<LinkGroup group="63,332"/>
-			<LinkGroup group="64,333"/>
-			<LinkGroup group="65,334"/>
-			<LinkGroup group="86,355"/>
-			<LinkGroup group="87,356"/>
-			<LinkGroup group="88,357"/>
-			<LinkGroup group="89,358"/>
-			<LinkGroup group="98,367"/>
-			<LinkGroup group="99,368"/>
-			<LinkGroup group="100,369"/>
-			<LinkGroup group="101,370"/>
-			<LinkGroup group="131,400"/>
-			<LinkGroup group="132,401"/>
-			<LinkGroup group="133,402"/>
-			<LinkGroup group="229,498"/>
-			<LinkGroup group="230,499"/>
-			<LinkGroup group="231,500"/>
-			<LinkGroup group="234,503"/>
-			<LinkGroup group="235,504"/>
-			<LinkGroup group="236,505"/>
-		</LinkResidues>
-		<RestrictToRepacking name="restrict_to_repack"/>
-	</TASKOPERATIONS>
-	<MOVERS>
-		<ConstraintSetMover name="cst" add_constraints="true" cst_file="/netapp/home/anum/lacI/ONPF_fewer/constraints.cst"/>
-		<CoupledMovesProtocol name="coupled_moves" task_operations="resfile,linkres"/>
-		<WriteFiltersToPose name="writer" prefix="BuriedUnsats_"/>
-	</MOVERS>
-	<FILTERS>
-		<BuriedUnsatHbonds
-            		name="buriedunsats_bb"
-			report_bb_heavy_atom_unsats="true"
-			residue_selector="all_selectors"
-			scorefxn="ref15"
-			cutoff="4"
-			residue_surface_cutoff="20.0"
-			ignore_surface_res="true"
-		       	print_out_info_to_pdb="true"/>
-		<BuriedUnsatHbonds 
-			name="buriedunsats_sc"
-			report_sc_heavy_atom_unsats="true"
-			residue_selector="all_selectors"
-			scorefxn="ref15"
-			cutoff="0"
-			residue_surface_cutoff="20.0"
-			ignore_surface_res="true"
-			print_out_info_to_pdb="true"/>
-		<LigInterfaceEnergy
-			name="liginterface" scorefxn="ref15"/>
-		<MoveBeforeFilter
-			name="movebefore_bb"
-			mover_name="coupled_moves"
-			filter_name="buriedunsats_bb"/>
-		<MoveBeforeFilter
-			name="movebefore_sc"
-			mover_name="coupled_moves"
-			filter_name="buriedunsats_sc"/>
-		<MoveBeforeFilter
-			name="movebefore_liginterface"
-			mover_name="coupled_moves"
-			filter_name="liginterface"/>
+    <SCOREFXNS>
+        <ScoreFunction name="ref15" />
+    </SCOREFXNS>
+    <RESIDUE_SELECTORS>
+        <Chain name="chainC" chains="C"/>
+        <Chain name="chainD" chains="D"/>
+        <Neighborhood name="CD_neighbors" distance="10.0">
+            <Chain chains="C,D"/>
+        </Neighborhood>
+        <Or name="all_selectors" selectors="chainC,chainD,CD_neighbors"/>
+    </RESIDUE_SELECTORS>
+    <TASKOPERATIONS>
+        <ReadResfile name="resfile" filename="firstshell_xc.res"/>
+        <RestrictToRepacking name="restrict_to_repack"/>
+        <LinkResidues name="linkres">
+            <LinkGroup group="234,503"/>
+            <LinkGroup group="235,504"/>
+            <LinkGroup group="236,505"/>
+        </LinkResidues>
+    </TASKOPERATIONS>
+    <MOVERS>
+        <ConstraintSetMover name="cst" add_constraints="true" cst_file="constraints.cst"/>
+        <CoupledMovesProtocol name="coupled_moves" task_operations="resfile"/>
+        <WriteFiltersToPose name="writer" prefix="BuriedUnsats_"/>
+    </MOVERS>
+    <FILTERS>
+        <BuriedUnsatHbonds
+            name="buriedunsats_bb"
+            report_bb_heavy_atom_unsats="true"
+            residue_selector="all_selectors"
+            scorefxn="ref15"
+            cutoff="4"
+            residue_surface_cutoff="20.0"
+            ignore_surface_res="true"
+            print_out_info_to_pdb="true"/>
+        <BuriedUnsatHbonds 
+            name="buriedunsats_sc"
+            report_sc_heavy_atom_unsats="true"
+            residue_selector="all_selectors"
+            scorefxn="ref15"
+            cutoff="0"
+            residue_surface_cutoff="20.0"
+            ignore_surface_res="true"
+            print_out_info_to_pdb="true"/>
+        <LigInterfaceEnergy
+            name="liginterface" scorefxn="ref15"/>
+        <MoveBeforeFilter
+            name="movebefore_bb"
+            mover_name="coupled_moves"
+            filter_name="buriedunsats_bb"/>
+        <MoveBeforeFilter
+            name="movebefore_sc"
+            mover_name="coupled_moves"
+            filter_name="buriedunsats_sc"/>
+        <MoveBeforeFilter
+            name="movebefore_liginterface"
+            mover_name="coupled_moves"
+            filter_name="liginterface"/>
 
-	</FILTERS>
-	<PROTOCOLS>
-		<Add mover_name="cst"/>
-		<Add mover_name="writer"/>
-		<Add mover_name="coupled_moves"/>
-        </PROTOCOLS>
+    </FILTERS>
+    <PROTOCOLS>
+        <Add mover_name="cst"/>
+        <Add mover_name="writer"/>
+        <Add mover_name="coupled_moves"/>
+    </PROTOCOLS>
 </ROSETTASCRIPTS>
 ```
 
