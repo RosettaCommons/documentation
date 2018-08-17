@@ -262,7 +262,13 @@ coupled_moves.default.linuxgccrelease
 
 ----------------
 
-# [8] Analysis
+# [8] Linked residues for designing symmetric complexes
+
+IN THE NEAR FUTURE, Coupled Moves will support linked residues. Code is finished, we are currently testing it before publishing it. These come in handy during design of asymmetric homodimers, where the sequence is identical but the structures may vary slightly. Using linked residues, when the sequence of a position changes, the sequence is also changed on the other members in the symmetric unit.
+
+----------------
+
+# [9] Analysis
 
 During its design trajectory, Coupled Moves samples a variety of sequences. Each unique sequence will be saved and printed to a fasta file, my_pdb.fasta. When your jobs are complete, combine the fasta files for all nstruct. Because analysis is based on unique sequences sampled rather than final pdb, nstruct can be quite low (20-60). 
 
@@ -272,9 +278,9 @@ For each position of interest, base your design decision on the frequency distri
 
 ----------------
 
-# [9] Command-line Options
+# [10] Command-line Options
 
-## [9.1] Command-line Options you might want to change
+## [10.1] Command-line Options you might want to change
 
 **General options**
 
@@ -305,7 +311,7 @@ ligand_mode | Boolean | false | See [7-1-ligand-command-line-options](https://ww
 ligand_weight | Real | 1.0 | See [7-1-ligand-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage_7-1-ligand-command-line-options)
 ligand_prob | Real | 0.1 | probability of making a ligand move. Recommend default
 
-## [9.1] Command-line options you probably don't want to touch
+## [10.2] Command-line options you probably don't want to touch
 
 **Algorithm options**
 
@@ -336,12 +342,12 @@ save_structures | Boolean | false | save structures for all unique sequences |
 
 ---------------------------------
 
-# [10] Benchmarking
+# [11] Benchmarking
 
 to be added
 
 ---------------------------------
 
-# [11] See Also
+# [12] See Also
 
 * [[I want to do x]]: Guide to choosing a mover
