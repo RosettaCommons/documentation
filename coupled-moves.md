@@ -62,7 +62,7 @@ Only designed positions will be included in the fasta file. Your resfile ALLAA p
 
 * If your protein is not a simple monomer, put each protein in a separate chain.
 * We strongly suggest renumbering the pdb starting from 1
-* See [[7] Advanced Ligand Usage](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage) for how to prepare a pdb containing ligands.
+* See [\[7] Advanced Ligand Usage](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage) for how to prepare a pdb containing ligands.
 * Pre-relax? Maybe.
 
 ## [5.3] Resfile preparation
@@ -115,7 +115,7 @@ The following lines enable ligand mode:
 -coupled_moves::ligand_mode true
 ```
 
-* Benchmarks show that Fragment KIC performs as well and sometimes better than the default mover Backrub. We encourage users to read [[6] Advanced Backbone Usage](https://www.rosettacommons.org/docs/wiki/coupled-moves#6-advanced-backbone-usage) below and explore using Fragment KIC CoupledMoves.
+* Benchmarks show that Fragment KIC performs as well and sometimes better than the default mover Backrub. We encourage users to read [\[6] Advanced Backbone Usage](https://www.rosettacommons.org/docs/wiki/coupled-moves#6-advanced-backbone-usage) below and explore using Fragment KIC CoupledMoves.
 
 ----------------
 
