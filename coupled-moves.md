@@ -33,31 +33,43 @@ Resulting in a limitation where a backbone move might create a sidechain clash t
 
 **Coupled Moves Algorithm**
 
-**1. Backbone move**
-**2. Sidechain move**
-**3. Monte Carlo accept/reject**
-**4. Return to step 1**
+1. **Backbone move**
+2. **Sidechain move**
+3. **Monte Carlo accept/reject**
+4. **Return to step 1**
 
-# [4] Setup and Inputs
+----------------
 
-## [4.1] Input files
+# [4] Analysis
+
+During its design trajectory, Coupled Moves samples a variety of sequences. Each unique sequence will be saved and printed to a fasta file, my_pdb.fasta. When your jobs are complete, combine the fasta files for all nstruct. Because analysis is based on unique sequences sampled rather than final pdb, nstruct can be quite low (20-60). 
+
+Only designed positions will be included in the fasta file. Your resfile ALLAA positions define the designed positions printed in the fasta file. Do not lose your resfile.
+
+**For each position of interest, base your design decision on the frequency distribution of amino acids observed on your combined fasta files.** This differs from other Rosetta methods which typically consider the final structure of the design trajectory.
+
+----------------
+
+# [5] Setup and Inputs
+
+## [5.1] Input files
 * Input PDB
 * Resfile -- CoupledMoves is a design method
 * Params file, one for each ligand (optional) (see [Advanced Ligand Usage](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage))
 * Constraints file (optional) ([documentation](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/constraint-file))
 
-## [4.2] Input pdb preparation
+## [5.2] Input pdb preparation
 
-* If your protein is not a simple monomer, put each protein in a separate chain. For example, if you have a homodimer, put each monomer in its own chain.
-* Use a pdb renumber script to renumber the pdb starting from 1 (important for later analysis)
-* See [Advanced Ligand Usage](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage) for how to prepare a pdb containing ligands.
+* If your protein is not a simple monomer, put each protein in a separate chain.
+* We strongly suggest renumbering the pdb starting from 1
+* See [[7] Advanced Ligand Usage](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage) for how to prepare a pdb containing ligands.
 * Pre-relax? Maybe.
 
-## [4.3] Resfile preparation
+## [5.3] Resfile preparation
 
 This section assumes familiarity with the resfile [documentation](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/resfiles) and [manual](https://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/d1/d97/resfiles.html). 
 
-To achieve adequate sampling in a limited number of trials, set all residues to NATRO except a defined target set of designable residues, e.g. a ligand binding pocket's first shell residues, motif residues, or individual secondary structure elements. Consider setting second-shell residues to NATAA to allow rotamer sampling.
+To achieve adequate sampling in a limited number of trials, set all residues to NATRO except target designable residues, e.g. a ligand binding pocket's first shell residues, motif residues, or individual secondary structure elements. Consider setting second-shell residues to NATAA to allow rotamer sampling.
 
 Example resfile:
 
@@ -75,13 +87,13 @@ START
 
 -------------------------
 
-# [5] Basic Usage
+# [6] Basic Usage
 
-## [5.1] Basic command-line
+## [6.1] Basic command-line
 
 Coupled Moves has some powerful options, which are explained in the advanced sections. These basic examples rely on many defaults.
 
-### [5.1.1] Command-line: Protein only
+### [6.1.1] Command-line: Protein only
 
 ```
 coupled_moves.default.linuxgccrelease
@@ -92,7 +104,7 @@ coupled_moves.default.linuxgccrelease
 -nstruct 60
 ```
 
-### [5.1.2] Command-line: Protein with one ligand
+### [6.1.2] Command-line: Protein with one ligand
 
 The following lines enable ligand mode:
 
@@ -103,11 +115,11 @@ The following lines enable ligand mode:
 -coupled_moves::ligand_mode true
 ```
 
-* Should I default users to FKIC?
+* Benchmarks show that Fragment KIC performs as well and sometimes better than the default mover Backrub. We encourage users to read [[6] Advanced Backbone Usage](https://www.rosettacommons.org/docs/wiki/coupled-moves#6-advanced-backbone-usage) below and explore using Fragment KIC CoupledMoves.
 
 ----------------
 
-## [5.2] Basic XML: Protein with ligand
+## [6.2] Basic XML: Protein with ligand
 
 ```
 <ROSETTASCRIPTS>
@@ -176,11 +188,11 @@ The following lines enable ligand mode:
 
 ----------------
 
-# [6] Advanced Backbone Usage
+# [7] Advanced Backbone Usage
 
 This section assumed familiarity with [backrub](https://www.rosettacommons.org/docs/latest/application_documentation/structure_prediction/backrub) and [kinematic closure](https://www.rosettacommons.org/demos/latest/tutorials/GeneralizedKIC/generalized_kinematic_closure_1).
 
-## [6.1] Changing the backbone mover
+## [7.1] Changing the backbone mover
 
 CoupledMoves can move the backbone with:
 * Backrub
@@ -193,9 +205,7 @@ CoupledMoves can move the backbone with:
     -coupled_moves::backbone_mover kic
     ```
 
-* Which mover is suggested?
-
-### [6.1.1] Coupled Moves with ShortBackrubMover
+### [7.1.1] Coupled Moves with ShortBackrubMover
 
 CoupledMoves defaults to ShortBackrubMover. You can explicitly specify this default:
     ```
@@ -204,11 +214,11 @@ CoupledMoves defaults to ShortBackrubMover. You can explicitly specify this defa
 
 Backrub segment length is hardcoded in ShortBackrubMover as 3-residue (or 4-residue if it hits a Proline).
 
-### [6.1.2] Coupled Moves with KIC
+### [7.1.2] Coupled Moves with KIC
 
 If you are not familiar with KIC, please refer to the [documentation](https://www.rosettacommons.org/demos/latest/tutorials/GeneralizedKIC/generalized_kinematic_closure_1). During KIC's perturbation step, various algorithms can be used to perturb torsion angles. CoupledMoves currently (August 2018) supports two perturbers, Fragment and Walking.
 
-#### [6.1.2.1] Fragment KIC
+#### [7.1.2.1] Fragment KIC
 
 Fragment perturber substitutes fragments with identical sequences, resulting in updated torsion angles unrelated to the starting torsions. Fragment file generation is explained [here](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/fragment-file).
     ```
@@ -218,7 +228,7 @@ Fragment perturber substitutes fragments with identical sequences, resulting in 
     -loops:frag_files my_pdb.200.3mers.gz, my_pdb.200.3mers.gz
     ```
 
-#### [6.1.2.2] Walking KIC
+#### [7.1.2.2] Walking KIC
 
 Walking perturber "walks" along torsion angle space. Angles are modified by values from a distribution around a user-specified magnitude.
     ```
@@ -227,11 +237,11 @@ Walking perturber "walks" along torsion angle space. Angles are modified by valu
     -coupled_moves::walking_perturber_magnitude 2.0 # units of degrees; default=2.0
     ```
 
-## [6.2] Controlling KIC loop size
+## [7.2] Controlling KIC loop size
 
-This setting is a bit complicated. The default should be fine for the vast majority of applications.
+This setting is a bit complicated. The default (segment length of 9 residues) should be fine for the vast majority of applications.
 
-* `-coupled_moves::kic_loop_size` only applies when using `-coupled_moves::backbone_mover=kic`.
+* `-coupled_moves::kic_loop_size` only applies when using `-coupled_moves::backbone_mover kic`.
 * The parameter set by `-coupled_moves::kic_loop_size` (hereafter *n*) is used to calculate the final *loop size* in residues.
 * "Loop" here doesn't refer to secondary structure, just to a segment of residues.
 * NOTE: *n* must be at least 3 for 3mers in fragment KIC. Shorter loops will not allow fragment substitution.
@@ -246,7 +256,7 @@ You may set a constant or random loop size:
 -coupled_moves::kic_loop_size <n> # default n=4
 ```
 
-## [6.3] Backbone mover command-line options
+## [7.3] Backbone mover command-line options
 
 Option | Type | Default | Description
 ------------ | ------------- | ------------- | -------------
@@ -257,11 +267,11 @@ kic_loop_size | Real | 4 | Can be constant or random. CONSTANT - If you set loop
 
 -------------------------------------
 
-# [7] Advanced Ligand Usage
+# [8] Advanced Ligand Usage
 
 Coupled Moves was originally developed to design enzyme active sites, and has been extensively benchmarked on small-molecule binding site datasets. It is good for general design, but is especially highly recommended for designing small molecule binding sites.
 
-### [7.1] Ligand command-line options
+### [8.1] Ligand command-line options
 
 (See [Section 1.1.2](https://www.rosettacommons.org/docs/wiki/coupled-moves#1-basic-usage_1-1-basic-command-line_1-1-2-command-line-protein-with-one-ligand) for basic ligand command-line.)
 
@@ -273,16 +283,16 @@ ligand_weight | Real | 1.0 | weight for protein-ligand interactions | Recommend 
 
 -------------------------------------
 
-### [7.2] Ligand Preparation
+### [8.2] Ligand Preparation
 
-* **NOTE: The ligand chains must be the last chains in the PDB, or CoupledMoves can't find them.**
-* Place each ligand in its own chain at the end of the pdb (we recommend starting with chain X for the first ligand). 
+* **The ligand chains must be the last chains in the PDB, or CoupledMoves can't find them.**
+* Place each ligand in its own chain at the end of the pdb (we recommend the naming convention of chain X for the first ligand). 
 
 * Preparation:
   1. Cut/paste relevant ligand HETATM lines from source PDB into new PDB.
   2. Add hydrogens using Babel
        `babel -h IPTG.pdb IPTG_withH.sdf`
-  3. Ppen resulting file in Avogadro/PyMOL, and save as a .mol2 file.
+  3. Open resulting file in Avogadro/PyMOL, and save as a .mol2 file.
   4. To get the .params files from the .mol2 files for each ligand, run the molfile_to_params.py script
       ```
       python ~/Rosetta/main/source/scripts/python/public/molfile_to_params.py -n name input_file.mol2
@@ -292,12 +302,12 @@ ligand_weight | Real | 1.0 | weight for protein-ligand interactions | Recommend 
      ```
      python ~/Rosetta/main/source/scripts/python/public/mol2genparams.py -n name input_file.mol2
      ```
-  5. The params script should generate a pdb file. Open this, rename the chain, and put it back in the original PDB file with the protein.
+  5. The params script should generate a pdb file. Open this in a text editor, rename the chain, and put it back in the original PDB file with the protein.
   6. Make sure ligand placement is correct by aligning with original in PyMOL.
 
 
 
-### [7.3] Command-line example: Advanced ligand usage
+### [8.3] Command-line example: Advanced ligand usage
 
 ```
 coupled_moves.default.linuxgccrelease
@@ -312,7 +322,7 @@ coupled_moves.default.linuxgccrelease
 -coupled_moves::ligand_weight 2.0 # upweight ligand-protein interactions
 ```
 
-### [7.4] Explicit Waters
+### [8.4] Explicit Waters
 
 **Preparing explicit waters**
 * Place water molecules in a separate chain, chain W. Use TP3/WAT residue types and crystallographic positions of oxygens. 
@@ -321,7 +331,7 @@ coupled_moves.default.linuxgccrelease
 
 ----------------
 
-# [8] LinkResidues
+# [9] LinkResidues
 
 IN THE NEAR FUTURE, Coupled Moves will support [LinkResidues](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/TaskOperations/taskoperations_pages/LinkResidues). Code is finished, we are currently testing it before publishing it. 
 
@@ -398,16 +408,6 @@ LinkResidues specifies groups of residues that should be mutated together. For e
     </PROTOCOLS>
 </ROSETTASCRIPTS>
 ```
-
-----------------
-
-# [9] Analysis
-
-During its design trajectory, Coupled Moves samples a variety of sequences. Each unique sequence will be saved and printed to a fasta file, my_pdb.fasta. When your jobs are complete, combine the fasta files for all nstruct. Because analysis is based on unique sequences sampled rather than final pdb, nstruct can be quite low (20-60). 
-
-Only designed positions will be included in the fasta file. Your resfile ALLAA positions define the designed positions printed in the fasta file. Do not lose your resfile.
-
-**For each position of interest, base your design decision on the frequency distribution of amino acids observed on your combined fasta files.** This differs from other Rosetta methods which typically consider the final structure of the design trajectory.
 
 ----------------
 
