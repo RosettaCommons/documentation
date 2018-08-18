@@ -38,6 +38,8 @@ Resulting in a limitation where a backbone move might create a sidechain clash t
 3. **Monte Carlo accept/reject**
 4. **Return to step 1**
 
+The backbone move default is ShortBackrubMover, but can also be kinematic closure with fragments (see [\[7] Advanced Backbone Usage](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-backbone-usage)).
+
 The sidechain move is performed by BoltzmannRotamerMover:
 
 **BoltzmannRotamerMover**
@@ -65,14 +67,14 @@ Only designed positions will be included in the fasta file. Your resfile ALLAA p
 ## [5.1] Input files
 * Input PDB
 * Resfile -- CoupledMoves is a design method
-* Params file, one for each ligand (optional) (see [Advanced Ligand Usage](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage))
+* Params file, one for each ligand (optional) (see [\[8]Advanced Ligand Usage](https://www.rosettacommons.org/docs/wiki/coupled-moves#8-advanced-ligand-usage))
 * Constraints file (optional) ([documentation](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/constraint-file))
 
 ## [5.2] Input pdb preparation
 
 * If your protein is not a simple monomer, put each protein in a separate chain.
 * We strongly suggest renumbering the pdb starting from 1
-* See [\[7] Advanced Ligand Usage](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage) for how to prepare a pdb containing ligands.
+* See [\[8] Advanced Ligand Usage](https://www.rosettacommons.org/docs/wiki/coupled-moves#8-advanced-ligand-usage) for how to prepare a pdb containing ligands.
 * Pre-relax? Maybe.
 
 ## [5.3] Resfile preparation
@@ -125,7 +127,7 @@ The following lines enable ligand mode:
 -coupled_moves::ligand_mode true
 ```
 
-* Benchmarks show that Fragment KIC performs as well and sometimes better than the default mover Backrub. We encourage users to read [\[6] Advanced Backbone Usage](https://www.rosettacommons.org/docs/wiki/coupled-moves#6-advanced-backbone-usage) below and explore using Fragment KIC CoupledMoves.
+* Benchmarks show that Fragment KIC performs as well and sometimes better than the default mover Backrub. We encourage users to read [\[7] Advanced Backbone Usage](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-backbone-usage) below and explore using Fragment KIC CoupledMoves.
 
 ----------------
 
@@ -283,7 +285,7 @@ Coupled Moves was originally developed to design enzyme active sites, and has be
 
 ### [8.1] Ligand command-line options
 
-(See [Section 1.1.2](https://www.rosettacommons.org/docs/wiki/coupled-moves#1-basic-usage_1-1-basic-command-line_1-1-2-command-line-protein-with-one-ligand) for basic ligand command-line.)
+(See [6.1.2](https://www.rosettacommons.org/docs/wiki/coupled-moves#6-basic-usage_6-1-basic-command-line_6-1-2-command-line-protein-with-one-ligand) for basic ligand command-line.)
 
 Option | Type | Default | Description | Expert usage recommendations
 ------------ | ------------- | ------------- | ------------- | -------------
@@ -444,10 +446,10 @@ min_pack | Boolean | false | use min_pack for initial repack and design step |
 
 Option | Type | Default | Description
 ------------ | ------------- | ------------- | ------------- | -------------
-backbone_mover | String | backrub | See [6-3-backbone-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#6-advanced-backbone-usage_6-3-backbone-command-line-options)
-kic_perturber | String | walking | See [6-3-backbone-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#6-advanced-backbone-usage_6-3-backbone-command-line-options)
-kic_loop_size | Real | 4 | See [6-3-backbone-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#6-advanced-backbone-usage_6-3-backbone-command-line-options)
-walking_perturber_magnitude | Real | 2.0 | See [6-3-backbone-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#6-advanced-backbone-usage_6-3-backbone-command-line-options)
+backbone_mover | String | backrub | See [\[7.3] Advanced Backbone Command-line Options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-backbone-usage_7-3-backbone-mover-command-line-options)
+kic_perturber | String | walking | See [\[7.3] Advanced Backbone Command-line Options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-backbone-usage_7-3-backbone-mover-command-line-options)
+kic_loop_size | Real | 4 | See [\[7.3] Advanced Backbone Command-line Options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-backbone-usage_7-3-backbone-mover-command-line-options)
+walking_perturber_magnitude | Real | 2.0 | See [\[7.3] Advanced Backbone Command-line Options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-backbone-usage_7-3-backbone-mover-command-line-options)
 fix_backbone | Boolean | false | Set to 'true' to prevent backbone moves. For debugging
 uniform_backrub | Boolean | false | select backrub rotation angle from uniform distribution. Recommend default
 
@@ -455,9 +457,9 @@ uniform_backrub | Boolean | false | select backrub rotation angle from uniform d
 
 Option | Type | Default | Description
 ------------ | ------------- | ------------- | ------------- | -------------
-number_ligands | Integer | 1 | See [7-1-ligand-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage_7-1-ligand-command-line-options)
-ligand_mode | Boolean | false | See [7-1-ligand-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage_7-1-ligand-command-line-options)
-ligand_weight | Real | 1.0 | See [7-1-ligand-command-line-options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-ligand-usage_7-1-ligand-command-line-options)
+number_ligands | Integer | 1 | See [\[8.1] Advanced Ligand Command-line Options](https://www.rosettacommons.org/docs/wiki/coupled-moves#8-advanced-ligand-usage_8-1-ligand-command-line-options)
+ligand_mode | Boolean | false | See [\[8.1] Advanced Ligand Command-line Options](https://www.rosettacommons.org/docs/wiki/coupled-moves#8-advanced-ligand-usage_8-1-ligand-command-line-options)
+ligand_weight | Real | 1.0 | See [\[8.1] Advanced Ligand Command-line Options](https://www.rosettacommons.org/docs/wiki/coupled-moves#8-advanced-ligand-usage_8-1-ligand-command-line-options)
 ligand_prob | Real | 0.1 | probability of making a ligand move. Recommend default
 
 -------------------------------------
