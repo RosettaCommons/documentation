@@ -38,6 +38,15 @@ Resulting in a limitation where a backbone move might create a sidechain clash t
 3. **Monte Carlo accept/reject**
 4. **Return to step 1**
 
+The sidechain move is performed by BoltzmannRotamerMover:
+
+**BoltzmannRotamerMover**
+1. calculate boltzmann weighted probability for each rotamer
+2. use probabilities to select one rotamer for each amino acid
+3. calculate boltzmann weighted probabilities for each amino acid
+4. use probabilities to select an amino acid
+5. replace resnum_ with the selected rotamer / amino acid
+
 ----------------
 
 # [4] Analysis
