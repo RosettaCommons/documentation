@@ -306,6 +306,10 @@ Once you have gotten a green slate from the test server, and you've reviewed you
 * Do not add feature requests to PRs - "this PR should also handle my case X" - those should usually be pushed to future PRs.  (This is a fuzzy grey line).
 * Do not mix arguments about scientific merit with arguments about the code itself - PR review is not the appropriate venue.
 
+####What to do once your code is reviewed
+* Broadly, fix the problems identified by your reviewer.  Once those changes are pushed and the test server re-approves, ping your reviewer to let them know so they can re-review and turn the X into a checkmark.
+* If you feel the review is going wrong or you are being treated unfairly, you can and should bring it to the attention of your adviser.
+
 ###A note about github forks
 
 GitHub supports several different workflows for handling parallel development.  A popular approach in the open source community is to use the "fork and pull" model, where projects are forked and then merged using GitHub's pull requests.  To keep the Rosetta codebase from fragmenting, we ask that you DO NOT FORK the RosettaCommons repositories, but instead use the recommended branch-based workflow within the `RosettaCommons/main` repository.
