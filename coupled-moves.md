@@ -127,7 +127,7 @@ The following lines enable ligand mode:
 -coupled_moves::ligand_mode true
 ```
 
-* Benchmarks show that Fragment KIC performs as well and sometimes better than the default mover Backrub. We encourage users to read [\[7] Advanced Backbone Usage](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-backbone-usage) below and explore using Fragment KIC CoupledMoves.
+* Benchmarks show that Fragment KIC performs as well and sometimes better than the default mover Backrub. We encourage users to read [\[7\] Advanced Backbone Usage](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-backbone-usage) below and explore using Fragment KIC CoupledMoves.
 
 ----------------
 
