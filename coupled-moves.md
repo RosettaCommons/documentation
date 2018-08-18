@@ -41,6 +41,7 @@ Resulting in a limitation where a backbone move might create a sidechain clash t
 The sidechain move is performed by BoltzmannRotamerMover:
 
 **BoltzmannRotamerMover**
+
 1. calculate boltzmann weighted probability for each rotamer
 2. use probabilities to select one rotamer for each amino acid
 3. calculate boltzmann weighted probabilities for each amino acid
