@@ -271,6 +271,8 @@ Once your PR is started, you will see a tab "conversation" which lists the commi
 ####Pull Request Review - what to do before review
 PR review means you are asking the community to take a good look at your code.  It's a little like inviting us over to your house for a party in your code.  Before you throw a party you probably want to tidy the house up a little first:
 
+0. Write code with good documentation and unit tests that obeys the coding conventions - these are the sorts of problems reviewers will be looking for, and the fewer problems there are the easier it is for all involved.
+
 1. Small PRs are better!  Submitting small PRs regularly will lead to fast and easy reviews.  If the reviewer can spend 15 minutes or less reviewing, they'll do it as a quick break from some other work.  If it's hundreds of lines and requires 2 hours to review, they have to block it out as a real chunk of their work for the day.
 
 2. Separate refactoring and file moves from code content changes.  GitHub will show moved files as a file deletion + file creation, leading to huge numbers of changed lines.  If you have a moved file of 300 lines and can honestly say "this is just a file move with no substantive changes" (file paths, tracer names - those are not substantive) then your reviewer can mostly skip it.  If you mix real code changes in with big file moves, the reviewer has to wade through the whole file looking for your changes.
