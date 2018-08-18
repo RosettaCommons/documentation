@@ -270,10 +270,14 @@ Once your PR is started, you will see a tab "conversation" which lists the commi
 
 ####Pull Request Review - what to do before review
 PR review means you are asking the community to take a good look at your code.  It's a little like inviting us over to your house for a party in your code.  Before you throw a party you probably want to tidy the house up a little first:
+
 1. Small PRs are better!  Submitting small PRs regularly will lead to fast and easy reviews.  If the reviewer can spend 15 minutes or less reviewing, they'll do it as a quick break from some other work.  If it's hundreds of lines and requires 2 hours to review, they have to block it out as a real chunk of their work for the day.
-4. Separate refactoring and file moves from code content changes.  GitHub will show moved files as a file deletion + file creation, leading to huge numbers of changed lines.  If you have a moved file of 300 lines and can honestly say "this is just a file move with no substantive changes" (file paths, tracer names - those are not substantive) then your reviewer can mostly skip it.  If you mix real code changes in with big file moves, the reviewer has to wade through the whole file looking for your changes.
+
+2. Separate refactoring and file moves from code content changes.  GitHub will show moved files as a file deletion + file creation, leading to huge numbers of changed lines.  If you have a moved file of 300 lines and can honestly say "this is just a file move with no substantive changes" (file paths, tracer names - those are not substantive) then your reviewer can mostly skip it.  If you mix real code changes in with big file moves, the reviewer has to wade through the whole file looking for your changes.
+
 3. Run the tests first!  If the test server is going to reject your code anyway, work with it first before spending human developer time on the problem.  The `99_standard_tests` label can be applied to show the test server that you are ready for it to look at your code.  You should generally wait for a clean test status before requesting review.
-3. Run the beautifier first!  Technically this is already in "run the tests first", but it's worth reiterating.  The beautifier introduces large numbers of whitespace-only changes to your code.  Reviewers usually leave their comments tied to specific lines of code.  GitHub assumes any change to a line of code that occurs post-review will invalidate (or fix) a reviewer comment - so if you get review first then beautify, GitHub will hide all your reviewers' comments.
+
+4. Run the beautifier first!  Technically this is already in "run the tests first", but it's worth reiterating.  The beautifier introduces large numbers of whitespace-only changes to your code.  Reviewers usually leave their comments tied to specific lines of code.  GitHub assumes any change to a line of code that occurs post-review will invalidate (or fix) a reviewer comment - so if you get review first then beautify, GitHub will hide all your reviewers' comments.
 
 ####PR Review - how to get a review
 Once you have gotten a green slate from the test server, and you've reviewed your own code for issues, you are ready for an external review.
