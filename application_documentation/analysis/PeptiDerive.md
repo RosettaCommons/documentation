@@ -143,13 +143,14 @@ The output is in the following format:
   - `total_interface_score` is the *&Delta;&Delta;G<sub>AB</sub>* of the complex (see [[Algorithm|PeptiDerive#Algorithm]], above).
   - `entry_type` is
 
-    - `0` for a sliding window entry (one per residue, except for the last *N* ones, where *N* is the sliding window size)
+    - `0` for a sliding window entry (one per residue, except for the last *N* ones, where *N* is the sliding window size, 
+          and of peptides with no contribution to binding)
     - `1` to signify the best (linear) scoring peptide for the current chain pair and sliding window length
     - `2` to signify the best cyclic scoring peptide (ditto)
 
-  - `seq_res_num` is the sequential residue numbers for this chain (as opposed to author numbering)
+  - `seq_res_num` is the sequential residue number in a chain of the first peptide position (as opposed to author numbering)
   - `peptide_interface_score` is the *&Delta;&Delta;G<sub>A<sub>pep</sub>B</sub>*
-  - `disulfide_info` is a string describing the residues for a putative cyclic peptide, if one was determined to be relevant, and - if it was modeled (depending on whether the relative linear score is above the `optimize_cyclic_threshold`) - the interface score of the cyclic peptide. *Better documentation for this is pending.*
+  - `disulfide_info` is a string describing the residues for a putative cyclic peptide, if one was determined to be relevant, and - if it was modeled (depending on whether the relative linear score is above the `optimize_cyclic_threshold`) - the interface score of the cyclic peptide. 
 
 In the future, we're hoping to create a `FeatureReporter` to allow aggregation of output to a database.
 
