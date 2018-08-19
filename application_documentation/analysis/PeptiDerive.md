@@ -5,7 +5,7 @@ Metadata
 
 Authors: Nir London, Barak Raveh, Dana Movshovitz-Attias, Yuval Sadan, Orly Marcu, Ora Schueler-Furman
 
-The documentation was last updated on Feb 23, 2015, by Yuval Sadan. Questions about this documentation should be directed to Ora Furman: (oraf@ekmd.huji.ac.il).
+The documentation was last updated on Aug 19, 2018, by Orly Marcu. Questions about this documentation should be directed to Ora Furman: (oraf@ekmd.huji.ac.il).
 
 Code and Demo
 =============
@@ -31,11 +31,10 @@ Sedan Y., Marcu O., Lyskov S., Schueler-Furman O. (2016) "Peptiderive server: de
 Purpose
 =======
 
-PeptiDerive is a simple application that derives from a given interface the linear stretch that contributes most of the binding energy (approximated as the score over the interface).
+PeptiDerive is a simple application that derives from a given interface the linear stretch that contributes most of the binding energy (approximated as the score over the interface). In a sense, it is the computational analog of a peptide micro-array, as it scans different possible peptides extracted from a protein in its interactions with its partners. This protocol has been extended to detect and model cyclic peptides (closed either by forming a disulfide bond or a peptide bond between its termini) that can be generated from a given interface.
 
-
-We have used this protocol in the past to evaluate the fraction of interfaces that could be inhibited by a peptide or a peptidomimetic. We found on two representative benchmarks that this amounts to around 50% of the interactions. Further simulations with FlexPepDock of some of the derived peptides indicate that they will assume a similar conformation when cut out to the conformation they adopt within the full protein. This does not really look at conformational entropy of course, it just evaluates the local stability (London, Raveh, Movshovitz-Attias & Schueler-Furman (2010). Can self-inhibitory peptides be derived from the interfaces of globular protein-protein interactions? Proteins, 78:314. doi:10.1002/prot.22785).
-Also, for a set of solved structures of structures of small molecules that inhibit protein interactions in complex with their partner indicates that these target the same sites as identified by this simple protocol (the molecules come from in vitro screens, not drug design of course) (London, Raveh & Schueler-Furman (2013). Druggable protein–protein interactions—from hot spots to hot segments. Current Opinion in Chemical Biology. doi:10.1016/j.cbpa.2013.10.011)
+A previous run of this protocol on two highly reliable benchmarks showed that the fraction of interfaces that could potentially be inhibited by a peptide or a peptidomimetic amounts to around 50% of the tested interactions. Further simulations with FlexPepDock of some of the derived peptides indicate that they will assume a similar conformation when cut out to the conformation they adopt within the full protein. This does not really look at conformational entropy, it just evaluates the local stability (London, Raveh, Movshovitz-Attias & Schueler-Furman (2010). Can self-inhibitory peptides be derived from the interfaces of globular protein-protein interactions? Proteins, 78:314. doi:10.1002/prot.22785).
+Also, PeptiDerive analysis of a set of solved complex structures, where there are also solved structures of small molecules bound to one of the partners indicates that these target the same sites as identified by this simple protocol (the molecules come from in vitro screens, not drug design of course) (London, Raveh & Schueler-Furman (2013). Druggable protein–protein interactions—from hot spots to hot segments. Current Opinion in Chemical Biology. doi:10.1016/j.cbpa.2013.10.011)
 
 
 Algorithm
@@ -55,12 +54,15 @@ The peptide that contributes the best *&Delta;&Delta;G<sub>A<sub>pep</sub>B</sub
 
 This rough estimate is used for filtering of candidate inhibitory peptides.
 
-*Note: documentation for filtering and modeling cyclic peptides is pending.*
-
+For each of those peptides which contribute significantly to binding energy (user defined; default: over 35% of the interface score), generation of a cyclic peptide is performed on-the-fly, by either formation of a disulfide bond or of a peptide bond. If the distance between the flanking residues of the peptide (those immediately before and after the segment of interest) is reasonable for the formation of a disulfide bond (i.e., C𝛽 atoms within 3-5Å, or C𝛂 atoms within 4.5-6.5Å for Glycine/s) and the two residue's geometry fits that of known disulfide-forming structures (as evaluated by a Rosetta disulfide potential match score), the protocol next mutates the residues adjacent to the loop to cysteines, forms a disulfide bridge, performs a minimization of the peptide backbone to form an optimized disulfide bond and re-evaluates the energy gain by disulfide bond formation and the binding energy of the new cyclic-peptide to its partner. Only peptides with a change in disulfide bond energy of up to 1 Rosetta Energy Unit (REU) upon cyclization are reported (with this option accessible to user based changes via the -max_dslf_energy flag). In parallel, For each peptide, the distance between the nitrogen atom of the N-terminal residue and the carbon of the C-terminal residue is calculated, and peptides with N-to-C distances up to 5Å are retained as candidates for cyclization via head-to-tail cyclization. The cyclized peptide backbone undergoes minimization, followed by re-evaluation of the binding energy of the new cyclic-peptide to its partner. Cyclic peptides are accepted and outputted only if the estimated binding energy of the cyclic peptide is negative.
+ 
 Limitations
 ===========
 
-*Documentation pending.*
+* Interface score is a measure that does not take into account directly the conformational entropy of a peptide, which might be larger than the conformational entropy of a "peptide segment" within a globular domain - therefore a peptide's effective binding constants in competitive binding assays might be lower than expected.
+* Interface score does not take into account a conformational change between monomers in the bound complex and their conformations in their unbound states - therefore, the binding energy of the whole PPI complex, and of the derived peptide
+to its protein partners might be somewhat different (whether lower or higher), depending on the extent of conformational change upon binding.
+* The input to the method is a complex structure - performance might be worse for PPI models compared to solved crystal structure inputs.
 
 Input Files
 ===========
@@ -115,7 +117,7 @@ Tips
 Expected Outputs
 ================
 
-Depending on the value of the `report_format` option, PeptiDerive outputs in one of two formats
+Depending on the value of the `report_format` option, PeptiDerive outputs one of two formats
 
 Markdown
 --------
