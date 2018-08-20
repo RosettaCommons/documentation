@@ -20,7 +20,7 @@ References
 
 The main references for the FlexPepDock Refinement, FlexPepDock *ab-initio* and PIPER-FlexPepDock protocols include additional scientific background, in-depth technical details about the protocols, and an assessment of their performance over different datasets of peptide-protein complexes:
 
-*Refinement* protocol:
+Refinement protocol:
 
 ```
 Raveh B*, London N* and Schueler-Furman O
@@ -36,7 +36,7 @@ Rosetta FlexPepDockab-initio: Simultaneous Folding, Docking and Refinement of Pe
 PLoS ONE, 6(4): e18934 (2011).
 ```
 
-*Global docking* protocol (PIPER-FlexPepDock):
+Global docking protocol (PIPER-FlexPepDock):
 
 ```
 Alam N, Goldstein O, Xia B, Porter KA, Kozakov D, Schueler-Furman O 
