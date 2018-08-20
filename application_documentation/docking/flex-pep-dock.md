@@ -3,7 +3,7 @@
 Metadata
 ========
 
-Author: Barak Raveh, Nir London, Ora Schueler-Furman
+Author: Barak Raveh, Nir London, Nawsad Alam, Ora Schueler-Furman
 
 Last updated August 20, 2018 ; PI: Ora Schueler-Furman (oraf@ekmd.huji.ac.il).
 
@@ -36,7 +36,7 @@ Rosetta FlexPepDockab-initio: Simultaneous Folding, Docking and Refinement of Pe
 PLoS ONE, 6(4): e18934 (2011).
 ```
 
-Global docking protocol (PIPER-FlexPepDock):
+PIPER-FlexPepDock (Global docking protocol):
 
 ```
 Alam N, Goldstein O, Xia B, Porter KA, Kozakov D, Schueler-Furman O 
@@ -65,7 +65,7 @@ Algorithm
 
 ***ab-initio* protocol:** The input to the *ab-initio* protocol is: (1) A model of the peptide-protein complex in PDB format similar to the Refinement protocol, but starting from arbitrary (e.g., extended) peptide backbone conformation. It is required that the peptide is initially positioned in some proximity to the true binding pocket, but the exact starting orientation may vary. A preiminary step for the *ab-initio* protocol is the generation of fragment libraries for the peptide sequence, with 3-mer, 5-mer and 9-mer fragments (these can be generated automatically via a script from the starting structure, as shown in `       rosetta/main/demos/protocol_capture/flex_pep_dock_abinitio/      ` demo files). Another preliminary step is pre-packing, as in the Refinement protocol. The first step in the main part of the protocol involves a Monte-Carlo simulation for *de-novo* folding and docking of the peptide over the protein surface in low-resolution (centroid) mode, using a combination of fragment insertions, random backbone perturbations and rigid-body transformation moves. In the second step, the resulting low-resolution model is refined with FlexPepDock Refinement. As in the independent refinement protocol, the output models are then ranked by the used based on their energy score, or also subjected to clustering for improved performance. Our *ab-initio* protocol is described in detail in the Methods section in Raveh, London, Zimmerman et al., PLoS ONE 2011 (see [References](#References) ).
 
-**PIPER-FlexPepDock**: the input to the protocol is a receptor in PDB format and a FASTA file with peptide sequence containing the binding motif. The protocol consist of 3 main steps: fragment ensemble generation using Rosetta fragment picker, FFT based exhaustive rigid body docking of these fragments using PIPER, and high-resolution flexible refinement performed by FlexPepDock, followed by clustering and selection of top ranking representatives. (see [References](#References) )
+**PIPER-FlexPepDock**: the input to the protocol is a receptor in PDB format and a FASTA file with peptide sequence containing the binding motif. The protocol consist of 3 main steps: fragment ensemble generation using Rosetta fragment picker, FFT based exhaustive rigid body docking of these fragments using PIPER, and high-resolution flexible refinement performed by FlexPepDock, followed by clustering and selection of top ranking representatives. For more detailed description see [References](#References)
 
 For more information, see the following tips about [correct usage of FlexPepDock](#When-you-should-/-should-not-use-FlexPepDock:).
 
@@ -88,13 +88,18 @@ Modes
 -   **Minimization mode** (-flexPepDockingMinimizeOnly)
      Perform a short minimization of the peptide protein interface without going into the docking simulation (including all side-chain torsion angles ; all peptide backbone torsion angles ; and the rigid body orientation of the peptide relative to the receptor)
 
+For PIPER-FlexPepDock use -lowres_preoptimize
+                          -flexPepDocking:pep_refine
+                          -flexPepDocking:flexpep_score_only
+                          -min_receptor_bb
+
 Input Files
 ===========
 
 FlexPepDock requires the following inputs:
 
 -   **Starting structure:**
-     An initial approximate structure of a peptide-protein complex, either with or without side-chain coordinates. In *ab-initio* mode, the starting backbone conformation of the peptide may be arbitrary (e.g., extended). See `        main/tests/integration/tests/flexpepdock/input/1ER8_rb1_tor10_5.pdb       ` for an example for an initial structure in Refinement mode, or `       main/demos/protocol_capture/flex_pep_dock_abinitio/input_file/2b1z.start.pdb       ` for *ab-initio* mode. The exact way in which the starting conformation is created may vary depending on the specific application. For example, if similar structures exist (this is common in peptide binders with multiple specificityity, as in PDZ domains and many signal peptides), the initial structure can be constructed from an homology model of a similar structure using the Rosetta tool for comparative modeling, or any other homology modeling tools. If only the binding site is known, the initial peptide chain can be created from a FASTA file using the [[BuildPeptide Rosetta utility|build-peptide]] or using external tools such as PyMol Builder. The chain can then be positioned manually in the vicinity of the binding site (e.g., in an extended backbone conformation) using external tools like PyMol and Chimera. Alternatively, the peptide may be positioned manually in a completely arbitrary orientation relative to the receptor protein, and brought to the vicinity of the binding site using FlexPepDock or Rosetta docking application, together with a constraint file to position the peptide close to the specified binding site, using appropriate distance constraints.
+     An initial approximate structure of a peptide-protein complex, either with or without side-chain coordinates. In *ab-initio* mode, the starting backbone conformation of the peptide may be arbitrary (e.g., extended). See `        main/tests/integration/tests/flexpepdock/input/1ER8_rb1_tor10_5.pdb       ` for an example for an initial structure in Refinement mode, or `       main/demos/protocol_capture/flex_pep_dock_abinitio/input_file/2b1z.start.pdb       ` for *ab-initio* mode. The exact way in which the starting conformation is created may vary depending on the specific application. For example, if similar structures exist (this is common in peptide binders with multiple specificity, as in PDZ domains and many signal peptides), the initial structure can be constructed from an homology model of a similar structure using the Rosetta tool for comparative modeling, or any other homology modeling tools. If only the binding site is known, the initial peptide chain can be created from a FASTA file using the [[BuildPeptide Rosetta utility|build-peptide]] or using external tools such as PyMol Builder. The chain can then be positioned manually in the vicinity of the binding site (e.g., in an extended backbone conformation) using external tools like PyMol and Chimera. Alternatively, the peptide may be positioned manually in a completely arbitrary orientation relative to the receptor protein, and brought to the vicinity of the binding site using FlexPepDock or Rosetta docking application, together with a constraint file to position the peptide close to the specified binding site, using appropriate distance constraints.
 
 -   **Native structure:**
      This is a reference structure for RMSD comparisons and statistics of final models, in case a native structure is available. If a native is not supplied, the starting structure is used for reference instead.
@@ -105,6 +110,19 @@ FlexPepDock requires the following inputs:
 
 -   **Constraint file (optional):**
      As in any other Rosetta protocol, please refer to the [[constraint file]] documentation page for more information.
+
+PIPER-FlexPepDock requires:
+-   **Starting structure:**
+    Free receptor structure (bound or unbound conformation) 
+
+-   **Peptide sequence:**
+    In FASTA or in simple text file format. Peptides up to 13 amino acids were used for benchmarking
+
+-   **Native structure (optional):**
+    In case the complex structure is known, it can be provided as 'native' structure. Otherwise, after refinement step the top-scoring structure will be used as a reference structure for the RMSD calculation.
+
+-   **Peptide secondary structure (optional):**
+    
 
 Options
 =======
