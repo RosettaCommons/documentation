@@ -5,7 +5,7 @@ Metadata
 
 Author: Barak Raveh, Nir London, Ora Schueler-Furman
 
-Last updated July 24, 2011 ; PI: Ora Schueler-Furman (oraf@ekmd.huji.ac.il).
+Last updated August 20, 2018 ; PI: Ora Schueler-Furman (oraf@ekmd.huji.ac.il).
 
 Code and Demo
 =============
@@ -18,7 +18,7 @@ Code and Demo
 References
 ==========
 
-The main references for the FlexPepDock Refinement protocol and the FlexPepDock *ab-initio* protocol include additional scientific background, in-depth technical details about the protocols, and large-scale assessment of their performance over a large dataset of peptide-protein complexes:
+The main references for the FlexPepDock Refinement, FlexPepDock *ab-initio* and PIPER-FlexPepDock protocols include additional scientific background, in-depth technical details about the protocols, and an assessment of their performance over different datasets of peptide-protein complexes:
 
 *Refinement* protocol:
 
@@ -36,16 +36,27 @@ Rosetta FlexPepDockab-initio: Simultaneous Folding, Docking and Refinement of Pe
 PLoS ONE, 6(4): e18934 (2011).
 ```
 
+*Global docking* protocol (PIPER-FlexPepDock):
+
+```
+Alam N, Goldstein O, Xia B, Porter KA, Kozakov D, Schueler-Furman O 
+High-resolution global peptide-protein docking using fragments-based PIPER-FlexPepDock. PLoS Comput Biol 13(12): e1005905 (2017).
+```
+
 Application purpose
 ===========================================
 
 A wide range of regulatory processes in the cell are mediated by flexible peptides that fold upon binding to globular proteins. The FlexPepDock Refinement protocol and the FlexPepDock *ab-initio* protocols are designed to create high-resolution models of complexes between flexible peptides and globular proteins. Both protocols were benchmarked over a large dataset of peptide-protein interactions, including challenging cases such as docking to unbound (free-form) receptor models (see [References](#References) ).
 
-**Refinement vs. *ab-initio* protocol:**
+PIPER-FlexPepDock is a global peptide-protein docking protocol, in which the folding of the peptide is decoupled from its docking to the receptor. It was designed to predict peptide-protein when no information about the peptide beyond its sequence is available. The protocol was validated on a representative benchmark set of crystallographically solved high-resolution peptide-protein complexes (see [References](#References) ).
+
+**Refinement, *ab-initio* and global docking protocols:**
 
 -   The Refinement protocol is intended for cases where an approximate, coarse-grain model of the interaction is available. The protocol iteratively optimizes the peptide backbone and its rigid-body orientation relative to the receptor protein, in addition to on-the-fly side-chain optimization.
 
 -   The *ab-initio* protocol extends the refinement protocol considerably, and is intended for cases where no information is available about the peptide backbone conformation. It simultaneously folds and docks the peptide over the receptor surface, starting from any arbitrary (e.g., extended) backbone conformation. It is assumed that the peptide is initially positioned close to the correct binding site, but the protocol is robust to the exact starting orientation.
+
+-   PIPER-FlexPepDock is designed for cases where no binding site is known, starting with a receptor in PDB format and a peptide sequence only. A set of fragments representing the peptide conformational ensemble is rigid body docked to the receptor and further refined to high resolution with the Refinement protocol.
 
 Algorithm
 =========
@@ -53,6 +64,8 @@ Algorithm
 **Refinement protocol:** The input to the protocol is an initial coarse model of the peptide-protein complex in PDB format (approximate backbone coordinates for peptide in the receptor binding site). Initial side-chain coordinates (such as the crystallographic side-chains of an unbound receptor) can be optionally provided as part of the input model. A preliminary step in the Refinement protocol involves the pre-packing of the input structure, to remove internal clashes in the protein monomer and the peptide (see prepack mode below). In the main part of the protocol, the peptide backbone and its rigid-body orientation are optimized relative to the receptor protein using the Monte-Carlo with Minimization approach, in addition to on-the-fly side-chain optimization. An optional low-resolution (centroid) pre-optimization may improve performance further. The main part of the protocol is repeated *k* times. The output models are then ranked by the user based on their energy score. The Refinement protocol is described in detail in the Methods section in Raveh, London et al., Proteins 2010 (see [References](#References) ).
 
 ***ab-initio* protocol:** The input to the *ab-initio* protocol is: (1) A model of the peptide-protein complex in PDB format similar to the Refinement protocol, but starting from arbitrary (e.g., extended) peptide backbone conformation. It is required that the peptide is initially positioned in some proximity to the true binding pocket, but the exact starting orientation may vary. A preiminary step for the *ab-initio* protocol is the generation of fragment libraries for the peptide sequence, with 3-mer, 5-mer and 9-mer fragments (these can be generated automatically via a script from the starting structure, as shown in `       rosetta/main/demos/protocol_capture/flex_pep_dock_abinitio/      ` demo files). Another preliminary step is pre-packing, as in the Refinement protocol. The first step in the main part of the protocol involves a Monte-Carlo simulation for *de-novo* folding and docking of the peptide over the protein surface in low-resolution (centroid) mode, using a combination of fragment insertions, random backbone perturbations and rigid-body transformation moves. In the second step, the resulting low-resolution model is refined with FlexPepDock Refinement. As in the independent refinement protocol, the output models are then ranked by the used based on their energy score, or also subjected to clustering for improved performance. Our *ab-initio* protocol is described in detail in the Methods section in Raveh, London, Zimmerman et al., PLoS ONE 2011 (see [References](#References) ).
+
+**PIPER-FlexPepDock**: the input to the protocol is a receptor in PDB format and a FASTA file with peptide sequence containing the binding motif. The protocol consist of 3 main steps: fragment ensemble generation using Rosetta fragment picker, FFT based exhaustive rigid body docking of these fragments using PIPER, and high-resolution flexible refinement performed by FlexPepDock, followed by clustering and selection of top ranking representatives. (see [References](#References) )
 
 For more information, see the following tips about [correct usage of FlexPepDock](#When-you-should-/-should-not-use-FlexPepDock:).
 
