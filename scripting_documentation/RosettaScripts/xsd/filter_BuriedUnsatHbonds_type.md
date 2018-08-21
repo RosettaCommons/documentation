@@ -11,18 +11,21 @@ XRW TO DO
         ignore_surface_res="(false &bool;)"
         ignore_bb_heavy_unsats="(false &bool;)"
         use_sc_neighbors="(false &bool;)" use_ddG_style="(false &bool;)"
-        ddG_style_dont_recalc_surface="(false &bool;)"
         only_interface="(false &bool;)" print_out_info_to_pdb="(false &bool;)"
         jump_number="(1 &non_negative_integer;)"
         dalphaball_sasa="(false &bool;)" cutoff="(20 &non_negative_integer;)"
         probe_radius="(1.4 &real;)" burial_cutoff="(0.3 &real;)"
+        probe_radius_apo="(-1.0 &real;)" burial_cutoff_apo="(-1.0 &real;)"
         residue_surface_cutoff="(45.0 &real;)"
+        atomic_depth_selection="(-1 &real;)"
+        atomic_depth_probe_radius="(2.3 &real;)"
         use_reporter_behavior="(true &bool;)"
         use_hbnet_behavior="(false &bool;)" report_all_unsats="(false &bool;)"
         report_all_heavy_atom_unsats="(false &bool;)"
         report_sc_heavy_atom_unsats="(false &bool;)"
         report_bb_heavy_atom_unsats="(false &bool;)"
-        report_nonheavy_unsats="(false &bool;)" sym_dof_names="(&string;)"
+        report_nonheavy_unsats="(false &bool;)"
+        atomic_depth_deeper_than="(true &bool;)" sym_dof_names="(&string;)"
         residue_selector="(&string;)" scorefxn="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
         confidence="(1.0 &real;)" />
@@ -35,7 +38,6 @@ XRW TO DO
 -   **ignore_bb_heavy_unsats**: ignore bb heayy atom unsats when using hbnet-style behavior
 -   **use_sc_neighbors**: use sc_neighbors insteady of SASA for burial calculations
 -   **use_ddG_style**: perform ddG style calcation: the Unsats are calculated by subtracting all unsats in bound state from unbound state; this is how the original BuriedUnsatHBondsFilter works
--   **ddG_style_dont_recalc_surface**: don't recalculate surface residues in the unbound pose when using ddG_style
 -   **only_interface**: restrict unsat search only to interface residues; if true and more than one chain it's ignored
 -   **print_out_info_to_pdb**: print all info to pdb file into addition to tracer
 -   **jump_number**: The jump over which to evaluate the filter; only applies to use_ddG_style
@@ -43,7 +45,11 @@ XRW TO DO
 -   **cutoff**: The upper threshold for counted buried unsat H-bonds, above which the filter fails
 -   **probe_radius**: probe radius to use for SASA buriedness calculations; default is grabbed from sasa_calculator_probe_radius in options code, which defaults to 1.4
 -   **burial_cutoff**: used to determine burial; deafault legacy SASA atomic_burial_cutoff is 0.3; default VSASA cutoff is 0.1; if use_sc_neighbors=true, default becomes 4.4 or can be user-specified to sc_neighbor cutoff that is desired
+-   **probe_radius_apo**: If set greater than 0, use a different probe_radius for the apo phase of use_ddG_style.
+-   **burial_cutoff_apo**: If set greater than 0, use a different burial_cutoff for the apo phase of use_ddG_style.
 -   **residue_surface_cutoff**: cutoff to determine which residues are surface if ignore_surface_res=true; default is 45.0 for SASA, 20.0 for VSASA and 2.0 if use_sc_neighbors=true
+-   **atomic_depth_selection**: Include only atoms past a certain depth. Depth is from edge of SASA surface to center of atom. Pose converted to poly-VAL before SASA surface calculation. -1 to disable.
+-   **atomic_depth_probe_radius**: Probe radius for atomic_depth_selection. Set this high to exclude pores. Set this low to allow the SASA surface to enter pores.
 -   **use_reporter_behavior**: report as filter score the type of unsat turned on; this is now TRUE by default
 -   **use_hbnet_behavior**: no heavy unstas allowed (will return 9999); if no heavy unstas, will count Hpol unsats; FALSE by default; if set to true, will NOT use reporter behavior
 -   **report_all_unsats**: report all unsats
@@ -51,6 +57,7 @@ XRW TO DO
 -   **report_sc_heavy_atom_unsats**: report side chain heavy atom unsats
 -   **report_bb_heavy_atom_unsats**: report back bone heavy atom unsats
 -   **report_nonheavy_unsats**: report non heavy atom unsats
+-   **atomic_depth_deeper_than**: If true, only atoms deeper than atomic_depth_selection are included. If false, only atoms less deep than atomic_depth_selection are included.
 -   **sym_dof_names**: For multicomponent symmetry: what jump(s) used for ddG-like separation. (From Dr. Bale: For multicomponent systems, one can simply pass the names of the sym_dofs that control the master jumps. For one component systems, jump can still be used.)  IF YOU DEFIN THIS OPTION, Will use ddG-style separation for the calulation; if you do not want this, pass a residue selector instead of defining symdofs.
 -   **residue_selector**: residue selector that tells the filter to restrict the Unsat search to only those residues
 -   **scorefxn**: Name of score function to use
