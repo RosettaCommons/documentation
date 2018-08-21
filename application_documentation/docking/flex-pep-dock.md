@@ -88,10 +88,13 @@ Modes
 -   **Minimization mode** (-flexPepDockingMinimizeOnly)
      Perform a short minimization of the peptide protein interface without going into the docking simulation (including all side-chain torsion angles ; all peptide backbone torsion angles ; and the rigid body orientation of the peptide relative to the receptor)
 
-For PIPER-FlexPepDock use -lowres_preoptimize
-                          -flexPepDocking:pep_refine
-                          -flexPepDocking:flexpep_score_only
-                          -min_receptor_bb
+For the refinement step in PIPER-FlexPepDock use:
+
+-    **Refinement mode** (-lowres_preoptimize, -flexPepDocking:pep_refine)
+
+-    **Rescoring mode** (-flexPepDocking:flexpep_score_only)
+
+-    **Minimization** (-min_receptor_bb)
 
 Input Files
 ===========
@@ -122,7 +125,7 @@ PIPER-FlexPepDock requires:
     In case the complex structure is known, it can be provided as 'native' structure. Otherwise, after refinement step the top-scoring structure will be used as a reference structure for the RMSD calculation.
 
 -   **Peptide secondary structure (optional):**
-    
+    In case the secondary structure of the peptide is known or was predicted using other tool, it can be given as an input to the protocol as a text file consisting only of C, H or E letters
 
 Options
 =======
