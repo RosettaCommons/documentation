@@ -48,7 +48,7 @@ Application purpose
 
 A wide range of regulatory processes in the cell are mediated by flexible peptides that fold upon binding to globular proteins. The FlexPepDock Refinement protocol and the FlexPepDock *ab-initio* protocols are designed to create high-resolution models of complexes between flexible peptides and globular proteins. Both protocols were benchmarked over a large dataset of peptide-protein interactions, including challenging cases such as docking to unbound (free-form) receptor models (see [References](#References) ).
 
-PIPER-FlexPepDock is a global peptide-protein docking protocol, in which the folding of the peptide is decoupled from its docking to the receptor. It was designed to predict peptide-protein when no information about the peptide beyond its sequence is available. The protocol was validated on a representative benchmark set of crystallographically solved high-resolution peptide-protein complexes (see [References](#References) ).
+PIPER-FlexPepDock is a global peptide-protein docking protocol, in which the folding of the peptide is decoupled from its docking to the receptor. It was designed to predict peptide-protein interaction when no information about the peptide beyond its sequence is available. The protocol was validated on a representative benchmark set of crystallographically solved high-resolution peptide-protein complexes (see [References](#References) ).
 
 **Refinement, *ab-initio* and global docking protocols:**
 
@@ -56,7 +56,7 @@ PIPER-FlexPepDock is a global peptide-protein docking protocol, in which the fol
 
 -   The *ab-initio* protocol extends the refinement protocol considerably, and is intended for cases where no information is available about the peptide backbone conformation. It simultaneously folds and docks the peptide over the receptor surface, starting from any arbitrary (e.g., extended) backbone conformation. It is assumed that the peptide is initially positioned close to the correct binding site, but the protocol is robust to the exact starting orientation.
 
--   PIPER-FlexPepDock is designed for cases where no binding site is known, starting with a receptor in PDB format and a peptide sequence only. A set of fragments representing the peptide conformational ensemble is rigid body docked to the receptor and further refined to high resolution with the Refinement protocol.
+-   PIPER-FlexPepDock is designed for cases where the binding site is unknown, starting with a receptor in PDB format and a peptide sequence only. A set of fragments representing the peptide conformational ensemble is rigid body docked to the receptor and further refined to high resolution with the Refinement protocol.
 
 Algorithm
 =========
@@ -116,16 +116,16 @@ FlexPepDock requires the following inputs:
 
 PIPER-FlexPepDock requires:
 -   **Starting structure:**
-    Free receptor structure (bound or unbound conformation) 
+    Free receptor structure (bound or unbound conformation).
 
 -   **Peptide sequence:**
-    In FASTA or in simple text file format. Peptides up to 13 amino acids were used for benchmarking
+    In FASTA or in simple text file format. Peptides up to 13 amino acids were used for benchmarking.
 
 -   **Native structure (optional):**
     In case the complex structure is known, it can be provided as 'native' structure. Otherwise, after refinement step the top-scoring structure will be used as a reference structure for the RMSD calculation.
 
 -   **Peptide secondary structure (optional):**
-    In case the secondary structure of the peptide is known or was predicted using other tool, it can be given as an input to the protocol as a text file consisting only of C, H or E letters
+    In case the secondary structure of the peptide is known or was predicted using another tool, it can be given as an input to the protocol as a text file consisting only of C, H or E letters (for coil, helix or beta-strand accordingly).
 
 Options
 =======
@@ -268,6 +268,7 @@ These assigned fragments are extracted from the Protein Data Bank (including the
     3. FlexPepDock Refinement
 
         Step I: prepacking the PIPER model
+
         In the PIPER docked model the receptor is replaced with a prepacked receptor. A single prepacked receptor is used.
 
         Step II: Running refinement
