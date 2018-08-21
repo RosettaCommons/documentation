@@ -246,30 +246,30 @@ These assigned fragments are extracted from the Protein Data Bank (including the
     fixbb.linuxgccrelease -database ${rosetta_db} -in:file:s fragment_1.pdb -resfile mutation_resfile -ex1 -ex2 -use_input_sc
     ```
     2. PIPER Docking:
-Step I: preprocessing the input receptor and fragments using pdbprep.pl and pdbnmd.pl:
+    Step I: preprocessing the input receptor and fragments using pdbprep.pl and pdbnmd.pl:
     ```
     perl pdbprep.pl receptor.pdb
     perl pdbnmd.pl receptor.pdb '?'
     ```
     Each of the 50 fragments is similarly processed.
 
-Step II: Running PIPER FFT docking:
+    Step II: Running PIPER FFT docking:
     ```
     piper.acpharis.omp.20120803 -vv -c1.0 -k4 --msur_k=1.0 --maskr=1.0 -T FFTW_EXHAUSTIVE -R 70000 -t 1 -p atoms.0.0.4.prm.ms.3cap+0.5ace.Hr0rec -f coeffs.0.0.4.motif -r rot70k.0.0.4.prm receptor_nmin.pdb fragment1_nmin.pdb >piper.log
     ```
     Each of the fragments is docked into the receptor. 
 
-Step III: Top scoring 250 PIPER models are extracted:
+    Step III: Top scoring 250 PIPER models are extracted:
     ```
     python apply_ftresult.py -i PIPER_model_ID ft.000.00 rot70k.0.0.4.prm fragment1_nmin.pdb --out-prefix PIPER_model_ID
     ```
     Where PIPER_model_ID is an integer value assigned to each transformation for a fragment. 
 
     3. FlexPepDock Refinement:
-Step I: prepacking the PIPER model
+    Step I: prepacking the PIPER model
     In the PIPER docked model the receptor is replaced with a prepacked receptor. A single prepacked receptor is used.
 
-Step II: Running refinement
+    Step II: Running refinement
     ```
     FlexPepDocking.mpi.linuxgccrelease -database ${rosetta_db} -in:file:s PIPER_model_1.pdb -scorefile score.sc -min_receptor_bb -lowres_preoptimize -pep_refine -flexpep_score_only -ex1 -ex2aro -use_input_sc -unboundrot free_receptor.pdb 
     ```
