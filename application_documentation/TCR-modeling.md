@@ -28,16 +28,18 @@ The database of template TCR structures is updated from the Protein Data Bank on
 
 ## Input Files
 
+TCR sequences for modeling can be submitted as amino acid sequences for alpha and beta chains, encompassing at minimum the TCR variable domains. The program will automatically identify germline genes in the input sequences, if there is an exact match in the database.
+
 
 Basic options
 -------------------------
 
 |**Flag**|**Description**|**Type**|
 |:-------|:--------------|:-------|
-|-alpha|Defines docking partners by chain ID for multichain docking. For example, "-partners LH\_A" moves chain A around the dimer of chains L and H.|String|
-|-beta|Randomize the orientation of the first docking partner. (Only works with 2 partner docking). (Global).|Boolean|
-|-refine_tcr_cdr3_loops|Randomize the orientation of the second docking partner. (Only works with 2 partner docking). (Global).|Boolean|
-|-remodel_tcr_cdr3_loops|Spin a second docking partner around axes from center of mass of the first partner to the second partner. (Global).|Boolean|
+|-alpha|Amino acid squence of the Sequence of TCR alpha chain.|String|
+|-beta|Amino acid squence of the Sequence of TCR beta chain.|Boolean|
+|-refine_tcr_cdr3_loops|Refine the CDR3 loops of Alpha and Beta chain.|Boolean|
+|-remodel_tcr_cdr3_loops|Remodel the CDR3 loops of Alpha and Beta chain.|Boolean|
 
 Advanced options
 -------------------------
