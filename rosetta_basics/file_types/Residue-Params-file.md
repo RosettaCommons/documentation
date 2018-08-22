@@ -82,6 +82,7 @@ The following lines are typically found in Ligand params files. This does not re
 ##See Also
 
 See this page for more information: http://graylab.jhu.edu/pyrosetta/downloads/documentation/PyRosetta_Workshops_Appendix_B.pdf
+A paper with several examples of params files for different building blocks - http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0067051
 
 * [[File types list]]: File types used in Rosetta
 * [[Non-protein residues]]: Guide to using non-protein molecules with Rosetta
