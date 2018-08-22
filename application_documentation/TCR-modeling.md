@@ -53,11 +53,11 @@ Advanced options
 |-template_identity_cutoff|Randomize the orientation of the first docking partner. (Only works with 2 partner docking). (Global).|Boolean|
 |-blastp_identity_cutoff|Randomize the orientation of the second docking partner. (Only works with 2 partner docking). (Global).|Boolean|
 |-ignore_list|Spin a second docking partner around axes from center of mass of the first partner to the second partner. (Global).|Boolean|
-|-num_cter_overhang_res|Randomize the orientation of the second docking partner. (Only works with 2 partner docking). (Global).|Boolean|
-|-num_nter_overhang_res|Spin a second docking partner around axes from center of mass of the first partner to the second partner. (Global).|Boolean|
-|-relax_model|Defines docking partners by chain ID for multichain docking. For example, "-partners LH\_A" moves chain A around the dimer of chains L and H.|String|
-|-minimize_model|Randomize the orientation of the first docking partner. (Only works with 2 partner docking). (Global).|Boolean|
-|-max_cycles|Spin a second docking partner around axes from center of mass of the first partner to the second partner. (Global).|Boolean|
+|-num_cter_overhang_res|Number of C-terminal overhang residues to use for grafting alignment. Default:3|Integer|
+|-num_nter_overhang_res|Number of N-terminal overhang residues to use for grafting alignment. Default:3|Integer|
+|-relax_model|Minimize the output model.|Boolean|
+|-minimize_model|Minimize the output model. (Only works with 2 partner docking). (Global).|Boolean|
+|-max_cycles|Max number of cycles to use in the loop remodel protocol. Default 20.|Integer|
 |-remodel_tcr_cdr3a_loop|Remodel the CDR3 loop of alpha chain. Useful if remodeling is required only for the CDR3 loop of alpha chain. Default:False.|Boolean|
-|-remodel_tcr_cdr3b_loop|Remodel the CDR3 loop of beta chain. Useful if remodeling is required only for the CDR3 loop of beta chain. Default:False.|Boolean|
+|-remodel_tcr_cdr3b_loop|Remodel the CDR3 loop of beta chain. Useful if remodeling is required only for the CDR3 loop of beta chain.Default:False.|Boolean|
 |-refine_all_tcr_cdr_loops|Refine all the CDR loops. Refinement includes CDR1, CDR2, CDR3 & HV4 loops of Alpha and Beta chains. Default:False.|Boolean|
