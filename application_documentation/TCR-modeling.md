@@ -1,5 +1,4 @@
 # TCR modeling
-# DARC
 
 # Metadata
 : Ragul Gowthaman (ragul@umd.edu)
