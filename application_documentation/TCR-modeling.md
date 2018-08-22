@@ -25,3 +25,16 @@ The TCRmodel server has three main stages:
 The database of template TCR structures is updated from the Protein Data Bank on a monthly basis, and currently includes several hundred crystal structures representing over 100 unique TCRs. If no template is identified among TCR structures, CDR loops are obtained from antibody crystal structures, or are modeled de novo. 
 
 ## Instructions For Running TCR modeling Protocol
+
+## Input Files
+
+
+Basic options
+-------------------------
+
+|**Flag**|**Description**|**Type**|
+|:-------|:--------------|:-------|
+|-alpha|Defines docking partners by chain ID for multichain docking. For example, "-partners LH\_A" moves chain A around the dimer of chains L and H.|String|
+|-beta|Randomize the orientation of the first docking partner. (Only works with 2 partner docking). (Global).|Boolean|
+|-refine_tcr_cdr3_loops|Randomize the orientation of the second docking partner. (Only works with 2 partner docking). (Global).|Boolean|
+|-remodel_tcr_cdr3_loops|Spin a second docking partner around axes from center of mass of the first partner to the second partner. (Global).|Boolean|
