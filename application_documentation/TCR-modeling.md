@@ -47,8 +47,16 @@ Advanced options
 |-use_anarci|Defines docking partners by chain ID for multichain docking. For example, "-partners LH\_A" moves chain A around the dimer of chains L and H.|String|
 |-anarci_path|Randomize the orientation of the first docking partner. (Only works with 2 partner docking). (Global).|Boolean|
 |-include_ab_templates|Randomize the orientation of the second docking partner. (Only works with 2 partner docking). (Global).|Boolean|
+|-ab_template_db_path|Randomize the orientation of the second docking partner. (Only works with 2 partner docking). (Global).|Boolean|
 |-search_germline_templates|Spin a second docking partner around axes from center of mass of the first partner to the second partner. (Global).|Boolean|
 |-template_similarity_cutoff|Defines docking partners by chain ID for multichain docking. For example, "-partners LH\_A" moves chain A around the dimer of chains L and H.|String|
 |-template_identity_cutoff|Randomize the orientation of the first docking partner. (Only works with 2 partner docking). (Global).|Boolean|
 |-blastp_identity_cutoff|Randomize the orientation of the second docking partner. (Only works with 2 partner docking). (Global).|Boolean|
 |-ignore_list|Spin a second docking partner around axes from center of mass of the first partner to the second partner. (Global).|Boolean|
+
+|-num_cter_overhang_res|Randomize the orientation of the second docking partner. (Only works with 2 partner docking). (Global).|Boolean|
+|-num_nter_overhang_res|Spin a second docking partner around axes from center of mass of the first partner to the second partner. (Global).|Boolean|
+|-relax_model|Defines docking partners by chain ID for multichain docking. For example, "-partners LH\_A" moves chain A around the dimer of chains L and H.|String|
+|-minimize_model|Randomize the orientation of the first docking partner. (Only works with 2 partner docking). (Global).|Boolean|
+
+|-max_cycles|Spin a second docking partner around axes from center of mass of the first partner to the second partner. (Global).|Boolean|
