@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-08-07
+Generated: 2018-08-22
 
 _Note that some application specific options may not be present in this list._
 
@@ -554,6 +554,8 @@ _Note that some application specific options may not be present in this list._
 <dd>If true, parametric poses have their parameter info included in the REMARK lines of the output PDB file.  True by default.<br/>Default: true<br/></dd>
 <dt><b>-write_glycan_pdb_codes</b> \<Boolean\></dt>
 <dd>If true glycans will be written based on the pdb codes rather than the rosetta names<br/>Default: false<br/></dd>
+<dt><b>-write_seqres_records</b> \<Boolean\></dt>
+<dd>Sets whether or not the SEQRES records in PDB files are written. The default value is false.<br/>Default: false<br/></dd>
 <dt><b>-output_pose_energies_table</b> \<Boolean\></dt>
 <dd>Output the pose energies table.  This can be overridden<br/>Default: true<br/></dd>
 <dt><b>-output_pose_cache_data</b> \<Boolean\></dt>
