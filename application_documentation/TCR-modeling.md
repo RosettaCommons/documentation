@@ -44,8 +44,8 @@ Advanced options
 
 |**Flag**|**Description**|**Type**|
 |:-------|:--------------|:-------|
-|-use_anarci|Defines docking partners by chain ID for multichain docking. For example, "-partners LH\_A" moves chain A around the dimer of chains L and H.|String|
-|-anarci_path|Randomize the orientation of the first docking partner. (Only works with 2 partner docking). (Global).|Boolean|
+|-use_anarci|Use ANARCI for TCR CDR classification and parsing TCR segments. Default false.|Boolean|
+|-anarci_path|Path of the ANARCI executable program. |String|
 |-include_ab_templates|Include antibody templates for modelling.  Default false.|Boolean|
 |-ab_template_db_path|Antibody template database path.|String|
 |-search_germline_templates|Search germline templates for modelling. Default:True|Boolean|
