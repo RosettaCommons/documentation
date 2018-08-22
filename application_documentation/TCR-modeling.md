@@ -1,7 +1,7 @@
 # TCR modeling
 
 # Metadata
-Author: Ragul Gowthaman (ragul@umd.edu)
+Author: Ragul Gowthaman (ragul@umd.edu).
 This document was last updated Aug 21, 2018, by Ragul Gowthaman.
 The corresponding principal investigator is Brian Pierce (pierce@umd.edu).
 [[_TOC_]]
