@@ -1,5 +1,10 @@
 # TCR modeling
+# DARC
 
+# Metadata
+: Ragul Gowthaman (ragul@umd.edu)
+This document was last updated Aug 21, 2018, by Ragul Gowthaman.
+The corresponding principal investigator is Brian Pierce (pierce@umd.edu).
 [[_TOC_]]
 
 # TCR modeling
@@ -63,3 +68,7 @@ Advanced options
 |-remodel_tcr_cdr3a_loop|Remodel the CDR3 loop of alpha chain. Useful if remodeling is required only for the CDR3 loop of alpha chain. Default:False.|Boolean|
 |-remodel_tcr_cdr3b_loop|Remodel the CDR3 loop of beta chain. Useful if remodeling is required only for the CDR3 loop of beta chain.Default:False.|Boolean|
 |-refine_all_tcr_cdr_loops|Refine all the CDR loops. Refinement includes CDR1, CDR2, CDR3 & HV4 loops of Alpha and Beta chains. Default:False.|Boolean|
+
+## Output Files
+
+After submission of TCR sequences, the results will provide the parsed CDR loop sequences and identified templates to the user along with the modeled protein as PDB file.
