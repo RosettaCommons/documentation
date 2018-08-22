@@ -38,3 +38,17 @@ Basic options
 |-beta|Randomize the orientation of the first docking partner. (Only works with 2 partner docking). (Global).|Boolean|
 |-refine_tcr_cdr3_loops|Randomize the orientation of the second docking partner. (Only works with 2 partner docking). (Global).|Boolean|
 |-remodel_tcr_cdr3_loops|Spin a second docking partner around axes from center of mass of the first partner to the second partner. (Global).|Boolean|
+
+Advanced options
+-------------------------
+
+|**Flag**|**Description**|**Type**|
+|:-------|:--------------|:-------|
+|-use_anarci|Defines docking partners by chain ID for multichain docking. For example, "-partners LH\_A" moves chain A around the dimer of chains L and H.|String|
+|-anarci_path|Randomize the orientation of the first docking partner. (Only works with 2 partner docking). (Global).|Boolean|
+|-include_ab_templates|Randomize the orientation of the second docking partner. (Only works with 2 partner docking). (Global).|Boolean|
+|-search_germline_templates|Spin a second docking partner around axes from center of mass of the first partner to the second partner. (Global).|Boolean|
+|-template_similarity_cutoff|Defines docking partners by chain ID for multichain docking. For example, "-partners LH\_A" moves chain A around the dimer of chains L and H.|String|
+|-template_identity_cutoff|Randomize the orientation of the first docking partner. (Only works with 2 partner docking). (Global).|Boolean|
+|-blastp_identity_cutoff|Randomize the orientation of the second docking partner. (Only works with 2 partner docking). (Global).|Boolean|
+|-ignore_list|Spin a second docking partner around axes from center of mass of the first partner to the second partner. (Global).|Boolean|
