@@ -49,10 +49,10 @@ Advanced options
 |-include_ab_templates|Randomize the orientation of the second docking partner. (Only works with 2 partner docking). (Global).|Boolean|
 |-ab_template_db_path|Randomize the orientation of the second docking partner. (Only works with 2 partner docking). (Global).|Boolean|
 |-search_germline_templates|Spin a second docking partner around axes from center of mass of the first partner to the second partner. (Global).|Boolean|
-|-template_similarity_cutoff|Defines docking partners by chain ID for multichain docking. For example, "-partners LH\_A" moves chain A around the dimer of chains L and H.|String|
-|-template_identity_cutoff|Randomize the orientation of the first docking partner. (Only works with 2 partner docking). (Global).|Boolean|
-|-blastp_identity_cutoff|Randomize the orientation of the second docking partner. (Only works with 2 partner docking). (Global).|Boolean|
-|-ignore_list|Spin a second docking partner around axes from center of mass of the first partner to the second partner. (Global).|Boolean|
+|-template_similarity_cutoff|Similarity cutoff to ignore similar template sequences from template database. Default:100|Real|
+|-template_identity_cutoff|Identity cutoff to ignore similar template sequences from template database.Default:100|Real|
+|-blastp_identity_cutoff|Identity cutoff to ignore similar template sequences from template database.Default:100|Real|
+|-ignore_list|List of PDB id's to ignore as templates.Default:None|Boolean|
 |-num_cter_overhang_res|Number of C-terminal overhang residues to use for grafting alignment. Default:3|Integer|
 |-num_nter_overhang_res|Number of N-terminal overhang residues to use for grafting alignment. Default:3|Integer|
 |-relax_model|Minimize the output model.|Boolean|
