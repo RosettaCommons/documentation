@@ -60,4 +60,4 @@ Advanced options
 |-max_cycles|Spin a second docking partner around axes from center of mass of the first partner to the second partner. (Global).|Boolean|
 |-remodel_tcr_cdr3a_loop|Defines docking partners by chain ID for multichain docking. For example, "-partners LH\_A" moves chain A around the dimer of chains L and H.|String|
 |-remodel_tcr_cdr3b_loop|Randomize the orientation of the first docking partner. (Only works with 2 partner docking). (Global).|Boolean|
-|-refine_all_tcr_cdr_loops|Spin a second docking partner around axes from center of mass of the first partner to the second partner. (Global).|Boolean|
+|-refine_all_tcr_cdr_loops|Refine all the CDr loops. Refinement includes CDR1, CDR2, CDR3 & HV4 loops of Alpha and Beta chains. Default:False.|Boolean|
