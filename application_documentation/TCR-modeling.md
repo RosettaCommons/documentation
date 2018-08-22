@@ -25,7 +25,7 @@ To address the growing need to gain structural insights of TCRs based on their s
 
 The TCRmodel server has three main stages:
 
-- [[Template identification :]] template structures are identified from known TCR CDR loops and framework regions
+- [Template identification :] template structures are identified from known TCR CDR loops and framework regions
 - [[Grafting :]] models are assembled by grafting identified template loops onto framework regions
 - [[Refinement :]] side chains and backbone of models are minimized using the fast "relax" protocol in Rosetta, and if specified by the user, CDR3 loops subjected to additional cycles of backbone refinement, using kinematic closure loop modeling (Refine: refinement, Remodel: rebuilding + refinement)
 
