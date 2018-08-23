@@ -314,6 +314,9 @@ Once you have gotten a green slate from the test server, and you've reviewed you
 
 GitHub supports several different workflows for handling parallel development.  A popular approach in the open source community is to use the "fork and pull" model, where projects are forked and then merged using GitHub's pull requests.  To keep the Rosetta codebase from fragmenting, we ask that you DO NOT FORK the RosettaCommons repositories, but instead use the recommended branch-based workflow within the `RosettaCommons/main` repository.
 
+##Working with submodules
+
+Submodules are separate repositories that can be subdirectories of existing repositories. Submodules are in a 'detached head' state, meaning they belong to a specific commit to which the HEAD pointer is not updated when other people push to master. Quick example: `Rosetta/main/tests/scientific` is in the `main` repository and the `data` directory in there is it's own submodule. The contents of `data` are not automatically updated when pulling from master (using `git pull`). You can get the contents of `data` via `git submodule update --init --recursive`. You can change into the data subdirectory and make changes. Commit these changes there (using `git add` and `git commit`) just like you would normally do. Then, if you move up in the hierarchy to get out of the submodule directory (back to `Rosetta/main/tests/scientific`), git will notice that you made changes to the submodule. Commit them there. Now, `git push` will still complain because the submodule is in a detached head state, so you need to specify the specific branch you want to push this into, for instance via `git push username/my_branch`. Now the changes to your submodule and changes you made to the outer repository should all be recorded on the remote. 
 
 ##See Also
 
