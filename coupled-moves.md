@@ -476,7 +476,7 @@ mm_bend_weight | Real | 1.0 | weight of mm_bend bond angle energy term
 bias_sampling | Boolean | true | if true, bias rotamer selection based on energy
 bump_check | Boolean | true | if true, use bump check in generating rotamers 
 repack_neighborhood | Boolean | false | After the backbone move and rotamer move, repack sidechains within 5A of the design residue. Default false for legacy behavior. Does not seem to make an impact on benchmark results, but adds significant time.
-legacy_task | Boolean | true | Default true for legacy behavior (Ollikainen 2015). True = use Clash Based Shell Selector to define repack residues around design residues from resfile, and perform Coupled Moves on these repack/design residues. False = Perform Coupled Moves on design/repack residues as defined in resfile.
+include_clashing_positions | Boolean | true | Default true for legacy behavior (legacy = Ollikainen 2015). True = use ClashBasedShellSelector to define positions that can clash with designable positions from resfile, and sample rotamers (without changing sequence) for these clashing positions even if set as NATRO in resfile. False = Perform Coupled Moves strictly as defined in resfile.
 
 **Output files options**
 
