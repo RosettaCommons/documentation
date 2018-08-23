@@ -450,8 +450,7 @@ backbone_mover | String | backrub | See [\[7.3\] Advanced Backbone Command-line 
 kic_perturber | String | walking | See [\[7.3\] Advanced Backbone Command-line Options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-backbone-usage_7-3-backbone-mover-command-line-options)
 kic_loop_size | Real | 4 | See [\[7.3\] Advanced Backbone Command-line Options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-backbone-usage_7-3-backbone-mover-command-line-options)
 walking_perturber_magnitude | Real | 2.0 | See [\[7.3\] Advanced Backbone Command-line Options](https://www.rosettacommons.org/docs/wiki/coupled-moves#7-advanced-backbone-usage_7-3-backbone-mover-command-line-options)
-fix_backbone | Boolean | false | Set to 'true' to prevent backbone moves. For debugging
-uniform_backrub | Boolean | false | select backrub rotation angle from uniform distribution. Recommend default
+
 
 **Ligand options**
 
@@ -477,6 +476,8 @@ bias_sampling | Boolean | true | if true, bias rotamer selection based on energy
 bump_check | Boolean | true | if true, use bump check in generating rotamers 
 repack_neighborhood | Boolean | false | After the backbone move and rotamer move, repack sidechains within 5A of the design residue. Default false for legacy behavior. Does not seem to make an impact on benchmark results, but adds significant time.
 include_clashing_positions | Boolean | true | Default true for legacy behavior (legacy = Ollikainen 2015). True = use ClashBasedShellSelector to define positions that can clash with designable positions from resfile, and sample rotamers (without changing sequence) for these clashing positions even if set as NATRO in resfile. False = Perform Coupled Moves strictly as defined in resfile.
+fix_backbone | Boolean | false | Set to 'true' to prevent backbone moves. For debugging
+uniform_backrub | Boolean | false | select backrub rotation angle from uniform distribution. Recommend default
 
 **Output files options**
 
