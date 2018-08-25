@@ -7,15 +7,18 @@ Run a set of SimpleMetrics on the pose, and put the data into a features table
 
 ```xml
 <SimpleMetricFeatures name="(&string;)" metrics="(&string;)" prefix="(&string;)"
-        suffix="(&string;)" table_name="(simple_metrics &string;)" >
+        suffix="(&string;)" table_name="(simple_metrics &string;)"
+        use_cached_data="(false &bool;)" fail_on_missing_cache="(true &bool;)" >
     <Simple Metric Tag ... />
 </SimpleMetricFeatures>
 ```
 
 -   **metrics**: Comma-separated list of previously defined simple_metrics to be added.
--   **prefix**: Prefix tag for the data.  Added as an extra column in the data.
--   **suffix**: suffix tag for the data.  Added as an extra column in the data.
+-   **prefix**: Prefix tag for the data.  Added as an extra column in the data. Also used to grab cache data
+-   **suffix**: suffix tag for the data.  Added as an extra column in the data. Also used to grab cahce data
 -   **table_name**: The table to add metrics to.  Should match the same exact data that you had before if the table has already been created!
+-   **use_cached_data**: Use any data stored in the datacache that matches the set metrics name (and any prefix/suffix.)  Data is stored during a SimpleMetric's apply function, which is called during RunSimpleMetrics
+-   **fail_on_missing_cache**: If use_cached_data is true, and no data is found, do we fail?
 
 
 "Simple Metric Tag": Any of the [[SimpleMetrics]]

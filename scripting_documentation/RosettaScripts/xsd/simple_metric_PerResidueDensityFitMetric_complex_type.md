@@ -9,7 +9,7 @@ Calculate either a correlation (match_res true) or zscore related to the fit to 
 <PerResidueDensityFitMetric name="(&string;)" custom_type="(&string;)"
         output_as_pdb_nums="(&string;)" residue_selector="(&string;)"
         sliding_window_size="(3 &positive_integer;)" match_res="(false &bool;)"
-        mixed_sliding_window="(false &bool;)" use_native="(false &bool;)"
+        mixed_sliding_window="(false &bool;)"
         use_selector_as_zscore_mask="(true &bool;)" />
 ```
 
@@ -20,7 +20,6 @@ Calculate either a correlation (match_res true) or zscore related to the fit to 
 -   **sliding_window_size**: Sliding window size for density calculation
 -   **match_res**: Use density correlation instead of a zscore to fit to density
 -   **mixed_sliding_window**: Use a window size of 3 for protein and 1 for glycans.  May skew results.
--   **use_native**: Use a native set with in:file:native to do the selection for benchmarking purposes.
 -   **use_selector_as_zscore_mask**: Use the selector as true mask to calculate the Zscore.  Otherwise, use it just as a selection for computation.  Default true.
 
 ---

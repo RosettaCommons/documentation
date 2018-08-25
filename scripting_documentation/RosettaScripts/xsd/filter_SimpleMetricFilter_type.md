@@ -9,7 +9,10 @@ Run a SimpleMetric (Real) as a filter.  Set the cutoff and comparison_type to co
 <SimpleMetricFilter name="(&string;)" epsilon="(.0001 &real;)"
         metric="(&string;)" comparison_type="(&comparison_types;)"
         composite_action="(&string;)" cutoff="(&real;)" match="(&string;)"
-        use_sum_for_per_residue_real="(&string;)" confidence="(1.0 &real;)" >
+        use_sum_for_per_residue_real="(&string;)"
+        use_cached_data="(false &bool;)" cache_prefix="(&string;)"
+        cache_suffix="(&string;)" fail_on_missing_cache="(true &bool;)"
+        confidence="(1.0 &real;)" >
     <Simple Metric Tag ... />
 </SimpleMetricFilter>
 ```
@@ -22,6 +25,10 @@ Run a SimpleMetric (Real) as a filter.  Set the cutoff and comparison_type to co
 -   **cutoff**: Number to use to determine if filter passes or not for any RealMetric or CompositeRealMetric.  Set the comparison_type to indicate the behavior of this filter.
 -   **match**: String to match on to determine if filter passes or not for any StringMetric or CompositeStringMetric.  Set the comparison type to indicate the behavior of this filter.
 -   **use_sum_for_per_residue_real**: If you are using a PerResidueRealMetric, set this to use the SUM of the values to act as a RealMetric instead of acting as a composite metric.  Default False.
+-   **use_cached_data**: Use any data stored in the datacache that matches the set metrics name (and any prefix/suffix.)  Data is stored during a SimpleMetric's apply function, which is called during RunSimpleMetrics
+-   **cache_prefix**: Any prefix used during apply (RunSimpleMetrics), that we will match on if use_cache is true
+-   **cache_suffix**: Any suffix used during apply (RunSimpleMetrics), that we will match on if use_cache is true
+-   **fail_on_missing_cache**: If use_cached_data is True and cache is not found, should we fail?
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 

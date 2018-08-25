@@ -9,8 +9,9 @@ Select residues that have a good electron density fit. (Or bad fit using the inv
 <DensityFitResidueSelector name="(&string;)" invert="(false &bool;)"
         cutoff="(-.5 &real;)" sliding_window_size="(3 &positive_integer;)"
         mixed_sliding_window="(false &bool;)" match_res="(false &bool;)"
-        use_native="(false &bool;)" use_selector_as_zscore_mask="(true &bool;)"
-        residue_selector="(&string;)" />
+        use_selector_as_zscore_mask="(true &bool;)" den_fit_metric="(&string;)"
+        use_cache="(false &bool;)" prefix="(&string;)" suffix="(&string;)"
+        fail_on_missing_cache="(false &bool;)" residue_selector="(&string;)" />
 ```
 
 -   **invert**: Select residues that have a bad density fit instead of those with good density fit.
@@ -18,8 +19,12 @@ Select residues that have a good electron density fit. (Or bad fit using the inv
 -   **sliding_window_size**: Sliding window size for density calculation
 -   **mixed_sliding_window**: Use a window size of 3 for protein and 1 for glycans.  May skew results.
 -   **match_res**: Use density correlation instead of a zscore to fit to density
--   **use_native**: Use a native set with in:file:native to do the selection for benchmarking purposes.
 -   **use_selector_as_zscore_mask**: Use the selector as true mask to calculate the Zscore.  Otherwise, use it just as a selection for result.  Default true.
+-   **den_fit_metric**: Use a previously defined Per-Residue Density Fit Metric (use for caching data
+-   **use_cache**: Use any cached SM data instead of recaclulating. Data can be cached by calling RunSimpleMetrics on the metric before using this residue selector. The metric will need to be defined before this selector, perhaps in another section of SIMPLE_METRICS.
+-   **prefix**: Prefix for the cached data.
+-   **suffix**: Suffix for the cached data.
+-   **fail_on_missing_cache**: If we are using cached data, should we fail on no cache?
 -   **residue_selector**: A Residue selector mask.  Used to only compute Zscore among a set of residues.  Useful for protein vs glycan density.  Since match_res is NOT a zscore, the selector acts as an AND selector, so we only compute the correlations on this set.
 
 ---
