@@ -28,8 +28,6 @@ The TCRmodel server has three main stages:
 
 The database of template TCR structures is updated from the Protein Data Bank on a monthly basis, and currently includes several hundred crystal structures representing over 100 unique TCRs. If no template is identified among TCR structures, CDR loops are obtained from antibody crystal structures, or are modeled de novo. 
 
-## Instructions For Running TCR modeling Protocol
-
 ## Input Files
 
 TCR sequences for modeling can be submitted as amino acid sequences for alpha and beta chains, encompassing at minimum the TCR variable domains. The program will automatically identify germline genes in the input sequences, if there is an exact match in the database.
@@ -72,6 +70,8 @@ Advanced options
 
 After submission of TCR sequences, the results will provide the parsed CDR loop sequences and identified templates to the user along with the modeled protein as PDB file.
 
-## Example: Commands for sample TCR modeling run for a human T cell receptor PDB:1AO7
+## Instructions For Running TCR modeling Protocol
+
+# Example: Commands for sample TCR modeling run for a human T cell receptor PDB:1AO7
 $ Rosetta/main/source/bin/tcr.macosclangrelease -database Rosetta/main/database -alpha VEQNSGPLSVPEGAIASLNCTYSDRGSQSFFWYRQYSGKSPELIMSIYSNGDKEDGRFTAQLNKASQYVSLLIRDSQPSDSATYLCAVTTDSWGKLQFGAGTQVVVT -beta VTQTPKFQVLKTGQSMTLQCAQDMNHEYMSWYRQDPGMGLRLIHYSVGAGITDQGEVPNGYNVSRSTTEDFPLRLLSAAPSQTSVYFCASRPGLAGGRPEQYFGPGTRLTVT
  
