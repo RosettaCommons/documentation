@@ -71,3 +71,7 @@ Advanced options
 ## Output Files
 
 After submission of TCR sequences, the results will provide the parsed CDR loop sequences and identified templates to the user along with the modeled protein as PDB file.
+
+## Example: Commands for sample TCR modeling run for a human T cell receptor PDB:1AO7
+$ Rosetta/main/source/bin/tcr.macosclangrelease -database Rosetta/main/database -alpha VEQNSGPLSVPEGAIASLNCTYSDRGSQSFFWYRQYSGKSPELIMSIYSNGDKEDGRFTAQLNKASQYVSLLIRDSQPSDSATYLCAVTTDSWGKLQFGAGTQVVVT -beta VTQTPKFQVLKTGQSMTLQCAQDMNHEYMSWYRQDPGMGLRLIHYSVGAGITDQGEVPNGYNVSRSTTEDFPLRLLSAAPSQTSVYFCASRPGLAGGRPEQYFGPGTRLTVT
+ 
