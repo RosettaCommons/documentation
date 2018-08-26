@@ -72,6 +72,6 @@ After submission of TCR sequences, the results will provide the parsed CDR loop 
 
 ## Instructions For Running TCR modeling Protocol
 
-# Example: Commands for sample TCR modeling run for a human T cell receptor PDB:1AO7
+### Example: Commands for sample TCR modeling run for a human T cell receptor PDB:1AO7
 $ Rosetta/main/source/bin/tcr.macosclangrelease -database Rosetta/main/database -alpha VEQNSGPLSVPEGAIASLNCTYSDRGSQSFFWYRQYSGKSPELIMSIYSNGDKEDGRFTAQLNKASQYVSLLIRDSQPSDSATYLCAVTTDSWGKLQFGAGTQVVVT -beta VTQTPKFQVLKTGQSMTLQCAQDMNHEYMSWYRQDPGMGLRLIHYSVGAGITDQGEVPNGYNVSRSTTEDFPLRLLSAAPSQTSVYFCASRPGLAGGRPEQYFGPGTRLTVT
  
