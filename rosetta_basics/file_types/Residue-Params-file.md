@@ -9,6 +9,8 @@ Params files store a variety of chemical and geometric information used to defin
 
 A set of params files for commonly seen residues and metals is included with Rosetta, and can be found in Rosetta/main/database/chemical/residue_type_sets
 
+Params files can be automatically generated given a molfile, sdf file or pdb file of the desired building block/small molecule, using a script distributed with Rosetta, ``main/source/scripts/python/public/molfile_to_params.py``. Note that manual adjustments might be needed, according to the information below. The params file can be read in using the option ``-in:file:extra_res_fa``. 
+
 The following lines are typically found in Ligand params files. This does not represent a complete documentation of the params fileformat. These files are read in core/chemical/residue\_io.cc
 
 -   **NAME** The name of the Residue. Must be unique among all residues loaded into Rosetta
@@ -81,7 +83,7 @@ The following lines are typically found in Ligand params files. This does not re
 
 ##See Also
 
-See this page for more information: http://graylab.jhu.edu/pyrosetta/downloads/documentation/PyRosetta_Workshops_Appendix_B.pdf
+See this page for more information: http://graylab.jhu.edu/pyrosetta/downloads/documentation/PyRosetta_Workshops_Appendix_B.pdf                               
 A paper with several examples of params files for different building blocks - http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0067051
 
 * [[File types list]]: File types used in Rosetta
