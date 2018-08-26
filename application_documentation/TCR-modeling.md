@@ -37,7 +37,7 @@ TCR sequences for modeling can be submitted as amino acid sequences for alpha an
 
 After submission of TCR sequences, the results will provide the parsed CDR loop sequences and identified templates to the user along with the modeled protein as PDB file.
 
-Basic options
+### Basic options
 -------------------------
 
 |**Flag**|**Description**|**Type**|
@@ -47,7 +47,7 @@ Basic options
 |-refine_tcr_cdr3_loops|Refine the CDR3 loops of Alpha and Beta chain.|Boolean|
 |-remodel_tcr_cdr3_loops|Remodel the CDR3 loops of Alpha and Beta chain.|Boolean|
 
-Advanced options
+### Advanced options
 -------------------------
 
 |**Flag**|**Description**|**Type**|
