@@ -29,8 +29,9 @@ This is XML that calls RosettaES (aka the loop grower)
         readbeams="(false &bool;)" clustercheck="(false &bool;)"
         rescorebeams="(false &bool;)" writelps="(true &bool;)"
         fafilter="(true &bool;)" famin="(false &bool;)"
-        samplesheets="(true &bool;)" filterprevious="(false &bool;)"
-        rephasemap="(false &bool;)" checksymm="(false &bool;)"
+        samplesheets="(true &bool;)" trackfragments="(false &bool;)"
+        filterprevious="(false &bool;)" rephasemap="(false &bool;)"
+        checksymm="(false &bool;)" asymmdump="(true &bool;)"
         continuous_sheets="(false &bool;)" auto_stop="(false &bool;)"
         greedy="(true &bool;)" read_from_file="(false &bool;)"
         assign_incomplete="(false &bool;)"
@@ -86,9 +87,11 @@ This is XML that calls RosettaES (aka the loop grower)
 -   **fafilter**: Rescores the top 2N structures with the full atom representation before filtering down to N.
 -   **famin**: Toggles minimization in full atom
 -   **samplesheets**: Toggles the sheet sampler
+-   **trackfragments**: Keep order of fragments instead of shuffling (useful only for debugging)
 -   **filterprevious**: Filter against the beams in the filterbeams file. Used in taboo search
 -   **rephasemap**: Triggers rephasing of the map when working with xray data, currently distabled
 -   **checksymm**: Checks all the symmetric versions of the connecting segments to see if an alternative is a better match
+-   **asymmdump**: If pose is symmetric, when filtering results dump only the asymmetric unit
 -   **continuous_sheets**: Toggles a one time vs maintained bonus for the sheets
 -   **auto_stop**: Toggles autostoping when running out of density. Currently unfinished
 -   **greedy**: Only runs on the loop specificed by the loop order variable
