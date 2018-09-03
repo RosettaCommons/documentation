@@ -51,12 +51,12 @@ Subsequent lines in the ```.mhc``` file are optional, and control how scoring is
 - ```alleles``` can be used to select a subset of alleles present in your matrix/database to use.  This option is not currently supported, except to select all alleles (the default).  To select all alleles, use ```alleles *```.
 - ```threshold``` applies to matrix-based predictors only.  This option sets the threshold above which a peptide is considered a hit.  Default is ```threshold ****```.
 - ```unseen``` applies to external predictors only.  As these predictors use an external database that does not necessarily include all possible peptides, this option sets the behavior for any peptide not found in the database (i.e. that is "unseen").  This option can take different handlers, which decide how to handle unseen peptides.  Currently, only ```penalize``` is implemented.   The default is ```unseen penalize ****```.
--- ```penalize``` adds a specific, constant penalty score for any peptide not found in the database, thereby discouraging Rosetta from designing to these sequences.
+ - ```penalize``` adds a specific, constant penalty score for any peptide not found in the database, thereby discouraging Rosetta from designing to these sequences.
 - ```xform``` transforms the score returned by the predictor.  In any case, if the transformed score is less than 0, a score of 0 is used.  It can run in one of three modes:
--- ```raw``` is the default.  This takes the raw score and subtracts a threshold from it.  The default is ```xform raw ***```.
--- ```relative+``` is a score relative to the native sequence, in additive mode.  The score is calculated as (raw score - native score + score threshold).  For example, ```raw relative+ 5``` means that a score that is 5 units worse than native or better will get a score of 0.
--- ```relative*``` is a score relative to the native sequence, in multiplicative mode.  The score is calculated as (raw score - native score * score threshold).  For example, ```raw relative* 1.2``` means that any score that is 20% higher than native or less will get a score of 0.
--- Note that the "native" sequence is the sequence when the packer first starts, not the sequence as read in.  A protocol that uses multiple movers will see its "native" sequence change throughout the protocol.
+ - ```raw``` is the default.  This takes the raw score and subtracts a threshold from it.  The default is ```xform raw ***```.
+ - ```relative+``` is a score relative to the native sequence, in additive mode.  The score is calculated as (raw score - native score + score threshold).  For example, ```raw relative+ 5``` means that a score that is 5 units worse than native or better will get a score of 0.
+ - ```relative*``` is a score relative to the native sequence, in multiplicative mode.  The score is calculated as (raw score - native score * score threshold).  For example, ```raw relative* 1.2``` means that any score that is 20% higher than native or less will get a score of 0.
+ - Note that the "native" sequence is the sequence when the packer first starts, not the sequence as read in.  A protocol that uses multiple movers will see its "native" sequence change throughout the protocol.
 
 ### Examples of ```.mhc``` files
 
