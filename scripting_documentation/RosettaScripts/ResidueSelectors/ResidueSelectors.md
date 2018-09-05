@@ -616,6 +616,8 @@ Creates a residue subset by retrieving a residue subset that has been cached int
 
 ### NativeSelector
 A ResidueSelector that applies a given residue selector to the native pose.
+If the native pose is shorter than the trajectory pose,
+extra 'false' values will be appended to the end of the selection to make it the correct size.
 
 ```xml
 <NativeSelector name="(string)" residue_selector="(string)" />
