@@ -615,7 +615,11 @@ Creates a residue subset by retrieving a residue subset that has been cached int
     </MOVERS>
 
 ### NativeSelector
-    TODO
+A ResidueSelector that applies a given residue selector to the native pose.
+
+```xml
+<NativeSelector name="(string)" residue_selector="(name of selector to be applied to the native pose)" />
+```
 
 ####Example
 This script prints the sequence for residues that are defined as buried in the pose
