@@ -614,6 +614,33 @@ Creates a residue subset by retrieving a residue subset that has been cached int
       <StoreResidueSubset name="store_subset" residue_selector="chainb" subset_name="original_chain_b" />
     </MOVERS>
 
+### NativeSelector
+    TODO
+
+####Example
+This script prints the sequence for residues that are defined as buried in the pose
+passed using the flag `-native`
+```xml
+<ROSETTASCRIPTS>
+  <RESIDUE_SELECTORS>
+    <Layer name="core_res" select_core="1" select_boundary="0" select_surface="0" />
+    <NativeSelector name="original_core" residue_selector="core_res" />
+  </RESIDUE_SELECTORS>
+
+  <SIMPLE_METRICS>
+    <SequenceMetric name="seq" residue_selector="original_core" />
+  </SIMPLE_METRICS>
+
+  <MOVERS>
+    <RunSimpleMetrics name="run_metrics" metrics="seq" prefix="seq_" />
+  </MOVERS>
+
+  <PROTOCOLS>	
+    <Add mover="run_metrics"/>
+  </PROTOCOLS>
+</ROSETTASCRIPTS>
+```
+
 ###ScoreTermValueBased
 Scores a copy of the pose and selects residues that score within the specified limits for a chosen score type. This could be used to select residue positions that score poorly and design such that the score improves. The tags, _score_type_, _lower_threshold_ and _upper_threshold_ are required.
 
