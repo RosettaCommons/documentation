@@ -618,7 +618,7 @@ Creates a residue subset by retrieving a residue subset that has been cached int
 A ResidueSelector that applies a given residue selector to the native pose.
 
 ```xml
-<NativeSelector name="(string)" residue_selector="(name of selector to be applied to the native pose)" />
+<NativeSelector name="(string)" residue_selector="(string)" />
 ```
 
 ####Example
