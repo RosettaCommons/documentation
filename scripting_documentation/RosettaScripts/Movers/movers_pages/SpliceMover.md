@@ -2,8 +2,8 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## Splice
 
-(This is a devel Mover and not available in released versions.)
-
+**This is a Devel mover, however it was split into different movers that are now in release.
+**
 This is a fairly complicated mover with several different ways to operate:
 
 -   1. given a source pose: splices segments from source pose onto current pose and ccd closes it. Use either with from\_res to\_res options or with the task\_operations. Generates a database file with the dihedral angle data from the spliced segment.
