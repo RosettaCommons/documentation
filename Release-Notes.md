@@ -21,6 +21,9 @@
 * [[FindGlycanSeqonsMover]]
 * The [[simple_cycpep_predict]] application now supports new cyclization chemistries, including side-chain isopeptide bonds (lariats).
 * Tricks to dump minimization trajectories
+* New [[design-centric guidance scoreterms|design-guidance-terms]]:
+     * [[hbnet|HBNetEnergy]], to promote hydrogen bond networks during design
+     * [[buried_unsatisfied_penalty|BuriedUnsatisfiedPenalty]], to promote fully satisfied buried hydrogen bond donors and acceptors during design
 * common flag/config/option file support [Custom Configurations](https://www.rosettacommons.org/docs/latest/rosetta_basics/running-rosetta-with-options#common-options-and-default-user-configuration)
 
 ### Nonprotein chemistries
