@@ -7,7 +7,7 @@
 * [[GALigandDock]]
 
 ### Scoring function improvements
-* [[gen_bonded]] - newest results of the SEATTLE ENERGY FUNCTION LINK THING
+* [[gen_bonded|Updates-beta-genpot]] - newest results of the Seattle energy function development initiative
 * New [[design-centric guidance scoreterms|design-guidance-terms]]:
      * [[hbnet|HBNetEnergy]], to promote hydrogen bond networks during design
      * [[buried_unsatisfied_penalty|BuriedUnsatPenalty]], to promote fully satisfied buried hydrogen bond donors and acceptors during design
@@ -17,9 +17,9 @@
 * Huge stability improvements to the PDB and mmCIF readers
 * Database directory of [[RelaxScripts]].  The RosettaCON2018 RelaxScript is under consideration as the next default script - it improves design quality and runs faster to boot.
 * Protein ensembles in small molecule docking
-* [[Splice]] updates
+* [[Splice|SpliceMover]] updates
 * [[InterfaceAnalyzerMover]] compatible with ligands and generally more stable
-* [[DensityFitResidueSelector]]
+* [[DensityFitResidueSelector|rs_DensityFitResidueSelector_type]]
 * [[InterfaceHydrophobicResidueContactsFilter]]
 * [[RosettaDock]] gains adaptive conformer selection and motif dock score
 * [[SEWING]] refactor and new needles (ok, ok, new sub-applications).  I don't think it's multithreaded yet.
