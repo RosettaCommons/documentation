@@ -47,7 +47,7 @@
 
 #### Metals
 * [[CrosslinkerMover]] can now place octahedral, tetrahedral, square pyramidal, square planar, trigonal planar, and trigonal pyramidal metals.
-* Improvements for auto_setup_metals - particularly it works with centroid mode
+* Improvements for [[auto_setup_metals|Metals]] - particularly it works with centroid mode, and can be invoked from the new [[SetupMetalsMover]] within RosettaScripts protocols.
 
 ### Updates
 * Rosetta's core and database modules are now threadsafe, permitting development of multi-threaded protocols.
