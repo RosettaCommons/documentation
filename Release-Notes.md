@@ -50,6 +50,7 @@
 * Improvements for auto_setup_metals - particularly it works with centroid mode
 
 ### Updates
+* Rosetta's core and database modules are now threadsafe, permitting development of multi-threaded protocols.
 * UBQ_Gp_LYX-Cterm compatible with a ResidueSelector from which to sample to choose LYX positions
 * RosettaAntibody can take user-defined CDRs via a JSON input, useful for when the automated regex detection fails
 * [[CoupledMoves]] and [[ClashBasedRepackShell]]
