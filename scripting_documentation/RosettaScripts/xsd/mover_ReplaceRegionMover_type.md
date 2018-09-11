@@ -7,15 +7,14 @@ Replaces a region of length span in the target pose with a specified region of l
 
 ```xml
 <ReplaceRegionMover name="(&string;)" span="(&non_negative_integer;)"
-        copy_pdbinfo="(false &bool;)" src_pose_start_="(&non_negative_integer;)"
-        target_pose_start_="(&non_negative_integer;)"
-        reference_name="(&string;)" />
+        copy_pdbinfo="(false &bool;)" src_pose_start="(&string;)"
+        target_pose_start="(&string;)" spm_reference_name="(&string;)" />
 ```
 
 -   **span**: (REQUIRED) Length of the region to replace
 -   **copy_pdbinfo**: Copy PDBInfo to the new pose?
--   **src_pose_start_**: (REQUIRED) First residue to copy from the source pose
--   **target_pose_start_**: (REQUIRED) First residue to replace in the target pose
--   **reference_name**: Name of reference pose to use
+-   **src_pose_start**: (REQUIRED) First residue to copy from the source pose
+-   **target_pose_start**: (REQUIRED) First residue to replace in the target pose
+-   **spm_reference_name**: Name of reference pose to use
 
 ---

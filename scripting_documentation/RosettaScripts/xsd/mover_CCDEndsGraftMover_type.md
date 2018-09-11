@@ -16,8 +16,8 @@ AnchoredGraftMover that uses CCD to close loops
         insert_flex_Cter="(&non_negative_integer;)"
         Nter_overhang="(&non_negative_integer;)"
         Cter_overhang="(&non_negative_integer;)"
-        start_="(&refpose_enabled_residue_number;)"
-        end_="(&refpose_enabled_residue_number;)" cen_scorefxn="(&string;)"
+        start="(&refpose_enabled_residue_number;)"
+        end="(&refpose_enabled_residue_number;)" cen_scorefxn="(&string;)"
         fa_scorefxn="(&string;)" spm_reference_name="(&string;)" >
     <MoveMap name="(&string;)" bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
         <Jump number="(&non_negative_integer;)" setting="(&bool;)" />
@@ -41,8 +41,8 @@ AnchoredGraftMover that uses CCD to close loops
 -   **insert_flex_Cter**: How many residues in the C terminus of the graft should be flexible?
 -   **Nter_overhang**: Desired size of N terminal overhang
 -   **Cter_overhang**: Desired size of C terminal overhang
--   **start_**: (REQUIRED) XRW_TODO
--   **end_**: (REQUIRED) XRW_TODO
+-   **start**: (REQUIRED) Graft begins after this residue in the scaffold.  Will delete residues between start and end in the scaffold.
+-   **end**: (REQUIRED) Graft ends before this residue in the scaffold.  Will delete residues between start and end in the scaffold.
 -   **cen_scorefxn**: Centroid score function to use
 -   **fa_scorefxn**: Full atom score function to use
 -   **spm_reference_name**: Name of reference pose to use

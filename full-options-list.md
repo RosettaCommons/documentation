@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-08-22
+Generated: 2018-09-11
 
 _Note that some application specific options may not be present in this list._
 
@@ -3339,6 +3339,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Value for probabilstic design.  Probability that a normally zero prob will be chosen as a potential residue each time packer task is called.  Increase to increase variablility of positions. <br/>Default: 0<br/></dd>
 <dt><b>-force_mutate_framework_for_cluster</b> \<Boolean\></dt>
 <dd>Force framework mutations that maintain certain clusters. Currently L1-11-1 vs L1-11-2.  See North cluster paper for these dependencies, or checkout rosetta/database/sampling/antibodies/design/cluster_framework_mutations.txt<br/>Default: true<br/></dd>
+<dt><b>-no_profile_probabilities</b> \<Boolean\></dt>
+<dd>Set to sample all available AAs per position instead of sampling based on weights.  Used to increase diversity and testing purposes.<br/>Default: false<br/></dd>
 <dt><b>-seq_design_stats_cutoff</b> \<Integer\></dt>
 <dd>Value for probabilistic -> conservative sequence design switch.  If number of total sequences used for probabilistic design for a particular cdr cluster being designed is less than this value, conservative design will occur. More data = better predictability.<br/>Default: 10<br/></dd>
 <dt><b>-seq_design_profile_samples</b> \<Integer\></dt>
