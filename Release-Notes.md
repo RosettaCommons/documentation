@@ -20,6 +20,7 @@
 * [[RosettaDock]] gains adaptive conformer selection and motif dock score
 * [[SEWING]] refactor and new needles (ok, ok, new sub-applications).  I don't think it's multithreaded yet.
 * [[FindGlycanSeqonsMover]]
+* The [[simple_cycpep_predict]] application now supports new cyclization chemistries, including side-chain isopeptide bonds.
 * Tricks to dump minimization trajectories
 * common flag/config/option file support [Custom Configurations](https://www.rosettacommons.org/docs/latest/rosetta_basics/running-rosetta-with-options#common-options-and-default-user-configuration)
 
@@ -35,6 +36,10 @@
 * Parametrically generated RNA helices bugfixes
 * RNA-protein ddG calculations.
 * [[DRRAFTER]]
+
+#### Oligoureas
+* Support for oligourea design
+* Support for oligourea structure prediction with the [[simple_cycpep_predict]] application
 
 #### Metals
 * [[CrosslinkerMover]] can now place octahedral, tetrahedral, square pyramidal, square planar, trigonal planar, and trigonal pyramidal metals.
