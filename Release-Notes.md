@@ -20,8 +20,8 @@
 * [[Splice|SpliceMover]] updates
 * [[InterfaceAnalyzerMover]] compatible with ligands and generally more stable
 * [[DensityFitResidueSelector|rs_DensityFitResidueSelector_type]]
-* [[InterfaceHydrophobicResidueContactsFilter]]
-* [[RosettaDock]] gains adaptive conformer selection and motif dock score
+* [[InterfaceHydrophobicResidueContacts]] filter
+* [[RosettaDock|docking-protocol]] gains adaptive conformer selection and motif dock score
 * [[SEWING]] refactor and new needles (ok, ok, new sub-applications).  I don't think it's multithreaded yet.
 * [[FindGlycanSeqonsMover]]
 * The [[simple_cycpep_predict]] application now supports new cyclization chemistries, including side-chain isopeptide bonds (lariats).
