@@ -4,7 +4,10 @@
 ## _Rosetta 3.10 (draft notes)_
 
 ### New applications
-* [[GALigandDock]] and [[gen_bonded]] - newest results of the SEATTLE ENERGY FUNCTION LINK THING
+* [[GALigandDock]]
+
+### Scoring function improvements
+* [[gen_bonded]] - newest results of the SEATTLE ENERGY FUNCTION LINK THING
 * New [[design-centric guidance scoreterms|design-guidance-terms]]:
      * [[hbnet|HBNetEnergy]], to promote hydrogen bond networks during design
      * [[buried_unsatisfied_penalty|BuriedUnsatPenalty]], to promote fully satisfied buried hydrogen bond donors and acceptors during design
