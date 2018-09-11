@@ -53,6 +53,7 @@
 * [[PyMOLMover]] hookup is python3 compatible
 * [[WriteSSEMover]]
 * [[SimpleThreadingMover]] works with symmetry
+* Major refactor of the parametric code underlying the [[MakeBundle|MakeBundleMover]], [[BundleGridSampler|BundleGridSamplerMover]], and [[PerturbBundle|PerturbBundleMover]] movers.
 
 ### Bugfixes
 * [[BindingSiteConstraint]]
@@ -64,7 +65,7 @@
 * [[CoupledMoves]] had several edge-case segfaults removed
 * [[PeptideStubMover]]
 * [[SequenceMetric]]
-* [[SimpleCycPepPredict]]
+* [[simple_cycpep_predict]] application
 * [[RotamerSetFactory]]
 * [[StrandCurvatureByLevels]]
 * [[EnzScoreFilter]]
