@@ -6,9 +6,9 @@ Prevents use the rotamers of PHE, TYR and HIS that have chi2 far from 90.  These
 
 Note that this tool is INCLUSIVE rather than EXCLUSIVE - you are defining the rotamers to keep, not to remove.
 
--   chi2max ( default 110.0 ) : max value of chi2 to be used
--   chi2min ( default 70.0 ): min value of chi2 to be used
--   include_trp ( default false ): also impose chi2 limits for tryptophans.  This tool ignores TRP by default because TRP's energy landscape is more permissive for this particular problem: for some portions of the Ramachandran plot, these rotamers are fine.
+[[include:to_LimitAromaChi2_type]]
+
+This tool ignores TRP by default because TRP's energy landscape is more permissive for this particular problem: for some portions of the Ramachandran plot, these rotamers are fine. To also apply the limits to TRP, set `include_trp` to true.
 
 To understand the underlying rotamer distributions, see [the Dunbrack Lab's description](http://dunbrack.fccc.edu/bbdep2010/ImagesMovies.php).
 
