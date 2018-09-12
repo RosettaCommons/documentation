@@ -353,8 +353,7 @@ The output of a FlexPepDock run is a score file (score.sc by default) and k mode
 |rms (ALL/BB/CA)|RMSD between output model and the native structure, over all peptide (heavy/backbone/C-alpha) atoms|
 |rms (ALL/BB/CA)\_if|RMSD between output model and the native structure, over all peptide interface (heavy/backbone/C-alpha) atoms, where interface includes any residue whose C-beta atom (C-alpha for glycine) is within 8 Angstrom of a C-beta atom on the binding partner|
 |rms (ALL/BB/CA/SC)\_CAPRI\_if|RMSD between output model and the native structure, over peptide and receptor interface residues, where interface is defined similarly to rms (ALL/BB/CA)\_if|
-|rms (ALL/BB/SC)\_allIF| RMSD between output model and the native structure, over peptide and receptor interface residues, 
-where interface includes any two residues on one partner where any non-hydrogen atom is within 4 Angstrom of a non-hydrogen atom in the binding partner|  
+|rms (ALL/BB/SC)\_allIF| RMSD between output model and the native structure, over peptide and receptor interface residues,where interface includes any two residues on one partner where any non-hydrogen atom is within 4 Angstrom of a non-hydrogen atom in the binding partner|  
 |startRMS(all/bb/ca)|RMSD between start and native structures, over all peptide (heavy/backbone/C-alpha) atoms|
 
 
