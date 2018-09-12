@@ -5,7 +5,7 @@ Metadata
 
 Author: Barak Raveh, Nir London, Nawsad Alam, Ora Schueler-Furman
 
-Last updated August 20, 2018 ; PI: Ora Schueler-Furman (oraf@ekmd.huji.ac.il).
+Last updated September 12, 2018 ; PI: Ora Schueler-Furman (oraf@ekmd.huji.ac.il).
 
 Code and Demo
 =============
@@ -351,10 +351,12 @@ The output of a FlexPepDock run is a score file (score.sc by default) and k mode
 |pep\_sc|Peptide score (sum over energy contributed by the peptide to the total score; consists of the internal peptide energy and the interface energy)|
 |I\_unsat|Number of buried unsatisfied HB donors and acceptors at the interface.|
 |rms (ALL/BB/CA)|RMSD between output model and the native structure, over all peptide (heavy/backbone/C-alpha) atoms|
-|rms (ALL/BB/CA)\_if|RMSD between output model and the native structure, over all peptide interface (heavy/backbone/C-alpha) atoms|
+|rms (ALL/BB/CA)\_if|RMSD between output model and the native structure, over all peptide interface (heavy/backbone/C-alpha) atoms, where interface includes any residue whose C-beta atom (C-alpha for glycine) is within 8 Angstrom of a C-beta atom on the binding partner|
+|rms (ALL/BB/CA/SC)\_CAPRI\_if|RMSD between output model and the native structure, over peptide and receptor interface residues, where interface is defined similarly to rms (ALL/BB/CA)\_if|
+|rms (ALL/BB/SC)\_allIF| RMSD between output model and the native structure, over peptide and receptor interface residues, 
+where interface includes any two residues on one partner where any non-hydrogen atom is within 4 Angstrom of a non-hydrogen atom in the binding partner|  
 |startRMS(all/bb/ca)|RMSD between start and native structures, over all peptide (heavy/backbone/C-alpha) atoms|
 
-<sup>\*</sup> For all interface terms, the interface residues are defined as those whose C-Beta atoms (C-Alpha for Glycines) are up to 8A away from any corresponding atom in the partner protein
 
 Post Processing
 ===============
