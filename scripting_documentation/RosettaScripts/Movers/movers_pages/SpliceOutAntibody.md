@@ -49,3 +49,45 @@ For each segment (VL, L3, VH, and H3) of each of the natural antibodies we extra
     </Segments>
 </SpliceOutAntibody>
 ```
+
+-    **tolerance**: Splice mover preforms an internal check of peptide bond length in the new segment. If the bond length is more than the set tolerance the mover reports failure 
+-    **ignore_chain_break**: If true, will ignore deviation in bond length. This is not recommended and usually used for debugging. 
+-    **debug**: If true output is more verbose and PDB structures are dumped 
+-    **CG_const**: If true apply coordinate constraint on C-gammas of the segment during CCD/minimization
+-    **rb_sensitive**: if true, align the current pose to the template pdb
+-   **chain_num**: The pose's chain onto which the new segment is added.
+-   **cut_site**: residue number of where to place cut, used mainly for debugging.
+-   **segment**: which segment are are changing (VL, VH, L3, H3)
+-   **superimposed**: superimpose source pdb onto current pose.
+-   **delete_hairpin**: 
+-   **delete_hairpin_n**: XRW TO DO
+-   **delete_hairpin_c**: XRW TO DO
+-   **scorefxn**: Name of score function to use
+-   **add_sequence_constraints_only**: XRW TO DO
+-   **template_file**: XRW TO DO
+-   **source_pdb**: XRW TO DO
+-   **task_operations**: A comma separated list of TaskOperations to use.
+-   **from_res**: XRW TO DO
+-   **to_res**: XRW TO DO
+-   **design_task_operations**: XRW TO DO
+-   **residue_numbers_setter**: XRW TO DO
+-   **torsion_database**: XRW TO DO
+-   **design_shell**: XRW TO DO
+-   **repack_shell**: XRW TO DO
+-   **rms_cutoff**: XRW TO DO
+-   **rms_cutoff_loop**: XRW TO DO
+-   **res_move**: XRW TO DO
+-   **randomize_cut**: XRW TO DO
+-   **cut_secondarystruc**: XRW TO DO
+-   **thread_ala**: XRW TO DO
+-   **design**: XRW TO DO
+-   **thread_original_sequence**: XRW TO DO
+-   **rtmin**: XRW TO DO
+-   **allow_all_aa**: XRW TO DO
+-   **locked_residue**: XRW TO DO
+-   **checkpointing_file**: XRW TO DO
+-   **splice_filter**: XRW TO DO
+-   **mover**: Which mover to use to close the segment
+-   **tail_mover**: Which mover to use to close the segment
+-   **restrict_to_repacking_chain2**: XRW TO DO
+-   **use_sequence_profile**: XRW TO DO
