@@ -14,11 +14,9 @@ Gideon Lapidoth; glapidoth@gmail.com; PI: Sarel J. Fleishman; sarel@weizmann.ac.
 ##Overview
 ###Brief 
 
-This mover is the core mover of the "AbDesign"[1-2] and "AbPredict"[3] methods for designing and modeling antibodies' variable domains (Fv). Both methods use a combinatorial backbone and sequence optimization algorithm, which leverages the large number of sequences and experimentally determined molecular structures of antibodies to construct new antibody model, rather than attempting to construct a 
-This mover records the conformation of a source PDB structure and applies it to a 
-
-
-
+This mover is the core mover of the "AbDesign"[1-2] and "AbPredict"[3] algorithms for designing and modeling antibodies' variable domain (Fv), comprised of a the variable light and heavy chains. Both methods use a combinatorial backbone optimization algorithm, which leverages the large number of sequences and experimentally determined molecular structures of antibodies to construct new antibody models, rather than attempting to construct backbone conformations from scratch. Briefly, all the experimentally determined antibody structures are downloaded from the Protein Data Bank (PDB) and segmented along structurally conserved positions: the disulfide cysteines at the core of the variable domain's light and heavy chains, creating 4 segments comprising of CDR's 1&2 and the intervening scaffold (VH and VL)  and CDR 3 (H3 and L3). These four segments are then recombined combinatorially to produce a highly conformationally diverse set of novel antibody models. The models are then energetically optimized using Monte-Carlo sampling. At each step a random segment conformation is sampled from a pre-computed database. 
+The **SpliceOutAntibody** mover is used to create the conformation database. The conformation database is specific to a template antibody. Any PDB structure can be used as the template antibody, which serves as starting point or frame of reference onto which the different antibody backbones conformation are sampled onto. 
+For each segment (VL, L3, VH, and H3) of each of the natural antibodies we extract the backbone dihedral angles (phi, psi and omega) from the source antibody and replace the segment in the template with the source segment’s dihedral angles, introducing a main-chain cut site in a randomly chosen position in the inserted segment. Where the inserted segment is longer than the template antibody segment, residues are added to the model using idealized bond lengths and angles. We then refine the main chain using either cyclic-coordinate descent (CCD) mover on minmover.
 
 ```xml
 <SpliceOutAntibody name="(&string;)" tolerance="(0.23 &real;)"
