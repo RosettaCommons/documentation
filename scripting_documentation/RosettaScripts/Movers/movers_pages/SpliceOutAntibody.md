@@ -14,7 +14,8 @@ Gideon Lapidoth; glapidoth@gmail.com; PI: Sarel J. Fleishman; sarel@weizmann.ac.
 ##Overview
 ###Brief 
 
-This mover is the core mover of the "AbPredict" and "AbDesign" methods for modeling and designing antibodies' variable domains
+This mover is the core mover of the "AbDesign"[1-2] and "AbPredict"[3] methods for designing and modeling antibodies' variable domains (Fv). Both methods use a combinatorial backbone and sequence optimization algorithm, which leverages the large number of sequences and experimentally determined molecular structures of antibodies to construct new antibody model, rather than attempting to construct a 
+This mover records the conformation of a source PDB structure and applies it to a 
 
 
 
