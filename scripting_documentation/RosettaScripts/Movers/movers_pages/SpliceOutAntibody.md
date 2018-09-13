@@ -1,3 +1,24 @@
+[[_TOC_]]
+
+###Author
+Gideon Lapidoth; glapidoth@gmail.com; PI: Sarel J. Fleishman; sarel@weizmann.ac.il
+
+###References
+
+
+1. Baran, Dror, M. Gabriele Pszolla, Gideon D. Lapidoth, Christoffer Norn, Orly Dym, Tamar Unger, Shira Albeck, Michael D. Tyka, and Sarel J. Fleishman. 2017. “Principles for Computational Design of Binding Antibodies.” Proceedings of the National Academy of Sciences of the United States of America 114 (41): 10900–905.
+2. Lapidoth, Gideon D., Dror Baran, Gabriele M. Pszolla, Christoffer Norn, Assaf Alon, Michael D. Tyka, and Sarel J. Fleishman. 2015. “AbDesign: An Algorithm for Combinatorial Backbone Design Guided by Natural Conformations and Sequences.” Proteins 83 (8): 1385–1406.
+3. Norn, Christoffer H., Gideon Lapidoth, and Sarel J. Fleishman. 2017. “High-Accuracy Modeling of Antibody Structures by a Search for Minimum-Energy Recombination of Backbone Fragments.” Proteins 85 (1): 30–38.
+
+
+##Overview
+###Brief 
+
+This mover is the core mover of the "AbPredict" and "AbDesign" methods for modeling and designing antibodies' variable domains
+
+
+
+
 ```xml
 <SpliceOutAntibody name="(&string;)" tolerance="(0.23 &real;)"
         ignore_chain_break="(false &bool;)" debug="(false &bool;)"
