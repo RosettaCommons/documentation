@@ -51,7 +51,7 @@ Each `SimpleMetric` has a `custom_type` option.  This option gives an additional
 
 Ex:
 
-```
+```xml
 	<TotalEnergyMetric name="total_L1" residue_selector="L1" custom_type="L1" />
 	<TotalEnergyMetric name="total_L2" residue_selector="L2" custom_type="L2" />
 	<TotalEnergyMetric name="total_CDRs" residue_selector="ALL" custom_type="cdrs"/>
@@ -67,7 +67,7 @@ Ex:
 
 Ex:
 
-```
+```xml
 	<RunSimpleMetrics name="cdr_metrics_pre" metrics="total_L1,total_L2,total_CDRs" prefix="pre_min_"/>
 	<RunSimpleMetrics name="cdr_metrics_post" metrics="total_L1,total_L2,total_CDRs" prefix="post_min_"/>
    
@@ -86,7 +86,7 @@ Some calculations are expensive, such as the `DensityFitMetric`.  In order to re
 
 Ex: 
 
-```
+```xml
 <SimpleMetricFilter name="ss_filter" use_cached_data="1" cache_prefix="cached_"  metric="ss" match="LLLLLLLLLLL"  comparison_type="ne"/>
 <SimpleMetricFilter name="rmsd_filter" use_cached_data="1" cache_prefix="cached_"  metric="rmsd" cutoff="0.5" comparison_type="lt" />
 ```
