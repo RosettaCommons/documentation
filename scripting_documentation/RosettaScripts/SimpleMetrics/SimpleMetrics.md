@@ -65,7 +65,7 @@ Ex:
 
 ### Prefix/Suffix
 
-[[RunSimpleMetrics]] and [[SimpleMetricFeatures]] have additional options for prefix and suffix.  Use this to run a set of SimpleMetrics at different points in your protocol, or begin to group sets of metrics into similar tags.  For example, before a mover you can use set `prefix="pre_min"`, and then after, you can have the same set of SimpleMetrics run as `prefix="post_min"`.  
+[[RunSimpleMetrics]] and [[SimpleMetricFeatures]] have additional options for prefix and suffix.  Use this to run a set of SimpleMetrics at different points in your protocol, or begin to group sets of metrics into similar tags.  For example, before a mover you can set `prefix="pre_min"` and then you can have the same set of SimpleMetrics run afterward as `prefix="post_min"`.  
 
 Ex:
 
