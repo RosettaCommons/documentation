@@ -43,6 +43,56 @@ Example with comparison to native through `-in:file:native`:
 
 [[_TOC_]]
 
+##Effective use of SimpleMetrics
+
+### Custom Type
+
+Each `SimpleMetric` has a `custom_type` option.  This option gives an additional tag on data output when using [[RunSimpleMetrics]] or [[SimpleMetricFeatures]]. The benefit to this is that you can have multiple `SimpleMetrics`, all configured differently and using the `custom_type` option allows you to run them all in a single `RunSimpleMetrics` or SimpleMetricFeatures application.  
+
+Ex:
+
+'''
+  <TotalEnergyMetric name="total_L1" residue_selector="L1" custom_type="L1" />
+  <TotalEnergyMetric name="total_L2" residue_selector="L2" custom_type="L2" />
+  <TotalEnergyMetric name="total_CDRs" residue_selector="ALL" custom_type="cdrs"/>
+
+  . . .
+  
+  <RunSimpleMetrics name="cdr_metrics" metrics="total_L1,total_L2,total_CDRs" />
+'''
+### Prefix/Suffix
+
+[[RunSimpleMetrics]] and [[SimpleMetricFeatures]] have additional options for prefix and suffix.  Use this to run a set of SimpleMetrics at different points in your protocol, or begin to group sets of metrics into similar tags.  For example, before a mover you can use set `prefix="pre_min", and then after, you can have the same set of SimpleMetrics run as `prefix="post_min".  
+
+Ex:
+   <RunSimpleMetrics name="cdr_metrics_pre" metrics="total_L1,total_L2,total_CDRs" prefix="pre_min_"/>
+   <RunSimpleMetrics name="cdr_metrics_post" metrics="total_L1,total_L2,total_CDRs" prefix="post_min_"/>
+   
+   . . . 
+  
+  <PROTOCOLS>
+	<Add mover_name="cdr_metrics_pre"/>
+	<Add mover_name="min_mover" />
+	<Add mover_name="cdr_metrics_post" />
+  </PROTOCOLS>
+```
+
+###Metric Cacheing
+
+Some calculations are expensive, such as the `DensityFitMetric`.  In order to reduce run time during a complex protocol, [[SimpleMetricFilter]] and [[SimpleMetricFeatures]] can use cached data.  During the `RunSimpleMetrics` application, ALL data is stored within the pose and this can be used for filters and features using the `use_cached_data` option.  If a prefix/suffix was used during `RunSimpleMetrics`, this is needed here as well as the options `cache_prefix` and `cache_suffix`. Any pose-length changes are accounted for automatically using Vikram Mulligan's excellent reference pose functionality.  
+
+Ex: 
+
+```
+<SimpleMetricFilter name="ss_filter" use_cached_data="1" cache_prefix="cached_"  metric="ss" match="LLLLLLLLLLL"  comparison_type="ne"/>
+<SimpleMetricFilter name="rmsd_filter" use_cached_data="1" cache_prefix="cached_"  metric="rmsd" cutoff="0.5" comparison_type="lt" />
+```
+
+###SavePoseMover
+
+One thing to be aware of is that the data calculated during [[RunSimpleMetrics]] is stored in the pose.  This means that if you calculate a bunch of data and switch to a different pose in the protocol while using the [[SavePoseMover]], the data will not be output.  A mover to copy this data into a new pose is in the works, but please be aware of this.
+
+
 ##RealMetrics
 
 These metrics calculate a single real number (or integer). 
