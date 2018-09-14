@@ -53,17 +53,13 @@ Ex:
 
 ```xml
 
-	<SIMPLE_METRICS>
 		<TotalEnergyMetric name="total_L1" residue_selector="L1" custom_type="L1" />
 		<TotalEnergyMetric name="total_L2" residue_selector="L2" custom_type="L2" />
 		<TotalEnergyMetric name="total_CDRs" residue_selector="ALL" custom_type="cdrs"/>
-	</SIMPLE_METRICS>
 
   	. . .
 
-	<MOVERS>
 		<RunSimpleMetrics name="cdr_metrics" metrics="total_L1,total_L2,total_CDRs" />
-	</MOVERS>
 
 ```
 
