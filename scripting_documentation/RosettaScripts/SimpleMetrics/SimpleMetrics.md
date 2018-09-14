@@ -47,7 +47,7 @@ Example with comparison to native through `-in:file:native`:
 
 ### Custom Types
 
-Each SimpleMetric has a `custom_type` option.  This option gives an additional name to the data term when using [[RunSimpleMetrics]] or [[SimpleMetricFeatures]] (ex output becomes L1_total_energy and L2_total_energy in the example below). The benefit to this is that you can have multiple SimpleMetrics, all configured differently and using the `custom_type` option allows you to run them all in a single `RunSimpleMetrics` or SimpleMetricFeatures application.  
+Each SimpleMetric has a `custom_type` option.  This option gives an additional name to the data term when using [[RunSimpleMetrics]] or [[SimpleMetricFeatures]] (ex: output scoreterm becomes L1_total_energy and L2_total_energy in the example below). The benefit to this is that you can have multiple SimpleMetrics, all configured differently and using the `custom_type` option allows you to run them all in a single `RunSimpleMetrics` or SimpleMetricFeatures application.  
 
 Ex:
 
