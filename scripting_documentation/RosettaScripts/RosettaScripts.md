@@ -601,7 +601,7 @@ This section defines any [[SimpleMetrics]] that you wish to use in your protocol
 
 Simple Metrics are available in Rosetta version after April 10th, 2018, and are a long-term solution for calculating data and running arbitrary filters (Core filter calculations will slowly be replaced with SimpleMetrics as they are much more versitile.)
 
-Please see [[SimpleMetrics]] and See [[Effective Use of SimpleMetrics | SimpleMetrics#effective-use-of-simplemetrics]] for more.
+Please see [[SimpleMetrics]] and [[Effective Use of SimpleMetrics | SimpleMetrics#effective-use-of-simplemetrics]] for more.
 
 Here is a simple example, running a few metrics for analysis with the `-in:file:native` flag set. 
 ```xml
