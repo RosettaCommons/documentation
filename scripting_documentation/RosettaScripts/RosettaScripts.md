@@ -597,9 +597,11 @@ Subsections are used to turn on specific kinematic sections of the pose.  They o
 
 ##SIMPLE_METRICS
 
-This section defines any [[SimpleMetrics]] that you wish to use in your protocol.  SimpleMetrics can be used to run analysis and output the data in the resulting scorefile using the [[RunSimpleMetrics]] mover, filter data using the [[SimpleMetricFilter]], or calculate and dump data into relational databases using the [[SimpleMetricFeatures]] reporter.  
+This section defines any [[SimpleMetrics]] that you wish to use in your protocol.  SimpleMetrics can be used to run analysis and output the data in the resulting scorefile using the [[RunSimpleMetrics]] mover, filter data using the [[SimpleMetricFilter]], or calculate and dump data into relational databases using the [[SimpleMetricFeatures]] reporter.    
 
-Simple Metrics are available in Rosetta version after April 10th, 2018, and are a long-term solution for calculating data and running arbitrary filters (Core filter calculations will slowly be replaced with SimpleMetrics as they are much more versitile.)  
+Simple Metrics are available in Rosetta version after April 10th, 2018, and are a long-term solution for calculating data and running arbitrary filters (Core filter calculations will slowly be replaced with SimpleMetrics as they are much more versitile.)
+
+Please see [[SimpleMetrics]] and See [[Effective Use of SimpleMetrics | SimpleMetrics#effective-use-of-simplemetrics]] for more.
 
 Here is a simple example, running a few metrics for analysis with the `-in:file:native` flag set. 
 ```xml
