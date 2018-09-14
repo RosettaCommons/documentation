@@ -51,7 +51,7 @@ Each `SimpleMetric` has a `custom_type` option.  This option gives an additional
 
 Ex:
 
-'''
+```
   <TotalEnergyMetric name="total_L1" residue_selector="L1" custom_type="L1" />
   <TotalEnergyMetric name="total_L2" residue_selector="L2" custom_type="L2" />
   <TotalEnergyMetric name="total_CDRs" residue_selector="ALL" custom_type="cdrs"/>
@@ -59,12 +59,15 @@ Ex:
   . . .
   
   <RunSimpleMetrics name="cdr_metrics" metrics="total_L1,total_L2,total_CDRs" />
-'''
+```
+
 ### Prefix/Suffix
 
 [[RunSimpleMetrics]] and [[SimpleMetricFeatures]] have additional options for prefix and suffix.  Use this to run a set of SimpleMetrics at different points in your protocol, or begin to group sets of metrics into similar tags.  For example, before a mover you can use set `prefix="pre_min", and then after, you can have the same set of SimpleMetrics run as `prefix="post_min".  
 
 Ex:
+
+```
    <RunSimpleMetrics name="cdr_metrics_pre" metrics="total_L1,total_L2,total_CDRs" prefix="pre_min_"/>
    <RunSimpleMetrics name="cdr_metrics_post" metrics="total_L1,total_L2,total_CDRs" prefix="post_min_"/>
    
