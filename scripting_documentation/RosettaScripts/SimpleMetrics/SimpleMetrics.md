@@ -72,12 +72,11 @@ Ex:
 ```xml
 
 
-	<RunSimpleMetrics name="cdr_metrics_pre" metrics="total_L1,total_L2,total_CDRs" prefix="pre_min_"/>
-	<RunSimpleMetrics name="cdr_metrics_post" metrics="total_L1,total_L2,total_CDRs" prefix="post_min_"/>
-
-	 . . . 
+<RunSimpleMetrics name="cdr_metrics_pre" metrics="total_L1,total_L2,total_CDRs" prefix="pre_min_"/>
+<RunSimpleMetrics name="cdr_metrics_post" metrics="total_L1,total_L2,total_CDRs" prefix="post_min_"/>
+	
+ . . . 
   
-
 <PROTOCOLS>
 	<Add mover_name="cdr_metrics_pre"/>
 	<Add mover_name="min_mover" />
