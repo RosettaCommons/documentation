@@ -53,13 +53,13 @@ Ex:
 
 ```xml
 
-	<TotalEnergyMetric name="total_L1" residue_selector="L1" custom_type="L1" />
-	<TotalEnergyMetric name="total_L2" residue_selector="L2" custom_type="L2" />
-	<TotalEnergyMetric name="total_CDRs" residue_selector="ALL" custom_type="cdrs"/>
+	<TotalEnergyMetric name="E_L1" residue_selector="L1" custom_type="L1" />
+	<TotalEnergyMetric name="E_L2" residue_selector="L2" custom_type="L2" />
+	<TotalEnergyMetric name="E_CDRs" residue_selector="ALL" custom_type="cdrs"/>
 
   	. . .
 
-	<RunSimpleMetrics name="cdr_metrics" metrics="total_L1,total_L2,total_CDRs" />
+	<RunSimpleMetrics name="cdr_metrics" metrics="E_L1,E_L2,E_CDRs" />
 
 ```
 
@@ -72,8 +72,8 @@ Ex:
 ```xml
 
 
-<RunSimpleMetrics name="cdr_metrics_pre" metrics="total_L1,total_L2,total_CDRs" prefix="pre_min_"/>
-<RunSimpleMetrics name="cdr_metrics_post" metrics="total_L1,total_L2,total_CDRs" prefix="post_min_"/>
+<RunSimpleMetrics name="cdr_metrics_pre" metrics="E_L1,E_L2,E_CDRs" prefix="pre_min_"/>
+<RunSimpleMetrics name="cdr_metrics_post" metrics="E_L1,E_L2,E_CDRs" prefix="post_min_"/>
 	
  . . . 
   
