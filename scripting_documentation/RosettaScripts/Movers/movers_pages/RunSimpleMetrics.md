@@ -9,7 +9,7 @@ Run a set of [[SimpleMetrics]] and add the data to the pose for output into the 
 
 Use the prefix/suffix options to group metrics or to run metrics at different points in a protocol.  Each SimpleMetric also has a `custom_type` option, which can be used to have multiple configurations of a single type of SimpleMetric run during `RunSimpleMetrics`.  Any set prefix, suffix, and custom_type options are added to the data tag in the score file.
 
-See [[Effective Use of SimpleMetrics | RosettaScripts/SimpleMetrics/SimpleMetrics#effective-use-of-simplemetrics]] for more. 
+See [[Effective Use of SimpleMetrics | scripting_documentation/RosettaScripts/SimpleMetrics/SimpleMetrics#effective-use-of-simplemetrics]] for more. 
 
 
 [[include:mover_RunSimpleMetrics_type]]
