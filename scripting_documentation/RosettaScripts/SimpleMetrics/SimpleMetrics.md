@@ -47,7 +47,7 @@ Example with comparison to native through `-in:file:native`:
 
 ### Custom Types
 
-Each `SimpleMetric` has a `custom_type` option.  This option gives an additional tag on data output when using [[RunSimpleMetrics]] or [[SimpleMetricFeatures]]. The benefit to this is that you can have multiple `SimpleMetrics`, all configured differently and using the `custom_type` option allows you to run them all in a single `RunSimpleMetrics` or SimpleMetricFeatures application.  
+Each SimpleMetric has a `custom_type` option.  This option gives an additional tag on data output when using [[RunSimpleMetrics]] or [[SimpleMetricFeatures]]. The benefit to this is that you can have multiple SimpleMetrics, all configured differently and using the `custom_type` option allows you to run them all in a single `RunSimpleMetrics` or SimpleMetricFeatures application.  
 
 Ex:
 
