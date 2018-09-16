@@ -13,8 +13,8 @@ Calculate either a correlation (match_res true) or zscore related to the fit to 
         use_selector_as_zscore_mask="(true &bool;)" />
 ```
 
--   **custom_type**: Additional setting to prefix/suffix so that many different configured SMs can be called in one RunSimpleMetric run
-  Output data name will be prefix+custom_type+type+suffix
+-   **custom_type**: Allows multiple configured SimpleMetrics of a single type to be called in a single RunSimpleMetrics and SimpleMetricFeatures. 
+ The custom_type name will be added to the data tag in the scorefile or features database.
 -   **output_as_pdb_nums**: If outputting to scorefile use PDB numbering instead of Rosetta (default)
 -   **residue_selector**: If a residue selector is present, we only calculate and output metrics for the subset of residues selected.
 -   **sliding_window_size**: Sliding window size for density calculation

@@ -9,16 +9,16 @@ A per-residue metric that will calculate/output per residue total energies or a 
 <PerResidueEnergyMetric name="(&string;)" custom_type="(&string;)"
         output_as_pdb_nums="(&string;)" residue_selector="(&string;)"
         reference_name="(&string;)" use_native="(false &bool;)"
-        scoretype="(&scoretypes;)" scorefxn="(&string;)" />
+        scoretype="(total_score &scoretypes;)" scorefxn="(&string;)" />
 ```
 
--   **custom_type**: Additional setting to prefix/suffix so that many different configured SMs can be called in one RunSimpleMetric run
-  Output data name will be prefix+custom_type+type+suffix
+-   **custom_type**: Allows multiple configured SimpleMetrics of a single type to be called in a single RunSimpleMetrics and SimpleMetricFeatures. 
+ The custom_type name will be added to the data tag in the scorefile or features database.
 -   **output_as_pdb_nums**: If outputting to scorefile use PDB numbering instead of Rosetta (default)
 -   **residue_selector**: If a residue selector is present, we only calculate and output metrics for the subset of residues selected.
 -   **reference_name**: Name of reference pose to use
 -   **use_native**: Use the native if present on the cmd-line.
--   **scoretype**: ScoreType to calculate.  Default is total_score
+-   **scoretype**: ScoreType to calculate.
 -   **scorefxn**: Name of score function to use
 
 ---

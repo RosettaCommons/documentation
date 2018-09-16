@@ -10,8 +10,8 @@ A metric for measuring ... and adding it to the resulting score file.
         three_letter="(false &bool;)" residue_selector="(&string;)" />
 ```
 
--   **custom_type**: Additional setting to prefix/suffix so that many different configured SMs can be called in one RunSimpleMetric run
-  Output data name will be prefix+custom_type+type+suffix
+-   **custom_type**: Allows multiple configured SimpleMetrics of a single type to be called in a single RunSimpleMetrics and SimpleMetricFeatures. 
+ The custom_type name will be added to the data tag in the scorefile or features database.
 -   **three_letter**: Set to ouput the sequence as three-letter codes. Useful for modifications and glycans.  Comma-separated
 -   **residue_selector**: Output the sequence of only the selected residues.
 

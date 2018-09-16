@@ -11,8 +11,8 @@ A metric to report/calculate all of the energies of a scorefunction that are not
         residue_selector="(&string;)" scorefxn="(&string;)" />
 ```
 
--   **custom_type**: Additional setting to prefix/suffix so that many different configured SMs can be called in one RunSimpleMetric run
-  Output data name will be prefix+custom_type+type+suffix
+-   **custom_type**: Allows multiple configured SimpleMetrics of a single type to be called in a single RunSimpleMetrics and SimpleMetricFeatures. 
+ The custom_type name will be added to the data tag in the scorefile or features database.
 -   **reference_name**: Name of reference pose to use
 -   **use_native**: Use the native if present on the cmd-line.
 -   **residue_selector**: If a residue selector is present, we calculate each energy component for only these residues.

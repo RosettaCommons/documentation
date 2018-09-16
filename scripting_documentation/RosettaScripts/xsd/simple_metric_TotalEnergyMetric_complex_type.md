@@ -8,13 +8,15 @@ A metric to report the total energy of the system or the delta total energy betw
 ```xml
 <TotalEnergyMetric name="(&string;)" custom_type="(&string;)"
         reference_name="(&string;)" use_native="(false &bool;)"
-        residue_selector="(&string;)" scorefxn="(&string;)" />
+        scoretype="(total_score &scoretypes;)" residue_selector="(&string;)"
+        scorefxn="(&string;)" />
 ```
 
--   **custom_type**: Additional setting to prefix/suffix so that many different configured SMs can be called in one RunSimpleMetric run
-  Output data name will be prefix+custom_type+type+suffix
+-   **custom_type**: Allows multiple configured SimpleMetrics of a single type to be called in a single RunSimpleMetrics and SimpleMetricFeatures. 
+ The custom_type name will be added to the data tag in the scorefile or features database.
 -   **reference_name**: Name of reference pose to use
 -   **use_native**: Use the native as reference for DELTA score if present on the cmd-line.
+-   **scoretype**: ScoreType to calculate.
 -   **residue_selector**: If a residue selector is present, we calculate the total energy of only these residues.
 -   **scorefxn**: Name of score function to use
 
