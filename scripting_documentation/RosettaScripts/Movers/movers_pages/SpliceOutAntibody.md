@@ -52,9 +52,6 @@ For each segment (VL, L3, VH, and H3) of each of the natural antibodies we extra
 -   **cut_site**: residue number of where to place cut, used mainly for debugging.
 -   **segment**: which segment are are changing (VL, VH, L3, H3)
 -   **superimposed**: superimpose source pdb onto current pose.
--   **delete_hairpin**: 
--   **delete_hairpin_n**: XRW TO DO
--   **delete_hairpin_c**: XRW TO DO
 -   **scorefxn**: Name of score function to use
 -   **add_sequence_constraints_only**: If true does not build new segment. just build sequence profile for the pose and applies sequence constraints.
 -   **template_file**: The PDB file of the reference PDB (the one used to build to conformation database)
