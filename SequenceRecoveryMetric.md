@@ -1,6 +1,6 @@
-# RMSDMetric
+# SequenceRecoveryMetric
 *Back to [[SimpleMetrics]] page.*
-## RMSDMetric
+## SequenceRecoveryMetric
 
 [[include:simple_metric_SequenceRecoveryMetric_complex_type]]
 
