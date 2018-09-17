@@ -24,21 +24,14 @@ For each segment (VL, L3, VH, and H3) of each of the natural antibodies we extra
         CG_const="(false &bool;)" rb_sensitive="(false &bool;)"
         chain_num="(1 &non_negative_integer;)"
         cut_site="(1 &non_negative_integer;)" segment="(&string;)"
-        superimposed="(true &bool;)" delete_hairpin="(false &bool;)"
-        delete_hairpin_n="(4 &non_negative_integer;)"
-        delete_hairpin_c="(13 &non_negative_integer;)" scorefxn="(&string;)"
-        add_sequence_constraints_only="(false &bool;)"
+        superimposed="(true &bool;)" add_sequence_constraints_only="(false &bool;)"
         template_file="(&string;)" source_pdb="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        from_res="(0 &refpose_enabled_residue_number;)"
-        to_res="(0 &refpose_enabled_residue_number;)"
-        design_task_operations="(&string;)" residue_numbers_setter="(&string;)"
         torsion_database="(&string;)" design_shell="(6.0 &real;)"
         repack_shell="(8.0 &real;)" rms_cutoff="(999999 &real;)"
         rms_cutoff_loop="(999999 &real;)"
-        res_move="(1000 &non_negative_integer;)" randomize_cut="(false &bool;)"
-        cut_secondarystruc="(false &bool;)" thread_ala="(true &bool;)"
-        design="(false &bool;)" thread_original_sequence="(false &bool;)"
+        cut_secondarystruc="(false &bool;)" 
+        design="(false &bool;)" 
         rtmin="(true &bool;)" allow_all_aa="(false &bool;)"
         locked_residue="(&string;)" checkpointing_file="(&string;)"
         splice_filter="(&string;)" mover="(&string;)" tail_mover="(&string;)"
@@ -59,35 +52,33 @@ For each segment (VL, L3, VH, and H3) of each of the natural antibodies we extra
 -   **cut_site**: residue number of where to place cut, used mainly for debugging.
 -   **segment**: which segment are are changing (VL, VH, L3, H3)
 -   **superimposed**: superimpose source pdb onto current pose.
--   **delete_hairpin**: 
--   **delete_hairpin_n**: XRW TO DO
--   **delete_hairpin_c**: XRW TO DO
 -   **scorefxn**: Name of score function to use
--   **add_sequence_constraints_only**: XRW TO DO
--   **template_file**: XRW TO DO
--   **source_pdb**: XRW TO DO
+-   **add_sequence_constraints_only**: If true does not build new segment. just build sequence profile for the pose and applies sequence constraints.
+-   **template_file**: The PDB file of the reference PDB (the one used to build to conformation database)
+-   **source_pdb**: The PDB file from which the segment conformation is extracted
 -   **task_operations**: A comma separated list of TaskOperations to use.
--   **from_res**: XRW TO DO
--   **to_res**: XRW TO DO
--   **design_task_operations**: XRW TO DO
--   **residue_numbers_setter**: XRW TO DO
--   **torsion_database**: XRW TO DO
--   **design_shell**: XRW TO DO
--   **repack_shell**: XRW TO DO
--   **rms_cutoff**: XRW TO DO
--   **rms_cutoff_loop**: XRW TO DO
--   **res_move**: XRW TO DO
--   **randomize_cut**: XRW TO DO
--   **cut_secondarystruc**: XRW TO DO
--   **thread_ala**: XRW TO DO
--   **design**: XRW TO DO
--   **thread_original_sequence**: XRW TO DO
--   **rtmin**: XRW TO DO
--   **allow_all_aa**: XRW TO DO
--   **locked_residue**: XRW TO DO
--   **checkpointing_file**: XRW TO DO
--   **splice_filter**: XRW TO DO
--   **mover**: Which mover to use to close the segment
--   **tail_mover**: Which mover to use to close the segment
--   **restrict_to_repacking_chain2**: XRW TO DO
--   **use_sequence_profile**: XRW TO DO
+-   **torsion_database**: Name of conformation file to saveto
+-   **design_shell**: how many residues around the built segment can be designed
+-   **repack_shell**: how many residues around the built segment can be repacked
+-   **rms_cutoff**: The RMS cut-off between the new segment added to the pose and the segment in the source PDB. if the RMS is above a certain cut-off the mover reports failure. This parameter only refers to the secondary structure elements
+-   **rms_cutoff_loop**: The RMS cut-off between the new segment added to the pose and the segment in the source PDB - only loop region.
+-   **randomize_cut**: if true cut will be placed randomly in the segment
+-   **cut_secondarystruc**: if true cut can be placed in secondary structure element.
+-   **rtmin**: apply rtmin after CCD/minmover
+-   **splice_filter**: name of filter used to test of mover finished successfully. 
+-   **mover**: Which mover to use to close the segment (CCD/minmover)
+-   **tail_mover**: Which mover to use to change the tail segment conformation of VL/VH
+-   **restrict_to_repacking_chain2**: If true do not design chain2
+-   **use_sequence_profile**: If true build PSSM and apply sequence profile on pose
+
+##Example
+Currently, this mover is only accessible via RosettaScripts. The SpliceOutAntibody definition below will generate a new **L1_L2 conformation** and apply it to the pose antibody. The new segment's conformation will be stored in the <name>_L1_L2.db file. The CCD and tail movers need to be defined in the XML as well.
+
+
+An example RosettaScripts tag is below:
+
+```xml
+	<SpliceOutAntibody name="spliceout" source_pdb="%%source%%" torsion_database="db/%%name%%_L1_L2.db" scorefxn="talaris_cal" rms_cutoff="0.3" rms_cutoff_loop="0.3" splice_filter="chainbreak_val" template_file="%%start_pdb%%" task_operations="init,seqprofcons" debug="0" mover="ccd" tail_mover="tail" segment="L1_L2" use_sequence_profile="1" superimposed="1" > 
+		</SpliceOutAntibody>
+
+```

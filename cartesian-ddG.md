@@ -69,24 +69,41 @@ Optional options:
 -interface_ddg -1 #jump number for interface (-1 means the last jump)
 ```
 
+Here the app calculate difference in energy by detaching "the part in pose defined by the last jump" from the rest of pose; the easiest way of doing this is to edit the input pdb so that the ligand (either protein or small molecule)
+locates at its end. One can check whether it is working properly by running with an optional flag "-ddg:dump_pdbs", which will output *_bj.pdb (before dissociation) and *_aj.pdb (after dissociation). 
 
 Expected Outputs & post-processing
 ===============
 
 Running application will produce a file named [pdbfile_prefix]\_[mutationindex].ddg; for example 1ctf\_G44S.ddg.
 
-The file contains lines:
+The file contains lines (monomer mode):
 ```
 BEFORE_JUMP: RoundX: [WT or MUT\_XXXX]: [totalscore] fa_atr: [fa\_atr] .....
+
 ```
 
 In the paper, the difference in totalscores averaged over 3 rounds for WT and MUT is taken as ddG:
 
 ```
 ddG = avrg(MUT totalscore) - avrg(WT totalscore)
+
+
+With interface mode, 
+
+```
+COMPLEX: RoundX: [WT or MUT\_XXXX]: [totalscore] fa_atr: [fa\_atr] .....
+APART: RoundX: [WT or MUT\_XXXX]: [totalscore] fa_atr: [fa\_atr] .....
+OPT_APART: RoundX: [WT or MUT\_XXXX]: [totalscore] fa_atr: [fa\_atr] .....
+
 ```
 
+ddG_bind = avrg(COMPLEX MUT totalscore) - avrg(COMPLEX WT totalscore)
+ddG_mono = avrg(OPT_APART MUT totalscore) - avrg(OPT_APART WT totalscore)
 
+```
+
+Simple way of estimating ddG of binding is to use ddG_bind alone. One can also combine ddG_mono to consider monomeric stability change as well; how to combine both values hasn't been well benchmarked within cartesian_ddg application yet.
 
 ##See Also
 

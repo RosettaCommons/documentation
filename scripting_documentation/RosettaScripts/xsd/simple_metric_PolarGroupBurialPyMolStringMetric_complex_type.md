@@ -10,8 +10,8 @@ A string metric that generates a string of PyMol commands to colour a structure'
         verbose="(false &bool;)" scorefxn="(&string;)" />
 ```
 
--   **custom_type**: Additional setting to prefix/suffix so that many different configured SMs can be called in one RunSimpleMetric run
-  Output data name will be prefix+custom_type+type+suffix
+-   **custom_type**: Allows multiple configured SimpleMetrics of a single type to be called in a single RunSimpleMetrics and SimpleMetricFeatures. 
+ The custom_type name will be added to the data tag in the scorefile or features database.
 -   **verbose**: If true, this metric outputs to tracer as well as to the pose.  False by default
 -   **scorefxn**: (REQUIRED) A scorefunction, defined previously in the RosettaScripts XML, which will be used to extract the buried_unsaturated_penalty's definition of burial.  Required option.
 

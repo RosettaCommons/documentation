@@ -10,8 +10,8 @@ A utility metric that outputs the residue selection in Pose or PDB numbering.  C
         rosetta_numbering="(false &bool;)" residue_selector="(&string;)" />
 ```
 
--   **custom_type**: Additional setting to prefix/suffix so that many different configured SMs can be called in one RunSimpleMetric run
-  Output data name will be prefix+custom_type+type+suffix
+-   **custom_type**: Allows multiple configured SimpleMetrics of a single type to be called in a single RunSimpleMetrics and SimpleMetricFeatures. 
+ The custom_type name will be added to the data tag in the scorefile or features database.
 -   **rosetta_numbering**: Set to output in Rosetta numbering instead of PDB numbering
 -   **residue_selector**: Required.  Output those residues selected.
 
