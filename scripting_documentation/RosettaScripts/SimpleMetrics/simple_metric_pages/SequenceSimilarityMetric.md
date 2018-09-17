@@ -4,7 +4,19 @@
 
 Author: Jack Maguire, jackmaguire1444@gmail.com
 
-[[include:simple_metric_SequenceSimilarityMetric_complex_type]]
+## Purpose and Description
+
+The SelectedResidueCountMetric [[SimpleMetric|SimpleMetrics]] counts the number of residues in a pose (in the absence of a [[residue selector|ResidueSelectors]] or in a selection (if a [[residue_selector|ResidueSelectors]] is provided).
+
+## Usage
+
+```xml
+<SequenceSimilarityMetric name="(&string)" residue_selector="(&string)" apply_selector_to_native="false" normalize="true"/>
+```
+
+* **residue_selector:** The name of a previously-defined [[residue selector|ResidueSelectors]].  If provided, only the BLOSUM62 scores for the selected residues will be averaged. If not provided, all residues in the pose are counted.
+* **apply_selector_to_native:** If true, apply the residue selector to the native pose instead of the given pose. For example, a layer selector will use the native structure to determine what is core/boundary/surface instead of the current structure.
+* **normalize:** If true, divide the final score by the number of positions. Otherwise this is just the sum of the BLOSUM62 scores for the selected positions.
 
 ##See Also
 
