@@ -19,17 +19,6 @@
 **blueprint** - If a blueprint filename is given, the blueprint will be read and its secondary structure will be used to set the "secstruct" option.
 
 
-**Example**  This example runs fast design with consensus loop sequences for one loop (residues 7-9).
-
-```xml
-    <RESIDUE_SELECTORS>
-        <Index name="loop1" resnums="7-9" />
-    </RESIDUE_SELECTORS>
-    <TASKOPERATIONS>
-        <ConservativeDesign name="disallow_nonnative_loop_sequences" residue_selector="loop1" />
-    </TASKOPERATIONS>
-```
-
 ##See Also
 
 * [[Loop modeling|loopmodel]]: An application for modeling loops

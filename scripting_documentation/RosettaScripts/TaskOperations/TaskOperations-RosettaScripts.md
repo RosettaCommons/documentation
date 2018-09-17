@@ -87,6 +87,7 @@ TaskOp  | Description
 
 TaskOp  | Description
 ------------ | -------------
+**[[ConservativeDesign|ConservativeDesignOperation]]** | Only design to amino acids that are similar to native.
 **[[ConsensusLoopDesign|ConsensusLoopDesignOperation]]** | Only design to amino acids in loops which match the ABEGO torsion bins.
 **[[DsspDesign|DsspDesignOperation]]** | Specify design identity based on secondary structure.
 **[[DesignCatalyticResidues|DesignCatalyticResiduesOperation]]** | Only design residues surrounding the residues in [[enzdes constraints|match-cstfile-format]]. 
