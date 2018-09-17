@@ -6,7 +6,8 @@ Author: Jack Maguire, jackmaguire1444@gmail.com
 
 ## Purpose and Description
 
-The SelectedResidueCountMetric [[SimpleMetric|SimpleMetrics]] counts the number of residues in a pose (in the absence of a [[residue selector|ResidueSelectors]] or in a selection (if a [[residue_selector|ResidueSelectors]] is provided).
+Compares the sequences of the native structure (using native flag) to the sequence of a given pose.
+The BLOSUM62 scores are averaged for every selected position.
 
 ## Usage
 
