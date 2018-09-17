@@ -17,7 +17,7 @@ being a more conservative set of mutations.
 By default, the conservative mutations from the BLOSUM62 matrix
 are used to strike a balance between variability and conservation.
 
-[Link to Paper](https://doi.org/10.1371/journal.pcbi.1006112)
+Paper: [RosettaAntibodyDesign (RAbD): A general framework for computational antibody design](https://doi.org/10.1371/journal.pcbi.1006112)
 
 ###XML
 
