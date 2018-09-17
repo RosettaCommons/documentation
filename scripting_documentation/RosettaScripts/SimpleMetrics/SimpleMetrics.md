@@ -111,6 +111,7 @@ SimpleMetric  | Description | ResidueSelector Compatability?
 **[[RMSDMetric]]** | Calculates the RMSD between two poses or on a subset of residues.  Many options for RMSD including bb, heavy, all, etc. | Yes 
 **[[SasaMetric]]** | Calculates the Solvent Accessible Surface Area (sasa). | Yes
 **[[SelectedResidueCountMetric]]** | Count the number of residues in a selection (or whole pose). | Yes
+**[[SequenceSimilarityMetric]]** | Averages the BLOSUM62 score for selected residues. | Yes
 **[[TotalEnergyMetric]]** | Calculates the Total Energy of a pose using a Scorefunction OR the delta total energy between two poses. | Yes
 **[[TimingProfileMetric | TimingMetric]]** | Calculates the time passed in minutes or hours from from construction to apply (ie from when declared in the RS block to when it is run).  Useful for obtaining timing information of protocols. | No
 
