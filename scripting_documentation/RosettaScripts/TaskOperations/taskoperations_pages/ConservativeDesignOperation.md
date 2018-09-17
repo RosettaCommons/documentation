@@ -2,22 +2,36 @@
 *Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## ConservativeDesign
 
+TaskOperation to allow only conservative mutations at designable residues.
+
+###Published Description
+
+The conservative mutations for each residue type are composed
+of the substitutions for each residue which score >= 0 in one
+of the BLOSUM matrices (which are used for the seminal
+protein sequence similarity programs, PsiBlast and Clustal).
+All BLOSUM matrices can be used for conservative design.
+The numbers of the word BLOSUM indicate the sequence similarity
+cutoffs used to derive the BLOSUM matrices, with higher numbers
+being a more conservative set of mutations.
+By default, the conservative mutations from the BLOSUM62 matrix
+are used to strike a balance between variability and conservation.
+
+[Link to Paper](https://doi.org/10.1371/journal.pcbi.1006112)
+
+###XML
+
 ```xml
-<ConservativeDesignOperation name="&(string)" residue_selector="&(string)" data_source=(string,"blosum62") add_to_allowed_aas=(bool,"false") include_native_aa=(bool,"true")/>
+<ConservativeDesignOperation name="(string)" residue_selector="(string)" data_source=(string,"blosum62") add_to_allowed_aas=(bool,"false") include_native_aa=(bool,"true")/>
 ```
 
-**residue_selector** - By default, ConservativeDesign works on all residues deemed "loops" by DSSP in the pose. If set, a residue selector is used to select regions of the protein in which to disallow residues. The selector can be used to choose one or two loops in the pose rather than all of them. Note that the residues flanking loop regions are also restricted according to the sequence profiles. By default, this task operation works on all loops in the pose.
+**residue_selector** - By default, ConservativeDesign works on all residues. It will be confined to a selection of residues if a selector is provided
 
-**include_adjacent_residues** - If true, amino acids allowed at the non-loop positions joined by each loop will also be restricted via their frequencies in native structures.  For example, some loops which follow helices strongly prefer proline as the last position in the helix.
+**data_source** - Set the source of the data used to define what is conservative. Options are: chothia_76 and the Blosum matrices from 30 to 100; designated as blosum30, 62, etc. Default is blosum62.  The higher the number, the more conservative the set of mutations (numbers are sequence identity cutoffs).
 
-**threshold** - If the enrichment value of an amino acid at a particular position is below this number, it will be disallowed. 0.5 is more stringent than 0.0.
+**add_to_allowed_aas** - Add to the allowed amino acids list instead of replacing it
 
-**secstruct** - Allows the user to force a particular secondary structure onto the pose. If set, use_dssp will be ignored. The length of the secondary structure must match the length of the pose.
-
-**use_dssp** - If true, DSSP will be used to determine which residues are loops.  If false, the secondary structure stored in the pose will be used to determine loops.  Has no effect if the "secstruct" option is set.
-
-**blueprint** - If a blueprint filename is given, the blueprint will be read and its secondary structure will be used to set the "secstruct" option.
-
+**include_native_aa** - Include native amino acid in the allowed_aas list
 
 ##See Also
 
