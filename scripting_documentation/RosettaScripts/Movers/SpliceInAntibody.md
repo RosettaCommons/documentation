@@ -41,7 +41,6 @@ The database is generated using the [SpliceOutAntibody](https://www.rosettacommo
 -   **debug**: XRW TO DO
 -   **min_seg**: XRW TO DO
 -   **CG_const**: XRW TO DO
--   **rb_sensitive**: XRW TO DO
 -   **segment**: XRW TO DO
 -   **delta_lengths**: XRW TO DO
 -   **dbase_iterate**: XRW TO DO
@@ -57,17 +56,6 @@ The database is generated using the [SpliceOutAntibody](https://www.rosettacommo
 -   **splice_filter**: XRW TO DO
 -   **restrict_to_repacking_chain2**: XRW TO DO
 -   **use_sequence_profile**: XRW TO DO
-
-
-Subtag **Segments**:   Wrapper for multiple segments tags
-
--   **current_segment**: XRW TO DO
-
-
-Subtag **segment**:   individual segment tag
-
--   **pdb_profile_match**: XRW TO DO
--   **profiles**: XRW TO DO
 
 ---
 
