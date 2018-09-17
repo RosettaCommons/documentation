@@ -157,7 +157,9 @@ SimpleMetric  | Description | ResidueSelector Compatability?
 
 These metrics calculate a set of named strings. All metric values in the composite are output and available for filtering. 
 
-
+SimpleMetric  | Description | ResidueSelector Compatability?
+------------ | ------------- | -------------
+**[[ProtocolSettingsMetric]]** | Outputs currently set user options (cmd-line,xml, or both).  Allows one to only output specific metrics or set a tag for the particular experiment.  Useful for benchmarking/plotting or historical preservation of options tied to a pose  | No
 
 
 ##See Also
