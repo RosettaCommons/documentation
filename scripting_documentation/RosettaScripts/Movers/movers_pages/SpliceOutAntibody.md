@@ -70,3 +70,15 @@ For each segment (VL, L3, VH, and H3) of each of the natural antibodies we extra
 -   **tail_mover**: Which mover to use to change the tail segment conformation of VL/VH
 -   **restrict_to_repacking_chain2**: If true do not design chain2
 -   **use_sequence_profile**: If true build PSSM and apply sequence profile on pose
+
+##Example
+Currently, this mover is only accessible via RosettaScripts. The SpliceOutAntibody definition below will generate a new **L1_L2 conformation** and apply it to the pose antibody. The new segment's conformation will be stored in the <name>_L1_L2.db file. The CCD and tail movers need to be defined in the XML as well.
+
+
+An example RosettaScripts tag is below:
+
+```xml
+	<SpliceOutAntibody name="spliceout" source_pdb="%%source%%" torsion_database="db/%%name%%_L1_L2.db" scorefxn="talaris_cal" rms_cutoff="0.3" rms_cutoff_loop="0.3" splice_filter="chainbreak_val" template_file="%%start_pdb%%" task_operations="init,seqprofcons" debug="0" mover="ccd" tail_mover="tail" segment="L1_L2" use_sequence_profile="1" superimposed="1" > 
+		</SpliceOutAntibody>
+
+```
