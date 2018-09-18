@@ -1,10 +1,12 @@
 # Release Notes
 
 <!--- BEGIN_INTERNAL -->
+<span style="color:red" >
 ## _Rosetta 3.11 (draft notes)_
 **NOTE: Rosetta 3.10 is the currently-contemplated new version.  If you contributed something to it, put it in the release notes BELOW.  I'm starting Rosetta 3.11 release notes for features that were added after the Rosetta 3.10 release. -VKM**
 
 * Dunbrack sidechain potentials now properly interpolate well locations as angles (eliminating problems at the -180/180 wraparound point).  This is still polylinear interpolation, but could easily be switched to Catmull-Rom splines in the future.
+</span>
 
 ## _Rosetta 3.10 (draft notes)_
 
