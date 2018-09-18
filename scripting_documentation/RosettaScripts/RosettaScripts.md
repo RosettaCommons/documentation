@@ -137,6 +137,7 @@ The following command line would run the above protocol, given that the protocol
 ```
 Rosetta/main/source/bin/rosetta_scripts.linuxgccrelease -s < INPUT PDB FILE NAME > -use_input_sc -nstruct 20 -ex1 -ex2 -parser:protocol ala_scan.xml -parser:view
 ```
+Note that, for most command-line options to be actually considered by RosettaScripts, you need to use the <InitializeFromCommandLine> taskoperation.
 
 The parser:view flag may be used with rosetta executables that have been compiled using the extras=graphics switch in the following way (from the Rosetta root directory):
 
