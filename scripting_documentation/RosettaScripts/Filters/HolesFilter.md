@@ -45,6 +45,9 @@ The holes calculation is performed on the Pose as whole (ignoring the ResidueSel
 -   *normalize_per_residue (bool):* for residue selector case, normalize per residue; not recommended; default=false
 -   *normalize_per_atom (bool):* for residue selector case, normalize per atom; default is false but this option defaults to true if residue_selector is passed and if normalize_per_atom and normalize_per_residue are not explicitly defined by the user.
 
+## Note
+In order to use the -holes::dalphaball flag, you need to first compile the corresponding executable in source/external/DAlpahBall.
+
 ## See Also:
 
 * [[Protein-protein docking|docking-protocol]]
