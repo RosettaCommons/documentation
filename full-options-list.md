@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-09-11
+Generated: 2018-09-19
 
 _Note that some application specific options may not be present in this list._
 
@@ -562,6 +562,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Output the pose cache.<br/>Default: true<br/></dd>
 <dt><b>-output_pose_fold_tree</b> \<Boolean\></dt>
 <dd>Output the foldtree of the pose. Will go in rosetta_additional column for cif files.<br/>Default: false<br/></dd>
+<dt><b>-output_only_asymmetric_unit</b> \<Boolean\></dt>
+<dd>For symmetrical poses, de-symmetrize the pose before output in order to output only the master subunit.  Energies will still be output as symmetrical. Does not work with Silent files.<br/>Default: false<br/></dd>
 <dt><b>-cif_extra_data_separate_file</b> \<Boolean\></dt>
 <dd>When outputting mmCIF, write extra data and energies to separate files (JOBNAME.extradata and JOBNAME.eneriges)<br/>Default: false<br/></dd>
 <dt><b>-dont_rewrite_dunbrack_database</b> \<Boolean\></dt>
@@ -805,6 +807,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Specify all the resources to available for the jobs running.<br/></dd>
 <dt><b>-resource_definition_schema</b> \<File\></dt>
 <dd>If provided on the command line, the job distributor will write the XML Schema for the applciation's resource definition file out to disk and then exit<br/></dd>
+<dt><b>-load_input_poses_only_once</b> \<Boolean\></dt>
+<dd>If the same Pose is used as input to multiple jobs (which can only happen when a job definition file is provided, but the input poses come from the command line), then preserve those input poses in memory until they will not be used in any future jobs. This necessarily comes with an increased memory footprint and is likely undesireable if the number of jobs is large!<br/></dd>
 </dl>
 + <h2>-jd2</h2>
 <dl>

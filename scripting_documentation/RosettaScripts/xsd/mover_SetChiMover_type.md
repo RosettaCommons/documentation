@@ -7,12 +7,12 @@ A mover to change one chi angle.
 
 ```xml
 <SetChiMover name="(&string;)" angle="(&real;)"
-        resnum="(&refpose_enabled_residue_number;)"
-        chinum="(&non_negative_integer;)" />
+        chinum="(&non_negative_integer;)"
+        resnum="(&refpose_enabled_residue_number;)" />
 ```
 
 -   **angle**: Angle to which to set the chi.
--   **resnum**: Residue with the chi in question.
 -   **chinum**: Which chi is to be set.
+-   **resnum**: Residue with the chi in question.
 
 ---

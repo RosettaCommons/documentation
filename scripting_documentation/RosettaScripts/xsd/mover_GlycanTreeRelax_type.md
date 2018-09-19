@@ -51,9 +51,9 @@ Typically, we would want at least a window size of 1.
 ```xml
 <GlycanTreeRelax name="(&string;)" layer_size="(&non_negative_integer;)"
         window_size="(&non_negative_integer;)" rounds="(&non_negative_integer;)"
-        refine="(false &bool;)" quench_mode="(false &bool;)"
-        final_min_pack_min="(true &bool;)" min_rings="(false &bool;)"
-        cartmin="(false &bool;)"
+        idealize="(false &bool;)" refine="(false &bool;)"
+        quench_mode="(false &bool;)" final_min_pack_min="(true &bool;)"
+        min_rings="(false &bool;)" cartmin="(false &bool;)"
         glycan_relax_rounds="(25 &non_negative_integer;)"
         residue_selector="(&string;)" scorefxn="(&string;)" />
 ```
@@ -73,6 +73,7 @@ Typically, we would want at least a window size of 1.
   part of the next layer.  A window size of 0, means that no residues will be re-modeled. 
   Typically, we would want at least a window size of 1.
 -   **rounds**: Set the number of rounds.  We start with the forward direction, from the root/start out to the glycan tips.  Next round we go backward, then forward.  The number of rounds corresponds to how many back and forth directions we go
+-   **idealize**: Attempt to idealize the bond lengths/angles of glycan residues being modeled
 -   **refine**: Do a refinement instead of a denovo model
 -   **quench_mode**: Do quench mode for each glycan tree?
 -   **final_min_pack_min**: Do a final set of cycles of min/pack

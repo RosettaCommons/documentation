@@ -13,7 +13,8 @@ This is the RMSD for each residue between the input and the set comparison pose.
 <PerResidueRMSDMetric name="(&string;)" custom_type="(&string;)"
         output_as_pdb_nums="(&string;)" residue_selector="(&string;)"
         residue_selector_ref="(&string;)" robust="(true &bool;)"
-        use_native="(false &bool;)" rmsd_type="(&rmsd_types;)" />
+        use_native="(false &bool;)" super="(false &bool;)"
+        rmsd_type="(&rmsd_types;)" desymmetrize_selector="(true &bool;)" />
 ```
 
 -   **custom_type**: Allows multiple configured SimpleMetrics of a single type to be called in a single RunSimpleMetrics and SimpleMetricFeatures. 
@@ -23,7 +24,9 @@ This is the RMSD for each residue between the input and the set comparison pose.
 -   **residue_selector_ref**: Selector for the reference pose (input native or passed reference pose. ).  Residues selected must be same number of residues selected for the main selector.
 -   **robust**: Set whether we are robust to atom mismatches for selected residues.  By default we only match atoms that are corresponding. (True).
 -   **use_native**: Use the native if present on the cmd-line.
+-   **super**: Run a superposition on the residues in the residue_selector (or all) before RMSD calculation and the atoms slected for RMSD
 -   **rmsd_type**: Type of calculation.  Current choices are: 
 [rmsd_all, rmsd_all_heavy, rmsd_protein_bb_ca, rmsd_protein_bb_heavy, rmsd_protein_bb_heavy_including_O, rmsd_sc, rmsd_sc_heavy]
+-   **desymmetrize_selector**: Should we desymmetrize the residue selector if we have a symmetric pose?
 
 ---
