@@ -35,6 +35,12 @@ XRW TO DO
             exclude_protein_protein_fa_elec="(&bool;)" exclude_DNA_DNA="(&bool;)"
             pb_bound_tag="(&string;)" pb_unbound_tag="(&string;)"
             scale_sc_dens="(&real;)" scale_sc_dens_byres="(&string;)"
+            approximate_buried_unsat_penalty_hbond_energy_threshold="(&real;)"
+            approximate_buried_unsat_penalty_burial_atomic_depth="(&real;)"
+            approximate_buried_unsat_penalty_burial_probe_radius="(&real;)"
+            approximate_buried_unsat_penalty_burial_resolution="(&real;)"
+            approximate_buried_unsat_penalty_oversat_penalty="(&real;)"
+            approximate_buried_unsat_penalty_assume_const_backbone="(&bool;)"
             buried_unsatisfied_penalty_cone_angle_exponent="(&real;)"
             buried_unsatisfied_penalty_cone_angle_shift_factor="(&real;)"
             buried_unsatisfied_penalty_cone_dist_exponent="(&real;)"
@@ -105,6 +111,12 @@ Subtag **Set**:
 -   **pb_unbound_tag**: XRW TO DO
 -   **scale_sc_dens**: XRW TO DO
 -   **scale_sc_dens_byres**: XRW TO DO
+-   **approximate_buried_unsat_penalty_hbond_energy_threshold**: Energy threshold for a h-bond to be considered satisfying a buried polar. Should be a negative number. (Setting to -0.001 will be much faster than 0 at runtime)
+-   **approximate_buried_unsat_penalty_burial_atomic_depth**: The atomic depth cutoff to determine whether or not a polar atom is buried. Measured from the Sasa surface.
+-   **approximate_buried_unsat_penalty_burial_probe_radius**: The probe radius for the atomic depth calculation.
+-   **approximate_buried_unsat_penalty_burial_resolution**: The resolution for the atomic depth calculation.
+-   **approximate_buried_unsat_penalty_oversat_penalty**: The penalty between atoms that both satisfy the same atom. If we let X = weight_of_approximate_buried_unsat_penalty. Then in general, a buried unsat is worth X, a satisfied unsat is worth 0, a doubly satisfied unsat is worth X * ( setting-1.0 ), a triply satisfied unsat is worth X * ( -2 + 3 * setting ), a N-ly satisfied unsat is worth X * ( 1 - N + 0.5 * N * (N - 1) ).
+-   **approximate_buried_unsat_penalty_assume_const_backbone**: Should we assume that the backbone atoms will not change during a packing trajectory? (i.e. no positions that include normal aa and proline or n-methyl) If set to false, this energy method takes longer to compute. (~ 2X as long)
 -   **buried_unsatisfied_penalty_cone_angle_exponent**: The angle exponent for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
 -   **buried_unsatisfied_penalty_cone_angle_shift_factor**: The angle shift factor for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
 -   **buried_unsatisfied_penalty_cone_dist_exponent**: The distance exponent for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.

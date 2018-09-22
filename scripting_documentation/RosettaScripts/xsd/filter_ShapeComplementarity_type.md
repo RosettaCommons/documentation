@@ -7,20 +7,23 @@ Calculates the Lawrence and Coleman shape complementarity using a port of the or
 
 ```xml
 <ShapeComplementarity name="(&string;)" min_sc="(0.5 &real;)"
-        min_interface="(0 &real;)" verbose="(false &bool;)"
-        quick="(false &bool;)" jump="(1 &integer;)"
-        write_int_area="(false &bool;)" sym_dof_name="(&string;)"
-        multicomp="(false &bool;)" residues1="(&string;)" residues2="(&string;)"
+        min_interface="(0 &real;)" max_median_dist="(1000 &real;)"
+        verbose="(false &bool;)" quick="(false &bool;)" jump="(1 &integer;)"
+        write_int_area="(false &bool;)" write_median_dist="(false &bool;)"
+        sym_dof_name="(&string;)" multicomp="(false &bool;)"
+        residues1="(&string;)" residues2="(&string;)"
         residue_selector1="(&string;)" residue_selector2="(&string;)"
         confidence="(1.0 &real;)" />
 ```
 
 -   **min_sc**: The filter fails if the calculated sc is less than the given value.
 -   **min_interface**: The filter fails is the calculated interface area is less than the given value.
+-   **max_median_dist**: The filter fails is the calculated median distance between the molecular surfaces is greater than the given value.
 -   **verbose**: If true, print extra calculation details to the tracer.
 -   **quick**: If true, do a quicker, less accurate calculation by reducing the density.
 -   **jump**: For non-symmetric poses, which jump over which to calculate the interface.
 -   **write_int_area**: If true, write interface area to scorefile.
+-   **write_median_dist**: If true, write interface median distance to scorefile.
 -   **sym_dof_name**: For symmetric poses, which dof over which to calculate the interface.
 -   **multicomp**: If true, multiple component system. If false, single component system.
 -   **residues1**: Explicitly set which residues are on each side of the interface (both symmetric and non-symmetric poses.)

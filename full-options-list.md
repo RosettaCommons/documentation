@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-09-19
+Generated: 2018-09-22
 
 _Note that some application specific options may not be present in this list._
 
@@ -1040,6 +1040,18 @@ _Note that some application specific options may not be present in this list._
 <dd>The filename of one or more setup files for the aa_composition scoring term.  (Multiple such files can be listed, separated by a space.)  The default location for these files (which have a .comp extension) is /database/scoring/score_functions/aa_composition/.<br/></dd>
 <dt><b>-aa_repeat_energy_penalty_file</b> \<String\></dt>
 <dd>The filename of a penalty file for the aa_repeat_energy term.  The penalty file should be a series of numbers on a single line, representing the penalty for having a repeat of 1, 2, 3, etc. of the same residue.  Penalty files are stored in database/scoring/score_functions/aa_repeat_energy/ and should have the suffix .rpt_pen.  The default is default_repeat_penalty_table.rpt_pen.<br/>Default: "default_repeat_penalty_table.rpt_pen"<br/></dd>
+<dt><b>-approximate_buried_unsat_penalty_hbond_energy_threshold</b> \<Real\></dt>
+<dd>Energy threshold for a h-bond to be considered satisfying a buried polar. Should be a negative number. (Setting to -0.001 will be much faster than 0 at runtime)<br/>Default: -0.25<br/></dd>
+<dt><b>-approximate_buried_unsat_penalty_burial_atomic_depth</b> \<Real\></dt>
+<dd>The atomic depth cutoff to determine whether or not a polar atom is buried. Measured from the Sasa surface.<br/>Default: 4.5f<br/></dd>
+<dt><b>-approximate_buried_unsat_penalty_burial_probe_radius</b> \<Real\></dt>
+<dd>The probe radius for the atomic depth calculation.<br/>Default: 2.3f<br/></dd>
+<dt><b>-approximate_buried_unsat_penalty_burial_resolution</b> \<Real\></dt>
+<dd>The resolution for the atomic depth calculation.<br/>Default: 0.5f<br/></dd>
+<dt><b>-approximate_buried_unsat_penalty_oversat_penalty</b> \<Real\></dt>
+<dd>The penalty between atoms that both satisfy the same atom. If we let X = weight_of_approximate_buried_unsat_penalty. Then in general, a buried unsat is worth X, a satisfied unsat is worth 0, a doubly satisfied unsat is worth X * ( setting-1.0 ), a triply satisfied unsat is worth X * ( -2 + 3 * setting ), a N-ly satisfied unsat is worth X * ( 1 - N + 0.5 * N * (N - 1) ).<br/>Default: 1.0<br/></dd>
+<dt><b>-approximate_buried_unsat_penalty_assume_const_backbone</b> \<Boolean\></dt>
+<dd>Should we assume that the backbone atoms will not change during a packing trajectory? (i.e. no positions that include normal aa and proline or n-methyl) If set to false, this energy method takes longer to compute. (~ 2X as long)<br/>Default: true<br/></dd>
 <dt><b>-aspartimide_penalty_value</b> \<Real\></dt>
 <dd>The penalty for each aspartimide-forming two-residue sequence found, when the aspartimide_penalty score term weight is set to 1.0.  Default is 25.0.<br/>Default: 25.0<br/></dd>
 <dt><b>-buried_unsatisfied_penalty_cone_angle_exponent</b> \<Real\></dt>
