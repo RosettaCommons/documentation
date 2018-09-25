@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-09-22
+Generated: 2018-09-25
 
 _Note that some application specific options may not be present in this list._
 
@@ -4547,7 +4547,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-max_dslf_pot</b> \<Real\></dt>
 <dd>The maximum allowed match score for disulfide rotation and translation<br/>Default: 2.0<br/></dd>
 <dt><b>-max_dslf_energy</b> \<Real\></dt>
-<dd>The maximum allowed change in disulfide energy upon peptide disulfide bridge formation<br/>Default: 1.0<br/></dd>
+<dd>The maximum allowed change in disulfide energy upon peptide disulfide bridge formation<br/>Default: -0.5<br/></dd>
 <dt><b>-min_dslf_dist_multiplier</b> \<Real\></dt>
 <dd>A multiplier for the minimum allowed distance between residues that might form a disulfide.<br/>Default: 1.0<br/></dd>
 <dt><b>-max_dslf_dist_multiplier</b> \<Real\></dt>
