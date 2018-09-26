@@ -32,12 +32,17 @@ You have multiple options for compiling Rosetta 3 with SCons. You can build eith
 1.  Change directory to `      main/source     ` .
 2.  Type one of the following commands:
 
-    -    complete
+    -    Build all binaries
 
         -   `          ./scons.py -j<number_of_processors_to_use> bin         `
         -   `          ./scons.py -j<number_of_processors_to_use> mode=release bin         `
 
-    - libraries only
+    -    Build a specific binary
+
+        -   `          ./scons.py -j<number_of_processors_to_use> bin/rosetta_scripts.linuxgccdebug         `
+        -   `          ./scons.py -j<number_of_processors_to_use> mode=release bin/rosetta_scripts.linuxgccrelease         `
+
+    - Build libraries only
 
         -   `          ./scons.py -j<number_of_processors_to_use>         `
         -   `          ./scons.py -j<number_of_processors_to_use> mode=release         `
