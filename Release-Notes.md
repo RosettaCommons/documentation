@@ -8,7 +8,7 @@
 
 <!--- END_INTERNAL -->
 
-## _Rosetta 3.10_
+## Rosetta 3.10
 
 ### New applications
 * [[GALigandDock]]
