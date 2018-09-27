@@ -6,7 +6,9 @@
 
 * Dunbrack sidechain potentials now properly interpolate well locations as angles (eliminating problems at the -180/180 wraparound point).  This is still polylinear interpolation, but could easily be switched to Catmull-Rom splines in the future.
 
-## _Rosetta 3.10 (draft notes)_
+<!--- END_INTERNAL -->
+
+## _Rosetta 3.10_
 
 ### New applications
 * [[GALigandDock]]
@@ -84,8 +86,6 @@
 * [[RotamerSetFactory]]
 * [[StrandCurvatureByLevels]]
 * [[EnzScoreFilter]]
-
-<!--- END_INTERNAL -->
 
 ## Rosetta 3.9
 
