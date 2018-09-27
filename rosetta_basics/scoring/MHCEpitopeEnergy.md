@@ -73,6 +73,12 @@ method external user_sql_database.db
 unseen penalize 100
 ```
 
+## MHCEpitope Constraints
+
+A ```.mhc``` setup file passed to the scorefunction in ```<SCOREFXNS>``` block will be applied to the entire pose.  It is possible that in addition/instead of applying the ```.mhc``` setup to the entire pose, you would want to target specific regions that, for example, are highly immunogenic.  This can be achieve using the [[AddMHCEpitopeConstraintMover]], which accepts a ```.mhc``` setup file as well as an optional residue selector and weighting term.  An arbitrary number of [[AddMHCEpitopeConstraintMover]]s can be applied.
+
+If you only want to use constraints to de-immunize your protein, you do not need to pass a ```.mhc``` setup file in the ```<SCOREFXNS>``` section.  Note that you _must still turn on ```mhc_epitope``` term in the scorefunction_ for the constraints to function, even if you do not have a globally applied ```.mhc``` file.
+
 ## How to generate an external database
 
 To do.
