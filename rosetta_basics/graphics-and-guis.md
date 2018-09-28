@@ -10,7 +10,7 @@ Native graphics mode (or the "viewer") in Rosetta allows viewing any given pose 
 
 ##[[Pymol Mover|PyMOL]]
 ###Background
-The PyMOL Mover is a way to visualize your decoy (PDB) in PyMOL. One of its most powerful features is that it can color your decoy by score or some component of the total score, as well as observe changes in real-time during a Rosetta protocol. 
+The PyMOL Mover is a way to visualize your decoy (PDB) in PyMOL. One of its most powerful features is that it can color your decoy by score or some component of the total score, as well as observe changes in real-time during a Rosetta protocol.
 
 The PyMOL Mover can be controlled through [[RosettaScripts]], [[PyRosetta]], or through the command line.
 
@@ -35,7 +35,7 @@ which will prime your PyMol session to receive and display the coordinates sent 
 ####Command Line
 
 ```
--show_simulation_in_pymol [Real, default=5]   Both turns on show simulation view to output frames into 
+-show_simulation_in_pymol [Real, default=5]   Both turns on show simulation view to output frames into
                                                pymol when the pose has changed AND indicates the time
                                                interval (in seconds) before another frame can be sent to pymol.
                                                0 indicates that no packets are skipped!
@@ -45,7 +45,7 @@ which will prime your PyMol session to receive and display the coordinates sent 
 
 -update_pymol_on_conformation_changes_only   Only update pymol when the conformation object is changed.  
                                               Aka changes in XYZ, residuetype, lengths, etc.
-  
+
 -keep_pymol_simulation_history               Keep the history of the simulation as separate frames in pymol
 
 ```
@@ -61,6 +61,11 @@ See [[PyRosetta Toolkit GUI]]
 
 
 ![[images/pyrosetta_toolkit_main.png]]
+
+##Cyrus Bench
+Cyrus Biotechnology is a spin-out from the Baker lab and Rosetta Commons offering a Rosetta GUI (a graphical user interface) on the cloud, Cyrus Bench, with included bioinformatics and small molecule and other dependencies for Rosetta. Bench was developed by some of the previous members of RosettaCommons labs and in close collaboration with a number of Rosetta academic labs.
+
+Bench is designed for users in industry and academia for the following features: homology modeling, protein design, protein/protein interface design and affinity design, free energy of mutation calculations, protein design with a flexible backbone, protein stabilization, and immune epitope prediction (MHC II immunogenicity). Note that Bench does not offer every feature in command line Rosetta 3. Available at https://cyrusbio.com/.  <sub><sup>(Cyrus Biotechnology is a commercial Rosetta licensee offering a web-based graphical user interface for Rosetta to its customers.  Licensing fees paid by commercial Rosetta licensees to the University of Washington are used to support the RosettaCommons, investing in the maintenance and further development of Rosetta.)</sup></sub>
 
 ##See Also
 
