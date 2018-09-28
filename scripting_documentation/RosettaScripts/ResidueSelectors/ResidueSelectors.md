@@ -96,6 +96,12 @@ any ResidueSelector can be defined as a subtag of the Not selector.  You cannot,
 
 ### Conformation Independent Residue Selectors
 
+
+#### SpanSelector
+    <Span start=(refpose_enabled_residue_number) end=(refpose_enabled_residue_number) name=(string)></Span>
+
+-   Selects a beginning with position start and ends with position end
+
 #### ChainSelector
 
     <Chain chains="(&string)"/>
