@@ -67,6 +67,8 @@ Cyrus Biotechnology is a spin-out from the Baker lab and Rosetta Commons offerin
 
 Bench is designed for users in industry and academia for the following features: homology modeling, protein design, protein/protein interface design and affinity design, free energy of mutation calculations, protein design with a flexible backbone, protein stabilization, and immune epitope prediction (MHC II immunogenicity). Note that Bench does not offer every feature in command line Rosetta 3. Available at https://cyrusbio.com/.  <sub><sup>(Cyrus Biotechnology is a commercial Rosetta licensee offering a web-based graphical user interface for Rosetta to its customers.  Licensing fees paid by commercial Rosetta licensees to the University of Washington are used to support the RosettaCommons, investing in the maintenance and further development of Rosetta.)</sup></sub>
 
+![[images/cyrus_bench.png]]
+
 ##See Also
 
 * [[PyMOL website (external)|http://www.pymol.org]]
