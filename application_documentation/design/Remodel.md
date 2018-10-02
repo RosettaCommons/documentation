@@ -1,6 +1,7 @@
 #Remodel Documentation
 
 * See also the [[RosettaRemodel]] documentation
+* For XML information see [[RemodelMover]]
 
 A demo for remodel is available in from the Rosetta distribution at `Rosetta/demos/public/design_w_flex_loops_using_RosettaRemodel`
 
