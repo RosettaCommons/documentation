@@ -60,14 +60,14 @@ If Length changes are occurring during the run, the PyMOL Mover may segfault as 
 See [[PyRosetta Toolkit GUI]]
 
 
-![[images/pyrosetta_toolkit_main.png]]
+[[images/pyrosetta_toolkit_main.png]]
 
 ##Cyrus Bench
 Cyrus Biotechnology is a spin-out from the Baker lab and Rosetta Commons offering a Rosetta GUI (a graphical user interface) on the cloud, Cyrus Bench, with included bioinformatics and small molecule and other dependencies for Rosetta. Bench was developed by some of the previous members of RosettaCommons labs and in close collaboration with a number of Rosetta academic labs.
 
 Bench is designed for users in industry and academia for the following features: homology modeling, protein design, protein/protein interface design and affinity design, free energy of mutation calculations, protein design with a flexible backbone, protein stabilization, and immune epitope prediction (MHC II immunogenicity). Note that Bench does not offer every feature in command line Rosetta 3. Available at https://cyrusbio.com/.  <sub><sup>(Cyrus Biotechnology is a commercial Rosetta licensee offering a web-based graphical user interface for Rosetta to its customers.  Licensing fees paid by commercial Rosetta licensees to the University of Washington are used to support the RosettaCommons, investing in the maintenance and further development of Rosetta.)</sup></sub>
 
-![[images/cyrus_bench.png]]
+[[images/cyrus_bench.png]]
 
 ##See Also
 
