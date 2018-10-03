@@ -5,7 +5,7 @@ mhc_epitope is currently under development, and not available in master.
 If you want to try it out, feel free to checkout branch ```BYachnin/mhc-epitope-new``` or Pull Request #3390 (https://github.com/RosettaCommons/main/pull/3390/).  Note that this documentation is incomplete and subject to change.
 
 Documentation created by Brahm Yachnin (brahm.yachnin@rutgers.edu), Khare laboratory and Chris Bailey-Kellogg (cbk@cs.dartmouth.edu).  Parts of this documentation are copied/adapted from Vikram K. Mulligan's (vmullig@uw.edu) design-centric guidance documentation.
-Last edited September 27, 2018.
+Last edited October 2, 2018.
 
 [[_TOC_]]
 
@@ -49,7 +49,7 @@ Each ```.mhc``` file should begin with a ```method``` line.  The syntax is the k
 
 Subsequent lines in the ```.mhc``` file are optional, and control how scoring is performed.
 - ```alleles``` can be used to select a subset of alleles present in your matrix/database to use.  This option is not currently supported, except to select all alleles (the default).  To select all alleles, use ```alleles *```.
-- ```threshold``` applies to matrix-based predictors only.  This option sets the threshold above which a peptide is considered a hit.  Default is ```threshold ****```.
+- ```threshold``` applies to matrix-based predictors only.  This option sets the percentile cutoff for binding that is considered a hit.  For example, a threshold of 2 means that the top 2% of binders are hits.  Default is ```threshold ****```.  For Propred matrices (currently the only supported matrix type), threshold must be an integer from 1-10.
 - ```unseen``` applies to external predictors only.  As these predictors use an external database that does not necessarily include all possible peptides, this option sets the behavior for any peptide not found in the database (i.e. that is "unseen").  This option can take different handlers, which decide how to handle unseen peptides.  Currently, only ```penalize``` is implemented.   The default is ```unseen penalize 100```.
  - ```penalize``` adds a specific, constant penalty score for any peptide not found in the database, thereby discouraging Rosetta from designing to these sequences.  The default (```unseen penalize 100```) adds 100 to the score if an unknown peptide is encountered.
 - ```xform``` transforms the score returned by the predictor.  In any case, if the transformed score is less than 0, a score of 0 is used.  It can run in one of three modes:
