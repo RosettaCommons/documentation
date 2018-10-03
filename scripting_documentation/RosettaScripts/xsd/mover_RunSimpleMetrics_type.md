@@ -7,7 +7,7 @@ Run a set of SimpleMetrics on the pose, with a particular prefix and suffix. (pr
 
 ```xml
 <RunSimpleMetrics name="(&string;)" metrics="(&string;)" prefix="(&string;)"
-        suffix="(&string;)" >
+        suffix="(&string;)" override="(false &bool;)" >
     <Simple Metric Tag ... />
 </RunSimpleMetrics>
 ```
@@ -15,6 +15,7 @@ Run a set of SimpleMetrics on the pose, with a particular prefix and suffix. (pr
 -   **metrics**: Comma-separated list of previously defined simple_metrics to be added.
 -   **prefix**: Prefix tag for the values to be added to the output score file for these metrics. (prefix + custom_type + _ + metric_name + suffix)
 -   **suffix**: suffix tag for the values to be added to the output score file for these metrics. (prefix + custom_type + _ + metric_name + suffix)
+-   **override**: Should we override any existing data?
 
 
 "Simple Metric Tag": Any of the [[SimpleMetrics]]
