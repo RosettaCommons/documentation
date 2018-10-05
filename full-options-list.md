@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-09-25
+Generated: 2018-10-05
 
 _Note that some application specific options may not be present in this list._
 
@@ -4284,7 +4284,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-suppress_checkpointing</b> \<Boolean\></dt>
 <dd>boinc specific options to suppress checkpointing behavior<br/>Default: false<br/></dd>
 <dt><b>-wt_only</b> \<Boolean\></dt>
-<dd>option added to minirosetta app in order to produce only refinement in wt structures<br/></dd>
+<dd>option added to minirosetta app in order to produce only refinement in wt structures<br/>Default: false<br/></dd>
 <dt><b>-mut_only</b> \<Boolean\></dt>
 <dd>options added to minirosetta app in order to produce refinement in only mutant structure<br/></dd>
 <dt><b>-output_silent</b> \<Boolean\></dt>
@@ -4340,7 +4340,9 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-harmonic_ca_tether</b> \<Real\></dt>
 <dd>default CA tether for harmonic constraints<br/>Default: 2.0<br/></dd>
 <dt><b>-iterations</b> \<Integer\></dt>
-<dd>specifies the number of iterations of refinement<br/>Default: 20<br/></dd>
+<dd>specifies the number of iterations of refinement<br/>Default: 3<br/></dd>
+<dt><b>-force_iterations</b> \<Boolean\></dt>
+<dd>Forces the ddg protocol to iterate up to the value set by iterations rather than stoping at convergence.<br/>Default: true<br/></dd>
 <dt><b>-out</b> \<String\></dt>
 <dd>create output file of predicted ddgs<br/>Default: "ddg_predictions.out"<br/></dd>
 <dt><b>-debug_output</b> \<Boolean\></dt>
@@ -4351,6 +4353,32 @@ _Note that some application specific options may not be present in this list._
 <dd>specifies the weight-files to be used in calculations<br/>Default: "ddg.wts"<br/></dd>
 <dt><b>-cst_dist_cutoff</b> \<Real\></dt>
 <dd>the cutoff distance for generating harmonic csts between residues<br/>Default: 9.0<br/></dd>
+<dt><b>-cartesian</b> \<Boolean\></dt>
+<dd>Toggle cartesian mode in the CartesianddG app calculations<br/>Default: true<br/></dd>
+<dt><b>-extract_element_nbrs</b> \<Integer\></dt>
+<dd>How many sequence space nbrs to extract when doing binding calculations<br/>Default: 0<br/></dd>
+<dt><b>-frag_nbrs</b> \<Integer\></dt>
+<dd>How many (sequence) neighbors should the fragments include. i.e. 2 nbrs = fragments of size 5 with the target in the middle<br/>Default: 2<br/></dd>
+<dt><b>-bbnbrs</b> \<Integer\></dt>
+<dd>How many (sequence) neighbors should be included in the backbone minimization<br/>Default: 1<br/></dd>
+<dt><b>-nfrags</b> \<Integer\></dt>
+<dd>How many fragments to pick, and then use, in the cartesian sampler<br/>Default: 30<br/></dd>
+<dt><b>-ntrials</b> \<Integer\></dt>
+<dd>How many cycles of frag assign to run in the cartesian sampler<br/>Default: 30<br/></dd>
+<dt><b>-optimize_proline</b> \<Boolean\></dt>
+<dd>Triggers use of fragments and the cartesian sampler to optimize around proline residues.<br/>Default: true<br/></dd>
+<dt><b>-flex_bb</b> \<Boolean\></dt>
+<dd>Should neighbor residues be allowed to move the backbone.<br/>Default: false<br/></dd>
+<dt><b>-fd_mode</b> \<Boolean\></dt>
+<dd>Preserving franks mode for testing directional neighborfinding.<br/>Default: false<br/></dd>
+<dt><b>-legacy</b> \<Boolean\></dt>
+<dd>Call the legacy version of the cartesian_ddg app.<br/>Default: true<br/></dd>
+<dt><b>-json</b> \<Boolean\></dt>
+<dd>Read and write results in json.<br/>Default: false<br/></dd>
+<dt><b>-n_converged</b> \<Integer\></dt>
+<dd>How many models need to be in range for the solution to be considered converged.<br/>Default: 2<br/></dd>
+<dt><b>-score_cutoff</b> \<Real\></dt>
+<dd>What is the score cutoff to be considered converged.<br/>Default: 1.0<br/></dd>
 </dl>
 + <h2>-DenovoProteinDesign</h2>
 <dl>
