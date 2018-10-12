@@ -88,6 +88,7 @@ In the paper, the difference in totalscores averaged over 3 rounds for WT and MU
 ```
 ddG = avrg(MUT totalscore) - avrg(WT totalscore)
 
+```
 
 With interface mode, 
 
