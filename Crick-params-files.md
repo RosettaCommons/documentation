@@ -13,6 +13,9 @@ Crick params files are ASCII files with extension `.crick_params`.  They define 
 
 Crick params file consist of a series of lines, each specifying either a global property of the helix type or a per-atom parameter value.  The allowed entries are:
 
-| Entry | Description | Allowed values | Example |
+| Entry | Description | Requirements | Example |
 | ----- | ----------- | -------------- | ------- |
-| Comments | Any line starting with a number sign ("#").  Used to provide information ignored by Rosetta but useful to developers or users. | Any string. | `#Crick params file for a beta-amino acid 14-helix` |
+| Comments | Any line starting with a number sign ("#").  Used to provide information ignored by Rosetta but useful to developers or users. | None, so long as a number sign starts the line. | `#Crick params file for a beta-amino acid 14-helix` |
+| r1 | The per-atom minor helix radius (_i.e._ the distance of an atom from the minor helix axis). | Must be postive.  One entry is required for each atom in the repeating unit. | "r1 1.0231515" |
+| delta_omega1 | The angular offset about the minor helix axis for each atom, specified in radians, relative to the reference atom. | One entry is required for each atom in the repeating unit. | "delta_omega1 0.2352525" |
+| delta_z1 | The linear offset along the minor helix axis for each atom, specified in Angstroms, relative to the reference atom. | One entry is required for each atom in the repeating unit. | "delta_z1 -0.6352431" |
