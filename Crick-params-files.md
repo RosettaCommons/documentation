@@ -1,5 +1,5 @@
 # Crick params file format
-Page created by Vikram K. Mulligan (vmullig@flatironinstitute.org).  Last modified 12 October 2018.
+Page created by Vikram K. Mulligan (vmulligan@flatironinstitute.org).  Last modified 12 October 2018.
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## Crick params files
 
