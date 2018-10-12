@@ -79,7 +79,7 @@ Running application will produce a file named [pdbfile_prefix]\_[mutationindex].
 
 The file contains lines (monomer mode):
 ```
-BEFORE_JUMP: RoundX: [WT or MUT\_XXXX]: [totalscore] fa_atr: [fa\_atr] .....
+COMPLEX: RoundX: [WT or MUT\_XXXX]: [totalscore] fa_atr: [fa\_atr] .....
 
 ```
 
