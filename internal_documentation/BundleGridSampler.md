@@ -1,4 +1,9 @@
 # BundleGridSampler
+Page created by Vikram K. Mulligan (vmulligan@flatironinstitute.org).  Last modified 12 October 2018.
+[[Back to Movers page|Movers-RosettaScripts]]
+
+[[_TOC_]]
+
 ## BundleGridSampler
 
 Generates a helical bundle, sampling user-specified ranges of parameters and outputting the lowest-energy bundle encountered (and its accompanying parameter values).  Optionally, this mover can also output PDB files for all bundle geometries sampled.  Note that because a strand is a special case of a helix, this mover can also be used to sample beta-barrel conformations or mixed alpha-beta structures.
@@ -57,3 +62,8 @@ In order to sample a range of parameters, keeping a parameter value for two diff
      <Helix delta_omega0=3.14 r0_copies_helix=1/>
 </BundleGridSampler>
 ```
+
+###See also
+* [[The Crick params file format|Crick-params-files]]
+* [[MakeBundle|MakeBundleMover]] mover
+* [[PerturbBundle]] mover
