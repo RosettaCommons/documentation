@@ -2,6 +2,8 @@
 Page created by Vikram K. Mulligan (vmulligan@flatironinstitute.org).  Last modified 12 October 2018.
 [[Back to Movers page|Movers-RosettaScripts]]
 
+[[_TOC_]]
+
 ## PerturbBundle
 
 This mover operates on a pose generated with the MakeBundle mover.  It perturbs (<i>i.e.</i> adds a small, random value to) one or more Crick parameters, then alters the backbone conformation to reflect the altered Crick parameters.  This is useful for iterative Monte Carlo searches of Crick parameter space.
@@ -31,3 +33,8 @@ Default options for all helices are set in the <b>PerturbBundle</b> tag.  A defa
 <b>delta_omega0</b>: The radial offset about the major helix axis.<br/>
 <b>delta_omega1</b>: The rotation of the minor helix about the minor helix axis.<br/>
 <b>delta_t</b>: A value to offset the helix by a certain number of amino acid residues along its direction of propagation.<br/>
+
+###See also
+* [[The Crick params file format|Crick-params-files]]
+* [[MakeBundle|MakeBundleMover]] mover
+* [[BundleGridSampler]] mover
