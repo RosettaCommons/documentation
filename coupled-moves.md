@@ -81,7 +81,7 @@ Only designed positions will be included in the fasta file. Your resfile ALLAA p
 
 This section assumes familiarity with the resfile [documentation](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/resfiles) and [manual](https://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/d1/d97/resfiles.html). 
 
-To achieve adequate sampling in a limited number of trials, set all residues to NATRO except target designable residues, e.g. a ligand binding pocket's first shell residues, motif residues, or individual secondary structure elements. Consider setting second-shell residues to NATAA to allow rotamer sampling.
+Manually define packable residues: To achieve adequate sampling in a limited number of trials, set all residues to NATRO except target designable residues, e.g. a ligand binding pocket's first shell residues, motif residues, or individual secondary structure elements. Consider setting second-shell residues to NATAA to allow rotamer sampling.
 
 Example resfile:
 
@@ -95,6 +95,18 @@ START
 356 - 359 B ALLAA
 9 A NATAA
 11 A NATAA
+```
+
+Automatically detect packable residues:
+
+Use `-include_clashing_positions` flag to autodetect all positions that clash with designable positions. Start with a NATAA default resfile that defines designable positions. The CoupledMoves protocol will keep as NATAA only positions that clash with designable positions, while all other positions will be switched to NATRO.
+
+Example resfile:
+
+```
+NATAA
+START
+216 A ALLAA
 ```
 
 -------------------------
