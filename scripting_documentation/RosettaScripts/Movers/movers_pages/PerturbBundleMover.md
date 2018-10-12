@@ -1,5 +1,5 @@
 # PerturbBundle
-Documentation by Vikram K. Mulligan (vmullig@uw.edu).  Last updated 24 May 2017.
+Documentation by Vikram K. Mulligan (vmullig@uw.edu).  Last updated 12 October 2018.
 
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## PerturbBundle
@@ -46,6 +46,7 @@ As of 24 May 2017, this mover can also be used to _set_ the value of a parameter
 
 ##See Also
 
+* [[The Crick params file format|Crick-params-files]]
 * [[MakeBundle mover|MakeBundleMover]]
 * [[BundleGridSampler mover|Mover]]
 * [[BundleReporter filter|BundleReporterFilter]]
