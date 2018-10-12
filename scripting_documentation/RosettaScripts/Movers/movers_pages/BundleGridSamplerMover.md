@@ -1,4 +1,5 @@
 # BundleGridSampler
+Page created by Vikram K. Mulligan (vmulligan@flatironinstitute.org).  Last updated 12 October 2018.
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## BundleGridSampler
 
@@ -75,6 +76,7 @@ In order to sample a range of parameters, keeping a parameter value for two diff
 
 ##See Also
 
+* [[The Crick params file format|Crick-params-files]]
 * [[MakeBundle mover|MakeBundleMover]]
 * [[PerturbBundle mover|PerturbBundleMover]]
 * [[BundleReporter filter|BundleReporterFilter]]
