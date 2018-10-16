@@ -115,7 +115,7 @@ This way, 2 residues will be inserted between the original residue 2 and 3. Alth
 BUILD with CONSTRAINTS
 ----------------------
 
-Remodel uses the constraint setup in the EnzDes protocol, because it separates the definition of residue positions and the constraints to be applied to them. This setup allows blueprint to double as a constraint position definition file and allow all extensions and deletions to be handled elegantly. Note that the build constraint defined here will only be used in the centroid stage.
+Remodel uses the [constraint setup]( https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/match-cstfile-format) in the EnzDes protocol, because it separates the definition of residue positions and the constraints to be applied to them. This setup allows blueprint to double as a constraint position definition file and allow all extensions and deletions to be handled elegantly. Note that the build constraint defined here will only be used in the centroid stage.
 
 To setup build constraints, a constraint definition text file has to be created first, following the enzdes format:** (NOTE that backbone atoms need extra manual declaration of "is\_backbone" otherwise they won't get applied in the build stage. And the atom\_types are Rosetta atom\_types.)**
 
