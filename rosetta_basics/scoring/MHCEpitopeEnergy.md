@@ -17,7 +17,7 @@ Rosetta readily supports epitope deletion by incorporating into its scoring an e
 
 ## Epitope prediction
 
-An epitope predictor takes as input a peptide and returns an evaluation of its relative risk to bind MHC, typically as some form of predicted binding affinity or as a relative rank with respect to a distribution (see e.g., [Wang+2008](https://www.ncbi.nlm.nih.gov/pubmed/18389056)). The predictions are specific to the MHC allele, and while there are thousands of different alleles, due to their degeneracy in peptide binding, a relatively small representative set can be used to capture population diversity (e.g., [Southwood+1998](http://www.ncbi.nlm.nih.gov/pubmed/9531296), [Greenbaum+2011](https://www.ncbi.nlm.nih.gov/pubmed/25862607), [Paul+2015](https://www.ncbi.nlm.nih.gov/pubmed/25862607)).
+An epitope predictor takes as input a peptide and returns an evaluation of its relative risk to bind MHC, typically as some form of predicted binding affinity or as a relative rank with respect to a distribution (see e.g., [Wang+2008](https://www.ncbi.nlm.nih.gov/pubmed/18389056)). The predictions are specific to the MHC allele, and while there are thousands of different alleles, due to their degeneracy in peptide binding, a relatively small representative set can be used to capture population diversity (e.g., [Southwood+1998](http://www.ncbi.nlm.nih.gov/pubmed/9531296), [Greenbaum+2011](https://www.ncbi.nlm.nih.gov/pubmed/25862607), [Paul+2015](https://www.ncbi.nlm.nih.gov/pubmed/25862607)). The core unit of MHC-II binding is 9 amino acids, defined by the MHC-II groove and the pockets in which is accommodates peptide side chains. The overhanging amino acids can also contribute. Some epitope predictors focus on just the core 9mer, while others use longer peptides (15mers) in order to capture overhangs as well as capture the combined effect of multiple binding frames/registers as the core 9mer slides up and down the groove.
 
 Since epitope content is repeatedly evaluated during the course of design (for multiple peptides for each proposed mutation), mhc_epitope must be efficient in its use of epitope prediction. One way to do this is with a position-specific scoring matrix, e.g., the pocket profile method Propred ([Singh+2001](http://www.ncbi.nlm.nih.gov/pubmed/11751237)) which was based on TEPITOPE ([Sturniolo+1999](https://www.ncbi.nlm.nih.gov/pubmed/10385319)). The current implementation includes the [Southwood+1998](http://www.ncbi.nlm.nih.gov/pubmed/9531296) representative set of Propred matrices, downloaded from the [Propred site](http://crdd.osdd.net/raghava/propred/) courtesy of Dr. Raghava. Another way to enable efficient epitope prediction within the design loop, even when an external stand-alone program must be invoked, is to precompute and cache predictions. The current implementation supports this by using a sqlite database of predicted epitopes, which can be precomputed (e.g., using NetMHCII ([Jensen+2018](https://www.ncbi.nlm.nih.gov/pubmed/29315598))) using python scripts described below. There are also plans to incorporate the SVM method previously developed by ([King+2014](https://www.ncbi.nlm.nih.gov/pubmed/24843166)) for Rosetta-based deimmunization.
 
@@ -51,8 +51,8 @@ In its simplest form, you can use mhc_epitope by simply setting the mhc_epitope 
 ## Setting up your .mhc files
 
 Each ```.mhc``` file should begin with a ```method``` line.  The syntax is the keyword ```method```, followed by the prediction method, and then by the input filename.  There are two prediction methods currently supported:
-- ```method matrix``` uses a matrix to score each peptide.  For example, the propred matrices can be used to score any peptide without precomputing epitope scores.  ```method matrix propred8``` uses the propred8 scoring matrix for scoring.
-- ```method external``` uses a pre-computed, SQL database to score each peptide.  The filename should be to the SQL database.  For example, ```method external yfp_netmhcii.db```.
+- ```method matrix``` uses a matrix to score each peptide.  For example, the propred matrices can be used to score any peptide without precomputing epitope scores.  ```method matrix propred8``` uses the propred8 scoring matrices (i.e., the 8 representative alleles mentioned above)
+- ```method external``` uses a pre-computed, sqlite database to score each peptide.  The filename should be that of the sqlite database.  For example, ```method external yfp_netmhcii.db```.
 - Note that additional prediction methods can easily be implemented by writing new MHCEpitopePredictor derived classes.
 
 Subsequent lines in the ```.mhc``` file are optional, and control how scoring is performed.
@@ -61,9 +61,9 @@ Subsequent lines in the ```.mhc``` file are optional, and control how scoring is
 - ```unseen``` applies to external predictors only.  As these predictors use an external database that does not necessarily include all possible peptides, this option sets the behavior for any peptide not found in the database (i.e. that is "unseen").  This option can take different handlers, which decide how to handle unseen peptides.  Currently, only ```penalize``` is implemented.   The default is ```unseen penalize 100```.
  - ```penalize``` adds a specific, constant penalty score for any peptide not found in the database, thereby discouraging Rosetta from designing to these sequences.  The default (```unseen penalize 100```) adds 100 to the score if an unknown peptide is encountered.
 - ```xform``` transforms the score returned by the predictor.  In any case, if the transformed score is less than 0, a score of 0 is used.  It can run in one of three modes:
- - ```raw``` is the default.  This takes the raw score and subtracts an offset from it.  The default is ```xform raw ***```.
- - ```relative+``` is a score relative to the native sequence, in additive mode.  The score is calculated as (raw score - native score + offset).  For example, ```raw relative+ 5``` means that a score that is 5 units worse than native or better will get a score of 0.
- - ```relative*``` is a score relative to the native sequence, in multiplicative mode.  The score is calculated as (raw score - native score * factor).  For example, ```raw relative* 1.2``` means that any score that is 20% higher than native or less will get a score of 0.
+ - ```raw``` is the default.  This takes the raw score and subtracts an offset from it.  The default is ```xform raw 0```.
+ - ```relative+``` is a score relative to the native sequence, in additive mode.  The score is calculated as (raw score - native score + offset).  For example, ```raw relative+ 5``` means that a score that is 5 units worse than native, or better, will get a score of 0.
+ - ```relative*``` is a score relative to the native sequence, in multiplicative mode.  The score is calculated as (raw score - native score * factor).  For example, ```raw relative* 1.2``` means that any score that is at most 20% higher than native will get a score of 0.
  - Note that the "native" sequence is the sequence when the packer first starts, not the sequence as read in.  A protocol that uses multiple movers will see its "native" sequence change throughout the protocol.
 
 ### Examples of ```.mhc``` files
@@ -83,24 +83,27 @@ unseen penalize 100
 
 ## MHCEpitope Constraints
 
-A ```.mhc``` setup file passed to the scorefunction in ```<SCOREFXNS>``` block will be applied to the entire pose.  It is possible that in addition/instead of applying the ```.mhc``` setup to the entire pose, you would want to target specific regions that, for example, are highly immunogenic.  This can be achieve using the [[AddMHCEpitopeConstraintMover]], which accepts a ```.mhc``` setup file as well as an optional residue selector and weighting term.  An arbitrary number of [[AddMHCEpitopeConstraintMover]]s can be applied.
+A ```.mhc``` setup file passed to the scorefunction in ```<SCOREFXNS>``` block will be applied to the entire pose.  It is possible that in addition/instead of applying the ```.mhc``` setup to the entire pose, you would want to target specific regions that, for example, those that are known or predicted to be highly immunogenic.  This can be achieved using the [[AddMHCEpitopeConstraintMover]], which accepts a ```.mhc``` setup file as well as an optional residue selector and weighting term.  An arbitrary number of [[AddMHCEpitopeConstraintMover]]s can be applied.
 
-If you only want to use constraints to de-immunize your protein, you do not need to pass a ```.mhc``` setup file in the ```<SCOREFXNS>``` section.  Note that you _must still turn on ```mhc_epitope``` term in the scorefunction_ for the constraints to function, even if you do not have a globally applied ```.mhc``` file.
+If you only want to use constraints to deimmunize your protein, you do not need to pass a ```.mhc``` setup file in the ```<SCOREFXNS>``` section.  Note that you _must still turn on ```mhc_epitope``` term in the scorefunction_ for the constraints to function, even if you do not have a globally applied ```.mhc``` file.
 
 ## How to generate an external database
 
-To do.
+Supported by scripts in tools/mhc_energy_tools; see documentation there for details.
 
-## Strategies/guidelines for de-immunization in Rosetta
+Note that a database can also be used to provide experimentally known epitopes, for which a high penalty can be imposed.
+
+## Strategies/guidelines for deimmunization in Rosetta
 
 To do (things like what csts to use, looking at hotspots vs. global, etc.)
 
 ## Use with symmetry
-The ```mhc_energy``` score term should be fully compatible with symmetry.  Each subunit will contribute to the ```mhc_energy```.
+The ```mhc_energy``` score term should be fully compatible with symmetry.  Each subunit will contribute to the ```mhc_energy``` (though for efficiency, the calculation is performed only on the asymmetric units and scaled appropriately).
 
 ## Organization of the code
 
 - The scoring term lives in ```core/scoring/mhc_energy/MHCEpitopeEnergy.cc``` and ```core/scoring/mhc_energy/MHCEpitopeEnergy.hh```.
+- The term handles the updating of energies upon proposed mutation, calling an epitope predictor for affected peptides. The base class for epitope prediction is ```core/scoring/mhc_energy/MHCEpitopePredictor.hh```, and current implementations include ```core/scoring/mhc_energy/MHCEpitopePredictorMatrix.cc``` and ```core/scoring/mhc_energy/MHCEpitopePredictorExternal.cc```. The core method for an epitope predictor is ```score()```, which takes a peptide string and returns a score.
 - Like any whole-body energy, the MHCEpitopeEnergy class implements a ```finalize_total_energy()``` function that takes a pose.  This calculates the score.  Internally, it calls ```full_rescore()```, which takes a vector of owning pointers to Residues (which can be called directly during packing).
 - On initialization, the term creates an internal MHCEpitopeEnergySetup object that stores the user-defined settings from the ```.mhc``` file.  This class is defined in ```core/scoring/mhc_energy/MHCEpitopeEnergySetup.cc``` and ```core/scoring/mhc_energy/MHCEpitopeEnergySetup.hh```.  MHCEpitopeEnergySetup objects can also be stored in MHCEpitopeConstraint associated with a Pose.  At scoring or packing time, the MHCEpitopeEnergy constructs a vector of owning pointers to its internal MHCEpitopeEnergySetup objects and to all those stored in the pose, and uses all of these for scoring.
 - A ```.mhc``` file is located in ```/database/scoring/score_functions/mhc_epitope/```.
