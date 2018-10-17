@@ -15,6 +15,8 @@ SeqprofConsensus can also be operated with ProteinInterfaceDesign and RestrictTo
 -   convert\_scores\_to\_probabilities: convert the PSSM scores (e.g., -4, +10) to probabilities in the 0-1 range.
 -   keep\_native: If set to true adds the native aa identity to allowed identities regardless of min\_aa\_probability cut-off.
 
+[[include:to_SeqprofConsensus_type]]
+
 ##See Also
 
 * [[FavorSequenceProfileMover]]: A mover that favors the 
