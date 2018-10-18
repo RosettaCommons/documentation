@@ -363,6 +363,7 @@ Centroid whole structure energies
 ```html
 cen_env_smooth                             fpd smooth centroid env
 cbeta_smooth                               fpd smooth cbeta
+cen_pair_motif_degree                      Determines packing in protein core. Only counts the best packed residue over a region. Whole-strucuture version of cen_pair_motifs
 cen_rot_env
 cen_rot_dun
 env
