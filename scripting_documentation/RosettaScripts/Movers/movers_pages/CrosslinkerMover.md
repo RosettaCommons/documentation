@@ -210,7 +210,11 @@ Note that each type of crosslinker can link different types of side-chains:
 | ------------ | ----------- | ------------------------ |
 | octahedral\_metal | virtual atoms representing a metal (note: no new residue is placed) | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) |
 | tetrahedral\_metal | virtual atoms representing a metal (note: no new residue is placed) | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) |
-| TBMB | 1,3,5-tris(bromomethyl)benzene | L-cysteine (CYS), D-cysteine (DCY) |
+| square\_pyramidal\_metal | virtual atoms representing a metal (note: no new residue is placed ) | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) |
+| square\_planar\_metal | virtual atoms representing a metal (note: no new residue is placed ) | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) |
+| trigonal\_pyramidal\_metal | virtual atoms representing a metal (note: no new residue is placed ) | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) |
+| trigonal\_planar\_metal | virtual atoms representing a metal (note: no new residue is placed ) | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) |
+| TBMB | 1,3,5-tris(bromomethyl)benzene | L-cysteine (CYS), D-cysteine (DCY) | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) |
 | TMA  | trimesic acid                  | L-lysine (LYS), D-lysine (DLY), L-ornithine (ORN), D-ornithine (DOR), L-2,4-diaminobutyric acid (DAB), D-2,4-diaminobutyric acid (DDA), L-2,3-diaminopropanoic acid (DPP), D-2,3-diaminopropanoic acid (DDP) |
 
 ##See also
