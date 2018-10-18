@@ -51,6 +51,7 @@ saxs_score                                 Centroid SAXS asessment
 saxs_cen_score
 saxs_fa_score                              Full-atom SAXS score
 pddf_score                                 Score based on pairwise distance distribution function
+cen_pair_motifs                            Motif score to determine packing in the protein core. Applied to each residue
 ```
 
 [1] [[Calculation of accurate small angle X-ray scattering curves from coarse-grained protein models |http://dx.doi.org/10.1186/1471-2105-11-429]], Stovgaard et al., BMC Bioinformatics. 2010; 11:429.
