@@ -40,3 +40,5 @@ Tips
 - to save particular file(s) to disk: select file(s) then right-click on selection and choose `save-as`
 - to export all Task files into directory use `export all files` button on TaskView page
 - to change run order of Jobs use mouse to click on job-tab and drag it into desired position
+- current Task queue could be seen at https://ui.graylab.jhu.edu/queue (you will need to use your RosettaCloud login/password to access it)
+- you can script Task submission/syncing/cancelation though Python by using `rosetta_cloud.py` script from https://github.com/RosettaCommons/tools.devel/tree/master/rosetta_cloud (see script readme for documentation of how to use it)
