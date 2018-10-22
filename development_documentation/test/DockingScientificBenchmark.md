@@ -1,6 +1,8 @@
 Docking Local Refine Scientific Benchmark
 =========================================
 
+# **THIS PAGE CONTAINS LEGACY INFORMATION ABOUT SCIENTIFIC TESTS BEFORE THEY WERE RE-IMPLEMENTED IN 2018**
+
 Docking is a an approach to predicting how molecules bind together.
 Given the fixed chemical sequences and initial conformations of the
 individual partners as input, rigid body alignment, sidechain and
