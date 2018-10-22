@@ -89,7 +89,66 @@ If you only want to use constraints to deimmunize your protein, you do not need 
 
 ## How to generate an external database
 
-Supported by scripts in tools/mhc_energy_tools; see documentation there for details.
+### Why external databases?
+
+Propred, the epitope prediction method that is supplied with Rosetta, can be used to score any peptide sequence "on-the-fly" quickly enough to be usable with the packer.  You may wonder, in that case, why generating an external database is useful.
+
+While Propred remains a very useful epitope prediction tool, it is nearly 20 years old, and better/more sophisticated epitope prediction methods are now available.  NetMHCII, the other predictor primarily supported by the ```mhc_energy_tools```, requires the use of an external executable to predict epitopes in a peptide.  As such, it is much too slow for "on-the-fly" use with the packer.
+
+In order to compromise between having packer-speed epitope prediction and a state-of-the-art predictor, ```mhc_epitope``` supports the use of an external database that can be pre-computed with relevant peptides for your protein of interest.  Because the peptide length is 15 residues, clearly a subset of all possible residues must be chosen, and only specific regions of the protein can be considered.  We recommend that you use a PSIBLAST-generated PSSM to determine likely substitutions to consider, and generate a database containing all of those peptides using the provided ```db.py``` tool.  Alternatively, hand-picked substitutions can be listed using a CSV format.  In this way, you can target the hotspots in your protein using NetMHCII, and use Propred to score the rest of the protein.
+
+#### The combinatorial problem
+
+Rosetta users will typically be aware of the standard protein sequence combinatorial problem: a N-length protein has 20^N possible sequences.  Because we are dealing with a sliding window situation, however, it gets even worse.  If we have 5 identities we want to sample at one position, that gives us 5 unique sequences.  With a sliding window of 15 residues, however, that means that we will have 5 sequences in each of the 15 windows that include that position.  In other words, 15 x 5 = 75 peptides to cover variability in that one position.
+
+Now, if we add another 5 identities to sample in the adjacent position, you will need to sample 5x5 = 25 possibilities for every peptide window that contains both positions (all but the first and last, so 13), and 5 possibilities for the positions that contain only one or the other.  For our hypothetical situation, that produces 5 + 13 x 25 + 5 = 335 unique peptides.
+
+Even with a pre-computed database, you will still need to be selective in how many positions and how many identities to sample in order to avoid needing to pre-score millions of peptides.
+
+### How to make a PSSM
+
+The easiest way to make a PSSM is using PSIBLAST:
+
+1. Run blastp using the PSI-BLAST algorithm.  You will need to run at least two iterations to get a PSSM.  On the first results page, click on the ```Go``` button next to ```Run PSI-Blast iteration N``` to start the second or higher iteration.
+
+2. Once you have completed your final PSI-BLAST iteration, download the PSSM is ASN format by clicking ```Download```-->```PSSM```.
+
+3. Convert the ASN format PSSM to the matrix form by going to https://www.ncbi.nlm.nih.gov/Class/Structure/pssm/pssm_viewer.cgi, entering the ASN file as the "Scoremat file" in box 1, and clicking ```Matrix view```.  You can download the matrix by clicking ```Download Matrix to File```.
+
+
+Alternatively, you can download PSI-BLAST and the appropriate database and run this locally:
+
+1. Download the blast suite and appropriate database.
+
+2. Run the following command: ```psiblast -db /path/to/blast/database -query my_sequence.fas -num_iterations N -out_ascii_pssm pssm_matrix.txt -out logfile.log```
+
+   -```my_sequence.fas``` is your fasta file
+
+   -```N``` is the number of iterations (>=2)
+
+   -```pssm_matrix``` is your output matrix, and ```logfile.log``` is the psiblast log.
+
+### Generating the database
+
+Once you have a PSSM (or other way of determining what sequences to look at), you need to generate your database using ```db.py```, located in ```tools/mhc_energy_tools/```.  For complete documentation of these tools, see ******.
+
+Note that you will probably want to use this in the "constraint" mode to look at the hotspot regions in your protein, as making a database to cover the entire protein sequence is likely prohibitively expensive.  To cover non-hotspot regions, the Propred matrices are probably sufficient to ensure that the immunogenicity stays low.
+
+Assuming you want to use NetMHCII as your predictor, you will first need to download and install NetMHCII (http://www.cbs.dtu.dk/cgi-bin/nph-sw_request?netMHCII), and set the environment variable ```NMHOME``` to the location of the NetMHCII binary.
+
+Especially when using a PSSM, you need to be very careful to avoid a combinatorial explosion of peptides to process.  Consider the following advice:
+
+-Select only those regions you have previously determined to have strong binding, and keep those regions as small as possible (minimum 15, the peptide length).  Use the ```--positions``` and ```--lock``` parameters to identify only the regions you want to target from the PSSM.
+
+-The default ```--pssm_thresh``` value is 1, which effectively means that any residue that appears more than would be expected at random will be sampled.  Increasing this number to 2 or even 3 will greatly decrease the number of peptides to sample.  The downside, though, is that you shrink your possible design space.  (Typically, you will penalize any sequence not present in the database using the ```unseen penalize``` parameter in the ```.mhc``` file.)
+
+-Of the three sets of alleles to test, the ```paul15``` set is smaller than the ```greenbaum11``` set and may be almost as good.  This decreases the amount of time it takes for each peptide.
+
+As an example, this might be how you want to generate your database, assuming your protein sequence is in a file ```sequence.fas```, your PSSM is in ```pssm.txt```, and you want to look at the sequences 15-31 and 90-110:
+```db.py --fa sequence.fas --positions 15-31,90-110 --pssm pssm.txt --pssm_thresh 2 --peps_out list_of_peptides.txt --netmhcii --allele_set paul15 mydatabase.db```
+
+If you want to also generate a resfile to limit design space in those regions that are not covered by the database, you can use the following (assuming the protein is chain A):
+```db.py --fa sequence.fas --positions 15-31,90-110 --pssm pssm.txt --pssm_thresh 2 --peps_out list_of_peptides.txt --netmhcii --allele_set paul15 --chain A --res_out myresfile.res mydatabase.db```
 
 Note that a database can also be used to provide experimentally known epitopes, for which a high penalty can be imposed.
 
