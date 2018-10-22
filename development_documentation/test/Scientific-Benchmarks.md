@@ -13,9 +13,8 @@ Scientific benchmarks are meant to measure the physical realism of the
 energy function and how well a protocol is at sampling physically
 realistic structures.
 
-# How to set up a scientific benchmark test
----
-## Scientific test directory structure
+## How to set up a scientific benchmark test
+### Scientific test directory structure
 Several tests are located in the `Rosetta/main/tests directory`. The directory structure is the following:
 
 * `Rosetta/main/tests/integration` contains integration tests
@@ -25,8 +24,7 @@ Several tests are located in the `Rosetta/main/tests directory`. The directory s
 * `Rosetta/main/tests/scientific/data` submodule that contains the input data if >5 MB per test
 * `Rosetta/main/tests/scientific/tests/_template_` template directory with all necessary input files
 
-## Where and how to add your test
----
+### Where and how to add your test
 1.	To set up a scientific benchmark, you will need to think about
     * what your input data are
         * you will want to have a diverse benchmark set that is realistic and not just structures that give you the best possible output
@@ -94,7 +92,7 @@ Several tests are located in the `Rosetta/main/tests directory`. The directory s
         * tell Sergey Lyskov (sergey.lyskov@gmail.com) that your test is ready to be continuously run on the scientific branch
 12.	Celebrate! Congrats, you have added a new scientific test and contributed to Rosetta’s greatness. :D
 
-# The science behind your test: Scientific test template
+### The science behind your test: Scientific test template
 Please use this template to describe your scientific test in the `readme.md` as described above. Also check out the `fast_relax` test for ideas of what we are looking for. 
 
 \## AUTHOR AND DATE
