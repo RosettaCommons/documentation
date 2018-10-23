@@ -147,7 +147,7 @@ Especially when using a PSSM, you need to be very careful to avoid a combinatori
 
 -The default ```--pssm_thresh``` value is 1, which effectively means that any residue that appears more than would be expected at random will be sampled.  Increasing this number to 2 or even 3 will greatly decrease the number of peptides to sample.  The downside, though, is that you shrink your possible design space.  (Typically, you will penalize any sequence not present in the database using the ```unseen penalize``` parameter in the ```.mhc``` file.)
 
--Of the three sets of alleles to test, the ```paul15``` set is smaller than the ```greenbaum11``` set and may be almost as good.  This decreases the amount of time it takes for each peptide.
+-Of the three sets of alleles to test, the ```paul15``` set [Paul+2015](https://www.ncbi.nlm.nih.gov/pubmed/25862607)is smaller than the ```greenbaum11``` set [Greenbaum+2011](https://www.ncbi.nlm.nih.gov/pubmed/25862607) and may be almost as good.  This decreases the amount of time it takes for each peptide.
 
 As an example, this might be how you want to generate your database, assuming your protein sequence is in a file ```sequence.fas```, your PSSM is in ```pssm.txt```, and you want to look at the sequences 15-31 and 90-110:
 ```
