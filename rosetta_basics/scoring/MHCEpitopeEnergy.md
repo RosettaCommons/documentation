@@ -5,7 +5,7 @@ mhc_epitope is currently under development, and not available in master.
 If you want to try it out, feel free to checkout branch ```BYachnin/mhc-epitope-new``` or Pull Request #3390 (https://github.com/RosettaCommons/main/pull/3390/).  Note that this documentation is incomplete and subject to change.
 
 Documentation created by Brahm Yachnin (brahm.yachnin@rutgers.edu), Khare laboratory, and Chris Bailey-Kellogg (cbk@cs.dartmouth.edu).  Parts of this documentation are copied/adapted from Vikram K. Mulligan's (vmullig@uw.edu) design-centric guidance documentation.
-Last edited October 17, 2018.
+Last edited October 22, 2018.
 
 [[_TOC_]]
 
@@ -95,7 +95,9 @@ Propred, the epitope prediction method that is supplied with Rosetta, can be use
 
 While Propred remains a very useful epitope prediction tool, it is nearly 20 years old, and better/more sophisticated epitope prediction methods are now available.  NetMHCII, the other predictor primarily supported by the ```mhc_energy_tools```, requires the use of an external executable to predict epitopes in a peptide.  As such, it is much too slow for "on-the-fly" use with the packer.
 
-In order to compromise between having packer-speed epitope prediction and a state-of-the-art predictor, ```mhc_epitope``` supports the use of an external database that can be pre-computed with relevant peptides for your protein of interest.  Because the peptide length is 15 residues, clearly a subset of all possible residues must be chosen, and only specific regions of the protein can be considered.  We recommend that you use a PSIBLAST-generated PSSM to determine likely substitutions to consider, and generate a database containing all of those peptides using the provided ```db.py``` tool.  Alternatively, hand-picked substitutions can be listed using a CSV format.  In this way, you can target the hotspots in your protein using NetMHCII, and use Propred to score the rest of the protein.
+In order to compromise between having packer-speed epitope prediction and a state-of-the-art predictor, ```mhc_epitope``` supports the use of an external database that can be pre-computed with relevant peptides for your protein of interest.  Because the peptide length is 15 residues, clearly a subset of all possible residues must be chosen, and only specific regions of the protein can be considered.  We recommend that you use a PSIBLAST-generated PSSM to determine likely substitutions to consider, and generate a database containing all of those peptides using the provided ```db.py``` tool.  In this way, you can target the hotspots in your protein using NetMHCII, and use Propred to score the rest of the protein.
+
+Alternatively, hand-picked substitutions can be listed using a CSV format, or a PSSM could be derived in another way.  Virtually any sensible method of restricting design space (computational or experimental) could be appropriate, depending on your circumstance.  The goal is to arrive at a subset of residue identities that are unlikely to "break" the protein during de-immunization.  We recommend PSIBLAST as a general solution as it is applicable to any protein target, but it is by no means the only option.
 
 #### The combinatorial problem
 
