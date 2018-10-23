@@ -122,7 +122,10 @@ Alternatively, you can download PSI-BLAST and the appropriate database and run t
 
 1. Download the blast suite and appropriate database.
 
-2. Run the following command: ```psiblast -db /path/to/blast/database -query my_sequence.fas -num_iterations N -out_ascii_pssm pssm_matrix.txt -out logfile.log```
+2. Run the following command:
+```
+psiblast -db /path/to/blast/database -query my_sequence.fas -num_iterations N -out_ascii_pssm pssm_matrix.txt -out logfile.log
+```
 
    -```my_sequence.fas``` is your fasta file
 
@@ -147,10 +150,14 @@ Especially when using a PSSM, you need to be very careful to avoid a combinatori
 -Of the three sets of alleles to test, the ```paul15``` set is smaller than the ```greenbaum11``` set and may be almost as good.  This decreases the amount of time it takes for each peptide.
 
 As an example, this might be how you want to generate your database, assuming your protein sequence is in a file ```sequence.fas```, your PSSM is in ```pssm.txt```, and you want to look at the sequences 15-31 and 90-110:
-```db.py --fa sequence.fas --positions 15-31,90-110 --pssm pssm.txt --pssm_thresh 2 --peps_out list_of_peptides.txt --netmhcii --allele_set paul15 mydatabase.db```
+```
+db.py --fa sequence.fas --positions 15-31,90-110 --pssm pssm.txt --pssm_thresh 2 --peps_out list_of_peptides.txt --netmhcii --allele_set paul15 mydatabase.db
+```
 
 If you want to also generate a resfile to limit design space in those regions that are not covered by the database, you can use the following (assuming the protein is chain A):
-```db.py --fa sequence.fas --positions 15-31,90-110 --pssm pssm.txt --pssm_thresh 2 --peps_out list_of_peptides.txt --netmhcii --allele_set paul15 --chain A --res_out myresfile.res mydatabase.db```
+```
+db.py --fa sequence.fas --positions 15-31,90-110 --pssm pssm.txt --pssm_thresh 2 --peps_out list_of_peptides.txt --netmhcii --allele_set paul15 --chain A --res_out myresfile.res mydatabase.db
+```
 
 Note that a database can also be used to provide experimentally known epitopes, for which a high penalty can be imposed.
 
