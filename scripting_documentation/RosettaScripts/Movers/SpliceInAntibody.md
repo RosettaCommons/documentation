@@ -39,32 +39,33 @@ The torsion database is generated using the [SpliceOutAntibody](https://www.rose
 -   **ignore_chain_break**: If true, if chain-break is found do not fail trajectory. Used for debugging. 
 -   **debug**: If true, make output more verbose and dump pdbs.
 -   **min_seg**: Apply minimization on backbone and side-chains of the new segment conformation.
--   **segment**: XRW TO DO
--   **delta_lengths**: XRW TO DO
--   **dbase_iterate**: XRW TO DO
--   **database_entry**: XRW TO DO
--   **database_pdb_entry**: XRW TO DO
+-   **segment**: Which segment type are we changing (L1_L2,H1_H2,L3, or H3)
+-   **delta_lengths**: A list of integers separated by commas, specifying the length deltas between the current segment's lengths and those sampled from the database. E.g. if delta_length=-1,1 then only conformations that are longer or shorter by one residue compared to the original segment will be sampled.
+-   **dbase_iterate**: Iterate through the conformation database. Used for antibody modeling. 
+-   **database_entry**: Specify entry number of conformation to sample from conformation database.
+-   **database_pdb_entry**:  Specify entry PDB code of conformation to sample from conformation database.
 -   **scorefxn**: Name of score function to use
--   **template_file**: XRW TO DO
+-   **template_file**: The pdb file used to construct the conformation database.
 -   **task_operations**: A comma separated list of TaskOperations to use.
--   **torsion_database**: XRW TO DO
--   **design_shell**: XRW TO DO
--   **repack_shell**: XRW TO DO
--   **rtmin**: XRW TO DO
--   **splice_filter**: XRW TO DO
--   **restrict_to_repacking_chain2**: XRW TO DO
--   **use_sequence_profile**: XRW TO DO
+-   **torsion_database**: path to conformation database file. 
+-   **design_shell**: design shell around sampled conformation.
+-   **repack_shell**: repack shell around sampled conformation.
+-   **rtmin**: bool. Perform rtmin on new segment?
+-   **restrict_to_repacking_chain2**: bool. Apply design to non antibody chain?
+-   **use_sequence_profile**: use sequence constraints from conformation specific pssms.
 
 ---
 
 ##Example
-Currently, this mover is only accessible via RosettaScripts. The SpliceOutAntibody definition below will generate a new **L1_L2 conformation** and apply it to the pose antibody. The new segment's conformation will be stored in the <name>_L1_L2.db file. The CCD and tail movers need to be defined in the XML as well.
+Currently, this mover is only accessible via RosettaScripts. The SpliceInAntibody definition below will apply a new **L1_L2 conformation** to the pose antibody. 
 
 
 An example RosettaScripts tag is below:
 
 ```xml
-	<SpliceOutAntibody name="spliceout" source_pdb="%%source%%" torsion_database="db/%%name%%_L1_L2.db" scorefxn="talaris_cal" rms_cutoff="0.3" rms_cutoff_loop="0.3" splice_filter="chainbreak_val" template_file="%%start_pdb%%" task_operations="init,seqprofcons" debug="0" mover="ccd" tail_mover="tail" segment="L1_L2" use_sequence_profile="1" superimposed="1" > 
-		</SpliceOutAntibody>
+	<SpliceInAntibody name="splice" torsion_database="L1_L2.db"  scorefxn="ref_15" repack_shell="8" design_shell="6" template_file="template.pdb" task_operations="init" debug="0"  min_seg="1" database_entry="5" segment="L1_L2"> 
+		</SpliceInAntibody>
+
+
 
 ```
