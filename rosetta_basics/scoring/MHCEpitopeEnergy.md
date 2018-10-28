@@ -5,7 +5,7 @@ mhc_epitope is currently under development, and not available in master.
 If you want to try it out, feel free to checkout branch ```BYachnin/mhc-epitope-new``` or Pull Request #3390 (https://github.com/RosettaCommons/main/pull/3390/).  Note that this documentation is incomplete and subject to change.
 
 Documentation created by Brahm Yachnin (brahm.yachnin@rutgers.edu), Khare laboratory, and Chris Bailey-Kellogg (cbk@cs.dartmouth.edu).  Parts of this documentation are copied/adapted from Vikram K. Mulligan's (vmullig@uw.edu) design-centric guidance documentation.
-Last edited October 22, 2018.
+Last edited October 28, 2018.
 
 [[_TOC_]]
 
@@ -95,7 +95,7 @@ Propred ([Singh+2001](http://www.ncbi.nlm.nih.gov/pubmed/11751237)) is a pocket 
 
 While Propred remains a very useful epitope prediction tool, and was one of the better predictors in a major benchmark ([Wang+2008](https://www.ncbi.nlm.nih.gov/pubmed/18389056)), it is nearly 20 years old, and more sophisticated epitope prediction methods are now available that are trained on the large amount of peptide-MHC binding data available in the [IEDB](http://www.iedb.org). NetMHCII ([Jensen+2018](https://www.ncbi.nlm.nih.gov/pubmed/29315598)), the other predictor primarily supported by the ```mhc_energy_tools```, requires the use of an external executable to predict epitopes in a peptide. As such, it is much too slow for "on-the-fly" use with the packer.
 
-In order to compromise between having packer-speed epitope prediction and a state-of-the-art predictor, ```mhc_epitope``` supports the use of an external database that can be pre-computed with relevant peptides for your protein of interest.  Because the peptide length is 15 residues, clearly a subset of all possible residues must be chosen, and only specific regions of the protein can be considered.  We recommend that you use a PSIBLAST-generated PSSM to determine likely substitutions to consider, and generate a database containing all of those peptides using the provided ```db.py``` tool.  In this way, you can target the hotspots in your protein using NetMHCII, and use Propred to score the rest of the protein.
+In order to compromise between having packer-speed epitope prediction and a state-of-the-art predictor, ```mhc_epitope``` supports the use of an external database that can be pre-computed with relevant peptides for your protein of interest.  Because the peptide length is 15 residues, clearly a subset of all possible residues must be chosen, and only specific regions of the protein can be considered.  We recommend that you use a PSIBLAST-generated PSSM to determine likely substitutions to consider, and generate a database containing all of those peptides using the provided ```mhc_gen_db.py``` tool.  In this way, you can target the hotspots in your protein using NetMHCII, and use Propred to score the rest of the protein.
 
 Alternatively, hand-picked substitutions can be listed using a CSV format, or a PSSM could be derived in another way.  Virtually any sensible method of restricting design space (computational or experimental) could be appropriate, depending on your circumstances. The goal is to arrive at a subset of residue identities that are unlikely to "break" the protein during de-immunization. We recommend PSIBLAST as a general solution as it is applicable to any protein target, but it is by no means the only option.
 
@@ -135,7 +135,7 @@ psiblast -db /path/to/blast/database -query my_sequence.fas -num_iterations N -o
 
 ### Generating the database
 
-Once you have a PSSM (or other way of determining what sequences to look at), you need to generate your database using ```db.py```, located in ```tools/mhc_energy_tools/```.  For complete documentation of these tools, see ******.
+Once you have a PSSM (or other way of determining what sequences to look at), you need to generate your database using ```mhc_gen_db.py```, located in ```tools/mhc_energy_tools/```.  For complete documentation of these tools, see ******.
 
 Note that you will probably want to use this in the "constraint" mode to look at the hotspot regions in your protein, as making a database to cover the entire protein sequence is likely prohibitively expensive.  To cover non-hotspot regions, the Propred matrices are probably sufficient to ensure that the immunogenicity stays low.
 
@@ -151,12 +151,12 @@ Especially when using a PSSM, you need to be very careful to avoid a combinatori
 
 As an example, this might be how you want to generate your database, assuming your protein sequence is in a file ```sequence.fas```, your PSSM is in ```pssm.txt```, and you want to look at the sequences 15-31 and 90-110:
 ```
-db.py --fa sequence.fas --positions 15-31,90-110 --pssm pssm.txt --pssm_thresh 2 --peps_out list_of_peptides.txt --netmhcii --allele_set paul15 mydatabase.db
+mhc_gen_db.py --fa sequence.fas --positions 15-31,90-110 --pssm pssm.txt --pssm_thresh 2 --peps_out list_of_peptides.txt --netmhcii --allele_set paul15 mydatabase.db
 ```
 
 If you want to also generate a resfile to limit design space in those regions that are not covered by the database, you can use the following (assuming the protein is chain A):
 ```
-db.py --fa sequence.fas --positions 15-31,90-110 --pssm pssm.txt --pssm_thresh 2 --peps_out list_of_peptides.txt --netmhcii --allele_set paul15 --chain A --res_out myresfile.res mydatabase.db
+mhc_gen_db.py --fa sequence.fas --positions 15-31,90-110 --pssm pssm.txt --pssm_thresh 2 --peps_out list_of_peptides.txt --netmhcii --allele_set paul15 --chain A --res_out myresfile.res mydatabase.db
 ```
 
 Note that a database can also be used to provide experimentally known epitopes, for which a high penalty can be imposed.
