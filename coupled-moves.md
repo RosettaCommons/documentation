@@ -486,8 +486,8 @@ boltzmann_kt | Real | 0.6 | value of kT for Boltzmann weighted moves during side
 mm_bend_weight | Real | 1.0 | weight of mm_bend bond angle energy term
 bias_sampling | Boolean | true | if true, bias rotamer selection based on energy
 bump_check | Boolean | true | if true, use bump check in generating rotamers 
-repack_neighborhood | Boolean | false | After the backbone move and rotamer move, repack sidechains within 5A of the design residue. Default false for legacy behavior. Does not seem to make an impact on benchmark results, but adds significant time.
-include_clashing_positions | Boolean | true | Default true for legacy behavior (legacy = Ollikainen 2015). True = use ClashBasedShellSelector to define positions that can clash with designable positions from resfile, and sample rotamers (without changing sequence) for these clashing positions even if set as NATRO in resfile. False = Perform Coupled Moves strictly as defined in resfile.
+repack_neighborhood | Boolean | false | After the backbone move and rotamer move, repack sidechains within 5A of the design residue. Default false for behavior from Ollikainen 2015. Does not seem to make an impact on benchmark results, but adds significant time.
+exclude_nonclashing_positions | Boolean | true | True = For each packable position, ClashBasedShellSelector iterates through rotamers to determine if the residue could clash with any designable positions. If a clash isn't possible, the packable position is changed from NATAA to NATRO. False = Perform side chain moves strictly as defined in resfile. Default true reproduces behavior from Ollikainen 2015.
 fix_backbone | Boolean | false | Set to 'true' to prevent backbone moves. For debugging
 uniform_backrub | Boolean | false | select backrub rotation angle from uniform distribution. Recommend default
 
