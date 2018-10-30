@@ -52,7 +52,7 @@ The sidechain move is performed by BoltzmannRotamerMover:
 
 ----------------
 
-# [4] Analysis <-- v. important to read
+# [4] Analysis (v. important to read)
 
 During its design trajectory, Coupled Moves samples a variety of sequences. Each unique sequence will be saved and printed to a fasta file, my_pdb.fasta. When your jobs are complete, combine the fasta files for all nstruct. Because analysis is based on unique sequences sampled rather than final pdb, nstruct can be quite low (20-60). 
 
