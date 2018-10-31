@@ -9,7 +9,7 @@ Last updated: April 2018
 The Rosetta-Vienna ΔΔG method is used to calculate relative binding affinities for RNA-protein complexes.  
 
 ##Code and demo
-All code is located in `src/apps/public/rnp_ddg/`. A demo of the Rosetta-Vienna ΔΔG method is available in `demos/public/rnp_ddg/`.  
+All code is located in `src/apps/public/rnp_ddg/`. A demo of the Rosetta-Vienna ΔΔG method is available in `demos/public/rnp_ddg/`. Rosetta-Vienna ΔΔG is also available as a [ROSIE webserver](http://rosie.graylab.jhu.edu/rnp_ddg).  
 
 ## The Rosetta-Vienna ΔΔG workflow
 1. Relax a starting structure
