@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-10-17
+Generated: 2018-11-01
 
 _Note that some application specific options may not be present in this list._
 
@@ -1644,13 +1644,13 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-linkage_conformer_data_file</b> \<String\></dt>
 <dd>Specify the file where glycosidic linkage conformer torsion angle statistical data is stored.  The default directory is database/chemical/carbohydrates/linkage_conformers/but any path can be provided.  The default filename is default.table<br/>Default: "default.table"<br/></dd>
 </dl>
-+ <h3>-carbohydrates:glycan_relax</h3>
++ <h3>-carbohydrates:glycan_sampler</h3>
 <dl>
-<dt><b>-glycan_relax</b> \<Boolean\></dt>
-<dd>glycan_relax option group<br/></dd>
-<dt><b>-glycan_relax_test</b> \<Boolean\></dt>
+<dt><b>-glycan_sampler</b> \<Boolean\></dt>
+<dd>glycan_sampler option group<br/></dd>
+<dt><b>-glycan_sampler_test</b> \<Boolean\></dt>
 <dd>Indicates to go into testing mode for Glycan Relax.  Will try all torsions in a given PDB in a linear fashion<br/>Default: false<br/></dd>
-<dt><b>-glycan_relax_rounds</b> \<Integer\></dt>
+<dt><b>-glycan_sampler_rounds</b> \<Integer\></dt>
 <dd>Number of rounds to use for Glycan Relax. Total rounds is this # times number of glycan residues in movemap<br/>Default: 25<br/></dd>
 <dt><b>-min_rings</b> \<Boolean\></dt>
 <dd>Minimize Carbohydrate Rings during minimization?  Otherwise, we keep them at their input values (which is recommended).<br/>Default: false<br/></dd>
@@ -1658,11 +1658,11 @@ _Note that some application specific options may not be present in this list._
 <dd>Pack Glycan OH groups during Glycan Relax. Currently time consuming<br/>Default: false<br/></dd>
 <dt><b>-final_min_glycans</b> \<Boolean\></dt>
 <dd>Do a final minimization of glycans after glycan relax protocol?<br/>Default: true<br/></dd>
-<dt><b>-glycan_relax_movie</b> \<Boolean\></dt>
+<dt><b>-glycan_sampler_movie</b> \<Boolean\></dt>
 <dd>Make a movie of accepts and trials (send to pymol)<br/>Default: false<br/></dd>
-<dt><b>-glycan_relax_kt</b> \<Real\></dt>
+<dt><b>-glycan_sampler_kt</b> \<Real\></dt>
 <dd>KT for GlycanRelaxMover<br/>Default: 2.0<br/></dd>
-<dt><b>-glycan_relax_refine</b> \<Boolean\></dt>
+<dt><b>-glycan_sampler_refine</b> \<Boolean\></dt>
 <dd>Set the protocol to not start from a random conformation, and instead refine the structure.<br/>Default: false<br/></dd>
 <dt><b>-cartmin</b> \<Boolean\></dt>
 <dd>Use Cartesian-space minimization instead of dihedral<br/>Default: false<br/></dd>
