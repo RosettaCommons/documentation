@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-11-01
+Generated: 2018-11-04
 
 _Note that some application specific options may not be present in this list._
 
@@ -8283,6 +8283,8 @@ _Note that some application specific options may not be present in this list._
 <dd>definitely virtualize these residues (by seqpos)<br/>Default: []<br/></dd>
 <dt><b>-force_moving_res_for_erraser</b> \<Boolean\></dt>
 <dd>For ERRASER resample moves, ENSURE that the appropriate residue is moving<br/>Default: false<br/></dd>
+<dt><b>-boltzmann_choice_post_enumerated_minimize</b> \<Boolean\></dt>
+<dd>When enumerating and generating a big pose list, make a Boltzmann-weighted choice rather than just getting the lowest energy pose.<br/>Default: false<br/></dd>
 </dl>
 + <h3>-stepwise:monte_carlo</h3>
 <dl>
