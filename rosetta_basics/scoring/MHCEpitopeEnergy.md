@@ -135,7 +135,7 @@ psiblast -db /path/to/blast/database -query my_sequence.fas -num_iterations N -o
 
 ### Generating the database
 
-Once you have a PSSM (or other way of determining what sequences to look at), you need to generate your database using ```mhc_gen_db.py```, located in ```tools/mhc_energy_tools/```.  For complete documentation of these tools, see ******.
+Once you have a PSSM (or other way of determining what sequences to look at), you need to generate your database using ```mhc_gen_db.py```, located in ```tools/mhc_energy_tools/```.  For complete documentation of these tools, see [[the tools documentation|mhc-energy-tools]].
 
 Note that you will probably want to use this in the "constraint" mode to look at the hotspot regions in your protein, as making a database to cover the entire protein sequence is likely prohibitively expensive.  To cover non-hotspot regions, the Propred matrices are probably sufficient to ensure that the immunogenicity stays low.
 
