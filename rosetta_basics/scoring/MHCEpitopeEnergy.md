@@ -5,7 +5,7 @@ mhc_epitope is currently under development, and not available in master.
 If you want to try it out, feel free to checkout branch ```BYachnin/mhc-epitope-new``` or Pull Request #3390 (https://github.com/RosettaCommons/main/pull/3390/).  Note that this documentation is incomplete and subject to change.
 
 Documentation created by Brahm Yachnin (brahm.yachnin@rutgers.edu), Khare laboratory, and Chris Bailey-Kellogg (cbk@cs.dartmouth.edu).  Parts of this documentation are copied/adapted from Vikram K. Mulligan's (vmullig@uw.edu) design-centric guidance documentation.
-Last edited October 28, 2018.
+Last edited November 6, 2018.
 
 [[_TOC_]]
 
@@ -161,9 +161,20 @@ mhc_gen_db.py --fa sequence.fas --positions 15-31,90-110 --pssm pssm.txt --pssm_
 
 Note that a database can also be used to provide experimentally known epitopes, for which a high penalty can be imposed.
 
+### Limitations of databases
+
+- The external databases are significantly slower than matrix-based predictors, as the database must be accessed from disk continuously during packing.
+- If you have multiple processes accessing the same database, this will create an additional slowdown, as the database will be accessed by multiple processes continuously during packing.  If storage constraints do not pose an issue, consider temporarily making a copy of the database for each process.
+- The database predictor is currently disabled in multithreading situations.  If you would like to use an external database in a multi-threaded Rosetta run, please contact Brahm (brahm.yachnin@rutgers.edu) and/or Chris (cbk@cs.dartmouth.edu), as we would be interested in figuring out how to make this possible.  (You can attempt this on your own by removing the `utility_exit_with_message()` line in `core/scoring/mhc_epitope_energy/MHCEpitopeEnergySetup.cc` (~line 229), but we have not tested this.)
+
+Note that we are considering implementing an option to load the entire database into RAM to avoid some of these issues.  This would only be reasonable with sufficiently small databases.
+
 ## Strategies/guidelines for deimmunization in Rosetta
 
-To do (things like what csts to use, looking at hotspots vs. global, etc.)
+Work is ongoing to benchmark the scoreterm to assess reasonable configuration options for practical use.  We can make a few suggestions:
+- You almost certainly should use [[FavorNativeResidue|FavorNativeResidueMover]] or similar constraints to avoid spurious mutations.
+- A common issue with de-immunization is the strong tendency to introduce acidic residues.  The total charge of the protein should be monitored.  You should consider using [[NetChargeEnergy]] as a means to prevent large swings in total net charge.
+- The most effective way of de-immunizing proteins is to target the strongest hotspots (i.e. hits on the largest number of alleles) while leaving regions that only hit one or two alleles alone.  This can be accomplished either by using an xform offset, or by using constraints.
 
 ## Use with symmetry
 The ```mhc_energy``` score term should be fully compatible with symmetry.  Each subunit will contribute to the ```mhc_energy``` (though for efficiency, the calculation is performed only on the asymmetric units and scaled appropriately).
