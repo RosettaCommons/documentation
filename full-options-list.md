@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-11-06
+Generated: 2018-11-07
 
 _Note that some application specific options may not be present in this list._
 
@@ -4004,9 +4004,9 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-backbone_mover</b> \<String\></dt>
 <dd>Which backbone mover to use. Current options are backrub (default) or kic. Backrub does not require additional flags, and uses ShortBackrubMover which is hardcoded for 3-residue segments (or 4-residue if it hits a Proline). Kic optionally takes extra flag -kic_perturber.<br/>Default: "backrub"<br/></dd>
 <dt><b>-repack_neighborhood</b> \<Boolean\></dt>
-<dd>After the backbone move and rotamer move, repack sidechains within 5A of the design residue. Default false for legacy behavior.<br/>Default: false<br/></dd>
-<dt><b>-legacy_task</b> \<Boolean\></dt>
-<dd>Default true for legacy behavior (Ollikainen 2015). True = use Clash Based Shell Selector to define repack residues around design residues from resfile, and perform Coupled Moves on these repack/design residues. False = Perform Coupled Moves on design/repack residues as defined in resfile. <br/>Default: true<br/></dd>
+<dd>After the backbone move and rotamer move, repack sidechains within 5A of the design residue. Default false for legacy behavior (legacy = Ollikainen 2015).<br/>Default: false<br/></dd>
+<dt><b>-exclude_nonclashing_positions</b> \<Boolean\></dt>
+<dd>True = For each packable position, ClashBasedShellSelector iterates through rotamers to determine if the residue could clash with any designable positions. If a clash isnt possible, the packable position is changed from NATAA to NATRO. False = Perform side chain moves strictly as defined in resfile. Default true reproduces behavior from Ollikainen 2015.<br/>Default: true<br/></dd>
 </dl>
 + <h2>-cp</h2>
 <dl>
