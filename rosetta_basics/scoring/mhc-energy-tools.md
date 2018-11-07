@@ -41,8 +41,8 @@ The Predictors determine how to score the sequences.
 ### Scoring Details
 
 - `--allele_set SET` tells the Predictor to use `SET` as the set of alleles.
- - With Propred, only `test` is allowed, which scores only the DRB1_0101 allele.  If not specified, the default is to use all alleles specified in the matrix.
- - With NetMHCII, there are three options: `test` will score only the DRB1_0101 allele, and `greenbaum11` (27 alleles) and `paul15` (7 alleles) will use published lists of alleles.  `test` is the default.  More alleles takes longer (not a huge issue with a single protein sequence), but may be more accurate.
+ - With Propred, only `all` or `test` are allowed.  If using `test`, only the DRB1_0101 allele will be used.  The default (`--allele_set all`) is to use all alleles specified in the matrix.
+ - With NetMHCII, there are four options: `test` will score only the DRB1_0101 allele, and `greenbaum11` (27 alleles) and `paul15` (7 alleles) will use published lists of alleles.  `all` will use all 61 available alleles.  `test` is the default.  More alleles takes longer (not a huge issue with a single protein sequence), but may be more accurate.
 - `--alleles ALLELE_LIST` allows you to provide a custom list of alleles to use.  Not used by default.
 - `--epi_thresh EPI_THRESH` sets the threshold of what constitutes a "hit."  By default, this is 5.00, which means that the top 5% of binders are considered hits.
 - `--noncanon {error,warn,silent}` allows you to specify the behaviour if a residue other than the 20 canonical AAs is encountered (for example, ligands, non-canonical amino acids, etc.).  Options are `error` (script will exit), `warn` (a warning will be printed), or `silent`.  HOW ARE NCAAS DEALT WITH HERE?  AS CHAIN BREAKS?  WHAT IS THE DEFAULT BEHAVIOUR?
@@ -65,6 +65,78 @@ To do
 ## Using NetMHCII
 
 To do (installation and setting environment)
+
+## List of alleles
+
+The following is the complete list of alleles supported for each Predictor.  In brackets, which allele_lists it occurs in is indicated (test, paul15, greenbaum11).
+
+### Propred
+
+
+
+### NetMHCII
+
+- DRB1_0101 (test, greenbaum11)
+- DRB1_0103 (
+- DRB1_0301 (paul15, greenbaum11)
+- DRB1_0401 (greenbaum11)
+- DRB1_0402
+- DRB1_0403
+- DRB1_0404
+- DRB1_0405 (greenbaum11)
+- DRB1_0701 (paul15, greenbaum11)
+- DRB1_0801
+- DRB1_0802 (greenbaum11)
+- DRB1_0901 (greenbaum11)
+- DRB1_1001
+- DRB1_1101 (greenbaum11)
+- DRB1_1201 (greenbaum11)
+- DRB1_1301
+- DRB1_1302 (greenbaum11)
+- DRB1_1501 (paul15, greenbaum11)
+- DRB1_1602
+- DRB3_0101 (paul15, greenbaum11)
+- DRB3_0202 (paul15, greenbaum11)
+- DRB3_0301
+- DRB4_0101 (paul15, greenbaum11)
+- DRB4_0103
+- DRB5_0101 (paul15, greenbaum11)
+- H-2-IAb
+- H-2-IAd
+- H-2-IAk
+- H-2-IAs
+- H-2-IAu
+- H-2-IEd
+- H-2-IEk
+- HLA-DPA10103-DPB10201 (greenbaum11)
+- HLA-DPA10103-DPB10301
+- HLA-DPA10103-DPB10401 (greenbaum11)
+- HLA-DPA10103-PB10402
+- HLA-DPA10103-DPB10601
+- HLA-DPA10201-DPB10101 (greenbaum11)
+- HLA-DPA10201-DPB10501 (greenbaum11)
+- HLA-DPA10201-DPB11401 (greenbaum11)
+- HLA-DPA10301-DPB10402 (greenbaum11)
+- HLA-DQA10101-DQB10501 (greenbaum11)
+- HLA-DQA10102-DQB10501
+- HLA-DQA10102-DQB10502
+- HLA-DQA10102-DQB10602 (greenbaum11)
+- HLA-DQA10103-DQB10603
+- HLA-DQA10104-DQB10503
+- HLA-DQA10201-DQB10202
+- HLA-DQA10201-DQB10301
+- HLA-DQA10201-DQB10303
+- HLA-DQA10201-DQB10402
+- HLA-DQA10301-DQB10301
+- HLA-DQA10301-DQB10302 (greenbaum11)
+- HLA-DQA10303-DQB10402
+- HLA-DQA10401-DQB10402 (greenbaum11)
+- HLA-DQA10501-DQB10201 (greenbaum11)
+- HLA-DQA10501-DQB10301 (greenbaum11)
+- HLA-DQA10501-DQB10302
+- HLA-DQA10501-DQB10303
+- HLA-DQA10501-DQB10402
+- HLA-DQA10601-DQB10402
 
 ##See Also
 
