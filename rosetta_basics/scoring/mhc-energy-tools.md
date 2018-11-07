@@ -121,7 +121,7 @@ The following is the complete list of alleles supported for each Predictor.  In 
 - HLA-DPA10103-DPB10201 (greenbaum11)
 - HLA-DPA10103-DPB10301
 - HLA-DPA10103-DPB10401 (greenbaum11)
-- HLA-DPA10103-PB10402
+- HLA-DPA10103-DPB10402
 - HLA-DPA10103-DPB10601
 - HLA-DPA10201-DPB10101 (greenbaum11)
 - HLA-DPA10201-DPB10501 (greenbaum11)
