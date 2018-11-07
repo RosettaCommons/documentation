@@ -68,11 +68,21 @@ To do (installation and setting environment)
 
 ## List of alleles
 
-The following is the complete list of alleles supported for each Predictor.  In brackets, which allele_lists it occurs in is indicated (test, paul15, greenbaum11).
+The following is the complete list of alleles supported for each Predictor.  In brackets, which allele_sets it occurs in is indicated (test, paul15, greenbaum11).
+
+- The paul15 set is taken from [Paul+2015](https://www.ncbi.nlm.nih.gov/pubmed/25862607).
+- The greenbaum11 set is taken from [Greenbaum+2011](https://www.ncbi.nlm.nih.gov/pubmed/21305276).
 
 ### Propred
 
-
+- DRB1_0101 (test)
+- DRB1_0301
+- DRB1_0401
+- DRB1_0701
+- DRB1_0801
+- DRB1_1101
+- DRB1_1301
+- DRB1_1501
 
 ### NetMHCII
 
