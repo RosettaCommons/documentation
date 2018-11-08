@@ -3,6 +3,10 @@ Scientific Benchmarks
 
 # **THIS PAGE CONTAINS LEGACY INFORMATION ABOUT SCIENTIFIC TESTS BEFORE THEY WERE RE-IMPLEMENTED IN 2018**
 
+See [[Scientific Benchmarks]] for information about the current set of scientific benchmarks
+
+----
+
 Scientific Benchmarks are tests that compare Rosetta generated structure
 predictions with experimental observations. Assessing the accuracy of
 Rosetta predictions will
