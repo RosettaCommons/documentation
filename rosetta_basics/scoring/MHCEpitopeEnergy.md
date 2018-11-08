@@ -189,9 +189,10 @@ The ```mhc_energy``` score term should be fully compatible with symmetry.  Each 
 
 ##See Also
 
+* [[AddMHCEpitopeConstraintMover]]
+* [[mhc-energy-tools]]
 * [[Scoring explained]]
 * [[Score functions and score types |score-types]]
 * [[Adding a new energy method to Rosetta|new-energy-method]]
 * [[Design-centric guidance terms|design-guidance-terms]]
-* [[AddMHCEpitopeConstraintMover]]
 <!--- END_INTERNAL -->
