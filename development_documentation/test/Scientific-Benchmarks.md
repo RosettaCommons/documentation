@@ -103,7 +103,7 @@ Frequently, a scientific test will aim to evaluate the quality of a folding funn
 
 To this end, the PNear metric was developed.  PNear is an estimate of the Boltzmann-weighted probability of finding a system in or near its native state, with "native-ness" being defined fuzzily rather than with a hard cutoff.  The expression for PNear is:
 
-![alt text](structure_prediction/PNear_expression.gif "Expression for PNear")
+![PNear = Sum_i(exp(-rmsd^2/lambda^2)*exp(Ei/kbt) / Sum_i(exp(Ei/kbt)) ](structure_prediction/PNear_expression.gif "Expression for PNear")
 
 Intuitively, the denominator is the partition function, while the numerator is the sum of Boltzmann-weighted points multiplied by a weighting factor for "native-ness" that falls off as a Gaussian with RMSD.  The expression takes two parameters: lambda (λ), which determines the breadth of the Gaussian for "native-ness" (with higher values allowing a more permissive notion what is close to native), and kB\*T, which determines how high energies translate into probabilities (with higher values allowing states with small energy gaps to be considered to be closer in probability).  Recommended values are lambda = 2 to 4, kB\*T = 1.0 (for ref2015) or 0.63 (for talaris2013).
 
