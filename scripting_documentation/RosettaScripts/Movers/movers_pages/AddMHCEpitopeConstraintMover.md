@@ -16,6 +16,7 @@ Last edited September 27, 2018.
 ##See Also
 
 * [[MHCEpitopeEnergy]]
+* [[mhc-energy-tools]]
 * [[ClearCompositionConstraintsMover]]
 * [[Design-centric guidance terms|design-guidance-terms]]
 <!--- END_INTERNAL -->
