@@ -32,7 +32,7 @@ Several tests are located in the `Rosetta/main/tests directory`. The directory s
         * you will want to have a diverse benchmark set that is realistic and not just structures that give you the best possible output
     * the command line you are running
         * make sure you are running either a baseline protocol (for instance de novo structure prediction, ddg_monomer, etc) that has been run by many people for many years or a state-of-the-art protocol: since these tests are computationally expensive, we need to ensure what we are testing makes sense
-    * what the output data looks like
+    * what the output data look like
         * in many cases we analyze score files but you might want to look at something different
     * what your quality measures are
         * are the quality measures you are using reasonable? Are there better measures in existence? 
@@ -43,7 +43,7 @@ Several tests are located in the `Rosetta/main/tests directory`. The directory s
         * the runtime depends on the number of structures you run the benchmark on, the number of output models, and the protocol runtime per output model
 2.	`cd Rosetta/main/tests/scientific`
 3.	run `git submodule update --init —recursive` to get the submodule containing the input data. You will now see a ` Rosetta/main/tests/scientific/data` directory
-4.	if your input data is larger than 5 MB, create a directory in the data submodule directory where you drop your input files, otherwise you can keep them in the tests directory (see below)
+4.	if your input data are larger than 5 MB, create a directory in the data submodule directory where you drop your input files, otherwise you can keep them in the tests directory (see below)
     * commit your changes in that submodule
     * move out of the data directory (`cd ..`) and commit your changes again
     * [during that process: if you use zsh or check for `git status` you will notice when git complains about uncommitted files]
