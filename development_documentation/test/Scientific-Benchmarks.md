@@ -105,7 +105,7 @@ To this end, the PNear metric was developed.  PNear is an estimate of the Boltzm
 
 ![alt text](structure_prediction/PNear_expression.gif "Expression for PNear")
 
-Intuitively, the denominator is the partition function, while the numerator is the sum of Boltzmann-weighted points multiplied by a weighting factor for "native-ness" that falls off as a Gaussian with RMSD.  The expression takes two parameters: lambda (λ), which determines the breadth of the Gaussian for "native-ness" (with higher values allowing a more permissive notion what is close to native), and kB*T, which determines how high energies translate into probabilities (with higher values allowing states with small energy gaps to be considered to be closer in probability).  Recommended values are lambda = 2 to 4, kB*T = 1.0 (for ref2015) or 0.63 (for talaris2013).
+Intuitively, the denominator is the partition function, while the numerator is the sum of Boltzmann-weighted points multiplied by a weighting factor for "native-ness" that falls off as a Gaussian with RMSD.  The expression takes two parameters: lambda (λ), which determines the breadth of the Gaussian for "native-ness" (with higher values allowing a more permissive notion what is close to native), and kB\*T, which determines how high energies translate into probabilities (with higher values allowing states with small energy gaps to be considered to be closer in probability).  Recommended values are lambda = 2 to 4, kB\*T = 1.0 (for ref2015) or 0.63 (for talaris2013).
 
 For more information, see the Methods (online) of <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5161715/">Bhardwaj, Mulligan, Bahl _et al._ (2016). _Nature_ 538(7625):329-35</a>.
 
