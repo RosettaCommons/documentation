@@ -95,7 +95,7 @@ After submission of TCR sequences, the results will provide the parsed CDR loop 
 |-num_cter_overhang_res|Number of C-terminal overhang residues to use for grafting alignment. Default:3|Integer|
 |-num_nter_overhang_res|Number of N-terminal overhang residues to use for grafting alignment. Default:3|Integer|
 
-## Example: Commands for sample TCR modeling run for a human T cell receptor PDB:1AO7
+### Example: Commands for sample TCR modeling run for a human T cell receptor PDB:1AO7
 
 ###Basic modeling
 $ Rosetta/main/source/bin/tcr.macosclangrelease -database Rosetta/main/database -alpha VEQNSGPLSVPEGAIASLNCTYSDRGSQSFFWYRQYSGKSPELIMSIYSNGDKEDGRFTAQLNKASQYVSLLIRDSQPSDSATYLCAVTTDSWGKLQFGAGTQVVVT -beta VTQTPKFQVLKTGQSMTLQCAQDMNHEYMSWYRQDPGMGLRLIHYSVGAGITDQGEVPNGYNVSRSTTEDFPLRLLSAAPSQTSVYFCASRPGLAGGRPEQYFGPGTRLTVT
@@ -104,7 +104,7 @@ $ Rosetta/main/source/bin/tcr.macosclangrelease -database Rosetta/main/database 
 $ Rosetta/main/source/bin/tcr.macosclangrelease -database Rosetta/main/database -alpha VEQNSGPLSVPEGAIASLNCTYSDRGSQSFFWYRQYSGKSPELIMSIYSNGDKEDGRFTAQLNKASQYVSLLIRDSQPSDSATYLCAVTTDSWGKLQFGAGTQVVVT -beta VTQTPKFQVLKTGQSMTLQCAQDMNHEYMSWYRQDPGMGLRLIHYSVGAGITDQGEVPNGYNVSRSTTEDFPLRLLSAAPSQTSVYFCASRPGLAGGRPEQYFGPGTRLTVT -remodel_tcr_cdr3_loops -refine_tcr_cdr3_loops
 
 ###Modeling with user provided templates
-$ Rosetta/main/source/bin/tcr.macosclangrelease -database Rosetta/main/database -alpha QSVTQPDARVTVSEGASLQLRCKYSYSATPYLFWYVQYPRQGLQLLLKYYSGDPVVQGVNGFEAEFSKSNSSFHLRKASVHWSDSAVYFCAVSGFASALTFGSGTKVIVLPYIQNPEPAVYALKDPRSQDSTLCLFTDFDSQINVPKTMESGTFITDATVLDMKAMDSKSNGAIAWSNQTSFTCQDIFKETNATYPSSDVPC -beta EAAVTQSPRNKVAVTGGKVTLSCNQTNNHNNMYWYRQDTGHGLRLIHYSYGAGSTEKGDIPDGYKASRPSQENFSLILELATPSQTSVYFCASGGGGTLYFGAGTRLSVLEDLRNVTPPKVSLFEPSKAEIANKQKATLVCLARGFFPDHVELSWWVNGKEVHSGVSTDPQAYKESNYSYCLSSRLRVSATFWHNPRNHFRCQVQFHGLSEEDKWPEGSPKPVTQNISAEAWGRADC -constant_seed -minimize_model false -alpha_germline_template_pdb gma_tmplt_piece.pdb -beta_germline_template_pdb gmb_tmplt_piece.pdb -alpha_cdr3_template_pdb cdr3a_tmplt_piece.pdb -beta_cdr3_template_pdb cdr3b_tmplt_piece.pdb -alpha_orientation_template_pdb ora_tmplt_piece.pdb -beta_orientation_template_pdb orb_tmplt_piece.pdb -use_alpha_germline_templates -use_beta_germline_templates 
+$ Rosetta/main/source/bin/tcr.macosclangrelease -database Rosetta/main/database -alpha VEQNSGPLSVPEGAIASLNCTYSDRGSQSFFWYRQYSGKSPELIMSIYSNGDKEDGRFTAQLNKASQYVSLLIRDSQPSDSATYLCAVTTDSWGKLQFGAGTQVVVT -beta VTQTPKFQVLKTGQSMTLQCAQDMNHEYMSWYRQDPGMGLRLIHYSVGAGITDQGEVPNGYNVSRSTTEDFPLRLLSAAPSQTSVYFCASRPGLAGGRPEQYFGPGTRLTVT -alpha_germline_template_pdb gma_tmplt_piece.pdb -beta_germline_template_pdb gmb_tmplt_piece.pdb -alpha_cdr3_template_pdb cdr3a_tmplt_piece.pdb -beta_cdr3_template_pdb cdr3b_tmplt_piece.pdb -alpha_orientation_template_pdb ora_tmplt_piece.pdb -beta_orientation_template_pdb orb_tmplt_piece.pdb -use_alpha_germline_templates -use_beta_germline_templates 
 
 
 ###Output
