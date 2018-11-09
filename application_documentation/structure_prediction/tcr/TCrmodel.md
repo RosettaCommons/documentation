@@ -109,7 +109,7 @@ $ Rosetta/main/source/bin/tcr.macosclangrelease -database Rosetta/main/database 
 
 ###Output
 - Output files:
-Running TCR modeling application will result in the following PDB formatoutput files. The -out::prefix flag can be used to add prefix to the output file names.
+Running TCR modeling application will result in the following PDB format output files. The -out::prefix flag can be used to add prefix to the output file names.
     * tcrmodel.pdb The final refined final model.
     * tcr_graftmodel.pdb The crude grafted model without refinement.
     * tcr_loopmodel.pdb The model after application of optional loop modeling or refinement.
