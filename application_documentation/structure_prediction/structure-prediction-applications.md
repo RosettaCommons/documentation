@@ -48,7 +48,7 @@ While most of these applications focus on prediction, many have options which wi
     * [[Modeling CDR H3|antibody-model-CDR-H3]]: Determine antibody structures by combining VL-VH docking and H3 loop modeling.
 
 ###TCR Modeling
-- [[[TCRmodel protocol|TCRmodel]]]: Application for modeling T cell receptors from sequence.  
+- [[TCRmodel protocol|TCRmodel]]: Application for modeling T cell receptors from sequence.  
 
 ##See Also
 
