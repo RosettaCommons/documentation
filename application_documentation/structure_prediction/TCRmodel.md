@@ -65,21 +65,21 @@ After submission of TCR sequences, the results will provide the parsed CDR loop 
 |-template_identity_cutoff|Identity cutoff to ignore similar template sequences from template database.Default:100|Real|
 |-blastp_identity_cutoff|Identity cutoff to ignore similar template sequences from template database.Default:100|Real|
 |-ignore_list|List of PDB id's to ignore as templates.Default:None|Boolean|
-|use_alpha_germline_templates|use germline templates for alpha chain, by default germline or framework templates choosen by sequence match. Default=False|Boolean|
-|use_beta_germline_templates|use germline templates for beta chain, by default germline or framework templates choosen by sequence match. Default:False|Boolean|
-|use_user_templates|use user provided templates for TCR segments, useful for testing and integrations tests. Default:false|Boolean|
-|alpha_framework_template_id|template PDB id with chain for alpha chain framework segment, eg. 1kgc_D. Default:None|String|
-|beta_framework_template_id|template PDB id with chain for alpha chain framework segment, eg. 1kgc_E. Default:None|String|
-|alpha_germline_template_id|template PDB id with chain for alpha chain germline segment, eg. 1kgc_D. Default:None|String
-|beta_germline_template_id|template PDB id with chain for alpha chain germline segment, eg. 1kgc_E. Default:None|String|
-|alpha_cdr1_template_id|template PDB id with chain for alpha chain CDR1 segment, eg. 1kgc_D. Default:None|String|
-|beta_cdr1_template_id|template PDB id with chain for alpha chain CDR1 segment, eg. 1kgc_E. Default:None|String|
-|alpha_cdr2_template_id|template PDB id with chain for alpha chain CDR2 segment, eg. 1kgc_D. Default:None|String|
-|beta_cdr2_template_id|template PDB id with chain for alpha chain CDR2 segment, eg. 1kgc_E. Default:None|String|
-|alpha_cdr3_template_id|template PDB id with chain for alpha chain CDR3 segment, eg. 1kgc_D. Default:None|String|
-|beta_cdr3_template_id|template PDB id with chain for alpha chain CDR3 segment, eg. 1kgc_E. Default:None|String|
-|alpha_orientation_template_id|template PDB id with chain for orientation of alpha chain, use along with beta_orientation_template_id, eg. 1kgc_D. Default:None|String|
-|beta_orientation_template_id|template PDB id with chain for orientation of beta chain, use along with -alpha_orientation_template_id, eg. 1kgc_E. Default:None|String|
+|-use_alpha_germline_templates|use germline templates for alpha chain, by default germline or framework templates choosen by sequence match. Default=False|Boolean|
+|-use_beta_germline_templates|use germline templates for beta chain, by default germline or framework templates choosen by sequence match. Default:False|Boolean|
+|-use_user_templates|use user provided templates for TCR segments, useful for testing and integrations tests. Default:false|Boolean|
+|-alpha_framework_template_id|template PDB id with chain for alpha chain framework segment, eg. 1kgc_D. Default:None|String|
+|-beta_framework_template_id|template PDB id with chain for alpha chain framework segment, eg. 1kgc_E. Default:None|String|
+|-alpha_germline_template_id|template PDB id with chain for alpha chain germline segment, eg. 1kgc_D. Default:None|String
+|-beta_germline_template_id|template PDB id with chain for alpha chain germline segment, eg. 1kgc_E. Default:None|String|
+|-alpha_cdr1_template_id|template PDB id with chain for alpha chain CDR1 segment, eg. 1kgc_D. Default:None|String|
+|-beta_cdr1_template_id|template PDB id with chain for alpha chain CDR1 segment, eg. 1kgc_E. Default:None|String|
+|-alpha_cdr2_template_id|template PDB id with chain for alpha chain CDR2 segment, eg. 1kgc_D. Default:None|String|
+|-beta_cdr2_template_id|template PDB id with chain for alpha chain CDR2 segment, eg. 1kgc_E. Default:None|String|
+|-alpha_cdr3_template_id|template PDB id with chain for alpha chain CDR3 segment, eg. 1kgc_D. Default:None|String|
+|-beta_cdr3_template_id|template PDB id with chain for alpha chain CDR3 segment, eg. 1kgc_E. Default:None|String|
+|-alpha_orientation_template_id|template PDB id with chain for orientation of alpha chain, use along with beta_orientation_template_id, eg. 1kgc_D. Default:None|String|
+|-beta_orientation_template_id|template PDB id with chain for orientation of beta chain, use along with -alpha_orientation_template_id, eg. 1kgc_E. Default:None|String|
 |-alpha_framework_template_pdb|template PDB file for alpha chain framework segment. Default:None|String|
 |-beta_framework_template_pdb|template PDB file for alpha chain framework segment. Default:None|String|
 |-alpha_germline_template_pdb|template PDB file for alpha chain germline segment. Default:None|String|
@@ -88,10 +88,10 @@ After submission of TCR sequences, the results will provide the parsed CDR loop 
 |-beta_cdr1_template_pdb|template PDB file for alpha chain CDR1 segment. Default:None|String|
 |-alpha_cdr2_template_pdb|template PDB file for alpha chain CDR2 segment. Default:None|String|
 |-beta_cdr2_template_pdb|template PDB file for alpha chain CDR2 segment. Default:None|String|
-|alpha_cdr3_template_pdb|template PDB file for alpha chain CDR3 segment. Default:None|String|
-|beta_cdr3_template_pdb|template PDB file for alpha chain CDR3 segment. Default:None|String|
-|alpha_orientation_template_pdb|template PDB file for orientation of alpha chain. Default:None|String|
-|beta_orientation_template_pdb|template PDB file for orientation of beta chain. Default:None|String|
+|-alpha_cdr3_template_pdb|template PDB file for alpha chain CDR3 segment. Default:None|String|
+|-beta_cdr3_template_pdb|template PDB file for alpha chain CDR3 segment. Default:None|String|
+|-alpha_orientation_template_pdb|template PDB file for orientation of alpha chain. Default:None|String|
+|-beta_orientation_template_pdb|template PDB file for orientation of beta chain. Default:None|String|
 |-num_cter_overhang_res|Number of C-terminal overhang residues to use for grafting alignment. Default:3|Integer|
 |-num_nter_overhang_res|Number of N-terminal overhang residues to use for grafting alignment. Default:3|Integer|
 
