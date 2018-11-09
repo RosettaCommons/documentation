@@ -47,6 +47,8 @@ While most of these applications focus on prediction, many have options which wi
     * [[Grafting CDR loops|antibody-assemble-cdrs]]: Graft antibody CDR templates on the framework template to create a rough antibody model.  
     * [[Modeling CDR H3|antibody-model-CDR-H3]]: Determine antibody structures by combining VL-VH docking and H3 loop modeling.
 
+###TCR Modeling
+- [[TCRmodel protocol]]: Application for modeling T cell receptors from sequence.  
 
 ##See Also
 
