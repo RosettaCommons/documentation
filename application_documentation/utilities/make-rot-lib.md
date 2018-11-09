@@ -120,7 +120,7 @@ The next step is to run the MakeRotLib protocol on each of the input files we cr
 
 ```
 $ cd outputs
-$ PATH/TO/ROSETTA/bin/make_rot_lib.macosgccrelease -database PATH/TO/rosetta/main/database -options_file ../inputs/C40_rot_lib_options_-60_-40.in >& C40_rot_lib_options_-60_-40.log &
+$ PATH/TO/ROSETTA/bin/MakeRotLib.default.macosclangrelease -database PATH/TO/rosetta/main/database -options_file ../inputs/C40_rot_lib_options_-60_-40.in >& C40_rot_lib_options_-60_-40.log &
 ```
 
 **Note:** The extension on your executable may be different.
