@@ -80,14 +80,14 @@ After submission of TCR sequences, the results will provide the parsed CDR loop 
 |beta_cdr3_template_id|template PDB id with chain for alpha chain CDR3 segment, eg. 1kgc_E. Default:None|String|
 |alpha_orientation_template_id|template PDB id with chain for orientation of alpha chain, use along with beta_orientation_template_id, eg. 1kgc_D. Default:None|String|
 |beta_orientation_template_id|template PDB id with chain for orientation of beta chain, use along with -alpha_orientation_template_id, eg. 1kgc_E. Default:None|String|
-|alpha_framework_template_pdb|template PDB file for alpha chain framework segment. Default:None|String|
-|beta_framework_template_pdb|template PDB file for alpha chain framework segment. Default:None|String|
-|alpha_germline_template_pdb|template PDB file for alpha chain germline segment. Default:None|String|
-|beta_germline_template_pdb|template PDB file alpha chain germline segment. Default:None|String|
-|alpha_cdr1_template_pdb|template PDB file alpha chain CDR1 segment. Default:None|String|
-|beta_cdr1_template_pdb|template PDB file for alpha chain CDR1 segment. Default:None|String|
-|alpha_cdr2_template_pdb|template PDB file for alpha chain CDR2 segment. Default:None|String|
-|beta_cdr2_template_pdb|template PDB file for alpha chain CDR2 segment. Default:None|String|
+|-alpha_framework_template_pdb|template PDB file for alpha chain framework segment. Default:None|String|
+|-beta_framework_template_pdb|template PDB file for alpha chain framework segment. Default:None|String|
+|-alpha_germline_template_pdb|template PDB file for alpha chain germline segment. Default:None|String|
+|-beta_germline_template_pdb|template PDB file alpha chain germline segment. Default:None|String|
+|-alpha_cdr1_template_pdb|template PDB file alpha chain CDR1 segment. Default:None|String|
+|-beta_cdr1_template_pdb|template PDB file for alpha chain CDR1 segment. Default:None|String|
+|-alpha_cdr2_template_pdb|template PDB file for alpha chain CDR2 segment. Default:None|String|
+|-beta_cdr2_template_pdb|template PDB file for alpha chain CDR2 segment. Default:None|String|
 |alpha_cdr3_template_pdb|template PDB file for alpha chain CDR3 segment. Default:None|String|
 |beta_cdr3_template_pdb|template PDB file for alpha chain CDR3 segment. Default:None|String|
 |alpha_orientation_template_pdb|template PDB file for orientation of alpha chain. Default:None|String|
