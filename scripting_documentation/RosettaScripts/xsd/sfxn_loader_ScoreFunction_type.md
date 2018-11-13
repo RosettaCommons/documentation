@@ -29,9 +29,10 @@ XRW TO DO
             hbonds__Mbhbond="(&bool;)" hbonds__mphbond="(&bool;)"
             lj_hbond_OH_donor_dis="(&real;)" lj_hbond_hdis="(&real;)"
             fa_max_dis="(&real;)" aa_composition_setup_file="(&string;)"
-            netcharge_setup_file="(&string;)" softrep_etable="(&bool;)"
-            fa_elec_min_dis="(&real;)" fa_elec_max_dis="(&real;)"
-            fa_elec_dielectric="(&real;)" fa_elec_no_dis_dep_die="(&bool;)"
+            mhc_epitope_setup_file="(&string;)" netcharge_setup_file="(&string;)"
+            softrep_etable="(&bool;)" fa_elec_min_dis="(&real;)"
+            fa_elec_max_dis="(&real;)" fa_elec_dielectric="(&real;)"
+            fa_elec_no_dis_dep_die="(&bool;)"
             exclude_protein_protein_fa_elec="(&bool;)" exclude_DNA_DNA="(&bool;)"
             pb_bound_tag="(&string;)" pb_unbound_tag="(&string;)"
             scale_sc_dens="(&real;)" scale_sc_dens_byres="(&string;)"
@@ -99,6 +100,7 @@ Subtag **Set**:
 -   **lj_hbond_hdis**: Lennard Jones sigma value for hatms, classically it's been at 1.95 but the average A-H distance for hydrogen bonding is 1.75 from crystal structures
 -   **fa_max_dis**: Max distance for energy function calculations, in angstroms
 -   **aa_composition_setup_file**: A list of one or more .comp files specifying desired amino acid compositions, used to set up the aa_composition score term.
+-   **mhc_epitope_setup_file**: A list of one or more .mhc files specifying epitope prediction details for the mhc_epitope score term.
 -   **netcharge_setup_file**: A list of one or more .charge files specifying desired net charges, used to set up the netcharge score term.
 -   **softrep_etable**: Should this scorefunction use a softened energy table for the fa_rep score term?
 -   **fa_elec_min_dis**: The minimum distance for the fa_elec (Coulombic) score term.

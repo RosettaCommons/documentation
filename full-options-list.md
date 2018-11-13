@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-11-07
+Generated: 2018-11-13
 
 _Note that some application specific options may not be present in this list._
 
@@ -1204,6 +1204,8 @@ _Note that some application specific options may not be present in this list._
 <dd>which residue numbers to calculate motifs<br/></dd>
 <dt><b>-netcharge_setup_file</b> \<StringVector\></dt>
 <dd>The filename of one or more setup files for the netcharge scoring term.  (Multiple such files can be listed, separated by a space.)  The default location for these files (which have a .charge extension) is /database/scoring/score_functions/netcharge/.<br/></dd>
+<dt><b>-mhc_epitope_setup_file</b> \<StringVector\></dt>
+<dd>The filename of one or more setup files for the mhc_epitope scoring term.  (Multiple such files can be listed, separated by a space.)  The default location for these files (which have a .mhc extension) is /database/scoring/score_functions/mhc_epitope/.<br/></dd>
 <dt><b>-ms_dist_midpoint</b> \<Real\></dt>
 <dd>distance midpoint for distance factor for HRF_MSLabeling score term<br/>Default: 9.0<br/></dd>
 <dt><b>-ms_dist_exponent</b> \<Real\></dt>
