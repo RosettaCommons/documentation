@@ -94,6 +94,13 @@ any ResidueSelector can be defined as a subtag of the Not selector.  You cannot,
 -   The "selectors" option is not required, nor are the sub-tags required; but at least one of the two must be given. Both can be given, if desired.
 -   Selectors declared in the sub-tags will be appended to the set of selectors for the OrResidueSelector, but will not be added to the DataMap.
 
+#### TrueResidueSelector
+
+-   The TrueResidueSelector simply selects your entire pose.  Good for those times when you need to use a residue selector, but you want your entire pose.
+    ```xml
+    <True name="full_pose/>
+    ```
+
 ### Conformation Independent Residue Selectors
 
 #### ChainSelector
