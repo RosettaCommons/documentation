@@ -43,6 +43,7 @@ Currently, the following guidance terms are available in Rosetta:
 | aspartimide_penalty ([[AspartimidePenaltyEnergy|NC-scorefunction-info#useful-terms-that-can-be-appended-to-scorefunctions_penalty-function-for-aspartimide-promoting-sequences-aspartimide_penalty]]) | A term that discourages pairs of residues adjacent in linear sequence that promote formation of undesirable aspartimide side-products during peptide synthesis.  Useful when designing molecules to be synthesized chemically. | Yes. | No -- no spatial derivatives possible.  (Term is disregarded by minimizer.) | 
 | buried_unsatsified_penalty ([[BuriedUnsatPenalty]]) | A term that penalizes buried unsatisfied hydrogen bond donors and acceptors during design.  This complements the `hbnet` term, below. | No.  (Term is packer-compatible, though). | No.  (Spacial derivatives are possible, but not yet defined.  Term is currently ignored by minimizer.) |
 | hbnet ([[HBNetEnergy]]) | A term that promotes hydrogen bond networks during design through a nonlinear bonus based on the size (_i.e._ number of residues in) each network.  A complementary approach to Scott Boyken's [[HBNetMover]]. | No.  (Term is packer-compatible, though). | No.  (Spacial derivatives are possible, but not yet defined.  Term is currently ignored by minimizer.) |
+| mhc_epitope ([[MHCEpitopeEnergy]]) | A scoreterm to penalize immunogenic sequences.  A number of configuration options allows different de-immunization approaches to be used. | No. (Term is packer-compatible, though). | No -- no spatial derivatives possible.  (Term is disregarded by minimizer.) |
 | netcharge ([[NetChargeEnergy]]) | A term to penalize deviation from a user-defined desired net charge in a whole pose or sub-region selected by a residue selector.  Multiple net charge constraints can be specified. | No.  (Term is packer-compatible, though). | No -- no spatial derivatives possible.  (Term is disregarded by minimizer.) |
 | voids_penalty ([[VoidsPenaltyEnergy]]) | A term to penalize voids or holes in the core during packing, promoting voids-free design solutions.  Much of the computational expense is handled in a precalculation. | No, through trivially so (due to squaring a sum of terms).  Fully packer-compatible, however. | No, though spacial derivatives might be implemented in the future.  For now, this term is ignored by the minimizer. |
 
@@ -62,3 +63,6 @@ Currently, the following guidance terms are available in Rosetta:
 * [[AddHelixSequenceConstraints mover|AddHelixSequenceConstraintsMover]]
 * [[HBNet mover|HBNetMover]]
 * [[VoidsPenaltyEnergy]]
+* [[MHCEpitopeEnergy]]
+* [[mhc-energy-tools]]
+* [[AddMHCEpitopeConstraintMover]]
