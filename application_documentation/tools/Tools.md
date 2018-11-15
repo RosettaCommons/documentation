@@ -1494,14 +1494,12 @@ tools/ann_tools/score_sdf.py
 tools/ann_tools/sort_sdfs.py    
 &#8195; - 
 
-<!--- BEGIN_INTERNAL -->
 ### Epitope Prediction Tools
 
 We have provided tools to predict epitopes using Propred matrices or NetMHCII, and also to create databases to allow sequences to be evaluated quickly in Rosetta.  See [[MHCEpitopeEnergy]] for more details on immunogenicity scoring in Rosetta.  See [[the tools documentation|mhc-energy-tools]] for details on how to use the `mhc_energy_tools`.
 
 `tools/mhc_energy_tools/mhc_score.py` to perform epitope scoring on FASTA, PDB, or raw peptides, with basic reporting and plotting capabilities.
 `tools/mhc_energy_tools/mhc_gen_db.py` to generate SQL databases from FASTA or PDB files, with design space being specified from a CSV file or a PSSM.
-<!--- END_INTERNAL -->
 
 ### Unclassified
 
