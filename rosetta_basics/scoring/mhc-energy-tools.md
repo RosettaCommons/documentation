@@ -1,4 +1,3 @@
-<!--- BEGIN_INTERNAL -->
 Documentation created by Brahm Yachnin (brahm.yachnin@rutgers.edu), Khare laboratory, and Chris Bailey-Kellogg (cbk@cs.dartmouth.edu).
 Last edited November 6, 2018.
 
@@ -226,4 +225,3 @@ The following is the complete list of alleles supported for each Predictor.  In 
 * [[MHCEpitopeEnergy]]
 * [[AddMHCEpitopeConstraintMover]]
 * [[Design-centric guidance terms|design-guidance-terms]]
-<!--- END_INTERNAL -->
