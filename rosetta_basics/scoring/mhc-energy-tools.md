@@ -159,7 +159,7 @@ The following is the complete list of alleles supported for each Predictor.  In 
 ### NetMHCII
 
 - DRB1_0101 (test, greenbaum11)
-- DRB1_0103 (
+- DRB1_0103
 - DRB1_0301 (paul15, greenbaum11)
 - DRB1_0401 (greenbaum11)
 - DRB1_0402
