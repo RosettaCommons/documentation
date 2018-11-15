@@ -21,3 +21,5 @@ Note that this will remove sequence constraints (_e.g._ amino acid composition c
 * [[Constraints file format|constraint-file]]
 * [[AtomCoordinateCstMover]]
 * [[AddConstraintsToCurrentConformationMover]]
+* [[MHCEpitopeEnergy]]
+* [[AddMHCEpitopeConstraintMover]]
