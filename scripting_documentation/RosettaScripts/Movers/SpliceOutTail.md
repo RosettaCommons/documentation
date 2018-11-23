@@ -43,7 +43,7 @@ This mover is similar to the SpliceOut mover, it is used to extract the phi, psi
 -   **design_shell**: how many residues around the built segment can be designed
 -   **repack_shell**: how many residues around the built segment can be repacked
 -   **rms_cutoff**: The RMS cut-off between the new segment added to the pose and the segment in the source PDB. if the RMS is above a certain cut-off the mover reports failure. This parameter only refers to the secondary structure elements
--   **rtmin**: apply rtmin after CCD/minmover
+-   **rtmin**: apply rtmin after minmover/tailsegmentmover
 -   **splice_filter**: name of filter used to test of mover finished successfully. 
 -   **mover**: Which mover to use to optimize segment's backbone (minmover/TailSegmentMover)
 -   **restrict_to_repacking_chain2**: If true do not design chain2
