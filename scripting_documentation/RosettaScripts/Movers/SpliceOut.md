@@ -69,13 +69,13 @@ The segment to be changed is defined by two residues: "From_res" and "To_res". T
 
 Subtag **Segments**:   Wrapper for multiple segments tags
 
--   **current_segment**: XRW TO DO
+-   **current_segment**: Which segment are we currently changing
 
 
 Subtag **Segment**:   individual segment tag
 
--   **pdb_profile_match**: XRW TO DO
--   **profiles**: XRW TO DO
+-   **pdb_profile_match**: map from pdb source segment to  PSSM file
+-   **profiles**: path to PSSM files
 
 ---
 ##Example
@@ -84,9 +84,9 @@ Currently, this mover is only accessible via RosettaScripts. The new segment's c
 An example RosettaScripts tag is below:
 
 ```xml
-		<SpliceOutTail name="spliceout" source_pdb="1.pdb" torsion_database="test.db" scorefxn="talaris2014" tail_segment="c" from_res="100" rms_cutoff="100" design_shell="0.01" repack_shell="0.01" template_file="template.pdb" task_operations="init,rtr" debug="1" mover="min" superimposed="1"> 
-      			<Segments current_segment="test"/>
-		</SpliceOutTail>
+			<SpliceOut name="spliceout" source_pdb="source.pdb" torsion_database="test.db" scorefxn="talaris14" randomize_cut="1" cut_secondarystruc="0" from_res="127" to_res="199" rms_cutoff="0.25" design_shell="0.01" repack_shell="0.01" splice_filter="chainbreak_val" template_file="template.pdb" task_operations="init,rtr" debug="0" mover="min" superimposed="1"> 
+ <Segments current_segment="blade4"/>
+</SpliceOut>
 
 
 ```
