@@ -44,24 +44,16 @@ The segment to be changed is defined by two residues: "From_res" and "To_res". T
 -   **CG_const**: If true apply coordinate constraint on C-gammas of the segment during CCD/minimization
 -   **chain_num**: The pose's chain onto which the new segment is added.
 -   **cut_site**: residue number of where to place cut
--   **Segment**: XRW TO DO
--   **superimposed**: XRW TO DO
--   **delete_hairpin**: XRW TO DO
--   **delete_hairpin_n**: XRW TO DO
--   **delete_hairpin_c**: XRW TO DO
--   **source_pdb_to_res**: XRW TO DO
--   **use_sequence_profile**: XRW TO DO
+-   **superimposed**: If false, superimpose source pdb onto current pose.
+-   **source_pdb_to_res**: If structures are not aligned use the template from_res and source pdb from_res to align
+-   **use_sequence_profile**: If true build PSSM and apply sequence profile on pose
 -   **scorefxn**: Name of score function to use
--   **add_sequence_constraints_only**: XRW TO DO
--   **template_file**: XRW TO DO
--   **set_fold_tree_only**: XRW TO DO
--   **source_pdb**: XRW TO DO
+-   **template_file**:  The PDB file of the reference PDB (the one used to build to conformation database)
+-   **source_pdb**: The PDB file from which the segment conformation is extracted
 -   **task_operations**: A comma separated list of TaskOperations to use.
--   **from_res**: XRW TO DO
--   **to_res**: XRW TO DO
--   **design_task_operations**: XRW TO DO
--   **residue_numbers_setter**: XRW TO DO
--   **torsion_database**: XRW TO DO
+-   **from_res**: The N-ter residue of the sampled segment
+-   **to_res**: The C-ter residue of the sampled segment
+-   **torsion_database**: Name of conformation file to save to
 -   **design_shell**: XRW TO DO
 -   **repack_shell**: XRW TO DO
 -   **rms_cutoff**: XRW TO DO
