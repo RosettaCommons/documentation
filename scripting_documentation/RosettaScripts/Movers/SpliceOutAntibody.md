@@ -58,8 +58,8 @@ For each segment (VL, L3, VH, and H3) of each of the natural antibodies we extra
 -   **source_pdb**: The PDB file from which the segment conformation is extracted
 -   **task_operations**: A comma separated list of TaskOperations to use.
 -   **torsion_database**: Name of conformation file to saveto
--   **design_shell**: how many residues around the built segment can be designed
--   **repack_shell**: how many residues around the built segment can be repacked
+-   **design_shell**: Design shell radius around new segment conformation.
+-   **repack_shell**: Repack shell radius around new segment conformation.
 -   **rms_cutoff**: The RMS cut-off between the new segment added to the pose and the segment in the source PDB. if the RMS is above a certain cut-off the mover reports failure. This parameter only refers to the secondary structure elements
 -   **rms_cutoff_loop**: The RMS cut-off between the new segment added to the pose and the segment in the source PDB - only loop region.
 -   **randomize_cut**: if true cut will be placed randomly in the segment
