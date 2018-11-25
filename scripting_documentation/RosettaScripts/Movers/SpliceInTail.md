@@ -49,3 +49,16 @@ Subtag **Segments**:   Wrapper for multiple segments tags
 
 -   **profile_weight_away_from_interface**: multiply applied sequence constraint by a factor for residues outside predefined interface
 -   **current_segment**: Which segment is currently being modified 
+
+##Example
+Currently, this mover is only accessible via RosettaScripts. The new segment's conformation will be sampled from the test.db file. 
+
+An example RosettaScripts tag is below:
+
+```xml
+			<SpliceInTail name="splice" torsion_database="test.db"  scorefxn="talaris_cal" repack_shell="1" design_shell="1" template_file="template.pdb" task_operations="init,thread" debug="1"  min_seg="1" delta_lengths="-2,-1,0,1,2" dbase_iterate="1" > rtmin=1 CG_const="1"
+          <Segments current_segment="blade6"/>
+	</SpliceInTail>
+
+
+```
