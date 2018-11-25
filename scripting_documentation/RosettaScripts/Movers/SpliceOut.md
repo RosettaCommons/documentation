@@ -40,10 +40,9 @@ The segment to be changed is defined by two residues: "From_res" and "To_res". T
 
 -   **tolerance**: Splice mover performs an internal check of peptide bond length in the new segment. If the bond length is more than the set tolerance the mover reports failure.
 -   **ignore_chain_break**: If true, will ignore deviation in bond length. This is not recommended and usually used for debugging.
--   **debug**: XRW TO DO
--   **CG_const**: XRW TO DO
--   **rb_sensitive**: XRW TO DO
--   **chain_num**: XRW TO DO
+-   **debug**: If true output is more verbose and PDB structures are dumped
+-   **CG_const**: If true apply coordinate constraint on C-gammas of the segment during CCD/minimization
+-   **chain_num**: The pose's chain onto which the new segment is added.
 -   **cut_site**: residue number of where to place cut
 -   **Segment**: XRW TO DO
 -   **superimposed**: XRW TO DO
