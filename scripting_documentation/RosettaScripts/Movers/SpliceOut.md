@@ -30,8 +30,7 @@ The segment to be changed is defined by two residues: "From_res" and "To_res". T
         cut_secondarystruc="(false &bool;)" thread_ala="(true &bool;)"
         design="(false &bool;)" thread_original_sequence="(false &bool;)"
         rtmin="(true &bool;)" checkpointing_file="(&string;)" splice_filter="(&string;)"
-        mover="(&string;)" restrict_to_repacking_chain2="(true &bool;)"
-        use_sequence_profiles="(true &bool;)" >
+        mover="(&string;)" restrict_to_repacking_chain2="(true &bool;)" >
     <Segments name="(&string;)" current_segment="(&string;)" >
         <Segment name="(&string;)" pdb_profile_match="(&string;)" profiles="(&string;)" />
     </Segments>
@@ -54,22 +53,17 @@ The segment to be changed is defined by two residues: "From_res" and "To_res". T
 -   **from_res**: The N-ter residue of the sampled segment
 -   **to_res**: The C-ter residue of the sampled segment
 -   **torsion_database**: Name of conformation file to save to
--   **design_shell**: XRW TO DO
--   **repack_shell**: XRW TO DO
--   **rms_cutoff**: XRW TO DO
--   **rms_cutoff_loop**: XRW TO DO
--   **res_move**: XRW TO DO
--   **randomize_cut**: XRW TO DO
--   **cut_secondarystruc**: XRW TO DO
--   **thread_ala**: XRW TO DO
--   **design**: XRW TO DO
--   **thread_original_sequence**: XRW TO DO
--   **rtmin**: XRW TO DO
--   **locked_residue**: XRW TO DO
--   **checkpointing_file**: XRW TO DO
--   **splice_filter**: XRW TO DO
+-   **design_shell**: Design shell radius around new segment conformation.
+-   **repack_shell**: Repack shell radius around new segment conformation.
+-   **rms_cutoff**: At the end of the run the RMSD value between the new segment conformation and source segment conformation. If RMSD value is above set cutoff value the run fails. This value only relates to secondary structure elements in the new segment. 
+-   **rms_cutoff_loop**: The same as rms_cutoff, but only relates to loop secondary structure elements. 
+-   **randomize_cut**:  if true cut will be placed randomly in the segment
+-   **cut_secondarystruc**: if true cut can be placed in secondary structure element.
+-   **thread_original_sequence**: If true,use sequence from source PDB 
+-   **rtmin**:  apply rtmin after CCD/minmover
+-   **splice_filter**: name of filter used to test of mover finished successfully.
 -   **mover**: Which mover to use to close the segment
--   **restrict_to_repacking_chain2**: XRW TO DO
+-   **restrict_to_repacking_chain2**: If true do not design chain2
 -   **use_sequence_profiles**: XRW TO DO
 
 
