@@ -32,8 +32,7 @@ This mover is similar to the SpliceOut mover, it is used to extract the phi, psi
 -    **debug**: If true output is more verbose and PDB structures are dumped 
 -    **CG_const**: If true apply coordinate constraint on C-gammas of the segment during CCD/minimization
 -   **chain_num**: The pose's chain onto which the new segment is added.
--   **segment**: which segment are we changing. This matters when using PSSMs to constrain sequence design.
--   **superimposed**: superimpose source pdb onto current pose.
+-   **superimposed**: If fasle, superimpose source pdb onto current pose.
 -   **tail_segment**: Is this a C-ter ("c") or and N-ter ("N") segment.
 -   **scorefxn**: Name of score function to use
 -   **template_file**: The PDB file of the reference PDB (the one used to build to conformation database)
@@ -48,6 +47,11 @@ This mover is similar to the SpliceOut mover, it is used to extract the phi, psi
 -   **mover**: Which mover to use to optimize segment's backbone (minmover/TailSegmentMover)
 -   **restrict_to_repacking_chain2**: If true do not design chain2
 -   **use_sequence_profile**: If true build PSSM and apply sequence profile on pose
+
+Subtag **Segments**:   Wrapper for multiple segments tags
+
+-   **profile_weight_away_from_interface**: multiply applied sequence constraint by a factor for residues outside predefined interface
+-   **current_segment**: Which segment is currently being modified 
 
 ##Example
 Currently, this mover is only accessible via RosettaScripts. The new segment's conformation will be stored in  test.db file. The mover "min" is used to optimize the new backbone conformation in the context of the pose.
