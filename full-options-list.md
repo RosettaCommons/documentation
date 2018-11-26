@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-11-13
+Generated: 2018-11-26
 
 _Note that some application specific options may not be present in this list._
 
@@ -3266,6 +3266,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Path to the Antibody Grafting Database from Rosetta tools repository. By default this option is empty and grafting_database is looked at ../../tools/antibody and then $ROSETTA/tools/antibody<br/>Default: ""<br/></dd>
 <dt><b>-blastp</b> \<String\></dt>
 <dd>Path to NCBI-Blast+ executable<br/>Default: "blastp"<br/></dd>
+<dt><b>-exclude_pdb</b> \<String\></dt>
+<dd>do not use given pdb as graft source (no default)<br/></dd>
 <dt><b>-exclude_homologs</b> \<Boolean\></dt>
 <dd>Filter BLAST matches by sequence identity? (false by default)<br/>Default: false<br/></dd>
 <dt><b>-exclude_homologs_cdr_cutoff</b> \<Real\></dt>
@@ -4000,7 +4002,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-walking_perturber_magnitude</b> \<Real\></dt>
 <dd>Degree parameter for coupled moves kic walking perturber.<br/>Default: 2.0<br/></dd>
 <dt><b>-kic_loop_size</b> \<Real\></dt>
-<dd>Can be constant or random. CONSTANT - If you set loop_size to a positive whole number, the loop moved by coupled_moves::backbone_mover will be 1+2*loop_size. In other words, the loop is defined by first selecting resnum, then defining loopstart=resnum-loop_size and loopend=resnum+loop_size. RANDOM - If you set loop_size to 0, in each trial, loop_size will be random_range( 3, 7 ). [ NOTE: This option is for coupled_moves::backbone_mover=kic only. Backrub segment length is hardcoded in ShortBackrubMover as 3-residue (or 4-residue if it hits a Proline) ].<br/>Default: 4<br/></dd>
+<dd>KIC will try to change the torsion angles of a segment this many residues long. The rotamer of the middle residue will be designed, thus kic_loop_size must be an odd number so a middle residue exists. (Backrub segment length is hardcoded in ShortBackrubMover as 3-residue, or 4-residue if it hits a Proline).<br/>Default: 9<br/></dd>
 <dt><b>-kic_perturber</b> \<String\></dt>
 <dd>Which perturber to use during kinematic closure (KIC). Current options are walking (default) or fragment. Walking perturber adjusts torsions by degrees, the magnitude of which can be set by -walking_perturber_magnitude. If you specify walking you MAY also specify -walking_perturber_magnitude. If you specify fragment you MUST also specify -loops::frag_files and -loops::frag_sizes.<br/>Default: "walking"<br/></dd>
 <dt><b>-backbone_mover</b> \<String\></dt>
