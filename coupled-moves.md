@@ -266,18 +266,12 @@ Walking perturber "walks" along torsion angle space. Angles are modified by valu
 This setting is a bit complicated. The default (segment length of 9 residues) should be fine for the vast majority of applications.
 
 * `-coupled_moves::kic_loop_size` only applies when using `-coupled_moves::backbone_mover kic`.
-* The parameter set by `-coupled_moves::kic_loop_size` (hereafter *n*) is used to calculate the final *loop size* in residues.
+* KIC will try to change the torsion angles of a segment this many residues long. The rotamer of the middle residue will be designed, thus kic_loop_size must be an odd number so a middle residue exists. (Backrub segment length is hardcoded in ShortBackrubMover as 3-residue, or 4-residue if it hits a Proline).
 * "Loop" here doesn't refer to secondary structure, just to a segment of residues.
 * NOTE: *n* must be at least 3 for 3mers in fragment KIC. Shorter loops will not allow fragment substitution.
 
-You may set a constant or random loop size:
-
-* **Constant loop size** - If you set *n* to a positive whole number, *loop_size* = 1+2\**n*. In terms of residues, the loop is defined by first selecting resnum (the designable residue), then defining loopstart=resnum-*n* and loopend=resnum+*n*. 
-
-* **Random loop size** - If you set *n*=0, in each trial, *n* will be a random integer in range( 3, 7 ).
-
 ```
--coupled_moves::kic_loop_size <n> # default n=4
+-coupled_moves::kic_loop_size <n> # default n=9
 ```
 
 ## [7.3] Backbone mover command-line options
