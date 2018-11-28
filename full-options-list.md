@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-11-26
+Generated: 2018-11-28
 
 _Note that some application specific options may not be present in this list._
 
@@ -5758,11 +5758,15 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-two_fold_symmetry_0_180</b> \<IntegerVector\></dt>
 <dd>the chi number at which to apply two fold symmetry across the 0/180 axis<br/></dd>
 <dt><b>-three_fold_symmetry_90_210_330</b> \<IntegerVector\></dt>
-<dd>the chi number at which to apply two fold symmetry across the 0/180 axis<br/></dd>
+<dd>the chi number at which to apply three fold symmetry across the 0/180 axis<br/></dd>
 <dt><b>-use_terminal_residues</b> \<Boolean\></dt>
 <dd>Use separate ACE and NME residues as terminal capping groups, rather than patches<br/>Default: false<br/></dd>
 <dt><b>-k_medoids</b> \<Boolean\></dt>
 <dd>Use k-medoids instead of k-means clustering<br/>Default: false<br/></dd>
+<dt><b>-patch_name_for_residue</b> \<String\></dt>
+<dd>Provide an explicit description of the patches for terminal capping<br/></dd>
+<dt><b>-polymeric_context</b> \<File\></dt>
+<dd>A file containing the RT at PDB number 0 and the flanking context as well.<br/></dd>
 </dl>
 + <h2>-match</h2>
 <dl>
