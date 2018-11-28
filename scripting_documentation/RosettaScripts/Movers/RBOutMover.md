@@ -16,6 +16,7 @@ This mover is used to build a database of jump coordinates between the variable 
 -   **template_fname**: The reference PDB file used to build the database
 -   **jump_dbase_fname**: jump coordinate database file
 -   **jump_from_foldtree**: If true get jump from fold tree and not automatically from the pose chain break (dflt)
+
 ---
 
 ##Example
