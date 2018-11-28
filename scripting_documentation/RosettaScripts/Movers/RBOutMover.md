@@ -17,6 +17,7 @@ This mover is used to build a database of jump coordinates between the variable 
 -   **jump_dbase_fname**: jump coordinate database file
 -   **jump_from_foldtree**: If true get jump from fold tree and not automatically from the pose chain break (dflt)
 ---
+
 ##Example
 Currently, this mover is only accessible via RosettaScripts. 
 An example RosettaScripts tag is below:
