@@ -6,11 +6,13 @@
 
 ## Available Scripts
 
-| Script Name | Description | Recommended For |
-| ----------- | ----------- | --------------- |
-| default     | | Everything, in general |
-| no_cst_ramping | TODO | |
-| rosettacon2018 | Slightly stronger repulsive term than default. Send questions to jack@med.unc.edu | Monomer core redesign/repacking and interface design/repacking. |
+| Script Name | Description |
+| ----------- | ----------- |
+| default     | always points to the recommended script to use. Currently points to "legacy" |
+| legacy      | The default relax script used until 2019 |
+| no_cst_ramping | TODO |
+| rosettacon2018 | Slightly stronger repulsive term than default. Send questions to jack@med.unc.edu |
+| killA2019 | Similar to rosettacon2018 but incorporates reference-value ramping to ensure that the designs have native-like amino acid distributions. Send questions to jack@med.unc.edu |
 
 All scripts exist in `main/database/sampling/relax_scripts`
 
