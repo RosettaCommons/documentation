@@ -162,6 +162,7 @@ TaskOp  | Description
 **[[LimitAromaChi2|LimitAromaChi2Operation]]** | Don't use aromatics rotamers known to be spurious design.
 **[[RotamerExplosion|RotamerExplosionOperation]]** | Sample residue chi angles much more finely during packing.
 **[[SampleRotamersFromPDB|SampleRotamersFromPDBOperation]]** | Limit rotamers to ones similar to those in a PDB file.
+**[[PruneBuriedUnsats|PruneBuriedUnsatsOperation]]** | Remove rotamers that will cause buried unsats.
 
 
 Packer Behavior Modification
