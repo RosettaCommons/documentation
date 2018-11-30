@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-11-28
+Generated: 2018-11-29
 
 _Note that some application specific options may not be present in this list._
 
@@ -181,7 +181,7 @@ _Note that some application specific options may not be present in this list._
 <dd>Use the PDB ligand definitions to load all standard residue descriptions.<br/>Default: true<br/></dd>
 <dt><b>-PDB_components_directory</b> \<String\></dt>
 <dd>The directory storing a collection of Chemical Components Dictionary mmCIF-formatted files, named as 'components.?.cif'<br/>Default: "chemical/pdb_components"<br/></dd>
-<dt><b>-PDB_components_file</b> \<StringVector\></dt>
+<dt><b>-PDB_components_overrides</b> \<StringVector\></dt>
 <dd>Any supplementary CIF file from which to load the PDB component definitions. These take first priority and can be used to correct the directory.<br/>Default: []<br/></dd>
 <dt><b>-check_all_PDB_components</b> \<Boolean\></dt>
 <dd>Check all PDB components even if they have a name3 that overlaps with a Rosetta type.<br/>Default: false<br/></dd>
