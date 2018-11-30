@@ -1,4 +1,3 @@
-
 <i>Note:  Brian did not have enough time to write this page. Remind him of this and he will fix it. </i>
 
 # PruneBuriedUnsats
@@ -19,6 +18,9 @@ If using the approximate_buried_unsat_penalty, it would be wise to set this to t
 * atomic_depth_cutoff - Atomic depth at which atoms are considered buried.
 * Minimum energy (out of the typical rosetta -2.0) for a hbond to be considered to satisfy a polar.
 
+##Credit
+* Longxing Cao came up with the idea
+* Brian Coventry coded it
 
 ##See Also
 
