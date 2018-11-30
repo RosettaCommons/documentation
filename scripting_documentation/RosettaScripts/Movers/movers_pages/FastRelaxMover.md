@@ -9,7 +9,7 @@ Performs the fast relax protocol.
     <FastRelax name="&string" scorefxn="(&string)" repeats="(5 &int)" task_operations="(&string, &string, &string)"
       batch="(false &bool)" ramp_down_constraints="(false &bool)" 
       cartesian="(false &bool)" bondangle="(false &bool)" bondlength="(false &bool)"
-      min_type="(dfpmin_armijo_nonmonotone &string)" relaxscript="('' &string)" >
+      min_type="(dfpmin_armijo_nonmonotone &string)" relaxscript="('default' &string)" >
        <MoveMap name="(''&string)">
           <Chain number="(&integer)" chi="(&bool)" bb="(&bool)"/>
           <Jump number="(&integer)" setting="(&bool)"/>
