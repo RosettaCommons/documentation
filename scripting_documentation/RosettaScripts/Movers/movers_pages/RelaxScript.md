@@ -12,7 +12,7 @@
 | legacy      | The default relax script used until 2019 |
 | no_cst_ramping | TODO |
 | rosettacon2018 | Slightly stronger repulsive term than default. Send questions to jack@med.unc.edu |
-| killA2019 | Similar to rosettacon2018 but incorporates reference-value ramping to ensure that the designs have native-like amino acid distributions. Send questions to jack@med.unc.edu |
+| KillA2019 | Similar to rosettacon2018 but incorporates reference-value ramping to ensure that the designs have native-like amino acid distributions. Send questions to jack@med.unc.edu |
 
 All scripts exist in `main/database/sampling/relax_scripts`
 
