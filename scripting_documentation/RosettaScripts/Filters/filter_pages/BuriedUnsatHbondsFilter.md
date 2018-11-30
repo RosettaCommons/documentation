@@ -26,6 +26,15 @@ All info about all unsat types is reported to log, and can be printed to pdb fil
 
 ```
 
+### More recommended usage examples: 
+This section is more of a story about the progression of buried unsat filters in the Baker lab.
+
+2018 buns that have the rotation bug
+```
+<BuriedUnsatHbonds name="new_buns_heavy_all" residue_selector="(&string)" report_bb_heavy_atom_unsats="true" scorefxn="(&string)" cutoff="4" residue_surface_cutoff="20.0" ignore_surface_res="true" print_out_info_to_pdb="true" />
+
+```
+
 ### Symmetry
 The filter is now Symmetry aware.  The default for Symmetric case is that symmetry is auto-detected and will only count totals for the ASU.  If `use_ddG_style="true"` it's expected that users define `sym_dof_names`, and if `sym_dof_names="true"`, ddG-style is used by default; this behaves the same way as Jacob Bale's [[SymUnsatHbondsFilter]] for multicomponent symmetry; if `use_ddG_style="true"` and `sym_dof_names` not defined, then will search at symmetric interface residue (`only_interface="true"`).  Search space can also be defined by residue_selector.
 
