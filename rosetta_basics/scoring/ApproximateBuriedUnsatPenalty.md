@@ -52,6 +52,8 @@ This is the full option list: (Options not listed above were set to default valu
 The options above may also be set from the commandline with:
 -score:approximate_buried_unsat_penalty_\<name_of_option\> value
 
+Additionally, if one is using this term with the intention of eliminating <b>all</b> buried unsats. It would be wise to additionally use the [[PruneBuriedUnsats|scripting_documentation/RosettaScripts/TaskOperations/taskoperations_pages/PruneBuriedUnsatsOperation]] task operation.
+
 ## Option definitions
 
 * approximate_buried_unsat_penalty_hbond_energy_threshold - default -0.25 - Energy threshold for a h-bond to be considered satisfying a buried polar. Should be a negative number. (Setting to -0.001 will be much faster than 0 at runtime) 
