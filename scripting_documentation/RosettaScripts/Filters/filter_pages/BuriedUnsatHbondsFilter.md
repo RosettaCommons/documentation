@@ -86,6 +86,8 @@ With a more precise definition of buried unsats, it was now possible to examine 
 <BuriedUnsatHbonds name="sbuns_all_heavy_interface" residue_selector="(&string)" report_all_heavy_atom_unsats="true" scorefxn="(&string)" cutoff="4" ignore_surface_res="false" print_out_info_to_pdb="true" use_ddG_style="true" dalphaball_sasa="1" probe_radius="1.1" atomic_depth_selection="5.5" atomic_depth_deeper_than="false" confidence="0" />
 ```
 
+See [[this_page|rosetta_basics/scoring/ApproximateBuriedUnsatPenalty#visualizing-the-burial-region]] for python code to visualize the burial region.
+
 ### Symmetry
 The filter is now Symmetry aware.  The default for Symmetric case is that symmetry is auto-detected and will only count totals for the ASU.  If `use_ddG_style="true"` it's expected that users define `sym_dof_names`, and if `sym_dof_names="true"`, ddG-style is used by default; this behaves the same way as Jacob Bale's [[SymUnsatHbondsFilter]] for multicomponent symmetry; if `use_ddG_style="true"` and `sym_dof_names` not defined, then will search at symmetric interface residue (`only_interface="true"`).  Search space can also be defined by residue_selector.
 
