@@ -255,4 +255,22 @@ Serines, which may accept 3 hbonds in nature, are forced to accept 1-2 hbonds he
 
 The oversaturation penalty is applied even if the buried atom is not present. (The situation is not as bad as one might imagine though. Suppose that two rotamers A and B satisfy a buried serine. The serine will have at least 10 rotamers that are all satisfied by A and B. If this score term were naively coded, A and B would have an oversaturation penalty of 10+ because they do not check for the existence of the serine. The code is smart enough however to count this as a penalty of 1. (It takes the max oversaturation penalty that occurs because of a rotamer at each sequence position))
 
+## Visualizing the burial region
 
+The following python code may be used to visualize the burial region:
+
+```python
+import pyrosetta
+pyrosetta.init()
+
+pose = pyrosetta.pose_from_file("my_pose.pdb")
+
+probe_radius = 2.3
+depth = 5.5
+resolution = 0.5
+
+atomic_depth = pyrosetta.rosetta.core.scoring.atomic_depth.AtomicDepth( pose, probe_radius, True, resolution )
+
+atomic_depth.visualize_at_depth( depth, "my_atomic_depth.pdb.gz" )
+
+```
