@@ -13,22 +13,18 @@ Last edited 4/19/2018 by Gideon Lapidoth (glapidoth@gmail.com)
 References
 ==========
 
-We recommend the following articles for further studies of RosettaAntibody methodology and applications:
-
--   B. D. Weitzner\*, J. R. Jeliazkov\*, S. Lyskov\*, N. M. Marze, D. Kuroda, R. Frick, J. Adolf-Bryfogle, N. Biswas, R. L. Dunbrack Jr., and J. J. Gray, "Modeling and docking of antibody structures with Rosetta." Nature Protocols 12, 401&ndash;416 (2017)
-
--   B. D. Weitzner, D. Kuroda, N. M. Marze, J. Xu & J. J. Gray, "Blind prediction performance of RosettaAntibody 3.0: Grafting, relaxation, kinematic loop modeling, and full CDR optimization." Proteins 82(8), 1611&ndash;1623 (2014)
-
-
--   A. Sivasubramanian,\* A. Sircar,\* S. Chaudhury & J. J. Gray, "Toward high-resolution homology modeling of antibody Fv regions and application to antibody-antigen docking," Proteins 74(2), 497&ndash;514 (2009)
+1. Baran, Dror, M. Gabriele Pszolla, Gideon D. Lapidoth, Christoffer Norn, Orly Dym, Tamar Unger, Shira Albeck, Michael D. Tyka, and Sarel J. Fleishman. 2017. “Principles for Computational Design of Binding Antibodies.” Proceedings of the National Academy of Sciences of the United States of America 114 (41): 10900–905.
+2. Lapidoth, Gideon D., Dror Baran, Gabriele M. Pszolla, Christoffer Norn, Assaf Alon, Michael D. Tyka, and Sarel J. Fleishman. 2015. “AbDesign: An Algorithm for Combinatorial Backbone Design Guided by Natural Conformations and Sequences.” Proteins 83 (8): 1385–1406.
+3. Norn, Christoffer H., Gideon Lapidoth, and Sarel J. Fleishman. 2017. “High-Accuracy Modeling of Antibody Structures by a Search for Minimum-Energy Recombination of Backbone Fragments.” Proteins 85 (1): 30–38.
 
 Overview
 ========
+Methods for antibody structure prediction rely on sequence homology to experimentally determined structures. Resulting models may be accurate, but they are often stereochemically strained, limiting their usefulness in modeling and design workflows. Instead of using sequence homology, AbPredict conducts a Monte Carlo based search for low-energy combinations of backbone conformations, derived from experimentally solved antibody structures, to yield accurate and unstrained antibody structures.
+ABpredict uses a combinatorial backbone optimization algorithm, which leverages the large number of experimentally determined molecular structures of antibodies to construct new antibody models. Briefly, all the experimentally determined antibody structures are downloaded from the Protein Data Bank (PDB) and segmented along structurally conserved positions: the disulfide cysteines at the core of the variable domain's light and heavy chains, creating 4 segments comprising of CDR's 1&2 and the intervening scaffold (VH and VL)  and CDR 3 (H3 and L3). These four segments are then recombined combinatorially to produce a highly conformationally diverse set of novel antibody models. The input sequence for modeling is then thread onto the starting set of models. The models are then energetically optimized using Monte-Carlo sampling. At each step a random segment conformation is sampled from a pre-computed database (See [SpliceOutAntiBody](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/SpliceOutAntibody)).
+The final models are then ranked by energy.
 
-**Please realize this the overview is to speed you up to run the protocol asap with minimum knowledge. For details of each steps, please check:**
-
-* [[RosettaAntibody3 application: Antibody Homology Modeling|antibody-cc]]
-* [[RosettaAntibody3 application: Antibody Modeler Protocol (CDR H3 and VL-VH)|antibody-model-CDR-H3]]
+AbPredict is implemented as a rosetta scripts protocol. An example of this protocol can be found here:
+<Rosetta_Directory>/demos/tutorials/AbPredict/AbPredict_xsd.xml
 
 Rosetta Antibody can model both antibodies (consisting of the heavy and light chain variable region) and nanobodies (consisting of only the heavy chain variable region). To run the protocol, one needs:
 
