@@ -32,7 +32,7 @@ Subtag **Segment**:   individual segment tag
 ```xml
 <SampleRotamersFromPDB name="example1" add_rotamer="1" debug="0" ccd="0"/>
 ```
-### Example 2 - Using input pdbs to modify pose rotamers
+### Example 2 - Using Rotamer database files to modify the pose's rotamer vector
 ```xml
 <SampleRotamersFromPDB name="example2" add_rotamer="1" debug="0" ccd="1">
   <Segments>
