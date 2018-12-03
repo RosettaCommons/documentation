@@ -65,7 +65,7 @@ You should run in the script within the folder `\<Rosetta_Directory\>/demos/tuto
 8. The output models should be ranked by total Rosetta energy and clustered. Plotting the models' energies vs. RMSD to the lowest energy model can give a good indication if the models are converting to a single solution. 
 
 **Flags file:**
-'''
+```
 -nodelay
 -use_input_sc
 -ignore_unrecognized_res
@@ -78,7 +78,7 @@ You should run in the script within the folder `\<Rosetta_Directory\>/demos/tuto
 
 -parser:script_vars H1_H2.db=AB_db_files/H1_H2.db H3.db=AB_db_files/H3.db L3.db=AB_db_files/L3.db L1_L2.db=AB_db_files/L1_L2.db
 -out:path:pdb pdb/
-'''
+```
 
 
 
