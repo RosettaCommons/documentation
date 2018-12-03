@@ -498,7 +498,9 @@ hs_hash="(the value set by apply_to_pose for hotspot_hash &float)"
 
 ### Symmetric Scorefunctions
 
-To properly score symmetric poses, they must be scored with a symmetric score function. To declare a scorefunction symmetric, simply add the tag:
+Previously, to properly score symmetric poses, they needed to be scored with a symmetric score function, as shown below.  As of November 2018, scorefunctions became "symmetry agnostic," meaning that the same scorefunction can be used with symmetric or asymmetric poses.  The ```symmetric=1``` tag no longer has any effect.
+
+Previously, to declare a scorefunction symmetric, simply add the tag:
 
 ```
 symmetric="1"
