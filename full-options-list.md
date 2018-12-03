@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-11-29
+Generated: 2018-12-03
 
 _Note that some application specific options may not be present in this list._
 
@@ -5753,6 +5753,8 @@ _Note that some application specific options may not be present in this list._
 <dd>make_rot_lib option group<br/></dd>
 <dt><b>-options_file</b> \<File\></dt>
 <dd>path to make rot lib options file<br/></dd>
+<dt><b>-output_logging</b> \<Boolean\></dt>
+<dd>If true (the default), then logfiles are written for every mainchain torsion bin attempted.  These can take up a lot of space, so this can be disabled by setting this to false.<br/>Default: true<br/></dd>
 <dt><b>-two_fold_symmetry_135_315</b> \<IntegerVector\></dt>
 <dd>the chi number at which to apply two fold symmetry across the 135/315 axis<br/></dd>
 <dt><b>-two_fold_symmetry_0_180</b> \<IntegerVector\></dt>
