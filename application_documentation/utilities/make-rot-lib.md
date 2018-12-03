@@ -146,9 +146,13 @@ The log file also displays the number of conformations per cluster, the average 
 Options
 -------
 
-The MakeRotlib protocol has one option and it is not really optional.
+Mandatory input flags:
 
 -   make\_rot\_lib:options\_file: the path to the rotlib options file we made above.
+
+Optional input flags:
+
+-   make\_rot\_lib:output\_logging: If true (the default), then logfiles are written out for every rotamer file generated.  The logfiles can be quite a bit larger than the rotamer files, though, and can easily fill up available space.  Setting this explicitly to false reduces output size considerably.  (The "-mute all" flag is also useful for this.)
 
 Expected Outputs
 ================
