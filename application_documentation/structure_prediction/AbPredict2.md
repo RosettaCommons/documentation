@@ -24,7 +24,38 @@ ABpredict uses a combinatorial backbone optimization algorithm, which leverages 
 The final models are then ranked by energy.
 
 AbPredict is implemented as a rosetta scripts protocol. An example of this protocol can be found here:
-<Rosetta_Directory>/demos/tutorials/AbPredict/AbPredict_xsd.xml
+\<Rosetta_Directory\>/demos/tutorials/AbPredict/AbPredict_xsd.xml
+
+####How to set up a modeling run
+1. The protocol is set up to model the variable region of an antibody (Fv)
+2. The input sequence should be passed as a script var in the following syntax, either as a command line argument or added to the flags file:
+```
+-parser:script_vars sequence=IKMTQSPSSMYASLGERVTITCKASQDIRKYLNWYQQKPWKSPKTLIYYATSLADGVPSRFSGSGSGQDYSLTISSLESDDTATYYCLQHGESPYTFGGGTKLEIQLQQSGAELVRPGALVKLSCKASGFNIKDYYMHWVKQRPEQGLEWIGLIDPENGNTIYDPKFQGKASITADTSSNTAYLQLSSLTSEDTAVYYCARDNSYYFDYWGQGTTLTVS 
+```
+Note the following rules concerning the input sequence:
+* The N-terminus tail length (the residues before the first disulfide cysteine, not including) of the light chain should be exactly 21 aa's long
+* The The N-terminus tail length of the heavy chain (starting from the first residue after the Vl/Vh chain break up to the first disulfide cys, not including) should be exactly 20 aa's
+* There should be exactly 7 aa's after the conserved L3 phe (L98 in Chothia numbering)
+* There should be exactly 0 aa's after the conserved H3 trp (H103 in Chothia numbering)
+
+3. The next step is to create a list of all segments from the precomputed conformation database with the correct length with respect to the input sequence. The Different segment length correspond to rules listed above.
+4. To get all the relevant segments from the conformation database you can use this bash script:
+\<Rosetta_Directory\>/demos/tutorials/AbPredict/create_run.sh
+To run:
+```
+./create_run.sh <VL length> <L3 length> <HL length> <L3 length>
+```
+You should run in the script within the folder \<Rosetta_Directory\>/demos/tutorials/AbPredict/ 
+
+5. The output file "segment_lengths_script_vars" should have 500 lines, with each line looking like this:
+```
+-parser:script_vars entry_H1_H2="1AHWH" entry_L1_L2="1AHWL" entry_H3="1AHWH" entry_L3="1AHWL"
+```
+6. Each line in the file corresponds to one modeling trajectory. 500 jobs is sufficient. You can increase the number of modeling jobs by running more "ntrial" in each job or creating more jobs by changing the number of lines in the create_run.sh file.
+
+
+
+
 
 Rosetta Antibody can model both antibodies (consisting of the heavy and light chain variable region) and nanobodies (consisting of only the heavy chain variable region). To run the protocol, one needs:
 
