@@ -32,16 +32,19 @@ AbPredict is implemented as a rosetta scripts protocol. An example of this proto
 ```
 -parser:script_vars sequence=IKMTQSPSSMYASLGERVTITCKASQDIRKYLNWYQQKPWKSPKTLIYYATSLADGVPSRFSGSGSGQDYSLTISSLESDDTATYYCLQHGESPYTFGGGTKLEIQLQQSGAELVRPGALVKLSCKASGFNIKDYYMHWVKQRPEQGLEWIGLIDPENGNTIYDPKFQGKASITADTSSNTAYLQLSSLTSEDTAVYYCARDNSYYFDYWGQGTTLTVS 
 ```
-Note the following rules concerning the input sequence:
+**Note the following rules concerning the input sequence:**
+***
 * The N-terminus tail length (the residues before the first disulfide cysteine, not including) of the light chain should be exactly 21 aa's long
 * The The N-terminus tail length of the heavy chain (starting from the first residue after the Vl/Vh chain break up to the first disulfide cys, not including) should be exactly 20 aa's
 * There should be exactly 7 aa's after the conserved L3 phe (L98 in Chothia numbering)
 * There should be exactly 0 aa's after the conserved H3 trp (H103 in Chothia numbering)
+***
 
 3. The next step is to create a list of all segments from the precomputed conformation database with the correct length with respect to the input sequence. The Different segment length correspond to rules listed above.
 4. To get all the relevant segments from the conformation database you can use this bash script:
-\<Rosetta_Directory\>/demos/tutorials/AbPredict/create_run.sh
-To run:
+`\<Rosetta_Directory\>/demos/tutorials/AbPredict/create_run.sh`
+
+**To run:**
 ```
 ./create_run.sh <VL length> <L3 length> <HL length> <L3 length>
 ```
