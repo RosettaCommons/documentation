@@ -25,7 +25,7 @@ This is the suggested usage at the time of writing (2018):
 ```xml
 <SCOREFXNS>
     <ScoreFunction name="sfxn" weights="beta_nov16" >
-        <Reweight scoretype="approximate_buried_unsatisfied_penalty" weight="5.0" />
+        <Reweight scoretype="approximate_buried_unsat_penalty" weight="5.0" />
         <Set approximate_buried_unsat_penalty_hbond_energy_threshold="-0.25" />
         <Set approximate_buried_unsat_penalty_burial_atomic_depth="4.0" />
         # Set this to false if you don't know where you might want prolines
@@ -38,7 +38,7 @@ This is the full option list: (Options not listed above were set to default valu
 ```xml
 <SCOREFXNS>
     <ScoreFunction name="sfxn" weights="beta_nov16" >
-        <Reweight scoretype="approximate_buried_unsatisfied_penalty" weight="5.0" />
+        <Reweight scoretype="approximate_buried_unsat_penalty" weight="5.0" />
         <Set approximate_buried_unsat_penalty_hbond_energy_threshold="-0.25" />
         <Set approximate_buried_unsat_penalty_burial_atomic_depth="4.0" />
         <Set approximate_buried_unsat_penalty_burial_probe_radius="2.3" />
