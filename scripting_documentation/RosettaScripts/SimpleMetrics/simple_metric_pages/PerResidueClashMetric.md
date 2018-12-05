@@ -1,10 +1,10 @@
-# PerResidueRMSDMetric.md
+# PerResidueClashMetric
 *Back to [[SimpleMetrics]] page.*
-## PerResidueRMSDMetric
+## PerResidueClashMetric
 
 Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
-[[include:simple_metric_PerResidueRMSDMetric_complex_type]]
+[[include:simple_metric_PerResidueClashMetric_complex_type]]
 
 ##See Also
 

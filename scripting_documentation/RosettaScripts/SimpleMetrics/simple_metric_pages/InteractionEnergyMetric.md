@@ -1,16 +1,16 @@
-# PerResidueRMSDMetric.md
+# InteractionEnergyMetric
 *Back to [[SimpleMetrics]] page.*
-## PerResidueRMSDMetric
+## InteractionEnergyMetric
 
 Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
-[[include:simple_metric_PerResidueRMSDMetric_complex_type]]
+[[include:simple_metric_InteractionEnergyMetric_complex_type]]
 
 ##See Also
 
-* [[ResidueSummaryMetric]]: Summarize a PerResidueRealMetric in various ways, such as the mean, sum, or the number of residues above, below, or equal to a certain value. 
-
 * [[RunSimpleMetrics]]: Run a set of SimpleMetrics and output data to the scorefile
+* [[CompositeEnergyMetric]]: Calculate individual scoreterms of a scorefuntion
+* [[TotalEnergyMetric]] : Calculate the total energy or energy difference of two poses over a residue selection
 * [[SimpleMetricFilter]]: Filter on an arbitrary SimpleMetric
 * [[SimpleMetricFeatures]]: Run [[Features | Features-reporter-overview]] on a set of SimpleMetrics
 * [[SimpleMetrics]]: Available SimpleMetrics

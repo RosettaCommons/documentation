@@ -8,6 +8,8 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 ##See Also
 
+* [[ResidueSummaryMetric]]: Summarize a PerResidueRealMetric in various ways, such as the mean, sum, or the number of residues above, below, or equal to a certain value. 
+
 * [[RunSimpleMetrics]]: Run a set of SimpleMetrics and output data to the scorefile
 * [[SimpleMetricFilter]]: Filter on an arbitrary SimpleMetric
 * [[SimpleMetricFeatures]]: Run [[Features | Features-reporter-overview]] on a set of SimpleMetrics
