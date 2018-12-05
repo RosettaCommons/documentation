@@ -52,7 +52,7 @@ Example with comparison to native through `-in:file:native`:
 
 #### ResidueSummaryMetric
 
-All PerResidue SimpleMetrics that return a real number ( [[PerResidueRealMetrics | SimpleMetrics#PerResidueRealMetric]] ) can be summarized in various ways, such as the mean, or the number of residues meeting a certain criteria using the [[ResidueSummaryMetric]]. This Metric is itself a [[RealMetric | SimpleMetrics#RealMetric]] and can be used as such filters, features reporters, etc.
+The [[ResidueSummaryMetric]] takes a ( [[PerResidueRealMetric | SimpleMetrics#PerResidueRealMetric]] ) and summarizes the data in various ways, such as the mean, or the number of residues above, below, or equal to a certain value. This Metric is itself a [[RealMetric | SimpleMetrics#RealMetric]] and can be used as such in filters, features reporters, etc.
 
 ### Custom Types
 
