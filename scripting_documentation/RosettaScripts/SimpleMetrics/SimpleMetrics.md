@@ -9,7 +9,6 @@ Finally, all SimpleMetrics can also be used within the [[FeaturesReporter | Feat
 
 ## Summarizing/Calculating metrics
 
-
 ### ResidueSummaryMetric
 
 All PerResidue SimpleMetrics that return a real number (_PerResidueRealMetrics_) can be summarized in various ways, such as the mean, or the number of residues meeting a certain criteria using the [[ResidueSummaryMetric]]. This Metric is itself a RealMetric and can be used as such for things like filters or features reporters.
