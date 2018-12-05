@@ -4,10 +4,19 @@
 SimpleMetrics are a new way to do analysis in Rosetta, and will eventually replace the Filter system and most filters.  They are declared in the new `<SIMPLE_METRICS>` block of RosettaScripts and are available in weekly releases after April 10th, 2018.  All data calculated by a SimpleMetric can be output to a score file with the metric name and any set prefix and/or suffix. These sets of SimpleMetrics can be also be run at different points in a protocol, such as before and after a particular mover or set of movers. See [[RunSimpleMetrics]] for more on the syntax of how to run them in in your protocol.  Filters were never meant to do analysis in the way they are being used currently.  The SimpleMetric framework aims to correct this. The SimpleMetrics on this page are broken into what kind of data they calculate.  
 
 All SimpleMetrics can also be used as Filters, using the [[SimpleMetricFilter]].
-
+ 
 Finally, all SimpleMetrics can also be used within the [[FeaturesReporter | Features-reporter-overview]] framework, to allow robust analysis into relational databases.  Please see [[SimpleMetricFeatures]] for more. 
 
+## Summarizing/Calculating metrics
+
+
+### ResidueSummaryMetric
+
+All PerResidue SimpleMetrics that return a real number (_PerResidueRealMetrics_) can be summarized in various ways, such as the mean, or the number of residues meeting a certain criteria using the [[ResidueSummaryMetric]]. This Metric is itself a RealMetric and can be used as such for things like filters or features reporters.
+
+## Example
 Example with comparison to native through `-in:file:native`:
+
 
 ```xml
 <ROSETTASCRIPTS>
@@ -87,7 +96,7 @@ Ex:
 
 ###Metric Cacheing
 
-Some calculations are expensive, such as the `DensityFitMetric`.  In order to reduce run time during a complex protocol, [[SimpleMetricFilter]] and [[SimpleMetricFeatures]] can use cached data.  During the `RunSimpleMetrics` application, ALL data is stored within the pose and this can be used for filters and features using the `use_cached_data` option.  If a prefix/suffix was used during `RunSimpleMetrics`, this is needed here as well as the options `cache_prefix` and `cache_suffix`. Any pose-length changes are accounted for automatically using Vikram Mulligan's excellent reference pose functionality.  
+Some calculations are expensive, such as the `DensityFitMetric`.  In order to reduce run time during a complex protocol, [[SimpleMetricFilter]],  [[SimpleMetricFeatures]], and the [[ResidueSummaryMetric]] can use cached data.  During the `RunSimpleMetrics` application, ALL data is stored within the pose and this can be used for filters and features using the `use_cached_data` option.  If a prefix/suffix was used during `RunSimpleMetrics`, this is needed here as well as the options `cache_prefix` and `cache_suffix`. Any pose-length changes are accounted for automatically using Vikram Mulligan's excellent reference pose functionality.  
 
 Ex: 
 
@@ -108,6 +117,8 @@ These metrics calculate a single real number (or integer).
 SimpleMetric  | Description | ResidueSelector Compatability?
 ------------ | ------------- | -------------
 **[[DihedralDistanceMetric]]** | Calculates the normalized dihedral angle distance in degrees from directional statistics on a set of dihedrals/residues of two poses or two regions of a pose.  | Yes
+**[[InteractionEnergyMetric]]** | Calculates the (long range and short range) interaction energy between a selection and all other residues or another selection. Can be set to only calculate short or long or only use certain score terms such as fa_rep. | Yes
+**[[ResidueSelectionMetric]]** | A metric that takes a _PerResidueRealMetric_ and summarized the data in different ways, such means or the number of residues that match a certain criteria. | Yes
 **[[RMSDMetric]]** | Calculates the RMSD between two poses or on a subset of residues.  Many options for RMSD including bb, heavy, all, etc. | Yes 
 **[[SasaMetric]]** | Calculates the Solvent Accessible Surface Area (sasa). | Yes
 **[[SelectedResidueCountMetric]]** | Count the number of residues in a selection (or whole pose). | Yes
@@ -138,6 +149,7 @@ All accept ResidueSelectors.  Output can be in Rosetta or PDB Numbering.
 SimpleMetric  | Description 
 ------------ | -------------
 **[[PerResidueDensityFitMetric]]** | Calculate the Fit of a  model to the loaded density either by Correlation or a Zscore.
+**[[PerResidueClashMetric]]** | Calculates the number of atomic clashes per residue using two residue selectors. Clashes are calculated through the leonard jones radius of each atom type.
 **[[PerResidueEnergyMetric]]** | Calculate any energy term for each residue.  Total energy is default.  If a native or repose is given, can calculate the energy delta for each residue.
 **[[PerResidueRMSDMetric]]** | Calculate the RMSD for each residue between the input and either the native or a reference pose.
 **[[PerResidueSasaMetric]]** | Calculate the Solvent Accessible Surface Area (SASA) of each residue.
