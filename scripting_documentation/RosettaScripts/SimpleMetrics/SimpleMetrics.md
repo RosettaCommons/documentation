@@ -7,7 +7,6 @@ All SimpleMetrics can also be used as Filters, using the [[SimpleMetricFilter]].
  
 Finally, all SimpleMetrics can also be used within the [[FeaturesReporter | Features-reporter-overview]] framework, to allow robust analysis into relational databases.  Please see [[SimpleMetricFeatures]] for more. 
 
-## Example
 Example with comparison to native through `-in:file:native`:
 
 
@@ -45,13 +44,15 @@ Example with comparison to native through `-in:file:native`:
 
 [[_TOC_]]
 
-## Summarizing/Calculating metrics
 
-### ResidueSummaryMetric
-
-All PerResidue SimpleMetrics that return a real number ( [[PerResidueRealMetrics | SimpleMetrics#PerResidueRealMetric]] ) can be summarized in various ways, such as the mean, or the number of residues meeting a certain criteria using the [[ResidueSummaryMetric]]. This Metric is itself a [[RealMetric | SimpleMetrics#RealMetric]] and can be used as such for things like filters or features reporters.
 
 ##Effective use of SimpleMetrics
+
+### Summarizing/Calculating metrics
+
+#### ResidueSummaryMetric
+
+All PerResidue SimpleMetrics that return a real number ( [[PerResidueRealMetrics | SimpleMetrics#PerResidueRealMetric]] ) can be summarized in various ways, such as the mean, or the number of residues meeting a certain criteria using the [[ResidueSummaryMetric]]. This Metric is itself a [[RealMetric | SimpleMetrics#RealMetric]] and can be used as such filters, features reporters, etc.
 
 ### Custom Types
 
