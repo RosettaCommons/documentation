@@ -98,7 +98,7 @@ any ResidueSelector can be defined as a subtag of the Not selector.  You cannot,
 
 -   The TrueResidueSelector simply selects your entire pose.  Good for those times when you need to use a residue selector, but you want your entire pose.
     ```xml
-    <True name="full_pose/>
+    <True name="full_pose" />
     ```
 
 ### Conformation Independent Residue Selectors
