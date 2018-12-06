@@ -27,7 +27,7 @@ The following example would send the pose to PyMol before and after packing and 
 
 To allow PyMol to listen for new poses, you need to run the following script from within PyMol, where *$PATH_TO_ROSETTA* is replaced by the path to you Rosetta installation.
 ```sh
-run $PATH_TO_ROSETTA/Rosetta/main/source/src/python/bindings/PyMOLPyRosettaServer.py
+run $PATH_TO_ROSETTA/Rosetta/main/source/src/python/PyRosetta/src/PyMOL-RosettaServer.py
 ```
 
 
