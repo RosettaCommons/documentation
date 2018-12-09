@@ -8,7 +8,7 @@ XRW TO DO
 ```xml
 <SSMotifFinder name="(&string;)" from_res="(&non_negative_integer;)"
         to_res="(&non_negative_integer;)" rmsd="(&real;)" filename="(&string;)"
-        pdb_name="(&string;)" template_pose="(&string;)"
+        pdbname="(&string;)" template_pose="(&string;)"
         template_stem1="(0 &refpose_enabled_residue_number;)"
         template_stem2="(0 &refpose_enabled_residue_number;)"
         confidence="(1.0 &real;)" />
@@ -18,7 +18,7 @@ XRW TO DO
 -   **to_res**: (REQUIRED) Ending residue number; default to 0
 -   **rmsd**: (REQUIRED) RMSD to base filter on
 -   **filename**: (REQUIRED) file name to write to
--   **pdb_name**: (REQUIRED) name of input pdb
+-   **pdbname**: (REQUIRED) name of input pdb
 -   **template_pose**: (REQUIRED) filename of input template
 -   **template_stem1**: XRW TO DO
 -   **template_stem2**: XRW TO DO
