@@ -110,6 +110,7 @@ Filter  | Description
 **[[AngleToVector|AngleToVectorFilter]]** | Filter on angle between two atoms on the first residue of a chain and a given vector.
 **[[Torsion|TorsionFilter]]** | Filter based on the value of a dihedral.
 **[[HelixPairing|HelixPairingFilter]]** | Filter structures based on the geometry of helix pairings.
+**[[SSMotifFinder|SSMotifFinderFilter]]** | Filter structures based on the geometry of loop stems.
 **[[SecondaryStructure|SecondaryStructureFilter]]** | Filter structures based on secondary structure.
 **[[SecondaryStructureCount|SecondaryStructureCountFilter]]** | Count number of a single secondary structure element. 
 **[[SecondaryStructureHasResidue|SecondaryStructureHasResidueFilter]]** | Count fraction of secondary structure element positions containing specific residue.
