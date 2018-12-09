@@ -5,7 +5,7 @@
 Filter loops based on the similarity of their stems' backbone geometry to the stems of a template loop. The filter searches for pairs amino acids separated by a certain number of amino acids on the primary sequence that furthermore superimpose the backbone atoms of the template loop stems within some rmsd cutoff. The rmsd calculation are performed on the backbone heavy atoms (N, Cα, C, O) of the stem residues and the preceding and succeeding residues (6 residues in all on each loop). The output is a file containing a list of all the pairs of stems that superimposed the template stems within a specified rmsd cutoff, and the calculated rmsd.  
 
 ```xml
-<SSMotifFinder name="(&string)" template_pose="(&string)" template_stem1="(0 &string)" template_stem2="(0 &string)" from_res="(0 &int)" to_res="(0 &int)" rmsd="(0.0 &real)" filename="(&string)" pdbname="(&string)"/>
+<SSMotifFinder name="(&string)" template_pose="(&string)" template_stem1="(0 &string)" template_stem2="(0 &string)" from_res="(0 &non_negative_integer)" to_res="(0 &non_negative_integer)" rmsd="(0.0 &real)" filename="(&string)" pdbname="(&string)"/>
 ```
 
 -   template_pose: The pose which contains the loop of interest ("template loop")
