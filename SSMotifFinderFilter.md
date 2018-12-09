@@ -13,6 +13,6 @@ Filter loops based on the similarity of their stems' backbone geometry to the st
 -   template_stem2: The N' terminal stem of the template loop (pdb number, e.g. 36A)
 -   from_res: The minimal sequence separation between the stems of the tested loop (which correspond to the loop length)  
 -   to_res: The maximal sequence separation between the stems of the tested loop (which correspond to the loop length) 
--   rmsd: The root mean square deviation (rmsd) between the stems of the tested loop and those of the template loop. 
+-   rmsd: The root mean square deviation between the stems of the tested loop and those of the template loop. 
 -   filename: The name of the output file containing the list of matching loop conformations
 -   pdbname: The name of the pdb in which the matching conformations were found (the input structure for Rosetta in -s)
