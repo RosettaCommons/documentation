@@ -770,10 +770,16 @@ A movemap builder constructs a movemap. A movemap is a 2xN table of true/false v
 
 The SCORINGGRIDS block is used to define ligand scoring grids (currently used only by the Transform mover). The grids will initially be created centered at the ligand chain specified, and will be cubical with the specified width in angstroms. Rosetta automatically decides whether or not a grid needs to be recalculated. Grids are recalculated if any non-ligand atoms change position. The weight specified for each grid is multiplied by the ligand score for that grid. The following grid\_types can currently be specified:
 
--   ClassicGrid: The scoring grids originally used in The Davis, 2009 implementation of RosettaLigand
--   ShapeGrid: A knowledge based potential derived grid approximating shape complementarity
--   HbdGrid: A knowledge based potential derived grid approximating protein hydrogen bond donor interactions
--   HbaGrid: A knowledge based potential derived grid approximating protein hydrogen bond acceptor interactions
+-   ClassicGrid: The scoring grids originally used in The Davis, 2009 implementation of RosettaLigand.
+-   AtrGrid: An attractive potential grid.
+-   ChargeGrid: An approximation of the electric field.
+-   HbdGrid: A knowledge-based potential derived grid approximating protein hydrogen bond donor interactions.
+-   HbaGrid: A knowledge-based potential derived grid approximating protein hydrogen bond acceptor interactions.
+-   LigandPropertyScore: ? (Currently undocumented).
+-   RepGrid: A repulsive potential grid.
+-   ShapeGrid: A knowledge-based potential derived grid approximating shape complementarity.
+-   SiteGrid: ? (Currently undocumented).
+-   SolvationGrid: A solvation potential grid.
 
 The top-level "name" parameter is used to specify the GridSet name, which can be used with the Transform mover to select which set of grids are being used. (If no name is given, the grid set will be loaded under the name "default".) 
 
