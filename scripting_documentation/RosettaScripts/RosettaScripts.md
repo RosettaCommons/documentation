@@ -764,14 +764,14 @@ A movemap builder constructs a movemap. A movemap is a 2xN table of true/false v
 
 ```xml
 <SCORINGGRIDS ligand_chain="(string)" width="(real)" name="(string, optional)" resolution="(real, optional)" normalize_mode="(string, optional)" >
-<[scoring grid type name] name="[name_of_this_scoring_grid]" grid_name="ScoringGrid" weight="(real)"/>
+<[scoring grid type name] grid_name="(string)" weight="(real)"/>
 </SCORINGGRIDS>
 ```
 
 The SCORINGGRIDS block is used to define ligand scoring grids (currently used only by the Transform mover). The grids will initially be created centered at the ligand chain specified, and will be cubical with the specified width in angstroms. Rosetta automatically decides whether or not a grid needs to be recalculated. Grids are recalculated if any non-ligand atoms change position. The weight specified for each grid is multiplied by the ligand score for that grid. The following grid\_types can currently be specified:
 
 -   ClassicGrid: The scoring grids originally used in The Davis, 2009 implementation of RosettaLigand
--   VdwGrid: A knowledge based potential derived grid approximating shape complementarity
+-   ShapeGrid: A knowledge based potential derived grid approximating shape complementarity
 -   HbdGrid: A knowledge based potential derived grid approximating protein hydrogen bond donor interactions
 -   HbaGrid: A knowledge based potential derived grid approximating protein hydrogen bond acceptor interactions
 
