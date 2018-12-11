@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-12-03
+Generated: 2018-12-11
 
 _Note that some application specific options may not be present in this list._
 
@@ -5769,6 +5769,27 @@ _Note that some application specific options may not be present in this list._
 <dd>Provide an explicit description of the patches for terminal capping<br/></dd>
 <dt><b>-polymeric_context</b> \<File\></dt>
 <dd>A file containing the RT at PDB number 0 and the flanking context as well.<br/></dd>
+</dl>
++ <h2>-make_mainchain_potential</h2>
+<dl>
+<dt><b>-make_mainchain_potential</b> \<Boolean\></dt>
+<dd>make_mainchain_potential option group<br/></dd>
+<dt><b>-do_minimization</b> \<Boolean\></dt>
+<dd>If true, each side-chain rotamer is minimized using the Rosetta molecular mechanics forcefield prior to scoring.  True by default.<br/>Default: true<br/></dd>
+<dt><b>-mainchain_potential_points_per_dimension</b> \<IntegerVector\></dt>
+<dd>The number of points for each dimension in the multidimensional mainchain potential, provided as a whitespace-separated list of integers.  Each integer must be strictly positive.  Required input.<br/></dd>
+<dt><b>-mainchain_torsions_covered</b> \<IntegerVector\></dt>
+<dd>The mainchain torsions that are covered by this potential.  For example, an oligourea has four mainchain torsions, but only torsions 1, 2, and 3 are covered (and the fourth is restrained by the omega scoreterm), in which case this option can be set to 1 2 3.  If not specified, it defaults to all mainchain torsions.<br/></dd>
+<dt><b>-make_pre_proline_potential</b> \<Boolean\></dt>
+<dd>If true, then this application will make a potential for a position preceding a proline, sarcosine, peptoid, or other N-substituted building-block.  If false (the default), then it generates a potential for a position preceding an unsubstituted position (e.g. the 19 canonical amino acids other than proline).<br/>Default: false<br/></dd>
+<dt><b>-output_filename</b> \<File\></dt>
+<dd>Output file to which the generated mainchain potential will be written.  Defaults to generated_mainchain_potential.txt<br/>Default: "generated_mainchain_potential.txt"<br/></dd>
+<dt><b>-residue_name</b> \<String\></dt>
+<dd>The name of the residue type for which we will be generating a mainchain potential.  Defaults to ALA if not set, but should be set by the user.<br/>Default: "ALA"<br/></dd>
+<dt><b>-symmetrize_output</b> \<Boolean\></dt>
+<dd>If true, the output will be made symmetric.  False by default.  Note that this necessitates a five degree offset.<br/>Default: false<br/></dd>
+<dt><b>-write_potentials_for_individual_scoreterms</b> \<Boolean\></dt>
+<dd>If true, a separate potential file is written for each scoreterm.  This is used to fit the weights for the molecular mechanics forcefield used by the make_mainchain_potential application.  Note that these tables will be written unnormalized and with weights of 1.0 for each term.  False by default.<br/>Default: false<br/></dd>
 </dl>
 + <h2>-match</h2>
 <dl>
