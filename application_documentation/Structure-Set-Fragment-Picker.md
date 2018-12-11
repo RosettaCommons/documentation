@@ -5,7 +5,7 @@ Metadata
 
 Authors:  
 Ingemar André (ingemar.andre@biochemistry.lu.se)  
-Sebastian Rämisch (sebastian.ramisch@biochemistry.lu.se)  
+Sebastian Rämisch (raemisch@scripps.edu)  
 
 Corresponding PI: Ingemar André  
 
