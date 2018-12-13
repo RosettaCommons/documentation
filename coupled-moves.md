@@ -99,7 +99,7 @@ START
 
 Automatically detect packable residues:
 
-Use `-include_clashing_positions` flag to autodetect all positions that clash with designable positions. Start with a NATAA default resfile that defines designable positions. The CoupledMoves protocol will keep as NATAA only positions that clash with designable positions, while all other positions will be switched to NATRO.
+Use `-exclude_nonclashing_positions` flag to autodetect all positions that clash with designable positions. Start with a NATAA default resfile that defines designable positions. The CoupledMoves protocol will keep as NATAA only positions that clash with designable positions, while all other positions will be switched to NATRO.
 
 Example resfile:
 
