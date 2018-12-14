@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-12-11
+Generated: 2018-12-14
 
 _Note that some application specific options may not be present in this list._
 
@@ -2651,8 +2651,8 @@ _Note that some application specific options may not be present in this list._
 <dl>
 <dt><b>-mutate_relax</b> \<Boolean\></dt>
 <dd>mutate_relax option group<br/></dd>
-<dt><b>-mutation</b> \<String\></dt>
-<dd>Single mutation: Format: One-letter code / residue number / one-letter code. Example: A163F<br/></dd>
+<dt><b>-mutation</b> \<StringVector\></dt>
+<dd>Vector of single mutations: Format: One-letter code / residue number / one-letter code. Example: A163F<br/></dd>
 <dt><b>-mutant_file</b> \<String\></dt>
 <dd>Input file containing mutations<br/></dd>
 <dt><b>-nmodels</b> \<Integer\></dt>
@@ -6486,8 +6486,10 @@ _Note that some application specific options may not be present in this list._
 <dl>
 <dt><b>-mutate</b> \<Boolean\></dt>
 <dd>mutate option group<br/></dd>
-<dt><b>-mutation</b> \<String\></dt>
-<dd>Single mutation: Format: One-letter code / residue number / one-letter code. Example: A163F<br/></dd>
+<dt><b>-mutation</b> \<StringVector\></dt>
+<dd>Vector of single mutations: Format: One-letter code / residue number / one-letter code. Example: A163F<br/></dd>
+<dt><b>-mutant_file</b> \<String\></dt>
+<dd>Input file containing mutations<br/></dd>
 </dl>
 + <h2>-nonlocal</h2>
 <dl>
