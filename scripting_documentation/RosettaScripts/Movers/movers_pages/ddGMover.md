@@ -27,7 +27,7 @@ The script below shows how to enable PB with ddg mover. I have APBS (Adaptive Po
     </SCOREFXNS>
     <MOVERS>
         <SetupPoissonBoltzmannPotential name="setup_pb" scorefxn="sc12_w_pb" charged_chains="1" apbs_path="/home/honda/apbs-1.4/bin/apbs"/>
-        <Ddg name="ddg" scorefxn="sc12_w_pb" chain_num="2"/>
+        <ddG name="ddg" scorefxn="sc12_w_pb" chain_num="2"/>
     </MOVERS>
     <FILTERS>
         ...
