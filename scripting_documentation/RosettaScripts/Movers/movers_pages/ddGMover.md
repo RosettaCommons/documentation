@@ -43,6 +43,6 @@ The script below shows how to enable PB with ddg mover. I have APBS (Adaptive Po
 ##See Also
 
 * [[SetupPoissonBoltzmannPotentialMover]]
-* [[Ddg filter]]: A filter for discarding complexes with too low a Ddg value.
+* [[Ddg filter|DdgFilter]]: A filter for discarding complexes with too low a Ddg value.
 * [[ddg-monomer]]: Application for calculating ddg values for monomeric proteins
 * [[I want to do x]]: Guide to choosing a mover
