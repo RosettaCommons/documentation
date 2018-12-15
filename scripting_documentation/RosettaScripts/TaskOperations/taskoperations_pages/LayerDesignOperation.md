@@ -251,7 +251,7 @@ Here is an implementation of LayerDesign using the LayerSelector. The selection 
 ################ End layer design
 ```
 
-**Caviats**
+**Caveats**
 * You need to put all 12 taskops in your `taskoperations=""` tag.
 * Nterm and Cterm are listed as loop
 * minH="3" minE="2" should more correctly be minH="1" minE="1" to mimic LayerDesign. However, larger numbers here will be more robust to weird loops.
