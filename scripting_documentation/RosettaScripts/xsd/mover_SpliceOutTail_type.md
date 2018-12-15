@@ -7,27 +7,17 @@ XRW TO DO
 
 ```xml
 <SpliceOutTail name="(&string;)" debug="(false &bool;)"
-        CG_const="(false &bool;)" rb_sensitive="(false &bool;)"
-        chain_num="(1 &non_negative_integer;)" segment="(&string;)"
-        superimposed="(true &bool;)" delete_hairpin="(false &bool;)"
-        delete_hairpin_n="(4 &non_negative_integer;)"
-        delete_hairpin_c="(13 &non_negative_integer;)" tail_segment="(&n_or_c;)"
-        use_sequence_profile="(&bool;)" scorefxn="(&string;)"
-        add_sequence_constraints_only="(false &bool;)"
-        template_file="(&string;)" set_fold_tree_only="(false &bool;)"
+        CG_const="(false &bool;)" chain_num="(1 &non_negative_integer;)"
+        superimposed="(true &bool;)" thread_original_sequence="(false &bool;)"
+        tail_segment="(&n_or_c;)" scorefxn="(&string;)"
+        use_sequence_profile="(&bool;)" template_file="(&string;)"
         source_pdb="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
         from_res="(0 &refpose_enabled_residue_number;)"
-        design_task_operations="(&string;)" residue_numbers_setter="(&string;)"
         torsion_database="(&string;)" design_shell="(6.0 &real;)"
         repack_shell="(8.0 &real;)" rms_cutoff="(999999 &real;)"
-        res_move="(1000 &non_negative_integer;)"
-        cut_secondarystruc="(false &bool;)" thread_ala="(true &bool;)"
-        design="(false &bool;)" thread_original_sequence="(false &bool;)"
-        rtmin="(true &bool;)" allow_all_aa="(false &bool;)"
-        checkpointing_file="(&string;)" splice_filter="(&string;)"
-        mover="(&string;)" restrict_to_repacking_chain2="(true &bool;)"
-        use_sequence_profiles="(true &bool;)" >
+        rtmin="(true &bool;)" splice_filter="(&string;)" mover="(&string;)"
+        restrict_to_repacking_chain2="(true &bool;)" >
     <Segments name="(&string;)" current_segment="(&string;)" >
         <segment name="(&string;)" pdb_profile_match="(&string;)" profiles="(&string;)" />
     </Segments>
@@ -35,41 +25,25 @@ XRW TO DO
 ```
 
 -   **debug**: XRW TO DO
--   **CG_const**: XRW TO DO
--   **rb_sensitive**: XRW TO DO
--   **chain_num**: XRW TO DO
--   **segment**: XRW TO DO
--   **superimposed**: XRW TO DO
--   **delete_hairpin**: XRW TO DO
--   **delete_hairpin_n**: XRW TO DO
--   **delete_hairpin_c**: XRW TO DO
--   **tail_segment**: XRW TO DO
--   **use_sequence_profile**: XRW TO DO
+-   **CG_const**: If true apply coordinate constraint on C-gammas of the segment during CCD/minimization
+-   **chain_num**: The pose's chain onto which the new segment is added.
+-   **superimposed**: superimpose source pdb onto current pose.
+-   **thread_original_sequence**: If true, thread the seuqeunce from the refrence pdb onto the segment
+-   **tail_segment**: Is this a C-ter ("c") or and N-ter ("N") segment.
 -   **scorefxn**: Name of score function to use
--   **add_sequence_constraints_only**: XRW TO DO
+-   **use_sequence_profile**: XRW TO DO
 -   **template_file**: XRW TO DO
--   **set_fold_tree_only**: XRW TO DO
 -   **source_pdb**: XRW TO DO
 -   **task_operations**: A comma separated list of TaskOperations to use.
 -   **from_res**: XRW TO DO
--   **design_task_operations**: XRW TO DO
--   **residue_numbers_setter**: XRW TO DO
 -   **torsion_database**: XRW TO DO
 -   **design_shell**: XRW TO DO
 -   **repack_shell**: XRW TO DO
 -   **rms_cutoff**: XRW TO DO
--   **res_move**: XRW TO DO
--   **cut_secondarystruc**: XRW TO DO
--   **thread_ala**: XRW TO DO
--   **design**: XRW TO DO
--   **thread_original_sequence**: XRW TO DO
 -   **rtmin**: XRW TO DO
--   **allow_all_aa**: XRW TO DO
--   **checkpointing_file**: XRW TO DO
 -   **splice_filter**: XRW TO DO
--   **mover**: Which mover to use to close the segment
+-   **mover**: Which mover to use to optimize segment's backbone
 -   **restrict_to_repacking_chain2**: XRW TO DO
--   **use_sequence_profiles**: XRW TO DO
 
 
 Subtag **Segments**:   Wrapper for multiple segments tags

@@ -9,16 +9,14 @@ XRW TO DO
 <RBIn name="(&string;)" rigid_body_dbase="(&string;)"
         from_entry="(1 &non_negative_integer;)"
         to_entry="(1 &non_negative_integer;)" randomize="(true &bool;)"
-        checkpointing_file="(&string;)" db_entry="(&string;)"
-        modify_foldtree="(true &bool;)" />
+        db_entry="(&string;)" modify_foldtree="(true &bool;)" />
 ```
 
--   **rigid_body_dbase**: XRW TO DO
--   **from_entry**: XRW TO DO
--   **to_entry**: XRW TO DO
--   **randomize**: XRW TO DO
--   **checkpointing_file**: XRW TO DO
--   **db_entry**: XRW TO DO
--   **modify_foldtree**: XRW TO DO
+-   **rigid_body_dbase**: path to database file with Vl/Vh orientations.
+-   **from_entry**: limit range to sample database from
+-   **to_entry**: limit range to sample database from
+-   **randomize**: Randomly sample from database
+-   **db_entry**: Select specific entry to sample from
+-   **modify_foldtree**: If true, set a new fold tree with jump between Vl/Vh
 
 ---

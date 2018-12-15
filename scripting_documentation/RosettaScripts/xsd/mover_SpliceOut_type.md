@@ -8,79 +8,58 @@ XRW TO DO
 ```xml
 <SpliceOut name="(&string;)" tolerance="(0.23 &real;)"
         ignore_chain_break="(false &bool;)" debug="(false &bool;)"
-        CG_const="(false &bool;)" rb_sensitive="(false &bool;)"
-        chain_num="(1 &non_negative_integer;)"
+        CG_const="(false &bool;)" chain_num="(1 &non_negative_integer;)"
         cut_site="(1 &non_negative_integer;)" Segment="(&string;)"
-        superimposed="(true &bool;)" delete_hairpin="(false &bool;)"
-        delete_hairpin_n="(4 &non_negative_integer;)"
-        delete_hairpin_c="(13 &non_negative_integer;)"
+        superimposed="(true &bool;)"
         source_pdb_to_res="(&refpose_enabled_residue_number;)"
         use_sequence_profile="(&bool;)" scorefxn="(&string;)"
-        add_sequence_constraints_only="(false &bool;)"
         template_file="(&string;)" set_fold_tree_only="(false &bool;)"
         source_pdb="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
         from_res="(0 &refpose_enabled_residue_number;)"
         to_res="(0 &refpose_enabled_residue_number;)"
-        design_task_operations="(&string;)" residue_numbers_setter="(&string;)"
         torsion_database="(&string;)" design_shell="(6.0 &real;)"
         repack_shell="(8.0 &real;)" rms_cutoff="(999999 &real;)"
-        rms_cutoff_loop="(999999 &real;)"
-        res_move="(1000 &non_negative_integer;)" randomize_cut="(false &bool;)"
-        cut_secondarystruc="(false &bool;)" thread_ala="(true &bool;)"
-        design="(false &bool;)" thread_original_sequence="(false &bool;)"
-        rtmin="(true &bool;)" locked_residue="(&string;)"
-        checkpointing_file="(&string;)" splice_filter="(&string;)"
-        mover="(&string;)" restrict_to_repacking_chain2="(true &bool;)"
-        use_sequence_profiles="(true &bool;)" >
+        rms_cutoff_loop="(999999 &real;)" randomize_cut="(true &bool;)"
+        cut_secondarystruc="(false &bool;)"
+        thread_original_sequence="(false &bool;)" rtmin="(true &bool;)"
+        splice_filter="(&string;)" mover="(&string;)"
+        restrict_to_repacking_chain2="(true &bool;)" >
     <Segments name="(&string;)" current_segment="(&string;)" >
         <Segment name="(&string;)" pdb_profile_match="(&string;)" profiles="(&string;)" />
     </Segments>
 </SpliceOut>
 ```
 
--   **tolerance**: XRW TO DO
--   **ignore_chain_break**: XRW TO DO
--   **debug**: XRW TO DO
--   **CG_const**: XRW TO DO
--   **rb_sensitive**: XRW TO DO
--   **chain_num**: XRW TO DO
--   **cut_site**: residue number of where to place cut
+-   **tolerance**: Splice mover performs an internal check of peptide bond length in the new segment. If the bond length is more than the set tolerance the mover reports failure.
+-   **ignore_chain_break**: f true, will ignore deviation in bond length. This is not recommended and usually used for debugging.
+-   **debug**: If true output is more verbose and PDB structures are dumped
+-   **CG_const**: If true apply coordinate constraint on C-gammas of the segment during CCD/minimization
+-   **chain_num**: The pose's chain onto which the new segment is added.
+-   **cut_site**: residue number of where to place cut, used mainly for debugging.
 -   **Segment**: XRW TO DO
--   **superimposed**: XRW TO DO
--   **delete_hairpin**: XRW TO DO
--   **delete_hairpin_n**: XRW TO DO
--   **delete_hairpin_c**: XRW TO DO
--   **source_pdb_to_res**: XRW TO DO
--   **use_sequence_profile**: XRW TO DO
+-   **superimposed**: If false, superimpose source pdb onto current pose.
+-   **source_pdb_to_res**: If structures are not aligned use the template from_res and source pdb from_res to align
+-   **use_sequence_profile**: If true, add sequence constraint to pose from pssm files
 -   **scorefxn**: Name of score function to use
--   **add_sequence_constraints_only**: XRW TO DO
--   **template_file**: XRW TO DO
+-   **template_file**: The PDB file of the reference PDB (the one used to build to conformation database)
 -   **set_fold_tree_only**: XRW TO DO
--   **source_pdb**: XRW TO DO
+-   **source_pdb**: The PDB file from which the segment conformation is extracted
 -   **task_operations**: A comma separated list of TaskOperations to use.
--   **from_res**: XRW TO DO
--   **to_res**: XRW TO DO
--   **design_task_operations**: XRW TO DO
--   **residue_numbers_setter**: XRW TO DO
--   **torsion_database**: XRW TO DO
--   **design_shell**: XRW TO DO
--   **repack_shell**: XRW TO DO
--   **rms_cutoff**: XRW TO DO
--   **rms_cutoff_loop**: XRW TO DO
--   **res_move**: XRW TO DO
--   **randomize_cut**: XRW TO DO
--   **cut_secondarystruc**: XRW TO DO
--   **thread_ala**: XRW TO DO
--   **design**: XRW TO DO
--   **thread_original_sequence**: XRW TO DO
--   **rtmin**: XRW TO DO
--   **locked_residue**: XRW TO DO
--   **checkpointing_file**: XRW TO DO
--   **splice_filter**: XRW TO DO
+-   **from_res**: The N-ter residue of the sampled segment
+-   **to_res**: The C-ter residue of the sampled segment
+-   **torsion_database**: Name of conformation file to save to
+-   **design_shell**: Design shell radius around new segment conformation.
+-   **repack_shell**: Repack shell radius around new segment conformation.
+-   **rms_cutoff**: At the end of the run the RMSD value between the new segment conformation and source segment conformation. If RMSD value is above set cutoff value the run fails. This value only relates to secondary structure elements in the new segment.
+-   **rms_cutoff_loop**: The same as rms_cutoff, but only relates to loop secondary structure elements.
+-   **randomize_cut**: if true cut will be placed randomly in the segment
+-   **cut_secondarystruc**: if true cut can be placed in secondary structure element.
+-   **thread_original_sequence**: If true,use sequence from source PDB
+-   **rtmin**: apply rtmin after CCD/minmover
+-   **splice_filter**: name of filter used to test of mover finished successfully.
 -   **mover**: Which mover to use to close the segment
--   **restrict_to_repacking_chain2**: XRW TO DO
--   **use_sequence_profiles**: XRW TO DO
+-   **restrict_to_repacking_chain2**: If true do not design chain2
 
 
 Subtag **Segments**:   Wrapper for multiple segments tags
@@ -90,7 +69,7 @@ Subtag **Segments**:   Wrapper for multiple segments tags
 
 Subtag **Segment**:   individual segment tag
 
--   **pdb_profile_match**: XRW TO DO
--   **profiles**: XRW TO DO
+-   **pdb_profile_match**: map from pdb source segment to  PSSM file
+-   **profiles**: path to PSSM files
 
 ---

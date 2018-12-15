@@ -10,10 +10,7 @@ XRW TO DO
         ignore_chain_break="(false &bool;)" debug="(false &bool;)"
         min_seg="(false &bool;)" CG_const="(false &bool;)"
         rb_sensitive="(false &bool;)" chain_num="(1 &non_negative_integer;)"
-        segment="(&string;)" superimposed="(true &bool;)"
-        delete_hairpin="(false &bool;)"
-        delete_hairpin_n="(4 &non_negative_integer;)"
-        delete_hairpin_c="(13 &non_negative_integer;)" tail_segment="(&n_or_c;)"
+        superimposed="(true &bool;)"
         source_pdb_to_res="(&refpose_enabled_residue_number;)"
         skip_alignment="(false &bool;)" use_sequence_profile="(&bool;)"
         scorefxn="(&string;)" template_file="(&string;)"
@@ -39,12 +36,7 @@ XRW TO DO
 -   **CG_const**: apply coordinate constraints on C-gamma atoms
 -   **rb_sensitive**: apply rigid body addaptations
 -   **chain_num**: which chain number to apply splice on
--   **segment**: segment name
--   **superimposed**: are thr structures superimposed
--   **delete_hairpin**: delete hairpin segment?
--   **delete_hairpin_n**: how many residues to delete on N-ter hairpin
--   **delete_hairpin_c**: how many residues to delete on C-ter hairpin
--   **tail_segment**: what direction is the tail segment
+-   **superimposed**: are the structures superimposed
 -   **source_pdb_to_res**: residue number of last residue on source segment
 -   **skip_alignment**: whether to align pose to source pdb
 -   **use_sequence_profile**: Use sequence profiles in design?
@@ -69,13 +61,13 @@ XRW TO DO
 
 Subtag **Segments**:   Wrapper for multiple segments tags
 
--   **profile_weight_away_from_interface**: XRW TO DO
--   **current_segment**: XRW TO DO
+-   **profile_weight_away_from_interface**: multiply applied sequence constraint by a factor for residues outside predefined interface
+-   **current_segment**: Which segment is currently being modified
 
 
 Subtag **segment**:   individual segment tag
 
 -   **pdb_profile_match**: XRW TO DO
--   **profiles**: XRW TO DO
+-   **profiles**: path to PSSM files
 
 ---

@@ -10,8 +10,8 @@ XRW TO DO
         jump_dbase_fname="(&string;)" jump_from_foldtree="(false &bool;)" />
 ```
 
--   **template_fname**: XRW TO DO
--   **jump_dbase_fname**: XRW TO DO
--   **jump_from_foldtree**: XRW TO DO
+-   **template_fname**: The reference PDB file used to build the database
+-   **jump_dbase_fname**: jump coordinate database file
+-   **jump_from_foldtree**: If true get jump from fold tree and not automatically from the pose chain break (dflt)
 
 ---

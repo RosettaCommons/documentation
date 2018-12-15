@@ -14,10 +14,10 @@ Restrict rotamer selctions to ones derived from natural PDBs
 </SampleRotamersFromPDB>
 ```
 
--   **add_rotamer**: Which chain identifier
+-   **add_rotamer**: If true, add the sampled rotamer to rotamer vector, otherwise just delete rotamers that are not in input pdbs/rotamaer database
 -   **debug**: make output more verbose
--   **ccd**: change behavior if running this with CCD, default it true
--   **aligned_positions**: which positions are aligned
+-   **ccd**: do not modify residues with CUT_LOWER/CUT_UPPER property
+-   **aligned_positions**: only apply to this taskoperation to specific positions.
 
 
 Subtag **Segments**:   Wrapper for multiple segments tags

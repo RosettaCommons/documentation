@@ -7,22 +7,15 @@ XRW TO DO
 
 ```xml
 <SpliceInTail name="(&string;)" debug="(false &bool;)" min_seg="(false &bool;)"
-        CG_const="(false &bool;)" rb_sensitive="(false &bool;)"
-        chain_num="(1 &non_negative_integer;)" segment="(&string;)"
-        superimposed="(true &bool;)" delete_hairpin="(false &bool;)"
-        delete_hairpin_n="(4 &non_negative_integer;)"
-        delete_hairpin_c="(13 &non_negative_integer;)" tail_segment="(&n_or_c;)"
-        skip_alignment="(false &bool;)" use_sequence_profile="(&bool;)"
-        scorefxn="(&string;)" add_sequence_constraints_only="(false &bool;)"
-        template_file="(&string;)"
+        CG_const="(false &bool;)" chain_num="(1 &non_negative_integer;)"
+        superimposed="(true &bool;)" use_sequence_profile="(&bool;)"
+        scorefxn="(&string;)" template_file="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        residue_numbers_setter="(&string;)" torsion_database="(&string;)"
-        database_entry="(&non_negative_integer;)"
+        torsion_database="(&string;)" database_entry="(&non_negative_integer;)"
         database_pdb_entry="(&string;)" design_shell="(6.0 &real;)"
-        repack_shell="(8.0 &real;)" thread_ala="(true &bool;)"
-        delta_lengths="(&int_cslist;)" thread_original_sequence="(false &bool;)"
-        rtmin="(true &bool;)" dbase_iterate="(false &bool;)"
-        checkpointing_file="(&string;)" use_sequence_profiles="(true &bool;)" >
+        repack_shell="(8.0 &real;)" delta_lengths="(&int_cslist;)"
+        thread_original_sequence="(false &bool;)" rtmin="(true &bool;)"
+        dbase_iterate="(false &bool;)" >
     <Segments name="(&string;)" profile_weight_away_from_interface="(1.0 &real;)"
             current_segment="(&string;)" >
         <segment name="(&string;)" pdb_profile_match="(&string;)" profiles="(&string;)" />
@@ -30,47 +23,35 @@ XRW TO DO
 </SpliceInTail>
 ```
 
--   **debug**: XRW TO DO
--   **min_seg**: XRW TO DO
--   **CG_const**: XRW TO DO
--   **rb_sensitive**: XRW TO DO
--   **chain_num**: XRW TO DO
--   **segment**: XRW TO DO
--   **superimposed**: XRW TO DO
--   **delete_hairpin**: XRW TO DO
--   **delete_hairpin_n**: XRW TO DO
--   **delete_hairpin_c**: XRW TO DO
--   **tail_segment**: XRW TO DO
--   **skip_alignment**: XRW TO DO
--   **use_sequence_profile**: XRW TO DO
+-   **debug**: If true output is more verbose and PDB structures are dumped.
+-   **min_seg**: Apply minimizer to the new segment. This is recommended to improve energy. Apply with coordinate constraints.
+-   **CG_const**: If true apply coordinate constraint on C-gammas of the segment during CCD/minimization
+-   **chain_num**: The pose's chain onto which the new segment is added.
+-   **superimposed**: If fasle, superimpose source pdb onto current pose.
+-   **use_sequence_profile**: If true build PSSM and apply sequence profile on pose
 -   **scorefxn**: Name of score function to use
--   **add_sequence_constraints_only**: XRW TO DO
--   **template_file**: XRW TO DO
+-   **template_file**: The PDB file of the reference PDB (the one used to build to conformation database)
 -   **task_operations**: A comma separated list of TaskOperations to use.
--   **residue_numbers_setter**: XRW TO DO
--   **torsion_database**: XRW TO DO
--   **database_entry**: XRW TO DO
--   **database_pdb_entry**: XRW TO DO
--   **design_shell**: XRW TO DO
--   **repack_shell**: XRW TO DO
--   **thread_ala**: XRW TO DO
--   **delta_lengths**: XRW TO DO
--   **thread_original_sequence**: XRW TO DO
--   **rtmin**: XRW TO DO
--   **dbase_iterate**: XRW TO DO
--   **checkpointing_file**: XRW TO DO
--   **use_sequence_profiles**: XRW TO DO
+-   **torsion_database**: Name of conformation file to save to
+-   **database_entry**: Which entry to use from database (by number, e.g. first entry = 1, second entry = 2, etc)
+-   **database_pdb_entry**: Which entry to use from database by PDB code
+-   **design_shell**: how many residues around the built segment can be designed
+-   **repack_shell**: how many residues around the built segment can be repacked
+-   **delta_lengths**: sample lengths of new segment conformation with length deltas relative to stratign pose segment (e.g, if delta length is set -2 then only segments that 2 AA shorter than the pose segment will be sampled from the database)
+-   **thread_original_sequence**: Use sequence from torsion database.
+-   **rtmin**: apply rtmin after minmover/tailsegmentmover
+-   **dbase_iterate**: if true, go through the torsion database iteratively (so in the same trajectory won't sample same conformation twice from the database)
 
 
 Subtag **Segments**:   Wrapper for multiple segments tags
 
--   **profile_weight_away_from_interface**: XRW TO DO
--   **current_segment**: XRW TO DO
+-   **profile_weight_away_from_interface**: multiply applied sequence constraint by a factor for residues outside predefined interface
+-   **current_segment**: Which segment is currently being modified
 
 
 Subtag **segment**:   individual segment tag
 
--   **pdb_profile_match**: XRW TO DO
--   **profiles**: XRW TO DO
+-   **pdb_profile_match**: Mapping between segment name and PSSM file
+-   **profiles**: list of PSSM files
 
 ---
