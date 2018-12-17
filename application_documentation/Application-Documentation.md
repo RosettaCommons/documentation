@@ -153,6 +153,8 @@ Component | Description
     * [[Anchored pdb creator]] - Prepare starting files for AnchoredDesign.  
     * [[Anchor finder]] - Find interactions which can serve as "anchors" for AnchoredDesign. 
 
+- [[Create_clash-based_repack_shell]] -- Supplement a design resfile with residues which may clash. 
+
 - [[RosettaAntibodyDesign]] - Design Antibodies and Antibody-Antigen complexes
 
 - [[revert-design-to-native]] - Get energetic contribution of designed residues to predicted binding energy
