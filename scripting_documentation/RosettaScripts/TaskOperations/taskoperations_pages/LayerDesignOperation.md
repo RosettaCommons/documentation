@@ -164,105 +164,64 @@ In its original implementation, LayerDesign could only work with symmetry if it 
 ```
 ##LayerDesign implementation with LayerSelector
 
-Here is an implementation of LayerDesign using the LayerSelector. The selection options for the layers need to be added into `<Layer` tags. Additionally, one can easily specify a ResidueSelector for this version of LayerDesign by replacing one of the tags in `my_layer_design_selector`.
+Here is an implementation of LayerDesign using the LayerSelector. Users should follow good practices and turn off design/packing for regions of the pose that should not be designed using an [[OperateOnResidueSubset|OperateOnResidueSubsetOperation]] TaskOperation, rather than continuing to use the LayerDesign behavior of enabling regions for design, as this breaks commutativity.
 
 ```xml
-######################## This is LayerDesign
 <RESIDUE_SELECTORS>
-    # Common selectors for all instances of layer design
-    <SecondaryStructure name="helix" ss="H" overlap="0" minH="3" minE="2" use_dssp="true" include_terminal_loops="false" />
-    <SecondaryStructure name="sheet" ss="E" overlap="0" minH="3" minE="2" use_dssp="true" include_terminal_loops="false" />
-    <SecondaryStructure name="loop"  ss="L" overlap="0" minH="3" minE="2" use_dssp="true" include_terminal_loops="true" />
-    <PrimarySequenceNeighborhood name="pre_helix_cap" lower="1" upper="0" selector="helix"  />
-    <And name="helix_cap" selectors="pre_helix_cap,loop" />
-    <Layer name="pre_layer_core" select_core="1" use_sidechain_neighbors="1" />
-    <Layer name="pre_layer_boundary" select_boundary="1" use_sidechain_neighbors="1"/>
-    <Layer name="pre_layer_surface" select_surface="1" use_sidechain_neighbors="1" />
-    <True name="true_sel" />
-</RESIDUE_SELECTORS>
-<RESIDUE_SELECTORS>
-    # Selectors for a specific instance of layer design (find/replace my_)
 
-    # Use this to add a residue selector to layer design (change one of the true_sel)
-    <And name="my_layer_design_selector" selectors="true_sel,true_sel" />
-
-    <And name="my_layer_core" selectors="pre_layer_core,my_layer_design_selector" />
-    <And name="my_layer_boundary" selectors="pre_layer_boundary,my_layer_design_selector" />
-    <And name="my_layer_surface" selectors="pre_layer_surface,my_layer_design_selector" />
-
-    <And name="my_core_helix" selectors="my_layer_core,helix" />
-    <And name="my_core_sheet" selectors="my_layer_core,sheet" />
-    <And name="my_core_loop" selectors="my_layer_core,loop" />
-    <And name="my_core_cap" selectors="my_layer_core,helix_cap" />
-
-    <And name="my_boundary_helix" selectors="my_layer_boundary,helix" />
-    <And name="my_boundary_sheet" selectors="my_layer_boundary,sheet" />
-    <And name="my_boundary_loop" selectors="my_layer_boundary,loop" />
-    <And name="my_boundary_cap" selectors="my_layer_boundary,helix_cap" />
-
-    <And name="my_surface_helix" selectors="my_layer_surface,helix" />
-    <And name="my_surface_sheet" selectors="my_layer_surface,sheet" />
-    <And name="my_surface_loop" selectors="my_layer_surface,loop" />
-    <And name="my_surface_cap" selectors="my_layer_surface,helix_cap" />
+	<Layer name="surface" select_core="false" select_boundary="false" select_surface="true" use_sidechain_neighbors="true"/>
+	<Layer name="boundary" select_core="false" select_boundary="true" select_surface="false" use_sidechain_neighbors="true"/>
+	<Layer name="core" select_core="true" select_boundary="false" select_surface="false" use_sidechain_neighbors="true"/>
+	<SecondaryStructure name="sheet" overlap="0" minH="3" minE="2" include_terminal_loops="false" use_dssp="true" ss="E"/>
+	<SecondaryStructure name="entire_loop" overlap="0" minH="3" minE="2" include_terminal_loops="true" use_dssp="true" ss="L"/>
+	<SecondaryStructure name="entire_helix" overlap="0" minH="3" minE="2" include_terminal_loops="false" use_dssp="true" ss="H"/>
+	<And name="helix_cap" selectors="entire_loop">
+		<PrimarySequenceNeighborhood lower="1" upper="0" selector="entire_helix"/>
+	</And>
+	<And name="helix_start" selectors="entire_helix">
+		<PrimarySequenceNeighborhood lower="0" upper="1" selector="helix_cap"/>
+	</And>
+	<And name="helix" selectors="entire_helix">
+		<Not selector="helix_start"/>
+	</And>
+	<And name="loop" selectors="entire_loop">
+		<Not selector="helix_cap"/>
+	</And>
 
 </RESIDUE_SELECTORS>
+
 <TASKOPERATIONS>
 
-    <OperateOnResidueSubset name="my_ld1" selector="my_core_loop" >
-        <RestrictAbsentCanonicalAASRLT aas="AFILPVWY" />
-    </OperateOnResidueSubset>
-    <OperateOnResidueSubset name="my_ld2" selector="my_core_sheet" >
-        <RestrictAbsentCanonicalAASRLT aas="FILVWY" />
-    </OperateOnResidueSubset>
-    <OperateOnResidueSubset name="my_ld3" selector="my_core_helix" >
-        <RestrictAbsentCanonicalAASRLT aas="AFILVWY" /> # missing P for beginning
-    </OperateOnResidueSubset>
-    <OperateOnResidueSubset name="my_ld4" selector="my_core_cap" >
-        <RestrictAbsentCanonicalAASRLT aas="DNST" />
-    </OperateOnResidueSubset>
+	<DesignRestrictions name="layer_design">
+		<Action selector_logic="surface AND helix_start"	aas="EHKPQR"/>
+		<Action selector_logic="surface AND helix"		aas="EHKQR"/>
+		<Action selector_logic="surface AND sheet"		aas="DEHKNQRST"/>
+		<Action selector_logic="surface AND loop"		aas="DEGHKNPQRST"/>
+		<Action selector_logic="boundary AND helix_start"	aas="ADEIKLMNPQRSTVWY"/>
+		<Action selector_logic="boundary AND helix"		aas="ADEIKLMNQRSTVWY"/>
+		<Action selector_logic="boundary AND sheet"		aas="DEFIKLNQRSTVWY"/>
+		<Action selector_logic="boundary AND loop"		aas="ADEFGIKLMNPQRSTVWY"/>
+		<Action selector_logic="core AND helix_start"		aas="AFILMPVWY"/>
+		<Action selector_logic="core AND helix"			aas="AFILMVWY"/>
+		<Action selector_logic="core AND sheet"			aas="FILVWY"/>
+		<Action selector_logic="core AND loop"			aas="AFGILMPVWY"/>
+		<Action selector_logic="helix_cap"			aas="DNST"/>
+	</DesignRestrictions>
 
-    <OperateOnResidueSubset name="my_ld5" selector="my_boundary_loop" >
-        <RestrictAbsentCanonicalAASRLT aas="ADEFGIKLNPQRSTVWY" />
-    </OperateOnResidueSubset>
-    <OperateOnResidueSubset name="my_ld6" selector="my_boundary_sheet" >
-        <RestrictAbsentCanonicalAASRLT aas="DEFIKLNQRSTVWY" />
-    </OperateOnResidueSubset>
-    <OperateOnResidueSubset name="my_ld7" selector="my_boundary_helix" >
-        <RestrictAbsentCanonicalAASRLT aas="ADEIKLNQRSTVWY" /> # missing P for beginning
-    </OperateOnResidueSubset>
-    <OperateOnResidueSubset name="my_ld8" selector="my_boundary_cap" >
-        <RestrictAbsentCanonicalAASRLT aas="DNST" />
-    </OperateOnResidueSubset>
-
-    <OperateOnResidueSubset name="my_ld9" selector="my_surface_loop" >
-        <RestrictAbsentCanonicalAASRLT aas="DEGHKNPQRST" />
-    </OperateOnResidueSubset>
-    <OperateOnResidueSubset name="my_ld10" selector="my_surface_sheet" >
-        <RestrictAbsentCanonicalAASRLT aas="DEHKNQRST" />
-    </OperateOnResidueSubset>
-    <OperateOnResidueSubset name="my_ld11" selector="my_surface_helix" >
-        <RestrictAbsentCanonicalAASRLT aas="DEHKNQRST" /> # missing P for beginning
-    </OperateOnResidueSubset>
-    <OperateOnResidueSubset name="my_ld12" selector="my_surface_cap" >
-        <RestrictAbsentCanonicalAASRLT aas="DNST" />
-    </OperateOnResidueSubset>
 </TASKOPERATIONS>
 
-################ End layer design
 ```
 
-**Caveats**
-* You need to put all 12 taskops in your `taskoperations=""` tag.
+**additional comments**
 * Nterm and Cterm are listed as loop
 * minH="3" minE="2" should more correctly be minH="1" minE="1" to mimic LayerDesign. However, larger numbers here will be more robust to weird loops.
-* P is not correctly added at the beginning of the helix. This was done to limit the number of task ops one needs to apply (12 instead of 15). Here is the selector for the first residue of helices though if one wishes to use the proline rule: 
-```xml
-<PrimarySequenceNeighborhood name="pre_helix_start1" lower="1" upper="0" selector="helix"  />
-<Not name="not_helix" selector="helix" />
-<And name="pre_helix_start2" selectors="pre_helix_start1,not_helix"  />
-<PrimarySequenceNeighborhood name="pre_helix_start3" lower="0" upper="1" selector="pre_helix_start2" />
-<And name="helix_start" selectors="pre_helix_start3,helix" />
-```
+* We no longer need to exclude methionine from our designs. Thus, Met is included where appropriate.
+* Glycine is allowed in loops in the core.
+* Asp, Asn, Ser, and Thr are no longer allowed on surface residues of helices. These residues have a destabilizing effect on helices, and it seems unlikely that a structure would require one of these particular amino acids at a surface position (they're still allowed at boundary positions in helices)
+
+
+
+
 
 ##See Also
 
