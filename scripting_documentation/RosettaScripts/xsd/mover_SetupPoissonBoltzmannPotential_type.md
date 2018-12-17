@@ -11,9 +11,9 @@ Initialize the runtime environment for Poisson-Boltzmann solver. It allows keepi
         repack_unbound="(false &bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
         repack_bound="(true &bool;)" relax_bound="(false &bool;)"
-        translate_by="(1000 &real;)" relax_mover="(&string;)"
-        filter="(&string;)" chain_num="(&string;)" chain_name="(&string;)"
-        solvate="(false &bool;)" apbs_path="(&string;)"
+        relax_unbound="(true &bool;)" translate_by="(1000 &real;)"
+        relax_mover="(&string;)" filter="(&string;)" chain_num="(&string;)"
+        chain_name="(&string;)" solvate="(false &bool;)" apbs_path="(&string;)"
         charged_chains="(&string;)" revamp_near_chain="(&string;)"
         potential_cap="(&real;)" sidechain_only="(&bool;)" epsilon="(&real;)"
         calcenergy="(&bool;)" apbs_debug="(2 &integer;)" />
@@ -25,7 +25,8 @@ Initialize the runtime environment for Poisson-Boltzmann solver. It allows keepi
 -   **repack_unbound**: XSD XRW TO DO
 -   **task_operations**: A comma separated list of TaskOperations to use.
 -   **repack_bound**: XSD XRW TO DO
--   **relax_bound**: XSD XRW TO DO
+-   **relax_bound**: Should we relax the bound state, if a relax mover is specified?  Default false.
+-   **relax_unbound**: Should we relax the unbound state, if a relax mover is specified?  Default true.
 -   **translate_by**: XSD XRW TO DO
 -   **relax_mover**: XSD XRW TO DO
 -   **filter**: XSD XRW TO DO

@@ -8,9 +8,11 @@ Computes the binding energy for the complex and if it is below the threshold ret
 ```xml
 <Ddg name="(&string;)" threshold="(-15 &real;)" jump="(1 &positive_integer;)"
         repeats="(1 &positive_integer;)" repack="(1 &bool;)"
-        symmetry="(&string;)" repack_bound="(1 &bool;)" relax_bound="(0 &bool;)"
-        translate_by="(100 &real;)" relax_mover="(&string;)" filter="(&string;)"
-        chain_num="(&string;)" extreme_value_removal="(false &bool;)"
+        symmetry="(&string;)" repack_bound="(true &bool;)"
+        repack_unbound="(true &bool;)" relax_bound="(false &bool;)"
+        relax_unbound="(true &bool;)" translate_by="(100 &real;)"
+        relax_mover="(&string;)" filter="(&string;)" chain_num="(&string;)"
+        extreme_value_removal="(false &bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
         scorefxn="(&string;)" confidence="(1.0 &real;)" />
 ```
@@ -21,7 +23,9 @@ Computes the binding energy for the complex and if it is below the threshold ret
 -   **repack**: Should the complex be repacked in the bound and unbound states prior to taking the energy difference? If false, the filter turns to a dG evaluator. If repack=false repeats should be turned to 1, b/c the energy evaluations converge very well with repack=false.
 -   **symmetry**: Note: DdgFilter autodetermines symmetry from input pose - symmetry option has no effect.
 -   **repack_bound**: Should the complex be repacked in the bound state? Note: If repack=true, then the complex will be repacked in the bound and unbound state by default. However, if the complex has already been repacked in the bound state prior to calling the DdgFilter then setting repack_bound=false allows one to avoid unnecessary repetition.
--   **relax_bound**: Should the relax mover (if specified) be applied to the bound as well as the unbound state? Note: the bound state is not relaxed by default.
+-   **repack_unbound**: Should the complex be repacked in the unbound state? Note: If repack=true, then the complex will be repacked in the bound and unbound state by default. However, if a relaxation mover is provided that repacks the mover in the unbound state, then repack_unbound=false avoids unnecessary repetition.
+-   **relax_bound**: Should the relax mover (if specified) be applied to the bound state? Note: the bound state is not relaxed by default.
+-   **relax_unbound**: Should the relax mover (if specified) be applied to the unbound state? Note: the unbound state IS relaxed by default.
 -   **translate_by**: How far to translate the unbound pose. Note: Default is now 100 Angstroms rather than 1000.
 -   **relax_mover**: Optionally define a mover which will be applied prior to computing the system energy in the unbound state.
 -   **filter**: If specified, the given filter will be calculated in the bound and unbound state for the score, rather than the given scorefunction. Repacking, if any, will be done with the provided scorefunction.
