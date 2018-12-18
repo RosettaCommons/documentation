@@ -1,10 +1,75 @@
 # LayerDesign
 *Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
-## LayerDesign
 
-**Note: The LayerDesign TaskOperation will likely be deprecated at some point in the future in favour of the [[LayerSelector|ResidueSelectors#residueselectors_conformation-dependent-residue-selectors_layerselector]] ResidueSelector**.  It is strongly recommended that users start to switch over to the LayerSelector ResidueSelector, which permits greater flexibility in selecting residues. (See full implementation at bottom of this page.)
+Layer design is used to control which amino acids are available for design at each residue position depending on the local context, _e_._g_. solvent exposure and secondary structure. Each residue is assigned to one of three layers: core, boundary, or surface.  The two methods of determining solvent accessibility are: SASA (solvent accessible surface area of mainchain + CB) and side chain neighbors (number of amino acid side chains in a cone extending along the CA-CB vector).  When using SASA, the solvent exposure of the designed position depends on the conformation of neighboring side chains; this is useful when you are making one or two mutations and not changing many neighboring amino acids.  When using side chain neighbors, solvent exposure depends on which direction the amino acid side chain is pointed; this is useful for _de novo_ design or protocols where many amino acids will be designed simultaneously.
 
-Design residues with selected amino acids depending on the enviroment(accessible surface area). The layer of each residue is assigned to one of the three basic layers(core, boundary or surface) depending on the accessible surface area of mainchain + CB, or depending on the number of neighbours in a cone extending along the CA-CB vector (if the use_sidechain_neighbors option is used).
+In essence, layer design is a hack to prevent the packer from putting too many hydrophobic amino acids on the protein's surface and too many polar residues in the protein's interior.  Improvements to the energy function will  one day obviate the need for layer design.
+
+**Note: The LayerDesign TaskOperation will be deprecated in the future**.  Legacy LayerDesign breaks commutativity, and this leads to opaque and often troublesome behavior.  Instead, we recommend using the [[LayerSelector|ResidueSelectors#residueselectors_conformation-dependent-residue-selectors_layerselector]] ResidueSelector and [[DesignRestrictions|DesignRestrictionsOperation]] TaskOperation. Control over which regions of the pose are to be designed/packed should be performed using an [[OperateOnResidueSubset|OperateOnResidueSubsetOperation]] TaskOperation.
+* The documentation for legacy LayerDesign can still be accessed at the bottom of this page.
+
+##LayerDesign
+
+Here is an example implementation of LayerDesign using LayerSelector and DesignRestrictions. 
+
+```xml
+<RESIDUE_SELECTORS>
+
+	<!-- Layer Design -->
+	<Layer name="surface" select_core="false" select_boundary="false" select_surface="true" use_sidechain_neighbors="true"/>
+	<Layer name="boundary" select_core="false" select_boundary="true" select_surface="false" use_sidechain_neighbors="true"/>
+	<Layer name="core" select_core="true" select_boundary="false" select_surface="false" use_sidechain_neighbors="true"/>
+	<SecondaryStructure name="sheet" overlap="0" minH="3" minE="2" include_terminal_loops="false" use_dssp="true" ss="E"/>
+	<SecondaryStructure name="entire_loop" overlap="0" minH="3" minE="2" include_terminal_loops="true" use_dssp="true" ss="L"/>
+	<SecondaryStructure name="entire_helix" overlap="0" minH="3" minE="2" include_terminal_loops="false" use_dssp="true" ss="H"/>
+	<And name="helix_cap" selectors="entire_loop">
+		<PrimarySequenceNeighborhood lower="1" upper="0" selector="entire_helix"/>
+	</And>
+	<And name="helix_start" selectors="entire_helix">
+		<PrimarySequenceNeighborhood lower="0" upper="1" selector="helix_cap"/>
+	</And>
+	<And name="helix" selectors="entire_helix">
+		<Not selector="helix_start"/>
+	</And>
+	<And name="loop" selectors="entire_loop">
+		<Not selector="helix_cap"/>
+	</And>
+
+</RESIDUE_SELECTORS>
+
+<TASKOPERATIONS>
+
+	<DesignRestrictions name="layer_design">
+		<Action selector_logic="surface AND helix_start"	aas="EHKPQR"/>
+		<Action selector_logic="surface AND helix"		aas="EHKQR"/>
+		<Action selector_logic="surface AND sheet"		aas="DEHKNQRST"/>
+		<Action selector_logic="surface AND loop"		aas="DEGHKNPQRST"/>
+		<Action selector_logic="boundary AND helix_start"	aas="ADEIKLMNPQRSTVWY"/>
+		<Action selector_logic="boundary AND helix"		aas="ADEIKLMNQRSTVWY"/>
+		<Action selector_logic="boundary AND sheet"		aas="DEFIKLNQRSTVWY"/>
+		<Action selector_logic="boundary AND loop"		aas="ADEFGIKLMNPQRSTVWY"/>
+		<Action selector_logic="core AND helix_start"		aas="AFILMPVWY"/>
+		<Action selector_logic="core AND helix"			aas="AFILMVWY"/>
+		<Action selector_logic="core AND sheet"			aas="FILVWY"/>
+		<Action selector_logic="core AND loop"			aas="AFGILMPVWY"/>
+		<Action selector_logic="helix_cap"			aas="DNST"/>
+	</DesignRestrictions>
+
+</TASKOPERATIONS>
+
+```
+
+**differences from legacy LayerDesign in the example above**
+* If the first residue of a chain is in a helix, the helix_cap selection won't work, so proline won't be available at this residue position
+* minH="3" minE="2" are used in the secondary structure selections to make design more robust to weird loop conformations. Legacy LayerDesign behavior would be: minH="1" minE="1"
+* We no longer need to exclude methionine from our designs. Thus, Met is included where appropriate.
+* Glycine is allowed in loops in the core.
+* Asp, Asn, Ser, and Thr are not included at surface residues of helices. These residues have a destabilizing effect on helices, and it seems unlikely that a structure would require one of these particular amino acids at a surface position (they're still allowed at boundary positions in helices)
+
+
+##Legacy LayerDesign
+
+While not recommended, users can still use the original LayerDesign task operation.
 
 Additional layers can be defined in the xml file by passing another taskoperation to get the residue selection. Only the residues that are marked as designable in the packer task are taken into consideration, any information about the available amino acids/rotamers selected by the taskoperation are not going to be considered. The amino acids to be used in each of this new layers has to be specified in the xml. Several taskoperations can be combined to the intersection between the different sets of designable residues.
 
@@ -162,63 +227,6 @@ In its original implementation, LayerDesign could only work with symmetry if it 
     </surface>
 </LayerDesign>
 ```
-##LayerDesign implementation with LayerSelector
-
-Here is an implementation of LayerDesign using the LayerSelector. Users should follow good practices and turn off design/packing for regions of the pose that should not be designed using an [[OperateOnResidueSubset|OperateOnResidueSubsetOperation]] TaskOperation, rather than continuing to use the LayerDesign behavior of enabling regions for design, as this breaks commutativity.
-
-```xml
-<RESIDUE_SELECTORS>
-
-	<Layer name="surface" select_core="false" select_boundary="false" select_surface="true" use_sidechain_neighbors="true"/>
-	<Layer name="boundary" select_core="false" select_boundary="true" select_surface="false" use_sidechain_neighbors="true"/>
-	<Layer name="core" select_core="true" select_boundary="false" select_surface="false" use_sidechain_neighbors="true"/>
-	<SecondaryStructure name="sheet" overlap="0" minH="3" minE="2" include_terminal_loops="false" use_dssp="true" ss="E"/>
-	<SecondaryStructure name="entire_loop" overlap="0" minH="3" minE="2" include_terminal_loops="true" use_dssp="true" ss="L"/>
-	<SecondaryStructure name="entire_helix" overlap="0" minH="3" minE="2" include_terminal_loops="false" use_dssp="true" ss="H"/>
-	<And name="helix_cap" selectors="entire_loop">
-		<PrimarySequenceNeighborhood lower="1" upper="0" selector="entire_helix"/>
-	</And>
-	<And name="helix_start" selectors="entire_helix">
-		<PrimarySequenceNeighborhood lower="0" upper="1" selector="helix_cap"/>
-	</And>
-	<And name="helix" selectors="entire_helix">
-		<Not selector="helix_start"/>
-	</And>
-	<And name="loop" selectors="entire_loop">
-		<Not selector="helix_cap"/>
-	</And>
-
-</RESIDUE_SELECTORS>
-
-<TASKOPERATIONS>
-
-	<DesignRestrictions name="layer_design">
-		<Action selector_logic="surface AND helix_start"	aas="EHKPQR"/>
-		<Action selector_logic="surface AND helix"		aas="EHKQR"/>
-		<Action selector_logic="surface AND sheet"		aas="DEHKNQRST"/>
-		<Action selector_logic="surface AND loop"		aas="DEGHKNPQRST"/>
-		<Action selector_logic="boundary AND helix_start"	aas="ADEIKLMNPQRSTVWY"/>
-		<Action selector_logic="boundary AND helix"		aas="ADEIKLMNQRSTVWY"/>
-		<Action selector_logic="boundary AND sheet"		aas="DEFIKLNQRSTVWY"/>
-		<Action selector_logic="boundary AND loop"		aas="ADEFGIKLMNPQRSTVWY"/>
-		<Action selector_logic="core AND helix_start"		aas="AFILMPVWY"/>
-		<Action selector_logic="core AND helix"			aas="AFILMVWY"/>
-		<Action selector_logic="core AND sheet"			aas="FILVWY"/>
-		<Action selector_logic="core AND loop"			aas="AFGILMPVWY"/>
-		<Action selector_logic="helix_cap"			aas="DNST"/>
-	</DesignRestrictions>
-
-</TASKOPERATIONS>
-
-```
-
-**additional comments**
-* Nterm and Cterm are listed as loop
-* minH="3" minE="2" should more correctly be minH="1" minE="1" to mimic LayerDesign. However, larger numbers here will be more robust to weird loops.
-* We no longer need to exclude methionine from our designs. Thus, Met is included where appropriate.
-* Glycine is allowed in loops in the core.
-* Asp, Asn, Ser, and Thr are no longer allowed on surface residues of helices. These residues have a destabilizing effect on helices, and it seems unlikely that a structure would require one of these particular amino acids at a surface position (they're still allowed at boundary positions in helices)
-
 
 
 
