@@ -10,8 +10,6 @@ Concise way to combine residue selectors and residue-level task operations. The 
 </DesignRestrictions>
 ```
 
-
-
 Subtag **Action**:   
 
 -   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
@@ -19,6 +17,57 @@ Subtag **Action**:
 -   **aas**: A list of the canonical L amino acids that are to be allowed for the selected residues. Either upper or lower case letters are accepted. Note that if an amino acid is allowed for a residue that is selected by one action, but disallowed for that residue selected by a second action, the amino acid will not be allowed.
 -   **residue_level_operations**: A comma-separated list of residue-level-task operations that will be retrieved from the DataMap.
 
+
+##Example
+
+Here is an example implementation of LayerDesign using LayerSelector and DesignRestrictions. 
+
+```xml
+<RESIDUE_SELECTORS>
+
+	<!-- Layer Design -->
+	<Layer name="surface" select_core="false" select_boundary="false" select_surface="true" use_sidechain_neighbors="true"/>
+	<Layer name="boundary" select_core="false" select_boundary="true" select_surface="false" use_sidechain_neighbors="true"/>
+	<Layer name="core" select_core="true" select_boundary="false" select_surface="false" use_sidechain_neighbors="true"/>
+	<SecondaryStructure name="sheet" overlap="0" minH="3" minE="2" include_terminal_loops="false" use_dssp="true" ss="E"/>
+	<SecondaryStructure name="entire_loop" overlap="0" minH="3" minE="2" include_terminal_loops="true" use_dssp="true" ss="L"/>
+	<SecondaryStructure name="entire_helix" overlap="0" minH="3" minE="2" include_terminal_loops="false" use_dssp="true" ss="H"/>
+	<And name="helix_cap" selectors="entire_loop">
+		<PrimarySequenceNeighborhood lower="1" upper="0" selector="entire_helix"/>
+	</And>
+	<And name="helix_start" selectors="entire_helix">
+		<PrimarySequenceNeighborhood lower="0" upper="1" selector="helix_cap"/>
+	</And>
+	<And name="helix" selectors="entire_helix">
+		<Not selector="helix_start"/>
+	</And>
+	<And name="loop" selectors="entire_loop">
+		<Not selector="helix_cap"/>
+	</And>
+
+</RESIDUE_SELECTORS>
+
+<TASKOPERATIONS>
+
+	<DesignRestrictions name="layer_design">
+		<Action selector_logic="surface AND helix_start"	aas="EHKPQR"/>
+		<Action selector_logic="surface AND helix"		aas="EHKQR"/>
+		<Action selector_logic="surface AND sheet"		aas="DEHKNQRST"/>
+		<Action selector_logic="surface AND loop"		aas="DEGHKNPQRST"/>
+		<Action selector_logic="boundary AND helix_start"	aas="ADEIKLMNPQRSTVWY"/>
+		<Action selector_logic="boundary AND helix"		aas="ADEIKLMNQRSTVWY"/>
+		<Action selector_logic="boundary AND sheet"		aas="DEFIKLNQRSTVWY"/>
+		<Action selector_logic="boundary AND loop"		aas="ADEFGIKLMNPQRSTVWY"/>
+		<Action selector_logic="core AND helix_start"		aas="AFILMPVWY"/>
+		<Action selector_logic="core AND helix"			aas="AFILMVWY"/>
+		<Action selector_logic="core AND sheet"			aas="FILVWY"/>
+		<Action selector_logic="core AND loop"			aas="AFGILMPVWY"/>
+		<Action selector_logic="helix_cap"			aas="DNST"/>
+	</DesignRestrictions>
+
+</TASKOPERATIONS>
+
+```
 
 
 ##See Also
