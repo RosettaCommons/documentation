@@ -95,7 +95,8 @@ TaskOp  | Description
 **[[DesignByCavityProximity|DesignByCavityProximityOperation]]** | Only design residues around voids.
 **[[DesignRandomRegion|DesignRandomRegionOperation]]** | Design only a random section of the pose. 
 **[[HighestEnergyRegion|HighestEnergyRegionOperation]]** | Design only residues which have a bad energy.
-**[[LayerDesign|LayerDesignOperation]]** | Specify design identity based on secondary structure and burial.
+**[[DesignRestrictions|DesignRestrictionsOperation]]** | Set allowable AAs and/or residue_level_operations for multiple residue selectors. Use instead of LayerDesign.
+**[[LayerDesign|LayerDesignOperation]]** | LEGACY: Specify design identity based on secondary structure and burial.
 **[[NoRepackDisulfides|NoRepackDisulfidesOperation]]** | Do not repack disulfide residues.
 **[[ProteinCore|ProteinCoreOperation]]** | Do not design residues in the protein core.
 **[[SelectResiduesWithinChain|SelectResiduesWithinChainOperation]]** | Do not pack/design residues based on their position in a chain.
