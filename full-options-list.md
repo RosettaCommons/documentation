@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-12-14
+Generated: 2018-12-19
 
 _Note that some application specific options may not be present in this list._
 
@@ -5544,6 +5544,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Maximum allowed angle between stubCA, target CoM, and stubCB. Used to determine if stub is pointing towards target. Negative numbers deactivates this check (default)<br/>Default: -1<br/></dd>
 <dt><b>-angle_res</b> \<Integer\></dt>
 <dd>Residue to use for angle calculation from stubCA, <this option>, and stubCB. Used to determine if stub is pointing towards target. 0 uses the default, which is the targets center of mass<br/>Default: 0<br/></dd>
+<dt><b>-batch_size</b> \<Integer\></dt>
+<dd>Run stub hashing in batches of this size. (Ignored if target_res is set) <br/>Default: 10<br/></dd>
 </dl>
 + <h2>-indexed_structure_store</h2>
 <dl>
