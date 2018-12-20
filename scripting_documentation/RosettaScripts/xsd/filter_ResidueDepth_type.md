@@ -7,8 +7,8 @@ Filter for measuring minimum distance from any sidechain atom in a residue to th
 
 ```xml
 <ResidueDepth name="(&string;)" mindist="(0.0 &real;)" maxdist="(99.0 &real;)"
-        dcut1="(2.6 &real;)" dcut2="(4.2 &real;)" evalres="(&bool_cslist;)"
-        confidence="(1.0 &real;)" />
+        dcut1="(2.6 &real;)" dcut2="(4.2 &real;)"
+        evalres="(&resnum_list_with_ranges;)" confidence="(1.0 &real;)" />
 ```
 
 -   **mindist**: Minimal distance between sidechain atom and water molecule
