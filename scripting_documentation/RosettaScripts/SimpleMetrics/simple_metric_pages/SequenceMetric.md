@@ -4,6 +4,8 @@
 
 Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
+Modified 20 December 2018 by Vikram K. Mulligan (vmulligan@flatironinstitute.org) to add more output options.
+
 [[include:simple_metric_SequenceMetric_complex_type]]
 
 ##See Also
