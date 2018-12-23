@@ -1,6 +1,6 @@
 # ExternalPackerResultLoader
 *Back to [[RosettaScripts Movers|Movers-RosettaScripts]] page.*
-## InteractionGraphSummaryMetric
+## ExternalPackerResultLoader
 
 Author: Vikram K. Mulligan (vmulligan@flatironinstitute.org)
 Page created 22 December 2018.
