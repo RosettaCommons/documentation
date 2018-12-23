@@ -32,12 +32,32 @@ The output resembles the following:
 # contain rotamers used in the packing problem.  This section is
 # omitted if skip_pose_reconstruction_info is true.
 [END POSE BINARY]
+
 [BEGIN ROTAMER NAME/SEQPOS/ROTINDEX/CHIVALS]
 # Information is included here about the geometry of each rotamer.
 # This can be used to rebuild individual solutions to the packing
 # problem.  This section is omitted if skip_pose_reconstruction_info
-# is true.
+# is true.  This section is divided into information for individual
+# rotamers with [BEGIN_ROT] ... [END_ROT] blocks.  Each block starts
+# with a line in which the tab-separated columns are:
+# 1. Residue name (e.g. "DSER:NtermProteinFull", "CYS:disulfide",
+# "THR", etc.)
+# 2. Sequence position in the pose.
+# 3. Rotamer index for this sequence position.
+# 4. Side-chain chi angle values for each rotatable dihedral in the
+# side-chain for this rotamer at this position.
+# This is followed by a block of binary information for the detailed
+# three-dimensional geometry of this rotamer.
 [END ROTAMER NAME/SEQPOS/ROTINDEX/CHIVALS]
+
+[BEGIN ONEBODY SEQPOS/ROTINDEX/ENERGY]
+# Information in this section contains the information for individual
+# nodes in the interaction graph (i.e. the one-body energies).  Each
+# row in this section contains tab-separated columns consisting of:
+# 1. Sequence position in the pose.
+# 2. Rotamer index for this sequence position.
+# 3. One-body energy for this rotamer at this sequence position.
+[END ONEBODY SEQPOS/ROTINDEX/ENERGY]
 
 ```
 
