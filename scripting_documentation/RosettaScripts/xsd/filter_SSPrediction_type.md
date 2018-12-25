@@ -9,7 +9,8 @@ Uses the sequence in the pose to generate secondary structure predictions for ea
 <SSPrediction name="(&string;)" threshold="(&real;)" use_probability="(&bool;)"
         mismatch_probability="(&bool;)" use_confidence="(&bool;)"
         temperature="(&real;)" use_svm="(&bool;)" cmd="(&string;)"
-        blueprint="(&string;)" secstruct="(&string;)" confidence="(1.0 &real;)" />
+        blueprint="(&string;)" secstruct="(&string;)" use_scratch_dir="(&bool;)"
+        confidence="(1.0 &real;)" />
 ```
 
 -   **threshold**: If threshold is set and use_probability is true, the filter returns true only if the calculated value is less than this number. If use_probability is false, the filter returns true if the calculated value is greater than this number.
@@ -21,6 +22,7 @@ Uses the sequence in the pose to generate secondary structure predictions for ea
 -   **cmd**: Full path to runpsipred_single or runpsipred executable. Must be specified if use_svm=false
 -   **blueprint**: If specified, the filter will take desired secondary structure from a blueprint file, rather from DSSP on the pose.
 -   **secstruct**: If specified, the filter will take desired secondary structure from this string, rather from DSSP on the pose. Format is: 'L' for loop, 'H' for helixand 'E'
+-   **use_scratch_dir**: If specified, use the directory specified with -out:path:scratch for the temporary files produced by PsiPred. The path must exist.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

@@ -7,7 +7,8 @@ XRW TO DO
 
 ```xml
 <PrimarySequenceNeighborhood name="(&string;)" lower="(&non_negative_integer;)"
-        upper="(&non_negative_integer;)" selector="(&string;)" >
+        upper="(&non_negative_integer;)" selector="(&string;)"
+        cross_chain_boundaries="(&bool;)" >
     <Residue Selector Tag ... />
 </PrimarySequenceNeighborhood>
 ```
@@ -15,6 +16,7 @@ XRW TO DO
 -   **lower**: XRW TO DO
 -   **upper**: XRW TO DO
 -   **selector**: XRW TO DO
+-   **cross_chain_boundaries**: Allow the selector to cross chain boundaries? By default false.
 
 
 "Residue Selector Tag": Any of the [[ResidueSelectors]]
