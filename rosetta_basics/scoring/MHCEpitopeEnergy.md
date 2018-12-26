@@ -19,7 +19,7 @@ Since epitope content is repeatedly evaluated during the course of design (for m
 
 ## User control
 
-This scoring term is controlled by ```.mhc``` files, which define the desired residue type composition of a protein.  The ```.mhc``` file is passed to scorefunction using the ```<Set>``` tag in the scorefunction:
+This scoring term is controlled by ```.mhc``` files, which define the desired deimmunization protocol and settings.  The ```.mhc``` file is passed to scorefunction using the ```<Set>``` tag in the scorefunction:
 ```xml
 <SCOREFXNS>
 	<ScoreFunction name="ref_deimm" weights="ref2015.wts">
