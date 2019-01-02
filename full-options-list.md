@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2018-12-19
+Generated: 2019-01-01
 
 _Note that some application specific options may not be present in this list._
 
@@ -6492,6 +6492,92 @@ _Note that some application specific options may not be present in this list._
 <dd>Vector of single mutations: Format: One-letter code / residue number / one-letter code. Example: A163F<br/></dd>
 <dt><b>-mutant_file</b> \<String\></dt>
 <dd>Input file containing mutations<br/></dd>
+</dl>
++ <h2>-nmr</h2>
+<dl>
+<dt><b>-nmr</b> \<Boolean\></dt>
+<dd>nmr option group<br/></dd>
+</dl>
++ <h3>-nmr:pcs</h3>
+<dl>
+<dt><b>-pcs</b> \<Boolean\></dt>
+<dd>pcs option group<br/></dd>
+<dt><b>-input_file</b> \<File\></dt>
+<dd>PCS input file.<br/></dd>
+<dt><b>-nls_repeats</b> \<Integer\></dt>
+<dd>Number of repeats in non-linear least squares fitting of the PCS tensor.<br/>Range: 1-100<br/>Default: 5<br/></dd>
+<dt><b>-optimize_tensor</b> \<Boolean\></dt>
+<dd>Optimize the lanthanide ion position and other parameters of the PCS tensor after grid search.<br/>Default: false<br/></dd>
+<dt><b>-multiset_weights</b> \<RealVector\></dt>
+<dd>Vector of weights of PCSMultiSets. One PCSMultiSet refers to data collected for multiple lanthanides at one tagging site.<br/></dd>
+<dt><b>-normalize_data</b> \<Boolean\></dt>
+<dd>Normalize PCS data of every experiment by their standard deviation.<br/>Default: false<br/></dd>
+<dt><b>-use_symmetry_calc</b> \<Boolean\></dt>
+<dd>Consider the contribution from symmetric subunits for PCS calculation. Only the PCSs of the asymmetric subunit must to be provided as input. The symmetric residues are deduced from the symmetry information carried by the pose. Alternatively, one can provide all residues contributing to one PCS as an ambiguous atom selection in the input file.<br/>Default: false<br/></dd>
+<dt><b>-show_info</b> \<Boolean\></dt>
+<dd>Show additional information about PCS calculation (experimental vs. back-calculated PCSs and PCS tensor summary) at the end of every ab-initio folding stage.<br/>Default: false<br/></dd>
+</dl>
++ <h3>-nmr:rdc</h3>
+<dl>
+<dt><b>-rdc</b> \<Boolean\></dt>
+<dd>rdc option group<br/></dd>
+<dt><b>-input_file</b> \<File\></dt>
+<dd>RDC input file.<br/></dd>
+<dt><b>-nls_repeats</b> \<Integer\></dt>
+<dd>Number of repeats in non-linear least squares fitting of the alignment tensor.<br/>Range: 1-100<br/>Default: 5<br/></dd>
+<dt><b>-multiset_weights</b> \<RealVector\></dt>
+<dd>Vector of weights of RDCMultiSets. One RDCMultiSet refers data collected for multiple experiments in one alignment medium.<br/></dd>
+<dt><b>-use_symmetry_calc</b> \<Boolean\></dt>
+<dd>Consider the contribution from symmetric subunits for RDC calculation. Only RDCs of the asymmetric subunit must be provided as input. The symmetric residues are deduced from the symmetry information carried by the pose. This option is still experimental and works so far for cases with C-symmetry and D2-symmetry for which the alignment tensor axes coincide with the symmetry axes.<br/>Default: false<br/></dd>
+<dt><b>-show_info</b> \<Boolean\></dt>
+<dd>Show additional information about RDC calculation (experimental vs. back-calculated RDCs and alignment tensor summary) at the end of every ab-initio folding stage.<br/>Default: false<br/></dd>
+<dt><b>-normalization_type</b> \<String\></dt>
+<dd>Apply scaling of input RDC values. Possible options are NH, CH or none. By default RDCs are expected not to be normalized and will be scaled relative to N-H (i.e. option NH). In case of option CH RDCs will be scaled relative to CA-HA. If option none is chosen it is assumed that RDC values have been normalized to H-N before and thus no additional scaling will be applied.<br/>Default: "NH"<br/></dd>
+<dt><b>-correct_sign</b> \<Boolean\></dt>
+<dd>Use the correct sign of the 15N gyromagnetic ratio and thus of the dipolar coupling constants i.e. positive for NC and NH and negative for CH. Use this option if input couplings have different signs. By default the 15N gyromagnetic ratio is taken to be positive and the dipolar coupling constants to have the same sign.<br/>Default: false<br/></dd>
+</dl>
++ <h3>-nmr:pre</h3>
+<dl>
+<dt><b>-pre</b> \<Boolean\></dt>
+<dd>pre option group<br/></dd>
+<dt><b>-input_file</b> \<File\></dt>
+<dd>PRE input file.<br/></dd>
+<dt><b>-nls_repeats</b> \<Integer\></dt>
+<dd>Number of repeats in non-linear least squares fitting of the spinlabel correlation time.<br/>Range: 1-100<br/>Default: 3<br/></dd>
+<dt><b>-optimize_para_ion_position</b> \<Boolean\></dt>
+<dd>Optimize the position of the paramagnetic ion. Only in combination with a gridsearch.<br/>Default: false<br/></dd>
+<dt><b>-multiset_weights</b> \<RealVector\></dt>
+<dd>Vector of weights of PREMultiSets. One PREMultiSet refers to multiple datasets collected for the same spinlabel site.<br/></dd>
+<dt><b>-normalize_data</b> \<Boolean\></dt>
+<dd>Normalize PRE data of every experiment by their standard deviation.<br/>Default: false<br/></dd>
+<dt><b>-use_symmetry_calc</b> \<Boolean\></dt>
+<dd>Consider the contribution from symmetric subunits for PRE calculation. Only the PREs of the asymmetric subunit must be provided as input. The symmetric residues are deduced from the symmetry information carried by the pose. Alternatively, one can provide all residues contributing to one PRE as an ambiguous atom selection in the input file.<br/>Default: false<br/></dd>
+<dt><b>-show_info</b> \<Boolean\></dt>
+<dd>Show additional information about PRE calculation (experimental vs. back-calculated PREs and PRE spinlabel summary) at the end of every ab-initio folding stage.<br/>Default: false<br/></dd>
+</dl>
++ <h3>-nmr:spinlabel</h3>
+<dl>
+<dt><b>-spinlabel</b> \<Boolean\></dt>
+<dd>spinlabel option group<br/></dd>
+<dt><b>-max_ensemble_size</b> \<Integer\></dt>
+<dd>Maximum number of spinlabel rotamers that make up the ensemble. If the ensemble size is higher, rotamers are binned to speed up the calculation.<br/>Default: 20<br/></dd>
+<dt><b>-highres_conformer_filter_type</b> \<String\></dt>
+<dd>Type of filtering spinlabel conformers in Rosetta full-atom mode. Possible modes are: DISTANCE and BUMP_ENERGY. Default is BUMP_ENERGY in which case conformers are checked for clashes by their packer energy. The DISTANCE filter detects clashes by measuring the distance of spin-label side-chain heavy atoms to the NBR_ATOM of neighborhood residues.<br/>Default: "BUMP_ENERGY"<br/></dd>
+<dt><b>-elaborate_rotamer_clash_check</b> \<Boolean\></dt>
+<dd>If true, perform an elaborate clash check of every heavy atom of all spinlabel rotamers with the atoms in the surrounding amino acid residues. If all rotamers produce at least one clash, return that rotamer with the lowest number of clashes. If false, consider only heavy atoms in non-clashing rotamers and return a random member in case their are no non-clashing rotamers.<br/>Default: false<br/></dd>
+<dt><b>-boltzmann_kt</b> \<Real\></dt>
+<dd>Scaling factor for Boltzmann weighting of the spinlabel rotamer probabilities.<br/>Default: 2.0<br/></dd>
+</dl>
++ <h3>-nmr:score</h3>
+<dl>
+<dt><b>-score</b> \<Boolean\></dt>
+<dd>score option group<br/></dd>
+<dt><b>-verbose</b> \<Boolean\></dt>
+<dd>Write separate score values and Q-factors for each spinlabel site, alignment medium and/or lanthanide ion to the scorefile.<br/>Default: false<br/></dd>
+<dt><b>-output_exp_calc</b> \<Boolean\></dt>
+<dd>Write a table of experimental vs. calculated NMR values for each NMR dataset to prediction file.<br/>Default: false<br/></dd>
+<dt><b>-output_tensor_info</b> \<Boolean\></dt>
+<dd>Write tensor and/or spinlabel info for each NMR dataset to info file.<br/>Default: false<br/></dd>
 </dl>
 + <h2>-nonlocal</h2>
 <dl>
