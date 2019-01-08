@@ -44,13 +44,13 @@ Here is an example implementation of LayerDesign using LayerSelector and DesignR
 		<Action selector_logic="surface AND helix"		aas="EHKQR"/>
 		<Action selector_logic="surface AND sheet"		aas="DEHKNQRST"/>
 		<Action selector_logic="surface AND loop"		aas="DEGHKNPQRST"/>
-		<Action selector_logic="boundary AND helix_start"	aas="ADEIKLMNPQRSTVWY"/>
-		<Action selector_logic="boundary AND helix"		aas="ADEIKLMNQRSTVWY"/>
-		<Action selector_logic="boundary AND sheet"		aas="DEFIKLNQRSTVWY"/>
-		<Action selector_logic="boundary AND loop"		aas="ADEFGIKLMNPQRSTVWY"/>
+		<Action selector_logic="boundary AND helix_start"	aas="ADEHIKLMNPQRSTVWY"/>
+		<Action selector_logic="boundary AND helix"		aas="ADEHIKLMNQRSTVWY"/>
+		<Action selector_logic="boundary AND sheet"		aas="DEFHIKLMNQRSTVWY"/>
+		<Action selector_logic="boundary AND loop"		aas="ADEFGHIKLMNPQRSTVWY"/>
 		<Action selector_logic="core AND helix_start"		aas="AFILMPVWY"/>
 		<Action selector_logic="core AND helix"			aas="AFILMVWY"/>
-		<Action selector_logic="core AND sheet"			aas="FILVWY"/>
+		<Action selector_logic="core AND sheet"			aas="FILMVWY"/>
 		<Action selector_logic="core AND loop"			aas="AFGILMPVWY"/>
 		<Action selector_logic="helix_cap"			aas="DNST"/>
 	</DesignRestrictions>
@@ -60,10 +60,11 @@ Here is an example implementation of LayerDesign using LayerSelector and DesignR
 ```
 
 **differences from legacy LayerDesign in the example above**
-* If the first residue of a chain is in a helix, the helix_cap selection won't work, so proline won't be available at this residue position
+* If the first residue of a chain is in a helix, the helix_cap selection won't work, so proline won't be available at the helix_start residue position (it will be assigned to the helix selection instead)
 * minH="3" minE="2" are used in the secondary structure selections to make design more robust to weird loop conformations. Legacy LayerDesign behavior would be: minH="1" minE="1"
-* We no longer need to exclude methionine from our designs. Thus, Met is included where appropriate.
-* Glycine is allowed in loops in the core.
+* Methionine is allowed in the boundary and core
+* Glycine is allowed in loops in the core
+* Histidine is allowed in the boundary
 * Asp, Asn, Ser, and Thr are not included at surface residues of helices. These residues have a destabilizing effect on helices, and it seems unlikely that a structure would require one of these particular amino acids at a surface position (they're still allowed at boundary positions in helices)
 
 
