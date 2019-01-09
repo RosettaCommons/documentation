@@ -45,7 +45,7 @@ Several tests are located in the `Rosetta/main/tests directory`. The directory s
     * the entire test should not run more than 1000-2000 CPU hours
         * the runtime depends on the number of structures you run the benchmark on, the number of output models, and the protocol runtime per output model
 2.	`cd Rosetta/main/tests/scientific`
-3.	run `git submodule update --init —recursive` to get the submodule containing the input data. You will now see a ` Rosetta/main/tests/scientific/data` directory
+3.	run `git submodule update --init --recursive` to get the submodule containing the input data. You will now see a ` Rosetta/main/tests/scientific/data` directory
 4.	if your input data are larger than 5 MB, create a directory in the data submodule directory where you drop your input files, otherwise you can keep them in the tests directory (see below)
     * commit your changes in that submodule
     * move out of the data directory (`cd ..`) and commit your changes again
