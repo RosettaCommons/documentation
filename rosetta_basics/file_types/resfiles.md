@@ -166,7 +166,7 @@ NOTE: It should be remembered that resfile commands are restrictive, rather than
 
 - RESET ................ resets the task to its default state of canonicals ON and non-canonicals OFF (for use with non canonicals)  This throws away all previously applied task operations, and so will break the commutativity of task operations.  For this reason, its use is discouraged except when necessary, and it will be soon (as of March 2016) be deprecated.
 
-- NC \<ResidueTypeName\> . allow the specific possibly non canonical residue type; one residue type per NC command
+- NC \<ResidueTypeName\> . allow the specific possibly non canonical residue type; one residue type per NC command.  Note that "GLY:N_Methylation" is a special case that is entered as "SAR" (sarcosine) with this command.
 
 ```
 NATRO # default command that applies to everything without a non- default setting; do not repack
