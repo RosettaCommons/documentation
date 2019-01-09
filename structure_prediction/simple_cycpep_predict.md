@@ -143,6 +143,10 @@ The simple\_cycpep\_predict application can attempt to model metal-mediated cros
 **-cyclic\_peptide:trigonal\_planar\_metal\_sidechain\_distance\_filter\_multiplier \<Real\>** A multiplier for the distance cutoff for side-chains linked by a metal with trigonal planar coordination geometry.  Higher values result in more permissive filtering.  Default 1.0.<br/><br/>
 **-cyclic\_peptide:trigonal\_planar\_metal\_constraints\_energy\_filter\_multiplier \<Real\>** A multiplier for the constraints energy for side-chains linked by a metal with trigonal planar coordination geometry.  Higher values result in more permissive filtering.  Default 1.0.
 
+## Additional flags for N-methylated amino acids
+
+**-cyclic_peptide:n\_methyl\_positions \<IntegerVector\>** A list of the positions in the peptide that are N-methylated.  N-methylated positions will have their geometry updated, and will use Ramachandran maps and rotamer libraries specific for N-methyl amino acids.
+
 ## Additional flags for quasi-symmetric sampling
 
 Sometimes, one wishes to sample peptide conformations with cyclic symmetry (_e.g._ c2 symmetry, c3 symmetry, _etc._).  The **simple_cycpep_predict** application can do quasi-symmetric sampling.  It does this by copying mainchain torsion values for perturbable residues in different symmetry repeats, and by filtering post-closure to ensure that pivot residues are adopting symmetric conformations.  (See the [[Generalized Kinematic Closure|GeneralizedKIC]] documentation for details on perturbable and pivot residues).  Note that this is _quasi_-symmetric rather than truly symmetric because (a) it does not use the Rosetta symmetry machinery, and (b) mainchain torsion values can deviate slightly from symmetry repeat to symmetry repeat, within user-defined limits.  The following flags control quasi-symmetric sampling:
