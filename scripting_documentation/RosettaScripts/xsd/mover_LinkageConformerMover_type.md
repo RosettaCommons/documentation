@@ -7,17 +7,17 @@ Mover to sample glycan linkages
 
 ```xml
 <LinkageConformerMover name="(&string;)" upper_resnum="(&non_negative_integer;)"
-        x_sds="(&real;)" use_sugar_bb_if_needed="(&bool;)"
-        idealize_torsions="(&bool;)" prob_sd_sampling="(&bool;)"
-        sample_protein_linkage="(&bool;)"
-        use_conformer_population_stats="(&bool;)" residue_selector="(&string;)" />
+        use_sugar_bb_if_needed="(true &bool;)"
+        idealize_torsions="(false &bool;)" gaussian_sampling="(false &bool;)"
+        sample_protein_linkage="(true &bool;)"
+        use_conformer_population_stats="(true &bool;)"
+        residue_selector="(&string;)" />
 ```
 
 -   **upper_resnum**: (REQUIRED) XRW TO DO
--   **x_sds**: Standard deviation for sampling
 -   **use_sugar_bb_if_needed**: Use sugar backbone data if needed?
--   **idealize_torsions**: Idealize torsion angles before run?
--   **prob_sd_sampling**: Use standard deviation as probability
+-   **idealize_torsions**: Use the Mean values of each torsion angle making up a conformer instead of sampling using the SD either uniformly or through a gaussian.
+-   **gaussian_sampling**: Use standard deviation and means to sample on the gaussian of each torsion angle that make up a conformer
 -   **sample_protein_linkage**: Also sample linkage between glycan and protein
 -   **use_conformer_population_stats**: Use statistics about conformer populations for sampling
 -   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object

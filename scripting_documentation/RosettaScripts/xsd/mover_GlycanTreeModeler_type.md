@@ -50,12 +50,16 @@ Typically, we would want at least a window size of 1.
 
 ```xml
 <GlycanTreeModeler name="(&string;)" layer_size="(&non_negative_integer;)"
-        window_size="(&non_negative_integer;)" rounds="(&non_negative_integer;)"
-        idealize="(false &bool;)" refine="(false &bool;)"
+        window_size="(&non_negative_integer;)" refine="(false &bool;)"
+        rounds="(&non_negative_integer;)"
+        glycan_sampler_rounds="(25 &non_negative_integer;)"
+        use_conformer_probs="(false &bool;)"
+        use_gaussian_sampling="(false &bool;)"
+        force_virts_for_refinement="(false &bool;)" idealize="(false &bool;)"
         quench_mode="(false &bool;)" final_min_pack_min="(true &bool;)"
         min_rings="(false &bool;)" cartmin="(false &bool;)"
-        glycan_sampler_rounds="(25 &non_negative_integer;)"
-        residue_selector="(&string;)" scorefxn="(&string;)" />
+        hybrid_protocol="(false &bool;)" residue_selector="(&string;)"
+        scorefxn="(&string;)" />
 ```
 
 -   **layer_size**: Brief: Set the layer size we will be using.  A layer is a set of glycan residues that we will be optimizing.
@@ -72,14 +76,20 @@ Typically, we would want at least a window size of 1.
   A window size of 1, means that the last residue (or residues of layer 1) from the last modeling effort, will be used again as 
   part of the next layer.  A window size of 0, means that no residues will be re-modeled. 
   Typically, we would want at least a window size of 1.
+-   **refine**: Do a refinement instead of a denovo model.  This means NO randomization at the start of the protocol and modeling is done in the context of the full glycan tree instead of using virtual (non-scored) residues during tree growth
 -   **rounds**: Set the number of rounds.  We start with the forward direction, from the root/start out to the glycan tips.  Next round we go backward, then forward.  The number of rounds corresponds to how many back and forth directions we go
+-   **glycan_sampler_rounds**: Round Number for the internal the GlycanTreeSampler.  Default is the default of the GlycanTreeSampler.
+-   **use_conformer_probs**: Use conformer probabilities instead of doing uniform sampling
+-   **use_gaussian_sampling**: Set whether to build conformer torsions using a gaussian of the angle or through uniform sampling up to 1 SD (default)
+-   **force_virts_for_refinement**: Refinement now models layers in the context of the full glycan tree.
+ Turn this option on to use non-scored residues (virtuals) at the ends of the tree that are not being modeled.
+  This is how the de-novo protocol works.
 -   **idealize**: Attempt to idealize the bond lengths/angles of glycan residues being modeled
--   **refine**: Do a refinement instead of a denovo model
 -   **quench_mode**: Do quench mode for each glycan tree?
 -   **final_min_pack_min**: Do a final set of cycles of min/pack
 -   **min_rings**: Minimize Carbohydrate Rings during minimization.
 -   **cartmin**: Use Cartesian Minimization instead of Dihedral Minimization during packing steps.
--   **glycan_sampler_rounds**: Round Number for the internal the GlycanTreeSampler.  Default is the default of the GlycanTreeSampler.
+-   **hybrid_protocol**: Set to use an experimental protocol where we build out the glycans, but re-model the full tree during the building process
 -   **residue_selector**: Residue Selector containing only glycan residues.  This is not needed, as this class will automatically select ALL glycan residues in the pose to model.  See the GlycanResidueSelector and the GlycanLayerSelector for control glycan selection.  Note that the ASN is not technically a glycan.  Since dihedral angles are defined for a sugar from the upper to lower residue, the dihedral angles between the first glycan and the ASN are defined by the first glycan.
 -   **scorefxn**: Name of score function to use
 

@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-01-01
+Generated: 2019-01-09
 
 _Note that some application specific options may not be present in this list._
 
@@ -1672,10 +1672,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Use a random-tree based method to minimize and pack instead of minimizing and packing all of them during the randommover selection. This makes the speed of the algorithm mostly-linear with the addition of more glycans, and wastes less time packing and minimizing<br/>Default: true<br/></dd>
 <dt><b>-population_based_conformer_sampling</b> \<Boolean\></dt>
 <dd>Use the populations of the conformers as probabilities during our linkage conformer sampling.  This makes it harder to overcome energy barriers with more-rare conformers<br/>Default: false<br/></dd>
-<dt><b>-conformer_sampling_sd</b> \<Real\></dt>
-<dd>Number of SDs to sample within during conformer sampling.<br/>Default: 2.0<br/></dd>
-<dt><b>-uniform_sd_sampling</b> \<Boolean\></dt>
-<dd>Set whether if we are sampling uniform within the set number of standard deviations or by uniform within the SD.<br/>Default: true<br/></dd>
+<dt><b>-use_gaussian_sampling</b> \<Boolean\></dt>
+<dd>Set whether to build conformer torsions using a gaussian of the angle or through uniform sampling up to 1 SD (default)<br/>Default: false<br/></dd>
 </dl>
 + <h3>-carbohydrates:clash_check</h3>
 <dl>

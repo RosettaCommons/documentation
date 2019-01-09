@@ -12,8 +12,7 @@ Main mover for Glycan Relax, which optimizes glycans in a pose. Each round optim
         pack_distance="(&real;)" cartmin="(false &bool;)"
         tree_based_min_pack="(true &bool;)"
         population_based_conformer_sampling="(false &bool;)"
-        conformer_sampling_sd="(2.0 &real;)" uniform_sd_sampling="(true &bool;)"
-        min_rings="(false &bool;)"
+        use_gaussian_sampling="(false &bool;)" min_rings="(false &bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
         scorefxn="(&string;)" residue_selector="(&string;)" />
 ```
@@ -27,8 +26,7 @@ Main mover for Glycan Relax, which optimizes glycans in a pose. Each round optim
 -   **cartmin**: Use Cartesian Minimization instead of Dihedral Minimization during packing steps.
 -   **tree_based_min_pack**: Use Tree-based minimization and packing instead of minimizing and packing ALL residues each time we min.  Significantly impacts runtime.  If you are seeing crappy structures for a few sugars, turn this off.  This is default-on to decrease runtime for a large number of glycans.
 -   **population_based_conformer_sampling**: Use the populations of the conformers as probabilities during our linkage conformer sampling.  This makes it harder to overcome energy barriers with more-rare conformers!
--   **conformer_sampling_sd**: Number of SDs to sample within during conformer sampling.
--   **uniform_sd_sampling**: Set whether if we are sampling uniform within the set number of standard deviations or by uniform within the SD.
+-   **use_gaussian_sampling**: Set whether to build conformer torsions using a gaussian of the angle or through uniform sampling up to 1 SD (default)
 -   **min_rings**: Minimize Carbohydrate Rings during minimization.
 -   **task_operations**: A comma separated list of TaskOperations to use.
 -   **scorefxn**: Name of score function to use
