@@ -11,7 +11,7 @@ Bhardwaj, G., V.K. Mulligan, C.D. Bahl, J.M. Gilmore, P.J. Harvey, O. Cheneval, 
 
 # Description
 
-The **simple_cycpep_predict** application is intended for rapidly sampling closed conformations of small peptides constrained by backbone cyclization.  These peptides may be composed of any mixture of L- and D-amino acid residues (and/or glycine), and any combination of L- and D-oligourea residues.  Optionally, the user may specify that solutions must have a certain number of backbone hydrogen bonds.  The user may also require disulfides between disulfide-forming residues, in which case all disulfide permutations are sampled using the [[TryDisulfPermutations|TryDisulfPermuationsMover]] mover.  The user may also specify that certain positions are cross-linked with cross-linking agents, in which case the [[CrosslinkerMover]] is used to place cross-linking agents.  Unlike sampling performed with the [[Abinitio-Relax|abinitio-relax]] application, sampling is fragment-_independent_; that is, no database of known structures is required.
+The **simple_cycpep_predict** application is intended for rapidly sampling closed conformations of small peptides constrained by backbone cyclization.  These peptides may be composed of any mixture of L- or D-amino acid residues, achiral amino acid residues, peptoid residues, or L- or D-oligourea residues.  Optionally, the user may specify that solutions must have a certain number of backbone hydrogen bonds.  The user may also require disulfides between disulfide-forming residues, in which case all disulfide permutations are sampled using the [[TryDisulfPermutations|TryDisulfPermuationsMover]] mover.  The user may also specify that certain positions are cross-linked with cross-linking agents, in which case the [[CrosslinkerMover]] is used to place cross-linking agents.  Unlike sampling performed with the [[Abinitio-Relax|abinitio-relax]] application, sampling is fragment-_independent_; that is, no database of known structures is required.
 
 # Sample command-lines
 
@@ -67,7 +67,7 @@ See the [[Build Documentation]] for details on the MPI (Message Passing Interfac
 **-cyclic_peptide:count_sc_hbonds \<bool\>**  Should sidechain-mainchain hydrogen bonds be counted as mainchain hydrogen bonds?  Defaults to false.<br/><br/>
 **-cyclic_peptide:fast_relax_rounds \<int\>**  At steps of the protocol at which relaxation is invoked, this is the number of rounds of the [[FastRelax|FastRelaxMover]] protocol that will be applied.  Defaults to 3.<br/><br/>
 **-cyclic_peptide:exclude_residues_from_rms \<string\>**  A space-separated list of residues that should be excluded from the RMSD calculation.  Not used if not provided.<br/><br/>
-**-cyclic_peptide:checkpoint_job_identifier \<string\>**  If this option is used, jobs will checkpoint themselves so that the minirosetta or simple_cycpep_predict apps can be interrupted and can pick up where they left off, without repeating failed jobs or re-doing successful jobs.  The string must be a unique session identifier used to distinguish between re-attempts of the current prediction or new runs.  Highly recommended for BOINC jobs.<br/><br/>
+**-cyclic_peptide:checkpoint_job_identifier \<string\>**  If this option is used, jobs will checkpoint themselves so that the **minirosetta** or **simple_cycpep_predict** apps can be interrupted and can pick up where they left off, without repeating failed jobs or re-doing successful jobs.  The string must be a unique session identifier used to distinguish between re-attempts of the current prediction or new runs.  Highly recommended for BOINC jobs.<br/><br/>
 **-cyclic_peptide:rand_checkpoint_file \<string\>**  If the **-checkpoint_job_identifier** flag is used, this flag sets the name of the checkpoint file used for the random number generator.  Defaults to "rng.state.gz" if not specified.  Typically, this need only be specified if multiple checkpointed jobs are sharing the same working directory.<br/><br/>
 **-cyclic_peptide:checkpoint_file \<string\>**  If the **-checkpoint_job_identifier** flag is used, this flag sets the name of the checkpoint file used for keeping track of what jobs have completed and what jobs still have to run.  Defaults to "checkpoint.txt" if not specified.  Typically, this need only be specified if multiple checkpointed jobs are sharing the same working directory.<br/><br/>
 **-cyclic_peptide:require_disulfides \<bool\>**  If true, then the application attempts to form disulfides between all disulfide-forming residues, trying permutations using the [[TryDisulfPermutations|TryDisulfPermuationsMover]] mover.  False by default.<br/><br/>
@@ -159,7 +159,7 @@ Sometimes, one wishes to sample peptide conformations with cyclic symmetry (_e.g
 
 ## Additional flags for predicting structures of isopeptide-bonded lariat peptides
 
-In addition to an amide bond connecting the N- and C-termini, it is possible to synthesize peptides in which an amine-containing side-chain forms an amide bond with the C-terminus, a carboxyl-containing side-chain forms an amide bond with the -terminus, or two side-chains form an amide bond.  These one- or two-tailed lariat structures can also be predicted with `simple_cycpep_predict`.  The relevant flags are as follows:
+In addition to an amide bond connecting the N- and C-termini, it is possible to synthesize peptides in which an amine-containing side-chain forms an amide bond with the C-terminus, a carboxyl-containing side-chain forms an amide bond with the -terminus, or two side-chains form an amide bond.  These one- or two-tailed lariat structures can also be predicted with **simple_cycpep_predict**.  The relevant flags are as follows:
 
 **-cyclic_peptide:cyclization_type \<string\>**  This flag, mentioned earlier, can be set to "nterm_isopeptide_lariat" for a sidechain-to-N-terminus isopeptide lariat, "cterm_isopeptide_lariat" for a sidechain-to-Cterminus isopeptide lariat, or "sidechain_isopeptide" for a two-tailed macrocycle linked by a sidechain-sidechain isopeptide bond.
 
@@ -167,7 +167,11 @@ In addition to an amide bond connecting the N- and C-termini, it is possible to 
 
 **-cyclic_peptide:sidechain_isopeptide_indices \<int\> \<int\>** If the "sidechain_isopeptide" cyclization type is specified, then these are the indices of the residues that are linked by a sidechain-sidechain isopeptide bond to make the loop.  If this option is not used, then the residues furthest apart of appropriate types are used.  Note that exactly two indices must be given.
 
-Note that the **-cyclic_peptide:require_symmetry_repeats** and **-cyclic_peptide:cyclic_permutations** flags are incompatible with isopeptide lariats.  Also note that the `simple_cycpep_predict` application does _not_ use the GLX, ASX, or LYX residue types.  Sequence files and native PDB files must specify GLU, ASP, and LYS, respectively.
+Note that the **-cyclic_peptide:require_symmetry_repeats** and **-cyclic_peptide:cyclic_permutations** flags are incompatible with isopeptide lariats.  Also note that the **simple_cycpep_predict** application does _not_ use the GLX, ASX, or LYX residue types.  Sequence files and native PDB files must specify GLU, ASP, and LYS, respectively.
+
+## Additional flags for oligourea or peptoid residues
+
+No additional options are required to use oligourea or peptoid residues with the **simple_cycpep_predict** applications.  Simply include the full names of these residues in the sequence file, just as one would for a canonical or non-cannoical amino acid.
 
 ## Other useful flags
 
@@ -198,7 +202,7 @@ Optionally, step 2c can be performed with [[FastDesign|FastDesignMover]] instead
 
 # Design mode
 
-Although originally intended solely for structure prediction, the simple_cycpep_predict application can also design sequences for each sampled conformation using [[FastDesign|FastDesignMover]].  Design-specific flags are as follows:
+Although originally intended solely for structure prediction, the **simple_cycpep_predict** application can also design sequences for each sampled conformation using [[FastDesign|FastDesignMover]].  Design-specific flags are as follows:
 
 **-cyclic_peptide:design_peptide \<Bool\>** If true, then the application attempts to design the sequence of each sampled conormation.  If false (the default), only fixed-sequence relaxation is performed.<br/><br/>
 **-cyclic_peptide:allowed_residues_by_position \<String\>** This is the name of a file in which lists of allowed residues (full names) are provided for each numbered position in the peptide.  Each line corresponds to one position, and the first column must be the index of the position (or "DEFAULT" to specify default settings applied to all non-specified positions).  If a position is not specified (and no DEFAULT is given), non-specified positions are assumed to be fixed (<i>i.e.</i>not designable).  If no file is provided but the **-cyclic_peptide:design_peptide** flag is used, then the application will design with all canonical L-amino acids, and their D-equivalents, except for methionine and cysteine.  (Glycine will also be excluded by default).  A sample allowed residue file would be:<br/>
@@ -217,7 +221,7 @@ DEFAULT ALA VAL LEU ILE ASP GLU LYS ARG DALA DVAL DLEU DILE DASP DGLU DLYS DARG
 **-cyclic_peptide:L_beta_comp_file \<String\>** An optional [[aa_composition|AACompositionEnergy]] file for biasing the amino acid composition of residues in the negative-phi beta-strand region of Ramachandran space.  Not used if not specified.<br/><br/>
 **-cyclic_peptide:D_beta_comp_file \<String\>** An optional [[aa_composition|AACompositionEnergy]] file for biasing the amino acid composition of residues in the positive-phi beta-strand region of Ramachandran space.  Not used if not specified.<br/><br/>
 
-Note that the global amino acid composition may also be biased by providing an [[aa_composition|AACompositionEnergy]] file with the **-score:aa_composition_setup_file** flag, as in other protocols.  In the context of the simple_cycpep_predict application, using any aa_composition flag will automatically turn on the aa_composition energy term in the scoring function used.
+Note that the global amino acid composition may also be biased by providing an [[aa_composition|AACompositionEnergy]] file with the **-score:aa_composition_setup_file** flag, as in other protocols.  In the context of the **simple_cycpep_predict** application, using any aa_composition flag will automatically turn on the aa_composition energy term in the scoring function used.
 
 # Large-scale sampling with BOINC
 
