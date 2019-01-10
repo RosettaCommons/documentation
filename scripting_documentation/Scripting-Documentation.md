@@ -8,6 +8,7 @@
 * [[Filters|Filters-RosettaScripts]]
 * [[TaskOperations|TaskOperations-RosettaScripts]]
 * [[ResidueSelectors]]
+* [[PackerPalettes]]
 * [[Composite protocols|Composite-protocols]]
 * [[FeaturesReporters|Features-reporter-overview]]
 * [[Conventions|RosettaScripts-Conventions]]
