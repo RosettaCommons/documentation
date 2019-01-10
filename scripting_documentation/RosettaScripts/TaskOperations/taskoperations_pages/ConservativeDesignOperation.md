@@ -22,14 +22,12 @@ Paper: [RosettaAntibodyDesign (RAbD): A general framework for computational anti
 ###XML
 
 ```xml
-<ConservativeDesignOperation name="(string)" residue_selector="(string)" data_source=(string,"blosum62") add_to_allowed_aas=(bool,"false") include_native_aa=(bool,"true")/>
+<ConservativeDesignOperation name="(string)" residue_selector="(string)" data_source=(string,"blosum62") include_native_aa=(bool,"true")/>
 ```
 
 **residue_selector** - By default, ConservativeDesign works on all residues. It will be confined to a selection of residues if a selector is provided
 
 **data_source** - Set the source of the data used to define what is conservative. Options are: chothia_76 and the Blosum matrices from 30 to 100; designated as blosum30, 62, etc. Default is blosum62.  The higher the number, the more conservative the set of mutations (numbers are sequence identity cutoffs).
-
-**add_to_allowed_aas** - Add to the allowed amino acids list instead of replacing it
 
 **include_native_aa** - Include native amino acid in the allowed_aas list
 
