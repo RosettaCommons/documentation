@@ -130,10 +130,12 @@ The PackerTask controls which residues in a Pose will be designed, repacked, or 
 
 The PackerTask can be thought of as an ice sculpture.  By default, everything is able to pack AND design.  By using TaskOperations, or your set of chisels, one can limit packing/design to only certain residues.  As with ICE, once these residues are restricted, they generally cannot be turned back on.
 
+An ice sculpture, of course, is limited by the size of the starting piece of ice. If you want a bigger starting list, or palette, of residues with which you can design, you use a PackerPalette. The DefaultPackerPalette is like a ice cube, but if you use a modifiable PackerPalette, to which you can add residues, you can start with an iceberg.
+
 TaskFactory <a name="taskfactory" />
 -----------
 
-A TaskFactory is used to create PackerTasks to be used for rotamer repacking and design. The TaskFactory contains a set of TaskOperations that tell it which behavior to apply to each residue. This decision is made immediately before packing.
+A TaskFactory is used to create PackerTasks to be used for rotamer repacking and design. The TaskFactory contains a set of TaskOperations that tell it which behavior to apply to each residue and a PackerPalette that tells it which residues that it can use in design. This decision is made immediately before packing.
 
 TaskOperations <a name="taskoperations" />
 --------------
@@ -141,6 +143,13 @@ TaskOperations <a name="taskoperations" />
 TaskOperations are used by a TaskFactory to configure the behavior and create a PackerTask when it is generated on-demand for routines that use the "packer" to reorganize/mutate sidechains. The PackerTask controls which residues are packable, designable, or held fixed.  When used by certain Movers (at present, the PackRotamersMover and its subclasses), the set of TaskOperations control what happens during packing, usually by restriction "masks."  
 
 For more information on TaskOperations, see the [[RosettaScripts TaskOperations page|TaskOperations-RosettaScripts]].
+
+PackerPalette <a name="packerpalette" />
+--------------
+
+PackerPalettes are used by the PackerTask to provide a starting list of available residues with which one can design at every position in a pose. For example, if one wants to design with non-canonical amino acids (NCAA), instead of being limited to the 20 naturally occurring ones, she or he would use a PackerPalette to add the desired NCAAs.
+
+For more information on PackerPalettes, see the [[RosettaScripts PackerPalettes page|PackerPalettes-RosettaScripts]].
 
 Mover <a name="mover" />
 -----
