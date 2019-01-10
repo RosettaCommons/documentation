@@ -57,7 +57,6 @@ FALLBACK STRATEGIES:
 
 ### Uncommon Options
 -   use_outliers (&bool) (default=false): Use cluster outliers as defined using DihedralDistance and RMSD.
--   add_to_current (&bool) (default=false): Add to the current set of amino acids in the task or replace them?
 -   stats_cutoff (&size) (default=10): Will use the fallback strategy for this CDR if the total is less than or equal to this number.
 -   sample_zero_probs_at (&size) (default=0): Set the number of times a sequence each chosen.  Increase this number to increase variability of design.
 -   cons_design_data_source (&string) (default=blosum62):  Data source used for the ConservativeDesignOperation, which is a fallback strategy.  This guides the set of allowed mutations.  Higher blosum means higher conservation (numbers indicate sequence similarity cutoffs.  The set of mutations allowed are those from the substitution matrix at values >=0.  
