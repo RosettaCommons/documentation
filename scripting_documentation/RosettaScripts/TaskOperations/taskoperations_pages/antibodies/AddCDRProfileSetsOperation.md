@@ -38,7 +38,6 @@ Note that by default, a data cutoff of 10 is set.  If the cluster has less than 
 
 ### Uncommon Options
 -   use_outliers (&bool) (default=false): Use cluster outliers as defined using DihedralDistance and RMSD.
--   add_to_current (&bool) (default=false): Add to the current set of amino acids in the task or replace them?
 -   cutoff (&size) (default=10): Will use the fallback strategy for this CDR if the total is less than or equal to this number.
 
 ### Benchmarking Options
