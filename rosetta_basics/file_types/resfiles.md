@@ -144,6 +144,7 @@ Each command acts to restrict the allowed amino acids allowable at each position
 
 NOTE: It should be remembered that resfile commands are restrictive, rather than permissive. While residues which are disallowed will not be repacked/redesigned, various protocols provide additional restrictions which may further limit mutational identities. In particular, many protocols will prohibit redesigning disulfide cysteines, even when explicitly listed as mutatable in the resfile.
 
+```
 - ALLAA ................ allow all 20 amino acids INCLUDING cysteine (same as ALLAAwc)
 
 - ALLAAwc .............. allow all 20 amino acids ( default )
@@ -169,6 +170,7 @@ NOTE: It should be remembered that resfile commands are restrictive, rather than
 - RESET ................ resets the task to its default state of canonicals ON and non-canonicals OFF (for use with non canonicals)  This throws away all previously applied task operations, and so will break the commutativity of task operations.  For this reason, its use is discouraged except when necessary, and it will be soon (as of March 2016) be deprecated.
 
 - NC \<ResidueTypeName\> . allow the specific possibly non canonical residue type; one residue type per NC command.  Note that "GLY:N_Methylation" is a special case that is entered as "SAR" (sarcosine) with this command.
+```
 
 ```
 NATRO # default command that applies to everything without a non- default setting; do not repack
