@@ -130,7 +130,7 @@ The PackerTask controls which residues in a Pose will be designed, repacked, or 
 
 The PackerTask can be thought of as an ice sculpture.  By default, everything is able to pack AND design.  By using TaskOperations, or your set of chisels, one can limit packing/design to only certain residues.  As with ICE, once these residues are restricted, they generally cannot be turned back on.
 
-An ice sculpture, of course, is limited by the size of the starting piece of ice. If you want a bigger starting list, or palette, of residues with which you can design, you use a PackerPalette. The DefaultPackerPalette is like a ice cube, but if you use a modifiable PackerPalette, to which you can add residues, you can start with an iceberg.
+An ice sculpture, of course, is limited by the size of the starting piece of ice. If you want a bigger starting list, or palette, of residues with which you can design, you use a PackerPalette. The DefaultPackerPalette is like an ice cube, but if you use a modifiable PackerPalette, to which you can add residues, you can start with an iceberg.
 
 TaskFactory <a name="taskfactory" />
 -----------
@@ -149,7 +149,7 @@ PackerPalette <a name="packerpalette" />
 
 PackerPalettes are used by the PackerTask to provide a starting list of available residues with which one can design at every position in a pose. For example, if one wants to design with non-canonical amino acids (NCAA), instead of being limited to the 20 naturally occurring ones, she or he would use a PackerPalette to add the desired NCAAs.
 
-For more information on PackerPalettes, see the [[RosettaScripts PackerPalettes page|PackerPalettes-RosettaScripts]].
+For more information on PackerPalettes, see the [[PackerPalettes page|PackerPalettes]].
 
 Mover <a name="mover" />
 -----

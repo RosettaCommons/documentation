@@ -1,17 +1,17 @@
 #Grouping ResidueTypes based on chemically meaningful traits
 
 There are two classes in Rosetta used to categorize [[ResidueTypes|ResidueType]] based on similar chemical properties.
-In each case, the goal is essentially the same: it is important to treat all ResidueTypes with a particular trait the same way, and it is immensely more important to determine whether that ResidueType hsa the trait by looking up that factual matter in the params file rather than to compute it on the fly.
+In each case, the goal is essentially the same: it is important to treat all ResidueTypes with a particular trait the same way, and it is immensely more important to determine whether that ResidueType has the trait by looking up that factual matter in the params file rather than to compute it on the fly.
 For example, what ResidueTypes are aliphatic?
 You could count sidechain atoms and ensure that every one is sp<sup>3</sup> hybridized and a carbon atom, which would be a sufficient condition.
-But instead, particularly for general cases, it is much more efficent to simply keep a vector of ResidueProperties in the params file: thus, serine is POLAR and PROTEIN and ALPHA_AA and can thereby be distinguished from leucine and beta-serine and glucose.
+But instead, particularly for general cases, it is much more efficient to simply keep a vector of ResidueProperties in the params file: thus, serine is POLAR and PROTEIN and ALPHA_AA and can thereby be distinguished from leucine and beta-serine and glucose.
 
 Thus, ResidueProperties describe what is intrinsically true about a residue; it is rarely alterable.
 (Occasional patches remove or add a property.)
 In contrast, VariantTypes essentially encode the relationship that a patched residue has to its parent residue. For example, a CYS:disulfide has the DISULFIDE variant type because it, unlike CYS, is deprotonated and forms a disulfide bond.
 Generally, if you are manually mutating a residue, you will want to maintain the variant types from the original residue where possible.
 
-## The words of a wise Rosetta scholar, first of his name, Anonymous: 
+## The words of a wise Rosetta scholar, first of his name, Anonymous, (also known as Labonte): 
 
 Properties:
 -	A property should be used for the following purposes:
