@@ -4,8 +4,8 @@
 
 Changes a loop length without closing it.
 
-```
-<LoopLengthChange name=(&string) loop_start=(&resnum) loop_end=(&resnum) delta=(&int)/>
+```xml
+<LoopLengthChange name="(&string)" loop_start="(&resnum)" loop_end="(&resnum)" delta="(&int)"/>
 ```
 
 -   loop\_start, loop\_end: where the loop starts and ends.
@@ -19,7 +19,6 @@ Changes a loop length without closing it.
 * [[LoopBuilderMover]]
 * [[LoopCreationMover]]
 * [[LoopFinderMover]]
-* [[LoopLengthChangeMover]]
 * [[LoopModelerMover]]
 * [[LoopMoverFromCommandLineMover]]
 * [[LoopProtocolMover]]

@@ -1,10 +1,10 @@
 #Profile tests
 
-Rosetta's profile tests, now deprecated, were a system to track both runtime and memory use on an application scale.
+Rosetta's profile tests, is a system to track both runtime and memory use on an application scale.
 Profile tests, living in `Rosetta/main/source/tests/profile/`, were very similar to [[integration tests]], except that they were testing runtime and memory use instead of the actual output.
-Any individual profile test run was of little use, but by tracking peak memory use and CPU time over revisions, developers could see if code was becoming more efficient or less efficient.
-The system was never very populated (only 11 applications were tested), and the results are hard to interpret (no binary pass or fail). 
-Due to lack of interest, and the problem of getting consistent performance on the heterogeneous backend to the current [[testing server]], profile tests were abandoned.
+By by tracking peak memory use and CPU time over revisions, developers could see if code was becoming more efficient or less efficient and also see if application have a memory leak (if memory consumption over time is increase then it is sure sign that application does not properly free memory on each iteration). Because of later it is recommended that profile test run at least a few iteration of protocol.
+
+In general for each new Rosetta App the new profile test should be added.
 
 ##See Also
 * [[Back to Rosetta Tests|development_documentation/test/rosetta-tests]]

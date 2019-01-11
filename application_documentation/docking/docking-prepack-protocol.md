@@ -5,7 +5,7 @@ Metadata
 
 Author: Robin Thottungal (raugust1@jhu.edu), Jeffrey Gray (jgray@jhu.edu)
 
-Last edited 1/29/16. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
+Last edited 1/25/18. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
 
 Code and Demo
 =============
@@ -57,7 +57,7 @@ Input Files
 
 The only required input file is a pdb file containing two proteins with different chain IDs.
 
-**Note:** An ensemble of input structures can be given using the follow flags: `-ensemble1 [partner_1_pdb_list]` or/and `-ensemble2 [partner_2_pdb_list]`. These files contain a list of input conformations (in terms of paths to pdbs) of the ensemble. The paths should be as seen from the directory where you run the program and not the directory where `partner_1_pdb_list` is stored.  `-ensemble1` corresponds to the list of pdbs of the partner which is written at the top of the input pdb and `-ensemble2` to the partner which is at the bottom of the input pdb. Always run this before running the docking protocol for ensembles.
+**Note:** An ensemble of input structures can be given using the following flags: `-ensemble1 [partner_1_pdb_list]` or/and `-ensemble2 [partner_2_pdb_list]`. These files contain a list of input conformations (in terms of paths to pdbs) of the ensemble. The paths should be as seen from the directory where you run the program and not the directory where `partner_1_pdb_list` is stored.  `-ensemble1` corresponds to the list of pdbs of the partner which is written at the top of the input pdb and `-ensemble2` to the partner which is at the bottom of the input pdb. Always run this before running the docking protocol for ensembles.
 
 Options
 =======
@@ -69,6 +69,8 @@ Basic protocol options
 |:-------|:--------------|:-------|
 |-docking:partners [P1\_P2] | Prepacking is done by separating chain P1 and chain P2 | String |
 |-docking:partners LH\_A (moves chain A around fixed chains L and H) | Prepacking is done by separating  chain A and LH complex. Note that this will be useful if you are planning to do docking between chain A and LH complex. | String |
+|-mp:setup:spanfiles <spanfile> | Read in a spanfile for prepacking membrane proteins. Membrane protein is created and partners are translated in the membrane plane. | StringVector |
+
 
 optimization Flags
 ------------------

@@ -6,7 +6,7 @@ Convert a pose into fullatom mode in preparation for high-resolution loop
 modeling.  This is used internally by LoopModeler.
 
 ```xml
-<PrepareForFullatom name=(&string) force_repack=(no &bool) scorefxn=(&string)/>
+<PrepareForFullatom name="(&string)" force_repack="(no &bool)" scorefxn="(&string)"/>
 ```
 
 Options:

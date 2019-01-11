@@ -1,58 +1,47 @@
 GlycanTreeSelector
-=================
+==================
 
-Metadata
+MetaData
 ========
 
-Authors: Dr. Jared Adolf-Bryfogle (jadolfbr@gmail.com), Dr. Sebastian Rämisch(raemisch@gmail.com), and Dr. Jason W. Labonte (JWLabonte@jhu.edu)
+Authors: Dr. Jared Adolf-Bryfogle (jadolfbr@gmail.com), Dr. Jason Labonte (JWLabonte@jhu.edu), and Dr. Sebastian Rämisch (raemisch@scripps.edu)
 
-PIs: Jeff Gray and William Schief
+PIs: Dr. William Schief (schief@scripps.edu) and Dr. Jeffrey Gray (jgray@jhu.edu)
 
-
-
-Description
-===========
-
-Selects All Glycan residues in a pose, or particular glycan trees.  Currently in development.
-
-<!--- BEGIN_INTERNAL -->
-
-Usage
-=====
-
-``` 
-    <GlycanTreeSelector name=(&string) roots="23,48", ref_pose_name="ref_pose"/>
-```
+This is still an in-development, unnpublished selector.  If you use this in your publication, please email the authors!
 
 
-_root_ &string
-
-_roots_ &string,&string&string
-- Used to set specific glycan trees or parts of trees.  If this is not given, it will select ALL glycan residues in the pose.  These can be the branch points of the glycans or carbohydrate residues from which to select the downstream branch from, like the rest of a tree from a particular position.  That position could be the trunk or individual branches, which keep branching out. Note that the Subset will not include the Root residue, since many times it will be the ASN root.
-
-_ref_pose_name_ &string
-- The name of a Particular Ref Pose set. 
 
 
-<!--- END_INTERNAL -->
+[include:rs_GlycanTreeSelector_type]]
+
 
 ## See Also
-* [[WorkingWithGlycans]]
+- [[WorkingWithGlycans]]
 
-- ### RosettaScript Components
-* [[GlycanRelaxMover]] - Glycosylate poses with glycan trees.  
-* [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees.  
-* [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
+- ### RosettaCarbohydrate Apps and Components
+ - ### Movers
+ - [[GlycanTreeRelax]] - The optimal way to model glycan trees.  Uses GlycanRelax internally.
+ - [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees such as man5, man9, or other complex trees.  
+ - [[GlycanRelaxMover]] - Component used in GlycanTreeRelax to do the torsional and side-chain sampling.
+ - [[GlycanTreeMinMover]] - A version of the MinMover that randomly optimizes glycan foliage used in GlycanRelax.
 
-- ### Apps
-* [[GlycanRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
-* [[GlycanInfo]] - Get information on all glycan trees within a pose
-* [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
+- ### Residue Selectors
+ - [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
+ - [[GlycanTreeSelector]] - Select individual glcyan trees or all of them
+ - [[GlycanLayerSelector]] - Select glycan layers
+ - [[GlycanPositionSelector]] - Select specific glycan postions, independant of PDB or Rosetta numbering.
+ - [[RandomGlycanFoliageSelector]] - Randomly select a set of glycan residues 
+
+- ### Applications
+ - [[GlycanInfo]] - Get information on all glycan trees within a pose
+ - [[GlcyanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
+
 
 - ### Other
-* [[Application Documentation]]: List of Rosetta applications
-* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
-* [[Comparing structures]]: Essay on comparing structures
-* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
-* [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
-* [[Commands collection]]: A list of example command lines for running Rosetta executable files
+ - [[Application Documentation]]: List of Rosetta applications
+ - [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+ - [[Comparing structures]]: Essay on comparing structures
+ - [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
+ - [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
+ - [[Commands collection]]: A list of example command lines for running Rosetta executable files

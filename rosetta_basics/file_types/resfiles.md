@@ -2,7 +2,9 @@
 
 Author: Matthew O'Meara and Steven Lewis
 
-This page describes the resfile format, syntax, and conventions. The resfile contains information which is input into the [[PackerTask|Packer-Task]] and controls the Packer. Internal details for the commands can be found at the [[How to write new resfile commands|resfile-reader]] residue-level options how-to.
+This page describes the resfile format, syntax, and conventions. The resfile contains information which is input into the [[PackerTask|Packer-Task]] and controls the Packer. It is read by the TaskOperation [[ReadResfile|ReadResfileOperation]]. Internal details for the commands can be found at the [[How to write new resfile commands|resfile-reader]] residue-level options how-to.
+
+[[_TOC_]]
 
 Resfile Syntax and Semantics
 ====================
@@ -74,7 +76,7 @@ To specify commands for a single residue, use the following form
 <PDBNUM>[<ICODE>] <CHAIN> <COMMANDS>
 ```
 
-If the pose the resfile is has pdb information associated with it (eg it was read in from a pdb file) then \<PDBNUM\>[\<ICODE\>] corresponds to columns 22-26. If the pose does not have pdb information (eg if it was generated de novo or from a silent file), the \<PBDNUM\> is the residue index in the pose and the \<ICODE\> should not be specified. The \<PDBNUM\> can be positive, zero, or negative. The \<ICODE\> is an optional character [A-Z] (case insensitive) that occurs in some pdbs to represent insertion or deletions in the sequence to maintain a consistent numbering scheme or the remainder of the sequence.
+If the pose the resfile is has pdb information associated with it (eg it was read in from a pdb file) then \<PDBNUM\>[\<ICODE\>] corresponds to columns 22-26. If the pose does not have pdb information (eg if it was generated de novo or from a silent file), the \<PBDNUM\> is the residue index in the pose and the \<ICODE\> should not be specified. The \<PDBNUM\> can be positive, zero, or negative. The \<ICODE\> is an optional character [A-Z] \(case insensitive\) that occurs in some pdbs to represent insertion or deletions in the sequence to maintain a consistent numbering scheme or the remainder of the sequence.
 
 To accommodate structures with a large number of chains, following the PDB the, the chain can be any character [A-Za-z] where upper and lower case characters are treated as separate chains. For example
 
@@ -160,11 +162,11 @@ NOTE: It should be remembered that resfile commands are restrictive, rather than
 
 - NATRO ................ preserve the input rotamer ( do not pack at all) (NATive ROtamer)
 
-- EMPTY ................ disallow all canonical amino acids (for use with non canonicals).  This throws away all previously applied task operations, and so will break the commutativity of task operations.  For this reason, its use is discouraged except when necessary, and it will be soon (as of March 2016) be deprecated.
+- EMPTY ................ disallow all canonical amino acids (for use with non canonicals).  This throws away all previously applied task operations, and so will break the commutativity of task operations.  For this reason, its use is discouraged for canonical design (but is still sometimes a necessary evil for noncanonical design), and it will be deprecated once the Packer Palette becomes available.
 
 - RESET ................ resets the task to its default state of canonicals ON and non-canonicals OFF (for use with non canonicals)  This throws away all previously applied task operations, and so will break the commutativity of task operations.  For this reason, its use is discouraged except when necessary, and it will be soon (as of March 2016) be deprecated.
 
-- NC \<ResidueTypeName\> . allow the specific possibly non canonical residue type; one residue type per NC command
+- NC \<ResidueTypeName\> . allow the specific possibly non canonical residue type; one residue type per NC command.  Note that "GLY:N_Methylation" is a special case that is entered as "SAR" (sarcosine) with this command.
 
 ```
 NATRO # default command that applies to everything without a non- default setting; do not repack

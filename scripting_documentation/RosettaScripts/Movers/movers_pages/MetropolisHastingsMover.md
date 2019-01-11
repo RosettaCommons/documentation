@@ -4,8 +4,8 @@
 
 This mover performs [[Metropolis-Hastings Monte Carlo simulations|MetropolisHastings-Documentation]] , which can be used to estimate the thermodynamic distribution of conformational states for a given score function, temperature, and set of underlying movers. See the dedicated [[MetropolisHastings Documentation|MetropolisHastings-Documentation]] page for more information.
 
-```
-<MetropolisHastings name=(&string) scorefxn=(score12 &string) temperature=(0.6 &Real) trials=(1000 &Size)>
+```xml
+<MetropolisHastings name="(&string)" scorefxn="(score12 &string)" temperature="(0.6 &Real)" trials="(1000 &Size)">
   ...
 </MetropolisHastings>
 ```
@@ -35,13 +35,13 @@ In addition to trial movers, you can also specify a specialized mover that will 
 
 Both the TemperatureController and ThermodynamicObserver modules can be specified in the same two ways as trial movers, with the sampling\_weight excluded, for example:
 
-```
+```xml
 <MetropolisHastings ...>
-  <Backrub sampling_weight=(1 &Real) .../>
-  <SimulatedTempering temp_low=(0.6 &Real) .../>
-  <PDBTrajectoryRecorder stride=(100 &Size) filename=(traj.pdb &string)/>
-  <MetricRecorder stride=(100 &Size) filename=(metrics.txt &string)>
-    <Torsion rsd=(&string) type=(&string) torsion=(&Size) name=("" &string)/>
+  <Backrub sampling_weight="(1 &Real)" .../>
+  <SimulatedTempering temp_low="(0.6 &Real)" .../>
+  <PDBTrajectoryRecorder stride="(100 &Size)" filename="(traj.pdb &string)"/>
+  <MetricRecorder stride="(100 &Size)" filename="(metrics.txt &string)">
+    <Torsion rsd="(&string)" type="(&string)" torsion="(&Size)" name="('' &string)"/>
   </MetricRecorder>
 </MetropolisHastings>
 ```

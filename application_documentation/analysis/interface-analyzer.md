@@ -24,7 +24,7 @@ Stranges, P.B. and B. Kuhlman, A comparison of successful and failed protein int
 Purpose
 ===========================================
 
-This application combines a set of tools to, you guessed it, analyze interfaces. It calculates binding energies, buried interface surface areas, and other useful interface metrics. The bulk of the code is a Mover intended to be used at the tail end of interface modeling protocols; it considers that situation to be its primary client. This application is a front-end directly onto that Mover; it is considered a secondary purpose.
+This application combines a set of tools to analyze protein-protein interfaces. It calculates binding energies, buried interface surface areas, and other useful interface metrics. The bulk of the code is a Mover intended to be used at the tail end of interface modeling protocols; it considers that situation to be its primary client. This application is a front-end directly onto that Mover; it is considered a secondary purpose. This application will not work on protein-ligand interfaces.
 
 Algorithm
 =========
@@ -72,7 +72,7 @@ Describe the options your protocol uses.
 -   -interface (string) - Multichain option. Which chains define the interface? example -interface LH\_A to get the interface between chain groups LH and A. Works for sub interfaces such as L\_H by ignoring any chains not specified in calculations. Not tested thoroughly beyond three chains.
 -   -fixedchains (string) - Multichain option. Which chains are in the two groups to define the interface? example: -fixedchains A B to keep chains A and B together, and C separate, out of a pose that contains A, B, and C. Note a space between A and B. Analogous to -interface option. Includes all chains of the pose. Not tested thoroughly beyond three chains.
 
--   -compute\_packstat (bool) - activates packstat calculation; can be slow for large interfacesso it defaults to off. See the paper on RosettaHoles to find out more about this statistic (Protein Sci. 2009 Jan;18(1):229-39.).
+-   -compute\_packstat (bool) - activates packstat calculation; can be slow for large interfaces so it defaults to off. See the paper on RosettaHoles to find out more about this statistic (Protein Sci. 2009 Jan;18(1):229-39.).  Packstat has a significant random component; if you are interested in the score,  -packstat::oversample 100 is recommended as a companion flag; this increases runtime of packstat but reduces variance.  
 -   -tracer\_data\_print (bool) - print to a tracer (true) or a scorefile (false)? Combine the true version with -out:jd2:no\_output and the false with out:file:score\_only (scorefile).
 -   -pack\_input (bool) - prepack before separating chains when calculating binding energy? Useful if these are non-Rosetta inputs
 -   -pack\_separated (bool) - repack the exposed interfaces when calculating binding energy? Usually a good idea.
@@ -81,7 +81,7 @@ Describe the options your protocol uses.
 -   -use\_resfile (bool) - warns the protocol to watch for the existence of a resfile if it is supposed to do any packing steps. (This is normally signaled by the existence of the -resfile flag, but here the underlying InterfaceAnalyzerMover is not intended to use -resfile under normal circumstances, so a separate flag is needed. You can still pass the resfile with -resfile.) Note that resfile commands indicating design are ignored; InterfaceAnalzyer does repacking ONLY.
 -   -score:weights weightsfile - weight set for the scorefunction, defaults to Score12
 -   -score:patch patchfile - patch file for the scorefunction, defaults to Score12
--   -pose\_metrics::inter\_group\_neighbors\_cutoff (real) - If using the multichain constructor (the -fixedchains option), this controls how far apart neighbors are detected - a residue is at the interface if it is within X angstroms of a residue in the other group; I think distances are determined by the nbr\_atom position, which the residue params file defines as usually c-beta. Defaults to 10 Angstroms.
+-   -pose\_metrics::inter\_group\_neighbors\_cutoff (real) - If using the multichain constructor (the -fixedchains  or -interface option), this controls how far apart neighbors are detected - a residue is at the interface if it is within X angstroms of a residue in the other group; I think distances are determined by the nbr\_atom position, which the residue params file defines as usually c-beta. Defaults to 10 Angstroms.
 -   -pose\_metrics::interface\_cutoff (real) - If detecting the interface between two chains, this sets the detection limit for neighbors. A residue is at the interface if it is within X angstroms of a residue in the other group; I think distances are determined by the nbr\_atom position, which the residue params file defines as usually c-beta.
 
 General Rosetta/JD2 options are accepted: in:file:s, in:file:l, in:file:silent for input; -database for the database, etc.
@@ -157,8 +157,9 @@ However, a typical situation for design is to select the top 10 models by interf
 
 ##See Also
 
+* [[interface_energy]]: energy at the interface between two sets of residues
 * [[Analysis applications | analysis-applications]]: other design applications
 * [[Application Documentation]]: Application documentation home page
-* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables
 * [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 * [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs

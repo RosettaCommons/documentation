@@ -13,7 +13,7 @@ Compute the atom-wise root mean squared deviation between the conformation being
             <MOVERS>
                 <SavePoseMover name=spm_init_struct reference_name=init_struct/>
                 <ReportToDB name=features_reporter database_name="features_SAMPLE_SOURCE_ID.db3" batch_description="SAMPLE_SOURCE_DESCRIPTION">
-                    <feature name=ProteinRMSDFeatures reference_name=init_struct/>
+                    <ProteinRMSDFeatures reference_name=init_struct/>
                 </ReportToDB>
             </MOVERS>
             <PROTOCOLS>
@@ -76,7 +76,7 @@ RotamerRecoveryFeatures
 
 The RotamerRecoverFeatures is a wrapper for the [[rotamer_recovery|RotamerRecoveryScientificBenchmark]] scientific benchmark so it can be included as a feature.
 
-        <feature name=RotamerRecoveryFeatures scorefxn=(&string) protocol=(&string) comparer=(&string) mover=(&string)/>
+        <RotamerRecoveryFeatures scorefxn="(&string)" protocol="(&string)" comparer="(&string)" mover="(&string)"/>
 
 See the above link for explanations of the parameters. Give the features reporter either a protocol (RRProtocol string) or any other mover.  Specifying the pose to compare works the same way as the ProteinRMSDFeatures (-native flag, SavePoseMover, etc.)
 

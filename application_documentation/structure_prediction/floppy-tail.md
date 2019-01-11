@@ -27,12 +27,33 @@ This paper uses FloppyTail but is not related to development.  Key idea: the pap
 
 This paper uses FloppyTail to generate models consistent with NMR and SAXS data for interpretation of a structure of biological interest.
 
+-  [Santiago-Frangos A, Jeliazkov JR, Gray JJ, Woodson SA. Acidic C-terminal domains autoregulate the RNA chaperone Hfq. eLIFE. 2017 Aug 9;](https://elifesciences.org/articles/27049)
+
+This paper uses an ensemble of FloppyTail-generated models to assess probability/energy of disordered tail to ordered core interactions and predictions are experimentally validated.
+
 Application purpose
 ===========================================
 
 This code was written for a relatively singular application. The system in question was a protein with a long (dozens of residues) flexible tail, which was not seen in crystal structures. Biochemical evidence suggested a particular binding site for the tail on a known binding partner (the two binding partners also had a known binding interface separate from this tail). The code was intended to model the reach of the long flexible tail and determine whether the hypothesized binding site was plausible.
 
 The protocol is more useful for testing hypotheses about possible conformations, and exploring accessible conformation space, than for finding "the one true binding mode". If your tail is truly that flexible it might not have a "one true binding mode."
+
+The Philosophy of FloppyTail – how to use it on hard problems
+=============================================================
+
+(Note that this section may duplicate some of the above, or the demo – it was written to stand alone and included here for posterity)
+
+FloppyTail is aimed at “constrained docking”.  It can be used when you have one or more relatively rigid domains, with flexible linkers connecting them / at their ends.  For some cases, like the original flexible tail, the question is “where might this tail be able to dock onto the rigid protein?”  For some cases, like two domains with a linker between them, it might be “how should these two proteins dock, given that some conformations are impossible because the linker can’t stretch that far?”
+
+Broadly speaking, FloppyTail comes into play for FLEXIBLE linkers.  There are two problems with this.  First, the Rosetta energy function is parameterized on and for well folded crystalline protein.  It will only do so well with flexible linkers, because its view of physics doesn’t allow for unstructured soluble protein.  Second, flexible linkers are flexible in time, but a static structure has no time domain, so looking at the top model by score is not very informative about the state of the linker region.  So, using FloppyTail and interpreting its results requires some careful consideration of the value of the results.  
+
+If your goal is “I have two proteins that are connected and I want to know what it’s going to look like” – that’s an expensive problem and the success rate is marginal.  (It’s equally expensive, with an equally marginal success rate, to just do global docking and then try to solve the loop, which is a valid alternative).
+
+If you have NO experimental data about your problem, you can use FloppyTail to generate hypotheses.  Look at your result ensemble and see what interactions recur frequently in the better models, then think about ways to test experimentally if those interactions are real (via crosslinking or mutagenesis, perhaps).  
+
+Perhaps you have an idea of a conformation that might exist and you want to check computationally before trying the experiment.  In this case, try using constraints to force the conformation you’re interested in to see if the system can accommodate it.  If you get out models that still don’t have the interaction you wanted, or can only achieve it with tortured geometries, that constitutes a negative result from FloppyTail.
+
+If you have experimental data – great!  Constraints are the way to go.  Run the code with constraints, and you’ll get much higher model quality to feed into further hypotheses.  Alternatively, use the constraints to filter unconstrained results, or just use them to judge if the model population is realistic.  This lets you generate an “envelope” of the things the system might be doing consistent with your constraints, which can be used for further cycles of experiment as necessary.  
 
 Algorithm
 =========
@@ -46,7 +67,7 @@ Limitations
 
 This code is NOT intended to do "half-abinitio" where you know half a structure and want to fold the other half. Although it is modeled on abinitio, it is only tested on a truly floppy, disordered tail, and I have no idea if it is able to fold compact structures. It is resolutely not supported for that purpose.
 
-If you want to perform standard ab initio folding of a terminal sequence, you can use the [[Topology Broker]]'s [[RigidChunk| ClientMovers]] environment. This can be used in RosettaScripts or using the minirosetta application. 
+If you want to perform standard ab initio folding of a terminal sequence, you can use the [[Topology Broker|BrokeredEnvironment]]'s [[RigidChunk|ClientMovers]] environment. This can be used in RosettaScripts or using the minirosetta application. 
 
 
 Input Files
@@ -55,7 +76,7 @@ Input Files
 See tests/integration/tests/FloppyTail/ for example usage. Basically all you need is an input structure.
 
 -   The code does not tolerate imperfections in the input PDB. Get rid of your heteroatoms, 0-occupancy regions, multiply-defined atoms, and waters beforehand.
--   The code does not add your extension for you. You need to add starting coordinates (however meaningless) for the flexible tail. I had it pointing straight out into space (as it is in the demo).
+-   The code does not add your extension for you. You need to add starting coordinates (however meaningless) for the flexible tail. I had it pointing straight out into space (as it is in the demo). Alternatively, there are PyRosetta scripts in scripts/pyrosetta/public/floppy_tail_utility/ that can update input conformations (disordered residues present) to be extended or append/prepend tails (adds the disordered residues for you).
 -   See the [[fragment file]] input format for an explanation of how to make fragments.
 -   See the [[constraint file]] input format for an explanation of constraint files.
 
@@ -83,8 +104,8 @@ Options
 
 ####FloppyTail options
 
--   -flexible\_start\_resnum - integer - this is the start of the flexible tail in PDB numbering. (See below that you have an option for passing a MoveMap file instead).
--   -flexible\_stop\_resnum - integer - this is the end of the flexible region, in PDB numbering. Not using this option means the entire chain after flexible\_start\_resnum. (See below that you have an option for passing a MoveMap file instead).
+-   -flexible\_start\_resnum - integer - this is the start of the flexible tail in PDB numbering. (See below that you have an option for passing a MoveMap file instead).  If you do use this option, you are required to also use -flexible_chain.
+-   -flexible\_stop\_resnum - integer - this is the end of the flexible region, in PDB numbering. Not using this option means the entire chain after flexible\_start\_resnum. (See below that you have an option for passing a MoveMap file instead).  If you do use this option, you are required to also use -flexible_chain.
 -   -flexible\_chain - string - the first character of this string is interpreted as the PDB chain for the flexible region; any other characters are ignored.
 -   -shear\_on - real - In centroid mode, shear moves are completely nonproductive early on when the tail is still largely extended. This value gives the fraction of centroid cycles when shear moves will be allowed (introduced into the moveset of the RandomMover choosing perturbation moves). For example, passing 0.333 means that for the first third of centroid mode, shear moves will be disallowed.
 -   -short\_tail::short\_tail\_fraction - real - Fraction of the tail used in the short tail fraction of refinement mode. 0.1 would mean the last tenth of the tail is flexible. Not compatible with non-terminal flexible regions.

@@ -4,21 +4,21 @@
 
 Select residues by their solvent accessible surface area in either the monomeric, bound, or unbound state of the pose. Accessible surface area cutoffs can be set for positions to be considered core, boundary or surface as follows: residues with accessible surface areas less than core\_asa are considered core, those with areas greater than surface\_asa are considered surface, and those between the core\_asa and surface\_asa cutoffs are considered boundary. These SASAs can be assessed in either the monomeric, bound, our unbound state, and either on all mainchain and CBeta atoms or on all sidechain heavyatoms. All residues that do not match the user-specified criteria are prevented from repacking. Works with asymmetric or asymmetric poses, as well as poses with symmetric-building blocks. Can be used to implement custom "layer design" protocols. For de novo designs, it is likely best to use mode="mc" rather than mode="sc". To set the parameters to be the same as the defaults for the LayerDesign task operation use: mode="mc", state="bound", probe\_radius=2.0, core\_asa=20, surface\_asa=40.
 
-     <SelectBySASA name=(&string) mode=("sc" &string) state=("monomer" &string) probe_radius=(2.2 &Real) core_asa=(0 &Real) surface_asa=(30 &Real) jumps=(1 &Size "," separated) sym_dof_names=("" &string "," separated) core=(0 &bool) boundary=(0 &bool) surface=(0 &bool) verbose=(0 &bool) />
+     <SelectBySASA name="(&string)" mode="('sc' &string)" state="('monomer' &string)" probe_radius="(2.2 &Real)" core_asa="(0 &Real)" surface_asa="(30 &Real)" jumps="(1 &Size ',' separated)" sym_dof_names="('' &string ',' separated)" core="(0 &bool)" boundary="(0 &bool)" surface="(0 &bool)" verbose="(0 &bool)" />
 
 Examples:
 
 Only allow repacking at the core positions in the bound state. Useful in combination with other tasks such as RestrictToInterface in order to select just the core of the interface for design.
 
-     <SelectBySASA name=core mode="sc" state="bound" probe_radius=2.2 core_asa=0 surface_asa=30 core=1 boundary=0 surface=0 verbose=1 />
+     <SelectBySASA name="core" mode="sc" state="bound" probe_radius="2.2" core_asa="0" surface_asa="30" core="1" boundary="0" surface="0" verbose="1" />
 
 Only allow repacking at the boundary and surface positions in the bound state.
 
-     <SelectBySASA name=core mode="sc" state="bound" probe_radius=2.2 core_asa=0 surface_asa=30 core=0 boundary=1 surface=1 verbose=1 />
+     <SelectBySASA name="core" mode="sc" state="bound" probe_radius="2.2" core_asa="0" surface_asa="30" core="0" boundary="1" surface="1" verbose="1" />
 
 Prevent the core of the monomers (each chain) from repacking. Useful in combination with other tasks to ensure that one does not design core positions.
 
-     <SelectBySASA name=no_core_mono_repack mode="sc" state="monomer" probe_radius=2.2 core_asa=0 surface_asa=30 core=0 boundary=1 surface=1 verbose=1 />
+     <SelectBySASA name="no_core_mono_repack" mode="sc" state="monomer" probe_radius="2.2" core_asa="0" surface_asa="30" core="0" boundary="1" surface="1" verbose="1" />
 
 Option list
 

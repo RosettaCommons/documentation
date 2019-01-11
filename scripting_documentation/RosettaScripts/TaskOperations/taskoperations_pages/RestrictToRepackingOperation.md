@@ -4,7 +4,7 @@
 
 Only allow residues to repack. No design at any position.
 
-     <RestrictToRepacking name=(&string) />
+     <RestrictToRepacking name="(&string)" />
 
 ##See Also
 

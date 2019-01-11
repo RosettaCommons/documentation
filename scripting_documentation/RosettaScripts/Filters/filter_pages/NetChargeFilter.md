@@ -1,11 +1,14 @@
 # NetCharge
 *Back to [[Filters|Filters-RosettaScripts]] page.*
+
+<i>Note:  This page is about the NetCharge </i>filter<i>.  For information about the `netcharge` score term, see [[this page|NetChargeEnergy]].</i>
+
 ## NetCharge
 
 This filter sums up all of the positively and negatively charged amino acids in your structure and reports a simplistic sequence-based net charge.
 
-```
-<NetCharge name=(&string) min=(-100 &Integer) max=(100 &Integer) chain=(0 &Integer) task_operations=("" &string) />
+```xml
+<NetCharge name="(&string)" min="(-100 &Integer)" max="(100 &Integer)" chain="(0 &Integer)" task_operations="('' &string)" />
 ```
 
 -   min: minimum net charge desired (default: -100).
@@ -15,9 +18,12 @@ This filter sums up all of the positively and negatively charged amino acids in 
 
 This filter assigns basic residues LYS and ARG residues to +1, while acidic residues ASP and GLU are assigned to -1.
 
+To design for a desired net charge rather than filtering after the fact, you can use the [[netcharge score term|NetChargeEnergy]].
+
 ## See also:
 
 * [[TotalSasaFilter]]
 * [[SasaFilter]]
 * [[ResidueBurialFilter]]
 * [[ExposedHydrophobicsFilter]]
+* [[NetChargeEnergy]]

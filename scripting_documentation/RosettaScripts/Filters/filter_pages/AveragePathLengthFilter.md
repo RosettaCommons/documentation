@@ -10,8 +10,8 @@ threshold = (0.1429 n) + 0.8635 + `     path_tightness    `
 
 where n is the number of residues in the chain and `     path_tightness    ` is user specified. Larger values for path\_tightness lead to a higher (and thus looser) threshold.
 
-```
-<AveragePathLength name="&string" path_tightness=(1 &Real) max_path_length=(10000 &Real)/>
+```xml
+<AveragePathLength name="&string" path_tightness="(1 &Real)" max_path_length="(10000 &Real)"/>
 ```
 
 ## See also:

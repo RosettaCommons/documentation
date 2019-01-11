@@ -15,6 +15,13 @@ The TranslationRotationMover rotates / translates a pose element based on the ol
 `center` - 3 Floats - Desired center of the membrane bilayer.
 `normal` - 3 Floats - Desired normal vector of the membrane bilayer. 
 
+## Flags / Options
+
+|**Flag**|**Description**|
+|:-------|:--------------|
+|`-mp::setup::center <XYZ-Vector of Real Numbers>` | Optional; user can provide desired membrane center coordinate. For TranslationMover, read in center coordinates as translation vector if initializing from Command Line. |
+|`-mp::setup::normal <XYZ-Vector of Real Numbers>` | Optional; user can provide desired membrane normal vector for RotationMover and TranslationRotationMover. |
+
 ## Contact
 
 - Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))

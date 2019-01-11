@@ -178,7 +178,7 @@ Build a disulfide between residue 5 and 88, if possible. If not possible, Remode
 Domain insertion
 ----------------
 
-Remodel can also be used to do domain insertion. A PDB file containing the residues to be inserted must be specified with the option -remodel:domainFusion:insert\_segment\_from\_pdb. The PDB file containing the segment to be inserted does not need to be renumbered.
+Remodel can also be used to do domain insertion. A PDB file containing the residues to be inserted must be specified with the option ```-remodel:domainFusion:insert_segment_from_pdb```. The PDB file containing the segment to be inserted does not need to be renumbered.
 
 Note: Is necessary to allow the residues flanking the insert to be remodelled or otherwise errors will occur. The identities of these positions can be fixed to their native types (as in the example below) but their backbones must be allowed to be remodelled to accomodate the inserted segment. Depending on the length of the insert, more than one residue on each side of the inserted segment may need to be remodelled for loop closure to succeed. In other words, if only one residue on each side of the insert is allowed to remodel, Remodel may not be able to "fold" the inserted segment in such a way that the chain can be connected. The protocol will continue to try indefinitely until a "loop closed" solution is found, or until the process is killed manually.
 
@@ -218,7 +218,7 @@ Remodel with constraints
 
 Remodel uses the constraint setup in the enzyme design ("EnzDes") protocol, because it separates the definition of residue positions and the constraints to be applied to them. This setup allows blueprint to double as a constraint position definition file and allow all extensions and deletions to be handled elegantly. Note that the build constraint defined here will only be used in the centroid stage.
 
-To setup build constraints, two things must be done. First, a constraint definition text file has to be created, following the [[enzdes constraints format|match-cstfile-format]] . Note that backbone atoms need extra manual declaration of "is\_backbone" otherwise they won't get applied in the build stage. Also, the atom\_type fields expect Rosetta atom types.
+To setup build constraints, two things must be done. First, a constraint definition text file has to be created, following the [[enzdes constraints format|match-cstfile-format]] . Note that backbone atoms need extra manual declaration of "is\_backbone" otherwise they won't get applied in the build stage. Also, the [[atom_type|Rosetta-AtomTypes]] fields expect Rosetta atom types.
 
 ```
   CST::BEGIN
@@ -236,7 +236,7 @@ To setup build constraints, two things must be done. First, a constraint definit
 
 This block describes a constraint setup between a backbone Nitrogen and backbone Oxygen atom to fall within a hydrogen bonding distance (2.8 Ãƒ). The residue3 tag lists all the amino acid types so when the constraint is applied, it simply ignores the amino acid identity. A single letter code can be used instead if "residue1" is used.
 
-Notes on cst file specification- the "atom\_type" designation requires only one name, and the connectivity will be automatically looked up in the residue params file. But if "atom\_name" is used, one would have to explicitly specify three atoms so the torsions and angles can be set correctly. For example:
+Notes on cst file specification- the [[atom_type|Rosetta-AtomTypes]] designation requires only one name, and the connectivity will be automatically looked up in the residue params file. But if "atom\_name" is used, one would have to explicitly specify three atoms so the torsions and angles can be set correctly. For example:
 
 ```
 ATOM_MAP: 1
@@ -379,25 +379,25 @@ Checkpointing can be switched on by issuing the flag: "-checkpoint".
 
 Checkpointing is related to the "-save\_top [number]" option, as checkpointing recovers the same number of structures written out by the -save\_top command. (If your first pass of the protocol didn't generate the number of structures specified in -save\_top, only the ones generated will be recovered). This scheme is only used to make sure that the best structures from a simulation are not lost when a process is terminated. It will also generate a text file to mark the number of trajectories already finished, therefore picking up from where num\_trajectories were left off, so to speak.
 
-Mock Prediction (not yet available)
------------------------------------
+## Mock Prediction (not yet available)
+
 
 Although it does not have all the bells and whistles for running a thorough prediction run when a sequence is known, the Remodel protocol can be used to run a "mock prediction" where the amino acid sequences are given and one just wanted to predict its final structure using sequence biased fragments (still generic/or hand assigned and has no secondary structure prediction from multiple sequence alignment) and relying largely on full-atom refinement to get a structure for a known sequence. In this case, one would switch on "-mock\_prediction" and this swaps out the design scorefunction with the one (score4L) used for general loop prediction tasks. "-remodel:use\_blueprint\_sequence" should also be used, so fragments chosen from vall database will bias towards sequences known. But when doing so, be sure to assign the *SECOND* column of the blueprint file amino acids of your target sequence, and use PIKAA to manually force the final amino acids used in refinement to match the sequence needed a predicted structure.
 
-Limitations
-===========
+# Limitations
+
 
 A major limitiation of the Remodel protocol is that input PDB files must be numbered starting from 1. A PDB numbered starting from 1 can be created using the fixbb application with the flag -renumber\_pdb and a resfile that has NATRO as the default behaviour.
 
 If a starting PDB has multiple chains, Remodel works on the first chain.  Use the flag "-chain " followed by chain name (eg. A) to indicate the target chain. The other parts can still carry their chain designator, and they will not be touched by the protocol – they will stay present throughout the simulation. Note that at the moment, one should always use -chain field, even if model or target model has only one chain.  If DNA is present it will be considered for scoring but will not move during the run. Also if you have anything other than protein, clustering on CA atom will not work, so clustering should be turned off by adding "-use\_clusters false" to the command line.
 
-Input Files
-===========
+# Input Files
 
-Structures - REQUIRED
----------------------
+### Structures - REQUIRED
+
 
 At least one input PDB file must always be given. A single PDB, or a list of PDBs, must be specified on the command line. If doing denovo design, this is the stub PDB. The remodel code is also compatible with PDBs containing DNA.
+> The PDB file must be consecutively numbered, starting from 1
 
 ```
 -s <pdb1> <pdb2>                                              A list of one or more PDBs to run fixbb upon
@@ -406,22 +406,22 @@ At least one input PDB file must always be given. A single PDB, or a list of PDB
 
 ```
 
-Database location - REQUIRED
-----------------------------
+### Database location - REQUIRED
+
 
 ```
 -database <path/to/rosetta/main/database>                  Specifies the location of the rosetta_database
 ```
 
-Blueprint - REQUIRED
---------------------
+### Blueprint - REQUIRED
+
 
 ```
 -remodel:blueprint <blueprint>                                A file that specifies what operations should be performed to the input structure(s)
 ```
 
-Options
-=======
+# Options
+
 
 Remodel options
 ---------------
@@ -477,7 +477,7 @@ Remodel options
 ```
 
 ```
--remodel::no_design                                            skips all design steps. WARNING: will only output centroid level structures and dump all fragment tries (default: false)
+-remodel::design::no_design                                            skips all design steps. WARNING: will only output centroid level structures and dump all fragment tries (default: false)
 -remodel::silent                                               dumps all structures by silent-mode WARNING: will work only during no_design protocol (see -no_design) (default: false)
 -remodel::allow_rare_aro_chi                                   allow all aromatic rotamers, not issuing AroChi2 filter (default: false)
 -remodel::skip_partial                                         skip design stage that operate only on burial positions (default: false)

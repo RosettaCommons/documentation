@@ -2,10 +2,10 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## InterfaceHoles
 
-Looks for voids at protein/protein interfaces using Will Sheffler's packstat. The number reported is the difference in the holes score between bound/unbound conformations. Be sure to set the -holes:dalphaball option!
+Looks for voids at protein/protein interfaces using Will Sheffler's packstat. The number reported is the difference in the holes score between bound/unbound conformations. Be sure to set the -holes:dalphaball option (and to compile the corresponding executable in source/external/DAlpahBall)!
 
-```
-<InterfaceHoles name=(&string) jump=(1 &integer) threshold=(200 &integer)/>
+```xml
+<InterfaceHoles name="(&string)" jump="(1 &integer)" threshold="(200 &integer)"/>
 ```
 
 -   jump: Which jump to calculate InterfaceHoles across?

@@ -2,13 +2,17 @@
 
 [[Return to RosettaScripts|RosettaScripts]]
 
-Each filter definition has the following format:
+Each filter definition has the following format in the `FILTERS` block:
 
-```
-<"filter_name" name="&string" ... confidence=(1 &Real)/>
+```xml
+<FILTERS>
+	<SomeFilterName name="&string" confidence="(1 &Real)" other_option=""/>
+</FILTERS>
 ```
 
-where "filter\_name" belongs to a predefined set of possible filters that the parser recognizes and are listed below, name is a unique identifier for this mover definition and then any number of parameters that the filter needs to be defined.
+where "SomeFilterName" belongs to a predefined set of possible filters that the parser recognizes and are listed below, name is a unique identifier for this mover definition and then any number of parameters that the filter needs to be defined.
+
+Filters can be run on arbitrary [[SimpleMetrics]], which will eventually replace some aspects of the Filter system.  See the special [[SimpleMetricFilter]] for using arbitrary metrics for filtering.
 
 If confidence is 1.0, then the filter is evaluated as in predicate logic (T/F). If the value is less than 0.999, then the filter is evaluated as fuzzy, so that it will return True in (1.0 - confidence) fraction of times it is probed. This should be useful for cases in which experimental data are ambiguous or uncertain.
 
@@ -18,249 +22,248 @@ If confidence is 1.0, then the filter is evaluated as in predicate logic (T/F). 
 
 Simple filter which are available without explicitly defining them.
 
-**[[TrueFilter]]** - Always passes.
-
-**[[FalseFilter]]** - Never passes.
+Filter  | Description
+------------ | -------------
+**[[TrueFilter]]** | Always passes.
+**[[FalseFilter]]** | Never passes.
 
 ## Special Filters
 
 Filters which are useful for combining, modifying or working with other filters and movers.
 
-**[[CompoundStatement|CompoundStatementFilter]]** - Uses previously defined filters with logical operations to construct a compound filter.
+Filter  | Description
+------------ | -------------
+**[[CompoundStatement|CompoundStatementFilter]]** | Uses previously defined filters with logical operations to construct a compound filter.
+**[[CombinedValue|CombinedValueFilter]]** | Weighted sum of multiple filters.
+**[[CalculatorFilter]]** | Combine multiple filters with a mathematical expression.
+**[[ReplicateFilter]]** | Repeat a filter multiple times and average.
+**[[Boltzmann|BoltzmannFilter]]** | Boltzmann weighted sum of positive/negative filters.
+**[[MoveBeforeFilter]]** | Apply a mover before applying the filter.
+**[[Operator|OperatorFilter]]** | Apply a fuzzy logic operation to a set of filters.
+**[[Sigmoid|SigmoidFilter]]** | Transform a filter's value according to a sigmoid function.
+**[[IfThenFilter]]** | Evaluate to a value contingent on the true/false value of other filters.
+**[[ContingentFilter]]** | A special filter that allows movers to set its value (pass/fail).
+**[[PoseComment|PoseCommentFilter]]** | Test for the existence or the value of a comment in the pose.
+**[[Range|RangeFilter]]** | Returns true if the value of a given filter is in a given range.
 
-**[[CombinedValue|CombinedValueFilter]]** - Weighted sum of multiple filters.
-
-**[[CalculatorFilter]]** - Combine multiple filters with a mathematical expression.
-
-**[[ReplicateFilter]]** - Repeat a filter multiple times and average.
-
-**[[Boltzmann|BoltzmannFilter]]** - Boltzmann weighted sum of positive/negative filters.
-
-**[[MoveBeforeFilter]]** - Apply a mover before applying the filter.
-
-**[[Operator|OperatorFilter]]** - Apply a fuzzy logic operation to a set of filters.
-
-**[[Sigmoid|SigmoidFilter]]** - Transform a filter's value according to a sigmoid function.
-
-**[[IfThenFilter]]** - Evaluate to a value contingent on the true/false value of other filters.
-
-**[[ContingentFilter]]** - A special filter that allows movers to set its value (pass/fail).
-
-**[[PoseComment|PoseCommentFilter]]** - Test for the existence or the value of a comment in the pose.
-
-**[[Range|RangeFilter]]** - Returns true if the value of a given filter is in a given range.
+-----------------------
 
 ## General Filters
 
+Filter  | Description
+------------ | -------------
+**[[SimpleMetricFilter]]** | Filter based on any arbitrary [[SimpleMetric | SimpleMetrics]]
+
+
 ### Basic Filters
 
-**[[ResidueCount|ResidueCountFilter]]** - Filter based on the total number of residues.
-
-**[[NetCharge|NetChargeFilter]]** - Filter based on simple sum of protein charge.
+Filter  | Description
+------------ | -------------
+**[[ResidueCount|ResidueCountFilter]]** | Filter based on the total number of residues.
+**[[NetCharge|NetChargeFilter]]** | Filter based on simple sum of protein charge.
 
 ### Energy/Score
 
-**[[ScoreType|ScoreTypeFilter]]** - Filter based on a particular score term.
-
-**[[TaskAwareScoreType|TaskAwareScoreTypeFilter]]** (Formerly AverageInterfaceEnergy) - Filter on score of "packable" residues.
-
-**[[BindingStrain|BindingStrainFilter]]** - Filter on energetic strain in a bound monomer.
-
-**[[ConstraintScore|ConstraintScoreFilter]]** - Filter that generates a score from a set of constraints generated by ConstraintGenerators
-
-**[[Delta|DeltaFilter]]** - Compute difference from native of filter value.
-
-**[[EnergyPerResidue|EnergyPerResidueFilter]]** - Filter on energy of specific selection (residue(s), interface, protein).
-
-**[[Residue Interaction Energy|ResidueIEFilter]]** - Filter on energy of specific residue in the context of an interface or pose.
-
-**[[ResidueSetChainEnergy|ResidueSetChainEnergyFilter]]** - Filter on energy of residue set (either in chain or selection).
+Filter  | Description
+------------ | -------------
+**[[ScoreType|ScoreTypeFilter]]** | Filter based on a particular score term.
+**[[TaskAwareScoreType|TaskAwareScoreTypeFilter]]** (Formerly AverageInterfaceEnergy) | Filter on score of "packable" residues.
+**[[BindingStrain|BindingStrainFilter]]** | Filter on energetic strain in a bound monomer.
+**[[ConstraintScore|ConstraintScoreFilter]]** | Filter that generates a score from a set of constraints generated by ConstraintGenerators
+**[[Delta|DeltaFilter]]** | Compute difference from native of filter value.
+**[[EnergyPerResidue|EnergyPerResidueFilter]]** | Filter on energy of specific selection (residue(s), interface, protein).
+**[[ReadPoseExtraScoreFilter|ReadPoseExtraScoreFilter]]** | Extract score previously stored in the pose.
+**[[Residue Interaction Energy|ResidueIEFilter]]** | Filter on energy of specific residue in the context of an interface or pose.
+**[[ResidueSetChainEnergy|ResidueSetChainEnergyFilter]]** | Filter on energy of residue set (either in chain or selection).
+**[[ScorePoseSegmentFromResidueSelectorFilter|ScorePoseSegmentFromResidueSelectorFilter]]** | Obtain the score of a requested section of a Pose through a ResidueSelector.
 
 ### Distance
 
-**[[ResidueDistance|ResidueDistanceFilter]]** - Filter based on the distance between two residues.
+Filter  | Description
+------------ | -------------
+**[[ResidueDistance|ResidueDistanceFilter]]** | Filter based on the distance between two residues.
+**[[AtomicContact|AtomicContactFilter]]** | Are any atoms on two residues within a cutoff distance?
+**[[AtomicContactCount|AtomicContactCountFilter]]** | Count number of carbon-carbon contacts.
+**[[AtomicDistance|AtomicDistanceFilter]]** | Filter based on the distance between two atoms.
+**[[TerminusDistance|TerminusDistanceFilter]]** | Distance in sequence from either terminus to interface.
 
-**[[AtomicContact|AtomicContactFilter]]** - Are any atoms on two residues within a cutoff distance?
 
-**[[AtomicContactCount|AtomicContactCountFilter]]** - Count number of carbon-carbon contacts.
+### Sequence analysis
 
-**[[AtomicDistance|AtomicDistanceFilter]]** - Filter based on the distance between two atoms.
+Filter  | Description
+------------ | -------------
+**[[LongestContinuousPolarSegment|LongestContinuousPolarSegmentFilter]]** | Filter based on length of longest stretch of polar amino acid residues.
+**[[LongestContinuousApolarSegment|LongestContinuousApolarSegmentFilter]]** | Filter based on length of longest stretch of apolar amino acid residues.
+**[[SequenceDistance|SequenceDistanceFilter]]** | Filter based on the number of mutations between pose sequence and sequence stored in comments in pose.
 
-**[[TerminusDistance|TerminusDistanceFilter]]** - Distance in sequence from either terminus to interface.
+### Alignment analysis
+
+Filter  | Description
+------------ | -------------
+**[[AlignmentAAFinder|AlignmentAAFinderFilter]]** | Scans through an alignment, tests all possible amino acids at each position, and generates a file of passing amino acids.
+**[[AlignmentGapInserter|AlignmentGapInserterFilter]]** | Scans through an alignment and inserts gaps where positions in the alignment are not representative of the chemical environment of the pose sequence.
 
 ### Geometry
 
-**[[AngleToVector|AngleToVectorFilter]]** - Filter on angle between two atoms on the first residue of a chain and a given vector.
-
-**[[Torsion|TorsionFilter]]** - Filter based on the value of a dihedral.
-
-**[[HelixPairing|HelixPairingFilter]]** - Filter structures based on the geometry of helix pairings.
-
-**[[SecondaryStructure|SecondaryStructureFilter]]** - Filter structures based on secondary structure.
-
-**[[SecondaryStructureCount|SecondaryStructureCountFilter]]** - Count number of a single secondary structure element. 
-
-**[[SecondaryStructureHasResidue|SecondaryStructureHasResidueFilter]]** - Count fraction of secondary structure element positions containing specific residue.
-
-**[[HelixKink|HelixKinkFilter]]** - Vaguely, filter based on helix topology.
-
-**[[Geometry|GeometryFilter]]** - Bond geometry and omega angle constraints
-
-**[[HSSTriplet|HSSTripletFilter]]** - Evaluate the given helix-strand-strand triplets. 
-
-**[[PreProlineFilter|PreProlineFilter]]** - Check for bad torsions in residues before prolines
+Filter  | Description
+------------ | -------------
+**[[AngleToVector|AngleToVectorFilter]]** | Filter on angle between two atoms on the first residue of a chain and a given vector.
+**[[Torsion|TorsionFilter]]** | Filter based on the value of a dihedral.
+**[[HelixPairing|HelixPairingFilter]]** | Filter structures based on the geometry of helix pairings.
+**[[SSMotifFinder|SSMotifFinderFilter]]** | Filter structures based on the geometry of loop stems.
+**[[SecondaryStructure|SecondaryStructureFilter]]** | Filter structures based on secondary structure.
+**[[SecondaryStructureCount|SecondaryStructureCountFilter]]** | Count number of a single secondary structure element. 
+**[[SecondaryStructureHasResidue|SecondaryStructureHasResidueFilter]]** | Count fraction of secondary structure element positions containing specific residue.
+**[[HelixKink|HelixKinkFilter]]** | Vaguely, filter based on helix topology.
+**[[Geometry|GeometryFilter]]** | Bond geometry and omega angle constraints
+**[[HSSTriplet|HSSTripletFilter]]** | Evaluate the given helix-strand-strand triplets. 
+**[[PreProlineFilter|PreProlineFilter]]** | Check for bad torsions in residues before prolines
+**[[LoopAnalyzerFilter]]** | Check for bad loop backbone geometries
 
 ### Packing/Connectivity
 
-**[[CavityVolume|CavityVolumeFilter]]** - Always returns true, but calculates intra-protein cavity volume.
-
-**[[AverageDegree|AverageDegreeFilter]]** - Count number of residues within a distance of another selection of residues.
-
-**[[PackStat|PackStatFilter]]** - Compute packing statistics.
-
-**[[InterfaceHoles|InterfaceHolesFilter]]** - Identify voids and protein-protein interfaces.
-
-**[[NeighborType|NeighborTypeFilter]]** - Search for residue type within a radius of a target residue.
-
-**[[ResInInterface|ResInInterfaceFilter]]** - Filter based on the total number of residues in the interface.
-
-**[[ShapeComplementarity|ShapeComplementarityFilter]]** - Filter on shape complementarity of interface.
-
-**[[SSShapeComplementarity|SSShapeComplementarityFilter]]** (SecondaryStructureShapeComplementarity) - Filter on secondary structure shape complementarity.
-
-**[[SpecificResiduesNearInterface|SpecificResiduesNearInterfaceFilter]]** - Filter on specific residues near interface.
+Filter  | Description
+------------ | -------------
+**[[CavityVolume|CavityVolumeFilter]]** | Always returns true, but calculates intra-protein cavity volume.
+**[[AverageDegree|AverageDegreeFilter]]** | Count number of residues within a distance of another selection of residues.
+**[[PackStat|PackStatFilter]]** | Compute packing statistics.
+**[[Holes|HolesFilter]]** | Identify voids (holes) in packing
+**[[InterfaceHoles|InterfaceHolesFilter]]** | Identify voids at protein-protein interfaces.
+**[[NeighborType|NeighborTypeFilter]]** | Search for residue type within a radius of a target residue.
+**[[ResInInterface|ResInInterfaceFilter]]** | Filter based on the total number of residues in the interface.
+**[[ShapeComplementarity|ShapeComplementarityFilter]]** | Filter on shape complementarity of interface.
+**[[SSShapeComplementarity|SSShapeComplementarityFilter]]** (SecondaryStructureShapeComplementarity) | Filter on secondary structure shape complementarity.
+**[[SpecificResiduesNearInterface|SpecificResiduesNearInterfaceFilter]]** | Filter on specific residues near interface.
 
 ### Burial
 
-**[[TotalSasa|TotalSasaFilter]]** - Filter based on the total solvent accessible surface area of the pose.
-
-**[[Sasa|SasaFilter]]** - Filter based on the solvent accessible surface area of an *interface*.
-
-**[[ResidueBurial|ResidueBurialFilter]]** - Number of residues within interaction distance across interface of target residue.
-
-**[[ExposedHydrophobics|ExposedHydrophobicsFilter]]** - Computes the SASA for each hydrophobic residue.
+Filter  | Description
+------------ | -------------
+**[[TotalSasa|TotalSasaFilter]]** | Filter based on the total solvent accessible surface area of the pose.
+**[[Sasa|SasaFilter]]** | Filter based on the solvent accessible surface area of an *interface*.
+**[[ResidueBurial|ResidueBurialFilter]]** | Number of residues within interaction distance across interface of target residue.
+**[[BuriedSurfaceArea|BuriedSurfaceAreaFilter]]** | Computes the buried surface area for a pose or selection, with an option to consider hydrophobic residues only.
+**[[ExposedHydrophobics|ExposedHydrophobicsFilter]]** | Computes the SASA for each hydrophobic residue.
 
 ### Comparison
 
-**[[RelativePose|RelativePoseFilter]]** - Compute a filter's value relative to a different pose's structure.
-
-**[[Rmsd|RmsdFilter]]** - Filter based on the C-alpha RMSD to a reference structure. 
-
-**[[SidechainRmsd|SidechainRmsdFilter]]** - Compute RMSD for a single sidechain.
-
-**[[IRmsd|IRmsdFilter]]** - Filter based on backbone RMSD over residues in the interface.
-
-**[[SequenceRecovery|SequenceRecoveryFilter]]** - Calculates the fraction sequence recovery of a pose compared to a reference pose. 
+Filter  | Description
+------------ | -------------
+**[[RelativePose|RelativePoseFilter]]** | Compute a filter's value relative to a different pose's structure.
+**[[Rmsd|RmsdFilter]]** | Filter based on the C-alpha RMSD to a reference structure. 
+**[[SidechainRmsd|SidechainRmsdFilter]]** | Compute RMSD for a single sidechain.
+**[[IRmsd|IRmsdFilter]]** | Filter based on backbone RMSD over residues in the interface.
+**[[RmsdFromResidueSelectorFilter|RmsdFromResidueSelectorFilter]]** | Similar to the [[Rmsd|RmsdFilter]]. It allows to provide **ResidueSelectors** for both the query and reference poses.
+**[[SequenceRecovery|SequenceRecoveryFilter]]** | Calculates the fraction sequence recovery of a pose compared to a reference pose. 
 
 ### Bonding
 
-**[[HbondsToResidue|HbondsToResidueFilter]]** - Filter on number of h-bonding partners to a residue.
+Filter  | Description
+------------ | -------------
+**[[ChainBreak|ChainBreakFilter]]** | Filter on number of chain breaks in pose.
+**[[HbondsToResidue|HbondsToResidueFilter]]** | Filter on number of h-bonding partners to a residue.
+**[[SimpleHbondsToAtom|SimpleHbondsToAtomFilter]]** | Filter on number of h-bonding partners to an atom(s) with significantly simpler logic than HbondsToAtom.
+**[[HbondsToAtom|HbondsToAtomFilter]]** | Filter on number of h-bonding partners to an atom(s).
+**[[BuriedUnsatHbonds|BuriedUnsatHbondsFilter]]** | Filter on maximum number of buried unsatisfied h-bonds.
+**[[BuriedUnsatHbonds2|BuriedUnsatHbonds2Filter]]** | Filter on number of unsatisfied h-bonds at interfaces (different algorithm from filter above, currently devel only).
+**[[OversaturatedHbondAcceptorFilter]]** | Filter on number of hydrogen bond acceptors that are receiving hydrogen bonds from more than the allowed number of donors.
+**[[DisulfideFilter]]** | Filter based on the presence of a disulfide across an interface.
+**[[AveragePathLength|AveragePathLengthFilter]]** | Compute shortest graph path length where residues are nodes and covalent bonds are edges.
+**[[DisulfideEntropy|DisulfideEntropyFilter]]** | Compute the change in configurational entropy due to disulfide bond formation.
 
-**[[HbondsToAtom|HbondsToAtomFilter]]** - Filter on number of h-bonding partners to an atom(s).
-
-**[[BuriedUnsatHbonds|BuriedUnsatHbondsFilter]]** - Filter on maximum number of buried unsatisfied h-bonds.
-
-**[[BuriedUnsatHbonds2|BuriedUnsatHbonds2Filter]]** - Filter on number of unsatisfied h-bonds at interfaces (different algorithm from filter above, currently devel only).
-
-**[[OversaturatedHbondAcceptorFilter]]** - Filter on number of hydrogen bond acceptors that are receiving hydrogen bonds from more than the allowed number of donors.
-
-**[[DisulfideFilter]]** - Filter based on the presence of a disulfide across an interface.
-
-**[[AveragePathLength|AveragePathLengthFilter]]** - Compute shortest graph path length where residues are nodes and covalent bonds are edges.
-
-**[[DisulfideEntropy|DisulfideEntropyFilter]]** - Compute the change in configurational entropy due to disulfide bond formation.
+---------------------------
 
 ## Report Filters
 
 These filters are used primarily for the reports they generate in the log and/or score and silent files, more so than their ability to end a run.
 
-**[[BundleReporter|BundleReporterFilter]]** - Report the helical bundle parameters and energy of a parametrically-generated pose.
+Filter  | Description
+------------ | -------------
+**[[BundleReporter|BundleReporterFilter]]** | Report the helical bundle parameters and energy of a parametrically-generated pose.
+**[[DesignableResidues|DesignableResiduesFilter]]** | Report which residues are designable.
+**[[Expiry|ExpiryFilter]]** | Filter based on length of simulation (in seconds).
+**[[FileExist|FileExistFilter]]** | Does a file exist on disk?
+**[[FileRemove|FileRemoveFilter]]** | Remove a file from disk.
+**[[RelativeSegmentFilter]]** | Reports the numbers of residues that align with a segment on source pose.
+**[[Report|ReportFilter]]** | This filter reports the value of another filter with the current job name.
+**[[RotamerBoltzmannWeight|RotamerBoltzmannWeightFilter]]** | Reports the Boltzmann probability for the occurrence of a rotamer.
+**[[RotamerBoltzmannWeight2|RotamerBoltzmannWeight2Filter]]** | Reports the Boltzmann probability for the occurrence of the specific rotamers in a given residue subset. Multiple methods for computing probability and scoring are available.
+**[[StemFinder|StemFinderFilter]]** | Compare PDBs to template to identify stems for splicing segments.
+**[[AlaScan|AlaScanFilter]]** | Reports ddG of alanine scanning.
+**[[DdGScan|DdGScanFilter]]** | Reports ddG of alanine scanning on specific residues. This filter used to be named "TaskAwareAlaScanFilter".
+**[[FilterScan|FilterScanFilter]]** | Scan all mutations allowed by task\_operations and test against a filter.
+**[[Time|TimeFilter]]** | Report how long a sequence of movers/filters takes.
+**[[PeptideDeriver|PeptideDeriverFilter]]** | Derive linear peptide contributing most to binding energy.
+**[[PoseInfo|PoseInfoFilter]]** | Report basic information about the pose to the tracer.
+**[[SaveResfileToDisk|SaveResfileToDiskFilter]]** | Save resfile to output directory.
+**[[SSPrediction|SSPredictionFilter]]** | Generate secondary structure predictions from sequence.
+**[[ChainCountFilter|ChainCountFilter]]** | Count the number of chains in a Pose.
 
-**[[DesignableResidues|DesignableResiduesFilter]]** - Report which residues are designable.
-
-**[[Expiry|ExpiryFilter]]** - Filter based on length of simulation (in seconds).
-
-**[[FileExist|FileExistFilter]]** - Does a file exist on disk?
-
-**[[FileRemove|FileRemoveFilter]]** - Remove a file from disk.
-
-**[[RelativeSegmentFilter]]** - Reports the numbers of residues that align with a segment on source pose.
-
-**[[Report|ReportFilter]]** - This filter reports the value of another filter with the current job name.
-
-**[[RotamerBoltzmannWeight|RotamerBoltzmannWeightFilter]]** - Reports the Boltzmann probability for the occurrence of a rotamer.
-
-**[[RotamerBoltzmannWeight2|RotamerBoltzmannWeight2Filter]]** - Reports the Boltzmann probability for the occurrence of the specific rotamers in a given residue subset. Multiple methods for computing probability and scoring are available.
-
-**[[StemFinder|StemFinderFilter]]** - Compare PDBs to template to identify stems for splicing segments.
-
-**[[AlaScan|AlaScanFilter]]** - Reports ddG of alanine scanning.
-
-**[[DdGScan|DdGScanFilter]]** - Reports ddG of alanine scanning on specific residues.
-
-**[[FilterScan|FilterScanFilter]]** - Scan all mutations allowed by task\_operations and test against a filter.
-
-**[[Time|TimeFilter]]** - Report how long a sequence of movers/filters takes.
-
-**[[PeptideDeriver|PeptideDeriverFilter]]** - Derive linear peptide contributing most to binding energy.
-
-**[[PoseInfo|PoseInfoFilter]]** - Report basic information about the pose to the tracer.
-
-**[[SaveResfileToDisk|SaveResfileToDiskFilter]]** - Save resfile to output directory.
-
-**[[SSPrediction|SSPredictionFilter]]** - Generate secondary structure predictions from sequence.
+----------------------------------------
 
 ## Special Application Filters
 
 ### Binding
 
-**[[Ddg|DdgFilter]]** - Filter based on the binding energy.
-
-**[[InterfaceBindingEnergyDensityFilter]]** - Filter based on ddG dived by SASA (using the respective filters).
+Filter  | Description
+------------ | -------------
+**[[Ddg|DdgFilter]]** | Filter based on the binding energy.
+**[[InterfaceBindingEnergyDensityFilter]]** | Filter based on ddG dived by SASA (using the respective filters).
+**[[InterfaceHydrophobicResidueContacts]]** | Filter based on the number of hydrophobic residues on the target that have at least a certain hydrophobic ddG.
 
 ### Ligand docking and enzyme design
 
-**[[DSasa|DSasaFilter]]** - Filter on delta SASA for bound/unbound ligand.
-
-**[[DiffAtomBurial|DiffAtomBurialFilter]]** - Compares the DSasa of two specified atoms and checks to see if one is greater or less than other.
-
-**[[LigInterfaceEnergy|LigInterfaceEnergyFilter]]** - Filter based on binding energy of a ligand.
-
-**[[EnzScore|EnzScoreFilter]]** - Calculates scores of a pose taking into account (or not) enzdes style cst_energy.
-
-**[[RepackWithoutLigand|RepackWithoutLigandFilter]]** - Calculates delta_energy or RMSD of protein residues in a protein-ligand interface when the ligand is removed and the interface repacked.
+Filter  | Description
+------------ | -------------
+**[[DSasa|DSasaFilter]]** | Filter on delta SASA for bound/unbound ligand.
+**[[DiffAtomBurial|DiffAtomBurialFilter]]** | Compares the DSasa of two specified atoms and checks to see if one is greater or less than other.
+**[[LigInterfaceEnergy|LigInterfaceEnergyFilter]]** | Filter based on binding energy of a ligand.
+**[[EnzScore|EnzScoreFilter]]** | Calculates scores of a pose taking into account (or not) enzdes style cst_energy.
+**[[RepackWithoutLigand|RepackWithoutLigandFilter]]** | Calculates delta_energy or RMSD of protein residues in a protein-ligand interface when the ligand is removed and the interface repacked.
 
 ### Ligand design
 
-**[[HeavyAtom|HeavyAtomFilter]]** - Filter based on the number of heavy atoms in a residue.
-
-**[[CompleteConnections|CompleteConnectionsFilter]]** - Filter based on unfulfilled connections.
+Filter  | Description
+------------ | -------------
+**[[HeavyAtom|HeavyAtomFilter]]** | Filter based on the number of heavy atoms in a residue.
+**[[CompleteConnections|CompleteConnectionsFilter]]** | Filter based on unfulfilled connections.
 
 ### Hotspot Design
 
-**[[StubScore|StubScoreFilter]]** - Filter based on if the scaffold is 'feeling' any of the hotspot stub constraints.
+Filter  | Description
+------------ | -------------
+**[[StubScore|StubScoreFilter]]** | Filter based on if the scaffold is 'feeling' any of the hotspot stub constraints.
 
 <!--- BEGIN_INTERNAL -->
 
 ### MatDes
 
-**[[OligomericAverageDegree|OligomericAverageDegreeFilter]]** - A version of the AverageDegree filter (see above) that is compatible with oligomeric building blocks.
-
-**[[SymUnsatHbonds|SymUnsatHbondsFilter]]** - Filter on maximum number of buried unsatisfied H-bonds allowed across an interface.
-
-**[[ClashCheck|ClashCheckFilter]]** - Calculate the number of heavy atoms clashing between building blocks.
-
-**[[InterfacePacking|InterfacePackingFilter]]** - Calculates Will Sheffler's holes score for atoms at inter-building block interfaces.
-
-**[[MutationsFilter|MutationsFilter]]** - Determines mutated residues in current pose as compared to a reference pose. 
-
-**[[GetRBDOFValues|GetRBDOFValuesFilter]]** - Calculates either the current translation or rotation across a user specified jump.
+Filter  | Description
+------------ | -------------
+**[[OligomericAverageDegree|OligomericAverageDegreeFilter]]** | A version of the AverageDegree filter (see above) that is compatible with oligomeric building blocks.
+**[[SymUnsatHbonds|SymUnsatHbondsFilter]]** | Filter on maximum number of buried unsatisfied H-bonds allowed across an interface.
+**[[ClashCheck|ClashCheckFilter]]** | Calculate the number of heavy atoms clashing between building blocks.
+**[[InterfacePacking|InterfacePackingFilter]]** | Calculates Will Sheffler's holes score for atoms at inter-building block interfaces.
+**[[MutationsFilter|MutationsFilter]]** | Determines mutated residues in current pose as compared to a reference pose. 
+**[[GetRBDOFValues|GetRBDOFValuesFilter]]** | Calculates either the current translation or rotation across a user specified jump.
 
 <!--- END_INTERNAL -->
 
+-----------------------
+
 ### Backbone Design
 
-**[[Foldability|FoldabilityFilter]]** - Rebuilds a given segment of an input pose a specified number of times using fragment-based assembly.
+Filter  | Description
+------------ | -------------
+**[[Foldability|FoldabilityFilter]]** | Rebuilds a given segment of an input pose a specified number of times using fragment-based assembly.
+**[[FragQual|FragQualFilter]]** | Compare an input pose to a set of fragments.
+
+### Cyclic Peptide Design
+
+Filter  | Description
+------------ | -------------
+**[[CycpepSymmetryFilter|CycpepSymmetryFilter]]** | Determines whether a cyclic peptide backbone has a desired cyclic symmetry, and passes if and only if it does.  Works with c2, c3, c4, _etc._ symmetry, as well as with c2/m, c4/m, c6/m, _etc._ symmetry.
+
 
 ##See Also
 
@@ -274,4 +277,3 @@ These filters are used primarily for the reports they generate in the log and/or
 * [[Getting Started]]: A page for people new to Rosetta
 * [[Glossary]]
 * [[RosettaEncyclopedia]]
-

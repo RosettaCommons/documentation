@@ -2,8 +2,8 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## Torsion
 
-```
-<Torsion name=(&string) lower=(0&Real) upper=(0&Real) resnum=(0&residue number) torsion=("" &string) task_operations=(&comma-delimited list of taskoperations)/>
+```xml
+<Torsion name="(&string)" lower="(0&Real)" upper="(0&Real)" resnum="(0&residue number)" torsion="('' &string)" task_operations="(&comma-delimited list of taskoperations)"/>
 ```
 
 -   lower: lower cutoff

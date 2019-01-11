@@ -63,19 +63,7 @@ Singletons in Rosetta should derive from class utility::SingletonBase using the 
    ...
  };
 ```
-so that it derives from a class which is templated on itself.  The base class will declare the get_instance() function and the instance_ data member.  You will need to put the following code
-in X.cc:
-```
- namespace utility {
- #if defined MULTI_THREADED && defined CXX11
- template <> std::mutex utility::SingletonBase< X > ::singleton_mutex_;
- template <> std::atomic< X * > utility::SingletonBase< X >::instance_( 0 );
- #else
- template <> X * utility::SingletonBase< X >::instance_( 0 );
- #endif
- }
-```
-to define the static data members.
+so that it derives from a class which is templated on itself.  The base class will declare the get_instance() function and the instance_ data member. 
 
 Class X must define a private static function
 ```
@@ -93,6 +81,10 @@ In order for the base class to invoke this function, it must be declared as a fr
     static X * create_singleton_instance();
  };
 ```
+
+The SingletonBase class declares the copy constructor and assignment operator as deleted, so they should automatically be removed from your derived singleton class. 
+(You'll get an error if you try to define the assignment operator, and if you define the copy constructor properly. You might be able to improperly define a copy constructor, but DON'T.)
+
 ###Can I change or reset a Singleton after it's constructed, e.g. after one job completes and before the next one starts or in response to some event that occurs as a job is running?
 
 No. That would prevent two jobs from interacting with the Singleton at the same time.  If one job were to reset the Singleton while a second job was trying to use its data, then the second job would crash.

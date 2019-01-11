@@ -4,8 +4,8 @@
 
 Takes two other filters: Ddg and Sasa. Computes Ddg/Sasa and returns the value. Fails if the value is not below some threshold.
 
-```
-<InterfaceBindingEnergyDensityFilter name=(&string) sasa_filter=(&string)  ddG_filter=(&string) threshold=(-0.015 &float)/>
+```xml
+<InterfaceBindingEnergyDensityFilter name="(&string)" sasa_filter="(&string)"  ddG_filter="(&string)" threshold="(-0.015 &float)"/>
 ```
 
 -   sasa\_filter is the name of a previously defined Sasa filter

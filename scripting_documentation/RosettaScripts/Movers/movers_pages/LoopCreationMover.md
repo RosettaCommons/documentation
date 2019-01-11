@@ -4,6 +4,11 @@
 
 (This is a devel Mover and not available in released versions.)
 
+For a more common and public way of creating loops, use Remodel.  Here is a link to the tutorial:
+https://www.rosettacommons.org/demos/latest/tutorials/loop_modeling/loop_modeling#modeling-missing-loops
+
+There is also a `LoopBuilderMover`, documentation of which can be found here: [[LoopBuilderMover]]
+
 **!!!!WARNING!!!!!** This code is under very active development and is subject to change
 
 Build loops to connect elements of protein structure. Protocol is broken into two independent steps - addition of loop residues to the pose, followed by closing the loop. These tasks are performed by LoopInserter and LoopCloser respectively (both are mover subclasses).
@@ -14,7 +19,7 @@ LoopInserters are responsible for building loops between residues loop\_anchor a
 
 -   LoophashLoopInserter
 
-    ```
+    ```xml
     <LoophashLoopInserter name=(&string) loop_anchor=(&integer) loop_sizes=(&integer) modify_flanking_regions=(1/0) />
     ```
 
@@ -28,7 +33,7 @@ LoopInserters are responsible for building loops between residues loop\_anchor a
 
 -   FragmentLoopInserter: Attempt to find single fragments that have ends with low-rmsd to the flanking residues of the loop to build.
 
-    ```
+    ```xml
     <FragmentLoopInserter name=(&string) loop_anchor=(&int)/>
     ```
 
@@ -38,7 +43,7 @@ LoopClosers are responsible for closing the recently build loops. These are just
 
 -   CCDLoopCloser - Use CCD to close recently built loop
 
-    ```
+    ```xml
     <CCDLoopCloser name=(&string) />
     ```
 
@@ -49,7 +54,7 @@ LoopClosers are responsible for closing the recently build loops. These are just
 
 -   LoopCreationMover
 
-    ```
+    ```xml
     <LoopCreationMover name=(&string) loop_closer=(&LoopCloser name) loop_inserter=(&LoopInserter name) />
     ```
 
@@ -64,10 +69,10 @@ LoopClosers are responsible for closing the recently build loops. These are just
 
 With loop\_sizes=2,3,4,5, in loop inserter, loop\_sizes in ResourceOptions should be 8,9,10,11 (since LOOP CREATION MOVER uses 3 (default) residue forward and 3 residues backward additionally to calculate geometric compatibility).
 
-```
+```xml
 <JD2ResourceManagerJobInputter>
         <ResourceOptions>
-                <LoopHashLibraryOptions tag=lh_lib_options loop_sizes="8,9,10,11"/>
+                <LoopHashLibraryOptions tag="lh_lib_options" loop_sizes="8,9,10,11"/>
         </ResourceOptions>
 ...
 </JD2ResourceManagerJobInputter>

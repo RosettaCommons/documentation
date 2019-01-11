@@ -7,8 +7,8 @@ This mover is designed to work with the MultiplePoseMover.
 "MoverName" is a placeholder for the actual name of the mover to be used.
 Use this wrapper if the mover you want to use does cannot provided more than one output pose (yet).
 
-```
-<MultipleOutputWrapper name=(&string) max_output_poses=(&integer)>
+```xml
+<MultipleOutputWrapper name="(&string)" max_output_poses="(&integer)">
     <MoverName .../>
 </MultipleOutputWrapper>
 ```
@@ -16,8 +16,7 @@ Use this wrapper if the mover you want to use does cannot provided more than one
 or
 
 <MultipleOutputWrapper name=(&string) max_output_poses=(&integer)>
-    <ROSETTASCRIPTS>
-        ...
+<ROSETTASCRIPTS>        ...
     </ROSETTASCRIPTS>
 </MultipleOutputWrapper>
 

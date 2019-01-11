@@ -4,8 +4,8 @@
 
 Computes the sasa specifically in the interface. If it is \*\*higher\*\* than threshold, it passes. However, it also has the option for an upper\_threshold, where it fails if it is above the upper\_threshold.
 
-```
-<Sasa name=(sasa_filter &string) threshold=(800 &float) upper_threshold=(1000000000000000 &float) hydrophobic=(0&bool) polar=(0&bool) jump=(1 &integer) sym_dof_names("" &string)/>
+```xml
+<Sasa name="(sasa_filter &string)" threshold="(800 &float)" upper_threshold="(1000000000000000 &float)" hydrophobic="(0&bool)" polar="(0&bool)" jump="(1 &integer)" sym_dof_names("" &string)/>
 ```
 
 -   upper\_threshold: maximum size allowed

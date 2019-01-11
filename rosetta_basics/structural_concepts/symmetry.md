@@ -3,7 +3,7 @@
 Metadata
 ========
 
-This document was last edited 20160229. The original authors were Ingemar Andre and Frank DiMaio.
+This document was last edited 7/20/2017. The original authors were Ingemar Andre and Frank DiMaio.
 
 [[_TOC_]]
 
@@ -98,14 +98,14 @@ This section provides a list of protocols that have been ported to use symmetry.
 Implementation of symmetry
 ==========================
 
-The following section describes how symmetry is maintained while perturbing the degrees of freedom in the system and while scoring and minimizing a conformation.
+The following section describes how symmetry is maintained while perturbing the degrees of freedom in the system and while scoring and minimizing a conformation.  Symmetry is implemented as REAL residues with extra VIRTUAL residues to help.  This means that if you include symmetry, they will be output, included in distance measurements, etc. 
 
 Rigid body symmetry
 -------------------
 
 The rigid body relations between asymmetric units in a symmetrical assembly is determined by the symmetry operations of the symmetry group. For example, in a homodimer the subunits are related by a 2-fold rotation around a symmetry axis. Knowledge of the rotation axis and a center of rotation is enough to create the symmetrical system from a single subunit. In this description the two subunits are described in the same coordinate frame and the symmetry is encoded in symmetry operations that are applied to a single subunit to generate the other copies. This framework leads to difficulties in describing complex symmetries and performing energy based minimization. Instead in rosetta, each subunit has their own coordinate frame, with each subunit adopting the exact same coordinates in their respective coordinate frame. Instead of having the coordinates of the subunits related by symmetry operations, the coordinate frames of the subunits are related by symmetry. In the case of the homodimer there are two coordinate frames that are related by a twofold rotation and each subunit has the same coordinates in their respective coordinate system. Now, if we set up the coordinate frames symmetrically then any conformational change that is applied in one coordinate frame will maintanin the overall symmetry if the same operation is applied in the other coordinate frames. Thus if we apply a rigid body jump for the first subunit for the dimer and then applied the same jump to the second subunit, then the dimer is still symmetrical after this operation.
 
-Rosetta uses virtual residues (VTRs) to encode the subunit coordinate frames. VRT residues have an origin, X and Y coordinate. Each subunit is connected through a rigid body jump to such virtuals. For a dimer the simplest setup involves having two VRT residues, where the coordinates of one VRT residue is related by a twofold rotation to another. For more complex symmetries it is common to have additional layers of virtual residues that are sometimes connected by jumps to other virtual residues where each virtual residue encodes a coordinate frame. The setup is generally a tree structure of virtual residues and at the top of the is rooting residue that specifies the coordinate of the whole symmetrical assembly in the cartesian coordinate frame. This root coordinate system allows you to for exampe to fit the assembly into an electron density or a membrane.
+Rosetta uses virtual residues (VRTs) to encode the subunit coordinate frames. VRT residues have an origin, X and Y coordinate. Each subunit is connected through a rigid body jump to such virtuals. For a dimer the simplest setup involves having two VRT residues, where the coordinates of one VRT residue is related by a twofold rotation to another. For more complex symmetries it is common to have additional layers of virtual residues that are sometimes connected by jumps to other virtual residues where each virtual residue encodes a coordinate frame. The setup is generally a tree structure of virtual residues and at the top of the is rooting residue that specifies the coordinate of the whole symmetrical assembly in the cartesian coordinate frame. This root coordinate system allows you to for exampe to fit the assembly into an electron density or a membrane.
 
 Some of the VRT residues have special status: they are masters. The masters control their slave virtuals. If a jump from a master is applied, the same jump gets applied to its slaves. Only jumps from masters can be applied. This work is done by the set\_jump functions in the SymmetricConformation class which replicate jumps from masters to slaves.
 
@@ -136,9 +136,7 @@ All asymmetric units have the same environment in assembly. Also the rigid body 
 Symmetry definitions <a name="Symmetry-definition" />
 ====================
 
-* Information on generating symmetry definition files can be found [[here|https://www.rosettacommons.org/demos/latest/tutorials/Tutorial_15_Symmetry/Symmetry]]  
-
-* In addition to the detailed explanation below, there is also a hands-on tutorial that might help understanding symmetry definitions. It can be found in `demos/tutorials/Symmetry/Symmetry.md` - or click [[here|https://www.rosettacommons.org/demos/latest/tutorials/Tutorial_15_Symmetry/Symmetry]].
+* In addition to the detailed explanation below, there is also a hands-on tutorial that might help understanding symmetry definitions. It can be found in `demos/tutorials/Symmetry/Symmetry.md` - or click [[here|https://www.rosettacommons.org/demos/latest/tutorials/Symmetry/Symmetry]].
 
 Everything that rosetta needs to know about the symmetry of the system is encoded in the symmetry definition file. Its tells rosetta how to score a structure, how to maintain symmetry in rigid body perturbations, what degrees of freedom are allowed to move, how to initially setup the system and how to perturb the system. A correctly specified symmetry definition file will allow you to preserve the symmetry and absolute coordinate frame of your input protein assembly. You can also setup the symmetry for a denovo predictionwhen only the symmetry group is known. The symmetry definition files are typically generated by scripts and very little tinkering of these files are needed in the typical case. Generated these files by hand is very complicated for complex symmetries. Below is a description of he fields in symmetry denfinition files:
 

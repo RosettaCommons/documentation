@@ -6,16 +6,16 @@ Restricts the task to residues defined as interface by core/pack/task/operation/
 
 There are two ways of using this task, first way is to use jumps:
 
-```
-  <RestrictToInterfaceVector name=(& string) jump=(1 & int,int,int... ) CB_dist_cutoff=(10.0 & Real) nearby_atom_cutoff=(5.5 & Real) vector_angle_cutoff=(75.0 & Real) vector_dist_cutoff=(9.0 & Real)/>
+```xml
+  <RestrictToInterfaceVector name="(& string)" jump="(1 & int,int,int... )" CB_dist_cutoff="(10.0 & Real)" nearby_atom_cutoff="(5.5 & Real)" vector_angle_cutoff="(75.0 & Real)" vector_dist_cutoff="(9.0 & Real)"/>
 ```
 
 -   jump - takes a comma separated list of jumps to find the interface between, will find the interface across all jumps defined
 
 OR you can use chains instead
 
-```
-  <RestrictToInterfaceVector name=(& string) chain1_num=(1 & int) chain2_num=(2 & int) CB_dist_cutoff=(10.0 & Real) nearby_atom_cutoff=(5.5 & Real) vector_angle_cutoff=(75.0 & Real) vector_dist_cutoff=(9.0 & Real)/>
+```xml
+  <RestrictToInterfaceVector name="(& string)" chain1_num="(1 & int)" chain2_num="(2 & int)" CB_dist_cutoff="(10.0 & Real)" nearby_atom_cutoff="(5.5 & Real)" vector_angle_cutoff="(75.0 & Real)" vector_dist_cutoff="(9.0 & Real)"/>
 ```
 
 -   chain1\_num - chain number of the chain on one side of the interface. Optionally accepts a comma separated list of chain numbers.

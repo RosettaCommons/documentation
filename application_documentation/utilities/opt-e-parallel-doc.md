@@ -22,7 +22,7 @@ Andrew Leaver-Fay, Matthew J. O'Meara, Mike Tyka, Ron Jacak, Yifan Song, Elizabe
 Purpose
 =======
 
-The optE\_parallel application serves two purposes. a) To fit the reference energies to maximize sequence recovery and minimize the KL-Divergence of the amino-acid sequence profile by performing iterative rounds of (usually, complete-protein) redesign. b) To fit the weights themselves (as well as the reference energies) using a maximum-likelihood approach, where the weights are optimized to maximize the likelihood of various experimental observations (e.g. native sequences, native rotamers, ddGs of mutation). The first scenario produces high quality reference energies which, when fed into sequence-recovery benchmarks, yeild high sequence recovery rates. The second scenario is not worth very much and is not recommended for use. Its shortcomings are documented extensively in the Methods In Enzymology paper referenced above.
+The optE\_parallel application serves two purposes. a) To fit the reference energies to maximize sequence recovery and minimize the KL-Divergence of the amino-acid sequence profile by performing iterative rounds of (usually, complete-protein) redesign. b) To fit the weights themselves (as well as the reference energies) using a maximum-likelihood approach, where the weights are optimized to maximize the likelihood of various experimental observations (e.g. native sequences, native rotamers, ddGs of mutation). The first scenario produces high quality reference energies which, when fed into sequence-recovery benchmarks, yield high sequence recovery rates. The second scenario is not worth very much and is not recommended for use. Its shortcomings are documented extensively in the Methods In Enzymology paper referenced above.
 
 Algorithm
 =========
@@ -58,7 +58,7 @@ Surprisingly, it turns out that sampling strategies are closely connected with t
 Limitations of the maximum-likelihood weight and reference-energy optimization procedure
 ----------------------------------------------------------------------------------------
 
-Though the maximum-likelihood optimization procedure selects weight sets based solely on sequence recovery, and the reference-energy optimization procedure selects weights based on both sequence recovery and sequence profile recovery, the reference-energy optimization procedure yeilds (dramatically) higher sequence recovery rates.
+Though the maximum-likelihood optimization procedure selects weight sets based solely on sequence recovery, and the reference-energy optimization procedure selects weights based on both sequence recovery and sequence profile recovery, the reference-energy optimization procedure yields (dramatically) higher sequence recovery rates.
 
 Options
 =======

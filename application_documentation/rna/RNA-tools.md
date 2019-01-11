@@ -17,17 +17,22 @@ This documentation describes how to set up code in:
 
 Setup
 ======
-Include the following lines in your `.bashrc` (may be `.bash_profile` on some systems):
+*Note: these setup instructions are for bash. If you're using a different shell, you will need to modify the commands accordingly.*  
+
+**Step 1:** Add the following lines to your `.bashrc` (may be `.bash_profile` on some systems), replacing `YOUR_PATH_TO_ROSETTA` with your actual path to Rosetta (for example: `/home/src/rosetta/`):
 
 ```
-export ROSETTA='/home/yourhomedirectory/src/rosetta/'
-export PATH=$ROSETTA/tools/rna_tools/bin/:$PATH
-source $ROSETTA/tools/rna_tools/INSTALL
+export ROSETTA='YOUR_PATH_TO_ROSETTA'
+export RNA_TOOLS=$ROSETTA/tools/rna_tools/
+export PATH=$RNA_TOOLS/bin/:$PATH
+export PYTHONPATH=$PYTHONPATH:$RNA_TOOLS/bin/
 ```
 
-Instead of `/home/yourhomedirectory/`, use your actual path to Rosetta.
+**Step 2:** Type `source ~/.bashrc` (or if you edited `.bash_profile`, then instead type `source ~/.bash_profile`) to activate these paths & tools.  
 
-Then open a new terminal or type `source ~/.bashrc` to activate these paths & tools.
+**Step 3:** Type `python $RNA_TOOLS/sym_link.py`.  
+
+**Step 4:** Verify the setup by typing `rna_helix.py -h`. This should print out usage instructions for `rna_helix.py`.   
 
 Some useful tools
 ==================
@@ -88,18 +93,23 @@ To concatenate several outfiles, renaming model tags to be unique:
 RNA modeling utilities
 ----------------------
 
-To generate a near-ideal A-form RNA helix that has good Rosetta energy (requires that `rna_helix` Rosetta executable is compiled): 
+* **To generate a near-ideal A-form RNA helix** that has good Rosetta energy (requires that `rna_helix` Rosetta executable is compiled):
+```
+rna_helix.py -seq aacg cguu -o myhelix.pdb [ -resnum A:5-8 A:20-23 -extension static.linuxgccrelease ]
+```
+The `extension` is the extension of your `rna_helix` executable. To find this, type `ls $ROSETTA/main/source/bin/rna_helix*` (requires that the `ROSETTA` environmental variable is set, see [Setup](#setup)). This will print something like this to your screen:
+```
+/YOUR_PATH_TO_ROSETTA/main/source/bin/rna_helix.static.linuxgccrelease
+```
+The extension is everything that comes after `rna_helix.`, so here the extension would be `static.linuxgccrelease`. If the executable is simply named `/YOUR_PATH_TO_ROSETTA/main/source/bin/rna_helix`, then you do not need to provide the extension flag to `rna_helix.py`.
 
-`rna_helix.py -seq aacg cguu -o myhelix.pdb [ -resnum 5-8 20-23 ]`
-
-To strip out residues and HETATMs that are not recognizable as RNA from a PDB file:
-
+* **To strip out residues** and HETATMs that are not recognizable as RNA from a PDB file:
 `make_rna_rosetta_ready.py rawmodel.pdb`
 
-**Legacy** [_Following functionalities are directly available in `rna_denovo` application now_]: To prepare files for an RNA denovo (fragment assembly of RNA with full atom refinement, FARFAR) job:
-
-`rna_denovo_setup.py -fasta mysequence.fasta -secstruct_file mysecstruct.txt`
-
+* **Legacy** [_Following functionalities are directly available in `rna_denovo` application now_]: To prepare files for an RNA denovo (fragment assembly of RNA with full atom refinement, FARFAR) job:
+```
+rna_denovo_setup.py -fasta mysequence.fasta -secstruct_file mysecstruct.txt
+```
 See also: [[rna_denovo_setup|rna-denovo-setup]].
 
 

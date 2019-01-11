@@ -2,20 +2,20 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## SecondaryStructure
 
-```
-<SecondaryStructure name=(&string, required)
-    residue_selector=(&string, TrueSelector)
-    use_abego=(&int, optional)
-    blueprint=(&string)
-    ss=(&string)
-    abego=(&string)
-    use_dssp(&bool, false)
-    threshold=(&real, 1.0) />
+```xml
+<SecondaryStructure name="(&string, required)"
+    residue_selector="(&string, TrueSelector)"
+    use_abego="(&int, optional)"
+    blueprint="(&string)"
+    ss="(&string)"
+    abego="(&string)"
+    compute_pose_secstruct_by_dssp="(&bool, false)"
+    threshold="(&real, 1.0)" />
 ```
 
 Filter structures by comparing the secondary structure of the pose to a desired secondary structure. The filter reports a value of N_MATCHING / N_TOTAL, where N_MATCHING is the number of selected protein residues with secondary structure matching the desired secondary structure, and N_TOTAL is the total number of selected protein residues.
 
-If use_dssp is false (default), the current secondary structure of the pose must be properly set in the pose. This can be done using [[DsspMover]] as shown in the example below.  If use_dssp is false, DSSP will be automatically used on the input pose.
+If compute_pose_secstruct_by_dssp is false (default), the current secondary structure of the pose must be properly set in the pose. This can be done using [[DsspMover]] as shown in the example below.  If compute_pose_secstruct_by_dssp is false, DSSP will be automatically used on the input pose to determine the pose secondary structure.
 
 -   residue_selector: Residue selector which determines which residues in the pose should be checked.  Note that non-protein residues are always currently skipped. Default: all protein residues.
 -   ss: If specified, the provided secondary structure string, e.g. "HHHHHLLLHHHHH" will be used as the desired secondary structure. Must match the length of the input pose. Default: not specified.
@@ -35,24 +35,24 @@ If use_dssp is false (default), the current secondary structure of the pose must
 
 Example with a blueprint:
 
-```
-      <SecondaryStructure name=ss_filter1  use_abego=1 blueprint="input.blueprint" />
+```xml
+      <SecondaryStructure name="ss_filter1"  use_abego="1" blueprint="input.blueprint" />
 ```
 
 Examples with top7 derived structures
 
 (Input)
 
-```
+```xml
 <FILTERS>
-        <SecondaryStructure name=ss ss=LEEEEEEEELLLLEEEEEEEELLLLHHHHHHHHHHHHHHHLLLEEEEEEELLLHHHHHHHHHHHHHHHHHLLLLhhEEEEELLEEEEEEEL/>
+        <SecondaryStructure name="ss" ss="LEEEEEEEELLLLEEEEEEEELLLLHHHHHHHHHHHHHHHLLLEEEEEEELLLHHHHHHHHHHHHHHHHHLLLLhhEEEEELLEEEEEEEL"/>
 </FILTERS>
 <MOVERS>
-         <Dssp name=dssp/>
+         <Dssp name="dssp"/>
 </MOVERS>
 <PROTOCOLS>
-    <Add mover=dssp/>
-    <Add filter=ss/>
+    <Add mover="dssp"/>
+    <Add filter="ss"/>
 </PROTOCOLS>
 ```
 

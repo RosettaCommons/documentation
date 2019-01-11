@@ -336,7 +336,7 @@ Written in 2008.
 Last updates: Nov. 2011 and Aug. 2014 by Rhiju Das (rhiju [at] stanford.edu).
 Added applications rna\_minimize, rna\_helix, rna\_cluster. Updated torsional potential to be smooth.
 
-Under-the-hood refactoring is occurring in 2015-2016. [Link to plan](farna-refactor) (for developers only)
+Under-the-hood refactoring is occurring in 2015-2016. [[Link to plan|farna-refactor]] (for developers only)
 
 ##See Also
 

@@ -1,15 +1,15 @@
 # MakeBundle
-Page created by Vikram K. Mulligan (vmullig@uw.edu).  Last modified 16 June 2016.
+Page created by Vikram K. Mulligan (vmulligan@flatironinstitute.org).  Last modified 12 October 2018.
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## MakeBundle
 
-Generates a helical bundle using the Crick equations (which describe a helix of helices).  This mover is general enough to create arbitrary helices using arbitrary backbones.  Since strands are a special case of a helix (in which the turn per residue is about 180 degrees), the mover can also generate beta-barrels or other strand bundles.  The generated secondary structure elements are disconnected, so subsequent movers (e.g. <b>GeneralizedKIC</b>) must be invoked to connect them with loops.  Parameters are stored with the pose, and are written in REMARK lines on PDB output.
+Generates a helical bundle using the Crick equations (which describe a helix of helices) or modified Crick equations (describing a laterally-squashed helix of helices).  This mover is general enough to create arbitrary helices using arbitrary backbones.  Since strands are a special case of a helix (in which the turn per residue is about 180 degrees), the mover can also generate beta-barrels or other strand bundles.  The generated secondary structure elements are disconnected, so subsequent movers (e.g. <b>GeneralizedKIC</b>) must be invoked to connect them with loops.  Parameters are stored with the pose, and are written in REMARK lines on PDB output.
 
-Helix types are defined with crick_params files, located in the Rosetta database in database/protocol_data/crick_parameters (or provided by the user).  Support for Crick parameter files defining helices in which the repeating unit is more than one residue has recently been added.
+Helix types are defined with crick_params files, located in the Rosetta database in database/protocol_data/crick_parameters (or provided by the user).  Support for Crick parameter files defining helices in which the repeating unit is more than one residue has recently been added.  For more information on this file type, see [[this page|Crick-params-files]].
 
-```
-<MakeBundle name=(&string) use_degrees=(false &bool) reset=(true &bool) symmetry=(0 &int) symmetry_copies=(0 &int) set_dihedrals=(true &bool) set_bondlengths=(true &bool) set_bondangles=(true &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) delta_omega1=(0.0 &real) delta_t=(0.0 &real) z1_offset=(0.0 &real) z0_offset=(0.0 &real) invert=(false &bool) >
-     <Helix set_dihedrals=(true &bool) set_bondlengths=(false &bool) set_bondangles=(false &bool) residue_name=("ALA" &string) crick_params_file=("alpha_helix" &string)  helix_length=(0 &int) r0=(0.0 &real) omega0=(0.0 &real) delta_omega0=(0.0 &real) delta_omega1=(0.0 &real) delta_t=(0.0 &real) z1_offset=(0.0 &real) z0_offset=(0.0 &real) invert=(false &bool) repeating_unit_offset=(0 &int) />
+```xml
+<MakeBundle name="(&string)" use_degrees="(false &bool)" reset="(true &bool)" symmetry="(0 &int)" symmetry_copies="(0 &int)" set_dihedrals="(true &bool)" set_bondlengths="(true &bool)" set_bondangles="(true &bool)" residue_name="('ALA' &string)" crick_params_file="('alpha_helix' &string)"  helix_length="(0 &int)" r0="(0.0 &real)" omega0="(0.0 &real)" delta_omega0="(0.0 &real)" delta_omega1="(0.0 &real)" delta_t="(0.0 &real)" z1_offset="(0.0 &real)" z0_offset="(0.0 &real)" epsilon="(1.0 &real)" invert="(false &bool)" >
+     <Helix set_dihedrals="(true &bool)" set_bondlengths="(false &bool)" set_bondangles="(false &bool)" residue_name="('ALA' &string)" crick_params_file="('alpha_helix' &string)"  helix_length="(0 &int)" r0="(0.0 &real)" omega0="(0.0 &real)" delta_omega0="(0.0 &real)" delta_omega1="(0.0 &real)" delta_t="(0.0 &real)" z1_offset="(0.0 &real)" z0_offset="(0.0 &real)" epsilon="(1.0 &real)" invert="(false &bool)" repeating_unit_offset="(0 &int)" />
 ...
 </MakeBundle>
 ```
@@ -37,6 +37,7 @@ Options in the <b>MakeBundle</b> tag set defaults for the whole bundle.  Individ
 <b>delta_t</b>:  Shifts the registry of the helix.  (This value is the number of amino acid residues by which the helix should be shifted.)  Mainchain atoms are shifted along a path shaped like a helix of helices.<br/>
 <b>z1_offset</b>:  Shifts the helix along the minor helix axis.  (The distance is measured in Angstroms along the <i>major helix axis</i>).  Mainchain atoms are shifted along a path shaped like a helix.  Inverted helices are shifted in the opposite direction.<br/>
 <b>z0_offset</b>:  Shifts the helix along the major helix axis.  (The distance is measured in Angstroms).  Mainchain atoms are shifted along a path shaped like a straight line.  Inverted helices are shifted in the opposite direction.<br/>
+<b>epsilon</b>:  Squashes the bundle laterally, which is useful for generating beta-barrels.  A value of 1.0 (the default) yields a bundle with a circular cross-section, and simplifies the generating equations to the original Crick equations.  A value between 0.5 and 1.0 is recommended for a slightly squashed bundle or beta-barrel.  The cross section is not a true ellipse, but rather the shape that results from the expression r=(1-epsilon)/2\*(cos(2\*theta)+1)+epsilon, where r is the radius and theta is the angle to the x-axis.  Values outside of the range [0.5,1.0] are not recommended.<br/>
 <b>invert</b>:  This reverses the direction of a helix, which makes it easy to generate antiparallel bundles or sheets.<br/>
 <b>repeating_unit_offset</b>:  In the special case of helices in which the repeating unit is more than one residue (e.g. collagen), this allows the user to offset the repeating unit in the helix by a certain number of residues.  A value of 0 means that the first residue in the helix will be the first residue in the repeating unit; a value of 1 means that the first residue in the helix will be the <i>second</i> residue in the repeating unit, <i>etc.</i><br/>
 
@@ -48,12 +49,12 @@ In addition, the following options can only be set for the bundle as a whole:
 <b>symmetry_copies</b>:  Defines how many radially symmetric copies of the defined helices will be placed.  A value of 0 results in copies matching the symmetry (for example, given six-fold symmetry, one would get six copies of the defined helices about the z-axis.)  Nonzero values result in only a subset of the symmetric copies being placed, permitting the generation of partial bundles.<br/>
 
 Example:  This script generates an antiparallel beta-barrel with a bundle of alpha-helices on the inside.
-```
-<MakeBundle name=bundle1 set_bondlengths=true set_bondangles=true residue_name=ALA crick_params_file=beta_strand symmetry=16 r0=29 omega0=0.075 helix_length=20 >
+```xml
+<MakeBundle name="bundle1" set_bondlengths="true" set_bondangles="true" residue_name="ALA" crick_params_file="beta_strand" symmetry="16" r0="29" omega0="0.075" helix_length="20" >
         #The parameters set above ensure that by default, each "helix" will actually be a strand:
 	<Helix /> #A strand
-	<Helix delta_omega0=0.19634954 invert=1 delta_t=0.25 delta_omega1=1.5707963 /> #An offset, inverted strand.
-	<Helix r0=21 omega0=0.05 crick_params_file=alpha_helix helix_length=40 /> #An alpha-helix.
+	<Helix delta_omega0="0.19634954" invert="1" delta_t="0.25" delta_omega1="1.5707963" /> #An offset, inverted strand.
+	<Helix r0="21" omega0="0.05" crick_params_file="alpha_helix" helix_length="40" /> #An alpha-helix.
 	#The three elements defined above are repeated 16 times about the bundle axis to make the bundle.
 </MakeBundle>
 
@@ -64,6 +65,7 @@ Note that RosettaScripts requires some sort of input on which to operate, but th
 
 ##See Also
 
+* [[The Crick params file format|Crick-params-files]]
 * [[BundleGridSampler mover|BundleGridSamplerMover]]
 * [[PerturbBundle mover|PerturbBundleMover]]
 * [[BundleReporter filter|BundleReporterFilter]]

@@ -13,7 +13,6 @@ Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
 Graft CDR loops from one structure to another, optionally optimize CDRs and neighbor CDRs of the grafted one.  
 Results in 100 percent loop closure if using both graft graft movers (where peptide bond geometries of both ends are checked relative to ideal values).
 
-<!--- BEGIN_INTERNAL -->
 ###Algorithm
 
 Closes loops using the [[CCDEndsGraftMover]] and optionally the [[AnchoredGraftMover]]. Optionally optimizes using dihedral constrained relaxed on the CDR loops (general - not cluster-based for now). ( [[CDRDihedralConstraintMover]] , [[FastRelaxMover]] ). 
@@ -47,13 +46,13 @@ H4 - H1 H2
 
 
 
-     <AntibodyCDRGrafter name=grafter cdrs=(&string,&string) numbering_scheme=(&string) cdr_definition=(&string) donor_structure_from_pdb=(&string) use_secondary_graft_mover(&bool) optimize_cdrs(&bool) optimize_cdr4_if_neighbor(&bool) scorefxn=s/>
+     <AntibodyCDRGrafter name="grafter" cdrs="(&string,&string)" numbering_scheme="(&string)" cdr_definition="(&string)" donor_structure_from_pdb="(&string)" use_secondary_graft_mover(&bool) optimize_cdrs(&bool) optimize_cdr4_if_neighbor(&bool) scorefxn="s"/>
 
 
 ###Common Options 
 
 -   __cdrs__ (&string,&string) (default=all (6) cdrs):  Select the set of CDRs you wish to restrict to (ex: H1 or h1) including only one.  Can graft DE loop by passing L4 or H4 as the loop.
--   __numbering_scheme__ (&string):  Set the antibody numbering scheme.  Must also set the cdr_definition XML option. Both options can alternatively be set through the command line (recommended).  See [[General Antibody Tips | General-Antibody-Options-and-Tips]] for more info.
+-   __input_ab_scheme__ (&string):  Set the antibody numbering scheme.  Must also set the cdr_definition XML option. Both options can alternatively be set through the command line (recommended).  See [[General Antibody Tips | General-Antibody-Options-and-Tips]] for more info.
 -   __cdr_definition__ (&string): Set the cdr definition you want to use.  Must also set the numbering_scheme XML option.  See [[General Antibody Tips | General-Antibody-Options-and-Tips]]
 -   _stop_after_closure_ (&bool) (default=1): Set a boolean for whether to stop after closure or not.  
 
@@ -74,7 +73,6 @@ H4 - H1 H2
 -   _cter_overhang_ (&size) (default=3): Number of extra residues on the Nter side of the CDR to use for superposition for insertion.  Will delete these residues before insertion. 
 -   __scorefxn__ (&string) (default=Rosetta default): All Atom scorefunction to use for final repack
 
-<!--- END_INTERNAL -->
 
 ##See Also
 

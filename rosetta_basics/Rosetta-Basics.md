@@ -38,9 +38,11 @@
 - [[Scoring|scoring-explained]]
 - [[Scorefunctions and Score types | Score Types]] - Description of the default Rosetta Scorefunction and common score types.
     *  [[Lazaridis-Karplus solvation energy | Lazaridis-Karplus-Solvation-Energy-fa-solv]]
+    *  [[Scoring non-canonical molecular entities|NC-scorefunction-info]]
     *  [[MM Std Scorefunction | NC-scorefunction-info#MM-Standard-Scorefunction]]
     *  [[Orbitals Scorefunction | NC-scorefunction-info#Partial-Covalent-Interactions-Energy-Function-(Orbitals)]]
     *  [[Additional score types | score-types-additional]]
+    *  [[Design-centric guidance terms|design-guidance-terms]]
     *  [[Hydrogen bonding score term|hbonds]]
     *  [[Centroid score terms]]
 - [[Symmetry]]
@@ -50,6 +52,7 @@
 
 - Advanced Topics
     * [Rosetta3 Architecture](http://www.ncbi.nlm.nih.gov/pubmed/21187238)
+    * [[Rosetta AtomTypes]]
     * [[Foldtree Overview]]
     * [[AtomTree Overview]]
     * [[Loop modeling styles and algorithms|loopmodel-algorithms]]
@@ -64,6 +67,7 @@
 - [[Loops file]] - Which regions of the protein should be rebuilt
 - [[Residue Params file]] - Residue chemical information
 - [[Symmetry file|Symmetry#Symmetry-definitions]] - Dealing with symmetric proteins.
+- [[FoldTree file]] - define structure connectivity, both covalent and non-covalent
 
 ####Protocol-specific file formats
 - [[Matcher (Enzdes) Constraint Files|match-cstfile-format]] - A constraint file specialized for protein-ligand interactions
@@ -80,7 +84,8 @@
     * [[General Control | Ignore Unrecognized]]
     * [[Preparing PDB files for non-peptide polymers]]
     * [[How to turn on residue types that are off by default]]
-    * [[Scorefunction and Scoreterm Info | NC-scorefunction-info]]
+    * [[Non-canonical Scorefunction and Scoreterm Info | NC-scorefunction-info]]
+    * [[Controlling the design process with additional guidance terms|design-guidance-terms]]
 - [[DNA]]
 - [[RNA]]
 - [[Ligands|preparing-ligands]]

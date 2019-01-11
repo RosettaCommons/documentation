@@ -8,17 +8,17 @@ The TryDisulfPermutations mover will exhaustively try every combination of disul
 Note that unlike the [[Disulfidize|DisulfidizeMover]] mover, the TryDisulfPermutations mover does not place any new disulfide-forming residues.  Instead, it only considers permutations of existing disulfide-forming residues.  It works with all disulfide-forming types, and preserves the chirality of D- or L-residues.
 
 ## Typical usage:
-```
+```xml
 <MOVERS>
-     <TryDisulfPermutations name="trydisulf" consider_already_bonded=false />
+     <TryDisulfPermutations name="trydisulf" consider_already_bonded="false" />
 </MOVERS>
 ```
 The above will consider all disulfide permutations in a pose, disregarding disulfide-forming residues already involved in disulfide bonds.
 
 ## Full options:
 
-```
-<TryDisulfPermutations name=(&string) consider_already_bonded=(true &bool) min_type=(dfpmin &string) min_tolerance=(0.00001 &Real) selector=(&string)>
+```xml
+<TryDisulfPermutations name="(&string)" consider_already_bonded="(true &bool)" min_type="(dfpmin &string)" min_tolerance="(0.00001 &Real)" selector="(&string)">
 ```
 - consider_already_bonded: If true, all disulfide-forming residues are considered.  If false, those already involved in disulfide bonds are omitted.
 - min_type: The flavour of minimization used.  See [[Minimization overview]] for details.

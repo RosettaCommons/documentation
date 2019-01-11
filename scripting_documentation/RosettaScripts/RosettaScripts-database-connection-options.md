@@ -2,7 +2,7 @@
 
 Tags that require access to a [[relational database|Database-IO]] all take options to setup the connection. As an example, consider the [[ReportToDB|Movers-RosettaScripts#ReportToDB]] mover, e.g.
 
-       <ReportToDB database_mode=postgres database_name=interface_design pq_schema=stage4/>
+       <ReportToDB database_mode="postgres" database_name="interface_design" pq_schema="stage4"/>
 
 where rosetta has been compiled with postgres support. The *host* , *port* , *username* , and *password* options are specified in a file `   ~/.pgpass  ` for security reasons.
 

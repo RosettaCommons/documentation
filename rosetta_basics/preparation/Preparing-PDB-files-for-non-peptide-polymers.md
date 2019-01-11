@@ -74,13 +74,11 @@ HETNAM GLC A 1 ->4)-beta-D-Glcp
 ``` 
 …which means that the `GLC` residue _at position A1_ requires the `->4)-beta-D-Glcp` `ResidueType`.
 
- **Note:** Currently, `HETNAM` records only work with saccharide residues, but this will be changed soon to include any type of residue.
-
 ### Specific Cases
 #### Carbohydrates
 To load a PDB file with saccharide residues, use the `-include_sugars`.
 
-Currently, loading of saccharide residues requires the use of `HETNAM` records, as described above, but shortly, one will be able to load (some) PDB files directly from the PDB or those generated from GLYCAM software, (which have their own unique 3-letter-codes,) using the `-alternate_3_letter_codes pdb_sugar` or `-alternate_3_letter_codes glycam` flags, as appropriate.
+Loading of saccharide residues works best using `HETNAM` records, as described above; however, one can also load (many) PDB files directly from the PDB or those generated from GLYCAM software, (which have their own unique 3-letter-codes,) using the `-alternate_3_letter_codes pdb_sugar` or `-alternate_3_letter_codes glycam` flags, as appropriate.
 
 The `glycam.codes` file makes use of the third column of the list of alternative codes to specify the base `ResidueType` directly. This is an alternative to the use of `HETNAM` records and works because a GLYCAM 3-letter code for a saccharide, unlike a PDB 3-letter code for one, is specific for a particular residue type. For example, using the 3-letter code `4GA` in a PDB file along with `-alternate_3_letter_codes glycam`, which includes the following line:
 ```
@@ -92,7 +90,7 @@ HETNAM Glc A 1 ->4)-alpha-D-Glcp
 ```
 within a PDB file.
 
- **Note:** Rosetta carbohydrate functionality is actively in development and has not been published; please contact <JWLabonte@jhu.edu> for assistance/questions.
+ **Note:** Rosetta carbohydrate functionality is actively in development; please contact <JWLabonte@jhu.edu> for assistance/questions.
 
 #### Mineral Surfaces
 To load a PDB file with mineral surface residues, use the `-include_surfaces` flag. This will include all `ResidueTypes` defined in `database/chemical/residue_type_sets/fa_standard/residue_types/mineral_surface/`.
@@ -100,7 +98,7 @@ To load a PDB file with mineral surface residues, use the `-include_surfaces` fl
 #### Lipids
 To load a PDB file with lipid residues, use the `-include_lipids` flag.
 
- **Note:** Rosetta lipid functionality is actively in development and has not been published; please contact <JWLabonte@jhu.edu> or <rfalford12@gmail.com> for assistance/questions.
+ **Note:** Rosetta lipid functionality is actively in development and has not been published; please contact <JWLabonte@jhu.edu> for assistance/questions.
 
 ## Connectivity
 Branching connectivity is defined in PDB files by `LINK` records. Rosetta will now interpret these `LINK` records appropriately to build a branching `FoldTree` by default.  Currently, one must add ```-write_pdb_link_records``` for them to be written out to any output PDB.

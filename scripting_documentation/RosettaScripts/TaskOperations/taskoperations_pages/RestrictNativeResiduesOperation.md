@@ -4,11 +4,11 @@
 
 Restrict or prevent repacking of native residues. Accepts a native pose (reference pose) from the command line (via in:file:native) or via the pdbname tag. Loops over all residues and compares the current amino acid at each position to the amino acid in the same position in the reference pose. If the identity is the same, then the residue is either prevented from repacking (if prevent\_repacking option is set to true) or restricted to repacking. Invert behavior to non-native residues by using flag 'invert'.
 
-     <RestrictNativeResidues name=(&string) prevent_repacking=(0 &bool) verbose=(0 &bool) pdbname=("" &string) invert=(0 &bool) />
+     <RestrictNativeResidues name="(&string)" prevent_repacking="(0 &bool)" verbose="(0 &bool)" pdbname="('' &string)" invert="(0 &bool)" />
 
 Example: Only allow design at non-native positions (prevent repacking of all native residues).
 
-     <RestrictNativeResidues name=non_native prevent_repacking=1 verbose=1 pdbname="input/native.pdb" />
+     <RestrictNativeResidues name="non_native" prevent_repacking="1" verbose="1" pdbname="input/native.pdb" />
 
 Option list
 

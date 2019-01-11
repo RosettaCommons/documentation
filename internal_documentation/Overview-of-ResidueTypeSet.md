@@ -12,7 +12,7 @@ The class is being updated in 2015-2016, as described below.
 + In new code, avoid use of functions like `aa_map_DO_NOT_USE`. By asking for everything with an AA (or name3) of the query type, these functions (now tagged with *DO_NOT_USE*)  require instantiation of an exponentially large number of residue_types. We are trying to remove all of these in the code, at which point we can delete these functions.
 + Instead, if you need a residue type, you can almost certainly get it with a function like `get_representative_type_with_variant_aa` and `get_all_types_with_variants_aa`, where you supply the AA (e.g., aa_ala) and a list of variants that you want.
 + If you know the exact name of your `ResidueType` (e.g., "ALA:NtermProteinFull"), just use `name_map`.
-+ Adding new `ResidueType`s generated at runtime (as opposed to during readin of the residue_types.txt in the database) can get tricky. Talk to, uh, Rocco about that. 
++ Adding new `ResidueType`s generated at runtime (as opposed to during readin of the residue_types.txt in the database) can get tricky. The GlobalResidueTypeSets obtained from the ChemicalManager can't (and shouldn't) be modified. Instead, store the ResidueType in the Conformation of the Pose that's going to use it. You can use modifiable_residue_type_set_for_conf() and reset_residue_type_set_for_conf() to obtain and then replace the Conformation's ResidueTypeSet with a modify version.
 
 ## Recent updates – the `ResidueTypeSet` project.
 ### Problem with original implementation

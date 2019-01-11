@@ -4,9 +4,9 @@
 
 Finds loops in the current pose and loads them into the DataMap for use by subsequent movers (eg - LoopRemodel)
 
-    <LoopFinder name="&string" interface=(1 &Size) ch1=(0 &bool) ch2=(1 &bool) min_length=(3 &Integer)
-     max_length=(1000 &Integer) iface_cutoff=(8.0 &Real) resnum/pdb_num=(&string) 
-    CA_CA_distance=(15.0 &Real) mingap=(1 &Size)/>
+    <LoopFinder name="&string" interface="(1 &Size)" ch1="(0 &bool)" ch2="(1 &bool)" min_length="(3 &Integer)"
+     max_length="(1000 &Integer)" iface_cutoff="(8.0 &Real)" resnum/pdb_num="(&string)" 
+    CA_CA_distance="(15.0 &Real)" mingap="(1 &Size)"/>
 
 -   interface: only keep loops at the interface? value = jump number to use (0 = keep all loops)
 -   ch1: keep loops on partner 1
@@ -17,7 +17,7 @@ Finds loops in the current pose and loads them into the DataMap for use by subse
 -   min\_length: minimum loop length (inclusive)
 -   max\_length: maximum loop length (inclusive)
 -   mingap: minimum gap size between loops (exclusive, so mingap=1 -\> single-residue gaps are disallowed). Setting this to 0 will almost certainly cause problems!
--   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
+-   pdb\_num/res\_num: see the main [[RosettaScripts Documentation|RosettaScripts#rosettascripts-conventions_specifying-residues]] for more.
 
 
 ##See Also

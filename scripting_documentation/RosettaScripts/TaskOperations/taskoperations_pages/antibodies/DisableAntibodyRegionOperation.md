@@ -5,7 +5,7 @@
 A TaskOperation that disables packing +/or design of a particular antibody region.
 By default, disables packing and design of the cdr_region.  Make sure to set the region you want disabled.
 
-     <DisableAntibodyRegionOperation region=(&string) disable_packing_and_design=(&bool) numbering_scheme=(&string) cdr_definition=(&string) />
+     <DisableAntibodyRegionOperation region="(&string)" disable_packing_and_design="(&bool)" numbering_scheme="(&string)" cdr_definition="(&string)" />
 
 ###Options 
 

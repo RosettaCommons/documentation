@@ -42,6 +42,8 @@ References
 
 We recommend the following articles for further studies of RosettaDock methodology and applications:
 
+- B. D. Weitnzer\*, J. R. Jeliazkov\*, S. Lyskov\*, N. Marze, D. Kuroda, R. Frick, J. Adolf-Bryfogle, N. Biswas, R. L. Dubrack Jr, & J. J. Gray, "Modeling and docking of antibody structures with Rosetta," Nature Protocols 12, 401–216 (2017)
+ 
 -   J. Xu, D. Kuroda & J. J. Gray, “RosettaAntibody3: Object-Oriented Designed Protocol and Improved Antibody Homology Modeling.” (2013) in preparation
 -   A. Sivasubramanian,\* A. Sircar,\* S. Chaudhury & J. J. Gray, "Toward high-resolution homology modeling of antibody Fv regions and application to antibody-antigen docking," Proteins 74(2), 497-514 (2009)
 

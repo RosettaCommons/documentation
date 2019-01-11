@@ -12,8 +12,8 @@ This mover will add a small, random translation and rotation to jump 1 in a pose
 
 ## Usage
 
-```
-<RigidBodyPerturbNoCenter name=(&string) rot_mag=(0.1 &Real) trans_mag=(0.4 &Real) />
+```xml
+<RigidBodyPerturbNoCenter name="(&string)" rot_mag="(0.1 &Real)" trans_mag="(0.4 &Real)" />
 ```
 
 ## Inputs

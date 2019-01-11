@@ -4,13 +4,16 @@ This page is geared towards new members of the Rosetta community as a "fast" way
 
 ![gollum](http://s2.quickmeme.com/img/86/86a343e34ab8ca051ce5a455eeba643a94b5f5dda96e558453d19f90cea15d99.jpg)
 
-#1. Introduction to protein structure and visualization
+# 1. Introduction to protein structure and visualization
 ## Visualization
-Most people in the community are using PyMol (download from http://www.pymol.org/). Tutorials on how to use it can be found at:
+Most people in the community are using PyMol (download from http://www.pymol.org/). Documentation on how to use it can be found at:
 * http://pymol.sourceforge.net/newman/userman.pdf 
-* http://www.bio.ph.ic.ac.uk/~scurry/pdfs/PyMOL_tutorial.pdf.
+* https://pymolwiki.org/index.php/Practical_Pymol_for_Beginners
 
 Some people are using Chimera (http://www.cgl.ucsf.edu/chimera/), which seems to have some additional functionality for density maps if you are working with X-ray electron density maps or Cryo-EM maps. Tutorials can be found at http://www.cgl.ucsf.edu/chimera/docs/UsersGuide/frametut.html.
+
+There is also the Discovery Studio Visualizer for Scientific Linux and Windows systems:
+* http://accelrys.com/products/collaborative-science/biovia-discovery-studio/visualization-download.php 
 
 ## Basic biochemistry
 To work in Rosetta, you need to know some basic biochemistry about amino acids and protein structure. You can learn this by picking up a biochemistry book (such as Voet & Voet: Biochemistry) or look at:
@@ -26,7 +29,7 @@ Download it at http://fold.it/portal/
 A similar tool to FoldIt is available for RNA. It was developed by Rhiju Das' lab at Stanford (http://www.stanford.edu/~rhiju/). You can play and learn about it here: http://eterna.cmu.edu/web/
 
 ## Introduction to Linux
-To know about how to navigate a terminal in Linux, you need to learn some basic commands. There are plenty of resources available on the web: 
+To know about how to navigate a terminal in Linux, you need to learn some basic commands. Learning some basic tricks with BASH coding often proves useful in expediting your workflow. There are plenty of resources available on the web: 
 * http://www.my-guides.net/en/guides/linux/basic-linux-commands
 * http://www.debianhelp.co.uk/commands.htm
 
@@ -46,13 +49,19 @@ Some really useful papers about Rosetta:
 
 # 3. Documentation
 ## Glossary: Rosetta and technical
-Here are some useful links that will help you understand terminology that is used in Rosetta. Some concepts are also explained in the PyRosetta tutorials. 
-* https://wiki.rosettacommons.org/index.php/Glossary
+Here are some useful links that will help you understand terminology that is used in Rosetta. 
 * [[Rosetta-overview]]
-* http://biocomp.chem.uw.edu.pl/wikilab/index.php/Rosetta_dictionary
+* [[Glossary]]
+
+Some concepts are also explained in the PyRosetta tutorials:
+* http://www.pyrosetta.org/tutorials
 
 ## Documentation
-There is a decent documentation available: https://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/index.html. For newer documentation, please visit https://www.rosettacommons.org/manual_guide and click on the newest release.
+There is considerable documentation available within this wiki. Additional documentation is available here:  https://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/index.html. 
+
+## Tutorials
+Excellent in-depth tutorials covering many aspects of Rosetta can be found here:
+https://www.rosettacommons.org/demos/latest/Home#tutorials
 
 ## FAQ/Forum
 The main RosettaCommons page is https://www.rosettacommons.org/. There is a Forum available on this page where you can post questions or look for answers for your specific problem (https://www.rosettacommons.org/forum).
@@ -172,7 +181,7 @@ There are plenty of useful links available that are connected with Rosetta, in a
 
 * Robetta server - online server for several applications: http://robetta.bakerlab.org/
 	
-* RosettaBackrub server - Kortemme lab, UCSF: https://kortemmelab.ucsf.edu/backrub/cgi-bin/rosettaweb.py?query=index
+* RosettaBackrub server - Kortemme lab, UCSF: https://kortemmeweb.ucsf.edu/backrub/
 	
 * RosettaDesign server - Kuhlman lab, University of Chapel Hill, NC: http://rosettadesign.med.unc.edu/
 	
@@ -183,10 +192,6 @@ There are plenty of useful links available that are connected with Rosetta, in a
 * source code on github - requires a github account: https://github.com/organizations/RosettaCommons
 	
 * bugtracker - to keep track of bugs in the code using Mantis Bugtracker (hosted at Vanderbilt): http://bugs.rosettacommons.org/
-	
-* buildbot - server that automatically compiles and runs all tests for each revision: http://buildbot.graylab.jhu.edu/console
-	
-* test-server: http://rosettatests.graylab.jhu.edu/revs
 
 
 # 7. More Rosetta for developers
@@ -200,7 +205,13 @@ Here is an example of creating a new mover for carbohydrates:
 ```
 
 ## Licensing
-To get Rosetta, you signed the developers agreement (http://rosettadesign.med.unc.edu/agreement/agreements.html) which also contained some information about licensing third party software. Please also check out the wiki page here (https://wiki.rosettacommons.org/index.php/Licensing). A good rule of thumb is NOT to use anything under GPL or LGPL license.
+To get Rosetta as a developer, you signed the developers agreement (http://rosettadesign.med.unc.edu/agreement/agreements.html) which also contained some information about licensing third party software. Please also check out the wiki page here (https://wiki.rosettacommons.org/index.php/Licensing). A good rule of thumb is NOT to use anything under GPL or LGPL license.
+
+For the general public:
+
+Rosetta can be licensed here:   https://els.comotion.uw.edu/express_license_technologies/rosetta
+
+PyRosetta can be licensed here: https://els.comotion.uw.edu/express_license_technologies/pyrosetta
 
 ## Bootcamp (put together by Andrew Leaver-Fay and other members of the Commons)
 The Rosetta Bootcamp was given in April 2013 for the first time as a one-week workshop for beginning Rosetta developers. It contained both lectures as well as labs where participants applied their just-learned knowledge under the supervision of several Rosetta developers.
@@ -397,7 +408,7 @@ The options system is very useful for switching on/off parameters in protocols a
 The resource manager is Rosetta's solution to this problem. By defining your resources initially in a resource definition file, Rosetta will load these resources once and provide you access to them whenever needed. 
 
 More info can be found about the Resource manager and how to integrate it into your code can be found here: 
-https://wiki.rosettacommons.org/index.php/Projects:ResourceManager
+https://www.rosettacommons.org/docs/wiki/development_documentation/tutorials/ResourceManager
 
 
 ## Tests: unit tests, integration tests, scientific tests
@@ -418,15 +429,16 @@ Note: All unit tests run **every time** modifications are made to the master cod
 
 ### Integration tests
 Integration tests check how your piece of code "integrates" into the rest of Rosetta. While running an integration test, the output of the code BEFORE the change is compared to the output of the code AFTER the change. Since Rosetta developers cannot understand all 3 million lines of code, integration tests only serve to test whether there is an expected change in output or not. They do NOT test whether the functions do what they are supposed to do (this is what unit tests are for) NOR do they tell you whether the output of a protocol is scientifically valid (this is what scientific tests are for).
-* https://wiki.rosettacommons.org/index.php/Integration_tests
+* https://www.rosettacommons.org/docs/wiki/development_documentation/test/integration-tests
+* https://www.rosettacommons.org/docs/wiki/development_documentation/test/Writing-MPI-Integration-Tests
 
 Note: All integration tests run **every time** modifications are made to the master code base
 
 ### Scientific tests
 Scientific tests (or benchmarks) are required to test whether the output of a protocol is scientifically sound. If you are refining a protocol, you want to make sure that the results you are getting aren't any worse than from the previous implementation of the protocol. Likewise, when you are implementing a new protocol, you want to see how good or bad your results are and how they compare to other methods.
-* https://wiki.rosettacommons.org/index.php/Scientific_Benchmarks
+* https://www.rosettacommons.org/docs/wiki/development_documentation/test/Scientific-Benchmarks
 
 Note: Scientific tests are run every two weeks
 
 ## Merging code to master
-Once you have branched Rosetta, developed your feature and **fully tested** it, you are ready to contribute it to master - the main Rosetta code base. To do so, you have probably already reviewed the Rosetta Git conventions [Rosetta GitHub Practices](https://wiki.rosettacommons.org/index.php/GithubWorkflow) (if not, do so now!). However, this page links to the **required** detailed process for committing code to Rosetta master: [Rosetta Wiki Page: Committing Code](https://wiki.rosettacommons.org/index.php/Committing_code)
+Once you have branched Rosetta, developed your feature and **fully tested** it, you are ready to contribute it to master - the main Rosetta code base. To do so, you have probably already reviewed the Rosetta Git conventions [Rosetta GitHub Practices]( https://www.rosettacommons.org/docs/wiki/internal_documentation/GithubWorkflow) (if not, do so now!). However, this page links to the **required** detailed process for committing code to Rosetta master: [Rosetta Wiki Page: Committing Code](https://wiki.rosettacommons.org/index.php/Committing_code)

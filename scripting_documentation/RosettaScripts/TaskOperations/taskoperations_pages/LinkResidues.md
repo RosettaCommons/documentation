@@ -6,8 +6,8 @@ Specify groups of residues that should be mutated together.  For example, if one
 ### Usage:
 
 ```xml
-<LinkResidues name=(&string)>
-      <LinkGroup group=(&string)/>
+<LinkResidues name="(&string)">
+      <LinkGroup group="(&string)"/>
       ...
 </LinkResidues>
 ```
@@ -33,10 +33,10 @@ This script designs a protein according to the a particular resfile, while ensur
     </LinkResidues>
   </TASKOPERATIONS>
   <MOVERS>
-      <PackRotamersMover name=packer task_operations=resfile,linkres/>
+      <PackRotamersMover name="packer" task_operations="resfile,linkres"/>
   </MOVERS>
   <PROTOCOLS>
-    <Add mover_name=packer/>
+    <Add mover_name="packer"/>
   </PROTOCOLS>
 </ROSETTASCRIPTS>
 ```

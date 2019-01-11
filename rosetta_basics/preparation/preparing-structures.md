@@ -60,7 +60,8 @@ python clean_pdb_keep_ligand.py your_structure_original.pdb -ignorechain
 ```
 
 These protocols are designed for a single-chain PDB. 
-For multiple chains we recommend that you split the PDB into one for each chain and run the protocol separately on each. 
+For multiple chains we recommend that you split the PDB into one for each chain and run the protocol separately on each. Alternatively, you can try using the `-ignorechain` option of the script, which will keep all chains.
+
 While the previous script (clean_pdb.py) discarded most to all HETATM records, this script keeps HETATMs which are not non-canonical ligands.
 
 # Relax With All-Heavy-Atom Constraints: Introduction

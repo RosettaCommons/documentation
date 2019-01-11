@@ -81,6 +81,7 @@ Set priority of output messages to be between 0 and 10
 `./a.out -out:level 10`
 
 disable output of channels names
+* setting the level to 999 will show all tracers, useful when debugging!
 
 `./a.out -chname off`
 

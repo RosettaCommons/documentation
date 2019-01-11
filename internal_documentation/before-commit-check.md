@@ -7,7 +7,7 @@ This is Guideline reflect our current policy for core/protocols/devel libraries 
 
 Source code
 
-**NOTE**: It is now recommended that all significant changes be submitted as [[pull requests]]. All of the recommendations below still apply.
+**NOTE**: It is now required that all changes be submitted as [[pull requests]], and approved by a second community member. All of the recommendations below still apply.
 
 -   It is expected that submitted code will be at least briefly documented. Use 'brief' doxygen comment tag for .hh files and 'details' tag for .cc file code documentation. Application documentation should be placed in this wiki (See the [[How to write documentation]] page for details).
 -   In general you should not use C++ standard 'float' type, - use core::Real instead.

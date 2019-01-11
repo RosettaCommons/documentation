@@ -17,7 +17,7 @@ References
 
 We recommend the following articles for further studies of RosettaDesign methodology and applications:
 
--   Computational Protein Design with Explicit Consideration of Surface Hydrophobic Patches. R. Jacak, A. Leaver-Fay, and B. Kuhlman. *Submitted* .
+-   [Computational Protein Design with Explicit Consideration of Surface Hydrophobic Patches. R. Jacak, A. Leaver-Fay, and B. Kuhlman.](https://www.ncbi.nlm.nih.gov/pubmed/22223219)
 -   [Design of a novel globular protein fold with atomic-level accuracy.](http://www.ncbi.nlm.nih.gov/pubmed/14631033) Kuhlman B, et al.Science. 2003 Nov 21;302(5649):1364-8.
 -   [An Adaptive Dynamic Programming Algorithm for The Side Chain Placement Problem.](http://www.ncbi.nlm.nih.gov/pubmed/15759610) A. Leaver-Fay, B. Kuhlman, and J.S. Snoeyink. In PSB 2005. 17-28.
 

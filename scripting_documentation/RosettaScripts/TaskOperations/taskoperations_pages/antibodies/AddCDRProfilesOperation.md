@@ -7,13 +7,13 @@ Jared Adolf-Bryfogle; jadolfbr@gmail.com;
 PI: Roland Dunbrack
 
 Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
+* [[Rosetta Antibody Design (RAbD) Manual | RosettaAntibodyDesign]]
 
 ### Brief
 Add Cluster-based CDR Profiles as the task operation for the set of CDRs by default.
 Uses the ResidueProbDesignOperation to sample the CDR Cluster profile based on the probability distribution for the CDR clusters.  Multiple rounds of packing are recommended to sample on the distributions.
 CDR definitions used are North/Dunbrack as the clusters are defined using it.  By default ALL CDRs are set for sampling.
 
-<!--- BEGIN_INTERNAL -->
 ### Profile Sampling Details 
 
 Each time a task is generated, it will choose one amino acid from the set for that position and add it to (or replace)  the set of packable residues chosen for that position. Decreases number of rotamers for packing and the space for design.  Instead of using energy for profiles, we use selection of residues through probabilities at each task generation.  If the picking_rounds option is set at > 1, is higher it can result in more than one additional residue in the task from the native and increase variability of potential designs.
@@ -36,8 +36,8 @@ FALLBACK STRATEGIES:
 *   _seq_design_profile_sets_combined_ (use profile sets and profile probability)
 
 
-```
-<AddCDRProfilesOperation cdrs=(&string,&string) numbering_scheme=(&string) include_native_restype=(&bool, true) picking_rounds=(&size, 1)/>
+```xml
+<AddCDRProfilesOperation cdrs="(&string,&string)" numbering_scheme="(&string)" include_native_restype="(&bool, true)" picking_rounds="(&size, 1)"/>
 ```
 
 
@@ -57,7 +57,6 @@ FALLBACK STRATEGIES:
 
 ### Uncommon Options
 -   use_outliers (&bool) (default=false): Use cluster outliers as defined using DihedralDistance and RMSD.
--   add_to_current (&bool) (default=false): Add to the current set of amino acids in the task or replace them?
 -   stats_cutoff (&size) (default=10): Will use the fallback strategy for this CDR if the total is less than or equal to this number.
 -   sample_zero_probs_at (&size) (default=0): Set the number of times a sequence each chosen.  Increase this number to increase variability of design.
 -   cons_design_data_source (&string) (default=blosum62):  Data source used for the ConservativeDesignOperation, which is a fallback strategy.  This guides the set of allowed mutations.  Higher blosum means higher conservation (numbers indicate sequence similarity cutoffs.  The set of mutations allowed are those from the substitution matrix at values >=0.  
@@ -66,7 +65,6 @@ FALLBACK STRATEGIES:
 ### Benchmarking Options
 -   force_north_paper_db (&bool) (default=false): Force the use of the original 2011 North/Dunbrack clustering paper data as the database instead of any up-to-date versions downloaded from PyIgClassify. 
 
-<!--- END_INTERNAL -->
 ##See Also
 
 * [[General Antibody Tips | General-Antibody-Options-and-Tips]]

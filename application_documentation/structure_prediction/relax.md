@@ -86,7 +86,7 @@ Options specific to relax
    -relax:coord_cst_width    <width>         If set, use flat-bottomed constraints instead of harmonic constraints, with a bottom width of <width>
    -relax:sc_cst_maxdist   <dist>            Add pairwise atom constraints to sidechain atoms up to dist apart from one another.
    -relax:ramp_constraints   false           When explicitly set to false, do not ramp down constraints (does not affect ramping in custom scripts)
-   -relax:dualspace true                     Use the Dualspace protocol for dihedral and cartesian minimization as described by Conway et al. Do 3 FastRelax cycles of internal coordinate relax followed by two cycles of Cartesian relax - cart_bonded energy term is required, pro_close energy term should be turned off, and use of -relax::minimize_bond_angles is recommended.  The -non_ideal flag can be used for this.
+   -relax:dualspace true                     Use the Dualspace protocol for dihedral and cartesian minimization as described by Conway et al. Do 3 FastRelax cycles of internal coordinate relax followed by two cycles of Cartesian relax - cart_bonded energy term is required, pro_close energy term should be turned off, and use of -relax::minimize_bond_angles is recommended.  The -nonideal flag can be used for this.
 
    Deprecated Modes (don't use):
    -relax:classic            Do an old old deprecated "classic" relax mode (slow and poor performance)

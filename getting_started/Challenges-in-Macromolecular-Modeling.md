@@ -22,8 +22,8 @@ When you do not have a native structure, you can't determine whether you're scor
 ## The Sampling Problem
 There are two reasons you may not be sampling the native sequence or structure: 
 ### Sampling the Wrong Degrees of Freedom
-Your [choice of protocol](I want to do x) is critical. If you want to fold a protein sequence _ab initio_, do not build an extended peptide, run the minimizer, and hope.
-(Similarly, do not build an extended peptide and run a Monte Carlo trajectory of [SmallMoves](SmallMover) for several decades.) 
+Your [[choice of protocol|I want to do x]] is critical. If you want to fold a protein sequence _ab initio_, do not build an extended peptide, run the minimizer, and hope.
+(Similarly, do not build an extended peptide and run a Monte Carlo trajectory of [[SmallMoves|SmallMover]] for several decades.) 
 
 There are subtle errors, too.
 For example, maybe your protein has a cis peptide bond (at a non proline position).

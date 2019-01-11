@@ -2,21 +2,28 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## PlaceStub
 
-Hotspot-based sidechain placement. This is the main workhorse of the hot-spot centric method for protein-binder design. A paper describing the method and a benchmark will be published soon. The "stub" (hot-spot residue) is chosen at random from the provided stub set. To minimize towards the stub (during placement), the user can define a series of movers (StubMinimize tag) that can be combined with a weight. The weight determines the strength of the backbone stub constraints that will influence the mover it is paired with. Finally, a series of user-defined design movers (DesignMovers tag) are made and the result is filtered according to final\_filter. There are two main ways to use PlaceStub:
+Hotspot-based sidechain placement. This is the main workhorse of the hot-spot centric method for protein-binder design. A paper describing the method and a benchmark will be published soon. The "stub" (hot-spot residue) is chosen at random from the provided stub set. To minimize towards the stub (during placement), the user can define a series of movers (StubMinimize tag) that can be combined with a weight. The weight determines the strength of the backbone stub constraints that will influence the mover it is paired with. Finally, a series of user-defined design movers (DesignMovers tag) are made and the result is filtered according to final\_filter.
+
+For complicated systems, there are a few limitations in PlaceStub that you should be aware of:
+* PlaceStub seems to assume that the "target" (immobile protein) is located in the first chain and the "scaffold" (protein being docked) is located in the second chain.  Having more than two chains can lead to unexpected results or errors.
+* PlaceStub does not seem to play well with certain ligand molecules.  Removing any non-protein residues from your pose may resolve certain errors.
+* There has been discussion (circa December 2016) to remove APPLY_TO_POSE from RosettaScripts.
+
+There are two main ways to use PlaceStub:
 
 1.  PlaceStub (default). Move the stub so that it's on top of the current scaffold position, then move forward to try to recover the original stub position.
 2.  PlaceScaffold. Move the scaffold so that it's on top of the stub. You'll keep the wonderful hotspot interactions, but suffer from lever effects on the scaffold side. PlaceScaffold can be used as a replacement for docking by deactivating the "triage\_positions" option.
 
-```
-<PlaceStub name=(&string) place_scaffold=(0 &bool) triage_positions=(1 &bool) chain_to_design=(2 &integer) score_threshold=(0.0 &Real) allowed_host_res=(&string) stubfile=(&string) minimize_rb=(0 &bool) after_placement_filter=(true_filter &string) final_filter=(true_filter &string) max_cb_dist=(4.0 &Real) hurry=(1 &bool) add_constraints=(1 &bool) stub_energy_threshold=(1.0 &Real) leave_coord_csts=(0 &bool) post_placement_sdev=(1.0 &Real)>
+```xml
+<PlaceStub name="(&string)" place_scaffold="(0 &bool)" triage_positions="(1 &bool)" chain_to_design="(2 &integer)" score_threshold="(0.0 &Real)" allowed_host_res="(&string)" stubfile="(&string)" minimize_rb="(0 &bool)" after_placement_filter="(true_filter &string)" final_filter="(true_filter &string)" max_cb_dist="(4.0 &Real)" hurry="(1 &bool)" add_constraints="(1 &bool)" stub_energy_threshold="(1.0 &Real)" leave_coord_csts="(0 &bool)" post_placement_sdev="(1.0 &Real)">
      <StubMinimize>
-        <Add mover_name=(&string) bb_cst_weight=(10, &Real)/>
+        <Add mover_name="(&string)" bb_cst_weight="(10, &Real)"/>
      </StubMinimize>
      <DesignMovers>
-        <Add mover_name=(&string) use_constraints=(1 &bool) coord_cst_std=(0.5 &Real)/>
+        <Add mover_name="(&string)" use_constraints="(1 &bool)" coord_cst_std="(0.5 &Real)"/>
      </DesignMovers>
      <NotifyMovers>
-        <Add mover_name=(&string)/>
+        <Add mover_name="(&string)"/>
      </NotifyMovers>
 </PlaceStub>
 ```
@@ -42,6 +49,10 @@ The available tracers are:
 -   protocols.ProteinInterfaceDesign.movers.PlaceStubMover - light-io documentation of the run
 -   STATS.PlaceStubMover - statistics on distances and score values during placement
 -   DEBUG.PlaceStubMover - more io intensive documentation
+
+From-source-generated documentation below:
+[[include:../../xsd/mover_PlaceStub_type]]
+
 
 **Submovers:** Submovers are used to determine what moves are used following stub placement. For example, once a stub has been selected, a StubMinimize mover can try to optimize the current pose towards that stub. A DesignMover can be used to design the pose around that stub. Using DesignMover submovers within PlaceStub (instead of RepackMinimize movers outside PlaceStub) allows one to have a "memory" of which stub has been used. In this way, a DesignMover can fail a filter without causing the trajectory to completely reset. Instead, the outer PlaceStub mover will select another stub, and the trajectory will continue.
  There are two types of sub movers that can be called within the mover.

@@ -1,10 +1,76 @@
 # LayerDesign
 *Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
-## LayerDesign
 
-**Note: The LayerDesign TaskOperation will likely be deprecated at some point in the future in favour of the [[LayerSelector|ResidueSelectors#residueselectors_conformation-dependent-residue-selectors_layerselector]] ResidueSelector**.  It is strongly recommended that users start to switch over to the LayerSelector ResidueSelector, which permits greater flexibility in selecting residues.
+Layer design is used to control which amino acids are available for design at each residue position depending on the local context, _e_._g_. solvent exposure and secondary structure. Each residue is assigned to one of three layers: core, boundary, or surface.  The two methods of determining solvent accessibility are: SASA (solvent accessible surface area of mainchain + CB) and side chain neighbors (number of amino acid side chains in a cone extending along the CA-CB vector).  When using SASA, the solvent exposure of the designed position depends on the conformation of neighboring side chains; this is useful when you are making one or two mutations and not changing many neighboring amino acids.  When using side chain neighbors, solvent exposure depends on which direction the amino acid side chain is pointed; this is useful for _de novo_ design or protocols where many amino acids will be designed simultaneously.
 
-Design residues with selected amino acids depending on the enviroment(accessible surface area). The layer of each residue is assigned to one of the three basic layers(core, boundary or surface) depending on the accessible surface area of mainchain + CB, or depending on the number of neighbours in a cone extending along the CA-CB vector (if the use_sidechain_neighbors option is used).
+In essence, layer design is a hack to prevent the packer from putting too many hydrophobic amino acids on the protein's surface and too many polar residues in the protein's interior.  Improvements to the energy function will  one day obviate the need for layer design.
+
+**Note: The LayerDesign TaskOperation will be deprecated in the future**.  Legacy LayerDesign breaks commutativity, and this leads to opaque and often troublesome behavior.  Instead, we recommend using the [[LayerSelector|ResidueSelectors#residueselectors_conformation-dependent-residue-selectors_layerselector]] ResidueSelector and [[DesignRestrictions|DesignRestrictionsOperation]] TaskOperation. Control over which regions of the pose are to be designed/packed should be performed using an [[OperateOnResidueSubset|OperateOnResidueSubsetOperation]] TaskOperation.
+* The documentation for legacy LayerDesign can still be accessed at the bottom of this page.
+
+##LayerDesign
+
+Here is an example implementation of LayerDesign using LayerSelector and DesignRestrictions. 
+
+```xml
+<RESIDUE_SELECTORS>
+
+	<!-- Layer Design -->
+	<Layer name="surface" select_core="false" select_boundary="false" select_surface="true" use_sidechain_neighbors="true"/>
+	<Layer name="boundary" select_core="false" select_boundary="true" select_surface="false" use_sidechain_neighbors="true"/>
+	<Layer name="core" select_core="true" select_boundary="false" select_surface="false" use_sidechain_neighbors="true"/>
+	<SecondaryStructure name="sheet" overlap="0" minH="3" minE="2" include_terminal_loops="false" use_dssp="true" ss="E"/>
+	<SecondaryStructure name="entire_loop" overlap="0" minH="3" minE="2" include_terminal_loops="true" use_dssp="true" ss="L"/>
+	<SecondaryStructure name="entire_helix" overlap="0" minH="3" minE="2" include_terminal_loops="false" use_dssp="true" ss="H"/>
+	<And name="helix_cap" selectors="entire_loop">
+		<PrimarySequenceNeighborhood lower="1" upper="0" selector="entire_helix"/>
+	</And>
+	<And name="helix_start" selectors="entire_helix">
+		<PrimarySequenceNeighborhood lower="0" upper="1" selector="helix_cap"/>
+	</And>
+	<And name="helix" selectors="entire_helix">
+		<Not selector="helix_start"/>
+	</And>
+	<And name="loop" selectors="entire_loop">
+		<Not selector="helix_cap"/>
+	</And>
+
+</RESIDUE_SELECTORS>
+
+<TASKOPERATIONS>
+
+	<DesignRestrictions name="layer_design">
+		<Action selector_logic="surface AND helix_start"	aas="EHKPQR"/>
+		<Action selector_logic="surface AND helix"		aas="EHKQR"/>
+		<Action selector_logic="surface AND sheet"		aas="DEHKNQRST"/>
+		<Action selector_logic="surface AND loop"		aas="DEGHKNPQRST"/>
+		<Action selector_logic="boundary AND helix_start"	aas="ADEHIKLMNPQRSTVWY"/>
+		<Action selector_logic="boundary AND helix"		aas="ADEHIKLMNQRSTVWY"/>
+		<Action selector_logic="boundary AND sheet"		aas="DEFHIKLMNQRSTVWY"/>
+		<Action selector_logic="boundary AND loop"		aas="ADEFGHIKLMNPQRSTVWY"/>
+		<Action selector_logic="core AND helix_start"		aas="AFILMPVWY"/>
+		<Action selector_logic="core AND helix"			aas="AFILMVWY"/>
+		<Action selector_logic="core AND sheet"			aas="FILMVWY"/>
+		<Action selector_logic="core AND loop"			aas="AFGILMPVWY"/>
+		<Action selector_logic="helix_cap"			aas="DNST"/>
+	</DesignRestrictions>
+
+</TASKOPERATIONS>
+
+```
+
+**differences from legacy LayerDesign in the example above**
+* If the first residue of a chain is in a helix, the helix_cap selection won't work, so proline won't be available at the helix_start residue position (it will be assigned to the helix selection instead)
+* minH="3" minE="2" are used in the secondary structure selections to make design more robust to weird loop conformations. Legacy LayerDesign behavior would be: minH="1" minE="1"
+* Methionine is allowed in the boundary and core
+* Glycine is allowed in loops in the core
+* Histidine is allowed in the boundary
+* Asp, Asn, Ser, and Thr are not included at surface residues of helices. These residues have a destabilizing effect on helices, and it seems unlikely that a structure would require one of these particular amino acids at a surface position (they're still allowed at boundary positions in helices)
+
+
+##Legacy LayerDesign
+
+While not recommended, users can still use the original LayerDesign task operation.
 
 Additional layers can be defined in the xml file by passing another taskoperation to get the residue selection. Only the residues that are marked as designable in the packer task are taken into consideration, any information about the available amino acids/rotamers selected by the taskoperation are not going to be considered. The amino acids to be used in each of this new layers has to be specified in the xml. Several taskoperations can be combined to the intersection between the different sets of designable residues.
 
@@ -12,10 +78,10 @@ LayerDesign, like all TaskOperations, obeys commutivity: the effect of applying 
 
 Note that this task is ligand compatible.  However, the user should set the ligand to be repackable but not designable with another TaskOperation.
 
-        <LayerDesign name=(&string layer) layer=(&string core_boundary_surface) pore_radius=(&real 2.0) core=(&real 20.0) surface=(&real 40.0) ignore_pikaa_natro=(&bool 0) repack_non_design=(&bool 1) make_rasmol_script=(&bool 0) make_pymol_script=(&bool 0) use_sidechain_neighbors=(&bool 0) use_symmetry=(&bool 1) sc_neighbor_dist_midpoint=(9.0 &Real) sc_neighbor_dist_exponent=(1.0 &Real) sc_neighbor_angle_shift_factor=(0.5 &Real) sc_neighbor_angle_exponent=(2.0 &Real) sc_neighbor_denominator=(1.0 &Real) >
-            <ATaskOperation name=task1 >
-                <all copy_layer=(&string layer) append=(&string) exclude=(&string)  specification=(&string "designable")  operation=(&string "design") />
-                <SecStructType aas=(&string) append(&string) exclude=(&string) />            
+        <LayerDesign name="(&string layer)" layer="(&string core_boundary_surface)" pore_radius="(&real 2.0)" core="(&real 20.0)" surface="(&real 40.0)" ignore_pikaa_natro="(&bool 0)" repack_non_design="(&bool 1)" make_rasmol_script="(&bool 0)" make_pymol_script="(&bool 0)" use_sidechain_neighbors="(&bool 0)" use_symmetry="(&bool 1)" sc_neighbor_dist_midpoint="(9.0 &Real)" sc_neighbor_dist_exponent="(1.0 &Real)" sc_neighbor_angle_shift_factor="(0.5 &Real)" sc_neighbor_angle_exponent="(2.0 &Real)" sc_neighbor_denominator="(1.0 &Real)" >
+            <ATaskOperation name="task1" >
+                <all copy_layer="(&string layer)" append="(&string)" exclude="(&string)"  specification="(&string 'designable')"  operation="(&string 'design')" />
+                <SecStructType aas="(&string)" append(&string) exclude="(&string)" />            
             </ATaskOperation >
         </LayerDesign>
 
@@ -45,8 +111,8 @@ _**Currently Deprecated, new syntax for residue assignment coming soon! **_
 After you combined tasks you need to assign residues, you can use the 'all' tag to assign residues for all the different secondary structure elements.
 
         <combined_task>
-            <all copy_layer=(&string) append=(&string) exclude=(&string)  specification=(&string "designable")  operation=(&string "design")/>
-        </combine_task>
+            <all copy_layer="(&string)" append="(&string)" exclude="(&string)"  specification="(&string 'designable')"  operation="(&string 'design')"/>
+        </combined_task>
 
 The options for the "all" tag are the following:
 
@@ -56,7 +122,7 @@ The options for the "all" tag are the following:
 -   exclude: opposite as append (delete residues from the list allowed for the layer).
 -   ncaa, ncaa_append, ncaa_exclude: these permit non-canonical residues to be specified, as a comma-separated list of three-letter codes.  Note that TaskOperations permitting noncanonical design follow <i>OR</i> commutativity rather than <i>AND</i> commutativity.  That is, if I have three TaskOperations and number 1 OR number 2 OR number 3 permits a particular non-canonical, the non-canonical will be permitted when all three are applied.  With canonical amino acids, the reverse is true: only if number 1 AND number 2 AND number 3 permit a particular residue will that residue be permitted.
 -   specification: What residues from the task operation should be considered as the layer. Options are "designable" (pick designable residues), "repacakble" (pick residues restricted to only repack) or "fixed" (residues marked by the task as not repackable). Default is "designable"
--   operation: What to do with the specified layer. Default is 'design', other options are 'no\_design' (allow repacking) and 'omit' (prevent repacking).
+-   operation: What to do with the specified layer. Default is 'design', other options are 'no\_design' (allow repacking) and 'omit'.  If 'omit' is chosen, layer design will ignore any residues in the layer (i.e. not restrict design).
 
 After an all operation other definitions can be performed, for example:
 
@@ -149,7 +215,7 @@ Cterm
 
 In its original implementation, LayerDesign could only work with symmetry if it were passed a symmetry-compatible TaskOperation (e.g. SelectBySASA, used in the example above).  More recently, the ```use_symmetry``` option has been added to permit LayerDesign to be symmetry-aware.  If ```use_symmetry``` is set to true (the default), layers are defined for symmetric poses using the full, symmetric pose.  If ```use_symmetry``` is set to false, then the old behaviour is preserved: the asymmetric unit is extracted and used in isolation to set up layers.  Here is a very simple example in which LayerDesign is used to force valine in the core, alanine in the boundary layer, and serine at the surface for a symmetric pose, explicitly considering neighbours that might be in other asymmetric units in the symmetric pose.
 
-```
+```xml
 <LayerDesign name=layerdes layer=core_boundary_surface use_sidechain_neighbors=true core=2 surface=1 use_symmetry=true >
     <core>
         <all aa="V" />
@@ -162,6 +228,9 @@ In its original implementation, LayerDesign could only work with symmetry if it 
     </surface>
 </LayerDesign>
 ```
+
+
+
 
 ##See Also
 

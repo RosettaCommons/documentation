@@ -186,7 +186,7 @@ Given a structure and electron density data to which it has a poor fit, generate
 ### [[mr_protocols | mr-protocols]]
 Uses fragments to perform a molecular replacement protocol into electron density data.
 
-### [[CstfileToTheozymePDB]]
+### [[CstfileToTheozymePDB|match-cstfile-format]]
 Given an enzyme constraint file, produces an inverse rotamer tree of the residues in question (which form a geometrically ideal "theoretical enzyme") and dump it as a multimodel PDB.
 As "stealth functionality," can take a PDB using -s that will be aligned to the theozyme created.
 
@@ -388,3 +388,11 @@ Given a starting PDB with a lysine and a PDB of ubiquitin (though truly applicab
 
 ### [[optE_parallel|opt-e-parallel-doc]]
 Optimize the weights of a provided energy functions to produce excellent sequence recovery and rotamer recovery.
+
+### [[validate_rosetta_script]]
+Test an XML script written for the rostta_scripts application against Rosetta's internally-generated XML Schema defintion without running the script.
+
+### [[parse_rosetta_script]]
+Test an XML script written for the rostta_scripts application against Rosetta's internally-generated XML Schema defintion and that
+the Movers/Filters/TaskOperations/etc. that are defined within it can be constructed and initialized without running the script. A strictly
+more rigorous test than the validate_rosetta_script application.

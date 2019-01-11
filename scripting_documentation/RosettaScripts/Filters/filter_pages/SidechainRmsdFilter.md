@@ -4,8 +4,8 @@
 
 Calculates the all atom RMSD for a single residue, either with or without the backbone atoms. The RMSD calculated is the automorphic RMSD, so it will compensate for symmetric rearrangments. (For example, Phe ring flips.) No superposition is performed prior to rmsd calculation.
 
-```
-<SidechainRmsd name=(&string) res1_(res/pdb)_num=(&string) res2_(res/pdb)_num=(&string) reference_name=(&string) include_backbone=(0 &bool) threshold=(1.0 &real) />
+```xml
+<SidechainRmsd name="(&string)" res1_(res/pdb)_num="(&string)" res2_(res/pdb)_num="(&string)" reference_name="(&string)" include_backbone="(0 &bool)" threshold="(1.0 &real)" />
 ```
 
 -   res1\_(pdb/res)\_num: The residue number for the active pose. see [[RosettaScripts#rosettascripts-conventions_specifying-residues]]

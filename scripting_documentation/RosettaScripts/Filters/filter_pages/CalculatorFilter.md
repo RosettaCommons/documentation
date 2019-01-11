@@ -2,8 +2,8 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## CalculatorFilter
 
-    <CalculatorFilter name=(&string) equation=(&string) threshold=(&real 0) >
-          <VAR name=(&string) filter=(&string) value=(&Real)/>
+    <CalculatorFilter name="(&string)" equation="(&string)" threshold="(&real 0)" >
+          <Var name="(&string)" filter="(&string)" value="(&Real)"/>
         ... 
     </CalculatorFilter>
 
@@ -21,10 +21,10 @@ In truth contexts the filter will evaluate to true if the resultant value is les
 
 Example:
 
-    <CalculatorFilter name=test threshold=0 equation="t1 = exp(-E1/kT); t2 = exp(-E2/kT); t1/( t1 + t2 )" >
-          <VAR name=E1 filter=bound />
-          <VAR name=E2 filter=altbind />
-          <VAR name=kT value=0.6 />
+    <CalculatorFilter name="test" threshold="0" equation="t1 = exp(-E1/kT); t2 = exp(-E2/kT); t1/( t1 + t2 )" >
+          <Var name="E1" filter="bound" />
+          <Var name="E2" filter="altbind" />
+          <Value name="kT" value="0.6" />
     </CalculatorFilter>
 
 CAVEAT: The parsing of the equation is a little touchy and black-box at the moment. Diagnostic error messages are poor at best. I'd recommend starting with a simple equation and working your way up (bad equations should be detected at parse-time.)

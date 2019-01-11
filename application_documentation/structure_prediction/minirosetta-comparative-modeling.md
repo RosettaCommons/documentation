@@ -1,5 +1,9 @@
 #Comparative modeling of protein structures
 
+This document describes comparative modeling using the minirosetta applocation.
+For a newer approach for performing comparative modeling in Rosetta, see [[RosettaCM]]
+
+
 Metadata
 ========
 

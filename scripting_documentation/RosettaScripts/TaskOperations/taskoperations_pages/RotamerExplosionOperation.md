@@ -6,7 +6,7 @@ Sample residue chi angles much more finely during packing. Currently hardcoded t
 
 *Note: This might actually need to be called as RotamerExplosionCreator in the xml*
 
-     <RotamerExplosionCreator name=(&string) resnum=(&Integer) chi=(&Integer) />
+     <RotamerExplosionCreator name="(&string)" resnum="(&Integer)" chi="(&Integer)" />
 
 ##See Also
 

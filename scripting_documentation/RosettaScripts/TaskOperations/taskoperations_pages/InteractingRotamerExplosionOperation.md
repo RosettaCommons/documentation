@@ -14,11 +14,11 @@ Under the hood, the RotamerSetOperation src/protocols/toolbox/rotamer_set_operat
 **Example:** the following snippet sets up a PackRotamersMover to oversample rotamers at ex_level 4 (for all chis) that have an interacting (2Body) score of better than -0.5 REU (in whatever score function used) with residue 5 on chain B in the pose. The DesignAroundOperation takes care of what residue types are built at what positions.
 
     <TASKOPERATIONS>
-        <DesignAround name=desaround design_shell=12.0 resnums="5B" repack_shell=15.0 allow_design=1 resnums_allow_design=0 />
-        <InteractingRotamerExplosion name=rotexpl ex_level=4 score_cutoff=0.5 target_seqpos="5B" debug=0 />
+        <DesignAround name="desaround" design_shell="12.0" resnums="5B" repack_shell="15.0" allow_design="1" resnums_allow_design="0" />
+        <InteractingRotamerExplosion name="rotexpl" ex_level="4" score_cutoff="0.5" target_seqpos="5B" debug="0" />
     </TASKOPERATIONS>
       <MOVERS>
-              <PackRotamersMover name=packrot scorefxn=talaris task_operations=desaround,rotexpl />
+              <PackRotamersMover name="packrot" scorefxn="talaris" task_operations="desaround,rotexpl" />
       </MOVERS>
 
 ##See Also

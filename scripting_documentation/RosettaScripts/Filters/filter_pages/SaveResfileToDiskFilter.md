@@ -4,8 +4,8 @@
 
 Saves a resfile to the output directory that specifies the amino acid present at each position defined by a set of input task operations. Outputs "PIKAA X", where X is the current amino acid in the pose at that position.
 
-```
-<SaveResfileToDisk name=(&string) task_operations=(comma-delimited list of task operations) designable_only=(0 &bool) resfile_prefix=(&string) resfile_suffix=(&string) resfile_name=(&string) resfile_general_property=(NATAA &string) selected_resis_property=(&string) renumber_pdb=(0 &bool) />
+```xml
+<SaveResfileToDisk name="(&string)" task_operations="(comma-delimited list of task operations)" designable_only="(0 &bool)" resfile_prefix="(&string)" resfile_suffix="(&string)" resfile_name="(&string)" resfile_general_property="(NATAA &string)" selected_resis_property="(&string)" renumber_pdb="(0 &bool)" />
 ```
 
 -   task\_operations - Used to define which residues are output to the resfile.

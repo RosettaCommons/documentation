@@ -30,11 +30,16 @@ Common PDB Input File Flags
                                  Useful in combination with PDB lists that do not have full paths. [FileVector]
 -in:file:native                 Native PDB filename. [File]
 -in:file:native_exclude_res     Residue numbers to be excluded from RMS calculation. [IntegerVector]
+-in:file:no_detect_pseudobonds  By default, Rosetta automatically detects pseudobonds on file import.
+                                 If this is set to true, this auto-detection is disabled.  False by
+                                 default. [Boolean]
 -in:file:fullatom               Enable full-atom input of PDB or centroid structures. 
                                  Usually not needed for already full-atom PDB structures [Boolean]
 -in:file:centroid_input         Enable centroid inputs of PDBs.  default = 'false' [Boolean]
 -in:auto_setup_metals           Enable automatic setup of covalent bonds to metal ions and appropriate
                                 constraints on PDB import.
+-in:read_only_ATOM_entries      Read only the ATOM entries from the PDB.  Skip all others.  
+                                Works for PDB and mmCIF, not silent files. 
 ```
 
 Small Molecule Options

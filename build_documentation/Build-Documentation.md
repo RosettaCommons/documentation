@@ -24,22 +24,28 @@ The current build system is based on the tool [[SCons|Scons-Overview-and-Specifi
 
 ###SCons (Mac/Linux)
 
-You have multiple options for compiling Rosetta 3 with SCons. You can build either only the core libraries or both the libraries and the executables. Rosetta 3 can be compiled in two modes:
+You have multiple options for compiling Rosetta 3 with SCons. You can build either only the core libraries or both the libraries and the executables. Rosetta 3 can be compiled in two major modes:
 
--   Debug mode — for development — no `      mode     ` option
+-   Debug mode — for development — no `      mode     ` option, or `mode=debug`
 -   Release mode — faster/tested and ready to go &mdashl `      mode=release     `
 
 1.  Change directory to `      main/source     ` .
 2.  Type one of the following commands:
--    complete   
 
--   `          ./scons.py -j<number_of_processors_to_use> bin         `
--   `          ./scons.py -j<number_of_processors_to_use> mode=release bin         `
+    -    Build all binaries
 
-libraries only   
+        -   `          ./scons.py -j<number_of_processors_to_use> bin         `
+        -   `          ./scons.py -j<number_of_processors_to_use> mode=release bin         `
 
--   `          ./scons.py -j<number_of_processors_to_use>         `
--   `          ./scons.py -j<number_of_processors_to_use> mode=release         `
+    -    Build a specific binary
+
+        -   `          ./scons.py -j<number_of_processors_to_use> bin/rosetta_scripts.linuxgccdebug         `
+        -   `          ./scons.py -j<number_of_processors_to_use> mode=release bin/rosetta_scripts.linuxgccrelease         `
+
+    - Build libraries only
+
+        -   `          ./scons.py -j<number_of_processors_to_use>         `
+        -   `          ./scons.py -j<number_of_processors_to_use> mode=release         `
 
 The `     -j8    ` flag would mean, "use at most 8 processes for building," and can be reasonably set as the number of free processors on your machine. Be aware that setting `     -j    ` to a very high value will cause the operating system to have difficulty scheduling jobs.
 
@@ -63,8 +69,23 @@ For more build options, such as only compiling only one executable or apbs - Ple
 
 If you get an error like `     /usr/bin/ld: cannot find -lz    `, SCons may be looking for 32 bit libraries on a 64 bit machine. Look up how to install the missing dependency; in this case `     sudo apt-get install lib32z1-dev    ` installs the required library.
 
+<!--- BEGIN_INTERNAL -->
+#### Pilot Apps
+You can compile only the pilot apps you want by copying (in the <code>src</code> directory,   <code>pilot_apps.src.settings.template</code> to <code>pilot_apps.src.settings.my</code> and then filling out the paths to your apps just like what is in the <code>pilot_apps.src.settings.all</code> file. You might need to create a <code>src/devel.src.settings.my</code> file (can copy from <code>devel.src.settings.template</code>).
+
+##### Scons
+You will need to pass a 'my' after 'bin' for the build machinery to use this file, for example:
+<code>python scons.py bin my mode=release -j7 cxx=clang</code>
+
+##### CMake
+From what I understand, Cmake should automatically detect your my file and use it. 
+
+<!--- END_INTERNAL -->
 
 ###Build Rosetta using the Rosetta Xcode Project (Mac)
+
+> If you update Xcode, make sure to re-install the commandline-tools:  
+> ```xcode-select --install```
 
 The Rosetta Xcode project is compatible with Xcode versions 2.4 and later. You can use it to build, run, debug, browse, and edit the source code. There are four build targets to select from:
 
@@ -103,7 +124,60 @@ Alternatives:
 * Install [[virtual machine|http://en.wikipedia.org/wiki/Virtual_machine]] software and run Linux within it. 
 * Dual Boot with [Linux](https://help.ubuntu.com/community/WindowsDualBoot). (usually the best option) 
 
+There have been some reports of success in using the precompiled Linux binaries with Windows 10's Linux subsystem. Such use should be viewed as "highly experimental".
+
 You _may_ be able to compile Rosetta by using cygwin for windows ( [http://www.cygwin.com/](http://www.cygwin.com/) ). Such usage is not tested by Rosetta developers though, and may not work.
+
+### CMake
+
+Rosetta can also be built with CMake. Currently it is less widely tested and does not support some features such as "extras" flags. However, CMake is faster than SCons, which can be advantageous for rapid compile-debug cycles.
+
+To build with CMake...
+
+1.  Change to the CMake build directory from the base Rosetta 3 directory and create the CMake build files:
+
+        cd cmake       
+        ./make_project.py all
+
+2.  Next, change to a build directory
+
+        cd build_<mode>   
+
+3.  and build Rosetta 3
+
+        cmake -G Ninja
+        ninja       
+
+    If you don't have ninja, you can get it via 
+
+        git clone git://github.com/martine/ninja.git
+
+    Or you can use `make` which is slightly slower for recompiling:
+
+        cmake .       
+        make -j`nproc` # replace `nproc` with number of cores to use
+
+
+The currently available modes are debug and release, in combination with various extras and compilers. Creating a new type of build can be done by copying an existing `CMakeLists.txt` file from a build directory and modifying compiler settings and flags appropriately. In particular, users wanting to build only the libraries or a subset of the applications should remove these lines in `CMakeLists.txt`:
+
+    INCLUDE( ../build/apps.all.cmake )
+    INCLUDE( ../build/pilot_apps.all.cmake )
+
+These can be replaced with an explicit list of applications, such as:
+
+    INCLUDE( ../build/apps/minirosetta.cmake)
+
+The `     make_project.py    ` and `     cmake    ` commands should be run whenever files are added or removed from the `     rosetta_source/src/*.src.settings    ` files. The `     -j8    ` flag for `     cmake    ` has the same interpretation as the `     -j8    ` flag for `     scons    ` . The command `     cmake .    ` generates a "makefile", which means that alternate programs such as [distcc](https://wiki.rosettacommons.org/index.php/Distcc "Distcc") can be used for building Rosetta 3. (The `     ninja_build.py     ` script in `     rosetta_source     ` automatex the combined cmake/ninja process and responds to build abbreviations like 'r' for 'release'.)
+
+Alternate C++ compilers (such as Clang++ or distcc) can be specified on the command-line by replacing this command,
+
+`      cmake .     `
+
+with this command,
+
+``       cmake . -DCMAKE_CXX_COMPILER=`which clang++`      ``
+
+If you want to build Rosetta with an IDE such as CLion, just import Rosetta and choose one of the build directories under source/cmake/build/<build_directory> (e.g. build_debug) as your root.
 
 ###Message Passing Interface (MPI)
 
@@ -115,9 +189,13 @@ To build MPI executables, add the flag "extras=mpi" and copy main/source/tools/b
 ./scons.py bin mode=release extras=mpi
 ```
 
+####Installing MPI
+You need to install MPI, of course.  What that looks like will vary from system to system.  For ubuntu, you will need probably ```sudo apt-get install openmpi openmpi-dev``` or similar.  The -dev package is necessary to install *before* trying to compile MPI Rosetta.
+
 ##Dependencies/Troubleshooting
+
 <a name="dependencies"/>
-Rosetta requires a compiler (most gcc or clang are fine) and the zlib compression library development package. Instructions for acquiring either are below, sorted by what sorts of error messages they give if you are missing them.
+Rosetta requires a compiler (most recent gcc or clang are fine, but see [[Cxx11Support]] for details) and the zlib compression library development package. Instructions for acquiring either are below, sorted by what sorts of error messages they give if you are missing them.
 
 **"sh: 1: o: not found"**
 
@@ -141,17 +219,29 @@ to something like:
 ```
 where you substitute the compiler commands as appropriate.
 
-
-
-
 --> **Install a compiler**:
 
 
 Many default installations of Mac and Linux do not come with a compiler installer, so you will need to install one separately. (Note that the following only applies if you have administrator rights to your machine. If you do not, talk to your sysadmin regarding the installation of a compiler.)
 
+Rosetta requires a compiler with C++11 support. Most recent compiler versions include C++11 support, but older compilers may not. See [[Cxx11Support]] for more details.
+
 For Macs, install the XCode development packages. Even though you won't be compiling Rosetta through XCode, installing it will also install a compiler. (Clang, for recent versions of MacOS.)
 
 For Linux, you will want to install the compiler package from your package management system. For Ubuntu and similar systems, the package "build-essential" installed with a command like `sudo apt-get install build-essential` will set your system up for compilation.
+
+**"error: unrecognized command line option "-std=c++11""**
+
+Rosetta requires a compiler with C++11 support. This message is due to insufficient support of C++11 in the compiler you're currently using. See [[Cxx11Support]] for more details about compilers to use, or see the "sh: 1: o: not found" regarding changing your compiler.
+
+**"error: '...' names constructor"/"
+
+GCC 4.7, while it supports many of the features of C++11, doesn't support all of them - this message is coming from a feature we use which is not supported by GCC 4.7. See [[Cxx11Support]] for more details about compilers to use, or see the "sh: 1: o: not found" regarding changing your compiler.
+
+**"no member named 'declval' in namespace 'std'"**
+**"error: unknown type name 'type_info'"**
+
+Rosetta requires a compiler and C++ standard library with C++11 support. These messages indicate that while your compiler might have C++11 support, the standard library it's using may not. See [[Cxx11Support]] for more details about compiler and standard libraries, or see the "sh: 1: o: not found" regarding changing your compiler.
 
 **"cannot find -lz"**
 
@@ -175,11 +265,18 @@ The MPI-mode build test simply tries to compile Rosetta with the ```-extras=mpi`
 
 #### PDB Chemical Components Dictionary 
 
-_NOTE: This file is not needed for Rosetta to run normally._
+To help automatically load unrecognized residues from files, the `-in:file:load_PDB_components` option triggers a lookup of an mmCIF-formatted version of the Chemical Components Dictionary. Starting in late 2017, a version of this file is being distributed with Rosetta, split into chunks that stay under the GitHub 50 Mb file size limit. 
 
-To use the `-in:file:load_PDB_components` option to automatically load unrecognized residues from files, you need to obtain a mmCIF-formatted version of the Chemical Components Dictionary. This file can be downloaded from the [wwwPDB](http://www.wwpdb.org/data/ccd). (Alternatively for RosettaCommons members, you can talk your lab's gatekeeper for the RosettaCommons git-lfs).
+If you are working with an earlier version of Rosetta without files in `database/chemical/components/*cif.gz`, or if you wish to get the latest weekly release from the PDB, the file can be downloaded from the [wwwPDB](http://www.wwpdb.org/data/ccd). (Alternatively for RosettaCommons members, you can talk your lab's gatekeeper for the RosettaCommons git-lfs).
 
-To use with Rosetta, download the (plain text, non-gzipped) file and place it in the Rosetta database directory (Rosetta/main/database/). Or alternatively, pass the absolute path to the file to the `-in:file:PDB_components_file` option. The "Protonation Variants Companion Dictionary" and "Chemical Component Model data file" are not required. 
+To use with Rosetta, download the components file and place it in the Rosetta database directory (Rosetta/main/database/):
+
+```
+ftp -o $ROSETTA_DATABASE/chemical/components.cif.gz ftp://ftp.wwpdb.org/pub/pdb/data/monomers/components.cif.gz
+```
+
+Pass the file `components.cif` or the absolute path to the file to the `-in:file:PDB_components_file` option. The "Protonation Variants Companion Dictionary" and "Chemical Component Model data file" are not required. 
+
 
 ## See Also
 

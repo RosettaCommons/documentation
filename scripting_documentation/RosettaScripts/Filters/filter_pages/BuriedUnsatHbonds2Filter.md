@@ -8,8 +8,8 @@
 
 Calculate the number of buried unsatisfied H-bonds across a given interface. (Specifically, the difference in the number of buried unsatisfied hydrogen bonds in the bound state versus the bound state. This uses a different algorithm than the BuriedUnsatHbonds filter above. Specifically (*** fill in details from Kevin's presentation ***)
 
-```
-<BuriedUnsatHbonds2 name=(&string) scorefxn=(&string) jump_number=(1 &Size) cutoff=(20 &Size) layered_sasa=(1 &bool) generous_hbonds=(1 &bool) sasa_burial_cutoff=(0.01 &Real) AHD_cutoff=(120.0 &Real) dist_cutoff=(3.0 &Real) hxl_dist_cutoff=(3.5 &Real) sulph_dist_cutoff=(3.3 &Real) metal_dist_cutoff=(2.7 &Real) task_operations=(&string) />
+```xml
+<BuriedUnsatHbonds2 name="(&string)" scorefxn="(&string)" jump_number="(1 &Size)" cutoff="(20 &Size)" layered_sasa="(1 &bool)" generous_hbonds="(1 &bool)" sasa_burial_cutoff="(0.01 &Real)" AHD_cutoff="(120.0 &Real)" dist_cutoff="(3.0 &Real)" hxl_dist_cutoff="(3.5 &Real)" sulph_dist_cutoff="(3.3 &Real)" metal_dist_cutoff="(2.7 &Real)" task_operations="(&string)" />
 ```
 
 * scorefxn - The scorefunction to use to evaluate hydrogen bonding energy.

@@ -28,18 +28,18 @@ exact same simulation by composing other movers.  This approach would be more
 verbose, but in some ways it would also be more flexible.
 
 ```xml
-<LoopModeler name=(&string) config=("" &string) loops_file=(&string) fast=(no &bool) 
-scorefxn_cen=(&string) scorefxn_fa=(&string) task_operations=(&string) auto_refine=(yes &bool)>
+<LoopModeler name="(&string)" config="('' &string)" loops_file="(&string)" fast="(no &bool)" 
+scorefxn_cen="(&string)" scorefxn_fa="(&string)" task_operations="(&string)" auto_refine="(yes &bool)" loophash_perturb_sequence="(false &bool)" loophash_seqposes_no_mutate="('' &string)">
 
-    <Loop start=(&int) stop=(&int) cut=(&int) skip_rate=(0.0 &real) rebuild=(no &bool)/>
+    <Loop start="(&int)" stop="(&int)" cut="(&int)" skip_rate="(0.0 &real)" rebuild="(no &bool)"/>
 
     <(Any LoopMover tags)/>...
 
-    <Build skip=(no &bool) (any LoopBuilder option or subtag)/>
+    <Build skip="(no &bool)" (any LoopBuilder option or subtag)/>
 
-    <Centroid skip=(no &bool) (any LoopProtocol option or subtag)/>
+    <Centroid skip="(no &bool)" (any LoopProtocol option or subtag)/>
 
-    <Fullatom skip=(no &bool) (any LoopProtocol option or subtag)/>
+    <Fullatom skip="(no &bool)" (any LoopProtocol option or subtag)/>
 
 </LoopModeler>
 ```
@@ -49,12 +49,18 @@ Options:
 * config: Set the base configuration to use.  The base configurations provide
   default values for every parameter of the simulation, but in practice they 
   mostly differ in how they configure the local backbone move used in the 
-  refinement steps.  Currently, this option must be either "kic" or 
-  "kic_with_frags".  "kic" is the default and carries out the algorithm as 
+  refinement steps.  Currently, this option must be either "kic", "kic_with_frags"
+  or "loophash_kic".  "kic" is the default and carries out the algorithm as 
   described above.  "kic_with_frags" is similar to "kic", but uses fragments 
-  instead of Ramachandran samples to make backbone moves.  If you use 
-  "kic_with_frags", you must also specify fragment files on the command line 
-  using the '-loops:frag_sizes' and '-loops:frag_files' options.
+  instead of Ramachandran samples to make backbone moves. "loophash_kic" uses loophash
+  to find an existing fragment that can approximately close the gap and use it
+  as a guess for the kinematic closure.  If you use "kic_with_frags", you must 
+  also specify fragment files on the command line using the `-loops:frag_sizes` 
+  and `-loops:frag_files` options. If you use "loophash_kic", you must also specify
+  the path to the loophash database with the command line option `-lh:db_path` and
+  the sizes of loophash fragments with the command line option `-lh:loopsizes`. You can
+  use multiple loophash fragment sizes, but the minimum size is 6 and the maximum
+  size is `2 + (length of the loop to be modeled)`.
 
 * loops_file: The path to a loops file specifying which regions of backbone to 
   model.  Note that this option will be silently ignored if one or more Loop 
@@ -84,6 +90,12 @@ Options:
   refinement moves, you have to disable auto_refine.  Also note that this 
   option can be specified either for the whole LoopModeler or individually in 
   the Centroid or Fullatom subtags.
+
+* loophash_perturb_sequence: If set to true, the sequence of the fragment from
+  loophash will replace the loop sequence.
+
+* loophash_seqposes_no_mutate: Sequence positions that should not be mutated by
+  LoopHashKIC. 
 
 Subtags:
 
@@ -130,6 +142,12 @@ Use a fragment library to sample loop conformations:
 
 ```xml
 <LoopModeler name="modeler" config="kic_with_frags"/>
+```
+
+Use loop hash to sample loop conformations as well as the loop sequence:
+
+```xml
+<LoopModeler name="modeler" config="loophash_kic" loophash_perturb_sequence="true" loophash_seqposes_no_mutate="17,32,69" />
 ```
 
 Run a quick test simulation with a vastly reduced number of iterations:

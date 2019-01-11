@@ -4,14 +4,14 @@
 
 Shear style backbone-torsion moves that minimize downstream propagation.
 
-```
+```xml
 <Shear name="&string"
-       residue_selector=("", &string)
-       scorefxn=("", &string)
-       temperature=(0.5 &Real)
-       nmoves=(1 &Integer)
-       angle_max=(6.0 &Real)
-       preserve_detailed_balance=(0 &bool)/>
+       residue_selector="('', &string)"
+       scorefxn="('', &string)"
+       temperature="(0.5 &Real)"
+       nmoves="(1 &Integer)"
+       angle_max="(6.0 &Real)"
+       preserve_detailed_balance="(0 &bool)"/>
 ```
 
 -   residue\_selector: An optional, previously-defined [[ResidueSelector|ResidueSelectors]], specifying the subset of residues to which the mover will be applied.  If not provided, the mover is applied to the whole pose.  (Alternatively, a MoveMap may be used -- see below).

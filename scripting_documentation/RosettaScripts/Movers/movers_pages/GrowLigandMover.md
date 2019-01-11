@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 # GrowLigand
 
-```
+```xml
 <GrowLigand name="&string" chain="&string"/>
 ```
 

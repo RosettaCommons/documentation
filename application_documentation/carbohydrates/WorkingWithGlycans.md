@@ -5,7 +5,7 @@ Working With Glycans
 MetaData
 ========
 
-The RosettaCarbohydrate Framework was created by Dr. Jason W Labonte (JWLabonte@jhu.edu), in collaboration with Dr. Jared Adolf-Bryfogle (jadolfbr@gmail.com) and Dr. Sebastian Raemisch (raemish@scripps.edu).  
+The RosettaCarbohydrate Framework was created by Dr. Jason W Labonte (JWLabonte@jhu.edu), in collaboration with Dr. Jared Adolf-Bryfogle (jadolfbr@gmail.com) and Dr. Sebastian Rämisch (raemisch@scripps.edu).  
 
 
 PIs are: Dr. Jeff Gray of JHU (jgray@jhu.edu) and Dr. William Schief of Scripps (schief@scripps.edu).
@@ -16,22 +16,54 @@ Currently, it is still in development. Here are tips for use.  More will come.
 [[_TOC_]]
 
 
-Structure Input
-===============
-All Rosetta runs with carbohydrate-containing structures should use the flag ```-include_sugars```.  An error will be thrown if this is not present.
+## Structure Input
 
-##  RSCB
+* All Rosetta runs with carbohydrate-containing structures should use an option to make Rosetta carbohydrate-aware. An error will be thrown if this is not present. This option is also needed if you plan on glycosylating structures. 
+
+        -include_sugars
+
+
+
+
+###  RSCB - .pdb files
 
 PDBs from the RCSB should be able to be read in by default.  However, in order to load a PDB file, one must have LINK records present. Rosetta will build the glycans out using internal names and create the glycans based on connectivity.   
 
-## GLYCAN
-In order to load GLYCAN structures, one can pass the option ```-glycam_pdb_format``` in order to load in this type of file.
+* Reading in most PDB files will require an option to map the non-specific HETNAM IDs to chemically accurate identifiers:  
 
-Structure Output
-================
-In order to write out structures correctly, currently one must pass the flag ```-write_pdb_link_records```.  Without this flag, structures will NOT be able to be read back into Rosetta.  The flag will become default.
+        -alternate_3_letter_codes pdb_sugar
 
-Internally, each linear glycan branch is a different chain ID due to the way Rosetta understands polymer connectivity. Currently, by default, Rosetta will output separate chains for each linear glycan.  This should change at some point in the not-to distant future.
+* When loading a file from the PDB, the order of HETATM and LINK records is important for reading it into Rosetta. Since pdb files are usually not formatted for Rosetta-compatibility, connections can be determined internally, ignoring the order of records. Instead atom distances are used to determine protein-sugar and sugar-sugar connections.  
+
+        -auto_detect_glycan_connections
+
+    * the maximum and minimum bond lengths for a conection to be found are at a default of 1.15 and 1.65 A. Since many structures are chemically incorrect, these parameters can be changed to detect unphysical bonds, too:
+
+             -min_bond_length < Real >
+             -max_bond_length < Real >
+    * if automatic detection fails, all bond calculations and connections can be monitored with ```-out::level 999``` 
+
+### GLYCAM
+In order to load GLYCAM structures, one can pass the option ```-glycam_pdb_format``` in order to load in this type of file.
+
+## Structure Output
+
+In order to write out structures correctly pdb link records must be output.  This option is now the default.
+
+    -write_pdb_link_records
+
+## Full example
+    score.default.macosclangrelease \\
+    -include_sugars \\
+    -alternate_3_letter_codes pdb_sugar \\
+    -auto_detect_glycan_connections \\
+    -min_bond_length 1.1 \\
+    -max_bond_length 1.7 \\
+
+    -ignore_zero_occupancy false \\
+    -ignore_unrecognized_res \\
+    -out:output \\
+    -s 5t3x.pdb
 
 Nomenclature
 ============
@@ -43,10 +75,19 @@ Further Carbohydrate Information
 Jason, fill this out!!!
 
 
+Sampling
+========
+ - [[SmallMover]] - Make small changes to all of the torsion angles in a random glycosidic bond.
+ - [[ShearMover]] - Make a shearing motion, by making opposite small changes to a pair of near-parallel glycosidic torsions.
+ - [[RingConformationMover]] - Make a change to a cyclic residue's ring conformation. (Note that this is not normally an energetically favorable thing to do!)
+ - [[LinkageConformerMover]] - Make a change to all of the glycosidic torsion angles by using angles from a statistically favorable conformation.
+ - [[RingPlaneFlipMover]] - Make a 180-degree shearing move to a residue with opposite, equatorial linkages, effectively flipping over the plane of its ring.
+
+
 Applications
 ============
-[[GlycanRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
-
+[[GlycanTreeRelax]] - Model glycan trees from the roots out to the foliage.  Works for full denovo modeling or refinement.
+[[GlycanRelax]] - Basic sampling for glycan residues. 
 [[GlycanInfo]] - Get information on all glycan trees within a pose
 
 [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
@@ -60,6 +101,31 @@ RosettaScript Components
 [[GlycanTreeSelector]] - Select individual glcyan trees or all of them
 
 [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
+
+[[LinkageConformerMover|mover_LinkageConformerMover_type]]
+
+Scanning Glycan Sequons
+=======================
+Although an app is planned, one can use the `CreateGlycanSequonMover` in order to design the needed residues around a potential glycosylation site.  This effectively creates the Asn-X-Ser/Thr sequence motif.  Options are available to design the X, design around, or alternatively use other sequence motifs.   Please use rosetta_scripts.xxxrelease -info CreateGlycanSequonMover for more information and options.  A base script is shown below that uses the `-parser:script_vars` option to scan a protein for optimal glycosylation sites at the residues given and then glycosylate and model the carbohydrate.  It is recommended to create at least 100-1000 models of the carbohydrate at each position.
+
+```
+<ROSETTASCRIPTS>
+	<RESIDUE_SELECTORS>
+		<Index name="select" resnums="%%glycan_position%%" />
+	</RESIDUE_SELECTORS>
+	<MOVERS>
+		<CreateGlycanSequonMover name="create_motif" residue_selector="select" basic_enhanced_n_sequon="false" design_x_positions="false" pack_neighbors="1"/>
+		<SimpleGlycosylateMover name="glycosylate" residue_selector="select" glycosylation="%%glycosylation%%" strip_existing="1" />
+		<GlycanRelaxMover name="basic_relax" />
+		<GlycanTreeRelax name="tree_relax" quench_mode="false" rounds="1" layer_size="2" window_size="1"/>
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover_name="create_motif" />
+		<Add mover_name="glycosylate" />
+		<Add mover_name="tree_relax" />
+	</PROTOCOLS>
+</ROSETTASCRIPTS>
+``` 
 
 Glycosylating Structures
 =======================
@@ -123,9 +189,9 @@ print p.residue(3)
 print p.chain_sequence()
 ```
 
-Building Glycans
+Building Pure Glycans
 ================
-Glycans can be built by themselves using PyRosetta.  There is currently no way to do this in RosettaScripts:
+Glycans can be built by themselves (IE NOT attached to a protein) using PyRosetta.  There is currently no way to do this in RosettaScripts:
 Glycans are creating using their IUPAC names. 
 
 To properly build an oligosaccharide, Rosetta must know the following details about each sugar residue being created in the following order:
@@ -159,21 +225,21 @@ print lactose.chain_sequence()
 
 
 
-##See Also
-* [[WorkingWithGlycans]]
+## See Also
 
-- ### Apps
+### Apps
 * [[GlycanRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
 * [[GlycanInfo]] - Get information on all glycan trees within a pose
 * [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
-- ### RosettaScript Components
+### RosettaScript Components
 * [[GlycanRelaxMover]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
 * [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees.  
 * [[GlycanTreeSelector]] - Select individual glcyan trees or all of them
 * [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
+* [[LinkageConformerMover|mover_LinkageConformerMover_type]]
 
-- ### Other
+### Other
 * [[Application Documentation]]: List of Rosetta applications
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
 * [[Comparing structures]]: Essay on comparing structures

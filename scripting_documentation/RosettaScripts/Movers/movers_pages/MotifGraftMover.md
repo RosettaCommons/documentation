@@ -25,7 +25,7 @@ When full backbone alignment is used, the size of the fragment to be replaced ha
 
 An example of a minimal XML code for this mover is the next:
 
-```
+```xml
         <MotifGraft name="motif_grafting" context_structure="./contextStructure.pdb" motif_structure="./motif_2NM1B.pdb"  RMSD_tolerance="1.0" NC_points_RMSD_tolerance="1.0" clash_score_cutoff="5" full_motif_bb_alignment="1" revert_graft_to_native_sequence="1" allow_repeat_same_graft_output="0" />
 ```
 
@@ -39,7 +39,7 @@ However the mover contains many options that can be useful under different scena
 -   clash\_score\_cutoff (&int): The maximum number of atomic clashes that are tolerated. The number of atom clashes are = (motif vs scaffold) + ( scaffold vs pose), after the translation and mutation (to the "clash\_test\_residue") of the scaffold. Recommended: "5".
 -   combinatory\_fragment\_size\_delta (&string): Is a string separated by a semicolon that defines the maximum number of amino acids in which the Motif size can be variated in the N- and C-terminal regions (e.g. "positive-int:positive-int"). If several fragments are present the values should be specified by the addition of a comma (eg. 0:0, 1:2, 0:3). All the possible combinations in deltas of 1 amino acid will be tested.
 -   max\_fragment\_replacement\_size\_delta (&string): Is a string separated by a semicolon that specifies a range with the minimum and maximum size difference of the fragment that can be replaced in the scaffold. For example: "-1:2", means that the fragment replaced in the scaffold can be in the range of motifSize-1 to motifSize+2, practically: if the motif size is 10a.a., in this example the motif can replace a fragment in the scaffold of 9,10 or 11 amino acids. (possible values: negative-int:positive-int). If several fragments are present the values should be specified by the addition of a comma (eg. -1:0, -1:2, 0:3). This option has effect only if the alignment mode is set to full\_motif\_bb\_alignment="0" .
--   hotspots (&string): Is a string separated by a semicolon that defines the index of the aminoacids that are considered hotspots. i.e. that this positions will not be mutated for clash check and will be labeled in the PDBinfo. The format is "index1:index2:...:indexN"). If several fragments are present the values should be specified by the addition of a comma (eg. 0:1:3,1:2,0:3:5).
+-   hotspots (&string): Is a string separated by a semicolon that defines the index of the aminoacids that are considered hotspots. i.e. that this positions will not be mutated for clash check and will be labeled in the PDBinfo. The format is "index1:index2:...:indexN"). If several fragments are present the values should be specified by the addition of a comma (eg. 1:2:4,1:2,1:4:6).
 -   full\_motif\_bb\_alignment (&bool): Boolean that defines the motif fragment(s) alignment mode is full Backbone or not (i.e. only N-C- points).
 -   allow\_independent\_alignment\_per\_fragment (&bool): \*\*EXPERIMENTAL\*\* When more that one fragment is present, after the global alignment, this option will allow each fragment to re-align independently to the scaffold. In most cases you want this option to be turned OFF.
 -   graft\_only\_hotspots\_by\_sidechain\_replacement (&bool): Analogous to the old multigraft code option "fragment replacement", this option will only align the scaffold, and then copy the side-chains identities and torsions (only for hotspots). No BB will be modified. This option is useful only if the RMSD between the motif and the target fragment in the scaffold is very low (e.g. \< 0.3 A), otherwise you can expect extraneous results.
@@ -49,30 +49,30 @@ However the mover contains many options that can be useful under different scena
 
 Finally, an example XML Rosettascripts code using all the options for a single fragment graft:
 
-```
+```xml
 <MotifGraft name="motif_grafting" context_structure="./context.pdb" motif_structure="./motif.pdb" RMSD_tolerance="1.0"   NC_points_RMSD_tolerance="1.0" clash_test_residue="GLY" clash_score_cutoff="5" combinatory_fragment_size_delta="0:0" max_fragment_replacement_size_delta="0:0"  hotspots="1:2:4" full_motif_bb_alignment="1"  optimum_alignment_per_fragment="0" graft_only_hotspots_by_replacement="0" only_allow_if_NC_points_match_aa_identity="0" revert_graft_to_native_sequence="0" allow_repeat_same_graft_output="0"/>
 ```
 
 and for a two fragments graft:
 
-```
+```xml
 <MotifGraft name="motif_grafting" context_structure="./context.pdb" motif_structure="./motif.pdb" RMSD_tolerance="1.0"   NC_points_RMSD_tolerance="1.0" clash_test_residue="GLY" clash_score_cutoff="0.0" combinatory_fragment_size_delta="0:0,0:0" max_fragment_replacement_size_delta="0:0,0:0"  hotspots="1:2:4,1:3" full_motif_bb_alignment="1"  optimum_alignment_per_fragment="0" graft_only_hotspots_by_replacement="0" only_allow_if_NC_points_match_aa_identity="0" revert_graft_to_native_sequence="0" allow_repeat_same_graft_output="0"/>
 ```
 
  Task operations after MotifGraft : For your convinience, the mover will generate some PDBinfo labels inside the pose. The available labels are: "HOTSPOT", "CONTEXT", "SCAFFOLD", "MOTIF" and "CONNECTION", which luckily correspond exactly to the elements that each of the labels describe. You can easily use this information in residue level task operations in order to prevent or restrict modifications for particular elements. Example:
 
-```
+```xml
         <OperateOnCertainResidues name="hotspot_onlyrepack">
-            <RestrictToRepackingRLT/>
             <ResiduePDBInfoHasLabel property="HOTSPOT"/>
+            <RestrictToRepackingRLT/>
         </OperateOnCertainResidues>
         <OperateOnCertainResidues name="scaffold_onlyrepack">
-            <RestrictToRepackingRLT/>
             <ResiduePDBInfoHasLabel property="SCAFFOLD"/>
+            <RestrictToRepackingRLT/>
         </OperateOnCertainResidues>
         <OperateOnCertainResidues name="context_norepack">
-            <PreventRepackingRLT/>
             <ResiduePDBInfoHasLabel property="CONTEXT"/>
+            <PreventRepackingRLT/>
         </OperateOnCertainResidues>
 ```
 

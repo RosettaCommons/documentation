@@ -9,8 +9,12 @@ We use a common github repository, [[RosettaCommons|http://github.com/rosettacom
 Within this repo we utilize the [[github flow|https://guides.github.com/introduction/flow/index.html]] branching model for collaborative development, and expect all developers to contribute to the project via topic branches and pull requests. 
 New developers should join the [[RosettaCommons|https://github.com/rosettacommons]] organization and seek out help via the [[rosetta-devel|https://groups.google.com/forum/#!forum/rosetta-devel]] mailing list for general questions, or pull-request discussions for questions related to coding issues.
 
+To be clear on terms: GIT is a distributed version control system that you install on your computer to manage the Rosetta code you are developing/compiling/using locally.  GITHUB is a website that offers a friendly interface to add communication features around the git codebase (so we can strive together to improve it) and tools to pull together the code, the test server, etc. 
 
-##Workflow for using git and github
+
+##Workflow for using git
+
+(This section is almost entirely things you do on your computer, most of which will work offline (except for the occasional git command that talks to the server)).
 
 ###What is git?
 
@@ -126,10 +130,6 @@ When your pull request is "ready to merge" request automated testing by adding t
 * Close your pull request by merging to master. After you've received a "+1" from another developer and a clean build and test report from the testing server merge your pull request via Github's pull request interface. 
 Explain any expected test changes or unexpected changes via the pull request comment interface and make sure the pull request description if up to date before closing.
 
-###A note about github forks
-
-GitHub supports several different workflows for handling parallel development.  A popular approach in the open source community is to use the "fork and pull" model, where projects are forked and then merged using GitHub's pull requests.  To keep the Rosetta codebase from fragmenting, we ask that you DO NOT FORK the RosettaCommons repositories, but instead use the recommended branch-based workflow within the `RosettaCommons/main` repository.
-
 ###Common commands
 
 * You can get a short help message on a command with "git <command> -h" and longer help with "git help <command>"
@@ -242,6 +242,81 @@ gitk is the "default" git visualization tools and is installed by default along 
 
 There are many commands in git which have identical names, however the functionality of these commands are frequently different. [[Git SVN Crash Course|http://git.or.cz/course/svn.html]] is a useful comparison of git and svn commands, offering rough equivalents in git to common svn operations.  Due to the fundamentally different nature of git and svn, the caveats and limitations associated with these equivalents are completely different.  For example, when copying a file in svn, using 'svn cp' instead of 'cp' is required, while the use of 'git cp' is optional. The [[Pro Git|http://git-scm.com/book]] ebook is a useful reference for those interested in the details of the basic git commands.
 
+## Workflow for using GitHub
+
+(This section is entirely about stuff you do on the github website.  None of this works without internet).
+
+###What is GitHub?
+[[GitHub (wikipedia link)|https://en.wikipedia.org/wiki/GitHub]] is a website that:
+1. remotely and securely hosts our git-enabled code base
+2. enables communications about said codebase
+
+On point 1 - We need a way for our computers to communicate about what the code is.  Git means that everyone has a copy of all the branches, but we still need some way to get everyone's computer to communicate to share those branches.  Instead of having everyone run servers on their laptops constantly, we let GitHub centralize the process.
+
+On point 2 - We need a way for ourselves to communicate about what the code is.  When one developer writes a new feature and wants to say "here is my new feature, I want to merge it into master, let's take a look at it" - GitHub lets us organize all that communication in ways that are tightly tied to the code under discussion.
+
+###Pull Request (PR)
+
+Because everyone is writing new code simultaneously, we can't all just merge to master whenever we feel like it.  Additionally, we need to make sure the test server gets run on code submissions for master.  Finally, we need to ensure that code added to master is bug-free and meets the coding conventions.  The Pull Request system helps us manage this.
+
+Pull Requests are a formal statement of "I want to merge my branch into `master`".  You can't merge into master any other way.  The Pull Request interface will let the community reply "we want your code merged into master" or alternatively "your code needs some fixes before we merge it into master".  (Don't worry, there's no judgement on the latter statement.)  The community's reply is expressed through the PR Review system.
+
+All code going into master goes through the Pull Request system to ensure the integrity of the codebase.
+
+####Opening a Pull Request
+If you have recently pushed your branch, GitHub will notice and give you a banner for "do you want to open a PR for your code?".  Otherwise, navigate to your branch in GitHub and there will be a button for opening a PR.
+
+Once your PR is started, you will see a tab "conversation" which lists the commits in your PR and has places for comment boxes, and "files changed" which will show a diff view of the summary changes for your whole PR.  There are also controls on the right for setting labels and reviewers; that will come up again shortly.
+
+####Pull Request Review - what to do before review
+PR review means you are asking the community to take a good look at your code.  It's a little like inviting us over to your house for a party in your code.  Before you throw a party you probably want to tidy the house up a little first:
+
+0. Write code with good documentation and unit tests that obeys the coding conventions - these are the sorts of problems reviewers will be looking for, and the fewer problems there are the easier it is for all involved.
+
+1. Small PRs are better!  Submitting small PRs regularly will lead to fast and easy reviews.  If the reviewer can spend 15 minutes or less reviewing, they'll do it as a quick break from some other work.  If it's hundreds of lines and requires 2 hours to review, they have to block it out as a real chunk of their work for the day.
+
+2. Separate refactoring and file moves from code content changes.  GitHub will show moved files as a file deletion + file creation, leading to huge numbers of changed lines.  If you have a moved file of 300 lines and can honestly say "this is just a file move with no substantive changes" (file paths, tracer names - those are not substantive) then your reviewer can mostly skip it.  If you mix real code changes in with big file moves, the reviewer has to wade through the whole file looking for your changes.
+
+3. Run the tests first!  If the test server is going to reject your code anyway, work with it first before spending human developer time on the problem.  The `99_standard_tests` label can be applied to show the test server that you are ready for it to look at your code.  You should generally wait for a clean test status before requesting review.
+
+4. Run the beautifier first!  Technically this is already in "run the tests first", but it's worth reiterating.  The beautifier introduces large numbers of whitespace-only changes to your code.  Reviewers usually leave their comments tied to specific lines of code.  GitHub assumes any change to a line of code that occurs post-review will invalidate (or fix) a reviewer comment - so if you get review first then beautify, GitHub will hide all your reviewers' comments.
+
+####PR Review - how to get a review
+Once you have gotten a green slate from the test server, and you've reviewed your own code for issues, you are ready for an external review.
+* Apply the `ready_for_review` label in GitHub.
+* If you know a few folks who are interested in your code, either because it's code they've worked on or because it's a shared scientific interest, you can request their review in the controls over on the right of your PR.
+* If you don't know who would be a good reviewer - post on rosetta-devel or slack asking for a review, and someone will come along to pick it up.
+* If you are having real trouble getting a reviewer - open a discussion on rosetta-devel or slack.  The problem might be that the PR is too large and nobody wants to spend 3 days reviewing it; in that case setting up a teleconference call with a reviewer or two will speed things up enormously (you can review code 10x faster with the author walking you through it).
+
+####What to expect from your review
+* Probably you will get rejected at first.  That's fine, basically all code has at least one thing wrong with it, you'll be able to fix it and get approval.
+* Expect the community to gently point out:
+** Bugs in your code
+** Poorly commented code
+** not-up-to-standard code, like missing `const &`s
+** highly inefficient code
+** code with no tests
+
+####What to do as a reviewer
+* Make sure the code does not break anything - look at the tests.  Also make sure the new code HAS tests to prove it works.  Checking that the test exists and looks right is much easier than reading functions line by line and mentally compiling them.
+* Do demand changes for problems in the code (see the list above)
+* Do suggest improvements for readability, stability, and documentation
+* Do demur on being a reviewer if you have a conflict of interest or if you feel the urge to engage in personal attacks
+* Do feel free to not review a request that is not in an area of interest or expertise for you as a reviewer
+* Do not add feature requests to PRs - "this PR should also handle my case X" - those should usually be pushed to future PRs.  (This is a fuzzy grey line).
+* Do not mix arguments about scientific merit with arguments about the code itself - PR review is not the appropriate venue.
+
+####What to do once your code is reviewed
+* Broadly, fix the problems identified by your reviewer.  Once those changes are pushed and the test server re-approves, ping your reviewer to let them know so they can re-review and turn the X into a checkmark.
+* If you feel the review is going wrong or you are being treated unfairly, you can and should bring it to the attention of your adviser.
+
+###A note about github forks
+
+GitHub supports several different workflows for handling parallel development.  A popular approach in the open source community is to use the "fork and pull" model, where projects are forked and then merged using GitHub's pull requests.  To keep the Rosetta codebase from fragmenting, we ask that you DO NOT FORK the RosettaCommons repositories, but instead use the recommended branch-based workflow within the `RosettaCommons/main` repository.
+
+##Working with submodules
+
+Submodules are separate repositories that can be subdirectories of existing repositories. Submodules are in a 'detached head' state, meaning they belong to a specific commit to which the HEAD pointer is not updated when other people push to master. Quick example: `Rosetta/main/tests/scientific` is in the `main` repository and the `data` directory in there is it's own submodule. The contents of `data` are not automatically updated when pulling from master (using `git pull`). You can get the contents of `data` via `git submodule update --init --recursive`. You can change into the data subdirectory and make changes. Commit these changes there (using `git add` and `git commit`) just like you would normally do. Then, if you move up in the hierarchy to get out of the submodule directory (back to `Rosetta/main/tests/scientific`), git will notice that you made changes to the submodule. Commit them there. Now, `git push` will still complain because the submodule is in a detached head state, so you need to specify the specific branch you want to push this into, for instance via `git push username/my_branch`. Now the changes to your submodule and changes you made to the outer repository should all be recorded on the remote. 
 
 ##See Also
 

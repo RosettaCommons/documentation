@@ -6,7 +6,7 @@ Questions and comments to:
 - Julia Koehler Leman (julia.koehler1982@gmail.com)
 - Corresponding PI: Jeffrey J. Gray (jgray@jhu.edu)
 
-Last Updated: 4/26/15
+Last Updated: 1/31/18
 
 ## Algorithm Description
 
@@ -43,6 +43,15 @@ Rosetta/main/source/bin/mp_find_interface.macosclangrelease \
 -score::docking_interface_score 1 \      # optional, add the interface score to the score file
 -packing:pack_missing_sidechains false \ # don't pack sidechains until the membrane residue is added, sometimes needed
 ```
+
+## Flags / Options
+
+|**Flag**|**Description**|
+|:-------|:--------------|
+|`-mp::dock::lowres <bool>` | Use centroid score function for finding interface.|
+|`-mp::dock::allow_flips <bool>` | Allow partner 2 to flip in the membrane during global search. Default: false.|
+|`-mp::dock::flexible_bb <bool>` | Do a flexible backbone docking; runs relax before and after docking.|
+|`-mp::dock::flexible_sc <bool>` | Do a flexible sidechain docking; repacks before and after docking.|
 
 ## Reference
 This protocol is currently not published yet. The framework and previous protocol was published in:

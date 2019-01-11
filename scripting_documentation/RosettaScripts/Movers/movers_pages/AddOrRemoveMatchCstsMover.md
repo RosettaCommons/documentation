@@ -6,8 +6,8 @@ Add or remove enzyme-design style pairwise (residue-residue) geometric constrain
 
 The "-run:preserve\_header" option should be supplied on the command line to allow the parser to read constraint specifications in the pdb's REMARK lines. (The "-enzdes:parser\_read\_cloud\_pdb" also needs to be specified for the parser to read the matcher's CloudPDB default output format.)
 
-```
-<AddOrRemoveMatchCsts name="&string" cst_instruction=( "void", "&string") cstfile="&string" keep_covalent=(0 &bool) accept_blocks_missing_header=(0 &bool) fail_on_constraints_missing=(1 &bool)/>
+```xml
+<AddOrRemoveMatchCsts name="&string" cst_instruction="( 'void', '&string')" cstfile="&string" keep_covalent="(0 &bool)" accept_blocks_missing_header="(0 &bool)" fail_on_constraints_missing="(1 &bool)"/>
 ```
 
 -   cst\_instruction: 1 of 3 choices - "add\_new" (read from file), "remove", or "add\_pregenerated" (i.e. if enz csts existed at any point previosuly in the protocol add them back)

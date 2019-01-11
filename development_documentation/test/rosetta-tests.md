@@ -22,8 +22,9 @@ Information on reading and writing these tests can be found in the pages linked 
 -   [[Profile tests]]
 
 -   [[How to create and run scientific tests|Scientific-Benchmarks]]
-    - [[Detailed Balance scientific tests|DetailedBalanceScientificBenchmark]]
-    - [[Docking scientific tests|DockingScientificBenchmark]]
+    - [[Legacy page for scientific tests before 2018|Legacy-Scientific-Benchmarks]]
+        - [[Legacy: Detailed Balance scientific tests|DetailedBalanceScientificBenchmark]]
+        - [[Legacy: Docking scientific tests|DockingScientificBenchmark]]
 
 -   [[Testing server]]
     - [[Running tests on the test server]]

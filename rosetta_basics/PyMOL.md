@@ -7,7 +7,7 @@ used by the Rosetta community.
 The [PyMOL Wiki](http://www.pymolwiki.org/index.php/Main_Page) contains
 documentation on the program methods and numerous examples. Beginners
 should start
-[here](http://www.pymolwiki.org/index.php/Practical_Pymol_for_Beginners).
+[with this tutorial](http://www.pymolwiki.org/index.php/Practical_Pymol_for_Beginners).
 A simple [workshop](http://pyrosetta.org/tutorial.html) is part of the
 [PyRosetta](/index.php/PyRosetta "PyRosetta") tutorials.
 
@@ -15,7 +15,7 @@ If you are building PyMOL from source on Linux (this does not take long
 and is explained
 [here](http://www.pymolwiki.org/index.php/Linux_Install)) then you may
 need to install the python-dev and glutg3-dev packages and possibly the
-mesa-common-dev package as well.
+mesa-common-dev package as well.  Some notes on building PyMOL for Python 2.7 on a Python 3 system are included below.
 
 Information on making movies in PyMOL can be found at  [http://www.pymolwiki.org/index.php/PLoS](http://www.pymolwiki.org/index.php/PLoS).
 
@@ -29,42 +29,44 @@ Rosetta data directly to PyMOL.
 
 #### *Setting Up PyMOL*
 
-In PyMOL, run the PyMOLPyRosettaServer.py scripts found in
-main/source/src/python/bindings or the main directory of PyRosetta. This will
+In PyMOL, run the PyMOL-RosettaServer.py script, found at
+`<path to Rosetta main>/source/src/python/PyRosetta/src/PyMOL-RosettaServer.py` (the main directory of PyRosetta). This will
 start the listener and output information about the connection
 established. No further work should be required to view PyMOL\_Mover
-output from the same computer. We recommend adding
+output from the same computer. 
 
-` run /path/to/~/PyMOLPyRosettaServer.py`
+We recommend creating a `.pymolrc` file in your home folder, and adding the following line: 
 
-to your .pymolrc (and to make a .pymolrc if you don't have one).
+`run <path to Rosetta main>/source/src/python/PyRosetta/src/PyMOL-RosettaServer.py`
+
+This way is convenient: the PyMOL-Rosetta link is established each time you start PyMOL.
 
 #### *Changing PyMOL Listener IP*
 
-` start_rosetta_server`
+`start_rosetta_server`
 
-Its that simple. This method of the Server script automatically connects
+It's that simple. This method of the Server script automatically connects
 to the machine's current IP. This IP address can be set manually and the
 Server script defaultly connects at 127.0.0.1. Make sure that the
 connection is to an accessible IP and that the PyMOL\_Mover is
 outputting to that IP. To change the IP manually use either command
-below:
+below at a PyMOL command prompt:
 
-` start_rosetta_server 187.1.3.37, 9001`\
-\
-` cmd.start_rosetta_server("187.1.3.37","9001")`
+`start_rosetta_server 187.1.3.37, 9001 \\` 
+
+or 
+
+`cmd.start_rosetta_server("187.1.3.37","9001")`
 
 ### Rosetta Usage
 
-Here are the options for observing a Rosetta simulation (Through JD2, rosettas job manager). 
-See below for PyRosetta code. 
+Here are the options for observing a Rosetta simulation through JD2, Rosetta's job manager). See below for PyRosetta code. 
 
 ```
--show_simulation_in_pymol 'Real'
+-show_simulation_in_pymol <argument, default=5.0> 
 ```
 
- - default='5.0', 
- -  Attach PyMOL observer to pose at the beginning of the simulation. Waits until at least every [argument] seconds before sending pose if something has changed, default 5. A value of 0 indicates to not skip any packets from sending! Don't forget to run the PyMOLPyRosettaServer.py script within PyMOL!
+- Attach PyMOL observer to pose at the beginning of the simulation, and outputs a new PyMOL "state" every <argument> seconds. A value of 0 indicates to not skip any packets from sending! Don't forget to run the PyMOLPyRosettaServer.py script within PyMOL!
 
 ```
 -update_pymol_on_energy_changes_only 'Boolean'
@@ -95,7 +97,7 @@ achieve the same results by using dump\_pdb to produce a .pdb of the
 pose and load it into PyMOL...but the mover is much faster and avoids
 unnecessary file writing.\
 \
- ` pymover = PyMOL_Mover() pymover.apply(pose)`
+ `pymover = PyMOL_Mover() pymover.apply(pose)`
 
 #### *Sending Energy*
 
@@ -147,7 +149,54 @@ has a PyMOL\_Mover, all the options above can be set on its mover
 (called pymol) including keep\_history, link.udp\_ip, and
 update\_energy.
 
-` pyobs = PyMOL_Observer() pyobs.add_observer(pose) pyobs.pymol.update_energy=True`
+` pyobs = PyMOL_Observer() pyobs.add_observer(pose) pyobs.pymol().update_energy=True`
+
+##Getting PyMOLObserver working on a Python3 system
+Some Linux systems, including Arch based linux such as Manjaro, Antergos and ArchBang, now ship with Python3 as the default.
+Python2 is also available.
+Pymol (installed with Python3) does not work with Rosetta's PyMOLObserver.
+
+For compiling and installing Pymol with Python2.7, for a version compatible with Rosetta:
+
+1) Requirements
+Libraries as well as development files (headers) of the following software is required:
+* Subversion
+* Python (with distutils)
+* Pmw (Python Megawidgets)
+* OpenGL driver (NVidia works)
+* GLEW
+* GLUT (freeglut)
+* libpng
+* freetype
+* libxml2 (optional, for COLLADA export, disable with --no-libxml)
+* msgpack-c 1.0+ (optional, for fast MMTF loading, new in SVN r4167, disable with --use-msgpackc=no)
+
+2) Get latest source from SVN
+Let's say we will download the Pymol source code to /tmp. This will download the latest source to /tmp/pymol:
+```
+cd /tmp
+svn co svn://svn.code.sf.net/p/pymol/code/trunk/pymol
+cd pymol
+```
+3) Compiling and installing Pymol
+
+This will install PyMOL as normal user into ${HOME}/pymol-svn:
+```
+prefix=${HOME}/pymol-svn
+modules=$prefix/modules
+python2.7 setup.py build install --home=$prefix --install-lib=$modules --install-scripts=$prefix
+```
+Now launch PyMOL like this:
+```
+${HOME}/pymol-svn/pymol
+```
+To add this new PyMOL to your path:
+```
+sudo ln -s ${HOME}/pymol-svn/pymol /usr/bin/pymol
+```
+4) Connecting to Rosetta
+
+So long as you are using this freshly-built pymol, it will work with Rosetta normally; do not use a previously-installed Python3 PyMOL by mistake.
 
 ##See Also
 
