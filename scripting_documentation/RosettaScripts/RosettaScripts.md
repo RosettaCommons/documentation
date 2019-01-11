@@ -6,6 +6,7 @@
 -   [[Filters (RosettaScripts)|Filters-RosettaScripts]]
 -   [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]]
 -   [[ResidueSelectors (RosettaScripts)|ResidueSelectors]]
+-   [[PackerPalette|PackerPalettes]]
 -   [[Composite protocols with RosettaScripts interfaces|Composite-protocols]]
 -   [[SymmetryAndRosettaScripts]]
 -   [[RosettaScripts Formatting Conventions|RosettaScripts-Conventions]]
