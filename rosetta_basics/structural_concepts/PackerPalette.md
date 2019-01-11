@@ -13,7 +13,7 @@ Types
 
 The three `PackerPalette`s currently available are:
 
-* `DefaultPackerPalette`
+* `DefaultPackerPalette`<br />
   This `PackerPalette` recreates the original packing and design system in Rosetta, before some of us went and mucked around with things by adding crazy chemistries that are not amino acids. If you do not specify a `PackerPalette`, the `DefaultPackerPalette` will be selected automatically.
   * Included Residues:
     * 20 canonical amino acid residues (including both tautomers of histidine)
