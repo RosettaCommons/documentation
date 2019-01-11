@@ -23,7 +23,6 @@ This `PackerPalette` recreates the original packing and design system in Rosetta
 * `CustomBaseTypePackerPalette`<br />
   This `PackerPalette` includes all of the residues found in the `DefaultPackerPalette` but includes the ability to add a custom list of _base_, that is _non-variant_ `ResidueType`s. If you wish to add a few specific residues to the palette by name, you can, or you can add residues by family property, for example, all residues that have the property RNA or TERPENE.
 
-
 * `CustomVariantTypePackerPalette`<br />
   This `PackerPalette` is similar to the `CustomBaseTypePackerPalette`, except that it allows for design of `VariantType` residues, including such things as modified sugars or post-translationally modified (PTM) amino acid residues.
 
@@ -108,6 +107,7 @@ For example:
 See Also
 ========
 
+* [[resfiles]]: A description about Resfile syntax and conventions
 * [[RosettaScripts]]: The RosettaScripts home page
 * [[Recommended TaskOperations for design|Recommended_Design_TaskOperations]]
 * [[Conventions in RosettaScripts|RosettaScripts-Conventions]]
