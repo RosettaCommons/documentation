@@ -15,10 +15,10 @@ The three `PackerPalette`s currently available are:
 
 * `DefaultPackerPalette`
 This `PackerPalette` recreates the original packing and design system in Rosetta, before some of us went and mucked around with things by adding crazy chemistries that are not amino acids. If you do not specify a `PackerPalette`, the `DefaultPackerPalette` will be selected automatically.
-** Included Residues:
-*** 20 canonical amino acid residues (including both tautomers of histidine)
-*** 4 canonical DNA residues
-*** every _non-modified_ carbohydrate residue in the Rosetta database (if and only if the `-include_sugars` option is on)
+  * Included Residues:
+    * 20 canonical amino acid residues (including both tautomers of histidine)
+    * 4 canonical DNA residues
+    * every _non-modified_ carbohydrate residue in the Rosetta database (if and only if the `-include_sugars` option is on)
 
 * `CustomBaseTypePackerPalette`
 This `PackerPalette` includes all of the residues found in the `DefaultPackerPalette` but includes the ability to add a custom list of _base_, that is _non-variant_ `ResidueType`s. If you wish to add a few specific residues to the palette by name, you can, or you can add residues by family property, for example, all residues that have the property RNA or TERPENE.
