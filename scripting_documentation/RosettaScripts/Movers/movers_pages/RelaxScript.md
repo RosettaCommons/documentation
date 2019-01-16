@@ -8,11 +8,14 @@
 
 | Script Name | Description |
 | ----------- | ----------- |
-| default     | always points to the recommended script to use. Currently points to "legacy" |
-| legacy      | The default relax script used until 2019 |
-| no_cst_ramping | TODO |
-| rosettacon2018 | Slightly stronger repulsive term than default. Send questions to jack@med.unc.edu |
-| KillA2019 | Similar to rosettacon2018 but incorporates reference-value ramping to ensure that the designs have native-like amino acid distributions. Send questions to jack@med.unc.edu |
+| default     | The traditional relax script used for the past few years |
+| no_cst_ramping | |
+| rosettacon2018 | (deprecated) Slightly stronger repulsive term in the early rounds. This script was created for people to play with but has since been optimized (see below). Send questions to jack@med.unc.edu |
+| MonomerRelax2019 | Same family as rosettacon2018, optimized for non-interface relax runs |
+| MonomerDesign2019 | Same family as rosettacon2018, optimized for non-interface design runs |
+| InterfaceRelax2019 | Same family as rosettacon2018, optimized for interface relax runs |
+| InterfaceDesign2019 | Same family as rosettacon2018, optimized for interface design runs |
+| KillA2019 | Similar to MonomerDesign2019 (which works as a good one-size-fits-all script) but incorporates reference-value ramping to ensure that the designs have native-like amino acid distributions |
 
 All scripts exist in `main/database/sampling/relax_scripts`
 
@@ -21,9 +24,7 @@ All scripts exist in `main/database/sampling/relax_scripts`
 ```xml
 <FastRelax name="example1" relaxscript="default"/>
 
-<FastDesign name="example2" relaxscript="default" dualspace="1"/>
-
-<FastDesign name="example3" relaxscript="rosettacon2018"/>
+<FastDesign name="example2" relaxscript="KillA2019"/>
 ```
 
 ##See Also
