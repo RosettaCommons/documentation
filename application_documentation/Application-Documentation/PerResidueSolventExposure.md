@@ -6,7 +6,7 @@ Creator Names:
 
 Date created: January 16, 2019
 
-One way to quantify solvent exposure on a per residue basis is to look at its relative neighbor count. The pilot application `per_residue_solvent_exposure.cc` utilizes several different methods to calculate and output the neighbor counts on a per residue basis. The app contains two main ways to calculate the neighbor counts: centroid or fullatom (FA). Within each, there are multiple different methods to calculate the neighbor count. 
+One way to quantify solvent exposure on a per residue basis is to look at its relative neighbor count. The application `per_residue_solvent_exposure.cc` utilizes several different methods to calculate and output the neighbor counts on a per residue basis. The app contains two main ways to calculate the neighbor counts: centroid or fullatom (FA). Within each, there are multiple different methods to calculate the neighbor count. 
 
 ### Centroid
 Calculating the neighbor count in centroid mode will represent each sidechain as a single point, a centroid ([Centroid](https://www.rosettacommons.org/docs/wiki/rosetta_basics/Glossary/Glossary#c)). The neighbor count can then be calculated using either the "sphere" or "cone" method.
