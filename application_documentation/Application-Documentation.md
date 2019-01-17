@@ -302,6 +302,9 @@ Component | Description
 ### Residue disorder prediction
 - [[ResidueDisorder|ResidueDisorder]] - Predict order/disorder of each residue in a protein.
 
+### Residue Solvent Exposure
+- [[PerResidueSolventExposure|PerResidueSolventExposure]] - Calculate the per residue solvent exposure in the form of a neighbor count
+
 ##UI <a name="UI" />
 
 [[Workbench|/internal_documentation/ui/workbench]] - UI front end to submit Rosetta jobs from desktop client
