@@ -59,6 +59,8 @@ The 'residue1' or 'residue3' tag specifies what type of residue is constrained. 
 The 'CONSTRAINT::' records:
  These records specify the actualy value and strength of the constraint applied between the two residues specified in the block. Each of these records is followed by one string and 4 numbers. The string can have the following allowed values: 'distanceAB' means the distance Res1:Atom1 = Res2:Atom1, i.e. the distance between atom1 of residue 1 and atom1 of residue 2. 'angle\_A' is the angle Res1:Atom2 - Res1:Atom1 - Res2:Atom1 'angle\_B' is the angle Res1:Atom1 - Res2:Atom1 - Res2:Atom2 'torsion\_A' is the dihedral Res1:Atom3 - Res1:Atom2 - Res1:Atom1 - Res2:Atom1 'torsion\_AB' is the dihedral Res1:Atom2 - Res1:Atom1 - Res2:Atom1 - Res2:Atom2 'torsion\_B' is the dihedral Res1:Atom1 - Res2:Atom1 - Res2:Atom2 - Res2:Atom3
 
+
+
 Each of these strings is followed by 4 (optionally 5 ) columns of numbers: x0, xtol, k, covalent/periodicity, and number of samples. The 1st column, x0, specifies the optimum distance x0 for the respective value. The 2nd, xtol, column specifies the allowed tolerance xtol of the value. The 3rd column specifies the force constant k, or the strength of this particular parameter. If x is the value of the constrained parameter, the score penalty applied will be: 0 if |x - x0| \< xtol and k \* ( |x - x0| - xtol ) otherwise
  This 3rd column is only relevant for enzdes, and the number in it is not used by the matcher.
 
