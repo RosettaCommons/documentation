@@ -14,7 +14,7 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 - ### See Also
  - [[ResidueSelectors]]: List of Residue Selectors
  - [[SimpleMetrics]]: List of SimpleMetrics and their compatability with Residue Selectors
- - [[SimpleMetrics#perresiduerealmetrics]]: PerResidueRealMetrics that are all compatible with selectors
+ - [[PerResidueMetrics | SimpleMetrics#perresiduerealmetrics]]: PerResidueRealMetrics that are all compatible with selectors
 
  - [[Application Documentation]]: List of Rosetta applications
  - [[Running Rosetta with options]]: Instructions for running Rosetta executables.
