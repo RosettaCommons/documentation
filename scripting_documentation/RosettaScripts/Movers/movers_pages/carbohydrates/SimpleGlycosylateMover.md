@@ -43,13 +43,12 @@ Details
 
 - ### RosettaCarbohydrate Apps and Components
  - ### Movers
- - [[GlycanTreeRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
+ - [[GlycanTreeModeler]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
  - [[GlycanRelaxMover]] - Used in GlycanTreeRelax for sampling carbohydrate torsions and side-chains from structural data.
  - [[GlycanTreeMinMover]] - A version of the MinMover that randomly optimizes glycan foliage.
 
 - ### Residue Selectors
- - [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
- - [[GlycanTreeSelector]] - Select individual glcyan trees or all of them
+ - [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest or specific trees/branches.
  - [[GlycanLayerSelecotr]] - Select glycan layers
  - [[GlycanPositionSelector]] - Select specific glycan postions, independant of PDB or Rosetta numbering.
  - [[RandomGlycanFoliageSelector]] - Randomly select a set of glycan residues 
