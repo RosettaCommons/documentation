@@ -127,6 +127,10 @@ any ResidueSelector can be defined as a subtag of the Not selector.  You cannot,
 -   The JumpUpstreamSelector sets the positions corresponding to all of the residues that are upstream of the indicated jump to true, and all the other positions to false.
 -   This selector is logically equivalent to a NotSelector applied to the JumpDownstreamSelector for the same jump.
 
+#### ResiduePropertySelector
+
+- The [[ResiduePropertySelector]] selects residues based on specific properties of each residue type ie - protein, carbohydrate, metal, hydrophobic, etc.  Multiple properties can be set and specific logic can be given such as `or_logic` and `and_logic`. 
+ 
 #### RandomResidueSelector
 
 Selects residues in the pose at random. Note that this residue selector is stochastic. This is, it will return a different set of residues every time it is called. However, the randomly selected residues can be saved using the [[StoreResidueSubsetMover]] and retrieved using the [[StoredResidueSubset|ResidueSelectors#other_storedresiduesubset]] selector.
