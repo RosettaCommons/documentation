@@ -1,7 +1,7 @@
 # TCR modeling
 
 # Metadata
-This document was last updated Nov 09, 2018, by Ragul Gowthaman (ragul@umd.edu).
+This document was last updated Feb 04, 2018, by Ragul Gowthaman (ragul@umd.edu).
 The corresponding principal investigator is Brian Pierce (pierce@umd.edu).
 [[_TOC_]]
 
@@ -98,10 +98,10 @@ After submission of TCR sequences, the results will provide the parsed CDR loop 
 ### Example: Commands for sample TCR modeling run for a human T cell receptor PDB:1AO7
 
 ###Basic modeling
-$ Rosetta/main/source/bin/tcr.macosclangrelease -database Rosetta/main/database -alpha VEQNSGPLSVPEGAIASLNCTYSDRGSQSFFWYRQYSGKSPELIMSIYSNGDKEDGRFTAQLNKASQYVSLLIRDSQPSDSATYLCAVTTDSWGKLQFGAGTQVVVT -beta VTQTPKFQVLKTGQSMTLQCAQDMNHEYMSWYRQDPGMGLRLIHYSVGAGITDQGEVPNGYNVSRSTTEDFPLRLLSAAPSQTSVYFCASRPGLAGGRPEQYFGPGTRLTVT
+$ Rosetta/main/source/bin/tcrmodel.macosclangrelease -database Rosetta/main/database -alpha VEQNSGPLSVPEGAIASLNCTYSDRGSQSFFWYRQYSGKSPELIMSIYSNGDKEDGRFTAQLNKASQYVSLLIRDSQPSDSATYLCAVTTDSWGKLQFGAGTQVVVT -beta VTQTPKFQVLKTGQSMTLQCAQDMNHEYMSWYRQDPGMGLRLIHYSVGAGITDQGEVPNGYNVSRSTTEDFPLRLLSAAPSQTSVYFCASRPGLAGGRPEQYFGPGTRLTVT
 
 ###Advanced modeling with loop remodel
-$ Rosetta/main/source/bin/tcr.macosclangrelease -database Rosetta/main/database -alpha VEQNSGPLSVPEGAIASLNCTYSDRGSQSFFWYRQYSGKSPELIMSIYSNGDKEDGRFTAQLNKASQYVSLLIRDSQPSDSATYLCAVTTDSWGKLQFGAGTQVVVT -beta VTQTPKFQVLKTGQSMTLQCAQDMNHEYMSWYRQDPGMGLRLIHYSVGAGITDQGEVPNGYNVSRSTTEDFPLRLLSAAPSQTSVYFCASRPGLAGGRPEQYFGPGTRLTVT -remodel_tcr_cdr3_loops -refine_tcr_cdr3_loops
+$ Rosetta/main/source/bin/tcrmodel.macosclangrelease -database Rosetta/main/database -alpha VEQNSGPLSVPEGAIASLNCTYSDRGSQSFFWYRQYSGKSPELIMSIYSNGDKEDGRFTAQLNKASQYVSLLIRDSQPSDSATYLCAVTTDSWGKLQFGAGTQVVVT -beta VTQTPKFQVLKTGQSMTLQCAQDMNHEYMSWYRQDPGMGLRLIHYSVGAGITDQGEVPNGYNVSRSTTEDFPLRLLSAAPSQTSVYFCASRPGLAGGRPEQYFGPGTRLTVT -remodel_tcr_cdr3_loops -refine_tcr_cdr3_loops
 
 ###Modeling with user provided templates
 $ Rosetta/main/source/bin/tcr.macosclangrelease -database Rosetta/main/database -alpha VEQNSGPLSVPEGAIASLNCTYSDRGSQSFFWYRQYSGKSPELIMSIYSNGDKEDGRFTAQLNKASQYVSLLIRDSQPSDSATYLCAVTTDSWGKLQFGAGTQVVVT -beta VTQTPKFQVLKTGQSMTLQCAQDMNHEYMSWYRQDPGMGLRLIHYSVGAGITDQGEVPNGYNVSRSTTEDFPLRLLSAAPSQTSVYFCASRPGLAGGRPEQYFGPGTRLTVT -alpha_germline_template_pdb gma_tmplt_piece.pdb -beta_germline_template_pdb gmb_tmplt_piece.pdb -alpha_cdr3_template_pdb cdr3a_tmplt_piece.pdb -beta_cdr3_template_pdb cdr3b_tmplt_piece.pdb -alpha_orientation_template_pdb ora_tmplt_piece.pdb -beta_orientation_template_pdb orb_tmplt_piece.pdb -use_alpha_germline_templates -use_beta_germline_templates 
