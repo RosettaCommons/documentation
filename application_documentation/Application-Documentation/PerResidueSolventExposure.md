@@ -13,14 +13,14 @@ NOTE: This application is an updated, more comprehensive version of the `burial_
 ### Centroid
 Calculating the neighbor count in centroid mode will represent each sidechain as a single point, a centroid ([Centroid](https://www.rosettacommons.org/docs/wiki/rosetta_basics/Glossary/Glossary#c)). The neighbor count can then be calculated using either the "sphere" or "cone" method.
 
-The "sphere" method counts the number of residues around the target residue and weights the count with a logistic function defined as **neighbor count = 1/(1+exp(distance_steepness * (d - distance_cutoff))**
+The "sphere" method counts the number of residues around the target residue and weights the count with a logistic function defined as **neighbor count = 1/(1+exp(distance_steepness * (d - distance_midpoint))**
 where **d** is the calculated distance between the target residue's CEN and the neighbor residue's CEN, **distance_steepness** defines the steepness of the curve, and **distance_midpoint** defines the midpoint of the curve.
 
 The "cone" method was adapted from the [LayerSelector](https://www.rosettacommons.org/docs/wiki/scripting_documentation/RosettaScripts/ResidueSelectors/ResidueSelectors#residueselectors_conformation-dependent-residue-selectors_layerselector) ResidueSelector. It calculates the neighbor count by weighting not just by the distance from the target residue but also the angle made between the target and the neighbor. The overall neighbor count is determined by taking the product of the distance and angle which are defined as follows:
 
-**distance_factor = 1/(1+exp(distance_steepness * (d - distance_cutoff))** where **d** is the calculated distance between the target residue's CEN and the neighbor residue's CEN, **distance_steepness** defines the steepness of the curve, and **distance_midpoint** defines the midpoint of the curve.
+**distance_factor = 1/(1+exp(distance_steepness * (d - distance_midpoint))** where **d** is the calculated distance between the target residue's CEN and the neighbor residue's CEN, **distance_steepness** defines the steepness of the curve, and **distance_midpoint** defines the midpoint of the curve.
 
-**angle_factor = 1/(1+exp(angle_steepness * (theta - angle_cutoff))** where **theta** is the calculated angle between the vectors (target CA - target CEN) and (target CA - neighbor CEN), **angle_steepness** defines the steepness of the curve, and **angle_midpoint** defines the midpoint of the curve. By default, if the angle is greater than pi/2, the **angle_factor** is set to 0.
+**angle_factor = 1/(1+exp(angle_steepness * (theta - angle_midpoint))** where **theta** is the calculated angle between the vectors (target CA - target CEN) and (target CA - neighbor CEN), **angle_steepness** defines the steepness of the curve, and **angle_midpoint** defines the midpoint of the curve. By default, if the angle is greater than pi/2, the **angle_factor** is set to 0.
 
 ### Full Atom (FA)
 Calculating the neighbor count in FA mode is identical to that of centroid, but instead of using the centroid representation, the full atom representation is used. The same "sphere" and "cone" methods defined above are used, but can be broken down into smaller sub methods:
