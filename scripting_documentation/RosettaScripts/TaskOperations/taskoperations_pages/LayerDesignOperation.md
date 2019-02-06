@@ -44,9 +44,9 @@ Here is an example implementation of LayerDesign using LayerSelector and DesignR
 <TASKOPERATIONS>
 
 	<DesignRestrictions name="layer_design">
-		<Action selector_logic="surface AND helix_start"	aas="EHKPQR"/>
+		<Action selector_logic="surface AND helix_start"	aas="DEHKPQR"/>
 		<Action selector_logic="surface AND helix"		aas="EHKQR"/>
-		<Action selector_logic="surface AND sheet"		aas="DEHKNQRST"/>
+		<Action selector_logic="surface AND sheet"		aas="EHKNQRST"/>
 		<Action selector_logic="surface AND loop"		aas="DEGHKNPQRST"/>
 		<Action selector_logic="boundary AND helix_start"	aas="ADEHIKLMNPQRSTVWY"/>
 		<Action selector_logic="boundary AND helix"		aas="ADEHIKLMNQRSTVWY"/>
@@ -69,7 +69,8 @@ Here is an example implementation of LayerDesign using LayerSelector and DesignR
 * Methionine is allowed in the boundary and core
 * Glycine is allowed in loops in the core
 * Histidine is allowed in the boundary
-* Asp, Asn, Ser, and Thr are not included at surface residues of helices. These residues have a destabilizing effect on helices, and it seems unlikely that a structure would require one of these particular amino acids at a surface position (they're still allowed at boundary positions in helices)
+* Asp, Asn, Ser, and Thr are not included at surface positions of helices (except for helix start). [These residues have a destabilizing effect on proteins when included helices](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5568797/), and it seems unlikely that a structure would require one of these particular amino acids at a surface position (they're still allowed at boundary positions in helices)
+* Asp is not included at surface positions of beta sheets.  [This residue has a destabilizing effect on proteins when included in beta sheets](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5568797/), and it seems unlikely that a structure would require this particular amino acid at a surface position.
 
 
 ##Legacy LayerDesign
