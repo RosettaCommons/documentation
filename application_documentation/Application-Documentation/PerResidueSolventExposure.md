@@ -29,9 +29,6 @@ Calculating the neighbor count in FA mode is identical to that of centroid, but 
  * Sphere Method with CB Atom (target CA to neighbor CB)
  * Cone Method with Closest Atom (distance = CA to closest, angle between CA-CB and CA-closest)
  * Cone Method with CB Atom (distance = CA to CB, angle between CA-CB and CA-CB)
-* Atom Neighbor Count
- * Sphere Method (CA to ALL atoms)
- * Cone Method (distance = CA to any atom, angle between CA-CB and CA-any atom)
 
 The various methods can be specified through command line options when running the application.
 
@@ -39,8 +36,8 @@ The various methods can be specified through command line options when running t
 To use the application, the following command line options need to be specified:
 ```
 -centroid_version         use flag if centroid mode is desired (FA is default)
+-in:file:centroid         use this flag if centroid mode calculations are being done!
 -neighbor_closest_atom    use flag if FA calculation requires the nearest neighbor (default behavior is to use CB)
--atom_neighbor_count      use flag if you want to calculate the number of neighboring atoms (FA mode only)
 -sphere_method            use flag if you want to use the sphere method
 -cone_method              use flag if you want to use the cone method
 -dist_midpoint            midpoint of distance calculation (default = 9.0)
