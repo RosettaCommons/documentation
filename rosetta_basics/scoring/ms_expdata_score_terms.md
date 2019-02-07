@@ -49,9 +49,9 @@ Command line usage for rescoring models:
 
 ## General Covalent Labeling
 
-In order to further generalize the use of covalent labeling data for protein structure prediction, two new score terms were developed to be used in conjunction with AbinitioRelax: `covalent_labeling_cen` and `covalent_labeling_fa`.
+In order to further generalize the use of covalent labeling data for protein structure prediction, two new score terms were developed to be used in conjunction with AbinitioRelax: `covalent_labeling` and `covalent_labeling_fa`.
 
-Both versions of the score term take as inputs the labeled residue resID and the corresponding neighbor counts (it is up to the user to identify how to correlate the experimental data to a neighbor count measure). The centroid version of the score term (`covalent_labeling_cen`) is used during the low-resolution Abinitio phase and the weights are controlled by the weight patch files found in the `database` (`score*_covalentlabeling.patch_wts`). The full-atom version is used in the Relax phase and the weight is controlled by the weights file `covalent_labeling_fa.wts`.
+Both versions of the score term take as inputs the labeled residue resID and the corresponding neighbor counts (it is up to the user to identify how to correlate the experimental data to a neighbor count measure). The centroid version of the score term (`covalent_labeling`) is used during the low-resolution Abinitio phase and the weights are controlled by the weight patch files found in the `database` (`score*_covalentlabeling.patch_wts`). The full-atom version is used in the Relax phase and the weight is controlled by the weights file `covalent_labeling_fa.wts`.
 
 ##See Also
 
