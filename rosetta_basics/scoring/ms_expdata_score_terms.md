@@ -49,9 +49,53 @@ Command line usage for rescoring models:
 
 ## General Covalent Labeling
 
-In order to further generalize the use of covalent labeling data for protein structure prediction, two new score terms were developed to be used in conjunction with AbinitioRelax: `covalent_labeling` and `covalent_labeling_fa`.
+In order to further generalize the use of covalent labeling data for protein structure prediction, two new score terms were developed to be used in conjunction with AbinitioRelax: `covalent_labeling` and `covalent_labeling_fa`. These score terms live in `CovalentLabelingEnergy.cc` and `CovalentLabelingFAEnergy.cc`, respectively.
 
 Both versions of the score term take as inputs the labeled residue resID and the corresponding neighbor counts (it is up to the user to identify how to correlate the experimental data to a neighbor count measure). The centroid version of the score term (`covalent_labeling`) is used during the low-resolution Abinitio phase and the weights are controlled by the weight patch files found in the `database` (`score*_covalentlabeling.patch_wts`). The full-atom version is used in the Relax phase and the weight is controlled by the weights file `covalent_labeling_fa.wts`.
+
+###Usage
+
+The general form of the covalent labeling score term was designed to be used in either a rescoring fashion (like the HRF score term above) or in `AbinitioRelax` to guide model generation.
+
+An input file (which we'll refer to simply as `covalent_labeling_input_file.txt` is needed defined with 2 columns as follows:
+
+```
+#RESIDUE NUMBER, NEIGHBOR COUNT
+2 9.741145
+3 6.41184
+6 11.2967
+15 13.1428
+16 12.6952
+...
+```
+
+A `flags` file can be used to define all of the needed inputs:
+
+```
+-abinitio
+ -stage1_patch score0_covalentlabeling.wts_patch
+ -stage2_patch score1_covalentlabeling.wts_patch
+ -stage3a_patch score2_covalentlabeling.wts_patch
+ -stage3b_patch score5_covalentlabeling.wts_patch
+ -stage4_patch score3_covalentlabeling.wts_patch
+ -relax
+-relax
+ -fast
+-in
+ -file
+  -fasta /path/to/protein.fasta
+  -frag3 /path/to/frags_3
+  -frag9 /path/to/frags_9
+  -native /path/to/protein.pdb
+-score
+ -covalent_labeling_input /path/to/covalent_labeling_input_file.txt
+ -covalent_labeling_fa_input /path/to/covalent_labeling_input_file.txt
+ -weights covalent_labeling_fa.wts
+-out
+ -nstruct #
+```
+
+To execute the command, please follow the standard methods for running [Abinitio Relax](https://www.rosettacommons.org/docs/wiki/application_documentation/structure_prediction/abinitio-relax).
 
 ##See Also
 
