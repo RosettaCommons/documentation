@@ -5,6 +5,7 @@ Creator Names:
 * PI: Steffen Lindert (lindert.1@osu.edu)
 
 Date created: July 27, 2018
+Updated: February 8, 2019 
 
 ## Covalent Labeling Mass Spectrometry
 Covalent labeling (sometimes referred to as “protein footprinting”) involves exposing a protein in solution to a small labeling reagent that will covalently bond to select amino acid sidechains that are exposed to solvent, whereas sidechains buried within the core of the protein or occluded by interacting protein subunits will not get labeled. This provides information about the relative location of certain amino acids with respect to the solvent (either on the surface and solvent exposed or buried within the protein or protein complex structure). A variety of different labeling reagents exist and some are highly specific as to which amino acid(s) can react with the reagent and others have a much broader range of potential target residues.
