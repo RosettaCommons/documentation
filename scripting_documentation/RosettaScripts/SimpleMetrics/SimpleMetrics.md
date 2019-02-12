@@ -42,6 +42,9 @@ Example with comparison to native through `-in:file:native`:
 </ROSETTASCRIPTS>
 ```
 
+Framework Author: 
+   Jared Adolf-Bryfogle (jadolfbr@gmail.com)
+
 [[_TOC_]]
 
 
