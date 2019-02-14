@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-01-12
+Generated: 2019-02-14
 
 _Note that some application specific options may not be present in this list._
 
@@ -1072,6 +1072,10 @@ _Note that some application specific options may not be present in this list._
 <dd>The number of cones in which a point must lie to be considered buried by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.<br/>Default: 5.0<br/></dd>
 <dt><b>-buried_unsatisfied_penalty_hbond_energy_threshold</b> \<Real\></dt>
 <dd>The energy threshold above which a hydrogen bond is not counted, used by the BuriedUnsatPenalty energy.<br/>Default: -0.25<br/></dd>
+<dt><b>-covalent_labeling_input</b> \<File\></dt>
+<dd>Input covalent labeling data in the form of neighbor counts<br/></dd>
+<dt><b>-covalent_labeling_fa_input</b> \<File\></dt>
+<dd>Input covalent labeling data in the form of neighbor counts for FA<br/></dd>
 <dt><b>-elec_min_dis</b> \<Real\></dt>
 <dd>changes the minimum distance cut-off for hack-elec energy<br/>Default: 1.6<br/></dd>
 <dt><b>-elec_max_dis</b> \<Real\></dt>
@@ -3664,6 +3668,23 @@ _Note that some application specific options may not be present in this list._
 <dd>file for chunk2<br/></dd>
 <dt><b>-loop2</b> \<File\></dt>
 <dd>rigid region for chunk2<br/></dd>
+</dl>
++ <h2>-cloud</h2>
+<dl>
+<dt><b>-cloud</b> \<Boolean\></dt>
+<dd>cloud option group<br/></dd>
+<dt><b>-auth</b> \<String\></dt>
+<dd>RosettaCloud credentials in form of <user_email>:<password>. To get your credentials visit https://ui.graylab.jhu.edu/settings<br/>Default: ""<br/></dd>
+<dt><b>-key</b> \<String\></dt>
+<dd>Key to use when process query Cloud server for new ExecutionSummary ID, default is empty string (no key) which mean always create a new ES instance<br/>Default: ""<br/></dd>
+<dt><b>-clean</b> \<Boolean\></dt>
+<dd>When option `key` is specified tell if Cloud server should clean exising ExecutionSummary instance from all existing files<br/>Default: false<br/></dd>
+<dt><b>-host</b> \<String\></dt>
+<dd>UI server address<br/>Default: "ui.graylab.jhu.edu"<br/></dd>
+<dt><b>-port</b> \<Integer\></dt>
+<dd>UI server port<br/>Default: 80<br/></dd>
+<dt><b>-block</b> \<Boolean\></dt>
+<dd>Specify what to do when network queue is full: block and wait for packets to be be send or drop payload<br/>Default: true<br/></dd>
 </dl>
 + <h2>-cluster</h2>
 <dl>
@@ -9357,6 +9378,119 @@ _Note that some application specific options may not be present in this list._
 <dd>SS to add after each subunit region<br/>Default: ""<br/></dd>
 <dt><b>-attach_rsd</b> \<StringVector\></dt>
 <dd>attach rsd on each subunit<br/>Default: ""<br/></dd>
+</dl>
++ <h2>-tcrmodel</h2>
+<dl>
+<dt><b>-tcrmodel</b> \<Boolean\></dt>
+<dd>tcrmodel option group<br/></dd>
+<dt><b>-ignore_list</b> \<File\></dt>
+<dd>user provided template ignore list for tcrmodel<br/>Default: ""<br/></dd>
+<dt><b>-blastp_identity_cutoff</b> \<Real\></dt>
+<dd>Cutoff to ignore templates based on blast results<br/>Default: 100<br/></dd>
+<dt><b>-template_identity_cutoff</b> \<Real\></dt>
+<dd>Cutoff to ignore templates based on sequence identity score<br/>Default: 100<br/></dd>
+<dt><b>-include_ab_templates</b> \<Boolean\></dt>
+<dd>include antibody templates<br/>Default: false<br/></dd>
+<dt><b>-dump_templates</b> \<Boolean\></dt>
+<dd>dump all template pdb files<br/>Default: false<br/></dd>
+<dt><b>-skip_modeling</b> \<Boolean\></dt>
+<dd>skip the modeling part, used for testing seq and template info<br/>Default: false<br/></dd>
+<dt><b>-ab_template_db_path</b> \<String\></dt>
+<dd>antibody template database path<br/>Default: "./"<br/></dd>
+<dt><b>-tcr_template_db_path</b> \<String\></dt>
+<dd>tcr template database path<br/>Default: ""<br/></dd>
+<dt><b>-minimize_model</b> \<Boolean\></dt>
+<dd>minimize the tcr model<br/>Default: true<br/></dd>
+<dt><b>-relax_model</b> \<Boolean\></dt>
+<dd>relax the tcr model<br/>Default: false<br/></dd>
+<dt><b>-remodel_loop_cdr3a</b> \<Boolean\></dt>
+<dd>remodel the cdr3 loop of tcr alpha chain<br/>Default: false<br/></dd>
+<dt><b>-remodel_loop_cdr3b</b> \<Boolean\></dt>
+<dd>remodel the cdr3 loop of tcr beta chain<br/>Default: false<br/></dd>
+<dt><b>-remodel_tcr_cdr3a_loop</b> \<Boolean\></dt>
+<dd>remodel the cdr3 loop of tcr alpha chain<br/>Default: false<br/></dd>
+<dt><b>-remodel_tcr_cdr3b_loop</b> \<Boolean\></dt>
+<dd>remodel the cdr3 loop of tcr beta chain<br/>Default: false<br/></dd>
+<dt><b>-refine_tcr_cdr3a_loop</b> \<Boolean\></dt>
+<dd>refine the cdr3 loop of tcr alpha chain<br/>Default: false<br/></dd>
+<dt><b>-refine_tcr_cdr3b_loop</b> \<Boolean\></dt>
+<dd>refine the cdr3 loop of tcr beta chain<br/>Default: false<br/></dd>
+<dt><b>-remodel_tcr_cdr3_loops</b> \<Boolean\></dt>
+<dd>remodel the cdr3 loop of tcr alpha and beta chains<br/>Default: false<br/></dd>
+<dt><b>-refine_tcr_cdr3_loops</b> \<Boolean\></dt>
+<dd>refine the cdr3 loop of tcr alpha and beta chains<br/>Default: false<br/></dd>
+<dt><b>-refine_all_tcr_cdr_loops</b> \<Boolean\></dt>
+<dd>refine the cdr1, cdr2 and cdr3 loops of tcr alpha and beta chains<br/>Default: false<br/></dd>
+<dt><b>-use_user_templates</b> \<Boolean\></dt>
+<dd>use user provided templates for TCR segments, useful for testing and integrations tests<br/>Default: false<br/></dd>
+<dt><b>-alpha_framework_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for alpha chain framework segment, eg. 1kgc_D<br/>Default: ""<br/></dd>
+<dt><b>-beta_framework_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for alpha chain framework segment, eg. 1kgc_E<br/>Default: ""<br/></dd>
+<dt><b>-alpha_germline_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for alpha chain germline segment, eg. 1kgc_D<br/>Default: ""<br/></dd>
+<dt><b>-beta_germline_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for alpha chain germline segment, eg. 1kgc_E<br/>Default: ""<br/></dd>
+<dt><b>-alpha_cdr1_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for alpha chain CDR1 segment, eg. 1kgc_D<br/>Default: ""<br/></dd>
+<dt><b>-beta_cdr1_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for alpha chain CDR1 segment, eg. 1kgc_E<br/>Default: ""<br/></dd>
+<dt><b>-alpha_cdr2_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for alpha chain CDR2 segment, eg. 1kgc_D<br/>Default: ""<br/></dd>
+<dt><b>-beta_cdr2_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for alpha chain CDR2 segment, eg. 1kgc_E<br/>Default: ""<br/></dd>
+<dt><b>-alpha_cdr3_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for alpha chain CDR3 segment, eg. 1kgc_D<br/>Default: ""<br/></dd>
+<dt><b>-beta_cdr3_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for alpha chain CDR3 segment, eg. 1kgc_E<br/>Default: ""<br/></dd>
+<dt><b>-alpha_orientation_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for orientation of alpha chain, use along with beta_orientation_template_id, eg. 1kgc_D<br/>Default: ""<br/></dd>
+<dt><b>-beta_orientation_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for orientation of beta chain, use along with -alpha_orientation_template_id, eg. 1kgc_E<br/>Default: ""<br/></dd>
+<dt><b>-alpha_framework_template_pdb</b> \<String\></dt>
+<dd>template PDB file for alpha chain framework segment<br/>Default: ""<br/></dd>
+<dt><b>-beta_framework_template_pdb</b> \<String\></dt>
+<dd>template PDB file for alpha chain framework segment<br/>Default: ""<br/></dd>
+<dt><b>-alpha_germline_template_pdb</b> \<String\></dt>
+<dd>template PDB file for alpha chain germline segment<br/>Default: ""<br/></dd>
+<dt><b>-beta_germline_template_pdb</b> \<String\></dt>
+<dd>template PDB file alpha chain germline segment<br/>Default: ""<br/></dd>
+<dt><b>-alpha_cdr1_template_pdb</b> \<String\></dt>
+<dd>template PDB file alpha chain CDR1 segment<br/>Default: ""<br/></dd>
+<dt><b>-beta_cdr1_template_pdb</b> \<String\></dt>
+<dd>template PDB file for alpha chain CDR1 segment<br/>Default: ""<br/></dd>
+<dt><b>-alpha_cdr2_template_pdb</b> \<String\></dt>
+<dd>template PDB file for alpha chain CDR2 segment<br/>Default: ""<br/></dd>
+<dt><b>-beta_cdr2_template_pdb</b> \<String\></dt>
+<dd>template PDB file for alpha chain CDR2 segment<br/>Default: ""<br/></dd>
+<dt><b>-alpha_cdr3_template_pdb</b> \<String\></dt>
+<dd>template PDB file for alpha chain CDR3 segment<br/>Default: ""<br/></dd>
+<dt><b>-beta_cdr3_template_pdb</b> \<String\></dt>
+<dd>template PDB file for alpha chain CDR3 segment<br/>Default: ""<br/></dd>
+<dt><b>-alpha_orientation_template_pdb</b> \<String\></dt>
+<dd>template PDB file for orientation of alpha chain<br/>Default: ""<br/></dd>
+<dt><b>-beta_orientation_template_pdb</b> \<String\></dt>
+<dd>template PDB file for orientation of beta chain<br/>Default: ""<br/></dd>
+<dt><b>-use_alpha_germline_templates</b> \<Boolean\></dt>
+<dd>use germline templates for alpha chain, by default germline or framework templates choosen by sequence match<br/>Default: false<br/></dd>
+<dt><b>-use_beta_germline_templates</b> \<Boolean\></dt>
+<dd>use germline templates for beta chain, by default germline or framework templates choosen by sequence match<br/>Default: false<br/></dd>
+<dt><b>-assign_cdr</b> \<Boolean\></dt>
+<dd>assign cdr positions using user provided positions<br/>Default: false<br/></dd>
+<dt><b>-assign_cdr1a</b> \<String\></dt>
+<dd>assign cdr1a sequence positions by start and end residue numbers, eg. 23:36<br/>Default: ""<br/></dd>
+<dt><b>-assign_cdr2a</b> \<String\></dt>
+<dd>assign cdr2a sequence positions by start and end residue numbers, eg. 48:74<br/>Default: ""<br/></dd>
+<dt><b>-assign_cdr3a</b> \<String\></dt>
+<dd>assign cdr3a sequence positions by start and end residue numbers, eg. 89:103<br/>Default: ""<br/></dd>
+<dt><b>-assign_cdr1b</b> \<String\></dt>
+<dd>assign cdr1b sequence positions by start and end residue numbers, eg. 23:36<br/>Default: ""<br/></dd>
+<dt><b>-assign_cdr2b</b> \<String\></dt>
+<dd>assign cdr2b sequence positions by start and end residue numbers, eg. 48:74<br/>Default: ""<br/></dd>
+<dt><b>-assign_cdr3b</b> \<String\></dt>
+<dd>assign cdr3b sequence positions by start and end residue numbers, eg. 89:103<br/>Default: ""<br/></dd>
+<dt><b>-anarci_path</b> \<String\></dt>
+<dd>path for the program ANARCI to assign CDR positions by aho numbers, eg. '/usr/local/bin/anarci' <br/>Default: ""<br/></dd>
 </dl>
 + <h2>-threadsc</h2>
 <dl>
