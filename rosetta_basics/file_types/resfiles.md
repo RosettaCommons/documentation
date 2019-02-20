@@ -178,7 +178,7 @@ start
 Commands for noncanonical residue types
 ---------------------------------------
 
-Noncanonical residue types obey the same rules as canonical types: resfile commands and `TaskOperation`s can only turn types _off_.  By default, in the absence of any `TaskOperation`, the 20 canonical amino acids are allowed at any given position.  If you wish to design with noncanonical amino acids, you must therefore specify a [[`PackerPalette`|PackerPalette]] that includes additional residue types.  Please see the `PackerPalette` documentation for details.  Once the expanded palette has been specified, the residues in the palette are on by default (in the absence of any `TaskOperation`), and can be turned off by `TaskOperations` just like canonical residues.  The `PIKAA` command can be used for this purpose: to specify a noncanonical residue to keep, use `X[###]`, where `###` is the full name of the residue (e.g. `DALA` for D-alanine).
+Noncanonical residue types obey the same rules as canonical types: resfile commands and `TaskOperation`s can only turn types _off_.  By default, in the absence of any `TaskOperation`, the 20 canonical amino acids are allowed at any given position.  If you wish to design with noncanonical amino acids, you must therefore specify a [[PackerPalette|PackerPalette]] that includes additional residue types.  Please see the `PackerPalette` documentation for details.  Once the expanded palette has been specified, the residues in the palette are on by default (in the absence of any `TaskOperation`), and can be turned off by `TaskOperations` just like canonical residues.  The `PIKAA` command can be used for this purpose: to specify a noncanonical residue to keep, use `X[###]`, where `###` is the full name of the residue (e.g. `DALA` for D-alanine).
 
 ```
 NATRO # default command that applies to everything without a non- default setting; do not repack
@@ -275,7 +275,7 @@ start
 
 ##Deprecated commands:
 
-When [[`PackerPalette`s|PackerPalette]] were introduced, previously-needed resfile commands that broke TaskOperation commutativity were no longer necessary.  As a result, the following commands are no longer recognized by the resfile reader:
+When [[PackerPalettes|PackerPalette]] were introduced, previously-needed resfile commands that broke TaskOperation commutativity were no longer necessary.  As a result, the following commands are no longer recognized by the resfile reader:
 
 ```
 - EMPTY ................ Disallow all canonical amino acids (for use with non canonicals).  This throws away all previously applied task operations, and so will break the commutativity of task operations.  DEPRECATED AND NO LONGER RECOGNIZED.
@@ -285,7 +285,7 @@ When [[`PackerPalette`s|PackerPalette]] were introduced, previously-needed resfi
 - NC \<ResidueTypeName\> . Allow the specific possibly non canonical residue type; one residue type per NC command.  Note that "GLY:N_Methylation" is a special case that is entered as "SAR" (sarcosine) with this command.  DEPRECATED AND NO LONGER RECOGNIZED.
 ```
 
-Instead, `PackerPalette`s allow users to define the "palette" of residue types that are allowed for design, and `TaskOperation`s are now restricted to pruning the allowed set at a given position.  Please see the [[`PackerPalette`|PackerPalette]] documentation for details.
+Instead, `PackerPalette`s allow users to define the "palette" of residue types that are allowed for design, and `TaskOperation`s are now restricted to pruning the allowed set at a given position.  Please see the [[PackerPalette|PackerPalette]] documentation for details.
 
 ##See Also
 
