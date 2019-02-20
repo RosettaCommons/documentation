@@ -1,6 +1,6 @@
 # PackerPalettes
 
-`PackerPalette`s are used by a [[`PackerTask`|packer-task]] to determine which `ResidueType`s may be substituted at any given position in a `Pose` before any [[`TaskOperation`s|TaskOperations-RosettaScripts]] are applied.
+`PackerPalette`s are used by a [[PackerTask|packer-task]] to determine which `ResidueType`s may be substituted at any given position in a `Pose` before any [[TaskOperations|TaskOperations-RosettaScripts]] are applied.
 
 The `PackerTask` can be thought of as an ice sculpture. By default, every position is able to packed _and_ design, but only by the 20 natural amino acid residues. By using `TaskOperation`s, a set of chisels, one can _limit_ packing/design to only certain residues or to only packing. As with _ice_, once a `TaskOperation` has chipped away (restricted) a particular residue type, that type cannot be put back by a subsequent `TaskOperation` (re-enabled for design).
 
@@ -15,21 +15,21 @@ Types
 
 The three `PackerPalette`s currently available are:
 
-* [[`DefaultPackerPalette`|DefaultPackerPalette]]<br />
+* [[DefaultPackerPalette]]<br />
   This `PackerPalette` recreates the original packing and design system in Rosetta, before some of us went and mucked around with things by adding crazy chemistries that are not amino acids. If you do not specify a `PackerPalette`, the `DefaultPackerPalette` will be selected automatically.
   * Included Residues:
     * 20 canonical amino acid residues (including both tautomers of histidine)
     * 4 canonical DNA residues
     * every _non-modified_ carbohydrate residue in the Rosetta database (if and only if the `-include_sugars` option is on)
 
-* [[`NoDesignPackerPalette`|NoDesignPackerPalette]]<br/>
-  In situtations in which one wishes to repack a `Pose` without designing anything, it is always possible to use a `DefaultPackerPalette` with a [[`PreventRepacking TaskOperation`|PreventRepacking]].  Under the hood, though, this is slightly inefficient: Rosetta populates a list of the 20 canonical amino acids, then discards all but the current amino acid at a given position.  Where efficiency is an issue (_e.g._ if packer setup is going to occur many thousands of times in rapid succession) you can instead restrict the palette of allowed residue types to the current residue type at each position in a `Pose` using a `NoDesignPackerPalette`.  This `PackerPalette` has no user-configurable options.
+* [[NoDesignPackerPalette]]<br/>
+  In situtations in which one wishes to repack a `Pose` without designing anything, it is always possible to use a `DefaultPackerPalette` with a [[PreventRepacking TaskOperation|PreventRepacking]].  Under the hood, though, this is slightly inefficient: Rosetta populates a list of the 20 canonical amino acids, then discards all but the current amino acid at a given position.  Where efficiency is an issue (_e.g._ if packer setup is going to occur many thousands of times in rapid succession) you can instead restrict the palette of allowed residue types to the current residue type at each position in a `Pose` using a `NoDesignPackerPalette`.  This `PackerPalette` has no user-configurable options.
 
-* [[`CustomBaseTypePackerPalette`|CustomBaseTypePackerPalette]]<br />
+* [[CustomBaseTypePackerPalette]]<br />
   This `PackerPalette` includes all of the residues found in the `DefaultPackerPalette` but includes the ability to add a custom list of _base_, that is _non-variant_ `ResidueType`s. If you wish to add a few specific residues to the palette by name, you can, or you can add residues by family property, for example, all residues that have the property RNA or TERPENE.
 
 <!--
-* [[`CustomVariantTypePackerPalette`|CustomVariantTypePackerPalette]]<br />
+* [[CustomVariantTypePackerPalette]]<br />
   This `PackerPalette` is similar to the `CustomBaseTypePackerPalette`, except that it allows for design of `VariantType` residues, including such things as modified sugars or post-translationally modified (PTM) amino acid residues.
 -->
 
