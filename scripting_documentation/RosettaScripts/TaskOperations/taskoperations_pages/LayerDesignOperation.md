@@ -1,6 +1,10 @@
 # LayerDesign
 *Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 
+_Note that as of January 2019, LayerDesign no longer supports noncanonical design.  For noncanonical design, please use the [[Layer|ResidueSelectors#residueselectors_conformation-dependent-residue-selectors_layerselector]] ResidueSelector._
+
+_Also note that we plan to deprecate LayerDesign outright before long.  Please update your scripts to use the [[Layer|ResidueSelectors#residueselectors_conformation-dependent-residue-selectors_layerselector]] ResidueSelector instead._
+
 Layer design is used to control which amino acids are available for design at each residue position depending on the local context, _e_._g_. solvent exposure and secondary structure. Each residue is assigned to one of three layers: core, boundary, or surface.  The two methods of determining solvent accessibility are: SASA (solvent accessible surface area of mainchain + CB) and side chain neighbors (number of amino acid side chains in a cone extending along the CA-CB vector).  When using SASA, the solvent exposure of the designed position depends on the conformation of neighboring side chains; this is useful when you are making one or two mutations and not changing many neighboring amino acids.  When using side chain neighbors, solvent exposure depends on which direction the amino acid side chain is pointed; this is useful for _de novo_ design or protocols where many amino acids will be designed simultaneously.
 
 In essence, layer design is a hack to prevent the packer from putting too many hydrophobic amino acids on the protein's surface and too many polar residues in the protein's interior.  Improvements to the energy function will  one day obviate the need for layer design.
@@ -40,9 +44,9 @@ Here is an example implementation of LayerDesign using LayerSelector and DesignR
 <TASKOPERATIONS>
 
 	<DesignRestrictions name="layer_design">
-		<Action selector_logic="surface AND helix_start"	aas="EHKPQR"/>
+		<Action selector_logic="surface AND helix_start"	aas="DEHKPQR"/>
 		<Action selector_logic="surface AND helix"		aas="EHKQR"/>
-		<Action selector_logic="surface AND sheet"		aas="DEHKNQRST"/>
+		<Action selector_logic="surface AND sheet"		aas="EHKNQRST"/>
 		<Action selector_logic="surface AND loop"		aas="DEGHKNPQRST"/>
 		<Action selector_logic="boundary AND helix_start"	aas="ADEHIKLMNPQRSTVWY"/>
 		<Action selector_logic="boundary AND helix"		aas="ADEHIKLMNQRSTVWY"/>
@@ -65,7 +69,8 @@ Here is an example implementation of LayerDesign using LayerSelector and DesignR
 * Methionine is allowed in the boundary and core
 * Glycine is allowed in loops in the core
 * Histidine is allowed in the boundary
-* Asp, Asn, Ser, and Thr are not included at surface residues of helices. These residues have a destabilizing effect on helices, and it seems unlikely that a structure would require one of these particular amino acids at a surface position (they're still allowed at boundary positions in helices)
+* Asp, Asn, Ser, and Thr are not included at surface positions of helices (except for helix start). [These residues have a destabilizing effect on proteins when included helices](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5568797/), and it seems unlikely that a structure would require one of these particular amino acids at a surface position (they're still allowed at boundary positions in helices)
+* Asp is not included at surface positions of beta sheets.  [This residue has a destabilizing effect on proteins when included in beta sheets](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5568797/), and it seems unlikely that a structure would require this particular amino acid at a surface position.
 
 
 ##Legacy LayerDesign
@@ -120,7 +125,6 @@ The options for the "all" tag are the following:
 -   aa: assign the following residues to the defined layer.  The string is composed of one-letter amino acid codes.
 -   append: append the following residues to the defined layer (i.e. add them to any already allowed in this layer).  The string is composed of one-letter amino acid codes.
 -   exclude: opposite as append (delete residues from the list allowed for the layer).
--   ncaa, ncaa_append, ncaa_exclude: these permit non-canonical residues to be specified, as a comma-separated list of three-letter codes.  Note that TaskOperations permitting noncanonical design follow <i>OR</i> commutativity rather than <i>AND</i> commutativity.  That is, if I have three TaskOperations and number 1 OR number 2 OR number 3 permits a particular non-canonical, the non-canonical will be permitted when all three are applied.  With canonical amino acids, the reverse is true: only if number 1 AND number 2 AND number 3 permit a particular residue will that residue be permitted.
 -   specification: What residues from the task operation should be considered as the layer. Options are "designable" (pick designable residues), "repacakble" (pick residues restricted to only repack) or "fixed" (residues marked by the task as not repackable). Default is "designable"
 -   operation: What to do with the specified layer. Default is 'design', other options are 'no\_design' (allow repacking) and 'omit'.  If 'omit' is chosen, layer design will ignore any residues in the layer (i.e. not restrict design).
 
@@ -169,6 +173,7 @@ Cterm
      This example creates a new layer that combines BuildingBlockInterface(symmetric interface with SelectBySasa picking up the core of the complex
      since applying task operations returns the intersection of the sets this combined task will return the buried residues of the symmetric  interface.
 
+```xml
     <LayerDesign name=layer layer=other >
 
         <CombinedTasks name=symmetric_interface_core>
@@ -183,33 +188,7 @@ Cterm
         </symmetric_interface_core>
 
     </LayerDesign>
-
-
-<!-- -->
-
-     This example no.2 creates core_boundary_surface_Nterm_Cterm that designs differently by layers.  In the core layer, the noncanonical amino acids D-valine and D-isoleucine are permitted.  (Note that when this script is run, the path to the params files for these noncanonicals will have to be provided with the -extra_res_fa flag.)
-        <TASKOPERATIONS>
-
-          <LayerDesign name=layerdesign make_pymol_script=1 layer=core_boundary_surface_Nterm_Cterm>
-
-             <core>
-               <all append="AFGILMNPQVWYH" ncaa_append="DVA,DIL"/>
-               <all exclude="CRKDEST" />
-             </core>
-
-             <boundary>
-               <all append="AFGILMNPQVWYDEHKRST" />
-               <all exclude="C" />
-             </boundary>
-
-             <surface>
-               <all append="AGMNPQDEHKRST" />
-               <all exclude="CILVFWY" />
-             </surface>
-
-          </LayerDesign>
-
-        </TASKOPERATIONS>
+```
 
 ## LayerDesign with Symmetry
 

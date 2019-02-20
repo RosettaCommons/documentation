@@ -7,9 +7,10 @@ scaling factor for the interaction energy of the residue pairs across the interf
 
 ```xml
 <ProteinProteinInterfaceUpweighter name="(&string;)"
-        interface_weight="(1.0 &real;)" />
+        interface_weight="(1.0 &real;)" skip_loop_in_chain="(&string;)" />
 ```
 
 -   **interface_weight**: scaling factor for the interaction energy of the residue pairs across the interface
+-   **skip_loop_in_chain**: comma seperated chain idenfitiers for chains that the weight related to its loops are retained to 1.0
 
 ---

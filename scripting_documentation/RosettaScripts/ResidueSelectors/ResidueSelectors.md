@@ -5,7 +5,11 @@
 ResidueSelectors
 ----------------
 
-ResidueSelectors define a subset of residues from a Pose. Their apply() method takes a Pose and returns a ResidueSubset (a utility::vector1\< bool \>). This vector1 will be as large as there are residues in the input Pose, and its ith entry will be "true" if residue i has been selected. Once you have a ResidueSubset, you can use it in a number of ways.  For instance, you can use the [[OperateOnResidueSubset|OperateOnResidueSubsetOperation]] task operation to combine a ResidueSelector with a [[Residue Level TaskOperation|Residue Level TaskOperations]] to modify the ResidueLevelTasks which have a "true" value in the ResidueSubset. ResidueSelectors should be declared in their own block and named, or declared as subtags of other ResidueSelectors or of TaskOperations that accept ResidueSelectors (such as the OperateOnResidueSubset task operation).
+ResidueSelectors define a subset of residues from a Pose. Their apply() method takes a Pose and returns a ResidueSubset (a utility::vector1\< bool \>). This vector1 will be as large as there are residues in the input Pose, and its ith entry will be "true" if residue i has been selected. 
+
+Once you have a ResidueSubset, you can use it in a number of ways.  For instance, you can use the [[OperateOnResidueSubset|OperateOnResidueSubsetOperation]] task operation to combine a ResidueSelector with a [[Residue Level TaskOperation|Residue Level TaskOperations]] to modify the ResidueLevelTasks which have a "true" value in the ResidueSubset. ResidueSelectors should be declared in their own block and named, or declared as subtags of other ResidueSelectors or of TaskOperations that accept ResidueSelectors (such as the OperateOnResidueSubset task operation).  
+
+In addition, most [[SimpleMetrics]] can use ResidueSelectors, and each one lists ResidueSelector compatibility.  All [[PerResidueRealMetrics | SimpleMetrics#perresiduerealmetrics]] and [[PerResidueStringMetrics | SimpleMetrics#perresiduestringmetrics]] can accept residue selectors.
 
 Note that certain other Rosetta modules (e.g. the [[ReadResfile|ReadResfileOperation]] TaskOperation, which is not a Residue Level TaskOperation but can still accept a ResidueSelector as input) may also use ResidueSelectors.  Ultimately, it is hoped that many Rosetta components will be modified to permit this standardized method of selecting residues.
 
@@ -127,6 +131,10 @@ any ResidueSelector can be defined as a subtag of the Not selector.  You cannot,
 -   The JumpUpstreamSelector sets the positions corresponding to all of the residues that are upstream of the indicated jump to true, and all the other positions to false.
 -   This selector is logically equivalent to a NotSelector applied to the JumpDownstreamSelector for the same jump.
 
+#### ResiduePropertySelector
+
+- The [[ResiduePropertySelector]] selects residues based on specific properties of each residue type ie - protein, carbohydrate, metal, hydrophobic, etc.  Multiple properties can be set and specific logic can be given such as `or_logic` and `and_logic`. 
+ 
 #### RandomResidueSelector
 
 Selects residues in the pose at random. Note that this residue selector is stochastic. This is, it will return a different set of residues every time it is called. However, the randomly selected residues can be saved using the [[StoreResidueSubsetMover]] and retrieved using the [[StoredResidueSubset|ResidueSelectors#other_storedresiduesubset]] selector.
@@ -320,7 +328,7 @@ or
 
 #### LayerSelector
 
-The LayerSelector lets a user select residues by burial.  Burial can be assessed by number of sidechain neighbors within a cone along the CA-CB vector (the default method), or by SASA.
+The LayerSelector lets a user select residues by burial.  Burial can be assessed by number of sidechain neighbors within a cone along the CA-CB vector (the default method), or by SASA.  When using SASA, the solvent exposure of the designed position depends on the conformation of neighboring side chains; this is useful when you are making one or two mutations and not changing many neighboring amino acids. When using side chain neighbors, solvent exposure depends on which direction the amino acid side chain is pointed; this is useful for _de novo_ design or protocols in which many amino acids will be designed simultaneously.
 
 ```xml
      <Layer name="(&string)" select_core="(false &bool)" select_boundary="(false &bool)" select_surface="(false &bool)"

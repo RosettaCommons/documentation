@@ -8,6 +8,8 @@ Generates atom pair distance constraints to restrain pairs of atoms in the pose 
 
 By default, the distance between the CA atoms and the first sidechain atom in each residue pair are constrained via a harmonic function, where score = w * ( x - x0 ) / sd, where w is the "weight" option, "x0" is the distance in the native/reference pose, "x" is the current distance, and "sd" is the "sd" option. Optionally, this can be changed by the harmonic function.
 
+If ca_only=False, the neighbor atoms are constrained instead.
+
 Remember that to have effect, the atom_pair_constraint scoreterm must be on in the scorefunction.
 
 

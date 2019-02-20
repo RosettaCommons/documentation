@@ -8,7 +8,7 @@ This task operation will query a database for a resfile string. The table in the
 ```xml
 <ReadResfileFromDB name="(&string;)" database_table="(&string;)"
         table="(&string;)" selection_tag="(&string;)"
-        db_session_name="(&string;)"
+        residue_selector="(&string;)" db_session_name="(&string;)"
         transaction_mode="(standard &database_transaction_mode_string;)"
         database_mode="(&database_mode_string;)" database_name="(&string;)"
         database_pq_schema="(&string;)"
@@ -26,6 +26,7 @@ This task operation will query a database for a resfile string. The table in the
 -   **database_table**: The table in the database from which to read
 -   **table**: The table in the database from which to read (same as database_table)
 -   **selection_tag**: (REQUIRED) The tag to use to identify the row in the indicated table that will be read from for the indicated job. In JD3, this can/should be combined with the script_vars flag so that different jobs can read different resfiles. This is a marked departure from the JD2 functionality which relied on the global data representing the currently-running job. That functionality is now removed.
+-   **residue_selector**: Optionally, a previously-defined ResidueSelector may be specified using the residue_selector=(some string) option. If this is used, then the ResidueSelector is used as a mask, and the ReadResfile TaskOperation is applied only to those residues selected by the ResidueSelector, even if the resfile lists other residues as well.
 -   **db_session_name**: The name for the (previously declared) DatabaseSession object to retrieve from the DataMap; if this option is given, then it will take precedence over the other database-session-defining attributes that are also allowed for this element. DatabaseSession objects are declared in the DATABASE_SESSIONS top-level block in RosettaScripts.
 -   **transaction_mode**: Transaction mode for database output
 -   **database_mode**: Which type of output database to use?

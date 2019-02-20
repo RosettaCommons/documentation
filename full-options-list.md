@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-01-09
+Generated: 2019-02-16
 
 _Note that some application specific options may not be present in this list._
 
@@ -553,7 +553,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-force_nonideal_structure</b> \<Boolean\></dt>
 <dd>Force ResidueConformationFeatures to treat the structure as nonideal.  If you know all your structures are non-ideal this decreases pose output time<br/>Default: true<br/></dd>
 <dt><b>-write_pdb_link_records</b> \<Boolean\></dt>
-<dd>Sets whether or not the LINK records in PDB files are written.  The default value is false.<br/>Default: true<br/></dd>
+<dd>Sets whether or not the LINK records in PDB files are written.  The default value is true.<br/>Default: true<br/></dd>
 <dt><b>-use_pdb_format_HETNAM_records</b> \<Boolean\></dt>
 <dd>Sets whether or not the HETNAM records in PDB files are written in the standard PDB format with a single record per 3-letter code.  The default value is false, which means that the file will use the Rosetta format, which provides a unique HETNAM record for each residue.<br/>Default: false<br/></dd>
 <dt><b>-write_pdb_parametric_info</b> \<Boolean\></dt>
@@ -1072,6 +1072,10 @@ _Note that some application specific options may not be present in this list._
 <dd>The number of cones in which a point must lie to be considered buried by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.<br/>Default: 5.0<br/></dd>
 <dt><b>-buried_unsatisfied_penalty_hbond_energy_threshold</b> \<Real\></dt>
 <dd>The energy threshold above which a hydrogen bond is not counted, used by the BuriedUnsatPenalty energy.<br/>Default: -0.25<br/></dd>
+<dt><b>-covalent_labeling_input</b> \<File\></dt>
+<dd>Input covalent labeling data in the form of neighbor counts<br/></dd>
+<dt><b>-covalent_labeling_fa_input</b> \<File\></dt>
+<dd>Input covalent labeling data in the form of neighbor counts for FA<br/></dd>
 <dt><b>-elec_min_dis</b> \<Real\></dt>
 <dd>changes the minimum distance cut-off for hack-elec energy<br/>Default: 1.6<br/></dd>
 <dt><b>-elec_max_dis</b> \<Real\></dt>
@@ -1474,7 +1478,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-loop_fixed_cost</b> \<Real\></dt>
 <dd>For loop_close term, a fixed cost of instantiating an end of a Gaussian chain; calibrated based on RNA bulge/loop data<br/>Default: -0.29<br/></dd>
 <dt><b>-allow_complex_loop_graph</b> \<Boolean\></dt>
-<dd>LoopGraph hack - allow sharing of loops between cycles<br/>Default: false<br/></dd>
+<dd>LoopGraph hack - allow sharing of loops between cycles<br/>Default: true<br/></dd>
 <dt><b>-use_6D_potential</b> \<Boolean\></dt>
 <dd>for implicit modeling of RNA loops, use 6D potentials instead of simple 1D Gaussian chain model<br/>Default: false<br/></dd>
 <dt><b>-force_6D_potential_file</b> \<String\></dt>
@@ -1846,6 +1850,8 @@ _Note that some application specific options may not be present in this list._
 <dd>If true, then noncanonical amino acids and other polymer building blocks use Voronoi-style detection of neareset rotamer wells during fa_dun scoring instead of hard-coded rotamer well definitions.  True by default (i.e. Voronoi-style detection is used by default).  Setting this to false creates problems with many noncanonicals that have rotamer wells that aren't simple gauche+/gauche-/anti wells.<br/>Default: true<br/></dd>
 <dt><b>-fa_dun_correct_rotamer_well_order</b> \<Boolean\></dt>
 <dd>If true, the rotamer well order for rotamer files is corrected automatically to the Rosetta convention of lowest to highest in the range [0,360).  False by default.<br/>Default: false<br/></dd>
+<dt><b>-fa_dun_correct_achiral_peptoid_libraries</b> \<Boolean\></dt>
+<dd>If true, the rotamer libraries for peptoids with achiral side-chains are symmetrized (so that mirror-image conformatoins score identically).  Rotamer library generation can produce slight asymmetries, so this is an easy way around that problem.  True by default.<br/>Default: true<br/></dd>
 <dt><b>-no_his_his_pairE</b> \<Boolean\></dt>
 <dd>Set pair term for His-His to zero<br/></dd>
 <dt><b>-no_his_DE_pairE</b> \<Boolean\></dt>
@@ -3663,6 +3669,23 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-loop2</b> \<File\></dt>
 <dd>rigid region for chunk2<br/></dd>
 </dl>
++ <h2>-cloud</h2>
+<dl>
+<dt><b>-cloud</b> \<Boolean\></dt>
+<dd>cloud option group<br/></dd>
+<dt><b>-auth</b> \<String\></dt>
+<dd>RosettaCloud credentials in form of <user_email>:<password>. To get your credentials visit https://ui.graylab.jhu.edu/settings<br/>Default: ""<br/></dd>
+<dt><b>-key</b> \<String\></dt>
+<dd>Key to use when process query Cloud server for new ExecutionSummary ID, default is empty string (no key) which mean always create a new ES instance<br/>Default: ""<br/></dd>
+<dt><b>-clean</b> \<Boolean\></dt>
+<dd>When option `key` is specified tell if Cloud server should clean exising ExecutionSummary instance from all existing files<br/>Default: false<br/></dd>
+<dt><b>-host</b> \<String\></dt>
+<dd>UI server address<br/>Default: "ui.graylab.jhu.edu"<br/></dd>
+<dt><b>-port</b> \<Integer\></dt>
+<dd>UI server port<br/>Default: 80<br/></dd>
+<dt><b>-block</b> \<Boolean\></dt>
+<dd>Specify what to do when network queue is full: block and wait for packets to be be send or drop payload<br/>Default: true<br/></dd>
+</dl>
 + <h2>-cluster</h2>
 <dl>
 <dt><b>-cluster</b> \<Boolean\></dt>
@@ -4093,6 +4116,8 @@ _Note that some application specific options may not be present in this list._
 <dd>cyclic_peptide option group<br/></dd>
 <dt><b>-cyclization_type</b> \<String\></dt>
 <dd>The type of cyclization for the peptide (e.g. N-to-C amide bond, terminal disulfide, isopeptide N-terminal lariat, etc.<br/>Default: "n_to_c_amide_bond"<br/></dd>
+<dt><b>-use_chainbreak_energy</b> \<Boolean\></dt>
+<dd>If true, then the chainbreak energy is used to preserve any N-to-C peptide bond (assuming that this is an N-to-C cyclic peptide).  If false, then constraints are used instead.  True by default.<br/>Default: true<br/></dd>
 <dt><b>-rand_checkpoint_file</b> \<String\></dt>
 <dd>The name of the checkpoint file used for the random number generator.  Defaults to rng.state.gz.  Not used if the -cyclic_peptide:checkpoint_job_identifier flag isn't used.<br/>Default: "rng.state.gz"<br/></dd>
 <dt><b>-checkpoint_file</b> \<String\></dt>
@@ -4173,6 +4198,8 @@ _Note that some application specific options may not be present in this list._
 <dd>The number of rounds of Cartesian FastRelax to perform after each standard FastRelax step in the simple_cycpep_predict protocol.  Default 0 (unused).<br/>Default: 0<br/></dd>
 <dt><b>-use_classic_rama_for_sampling</b> \<Boolean\></dt>
 <dd>If true, classic Ramachandran tables are used for sampling instead of the RamaPrePro tables.  Default false (i.e. newer RamaPrePro tables are used by default).<br/>Default: false<br/></dd>
+<dt><b>-n_methyl_positions</b> \<IntegerVector\></dt>
+<dd>If provided, then these positions are N-methylated.  Not used if not specified.<br/></dd>
 <dt><b>-lariat_sidechain_index</b> \<Integer\></dt>
 <dd>If a lariat cyclization type is specified (e.g. nterm_isopeptide_lariat, cterm_isopeptide_lariat), then this is the residue that provides the side-chain that connects to the N- or C-terminus of the peptide.  If not specified, the residue of appropriate type closest to the other end is used.<br/>Default: 0<br/></dd>
 <dt><b>-sidechain_isopeptide_indices</b> \<IntegerVector\></dt>
@@ -9351,6 +9378,119 @@ _Note that some application specific options may not be present in this list._
 <dd>SS to add after each subunit region<br/>Default: ""<br/></dd>
 <dt><b>-attach_rsd</b> \<StringVector\></dt>
 <dd>attach rsd on each subunit<br/>Default: ""<br/></dd>
+</dl>
++ <h2>-tcrmodel</h2>
+<dl>
+<dt><b>-tcrmodel</b> \<Boolean\></dt>
+<dd>tcrmodel option group<br/></dd>
+<dt><b>-ignore_list</b> \<File\></dt>
+<dd>user provided template ignore list for tcrmodel<br/>Default: ""<br/></dd>
+<dt><b>-blastp_identity_cutoff</b> \<Real\></dt>
+<dd>Cutoff to ignore templates based on blast results<br/>Default: 100<br/></dd>
+<dt><b>-template_identity_cutoff</b> \<Real\></dt>
+<dd>Cutoff to ignore templates based on sequence identity score<br/>Default: 100<br/></dd>
+<dt><b>-include_ab_templates</b> \<Boolean\></dt>
+<dd>include antibody templates<br/>Default: false<br/></dd>
+<dt><b>-dump_templates</b> \<Boolean\></dt>
+<dd>dump all template pdb files<br/>Default: false<br/></dd>
+<dt><b>-skip_modeling</b> \<Boolean\></dt>
+<dd>skip the modeling part, used for testing seq and template info<br/>Default: false<br/></dd>
+<dt><b>-ab_template_db_path</b> \<String\></dt>
+<dd>antibody template database path<br/>Default: "./"<br/></dd>
+<dt><b>-tcr_template_db_path</b> \<String\></dt>
+<dd>tcr template database path<br/>Default: ""<br/></dd>
+<dt><b>-minimize_model</b> \<Boolean\></dt>
+<dd>minimize the tcr model<br/>Default: true<br/></dd>
+<dt><b>-relax_model</b> \<Boolean\></dt>
+<dd>relax the tcr model<br/>Default: false<br/></dd>
+<dt><b>-remodel_loop_cdr3a</b> \<Boolean\></dt>
+<dd>remodel the cdr3 loop of tcr alpha chain<br/>Default: false<br/></dd>
+<dt><b>-remodel_loop_cdr3b</b> \<Boolean\></dt>
+<dd>remodel the cdr3 loop of tcr beta chain<br/>Default: false<br/></dd>
+<dt><b>-remodel_tcr_cdr3a_loop</b> \<Boolean\></dt>
+<dd>remodel the cdr3 loop of tcr alpha chain<br/>Default: false<br/></dd>
+<dt><b>-remodel_tcr_cdr3b_loop</b> \<Boolean\></dt>
+<dd>remodel the cdr3 loop of tcr beta chain<br/>Default: false<br/></dd>
+<dt><b>-refine_tcr_cdr3a_loop</b> \<Boolean\></dt>
+<dd>refine the cdr3 loop of tcr alpha chain<br/>Default: false<br/></dd>
+<dt><b>-refine_tcr_cdr3b_loop</b> \<Boolean\></dt>
+<dd>refine the cdr3 loop of tcr beta chain<br/>Default: false<br/></dd>
+<dt><b>-remodel_tcr_cdr3_loops</b> \<Boolean\></dt>
+<dd>remodel the cdr3 loop of tcr alpha and beta chains<br/>Default: false<br/></dd>
+<dt><b>-refine_tcr_cdr3_loops</b> \<Boolean\></dt>
+<dd>refine the cdr3 loop of tcr alpha and beta chains<br/>Default: false<br/></dd>
+<dt><b>-refine_all_tcr_cdr_loops</b> \<Boolean\></dt>
+<dd>refine the cdr1, cdr2 and cdr3 loops of tcr alpha and beta chains<br/>Default: false<br/></dd>
+<dt><b>-use_user_templates</b> \<Boolean\></dt>
+<dd>use user provided templates for TCR segments, useful for testing and integrations tests<br/>Default: false<br/></dd>
+<dt><b>-alpha_framework_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for alpha chain framework segment, eg. 1kgc_D<br/>Default: ""<br/></dd>
+<dt><b>-beta_framework_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for alpha chain framework segment, eg. 1kgc_E<br/>Default: ""<br/></dd>
+<dt><b>-alpha_germline_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for alpha chain germline segment, eg. 1kgc_D<br/>Default: ""<br/></dd>
+<dt><b>-beta_germline_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for alpha chain germline segment, eg. 1kgc_E<br/>Default: ""<br/></dd>
+<dt><b>-alpha_cdr1_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for alpha chain CDR1 segment, eg. 1kgc_D<br/>Default: ""<br/></dd>
+<dt><b>-beta_cdr1_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for alpha chain CDR1 segment, eg. 1kgc_E<br/>Default: ""<br/></dd>
+<dt><b>-alpha_cdr2_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for alpha chain CDR2 segment, eg. 1kgc_D<br/>Default: ""<br/></dd>
+<dt><b>-beta_cdr2_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for alpha chain CDR2 segment, eg. 1kgc_E<br/>Default: ""<br/></dd>
+<dt><b>-alpha_cdr3_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for alpha chain CDR3 segment, eg. 1kgc_D<br/>Default: ""<br/></dd>
+<dt><b>-beta_cdr3_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for alpha chain CDR3 segment, eg. 1kgc_E<br/>Default: ""<br/></dd>
+<dt><b>-alpha_orientation_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for orientation of alpha chain, use along with beta_orientation_template_id, eg. 1kgc_D<br/>Default: ""<br/></dd>
+<dt><b>-beta_orientation_template_id</b> \<String\></dt>
+<dd>template PDB id with chain for orientation of beta chain, use along with -alpha_orientation_template_id, eg. 1kgc_E<br/>Default: ""<br/></dd>
+<dt><b>-alpha_framework_template_pdb</b> \<String\></dt>
+<dd>template PDB file for alpha chain framework segment<br/>Default: ""<br/></dd>
+<dt><b>-beta_framework_template_pdb</b> \<String\></dt>
+<dd>template PDB file for alpha chain framework segment<br/>Default: ""<br/></dd>
+<dt><b>-alpha_germline_template_pdb</b> \<String\></dt>
+<dd>template PDB file for alpha chain germline segment<br/>Default: ""<br/></dd>
+<dt><b>-beta_germline_template_pdb</b> \<String\></dt>
+<dd>template PDB file alpha chain germline segment<br/>Default: ""<br/></dd>
+<dt><b>-alpha_cdr1_template_pdb</b> \<String\></dt>
+<dd>template PDB file alpha chain CDR1 segment<br/>Default: ""<br/></dd>
+<dt><b>-beta_cdr1_template_pdb</b> \<String\></dt>
+<dd>template PDB file for alpha chain CDR1 segment<br/>Default: ""<br/></dd>
+<dt><b>-alpha_cdr2_template_pdb</b> \<String\></dt>
+<dd>template PDB file for alpha chain CDR2 segment<br/>Default: ""<br/></dd>
+<dt><b>-beta_cdr2_template_pdb</b> \<String\></dt>
+<dd>template PDB file for alpha chain CDR2 segment<br/>Default: ""<br/></dd>
+<dt><b>-alpha_cdr3_template_pdb</b> \<String\></dt>
+<dd>template PDB file for alpha chain CDR3 segment<br/>Default: ""<br/></dd>
+<dt><b>-beta_cdr3_template_pdb</b> \<String\></dt>
+<dd>template PDB file for alpha chain CDR3 segment<br/>Default: ""<br/></dd>
+<dt><b>-alpha_orientation_template_pdb</b> \<String\></dt>
+<dd>template PDB file for orientation of alpha chain<br/>Default: ""<br/></dd>
+<dt><b>-beta_orientation_template_pdb</b> \<String\></dt>
+<dd>template PDB file for orientation of beta chain<br/>Default: ""<br/></dd>
+<dt><b>-use_alpha_germline_templates</b> \<Boolean\></dt>
+<dd>use germline templates for alpha chain, by default germline or framework templates choosen by sequence match<br/>Default: false<br/></dd>
+<dt><b>-use_beta_germline_templates</b> \<Boolean\></dt>
+<dd>use germline templates for beta chain, by default germline or framework templates choosen by sequence match<br/>Default: false<br/></dd>
+<dt><b>-assign_cdr</b> \<Boolean\></dt>
+<dd>assign cdr positions using user provided positions<br/>Default: false<br/></dd>
+<dt><b>-assign_cdr1a</b> \<String\></dt>
+<dd>assign cdr1a sequence positions by start and end residue numbers, eg. 23:36<br/>Default: ""<br/></dd>
+<dt><b>-assign_cdr2a</b> \<String\></dt>
+<dd>assign cdr2a sequence positions by start and end residue numbers, eg. 48:74<br/>Default: ""<br/></dd>
+<dt><b>-assign_cdr3a</b> \<String\></dt>
+<dd>assign cdr3a sequence positions by start and end residue numbers, eg. 89:103<br/>Default: ""<br/></dd>
+<dt><b>-assign_cdr1b</b> \<String\></dt>
+<dd>assign cdr1b sequence positions by start and end residue numbers, eg. 23:36<br/>Default: ""<br/></dd>
+<dt><b>-assign_cdr2b</b> \<String\></dt>
+<dd>assign cdr2b sequence positions by start and end residue numbers, eg. 48:74<br/>Default: ""<br/></dd>
+<dt><b>-assign_cdr3b</b> \<String\></dt>
+<dd>assign cdr3b sequence positions by start and end residue numbers, eg. 89:103<br/>Default: ""<br/></dd>
+<dt><b>-anarci_path</b> \<String\></dt>
+<dd>path for the program ANARCI to assign CDR positions by aho numbers, eg. '/usr/local/bin/anarci' <br/>Default: ""<br/></dd>
 </dl>
 + <h2>-threadsc</h2>
 <dl>

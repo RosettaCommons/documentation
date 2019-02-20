@@ -154,9 +154,11 @@ NOTE: It should be remembered that resfile commands are restrictive, rather than
 
 - APOLAR ............... allow only canonical non polar amino acids (ACFGILMPVWY)
 
-- NOTAA \<list of AAs\> .. disallow only the specified amino acids ( use one letter codes, undelimited like ACFYRT )
+- PROPERTY \<property\> .. disallow any residue type that lacks the given property
 
-- PIKAA \<list of AAs\> .. allow only the specified amino acids ( use one letter codes, undelimited like ACFYRT )
+- NOTAA \<list of AAs\> .. disallow only the specified amino acids ( Use one letter codes, undelimited like ACFYRT.  For NCAAs, use X[<full name>]. )
+
+- PIKAA \<list of AAs\> .. allow only the specified amino acids ( Use one letter codes, undelimited like ACFYRT.  For NCAAs, use X[<full name>].)
 
 - NATAA ................ allow only the native amino acid (NATive Amino Acid) - repack without design
 
