@@ -26,7 +26,7 @@ The three `PackerPalette`s currently available are:
   In situtations in which one wishes to repack a `Pose` without designing anything, it is always possible to use a `DefaultPackerPalette` with a [[PreventRepacking TaskOperation|PreventRepacking]].  Under the hood, though, this is slightly inefficient: Rosetta populates a list of the 20 canonical amino acids, then discards all but the current amino acid at a given position.  Where efficiency is an issue (_e.g._ if packer setup is going to occur many thousands of times in rapid succession) you can instead restrict the palette of allowed residue types to the current residue type at each position in a `Pose` using a `NoDesignPackerPalette`.  This `PackerPalette` has no user-configurable options.
 
 * [[CustomBaseTypePackerPalette]]<br />
-  This `PackerPalette` includes all of the residues found in the `DefaultPackerPalette` but includes the ability to add a custom list of _base_, that is _non-variant_ `ResidueType`s. If you wish to add a few specific residues to the palette by name, you can, or you can add residues by family property, for example, all residues that have the property RNA or TERPENE.
+  This `PackerPalette` includes all of the residues found in the `DefaultPackerPalette` but includes the ability to add a custom list of _base_ (that is _non-variant_) `ResidueType`s. (As an example, "ALA" is a base type, while "NtermProteinFull" is a variant type -- a modification of ALA or other base types.)  If you wish to add a few specific residues to the palette by name, you can, or you can add residues by family property, for example, all residues that have the property RNA or TERPENE.
 
 <!--
 * [[CustomVariantTypePackerPalette]]<br />

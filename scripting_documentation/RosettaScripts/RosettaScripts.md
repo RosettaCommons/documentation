@@ -14,7 +14,7 @@ Fleishman SJ, Leaver-Fay A, Corn JE, Strauch EM, Khare SD, et al. (2011) Rosetta
 -   [[Filters|Filters-RosettaScripts]]
 -   [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]]
 -   [[ResidueSelectors (RosettaScripts)|ResidueSelectors]]
--   [[PackerPalette|PackerPalettes]]
+-   [[PackerPalettes|PackerPalette]]
 -   [[SimpleMetrics]]
 
 ---------------------
