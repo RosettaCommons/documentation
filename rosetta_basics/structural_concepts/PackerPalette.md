@@ -11,7 +11,7 @@ An ice sculpture, of course, is limited by the size of the starting piece of ice
 Types
 =====
 
-The three `PackerPalette`s currently available are:
+The two `PackerPalette`s currently available are:
 
 * `DefaultPackerPalette`<br />
 This `PackerPalette` recreates the original packing and design system in Rosetta, before some of us went and mucked around with things by adding crazy chemistries that are not amino acids. If you do not specify a `PackerPalette`, the `DefaultPackerPalette` will be selected automatically.
@@ -23,10 +23,12 @@ This `PackerPalette` recreates the original packing and design system in Rosetta
 * [[`CustomBaseTypePackerPalette`|CustomBaseTypePackerPalette]]<br />
   This `PackerPalette` includes all of the residues found in the `DefaultPackerPalette` but includes the ability to add a custom list of _base_, that is _non-variant_ `ResidueType`s. If you wish to add a few specific residues to the palette by name, you can, or you can add residues by family property, for example, all residues that have the property RNA or TERPENE.
 
+<!--
 * [[`CustomVariantTypePackerPalette`|CustomVariantTypePackerPalette]]<br />
   This `PackerPalette` is similar to the `CustomBaseTypePackerPalette`, except that it allows for design of `VariantType` residues, including such things as modified sugars or post-translationally modified (PTM) amino acid residues.
+-->
 
-In the future, there may be additional `PackerPalette`s allowing for design of alternative backbones, for example, a protein nucleic acid residue in place of an RNA residue.
+In the future, there may be additional `PackerPalette`s allowing for design with variant types, or possibly for design of alternative backbones (_e.g._ a protein nucleic acid residue in place of an RNA residue).
 
 Usage
 =====
@@ -39,7 +41,7 @@ Once the palette is established, it can either be given to a `TaskFactory` (pref
 
 ###Pyrosetta Example
 
-```
+```python
 from pyrosetta.rosetta.core.pack.palette import CustomBaseTypePackerPalette
 
 pp = CustomBaseTypePackerPalette()
@@ -62,11 +64,11 @@ In RosettaScripts, the interface with `PackerPalette` is through the `<PACKER_PA
 * The `name` parameter of a `PackerPalette` is for providing a unique name to represent a given palette elsewhere in the script.
 * The `additional_residue_types` is for providing the full `ResidueType` name, (not necessarily its three-letter code,) as a string.
 
-The `PackerPalette` can be directly passed to a `PackRotamersMover` by using its `packer_palette` parameter.
+The `PackerPalette` can be directly passed to a `PackRotamersMover`, or to any other RosettaScripts-scriptable object that takes `TaskOperation`s, by using its `packer_palette` parameter.
 
 ###Example XML Script
 
-```
+```xml
 <ROSETTASCRIPTS>
 	<SCOREFXNS>
 	</SCOREFXNS>
