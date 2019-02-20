@@ -59,5 +59,5 @@ PIKAA X[DALA]X[DCYS]X[DASP]X[DGLU]X[DPHE]X[DHIS]X[DILE]X[DLYS]X[DLEU]X[DMET]X[DA
 ##See also
 
 * [[PackerPalettes|PackerPalette]]
-* [[CustomBaseTypePackerPalette]]
+* [[DefaultPackerPalette]]
 * [[NoDesignPackerPalette]]
