@@ -10,14 +10,14 @@ Fleishman SJ, Leaver-Fay A, Corn JE, Strauch EM, Khare SD, et al. (2011) Rosetta
 
 ---------------------
 
--   [[Movers |Movers-RosettaScripts]]
--   [[ResidueSelectors |ResidueSelectors]]
--   [[TaskOperations |TaskOperations-RosettaScripts]]
+-   [[Movers (RosettaScripts)|Movers-RosettaScripts]]
+-   [[Filters|Filters-RosettaScripts]]
+-   [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]]
+-   [[ResidueSelectors (RosettaScripts)|ResidueSelectors]]
+-   [[PackerPalette|PackerPalettes]]
 -   [[SimpleMetrics]]
--   [[Filters |Filters-RosettaScripts]]
 
-
------------------------
+---------------------
 
 -   [[Composite protocols with RosettaScripts interfaces|Composite-protocols]]
 -   [[Multistage Rosetta Scripts|MultistageRosettaScripts]]

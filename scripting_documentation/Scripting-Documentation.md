@@ -8,12 +8,12 @@
 ---------------------------------
 * [[Movers|Movers-RosettaScripts]]
 * [[ResidueSelectors]]
+* [[PackerPalettes]]
 * [[TaskOperations|TaskOperations-RosettaScripts]]
 * [[SimpleMetrics]]
 * [[Filters|Filters-RosettaScripts]]
 
 ---------------------------------
-
 * [[Composite protocols|Composite-protocols]]
 * [[Multistage Rosetta Scripts|MultistageRosettaScripts]]
 * [[FeaturesReporters|Features-reporter-overview]]
