@@ -49,15 +49,18 @@ Once the palette is established, it can either be given to a `TaskFactory` (pref
 ```python
 from pyrosetta.rosetta.core.pack.palette import CustomBaseTypePackerPalette
 
-pp = CustomBaseTypePackerPalette()
-pp.add_type( "adamantine" )
+##### Designing with one extra noncanonical (adamantine): #####
+# 1. Create the PackerPalette and add an extra noncanonical type to the allowed types:
+pp = CustomBaseTypePackerPalette() ## Only needed for noncanonical design
+pp.add_type( "adamantine" ) ## Only needed for noncanonical design
 
+# 2.  Create the task factory and set its PackerPalette:
 tf = TaskFactory()
-tf.set_packer_palette(pp)
+tf.set_packer_palette(pp) ## Only needed for noncanonical design
 
+# 3.  Pass the task factory to the PackRotamersMover, and pack normally:
 packer = PackRotamersMover()
 packer.task_factory(tf)
-
 packer.apply(pose)
 ```
 
