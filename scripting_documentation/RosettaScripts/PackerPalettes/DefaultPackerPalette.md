@@ -11,7 +11,7 @@ A basic `PackerPalette` permitting design with the canonical 20 amino acids.  (N
 To design with additional residue types, see [[`CustomBaseTypePackerPalette`|CustomBaseTypePackerPalette]].
 
 ##RosettaScripts Details
-[[include:packer_palette_CustomVariantTypePackerPalette_type]]
+[[include:packer_palette_DefaultPackerPalette_type]]
 
 ##See also
 
