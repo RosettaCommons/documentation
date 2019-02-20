@@ -1,5 +1,11 @@
 # PackerPalettes
 
+## PackerPalettes
+
+Documentation created 20 February 2019 by Jason W. Labonte and Vikram K. Mulligan (vmulligan@flationinstitute.org).
+
+## Description
+
 `PackerPalette`s are used by a [[PackerTask|packer-task]] to determine which `ResidueType`s may be substituted at any given position in a `Pose` before any [[TaskOperations|TaskOperations-RosettaScripts]] are applied.
 
 The `PackerTask` can be thought of as an ice sculpture. By default, every position is able to packed _and_ design, but only by the 20 natural amino acid residues. By using `TaskOperation`s, a set of chisels, one can _limit_ packing/design to only certain residues or to only packing. As with _ice_, once a `TaskOperation` has chipped away (restricted) a particular residue type, that type cannot be put back by a subsequent `TaskOperation` (re-enabled for design).
@@ -10,8 +16,7 @@ Note that, for most canonical design applications, you will want only the 20 can
 
 [[_TOC_]]
 
-Types
-=====
+## Types
 
 The three `PackerPalette`s currently available are:
 
@@ -35,19 +40,20 @@ The three `PackerPalette`s currently available are:
 
 In the future, there may be additional `PackerPalette`s allowing for design with variant types, or possibly for design of alternative backbones (_e.g._ a protein nucleic acid residue in place of an RNA residue).
 
-Usage
-=====
-C++ and PyRosetta Code
-----------------------
+## Usage
+
+### PyRosetta Code
 
 The main method used for interacting with `CustomBaseTypePackerPalette` is `add_type( <ResidueType name> )`, which takes the full `ResidueType` name, (not necessarily its three-letter code,) as a string.
 
 Once the palette is established, it can either be given to a `TaskFactory` (preferred) or used directly in the construction of a `PackerTask` (not recommended).
 
-###Pyrosetta Example
+#### Pyrosetta Example
 
 ```python
 from pyrosetta.rosetta.core.pack.palette import CustomBaseTypePackerPalette
+
+## (Create pose here.)
 
 ##### Designing with one extra noncanonical (adamantine): #####
 # 1. Create the PackerPalette and add an extra noncanonical type to the allowed types:
@@ -64,8 +70,40 @@ packer.task_factory(tf)
 packer.apply(pose)
 ```
 
-RosettaScripts
---------------
+### C++ Code
+
+The Python example above translates almost directly into C++.
+
+#### C++ Example
+
+```c++
+#include <core/pack/palette/CustomBaseTypePackerPalette.hh>
+#include <core/pack/task/TaskFactory.hh>
+#include <protocols/minimization_packing/PackRotamersMover.hh>
+
+using namespace core::pack::palette;
+using namespace core::pack::task;
+using namespace protocols::minimization_packing;
+
+// (Create pose here).
+
+/***** Designing with one extra noncanonical (adamantine): *****/
+// 1. Create the PackerPalette and add an extra noncanonical type to the allowed types:
+CustomBaseTypePackerPaletteOP pp( utility::pointer::make_shared< CustomBaseTypePackerPalette > ); // Only needed for noncanonical design
+pp->add_type( "adamantine" ) // Only needed for noncanonical design
+
+// 2.  Create the task factory and set its PackerPalette:
+TaskFactory OP tf( utility::pointer::make_shared< TaskFactory > );
+tf->set_packer_palette(pp) // Only needed for noncanonical design
+
+// 3.  Pass the task factory to the PackRotamersMover, and pack normally:
+PackRotamersMover packer;
+packer.task_factory(tf)
+packer.apply(pose)
+
+```
+
+### RosettaScripts
 
 In RosettaScripts, the interface with `PackerPalette` is through the `<PACKER_PALETTES>` XML tag.
 
@@ -74,7 +112,7 @@ In RosettaScripts, the interface with `PackerPalette` is through the `<PACKER_PA
 
 The `PackerPalette` can be directly passed to a `PackRotamersMover`, or to any other RosettaScripts-scriptable object that takes `TaskOperation`s, by using its `packer_palette` parameter.
 
-###Example XML Script
+#### Example RosettaScripts XML
 
 ```xml
 <ROSETTASCRIPTS>
@@ -99,8 +137,7 @@ The `PackerPalette` can be directly passed to a `PackRotamersMover`, or to any o
 </ROSETTASCRIPTS>
 ```
 
-Command-Line Applications
--------------------------
+### Command-Line Applications
 
 By default, if a user does not specify a PackerPalette, Rosetta creates a `DefaultPackerPalette` for all packing tasks.  The global default `PackerPalette` can be changed to a `CustomBaseTypePackerPalette`, however, using the `-packer_palette:extra_base_type_file <filename>` command-line flag.  The provided file should be an ASCII text file containing a whitespace-separated list of residue type names (not 3-letter codes) that will be appended to the canonical 20 amino acids to form the palette of residue types with which to design.  For example, when using the Rosetta `fixbb` application to design, one can specify design with the 20 canonical amino acids _plus_ the 19 mirror-image D-amino acid counterparts of the L-amino acids using the following command at the commandline:
 
@@ -114,8 +151,7 @@ In the above, "default.linuxgccrelease" must be replaced with the appropriate st
 DALA DCYS DASP DGLU DPHE DHIS DILE DLYS DLEU DMET DASN DPRO DGLN DARG DSER DTHR DVAL DTRP DTYR
 ```
 
-Previous Behavior
-=================
+## Previous Behavior
 
 In earlier versions of Rosetta, when the `PackerPalette` did not exist, special `TaskOperation`s, which violated the idea of commutativity, had to be employed.
 
@@ -126,8 +162,7 @@ start
 5 A PIKAA AX[DALA]
 ```
 
-See Also
-========
+## See Also
 
 * [[resfiles]]: A description about Resfile syntax and conventions
 * [[RosettaScripts]]: The RosettaScripts home page
