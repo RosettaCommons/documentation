@@ -9,7 +9,7 @@
 A `PackerPalette` permitting design with the canonical 20 amino acids plus a user-specified list of other base types.
 
 ##RosettaScripts Details
-[[include:packer_palette_CustomBaseTypePackerPalette_type]]
+[[include:scripting_documentation/RosettaScripts/xsd/packer_palette_CustomBaseTypePackerPalette_type]]
 
 ##Example
 
