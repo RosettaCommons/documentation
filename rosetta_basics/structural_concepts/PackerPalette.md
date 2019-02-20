@@ -2,9 +2,9 @@
 
 `PackerPalette`s are used by a [[`PackerTask`|packer-task]] to determine which `ResidueType`s may be substituted at any given position in a `Pose` before any [[`TaskOperation`s|TaskOperations-RosettaScripts]] are applied.
 
-The `PackerTask` can be thought of as an ice sculpture. By default, every position is able to packed _and_ design, but only by the 20 natural amino acid residues. By using `TaskOperation`s, a set of chisels, one can _limit_ packing/design to only certain residues or to only packing. As with _ice_, once these residues are restricted, they generally cannot be turned back on.
+The `PackerTask` can be thought of as an ice sculpture. By default, every position is able to packed _and_ design, but only by the 20 natural amino acid residues. By using `TaskOperation`s, a set of chisels, one can _limit_ packing/design to only certain residues or to only packing. As with _ice_, once a `TaskOperation` has chipped away (restricted) a particular residue type, that type cannot be put back by a subsequent `TaskOperation` (re-enabled for design).
 
-An ice sculpture, of course, is limited by the size of the starting piece of ice. If you want a bigger starting list, or palette, of residues with which you can design, you use a `PackerPalette`. The `DefaultPackerPalette` is like an ice cube, but if you use a modifiable `PackerPalette`, to which you can add residues, you can start with an _iceberg_.
+An ice sculpture, of course, is limited by the size of the starting piece of ice. If you want a bigger starting list, or palette, of residues with which you can design, you use a `PackerPalette`. The `DefaultPackerPalette`, which provides the 20 canonical amino acid building-blocks, is like an ice cube, but if you use a modifiable `PackerPalette`, to which you can add more exotic residue types, you can start with an _iceberg_.
 
 [[_TOC_]]
 
