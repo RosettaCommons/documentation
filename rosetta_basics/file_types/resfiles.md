@@ -156,9 +156,9 @@ NOTE: It should be remembered that resfile commands are restrictive, rather than
 
 - PROPERTY \<property\> .. disallow any residue type that lacks the given property
 
-- NOTAA \<list of AAs\> .. disallow only the specified amino acids ( Use one letter codes, undelimited like ACFYRT.  For NCAAs, use X[<full name>]. )
+- NOTAA \<list of AAs\> .. disallow only the specified amino acids ( Use one letter codes, undelimited like ACFYRT.  For NCAAs, use X[\<full name\>]. )
 
-- PIKAA \<list of AAs\> .. allow only the specified amino acids ( Use one letter codes, undelimited like ACFYRT.  For NCAAs, use X[<full name>].)
+- PIKAA \<list of AAs\> .. allow only the specified amino acids ( Use one letter codes, undelimited like ACFYRT.  For NCAAs, use X[\<full name\>].)
 
 - NATAA ................ allow only the native amino acid (NATive Amino Acid) - repack without design
 
