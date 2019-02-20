@@ -149,7 +149,7 @@ PackerPalette <a name="packerpalette" />
 
 PackerPalettes are used by the PackerTask to provide a starting list of available residues with which one can design at every position in a pose. For example, if one wants to design with non-canonical amino acids (NCAA), instead of being limited to the 20 naturally occurring ones, she or he would use a PackerPalette to add the desired NCAAs.
 
-For more information on PackerPalettes, see the [[PackerPalettes page|PackerPalettes]].
+For more information on PackerPalettes, see the [[PackerPalettes page|PackerPalette]].
 
 Mover <a name="mover" />
 -----
