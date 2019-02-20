@@ -8,7 +8,7 @@
 ---------------------------------
 * [[Movers|Movers-RosettaScripts]]
 * [[ResidueSelectors]]
-* [[PackerPalettes]]
+* [[PackerPalettes|PackerPalette]]
 * [[TaskOperations|TaskOperations-RosettaScripts]]
 * [[SimpleMetrics]]
 * [[Filters|Filters-RosettaScripts]]
