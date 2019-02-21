@@ -14,7 +14,8 @@ Uses a probe of the specified type to probe the surface of the pose
         coarse_sampling="(&real;)" refinement_angle_sampling="(&real;)"
         refinement_sampling="(&real;)" refinement_distance="(&real;)"
         scorefxn="(&string;)"
-        task_operations="(&task_operation_comma_separated_list;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)" />
 ```
 
 -   **residue_name**: (REQUIRED) Residue to use as a surface probe
@@ -28,6 +29,7 @@ Uses a probe of the specified type to probe the surface of the pose
 -   **refinement_sampling**: (REQUIRED) Bin size for sampling during refinement
 -   **refinement_distance**: (REQUIRED) Distance to use during refinement stageof search
 -   **scorefxn**: Name of score function to use
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 ---

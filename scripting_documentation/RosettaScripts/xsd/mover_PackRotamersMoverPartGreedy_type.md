@@ -8,15 +8,16 @@ Greedily optimizes around a set of target residues, then repacks sidechains with
 ```xml
 <PackRotamersMoverPartGreedy name="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        task_factory="(&string;)" scorefxn_repack="(&string;)"
-        scorefxn_repack_greedy="(&string;)" scorefxn_minimize="(&string;)"
-        target_residues="(&string;)" target_cstids="(&string;)"
-        distance_threshold="(8.0 &real;)"
+        task_factory="(&string;)" packer_palette="(&named_packer_palette;)"
+        scorefxn_repack="(&string;)" scorefxn_repack_greedy="(&string;)"
+        scorefxn_minimize="(&string;)" target_residues="(&string;)"
+        target_cstids="(&string;)" distance_threshold="(8.0 &real;)"
         choose_best_n="(&non_negative_integer;)" />
 ```
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
 -   **task_factory**: A TaskFactory specification to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **scorefxn_repack**: Name of score function to use
 -   **scorefxn_repack_greedy**: Name of score function to use
 -   **scorefxn_minimize**: Name of score function to use

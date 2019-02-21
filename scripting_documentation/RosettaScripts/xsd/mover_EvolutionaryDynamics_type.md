@@ -13,6 +13,7 @@ Overwrites the boltzmann function in GenericMonteCarloMover to sample according 
         filter_name="(true_filter &string;)" adaptive="(true &bool;)"
         sample_type="(low &string;)" scorefxn_name="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)"
         stopping_condition="(false_filter &string;)" drift="(true &bool;)"
         preapply="(true &bool;)" recover_low="(true &bool;)"
         bolz_rank="(false &bool;)" saved_accept_file_name="(&string;)"
@@ -39,7 +40,8 @@ Overwrites the boltzmann function in GenericMonteCarloMover to sample according 
 -   **adaptive**: If the mover you call or a submover of that mover is of type ParsedProtocol with mode single-random, then GenericMonteCarlo can 'learn' the best sampling strategy by adapting the apply probabilities of individual movers within that ParsedProtocol. For each adaptation period (say 20 mover applies) the number of 'accepts of each submover is recorded (with pseudocounts of 1 for each mover) and during the next adaptation period the apply probabilities of the submovers in the ParsedProtocol are adjusted according in proportion to the acceptance probabilities of the previous stage. Due to the pseudocounts, all movers have at least some chance of being called.
 -   **sample_type**: low - MC samples by minimizing the structure score (REU: the more negative the better); high - MC samples by maximizing the structure score
 -   **scorefxn_name**: As alternative to scoring by filters (See Filters subcategory), structures may be scored by a given scoring function.
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **stopping_condition**: stops before trials are done if a filter evaluates to true
 -   **drift**: true - the state of the pose at the end of the previous iteration will be the starting state for the next iteration; false - the state of the pose at the start of each iteration will be reset to the state when the mover is first called ( Of course, this is not MC ).
 -   **preapply**: true - Automatically accept the first application of the sub-mover, ignoring the Boltzmann criterion. false - apply Boltzmann accept/reject to all applications of the mover. Though defaulting to true for historical reasons, it is highly recommended to set this to false unless you know you need it to be true.

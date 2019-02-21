@@ -12,7 +12,7 @@ A version of the AverageDegree filter that is compatible with oligomeric buildin
         sym_dof_names="(&string;)" write2pdb="(0 &bool;)" verbose="(0 &bool;)"
         multicomp="(0 &bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        confidence="(1.0 &real;)" />
+        packer_palette="(&named_packer_palette;)" confidence="(1.0 &real;)" />
 ```
 
 -   **threshold**: How many residues need to be on average in the sphere of each of the residues under scrutiny in order for the filter to return true.
@@ -22,7 +22,8 @@ A version of the AverageDegree filter that is compatible with oligomeric buildin
 -   **write2pdb**: Whether to write the residue-level AverageDegree values to the output .pdb file.
 -   **verbose**: Output jump and corresponding displacement or angle to tracer.
 -   **multicomp**: Set to true if the systems has multiple components.
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

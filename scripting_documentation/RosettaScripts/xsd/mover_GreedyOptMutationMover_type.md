@@ -17,7 +17,7 @@ This mover will first attempt isolated/independent mutations defined in the inpu
         sample_type="(low &choices_for_sample_types;)"
         filter_delta="(0.0 &real;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        scorefxn="(&string;)" >
+        packer_palette="(&named_packer_palette;)" scorefxn="(&string;)" >
     <Filters >
         <AND filter_name="(&string;)" sample_type="(low &choices_for_sample_types;)"
                 filter_delta="(0.0 &real;)" />
@@ -44,7 +44,8 @@ This mover will first attempt isolated/independent mutations defined in the inpu
 -   **filter**: Name of a single filter you wish you process.
 -   **sample_type**: If your filter values are such that higher = better, use 'sample_type=high'
 -   **filter_delta**: Add sequence diversity; useful with nstruct greater than 1; randomly try any mutation that scores wit     hin N filter points of the best-scoring mutation at each position instead of just the first, e.g. filter_delta=0.5 for attempting any mutation within 0.5 filter points of the best one.
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **scorefxn**: Name of score function to use
 
 

@@ -9,13 +9,14 @@ PredesignPerturbMover randomly perturbs a ligand in a protein active site. The i
 <PredesignPerturbMover name="(&string;)" trans_magnitude="(0.1 &real;)"
         rot_magnitude="(2.0 &real;)" dock_trials="(100 &non_negative_integer;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        task_factory="(&string;)" />
+        task_factory="(&string;)" packer_palette="(&named_packer_palette;)" />
 ```
 
 -   **trans_magnitude**: how large (stdev of a gaussian) a random translation step to take in each of x, y, and z (angstrom)
 -   **rot_magnitude**: how large (stdev of a gaussian) a random rotational step to take in each of the Euler angles (degrees)
 -   **dock_trials**: the number of Monte Carlo steps to attempt
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
 -   **task_factory**: A TaskFactory specification to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 ---

@@ -13,7 +13,8 @@ Takes task operations to determine the packable residues and then calculates/fil
         mode="(average &TaskAwareScoreTypeFilter_mode_choices;)"
         write2pdb="(0 &bool;)" individual_hbonds="(false &bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        scorefxn="(&string;)" confidence="(1.0 &real;)" />
+        packer_palette="(&named_packer_palette;)" scorefxn="(&string;)"
+        confidence="(1.0 &real;)" />
 ```
 
 -   **score_type**: Score term to use for the calculations. Defaults to total_score.
@@ -25,7 +26,8 @@ Takes task operations to determine the packable residues and then calculates/fil
 -   **mode**: This filter can operate in three modes. The options are 'total', 'average', or 'individual'. If mode=total, then the total score of the packable residues is returned and the threshold refers to that total value. If mode=average, then the average score of the packable residues is returned and the threshold refers to that average value. If mode=individual, then each packable residue is evaluated on an individual basis and the threshold refers to those individual values; in this case, individual residue must pass in order for the filter to pass. For example, the user could set threshold=3.5, score_type=fa_rep, and mode=individual to check if all the packable residues have a fa_rep score less than 3.5. The value reported from the filter when mode=individual is the number of failing residues.
 -   **write2pdb**: Only for use with mode=individual. Default is false. Setting to true will cause the individual scores to be output to the bottom of the pdb.
 -   **individual_hbonds**: This seems to still be in development.
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **scorefxn**: Name of score function to use
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 

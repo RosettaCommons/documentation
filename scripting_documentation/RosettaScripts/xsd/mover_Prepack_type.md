@@ -9,7 +9,7 @@ XRW TO DO
 <Prepack name="(&string;)" scorefxn="(&string;)"
         jump_number="(1 &non_negative_integer;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        min_bb="(0 &bool;)" >
+        packer_palette="(&named_packer_palette;)" min_bb="(0 &bool;)" >
     <MoveMap name="(&string;)" bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
         <Jump number="(&non_negative_integer;)" setting="(&bool;)" />
         <Chain number="(&non_negative_integer;)" chi="(&bool;)" bb="(&bool;)" />
@@ -21,7 +21,8 @@ XRW TO DO
 
 -   **scorefxn**: Name of score function to use
 -   **jump_number**: Number of the jump interface to prepack
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **min_bb**: Minimize the backbone
 
 

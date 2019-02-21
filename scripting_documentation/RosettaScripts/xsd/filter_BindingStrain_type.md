@@ -8,12 +8,13 @@ Computes the energetic strain in a bound monomer. Automatically respects symmetr
 ```xml
 <BindingStrain name="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        scorefxn="(&string;)" jump="(1 &non_negative_integer;)"
-        threshold="(3.0 &real;)" relax_mover="(null &string;)"
-        confidence="(1.0 &real;)" />
+        packer_palette="(&named_packer_palette;)" scorefxn="(&string;)"
+        jump="(1 &non_negative_integer;)" threshold="(3.0 &real;)"
+        relax_mover="(null &string;)" confidence="(1.0 &real;)" />
 ```
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **scorefxn**: Name of score function to use
 -   **jump**: Jump across which to compute binding
 -   **threshold**: Strain must be less than this value to pass

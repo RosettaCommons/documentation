@@ -10,7 +10,8 @@ Run mean-field on pose
         tolerance="(0.0001 &real;)" temperature="(0.8 &real;)"
         init_option="(1 &real;)" threshold="(10 &real;)" unbound="(0 &bool;)"
         scorefxn="(&string;)"
-        task_operations="(&task_operation_comma_separated_list;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)" />
 ```
 
 -   **lambda_memory**: Used in updating the original mean-field matrix to decrease oscillation.
@@ -20,6 +21,7 @@ Run mean-field on pose
 -   **threshold**: Threshold for truncation of energy matrix values.
 -   **unbound**: Unbind protein from substrate before running?
 -   **scorefxn**: Name of score function to use
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 ---

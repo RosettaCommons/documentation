@@ -8,6 +8,7 @@ Scan all mutations allowed by a particular set of TaskOperations and test them a
 ```xml
 <FilterScan name="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)"
         triage_filter="(true_filter &string;)" keep_native="(false &bool;)"
         dump_pdb_name="(&string;)" filter="(true_filter &string;)"
         relax_mover="(null &string;)" delta="(false &bool;)"
@@ -18,7 +19,8 @@ Scan all mutations allowed by a particular set of TaskOperations and test them a
         delta_filter_thresholds="(&real_cslist;)" confidence="(1.0 &real;)" />
 ```
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **triage_filter**: If this filter evaluates to false, don't include the mutation in the resulting resfile
 -   **keep_native**: Keep the native conformation?
 -   **dump_pdb_name**: Name to which to dump PDBs

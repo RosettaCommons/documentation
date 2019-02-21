@@ -11,7 +11,8 @@ This mover creates a stored task that links selected residues with RotamerLinks.
         quasi_symm_comp="(B &string;)"
         num_quasi_repeats="(2 &non_negative_integer;)"
         offset_resis="(0 &non_negative_integer;)"
-        task_operations="(&task_operation_comma_separated_list;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)" />
 ```
 
 -   **task_name**: (REQUIRED) The name of the stored task to be cached in the Pose object's datacache.  The object can later be retrieved using this name.
@@ -19,6 +20,7 @@ This mover creates a stored task that links selected residues with RotamerLinks.
 -   **quasi_symm_comp**: Which component (if multi-component, A or B), is going to be quasi-equivalent.
 -   **num_quasi_repeats**: How many subunits your quasi-equivalent building block consists of. For example, a trimer would be 3.
 -   **offset_resis**: If your building block is non-quasi-equivalent domains, this number denotes the number of residues to skip. Currently needs to be resis 1-x, the skipped portion must be on the N-terminus.
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 ---

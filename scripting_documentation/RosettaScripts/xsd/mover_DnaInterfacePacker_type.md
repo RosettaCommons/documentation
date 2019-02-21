@@ -10,7 +10,8 @@ Intended to perform anything one would want to do in a DNA interface that uses a
         minimize="(&bool;)" reversion_scan="(&bool;)"
         probe_specificity="(&non_negative_integer;)" pdb_output="(&bool;)"
         protein_scan="(&bool;)" allowed_types="(&bool;)" scorefxn="(&string;)"
-        task_operations="(&task_operation_comma_separated_list;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)" />
 ```
 
 -   **binding**: calculate binding energy
@@ -22,6 +23,7 @@ Intended to perform anything one would want to do in a DNA interface that uses a
 -   **protein_scan**: brief runs a single-residue scan of user-defined amino acid possibilities to estimate affinity and specificity of single mutants w/ respect to relevant DNA
 -   **allowed_types**: allowed residue types for design. default: ACDEFGHIKLMNPQRSTVWY;
 -   **scorefxn**: Name of score function to use
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 ---

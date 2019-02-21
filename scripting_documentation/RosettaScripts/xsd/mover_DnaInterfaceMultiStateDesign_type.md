@@ -16,7 +16,8 @@ Performs multistate design on DNA interfaces
         checkpoint_prefix="(&string;)"
         checkpoint_interval="(&non_negative_integer;)" checkpoint_gz="(&bool;)"
         checkpoint_rename="(&bool;)" scorefxn="(&string;)"
-        task_operations="(&task_operation_comma_separated_list;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)" />
 ```
 
 -   **generations**: Number of generations for the genetic algorithm to evolve
@@ -33,6 +34,7 @@ Performs multistate design on DNA interfaces
 -   **checkpoint_gz**: compress the checkpoint files with gzip
 -   **checkpoint_rename**: rename checkpoint files after the genetic algorithm completes, so that subsequent runs generate new output
 -   **scorefxn**: Name of score function to use
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 ---

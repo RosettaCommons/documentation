@@ -8,11 +8,12 @@ What is the average degree connectivity of a subset of residues? Found to be use
 ```xml
 <AverageDegree name="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        threshold="(0 &real;)" distance_threshold="(8.0 &real;)"
-        confidence="(1.0 &real;)" />
+        packer_palette="(&named_packer_palette;)" threshold="(0 &real;)"
+        distance_threshold="(8.0 &real;)" confidence="(1.0 &real;)" />
 ```
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **threshold**: Lower limit below which the filter fails
 -   **distance_threshold**: Count neighbors for residues closer than this distance
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter

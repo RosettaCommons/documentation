@@ -12,6 +12,7 @@ Places hotspot residues simultaneously on a scaffold, rather than iteratively as
         host_chain="(2 &positive_integer;)" optimize_fold_tree="(false &bool;)"
         minimize_rb="(true &bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)"
         coor_cst_cutoff="(100.0 &real;)" repack_non_ala="(true &bool;)"
         after_placement_filter="(true_filter &string;)" >
     <StubMinimize min_repeats_before_placement="(0 &non_negative_integer;)"
@@ -41,7 +42,8 @@ Places hotspot residues simultaneously on a scaffold, rather than iteratively as
 -   **host_chain**: Probably the chain where the stub goes
 -   **optimize_fold_tree**: setup new fold_tree for better numerical behaviour between the residue at the center of target_residues and the nearest residue on the partner
 -   **minimize_rb**: do we want to minimize the rb dof during stub placement? This will allow a previously placed stub to move a a little to accommodate the new stub. It's a good idea to use this with the previously placed stub adding its implied constraints.
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **coor_cst_cutoff**: the threshold coordinate constraint energy between the added hotspot residues and the one in the stub library. Use with stubscorefxn=backbone_stub_linear_constraint. PlaceSimultaneously fails if placed residues deviates beyond this threshold.
 -   **repack_non_ala**: clearly implies something about repacking, although the only comment I could find mentioned reDESIGN instead
 -   **after_placement_filter**: The name of a filter to be applied immediately after stub placement and StubMinimize movers, but before the DesignMovers run. Useful for quick sanity check on the goodness of the stub.

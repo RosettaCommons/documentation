@@ -20,6 +20,7 @@ Reports to database every stride steps in a trajectory
         remove_xray_virt="(false &bool;)"
         relevant_residues_mode="(explicit &report_to_db_relevant_residues_mode;)"
         task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)"
         stride="(&non_negative_integer;)" >
     <Features Reporter Tag ... />
 </TrajectoryReportToDB>
@@ -44,7 +45,8 @@ Reports to database every stride steps in a trajectory
 -   **cache_size**: Specify the maximum number 1k pages to keep in memory before writing to disk.
 -   **remove_xray_virt**: Remove virtual residue attached during xray refine process
 -   **relevant_residues_mode**: Determine what features are reported given the relevant residues
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **stride**: Number of iterations between reports to database
 
 

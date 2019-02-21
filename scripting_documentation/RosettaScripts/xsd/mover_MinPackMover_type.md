@@ -8,13 +8,15 @@ Packs then minimizes a sidechain before calling MonteCarlo on the change. It can
 ```xml
 <MinPackMover name="(&string;)" nonideal="(&bool;)" cartesian="(&bool;)"
         off_rotamer_pack="(&bool;)" scorefxn="(&string;)"
-        task_operations="(&task_operation_comma_separated_list;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)" />
 ```
 
 -   **nonideal**: open up the bond-angle- and bond-length DOFs to minimization
 -   **cartesian**: use cartesian minimization
 -   **off_rotamer_pack**: instead of using core::pack::min_pack, use core::pack::off_rotamer_pack
 -   **scorefxn**: It is reccomended to change the weights you are using to the score12minpack weights. These are the standard score12 weights with the reference energies refit for sequence recovery profile when using the MinPackMover. Without these weights you will see a lot of Tryptophan residues on the surface of a protein. default is score12
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 ---

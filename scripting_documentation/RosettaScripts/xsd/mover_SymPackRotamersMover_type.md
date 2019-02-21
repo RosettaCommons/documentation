@@ -9,11 +9,13 @@ Repacks sidechains with user-supplied options, including TaskOperations.
 ```xml
 <SymPackRotamersMover name="(&string;)" nloop="(1 &non_negative_integer;)"
         scorefxn="(&string;)"
-        task_operations="(&task_operation_comma_separated_list;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)" />
 ```
 
 -   **nloop**: Equivalent to "-ndruns".Number of complete packing runs before an output (best score) is produced.
 -   **scorefxn**: Name of score function to use
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 ---

@@ -14,7 +14,8 @@ Computes the binding energy for the complex and if it is below the threshold ret
         relax_mover="(&string;)" filter="(&string;)" chain_num="(&string;)"
         extreme_value_removal="(false &bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        scorefxn="(&string;)" confidence="(1.0 &real;)" />
+        packer_palette="(&named_packer_palette;)" scorefxn="(&string;)"
+        confidence="(1.0 &real;)" />
 ```
 
 -   **threshold**: Threshold below which the filter computes the binding energy.
@@ -31,7 +32,8 @@ Computes the binding energy for the complex and if it is below the threshold ret
 -   **filter**: If specified, the given filter will be calculated in the bound and unbound state for the score, rather than the given scorefunction. Repacking, if any, will be done with the provided scorefunction.
 -   **chain_num**: Allows you to specify a list of chain numbers to use to calculate the ddg, rather than a single jump. You cannot move chain 1, moving all the other chains is the same thing as moving chain 1, so do that instead. Use independently of jump.
 -   **extreme_value_removal**: Compute ddg value times, sort and remove the top and bottom evaluation. This should reduce the noise levels in trajectories involving 1000s of evaluations. If set to true, repeats must be set to at least 3.
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **scorefxn**: Name of score function to use
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 

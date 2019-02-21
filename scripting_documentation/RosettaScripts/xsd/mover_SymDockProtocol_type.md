@@ -10,7 +10,8 @@ Symmetric oligomer docking.
         max_repeats="(&bool;)" dock_ppk="(&bool;)" fullatom="(&bool;)"
         local_refine="(&bool;)" view="(&bool;)" docking_score_low="(&string;)"
         docking_score_high="(&string;)"
-        task_operations="(&task_operation_comma_separated_list;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)" />
 ```
 
 -   **dock_rtmin**: Does rotamer trials with minimization.
@@ -22,6 +23,7 @@ Symmetric oligomer docking.
 -   **view**: Decide whether to use the viewer (graphical) or not.
 -   **docking_score_low**: Name of score function to use
 -   **docking_score_high**: Name of score function to use
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 ---

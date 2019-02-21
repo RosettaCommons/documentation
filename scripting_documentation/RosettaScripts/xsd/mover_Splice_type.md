@@ -20,6 +20,7 @@ XRW TO DO
         scorefxn="(&string;)" add_sequence_constraints_only="(false &bool;)"
         template_file="(&string;)" set_fold_tree_only="(false &bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)"
         from_res="(0 &refpose_enabled_residue_number;)"
         to_res="(0 &refpose_enabled_residue_number;)"
         design_task_operations="(&string;)" residue_numbers_setter="(&string;)"
@@ -67,7 +68,8 @@ XRW TO DO
 -   **add_sequence_constraints_only**: XRW TO DO
 -   **template_file**: XRW TO DO
 -   **set_fold_tree_only**: XRW TO DO
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **from_res**: XRW TO DO
 -   **to_res**: XRW TO DO
 -   **design_task_operations**: XRW TO DO

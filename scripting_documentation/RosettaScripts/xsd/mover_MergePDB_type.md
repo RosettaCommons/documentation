@@ -20,7 +20,8 @@ Align + combine parts of the pdb
         scorefxn="(&string;)" output_only_first="(false &bool;)"
         output_overlap_positions="(false &bool;)" do_design="(true &bool;)"
         clash_threshold="(10 &real;)"
-        task_operations="(&task_operation_comma_separated_list;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)" />
 ```
 
 -   **symm_file**: Symmetry definition file if pose symmetric. hack for now
@@ -43,6 +44,7 @@ Align + combine parts of the pdb
 -   **output_overlap_positions**: outputs overlap positions
 -   **do_design**: Perform design on sequence
 -   **clash_threshold**: score0 clash threshold
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 ---

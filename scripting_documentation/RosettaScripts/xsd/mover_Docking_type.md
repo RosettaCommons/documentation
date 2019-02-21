@@ -12,7 +12,8 @@ XRW TO DO
         view="(0 &bool;)" design="(0 &bool;)" symmetry="(0 &bool;)"
         ignore_default_docking_task="(0 &bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        jumps="(1 &int_cslist;)" optimize_fold_tree="(1 &bool;)" />
+        packer_palette="(&named_packer_palette;)" jumps="(1 &int_cslist;)"
+        optimize_fold_tree="(1 &bool;)" />
 ```
 
 -   **score_low**: Low-resolution scorefunction
@@ -24,7 +25,8 @@ XRW TO DO
 -   **design**: XRW TODO
 -   **symmetry**: Account for symmetry and associated information
 -   **ignore_default_docking_task**: Ignore default docking task, instead using whatever is provided
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **jumps**: list of jumps for docking
 -   **optimize_fold_tree**: Obtain an optimal foldtree given the desired docking jumps
 

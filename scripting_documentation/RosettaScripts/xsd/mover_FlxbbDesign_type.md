@@ -16,7 +16,8 @@ XRW TO DO
         constraints_sheet="(-1.0 &real;)" constraints_to_backbone="(0 &bool;)"
         movemap_from_blueprint="(0 &bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        fast_relax="(1 &bool;)" limit_aroma_chi2="(1 &bool;)" >
+        packer_palette="(&named_packer_palette;)" fast_relax="(1 &bool;)"
+        limit_aroma_chi2="(1 &bool;)" >
     <MoveMap name="(&string;)" bb="(&bool;)" chi="(&bool;)" jump="(&bool;)" >
         <Jump number="(&non_negative_integer;)" setting="(&bool;)" />
         <Chain number="(&non_negative_integer;)" chi="(&bool;)" bb="(&bool;)" />
@@ -42,7 +43,8 @@ XRW TO DO
 -   **constraints_sheet**: XRW TO DO
 -   **constraints_to_backbone**: XRW TO DO
 -   **movemap_from_blueprint**: XRW TO DO
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **fast_relax**: XRW TO DO
 -   **limit_aroma_chi2**: XRW TO DO
 

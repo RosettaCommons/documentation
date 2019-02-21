@@ -10,7 +10,7 @@ Calculates SASA for a set of residues defined by TaskOperations.
         designable_only="(false &bool;)" sc_only="(false &bool;)"
         probe_radius="(2.2 &real;)" jump="(0 &non_negative_integer;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        confidence="(1.0 &real;)" />
+        packer_palette="(&named_packer_palette;)" confidence="(1.0 &real;)" />
 ```
 
 -   **threshold**: Returns true if the set of residues defined by the TaskOperations have a combined SASA higher than the threshold, false otherwise. Default threshold is 0 so that all structures will pass if a threshold is not explicitly specified.
@@ -18,7 +18,8 @@ Calculates SASA for a set of residues defined by TaskOperations.
 -   **sc_only**: Make backbone atoms virtual to find sidechain-only values?
 -   **probe_radius**: Probe radius for calculating the solvent accessible surface area. Note: the default is larger than the typical used to represent water of 1.4 angstroms, but has been found to work well with the other default parameters for protein redesign purposes.
 -   **jump**: If a jump has been provided by the user, separate the pose by that jump.
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

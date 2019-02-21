@@ -8,10 +8,12 @@ XRW TO DO
 ```xml
 <RandomMutation name="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        scorefxn="(&string;)" cache_task="(false &bool;)" />
+        packer_palette="(&named_packer_palette;)" scorefxn="(&string;)"
+        cache_task="(false &bool;)" />
 ```
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **scorefxn**: Name of score function to use
 -   **cache_task**: Cache the packer task every time
 

@@ -9,13 +9,14 @@ Computes the dG from dsTbL profiles of every residue in every span, and multiply
 <MembAccesResidueLipophilicity name="(&string;)" threshold="(0.0 &real;)"
         verbose="(false &bool;)" ignore_burial="(false &bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        confidence="(1.0 &real;)" />
+        packer_palette="(&named_packer_palette;)" confidence="(1.0 &real;)" />
 ```
 
 -   **threshold**: if score lower than threshold, pass
 -   **verbose**: whehter to print a table of dG and SASA
 -   **ignore_burial**: disregard the SASA in the calculation
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

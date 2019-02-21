@@ -10,7 +10,7 @@ Computes the overall sasa of the pose.
         upper_threshold="(1000000 &real;)" hydrophobic="(false &bool;)"
         polar="(false &bool;)" report_per_residue_sasa="(false &bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        confidence="(1.0 &real;)" />
+        packer_palette="(&named_packer_palette;)" confidence="(1.0 &real;)" />
 ```
 
 -   **threshold**: If it is **higher** than threshold, it passes.
@@ -18,7 +18,8 @@ Computes the overall sasa of the pose.
 -   **hydrophobic**: Compute hydrophobic-only SASA.
 -   **polar**: Compute polar_only SASA.
 -   **report_per_residue_sasa**: Add the per-residue SASA to the tracer output.
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

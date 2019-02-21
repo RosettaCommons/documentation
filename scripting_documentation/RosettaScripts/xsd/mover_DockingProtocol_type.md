@@ -11,7 +11,8 @@ Mover used for protein-protein docking.
         low_res_protocol_only="(false &bool;)"
         docking_local_refine="(false &bool;)" dock_min="(false &bool;)"
         ignore_default_docking_task="(false &bool;)"
-        task_operations="(&task_operation_comma_separated_list;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)" />
 ```
 
 -   **docking_score_low**: Low-resolution docking score function
@@ -21,6 +22,7 @@ Mover used for protein-protein docking.
 -   **docking_local_refine**: Only perform high-resolution docking
 -   **dock_min**: Use the DockMinMover
 -   **ignore_default_docking_task**: Ignore the default docking task and define your own. Unless this is specified, task operations will be appended to the default docking task.
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 ---

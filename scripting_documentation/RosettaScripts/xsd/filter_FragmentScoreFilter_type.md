@@ -20,7 +20,7 @@ Filter based on any score that can be calculated in fragment_picker.
         start_res="(&refpose_enabled_residue_number;)"
         end_res="(&refpose_enabled_residue_number;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        confidence="(1.0 &real;)" />
+        packer_palette="(&named_packer_palette;)" confidence="(1.0 &real;)" />
 ```
 
 -   **scoretype**: Which attribute to filter on. See FragmentScoreManager::register_score_maker for options.
@@ -44,7 +44,8 @@ Filter based on any score that can be calculated in fragment_picker.
 -   **print_to_pdb**: Prints scores for all residues analyzed to the pdb.
 -   **start_res**: The N-terminal residue of the piece of backbone to be analyzed.
 -   **end_res**: The C-terminal residue of the piece of backbone to be analyzed.
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

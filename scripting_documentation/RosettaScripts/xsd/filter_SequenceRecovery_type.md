@@ -8,13 +8,15 @@ XRW TO DO
 ```xml
 <SequenceRecovery name="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        scorefxn="(&string;)" rate_threshold="(0.0 &real;)"
+        packer_palette="(&named_packer_palette;)" scorefxn="(&string;)"
+        rate_threshold="(0.0 &real;)"
         mutation_threshold="(100 &non_negative_integer;)"
         report_mutations="(0 &bool;)" verbose="(0 &bool;)"
         write2pdb="(0 &bool;)" confidence="(1.0 &real;)" />
 ```
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **scorefxn**: Name of score function to use
 -   **rate_threshold**: Rate of sequence recovery below which the filter fails
 -   **mutation_threshold**: Raw number-of-mutations threshold above which the filter fails

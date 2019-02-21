@@ -21,229 +21,145 @@ Note: The LayerDesign TaskOperation will likely be deprecated at some point in t
         verbose="(false &bool;)" restrict_restypes="(true &bool;)"
         make_pymol_script="(false &bool;)" >
     <core >
-        <all copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <all copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <Helix copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <Helix copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <HelixCapping copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <HelixCapping copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <HelixStart copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <HelixStart copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <Loop copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <Loop copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <Strand copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <Strand copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
     </core>
     <boundary >
-        <all copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <all copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <Helix copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <Helix copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <HelixCapping copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <HelixCapping copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <HelixStart copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <HelixStart copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <Loop copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <Loop copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <Strand copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <Strand copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
     </boundary>
     <surface >
-        <all copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <all copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <Helix copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <Helix copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <HelixCapping copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <HelixCapping copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <HelixStart copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <HelixStart copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <Loop copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <Loop copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <Strand copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <Strand copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
     </surface>
     <Nterm >
-        <all copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <all copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <Helix copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <Helix copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <HelixCapping copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <HelixCapping copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <HelixStart copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <HelixStart copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <Loop copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <Loop copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <Strand copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <Strand copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
     </Nterm>
     <Cterm >
-        <all copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <all copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <Helix copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <Helix copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <HelixCapping copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <HelixCapping copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <HelixStart copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <HelixStart copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <Loop copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <Loop copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <Strand copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <Strand copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
     </Cterm>
     <CombinedTasks name="(&string;)" >
-        <all copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <all copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <Helix copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <Helix copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <HelixCapping copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <HelixCapping copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <HelixStart copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <HelixStart copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <Loop copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <Loop copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <Strand copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <Strand copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
         <TaskOperation Tag ... />
     </CombinedTasks>
     <TaskLayer >
         <TaskOperation Tag ... />
-        <all copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <all copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <Helix copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <Helix copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <HelixCapping copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <HelixCapping copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <HelixStart copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <HelixStart copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <Loop copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <Loop copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
-        <Strand copy_layer="(&string;)" aa="(&string;)" ncaa="(&string;)"
-                append="(&string;)" ncaa_append="(&string;)" exclude="(&string;)"
-                ncaa_exclude="(&string;)"
-                operation="(&layer_design_operation_behavior;)"
+        <Strand copy_layer="(&string;)" aa="(&string;)" append="(&string;)"
+                exclude="(&string;)" operation="(&layer_design_operation_behavior;)"
                 specification="(&layer_design_specification_behavior;)" />
     </TaskLayer>
 </LayerDesign>
@@ -284,11 +200,8 @@ Subtag **all**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -296,11 +209,8 @@ Subtag **Helix**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -308,11 +218,8 @@ Subtag **HelixCapping**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -320,11 +227,8 @@ Subtag **HelixStart**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -332,11 +236,8 @@ Subtag **Loop**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -344,11 +245,8 @@ Subtag **Strand**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -360,11 +258,8 @@ Subtag **all**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -372,11 +267,8 @@ Subtag **Helix**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -384,11 +276,8 @@ Subtag **HelixCapping**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -396,11 +285,8 @@ Subtag **HelixStart**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -408,11 +294,8 @@ Subtag **Loop**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -420,11 +303,8 @@ Subtag **Strand**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -436,11 +316,8 @@ Subtag **all**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -448,11 +325,8 @@ Subtag **Helix**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -460,11 +334,8 @@ Subtag **HelixCapping**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -472,11 +343,8 @@ Subtag **HelixStart**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -484,11 +352,8 @@ Subtag **Loop**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -496,11 +361,8 @@ Subtag **Strand**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -512,11 +374,8 @@ Subtag **all**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -524,11 +383,8 @@ Subtag **Helix**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -536,11 +392,8 @@ Subtag **HelixCapping**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -548,11 +401,8 @@ Subtag **HelixStart**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -560,11 +410,8 @@ Subtag **Loop**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -572,11 +419,8 @@ Subtag **Strand**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -588,11 +432,8 @@ Subtag **all**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -600,11 +441,8 @@ Subtag **Helix**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -612,11 +450,8 @@ Subtag **HelixCapping**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -624,11 +459,8 @@ Subtag **HelixStart**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -636,11 +468,8 @@ Subtag **Loop**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -648,11 +477,8 @@ Subtag **Strand**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -664,11 +490,8 @@ Subtag **all**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -676,11 +499,8 @@ Subtag **Helix**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -688,11 +508,8 @@ Subtag **HelixCapping**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -700,11 +517,8 @@ Subtag **HelixStart**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -712,11 +526,8 @@ Subtag **Loop**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -724,11 +535,8 @@ Subtag **Strand**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -744,11 +552,8 @@ Subtag **all**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -756,11 +561,8 @@ Subtag **Helix**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -768,11 +570,8 @@ Subtag **HelixCapping**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -780,11 +579,8 @@ Subtag **HelixStart**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -792,11 +588,8 @@ Subtag **Loop**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 
@@ -804,11 +597,8 @@ Subtag **Strand**:   XRW TO DO
 
 -   **copy_layer**: XRW TO DO
 -   **aa**: XRW TO DO
--   **ncaa**: XRW TO DO
 -   **append**: XRW TO DO
--   **ncaa_append**: XRW TO DO
 -   **exclude**: XRW TO DO
--   **ncaa_exclude**: XRW TO DO
 -   **operation**: XRW TO DO
 -   **specification**: XRW TO DO
 

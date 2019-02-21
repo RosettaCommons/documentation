@@ -11,7 +11,8 @@ Perform a complete loop modeling simulation, including the build, centroid, and 
         scorefxn_fa="(&string;)" scorefxn_cen="(&string;)" fast="(false &bool;)"
         loophash_perturb_sequence="(false &bool;)"
         loophash_seqposes_no_mutate="(&string;)"
-        task_operations="(&task_operation_comma_separated_list;)" >
+        task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)" >
     <Loop start="(&non_negative_integer;)" stop="(&non_negative_integer;)"
             cut="(0 &non_negative_integer;)" skip_rate="(0.0 &real;)"
             rebuild="(false &bool;)" />
@@ -38,7 +39,8 @@ Perform a complete loop modeling simulation, including the build, centroid, and 
 -   **fast**: Only test run (fewer cycles)
 -   **loophash_perturb_sequence**: Let LoopHashKIC also perturb the amino acid sequence
 -   **loophash_seqposes_no_mutate**: Sequence positions that should not be mutated by LoopHashKIC.
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 
 Subtag **Loop**:   Use this element to define a series of loops in subtags, one loop per subtag

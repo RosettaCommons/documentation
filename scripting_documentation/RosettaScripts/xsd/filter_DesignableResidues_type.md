@@ -8,12 +8,14 @@ Filters based on minimum and maximum number of designable residues allowed; usef
 ```xml
 <DesignableResidues name="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)"
         lower_cutoff="(0 &non_negative_integer;)"
         upper_cutoff="(1000 &non_negative_integer;)" packable="(0 &bool;)"
         designable="(0 &bool;)" confidence="(1.0 &real;)" />
 ```
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **lower_cutoff**: This option presently has no effect.
 -   **upper_cutoff**: This option presently has no effect.
 -   **packable**: Determine all packable positions

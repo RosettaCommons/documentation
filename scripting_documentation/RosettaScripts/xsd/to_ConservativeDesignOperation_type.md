@@ -7,13 +7,11 @@ TaskOperation to allow only conservative mutations at designable residues
 
 ```xml
 <ConservativeDesignOperation name="(&string;)" residue_selector="(&string;)"
-        data_source="(blosum62 &string;)" add_to_allowed_aas="(false &bool;)"
-        include_native_aa="(true &bool;)" />
+        data_source="(blosum62 &string;)" include_native_aa="(true &bool;)" />
 ```
 
 -   **residue_selector**: Residue selector that indicates to which residues the operation will be applied.
 -   **data_source**: Set the source of the data used to define what is conservative. Options are: chothia_76 and the Blosum matrices from 30 to 100; designated as blosum30, 62, etc. Default is blosum62.  The higher the number, the more conservative the set of mutations (numbers are sequence identity cutoffs).
--   **add_to_allowed_aas**: Add to the allowed amino acids list instead of replacing it
 -   **include_native_aa**: Include native amino acid in the allowed_aas list
 
 ---

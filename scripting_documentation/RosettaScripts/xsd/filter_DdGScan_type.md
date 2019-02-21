@@ -10,7 +10,7 @@ Takes a set of task operations from the user in order to more precisely specify 
         report_diffs="(1 &bool;)" ddG_mover="(&string;)" write2pdb="(0 &bool;)"
         scorefxn="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        confidence="(1.0 &real;)" />
+        packer_palette="(&named_packer_palette;)" confidence="(1.0 &real;)" />
 ```
 
 -   **repeats**: How many times to repeat the ddg calculations; the average of all the repeats is returned.
@@ -18,7 +18,8 @@ Takes a set of task operations from the user in order to more precisely specify 
 -   **ddG_mover**: Handle definition of a special ddG mover.
 -   **write2pdb**: Whether to write the residue-specific ddG information to the output .pdb file.
 -   **scorefxn**: Name of score function to use
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

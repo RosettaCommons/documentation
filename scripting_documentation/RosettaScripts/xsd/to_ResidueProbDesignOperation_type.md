@@ -7,8 +7,7 @@ Randomly adds allowed residue types to the PackerTask. Based on the user specifi
 
 ```xml
 <ResidueProbDesignOperation name="(&string;)" weights_file="(&string;)"
-        include_native_restype="(true &bool;)"
-        keep_task_allowed_aas="(false &bool;)" sample_zero_probs="(0.0 &real;)"
+        include_native_restype="(true &bool;)" sample_zero_probs="(0.0 &real;)"
         no_probabilities="(false &bool;)"
         picking_rounds="(1 &positive_integer;)" />
 ```
@@ -17,9 +16,8 @@ Randomly adds allowed residue types to the PackerTask. Based on the user specifi
 POSNUM RESIDUETYPE WEIGHT
 With weight as a real number between 0.0 and 1.0. Unspecified residues and/or residue types will automatically default to a weight of 1.0.
 -   **include_native_restype**: The native residue type is always an allowed residue type.
--   **keep_task_allowed_aas**: If set to true, the sampled residue types will not replace all other previously allowed residue types.
 -   **sample_zero_probs**: Overwrite the sampling probability for all residue types with a weight of zero with the given weight. For example, if you have a probability of zero, you can sample this instead at like .3 or .5 or whatever you want. The idea is that you don't need to go and change your input data to add some variability in the data - useful if you have a very low sampling rate of the input data.
 -   **no_probabilities**: Should we sample ALL AA that does not have prob of 0 at 1.0 instead?  This basically works to add ALL AA seen at a given position in a particular cluster to the set of design residues.  Used to increase variability of designs or for testing purposes
--   **picking_rounds**: Allowed residue types can be sampled multiple times. Especially of interest in combination with the option 'keep_task_allowed_aas'.
+-   **picking_rounds**: Allowed residue types can be sampled multiple times.
 
 ---

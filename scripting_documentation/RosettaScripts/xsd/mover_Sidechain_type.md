@@ -8,13 +8,15 @@ Moves the side chain for a set of residues identified by a task operation in a m
 ```xml
 <Sidechain name="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)"
         ntrials="(10000 &non_negative_integer;)"
         preserve_detailed_balance="(1 &bool;)" prob_uniform="(0.0 &real;)"
         prob_withinrot="(0.0 &real;)" prob_random_pert_current="(0.0 &real;)"
         change_chi_without_replacing_residue="(0.0 &real;)" />
 ```
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **ntrials**: Number of trials.
 -   **preserve_detailed_balance**: Should the simulation preserve detailed balance?
 -   **prob_uniform**: The probability of uniform chi sampling.

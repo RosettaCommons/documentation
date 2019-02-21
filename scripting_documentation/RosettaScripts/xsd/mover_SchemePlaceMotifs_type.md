@@ -10,7 +10,8 @@ This mover will use only motif pairs found in input motif_sets or in the default
         mode="(basic &string;)" allowed_aas="(motifs &string;)"
         halt_on_error="(false &bool;)" motif_sets="(XRW TO DO &string;)"
         scorefxn="(&string;)"
-        task_operations="(&task_operation_comma_separated_list;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)" />
 ```
 
 -   **dumpfile**: This is an option to generate a extra pdb that dumps the motifs used for packing, it's meant for troubleshooting.
@@ -19,6 +20,7 @@ This mover will use only motif pairs found in input motif_sets or in the default
 -   **halt_on_error**: XRW TO DO: unsure?
 -   **motif_sets**: Path to motif sets file to use.
 -   **scorefxn**: Name of score function to use
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 ---

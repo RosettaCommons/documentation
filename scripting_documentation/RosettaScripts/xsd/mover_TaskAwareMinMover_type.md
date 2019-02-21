@@ -12,7 +12,7 @@ XRW TO DO
         tolerance="(0.01 &real;)" cartesian="(false &bool;)"
         bondangle="(0 &bool;)" bondlength="(0 &bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        scorefxn="(&string;)" />
+        packer_palette="(&named_packer_palette;)" scorefxn="(&string;)" />
 ```
 
 -   **chi**: Allow chi degrees of freedom to minimize
@@ -24,7 +24,8 @@ XRW TO DO
 -   **cartesian**: Use cartesian minimization (not internal coordinate)
 -   **bondangle**: Minimize bond angle degrees of freedom
 -   **bondlength**: Minimize bond length degrees of freedom
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **scorefxn**: Name of score function to use
 
 ---

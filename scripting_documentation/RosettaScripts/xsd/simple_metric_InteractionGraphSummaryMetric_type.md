@@ -8,12 +8,14 @@ A metric for writing out a description of the Rosetta-calculated interaction gra
 ```xml
 <InteractionGraphSummaryMetric name="(&string;)" custom_type="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        scorefxn="(&string;)" skip_pose_reconstruction_info="(false &bool;)" />
+        packer_palette="(&named_packer_palette;)" scorefxn="(&string;)"
+        skip_pose_reconstruction_info="(false &bool;)" />
 ```
 
 -   **custom_type**: Allows multiple configured SimpleMetrics of a single type to be called in a single RunSimpleMetrics and SimpleMetricFeatures. 
  The custom_type name will be added to the data tag in the scorefile or features database.
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **scorefxn**: Name of score function to use
 -   **skip_pose_reconstruction_info**: If true, then this metric only stores a summary of the interaction graph.  If false (the default), then it stores both the interaction graph summary and full information for reconstructing the pose.  False by default.
 

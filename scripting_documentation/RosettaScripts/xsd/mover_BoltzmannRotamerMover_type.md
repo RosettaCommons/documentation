@@ -8,10 +8,12 @@ Part of CoupledMoves. Replaces a single rotamer based on the Boltzmann probabili
 ```xml
 <BoltzmannRotamerMover name="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        scorefxn="(&string;)" show_packer_task="(&bool;)" />
+        packer_palette="(&named_packer_palette;)" scorefxn="(&string;)"
+        show_packer_task="(&bool;)" />
 ```
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **scorefxn**: Name of score function to use
 -   **show_packer_task**: show the PackerTask to be used at the beginning of apply
 

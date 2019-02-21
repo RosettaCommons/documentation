@@ -44,7 +44,7 @@ HBNet is a method to explicitly detect and design hydrogen bond networks within 
         total_num_mc_runs="(10000 &non_negative_integer;)"
         seed_hbond_threshold="(0 &real;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        scorefxn="(&string;)" />
+        packer_palette="(&named_packer_palette;)" scorefxn="(&string;)" />
 ```
 
 -   **hb_threshold**: 2-body h-bond energy cutoff to define rotamer pairs that h-bond. I've found that -0.5 without ex1-ex2 is the best starting point. If using ex1-ex2, try -0.75. This parameter is the most important and requires some tuning; the tradeoff is that the more stringent (more negative), the faster it runs but you miss a lot of networks; too positive and it will run forever; using ex1-ex2 results in many redundant networks that end up being filtered out anyway.
@@ -82,7 +82,7 @@ HBNet is a method to explicitly detect and design hydrogen bond networks within 
 -   **min_percent_hbond_capacity**: minimum percent_hbond_capacity a network must have, where 1.0 means the maximum number of h-bonds are made, considering all polar atoms in the rotamers that comprise the network; unlike satisfaction, this metric is independent of burial;  in rare cases, percent_hbond_capacity can be greater than 1, for example a hydroxyl could participate in 3 h-bonds even though we define max capacity as 2.
 -   **verbose**: print out all HBNet tracer statements; only useful for debugging
 -   **design_residues**: string of one-letter AA codes; which polar residues types do you want to include in the search; the default is all AA's that can potentially make h-bonds, further restricted by the task_operations you pass.
--   **use_only_input_rot_for_start_res**: keep the input rotamer for starting residues fixed; only sample proton chis during network search
+-   **use_only_input_rot_for_start_res**: Keep the input rotamer for starting residues fixed; only sample proton chis during network search.  Note that the starting residue positions must otherwise be packable.
 -   **start_resnums**: comma delimited list of residue positions to start network search from (e.g. "1,2,3,5"); now is better to use start_selector residue selector
 -   **start_selector**: residue selector that tells HBNet which residues to start from (will only search for networks that include these resid
 -   **core_selector**: residue selector that defines what HBNet considers "core"; used in buriedness determination for unsats; default is layer selector default using sidechain neighbors(core=5.2).
@@ -95,7 +95,8 @@ HBNet is a method to explicitly detect and design hydrogen bond networks within 
 -   **max_mc_nets**: (if monte_carlo_branch) This is experimental and so far it does not look super useful. Maximum number of networks that the monte carlo protocol will store. Loose rule of thumb is to make this 10x the max number of nets you want to end up with. The reason you do not want this to be too large is that each of these networks goes through a relatively expensive quality check. A value of zero (which is default) represents having no limit.
 -   **total_num_mc_runs**: (if monte_carlo_branch) number of monte carlo runs to be divided over all the seed hbonds. A single monte carlo run appears to take roughly 1 ms (very loose estimate).
 -   **seed_hbond_threshold**: (if monte_carlo_branch) Maybe you only want to branch from strong hbonds. If this value is -1.2, for example, then only hbonds with a strength of -1.2 or lower will be branched from.
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **scorefxn**: Name of score function to use
 
 ---

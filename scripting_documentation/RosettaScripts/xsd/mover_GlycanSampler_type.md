@@ -15,7 +15,8 @@ Main mover for Glycan Relax, which optimizes glycans in a pose. Each round optim
         shear="(false &bool;)" randomize_torsions="(true &bool;)"
         inner_bb_cycles="(1 &non_negative_integer;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        scorefxn="(&string;)" residue_selector="(&string;)" />
+        packer_palette="(&named_packer_palette;)" scorefxn="(&string;)"
+        residue_selector="(&string;)" />
 ```
 
 -   **kt**: Temperature for metropolis criterion
@@ -32,7 +33,8 @@ Main mover for Glycan Relax, which optimizes glycans in a pose. Each round optim
 -   **shear**: Use the Shear Mover that is now compatible with glycans at an a probability of 10 percent
 -   **randomize_torsions**: If NOT doing refinement, control whether we randomize torsions at the start, which helps to achieve low energy structures.
 -   **inner_bb_cycles**: Inner cycles for each time we call BB sampling either through small/medium/large moves or through the SugarBB Sampler.  This is multiplied by the number of glycans
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **scorefxn**: Name of score function to use
 -   **residue_selector**: Residue Selector containing only glycan residues.  This is not needed, as this class will automatically select ALL glycan residues in the pose to model.  See the GlycanResidueSelector and the GlycanLayerSelector for control glycan selection.  Note that the ASN is not technically a glycan.  Since dihedral angles are defined for a sugar from the upper to lower residue, the dihedral angles between the first glycan and the ASN are defined by the first glycan.
 

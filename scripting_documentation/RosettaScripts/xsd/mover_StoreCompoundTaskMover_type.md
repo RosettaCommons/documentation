@@ -12,14 +12,22 @@ XRW_TODO
         false_behavior="(&compound_task_behavior;)"
         mode="(packable &compound_task_mode;)" invert="(false &bool;)"
         verbose="(false &bool;)" overwrite="(false &bool;)" >
-    <AND task_operations="(&task_operation_comma_separated_list;)" />
-    <OR task_operations="(&task_operation_comma_separated_list;)" />
-    <XOR task_operations="(&task_operation_comma_separated_list;)" />
-    <NOR task_operations="(&task_operation_comma_separated_list;)" />
-    <NAND task_operations="(&task_operation_comma_separated_list;)" />
-    <ORNOT task_operations="(&task_operation_comma_separated_list;)" />
-    <ANDNOT task_operations="(&task_operation_comma_separated_list;)" />
-    <NOT task_operations="(&task_operation_comma_separated_list;)" />
+    <AND task_operations="(&task_operation_comma_separated_list;)"
+            packer_palette="(&named_packer_palette;)" />
+    <OR task_operations="(&task_operation_comma_separated_list;)"
+            packer_palette="(&named_packer_palette;)" />
+    <XOR task_operations="(&task_operation_comma_separated_list;)"
+            packer_palette="(&named_packer_palette;)" />
+    <NOR task_operations="(&task_operation_comma_separated_list;)"
+            packer_palette="(&named_packer_palette;)" />
+    <NAND task_operations="(&task_operation_comma_separated_list;)"
+            packer_palette="(&named_packer_palette;)" />
+    <ORNOT task_operations="(&task_operation_comma_separated_list;)"
+            packer_palette="(&named_packer_palette;)" />
+    <ANDNOT task_operations="(&task_operation_comma_separated_list;)"
+            packer_palette="(&named_packer_palette;)" />
+    <NOT task_operations="(&task_operation_comma_separated_list;)"
+            packer_palette="(&named_packer_palette;)" />
 </StoreCompoundTaskMover>
 ```
 
@@ -34,34 +42,42 @@ XRW_TODO
 
 Subtag **AND**:   
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 Subtag **OR**:   
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 Subtag **XOR**:   
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 Subtag **NOR**:   
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 Subtag **NAND**:   
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 Subtag **ORNOT**:   
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 Subtag **ANDNOT**:   
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 Subtag **NOT**:   
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 ---

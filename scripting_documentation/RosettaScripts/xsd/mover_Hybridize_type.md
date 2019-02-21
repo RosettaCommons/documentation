@@ -48,7 +48,8 @@ This is the Hybridize mover at the core of comparative modeling (RosettaCM).  Ty
     <DetailedControls start_res="(1 &non_negative_integer;)"
             stop_res="(&non_negative_integer;)" sample_template="(true &bool;)"
             sample_abinitio="(true &bool;)"
-            task_operations="(&task_operation_comma_separated_list;)" />
+            task_operations="(&task_operation_comma_separated_list;)"
+            packer_palette="(&named_packer_palette;)" />
 </Hybridize>
 ```
 
@@ -132,6 +133,7 @@ Subtag **DetailedControls**:   Used to prevent regions from being sampled extens
 -   **stop_res**: ending residue for a DetailedControl region; defaults to the rest of the Pose
 -   **sample_template**: if false, disallow template hybridization moves
 -   **sample_abinitio**: if false, disallow fragment insertion moves
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 ---

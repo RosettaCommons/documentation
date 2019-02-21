@@ -8,9 +8,10 @@ RepackMinimizeMover performs extensive interface remodeling
 ```xml
 <RepackMinimize name="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        scorefxn_repack="(&string;)" scorefxn_minimize="(&string;)"
-        repack="(&bool;)" repack_partner1="(&bool;)" repack_partner2="(&bool;)"
-        design="(&bool;)" design_partner1="(&bool;)" design_partner2="(&bool;)"
+        packer_palette="(&named_packer_palette;)" scorefxn_repack="(&string;)"
+        scorefxn_minimize="(&string;)" repack="(&bool;)"
+        repack_partner1="(&bool;)" repack_partner2="(&bool;)" design="(&bool;)"
+        design_partner1="(&bool;)" design_partner2="(&bool;)"
         optimize_fold_tree="(1 &bool;)" minimize_rb="(1 &bool;)"
         minimize_bb="(1 &bool;)" minimize_bb_ch1="(1 &bool;)"
         minimize_bb_ch2="(1 &bool;)" minimize_sc="(1 &bool;)"
@@ -21,7 +22,8 @@ RepackMinimizeMover performs extensive interface remodeling
 </RepackMinimize>
 ```
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **scorefxn_repack**: Name of score function to use
 -   **scorefxn_minimize**: Name of score function to use
 -   **repack**: Repack both partners

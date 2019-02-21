@@ -11,7 +11,8 @@ XRW TO DO
         superimposed="(true &bool;)" use_sequence_profile="(&bool;)"
         scorefxn="(&string;)" template_file="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        torsion_database="(&string;)" database_entry="(&non_negative_integer;)"
+        packer_palette="(&named_packer_palette;)" torsion_database="(&string;)"
+        database_entry="(&non_negative_integer;)"
         database_pdb_entry="(&string;)" design_shell="(6.0 &real;)"
         repack_shell="(8.0 &real;)" delta_lengths="(&int_cslist;)"
         thread_original_sequence="(false &bool;)" rtmin="(true &bool;)"
@@ -31,7 +32,8 @@ XRW TO DO
 -   **use_sequence_profile**: If true build PSSM and apply sequence profile on pose
 -   **scorefxn**: Name of score function to use
 -   **template_file**: The PDB file of the reference PDB (the one used to build to conformation database)
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **torsion_database**: Name of conformation file to save to
 -   **database_entry**: Which entry to use from database (by number, e.g. first entry = 1, second entry = 2, etc)
 -   **database_pdb_entry**: Which entry to use from database by PDB code

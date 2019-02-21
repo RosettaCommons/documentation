@@ -12,7 +12,7 @@ XRW TO DO
         cst_weight="(&real;)" CA_only="(&bool;)" bb_only="(&bool;)"
         inter_chain="(&bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        residue_selector="(&string;)" />
+        packer_palette="(&named_packer_palette;)" residue_selector="(&string;)" />
 ```
 
 -   **use_distance_cst**: use distance constraints instead of CoordinateConstraints. Probable default false.
@@ -24,7 +24,8 @@ XRW TO DO
 -   **CA_only**: constrain only CA atoms.
 -   **bb_only**: constrain only backbone atoms.
 -   **inter_chain**: Generate distance constraints between residues on different chains if true.  (Does not appear to generate ONLY interchain constraints.)  If false, skips constraints that would go between chains.  Only active with use_distance_cst.
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **residue_selector**: make constraints for these residues; mutually exclisuve with task_operations
 
 ---

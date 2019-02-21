@@ -8,6 +8,7 @@ XRW TO DO
 ```xml
 <SaveResfileToDisk name="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)"
         designable_only="(false &bool;)" renumber_pdb="(false &bool;)"
         resfile_suffix="(XRW TO DO &string;)"
         resfile_prefix="(XRW TO DO &string;)"
@@ -16,7 +17,8 @@ XRW TO DO
         selected_resis_property="(XRW TO DO &string;)" confidence="(1.0 &real;)" />
 ```
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **designable_only**: XRW TO DO
 -   **renumber_pdb**: XRW TO DO
 -   **resfile_suffix**: XRW TO DO

@@ -13,7 +13,7 @@ XRW TO DO
         sulph_dist_cutoff="(3.3 &real;)" metal_dist_cutoff="(2.7 &real;)"
         scorefxn="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        confidence="(1.0 &real;)" />
+        packer_palette="(&named_packer_palette;)" confidence="(1.0 &real;)" />
 ```
 
 -   **jump_number**: Jump, numbered sequentially from 1, that defines the interface
@@ -26,7 +26,8 @@ XRW TO DO
 -   **sulph_dist_cutoff**: Cutoff for distance, in Angstroms, to define a hydrogen bond to a sulfur
 -   **metal_dist_cutoff**: Cutoff for distance, in Angstroms, to define a hydrogen bond to a metal
 -   **scorefxn**: Name of score function to use
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

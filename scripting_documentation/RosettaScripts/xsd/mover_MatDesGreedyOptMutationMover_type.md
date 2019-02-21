@@ -17,7 +17,8 @@ This mover will first attempt isolated/independent mutations defined in the inpu
         sample_type="(low &choices_for_sample_types;)"
         filter_delta="(0.0 &real;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        scorefxn="(&string;)" set_task_for_filters="(&string;)"
+        packer_palette="(&named_packer_palette;)" scorefxn="(&string;)"
+        set_task_for_filters="(&string;)"
         force_natro_for_stored_tasks="(&string;)" use_native="(false &bool;)"
         reference_pdb="(&string;)" filter_thresholds="(&string;)"
         reference_name="(&string;)" >
@@ -47,7 +48,8 @@ This mover will first attempt isolated/independent mutations defined in the inpu
 -   **filter**: Name of a single filter you wish you process.
 -   **sample_type**: If your filter values are such that higher = better, use 'sample_type=high'
 -   **filter_delta**: Add sequence diversity; useful with nstruct greater than 1; randomly try any mutation that scores wit     hin N filter points of the best-scoring mutation at each position instead of just the first, e.g. filter_delta=0.5 for attempting any mutation within 0.5 filter points of the best one.
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **scorefxn**: Name of score function to use
 -   **set_task_for_filters**: Returns a Null pointer if incompatible filter type is passed through the xml. Would be nice if task_factory() was a standard method of the filter class, so that we could make a Virtual task_factory() method in the Filter base class and not have to have this specific to TaskAwareScoreTypeFilter.  If this proves useful, then perhaps we could consider that...
 -   **force_natro_for_stored_tasks**: Get reference pose with rotamer(s) to be forced back.

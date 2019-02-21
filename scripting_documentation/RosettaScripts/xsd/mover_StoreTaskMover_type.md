@@ -8,11 +8,13 @@ This mover caches a task operation in the datacache of a Pose object, allowing l
 ```xml
 <StoreTaskMover name="(&string;)" task_name="(&pose_cached_task_operation;)"
         overwrite="(false &bool;)"
-        task_operations="(&task_operation_comma_separated_list;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)" />
 ```
 
 -   **task_name**: (REQUIRED) The identifier of the task operation that will be cached in the Pose object.  This is used to retrieve the task operation from the Pose object in the future.
 -   **overwrite**: If true, an already-cached task operation with the given name will be overwritten.  If false, an error is thrown instead if a task operation with the given name is already present in the Pose object.
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 ---

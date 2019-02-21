@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-02-16
+Generated: 2019-02-21
 
 _Note that some application specific options may not be present in this list._
 
@@ -1631,6 +1631,13 @@ _Note that some application specific options may not be present in this list._
 <dd>use extra dna rotamers<br/></dd>
 <dt><b>-level</b> \<Integer\></dt>
 <dd>extra dna rotamer sample level -- rotbuilder converts from 0-7 to number<br/>Default: 1<br/></dd>
+</dl>
++ <h3>-packing:packer_palette</h3>
+<dl>
+<dt><b>-packer_palette</b> \<Boolean\></dt>
+<dd>packer_palette option group<br/></dd>
+<dt><b>-extra_base_type_file</b> \<File\></dt>
+<dd>PackerPalettes define the set of residue types with which one is designing, and TaskOperations allow types to be turned off at specific positinos.  The default PackerPalette includes the twenty canonical amino acids.  If this option is used to provide a file containing a whitespace-separated list of residue type names, the default PackerPalette will include these additional residue types.<br/></dd>
 </dl>
 + <h2>-archive</h2>
 <dl>

@@ -8,11 +8,11 @@ XRW TO DO
 ```xml
 <RotamerBoltzmannWeight name="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        radius="(6.0 &real;)" type="(XRW TO DO &string;)"
-        jump="(1 &non_negative_integer;)" sym_dof_names="(XRW TO DO &string;)"
-        unbound="(1 &bool;)" ddG_threshold="(1.5 &real;)"
-        temperature="(0.8 &real;)" scorefxn="(&string;)"
-        energy_reduction_factor="(0.5 &real;)"
+        packer_palette="(&named_packer_palette;)" radius="(6.0 &real;)"
+        type="(XRW TO DO &string;)" jump="(1 &non_negative_integer;)"
+        sym_dof_names="(XRW TO DO &string;)" unbound="(1 &bool;)"
+        ddG_threshold="(1.5 &real;)" temperature="(0.8 &real;)"
+        scorefxn="(&string;)" energy_reduction_factor="(0.5 &real;)"
         compute_entropy_reduction="(0 &bool;)" repack="(1 &bool;)"
         skip_report="(&bool;)" target_residues="(XRW TO DO &string;)"
         fast_calc="(0 &bool;)" no_modified_ddG="(0 &bool;)"
@@ -22,7 +22,8 @@ XRW TO DO
 </RotamerBoltzmannWeight>
 ```
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **radius**: XRW TO DO
 -   **type**: XRW TO DO
 -   **jump**: XRW TO DO

@@ -8,18 +8,20 @@ EnzRepackMinimize, similar in spirit to RepackMinimizeMover, does the design/rep
 ```xml
 <EnzRepackMinimize name="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        task_factory="(&string;)" cycles="(1 &non_negative_integer;)"
-        min_in_stages="(false &bool;)" design="(false &bool;)"
-        repack_only="(false &bool;)" fix_catalytic="(false &bool;)"
-        cst_opt="(false &bool;)" backrub="(false &bool;)"
-        minimize_rb="(true &bool;)" minimize_bb="(false &bool;)"
-        minimize_sc="(true &bool;)" minimize_lig="(false &bool;)"
-        minimize_prot_jumps="(false &bool;)" scorefxn_repack="(&string;)"
-        scorefxn_minimize="(&string;)" rb_min_jumps="(&nnegative_int_cslist;)" />
+        task_factory="(&string;)" packer_palette="(&named_packer_palette;)"
+        cycles="(1 &non_negative_integer;)" min_in_stages="(false &bool;)"
+        design="(false &bool;)" repack_only="(false &bool;)"
+        fix_catalytic="(false &bool;)" cst_opt="(false &bool;)"
+        backrub="(false &bool;)" minimize_rb="(true &bool;)"
+        minimize_bb="(false &bool;)" minimize_sc="(true &bool;)"
+        minimize_lig="(false &bool;)" minimize_prot_jumps="(false &bool;)"
+        scorefxn_repack="(&string;)" scorefxn_minimize="(&string;)"
+        rb_min_jumps="(&nnegative_int_cslist;)" />
 ```
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
 -   **task_factory**: A TaskFactory specification to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **cycles**: number of cycles of repack-minimize (default=1 cycle) (Note: In contrast to the enzyme_design application, all cycles use the provided scorefunction.)
 -   **min_in_stages**: first minimize non-backbone dofs, followed by backbone dofs only, and then everything together (default=0)
 -   **design**: optimize sequence of residues spatially around the ligand (detection of neighbors need to be specified in the flagfile or resfile, default=0)

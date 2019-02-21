@@ -16,6 +16,7 @@ XRW TO DO
         template_file="(&string;)" set_fold_tree_only="(false &bool;)"
         source_pdb="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)"
         from_res="(0 &refpose_enabled_residue_number;)"
         to_res="(0 &refpose_enabled_residue_number;)"
         torsion_database="(&string;)" design_shell="(6.0 &real;)"
@@ -45,7 +46,8 @@ XRW TO DO
 -   **template_file**: The PDB file of the reference PDB (the one used to build to conformation database)
 -   **set_fold_tree_only**: XRW TO DO
 -   **source_pdb**: The PDB file from which the segment conformation is extracted
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **from_res**: The N-ter residue of the sampled segment
 -   **to_res**: The C-ter residue of the sampled segment
 -   **torsion_database**: Name of conformation file to save to

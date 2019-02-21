@@ -10,7 +10,7 @@ Checks for clashes between adjacent rotated layers of a subunit
         default_bridge_type="(VAL &string;)" omega="(36.0 &real;)"
         rise="(3.38 &real;)" num_repeats="(22 &real;)" prop_dir="(0 &real;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        confidence="(1.0 &real;)" />
+        packer_palette="(&named_packer_palette;)" confidence="(1.0 &real;)" />
 ```
 
 -   **fa_rep_thresh**: Threshold fa_rep clash score.
@@ -19,7 +19,8 @@ Checks for clashes between adjacent rotated layers of a subunit
 -   **rise**: Rise along z axis (per subunit)
 -   **num_repeats**: Number of subunit repeats
 -   **prop_dir**: Propagation direction (0: forward, 1: reverse)
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

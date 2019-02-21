@@ -15,6 +15,7 @@ XRW TO DO
         skip_alignment="(false &bool;)" use_sequence_profile="(&bool;)"
         scorefxn="(&string;)" template_file="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)"
         design_task_operations="(&string;)" residue_numbers_setter="(&string;)"
         torsion_database="(&string;)" database_entry="(&non_negative_integer;)"
         database_pdb_entry="(&string;)" design_shell="(6.0 &real;)"
@@ -42,7 +43,8 @@ XRW TO DO
 -   **use_sequence_profile**: Use sequence profiles in design?
 -   **scorefxn**: Name of score function to use
 -   **template_file**: What is the template file to use during design
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **design_task_operations**: XRW TO DO
 -   **residue_numbers_setter**: XRW TO DO
 -   **torsion_database**: torsion db file name

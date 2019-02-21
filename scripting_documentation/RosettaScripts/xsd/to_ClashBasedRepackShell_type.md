@@ -8,14 +8,15 @@ The ClashBasedShellSelector identifies all residues that clash with at least one
 ```xml
 <ClashBasedRepackShell name="(&string;)" scorefxn="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        residue_selector="(&string;)" resnums="(&int_cslist;)"
-        invert="(false &bool;)" num_shells="(1 &non_negative_integer;)"
-        include_focus="(true &bool;)" focus_on_designable="(true &bool;)"
-        bump_overlap_factor="(0.5 &real;)" />
+        packer_palette="(&named_packer_palette;)" residue_selector="(&string;)"
+        resnums="(&int_cslist;)" invert="(false &bool;)"
+        num_shells="(1 &non_negative_integer;)" include_focus="(true &bool;)"
+        focus_on_designable="(true &bool;)" bump_overlap_factor="(0.5 &real;)" />
 ```
 
 -   **scorefxn**: Name of score function to use
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
 -   **resnums**: The residues to build the shell around.  These can also be specified via the 'selector' or 'task_operations' options, or via a ResidueSelector subtag.
 -   **invert**: Select the residues that @b aren't part of the clash-based shell.

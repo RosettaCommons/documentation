@@ -8,12 +8,14 @@ XRW TO DO
 ```xml
 <NucleotideMutation name="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        scorefxn="(&string;)" init_sequence="(&string;)"
-        continue_if_silent="(false &bool;)" flexbb="(true &bool;)"
-        bbnbrs="(1 &non_negative_integer;)" cache_task="(false &bool;)" />
+        packer_palette="(&named_packer_palette;)" scorefxn="(&string;)"
+        init_sequence="(&string;)" continue_if_silent="(false &bool;)"
+        flexbb="(true &bool;)" bbnbrs="(1 &non_negative_integer;)"
+        cache_task="(false &bool;)" />
 ```
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **scorefxn**: Name of score function to use
 -   **init_sequence**: Initial sequence
 -   **continue_if_silent**: Make another mutation if the first mutation is silent

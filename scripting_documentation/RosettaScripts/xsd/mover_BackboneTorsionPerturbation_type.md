@@ -11,6 +11,7 @@ Not documented.  Appears to be some sort of relax analogue.  Related to Backbone
         increase_cycles="(&real;)" recover_low="(&bool;)" temp="(&real;)"
         scorefxn="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)"
         dump_snapshots="(&non_negative_integer;)"
         snapshot_prefix="(snapshot &string;)"
         snapshot_interval="(100 &positive_integer;)" />
@@ -23,7 +24,8 @@ Not documented.  Appears to be some sort of relax analogue.  Related to Backbone
 -   **recover_low**: recover the lowest-energy structure seen in the Monte Carlo trajectory at the end?
 -   **temp**: Monte Carlo temperature
 -   **scorefxn**: use this scorefunction (from the SCOREFXN section)
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **dump_snapshots**: dump structures during sampling, Note that dump_snapshots must be set to make snapshot_prefix or snapshot_interval active
 -   **snapshot_prefix**: prefix for structures dumped during sampling, Note that dump_snapshots must be set to make snapshot_prefix or snapshot_interval active
 -   **snapshot_interval**: how frequently to dump structures during sampling, Note that dump_snapshots must be set to make snapshot_prefix or snapshot_interval active

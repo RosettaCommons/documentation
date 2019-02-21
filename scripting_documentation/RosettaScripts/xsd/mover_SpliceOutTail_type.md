@@ -13,6 +13,7 @@ XRW TO DO
         use_sequence_profile="(&bool;)" template_file="(&string;)"
         source_pdb="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)"
         from_res="(0 &refpose_enabled_residue_number;)"
         torsion_database="(&string;)" design_shell="(6.0 &real;)"
         repack_shell="(8.0 &real;)" rms_cutoff="(999999 &real;)"
@@ -34,7 +35,8 @@ XRW TO DO
 -   **use_sequence_profile**: XRW TO DO
 -   **template_file**: XRW TO DO
 -   **source_pdb**: XRW TO DO
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **from_res**: XRW TO DO
 -   **torsion_database**: XRW TO DO
 -   **design_shell**: XRW TO DO

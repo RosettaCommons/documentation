@@ -15,12 +15,13 @@ Change conformation of antibody segment
         add_sequence_constraints_only="(false &bool;)"
         template_file="(&string;)" source_pdb="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        torsion_database="(&string;)" design_shell="(6.0 &real;)"
-        repack_shell="(8.0 &real;)" rms_cutoff="(999999 &real;)"
-        rms_cutoff_loop="(999999 &real;)" randomize_cut="(false &bool;)"
-        cut_secondarystruc="(false &bool;)" design="(false &bool;)"
-        rtmin="(true &bool;)" splice_filter="(&string;)" mover="(&string;)"
-        tail_mover="(&string;)" restrict_to_repacking_chain2="(true &bool;)"
+        packer_palette="(&named_packer_palette;)" torsion_database="(&string;)"
+        design_shell="(6.0 &real;)" repack_shell="(8.0 &real;)"
+        rms_cutoff="(999999 &real;)" rms_cutoff_loop="(999999 &real;)"
+        randomize_cut="(false &bool;)" cut_secondarystruc="(false &bool;)"
+        design="(false &bool;)" rtmin="(true &bool;)" splice_filter="(&string;)"
+        mover="(&string;)" tail_mover="(&string;)"
+        restrict_to_repacking_chain2="(true &bool;)"
         use_sequence_profile="(true &bool;)" />
 ```
 
@@ -37,7 +38,8 @@ Change conformation of antibody segment
 -   **add_sequence_constraints_only**: XRW TO DO
 -   **template_file**: XRW TO DO
 -   **source_pdb**: XRW TO DO
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **torsion_database**: XRW TO DO
 -   **design_shell**: XRW TO DO
 -   **repack_shell**: XRW TO DO

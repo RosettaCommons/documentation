@@ -9,15 +9,17 @@ Performs backrub-style backbone moves
 <BackrubProtocol name="(&string;)" pivot_residues="(&string;)"
         pivot_atoms="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        mc_kt="(&real;)" ntrials="(&real;)" trajectory="(&bool;)"
-        trajectory_gz="(&bool;)" recover_low="(&bool;)"
-        pivot_residue_selector="(&string;)" trajectory_apply_mover="(&string;)"
+        packer_palette="(&named_packer_palette;)" mc_kt="(&real;)"
+        ntrials="(&real;)" trajectory="(&bool;)" trajectory_gz="(&bool;)"
+        recover_low="(&bool;)" pivot_residue_selector="(&string;)"
+        trajectory_apply_mover="(&string;)"
         trajectory_stride="(&positive_integer;)" />
 ```
 
 -   **pivot_residues**: Pivot residues to use for backbone moves. Can contain segments (comma separated). Can use PDB numbers ([resnum][chain]) or absolute Rosetta numbers (integer)
 -   **pivot_atoms**: main chain atoms usable as pivots (comma separated)
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **mc_kt**: Temperature to use for Metropolis criterion
 -   **ntrials**: Number of trials to perform
 -   **trajectory**: Set to true to dump PDBs along the trajectory (how often is controlled by trajectory_stride option)

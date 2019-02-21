@@ -11,7 +11,7 @@ This mover solvates a pose based on statistics of where waters are found in hi-r
         dwell_cutoff="(&real;)" clust_radius="(&real;)" clust_cutoff="(&real;)"
         gen_fixed="(&bool;)" native="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        scorefxn="(&string;)" />
+        packer_palette="(&named_packer_palette;)" scorefxn="(&string;)" />
 ```
 
 -   **mode**: The mode to run in (one of: remove, append, replace, or eval)
@@ -23,7 +23,8 @@ This mover solvates a pose based on statistics of where waters are found in hi-r
 -   **clust_cutoff**: The dwell cutoff for water packing (after clustering)
 -   **gen_fixed**: If set, consider generating waters over fixed regions
 -   **native**: Native pose (overrides in:file:native)
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **scorefxn**: Name of score function to use
 
 ---

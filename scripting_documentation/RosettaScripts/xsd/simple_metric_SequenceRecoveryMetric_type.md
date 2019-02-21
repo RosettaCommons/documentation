@@ -25,7 +25,8 @@ For PSSM metrics, it's assumed that the Pose numbering of both the main and refe
         use_native="(false &bool;)" pssm="(&string;)"
         use_ave_pssm="(false &bool;)" reference_name="(&string;)"
         residue_selector="(&string;)" residue_selector_ref="(&string;)"
-        task_operations="(&task_operation_comma_separated_list;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)" />
 ```
 
 -   **custom_type**: Allows multiple configured SimpleMetrics of a single type to be called in a single RunSimpleMetrics and SimpleMetricFeatures. 
@@ -37,5 +38,6 @@ For PSSM metrics, it's assumed that the Pose numbering of both the main and refe
 -   **residue_selector**: Calculate the sequence recovery for these residues
 -   **residue_selector_ref**: Selector for the reference pose. If not specified, assume there's a 1-to-1 correspondence between the active pose and the reference pose.
 -   **task_operations**: As a convenience, instead of a residue_selector for selecting which residues to count, you can pass task operations and the design residues will be used. The use of the residue_selector attribute is prefered.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 ---

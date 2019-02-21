@@ -10,7 +10,8 @@ XRW TO DO
         perturb="(1 &bool;)" refine="(1 &bool;)" refine_score="(&string;)"
         perturb_score="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        auto_loops="(0 &bool;)" design="(0 &bool;)" hurry="(0 &bool;)"
+        packer_palette="(&named_packer_palette;)" auto_loops="(0 &bool;)"
+        design="(0 &bool;)" hurry="(0 &bool;)"
         cycles="(10 &non_negative_integer;)" loop_file="(loops.loops &string;)"
         loop_start_pdb_num="(&refpose_enabled_residue_number;)"
         loop_start_resnum="(&refpose_enabled_residue_number;)"
@@ -23,7 +24,8 @@ XRW TO DO
 -   **refine**: Use a refinement protocol?
 -   **refine_score**: Name of score function to use
 -   **perturb_score**: Name of score function to use
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **auto_loops**: Automatically detect/assign loops
 -   **design**: Do design!
 -   **hurry**: Fast mode

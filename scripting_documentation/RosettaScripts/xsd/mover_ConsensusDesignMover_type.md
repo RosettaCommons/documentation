@@ -8,12 +8,14 @@ This mover will modify a given task according to a sequence profile and then cal
 ```xml
 <ConsensusDesignMover name="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        scorefxn="(&string;)" invert_task="(true &bool;)"
-        use_seqprof_constraints="(true &bool;)" sasa_cutoff="(1.0 &real;)"
+        packer_palette="(&named_packer_palette;)" scorefxn="(&string;)"
+        invert_task="(true &bool;)" use_seqprof_constraints="(true &bool;)"
+        sasa_cutoff="(1.0 &real;)"
         ignore_pose_profile_length_mismatch="(&bool;)" />
 ```
 
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **scorefxn**: Name of score function to use
 -   **invert_task**: Operate on the residues specified as non-packable in the PackerTask
 -   **use_seqprof_constraints**: use sequence profile constraints

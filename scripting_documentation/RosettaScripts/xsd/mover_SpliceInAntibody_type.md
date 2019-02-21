@@ -15,9 +15,9 @@ Change conformation of antibody segment
         database_pdb_entry="(&string;)" scorefxn="(&string;)"
         template_file="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        torsion_database="(&string;)" design_shell="(6.0 &real;)"
-        repack_shell="(8.0 &real;)" rtmin="(true &bool;)"
-        restrict_to_repacking_chain2="(true &bool;)"
+        packer_palette="(&named_packer_palette;)" torsion_database="(&string;)"
+        design_shell="(6.0 &real;)" repack_shell="(8.0 &real;)"
+        rtmin="(true &bool;)" restrict_to_repacking_chain2="(true &bool;)"
         use_sequence_profile="(true &bool;)" />
 ```
 
@@ -34,7 +34,8 @@ Change conformation of antibody segment
 -   **database_pdb_entry**: Specify entry PDB code of conformation to sample from conformation database.
 -   **scorefxn**: Name of score function to use
 -   **template_file**: The pdb file used to construct the conformation database.
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **torsion_database**: path to conformation database file.
 -   **design_shell**: design shell around sampled conformation.
 -   **repack_shell**: repack shell around sampled conformation.

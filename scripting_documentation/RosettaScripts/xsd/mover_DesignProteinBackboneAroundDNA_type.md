@@ -13,7 +13,8 @@ Performs a round flexible backbone sampling/design and loop design around DNA.
         repack_rate="(&non_negative_integer;)" temp_initial="(&real;)"
         temp_final="(&real;)" designable_second_shell="(&bool;)"
         scorefxn="(&string;)"
-        task_operations="(&task_operation_comma_separated_list;)" />
+        task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)" />
 ```
 
 -   **type**: Backbone movement type
@@ -26,6 +27,7 @@ Performs a round flexible backbone sampling/design and loop design around DNA.
 -   **temp_final**: Final temp of backrub (MC)
 -   **designable_second_shell**: Allow design of residues in the neighborhood of the design shell
 -   **scorefxn**: Name of score function to use
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 ---

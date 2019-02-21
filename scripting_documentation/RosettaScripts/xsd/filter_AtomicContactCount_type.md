@@ -12,6 +12,7 @@ Counts sidechain carbon-carbon contacts among the specified residues under the g
         taskA="(&task_operation_comma_separated_list;)"
         taskB="(&task_operation_comma_separated_list;)"
         task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)"
         jump="(1 &non_negative_integer;)" sym_dof_name="(&string;)"
         confidence="(1.0 &real;)" />
 ```
@@ -23,7 +24,8 @@ Counts sidechain carbon-carbon contacts among the specified residues under the g
 -   **ss_only**: Only consider SS elements (i.e., non-L)
 -   **taskA**: Comma-separated list of task operations to use for selecting residue set A.  This is an alternative to using "task_operations" to select a single group of residues.
 -   **taskB**: Comma-separated list of task operations to use for selecting residue set B.  This is an alternative to using "task_operations" to select a single group of residues.
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **jump**: Jump across which to define contacts
 -   **sym_dof_name**: Name of the sym dof -- a symmetry-aware jump identifier
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter

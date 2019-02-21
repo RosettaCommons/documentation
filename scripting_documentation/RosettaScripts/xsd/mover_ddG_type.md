@@ -9,17 +9,19 @@ This mover is useful for reporting the total or per-residue ddgs in cases where 
 <ddG name="(&string;)" scorefxn="(&string;)" jump="(1 &non_negative_integer;)"
         per_residue_ddg="(false &bool;)" repack_unbound="(false &bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
-        repack_bound="(true &bool;)" relax_bound="(false &bool;)"
-        relax_unbound="(true &bool;)" translate_by="(1000 &real;)"
-        relax_mover="(&string;)" filter="(&string;)" chain_num="(&string;)"
-        chain_name="(&string;)" solvate="(false &bool;)" />
+        packer_palette="(&named_packer_palette;)" repack_bound="(true &bool;)"
+        relax_bound="(false &bool;)" relax_unbound="(true &bool;)"
+        translate_by="(1000 &real;)" relax_mover="(&string;)"
+        filter="(&string;)" chain_num="(&string;)" chain_name="(&string;)"
+        solvate="(false &bool;)" />
 ```
 
 -   **scorefxn**: Name of score function to use
 -   **jump**: XSD XRW TO DO
 -   **per_residue_ddg**: XSD XRW TO DO
 -   **repack_unbound**: XSD XRW TO DO
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **repack_bound**: XSD XRW TO DO
 -   **relax_bound**: Should we relax the bound state, if a relax mover is specified?  Default false.
 -   **relax_unbound**: Should we relax the unbound state, if a relax mover is specified?  Default true.

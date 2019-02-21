@@ -17,13 +17,16 @@ XRW TO DO
         checkpoint_rename="(&bool;)" output_fname_prefix="(&string;)"
         scorefxn="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)"
         rb_jump="(1 &non_negative_integer;)" unfolded="(1 &bool;)"
         unbound="(1 &bool;)" input_is_positive="(1 &bool;)"
         profile_bump_threshold="(1.0 &real;)" compare_to_ground_state="(&bool;)" >
     <Positive pdb="(&string;)" unbound="(0 &bool;)" unfolded="(0 &bool;)"
-            task_operations="(&task_operation_comma_separated_list;)" />
+            task_operations="(&task_operation_comma_separated_list;)"
+            packer_palette="(&named_packer_palette;)" />
     <Negative pdb="(&string;)" unbound="(0 &bool;)" unfolded="(0 &bool;)"
-            task_operations="(&task_operation_comma_separated_list;)" />
+            task_operations="(&task_operation_comma_separated_list;)"
+            packer_palette="(&named_packer_palette;)" />
 </ProteinInterfaceMS>
 ```
 
@@ -42,7 +45,8 @@ XRW TO DO
 -   **checkpoint_rename**: Rename checkpoint files
 -   **output_fname_prefix**: Prefix for output filename
 -   **scorefxn**: Name of score function to use
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **rb_jump**: Rigid-body jump that defines the interface, numbered from 1
 -   **unfolded**: Are we providing an unfolded alternative state?
 -   **unbound**: Are we providing an unbound alternative state?
@@ -56,13 +60,15 @@ Subtag **Positive**:   Tags describing individual alternative states in the calc
 -   **pdb**: (REQUIRED) File name containing this alternative state
 -   **unbound**: This alternative state is unbound
 -   **unfolded**: This alternative state is unfolded
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 Subtag **Negative**:   Tags describing individual alternative states in the calculation
 
 -   **pdb**: (REQUIRED) File name containing this alternative state
 -   **unbound**: This alternative state is unbound
 -   **unfolded**: This alternative state is unfolded
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 
 ---

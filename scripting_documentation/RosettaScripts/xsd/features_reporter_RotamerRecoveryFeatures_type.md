@@ -12,6 +12,7 @@ report rotamer recover features and scores to features Statistics Scientific Ben
         cartesian="(&bool;)" comparer="(&string;)" recovery_threshold="(&real;)"
         absolute_threshold="(&real;)"
         task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)"
         predicted_features_reporter="(&string;)" reference_pdb="(&string;)"
         reference_pose="(&string;)"
         chidiff_num_chi_to_compare="(&non_negative_integer;)" />
@@ -27,7 +28,8 @@ report rotamer recover features and scores to features Statistics Scientific Ben
 -   **comparer**: Rotamer recovery comparer
 -   **recovery_threshold**: recovery threshold of the comparer
 -   **absolute_threshold**: absolute electron density correlation that must be met by native to be considered in recovery statistics
--   **task_operations**: A comma separated list of TaskOperations to use.
+-   **task_operations**: A comma-separated list of TaskOperations to use.
+-   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **predicted_features_reporter**: feature reporter that reports to db of type ReportToDB
 -   **reference_pdb**: For use with the RRProtocolReferenceStructure. The PDB formatted file that should be compared against. Mutually exclusive with the 'reference_pose' attribute, but at least one of the two must be provided.
 -   **reference_pose**: For use with the RRProtocolReferenceStructure. The Pose held in the DataMap that should be compared against. This Pose should be loaded into the DataMap using the ResourceManager and the PoseFromPoseResourceMover. Mutually exclusive with the 'reference_pose' attribute, but at least one of the two must be provided.
