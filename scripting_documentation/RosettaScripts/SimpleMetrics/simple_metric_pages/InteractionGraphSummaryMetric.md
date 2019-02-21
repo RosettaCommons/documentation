@@ -13,14 +13,7 @@ The InteractionGraphSummaryMetric takes a pose and a number of [[task operations
 
 ## Options
 
-```xml
-<InteractionGraphSummaryMetric name="(string)" packer_palette="(string)" task_operations="(string)" skip_pose_reconstruction_info="(bool, false)" scorefxn="(string)" />
-```
-
-* **packer_palette** : A previously-defined packer palette to use.  If not specified, the global default palette is used.
-* **task_operations**: A comma-separated list of previously defined task operations that collectively define the packing problem to solve by limiting the rotamers allowed at each position.
-* **skip_pose_reconstruction_info**:  If true, additional information used to rebuild the original pose is omitted from the output.  False by default, meaning that the extra information _is_ included.
-* **scorefxn**: A named, previously-defined scoring function to use when calculating pairwise interaction energies to populate the interaction graph.
+[[include:simple_metric_InteractionGraphSummaryMetric_type]]
 
 ## Output format
 
