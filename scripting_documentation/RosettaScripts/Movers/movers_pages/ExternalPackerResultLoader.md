@@ -13,12 +13,7 @@ The ExternalPackerResultLoader takes as input a packer problem file containing i
 
 ## Options
 
-```xml
-<ExternalPackerResultLoader name="(string)" packer_problem_definition_file="(string)" solution_definition_file="(string)" />
-```
-
-* **packer_problem_definition_file**: The file from which a description of the packer problem will be loaded.
-* **solution_definition_file**: The file from which the solution to the packer problem will be loaded.
+[[include:mover_ExternalPackerResultLoader_type]]
 
 ## Input formats
 
