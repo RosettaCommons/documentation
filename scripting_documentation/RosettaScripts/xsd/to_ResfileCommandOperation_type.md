@@ -13,7 +13,7 @@ Applies the equivalent of a resfile line (without the resnums) to residues speci
 -   **command**: @brief A resfile command string without any numbers in the front.
 Example:
  POLAR
- EMPTY NC R2 NC T6 NC OP5
+ PIKAA X[R2]X[T6]X[OP5]
 -   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
 
 ---

@@ -22,8 +22,6 @@ A TaskOp that takes a regex-like pattern and turns it into a set of design resid
       only of these will be enabled during the design.
    - RESFILE commands are accepted as well. These require a % charactor in from of the whole expression.
      For example [%POLAR] would set that position to only polar design.
-     This is exactly the same as a resfile line, so you can even do NC like so: 
-      [%EMPTY NC R2 NC T6 NC OP5]
 
  EXAMPLE:
   Glycosylation N-Linked motif design: N[^P][ST]
