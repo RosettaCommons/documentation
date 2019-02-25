@@ -6,7 +6,7 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 Modified 20 December 2018 by Vikram K. Mulligan (vmulligan@flatironinstitute.org) to add more output options.
 
-[[include:simple_metric_SequenceMetric_complex_type]]
+[[include:simple_metric_SequenceMetric_type]]
 
 Note that the `three_letter` option has been deprecated in favour of the `output_mode` option, which provides the options "oneletter", "threeletter", "basename", or "fullname".  Examples of each are given below.  Note that the distinctions are particularly important for noncanonicals: some noncanonicals, such as ornithine, don't have a separate three-letter code for the D-equivalent.
 
