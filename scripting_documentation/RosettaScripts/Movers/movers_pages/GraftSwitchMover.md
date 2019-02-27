@@ -43,7 +43,7 @@ task_operations="(&string)" scorefxn="(&string)"/>
 
 - <b>name</b>: The name given to this instance.
 
-There are three ways to define the threadable residues.  If you do nothing, the C-terminal will be selected along with the loop preceding it.  Setting n_term to true will use the n_term and loop instead.  Setting graft_on_latch_loop to false will just use the corresponding helix.
+There are three ways to define the threadable residues.  If you do nothing, the C-terminal will be selected along with the loop preceding it.  Setting <b>n_term</b> to true will use the N-terminal helix and loop instead.  Setting <b>graft_on_latch_loop</b> to false will just use the corresponding helix.
 
 \\Put example here
 
