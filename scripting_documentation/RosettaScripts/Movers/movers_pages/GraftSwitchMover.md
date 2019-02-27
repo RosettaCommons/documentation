@@ -5,6 +5,10 @@ Page created by Bobby Langan (langar2@uw.edu).  Last updated 26 February 2019.
 
 Grafts a sequence onto the latch of a LOCKR type protein [REF Langan, Ng, Boyken, et. al 2019]. Returns all threads where average degree of defined "important residues" is greater than the cutoff (defualt=6). "Important residues" are user defined as the residues that must be buried in the cage/latch interface. User defines the set of threadable residues either by start/end positions or by residue selector and the mover determines where in that set the defined sequence(s) can fit.  If set of residues not defined in those ways, the mover selects the C-terminal helix.  Mover will select the N-terminal helix and/or the loop adjacent to the terminal helix as defined by user parameters.
 
+Mover returns several poses - MultiplePoseMover must be used for downstream design and filtering.
+
+Use this when you want to thread one or more sequences in several potential positions - use [[SimpleThreadingMover|SimpleThreadingMover]] if you have one position to put one sequence.  This mover calls SimpleThreadingMover after parsing threadable positions and performs downstream filtering for burial.
+
 ```xml
 <GraftSwitchMover name="(&string)" start="(0 &int)" end="(0 &int)" 
 n_term="(false &bool)" any_order="(true &bool)" pack_neighbors="(true &bool)" 
@@ -33,13 +37,29 @@ task_operations="(&string)" scorefxn="(&string)"/>
 
 - <b>selector</b>: Residue Selector defining residues that can be threaded onto.  Overrides default behavior and start/end if defined.
 
-- <b>task_operations</b>: A comma separated list of TaskOperations to use.
+- <b>task_operations</b>: A comma separated list of TaskOperations to use.  Use if you have residues you do not want to be repacked (or set pack_neighbors to false if you don't want any residues repacked).  Good if you're doing HBNet upstream in your protocol - use the HBNet TaskOp to maintain those rotamers.
 
-- <b>scorefxn</b>: Name of score function to use
+- <b>scorefxn</b>: Name of score function to use.
 
 - <b>name</b>: The name given to this instance.
 
+There are three ways to define the threadable residues.  If you do nothing, the C-terminal will be selected along with the loop preceding it.  Setting n_term to true will use the n_term and loop instead.  Setting graft_on_latch_loop to false will just use the corresponding helix.
+
+\\Put example here
+
+If you define start and end it will thread on all residues between the defined positions.  Both must be defined if one is, otherwise mover will throw an error.
+
+\\Put example here
+
+A residue selector can be used to define a discontinuous set of residues.  The mover will programmatically determine where in that discontinuous set your sequence(s) fit.
+
+\\Put example here
+
+Using MultiplePoseMover for downstream design and filtering is necessary to capture all the output from this mover.
+
+\\Put example here
+
 ##See Also
 
-* [[Threading a single sequence at a single position|SimpleThreadingMover]]
+* [[SimpleThreadingMover|SimpleThreadingMover]]
 * [[I want to do x]]: Guide to choosing a mover
