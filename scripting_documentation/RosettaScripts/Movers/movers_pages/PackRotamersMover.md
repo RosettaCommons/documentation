@@ -9,7 +9,7 @@ Repacks sidechains with user-supplied options, including TaskOperations (and, fo
 [[include:mover_PackRotamersMover_type]]
 
 **NOTE:** By default, packing includes sampling *all sidechains in the current PackerPalette*, i.e. **it performs sequence design!**
-The way to prevent this is to pass a [[RestrictToRepacking|RestrictToRepackingOperation]] task operation:
+The way to prevent this, if you only want to pack existing side-chains without changing side-chain identity, is to pass a [[RestrictToRepacking|RestrictToRepackingOperation]] task operation:
 ```xml
 <TASKOPERATIONS>
    <RestrictToRepacking name="repackonly" />
