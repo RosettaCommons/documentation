@@ -8,7 +8,7 @@ Performs a FastRelax with design enabled. By default, each repeat of FastDesign 
 
 ### Usage
 
-[[include:mover_FastDesign_type.md]]
+[[include:mover_FastDesign_type]]
 
 ### Relax Scripts
 
