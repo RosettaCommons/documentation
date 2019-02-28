@@ -203,3 +203,7 @@ This example creates a 10-residue cyclic peptide with a disulfide bond between t
 GeneralizedKIC cannot handle the following cases:
 * Multiple covalent connections between a single pair of residues in the chain of residues to be closed.  (This is something that, in general, Rosetta handles poorly).
 * Loops involving salt bridges, cation-pi interactions, hydrogen bonds, or other noncovalent interactions.  (The GeneralizedKIC framework has been written with this in mind as a possible future extension, however.)  Note that coordinate covalent bonds between metal-binding residues and metal ions are considered "covalent" in Rosetta, and _are_ handled properly by GeneralizedKIC.
+
+## Full options list
+
+[[include:mover_GeneralizedKIC_type]]
