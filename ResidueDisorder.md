@@ -20,7 +20,7 @@ Note that to run ResidueDisorder, _ab initio_ structure prediction must first be
 
 References
 ==========
-In the process of being published.
+Kim, S.S.; Seffernick, J.T.; Lindert,S., Accurately Predicting Disordered Regions of Proteins Using Rosetta ResidueDidorder Application. _J. Phys. Chem. B._: **2018**;122,3029-30930.
 
 Purpose
 =======
