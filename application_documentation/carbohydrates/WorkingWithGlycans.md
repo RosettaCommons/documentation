@@ -82,6 +82,7 @@ Sampling
  - [[RingConformationMover]] - Make a change to a cyclic residue's ring conformation. (Note that this is not normally an energetically favorable thing to do!)
  - [[LinkageConformerMover]] - Make a change to all of the glycosidic torsion angles by using angles from a statistically favorable conformation.
  - [[RingPlaneFlipMover]] - Make a 180-degree shearing move to a residue with opposite, equatorial linkages, effectively flipping over the plane of its ring.
+ - [[TautomerizeAnomerMover]] - Replace a reducing-end sugar residue with its anomer.
 
 
 Applications
