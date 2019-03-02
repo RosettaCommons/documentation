@@ -367,6 +367,7 @@ Mover  | Description
 ------------ | -------------
 **[[LinkageConformerMover]]** | Sample glycosidic bond torsions from statistically favorable conformations.
 **[[RingPlaneFlipMover]]** | Flip pyranose rings with opposite and equatorial linkages.
+**[[TautomerizeAnomerMover]]** | Replace reducing-end sugar with its anomer.
 **[[GlycanTreeRelax]]** | Model Glycans using a tree-based algorithm for denovo structure prediction or refinement.
 **[[GlycanRelaxMover]]** | Simple algorithm to sample glycan torsions using structural data and optimize structures via minimization and packing.
 **[[SimpleGlycosylateMover]]** | Glycosylate poses with glycan trees, such as man5 or man9 or other complex trees. 
