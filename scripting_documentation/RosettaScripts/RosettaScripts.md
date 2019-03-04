@@ -512,6 +512,15 @@ For example, symmetric score12:
 <ScoreFunction name="score12_symm" weights="score12_full" symmetric="1"/>
 ```
 
+## RESIDUE_SELECTORS
+
+[[ResidueSelectors|ResidueSelectors]] are used by movers, filters and task operations to dynamically select residues at run-time. They are used to specify sets of residues based on multiple different properties.
+
+### Available ResidueSelectors
+
+See [[ResidueSelectors (RosettaScripts)|ResidueSelectors]]
+
+
 
 ## TASKOPERATIONS
 
@@ -522,13 +531,26 @@ TaskOperations are used by movers to tell the "packer" which residues/rotamers t
 See [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]]
 
 
-## RESIDUE_SELECTORS
+## RESIDUE_LEVEL_TASK_OPERATIONS
 
-[[ResidueSelectors|ResidueSelectors]] are used by movers, filters and task operations to dynamically select residues at run-time. They are used to specify sets of residues based on multiple different properties.
+Residue-Level-TaskOperations are used by a few specific TaskOperations control the packer task.
 
-### Available ResidueSelectors
+Example:
 
-See [[ResidueSelectors (RosettaScripts)|ResidueSelectors]]
+```
+<ROSETTASCRIPTS>
+	<RESIDUE_LEVEL_TASK_OPERATIONS>
+	        <PreventRepackingRLT name="PreventRepacking" />
+	        <RestrictToRepackingRLT name="RestrictToRepacking" />
+	</RESIDUE_LEVEL_TASK_OPERATIONS>
+</ROSETTASCRIPTS>
+```
+
+### Available Residue-Level-TaskOperations
+
+See [[TaskOperations/Residue-Level-TaskOperations|Residue-Level-TaskOperations]]
+
+
 
 ## MOVE_MAP_FACTORIES
 
