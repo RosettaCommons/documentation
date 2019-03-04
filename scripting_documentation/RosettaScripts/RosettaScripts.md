@@ -533,7 +533,7 @@ See [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]]
 
 ## RESIDUE_LEVEL_TASK_OPERATIONS
 
-Residue-Level-TaskOperations are used by a few specific TaskOperations control the packer task.
+Residue-Level-TaskOperations are used by a few specific TaskOperations control the packer task, such as [[DesignRestrictions|DesignRestrictionsOperation]].
 
 Example:
 
@@ -548,7 +548,7 @@ Example:
 
 ### Available Residue-Level-TaskOperations
 
-See [[TaskOperations/Residue-Level-TaskOperations|Residue-Level-TaskOperations]]
+See [[Residue-Level-TaskOperations|Residue-Level-TaskOperations]]
 
 
 
