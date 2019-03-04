@@ -1,7 +1,7 @@
 # DesignRestrictions
 *Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 
-Concise way to combine residue selectors and residue-level task operations. The Action subtags allow you to specify several modifications to a packer task simultaneously. Using the 'selector_logic' attribute, you can combine as many previously-defined ResidueSelectors as you would like using AND, OR, ! (not), and parentheses or you can choose a particular, previously defined ResidueSelector using the 'residue_selector' attribute. One of the two must be provided. Then you may specify the set of canonical amino acids you'd like to restrict the indicated set of residues using the 'aas' attribute and/or by listing a set of previously-declared ResidueLevelTaskOperations.
+Concise way to combine residue selectors and residue-level task operations. The Action subtags allow you to specify several modifications to a packer task simultaneously. Using the 'selector_logic' attribute, you can combine as many previously-defined ResidueSelectors as you would like using AND, OR, ! (not), and parentheses or you can choose a particular, previously defined ResidueSelector using the 'residue_selector' attribute. One of the two must be provided. Then you may specify the set of canonical amino acids you'd like to restrict the indicated set of residues using the 'aas' attribute and/or by listing a set of previously-declared [[ResidueLevelTaskOperations|RosettaScripts#rosettascript-sections_residue_level_task_operations]].
 
 ```xml
 <DesignRestrictions name="(&string;)" >
@@ -20,12 +20,10 @@ Subtag **Action**:
 
 ##Example
 
-Here is an example implementation of LayerDesign using LayerSelector and DesignRestrictions. 
+Here is an example that performs LayerDesign on the protein surface, repacks the boundary, and disallows packing the the core. 
 
 ```xml
 <RESIDUE_SELECTORS>
-
-	<!-- Layer Design -->
 	<Layer name="surface" select_core="false" select_boundary="false" select_surface="true" use_sidechain_neighbors="true"/>
 	<Layer name="boundary" select_core="false" select_boundary="true" select_surface="false" use_sidechain_neighbors="true"/>
 	<Layer name="core" select_core="true" select_boundary="false" select_surface="false" use_sidechain_neighbors="true"/>
@@ -44,27 +42,23 @@ Here is an example implementation of LayerDesign using LayerSelector and DesignR
 	<And name="loop" selectors="entire_loop">
 		<Not selector="helix_cap"/>
 	</And>
-
 </RESIDUE_SELECTORS>
 
-<TASKOPERATIONS>
+<RESIDUE_LEVEL_TASK_OPERATIONS>
+        <PreventRepackingRLT name="PreventRepacking" />
+        <RestrictToRepackingRLT name="RestrictToRepacking" />
+</RESIDUE_LEVEL_TASK_OPERATIONS>
 
-	<DesignRestrictions name="layer_design">
+<TASKOPERATIONS>
+	<DesignRestrictions name="design_task">
 		<Action selector_logic="surface AND helix_start"	aas="EHKPQR"/>
 		<Action selector_logic="surface AND helix"		aas="EHKQR"/>
 		<Action selector_logic="surface AND sheet"		aas="DEHKNQRST"/>
 		<Action selector_logic="surface AND loop"		aas="DEGHKNPQRST"/>
-		<Action selector_logic="boundary AND helix_start"	aas="ADEIKLMNPQRSTVWY"/>
-		<Action selector_logic="boundary AND helix"		aas="ADEIKLMNQRSTVWY"/>
-		<Action selector_logic="boundary AND sheet"		aas="DEFIKLNQRSTVWY"/>
-		<Action selector_logic="boundary AND loop"		aas="ADEFGIKLMNPQRSTVWY"/>
-		<Action selector_logic="core AND helix_start"		aas="AFILMPVWY"/>
-		<Action selector_logic="core AND helix"			aas="AFILMVWY"/>
-		<Action selector_logic="core AND sheet"			aas="FILVWY"/>
-		<Action selector_logic="core AND loop"			aas="AFGILMPVWY"/>
-		<Action selector_logic="helix_cap"			aas="DNST"/>
+		<Action residue_selector="boundary"			residue_level_operations="RestrictToRepacking"/>
+		<Action residue_selector="core"				residue_level_operations="PreventRepacking"/>
+		<Action residue_selector="helix_cap"			aas="DNST"/>
 	</DesignRestrictions>
-
 </TASKOPERATIONS>
 
 ```
