@@ -54,11 +54,13 @@ The sidechain move is performed by BoltzmannRotamerMover:
 
 # [4] Analysis (v. important to read)
 
-During its design trajectory, Coupled Moves samples a variety of sequences. Each unique sequence will be saved and printed to a fasta file, my_pdb.fasta. When your jobs are complete, combine the fasta files for all nstruct. Because analysis is based on unique sequences sampled rather than final pdb, nstruct can be quite low (20-60). 
+During its design trajectory, Coupled Moves samples a variety of sequences. Each unique sequence will be saved and printed to a fasta file, my_pdb.fasta. When your jobs are complete, combine the fasta files for all nstruct. Because analysis is based on unique sequences sampled rather than final pdb, nstruct can be quite low. We recommend nstruct of 100-400, depending on the number of positions in the designable regions. 
 
-Only designed positions will be included in the fasta file. Your resfile ALLAA positions define the designed positions printed in the fasta file. Do not lose your resfile.
+Only designed positions will be included in the fasta file. Your resfile designable positions (ALLAA, PIKAA, NOTAA...) define the designed positions printed in the fasta file. Do not lose your resfile.
 
-**For each position of interest, base your design decision on the frequency distribution of amino acids observed on your combined fasta files.** This differs from other Rosetta methods which typically consider the final structure of the design trajectory.
+**For each position of interest, base your design decision on the frequency distribution of amino acid side chains observed on your combined fasta files, and the energetics of the more frequent amino acid side chains.**
+
+For each position, look at all side chains modeled by CoupledMoves. Calculate the frequency of each side chain. And calculate the rank of the total_energy term compared to the other modeled side chains. **Choose side chains that are modeled with >33% frequency *and* in the 75th or above total energy percentile.**
 
 ----------------
 
