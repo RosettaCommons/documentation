@@ -4,7 +4,7 @@
 
 Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
-[[include:simple_metric_DihedralDistanceMetric_complex_type]]
+[[include:simple_metric_DihedralDistanceMetric_type]]
 
 ##See Also
 
