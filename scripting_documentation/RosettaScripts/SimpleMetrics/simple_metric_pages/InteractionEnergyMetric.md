@@ -4,7 +4,7 @@
 
 Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
-[[include:simple_metric_InteractionEnergyMetric_complex_type]]
+[[include:simple_metric_InteractionEnergyMetric_type]]
 
 ##See Also
 
