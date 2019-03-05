@@ -4,7 +4,7 @@
 
 Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
-[[include:simple_metric_SelectedResiduesPyMOLMetric_complex_type]]
+[[include:simple_metric_SelectedResiduesPyMOLMetric_type]]
 
 ##See Also
 
