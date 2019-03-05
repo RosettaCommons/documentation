@@ -4,7 +4,7 @@
 
 Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
-[[include:simple_metric_PerResidueClashMetric_complex_type]]
+[[include:simple_metric_PerResidueClashMetric_type]]
 
 ##See Also
 
