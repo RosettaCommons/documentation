@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-02-21
+Generated: 2019-03-05
 
 _Note that some application specific options may not be present in this list._
 
@@ -552,6 +552,8 @@ _Note that some application specific options may not be present in this list._
 <dd>If the pose contains any comment print it as a COMMENT in the pdb file.<br/>Default: false<br/></dd>
 <dt><b>-force_nonideal_structure</b> \<Boolean\></dt>
 <dd>Force ResidueConformationFeatures to treat the structure as nonideal.  If you know all your structures are non-ideal this decreases pose output time<br/>Default: true<br/></dd>
+<dt><b>-set_pdb_author</b> \<String\></dt>
+<dd>Set the author name(s), if any, to output in the .pdb Title Section. List of names should be comma-delimited.<br/>Default: ""<br/></dd>
 <dt><b>-write_pdb_link_records</b> \<Boolean\></dt>
 <dd>Sets whether or not the LINK records in PDB files are written.  The default value is true.<br/>Default: true<br/></dd>
 <dt><b>-use_pdb_format_HETNAM_records</b> \<Boolean\></dt>
