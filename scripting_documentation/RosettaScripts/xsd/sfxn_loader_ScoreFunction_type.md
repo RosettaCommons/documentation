@@ -36,6 +36,12 @@ XRW TO DO
             exclude_protein_protein_fa_elec="(&bool;)" exclude_DNA_DNA="(&bool;)"
             pb_bound_tag="(&string;)" pb_unbound_tag="(&string;)"
             scale_sc_dens="(&real;)" scale_sc_dens_byres="(&string;)"
+            nmer_ref_seq_length="(&non_negative_integer;)"
+            nmer_svm_term_length="(&non_negative_integer;)"
+            nmer_svm_pssm_feat="(&bool;)" nmer_svm_scorecut="(&real;)"
+            nmer_svm_avg_rank_as_energy="(&bool;)" nmer_svm_aa_matrix="(&string;)"
+            nmer_svm_list="(&string;)" nmer_svm="(&string;)"
+            nmer_svm_rank_list="(&string;)" nmer_svm_rank="(&string;)"
             approximate_buried_unsat_penalty_hbond_energy_threshold="(&real;)"
             approximate_buried_unsat_penalty_burial_atomic_depth="(&real;)"
             approximate_buried_unsat_penalty_burial_probe_radius="(&real;)"
@@ -113,6 +119,16 @@ Subtag **Set**:
 -   **pb_unbound_tag**: XRW TO DO
 -   **scale_sc_dens**: XRW TO DO
 -   **scale_sc_dens_byres**: XRW TO DO
+-   **nmer_ref_seq_length**: Length of N-mers in nmer_ref score.
+-   **nmer_svm_term_length**: How many up/downstream residues to average and include in SVM sequence encodingin nmer_ref score.
+-   **nmer_svm_pssm_feat**: Add pssm features to svm encoding in nmer_ref score?
+-   **nmer_svm_scorecut**: N-mer SVM scorecut gate for ignoring low-scoring N-mers in nmer_ref score.
+-   **nmer_svm_avg_rank_as_energy**: Use average of SVM score ranks as residue energy for NmerSVM scoring method (nmer_ref score term).  This option is good for normalizing across mhc/hla alleles.
+-   **nmer_svm_aa_matrix**: N-mer SVM sequence-encoding matrix filename for nmer_ref score.
+-   **nmer_svm_list**: File with list of N-mer SVM filenames (libsvm) for nmer_ref score.
+-   **nmer_svm**: N-mer SVM filename (libsvm) for nmer_ref score.
+-   **nmer_svm_rank_list**: File with list of N-mer svm rank scores filenames (libsvm) for nmer_ref score.
+-   **nmer_svm_rank**: N-mer SVM rank scores filename (libsvm) for nmer_ref score.
 -   **approximate_buried_unsat_penalty_hbond_energy_threshold**: Energy threshold for a h-bond to be considered satisfying a buried polar. Should be a negative number. (Setting to -0.001 will be much faster than 0 at runtime)
 -   **approximate_buried_unsat_penalty_burial_atomic_depth**: The atomic depth cutoff to determine whether or not a polar atom is buried. Measured from the Sasa surface.
 -   **approximate_buried_unsat_penalty_burial_probe_radius**: The probe radius for the atomic depth calculation.

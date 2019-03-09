@@ -7,10 +7,10 @@ Set a list of cysteine pairs to form disulfides and repack their surroundings. U
 
 ```xml
 <ForceDisulfides name="(&string;)" scorefxn="(&string;)"
-        disulfides="(&colon_sep_size_pair_cslist;)" />
+        disulfides="(&colon_sep_respair_cslist;)" />
 ```
 
 -   **scorefxn**: Name of score function to use
--   **disulfides**: (REQUIRED) For instance: 23A:88A,22B:91B. Can also take regular Rosetta numbering as in: 24:88,23:91.
+-   **disulfides**: (REQUIRED) For instance: 23A:88A,22B:91B. Can also take regular Rosetta (aka Pose) numbering as in: 24:88,23:91.
 
 ---

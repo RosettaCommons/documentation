@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-03-05
+Generated: 2019-03-09
 
 _Note that some application specific options may not be present in this list._
 
@@ -1235,9 +1235,13 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-nmer_pssm_scorecut</b> \<Real\></dt>
 <dd>nmer pssm scorecut gate for ignoring lowscore nmers<br/>Default: 0.0<br/></dd>
 <dt><b>-nmer_svm</b> \<String\></dt>
-<dd>nmer svm filename (libsvm)<br/></dd>
+<dd>nmer svm filename (libsvm)<br/>Default: ""<br/></dd>
 <dt><b>-nmer_svm_list</b> \<String\></dt>
-<dd>list of nmer svm filenames (libsvm)<br/></dd>
+<dd>list of nmer svm filenames (libsvm)<br/>Default: ""<br/></dd>
+<dt><b>-nmer_svm_rank</b> \<String\></dt>
+<dd>nmer svm rank scores filename (libsvm)<br/>Default: ""<br/></dd>
+<dt><b>-nmer_svm_rank_list</b> \<String\></dt>
+<dd>list of nmer svm rank scores filenames (libsvm)<br/>Default: ""<br/></dd>
 <dt><b>-nmer_svm_scorecut</b> \<Real\></dt>
 <dd>nmer svm scorecut gate for ignoring lowscore nmers<br/>Default: 0.0<br/></dd>
 <dt><b>-nmer_svm_aa_matrix</b> \<String\></dt>
@@ -1246,6 +1250,8 @@ _Note that some application specific options may not be present in this list._
 <dd>how many up/dnstream res to avg and incl in svm sequence encoding<br/>Default: 3<br/></dd>
 <dt><b>-nmer_svm_pssm_feat</b> \<Boolean\></dt>
 <dd>add pssm features to svm encoding?<br/>Default: true<br/></dd>
+<dt><b>-nmer_svm_avg_rank_as_energy</b> \<Boolean\></dt>
+<dd>use average of svm score ranks as rsd energy for NmerSVM scoring method, good for normalizing across mhc/hla alleles<br/>Default: false<br/></dd>
 <dt><b>-nmer_ref_seq_length</b> \<Integer\></dt>
 <dd>length of nmers in nmer_ref score<br/>Default: 9<br/></dd>
 <dt><b>-just_calc_rmsd</b> \<Boolean\></dt>
