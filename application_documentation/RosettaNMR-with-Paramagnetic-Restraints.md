@@ -37,9 +37,9 @@ In the **input** folder, the following files are prepared for you:
 - PCS input file (_1d3z.pcs.inp_)
 - RDC input file (_1d3z.rdc.inp_)
 - PRE input file (_1d3z.pre.inp_)
-- PCS data files (in Rosetta format); located in sub-directory **pcs** ; one data file for each spin-labeled variant (T12C and S57C), and each lanthanide ion (Tb<sup>3+</sup> and Tm<sup>3+</sup>)
-- RDC data files (in Rosetta format); located in sub-directory **rdc** ; one data file for each spin-labeled variant (T12C and S57C), and each lanthanide ion (Tb<sup>3+</sup> and Tm<sup>3+</sup>)
-- PRE data file (in Rosetta format); located in directory **pre** ; one <sup>1</sup>H-R<sub>2</sub> PRE data file for MTSL spin-labeled variant K48C
+- PCS data files (in Rosetta format); located in sub-directory **pcs**; one data file for each spin-labeled variant (T12C and S57C), and each lanthanide ion (Tb<sup>3+</sup> and Tm<sup>3+</sup>)
+- RDC data files (in Rosetta format); located in sub-directory **rdc**; one data file for each spin-labeled variant (T12C and S57C), and each lanthanide ion (Tb<sup>3+</sup> and Tm<sup>3+</sup>)
+- PRE data file (in Rosetta format); located in directory **pre**; one <sup>1</sup>H-R<sub>2</sub> PRE data file for MTSL spin-labeled variant K48C
 - Score function patch files for PCSs, RDCs and PREs (_pcs.wts\_patch_, _rdc.wts\_patch_, _pre.wts\_patch_) (will be created during step 1.3)
 - Score function patch file for all NMR data (_nmr.wts\_patch_) (will be created in step 1.5)
 - Chemical shift table in TALOS+ format (_cs/1d3z.tab_); information on the table format can be found under [https://spin.niddk.nih.gov/NMRPipe/talos/](https://spin.niddk.nih.gov/NMRPipe/talos/)
@@ -55,8 +55,9 @@ The **output** folder contains:
 Change into the **1\_fragments** sub-folder. An options file (_fragment\_picker.options_) and a weights file (_fragment\_picker.wts_) for the Rosetta fragment picker application are provided in this directory. In the options file, adjust the paths to the Rosetta database and to the vall fragment database to the location where they are found on your system. Make sure that the path to all other files in the **input** directory is correctly set too.
 
 Notice that the PSI-BLAST checkpoint file is provided in the **input** directory for you. This file can be created by running the two commands below, using blastpgp version 2.2.18 and assuming that PSI-BLAST is correctly installed and the path to the PSI-BLAST database correctly set up.
-
-<code>blastpgp –b 0 –j 3 –h 0.001 –d path\_to\_PSI-BLAST\_database –i 1d3z.fasta –C 1d3z.chk –Q 1d3z.ascii</code><br>
+<pre>
+<code>blastpgp –b 0 –j 3 –h 0.001 –d path_to_PSI-BLAST_database –i 1d3z.fasta –C 1d3z.chk –Q 1d3z.ascii</code>
+</pre>
 <code>../../scripts/convert\_chk.pl 1d3z.fasta 1d3z.chk</code>
 
 The last command converts the checkpoint file from a binary format (_1d3z.chk_) to a human-readable format (_1d3z.checkpoint_) that can be read by Rosetta.
@@ -82,9 +83,9 @@ This will create 3mer and 9mer fragment files (_1d3z.200.3mers_, _1d3z.200.9mers
 Change into the **2\_abrelax** sub-folder. An options file (_abrelax.options_) is provided in this directory. Using the provided settings, one output model will be created. Change the <code>-out:nstruct</code> flag to the desired number of models if you wish to create more models. Typically, for _de novo_ structure prediction, more than 1000 models are created and calculations are run on multiple CPUs on a cluster.
 
 Run the Minirosetta application by typing:
-
+<pre>
 <code>~/Rosetta/main/source/bin/minirosetta.linuxgccrelease -database ~/Rosetta/main/database/ @ abrelax.options</code>
-
+</pre>
 This will create one output model in Rosetta silent file format (_1d3z\_abrelax.out_) and a Rosetta score file (_1d3z\_abrelax.sc_). Extract the model of 1D3Z as PDB file by typing:
 
 <code>~/Rosetta/main/source/bin/extract\_pdbs.linuxgccrelease -in:file:silent 1d3z\_abrelax.out</code>
@@ -108,8 +109,10 @@ The experimental PCS, RDC and PRE values can be found in the data files in the *
 Notice that the PCS, RDC and PRE options files contain a flag called <code>-multiset\_weights</code> which is followed by a vector of floating point numbers. Those numbers represent weighting factors which specify how much the score values that are calculated for the individual tagging sites or alignment media will contribute to the overall score. Thus, different experimental datasets can be assigned a higher or lower weight in order to reflect our decisions regarding their quality or importance for the calculation. Two important remarks about the input format of this flag must be mentioned: (1) the vector size must be equal the number of PCS, PRE or RDC MULTISETs, i.e. 2, 1 and 4 for this example, and (2) the order by which the weighting factors are applied will be the same as the order in which MULTISETs appear in the NMR input file.
 
 For scoring, the RosettaScripts application is used. Run the following command in the terminal:
-
-<code>~/Rosetta/main/source/bin/rosetta\_scripts.linuxgccrelease -database ~/Rosetta/main/database/ -parser:protocol rescore.cen.xml @ rescore.pcs.options -in:file:silent 1d3z\_abrelax.out -out:file:scorefile 1d3z\_abrelax\_pcs\_score3.sc</code>
+<pre>
+<code>~/Rosetta/main/source/bin/rosetta_scripts.linuxgccrelease -database ~/Rosetta/main/database/ -parser:protocol rescore.cen.xml \
+@ rescore.pcs.options -in:file:silent 1d3z_abrelax.out -out:file:scorefile 1d3z_abrelax_pcs_score3.sc</code>
+</pre>
 
 By adding the <code>-in:file:tags</code> flag to the command above followed by one or more model tags, specific models can be selected for scoring (e.g. <code>-in:file:tags 1d3z\_abrelax\_1\_S\_0001</code>).
 
@@ -117,18 +120,22 @@ Repeat scoring with the score3 weights for PREs and RDCs.
 
 Repeat scoring with the ref2015 score function. Therefore, in the options file, remove the pound sign (#) in front of the ref2015-specific flags and comment out those flags specific for the score3 score function. For example, the corresponding lines in your PCS options file should look like this:
 
+<pre>
 <code>
-\#Use the following options for scoring with Rosetta high resolution score function<br>
-\-parser:script\_vars sfxn=ref2015 nmr\_sc\_type=nmr\_pcs nmr\_sc\_wt=1.0<br>
-\-score:weights ref2015.wts<br>
-\#Use the following options for scoring with Rosetta low resolution score function<br>
-\#-parser:script\_vars sfxn=score3.wts nmr\_sc\_type=nmr\_pcs nmr\_sc\_wt=1.0<br>
-\#-score:weights score3.wts
+#Use the following options for scoring with Rosetta high resolution score function
+-parser:script_vars sfxn=ref2015 nmr_sc_type=nmr_pcs nmr_sc_wt=1.0
+-score:weights ref2015.wts
+#Use the following options for scoring with Rosetta low resolution score function
+#-parser:script_vars sfxn=score3.wts nmr_sc_type=nmr_pcs nmr_sc_wt=1.0
+#-score:weights score3.wts
 </code>
+</pre>
 
 Now, type the following command:
-
-<code>~/Rosetta/main/source/bin/rosetta\_scripts.linuxgccrelease -database ~/Rosetta/main/database/ -parser:protocol rescore.fa.xml @ rescore.pcs.options -in:file:silent 1d3z\_abrelax.out -out:file:scorefile 1d3z\_abrelax\_pcs\_ref2015.sc</code>
+<pre>
+<code>~/Rosetta/main/source/bin/rosetta_scripts.linuxgccrelease -database ~/Rosetta/main/database/ -parser:protocol rescore.fa.xml \
+@ rescore.pcs.options -in:file:silent 1d3z_abrelax.out -out:file:scorefile 1d3z_abrelax_pcs_ref2015.sc</code>
+</pre>
 
 Repeat scoring with the ref2015 weights for PREs and RDCs.
 
