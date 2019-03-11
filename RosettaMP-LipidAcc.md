@@ -1,7 +1,7 @@
-# RosettaMP Application: Helix from sequence
+# RosettaMP Application: mp_lipid_acc
 
 ## Code and Demo
-The executable for helix_from_sequence can be found in `Rosetta/main/source/src/apps/public/membrane/mp_lipid_acc.cc`
+The executable can be found in `Rosetta/main/source/src/apps/public/membrane/mp_lipid_acc.cc`
 
 The application can also be run on the ROSIE server: [http://rosie.rosettacommons.org/mp_lipid_acc]
 
