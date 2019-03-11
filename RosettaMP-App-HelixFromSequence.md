@@ -1,4 +1,4 @@
-# RosettaMP Application: Helix from sequence
+# RosettaMP Application: helix_from_sequence
 
 ## Code and Demo
 The executable for helix_from_sequence can be found in `Rosetta/main/source/src/apps/public/membrane/helix_from_sequence.cc`
