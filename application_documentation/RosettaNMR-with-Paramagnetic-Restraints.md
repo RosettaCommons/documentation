@@ -144,21 +144,25 @@ _Optional step:_ If you have split up the _de novo_ structure calculation over m
 <code>cat 1d3z\_abrelax\_\*\_pcs\_ref2015.sc > 1d3z\_abrelax\_pcs\_ref2015.sc</code>
 
 Calculate the PCS, RDC or PRE weight for the AbRelax protocol by running the _calc\_nmr\_wt.py_ script from the scripts directory with the score files obtained by scoring with the score3 weight set. The script requires as arguments the name of the Rosetta score file and at least one NMR score type (_pcs_, _rdc_ or _pre_).
-
-<code>../../scripts/calc\_nmr\_wt.py 1d3z\_abrelax\_pcs\_score3.sc --nmr\_scoretypes pcs</code><br>
-<code>../../scripts/calc\_nmr\_wt.py 1d3z\_abrelax\_rdc\_score3.sc --nmr\_scoretypes rdc</code><br>
-<code>../../scripts/calc\_nmr\_wt.py 1d3z\_abrelax\_pre\_score3.sc --nmr\_scoretypes pre</code>
-
+<pre>
+<code>
+../../scripts/calc_nmr_wt.py 1d3z_abrelax_pcs_score3.sc --nmr_scoretypes pcs
+../../scripts/calc_nmr_wt.py 1d3z_abrelax_rdc_score3.sc --nmr_scoretypes rdc
+../../scripts/calc_nmr_wt.py 1d3z_abrelax_pre_score3.sc --nmr_scoretypes pre
+</code>
+</pre>
 Note: when copying this command, make sure that the editor does not replace the en dash (-) with the em dash (--) in front of the <code>--nmr\_scoretypes</code> flag as this might cause an error in the script.
 
 A short message reporting the calculated weight will be written to the terminal, e.g: <code>nmr\_rdc = 0.0727</code>.
 
 Additionally, calculate the PCS, RDC or PRE weight to be used for final model scoring and selection by running the _calc\_nmr\_wt.py_ script with the score files obtained by scoring with the ref2015 weight set:
-
-<code>../../scripts/calc\_nmr\_wt.py 1d3z\_abrelax\_pcs\_ref2015.sc --nmr\_scoretypes pcs</code><br>
-<code>../../scripts/calc\_nmr\_wt.py 1d3z\_abrelax\_rdc\_ref2015.sc --nmr\_scoretypes rdc</code><br>
-<code>../../scripts/calc\_nmr\_wt.py 1d3z\_abrelax\_pre\_ref2015.sc --nmr\_scoretypes pre</code>
-
+<pre>
+<code>
+../../scripts/calc_nmr_wt.py 1d3z_abrelax_pcs_ref2015.sc --nmr_scoretypes pcs
+../../scripts/calc_nmr_wt.py 1d3z_abrelax_rdc_ref2015.sc --nmr_scoretypes rdc
+../../scripts/calc_nmr_wt.py 1d3z_abrelax_pre_ref2015.sc --nmr_scoretypes pre
+</code>
+</pre>
 ## 1.4) _De novo_ structure prediction with Rosetta AbRelax and PCSs, RDCs and PREs
 
 Navigate to the sub-folder **4\_abrelax\_nmr**. There are eight options files located in this directory: four for running AbRelax and four for rescoring. The options files named _abrelax.pcs.options_, _abrelax.rdc.options_ and _abrelax.pre.options_, are for running AbRelax with PCSs, RDCs and PREs, respectively, and the options file named _abrelax.nmr.options_ can be used for structure prediction with all three types of NMR data applied together.
@@ -170,8 +174,9 @@ Take a look at these files by opening them in a text editor and compare them to 
 sets the weight of the PCS score to 3.0.
 
 After modifying the respective score function patch files, run the Minirosetta application with PCS, RDC or PRE restraints by typing:
-
+<pre>
 <code>~/Rosetta/main/source/bin/minirosetta.linuxgccrelease -database ~/Rosetta/main/database/ @ abrelax.pcs.options</code>
+</pre>
 
 This will create one output model in Rosetta silent file format (_1d3z\_abrelax\_pcs.out_) and a Rosetta score file (_1d3z\_abrelax\_pcs.sc_). Increase the value of the <code>-out:nstruct</code> flag to create more models. Typically, more than 1000 models are created for _de novo_ structure prediction and calculations are run on multiple CPUs on a cluster.
 
@@ -180,40 +185,62 @@ For final model selection, rescore models with PCS, RDC or PRE data. In this ste
 <code>-score:set\_weights nmr\_pcs 2.6</code>
 
 Then, run the following commands in the terminal:
+<pre>
+<code>
+~/Rosetta/main/source/bin/score_jd2.linuxgccrelease -database ~/Rosetta/main/database/ @ rescore.pcs.options \
+-in:file:silent 1d3z_abrelax_pcs.out -out:file:scorefile 1d3z_abrelax_pcs_rescored.sc
 
-<code>~/Rosetta/main/source/bin/score\_jd2.linuxgccrelease -database ~/Rosetta/main/database/ @ rescore.pcs.options -in:file:silent 1d3z\_abrelax\_pcs.out -out:file:scorefile 1d3z\_abrelax\_pcs\_rescored.sc</code><br>
-<code>~/Rosetta/main/source/bin/score\_jd2.linuxgccrelease -database ~/Rosetta/main/database/ @ rescore.rdc.options -in:file:silent 1d3z\_abrelax\_rdc.out -out:file:scorefile 1d3z\_abrelax\_rdc\_rescored.sc</code><br>
-<code>~/Rosetta/main/source/bin/score\_jd2.linuxgccrelease -database ~/Rosetta/main/database/ @ rescore.pre.options -in:file:silent 1d3z\_abrelax\_pre.out -out:file:scorefile 1d3z\_abrelax\_pre\_rescored.sc</code>
+~/Rosetta/main/source/bin/score_jd2.linuxgccrelease -database ~/Rosetta/main/database/ @ rescore.rdc.options \
+-in:file:silent 1d3z_abrelax_rdc.out -out:file:scorefile 1d3z_abrelax_rdc_rescored.sc
 
+~/Rosetta/main/source/bin/score_jd2.linuxgccrelease -database ~/Rosetta/main/database/ @ rescore.pre.options \
+-in:file:silent 1d3z_abrelax_pre.out -out:file:scorefile 1d3z_abrelax_pre_rescored.sc
+</code>
+</pre>
 Finally, the Rosetta and NMR score and the model&#39;s RMSD relative to the experimental structure of 1D3Z can be extracted from the score file by using the python script _extract\_scores.py_ from the script directory. The script writes a comma-separated data table for easy creation of Score-vs-RMSD plots. It requires two command line arguments as inputs: 1) the name of the score file and 2) a list of column labels to be extracted from the score file.
+<pre>
+<code>
+../../scripts/extract_scores.py 1d3z_abrelax_pcs_rescored.sc --columns score nmr_pcs rms description \
+&amp;&amp; mv scores.csv scores_pcs.csv
 
-<code>../../scripts/extract\_scores.py 1d3z\_abrelax\_pcs\_rescored.sc --columns score nmr\_pcs rms description &amp;&amp; mv scores.csv scores\_pcs.csv</code><br>
-<code>../../scripts/extract\_scores.py 1d3z\_abrelax\_rdc\_rescored.sc --columns score nmr\_rdc rms description &amp;&amp; mv scores.csv scores\_rdc.csv</code><br>
-<code>../../scripts/extract\_scores.py 1d3z\_abrelax\_pcs\_rescored.sc --columns score nmr\_pre rms description &amp;&amp; mv scores.csv scores\_pre.csv</code>
+../../scripts/extract_scores.py 1d3z_abrelax_rdc_rescored.sc --columns score nmr_rdc rms description \
+&amp;&amp; mv scores.csv scores_rdc.csv
 
+../../scripts/extract_scores.py 1d3z_abrelax_pcs_rescored.sc --columns score nmr_pre rms description \
+&amp;&amp; mv scores.csv scores_pre.csv
+</code>
+</pre>
 Note: when copying this command, make sure that the editor does not replace the en dash (-) with the em dash (--) in front of the <code>--columns</code> flag as this might cause an error in the script.
 
 Alternatively, the lowest-scoring model can be selected and used as reference model for the RMSD calculation. For example, assuming the tag of the best-scoring model is 1d3z\_abrelax\_pcs\_S\_0010 the following command will extract this model as a PDB file from the respective Rosetta silent file:
-
-<code>~/Rosetta/main/source/bin/extract\_pdbs.linuxgccrelease -in:file:silent 1d3z\_abrelax\_pcs.out -in:file:tags 1d3z\_abrelax\_pcs\_S\_0010</code>
+<pre>
+<code>~/Rosetta/main/source/bin/extract_pdbs.linuxgccrelease -in:file:silent 1d3z_abrelax_pcs.out -in:file:tags 1d3z_abrelax_pcs_S_0010</code>
+</pre>
 
 ##1.5) Optional step: Repeat structure prediction with Rosetta AbRelax using all NMR data together
 
 Combining PCSs, RDCs and PREs in the RosettaNMR framework is as easy as combining their respective options. For running AbRelax with all NMR data, another options file, named _abrelax.nmr.options_, has been prepared for you in **4\_abrelax\_nmr**. In addition, within the **input** directory, create a new patch file, called _nmr.wts\_patch_, which contains the weight of each of the three score terms to be used for the AbRelax calculation:
 
+<pre>
 <code>
-nmr\_pcs = 1.000<br>
-nmr\_rdc = 0.024<br>
-nmr\_pre = 0.005
+nmr_pcs = 1.000
+nmr_rdc = 0.024
+nmr_pre = 0.005
 </code>
+</pre>
 
 Different ways exist of how to split the weights between the three score terms. Here, we choose to set the weight of each NMR score to 1/3 of its original value that was used when PCSs, RDCs and PREs were applied separately. Another possibility is to adjust the weights such that their ratio is proportional to the logarithm of the number of PCS, RDC and PRE values. Furthermore, you may decide adjusting those weights to reflect your considerations on other factors such as confidence in the experimental data or the structural information content of each NMR data type.
 
 Rerun Rosetta AbRelax with PCSs, RDCs and PREs, and rescore models with the ref2015 score function and NMR data:
+<pre>
+<code>
+~/Rosetta/main/source/bin/minirosetta.linuxgccrelease -database ~/Rosetta/main/database/ @ abrelax.nmr.options
 
-<code>~/Rosetta/main/source/bin/minirosetta.linuxgccrelease -database ~/Rosetta/main/database/ @ abrelax.nmr.options</code>
-
-<code>~/Rosetta/main/source/bin/score\_jd2.linuxgccrelease -database ~/Rosetta/main/database/ @ rescore.nmr.options –score:set\_weights nmr\_pcs 0.870 nmr\_rdc 0.021 nmr\_pre 0.006 -in:file:silent 1d3z\_abrelax\_nmr.out -out:file:scorefile 1d3z\_abrelax\_nmr\_rescored.sc</code>
+~/Rosetta/main/source/bin/score_jd2.linuxgccrelease -database ~/Rosetta/main/database/ @ rescore.nmr.options \
+–score:set_weights nmr_pcs 0.870 nmr_rdc 0.021 nmr_pre 0.006 -in:file:silent 1d3z_abrelax_nmr.out \
+-out:file:scorefile 1d3z_abrelax_nmr_rescored.sc
+</code>
+</pre>
 
 
 # 2) Modeling symmetric proteins
@@ -251,7 +278,9 @@ The **output** folder contains:
 
 Change into the **1\_fragments** sub-folder. An options file (_fragment\_picker.options_) and weights file (_fragment\_picker.wts_) are provided in this directory. In the options file, adjust the paths to the Rosetta database and to the vall fragment database to the location where they are found on your system. Make sure that the paths to all other files in the **input** directory are correctly set too. The secondary structure and phi/psi angle prediction files were created with the help of chemical shifts using the program TALOS+ as explained in the previous protocol (step 1.1). The PSI-BLAST checkpoint file can be created by running the following two commands, assuming that PSI-BLAST is correctly installed and the path to the PSI-BLAST database correctly set up. For convenience, this file has been prepared in the **input** directory too.
 
-<code>blastpgp –b 0 –j 3 –h 0.001 –d path\_to\_PSI-BLAST\_database –i 1d3z.fasta –C 1d3z.chk –Q 1d3z.ascii</code><br>
+<pre>
+<code>blastpgp –b 0 –j 3 –h 0.001 –d path_to_PSI-BLAST_database –i 1d3z.fasta –C 1d3z.chk –Q 1d3z.ascii</code>
+</pre>
 <code>../../scripts/convert\_chk.pl 1d3z.fasta 1d3z.chk</code>
 
 Run the Rosetta fragment picker application:
@@ -265,15 +294,15 @@ This will create 3mer and 9mer fragment files (_2jwk.200.3mers_, _2jwk.200.9mers
 Navigate to the sub-directory **2\_folddock**. Have a look at the options file that is located in this directory. The last option at the end of the file is the path to the symmetry definition file which is needed for modeling symmetric proteins. It contains all the information that Rosetta needs to know about the symmetry of the system, e.g. how to score the symmetric structure, how to maintain symmetry in rigid body perturbations, what degrees of freedom are allowed to move, how to initially setup the symmetric system and how to perturb the system.
 
 Create a C2-symmetry definition file for a protein with two subunits and cyclical symmetry by running the following python command. Rename the output file to _2jwk.symm_.
-
-<code>~/Rosetta/main/source/src/apps/public/symmetry/make\_symmdef\_file\_denovo.py -symm\_type cn -nsub 2</code>
-
+<pre>
+<code>~/Rosetta/main/source/src/apps/public/symmetry/make_symmdef_file_denovo.py -symm_type cn -nsub 2</code>
+</pre>
 Execute this script without any arguments to see a full list of all possible options. For further information on Rosetta Symmetry the user is referred to reference [5].
 
 For structure prediction, the Rosetta Fold-and-Dock protocol is used which can model proteins with intertwined topology. Start Fold-and-Dock by running the Minirosetta application:
-
+<pre>
 <code>~/Rosetta/main/source/bin/minirosetta.linuxgccrelease -database ~/Rosetta/main/database/ @ folddock.options</code>
-
+</pre>
 This will create one output model in the Rosetta silent file format. If you wish to produce more models increase the value of the <code>-out:nstruct</code> flag. Typically, more than 1000 models are created for _de novo_ structure prediction and calculations are run on multiple CPUs on a cluster.
 
 A Rosetta silent file (_2jwk\_folddock.out_) containing 1000 models of 2JWK created without RDCs but with fragments selected with chemical shifts is provided in the **output** directory.
@@ -291,22 +320,31 @@ First, extract all protein models from the silent file and create PDB files:
 <code>~/Rosetta/main/source/bin/extract\_pdbs.linuxgccrelease -in:file:silent 2jwk\_folddock.out</code>
 
 Then, run the RosettaScripts application for model rescoring. Use the provided options file _rescore.rdc.sym.options._ Make sure to remove any pound signs in front of the following lines:
-
-<code>-parser:script\_vars sfxn=score3 nmr\_sc\_type=nmr\_rdc nmr\_sc\_wt=1.0</code><br>
-<code>-score:weights score3.wts</code>
-
+<pre>
+<code>
+-parser:script_vars sfxn=score3 nmr_sc_type=nmr_rdc nmr_sc_wt=1.0
+-score:weights score3.wts
+</code>
+</pre>
 and comment out the respective lines for the ref2015 score function. For scoring with the score3 centroid score function type:
-
-<code>~/Rosetta/main/source/bin/rosetta\_scripts.linuxgccrelease -parser:protocol rescore.cen.sym.xml @ rescore.rdc.sym.options -in:file:s 2jwk\_folddock\_\*.pdb -out:file:scorefile 2jwk\_folddock\_rdc\_score3.sc</code>
+<pre>
+<code>~/Rosetta/main/source/bin/rosetta_scripts.linuxgccrelease -parser:protocol rescore.cen.sym.xml \
+@ rescore.rdc.sym.options -in:file:s 2jwk_folddock_*.pdb -out:file:scorefile 2jwk_folddock_rdc_score3.sc</code>
+</pre>
 
 For scoring with the ref2015 all-atom score function, make sure to remove any pound signs in front of the following lines in the options file:
-
-<code>-parser:script\_vars sfxn=ref2015 nmr\_sc\_type=nmr\_rdc nmr\_sc\_wt=1.0</code></br>
-<code>-score:weights ref2015.wts</code>
+<pre>
+<code>
+-parser:script_vars sfxn=ref2015 nmr_sc_type=nmr_rdc nmr_sc_wt=1.0
+-score:weights ref2015.wts
+</code>
+</pre>
 
 and comment out the respective lines for the score3 score function. Then type
-
-<code>~/Rosetta/main/source/bin/rosetta\_scripts.linuxgccrelease -parser:protocol rescore.fa.sym.xml @ rescore.rdc.sym.options -in:file:s 2jwk\_folddock\_\*.pdb -out:file:scorefile 2jwk\_folddock\_rdc\_ref2015.sc</code>
+<pre>
+<code>~/Rosetta/main/source/bin/rosetta_scripts.linuxgccrelease -parser:protocol rescore.fa.sym.xml \
+@ rescore.rdc.sym.options -in:file:s 2jwk_folddock_*.pdb -out:file:scorefile 2jwk_folddock_rdc_ref2015.sc</code>
+</pre>
 
 Calculate the RDC weight for the Fold-and-Dock protocol by running the _calc\_nmr\_wt.py_ script from the scripts directory with the score file obtained by scoring with the score3 weight set. The script requires two arguments: 1) the name of the Rosetta score file and 2) the type of NMR restraints (_rdc_).
 
@@ -323,8 +361,9 @@ Change into the **4\_folddock\_nmr** sub-directory. Have a look at the provided 
 <code>nmr\_rdc = 0.020</code>
 
 Run the Minirosetta application to start Fold-and-Dock with RDCs.
-
+<pre>
 <code>~/Rosetta/main/source/bin/minirosetta.linuxgccrelease -database ~/Rosetta/main/database/ @ folddock.rdc.options</code>
+</pre>
 
 The output Rosetta silent file (_2jwk\_folddock\_rdc.out_) and score file (_2jwk\_folddock\_rdc.sc_) will contain one model. Increase the <code>-out:nstruct</code> flag to create more models if desired.
 
@@ -333,21 +372,23 @@ After the structure prediction run is completed, rescore models with RDCs as des
 <code>-parser:script\_vars sfxn=ref2015 nmr\_sc\_type=nmr\_rdc nmr\_sc\_wt=0.02</code>
 
 First, extract models from the silent file and create PDB files:
-
-<code>~/Rosetta/main/source/bin/extract\_pdbs.linuxgccrelease -in:file:silent 2jwk\_folddock\_rdc.out</code>
-
+<pre>
+<code>~/Rosetta/main/source/bin/extract_pdbs.linuxgccrelease -in:file:silent 2jwk_folddock_rdc.out</code>
+</pre>
 Then, run the RosettaScripts application:
-
-<code>~/Rosetta/main/source/bin/rosetta\_scripts.linuxgccrelease -parser:protocol rescore.fa.sym.xml @ rescore.rdc.sym.options -in:file:s 2jwk\_folddock\_rdc\_\*.pdb -out:file:scorefile 2jwk\_folddock\_rdc\_rescored.sc</code>
-
+<pre>
+<code>~/Rosetta/main/source/bin/rosetta_scripts.linuxgccrelease -parser:protocol rescore.fa.sym.xml \
+@ rescore.rdc.sym.options -in:file:s 2jwk_folddock_rdc_*.pdb -out:file:scorefile 2jwk_folddock_rdc_rescored.sc</code>
+</pre>
 Finally, the Rosetta and RDC score and the model&#39;s symmetric RMSD relative to the experimental structure of 2JWK can be extracted from the score file by using the python script _extract\_scores.py_ which writes a comma-separated data table for easy creation of Score-vs-RMSD plots. The script requires two command line arguments as inputs: 1) the Rosetta score file and 2) a list of column labels for scores or other metrics that should be extracted.
-
-<code>../../scripts/extract\_scores.py 2jwk\_folddock\_rdc\_rescored.sc --columns score nmr\_rdc symmetric\_rms description</code>
+<pre>
+<code>../../scripts/extract_scores.py 2jwk_folddock_rdc_rescored.sc --columns score nmr_rdc symmetric_rms description</code>
+</pre>
 
 Alternatively, the lowest-scoring model can be selected and used as reference model for the RMSD calculation. E.g., assuming the tag of the lowest-scoring model is 2jwk\_folddock\_rdc\_S\_0010 the following command will extract this model as a PDB file from the respective Rosetta silent file:
-
-<code>~/Rosetta/main/source/bin/extract\_pdbs.linuxgccrelease -in:file:silent 2jwk\_folddock\_rdc.out -in:file:tags 2jwk\_folddock\_rdc\_S\_0010</code>
-
+<pre>
+<code>~/Rosetta/main/source/bin/extract_pdbs.linuxgccrelease -in:file:silent 2jwk_folddock_rdc.out -in:file:tags 2jwk_folddock_rdc_S_0010</code>
+</pre>
 
 # 3) Protein-Ligand Docking
 
