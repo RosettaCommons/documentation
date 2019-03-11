@@ -14,7 +14,7 @@ A protocol capture with a zip folder of corresponding files is available in the 
 
 The implementation is based on RosettaMP:
 
-* Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press 
+* Alford, R. F., Koehler Leman, J., Weitzner, B. D., Duran, A. M., Tilley, D. C., Elazar, A. & Gray, J. J. An Integrated Framework Advancing Membrane Protein Modeling and Design. PLoS Comput. Biol. 11, e1004398 (2015).
 
 ## Contact
 
