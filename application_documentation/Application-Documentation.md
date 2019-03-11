@@ -246,6 +246,8 @@ Component | Description
     * [[mp_transform|RosettaMP-App-MPTransform]] - Transforming the protein into membrane coordinates.
  - Structure prediction:
     * [[helix_from_sequence|RosettaMP-App-HelixFromSequence]] - Build a single helix (soluble or transmembrane) from sequence
+ - Homology modeling:
+    * [[RosettaCM membrane|RosettaCM-membrane]] - Multi-template homology modeling based on RosettaCM and RosettaMembrane
  - Lipid accessibility:
     * [[mp_lipid_acc|RosettaMP-LipidAcc]] - Compute per-residue lipid accessibility from structure
  - Domain assembly:
