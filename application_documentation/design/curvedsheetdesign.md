@@ -25,6 +25,18 @@ Output
 
 The outputs are poly-alanine models from proteins belonging to each of the six folds designed in (1). Glycine and proline residues are placed in positions where the torsion angles require this (e.g. glycine in G ABEGO bin), or they are favored by the ConsensusLoopDesign task operation.
 
+Fold A: Similarly to cystatin, this fold has an elongated curved sheet and a long helix that packs in diagonal the strand direction. Because of beta-bulge placement the sheet has three semi-flat sections.
+
+Fold B: This fold is similar to a small subset of proteins from the NTF2-like superfamily, but lacks the short hairpin that is paired parallel to strand 6.
+
+Fold C: Like folds D, E and F, this folds belongs to the NTF2-like superfamily. In fold C, the region circumscribed by the bulges is particularly narrow for a protein from the NTF2-like superfamily.
+
+Fold D: This folds belongs to the NTF2-like superfamily. The region circumscribed by the bulges is average for proteins from the NTF2-like superfamily.
+
+Fold E: Similar to Fold D, but has a C-terminal helix that would extend a hypothetical pocket outwards
+
+Fold F: Similar to Fold E, but the sheet arm that packs against the C-terminal helix is longer.
+
 Additional files
 ================
 
