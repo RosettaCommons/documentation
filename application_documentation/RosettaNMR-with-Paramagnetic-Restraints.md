@@ -722,97 +722,115 @@ $See reference [9] for definition of these correlation times.
 
 **Table 2: PCS, RDC and PRE options.**
 <pre>
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-**PCS Options**                             **Explanation**
-------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------
-<code>-nmr:pcs:input\_file</code>           Name of PCS input file (the only required flag; see format description above).
+------------------------------------------------------------------------------------------------------------------------------------------------
+**PCS Options**                               **Explanation**
+--------------------------------------------- --------------------------------------------------------------------------------------------------
+-nmr:pcs:input_file                           Name of PCS input file (the only required flag; see format description above).
 
-<code>-nmr:pcs:optimize\_tensor</code>      Optimize the metal ion position and the other values of the &Delta;&chi;-tensor after initial grid search (Default: false).
+nmr:pcs:optimize_tensor                       Optimize the metal ion position and the other values of the &Delta;&chi;-tensor after initial
+                                              grid search (Default: false).
 
-<code>-nmr:pcs:nls\_repeats</code>          Number of repeats in non-linear least squares fitting of the &Delta;&chi;-tensor (Default: 5).
-<code>-nmr:pcs:multiset\_weights</code>     Vector of weights by which the scores from different PCS multi-sets are multiplied. One multi-set includes all PCS datasets that were collected
-                                            at the same spin-label site but with different metal ions. Defaults to a vector of 1.0 if not explicitly set.
+-nmr:pcs:nls_repeats                          Number of repeats in non-linear least squares fitting of the &Delta;&chi;-tensor (Default: 5).
 
-<code>-nmr:pcs:normalize\_data</code>       Normalize PCS values of every dataset by their standard deviation (Default: false).
+-nmr:pcs:multiset_weights                     Vector of weights by which the scores from different PCS multi-sets are multiplied. One multi-set
+                                              includes all PCS datasets that were collected at the same spin-label site but with different metal
+											  ions. Defaults to a vector of 1.0 if not explicitly set.
 
-<code>-nmr:pcs:use\_symmetry\_calc</code>   Calculate the PCS score by considering the contributions from all symmetric subunits (Default: false). PCS values should be assigned only to the atoms of
-                                            the asymmetric subunit in the data input file. Note, this option was developed for cases of Cn- and Dn-symmetry but not tested for systems with other types
-                                            of symmetry.
+-nmr:pcs:normalize_data                       Normalize PCS values of every dataset by their standard deviation (Default: false).
 
-<code>-nmr:pcs:show\_info</code>            Show &Delta;&chi;-tensor and a table of experimental vs. calculated PCS values at every scoring step (Default: false). Note, to print this information to the
-                                            screen or the log file it is also required that the tracer output level (<code>-out:level</code>) is set to 500 (debug mode). Be careful, this will make the
-                                            log file very large!
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-nmr:pcs:use_symmetry_calc                    Calculate the PCS score by considering the contributions from all symmetric subunits (Default: false).
+                                              PCS values should be assigned only to the atoms of the asymmetric subunit in the data input file.
+											  Note, this option was developed for cases of Cn- and Dn-symmetry but not tested for systems with other
+											  types of symmetry.
+
+-nmr:pcs:show_info                            Show &Delta;&chi;-tensor and a table of experimental vs. calculated PCS values at every scoring step
+                                              (Default: false). Note, to print this information to the screen or the log file it is also required
+											  that the tracer output level (-out:level) is set to 500 (debug mode). Be careful, this
+											  will make the log file very large!
+------------------------------------------------------------------------------------------------------------------------------------------------
 </pre>
 <pre>
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-**RDC Options**                             **Explanation**
-------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------
-<code>-nmr:rdc:input\_file</code>           Name of RDC input file (the only required flag; see format description above).
+------------------------------------------------------------------------------------------------------------------------------------------------
+**RDC Options**                               **Explanation**
+--------------------------------------------- --------------------------------------------------------------------------------------------------
+-nmr:rdc:input_file                           Name of RDC input file (the only required flag; see format description above).
 
-<code>-nmr:rdc:nls\_repeats</code>          Number of repeats in non-linear least squares fitting of alignment tensor (Default: 5).
+-nmr:rdc:nls_repeats                          Number of repeats in non-linear least squares fitting of alignment tensor (Default: 5).
 
-<code>-nmr:rdc:multiset\_weights</code>     Vector of weights by which the scores from different RDC multi-sets are multiplied. One multi-set includes all RDC datasets that were collected with the
-                                            same alignment medium or lanthanide ion and multiple different atom types (e.g. N-H, CA-HA). Defaults to a vector of 1.0 if not explicitly set.
+-nmr:rdc:multiset_weights                     Vector of weights by which the scores from different RDC multi-sets are multiplied. One multi-set
+                                              includes all RDC datasets that were collected with the same alignment medium or lanthanide ion and 
+											  multiple different atom types (e.g. N-H, CA-HA). Defaults to a vector of 1.0 if not explicitly set.
 
-<code>-nmr:rdc:normalization\_type</code>   Apply scaling to the input RDC values with respect to those of a chosen atom type. Possible options are NH, CH or none. By default, RDCs are not expected
-                                            to be normalized and will be scaled relative to the NH dipolar coupling constant (option &quot;NH&quot;). Alternatively, the input RDCs can be scaled
-                                            relative to the CA-HA dipolar coupling constant (option &quot;CH&quot;) or remain unmodified (option &quot;none&quot;).
+-nmr:rdc:normalization_type                   Apply scaling to the input RDC values with respect to those of a chosen atom type. Possible options
+                                              are NH, CH or none. By default, RDCs are not expected to be normalized and will be scaled relative
+											  to the NH dipolar coupling constant (option &quot;NH&quot;). Alternatively, the input RDCs can be
+											  scaled relative to the CA-HA dipolar coupling constant (option &quot;CH&quot;) or remain unmodified
+											  (option &quot;none&quot;).
 
-<code>-nmr:rdc:correct\_sign</code>         Use the correct sign of the 15N gyromagnetic ratio and thus of the dipolar coupling constants i.e. positive for NC and NH and negative for CH (Default:
-                                            false). Use this option if input couplings have different signs. By default, the 15N gyromagnetic ratio is treated as positive and the dipolar coupling
-                                            constants have the same sign.
+-nmr:rdc:correct_sign                         Use the correct sign of the 15N gyromagnetic ratio and thus of the dipolar coupling constants i.e.
+                                              positive for NC and NH and negative for CH (Default: false). Use this option if input couplings have
+											  different signs. By default, the 15N gyromagnetic ratio is treated as positive and the dipolar
+											  coupling constants have the same sign.
 
-<code>-nmr:rdc:use\_symmetry\_calc</code>   Calculate the RDC score by considering the contributions from all symmetric subunits (Default: false). RDC values should be assigned only to the atoms of
-                                            the asymmetric subunit in the data input file. Note, this option was developed for cases with Cn- and Dn-symmetry but not tested for systems with other
-                                            types of symmetry.
+-nmr:rdc:use_symmetry_calc                    Calculate the RDC score by considering the contributions from all symmetric subunits (Default: false).
+                                              RDC values should be assigned only to the atoms of the asymmetric subunit in the data input file.
+											  Note, this option was developed for cases with Cn- and Dn-symmetry but not tested for systems with
+											  other types of symmetry.
 
-<code>-nmr:rdc:show\_info</code>            Show alignment tensor and a table of experimental vs. calculated RDC values at every scoring step (Default: false). Note, to print this information to the
-                                            screen or the log file it is also required that the tracer output level (<code>-out:level</code>) is set to 500 (debug mode). Be careful, this will make
-                                            the log file very large!
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-</pre>
-</pre>
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-**PRE Options**                             **Explanation**
-------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------
-<code>-nmr:pre:input\_file</code>           Name of PRE input file (the only required flag; see format description above).
-
-<code>-nmr:pre:nls\_repeats</code>          Number of repeats in non-linear least squares fitting of spin-label correlation time (Default: 3).
-
-<code>-nmr:pre:multiset\_weights</code>     Vector of weights by which the scores from different PRE multi-sets are multiplied. One multi-set includes all PRE datasets that were collected at the same
-                                            spin-label site with the same type of spin-label or metal ion. Defaults to a vector of 1.0 if not explicitly set.
-
-<code>-nmr:pre:normalize\_data</code>       Normalize PRE values of every dataset by their standard deviation (Default: false).
-
-<code>-nmr:pre:use\_symmetry\_calc</code>   Calculate the PRE score by considering the contributions from all symmetric subunits (Default: false). PRE values should be assigned only to the atoms of
-                                            the asymmetric subunit in the data input file. Note, this option was developed for cases with Cn- and Dn-symmetry but not tested for systems with other
-                                            types of symmetry.
-
-<code>-nmr:pre:show\_info</code>            Show a table of experimental vs. calculated PRE values at every scoring step (Default: false). Note, to print this information to the screen or the log
-                                            file it is also required that the tracer output level (<code>-out:level</code>) is set to 500 (debug mode). Be careful, this will make the log file
-                                            very large!
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-nmr:rdc:show_info                            Show alignment tensor and a table of experimental vs. calculated RDC values at every scoring step
+                                              (Default: false). Note, to print this information to the screen or the log file it is also required
+											  that the tracer output level (-out:level) is set to 500 (debug mode). Be careful, this
+											  will make the log file very large!
+------------------------------------------------------------------------------------------------------------------------------------------------
 </pre>
 <pre>
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-**Spinlabel Options**                                         **Explanation**
-------------------------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------
-<code>-nmr:spinlabel:max\_ensemble\_size</code>               Maximum number of spin-label rotamers to represent the ensemble (Default: 20). If the ensemble size is higher than this cutoff, rotamers
-                                                              are binned by their side chain RMSD. This is to speed up the calculation.
+------------------------------------------------------------------------------------------------------------------------------------------------
+**PRE Options**                               **Explanation**
+--------------------------------------------- --------------------------------------------------------------------------------------------------
+-nmr:pre:input_file                           Name of PRE input file (the only required flag; see format description above).
 
-<code>-nmr:spinlabel:highres\_conformer\_filter\_type</code>  Type of detecting clashes of spin-label conformers with neighboring protein residues in Rosetta&#39;s full-atom mode. Possible values are
-                                                              DISTANCE and BUMP\_ENERGY. In the first case, conformers are treated as having a clash if any of their side chain heavy atoms is within
-                                                              the neighbor radius of any of the neighboring amino acid residues. In the second method, clashes are detected by calculating the bump
-                                                              energy of a spin-label conformer with its protein environment. The default value is BUMP\_ENERGY, whereas in Rosetta&#39;s centroid stage
-                                                              the DISTANCE method is the only one that is available. (Default: BUMP\_ENERGY).
+-nmr:pre:nls_repeats                          Number of repeats in non-linear least squares fitting of spin-label correlation time (Default: 3).
 
-<code>-nmr:spinlabel:elaborate\_rotamer\_clash\_check</code>  Perform an elaborate clash check of every heavy atom of all spin-label rotamers with the heavy atoms in surrounding residues (Default:
-                                                              false). If all rotamers produce at least one clash, return that rotamer with the lowest number of atom clashes. If false, consider only
-                                                              heavy atoms in non-clashing rotamers and return a random spin-label rotamer in case there are no remaining non-clashing rotamers.
+-nmr:pre:multiset_weights                     Vector of weights by which the scores from different PRE multi-sets are multiplied. One multi-set
+                                              includes all PRE datasets that were collected at the same spin-label site with the same type of
+											  spin-label or metal ion. Defaults to a vector of 1.0 if not explicitly set.
 
-<code>-nmr:spinlabel:boltzmann\_kt</code>                     Scaling factor for Boltzmann weighting of the spin-label conformer probabilities (Default: 2.0).
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-nmr:pre:normalize_data                       Normalize PRE values of every dataset by their standard deviation (Default: false).
+
+-nmr:pre:use_symmetry_calc                    Calculate the PRE score by considering the contributions from all symmetric subunits (Default:
+                                              false). PRE values should be assigned only to the atoms of the asymmetric subunit in the data input
+											  file. Note, this option was developed for cases with Cn- and Dn-symmetry but not tested for systems
+											  with other types of symmetry.
+
+-nmr:pre:show_info                            Show a table of experimental vs. calculated PRE values at every scoring step (Default: false). Note,
+                                              to print this information to the screen or the log file it is also required that the tracer output
+											  level (-out:level) is set to 500 (debug mode). Be careful, this will make the log file
+                                              very large!
+------------------------------------------------------------------------------------------------------------------------------------------------
+</pre>
+<pre>
+------------------------------------------------------------------------------------------------------------------------------------------------
+**Spinlabel Options**                         **Explanation**
+--------------------------------------------- --------------------------------------------------------------------------------------------------
+-nmr:spinlabel:max_ensemble_size              Maximum number of spin-label rotamers to represent the ensemble (Default: 20). If the ensemble size
+                                              is higher than this cutoff, rotamers are binned by their side chain RMSD. This is to speed up the
+											  calculation.
+
+-nmr:spinlabel:highres_conformer_filter_type  Type of detecting clashes of spin-label conformers with neighboring protein residues in Rosetta&#39;s
+                                              full-atom mode. Possible values are DISTANCE and BUMP_ENERGY. In the first case, conformers are
+											  treated as having a clash if any of their side chain heavy atoms is within the neighbor radius of any
+											  of the neighboring amino acid residues. In the second method, clashes are detected by calculating the
+											  bump energy of a spin-label conformer with its protein environment. The default value is BUMP_ENERGY,
+											  whereas in Rosetta&#39;s centroid stage the DISTANCE method is the only one that is available.
+											  (Default: BUMP_ENERGY).
+
+-nmr:spinlabel:elaborate_rotamer_clash_check  Perform an elaborate clash check of every heavy atom of all spin-label rotamers with the heavy atoms
+                                              in surrounding residues (Default: false). If all rotamers produce at least one clash, return that
+											  rotamer with the lowest number of atom clashes. If false, consider only heavy atoms in non-clashing
+											  rotamers and return a random spin-label rotamer in case there are no remaining non-clashing rotamers.
+
+-nmr:spinlabel:boltzmann_kt                   Scaling factor for Boltzmann weighting of the spin-label conformer probabilities (Default: 2.0).
+------------------------------------------------------------------------------------------------------------------------------------------------
 </pre>
 
 # 6) References
