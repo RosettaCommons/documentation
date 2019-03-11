@@ -5,7 +5,7 @@ Metadata
 
 Author: Barak Raveh, Nir London, Nawsad Alam, Ora Schueler-Furman
 
-Last updated September 12, 2018 ; PI: Ora Schueler-Furman (oraf@ekmd.huji.ac.il).
+Last updated March 11, 2019 by Alisa Khramushin; PI: Ora Schueler-Furman (ora.furman-schueler@mail.huji.ac.il).
 
 Code and Demo
 =============
@@ -65,7 +65,7 @@ Algorithm
 
 ***ab-initio* protocol:** The input to the *ab-initio* protocol is: (1) A model of the peptide-protein complex in PDB format similar to the Refinement protocol, but starting from arbitrary (e.g., extended) peptide backbone conformation. It is required that the peptide is initially positioned in some proximity to the true binding pocket, but the exact starting orientation may vary. A preiminary step for the *ab-initio* protocol is the generation of fragment libraries for the peptide sequence, with 3-mer, 5-mer and 9-mer fragments (these can be generated automatically via a script from the starting structure, as shown in `       rosetta/main/demos/protocol_capture/flex_pep_dock_abinitio/      ` demo files). Another preliminary step is pre-packing, as in the Refinement protocol. The first step in the main part of the protocol involves a Monte-Carlo simulation for *de-novo* folding and docking of the peptide over the protein surface in low-resolution (centroid) mode, using a combination of fragment insertions, random backbone perturbations and rigid-body transformation moves. In the second step, the resulting low-resolution model is refined with FlexPepDock Refinement. As in the independent refinement protocol, the output models are then ranked by the used based on their energy score, or also subjected to clustering for improved performance. Our *ab-initio* protocol is described in detail in the Methods section in Raveh, London, Zimmerman et al., PLoS ONE 2011 (see [References](#References) ).
 
-**PIPER-FlexPepDock**: the input to the protocol is a receptor in PDB format and a FASTA file with peptide sequence containing the binding motif. The protocol consists of 3 main steps: fragment ensemble generation using Rosetta Fragment picker, FFT based exhaustive rigid body docking of these fragments using PIPER, and high-resolution flexible refinement performed by FlexPepDock, followed by clustering and selection of top ranking representatives. For more detailed description see [References](#References)
+**PIPER-FlexPepDock**: the input to the protocol is a receptor in PDB format and a FASTA file with peptide sequence containing the binding motif. The protocol consists of 3 main steps: fragment ensemble generation using Rosetta Fragment picker (note that the fragments are cut out from the PDB, including side-chains), FFT based exhaustive rigid body docking of these fragments using PIPER, and high-resolution flexible refinement performed by FlexPepDock, followed by clustering and selection of top ranking representatives. For more detailed description see [References](#References)
 
 For more information, see the following tips about [correct usage of FlexPepDock](#When-you-should-/-should-not-use-FlexPepDock:).
 
