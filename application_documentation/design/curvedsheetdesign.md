@@ -1,4 +1,4 @@
-#curvedsheetdesign
+#Curved Sheet Design
 
 Overview
 ========
