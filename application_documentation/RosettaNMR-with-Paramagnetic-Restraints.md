@@ -397,7 +397,7 @@ This protocol introduces how to use RosettaNMR together with PCSs for protein-li
 Navigate to the folder **3\_ligand\_docking**. There are six sub-folders located in this directory, one **input** and one **output** folder and four additional folders, one for each of the four steps of this protocol:
 
 - creation of ligand parameters (**1\_ligand\_params**)
-- determination of the $\Delta$$\chi$-tensor (**2\_tensor\_fit**)
+- determination of the &Delta;&chi;-tensor (**2\_tensor\_fit**)
 - ligand rigid-body grid search with PCSs (**3\_rbsearch**)
 - full flexible protein-ligand docking with PCSs (**4\_docking**)
 
