@@ -244,6 +244,12 @@ Component | Description
     * [[score_jd2|RosettaMP-App-MPScoring]] - Settings for using score_jd2 with the RosettaMP scoring functions. 
     * [[mp_span_from_pdb|RosettaMP-App-MPSpanFromPDB]] - Calculate trans-membrane spans from the PDB structure
     * [[mp_transform|RosettaMP-App-MPTransform]] - Transforming the protein into membrane coordinates.
+ - Structure prediction:
+    * [[helix_from_sequence|RosettaMP-App-HelixFromSequence]] - Build a single helix (soluble or transmembrane) from sequence
+ - Lipid accessibility:
+    * [[mp_lipid_acc|RosettaMP-LipidAcc]] - Compute per-residue lipid accessibility from structure
+ - Domain assembly:
+    * [[mp_domain_assembly|RosettaMP-DomainAssembly]] - Create full-length model of a membrane protein from known domain structures
 
 ##Utilities
 
