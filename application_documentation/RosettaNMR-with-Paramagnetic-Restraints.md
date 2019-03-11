@@ -590,98 +590,125 @@ One additional remark on the types of weights that can be applied to the input d
 
 **PCS input file**
 <pre>
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-**Keyword**           **Explanation**                                                                                                                   **Required?**   **Example**
---------------------- --------------------------------------------------------------------------------------------------------------------------------- --------------- ---------------------------------
-spinlabel\_position   Residue number of the spin-label site. This residue becomes the anchor point for the grid search of the metal ion coordinates.    Yes             spinlabel\_position = 58
-                      Alternatively, if a value for the keyword _spinlabel\_type_ is provided, the grid search will be replaced by a dummy spin-label
-                      residue that is modeled at this protein position in order to determine the metal ion coordinates.
+------------------------------------------------------------------------------------------------------------------------------------------------
+**Keyword**           **Explanation**                                                          **Required?**   **Example**
+--------------------- ------------------------------------------------------------------------ --------------- ---------------------------------
+spinlabel_position    Residue number of the spin-label site. This residue becomes the anchor   Yes             spinlabel_position = 58
+                      point for the grid search of the metal ion coordinates. Alternatively,
+					  if a value for the keyword spinlabel_type is provided, the grid search
+					  will be replaced by a dummy spin-label residue that is modeled at this  
+                      protein position in order to determine the metal ion coordinates.
 
-chain\_id             The ID of the protein chain which includes the spin-label site.                                                                   Yes             chain\_id = A
+chain_id              The ID of the protein chain which includes the spin-label site.          Yes             chain_id = A
 
-gridsearch            Vector of parameters that define the metal ion grid search. The elements of this vector are in the following order:               Yes             gridsearch =
-                      names of atoms 1 and 2 which are used to define the grid search center, the distance between atom 1 and the grid search center                    \[CA, CB, 10.0, 4.0, 0.0, 20.0\]
-                      (in A), the stepsize of the grid search (in A), and the minimal and maximal radius of the grid search (in A). The center of the
-                      grid search lies on a line running through atoms 1 and 2 and is located at a defined distance from atom 1. The metal ion position
-                      with the lowest PCS score is searched within a range between the minimal and maximal radius around the grid search center.
+gridsearch            Vector of parameters that define the metal ion grid search. The elements Yes             gridsearch =
+                      of this vector are in the following order: names of atoms 1 and 2 which                  [CA, CB, 10.0, 4.0, 0.0, 20.0]
+                      are used to define the grid search center, the distance between atom 1 
+                      and grid search center (in A), the stepsize of the grid search (in A),
+					  and the minimal and maximal radius of the grid search (in A). The center
+                      of the grid search lies on a line running through atoms 1 and 2 and is
+					  located at a defined distance from atom 1. The metal ion position with
+					  the lowest PCS score is searched within a range between the minimal and
+					  maximal radius around the grid search center.
 
-spinlabel\_type       Three-letter code of the spin-label residue type as stored in the Rosetta database. For example, R1A is the code of the MTSL      Yes, but can    spinlabel\_type = R1A
-                      spin-label residue. (see ~/Rosetta/main/database/scoring/nmr/spinlabel/spinlabel\_properties.txt for a list of currently          be replaced by
-                      available spin-label residue types in Rosetta)                                                                                    gridsearch
+spinlabel_type        Three-letter code of the spin-label residue type as stored in the        Yes, but can    spinlabel_type = R1A
+                      Rosetta database. For example, R1A is the code of the MTSL spin-label    be replaced by
+					  residue.                                                                 gridsearch
+					  (~/Rosetta/main/database/scoring/nmr/spinlabel/spinlabel_properties.txt
+                      for a list of currently available spin-label residue types in Rosetta)
+					  
+dataset               Vector of input parameters for one single PCS dataset collected from     Yes             dataset =
+                      one metal ion. The vector must contain exactly 14 elements in the                        [2k61_dapk_exp_pcs_dy.txt, 
+                      following order: Name and location of PCS data file, metal ion label,                    Dy, 1.0, CONST, MEAN, SVD, 10.0,
+                      weighting factor for this PCS dataset, type of weighting single PCS                      10.0, 10.0, 40.0, 4.0, 10.0,
+                      values (see explanations below*), averaging type for a PCS value that                    10.0, 10.0]
+                      is assigned to a group of atoms (MEAN or SUM), type of &Delta;&chi;
+					  -tensor fit (SVD = singular value decomposition, NLS = non-linear least
+					  squares fitting),and the eight &Delta;&chi;-tensor parameters (xM, yM,
+					  zM, χax, χrh, &alpha;, &beta;, &gamma;). In many cases e.g. de novo
+					  structure prediction, the tensor parameters can be set to random values
+					  as they will be determined automatically during the calculation. However,
+					  other protocols, e.g. ligand docking with PCSs, require that the tensor
+					  parameters are determined prior to the Rosetta calculation and entered
+					  in the dataset vector.
 
-dataset               Vector of input parameters for one single PCS dataset collected from one metal ion. The vector must contain exactly 14 elements   Yes             dataset =
-                      in the following order: Name and location of PCS data file, metal ion label, weighting factor for this PCS dataset, type of                       \[2k61\_dapk\_exp\_pcs\_dy.txt, 
-                      weighting single PCS values (see explanations below\*), averaging type for a PCS value that is assigned to a group of atoms                       Dy, 1.0, CONST, MEAN, SVD, 10.0,
-                      (MEAN or SUM), type of &Delta;&chi;-tensor fit (SVD = singular value decomposition, NLS = non-linear least squares fitting),                    10.0, 10.0, 40.0, 4.0, 10.0,
-                      and the eight &Delta;&chi;-tensor parameters (xM, yM, zM, χax, χrh, &alpha;, &beta;, &gamma;). In many cases e.g. de novo                    10.0, 10.0\]
-                      structure prediction, the tensor parameters can be set to random values as they will be determined automatically during the 
-                      calculation. However, other protocols, e.g. ligand docking with PCSs, require that the tensor parameters are determined prior 
-                      to the Rosetta calculation and entered in the dataset vector.
-
-fixed\_tensor         Do not fit the &Delta;&chi;-tensor but calculate the PCS score from the tensor values entered into the dataset list.            Optional        fixed\_tensor = true
-                      This is needed for protein-ligand docking (Default: false).
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+fixed_tensor          Do not fit the &Delta;&chi;-tensor but calculate the PCS score from      Optional        fixed_tensor = true
+                      the tensor values entered into the dataset list. This is needed for
+					  protein-ligand docking (Default: false).
+------------------------------------------------------------------------------------------------------------------------------------------------
 </pre>
 **PRE input file**
 <pre>
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-**Keyword**           **Explanation**                                                                                                                   **Required?**   **Example**
---------------------- --------------------------------------------------------------------------------------------------------------------------------- --------------- ---------------------------------
-spinlabel\_position   See explanation of this keyword in PCS input file above.                                                                          Yes             spinlabel\_position = 58
+------------------------------------------------------------------------------------------------------------------------------------------------
+**Keyword**           **Explanation**                                                          **Required?**   **Example**
+--------------------- ------------------------------------------------------------------------ --------------- ---------------------------------
+spinlabel_position    See explanation of this keyword in PCS input file above.                 Yes             spinlabel_position = 58
 
-chain\_id             See explanation of this keyword in PCS input file above.                                                                          Yes             chain\_id = A
+chain_id              See explanation of this keyword in PCS input file above.                 Yes             chain_id = A
 
-spinlabel\_type       See explanation of this keyword in PCS input file above.                                                                          Yes, but can    spinlabel\_type = R1A
-                                                                                                                                                        be replaced by 
-                                                                                                                                                        gridsearch
+spinlabel_type        See explanation of this keyword in PCS input file above.                 Yes, but can    spinlabel_type = R1A
+                                                                                               be replaced by 
+                                                                                               gridsearch
 
-gridsearch            See explanation of this keyword in PCS input file above.                                                                          Yes, but can    gridsearch =
-                                                                                                                                                        be replaced by  \[CA, CB, 10.0, 4.0, 0.0, 20.0\]
-                                                                                                                                                        spinlabel\_type
+gridsearch            See explanation of this keyword in PCS input file above.                 Yes, but can    gridsearch =
+                                                                                               be replaced by  [CA, CB, 10.0, 4.0, 0.0, 20.0]
+                                                                                               spinlabel_type
 
-ion\_type             Name of radical atom or paramagnetic ion as stored in the Rosetta database                                                        Yes             ion\_type = Cu2+
-                      (see ~/Rosetta/main/database/chemical/element\_sets/default/para\_ion\_properties.txt for reference)
+ion_type              Name of radical atom or paramagnetic ion as stored in the Rosetta        Yes             ion_type = Cu2+
+                      database (see ~/Rosetta/main/database/chemical/element_sets/default/
+					  para_ion_properties.txt for reference)
 
-protein\_mass         Molecular mass of the protein (in kDa).                                                                                           Yes             protein\_mass = 6.2
+protein_mass          Molecular mass of the protein (in kDa).                                  Yes             protein_mass = 6.2
 
-temperature           Temperature at which the PRE datasets were recorded (in Kelvin).                                                                  Yes             temperature = 278.0
+temperature           Temperature at which the PRE datasets were recorded (in Kelvin).         Yes             temperature = 278.0
 
-dataset               Vector of input parameters for one single PRE dataset. Must contain exactly five elements in the following order: Name and        Yes             dataset =
-                      location of PRE data file, weighting factor for this PRE dataset, type of weighting single PRE values                                             \[8c\_edta\_cu2\_nr1\_alt.txt,
-                      (see explanations below\*), type of relaxation data (R1 or R2), magnetic field strength in MHz.                                                   1.0, CONST, R1, 500\]
+dataset               Vector of input parameters for one single PRE dataset. Must contain      Yes             dataset =
+                      exactly five elements in the following order: Name and location of                       [8c_edta_cu2_nr1_alt.txt,
+                      PRE data file, weighting factor for this PRE dataset, type of weighting                  1.0, CONST, R1, 500]
+                      single PRE values (see explanations below\*), type of relaxation data					  
+					  (R1 or R2), magnetic field strength in MHz.
 
-averaging             Averaging type for a PRE value that is assigned to a group of atoms. Possible values are MEAN and SUM (Default: MEAN).            Optional        averaging = MEAN
+averaging             Averaging type for a PRE value that is assigned to a group of atoms.     Optional        averaging = MEAN
+                      Possible values are MEAN and SUM (Default: MEAN).
 
-tauc\_min             Lower bound for tauc$ (in ns).                                                                                                    Optional        tauc\_min = 1.0
+tauc_min              Lower bound for tauc$ (in ns).                                           Optional        tauc_min = 1.0
 
-tauc\_max             Upper bound for tauc$ (in ns).                                                                                                    Optional        tauc\_max = 15.0
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+tauc_max              Upper bound for tauc$ (in ns).                                           Optional        tauc_max = 15.0
+------------------------------------------------------------------------------------------------------------------------------------------------
 </pre>
 **RDC input file**
 <pre>
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-**Keyword**           **Explanation**                                                                                                                   **Required?**   **Example**
---------------------- --------------------------------------------------------------------------------------------------------------------------------- --------------- ---------------------------------
-alignment\_medium     Name of the alignment medium. This value is not actually used in the calculation but has a purely descriptive purpose.            Yes             alignment\_medium = phage
+------------------------------------------------------------------------------------------------------------------------------------------------
+**Keyword**           **Explanation**                                                          **Required?**   **Example**
+--------------------- ------------------------------------------------------------------------ --------------- ---------------------------------
+alignment_medium      Name of the alignment medium. This value is not actually used in the     Yes             alignment_medium = phage
+                      calculation but has a purely descriptive purpose.
 
-computation\_type     Type of the alignment tensor fit. Possible choices are: SVD (singular value decomposition), NLS (non-linear least squares         Yes             computation\_type = SVD
-                      fitting), NLSDA (NLS with fixed value for alignment magnitude Da), NLSR (NLS with fixed value for rhombicity R), NLSDAR
-                      (NLS with fixed value for Da and R). Notice that for computation types NLSDA, NLSR and NLSDAR the alignment magnitude Da
-                      and/or rhombicity R must be provided in the input file too.
+computation_type      Type of the alignment tensor fit. Possible choices are: SVD (singular    Yes             computation_type = SVD
+                      value decomposition), NLS (non-linear least squares fitting), NLSDA 
+                      (NLS with fixed value for alignment magnitude Da), NLSR (NLS with fixed
+                      value for rhombicity R), NLSDAR (NLS with fixed value for Da and R).
+					  Notice that for computation types NLSDA, NLSR and NLSDAR the alignment
+					  magnitude Da and/or rhombicity R must be provided in the input file too.
 
-dataset               Vector of input parameters for one single RDC dataset collected for one atom type. The vector must contain exactly three          Yes             dataset =
-                      elements in the following order: Name and location of RDC data file, weighting factor for this RDC dataset, type of weighting                     \[2k61\_dapk\_nh.txt,1.0,SIGMA\]
-                      single RDC values (see explanations below\*).
+dataset               Vector of input parameters for one single RDC dataset collected for one  Yes             dataset =
+                      atom type. The vector must contain exactly three elements in the                         [2k61_dapk_nh.txt,1.0,SIGMA]
+                      following order: Name and location of RDC data file, weighting factor
+					  for this RDC dataset, type of weighting single RDC values (see
+					  explanations below\*).
 
-alignment\_tensor     Vector of the five alignment tensor values in the following order: Da, R, &alpha;, &beta;, &gamma;. If one of the computation  Yes             alignment\_tensor = 
-                      types NLSDA, NLSR or NLSDAR is chosen the value of Da and/or R will be read from this vector. All other values will be                            \[-14.217, 0.530, 10.0, 10.0, 
-                      re-determined during the calculation and can be set to random start values.                                                                       10.0\]
+alignment_tensor      Vector of the five alignment tensor values in the following order: Da,   Yes             alignment_tensor = 
+                      R, &alpha;, &beta;, &gamma;. If one of the computation types NLSDA,                      [-14.217, 0.530, 10.0, 10.0, 10.0]
+                      NLSR or NLSDAR is chosen the value of Da and/or R will be read from
+                      this vector. All other values will be re-determined during the
+					  calculation and can be set to random start values.
+					  
+averaging             Type of averaging an RDC value if assignment spans a group of atom       Optional        averaging = MEAN
+                      pairs. Possible values are MEAN and SUM (Default: MEAN).
 
-averaging             Type of averaging an RDC value if assignment spans a group of atom pairs. Possible values are MEAN and SUM (Default: MEAN).       Optional        averaging = MEAN
-
-fixed\_tensor         Do not fit the alignment tensor but calculate the RDC score from the values provided in the _alignment\_tensor_ list              Optional        fixed\_tensor = true
-                      (Default: false).
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+fixed_tensor          Do not fit the alignment tensor but calculate the RDC score from the     Optional        fixed_tensor = true
+                      values provided in the alignment_tensor list (Default: false).
+------------------------------------------------------------------------------------------------------------------------------------------------
 </pre>
 \*Three choices for weighting the contribution of single data points to the total score exist:
 
@@ -692,8 +719,6 @@ fixed\_tensor         Do not fit the alignment tensor but calculate the RDC scor
 **OBSIG**: data points have a weight proportional to the inverse of their error and their magnitude relative to the maximal observed value, i.e. w=1/(&sigma;<sup>2</sup>)*(&delta;<sub>obs</sub>/&delta;<sub>obs,max</sub>)
 
 $See reference [9] for definition of these correlation times.
-
-## 5.2) Description of additional PCS, RDC and PRE options
 
 **Table 2: PCS, RDC and PRE options.**
 <pre>
