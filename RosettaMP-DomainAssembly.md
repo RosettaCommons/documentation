@@ -1,7 +1,7 @@
-# RosettaMP Application: Helix from sequence
+# RosettaMP Application: mp_domain_assembly
 
 ## Code and Demo
-The executable for helix_from_sequence can be found in `Rosetta/main/source/src/apps/public/membrane/mp_domain_assembly.cc`
+The executable can be found in `Rosetta/main/source/src/apps/public/membrane/mp_domain_assembly.cc`
 
 ## Description
 A full description of the algorithm can be found in 
