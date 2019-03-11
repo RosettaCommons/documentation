@@ -162,6 +162,8 @@ Component | Description
 - [[RosettaRemodel]] - Redesign backbone and sequence of protein loops and secondary structure elements. 
     * [[Remodel]] - Additional remodel documentation
 
+- [[curvedsheetdesign]] - Design backbones for curved beta sheets
+
 - [[Sequence tolerance]] - Optimize proteins for library applications (e.g. phage or yeast display).  
 
 -  [[Stepwise design|stepwise]] - Simultaneously optimize sequence and structure for small RNA and protein segments. Part of the stepwise application.
