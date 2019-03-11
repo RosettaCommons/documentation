@@ -11,7 +11,7 @@ Note that the implementation is based on the original RosettaMembrane framework 
 
 ## Contact
 
-This protocol has been developed by the Meiler lab with the corresponding PI being Jens Meiler.
+This protocol has been developed by Brian Bender, a former graduate student in the Meiler lab with the corresponding PI being Jens Meiler.
 
 Questions and comments to: 
  - Julia Koehler Leman ([julia.koehler.leman@gmail.com](julia.koehler.leman@gmail.com))
