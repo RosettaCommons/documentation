@@ -411,13 +411,13 @@ The **input** directory provides the following input files:
 - Rosetta residue parameter file for pYTN (_YTN.params_) (will be created during step 3.1)
 - Rosetta conformer library for pYTN (_YTN\_conformers.pdb_) (will be created during step 3.1)
 - Extra parameters for improper torsions (optional) (_YTN.tors_) (will be created during step 3.1)
-- PCS input file for GRB2 SH2 (_grb2\_pcs.inp_) ($\Delta$$\chi$-tensor parameters will be determined in step 3.2)
-- PCS input file for pYTN (_ytn\_pcs.inp_) ($\Delta$$\chi$-tensor parameters will be determined in step 3.2)
+- PCS input file for GRB2 SH2 (_grb2\_pcs.inp_) (&Delta;&chi;-tensor parameters will be determined in step 3.2)
+- PCS input file for pYTN (_ytn\_pcs.inp_) (&Delta;&chi;-tensor parameters will be determined in step 3.2)
 - PCS data files (in Rosetta format); located in sub-directory **pcs**; four PCS data files for GRB2 SH2 (one for each lanthanide: Tm<sup>3+</sup>, Tb<sup>3+</sup>, Dy<sup>3+</sup>, Er<sup>3+</sup>) and three PCS data files for pYTN (one for each lanthanide: Tm<sup>3+</sup>, Tb<sup>3+</sup>, Dy<sup>3+</sup>)
 
 The **output** directory contains:
 
-- $\Delta$$\chi$-tensor values for lanthanides Tm<sup>3+</sup>, Tb<sup>3+</sup>, Dy<sup>3+</sup>, Er<sup>3+</sup> (_pcs\_tensor.info_)
+- &Delta;&chi;-tensor values for lanthanides Tm<sup>3+</sup>, Tb<sup>3+</sup>, Dy<sup>3+</sup>, Er<sup>3+</sup> (_pcs\_tensor.info_)
 - PDB file containing the coordinates of the pYTN center-of-mass after running the PCS grid search (_YTN\_rbseach\_centroids.pdb_); this file is used as input for RosettaLigand and parsed to the StartFromMover.
 
 ## 3.1) Creation of ligand parameters
@@ -434,9 +434,9 @@ This will create a parameter file (_YTN.params_) for a residue with three-letter
 
 For convenience, all files created in this step are also provided for you in the **input** directory so that you can proceed with the subsequent steps in case there are any problems in creating ligand parameters.
 
-## 3.2) $\Delta$$\chi$-tensor determination from protein PCSs
+## 3.2) &Delta;&chi;-tensor determination from protein PCSs
 
-The position of the ligand during docking can be scored by calculating its PCSs at the current coordinates using a predefined $\Delta$$\chi$-tensor as input and comparing the calculated PCSs with the experimental ones. The values of the $\Delta$$\chi$-tensor are determined in this step by fitting PCSs to the known structure of the protein. This has the advantage that PCSs of the protein are more manifold than ligand PCSs and thus the $\Delta$$\chi$-tensor can be determined more accurately.
+The position of the ligand during docking can be scored by calculating its PCSs at the current coordinates using a predefined &Delta;&chi;-tensor as input and comparing the calculated PCSs with the experimental ones. The values of the &Delta;&chi;-tensor are determined in this step by fitting PCSs to the known structure of the protein. This has the advantage that PCSs of the protein are more manifold than ligand PCSs and thus the &Delta;&chi;-tensor can be determined more accurately.
 
 Change into the sub-folder **2\_tensor\_fit** and run the following command line application with the options file that is provided in this directory. Make sure that the path to the PDB and PCS input file of GRB2 SH2, which are both located in the **input** directory, is correct.
 
@@ -444,7 +444,7 @@ Change into the sub-folder **2\_tensor\_fit** and run the following command line
 
 To display a list of all relevant options that this application can take, rerun the command above without the options file but only the <code>-help</code> flag.
 
-The application creates two output files: a table of experimental-vs.-calculated PCS values is written to file _GRB2\_pcs\_pred.txt_ and the $\Delta$$\chi$-tensor values for each lanthanide ion are written to file _pcs\_tensor.info_ (see below).
+The application creates two output files: a table of experimental-vs.-calculated PCS values is written to file _GRB2\_pcs\_pred.txt_ and the &Delta;&chi;-tensor values for each lanthanide ion are written to file _pcs\_tensor.info_ (see below).
 
 ----------------------------------------------------------------------------------------------------
 Position Metal Experiments PCSs      Xax      Xrh    alpha     beta    gamma      xM      yM      zM
@@ -458,9 +458,9 @@ Position Metal Experiments PCSs      Xax      Xrh    alpha     beta    gamma    
 18          Er           1   57    8.102    3.451  151.963  121.910  174.273   7.585  24.964   8.048
 ----------------------------------------------------------------------------------------------------
 
-Xax and Xrh are the axial and rhombic component of the $\Delta$$\chi$-tensor, $\alpha$, $\beta$ and $\gamma$ are the three Euler angles that orient the tensor frame with respect to the PDB frame, and xM, yM and zM are the Cartesian coordinates of the metal ion in the PDB frame. In addition, another text file (_GRB2\_pcs\_pred.txt_) containing the predicted PCS values of GRB2 will be created. The last column in this prediction file lists the deviation between predicted and experimental values and indicates positions where the deviation is larger than the error which was provided in the PCS data file.
+Xax and Xrh are the axial and rhombic component of the &Delta;&chi;-tensor, &alpha;, &beta; and &gamma; are the three Euler angles that orient the tensor frame with respect to the PDB frame, and xM, yM and zM are the Cartesian coordinates of the metal ion in the PDB frame. In addition, another text file (_GRB2\_pcs\_pred.txt_) containing the predicted PCS values of GRB2 will be created. The last column in this prediction file lists the deviation between predicted and experimental values and indicates positions where the deviation is larger than the error which was provided in the PCS data file.
 
-In the ligand PCS input file (_ytn\_pcs.inp_), change now the $\Delta$$\chi$-tensor values for Tm<sup>3+</sup>, Tb<sup>3+</sup> and Dy<sup>3+</sup> in the dataset vector to those values determined by the fit. The $\Delta$$\chi$-tensor values correspond to the last eight fields in the dataset vector and have the following order from left to right: xM, yM, zM, Xax, Xrh, $\alpha$, $\beta$, $\gamma$. Notice that the <code>fixed\_tensor</code> keyword in the input file is set to true which means that the $\Delta$$\chi$-tensor values are read from the input file and no fitting will be done during ligand docking. The PCS input file for the ligand should look like this:
+In the ligand PCS input file (_ytn\_pcs.inp_), change now the &Delta;&chi;-tensor values for Tm<sup>3+</sup>, Tb<sup>3+</sup> and Dy<sup>3+</sup> in the dataset vector to those values determined by the fit. The &Delta;&chi;-tensor values correspond to the last eight fields in the dataset vector and have the following order from left to right: xM, yM, zM, Xax, Xrh, &alpha;, &beta;, &gamma;. Notice that the <code>fixed\_tensor</code> keyword in the input file is set to true which means that the &Delta;&chi;-tensor values are read from the input file and no fitting will be done during ligand docking. The PCS input file for the ligand should look like this:
 
 <code>
 MULTISET<br>
@@ -510,7 +510,7 @@ Alternatively, the ligand RMSD can be calculated relative to the lowest-scoring 
 
 # 4) Protein-protein docking
 
-This protocol introduces how to use RosettaNMR together with PCSs for protein-protein docking. A heterodimeric protein complex consisting of the $\epsilon$ and $\theta$ subunits of _E. coli_ DNA polymerase III serves as example system. A structural model of the complex (PDB 2XY8) was previously determined from PCS data [8]. The protein exhibits a natural metal-binding site formed by residues D12, E14 and D167 which was employed for lanthanide ion tagging.
+This protocol introduces how to use RosettaNMR together with PCSs for protein-protein docking. A heterodimeric protein complex consisting of the &epsilon; and &theta; subunits of _E. coli_ DNA polymerase III serves as example system. A structural model of the complex (PDB 2XY8) was previously determined from PCS data [8]. The protein exhibits a natural metal-binding site formed by residues D12, E14 and D167 which was employed for lanthanide ion tagging.
 
 Navigate to the folder **4\_protein\_docking**. There are four sub-folders located in this directory, one **input** folder and three additional folders, one for each of the three steps of this protocol:
 
@@ -524,7 +524,7 @@ The **input** directory contains the following files:
 - PCS input file (_2xy8.pcs.inp_)
 - PCS data files (in Rosetta format); located in directory **pcs**; one data file for each of the three lanthanides (Tb3+, Dy3+, Er3+)
 
-Note that the protein sequence has been renumbered to comply with Rosetta&#39;s pose numbering scheme according to which the protein sequence starts at position 1 and all residues are numbered consecutively. The $\epsilon$ subunit is chain A (residues 1-174) and the $\theta$ subunit is chain B (residues 175-235). The calcium ion in the PDB file has been removed because of current difficulties in running Rosetta docking in the low-resolution centroid stage with metal ion residues. Removing metal ions and other ligands from the PDB file and renumbering of residues can be done with Rosetta&#39;s _clean\_pdb.py_ script which can be found in the Rosetta tools repository under **~/Rosetta/tools/protein\_tools/scripts/clean\_pdb.py** ). For scoring with PCSs, it is not necessary that the metal ion is part of the structural model, and we can define a coordinating protein residue as grid search center in determining the $\Delta$$\chi$-tensor position.
+Note that the protein sequence has been renumbered to comply with Rosetta&#39;s pose numbering scheme according to which the protein sequence starts at position 1 and all residues are numbered consecutively. The &epsilon; subunit is chain A (residues 1-174) and the &theta; subunit is chain B (residues 175-235). The calcium ion in the PDB file has been removed because of current difficulties in running Rosetta docking in the low-resolution centroid stage with metal ion residues. Removing metal ions and other ligands from the PDB file and renumbering of residues can be done with Rosetta&#39;s _clean\_pdb.py_ script which can be found in the Rosetta tools repository under **~/Rosetta/tools/protein\_tools/scripts/clean\_pdb.py** ). For scoring with PCSs, it is not necessary that the metal ion is part of the structural model, and we can define a coordinating protein residue as grid search center in determining the &Delta;&chi;-tensor position.
 
 ## 4.1) Pre-packing of protein docking partners
 
@@ -601,13 +601,13 @@ spinlabel\_type       Three-letter code of the spin-label residue type as stored
 dataset               Vector of input parameters for one single PCS dataset collected from one metal ion. The vector must contain exactly 14 elements   Yes             dataset =
                       in the following order: Name and location of PCS data file, metal ion label, weighting factor for this PCS dataset, type of                       \[2k61\_dapk\_exp\_pcs\_dy.txt, 
                       weighting single PCS values (see explanations below\*), averaging type for a PCS value that is assigned to a group of atoms                       Dy, 1.0, CONST, MEAN, SVD, 10.0,
-                      (MEAN or SUM), type of $\Delta$$\chi$-tensor fit (SVD = singular value decomposition, NLS = non-linear least squares fitting),                    10.0, 10.0, 40.0, 4.0, 10.0,
-                      and the eight $\Delta$$\chi$-tensor parameters (xM, yM, zM, χax, χrh, $\alpha$, $\beta$, $\gamma$). In many cases e.g. de novo                    10.0, 10.0\]
+                      (MEAN or SUM), type of &Delta;&chi;-tensor fit (SVD = singular value decomposition, NLS = non-linear least squares fitting),                    10.0, 10.0, 40.0, 4.0, 10.0,
+                      and the eight &Delta;&chi;-tensor parameters (xM, yM, zM, χax, χrh, &alpha;, &beta;, &gamma;). In many cases e.g. de novo                    10.0, 10.0\]
                       structure prediction, the tensor parameters can be set to random values as they will be determined automatically during the 
                       calculation. However, other protocols, e.g. ligand docking with PCSs, require that the tensor parameters are determined prior 
                       to the Rosetta calculation and entered in the dataset vector.
 
-fixed\_tensor         Do not fit the $\Delta$$\chi$-tensor but calculate the PCS score from the tensor values entered into the dataset list.            Optional        fixed\_tensor = true
+fixed\_tensor         Do not fit the &Delta;&chi;-tensor but calculate the PCS score from the tensor values entered into the dataset list.            Optional        fixed\_tensor = true
                       This is needed for protein-ligand docking (Default: false).
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -662,7 +662,7 @@ dataset               Vector of input parameters for one single RDC dataset coll
                       elements in the following order: Name and location of RDC data file, weighting factor for this RDC dataset, type of weighting                     \[2k61\_dapk\_nh.txt,1.0,SIGMA\]
                       single RDC values (see explanations below\*).
 
-alignment\_tensor     Vector of the five alignment tensor values in the following order: Da, R, $\alpha$, $\beta$, $\gamma$. If one of the computation  Yes             alignment\_tensor = 
+alignment\_tensor     Vector of the five alignment tensor values in the following order: Da, R, &alpha;, &beta;, &gamma;. If one of the computation  Yes             alignment\_tensor = 
                       types NLSDA, NLSR or NLSDAR is chosen the value of Da and/or R will be read from this vector. All other values will be                            \[-14.217, 0.530, 10.0, 10.0, 
                       re-determined during the calculation and can be set to random start values.                                                                       10.0\]
 
@@ -678,7 +678,7 @@ fixed\_tensor         Do not fit the alignment tensor but calculate the RDC scor
 
 **SIGMA**: data points have a weight proportional to the inverse of their error, i.e. w=1/$\sigma$<sup>2</sup>
 
-**OBSIG**: data points have a weight proportional to the inverse of their error and their magnitude relative to the maximal observed value, i.e. w=1/($\sigma$<sup>2</sup>)*($\delta$<sub>obs</sub>/$\delta$<sub>obs,max</sub>)
+**OBSIG**: data points have a weight proportional to the inverse of their error and their magnitude relative to the maximal observed value, i.e. w=1/($\sigma$<sup>2</sup>)*(&delta;<sub>obs</sub>/&delta;<sub>obs,max</sub>)
 
 $See reference [9] for definition of these correlation times.
 
@@ -691,9 +691,9 @@ $See reference [9] for definition of these correlation times.
 ------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------
 <code>-nmr:pcs:input\_file</code>           Name of PCS input file (the only required flag; see format description above).
 
-<code>-nmr:pcs:optimize\_tensor</code>      Optimize the metal ion position and the other values of the $\Delta$$\chi$-tensor after initial grid search (Default: false).
+<code>-nmr:pcs:optimize\_tensor</code>      Optimize the metal ion position and the other values of the &Delta;&chi;-tensor after initial grid search (Default: false).
 
-<code>-nmr:pcs:nls\_repeats</code>          Number of repeats in non-linear least squares fitting of the $\Delta$$\chi$-tensor (Default: 5).
+<code>-nmr:pcs:nls\_repeats</code>          Number of repeats in non-linear least squares fitting of the &Delta;&chi;-tensor (Default: 5).
 <code>-nmr:pcs:multiset\_weights</code>     Vector of weights by which the scores from different PCS multi-sets are multiplied. One multi-set includes all PCS datasets that were collected
                                             at the same spin-label site but with different metal ions. Defaults to a vector of 1.0 if not explicitly set.
 
@@ -703,7 +703,7 @@ $See reference [9] for definition of these correlation times.
                                             the asymmetric subunit in the data input file. Note, this option was developed for cases of Cn- and Dn-symmetry but not tested for systems with other types
                                             of symmetry.
 
-<code>-nmr:pcs:show\_info</code>            Show $\Delta$$\chi$-tensor and a table of experimental vs. calculated PCS values at every scoring step (Default: false). Note, to print this information to the
+<code>-nmr:pcs:show\_info</code>            Show &Delta;&chi;-tensor and a table of experimental vs. calculated PCS values at every scoring step (Default: false). Note, to print this information to the
                                             screen or the log file it is also required that the tracer output level (<code>-out:level</code>) is set to 500 (debug mode). Be careful, this will make the
                                             log file very large!
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
