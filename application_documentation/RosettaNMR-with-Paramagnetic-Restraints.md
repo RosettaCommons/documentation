@@ -423,12 +423,17 @@ The **output** directory contains:
 ## 3.1) Creation of ligand parameters
 
 Navigate to the **1\_ligand\_params** directory. Create an SDF file containing the pYTN conformations (_YTN\_confs.sdf_). This file is also provided in the input directory. This set of conformations was created with the Meiler lab BioChemicalLibrary (BCL v3.6.1, [http://www.meilerlab.org/bclcommons](http://www.meilerlab.org/bclcommons)) by running the command below. Notice that the BCL version may differ on your system, and use the help command to print the list of input flags for the ConformerGenerator application.
-
-<code>~/BCL/bcl.exe molecule:ConformerGenerator -rotamer\_library cod -top\_models 1000-max\_iterations 30000-add\_h -ensemble\_filenames ../input/YTN.sdf -conformation\_comparer SymmetryRMSD 0.250 -generate\_3D -conformers\_single\_file YTN\_confs.sdf</code>
+<pre>
+<code>
+~/BCL/bcl.exe molecule:ConformerGenerator -rotamer_library cod -top_models 1000 -max_iterations 30000 -add_h \
+-ensemble_filenames ../input/YTN.sdf -conformation_comparer SymmetryRMSD 0.250 -generate_3D -conformers_single_file YTN_confs.sdf
+</code>
+</pre>
 
 Parameter files contain information about Rosetta residue types such as atom types, atom partial charges, atom connectivity and the residue&#39;s conformation in internal coordinates. Type the following command into the terminal:
-
-<code>~/Rosetta/main/source/scripts/python/public/molfile\_to\_params.py -n YTN -p YTN --conformers-in-one-file ../input/YTN\_confs.sdf --extra\_torsion\_output --recharge=-1</code>
+<pre>
+<code>~/Rosetta/main/source/scripts/python/public/molfile_to_params.py -n YTN -p YTN --conformers-in-one-file ../input/YTN_confs.sdf --extra_torsion_output --recharge=-1</code>
+</pre>
 
 This will create a parameter file (_YTN.params_) for a residue with three-letter code YTN. The program reads all pYTN ligand conformations stored in the file _YTN\_confs.sdf_ and creates a conformer library in Rosetta format (_YTN\_conformers.pdb_). The first ligand conformation is written to a PDB file named _YTN.pdb_. In addition, a text file with extra improper torsions (_YTN.tors_) is generated. The total charge of the ligand is set to -1 and all atom charges are offset accordingly.
 
@@ -445,7 +450,8 @@ Change into the sub-folder **2\_tensor\_fit** and run the following command line
 To display a list of all relevant options that this application can take, rerun the command above without the options file but only the <code>-help</code> flag.
 
 The application creates two output files: a table of experimental-vs.-calculated PCS values is written to file _GRB2\_pcs\_pred.txt_ and the &Delta;&chi;-tensor values for each lanthanide ion are written to file _pcs\_tensor.info_ (see below).
-
+<pre>
+<code>
 ----------------------------------------------------------------------------------------------------
 Position Metal Experiments PCSs      Xax      Xrh    alpha     beta    gamma      xM      yM      zM
 -------- ----- ----------- ---- -------- -------- -------- -------- -------- ------- ------- -------
@@ -457,22 +463,24 @@ Position Metal Experiments PCSs      Xax      Xrh    alpha     beta    gamma    
 
 18          Er           1   57    8.102    3.451  151.963  121.910  174.273   7.585  24.964   8.048
 ----------------------------------------------------------------------------------------------------
-
+</code>
+</pre>
 Xax and Xrh are the axial and rhombic component of the &Delta;&chi;-tensor, &alpha;, &beta; and &gamma; are the three Euler angles that orient the tensor frame with respect to the PDB frame, and xM, yM and zM are the Cartesian coordinates of the metal ion in the PDB frame. In addition, another text file (_GRB2\_pcs\_pred.txt_) containing the predicted PCS values of GRB2 will be created. The last column in this prediction file lists the deviation between predicted and experimental values and indicates positions where the deviation is larger than the error which was provided in the PCS data file.
 
 In the ligand PCS input file (_ytn\_pcs.inp_), change now the &Delta;&chi;-tensor values for Tm<sup>3+</sup>, Tb<sup>3+</sup> and Dy<sup>3+</sup> in the dataset vector to those values determined by the fit. The &Delta;&chi;-tensor values correspond to the last eight fields in the dataset vector and have the following order from left to right: xM, yM, zM, Xax, Xrh, &alpha;, &beta;, &gamma;. Notice that the <code>fixed\_tensor</code> keyword in the input file is set to true which means that the &Delta;&chi;-tensor values are read from the input file and no fitting will be done during ligand docking. The PCS input file for the ligand should look like this:
-
+<pre>
 <code>
-MULTISET<br>
-spinlabel\_position = 18<br>
-chain\_id = A<br>
-gridsearch = [CA, CB, 10.0, 4.0, 0.0, 20.0]<br>
-fixed\_tensor = TRUE<br>
-dataset = [../input/pcs/ytn\_tb\_pcs.dat, Tb, 1.0, CONST, MEAN, SVD, 7.585, 24.964, 8.048,  23.966,  15.288,  79.312,  68.199, 151.578]<br>
-dataset = [../input/pcs/ytn\_tm\_pcs.dat, Tm, 1.0, CONST, MEAN, SVD, 7.585, 24.964, 8.048,  19.071,   6.842, 162.631, 113.645, 170.187]<br>
-dataset = [../input/pcs/ytn\_dy\_pcs.dat, Dy, 1.0, CONST, MEAN, SVD, 7.585, 24.964, 8.048, -21.164, -11.060, 131.562, 136.607, 140.271]<br>
-END<br>
+MULTISET
+spinlabel_position = 18
+chain_id = A
+gridsearch = [CA, CB, 10.0, 4.0, 0.0, 20.0]
+fixed_tensor = TRUE
+dataset = [../input/pcs/ytn_tb_pcs.dat, Tb, 1.0, CONST, MEAN, SVD, 7.585, 24.964, 8.048,  23.966,  15.288,  79.312,  68.199, 151.578]
+dataset = [../input/pcs/ytn_tm_pcs.dat, Tm, 1.0, CONST, MEAN, SVD, 7.585, 24.964, 8.048,  19.071,   6.842, 162.631, 113.645, 170.187]
+dataset = [../input/pcs/ytn_dy_pcs.dat, Dy, 1.0, CONST, MEAN, SVD, 7.585, 24.964, 8.048, -21.164, -11.060, 131.562, 136.607, 140.271]
+END
 </code>
+</pre>
 
 ## 3.3) Ligand rigid body grid search with PCSs
 
@@ -497,15 +505,15 @@ Change into the sub-directory **4\_docking** from which you will run RosettaLiga
 </code>
 
 Start RosettaLigand by typing into the terminal:
-
-<code>~/Rosetta/main/source/bin/rosetta\_scripts.linuxgccrelease -parser:protocol ligdock.pcs.xml @ ligdock.options</code>
-
+<pre>
+<code>~/Rosetta/main/source/bin/rosetta_scripts.linuxgccrelease -parser:protocol ligdock.pcs.xml @ ligdock.options</code>
+</pre>
 A Rosetta silent file (_GRB2\_YTN\_dock\_pcs.out_) and score file (_GRB2\_YTN\_dock\_pcs.sc_) containing 10 models of GRB2 with pYTN will be created. Increase the value of the <code>-out:nstruct</code> flag if you wish to create more models. Typically, 10,000 – 100,000 models are generated for protein-ligand docking and calculations are run on multiple CPUs on a cluster. If you wish to extract docking models as PDB files from the silent file you can again use Rosetta&#39;s _extract\_pdbs_ application. This time, you also need to provide the pYTN params file with the <code>-in:file:extra\_res\_fa</code> flag.
 
 Finally, the ligand interface score, the PCS score and the ligand RMSD without superimposition relative to the X-ray structure of GRB2-pYTN can be extracted from the score file by using the python script _extract\_scores.py._ Values can then be plotted to create Score-vs-RMSD plots.
-
-<code>../../scripts/extract\_scores.py GRB2\_YTN\_dock\_pcs.sc --columns interface\_delta\_X nmr\_pcs ligand\_rms\_no\_super\_X description</code>
-
+<pre>
+<code>../../scripts/extract_scores.py GRB2_YTN_dock_pcs.sc --columns interface_delta_X nmr_pcs ligand_rms_no_super_X description</code>
+</pre>
 Alternatively, the ligand RMSD can be calculated relative to the lowest-scoring docking solution by extracting the best model from the silent file and parsing it as native PDB to the InterfaceScoreCalculatorMover in the Rosetta XML script.
 
 # 4) Protein-protein docking
@@ -514,17 +522,17 @@ This protocol introduces how to use RosettaNMR together with PCSs for protein-pr
 
 Navigate to the folder **4\_protein\_docking**. There are four sub-folders located in this directory, one **input** folder and three additional folders, one for each of the three steps of this protocol:
 
-- pre-packing of protein docking partners ( **1\_prepack** )
-- protein-protein docking with PCSs ( **2\_docking** )
-- re-scoring of docking models with PCSs ( **3\_rescore** )
+- pre-packing of protein docking partners (**1\_prepack**)
+- protein-protein docking with PCSs (**2\_docking**)
+- re-scoring of docking models with PCSs (**3\_rescore**)
 
 The **input** directory contains the following files:
 
 - 2XY8 structure in PDB format; only the first model of the NMR ensemble (_2xy8.pdb_)
 - PCS input file (_2xy8.pcs.inp_)
-- PCS data files (in Rosetta format); located in directory **pcs**; one data file for each of the three lanthanides (Tb3+, Dy3+, Er3+)
+- PCS data files (in Rosetta format); located in directory **pcs**; one data file for each of the three lanthanides (Tb<sup>3+</sup>, Dy<sup>3+</sup>, Er<sup>3+</sup>)
 
-Note that the protein sequence has been renumbered to comply with Rosetta&#39;s pose numbering scheme according to which the protein sequence starts at position 1 and all residues are numbered consecutively. The &epsilon; subunit is chain A (residues 1-174) and the &theta; subunit is chain B (residues 175-235). The calcium ion in the PDB file has been removed because of current difficulties in running Rosetta docking in the low-resolution centroid stage with metal ion residues. Removing metal ions and other ligands from the PDB file and renumbering of residues can be done with Rosetta&#39;s _clean\_pdb.py_ script which can be found in the Rosetta tools repository under **~/Rosetta/tools/protein\_tools/scripts/clean\_pdb.py** ). For scoring with PCSs, it is not necessary that the metal ion is part of the structural model, and we can define a coordinating protein residue as grid search center in determining the &Delta;&chi;-tensor position.
+Note that the protein sequence has been renumbered to comply with Rosetta&#39;s pose numbering scheme according to which the protein sequence starts at position 1 and all residues are numbered consecutively. The &epsilon; subunit is chain A (residues 1-174) and the &theta; subunit is chain B (residues 175-235). The calcium ion in the PDB file has been removed because of current difficulties in running Rosetta docking in the low-resolution centroid stage with metal ion residues. Removing metal ions and other ligands from the PDB file and renumbering of residues can be done with Rosetta&#39;s _clean\_pdb.py_ script which can be found in the Rosetta tools repository under **~/Rosetta/tools/protein\_tools/scripts/clean\_pdb.py**. For scoring with PCSs, it is not necessary that the metal ion is part of the structural model, and we can define a coordinating protein residue as grid search center in determining the &Delta;&chi;-tensor position.
 
 ## 4.1) Pre-packing of protein docking partners
 
@@ -543,8 +551,9 @@ Change into the directory **2\_docking**. For running Rosetta protein-protein do
 Use the weight of the PCS score as provided in the &lt;SCOREFXNS&gt; section of the Rosetta XML Script. It has been determined in similar manner as described before in protocols 1) and 2) by first creating 10000 decoys without PCSs and afterward re-scoring them with PCSs. The PCS score weight was thereby optimized against the binding energy after separating and re-packing both docking partners (i.e. the ddg score in Rosetta) using the ref2015 weight set.
 
 Run Rosetta protein-protein docking by typing the following command into the terminal:
-
-<code>~/Rosetta/main/source/bin/rosetta\_scripts.linuxgccrelease -parser:protocol docking.pcs.xml @ docking.options</code>
+<pre>
+<code>~/Rosetta/main/source/bin/rosetta_scripts.linuxgccrelease -parser:protocol docking.pcs.xml @ docking.options</code>
+</pre>
 
 which will run docking on the pre-packed model from step 4.1) and create 3 output models (_2xy8\_docking.out_). Alternatively, docking can be initiated from an ensemble of different input structures as specified by a list file (<code>-in:file:l</code>), and the number of output models can be increased by setting the <code>-out:nstruct</code> flag to a larger value. Typically, between 10,000 to 100,000 models are created for protein-protein docking and calculations are run on multiple CPUs on a cluster.
 
@@ -553,13 +562,15 @@ which will run docking on the pre-packed model from step 4.1) and create 3 outpu
 After the docking run is completed, score the output models with PCS data again. This step is necessary because the PCS score which was reported in the score file at the end of the docking protocol was evaluated when calculating the Rosetta binding energy (ddg). Since the ddg-calculation is done by separating the two binding partners the PCS score is incorrect because it must be evaluated on the complete protein complex in the bound state.
 
 For re-scoring docking models with PCSs, use the Rosetta _score\_jd2_ application:
-
-<code>~/Rosetta/main/source/bin/score\_jd2.linuxgccrelease @ rescore.pcs.options -in:file:silent ../2\_docking/2xy8\_docking.out -out:file:scorefile 2xy8\_docking\_pcs\_rescored.sc</code>
+<pre>
+<code>~/Rosetta/main/source/bin/score_jd2.linuxgccrelease @ rescore.pcs.options \
+-in:file:silent ../2\_docking/2xy8_docking.out -out:file:scorefile 2xy8_docking_pcs_rescored.sc</code>
+</pre>
 
 Finally, the binding energy (ddg), the PCS score and the model&#39;s interface RMSD relative to the experimental structure of 2XY8 can be extracted from the score file by using the python script _extract\_scores.py,_ and values are plotted to create Score-vs-RMSD plots.
-
-<code>../../scripts/extract\_scores.py 2xy8\_docking\_pcs\_rescored.sc --columns ddg nmr\_pcs Irmsd description</code>
-
+<pre>
+<code>../../scripts/extract_scores.py 2xy8_docking_pcs_rescored.sc --columns ddg nmr_pcs Irmsd description</code>
+</pre>
 
 # 5) Appendix
 
@@ -567,7 +578,7 @@ Finally, the binding energy (ddg), the PCS score and the model&#39;s interface R
 
 PCS as well as PRE datasets that were measured with different types of spin-labels or at different spin-label sites, and RDC datasets that were collected with different alignment media (or metal ions) must be placed into separate sections in the input file. Each section must start with the keyword **MULTISET** and end with the keyword **END**. PCS datasets obtained with different metal ions but at the same spin-label site should be grouped within the same MULTISET section because during the calculation their metal ion coordinates are optimized together. In case of RDCs, datasets for different atom types (e.g. N-H, CA-HA) that were measured with the same type of alignment medium should be grouped in the same MULTISET section because they share the same alignment tensor. And for PREs, the MULTISET section includes PRE datasets that were collected with the same metal ion or radical at the same spin-label site. It is also recommended to place R<sub>1</sub> and R<sub>2</sub> relaxation data into separate MULTISETs or apply pre-scaling because their values usually differ by several orders of magnitude. Furthermore, relaxation data measured under different experimental conditions (temperature, protein mass, viscosity) should be placed into separate MULTISET sections too, since the spin-label and protein correlation times will be different.
 
-Each MULTISET section contains a collection of keyword-value pairs. Each pair must be separated by an equal sign (=) and placed on a new line. The value can be a numerical value, character, literal string or a list of any of the latter types. Multiple values are grouped in a vector, enclosed by brackets ([]) and separated by commas. A list of the possible MULTISET keywords for each of the three types of input files is provided in **Table 1**.
+Each MULTISET section contains a collection of keyword-value pairs. Each pair must be separated by an equal sign (=) and placed on a new line. The value can be a numerical value, character, literal string or a list of any of the latter types. Multiple values are grouped in a vector, enclosed by brackets ([ ]) and separated by commas. A list of the possible MULTISET keywords for each of the three types of input files is provided in **Table 1**.
 
 One additional remark on the types of weights that can be applied to the input data in scoring. In addition to the global weights for PCSs, RDCs or PREs which are set through the Rosetta scoring function, weighting of the input NMR data is possible on three additional levels:
 
@@ -676,9 +687,9 @@ fixed\_tensor         Do not fit the alignment tensor but calculate the RDC scor
 
 **CONST**: all data points have equal weight, i.e. w=1.0
 
-**SIGMA**: data points have a weight proportional to the inverse of their error, i.e. w=1/$\sigma$<sup>2</sup>
+**SIGMA**: data points have a weight proportional to the inverse of their error, i.e. w=1/&sigma;<sup>2</sup>
 
-**OBSIG**: data points have a weight proportional to the inverse of their error and their magnitude relative to the maximal observed value, i.e. w=1/($\sigma$<sup>2</sup>)*(&delta;<sub>obs</sub>/&delta;<sub>obs,max</sub>)
+**OBSIG**: data points have a weight proportional to the inverse of their error and their magnitude relative to the maximal observed value, i.e. w=1/(&sigma;<sup>2</sup>)*(&delta;<sub>obs</sub>/&delta;<sub>obs,max</sub>)
 
 $See reference [9] for definition of these correlation times.
 
