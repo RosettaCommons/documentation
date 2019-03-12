@@ -171,6 +171,8 @@ Component | Description
 
 - [[Zinc heterodimer design]] - Design zinc-mediated heterodimers.  
 
+- [[Biased forward folding]] - Select de novo designed proteins for ab initio structure prediction.
+
 ### Stability Improvement
 
 - [[Point mutation scan|pmut-scan-parallel]] - Identifiy stabilizing point mutants.  
