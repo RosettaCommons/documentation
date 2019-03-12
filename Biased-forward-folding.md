@@ -15,6 +15,25 @@ Given a designed sequence-structure pair, fragments are first picked as usually 
 
 Input and output
 ==========
+The quickest way to select the closest fragments in RMSD is to start with a fragment quality check of the designed structure, as usually done in de novo protein design to assess the local compatibility between the designed sequence and structure. This implies calculating, after fragment picking, the RMSD between the generated fragments and those in the designed structure (input.pdb): 
+
+```
+r_frag_quality.default.linuxgccrelease -in:file:native input.pdb -f  input.200.3mers -out:qual frag_qual3.dat
+r_frag_quality.default.linuxgccrelease -in:file:native input.pdb -f  input.200.9mers -out:qual frag_qual9.dat
+```
+
+Then, the python script (lowrms_frag_topN.py) reads the previously generated frag_qual.dat files containing the fragments RMSDs and generates new 9- and 3-mer fragment files with the ntop closest RMSD fragments. 
+
+```
+python lowrms_frags_topN.py -frag_qual frag_qual3.dat -ntop 3 -fullmer input.200.3mers -out input.3t200.3mers
+python lowrms_frags_topN.py -frag_qual frag_qual9.dat -ntop 3 -fullmer input.200.9mers -out input.3t200.9mers
+```
+
+With the newly generated fragment files (input.3t200.3mers and input.3t200.9mers), a standard ab initio structure prediction simulation is run using a small number of trajectories (-nstruct between 30 and 50 is a convenient number):
+
+```
+minirosetta.default.linuxgccrelease  -ex1 1 -ex2aro 1 -abinitio::fastrelax 1 -relax::default_repeats 15 -abinitio::use_filters false -abinitio::increase_cycles 10  -frag3 input.3t200.3mers -frag9 input.3t200.9mers -abinitio::number_3mer_frags 1 -abinitio::number_9mer_frags 1  -abinitio::rsd_wt_loop 0.5 -abinitio::rsd_wt_helix 0.5 -abinitio::rg_reweight 0.5  -in:file:native input.pdb  -silent_gz 1 -out:file:silent fold_input.out -out:file:scorefile fold_input.sc -nstruct 30
+```
 
 References
 ==========
