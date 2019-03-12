@@ -1,6 +1,8 @@
 **Protocol capture to the manuscript &quot;Integrative protein modeling in RosettaNMR from sparse paramagnetic restraints&quot;**
 
-Georg Kuenze, Julia Koehler Leman, Richard Bonneau, Jens Meiler
+Georg Kuenze, Julia Koehler Leman, Richard Bonneau, Jens Meiler (submitted)
+
+The protocol capture is also available in the demos repository under `Rosetta/demos/public/rosettanmr_w_paramagnetic_restraints`.
 
 # Overview
 
