@@ -64,7 +64,7 @@ Several tests are located in the `Rosetta/main/tests directory`. The directory s
     * edit the `cutoffs` file, header line starts with `#` and has one protein per row, different measures in columns 
     * make sure you add your email to the `observers`
     * fill out all the sections in the `readme.md` in as much detail as you can. Keep in mind that after you have left your lab, someone else in the community should be able to understand, run and maintain your test! This is automatically linked to the Gollum wiki. 
-    * add your test to the `run` function at the bottom of `Rosetta/main/tests/benchmark/scientific/command.py` to hook it into the test server framework
+    * add your test to the `run` function at the bottom of `Rosetta/main/tests/benchmark/tests/scientific/command.py` to hook it into the test server framework
     * a couple of notes on the test:
         * we aim for plots to show the data, not just tables. Please include tables and/or the data in `json` format, but plots are highly encouraged as digesting data visually is faster and easier for us for debugging. 
         * we like `json` format because it’s easy to read the data directly into python dictionaries. 
