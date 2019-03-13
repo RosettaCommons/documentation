@@ -9,10 +9,9 @@ Run a SimpleMetric (Real) as a filter.  Set the cutoff and comparison_type to co
 <SimpleMetricFilter name="(&string;)" epsilon="(.0001 &real;)"
         metric="(&string;)" comparison_type="(&comparison_types;)"
         composite_action="(&string;)" cutoff="(&real;)" match="(&string;)"
-        use_sum_for_per_residue_real="(&string;)"
-        use_cached_data="(false &bool;)" cache_prefix="(&string;)"
-        cache_suffix="(&string;)" fail_on_missing_cache="(true &bool;)"
-        confidence="(1.0 &real;)" >
+        use_sum_for_per_residue_real="(&bool;)" use_cached_data="(false &bool;)"
+        cache_prefix="(&string;)" cache_suffix="(&string;)"
+        fail_on_missing_cache="(true &bool;)" confidence="(1.0 &real;)" >
     <Simple Metric Tag ... />
 </SimpleMetricFilter>
 ```
