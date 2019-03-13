@@ -5,7 +5,7 @@
 
 Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
-Run an arbitrary [[Simple Metric | SimpleMetrics]] and filter based on the value or values calculated. 
+Run an arbitrary [[Simple Metric | SimpleMetrics]] and filter based on the value or values calculated. Please use the [[RunSimpleMetrics]] mover to report values into a scorefile.  
 
 ##General
 
