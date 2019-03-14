@@ -21,7 +21,7 @@ Last edited March 12, 2019 by Hamed Khakzad (hamed.khakzad@uzh.ch).
 
  
 ## Code and Demo
-**Note: We provided a singularity container on Zenodo.org (DOI: 10.5281/zenodo.2593626) which all the required dependencies are installed and tested. The download link to access the container can be granted by having a valid license of Rosetta software. You can request through Zenodo or send us email with your license information.**
+**Note: We provided a singularity container on Zenodo.org ([DOI: 10.5281/zenodo.2593626](https://zenodo.org/record/2593626#.XIp1QS-ZPUI)) which all the required dependencies are installed and tested. The download link to access the container can be granted by having a valid license of Rosetta software. You can request through Zenodo or send us email with your license information.**
 
 **Below the step-by-step documentation is provided if you want to make your own protocol under PyRosetta.**
 
