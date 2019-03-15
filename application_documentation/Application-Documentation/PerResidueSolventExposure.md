@@ -42,7 +42,6 @@ To use the application, the following command line options need to be specified:
 -cone_method              use flag if you want to use the cone method
 -dist_midpoint            midpoint of distance calculation (default = 9.0)
 -dist_steepness           steepness of distance calculation curve (default = 1.0)
--cone_angle               cutoff angle for the cone method (default = pi/2)
 -angle_midpoint           midpoint of angle calculation (default = pi/4)
 -angle_steepness          steepness of angle calculation curve (default = 2pi)
 ```
