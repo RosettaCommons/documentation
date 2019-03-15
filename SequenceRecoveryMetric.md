@@ -2,7 +2,7 @@
 *Back to [[SimpleMetrics]] page.*
 ## SequenceRecoveryMetric
 
-[[include:simple_metric_SequenceRecoveryMetric_complex_type]]
+[[include:simple_metric_SequenceRecoveryMetric_type]]
 
 ##See Also
 
