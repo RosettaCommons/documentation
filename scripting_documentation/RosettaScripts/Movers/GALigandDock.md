@@ -72,7 +72,7 @@ The tag `<GALigandDock>` defines several options associated with the mover, most
 * **use_pharmacophore** - Run pharmacophore-guided docking. Input arguments with reference_pool should be compatatible.
 A series of `<Stage>` tags defines the protocol.  These tags, when applied in order, define the flow of the genetic algorithm.  
 
-### Per-stage control
+#### Per-stage control
 * **repeats**, **npool** - the number of GA generations, and pool size for each generation.
 * **pmut** - mutation probability (1-pmut gives crossover prob).  **0.2** recommended.
 * **smoothing** - "soften" grid calculations by this value (in A).  For cross-docking, a value of 0.375 (with grid spacing of 0.25) gives notably better results.  Note this is distinct from the repulsive ramping option below.
