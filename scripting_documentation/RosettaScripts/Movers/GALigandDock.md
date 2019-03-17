@@ -44,14 +44,27 @@ The tag `<GALigandDock>` defines several options associated with the mover, most
 * **grid_step**, **padding** - when building a grid covering the binding pocket, use this grid spacing, and pad the area by this amount.  **0.25** and **5** is recommended.
 * **hashsize**, **subhash** - Parameters controlling how the grid computation is handled.  At a grid_step of 0.25, **8** and **3**, respectively, lead to best performance
 
-
-* **nativepdb** - if given, ligand RMS will be reported in the output
-
+#### General parameters
 * **random_oversample** - oversample the initial population by this factor (recommended 10)
-* **rotprob**, **rotEcut**, when generating rotamers to sample, use this cumulative probability and backround energy to trim set.  **0.9** and **100**, respectively, recommended
+* **nativepdb** - if given, ligand RMS will be reported in the output
+* **multiple_ligands** - comma-separated, provides name of ligands (appears in params file) to dock sequentially
+
+#### Receptor flexibility setup
 * **sidechains** - sidechain optimization strategy. **none**: only dock ligands.  **auto**: auto-select all pocket sidechains.  **aniso**: autoselection logic accounting for the shape (not just center of mass) of ligand in input conformation **\<residue specifier\>** (e.g. "22A,25A"): explicit sidechain flexibility specification
-* **final_exact_minimize** - optionally perform a final off-grid optimization.  **none**: no optimization is performed. **sc**: sidechain optimization only is performed.  **bbsc**: cart-min of flexible residues is performed.  **bbscN**: cart-min of flexible residues *plus N residues up and downstream*
-* **fastrelax_script** - provides user-custom fast relax script for final exact_minimize.
+**sc**: sidechain optimization only is performed.  **bbsc**: cart-min of flexible residues is performed.  **bbscN**: cart-min of flexible residues *plus N residues up and downstream*
+* **rotprob**, **rotEcut**, when generating rotamers to sample, use this cumulative probability and backround energy to trim set.  **0.9** and **100**, respectively, recommended
+* **favor_native** - bonus score to the input rotamer (only in grid stage), helps to preseve input sidechain rotamer
+* **optimize_input_H** - run optimize_H before/after docking.
+
+#### Final processing
+* **final_exact_minimize** - optionally perform a final off-grid optimization.  **none**: no optimization is performed. 
+* **cartmin_lig** - run quick cartmin on ligand-only before and after final_exact_relax
+* **min_neighbor** - also minimize neighbors while doing cartmin_lig
+* **move_water** - allow water molecules to move during final_exact_relax
+* **fastrelax_script** - provide user-custom fast relax script for final exact_minimize.
+* **estimate_dG** - run entropy correction at the end of run.
+
+#### Reference-guided docking
 * **initial_pool** - manually specify a set of structures in the first generation.  A comma separated list of PDBs _or_ silent files.
 * **reference_pool** - either "input" or ligand pdbname(s) (separated by comma). Assigning "input" will invoke pharmacophore detection. Assigning ligand pdb(s) will allow to run reference-aligned docking.
 * **reference_oversample** - Sets how many times to sample over npool*reference_frac.
