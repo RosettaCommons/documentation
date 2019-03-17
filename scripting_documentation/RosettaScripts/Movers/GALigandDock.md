@@ -31,7 +31,7 @@ The tag `<GALigandDock>` defines several options associated with the mover, most
 
 * **scorefxn** - the scorefunction used in docking.  _gen_bonded_ should be on with weight 1.0!
 * **scorefxn_relax** - the scorefunction used in final relaxation.  _gen_bonded_ should be on with weight 1.0!
-* **runmode** - supports 4 umbrella modes which calles pre-defined parameters for purposes:
+* **runmode** - supports 4 runmodes each of which calls pre-defined parameters for own purpose:
 ```html
 "dockflex" [default]: Run docking with flexible ligand and _receptor_ (upto backbone flexibilty)
 "dockrigid": Run docking with flexible ligand only 
@@ -39,17 +39,28 @@ The tag `<GALigandDock>` defines several options associated with the mover, most
 "VSX": Express virtual screening. Run docking with flexible ligand only & simple scheduling followed by faster entropy estimation.
 ```
 
-More advanced options:
+## More advanced options:
+### Grid setup
 * **grid_step**, **padding** - when building a grid covering the binding pocket, use this grid spacing, and pad the area by this amount.  **0.25** and **5** is recommended.
 * **hashsize**, **subhash** - Parameters controlling how the grid computation is handled.  At a grid_step of 0.25, **8** and **3**, respectively, lead to best performance
+
+
 * **nativepdb** - if given, ligand RMS will be reported in the output
-* **final_exact_minimize** - optionally perform a final off-grid optimization.  **none**: no optimization is performed. **sc**: sidechain optimization only is performed.  **bbsc**: cart-min of flexible residues is performed.  **bbscN**: cart-min of flexible residues *plus N residues up and downstream*
-* **init_oversample** - oversample the initial population by this factor (recommended 10)
+
+* **random_oversample** - oversample the initial population by this factor (recommended 10)
 * **rotprob**, **rotEcut**, when generating rotamers to sample, use this cumulative probability and backround energy to trim set.  **0.9** and **100**, respectively, recommended
 * **sidechains** - sidechain optimization strategy. **none**: only dock ligands.  **auto**: auto-select all pocket sidechains.  **aniso**: autoselection logic accounting for the shape (not just center of mass) of ligand in input conformation **\<residue specifier\>** (e.g. "22A,25A"): explicit sidechain flexibility specification
+* **final_exact_minimize** - optionally perform a final off-grid optimization.  **none**: no optimization is performed. **sc**: sidechain optimization only is performed.  **bbsc**: cart-min of flexible residues is performed.  **bbscN**: cart-min of flexible residues *plus N residues up and downstream*
+* **fastrelax_script** - provides user-custom fast relax script for final exact_minimize.
 * **initial_pool** - manually specify a set of structures in the first generation.  A comma separated list of PDBs _or_ silent files.
+* **reference_pool** - either "input" or ligand pdbname(s) (separated by comma). Assigning "input" will invoke pharmacophore detection. Assigning ligand pdb(s) will allow to run reference-aligned docking.
+* **reference_oversample** - Sets how many times to sample over npool*reference_frac.
+* **reference_frac** - What fraction of npool is sampled from reference_pool.
+* **reference_frac_auto** - [Only for pharmacophore docking] Automatically sets reference_frac based on problem complexity. 
+* **use_pharmacophore** - Run pharmacophore-guided docking. Input arguments with reference_pool should be compatatible.
+A series of `<Stage>` tags defines the protocol.  These tags, when applied in order, define the flow of the genetic algorithm.  
 
-A series of `<Stage>` tags defines the protocol.  These tags, when applied in order, define the flow of the genetic algorithm.  There are a few options in each stage:
+### Per-stage control
 * **repeats**, **npool** - the number of GA generations, and pool size for each generation.
 * **pmut** - mutation probability (1-pmut gives crossover prob).  **0.2** recommended.
 * **smoothing** - "soften" grid calculations by this value (in A).  For cross-docking, a value of 0.375 (with grid spacing of 0.25) gives notably better results.  Note this is distinct from the repulsive ramping option below.
