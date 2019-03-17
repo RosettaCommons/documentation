@@ -12,7 +12,7 @@ The docking mover is exposed through the [[RosettaScripts]] application, and the
       <Reweight scoretype="coordinate_constraint" weight="0.1"/>
     </ScoreFunction>
     <ScoreFunction name="relaxscore" weights="beta_cart"/>
-    <GALigandDock name="dock" scorefxn="relaxscore" scorefxn_relax="relaxscore" runmode="dockflex" nativepdb="holo.pdb"/>
+    <GALigandDock name="dock" scorefxn="dockscore" scorefxn_relax="relaxscore" runmode="dockflex" nativepdb="holo.pdb"/>
 ```
 
 or, an example with more detailed control:
