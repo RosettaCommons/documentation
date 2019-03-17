@@ -14,6 +14,33 @@ An alternate atom typing scheme has been introduced.  An alternate param file ge
 * A generic torsional potential, _gen_bonded_ has been added using these new types. This potential is _undefined (returning 0) for non-ligand residues_. 
 * LK and LJ parameters have been fit for these new atom types using a combination of small molecule crystal data and ligand-bound protein structures.
 
+## Running mol2genparams.py
+
+```htm
+Usage: python mol2genparams.py [-s mol2file or -l mol2filelist] [options]
+
+Options:
+  -h, --help            show this help message and exit
+  -s INPUTS, --inputs=INPUTS
+  -l L                  
+  --nm=RESNAME, --resname=RESNAME
+                        Residue name
+  --auto_nm=AUTO_RESPREFIX
+                        Automatically rename resname starting with argument;
+                        default L[00-99]
+  --am1bcc              Calculate am1bcc charge
+  --prefix=PREFIX       Prefix of output names
+                        (prefix.params,prefix_0001.pdb), default as the prefix
+                        of input mol2 file
+  --debug               Report verbose output for debugging
+  --no_output           Do not report params or pdb
+  --funcgrp             Report functional group assignment to stdout
+  --elec_cp_rep         Report elec-countpair info to [prefix].elec_cp_ref
+  --elec_grpdef         Report elec-grp-definition info to [prefix].grpref
+  --puckering_chi       Define ring puckering torsions as rotatable CHI
+  --amide_chi           Define amide as rotatable CHI
+  --freeze_ringring     Define  as rotatable CHI
+```
 ## Ligand docking
 
 A new ligand docking protocol has been added, [[GALigandDock]], that takes advantage of this new generic potential. It combines fast scoring on a precomputed grid with a genetic algorithm to allow very accurate ligand docking in 3-10 CPU minutes total per target (fixed sidechain) or 10-30 CPU minutes total (flexible sidechain).
