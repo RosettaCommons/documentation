@@ -5,7 +5,7 @@ The GALigandDock mover is meant to be used in combination with the [[generic-pot
 ### Mover
 
 The docking mover is exposed through the [[RosettaScripts]] application, and the XML format is quite flexible. 
- An example usage is given below:
+ An example usage using "runmode" arguement is given below:
 ```xml
     <ScoreFunction name="dockscore" weights="beta">
       <Reweight scoretype="fa_rep" weight="0.2"/>
