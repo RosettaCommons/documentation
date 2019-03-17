@@ -39,8 +39,8 @@ The tag `<GALigandDock>` defines several options associated with the mover, most
 "VSX": Express virtual screening. Run docking with flexible ligand only & simple scheduling followed by faster entropy estimation.
 ```
 
-## More advanced options:
-### Grid setup
+### More advanced options:
+#### Grid setup
 * **grid_step**, **padding** - when building a grid covering the binding pocket, use this grid spacing, and pad the area by this amount.  **0.25** and **5** is recommended.
 * **hashsize**, **subhash** - Parameters controlling how the grid computation is handled.  At a grid_step of 0.25, **8** and **3**, respectively, lead to best performance
 
