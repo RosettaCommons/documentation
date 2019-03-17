@@ -51,13 +51,12 @@ The tag `<GALigandDock>` defines several options associated with the mover, most
 
 #### Receptor flexibility setup
 * **sidechains** - sidechain optimization strategy. **none**: only dock ligands.  **auto**: auto-select all pocket sidechains.  **aniso**: autoselection logic accounting for the shape (not just center of mass) of ligand in input conformation **\<residue specifier\>** (e.g. "22A,25A"): explicit sidechain flexibility specification
-**sc**: sidechain optimization only is performed.  **bbsc**: cart-min of flexible residues is performed.  **bbscN**: cart-min of flexible residues *plus N residues up and downstream*
 * **rotprob**, **rotEcut**, when generating rotamers to sample, use this cumulative probability and backround energy to trim set.  **0.9** and **100**, respectively, recommended
 * **favor_native** - bonus score to the input rotamer (only in grid stage), helps to preseve input sidechain rotamer
 * **optimize_input_H** - run optimize_H before/after docking.
 
 #### Final processing
-* **final_exact_minimize** - optionally perform a final off-grid optimization.  **none**: no optimization is performed. 
+* **final_exact_minimize** - optionally perform a final off-grid optimization.  **none**: no optimization is performed. **sc**: sidechain optimization only is performed.  **bbsc**: cart-min of flexible residues is performed.  **bbscN**: cart-min of flexible residues *plus N residues up and downstream*
 * **cartmin_lig** - run quick cartmin on ligand-only before and after final_exact_relax
 * **min_neighbor** - also minimize neighbors while doing cartmin_lig
 * **move_water** - allow water molecules to move during final_exact_relax
