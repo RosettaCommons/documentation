@@ -41,6 +41,10 @@ Options:
   --amide_chi           Define amide as rotatable CHI
   --freeze_ringring     Define  as rotatable CHI
 ```
+
+* Requires numpy and scipy installed.
+* Requires numba installation for --am1bcc option. This can be readily installed through Anaconda.
+
 ## Ligand docking
 
 A new ligand docking protocol has been added, [[GALigandDock]], that takes advantage of this new generic potential. It combines fast scoring on a precomputed grid with a genetic algorithm to allow very accurate ligand docking in 3-10 CPU minutes total per target (fixed sidechain) or 10-30 CPU minutes total (flexible sidechain).
