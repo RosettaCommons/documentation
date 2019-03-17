@@ -44,7 +44,7 @@ Options:
 
 **Notes:**
 
-* Requires numpy and scipy installed to run the script.
+* Requires numpy and scipy installed in order to run the script.
 * Requires numba installation for --am1bcc option. This can be readily installed through Anaconda.
 
 ## Ligand docking
